@@ -1,22 +1,47 @@
-# Schema language
+# Schema language definition
+
+> See [Definition](Definition.md) on how to read the definition below
 
 ```
 Schema = Declaration+
 
 Declaration = Category | Enum | Input | Output | Scalar
 
-Category = "category" output
+Category = 'category' output
 
-Enum = "enum" EnumLabel+
-EnumLabel = enum ("=" EnumValue)?
-EnumValue = NUMBER | STRING
+Enum = 'enum' enum '=' EnumLabels
+Input = 'input' input InputTypeParameters '=' InputDefinitions
+Output = 'output' output '=' OutputDefinitions
+Scalar = 'scalar' scalar '=' ScalarDefinition
 
-Input = "input" input InputDefinition
-InputDefinition = ...
 
-Output = "output" output OutputDefinition
+EnumLabels = label | label '|' EnumLabels
+
+
+InputTypeParameters = '<' InputTypeParameter+ '>'
+InputTypeParameter = '$'inputparam
+
+InputDefinitions = InputDefinition | InputDefinition '|' InputDefinitions
+InputDefinition = InputType Modifiers?
+InputType = InputReference | InputObject
+InputReference = Simple | input InputTypeArguments | '$'inputparam
+
+InputObject = '{' InputFields+ '}'
+InputFields = InputField Modifiers? ':' InputReference
+
+InputTypeArguments = '<' InputReference+ '>'
+
+
+OutputDefinitions = OutputDefinition | OutputDefinition '|' OutputDefinitions
 OutputDefinition = ...
 
-Scalar = "scalar" scalar ScalarDefinition
+
 ScalarDefinition = ...
+
+
+Modifier = '?' | '[]' Modifier? | '[' Simple ']' Modifier?
+
+Simple = Basic | scalar | enum
+Basic = 'Boolean' | 'Number' | 'String'
+
 ```

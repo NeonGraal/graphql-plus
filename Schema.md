@@ -24,7 +24,7 @@ InputTypeParameter = '$'inputparam
 InputDefinitions = InputDefinition | InputDefinition '|' InputDefinitions
 InputDefinition = InputType Modifiers?
 InputType = InputReference | InputObject
-InputReference = Simple | input InputTypeArguments | '$'inputparam
+InputReference = Internal | Simple | input InputTypeArguments | '$'inputparam
 
 InputObject = '{' InputFields+ '}'
 InputFields = InputField Modifiers? ':' InputReference
@@ -41,6 +41,7 @@ ScalarDefinition = ...
 
 Modifier = '?' | '[]' Modifier? | '[' Simple ']' Modifier?
 
+Internal = 'Null' | 'Void' | 'Unit'
 Simple = Basic | scalar | enum
 Basic = 'Boolean' | 'Number' | 'String'
 

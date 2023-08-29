@@ -1,3 +1,20 @@
+<!-- markdownlint-disable MD041 -->
+<div style="float:right; position:sticky; top:0; background-color: #111c; z-index:9;">
+
+## Table of Contents <!-- omit from toc -->
+
+- [Operation language definition](#operation-language-definition)
+  - [Operation](#operation)
+  - [Variables](#variables)
+  - [Result](#result)
+  - [Simple](#simple)
+  - [Modifier](#modifier)
+  - [Object](#object)
+  - [Argument](#argument)
+  - [Constant](#constant)
+
+</div>
+
 # Operation language definition
 
 > See [Definition](Definition.md) on how to read the definition below
@@ -62,7 +79,7 @@ An Operation's Result is either:
 - a Simple type with an optional Argument and/or Modifier(s), or
 - an Object type.
 
-### Simple types
+## Simple
 
 | Type | Value(s) | Description |
 |---|---|---|
@@ -75,7 +92,7 @@ An Operation's Result is either:
 | Number | NUMBER | |
 | String | STRING | |
 
-### Modifiers
+## Modifier
 
 | Modifier | Syntax | Description |
 |---|---|---|
@@ -90,9 +107,12 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 | `String[]` | List of String | `[ "", "a" ]` |
 | `String[]?` | List of Optional String | `[ "", null ]` |
 | `String[Number?]` | Dictionary by Optional Number of String | `{ 1:"", null:"a", 2:"B" }` |
-| `String[][Number][Unit?]?` | List of Dictionary by Number of <br/> Dictionary by Optional Unit of Optional String | _See below_|
+| `String[][Number][Unit?]?` | List of Dictionary by Number of <br/> Dictionary by Optional Unit of Optional String | _See Example 1 below_|
 
-``` JSON
+<details style="padding-left:2em">
+<summary>Example 1</summary>
+
+``` js
 [
   {
     0: { _:null, null:"a" },
@@ -104,7 +124,9 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 ]
 ```
 
-### Objects
+</details>
+
+## Object
 
 A Result Object is a selection of fields. Each field may have none, one, more or even all of the following, in this order:
 
@@ -122,3 +144,7 @@ A Result Object is a selection of fields. Each field may have none, one, more or
 | `{ user(12)[] { id name } }` | `{ user:[ { id:12, name:"Andrew" } ] }` |
 | `{ user("A*") { id name } }` | `{ user:{ id:12, name:"Andrew" } }` |
 | `{ user("A*")[] { id name } }` | `{ user:[ { id:12, name:"Andrew" }, { id:34, name:"Alan" } ] }` |
+
+## Argument
+
+## Constant

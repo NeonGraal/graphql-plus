@@ -2,7 +2,7 @@
 
 > See [Definition](Definition.md) on how to read the definition below
 
-```
+``` BNF
 Schema = Declaration+
 
 Declaration = Category | Enum | Input | Output | Scalar
@@ -19,12 +19,12 @@ EnumLabels = label | label '|' EnumLabels
 
 
 InputTypeParameters = '<' InputTypeParameter+ '>'
-InputTypeParameter = '$'inputparam
+InputTypeParameter = '$'inputTypeParam
 
 InputDefinitions = InputDefinition | InputDefinition '|' InputDefinitions
 InputDefinition = InputType Modifiers?
 InputType = InputReference | InputObject
-InputReference = Internal | Simple | input InputTypeArguments | '$'inputparam
+InputReference = Internal | Simple | input InputTypeArguments | '$'inputTypeParam
 
 InputObject = '{' InputFields+ '}'
 InputFields = InputField Modifiers? ':' InputReference

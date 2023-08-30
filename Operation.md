@@ -7,8 +7,8 @@
   - [Operation](#operation)
   - [Variables](#variables)
   - [Result](#result)
-  - [Simple](#simple)
   - [Modifier](#modifier)
+  - [Simple](#simple)
   - [Object](#object)
   - [Argument](#argument)
   - [Constant](#constant)
@@ -17,26 +17,27 @@
 
 # Operation language definition
 
+<details>
+
 > See [Definition](Definition.md) on how to read the definition below
 
 ``` BNF
 Operation =  Category? Variables? Result
-
 Category = category name
-Variables = '(' Variable+ ')'
-Result = Type Modifier?
 
+Variables = '(' Variable+ ')'
 Variable = '$'variable Var_Type? Var_Default?
-Var_Type = ':' type Modifier?
+Var_Type = ':' type Modifier?  # GraphQL compatibility
 Var_Default = '=' Constant
 
+Result = Type Modifier?
 Type = Simple Argument? | Object
-Simple = Internal | Basic
-Internal = 'Void' | 'Null'
 
 Modifier = '?' | '[]' Modifier? | '[' Basic '?'? ']' Modifier?
-
 Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
+
+Simple = Internal | Basic
+Internal = 'Void' | 'Null'
 
 Object = '{' Obj_Field+ '}'
 Obj_Field = field Argument? Modifier? Object?
@@ -56,15 +57,31 @@ Const_Field = FieldKey ':' Constant
 FieldKey = field | NUMBER | STRING
 ```
 
+</details>
+
 ## Operation
 
-If not specified, an Operation's category is "query" and it's name is blank. _(GraphQL compatibility)_
+``` BNF
+Operation =  Category? Variables? Result
+Category = category name
+```
+
+If not specified, an Operation's category is "query" and it's name is blank. This is for GraphQL compatibility.
 
 ## Variables
 
+``` BNF
+Variables = '(' Variable+ ')'
+Variable = '$'variable Var_Type? Modifier? Var_Default?
+Var_Type = ':' type # GraphQL compatibility
+Var_Default = '=' Constant
+```
+
 A Variable with the Optional Modifier has an implied Default of `null` and a Variable with a Default of `null` has an implied Optional Modifier.
 
-A `Variable`'s Type should only be validated if a Default is also specified and only against it's Modifier as follows:
+A Variable's Type name (`type`) is only included for GraphQL compatibility and is otherwise ignored.
+
+A `Variable`'s Modifier and Default are both specified they should be validated, recursively, as follows:
 | Modifier | Default | Comment |
 |---|---|---|
 | `?` | `null` | A default of `null` is only allowed on Optional types.  |
@@ -74,31 +91,28 @@ A `Variable`'s Type should only be validated if a Default is also specified and 
 
 ## Result
 
+``` BNF
+Result = Type Modifier?
+Type = Simple Argument? | Object
+```
+
 An Operation's Result is either:
 
 - a Simple type with an optional Argument and/or Modifier(s), or
-- an Object type.
-
-## Simple
-
-| Type | Value(s) | Description |
-|---|---|---|
-| _Internal types_ |
-| Void |  | The Void type has no values. |
-| Null | `null` | The Null type only has only value, but all operations on `null`, return `null`, except for `is null` and `is not null`. |
-| _Basic types_ |
-| Unit | `_` | The Unit type only has one value. |
-| Boolean | `true` or `false` | The Boolean type only has two values, `false` and `true` which sort in that order. |
-| Number | NUMBER | |
-| String | STRING | |
+- an Object type with optional Modifier(s).
 
 ## Modifier
 
-| Modifier | Syntax | Description |
-|---|---|---|
-| Optional | `?` | An Optional Result may have the value of `null`. The Null type may not be Optional. <br/> - ie. "Optional _type_" |
-| List | `[]` | A List Result will be an array with zero or more entries. <br/> - ie. "List of _type_" |
-| Dictionary | `[` Basic `?`? `]` | A Dictionary Result will be an object with the given Basic type as the Key. <br/> The Key may be Optional. <br/> - ie. "Dictionary by _key_ of _type_" |
+``` BNF
+Modifier = '?' | '[]' Modifier? | '[' Basic '?'? ']' Modifier?
+Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
+```
+
+| Modifier | Syntax | Notes | Description |
+|---|---|---|---|
+| Optional | `?` | An Optional Result may have the value of `null`. <br/> The Null type may not be Optional. | Optional _type_ |
+| List | `[]` | A List Result will be an array with zero or more entries. | List of _type_ |
+| Dictionary | `[`Basic`?`?`]` | A Dictionary Result will be an object with the given Basic type as the Key. <br/> The Key may be Optional. | Dictionary by _key_ of _type_ |
 
 Multiple Modifiers from left to right are from outside to inside finishing with the initial type.
 | Syntax | Description | Example |
@@ -118,7 +132,7 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
     0: { _:null, null:"a" },
     1: { _:"" }
   },
-  {
+  { 
     2: { null:"b" }
   }
 ]
@@ -126,7 +140,30 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 
 </details>
 
+## Simple
+
+``` BNF
+Simple = Internal | Basic
+Internal = 'Void' | 'Null'
+```
+
+| Type | Value(s) | Description |
+|---|---|---|
+|| _Internal types_ |
+| Void |  | The Void type has no values. |
+| Null | `null` | The Null type only has one value, but can't be the type of a Dictionary Key |
+|| _Basic types_ |
+| Unit | `_` | The Unit type only has one value. |
+| Boolean | `false` or `true` | The Boolean type only has two values. |
+| Number | NUMBER | |
+| String | STRING | |
+
 ## Object
+
+``` BNF
+Object = '{' Obj_Field+ '}'
+Obj_Field = field Argument? Modifier? Object?
+```
 
 A Result Object is a selection of fields. Each field may have none, one, more or even all of the following, in this order:
 
@@ -147,4 +184,24 @@ A Result Object is a selection of fields. Each field may have none, one, more or
 
 ## Argument
 
+``` BNF
+Argument = '(' Arg_Value ')'
+Arg_Value = Constant | Variable | Arg_List | Arg_Object | Arg_GraphQl
+Arg_List = '[' Arg_Value* ']'
+Arg_Object = '{' Arg_Field* '}'
+Arg_Field = FieldKey ':' Arg_Value
+Arg_GraphQL = Arg_Field*  # GraphQL compatibility
+```
+
+An Argument is usually a single value, but for GraphQL compatibility a set of argument fields can be provided.
+These are treated as an Argument Object.
+
 ## Constant
+
+``` BNF
+Constant = Const_Value | Const_List | Const_Object
+Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING
+Const_List = '[' Constant* ']'
+Const_Object = '{' Const_Field* '}'
+Const_Field = FieldKey ':' Constant
+```

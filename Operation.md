@@ -1,5 +1,5 @@
 <!-- markdownlint-disable MD041 -->
-<div style="float:right; position:sticky; top:0; background-color: #111c; z-index:9;">
+<div style="float:right; position:sticky; top:0; background-color: #eeec; z-index:9;">
 
 ## Table of Contents <!-- omit from toc -->
 
@@ -82,6 +82,7 @@ A Variable with the Optional Modifier has an implied Default of `null` and a Var
 A Variable's Type name (`type`) is only included for GraphQL compatibility and is otherwise ignored.
 
 A `Variable`'s Modifier and Default are both specified they should be validated, recursively, as follows:
+
 | Modifier | Default | Comment |
 |---|---|---|
 | `?` | `null` | A default of `null` is only allowed on Optional types.  |
@@ -115,6 +116,7 @@ Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
 | Dictionary | `[`Basic`?`?`]` | A Dictionary Result will be an object with the given Basic type as the Key. <br/> The Key may be Optional. | Dictionary by _key_ of _type_ |
 
 Multiple Modifiers from left to right are from outside to inside finishing with the initial type.
+
 | Syntax | Description | Example |
 |---|---|---|
 | `String?`| Optional String | `""` |

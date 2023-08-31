@@ -1,20 +1,3 @@
-<!-- markdownlint-disable MD041 -->
-<div style="float:right; position:sticky; top:0; background-color: #eeec; z-index:9;">
-
-## Table of Contents <!-- omit from toc -->
-
-- [Operation language definition](#operation-language-definition)
-  - [Operation](#operation)
-  - [Variables](#variables)
-  - [Result](#result)
-  - [Modifier](#modifier)
-  - [Simple](#simple)
-  - [Object](#object)
-  - [Argument](#argument)
-  - [Constant](#constant)
-
-</div>
-
 # Operation language definition
 
 <details>

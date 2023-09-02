@@ -24,7 +24,8 @@
     "fileMetadataFiles": [],
     "template": [
       "default",
-      "modern"
+      "modern",
+      "local"
     ],
     "postProcessors": [],
     "keepFileLink": false,

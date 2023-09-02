@@ -6,7 +6,7 @@ Defining a successor to GraphQL
 
 Whilst GraphQL is basically sufficient at it's core there are a few limitations and issues that I wish to address.
 
-- The [Schema](Schema.md) and [Operation](Operation.md) languages are too intertwined.
+- The [Schema](graphql-plus/Schema.md) and [Operation](graphql-plus/Operation.md) languages are too intertwined.
 - No Generic types
 - No Dictionary / Map core type
 - No input Union types

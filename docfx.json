@@ -5,6 +5,8 @@
         "files": [
           "articles/**.md",
           "articles/**/toc.yml",
+          "graphql-plus/**.md",
+          "graphql-plus/**/toc.yml",
           "toc.yml",
           "*.md"
         ]

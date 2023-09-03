@@ -7,22 +7,21 @@
 ``` BNF
 Schema = Declaration+
 
-Declaration = Category | Enum | Input | Output | Scalar
+Declaration = STRING? Dec_Definition
+Dec_Definition = Category | Enum | Input | Output | Scalar
 
-Category = 'category' output Aliases? Option*
-Enum = 'enum' enum '=' EnumLabels
-Input = 'input' input TypeParameters? '=' InputDefinitions
-Output = 'output' output TypeParameters? '=' OutputDefinitions
-Scalar = 'scalar' scalar '=' ScalarDefinition
 
-Aliases = '=' STRING+
-Option = 'sequential' | 'single'
+Category = 'category' output Cat_Option? alias*
+Cat_Option = 'sequential' | 'single'
 
-EnumLabels = label | label '|' EnumLabels
+
+Enum = 'enum' enum '=' En_Labels
+En_Labels = En_Label | En_Label '|' En_Labels
+En_Label = STRING? label
 
 
 TypeParameters = '<' TypeParameter+ '>'
-TypeParameter = '$'typeParameter
+TypeParameter = STRING? '$'typeParameter
 
 Modifier = '?' | '[]' Modifier? | '[' Simple ']' Modifier?
 
@@ -31,32 +30,38 @@ Simple = Basic | scalar | enum
 Basic = 'Boolean' | 'Number' | 'String'
 
 
-InputDefinitions = In_Definition | In_Definition '|' InputDefinitions
-In_Definition = In_Type Modifiers?
-In_Type = In_Reference | In_Object
+Input = 'input' input TypeParameters? '=' In_Definition
+In_Definition = In_References | In_References '|' In_Object | In_Object
+In_References = In_Reference | In_Reference  '|' In_References
 In_Reference = Internal | Simple | In_Base
 
+In_Object = In_Base? '{' In_Field+ '}'
+In_Field = STRING? field ':' In_Reference Modifiers?
 In_Base = input In_TypeArguments | '$'typeParameter
-In_Object = In_Base? '{' In_Fields+ '}'
-In_Fields = field ':' In_Reference Modifiers?
-
 In_TypeArguments = '<' In_Reference+ '>'
 
 
-OutputDefinitions = Out_Definition | Out_Definition '|' OutputDefinitions
-Out_Definition = Out_Type Modifiers?
-Out_Type = Out_Reference | Out_Object
+Output = 'output' output TypeParameters? '=' Out_Definition
+Out_Definition = Out_References | Out_References '|' Out_Object | Out_Object
+Out_References = Out_Reference | Out_Reference '|' Out_References
 Out_Reference = Internal | Simple | Out_Base
 
-Out_Base = output Out_TypeArguments | '$'typeParameter
 Out_Object = Out_Base? '{' Out_Fields+ '}'
-Out_Fields = field Argument? ':' Out_Reference Modifiers? | field '=' label
-Argument = '(' In_Reference ')'
-
+Out_Fields = STRING? field Argument? ':' Out_Reference Modifiers?
+Argument = '(' In_Reference Modifiers? ')'
+Out_Base = output Out_TypeArguments | '$'typeParameter
 Out_TypeArguments = '<' Out_Reference+ '>'
 
 
-ScalarDefinition = ...
+Scalar = 'scalar' scalar '=' ScalarDefinition
+ScalarDefinition = Scal_Boolean | Scal_Number | Scal_String
+
+Scal_Boolean = 'Boolean'
+Scal_Number = 'Number' Scal_Range?
+Scal_String = 'String' Scal_Regex?
+
+Scal_Range = NUMBER '>'? '..' '<'? NUMBER | NUMBER '>'? '..' | '..' '<'? NUMBER
+Scal_RegEx = '/' STRING '/'
 ```
 
 </details>
@@ -66,23 +71,24 @@ ScalarDefinition = ...
 ``` BNF
 Schema = Declaration+
 
-Declaration = Category | Enum | Input | Output | Scalar
+Declaration = STRING? Dec_Definition
+Dec_Definition = Category | Enum | Input | Output | Scalar
 ```
 
-A Schema is one (or more) Declarations. The following declarations are implied but can be specified explicitly:
+A Schema is one (or more) Declarations. Each declaration can be preceded by a documentation string.
 
-- `category Query` and thus `output Query`
-- `category Mutation sequential` and thus `output Mutation`
-- `category Subscription single` and thus `output Subscription`
+The following declarations are implied but can be specified explicitly:
+
+- `category Query` and thus `output Query = { }`
+- `category Mutation sequential` and thus `output Mutation = { }`
+- `category Subscription single` and thus `output Subscription = { }`
 - `output _Schema` (see [Introspection](Introspection.md))
 
 ## Category
 
 ``` BNF
-Category = 'category' output Aliases? Option*
-
-Aliases = '=' STRING+
-Option = 'sequential' | 'single'
+Category = 'category' output Cat_Option? alias*
+Cat_Option = 'sequential' | 'single'
 ```
 
 A category is a set of operations defined by an Output type.
@@ -99,9 +105,9 @@ By default an operation can specify multiple fields that are resolved in paralle
 ## Enum type
 
 ``` BNF
-Enum = 'enum' enum '=' EnumLabels
-
-EnumLabels = label | label '|' EnumLabels
+Enum = 'enum' enum '=' En_Labels
+En_Labels = En_Label | En_Label '|' En_Labels
+En_Label = STRING? label
 ```
 
 ## Common
@@ -120,33 +126,29 @@ Basic = 'Boolean' | 'Number' | 'String'
 ## Input type
 
 ``` BNF
-Input = 'input' input TypeParameters? '=' InputDefinitions
+Input = 'input' input TypeParameters? '=' In_Definition
+In_Definition = In_Object | In_Object '|' In_References | In_References
+In_Object = In_Base? '{' In_Field+ '}'
+In_Field = field ':' In_Reference Modifiers?
 
-InputDefinitions = In_Definition | In_Definition '|' InputDefinitions
-In_Definition = In_Type Modifiers?
-In_Type = In_Reference | In_Object
-In_Reference = Internal | Simple | input In_TypeArguments | '$'typeParameter
-
-In_Object = '{' In_Fields+ '}'
-In_Fields = In_Field ':' In_Reference Modifiers?
-
+In_References = In_Reference | In_Reference  '|' In_References
+In_Reference = Internal | Simple | In_Base
+In_Base = input In_TypeArguments | '$'typeParameter
 In_TypeArguments = '<' In_Reference+ '>'
 ```
 
 ## Output type
 
 ``` BNF
-Output = 'output' output TypeParameters? '=' OutputDefinitions
+Output = 'output' output TypeParameters? '=' Out_Definition
+Out_Definition = Out_Object | Out_Object  '|' Out_References | Out_References
+Out_Object = Out_Base? '{' Out_Fields+ '}'
+Out_Fields = field Argument? ':' Out_Reference Modifiers? | field '=' label
+Argument = '(' In_Reference Modifiers? ')'
 
-OutputDefinitions = Out_Definition | Out_Definition '|' OutputDefinitions
-Out_Definition = Out_Type Modifiers?
-Out_Type = Out_Reference | Out_Object
-Out_Reference = Internal | Simple | output Out_TypeArguments | '$'typeParameter
-
-Out_Object = '{' Out_Fields+ '}'
-Out_Fields = Out_Field Argument? ':' Out_Reference Modifiers?
-Argument = '(' In_Reference ')'
-
+Out_References = Out_Reference | Out_Reference '|' Out_References
+Out_Reference = Internal | Simple | Out_Base
+Out_Base = output Out_TypeArguments | '$'typeParameter
 Out_TypeArguments = '<' Out_Reference+ '>'
 ```
 
@@ -154,6 +156,12 @@ Out_TypeArguments = '<' Out_Reference+ '>'
 
 ``` BNF
 Scalar = 'scalar' scalar '=' ScalarDefinition
+ScalarDefinition = Scal_Boolean | Scal_Number | Scal_String
 
-ScalarDefinition = ...
+Scal_Boolean = 'Boolean'
+Scal_Number = 'Number' Scal_Range?
+Scal_String = 'String' Scal_Regex?
+
+Scal_Range = NUMBER '>'? '..' '<'? NUMBER | NUMBER '>'? '..' | '..' '<'? NUMBER
+Scal_RegEx = '/' STRING '/'
 ```

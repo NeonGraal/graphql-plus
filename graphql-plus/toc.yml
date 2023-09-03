@@ -4,3 +4,5 @@
   href: Schema.md
 - name: Definition
   href: Definition.md
+- name: Introspection
+  href: Introspection.md

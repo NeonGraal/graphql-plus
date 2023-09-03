@@ -94,7 +94,7 @@ Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
 
 | Modifier | Syntax | Notes | Description |
 |---|---|---|---|
-| Optional | `?` | An Optional Result may have the value of `null`. <br/> The Null type may not be Optional. | Optional _type_ |
+| Optional | `?` | An Optional Result may have the value of `null`. <br/> The `Null` type is effectively the same as `Void?` and so is `Null?`. | Optional _type_ |
 | List | `[]` | A List Result will be an array with zero or more entries. | List of _type_ |
 | Dictionary | `[`Basic`?`?`]` | A Dictionary Result will be an object with the given Basic type as the Key. <br/> The Key may be Optional. | Dictionary by _key_ of _type_ |
 

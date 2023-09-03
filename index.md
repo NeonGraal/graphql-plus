@@ -1,7 +1,13 @@
-# This is the **HOMEPAGE**
+# GraphQL+
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
+Defining a successor to GraphQL <img src="images/GraphQL_Logo.svg" width="50">
 
-## Quick Start Notes
+## Intent
 
-1. Add images to the *images* folder if the file is referencing an image.
+Whilst GraphQL is basically sufficient at it's core there are a few limitations and issues that I wish to address.
+
+- The [Schema](graphql-plus/Schema.md) and [Operation](graphql-plus/Operation.md) languages are too intertwined.
+- No Generic types
+- No Dictionary / Map core type
+- No input Union types
+- The introspection model is flawed with respect to Nullable and List type modifiers

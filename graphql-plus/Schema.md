@@ -23,7 +23,7 @@ En_Label = STRING? label
 TypeParameters = '<' TypeParameter+ '>'
 TypeParameter = STRING? '$'typeParameter
 
-Modifier = '?' | '[]' Modifier? | '[' Simple ']' Modifier?
+Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 
 Internal = 'Null' | 'Void' | 'Unit'
 Simple = Basic | scalar | enum
@@ -91,9 +91,9 @@ Category = 'category' output Cat_Option? alias*
 Cat_Option = 'sequential' | 'single'
 ```
 
-A category is a set of operations defined by an Output type.
+A Category is a set of operations defined by an Output type.
 
-A category has a default alias of the Output type with the first character changed to lowercase. Other aliases may be specified.
+A Category has a default alias of the Output type with the first character changed to lowercase. Other aliases may be specified.
 
 By default an operation can specify multiple fields that are resolved in parallel but this can be changed with the following Options:
 
@@ -110,18 +110,99 @@ En_Labels = En_Label | En_Label '|' En_Labels
 En_Label = STRING? label
 ```
 
+An Enum is a type defined by one or more labels. Each label can be preceded by a documentation string.
+
 ## Common
 
 ``` BNF
 TypeParameters = '<' TypeParameter+ '>'
 TypeParameter = '$'typeParameter
 
-Modifier = '?' | '[]' Modifier? | '[' Simple ']' Modifier?
+Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 
-Internal = 'Null' | 'Void' | 'Unit'
+Internal = 'Null' | 'Void'
 Simple = Basic | scalar | enum
-Basic = 'Boolean' | 'Number' | 'String'
+Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
 ```
+
+Type parameters can be defined on either Input or Output types.
+
+### Modifiers
+
+Multiple Modifiers from left to right are from outside to inside finishing with the initial type.
+> Note that Schema Modifiers include Scalar and Enum types as valid Dictionary keys.
+
+<details>
+<summary>Built-In Generic types</summary>
+
+Modifiers are equivalent to predefined generic Input and Output types as follows:
+
+``` gql
+"$T?"
+generic Optional<$T> = $T | Null
+
+"$T[]"
+generic List<$T> = $T[]  # Yes, I know this is recursive
+
+"$T[$K]"
+generic Dictionary<$K $T> = { $K : $T }  # Yes, I know this isn't strictly legal GraphQL-plus
+
+generic Map<$T> = Dictionary<String $T>
+
+generic Array<$T> = Dictionary<Number $T>
+
+generic IfElse<$T> = Dictionary<Boolean $T>
+
+generic Object = Map<Object>
+
+generic Set<$K> = Dictionary<$K Unit>
+
+generic Mask<$K> = Dictionary<$K Boolean>
+```
+
+These Generic types are the Input types if `$T` is an Input type and Output types if `$T` is an Output type.
+
+`Set`, `Object` and `Mask` are both Input and Output types.
+
+</details>
+
+| Syntax | Generic type | Description | Example |
+|---|---|---|---|
+| `String?` | Optional<$T> | Optional String | `""` |
+| `String[]` | List<$T> | List of String | `[ "", "a" ]` |
+| `String[]?` | | List of Optional String | `[ "", null ]` |
+| `String[Number?]` | Dictionary<$K $T> | Dictionary by Optional Number of String | `{ 1:"", null:"a", 2:"B" }` |
+| `String[][Number][Unit?]?` | | List of Dictionary by Number of <br/> Dictionary by Optional Unit of Optional String | _See Example 1 below_ |
+
+<details>
+<summary>Example 1</summary>
+
+``` js
+[
+  {
+    0: { _:null, null:"a" },
+    1: { _:"" }
+  },
+  { 
+    2: { null:"b" }
+  }
+]
+```
+
+</details>
+
+### Common types
+
+| Type | Value(s) | Description |
+|---|---|---|
+|| _Internal types_ |
+| Void |  | The Void type has no values. |
+| Null | `null` | The Null type only has one value, but can't be the type of a Dictionary Key |
+|| _Basic types_ |
+| Unit | `_` | The Unit type only has one value. |
+| Boolean | `false` or `true` | The Boolean type only has two values. |
+| Number | NUMBER | |
+| String | STRING | |
 
 ## Input type
 
@@ -136,6 +217,12 @@ In_Reference = Internal | Simple | In_Base
 In_Base = input In_TypeArguments | '$'typeParameter
 In_TypeArguments = '<' In_Reference+ '>'
 ```
+
+Input types define the type of Output field's Argument.
+
+An Operation's Argument value is mapped into a Field's Argument Input type as follows:
+
+...
 
 ## Output type
 
@@ -152,6 +239,8 @@ Out_Base = output Out_TypeArguments | '$'typeParameter
 Out_TypeArguments = '<' Out_Reference+ '>'
 ```
 
+Output types define the result values for Categories and Output fields.
+
 ## Scalar type
 
 ``` BNF
@@ -160,8 +249,15 @@ ScalarDefinition = Scal_Boolean | Scal_Number | Scal_String
 
 Scal_Boolean = 'Boolean'
 Scal_Number = 'Number' Scal_Range?
-Scal_String = 'String' Scal_Regex?
+Scal_String = 'String' Scal_Regexes?
 
 Scal_Range = NUMBER '>'? '..' '<'? NUMBER | NUMBER '>'? '..' | '..' '<'? NUMBER
-Scal_RegEx = '/' STRING '/'
+Scal_RegExes = Scal_Regex | Scal_Regex Scal_RegExes
+Scal_RegEx = REGEX | '!' REGEX
 ```
+
+Scalar types define specific domains of:
+
+- Booleans
+- Numbers, possibly only those in a given range. Ranges may be upper and/or lower bounded and each bound may be inclusive or exclusive.
+- Strings, possibly only those that match (or don't match) one or more regular expressions.

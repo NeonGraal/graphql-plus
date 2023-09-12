@@ -4,7 +4,7 @@ The `_Schema` output type is automatically defined as followed and can be used t
 
 <details>
 
-``` GraphQL-plus
+``` gql
 
 output _Schema = {
         category(String?) : _Category[String]
@@ -59,7 +59,7 @@ output _InputBase = {
 
 ## Category
 
-``` GraphQL-plus
+``` gql
 output _Category = {
         name : String
         resolution : _Resolution
@@ -71,7 +71,7 @@ enum _Resolution = Single | Sequential | Parallel
 
 ## Type
 
-``` GraphQL-plus
+``` gql
 output _BaseType = {
         name : String
         kind : _Kind

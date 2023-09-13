@@ -4,7 +4,7 @@
 
 > See [Definition](Definition.md) on how to read the definition below
 
-``` BNF
+```BNF
 Schema = Declaration+
 
 Declaration = STRING? Dec_Definition
@@ -68,7 +68,7 @@ Scal_RegEx = '/' STRING '/'
 
 ## Schema
 
-``` BNF
+```BNF
 Schema = Declaration+
 
 Declaration = STRING? Dec_Definition
@@ -86,7 +86,7 @@ The following declarations are implied but can be specified explicitly:
 
 ## Category
 
-``` BNF
+```BNF
 Category = 'category' output Cat_Option? alias*
 Cat_Option = 'sequential' | 'single'
 ```
@@ -97,14 +97,14 @@ A Category has a default alias of the Output type with the first character chang
 
 By default an operation can specify multiple fields that are resolved in parallel but this can be changed with the following Options:
 
-| Option | Description |
-|---|---|
-| `single` | One and only one field can be specified in an operation of this category. |
-| `sequential` | Multiple fields  specified in an operation of this category will be resolved in the order given. |
+| Option       | Description                                                                                     |
+| ------------ | ----------------------------------------------------------------------------------------------- |
+| `single`     | One and only one field can be specified in an operation of this category.                       |
+| `sequential` | Multiple fields specified in an operation of this category will be resolved in the order given. |
 
 ## Enum type
 
-``` BNF
+```BNF
 Enum = 'enum' enum '=' En_Labels
 En_Labels = En_Label | En_Label '|' En_Labels
 En_Label = STRING? label
@@ -114,7 +114,7 @@ An Enum is a type defined by one or more labels. Each label can be preceded by a
 
 ## Common
 
-``` BNF
+```BNF
 TypeParameters = '<' TypeParameter+ '>'
 TypeParameter = '$'typeParameter
 
@@ -130,6 +130,7 @@ Type parameters can be defined on either Input or Output types.
 ### Modifiers
 
 Multiple Modifiers from left to right are from outside to inside finishing with the initial type.
+
 > Note that Schema Modifiers include Scalar and Enum types as valid Dictionary keys.
 
 <details>
@@ -137,7 +138,7 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 
 Modifiers are equivalent to predefined generic Input and Output types as follows:
 
-``` gql
+```gql
 "$T?"
 generic Optional<$T> = $T | Null
 
@@ -166,47 +167,47 @@ These Generic types are the Input types if `$T` is an Input type and Output type
 
 </details>
 
-| Syntax | Generic type | Description | Example |
-|---|---|---|---|
-| `String?` | Optional<$T> | Optional String | `""` |
-| `String[]` | List<$T> | List of String | `[ "", "a" ]` |
-| `String[]?` | | List of Optional String | `[ "", null ]` |
-| `String[Number?]` | Dictionary<$K $T> | Dictionary by Optional Number of String | `{ 1:"", null:"a", 2:"B" }` |
-| `String[][Number][Unit?]?` | | List of Dictionary by Number of <br/> Dictionary by Optional Unit of Optional String | _See Example 1 below_ |
+| Syntax                     | Generic type      | Description                                                                          | Example                     |
+| -------------------------- | ----------------- | ------------------------------------------------------------------------------------ | --------------------------- |
+| `String?`                  | Optional<$T>      | Optional String                                                                      | `""`                        |
+| `String[]`                 | List<$T>          | List of String                                                                       | `[ "", "a" ]`               |
+| `String[]?`                |                   | List of Optional String                                                              | `[ "", null ]`              |
+| `String[Number?]`          | Dictionary<$K $T> | Dictionary by Optional Number of String                                              | `{ 1:"", null:"a", 2:"B" }` |
+| `String[][Number][Unit?]?` |                   | List of Dictionary by Number of <br/> Dictionary by Optional Unit of Optional String | _See Example 1 below_       |
 
 <details>
 <summary>Example 1</summary>
 
-``` js
+```js
 [
   {
-    0: { _:null, null:"a" },
-    1: { _:"" }
+    0: { _: null, null: "a" },
+    1: { _: "" },
   },
-  { 
-    2: { null:"b" }
-  }
-]
+  {
+    2: { null: "b" },
+  },
+];
 ```
 
 </details>
 
 ### Common types
 
-| Type | Value(s) | Description |
-|---|---|---|
-|| _Internal types_ |
-| Void |  | The Void type has no values. |
-| Null | `null` | The Null type only has one value, but can't be the type of a Dictionary Key |
-|| _Basic types_ |
-| Unit | `_` | The Unit type only has one value. |
-| Boolean | `false` or `true` | The Boolean type only has two values. |
-| Number | NUMBER | |
-| String | STRING | |
+| Type    | Value(s)          | Description                                                                 |
+| ------- | ----------------- | --------------------------------------------------------------------------- |
+|         | _Internal types_  |
+| Void    |                   | The Void type has no values.                                                |
+| Null    | `null`            | The Null type only has one value, but can't be the type of a Dictionary Key |
+|         | _Basic types_     |
+| Unit    | `_`               | The Unit type only has one value.                                           |
+| Boolean | `false` or `true` | The Boolean type only has two values.                                       |
+| Number  | NUMBER            |                                                                             |
+| String  | STRING            |                                                                             |
 
 ## Input type
 
-``` BNF
+```BNF
 Input = 'input' input TypeParameters? '=' In_Definition
 In_Definition = In_Object | In_Object '|' In_References | In_References
 In_Object = In_Base? '{' In_Field+ '}'
@@ -226,7 +227,7 @@ An Operation's Argument value is mapped into a Field's Argument Input type as fo
 
 ## Output type
 
-``` BNF
+```BNF
 Output = 'output' output TypeParameters? '=' Out_Definition
 Out_Definition = Out_Object | Out_Object  '|' Out_References | Out_References
 Out_Object = Out_Base? '{' Out_Fields+ '}'
@@ -243,7 +244,7 @@ Output types define the result values for Categories and Output fields.
 
 ## Scalar type
 
-``` BNF
+```BNF
 Scalar = 'scalar' scalar '=' ScalarDefinition
 ScalarDefinition = Scal_Boolean | Scal_Number | Scal_String
 

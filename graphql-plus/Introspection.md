@@ -4,7 +4,7 @@ The `_Schema` output type is automatically defined as followed and can be used t
 
 <details>
 
-``` gql
+```gql
 
 output _Schema = {
         category(String?) : _Category[String]
@@ -36,7 +36,7 @@ output _Type = _BaseType<_Kind.Basic>
         variants : _OutputType[]
     } | _BaseType<_Kind.Scalar>
 
-enum _Kind = Basic | Enum | Internal | Input | Output | Scalar 
+enum _Kind = Basic | Enum | Internal | Input | Output | Scalar
 
 output _InputType = {
         reference : _TypeRef
@@ -59,7 +59,7 @@ output _InputBase = {
 
 ## Category
 
-``` gql
+```gql
 output _Category = {
         name : String
         resolution : _Resolution
@@ -71,7 +71,7 @@ enum _Resolution = Single | Sequential | Parallel
 
 ## Type
 
-``` gql
+```gql
 output _BaseType = {
         name : String
         kind : _Kind
@@ -92,5 +92,5 @@ output _Type = _BaseType {
         kind = Scalar
     }
 
-enum _Kind = Basic | Enum | Internal | Input | Output | Scalar 
+enum _Kind = Basic | Enum | Internal | Input | Output | Scalar
 ```

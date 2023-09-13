@@ -2,31 +2,18 @@
   "build": {
     "content": [
       {
-        "files": [
-          "articles/**.md",
-          "articles/**/toc.yml",
-          "graphql-plus/**.md",
-          "graphql-plus/**/toc.yml",
-          "toc.yml",
-          "*.md"
-        ]
+        "files": ["articles/**.md", "articles/**/toc.yml", "graphql-plus/**.md", "graphql-plus/**/toc.yml", "toc.yml", "*.md"]
       }
     ],
     "resource": [
       {
-        "files": [
-          "images/**"
-        ]
+        "files": ["images/**"]
       }
     ],
     "output": "_site",
-    "globalMetadataFiles": [],
+    "globalMetadataFiles": ["global.json"],
     "fileMetadataFiles": [],
-    "template": [
-      "default",
-      "modern",
-      "local"
-    ],
+    "template": ["default", "modern", "local"],
     "postProcessors": [],
     "keepFileLink": false,
     "disableGitFeatures": false

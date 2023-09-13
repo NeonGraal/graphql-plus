@@ -4,9 +4,7 @@
   "tools": {
     "docfx": {
       "version": "2.70.1",
-      "commands": [
-        "docfx"
-      ]
+      "commands": ["docfx"]
     }
   }
 }

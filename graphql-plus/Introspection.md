@@ -6,37 +6,46 @@ The `_Schema` output type is automatically defined as followed and can be used t
 
 ```gql
 
+input _Names = String | String[]
+
 output _Schema = {
-        category(String?) : _Category[String]
-        type(String?) : _Type[String]
+        category(_Names?) : _Category[String]
+        type(_Names?) : _Type[String]
     }
 
-output _Category = {
-        name : String
+output _Category = _Named {
         resolution : _Resolution
         alias : String[]
     }
 
-enum _Resolution = Single | Sequential | Parallel
-
-output _BaseType<$kind> = {
+output _Named = {
         name : String
-        kind : $kind
+        description: String?
     }
+
+enum _Resolution = Single | Sequential | Parallel
 
 output _Type = _BaseType<_Kind.Basic>
       | _BaseType<_Kind.Internal>
-      | _BaseType<_Kind.Enum> {
-        labels : String[]
-    } | _BaseType<_Kind.Input> {
-        parameters : String[]
-        variants : _InputType[]
-    } | _BaseType<_Kind.Output> {
-        parameters : String[]
-        variants : _OutputType[]
-    } | _BaseType<_Kind.Scalar>
+      | _TypeEnum
+      | _TypeObject<_Kind.Input _InputType>
+      | _TypeObject<_Kind.Output _OutputType>
+      | _BaseType<_Kind.Scalar>
+
+output _BaseType<$kind> = _Named {
+        kind : $kind
+    }
 
 enum _Kind = Basic | Enum | Internal | Input | Output | Scalar
+
+output _TypeEnum = _BaseType<_Kind.Enum> {
+        labels : _Named[]
+    }
+
+output _TypeObject<$kind $variant> =_BaseType<$kind> {
+        parameters : _Named[]
+        variants : $variant[]
+    }
 
 output _InputType = {
         reference : _TypeRef

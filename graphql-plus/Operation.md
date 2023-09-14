@@ -8,10 +8,12 @@
 Operation =  Category? Variables? Result
 Category = category name
 
+
 Variables = '(' Variable+ ')'
 Variable = '$'variable Var_Type? Var_Default?
 Var_Type = ':' type Modifier?  # GraphQL compatibility
 Var_Default = '=' Constant
+
 
 Result = Type Modifier?
 Type = Simple Argument? | Object
@@ -22,22 +24,33 @@ Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
 Simple = Internal | Basic
 Internal = 'Void' | 'Null'
 
+
 Object = '{' Obj_Field+ '}'
 Obj_Field = field Argument? Modifier? Object?
 
-Argument = '(' Arg_Value ')'
-Arg_Value = Constant | Variable | Arg_List | Arg_Object
-Arg_List = '[' Arg_Value* ']'
-Arg_Object = '{' Arg_Field* '}'
+
+Argument = '(' Arg_Values ')'
+Arg_Value = Constant | '$'variable | Arg_List | Arg_Object
+Arg_List = '[' Arg_Value* ']' | '[' Arg_Values? ']'
+Arg_Values = Arg_Value | Arg_Value ',' Arg_Values
+
+Arg_Object = '{' Arg_Field* '}' | '{' Arg_Fields? '}' | Arg_Fields
+Arg_Fields = Arg_FieldPlus | Arg_FieldPlus ';' Arg_Fields
 Arg_Field = FieldKey ':' Arg_Value
+Arg_FieldPlus FieldKey ':' ArgValues
+
+FieldKey = field | NUMBER | STRING
+
 
 Constant = Const_Value | Const_List | Const_Object
 Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING
-Const_List = '[' Constant* ']'
-Const_Object = '{' Const_Field* '}'
-Const_Field = FieldKey ':' Constant
+Const_List = '[' Constant* ']' | '[' Cons_Values? ']'
+Const_Values = Constant | Constant ',' Const_Values
 
-FieldKey = field | NUMBER | STRING
+Const_Object = '{' Const_Field* '}' | '{' Const_Fields? '}' | Const_Fields
+Const_Fields = Const_FieldPlus | Const_FieldPlus ';' Const_Fields
+Const_Field = FieldKey ':' Constant
+Const_FieldPlus = FieldKey ':' Const_Values
 ```
 
 </details>
@@ -162,31 +175,41 @@ A Result Object is a selection of fields. Each field may have none, one, more or
 | `{ name[] }`                   | `{ name: [ "Andrew", "Alan", "Barbera" ] }`                     |
 | `{ id(12) }`                   | `{ id: 12 }`                                                    |
 | `{ name("A*")[] }`             | `{ name: ["Andrew", "Alan"] }`                                  |
-| `{ user(12) { id name } }`     | `{ user:{ id:12, name:"Andrew" } }`                             |
-| `{ user(12)[] { id name } }`   | `{ user:[ { id:12, name:"Andrew" } ] }`                         |
-| `{ user("A*") { id name } }`   | `{ user:{ id:12, name:"Andrew" } }`                             |
-| `{ user("A*")[] { id name } }` | `{ user:[ { id:12, name:"Andrew" }, { id:34, name:"Alan" } ] }` |
+| `{ user(12) { id name } }`     | `{ user:{ id:12; name:"Andrew" } }`                             |
+| `{ user(12)[] { id name } }`   | `{ user:[ { id:12; name:"Andrew" } ] }`                         |
+| `{ user("A*") { id name } }`   | `{ user:{ id:12; name:"Andrew" } }`                             |
+| `{ user("A*")[] { id name } }` | `{ user:[ { id:12; name:"Andrew" }, { id:34; name:"Alan" } ] }` |
 
 ## Argument
 
 ```BNF
-Argument = '(' Arg_Value ')'
-Arg_Value = Constant | Variable | Arg_List | Arg_Object | Arg_GraphQl
-Arg_List = '[' Arg_Value* ']'
-Arg_Object = '{' Arg_Field* '}'
+Argument = '(' Arg_Value* ')' | '(' Arg_Value ',' Arg_Values ')' | '(' Arg_Fields ')'
+Arg_Value = Constant | '$'variable | Arg_List | Arg_Object
+Arg_List = '[' Arg_Value* ']' | '[' Arg_Values? ']'
+Arg_Values = Arg_Value | Arg_Value ',' Arg_Values
+
+Arg_Object = '{' Arg_Field* '}' | '{' Arg_Fields? '}' | Arg_Fields
+Arg_Fields = Arg_FieldPlus | Arg_FieldPlus ';' Arg_Fields
 Arg_Field = FieldKey ':' Arg_Value
-Arg_GraphQL = Arg_Field*  # GraphQL compatibility
+Arg_FieldPlus FieldKey ':' ArgValues
+
+FieldKey = field | NUMBER | STRING
 ```
 
-An Argument is usually a single value, but for GraphQL compatibility a set of argument fields can be provided.
-These are treated as an Argument Object.
+An Argument is a single value. If multiple values are provided they are treated as a list.
+
+If necessary commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields
 
 ## Constant
 
 ```BNF
 Constant = Const_Value | Const_List | Const_Object
 Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING
-Const_List = '[' Constant* ']'
-Const_Object = '{' Const_Field* '}'
+Const_List = '[' Constant* ']' | '[' Cons_Values? ']'
+Const_Values = Constant | Constant ',' Const_Values
+
+Const_Object = '{' Const_Field* '}' | '{' Const_Fields? '}' | Const_Fields
+Const_Fields = Const_FieldPlus | Const_FieldPlus ';' Const_Fields
 Const_Field = FieldKey ':' Constant
+Const_FieldPlus = FieldKey ':' Const_Values
 ```

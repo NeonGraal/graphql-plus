@@ -116,7 +116,7 @@ An Enum is a type defined by one or more labels. Each label can be preceded by a
 
 ```BNF
 TypeParameters = '<' TypeParameter+ '>'
-TypeParameter = '$'typeParameter
+TypeParameter = STRING? '$'typeParameter
 
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 
@@ -125,7 +125,7 @@ Simple = Basic | scalar | enum
 Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
 ```
 
-Type parameters can be defined on either Input or Output types.
+Type parameters can be defined on either Input or Output types. Each parameter can be preceded by a documentation string.
 
 ### Modifiers
 
@@ -221,6 +221,12 @@ In_TypeArguments = '<' In_Reference+ '>'
 
 Input types define the type of Output field's Argument.
 
+An Input type is defined as either:
+
+- an Input object definition, or
+- an Input object definition followed by one or more Input type references, or
+- one or more Input type references
+
 An Operation's Argument value is mapped into a Field's Argument Input type as follows:
 
 ...
@@ -237,10 +243,17 @@ Argument = '(' In_Reference Modifiers? ')'
 Out_References = Out_Reference | Out_Reference '|' Out_References
 Out_Reference = Internal | Simple | Out_Base
 Out_Base = output Out_TypeArguments | '$'typeParameter
-Out_TypeArguments = '<' Out_Reference+ '>'
+Out_TypeArguments = '<' Out_TypeArgument+ '>'
+Out_TypeArgument = Out_Reference | enum '.' label
 ```
 
 Output types define the result values for Categories and Output fields.
+
+An Output type is defined as either:
+
+- an Output object definition, or
+- an Output object definition followed by one or more Output type references, or
+- one or more Output type references
 
 ## Scalar type
 

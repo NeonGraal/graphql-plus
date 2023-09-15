@@ -1,78 +1,13 @@
 # Schema language definition
 
-<details>
-
 > See [Definition](Definition.md) on how to read the definition below
-
-```BNF
-Schema = Declaration+
-
-Declaration = STRING? Dec_Definition
-Dec_Definition = Category | Enum | Input | Output | Scalar
-
-
-Category = 'category' output Cat_Option? alias*
-Cat_Option = 'sequential' | 'single'
-
-
-Enum = 'enum' enum '=' En_Labels
-En_Labels = En_Label | En_Label '|' En_Labels
-En_Label = STRING? label
-
-
-TypeParameters = '<' TypeParameter+ '>'
-TypeParameter = STRING? '$'typeParameter
-
-Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
-
-Internal = 'Null' | 'Void' | 'Unit'
-Simple = Basic | scalar | enum
-Basic = 'Boolean' | 'Number' | 'String'
-
-
-Input = 'input' input TypeParameters? '=' In_Definition
-In_Definition = In_References | In_References '|' In_Object | In_Object
-In_References = In_Reference | In_Reference  '|' In_References
-In_Reference = Internal | Simple | In_Base
-
-In_Object = In_Base? '{' In_Field+ '}'
-In_Field = STRING? field ':' In_Reference Modifiers?
-In_Base = input In_TypeArguments | '$'typeParameter
-In_TypeArguments = '<' In_Reference+ '>'
-
-
-Output = 'output' output TypeParameters? '=' Out_Definition
-Out_Definition = Out_References | Out_References '|' Out_Object | Out_Object
-Out_References = Out_Reference | Out_Reference '|' Out_References
-Out_Reference = Internal | Simple | Out_Base
-
-Out_Object = Out_Base? '{' Out_Fields+ '}'
-Out_Fields = STRING? field Argument? ':' Out_Reference Modifiers?
-Argument = '(' In_Reference Modifiers? ')'
-Out_Base = output Out_TypeArguments | '$'typeParameter
-Out_TypeArguments = '<' Out_Reference+ '>'
-
-
-Scalar = 'scalar' scalar '=' ScalarDefinition
-ScalarDefinition = Scal_Boolean | Scal_Number | Scal_String
-
-Scal_Boolean = 'Boolean'
-Scal_Number = 'Number' Scal_Range?
-Scal_String = 'String' Scal_Regex?
-
-Scal_Range = NUMBER '>'? '..' '<'? NUMBER | NUMBER '>'? '..' | '..' '<'? NUMBER
-Scal_RegEx = '/' STRING '/'
-```
-
-</details>
 
 ## Schema
 
-```BNF
+```PEG
 Schema = Declaration+
 
-Declaration = STRING? Dec_Definition
-Dec_Definition = Category | Enum | Input | Output | Scalar
+Declaration = STRING? ( Category | Enum | Input | Output | Scalar )
 ```
 
 A Schema is one (or more) Declarations. Each declaration can be preceded by a documentation string.
@@ -86,9 +21,8 @@ The following declarations are implied but can be specified explicitly:
 
 ## Category
 
-```BNF
-Category = 'category' output Cat_Option? alias*
-Cat_Option = 'sequential' | 'single'
+```PEG
+Category = 'category' output ( 'sequential' | 'single' )? alias*
 ```
 
 A Category is a set of operations defined by an Output type.
@@ -104,9 +38,9 @@ By default an operation can specify multiple fields that are resolved in paralle
 
 ## Enum type
 
-```BNF
+```PEG
 Enum = 'enum' enum '=' En_Labels
-En_Labels = En_Label | En_Label '|' En_Labels
+En_Labels = En_Label '|' En_Labels | En_Label
 En_Label = STRING? label
 ```
 
@@ -114,9 +48,8 @@ An Enum is a type defined by one or more labels. Each label can be preceded by a
 
 ## Common
 
-```BNF
-TypeParameters = '<' TypeParameter+ '>'
-TypeParameter = STRING? '$'typeParameter
+```PEG
+TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 
@@ -207,24 +140,22 @@ These Generic types are the Input types if `$T` is an Input type and Output type
 
 ## Input type
 
-```BNF
+```PEG
 Input = 'input' input TypeParameters? '=' In_Definition
-In_Definition = In_Object | In_Object '|' In_References | In_References
-In_Object = In_Base? '{' In_Field+ '}'
-In_Field = field ':' In_Reference Modifiers?
+In_Definition = In_Object '|' In_References | In_Object | In_References
+In_Object = In_Base? '{' ( field ':' In_Reference Modifiers? )+ '}'
 
-In_References = In_Reference | In_Reference  '|' In_References
+In_References = In_Reference '|' In_References | In_Reference
 In_Reference = Internal | Simple | In_Base
-In_Base = input In_TypeArguments | '$'typeParameter
-In_TypeArguments = '<' In_Reference+ '>'
+In_Base = '$'typeParameter | input ( '<' In_Reference+ '>' )?
 ```
 
 Input types define the type of Output field's Argument.
 
 An Input type is defined as either:
 
-- an Input object definition, or
 - an Input object definition followed by one or more Input type references, or
+- an Input object definition, or
 - one or more Input type references
 
 An Operation's Argument value is mapped into a Field's Argument Input type as follows:
@@ -233,18 +164,16 @@ An Operation's Argument value is mapped into a Field's Argument Input type as fo
 
 ## Output type
 
-```BNF
+```PEG
 Output = 'output' output TypeParameters? '=' Out_Definition
-Out_Definition = Out_Object | Out_Object  '|' Out_References | Out_References
+Out_Definition = Out_Object '|' Out_References | Out_Object | Out_References
 Out_Object = Out_Base? '{' Out_Fields+ '}'
-Out_Fields = field Argument? ':' Out_Reference Modifiers? | field '=' label
+Out_Fields = field Argument? ':' Out_Reference Modifiers? | field '=' enum '.' label
 Argument = '(' In_Reference Modifiers? ')'
 
-Out_References = Out_Reference | Out_Reference '|' Out_References
+Out_References = Out_Reference '|' Out_References | Out_Reference
 Out_Reference = Internal | Simple | Out_Base
-Out_Base = output Out_TypeArguments | '$'typeParameter
-Out_TypeArguments = '<' Out_TypeArgument+ '>'
-Out_TypeArgument = Out_Reference | enum '.' label
+Out_Base = '$'typeParameter | output ( '<' ( Out_Reference | enum '.' label )+ '>' )?
 ```
 
 Output types define the result values for Categories and Output fields.
@@ -257,16 +186,15 @@ An Output type is defined as either:
 
 ## Scalar type
 
-```BNF
+```PEG
 Scalar = 'scalar' scalar '=' ScalarDefinition
 ScalarDefinition = Scal_Boolean | Scal_Number | Scal_String
 
 Scal_Boolean = 'Boolean'
-Scal_Number = 'Number' Scal_Range?
-Scal_String = 'String' Scal_Regexes?
+Scal_Number = 'Number' Scal_Range*
+Scal_String = 'String' Scal_Regex*
 
-Scal_Range = NUMBER '>'? '..' '<'? NUMBER | NUMBER '>'? '..' | '..' '<'? NUMBER
-Scal_RegExes = Scal_Regex | Scal_Regex Scal_RegExes
+Scal_Range = '..' '<'? NUMBER | NUMBER '>'? '..' ( '<'? NUMBER )?
 Scal_RegEx = REGEX | '!' REGEX
 ```
 
@@ -275,3 +203,54 @@ Scalar types define specific domains of:
 - Booleans
 - Numbers, possibly only those in a given range. Ranges may be upper and/or lower bounded and each bound may be inclusive or exclusive.
 - Strings, possibly only those that match (or don't match) one or more regular expressions.
+
+## Complete Grammar
+
+```PEG
+Schema = Declaration+
+
+Declaration = STRING? Dec_Definition
+Declaration = STRING? ( Category | Enum | Input | Output | Scalar )
+
+Category = 'category' output ( 'sequential' | 'single' )? alias*
+
+Enum = 'enum' enum '=' En_Labels
+En_Labels = En_Label '|' En_Labels | En_Label
+En_Label = STRING? label
+
+TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
+
+Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
+
+Internal = 'Null' | 'Void'
+Simple = Basic | scalar | enum
+Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
+
+Input = 'input' input TypeParameters? '=' In_Definition
+In_Definition = In_Object '|' In_References | In_Object | In_References
+In_Object = In_Base? '{' ( field ':' In_Reference Modifiers? )+ '}'
+
+In_References = In_Reference '|' In_References | In_Reference
+In_Reference = Internal | Simple | In_Base
+In_Base = '$'typeParameter | input ( '<' In_Reference+ '>' )?
+
+Output = 'output' output TypeParameters? '=' Out_Definition
+Out_Definition = Out_Object '|' Out_References | Out_Object | Out_References
+Out_Object = Out_Base? '{' Out_Fields+ '}'
+Out_Fields = field Argument? ':' Out_Reference Modifiers? | field '=' enum '.' label
+Argument = '(' In_Reference Modifiers? ')'
+
+Out_References = Out_Reference '|' Out_References | Out_Reference
+Out_Reference = Internal | Simple | Out_Base
+Out_Base = '$'typeParameter | output ( '<' ( Out_Reference | enum '.' label )+ '>' )?
+
+Scalar = 'scalar' scalar '=' ScalarDefinition
+ScalarDefinition = Scal_Boolean | Scal_Number | Scal_String
+
+Scal_Boolean = 'Boolean'
+Scal_Number = 'Number' Scal_Range*
+Scal_String = 'String' Scal_Regex*
+
+Scal_Range = '..' '<'? NUMBER | NUMBER '>'? '..' ( '<'? NUMBER )?
+Scal_RegEx = REGEX | '!' REGEX
+```

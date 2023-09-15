@@ -1,76 +1,20 @@
 # Operation language definition
 
-<details>
-
-> See [Definition](Definition.md) on how to read the definition below
-
-```BNF
-Operation =  Category? Variables? Result
-Category = category name
-
-
-Variables = '(' Variable+ ')'
-Variable = '$'variable Var_Type? Var_Default?
-Var_Type = ':' type Modifier?  # GraphQL compatibility
-Var_Default = '=' Constant
-
-
-Result = Type Modifier?
-Type = Simple Argument? | Object
-
-Modifier = '?' | '[]' Modifier? | '[' Basic '?'? ']' Modifier?
-Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
-
-Simple = Internal | Basic
-Internal = 'Void' | 'Null'
-
-
-Object = '{' Obj_Field+ '}'
-Obj_Field = field Argument? Modifier? Object?
-
-
-Argument = '(' Arg_Values ')'
-Arg_Value = Constant | '$'variable | Arg_List | Arg_Object
-Arg_List = '[' Arg_Value* ']' | '[' Arg_Values? ']'
-Arg_Values = Arg_Value | Arg_Value ',' Arg_Values
-
-Arg_Object = '{' Arg_Field* '}' | '{' Arg_Fields? '}' | Arg_Fields
-Arg_Fields = Arg_FieldPlus | Arg_FieldPlus ';' Arg_Fields
-Arg_Field = FieldKey ':' Arg_Value
-Arg_FieldPlus FieldKey ':' ArgValues
-
-FieldKey = field | NUMBER | STRING
-
-
-Constant = Const_Value | Const_List | Const_Object
-Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING
-Const_List = '[' Constant* ']' | '[' Cons_Values? ']'
-Const_Values = Constant | Constant ',' Const_Values
-
-Const_Object = '{' Const_Field* '}' | '{' Const_Fields? '}' | Const_Fields
-Const_Fields = Const_FieldPlus | Const_FieldPlus ';' Const_Fields
-Const_Field = FieldKey ':' Constant
-Const_FieldPlus = FieldKey ':' Const_Values
-```
-
-</details>
+> See [Definition](Definition.md) on how to read the language definitions following
 
 ## Operation
 
-```BNF
-Operation =  Category? Variables? Result
-Category = category name
+```PEG
+Operation = ( category name )? Variables? Result
 ```
 
 If not specified, an Operation's category is "query" and it's name is blank. This is for GraphQL compatibility.
 
 ## Variables
 
-```BNF
+```PEG
 Variables = '(' Variable+ ')'
-Variable = '$'variable Var_Type? Modifier? Var_Default?
-Var_Type = ':' type # GraphQL compatibility
-Var_Default = '=' Constant
+Variable = '$'variable ( ':' type )? Modifier? ( '=' Constant )?
 ```
 
 A Variable with the Optional Modifier has an implied Default of `null` and a Variable with a Default of `null` has an implied Optional Modifier.
@@ -88,9 +32,8 @@ A `Variable`'s Modifier and Default are both specified they should be validated,
 
 ## Result
 
-```BNF
-Result = Type Modifier?
-Type = Simple Argument? | Object
+```PEG
+Result = ( Simple Argument? | Object ) Modifier?
 ```
 
 An Operation's Result is either:
@@ -100,7 +43,7 @@ An Operation's Result is either:
 
 ## Modifier
 
-```BNF
+```PEG
 Modifier = '?' | '[]' Modifier? | '[' Basic '?'? ']' Modifier?
 Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
 ```
@@ -140,7 +83,7 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 
 ## Simple
 
-```BNF
+```PEG
 Simple = Internal | Basic
 Internal = 'Void' | 'Null'
 ```
@@ -158,9 +101,8 @@ Internal = 'Void' | 'Null'
 
 ## Object
 
-```BNF
-Object = '{' Obj_Field+ '}'
-Obj_Field = field Argument? Modifier? Object?
+```PEG
+Object = '{' ( field Argument? Modifier? Object? )+ '}'
 ```
 
 A Result Object is a selection of fields. Each field may have none, one, more or even all of the following, in this order:
@@ -182,34 +124,73 @@ A Result Object is a selection of fields. Each field may have none, one, more or
 
 ## Argument
 
-```BNF
-Argument = '(' Arg_Value* ')' | '(' Arg_Value ',' Arg_Values ')' | '(' Arg_Fields ')'
-Arg_Value = Constant | '$'variable | Arg_List | Arg_Object
-Arg_List = '[' Arg_Value* ']' | '[' Arg_Values? ']'
-Arg_Values = Arg_Value | Arg_Value ',' Arg_Values
+```PEG
+Argument = '(' Arg_Value ',' Arg_Values ')' | '(' Arg_Fields ')' | '(' Arg_Value* ')'
+Arg_Value = '$'variable | Arg_List | Arg_Object | Constant
+Arg_List = '[' Arg_Values ']' | '[' Arg_Value* ']'
+Arg_Values = Arg_Value ',' Arg_Values | Arg_Value
 
-Arg_Object = '{' Arg_Field* '}' | '{' Arg_Fields? '}' | Arg_Fields
-Arg_Fields = Arg_FieldPlus | Arg_FieldPlus ';' Arg_Fields
-Arg_Field = FieldKey ':' Arg_Value
-Arg_FieldPlus FieldKey ':' ArgValues
+Arg_Object = '{' Arg_Fields '}' | '{' ( FieldKey ':' Arg_Value )* '}' | Arg_Fields
+Arg_Fields = Arg_Field ';' Arg_Fields | Arg_Field
+Arg_Field = FieldKey ':' ArgValues
 
 FieldKey = field | NUMBER | STRING
 ```
 
-An Argument is a single value. If multiple values are provided they are treated as a list.
+An Argument is usually a single value. If multiple values are provided they are treated as a list. If one or more fields are provided they are treated as an object.
 
-If necessary commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields
+Commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields.
 
 ## Constant
 
-```BNF
-Constant = Const_Value | Const_List | Const_Object
+```PEG
+Constant = Const_List | Const_Object | Const_Value
 Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING
-Const_List = '[' Constant* ']' | '[' Cons_Values? ']'
-Const_Values = Constant | Constant ',' Const_Values
+Const_List = '[' Cons_Values ']' | '[' Constant* ']'
+Const_Values = Constant ',' Const_Values | Constant
 
-Const_Object = '{' Const_Field* '}' | '{' Const_Fields? '}' | Const_Fields
-Const_Fields = Const_FieldPlus | Const_FieldPlus ';' Const_Fields
-Const_Field = FieldKey ':' Constant
-Const_FieldPlus = FieldKey ':' Const_Values
+Const_Object = '{' Const_Fields '}' | '{' ( FieldKey ':' Constant )* '}'
+Const_Fields = Const_Field ';' Const_Fields | Const_Field
+Const_Field = FieldKey ':' Const_Values
+```
+
+A Constant is a single value. Commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields.
+
+## Complete Grammar
+
+```PEG
+Operation = ( category name )? Variables? Result
+
+Variables = '(' Variable+ ')'
+Variable = '$'variable ( ':' type )? Modifier? ( '=' Constant )?
+
+Result = ( Simple Argument? | Object ) Modifier?
+
+Modifier = '?' | '[]' Modifier? | '[' Basic '?'? ']' Modifier?
+Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
+
+Simple = Internal | Basic
+Internal = 'Void' | 'Null'
+
+Object = '{' ( field Argument? Modifier? Object? )+ '}'
+
+Argument = '(' Arg_Value ',' Arg_Values ')' | '(' Arg_Fields ')' | '(' Arg_Value* ')'
+Arg_Value = '$'variable | Arg_List | Arg_Object | Constant
+Arg_List = '[' Arg_Values ']' | '[' Arg_Value* ']'
+Arg_Values = Arg_Value ',' Arg_Values | Arg_Value
+
+Arg_Object = '{' Arg_Fields '}' | '{' ( FieldKey ':' Arg_Value )* '}' | Arg_Fields
+Arg_Fields = Arg_Field ';' Arg_Fields | Arg_Field
+Arg_Field = FieldKey ':' ArgValues
+
+FieldKey = field | NUMBER | STRING
+
+Constant = Const_List | Const_Object | Const_Value
+Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING
+Const_List = '[' Cons_Values ']' | '[' Constant* ']'
+Const_Values = Constant ',' Const_Values | Constant
+
+Const_Object = '{' Const_Fields '}' | '{' ( FieldKey ':' Constant )* '}' | Const_Fields
+Const_Fields = Const_Field ';' Const_Fields | Const_Field
+Const_Field = FieldKey ':' Const_Values
 ```

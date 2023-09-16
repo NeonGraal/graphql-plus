@@ -71,7 +71,7 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 
 Modifiers are equivalent to predefined generic Input and Output types as follows:
 
-```gql
+```gqlp
 "$T?"
 generic Optional<$T> = $T | Null
 

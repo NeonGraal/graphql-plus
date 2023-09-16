@@ -2,6 +2,7 @@
 export default function (hljs) {
   return {
     name: "Parser Expression Grammar",
+    disableAutodetect: false,
     contains: [
       // Specific
       {
@@ -9,12 +10,16 @@ export default function (hljs) {
         end: /$/,
         contains: [
           {
-            className: "tag",
+            className: "symbol",
             begin: /[()?*+|]/,
           },
           {
-            className: "symbol",
-            begin : /\w+/,
+            className: "variable",
+            begin: /[a-z]\w+/,
+          },
+          {
+            className: "keyword",
+            begin: /[A-Z]\w+/,
           },
           // Common
           hljs.HASH_COMMENT_MODE,

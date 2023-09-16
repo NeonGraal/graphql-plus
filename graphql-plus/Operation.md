@@ -64,7 +64,7 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 | `String[Number?]`          | Dictionary by Optional Number of String                                              | `{ 1:"", null:"a", 2:"B" }` |
 | `String[][Number][Unit?]?` | List of Dictionary by Number of <br/> Dictionary by Optional Unit of Optional String | _See Example 1 below_       |
 
-<details style="padding-left:2em">
+<details>
 <summary>Example 1</summary>
 
 ```js

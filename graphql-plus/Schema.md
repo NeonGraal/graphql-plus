@@ -19,6 +19,10 @@ The following declarations are implied but can be specified explicitly:
 - `category Subscription single` and thus `output Subscription = { }`
 - `output _Schema` (see [Introspection](Introspection.md))
 
+The names of all Types (All Declarations except Category) must be unique.
+The aliases of all Types (All Declarations except Category) must be unique.
+Explicit name declarations will override that name being used as an alias.
+
 ## Category
 
 ```PEG
@@ -36,15 +40,24 @@ By default an operation can specify multiple fields that are resolved in paralle
 | `single`     | One and only one field can be specified in an operation of this category.                       |
 | `sequential` | Multiple fields specified in an operation of this category will be resolved in the order given. |
 
+Duplicate Category declarations are not permitted.
+An explicit Category declaration for an Output type will override that name being used as an alias for a different Category.
+
 ## Enum type
 
 ```PEG
-Enum = 'enum' enum '=' En_Labels
+Enum = 'enum' enum alias* '=' ( enum ':' ) ? En_Labels
 En_Labels = En_Label '|' En_Labels | En_Label
 En_Label = STRING? label
 ```
 
 An Enum is a type defined by one or more labels. Each label can be preceded by a documentation string.
+
+An Enum can extend another enum and thus implicitly includes the extended enum's labels.
+
+Duplicate Enum declarations with different base Enums are not permitted.
+Multiple Enum declarations with the same base, or no base, will have their labels and aliases merged and de-duplicated.
+An explicit Enum declaration will override that name being used as an alias for a different Enum.
 
 ## Common
 
@@ -56,6 +69,8 @@ Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
 Simple = Basic | scalar | enum
 Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
+
+EnumLabel = ( enum '.' )? label
 ```
 
 Type parameters can be defined on either Input or Output types. Each parameter can be preceded by a documentation string.
@@ -67,9 +82,11 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 > Note that Schema Modifiers include Scalar and Enum types as valid Dictionary keys.
 
 <details>
-<summary>Built-In Generic types</summary>
+<summary>Modifiers</summary>
 
-Modifiers are equivalent to predefined generic Input and Output types as follows (not strictly GraphQl plus but close enough):
+<i>The following GraphQlPlus isn't strictly valid but ...</i>
+
+Modifiers are equivalent to predefined generic Input and Output types as follows:
 
 ```gqlp
 "$T?"
@@ -94,14 +111,6 @@ input|output _Array<$T> = _Dictionary<Number $T>
 "$T[!]"
 input|output _IfElse<$T> = _Dictionary<Boolean $T>
 
-"%"
-input|output Object = Map<Any>
-
-input|output _Any<$T> = $T | _Scalar | Object | _Any<$T>? | _Any<$T>[] | _Any<$T>[Simple] | _Any<$T>[Simple?]
-
-input Any = _Any<_Input>
-output Any =  _Any<_Output>
-
 "_[$K]"
 input|output Set<$K> = Dictionary<$K Unit>
 
@@ -111,9 +120,7 @@ input|output Mask<$K> = Dictionary<$K Boolean>
 
 These Generic types are the Input types if `$T` is an Input type and Output types if `$T` is an Output type.
 
-`Set`, `Object`, `Mask` and `Any` are both Input and Output types.
-
-The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically defined to be a union of all Scalar, Output, Input and Enum types respectively.
+`Set`, `Object` and `Mask` are both Input and Output types.
 
 </details>
 
@@ -142,28 +149,57 @@ The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically 
 
 </details>
 
-### Common types
+### Built In types
 
-| Type    | Value(s)          | Alias  | Description                                                                 |
-| ------- | ----------------- | ------ | --------------------------------------------------------------------------- |
-|         | _Internal types_  |
-| Void    |                   |        | The Void type has no values.                                                |
-| Null    | `null`            | `null` | The Null type only has one value, but can't be the type of a Dictionary Key |
-| Object  |                   | `%`    | The Object type is a Dictionary by String of Any                            |
-|         | _Basic types_     |
-| Unit    | `_`               | `_`    | The Unit type only has one value.                                           |
-| Boolean | `false` or `true` | `!`    | The Boolean type only has two values.                                       |
-| Number  | NUMBER            | `0`    |                                                                             |
-| String  | STRING            | `*`    |                                                                             |
+<details>
+<summary>Built-In types</summary>
+
+<i>The following GraphQlPlus isn't strictly valid but ...</i>
+
+Boolean, Null, Unit and Void are effectively enum types as follows:
+
+```gqlp
+enum Boolean ! = true | false
+
+enum Null null = null
+
+enum Unit _ = _
+
+enum Void =  # Yes
+```
+
+Number and String are effectively scalar types as follows:
+
+```gqlp
+scalar Number 0 = Number
+
+scalar String * = String
+```
+
+Object is a general Dictionary as follows:
+
+```gqlp
+"%"
+input|output Object % = Map<Any>
+
+input|output _Any<$T> = $T | _Scalar | Object | _Any<$T>? | _Any<$T>[] | _Any<$T>[Simple] | _Any<$T>[Simple?]
+
+input Any = _Any<_Input>
+output Any =  _Any<_Output>
+```
+
+The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically defined to be a union of all Scalar, Output, Input and Enum types respectively.
+
+</details>
 
 ## Input type
 
 ```PEG
-Input = 'input' input TypeParameters? '=' In_Definition
-In_Definition = In_Object '|' In_References | In_Object | In_References
+Input = 'input' input TypeParameters? alias* '=' In_Definition
+In_Definition = In_Object In_Alternates? | In_Alternates
 In_Object = In_Base? '{' ( field ':' In_Reference Modifiers? )+ '}'
 
-In_References = In_Reference '|' In_References | In_Reference
+In_Alternates = In_Reference '|' In_Alternates | In_Reference
 In_Reference = Internal | Simple | In_Base
 In_Base = '$'typeParameter | input ( '<' In_Reference+ '>' )?
 ```
@@ -178,20 +214,24 @@ An Input type is defined as either:
 
 An Operation's Argument value is mapped into a Field's Argument Input type as follows:
 
-...
+> ...
+
+Duplicate Input declarations with different base Inputs are not permitted.
+Multiple Input declarations with the same base, or no base, will have their fields and alternates merged and de-duplicated.
+An explicit Input declaration will override that name being used as an alias for a different Input.
 
 ## Output type
 
 ```PEG
-Output = 'output' output TypeParameters? '=' Out_Definition
-Out_Definition = Out_Object '|' Out_References | Out_Object | Out_References
+Output = 'output' output TypeParameters? alias* '=' Out_Definition
+Out_Definition = Out_Object Out_Alternates? | Out_Alternates
 Out_Object = Out_Base? '{' Out_Fields+ '}'
-Out_Fields = field Argument? ':' Out_Reference Modifiers? | field '=' enum '.' label
-Argument = '(' In_Reference Modifiers? ')'
+Out_Fields = field Parameter? ':' Out_Reference Modifiers? | field '=' EnumLabel
+Parameter = '(' In_Reference Modifiers? ( '=' Constant )? ')'
 
-Out_References = Out_Reference '|' Out_References | Out_Reference
+Out_Alternates = Out_Reference '|' Out_Alternates | Out_Reference
 Out_Reference = Internal | Simple | Out_Base
-Out_Base = '$'typeParameter | output ( '<' ( Out_Reference | enum '.' label )+ '>' )?
+Out_Base = '$'typeParameter | output ( '<' ( Out_Reference | EnumLabel )+ '>' )?
 ```
 
 Output types define the result values for Categories and Output fields.
@@ -202,13 +242,31 @@ An Output type is defined as either:
 - an Output object definition followed by one or more Output type references, or
 - one or more Output type references
 
+Duplicate Output declarations with different base Outputs are not permitted.
+Multiple Output declarations with the same base, or no base, will have their fields and alternates merged and de-duplicated.
+An explicit Output declaration will override that name being used as an alias for a different Output.
+
+## Constant
+
+```PEG
+Constant = Const_List | Const_Object | Const_Value
+Const_Value = EnumLabel | 'true' | 'false' | 'null' | '_' | NUMBER | STRING
+Const_List = '[' Cons_Values ']' | '[' Constant* ']'
+Const_Values = Constant ',' Const_Values | Constant
+
+Const_Object = '{' Const_Fields '}' | '{' ( FieldKey ':' Constant )* '}'
+Const_Fields = Const_Field ';' Const_Fields | Const_Field
+Const_Field = FieldKey ':' Const_Values
+```
+
+A Constant is a single value. Commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields.
+
 ## Scalar type
 
 ```PEG
-Scalar = 'scalar' scalar '=' ScalarDefinition
-ScalarDefinition = Scal_Boolean | Scal_Number | Scal_String
+Scalar = 'scalar' scalar alias* '=' ScalarDefinition
+ScalarDefinition = Scal_Number | Scal_String
 
-Scal_Boolean = 'Boolean'
 Scal_Number = 'Number' Scal_Range*
 Scal_String = 'String' Scal_Regex*
 
@@ -218,21 +276,23 @@ Scal_RegEx = REGEX | '!' REGEX
 
 Scalar types define specific domains of:
 
-- Booleans
 - Numbers, possibly only those in a given range. Ranges may be upper and/or lower bounded and each bound may be inclusive or exclusive.
 - Strings, possibly only those that match (or don't match) one or more regular expressions.
+
+Duplicate Scalar declarations with different bases are not permitted.
+Multiple Scalar declarations with the same base will have their ranges or regexes merged and de-duplicated.
+An explicit Scalar declaration will override that name being used as an alias for a different Scalar.
 
 ## Complete Grammar
 
 ```PEG
 Schema = Declaration+
 
-Declaration = STRING? Dec_Definition
 Declaration = STRING? ( Category | Enum | Input | Output | Scalar )
 
 Category = 'category' output ( 'sequential' | 'single' )? alias*
 
-Enum = 'enum' enum '=' En_Labels
+Enum = 'enum' enum alias* '=' ( enum ':' ) ? En_Labels
 En_Labels = En_Label '|' En_Labels | En_Label
 En_Label = STRING? label
 
@@ -244,28 +304,38 @@ Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
 Simple = Basic | scalar | enum
 Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
 
-Input = 'input' input TypeParameters? '=' In_Definition
-In_Definition = In_Object '|' In_References | In_Object | In_References
+EnumLabel = ( enum '.' )? label
+
+Input = 'input' input TypeParameters? alias* '=' In_Definition
+In_Definition = In_Object '|' In_Alternates | In_Object | In_Alternates
 In_Object = In_Base? '{' ( field ':' In_Reference Modifiers? )+ '}'
 
-In_References = In_Reference '|' In_References | In_Reference
+In_Alternates = In_Reference '|' In_Alternates | In_Reference
 In_Reference = Internal | Simple | In_Base
 In_Base = '$'typeParameter | input ( '<' In_Reference+ '>' )?
 
-Output = 'output' output TypeParameters? '=' Out_Definition
-Out_Definition = Out_Object '|' Out_References | Out_Object | Out_References
+Output = 'output' output TypeParameters? alias* '=' Out_Definition
+Out_Definition = Out_Object '|' Out_Alternates | Out_Object | Out_Alternates
 Out_Object = Out_Base? '{' Out_Fields+ '}'
-Out_Fields = field Argument? ':' Out_Reference Modifiers? | field '=' enum '.' label
-Argument = '(' In_Reference Modifiers? ')'
+Out_Fields = field Argument? ':' Out_Reference Modifiers? | field '=' EnumLabel
+Argument = '(' In_Reference Modifiers? ( '=' Constant )? ')'
 
-Out_References = Out_Reference '|' Out_References | Out_Reference
+Out_Alternates = Out_Reference '|' Out_Alternates | Out_Reference
 Out_Reference = Internal | Simple | Out_Base
-Out_Base = '$'typeParameter | output ( '<' ( Out_Reference | enum '.' label )+ '>' )?
+Out_Base = '$'typeParameter | output ( '<' ( Out_Reference | EnumLabel )+ '>' )?
 
-Scalar = 'scalar' scalar '=' ScalarDefinition
-ScalarDefinition = Scal_Boolean | Scal_Number | Scal_String
+Constant = Const_List | Const_Object | Const_Value
+Const_Value = EnumLabel | 'true' | 'false' | 'null' | '_' | NUMBER | STRING
+Const_List = '[' Cons_Values ']' | '[' Constant* ']'
+Const_Values = Constant ',' Const_Values | Constant
 
-Scal_Boolean = 'Boolean'
+Const_Object = '{' Const_Fields '}' | '{' ( FieldKey ':' Constant )* '}'
+Const_Fields = Const_Field ';' Const_Fields | Const_Field
+Const_Field = FieldKey ':' Const_Values
+
+Scalar = 'scalar' scalar alias* '=' ScalarDefinition
+ScalarDefinition = Scal_Number | Scal_String
+
 Scal_Number = 'Number' Scal_Range*
 Scal_String = 'String' Scal_Regex*
 

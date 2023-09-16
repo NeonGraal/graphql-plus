@@ -6,28 +6,25 @@ The `_Schema` output type is automatically defined as followed and can be used t
 
 ```gqlp
 output _Schema = {
-        category(_Names?) : _Category[String]
-        type(_Names?) : _Type[String]
-    }
-
-input _Names = String | String[]
-```
-
-## Common
-
-```gqlp
-output _Named = {
-        name : String
-        description: String?
+        category(String[]?) : _Category[String]
+        type(String[]?) : _Type[String]
     }
 ```
 
 ## Category
 
 ```gqlp
-output _Category = _Named {
+output _Category = _Aliased {
         resolution : _Resolution
-        alias : String[]
+    }
+
+output _Aliased = _Named {
+        aliases : String[]
+    }
+
+output _Named = {
+        name : String
+        description: String?
     }
 
 enum _Resolution = Single | Sequential | Parallel
@@ -43,7 +40,7 @@ output _Type = _BaseType<_Kind.Basic>
     | _TypeObject<_Kind.Output _OutputBase _OutputField>
     | _TypeScalar
 
-output _BaseType<$kind> = _Named {
+output _BaseType<$kind> = _Aliased {
         kind : $kind
     }
 
@@ -130,11 +127,9 @@ output _OutputEnum = _BaseType<_Kind.Enum> {
 ## Scalar
 
 ```gqlp
-enum _Scalar = Boolean | Number | String
+enum _Scalar = Number | String
 
-output _TypeScalar = _BaseScalar<_Scalar.Boolean>
-    | _ScalarNumber
-    | _ScalarString
+output _TypeScalar = _ScalarNumber | _ScalarString
 
 output _BaseScalar<$base> = _BaseType<_Kind.Scalar> {
         base: $base

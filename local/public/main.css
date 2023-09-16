@@ -2,3 +2,11 @@ details {
   padding-bottom: 1ex;
   padding-left: 2em;
 }
+
+.toc-offcanvas {
+  flex: 0.2 !important;
+}
+
+.affix {
+  width: auto !important;
+}

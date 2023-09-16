@@ -4,7 +4,7 @@
 
 ## Operation
 
-```BNF
+```PEG
 Operation = ( category name )? Variables? Result
 ```
 
@@ -12,7 +12,7 @@ If not specified, an Operation's category is "query" and it's name is blank. Thi
 
 ## Variables
 
-```BNF
+```PEG
 Variables = '(' Variable+ ')'
 Variable = '$'variable ( ':' type )? Modifier? ( '=' Constant )?
 ```
@@ -32,7 +32,7 @@ A `Variable`'s Modifier and Default are both specified they should be validated,
 
 ## Result
 
-```BNF
+```PEG
 Result = ( Simple Argument? | Object ) Modifier?
 ```
 
@@ -43,7 +43,7 @@ An Operation's Result is either:
 
 ## Modifier
 
-```BNF
+```PEG
 Modifier = '?' | '[]' Modifier? | '[' Basic '?'? ']' Modifier?
 Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
 ```
@@ -83,7 +83,7 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 
 ## Simple
 
-```BNF
+```PEG
 Simple = Internal | Basic
 Internal = 'Void' | 'Null'
 ```
@@ -101,7 +101,7 @@ Internal = 'Void' | 'Null'
 
 ## Object
 
-```BNF
+```PEG
 Object = '{' ( field Argument? Modifier? Object? )+ '}'
 ```
 
@@ -124,7 +124,7 @@ A Result Object is a selection of fields. Each field may have none, one, more or
 
 ## Argument
 
-```BNF
+```PEG
 Argument = '(' Arg_Value ',' Arg_Values ')' | '(' Arg_Fields ')' | '(' Arg_Value* ')'
 Arg_Value = '$'variable | Arg_List | Arg_Object | Constant
 Arg_List = '[' Arg_Values ']' | '[' Arg_Value* ']'
@@ -143,7 +143,7 @@ Commas (`,`) can be used to separate list values and semi-colons (`;`) can be us
 
 ## Constant
 
-```BNF
+```PEG
 Constant = Const_List | Const_Object | Const_Value
 Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING
 Const_List = '[' Cons_Values ']' | '[' Constant* ']'
@@ -158,7 +158,7 @@ A Constant is a single value. Commas (`,`) can be used to separate list values a
 
 ## Complete Grammar
 
-```BNF
+```PEG
 Operation = ( category name )? Variables? Result
 
 Variables = '(' Variable+ ')'

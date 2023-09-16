@@ -4,7 +4,7 @@
 
 ## Schema
 
-```BNF
+```PEG
 Schema = Declaration+
 
 Declaration = STRING? ( Category | Enum | Input | Output | Scalar )
@@ -21,7 +21,7 @@ The following declarations are implied but can be specified explicitly:
 
 ## Category
 
-```BNF
+```PEG
 Category = 'category' output ( 'sequential' | 'single' )? alias*
 ```
 
@@ -38,7 +38,7 @@ By default an operation can specify multiple fields that are resolved in paralle
 
 ## Enum type
 
-```BNF
+```PEG
 Enum = 'enum' enum '=' En_Labels
 En_Labels = En_Label '|' En_Labels | En_Label
 En_Label = STRING? label
@@ -48,7 +48,7 @@ An Enum is a type defined by one or more labels. Each label can be preceded by a
 
 ## Common
 
-```BNF
+```PEG
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
@@ -140,7 +140,7 @@ These Generic types are the Input types if `$T` is an Input type and Output type
 
 ## Input type
 
-```BNF
+```PEG
 Input = 'input' input TypeParameters? '=' In_Definition
 In_Definition = In_Object '|' In_References | In_Object | In_References
 In_Object = In_Base? '{' ( field ':' In_Reference Modifiers? )+ '}'
@@ -164,7 +164,7 @@ An Operation's Argument value is mapped into a Field's Argument Input type as fo
 
 ## Output type
 
-```BNF
+```PEG
 Output = 'output' output TypeParameters? '=' Out_Definition
 Out_Definition = Out_Object '|' Out_References | Out_Object | Out_References
 Out_Object = Out_Base? '{' Out_Fields+ '}'
@@ -186,7 +186,7 @@ An Output type is defined as either:
 
 ## Scalar type
 
-```BNF
+```PEG
 Scalar = 'scalar' scalar '=' ScalarDefinition
 ScalarDefinition = Scal_Boolean | Scal_Number | Scal_String
 
@@ -206,7 +206,7 @@ Scalar types define specific domains of:
 
 ## Complete Grammar
 
-```BNF
+```PEG
 Schema = Declaration+
 
 Declaration = STRING? Dec_Definition

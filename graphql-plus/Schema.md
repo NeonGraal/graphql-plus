@@ -53,9 +53,9 @@ TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 
-Internal = 'Null' | 'Void'
+Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
 Simple = Basic | scalar | enum
-Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
+Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
 ```
 
 Type parameters can be defined on either Input or Output types. Each parameter can be preceded by a documentation string.
@@ -69,34 +69,51 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 <details>
 <summary>Built-In Generic types</summary>
 
-Modifiers are equivalent to predefined generic Input and Output types as follows:
+Modifiers are equivalent to predefined generic Input and Output types as follows (not strictly GraphQl plus but close enough):
 
 ```gqlp
 "$T?"
-generic Optional<$T> = $T | Null
+input|output _Optional<$T> = $T | Null
 
 "$T[]"
-generic List<$T> = $T[]  # Yes, I know this is recursive
+input|output _List<$T> = $T[]
 
 "$T[$K]"
-generic Dictionary<$K $T> = { $K : $T }  # Yes, I know this isn't strictly legal GraphQL-plus
+input|output _Dictionary<$K $T> = { $K : $T }
+```
 
-generic Map<$T> = Dictionary<String $T>
+The following GraphQlPlus idioms have equivalent generic Input and Output types.
 
-generic Array<$T> = Dictionary<Number $T>
+```gqlp
+"$T[*]"
+input|output _Map<$T> = _Dictionary<String $T>
 
-generic IfElse<$T> = Dictionary<Boolean $T>
+"$T[0]"
+input|output _Array<$T> = _Dictionary<Number $T>
 
-generic Object = Map<Object>
+"$T[!]"
+input|output _IfElse<$T> = _Dictionary<Boolean $T>
 
-generic Set<$K> = Dictionary<$K Unit>
+"%"
+input|output Object = Map<Any>
 
-generic Mask<$K> = Dictionary<$K Boolean>
+input|output _Any<$T> = $T | _Scalar | Object | _Any<$T>? | _Any<$T>[] | _Any<$T>[Simple] | _Any<$T>[Simple?]
+
+input Any = _Any<_Input>
+output Any =  _Any<_Output>
+
+"_[$K]"
+input|output Set<$K> = Dictionary<$K Unit>
+
+"![$K]"
+input|output Mask<$K> = Dictionary<$K Boolean>
 ```
 
 These Generic types are the Input types if `$T` is an Input type and Output types if `$T` is an Output type.
 
-`Set`, `Object` and `Mask` are both Input and Output types.
+`Set`, `Object`, `Mask` and `Any` are both Input and Output types.
+
+The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically defined to be a union of all Scalar, Output, Input and Enum types respectively.
 
 </details>
 
@@ -127,16 +144,17 @@ These Generic types are the Input types if `$T` is an Input type and Output type
 
 ### Common types
 
-| Type    | Value(s)          | Description                                                                 |
-| ------- | ----------------- | --------------------------------------------------------------------------- |
+| Type    | Value(s)          | Alias  | Description                                                                 |
+| ------- | ----------------- | ------ | --------------------------------------------------------------------------- |
 |         | _Internal types_  |
-| Void    |                   | The Void type has no values.                                                |
-| Null    | `null`            | The Null type only has one value, but can't be the type of a Dictionary Key |
+| Void    |                   |        | The Void type has no values.                                                |
+| Null    | `null`            | `null` | The Null type only has one value, but can't be the type of a Dictionary Key |
+| Object  |                   | `%`    | The Object type is a Dictionary by String of Any                            |
 |         | _Basic types_     |
-| Unit    | `_`               | The Unit type only has one value.                                           |
-| Boolean | `false` or `true` | The Boolean type only has two values.                                       |
-| Number  | NUMBER            |                                                                             |
-| String  | STRING            |                                                                             |
+| Unit    | `_`               | `_`    | The Unit type only has one value.                                           |
+| Boolean | `false` or `true` | `!`    | The Boolean type only has two values.                                       |
+| Number  | NUMBER            | `0`    |                                                                             |
+| String  | STRING            | `*`    |                                                                             |
 
 ## Input type
 
@@ -222,9 +240,9 @@ TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 
-Internal = 'Null' | 'Void'
+Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
 Simple = Basic | scalar | enum
-Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
+Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
 
 Input = 'input' input TypeParameters? '=' In_Definition
 In_Definition = In_Object '|' In_References | In_Object | In_References

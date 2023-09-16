@@ -21,7 +21,7 @@ A Variable with the Optional Modifier has an implied Default of `null` and a Var
 
 A Variable's Type name (`type`) is only included for GraphQL compatibility and is otherwise ignored.
 
-A `Variable`'s Modifier and Default are both specified they should be validated, recursively, as follows:
+If a Variable's Modifier and Default are both specified they should be validated, recursively, as follows:
 
 | Modifier  | Default       | Comment                                                                      |
 | --------- | ------------- | ---------------------------------------------------------------------------- |

@@ -1,6 +1,6 @@
 # Schema language definition
 
-> See [Definition](Definition.md) on how to read the definition below
+> All keywords and identifiers are case-sensitive. See [Definition](Definition.md) on how to read the definitions below.
 
 ## Schema
 
@@ -21,12 +21,12 @@ The following declarations are implied but can be specified explicitly:
 
 The names of all Types (All Declarations except Category) must be unique.
 The aliases of all Types (All Declarations except Category) must be unique.
-Explicit name declarations will override that name being used as an alias.
+Explicit Type name declarations will override that name being used as Type alias.
 
 ## Category
 
 ```PEG
-Category = 'category' output ( 'sequential' | 'single' )? alias*
+Category = 'category' output ( 'sequential' | 'single' )? categoryAlias*
 ```
 
 A Category is a set of operations defined by an Output type.
@@ -46,34 +46,38 @@ An explicit Category declaration for an Output type will override that name bein
 ## Enum type
 
 ```PEG
-Enum = 'enum' enum alias* '=' ( enum ':' ) ? En_Labels
+Enum = 'enum' enum typeAlias* '=' ( enum ':' )? En_Labels
 En_Labels = En_Label '|' En_Labels | En_Label
-En_Label = STRING? label
+En_Label = STRING? label labelAlias*
 ```
 
-An Enum is a type defined by one or more labels. Each label can be preceded by a documentation string.
+An Enum is a type defined with one or more Labels.
+Each Label can be preceded by a documentation string and may have one or more aliases.
+Label names and Label aliases must be unique for that Enum.
+Explicit Label names will override that name being used as a Label alias.
 
 An Enum can extend another enum and thus implicitly includes the extended enum's labels.
 
 Duplicate Enum declarations with different base Enums are not permitted.
-Multiple Enum declarations with the same base, or no base, will have their labels and aliases merged and de-duplicated.
-An explicit Enum declaration will override that name being used as an alias for a different Enum.
+Multiple Enum declarations with the same base, or no base, will have their labels and Type aliases merged and de-duplicated.
 
 ## Common
 
 ```PEG
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
+EnumLabel = ( enum '.' )? label
+
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 
 Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
 Simple = Basic | scalar | enum
 Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
-
-EnumLabel = ( enum '.' )? label
 ```
 
 Type parameters can be defined on either Input or Output types. Each parameter can be preceded by a documentation string.
+
+An Enum Label reference may drop the Enum portion if the Label is unique within the Schema.
 
 ### Modifiers
 
@@ -195,9 +199,9 @@ The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically 
 ## Input type
 
 ```PEG
-Input = 'input' input TypeParameters? alias* '=' In_Definition
-In_Definition = In_Object In_Alternates? | In_Alternates
-In_Object = In_Base? '{' ( field ':' In_Reference Modifiers? )+ '}'
+Input = 'input' input TypeParameters? typeAlias* '=' In_Definition
+In_Definition = In_Object ( '|'? In_Alternates )? | In_Alternates
+In_Object = In_Base? '{' ( field fieldAlias* ':' In_Reference Modifiers? )+ '}'
 
 In_Alternates = In_Reference '|' In_Alternates | In_Reference
 In_Reference = Internal | Simple | In_Base
@@ -208,9 +212,13 @@ Input types define the type of Output field's Argument.
 
 An Input type is defined as either:
 
-- an Input object definition followed by one or more Input type references, or
-- an Input object definition, or
+- an Input object definition followed by zero or more Input type references, or
 - one or more Input type references
+
+An Input object may have a base Input type and has one or more Input fields.
+
+Input Field names and Field aliases must be unique within the Input object, including any base object.
+Explicit Field names will override the same name being used as a Field alias.
 
 An Operation's Argument value is mapped into a Field's Argument Input type as follows:
 
@@ -218,15 +226,14 @@ An Operation's Argument value is mapped into a Field's Argument Input type as fo
 
 Duplicate Input declarations with different base Inputs are not permitted.
 Multiple Input declarations with the same base, or no base, will have their fields and alternates merged and de-duplicated.
-An explicit Input declaration will override that name being used as an alias for a different Input.
 
 ## Output type
 
 ```PEG
-Output = 'output' output TypeParameters? alias* '=' Out_Definition
-Out_Definition = Out_Object Out_Alternates? | Out_Alternates
+Output = 'output' output TypeParameters? typeAlias* '=' Out_Definition
+Out_Definition = Out_Object ( '|'? Out_Alternates )? | Out_Alternates
 Out_Object = Out_Base? '{' Out_Fields+ '}'
-Out_Fields = field Parameter? ':' Out_Reference Modifiers? | field '=' EnumLabel
+Out_Fields = field Parameter? fieldAlias* ':' Out_Reference Modifiers? | field fieldAlias* '=' EnumLabel
 Parameter = '(' In_Reference Modifiers? ( '=' Constant )? ')'
 
 Out_Alternates = Out_Reference '|' Out_Alternates | Out_Reference
@@ -238,13 +245,16 @@ Output types define the result values for Categories and Output fields.
 
 An Output type is defined as either:
 
-- an Output object definition, or
-- an Output object definition followed by one or more Output type references, or
+- an Output object definition followed by zero or more Output type references, or
 - one or more Output type references
+
+An Output object may have a base Output type and has one or more Output fields.
+
+Output Field names and Field aliases must be unique within the Output object, including any base object.
+Explicit Field names will override the same name being used as a Field alias.
 
 Duplicate Output declarations with different base Outputs are not permitted.
 Multiple Output declarations with the same base, or no base, will have their fields and alternates merged and de-duplicated.
-An explicit Output declaration will override that name being used as an alias for a different Output.
 
 ## Constant
 
@@ -257,6 +267,7 @@ Const_Values = Constant ',' Const_Values | Constant
 Const_Object = '{' Const_Fields '}' | '{' ( FieldKey ':' Constant )* '}'
 Const_Fields = Const_Field ';' Const_Fields | Const_Field
 Const_Field = FieldKey ':' Const_Values
+FieldKey = field | NUMBER | STRING
 ```
 
 A Constant is a single value. Commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields.
@@ -264,7 +275,7 @@ A Constant is a single value. Commas (`,`) can be used to separate list values a
 ## Scalar type
 
 ```PEG
-Scalar = 'scalar' scalar alias* '=' ScalarDefinition
+Scalar = 'scalar' scalar typeAlias* '=' ScalarDefinition
 ScalarDefinition = Scal_Number | Scal_String
 
 Scal_Number = 'Number' Scal_Range*
@@ -281,7 +292,6 @@ Scalar types define specific domains of:
 
 Duplicate Scalar declarations with different bases are not permitted.
 Multiple Scalar declarations with the same base will have their ranges or regexes merged and de-duplicated.
-An explicit Scalar declaration will override that name being used as an alias for a different Scalar.
 
 ## Complete Grammar
 
@@ -290,13 +300,15 @@ Schema = Declaration+
 
 Declaration = STRING? ( Category | Enum | Input | Output | Scalar )
 
-Category = 'category' output ( 'sequential' | 'single' )? alias*
+Category = 'category' output ( 'sequential' | 'single' )? categoryAlias*
 
-Enum = 'enum' enum alias* '=' ( enum ':' ) ? En_Labels
+Enum = 'enum' enum typeAlias* '=' ( enum ':' )? En_Labels
 En_Labels = En_Label '|' En_Labels | En_Label
-En_Label = STRING? label
+En_Label = STRING? label labelAlias*
 
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
+
+EnumLabel = ( enum '.' )? label
 
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 
@@ -304,20 +316,18 @@ Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
 Simple = Basic | scalar | enum
 Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
 
-EnumLabel = ( enum '.' )? label
-
-Input = 'input' input TypeParameters? alias* '=' In_Definition
-In_Definition = In_Object '|' In_Alternates | In_Object | In_Alternates
-In_Object = In_Base? '{' ( field ':' In_Reference Modifiers? )+ '}'
+Input = 'input' input TypeParameters? typeAlias* '=' In_Definition
+In_Definition = In_Object ( '|'? In_Alternates )? | In_Alternates
+In_Object = In_Base? '{' ( field fieldAlias* ':' In_Reference Modifiers? )+ '}'
 
 In_Alternates = In_Reference '|' In_Alternates | In_Reference
 In_Reference = Internal | Simple | In_Base
 In_Base = '$'typeParameter | input ( '<' In_Reference+ '>' )?
 
-Output = 'output' output TypeParameters? alias* '=' Out_Definition
-Out_Definition = Out_Object '|' Out_Alternates | Out_Object | Out_Alternates
+Output = 'output' output TypeParameters? typeAlias* '=' Out_Definition
+Out_Definition = Out_Object ( '|'? Out_Alternates )? | Out_Alternates
 Out_Object = Out_Base? '{' Out_Fields+ '}'
-Out_Fields = field Argument? ':' Out_Reference Modifiers? | field '=' EnumLabel
+Out_Fields = field Argument? fieldAlias* ':' Out_Reference Modifiers? | field fieldAlias* '=' EnumLabel
 Argument = '(' In_Reference Modifiers? ( '=' Constant )? ')'
 
 Out_Alternates = Out_Reference '|' Out_Alternates | Out_Reference
@@ -332,8 +342,9 @@ Const_Values = Constant ',' Const_Values | Constant
 Const_Object = '{' Const_Fields '}' | '{' ( FieldKey ':' Constant )* '}'
 Const_Fields = Const_Field ';' Const_Fields | Const_Field
 Const_Field = FieldKey ':' Const_Values
+FieldKey = field | NUMBER | STRING
 
-Scalar = 'scalar' scalar alias* '=' ScalarDefinition
+Scalar = 'scalar' scalar typeAlias* '=' ScalarDefinition
 ScalarDefinition = Scal_Number | Scal_String
 
 Scal_Number = 'Number' Scal_Range*

@@ -51,7 +51,7 @@ enum _Resolution = Single | Sequential | Parallel
 output _Type = _BaseType<_Kind.Basic>
     | _BaseType<_Kind.Internal>
     | _TypeEnum
-    | _TypeObject<_Kind.Input _InputBase _InputField>
+    | _InputType
     | _OutputType
     | _TypeScalar
 
@@ -72,8 +72,13 @@ output _TypeRef<$base> = _BaseType<_Kind.Internal>
     | _TypeSimple
     | $base
 
-output _TypeField<$base> = {
-      field: String
+output _TypeBase<$base $argument> = {
+        base: $base
+        arguments: $argument[]
+    }
+    | "TypeParameter" String
+
+output _TypeField<$base> = _Aliased {
       type: _TypeRef<$base>
       modifiers: _TypeModifier[]
     }
@@ -101,18 +106,17 @@ output _ModifierDictionary = _BaseModifier<_Modifier.Dictionary> {
 
 ```gqlp
 output _TypeEnum = _BaseType<_Kind.Enum> {
-        labels: _Named[]
+        base: _TypeEnum?
+        labels: _Aliased[]
     }
 ```
 
 ## Input
 
 ```gqlp
-output _InputBase = {
-        input: String
-        arguments: _TypeRef<_InputBase>[]
-    }
-    | "TypeParameter" String
+output _InputType = _TypeObject<_Kind.Input _InputBase _InputField>
+
+output _InputBase = _TypeBase<_InputType _TypeRef<_InputBase>>
 
 output _InputField = _TypeField<_InputBase>
 ```
@@ -122,14 +126,10 @@ output _InputField = _TypeField<_InputBase>
 ```gqlp
 output _OutputType = _TypeObject<_Kind.Output _OutputBase _OutputField>
 
-output _OutputBase = {
-        input: String
-        arguments: _OutputArgument[]
-    }
-    | "TypeParameter" String
+output _OutputBase = _TypeBase<_OutputType _OutputArgument>
 
-output _OutputField = _OutputEnum {
-        field: String
+output _OutputField = _Aliased {
+        base: _OutputEnum
     }
     | _TypeField<_OutputBase>
 
@@ -217,9 +217,9 @@ enum _Resolution = Single | Sequential | Parallel
 output _Type = _BaseType<_Kind.Basic>
       | _BaseType<_Kind.Internal>
       | _TypeEnum
-      | _TypeObject<_Kind.Input _InputType>
+      | _InputType
       | _OutputType
-      | _BaseType<_Kind.Scalar>
+      | _TypeScalar>
 
 output _BaseType<$kind> = _Aliased {
         kind : $kind
@@ -239,8 +239,13 @@ output _TypeRef<$base> = _BaseType<_Kind.Internal>
     | _TypeSimple
     | $base
 
-output _TypeField<$base> = {
-      field: String
+output _TypeBase<$base $argument> = {
+        base: $base
+        arguments: $argument[]
+    }
+    | "TypeParameter" String
+
+output _TypeField<$base> = _Aliased {
       type: _TypeRef<$base>
       modifiers: _TypeModifier[]
     }
@@ -264,27 +269,22 @@ output _ModifierDictionary = _BaseModifier<_Modifier.Dictionary> {
     }
 
 output _TypeEnum = _BaseType<_Kind.Enum> {
-        labels: _Named[]
+        base: _TypeEnum?
+        labels: _Aliased[]
     }
 
-output _InputBase = {
-        input: String
-        arguments: _TypeRef<_InputBase>[]
-    }
-    | "TypeParameter" String
+output _InputType = _TypeObject<_Kind.Input _InputBase _InputField>
+
+output _InputBase = _TypeBase<_InputType _TypeRef<_InputBase>>
 
 output _InputField = _TypeField<_InputBase>
 
 output _OutputType = _TypeObject<_Kind.Output _OutputBase _OutputField>
 
-output _OutputBase = {
-        input: String
-        arguments: _OutputArgument[]
-    }
-    | "TypeParameter" String
+output _OutputBase = _TypeBase<_OutputType _OutputArgument>
 
-output _OutputField = _OutputEnum {
-        field: String
+output _OutputField = _Aliased {
+        base: _OutputEnum
     }
     | _TypeField<_OutputBase>
 

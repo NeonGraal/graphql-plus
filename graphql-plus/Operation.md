@@ -5,16 +5,16 @@
 ## Operation
 
 ```PEG
-Operation = ( category name )? Variables? Result
+Operation = ( category name? )? Variables? Directive* Result Definition*
 ```
 
-If not specified, an Operation's category is "query" and it's name is blank. This is for GraphQL compatibility.
+If not specified, an Operation's category is "query". This is for GraphQL compatibility.
 
 ## Variables
 
 ```PEG
 Variables = '(' Variable+ ')'
-Variable = '$'variable ( ':' type )? Modifier? ( '=' Constant )?
+Variable = '$'variable ( ':' type )? Modifier? ( '=' Constant )? Directive*
 ```
 
 A Variable with the Optional Modifier has an implied Default of `null` and a Variable with a Default of `null` has an implied Optional Modifier.
@@ -29,6 +29,14 @@ If a Variable's Modifier and Default are both specified they should be validated
 | `[]`      | object        | **ERROR** A List type cannot have an Object default.                         |
 | `[]`      | value         | A value is equivalent to a list containing just that value, ie. `[`value`]`. |
 | `[`any`]` | list or value | **ERROR** An Object type can only have an object default.                    |
+
+## Directives
+
+```PEG
+Directive = '@'directive Argument?
+```
+
+The order of directives may be significant
 
 ## Result
 
@@ -45,7 +53,7 @@ An Operation's Result is either:
 
 ```PEG
 Modifier = '?' | '[]' Modifier? | '[' Basic '?'? ']' Modifier?
-Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
+Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_' | enum
 ```
 
 | Modifier   | Syntax          | Notes                                                                                                                        | Description                   |
@@ -85,7 +93,7 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 
 ```PEG
 Simple = Internal | Basic
-Internal = 'Void' | 'Null'
+Internal = 'Void' | 'Null' | 'null'
 ```
 
 | Type    | Value(s)          | Description                                                                 |
@@ -99,16 +107,27 @@ Internal = 'Void' | 'Null'
 | Number  | NUMBER            |                                                                             |
 | String  | STRING            |                                                                             |
 
+Any unknown identifier used as a Dictionary key Type will be treated as an Enum Type name.
+
 ## Object
 
 ```PEG
-Object = '{' ( field Argument? Modifier? Object? )+ '}'
+Object = '{' ( Field | Fragment )+ '}'
+Field = ( alias ':' )? field Argument? Modifier? Directive* Object?
+Fragment = '...' ( Inline | Spread )
+Inline = TypeCondition? Directive* Object
+Spread = fragment Directive*
+TypeCondition = 'on' type
 ```
 
-A Result Object is a selection of fields. Each field may have none, one, more or even all of the following, in this order:
+A Result Object is a selection of fields or fragments. 
 
+A Field may have none, one, more or even all of the following, in this order:
+
+- an Alias, before the field name
 - an Argument
 - Modifiers
+- Directives
 - a sub-selection of fields
 
 | Example                        | Sample                                                          |
@@ -120,7 +139,13 @@ A Result Object is a selection of fields. Each field may have none, one, more or
 | `{ user(12) { id name } }`     | `{ user:{ id:12; name:"Andrew" } }`                             |
 | `{ user(12)[] { id name } }`   | `{ user:[ { id:12; name:"Andrew" } ] }`                         |
 | `{ user("A*") { id name } }`   | `{ user:{ id:12; name:"Andrew" } }`                             |
-| `{ user("A*")[] { id name } }` | `{ user:[ { id:12; name:"Andrew" }, { id:34; name:"Alan" } ] }` |
+| `{ All_A: user("A*")[] { id name } }` | `{ All_A:[ { id:12; name:"Andrew" }, { id:34; name:"Alan" } ] }` |
+
+## Definition
+
+```PEG
+Definition = 'fragment' fragment TypeCondition Directive* Object
+```
 
 ## Argument
 
@@ -134,7 +159,7 @@ Arg_Object = '{' Arg_Fields '}' | '{' ( FieldKey ':' Arg_Value )* '}' | Arg_Fiel
 Arg_Fields = Arg_Field ';' Arg_Fields | Arg_Field
 Arg_Field = FieldKey ':' ArgValues
 
-FieldKey = field | NUMBER | STRING
+FieldKey = ( enum '.' )? field | NUMBER | STRING
 ```
 
 An Argument is usually a single value. If multiple values are provided they are treated as a list. If one or more fields are provided they are treated as an object.
@@ -145,7 +170,7 @@ Commas (`,`) can be used to separate list values and semi-colons (`;`) can be us
 
 ```PEG
 Constant = Const_List | Const_Object | Const_Value
-Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING
+Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | ( enum '.' )? label
 Const_List = '[' Cons_Values ']' | '[' Constant* ']'
 Const_Values = Constant ',' Const_Values | Constant
 
@@ -159,20 +184,29 @@ A Constant is a single value. Commas (`,`) can be used to separate list values a
 ## Complete Grammar
 
 ```PEG
-Operation = ( category name )? Variables? Result
+Operation = ( category name? )? Variables? Directive* Result Definition*
 
 Variables = '(' Variable+ ')'
-Variable = '$'variable ( ':' type )? Modifier? ( '=' Constant )?
+Variable = '$'variable ( ':' type )? Modifier? ( '=' Constant )? Directive*
+
+Directive = '@'directive Argument?
 
 Result = ( Simple Argument? | Object ) Modifier?
 
 Modifier = '?' | '[]' Modifier? | '[' Basic '?'? ']' Modifier?
-Basic = 'Boolean' | 'Number' | 'String' | 'Unit'
+Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_' | enum
 
 Simple = Internal | Basic
-Internal = 'Void' | 'Null'
+Internal = 'Void' | 'Null' | 'null'
 
-Object = '{' ( field Argument? Modifier? Object? )+ '}'
+Object = '{' ( Field | Fragment )+ '}'
+Field = ( alias ':' )? field Argument? Modifier? Directive* Object?
+Fragment = '...' ( Inline | Spread )
+Inline = TypeCondition? Directive* Object
+Spread = fragment Directive*
+TypeCondition = 'on' type
+
+Definition = 'fragment' fragment TypeCondition Directive* Object
 
 Argument = '(' Arg_Value ',' Arg_Values ')' | '(' Arg_Fields ')' | '(' Arg_Value* ')'
 Arg_Value = '$'variable | Arg_List | Arg_Object | Constant
@@ -183,10 +217,10 @@ Arg_Object = '{' Arg_Fields '}' | '{' ( FieldKey ':' Arg_Value )* '}' | Arg_Fiel
 Arg_Fields = Arg_Field ';' Arg_Fields | Arg_Field
 Arg_Field = FieldKey ':' ArgValues
 
-FieldKey = field | NUMBER | STRING
+FieldKey = ( enum '.' )? field | NUMBER | STRING
 
 Constant = Const_List | Const_Object | Const_Value
-Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING
+Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | ( enum '.' )? label
 Const_List = '[' Cons_Values ']' | '[' Constant* ']'
 Const_Values = Constant ',' Const_Values | Constant
 

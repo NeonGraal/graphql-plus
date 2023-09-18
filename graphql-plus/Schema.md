@@ -1,6 +1,6 @@
 # Schema language definition
 
-> All keywords and identifiers are case-sensitive. See [Definition](Definition.md) on how to read the definitions below.
+> See [Definition](Definition.md) on how to read the definitions below.
 
 ## Schema
 
@@ -68,6 +68,8 @@ TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
 EnumLabel = ( enum '.' )? label
 
+Default = '=' Constant
+
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 
 Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
@@ -100,7 +102,7 @@ input|output _Optional<$T> = $T | Null
 input|output _List<$T> = $T[]
 
 "$T[$K]"
-input|output _Dictionary<$K $T> = { $K : $T }
+input|output _Dictionary<$K $T> = { $K: $T }
 ```
 
 The following GraphQlPlus idioms have equivalent generic Input and Output types.
@@ -201,7 +203,8 @@ The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically 
 ```PEG
 Input = 'input' input TypeParameters? typeAlias* '=' In_Definition
 In_Definition = In_Object ( '|'? In_Alternates )? | In_Alternates
-In_Object = In_Base? '{' ( field fieldAlias* ':' In_Reference Modifiers? )+ '}'
+In_Object = In_Base? '{' InField+ '}'
+In_Field = STRING? field fieldAlias* ':' In_Reference Modifiers? Default?
 
 In_Alternates = In_Reference '|' In_Alternates | In_Reference
 In_Reference = Internal | Simple | In_Base
@@ -217,6 +220,20 @@ An Input type is defined as either:
 
 An Input object may have a base Input type and has one or more Input fields.
 
+An Input Field comprises:
+
+- an optional documentation string,
+- a Field name
+- zero or more Field aliases
+- a type parameter or Input type references
+- zero or more type Modifiers
+- an optional Default value
+
+An Input type reference may be an Internal, Simple or Input type.
+If an Input type is may have Type Arguments of Input type references.
+
+A Default of `null` is only allowed on Optional fields. The Default must be compatible with the Modified Type of the field.
+
 Input Field names and Field aliases must be unique within the Input object, including any base object.
 Explicit Field names will override the same name being used as a Field alias.
 
@@ -227,14 +244,18 @@ An Operation's Argument value is mapped into a Field's Argument Input type as fo
 Duplicate Input declarations with different base Inputs are not permitted.
 Multiple Input declarations with the same base, or no base, will have their fields and alternates merged and de-duplicated.
 
+When merging, Fields with the same name must have the same Modified Type. Field aliases will be merged and de-duplicated.
+Optional components (documentation string and default), if present, must be the same.
+If only present on one Field before merging, optional components will be retained on the merged Field.
+
 ## Output type
 
 ```PEG
 Output = 'output' output TypeParameters? typeAlias* '=' Out_Definition
 Out_Definition = Out_Object ( '|'? Out_Alternates )? | Out_Alternates
-Out_Object = Out_Base? '{' Out_Fields+ '}'
-Out_Fields = field Parameter? fieldAlias* ':' Out_Reference Modifiers? | field fieldAlias* '=' EnumLabel
-Parameter = '(' In_Reference Modifiers? ( '=' Constant )? ')'
+Out_Object = Out_Base? '{' ( STRING? field Out_Field )+ '}'
+Out_Field = Parameter? fieldAlias* ':' Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
+Parameter = '(' In_Reference Modifiers? Default? ')'
 
 Out_Alternates = Out_Reference '|' Out_Alternates | Out_Reference
 Out_Reference = Internal | Simple | Out_Base
@@ -249,6 +270,27 @@ An Output type is defined as either:
 - one or more Output type references
 
 An Output object may have a base Output type and has one or more Output fields.
+
+An Output Field comprises:
+
+- an optional documentation string,
+- a Field name
+- an optional Parameter
+- zero or more Field aliases
+- a type parameter or an Output type reference
+- zero or more type Modifiers
+
+or:
+
+- an optional documentation string,
+- a Field name
+- zero or more Field aliases
+- an Enum Label (which will imply the field Type)
+
+An Output type reference may be an Internal, Simple or Output type.
+If an Output type is may have Type Arguments of Output type references and/or Enum Labels.
+
+A Parameter is a Input type reference, possibly with Modifiers and/or a Default.
 
 Output Field names and Field aliases must be unique within the Output object, including any base object.
 Explicit Field names will override the same name being used as a Field alias.
@@ -310,6 +352,8 @@ TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
 EnumLabel = ( enum '.' )? label
 
+Default = '=' Constant
+
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 
 Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
@@ -318,7 +362,8 @@ Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
 
 Input = 'input' input TypeParameters? typeAlias* '=' In_Definition
 In_Definition = In_Object ( '|'? In_Alternates )? | In_Alternates
-In_Object = In_Base? '{' ( field fieldAlias* ':' In_Reference Modifiers? )+ '}'
+In_Object = In_Base? '{' InField+ '}'
+In_Field = STRING? field fieldAlias* ':' In_Reference Modifiers? Default?
 
 In_Alternates = In_Reference '|' In_Alternates | In_Reference
 In_Reference = Internal | Simple | In_Base
@@ -326,9 +371,9 @@ In_Base = '$'typeParameter | input ( '<' In_Reference+ '>' )?
 
 Output = 'output' output TypeParameters? typeAlias* '=' Out_Definition
 Out_Definition = Out_Object ( '|'? Out_Alternates )? | Out_Alternates
-Out_Object = Out_Base? '{' Out_Fields+ '}'
-Out_Fields = field Argument? fieldAlias* ':' Out_Reference Modifiers? | field fieldAlias* '=' EnumLabel
-Argument = '(' In_Reference Modifiers? ( '=' Constant )? ')'
+Out_Object = Out_Base? '{' ( STRING? field Out_Field )+ '}'
+Out_Field = Parameter? fieldAlias* ':' Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
+Parameter = '(' In_Reference Modifiers? Default? ')'
 
 Out_Alternates = Out_Reference '|' Out_Alternates | Out_Reference
 Out_Reference = Internal | Simple | Out_Base

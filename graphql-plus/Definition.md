@@ -1,5 +1,11 @@
 # Language Definitions
 
+All keywords and identifiers are case-sensitive.
+
+Except where explicitly specified (in Constants), commas (`,`) and semi-colons (`;`) are considered whitespace.
+
+## Grammar
+
 Language definitions are given in a modified PEG (Parsing Expression Grammar)
 
 | Operator   | Example      | Description                                                                    |

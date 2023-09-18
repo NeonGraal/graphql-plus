@@ -6,12 +6,13 @@ The `_Schema` output type is automatically defined as followed and can be used t
 
 ```gqlp
 output _Schema = {
-        category(_CategoryFilter) : _Category[String]
-        type(_TypeFilter) : _Type[String]
+        category(_CategoryFilter): _Category[String]
+        type(_TypeFilter): _Type[String]
     }
 
 input _FilterBase =  {
         names: String[]
+        includeReferencedTypes: Boolean = false
     } String[]?
 
 input _CategoryFilter = _FilterBase{
@@ -29,16 +30,16 @@ input _TypeFilter = _FilterBase {
 
 ```gqlp
 output _Category = _Aliased {
-        resolution : _Resolution
-        output: _OutputType
+        resolution: _Resolution
+        type: _Type[String]
     }
 
 output _Aliased = _Named {
-        aliases : String[]
+        aliases: String[]
     }
 
 output _Named = {
-        name : String
+        name: String
         description: String?
     }
 
@@ -51,18 +52,18 @@ enum _Resolution = Single | Sequential | Parallel
 output _Type = _BaseType<_Kind.Basic>
     | _BaseType<_Kind.Internal>
     | _TypeEnum
-    | _InputType
-    | _OutputType
+    | _TypeObject<_Kind.Input _InputBase _InputField>
+    | _TypeObject<_Kind.Output _OutputBase _OutputField>
     | _TypeScalar
 
 output _BaseType<$kind> = _Aliased {
-        kind : $kind
+        kind: $kind
     }
 
 enum _Kind = Basic | Enum | Internal | Input | Output | Scalar
 
 output _TypeObject<$kind $base $field> =_BaseType<$kind> {
-        parameters : _Named[]
+        parameters: _Named[]
         base: $base?
         fields: $field[]
         alternates: $_TypeRef<$base>[]
@@ -71,12 +72,6 @@ output _TypeObject<$kind $base $field> =_BaseType<$kind> {
 output _TypeRef<$base> = _BaseType<_Kind.Internal>
     | _TypeSimple
     | $base
-
-output _TypeBase<$base $argument> = {
-        base: $base
-        arguments: $argument[]
-    }
-    | "TypeParameter" String
 
 output _TypeField<$base> = _Aliased {
       type: _TypeRef<$base>
@@ -106,17 +101,18 @@ output _ModifierDictionary = _BaseModifier<_Modifier.Dictionary> {
 
 ```gqlp
 output _TypeEnum = _BaseType<_Kind.Enum> {
-        base: _TypeEnum?
-        labels: _Aliased[]
+        labels: _Named[]
     }
 ```
 
 ## Input
 
 ```gqlp
-output _InputType = _TypeObject<_Kind.Input _InputBase _InputField>
-
-output _InputBase = _TypeBase<_InputType _TypeRef<_InputBase>>
+output _InputBase = {
+        input: String
+        arguments: _TypeRef<_InputBase>[]
+    }
+    | "TypeParameter" String
 
 output _InputField = _TypeField<_InputBase>
 ```
@@ -124,12 +120,14 @@ output _InputField = _TypeField<_InputBase>
 ## Output
 
 ```gqlp
-output _OutputType = _TypeObject<_Kind.Output _OutputBase _OutputField>
+output _OutputBase = {
+        input: String
+        arguments: _OutputArgument[]
+    }
+    | "TypeParameter" String
 
-output _OutputBase = _TypeBase<_OutputType _OutputArgument>
-
-output _OutputField = _Aliased {
-        base: _OutputEnum
+output _OutputField = _OutputEnum {
+        field: String
     }
     | _TypeField<_OutputBase>
 
@@ -180,8 +178,8 @@ output _ScalarRegex {
 input _Names = String | String[]
 
 output _Schema = {
-        category(_CategoryFilter) : _Category[String]
-        type(_TypeFilter) : _Type[String]
+        category(_CategoryFilter): _Category[String]
+        type(_TypeFilter): _Type[String]
     }
 
 input _FilterBase =  {
@@ -199,16 +197,16 @@ input _TypeFilter = _FilterBase {
     }
 
 output _Category = _Aliased {
-        resolution : _Resolution
+        resolution: _Resolution
         output: _OutputType
     }
 
 output _Aliased = _Named {
-        aliases : String[]
+        aliases: String[]
     }
 
 output _Named = {
-        name : String
+        name: String
         description: String?
     }
 
@@ -217,19 +215,19 @@ enum _Resolution = Single | Sequential | Parallel
 output _Type = _BaseType<_Kind.Basic>
       | _BaseType<_Kind.Internal>
       | _TypeEnum
-      | _InputType
+      | _TypeObject<_Kind.Input _InputType>
       | _OutputType
-      | _TypeScalar>
+      | _BaseType<_Kind.Scalar>
 
 output _BaseType<$kind> = _Aliased {
-        kind : $kind
+        kind: $kind
     }
 
 enum _Kind = Basic | Enum | Internal | Input | Output | Scalar
 
 
 output _TypeObject<$kind $base $field> =_BaseType<$kind> {
-        parameters : _Named[]
+        parameters: _Named[]
         base: $base?
         fields: $field[]
         alternates: $_TypeRef<$base>[]
@@ -239,13 +237,8 @@ output _TypeRef<$base> = _BaseType<_Kind.Internal>
     | _TypeSimple
     | $base
 
-output _TypeBase<$base $argument> = {
-        base: $base
-        arguments: $argument[]
-    }
-    | "TypeParameter" String
-
-output _TypeField<$base> = _Aliased {
+output _TypeField<$base> = {
+      field: String
       type: _TypeRef<$base>
       modifiers: _TypeModifier[]
     }
@@ -269,22 +262,27 @@ output _ModifierDictionary = _BaseModifier<_Modifier.Dictionary> {
     }
 
 output _TypeEnum = _BaseType<_Kind.Enum> {
-        base: _TypeEnum?
-        labels: _Aliased[]
+        labels: _Named[]
     }
 
-output _InputType = _TypeObject<_Kind.Input _InputBase _InputField>
-
-output _InputBase = _TypeBase<_InputType _TypeRef<_InputBase>>
+output _InputBase = {
+        input: String
+        arguments: _TypeRef<_InputBase>[]
+    }
+    | "TypeParameter" String
 
 output _InputField = _TypeField<_InputBase>
 
 output _OutputType = _TypeObject<_Kind.Output _OutputBase _OutputField>
 
-output _OutputBase = _TypeBase<_OutputType _OutputArgument>
+output _OutputBase = {
+        input: String
+        arguments: _OutputArgument[]
+    }
+    | "TypeParameter" String
 
-output _OutputField = _Aliased {
-        base: _OutputEnum
+output _OutputField = _OutputEnum {
+        field: String
     }
     | _TypeField<_OutputBase>
 

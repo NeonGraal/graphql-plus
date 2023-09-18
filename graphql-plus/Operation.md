@@ -1,6 +1,6 @@
 # Operation language definition
 
-> All keywords and identifiers are case-sensitive. See [Definition](Definition.md) on how to read the definitions below.
+> See [Definition](Definition.md) on how to read the definitions below.
 
 ## Operation
 

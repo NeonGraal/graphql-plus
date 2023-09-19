@@ -114,8 +114,10 @@ Any unknown identifier used as a Dictionary key Type will be treated as an Enum 
 ## Object
 
 ```PEG
-Object = '{' ( Field | Fragment )+ '}'
-Field = ( alias ':' )? field Argument? Modifier? Directive* Object?
+Object = Include? '{' ( Field | Fragment )+ '}'
+Include = '^' include
+Field = ( alias ':' )? field Argument? Modifier? Directive* Selection?
+Selection = '&' include | Object
 Fragment = '...' ( Inline | Spread )
 Inline = TypeCondition? Directive* Object
 Spread = fragment Directive*
@@ -203,8 +205,10 @@ Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_' | enum
 Simple = Internal | Basic
 Internal = 'Void' | 'Null' | 'null'
 
-Object = '{' ( Field | Fragment )+ '}'
-Field = ( alias ':' )? field Argument? Modifier? Directive* Object?
+Object = Include? '{' ( Field | Fragment )+ '}'
+Include = '^' include
+Field = ( alias ':' )? field Argument? Modifier? Directive* Selection?
+Selection = '&' include | Object
 Fragment = '...' ( Inline | Spread )
 Inline = TypeCondition? Directive* Object
 Spread = fragment Directive*

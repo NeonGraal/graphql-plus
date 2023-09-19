@@ -14,7 +14,9 @@ If not specified, an Operation's category is "query". This is for GraphQL compat
 
 ```PEG
 Variables = '(' Variable+ ')'
-Variable = '$'variable ( ':' type )? Modifier? ( '=' Constant )? Directive*
+Variable = '$'variable ( ':' Var_Type )? Modifier? ( '=' Constant )? Directive*
+Var_Type = Var_NotNull '!'?
+Var_Null = '[' Var_Type ']' | type
 ```
 
 A Variable with the Optional Modifier has an implied Default of `null` and a Variable with a Default of `null` has an implied Optional Modifier.
@@ -53,7 +55,7 @@ An Operation's Result is either:
 
 ```PEG
 Modifier = '?' | '[]' Modifier? | '[' Basic '?'? ']' Modifier?
-Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_' | enum
+Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_' | enum
 ```
 
 | Modifier   | Syntax          | Notes                                                                                                                        | Description                   |
@@ -187,14 +189,16 @@ A Constant is a single value. Commas (`,`) can be used to separate list values a
 Operation = ( category name? )? Variables? Directive* Result Definition*
 
 Variables = '(' Variable+ ')'
-Variable = '$'variable ( ':' type )? Modifier? ( '=' Constant )? Directive*
+Variable = '$'variable ( ':' Var_Type )? Modifier? ( '=' Constant )? Directive*
+Var_Type = Var_NotNull '!'?
+Var_Null = '[' Var_Type ']' | type
 
 Directive = '@'directive Argument?
 
 Result = ( Simple Argument? | Object ) Modifier?
 
 Modifier = '?' | '[]' Modifier? | '[' Basic '?'? ']' Modifier?
-Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_' | enum
+Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_' | enum
 
 Simple = Internal | Basic
 Internal = 'Void' | 'Null' | 'null'

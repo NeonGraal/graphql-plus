@@ -86,7 +86,7 @@ Modifiers = '?' | '[]' Modifiers? | '[' Simple '?'? ']' Modifiers?
 
 Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
 Simple = Basic | scalar | enum
-Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
+Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
 ```
 
 Type parameters can be defined on either Input or Output types. Each parameter can be preceded by a documentation string.
@@ -126,13 +126,13 @@ input|output _Map<$T> = _Dictionary<String $T>
 "$T[0]"
 input|output _Array<$T> = _Dictionary<Number $T>
 
-"$T[!]"
+"$T[~]"
 input|output _IfElse<$T> = _Dictionary<Boolean $T>
 
 "_[$K]"
 input|output Set<$K> = Dictionary<$K Unit>
 
-"![$K]"
+"~[$K]"
 input|output Mask<$K> = Dictionary<$K Boolean>
 ```
 
@@ -177,7 +177,7 @@ These Generic types are the Input types if `$T` is an Input type and Output type
 Boolean, Null, Unit and Void are effectively enum types as follows:
 
 ```gqlp
-enum Boolean ! = true | false
+enum Boolean ~ = true | false
 
 enum Null null = null
 
@@ -377,7 +377,7 @@ Modifiers = '?' | '[]' Modifiers? | '[' Simple '?'? ']' Modifiers?
 
 Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
 Simple = Basic | scalar | enum
-Basic = 'Boolean' | '!' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
+Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
 
 Input = 'input' input TypeParameters? typeAlias* '=' In_Definition
 In_Definition = In_Object ( '|'? In_Alternates )? | In_Alternates

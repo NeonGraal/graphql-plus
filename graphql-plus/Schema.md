@@ -7,7 +7,8 @@
 ```PEG
 Schema = Declaration+
 
-Declaration = STRING? ( Category | Enum | Input | Output | Scalar )
+Declaration = STRING? ( Category | Directive | Type )
+Type = Enum | Input | Output | Scalar
 ```
 
 A Schema is one (or more) Declarations. Each declaration can be preceded by a documentation string.
@@ -15,18 +16,19 @@ A Schema is one (or more) Declarations. Each declaration can be preceded by a do
 The following declarations are implied but can be specified explicitly:
 
 - `category Query` and thus `output Query = { }`
-- `category Mutation sequential` and thus `output Mutation = { }`
-- `category Subscription single` and thus `output Subscription = { }`
+- `category Mutation (sequential)` and thus `output Mutation = { }`
+- `category Subscription (single)` and thus `output Subscription = { }`
 - `output _Schema` (see [Introspection](Introspection.md))
 
-The names of all Types (All Declarations except Category) must be unique.
-The aliases of all Types (All Declarations except Category) must be unique.
+The names of all Types must be unique.
+The aliases of all Types must be unique.
 Explicit Type name declarations will override that name being used as Type alias.
 
 ## Category
 
 ```PEG
-Category = 'category' output ( 'sequential' | 'single' )? categoryAlias*
+Category = 'category' output ( '(' Cat_Option ')' )? categoryAlias*
+Cat_Option = 'sequential' | 'single'
 ```
 
 A Category is a set of operations defined by an Output type.
@@ -42,6 +44,14 @@ By default an operation can specify multiple fields that are resolved in paralle
 
 Duplicate Category declarations are not permitted.
 An explicit Category declaration for an Output type will override that name being used as an alias for a different Category.
+
+## Directive
+
+```PEG
+Directive = 'directive' '@'directive Parameter? directiveAlias* '=' Dir_Repeatable? Dir_Location+
+Dir_Repeatable = '(' 'repeatable' ')'
+Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
+```
 
 ## Enum type
 
@@ -68,9 +78,11 @@ TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
 EnumLabel = ( enum '.' )? label
 
+Parameter = '(' In_Reference Modifiers? Default? ')'
+
 Default = '=' Constant
 
-Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
+Modifiers = '?' | '[]' Modifiers? | '[' Simple '?'? ']' Modifiers?
 
 Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
 Simple = Basic | scalar | enum
@@ -255,7 +267,6 @@ Output = 'output' output TypeParameters? typeAlias* '=' Out_Definition
 Out_Definition = Out_Object ( '|'? Out_Alternates )? | Out_Alternates
 Out_Object = Out_Base? '{' ( STRING? field Out_Field )+ '}'
 Out_Field = Parameter? fieldAlias* ':' Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
-Parameter = '(' In_Reference Modifiers? Default? ')'
 
 Out_Alternates = Out_Reference '|' Out_Alternates | Out_Reference
 Out_Reference = Internal | Simple | Out_Base
@@ -340,9 +351,15 @@ Multiple Scalar declarations with the same base will have their ranges or regexe
 ```PEG
 Schema = Declaration+
 
-Declaration = STRING? ( Category | Enum | Input | Output | Scalar )
+Declaration = STRING? ( Category | Directive | Type )
+Type = Enum | Input | Output | Scalar
 
-Category = 'category' output ( 'sequential' | 'single' )? categoryAlias*
+Category = 'category' output ( '(' Cat_Option ')' )? categoryAlias*
+Cat_Option = 'sequential' | 'single'
+
+Directive = 'directive' '@'directive Parameter? directiveAlias* '=' Dir_Repeatable? Dir_Location+
+Dir_Repeatable = '(' 'repeatable' ')'
+Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
 
 Enum = 'enum' enum typeAlias* '=' ( enum ':' )? En_Labels
 En_Labels = En_Label '|' En_Labels | En_Label
@@ -352,9 +369,11 @@ TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
 EnumLabel = ( enum '.' )? label
 
+Parameter = '(' In_Reference Modifiers? Default? ')'
+
 Default = '=' Constant
 
-Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
+Modifiers = '?' | '[]' Modifiers? | '[' Simple '?'? ']' Modifiers?
 
 Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
 Simple = Basic | scalar | enum
@@ -373,7 +392,6 @@ Output = 'output' output TypeParameters? typeAlias* '=' Out_Definition
 Out_Definition = Out_Object ( '|'? Out_Alternates )? | Out_Alternates
 Out_Object = Out_Base? '{' ( STRING? field Out_Field )+ '}'
 Out_Field = Parameter? fieldAlias* ':' Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
-Parameter = '(' In_Reference Modifiers? Default? ')'
 
 Out_Alternates = Out_Reference '|' Out_Alternates | Out_Reference
 Out_Reference = Internal | Simple | Out_Base
@@ -397,4 +415,5 @@ Scal_String = 'String' Scal_Regex*
 
 Scal_Range = '..' '<'? NUMBER | NUMBER '>'? '..' ( '<'? NUMBER )?
 Scal_RegEx = REGEX | '!' REGEX
+
 ```

@@ -120,7 +120,7 @@ Spread = fragment Directive*
 TypeCondition = 'on' type
 ```
 
-A Result Object is a selection of fields or fragments. 
+A Result Object is a selection of fields or fragments.
 
 A Field may have none, one, more or even all of the following, in this order:
 
@@ -130,18 +130,18 @@ A Field may have none, one, more or even all of the following, in this order:
 - Directives
 - a sub-selection of fields
 
-| Example                        | Sample                                                          |
-| ------------------------------ | --------------------------------------------------------------- |
-| `{ name }`                     | `{ name: "Andrew" }`                                            |
-| `{ name[] }`                   | `{ name: [ "Andrew", "Alan", "Barbera" ] }`                     |
-| `{ id(12) }`                   | `{ id: 12 }`                                                    |
-| `{ name("A*")[] }`             | `{ name: ["Andrew", "Alan"] }`                                  |
-| `{ user(12) { id name } }`     | `{ user:{ id:12; name:"Andrew" } }`                             |
-| `{ user(12)[] { id name } }`   | `{ user:[ { id:12; name:"Andrew" } ] }`                         |
-| `{ user("A*") { id name } }`   | `{ user:{ id:12; name:"Andrew" } }`                             |
+| Example                               | Sample                                                           |
+| ------------------------------------- | ---------------------------------------------------------------- |
+| `{ name }`                            | `{ name: "Andrew" }`                                             |
+| `{ name[] }`                          | `{ name: [ "Andrew", "Alan", "Barbera" ] }`                      |
+| `{ id(12) }`                          | `{ id: 12 }`                                                     |
+| `{ name("A*")[] }`                    | `{ name: ["Andrew", "Alan"] }`                                   |
+| `{ user(12) { id name } }`            | `{ user:{ id:12; name:"Andrew" } }`                              |
+| `{ user(12)[] { id name } }`          | `{ user:[ { id:12; name:"Andrew" } ] }`                          |
+| `{ user("A*") { id name } }`          | `{ user:{ id:12; name:"Andrew" } }`                              |
 | `{ All_A: user("A*")[] { id name } }` | `{ All_A:[ { id:12; name:"Andrew" }, { id:34; name:"Alan" } ] }` |
 
-## Definition
+## Fragment
 
 ```PEG
 Definition = 'fragment' fragment TypeCondition Directive* Object
@@ -224,7 +224,8 @@ Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | ( enum '.' )? 
 Const_List = '[' Cons_Values ']' | '[' Constant* ']'
 Const_Values = Constant ',' Const_Values | Constant
 
-Const_Object = '{' Const_Fields '}' | '{' ( FieldKey ':' Constant )* '}' | Const_Fields
+Const_Object = '{' Const_Fields '}' | '{' ( FieldKey ':' Constant )* '}'
 Const_Fields = Const_Field ';' Const_Fields | Const_Field
 Const_Field = FieldKey ':' Const_Values
+
 ```

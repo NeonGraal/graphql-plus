@@ -7,22 +7,30 @@ The `_Schema` output type is automatically defined as followed and can be used t
 ```gqlp
 output _Schema = {
         category(_CategoryFilter): _Category[String]
+        directive(_Filter): _Directive[String]
         type(_TypeFilter): _Type[String]
     }
 
-input _FilterBase =  {
+input _Filter =  {
         names: String[]
         includeReferencedTypes: Boolean = false
     } String[]?
 
-input _CategoryFilter = _FilterBase{
-      resolutions: _Resolution[]
-      outputs: String[]
+input _CategoryFilter = _Filter {
+        resolutions: _Resolution[]
     }
 
-input _TypeFilter = _FilterBase {
-        names: String[]
+input _TypeFilter = _Filter {
         kinds: _Kind[]
+    }
+
+output _Aliased = _Named {
+        aliases: String[]
+    }
+
+output _Named = {
+        name: String
+        description: String?
     }
 ```
 
@@ -34,16 +42,22 @@ output _Category = _Aliased {
         type: _Type[String]
     }
 
-output _Aliased = _Named {
-        aliases: String[]
-    }
-
-output _Named = {
-        name: String
-        description: String?
-    }
-
 enum _Resolution = Single | Sequential | Parallel
+```
+
+## Directive
+
+```gqlp
+output _Directive = _Aliased {
+    parameter: _Parameter?
+    repeatable: Boolean
+    locations: _Location[]
+}
+
+output _Parameter = _TypeRef<_InputBase> {
+        modifiers: _TypeModifier[]
+        default: _Constant
+    }
 ```
 
 ## Type
@@ -101,7 +115,8 @@ output _ModifierDictionary = _BaseModifier<_Modifier.Dictionary> {
 
 ```gqlp
 output _TypeEnum = _BaseType<_Kind.Enum> {
-        labels: _Named[]
+        base: String?
+        labels: _Aliased[]
     }
 ```
 
@@ -111,8 +126,7 @@ output _TypeEnum = _BaseType<_Kind.Enum> {
 output _InputBase = {
         input: String
         arguments: _TypeRef<_InputBase>[]
-    }
-    | "TypeParameter" String
+    } "TypeParameter" String
 
 output _InputField = _TypeField<_InputBase>
 ```
@@ -121,20 +135,20 @@ output _InputField = _TypeField<_InputBase>
 
 ```gqlp
 output _OutputBase = {
-        input: String
+        output: String
         arguments: _OutputArgument[]
-    }
-    | "TypeParameter" String
+    } "TypeParameter" String
 
-output _OutputField = _OutputEnum {
-        field: String
-    }
-    | _TypeField<_OutputBase>
+output _OutputField = _TypeField<_OutputBase> {
+        parameter: _Parameter?
+    } _OutputEnum
 
-output _OutputArgument = _OutputEnum
-    | _TypeRef<_OutputBase>
+output _OutputArgument = _BaseType<_Kind.Enum> {
+        label: String
+    } _TypeRef<_OutputBase>
 
 output _OutputEnum = _BaseType<_Kind.Enum> {
+        field: String
         label: String
     }
 ```
@@ -171,34 +185,26 @@ output _ScalarRegex {
     }
 ```
 
-## Full Definition
+## Complete Definition
 
 ```gqlp
-
-input _Names = String | String[]
-
 output _Schema = {
         category(_CategoryFilter): _Category[String]
+        directive(_Filter): _Directive[String]
         type(_TypeFilter): _Type[String]
     }
 
-input _FilterBase =  {
+input _Filter =  {
         names: String[]
+        includeReferencedTypes: Boolean = false
     } String[]?
 
-input _CategoryFilter = _FilterBase{
-      resolutions: _Resolution[]
-      outputs: String[]
+input _CategoryFilter = _Filter {
+        resolutions: _Resolution[]
     }
 
-input _TypeFilter = _FilterBase {
-        names: String[]
+input _TypeFilter = _Filter {
         kinds: _Kind[]
-    }
-
-output _Category = _Aliased {
-        resolution: _Resolution
-        output: _OutputType
     }
 
 output _Aliased = _Named {
@@ -210,21 +216,36 @@ output _Named = {
         description: String?
     }
 
+output _Category = _Aliased {
+        resolution: _Resolution
+        type: _Type[String]
+    }
+
 enum _Resolution = Single | Sequential | Parallel
 
+output _Directive = _Aliased {
+    parameter: _Parameter?
+    repeatable: Boolean
+    locations: _Location[]
+}
+
+output _Parameter = _TypeRef<_InputBase> {
+        modifiers: _TypeModifier[]
+        default: _Constant
+    }
+
 output _Type = _BaseType<_Kind.Basic>
-      | _BaseType<_Kind.Internal>
-      | _TypeEnum
-      | _TypeObject<_Kind.Input _InputType>
-      | _OutputType
-      | _BaseType<_Kind.Scalar>
+    | _BaseType<_Kind.Internal>
+    | _TypeEnum
+    | _TypeObject<_Kind.Input _InputBase _InputField>
+    | _TypeObject<_Kind.Output _OutputBase _OutputField>
+    | _TypeScalar
 
 output _BaseType<$kind> = _Aliased {
         kind: $kind
     }
 
 enum _Kind = Basic | Enum | Internal | Input | Output | Scalar
-
 
 output _TypeObject<$kind $base $field> =_BaseType<$kind> {
         parameters: _Named[]
@@ -237,8 +258,7 @@ output _TypeRef<$base> = _BaseType<_Kind.Internal>
     | _TypeSimple
     | $base
 
-output _TypeField<$base> = {
-      field: String
+output _TypeField<$base> = _Aliased {
       type: _TypeRef<$base>
       modifiers: _TypeModifier[]
     }
@@ -262,34 +282,32 @@ output _ModifierDictionary = _BaseModifier<_Modifier.Dictionary> {
     }
 
 output _TypeEnum = _BaseType<_Kind.Enum> {
-        labels: _Named[]
+        base: String?
+        labels: _Aliased[]
     }
 
 output _InputBase = {
         input: String
         arguments: _TypeRef<_InputBase>[]
-    }
-    | "TypeParameter" String
+    } "TypeParameter" String
 
 output _InputField = _TypeField<_InputBase>
 
-output _OutputType = _TypeObject<_Kind.Output _OutputBase _OutputField>
-
 output _OutputBase = {
-        input: String
+        output: String
         arguments: _OutputArgument[]
-    }
-    | "TypeParameter" String
+    } "TypeParameter" String
 
-output _OutputField = _OutputEnum {
-        field: String
-    }
-    | _TypeField<_OutputBase>
+output _OutputField = _TypeField<_OutputBase> {
+        parameter: _Parameter?
+    } _OutputEnum
 
-output _OutputArgument = _OutputEnum
-    | _TypeRef<_OutputBase>
+output _OutputArgument = _BaseType<_Kind.Enum> {
+        label: String
+    } _TypeRef<_OutputBase>
 
 output _OutputEnum = _BaseType<_Kind.Enum> {
+        field: String
         label: String
     }
 
@@ -320,4 +338,5 @@ output _ScalarRegex {
         regex: String
         exclude: Boolean
     }
+
 ```

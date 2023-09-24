@@ -1,18 +1,14 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace GqlPlus.Verifier;
+﻿namespace GqlPlus.Verifier;
 
 public class OperationVerifier
 {
   public static bool Verify(string operation)
   {
-    var ast = OperationParser.Parse(operation);
+    var tokenizer = new OperationTokens(operation);
+    OperationAst? ast = OperationParser.Parse(tokenizer);
 
-    return ast == null ? false : Verify(ast);
+    return ast != null && Verify(ast);
   }
 
-  private static bool Verify(OperationAst ast)
-  {
-    return ast.Result == ParseResult.Success;
-  }
+  private static bool Verify(OperationAst ast) => ast.Result == ParseResult.Success;
 }

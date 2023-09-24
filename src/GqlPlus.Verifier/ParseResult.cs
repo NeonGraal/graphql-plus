@@ -1,9 +1,7 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
+﻿namespace GqlPlus.Verifier;
 
-namespace GqlPlus.Verifier
+internal enum ParseResult
 {
-  internal enum ParseResult
-  {
-    Success
-  }
+  Failure,
+  Success
 }

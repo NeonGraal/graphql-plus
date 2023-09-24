@@ -16,7 +16,7 @@ If not specified, an Operation's category is "query". This is for GraphQL compat
 Variables = '(' Variable+ ')'
 Variable = '$'variable ( ':' Var_Type )? Modifier? ( '=' Constant )? Directive*
 Var_Type = Var_NotNull '!'?
-Var_Null = '[' Var_Type ']' | type
+Var_NotNull = '[' Var_Type ']' | type
 ```
 
 A Variable with the Optional Modifier has an implied Default of `null` and a Variable with a Default of `null` has an implied Optional Modifier.

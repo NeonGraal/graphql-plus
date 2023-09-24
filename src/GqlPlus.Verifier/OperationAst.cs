@@ -1,9 +1,14 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
+﻿namespace GqlPlus.Verifier;
 
-namespace GqlPlus.Verifier
+internal class OperationAst
 {
-  internal class OperationAst
-  {
-    public ParseResult Result { get; set; }
-  }
+  internal ParseResult Result { get; set; }
+  internal string Category { get; set; } = "query";
+  internal string Name { get; set; } = "";
+  internal VariableAst[] Variables { get; set; } = Array.Empty<VariableAst>();
+  internal DirectiveAst[] Directives { get; set; } = Array.Empty<DirectiveAst>();
+  internal string? ResultType { get; set; }
+  internal ObjectAst? ResultObject { get; set; }
+  internal ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
+  internal DefinitionAst[] Definitions { get; set; } = Array.Empty<DefinitionAst>();
 }

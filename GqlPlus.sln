@@ -13,7 +13,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier.ClassTests
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E1645F9-6194-4B1F-B93D-5B2CDDE5E6DE}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphql-plus", "graphql-plus", "{74C0DC37-FD8F-419A-A5CE-A0F27946F3B0}"
+	ProjectSection(SolutionItems) = preProject
+		graphql-plus\Definition.md = graphql-plus\Definition.md
+		graphql-plus\Introspection.md = graphql-plus\Introspection.md
+		graphql-plus\Operation.md = graphql-plus\Operation.md
+		graphql-plus\Schema.md = graphql-plus\Schema.md
+		graphql-plus\toc.yml = graphql-plus\toc.yml
 	EndProjectSection
 EndProject
 Global
@@ -37,5 +47,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DDB8D682-23EA-48C4-A1AD-65F114533202} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
 		{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}
 	EndGlobalSection
 EndGlobal

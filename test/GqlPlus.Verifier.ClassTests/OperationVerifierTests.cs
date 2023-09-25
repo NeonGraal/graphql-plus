@@ -23,14 +23,16 @@ public class OperationVerifierTests
   public static IEnumerable<object[]> ValidGraphQlPlusOperations => new[]
   {
     new[] { "Boolean" },
-    //new[] { "{ name }" },
+    new[] { "{ name }" },
+    new[] { "Boolean[]?" },
     //new[] { "($var) Boolean($var)"}
   };
 
   public static IEnumerable<object[]> InvalidGraphQlPlusOperations => new[]
   {
     new[] { "" }, // Operation must have a Result
-    //new[] { "{}" }, // Selection must have at least one field
+    new[] { "{}" }, // Selection must have at least one field
+    new[] { "Boolean?[]" }, // Nullable Modifer must come last
     //new[] { "() Boolean" }, // Variables must define at least one variable
     //new[] { "($var) Boolean" }, // Defined variables must be used at least once
   };

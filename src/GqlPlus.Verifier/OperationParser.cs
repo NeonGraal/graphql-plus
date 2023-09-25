@@ -20,29 +20,30 @@ internal class OperationParser
       }
     }
 
-    if (operation.At('(')) {
-      _ = operation.Take('(');
-
-      ast.Variables = ParseVariables(operation);
+    if (operation.Take('(')) {
+      ast.Variables = ParseVariables(ref operation);
     }
 
     if (operation.At('@')) {
-      ast.Directives = ParseDirectives(operation);
+      ast.Directives = ParseDirectives(ref operation);
     }
 
     if (operation.At('{')) {
-      ast.ResultObject = ParseObject(operation);
+      ast.ResultObject = ParseObject(ref operation);
+      if (ast.ResultObject is null or { Length: 0 }) {
+        return ast;
+      }
     } else if (operation.AtIdentifier) {
       ast.ResultType = operation.TakeIdentifier();
     }
 
     if (operation.At('[', '?')) {
-      ast.Modifiers = ParseModifiers(operation);
+      ast.Modifiers = ParseModifiers(ref operation);
     }
 
     if (operation.AtIdentifier) {
       if (operation.TakeIdentifier() == "fragment") {
-        ast.Definitions = ParseDefinitions(operation);
+        ast.Definitions = ParseDefinitions(ref operation);
       }
     }
 
@@ -53,13 +54,84 @@ internal class OperationParser
     return ast;
   }
 
-  private static DirectiveAst[] ParseDirectives(OperationTokens operation) => throw new NotImplementedException();
+  private static DirectiveAst[] ParseDirectives(ref OperationTokens operation) => throw new NotImplementedException();
 
-  private static VariableAst[] ParseVariables(OperationTokens operation) => throw new NotImplementedException();
+  private static VariableAst[] ParseVariables(ref OperationTokens operation) => throw new NotImplementedException();
 
-  private static ObjectAst ParseObject(OperationTokens operation) => throw new NotImplementedException();
+  private static SelectionAst[]? ParseObject(ref OperationTokens operation)
+  {
+    if (!operation.Take('{')) {
+      return null;
+    }
 
-  private static ModifierAst[] ParseModifiers(OperationTokens operation) => throw new NotImplementedException();
+    var fields = new List<SelectionAst>();
 
-  private static DefinitionAst[] ParseDefinitions(OperationTokens operation) => throw new NotImplementedException();
+    while (operation.At("...") || operation.AtIdentifier) {
+      SelectionAst? field = null;
+      if (operation.AtIdentifier) {
+        field = ParseField(ref operation);
+      } else {
+        field = ParseFragment(ref operation);
+      }
+      if (field != null) {
+        fields.Add(field);
+      }
+    }
+
+    if (!operation.Take('}')) {
+      return null;
+    }
+
+    ;
+
+    return fields.ToArray();
+  }
+
+  private static FragmentAst? ParseFragment(ref OperationTokens operation) => throw new NotImplementedException();
+  private static FieldAst? ParseField(ref OperationTokens operation)
+  {
+    var name = operation.TakeIdentifier();
+
+    FieldAst? field = null;
+
+    if (operation.At(':')) {
+      operation.Take(':');
+      if (!operation.AtIdentifier) {
+        return null;
+      }
+      field = new FieldAst(operation.TakeIdentifier()) { Alias = name };
+    } else {
+      field = new FieldAst(name);
+    }
+
+    return field;
+  }
+
+  private static ModifierAst[] ParseModifiers(ref OperationTokens operation)
+  {
+    var modifiers = new List<ModifierAst>();
+
+    while (operation.Take('[')) {
+      if (operation.AtIdentifier) {
+        var key = operation.TakeIdentifier();
+        modifiers.Add(new(ModifierKind.Dict) {
+          Key = key,
+          KeyOptional = operation.Take('?')
+        });
+      } else {
+        modifiers.Add(new(ModifierKind.List));
+      }
+      if (!operation.Take(']')) {
+        return Array.Empty<ModifierAst>();
+      }
+    }
+
+    if (operation.Take('?')) {
+      modifiers.Add(new(ModifierKind.Optional));
+    }
+
+    return modifiers.ToArray();
+  }
+
+  private static DefinitionAst[] ParseDefinitions(ref OperationTokens operation) => throw new NotImplementedException();
 }

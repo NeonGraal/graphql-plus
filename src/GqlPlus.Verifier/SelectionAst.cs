@@ -1,5 +1,5 @@
 ﻿namespace GqlPlus.Verifier;
 
-internal class ObjectAst
+internal class SelectionAst
 {
 }

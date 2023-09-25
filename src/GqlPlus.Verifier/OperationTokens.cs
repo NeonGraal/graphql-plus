@@ -20,6 +20,7 @@ internal ref struct OperationTokens
   internal bool AtIdentifier => _kind == TokenKind.Identifer;
   internal bool AtNumber => _kind == TokenKind.Number;
   internal bool At(params char[] anyOf) => _kind == TokenKind.Punctuation && anyOf.Contains(_operation[_pos]);
+  internal bool At(string text) => _pos + text.Length <= _operation.Length && _operation.Slice(_pos, text.Length) == text;
   internal bool AtEnd => _kind == TokenKind.End;
 
   internal bool Read()
@@ -88,11 +89,13 @@ internal ref struct OperationTokens
 
   internal bool Take(char c)
   {
-    if (_operation[_pos] != c) {
+    if (_kind != TokenKind.Punctuation || _operation[_pos] != c) {
       return false;
     }
 
     ++_pos;
+    Read();
+
     return true;
   }
 }

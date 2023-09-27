@@ -34,7 +34,7 @@ internal ref struct OperationTokens
 
     _kind = _operation[_pos] switch {
       >= 'A' and <= 'Z' or >= 'a' and <= 'z' or '_' => TokenKind.Identifer,
-      >= '0' and <= '9' => TokenKind.Number,
+      >= '0' and <= '9' or '-' => TokenKind.Number,
       _ => TokenKind.Punctuation,
     };
 
@@ -87,6 +87,22 @@ internal ref struct OperationTokens
     return result.ToString();
   }
 
+  internal int TakeNumber()
+  {
+    var end = _pos;
+    do {
+      ++end;
+    } while (end < _operation.Length && _operation[end] is >= '0' and <= '9');
+
+    ReadOnlySpan<char> result = end < _operation.Length ? _operation[_pos..end] : _operation[_pos..];
+
+    _pos = end;
+
+    _ = Read();
+
+    return int.Parse(result);
+  }
+
   internal bool Take(char c)
   {
     if (_kind != TokenKind.Punctuation || _operation[_pos] != c) {
@@ -94,7 +110,7 @@ internal ref struct OperationTokens
     }
 
     ++_pos;
-    Read();
+    _ = Read();
 
     return true;
   }

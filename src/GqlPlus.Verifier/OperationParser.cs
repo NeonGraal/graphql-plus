@@ -1,84 +1,83 @@
 ﻿namespace GqlPlus.Verifier;
 
-internal class OperationParser
+internal ref struct OperationParser
 {
-  internal static OperationAst? Parse(OperationTokens operation)
-  {
-    var ast = new OperationAst();
+  private OperationTokens _tokens;
 
-    if (operation.AtStart) {
-      if (!operation.Read()) {
+  public OperationParser(OperationTokens tokens) => _tokens = tokens;
+
+  internal OperationAst? Parse()
+  {
+    OperationAst ast = new();
+
+    if (_tokens.AtStart) {
+      if (!_tokens.Read()) {
         return ast;
       }
     }
 
-    if (operation.AtIdentifier) {
-      ast.Category = operation.TakeIdentifier();
+    if (_tokens.AtIdentifier) {
+      ast.Category = _tokens.TakeIdentifier();
 
-      if (operation.AtIdentifier) {
-        ast.Name = operation.TakeIdentifier();
+      if (_tokens.AtIdentifier) {
+        ast.Name = _tokens.TakeIdentifier();
       }
     }
 
-    if (operation.Take('(')) {
-      ast.Variables = ParseVariables(ref operation);
+    if (_tokens.Take('(')) {
+      ast.Variables = ParseVariables();
     }
 
-    if (operation.At('@')) {
-      ast.Directives = ParseDirectives(ref operation);
+    if (_tokens.At('@')) {
+      ast.Directives = ParseDirectives();
     }
 
-    if (operation.At('{')) {
-      ast.ResultObject = ParseObject(ref operation);
+    if (_tokens.At('{')) {
+      ast.ResultObject = ParseObject();
       if (ast.ResultObject is null or { Length: 0 }) {
         return ast;
       }
-    } else if (operation.AtIdentifier) {
-      ast.ResultType = operation.TakeIdentifier();
+    } else if (_tokens.AtIdentifier) {
+      ast.ResultType = _tokens.TakeIdentifier();
     }
 
-    if (operation.At('[', '?')) {
-      ast.Modifiers = ParseModifiers(ref operation);
+    if (_tokens.At('[', '?')) {
+      ast.Modifiers = ParseModifiers();
     }
 
-    if (operation.AtIdentifier) {
-      if (operation.TakeIdentifier() == "fragment") {
-        ast.Definitions = ParseDefinitions(ref operation);
+    if (_tokens.AtIdentifier) {
+      if (_tokens.TakeIdentifier() == "fragment") {
+        ast.Definitions = ParseDefinitions();
       }
     }
 
-    if (operation.AtEnd) {
+    if (_tokens.AtEnd) {
       ast.Result = ParseResult.Success;
     }
 
     return ast;
   }
 
-  private static DirectiveAst[] ParseDirectives(ref OperationTokens operation) => throw new NotImplementedException();
+  private DirectiveAst[] ParseDirectives() => throw new NotImplementedException();
 
-  private static VariableAst[] ParseVariables(ref OperationTokens operation) => throw new NotImplementedException();
+  private VariableAst[] ParseVariables() => throw new NotImplementedException();
 
-  private static SelectionAst[]? ParseObject(ref OperationTokens operation)
+  private SelectionAst[]? ParseObject()
   {
-    if (!operation.Take('{')) {
+    if (!_tokens.Take('{')) {
       return null;
     }
 
     var fields = new List<SelectionAst>();
 
-    while (operation.At("...") || operation.AtIdentifier) {
-      SelectionAst? field = null;
-      if (operation.AtIdentifier) {
-        field = ParseField(ref operation);
-      } else {
-        field = ParseFragment(ref operation);
-      }
+    while (_tokens.At("...") || _tokens.AtIdentifier) {
+      SelectionAst? field = _tokens.AtIdentifier ? ParseField() : ParseFragment();
       if (field != null) {
         fields.Add(field);
       }
     }
 
-    if (!operation.Take('}')) {
+    if (!_tokens.Take('}')) {
       return null;
     }
 
@@ -87,19 +86,19 @@ internal class OperationParser
     return fields.ToArray();
   }
 
-  private static FragmentAst? ParseFragment(ref OperationTokens operation) => throw new NotImplementedException();
-  private static FieldAst? ParseField(ref OperationTokens operation)
+  private FragmentAst? ParseFragment() => throw new NotImplementedException();
+  private FieldAst? ParseField()
   {
-    var name = operation.TakeIdentifier();
+    var name = _tokens.TakeIdentifier();
 
-    FieldAst? field = null;
-
-    if (operation.At(':')) {
-      operation.Take(':');
-      if (!operation.AtIdentifier) {
+    FieldAst? field;
+    if (_tokens.At(':')) {
+      _ = _tokens.Take(':');
+      if (!_tokens.AtIdentifier) {
         return null;
       }
-      field = new FieldAst(operation.TakeIdentifier()) { Alias = name };
+
+      field = new FieldAst(_tokens.TakeIdentifier()) { Alias = name };
     } else {
       field = new FieldAst(name);
     }
@@ -107,31 +106,32 @@ internal class OperationParser
     return field;
   }
 
-  private static ModifierAst[] ParseModifiers(ref OperationTokens operation)
+  private ModifierAst[] ParseModifiers()
   {
     var modifiers = new List<ModifierAst>();
 
-    while (operation.Take('[')) {
-      if (operation.AtIdentifier) {
-        var key = operation.TakeIdentifier();
+    while (_tokens.Take('[')) {
+      if (_tokens.AtIdentifier) {
+        var key = _tokens.TakeIdentifier();
         modifiers.Add(new(ModifierKind.Dict) {
           Key = key,
-          KeyOptional = operation.Take('?')
+          KeyOptional = _tokens.Take('?')
         });
       } else {
         modifiers.Add(new(ModifierKind.List));
       }
-      if (!operation.Take(']')) {
+
+      if (!_tokens.Take(']')) {
         return Array.Empty<ModifierAst>();
       }
     }
 
-    if (operation.Take('?')) {
+    if (_tokens.Take('?')) {
       modifiers.Add(new(ModifierKind.Optional));
     }
 
     return modifiers.ToArray();
   }
 
-  private static DefinitionAst[] ParseDefinitions(ref OperationTokens operation) => throw new NotImplementedException();
+  private DefinitionAst[] ParseDefinitions() => throw new NotImplementedException();
 }

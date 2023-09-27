@@ -4,8 +4,9 @@ public class OperationVerifier
 {
   public static bool Verify(string operation)
   {
-    var tokenizer = new OperationTokens(operation);
-    OperationAst? ast = OperationParser.Parse(tokenizer);
+    OperationTokens tokenizer = new(operation);
+    OperationParser parser = new(tokenizer);
+    OperationAst? ast = parser.Parse();
 
     return ast != null && Verify(ast);
   }

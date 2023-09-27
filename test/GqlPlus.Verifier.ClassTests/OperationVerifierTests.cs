@@ -8,7 +8,7 @@ public class OperationVerifierTests
   {
     var result = OperationVerifier.Verify(operation);
 
-    _ = result.Should().BeTrue();
+    result.Should().BeTrue();
   }
 
   [Theory]
@@ -17,7 +17,7 @@ public class OperationVerifierTests
   {
     var result = OperationVerifier.Verify(operation);
 
-    _ = result.Should().BeFalse();
+    result.Should().BeFalse();
   }
 
   public static IEnumerable<object[]> ValidGraphQlPlusOperations => new[]

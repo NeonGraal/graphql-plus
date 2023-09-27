@@ -93,7 +93,7 @@ internal ref struct OperationParser
 
     FieldAst? field;
     if (_tokens.At(':')) {
-      _ = _tokens.Take(':');
+      _tokens.Take(':');
       if (!_tokens.AtIdentifier) {
         return null;
       }

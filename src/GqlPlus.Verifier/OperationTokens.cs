@@ -82,7 +82,7 @@ internal ref struct OperationTokens
 
     _pos = end;
 
-    _ = Read();
+    Read();
 
     return result.ToString();
   }
@@ -98,7 +98,7 @@ internal ref struct OperationTokens
 
     _pos = end;
 
-    _ = Read();
+    Read();
 
     return int.Parse(result);
   }

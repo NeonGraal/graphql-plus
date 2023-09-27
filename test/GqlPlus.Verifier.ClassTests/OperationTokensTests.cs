@@ -9,18 +9,18 @@ public class OperationTokensTests
   {
     var tokens = new OperationTokens("");
 
-    _ = tokens.AtStart.Should().BeTrue();
+    tokens.AtStart.Should().BeTrue();
   }
 
   [Theory, RepeatAutoData(10)]
   public void AtIdentifier_AfterReadTrue_IsTrue(
-    [RegularExpression("[A-Za-z][A-Za-z0-9_]*")] string identifier)
+    [RegularExpression(@"[A-Za-z][A-Za-z0-9_]*")] string identifier)
   {
     var tokens = new OperationTokens(identifier);
 
-    _ = tokens.Read().Should().BeTrue();
+    tokens.Read().Should().BeTrue();
 
-    _ = tokens.AtIdentifier.Should().BeTrue();
+    tokens.AtIdentifier.Should().BeTrue();
   }
 
   [Theory, RepeatAutoData(10)]
@@ -28,9 +28,9 @@ public class OperationTokensTests
   {
     var tokens = new OperationTokens(number.ToString());
 
-    _ = tokens.Read().Should().BeTrue();
+    tokens.Read().Should().BeTrue();
 
-    _ = tokens.AtNumber.Should().BeTrue();
+    tokens.AtNumber.Should().BeTrue();
   }
 
   [Fact]
@@ -38,9 +38,9 @@ public class OperationTokensTests
   {
     var tokens = new OperationTokens("[");
 
-    _ = tokens.Read().Should().BeTrue();
+    tokens.Read().Should().BeTrue();
 
-    _ = tokens.At('[').Should().BeTrue();
+    tokens.At('[').Should().BeTrue();
   }
 
   [Fact]
@@ -48,9 +48,9 @@ public class OperationTokensTests
   {
     var tokens = new OperationTokens("<>");
 
-    _ = tokens.Read().Should().BeTrue();
+    tokens.Read().Should().BeTrue();
 
-    _ = tokens.At("<>").Should().BeTrue();
+    tokens.At("<>").Should().BeTrue();
   }
 
   [Fact]
@@ -58,20 +58,20 @@ public class OperationTokensTests
   {
     var tokens = new OperationTokens("");
 
-    _ = tokens.Read().Should().BeFalse();
+    tokens.Read().Should().BeFalse();
 
-    _ = tokens.AtEnd.Should().BeTrue();
+    tokens.AtEnd.Should().BeTrue();
   }
 
   [Theory, RepeatAutoData(10)]
   public void TakeIdentifier_AfterRead_ReturnsIdentifier(
-    [RegularExpression("[A-Za-z][A-Za-z0-9_]*")] string identifier)
+    [RegularExpression(@"[A-Za-z][A-Za-z0-9_]*")] string identifier)
   {
     var tokens = new OperationTokens(identifier);
 
-    _ = tokens.Read().Should().BeTrue();
+    tokens.Read().Should().BeTrue();
 
-    _ = tokens.TakeIdentifier().Should().Be(identifier);
+    tokens.TakeIdentifier().Should().Be(identifier);
   }
 
   [Theory, RepeatAutoData(10)]
@@ -79,8 +79,19 @@ public class OperationTokensTests
   {
     var tokens = new OperationTokens(number.ToString());
 
-    _ = tokens.Read().Should().BeTrue();
+    tokens.Read().Should().BeTrue();
 
-    _ = tokens.TakeNumber().Should().Be(number);
+    tokens.TakeNumber().Should().Be(number);
+  }
+
+  [Theory, RepeatAutoData(10)]
+  public void Take_AfterRead_ReturnsChar(
+    [RegularExpression(@"[!-/:-@[-^`{-~]")] string single)
+  {
+    var tokens = new OperationTokens(single);
+
+    tokens.Read().Should().BeTrue();
+
+    tokens.Take(single.First()).Should().BeTrue();
   }
 }

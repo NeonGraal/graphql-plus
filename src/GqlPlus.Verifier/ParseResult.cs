@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier;
 
-internal enum ParseResult
+public enum ParseResult
 {
   Failure,
   Success

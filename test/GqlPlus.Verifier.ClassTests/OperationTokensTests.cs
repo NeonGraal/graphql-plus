@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace GqlPlus.Verifier.ClassTests;
+﻿namespace GqlPlus.Verifier.ClassTests;
 
 public class OperationTokensTests
 {

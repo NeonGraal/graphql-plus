@@ -2,7 +2,7 @@
 
 internal ref struct OperationParser
 {
-  private OperationTokens _tokens;
+  internal OperationTokens _tokens;
 
   public OperationParser(OperationTokens tokens) => _tokens = tokens;
 
@@ -17,10 +17,10 @@ internal ref struct OperationParser
     }
 
     if (_tokens.AtIdentifier) {
-      ast.Category = _tokens.TakeIdentifier();
+      ast.Category = _tokens.TakeIdentifier()!;
 
       if (_tokens.AtIdentifier) {
-        ast.Name = _tokens.TakeIdentifier();
+        ast.Name = _tokens.TakeIdentifier()!;
       }
     }
 
@@ -58,11 +58,11 @@ internal ref struct OperationParser
     return ast;
   }
 
-  private DirectiveAst[] ParseDirectives() => throw new NotImplementedException();
+  internal DirectiveAst[] ParseDirectives() => throw new NotImplementedException();
 
-  private VariableAst[] ParseVariables() => throw new NotImplementedException();
+  internal VariableAst[] ParseVariables() => throw new NotImplementedException();
 
-  private SelectionAst[]? ParseObject()
+  internal SelectionAst[]? ParseObject()
   {
     if (!_tokens.Take('{')) {
       return null;
@@ -81,15 +81,18 @@ internal ref struct OperationParser
       return null;
     }
 
-    ;
-
     return fields.ToArray();
   }
 
-  private FragmentAst? ParseFragment() => throw new NotImplementedException();
-  private FieldAst? ParseField()
+  internal FragmentAst? ParseFragment() => throw new NotImplementedException();
+
+  internal FieldAst? ParseField()
   {
     var name = _tokens.TakeIdentifier();
+
+    if (name is null) {
+      return null;      
+    }
 
     FieldAst? field;
     if (_tokens.At(':')) {
@@ -98,7 +101,7 @@ internal ref struct OperationParser
         return null;
       }
 
-      field = new FieldAst(_tokens.TakeIdentifier()) { Alias = name };
+      field = new FieldAst(_tokens.TakeIdentifier()!) { Alias = name };
     } else {
       field = new FieldAst(name);
     }
@@ -106,7 +109,7 @@ internal ref struct OperationParser
     return field;
   }
 
-  private ModifierAst[] ParseModifiers()
+  internal ModifierAst[] ParseModifiers()
   {
     var modifiers = new List<ModifierAst>();
 
@@ -133,5 +136,5 @@ internal ref struct OperationParser
     return modifiers.ToArray();
   }
 
-  private DefinitionAst[] ParseDefinitions() => throw new NotImplementedException();
+  internal DefinitionAst[] ParseDefinitions() => throw new NotImplementedException();
 }

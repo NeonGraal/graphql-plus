@@ -71,8 +71,12 @@ internal ref struct OperationTokens
     }
   }
 
-  internal string TakeIdentifier()
+  internal string? TakeIdentifier()
   {
+    if (_kind != TokenKind.Identifer) {
+      return null;
+    }
+
     var end = _pos;
     do {
       ++end;

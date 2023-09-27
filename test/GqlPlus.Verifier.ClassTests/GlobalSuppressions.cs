@@ -5,4 +5,4 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Style", "IDE0058:Expression value is never used", Justification = "<Pending>", Scope = "member", Target = "~M:GqlPlus.Verifier.ClassTests.OperationTokensTests.Take_AfterRead_ReturnsChar(System.String)")]
+[assembly: SuppressMessage("Style", "IDE0058:Expression value is never used")]

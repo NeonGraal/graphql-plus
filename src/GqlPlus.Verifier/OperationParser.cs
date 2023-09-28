@@ -18,11 +18,13 @@ internal ref struct OperationParser
       }
     }
 
-    if (_tokens.AtIdentifier) {
-      ast.Category = _tokens.TakeIdentifier()!;
+    var category = _tokens.TakeIdentifier();
 
+    if (category is not null) {
       if (_tokens.AtIdentifier) {
-        ast.Name = _tokens.TakeIdentifier()!;
+        ast = new(_tokens.TakeIdentifier()!) { Category = category };
+      } else {
+        ast.Category = category;
       }
     }
 
@@ -60,9 +62,37 @@ internal ref struct OperationParser
     return ast;
   }
 
-  internal DirectiveAst[] ParseDirectives() => throw new NotImplementedException();
+  internal DirectiveAst[] ParseDirectives()
+  {
+    var directives = new List<DirectiveAst>();
 
-  internal VariableAst[] ParseVariables() => throw new NotImplementedException();
+    while(_tokens.Prefix('@')is not null) {
+      var directive = new DirectiveAst(_tokens.TakeIdentifier()!);
+
+      directives.Add(directive);
+    }
+
+    return directives.ToArray();
+  }
+
+  internal VariableAst[] ParseVariables()
+  {
+    if (_tokens.Take('(') is null) {
+      return Array.Empty<VariableAst>();
+    }
+
+    var variables = new List<VariableAst>();
+
+    while(_tokens.Prefix('$') is not null) {
+      var variable = new VariableAst(_tokens.TakeIdentifier()!);
+
+      variables.Add(variable);
+    }
+
+    return _tokens.Take(')') is null
+      ? Array.Empty<VariableAst>()
+      : variables.ToArray();
+  }
 
   internal SelectionAst[]? ParseObject()
   {
@@ -73,7 +103,10 @@ internal ref struct OperationParser
     var fields = new List<SelectionAst>();
 
     while (_tokens.At("...") || _tokens.AtIdentifier) {
-      SelectionAst? field = _tokens.AtIdentifier ? ParseField() : ParseFragment();
+      SelectionAst? field = _tokens.AtIdentifier
+        ? ParseField()
+        : ParseFragment();
+
       if (field != null) {
         fields.Add(field);
       }

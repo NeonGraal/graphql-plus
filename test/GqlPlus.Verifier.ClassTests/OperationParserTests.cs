@@ -26,24 +26,30 @@ public class OperationParserTests
     ast!.Result.Should().Be(result);
   }
 
-  [Fact(Skip = "WIP")]
-  public void ParseDirectives_WithMinimumInput_ReturnsCorrectAst()
+  [Theory, RepeatAutoData(10)]
+  public void ParseDirectives_WithMinimumInput_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string directive)
   {
-    var parser = new OperationParser(Tokens(""));
+    var parser = new OperationParser(Tokens("@" + directive));
 
     DirectiveAst[] result = parser.ParseDirectives();
 
-    result.Should().NotBeNull();
+    result.Should()
+      .NotBeNull().And
+      .Equal(new DirectiveAst(directive));
   }
 
-  [Fact(Skip = "WIP")]
-  public void ParseVariables_WithMinimumInput_ReturnsCorrectAst()
+  [Theory, RepeatAutoData(10)]
+  public void ParseVariables_WithMinimumInput_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string variable)
   {
-    var parser = new OperationParser(Tokens(""));
+    var parser = new OperationParser(Tokens($"(${variable})"));
 
     VariableAst[] result = parser.ParseVariables();
 
-    result.Should().NotBeNull();
+    result.Should()
+      .NotBeNull().And
+      .Equal(new VariableAst(variable));
   }
 
   [Fact()]
@@ -67,15 +73,28 @@ public class OperationParserTests
     result.Should().NotBeNull();
   }
 
-  [Fact]
-  public void ParseField_WithMinimumInput_ReturnsCorrectAst()
+  [Theory, RepeatAutoData(10)]
+  public void ParseField_WithJustField_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string field)
   {
-    var parser = new OperationParser(Tokens("a"));
+    var parser = new OperationParser(Tokens(field));
 
     FieldAst? result = parser.ParseField();
 
     result.Should().NotBeNull();
-    result!.Name.Should().Be("a");
+    result!.Name.Should().Be(field);
+  }
+
+  [Theory, RepeatAutoData(10)]
+  public void ParseField_WithAlias_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string alias)
+  {
+    var parser = new OperationParser(Tokens($"{alias}:field"));
+
+    FieldAst? result = parser.ParseField();
+
+    result.Should().NotBeNull();
+    result!.Alias.Should().Be(alias);
   }
 
   [Theory]
@@ -106,10 +125,10 @@ public class OperationParserTests
     result.Should()
       .NotBeNull().And
       .Equal(new ModifierAst[] {
-      new(ModifierKind.Dict) { Key = "_", KeyOptional = true},
-      new(ModifierKind.List),
-      new(ModifierKind.Optional),
-    });
+        new(ModifierKind.Dict) { Key = "_", KeyOptional = true},
+        new(ModifierKind.List),
+        new(ModifierKind.Optional),
+      });
   }
 
   [Fact(Skip = "WIP")]

@@ -1,10 +1,9 @@
-﻿namespace GqlPlus.Verifier.ClassTests;
+﻿using static GqlPlus.Verifier.ClassTests.OperationTestsHelpers;
+
+namespace GqlPlus.Verifier.ClassTests;
 
 public class OperationTokensTests
 {
-  private const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
-  private const string PunctuationPattern = @"[!-+./:<-@[-^`{-~]";
-
   [Fact]
   public void AtStart_WhenConstructed_IsTrue()
   {

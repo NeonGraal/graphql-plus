@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier;
+﻿using GqlPlus.Verifier.Ast;
+
+namespace GqlPlus.Verifier;
 
 public class OperationVerifier
 {

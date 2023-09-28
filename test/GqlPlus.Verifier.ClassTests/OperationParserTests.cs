@@ -1,4 +1,7 @@
-﻿namespace GqlPlus.Verifier.ClassTests;
+﻿using GqlPlus.Verifier.Ast;
+using static GqlPlus.Verifier.ClassTests.OperationTestsHelpers;
+
+namespace GqlPlus.Verifier.ClassTests;
 
 public class OperationParserTests
 {
@@ -94,14 +97,15 @@ public class OperationParserTests
   }
 
   [Fact]
-  public void ParseModifiers_WithThree_ReturnsGivenNumber()
+  public void ParseModifiers_WithThree_ReturnsSpecific()
   {
     var parser = new OperationParser(Tokens("[_?][]?"));
 
     ModifierAst[] result = parser.ParseModifiers();
 
-    result.Should().NotBeNull();
-    result.Should().Equal(new ModifierAst[] {
+    result.Should()
+      .NotBeNull().And
+      .Equal(new ModifierAst[] {
       new(ModifierKind.Dict) { Key = "_", KeyOptional = true},
       new(ModifierKind.List),
       new(ModifierKind.Optional),

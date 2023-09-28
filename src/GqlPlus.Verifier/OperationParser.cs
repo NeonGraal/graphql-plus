@@ -24,7 +24,7 @@ internal ref struct OperationParser
       }
     }
 
-    if (_tokens.Take('(')) {
+    if (_tokens.Take('(') == '(') {
       ast.Variables = ParseVariables();
     }
 
@@ -64,7 +64,7 @@ internal ref struct OperationParser
 
   internal SelectionAst[]? ParseObject()
   {
-    if (!_tokens.Take('{')) {
+    if (_tokens.Take('{') is null) {
       return null;
     }
 
@@ -77,11 +77,7 @@ internal ref struct OperationParser
       }
     }
 
-    if (!_tokens.Take('}')) {
-      return null;
-    }
-
-    return fields.ToArray();
+    return _tokens.Take('}') is null ? null : fields.ToArray();
   }
 
   internal FragmentAst? ParseFragment() => throw new NotImplementedException();
@@ -91,12 +87,11 @@ internal ref struct OperationParser
     var name = _tokens.TakeIdentifier();
 
     if (name is null) {
-      return null;      
+      return null;
     }
 
     FieldAst? field;
-    if (_tokens.At(':')) {
-      _tokens.Take(':');
+    if (_tokens.Take(':') == ':') {
       if (!_tokens.AtIdentifier) {
         return null;
       }
@@ -113,23 +108,31 @@ internal ref struct OperationParser
   {
     var modifiers = new List<ModifierAst>();
 
-    while (_tokens.Take('[')) {
+    while (_tokens.Take('[') == '[') {
       if (_tokens.AtIdentifier) {
         var key = _tokens.TakeIdentifier();
         modifiers.Add(new(ModifierKind.Dict) {
           Key = key,
-          KeyOptional = _tokens.Take('?')
+          KeyOptional = _tokens.Take('?') == '?'
         });
       } else {
-        modifiers.Add(new(ModifierKind.List));
+        var key = _tokens.Take('~', '0', '*');
+        if (key is null) {
+          modifiers.Add(new(ModifierKind.List));
+        } else {
+          modifiers.Add(new(ModifierKind.Dict) {
+            Key = key.ToString(),
+            KeyOptional = _tokens.Take('?') == '?'
+          });
+        }
       }
 
-      if (!_tokens.Take(']')) {
+      if (_tokens.Take(']') is null) {
         return Array.Empty<ModifierAst>();
       }
     }
 
-    if (_tokens.Take('?')) {
+    if (_tokens.Take('?') == '?') {
       modifiers.Add(new(ModifierKind.Optional));
     }
 

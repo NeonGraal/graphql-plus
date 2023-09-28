@@ -107,15 +107,15 @@ internal ref struct OperationTokens
     return int.Parse(result);
   }
 
-  internal bool Take(char c)
+  internal char? Take(params char[] c)
   {
-    if (_kind != TokenKind.Punctuation || _operation[_pos] != c) {
-      return false;
+    if (_kind != TokenKind.Punctuation || !c.Contains(_operation[_pos])) {
+      return null;
     }
 
-    ++_pos;
-    _ = Read();
+    var result = _operation[_pos++];
+    Read();
 
-    return true;
+    return result;
   }
 }

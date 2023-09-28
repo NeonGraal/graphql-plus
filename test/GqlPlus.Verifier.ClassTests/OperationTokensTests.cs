@@ -2,6 +2,9 @@
 
 public class OperationTokensTests
 {
+  private const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
+  private const string PunctuationPattern = @"[!-+./:<-@[-^`{-~]";
+
   [Fact]
   public void AtStart_WhenConstructed_IsTrue()
   {
@@ -12,7 +15,7 @@ public class OperationTokensTests
 
   [Theory, RepeatAutoData(10)]
   public void AtIdentifier_AfterReadTrue_IsTrue(
-    [RegularExpression(@"[A-Za-z][A-Za-z0-9_]*")] string identifier)
+    [RegularExpression(IdentifierPattern)] string identifier)
   {
     var tokens = new OperationTokens(identifier);
 
@@ -63,7 +66,7 @@ public class OperationTokensTests
 
   [Theory, RepeatAutoData(10)]
   public void TakeIdentifier_AfterRead_ReturnsIdentifier(
-    [RegularExpression(@"[A-Za-z][A-Za-z0-9_]*")] string identifier)
+    [RegularExpression(IdentifierPattern)] string identifier)
   {
     var tokens = new OperationTokens(identifier);
 
@@ -83,13 +86,26 @@ public class OperationTokensTests
   }
 
   [Theory, RepeatAutoData(10)]
-  public void Take_AfterRead_ReturnsChar(
-    [RegularExpression(@"[!-/:-@[-^`{-~]")] string single)
+  public void Take_WithSingle_AfterRead_ReturnsChar(
+    [RegularExpression(PunctuationPattern)] string single)
   {
     var tokens = new OperationTokens(single);
+    var expected = single.First();
 
     tokens.Read().Should().BeTrue();
 
-    tokens.Take(single.First()).Should().BeTrue();
+    tokens.Take(expected).Should().Be(expected);
+  }
+
+  [Theory, RepeatAutoData(10)]
+  public void Take_WithMany_AfterRead_ReturnsChar(
+    [RegularExpression(PunctuationPattern + "{5}")] string many)
+  {
+    var tokens = new OperationTokens(many);
+    var expected = many.First();
+
+    tokens.Read().Should().BeTrue();
+
+    tokens.Take(many.ToCharArray()).Should().Be(expected);
   }
 }

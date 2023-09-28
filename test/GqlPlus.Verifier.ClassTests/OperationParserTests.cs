@@ -2,6 +2,13 @@
 
 public class OperationParserTests
 {
+  private OperationTokens Tokens(string input)
+  {
+    var tokens = new OperationTokens(input);
+    tokens.Read();
+    return tokens;
+  }
+
   [Theory]
   [InlineData("", ParseResult.Failure)]
   [InlineData("Boolean", ParseResult.Success)]
@@ -16,11 +23,10 @@ public class OperationParserTests
     ast!.Result.Should().Be(result);
   }
 
-  [Fact(Skip ="WIP")]
+  [Fact(Skip = "WIP")]
   public void ParseDirectives_WithMinimumInput_ReturnsCorrectAst()
   {
-    var tokens = new OperationTokens("");
-    var parser = new OperationParser(tokens);
+    var parser = new OperationParser(Tokens(""));
 
     DirectiveAst[] result = parser.ParseDirectives();
 
@@ -30,8 +36,7 @@ public class OperationParserTests
   [Fact(Skip = "WIP")]
   public void ParseVariables_WithMinimumInput_ReturnsCorrectAst()
   {
-    var tokens = new OperationTokens("");
-    var parser = new OperationParser(tokens);
+    var parser = new OperationParser(Tokens(""));
 
     VariableAst[] result = parser.ParseVariables();
 
@@ -41,9 +46,7 @@ public class OperationParserTests
   [Fact()]
   public void ParseObject_WithMinimumInput_ReturnsCorrectAst()
   {
-    var tokens = new OperationTokens("{a}");
-    tokens.Read();
-    var parser = new OperationParser(tokens);
+    var parser = new OperationParser(Tokens("{a}"));
 
     SelectionAst[]? result = parser.ParseObject();
 
@@ -54,20 +57,17 @@ public class OperationParserTests
   [Fact(Skip = "WIP")]
   public void ParseFragment_WithMinimumInput_ReturnsCorrectAst()
   {
-    var tokens = new OperationTokens("");
-    var parser = new OperationParser(tokens);
+    var parser = new OperationParser(Tokens(""));
 
     FragmentAst? result = parser.ParseFragment();
 
     result.Should().NotBeNull();
   }
 
-  [Fact()]
+  [Fact]
   public void ParseField_WithMinimumInput_ReturnsCorrectAst()
   {
-    var tokens = new OperationTokens("a");
-    tokens.Read();
-    var parser = new OperationParser(tokens);
+    var parser = new OperationParser(Tokens("a"));
 
     FieldAst? result = parser.ParseField();
 
@@ -75,23 +75,43 @@ public class OperationParserTests
     result!.Name.Should().Be("a");
   }
 
-  [Fact()]
-  public void ParseModifiers_WithMinimumInput_ReturnsCorrectAst()
+  [Theory]
+  [InlineData("", 0)]
+  [InlineData("?", 1)]
+  [InlineData("[]", 1)]
+  [InlineData("[String]", 1)]
+  [InlineData("[~?]", 1)]
+  [InlineData("[]?", 2)]
+  [InlineData("[_?][]?", 3)]
+  public void ParseModifiers_WithInput_ReturnsGivenNumber(string input, int count)
   {
-    var tokens = new OperationTokens("");
-    var parser = new OperationParser(tokens);
+    var parser = new OperationParser(Tokens(input));
 
     ModifierAst[] result = parser.ParseModifiers();
 
     result.Should().NotBeNull();
-    result.Length.Should().Be(0);
+    result.Length.Should().Be(count);
+  }
+
+  [Fact]
+  public void ParseModifiers_WithThree_ReturnsGivenNumber()
+  {
+    var parser = new OperationParser(Tokens("[_?][]?"));
+
+    ModifierAst[] result = parser.ParseModifiers();
+
+    result.Should().NotBeNull();
+    result.Should().Equal(new ModifierAst[] {
+      new(ModifierKind.Dict) { Key = "_", KeyOptional = true},
+      new(ModifierKind.List),
+      new(ModifierKind.Optional),
+    });
   }
 
   [Fact(Skip = "WIP")]
   public void ParseDefinitions_WithMinimumInput_ReturnsCorrectAst()
   {
-    var tokens = new OperationTokens("");
-    var parser = new OperationParser(tokens);
+    var parser = new OperationParser(Tokens(""));
 
     DefinitionAst[] result = parser.ParseDefinitions();
 

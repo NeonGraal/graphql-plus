@@ -107,4 +107,32 @@ public class OperationTokensTests
 
     tokens.Take(many.ToCharArray()).Should().Be(expected);
   }
+
+  [Theory, RepeatAutoData(10)]
+  public void Prefix_WithoutName_AfterRead_ReturnsNull(
+    [RegularExpression(PunctuationPattern)] string prefix)
+  {
+    var tokens = new OperationTokens(prefix + "?");
+    var expected = prefix.First();
+
+    tokens.Read().Should().BeTrue();
+
+    tokens.Prefix(expected).Should().BeNull();
+    tokens.Take(expected).Should().Be(expected);
+    tokens.Take('?').Should().Be('?');
+  }
+
+  [Theory, RepeatAutoData(10)]
+  public void Prefix_WithName_AfterRead_ReturnsCharThenName(
+    [RegularExpression(PunctuationPattern)] string prefix,
+    [RegularExpression(IdentifierPattern)] string identifier)
+  {
+    var tokens = new OperationTokens(prefix + identifier);
+    var expected = prefix.First();
+
+    tokens.Read().Should().BeTrue();
+
+    tokens.Prefix(expected).Should().Be(expected);
+    tokens.TakeIdentifier().Should().Be(identifier);
+  }
 }

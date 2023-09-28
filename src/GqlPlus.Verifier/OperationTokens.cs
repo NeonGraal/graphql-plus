@@ -118,4 +118,22 @@ internal ref struct OperationTokens
 
     return result;
   }
+
+  internal char? Prefix(params char[] c)
+  {
+    if (_kind == TokenKind.Punctuation && c.Contains(_operation[_pos])) {
+      var result = _operation[_pos];
+      var next = _pos + 1;
+
+      if (next < _operation.Length &&
+        _operation[next] is >= 'A' and <= 'Z' or >= 'a' and <= 'z' or '_'
+      ) {
+        _pos += 1;
+        _kind = TokenKind.Identifer;
+        return result;
+      }
+    }
+
+    return null;
+  }
 }

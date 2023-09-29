@@ -52,15 +52,27 @@ public class OperationParserTests
       .Equal(new VariableAst(variable));
   }
 
-  [Fact()]
-  public void ParseObject_WithMinimumInput_ReturnsCorrectAst()
+  [Theory, RepeatAutoData(10)]
+  public void ParseObject_WithMinimumInput_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string field)
   {
-    var parser = new OperationParser(Tokens("{a}"));
+    var parser = new OperationParser(Tokens("{" + field + "}"));
 
-    SelectionAst[]? result = parser.ParseObject();
+    parser.ParseObject(out var result).Should().BeTrue();
 
     result.Should().NotBeNull();
     result!.Length.Should().Be(1);
+  }
+
+  [Fact]
+  public void ParseObject_WithNoFields_ReturnsFalse()
+  {
+    var parser = new OperationParser(Tokens("{}"));
+
+    parser.ParseObject(out var result).Should().BeFalse();
+
+    result.Should().NotBeNull();
+    result!.Length.Should().Be(0);
   }
 
   [Theory, RepeatAutoData(10)]
@@ -69,12 +81,24 @@ public class OperationParserTests
   {
     var parser = new OperationParser(Tokens("..." + fragment));
 
-    FragmentAst? result = parser.ParseFragment();
+    parser.ParseFragment(out var result).Should().BeTrue();
 
-    result.Should()
-      .NotBeNull().And
-      .BeOfType<SpreadAst>().Subject
-      .Name.Should().Be(fragment);
+    result.Should().BeOfType<SpreadAst>()
+      .Subject.Name.Should().Be(fragment);
+  }
+
+  [Theory, RepeatAutoData(10)]
+  public void ParseFragment_WithMinimumInline_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string field)
+  {
+    var parser = new OperationParser(Tokens("... {" + field + "}"));
+    var expected = new FieldAst(field);
+
+    parser.ParseFragment(out var result).Should().BeTrue();
+
+    result.Should().BeOfType<InlineAst>()
+      .Subject.OnType.Should().BeNull();
+    result.As<InlineAst>().Selections.Should().Equal(expected);
   }
 
   [Theory, RepeatAutoData(10)]
@@ -83,22 +107,24 @@ public class OperationParserTests
   {
     var parser = new OperationParser(Tokens(field));
 
-    FieldAst? result = parser.ParseField();
+    parser.ParseField(out var result).Should().BeTrue();
 
-    result.Should().NotBeNull();
-    result!.Name.Should().Be(field);
+    result.Should().BeOfType<FieldAst>()
+      .Subject.Name.Should().Be(field);
   }
 
   [Theory, RepeatAutoData(10)]
   public void ParseField_WithAlias_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string alias)
+    [RegularExpression(IdentifierPattern)] string alias,
+    [RegularExpression(IdentifierPattern)] string field)
   {
-    var parser = new OperationParser(Tokens($"{alias}:field"));
+    var parser = new OperationParser(Tokens(alias + ":" + field));
 
-    FieldAst? result = parser.ParseField();
+    parser.ParseField(out var result).Should().BeTrue();
 
-    result.Should().NotBeNull();
-    result!.Alias.Should().Be(alias);
+    result.Should().BeOfType<FieldAst>()
+      .Subject.Alias.Should().Be(alias);
+    result.As<FieldAst>().Name.Should().Be(field);
   }
 
   [Theory]
@@ -137,12 +163,13 @@ public class OperationParserTests
 
   [Theory, RepeatAutoData(10)]
   public void ParseDefinitions_WithMinimumInput_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string fragment)
+    [RegularExpression(IdentifierPattern)] string fragment,
+    [RegularExpression(IdentifierPattern)] string onType,
+    [RegularExpression(IdentifierPattern)] string field)
   {
-    var parser = new OperationParser(Tokens("fragment " + fragment + " on Type { field }"));
-    var expected = new DefinitionAst(fragment) {
-      OnType = "Type",
-      Object = new[] { new FieldAst("field") }
+    var parser = new OperationParser(Tokens("fragment " + fragment + " on " + onType + "{" + field + "}"));
+    var expected = new DefinitionAst(fragment, onType) {
+      Selections = new[] { new FieldAst(field) }
     };
 
     DefinitionAst[] result = parser.ParseDefinitions();

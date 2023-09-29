@@ -3,5 +3,5 @@
 internal record class ModifierAst(ModifierKind Kind)
 {
   internal string? Key { get; init; }
-  internal bool? KeyOptional { get; init; }
+  internal bool KeyOptional { get; init; }
 }

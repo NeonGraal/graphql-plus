@@ -1,15 +1,20 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal record class DefinitionAst : NamedAst, IEquatable<DefinitionAst>
+internal sealed record class DefinitionAst : NamedAst, IEquatable<DefinitionAst>
 {
-  internal DefinitionAst(string name) : base(name) { }
+  internal DefinitionAst(string name, string onType)
+    : base(name)
+    => OnType = onType;
 
-  internal string? OnType { get; set; }
+  internal string OnType { get; }
 
-  internal SelectionAst[] Object { get; set; } = Array.Empty<SelectionAst>();
+  internal required SelectionAst[] Selections { get; init; }
 
-  bool IEquatable<DefinitionAst>.Equals(DefinitionAst? other) =>
-    base.Equals(other) &&
-    OnType == other.OnType &&
-    Object.SequenceEqual(other.Object);
+  public bool Equals(DefinitionAst? other)
+    => base.Equals(other) &&
+      OnType == other.OnType &&
+      Selections.SequenceEqual(other.Selections);
+
+  public override int GetHashCode()
+    => HashCode.Combine((NamedAst)this, OnType, Selections);
 }

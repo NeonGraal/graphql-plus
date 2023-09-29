@@ -47,7 +47,7 @@ internal ref struct OperationParser
       ast.Modifiers = ParseModifiers();
     }
 
-    if (_tokens.Take("fragment")) {
+    if (_tokens.At("fragment")) {
       ast.Definitions = ParseDefinitions();
     }
 
@@ -108,41 +108,38 @@ internal ref struct OperationParser
       }
     }
 
-    return _tokens.Take('}') is null ? null : fields.ToArray();
     return _tokens.Take('}') ? fields.ToArray() : null;
   }
 
-  internal FragmentAst? ParseFragment() => throw new NotImplementedException();
+  internal FragmentAst? ParseFragment()
+  {
+    if (_tokens.Take("...")) {
+      if (_tokens.Take("on")) {
+      } else {
+        if (_tokens.TakeIdentifier(out var name)) {
+          return new SpreadAst(name);
+        }
+      }
+
+      if (_tokens.Take('{')) {
+      }
+    }
+
+    return null;
+  }
 
   internal FieldAst? ParseField()
   {
-    var name = _tokens.TakeIdentifier();
-
-    if (name is null) {
-      return null;
-    }
-
-    FieldAst? field;
-    if (_tokens.Take(':') == ':') {
-      if (!_tokens.AtIdentifier) {
-        return null;
-    if (_tokens.TakeIdentifier() is string alias) {
     if (_tokens.TakeIdentifier(out var alias)) {
       if (_tokens.Take(':')) {
-        if (_tokens.TakeIdentifier() is string name) {
         if (_tokens.TakeIdentifier(out var name)) {
           return new FieldAst(name) { Alias = alias };
         }
       } else {
         return new FieldAst(alias);
       }
-
-      field = new FieldAst(_tokens.TakeIdentifier()!) { Alias = name };
-    } else {
-      field = new FieldAst(name);
     }
 
-    return field;
     return null;
   }
 
@@ -179,5 +176,27 @@ internal ref struct OperationParser
     return modifiers.ToArray();
   }
 
-  internal DefinitionAst[] ParseDefinitions() => throw new NotImplementedException();
+  internal DefinitionAst[] ParseDefinitions()
+  {
+    var definitions = new List<DefinitionAst>();
+
+    while (_tokens.Take("fragment")) {
+      if (_tokens.TakeIdentifier(out var name) &&
+        _tokens.Take("on") &&
+        _tokens.TakeIdentifier(out var onType)
+      ) {
+        SelectionAst[]? selections = ParseObject();
+
+        if (selections?.Length > 0) {
+          var fragment = new DefinitionAst(name) {
+            OnType = onType,
+            Object = selections,
+          };
+          definitions.Add(fragment);
+        }
+      }
+    }
+
+    return definitions.ToArray();
+  }
 }

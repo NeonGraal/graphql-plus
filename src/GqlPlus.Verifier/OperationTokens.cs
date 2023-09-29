@@ -20,17 +20,19 @@ internal ref struct OperationTokens
   internal bool AtIdentifier => _kind == TokenKind.Identifer;
   internal bool AtNumber => _kind == TokenKind.Number;
   internal bool At(params char[] anyOf) => _kind == TokenKind.Punctuation && anyOf.Contains(_operation[_pos]);
-  internal bool At(string text) => _pos + text.Length <= _operation.Length && _operation.Slice(_pos, text.Length) == text;
+  internal bool At(string text) =>
+    _pos + text.Length <= _operation.Length &&
+    _operation.Slice(_pos, text.Length).Equals(text, StringComparison.InvariantCulture);
   internal bool AtEnd => _kind == TokenKind.End;
 
   internal bool Read()
   {
+    SkipWhitespace();
+
     if (_pos >= _operation.Length) {
       _kind = TokenKind.End;
       return false;
     }
-
-    SkipWhitespace();
 
     _kind = _operation[_pos] switch {
       >= 'A' and <= 'Z' or >= 'a' and <= 'z' or '_' => TokenKind.Identifer,
@@ -114,7 +116,7 @@ internal ref struct OperationTokens
       return false;
     }
 
-    var result = _operation[_pos++];
+    _pos++;
     Read();
 
     return true;
@@ -154,7 +156,7 @@ internal ref struct OperationTokens
         _operation[next] is >= 'A' and <= 'Z' or >= 'a' and <= 'z' or '_'
       ) {
         _pos += 1;
-        _kind = TokenKind.Identifer;        
+        _kind = TokenKind.Identifer;
         return TakeIdentifier(out identifier);
       }
     }

@@ -63,14 +63,18 @@ public class OperationParserTests
     result!.Length.Should().Be(1);
   }
 
-  [Fact(Skip = "WIP")]
-  public void ParseFragment_WithMinimumInput_ReturnsCorrectAst()
+  [Theory, RepeatAutoData(10)]
+  public void ParseFragment_WithMinimumSpread_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string fragment)
   {
-    var parser = new OperationParser(Tokens(""));
+    var parser = new OperationParser(Tokens("..." + fragment));
 
     FragmentAst? result = parser.ParseFragment();
 
-    result.Should().NotBeNull();
+    result.Should()
+      .NotBeNull().And
+      .BeOfType<SpreadAst>().Subject
+      .Name.Should().Be(fragment);
   }
 
   [Theory, RepeatAutoData(10)]
@@ -131,13 +135,20 @@ public class OperationParserTests
       });
   }
 
-  [Fact(Skip = "WIP")]
-  public void ParseDefinitions_WithMinimumInput_ReturnsCorrectAst()
+  [Theory, RepeatAutoData(10)]
+  public void ParseDefinitions_WithMinimumInput_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string fragment)
   {
-    var parser = new OperationParser(Tokens(""));
+    var parser = new OperationParser(Tokens("fragment " + fragment + " on Type { field }"));
+    var expected = new DefinitionAst(fragment) {
+      OnType = "Type",
+      Object = new[] { new FieldAst("field") }
+    };
 
     DefinitionAst[] result = parser.ParseDefinitions();
 
-    result.Should().NotBeNull();
+    result.Should()
+      .NotBeNull().And
+      .Equal(expected);
   }
 }

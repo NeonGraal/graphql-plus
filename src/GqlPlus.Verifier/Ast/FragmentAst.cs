@@ -1,5 +1,5 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal record class FragmentAst : SelectionAst
+internal interface FragmentAst : SelectionAst
 {
 }

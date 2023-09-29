@@ -24,7 +24,8 @@ public class OperationTokensTests
   }
 
   [Theory, RepeatAutoData(10)]
-  public void AtNumber_AfterReadTrue_IsTrue([Range(-99999, 99999)] int number)
+  public void AtNumber_AfterReadTrue_IsTrue(
+    [Range(-99999, 99999)] int number)
   {
     var tokens = new OperationTokens(number.ToString());
 
@@ -43,14 +44,26 @@ public class OperationTokensTests
     tokens.At('[').Should().BeTrue();
   }
 
-  [Fact]
-  public void At_WithString_AfterReadTrue_IsTrue()
+  [Theory, RepeatAutoData(10)]
+  public void At_WithString_AfterReadTrue_IsTrue(
+    [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
-    var tokens = new OperationTokens("<>");
+    var tokens = new OperationTokens(many);
 
     tokens.Read().Should().BeTrue();
 
-    tokens.At("<>").Should().BeTrue();
+    tokens.At(many).Should().BeTrue();
+  }
+
+  [Theory, RepeatAutoData(10)]
+  public void At_WithShort_AfterReadTrue_IsFalse(
+    [RegularExpression(PunctuationPattern + "{5}")] string many)
+  {
+    var tokens = new OperationTokens(many[..4]);
+
+    tokens.Read().Should().BeTrue();
+
+    tokens.At(many).Should().BeFalse();
   }
 
   [Fact]
@@ -65,27 +78,30 @@ public class OperationTokensTests
 
   [Theory, RepeatAutoData(10)]
   public void TakeIdentifier_AfterRead_ReturnsIdentifier(
-    [RegularExpression(IdentifierPattern)] string identifier)
+    [RegularExpression(IdentifierPattern)] string expected)
   {
-    var tokens = new OperationTokens(identifier);
+    var tokens = new OperationTokens(expected);
 
     tokens.Read().Should().BeTrue();
 
-    tokens.TakeIdentifier().Should().Be(identifier);
+    tokens.TakeIdentifier(out var result).Should().BeTrue();
+    result.Should().Be(expected);
   }
 
   [Theory, RepeatAutoData(10)]
-  public void TakeNumber_AfterReadTrue_IsTrue([Range(-99999, 99999)] int number)
+  public void TakeNumber_AfterReadTrue_IsTrue(
+    [Range(-99999, 99999)] int expected)
   {
-    var tokens = new OperationTokens(number.ToString());
+    var tokens = new OperationTokens(expected.ToString());
 
     tokens.Read().Should().BeTrue();
 
-    tokens.TakeNumber().Should().Be(number);
+    tokens.TakeNumber(out var result).Should().BeTrue();
+    result.Should().Be(expected);
   }
 
   [Theory, RepeatAutoData(10)]
-  public void Take_WithSingle_AfterRead_ReturnsChar(
+  public void Take_WithSingle_AfterRead_ReturnsTrue(
     [RegularExpression(PunctuationPattern)] string single)
   {
     var tokens = new OperationTokens(single);
@@ -93,11 +109,11 @@ public class OperationTokensTests
 
     tokens.Read().Should().BeTrue();
 
-    tokens.Take(expected).Should().Be(expected);
+    tokens.Take(expected).Should().BeTrue();
   }
 
   [Theory, RepeatAutoData(10)]
-  public void Take_WithMany_AfterRead_ReturnsChar(
+  public void TakeAny_WithMany_AfterRead_ReturnsChar(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
     var tokens = new OperationTokens(many);
@@ -105,7 +121,30 @@ public class OperationTokensTests
 
     tokens.Read().Should().BeTrue();
 
-    tokens.Take(many.ToCharArray()).Should().Be(expected);
+    tokens.TakeAny(out var result, many.ToCharArray()).Should().BeTrue();
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatAutoData(10)]
+  public void Take_WithString_AfterRead_ReturnsString(
+    [RegularExpression(PunctuationPattern + "{5}")] string many)
+  {
+    var tokens = new OperationTokens(many);
+
+    tokens.Read().Should().BeTrue();
+
+    tokens.Take(many).Should().BeTrue();
+  }
+
+  [Theory, RepeatAutoData(10)]
+  public void Take_WithShort_AfterRead_ReturnsString(
+    [RegularExpression(PunctuationPattern + "{5}")] string many)
+  {
+    var tokens = new OperationTokens(many[..4]);
+
+    tokens.Read().Should().BeTrue();
+
+    tokens.Take(many).Should().BeFalse();
   }
 
   [Theory, RepeatAutoData(10)]
@@ -117,9 +156,9 @@ public class OperationTokensTests
 
     tokens.Read().Should().BeTrue();
 
-    tokens.Prefix(expected).Should().BeNull();
-    tokens.Take(expected).Should().Be(expected);
-    tokens.Take('?').Should().Be('?');
+    tokens.Prefix(expected, out var name).Should().BeFalse();
+    tokens.Take(expected).Should().BeTrue();
+    tokens.Take('?').Should().BeTrue();
   }
 
   [Theory, RepeatAutoData(10)]
@@ -132,7 +171,7 @@ public class OperationTokensTests
 
     tokens.Read().Should().BeTrue();
 
-    tokens.Prefix(expected).Should().Be(expected);
-    tokens.TakeIdentifier().Should().Be(identifier);
+    tokens.Prefix(expected, out var result).Should().BeTrue();
+    result.Should().Be(identifier);
   }
 }

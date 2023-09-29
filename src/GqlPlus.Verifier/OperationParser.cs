@@ -18,17 +18,15 @@ internal ref struct OperationParser
       }
     }
 
-    var category = _tokens.TakeIdentifier();
-
-    if (category is not null) {
-      if (_tokens.AtIdentifier) {
-        ast = new(_tokens.TakeIdentifier()!) { Category = category };
+    if (_tokens.TakeIdentifier(out var category)) {
+      if (_tokens.TakeIdentifier(out var name)) {
+        ast = new(name) { Category = category };
       } else {
         ast.Category = category;
       }
     }
 
-    if (_tokens.Take('(') == '(') {
+    if (_tokens.Take('(')) {
       ast.Variables = ParseVariables();
     }
 
@@ -41,18 +39,16 @@ internal ref struct OperationParser
       if (ast.ResultObject is null or { Length: 0 }) {
         return ast;
       }
-    } else if (_tokens.AtIdentifier) {
-      ast.ResultType = _tokens.TakeIdentifier();
+    } else if (_tokens.TakeIdentifier(out var result)) {
+      ast.ResultType = result;
     }
 
     if (_tokens.At('[', '?')) {
       ast.Modifiers = ParseModifiers();
     }
 
-    if (_tokens.AtIdentifier) {
-      if (_tokens.TakeIdentifier() == "fragment") {
-        ast.Definitions = ParseDefinitions();
-      }
+    if (_tokens.Take("fragment")) {
+      ast.Definitions = ParseDefinitions();
     }
 
     if (_tokens.AtEnd) {
@@ -66,8 +62,8 @@ internal ref struct OperationParser
   {
     var directives = new List<DirectiveAst>();
 
-    while(_tokens.Prefix('@')is not null) {
-      var directive = new DirectiveAst(_tokens.TakeIdentifier()!);
+    while (_tokens.Prefix('@', out var name)) {
+      var directive = new DirectiveAst(name);
 
       directives.Add(directive);
     }
@@ -77,26 +73,26 @@ internal ref struct OperationParser
 
   internal VariableAst[] ParseVariables()
   {
-    if (_tokens.Take('(') is null) {
+    if (!_tokens.Take('(')) {
       return Array.Empty<VariableAst>();
     }
 
     var variables = new List<VariableAst>();
 
-    while(_tokens.Prefix('$') is not null) {
-      var variable = new VariableAst(_tokens.TakeIdentifier()!);
+    while (_tokens.Prefix('$', out var name)) {
+      var variable = new VariableAst(name);
 
       variables.Add(variable);
     }
 
-    return _tokens.Take(')') is null
-      ? Array.Empty<VariableAst>()
-      : variables.ToArray();
+    return _tokens.Take(')')
+      ? variables.ToArray()
+      : Array.Empty<VariableAst>();
   }
 
   internal SelectionAst[]? ParseObject()
   {
-    if (_tokens.Take('{') is null) {
+    if (!_tokens.Take('{')) {
       return null;
     }
 
@@ -113,6 +109,7 @@ internal ref struct OperationParser
     }
 
     return _tokens.Take('}') is null ? null : fields.ToArray();
+    return _tokens.Take('}') ? fields.ToArray() : null;
   }
 
   internal FragmentAst? ParseFragment() => throw new NotImplementedException();
@@ -129,6 +126,15 @@ internal ref struct OperationParser
     if (_tokens.Take(':') == ':') {
       if (!_tokens.AtIdentifier) {
         return null;
+    if (_tokens.TakeIdentifier() is string alias) {
+    if (_tokens.TakeIdentifier(out var alias)) {
+      if (_tokens.Take(':')) {
+        if (_tokens.TakeIdentifier() is string name) {
+        if (_tokens.TakeIdentifier(out var name)) {
+          return new FieldAst(name) { Alias = alias };
+        }
+      } else {
+        return new FieldAst(alias);
       }
 
       field = new FieldAst(_tokens.TakeIdentifier()!) { Alias = name };
@@ -137,37 +143,36 @@ internal ref struct OperationParser
     }
 
     return field;
+    return null;
   }
 
   internal ModifierAst[] ParseModifiers()
   {
     var modifiers = new List<ModifierAst>();
 
-    while (_tokens.Take('[') == '[') {
-      if (_tokens.AtIdentifier) {
-        var key = _tokens.TakeIdentifier();
+    while (_tokens.Take('[')) {
+      if (_tokens.TakeIdentifier(out var key)) {
         modifiers.Add(new(ModifierKind.Dict) {
           Key = key,
-          KeyOptional = _tokens.Take('?') == '?'
+          KeyOptional = _tokens.Take('?')
         });
       } else {
-        var key = _tokens.Take('~', '0', '*');
-        if (key is null) {
-          modifiers.Add(new(ModifierKind.List));
-        } else {
+        if (_tokens.TakeAny(out var charType, '~', '0', '*')) {
           modifiers.Add(new(ModifierKind.Dict) {
-            Key = key.ToString(),
-            KeyOptional = _tokens.Take('?') == '?'
+            Key = charType.ToString(),
+            KeyOptional = _tokens.Take('?')
           });
+        } else {
+          modifiers.Add(new(ModifierKind.List));
         }
       }
 
-      if (_tokens.Take(']') is null) {
+      if (!_tokens.Take(']')) {
         return Array.Empty<ModifierAst>();
       }
     }
 
-    if (_tokens.Take('?') == '?') {
+    if (_tokens.Take('?')) {
       modifiers.Add(new(ModifierKind.Optional));
     }
 

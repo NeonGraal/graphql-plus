@@ -71,10 +71,11 @@ internal ref struct OperationTokens
     }
   }
 
-  internal string? TakeIdentifier()
+  internal bool TakeIdentifier(out string identifier)
   {
+    identifier = "";
     if (_kind != TokenKind.Identifer) {
-      return null;
+      return false;
     }
 
     var end = _pos;
@@ -83,15 +84,15 @@ internal ref struct OperationTokens
     } while (end < _operation.Length && _operation[end] is >= 'A' and <= 'Z' or >= 'a' and <= 'z' or >= '0' and <= '9' or '_');
 
     ReadOnlySpan<char> result = end < _operation.Length ? _operation[_pos..end] : _operation[_pos..];
+    identifier = result.ToString();
 
     _pos = end;
-
     Read();
 
-    return result.ToString();
+    return true;
   }
 
-  internal int TakeNumber()
+  internal bool TakeNumber(out int number)
   {
     var end = _pos;
     do {
@@ -99,41 +100,66 @@ internal ref struct OperationTokens
     } while (end < _operation.Length && _operation[end] is >= '0' and <= '9');
 
     ReadOnlySpan<char> result = end < _operation.Length ? _operation[_pos..end] : _operation[_pos..];
+    number = int.Parse(result);
 
     _pos = end;
-
     Read();
 
-    return int.Parse(result);
+    return true;
   }
 
-  internal char? Take(params char[] c)
+  internal bool Take(char one)
   {
-    if (_kind != TokenKind.Punctuation || !c.Contains(_operation[_pos])) {
-      return null;
+    if (_kind != TokenKind.Punctuation || _operation[_pos] != one) {
+      return false;
     }
 
     var result = _operation[_pos++];
     Read();
 
-    return result;
+    return true;
   }
 
-  internal char? Prefix(params char[] c)
+  internal bool TakeAny(out char result, params char[] anyOf)
   {
-    if (_kind == TokenKind.Punctuation && c.Contains(_operation[_pos])) {
-      var result = _operation[_pos];
+    if (_kind != TokenKind.Punctuation || !anyOf.Contains(_operation[_pos])) {
+      result = '\0';
+      return false;
+    }
+
+    result = _operation[_pos++];
+    Read();
+
+    return true;
+  }
+
+  internal bool Take(string text)
+  {
+    if (!At(text)) {
+      return false;
+    }
+
+    _pos += text.Length;
+    Read();
+
+    return true;
+  }
+
+  internal bool Prefix(char one, out string identifier)
+  {
+    if (_kind == TokenKind.Punctuation && _operation[_pos] == one) {
       var next = _pos + 1;
 
       if (next < _operation.Length &&
         _operation[next] is >= 'A' and <= 'Z' or >= 'a' and <= 'z' or '_'
       ) {
         _pos += 1;
-        _kind = TokenKind.Identifer;
-        return result;
+        _kind = TokenKind.Identifer;        
+        return TakeIdentifier(out identifier);
       }
     }
 
-    return null;
+    identifier = "";
+    return false;
   }
 }

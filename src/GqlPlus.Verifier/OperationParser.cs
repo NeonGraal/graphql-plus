@@ -26,22 +26,20 @@ internal ref struct OperationParser
       }
     }
 
-    if (_tokens.Take('(')) {
-      ast.Variables = ParseVariables();
+    if (ParseVariables(out VariableAst[] variables)) {
+      ast.Variables = variables;
     }
 
     if (_tokens.At('@')) {
       ast.Directives = ParseDirectives();
     }
 
-    if (_tokens.At('{')) {
-      if (!ParseObject(out var selections)) {
-        return ast;
-      }
-
-      ast.ResultObject = selections;
-    } else if (_tokens.TakeIdentifier(out var result)) {
+    if (_tokens.Prefix(':', out var result)) {
       ast.ResultType = result;
+    } else if (ParseSelections(out SelectionAst[] selections)) {
+      ast.ResultObject = selections;
+    } else {
+      return ast;
     }
 
     if (_tokens.At('[', '?')) {
@@ -65,6 +63,9 @@ internal ref struct OperationParser
 
     while (_tokens.Prefix('@', out var name)) {
       var directive = new DirectiveAst(name);
+      if (ParseArgument(out ArgumentAst? argument)) {
+        directive.Argument = argument;
+      }
 
       directives.Add(directive);
     }
@@ -72,26 +73,31 @@ internal ref struct OperationParser
     return directives.ToArray();
   }
 
-  internal VariableAst[] ParseVariables()
+  internal bool ParseVariables(out VariableAst[] variables)
   {
+    variables = Array.Empty<VariableAst>();
     if (!_tokens.Take('(')) {
-      return Array.Empty<VariableAst>();
+      return false;
     }
 
-    var variables = new List<VariableAst>();
+    var result = new List<VariableAst>();
 
     while (_tokens.Prefix('$', out var name)) {
       var variable = new VariableAst(name);
 
-      variables.Add(variable);
+      result.Add(variable);
     }
 
-    return _tokens.Take(')')
-      ? variables.ToArray()
-      : Array.Empty<VariableAst>();
+    if (!result.Any()) {
+      return false;
+    }
+
+    variables = result.ToArray();
+
+    return _tokens.Take(')');
   }
 
-  internal bool ParseObject(out SelectionAst[] selections)
+  internal bool ParseSelections(out SelectionAst[] selections)
   {
     selections = Array.Empty<SelectionAst>();
     if (!_tokens.Take('{')) {
@@ -122,9 +128,9 @@ internal ref struct OperationParser
   {
     fragment = NullAst.Selection;
 
-    if (_tokens.Take("...")) {
+    if (_tokens.Take("...") || _tokens.Take('|')) {
       string? onType = null;
-      if (_tokens.Take("on")) {
+      if (_tokens.Take("on") || _tokens.Take(':')) {
         if (!_tokens.TakeIdentifier(out onType)) {
           return false;
         }
@@ -136,7 +142,7 @@ internal ref struct OperationParser
       }
 
       if (_tokens.At('{')) {
-        if (ParseObject(out var selections)) {
+        if (ParseSelections(out SelectionAst[] selections)) {
           fragment = new InlineAst {
             OnType = onType,
             Selections = selections
@@ -151,20 +157,32 @@ internal ref struct OperationParser
 
   internal bool ParseField(out SelectionAst field)
   {
-    if (_tokens.TakeIdentifier(out var alias)) {
-      if (_tokens.Take(':')) {
-        if (_tokens.TakeIdentifier(out var name)) {
-          field = new FieldAst(name) { Alias = alias };
-          return true;
-        }
-      } else {
-        field = new FieldAst(alias);
-        return true;
-      }
+    field = NullAst.Selection;
+
+    if (!_tokens.TakeIdentifier(out var alias)) {
+      return false;
     }
 
-    field = NullAst.Selection;
-    return false;
+    var result = new FieldAst(alias);
+
+    if (_tokens.Take(':')) {
+      if (!_tokens.TakeIdentifier(out var name)) {
+        return false;
+      }
+
+      result = new FieldAst(name) { Alias = alias };
+    }
+
+    if (ParseArgument(out ArgumentAst argument)) {
+      result.Argument = argument;
+    }
+
+    if (ParseSelections(out SelectionAst[] selections)) {
+      result.Selections = selections;
+    }
+
+    field = result;
+    return true;
   }
 
   internal ModifierAst[] ParseModifiers()
@@ -172,24 +190,24 @@ internal ref struct OperationParser
     var modifiers = new List<ModifierAst>();
 
     while (_tokens.Take('[')) {
+      ModifierAst modifier = new(ModifierKind.List);
+
       if (_tokens.TakeIdentifier(out var key)) {
-        modifiers.Add(new(ModifierKind.Dict) {
+        modifier = new(ModifierKind.Dict) {
           Key = key,
           KeyOptional = _tokens.Take('?')
-        });
+        };
       } else {
         if (_tokens.TakeAny(out var charType, '~', '0', '*')) {
-          modifiers.Add(new(ModifierKind.Dict) {
+          modifier = new(ModifierKind.Dict) {
             Key = charType.ToString(),
             KeyOptional = _tokens.Take('?')
-          });
-        } else {
-          modifiers.Add(new(ModifierKind.List));
+          };
         }
       }
 
-      if (!_tokens.Take(']')) {
-        return Array.Empty<ModifierAst>();
+      if (_tokens.Take(']')) {
+        modifiers.Add(modifier);
       }
     }
 
@@ -204,12 +222,12 @@ internal ref struct OperationParser
   {
     var definitions = new List<DefinitionAst>();
 
-    while (_tokens.Take("fragment")) {
+    while (_tokens.Take("fragment") || _tokens.Take('&')) {
       if (_tokens.TakeIdentifier(out var name) &&
-        _tokens.Take("on") &&
+        (_tokens.Take("on") || _tokens.Take(':')) &&
         _tokens.TakeIdentifier(out var onType)
       ) {
-        if (ParseObject(out var selections)) {
+        if (ParseSelections(out SelectionAst[] selections)) {
           var fragment = new DefinitionAst(name, onType) {
             Selections = selections,
           };
@@ -219,5 +237,19 @@ internal ref struct OperationParser
     }
 
     return definitions.ToArray();
+  }
+
+  internal bool ParseArgument(out ArgumentAst argument)
+  {
+    argument = new ArgumentAst();
+    if (!_tokens.Take('(')) {
+      return false;
+    }
+
+    if (_tokens.Prefix('$', out var variable)) {
+      argument.Variable = variable;
+    }
+
+    return _tokens.Take(")");
   }
 }

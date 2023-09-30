@@ -21,7 +21,7 @@ public class OperationTokensTests
     tokens.AtStart.Should().BeTrue();
   }
 
-  [Theory, RepeatAutoData(10)]
+  [Theory, RepeatData(10)]
   public void AtIdentifier_AfterReadTrue_IsTrue(
     [RegularExpression(IdentifierPattern)] string identifier)
   {
@@ -30,7 +30,7 @@ public class OperationTokensTests
     tokens.AtIdentifier.Should().BeTrue();
   }
 
-  [Theory, RepeatAutoData(10)]
+  [Theory, RepeatData(10)]
   public void AtNumber_AfterReadTrue_IsTrue(
     [Range(-99999, 99999)] int number)
   {
@@ -47,7 +47,7 @@ public class OperationTokensTests
     tokens.At('[').Should().BeTrue();
   }
 
-  [Theory, RepeatAutoData(10)]
+  [Theory, RepeatData(10)]
   public void At_WithString_AfterReadTrue_IsTrue(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
@@ -56,7 +56,7 @@ public class OperationTokensTests
     tokens.At(many).Should().BeTrue();
   }
 
-  [Theory, RepeatAutoData(10)]
+  [Theory, RepeatData(10)]
   public void At_WithShort_AfterReadTrue_IsFalse(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
@@ -75,7 +75,7 @@ public class OperationTokensTests
     tokens.AtEnd.Should().BeTrue();
   }
 
-  [Theory, RepeatAutoData(10)]
+  [Theory, RepeatData(10)]
   public void TakeIdentifier_AfterRead_ReturnsIdentifier(
     [RegularExpression(IdentifierPattern)] string expected)
   {
@@ -85,7 +85,7 @@ public class OperationTokensTests
     result.Should().Be(expected);
   }
 
-  [Theory, RepeatAutoData(10)]
+  [Theory, RepeatData(10)]
   public void TakeNumber_AfterReadTrue_IsTrue(
     [Range(-99999, 99999)] int expected)
   {
@@ -95,7 +95,7 @@ public class OperationTokensTests
     result.Should().Be(expected);
   }
 
-  [Theory, RepeatAutoData(10)]
+  [Theory, RepeatData(10)]
   public void Take_WithSingle_AfterRead_ReturnsTrue(
     [RegularExpression(PunctuationPattern)] string single)
   {
@@ -105,7 +105,7 @@ public class OperationTokensTests
     tokens.Take(expected).Should().BeTrue();
   }
 
-  [Theory, RepeatAutoData(10)]
+  [Theory, RepeatData(10)]
   public void TakeAny_WithMany_AfterRead_ReturnsChar(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
@@ -116,7 +116,7 @@ public class OperationTokensTests
     result.Should().Be(expected);
   }
 
-  [Theory, RepeatAutoData(10)]
+  [Theory, RepeatData(10)]
   public void Take_WithString_AfterRead_ReturnsString(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
@@ -125,7 +125,7 @@ public class OperationTokensTests
     tokens.Take(many).Should().BeTrue();
   }
 
-  [Theory, RepeatAutoData(10)]
+  [Theory, RepeatData(10)]
   public void Take_WithShort_AfterRead_ReturnsString(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
@@ -134,7 +134,7 @@ public class OperationTokensTests
     tokens.Take(many).Should().BeFalse();
   }
 
-  [Theory, RepeatAutoData(10)]
+  [Theory, RepeatData(10)]
   public void Prefix_WithoutName_AfterRead_ReturnsNull(
     [RegularExpression(PunctuationPattern)] string prefix)
   {
@@ -146,7 +146,7 @@ public class OperationTokensTests
     tokens.Take('?').Should().BeTrue();
   }
 
-  [Theory, RepeatAutoData(10)]
+  [Theory, RepeatData(10)]
   public void Prefix_WithName_AfterRead_ReturnsCharThenName(
     [RegularExpression(PunctuationPattern)] string prefix,
     [RegularExpression(IdentifierPattern)] string identifier)

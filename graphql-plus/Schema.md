@@ -167,7 +167,7 @@ These Generic types are the Input types if `$T` is an Input type and Output type
 
 </details>
 
-### Built In types
+### Built-In types
 
 <details>
 <summary>Built-In types</summary>

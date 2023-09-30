@@ -18,8 +18,8 @@ internal ref struct OperationParser
       }
     }
 
-    if (_tokens.TakeIdentifier(out var category)) {
-      if (_tokens.TakeIdentifier(out var name)) {
+    if (_tokens.Identifier(out var category)) {
+      if (_tokens.Identifier(out var name)) {
         ast = new(name) { Category = category };
       } else {
         ast.Category = category;
@@ -69,7 +69,7 @@ internal ref struct OperationParser
     while (_tokens.Prefix('$', out var name)) {
       var variable = new VariableAst(name);
 
-      if (_tokens.Take(':') && _tokens.TakeIdentifier(out var varType)) {
+      if (_tokens.Take(':') && _tokens.Identifier(out var varType)) {
         variable.Type = varType;
       }
 
@@ -109,7 +109,7 @@ internal ref struct OperationParser
 
     while (_tokens.Take('[')) {
       ModifierAst modifier = ModifierAst.List;
-      if (_tokens.TakeIdentifier(out var key)) {
+      if (_tokens.Identifier(out var key)) {
         modifier = new() {
           Key = key,
           KeyOptional = _tokens.Take('?')
@@ -169,11 +169,11 @@ internal ref struct OperationParser
     if (_tokens.Take("...") || _tokens.Take('|')) {
       string? onType = null;
       if (_tokens.Take("on") || _tokens.Take(':')) {
-        if (!_tokens.TakeIdentifier(out onType)) {
+        if (!_tokens.Identifier(out onType)) {
           return false;
         }
       } else {
-        if (_tokens.TakeIdentifier(out var name)) {
+        if (_tokens.Identifier(out var name)) {
           selection = new SpreadAst(name);
           return true;
         }
@@ -197,14 +197,14 @@ internal ref struct OperationParser
   {
     field = NullAst.Selection;
 
-    if (!_tokens.TakeIdentifier(out var alias)) {
+    if (!_tokens.Identifier(out var alias)) {
       return false;
     }
 
     var result = new FieldAst(alias);
 
     if (_tokens.Take(':')) {
-      if (!_tokens.TakeIdentifier(out var name)) {
+      if (!_tokens.Identifier(out var name)) {
         return false;
       }
 
@@ -228,9 +228,9 @@ internal ref struct OperationParser
     var definitions = new List<FragmentAst>();
 
     while (_tokens.Take("fragment") || _tokens.Take('&')) {
-      if (_tokens.TakeIdentifier(out var name) &&
+      if (_tokens.Identifier(out var name) &&
         (_tokens.Take("on") || _tokens.Take(':')) &&
-        _tokens.TakeIdentifier(out var onType)
+        _tokens.Identifier(out var onType)
       ) {
         if (ParseObject(out SelectionAst[] selections)) {
           var fragment = new FragmentAst(name, onType) {

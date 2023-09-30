@@ -73,7 +73,7 @@ internal ref struct OperationTokens
     }
   }
 
-  internal bool TakeIdentifier(out string identifier)
+  internal bool Identifier(out string identifier)
   {
     identifier = "";
     if (_kind != TokenKind.Identifer) {
@@ -94,7 +94,7 @@ internal ref struct OperationTokens
     return true;
   }
 
-  internal bool TakeNumber(out int number)
+  internal bool Number(out int number)
   {
     var end = _pos;
     do {
@@ -157,7 +157,7 @@ internal ref struct OperationTokens
       ) {
         _pos += 1;
         _kind = TokenKind.Identifer;
-        return TakeIdentifier(out identifier);
+        return Identifier(out identifier);
       }
     }
 

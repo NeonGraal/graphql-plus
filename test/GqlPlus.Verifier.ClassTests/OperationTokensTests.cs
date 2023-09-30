@@ -76,22 +76,23 @@ public class OperationTokensTests
   }
 
   [Theory, RepeatData(10)]
-  public void TakeIdentifier_AfterRead_ReturnsIdentifier(
+  public void Identifier_AfterRead_ReturnsIdentifier(
     [RegularExpression(IdentifierPattern)] string expected)
   {
     OperationTokens tokens = PrepareTokens(expected);
 
-    tokens.TakeIdentifier(out var result).Should().BeTrue();
+    tokens.Identifier(out var result).Should().BeTrue();
     result.Should().Be(expected);
   }
 
   [Theory, RepeatData(10)]
-  public void TakeNumber_AfterReadTrue_IsTrue(
+  public void Number_AfterReadTrue_IsTrue(
     [Range(-99999, 99999)] int expected)
   {
     OperationTokens tokens = PrepareTokens(expected.ToString());
 
     tokens.TakeNumber(out var result).Should().BeTrue();
+    tokens.Number(out var result).Should().BeTrue();
     result.Should().Be(expected);
   }
 
@@ -103,17 +104,6 @@ public class OperationTokensTests
     var expected = single.First();
 
     tokens.Take(expected).Should().BeTrue();
-  }
-
-  [Theory, RepeatData(10)]
-  public void TakeAny_WithMany_AfterRead_ReturnsChar(
-    [RegularExpression(PunctuationPattern + "{5}")] string many)
-  {
-    OperationTokens tokens = PrepareTokens(many);
-    var expected = many.First();
-
-    tokens.TakeAny(out var result, many.ToCharArray()).Should().BeTrue();
-    result.Should().Be(expected);
   }
 
   [Theory, RepeatData(10)]
@@ -132,6 +122,17 @@ public class OperationTokensTests
     OperationTokens tokens = PrepareTokens(many[..4]);
 
     tokens.Take(many).Should().BeFalse();
+  }
+
+  [Theory, RepeatData(10)]
+  public void TakeAny_WithMany_AfterRead_ReturnsChar(
+    [RegularExpression(PunctuationPattern + "{5}")] string many)
+  {
+    OperationTokens tokens = PrepareTokens(many);
+    var expected = many.First();
+
+    tokens.TakeAny(out var result, many.ToCharArray()).Should().BeTrue();
+    result.Should().Be(expected);
   }
 
   [Theory, RepeatData(10)]

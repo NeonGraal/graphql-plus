@@ -1,12 +1,10 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class VariableAst : NamedAst
+internal sealed record class VariableAst(string Name) : NamedDirectivesAst(Name), IEquatable<VariableAst>
 {
-  public VariableAst(string name) : base(name) { }
+  internal string? Type { get; set; }
 
-  public string? Type { get; set; }
-
-  public ModifierAst[] Modifers { get; set; } = Array.Empty<ModifierAst>();
+  internal ModifierAst[] Modifers { get; set; } = Array.Empty<ModifierAst>();
 
   public bool Equals(VariableAst? other)
     => base.Equals(other)

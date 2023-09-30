@@ -181,9 +181,8 @@ internal ref struct OperationParser
 
       if (_tokens.At('{')) {
         if (ParseObject(out SelectionAst[] selections)) {
-          selection = new InlineAst {
-            OnType = onType,
-            Selections = selections
+          selection = new InlineAst(selections) {
+            OnType = onType
           };
           return true;
         }
@@ -233,9 +232,7 @@ internal ref struct OperationParser
         _tokens.Identifier(out var onType)
       ) {
         if (ParseObject(out SelectionAst[] selections)) {
-          var fragment = new FragmentAst(name, onType) {
-            Selections = selections,
-          };
+          var fragment = new FragmentAst(name, onType, selections);
           definitions.Add(fragment);
         }
       }

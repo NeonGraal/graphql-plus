@@ -1,6 +1,3 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal record class SpreadAst : NamedAst, SelectionAst
-{
-  public SpreadAst(string name) : base(name) { }
-}
+internal record class SpreadAst(string Name) : NamedDirectivesAst(Name), SelectionAst { }

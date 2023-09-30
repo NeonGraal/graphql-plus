@@ -1,9 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class FieldAst : NamedAst, SelectionAst
+internal sealed record class FieldAst(string Name) : NamedDirectivesAst(Name), SelectionAst
 {
-  public FieldAst(string name) : base(name) { }
-
   internal string? Alias { get; init; }
 
   public ArgumentAst? Argument { get; set; }

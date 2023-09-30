@@ -91,12 +91,11 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string directive)
   {
     var parser = new OperationParser(Tokens($"(${variable}@{directive})"));
+    var expected = new VariableAst(variable) { Directives = new[] { new DirectiveAst(directive) } };
 
     parser.ParseVariables(out VariableAst[] result).Should().BeTrue();
 
-    result.Should()
-      .NotBeNull().And
-      .Equal(new VariableAst(variable));
+    result.Should().NotBeNull().And.Equal(expected);
   }
 
   #endregion
@@ -185,9 +184,8 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string inlineType)
   {
     var parser = new OperationParser(Tokens(inlinePrefix + typePrefix + inlineType + "{" + field + "}"));
-    var expected = new InlineAst {
-      OnType = inlineType,
-      Selections = new[] { new FieldAst(field) }
+    var expected = new InlineAst(new[] { new FieldAst(field) }) {
+      OnType = inlineType
     };
 
     parser.ParseSelection(out SelectionAst result).Should().BeTrue();
@@ -350,9 +348,7 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string field)
   {
     var parser = new OperationParser(Tokens(fragmentPrefix + fragment + typePrefix + onType + "{" + field + "}"));
-    var expected = new FragmentAst(fragment, onType) {
-      Selections = new[] { new FieldAst(field) }
-    };
+    var expected = new FragmentAst(fragment, onType, new[] { new FieldAst(field) });
 
     FragmentAst[] result = parser.ParseFragments();
 

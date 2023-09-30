@@ -6,24 +6,28 @@ namespace GqlPlus.Verifier.ClassTests;
 public class AstEqualityTests
 {
   [Theory, RepeatData(10)]
-  public void DefinitionAst_Equality(
-    [RegularExpression(IdentifierPattern)] string name,
-    [RegularExpression(IdentifierPattern)] string onType,
-    [RegularExpression(IdentifierPattern)] string field)
+  public void ArgumentAst_WithVariable_Equality(
+    [RegularExpression(IdentifierPattern)] string variable)
   {
-    var leftField = new FieldAst(field);
-    FieldAst[] leftSelections = new[] { leftField };
-    var left = new DefinitionAst(name, onType) { Selections = leftSelections };
-
-    var rightField = new FieldAst(field);
-    FieldAst[] rightSelections = new[] { rightField };
-    var right = new DefinitionAst(name, onType) { Selections = rightSelections };
+    var left = new ArgumentAst { Variable = variable };
+    var right = new ArgumentAst { Variable = variable };
 
     (left == right).Should().BeTrue();
 
     left.Should().NotBeSameAs(right);
-    leftSelections.Should().NotBeSameAs(rightSelections);
-    leftField.Should().NotBeSameAs(rightField);
+  }
+
+  [Theory, RepeatData(10)]
+  public void ConstantAst_WithEnumLabel_Equality(
+    [RegularExpression(IdentifierPattern)] string enumType,
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var left = new ConstantAst { Type = enumType, Label = label };
+    var right = new ConstantAst { Type = enumType, Label = label };
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
   }
 
   [Theory, RepeatData(10)]
@@ -51,6 +55,27 @@ public class AstEqualityTests
     var rightField = new FieldAst(field);
     FieldAst[] rightSelections = new[] { rightField };
     var right = new FieldAst(name) { Selections = rightSelections };
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+    leftSelections.Should().NotBeSameAs(rightSelections);
+    leftField.Should().NotBeSameAs(rightField);
+  }
+
+  [Theory, RepeatData(10)]
+  public void FragmentAst_Equality(
+    [RegularExpression(IdentifierPattern)] string name,
+    [RegularExpression(IdentifierPattern)] string onType,
+    [RegularExpression(IdentifierPattern)] string field)
+  {
+    var leftField = new FieldAst(field);
+    FieldAst[] leftSelections = new[] { leftField };
+    var left = new FragmentAst(name, onType) { Selections = leftSelections };
+
+    var rightField = new FieldAst(field);
+    FieldAst[] rightSelections = new[] { rightField };
+    var right = new FragmentAst(name, onType) { Selections = rightSelections };
 
     (left == right).Should().BeTrue();
 
@@ -96,18 +121,6 @@ public class AstEqualityTests
     left.Should().NotBeSameAs(right);
     leftSelections.Should().NotBeSameAs(rightSelections);
     leftField.Should().NotBeSameAs(rightField);
-  }
-
-  [Theory, RepeatData(10)]
-  public void NamedAst_Equality(
-    [RegularExpression(IdentifierPattern)] string name)
-  {
-    var left = new NamedAst(name);
-    var right = new NamedAst(name);
-
-    (left == right).Should().BeTrue();
-
-    left.Should().NotBeSameAs(right);
   }
 
   [Theory, RepeatData(10)]

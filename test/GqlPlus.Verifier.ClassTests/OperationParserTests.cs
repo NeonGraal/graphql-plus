@@ -30,31 +30,7 @@ public class OperationParserTests
     ast!.Result.Should().Be(result);
   }
 
-  [Theory, RepeatData(10)]
-  public void ParseDirectives_WithMinimumInput_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string directive)
-  {
-    var parser = new OperationParser(Tokens("@" + directive));
-
-    DirectiveAst[] result = parser.ParseDirectives();
-
-    result.Should()
-      .NotBeNull().And
-      .Equal(new DirectiveAst(directive));
-  }
-
-  [Theory, RepeatData(10)]
-  public void ParseDirectives_WithArgument_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string directive,
-    [RegularExpression(IdentifierPattern)] string variable)
-  {
-    var parser = new OperationParser(Tokens("@" + directive + "($" + variable + ")"));
-    var expected = new DirectiveAst(directive) { Argument = new ArgumentAst { Variable = variable } };
-
-    DirectiveAst[] result = parser.ParseDirectives();
-
-    result.Should().NotBeNull().And.Equal(expected);
-  }
+  #region Variables tests
 
   [Theory, RepeatData(10)]
   public void ParseVariables_WithMinimumInput_ReturnsCorrectAst(
@@ -123,13 +99,47 @@ public class OperationParserTests
       .Equal(new VariableAst(variable));
   }
 
+  #endregion
+
+  #region Directives tests
+
+  [Theory, RepeatData(10)]
+  public void ParseDirectives_WithMinimumInput_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string directive)
+  {
+    var parser = new OperationParser(Tokens("@" + directive));
+
+    DirectiveAst[] result = parser.ParseDirectives();
+
+    result.Should()
+      .NotBeNull().And
+      .Equal(new DirectiveAst(directive));
+  }
+
+  [Theory, RepeatData(10)]
+  public void ParseDirectives_WithArgument_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string directive,
+    [RegularExpression(IdentifierPattern)] string variable)
+  {
+    var parser = new OperationParser(Tokens("@" + directive + "($" + variable + ")"));
+    var expected = new DirectiveAst(directive) { Argument = new ArgumentAst { Variable = variable } };
+
+    DirectiveAst[] result = parser.ParseDirectives();
+
+    result.Should().NotBeNull().And.Equal(expected);
+  }
+
+  #endregion
+
+  #region Object tests
+
   [Theory, RepeatData(10)]
   public void ParseSelections_WithMinimumInput_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string field)
   {
     var parser = new OperationParser(Tokens("{" + field + "}"));
 
-    parser.ParseSelections(out SelectionAst[] result).Should().BeTrue();
+    parser.ParseObject(out SelectionAst[] result).Should().BeTrue();
 
     result.Should().NotBeNull();
     result!.Length.Should().Be(1);
@@ -140,20 +150,24 @@ public class OperationParserTests
   {
     var parser = new OperationParser(Tokens("{}"));
 
-    parser.ParseSelections(out SelectionAst[] result).Should().BeFalse();
+    parser.ParseObject(out SelectionAst[] result).Should().BeFalse();
 
     result.Should().NotBeNull();
     result!.Length.Should().Be(0);
   }
 
+  #endregion
+
+  #region Selection tests
+
   [Theory, RepeatInlineData(10, "..."), RepeatInlineData(10, "|")]
-  public void ParseFragment_WithMinimumInline_ReturnsCorrectAst(
+  public void ParseSelection_WithMinimumInline_ReturnsCorrectAst(
     string prefix, [RegularExpression(IdentifierPattern)] string field)
   {
     var parser = new OperationParser(Tokens(prefix + " {" + field + "}"));
     var expected = new FieldAst(field);
 
-    parser.ParseFragment(out SelectionAst result).Should().BeTrue();
+    parser.ParseSelection(out SelectionAst result).Should().BeTrue();
 
     result.Should().BeOfType<InlineAst>()
       .Subject.OnType.Should().BeNull();
@@ -165,7 +179,7 @@ public class OperationParserTests
   [RepeatInlineData(10, "|", " on ")]
   [RepeatInlineData(10, "...", ":")]
   [RepeatInlineData(10, "|", ":")]
-  public void ParseFragment_WithInlineType_ReturnsCorrectAst(
+  public void ParseSelection_WithInlineType_ReturnsCorrectAst(
     string inlinePrefix, string typePrefix,
     [RegularExpression(IdentifierPattern)] string field,
     [RegularExpression(IdentifierPattern)] string inlineType)
@@ -176,21 +190,21 @@ public class OperationParserTests
       Selections = new[] { new FieldAst(field) }
     };
 
-    parser.ParseFragment(out SelectionAst result).Should().BeTrue();
+    parser.ParseSelection(out SelectionAst result).Should().BeTrue();
 
     result.Should().BeOfType<InlineAst>()
       .Subject.Equals(expected);
   }
 
   [Theory(Skip = "WIP"), RepeatData(1)]
-  public void ParseFragment_WithInlineDirective_ReturnsCorrectAst(
+  public void ParseSelection_WithInlineDirective_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string directive,
     [RegularExpression(IdentifierPattern)] string field)
   {
     var parser = new OperationParser(Tokens("|@" + directive + "{" + field + "}"));
     var expected = new FieldAst(field);
 
-    parser.ParseFragment(out SelectionAst result).Should().BeTrue();
+    parser.ParseSelection(out SelectionAst result).Should().BeTrue();
 
     result.Should().BeOfType<InlineAst>()
       .Subject.OnType.Should().BeNull();
@@ -198,29 +212,33 @@ public class OperationParserTests
   }
 
   [Theory, RepeatInlineData(10, "..."), RepeatInlineData(10, "|")]
-  public void ParseFragment_WithMinimumSpread_ReturnsCorrectAst(
+  public void ParseSelection_WithMinimumSpread_ReturnsCorrectAst(
     string prefix, [RegularExpression(IdentifierPattern)] string fragment)
   {
     var parser = new OperationParser(Tokens(prefix + fragment));
 
-    parser.ParseFragment(out SelectionAst result).Should().BeTrue();
+    parser.ParseSelection(out SelectionAst result).Should().BeTrue();
 
     result.Should().BeOfType<SpreadAst>()
       .Subject.Name.Should().Be(fragment);
   }
 
   [Theory(Skip = "WIP"), RepeatData(1)]
-  public void ParseFragment_WithSpreadDirective_ReturnsCorrectAst(
+  public void ParseSelection_WithSpreadDirective_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string fragment,
     [RegularExpression(IdentifierPattern)] string directive)
   {
     var parser = new OperationParser(Tokens($"|{fragment}@{directive}"));
 
-    parser.ParseFragment(out SelectionAst result).Should().BeTrue();
+    parser.ParseSelection(out SelectionAst result).Should().BeTrue();
 
     result.Should().BeOfType<SpreadAst>()
       .Subject.Name.Should().Be(fragment);
   }
+
+  #endregion
+
+  #region Field tests
 
   [Theory, RepeatData(10)]
   public void ParseField_WithJustField_ReturnsCorrectAst(
@@ -278,6 +296,10 @@ public class OperationParserTests
     result.As<FieldAst>().Selections.Should().Equal(expected);
   }
 
+  #endregion
+
+  #region Modifers tests
+
   [Theory]
   [InlineData("", 0)]
   [InlineData("?", 1)]
@@ -312,28 +334,36 @@ public class OperationParserTests
       });
   }
 
+  #endregion
+
+  #region Fragments tests
+
   [Theory]
   [RepeatInlineData(10, "fragment ", " on ")]
   [RepeatInlineData(10, "&", " on ")]
   [RepeatInlineData(10, "fragment ", ":")]
   [RepeatInlineData(10, "&", ":")]
-  public void ParseDefinitions_WithMinimumInput_ReturnsCorrectAst(
-    string definitionPrefix, string typePrefix,
+  public void ParseFragments_WithMinimumInput_ReturnsCorrectAst(
+    string fragmentPrefix, string typePrefix,
     [RegularExpression(IdentifierPattern)] string fragment,
     [RegularExpression(IdentifierPattern)] string onType,
     [RegularExpression(IdentifierPattern)] string field)
   {
-    var parser = new OperationParser(Tokens(definitionPrefix + fragment + typePrefix + onType + "{" + field + "}"));
-    var expected = new DefinitionAst(fragment, onType) {
+    var parser = new OperationParser(Tokens(fragmentPrefix + fragment + typePrefix + onType + "{" + field + "}"));
+    var expected = new FragmentAst(fragment, onType) {
       Selections = new[] { new FieldAst(field) }
     };
 
-    DefinitionAst[] result = parser.ParseDefinitions();
+    FragmentAst[] result = parser.ParseFragments();
 
     result.Should()
       .NotBeNull().And
       .Equal(expected);
   }
+
+  #endregion
+
+  #region Argument tests
 
   [Theory, RepeatData(10)]
   public void ParseArgument_WithVariable_ReturnsCorrectAst(
@@ -346,4 +376,6 @@ public class OperationParserTests
 
     result.Should().Be(expected);
   }
+
+  #endregion
 }

@@ -11,11 +11,10 @@ internal sealed record class FieldAst : NamedAst, SelectionAst
   internal SelectionAst[] Selections { get; set; } = Array.Empty<SelectionAst>();
 
   public bool Equals(FieldAst? other)
-    => base.Equals(other) &&
-      (Alias is null && other.Alias is null ||
-      Alias == other.Alias) &&
-      Argument == other.Argument &&
-      Selections.SequenceEqual(other.Selections);
+    => base.Equals(other)
+    && Alias.NullEqual(other.Alias)
+    && Argument == other.Argument
+    && Selections.SequenceEqual(other.Selections);
 
   public override int GetHashCode()
     => HashCode.Combine((NamedAst)this, Alias, Argument, Selections);

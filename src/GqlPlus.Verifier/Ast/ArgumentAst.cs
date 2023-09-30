@@ -1,12 +1,23 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal record class ArgumentAst
+internal sealed record class ArgumentAst : IEquatable<ArgumentAst>
 {
   internal string? Variable { get; set; }
 
-  //internal ArgumentAst[] Values { get; set; } = Array.Empty<ArgumentAst>();
+  internal ConstantAst? Constant { get; set; }
 
-  //internal IDictionary<FieldKeyAst,ArgumentAst> Fields { get; set; } = new Dictionary<FieldKeyAst,ArgumentAst>();
+  internal ArgumentAst[] Values { get; set; } = Array.Empty<ArgumentAst>();
 
-  //internal ConstantAst? ConstantAst { get; set; }
+  internal IDictionary<FieldKeyAst, ArgumentAst> Fields { get; set; } = new Dictionary<FieldKeyAst, ArgumentAst>();
+
+  public bool Equals(ArgumentAst? other)
+  {
+    return other is not null
+      && Variable.NullEqual(other.Variable)
+      && Constant.NullEqual(other.Constant)
+      && Values.SequenceEqual(other.Values)
+      && Fields.Ordered().SequenceEqual(other.Fields.Ordered());
+  }
+
+  public override int GetHashCode() => base.GetHashCode();
 }

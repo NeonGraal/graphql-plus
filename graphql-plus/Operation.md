@@ -118,15 +118,15 @@ Any unknown identifier used as a Dictionary key Type will be treated as an Enum 
 ## Object
 
 ```PEG
-Object = '{' Selection+ '}'
-Selection = Field | ( '...' | '|' ) ( Inline | Spread )
+Object = '{' ( Selection | Field )+ '}'
 Field = ( alias ':' )? field Argument? Modifier? Directive* Object?
+Selection = ( '...' | '|' ) ( Inline | Spread )
 Inline = TypeCondition? Directive* Object
 Spread = fragment Directive*
 TypeCondition = ( 'on' | ':' ) type
 ```
 
-A Result Object is a selection of fields or fragments.
+A Result Object is a set of fields or selections.
 
 A Field may have none, one, more or even all of the following, in this order:
 
@@ -207,9 +207,9 @@ Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_' | enum
 Simple = Internal | Basic
 Internal = 'Void' | 'Null' | 'null'
 
-Object = '{' Selection+ '}'
-Selection = Field | ( '...' | '|' ) ( Inline | Spread )
+Object = '{' ( Selection | Field )+ '}'
 Field = ( alias ':' )? field Argument? Modifier? Directive* Object?
+Selection = ( '...' | '|' ) ( Inline | Spread )
 Inline = TypeCondition? Directive* Object
 Spread = fragment Directive*
 TypeCondition = ( 'on' | ':' ) type

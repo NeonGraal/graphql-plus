@@ -36,7 +36,7 @@ internal ref struct OperationParser
 
     if (_tokens.Prefix(':', out var result)) {
       ast.ResultType = result;
-    } else if (ParseSelections(out SelectionAst[] selections)) {
+    } else if (ParseObject(out SelectionAst[] selections)) {
       ast.ResultObject = selections;
     } else {
       return ast;
@@ -47,7 +47,7 @@ internal ref struct OperationParser
     }
 
     if (_tokens.At("fragment")) {
-      ast.Definitions = ParseDefinitions();
+      ast.Fragments = ParseFragments();
     }
 
     if (_tokens.AtEnd) {
@@ -55,22 +55,6 @@ internal ref struct OperationParser
     }
 
     return ast;
-  }
-
-  internal DirectiveAst[] ParseDirectives()
-  {
-    var directives = new List<DirectiveAst>();
-
-    while (_tokens.Prefix('@', out var name)) {
-      var directive = new DirectiveAst(name);
-      if (ParseArgument(out ArgumentAst? argument)) {
-        directive.Argument = argument;
-      }
-
-      directives.Add(directive);
-    }
-
-    return directives.ToArray();
   }
 
   internal bool ParseVariables(out VariableAst[] variables)
@@ -103,92 +87,20 @@ internal ref struct OperationParser
     return _tokens.Take(')');
   }
 
-  internal bool ParseSelections(out SelectionAst[] selections)
+  internal DirectiveAst[] ParseDirectives()
   {
-    selections = Array.Empty<SelectionAst>();
-    if (!_tokens.Take('{')) {
-      return false;
-    }
+    var directives = new List<DirectiveAst>();
 
-    var fields = new List<SelectionAst>();
-
-    while (_tokens.At("...") || _tokens.At('|') || _tokens.AtIdentifier) {
-      if (_tokens.AtIdentifier) {
-        if (ParseField(out SelectionAst field)) {
-          fields.Add(field);
-        }
-      } else if (ParseFragment(out SelectionAst fragment)) {
-        fields.Add(fragment);
-      }
-    }
-
-    if (!fields.Any()) {
-      return false;
-    }
-
-    selections = fields.ToArray();
-    return _tokens.Take('}');
-  }
-
-  internal bool ParseFragment(out SelectionAst fragment)
-  {
-    fragment = NullAst.Selection;
-
-    if (_tokens.Take("...") || _tokens.Take('|')) {
-      string? onType = null;
-      if (_tokens.Take("on") || _tokens.Take(':')) {
-        if (!_tokens.TakeIdentifier(out onType)) {
-          return false;
-        }
-      } else {
-        if (_tokens.TakeIdentifier(out var name)) {
-          fragment = new SpreadAst(name);
-          return true;
-        }
+    while (_tokens.Prefix('@', out var name)) {
+      var directive = new DirectiveAst(name);
+      if (ParseArgument(out ArgumentAst? argument)) {
+        directive.Argument = argument;
       }
 
-      if (_tokens.At('{')) {
-        if (ParseSelections(out SelectionAst[] selections)) {
-          fragment = new InlineAst {
-            OnType = onType,
-            Selections = selections
-          };
-          return true;
-        }
-      }
+      directives.Add(directive);
     }
 
-    return false;
-  }
-
-  internal bool ParseField(out SelectionAst field)
-  {
-    field = NullAst.Selection;
-
-    if (!_tokens.TakeIdentifier(out var alias)) {
-      return false;
-    }
-
-    var result = new FieldAst(alias);
-
-    if (_tokens.Take(':')) {
-      if (!_tokens.TakeIdentifier(out var name)) {
-        return false;
-      }
-
-      result = new FieldAst(name) { Alias = alias };
-    }
-
-    if (ParseArgument(out ArgumentAst argument)) {
-      result.Argument = argument;
-    }
-
-    if (ParseSelections(out SelectionAst[] selections)) {
-      result.Selections = selections;
-    }
-
-    field = result;
-    return true;
+    return directives.ToArray();
   }
 
   internal ModifierAst[] ParseModifiers()
@@ -223,17 +135,105 @@ internal ref struct OperationParser
     return modifiers.ToArray();
   }
 
-  internal DefinitionAst[] ParseDefinitions()
+  internal bool ParseObject(out SelectionAst[] selections)
   {
-    var definitions = new List<DefinitionAst>();
+    selections = Array.Empty<SelectionAst>();
+    if (!_tokens.Take('{')) {
+      return false;
+    }
+
+    var fields = new List<SelectionAst>();
+
+    while (_tokens.At("...") || _tokens.At('|') || _tokens.AtIdentifier) {
+      if (_tokens.AtIdentifier) {
+        if (ParseField(out SelectionAst field)) {
+          fields.Add(field);
+        }
+      } else if (ParseSelection(out SelectionAst fragment)) {
+        fields.Add(fragment);
+      }
+    }
+
+    if (!fields.Any()) {
+      return false;
+    }
+
+    selections = fields.ToArray();
+    return _tokens.Take('}');
+  }
+
+  internal bool ParseSelection(out SelectionAst selection)
+  {
+    selection = NullAst.Selection;
+
+    if (_tokens.Take("...") || _tokens.Take('|')) {
+      string? onType = null;
+      if (_tokens.Take("on") || _tokens.Take(':')) {
+        if (!_tokens.TakeIdentifier(out onType)) {
+          return false;
+        }
+      } else {
+        if (_tokens.TakeIdentifier(out var name)) {
+          selection = new SpreadAst(name);
+          return true;
+        }
+      }
+
+      if (_tokens.At('{')) {
+        if (ParseObject(out SelectionAst[] selections)) {
+          selection = new InlineAst {
+            OnType = onType,
+            Selections = selections
+          };
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
+  internal bool ParseField(out SelectionAst field)
+  {
+    field = NullAst.Selection;
+
+    if (!_tokens.TakeIdentifier(out var alias)) {
+      return false;
+    }
+
+    var result = new FieldAst(alias);
+
+    if (_tokens.Take(':')) {
+      if (!_tokens.TakeIdentifier(out var name)) {
+        return false;
+      }
+
+      result = new FieldAst(name) { Alias = alias };
+    }
+
+    if (ParseArgument(out ArgumentAst argument)) {
+      result.Argument = argument;
+    }
+
+    if (ParseObject(out SelectionAst[] selections)) {
+      result.Selections = selections;
+    }
+
+    field = result;
+    return true;
+  }
+
+  internal FragmentAst[] ParseFragments()
+  {
+    var definitions = new List<FragmentAst>();
 
     while (_tokens.Take("fragment") || _tokens.Take('&')) {
       if (_tokens.TakeIdentifier(out var name) &&
         (_tokens.Take("on") || _tokens.Take(':')) &&
         _tokens.TakeIdentifier(out var onType)
       ) {
-        if (ParseSelections(out SelectionAst[] selections)) {
-          var fragment = new DefinitionAst(name, onType) {
+        if (ParseObject(out SelectionAst[] selections)) {
+          var fragment = new FragmentAst(name, onType) {
             Selections = selections,
           };
           definitions.Add(fragment);
@@ -256,5 +256,11 @@ internal ref struct OperationParser
     }
 
     return _tokens.Take(")");
+  }
+
+  internal bool ParseConstant(out ConstantAst constant)
+  {
+    constant = new ConstantAst();
+    return false;
   }
 }

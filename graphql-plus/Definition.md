@@ -33,10 +33,12 @@ Language definitions are given in a modified PEG (Parsing Expression Grammar)
 
 **Note:** The above are in descending order of precedence
 
-## Built Ins
+## Built-Ins
 
-| Built In | RegEx                                | Description                                                                                                                                 | Examples                                              |
+| Built-In | RegEx                                | Description                                                                                                                                 | Examples                                              |
 | -------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | NUMBER   | `[-+]?[0-9_]+(\.[0-9_]]+)?`          | A number, possibly signed and/or with a fractional portion. An underscore (`_`) can be used to separate digit groups                        | 1 2.3 45 67.89 0.10 -11 +12 -13.14 +15.16 17_18.19_20 |
 | STRING   | `"([^"]\|\\")*"` or `'([^']\|\\')*'` | A string delimited by either single (`'`) or double (`"`) quotes and with any delimiter characters in the string escaped by backslash (`\`) | "" "a" "b\\"c" "d'e" <br/> '' 'f' 'g"h' 'i\\'j'       |
 | REGEX    | `/.*/`                               | A regex delimited by slashes (`/`) conforming to POSIX ERE                                                                                  | /.\*/                                                 |
+
+**Note:** Both STRING and REGEX built-ins can include end-of-line and other control characters.

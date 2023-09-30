@@ -5,7 +5,7 @@
 ## Operation
 
 ```PEG
-Operation = ( category name? )? Variables? Directive* Result Definition*
+Operation = ( category name? )? Variables? Directive* Result Fragment*
 ```
 
 If not specified, an Operation's category is "query". This is for GraphQL compatibility.
@@ -18,6 +18,8 @@ Variable = '$'variable ( ':' Var_Type )? Modifier? ( '=' Constant )? Directive*
 Var_Type = Var_Null '!'?
 Var_Null = '[' Var_Type ']' | type
 ```
+
+Note that there cannot be any other characters between the dollar sign (`$`) and the variable name.
 
 A Variable with the Optional Modifier has an implied Default of `null` and a Variable with a Default of `null` has an implied Optional Modifier.
 
@@ -38,7 +40,9 @@ If a Variable's Modifier and Default are both specified they should be validated
 Directive = '@'directive Argument?
 ```
 
-The order of directives may be significant
+Note that there cannot be any other characters between the at sign (`@`) and the directive name.
+
+The order of directives may be significant.
 
 ## Result
 
@@ -114,12 +118,12 @@ Any unknown identifier used as a Dictionary key Type will be treated as an Enum 
 ## Object
 
 ```PEG
-Object = '{' ( Field | Fragment )+ '}'
+Object = '{' Selection+ '}'
+Selection = Field | ( '...' | '|' ) ( Inline | Spread )
 Field = ( alias ':' )? field Argument? Modifier? Directive* Object?
-Fragment = ('...' | '|' ) ( Inline | Spread )
 Inline = TypeCondition? Directive* Object
 Spread = fragment Directive*
-TypeCondition = ('on' | ':') type
+TypeCondition = ( 'on' | ':' ) type
 ```
 
 A Result Object is a selection of fields or fragments.
@@ -146,7 +150,7 @@ A Field may have none, one, more or even all of the following, in this order:
 ## Fragment
 
 ```PEG
-Definition = ('fragment' | '&') fragment TypeCondition Directive* Object
+Fragment = ( 'fragment' | '&' ) fragment TypeCondition Directive* Object
 ```
 
 ## Argument
@@ -186,7 +190,7 @@ A Constant is a single value. Commas (`,`) can be used to separate list values a
 ## Complete Grammar
 
 ```PEG
-Operation = ( category name? )? Variables? Directive* Result Definition*
+Operation = ( category name? )? Variables? Directive* Result Fragment*
 
 Variables = '(' Variable+ ')'
 Variable = '$'variable ( ':' Var_Type )? Modifier? ( '=' Constant )? Directive*
@@ -203,14 +207,14 @@ Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_' | enum
 Simple = Internal | Basic
 Internal = 'Void' | 'Null' | 'null'
 
-Object = '{' ( Field | Fragment )+ '}'
+Object = '{' Selection+ '}'
+Selection = Field | ( '...' | '|' ) ( Inline | Spread )
 Field = ( alias ':' )? field Argument? Modifier? Directive* Object?
-Fragment = ('...' | '|' ) ( Inline | Spread )
 Inline = TypeCondition? Directive* Object
 Spread = fragment Directive*
-TypeCondition = ('on' | ':') type
+TypeCondition = ( 'on' | ':' ) type
 
-Definition = ('fragment' | '&') fragment TypeCondition Directive* Object
+Fragment = ( 'fragment' | '&' ) fragment TypeCondition Directive* Object
 
 Argument = '(' Arg_Value ',' Arg_Values ')' | '(' Arg_Fields ')' | '(' Arg_Value* ')'
 Arg_Value = '$'variable | Arg_List | Arg_Object | Constant

@@ -6,7 +6,7 @@ public class OperationVerifier
 {
   public static bool Verify(string operation)
   {
-    OperationTokens tokenizer = new(operation);
+    Tokenizer tokenizer = new(operation);
     OperationParser parser = new(tokenizer);
     OperationAst? ast = parser.Parse();
 

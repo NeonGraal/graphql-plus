@@ -1,13 +1,13 @@
 ﻿namespace GqlPlus.Verifier;
 
-internal ref struct OperationTokens
+internal ref struct Tokenizer
 {
   private readonly ReadOnlySpan<char> _operation;
   private TokenKind _kind;
   private int _pos;
   private readonly bool _ignoreSeparators;
 
-  internal OperationTokens(string operation)
+  internal Tokenizer(string operation)
   {
     _operation = operation.AsSpan();
 

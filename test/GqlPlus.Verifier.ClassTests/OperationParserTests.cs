@@ -5,9 +5,9 @@ namespace GqlPlus.Verifier.ClassTests;
 
 public class OperationParserTests
 {
-  private OperationTokens Tokens(string input)
+  private Tokenizer Tokens(string input)
   {
-    var tokens = new OperationTokens(input);
+    var tokens = new Tokenizer(input);
     tokens.Read();
     return tokens;
   }
@@ -21,7 +21,7 @@ public class OperationParserTests
   //[InlineData("($test)@test($test):Boolean", ParseResult.Success)]
   public void Parse(string input, ParseResult result)
   {
-    var tokens = new OperationTokens(input);
+    var tokens = new Tokenizer(input);
     var parser = new OperationParser(tokens);
 
     OperationAst? ast = parser.Parse();

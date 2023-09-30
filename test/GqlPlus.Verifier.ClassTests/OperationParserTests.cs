@@ -18,6 +18,7 @@ public class OperationParserTests
   [InlineData("query Test { success }", ParseResult.Success)]
   [InlineData("($name) { person($name) { name } }", ParseResult.Success)]
   [InlineData("{...person}fragment person on Person{name}", ParseResult.Success)]
+  //[InlineData("($test)@test($test):Boolean", ParseResult.Success)]
   public void Parse(string input, ParseResult result)
   {
     var tokens = new OperationTokens(input);
@@ -95,6 +96,33 @@ public class OperationParserTests
       .Equal(new VariableAst(variable) { Modifers = new[] { ModifierAst.List, ModifierAst.Optional } });
   }
 
+  [Theory(Skip = "WIP"), RepeatData(1)]
+  public void ParseVariables_WithConstant_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string variable)
+  {
+    var parser = new OperationParser(Tokens($"(${variable}=10)"));
+
+    parser.ParseVariables(out VariableAst[] result).Should().BeTrue();
+
+    result.Should()
+      .NotBeNull().And
+      .Equal(new VariableAst(variable));
+  }
+
+  [Theory(Skip = "WIP"), RepeatData(1)]
+  public void ParseVariables_WithDirective_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string variable,
+    [RegularExpression(IdentifierPattern)] string directive)
+  {
+    var parser = new OperationParser(Tokens($"(${variable}@{directive})"));
+
+    parser.ParseVariables(out VariableAst[] result).Should().BeTrue();
+
+    result.Should()
+      .NotBeNull().And
+      .Equal(new VariableAst(variable));
+  }
+
   [Theory, RepeatData(10)]
   public void ParseSelections_WithMinimumInput_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string field)
@@ -119,18 +147,6 @@ public class OperationParserTests
   }
 
   [Theory, RepeatInlineData(10, "..."), RepeatInlineData(10, "|")]
-  public void ParseFragment_WithMinimumSpread_ReturnsCorrectAst(
-    string prefix, [RegularExpression(IdentifierPattern)] string fragment)
-  {
-    var parser = new OperationParser(Tokens(prefix + fragment));
-
-    parser.ParseFragment(out SelectionAst result).Should().BeTrue();
-
-    result.Should().BeOfType<SpreadAst>()
-      .Subject.Name.Should().Be(fragment);
-  }
-
-  [Theory, RepeatInlineData(10, "..."), RepeatInlineData(10, "|")]
   public void ParseFragment_WithMinimumInline_ReturnsCorrectAst(
     string prefix, [RegularExpression(IdentifierPattern)] string field)
   {
@@ -142,6 +158,68 @@ public class OperationParserTests
     result.Should().BeOfType<InlineAst>()
       .Subject.OnType.Should().BeNull();
     result.As<InlineAst>().Selections.Should().Equal(expected);
+  }
+
+  [Theory]
+  [RepeatInlineData(10, "...", " on ")]
+  [RepeatInlineData(10, "|", " on ")]
+  [RepeatInlineData(10, "...", ":")]
+  [RepeatInlineData(10, "|", ":")]
+  public void ParseFragment_WithInlineType_ReturnsCorrectAst(
+    string inlinePrefix, string typePrefix,
+    [RegularExpression(IdentifierPattern)] string field,
+    [RegularExpression(IdentifierPattern)] string inlineType)
+  {
+    var parser = new OperationParser(Tokens(inlinePrefix + typePrefix + inlineType + "{" + field + "}"));
+    var expected = new InlineAst {
+      OnType = inlineType,
+      Selections = new[] { new FieldAst(field) }
+    };
+
+    parser.ParseFragment(out SelectionAst result).Should().BeTrue();
+
+    result.Should().BeOfType<InlineAst>()
+      .Subject.Equals(expected);
+  }
+
+  [Theory(Skip = "WIP"), RepeatData(1)]
+  public void ParseFragment_WithInlineDirective_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string directive,
+    [RegularExpression(IdentifierPattern)] string field)
+  {
+    var parser = new OperationParser(Tokens("|@" + directive + "{" + field + "}"));
+    var expected = new FieldAst(field);
+
+    parser.ParseFragment(out SelectionAst result).Should().BeTrue();
+
+    result.Should().BeOfType<InlineAst>()
+      .Subject.OnType.Should().BeNull();
+    result.As<InlineAst>().Selections.Should().Equal(expected);
+  }
+
+  [Theory, RepeatInlineData(10, "..."), RepeatInlineData(10, "|")]
+  public void ParseFragment_WithMinimumSpread_ReturnsCorrectAst(
+    string prefix, [RegularExpression(IdentifierPattern)] string fragment)
+  {
+    var parser = new OperationParser(Tokens(prefix + fragment));
+
+    parser.ParseFragment(out SelectionAst result).Should().BeTrue();
+
+    result.Should().BeOfType<SpreadAst>()
+      .Subject.Name.Should().Be(fragment);
+  }
+
+  [Theory(Skip = "WIP"), RepeatData(1)]
+  public void ParseFragment_WithSpreadDirective_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string fragment,
+    [RegularExpression(IdentifierPattern)] string directive)
+  {
+    var parser = new OperationParser(Tokens($"|{fragment}@{directive}"));
+
+    parser.ParseFragment(out SelectionAst result).Should().BeTrue();
+
+    result.Should().BeOfType<SpreadAst>()
+      .Subject.Name.Should().Be(fragment);
   }
 
   [Theory, RepeatData(10)]

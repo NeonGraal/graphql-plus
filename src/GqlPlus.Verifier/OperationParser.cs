@@ -112,7 +112,7 @@ internal ref struct OperationParser
 
     var fields = new List<SelectionAst>();
 
-    while (_tokens.At("...") || _tokens.AtIdentifier) {
+    while (_tokens.At("...") || _tokens.At('|') || _tokens.AtIdentifier) {
       if (_tokens.AtIdentifier) {
         if (ParseField(out SelectionAst field)) {
           fields.Add(field);

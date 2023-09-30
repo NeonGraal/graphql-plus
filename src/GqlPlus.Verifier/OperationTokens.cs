@@ -19,11 +19,14 @@ internal ref struct OperationTokens
   internal bool AtStart => _kind == TokenKind.Start;
   internal bool AtIdentifier => _kind == TokenKind.Identifer;
   internal bool AtNumber => _kind == TokenKind.Number;
+  public bool AtString => _kind == TokenKind.String;
+  public bool AtRegex => _kind == TokenKind.Regex;
   internal bool At(params char[] anyOf) => _kind == TokenKind.Punctuation && anyOf.Contains(_operation[_pos]);
   internal bool At(string text) =>
     _pos + text.Length <= _operation.Length &&
     _operation.Slice(_pos, text.Length).Equals(text, StringComparison.InvariantCulture);
   internal bool AtEnd => _kind == TokenKind.End;
+
 
   internal bool Read()
   {
@@ -37,6 +40,8 @@ internal ref struct OperationTokens
     _kind = _operation[_pos] switch {
       >= 'A' and <= 'Z' or >= 'a' and <= 'z' or '_' => TokenKind.Identifer,
       >= '0' and <= '9' or '-' => TokenKind.Number,
+      '"' or '\'' => TokenKind.String,
+      '/' => TokenKind.Regex,
       _ => TokenKind.Punctuation,
     };
 
@@ -108,6 +113,46 @@ internal ref struct OperationTokens
     Read();
 
     return true;
+  }
+
+  internal bool String(out string contents)
+  {
+    contents = "";
+    if (_kind != TokenKind.String) {
+      return false;
+    }
+
+    return Delimited(_operation[_pos], out contents);
+  }
+
+  internal bool Regex(out string regex)
+  {
+    regex = "";
+    if (_kind != TokenKind.Regex) {
+      return false;
+    }
+
+    return Delimited('/', out regex);
+  }
+
+  private bool Delimited(char delimiter, out string contents)
+  {
+    var end = _pos;
+    do {
+      if (_operation[end] == '\\') {
+        ++end;
+      }
+      ++end;
+    } while (end < _operation.Length && _operation[end] != delimiter);
+
+    var start = _pos + 1;
+    ReadOnlySpan<char> result = end < _operation.Length ? _operation[start..end] : _operation[start..];
+    contents = result.ToString();
+
+    _pos = end + 1;
+    Read();
+
+    return end < _operation.Length;
   }
 
   internal bool Take(char one)

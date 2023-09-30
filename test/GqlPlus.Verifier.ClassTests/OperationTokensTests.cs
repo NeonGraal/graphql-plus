@@ -39,6 +39,24 @@ public class OperationTokensTests
     tokens.AtNumber.Should().BeTrue();
   }
 
+  [Theory, RepeatData(10)]
+  public void AtString_AfterReadTrue_IsTrue(
+    [RegularExpression(IdentifierPattern)] string contents)
+  {
+    OperationTokens tokens = PrepareTokens('"' + contents + '"');
+
+    tokens.AtString.Should().BeTrue();
+  }
+
+  [Theory, RepeatData(10)]
+  public void AtRegex_AfterReadTrue_IsTrue(
+    [RegularExpression(IdentifierPattern)] string regex)
+  {
+    OperationTokens tokens = PrepareTokens($"/{regex}/");
+
+    tokens.AtRegex.Should().BeTrue();
+  }
+
   [Fact]
   public void At_WithChar_AfterReadTrue_IsTrue()
   {
@@ -91,9 +109,88 @@ public class OperationTokensTests
   {
     OperationTokens tokens = PrepareTokens(expected.ToString());
 
-    tokens.TakeNumber(out var result).Should().BeTrue();
     tokens.Number(out var result).Should().BeTrue();
     result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(10)]
+  public void String_Double_AfterReadTrue_IsTrue(
+    [RegularExpression(IdentifierPattern)] string contents)
+  {
+    OperationTokens tokens = PrepareTokens('"' + contents + '"');
+
+    tokens.String(out var result).Should().BeTrue();
+    result.Should().Be(contents);
+  }
+
+  [Theory, RepeatData(10)]
+  public void String_DoubleWithNoEnd_AfterReadTrue_IsFalse(
+    [RegularExpression(IdentifierPattern)] string contents)
+  {
+    OperationTokens tokens = PrepareTokens('"' + contents);
+
+    tokens.String(out var result).Should().BeFalse();
+    result.Should().Be(contents + " ");
+  }
+
+  [Theory, RepeatData(10)]
+  public void String_DoubleWithSingleEnd_AfterReadTrue_IsFalse(
+    [RegularExpression(IdentifierPattern)] string contents)
+  {
+    OperationTokens tokens = PrepareTokens('"' + contents + "'");
+
+    tokens.String(out var result).Should().BeFalse();
+    result.Should().Be(contents + "' ");
+  }
+
+  [Theory, RepeatData(10)]
+  public void String_Single_AfterReadTrue_IsTrue(
+    [RegularExpression(IdentifierPattern)] string contents)
+  {
+    OperationTokens tokens = PrepareTokens($"'{contents}'");
+
+    tokens.String(out var result).Should().BeTrue();
+    result.Should().Be(contents);
+  }
+
+  [Theory, RepeatData(10)]
+  public void String_SingleWithNoEnd_AfterReadTrue_IsFalse(
+    [RegularExpression(IdentifierPattern)] string contents)
+  {
+    OperationTokens tokens = PrepareTokens("'" + contents);
+
+    tokens.String(out var result).Should().BeFalse();
+    result.Should().Be(contents + " ");
+  }
+
+  [Theory, RepeatData(10)]
+  public void String_SingleWithDoubleEnd_AfterReadTrue_IsFalse(
+    [RegularExpression(IdentifierPattern)] string contents)
+  {
+    OperationTokens tokens = PrepareTokens("'" + contents + '"');
+
+    tokens.String(out var result).Should().BeFalse();
+    result.Should().Be(contents + '"' + ' ');
+  }
+
+  [Theory, RepeatData(10)]
+  public void Regex_AfterReadTrue_IsTrue(
+    [RegularExpression(IdentifierPattern)] string regex)
+  {
+    OperationTokens tokens = PrepareTokens($"/{regex}/");
+
+    tokens.Regex(out var result).Should().BeTrue();
+    result.Should().Be(regex);
+  }
+
+  [Theory, RepeatData(10)]
+  public void Regex_WithNoEnd_AfterReadTrue_IsFalse(
+    [RegularExpression(IdentifierPattern)] string regex)
+  {
+    OperationTokens tokens = PrepareTokens('/' + regex);
+
+    tokens.Regex(out var result).Should().BeFalse();
+    result.Should().Be(regex + " ");
   }
 
   [Theory, RepeatData(10)]

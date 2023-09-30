@@ -9,7 +9,7 @@ internal sealed record class InlineAst : FragmentAst, IEquatable<InlineAst>
   public bool Equals(InlineAst? other) =>
     other is not null &&
     (OnType is null && other.OnType is null ||
-    OnType == other.OnType) &&
+      OnType == other.OnType) &&
     Selections.SequenceEqual(other.Selections);
 
   public override int GetHashCode()

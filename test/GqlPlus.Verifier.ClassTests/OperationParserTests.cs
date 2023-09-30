@@ -69,6 +69,33 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(10)]
+  public void ParseVariables_WithType_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string variable,
+    [RegularExpression(IdentifierPattern)] string varType)
+  {
+    var parser = new OperationParser(Tokens($"(${variable}:{varType})"));
+
+    parser.ParseVariables(out VariableAst[] result).Should().BeTrue();
+
+    result.Should()
+      .NotBeNull().And
+      .Equal(new VariableAst(variable) { Type = varType });
+  }
+
+  [Theory, RepeatData(10)]
+  public void ParseVariables_WithModifiers_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string variable)
+  {
+    var parser = new OperationParser(Tokens($"(${variable}[]?)"));
+
+    parser.ParseVariables(out VariableAst[] result).Should().BeTrue();
+
+    result.Should()
+      .NotBeNull().And
+      .Equal(new VariableAst(variable) { Modifers = new[] { ModifierAst.List, ModifierAst.Optional } });
+  }
+
+  [Theory, RepeatData(10)]
   public void ParseSelections_WithMinimumInput_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string field)
   {
@@ -201,9 +228,9 @@ public class OperationParserTests
     result.Should()
       .NotBeNull().And
       .Equal(new ModifierAst[] {
-        new(ModifierKind.Dict) { Key = "_", KeyOptional = true},
-        new(ModifierKind.List),
-        new(ModifierKind.Optional),
+        new() { Key = "_", KeyOptional = true},
+        ModifierAst.List,
+        ModifierAst.Optional
       });
   }
 

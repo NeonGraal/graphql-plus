@@ -109,4 +109,45 @@ public class AstEqualityTests
 
     left.Should().NotBeSameAs(right);
   }
+
+  [Theory, RepeatData(10)]
+  public void VariableAst_Equality(
+    [RegularExpression(IdentifierPattern)] string name)
+  {
+    var left = new VariableAst(name);
+    var right = new VariableAst(name);
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(10)]
+  public void VariableAst_WithType_Equality(
+    [RegularExpression(IdentifierPattern)] string name,
+    [RegularExpression(IdentifierPattern)] string varType)
+  {
+    var left = new VariableAst(name) { Type = varType };
+    var right = new VariableAst(name) { Type = varType };
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(10)]
+  public void VariableAst_WithModifiers_Equality(
+    [RegularExpression(IdentifierPattern)] string name)
+  {
+    var leftMods = new[] { ModifierAst.List, ModifierAst.Optional };
+    var left = new VariableAst(name) { Modifers = leftMods };
+
+    var rightMods = new[] { ModifierAst.List, ModifierAst.Optional };
+    var right = new VariableAst(name) { Modifers = rightMods };
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+    leftMods.Should().NotBeSameAs(rightMods);
+  }
 }

@@ -85,6 +85,12 @@ internal ref struct OperationParser
     while (_tokens.Prefix('$', out var name)) {
       var variable = new VariableAst(name);
 
+      if (_tokens.Take(':') && _tokens.TakeIdentifier(out var varType)) {
+        variable.Type = varType;
+      }
+
+      variable.Modifers = ParseModifiers();
+
       result.Add(variable);
     }
 
@@ -190,16 +196,15 @@ internal ref struct OperationParser
     var modifiers = new List<ModifierAst>();
 
     while (_tokens.Take('[')) {
-      ModifierAst modifier = new(ModifierKind.List);
-
+      ModifierAst modifier = ModifierAst.List;
       if (_tokens.TakeIdentifier(out var key)) {
-        modifier = new(ModifierKind.Dict) {
+        modifier = new() {
           Key = key,
           KeyOptional = _tokens.Take('?')
         };
       } else {
         if (_tokens.TakeAny(out var charType, '~', '0', '*')) {
-          modifier = new(ModifierKind.Dict) {
+          modifier = new() {
             Key = charType.ToString(),
             KeyOptional = _tokens.Take('?')
           };
@@ -212,7 +217,7 @@ internal ref struct OperationParser
     }
 
     if (_tokens.Take('?')) {
-      modifiers.Add(new(ModifierKind.Optional));
+      modifiers.Add(ModifierAst.Optional);
     }
 
     return modifiers.ToArray();

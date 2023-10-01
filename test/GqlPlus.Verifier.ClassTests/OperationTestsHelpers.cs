@@ -2,6 +2,8 @@
 
 internal static class OperationTestsHelpers
 {
+  internal const int Repeats = 20;
+
   internal const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
   internal const string PunctuationPattern = @"[!#-&(-+.:<-@[-^`{-~]";
 }

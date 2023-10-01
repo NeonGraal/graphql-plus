@@ -32,7 +32,7 @@ public class OperationParserTests
 
   #region Variables tests
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ParseVariables_WithMinimumInput_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string variable)
   {
@@ -45,7 +45,7 @@ public class OperationParserTests
       .Equal(new VariableAst(variable));
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ParseVariables_WithType_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string variable,
     [RegularExpression(IdentifierPattern)] string varType)
@@ -59,7 +59,7 @@ public class OperationParserTests
       .Equal(new VariableAst(variable) { Type = varType });
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ParseVariables_WithModifiers_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string variable)
   {
@@ -72,7 +72,7 @@ public class OperationParserTests
       .Equal(new VariableAst(variable) { Modifers = new[] { ModifierAst.List, ModifierAst.Optional } });
   }
 
-  [Theory(Skip = "WIP"), RepeatData(1)]
+  [Theory(Skip = "WIP"), RepeatData(Repeats)]
   public void ParseVariables_WithConstant_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string variable)
   {
@@ -85,7 +85,7 @@ public class OperationParserTests
       .Equal(new VariableAst(variable));
   }
 
-  [Theory(Skip = "WIP"), RepeatData(1)]
+  [Theory, RepeatData(Repeats)]
   public void ParseVariables_WithDirective_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string variable,
     [RegularExpression(IdentifierPattern)] string directive)
@@ -102,7 +102,7 @@ public class OperationParserTests
 
   #region Directives tests
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ParseDirectives_WithMinimumInput_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string directive)
   {
@@ -115,7 +115,7 @@ public class OperationParserTests
       .Equal(new DirectiveAst(directive));
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ParseDirectives_WithArgument_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string directive,
     [RegularExpression(IdentifierPattern)] string variable)
@@ -132,7 +132,7 @@ public class OperationParserTests
 
   #region Object tests
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ParseSelections_WithMinimumInput_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string field)
   {
@@ -159,7 +159,7 @@ public class OperationParserTests
 
   #region Selection tests
 
-  [Theory, RepeatInlineData(10, "..."), RepeatInlineData(10, "|")]
+  [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
   public void ParseSelection_WithMinimumInline_ReturnsCorrectAst(
     string prefix, [RegularExpression(IdentifierPattern)] string field)
   {
@@ -174,10 +174,10 @@ public class OperationParserTests
   }
 
   [Theory]
-  [RepeatInlineData(10, "...", " on ")]
-  [RepeatInlineData(10, "|", " on ")]
-  [RepeatInlineData(10, "...", ":")]
-  [RepeatInlineData(10, "|", ":")]
+  [RepeatInlineData(Repeats, "...", " on ")]
+  [RepeatInlineData(Repeats, "|", " on ")]
+  [RepeatInlineData(Repeats, "...", ":")]
+  [RepeatInlineData(Repeats, "|", ":")]
   public void ParseSelection_WithInlineType_ReturnsCorrectAst(
     string inlinePrefix, string typePrefix,
     [RegularExpression(IdentifierPattern)] string field,
@@ -194,7 +194,7 @@ public class OperationParserTests
       .Subject.Equals(expected);
   }
 
-  [Theory(Skip = "WIP"), RepeatData(1)]
+  [Theory, RepeatData(Repeats)]
   public void ParseSelection_WithInlineDirective_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string directive,
     [RegularExpression(IdentifierPattern)] string field)
@@ -209,7 +209,7 @@ public class OperationParserTests
     result.As<InlineAst>().Selections.Should().Equal(expected);
   }
 
-  [Theory, RepeatInlineData(10, "..."), RepeatInlineData(10, "|")]
+  [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
   public void ParseSelection_WithMinimumSpread_ReturnsCorrectAst(
     string prefix, [RegularExpression(IdentifierPattern)] string fragment)
   {
@@ -221,7 +221,7 @@ public class OperationParserTests
       .Subject.Name.Should().Be(fragment);
   }
 
-  [Theory(Skip = "WIP"), RepeatData(1)]
+  [Theory, RepeatData(Repeats)]
   public void ParseSelection_WithSpreadDirective_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string fragment,
     [RegularExpression(IdentifierPattern)] string directive)
@@ -238,7 +238,7 @@ public class OperationParserTests
 
   #region Field tests
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ParseField_WithJustField_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string field)
   {
@@ -250,7 +250,7 @@ public class OperationParserTests
       .Subject.Name.Should().Be(field);
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ParseField_WithAlias_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string alias,
     [RegularExpression(IdentifierPattern)] string field)
@@ -264,7 +264,7 @@ public class OperationParserTests
     result.As<FieldAst>().Name.Should().Be(field);
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ParseField_WithArgument_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string field,
     [RegularExpression(IdentifierPattern)] string variable)
@@ -279,7 +279,7 @@ public class OperationParserTests
     result.As<FieldAst>().Argument.Should().Be(expected);
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ParseField_WithSelection_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string field,
     [RegularExpression(IdentifierPattern)] string selection)
@@ -337,10 +337,10 @@ public class OperationParserTests
   #region Fragments tests
 
   [Theory]
-  [RepeatInlineData(10, "fragment ", " on ")]
-  [RepeatInlineData(10, "&", " on ")]
-  [RepeatInlineData(10, "fragment ", ":")]
-  [RepeatInlineData(10, "&", ":")]
+  [RepeatInlineData(Repeats, "fragment ", " on ")]
+  [RepeatInlineData(Repeats, "&", " on ")]
+  [RepeatInlineData(Repeats, "fragment ", ":")]
+  [RepeatInlineData(Repeats, "&", ":")]
   public void ParseFragments_WithMinimumInput_ReturnsCorrectAst(
     string fragmentPrefix, string typePrefix,
     [RegularExpression(IdentifierPattern)] string fragment,
@@ -361,7 +361,7 @@ public class OperationParserTests
 
   #region Argument tests
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ParseArgument_WithVariable_ReturnsCorrectAst(
     [RegularExpression(IdentifierPattern)] string variable)
   {

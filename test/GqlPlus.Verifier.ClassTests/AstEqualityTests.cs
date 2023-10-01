@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.ClassTests;
 
 public class AstEqualityTests
 {
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ArgumentAst_WithVariable_Equality(
     [RegularExpression(IdentifierPattern)] string variable)
   {
@@ -17,7 +17,7 @@ public class AstEqualityTests
     left.Should().NotBeSameAs(right);
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void ConstantAst_WithEnumLabel_Equality(
     [RegularExpression(IdentifierPattern)] string enumType,
     [RegularExpression(IdentifierPattern)] string label)
@@ -31,7 +31,7 @@ public class AstEqualityTests
   }
 
   // FieldAst
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void FieldAst_WithAlias_Equality(
     [RegularExpression(IdentifierPattern)] string name,
     [RegularExpression(IdentifierPattern)] string alias)
@@ -44,7 +44,7 @@ public class AstEqualityTests
     left.Should().NotBeSameAs(right);
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void FieldAst_WithSelection_Equality(
     [RegularExpression(IdentifierPattern)] string name,
     [RegularExpression(IdentifierPattern)] string field)
@@ -64,7 +64,7 @@ public class AstEqualityTests
     leftField.Should().NotBeSameAs(rightField);
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void FieldAst_WithDirective_Equality(
     [RegularExpression(IdentifierPattern)] string name,
     [RegularExpression(IdentifierPattern)] string directive)
@@ -85,7 +85,7 @@ public class AstEqualityTests
   }
 
   // FragmentAst
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void FragmentAst_Equality(
     [RegularExpression(IdentifierPattern)] string name,
     [RegularExpression(IdentifierPattern)] string onType,
@@ -106,7 +106,7 @@ public class AstEqualityTests
     leftField.Should().NotBeSameAs(rightField);
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void FragmentAst_WithDirective_Equality(
     [RegularExpression(IdentifierPattern)] string name,
     [RegularExpression(IdentifierPattern)] string onType,
@@ -135,7 +135,7 @@ public class AstEqualityTests
   }
 
   // InlineAst
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void InlineAst_Equality(
     [RegularExpression(IdentifierPattern)] string field)
   {
@@ -154,7 +154,7 @@ public class AstEqualityTests
     leftField.Should().NotBeSameAs(rightField);
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void InlineAst_WithOnType_Equality(
     [RegularExpression(IdentifierPattern)] string onType,
     [RegularExpression(IdentifierPattern)] string field)
@@ -174,8 +174,8 @@ public class AstEqualityTests
     leftField.Should().NotBeSameAs(rightField);
   }
 
-  [Theory, RepeatData(10)]
-  public void InlineAst_WithDirectives_Equality(
+  [Theory, RepeatData(Repeats)]
+  public void InlineAst_WithDirective_Equality(
     [RegularExpression(IdentifierPattern)] string field,
     [RegularExpression(IdentifierPattern)] string directive)
   {
@@ -201,7 +201,7 @@ public class AstEqualityTests
   }
 
   // SpreadAst
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void SpreadAst_Equality(
     [RegularExpression(IdentifierPattern)] string name)
   {
@@ -213,8 +213,8 @@ public class AstEqualityTests
     left.Should().NotBeSameAs(right);
   }
 
-  [Theory, RepeatData(10)]
-  public void SpreadAst_WithDirectives_Equality(
+  [Theory, RepeatData(Repeats)]
+  public void SpreadAst_WithDirective_Equality(
     [RegularExpression(IdentifierPattern)] string name,
     [RegularExpression(IdentifierPattern)] string directive)
   {
@@ -234,7 +234,7 @@ public class AstEqualityTests
   }
 
   // VariableAst
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void VariableAst_Equality(
     [RegularExpression(IdentifierPattern)] string name)
   {
@@ -246,7 +246,7 @@ public class AstEqualityTests
     left.Should().NotBeSameAs(right);
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void VariableAst_WithType_Equality(
     [RegularExpression(IdentifierPattern)] string name,
     [RegularExpression(IdentifierPattern)] string varType)
@@ -259,7 +259,7 @@ public class AstEqualityTests
     left.Should().NotBeSameAs(right);
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void VariableAst_WithModifiers_Equality(
     [RegularExpression(IdentifierPattern)] string name)
   {
@@ -275,7 +275,7 @@ public class AstEqualityTests
     leftMods.Should().NotBeSameAs(rightMods);
   }
 
-  [Theory, RepeatData(10)]
+  [Theory, RepeatData(Repeats)]
   public void VariableAst_WithDirective_Equality(
     [RegularExpression(IdentifierPattern)] string name,
     [RegularExpression(IdentifierPattern)] string directive)

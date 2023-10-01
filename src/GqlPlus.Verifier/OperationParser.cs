@@ -261,6 +261,20 @@ internal ref struct OperationParser
       return true;
     }
 
+    if (_tokens.String(out var contents)) {
+      constant = new ConstantAst(contents);
+      return true;
+    }
+
+    if (_tokens.Identifier(out var identifier)) {
+      if (_tokens.Take('.') && _tokens.Identifier(out var label)) {
+        constant = new ConstantAst(identifier, label);
+        return true;
+      }
+      constant = new ConstantAst("", identifier);
+      return true;
+    }
+
     return false;
   }
 }

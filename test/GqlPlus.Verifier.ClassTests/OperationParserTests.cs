@@ -30,12 +30,11 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string variable)
   {
     var parser = new OperationParser(Tokens($"(${variable})"));
+    var expected = new VariableAst(variable);
 
     parser.ParseVariables(out VariableAst[] result).Should().BeTrue();
 
-    result.Should()
-      .NotBeNull().And
-      .Equal(new VariableAst(variable));
+    result.Should().Equal(expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -44,12 +43,11 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string varType)
   {
     var parser = new OperationParser(Tokens($"(${variable}:{varType})"));
+    var expected = new VariableAst(variable) { Type = varType };
 
     parser.ParseVariables(out VariableAst[] result).Should().BeTrue();
 
-    result.Should()
-      .NotBeNull().And
-      .Equal(new VariableAst(variable) { Type = varType });
+    result.Should().Equal(expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -88,7 +86,7 @@ public class OperationParserTests
 
     parser.ParseVariables(out VariableAst[] result).Should().BeTrue();
 
-    result.Should().NotBeNull().And.Equal(expected);
+    result.Should().Equal(expected);
   }
 
   #endregion
@@ -206,8 +204,6 @@ public class OperationParserTests
 
     parser.ParseSelection(out SelectionAst result).Should().BeTrue();
 
-    result.Should().BeOfType<SpreadAst>()
-      .Subject.Name.Should().Be(fragment);
     result.Should().BeOfType<SpreadAst>().Equals(expected);
   }
 
@@ -221,8 +217,6 @@ public class OperationParserTests
 
     parser.ParseSelection(out SelectionAst result).Should().BeTrue();
 
-    result.Should().BeOfType<SpreadAst>()
-      .Subject.Name.Should().Be(fragment);
     result.Should().BeOfType<SpreadAst>().Equals(expected);
   }
 
@@ -239,8 +233,6 @@ public class OperationParserTests
 
     parser.ParseField(out SelectionAst result).Should().BeTrue();
 
-    result.Should().BeOfType<FieldAst>()
-      .Subject.Name.Should().Be(field);
     result.Should().BeOfType<FieldAst>().Equals(expected);
   }
 
@@ -254,9 +246,6 @@ public class OperationParserTests
 
     parser.ParseField(out SelectionAst result).Should().BeTrue();
 
-    result.Should().BeOfType<FieldAst>()
-      .Subject.Alias.Should().Be(alias);
-    result.As<FieldAst>().Name.Should().Be(field);
     result.Should().BeOfType<FieldAst>().Equals(expected);
   }
 
@@ -317,7 +306,6 @@ public class OperationParserTests
 
     ModifierAst[] result = parser.ParseModifiers();
 
-    result.Should().NotBeNull();
     result.Length.Should().Be(count);
   }
 
@@ -325,16 +313,15 @@ public class OperationParserTests
   public void ParseModifiers_WithThree_ReturnsSpecific()
   {
     var parser = new OperationParser(Tokens("[_?][]?"));
-
-    ModifierAst[] result = parser.ParseModifiers();
-
-    result.Should()
-      .NotBeNull().And
-      .Equal(new ModifierAst[] {
+    var expected = new ModifierAst[] {
         new() { Key = "_", KeyOptional = true},
         ModifierAst.List,
         ModifierAst.Optional
-      });
+      };
+
+    ModifierAst[] result = parser.ParseModifiers();
+
+    result.Should().Equal(expected);
   }
 
   #endregion
@@ -401,6 +388,51 @@ public class OperationParserTests
   {
     var parser = new OperationParser(Tokens(number.ToString()));
     var expected = new ConstantAst(number);
+
+    parser.ParseConstant(out ConstantAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseConstant_WithString_ReturnsCorrectAst(
+    [StringLength(999)] string contents)
+  {
+    var input = '"' + contents + '"';
+    if (contents.Contains('"')) {
+      if (contents.Contains("'")) {
+        input = "'" + contents.Replace("'", "\\'") + "'";
+      } else {
+        input = $"'{contents}'";
+      }
+    }
+    var parser = new OperationParser(Tokens(input));
+    var expected = new ConstantAst(contents);
+
+    parser.ParseConstant(out ConstantAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseConstant_WithLabel_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var parser = new OperationParser(Tokens(label));
+    var expected = new ConstantAst("", label);
+
+    parser.ParseConstant(out ConstantAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseConstant_WithTypeAndLabel_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string theType,
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var parser = new OperationParser(Tokens(theType + "." + label));
+    var expected = new ConstantAst(theType, label);
 
     parser.ParseConstant(out ConstantAst result).Should().BeTrue();
 

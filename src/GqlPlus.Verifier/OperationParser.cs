@@ -142,22 +142,19 @@ internal ref struct OperationParser
 
     var fields = new List<SelectionAst>();
 
-    while (_tokens.At("...") || _tokens.At('|') || _tokens.AtIdentifier) {
-      if (_tokens.AtIdentifier) {
-        if (ParseField(out SelectionAst field)) {
-          fields.Add(field);
-        }
-      } else if (ParseSelection(out SelectionAst fragment)) {
+    while (!_tokens.Take('}')) {
+      if (ParseSelection(out SelectionAst fragment)) {
         fields.Add(fragment);
+      } else if (ParseField(out SelectionAst field)) {
+        fields.Add(field);
+      } else {
+        selections = fields.ToArray();
+        return false;
       }
     }
 
-    if (!fields.Any()) {
-      return false;
-    }
-
     selections = fields.ToArray();
-    return _tokens.Take('}');
+    return fields.Any();
   }
 
   internal bool ParseSelection(out SelectionAst selection)
@@ -179,14 +176,12 @@ internal ref struct OperationParser
 
       DirectiveAst[] directives = ParseDirectives();
 
-      if (_tokens.At('{')) {
-        if (ParseObject(out SelectionAst[] selections)) {
-          selection = new InlineAst(selections) {
-            OnType = onType,
-            Directives = directives,
-          };
-          return true;
-        }
+      if (ParseObject(out SelectionAst[] selections)) {
+        selection = new InlineAst(selections) {
+          OnType = onType,
+          Directives = directives,
+        };
+        return true;
       }
     }
 

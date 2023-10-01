@@ -21,68 +21,6 @@ public class TokenizerTests
     tokens.AtStart.Should().BeTrue();
   }
 
-  [Theory, RepeatData(Repeats)]
-  public void AtIdentifier_AfterReadTrue_IsTrue(
-    [RegularExpression(IdentifierPattern)] string identifier)
-  {
-    Tokenizer tokens = PrepareTokens(identifier);
-
-    tokens.AtIdentifier.Should().BeTrue();
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void AtNumber_AfterReadTrue_IsTrue(
-    [Range(-99999, 99999)] int number)
-  {
-    Tokenizer tokens = PrepareTokens(number.ToString());
-
-    tokens.AtNumber.Should().BeTrue();
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void AtString_AfterReadTrue_IsTrue(
-    [RegularExpression(IdentifierPattern)] string contents)
-  {
-    Tokenizer tokens = PrepareTokens('"' + contents + '"');
-
-    tokens.AtString.Should().BeTrue();
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void AtRegex_AfterReadTrue_IsTrue(
-    [RegularExpression(IdentifierPattern)] string regex)
-  {
-    Tokenizer tokens = PrepareTokens($"/{regex}/");
-
-    tokens.AtRegex.Should().BeTrue();
-  }
-
-  [Fact]
-  public void At_WithChar_AfterReadTrue_IsTrue()
-  {
-    Tokenizer tokens = PrepareTokens("[");
-
-    tokens.At('[').Should().BeTrue();
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void At_WithString_AfterReadTrue_IsTrue(
-    [RegularExpression(PunctuationPattern + "{5}")] string many)
-  {
-    Tokenizer tokens = PrepareTokens(many);
-
-    tokens.At(many).Should().BeTrue();
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void At_WithShort_AfterReadTrue_IsFalse(
-    [RegularExpression(PunctuationPattern + "{5}")] string many)
-  {
-    Tokenizer tokens = PrepareTokens(many[..4]);
-
-    tokens.At(many).Should().BeFalse();
-  }
-
   [Fact]
   public void AtEnd_AfterReadFalse_IsTrue()
   {
@@ -132,6 +70,16 @@ public class TokenizerTests
 
     tokens.Number(out var result).Should().BeTrue();
     result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Number_Identifier_AfterReadTrue_IsFalse(
+    [RegularExpression(IdentifierPattern)] string identifier)
+  {
+    Tokenizer tokens = PrepareTokens(identifier);
+
+    tokens.Number(out var result).Should().BeFalse();
+    result.Should().Be(default);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -195,6 +143,16 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData(Repeats)]
+  public void String_Identifier_AfterReadTrue_IsFalse(
+    [RegularExpression(IdentifierPattern)] string identifier)
+  {
+    Tokenizer tokens = PrepareTokens(identifier);
+
+    tokens.String(out var result).Should().BeFalse();
+    result.Should().Be("");
+  }
+
+  [Theory, RepeatData(Repeats)]
   public void Regex_AfterReadTrue_IsTrue(
     [RegularExpression(IdentifierPattern)] string regex)
   {
@@ -212,6 +170,16 @@ public class TokenizerTests
 
     tokens.Regex(out var result).Should().BeFalse();
     result.Should().Be(regex + " ");
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Regex_WithNoStart_AfterReadTrue_IsFalse(
+    [RegularExpression(IdentifierPattern)] string regex)
+  {
+    Tokenizer tokens = PrepareTokens(regex + '/');
+
+    tokens.Regex(out var result).Should().BeFalse();
+    result.Should().Be("");
   }
 
   [Theory, RepeatData(Repeats)]

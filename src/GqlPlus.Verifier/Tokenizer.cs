@@ -19,25 +19,6 @@ internal ref struct Tokenizer
   internal bool AtStart
     => _kind == TokenKind.Start;
 
-  internal bool AtIdentifier
-    => _kind == TokenKind.Identifer;
-
-  internal bool AtNumber
-    => _kind == TokenKind.Number;
-
-  public bool AtString
-    => _kind == TokenKind.String;
-
-  public bool AtRegex
-    => _kind == TokenKind.Regex;
-
-  internal bool At(params char[] anyOf)
-    => _kind == TokenKind.Punctuation && anyOf.Contains(_operation[_pos]);
-
-  internal bool At(string text)
-    => _pos + text.Length <= _operation.Length
-    && _operation.Slice(_pos, text.Length).Equals(text, StringComparison.InvariantCulture);
-
   internal bool AtEnd
     => _kind == TokenKind.End;
 
@@ -114,6 +95,11 @@ internal ref struct Tokenizer
 
   internal bool Number(out decimal number)
   {
+    number = default;
+    if (_kind != TokenKind.Number) {
+      return false;
+    }
+
     var end = _pos;
     do {
       ++end;
@@ -201,7 +187,9 @@ internal ref struct Tokenizer
 
   internal bool Take(string text)
   {
-    if (!At(text)) {
+    if (_pos + text.Length > _operation.Length
+      || !_operation.Slice(_pos, text.Length).Equals(text, StringComparison.InvariantCulture)
+    ) {
       return false;
     }
 

@@ -9,4 +9,12 @@ internal record class FieldKeyAst
   internal decimal? Number { get; set; }
 
   internal string? String { get; set; }
+
+  internal FieldKeyAst() { }
+  internal FieldKeyAst(decimal number)
+    => Number = number;
+  internal FieldKeyAst(string content)
+    => String = content;
+  internal FieldKeyAst(string theType, string label)
+    => (Type, Label) = (theType, label);
 }

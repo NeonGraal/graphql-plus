@@ -65,17 +65,17 @@ public class OperationParserTests
       .Equal(new VariableAst(variable) { Modifers = new[] { ModifierAst.List, ModifierAst.Optional } });
   }
 
-  [Theory(Skip = "WIP"), RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void ParseVariables_WithConstant_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string variable)
+    [RegularExpression(IdentifierPattern)] string variable,
+    [Range(-99999.99999, 99999.99999)] decimal number)
   {
-    var parser = new OperationParser(Tokens($"(${variable}=10)"));
+    var parser = new OperationParser(Tokens($"(${variable}={number})"));
+    var expected = new VariableAst(variable) { Default = new ConstantAst(number) };
 
     parser.ParseVariables(out VariableAst[] result).Should().BeTrue();
 
-    result.Should()
-      .NotBeNull().And
-      .Equal(new VariableAst(variable));
+    result.Should().Equal(expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -114,7 +114,7 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string variable)
   {
     var parser = new OperationParser(Tokens("@" + directive + "($" + variable + ")"));
-    var expected = new DirectiveAst(directive) { Argument = new ArgumentAst { Variable = variable } };
+    var expected = new DirectiveAst(directive) { Argument = new ArgumentAst(variable) };
 
     DirectiveAst[] result = parser.ParseDirectives();
 
@@ -266,7 +266,7 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string variable)
   {
     var parser = new OperationParser(Tokens(field + "($" + variable + ")"));
-    var expected = new FieldAst(field) { Argument = new ArgumentAst { Variable = variable } };
+    var expected = new FieldAst(field) { Argument = new ArgumentAst(variable) };
 
     parser.ParseField(out SelectionAst result).Should().BeTrue();
 
@@ -384,9 +384,25 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string variable)
   {
     var parser = new OperationParser(Tokens("($" + variable + ")"));
-    var expected = new ArgumentAst { Variable = variable };
+    var expected = new ArgumentAst(variable);
 
     parser.ParseArgument(out ArgumentAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+  }
+
+  #endregion
+
+  #region Constant tests
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseConstant_WithNumber_ReturnsCorrectAst(
+    [Range(-99999.99999, 99999.99999)] decimal number)
+  {
+    var parser = new OperationParser(Tokens(number.ToString()));
+    var expected = new ConstantAst(number);
+
+    parser.ParseConstant(out ConstantAst result).Should().BeTrue();
 
     result.Should().Be(expected);
   }

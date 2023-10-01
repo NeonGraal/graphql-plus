@@ -9,8 +9,8 @@ public class AstEqualityTests
   public void ArgumentAst_WithVariable_Equality(
     [RegularExpression(IdentifierPattern)] string variable)
   {
-    var left = new ArgumentAst { Variable = variable };
-    var right = new ArgumentAst { Variable = variable };
+    var left = new ArgumentAst(variable);
+    var right = new ArgumentAst(variable);
 
     (left == right).Should().BeTrue();
 
@@ -22,8 +22,8 @@ public class AstEqualityTests
     [RegularExpression(IdentifierPattern)] string enumType,
     [RegularExpression(IdentifierPattern)] string label)
   {
-    var left = new ConstantAst { Type = enumType, Label = label };
-    var right = new ConstantAst { Type = enumType, Label = label };
+    var left = new ConstantAst(enumType, label);
+    var right = new ConstantAst(enumType, label);
 
     (left == right).Should().BeTrue();
 

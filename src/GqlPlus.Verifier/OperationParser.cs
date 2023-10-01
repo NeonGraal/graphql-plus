@@ -31,9 +31,7 @@ internal ref struct OperationParser
       ast.Variables = variables;
     }
 
-    if (_tokens.At('@')) {
-      ast.Directives = ParseDirectives();
-    }
+    ast.Directives = ParseDirectives();
 
     if (_tokens.Prefix(':', out var result)) {
       ast.ResultType = result;
@@ -43,13 +41,8 @@ internal ref struct OperationParser
       return ast;
     }
 
-    if (_tokens.At('[', '?')) {
-      ast.Modifiers = ParseModifiers();
-    }
-
-    if (_tokens.At("fragment")) {
-      ast.Fragments = ParseFragments();
-    }
+    ast.Modifiers = ParseModifiers();
+    ast.Fragments = ParseFragments();
 
     if (_tokens.AtEnd) {
       ast.Result = ParseResult.Success;
@@ -75,7 +68,9 @@ internal ref struct OperationParser
       }
 
       variable.Modifers = ParseModifiers();
-      //variable.Default = ParseConstant();
+      if (_tokens.Take('=') && ParseConstant(out var constant)) {
+        variable.Default = constant;
+      }
       variable.Directives = ParseDirectives();
 
       result.Add(variable);
@@ -256,7 +251,7 @@ internal ref struct OperationParser
     }
 
     if (_tokens.Prefix('$', out var variable)) {
-      argument.Variable = variable;
+      argument = new ArgumentAst(variable);
     }
 
     return _tokens.Take(")");
@@ -265,6 +260,12 @@ internal ref struct OperationParser
   internal bool ParseConstant(out ConstantAst constant)
   {
     constant = new ConstantAst();
+
+    if (_tokens.Number(out var number)) {
+      constant = new ConstantAst(number);
+      return true;
+    }
+
     return false;
   }
 }

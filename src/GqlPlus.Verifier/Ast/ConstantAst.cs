@@ -1,16 +1,25 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class ConstantAst : FieldKeyAst, IEquatable<ConstantAst>
+internal sealed record class ConstantAst : ValuesAst<ConstantAst>, IEquatable<ConstantAst>
 {
-  internal ConstantAst[] Values { get; set; } = Array.Empty<ConstantAst>();
+  internal FieldKeyAst? Value { get; set; }
 
-  internal IDictionary<FieldKeyAst, ConstantAst> Fields { get; set; } = new Dictionary<FieldKeyAst, ConstantAst>();
+  internal ConstantAst() : base() { }
+  internal ConstantAst(string content)
+    : base() => Value = new FieldKeyAst(content);
+  internal ConstantAst(decimal number)
+    : base() => Value = new FieldKeyAst(number);
+  internal ConstantAst(string theType, string label)
+    : base() => Value = new FieldKeyAst(theType, label);
+  internal ConstantAst(ConstantAst[] values)
+    : base(values) { }
+  internal ConstantAst(ObjectAst fields)
+    : base(fields) { }
 
   public bool Equals(ConstantAst? other)
     => base.Equals(other)
-    && Values.SequenceEqual(other.Values)
-    && Fields.Ordered().SequenceEqual(other.Fields.Ordered());
+    && Value.NullEqual(other.Value);
 
   public override int GetHashCode()
-    => HashCode.Combine((FieldKeyAst)this, Values, Fields);
+    => HashCode.Combine((ValuesAst<ConstantAst>)this, Value);
 }

@@ -6,7 +6,8 @@ internal ref struct OperationParser
 {
   internal Tokenizer _tokens;
 
-  public OperationParser(Tokenizer tokens) => _tokens = tokens;
+  public OperationParser(Tokenizer tokens)
+    => _tokens = tokens;
 
   internal OperationAst? Parse()
   {
@@ -74,6 +75,8 @@ internal ref struct OperationParser
       }
 
       variable.Modifers = ParseModifiers();
+      //variable.Default = ParseConstant();
+      variable.Directives = ParseDirectives();
 
       result.Add(variable);
     }
@@ -174,15 +177,18 @@ internal ref struct OperationParser
         }
       } else {
         if (_tokens.Identifier(out var name)) {
-          selection = new SpreadAst(name);
+          selection = new SpreadAst(name) { Directives = ParseDirectives() };
           return true;
         }
       }
 
+      DirectiveAst[] directives = ParseDirectives();
+
       if (_tokens.At('{')) {
         if (ParseObject(out SelectionAst[] selections)) {
           selection = new InlineAst(selections) {
-            OnType = onType
+            OnType = onType,
+            Directives = directives,
           };
           return true;
         }
@@ -231,8 +237,9 @@ internal ref struct OperationParser
         (_tokens.Take("on") || _tokens.Take(':')) &&
         _tokens.Identifier(out var onType)
       ) {
+        DirectiveAst[] directives = ParseDirectives();
         if (ParseObject(out SelectionAst[] selections)) {
-          var fragment = new FragmentAst(name, onType, selections);
+          var fragment = new FragmentAst(name, onType, selections) { Directives = directives };
           definitions.Add(fragment);
         }
       }

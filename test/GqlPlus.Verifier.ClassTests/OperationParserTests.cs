@@ -5,20 +5,13 @@ namespace GqlPlus.Verifier.ClassTests;
 
 public class OperationParserTests
 {
-  private Tokenizer Tokens(string input)
-  {
-    var tokens = new Tokenizer(input);
-    tokens.Read();
-    return tokens;
-  }
-
   [Theory]
   [InlineData("", ParseResult.Failure)]
   [InlineData(":Boolean", ParseResult.Success)]
   [InlineData("query Test { success }", ParseResult.Success)]
   [InlineData("($name) { person($name) { name } }", ParseResult.Success)]
   [InlineData("{...person}fragment person on Person{name}", ParseResult.Success)]
-  //[InlineData("($test)@test($test):Boolean", ParseResult.Success)]
+  [InlineData("($test)@test($test):Boolean", ParseResult.Success)]
   public void Parse(string input, ParseResult result)
   {
     var tokens = new Tokenizer(input);
@@ -91,7 +84,7 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string directive)
   {
     var parser = new OperationParser(Tokens($"(${variable}@{directive})"));
-    var expected = new VariableAst(variable) { Directives = new[] { new DirectiveAst(directive) } };
+    var expected = new VariableAst(variable) { Directives = directive.Directives() };
 
     parser.ParseVariables(out VariableAst[] result).Should().BeTrue();
 
@@ -164,13 +157,11 @@ public class OperationParserTests
     string prefix, [RegularExpression(IdentifierPattern)] string field)
   {
     var parser = new OperationParser(Tokens(prefix + " {" + field + "}"));
-    var expected = new FieldAst(field);
+    var expected = new InlineAst(field.Fields());
 
     parser.ParseSelection(out SelectionAst result).Should().BeTrue();
 
-    result.Should().BeOfType<InlineAst>()
-      .Subject.OnType.Should().BeNull();
-    result.As<InlineAst>().Selections.Should().Equal(expected);
+    result.Should().BeOfType<InlineAst>().Equals(expected);
   }
 
   [Theory]
@@ -184,14 +175,13 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string inlineType)
   {
     var parser = new OperationParser(Tokens(inlinePrefix + typePrefix + inlineType + "{" + field + "}"));
-    var expected = new InlineAst(new[] { new FieldAst(field) }) {
+    var expected = new InlineAst(field.Fields()) {
       OnType = inlineType
     };
 
     parser.ParseSelection(out SelectionAst result).Should().BeTrue();
 
-    result.Should().BeOfType<InlineAst>()
-      .Subject.Equals(expected);
+    result.Should().BeOfType<InlineAst>().Equals(expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -200,13 +190,11 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string field)
   {
     var parser = new OperationParser(Tokens("|@" + directive + "{" + field + "}"));
-    var expected = new FieldAst(field);
+    var expected = new InlineAst(field.Fields()) { Directives = directive.Directives() };
 
     parser.ParseSelection(out SelectionAst result).Should().BeTrue();
 
-    result.Should().BeOfType<InlineAst>()
-      .Subject.OnType.Should().BeNull();
-    result.As<InlineAst>().Selections.Should().Equal(expected);
+    result.Should().BeOfType<InlineAst>().Equals(expected);
   }
 
   [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
@@ -214,11 +202,13 @@ public class OperationParserTests
     string prefix, [RegularExpression(IdentifierPattern)] string fragment)
   {
     var parser = new OperationParser(Tokens(prefix + fragment));
+    var expected = new SpreadAst(fragment);
 
     parser.ParseSelection(out SelectionAst result).Should().BeTrue();
 
     result.Should().BeOfType<SpreadAst>()
       .Subject.Name.Should().Be(fragment);
+    result.Should().BeOfType<SpreadAst>().Equals(expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -227,11 +217,13 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string directive)
   {
     var parser = new OperationParser(Tokens($"|{fragment}@{directive}"));
+    var expected = new SpreadAst(fragment) { Directives = directive.Directives() };
 
     parser.ParseSelection(out SelectionAst result).Should().BeTrue();
 
     result.Should().BeOfType<SpreadAst>()
       .Subject.Name.Should().Be(fragment);
+    result.Should().BeOfType<SpreadAst>().Equals(expected);
   }
 
   #endregion
@@ -243,11 +235,13 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string field)
   {
     var parser = new OperationParser(Tokens(field));
+    var expected = new FieldAst(field);
 
     parser.ParseField(out SelectionAst result).Should().BeTrue();
 
     result.Should().BeOfType<FieldAst>()
       .Subject.Name.Should().Be(field);
+    result.Should().BeOfType<FieldAst>().Equals(expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -256,12 +250,14 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string field)
   {
     var parser = new OperationParser(Tokens(alias + ":" + field));
+    var expected = new FieldAst(field) { Alias = alias };
 
     parser.ParseField(out SelectionAst result).Should().BeTrue();
 
     result.Should().BeOfType<FieldAst>()
       .Subject.Alias.Should().Be(alias);
     result.As<FieldAst>().Name.Should().Be(field);
+    result.Should().BeOfType<FieldAst>().Equals(expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -270,13 +266,11 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string variable)
   {
     var parser = new OperationParser(Tokens(field + "($" + variable + ")"));
-    var expected = new ArgumentAst { Variable = variable };
+    var expected = new FieldAst(field) { Argument = new ArgumentAst { Variable = variable } };
 
     parser.ParseField(out SelectionAst result).Should().BeTrue();
 
-    result.Should().BeOfType<FieldAst>()
-      .Subject.Name.Should().Be(field);
-    result.As<FieldAst>().Argument.Should().Be(expected);
+    result.Should().BeOfType<FieldAst>().Equals(expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -285,13 +279,24 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string selection)
   {
     var parser = new OperationParser(Tokens(field + "{" + selection + "}"));
-    var expected = new FieldAst(selection);
+    var expected = new FieldAst(field) { Selections = selection.Fields() };
 
     parser.ParseField(out SelectionAst result).Should().BeTrue();
 
-    result.Should().BeOfType<FieldAst>()
-      .Subject.Name.Should().Be(field);
-    result.As<FieldAst>().Selections.Should().Equal(expected);
+    result.Should().BeOfType<FieldAst>().Equals(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseField_WithDirective_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string field,
+    [RegularExpression(IdentifierPattern)] string directive)
+  {
+    var parser = new OperationParser(Tokens(field + "@" + directive));
+    var expected = new FieldAst(field) { Directives = directive.Directives() };
+
+    parser.ParseField(out SelectionAst result).Should().BeTrue();
+
+    result.Should().BeOfType<FieldAst>().Equals(expected);
   }
 
   #endregion
@@ -348,13 +353,26 @@ public class OperationParserTests
     [RegularExpression(IdentifierPattern)] string field)
   {
     var parser = new OperationParser(Tokens(fragmentPrefix + fragment + typePrefix + onType + "{" + field + "}"));
-    var expected = new FragmentAst(fragment, onType, new[] { new FieldAst(field) });
+    var expected = new FragmentAst(fragment, onType, field.Fields());
 
     FragmentAst[] result = parser.ParseFragments();
 
-    result.Should()
-      .NotBeNull().And
-      .Equal(expected);
+    result.Should().Equal(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseFragments_Directive_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string fragment,
+    [RegularExpression(IdentifierPattern)] string onType,
+    [RegularExpression(IdentifierPattern)] string field,
+    [RegularExpression(IdentifierPattern)] string directive)
+  {
+    var parser = new OperationParser(Tokens("&" + fragment + ":" + onType + "@" + directive + "{" + field + "}"));
+    var expected = new FragmentAst(fragment, onType, field.Fields()) { Directives = directive.Directives() };
+
+    FragmentAst[] result = parser.ParseFragments();
+
+    result.Should().Equal(expected);
   }
 
   #endregion
@@ -374,4 +392,11 @@ public class OperationParserTests
   }
 
   #endregion
+
+  private Tokenizer Tokens(string input)
+  {
+    var tokens = new Tokenizer(input);
+    tokens.Read();
+    return tokens;
+  }
 }

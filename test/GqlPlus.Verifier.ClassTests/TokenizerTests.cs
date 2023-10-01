@@ -105,9 +105,30 @@ public class TokenizerTests
 
   [Theory, RepeatData(Repeats)]
   public void Number_AfterReadTrue_IsTrue(
-    [Range(-99999, 99999)] int expected)
+    [Range(-99999, 99999)] decimal expected)
   {
     Tokenizer tokens = PrepareTokens(expected.ToString());
+
+    tokens.Number(out var result).Should().BeTrue();
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Number_WithDecimal_AfterReadTrue_IsTrue(
+    [Range(-99999.99999, 99999.99999)] decimal expected)
+  {
+    Tokenizer tokens = PrepareTokens(expected.ToString());
+
+    tokens.Number(out var result).Should().BeTrue();
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Number_WithSeparator_AfterReadTrue_IsTrue(
+    [Range(-99999.99999, 99999.99999)] decimal expected)
+  {
+    var input = string.Join("_", expected.ToString().Select(c => c.ToString())).Replace("_._", ".").Replace("-_", "-");
+    Tokenizer tokens = PrepareTokens(input);
 
     tokens.Number(out var result).Should().BeTrue();
     result.Should().Be(expected);

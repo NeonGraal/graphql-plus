@@ -112,15 +112,21 @@ internal ref struct Tokenizer
     return true;
   }
 
-  internal bool Number(out int number)
+  internal bool Number(out decimal number)
   {
     var end = _pos;
     do {
       ++end;
-    } while (end < _operation.Length && _operation[end] is >= '0' and <= '9');
+    } while (end < _operation.Length && _operation[end] is >= '0' and <= '9' or '_');
+
+    if (end < _operation.Length && _operation[end] == '.') {
+      do {
+        ++end;
+      } while (end < _operation.Length && _operation[end] is >= '0' and <= '9' or '_');
+    }
 
     ReadOnlySpan<char> result = end < _operation.Length ? _operation[_pos..end] : _operation[_pos..];
-    number = int.Parse(result);
+    number = decimal.Parse(result.ToString().Replace("_", ""));
 
     _pos = end;
     Read();

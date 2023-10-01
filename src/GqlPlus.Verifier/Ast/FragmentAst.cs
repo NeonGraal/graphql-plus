@@ -9,5 +9,5 @@ internal sealed record class FragmentAst(string Name, string OnType, SelectionAs
     && Selections.SequenceEqual(other.Selections);
 
   public override int GetHashCode()
-    => HashCode.Combine((NamedAst)this, OnType, Selections);
+    => HashCode.Combine((NamedDirectivesAst)this, OnType, Selections);
 }

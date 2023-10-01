@@ -1,6 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class FieldAst(string Name) : NamedDirectivesAst(Name), SelectionAst
+internal sealed record class FieldAst(string Name)
+  : NamedDirectivesAst(Name), SelectionAst
 {
   internal string? Alias { get; init; }
 
@@ -15,5 +16,5 @@ internal sealed record class FieldAst(string Name) : NamedDirectivesAst(Name), S
     && Selections.SequenceEqual(other.Selections);
 
   public override int GetHashCode()
-    => HashCode.Combine((NamedAst)this, Alias, Argument, Selections);
+    => HashCode.Combine((NamedDirectivesAst)this, Alias, Argument, Selections);
 }

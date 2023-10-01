@@ -1,6 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class VariableAst(string Name) : NamedDirectivesAst(Name), IEquatable<VariableAst>
+internal sealed record class VariableAst(string Name)
+  : NamedDirectivesAst(Name), IEquatable<VariableAst>
 {
   internal string? Type { get; set; }
 
@@ -12,5 +13,5 @@ internal sealed record class VariableAst(string Name) : NamedDirectivesAst(Name)
     && Modifers.SequenceEqual(other.Modifers);
 
   public override int GetHashCode()
-    => HashCode.Combine((NamedAst)this, Type, Modifers);
+    => HashCode.Combine((NamedDirectivesAst)this, Type, Modifers);
 }

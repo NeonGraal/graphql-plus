@@ -1,6 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal record class OperationAst(string Name) : NamedDirectivesAst(Name)
+internal record class OperationAst(string Name)
+  : NamedDirectivesAst(Name)
 {
   internal ParseResult Result { get; set; }
   internal string Category { get; set; } = "query";

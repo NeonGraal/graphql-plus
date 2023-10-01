@@ -1,3 +1,10 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal record class SpreadAst(string Name) : NamedDirectivesAst(Name), SelectionAst { }
+internal sealed record class SpreadAst(string Name)
+  : NamedDirectivesAst(Name), SelectionAst, IEquatable<SpreadAst>
+{
+  public bool Equals(SpreadAst? other)
+    => base.Equals(other);
+  public override int GetHashCode()
+    => base.GetHashCode();
+}

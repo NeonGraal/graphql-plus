@@ -13,5 +13,6 @@ public class OperationVerifier
     return ast != null && Verify(ast);
   }
 
-  private static bool Verify(OperationAst ast) => ast.Result == ParseResult.Success;
+  private static bool Verify(OperationAst ast)
+    => ast.Result == ParseResult.Success;
 }

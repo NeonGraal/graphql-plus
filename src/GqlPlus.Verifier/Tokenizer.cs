@@ -16,17 +16,30 @@ internal ref struct Tokenizer
     _ignoreSeparators = true;
   }
 
-  internal bool AtStart => _kind == TokenKind.Start;
-  internal bool AtIdentifier => _kind == TokenKind.Identifer;
-  internal bool AtNumber => _kind == TokenKind.Number;
-  public bool AtString => _kind == TokenKind.String;
-  public bool AtRegex => _kind == TokenKind.Regex;
-  internal bool At(params char[] anyOf) => _kind == TokenKind.Punctuation && anyOf.Contains(_operation[_pos]);
-  internal bool At(string text) =>
-    _pos + text.Length <= _operation.Length &&
-    _operation.Slice(_pos, text.Length).Equals(text, StringComparison.InvariantCulture);
-  internal bool AtEnd => _kind == TokenKind.End;
+  internal bool AtStart
+    => _kind == TokenKind.Start;
 
+  internal bool AtIdentifier
+    => _kind == TokenKind.Identifer;
+
+  internal bool AtNumber
+    => _kind == TokenKind.Number;
+
+  public bool AtString
+    => _kind == TokenKind.String;
+
+  public bool AtRegex
+    => _kind == TokenKind.Regex;
+
+  internal bool At(params char[] anyOf)
+    => _kind == TokenKind.Punctuation && anyOf.Contains(_operation[_pos]);
+
+  internal bool At(string text)
+    => _pos + text.Length <= _operation.Length
+    && _operation.Slice(_pos, text.Length).Equals(text, StringComparison.InvariantCulture);
+
+  internal bool AtEnd
+    => _kind == TokenKind.End;
 
   internal bool Read()
   {

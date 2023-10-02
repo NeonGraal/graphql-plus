@@ -26,8 +26,7 @@ public class OperationParserTests
   #region Variables tests
 
   [Theory, RepeatData(Repeats)]
-  public void ParseVariables_WithMinimumInput_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string variable)
+  public void ParseVariables_WithMinimumInput_ReturnsCorrectAst(string variable)
   {
     var parser = new OperationParser(Tokens($"(${variable})"));
     var expected = new VariableAst(variable);
@@ -38,9 +37,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseVariables_WithType_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string variable,
-    [RegularExpression(IdentifierPattern)] string varType)
+  public void ParseVariables_WithType_ReturnsCorrectAst(string variable, string varType)
   {
     var parser = new OperationParser(Tokens($"(${variable}:{varType})"));
     var expected = new VariableAst(variable) { Type = varType };
@@ -51,8 +48,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseVariables_WithModifiers_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string variable)
+  public void ParseVariables_WithModifiers_ReturnsCorrectAst(string variable)
   {
     var parser = new OperationParser(Tokens($"(${variable}[]?)"));
 
@@ -64,9 +60,8 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseVariables_WithConstant_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string variable,
-    [Range(-99999.99999, 99999.99999)] decimal number)
+  public void ParseVariables_WithConstant_ReturnsCorrectAst(string variable,
+    decimal number)
   {
     var parser = new OperationParser(Tokens($"(${variable}={number})"));
     var expected = new VariableAst(variable) { Default = new ConstantAst(number) };
@@ -77,9 +72,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseVariables_WithDirective_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string variable,
-    [RegularExpression(IdentifierPattern)] string directive)
+  public void ParseVariables_WithDirective_ReturnsCorrectAst(string variable, string directive)
   {
     var parser = new OperationParser(Tokens($"(${variable}@{directive})"));
     var expected = new VariableAst(variable) { Directives = directive.Directives() };
@@ -94,8 +87,7 @@ public class OperationParserTests
   #region Directives tests
 
   [Theory, RepeatData(Repeats)]
-  public void ParseDirectives_WithMinimumInput_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string directive)
+  public void ParseDirectives_WithMinimumInput_ReturnsCorrectAst(string directive)
   {
     var parser = new OperationParser(Tokens("@" + directive));
 
@@ -107,9 +99,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseDirectives_WithArgument_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string directive,
-    [RegularExpression(IdentifierPattern)] string variable)
+  public void ParseDirectives_WithArgument_ReturnsCorrectAst(string directive, string variable)
   {
     var parser = new OperationParser(Tokens("@" + directive + "($" + variable + ")"));
     var expected = new DirectiveAst(directive) { Argument = new ArgumentAst(variable) };
@@ -124,8 +114,7 @@ public class OperationParserTests
   #region Object tests
 
   [Theory, RepeatData(Repeats)]
-  public void ParseSelections_WithMinimumInput_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string field)
+  public void ParseSelections_WithMinimumInput_ReturnsCorrectAst(string field)
   {
     var parser = new OperationParser(Tokens("{" + field + "}"));
 
@@ -151,8 +140,7 @@ public class OperationParserTests
   #region Selection tests
 
   [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
-  public void ParseSelection_WithMinimumInline_ReturnsCorrectAst(
-    string prefix, [RegularExpression(IdentifierPattern)] string field)
+  public void ParseSelection_WithMinimumInline_ReturnsCorrectAst(string prefix, string field)
   {
     var parser = new OperationParser(Tokens(prefix + " {" + field + "}"));
     var expected = new InlineAst(field.Fields());
@@ -167,10 +155,7 @@ public class OperationParserTests
   [RepeatInlineData(Repeats, "|", " on ")]
   [RepeatInlineData(Repeats, "...", ":")]
   [RepeatInlineData(Repeats, "|", ":")]
-  public void ParseSelection_WithInlineType_ReturnsCorrectAst(
-    string inlinePrefix, string typePrefix,
-    [RegularExpression(IdentifierPattern)] string field,
-    [RegularExpression(IdentifierPattern)] string inlineType)
+  public void ParseSelection_WithInlineType_ReturnsCorrectAst(string inlinePrefix, string typePrefix, string field, string inlineType)
   {
     var parser = new OperationParser(Tokens(inlinePrefix + typePrefix + inlineType + "{" + field + "}"));
     var expected = new InlineAst(field.Fields()) {
@@ -183,9 +168,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseSelection_WithInlineDirective_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string directive,
-    [RegularExpression(IdentifierPattern)] string field)
+  public void ParseSelection_WithInlineDirective_ReturnsCorrectAst(string directive, string field)
   {
     var parser = new OperationParser(Tokens("|@" + directive + "{" + field + "}"));
     var expected = new InlineAst(field.Fields()) { Directives = directive.Directives() };
@@ -196,8 +179,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
-  public void ParseSelection_WithMinimumSpread_ReturnsCorrectAst(
-    string prefix, [RegularExpression(IdentifierPattern)] string fragment)
+  public void ParseSelection_WithMinimumSpread_ReturnsCorrectAst(string prefix, string fragment)
   {
     var parser = new OperationParser(Tokens(prefix + fragment));
     var expected = new SpreadAst(fragment);
@@ -208,9 +190,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseSelection_WithSpreadDirective_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string fragment,
-    [RegularExpression(IdentifierPattern)] string directive)
+  public void ParseSelection_WithSpreadDirective_ReturnsCorrectAst(string fragment, string directive)
   {
     var parser = new OperationParser(Tokens($"|{fragment}@{directive}"));
     var expected = new SpreadAst(fragment) { Directives = directive.Directives() };
@@ -225,8 +205,7 @@ public class OperationParserTests
   #region Field tests
 
   [Theory, RepeatData(Repeats)]
-  public void ParseField_WithJustField_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string field)
+  public void ParseField_WithJustField_ReturnsCorrectAst(string field)
   {
     var parser = new OperationParser(Tokens(field));
     var expected = new FieldAst(field);
@@ -237,9 +216,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseField_WithAlias_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string alias,
-    [RegularExpression(IdentifierPattern)] string field)
+  public void ParseField_WithAlias_ReturnsCorrectAst(string alias, string field)
   {
     var parser = new OperationParser(Tokens(alias + ":" + field));
     var expected = new FieldAst(field) { Alias = alias };
@@ -250,9 +227,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseField_WithArgument_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string field,
-    [RegularExpression(IdentifierPattern)] string variable)
+  public void ParseField_WithArgument_ReturnsCorrectAst(string field, string variable)
   {
     var parser = new OperationParser(Tokens(field + "($" + variable + ")"));
     var expected = new FieldAst(field) { Argument = new ArgumentAst(variable) };
@@ -263,9 +238,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseField_WithSelection_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string field,
-    [RegularExpression(IdentifierPattern)] string selection)
+  public void ParseField_WithSelection_ReturnsCorrectAst(string field, string selection)
   {
     var parser = new OperationParser(Tokens(field + "{" + selection + "}"));
     var expected = new FieldAst(field) { Selections = selection.Fields() };
@@ -276,9 +249,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseField_WithDirective_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string field,
-    [RegularExpression(IdentifierPattern)] string directive)
+  public void ParseField_WithDirective_ReturnsCorrectAst(string field, string directive)
   {
     var parser = new OperationParser(Tokens(field + "@" + directive));
     var expected = new FieldAst(field) { Directives = directive.Directives() };
@@ -333,11 +304,7 @@ public class OperationParserTests
   [RepeatInlineData(Repeats, "&", " on ")]
   [RepeatInlineData(Repeats, "fragment ", ":")]
   [RepeatInlineData(Repeats, "&", ":")]
-  public void ParseFragments_WithMinimumInput_ReturnsCorrectAst(
-    string fragmentPrefix, string typePrefix,
-    [RegularExpression(IdentifierPattern)] string fragment,
-    [RegularExpression(IdentifierPattern)] string onType,
-    [RegularExpression(IdentifierPattern)] string field)
+  public void ParseFragments_WithMinimumInput_ReturnsCorrectAst(string fragmentPrefix, string typePrefix, string fragment, string onType, string field)
   {
     var parser = new OperationParser(Tokens(fragmentPrefix + fragment + typePrefix + onType + "{" + field + "}"));
     var expected = new FragmentAst(fragment, onType, field.Fields());
@@ -348,11 +315,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseFragments_Directive_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string fragment,
-    [RegularExpression(IdentifierPattern)] string onType,
-    [RegularExpression(IdentifierPattern)] string field,
-    [RegularExpression(IdentifierPattern)] string directive)
+  public void ParseFragments_Directive_ReturnsCorrectAst(string fragment, string onType, string field, string directive)
   {
     var parser = new OperationParser(Tokens("&" + fragment + ":" + onType + "@" + directive + "{" + field + "}"));
     var expected = new FragmentAst(fragment, onType, field.Fields()) { Directives = directive.Directives() };
@@ -367,8 +330,7 @@ public class OperationParserTests
   #region Argument tests
 
   [Theory, RepeatData(Repeats)]
-  public void ParseArgument_WithVariable_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string variable)
+  public void ParseArgument_WithVariable_ReturnsCorrectAst(string variable)
   {
     var parser = new OperationParser(Tokens("($" + variable + ")"));
     var expected = new ArgumentAst(variable);
@@ -379,8 +341,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseFieldKey_WithNumber_ReturnsCorrectAst(
-    [Range(-99999.99999, 99999.99999)] decimal number)
+  public void ParseFieldKey_WithNumber_ReturnsCorrectAst(decimal number)
   {
     var parser = new OperationParser(Tokens(number.ToString()));
     var expected = new FieldKeyAst(number);
@@ -391,8 +352,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseFieldKey_WithString_ReturnsCorrectAst(
-    [StringLength(999)] string contents)
+  public void ParseFieldKey_WithString_ReturnsCorrectAst(string contents)
   {
     var input = '"' + contents + '"';
     if (contents.Contains('"')) {
@@ -411,8 +371,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseFieldKey_WithLabel_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string label)
+  public void ParseFieldKey_WithLabel_ReturnsCorrectAst(string label)
   {
     var parser = new OperationParser(Tokens(label));
     var expected = new FieldKeyAst("", label);
@@ -423,9 +382,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseFieldKey_WithTypeAndLabel_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string theType,
-    [RegularExpression(IdentifierPattern)] string label)
+  public void ParseFieldKey_WithTypeAndLabel_ReturnsCorrectAst(string theType, string label)
   {
     var parser = new OperationParser(Tokens(theType + "." + label));
     var expected = new FieldKeyAst(theType, label);
@@ -440,8 +397,7 @@ public class OperationParserTests
   #region Constant tests
 
   [Theory, RepeatData(Repeats)]
-  public void ParseConstant_WithNumber_ReturnsCorrectAst(
-    [Range(-99999.99999, 99999.99999)] decimal number)
+  public void ParseConstant_WithNumber_ReturnsCorrectAst(decimal number)
   {
     var parser = new OperationParser(Tokens(number.ToString()));
     var expected = new ConstantAst(number);
@@ -452,8 +408,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseConstant_WithString_ReturnsCorrectAst(
-    [StringLength(999)] string contents)
+  public void ParseConstant_WithString_ReturnsCorrectAst(string contents)
   {
     var input = '"' + contents + '"';
     if (contents.Contains('"')) {
@@ -472,8 +427,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseConstant_WithLabel_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string label)
+  public void ParseConstant_WithLabel_ReturnsCorrectAst(string label)
   {
     var parser = new OperationParser(Tokens(label));
     var expected = new ConstantAst("", label);
@@ -484,9 +438,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseConstant_WithTypeAndLabel_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string theType,
-    [RegularExpression(IdentifierPattern)] string label)
+  public void ParseConstant_WithTypeAndLabel_ReturnsCorrectAst(string theType, string label)
   {
     var parser = new OperationParser(Tokens(theType + "." + label));
     var expected = new ConstantAst(theType, label);
@@ -497,8 +449,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseConstant_WithList_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string label)
+  public void ParseConstant_WithList_ReturnsCorrectAst(string label)
   {
     var parser = new OperationParser(Tokens('[' + label + ' ' + label + ']'));
     var expected = new ConstantAst(label.ConstantList());
@@ -509,8 +460,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseConstant_WithComma_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string label)
+  public void ParseConstant_WithComma_ReturnsCorrectAst(string label)
   {
     var parser = new OperationParser(Tokens('[' + label + ',' + label + ']'));
     var expected = new ConstantAst(label.ConstantList());
@@ -521,8 +471,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseConstant_WithInvalidList_ReturnsFalse(
-    [RegularExpression(IdentifierPattern)] string label)
+  public void ParseConstant_WithInvalidList_ReturnsFalse(string label)
   {
     var parser = new OperationParser(Tokens('[' + label + ':' + label + ']'));
     var expected = new ConstantAst();
@@ -533,9 +482,7 @@ public class OperationParserTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void ParseConstant_WithObject_ReturnsCorrectAst(
-    [RegularExpression(IdentifierPattern)] string key,
-    [RegularExpression(IdentifierPattern)] string label)
+  public void ParseConstant_WithObject_ReturnsCorrectAst(string key, string label)
   {
     var parser = new OperationParser(Tokens('{' + key + ':' + label + ' ' + label + ':' + key + '}'));
     var expected = new ConstantAst(label.ConstantObject(key));

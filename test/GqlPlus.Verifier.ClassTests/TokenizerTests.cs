@@ -32,8 +32,7 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Identifier_AfterRead_ReturnsIdentifier(
-    [RegularExpression(IdentifierPattern)] string expected)
+  public void Identifier_AfterRead_ReturnsIdentifier(string expected)
   {
     Tokenizer tokens = PrepareTokens(expected);
 
@@ -42,8 +41,7 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Number_AfterReadTrue_IsTrue(
-    [Range(-99999, 99999)] decimal expected)
+  public void Number_AfterReadTrue_IsTrue(decimal expected)
   {
     Tokenizer tokens = PrepareTokens(expected.ToString());
 
@@ -52,8 +50,7 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Number_WithDecimal_AfterReadTrue_IsTrue(
-    [Range(-99999.99999, 99999.99999)] decimal expected)
+  public void Number_WithDecimal_AfterReadTrue_IsTrue(decimal expected)
   {
     Tokenizer tokens = PrepareTokens(expected.ToString());
 
@@ -62,8 +59,7 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Number_WithSeparator_AfterReadTrue_IsTrue(
-    [Range(-99999.99999, 99999.99999)] decimal expected)
+  public void Number_WithSeparator_AfterReadTrue_IsTrue(decimal expected)
   {
     var input = string.Join("_", expected.ToString().Select(c => c.ToString())).Replace("_._", ".").Replace("-_", "-");
     Tokenizer tokens = PrepareTokens(input);
@@ -73,8 +69,7 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Number_Identifier_AfterReadTrue_IsFalse(
-    [RegularExpression(IdentifierPattern)] string identifier)
+  public void Number_Identifier_AfterReadTrue_IsFalse(string identifier)
   {
     Tokenizer tokens = PrepareTokens(identifier);
 
@@ -83,68 +78,61 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void String_Double_AfterReadTrue_IsTrue(
-    [RegularExpression(IdentifierPattern)] string contents)
+  public void String_Double_AfterReadTrue_IsTrue(string sample)
   {
-    Tokenizer tokens = PrepareTokens('"' + contents + '"');
+    Tokenizer tokens = PrepareTokens('"' + sample + '"');
 
     tokens.String(out var result).Should().BeTrue();
-    result.Should().Be(contents);
+    result.Should().Be(sample);
   }
 
   [Theory, RepeatData(Repeats)]
-  public void String_DoubleWithNoEnd_AfterReadTrue_IsFalse(
-    [RegularExpression(IdentifierPattern)] string contents)
+  public void String_DoubleWithNoEnd_AfterReadTrue_IsFalse(string sample)
   {
-    Tokenizer tokens = PrepareTokens('"' + contents);
+    Tokenizer tokens = PrepareTokens('"' + sample);
 
     tokens.String(out var result).Should().BeFalse();
-    result.Should().Be(contents + " ");
+    result.Should().Be(sample + " ");
   }
 
   [Theory, RepeatData(Repeats)]
-  public void String_DoubleWithSingleEnd_AfterReadTrue_IsFalse(
-    [RegularExpression(IdentifierPattern)] string contents)
+  public void String_DoubleWithSingleEnd_AfterReadTrue_IsFalse(string sample)
   {
-    Tokenizer tokens = PrepareTokens('"' + contents + "'");
+    Tokenizer tokens = PrepareTokens('"' + sample + "'");
 
     tokens.String(out var result).Should().BeFalse();
-    result.Should().Be(contents + "' ");
+    result.Should().Be(sample + "' ");
   }
 
   [Theory, RepeatData(Repeats)]
-  public void String_Single_AfterReadTrue_IsTrue(
-    [RegularExpression(IdentifierPattern)] string contents)
+  public void String_Single_AfterReadTrue_IsTrue(string sample)
   {
-    Tokenizer tokens = PrepareTokens($"'{contents}'");
+    Tokenizer tokens = PrepareTokens($"'{sample}'");
 
     tokens.String(out var result).Should().BeTrue();
-    result.Should().Be(contents);
+    result.Should().Be(sample);
   }
 
   [Theory, RepeatData(Repeats)]
-  public void String_SingleWithNoEnd_AfterReadTrue_IsFalse(
-    [RegularExpression(IdentifierPattern)] string contents)
+  public void String_SingleWithNoEnd_AfterReadTrue_IsFalse(string sample)
   {
-    Tokenizer tokens = PrepareTokens("'" + contents);
+    Tokenizer tokens = PrepareTokens("'" + sample);
 
     tokens.String(out var result).Should().BeFalse();
-    result.Should().Be(contents + " ");
+    result.Should().Be(sample + " ");
   }
 
   [Theory, RepeatData(Repeats)]
-  public void String_SingleWithDoubleEnd_AfterReadTrue_IsFalse(
-    [RegularExpression(IdentifierPattern)] string contents)
+  public void String_SingleWithDoubleEnd_AfterReadTrue_IsFalse(string sample)
   {
-    Tokenizer tokens = PrepareTokens("'" + contents + '"');
+    Tokenizer tokens = PrepareTokens("'" + sample + '"');
 
     tokens.String(out var result).Should().BeFalse();
-    result.Should().Be(contents + '"' + ' ');
+    result.Should().Be(sample + '"' + ' ');
   }
 
   [Theory, RepeatData(Repeats)]
-  public void String_Identifier_AfterReadTrue_IsFalse(
-    [RegularExpression(IdentifierPattern)] string identifier)
+  public void String_Identifier_AfterReadTrue_IsFalse(string identifier)
   {
     Tokenizer tokens = PrepareTokens(identifier);
 
@@ -153,8 +141,7 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Regex_AfterReadTrue_IsTrue(
-    [RegularExpression(IdentifierPattern)] string regex)
+  public void Regex_AfterReadTrue_IsTrue(string regex)
   {
     Tokenizer tokens = PrepareTokens($"/{regex}/");
 
@@ -163,8 +150,7 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Regex_WithNoEnd_AfterReadTrue_IsFalse(
-    [RegularExpression(IdentifierPattern)] string regex)
+  public void Regex_WithNoEnd_AfterReadTrue_IsFalse(string regex)
   {
     Tokenizer tokens = PrepareTokens('/' + regex);
 
@@ -173,8 +159,7 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Regex_WithNoStart_AfterReadTrue_IsFalse(
-    [RegularExpression(IdentifierPattern)] string regex)
+  public void Regex_WithNoStart_AfterReadTrue_IsFalse(string regex)
   {
     Tokenizer tokens = PrepareTokens(regex + '/');
 
@@ -235,8 +220,7 @@ public class TokenizerTests
 
   [Theory, RepeatData(Repeats)]
   public void Prefix_WithName_AfterRead_ReturnsCharThenName(
-    [RegularExpression(PunctuationPattern)] string prefix,
-    [RegularExpression(IdentifierPattern)] string identifier)
+    [RegularExpression(PunctuationPattern)] string prefix, string identifier)
   {
     Tokenizer tokens = PrepareTokens(prefix + identifier);
     var expected = prefix.First();

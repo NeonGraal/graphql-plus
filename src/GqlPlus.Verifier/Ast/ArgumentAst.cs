@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class ArgumentAst : ValuesAst<ArgumentAst>, IEquatable<ArgumentAst>
+internal sealed record class ArgumentAst : AstValues<ArgumentAst>, IEquatable<ArgumentAst>
 {
   internal string? Variable { get; }
   internal ConstantAst? Constant { get; }
@@ -20,7 +20,7 @@ internal sealed record class ArgumentAst : ValuesAst<ArgumentAst>, IEquatable<Ar
     && Variable.NullEqual(other.Variable)
     && Constant.NullEqual(other.Constant);
   public override int GetHashCode()
-    => HashCode.Combine((ValuesAst<ArgumentAst>)this, Variable, Constant);
+    => HashCode.Combine((AstValues<ArgumentAst>)this, Variable, Constant);
 
   internal override IEnumerable<string?> GetFields()
     => Constant is not null ? Constant.GetFields()

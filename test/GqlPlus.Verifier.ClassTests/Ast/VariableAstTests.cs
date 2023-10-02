@@ -1,0 +1,78 @@
+﻿namespace GqlPlus.Verifier.Ast;
+
+public class VariableAstTests
+{
+  [Theory, RepeatData(Repeats)]
+  public void Equality(string name)
+  {
+    var left = new VariableAst(name);
+    var right = new VariableAst(name);
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithType_Equality(string name, string varType)
+  {
+    var left = new VariableAst(name) { Type = varType };
+    var right = new VariableAst(name) { Type = varType };
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithType_Inequality(string name, string varType)
+  {
+    var left = new VariableAst(name) { Type = varType };
+    var right = new VariableAst(name);
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithModifiers_Equality(string name)
+  {
+    var left = new VariableAst(name) { Modifers = TestMods() };
+    var right = new VariableAst(name) { Modifers = TestMods() };
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithModifiers_Inequality(string name)
+  {
+    var left = new VariableAst(name) { Modifers = TestMods() };
+    var right = new VariableAst(name);
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithDirective_Equality(string name, string directive)
+  {
+    var left = new VariableAst(name) { Directives = directive.Directives() };
+    var right = new VariableAst(name) { Directives = directive.Directives() };
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithDirective_Inequality(string name, string directive)
+  {
+    var left = new VariableAst(name) { Directives = directive.Directives() };
+    var right = new VariableAst(name);
+
+    (left != right).Should().BeTrue();
+  }
+
+  private ModifierAst[] TestMods()
+    => new[] { ModifierAst.List, ModifierAst.Optional };
+}

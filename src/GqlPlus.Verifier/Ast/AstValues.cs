@@ -1,17 +1,17 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal record class ValuesAst<T> : AstBase, IEquatable<ValuesAst<T>>
+internal record class AstValues<T> : AstBase, IEquatable<AstValues<T>>
 {
   internal T[] Values { get; } = Array.Empty<T>();
   internal ObjectAst Fields { get; } = new ObjectAst();
 
-  protected ValuesAst() { }
-  internal ValuesAst(T[] values)
+  protected AstValues() { }
+  internal AstValues(T[] values)
     => Values = values;
-  internal ValuesAst(ObjectAst fields)
+  internal AstValues(ObjectAst fields)
     => Fields = fields;
 
-  public virtual bool Equals(ValuesAst<T>? other)
+  public virtual bool Equals(AstValues<T>? other)
     => other is not null
     && Values.SequenceEqual(other.Values)
     && Fields.Equals(other.Fields);

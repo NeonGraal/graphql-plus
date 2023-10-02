@@ -118,7 +118,7 @@ public class OperationParserTests
   {
     var parser = new OperationParser(Tokens("{" + field + "}"));
 
-    parser.ParseObject(out SelectionAst[] result).Should().BeTrue();
+    parser.ParseObject(out AstSelection[] result).Should().BeTrue();
 
     result.Should().NotBeNull();
     result!.Length.Should().Be(1);
@@ -129,7 +129,7 @@ public class OperationParserTests
   {
     var parser = new OperationParser(Tokens("{}"));
 
-    parser.ParseObject(out SelectionAst[] result).Should().BeFalse();
+    parser.ParseObject(out AstSelection[] result).Should().BeFalse();
 
     result.Should().NotBeNull();
     result!.Length.Should().Be(0);
@@ -145,7 +145,7 @@ public class OperationParserTests
     var parser = new OperationParser(Tokens(prefix + " {" + field + "}"));
     var expected = new InlineAst(field.Fields());
 
-    parser.ParseSelection(out SelectionAst result).Should().BeTrue();
+    parser.ParseSelection(out AstSelection result).Should().BeTrue();
 
     result.Should().BeOfType<InlineAst>().Equals(expected);
   }
@@ -162,7 +162,7 @@ public class OperationParserTests
       OnType = inlineType
     };
 
-    parser.ParseSelection(out SelectionAst result).Should().BeTrue();
+    parser.ParseSelection(out AstSelection result).Should().BeTrue();
 
     result.Should().BeOfType<InlineAst>().Equals(expected);
   }
@@ -173,7 +173,7 @@ public class OperationParserTests
     var parser = new OperationParser(Tokens("|@" + directive + "{" + field + "}"));
     var expected = new InlineAst(field.Fields()) { Directives = directive.Directives() };
 
-    parser.ParseSelection(out SelectionAst result).Should().BeTrue();
+    parser.ParseSelection(out AstSelection result).Should().BeTrue();
 
     result.Should().BeOfType<InlineAst>().Equals(expected);
   }
@@ -184,7 +184,7 @@ public class OperationParserTests
     var parser = new OperationParser(Tokens(prefix + fragment));
     var expected = new SpreadAst(fragment);
 
-    parser.ParseSelection(out SelectionAst result).Should().BeTrue();
+    parser.ParseSelection(out AstSelection result).Should().BeTrue();
 
     result.Should().BeOfType<SpreadAst>().Equals(expected);
   }
@@ -195,7 +195,7 @@ public class OperationParserTests
     var parser = new OperationParser(Tokens($"|{fragment}@{directive}"));
     var expected = new SpreadAst(fragment) { Directives = directive.Directives() };
 
-    parser.ParseSelection(out SelectionAst result).Should().BeTrue();
+    parser.ParseSelection(out AstSelection result).Should().BeTrue();
 
     result.Should().BeOfType<SpreadAst>().Equals(expected);
   }
@@ -210,7 +210,7 @@ public class OperationParserTests
     var parser = new OperationParser(Tokens(field));
     var expected = new FieldAst(field);
 
-    parser.ParseField(out SelectionAst result).Should().BeTrue();
+    parser.ParseField(out AstSelection result).Should().BeTrue();
 
     result.Should().BeOfType<FieldAst>().Equals(expected);
   }
@@ -221,7 +221,7 @@ public class OperationParserTests
     var parser = new OperationParser(Tokens(alias + ":" + field));
     var expected = new FieldAst(field) { Alias = alias };
 
-    parser.ParseField(out SelectionAst result).Should().BeTrue();
+    parser.ParseField(out AstSelection result).Should().BeTrue();
 
     result.Should().BeOfType<FieldAst>().Equals(expected);
   }
@@ -232,7 +232,7 @@ public class OperationParserTests
     var parser = new OperationParser(Tokens(field + "($" + variable + ")"));
     var expected = new FieldAst(field) { Argument = new ArgumentAst(variable) };
 
-    parser.ParseField(out SelectionAst result).Should().BeTrue();
+    parser.ParseField(out AstSelection result).Should().BeTrue();
 
     result.Should().BeOfType<FieldAst>().Equals(expected);
   }
@@ -243,7 +243,7 @@ public class OperationParserTests
     var parser = new OperationParser(Tokens(field + "{" + selection + "}"));
     var expected = new FieldAst(field) { Selections = selection.Fields() };
 
-    parser.ParseField(out SelectionAst result).Should().BeTrue();
+    parser.ParseField(out AstSelection result).Should().BeTrue();
 
     result.Should().BeOfType<FieldAst>().Equals(expected);
   }
@@ -254,7 +254,7 @@ public class OperationParserTests
     var parser = new OperationParser(Tokens(field + "@" + directive));
     var expected = new FieldAst(field) { Directives = directive.Directives() };
 
-    parser.ParseField(out SelectionAst result).Should().BeTrue();
+    parser.ParseField(out AstSelection result).Should().BeTrue();
 
     result.Should().BeOfType<FieldAst>().Equals(expected);
   }
@@ -351,18 +351,22 @@ public class OperationParserTests
     result.Should().Be(expected);
   }
 
+  [Fact]
+  public void ParseFieldKey_WithSSpecific_ReturnsCorrectAst()
+  {
+    string contents = "?&ZbND|2\\";
+    var parser = new OperationParser(Tokens(contents.Quote()));
+    var expected = new FieldKeyAst(contents);
+
+    parser.ParseFieldKey(out FieldKeyAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+  }
+
   [Theory, RepeatData(Repeats)]
   public void ParseFieldKey_WithString_ReturnsCorrectAst(string contents)
   {
-    var input = '"' + contents + '"';
-    if (contents.Contains('"')) {
-      if (contents.Contains("'")) {
-        input = "'" + contents.Replace("'", "\\'") + "'";
-      } else {
-        input = $"'{contents}'";
-      }
-    }
-    var parser = new OperationParser(Tokens(input));
+    var parser = new OperationParser(Tokens(contents.Quote()));
     var expected = new FieldKeyAst(contents);
 
     parser.ParseFieldKey(out FieldKeyAst result).Should().BeTrue();
@@ -410,15 +414,7 @@ public class OperationParserTests
   [Theory, RepeatData(Repeats)]
   public void ParseConstant_WithString_ReturnsCorrectAst(string contents)
   {
-    var input = '"' + contents + '"';
-    if (contents.Contains('"')) {
-      if (contents.Contains("'")) {
-        input = "'" + contents.Replace("'", "\\'") + "'";
-      } else {
-        input = $"'{contents}'";
-      }
-    }
-    var parser = new OperationParser(Tokens(input));
+    var parser = new OperationParser(Tokens(contents.Quote()));
     var expected = new ConstantAst(contents);
 
     parser.ParseConstant(out ConstantAst result).Should().BeTrue();

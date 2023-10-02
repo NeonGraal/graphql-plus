@@ -23,15 +23,7 @@ internal class TestsCustomizations : CompositeCustomization
       if (pi is not null && !pi.GetCustomAttributes<RegularExpressionAttribute>().Any()) {
         if (pi.ParameterType == typeof(string)) {
           if (pi.Name == "contents") {
-            var contents = (string)context.Resolve(new ConstrainedStringRequest(999));
-            if (contents.Contains('"')) {
-              if (contents.Contains("'")) {
-                return "'" + contents.Replace("'", "\\'") + "'";
-              } else {
-                return $"'{contents}'";
-              }
-            }
-            return '"' + contents + '"';
+            return context.Resolve(new RegularExpressionRequest(".{9,999}"));
           }
           return context.Resolve(new RegularExpressionRequest(IdentifierPattern));
         }

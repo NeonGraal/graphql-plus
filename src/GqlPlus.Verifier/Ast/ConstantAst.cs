@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast;
 
 internal sealed record class ConstantAst : ValuesAst<ConstantAst>, IEquatable<ConstantAst>
 {
@@ -26,7 +24,10 @@ internal sealed record class ConstantAst : ValuesAst<ConstantAst>, IEquatable<Co
   public bool Equals(ConstantAst? other)
     => base.Equals(other)
     && Value.NullEqual(other.Value);
-
   public override int GetHashCode()
     => HashCode.Combine((ValuesAst<ConstantAst>)this, Value);
+
+  internal override IEnumerable<string?> GetFields()
+    => Value is not null ? Value.GetFields()
+      : base.GetFields();
 }

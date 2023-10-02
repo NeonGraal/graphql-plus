@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal record class FieldKeyAst : IComparable<FieldKeyAst>
+internal record class FieldKeyAst : AstBase, IComparable<FieldKeyAst>
 {
   internal string? Type { get; set; }
 
@@ -23,4 +23,11 @@ internal record class FieldKeyAst : IComparable<FieldKeyAst>
       : String is not null ? string.CompareOrdinal(String, other?.String)
       : Label is not null ? string.CompareOrdinal(Type + '.' + Label, other?.Type + '.' + other?.Label)
       : -1;
+
+  internal override IEnumerable<string?> GetFields()
+    => String is not null ? new[] { $"'{String}'" }
+      : Number is not null ? new[] { $"{Number}" }
+      : Type is { Length: > 0 } ? new[] { $"{Type}.{Label}" }
+      : Label is not null ? new[] { $"{Label}" }
+      : base.GetFields();
 }

@@ -1,15 +1,15 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class InlineAst(SelectionAst[] Selections)
-  : DirectivesAst, SelectionAst, IEquatable<InlineAst>
+internal sealed record class InlineAst(AstSelection[] Selections)
+  : AstBase, AstDirectives, AstSelection, IEquatable<InlineAst>
 {
   internal string? OnType { get; set; }
 
-  DirectiveAst[] DirectivesAst.Directives { get; set; } = Array.Empty<DirectiveAst>();
+  DirectiveAst[] AstDirectives.Directives { get; set; } = Array.Empty<DirectiveAst>();
   internal DirectiveAst[] Directives
   {
-    get => (this as DirectivesAst).Directives;
-    set => (this as DirectivesAst).Directives = value;
+    get => (this as AstDirectives).Directives;
+    set => (this as AstDirectives).Directives = value;
   }
 
   public bool Equals(InlineAst? other)
@@ -17,7 +17,15 @@ internal sealed record class InlineAst(SelectionAst[] Selections)
     && OnType.NullEqual(other.OnType)
     && Selections.SequenceEqual(other.Selections)
     && Directives.SequenceEqual(other.Directives);
-
   public override int GetHashCode()
     => HashCode.Combine(OnType, Selections, Directives);
+
+  internal override IEnumerable<string?> GetFields()
+    => base.GetFields()
+      .Prepend("|")
+      .Append(":" + OnType)
+      .Concat(Directives.Select(d => $"{d}"))
+      .Append("{")
+      .Concat(Selections.Select(d => $"{d}"))
+      .Append("}");
 }

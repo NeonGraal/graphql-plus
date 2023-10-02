@@ -35,7 +35,7 @@ internal ref struct OperationParser
 
     if (_tokens.Prefix(':', out var result)) {
       ast.ResultType = result;
-    } else if (ParseObject(out SelectionAst[] selections)) {
+    } else if (ParseObject(out AstSelection[] selections)) {
       ast.ResultObject = selections;
     } else {
       return ast;
@@ -133,19 +133,19 @@ internal ref struct OperationParser
     return modifiers.ToArray();
   }
 
-  internal bool ParseObject(out SelectionAst[] selections)
+  internal bool ParseObject(out AstSelection[] selections)
   {
-    selections = Array.Empty<SelectionAst>();
+    selections = Array.Empty<AstSelection>();
     if (!_tokens.Take('{')) {
       return false;
     }
 
-    var fields = new List<SelectionAst>();
+    var fields = new List<AstSelection>();
 
     while (!_tokens.Take('}')) {
-      if (ParseSelection(out SelectionAst fragment)) {
+      if (ParseSelection(out AstSelection fragment)) {
         fields.Add(fragment);
-      } else if (ParseField(out SelectionAst field)) {
+      } else if (ParseField(out AstSelection field)) {
         fields.Add(field);
       } else {
         selections = fields.ToArray();
@@ -157,9 +157,9 @@ internal ref struct OperationParser
     return fields.Any();
   }
 
-  internal bool ParseSelection(out SelectionAst selection)
+  internal bool ParseSelection(out AstSelection selection)
   {
-    selection = NullAst.Selection;
+    selection = AstNulls.Selection;
 
     if (_tokens.Take("...") || _tokens.Take('|')) {
       string? onType = null;
@@ -176,7 +176,7 @@ internal ref struct OperationParser
 
       DirectiveAst[] directives = ParseDirectives();
 
-      if (ParseObject(out SelectionAst[] selections)) {
+      if (ParseObject(out AstSelection[] selections)) {
         selection = new InlineAst(selections) {
           OnType = onType,
           Directives = directives,
@@ -188,9 +188,9 @@ internal ref struct OperationParser
     return false;
   }
 
-  internal bool ParseField(out SelectionAst field)
+  internal bool ParseField(out AstSelection field)
   {
-    field = NullAst.Selection;
+    field = AstNulls.Selection;
 
     if (!_tokens.Identifier(out var alias)) {
       return false;
@@ -210,7 +210,7 @@ internal ref struct OperationParser
       result.Argument = argument;
     }
 
-    if (ParseObject(out SelectionAst[] selections)) {
+    if (ParseObject(out AstSelection[] selections)) {
       result.Selections = selections;
     }
 
@@ -228,7 +228,7 @@ internal ref struct OperationParser
         _tokens.Identifier(out var onType)
       ) {
         DirectiveAst[] directives = ParseDirectives();
-        if (ParseObject(out SelectionAst[] selections)) {
+        if (ParseObject(out AstSelection[] selections)) {
           var fragment = new FragmentAst(name, onType, selections) { Directives = directives };
           definitions.Add(fragment);
         }

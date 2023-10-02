@@ -9,4 +9,12 @@ internal record class ModifierAst(ModifierKind Kind)
 
   internal string? Key { get; init; }
   internal bool KeyOptional { get; init; }
+
+  public override string ToString()
+    => Kind switch {
+      ModifierKind.Optional => "?",
+      ModifierKind.List => "[]",
+      ModifierKind.Dict => $"[{Key}" + (KeyOptional ? "?]" : "]"),
+      _ => "!?!",
+    };
 }

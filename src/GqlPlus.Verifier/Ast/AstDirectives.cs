@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal interface DirectivesAst
+internal interface AstDirectives
 {
   DirectiveAst[] Directives { get; set; }
 }

@@ -153,7 +153,7 @@ internal ref struct Tokenizer
 
     var start = _pos + 1;
     ReadOnlySpan<char> result = end < _operation.Length ? _operation[start..end] : _operation[start..];
-    contents = result.ToString();
+    contents = result.ToString().Replace(@"\" + delimiter, delimiter.ToString()).Replace(@"\\", @"\");
 
     _pos = end + 1;
     Read();

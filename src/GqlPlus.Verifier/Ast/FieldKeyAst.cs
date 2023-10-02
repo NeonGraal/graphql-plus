@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal record class FieldKeyAst
+internal record class FieldKeyAst : IComparable<FieldKeyAst>
 {
   internal string? Type { get; set; }
 
@@ -17,4 +17,10 @@ internal record class FieldKeyAst
     => String = content;
   internal FieldKeyAst(string theType, string label)
     => (Type, Label) = (theType, label);
+
+  public int CompareTo(FieldKeyAst? other)
+    => Number is not null ? Number?.CompareTo(other?.Number) ?? -1
+      : String is not null ? string.CompareOrdinal(String, other?.String)
+      : Label is not null ? string.CompareOrdinal(Type + '.' + Label, other?.Type + '.' + other?.Label)
+      : -1;
 }

@@ -252,28 +252,83 @@ internal ref struct OperationParser
     return _tokens.Take(")");
   }
 
-  internal bool ParseConstant(out ConstantAst constant)
+  internal bool ParseFieldKey(out FieldKeyAst constant)
   {
-    constant = new ConstantAst();
+    constant = new FieldKeyAst();
 
     if (_tokens.Number(out var number)) {
-      constant = new ConstantAst(number);
+      constant = new FieldKeyAst(number);
       return true;
     }
 
     if (_tokens.String(out var contents)) {
-      constant = new ConstantAst(contents);
+      constant = new FieldKeyAst(contents);
       return true;
     }
 
     if (_tokens.Identifier(out var identifier)) {
       if (_tokens.Take('.') && _tokens.Identifier(out var label)) {
-        constant = new ConstantAst(identifier, label);
+        constant = new FieldKeyAst(identifier, label);
         return true;
       }
-      constant = new ConstantAst("", identifier);
+      constant = new FieldKeyAst("", identifier);
       return true;
     }
+
+    return false;
+  }
+
+  internal bool ParseConstant(out ConstantAst constant)
+  {
+    constant = new ConstantAst();
+
+    if (ParseFieldKey(out var fieldKey)) {
+      constant = fieldKey;
+      return true;
+    }
+
+    var oldSeparators = _tokens.IgnoreSeparators;
+    if (_tokens.Take('['))
+      try {
+        _tokens.IgnoreSeparators = false;
+
+        var values = new List<ConstantAst>();
+        while (!_tokens.Take(']')) {
+          if (ParseConstant(out var item)) {
+            values.Add(item);
+          } else {
+            return false;
+          }
+          _tokens.Take(',');
+        }
+        constant = new ConstantAst(values.ToArray());
+        return true;
+      } finally {
+        _tokens.IgnoreSeparators = oldSeparators;
+      }
+
+    if (_tokens.Take('{'))
+      try {
+        _tokens.IgnoreSeparators = false;
+
+        var fields = new ConstantAst.ObjectAst();
+
+        while (!_tokens.Take('}')) {
+          if (ParseFieldKey(out var key)
+            && _tokens.Take(':')
+            && ParseConstant(out var value)
+          ) {
+            fields.Add(key, value);
+          } else {
+            return false;
+          }
+          _tokens.Take(';');
+        }
+        constant = new ConstantAst(fields);
+        return true;
+      } finally {
+        _tokens.IgnoreSeparators = oldSeparators;
+      }
 
     return false;
   }

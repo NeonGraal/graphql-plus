@@ -378,6 +378,63 @@ public class OperationParserTests
     result.Should().Be(expected);
   }
 
+  [Theory, RepeatData(Repeats)]
+  public void ParseFieldKey_WithNumber_ReturnsCorrectAst(
+    [Range(-99999.99999, 99999.99999)] decimal number)
+  {
+    var parser = new OperationParser(Tokens(number.ToString()));
+    var expected = new FieldKeyAst(number);
+
+    parser.ParseFieldKey(out FieldKeyAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseFieldKey_WithString_ReturnsCorrectAst(
+    [StringLength(999)] string contents)
+  {
+    var input = '"' + contents + '"';
+    if (contents.Contains('"')) {
+      if (contents.Contains("'")) {
+        input = "'" + contents.Replace("'", "\\'") + "'";
+      } else {
+        input = $"'{contents}'";
+      }
+    }
+    var parser = new OperationParser(Tokens(input));
+    var expected = new FieldKeyAst(contents);
+
+    parser.ParseFieldKey(out FieldKeyAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseFieldKey_WithLabel_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var parser = new OperationParser(Tokens(label));
+    var expected = new FieldKeyAst("", label);
+
+    parser.ParseFieldKey(out FieldKeyAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseFieldKey_WithTypeAndLabel_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string theType,
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var parser = new OperationParser(Tokens(theType + "." + label));
+    var expected = new FieldKeyAst(theType, label);
+
+    parser.ParseFieldKey(out FieldKeyAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+  }
+
   #endregion
 
   #region Constant tests
@@ -433,6 +490,55 @@ public class OperationParserTests
   {
     var parser = new OperationParser(Tokens(theType + "." + label));
     var expected = new ConstantAst(theType, label);
+
+    parser.ParseConstant(out ConstantAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseConstant_WithList_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var parser = new OperationParser(Tokens('[' + label + ' ' + label + ']'));
+    var expected = new ConstantAst(label.ConstantList());
+
+    parser.ParseConstant(out ConstantAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseConstant_WithComma_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var parser = new OperationParser(Tokens('[' + label + ',' + label + ']'));
+    var expected = new ConstantAst(label.ConstantList());
+
+    parser.ParseConstant(out ConstantAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseConstant_WithInvalidList_ReturnsFalse(
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var parser = new OperationParser(Tokens('[' + label + ':' + label + ']'));
+    var expected = new ConstantAst();
+
+    parser.ParseConstant(out ConstantAst result).Should().BeFalse();
+
+    result.Should().Be(expected);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseConstant_WithObject_ReturnsCorrectAst(
+    [RegularExpression(IdentifierPattern)] string key,
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var parser = new OperationParser(Tokens('{' + key + ':' + label + ' ' + label + ':' + key + '}'));
+    var expected = new ConstantAst(label.ConstantObject(key));
 
     parser.ParseConstant(out ConstantAst result).Should().BeTrue();
 

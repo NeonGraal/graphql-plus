@@ -14,4 +14,14 @@ internal static class OperationTestsHelpers
 
   public static SelectionAst[] Fields(this string field)
     => new FieldAst[] { new(field) };
+
+  public static ConstantAst[] ConstantList(this string label)
+    => new ConstantAst[] { new("", label), new("", label) };
+
+  public static ConstantAst.ObjectAst ConstantObject(this string label, string key)
+  {
+    var keyAst = new FieldKeyAst("", key);
+    var labelAst = new FieldKeyAst("", label);
+    return new ConstantAst.ObjectAst { [keyAst] = labelAst, [labelAst] = keyAst };
+  }
 }

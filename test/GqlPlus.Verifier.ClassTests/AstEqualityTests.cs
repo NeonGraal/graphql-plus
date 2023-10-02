@@ -17,6 +17,91 @@ public class AstEqualityTests
     left.Should().NotBeSameAs(right);
   }
 
+  // FieldKeyAst
+  [Theory, RepeatData(Repeats)]
+  public void FieldKeyAst_WithNumber_Equality(
+    [Range(-99999.99999, 99999.99999)] decimal number)
+  {
+    var left = new FieldKeyAst(number);
+    var right = new FieldKeyAst(number);
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void FieldKeyAst_WithNumberString_Inequality(
+    [Range(-99999.99999, 99999.99999)] decimal number,
+    [RegularExpression(IdentifierPattern)] string content)
+  {
+    var left = new FieldKeyAst(number);
+    var right = new FieldKeyAst(content);
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void FieldKeyAst_WithNumberEnumLabel_Inequality(
+    [Range(-99999.99999, 99999.99999)] decimal number,
+    [RegularExpression(IdentifierPattern)] string enumType,
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var left = new FieldKeyAst(number);
+    var right = new FieldKeyAst(enumType, label);
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void FieldKeyAst_WithString_Equality(
+    [RegularExpression(IdentifierPattern)] string content)
+  {
+    var left = new FieldKeyAst(content);
+    var right = new FieldKeyAst(content);
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void FieldKeyAst_WithStringEnumLabel_Inquality(
+    [RegularExpression(IdentifierPattern)] string content,
+    [RegularExpression(IdentifierPattern)] string enumType,
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var left = new FieldKeyAst(content);
+    var right = new FieldKeyAst(enumType, label);
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void FieldKeyAst_WithEnumLabel_Equality(
+    [RegularExpression(IdentifierPattern)] string enumType,
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var left = new FieldKeyAst(enumType, label);
+    var right = new FieldKeyAst(enumType, label);
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void FieldKeyAst_WithEnumLabel_Inequality(
+    [RegularExpression(IdentifierPattern)] string enumType,
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var left = new FieldKeyAst(enumType, label);
+    var right = new FieldKeyAst(label, enumType);
+
+    (left != right).Should().BeTrue();
+  }
+
+  // ConstantAst
   [Theory, RepeatData(Repeats)]
   public void ConstantAst_WithEnumLabel_Equality(
     [RegularExpression(IdentifierPattern)] string enumType,
@@ -24,6 +109,42 @@ public class AstEqualityTests
   {
     var left = new ConstantAst(enumType, label);
     var right = new ConstantAst(enumType, label);
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ConstantAst_WithEnumLabel_Inequality(
+    [RegularExpression(IdentifierPattern)] string enumType,
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var left = new ConstantAst(enumType, label);
+    var right = new ConstantAst(label, enumType);
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ConstantAst_WithValues_Equality(
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var left = new ConstantAst(label.ConstantList());
+    var right = new ConstantAst(label.ConstantList());
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ConstantAst_WithFields_Equality(
+    [RegularExpression(IdentifierPattern)] string key,
+    [RegularExpression(IdentifierPattern)] string label)
+  {
+    var left = new ConstantAst(label.ConstantObject(key));
+    var right = new ConstantAst(label.ConstantObject(key));
 
     (left == right).Should().BeTrue();
 

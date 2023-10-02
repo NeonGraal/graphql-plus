@@ -5,7 +5,8 @@ internal ref struct Tokenizer
   private readonly ReadOnlySpan<char> _operation;
   private TokenKind _kind;
   private int _pos;
-  private readonly bool _ignoreSeparators;
+
+  internal bool IgnoreSeparators { get; set; }
 
   internal Tokenizer(string operation)
   {
@@ -13,7 +14,7 @@ internal ref struct Tokenizer
 
     _kind = TokenKind.Start;
     _pos = 0;
-    _ignoreSeparators = true;
+    IgnoreSeparators = true;
   }
 
   internal bool AtStart
@@ -60,7 +61,7 @@ internal ref struct Tokenizer
           break;
         case ',':
         case ';':
-          if (!_ignoreSeparators) {
+          if (!IgnoreSeparators) {
             return;
           }
 

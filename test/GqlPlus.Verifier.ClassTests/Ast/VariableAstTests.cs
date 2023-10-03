@@ -16,6 +16,15 @@ public class VariableAstTests
   }
 
   [Theory, RepeatData(Repeats)]
+  public void Inequality(string name1, string name2)
+  {
+    var left = new VariableAst(name1);
+    var right = new VariableAst(name2);
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
   public void WithType_Equality(string name, string varType)
   {
     var left = new VariableAst(name) { Type = varType };

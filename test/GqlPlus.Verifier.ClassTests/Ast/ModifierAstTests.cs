@@ -30,4 +30,13 @@ public class ModifierAstTests
 
     (left != right).Should().BeTrue();
   }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithKeys_Inequality(string key1, string key2)
+  {
+    var left = new ModifierAst(key1, false);
+    var right = new ModifierAst(key2, false);
+
+    (left != right).Should().BeTrue();
+  }
 }

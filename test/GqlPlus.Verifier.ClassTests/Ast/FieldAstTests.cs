@@ -3,6 +3,26 @@
 public class FieldAstTests
 {
   [Theory, RepeatData(Repeats)]
+  public void Equality(string name)
+  {
+    var left = new FieldAst(name);
+    var right = new FieldAst(name);
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Inquality(string name)
+  {
+    var left = new FieldAst(name);
+    var right = new FieldAst(name + "a");
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
   public void WithAlias_Equality(string name, string alias)
   {
     var left = new FieldAst(name) { Alias = alias };

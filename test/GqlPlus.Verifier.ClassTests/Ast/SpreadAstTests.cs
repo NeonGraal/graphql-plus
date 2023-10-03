@@ -14,6 +14,15 @@ public class SpreadAstTests
   }
 
   [Theory, RepeatData(Repeats)]
+  public void Inequality(string name1, string name2)
+  {
+    var left = new SpreadAst(name1);
+    var right = new SpreadAst(name2);
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
   public void WithDirective_Equality(string name, string directive)
   {
     var left = new SpreadAst(name) { Directives = directive.Directives() };

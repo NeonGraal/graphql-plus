@@ -86,7 +86,7 @@ public class ParseConstantTests
   [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string label)
   {
-    var parser = new OperationParser(Tokens('{' + key + ':' + label + ' ' + label + ':' + key + '}'));
+    var parser = new OperationParser(Tokens('{' + key + ":'" + label + "'" + label + ":'" + key + "'}"));
     var expected = new ConstantAst(label.ConstantObject(key));
 
     parser.ParseConstant(out ConstantAst result).Should().BeTrue();

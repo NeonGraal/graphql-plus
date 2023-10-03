@@ -1,0 +1,44 @@
+﻿namespace GqlPlus.Verifier.Ast;
+
+public class DirectiveAstTests
+{
+  [Theory, RepeatData(Repeats)]
+  public void Equality(string name)
+  {
+    var left = new DirectiveAst(name);
+    var right = new DirectiveAst(name);
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Inequality(string name1, string name2)
+  {
+    var left = new DirectiveAst(name1);
+    var right = new DirectiveAst(name2);
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithArgument_Equality(string variable, string name)
+  {
+    var left = new DirectiveAst(name) { Argument = new ArgumentAst(variable) };
+    var right = new DirectiveAst(name) { Argument = new ArgumentAst(variable) };
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithArgument_Inequality(string variable, string name)
+  {
+    var left = new DirectiveAst(name) { Argument = new ArgumentAst(variable) };
+    var right = new DirectiveAst(name);
+
+    (left != right).Should().BeTrue();
+  }
+}

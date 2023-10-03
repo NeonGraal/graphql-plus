@@ -43,6 +43,46 @@ public class FieldAstTests
   }
 
   [Theory, RepeatData(Repeats)]
+  public void WithArgument_Equality(string variable, string name)
+  {
+    var left = new FieldAst(name) { Argument = new ArgumentAst(variable) };
+    var right = new FieldAst(name) { Argument = new ArgumentAst(variable) };
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithArgument_Inequality(string variable, string name)
+  {
+    var left = new FieldAst(name) { Argument = new ArgumentAst(variable) };
+    var right = new FieldAst(name);
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithModifiers_Equality(string name)
+  {
+    var left = new FieldAst(name) { Modifiers = TestMods() };
+    var right = new FieldAst(name) { Modifiers = TestMods() };
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithModifiers_Inequality(string name)
+  {
+    var left = new FieldAst(name) { Modifiers = TestMods() };
+    var right = new FieldAst(name);
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
   public void WithSelection_Equality(string name, string field)
   {
     var left = new FieldAst(name) { Selections = field.Fields() };

@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-
-namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast;
 
 public class VariableAstTests
 {
@@ -103,7 +101,4 @@ public class VariableAstTests
 
     (left != right).Should().BeTrue();
   }
-
-  private ModifierAst[] TestMods()
-    => new[] { ModifierAst.List, ModifierAst.Optional };
 }

@@ -7,7 +7,8 @@ internal record class OperationAst(string Name)
   internal string Category { get; set; } = "query";
   internal VariableAst[] Variables { get; set; } = Array.Empty<VariableAst>();
   internal string? ResultType { get; set; }
-  internal AstSelection[]? ResultObject { get; set; }
+  public ArgumentAst? Argument { get; set; }
+  internal AstSelection[]? Object { get; set; }
   internal ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
   internal FragmentAst[] Fragments { get; set; } = Array.Empty<FragmentAst>();
 

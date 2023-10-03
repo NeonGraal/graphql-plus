@@ -54,4 +54,7 @@ internal static class OperationTestsHelpers
     tokens.Read();
     return tokens;
   }
+
+  public static ModifierAst[] TestMods()
+    => new[] { ModifierAst.List, ModifierAst.Optional };
 }

@@ -39,7 +39,7 @@ public class ArgumentAstTests
     var left = new ArgumentAst(new ConstantAst(enumType, label));
     var right = new ArgumentAst(new ConstantAst(label, enumType));
 
-    (left != right).Should().BeTrue();
+    (left != right).Should().Be(enumType != label);
   }
 
   [Theory, RepeatData(Repeats)]

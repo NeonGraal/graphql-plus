@@ -50,7 +50,7 @@ public class ConstantAstTests
     var left = new ConstantAst(enumType, label);
     var right = new ConstantAst(label, enumType);
 
-    (left != right).Should().BeTrue();
+    (left != right).Should().Be(enumType != label);
   }
 
   [Theory, RepeatData(Repeats)]

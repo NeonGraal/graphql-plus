@@ -95,7 +95,7 @@ public class FieldKeyAstTests
     var left = new FieldKeyAst(enumType, label);
     var right = new FieldKeyAst(label, enumType);
 
-    (left != right).Should().BeTrue();
+    (left != right).Should().Be(enumType != label);
   }
 
   [Theory, RepeatData(Repeats)]

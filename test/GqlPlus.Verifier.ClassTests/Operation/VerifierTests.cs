@@ -1,6 +1,6 @@
-﻿namespace GqlPlus.Verifier.ClassTests;
+﻿namespace GqlPlus.Verifier.Operation;
 
-public class OperationVerifierTests
+public class VerifierTests
 {
   [Theory]
   [MemberData(nameof(ValidGraphQlPlusOperations))]

@@ -37,4 +37,11 @@ internal static class OperationTestsHelpers
     }
     return '"' + contents + '"';
   }
+
+  public static Tokenizer Tokens(string input)
+  {
+    var tokens = new Tokenizer(input);
+    tokens.Read();
+    return tokens;
+  }
 }

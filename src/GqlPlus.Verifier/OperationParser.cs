@@ -108,16 +108,10 @@ internal ref struct OperationParser
     while (_tokens.Take('[')) {
       ModifierAst modifier = ModifierAst.List;
       if (_tokens.Identifier(out var key)) {
-        modifier = new() {
-          Key = key,
-          KeyOptional = _tokens.Take('?')
-        };
+        modifier = new(key, _tokens.Take('?'));
       } else {
         if (_tokens.TakeAny(out var charType, '~', '0', '*')) {
-          modifier = new() {
-            Key = charType.ToString(),
-            KeyOptional = _tokens.Take('?')
-          };
+          modifier = new(charType.ToString(), _tokens.Take('?'));
         }
       }
 

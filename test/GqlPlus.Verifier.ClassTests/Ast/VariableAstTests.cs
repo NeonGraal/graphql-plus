@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿using Newtonsoft.Json.Linq;
+
+namespace GqlPlus.Verifier.Ast;
 
 public class VariableAstTests
 {
@@ -68,6 +70,26 @@ public class VariableAstTests
   public void WithDirective_Inequality(string name, string directive)
   {
     var left = new VariableAst(name) { Directives = directive.Directives() };
+    var right = new VariableAst(name);
+
+    (left != right).Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithDefault_Equality(string name, string value)
+  {
+    var left = new VariableAst(name) { Default = new ConstantAst(value) };
+    var right = new VariableAst(name) { Default = new ConstantAst(value) };
+
+    (left == right).Should().BeTrue();
+
+    left.Should().NotBeSameAs(right);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithDefault_Inequality(string name, string value)
+  {
+    var left = new VariableAst(name) { Default = new ConstantAst(value) };
     var right = new VariableAst(name);
 
     (left != right).Should().BeTrue();

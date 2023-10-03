@@ -26,7 +26,7 @@ public class ParseModifiersTests
   {
     var parser = new OperationParser(Tokens("[_?][]?"));
     var expected = new ModifierAst[] {
-        new() { Key = "_", KeyOptional = true},
+        new("_", true),
         ModifierAst.List,
         ModifierAst.Optional
       };

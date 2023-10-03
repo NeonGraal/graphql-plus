@@ -5,7 +5,9 @@ internal record class ModifierAst(ModifierKind Kind)
   internal static readonly ModifierAst Optional = new(ModifierKind.Optional);
   internal static readonly ModifierAst List = new(ModifierKind.List);
 
-  internal ModifierAst() : this(ModifierKind.Dict) { }
+  internal ModifierAst(string key, bool optional)
+    : this(ModifierKind.Dict)
+    => (Key, KeyOptional) = (key, optional);
 
   internal string? Key { get; init; }
   internal bool KeyOptional { get; init; }

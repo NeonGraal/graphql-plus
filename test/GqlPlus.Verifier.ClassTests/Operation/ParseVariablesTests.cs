@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Operation;
 public class ParseVariablesTests
 {
   [Theory, RepeatData(Repeats)]
-  public void WithMinimumInput_ReturnsCorrectAst(string variable)
+  public void WithMinimum_ReturnsCorrectAst(string variable)
   {
     var parser = new OperationParser(Tokens($"(${variable})"));
     var expected = new VariableAst(variable);

@@ -9,7 +9,7 @@ public class ParseFragmentsTests
   [RepeatInlineData(Repeats, "&", " on ")]
   [RepeatInlineData(Repeats, "fragment ", ":")]
   [RepeatInlineData(Repeats, "&", ":")]
-  public void WithMinimumInput_ReturnsCorrectAst(string fragmentPrefix, string typePrefix, string fragment, string onType, string field)
+  public void WithMinimum_ReturnsCorrectAst(string fragmentPrefix, string typePrefix, string fragment, string onType, string field)
   {
     var parser = new OperationParser(Tokens(fragmentPrefix + fragment + typePrefix + onType + "{" + field + "}"));
     var expected = new FragmentAst(fragment, onType, field.Fields());

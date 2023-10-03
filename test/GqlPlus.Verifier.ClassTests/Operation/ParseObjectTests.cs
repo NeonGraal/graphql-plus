@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Operation;
 public class ParseObjectTests
 {
   [Theory, RepeatData(Repeats)]
-  public void WithMinimumInput_ReturnsCorrectAst(string field)
+  public void WithMinimum_ReturnsCorrectAst(string field)
   {
     var parser = new OperationParser(Tokens("{" + field + "}"));
 

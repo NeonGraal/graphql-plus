@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Operation;
 public class ParseSelectionTests
 {
   [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
-  public void WithMinimumInline_ReturnsCorrectAst(string prefix, string field)
+  public void WithInline_ReturnsCorrectAst(string prefix, string field)
   {
     var parser = new OperationParser(Tokens(prefix + " {" + field + "}"));
     var expected = new InlineAst(field.Fields());
@@ -44,7 +44,7 @@ public class ParseSelectionTests
   }
 
   [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
-  public void WithMinimumSpread_ReturnsCorrectAst(string prefix, string fragment)
+  public void WithSpread_ReturnsCorrectAst(string prefix, string fragment)
   {
     var parser = new OperationParser(Tokens(prefix + fragment));
     var expected = new SpreadAst(fragment);

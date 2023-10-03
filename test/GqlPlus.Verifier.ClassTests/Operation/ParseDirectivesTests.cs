@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Operation;
 public class ParseDirectivesTests
 {
   [Theory, RepeatData(Repeats)]
-  public void WithMinimumInput_ReturnsCorrectAst(string directive)
+  public void WithMinimum_ReturnsCorrectAst(string directive)
   {
     var parser = new OperationParser(Tokens("@" + directive));
 

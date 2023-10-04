@@ -22,7 +22,7 @@ internal static class OperationTestsHelpers
   {
     var keyAst = new FieldKeyAst("", key);
     var labelAst = new FieldKeyAst("", label);
-    return new ConstantAst.ObjectAst { [keyAst] = new(label), [labelAst] = new(key) };
+    return new ConstantAst.ObjectAst { [keyAst] = labelAst, [labelAst] = keyAst };
   }
 
   public static ArgumentAst[] ArgumentList(this string label)
@@ -32,7 +32,7 @@ internal static class OperationTestsHelpers
   {
     var keyAst = new FieldKeyAst("", key);
     var labelAst = new FieldKeyAst("", label);
-    return new ArgumentAst.ObjectAst { [keyAst] = new(labelAst), [labelAst] = new(keyAst) };
+    return new ArgumentAst.ObjectAst { [keyAst] = labelAst, [labelAst] = keyAst };
   }
 
   public static string Quote(this string contents)

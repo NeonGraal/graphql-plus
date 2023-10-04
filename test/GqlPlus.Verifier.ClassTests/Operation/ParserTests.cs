@@ -11,6 +11,8 @@ public class ParserTests
   [InlineData("($name) { person($name) { name } }", ParseResult.Success)]
   [InlineData("{...person}fragment person on Person{name}", ParseResult.Success)]
   [InlineData("($test)@test($test):Boolean", ParseResult.Success)]
+  [InlineData("($test):Boolean($test)", ParseResult.Success)]
+  [InlineData("{test}[]", ParseResult.Success)]
   public void Parse(string input, ParseResult result)
   {
     var tokens = new Tokenizer(input);

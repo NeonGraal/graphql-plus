@@ -35,8 +35,11 @@ internal ref struct OperationParser
 
     if (_tokens.Prefix(':', out var result)) {
       ast.ResultType = result;
+      if (ParseArgument(out var argument)) {
+        ast.Argument = argument;
+      }
     } else if (ParseObject(out AstSelection[] selections)) {
-      ast.ResultObject = selections;
+      ast.Object = selections;
     } else {
       return ast;
     }
@@ -203,6 +206,9 @@ internal ref struct OperationParser
     if (ParseArgument(out ArgumentAst argument)) {
       result.Argument = argument;
     }
+
+    result.Modifiers = ParseModifiers();
+    result.Directives = ParseDirectives();
 
     if (ParseObject(out AstSelection[] selections)) {
       result.Selections = selections;

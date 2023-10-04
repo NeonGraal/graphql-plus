@@ -5,7 +5,7 @@ internal sealed record class FieldAst(string Name)
 {
   internal string? Alias { get; init; }
 
-  public ArgumentAst? Argument { get; set; }
+  internal ArgumentAst? Argument { get; set; }
 
   internal ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
 

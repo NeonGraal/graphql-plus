@@ -4,8 +4,6 @@ namespace GqlPlus.Verifier.Operation;
 
 public class ParseConstantTests
 {
-  #region Constant tests
-
   [Theory, RepeatData(Repeats)]
   public void WithNumber_ReturnsCorrectAst(decimal number)
   {
@@ -40,10 +38,10 @@ public class ParseConstantTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeAndLabel_ReturnsCorrectAst(string theType, string label)
+  public void WithEnumLabel_ReturnsCorrectAst(string enumType, string label)
   {
-    var parser = new OperationParser(Tokens(theType + "." + label));
-    var expected = new ConstantAst(theType, label);
+    var parser = new OperationParser(Tokens(enumType + "." + label));
+    var expected = new ConstantAst(enumType, label);
 
     parser.ParseConstant(out ConstantAst result).Should().BeTrue();
 
@@ -62,7 +60,7 @@ public class ParseConstantTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithComma_ReturnsCorrectAst(string label)
+  public void WithListComma_ReturnsCorrectAst(string label)
   {
     var parser = new OperationParser(Tokens('[' + label + ',' + label + ']'));
     var expected = new ConstantAst(label.ConstantList());
@@ -73,7 +71,7 @@ public class ParseConstantTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithInvalidList_ReturnsFalse(string label)
+  public void WithListInvalid_ReturnsFalse(string label)
   {
     var parser = new OperationParser(Tokens('[' + label + ':' + label + ']'));
     var expected = new ConstantAst();
@@ -86,7 +84,27 @@ public class ParseConstantTests
   [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string label)
   {
-    var parser = new OperationParser(Tokens('{' + key + ":'" + label + "'" + label + ":'" + key + "'}"));
+    if (key == label) {
+      return;
+    }
+
+    var parser = new OperationParser(Tokens('{' + key + ':' + label + ' ' + label + ':' + key + '}'));
+    var expected = new ConstantAst(label.ConstantObject(key));
+
+    parser.ParseConstant(out ConstantAst result).Should().BeTrue();
+
+    result.Should().Be(expected);
+
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void WithObjectSemi_ReturnsCorrectAst(string key, string label)
+  {
+    if (key == label) {
+      return;
+    }
+
+    var parser = new OperationParser(Tokens('{' + key + ':' + label + ';' + label + ':' + key + '}'));
     var expected = new ConstantAst(label.ConstantObject(key));
 
     parser.ParseConstant(out ConstantAst result).Should().BeTrue();
@@ -94,5 +112,18 @@ public class ParseConstantTests
     result.Should().Be(expected);
   }
 
-  #endregion
+  [Theory, RepeatData(Repeats)]
+  public void WithObjectInvalid_ReturnsCorrectAst(string key, string label)
+  {
+    if (key == label) {
+      return;
+    }
+
+    var parser = new OperationParser(Tokens('{' + key + ':' + label + ',' + label + ':' + key + '}'));
+    var expected = new ConstantAst();
+
+    parser.ParseConstant(out ConstantAst result).Should().BeFalse();
+
+    result.Should().Be(expected);
+  }
 }

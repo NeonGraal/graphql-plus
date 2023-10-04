@@ -1,17 +1,16 @@
 ﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.ClassTests;
 
 namespace GqlPlus.Verifier.Operation;
 
-public class ParseArgumentTests
+public class ParseArgValueTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithVariable_ReturnsCorrectAst(string variable)
   {
-    var parser = new OperationParser(Tokens("($" + variable + ")"));
+    var parser = new OperationParser(Tokens("$" + variable));
     var expected = new ArgumentAst(variable);
 
-    parser.ParseArgument(out ArgumentAst result).Should().BeTrue();
+    parser.ParseArgValue(out ArgumentAst result).Should().BeTrue();
 
     result.Should().Be(expected);
   }
@@ -19,10 +18,10 @@ public class ParseArgumentTests
   [Theory, RepeatData(Repeats)]
   public void WithLabel_ReturnsCorrectAst(string label)
   {
-    var parser = new OperationParser(Tokens("(" + label + ")"));
+    var parser = new OperationParser(Tokens(label));
     var expected = new ArgumentAst(new FieldKeyAst("", label));
 
-    parser.ParseArgument(out ArgumentAst result).Should().BeTrue();
+    parser.ParseArgValue(out ArgumentAst result).Should().BeTrue();
 
     result.Should().Be(expected);
   }
@@ -30,10 +29,10 @@ public class ParseArgumentTests
   [Theory, RepeatData(Repeats)]
   public void WithList_ReturnsCorrectAst(string label)
   {
-    var parser = new OperationParser(Tokens('(' + label + ' ' + label + ')'));
+    var parser = new OperationParser(Tokens('[' + label + ' ' + label + ']'));
     var expected = new ArgumentAst(label.ArgumentList());
 
-    parser.ParseArgument(out ArgumentAst result).Should().BeTrue();
+    parser.ParseArgValue(out ArgumentAst result).Should().BeTrue();
 
     result.Should().Be(expected);
   }
@@ -41,21 +40,21 @@ public class ParseArgumentTests
   [Theory, RepeatData(Repeats)]
   public void WithListComma_ReturnsCorrectAst(string label)
   {
-    var parser = new OperationParser(Tokens('(' + label + ',' + label + ')'));
+    var parser = new OperationParser(Tokens('[' + label + ',' + label + ']'));
     var expected = new ArgumentAst(label.ArgumentList());
 
-    parser.ParseArgument(out ArgumentAst result).Should().BeTrue();
+    parser.ParseArgValue(out ArgumentAst result).Should().BeTrue();
 
     result.Should().Be(expected);
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithField_ReturnsTruee(string label)
+  public void WithListInvalid_ReturnsFalse(string label)
   {
-    var parser = new OperationParser(Tokens('(' + label + ':' + label + ')'));
-    var expected = new ArgumentAst(label.ArgumentObject(label));
+    var parser = new OperationParser(Tokens('[' + label + ':' + label + ']'));
+    var expected = new ArgumentAst();
 
-    parser.ParseArgument(out ArgumentAst result).Should().BeTrue();
+    parser.ParseArgValue(out ArgumentAst result).Should().BeFalse();
 
     result.Should().Be(expected);
   }
@@ -67,10 +66,10 @@ public class ParseArgumentTests
       return;
     }
 
-    var parser = new OperationParser(Tokens('(' + key + ':' + label + ' ' + label + ':' + key + ')'));
+    var parser = new OperationParser(Tokens('{' + key + ':' + label + ' ' + label + ':' + key + '}'));
     var expected = new ArgumentAst(label.ArgumentObject(key));
 
-    parser.ParseArgument(out ArgumentAst result).Should().BeTrue();
+    parser.ParseArgValue(out ArgumentAst result).Should().BeTrue();
 
     result.Should().Be(expected);
 
@@ -83,10 +82,10 @@ public class ParseArgumentTests
       return;
     }
 
-    var parser = new OperationParser(Tokens('(' + key + ':' + label + ';' + label + ':' + key + ')'));
+    var parser = new OperationParser(Tokens('{' + key + ':' + label + ';' + label + ':' + key + '}'));
     var expected = new ArgumentAst(label.ArgumentObject(key));
 
-    parser.ParseArgument(out ArgumentAst result).Should().BeTrue();
+    parser.ParseArgValue(out ArgumentAst result).Should().BeTrue();
 
     result.Should().Be(expected);
   }
@@ -98,10 +97,10 @@ public class ParseArgumentTests
       return;
     }
 
-    var parser = new OperationParser(Tokens('(' + key + ':' + label + ',' + label + ':' + key + ')'));
+    var parser = new OperationParser(Tokens('{' + key + ':' + label + ',' + label + ':' + key + '}'));
     var expected = new ArgumentAst();
 
-    parser.ParseArgument(out ArgumentAst result).Should().BeFalse();
+    parser.ParseArgValue(out ArgumentAst result).Should().BeFalse();
 
     result.Should().Be(expected);
   }

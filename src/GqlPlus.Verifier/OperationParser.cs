@@ -252,6 +252,18 @@ internal ref struct OperationParser
     return _tokens.Take(")");
   }
 
+  internal bool ParseArgValue(out ArgumentAst argument)
+  {
+    argument = new ArgumentAst();
+
+    if (_tokens.Prefix('$', out var variable)) {
+      argument = new ArgumentAst(variable);
+      return true;
+    }
+
+    return false;
+  }
+
   internal bool ParseFieldKey(out FieldKeyAst constant)
   {
     constant = new FieldKeyAst();

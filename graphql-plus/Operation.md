@@ -156,14 +156,16 @@ Fragment = ( 'fragment' | '&' ) fragment TypeCondition Directive* Object
 ## Argument
 
 ```PEG
-Argument = '(' Arg_Value ',' Arg_Values ')' | '(' Arg_Fields ')' | '(' Arg_Value* ')'
+Argument = '(' Arg_Item ')'
+Arg_Item = Arg_Value ',' Arg_Values | Arg_FieldValues ';' Arg_Fields | Arg_FieldValue+ | Arg_Value+
 Arg_Value = '$'variable | Arg_List | Arg_Object | Constant
 Arg_List = '[' Arg_Values ']' | '[' Arg_Value* ']'
 Arg_Values = Arg_Value ',' Arg_Values | Arg_Value
 
-Arg_Object = '{' Arg_Fields '}' | '{' ( FieldKey ':' Arg_Value )* '}' | Arg_Fields
-Arg_Fields = Arg_Field ';' Arg_Fields | Arg_Field
-Arg_Field = FieldKey ':' ArgValues
+Arg_Object = '{' Arg_Fields '}' | '{' Arg_FieldValue* '}'
+Arg_FieldValue = FieldKey ':' ArgValue
+Arg_Fields = Arg_FieldValues ';' Arg_Fields | Arg_FieldValues
+Arg_FieldValues = FieldKey ':' ArgValues
 
 FieldKey = ( enum '.' )? field | NUMBER | STRING
 ```
@@ -180,9 +182,10 @@ Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | ( enum '.' )? 
 Const_List = '[' Cons_Values ']' | '[' Constant* ']'
 Const_Values = Constant ',' Const_Values | Constant
 
-Const_Object = '{' Const_Fields '}' | '{' ( FieldKey ':' Constant )* '}'
+Const_Object = '{' Const_Fields '}' | '{' Const_FieldValue* '}'
+Const_FieldValue = FieldKey ':' Const_Value
 Const_Fields = Const_Field ';' Const_Fields | Const_Field
-Const_Field = FieldKey ':' Const_Values
+Const_FieldValues = FieldKey ':' Const_Values
 ```
 
 A Constant is a single value. Commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields.
@@ -216,14 +219,16 @@ TypeCondition = ( 'on' | ':' ) type
 
 Fragment = ( 'fragment' | '&' ) fragment TypeCondition Directive* Object
 
-Argument = '(' Arg_Value ',' Arg_Values ')' | '(' Arg_Fields ')' | '(' Arg_Value* ')'
+Argument = '(' Arg_Item ')'
+Arg_Item = Arg_Value ',' Arg_Values | Arg_FieldValues ';' Arg_Fields | Arg_FieldValue+ | Arg_Value+
 Arg_Value = '$'variable | Arg_List | Arg_Object | Constant
 Arg_List = '[' Arg_Values ']' | '[' Arg_Value* ']'
 Arg_Values = Arg_Value ',' Arg_Values | Arg_Value
 
-Arg_Object = '{' Arg_Fields '}' | '{' ( FieldKey ':' Arg_Value )* '}' | Arg_Fields
-Arg_Fields = Arg_Field ';' Arg_Fields | Arg_Field
-Arg_Field = FieldKey ':' ArgValues
+Arg_Object = '{' Arg_Fields '}' | '{' Arg_FieldValue* '}'
+Arg_FieldValue = FieldKey ':' ArgValue
+Arg_Fields = Arg_FieldValues ';' Arg_Fields | Arg_FieldValues
+Arg_FieldValues = FieldKey ':' ArgValues
 
 FieldKey = ( enum '.' )? field | NUMBER | STRING
 
@@ -232,8 +237,9 @@ Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | ( enum '.' )? 
 Const_List = '[' Cons_Values ']' | '[' Constant* ']'
 Const_Values = Constant ',' Const_Values | Constant
 
-Const_Object = '{' Const_Fields '}' | '{' ( FieldKey ':' Constant )* '}'
+Const_Object = '{' Const_Fields '}' | '{' Const_FieldValue* '}'
+Const_FieldValue = FieldKey ':' Const_Value
 Const_Fields = Const_Field ';' Const_Fields | Const_Field
-Const_Field = FieldKey ':' Const_Values
+Const_FieldValues = FieldKey ':' Const_Values
 
 ```

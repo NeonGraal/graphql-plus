@@ -5,8 +5,8 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void WithLabel_Equality(string label)
   {
-    var left = new ConstantAst("", label);
-    var right = new ConstantAst("", label);
+    ConstantAst left = new FieldKeyAst("", label);
+    ConstantAst right = new FieldKeyAst("", label);
 
     (left == right).Should().BeTrue();
 
@@ -16,8 +16,8 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void WithEnumLabel_Equality(string enumType, string label)
   {
-    var left = new ConstantAst(enumType, label);
-    var right = new ConstantAst(enumType, label);
+    ConstantAst left = new FieldKeyAst(enumType, label);
+    ConstantAst right = new FieldKeyAst(enumType, label);
 
     (left == right).Should().BeTrue();
 
@@ -27,8 +27,8 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void WithEnumType_Equality(string enumType)
   {
-    var left = new ConstantAst(enumType, "label");
-    var right = new ConstantAst(enumType, "label");
+    ConstantAst left = new FieldKeyAst(enumType, "label");
+    ConstantAst right = new FieldKeyAst(enumType, "label");
 
     (left == right).Should().BeTrue();
 
@@ -38,8 +38,8 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void WithLabel_Inequality(string label)
   {
-    var left = new ConstantAst("", label);
-    var right = new ConstantAst("", label + "a");
+    ConstantAst left = new FieldKeyAst("", label);
+    ConstantAst right = new FieldKeyAst("", label + "a");
 
     (left != right).Should().BeTrue();
   }
@@ -51,8 +51,8 @@ public class ConstantAstTests
       return;
     }
 
-    var left = new ConstantAst(enumType, label);
-    var right = new ConstantAst(label, enumType);
+    ConstantAst left = new FieldKeyAst(enumType, label);
+    ConstantAst right = new FieldKeyAst(label, enumType);
 
     (left != right).Should().BeTrue();
   }
@@ -60,8 +60,8 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void WithEnumType_Inequality(string enumType)
   {
-    var left = new ConstantAst(enumType, "label");
-    var right = new ConstantAst(enumType + "a", "label");
+    ConstantAst left = new FieldKeyAst(enumType, "label");
+    ConstantAst right = new FieldKeyAst(enumType + "a", "label");
 
     (left != right).Should().BeTrue();
   }
@@ -81,7 +81,7 @@ public class ConstantAstTests
   public void WithValues_Inequality(string label)
   {
     var left = new ConstantAst(label.ConstantList());
-    var right = new ConstantAst("", label);
+    ConstantAst right = new FieldKeyAst("", label);
 
     (left != right).Should().BeTrue();
   }
@@ -101,7 +101,7 @@ public class ConstantAstTests
   public void WithFields_Inequality(string key, string label)
   {
     var left = new ConstantAst(label.ConstantObject(key));
-    var right = new ConstantAst(key, label);
+    ConstantAst right = new FieldKeyAst(key, label);
 
     (left != right).Should().BeTrue();
   }

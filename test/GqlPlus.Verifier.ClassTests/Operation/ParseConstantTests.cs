@@ -8,7 +8,7 @@ public class ParseConstantTests
   public void WithNumber_ReturnsCorrectAst(decimal number)
   {
     var parser = new OperationParser(Tokens(number.ToString()));
-    var expected = new ConstantAst(number);
+    ConstantAst expected = new FieldKeyAst(number);
 
     parser.ParseConstant(out ConstantAst result).Should().BeTrue();
 
@@ -19,7 +19,7 @@ public class ParseConstantTests
   public void WithString_ReturnsCorrectAst(string contents)
   {
     var parser = new OperationParser(Tokens(contents.Quote()));
-    var expected = new ConstantAst(contents);
+    ConstantAst expected = new FieldKeyAst(contents);
 
     parser.ParseConstant(out ConstantAst result).Should().BeTrue();
 
@@ -30,7 +30,7 @@ public class ParseConstantTests
   public void WithLabel_ReturnsCorrectAst(string label)
   {
     var parser = new OperationParser(Tokens(label));
-    var expected = new ConstantAst("", label);
+    ConstantAst expected = new FieldKeyAst("", label);
 
     parser.ParseConstant(out ConstantAst result).Should().BeTrue();
 
@@ -41,7 +41,7 @@ public class ParseConstantTests
   public void WithEnumLabel_ReturnsCorrectAst(string enumType, string label)
   {
     var parser = new OperationParser(Tokens(enumType + "." + label));
-    var expected = new ConstantAst(enumType, label);
+    ConstantAst expected = new FieldKeyAst(enumType, label);
 
     parser.ParseConstant(out ConstantAst result).Should().BeTrue();
 

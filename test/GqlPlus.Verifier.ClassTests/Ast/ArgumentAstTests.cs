@@ -25,8 +25,8 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void WithConstant_Equality(string enumType, string label)
   {
-    var left = new ArgumentAst(new ConstantAst(enumType, label));
-    var right = new ArgumentAst(new ConstantAst(enumType, label));
+    var left = new ArgumentAst(new FieldKeyAst(enumType, label));
+    var right = new ArgumentAst(new FieldKeyAst(enumType, label));
 
     (left == right).Should().BeTrue();
 
@@ -40,8 +40,8 @@ public class ArgumentAstTests
       return;
     }
 
-    var left = new ArgumentAst(new ConstantAst(enumType, label));
-    var right = new ArgumentAst(new ConstantAst(label, enumType));
+    var left = new ArgumentAst(new FieldKeyAst(enumType, label));
+    var right = new ArgumentAst(new FieldKeyAst(label, enumType));
 
     (left != right).Should().BeTrue();
   }

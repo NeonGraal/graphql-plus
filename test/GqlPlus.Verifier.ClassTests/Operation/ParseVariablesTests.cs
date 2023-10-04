@@ -39,11 +39,10 @@ public class ParseVariablesTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithConstant_ReturnsCorrectAst(string variable,
-    decimal number)
+  public void WithConstant_ReturnsCorrectAst(string variable, decimal number)
   {
     var parser = new OperationParser(Tokens($"(${variable}={number})"));
-    var expected = new VariableAst(variable) { Default = new ConstantAst(number) };
+    var expected = new VariableAst(variable) { Default = new FieldKeyAst(number) };
 
     parser.ParseVariables(out VariableAst[] result).Should().BeTrue();
 

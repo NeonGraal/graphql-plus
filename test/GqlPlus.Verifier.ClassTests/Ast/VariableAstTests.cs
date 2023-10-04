@@ -89,8 +89,8 @@ public class VariableAstTests
   [Theory, RepeatData(Repeats)]
   public void WithDefault_Equality(string name, string value)
   {
-    var left = new VariableAst(name) { Default = new ConstantAst(value) };
-    var right = new VariableAst(name) { Default = new ConstantAst(value) };
+    var left = new VariableAst(name) { Default = new FieldKeyAst(value) };
+    var right = new VariableAst(name) { Default = new FieldKeyAst(value) };
 
     (left == right).Should().BeTrue();
 
@@ -100,7 +100,7 @@ public class VariableAstTests
   [Theory, RepeatData(Repeats)]
   public void WithDefault_Inequality(string name, string value)
   {
-    var left = new VariableAst(name) { Default = new ConstantAst(value) };
+    var left = new VariableAst(name) { Default = new FieldKeyAst(value) };
     var right = new VariableAst(name);
 
     (left != right).Should().BeTrue();

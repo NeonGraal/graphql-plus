@@ -16,7 +16,7 @@ internal static class OperationTestsHelpers
     => new FieldAst[] { new(field) };
 
   public static ConstantAst[] ConstantList(this string label)
-    => new ConstantAst[] { new("", label), new("", label) };
+    => new ConstantAst[] { new FieldKeyAst("", label), new FieldKeyAst("", label) };
 
   public static ConstantAst.ObjectAst ConstantObject(this string label, string key)
   {

@@ -4,22 +4,20 @@ internal sealed record class ConstantAst : AstValues<ConstantAst>, IEquatable<Co
 {
   internal FieldKeyAst? Value { get; set; }
 
-  internal ConstantAst() : base() { }
+  internal ConstantAst()
+    : base() { }
 
-  internal ConstantAst(string content)
-    : base() => Value = new FieldKeyAst(content);
-  internal ConstantAst(decimal number)
-    : base() => Value = new FieldKeyAst(number);
-  internal ConstantAst(string theType, string label)
-    : base() => Value = new FieldKeyAst(theType, label);
+  internal ConstantAst(FieldKeyAst value)
+    : base() => Value = value;
 
   internal ConstantAst(ConstantAst[] values)
     : base(values) { }
+
   internal ConstantAst(ObjectAst fields)
     : base(fields) { }
 
   public static implicit operator ConstantAst(FieldKeyAst field)
-    => new() { Value = field };
+    => new(field);
 
   public bool Equals(ConstantAst? other)
     => base.Equals(other)

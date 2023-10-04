@@ -16,6 +16,10 @@ public class DirectiveAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality(string name1, string name2)
   {
+    if (name1 == name2) {
+      return;
+    }
+
     var left = new DirectiveAst(name1);
     var right = new DirectiveAst(name2);
 

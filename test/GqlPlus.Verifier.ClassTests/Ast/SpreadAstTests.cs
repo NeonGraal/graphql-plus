@@ -16,6 +16,10 @@ public class SpreadAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality(string name1, string name2)
   {
+    if (name1 == name2) {
+      return;
+    }
+
     var left = new SpreadAst(name1);
     var right = new SpreadAst(name2);
 

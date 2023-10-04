@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿using System.Xml.Linq;
+
+namespace GqlPlus.Verifier.Ast;
 
 public class ModifierAstTests
 {
@@ -34,6 +36,10 @@ public class ModifierAstTests
   [Theory, RepeatData(Repeats)]
   public void WithKeys_Inequality(string key1, string key2)
   {
+    if (key1 == key2) {
+      return;
+    }
+
     var left = new ModifierAst(key1, false);
     var right = new ModifierAst(key2, false);
 

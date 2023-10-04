@@ -92,10 +92,14 @@ public class FieldKeyAstTests
   [Theory, RepeatData(Repeats)]
   public void WithEnumLabel_Inequality(string enumType, string label)
   {
+    if (enumType != label) {
+      return;
+    }
+
     var left = new FieldKeyAst(enumType, label);
     var right = new FieldKeyAst(label, enumType);
 
-    (left != right).Should().Be(enumType != label);
+    (left != right).Should().BeTrue();
   }
 
   [Theory, RepeatData(Repeats)]

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿using System.Xml.Linq;
+
+namespace GqlPlus.Verifier.Ast;
 
 public class FragmentAstTests
 {
@@ -16,6 +18,10 @@ public class FragmentAstTests
   [Theory, RepeatData(Repeats)]
   public void WithName_Inequality(string name1, string name2, string onType, string field)
   {
+    if (name1 == name2) {
+      return;
+    }
+
     var left = new FragmentAst(name1, onType, field.Fields());
     var right = new FragmentAst(name2, onType, field.Fields());
 
@@ -25,6 +31,10 @@ public class FragmentAstTests
   [Theory, RepeatData(Repeats)]
   public void WithOnType_Inequality(string name, string onType1, string onType2, string field)
   {
+    if (onType1 == onType2) {
+      return;
+    }
+
     var left = new FragmentAst(name, onType1, field.Fields());
     var right = new FragmentAst(name, onType2, field.Fields());
 
@@ -34,6 +44,10 @@ public class FragmentAstTests
   [Theory, RepeatData(Repeats)]
   public void WithFields_Inequality(string name, string onType, string field1, string field2)
   {
+    if (field1 == field2) {
+      return;
+    }
+
     var left = new FragmentAst(name, onType, field1.Fields());
     var right = new FragmentAst(name, onType, field2.Fields());
 

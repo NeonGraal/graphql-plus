@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿using System.Xml.Linq;
+
+namespace GqlPlus.Verifier.Ast;
 
 public class InlineAstTests
 {
@@ -16,6 +18,10 @@ public class InlineAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality(string field1, string field2)
   {
+    if (field1 == field2) {
+      return;
+    }
+
     var left = new InlineAst(field1.Fields());
     var right = new InlineAst(field2.Fields());
 

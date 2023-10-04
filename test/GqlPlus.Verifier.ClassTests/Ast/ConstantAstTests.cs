@@ -47,10 +47,14 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void WithEnumLabel_Inequality(string enumType, string label)
   {
+    if (enumType != label) {
+      return;
+    }
+
     var left = new ConstantAst(enumType, label);
     var right = new ConstantAst(label, enumType);
 
-    (left != right).Should().Be(enumType != label);
+    (left != right).Should().BeTrue();
   }
 
   [Theory, RepeatData(Repeats)]

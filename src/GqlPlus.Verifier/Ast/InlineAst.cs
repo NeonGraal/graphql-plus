@@ -11,6 +11,7 @@ internal sealed record class InlineAst(AstSelection[] Selections)
     get => (this as AstDirectives).Directives;
     set => (this as AstDirectives).Directives = value;
   }
+  protected override string Abbr => "I";
 
   public bool Equals(InlineAst? other)
     => other is not null
@@ -22,10 +23,7 @@ internal sealed record class InlineAst(AstSelection[] Selections)
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Prepend("|")
-      .Append(":" + OnType)
+      .Append(OnType.Prefixed(":"))
       .Concat(Directives.Select(d => $"{d}"))
-      .Append("{")
-      .Concat(Selections.Select(d => $"{d}"))
-      .Append("}");
+      .Concat(Selections.Bracket("{", "}", d => $"{d}"));
 }

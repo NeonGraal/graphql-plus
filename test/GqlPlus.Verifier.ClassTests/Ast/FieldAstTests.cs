@@ -3,6 +3,35 @@
 public class FieldAstTests
 {
   [Theory, RepeatData(Repeats)]
+  public void String(string name)
+    => new FieldAst(name).TestString($"F({name})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithAlias(string name, string alias)
+    => new FieldAst(name) { Alias = alias }
+    .TestString($"F({alias}: {name})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithArgument(string variable, string name)
+    => new FieldAst(name) { Argument = new ArgumentAst(variable) }
+    .TestString($"F({name} A(${variable}))");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithModifiers(string name)
+    => new FieldAst(name) { Modifiers = TestMods() }
+    .TestString($"F({name} []?)");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithSelection(string name, string field)
+  => new FieldAst(name) { Selections = field.Fields() }
+  .TestString($"F({name} {{ F({field}) }})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithDirective(string name, string directive)
+    => new FieldAst(name) { Directives = directive.Directives() }
+    .TestString($"F({name} D({directive}))");
+
+  [Theory, RepeatData(Repeats)]
   public void Equality(string name)
   {
     var left = new FieldAst(name);

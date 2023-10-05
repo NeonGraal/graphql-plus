@@ -10,7 +10,13 @@ public class ModifierAstTests
   {
     ModifierAst.Optional.TestString("?");
     ModifierAst.List.TestString("[]");
-    new ModifierAst("key", true).TestString("[key?]");
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithKey(string key, bool optional)
+  {
+    var optString = optional ? "?" : "";
+    new ModifierAst(key, optional).TestString($"[{key}{optString}]");
   }
 
   [Fact]

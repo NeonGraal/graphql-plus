@@ -3,6 +3,7 @@
 internal sealed record class ConstantAst : AstValues<ConstantAst>, IEquatable<ConstantAst>
 {
   internal FieldKeyAst? Value { get; set; }
+  protected override string Abbr => "C";
 
   internal ConstantAst()
     : base() { }
@@ -26,6 +27,5 @@ internal sealed record class ConstantAst : AstValues<ConstantAst>, IEquatable<Co
     => HashCode.Combine((AstValues<ConstantAst>)this, Value);
 
   internal override IEnumerable<string?> GetFields()
-    => Value is not null ? Value.GetFields()
-      : base.GetFields();
+    => Value?.GetFields() ?? base.GetFields();
 }

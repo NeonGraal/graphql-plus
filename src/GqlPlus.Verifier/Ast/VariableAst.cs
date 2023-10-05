@@ -3,6 +3,8 @@
 internal sealed record class VariableAst(string Name)
   : AstNamedDirectives(Name), IEquatable<VariableAst>
 {
+  protected override string Abbr => "V";
+
   internal string? Type { get; set; }
 
   internal ModifierAst[] Modifers { get; set; } = Array.Empty<ModifierAst>();
@@ -19,7 +21,7 @@ internal sealed record class VariableAst(string Name)
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Append(Type is { Length: > 0 } ? (":" + Type) : "")
+      .Append(Type.Prefixed(":"))
       .Concat(Modifers.Select(m => $"{m}"))
       .Append(Default is null ? "" : "=" + Default.ToString());
 }

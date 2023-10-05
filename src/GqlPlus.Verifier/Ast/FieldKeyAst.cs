@@ -11,7 +11,9 @@ internal record class FieldKeyAst : AstBase, IComparable<FieldKeyAst>
   internal string? String { get; set; }
 
   internal string? EnumLabel
-    => Type is { Length: > 0 } ? Type + '.' + Label : Label;
+    => Type.Suffixed(".") + Label;
+
+  protected override string Abbr => "K";
 
   internal FieldKeyAst() { }
   internal FieldKeyAst(decimal number)

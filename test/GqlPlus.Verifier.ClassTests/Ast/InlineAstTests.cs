@@ -5,6 +5,20 @@ namespace GqlPlus.Verifier.Ast;
 public class InlineAstTests
 {
   [Theory, RepeatData(Repeats)]
+  public void String(string field)
+    => new InlineAst(field.Fields()).TestString($"I({{ F({field}) }})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithOnType(string onType, string field)
+    => new InlineAst(field.Fields()) { OnType = onType }
+    .TestString($"I(:{onType} {{ F({field}) }})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithDirective(string field, string directive)
+    => new InlineAst(field.Fields()) { Directives = directive.Directives() }
+    .TestString($"I(D({directive}) {{ F({field}) }})");
+
+  [Theory, RepeatData(Repeats)]
   public void Equality(string field)
   {
     var left = new InlineAst(field.Fields());

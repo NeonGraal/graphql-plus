@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal record class AstNamedDirectives(string Name)
+internal abstract record class AstNamedDirectives(string Name)
   : AstNamed(Name), AstDirectives, IEquatable<AstNamedDirectives>
 {
   DirectiveAst[] AstDirectives.Directives { get; set; } = Array.Empty<DirectiveAst>();

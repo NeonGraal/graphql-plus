@@ -3,6 +3,26 @@
 public class ArgumentAstTests
 {
   [Theory, RepeatData(Repeats)]
+  public void String_WithVariable(string variable)
+    => new ArgumentAst(variable)
+    .TestString($"A(${variable})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithConstant(string enumType, string label)
+    => new ArgumentAst(new FieldKeyAst(enumType, label))
+    .TestString($"A({enumType}.{label})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithValues(string label)
+    => new ArgumentAst(label.ArgumentList())
+    .TestString($"A([ A(${label}) A({label}) ])");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithFields(string key, string label)
+    => new ArgumentAst(label.ArgumentObject(key))
+    .TestString($"A({{ K({key}):A(${label}) K({label}):A({key}) }})");
+
+  [Theory, RepeatData(Repeats)]
   public void Equality_WithVariable(string variable)
   {
     var left = new ArgumentAst(variable);

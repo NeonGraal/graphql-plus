@@ -3,6 +3,31 @@
 public class ConstantAstTests
 {
   [Theory, RepeatData(Repeats)]
+  public void String_WithLabel(string label)
+    => new ConstantAst(new FieldKeyAst("", label))
+    .TestString($"C({label})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithEnumLabel(string enumType, string label)
+    => new ConstantAst(new FieldKeyAst(enumType, label))
+    .TestString($"C({enumType}.{label})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithEnumType(string enumType)
+    => new ConstantAst(new FieldKeyAst(enumType, "label"))
+    .TestString($"C({enumType}.label)");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithValues(string label)
+    => new ConstantAst(label.ConstantList())
+    .TestString($"C([ C({label}) C({label}) ])");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithFields(string key, string label)
+    => new ConstantAst(label.ConstantObject(key))
+    .TestString($"C({{ K({key}):C({label}) K({label}):C({key}) }})");
+
+  [Theory, RepeatData(Repeats)]
   public void Equality_WithLabel(string label)
   {
     ConstantAst left = new FieldKeyAst("", label);
@@ -47,7 +72,7 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithEnumLabel(string enumType, string label)
   {
-    if (enumType != label) {
+    if (enumType == label) {
       return;
     }
 

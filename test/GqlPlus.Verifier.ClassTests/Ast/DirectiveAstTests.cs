@@ -3,6 +3,15 @@
 public class DirectiveAstTests
 {
   [Theory, RepeatData(Repeats)]
+  public void String(string name)
+    => new DirectiveAst(name).TestString($"D({name})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithArgument(string variable, string name)
+    => new DirectiveAst(name) { Argument = new ArgumentAst(variable) }
+    .TestString($"D({name} A(${variable}))");
+
+  [Theory, RepeatData(Repeats)]
   public void Equality(string name)
   {
     var left = new DirectiveAst(name);

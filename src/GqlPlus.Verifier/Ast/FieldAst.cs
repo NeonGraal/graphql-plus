@@ -3,6 +3,8 @@
 internal sealed record class FieldAst(string Name)
   : AstNamedDirectives(Name), AstSelection
 {
+  protected override string Abbr => "F";
+
   internal string? Alias { get; init; }
 
   internal ArgumentAst? Argument { get; set; }
@@ -22,10 +24,8 @@ internal sealed record class FieldAst(string Name)
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Prepend(Alias + ":")
+      .Prepend(Alias.Suffixed(":"))
       .Append(Argument?.ToString())
       .Append(string.Join("", Modifiers.Select(m => $"{m}")))
-      .Append("{")
-      .Concat(Selections.Select(d => $"{d}"))
-      .Append("}");
+      .Concat(Selections.Bracket("{", "}", d => $"{d}"));
 }

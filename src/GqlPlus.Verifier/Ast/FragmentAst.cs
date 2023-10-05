@@ -3,6 +3,8 @@
 internal sealed record class FragmentAst(string Name, string OnType, AstSelection[] Selections)
   : AstNamedDirectives(Name), IEquatable<FragmentAst>
 {
+  protected override string Abbr => "T";
+
   public bool Equals(FragmentAst? other)
     => base.Equals(other)
     && OnType == other.OnType
@@ -12,9 +14,6 @@ internal sealed record class FragmentAst(string Name, string OnType, AstSelectio
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Prepend("|")
-      .Append(":" + OnType)
-      .Append("{")
-      .Concat(Selections.Select(d => $"{d}"))
-      .Append("}");
+      .Append(OnType.Prefixed(":"))
+      .Concat(Selections.Bracket("{", "}", d => $"{d}"));
 }

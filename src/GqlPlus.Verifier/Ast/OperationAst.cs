@@ -11,6 +11,7 @@ internal record class OperationAst(string Name)
   internal AstSelection[]? Object { get; set; }
   internal ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
   internal FragmentAst[] Fragments { get; set; } = Array.Empty<FragmentAst>();
+  protected override string Abbr => "O";
 
   public OperationAst() : this("") { }
 }

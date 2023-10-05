@@ -4,12 +4,12 @@ public class SpreadAstTests
 {
   [Theory, RepeatData(Repeats)]
   public void String(string name)
-    => new SpreadAst(name).TestString($"Spread({name})");
+    => new SpreadAst(name).TestString($"S({name})");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithDirective(string name, string directive)
     => new SpreadAst(name) { Directives = directive.Directives() }
-    .TestString($"Spread({name} Directive({directive}))");
+    .TestString($"S({name} D({directive}))");
 
   [Theory, RepeatData(Repeats)]
   public void Equality(string name)

@@ -3,6 +3,16 @@
 public class FragmentAstTests
 {
   [Theory, RepeatData(Repeats)]
+  public void String(string name, string onType, string field)
+    => new FragmentAst(name, onType, field.Fields())
+    .TestString($"T({name} :{onType} {{ F({field}) }})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithDirective(string name, string onType, string field, string directive)
+    => new FragmentAst(name, onType, field.Fields()) { Directives = directive.Directives() }
+    .TestString($"T({name} D({directive}) :{onType} {{ F({field}) }})");
+
+  [Theory, RepeatData(Repeats)]
   public void Equality(string name, string onType, string field)
   {
     var left = new FragmentAst(name, onType, field.Fields());

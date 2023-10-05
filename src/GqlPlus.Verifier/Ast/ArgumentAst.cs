@@ -4,6 +4,7 @@ internal sealed record class ArgumentAst : AstValues<ArgumentAst>, IEquatable<Ar
 {
   internal string? Variable { get; }
   internal ConstantAst? Constant { get; }
+  protected override string Abbr => "A";
 
   internal ArgumentAst() : base() { }
   internal ArgumentAst(string variable)
@@ -28,6 +29,5 @@ internal sealed record class ArgumentAst : AstValues<ArgumentAst>, IEquatable<Ar
     => HashCode.Combine((AstValues<ArgumentAst>)this, Variable, Constant);
 
   internal override IEnumerable<string?> GetFields()
-    => Constant is not null ? Constant.GetFields()
-      : base.GetFields().Append("$" + Variable);
+    => Constant?.GetFields() ?? base.GetFields().Append(Variable.Prefixed("$"));
 }

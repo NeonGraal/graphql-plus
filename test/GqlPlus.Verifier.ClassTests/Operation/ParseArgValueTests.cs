@@ -6,99 +6,75 @@ public class ParseArgValueTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithVariable_ReturnsCorrectAst(string variable)
-  {
-    var parser = new OperationParser(Tokens("$" + variable));
-    var expected = new ArgumentAst(variable);
-
-    parser.ParseArgValue(out ArgumentAst result).Should().BeTrue();
-
-    result.Should().Be(expected);
-  }
+    => ParseArgValueTrueExpected(
+      "$" + variable,
+      new ArgumentAst(variable));
 
   [Theory, RepeatData(Repeats)]
   public void WithLabel_ReturnsCorrectAst(string label)
-  {
-    var parser = new OperationParser(Tokens(label));
-    var expected = new ArgumentAst(new FieldKeyAst("", label));
-
-    parser.ParseArgValue(out ArgumentAst result).Should().BeTrue();
-
-    result.Should().Be(expected);
-  }
+    => ParseArgValueTrueExpected(
+      label,
+      new ArgumentAst(new FieldKeyAst("", label)));
 
   [Theory, RepeatData(Repeats)]
   public void WithList_ReturnsCorrectAst(string label)
-  {
-    var parser = new OperationParser(Tokens('[' + label + ' ' + label + ']'));
-    var expected = new ArgumentAst(label.ArgumentList());
-
-    parser.ParseArgValue(out ArgumentAst result).Should().BeTrue();
-
-    result.Should().Be(expected);
-  }
+    => ParseArgValueTrueExpected(
+      "[$" + label + ' ' + label + ']',
+      new ArgumentAst(label.ArgumentList()));
 
   [Theory, RepeatData(Repeats)]
   public void WithListComma_ReturnsCorrectAst(string label)
-  {
-    var parser = new OperationParser(Tokens('[' + label + ',' + label + ']'));
-    var expected = new ArgumentAst(label.ArgumentList());
-
-    parser.ParseArgValue(out ArgumentAst result).Should().BeTrue();
-
-    result.Should().Be(expected);
-  }
+    => ParseArgValueTrueExpected(
+      "[$" + label + ',' + label + ']',
+      new ArgumentAst(label.ArgumentList()));
 
   [Theory, RepeatData(Repeats)]
   public void WithListInvalid_ReturnsFalse(string label)
-  {
-    var parser = new OperationParser(Tokens('[' + label + ':' + label + ']'));
-    var expected = new ArgumentAst();
-
-    parser.ParseArgValue(out ArgumentAst result).Should().BeFalse();
-
-    result.Should().Be(expected);
-  }
+    => ParseArgValueFalseExpected(
+      '[' + label + ':' + label + ']',
+      new ArgumentAst());
 
   [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string label)
-  {
-    if (key == label) {
-      return;
-    }
-
-    var parser = new OperationParser(Tokens('{' + key + ':' + label + ' ' + label + ':' + key + '}'));
-    var expected = new ArgumentAst(label.ArgumentObject(key));
-
-    parser.ParseArgValue(out ArgumentAst result).Should().BeTrue();
-
-    result.Should().Be(expected);
-
-  }
+    => ParseArgValueTrueExpected(
+      '{' + key + ":$" + label + ' ' + label + ':' + key + '}',
+      new ArgumentAst(label.ArgumentObject(key)),
+      key == label);
 
   [Theory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string label)
+    => ParseArgValueTrueExpected(
+      '{' + key + ":$" + label + ';' + label + ':' + key + '}',
+      new ArgumentAst(label.ArgumentObject(key)),
+      key == label);
+
+  [Theory, RepeatData(Repeats)]
+  public void WithObjectInvalid_ReturnsCorrectAst(string key, string label)
+    => ParseArgValueFalseExpected(
+      '{' + key + ':' + label + ',' + label + ':' + key + '}',
+      new ArgumentAst(),
+      key == label);
+
+  private void ParseArgValueTrueExpected(string input, ArgumentAst expected, bool skipIf = false)
   {
-    if (key == label) {
+    if (skipIf) {
       return;
     }
 
-    var parser = new OperationParser(Tokens('{' + key + ':' + label + ';' + label + ':' + key + '}'));
-    var expected = new ArgumentAst(label.ArgumentObject(key));
+    var parser = new OperationParser(Tokens(input));
 
     parser.ParseArgValue(out ArgumentAst result).Should().BeTrue();
 
     result.Should().Be(expected);
   }
 
-  [Theory, RepeatData(Repeats)]
-  public void WithObjectInvalid_ReturnsCorrectAst(string key, string label)
+  private void ParseArgValueFalseExpected(string input, ArgumentAst expected, bool skipIf = false)
   {
-    if (key == label) {
+    if (skipIf) {
       return;
     }
 
-    var parser = new OperationParser(Tokens('{' + key + ':' + label + ',' + label + ':' + key + '}'));
-    var expected = new ArgumentAst();
+    var parser = new OperationParser(Tokens(input));
 
     parser.ParseArgValue(out ArgumentAst result).Should().BeFalse();
 

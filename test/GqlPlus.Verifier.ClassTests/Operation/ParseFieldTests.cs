@@ -6,67 +6,46 @@ public class ParseFieldTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string field)
-  {
-    var parser = new OperationParser(Tokens(field));
-    var expected = new FieldAst(field);
-
-    parser.ParseField(out AstSelection result).Should().BeTrue();
-
-    result.Should().Be(expected);
-  }
+    => ParseFieldTrueExpected(
+      field,
+      new FieldAst(field));
 
   [Theory, RepeatData(Repeats)]
   public void WithAlias_ReturnsCorrectAst(string field, string alias)
-  {
-    var parser = new OperationParser(Tokens(alias + ":" + field));
-    var expected = new FieldAst(field) { Alias = alias };
-
-    parser.ParseField(out AstSelection result).Should().BeTrue();
-
-    result.Should().Be(expected);
-  }
+    => ParseFieldTrueExpected(
+      alias + ":" + field,
+      new FieldAst(field) { Alias = alias });
 
   [Theory, RepeatData(Repeats)]
   public void WithArgument_ReturnsCorrectAst(string field, string argument)
-  {
-    var parser = new OperationParser(Tokens(field + $"(${argument})"));
-    var expected = new FieldAst(field) { Argument = new(argument) };
-
-    parser.ParseField(out AstSelection result).Should().BeTrue();
-
-    result.Should().Be(expected);
-  }
+    => ParseFieldTrueExpected(
+      field + $"(${argument})",
+      new FieldAst(field) { Argument = new(argument) });
 
   [Theory, RepeatData(Repeats)]
   public void WithModifiers_ReturnsCorrectAst(string field)
-  {
-    var parser = new OperationParser(Tokens(field + "[]?"));
-    var expected = new FieldAst(field) { Modifiers = TestMods() };
-
-    parser.ParseField(out AstSelection result).Should().BeTrue();
-
-    result.Should().Be(expected);
-  }
+    => ParseFieldTrueExpected(
+      field + "[]?",
+      new FieldAst(field) { Modifiers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
   public void WithDirectives_ReturnsCorrectAst(string field, string directive)
-  {
-    var parser = new OperationParser(Tokens(field + "@" + directive));
-    var expected = new FieldAst(field) { Directives = directive.Directives() };
-
-    parser.ParseField(out AstSelection result).Should().BeTrue();
-
-    result.Should().Be(expected);
-  }
+    => ParseFieldTrueExpected(
+      field + "@" + directive,
+      new FieldAst(field) { Directives = directive.Directives() });
 
   [Theory, RepeatData(Repeats)]
   public void WithSelection_ReturnsCorrectAst(string field, string selection)
+    => ParseFieldTrueExpected(
+      field + "{" + selection + "}",
+      new FieldAst(field) { Selections = selection.Fields() });
+
+  private void ParseFieldTrueExpected<T>(string input, T expected)
   {
-    var parser = new OperationParser(Tokens(field + "{" + selection + "}"));
-    var expected = new FieldAst(field) { Selections = selection.Fields() };
+    var parser = new OperationParser(Tokens(input));
 
     parser.ParseField(out AstSelection result).Should().BeTrue();
 
-    result.Should().Be(expected);
+    result.Should().BeOfType<T>().Equals(expected);
   }
 }

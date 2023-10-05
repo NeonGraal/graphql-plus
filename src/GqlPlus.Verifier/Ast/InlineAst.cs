@@ -3,14 +3,10 @@
 internal sealed record class InlineAst(AstSelection[] Selections)
   : AstBase, AstDirectives, AstSelection, IEquatable<InlineAst>
 {
-  internal string? OnType { get; set; }
+  public string? OnType { get; set; }
 
-  DirectiveAst[] AstDirectives.Directives { get; set; } = Array.Empty<DirectiveAst>();
-  internal DirectiveAst[] Directives
-  {
-    get => (this as AstDirectives).Directives;
-    set => (this as AstDirectives).Directives = value;
-  }
+  public DirectiveAst[] Directives { get; set; } = Array.Empty<DirectiveAst>();
+
   protected override string Abbr => "I";
 
   public bool Equals(InlineAst? other)

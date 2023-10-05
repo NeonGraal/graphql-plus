@@ -3,13 +3,11 @@
 internal sealed record class VariableAst(string Name)
   : AstNamedDirectives(Name), IEquatable<VariableAst>
 {
-  protected override string Abbr => "V";
-
   public string? Type { get; set; }
-
   public ModifierAst[] Modifers { get; set; } = Array.Empty<ModifierAst>();
-
   public ConstantAst? Default { get; set; }
+
+  protected override string Abbr => "V";
 
   public bool Equals(VariableAst? other)
     => base.Equals(other)

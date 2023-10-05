@@ -3,12 +3,7 @@
 internal abstract record class AstNamedDirectives(string Name)
   : AstNamed(Name), AstDirectives, IEquatable<AstNamedDirectives>
 {
-  DirectiveAst[] AstDirectives.Directives { get; set; } = Array.Empty<DirectiveAst>();
-  internal DirectiveAst[] Directives
-  {
-    get => (this as AstDirectives).Directives;
-    set => (this as AstDirectives).Directives = value;
-  }
+  public DirectiveAst[] Directives { get; set; } = Array.Empty<DirectiveAst>();
 
   public virtual bool Equals(AstNamedDirectives? other)
     => base.Equals(other)

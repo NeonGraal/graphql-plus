@@ -2,8 +2,9 @@
 
 internal sealed record class ArgumentAst : AstValues<ArgumentAst>, IEquatable<ArgumentAst>
 {
-  internal string? Variable { get; }
-  internal ConstantAst? Constant { get; }
+  public string? Variable { get; }
+  public ConstantAst? Constant { get; }
+
   protected override string Abbr => "A";
 
   internal ArgumentAst() : base() { }

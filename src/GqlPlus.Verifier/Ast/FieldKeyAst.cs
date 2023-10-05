@@ -2,15 +2,12 @@
 
 internal record class FieldKeyAst : AstBase, IComparable<FieldKeyAst>
 {
-  internal string? Type { get; set; }
+  internal string? Type { get; }
+  internal string? Label { get; }
 
-  internal string? Label { get; set; }
-
-  internal decimal? Number { get; set; }
-
-  internal string? String { get; set; }
-
-  internal string? EnumLabel
+  public decimal? Number { get; }
+  public string? String { get; }
+  public string? EnumLabel
     => Type.Suffixed(".") + Label;
 
   protected override string Abbr => "K";

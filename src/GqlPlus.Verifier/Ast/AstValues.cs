@@ -2,8 +2,8 @@
 
 internal abstract record class AstValues<T> : AstBase, IEquatable<AstValues<T>>
 {
-  internal T[] Values { get; } = Array.Empty<T>();
-  internal ObjectAst Fields { get; } = new ObjectAst();
+  public T[] Values { get; } = Array.Empty<T>();
+  public ObjectAst Fields { get; } = new ObjectAst();
 
   protected AstValues() { }
   internal AstValues(T[] values)

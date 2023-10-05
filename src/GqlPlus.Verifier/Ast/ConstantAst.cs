@@ -2,7 +2,8 @@
 
 internal sealed record class ConstantAst : AstValues<ConstantAst>, IEquatable<ConstantAst>
 {
-  internal FieldKeyAst? Value { get; set; }
+  public FieldKeyAst? Value { get; set; }
+
   protected override string Abbr => "C";
 
   internal ConstantAst()

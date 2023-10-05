@@ -3,15 +3,12 @@
 internal sealed record class FieldAst(string Name)
   : AstNamedDirectives(Name), AstSelection
 {
+  public string? Alias { get; init; }
+  public ArgumentAst? Argument { get; set; }
+  public ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
+  public AstSelection[] Selections { get; set; } = Array.Empty<AstSelection>();
+
   protected override string Abbr => "F";
-
-  internal string? Alias { get; init; }
-
-  internal ArgumentAst? Argument { get; set; }
-
-  internal ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
-
-  internal AstSelection[] Selections { get; set; } = Array.Empty<AstSelection>();
 
   public bool Equals(FieldAst? other)
     => base.Equals(other)

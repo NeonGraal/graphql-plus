@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using System.Reflection.Metadata;
+using GqlPlus.Verifier.Ast;
 
 namespace GqlPlus.Verifier;
 
@@ -241,15 +242,9 @@ internal ref struct OperationParser
   internal bool ParseArgument(out ArgumentAst argument)
   {
     argument = new ArgumentAst();
-    if (!_tokens.Take('(')) {
-      return false;
-    }
-
-    if (_tokens.Prefix('$', out var variable)) {
-      argument = new ArgumentAst(variable);
-    }
-
-    return _tokens.Take(")");
+    return _tokens.Take('(')
+      && ParseArgValue(out argument)
+      && _tokens.Take(")");
   }
 
   internal bool ParseArgValue(out ArgumentAst argument)
@@ -261,7 +256,75 @@ internal ref struct OperationParser
       return true;
     }
 
+    if (ParseConstant(out ConstantAst constant)) {
+      argument = constant;
+      return true;
+    }
+
+    var oldSeparators = _tokens.IgnoreSeparators;
+    try {
+      if (ParseArgList(out ArgumentAst[] list)) {
+        argument = new ArgumentAst(list);
+        return true;
+      }
+
+      if (ParseArgObject(out AstValues<ArgumentAst>.ObjectAst fields)) {
+        argument = new ArgumentAst(fields);
+        return true;
+      }
+    } finally {
+      _tokens.IgnoreSeparators = oldSeparators;
+    }
+
     return false;
+  }
+
+  internal bool ParseArgList(out ArgumentAst[] list)
+  {
+    list = Array.Empty<ArgumentAst>();
+
+    if (!_tokens.Take('[')) {
+      return false;
+    }
+
+    _tokens.IgnoreSeparators = false;
+
+    var values = new List<ArgumentAst>();
+    while (!_tokens.Take(']')) {
+      if (ParseArgValue(out var item)) {
+        values.Add(item);
+      } else {
+        return false;
+      }
+      _tokens.Take(',');
+    }
+    list = values.ToArray();
+    return true;
+  }
+
+  internal bool ParseArgObject(out ArgumentAst.ObjectAst fields)
+  {
+    fields = new ArgumentAst.ObjectAst();
+
+    if (!_tokens.Take('{')) {
+      return false;
+    }
+
+    _tokens.IgnoreSeparators = false;
+
+    while (!_tokens.Take('}')) {
+      if (ParseFieldKey(out var key)
+        && _tokens.Take(':')
+        && ParseArgValue(out var value)
+      ) {
+        fields.Add(key, value);
+      } else {
+        return false;
+      }
+      _tokens.Take(';');
+    }
+
+    return true;
   }
 
   internal bool ParseFieldKey(out FieldKeyAst constant)
@@ -294,54 +357,73 @@ internal ref struct OperationParser
   {
     constant = new ConstantAst();
 
-    if (ParseFieldKey(out var fieldKey)) {
+    if (ParseFieldKey(out FieldKeyAst fieldKey)) {
       constant = fieldKey;
       return true;
     }
 
     var oldSeparators = _tokens.IgnoreSeparators;
-    if (_tokens.Take('['))
-      try {
-        _tokens.IgnoreSeparators = false;
-
-        var values = new List<ConstantAst>();
-        while (!_tokens.Take(']')) {
-          if (ParseConstant(out var item)) {
-            values.Add(item);
-          } else {
-            return false;
-          }
-          _tokens.Take(',');
-        }
-        constant = new ConstantAst(values.ToArray());
+    try {
+      if (ParseConstList(out ConstantAst[] list)) {
+        constant = new ConstantAst(list);
         return true;
-      } finally {
-        _tokens.IgnoreSeparators = oldSeparators;
       }
 
-    if (_tokens.Take('{'))
-      try {
-        _tokens.IgnoreSeparators = false;
-
-        var fields = new ConstantAst.ObjectAst();
-
-        while (!_tokens.Take('}')) {
-          if (ParseFieldKey(out var key)
-            && _tokens.Take(':')
-            && ParseConstant(out var value)
-          ) {
-            fields.Add(key, value);
-          } else {
-            return false;
-          }
-          _tokens.Take(';');
-        }
+      if (ParseConstObject(out AstValues<ConstantAst>.ObjectAst fields)) {
         constant = new ConstantAst(fields);
         return true;
-      } finally {
-        _tokens.IgnoreSeparators = oldSeparators;
       }
+    } finally {
+      _tokens.IgnoreSeparators = oldSeparators;
+    }
 
     return false;
+  }
+
+  internal bool ParseConstList(out ConstantAst[] list)
+  {
+    list = Array.Empty<ConstantAst>();
+
+    if (!_tokens.Take('[')) {
+      return false;
+    }
+
+    _tokens.IgnoreSeparators = false;
+
+    var values = new List<ConstantAst>();
+    while (!_tokens.Take(']')) {
+      if (ParseConstant(out var item)) {
+        values.Add(item);
+      } else {
+        return false;
+      }
+      _tokens.Take(',');
+    }
+    list = values.ToArray();
+    return true;
+  }
+
+  internal bool ParseConstObject(out ConstantAst.ObjectAst fields)
+  {
+    fields = new ConstantAst.ObjectAst();
+    if (!_tokens.Take('{')) {
+      return false;
+    }
+
+    _tokens.IgnoreSeparators = false;
+
+    while (!_tokens.Take('}')) {
+      if (ParseFieldKey(out var key)
+        && _tokens.Take(':')
+        && ParseConstant(out var value)
+      ) {
+        fields.Add(key, value);
+      } else {
+        return false;
+      }
+      _tokens.Take(';');
+    }
+
+    return true;
   }
 }

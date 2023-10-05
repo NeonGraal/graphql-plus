@@ -3,7 +3,7 @@
 public class ArgumentAstTests
 {
   [Theory, RepeatData(Repeats)]
-  public void WithVariable_Equality(string variable)
+  public void Equality_WithVariable(string variable)
   {
     var left = new ArgumentAst(variable);
     var right = new ArgumentAst(variable);
@@ -14,7 +14,7 @@ public class ArgumentAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithVariable_Inequality(string variable)
+  public void Inequality_WithVariable(string variable)
   {
     var left = new ArgumentAst(variable);
     var right = new ArgumentAst(variable + "a");
@@ -23,7 +23,7 @@ public class ArgumentAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithConstant_Equality(string enumType, string label)
+  public void Equality_WithConstant(string enumType, string label)
   {
     var left = new ArgumentAst(new FieldKeyAst(enumType, label));
     var right = new ArgumentAst(new FieldKeyAst(enumType, label));
@@ -34,7 +34,7 @@ public class ArgumentAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithConstant_Inequality(string enumType, string label)
+  public void Inequality_WithConstant(string enumType, string label)
   {
     if (enumType != label) {
       return;
@@ -47,7 +47,7 @@ public class ArgumentAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithValues_Equality(string label)
+  public void Equality_WithValues(string label)
   {
     var left = new ArgumentAst(label.ArgumentList());
     var right = new ArgumentAst(label.ArgumentList());
@@ -58,7 +58,7 @@ public class ArgumentAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithValues_Inequality(string label)
+  public void Inequality_WithValues(string label)
   {
     var left = new ArgumentAst(label.ArgumentList());
     var right = new ArgumentAst(label);
@@ -67,7 +67,7 @@ public class ArgumentAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithFields_Equality(string key, string label)
+  public void Equality_WithFields(string key, string label)
   {
     var left = new ArgumentAst(label.ArgumentObject(key));
     var right = new ArgumentAst(label.ArgumentObject(key));
@@ -78,7 +78,7 @@ public class ArgumentAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithFields_Inequality(string key, string label)
+  public void Inequality_WithFields(string key, string label)
   {
     var left = new ArgumentAst(label.ArgumentObject(key));
     var right = new ArgumentAst(label);

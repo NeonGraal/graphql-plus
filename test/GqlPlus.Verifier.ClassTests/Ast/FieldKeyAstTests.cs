@@ -3,7 +3,15 @@
 public class FieldKeyAstTests
 {
   [Theory, RepeatData(Repeats)]
-  public void WithNumber_Equality(decimal number)
+  public void String_WithNumber(decimal number)
+    => new FieldKeyAst(number).TestString($"FieldKey({number})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithString(string contents)
+    => new FieldKeyAst(contents).TestString($"FieldKey('{contents}')");
+
+  [Theory, RepeatData(Repeats)]
+  public void Equality_WithNumber(decimal number)
   {
     var left = new FieldKeyAst(number);
     var right = new FieldKeyAst(number);
@@ -14,7 +22,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithNumber_Compare(decimal number1, decimal number2)
+  public void Compare_WithNumber(decimal number1, decimal number2)
   {
     var left = new FieldKeyAst(number1);
     var right = new FieldKeyAst(number2);
@@ -23,7 +31,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithNumberString_Inequality(decimal number, string contents)
+  public void Inequality_WithNumberString(decimal number, string contents)
   {
     var left = new FieldKeyAst(number);
     var right = new FieldKeyAst(contents);
@@ -32,7 +40,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithNumberEnumLabel_Inequality(decimal number, string enumType, string label)
+  public void Inequality_WithNumberEnumLabel(decimal number, string enumType, string label)
   {
     var left = new FieldKeyAst(number);
     var right = new FieldKeyAst(enumType, label);
@@ -41,7 +49,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithString_Equality(string contents)
+  public void Equality_WithString(string contents)
   {
     var left = new FieldKeyAst(contents);
     var right = new FieldKeyAst(contents);
@@ -52,7 +60,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithString_Compare(string contents1, string contents2)
+  public void Compare_WithString(string contents1, string contents2)
   {
     var left = new FieldKeyAst(contents1);
     var right = new FieldKeyAst(contents2);
@@ -61,7 +69,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithStringEnumLabel_Inquality(string contents, string enumType, string label)
+  public void Inquality_WithStringEnumLabel(string contents, string enumType, string label)
   {
     var left = new FieldKeyAst(contents);
     var right = new FieldKeyAst(enumType, label);
@@ -70,7 +78,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumLabel_Equality(string enumType, string label)
+  public void Equality_WithEnumLabel(string enumType, string label)
   {
     var left = new FieldKeyAst(enumType, label);
     var right = new FieldKeyAst(enumType, label);
@@ -81,7 +89,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumLabel_Compare(string enumType, string label1, string label2)
+  public void Compare_WithEnumLabel(string enumType, string label1, string label2)
   {
     var left = new FieldKeyAst(enumType, label1);
     var right = new FieldKeyAst(enumType, label2);
@@ -90,7 +98,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumLabel_Inequality(string enumType, string label)
+  public void Inequality_WithEnumLabel(string enumType, string label)
   {
     if (enumType != label) {
       return;
@@ -103,7 +111,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithLabel_Equality(string label)
+  public void Equality_WithLabel(string label)
   {
     var left = new FieldKeyAst("", label);
     var right = new FieldKeyAst("", label);
@@ -114,7 +122,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithLabel_Compare(string label1, string label2)
+  public void Compare_WithLabel(string label1, string label2)
   {
     var left = new FieldKeyAst("", label1);
     var right = new FieldKeyAst("", label2);
@@ -123,7 +131,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithLabel_Inequality(string label)
+  public void Inequality_WithLabel(string label)
   {
     var left = new FieldKeyAst("", label);
     var right = new FieldKeyAst(label, label);
@@ -132,7 +140,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumType_Equality(string enumType)
+  public void Equality_WithEnumType(string enumType)
   {
     var left = new FieldKeyAst(enumType, "label");
     var right = new FieldKeyAst(enumType, "label");
@@ -143,7 +151,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumType_Compare(string enumType1, string enumType2)
+  public void Compare_WithEnumType(string enumType1, string enumType2)
   {
     var left = new FieldKeyAst(enumType1, "label");
     var right = new FieldKeyAst(enumType2, "label");
@@ -152,7 +160,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumType_Inequality(string enumType)
+  public void Inequality_WithEnumType(string enumType)
   {
     var left = new FieldKeyAst(enumType, "label");
     var right = new FieldKeyAst(enumType, enumType + "label");

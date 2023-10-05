@@ -3,7 +3,7 @@
 public class ConstantAstTests
 {
   [Theory, RepeatData(Repeats)]
-  public void WithLabel_Equality(string label)
+  public void Equality_WithLabel(string label)
   {
     ConstantAst left = new FieldKeyAst("", label);
     ConstantAst right = new FieldKeyAst("", label);
@@ -14,7 +14,7 @@ public class ConstantAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumLabel_Equality(string enumType, string label)
+  public void Equality_WithEnumLabel(string enumType, string label)
   {
     ConstantAst left = new FieldKeyAst(enumType, label);
     ConstantAst right = new FieldKeyAst(enumType, label);
@@ -25,7 +25,7 @@ public class ConstantAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumType_Equality(string enumType)
+  public void Equality_WithEnumType(string enumType)
   {
     ConstantAst left = new FieldKeyAst(enumType, "label");
     ConstantAst right = new FieldKeyAst(enumType, "label");
@@ -36,7 +36,7 @@ public class ConstantAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithLabel_Inequality(string label)
+  public void Inequality_WithLabel(string label)
   {
     ConstantAst left = new FieldKeyAst("", label);
     ConstantAst right = new FieldKeyAst("", label + "a");
@@ -45,7 +45,7 @@ public class ConstantAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumLabel_Inequality(string enumType, string label)
+  public void Inequality_WithEnumLabel(string enumType, string label)
   {
     if (enumType != label) {
       return;
@@ -58,7 +58,7 @@ public class ConstantAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumType_Inequality(string enumType)
+  public void Inequality_WithEnumType(string enumType)
   {
     ConstantAst left = new FieldKeyAst(enumType, "label");
     ConstantAst right = new FieldKeyAst(enumType + "a", "label");
@@ -67,7 +67,7 @@ public class ConstantAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithValues_Equality(string label)
+  public void Equality_WithValues(string label)
   {
     var left = new ConstantAst(label.ConstantList());
     var right = new ConstantAst(label.ConstantList());
@@ -78,7 +78,7 @@ public class ConstantAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithValues_Inequality(string label)
+  public void Inequality_WithValues(string label)
   {
     var left = new ConstantAst(label.ConstantList());
     ConstantAst right = new FieldKeyAst("", label);
@@ -87,7 +87,7 @@ public class ConstantAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithFields_Equality(string key, string label)
+  public void Equality_WithFields(string key, string label)
   {
     var left = new ConstantAst(label.ConstantObject(key));
     var right = new ConstantAst(label.ConstantObject(key));
@@ -98,7 +98,7 @@ public class ConstantAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithFields_Inequality(string key, string label)
+  public void Inequality_WithFields(string key, string label)
   {
     var left = new ConstantAst(label.ConstantObject(key));
     ConstantAst right = new FieldKeyAst(key, label);

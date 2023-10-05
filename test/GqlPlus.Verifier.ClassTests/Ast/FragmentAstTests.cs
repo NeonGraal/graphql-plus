@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast;
 
 public class FragmentAstTests
 {
@@ -16,7 +14,7 @@ public class FragmentAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithName_Inequality(string name1, string name2, string onType, string field)
+  public void Inequality_WithName(string name1, string name2, string onType, string field)
   {
     if (name1 == name2) {
       return;
@@ -29,7 +27,7 @@ public class FragmentAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithOnType_Inequality(string name, string onType1, string onType2, string field)
+  public void Inequality_WithOnType(string name, string onType1, string onType2, string field)
   {
     if (onType1 == onType2) {
       return;
@@ -42,7 +40,7 @@ public class FragmentAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithFields_Inequality(string name, string onType, string field1, string field2)
+  public void Inequality_WithFields(string name, string onType, string field1, string field2)
   {
     if (field1 == field2) {
       return;
@@ -51,11 +49,11 @@ public class FragmentAstTests
     var left = new FragmentAst(name, onType, field1.Fields());
     var right = new FragmentAst(name, onType, field2.Fields());
 
-    (left != right).Should().BeTrue();
+    (left != right).Should().Be(field1 != field2);
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithDirective_Equality(string name, string onType, string field, string directive)
+  public void Equality_WithDirective(string name, string onType, string field, string directive)
   {
     var left = new FragmentAst(name, onType, field.Fields()) { Directives = directive.Directives() };
     var right = new FragmentAst(name, onType, field.Fields()) { Directives = directive.Directives() };
@@ -66,7 +64,7 @@ public class FragmentAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithDirective_Inequality(string name, string onType, string field, string directive)
+  public void Inequality_WithDirective(string name, string onType, string field, string directive)
   {
     var left = new FragmentAst(name, onType, field.Fields()) { Directives = directive.Directives() };
     var right = new FragmentAst(name, onType, field.Fields());

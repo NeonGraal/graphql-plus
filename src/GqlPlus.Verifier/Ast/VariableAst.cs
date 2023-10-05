@@ -19,7 +19,7 @@ internal sealed record class VariableAst(string Name)
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Append(":" + Type)
+      .Append(Type is { Length: > 0 } ? (":" + Type) : "")
       .Concat(Modifers.Select(m => $"{m}"))
-      .Append("=" + Default?.ToString());
+      .Append(Default is null ? "" : "=" + Default.ToString());
 }

@@ -3,6 +3,15 @@
 public class SpreadAstTests
 {
   [Theory, RepeatData(Repeats)]
+  public void String(string name)
+    => new SpreadAst(name).TestString($"Spread({name})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithDirective(string name, string directive)
+    => new SpreadAst(name) { Directives = directive.Directives() }
+    .TestString($"Spread({name} Directive({directive}))");
+
+  [Theory, RepeatData(Repeats)]
   public void Equality(string name)
   {
     var left = new SpreadAst(name);
@@ -27,7 +36,7 @@ public class SpreadAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithDirective_Equality(string name, string directive)
+  public void Equality_WithDirective(string name, string directive)
   {
     var left = new SpreadAst(name) { Directives = directive.Directives() };
     var right = new SpreadAst(name) { Directives = directive.Directives() };
@@ -38,7 +47,7 @@ public class SpreadAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithDirective_Inequality(string name, string directive)
+  public void Inequality_WithDirective(string name, string directive)
   {
     var left = new SpreadAst(name) { Directives = directive.Directives() };
     var right = new SpreadAst(name);

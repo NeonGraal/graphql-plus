@@ -23,7 +23,7 @@ public class FieldAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithAlias_Equality(string name, string alias)
+  public void Equality_WithAlias(string name, string alias)
   {
     var left = new FieldAst(name) { Alias = alias };
     var right = new FieldAst(name) { Alias = alias };
@@ -34,7 +34,7 @@ public class FieldAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithAlias_Inquality(string name, string alias)
+  public void Inquality_WithAlias(string name, string alias)
   {
     var left = new FieldAst(name) { Alias = alias };
     var right = new FieldAst(name);
@@ -43,7 +43,7 @@ public class FieldAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithArgument_Equality(string variable, string name)
+  public void Equality_WithArgument(string variable, string name)
   {
     var left = new FieldAst(name) { Argument = new ArgumentAst(variable) };
     var right = new FieldAst(name) { Argument = new ArgumentAst(variable) };
@@ -54,7 +54,7 @@ public class FieldAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithArgument_Inequality(string variable, string name)
+  public void Inequality_WithArgument(string variable, string name)
   {
     var left = new FieldAst(name) { Argument = new ArgumentAst(variable) };
     var right = new FieldAst(name);
@@ -63,7 +63,7 @@ public class FieldAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithModifiers_Equality(string name)
+  public void Equality_WithModifiers(string name)
   {
     var left = new FieldAst(name) { Modifiers = TestMods() };
     var right = new FieldAst(name) { Modifiers = TestMods() };
@@ -74,7 +74,7 @@ public class FieldAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithModifiers_Inequality(string name)
+  public void Inequality_WithModifiers(string name)
   {
     var left = new FieldAst(name) { Modifiers = TestMods() };
     var right = new FieldAst(name);
@@ -83,7 +83,7 @@ public class FieldAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithSelection_Equality(string name, string field)
+  public void Equality_WithSelection(string name, string field)
   {
     var left = new FieldAst(name) { Selections = field.Fields() };
     var right = new FieldAst(name) { Selections = field.Fields() };
@@ -94,7 +94,7 @@ public class FieldAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithSelection_Inequality(string name, string field)
+  public void Inequality_WithSelection(string name, string field)
   {
     var left = new FieldAst(name) { Selections = field.Fields() };
     var right = new FieldAst(name);
@@ -103,7 +103,7 @@ public class FieldAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithDirective_Equality(string name, string directive)
+  public void Equality_WithDirective(string name, string directive)
   {
     var left = new FieldAst(name) { Directives = directive.Directives() };
 
@@ -115,7 +115,7 @@ public class FieldAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithDirective_Inequality(string name, string directive)
+  public void Inequality_WithDirective(string name, string directive)
   {
     var left = new FieldAst(name) { Directives = directive.Directives() };
     var right = new FieldAst(name);

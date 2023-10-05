@@ -7,7 +7,4 @@ internal sealed record class SpreadAst(string Name)
     => base.Equals(other);
   public override int GetHashCode()
     => base.GetHashCode();
-
-  internal override IEnumerable<string?> GetFields()
-    => base.GetFields().Prepend("|");
 }

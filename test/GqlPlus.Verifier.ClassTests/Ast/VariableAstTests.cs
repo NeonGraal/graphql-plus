@@ -3,6 +3,26 @@
 public class VariableAstTests
 {
   [Theory, RepeatData(Repeats)]
+  public void String(string name)
+    => new VariableAst(name).TestString("Variable(" + name + ")");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithType(string name, string varType)
+    => new VariableAst(name) { Type = varType }.TestString($"Variable({name} :{varType})");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithModifiers(string name)
+    => new VariableAst(name) { Modifers = TestMods() }.TestString($"Variable({name} [] ?)");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithDirective(string name, string directive)
+    => new VariableAst(name) { Directives = directive.Directives() }.TestString($"Variable({name} Directive({directive}))");
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithDefault(string name, string value)
+    => new VariableAst(name) { Default = new FieldKeyAst(value) }.TestString($"Variable({name} =Constant('{value}'))");
+
+  [Theory, RepeatData(Repeats)]
   public void Equality(string name)
   {
     var left = new VariableAst(name);
@@ -27,7 +47,7 @@ public class VariableAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithType_Equality(string name, string varType)
+  public void Equality_WithType(string name, string varType)
   {
     var left = new VariableAst(name) { Type = varType };
     var right = new VariableAst(name) { Type = varType };
@@ -38,7 +58,7 @@ public class VariableAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithType_Inequality(string name, string varType)
+  public void Inequality_WithType(string name, string varType)
   {
     var left = new VariableAst(name) { Type = varType };
     var right = new VariableAst(name);
@@ -47,7 +67,7 @@ public class VariableAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithModifiers_Equality(string name)
+  public void Equality_WithModifiers(string name)
   {
     var left = new VariableAst(name) { Modifers = TestMods() };
     var right = new VariableAst(name) { Modifers = TestMods() };
@@ -58,7 +78,7 @@ public class VariableAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithModifiers_Inequality(string name)
+  public void Inequality_WithModifiers(string name)
   {
     var left = new VariableAst(name) { Modifers = TestMods() };
     var right = new VariableAst(name);
@@ -67,7 +87,7 @@ public class VariableAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithDirective_Equality(string name, string directive)
+  public void Equality_WithDirective(string name, string directive)
   {
     var left = new VariableAst(name) { Directives = directive.Directives() };
     var right = new VariableAst(name) { Directives = directive.Directives() };
@@ -78,7 +98,7 @@ public class VariableAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithDirective_Inequality(string name, string directive)
+  public void Inequality_WithDirective(string name, string directive)
   {
     var left = new VariableAst(name) { Directives = directive.Directives() };
     var right = new VariableAst(name);
@@ -87,7 +107,7 @@ public class VariableAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithDefault_Equality(string name, string value)
+  public void Equality_WithDefault(string name, string value)
   {
     var left = new VariableAst(name) { Default = new FieldKeyAst(value) };
     var right = new VariableAst(name) { Default = new FieldKeyAst(value) };
@@ -98,7 +118,7 @@ public class VariableAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithDefault_Inequality(string name, string value)
+  public void Inequality_WithDefault(string name, string value)
   {
     var left = new VariableAst(name) { Default = new FieldKeyAst(value) };
     var right = new VariableAst(name);

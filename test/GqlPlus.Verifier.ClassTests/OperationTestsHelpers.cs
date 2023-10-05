@@ -26,13 +26,13 @@ internal static class OperationTestsHelpers
   }
 
   public static ArgumentAst[] ArgumentList(this string label)
-    => new ArgumentAst[] { new(label), new(label) };
+    => new ArgumentAst[] { new(label), new FieldKeyAst("", label) };
 
   public static ArgumentAst.ObjectAst ArgumentObject(this string label, string key)
   {
     var keyAst = new FieldKeyAst("", key);
     var labelAst = new FieldKeyAst("", label);
-    return new ArgumentAst.ObjectAst { [keyAst] = labelAst, [labelAst] = keyAst };
+    return new ArgumentAst.ObjectAst { [keyAst] = new(label), [labelAst] = keyAst };
   }
 
   public static string Quote(this string contents)
@@ -57,4 +57,7 @@ internal static class OperationTestsHelpers
 
   public static ModifierAst[] TestMods()
     => new[] { ModifierAst.List, ModifierAst.Optional };
+
+  public static void TestString<T>(this T input, string expected)
+    => $"{input}".Should().Be(expected);
 }

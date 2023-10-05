@@ -5,6 +5,15 @@ namespace GqlPlus.Verifier.Ast;
 public class ModifierAstTests
 {
   [Fact]
+
+  public void String()
+  {
+    ModifierAst.Optional.TestString("?");
+    ModifierAst.List.TestString("[]");
+    new ModifierAst("key", true).TestString("[key?]");
+  }
+
+  [Fact]
   public void Inequality()
   {
     var left = ModifierAst.Optional;
@@ -14,7 +23,7 @@ public class ModifierAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithKey_Equality(string key, bool optional)
+  public void Equality_WithKey(string key, bool optional)
   {
     var left = new ModifierAst(key, optional);
     var right = new ModifierAst(key, optional);
@@ -25,7 +34,7 @@ public class ModifierAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithKey_Inequality(string key, bool optional)
+  public void Inequality_WithKey(string key, bool optional)
   {
     var left = new ModifierAst(key, optional);
     var right = ModifierAst.List;
@@ -34,7 +43,7 @@ public class ModifierAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithKeys_Inequality(string key1, string key2)
+  public void Inequality_WithKeys(string key1, string key2)
   {
     if (key1 == key2) {
       return;

@@ -2,11 +2,12 @@
 
 internal record class AstBase
 {
-  public override string ToString()
+  public sealed override string ToString()
     => GetType().Name.Replace("Ast", "(")
-      + string.Join(" ", GetFields().Where(s => s is not null))
+      + string.Join(" ", GetFields().Where(s => s is { Length: > 0 }))
       + ")";
 
   internal virtual IEnumerable<string?> GetFields()
     => Array.Empty<string?>();
 }
+

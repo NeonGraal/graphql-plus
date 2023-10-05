@@ -113,7 +113,7 @@ public class ParseConstantTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void WithObjectInvalid_ReturnsCorrectAst(string key, string label)
+  public void WithObjectInvalid_ReturnsFalse(string key, string label)
   {
     if (key == label) {
       return;

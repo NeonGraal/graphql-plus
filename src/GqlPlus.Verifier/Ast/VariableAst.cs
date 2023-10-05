@@ -5,11 +5,11 @@ internal sealed record class VariableAst(string Name)
 {
   protected override string Abbr => "V";
 
-  internal string? Type { get; set; }
+  public string? Type { get; set; }
 
-  internal ModifierAst[] Modifers { get; set; } = Array.Empty<ModifierAst>();
+  public ModifierAst[] Modifers { get; set; } = Array.Empty<ModifierAst>();
 
-  internal ConstantAst? Default { get; set; }
+  public ConstantAst? Default { get; set; }
 
   public bool Equals(VariableAst? other)
     => base.Equals(other)

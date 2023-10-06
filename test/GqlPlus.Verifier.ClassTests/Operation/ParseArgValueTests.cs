@@ -11,7 +11,7 @@ public class ParseArgValueTests
       new ArgumentAst(variable));
 
   [Theory, RepeatData(Repeats)]
-  public void WithLabel_ReturnsCorrectAst(string label)
+  public void WithConstant_ReturnsCorrectAst(string label)
     => ParseArgValueTrueExpected(
       label,
       new ArgumentAst(new FieldKeyAst("", label)));

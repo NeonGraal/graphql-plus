@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata;
-using System.Reflection.Metadata.Ecma335;
-using GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Verifier.Ast;
 
 namespace GqlPlus.Verifier;
 
@@ -76,6 +74,7 @@ internal ref struct OperationParser
       if (_tokens.Take('=') && ParseConstant(out var constant)) {
         variable.Default = constant;
       }
+
       variable.Directives = ParseDirectives();
 
       result.Add(variable);
@@ -248,7 +247,6 @@ internal ref struct OperationParser
       return false;
     }
 
-
     var oldSeparators = _tokens.IgnoreSeparators;
     try {
       _tokens.IgnoreSeparators = false;
@@ -263,6 +261,7 @@ internal ref struct OperationParser
             if (!ParseArgValues(item, out var items)) {
               return false;
             }
+
             fields.Add(key, items);
 
             if (_tokens.Take(';')) {
@@ -270,8 +269,10 @@ internal ref struct OperationParser
                 argument = new ArgumentAst(fields);
                 return true;
               }
+
               return false;
             }
+
             while (!_tokens.Take(')')) {
               if (ParseFieldKey(out var key1)
                 && _tokens.Take(":")
@@ -280,14 +281,17 @@ internal ref struct OperationParser
                 if (!ParseArgValues(item1, out var items1)) {
                   return false;
                 }
+
                 fields.Add(key1, items1);
               } else {
                 return false;
               }
             }
+
             argument = new ArgumentAst(fields);
             return true;
           }
+
           return false;
         }
       } else if (!ParseArgValue(out value)) {
@@ -298,6 +302,7 @@ internal ref struct OperationParser
         argument = more;
         return true;
       }
+
       var values = new List<ArgumentAst> { value };
       while (ParseArgValue(out var item)) {
         values.Add(item);
@@ -307,6 +312,7 @@ internal ref struct OperationParser
         argument = values.Count > 1 ? new(values.ToArray()) : value;
         return true;
       }
+
       return false;
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
@@ -349,14 +355,13 @@ internal ref struct OperationParser
       if (!ParseArgValue(out ArgumentAst value)) {
         return false;
       }
+
       values.Add(value);
     }
 
-    if (values.Count > 1) {
-      argument = new(values.ToArray());
-    } else {
-      argument = initial;
-    }
+    argument = values.Count > 1
+      ? new(values.ToArray())
+      : initial;
 
     return true;
   }
@@ -375,6 +380,7 @@ internal ref struct OperationParser
       } else {
         return false;
       }
+
       _tokens.Take(';');
     }
 
@@ -400,8 +406,10 @@ internal ref struct OperationParser
       } else {
         return false;
       }
+
       _tokens.Take(',');
     }
+
     list = values.ToArray();
     return true;
   }
@@ -410,11 +418,8 @@ internal ref struct OperationParser
   {
     fields = new ArgumentAst.ObjectAst();
 
-    if (!_tokens.Take('{')) {
-      return false;
-    }
-
-    return ParseArgFields('}', fields);
+    return _tokens.Take('{')
+      && ParseArgFields('}', fields);
   }
 
   internal bool ParseFieldKey(out FieldKeyAst constant)
@@ -436,6 +441,7 @@ internal ref struct OperationParser
         constant = new FieldKeyAst(identifier, label);
         return true;
       }
+
       constant = new FieldKeyAst("", identifier);
       return true;
     }
@@ -487,8 +493,10 @@ internal ref struct OperationParser
       } else {
         return false;
       }
+
       _tokens.Take(',');
     }
+
     list = values.ToArray();
     return true;
   }
@@ -509,6 +517,7 @@ internal ref struct OperationParser
       } else {
         return false;
       }
+
       _tokens.Take(';');
     }
 

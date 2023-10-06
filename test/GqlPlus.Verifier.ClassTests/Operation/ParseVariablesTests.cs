@@ -17,10 +17,10 @@ public class ParseVariablesTests
   [Theory, RepeatData(Repeats)]
   public void WithModifiers_ReturnsCorrectAst(string variable)
     => ParseVariablesTrueExpected($"(${variable}[]?)",
-    new VariableAst(variable) { Modifers = new[] { ModifierAst.List, ModifierAst.Optional } });
+    new VariableAst(variable) { Modifers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
-  public void WithConstant_ReturnsCorrectAst(string variable, decimal number)
+  public void WithDefault_ReturnsCorrectAst(string variable, decimal number)
     => ParseVariablesTrueExpected($"(${variable}={number})",
       new VariableAst(variable) { Default = new FieldKeyAst(number) });
 
@@ -28,6 +28,16 @@ public class ParseVariablesTests
   public void WithDirective_ReturnsCorrectAst(string variable, string directive)
     => ParseVariablesTrueExpected($"(${variable}@{directive})",
       new VariableAst(variable) { Directives = directive.Directives() });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithAll_ReturnsCorrectAst(string variable, string varType, decimal number, string directive)
+    => ParseVariablesTrueExpected($"(${variable}:{varType}[]?={number}@{directive})",
+      new VariableAst(variable) {
+        Type = varType,
+        Modifers = TestMods(),
+        Default = new FieldKeyAst(number),
+        Directives = directive.Directives()
+      });
 
   private void ParseVariablesTrueExpected(string input, params VariableAst[] expected)
   {

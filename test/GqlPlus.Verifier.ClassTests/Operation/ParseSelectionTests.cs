@@ -26,6 +26,15 @@ public class ParseSelectionTests
       "|@" + directive + "{" + field + "}",
       new InlineAst(field.Fields()) { Directives = directive.Directives() });
 
+  [Theory, RepeatData(Repeats)]
+  public void WithInlineAll_ReturnsCorrectAst(string inlineType, string directive, string field)
+    => ParseSelectionTrueExpected(
+      $"|:{inlineType}@" + directive + "{" + field + "}",
+      new InlineAst(field.Fields()) {
+        OnType = inlineType,
+        Directives = directive.Directives(),
+      });
+
   [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
   public void WithSpread_ReturnsCorrectAst(string prefix, string fragment)
     => ParseSelectionTrueExpected(

@@ -38,14 +38,11 @@ internal static class OperationTestsHelpers
   public static string Quote(this string contents)
   {
     contents = contents.Replace(@"\", @"\\");
-    if (contents.Contains('"')) {
-      if (contents.Contains("'")) {
-        return "'" + contents.Replace("'", @"\'") + "'";
-      } else {
-        return $"'{contents}'";
-      }
-    }
-    return '"' + contents + '"';
+    return contents.Contains('"')
+      ? contents.Contains("'")
+        ? "'" + contents.Replace("'", @"\'") + "'"
+        : $"'{contents}'"
+      : '"' + contents + '"';
   }
 
   public static Tokenizer Tokens(string input)

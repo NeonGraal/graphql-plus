@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.ClassTests;
+﻿using GqlPlus.Verifier.Ast;
 
 namespace GqlPlus.Verifier.Operation;
 
@@ -13,7 +11,7 @@ public class ParseArgumentTests
       new ArgumentAst(variable));
 
   [Theory, RepeatData(Repeats)]
-  public void WithLabel_ReturnsCorrectAst(string label)
+  public void WithConstant_ReturnsCorrectAst(string label)
     => ParseArgumentTrueExpected(
       "(" + label + ")",
       new ArgumentAst(new FieldKeyAst("", label)));

@@ -124,21 +124,15 @@ internal ref struct Tokenizer
   internal bool String(out string contents)
   {
     contents = "";
-    if (_kind != TokenKind.String) {
-      return false;
-    }
-
-    return Delimited(_operation[_pos], out contents);
+    return _kind == TokenKind.String
+      && Delimited(_operation[_pos], out contents);
   }
 
   internal bool Regex(out string regex)
   {
     regex = "";
-    if (_kind != TokenKind.Regex) {
-      return false;
-    }
-
-    return Delimited('/', out regex);
+    return _kind == TokenKind.Regex
+      && Delimited('/', out regex);
   }
 
   private bool Delimited(char delimiter, out string contents)
@@ -148,6 +142,7 @@ internal ref struct Tokenizer
       if (_operation[end] == '\\') {
         ++end;
       }
+
       ++end;
     } while (end < _operation.Length && _operation[end] != delimiter);
 

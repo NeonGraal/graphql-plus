@@ -1,6 +1,4 @@
-﻿using static GqlPlus.Verifier.ClassTests.OperationTestsHelpers;
-
-namespace GqlPlus.Verifier.ClassTests;
+﻿namespace GqlPlus.Verifier.ClassTests;
 
 public class TokenizerTests
 {

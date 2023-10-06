@@ -6,3 +6,4 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Style", "IDE0058:Expression value is never used")]
+[assembly: SuppressMessage("Style", "IDE0130:Namespace does not match folder structure")]

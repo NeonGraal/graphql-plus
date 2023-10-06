@@ -22,10 +22,11 @@ public class ParseModifiersTests
   }
 
   [Fact]
-  public void WithThree_ReturnsSpecific()
+  public void WithFour_ReturnsSpecific()
   {
-    var parser = new OperationParser(Tokens("[_?][]?"));
+    var parser = new OperationParser(Tokens("[~][_?][]?"));
     var expected = new ModifierAst[] {
+        new("~", false),
         new("_", true),
         ModifierAst.List,
         ModifierAst.Optional

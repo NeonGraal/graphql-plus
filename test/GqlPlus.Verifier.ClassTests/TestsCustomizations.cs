@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using AutoFixture;
 using AutoFixture.Kernel;
-using static GqlPlus.Verifier.ClassTests.OperationTestsHelpers;
 
 namespace GqlPlus.Verifier.ClassTests;
 
@@ -22,11 +21,11 @@ internal class TestsCustomizations : CompositeCustomization
 
       if (pi is not null && !pi.GetCustomAttributes<RegularExpressionAttribute>().Any()) {
         if (pi.ParameterType == typeof(string)) {
-          if (pi.Name == "contents") {
-            return context.Resolve(new RegularExpressionRequest(".{9,999}"));
-          }
-          return context.Resolve(new RegularExpressionRequest(IdentifierPattern));
+          return pi.Name == "contents"
+            ? context.Resolve(new RegularExpressionRequest(".{9,999}"))
+            : context.Resolve(new RegularExpressionRequest(IdentifierPattern));
         }
+
         if (pi.ParameterType == typeof(decimal)) {
           return context.Resolve(new RangedNumberRequest(pi.ParameterType, -99999.99999, 99999.99999));
         }

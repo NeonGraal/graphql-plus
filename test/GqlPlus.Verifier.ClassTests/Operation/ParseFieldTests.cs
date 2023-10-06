@@ -40,6 +40,18 @@ public class ParseFieldTests
       field + "{" + selection + "}",
       new FieldAst(field) { Selections = selection.Fields() });
 
+  [Theory, RepeatData(Repeats)]
+  public void WithAll_ReturnsCorrectAst(string field, string alias, string argument, string directive, string selection)
+    => ParseFieldTrueExpected(
+      alias + ":" + field + "($" + argument + ")[]?@" + directive + "{" + selection + "}",
+      new FieldAst(field) {
+        Alias = alias,
+        Argument = new(argument),
+        Modifiers = TestMods(),
+        Directives = directive.Directives(),
+        Selections = selection.Fields(),
+      });
+
   private void ParseFieldTrueExpected<T>(string input, T expected)
   {
     var parser = new OperationParser(Tokens(input));

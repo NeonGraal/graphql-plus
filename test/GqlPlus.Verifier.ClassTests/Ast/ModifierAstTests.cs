@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast;
 
 public class ModifierAstTests
 {

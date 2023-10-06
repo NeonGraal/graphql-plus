@@ -73,7 +73,7 @@ public class FieldKeyAstTests
     var left = new FieldKeyAst(contents1);
     var right = new FieldKeyAst(contents2);
 
-    left.CompareTo(right).Should().Be(contents1.CompareTo(contents2));
+    left.CompareTo(right).Should().Be(string.Compare(contents1, contents2, StringComparison.Ordinal));
   }
 
   [Theory, RepeatData(Repeats)]
@@ -102,7 +102,7 @@ public class FieldKeyAstTests
     var left = new FieldKeyAst(enumType, label1);
     var right = new FieldKeyAst(enumType, label2);
 
-    left.CompareTo(right).Should().Be(label1.CompareTo(label2));
+    left.CompareTo(right).Should().Be(string.Compare(enumType + "." + label1, enumType + "." + label2, StringComparison.Ordinal));
   }
 
   [Theory, RepeatData(Repeats)]
@@ -135,7 +135,7 @@ public class FieldKeyAstTests
     var left = new FieldKeyAst("", label1);
     var right = new FieldKeyAst("", label2);
 
-    left.CompareTo(right).Should().Be(label1.CompareTo(label2));
+    left.CompareTo(right).Should().Be(string.Compare(label1, label2, StringComparison.Ordinal));
   }
 
   [Theory, RepeatData(Repeats)]
@@ -164,7 +164,7 @@ public class FieldKeyAstTests
     var left = new FieldKeyAst(enumType1, "label");
     var right = new FieldKeyAst(enumType2, "label");
 
-    left.CompareTo(right).Should().Be(enumType1.CompareTo(enumType2));
+    left.CompareTo(right).Should().Be(string.Compare(enumType1, enumType2, StringComparison.Ordinal));
   }
 
   [Theory, RepeatData(Repeats)]

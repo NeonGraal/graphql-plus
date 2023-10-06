@@ -22,8 +22,8 @@ internal record class FieldKeyAst : AstBase, IComparable<FieldKeyAst>
 
   public int CompareTo(FieldKeyAst? other)
     => Number is not null ? Number?.CompareTo(other?.Number) ?? -1
-      : String is not null ? String.CompareTo(other?.String)
-      : EnumLabel is not null ? EnumLabel.CompareTo(other?.EnumLabel)
+      : String is not null ? string.Compare(String, other?.String, StringComparison.Ordinal)
+      : EnumLabel is not null ? string.Compare(EnumLabel, other?.EnumLabel, StringComparison.Ordinal)
       : -1;
 
   internal override IEnumerable<string?> GetFields()

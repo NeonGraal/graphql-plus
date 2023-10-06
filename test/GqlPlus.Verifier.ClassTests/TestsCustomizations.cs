@@ -4,16 +4,16 @@ using AutoFixture.Kernel;
 
 namespace GqlPlus.Verifier.ClassTests;
 
-internal class TestsCustomizations : CompositeCustomization
+internal sealed class TestsCustomizations : CompositeCustomization
 {
   public TestsCustomizations() : base(new IdentifierCustomization()) { }
 
-  internal class IdentifierCustomization : ICustomization
+  internal sealed class IdentifierCustomization : ICustomization
   {
     public void Customize(IFixture fixture)
       => fixture.Customizations.Add(new IdentifierSpecimenBuilder());
   }
-  internal class IdentifierSpecimenBuilder : ISpecimenBuilder
+  internal sealed class IdentifierSpecimenBuilder : ISpecimenBuilder
   {
     public object Create(object request, ISpecimenContext context)
     {

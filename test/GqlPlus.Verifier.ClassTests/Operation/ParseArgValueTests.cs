@@ -30,9 +30,8 @@ public class ParseArgValueTests
 
   [Theory, RepeatData(Repeats)]
   public void WithListInvalid_ReturnsFalse(string label)
-    => ParseArgValueFalseExpected(
-      '[' + label + ':' + label + ']',
-      new ArgumentAst());
+    => ParseArgValueFalse(
+      '[' + label + ':' + label + ']');
 
   [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string label)
@@ -49,10 +48,9 @@ public class ParseArgValueTests
       key == label);
 
   [Theory, RepeatData(Repeats)]
-  public void WithObjectInvalid_ReturnsCorrectAst(string key, string label)
-    => ParseArgValueFalseExpected(
-      '{' + key + ':' + label + ',' + label + ':' + key + '}',
-      new ArgumentAst(),
+  public void WithObjectInvalid_ReturnsFalse(string key, string label)
+    => ParseArgValueFalse(
+      '{' + key + ':' + label + ':' + label + ':' + key + '}',
       key == label);
 
   private void ParseArgValueTrueExpected(string input, ArgumentAst expected, bool skipIf = false)
@@ -68,7 +66,7 @@ public class ParseArgValueTests
     result.Should().Be(expected);
   }
 
-  private void ParseArgValueFalseExpected(string input, ArgumentAst expected, bool skipIf = false)
+  private void ParseArgValueFalse(string input, bool skipIf = false)
   {
     if (skipIf) {
       return;
@@ -78,6 +76,6 @@ public class ParseArgValueTests
 
     parser.ParseArgValue(out ArgumentAst result).Should().BeFalse();
 
-    result.Should().Be(expected);
+    result.Should().Be(new ArgumentAst());
   }
 }

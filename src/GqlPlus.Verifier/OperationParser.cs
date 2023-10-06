@@ -1,4 +1,5 @@
 ﻿using System.Reflection.Metadata;
+using System.Reflection.Metadata.Ecma335;
 using GqlPlus.Verifier.Ast;
 
 namespace GqlPlus.Verifier;
@@ -242,9 +243,74 @@ internal ref struct OperationParser
   internal bool ParseArgument(out ArgumentAst argument)
   {
     argument = new ArgumentAst();
-    return _tokens.Take('(')
-      && ParseArgValue(out argument)
-      && _tokens.Take(")");
+
+    if (!_tokens.Take('(')) {
+      return false;
+    }
+
+
+    var oldSeparators = _tokens.IgnoreSeparators;
+    try {
+      _tokens.IgnoreSeparators = false;
+
+      ArgumentAst value = new();
+      if (ParseFieldKey(out var key)) {
+        value = key;
+        if (_tokens.Take(':')) {
+          if (ParseArgValue(out var item)) {
+            var fields = new ArgumentAst.ObjectAst();
+
+            if (!ParseArgValues(item, out var items)) {
+              return false;
+            }
+            fields.Add(key, items);
+
+            if (_tokens.Take(';')) {
+              if (ParseArgFields(')', fields)) {
+                argument = new ArgumentAst(fields);
+                return true;
+              }
+              return false;
+            }
+            while (!_tokens.Take(')')) {
+              if (ParseFieldKey(out var key1)
+                && _tokens.Take(":")
+                && ParseArgValue(out var item1)
+              ) {
+                if (!ParseArgValues(item1, out var items1)) {
+                  return false;
+                }
+                fields.Add(key1, items1);
+              } else {
+                return false;
+              }
+            }
+            argument = new ArgumentAst(fields);
+            return true;
+          }
+          return false;
+        }
+      } else if (!ParseArgValue(out value)) {
+        return false;
+      }
+
+      if (ParseArgValues(value, out var more) && more.Values.Length > 1) {
+        argument = more;
+        return true;
+      }
+      var values = new List<ArgumentAst> { value };
+      while (ParseArgValue(out var item)) {
+        values.Add(item);
+      }
+
+      if (_tokens.Take(")")) {
+        argument = values.Count > 1 ? new(values.ToArray()) : value;
+        return true;
+      }
+      return false;
+    } finally {
+      _tokens.IgnoreSeparators = oldSeparators;
+    }
   }
 
   internal bool ParseArgValue(out ArgumentAst argument)
@@ -256,27 +322,67 @@ internal ref struct OperationParser
       return true;
     }
 
+    if (ParseArgList(out ArgumentAst[] list)) {
+      argument = new ArgumentAst(list);
+      return true;
+    }
+
+    if (ParseArgObject(out AstValues<ArgumentAst>.ObjectAst fields)) {
+      argument = new ArgumentAst(fields);
+      return true;
+    }
+
     if (ParseConstant(out ConstantAst constant)) {
       argument = constant;
       return true;
     }
 
-    var oldSeparators = _tokens.IgnoreSeparators;
-    try {
-      if (ParseArgList(out ArgumentAst[] list)) {
-        argument = new ArgumentAst(list);
-        return true;
-      }
+    return false;
+  }
 
-      if (ParseArgObject(out AstValues<ArgumentAst>.ObjectAst fields)) {
-        argument = new ArgumentAst(fields);
-        return true;
+  internal bool ParseArgValues(ArgumentAst initial, out ArgumentAst argument)
+  {
+    argument = new ArgumentAst();
+
+    var values = new List<ArgumentAst> { initial };
+    while (_tokens.Take(',')) {
+      if (!ParseArgValue(out ArgumentAst value)) {
+        return false;
       }
-    } finally {
-      _tokens.IgnoreSeparators = oldSeparators;
+      values.Add(value);
     }
 
-    return false;
+    if (values.Count > 1) {
+      argument = new(values.ToArray());
+    } else {
+      argument = initial;
+    }
+
+    return true;
+  }
+
+  internal bool ParseArgFields(char end, ArgumentAst.ObjectAst fields)
+  {
+    var result = new ArgumentAst.ObjectAst(fields);
+    fields.Clear();
+
+    while (!_tokens.Take(end)) {
+      if (ParseFieldKey(out var key)
+        && _tokens.Take(':')
+        && ParseArgValue(out var value)
+      ) {
+        result.Add(key, value);
+      } else {
+        return false;
+      }
+      _tokens.Take(';');
+    }
+
+    foreach (var item in result) {
+      fields.Add(item.Key, item.Value);
+    }
+
+    return true;
   }
 
   internal bool ParseArgList(out ArgumentAst[] list)
@@ -286,8 +392,6 @@ internal ref struct OperationParser
     if (!_tokens.Take('[')) {
       return false;
     }
-
-    _tokens.IgnoreSeparators = false;
 
     var values = new List<ArgumentAst>();
     while (!_tokens.Take(']')) {
@@ -310,21 +414,7 @@ internal ref struct OperationParser
       return false;
     }
 
-    _tokens.IgnoreSeparators = false;
-
-    while (!_tokens.Take('}')) {
-      if (ParseFieldKey(out var key)
-        && _tokens.Take(':')
-        && ParseArgValue(out var value)
-      ) {
-        fields.Add(key, value);
-      } else {
-        return false;
-      }
-      _tokens.Take(';');
-    }
-
-    return true;
+    return ParseArgFields('}', fields);
   }
 
   internal bool ParseFieldKey(out FieldKeyAst constant)
@@ -364,6 +454,8 @@ internal ref struct OperationParser
 
     var oldSeparators = _tokens.IgnoreSeparators;
     try {
+      _tokens.IgnoreSeparators = false;
+
       if (ParseConstList(out ConstantAst[] list)) {
         constant = new ConstantAst(list);
         return true;
@@ -373,11 +465,11 @@ internal ref struct OperationParser
         constant = new ConstantAst(fields);
         return true;
       }
+
+      return false;
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
     }
-
-    return false;
   }
 
   internal bool ParseConstList(out ConstantAst[] list)
@@ -387,8 +479,6 @@ internal ref struct OperationParser
     if (!_tokens.Take('[')) {
       return false;
     }
-
-    _tokens.IgnoreSeparators = false;
 
     var values = new List<ConstantAst>();
     while (!_tokens.Take(']')) {
@@ -409,8 +499,6 @@ internal ref struct OperationParser
     if (!_tokens.Take('{')) {
       return false;
     }
-
-    _tokens.IgnoreSeparators = false;
 
     while (!_tokens.Take('}')) {
       if (ParseFieldKey(out var key)

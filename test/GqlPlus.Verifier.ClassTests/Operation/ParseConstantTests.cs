@@ -42,9 +42,8 @@ public class ParseConstantTests
 
   [Theory, RepeatData(Repeats)]
   public void WithListInvalid_ReturnsFalse(string label)
-    => ParseConstantFalseExpected(
-      '[' + label + ':' + label + ']',
-      new ConstantAst());
+    => ParseConstantFalse(
+      '[' + label + ':' + label + ']');
 
   [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string label)
@@ -62,9 +61,8 @@ public class ParseConstantTests
 
   [Theory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string label)
-    => ParseConstantFalseExpected(
+    => ParseConstantFalse(
       '{' + key + ':' + label + ',' + label + ':' + key + '}',
-      new ConstantAst(),
       key == label);
 
   private void ParseConstantTrueExpected(string input, ConstantAst expected, bool skipIf = false)
@@ -80,7 +78,7 @@ public class ParseConstantTests
     result.Should().Be(expected);
   }
 
-  private void ParseConstantFalseExpected(string input, ConstantAst expected, bool skipIf = false)
+  private void ParseConstantFalse(string input, bool skipIf = false)
   {
     if (skipIf) {
       return;
@@ -90,6 +88,6 @@ public class ParseConstantTests
 
     parser.ParseConstant(out ConstantAst result).Should().BeFalse();
 
-    result.Should().Be(expected);
+    result.Should().Be(new ConstantAst());
   }
 }

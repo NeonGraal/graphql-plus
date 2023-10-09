@@ -256,64 +256,21 @@ internal ref struct OperationParser
         value = key;
         if (_tokens.Take(':')) {
           if (ParseArgValue(out var item)) {
-            var fields = new ArgumentAst.ObjectAst();
-
-            if (!ParseArgValues(item, out var items)) {
-              return false;
+            if (ParseArgValues(item, out var items)) {
+              return ParseArgumentMid(new() { [key] = items }, out argument);
             }
 
-            fields.Add(key, items);
-
-            if (_tokens.Take(';')) {
-              if (ParseArgFields(')', fields)) {
-                argument = new ArgumentAst(fields);
-                return true;
-              }
-
-              return false;
-            }
-
-            while (!_tokens.Take(')')) {
-              if (ParseFieldKey(out var key1)
-                && _tokens.Take(":")
-                && ParseArgValue(out var item1)
-              ) {
-                if (!ParseArgValues(item1, out var items1)) {
-                  return false;
-                }
-
-                fields.Add(key1, items1);
-              } else {
-                return false;
-              }
-            }
-
-            argument = new ArgumentAst(fields);
-            return true;
+            return false;
           }
 
           return false;
         }
-      } else if (!ParseArgValue(out value)) {
-        return false;
+
+        return ParseArgumentEnd(value, out argument);
       }
 
-      if (ParseArgValues(value, out var more) && more.Values.Length > 1) {
-        argument = more;
-        return true;
-      }
-
-      var values = new List<ArgumentAst> { value };
-      while (ParseArgValue(out var item)) {
-        values.Add(item);
-      }
-
-      if (_tokens.Take(")")) {
-        argument = values.Count > 1 ? new(values.ToArray()) : value;
-        return true;
-      }
-
-      return false;
+      return ParseArgValue(out value)
+        && ParseArgumentEnd(value, out argument);
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
     }
@@ -366,7 +323,7 @@ internal ref struct OperationParser
     return true;
   }
 
-  internal bool ParseArgFields(char end, ArgumentAst.ObjectAst fields)
+  internal bool ParseArgFieldValues(char end, ArgumentAst.ObjectAst fields)
   {
     var result = new ArgumentAst.ObjectAst(fields);
     fields.Clear();
@@ -419,7 +376,7 @@ internal ref struct OperationParser
     fields = new ArgumentAst.ObjectAst();
 
     return _tokens.Take('{')
-      && ParseArgFields('}', fields);
+      && ParseArgFieldValues('}', fields);
   }
 
   internal bool ParseFieldKey(out FieldKeyAst constant)
@@ -522,5 +479,58 @@ internal ref struct OperationParser
     }
 
     return true;
+  }
+
+  private bool ParseArgumentMid(ArgumentAst.ObjectAst fields, out ArgumentAst argument)
+  {
+    argument = new();
+
+    if (_tokens.Take(';')) {
+      if (ParseArgFieldValues(')', fields)) {
+        argument = new ArgumentAst(fields);
+        return true;
+      }
+
+      return false;
+    }
+
+    while (!_tokens.Take(')')) {
+      if (ParseFieldKey(out var key1)
+        && _tokens.Take(":")
+        && ParseArgValue(out var item1)
+      ) {
+        if (!ParseArgValues(item1, out var items1)) {
+          return false;
+        }
+
+        fields.Add(key1, items1);
+      } else {
+        return false;
+      }
+    }
+
+    argument = new ArgumentAst(fields);
+    return true;
+  }
+
+  private bool ParseArgumentEnd(ArgumentAst value, out ArgumentAst argument)
+  {
+    if (ParseArgValues(value, out var more) && more.Values.Length > 1) {
+      argument = more;
+      return true;
+    }
+
+    var values = new List<ArgumentAst> { value };
+    while (ParseArgValue(out var item)) {
+      values.Add(item);
+    }
+
+    if (_tokens.Take(")")) {
+      argument = values.Count > 1 ? new(values.ToArray()) : value;
+      return true;
+    }
+
+    argument = new();
+    return false;
   }
 }

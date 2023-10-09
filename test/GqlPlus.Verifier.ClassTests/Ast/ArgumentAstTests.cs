@@ -20,7 +20,9 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void String_WithFields(string key, string label)
     => new ArgumentAst(label.ArgumentObject(key))
-    .TestString($"A({{ K({key}):A(${label}) K({label}):A({key}) }})");
+    .TestString(
+      $"A({{ K({key}):A(${label}) K({label}):A({key}) }})",
+      key == label);
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithVariable(string variable)
@@ -56,7 +58,7 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithConstant(string enumType, string label)
   {
-    if (enumType != label) {
+    if (enumType == label) {
       return;
     }
 

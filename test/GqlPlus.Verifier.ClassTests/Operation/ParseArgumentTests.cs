@@ -36,7 +36,7 @@ public class ParseArgumentTests
   [Theory, RepeatData(Repeats)]
   public void WithField_ReturnsTrue(string label)
     => ParseArgumentTrueExpected(
-      '(' + label + ':' + label + ')',
+      '(' + label + ":$" + label + ')',
       new ArgumentAst(label.ArgumentObject(label)));
 
   [Theory, RepeatData(Repeats)]

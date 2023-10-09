@@ -7,7 +7,7 @@ internal static class OperationTestsHelpers
   internal const int Repeats = 20;
 
   internal const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
-  internal const string PunctuationPattern = @"[!#-&(-+.:<-@[-^`{-~]";
+  internal const string PunctuationPattern = @"[!#-&(-*.:<-@[-^`{-~]";
 
   public static DirectiveAst[] Directives(this string directive)
     => new DirectiveAst[] { new(directive) };
@@ -22,7 +22,10 @@ internal static class OperationTestsHelpers
   {
     var keyAst = new FieldKeyAst("", key);
     var labelAst = new FieldKeyAst("", label);
-    return new ConstantAst.ObjectAst { [keyAst] = labelAst, [labelAst] = keyAst };
+
+    return key == label
+      ? new ConstantAst.ObjectAst { [keyAst] = labelAst }
+      : new ConstantAst.ObjectAst { [keyAst] = labelAst, [labelAst] = keyAst };
   }
 
   public static ArgumentAst[] ArgumentList(this string label)
@@ -32,7 +35,10 @@ internal static class OperationTestsHelpers
   {
     var keyAst = new FieldKeyAst("", key);
     var labelAst = new FieldKeyAst("", label);
-    return new ArgumentAst.ObjectAst { [keyAst] = new(label), [labelAst] = keyAst };
+
+    return key == label
+      ? new ArgumentAst.ObjectAst { [keyAst] = new(label) }
+      : new ArgumentAst.ObjectAst { [keyAst] = new(label), [labelAst] = keyAst };
   }
 
   public static string Quote(this string contents)
@@ -57,4 +63,13 @@ internal static class OperationTestsHelpers
 
   public static void TestString<T>(this T input, string expected)
     => $"{input}".Should().Be(expected);
+
+  public static void TestString<T>(this T input, string expected, bool skpiIf)
+  {
+    if (skpiIf) {
+      return;
+    }
+
+    $"{input}".Should().Be(expected);
+  }
 }

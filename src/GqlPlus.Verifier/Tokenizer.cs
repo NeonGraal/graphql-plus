@@ -6,6 +6,45 @@ internal ref struct Tokenizer
   private TokenKind _kind;
   private int _pos;
 
+  private static readonly TokenKind[] _kinds = new TokenKind[96];
+  private static readonly bool[] _identifier = new bool[75];
+  static Tokenizer()
+  {
+    for (var kind = 0; kind < 96; kind++) {
+      _kinds[kind] = TokenKind.Punctuation;
+    }
+
+    for (var id = 0; id < 75; id++) {
+      _identifier[id] = false;
+    }
+
+    for (var kind = 'A'; kind <= 'Z'; kind++) {
+      _kinds[kind - ' '] = TokenKind.Identifer;
+      _identifier[kind - '0'] = true;
+    }
+
+    for (var kind = 'a'; kind <= 'z'; kind++) {
+      _kinds[kind - ' '] = TokenKind.Identifer;
+      _identifier[kind - '0'] = true;
+    }
+
+    _kinds['_' - ' '] = TokenKind.Identifer;
+    _identifier['_' - '0'] = true;
+
+    for (var kind = '0'; kind <= '9'; kind++) {
+      _kinds[kind - ' '] = TokenKind.Number;
+      _identifier[kind - '0'] = true;
+    }
+
+    _kinds['-' - ' '] = TokenKind.Number;
+    _kinds['+' - ' '] = TokenKind.Number;
+
+    _kinds['"' - ' '] = TokenKind.String;
+    _kinds['\'' - ' '] = TokenKind.String;
+
+    _kinds['/' - ' '] = TokenKind.Regex;
+  }
+
   internal bool IgnoreSeparators { get; set; }
 
   internal Tokenizer(string operation)
@@ -32,13 +71,7 @@ internal ref struct Tokenizer
       return false;
     }
 
-    _kind = _operation[_pos] switch {
-      >= 'A' and <= 'Z' or >= 'a' and <= 'z' or '_' => TokenKind.Identifer,
-      >= '0' and <= '9' or '-' => TokenKind.Number,
-      '"' or '\'' => TokenKind.String,
-      '/' => TokenKind.Regex,
-      _ => TokenKind.Punctuation,
-    };
+    _kind = _kinds[_operation[_pos] - ' '];
 
     return true;
   }
@@ -48,27 +81,12 @@ internal ref struct Tokenizer
     while (_pos < _operation.Length) {
       var code = _operation[_pos];
 
-      switch (code) {
-        case '\r':
-          if (++_pos < _operation.Length && _operation[_pos] == '\n') {
-            ++_pos;
-          }
-
-          break;
-        case ' ':
-        case '\t':
-          ++_pos;
-          break;
-        case ',':
-        case ';':
-          if (!IgnoreSeparators) {
-            return;
-          }
-
-          ++_pos;
-          break;
-        default:
-          return;
+      if (code <= ' ' || code > '~'
+        || IgnoreSeparators && (code == ';' || code == ',')
+      ) {
+        ++_pos;
+      } else {
+        return;
       }
     }
   }
@@ -80,18 +98,38 @@ internal ref struct Tokenizer
       return false;
     }
 
-    var end = _pos;
-    do {
-      ++end;
-    } while (end < _operation.Length && _operation[end] is >= 'A' and <= 'Z' or >= 'a' and <= 'z' or >= '0' and <= '9' or '_');
-
-    ReadOnlySpan<char> result = end < _operation.Length ? _operation[_pos..end] : _operation[_pos..];
-    identifier = result.ToString();
+    var end = Letters(_pos);
+    identifier = GetString(end); ;
 
     _pos = end;
     Read();
 
     return true;
+  }
+
+  private int Letters(int end)
+  {
+    var len = _operation.Length;
+
+    int code;
+    do {
+      if (++end >= len) {
+        break;
+      }
+
+      code = _operation[end] - '0';
+      if (code is < 0 or > 74) {
+        break;
+      }
+    } while (_identifier[code]);
+
+    return end;
+  }
+
+  private string GetString(int end)
+  {
+    ReadOnlySpan<char> result = end < _operation.Length ? _operation[_pos..end] : _operation[_pos..];
+    return result.ToString();
   }
 
   internal bool Number(out decimal number)
@@ -101,24 +139,33 @@ internal ref struct Tokenizer
       return false;
     }
 
-    var end = _pos;
-    do {
-      ++end;
-    } while (end < _operation.Length && _operation[end] is >= '0' and <= '9' or '_');
+    var end = Digits(_pos);
 
     if (end < _operation.Length && _operation[end] == '.') {
-      do {
-        ++end;
-      } while (end < _operation.Length && _operation[end] is >= '0' and <= '9' or '_');
+      end = Digits(end);
     }
 
-    ReadOnlySpan<char> result = end < _operation.Length ? _operation[_pos..end] : _operation[_pos..];
-    number = decimal.Parse(result.ToString().Replace("_", ""));
+    number = decimal.Parse(GetString(end).Replace("_", ""));
 
     _pos = end;
     Read();
 
     return true;
+  }
+
+  private int Digits(int end)
+  {
+    var len = _operation.Length;
+
+    char code;
+    do {
+      if (++end >= len) {
+        break;
+      }
+
+      code = _operation[end];
+    } while (code is '_' or >= '0' and <= '9');
+    return end;
   }
 
   internal bool String(out string contents)
@@ -200,12 +247,13 @@ internal ref struct Tokenizer
     if (_kind == TokenKind.Punctuation && _operation[_pos] == one) {
       var next = _pos + 1;
 
-      if (next < _operation.Length &&
-        _operation[next] is >= 'A' and <= 'Z' or >= 'a' and <= 'z' or '_'
-      ) {
-        _pos += 1;
-        _kind = TokenKind.Identifer;
-        return Identifier(out identifier);
+      if (next < _operation.Length) {
+        var code = _operation[next] - ' ';
+        if (code > 0 && code < 95 && _kinds[code] == TokenKind.Identifer) {
+          _pos += 1;
+          _kind = TokenKind.Identifer;
+          return Identifier(out identifier);
+        }
       }
     }
 

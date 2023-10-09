@@ -25,7 +25,9 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void String_WithFields(string key, string label)
     => new ConstantAst(label.ConstantObject(key))
-    .TestString($"C({{ K({key}):C({label}) K({label}):C({key}) }})");
+    .TestString(
+      $"C({{ K({key}):C({label}) K({label}):C({key}) }})",
+      key == label);
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithLabel(string label)

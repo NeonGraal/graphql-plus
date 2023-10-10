@@ -6,18 +6,20 @@ internal ref struct OperationParser
 {
   internal Tokenizer _tokens;
 
+  private readonly List<ParseError> _errors = new();
+
   public OperationParser(Tokenizer tokens)
     => _tokens = tokens;
 
   internal OperationAst? Parse()
   {
-    OperationAst ast = new();
-
     if (_tokens.AtStart) {
       if (!_tokens.Read()) {
-        return ast;
+        return new() { Errors = new[] { _tokens.Error("Unexpected") } };
       }
     }
+
+    OperationAst ast = new();
 
     if (_tokens.Identifier(out var category)) {
       if (_tokens.Identifier(out var name)) {
@@ -41,7 +43,8 @@ internal ref struct OperationParser
     } else if (ParseObject(out AstSelection[] selections)) {
       ast.Object = selections;
     } else {
-      return ast;
+      Error("Result not present. Expected Object or Type.");
+      return ast with { Errors = _errors.ToArray() };
     }
 
     ast.Modifiers = ParseModifiers();
@@ -49,9 +52,11 @@ internal ref struct OperationParser
 
     if (_tokens.AtEnd) {
       ast.Result = ParseResult.Success;
+    } else {
+      Error("Text beyond end of Operation.");
     }
 
-    return ast;
+    return ast with { Errors = _errors.ToArray() };
   }
 
   internal bool ParseVariables(out VariableAst[] variables)
@@ -81,12 +86,12 @@ internal ref struct OperationParser
     }
 
     if (!result.Any()) {
-      return false;
+      return Error("Invalid Variables. No variables defined.");
     }
 
     variables = result.ToArray();
 
-    return _tokens.Take(')');
+    return Error("Invalid Variables. Expected ')'.", _tokens.Take(')'));
   }
 
   internal DirectiveAst[] ParseDirectives()
@@ -147,12 +152,13 @@ internal ref struct OperationParser
         fields.Add(field);
       } else {
         selections = fields.ToArray();
-        return false;
+
+        return Error("Invalid Object. Expected Field or Selection.");
       }
     }
 
     selections = fields.ToArray();
-    return fields.Any();
+    return Error("Invalid Object. Expected at least one Field or Selection", fields.Any());
   }
 
   internal bool ParseSelection(out AstSelection selection)
@@ -163,7 +169,7 @@ internal ref struct OperationParser
       string? onType = null;
       if (_tokens.Take("on") || _tokens.Take(':')) {
         if (!_tokens.Identifier(out onType)) {
-          return false;
+          return Error("Invalid Spread. Expected a type.");
         }
       } else {
         if (_tokens.Identifier(out var name)) {
@@ -198,7 +204,7 @@ internal ref struct OperationParser
 
     if (_tokens.Take(':')) {
       if (!_tokens.Identifier(out var name)) {
-        return false;
+        return Error("Invalid Field. Expected Name after Alias");
       }
 
       result = new FieldAst(name) { Alias = alias };
@@ -254,19 +260,11 @@ internal ref struct OperationParser
       ArgumentAst value = new();
       if (ParseFieldKey(out var key)) {
         value = key;
-        if (_tokens.Take(':')) {
-          if (ParseArgValue(out var item)) {
-            if (ParseArgValues(item, out var items)) {
-              return ParseArgumentMid(new() { [key] = items }, out argument);
-            }
-
-            return false;
-          }
-
-          return false;
-        }
-
-        return ParseArgumentEnd(value, out argument);
+        return _tokens.Take(':')
+          ? ParseArgValue(out var item)
+            && ParseArgValues(item, out var items)
+            && ParseArgumentMid(new() { [key] = items }, out argument)
+          : ParseArgumentEnd(value, out argument);
       }
 
       return ParseArgValue(out value)
@@ -310,7 +308,7 @@ internal ref struct OperationParser
     var values = new List<ArgumentAst> { initial };
     while (_tokens.Take(',')) {
       if (!ParseArgValue(out ArgumentAst value)) {
-        return false;
+        return Error("Invalid Argument. Possibly missing ',', ')', ']' or '}' in Values.");
       }
 
       values.Add(value);
@@ -335,7 +333,7 @@ internal ref struct OperationParser
       ) {
         result.Add(key, value);
       } else {
-        return false;
+        return Error($"Invalid Argument. Possibly missing ':' or '{end}' in Field.");
       }
 
       _tokens.Take(';');
@@ -361,7 +359,7 @@ internal ref struct OperationParser
       if (ParseArgValue(out var item)) {
         values.Add(item);
       } else {
-        return false;
+        return Error("Invalid Argument. Possibly missing ',' or ']' in List.");
       }
 
       _tokens.Take(',');
@@ -448,7 +446,7 @@ internal ref struct OperationParser
       if (ParseConstant(out var item)) {
         values.Add(item);
       } else {
-        return false;
+        return Error("Invalid Constant. Possibly missing ',' or ']' in List.");
       }
 
       _tokens.Take(',');
@@ -472,6 +470,7 @@ internal ref struct OperationParser
       ) {
         fields.Add(key, value);
       } else {
+        Error("Invalid Constant. Possibly missing ':' or '}' in Field.");
         return false;
       }
 
@@ -491,7 +490,7 @@ internal ref struct OperationParser
         return true;
       }
 
-      return false;
+      return Error("Invalid Argument. Expected Field Values after ';'");
     }
 
     while (!_tokens.Take(')')) {
@@ -505,7 +504,7 @@ internal ref struct OperationParser
 
         fields.Add(key1, items1);
       } else {
-        return false;
+        return Error("Invalid Argument. Possibly missing ')' after Fields.");
       }
     }
 
@@ -531,6 +530,15 @@ internal ref struct OperationParser
     }
 
     argument = new();
-    return false;
+    return Error("Invalid Argument. Possibly missing ')' after Values.");
+  }
+
+  private bool Error(string message, bool result = false)
+  {
+    if (!result) {
+      _errors.Add(_tokens.Error(message));
+    }
+
+    return result;
   }
 }

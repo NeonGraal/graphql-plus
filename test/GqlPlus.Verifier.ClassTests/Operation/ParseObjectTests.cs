@@ -55,7 +55,8 @@ public class ParseObjectTests
   [Fact]
   public void WithNoFields_ReturnsFalse()
   {
-    var parser = new OperationParser(Tokens("{}"));
+    var tokens = Tokens("{}");
+    var parser = new OperationParser(tokens);
 
     parser.ParseObject(out AstSelection[] result).Should().BeFalse();
 

@@ -91,6 +91,7 @@ public class TokenizerTests
 
     tokens.String(out var result).Should().BeFalse();
     result.Should().Be(sample + " ");
+    tokens.AtEnd.Should().BeTrue();
   }
 
   [Theory, RepeatData(Repeats)]
@@ -100,6 +101,7 @@ public class TokenizerTests
 
     tokens.String(out var result).Should().BeFalse();
     result.Should().Be(sample + "' ");
+    tokens.AtEnd.Should().BeTrue();
   }
 
   [Theory, RepeatData(Repeats)]
@@ -118,6 +120,7 @@ public class TokenizerTests
 
     tokens.String(out var result).Should().BeFalse();
     result.Should().Be(sample + " ");
+    tokens.AtEnd.Should().BeTrue();
   }
 
   [Theory, RepeatData(Repeats)]
@@ -154,6 +157,7 @@ public class TokenizerTests
 
     tokens.Regex(out var result).Should().BeFalse();
     result.Should().Be(regex + " ");
+    tokens.AtEnd.Should().BeTrue();
   }
 
   [Theory, RepeatData(Repeats)]
@@ -225,5 +229,88 @@ public class TokenizerTests
 
     tokens.Prefix(expected, out var result).Should().BeTrue();
     result.Should().Be(identifier);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Error_AtStart_ReturnsAtStart(string message)
+  {
+    var tokens = new Tokenizer("");
+
+    var result = tokens.Error(message);
+
+    result.At.Should().Be(TokenKind.Start);
+    result.Pos.Should().Be(0);
+    result.Next.Should().Be("<END>");
+    result.Message.Should().Be(message);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Error_BeforePunctuationAtEnd_ReturnsAtPunctuation(
+    [RegularExpression(PunctuationPattern)] string prefix, string message)
+  {
+    var tokens = PrepareTokens(prefix);
+
+    var result = tokens.Error(message);
+
+    result.At.Should().Be(TokenKind.Punctuation);
+    result.Pos.Should().Be(0);
+    result.Next.Should().Be(prefix.ToString() + " <END>");
+    result.Message.Should().Be(message);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Error_BeforePunctuation_ReturnsAtPunctuation(
+    [RegularExpression(PunctuationPattern)] string prefix, string contents, string message)
+  {
+    var tokens = PrepareTokens(prefix + contents);
+    var expected = (prefix + contents)[..Tokenizer.ErrorContext];
+
+    var result = tokens.Error(message);
+
+    result.At.Should().Be(TokenKind.Punctuation);
+    result.Pos.Should().Be(0);
+    result.Next.Should().Be(expected);
+    result.Message.Should().Be(message);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Error_BeforeIdentifier_ReturnsAtIdentifier(string label, string message)
+  {
+    var tokens = PrepareTokens(label);
+
+    var result = tokens.Error(message);
+
+    result.At.Should().Be(TokenKind.Identifer);
+    result.Pos.Should().Be(0);
+    result.Next.Should().Be(label);
+    result.Message.Should().Be(message);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Error_BeforeNumber_ReturnsAtNumber(decimal number, string message)
+  {
+    var expected = number.ToString();
+    var tokens = PrepareTokens(expected);
+
+    var result = tokens.Error(message);
+
+    result.At.Should().Be(TokenKind.Number);
+    result.Pos.Should().Be(0);
+    result.Next.Should().Be(expected);
+    result.Message.Should().Be(message);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Error_BeforeString_ReturnsAtString(string contents, string message)
+  {
+    var tokens = PrepareTokens(contents.Quote());
+    var expected = contents.Quote()[..Tokenizer.ErrorContext];
+
+    var result = tokens.Error(message);
+
+    result.At.Should().Be(TokenKind.String);
+    result.Pos.Should().Be(0);
+    result.Next.Should().Be(expected);
+    result.Message.Should().Be(message);
   }
 }

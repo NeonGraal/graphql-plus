@@ -2,7 +2,10 @@
 
 internal ref struct Tokenizer
 {
+  internal const int ErrorContext = 10;
+
   private readonly ReadOnlySpan<char> _operation;
+  private readonly int _len;
   private TokenKind _kind;
   private int _pos;
 
@@ -50,6 +53,7 @@ internal ref struct Tokenizer
   internal Tokenizer(string operation)
   {
     _operation = operation.AsSpan();
+    _len = _operation.Length;
 
     _kind = TokenKind.Start;
     _pos = 0;
@@ -66,7 +70,7 @@ internal ref struct Tokenizer
   {
     SkipWhitespace();
 
-    if (_pos >= _operation.Length) {
+    if (_pos >= _len) {
       _kind = TokenKind.End;
       return false;
     }
@@ -78,7 +82,7 @@ internal ref struct Tokenizer
 
   private void SkipWhitespace()
   {
-    while (_pos < _operation.Length) {
+    while (_pos < _len) {
       var code = _operation[_pos];
 
       if (code <= ' ' || code > '~'
@@ -89,6 +93,8 @@ internal ref struct Tokenizer
         return;
       }
     }
+
+    _kind = TokenKind.End;
   }
 
   internal bool Identifier(out string identifier)
@@ -109,11 +115,10 @@ internal ref struct Tokenizer
 
   private int Letters(int end)
   {
-    var len = _operation.Length;
-
     int code;
     do {
-      if (++end >= len) {
+      if (++end >= _len) {
+        _kind = TokenKind.End;
         break;
       }
 
@@ -128,7 +133,7 @@ internal ref struct Tokenizer
 
   private string GetString(int end)
   {
-    ReadOnlySpan<char> result = end < _operation.Length ? _operation[_pos..end] : _operation[_pos..];
+    ReadOnlySpan<char> result = end < _len ? _operation[_pos..end] : _operation[_pos..];
     return result.ToString();
   }
 
@@ -139,12 +144,7 @@ internal ref struct Tokenizer
       return false;
     }
 
-    var end = Digits(_pos);
-
-    if (end < _operation.Length && _operation[end] == '.') {
-      end = Digits(end);
-    }
-
+    var end = Decimal(_pos);
     number = decimal.Parse(GetString(end).Replace("_", ""));
 
     _pos = end;
@@ -165,6 +165,17 @@ internal ref struct Tokenizer
 
       code = _operation[end];
     } while (code is '_' or >= '0' and <= '9');
+    return end;
+  }
+
+  private int Decimal(int end)
+  {
+    end = Digits(end);
+
+    if (end < _len && _operation[end] == '.') {
+      end = Digits(end);
+    }
+
     return end;
   }
 
@@ -191,16 +202,15 @@ internal ref struct Tokenizer
       }
 
       ++end;
-    } while (end < _operation.Length && _operation[end] != delimiter);
+    } while (end < _len && _operation[end] != delimiter);
 
-    var start = _pos + 1;
-    ReadOnlySpan<char> result = end < _operation.Length ? _operation[start..end] : _operation[start..];
-    contents = result.ToString().Replace(@"\" + delimiter, delimiter.ToString()).Replace(@"\\", @"\");
+    _pos++;
+    contents = GetString(end).Replace(@"\" + delimiter, delimiter.ToString()).Replace(@"\\", @"\");
 
     _pos = end + 1;
     Read();
 
-    return end < _operation.Length;
+    return end < _len;
   }
 
   internal bool Take(char one)
@@ -230,7 +240,7 @@ internal ref struct Tokenizer
 
   internal bool Take(string text)
   {
-    if (_pos + text.Length > _operation.Length
+    if (_pos + text.Length > _len
       || !_operation.Slice(_pos, text.Length).Equals(text, StringComparison.InvariantCulture)
     ) {
       return false;
@@ -247,7 +257,7 @@ internal ref struct Tokenizer
     if (_kind == TokenKind.Punctuation && _operation[_pos] == one) {
       var next = _pos + 1;
 
-      if (next < _operation.Length) {
+      if (next < _len) {
         var code = _operation[next] - ' ';
         if (code > 0 && code < 95 && _kinds[code] == TokenKind.Identifer) {
           _pos += 1;
@@ -260,4 +270,13 @@ internal ref struct Tokenizer
     identifier = "";
     return false;
   }
+
+  internal ParseError Error(string text)
+    => _kind switch {
+      TokenKind.End => new(_kind, _pos, "<END>", text),
+      TokenKind.Number => new(_kind, _pos, GetString(Decimal(_pos)), text),
+      TokenKind.Identifer => new(_kind, _pos, GetString(Letters(_pos)), text),
+      _ when _pos + ErrorContext < _len => new(_kind, _pos, _operation[_pos..(_pos + ErrorContext)].ToString(), text),
+      _ => new(_kind, _pos, _operation[_pos..].ToString() + "<END>", text),
+    };
 }

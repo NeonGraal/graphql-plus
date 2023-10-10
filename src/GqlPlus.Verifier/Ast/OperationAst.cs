@@ -4,6 +4,8 @@ internal record class OperationAst(string Name)
   : AstNamedDirectives(Name)
 {
   internal ParseResult Result { get; set; }
+  internal ParseError[] Errors { get; set; } = Array.Empty<ParseError>();
+
   internal string Category { get; set; } = "query";
   internal VariableAst[] Variables { get; set; } = Array.Empty<VariableAst>();
   internal string? ResultType { get; set; }

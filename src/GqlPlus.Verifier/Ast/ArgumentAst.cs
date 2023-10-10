@@ -27,7 +27,7 @@ internal sealed record class ArgumentAst : AstValues<ArgumentAst>, IEquatable<Ar
     && Variable.NullEqual(other.Variable)
     && Constant.NullEqual(other.Constant);
   public override int GetHashCode()
-    => HashCode.Combine((AstValues<ArgumentAst>)this, Variable, Constant);
+    => HashCode.Combine(base.GetHashCode(), Variable, Constant);
 
   internal override IEnumerable<string?> GetFields()
     => Constant?.GetFields() ?? base.GetFields().Append(Variable.Prefixed("$"));

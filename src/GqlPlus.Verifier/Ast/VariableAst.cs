@@ -15,7 +15,7 @@ internal sealed record class VariableAst(string Name)
     && Modifers.SequenceEqual(other.Modifers)
     && Default.NullEqual(other.Default);
   public override int GetHashCode()
-    => HashCode.Combine((AstNamedDirectives)this, Type, Modifers, Default);
+    => HashCode.Combine(base.GetHashCode(), Type, Modifers, Default);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

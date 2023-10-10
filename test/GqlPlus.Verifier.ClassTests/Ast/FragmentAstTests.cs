@@ -2,6 +2,10 @@
 
 public class FragmentAstTests
 {
+  [Fact]
+  public void HashCode()
+    => new FragmentAst("", "").GetHashCode().Should().Be(new FragmentAst("", "").GetHashCode());
+
   [Theory, RepeatData(Repeats)]
   public void String(string name, string onType, string field)
     => new FragmentAst(name, onType, field.Fields())

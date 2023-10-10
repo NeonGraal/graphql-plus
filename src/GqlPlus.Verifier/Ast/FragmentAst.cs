@@ -10,7 +10,7 @@ internal sealed record class FragmentAst(string Name, string OnType, params AstS
     && OnType == other.OnType
     && Selections.SequenceEqual(other.Selections);
   public override int GetHashCode()
-    => HashCode.Combine((AstNamedDirectives)this, OnType, Selections);
+    => HashCode.Combine(base.GetHashCode(), OnType, Selections);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

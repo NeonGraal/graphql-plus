@@ -2,6 +2,10 @@
 
 public class ArgumentAstTests
 {
+  [Fact]
+  public void HashCode()
+    => new ArgumentAst().GetHashCode().Should().Be(new ArgumentAst().GetHashCode());
+
   [Theory, RepeatData(Repeats)]
   public void String_WithVariable(string variable)
     => new ArgumentAst(variable)

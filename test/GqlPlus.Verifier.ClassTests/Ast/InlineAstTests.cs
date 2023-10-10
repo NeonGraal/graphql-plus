@@ -2,6 +2,10 @@
 
 public class InlineAstTests
 {
+  [Fact]
+  public void HashCode()
+    => new InlineAst().GetHashCode().Should().Be(new InlineAst().GetHashCode());
+
   [Theory, RepeatData(Repeats)]
   public void String(string field)
     => new InlineAst(field.Fields()).TestString($"I({{ F({field}) }})");

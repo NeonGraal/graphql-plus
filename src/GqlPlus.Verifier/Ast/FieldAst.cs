@@ -17,7 +17,7 @@ internal sealed record class FieldAst(string Name)
     && Modifiers.SequenceEqual(other.Modifiers)
     && Selections.SequenceEqual(other.Selections);
   public override int GetHashCode()
-    => HashCode.Combine((AstNamedDirectives)this, Alias, Argument, Modifiers, Selections);
+    => HashCode.Combine(base.GetHashCode(), Alias, Argument, Modifiers, Selections);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

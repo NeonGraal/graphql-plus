@@ -2,6 +2,10 @@
 
 public class ConstantAstTests
 {
+  [Fact]
+  public void HashCode()
+    => new ConstantAst().GetHashCode().Should().Be(new ConstantAst().GetHashCode());
+
   [Theory, RepeatData(Repeats)]
   public void String_WithLabel(string label)
     => new ConstantAst(new FieldKeyAst("", label))

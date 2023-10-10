@@ -2,6 +2,10 @@
 
 public class SpreadAstTests
 {
+  [Fact]
+  public void HashCode()
+    => new SpreadAst("").GetHashCode().Should().Be(new SpreadAst("").GetHashCode());
+
   [Theory, RepeatData(Repeats)]
   public void String(string name)
     => new SpreadAst(name).TestString($"S({name})");

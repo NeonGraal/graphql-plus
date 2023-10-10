@@ -2,6 +2,10 @@
 
 public class VariableAstTests
 {
+  [Fact]
+  public void HashCode()
+    => new VariableAst("").GetHashCode().Should().Be(new VariableAst("").GetHashCode());
+
   [Theory, RepeatData(Repeats)]
   public void String(string name)
     => new VariableAst(name).TestString("V(" + name + ")");

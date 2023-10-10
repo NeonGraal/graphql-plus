@@ -2,6 +2,10 @@
 
 public class FieldAstTests
 {
+  [Fact]
+  public void HashCode()
+    => new FieldAst("").GetHashCode().Should().Be(new FieldAst("").GetHashCode());
+
   [Theory, RepeatData(Repeats)]
   public void String(string name)
     => new FieldAst(name).TestString($"F({name})");

@@ -4,9 +4,9 @@ namespace GqlPlus.Verifier;
 
 internal ref struct OperationParser
 {
-  internal Tokenizer _tokens;
+  private Tokenizer _tokens;
 
-  private readonly List<ParseError> _errors = new();
+  internal readonly List<ParseError> _errors = new();
 
   public OperationParser(Tokenizer tokens)
     => _tokens = tokens;

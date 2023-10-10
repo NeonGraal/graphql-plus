@@ -62,5 +62,6 @@ public class ParseObjectTests
 
     result.Should().NotBeNull();
     result!.Length.Should().Be(0);
+    parser._errors.Should().NotBeEmpty();
   }
 }

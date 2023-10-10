@@ -83,5 +83,6 @@ public class ParseArgumentTests
     parser.ParseArgument(out ArgumentAst result).Should().BeFalse();
 
     result.Should().Be(new ArgumentAst());
+    parser._errors.Should().NotBeEmpty();
   }
 }

@@ -89,5 +89,6 @@ public class ParseConstantTests
     parser.ParseConstant(out ConstantAst result).Should().BeFalse();
 
     result.Should().Be(new ConstantAst());
+    parser._errors.Should().NotBeEmpty();
   }
 }

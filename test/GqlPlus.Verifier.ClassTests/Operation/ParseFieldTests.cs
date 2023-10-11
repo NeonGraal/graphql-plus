@@ -52,6 +52,13 @@ public class ParseFieldTests
         Selections = selection.Fields(),
       });
 
+  [Theory, RepeatData(Repeats)]
+  public void WithJustAlias_ReturnsFalse(string alias)
+    => Test.False(alias + ":", DefaultCheck);
+
+  private void DefaultCheck(AstSelection result)
+    => result.Should().BeOfType<AstNulls.NullSelectionAst>();
+
   private static BaseOneChecks<AstSelection> Test => new((ref OperationParser parser, out AstSelection result)
     => parser.ParseField(out result));
 }

@@ -5,7 +5,7 @@
 ## Operation
 
 ```PEG
-Operation = ( category name? )? Variables? Directive* Result Fragment*
+Operation = ( category name? )? Variables? Directive* Fragment* Result Frag_End*
 ```
 
 If not specified, an Operation's category is "query". This is for GraphQL compatibility.
@@ -150,22 +150,22 @@ A Field may have none, one, more or even all of the following, in this order:
 ## Fragment
 
 ```PEG
-Fragment = ( 'fragment' | '&' ) fragment TypeCondition Directive* Object
+Fragment = '&'fragment Frag_Body
+Frag_End = ( 'fragment' fragment | '&'fragment ) Frag_Body
+Frag_Body = TypeCondition Directive* Object
 ```
 
 ## Argument
 
 ```PEG
-Argument = '(' Arg_Item ')'
-Arg_Item = Arg_Field ';' Arg_Fields | Arg_Keyed+ | Arg_Value ',' Arg_Values | Arg_Value+
+Argument = '(' Arg_Fields+ | Arg_Values+ ')'
 Arg_Value = '$'variable | Arg_List | Arg_Object | Constant
-Arg_List = '[' Arg_Values ']' | '[' Arg_Value* ']'
+Arg_List = '[' Arg_Values* ']'
 Arg_Values = Arg_Value ',' Arg_Values | Arg_Value
 
-Arg_Object = '{' Arg_Fields '}' | '{' Arg_Keyed* '}'
-Arg_Keyed = FieldKey ':' ArgValue
+Arg_Object = '{' Arg_Fields* '}'
 Arg_Fields = Arg_Field ';' Arg_Fields | Arg_Field
-Arg_Field = FieldKey ':' ArgValues
+Arg_Field = FieldKey ':' Arg_Value
 
 FieldKey = ( enum '.' )? field | NUMBER | STRING
 ```
@@ -179,13 +179,12 @@ Commas (`,`) can be used to separate list values and semi-colons (`;`) can be us
 ```PEG
 Constant = Const_List | Const_Object | Const_Value
 Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | ( enum '.' )? label
-Const_List = '[' Cons_Values ']' | '[' Constant* ']'
+Const_List = '[' Cons_Values* ']'
 Const_Values = Constant ',' Const_Values | Constant
 
-Const_Object = '{' Const_Fields '}' | '{' Const_Keyed* '}'
-Const_Keyed = FieldKey ':' Const_Value
+Const_Object = '{' Const_Fields* '}'
 Const_Fields = Const_Field ';' Const_Fields | Const_Field
-Const_Field = FieldKey ':' Const_Values
+Const_Field = FieldKey ':' Const_Value
 ```
 
 A Constant is a single value. Commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields.
@@ -193,7 +192,7 @@ A Constant is a single value. Commas (`,`) can be used to separate list values a
 ## Complete Grammar
 
 ```PEG
-Operation = ( category name? )? Variables? Directive* Result Fragment*
+Operation = ( category name? )? Variables? Directive* Fragment* Result Frag_End*
 
 Variables = '(' Variable+ ')'
 Variable = '$'variable ( ':' Var_Type )? Modifier? ( '=' Constant )? Directive*
@@ -217,29 +216,28 @@ Inline = TypeCondition? Directive* Object
 Spread = fragment Directive*
 TypeCondition = ( 'on' | ':' ) type
 
-Fragment = ( 'fragment' | '&' ) fragment TypeCondition Directive* Object
+Fragment = '&'fragment Frag_Body
+Frag_End = ( 'fragment' fragment | '&'fragment ) Frag_Body
+Frag_Body = TypeCondition Directive* Object
 
-Argument = '(' Arg_Item ')'
-Arg_Item = Arg_Field ';' Arg_Fields | Arg_Keyed+ | Arg_Value ',' Arg_Values | Arg_Value+
+Argument = '(' Arg_Fields+ | Arg_Values+ ')'
 Arg_Value = '$'variable | Arg_List | Arg_Object | Constant
-Arg_List = '[' Arg_Values ']' | '[' Arg_Value* ']'
+Arg_List = '[' Arg_Values* ']'
 Arg_Values = Arg_Value ',' Arg_Values | Arg_Value
 
-Arg_Object = '{' Arg_Fields '}' | '{' Arg_Keyed* '}'
-Arg_Keyed = FieldKey ':' ArgValue
+Arg_Object = '{' Arg_Fields* '}'
 Arg_Fields = Arg_Field ';' Arg_Fields | Arg_Field
-Arg_Field = FieldKey ':' ArgValues
+Arg_Field = FieldKey ':' Arg_Value
 
 FieldKey = ( enum '.' )? field | NUMBER | STRING
 
 Constant = Const_List | Const_Object | Const_Value
 Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | ( enum '.' )? label
-Const_List = '[' Cons_Values ']' | '[' Constant* ']'
+Const_List = '[' Cons_Values* ']'
 Const_Values = Constant ',' Const_Values | Constant
 
-Const_Object = '{' Const_Fields '}' | '{' Const_Keyed* '}'
-Const_Keyed = FieldKey ':' Const_Value
+Const_Object = '{' Const_Fields* '}'
 Const_Fields = Const_Field ';' Const_Fields | Const_Field
-Const_Field = FieldKey ':' Const_Values
+Const_Field = FieldKey ':' Const_Value
 
 ```

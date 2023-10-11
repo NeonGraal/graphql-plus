@@ -6,32 +6,32 @@ public class ParseVariablesTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string variable)
-    => ParseVariablesTrueExpected($"(${variable})",
+    => Test.TrueExpected($"(${variable})",
       new VariableAst(variable));
 
   [Theory, RepeatData(Repeats)]
   public void WithType_ReturnsCorrectAst(string variable, string varType)
-    => ParseVariablesTrueExpected($"(${variable}:{varType})",
+    => Test.TrueExpected($"(${variable}:{varType})",
       new VariableAst(variable) { Type = varType });
 
   [Theory, RepeatData(Repeats)]
   public void WithModifiers_ReturnsCorrectAst(string variable)
-    => ParseVariablesTrueExpected($"(${variable}[]?)",
+    => Test.TrueExpected($"(${variable}[]?)",
     new VariableAst(variable) { Modifers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
   public void WithDefault_ReturnsCorrectAst(string variable, decimal number)
-    => ParseVariablesTrueExpected($"(${variable}={number})",
+    => Test.TrueExpected($"(${variable}={number})",
       new VariableAst(variable) { Default = new FieldKeyAst(number) });
 
   [Theory, RepeatData(Repeats)]
   public void WithDirective_ReturnsCorrectAst(string variable, string directive)
-    => ParseVariablesTrueExpected($"(${variable}@{directive})",
+    => Test.TrueExpected($"(${variable}@{directive})",
       new VariableAst(variable) { Directives = directive.Directives() });
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string variable, string varType, decimal number, string directive)
-    => ParseVariablesTrueExpected($"(${variable}:{varType}[]?={number}@{directive})",
+    => Test.TrueExpected($"(${variable}:{varType}[]?={number}@{directive})",
       new VariableAst(variable) {
         Type = varType,
         Modifers = TestMods(),
@@ -39,12 +39,14 @@ public class ParseVariablesTests
         Directives = directive.Directives()
       });
 
-  private void ParseVariablesTrueExpected(string input, params VariableAst[] expected)
-  {
-    var parser = new OperationParser(Tokens(input));
+  [Fact]
+  public void WithNoVariables_ReturnsFalse()
+    => Test.False("()");
 
-    parser.ParseVariables(out VariableAst[] result).Should().BeTrue();
+  [Fact]
+  public void WithNoEnd_ReturnsFalse()
+    => Test.False("(test");
 
-    result.Should().Equal(expected);
-  }
+  private static BaseManyChecks<VariableAst> Test => new((ref OperationParser parser, out VariableAst[] result)
+    => parser.ParseVariables(out result));
 }

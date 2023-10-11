@@ -6,89 +6,70 @@ public class ParseConstantTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithNumber_ReturnsCorrectAst(decimal number)
-    => ParseConstantTrueExpected(
+    => Test.TrueExpected(
       number.ToString(),
       new FieldKeyAst(number));
 
   [Theory, RepeatData(Repeats)]
   public void WithString_ReturnsCorrectAst(string contents)
-    => ParseConstantTrueExpected(
+    => Test.TrueExpected(
       contents.Quote(),
       new FieldKeyAst(contents));
 
   [Theory, RepeatData(Repeats)]
   public void WithLabel_ReturnsCorrectAst(string label)
-    => ParseConstantTrueExpected(
+    => Test.TrueExpected(
       label,
       new FieldKeyAst("", label));
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumLabel_ReturnsCorrectAst(string enumType, string label)
-    => ParseConstantTrueExpected(
+    => Test.TrueExpected(
       enumType + "." + label,
       new FieldKeyAst(enumType, label));
 
   [Theory, RepeatData(Repeats)]
   public void WithList_ReturnsCorrectAst(string label)
-    => ParseConstantTrueExpected(
+    => Test.TrueExpected(
       '[' + label + ' ' + label + ']',
       new ConstantAst(label.ConstantList()));
 
   [Theory, RepeatData(Repeats)]
   public void WithListComma_ReturnsCorrectAst(string label)
-    => ParseConstantTrueExpected(
+    => Test.TrueExpected(
       '[' + label + ',' + label + ']',
       new ConstantAst(label.ConstantList()));
 
   [Theory, RepeatData(Repeats)]
   public void WithListInvalid_ReturnsFalse(string label)
-    => ParseConstantFalse(
-      '[' + label + ':' + label + ']');
+    => Test.False(
+      '[' + label + ':' + label + ']',
+      CheckDefault);
 
   [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string label)
-    => ParseConstantTrueExpected(
+    => Test.TrueExpected(
       '{' + key + ':' + label + ' ' + label + ':' + key + '}',
       new ConstantAst(label.ConstantObject(key)),
       key == label);
 
   [Theory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string label)
-    => ParseConstantTrueExpected(
+    => Test.TrueExpected(
       '{' + key + ':' + label + ';' + label + ':' + key + '}',
       new ConstantAst(label.ConstantObject(key)),
       key == label);
 
   [Theory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string label)
-    => ParseConstantFalse(
+    => Test.False(
       '{' + key + ':' + label + ',' + label + ':' + key + '}',
+      CheckDefault,
       key == label);
 
-  private void ParseConstantTrueExpected(string input, ConstantAst expected, bool skipIf = false)
-  {
-    if (skipIf) {
-      return;
-    }
+  private void CheckDefault(ConstantAst result)
+    => result.Should().Be(new ConstantAst());
 
-    var parser = new OperationParser(Tokens(input));
-
-    parser.ParseConstant(out ConstantAst result).Should().BeTrue();
-
-    result.Should().Be(expected);
-  }
-
-  private void ParseConstantFalse(string input, bool skipIf = false)
-  {
-    if (skipIf) {
-      return;
-    }
-
-    var parser = new OperationParser(Tokens(input));
-
-    parser.ParseConstant(out ConstantAst result).Should().BeFalse();
-
-    result.Should().Be(new ConstantAst());
-    parser._errors.Should().NotBeEmpty();
-  }
+  private static BaseOneChecks<ConstantAst> Test => new((ref OperationParser parser, out ConstantAst result)
+    => parser.ParseConstant(out result));
 }

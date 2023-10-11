@@ -13,27 +13,18 @@ public class ParseModifiersTests
   [InlineData("[]?", 2)]
   [InlineData("[_?][]?", 3)]
   public void WithInput_ReturnsGivenNumber(string input, int count)
-  {
-    var parser = new OperationParser(Tokens(input));
-
-    ModifierAst[] result = parser.ParseModifiers();
-
-    result.Length.Should().Be(count);
-  }
+    => Test.Count(input, count);
 
   [Fact]
   public void WithFour_ReturnsSpecific()
-  {
-    var parser = new OperationParser(Tokens("[~][_?][]?"));
-    var expected = new ModifierAst[] {
+    => Test.Expected("[~][_?][]?",
+      new ModifierAst[] {
         new("~", false),
         new("_", true),
         ModifierAst.List,
         ModifierAst.Optional
-      };
+      });
 
-    ModifierAst[] result = parser.ParseModifiers();
-
-    result.Should().Equal(expected);
-  }
+  private static BaseArrayChecks<ModifierAst> Test => new((ref OperationParser parser)
+    => parser.ParseModifiers());
 }

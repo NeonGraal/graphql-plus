@@ -6,62 +6,34 @@ public class ParseObjectTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithJustField_ReturnsCorrectAst(string field)
-  {
-    var parser = new OperationParser(Tokens("{" + field + "}"));
-    var expected = new FieldAst(field);
-
-    parser.ParseObject(out AstSelection[] result).Should().BeTrue();
-
-    result.Should().Equal(expected);
-  }
+    => Test.TrueExpected("{" + field + "}",
+    new FieldAst(field));
 
   [Theory, RepeatData(Repeats)]
   public void WithJustInline_ReturnsCorrectAst(string inline)
-  {
-    var parser = new OperationParser(Tokens("{|{" + inline + "}}"));
-    var expected = new InlineAst(new FieldAst(inline));
-
-    parser.ParseObject(out AstSelection[] result).Should().BeTrue();
-
-    result.Should().Equal(expected);
-  }
+    => Test.TrueExpected("{|{" + inline + "}}",
+      new InlineAst(new FieldAst(inline)));
 
   [Theory, RepeatData(Repeats)]
   public void WithJustSpread_ReturnsCorrectAst(string spread)
-  {
-    var parser = new OperationParser(Tokens("{|" + spread + "}"));
-    var expected = new SpreadAst(spread);
-
-    parser.ParseObject(out AstSelection[] result).Should().BeTrue();
-
-    result.Should().Equal(expected);
-  }
+    => Test.TrueExpected("{|" + spread + "}",
+      new SpreadAst(spread));
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string field, string inline, string spread)
-  {
-    var parser = new OperationParser(Tokens("{" + field + "|{" + inline + "}|" + spread + "}"));
-    var expected = new AstSelection[] {
-      new FieldAst(field),
-      new InlineAst(new FieldAst(inline)),
-      new SpreadAst(spread),
-  };
-
-    parser.ParseObject(out AstSelection[] result).Should().BeTrue();
-
-    result.Should().Equal(expected);
-  }
+    => Test.TrueExpected("{" + field + "|{" + inline + "}|" + spread + "}",
+          new FieldAst(field),
+          new InlineAst(new FieldAst(inline)),
+          new SpreadAst(spread));
 
   [Fact]
   public void WithNoFields_ReturnsFalse()
-  {
-    var tokens = Tokens("{}");
-    var parser = new OperationParser(tokens);
+    => Test.False("{}");
 
-    parser.ParseObject(out AstSelection[] result).Should().BeFalse();
+  [Fact]
+  public void WithNotField_ReturnsFalse()
+    => Test.False("{9");
 
-    result.Should().NotBeNull();
-    result!.Length.Should().Be(0);
-    parser._errors.Should().NotBeEmpty();
-  }
+  private static BaseManyChecks<AstSelection> Test => new((ref OperationParser parser, out AstSelection[] result)
+    => parser.ParseObject(out result));
 }

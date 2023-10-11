@@ -187,6 +187,8 @@ internal ref struct OperationParser
         };
         return true;
       }
+
+      return Error("Invalid Inline. Expected Object.");
     }
 
     return false;
@@ -301,7 +303,7 @@ internal ref struct OperationParser
     return false;
   }
 
-  internal bool ParseArgValues(ArgumentAst initial, out ArgumentAst argument)
+  private bool ParseArgValues(ArgumentAst initial, out ArgumentAst argument)
   {
     argument = new ArgumentAst();
 
@@ -321,7 +323,7 @@ internal ref struct OperationParser
     return true;
   }
 
-  internal bool ParseArgFieldValues(char end, ArgumentAst.ObjectAst fields)
+  private bool ParseArgFieldValues(char end, ArgumentAst.ObjectAst fields)
   {
     var result = new ArgumentAst.ObjectAst(fields);
     fields.Clear();
@@ -346,7 +348,7 @@ internal ref struct OperationParser
     return true;
   }
 
-  internal bool ParseArgList(out ArgumentAst[] list)
+  private bool ParseArgList(out ArgumentAst[] list)
   {
     list = Array.Empty<ArgumentAst>();
 
@@ -369,7 +371,7 @@ internal ref struct OperationParser
     return true;
   }
 
-  internal bool ParseArgObject(out ArgumentAst.ObjectAst fields)
+  private bool ParseArgObject(out ArgumentAst.ObjectAst fields)
   {
     fields = new ArgumentAst.ObjectAst();
 
@@ -433,7 +435,7 @@ internal ref struct OperationParser
     }
   }
 
-  internal bool ParseConstList(out ConstantAst[] list)
+  private bool ParseConstList(out ConstantAst[] list)
   {
     list = Array.Empty<ConstantAst>();
 
@@ -456,7 +458,7 @@ internal ref struct OperationParser
     return true;
   }
 
-  internal bool ParseConstObject(out ConstantAst.ObjectAst fields)
+  private bool ParseConstObject(out ConstantAst.ObjectAst fields)
   {
     fields = new ConstantAst.ObjectAst();
     if (!_tokens.Take('{')) {

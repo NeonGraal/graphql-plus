@@ -6,7 +6,7 @@ public class ParseFieldKeyTests
 {
   [Theory, RepeatData(Repeats)]
   public void ParseFieldKey_WithNumber_ReturnsCorrectAst(decimal number)
-  => ParseFieldKeyTrueExpected(
+  => Test.TrueExpected(
       number.ToString(),
       new FieldKeyAst(number));
 
@@ -14,35 +14,29 @@ public class ParseFieldKeyTests
   public void ParseFieldKey_WithSpecific_ReturnsCorrectAst()
   {
     var contents = "?&ZbND|2\\";
-    ParseFieldKeyTrueExpected(
+    Test.TrueExpected(
       contents.Quote(),
       new FieldKeyAst(contents));
   }
 
   [Theory, RepeatData(Repeats)]
   public void ParseFieldKey_WithString_ReturnsCorrectAst(string contents)
-  => ParseFieldKeyTrueExpected(
+  => Test.TrueExpected(
       contents.Quote(),
       new FieldKeyAst(contents));
 
   [Theory, RepeatData(Repeats)]
   public void ParseFieldKey_WithLabel_ReturnsCorrectAst(string label)
-  => ParseFieldKeyTrueExpected(
+  => Test.TrueExpected(
       label,
       new FieldKeyAst("", label));
 
   [Theory, RepeatData(Repeats)]
   public void ParseFieldKey_WithTypeAndLabel_ReturnsCorrectAst(string theType, string label)
-    => ParseFieldKeyTrueExpected(
+    => Test.TrueExpected(
       theType + "." + label,
       new FieldKeyAst(theType, label));
 
-  private void ParseFieldKeyTrueExpected(string input, FieldKeyAst expected)
-  {
-    var parser = new OperationParser(Tokens(input));
-
-    parser.ParseFieldKey(out FieldKeyAst result).Should().BeTrue();
-
-    result.Should().Be(expected);
-  }
+  private static BaseOneChecks<FieldKeyAst> Test => new((ref OperationParser parser, out FieldKeyAst result)
+    => parser.ParseFieldKey(out result));
 }

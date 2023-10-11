@@ -28,8 +28,15 @@ public class ParserTests
   [Theory]
   [InlineData("")]
   [InlineData(":")]
+  [InlineData("query")]
+  [InlineData("query Test")]
   [InlineData("{")]
   [InlineData("{field")]
+  [InlineData("(")]
+  [InlineData("($")]
+  [InlineData("($test")]
+  [InlineData("($test)")]
+  [InlineData(")")]
   public void Parse_ShouldFail(string input)
   {
     var tokens = new Tokenizer(input);

@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using static GqlPlus.Verifier.Ast.AstNulls;
 
 namespace GqlPlus.Verifier.Operation;
 
@@ -6,7 +7,7 @@ public class ParseSelectionTests
 {
   [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
   public void WithInline_ReturnsCorrectAst(string prefix, string field)
-    => ParseSelectionTrueExpected(
+    => Test.TrueExpected(
       prefix + " {" + field + "}",
       new InlineAst(field.Fields()));
 
@@ -16,19 +17,19 @@ public class ParseSelectionTests
   [RepeatInlineData(Repeats, "...", ":")]
   [RepeatInlineData(Repeats, "|", ":")]
   public void WithInlineType_ReturnsCorrectAst(string inlinePrefix, string typePrefix, string field, string inlineType)
-    => ParseSelectionTrueExpected(
+    => Test.TrueExpected(
       inlinePrefix + typePrefix + inlineType + "{" + field + "}",
       new InlineAst(field.Fields()) { OnType = inlineType });
 
   [Theory, RepeatData(Repeats)]
   public void WithInlineDirective_ReturnsCorrectAst(string directive, string field)
-    => ParseSelectionTrueExpected(
+    => Test.TrueExpected(
       "|@" + directive + "{" + field + "}",
       new InlineAst(field.Fields()) { Directives = directive.Directives() });
 
   [Theory, RepeatData(Repeats)]
   public void WithInlineAll_ReturnsCorrectAst(string inlineType, string directive, string field)
-    => ParseSelectionTrueExpected(
+    => Test.TrueExpected(
       $"|:{inlineType}@" + directive + "{" + field + "}",
       new InlineAst(field.Fields()) {
         OnType = inlineType,
@@ -37,22 +38,27 @@ public class ParseSelectionTests
 
   [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
   public void WithSpread_ReturnsCorrectAst(string prefix, string fragment)
-    => ParseSelectionTrueExpected(
+    => Test.TrueExpected(
       prefix + fragment,
       new SpreadAst(fragment));
 
   [Theory, RepeatData(Repeats)]
   public void WithSpreadDirective_ReturnsCorrectAst(string fragment, string directive)
-    => ParseSelectionTrueExpected(
+    => Test.TrueExpected(
       $"|{fragment}@{directive}",
       new SpreadAst(fragment) { Directives = directive.Directives() });
 
-  private void ParseSelectionTrueExpected<T>(string input, T expected)
-  {
-    var parser = new OperationParser(Tokens(input));
+  [Fact]
+  public void WithInvalidSelection_ReturnsFalse()
+    => Test.False("|?", CheckDefault);
 
-    parser.ParseSelection(out AstSelection result).Should().BeTrue();
+  [Fact]
+  public void WithInvalidSpread_ReturnsFalse()
+    => Test.False("|:?", CheckDefault);
 
-    result.Should().BeOfType<T>().Equals(expected);
-  }
+  private void CheckDefault(AstSelection result)
+    => result.Should().BeOfType<NullSelectionAst>();
+
+  private static BaseOneChecks<AstSelection> Test => new((ref OperationParser parser, out AstSelection result)
+    => parser.ParseSelection(out result));
 }

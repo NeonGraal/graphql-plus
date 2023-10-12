@@ -52,7 +52,21 @@ public class ParseArgumentTests
     => Test.TrueExpected(
       '(' + key + ":$" + label + ';' + label + ':' + key + ')',
       new ArgumentAst(label.ArgumentObject(key)),
-        key == label);
+      key == label);
+
+  [Theory, RepeatData(Repeats)]
+  public void WithObjectSemiLabel_ReturnsFalse(string key, string label)
+    => Test.False(
+      '(' + key + ":$" + label + ';' + label + ')',
+      CheckDefault,
+      key == label);
+
+  [Theory, RepeatData(Repeats)]
+  public void WithObjectFieldBad_ReturnsFalse(string key, string label)
+    => Test.False(
+      '(' + key + ":)",
+      CheckDefault,
+      key == label);
 
   [Theory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string label)

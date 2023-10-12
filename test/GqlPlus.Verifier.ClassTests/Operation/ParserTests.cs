@@ -9,14 +9,15 @@ public class ParserTests
   [InlineData("query:Boolean?")]
   [InlineData("query Test{success}")]
   [InlineData("($name){person($name){name}}")]
+  [InlineData("&person:Person{name}{...person}")]
   [InlineData("{...person}fragment person on Person{name}")]
+  [InlineData("{...person}&person on Person{name}")]
   [InlineData("($test)@test($test):Boolean")]
   [InlineData("($test):Boolean($test)")]
   [InlineData("{test}[]")]
   public void Parse_ShouldSucceed(string input)
   {
-    var tokens = new Tokenizer(input);
-    var parser = new OperationParser(tokens);
+    var parser = new OperationParser(new Tokenizer(input));
 
     OperationAst? ast = parser.Parse();
 
@@ -39,8 +40,7 @@ public class ParserTests
   [InlineData(")")]
   public void Parse_ShouldFail(string input)
   {
-    var tokens = new Tokenizer(input);
-    var parser = new OperationParser(tokens);
+    var parser = new OperationParser(new Tokenizer(input));
 
     OperationAst? ast = parser.Parse();
 

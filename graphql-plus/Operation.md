@@ -150,9 +150,9 @@ A Field may have none, one, more or even all of the following, in this order:
 ## Fragment
 
 ```PEG
-Fragment = '&'fragment Frag_Body
-Frag_End = ( 'fragment' fragment | '&'fragment ) Frag_Body
-Frag_Body = TypeCondition Directive* Object
+Fragment = '&' fragment ':' type Frag_Body
+Frag_End = ( 'fragment' | '&' ) fragment TypeCondition Frag_Body
+Frag_Body = Directive* Object
 ```
 
 ## Argument
@@ -216,9 +216,9 @@ Inline = TypeCondition? Directive* Object
 Spread = fragment Directive*
 TypeCondition = ( 'on' | ':' ) type
 
-Fragment = '&'fragment Frag_Body
-Frag_End = ( 'fragment' fragment | '&'fragment ) Frag_Body
-Frag_Body = TypeCondition Directive* Object
+Fragment = '&' fragment ':' type Frag_Body
+Frag_End = ( 'fragment' | '&' ) fragment TypeCondition Frag_Body
+Frag_Body = Directive* Object
 
 Argument = '(' Arg_Fields+ | Arg_Values+ ')'
 Arg_Value = '$'variable | Arg_List | Arg_Object | Constant

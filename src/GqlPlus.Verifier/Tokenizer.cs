@@ -254,12 +254,17 @@ internal ref struct Tokenizer
 
   internal bool Prefix(char one, out string identifier)
   {
-    if (_kind == TokenKind.Punctuation && _operation[_pos] == one) {
+    if (_kind == TokenKind.Punctuation
+      && _operation[_pos] == one
+    ) {
       var next = _pos + 1;
 
       if (next < _len) {
         var code = _operation[next] - ' ';
-        if (code > 0 && code < 95 && _kinds[code] == TokenKind.Identifer) {
+        if (code > 0
+          && code < 95
+          && _kinds[code] == TokenKind.Identifer
+        ) {
           _pos += 1;
           _kind = TokenKind.Identifer;
           return Identifier(out identifier);

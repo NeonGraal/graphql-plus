@@ -34,6 +34,7 @@ internal ref struct OperationParser
     }
 
     ast.Directives = ParseDirectives();
+    ast.Fragments = ParseFragStart();
 
     if (_tokens.Prefix(':', out var result)) {
       ast.ResultType = result;
@@ -48,7 +49,7 @@ internal ref struct OperationParser
     }
 
     ast.Modifiers = ParseModifiers();
-    ast.Fragments = ParseFragments();
+    ast.Fragments = ParseFragEnd(ast.Fragments);
 
     if (_tokens.AtEnd) {
       ast.Result = ParseResult.Success;
@@ -71,12 +72,16 @@ internal ref struct OperationParser
     while (_tokens.Prefix('$', out var name)) {
       var variable = new VariableAst(name);
 
-      if (_tokens.Take(':') && _tokens.Identifier(out var varType)) {
+      if (_tokens.Take(':')
+        && _tokens.Identifier(out var varType)
+      ) {
         variable.Type = varType;
       }
 
       variable.Modifers = ParseModifiers();
-      if (_tokens.Take('=') && ParseConstant(out var constant)) {
+      if (_tokens.Take('=')
+        && ParseConstant(out var constant)
+      ) {
         variable.Default = constant;
       }
 
@@ -227,14 +232,33 @@ internal ref struct OperationParser
     return true;
   }
 
-  internal FragmentAst[] ParseFragments()
-  {
-    var definitions = new List<FragmentAst>();
+  internal FragmentAst[] ParseFragStart()
+    => ParseFragment(
+        Array.Empty<FragmentAst>(),
+        (ref Tokenizer tokens) => tokens.Take('&'),
+        (ref Tokenizer tokens) => tokens.Take(':')
+      );
 
-    while (_tokens.Take("fragment") || _tokens.Take('&')) {
-      if (_tokens.Identifier(out var name) &&
-        (_tokens.Take("on") || _tokens.Take(':')) &&
-        _tokens.Identifier(out var onType)
+  internal FragmentAst[] ParseFragEnd(FragmentAst[] initial)
+    => ParseFragment(
+        initial,
+        (ref Tokenizer tokens) => tokens.Take("fragment") || tokens.Take('&'),
+        (ref Tokenizer tokens) => tokens.Take("on") || tokens.Take(':')
+      );
+
+  private delegate bool Prefix(ref Tokenizer tokens);
+
+  private FragmentAst[] ParseFragment(
+    FragmentAst[] initial,
+    Prefix fragPrefix,
+    Prefix typePrefix)
+  {
+    var definitions = new List<FragmentAst>(initial);
+
+    while (fragPrefix(ref _tokens)) {
+      if (_tokens.Identifier(out var name)
+        && typePrefix(ref _tokens)
+        && _tokens.Identifier(out var onType)
       ) {
         DirectiveAst[] directives = ParseDirectives();
         if (ParseObject(out AstSelection[] selections)) {
@@ -262,11 +286,16 @@ internal ref struct OperationParser
       ArgumentAst value = new();
       if (ParseFieldKey(out var key)) {
         value = key;
-        return _tokens.Take(':')
-          ? ParseArgValue(out var item)
-            && ParseArgValues(item, out var items)
-            && ParseArgumentMid(new() { [key] = items }, out argument)
-          : ParseArgumentEnd(value, out argument);
+        if (_tokens.Take(':')) {
+          if (ParseArgValue(out var item)) {
+            var items = ParseArgValues(item);
+            return ParseArgumentMid(new() { [key] = items }, out argument);
+          }
+
+          return Error("Invalid Argument. Value not found after Field key separator.");
+        } else {
+          return ParseArgumentEnd(value, out argument);
+        }
       }
 
       return ParseArgValue(out value)
@@ -285,14 +314,21 @@ internal ref struct OperationParser
       return true;
     }
 
-    if (ParseArgList(out ArgumentAst[] list)) {
-      argument = new ArgumentAst(list);
-      return true;
-    }
+    var oldSeparators = _tokens.IgnoreSeparators;
+    try {
+      _tokens.IgnoreSeparators = false;
 
-    if (ParseArgObject(out AstValues<ArgumentAst>.ObjectAst fields)) {
-      argument = new ArgumentAst(fields);
-      return true;
+      if (ParseArgList(out ArgumentAst[] list)) {
+        argument = new ArgumentAst(list);
+        return true;
+      }
+
+      if (ParseArgObject(out AstValues<ArgumentAst>.ObjectAst fields)) {
+        argument = new ArgumentAst(fields);
+        return true;
+      }
+    } finally {
+      _tokens.IgnoreSeparators = oldSeparators;
     }
 
     if (ParseConstant(out ConstantAst constant)) {
@@ -303,24 +339,18 @@ internal ref struct OperationParser
     return false;
   }
 
-  private bool ParseArgValues(ArgumentAst initial, out ArgumentAst argument)
+  private ArgumentAst ParseArgValues(ArgumentAst initial)
   {
-    argument = new ArgumentAst();
-
     var values = new List<ArgumentAst> { initial };
     while (_tokens.Take(',')) {
-      if (!ParseArgValue(out ArgumentAst value)) {
-        return Error("Invalid Argument. Possibly missing ',', ')', ']' or '}' in Values.");
+      if (ParseArgValue(out ArgumentAst value)) {
+        values.Add(value);
       }
-
-      values.Add(value);
     }
 
-    argument = values.Count > 1
+    return values.Count > 1
       ? new(values.ToArray())
       : initial;
-
-    return true;
   }
 
   private bool ParseArgFieldValues(char end, ArgumentAst.ObjectAst fields)
@@ -394,7 +424,9 @@ internal ref struct OperationParser
     }
 
     if (_tokens.Identifier(out var identifier)) {
-      if (_tokens.Take('.') && _tokens.Identifier(out var label)) {
+      if (_tokens.Take('.')
+        && _tokens.Identifier(out var label)
+      ) {
         constant = new FieldKeyAst(identifier, label);
         return true;
       }
@@ -500,11 +532,7 @@ internal ref struct OperationParser
         && _tokens.Take(":")
         && ParseArgValue(out var item1)
       ) {
-        if (!ParseArgValues(item1, out var items1)) {
-          return false;
-        }
-
-        fields.Add(key1, items1);
+        fields.Add(key1, ParseArgValues(item1));
       } else {
         return Error("Invalid Argument. Possibly missing ')' after Fields.");
       }
@@ -516,7 +544,8 @@ internal ref struct OperationParser
 
   private bool ParseArgumentEnd(ArgumentAst value, out ArgumentAst argument)
   {
-    if (ParseArgValues(value, out var more) && more.Values.Length > 1) {
+    var more = ParseArgValues(value);
+    if (more.Values.Length > 1) {
       argument = more;
       return true;
     }

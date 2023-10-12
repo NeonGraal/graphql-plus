@@ -35,6 +35,12 @@ public class ParseArgValueTests
       CheckDefault);
 
   [Theory, RepeatData(Repeats)]
+  public void WithListDoubleComma_ReturnsFalse(string label)
+    => Test.False(
+      '[' + label + ",," + label + ']',
+      CheckDefault);
+
+  [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string label)
     => Test.TrueExpected(
       '{' + key + ":$" + label + ' ' + label + ':' + key + '}',

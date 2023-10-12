@@ -19,7 +19,9 @@ internal sealed class TestsCustomizations : CompositeCustomization
     {
       var pi = request as ParameterInfo;
 
-      if (pi is not null && !pi.GetCustomAttributes<RegularExpressionAttribute>().Any()) {
+      if (pi is not null
+        && !pi.GetCustomAttributes<RegularExpressionAttribute>().Any()
+      ) {
         if (pi.ParameterType == typeof(string)) {
           return pi.Name == "contents"
             ? context.Resolve(new RegularExpressionRequest(".{9,999}"))

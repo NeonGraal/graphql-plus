@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.ClassTests;
+﻿namespace GqlPlus.Verifier;
 
 public class TokenizerTests
 {

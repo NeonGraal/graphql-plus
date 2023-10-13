@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 
-namespace GqlPlus.Verifier.Operation;
+namespace GqlPlus.Verifier.Operation.Parsing;
 
 public class ParserTests
 {

@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using static GqlPlus.Verifier.Ast.AstNulls;
 
-namespace GqlPlus.Verifier.Operation;
+namespace GqlPlus.Verifier.Operation.Parsing;
 
 public class ParseSelectionTests
 {

@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal abstract record class AstBase
+internal abstract record class AstBase : IEquatable<AstBase>
 {
   protected abstract string Abbr { get; }
 
@@ -19,5 +19,14 @@ internal abstract record class AstBase
 
   internal ParseError Error(string message)
     => new(At, message);
+  // override object.Equals
+  public virtual bool Equals(AstBase? other) =>
+    //var before = base.Equals(other);
+    true;
+
+  // override object.GetHashCode
+  public override int GetHashCode() =>
+    //return base.GetHashCode();
+    0;
 }
 

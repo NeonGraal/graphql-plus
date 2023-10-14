@@ -9,7 +9,7 @@ public class ParseSelectionTests
   public void WithInline_ReturnsCorrectAst(string prefix, string field)
     => Test.TrueExpected(
       prefix + " {" + field + "}",
-      new InlineAst(field.Fields()));
+      new InlineAst(AstNulls.At, field.Fields()));
 
   [Theory]
   [RepeatInlineData(Repeats, "...", " on ")]
@@ -19,19 +19,19 @@ public class ParseSelectionTests
   public void WithInlineType_ReturnsCorrectAst(string inlinePrefix, string typePrefix, string field, string inlineType)
     => Test.TrueExpected(
       inlinePrefix + typePrefix + inlineType + "{" + field + "}",
-      new InlineAst(field.Fields()) { OnType = inlineType });
+      new InlineAst(AstNulls.At, field.Fields()) { OnType = inlineType });
 
   [Theory, RepeatData(Repeats)]
   public void WithInlineDirective_ReturnsCorrectAst(string directive, string field)
     => Test.TrueExpected(
       "|@" + directive + "{" + field + "}",
-      new InlineAst(field.Fields()) { Directives = directive.Directives() });
+      new InlineAst(AstNulls.At, field.Fields()) { Directives = directive.Directives() });
 
   [Theory, RepeatData(Repeats)]
   public void WithInlineAll_ReturnsCorrectAst(string inlineType, string directive, string field)
     => Test.TrueExpected(
       $"|:{inlineType}@" + directive + "{" + field + "}",
-      new InlineAst(field.Fields()) {
+      new InlineAst(AstNulls.At, field.Fields()) {
         OnType = inlineType,
         Directives = directive.Directives(),
       });
@@ -40,13 +40,13 @@ public class ParseSelectionTests
   public void WithSpread_ReturnsCorrectAst(string prefix, string fragment)
     => Test.TrueExpected(
       prefix + fragment,
-      new SpreadAst(fragment));
+      new SpreadAst(AstNulls.At, fragment));
 
   [Theory, RepeatData(Repeats)]
   public void WithSpreadDirective_ReturnsCorrectAst(string fragment, string directive)
     => Test.TrueExpected(
       $"|{fragment}@{directive}",
-      new SpreadAst(fragment) { Directives = directive.Directives() });
+      new SpreadAst(AstNulls.At, fragment) { Directives = directive.Directives() });
 
   [Fact]
   public void WithInvalidSelection_ReturnsFalse()

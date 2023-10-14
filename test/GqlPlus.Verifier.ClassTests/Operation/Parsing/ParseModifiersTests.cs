@@ -19,10 +19,10 @@ public class ParseModifiersTests
   public void WithFour_ReturnsSpecific()
     => Test.Expected("[~][_?][]?",
       new ModifierAst[] {
-        new("~", false),
-        new("_", true),
-        ModifierAst.List,
-        ModifierAst.Optional
+        new(AstNulls.At, "~", false),
+        new(AstNulls.At, "_", true),
+        ModifierAst.List(AstNulls.At),
+        ModifierAst.Optional(AstNulls.At),
       });
 
   private static BaseArrayChecks<ModifierAst> Test => new((ref OperationParser parser)

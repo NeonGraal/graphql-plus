@@ -6,15 +6,15 @@ public class ModifierAstTests
 
   public void String()
   {
-    ModifierAst.Optional.TestString("?");
-    ModifierAst.List.TestString("[]");
+    ModifierAst.Optional(AstNulls.At).TestString("?");
+    ModifierAst.List(AstNulls.At).TestString("[]");
   }
 
   [Theory, RepeatData(Repeats)]
   public void String_WithKey(string key, bool optional)
   {
     var optString = optional ? "?" : "";
-    new ModifierAst(key, optional).TestString($"[{key}{optString}]");
+    new ModifierAst(AstNulls.At, key, optional).TestString($"[{key}{optString}]");
   }
 
   [Fact]
@@ -29,8 +29,8 @@ public class ModifierAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithKey(string key, bool optional)
   {
-    var left = new ModifierAst(key, optional);
-    var right = new ModifierAst(key, optional);
+    var left = new ModifierAst(AstNulls.At, key, optional);
+    var right = new ModifierAst(AstNulls.At, key, optional);
 
     (left == right).Should().BeTrue();
 
@@ -40,8 +40,8 @@ public class ModifierAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithKey(string key, bool optional)
   {
-    var left = new ModifierAst(key, optional);
-    var right = ModifierAst.List;
+    var left = new ModifierAst(AstNulls.At, key, optional);
+    var right = ModifierAst.List(AstNulls.At);
 
     (left != right).Should().BeTrue();
   }
@@ -53,8 +53,8 @@ public class ModifierAstTests
       return;
     }
 
-    var left = new ModifierAst(key1, false);
-    var right = new ModifierAst(key2, false);
+    var left = new ModifierAst(AstNulls.At, key1, false);
+    var right = new ModifierAst(AstNulls.At, key2, false);
 
     (left != right).Should().BeTrue();
   }

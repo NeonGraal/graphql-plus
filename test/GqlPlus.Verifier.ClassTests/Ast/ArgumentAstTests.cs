@@ -4,26 +4,26 @@ public class ArgumentAstTests
 {
   [Fact]
   public void HashCode()
-    => new ArgumentAst().GetHashCode().Should().Be(new ArgumentAst().GetHashCode());
+    => new ArgumentAst(AstNulls.At).GetHashCode().Should().Be(new ArgumentAst(AstNulls.At).GetHashCode());
 
   [Theory, RepeatData(Repeats)]
   public void String_WithVariable(string variable)
-    => new ArgumentAst(variable)
+    => new ArgumentAst(AstNulls.At, variable)
     .TestString($"A(${variable})");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithConstant(string enumType, string label)
-    => new ArgumentAst(new FieldKeyAst(enumType, label))
+    => new ArgumentAst(new FieldKeyAst(AstNulls.At, enumType, label))
     .TestString($"A({enumType}.{label})");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithValues(string label)
-    => new ArgumentAst(label.ArgumentList())
+    => new ArgumentAst(AstNulls.At, label.ArgumentList())
     .TestString($"A([ A(${label}) A({label}) ])");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithFields(string key, string label)
-    => new ArgumentAst(label.ArgumentObject(key))
+    => new ArgumentAst(AstNulls.At, label.ArgumentObject(key))
     .TestString(
       $"A({{ K({key}):A(${label}) K({label}):A({key}) }})",
       key == label);
@@ -31,8 +31,8 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithVariable(string variable)
   {
-    var left = new ArgumentAst(variable);
-    var right = new ArgumentAst(variable);
+    var left = new ArgumentAst(AstNulls.At, variable);
+    var right = new ArgumentAst(AstNulls.At, variable);
 
     (left == right).Should().BeTrue();
 
@@ -42,8 +42,8 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithVariable(string variable)
   {
-    var left = new ArgumentAst(variable);
-    var right = new ArgumentAst(variable + "a");
+    var left = new ArgumentAst(AstNulls.At, variable);
+    var right = new ArgumentAst(AstNulls.At, variable + "a");
 
     (left != right).Should().BeTrue();
   }
@@ -51,8 +51,8 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithConstant(string enumType, string label)
   {
-    var left = new ArgumentAst(new FieldKeyAst(enumType, label));
-    var right = new ArgumentAst(new FieldKeyAst(enumType, label));
+    var left = new ArgumentAst(new FieldKeyAst(AstNulls.At, enumType, label));
+    var right = new ArgumentAst(new FieldKeyAst(AstNulls.At, enumType, label));
 
     (left == right).Should().BeTrue();
 
@@ -66,8 +66,8 @@ public class ArgumentAstTests
       return;
     }
 
-    var left = new ArgumentAst(new FieldKeyAst(enumType, label));
-    var right = new ArgumentAst(new FieldKeyAst(label, enumType));
+    var left = new ArgumentAst(new FieldKeyAst(AstNulls.At, enumType, label));
+    var right = new ArgumentAst(new FieldKeyAst(AstNulls.At, label, enumType));
 
     (left != right).Should().BeTrue();
   }
@@ -75,8 +75,8 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithValues(string label)
   {
-    var left = new ArgumentAst(label.ArgumentList());
-    var right = new ArgumentAst(label.ArgumentList());
+    var left = new ArgumentAst(AstNulls.At, label.ArgumentList());
+    var right = new ArgumentAst(AstNulls.At, label.ArgumentList());
 
     (left == right).Should().BeTrue();
 
@@ -86,8 +86,8 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithValues(string label)
   {
-    var left = new ArgumentAst(label.ArgumentList());
-    var right = new ArgumentAst(label);
+    var left = new ArgumentAst(AstNulls.At, label.ArgumentList());
+    var right = new ArgumentAst(AstNulls.At, label);
 
     (left != right).Should().BeTrue();
   }
@@ -95,8 +95,8 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithFields(string key, string label)
   {
-    var left = new ArgumentAst(label.ArgumentObject(key));
-    var right = new ArgumentAst(label.ArgumentObject(key));
+    var left = new ArgumentAst(AstNulls.At, label.ArgumentObject(key));
+    var right = new ArgumentAst(AstNulls.At, label.ArgumentObject(key));
 
     (left == right).Should().BeTrue();
 
@@ -106,8 +106,8 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithFields(string key, string label)
   {
-    var left = new ArgumentAst(label.ArgumentObject(key));
-    var right = new ArgumentAst(label);
+    var left = new ArgumentAst(AstNulls.At, label.ArgumentObject(key));
+    var right = new ArgumentAst(AstNulls.At, label);
 
     (left != right).Should().BeTrue();
   }

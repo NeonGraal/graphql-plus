@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier;
 
-internal enum TokenKind
+public enum TokenKind
 {
   Start,
   Identifer,

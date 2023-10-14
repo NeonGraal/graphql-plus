@@ -12,12 +12,16 @@ internal record class FieldKeyAst : AstBase, IComparable<FieldKeyAst>
 
   protected override string Abbr => "K";
 
-  internal FieldKeyAst() { }
-  internal FieldKeyAst(decimal number)
+  internal FieldKeyAst(ParseAt at)
+    : base(at) { }
+  internal FieldKeyAst(ParseAt at, decimal number)
+    : base(at)
     => Number = number;
-  internal FieldKeyAst(string content)
+  internal FieldKeyAst(ParseAt at, string content)
+    : base(at)
     => String = content;
-  internal FieldKeyAst(string theType, string label)
+  internal FieldKeyAst(ParseAt at, string theType, string label)
+    : base(at)
     => (Type, Label) = (theType, label);
 
   public int CompareTo(FieldKeyAst? other)

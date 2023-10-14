@@ -10,18 +10,21 @@ internal static class OperationTestsHelpers
   internal const string PunctuationPattern = @"[!#-&(-*.:<-@[-^`{-~]";
 
   public static DirectiveAst[] Directives(this string directive)
-    => new DirectiveAst[] { new(directive) };
+    => new DirectiveAst[] { new(AstNulls.At, directive) };
 
   public static AstSelection[] Fields(this string field)
-    => new FieldAst[] { new(field) };
+    => new FieldAst[] { new(AstNulls.At, field) };
 
   public static ConstantAst[] ConstantList(this string label)
-    => new ConstantAst[] { new FieldKeyAst("", label), new FieldKeyAst("", label) };
+    => new ConstantAst[] {
+      new FieldKeyAst(AstNulls.At, "", label),
+      new FieldKeyAst(AstNulls.At, "", label)
+    };
 
   public static ConstantAst.ObjectAst ConstantObject(this string label, string key)
   {
-    var keyAst = new FieldKeyAst("", key);
-    var labelAst = new FieldKeyAst("", label);
+    var keyAst = new FieldKeyAst(AstNulls.At, "", key);
+    var labelAst = new FieldKeyAst(AstNulls.At, "", label);
 
     return key == label
       ? new ConstantAst.ObjectAst { [keyAst] = labelAst }
@@ -29,16 +32,16 @@ internal static class OperationTestsHelpers
   }
 
   public static ArgumentAst[] ArgumentList(this string label)
-    => new ArgumentAst[] { new(label), new FieldKeyAst("", label) };
+    => new ArgumentAst[] { new(AstNulls.At, label), new FieldKeyAst(AstNulls.At, "", label) };
 
   public static ArgumentAst.ObjectAst ArgumentObject(this string label, string key)
   {
-    var keyAst = new FieldKeyAst("", key);
-    var labelAst = new FieldKeyAst("", label);
+    var keyAst = new FieldKeyAst(AstNulls.At, "", key);
+    var labelAst = new FieldKeyAst(AstNulls.At, "", label);
 
     return key == label
-      ? new ArgumentAst.ObjectAst { [keyAst] = new(label) }
-      : new ArgumentAst.ObjectAst { [keyAst] = new(label), [labelAst] = keyAst };
+      ? new ArgumentAst.ObjectAst { [keyAst] = new(AstNulls.At, label) }
+      : new ArgumentAst.ObjectAst { [keyAst] = new(AstNulls.At, label), [labelAst] = keyAst };
   }
 
   public static string Quote(this string contents)
@@ -59,7 +62,7 @@ internal static class OperationTestsHelpers
   }
 
   public static ModifierAst[] TestMods()
-    => new[] { ModifierAst.List, ModifierAst.Optional };
+    => new[] { ModifierAst.List(AstNulls.At), ModifierAst.Optional(AstNulls.At) };
 
   public static void TestString<T>(this T input, string expected)
     => $"{input}".Should().Be(expected);

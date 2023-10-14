@@ -4,18 +4,18 @@ public class DirectiveAstTests
 {
   [Theory, RepeatData(Repeats)]
   public void String(string name)
-    => new DirectiveAst(name).TestString($"D({name})");
+    => new DirectiveAst(AstNulls.At, name).TestString($"D({name})");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithArgument(string variable, string name)
-    => new DirectiveAst(name) { Argument = new ArgumentAst(variable) }
+    => new DirectiveAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) }
     .TestString($"D({name} A(${variable}))");
 
   [Theory, RepeatData(Repeats)]
   public void Equality(string name)
   {
-    var left = new DirectiveAst(name);
-    var right = new DirectiveAst(name);
+    var left = new DirectiveAst(AstNulls.At, name);
+    var right = new DirectiveAst(AstNulls.At, name);
 
     (left == right).Should().BeTrue();
 
@@ -29,8 +29,8 @@ public class DirectiveAstTests
       return;
     }
 
-    var left = new DirectiveAst(name1);
-    var right = new DirectiveAst(name2);
+    var left = new DirectiveAst(AstNulls.At, name1);
+    var right = new DirectiveAst(AstNulls.At, name2);
 
     (left != right).Should().BeTrue();
   }
@@ -38,8 +38,8 @@ public class DirectiveAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithArgument(string variable, string name)
   {
-    var left = new DirectiveAst(name) { Argument = new ArgumentAst(variable) };
-    var right = new DirectiveAst(name) { Argument = new ArgumentAst(variable) };
+    var left = new DirectiveAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) };
+    var right = new DirectiveAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) };
 
     (left == right).Should().BeTrue();
 
@@ -49,8 +49,8 @@ public class DirectiveAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithArgument(string variable, string name)
   {
-    var left = new DirectiveAst(name) { Argument = new ArgumentAst(variable) };
-    var right = new DirectiveAst(name);
+    var left = new DirectiveAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) };
+    var right = new DirectiveAst(AstNulls.At, name);
 
     (left != right).Should().BeTrue();
   }

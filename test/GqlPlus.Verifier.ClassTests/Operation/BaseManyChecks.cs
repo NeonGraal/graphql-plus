@@ -15,7 +15,7 @@ internal sealed class BaseManyChecks<T>
 
     _many(ref parser, out T[] result).Should().BeTrue();
 
-    parser._errors.Should().BeEmpty();
+    parser.Errors.Should().BeEmpty();
     result.Should().Equal(expected);
   }
 
@@ -25,7 +25,7 @@ internal sealed class BaseManyChecks<T>
 
     _many(ref parser, out T[] result).Should().BeFalse();
 
-    parser._errors.Should().NotBeEmpty();
+    parser.Errors.Should().NotBeEmpty();
     result.Should().BeEmpty();
   }
 }

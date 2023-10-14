@@ -8,25 +8,25 @@ public class ParseArgValueTests
   public void WithVariable_ReturnsCorrectAst(string variable)
     => Test.TrueExpected(
       "$" + variable,
-      new ArgumentAst(variable));
+      new ArgumentAst(AstNulls.At, variable));
 
   [Theory, RepeatData(Repeats)]
   public void WithConstant_ReturnsCorrectAst(string label)
     => Test.TrueExpected(
       label,
-      new ArgumentAst(new FieldKeyAst("", label)));
+      new ArgumentAst(new FieldKeyAst(AstNulls.At, "", label)));
 
   [Theory, RepeatData(Repeats)]
   public void WithList_ReturnsCorrectAst(string label)
     => Test.TrueExpected(
       "[$" + label + ' ' + label + ']',
-      new ArgumentAst(label.ArgumentList()));
+      new ArgumentAst(AstNulls.At, label.ArgumentList()));
 
   [Theory, RepeatData(Repeats)]
   public void WithListComma_ReturnsCorrectAst(string label)
     => Test.TrueExpected(
       "[$" + label + ',' + label + ']',
-      new ArgumentAst(label.ArgumentList()));
+      new ArgumentAst(AstNulls.At, label.ArgumentList()));
 
   [Theory, RepeatData(Repeats)]
   public void WithListInvalid_ReturnsFalse(string label)
@@ -44,14 +44,14 @@ public class ParseArgValueTests
   public void WithObject_ReturnsCorrectAst(string key, string label)
     => Test.TrueExpected(
       '{' + key + ":$" + label + ' ' + label + ':' + key + '}',
-      new ArgumentAst(label.ArgumentObject(key)),
+      new ArgumentAst(AstNulls.At, label.ArgumentObject(key)),
       key == label);
 
   [Theory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string label)
     => Test.TrueExpected(
       '{' + key + ":$" + label + ';' + label + ':' + key + '}',
-      new ArgumentAst(label.ArgumentObject(key)),
+      new ArgumentAst(AstNulls.At, label.ArgumentObject(key)),
       key == label);
 
   [Theory, RepeatData(Repeats)]
@@ -62,7 +62,7 @@ public class ParseArgValueTests
       key == label);
 
   private void CheckDefault(ArgumentAst result)
-    => result.Should().Be(new ArgumentAst());
+    => result.Should().Be(new ArgumentAst(AstNulls.At));
 
   private static BaseOneChecks<ArgumentAst> Test => new((ref OperationParser parser, out ArgumentAst result)
     => parser.ParseArgValue(out result));

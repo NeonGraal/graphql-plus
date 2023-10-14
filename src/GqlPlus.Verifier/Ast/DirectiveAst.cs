@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class DirectiveAst(string Name)
-  : AstNamed(Name)
+internal sealed record class DirectiveAst(ParseAt At, string Name)
+  : AstNamed(At, Name)
 {
   public ArgumentAst? Argument { get; set; }
 

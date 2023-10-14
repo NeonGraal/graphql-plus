@@ -6,24 +6,25 @@ internal ref struct OperationParser
 {
   private Tokenizer _tokens;
 
-  internal readonly List<ParseError> _errors = new();
+  internal readonly List<ParseError> Errors = new();
+  internal readonly List<ArgumentAst> Variables = new();
 
   public OperationParser(Tokenizer tokens)
     => _tokens = tokens;
 
-  internal OperationAst? Parse()
+  internal OperationAst Parse()
   {
     if (_tokens.AtStart) {
       if (!_tokens.Read()) {
-        return new() { Errors = new[] { _tokens.Error("Unexpected") } };
+        return new(_tokens) { Errors = new[] { _tokens.Error("Unexpected") } };
       }
     }
 
-    OperationAst ast = new();
+    OperationAst ast = new(_tokens);
 
     if (_tokens.Identifier(out var category)) {
       if (_tokens.Identifier(out var name)) {
-        ast = new(name) { Category = category };
+        ast = new(_tokens, name) { Category = category };
       } else {
         ast.Category = category;
       }
@@ -35,8 +36,7 @@ internal ref struct OperationParser
 
     ast.Directives = ParseDirectives();
     ast.Fragments = ParseFragStart();
-
-    if (_tokens.Prefix(':', out var result)) {
+    if (_tokens.Prefix(':', out var result, out _)) {
       ast.ResultType = result;
       if (ParseArgument(out var argument)) {
         ast.Argument = argument;
@@ -45,7 +45,10 @@ internal ref struct OperationParser
       ast.Object = selections;
     } else {
       Error("Result not present. Expected Object or Type.");
-      return ast with { Errors = _errors.ToArray() };
+      return ast with {
+        Errors = Errors.ToArray(),
+        Usages = Variables.ToArray()
+      };
     }
 
     ast.Modifiers = ParseModifiers();
@@ -57,7 +60,10 @@ internal ref struct OperationParser
       Error("Text beyond end of Operation.");
     }
 
-    return ast with { Errors = _errors.ToArray() };
+    return ast with {
+      Errors = Errors.ToArray(),
+      Usages = Variables.ToArray()
+    };
   }
 
   internal bool ParseVariables(out VariableAst[] variables)
@@ -69,8 +75,8 @@ internal ref struct OperationParser
 
     var result = new List<VariableAst>();
 
-    while (_tokens.Prefix('$', out var name)) {
-      var variable = new VariableAst(name);
+    while (_tokens.Prefix('$', out var name, out var at)) {
+      var variable = new VariableAst(at, name);
 
       if (_tokens.Take(':')
         && _tokens.Identifier(out var varType)
@@ -103,8 +109,8 @@ internal ref struct OperationParser
   {
     var directives = new List<DirectiveAst>();
 
-    while (_tokens.Prefix('@', out var name)) {
-      var directive = new DirectiveAst(name);
+    while (_tokens.Prefix('@', out var name, out var at)) {
+      var directive = new DirectiveAst(at, name);
       if (ParseArgument(out ArgumentAst? argument)) {
         directive.Argument = argument;
       }
@@ -119,23 +125,26 @@ internal ref struct OperationParser
   {
     var modifiers = new List<ModifierAst>();
 
+    var at = _tokens.At;
     while (_tokens.Take('[')) {
-      ModifierAst modifier = ModifierAst.List;
+      var modifier = ModifierAst.List(at);
       if (_tokens.Identifier(out var key)) {
-        modifier = new(key, _tokens.Take('?'));
+        modifier = new(at, key, _tokens.Take('?'));
       } else {
         if (_tokens.TakeAny(out var charType, '~', '0', '*')) {
-          modifier = new(charType.ToString(), _tokens.Take('?'));
+          modifier = new(at, charType.ToString(), _tokens.Take('?'));
         }
       }
 
       if (_tokens.Take(']')) {
         modifiers.Add(modifier);
       }
+
+      at = _tokens.At;
     }
 
     if (_tokens.Take('?')) {
-      modifiers.Add(ModifierAst.Optional);
+      modifiers.Add(ModifierAst.Optional(at));
     }
 
     return modifiers.ToArray();
@@ -178,7 +187,7 @@ internal ref struct OperationParser
         }
       } else {
         if (_tokens.Identifier(out var name)) {
-          selection = new SpreadAst(name) { Directives = ParseDirectives() };
+          selection = new SpreadAst(_tokens, name) { Directives = ParseDirectives() };
           return true;
         }
       }
@@ -186,7 +195,7 @@ internal ref struct OperationParser
       DirectiveAst[] directives = ParseDirectives();
 
       if (ParseObject(out AstSelection[] selections)) {
-        selection = new InlineAst(selections) {
+        selection = new InlineAst(_tokens, selections) {
           OnType = onType,
           Directives = directives,
         };
@@ -201,20 +210,22 @@ internal ref struct OperationParser
 
   internal bool ParseField(out AstSelection field)
   {
+    var at = _tokens.At;
     field = AstNulls.Selection;
 
     if (!_tokens.Identifier(out var alias)) {
       return false;
     }
 
-    var result = new FieldAst(alias);
+    var result = new FieldAst(at, alias);
 
     if (_tokens.Take(':')) {
+      at = _tokens.At;
       if (!_tokens.Identifier(out var name)) {
         return Error("Invalid Field. Expected Name after Alias");
       }
 
-      result = new FieldAst(name) { Alias = alias };
+      result = new FieldAst(at, name) { Alias = alias };
     }
 
     if (ParseArgument(out ArgumentAst argument)) {
@@ -262,7 +273,7 @@ internal ref struct OperationParser
       ) {
         DirectiveAst[] directives = ParseDirectives();
         if (ParseObject(out AstSelection[] selections)) {
-          var fragment = new FragmentAst(name, onType, selections) { Directives = directives };
+          var fragment = new FragmentAst(_tokens, name, onType, selections) { Directives = directives };
           definitions.Add(fragment);
         }
       }
@@ -273,7 +284,7 @@ internal ref struct OperationParser
 
   internal bool ParseArgument(out ArgumentAst argument)
   {
-    argument = new ArgumentAst();
+    argument = new ArgumentAst(_tokens.At);
 
     if (!_tokens.Take('(')) {
       return false;
@@ -283,7 +294,7 @@ internal ref struct OperationParser
     try {
       _tokens.IgnoreSeparators = false;
 
-      ArgumentAst value = new();
+      ArgumentAst value = new(_tokens);
       if (ParseFieldKey(out var key)) {
         value = key;
         if (_tokens.Take(':')) {
@@ -307,10 +318,13 @@ internal ref struct OperationParser
 
   internal bool ParseArgValue(out ArgumentAst argument)
   {
-    argument = new ArgumentAst();
+    argument = new ArgumentAst(_tokens);
 
-    if (_tokens.Prefix('$', out var variable)) {
-      argument = new ArgumentAst(variable);
+    if (_tokens.Prefix('$', out var variable, out var at)) {
+      argument = new ArgumentAst(at, variable);
+
+      Variables.Add(argument);
+
       return true;
     }
 
@@ -319,12 +333,12 @@ internal ref struct OperationParser
       _tokens.IgnoreSeparators = false;
 
       if (ParseArgList(out ArgumentAst[] list)) {
-        argument = new ArgumentAst(list);
+        argument = new ArgumentAst(_tokens, list);
         return true;
       }
 
       if (ParseArgObject(out AstValues<ArgumentAst>.ObjectAst fields)) {
-        argument = new ArgumentAst(fields);
+        argument = new ArgumentAst(_tokens, fields);
         return true;
       }
     } finally {
@@ -349,7 +363,7 @@ internal ref struct OperationParser
     }
 
     return values.Count > 1
-      ? new(values.ToArray())
+      ? new(_tokens, values.ToArray())
       : initial;
   }
 
@@ -411,15 +425,16 @@ internal ref struct OperationParser
 
   internal bool ParseFieldKey(out FieldKeyAst constant)
   {
-    constant = new FieldKeyAst();
+    var at = _tokens.At;
+    constant = new FieldKeyAst(at);
 
     if (_tokens.Number(out var number)) {
-      constant = new FieldKeyAst(number);
+      constant = new FieldKeyAst(at, number);
       return true;
     }
 
     if (_tokens.String(out var contents)) {
-      constant = new FieldKeyAst(contents);
+      constant = new FieldKeyAst(at, contents);
       return true;
     }
 
@@ -427,11 +442,11 @@ internal ref struct OperationParser
       if (_tokens.Take('.')
         && _tokens.Identifier(out var label)
       ) {
-        constant = new FieldKeyAst(identifier, label);
+        constant = new FieldKeyAst(at, identifier, label);
         return true;
       }
 
-      constant = new FieldKeyAst("", identifier);
+      constant = new FieldKeyAst(at, "", identifier);
       return true;
     }
 
@@ -440,7 +455,7 @@ internal ref struct OperationParser
 
   internal bool ParseConstant(out ConstantAst constant)
   {
-    constant = new ConstantAst();
+    constant = new ConstantAst(_tokens);
 
     if (ParseFieldKey(out FieldKeyAst fieldKey)) {
       constant = fieldKey;
@@ -452,12 +467,12 @@ internal ref struct OperationParser
       _tokens.IgnoreSeparators = false;
 
       if (ParseConstList(out ConstantAst[] list)) {
-        constant = new ConstantAst(list);
+        constant = new ConstantAst(_tokens, list);
         return true;
       }
 
       if (ParseConstObject(out AstValues<ConstantAst>.ObjectAst fields)) {
-        constant = new ConstantAst(fields);
+        constant = new ConstantAst(_tokens, fields);
         return true;
       }
 
@@ -516,11 +531,11 @@ internal ref struct OperationParser
 
   private bool ParseArgumentMid(ArgumentAst.ObjectAst fields, out ArgumentAst argument)
   {
-    argument = new();
+    argument = new(_tokens);
 
     if (_tokens.Take(';')) {
       if (ParseArgFieldValues(')', fields)) {
-        argument = new ArgumentAst(fields);
+        argument = new ArgumentAst(_tokens, fields);
         return true;
       }
 
@@ -538,7 +553,7 @@ internal ref struct OperationParser
       }
     }
 
-    argument = new ArgumentAst(fields);
+    argument = new ArgumentAst(_tokens, fields);
     return true;
   }
 
@@ -556,18 +571,18 @@ internal ref struct OperationParser
     }
 
     if (_tokens.Take(")")) {
-      argument = values.Count > 1 ? new(values.ToArray()) : value;
+      argument = values.Count > 1 ? new(_tokens, values.ToArray()) : value;
       return true;
     }
 
-    argument = new();
+    argument = new(_tokens);
     return Error("Invalid Argument. Possibly missing ')' after Values.");
   }
 
   private bool Error(string message, bool result = false)
   {
     if (!result) {
-      _errors.Add(_tokens.Error(message));
+      Errors.Add(_tokens.Error(message));
     }
 
     return result;

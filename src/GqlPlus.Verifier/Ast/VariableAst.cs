@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class VariableAst(string Name)
-  : AstNamedDirectives(Name), IEquatable<VariableAst>
+internal sealed record class VariableAst(ParseAt At, string Name)
+  : AstNamedDirectives(At, Name), IEquatable<VariableAst>
 {
   public string? Type { get; set; }
   public ModifierAst[] Modifers { get; set; } = Array.Empty<ModifierAst>();

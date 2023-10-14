@@ -4,38 +4,41 @@ namespace GqlPlus.Verifier.Operation.Parsing;
 
 public class ParseVariablesTests
 {
+  private static VariableAst TestVar(string variable)
+    => new(AstNulls.At, variable);
+
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string variable)
     => Test.TrueExpected($"(${variable})",
-      new VariableAst(variable));
+      TestVar(variable));
 
   [Theory, RepeatData(Repeats)]
   public void WithType_ReturnsCorrectAst(string variable, string varType)
     => Test.TrueExpected($"(${variable}:{varType})",
-      new VariableAst(variable) { Type = varType });
+      TestVar(variable) with { Type = varType });
 
   [Theory, RepeatData(Repeats)]
   public void WithModifiers_ReturnsCorrectAst(string variable)
     => Test.TrueExpected($"(${variable}[]?)",
-    new VariableAst(variable) { Modifers = TestMods() });
+      TestVar(variable) with { Modifers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
   public void WithDefault_ReturnsCorrectAst(string variable, decimal number)
     => Test.TrueExpected($"(${variable}={number})",
-      new VariableAst(variable) { Default = new FieldKeyAst(number) });
+      TestVar(variable) with { Default = new FieldKeyAst(AstNulls.At, number) });
 
   [Theory, RepeatData(Repeats)]
   public void WithDirective_ReturnsCorrectAst(string variable, string directive)
     => Test.TrueExpected($"(${variable}@{directive})",
-      new VariableAst(variable) { Directives = directive.Directives() });
+      TestVar(variable) with { Directives = directive.Directives() });
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string variable, string varType, decimal number, string directive)
     => Test.TrueExpected($"(${variable}:{varType}[]?={number}@{directive})",
-      new VariableAst(variable) {
+      TestVar(variable) with {
         Type = varType,
         Modifers = TestMods(),
-        Default = new FieldKeyAst(number),
+        Default = new FieldKeyAst(AstNulls.At, number),
         Directives = directive.Directives()
       });
 

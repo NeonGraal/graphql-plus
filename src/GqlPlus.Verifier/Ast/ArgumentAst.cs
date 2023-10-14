@@ -1,21 +1,23 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class ArgumentAst : AstValues<ArgumentAst>, IEquatable<ArgumentAst>
+internal sealed record class ArgumentAst
+  : AstValues<ArgumentAst>, IEquatable<ArgumentAst>
 {
   public string? Variable { get; }
   public ConstantAst? Constant { get; }
 
   protected override string Abbr => "A";
 
-  internal ArgumentAst() : base() { }
-  internal ArgumentAst(string variable)
-   : base() => Variable = variable;
+  internal ArgumentAst(ParseAt at)
+    : base(at) { }
+  internal ArgumentAst(ParseAt at, string variable)
+    : base(at) => Variable = variable;
   internal ArgumentAst(ConstantAst constant)
-   : base() => Constant = constant;
-  internal ArgumentAst(ArgumentAst[] values)
-    : base(values) { }
-  internal ArgumentAst(ObjectAst fields)
-    : base(fields) { }
+    : base(constant.At) => Constant = constant;
+  internal ArgumentAst(ParseAt at, ArgumentAst[] values)
+    : base(at, values) { }
+  internal ArgumentAst(ParseAt at, ObjectAst fields)
+    : base(at, fields) { }
 
   public static implicit operator ArgumentAst(FieldKeyAst field)
     => new(field);

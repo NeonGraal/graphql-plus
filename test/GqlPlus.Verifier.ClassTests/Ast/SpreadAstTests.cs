@@ -4,22 +4,22 @@ public class SpreadAstTests
 {
   [Fact]
   public void HashCode()
-    => new SpreadAst("").GetHashCode().Should().Be(new SpreadAst("").GetHashCode());
+    => new SpreadAst(AstNulls.At, "").GetHashCode().Should().Be(new SpreadAst(AstNulls.At, "").GetHashCode());
 
   [Theory, RepeatData(Repeats)]
   public void String(string name)
-    => new SpreadAst(name).TestString($"S({name})");
+    => new SpreadAst(AstNulls.At, name).TestString($"S({name})");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithDirective(string name, string directive)
-    => new SpreadAst(name) { Directives = directive.Directives() }
+    => new SpreadAst(AstNulls.At, name) { Directives = directive.Directives() }
     .TestString($"S({name} D({directive}))");
 
   [Theory, RepeatData(Repeats)]
   public void Equality(string name)
   {
-    var left = new SpreadAst(name);
-    var right = new SpreadAst(name);
+    var left = new SpreadAst(AstNulls.At, name);
+    var right = new SpreadAst(AstNulls.At, name);
 
     (left == right).Should().BeTrue();
 
@@ -33,8 +33,8 @@ public class SpreadAstTests
       return;
     }
 
-    var left = new SpreadAst(name1);
-    var right = new SpreadAst(name2);
+    var left = new SpreadAst(AstNulls.At, name1);
+    var right = new SpreadAst(AstNulls.At, name2);
 
     (left != right).Should().BeTrue();
   }
@@ -42,8 +42,8 @@ public class SpreadAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithDirective(string name, string directive)
   {
-    var left = new SpreadAst(name) { Directives = directive.Directives() };
-    var right = new SpreadAst(name) { Directives = directive.Directives() };
+    var left = new SpreadAst(AstNulls.At, name) { Directives = directive.Directives() };
+    var right = new SpreadAst(AstNulls.At, name) { Directives = directive.Directives() };
 
     (left == right).Should().BeTrue();
 
@@ -53,8 +53,8 @@ public class SpreadAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithDirective(string name, string directive)
   {
-    var left = new SpreadAst(name) { Directives = directive.Directives() };
-    var right = new SpreadAst(name);
+    var left = new SpreadAst(AstNulls.At, name) { Directives = directive.Directives() };
+    var right = new SpreadAst(AstNulls.At, name);
 
     (left != right).Should().BeTrue();
   }

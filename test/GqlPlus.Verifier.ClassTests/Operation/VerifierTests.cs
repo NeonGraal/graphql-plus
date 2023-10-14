@@ -6,35 +6,31 @@ public class VerifierTests
   [MemberData(nameof(ValidGraphQlPlusOperations))]
   public void Verify_ValidOperations_ReturnsValid(string operation)
   {
-    var result = OperationVerifier.Verify(operation);
+    var result = OperationVerifier.Verify(operation, out var errors);
 
     result.Should().BeTrue();
+    errors.Should().BeNullOrEmpty();
   }
 
   [Theory]
   [MemberData(nameof(InvalidGraphQlPlusOperations))]
   public void Verify_InvalidOperations_ReturnsInvalid(string operation)
   {
-    var result = OperationVerifier.Verify(operation);
+    var result = OperationVerifier.Verify(operation, out var errors);
 
     result.Should().BeFalse();
+    errors.Should().NotBeNullOrEmpty();
   }
 
   public static IEnumerable<object[]> ValidGraphQlPlusOperations
     => new[] {
-        new[] { ":Boolean" },
-        new[] { "{ name }" },
-        new[] { ":Boolean[]?" },
-        //new[] { "($var) Boolean($var)"}
+        new[] { "($var):Boolean($var)"}
       };
 
   public static IEnumerable<object[]> InvalidGraphQlPlusOperations
     => new[]
       {
-        new[] { "" }, // Operation must have a Result
-        new[] { "{}" }, // Selection must have at least one field
-        new[] { ":Boolean?[]" }, // Nullable Modifer must come last
-        //new[] { "() Boolean" }, // Variables must define at least one variable
-        //new[] { "($var) Boolean" }, // Defined variables must be used at least once
+        new[] { "($var):Boolean" }, // Defined variables must be used at least once
+        new[] { ":Boolean($var)" }, // Used variables must be defined
       };
 }

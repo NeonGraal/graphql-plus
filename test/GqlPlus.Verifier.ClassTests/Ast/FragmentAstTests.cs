@@ -4,23 +4,23 @@ public class FragmentAstTests
 {
   [Fact]
   public void HashCode()
-    => new FragmentAst("", "").GetHashCode().Should().Be(new FragmentAst("", "").GetHashCode());
+    => new FragmentAst(AstNulls.At, "", "").GetHashCode().Should().Be(new FragmentAst(AstNulls.At, "", "").GetHashCode());
 
   [Theory, RepeatData(Repeats)]
   public void String(string name, string onType, string field)
-    => new FragmentAst(name, onType, field.Fields())
+    => new FragmentAst(AstNulls.At, name, onType, field.Fields())
     .TestString($"T({name} :{onType} {{ F({field}) }})");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithDirective(string name, string onType, string field, string directive)
-    => new FragmentAst(name, onType, field.Fields()) { Directives = directive.Directives() }
+    => new FragmentAst(AstNulls.At, name, onType, field.Fields()) { Directives = directive.Directives() }
     .TestString($"T({name} D({directive}) :{onType} {{ F({field}) }})");
 
   [Theory, RepeatData(Repeats)]
   public void Equality(string name, string onType, string field)
   {
-    var left = new FragmentAst(name, onType, field.Fields());
-    var right = new FragmentAst(name, onType, field.Fields());
+    var left = new FragmentAst(AstNulls.At, name, onType, field.Fields());
+    var right = new FragmentAst(AstNulls.At, name, onType, field.Fields());
 
     (left == right).Should().BeTrue();
 
@@ -34,8 +34,8 @@ public class FragmentAstTests
       return;
     }
 
-    var left = new FragmentAst(name1, onType, field.Fields());
-    var right = new FragmentAst(name2, onType, field.Fields());
+    var left = new FragmentAst(AstNulls.At, name1, onType, field.Fields());
+    var right = new FragmentAst(AstNulls.At, name2, onType, field.Fields());
 
     (left != right).Should().BeTrue();
   }
@@ -47,8 +47,8 @@ public class FragmentAstTests
       return;
     }
 
-    var left = new FragmentAst(name, onType1, field.Fields());
-    var right = new FragmentAst(name, onType2, field.Fields());
+    var left = new FragmentAst(AstNulls.At, name, onType1, field.Fields());
+    var right = new FragmentAst(AstNulls.At, name, onType2, field.Fields());
 
     (left != right).Should().BeTrue();
   }
@@ -60,8 +60,8 @@ public class FragmentAstTests
       return;
     }
 
-    var left = new FragmentAst(name, onType, field1.Fields());
-    var right = new FragmentAst(name, onType, field2.Fields());
+    var left = new FragmentAst(AstNulls.At, name, onType, field1.Fields());
+    var right = new FragmentAst(AstNulls.At, name, onType, field2.Fields());
 
     (left != right).Should().Be(field1 != field2);
   }
@@ -69,8 +69,8 @@ public class FragmentAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithDirective(string name, string onType, string field, string directive)
   {
-    var left = new FragmentAst(name, onType, field.Fields()) { Directives = directive.Directives() };
-    var right = new FragmentAst(name, onType, field.Fields()) { Directives = directive.Directives() };
+    var left = new FragmentAst(AstNulls.At, name, onType, field.Fields()) { Directives = directive.Directives() };
+    var right = new FragmentAst(AstNulls.At, name, onType, field.Fields()) { Directives = directive.Directives() };
 
     (left == right).Should().BeTrue();
 
@@ -80,8 +80,8 @@ public class FragmentAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithDirective(string name, string onType, string field, string directive)
   {
-    var left = new FragmentAst(name, onType, field.Fields()) { Directives = directive.Directives() };
-    var right = new FragmentAst(name, onType, field.Fields());
+    var left = new FragmentAst(AstNulls.At, name, onType, field.Fields()) { Directives = directive.Directives() };
+    var right = new FragmentAst(AstNulls.At, name, onType, field.Fields());
 
     (left != right).Should().BeTrue();
   }

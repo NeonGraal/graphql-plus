@@ -1,15 +1,18 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal record class ModifierAst
+internal record class ModifierAst(ParseAt At)
 {
-  internal static readonly ModifierAst Optional = new(ModifierKind.Optional);
-  internal static readonly ModifierAst List = new(ModifierKind.List);
+  internal static ModifierAst Optional(ParseAt at)
+    => new(at, ModifierKind.Optional);
+  internal static ModifierAst List(ParseAt at)
+    => new(at, ModifierKind.List);
 
-  private ModifierAst(ModifierKind kind)
+  private ModifierAst(ParseAt at, ModifierKind kind)
+    : this(at)
     => Kind = kind;
 
-  internal ModifierAst(string key, bool optional)
-    : this(ModifierKind.Dict)
+  internal ModifierAst(ParseAt at, string key, bool optional)
+    : this(at, ModifierKind.Dict)
     => (Key, KeyOptional) = (key, optional);
 
   internal ModifierKind Kind { get; }

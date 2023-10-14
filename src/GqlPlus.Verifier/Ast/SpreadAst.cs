@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class SpreadAst(string Name)
-  : AstNamedDirectives(Name), AstSelection, IEquatable<SpreadAst>
+internal sealed record class SpreadAst(ParseAt At, string Name)
+  : AstNamedDirectives(At, Name), AstSelection, IEquatable<SpreadAst>
 {
   protected override string Abbr => "S";
 

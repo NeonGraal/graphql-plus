@@ -33,9 +33,11 @@ public class ParserTests
   [InlineData("query Test")]
   [InlineData("{")]
   [InlineData("{field")]
+  [InlineData("{}")]
   [InlineData("(")]
   [InlineData("($")]
   [InlineData("($test")]
+  [InlineData("()")]
   [InlineData("($test)")]
   [InlineData(")")]
   public void Parse_ShouldFail(string input)

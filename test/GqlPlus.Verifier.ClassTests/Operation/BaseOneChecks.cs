@@ -19,7 +19,7 @@ internal sealed class BaseOneChecks<T>
 
     _one(ref parser, out T result).Should().BeTrue();
 
-    parser._errors.Should().BeEmpty();
+    parser.Errors.Should().BeEmpty();
     result.Should().Be(expected);
   }
 
@@ -33,7 +33,7 @@ internal sealed class BaseOneChecks<T>
 
     _one(ref parser, out T result).Should().BeFalse();
 
-    parser._errors.Should().NotBeEmpty();
+    parser.Errors.Should().NotBeEmpty();
     check(result);
   }
 }

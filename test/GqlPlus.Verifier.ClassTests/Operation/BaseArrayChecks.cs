@@ -15,7 +15,7 @@ internal sealed class BaseArrayChecks<T>
 
     var result = _array(ref parser);
 
-    parser._errors.Should().BeEmpty();
+    parser.Errors.Should().BeEmpty();
     result.Should().NotBeNull().And.Equal(expected);
   }
 
@@ -25,7 +25,7 @@ internal sealed class BaseArrayChecks<T>
 
     var result = _array(ref parser);
 
-    parser._errors.Should().NotBeEmpty();
+    parser.Errors.Should().NotBeEmpty();
     result.Should().BeEmpty();
   }
 
@@ -35,7 +35,7 @@ internal sealed class BaseArrayChecks<T>
 
     var result = _array(ref parser);
 
-    parser._errors.Should().NotBeEmpty();
+    parser.Errors.Should().NotBeEmpty();
     result.Should().NotBeNull().And.Equal(expected);
   }
 

@@ -215,7 +215,7 @@ public class TokenizerTests
     Tokenizer tokens = PrepareTokens(prefix + "?");
     var expected = prefix.First();
 
-    tokens.Prefix(expected, out _).Should().BeFalse();
+    tokens.Prefix(expected, out _, out _).Should().BeFalse();
     tokens.Take(expected).Should().BeTrue();
     tokens.Take('?').Should().BeTrue();
   }
@@ -227,7 +227,7 @@ public class TokenizerTests
     Tokenizer tokens = PrepareTokens(prefix + identifier);
     var expected = prefix.First();
 
-    tokens.Prefix(expected, out var result).Should().BeTrue();
+    tokens.Prefix(expected, out var result, out var _).Should().BeTrue();
     result.Should().Be(identifier);
   }
 
@@ -238,7 +238,7 @@ public class TokenizerTests
 
     var result = tokens.Error(message);
 
-    result.At.Should().Be(TokenKind.Start);
+    result.Kind.Should().Be(TokenKind.Start);
     result.Pos.Should().Be(0);
     result.Next.Should().Be("<END>");
     result.Message.Should().Be(message);
@@ -252,7 +252,7 @@ public class TokenizerTests
 
     var result = tokens.Error(message);
 
-    result.At.Should().Be(TokenKind.Punctuation);
+    result.Kind.Should().Be(TokenKind.Punctuation);
     result.Pos.Should().Be(0);
     result.Next.Should().Be(prefix.ToString() + " <END>");
     result.Message.Should().Be(message);
@@ -263,11 +263,11 @@ public class TokenizerTests
     [RegularExpression(PunctuationPattern)] string prefix, string contents, string message)
   {
     var tokens = PrepareTokens(prefix + contents);
-    var expected = (prefix + contents)[..Tokenizer.ErrorContext];
+    var expected = Tokenizer.ErrorContext(prefix + contents);
 
     var result = tokens.Error(message);
 
-    result.At.Should().Be(TokenKind.Punctuation);
+    result.Kind.Should().Be(TokenKind.Punctuation);
     result.Pos.Should().Be(0);
     result.Next.Should().Be(expected);
     result.Message.Should().Be(message);
@@ -280,7 +280,7 @@ public class TokenizerTests
 
     var result = tokens.Error(message);
 
-    result.At.Should().Be(TokenKind.Identifer);
+    result.Kind.Should().Be(TokenKind.Identifer);
     result.Pos.Should().Be(0);
     result.Next.Should().Be(label);
     result.Message.Should().Be(message);
@@ -294,7 +294,7 @@ public class TokenizerTests
 
     var result = tokens.Error(message);
 
-    result.At.Should().Be(TokenKind.Number);
+    result.Kind.Should().Be(TokenKind.Number);
     result.Pos.Should().Be(0);
     result.Next.Should().Be(expected);
     result.Message.Should().Be(message);
@@ -304,11 +304,11 @@ public class TokenizerTests
   public void Error_BeforeString_ReturnsAtString(string contents, string message)
   {
     var tokens = PrepareTokens(contents.Quote());
-    var expected = contents.Quote()[..Tokenizer.ErrorContext];
+    var expected = Tokenizer.ErrorContext(contents.Quote());
 
     var result = tokens.Error(message);
 
-    result.At.Should().Be(TokenKind.String);
+    result.Kind.Should().Be(TokenKind.String);
     result.Pos.Should().Be(0);
     result.Next.Should().Be(expected);
     result.Message.Should().Be(message);

@@ -5,10 +5,13 @@ internal abstract record class AstValues<T> : AstBase, IEquatable<AstValues<T>>
   public T[] Values { get; } = Array.Empty<T>();
   public ObjectAst Fields { get; } = new ObjectAst();
 
-  protected AstValues() { }
-  internal AstValues(T[] values)
+  protected AstValues(ParseAt at)
+    : base(at) { }
+  internal AstValues(ParseAt at, T[] values)
+    : base(at)
     => Values = values;
-  internal AstValues(ObjectAst fields)
+  internal AstValues(ParseAt at, ObjectAst fields)
+    : base(at)
     => Fields = fields;
 
   public virtual bool Equals(AstValues<T>? other)

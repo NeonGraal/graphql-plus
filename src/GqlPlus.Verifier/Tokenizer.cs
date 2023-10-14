@@ -2,7 +2,7 @@
 
 internal ref struct Tokenizer
 {
-  internal const int ErrorContext = 10;
+  internal const int ErrorContextLen = 10;
 
   private readonly ReadOnlySpan<char> _operation;
   private readonly int _len;
@@ -118,7 +118,6 @@ internal ref struct Tokenizer
     int code;
     do {
       if (++end >= _len) {
-        _kind = TokenKind.End;
         break;
       }
 
@@ -252,7 +251,7 @@ internal ref struct Tokenizer
     return true;
   }
 
-  internal bool Prefix(char one, out string identifier)
+  internal bool Prefix(char one, out string identifier, out ParseAt at)
   {
     if (_kind == TokenKind.Punctuation
       && _operation[_pos] == one
@@ -267,21 +266,30 @@ internal ref struct Tokenizer
         ) {
           _pos += 1;
           _kind = TokenKind.Identifer;
+          at = At;
           return Identifier(out identifier);
         }
       }
     }
 
     identifier = "";
+    at = At;
     return false;
   }
+  internal ParseAt At
+  => _kind switch {
+    TokenKind.End => new(_kind, _pos, "<END>"),
+    TokenKind.Number => new(_kind, _pos, GetString(Decimal(_pos))),
+    TokenKind.Identifer => new(_kind, _pos, GetString(Letters(_pos))),
+    _ => new(_kind, _pos, ErrorContext(_operation[_pos..].ToString())),
+  };
+
+  public static string ErrorContext(string context)
+    => context.Length < ErrorContextLen ? context + "<END>" : context[..ErrorContextLen];
+
+  public static implicit operator ParseAt(Tokenizer tokens)
+    => tokens.At;
 
   internal ParseError Error(string text)
-    => _kind switch {
-      TokenKind.End => new(_kind, _pos, "<END>", text),
-      TokenKind.Number => new(_kind, _pos, GetString(Decimal(_pos)), text),
-      TokenKind.Identifer => new(_kind, _pos, GetString(Letters(_pos)), text),
-      _ when _pos + ErrorContext < _len => new(_kind, _pos, _operation[_pos..(_pos + ErrorContext)].ToString(), text),
-      _ => new(_kind, _pos, _operation[_pos..].ToString() + "<END>", text),
-    };
+    => new(At, text);
 }

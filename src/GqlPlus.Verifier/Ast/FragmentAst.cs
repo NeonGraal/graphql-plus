@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class FragmentAst(string Name, string OnType, params AstSelection[] Selections)
-  : AstNamedDirectives(Name), IEquatable<FragmentAst>
+internal sealed record class FragmentAst(ParseAt At, string Name, string OnType, params AstSelection[] Selections)
+  : AstNamedDirectives(At, Name), IEquatable<FragmentAst>
 {
   protected override string Abbr => "T";
 

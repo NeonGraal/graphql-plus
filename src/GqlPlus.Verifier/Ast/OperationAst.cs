@@ -15,7 +15,10 @@ internal record class OperationAst(ParseAt At, string Name)
   public ArgumentAst? Argument { get; set; }
   internal AstSelection[]? Object { get; set; }
   internal ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
+
   internal FragmentAst[] Fragments { get; set; } = Array.Empty<FragmentAst>();
+  internal SpreadAst[] Spreads { get; set; } = Array.Empty<SpreadAst>();
+
   protected override string Abbr => "O";
 
   public OperationAst(ParseAt at) : this(at, "") { }

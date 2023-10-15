@@ -31,6 +31,16 @@ public class ParseFieldKeyTests
       label,
       new FieldKeyAst(AstNulls.At, "", label));
 
+  [Theory]
+  [InlineData("true", "Boolean", "true")]
+  [InlineData("false", "Boolean", "false")]
+  [InlineData("null", "Null", "null")]
+  [InlineData("_", "Unit", "_")]
+  public void ParseFieldKey_WithSpecifcLabels_ReturnsCorrectAst(string label, string enumType, string enumLabel)
+  => Test.TrueExpected(
+      label,
+      new FieldKeyAst(AstNulls.At, enumType, enumLabel));
+
   [Theory, RepeatData(Repeats)]
   public void ParseFieldKey_WithTypeAndLabel_ReturnsCorrectAst(string theType, string label)
     => Test.TrueExpected(

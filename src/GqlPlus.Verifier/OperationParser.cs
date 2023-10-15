@@ -5,9 +5,16 @@ namespace GqlPlus.Verifier;
 internal ref struct OperationParser
 {
   private Tokenizer _tokens;
+  private readonly Dictionary<string, string> labelTypes = new() {
+    ["_"] = "Unit",
+    ["null"] = "Null",
+    ["true"] = "Boolean",
+    ["false"] = "Boolean",
+  };
 
   internal readonly List<ParseError> Errors = new();
   internal readonly List<ArgumentAst> Variables = new();
+  internal readonly List<SpreadAst> Spreads = new();
 
   public OperationParser(Tokenizer tokens)
     => _tokens = tokens;
@@ -47,7 +54,8 @@ internal ref struct OperationParser
       Error("Result not present. Expected Object or Type.");
       return ast with {
         Errors = Errors.ToArray(),
-        Usages = Variables.ToArray()
+        Usages = Variables.ToArray(),
+        Spreads = Spreads.ToArray(),
       };
     }
 
@@ -62,7 +70,8 @@ internal ref struct OperationParser
 
     return ast with {
       Errors = Errors.ToArray(),
-      Usages = Variables.ToArray()
+      Usages = Variables.ToArray(),
+      Spreads = Spreads.ToArray(),
     };
   }
 
@@ -188,6 +197,7 @@ internal ref struct OperationParser
       } else {
         if (_tokens.Identifier(out var name)) {
           selection = new SpreadAst(_tokens, name) { Directives = ParseDirectives() };
+          Spreads.Add((SpreadAst)selection);
           return true;
         }
       }
@@ -446,7 +456,8 @@ internal ref struct OperationParser
         return true;
       }
 
-      constant = new FieldKeyAst(at, "", identifier);
+      var type = labelTypes.GetValueOrDefault(identifier, "");
+      constant = new FieldKeyAst(at, type, identifier);
       return true;
     }
 

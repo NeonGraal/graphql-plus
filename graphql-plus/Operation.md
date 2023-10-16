@@ -150,9 +150,9 @@ A Field may have none, one, more or even all of the following, in this order:
 ## Fragment
 
 ```PEG
-Fragment = '&'fragment Frag_Body
-Frag_End = ( 'fragment' fragment | '&'fragment ) Frag_Body
-Frag_Body = TypeCondition Directive* Object
+Fragment = '& fragment ':' type Frag_Body
+Frag_End = ( 'fragment' | '&' ) fragment TypeCondition Frag_Body
+Frag_Body = Directive* Object
 ```
 
 ## Argument
@@ -164,7 +164,7 @@ Arg_List = '[' Arg_Values* ']'
 Arg_Values = Arg_Value ',' Arg_Values | Arg_Value
 
 Arg_Object = '{' Arg_Fields* '}'
-Arg_Fields = Arg_Field ';' Arg_Fields | Arg_Field
+Arg_Fields = Arg_Field ',' Arg_Fields | Arg_Field
 Arg_Field = FieldKey ':' Arg_Value
 
 FieldKey = ( enum '.' )? field | NUMBER | STRING
@@ -172,7 +172,7 @@ FieldKey = ( enum '.' )? field | NUMBER | STRING
 
 An Argument is usually a single value. If multiple values are provided they are treated as a list. If one or more fields are provided they are treated as an object.
 
-Commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields.
+Commas (`,`) can be used to separate list values and object fields.
 
 ## Constant
 
@@ -183,11 +183,11 @@ Const_List = '[' Cons_Values* ']'
 Const_Values = Constant ',' Const_Values | Constant
 
 Const_Object = '{' Const_Fields* '}'
-Const_Fields = Const_Field ';' Const_Fields | Const_Field
+Const_Fields = Const_Field ',' Const_Fields | Const_Field
 Const_Field = FieldKey ':' Const_Value
 ```
 
-A Constant is a single value. Commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields.
+A Constant is a single value. Commas (`,`) can be used to separate list values and object fields.
 
 ## Complete Grammar
 
@@ -216,9 +216,9 @@ Inline = TypeCondition? Directive* Object
 Spread = fragment Directive*
 TypeCondition = ( 'on' | ':' ) type
 
-Fragment = '&'fragment Frag_Body
-Frag_End = ( 'fragment' fragment | '&'fragment ) Frag_Body
-Frag_Body = TypeCondition Directive* Object
+Fragment = '& fragment ':' type Frag_Body
+Frag_End = ( 'fragment' | '&' ) fragment TypeCondition Frag_Body
+Frag_Body = Directive* Object
 
 Argument = '(' Arg_Fields+ | Arg_Values+ ')'
 Arg_Value = '$'variable | Arg_List | Arg_Object | Constant
@@ -226,7 +226,7 @@ Arg_List = '[' Arg_Values* ']'
 Arg_Values = Arg_Value ',' Arg_Values | Arg_Value
 
 Arg_Object = '{' Arg_Fields* '}'
-Arg_Fields = Arg_Field ';' Arg_Fields | Arg_Field
+Arg_Fields = Arg_Field ',' Arg_Fields | Arg_Field
 Arg_Field = FieldKey ':' Arg_Value
 
 FieldKey = ( enum '.' )? field | NUMBER | STRING
@@ -237,7 +237,7 @@ Const_List = '[' Cons_Values* ']'
 Const_Values = Constant ',' Const_Values | Constant
 
 Const_Object = '{' Const_Fields* '}'
-Const_Fields = Const_Field ';' Const_Fields | Const_Field
+Const_Fields = Const_Field ',' Const_Fields | Const_Field
 Const_Field = FieldKey ':' Const_Value
 
 ```

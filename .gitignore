@@ -484,3 +484,4 @@ $RECYCLE.BIN/
 _site/
 .jekyll-cache/
 _exported_templates/
+test/**/*.received.*

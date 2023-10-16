@@ -1,0 +1,29 @@
+﻿!O P@0
+query
+Success
+{
+  !F I@4
+  me
+  {
+    !F I@13
+    id
+    !F I@20
+    firstName
+    !F I@34
+    lastName
+    !F I@47
+    birthday
+    {
+      !F I@64
+      month
+      !F I@76
+      day
+    }
+    !F I@90
+    friends
+    {
+      !F I@106
+      name
+    }
+  }
+}

@@ -142,10 +142,10 @@ A Field may have none, one, more or even all of the following, in this order:
 | `{ name[] }`                          | `{ name: [ "Andrew", "Alan", "Barbera" ] }`                      |
 | `{ id(12) }`                          | `{ id: 12 }`                                                     |
 | `{ name("A*")[] }`                    | `{ name: ["Andrew", "Alan"] }`                                   |
-| `{ user(12) { id name } }`            | `{ user:{ id:12; name:"Andrew" } }`                              |
-| `{ user(12)[] { id name } }`          | `{ user:[ { id:12; name:"Andrew" } ] }`                          |
-| `{ user("A*") { id name } }`          | `{ user:{ id:12; name:"Andrew" } }`                              |
-| `{ All_A: user("A*")[] { id name } }` | `{ All_A:[ { id:12; name:"Andrew" }, { id:34; name:"Alan" } ] }` |
+| `{ user(12) { id name } }`            | `{ user:{ id:12, name:"Andrew" } }`                              |
+| `{ user(12)[] { id name } }`          | `{ user:[ { id:12, name:"Andrew" } ] }`                          |
+| `{ user("A*") { id name } }`          | `{ user:{ id:12, name:"Andrew" } }`                              |
+| `{ All_A: user("A*")[] { id name } }` | `{ All_A:[ { id:12, name:"Andrew" }, { id:34, name:"Alan" } ] }` |
 
 ## Fragment
 
@@ -164,7 +164,7 @@ Arg_List = '[' Arg_Values* ']'
 Arg_Values = Arg_Value ',' Arg_Values | Arg_Value
 
 Arg_Object = '{' Arg_Fields* '}'
-Arg_Fields = Arg_Field ';' Arg_Fields | Arg_Field
+Arg_Fields = Arg_Field ',' Arg_Fields | Arg_Field
 Arg_Field = FieldKey ':' Arg_Value
 
 FieldKey = ( enum '.' )? field | NUMBER | STRING
@@ -172,7 +172,7 @@ FieldKey = ( enum '.' )? field | NUMBER | STRING
 
 An Argument is usually a single value. If multiple values are provided they are treated as a list. If one or more fields are provided they are treated as an object.
 
-Commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields.
+Commas (`,`) can be used to separate list values and object fields.
 
 ## Constant
 
@@ -183,11 +183,11 @@ Const_List = '[' Cons_Values* ']'
 Const_Values = Constant ',' Const_Values | Constant
 
 Const_Object = '{' Const_Fields* '}'
-Const_Fields = Const_Field ';' Const_Fields | Const_Field
+Const_Fields = Const_Field ',' Const_Fields | Const_Field
 Const_Field = FieldKey ':' Const_Value
 ```
 
-A Constant is a single value. Commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields.
+A Constant is a single value. Commas (`,`) can be used to separate list values and object fields.
 
 ## Complete Grammar
 
@@ -226,7 +226,7 @@ Arg_List = '[' Arg_Values* ']'
 Arg_Values = Arg_Value ',' Arg_Values | Arg_Value
 
 Arg_Object = '{' Arg_Fields* '}'
-Arg_Fields = Arg_Field ';' Arg_Fields | Arg_Field
+Arg_Fields = Arg_Field ',' Arg_Fields | Arg_Field
 Arg_Field = FieldKey ':' Arg_Value
 
 FieldKey = ( enum '.' )? field | NUMBER | STRING
@@ -237,7 +237,7 @@ Const_List = '[' Cons_Values* ']'
 Const_Values = Constant ',' Const_Values | Constant
 
 Const_Object = '{' Const_Fields* '}'
-Const_Fields = Const_Field ';' Const_Fields | Const_Field
+Const_Fields = Const_Field ',' Const_Fields | Const_Field
 Const_Field = FieldKey ':' Const_Value
 
 ```

@@ -1,0 +1,17 @@
+﻿!O P@0
+query
+Success
+{
+  !F I@4
+  user
+  (
+    !A P@16
+    {
+      ( !K I@9 id ):( !K N@13 4 )
+    }
+  )
+  {
+    !F I@22
+    name
+  }
+}

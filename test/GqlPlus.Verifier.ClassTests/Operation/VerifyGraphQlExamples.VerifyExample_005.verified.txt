@@ -1,0 +1,21 @@
+﻿!O I@0
+mutation
+Success
+{
+  !F I@13
+  likeStory
+  (
+    !A P@39
+    {
+      ( !K I@23 storyID ):( !K N@32 12345 )
+    }
+  )
+  {
+    !F I@45
+    story
+    {
+      !F I@59
+      likeCount
+    }
+  }
+}

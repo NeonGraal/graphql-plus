@@ -18,6 +18,21 @@ public class ParseVariablesTests
       TestVar(variable) with { Type = varType });
 
   [Theory, RepeatData(Repeats)]
+  public void WithGraphQlNotNull_ReturnsCorrectAst(string variable, string varType)
+    => Test.TrueExpected($"(${variable}:{varType}!)",
+      TestVar(variable) with { Type = varType + "!" });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithGraphQlList_ReturnsCorrectAst(string variable, string varType)
+    => Test.TrueExpected($"(${variable}:[{varType}])",
+      TestVar(variable) with { Type = "[" + varType + "]" });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithGraphQlComplex_ReturnsCorrectAst(string variable, string varType)
+    => Test.TrueExpected($"(${variable}:[[{varType}]!]!)",
+      TestVar(variable) with { Type = "[[" + varType + "]!]!" });
+
+  [Theory, RepeatData(Repeats)]
   public void WithModifiers_ReturnsCorrectAst(string variable)
     => Test.TrueExpected($"(${variable}[]?)",
       TestVar(variable) with { Modifers = TestMods() });

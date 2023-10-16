@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using System.ComponentModel.Design.Serialization;
+using GqlPlus.Verifier.Ast;
 
 namespace GqlPlus.Verifier;
 
@@ -88,7 +89,7 @@ internal ref struct OperationParser
       var variable = new VariableAst(at, name);
 
       if (_tokens.Take(':')
-        && _tokens.Identifier(out var varType)
+        && ParseVarType(out var varType)
       ) {
         variable.Type = varType;
       }
@@ -112,6 +113,34 @@ internal ref struct OperationParser
     variables = result.ToArray();
 
     return Error("Invalid Variables. Expected ')'.", _tokens.Take(')'));
+  }
+
+  internal bool ParseVarType(out string varType)
+  {
+    if (ParseVarNull(out var nullType)) {
+      varType = _tokens.Take('!') ? nullType + '!' : nullType;
+      return true;
+    }
+
+    varType = "";
+    return false;
+  }
+
+  internal bool ParseVarNull(out string varNull)
+  {
+    if (_tokens.Take('[')) {
+      if (ParseVarType(out var varType)
+        && _tokens.Take(']')
+      ) {
+        varNull = "[" + varType + "]";
+        return true;
+      }
+
+      varNull = "";
+      return Error("Invalid Variable Type. Expected an inner variable type.");
+    } else {
+      return _tokens.Identifier(out varNull);
+    }
   }
 
   internal DirectiveAst[] ParseDirectives()

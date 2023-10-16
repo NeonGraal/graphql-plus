@@ -15,5 +15,5 @@ internal sealed record class FragmentAst(ParseAt At, string Name, string OnType,
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(OnType.Prefixed(":"))
-      .Concat(Selections.Bracket("{", "}", d => $"{d}"));
+      .Concat(AstExtensions.Bracket("{", "}", Selections));
 }

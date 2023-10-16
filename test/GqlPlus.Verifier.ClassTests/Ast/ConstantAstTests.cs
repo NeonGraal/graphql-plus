@@ -9,28 +9,28 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void String_WithLabel(string label)
     => new ConstantAst(new FieldKeyAst(AstNulls.At, "", label))
-    .TestString($"C({label})");
+    .TestString($"( !K {label} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumLabel(string enumType, string label)
     => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, label))
-    .TestString($"C({enumType}.{label})");
+    .TestString($"( !K {enumType}.{label} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumType(string enumType)
     => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, "label"))
-    .TestString($"C({enumType}.label)");
+    .TestString($"( !K {enumType}.label )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithValues(string label)
     => new ConstantAst(AstNulls.At, label.ConstantList())
-    .TestString($"C([ C({label}) C({label}) ])");
+    .TestString($"( !C [ !K {label} !K {label} ] )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithFields(string key, string label)
     => new ConstantAst(AstNulls.At, label.ConstantObject(key))
     .TestString(
-      $"C({{ K({key}):C({label}) K({label}):C({key}) }})",
+      $"( !C {{ ( !K {key} ):( !K {label} ) ( !K {label} ):( !K {key} ) }} )",
       key == label);
 
   [Theory, RepeatData(Repeats)]

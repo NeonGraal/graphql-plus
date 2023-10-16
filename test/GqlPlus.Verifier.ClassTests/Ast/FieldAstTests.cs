@@ -8,32 +8,32 @@ public class FieldAstTests
 
   [Theory, RepeatData(Repeats)]
   public void String(string name)
-    => new FieldAst(AstNulls.At, name).TestString($"F({name})");
+    => new FieldAst(AstNulls.At, name).TestString($"( !F {name} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithAlias(string name, string alias)
     => new FieldAst(AstNulls.At, name) { Alias = alias }
-    .TestString($"F({alias}: {name})");
+    .TestString($"( !F {alias}: {name} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithArgument(string variable, string name)
     => new FieldAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) }
-    .TestString($"F({name} A(${variable}))");
+    .TestString($"( !F {name} ( !A ${variable} ) )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithModifiers(string name)
     => new FieldAst(AstNulls.At, name) { Modifiers = TestMods() }
-    .TestString($"F({name} []?)");
+    .TestString($"( !F {name} []? )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithSelection(string name, string field)
   => new FieldAst(AstNulls.At, name) { Selections = field.Fields() }
-  .TestString($"F({name} {{ F({field}) }})");
+  .TestString($"( !F {name} {{ !F {field} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithDirective(string name, string directive)
     => new FieldAst(AstNulls.At, name) { Directives = directive.Directives() }
-    .TestString($"F({name} D({directive}))");
+    .TestString($"( !F {name} ( !D {directive} ) )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality(string name)

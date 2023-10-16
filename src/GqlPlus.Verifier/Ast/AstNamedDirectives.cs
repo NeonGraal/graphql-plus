@@ -13,5 +13,5 @@ internal abstract record class AstNamedDirectives(ParseAt At, string Name)
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-    .Concat(Directives.Select(d => $"{d}"));
+    .Concat(Directives.AsString());
 }

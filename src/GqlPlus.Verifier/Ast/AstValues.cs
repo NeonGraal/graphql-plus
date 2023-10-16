@@ -23,7 +23,7 @@ internal abstract record class AstValues<T> : AstBase, IEquatable<AstValues<T>>
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Concat(Values.Bracket("[", "]", v => $"{v}"))
+      .Concat(AstExtensions.Bracket("[", "]", Values))
       .Concat(Fields.Bracket("{", "}", kv => $"{kv.Key}:{kv.Value}"));
 
   internal class ObjectAst : Dictionary<FieldKeyAst, T>, IEquatable<Dictionary<FieldKeyAst, T>>

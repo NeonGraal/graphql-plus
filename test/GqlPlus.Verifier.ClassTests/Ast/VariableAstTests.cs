@@ -8,23 +8,23 @@ public class VariableAstTests
 
   [Theory, RepeatData(Repeats)]
   public void String(string name)
-    => new VariableAst(AstNulls.At, name).TestString("V(" + name + ")");
+    => new VariableAst(AstNulls.At, name).TestString("( !V " + name + " )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithType(string name, string varType)
-    => new VariableAst(AstNulls.At, name) { Type = varType }.TestString($"V({name} :{varType})");
+    => new VariableAst(AstNulls.At, name) { Type = varType }.TestString($"( !V {name} :{varType} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithModifiers(string name)
-    => new VariableAst(AstNulls.At, name) { Modifers = TestMods() }.TestString($"V({name} [] ?)");
+    => new VariableAst(AstNulls.At, name) { Modifers = TestMods() }.TestString($"( !V {name} [] ? )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithDirective(string name, string directive)
-    => new VariableAst(AstNulls.At, name) { Directives = directive.Directives() }.TestString($"V({name} D({directive}))");
+    => new VariableAst(AstNulls.At, name) { Directives = directive.Directives() }.TestString($"( !V {name} ( !D {directive} ) )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithDefault(string name, string value)
-    => new VariableAst(AstNulls.At, name) { Default = new FieldKeyAst(AstNulls.At, value) }.TestString($"V({name} =C('{value}'))");
+    => new VariableAst(AstNulls.At, name) { Default = new FieldKeyAst(AstNulls.At, value) }.TestString($"( !V {name} =( !K '{value}' ) )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality(string name)

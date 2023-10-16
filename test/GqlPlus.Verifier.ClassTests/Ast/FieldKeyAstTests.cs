@@ -4,19 +4,19 @@ public class FieldKeyAstTests
 {
   [Theory, RepeatData(Repeats)]
   public void String_WithNumber(decimal number)
-    => new FieldKeyAst(AstNulls.At, number).TestString($"K({number})");
+    => new FieldKeyAst(AstNulls.At, number).TestString($"( !K {number} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithString(string contents)
-    => new FieldKeyAst(AstNulls.At, contents).TestString($"K('{contents}')");
+    => new FieldKeyAst(AstNulls.At, contents).TestString($"( !K '{contents}' )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumLabel(string enumType, string label)
-    => new FieldKeyAst(AstNulls.At, enumType, label).TestString($"K({enumType}.{label})");
+    => new FieldKeyAst(AstNulls.At, enumType, label).TestString($"( !K {enumType}.{label} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithLabel(string label)
-    => new FieldKeyAst(AstNulls.At, "", label).TestString($"K({label})");
+    => new FieldKeyAst(AstNulls.At, "", label).TestString($"( !K {label} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithNumber(decimal number)

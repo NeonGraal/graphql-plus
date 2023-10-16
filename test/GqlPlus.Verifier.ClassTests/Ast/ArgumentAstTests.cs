@@ -9,23 +9,23 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void String_WithVariable(string variable)
     => new ArgumentAst(AstNulls.At, variable)
-    .TestString($"A(${variable})");
+    .TestString($"( !A ${variable} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithConstant(string enumType, string label)
     => new ArgumentAst(new FieldKeyAst(AstNulls.At, enumType, label))
-    .TestString($"A({enumType}.{label})");
+    .TestString($"( !K {enumType}.{label} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithValues(string label)
     => new ArgumentAst(AstNulls.At, label.ArgumentList())
-    .TestString($"A([ A(${label}) A({label}) ])");
+    .TestString($"( !A [ !A ${label} !K {label} ] )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithFields(string key, string label)
     => new ArgumentAst(AstNulls.At, label.ArgumentObject(key))
     .TestString(
-      $"A({{ K({key}):A(${label}) K({label}):A({key}) }})",
+      $"( !A {{ ( !K {key} ):( !A ${label} ) ( !K {label} ):( !K {key} ) }} )",
       key == label);
 
   [Theory, RepeatData(Repeats)]

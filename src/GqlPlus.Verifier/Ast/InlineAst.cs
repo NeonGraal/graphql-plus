@@ -10,7 +10,7 @@ internal sealed record class InlineAst(ParseAt At, params AstSelection[] Selecti
   protected override string Abbr => "I";
 
   public bool Equals(InlineAst? other)
-    => other is not null
+    => base.Equals(other)
     && OnType.NullEqual(other.OnType)
     && Selections.SequenceEqual(other.Selections)
     && Directives.SequenceEqual(other.Directives);
@@ -20,6 +20,6 @@ internal sealed record class InlineAst(ParseAt At, params AstSelection[] Selecti
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(OnType.Prefixed(":"))
-      .Concat(Directives.Select(d => $"{d}"))
-      .Concat(Selections.Bracket("{", "}", d => $"{d}"));
+      .Concat(Directives.AsString())
+      .Concat(Selections.Bracket("{", "}"));
 }

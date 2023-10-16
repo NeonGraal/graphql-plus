@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.Design.Serialization;
-using GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Verifier.Ast;
 
 namespace GqlPlus.Verifier;
 

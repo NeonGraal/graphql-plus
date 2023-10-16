@@ -20,6 +20,6 @@ internal sealed record class VariableAst(ParseAt At, string Name)
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(Type.Prefixed(":"))
-      .Concat(Modifers.Select(m => $"{m}"))
+      .Concat(Modifers.AsString())
       .Append(Default is null ? "" : "=" + Default.ToString());
 }

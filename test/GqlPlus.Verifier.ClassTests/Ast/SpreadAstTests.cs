@@ -8,12 +8,12 @@ public class SpreadAstTests
 
   [Theory, RepeatData(Repeats)]
   public void String(string name)
-    => new SpreadAst(AstNulls.At, name).TestString($"S({name})");
+    => new SpreadAst(AstNulls.At, name).TestString($"( !S {name} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithDirective(string name, string directive)
     => new SpreadAst(AstNulls.At, name) { Directives = directive.Directives() }
-    .TestString($"S({name} D({directive}))");
+    .TestString($"( !S {name} ( !D {directive} ) )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality(string name)

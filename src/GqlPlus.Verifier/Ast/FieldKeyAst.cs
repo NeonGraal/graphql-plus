@@ -31,8 +31,8 @@ internal record class FieldKeyAst : AstBase, IComparable<FieldKeyAst>
       : -1;
 
   internal override IEnumerable<string?> GetFields()
-    => String is not null ? new[] { $"'{String}'" }
-      : Number is not null ? new[] { $"{Number}" }
-      : EnumLabel is not null ? new[] { $"{EnumLabel}" }
-      : base.GetFields();
+    => base.GetFields()
+      .Append(Number?.ToString())
+      .Append(EnumLabel?.ToString())
+      .Append(String is not null ? $"'{String}'" : null);
 }

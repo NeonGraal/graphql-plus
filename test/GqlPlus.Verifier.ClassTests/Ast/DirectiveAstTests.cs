@@ -4,12 +4,12 @@ public class DirectiveAstTests
 {
   [Theory, RepeatData(Repeats)]
   public void String(string name)
-    => new DirectiveAst(AstNulls.At, name).TestString($"D({name})");
+    => new DirectiveAst(AstNulls.At, name).TestString($"( !D {name} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithArgument(string variable, string name)
     => new DirectiveAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) }
-    .TestString($"D({name} A(${variable}))");
+    .TestString($"( !D {name} ( !A ${variable} ) )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality(string name)

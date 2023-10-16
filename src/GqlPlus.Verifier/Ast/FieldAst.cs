@@ -20,9 +20,10 @@ internal sealed record class FieldAst(ParseAt At, string Name)
     => HashCode.Combine(base.GetHashCode(), Alias, Argument, Modifiers, Selections);
 
   internal override IEnumerable<string?> GetFields()
-    => base.GetFields()
-      .Prepend(Alias.Suffixed(":"))
-      .Append(Argument?.ToString())
-      .Append(string.Join("", Modifiers.Select(m => $"{m}")))
-      .Concat(Selections.Bracket("{", "}", d => $"{d}"));
+    => //base.GetFields()
+      new[] { AbbrAt, Alias.Suffixed(":"), Name }
+      .Concat(AstExtensions.Bracket("(", ")", new[] { Argument }))
+      .Append(string.Join("", Modifiers.AsString()))
+      .Concat(Directives.AsString())
+      .Concat(AstExtensions.Bracket("{", "}", Selections));
 }

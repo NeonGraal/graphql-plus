@@ -142,15 +142,15 @@ A Field may have none, one, more or even all of the following, in this order:
 | `{ name[] }`                          | `{ name: [ "Andrew", "Alan", "Barbera" ] }`                      |
 | `{ id(12) }`                          | `{ id: 12 }`                                                     |
 | `{ name("A*")[] }`                    | `{ name: ["Andrew", "Alan"] }`                                   |
-| `{ user(12) { id name } }`            | `{ user:{ id:12; name:"Andrew" } }`                              |
-| `{ user(12)[] { id name } }`          | `{ user:[ { id:12; name:"Andrew" } ] }`                          |
-| `{ user("A*") { id name } }`          | `{ user:{ id:12; name:"Andrew" } }`                              |
-| `{ All_A: user("A*")[] { id name } }` | `{ All_A:[ { id:12; name:"Andrew" }, { id:34; name:"Alan" } ] }` |
+| `{ user(12) { id name } }`            | `{ user:{ id:12, name:"Andrew" } }`                              |
+| `{ user(12)[] { id name } }`          | `{ user:[ { id:12, name:"Andrew" } ] }`                          |
+| `{ user("A*") { id name } }`          | `{ user:{ id:12, name:"Andrew" } }`                              |
+| `{ All_A: user("A*")[] { id name } }` | `{ All_A:[ { id:12, name:"Andrew" }, { id:34, name:"Alan" } ] }` |
 
 ## Fragment
 
 ```PEG
-Fragment = '& fragment ':' type Frag_Body
+Fragment = '&' fragment ':' type Frag_Body
 Frag_End = ( 'fragment' | '&' ) fragment TypeCondition Frag_Body
 Frag_Body = Directive* Object
 ```
@@ -216,7 +216,7 @@ Inline = TypeCondition? Directive* Object
 Spread = fragment Directive*
 TypeCondition = ( 'on' | ':' ) type
 
-Fragment = '& fragment ':' type Frag_Body
+Fragment = '&' fragment ':' type Frag_Body
 Frag_End = ( 'fragment' | '&' ) fragment TypeCondition Frag_Body
 Frag_Body = Directive* Object
 

@@ -1,0 +1,56 @@
+﻿!O P@20
+query
+Success
+{
+  !F I@24
+  user
+  (
+    !A P@36
+    {
+      ( !K I@29 id ):( !K N@33 4 )
+    }
+  )
+  {
+    !F I@42
+    friends
+    (
+      !A P@61
+      {
+        ( !K I@50 first ):( !K N@57 10 )
+      }
+    )
+    {
+      !S P@89
+      friendFields
+    }
+    !F I@95
+    mutualFriends
+    (
+      !A P@120
+      {
+        ( !K I@109 first ):( !K N@116 10 )
+      }
+    )
+    {
+      !S P@148
+      friendFields
+    }
+  }
+}
+!T E@226
+friendFields
+:User
+{
+  !F I@191
+  id
+  !F I@196
+  name
+  !F I@203
+  profilePic
+  (
+    !A P@224
+    {
+      ( !K I@214 size ):( !K N@220 50 )
+    }
+  )
+}

@@ -23,18 +23,13 @@ public class VerifyGraphQlExamples
 
   public class GraphQlExamplesData : TheoryData<string>
   {
+    private const string Examples = "003 005 006 007 008 009a 009b 010 012 013 014 016 018 019"
+      + " 020 021 023 024";
     public GraphQlExamplesData()
     {
-      Add("003");
-      Add("005");
-      Add("006");
-      Add("007");
-      Add("008");
-      Add("009a");
-      Add("010");
-      Add("012");
-      Add("013");
-      Add("014");
+      foreach (var example in Examples.Split()) {
+        Add(example);
+      }
     }
   }
 }

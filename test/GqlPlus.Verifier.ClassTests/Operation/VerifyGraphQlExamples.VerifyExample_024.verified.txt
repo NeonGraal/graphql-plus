@@ -1,0 +1,29 @@
+﻿!O P@26
+query
+Success
+[
+  ( !V I@28 expandedInfo :Boolean )
+]
+{
+  !F I@55
+  user
+  (
+    !A P@76
+    {
+      ( !K I@60 handle ):( !K S@68 'zuck' )
+    }
+  )
+  {
+    !F I@82
+    id
+    !F I@89
+    name
+    !I P@186
+    ( !D I@103 include ( !A P@130 { ( !K I@111 if ):( !A I@116 $expandedInfo ) } ) )
+    {
+      ( !F I@138 firstName )
+      ( !F I@154 lastName )
+      ( !F I@169 birthday )
+    }
+  }
+}

@@ -67,5 +67,5 @@ internal record class OperationAst(ParseAt At, string Name)
       .Concat(AstExtensions.Bracket("(", ")", new[] { Argument }))
       .Concat(AstExtensions.Bracket("{", "}", Object))
       .Append(string.Join("", Modifiers.AsString()))
-      .Concat(Fragments.AsString());
+      .Concat(AstExtensions.Bracket(string.Empty, string.Empty, Fragments));
 }

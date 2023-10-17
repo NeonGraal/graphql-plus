@@ -2,13 +2,13 @@
 query
 Success
 {
-  !F I@5
+  !F I@4
   picture
   (
-    !A P@39
+    !A P@37
     {
-      ( !K I@13 width ):( !K N@20 200 )
-      ( !K I@25 height ):( !K N@33 100 )
+      ( !K I@12 width ):( !K N@19 200 )
+      ( !K I@24 height ):( !K N@32 100 )
     }
   )
 }

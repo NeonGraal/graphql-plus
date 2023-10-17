@@ -2,25 +2,25 @@
 query
 Success
 {
-  !F I@5
+  !F I@4
   user
   (
-    !A P@17
+    !A P@16
     {
-      ( !K I@10 id ):( !K N@14 4 )
+      ( !K I@9 id ):( !K N@13 4 )
     }
   )
   {
-    !F I@24
+    !F I@22
     id
-    !F I@32
+    !F I@29
     name
-    !F I@42
+    !F I@38
     profilePic
     (
-      !A P@67
+      !A P@62
       {
-        ( !K I@53 size ):( !K N@59 100 )
+        ( !K I@49 size ):( !K N@55 100 )
       }
     )
   }

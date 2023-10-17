@@ -1,0 +1,20 @@
+﻿!O P@0
+query
+Success
+{
+  !F I@10
+  zuck:
+  user
+  (
+    !A P@22
+    {
+      ( !K I@15 id ):( !K N@19 4 )
+    }
+  )
+  {
+    !F I@28
+    id
+    !F I@35
+    name
+  }
+}

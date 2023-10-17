@@ -335,15 +335,11 @@ internal ref struct OperationParser
       ArgumentAst value = new(_tokens);
       if (ParseFieldKey(out var key)) {
         value = key;
-        if (_tokens.Take(':')) {
-          if (ParseArgValue(out var item)) {
-            return ParseArgumentMid(new() { [key] = item }, out argument);
-          }
-
-          return Error("Invalid Argument. Value not found after Field key separator.");
-        } else {
-          return ParseArgumentEnd(value, out argument);
-        }
+        return _tokens.Take(':')
+          ? ParseArgValue(out var item)
+            ? ParseArgumentMid(new() { [key] = item }, out argument)
+            : Error("Invalid Argument. Value not found after Field key separator.")
+          : ParseArgumentEnd(value, out argument);
       }
 
       return ParseArgValue(out value)

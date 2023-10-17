@@ -2,35 +2,35 @@
 query
 Success
 {
-  !F I@5
+  !F I@4
   user
   (
-    !A P@17
+    !A P@16
     {
-      ( !K I@10 id ):( !K N@14 4 )
+      ( !K I@9 id ):( !K N@13 4 )
     }
   )
   {
-    !F I@24
+    !F I@22
     id
-    !F I@32
+    !F I@29
     name
-    !F I@52
+    !F I@48
     smallPic:
     profilePic
     (
-      !A I@78
+      !A I@73
       {
-        ( !K I@63 size ):( !K N@69 64 )
+        ( !K I@59 size ):( !K N@65 64 )
       }
     )
-    !F I@86
+    !F I@81
     bigPic:
     profilePic
     (
-      !A P@112
+      !A P@106
       {
-        ( !K I@97 size ):( !K N@103 1024 )
+        ( !K I@92 size ):( !K N@98 1024 )
       }
     )
   }

@@ -1,0 +1,27 @@
+﻿!O P@27
+query
+Success
+{
+  !F I@31
+  profiles
+  (
+    !A P@72
+    {
+      ( !K I@40 handles ):( !A P@70 [ !K S@50 'zuck' !K S@58 'coca-cola' ] )
+    }
+  )
+  {
+    !F I@78
+    handle
+    !I P@151
+    :User
+    {
+      ( !F I@109 friends { !F I@127 count } )
+    }
+    !I P@210
+    :Page
+    {
+      ( !F I@171 likers { !F I@188 count } )
+    }
+  }
+}

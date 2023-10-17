@@ -110,7 +110,7 @@ public class FieldKeyAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithEnumLabel(string enumType, string label)
   {
-    if (enumType != label) {
+    if (enumType == label) {
       return;
     }
 

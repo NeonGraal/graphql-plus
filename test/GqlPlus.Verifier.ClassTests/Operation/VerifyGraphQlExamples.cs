@@ -9,14 +9,15 @@ public class VerifyGraphQlExamples
   [ClassData(typeof(GraphQlExamplesData))]
   public Task VerifyExample(string example)
   {
-    var operation = File.ReadAllText("GraphQl/Example_" + example + ".gql+");
+    var operation = File.ReadAllText("GraphQL/Example_" + example + ".gql+");
     Tokenizer tokenizer = new(operation);
     OperationParser parser = new(tokenizer);
     OperationAst ast = parser.Parse();
 
     var settings = new VerifySettings();
-    settings.UseTextForParameters(example);
     settings.ScrubEmptyLines();
+    settings.UseDirectory(nameof(VerifyGraphQlExamples));
+    settings.UseFileName(nameof(VerifyExample) + "_" + example);
 
     return Verify(ast.Render(), settings);
   }

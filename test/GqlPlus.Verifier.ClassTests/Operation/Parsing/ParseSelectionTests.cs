@@ -40,13 +40,15 @@ public class ParseSelectionTests
   public void WithSpread_ReturnsCorrectAst(string prefix, string fragment)
     => Test.TrueExpected(
       prefix + fragment,
-      new SpreadAst(AstNulls.At, fragment));
+      new SpreadAst(AstNulls.At, fragment),
+      fragment == "on");
 
   [Theory, RepeatData(Repeats)]
   public void WithSpreadDirective_ReturnsCorrectAst(string fragment, string directive)
     => Test.TrueExpected(
       $"|{fragment}@{directive}",
-      new SpreadAst(AstNulls.At, fragment) { Directives = directive.Directives() });
+      new SpreadAst(AstNulls.At, fragment) { Directives = directive.Directives() },
+      fragment == "on");
 
   [Fact]
   public void WithInvalidSelection_ReturnsFalse()

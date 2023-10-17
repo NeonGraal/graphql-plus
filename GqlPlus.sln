@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		collect-all.ps1 = collect-all.ps1
 		coverage.ps1 = coverage.ps1
+		coverage.runsettings = coverage.runsettings
 		Directory.Build.props = Directory.Build.props
 		.github\workflows\dotnet-test.yml = .github\workflows\dotnet-test.yml
 	EndProjectSection

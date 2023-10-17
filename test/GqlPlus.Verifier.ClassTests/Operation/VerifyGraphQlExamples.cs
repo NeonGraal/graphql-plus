@@ -24,7 +24,7 @@ public class VerifyGraphQlExamples
   public class GraphQlExamplesData : TheoryData<string>
   {
     private const string Examples = "003 005 006 007 008 009a 009b 010 012 013 014 016 018 019"
-      + " 020 021 023 024";
+      + " 020 021 023 024 025 026";
     public GraphQlExamplesData()
     {
       foreach (var example in Examples.Split()) {

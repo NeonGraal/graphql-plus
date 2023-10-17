@@ -3,6 +3,7 @@
 internal ref struct Tokenizer
 {
   internal const int ErrorContextLen = 10;
+  internal ReadOnlySpan<char> _tripleQuote = "\"\"\"".AsSpan();
 
   private readonly ReadOnlySpan<char> _operation;
   private readonly int _len;
@@ -181,9 +182,46 @@ internal ref struct Tokenizer
   internal bool String(out string contents)
   {
     contents = "";
+
     return _kind == TokenKind.String
-      && Delimited(_operation[_pos], out contents);
+      && (IsTripleQuote(_pos + 3)
+        ? BlockString(out contents)
+        : Delimited(_operation[_pos], out contents));
   }
+
+  private readonly bool IsTripleQuote(int end)
+    => end < _len
+      && _operation[_pos..end].Equals(_tripleQuote, StringComparison.Ordinal);
+
+  private bool BlockString(out string contents)
+  {
+    var next = _pos + 3;
+    var end = next;
+    do {
+      if (_operation[end] == '\\') {
+        ++next;
+        end = next;
+      } else if (_operation[next] != '"' || _operation[end] != '"') {
+        end = next;
+      }
+
+      next++;
+    } while (IsNotTripleQuote(end, next));
+
+    _pos += 3;
+    contents = GetString(end)
+      .Replace(@"\" + _tripleQuote.ToString(), _tripleQuote.ToString())
+      .Replace(@"\\", @"\");
+
+    _pos = next;
+    Read();
+
+    return next - end == 3;
+  }
+
+  private readonly bool IsNotTripleQuote(int start, int end)
+    => end < _len
+      && !_operation[start..end].Equals(_tripleQuote, StringComparison.Ordinal);
 
   internal bool Regex(out string regex)
   {

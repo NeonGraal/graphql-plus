@@ -11,7 +11,7 @@ public class ParseFieldKeyTests
       new FieldKeyAst(AstNulls.At, number));
 
   [Fact]
-  public void ParseFieldKey_WithSpecific_ReturnsCorrectAst()
+  public void ParseFieldKey_WithSpecificString_ReturnsCorrectAst()
   {
     var contents = "?&ZbND|2\\";
     Test.TrueExpected(
@@ -23,6 +23,21 @@ public class ParseFieldKeyTests
   public void ParseFieldKey_WithString_ReturnsCorrectAst(string contents)
   => Test.TrueExpected(
       contents.Quote(),
+      new FieldKeyAst(AstNulls.At, contents));
+
+  [Fact]
+  public void ParseFieldKey_WithSpecificBlockString_ReturnsCorrectAst()
+  {
+    var contents = "?&ZbND|\"\"\"2\\";
+    Test.TrueExpected(
+      contents.BlockQuote(),
+      new FieldKeyAst(AstNulls.At, contents));
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void ParseFieldKey_WithBlockString_ReturnsCorrectAst(string contents)
+  => Test.TrueExpected(
+      contents.BlockQuote(),
       new FieldKeyAst(AstNulls.At, contents));
 
   [Theory, RepeatData(Repeats)]

@@ -37,36 +37,45 @@ public class OperationVerifier
 
   private void VerifyVariableDefinition(VariableAst d)
   {
+    var def = d.Default;
+    if (def is null) {
+      return;
+    }
+
     var lastModifier = d.Modifers.LastOrDefault();
-    var secondLastModifier = d.Modifers.Length > 1 ? d.Modifers.TakeLast(2).First() : null;
+    if (lastModifier?.Kind == ModifierKind.Optional) {
+      var secondLastModifier = d.Modifers.Length > 1 ? d.Modifers.TakeLast(2).First() : null;
+      VerifyVariableDefault("Optional ", secondLastModifier, def);
+    } else {
+      VerifyVariableNullDefault(def);
+      VerifyVariableDefault("", lastModifier, def);
+    }
+  }
 
-    switch (d.Default) {
-      case { Value.EnumLabel: "Null.null" }:
-        if (lastModifier?.Kind != ModifierKind.Optional) {
-          Error(d.Error("Invalid Variable definition. Default of 'null' must be on Optional Type."));
+  private void VerifyVariableDefault(string label, ModifierAst? lastModifier, ConstantAst def)
+  {
+    switch (lastModifier?.Kind) {
+      case ModifierKind.Dict:
+        if (def.Values.Length > 0 || def.Value is not null) {
+          Error(def.Error($"Invalid Variable definition. {label}Dictionary Type must have Object default."));
         }
 
         break;
-      case { Values.Length: > 0 } or { Value: not null }:
-        if (lastModifier?.Kind == ModifierKind.Dict) {
-          Error(d.Error("Invalid Variable definition. Dictionary Type must have Object default."));
-        } else if (lastModifier?.Kind == ModifierKind.Optional
-            && secondLastModifier?.Kind == ModifierKind.Dict
-          ) {
-          Error(d.Error("Invalid Variable definition. Optional Dictionary Type must have Object default."));
+      case ModifierKind.List:
+        if (def.Fields.Count > 0) {
+          Error(def.Error($"Invalid Variable definition. {label}List Type cannot have Object default."));
         }
 
         break;
-      case { Fields.Count: > 0 }:
-        if (lastModifier?.Kind == ModifierKind.List) {
-          Error(d.Error("Invalid Variable definition. List Type cannot have Object default."));
-        } else if (lastModifier?.Kind == ModifierKind.Optional
-          && secondLastModifier?.Kind == ModifierKind.List
-        ) {
-          Error(d.Error("Invalid Variable definition. Optional List Type cannot have Object default."));
-        }
-
+      default:
         break;
+    }
+  }
+
+  private void VerifyVariableNullDefault(ConstantAst def)
+  {
+    if (def.Value?.EnumLabel == "Null.null") {
+      Error(def.Error("Invalid Variable definition. Default of 'null' must be on Optional Type."));
     }
   }
 

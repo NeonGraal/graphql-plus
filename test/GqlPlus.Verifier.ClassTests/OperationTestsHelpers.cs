@@ -54,6 +54,15 @@ internal static class OperationTestsHelpers
       : '"' + contents + '"';
   }
 
+  public static string BlockQuote(this string contents)
+  {
+    const string TripleQuote = "\"\"\"";
+    contents = contents
+      .Replace(@"\", @"\\")
+      .Replace(TripleQuote, '\\' + TripleQuote);
+    return TripleQuote + contents + TripleQuote;
+  }
+
   public static Tokenizer Tokens(string input)
   {
     var tokens = new Tokenizer(input);

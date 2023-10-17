@@ -40,6 +40,7 @@ public class ParserTests
   [InlineData("()")]
   [InlineData("($test)")]
   [InlineData(")")]
+  [InlineData(":Boolean extra")]
   public void Parse_ShouldFail(string input)
   {
     var parser = new OperationParser(new Tokenizer(input));

@@ -1,0 +1,18 @@
+﻿!O I@0
+mutation
+Success
+{
+  !F I@13
+  sendEmail
+  (
+    !A P@104
+    {
+      ( !K I@28 message ):( !K S@37 '
+    Hello,
+      World!
+    Yours,
+      GraphQL.
+    ' )
+    }
+  )
+}

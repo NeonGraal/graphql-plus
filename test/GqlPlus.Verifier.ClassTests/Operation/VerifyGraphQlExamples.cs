@@ -9,7 +9,7 @@ public class VerifyGraphQlExamples
   [ClassData(typeof(GraphQlExamplesData))]
   public Task VerifyExample(string example)
   {
-    var operation = File.ReadAllText("GraphQL/Example_" + example + ".gql+");
+    var operation = File.ReadAllText("GraphQl/Example_" + example + ".gql+");
     Tokenizer tokenizer = new(operation);
     OperationParser parser = new(tokenizer);
     OperationAst ast = parser.Parse();

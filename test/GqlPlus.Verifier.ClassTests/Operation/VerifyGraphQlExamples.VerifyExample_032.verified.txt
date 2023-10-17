@@ -1,0 +1,30 @@
+﻿!O P@20
+query
+Success
+[
+  ( !V I@22 devicePicSize :Int )
+]
+{
+  !F I@46
+  user
+  (
+    !A P@58
+    {
+      ( !K I@51 id ):( !K N@55 4 )
+    }
+  )
+  {
+    !F I@64
+    id
+    !F I@71
+    name
+    !F I@80
+    profilePic
+    (
+      !A P@115
+      {
+        ( !K I@91 size ):( !A I@98 $devicePicSize )
+      }
+    )
+  }
+}

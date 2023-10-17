@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Verifier.Ast;
 
 internal record class ModifierAst(ParseAt At) : IEquatable<ModifierAst>
 {
@@ -19,6 +21,7 @@ internal record class ModifierAst(ParseAt At) : IEquatable<ModifierAst>
   internal string? Key { get; init; }
   internal bool KeyOptional { get; init; }
 
+  [ExcludeFromCodeCoverage]
   public override string ToString()
     => Kind switch {
       ModifierKind.Optional => "?",
@@ -36,5 +39,5 @@ internal record class ModifierAst(ParseAt At) : IEquatable<ModifierAst>
 
   // override object.GetHashCode
   public override int GetHashCode()
-    => HashCode.Combine(Key, KeyOptional);
+    => HashCode.Combine(Kind, Key, KeyOptional);
 }

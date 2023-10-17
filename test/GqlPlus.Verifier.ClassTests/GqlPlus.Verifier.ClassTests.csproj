@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="GraphQL\Example_*.gql" CopyToOutputDirectory="Always" />
+    <None Update="GraphQL\Example_*.gql+" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
 </Project>

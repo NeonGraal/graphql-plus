@@ -210,7 +210,7 @@ internal ref struct Tokenizer
 
     _pos += 3;
     contents = GetString(end)
-      .Replace(@"\" + _tripleQuote.ToString(), _tripleQuote.ToString())
+      .Replace("\\\"", "\"")
       .Replace(@"\\", @"\");
 
     _pos = next;

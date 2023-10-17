@@ -3,6 +3,10 @@
 public class ModifierAstTests
 {
   [Fact]
+  public void HashCode()
+    => ModifierAst.Optional(AstNulls.At).GetHashCode().Should().Be(ModifierAst.Optional(AstNulls.At).GetHashCode());
+
+  [Fact]
 
   public void String()
   {

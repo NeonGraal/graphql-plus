@@ -6,43 +6,41 @@ public class ParseFieldKeyTests
 {
   [Theory, RepeatData(Repeats)]
   public void ParseFieldKey_WithNumber_ReturnsCorrectAst(decimal number)
-  => Test.TrueExpected(
+    => Test.TrueExpected(
       number.ToString(),
       new FieldKeyAst(AstNulls.At, number));
 
-  [Fact]
-  public void ParseFieldKey_WithSpecificString_ReturnsCorrectAst()
-  {
-    var contents = "?&ZbND|2\\";
-    Test.TrueExpected(
+  [Theory]
+  [InlineData(", b.BJ)s\"")]
+  [InlineData("?&ZbND|\"\"\"2\\")]
+  public void ParseFieldKey_WithSpecificString_ReturnsCorrectAst(string contents)
+    => Test.TrueExpected(
       contents.Quote(),
       new FieldKeyAst(AstNulls.At, contents));
-  }
 
   [Theory, RepeatData(Repeats)]
   public void ParseFieldKey_WithString_ReturnsCorrectAst(string contents)
-  => Test.TrueExpected(
+    => Test.TrueExpected(
       contents.Quote(),
       new FieldKeyAst(AstNulls.At, contents));
 
-  [Fact]
-  public void ParseFieldKey_WithSpecificBlockString_ReturnsCorrectAst()
-  {
-    var contents = "?&ZbND|\"\"\"2\\";
-    Test.TrueExpected(
+  [Theory]
+  [InlineData(", b.BJ)s\"")]
+  [InlineData("?&ZbND|\"\"\"2\\")]
+  public void ParseFieldKey_WithSpecificBlockString_ReturnsCorrectAst(string contents)
+    => Test.TrueExpected(
       contents.BlockQuote(),
       new FieldKeyAst(AstNulls.At, contents));
-  }
 
   [Theory, RepeatData(Repeats)]
   public void ParseFieldKey_WithBlockString_ReturnsCorrectAst(string contents)
-  => Test.TrueExpected(
+    => Test.TrueExpected(
       contents.BlockQuote(),
       new FieldKeyAst(AstNulls.At, contents));
 
   [Theory, RepeatData(Repeats)]
   public void ParseFieldKey_WithLabel_ReturnsCorrectAst(string label)
-  => Test.TrueExpected(
+    => Test.TrueExpected(
       label,
       new FieldKeyAst(AstNulls.At, "", label));
 
@@ -52,7 +50,7 @@ public class ParseFieldKeyTests
   [InlineData("null", "Null", "null")]
   [InlineData("_", "Unit", "_")]
   public void ParseFieldKey_WithSpecifcLabels_ReturnsCorrectAst(string label, string enumType, string enumLabel)
-  => Test.TrueExpected(
+    => Test.TrueExpected(
       label,
       new FieldKeyAst(AstNulls.At, enumType, enumLabel));
 

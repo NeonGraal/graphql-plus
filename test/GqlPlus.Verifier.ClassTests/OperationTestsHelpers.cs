@@ -57,9 +57,12 @@ internal static class OperationTestsHelpers
   public static string BlockQuote(this string contents)
   {
     const string TripleQuote = "\"\"\"";
-    contents = contents
-      .Replace(@"\", @"\\")
-      .Replace(TripleQuote, '\\' + TripleQuote);
+    contents = contents.Replace(@"\", @"\\");
+    if (contents.Last() == '"') {
+      contents = contents[..^1] + "\\\"";
+    }
+
+    contents = contents.Replace(TripleQuote, '\\' + TripleQuote);
     return TripleQuote + contents + TripleQuote;
   }
 

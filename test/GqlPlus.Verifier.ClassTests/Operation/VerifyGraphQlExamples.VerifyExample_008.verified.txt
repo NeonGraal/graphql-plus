@@ -2,27 +2,27 @@
 query
 Success
 {
-  !F I@4
+  !F I@5
   me
   {
-    !F I@13
+    !F I@15
     id
-    !F I@20
+    !F I@23
     firstName
-    !F I@34
+    !F I@38
     lastName
-    !F I@47
+    !F I@52
     birthday
     {
-      !F I@64
+      !F I@70
       month
-      !F I@76
+      !F I@83
       day
     }
-    !F I@90
+    !F I@99
     friends
     {
-      !F I@106
+      !F I@116
       name
     }
   }

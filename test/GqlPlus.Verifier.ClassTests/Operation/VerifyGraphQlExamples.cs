@@ -18,7 +18,7 @@ public class VerifyGraphQlExamples
     settings.UseTextForParameters(example);
     settings.ScrubEmptyLines();
 
-    return Verify(ast.Render(), ".gql", settings);
+    return Verify(ast.Render(), settings);
   }
 
   public class GraphQlExamplesData : TheoryData<string>
@@ -32,7 +32,9 @@ public class VerifyGraphQlExamples
       Add("008");
       Add("009a");
       Add("010");
-      Add("011");
+      Add("012");
+      Add("013");
+      Add("014");
     }
   }
 }

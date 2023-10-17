@@ -18,9 +18,10 @@ Success
     !F I@42
     profilePic
     (
-      !A P@67
+      !A P@80
       {
-        ( !K I@53 size ):( !K N@59 100 )
+        ( !K I@53 width ):( !K N@60 100 )
+        ( !K I@65 height ):( !K N@73 50 )
       }
     )
   }

@@ -2,19 +2,19 @@
 mutation
 Success
 {
-  !F I@13
+  !F I@14
   likeStory
   (
-    !A P@39
+    !A P@40
     {
-      ( !K I@23 storyID ):( !K N@32 12345 )
+      ( !K I@24 storyID ):( !K N@33 12345 )
     }
   )
   {
-    !F I@45
+    !F I@47
     story
     {
-      !F I@59
+      !F I@62
       likeCount
     }
   }

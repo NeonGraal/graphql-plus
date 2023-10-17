@@ -1,0 +1,14 @@
+﻿!O P@0
+query
+Success
+{
+  !F I@5
+  picture
+  (
+    !A P@39
+    {
+      ( !K I@13 width ):( !K N@20 200 )
+      ( !K I@25 height ):( !K N@33 100 )
+    }
+  )
+}

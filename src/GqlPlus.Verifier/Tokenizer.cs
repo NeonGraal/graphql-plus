@@ -86,7 +86,7 @@ internal ref struct Tokenizer
       var code = _operation[_pos];
 
       if (code <= ' ' || code > '~'
-        || IgnoreSeparators && (code == ';' || code == ',')
+        || IgnoreSeparators && code == ','
       ) {
         ++_pos;
       } else {

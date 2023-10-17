@@ -50,14 +50,14 @@ public class ParseArgumentTests
   [Theory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string label)
     => Test.TrueExpected(
-      '(' + key + ":$" + label + ';' + label + ':' + key + ')',
+      '(' + key + ":$" + label + ',' + label + ':' + key + ')',
       new ArgumentAst(AstNulls.At, label.ArgumentObject(key)),
       key == label);
 
   [Theory, RepeatData(Repeats)]
   public void WithObjectSemiLabel_ReturnsFalse(string key, string label)
     => Test.False(
-      '(' + key + ":$" + label + ';' + label + ')',
+      '(' + key + ":$" + label + ',' + label + ')',
       CheckDefault,
       key == label);
 
@@ -71,7 +71,7 @@ public class ParseArgumentTests
   [Theory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string label)
     => Test.False(
-      '(' + key + ':' + label + ',' + label + ':' + key + ')',
+      '(' + key + ':' + label + ';' + label + ':' + key + ')',
       CheckDefault,
       key == label);
 

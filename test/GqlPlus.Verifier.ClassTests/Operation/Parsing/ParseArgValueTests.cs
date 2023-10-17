@@ -50,7 +50,7 @@ public class ParseArgValueTests
   [Theory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string label)
     => Test.TrueExpected(
-      '{' + key + ":$" + label + ';' + label + ':' + key + '}',
+      '{' + key + ":$" + label + ',' + label + ':' + key + '}',
       new ArgumentAst(AstNulls.At, label.ArgumentObject(key)),
       key == label);
 

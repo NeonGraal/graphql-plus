@@ -337,8 +337,7 @@ internal ref struct OperationParser
         value = key;
         if (_tokens.Take(':')) {
           if (ParseArgValue(out var item)) {
-            var items = ParseArgValues(item);
-            return ParseArgumentMid(new() { [key] = items }, out argument);
+            return ParseArgumentMid(new() { [key] = item }, out argument);
           }
 
           return Error("Invalid Argument. Value not found after Field key separator.");
@@ -420,7 +419,7 @@ internal ref struct OperationParser
         return Error($"Invalid Argument. Possibly missing ':' or '{end}' in Field.");
       }
 
-      _tokens.Take(';');
+      _tokens.Take(',');
     }
 
     foreach (var item in result) {
@@ -562,7 +561,7 @@ internal ref struct OperationParser
         return false;
       }
 
-      _tokens.Take(';');
+      _tokens.Take(',');
     }
 
     return true;
@@ -572,13 +571,13 @@ internal ref struct OperationParser
   {
     argument = new(_tokens);
 
-    if (_tokens.Take(';')) {
+    if (_tokens.Take(',')) {
       if (ParseArgFieldValues(')', fields)) {
         argument = new ArgumentAst(_tokens, fields);
         return true;
       }
 
-      return Error("Invalid Argument. Expected Field Values after ';'");
+      return Error("Invalid Argument. Expected Field Values after ','");
     }
 
     while (!_tokens.Take(')')) {

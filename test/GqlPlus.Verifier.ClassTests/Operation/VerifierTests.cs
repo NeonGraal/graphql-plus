@@ -8,6 +8,8 @@ public class VerifierTests
   {
     var result = OperationVerifier.Verify(operation, out var errors);
 
+    using var scope = new AssertionScope();
+
     result.Should().BeTrue();
     errors.Should().BeNullOrEmpty();
   }
@@ -17,6 +19,8 @@ public class VerifierTests
   public void Verify_InvalidOperations_ReturnsInvalid(string operation)
   {
     var result = OperationVerifier.Verify(operation, out var errors);
+
+    using var scope = new AssertionScope();
 
     result.Should().BeFalse();
     errors.Should().NotBeNullOrEmpty();

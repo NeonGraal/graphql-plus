@@ -7,7 +7,7 @@ public class VerifyTests
 {
   [Theory]
   [InlineData("Operation_error")]
-  public Task VerifySample(string sample)
+  public async Task VerifySample(string sample)
   {
     var operation = File.ReadAllText("Sample/" + sample + ".gql+");
     Tokenizer tokenizer = new(operation);
@@ -19,12 +19,12 @@ public class VerifyTests
     settings.UseDirectory(nameof(VerifyTests));
     settings.UseFileName(nameof(VerifySample) + "_" + sample);
 
-    return Verify(ast.Render(), settings);
+    await Verify(ast.Render(), settings);
   }
 
   [Theory]
   [ClassData(typeof(GraphQlExamplesData))]
-  public Task VerifyGraphQlExample(string example)
+  public async Task VerifyGraphQlExample(string example)
   {
     var operation = File.ReadAllText("GraphQl/Example_" + example + ".gql");
     Tokenizer tokenizer = new(operation);
@@ -36,7 +36,7 @@ public class VerifyTests
     settings.UseDirectory(nameof(VerifyTests));
     settings.UseFileName(nameof(VerifyGraphQlExample) + "_" + example);
 
-    return Verify(ast.Render(), settings);
+    await Verify(ast.Render(), settings);
   }
 
   public class GraphQlExamplesData : TheoryData<string>

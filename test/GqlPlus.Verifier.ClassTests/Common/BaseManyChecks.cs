@@ -17,6 +17,8 @@ internal sealed class BaseManyChecks<P, T>
 
     _many(parser, out T[] result).Should().BeTrue();
 
+    using var scope = new AssertionScope();
+
     parser.Errors.Should().BeEmpty();
     result.Should().Equal(expected);
   }
@@ -26,6 +28,8 @@ internal sealed class BaseManyChecks<P, T>
     var parser = Parser(input);
 
     _many(parser, out T[] result).Should().BeFalse();
+
+    using var scope = new AssertionScope();
 
     parser.Errors.Should().NotBeEmpty();
     result.Should().BeEmpty();

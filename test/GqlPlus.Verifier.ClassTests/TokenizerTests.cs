@@ -1,7 +1,4 @@
-﻿using FluentAssertions.Execution;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
-
-namespace GqlPlus.Verifier;
+﻿namespace GqlPlus.Verifier;
 
 public class TokenizerTests
 {
@@ -27,7 +24,11 @@ public class TokenizerTests
   {
     var tokens = new Tokenizer("");
 
-    tokens.Read().Should().BeFalse();
+    var result = tokens.Read();
+
+    using var scope = new AssertionScope();
+
+    result.Should().BeFalse();
 
     tokens.AtEnd.Should().BeTrue();
   }
@@ -70,8 +71,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens(identifier);
 
-    tokens.Number(out var result).Should().BeFalse();
-    result.Should().Be(default);
+    FalseAndExpected<decimal>(tokens.Number, default);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -87,10 +87,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens('"' + sample);
 
-    tokens.String(out var result).Should().BeFalse();
-
-    result.Should().Be(sample + " ");
-    tokens.AtEnd.Should().BeTrue();
+    FalseAndExpected(tokens.String, sample + " ", tokens);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -98,10 +95,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens('"' + sample + "'");
 
-    tokens.String(out var result).Should().BeFalse();
-
-    result.Should().Be(sample + "' ");
-    tokens.AtEnd.Should().BeTrue();
+    FalseAndExpected(tokens.String, sample + "' ", tokens);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -117,9 +111,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens("'" + sample);
 
-    tokens.String(out var result).Should().BeFalse();
-    result.Should().Be(sample + " ");
-    tokens.AtEnd.Should().BeTrue();
+    FalseAndExpected(tokens.String, sample + " ", tokens);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -127,8 +119,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens("'" + sample + '"');
 
-    tokens.String(out var result).Should().BeFalse();
-    result.Should().Be(sample + '"' + ' ');
+    FalseAndExpected(tokens.String, sample + '"' + ' ');
   }
 
   [Theory, RepeatData(Repeats)]
@@ -136,8 +127,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens(identifier);
 
-    tokens.String(out var result).Should().BeFalse();
-    result.Should().Be("");
+    FalseAndExpected(tokens.String, "");
   }
 
   [Theory, RepeatData(Repeats)]
@@ -153,9 +143,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens('/' + regex);
 
-    tokens.Regex(out var result).Should().BeFalse();
-    result.Should().Be(regex + " ");
-    tokens.AtEnd.Should().BeTrue();
+    FalseAndExpected(tokens.Regex, regex + " ", tokens);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -163,8 +151,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens(regex + '/');
 
-    tokens.Regex(out var result).Should().BeFalse();
-    result.Should().Be("");
+    FalseAndExpected(tokens.Regex, "");
   }
 
   [Theory, RepeatData(Repeats)]
@@ -202,8 +189,9 @@ public class TokenizerTests
     Tokenizer tokens = PrepareTokens(many);
     var expected = many.First();
 
-    tokens.TakeAny(out var result, many.ToCharArray()).Should().BeTrue();
-    result.Should().Be(expected);
+    TrueAndExpected(
+      (out char result) => tokens.TakeAny(out result, many.ToCharArray()),
+      expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -212,6 +200,8 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens(prefix + "?");
     var expected = prefix.First();
+
+    using var scope = new AssertionScope();
 
     tokens.Prefix(expected, out _, out _).Should().BeFalse();
     tokens.Take(expected).Should().BeTrue();
@@ -237,11 +227,7 @@ public class TokenizerTests
 
     var result = tokens.Error(message);
 
-    result.Kind.Should().Be(TokenKind.Start);
-    result.Line.Should().Be(0);
-    result.Column.Should().Be(0);
-    result.Next.Should().Be("<END>");
-    result.Message.Should().Be(message);
+    CheckParseError(result, TokenKind.Start, "<END>", message, 0);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -300,13 +286,13 @@ public class TokenizerTests
     CheckParseError(result, TokenKind.String, expected, message);
   }
 
-  private void CheckParseError(ParseError result, TokenKind kind, string expected, string message)
+  private void CheckParseError(ParseError result, TokenKind kind, string expected, string message, int pos = 1)
   {
-    using var _ = new AssertionScope();
+    using var scope = new AssertionScope();
 
     result.Kind.Should().Be(kind);
-    result.Line.Should().Be(1);
-    result.Column.Should().Be(1);
+    result.Line.Should().Be(pos);
+    result.Column.Should().Be(pos);
     result.Next.Should().Be(expected);
     result.Message.Should().Be(message);
   }
@@ -317,9 +303,30 @@ public class TokenizerTests
   {
     var success = call(out var result);
 
-    using var _ = new AssertionScope();
+    using var scope = new AssertionScope();
 
     success.Should().BeTrue();
     result.Should().Be(expected);
+  }
+
+  private static void FalseAndExpected<T>(Call<T> call, T expected)
+  {
+    var success = call(out var result);
+
+    using var scope = new AssertionScope();
+
+    success.Should().BeFalse();
+    result.Should().Be(expected);
+  }
+
+  private static void FalseAndExpected<T>(Call<T> call, T expected, Tokenizer tokens)
+  {
+    var success = call(out var result);
+
+    using var scope = new AssertionScope();
+
+    success.Should().BeFalse();
+    result.Should().Be(expected);
+    tokens.AtEnd.Should().BeTrue();
   }
 }

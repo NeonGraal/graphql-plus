@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace GqlPlus.Verifier;
+﻿namespace GqlPlus.Verifier;
 
 internal class Tokenizer
 {
@@ -80,6 +78,7 @@ internal class Tokenizer
       _line = 1;
       _lineStart = -1;
     }
+
     SkipWhitespace();
 
     if (_pos >= _len) {
@@ -105,6 +104,7 @@ internal class Tokenizer
           _lineStart = _pos;
           _line++;
         }
+
         ++_pos;
       } else {
         return;

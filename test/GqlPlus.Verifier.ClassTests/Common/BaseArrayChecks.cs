@@ -17,6 +17,8 @@ internal sealed class BaseArrayChecks<P, T>
 
     var result = _array(parser);
 
+    using var scope = new AssertionScope();
+
     parser.Errors.Should().BeEmpty();
     result.Should().NotBeNull().And.Equal(expected);
   }
@@ -27,6 +29,8 @@ internal sealed class BaseArrayChecks<P, T>
 
     var result = _array(parser);
 
+    using var scope = new AssertionScope();
+
     parser.Errors.Should().NotBeEmpty();
     result.Should().BeEmpty();
   }
@@ -36,6 +40,8 @@ internal sealed class BaseArrayChecks<P, T>
     var parser = Parser(input);
 
     var result = _array(parser);
+
+    using var scope = new AssertionScope();
 
     parser.Errors.Should().NotBeEmpty();
     result.Should().NotBeNull().And.Equal(expected);

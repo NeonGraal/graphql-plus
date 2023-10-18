@@ -21,6 +21,8 @@ public class ParserTests
 
     OperationAst? ast = parser.Parse();
 
+    using var scope = new AssertionScope();
+
     ast.Should().BeOfType<OperationAst>()
       .Subject.Result.Should().Be(ParseResult.Success);
     ast!.Errors.Should().BeEmpty();
@@ -46,6 +48,8 @@ public class ParserTests
     var parser = new OperationParser(new Tokenizer(input));
 
     OperationAst? ast = parser.Parse();
+
+    using var scope = new AssertionScope();
 
     ast.Should().BeOfType<OperationAst>()
       .Subject.Result.Should().Be(ParseResult.Failure);

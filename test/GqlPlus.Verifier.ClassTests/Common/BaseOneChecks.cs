@@ -21,6 +21,8 @@ internal sealed class BaseOneChecks<P, T>
 
     _one(parser, out T result).Should().BeTrue();
 
+    using var scope = new AssertionScope();
+
     parser.Errors.Should().BeEmpty();
     result.Should().Be(expected);
   }
@@ -34,6 +36,8 @@ internal sealed class BaseOneChecks<P, T>
     var parser = Parser(input);
 
     _one(parser, out T result).Should().BeFalse();
+
+    using var scope = new AssertionScope();
 
     parser.Errors.Should().NotBeEmpty();
     check(result);

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Operation.Parsing;
+﻿using GqlPlus.Verifier.Common;
+
+namespace GqlPlus.Verifier.Operation.Parsing;
 
 public class ParseVarTypeTests
 {
@@ -26,6 +28,7 @@ public class ParseVarTypeTests
   public void WithNoEnd_ReturnsFalse()
     => Test.False("[test", s => { });
 
-  private static BaseOneChecks<string> Test => new((ref OperationParser parser, out string result)
-    => parser.ParseVarType(out result));
+  private static BaseOneChecks<OperationParser, string> Test => new(
+    tokens => new OperationParser(tokens),
+    (OperationParser parser, out string result) => parser.ParseVarType(out result));
 }

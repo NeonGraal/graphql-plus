@@ -1,17 +1,20 @@
 ﻿namespace GqlPlus.Verifier;
 
-internal ref struct Tokenizer
+internal class Tokenizer
 {
   internal const int ErrorContextLen = 10;
-  internal ReadOnlySpan<char> _tripleQuote = "\"\"\"".AsSpan();
+  internal const string TripleQuote = "\"\"\"";
 
-  private readonly ReadOnlySpan<char> _operation;
+  private readonly ReadOnlyMemory<char> _operation;
   private readonly int _len;
   private TokenKind _kind;
   private int _pos;
 
+#pragma warning disable IDE1006 // Naming Styles
   private static readonly TokenKind[] _kinds = new TokenKind[96];
   private static readonly bool[] _identifier = new bool[75];
+#pragma warning restore IDE1006 // Naming Styles
+
   static Tokenizer()
   {
     for (var kind = 0; kind < 96; kind++) {
@@ -53,7 +56,7 @@ internal ref struct Tokenizer
 
   internal Tokenizer(string operation)
   {
-    _operation = operation.AsSpan();
+    _operation = operation.AsMemory();
     _len = _operation.Length;
 
     _kind = TokenKind.Start;
@@ -76,15 +79,16 @@ internal ref struct Tokenizer
       return false;
     }
 
-    _kind = _kinds[_operation[_pos] - ' '];
+    _kind = _kinds[_operation.Span[_pos] - ' '];
 
     return true;
   }
 
   private void SkipWhitespace()
   {
+    var span = _operation.Span;
     while (_pos < _len) {
-      var code = _operation[_pos];
+      var code = span[_pos];
 
       if (code <= ' ' || code > '~'
         || IgnoreSeparators && code == ','
@@ -116,13 +120,14 @@ internal ref struct Tokenizer
 
   private int Letters(int end)
   {
+    var span = _operation.Span;
     int code;
     do {
       if (++end >= _len) {
         break;
       }
 
-      code = _operation[end] - '0';
+      code = span[end] - '0';
       if (code is < 0 or > 74) {
         break;
       }
@@ -133,7 +138,7 @@ internal ref struct Tokenizer
 
   private string GetString(int end)
   {
-    ReadOnlySpan<char> result = end < _len ? _operation[_pos..end] : _operation[_pos..];
+    var result = end < _len ? _operation[_pos..end] : _operation[_pos..];
     return result.ToString();
   }
 
@@ -155,15 +160,15 @@ internal ref struct Tokenizer
 
   private int Digits(int end)
   {
-    var len = _operation.Length;
+    var span = _operation.Span;
 
     char code;
     do {
-      if (++end >= len) {
+      if (++end >= _len) {
         break;
       }
 
-      code = _operation[end];
+      code = span[end];
     } while (code is '_' or >= '0' and <= '9');
     return end;
   }
@@ -172,7 +177,7 @@ internal ref struct Tokenizer
   {
     end = Digits(end);
 
-    if (end < _len && _operation[end] == '.') {
+    if (end < _len && _operation.Span[end] == '.') {
       end = Digits(end);
     }
 
@@ -186,22 +191,23 @@ internal ref struct Tokenizer
     return _kind == TokenKind.String
       && (IsTripleQuote(_pos + 3)
         ? BlockString(out contents)
-        : Delimited(_operation[_pos], out contents));
+        : Delimited(_operation.Span[_pos], out contents));
   }
 
-  private readonly bool IsTripleQuote(int end)
+  private bool IsTripleQuote(int end)
     => end < _len
-      && _operation[_pos..end].Equals(_tripleQuote, StringComparison.Ordinal);
+      && _operation[_pos..end].ToString().Equals(TripleQuote, StringComparison.InvariantCulture);
 
   private bool BlockString(out string contents)
   {
+    var span = _operation.Span;
     var next = _pos + 3;
     var end = next;
     do {
-      if (_operation[end] == '\\') {
+      if (span[end] == '\\') {
         ++next;
         end = next;
-      } else if (_operation[next] != '"' || _operation[end] != '"') {
+      } else if (span[next] != '"' || span[end] != '"') {
         end = next;
       }
 
@@ -219,9 +225,9 @@ internal ref struct Tokenizer
     return next - end == 3;
   }
 
-  private readonly bool IsNotTripleQuote(int start, int end)
+  private bool IsNotTripleQuote(int start, int end)
     => end < _len
-      && !_operation[start..end].Equals(_tripleQuote, StringComparison.Ordinal);
+      && !_operation[start..end].ToString().Equals(TripleQuote, StringComparison.InvariantCulture);
 
   internal bool Regex(out string regex)
   {
@@ -232,14 +238,15 @@ internal ref struct Tokenizer
 
   private bool Delimited(char delimiter, out string contents)
   {
+    var span = _operation.Span;
     var end = _pos;
     do {
-      if (_operation[end] == '\\') {
+      if (span[end] == '\\') {
         ++end;
       }
 
       ++end;
-    } while (end < _len && _operation[end] != delimiter);
+    } while (end < _len && span[end] != delimiter);
 
     _pos++;
     contents = GetString(end).Replace(@"\" + delimiter, delimiter.ToString()).Replace(@"\\", @"\");
@@ -252,7 +259,7 @@ internal ref struct Tokenizer
 
   internal bool Take(char one)
   {
-    if (_kind != TokenKind.Punctuation || _operation[_pos] != one) {
+    if (_kind != TokenKind.Punctuation || _operation.Span[_pos] != one) {
       return false;
     }
 
@@ -264,12 +271,12 @@ internal ref struct Tokenizer
 
   internal bool TakeAny(out char result, params char[] anyOf)
   {
-    if (_kind != TokenKind.Punctuation || !anyOf.Contains(_operation[_pos])) {
+    if (_kind != TokenKind.Punctuation || !anyOf.Contains(_operation.Span[_pos])) {
       result = '\0';
       return false;
     }
 
-    result = _operation[_pos++];
+    result = _operation.Span[_pos++];
     Read();
 
     return true;
@@ -278,7 +285,7 @@ internal ref struct Tokenizer
   internal bool Take(string text)
   {
     if (_pos + text.Length > _len
-      || !_operation.Slice(_pos, text.Length).Equals(text, StringComparison.InvariantCulture)
+      || !_operation.Slice(_pos, text.Length).ToString().Equals(text, StringComparison.InvariantCulture)
     ) {
       return false;
     }
@@ -292,12 +299,12 @@ internal ref struct Tokenizer
   internal bool Prefix(char one, out string identifier, out ParseAt at)
   {
     if (_kind == TokenKind.Punctuation
-      && _operation[_pos] == one
+      && _operation.Span[_pos] == one
     ) {
       var next = _pos + 1;
 
       if (next < _len) {
-        var code = _operation[next] - ' ';
+        var code = _operation.Span[next] - ' ';
         if (code > 0
           && code < 95
           && _kinds[code] == TokenKind.Identifer

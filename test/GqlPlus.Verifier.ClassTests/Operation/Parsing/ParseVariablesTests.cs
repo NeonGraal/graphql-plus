@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Common;
 
 namespace GqlPlus.Verifier.Operation.Parsing;
 
@@ -65,6 +66,7 @@ public class ParseVariablesTests
   public void WithNoEnd_ReturnsFalse()
     => Test.False("(test");
 
-  private static BaseManyChecks<VariableAst> Test => new((ref OperationParser parser, out VariableAst[] result)
-    => parser.ParseVariables(out result));
+  private static BaseManyChecks<OperationParser, VariableAst> Test => new(
+    tokens => new OperationParser(tokens),
+    (OperationParser parser, out VariableAst[] result) => parser.ParseVariables(out result));
 }

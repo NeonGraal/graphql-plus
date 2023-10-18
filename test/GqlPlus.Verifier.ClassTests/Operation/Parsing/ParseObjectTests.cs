@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Common;
 
 namespace GqlPlus.Verifier.Operation.Parsing;
 
@@ -34,6 +35,7 @@ public class ParseObjectTests
   public void WithNotField_ReturnsFalse()
     => Test.False("{9");
 
-  private static BaseManyChecks<AstSelection> Test => new((ref OperationParser parser, out AstSelection[] result)
-    => parser.ParseObject(out result));
+  private static BaseManyChecks<OperationParser, AstSelection> Test => new(
+    tokens => new OperationParser(tokens),
+    (OperationParser parser, out AstSelection[] result) => parser.ParseObject(out result));
 }

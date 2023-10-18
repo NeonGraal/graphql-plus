@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 
-namespace GqlPlus.Verifier.Operation.Parsing;
+namespace GqlPlus.Verifier.Common;
 
 public class ParseModifiersTests
 {
@@ -25,6 +25,7 @@ public class ParseModifiersTests
         ModifierAst.Optional(AstNulls.At),
       });
 
-  private static BaseArrayChecks<ModifierAst> Test => new((ref OperationParser parser)
-    => parser.ParseModifiers());
+  private static BaseArrayChecks<CommonParser, ModifierAst> Test => new(
+    tokens => new CommonParser(tokens),
+    parser => parser.ParseModifiers());
 }

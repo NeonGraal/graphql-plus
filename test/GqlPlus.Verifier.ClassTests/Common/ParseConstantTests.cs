@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 
-namespace GqlPlus.Verifier.Operation.Parsing;
+namespace GqlPlus.Verifier.Common;
 
 public class ParseConstantTests
 {
@@ -70,6 +70,7 @@ public class ParseConstantTests
   private void CheckDefault(ConstantAst result)
     => result.Should().Be(new ConstantAst(AstNulls.At));
 
-  private static BaseOneChecks<ConstantAst> Test => new((ref OperationParser parser, out ConstantAst result)
-    => parser.ParseConstant(out result));
+  private static BaseOneChecks<CommonParser, ConstantAst> Test => new(
+    tokens => new CommonParser(tokens),
+    (CommonParser parser, out ConstantAst result) => parser.ParseConstant(out result));
 }

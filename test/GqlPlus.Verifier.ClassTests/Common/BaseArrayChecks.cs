@@ -1,19 +1,21 @@
-﻿namespace GqlPlus.Verifier.Operation;
+﻿namespace GqlPlus.Verifier.Common;
 
-internal sealed class BaseArrayChecks<T>
+internal sealed class BaseArrayChecks<P, T>
+  : BaseChecks<P> where P : CommonParser
 {
-  internal delegate T[] Array(ref OperationParser parser);
+  internal delegate T[] Array(P parser);
 
   private readonly Array _array;
 
-  public BaseArrayChecks(Array array)
+  public BaseArrayChecks(Factory factory, Array array)
+    : base(factory)
     => _array = array;
 
   internal void Expected(string input, params T[] expected)
   {
-    var parser = new OperationParser(Tokens(input));
+    var parser = Parser(input);
 
-    var result = _array(ref parser);
+    var result = _array(parser);
 
     parser.Errors.Should().BeEmpty();
     result.Should().NotBeNull().And.Equal(expected);
@@ -21,9 +23,9 @@ internal sealed class BaseArrayChecks<T>
 
   internal void JustErrors(string input)
   {
-    var parser = new OperationParser(Tokens(input));
+    var parser = Parser(input);
 
-    var result = _array(ref parser);
+    var result = _array(parser);
 
     parser.Errors.Should().NotBeEmpty();
     result.Should().BeEmpty();
@@ -31,9 +33,9 @@ internal sealed class BaseArrayChecks<T>
 
   internal void ErrorsExpected(string input, params T[] expected)
   {
-    var parser = new OperationParser(Tokens(input));
+    var parser = Parser(input);
 
-    var result = _array(ref parser);
+    var result = _array(parser);
 
     parser.Errors.Should().NotBeEmpty();
     result.Should().NotBeNull().And.Equal(expected);
@@ -41,9 +43,9 @@ internal sealed class BaseArrayChecks<T>
 
   internal void Count(string input, int count)
   {
-    var parser = new OperationParser(Tokens(input));
+    var parser = Parser(input);
 
-    var result = _array(ref parser);
+    var result = _array(parser);
 
     result.Length.Should().Be(count);
   }

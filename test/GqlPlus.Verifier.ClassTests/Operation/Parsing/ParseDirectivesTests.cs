@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Common;
 
 namespace GqlPlus.Verifier.Operation.Parsing;
 
@@ -16,6 +17,7 @@ public class ParseDirectivesTests
       "@" + directive + "($" + variable + ")",
       new DirectiveAst(AstNulls.At, directive) { Argument = new ArgumentAst(AstNulls.At, variable) });
 
-  private static BaseArrayChecks<DirectiveAst> Test => new((ref OperationParser parser)
-    => parser.ParseDirectives());
+  private static BaseArrayChecks<OperationParser, DirectiveAst> Test => new(
+    tokens => new OperationParser(tokens),
+    parser => parser.ParseDirectives());
 }

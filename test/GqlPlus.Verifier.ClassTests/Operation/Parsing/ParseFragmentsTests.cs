@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Common;
 
 namespace GqlPlus.Verifier.Operation.Parsing;
 
@@ -36,9 +37,11 @@ public class ParseFragmentsTests
       fragmentPrefix + fragment + typePrefix + onType + "@" + directive + "{" + field + "}",
       new FragmentAst(AstNulls.At, fragment, onType, field.Fields()) { Directives = directive.Directives() });
 
-  private static BaseArrayChecks<FragmentAst> TestStart => new((ref OperationParser parser)
-    => parser.ParseFragStart());
+  private static BaseArrayChecks<OperationParser, FragmentAst> TestStart => new(
+    tokens => new OperationParser(tokens),
+    parser => parser.ParseFragStart());
 
-  private static BaseArrayChecks<FragmentAst> TestEnd => new((ref OperationParser parser)
-    => parser.ParseFragEnd(Array.Empty<FragmentAst>()));
+  private static BaseArrayChecks<OperationParser, FragmentAst> TestEnd => new(
+    tokens => new OperationParser(tokens),
+    parser => parser.ParseFragEnd(Array.Empty<FragmentAst>()));
 }

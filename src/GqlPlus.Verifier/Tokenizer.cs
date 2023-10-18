@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier;
+﻿using System.Numerics;
+
+namespace GqlPlus.Verifier;
 
 internal class Tokenizer
 {
@@ -9,6 +11,8 @@ internal class Tokenizer
   private readonly int _len;
   private TokenKind _kind;
   private int _pos;
+  private int _line;
+  private int _lineStart;
 
 #pragma warning disable IDE1006 // Naming Styles
   private static readonly TokenKind[] _kinds = new TokenKind[96];
@@ -72,6 +76,10 @@ internal class Tokenizer
 
   internal bool Read()
   {
+    if (_kind == TokenKind.Start) {
+      _line = 1;
+      _lineStart = -1;
+    }
     SkipWhitespace();
 
     if (_pos >= _len) {
@@ -93,6 +101,10 @@ internal class Tokenizer
       if (code <= ' ' || code > '~'
         || IgnoreSeparators && code == ','
       ) {
+        if (code == '\n') {
+          _lineStart = _pos;
+          _line++;
+        }
         ++_pos;
       } else {
         return;
@@ -323,17 +335,14 @@ internal class Tokenizer
   }
   internal ParseAt At
   => _kind switch {
-    TokenKind.End => new(_kind, _pos, "<END>"),
-    TokenKind.Number => new(_kind, _pos, GetString(Decimal(_pos))),
-    TokenKind.Identifer => new(_kind, _pos, GetString(Letters(_pos))),
-    _ => new(_kind, _pos, ErrorContext(_operation[_pos..].ToString())),
+    TokenKind.End => new(_kind, _pos - _lineStart, _line, "<END>"),
+    TokenKind.Number => new(_kind, _pos - _lineStart, _line, GetString(Decimal(_pos))),
+    TokenKind.Identifer => new(_kind, _pos - _lineStart, _line, GetString(Letters(_pos))),
+    _ => new(_kind, _pos - _lineStart, _line, ErrorContext(_operation[_pos..].ToString())),
   };
 
   public static string ErrorContext(string context)
     => context.Length < ErrorContextLen ? context + "<END>" : context[..ErrorContextLen];
-
-  public static implicit operator ParseAt(Tokenizer tokens)
-    => tokens.At;
 
   internal ParseError Error(string text)
     => new(At, text);

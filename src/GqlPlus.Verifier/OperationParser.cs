@@ -14,15 +14,16 @@ internal class OperationParser : CommonParser
   {
     if (_tokens.AtStart) {
       if (!_tokens.Read()) {
-        return new(_tokens) { Errors = new[] { _tokens.Error("Unexpected") } };
+        return new(_tokens.At) { Errors = new[] { _tokens.Error("Unexpected") } };
       }
     }
 
-    OperationAst ast = new(_tokens);
+    var at = _tokens.At;
+    OperationAst ast = new(at);
 
     if (_tokens.Identifier(out var category)) {
       if (_tokens.Identifier(out var name)) {
-        ast = new(_tokens, name) { Category = category };
+        ast = new(at, name) { Category = category };
       } else {
         ast.Category = category;
       }
@@ -179,6 +180,7 @@ internal class OperationParser : CommonParser
     selection = AstNulls.Selection;
 
     if (_tokens.Take("...") || _tokens.Take('|')) {
+      var at = _tokens.At;
       string? onType = null;
       if (_tokens.Take("on") || _tokens.Take(':')) {
         if (!_tokens.Identifier(out onType)) {
@@ -186,7 +188,7 @@ internal class OperationParser : CommonParser
         }
       } else {
         if (_tokens.Identifier(out var name)) {
-          selection = new SpreadAst(_tokens, name) { Directives = ParseDirectives() };
+          selection = new SpreadAst(at, name) { Directives = ParseDirectives() };
           Spreads.Add((SpreadAst)selection);
           return true;
         }
@@ -195,7 +197,7 @@ internal class OperationParser : CommonParser
       DirectiveAst[] directives = ParseDirectives();
 
       if (ParseObject(out AstSelection[] selections)) {
-        selection = new InlineAst(_tokens, selections) {
+        selection = new InlineAst(at, selections) {
           OnType = onType,
           Directives = directives,
         };
@@ -267,13 +269,14 @@ internal class OperationParser : CommonParser
     var definitions = new List<FragmentAst>(initial);
 
     while (fragPrefix(ref _tokens)) {
+      var at = _tokens.At;
       if (_tokens.Identifier(out var name)
         && typePrefix(ref _tokens)
         && _tokens.Identifier(out var onType)
       ) {
         DirectiveAst[] directives = ParseDirectives();
         if (ParseObject(out AstSelection[] selections)) {
-          var fragment = new FragmentAst(_tokens, name, onType, selections) { Directives = directives };
+          var fragment = new FragmentAst(at, name, onType, selections) { Directives = directives };
           definitions.Add(fragment);
         }
       }
@@ -294,18 +297,19 @@ internal class OperationParser : CommonParser
     try {
       _tokens.IgnoreSeparators = false;
 
-      ArgumentAst value = new(_tokens);
+      var at = _tokens.At;
+      ArgumentAst value = new(at);
       if (ParseFieldKey(out var key)) {
         value = key;
         return _tokens.Take(':')
           ? ParseArgValue(out var item)
-            ? ParseArgumentMid(new() { [key] = item }, out argument)
+            ? ParseArgumentMid(at, new() { [key] = item }, out argument)
             : Error("Invalid Argument. Value not found after Field key separator.")
-          : ParseArgumentEnd(value, out argument);
+          : ParseArgumentEnd(at, value, out argument);
       }
 
       return ParseArgValue(out value)
-        && ParseArgumentEnd(value, out argument);
+        && ParseArgumentEnd(at, value, out argument);
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
     }
@@ -313,9 +317,10 @@ internal class OperationParser : CommonParser
 
   internal bool ParseArgValue(out ArgumentAst argument)
   {
-    argument = new ArgumentAst(_tokens);
+    var at = _tokens.At;
+    argument = new ArgumentAst(at);
 
-    if (_tokens.Prefix('$', out var variable, out var at)) {
+    if (_tokens.Prefix('$', out var variable, out at)) {
       argument = new ArgumentAst(at, variable);
 
       Variables.Add(argument);
@@ -328,12 +333,12 @@ internal class OperationParser : CommonParser
       _tokens.IgnoreSeparators = false;
 
       if (ParseArgList(out ArgumentAst[] list)) {
-        argument = new ArgumentAst(_tokens, list);
+        argument = new ArgumentAst(at, list);
         return true;
       }
 
       if (ParseArgObject(out AstValues<ArgumentAst>.ObjectAst fields)) {
-        argument = new ArgumentAst(_tokens, fields);
+        argument = new ArgumentAst(at, fields);
         return true;
       }
     } finally {
@@ -350,6 +355,7 @@ internal class OperationParser : CommonParser
 
   private ArgumentAst ParseArgValues(ArgumentAst initial)
   {
+    var at = initial.At;
     var values = new List<ArgumentAst> { initial };
     while (_tokens.Take(',')) {
       if (ParseArgValue(out ArgumentAst value)) {
@@ -358,7 +364,7 @@ internal class OperationParser : CommonParser
     }
 
     return values.Count > 1
-      ? new(_tokens, values.ToArray())
+      ? new(at, values.ToArray())
       : initial;
   }
 
@@ -418,13 +424,13 @@ internal class OperationParser : CommonParser
       && ParseArgFieldValues('}', fields);
   }
 
-  private bool ParseArgumentMid(ArgumentAst.ObjectAst fields, out ArgumentAst argument)
+  private bool ParseArgumentMid(ParseAt at, ArgumentAst.ObjectAst fields, out ArgumentAst argument)
   {
-    argument = new(_tokens);
+    argument = new(at);
 
     if (_tokens.Take(',')) {
       if (ParseArgFieldValues(')', fields)) {
-        argument = new ArgumentAst(_tokens, fields);
+        argument = new ArgumentAst(at, fields);
         return true;
       }
 
@@ -442,11 +448,11 @@ internal class OperationParser : CommonParser
       }
     }
 
-    argument = new ArgumentAst(_tokens, fields);
+    argument = new ArgumentAst(at, fields);
     return true;
   }
 
-  private bool ParseArgumentEnd(ArgumentAst value, out ArgumentAst argument)
+  private bool ParseArgumentEnd(ParseAt at, ArgumentAst value, out ArgumentAst argument)
   {
     var more = ParseArgValues(value);
     if (more.Values.Length > 1) {
@@ -460,11 +466,11 @@ internal class OperationParser : CommonParser
     }
 
     if (_tokens.Take(")")) {
-      argument = values.Count > 1 ? new(_tokens, values.ToArray()) : value;
+      argument = values.Count > 1 ? new(at, values.ToArray()) : value;
       return true;
     }
 
-    argument = new(_tokens);
+    argument = new(at);
     return Error("Invalid Argument. Possibly missing ')' after Values.");
   }
 }

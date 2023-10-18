@@ -1,29 +1,29 @@
-﻿!O P@26
+﻿!O I@1/1
 query
 Success
 [
-  ( !V I@28 expandedInfo :Boolean )
+  ( !V I@29/1 expandedInfo :Boolean )
 ]
 {
-  !F I@55
+  !F I@3/2
   user
   (
-    !A P@76
+    !A I@8/2
     {
-      ( !K I@60 handle ):( !K S@68 'zuck' )
+      ( !K I@8/2 handle ):( !K S@16/2 'zuck' )
     }
   )
   {
-    !F I@82
+    !F I@5/3
     id
-    !F I@89
+    !F I@5/4
     name
-    !I P@186
-    ( !D I@103 include ( !A P@130 { ( !K I@111 if ):( !A I@116 $expandedInfo ) } ) )
+    !I P@9/5
+    ( !D I@10/5 include ( !A I@18/5 { ( !K I@18/5 if ):( !A I@23/5 $expandedInfo ) } ) )
     {
-      ( !F I@138 firstName )
-      ( !F I@154 lastName )
-      ( !F I@169 birthday )
+      ( !F I@7/6 firstName )
+      ( !F I@7/7 lastName )
+      ( !F I@7/8 birthday )
     }
   }
 }

@@ -1,36 +1,36 @@
-﻿!O P@0
+﻿!O P@1/1
 query
 Success
 {
-  !F I@4
+  !F I@3/2
   user
   (
-    !A P@16
+    !A I@8/2
     {
-      ( !K I@9 id ):( !K N@13 4 )
+      ( !K I@8/2 id ):( !K N@12/2 4 )
     }
   )
   {
-    !F I@22
+    !F I@5/3
     id
-    !F I@29
+    !F I@5/4
     name
-    !F I@48
+    !F I@15/5
     smallPic:
     profilePic
     (
-      !A I@73
+      !A I@26/5
       {
-        ( !K I@59 size ):( !K N@65 64 )
+        ( !K I@26/5 size ):( !K N@32/5 64 )
       }
     )
-    !F I@81
+    !F I@13/6
     bigPic:
     profilePic
     (
-      !A P@106
+      !A I@24/6
       {
-        ( !K I@92 size ):( !K N@98 1024 )
+        ( !K I@24/6 size ):( !K N@30/6 1024 )
       }
     )
   }

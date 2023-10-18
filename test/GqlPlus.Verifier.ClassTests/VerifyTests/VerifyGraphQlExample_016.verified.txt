@@ -1,20 +1,20 @@
-﻿!O P@0
+﻿!O P@1/1
 query
 Success
 {
-  !F I@10
+  !F I@9/2
   zuck:
   user
   (
-    !A P@22
+    !A I@14/2
     {
-      ( !K I@15 id ):( !K N@19 4 )
+      ( !K I@14/2 id ):( !K N@18/2 4 )
     }
   )
   {
-    !F I@28
+    !F I@5/3
     id
-    !F I@35
+    !F I@5/4
     name
   }
 }

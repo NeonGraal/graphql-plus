@@ -80,7 +80,8 @@ internal class CommonParser
 
   internal bool ParseConstant(out ConstantAst constant)
   {
-    constant = new ConstantAst(_tokens);
+    var at = _tokens.At;
+    constant = new ConstantAst(at);
 
     if (ParseFieldKey(out FieldKeyAst fieldKey)) {
       constant = fieldKey;
@@ -92,12 +93,12 @@ internal class CommonParser
       _tokens.IgnoreSeparators = false;
 
       if (ParseConstList(out ConstantAst[] list)) {
-        constant = new ConstantAst(_tokens, list);
+        constant = new ConstantAst(at, list);
         return true;
       }
 
       if (ParseConstObject(out AstValues<ConstantAst>.ObjectAst fields)) {
-        constant = new ConstantAst(_tokens, fields);
+        constant = new ConstantAst(at, fields);
         return true;
       }
 

@@ -1,14 +1,14 @@
-﻿!O P@0
+﻿!O P@1/1
 query
 Success
 {
-  !F I@4
+  !F I@3/2
   picture
   (
-    !A P@37
+    !A I@11/2
     {
-      ( !K I@12 width ):( !K N@19 200 )
-      ( !K I@24 height ):( !K N@32 100 )
+      ( !K I@11/2 width ):( !K N@18/2 200 )
+      ( !K I@23/2 height ):( !K N@31/2 100 )
     }
   )
 }

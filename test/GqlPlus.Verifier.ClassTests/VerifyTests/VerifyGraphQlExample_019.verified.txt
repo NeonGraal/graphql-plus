@@ -1,56 +1,56 @@
-﻿!O P@20
+﻿!O I@1/1
 query
 Success
 {
-  !F I@24
+  !F I@3/2
   user
   (
-    !A P@36
+    !A I@8/2
     {
-      ( !K I@29 id ):( !K N@33 4 )
+      ( !K I@8/2 id ):( !K N@12/2 4 )
     }
   )
   {
-    !F I@42
+    !F I@5/3
     friends
     (
-      !A P@61
+      !A I@13/3
       {
-        ( !K I@50 first ):( !K N@57 10 )
+        ( !K I@13/3 first ):( !K N@20/3 10 )
       }
     )
     {
-      !S P@89
+      !S I@10/4
       friendFields
     }
-    !F I@95
+    !F I@5/6
     mutualFriends
     (
-      !A P@120
+      !A I@19/6
       {
-        ( !K I@109 first ):( !K N@116 10 )
+        ( !K I@19/6 first ):( !K N@26/6 10 )
       }
     )
     {
-      !S P@148
+      !S I@10/7
       friendFields
     }
   }
 }
-!T E@226
+!T I@10/12
 friendFields
 :User
 {
-  !F I@191
+  !F I@3/13
   id
-  !F I@196
+  !F I@3/14
   name
-  !F I@203
+  !F I@3/15
   profilePic
   (
-    !A P@224
+    !A I@14/15
     {
-      ( !K I@214 size ):( !K N@220 50 )
+      ( !K I@14/15 size ):( !K N@20/15 50 )
     }
   )
 }

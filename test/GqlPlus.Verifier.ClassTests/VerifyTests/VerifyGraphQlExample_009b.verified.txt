@@ -1,17 +1,17 @@
-﻿!O P@0
+﻿!O P@1/1
 query
 Success
 {
-  !F I@4
+  !F I@3/2
   user
   (
-    !A P@16
+    !A I@8/2
     {
-      ( !K I@9 id ):( !K N@13 4 )
+      ( !K I@8/2 id ):( !K N@12/2 4 )
     }
   )
   {
-    !F I@22
+    !F I@5/3
     name
   }
 }

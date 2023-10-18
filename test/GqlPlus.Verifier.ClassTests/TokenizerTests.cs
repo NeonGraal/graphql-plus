@@ -1,8 +1,11 @@
-﻿namespace GqlPlus.Verifier;
+﻿using FluentAssertions.Execution;
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
+
+namespace GqlPlus.Verifier;
 
 public class TokenizerTests
 {
-  private Tokenizer PrepareTokens(string input)
+  private static Tokenizer PrepareTokens(string input)
   {
     var tokens = new Tokenizer(input + " ");
 
@@ -34,8 +37,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens(expected);
 
-    tokens.Identifier(out var result).Should().BeTrue();
-    result.Should().Be(expected);
+    TrueAndExpected(tokens.Identifier, expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -43,8 +45,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens(expected.ToString());
 
-    tokens.Number(out var result).Should().BeTrue();
-    result.Should().Be(expected);
+    TrueAndExpected(tokens.Number, expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -52,8 +53,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens(expected.ToString());
 
-    tokens.Number(out var result).Should().BeTrue();
-    result.Should().Be(expected);
+    TrueAndExpected(tokens.Number, expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -62,8 +62,7 @@ public class TokenizerTests
     var input = string.Join("_", expected.ToString().Select(c => c.ToString())).Replace("_._", ".").Replace("-_", "-");
     Tokenizer tokens = PrepareTokens(input);
 
-    tokens.Number(out var result).Should().BeTrue();
-    result.Should().Be(expected);
+    TrueAndExpected(tokens.Number, expected);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -80,8 +79,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens('"' + sample + '"');
 
-    tokens.String(out var result).Should().BeTrue();
-    result.Should().Be(sample);
+    TrueAndExpected(tokens.String, sample);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -90,6 +88,7 @@ public class TokenizerTests
     Tokenizer tokens = PrepareTokens('"' + sample);
 
     tokens.String(out var result).Should().BeFalse();
+
     result.Should().Be(sample + " ");
     tokens.AtEnd.Should().BeTrue();
   }
@@ -100,6 +99,7 @@ public class TokenizerTests
     Tokenizer tokens = PrepareTokens('"' + sample + "'");
 
     tokens.String(out var result).Should().BeFalse();
+
     result.Should().Be(sample + "' ");
     tokens.AtEnd.Should().BeTrue();
   }
@@ -109,8 +109,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens($"'{sample}'");
 
-    tokens.String(out var result).Should().BeTrue();
-    result.Should().Be(sample);
+    TrueAndExpected(tokens.String, sample);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -146,8 +145,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens($"/{regex}/");
 
-    tokens.Regex(out var result).Should().BeTrue();
-    result.Should().Be(regex);
+    TrueAndExpected(tokens.Regex, regex);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -227,8 +225,9 @@ public class TokenizerTests
     Tokenizer tokens = PrepareTokens(prefix + identifier);
     var expected = prefix.First();
 
-    tokens.Prefix(expected, out var result, out var _).Should().BeTrue();
-    result.Should().Be(identifier);
+    TrueAndExpected(
+      (out string result) => tokens.Prefix(expected, out result, out var _),
+      identifier);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -239,7 +238,8 @@ public class TokenizerTests
     var result = tokens.Error(message);
 
     result.Kind.Should().Be(TokenKind.Start);
-    result.Pos.Should().Be(0);
+    result.Line.Should().Be(0);
+    result.Column.Should().Be(0);
     result.Next.Should().Be("<END>");
     result.Message.Should().Be(message);
   }
@@ -249,13 +249,11 @@ public class TokenizerTests
     [RegularExpression(PunctuationPattern)] string prefix, string message)
   {
     var tokens = PrepareTokens(prefix);
+    var expected = prefix.ToString() + " <END>";
 
     var result = tokens.Error(message);
 
-    result.Kind.Should().Be(TokenKind.Punctuation);
-    result.Pos.Should().Be(0);
-    result.Next.Should().Be(prefix.ToString() + " <END>");
-    result.Message.Should().Be(message);
+    CheckParseError(result, TokenKind.Punctuation, expected, message);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -267,10 +265,7 @@ public class TokenizerTests
 
     var result = tokens.Error(message);
 
-    result.Kind.Should().Be(TokenKind.Punctuation);
-    result.Pos.Should().Be(0);
-    result.Next.Should().Be(expected);
-    result.Message.Should().Be(message);
+    CheckParseError(result, TokenKind.Punctuation, expected, message);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -280,10 +275,7 @@ public class TokenizerTests
 
     var result = tokens.Error(message);
 
-    result.Kind.Should().Be(TokenKind.Identifer);
-    result.Pos.Should().Be(0);
-    result.Next.Should().Be(label);
-    result.Message.Should().Be(message);
+    CheckParseError(result, TokenKind.Identifer, label, message);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -294,10 +286,7 @@ public class TokenizerTests
 
     var result = tokens.Error(message);
 
-    result.Kind.Should().Be(TokenKind.Number);
-    result.Pos.Should().Be(0);
-    result.Next.Should().Be(expected);
-    result.Message.Should().Be(message);
+    CheckParseError(result, TokenKind.Number, expected, message);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -308,9 +297,29 @@ public class TokenizerTests
 
     var result = tokens.Error(message);
 
-    result.Kind.Should().Be(TokenKind.String);
-    result.Pos.Should().Be(0);
+    CheckParseError(result, TokenKind.String, expected, message);
+  }
+
+  private void CheckParseError(ParseError result, TokenKind kind, string expected, string message)
+  {
+    using var _ = new AssertionScope();
+
+    result.Kind.Should().Be(kind);
+    result.Line.Should().Be(1);
+    result.Column.Should().Be(1);
     result.Next.Should().Be(expected);
     result.Message.Should().Be(message);
+  }
+
+  private delegate bool Call<T>(out T result);
+
+  private static void TrueAndExpected<T>(Call<T> call, T expected)
+  {
+    var success = call(out var result);
+
+    using var _ = new AssertionScope();
+
+    success.Should().BeTrue();
+    result.Should().Be(expected);
   }
 }

@@ -1,6 +1,8 @@
 # Operation language definition
 
 > See [Definition](Definition.md) on how to read the definitions below.
+>
+> Including PEG definitions for Common and Constant terms.
 
 ## Operation
 
@@ -14,7 +16,7 @@ If not specified, an Operation's category is "query". This is for GraphQL compat
 
 ```PEG
 Variables = '(' Variable+ ')'
-Variable = '$'variable ( ':' Var_Type )? Modifier? ( '=' Constant )? Directive*
+Variable = '$'variable ( ':' Var_Type )? Modifier? Default? Directive*
 Var_Type = Var_Null '!'?
 Var_Null = '[' Var_Type ']' | type
 ```
@@ -47,58 +49,18 @@ The order of directives may be significant.
 ## Result
 
 ```PEG
-Result = ( ':' Simple Argument? | Object ) Modifier?
+Result = ( ':' Scalar Argument? | Object ) Modifier?
 ```
 
 An Operation's Result is either:
 
-- a Simple type with an optional Argument and/or Modifier(s), or
+- a Scalar type with an optional Argument and/or Modifier(s), or
 - an Object type with optional Modifier(s).
 
-## Modifier
+## Scalar
 
 ```PEG
-Modifier = '?' | '[]' Modifier? | '[' Basic '?'? ']' Modifier?
-Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_' | enum
-```
-
-| Modifier   | Syntax          | Notes                                                                                                                        | Description                   |
-| ---------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| Optional   | `?`             | An Optional Result may have the value of `null`. <br/> The `Null` type is effectively the same as `Void?` and so is `Null?`. | Optional _type_               |
-| List       | `[]`            | A List Result will be an array with zero or more entries.                                                                    | List of _type_                |
-| Dictionary | `[`Basic`?`?`]` | A Dictionary Result will be an object with the given Basic type as the Key. <br/> The Key may be Optional.                   | Dictionary by _key_ of _type_ |
-
-Multiple Modifiers from left to right are from outside to inside finishing with the initial type.
-
-| Syntax                     | Description                                                                          | Example                     |
-| -------------------------- | ------------------------------------------------------------------------------------ | --------------------------- |
-| `String?`                  | Optional String                                                                      | `""`                        |
-| `String[]`                 | List of String                                                                       | `[ "", "a" ]`               |
-| `String[]?`                | List of Optional String                                                              | `[ "", null ]`              |
-| `String[Number?]`          | Dictionary by Optional Number of String                                              | `{ 1:"", null:"a", 2:"B" }` |
-| `String[][Number][Unit?]?` | List of Dictionary by Number of <br/> Dictionary by Optional Unit of Optional String | _See Example 1 below_       |
-
-<details>
-<summary>Example 1</summary>
-
-```js
-[
-  {
-    0: { _: null, null: "a" },
-    1: { _: "" },
-  },
-  {
-    2: { null: "b" },
-  },
-];
-```
-
-</details>
-
-## Simple
-
-```PEG
-Simple = Internal | Basic
+Scalar = Internal | Simple
 Internal = 'Void' | 'Null' | 'null'
 ```
 
@@ -166,28 +128,11 @@ Arg_Values = Arg_Value ',' Arg_Values | Arg_Value
 Arg_Object = '{' Arg_Fields* '}'
 Arg_Fields = Arg_Field ',' Arg_Fields | Arg_Field
 Arg_Field = FieldKey ':' Arg_Value
-
-FieldKey = ( enum '.' )? field | NUMBER | STRING
 ```
 
 An Argument is usually a single value. If multiple values are provided they are treated as a list. If one or more fields are provided they are treated as an object.
 
 Commas (`,`) can be used to separate list values and object fields.
-
-## Constant
-
-```PEG
-Constant = Const_List | Const_Object | Const_Value
-Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | ( enum '.' )? label
-Const_List = '[' Cons_Values* ']'
-Const_Values = Constant ',' Const_Values | Constant
-
-Const_Object = '{' Const_Fields* '}'
-Const_Fields = Const_Field ',' Const_Fields | Const_Field
-Const_Field = FieldKey ':' Const_Value
-```
-
-A Constant is a single value. Commas (`,`) can be used to separate list values and object fields.
 
 ## Complete Grammar
 
@@ -195,18 +140,15 @@ A Constant is a single value. Commas (`,`) can be used to separate list values a
 Operation = ( category name? )? Variables? Directive* Fragment* Result Frag_End*
 
 Variables = '(' Variable+ ')'
-Variable = '$'variable ( ':' Var_Type )? Modifier? ( '=' Constant )? Directive*
+Variable = '$'variable ( ':' Var_Type )? Modifier? Default? Directive*
 Var_Type = Var_Null '!'?
 Var_Null = '[' Var_Type ']' | type
 
 Directive = '@'directive Argument?
 
-Result = ( ':' Simple Argument? | Object ) Modifier?
+Result = ( ':' Scalar Argument? | Object ) Modifier?
 
-Modifier = '?' | '[]' Modifier? | '[' Basic '?'? ']' Modifier?
-Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_' | enum
-
-Simple = Internal | Basic
+Scalar = Internal | Simple
 Internal = 'Void' | 'Null' | 'null'
 
 Object = '{' ( Selection | Field )+ '}'
@@ -228,16 +170,5 @@ Arg_Values = Arg_Value ',' Arg_Values | Arg_Value
 Arg_Object = '{' Arg_Fields* '}'
 Arg_Fields = Arg_Field ',' Arg_Fields | Arg_Field
 Arg_Field = FieldKey ':' Arg_Value
-
-FieldKey = ( enum '.' )? field | NUMBER | STRING
-
-Constant = Const_List | Const_Object | Const_Value
-Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | ( enum '.' )? label
-Const_List = '[' Cons_Values* ']'
-Const_Values = Constant ',' Const_Values | Constant
-
-Const_Object = '{' Const_Fields* '}'
-Const_Fields = Const_Field ',' Const_Fields | Const_Field
-Const_Field = FieldKey ':' Const_Value
 
 ```

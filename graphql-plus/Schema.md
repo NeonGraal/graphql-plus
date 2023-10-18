@@ -1,6 +1,8 @@
 # Schema language definition
 
 > See [Definition](Definition.md) on how to read the definitions below.
+>
+> Including PEG definitions for Common and Constant terms.
 
 ## Schema
 
@@ -71,22 +73,16 @@ An Enum can extend another enum and thus implicitly includes the extended enum's
 Duplicate Enum declarations with different base Enums are not permitted.
 Multiple Enum declarations with the same base, or no base, will have their labels and Type aliases merged and de-duplicated.
 
-## Common
+## Object Union types
+
+Input and Output types are both Object Union types
 
 ```PEG
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
-EnumLabel = ( enum '.' )? label
-
 Parameter = '(' In_Reference Modifiers? Default? ')'
 
-Default = '=' Constant
-
-Modifiers = '?' | '[]' Modifiers? | '[' Simple '?'? ']' Modifiers?
-
-Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
-Simple = Basic | scalar | enum
-Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
+Simple = Basic | scalar | enum  # Redefined
 ```
 
 Type parameters can be defined on either Input or Output types. Each parameter can be preceded by a documentation string.
@@ -95,9 +91,7 @@ An Enum Label reference may drop the Enum portion if the Label is unique within 
 
 ### Modifiers
 
-Multiple Modifiers from left to right are from outside to inside finishing with the initial type.
-
-> Note that Schema Modifiers include Scalar and Enum types as valid Dictionary keys.
+Note that Schema Modifiers include Scalar and Enum types as valid Dictionary keys.
 
 <details>
 <summary>Modifiers</summary>
@@ -108,32 +102,32 @@ Modifiers are equivalent to predefined generic Input and Output types as follows
 
 ```gqlp
 "$T?"
-input|output _Optional<$T> = $T | Null
+input|output _Opt<$T> Opt = $T | Null
 
 "$T[]"
-input|output _List<$T> = $T[]
+input|output _List<$T> List = $T[]
 
 "$T[$K]"
-input|output _Dictionary<$K $T> = { $K: $T }
+input|output _Dict<$K $T> Dict = { $K: $T }
 ```
 
 The following GraphQlPlus idioms have equivalent generic Input and Output types.
 
 ```gqlp
 "$T[*]"
-input|output _Map<$T> = _Dictionary<String $T>
+input|output _Map<$T> Map = _Dict<String $T>
 
 "$T[0]"
-input|output _Array<$T> = _Dictionary<Number $T>
+input|output _Array<$T> Array = _Dict<Number $T>
 
 "$T[~]"
-input|output _IfElse<$T> = _Dictionary<Boolean $T>
+input|output _IfElse<$T> IfElse = _Dict<Boolean $T>
 
 "_[$K]"
-input|output Set<$K> = Dictionary<$K Unit>
+input|output Set<$K> = _Dict<$K Unit>
 
 "~[$K]"
-input|output Mask<$K> = Dictionary<$K Boolean>
+input|output Mask<$K> = _Dict<$K Boolean>
 ```
 
 These Generic types are the Input types if `$T` is an Input type and Output types if `$T` is an Output type.
@@ -142,30 +136,13 @@ These Generic types are the Input types if `$T` is an Input type and Output type
 
 </details>
 
-| Syntax                     | Generic type      | Description                                                                          | Example                     |
-| -------------------------- | ----------------- | ------------------------------------------------------------------------------------ | --------------------------- |
-| `String?`                  | Optional<$T>      | Optional String                                                                      | `""`                        |
-| `String[]`                 | List<$T>          | List of String                                                                       | `[ "", "a" ]`               |
-| `String[]?`                |                   | List of Optional String                                                              | `[ "", null ]`              |
-| `String[Number?]`          | Dictionary<$K $T> | Dictionary by Optional Number of String                                              | `{ 1:"", null:"a", 2:"B" }` |
-| `String[][Number][Unit?]?` |                   | List of Dictionary by Number of <br/> Dictionary by Optional Unit of Optional String | _See Example 1 below_       |
-
-<details>
-<summary>Example 1</summary>
-
-```js
-[
-  {
-    0: { _: null, null: "a" },
-    1: { _: "" },
-  },
-  {
-    2: { null: "b" },
-  },
-];
-```
-
-</details>
+| Syntax                     | Generic type                             |
+| -------------------------- | ---------------------------------------- |
+| `String?`                  | Opt<String>                              |
+| `String[]`                 | List<String>                             |
+| `String[]?`                | Opt<List<String>>                        |
+| `String[Number?]`          | Dict<Opt<Number> String>                 |
+| `String[][Number][Unit?]?` | Opt<Dict<Opt<Unit> Array<List<String>>>> |
 
 ### Built-In types
 
@@ -183,7 +160,7 @@ enum Null null = null
 
 enum Unit _ = _
 
-enum Void =  # Yes
+enum Void =  # no valid value
 ```
 
 Number and String are effectively scalar types as follows:
@@ -198,7 +175,7 @@ Object is a general Dictionary as follows:
 
 ```gqlp
 "%"
-input|output Object % = Map<Any>
+input|output Object % = _Map<Any>
 
 input|output _Any<$T> = $T | _Scalar | Object | _Any<$T>? | _Any<$T>[] | _Any<$T>[Simple] | _Any<$T>[Simple?]
 
@@ -309,22 +286,6 @@ Explicit Field names will override the same name being used as a Field alias.
 Duplicate Output declarations with different base Outputs are not permitted.
 Multiple Output declarations with the same base, or no base, will have their fields and alternates merged and de-duplicated.
 
-## Constant
-
-```PEG
-Constant = Const_List | Const_Object | Const_Value
-Const_Value = EnumLabel | 'true' | 'false' | 'null' | '_' | NUMBER | STRING
-Const_List = '[' Cons_Values ']' | '[' Constant* ']'
-Const_Values = Constant ',' Const_Values | Constant
-
-Const_Object = '{' Const_Fields '}' | '{' ( FieldKey ':' Constant )* '}'
-Const_Fields = Const_Field ';' Const_Fields | Const_Field
-Const_Field = FieldKey ':' Const_Values
-FieldKey = field | NUMBER | STRING
-```
-
-A Constant is a single value. Commas (`,`) can be used to separate list values and semi-colons (`;`) can be used to separate object fields.
-
 ## Scalar type
 
 ```PEG
@@ -367,17 +328,9 @@ En_Label = STRING? label labelAlias*
 
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
-EnumLabel = ( enum '.' )? label
-
 Parameter = '(' In_Reference Modifiers? Default? ')'
 
-Default = '=' Constant
-
-Modifiers = '?' | '[]' Modifiers? | '[' Simple '?'? ']' Modifiers?
-
-Internal = 'Null' | 'Void' | 'null' | 'Object' | '%'
-Simple = Basic | scalar | enum
-Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
+Simple = Basic | scalar | enum  # Redefined
 
 Input = 'input' input TypeParameters? typeAlias* '=' In_Definition
 In_Definition = In_Object ( '|'? In_Alternates )? | In_Alternates
@@ -396,16 +349,6 @@ Out_Field = Parameter? fieldAlias* ':' Out_Reference Modifiers? | fieldAlias* '=
 Out_Alternates = Out_Reference '|' Out_Alternates | Out_Reference
 Out_Reference = Internal | Simple | Out_Base
 Out_Base = '$'typeParameter | output ( '<' ( Out_Reference | EnumLabel )+ '>' )?
-
-Constant = Const_List | Const_Object | Const_Value
-Const_Value = EnumLabel | 'true' | 'false' | 'null' | '_' | NUMBER | STRING
-Const_List = '[' Cons_Values ']' | '[' Constant* ']'
-Const_Values = Constant ',' Const_Values | Constant
-
-Const_Object = '{' Const_Fields '}' | '{' ( FieldKey ':' Constant )* '}'
-Const_Fields = Const_Field ';' Const_Fields | Const_Field
-Const_Field = FieldKey ':' Const_Values
-FieldKey = field | NUMBER | STRING
 
 Scalar = 'scalar' scalar typeAlias* '=' ScalarDefinition
 ScalarDefinition = Scal_Number | Scal_String

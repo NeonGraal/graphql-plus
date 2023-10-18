@@ -1,0 +1,7 @@
+﻿!O P@0
+query
+Failure
+<
+  !!!  E@4 : Invalid Object. Expected at least one Field or Selection - '<END>' !!!
+  !!!  E@4 : Result not present. Expected Object or Type. - '<END>' !!!
+>

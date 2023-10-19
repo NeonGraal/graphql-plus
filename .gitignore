@@ -480,3 +480,5 @@ $RECYCLE.BIN/
 _site/
 .jekyll-cache/
 _exported_templates/
+coverage/
+output.cobertura.xml

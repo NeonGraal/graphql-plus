@@ -11,15 +11,21 @@ Schema = Declaration+
 
 Declaration = STRING? ( Category | Directive | Type )
 Type = Enum | Input | Output | Scalar
+
+Aliases = '[' alias+ ']'
 ```
 
 A Schema is one (or more) Declarations. Each declaration can be preceded by a documentation string.
 
+Declarations have the following general form:
+
+> `label name Parameters? Aliases? ( '(' Options ')' )? '=' Definition`
+
 The following declarations are implied but can be specified explicitly:
 
-- `category Query` and thus `output Query = { }`
-- `category Mutation (sequential)` and thus `output Mutation = { }`
-- `category Subscription (single)` and thus `output Subscription = { }`
+- `category = Query` and thus `output Query = { }`
+- `category (sequential) = Mutation` and thus `output Mutation = { }`
+- `category (single) = Subscription` and thus `output Subscription = { }`
 - `output _Schema` (see [Introspection](Introspection.md))
 
 The names of all Types must be unique.
@@ -29,15 +35,15 @@ Explicit Type name declarations will override that name being used as Type alias
 ## Category
 
 ```PEG
-Category = 'category' output ( '(' Cat_Option ')' )? categoryAlias*
+Category = 'category' category? Aliases? ( '(' Cat_Option ')' )? '=' output
 Cat_Option = 'parallel' | 'sequential' | 'single'
 ```
 
-A Category is a set of operations defined by an Output type.
+A Category is a set of fields defined by an Output type.
 
-A Category has a default alias of the Output type with the first character changed to lowercase. Other aliases may be specified.
+A Category has a default name of the Output type name with the first character changed to lowercase.
 
-By default an operation can specify multiple fields that are resolved in parallel but this can be changed with the following Options:
+By default an operation over a Category can specify multiple fields that are resolved in parallel but this can be changed with the following Category Options:
 
 | Option       | Description                                                                                     |
 | ------------ | ----------------------------------------------------------------------------------------------- |
@@ -51,17 +57,18 @@ An explicit Category declaration for an Output type will override that name bein
 ## Directive
 
 ```PEG
-Directive = 'directive' '@'directive Parameter? directiveAlias* '=' Dir_Repeatable? Dir_Location+
+Directive = 'directive' '@'directive Parameter? Aliases? Dir_Repeatable? '=' Dir_Locations
 Dir_Repeatable = '(' 'repeatable' ')'
+Dir_Locations = Dir_Location '|' Dir_Locations | Dir_Location
 Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
 ```
 
 ## Enum type
 
 ```PEG
-Enum = 'enum' enum typeAlias* '=' ( enum ':' )? En_Labels
+Enum = 'enum' enum Aliases? ( ':' enum )? '=' En_Labels
 En_Labels = En_Label '|' En_Labels | En_Label
-En_Label = STRING? label labelAlias*
+En_Label = STRING? label Aliases?
 ```
 
 An Enum is a type defined with one or more Labels.
@@ -191,7 +198,7 @@ The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically 
 ## Input type
 
 ```PEG
-Input = 'input' input TypeParameters? typeAlias* '=' In_Definition
+Input = 'input' input TypeParameters? Aliases? '=' In_Definition
 In_Definition = In_Object ( '|'? In_Alternates )? | In_Alternates
 In_Object = In_Base? '{' InField+ '}'
 In_Field = STRING? field fieldAlias* ':' In_Reference Modifiers? Default?
@@ -241,7 +248,7 @@ If only present on one Field before merging, optional components will be retaine
 ## Output type
 
 ```PEG
-Output = 'output' output TypeParameters? typeAlias* '=' Out_Definition
+Output = 'output' output TypeParameters? Aliases? '=' Out_Definition
 Out_Definition = Out_Object ( '|'? Out_Alternates )? | Out_Alternates
 Out_Object = Out_Base? '{' ( STRING? field Out_Field )+ '}'
 Out_Field = Parameter? fieldAlias* ':' Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
@@ -290,7 +297,7 @@ Multiple Output declarations with the same base, or no base, will have their fie
 ## Scalar type
 
 ```PEG
-Scalar = 'scalar' scalar typeAlias* '=' ScalarDefinition
+Scalar = 'scalar' scalar Aliases? '=' ScalarDefinition
 ScalarDefinition = Scal_Number | Scal_String
 
 Scal_Number = 'Number' Scal_Range*
@@ -316,16 +323,19 @@ Schema = Declaration+
 Declaration = STRING? ( Category | Directive | Type )
 Type = Enum | Input | Output | Scalar
 
-Category = 'category' output ( '(' Cat_Option ')' )? categoryAlias*
+Aliases = '[' alias+ ']'
+
+Category = 'category' category? Aliases? ( '(' Cat_Option ')' )? '=' output
 Cat_Option = 'parallel' | 'sequential' | 'single'
 
-Directive = 'directive' '@'directive Parameter? directiveAlias* '=' Dir_Repeatable? Dir_Location+
+Directive = 'directive' '@'directive Parameter? Aliases? Dir_Repeatable? '=' Dir_Locations
 Dir_Repeatable = '(' 'repeatable' ')'
+Dir_Locations = Dir_Location '|' Dir_Locations | Dir_Location
 Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
 
-Enum = 'enum' enum typeAlias* '=' ( enum ':' )? En_Labels
+Enum = 'enum' enum Aliases? ( ':' enum )? '=' En_Labels
 En_Labels = En_Label '|' En_Labels | En_Label
-En_Label = STRING? label labelAlias*
+En_Label = STRING? label Aliases?
 
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
@@ -333,7 +343,7 @@ Parameter = '(' In_Reference Modifiers? Default? ')'
 
 Simple = Basic | scalar | enum  # Redefined
 
-Input = 'input' input TypeParameters? typeAlias* '=' In_Definition
+Input = 'input' input TypeParameters? Aliases? '=' In_Definition
 In_Definition = In_Object ( '|'? In_Alternates )? | In_Alternates
 In_Object = In_Base? '{' InField+ '}'
 In_Field = STRING? field fieldAlias* ':' In_Reference Modifiers? Default?
@@ -342,7 +352,7 @@ In_Alternates = In_Reference '|' In_Alternates | In_Reference
 In_Reference = Internal | Simple | In_Base
 In_Base = '$'typeParameter | input ( '<' In_Reference+ '>' )?
 
-Output = 'output' output TypeParameters? typeAlias* '=' Out_Definition
+Output = 'output' output TypeParameters? Aliases? '=' Out_Definition
 Out_Definition = Out_Object ( '|'? Out_Alternates )? | Out_Alternates
 Out_Object = Out_Base? '{' ( STRING? field Out_Field )+ '}'
 Out_Field = Parameter? fieldAlias* ':' Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
@@ -351,7 +361,7 @@ Out_Alternates = Out_Reference '|' Out_Alternates | Out_Reference
 Out_Reference = Internal | Simple | Out_Base
 Out_Base = '$'typeParameter | output ( '<' ( Out_Reference | EnumLabel )+ '>' )?
 
-Scalar = 'scalar' scalar typeAlias* '=' ScalarDefinition
+Scalar = 'scalar' scalar Aliases? '=' ScalarDefinition
 ScalarDefinition = Scal_Number | Scal_String
 
 Scal_Number = 'Number' Scal_Range*

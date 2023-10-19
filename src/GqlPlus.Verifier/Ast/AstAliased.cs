@@ -7,7 +7,7 @@ internal abstract record class AstAliased(ParseAt At, string Name)
 
   public virtual bool Equals(AstAliased? other)
     => base.Equals(other)
-    && Aliases.SequenceEqual(other.Aliases);
+    && Aliases.OrderedEqual(other.Aliases);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Aliases);
 

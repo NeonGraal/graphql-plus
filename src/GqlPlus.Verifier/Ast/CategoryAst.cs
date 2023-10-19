@@ -1,11 +1,14 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed record class CategoryAst(ParseAt At, string Name)
+internal sealed record class CategoryAst(ParseAt At, string Name, string Output)
   : AstAliased(At, Name), IEquatable<CategoryAst>
 {
   protected override string Abbr => "c";
 
   public CategoryOption Option { get; set; } = CategoryOption.Parallel;
+
+  public CategoryAst(ParseAt at, string output)
+    : this(at, output.Camelize(), output) { }
 
   public bool Equals(CategoryAst? other)
     => base.Equals(other)
@@ -14,5 +17,7 @@ internal sealed record class CategoryAst(ParseAt At, string Name)
     => HashCode.Combine(base.GetHashCode(), Option);
 
   internal override IEnumerable<string?> GetFields()
-    => base.GetFields().Append($"({Option})");
+    => base.GetFields()
+      .Append($"({Option})")
+      .Append(Output);
 }

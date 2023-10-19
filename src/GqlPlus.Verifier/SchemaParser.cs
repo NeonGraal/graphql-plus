@@ -14,17 +14,26 @@ internal class SchemaParser : CommonParser
 
     if (_tokens.Take("category")) {
       at = _tokens.At;
-      if (!_tokens.Identifier(out var name)) {
-        return Error("Invalid Category. Name not found.");
+      _tokens.Identifier(out var name);
+
+      var aliases = new List<string>();
+      if (_tokens.Take('[')) {
+        while (_tokens.Identifier(out var alias)) {
+          aliases.Add(alias);
+        }
+        if (!_tokens.Take("]")) {
+          return Error("Invalid Category. Expected ']' to end aliases.");
+        }
+        if (aliases.Count == 0) {
+          return Error("Invalid Category. Expected at least one alias after '['.");
+        }
       }
 
-      result = new(at, name);
+      var option = CategoryOption.Parallel;
 
       if (_tokens.Take('(')) {
-        if (_tokens.Identifier(out var option)) {
-          if (Enum.TryParse<CategoryOption>(option, true, out var opt)) {
-            result.Option = opt;
-          } else {
+        if (_tokens.Identifier(out var opt)) {
+          if (!Enum.TryParse(opt, true, out option)) {
             return Error("Invalid Category. Unknown option.");
           }
 
@@ -36,14 +45,18 @@ internal class SchemaParser : CommonParser
         }
       }
 
-      var aliases = new List<string>();
-      while (_tokens.Identifier(out var alias)) {
-        aliases.Add(alias);
+      if (_tokens.Take('=') && _tokens.Identifier(out var output)) {
+        if (string.IsNullOrEmpty(name)) {
+          name = output.Camelize();
+        }
+        result = new(at, name, output) {
+          Aliases = aliases.ToArray(),
+          Option = option
+        };
+        return true;
       }
 
-      result.Aliases = aliases.ToArray();
-
-      return true;
+      return Error("Invalid Category. Expected output type after '='.");
     }
 
     return false;

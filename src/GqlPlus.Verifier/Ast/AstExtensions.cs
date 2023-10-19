@@ -7,6 +7,9 @@ public static class AstExtensions
     => left is null && right is null
     || left is not null && left.Equals(right);
 
+  public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
+    => left.Order(comparer).SequenceEqual(right.Order(comparer));
+
   public static IEnumerable<string> AsString<T>(this IEnumerable<T>? items)
     => items?.Any() == true
       ? items.Where(i => i is not null).Select(i => $"{i}")
@@ -45,4 +48,9 @@ public static class AstExtensions
 
   public static string Suffixed(this string? text, string suffix)
     => text?.Length > 0 ? text + suffix : "";
+
+  public static string Camelize(this string text)
+    => text.Length > 0
+      ? char.ToLower(text[0]) + text[1..]
+      : text;
 }

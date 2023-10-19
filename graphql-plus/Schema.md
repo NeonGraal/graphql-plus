@@ -30,7 +30,7 @@ Explicit Type name declarations will override that name being used as Type alias
 
 ```PEG
 Category = 'category' output ( '(' Cat_Option ')' )? categoryAlias*
-Cat_Option = 'sequential' | 'single'
+Cat_Option = 'parallel' | 'sequential' | 'single'
 ```
 
 A Category is a set of operations defined by an Output type.
@@ -41,8 +41,9 @@ By default an operation can specify multiple fields that are resolved in paralle
 
 | Option       | Description                                                                                     |
 | ------------ | ----------------------------------------------------------------------------------------------- |
-| `single`     | One and only one field can be specified in an operation of this category.                       |
+| `parallel`   | Multiple fields specified in an operation of this category will be resolved asynchronously.     |
 | `sequential` | Multiple fields specified in an operation of this category will be resolved in the order given. |
+| `single`     | One and only one field can be specified in an operation of this category.                       |
 
 Duplicate Category declarations are not permitted.
 An explicit Category declaration for an Output type will override that name being used as an alias for a different Category.
@@ -316,7 +317,7 @@ Declaration = STRING? ( Category | Directive | Type )
 Type = Enum | Input | Output | Scalar
 
 Category = 'category' output ( '(' Cat_Option ')' )? categoryAlias*
-Cat_Option = 'sequential' | 'single'
+Cat_Option = 'parallel' | 'sequential' | 'single'
 
 Directive = 'directive' '@'directive Parameter? directiveAlias* '=' Dir_Repeatable? Dir_Location+
 Dir_Repeatable = '(' 'repeatable' ')'

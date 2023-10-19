@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Common;
+﻿using System.Runtime.CompilerServices;
+
+namespace GqlPlus.Verifier.Common;
 
 internal sealed class BaseOneChecks<P, T>
   : BaseChecks<P> where P : CommonParser
@@ -6,10 +8,12 @@ internal sealed class BaseOneChecks<P, T>
   internal delegate bool One(P parser, out T result);
 
   private readonly One _one;
+  private readonly string _oneExpression;
 
-  public BaseOneChecks(Factory factory, One one)
+  public BaseOneChecks(Factory factory, One one,
+    [CallerArgumentExpression(nameof(one))] string oneExpression = "")
     : base(factory)
-    => _one = one;
+    => (_one, _oneExpression) = (one, oneExpression);
 
   internal void TrueExpected(string input, T expected, bool skipIf = false)
   {
@@ -19,10 +23,10 @@ internal sealed class BaseOneChecks<P, T>
 
     var parser = Parser(input);
 
-    _one(parser, out T result).Should().BeTrue();
+    var success = _one(parser, out T result);
 
+    success.Should().BeTrue(_oneExpression);
     using var scope = new AssertionScope();
-
     parser.Errors.Should().BeEmpty();
     result.Should().Be(expected);
   }
@@ -35,10 +39,10 @@ internal sealed class BaseOneChecks<P, T>
 
     var parser = Parser(input);
 
-    _one(parser, out T result).Should().BeFalse();
+    var success = _one(parser, out T result);
 
+    success.Should().BeFalse(_oneExpression);
     using var scope = new AssertionScope();
-
     parser.Errors.Should().NotBeEmpty();
     check(result);
   }

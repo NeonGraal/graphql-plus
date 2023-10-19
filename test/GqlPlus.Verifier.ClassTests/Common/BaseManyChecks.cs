@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Common;
+﻿using System.Runtime.CompilerServices;
+
+namespace GqlPlus.Verifier.Common;
 
 internal sealed class BaseManyChecks<P, T>
   : BaseChecks<P> where P : CommonParser
@@ -6,19 +8,21 @@ internal sealed class BaseManyChecks<P, T>
   internal delegate bool Many(P parser, out T[] result);
 
   private readonly Many _many;
+  private readonly string _manyExpression;
 
-  public BaseManyChecks(Factory factory, Many many)
+  public BaseManyChecks(Factory factory, Many many,
+    [CallerArgumentExpression(nameof(many))] string manyExpression = "")
     : base(factory)
-    => _many = many;
+    => (_many, _manyExpression) = (many, manyExpression);
 
   internal void TrueExpected(string input, params T[] expected)
   {
     var parser = Parser(input);
 
-    _many(parser, out T[] result).Should().BeTrue();
+    var success = _many(parser, out T[] result);
 
+    success.Should().BeTrue(_manyExpression);
     using var scope = new AssertionScope();
-
     parser.Errors.Should().BeEmpty();
     result.Should().Equal(expected);
   }
@@ -27,10 +31,10 @@ internal sealed class BaseManyChecks<P, T>
   {
     var parser = Parser(input);
 
-    _many(parser, out T[] result).Should().BeFalse();
+    var success = _many(parser, out T[] result);
 
+    success.Should().BeFalse(_manyExpression);
     using var scope = new AssertionScope();
-
     parser.Errors.Should().NotBeEmpty();
     result.Should().BeEmpty();
   }

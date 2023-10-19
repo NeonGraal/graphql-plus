@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Common;
+﻿using System.Runtime.CompilerServices;
+
+namespace GqlPlus.Verifier.Common;
 
 internal sealed class BaseArrayChecks<P, T>
   : BaseChecks<P> where P : CommonParser
@@ -6,10 +8,12 @@ internal sealed class BaseArrayChecks<P, T>
   internal delegate T[] Array(P parser);
 
   private readonly Array _array;
+  private string _arrayExpression;
 
-  public BaseArrayChecks(Factory factory, Array array)
+  public BaseArrayChecks(Factory factory, Array array,
+    [CallerArgumentExpression(nameof(array))] string arrayExpression = "")
     : base(factory)
-    => _array = array;
+    => (_array, _arrayExpression) = (array, arrayExpression);
 
   internal void Expected(string input, params T[] expected)
   {
@@ -20,7 +24,7 @@ internal sealed class BaseArrayChecks<P, T>
     using var scope = new AssertionScope();
 
     parser.Errors.Should().BeEmpty();
-    result.Should().NotBeNull().And.Equal(expected);
+    result.Should().NotBeNull(_arrayExpression).And.Equal(expected, _arrayExpression);
   }
 
   internal void JustErrors(string input)
@@ -32,7 +36,7 @@ internal sealed class BaseArrayChecks<P, T>
     using var scope = new AssertionScope();
 
     parser.Errors.Should().NotBeEmpty();
-    result.Should().BeEmpty();
+    result.Should().BeEmpty(_arrayExpression);
   }
 
   internal void ErrorsExpected(string input, params T[] expected)
@@ -44,7 +48,7 @@ internal sealed class BaseArrayChecks<P, T>
     using var scope = new AssertionScope();
 
     parser.Errors.Should().NotBeEmpty();
-    result.Should().NotBeNull().And.Equal(expected);
+    result.Should().NotBeNull(_arrayExpression).And.Equal(expected, _arrayExpression);
   }
 
   internal void Count(string input, int count)
@@ -53,6 +57,6 @@ internal sealed class BaseArrayChecks<P, T>
 
     var result = _array(parser);
 
-    result.Length.Should().Be(count);
+    result.Length.Should().Be(count, _arrayExpression);
   }
 }

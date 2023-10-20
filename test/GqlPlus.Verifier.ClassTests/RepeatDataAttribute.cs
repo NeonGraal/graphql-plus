@@ -15,6 +15,10 @@ public class RepeatDataAttribute : AutoDataAttribute
       throw new ArgumentException("Repeat must be greater than 0.");
     }
 
+    if (bool.TryParse(System.Environment.GetEnvironmentVariable("CI"), out var isCi) && isCi) {
+      repeat = CiRepeats;
+    }
+
     _repeat = repeat;
   }
 

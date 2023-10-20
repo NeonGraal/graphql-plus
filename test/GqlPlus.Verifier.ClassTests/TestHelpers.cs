@@ -4,7 +4,8 @@ namespace GqlPlus.Verifier.ClassTests;
 
 internal static class TestHelpers
 {
-  internal const int Repeats = 20;
+  internal const int Repeats = 5;
+  internal const int CiRepeats = 25;
 
   internal const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
   internal const string PunctuationPattern = @"[!#-&(-*.:<-@[-^`{-~]";

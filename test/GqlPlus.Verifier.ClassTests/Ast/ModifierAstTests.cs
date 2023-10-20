@@ -7,7 +7,6 @@ public class ModifierAstTests
     => ModifierAst.Optional(AstNulls.At).GetHashCode().Should().Be(ModifierAst.Optional(AstNulls.At).GetHashCode());
 
   [Fact]
-
   public void String()
   {
     ModifierAst.Optional(AstNulls.At).TestString("?");

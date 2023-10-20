@@ -2,6 +2,10 @@
 
 public class FieldKeyAstTests
 {
+  [Fact]
+  public void HashCode()
+    => new FieldKeyAst(AstNulls.At).GetHashCode().Should().Be(new FieldKeyAst(AstNulls.At).GetHashCode());
+
   [Theory, RepeatData(Repeats)]
   public void String_WithNumber(decimal number)
     => new FieldKeyAst(AstNulls.At, number).TestString($"( !K {number} )");

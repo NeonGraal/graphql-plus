@@ -21,9 +21,11 @@ internal class SchemaParser : CommonParser
         while (_tokens.Identifier(out var alias)) {
           aliases.Add(alias);
         }
+
         if (!_tokens.Take("]")) {
           return Error("Invalid Category. Expected ']' to end aliases.");
         }
+
         if (aliases.Count == 0) {
           return Error("Invalid Category. Expected at least one alias after '['.");
         }
@@ -49,6 +51,7 @@ internal class SchemaParser : CommonParser
         if (string.IsNullOrEmpty(name)) {
           name = output.Camelize();
         }
+
         result = new(at, name, output) {
           Aliases = aliases.ToArray(),
           Option = option

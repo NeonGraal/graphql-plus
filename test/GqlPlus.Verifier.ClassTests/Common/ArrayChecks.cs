@@ -8,7 +8,7 @@ internal sealed class ArrayChecks<P, T>
   internal delegate T[] Array(P parser);
 
   private readonly Array _array;
-  private string _arrayExpression;
+  private readonly string _arrayExpression;
 
   public ArrayChecks(Factory factory, Array array,
     [CallerArgumentExpression(nameof(array))] string arrayExpression = "")

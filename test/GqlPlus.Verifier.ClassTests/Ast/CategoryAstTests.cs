@@ -1,19 +1,13 @@
-﻿using Microsoft.VisualStudio.TestPlatform.Utilities;
+﻿namespace GqlPlus.Verifier.Ast;
 
-namespace GqlPlus.Verifier.Ast;
-
-public class CategoryAstTests
+public class CategoryAstTests : BaseNamedAstTests
 {
-  [Fact]
-  public void HashCode()
-    => new CategoryAst(AstNulls.At, "").GetHashCode().Should().Be(new CategoryAst(AstNulls.At, "").GetHashCode());
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithOutputAndName(string name, string output)
+    => TestHashCode(() => new CategoryAst(AstNulls.At, name, output));
 
   [Theory, RepeatData(Repeats)]
-  public void String(string output)
-    => new CategoryAst(AstNulls.At, output).TestString($"( !c {output.Camelize()} (Parallel) {output} )");
-
-  [Theory, RepeatData(Repeats)]
-  public void String_WithName(string name, string output)
+  public void String_WithOutputAndName(string name, string output)
     => new CategoryAst(AstNulls.At, name, output).TestString($"( !c {name} (Parallel) {output} )");
 
   [Theory, RepeatData(Repeats)]
@@ -22,31 +16,7 @@ public class CategoryAstTests
     .TestString($"( !c {output.Camelize()} [ {alias1} {alias2} ] (Parallel) {output} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality(string output)
-  {
-    var left = new CategoryAst(AstNulls.At, output);
-    var right = new CategoryAst(AstNulls.At, output);
-
-    (left == right).Should().BeTrue();
-
-    left.Should().NotBeSameAs(right);
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void Inequality(string output1, string output2)
-  {
-    if (output1 == output2) {
-      return;
-    }
-
-    var left = new CategoryAst(AstNulls.At, output1);
-    var right = new CategoryAst(AstNulls.At, output2);
-
-    (left != right).Should().BeTrue();
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void Equality_WithName(string output, string name)
+  public void Equality_WithOutputAndName(string output, string name)
   {
     var left = new CategoryAst(AstNulls.At, name, output);
     var right = new CategoryAst(AstNulls.At, name, output);
@@ -57,7 +27,7 @@ public class CategoryAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithName(string output, string name1, string name2)
+  public void Inequality_WithOutputAndName(string output, string name1, string name2)
   {
     if (name1 == name2) {
       return;
@@ -88,4 +58,12 @@ public class CategoryAstTests
 
     (left != right).Should().BeTrue();
   }
+
+  protected override string ExpectedString(string name)
+    => $"( !c {name.Camelize()} (Parallel) {name} )";
+
+  internal override BaseNamedAstChecks NamedChecks { get; } =
+    new BaseNamedAstChecks<CategoryAst>(name => new CategoryAst(AstNulls.At, name)) {
+      SameName = (name1, name2) => name1.Camelize() == name2.Camelize()
+    };
 }

@@ -1,15 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public class FieldAstTests
+public class FieldAstTests : BaseNamedAstTests
 {
-  [Fact]
-  public void HashCode()
-    => new FieldAst(AstNulls.At, "").GetHashCode().Should().Be(new FieldAst(AstNulls.At, "").GetHashCode());
-
-  [Theory, RepeatData(Repeats)]
-  public void String(string name)
-    => new FieldAst(AstNulls.At, name).TestString($"( !F {name} )");
-
   [Theory, RepeatData(Repeats)]
   public void String_WithAlias(string name, string alias)
     => new FieldAst(AstNulls.At, name) { Alias = alias }
@@ -34,26 +26,6 @@ public class FieldAstTests
   public void String_WithDirective(string name, string directive)
     => new FieldAst(AstNulls.At, name) { Directives = directive.Directives() }
     .TestString($"( !F {name} ( !D {directive} ) )");
-
-  [Theory, RepeatData(Repeats)]
-  public void Equality(string name)
-  {
-    var left = new FieldAst(AstNulls.At, name);
-    var right = new FieldAst(AstNulls.At, name);
-
-    (left == right).Should().BeTrue();
-
-    left.Should().NotBeSameAs(right);
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void Inquality(string name)
-  {
-    var left = new FieldAst(AstNulls.At, name);
-    var right = new FieldAst(AstNulls.At, name + "a");
-
-    (left != right).Should().BeTrue();
-  }
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlias(string name, string alias)
@@ -155,4 +127,7 @@ public class FieldAstTests
 
     (left != right).Should().BeTrue();
   }
+
+  internal override BaseNamedAstChecks NamedChecks { get; }
+    = new BaseNamedAstChecks<FieldAst>(name => new FieldAst(AstNulls.At, name));
 }

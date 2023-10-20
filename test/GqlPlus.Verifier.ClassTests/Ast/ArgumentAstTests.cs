@@ -4,7 +4,23 @@ public class ArgumentAstTests
 {
   [Fact]
   public void HashCode()
-    => new ArgumentAst(AstNulls.At).GetHashCode().Should().Be(new ArgumentAst(AstNulls.At).GetHashCode());
+    => TestHashCode(() => new ArgumentAst(AstNulls.At));
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithVariable(string variable)
+    => TestHashCode(() => new ArgumentAst(AstNulls.At, variable));
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithConstant(string enumType, string label)
+    => TestHashCode(() => new ArgumentAst(new FieldKeyAst(AstNulls.At, enumType, label)));
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithValues(string label)
+    => TestHashCode(() => new ArgumentAst(AstNulls.At, label.ArgumentList()));
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithFields(string key, string label)
+    => TestHashCode(() => new ArgumentAst(AstNulls.At, label.ArgumentObject(key)));
 
   [Theory, RepeatData(Repeats)]
   public void String_WithVariable(string variable)

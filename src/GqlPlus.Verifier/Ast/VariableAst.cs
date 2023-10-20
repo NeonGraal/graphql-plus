@@ -7,7 +7,7 @@ internal sealed record class VariableAst(ParseAt At, string Name)
   public ModifierAst[] Modifers { get; set; } = Array.Empty<ModifierAst>();
   public ConstantAst? Default { get; set; }
 
-  protected override string Abbr => "V";
+  internal override string Abbr => "V";
 
   public bool Equals(VariableAst? other)
     => base.Equals(other)

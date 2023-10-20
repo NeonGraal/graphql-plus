@@ -9,7 +9,7 @@ internal abstract record class AstAliased(ParseAt At, string Name)
     => base.Equals(other)
     && Aliases.OrderedEqual(other.Aliases);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Aliases);
+    => HashCode.Combine(base.GetHashCode(), Aliases.Length);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

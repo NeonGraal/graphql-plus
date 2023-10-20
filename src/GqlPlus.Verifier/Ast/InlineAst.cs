@@ -7,7 +7,7 @@ internal sealed record class InlineAst(ParseAt At, params AstSelection[] Selecti
 
   public DirectiveAst[] Directives { get; set; } = Array.Empty<DirectiveAst>();
 
-  protected override string Abbr => "I";
+  internal override string Abbr => "I";
 
   public bool Equals(InlineAst? other)
     => base.Equals(other)
@@ -15,7 +15,7 @@ internal sealed record class InlineAst(ParseAt At, params AstSelection[] Selecti
     && Selections.SequenceEqual(other.Selections)
     && Directives.SequenceEqual(other.Directives);
   public override int GetHashCode()
-    => HashCode.Combine(OnType, Selections, Directives);
+    => HashCode.Combine(OnType, Selections.Length, Directives.Length);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

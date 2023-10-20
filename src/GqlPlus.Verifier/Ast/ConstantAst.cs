@@ -5,7 +5,7 @@ internal sealed record class ConstantAst
 {
   public FieldKeyAst? Value { get; set; }
 
-  protected override string Abbr => "C";
+  internal override string Abbr => "C";
 
   internal ConstantAst(ParseAt at)
     : base(at) { }

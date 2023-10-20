@@ -3,7 +3,7 @@
 internal sealed record class SpreadAst(ParseAt At, string Name)
   : AstNamedDirectives(At, Name), AstSelection, IEquatable<SpreadAst>
 {
-  protected override string Abbr => "S";
+  internal override string Abbr => "S";
 
   public bool Equals(SpreadAst? other)
     => base.Equals(other);

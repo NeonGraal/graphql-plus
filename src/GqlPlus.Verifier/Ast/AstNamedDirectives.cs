@@ -9,7 +9,7 @@ internal abstract record class AstNamedDirectives(ParseAt At, string Name)
     => base.Equals(other)
     && Directives.SequenceEqual(other.Directives);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Directives);
+    => HashCode.Combine(base.GetHashCode(), Directives.Length);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

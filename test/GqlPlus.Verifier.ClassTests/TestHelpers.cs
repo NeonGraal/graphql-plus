@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.ClassTests;
 
-internal static class OperationTestsHelpers
+internal static class TestHelpers
 {
   internal const int Repeats = 20;
 
@@ -78,6 +78,15 @@ internal static class OperationTestsHelpers
 
   public static void TestString<T>(this T input, string expected)
     => $"{input}".Should().Be(expected);
+
+  public static void TestHashCode<T>(Func<T> factory)
+  {
+    var expected = factory()!.GetHashCode();
+
+    var result = factory()!.GetHashCode();
+
+    result.Should().Be(expected);
+  }
 
   public static void TestString<T>(this T input, string expected, bool skpiIf)
   {

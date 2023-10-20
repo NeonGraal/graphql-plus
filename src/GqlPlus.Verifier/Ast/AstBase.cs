@@ -2,7 +2,7 @@
 
 internal abstract record class AstBase : IEquatable<AstBase>
 {
-  protected abstract string Abbr { get; }
+  internal abstract string Abbr { get; }
 
   public ParseAt At { get; }
 

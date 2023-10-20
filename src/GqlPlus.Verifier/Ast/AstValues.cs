@@ -19,7 +19,7 @@ internal abstract record class AstValues<T> : AstBase, IEquatable<AstValues<T>>
     && Values.SequenceEqual(other.Values)
     && Fields.Equals(other.Fields);
   public override int GetHashCode()
-    => HashCode.Combine(Values.Length > 0 ? Values.GetHashCode() : 0, Fields.Count > 0 ? Fields.GetHashCode() : 0);
+    => HashCode.Combine(Values.Length, Fields.Count);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

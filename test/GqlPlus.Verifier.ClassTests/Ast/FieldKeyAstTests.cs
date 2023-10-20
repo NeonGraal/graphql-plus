@@ -3,8 +3,24 @@
 public class FieldKeyAstTests
 {
   [Fact]
-  public void HashCode()
-    => new FieldKeyAst(AstNulls.At).GetHashCode().Should().Be(new FieldKeyAst(AstNulls.At).GetHashCode());
+  public void HashCode_WithNull()
+    => TestHashCode(() => new FieldKeyAst(AstNulls.At));
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithNumber(decimal number)
+    => TestHashCode(() => new FieldKeyAst(AstNulls.At, number));
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithString(string contents)
+    => TestHashCode(() => new FieldKeyAst(AstNulls.At, contents));
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithEnumLabel(string enumType, string label)
+    => TestHashCode(() => new FieldKeyAst(AstNulls.At, enumType, label));
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithLabel(string label)
+    => TestHashCode(() => new FieldKeyAst(AstNulls.At, "", label));
 
   [Theory, RepeatData(Repeats)]
   public void String_WithNumber(decimal number)

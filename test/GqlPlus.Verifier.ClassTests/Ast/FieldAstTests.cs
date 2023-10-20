@@ -1,7 +1,23 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public class FieldAstTests : BaseNamedAstTests
+public class FieldAstTests : BaseNamedDirectivesAstTests
 {
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithAlias(string name, string alias)
+    => TestHashCode(() => new FieldAst(AstNulls.At, name) { Alias = alias });
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithArgument(string variable, string name)
+    => TestHashCode(() => new FieldAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) });
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithModifiers(string name)
+    => TestHashCode(() => new FieldAst(AstNulls.At, name) { Modifiers = TestMods() });
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithSelection(string name, string field)
+  => TestHashCode(() => new FieldAst(AstNulls.At, name) { Selections = field.Fields() });
+
   [Theory, RepeatData(Repeats)]
   public void String_WithAlias(string name, string alias)
     => new FieldAst(AstNulls.At, name) { Alias = alias }
@@ -21,11 +37,6 @@ public class FieldAstTests : BaseNamedAstTests
   public void String_WithSelection(string name, string field)
   => new FieldAst(AstNulls.At, name) { Selections = field.Fields() }
   .TestString($"( !F {name} {{ !F {field} }} )");
-
-  [Theory, RepeatData(Repeats)]
-  public void String_WithDirective(string name, string directive)
-    => new FieldAst(AstNulls.At, name) { Directives = directive.Directives() }
-    .TestString($"( !F {name} ( !D {directive} ) )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlias(string name, string alias)
@@ -107,27 +118,6 @@ public class FieldAstTests : BaseNamedAstTests
     (left != right).Should().BeTrue();
   }
 
-  [Theory, RepeatData(Repeats)]
-  public void Equality_WithDirective(string name, string directive)
-  {
-    var left = new FieldAst(AstNulls.At, name) { Directives = directive.Directives() };
-
-    var right = new FieldAst(AstNulls.At, name) { Directives = directive.Directives() };
-
-    (left == right).Should().BeTrue();
-
-    left.Should().NotBeSameAs(right);
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void Inequality_WithDirective(string name, string directive)
-  {
-    var left = new FieldAst(AstNulls.At, name) { Directives = directive.Directives() };
-    var right = new FieldAst(AstNulls.At, name);
-
-    (left != right).Should().BeTrue();
-  }
-
-  internal override BaseNamedAstChecks NamedChecks { get; }
-    = new BaseNamedAstChecks<FieldAst>(name => new FieldAst(AstNulls.At, name));
+  internal override BaseNamedDirectivesAstChecks DirectivesChecks { get; }
+    = new BaseNamedDirectivesAstChecks<FieldAst>(name => new FieldAst(AstNulls.At, name));
 }

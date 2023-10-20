@@ -4,7 +4,11 @@ public class ModifierAstTests
 {
   [Fact]
   public void HashCode()
-    => ModifierAst.Optional(AstNulls.At).GetHashCode().Should().Be(ModifierAst.Optional(AstNulls.At).GetHashCode());
+    => TestHashCode(() => ModifierAst.Optional(AstNulls.At));
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithKey(string key, bool optional)
+    => TestHashCode(() => new ModifierAst(AstNulls.At, key, optional));
 
   [Fact]
   public void String()

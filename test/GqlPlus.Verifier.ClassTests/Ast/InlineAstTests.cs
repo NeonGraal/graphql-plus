@@ -3,6 +3,10 @@
 public class InlineAstTests : BaseNamedDirectivesAstTests
 {
   [Theory, RepeatData(Repeats)]
+  public void HashCode_WithOnType(string onType, string field)
+    => TestHashCode(() => new InlineAst(AstNulls.At, field.Fields()) { OnType = onType });
+
+  [Theory, RepeatData(Repeats)]
   public void String_WithOnType(string onType, string field)
     => new InlineAst(AstNulls.At, field.Fields()) { OnType = onType }
     .TestString($"( !I :{onType} {{ ( !F {field} ) }} )");

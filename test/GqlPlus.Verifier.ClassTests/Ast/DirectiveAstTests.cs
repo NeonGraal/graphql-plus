@@ -3,6 +3,10 @@
 public class DirectiveAstTests : BaseNamedAstTests
 {
   [Theory, RepeatData(Repeats)]
+  public void HashCode_WithArgument(string variable, string name)
+    => TestHashCode(() => new DirectiveAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) });
+
+  [Theory, RepeatData(Repeats)]
   public void String_WithArgument(string variable, string name)
     => new DirectiveAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) }
     .TestString($"( !D {name} ( !A ${variable} ) )");

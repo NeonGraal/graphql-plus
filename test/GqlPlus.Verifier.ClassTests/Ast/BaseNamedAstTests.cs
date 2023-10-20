@@ -3,11 +3,11 @@
 public abstract class BaseNamedAstTests
 {
   [Fact]
-  public void HashCode()
+  public void HashCode_WithNull()
     => NamedChecks.HashCode("");
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithName(string name)
+  public void HashCode(string name)
   => NamedChecks.HashCode(name);
 
   [Theory, RepeatData(Repeats)]

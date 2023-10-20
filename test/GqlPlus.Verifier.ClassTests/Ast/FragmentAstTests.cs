@@ -3,8 +3,12 @@
 public class FragmentAstTests
 {
   [Fact]
-  public void HashCode()
-    => new FragmentAst(AstNulls.At, "", "").GetHashCode().Should().Be(new FragmentAst(AstNulls.At, "", "").GetHashCode());
+  public void HashCode_Null()
+    => TestHashCode(() => new FragmentAst(AstNulls.At, "", ""));
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode(string name, string onType, string field)
+    => TestHashCode(() => new FragmentAst(AstNulls.At, name, onType, field.Fields()));
 
   [Theory, RepeatData(Repeats)]
   public void String(string name, string onType, string field)

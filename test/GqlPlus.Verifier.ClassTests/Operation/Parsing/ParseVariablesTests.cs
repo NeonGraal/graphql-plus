@@ -66,7 +66,7 @@ public class ParseVariablesTests
   public void WithNoEnd_ReturnsFalse()
     => Test.False("(test");
 
-  private static BaseManyChecks<OperationParser, VariableAst> Test => new(
+  private static ManyChecks<OperationParser, VariableAst> Test => new(
     tokens => new OperationParser(tokens),
     (OperationParser parser, out VariableAst[] result) => parser.ParseVariables(out result));
 }

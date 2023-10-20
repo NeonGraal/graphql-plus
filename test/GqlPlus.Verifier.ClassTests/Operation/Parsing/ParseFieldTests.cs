@@ -60,7 +60,7 @@ public class ParseFieldTests
   private void DefaultCheck(AstSelection result)
     => result.Should().BeOfType<AstNulls.NullSelectionAst>();
 
-  private static BaseOneChecks<OperationParser, AstSelection> Test => new(
+  private static OneChecks<OperationParser, AstSelection> Test => new(
     tokens => new OperationParser(tokens),
     (OperationParser parser, out AstSelection result) => parser.ParseField(out result));
 }

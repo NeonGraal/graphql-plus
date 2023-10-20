@@ -25,7 +25,7 @@ public class ParseModifiersTests
         ModifierAst.Optional(AstNulls.At),
       });
 
-  private static BaseArrayChecks<CommonParser, ModifierAst> Test => new(
+  private static ArrayChecks<CommonParser, ModifierAst> Test => new(
     tokens => new CommonParser(tokens),
     parser => parser.ParseModifiers());
 }

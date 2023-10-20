@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Common;
 
-internal sealed class BaseOneChecks<P, T>
+internal sealed class OneChecks<P, T>
   : BaseChecks<P> where P : CommonParser
 {
   internal delegate bool One(P parser, out T result);
@@ -10,7 +10,7 @@ internal sealed class BaseOneChecks<P, T>
   private readonly One _one;
   private readonly string _oneExpression;
 
-  public BaseOneChecks(Factory factory, One one,
+  public OneChecks(Factory factory, One one,
     [CallerArgumentExpression(nameof(one))] string oneExpression = "")
     : base(factory)
     => (_one, _oneExpression) = (one, oneExpression);

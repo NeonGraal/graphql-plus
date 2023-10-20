@@ -35,7 +35,7 @@ public class ParseObjectTests
   public void WithNotField_ReturnsFalse()
     => Test.False("{9");
 
-  private static BaseManyChecks<OperationParser, AstSelection> Test => new(
+  private static ManyChecks<OperationParser, AstSelection> Test => new(
     tokens => new OperationParser(tokens),
     (OperationParser parser, out AstSelection[] result) => parser.ParseObject(out result));
 }

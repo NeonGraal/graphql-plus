@@ -65,7 +65,7 @@ public class ParseArgValueTests
   private void CheckDefault(ArgumentAst result)
     => result.Should().Be(new ArgumentAst(AstNulls.At));
 
-  private static BaseOneChecks<OperationParser, ArgumentAst> Test => new(
+  private static OneChecks<OperationParser, ArgumentAst> Test => new(
     tokens => new OperationParser(tokens),
     (OperationParser parser, out ArgumentAst result) => parser.ParseArgValue(out result));
 }

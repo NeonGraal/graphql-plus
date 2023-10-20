@@ -38,7 +38,7 @@ public class ParseCategoryTests
         Aliases = new[] { alias1, alias2 },
       });
 
-  private static BaseOneChecks<SchemaParser, CategoryAst> Test => new(
+  private static OneChecks<SchemaParser, CategoryAst> Test => new(
     tokens => new SchemaParser(tokens),
     (SchemaParser parser, out CategoryAst result) => parser.ParseCategory(out result));
 }

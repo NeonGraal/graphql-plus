@@ -37,11 +37,11 @@ public class ParseFragmentsTests
       fragmentPrefix + fragment + typePrefix + onType + "@" + directive + "{" + field + "}",
       new FragmentAst(AstNulls.At, fragment, onType, field.Fields()) { Directives = directive.Directives() });
 
-  private static BaseArrayChecks<OperationParser, FragmentAst> TestStart => new(
+  private static ArrayChecks<OperationParser, FragmentAst> TestStart => new(
     tokens => new OperationParser(tokens),
     parser => parser.ParseFragStart());
 
-  private static BaseArrayChecks<OperationParser, FragmentAst> TestEnd => new(
+  private static ArrayChecks<OperationParser, FragmentAst> TestEnd => new(
     tokens => new OperationParser(tokens),
     parser => parser.ParseFragEnd(Array.Empty<FragmentAst>()));
 }

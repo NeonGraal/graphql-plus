@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Common;
 
-internal sealed class BaseArrayChecks<P, T>
+internal sealed class ArrayChecks<P, T>
   : BaseChecks<P> where P : CommonParser
 {
   internal delegate T[] Array(P parser);
@@ -10,7 +10,7 @@ internal sealed class BaseArrayChecks<P, T>
   private readonly Array _array;
   private string _arrayExpression;
 
-  public BaseArrayChecks(Factory factory, Array array,
+  public ArrayChecks(Factory factory, Array array,
     [CallerArgumentExpression(nameof(array))] string arrayExpression = "")
     : base(factory)
     => (_array, _arrayExpression) = (array, arrayExpression);

@@ -17,7 +17,7 @@ public class ParseDirectivesTests
       "@" + directive + "($" + variable + ")",
       new DirectiveAst(AstNulls.At, directive) { Argument = new ArgumentAst(AstNulls.At, variable) });
 
-  private static BaseArrayChecks<OperationParser, DirectiveAst> Test => new(
+  private static ArrayChecks<OperationParser, DirectiveAst> Test => new(
     tokens => new OperationParser(tokens),
     parser => parser.ParseDirectives());
 }

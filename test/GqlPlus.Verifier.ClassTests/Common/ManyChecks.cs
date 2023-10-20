@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Common;
 
-internal sealed class BaseManyChecks<P, T>
+internal sealed class ManyChecks<P, T>
   : BaseChecks<P> where P : CommonParser
 {
   internal delegate bool Many(P parser, out T[] result);
@@ -10,7 +10,7 @@ internal sealed class BaseManyChecks<P, T>
   private readonly Many _many;
   private readonly string _manyExpression;
 
-  public BaseManyChecks(Factory factory, Many many,
+  public ManyChecks(Factory factory, Many many,
     [CallerArgumentExpression(nameof(many))] string manyExpression = "")
     : base(factory)
     => (_many, _manyExpression) = (many, manyExpression);

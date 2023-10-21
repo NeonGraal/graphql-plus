@@ -4,50 +4,51 @@ public class FieldKeyAstTests
 {
   [Fact]
   public void HashCode_WithNull()
-    => TestHashCode(() => new FieldKeyAst(AstNulls.At));
+    => _checks.HashCode(() => new FieldKeyAst(AstNulls.At));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithNumber(decimal number)
-    => TestHashCode(() => new FieldKeyAst(AstNulls.At, number));
+    => _checks.HashCode(() => new FieldKeyAst(AstNulls.At, number));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithString(string contents)
-    => TestHashCode(() => new FieldKeyAst(AstNulls.At, contents));
+    => _checks.HashCode(() => new FieldKeyAst(AstNulls.At, contents));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithEnumLabel(string enumType, string label)
-    => TestHashCode(() => new FieldKeyAst(AstNulls.At, enumType, label));
+    => _checks.HashCode(() => new FieldKeyAst(AstNulls.At, enumType, label));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithLabel(string label)
-    => TestHashCode(() => new FieldKeyAst(AstNulls.At, "", label));
+    => _checks.HashCode(() => new FieldKeyAst(AstNulls.At, "", label));
 
   [Theory, RepeatData(Repeats)]
   public void String_WithNumber(decimal number)
-    => new FieldKeyAst(AstNulls.At, number).TestString($"( !K {number} )");
+    => _checks.String(
+      () => new FieldKeyAst(AstNulls.At, number),
+      $"( !K {number} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithString(string contents)
-    => new FieldKeyAst(AstNulls.At, contents).TestString($"( !K '{contents}' )");
+    => _checks.String(
+      () => new FieldKeyAst(AstNulls.At, contents),
+      $"( !K '{contents}' )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumLabel(string enumType, string label)
-    => new FieldKeyAst(AstNulls.At, enumType, label).TestString($"( !K {enumType}.{label} )");
+    => _checks.String(() => new FieldKeyAst(AstNulls.At, enumType, label),
+      $"( !K {enumType}.{label} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithLabel(string label)
-    => new FieldKeyAst(AstNulls.At, "", label).TestString($"( !K {label} )");
+    => _checks.String(
+      () => new FieldKeyAst(AstNulls.At, "", label),
+      $"( !K {label} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithNumber(decimal number)
-  {
-    var left = new FieldKeyAst(AstNulls.At, number);
-    var right = new FieldKeyAst(AstNulls.At, number);
-
-    (left == right).Should().BeTrue();
-
-    left.Should().NotBeSameAs(right);
-  }
+    => _checks.Equality(
+      () => new FieldKeyAst(AstNulls.At, number));
 
   [Theory, RepeatData(Repeats)]
   public void Compare_WithNumber(decimal number1, decimal number2)
@@ -78,14 +79,8 @@ public class FieldKeyAstTests
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithString(string contents)
-  {
-    var left = new FieldKeyAst(AstNulls.At, contents);
-    var right = new FieldKeyAst(AstNulls.At, contents);
-
-    (left == right).Should().BeTrue();
-
-    left.Should().NotBeSameAs(right);
-  }
+    => _checks.Equality(
+      () => new FieldKeyAst(AstNulls.At, contents));
 
   [Theory, RepeatData(Repeats)]
   public void Compare_WithString(string contents1, string contents2)
@@ -98,7 +93,7 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Inquality_WithStringEnumLabel(string contents, string enumType, string label)
+  public void Inequality_WithStringEnumLabel(string contents, string enumType, string label)
   {
     var left = new FieldKeyAst(AstNulls.At, contents);
     var right = new FieldKeyAst(AstNulls.At, enumType, label);
@@ -108,14 +103,8 @@ public class FieldKeyAstTests
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithEnumLabel(string enumType, string label)
-  {
-    var left = new FieldKeyAst(AstNulls.At, enumType, label);
-    var right = new FieldKeyAst(AstNulls.At, enumType, label);
-
-    (left == right).Should().BeTrue();
-
-    left.Should().NotBeSameAs(right);
-  }
+    => _checks.Equality(
+      () => new FieldKeyAst(AstNulls.At, enumType, label));
 
   [Theory, RepeatData(Repeats)]
   public void Compare_WithEnumLabel(string enumType, string label1, string label2)
@@ -142,14 +131,8 @@ public class FieldKeyAstTests
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithLabel(string label)
-  {
-    var left = new FieldKeyAst(AstNulls.At, "", label);
-    var right = new FieldKeyAst(AstNulls.At, "", label);
-
-    (left == right).Should().BeTrue();
-
-    left.Should().NotBeSameAs(right);
-  }
+    => _checks.Equality(
+      () => new FieldKeyAst(AstNulls.At, "", label));
 
   [Theory, RepeatData(Repeats)]
   public void Compare_WithLabel(string label1, string label2)
@@ -172,14 +155,8 @@ public class FieldKeyAstTests
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithEnumType(string enumType)
-  {
-    var left = new FieldKeyAst(AstNulls.At, enumType, "label");
-    var right = new FieldKeyAst(AstNulls.At, enumType, "label");
-
-    (left == right).Should().BeTrue();
-
-    left.Should().NotBeSameAs(right);
-  }
+    => _checks.Equality(
+      () => new FieldKeyAst(AstNulls.At, enumType, "label"));
 
   [Theory, RepeatData(Repeats)]
   public void Compare_WithEnumType(string enumType1, string enumType2)
@@ -199,4 +176,6 @@ public class FieldKeyAstTests
 
     (left != right).Should().BeTrue();
   }
+
+  internal BaseAstChecks<FieldKeyAst> _checks = new();
 }

@@ -4,65 +4,46 @@ public class ModifierAstTests
 {
   [Fact]
   public void HashCode()
-    => TestHashCode(() => ModifierAst.Optional(AstNulls.At));
+    => _checks.HashCode(() => ModifierAst.Optional(AstNulls.At));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithKey(string key, bool optional)
-    => TestHashCode(() => new ModifierAst(AstNulls.At, key, optional));
+    => _checks.HashCode(() => new ModifierAst(AstNulls.At, key, optional));
 
   [Fact]
   public void String()
   {
-    ModifierAst.Optional(AstNulls.At).TestString("?");
-    ModifierAst.List(AstNulls.At).TestString("[]");
+    _checks.String(() => ModifierAst.Optional(AstNulls.At), "?");
+    _checks.String(() => ModifierAst.List(AstNulls.At), "[]");
   }
 
   [Theory, RepeatData(Repeats)]
   public void String_WithKey(string key, bool optional)
   {
     var optString = optional ? "?" : "";
-    new ModifierAst(AstNulls.At, key, optional).TestString($"[{key}{optString}]");
+    _checks.String(() => new ModifierAst(AstNulls.At, key, optional), $"[{key}{optString}]");
   }
 
   [Fact]
   public void Inequality()
-  {
-    var left = ModifierAst.Optional;
-    var right = ModifierAst.List;
-
-    (left != right).Should().BeTrue();
-  }
+    => _checks.Inequality(
+      () => ModifierAst.Optional(AstNulls.At),
+      () => ModifierAst.List(AstNulls.At));
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithKey(string key, bool optional)
-  {
-    var left = new ModifierAst(AstNulls.At, key, optional);
-    var right = new ModifierAst(AstNulls.At, key, optional);
-
-    (left == right).Should().BeTrue();
-
-    left.Should().NotBeSameAs(right);
-  }
+    => _checks.Equality(() => new ModifierAst(AstNulls.At, key, optional));
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithKey(string key, bool optional)
-  {
-    var left = new ModifierAst(AstNulls.At, key, optional);
-    var right = ModifierAst.List(AstNulls.At);
-
-    (left != right).Should().BeTrue();
-  }
+    => _checks.Inequality(
+      () => new ModifierAst(AstNulls.At, key, optional),
+      () => ModifierAst.List(AstNulls.At));
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithKeys(string key1, string key2)
-  {
-    if (key1 == key2) {
-      return;
-    }
+  public void Inequality_BetweenKeys(string key1, string key2)
+    => _checks.InequalityBetween(key1, key2,
+      k => new ModifierAst(AstNulls.At, k, false));
 
-    var left = new ModifierAst(AstNulls.At, key1, false);
-    var right = new ModifierAst(AstNulls.At, key2, false);
-
-    (left != right).Should().BeTrue();
-  }
+  internal BaseAstChecks<ModifierAst> _checks = new();
 }

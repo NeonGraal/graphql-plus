@@ -76,25 +76,4 @@ internal static class TestHelpers
 
   public static ModifierAst[] TestMods()
     => new[] { ModifierAst.List(AstNulls.At), ModifierAst.Optional(AstNulls.At) };
-
-  public static void TestString<T>(this T input, string expected)
-    => $"{input}".Should().Be(expected);
-
-  public static void TestHashCode<T>(Func<T> factory)
-  {
-    var expected = factory()!.GetHashCode();
-
-    var result = factory()!.GetHashCode();
-
-    result.Should().Be(expected);
-  }
-
-  public static void TestString<T>(this T input, string expected, bool skpiIf)
-  {
-    if (skpiIf) {
-      return;
-    }
-
-    $"{input}".Should().Be(expected);
-  }
 }

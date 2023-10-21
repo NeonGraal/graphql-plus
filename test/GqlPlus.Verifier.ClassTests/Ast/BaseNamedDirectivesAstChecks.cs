@@ -19,7 +19,7 @@ internal sealed class BaseNamedDirectivesAstChecks<T>
     : base(create) { }
 
   public void HashCode(string name, string directive)
-    => TestHashCode(() => CreateDirective(name, directive));
+    => HashCode(() => CreateDirective(name, directive));
 
   public void Equality(string name, string directive)
   {
@@ -44,7 +44,7 @@ internal sealed class BaseNamedDirectivesAstChecks<T>
     if (directive1 == directive2) {
       return;
     }
-    
+
     var left = CreateDirective(name, directive1);
     var right = CreateDirective(name, directive2);
 
@@ -64,7 +64,7 @@ internal sealed class BaseNamedDirectivesAstChecks<T>
   }
 
   public void String(string name, string directive, string expected)
-    => CreateDirective(name, directive).TestString(expected);
+    => String(() => CreateDirective(name, directive), expected);
 
   public string ExpectedString(string name, string directive)
     => $"( !{Abbr} {name} ( !D {directive} ) )";

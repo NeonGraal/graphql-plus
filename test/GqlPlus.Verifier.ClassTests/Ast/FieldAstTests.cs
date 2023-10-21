@@ -88,5 +88,5 @@ public class FieldAstTests : BaseNamedDirectivesAstTests
 
   private readonly BaseNamedDirectivesAstChecks<FieldAst> _checks = new(name => new FieldAst(AstNulls.At, name));
 
-  internal override BaseNamedDirectivesAstChecks DirectivesChecks => _checks;
+  internal override IBaseNamedDirectivesAstChecks DirectivesChecks => _checks;
 }

@@ -81,7 +81,8 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithLabel(string label)
     => _checks.InequalityBetween(label, label + "a",
-      l => new FieldKeyAst(AstNulls.At, "", l));
+      l => new FieldKeyAst(AstNulls.At, "", l),
+      false);
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithEnumLabel(string enumType, string label)
@@ -93,7 +94,7 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithEnumType(string enumType)
     => _checks.InequalityBetween(enumType, enumType + "a",
-      e => new FieldKeyAst(AstNulls.At, e, "label"));
+      e => new FieldKeyAst(AstNulls.At, e, "label"), false);
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithValues(string label)
@@ -117,5 +118,5 @@ public class ConstantAstTests
       () => new ConstantAst(AstNulls.At, label.ConstantObject(key)),
       () => new FieldKeyAst(AstNulls.At, key, label));
 
-  internal BaseAstChecks<ConstantAst> _checks = new();
+  internal BaseAstChecks<string, ConstantAst> _checks = new();
 }

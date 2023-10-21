@@ -43,7 +43,8 @@ public class ModifierAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_BetweenKeys(string key1, string key2)
     => _checks.InequalityBetween(key1, key2,
-      k => new ModifierAst(AstNulls.At, k, false));
+      k => new ModifierAst(AstNulls.At, k, false),
+      key1 == key2);
 
-  internal BaseAstChecks<ModifierAst> _checks = new();
+  internal BaseAstChecks<string, ModifierAst> _checks = new();
 }

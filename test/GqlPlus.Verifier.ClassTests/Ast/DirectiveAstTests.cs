@@ -26,9 +26,10 @@ public class DirectiveAstTests : BaseNamedAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_BetweenArguments(string variable1, string variable2, string name)
     => _checks.InequalityBetween(variable1, variable2,
-      variable => new DirectiveAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) });
+      variable => new DirectiveAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) },
+      variable1 == variable2);
 
   private readonly BaseNamedAstChecks<DirectiveAst> _checks = new(name => new DirectiveAst(AstNulls.At, name));
 
-  internal override BaseNamedAstChecks NamedChecks => _checks;
+  internal override IBaseNamedAstChecks NamedChecks => _checks;
 }

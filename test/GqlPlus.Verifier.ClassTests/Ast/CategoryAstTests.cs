@@ -27,7 +27,8 @@ public class CategoryAstTests : BaseNamedAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_BetweenNames(string output, string name1, string name2)
     => _checks.InequalityBetween(name1, name2,
-      name => new CategoryAst(AstNulls.At, name, output));
+      name => new CategoryAst(AstNulls.At, name, output),
+      name1 == name2);
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAliases(string output, string alias1, string alias2)
@@ -39,13 +40,13 @@ public class CategoryAstTests : BaseNamedAstTests
     => _checks.InequalityWith(output,
       () => new CategoryAst(AstNulls.At, output) { Aliases = new[] { alias1, alias2 } });
 
-  protected override string ExpectedString(string name)
-    => $"( !c {name.Camelize()} (Parallel) {name} )";
+  protected override string ExpectedString(string input)
+    => $"( !c {input.Camelize()} (Parallel) {input} )";
 
   private readonly BaseNamedAstChecks<CategoryAst> _checks
     = new(name => new CategoryAst(AstNulls.At, name)) {
-      SameName = (name1, name2) => name1.Camelize() == name2.Camelize()
+      SameInput = (name1, name2) => name1.Camelize() == name2.Camelize()
     };
 
-  internal override BaseNamedAstChecks NamedChecks => _checks;
+  internal override IBaseNamedAstChecks NamedChecks => _checks;
 }

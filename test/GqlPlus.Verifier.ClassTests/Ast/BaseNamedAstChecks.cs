@@ -2,72 +2,67 @@
 
 namespace GqlPlus.Verifier.Ast;
 
-internal interface BaseNamedAstChecks
-{
-  void HashCode(string name);
-  void String(string name, string expected);
-  void Equality(string name);
-  void Inequality(string name1, string name2);
-  string ExpectedString(string name);
-}
-
-internal class BaseNamedAstChecks<T> : BaseAstChecks<T>, BaseNamedAstChecks
+internal sealed class BaseNamedAstChecks<T>
+  : BaseNamedAstChecks<string, T>, IBaseNamedAstChecks
   where T : AstBase
 {
-  internal Func<string, string, bool> SameName { get; init; }
-    = (string name1, string name2) => name1 == name2;
+  public BaseNamedAstChecks(CreateBy<string> createInput,
+    [CallerArgumentExpression(nameof(createInput))] string createExpression = "")
+    : base(createInput, createExpression) { }
+}
 
-  protected readonly CreateByName CreateName;
+internal class BaseNamedAstChecks<I, T>
+  : BaseAstChecks<I, T>, IBaseNamedAstChecks<I>
+  where T : AstBase
+{
+  internal Func<I, I, bool> SameInput { get; init; }
+    = (I input1, I input2) => input1!.Equals(input2);
+
+  protected readonly CreateBy<I> CreateInput;
   protected readonly string Abbr;
-  private readonly string _createExpression;
+  protected readonly string _createExpression;
 
-  public BaseNamedAstChecks(CreateByName createName,
-    [CallerArgumentExpression(nameof(createName))] string createExpression = "")
-    => (CreateName, Abbr, _createExpression) = (createName, createName("").Abbr, createExpression);
+  public BaseNamedAstChecks(CreateBy<I> createInput,
+    [CallerArgumentExpression(nameof(createInput))] string createExpression = "")
+    => (CreateInput, Abbr, _createExpression) = (createInput, createInput(default!).Abbr, createExpression);
 
-  public void HashCode(string name)
-    => HashCode(() => CreateName(name));
+  public void HashCode(I input)
+    => HashCode(
+      () => CreateInput(input),
+      _createExpression);
 
-  public void String(string name, string expected)
-    => String(() => CreateName(name), expected);
+  public void String(I input, string expected)
+    => String(
+      () => CreateInput(input), expected,
+      factoryExpression: _createExpression);
 
-  public void Equality(string name)
-  {
-    var left = CreateName(name);
-    var right = CreateName(name);
+  public void Equality(I input)
+    => Equality(
+      () => CreateInput(input), _createExpression);
 
-    var result = left!.Equals(right);
+  public void Inequality(I input1, I input2)
+    => InequalityBetween(input1, input2, CreateInput,
+      SameInput(input1, input2), _createExpression);
 
-    result.Should().BeTrue(_createExpression);
-
-    left.Should().NotBeSameAs(right);
-  }
-
-  public void Inequality(string name1, string name2)
-  {
-    if (SameName(name1, name2)) {
-      return;
-    }
-
-    var left = CreateName(name1);
-    var right = CreateName(name2);
-
-    var result = left!.Equals(right);
-
-    result.Should().BeFalse(_createExpression);
-  }
-
-  public void InequalityWith(string name, Creator factory,
+  public void InequalityWith(I input, Creator factory,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
-  {
-    var left = factory();
-    var right = CreateName(name);
+    => Inequality(factory,
+      () => CreateInput(input),
+      factoryExpression: factoryExpression);
 
-    var result = left!.Equals(right);
+  public string ExpectedString(I input)
+    => $"( !{Abbr} {input} )";
+}
 
-    result.Should().BeFalse(factoryExpression);
-  }
+internal interface IBaseNamedAstChecks
+  : IBaseNamedAstChecks<string>
+{ }
 
-  public string ExpectedString(string name)
-    => $"( !{Abbr} {name} )";
+internal interface IBaseNamedAstChecks<I>
+{
+  void HashCode(I input);
+  void String(I input, string expected);
+  void Equality(I input);
+  void Inequality(I input1, I input2);
+  string ExpectedString(I input);
 }

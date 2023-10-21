@@ -1,29 +1,33 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
 public abstract class BaseNamedAstTests
+  : BaseNamedAstTests<string>
+{ }
+
+public abstract class BaseNamedAstTests<I>
 {
   [Fact]
   public void HashCode_WithNull()
-    => NamedChecks.HashCode("");
+  => NamedChecks.HashCode(default!);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode(string name)
-  => NamedChecks.HashCode(name);
+  public void HashCode(I input)
+  => NamedChecks.HashCode(input);
 
   [Theory, RepeatData(Repeats)]
-  public void String(string name)
-  => NamedChecks.String(name, ExpectedString(name));
+  public void String(I input)
+  => NamedChecks.String(input, ExpectedString(input));
 
   [Theory, RepeatData(Repeats)]
-  public void Equality(string output)
-    => NamedChecks.Equality(output);
+  public void Equality(I input)
+    => NamedChecks.Equality(input);
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality(string output1, string output2)
-    => NamedChecks.Inequality(output1, output2);
+  public void Inequality(I input1, I input2)
+    => NamedChecks.Inequality(input1, input2);
 
-  protected virtual string ExpectedString(string name)
-    => NamedChecks.ExpectedString(name);
+  protected virtual string ExpectedString(I input)
+    => NamedChecks.ExpectedString(input);
 
-  internal abstract BaseNamedAstChecks NamedChecks { get; }
+  internal abstract IBaseNamedAstChecks<I> NamedChecks { get; }
 }

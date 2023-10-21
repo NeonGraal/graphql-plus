@@ -49,8 +49,8 @@ public static class AstExtensions
   public static string Suffixed(this string? text, string suffix)
     => text?.Length > 0 ? text + suffix : "";
 
-  public static string Camelize(this string text)
-    => text.Length > 0
+  public static string? Camelize(this string? text)
+    => text?.Length > 0
       ? char.ToLower(text[0]) + text[1..]
       : text;
 }

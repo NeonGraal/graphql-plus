@@ -60,7 +60,7 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithVariable(string variable)
     => _checks.InequalityBetween(variable, variable + "a",
-      v => new ArgumentAst(AstNulls.At, v));
+      v => new ArgumentAst(AstNulls.At, v), false);
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithConstant(string enumType, string label)
@@ -96,5 +96,5 @@ public class ArgumentAstTests
       () => new ArgumentAst(AstNulls.At, label.ArgumentObject(key)),
       () => new ArgumentAst(AstNulls.At, label));
 
-  internal BaseAstChecks<ArgumentAst> _checks = new();
+  internal BaseAstChecks<string, ArgumentAst> _checks = new();
 }

@@ -39,7 +39,8 @@ public class VariableAstTests : BaseNamedDirectivesAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_BetweenType(string name, string varType1, string varType2)
     => _checks.InequalityBetween(varType1, varType2,
-      varType => new VariableAst(AstNulls.At, name) { Type = varType });
+      varType => new VariableAst(AstNulls.At, name) { Type = varType },
+      varType1 == varType2);
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithType(string name, string varType)
@@ -61,7 +62,8 @@ public class VariableAstTests : BaseNamedDirectivesAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_BetweenDefault(string name, string value1, string value2)
     => _checks.InequalityBetween(value1, value2,
-      value => new VariableAst(AstNulls.At, name) { Default = new FieldKeyAst(AstNulls.At, value) });
+      value => new VariableAst(AstNulls.At, name) { Default = new FieldKeyAst(AstNulls.At, value) },
+      value1 == value2);
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithDefault(string name, string value)
@@ -71,5 +73,5 @@ public class VariableAstTests : BaseNamedDirectivesAstTests
   internal BaseNamedDirectivesAstChecks<VariableAst> _checks
     = new(name => new VariableAst(AstNulls.At, name));
 
-  internal override BaseNamedDirectivesAstChecks DirectivesChecks => _checks;
+  internal override IBaseNamedDirectivesAstChecks DirectivesChecks => _checks;
 }

@@ -2,10 +2,10 @@
 
 namespace GqlPlus.Verifier.Ast;
 
-internal class BaseAstChecks<T>
+internal class BaseAstChecks<I, T>
 {
   internal delegate T Creator();
-  internal delegate T CreateByName(string name);
+  internal delegate T CreateBy<B>(B input);
 
   public void HashCode(Creator factory,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
@@ -47,9 +47,9 @@ internal class BaseAstChecks<T>
     left.Should().NotBeSameAs(right);
   }
 
-  public void InequalityBetween(string name1, string name2, CreateByName factory,
+  public void InequalityBetween<B>(B input1, B input2, CreateBy<B> factory, bool skipIf,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
-    => Inequality(() => factory(name1), () => factory(name2), name1 == name2, factoryExpression);
+    => Inequality(() => factory(input1), () => factory(input2), skipIf, factoryExpression);
 
   public void String(Creator factory, string expected, bool skipIf = false,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")

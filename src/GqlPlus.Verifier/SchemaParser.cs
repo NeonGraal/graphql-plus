@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier;
 
@@ -52,7 +53,7 @@ internal class SchemaParser : CommonParser
           name = output.Camelize();
         }
 
-        result = new(at, name, output) {
+        result = new(at, name!, output) {
           Aliases = aliases.ToArray(),
           Option = option
         };

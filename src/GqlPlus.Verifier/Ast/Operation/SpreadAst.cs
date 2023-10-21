@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast.Operation;
 
 internal sealed record class SpreadAst(ParseAt At, string Name)
   : AstNamedDirectives(At, Name), AstSelection, IEquatable<SpreadAst>

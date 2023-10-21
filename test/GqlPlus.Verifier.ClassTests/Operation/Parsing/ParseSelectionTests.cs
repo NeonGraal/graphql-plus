@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Common;
-using static GqlPlus.Verifier.Ast.AstNulls;
+﻿using GqlPlus.Verifier.Ast.Operation;
 
 namespace GqlPlus.Verifier.Operation.Parsing;
 
@@ -60,7 +58,7 @@ public class ParseSelectionTests
     => Test.False("|:?", CheckDefault);
 
   private void CheckDefault(AstSelection result)
-    => result.Should().BeOfType<NullSelectionAst>();
+    => result.Should().BeOfType<AstNulls.NullSelectionAst>();
 
   private static OneChecks<OperationParser, AstSelection> Test => new(
     tokens => new OperationParser(tokens),

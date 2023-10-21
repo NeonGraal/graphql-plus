@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast.Operation;
 
 internal sealed record class FragmentAst(ParseAt At, string Name, string OnType, params AstSelection[] Selections)
   : AstNamedDirectives(At, Name), IEquatable<FragmentAst>

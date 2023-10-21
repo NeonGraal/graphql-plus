@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifier.Common;
-
-namespace GqlPlus.Verifier.Operation.Parsing;
+﻿namespace GqlPlus.Verifier.Operation.Parsing;
 
 public class ParseVarTypeTests
 {

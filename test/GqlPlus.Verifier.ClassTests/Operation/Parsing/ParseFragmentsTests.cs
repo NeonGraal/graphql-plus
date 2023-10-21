@@ -1,5 +1,4 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Common;
+﻿using GqlPlus.Verifier.Ast.Operation;
 
 namespace GqlPlus.Verifier.Operation.Parsing;
 

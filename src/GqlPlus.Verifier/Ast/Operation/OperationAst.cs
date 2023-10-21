@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast.Operation;
 
 internal record class OperationAst(ParseAt At, string Name)
   : AstNamedDirectives(At, Name)

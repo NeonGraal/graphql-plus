@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 internal sealed record class CategoryAst(ParseAt At, string Name, string Output)
   : AstAliased(At, Name), IEquatable<CategoryAst>
@@ -8,7 +8,7 @@ internal sealed record class CategoryAst(ParseAt At, string Name, string Output)
   public CategoryOption Option { get; set; } = CategoryOption.Parallel;
 
   public CategoryAst(ParseAt at, string output)
-    : this(at, output.Camelize(), output) { }
+    : this(at, output.Camelize()!, output) { }
 
   public bool Equals(CategoryAst? other)
     => base.Equals(other)

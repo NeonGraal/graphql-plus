@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifier.Ast;
-
-namespace GqlPlus.Verifier.Common;
+﻿namespace GqlPlus.Verifier.Common;
 
 public class ParseConstantTests
 {

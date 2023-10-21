@@ -35,11 +35,9 @@ internal sealed class TestsCustomizations : CompositeCustomization
 
       var propInfo = request as PropertyInfo;
 
-      if (propInfo is not null && propInfo.PropertyType == typeof(string)) {
-        return context.Resolve(new RegularExpressionRequest(IdentifierPattern));
-      }
-
-      return new NoSpecimen();
+      return propInfo is not null && propInfo.PropertyType == typeof(string)
+        ? context.Resolve(new RegularExpressionRequest(IdentifierPattern))
+        : new NoSpecimen();
     }
   }
 }

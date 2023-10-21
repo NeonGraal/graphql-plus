@@ -10,7 +10,7 @@ public class CategoryAstTests : BaseNamedAstTests
   [Theory, RepeatData(Repeats)]
   public void String_WithOutputAndName(string name, string output)
     => _checks.String(
-      () => new CategoryAst(AstNulls.At, name, output),
+      () => new CategoryAst(AstNulls.At, name, "", output),
       $"( !C {name} (Parallel) {output} )");
 
   [Theory, RepeatData(Repeats)]

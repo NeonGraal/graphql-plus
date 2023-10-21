@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
 internal sealed record class FieldAst(ParseAt At, string Name)
-  : AstNamedDirectives(At, Name), AstSelection
+  : AstDirectives(At, Name), IAstSelection
 {
   public string? Alias { get; init; }
   public ArgumentAst? Argument { get; set; }
   public ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
-  public AstSelection[] Selections { get; set; } = Array.Empty<AstSelection>();
+  public IAstSelection[] Selections { get; set; } = Array.Empty<IAstSelection>();
 
   internal override string Abbr => "f";
 

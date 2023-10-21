@@ -57,10 +57,10 @@ public class ParseSelectionTests
   public void WithInvalidSpread_ReturnsFalse()
     => Test.False("|:?", CheckDefault);
 
-  private void CheckDefault(AstSelection result)
+  private void CheckDefault(IAstSelection result)
     => result.Should().BeOfType<AstNulls.NullSelectionAst>();
 
-  private static OneChecks<OperationParser, AstSelection> Test => new(
+  private static OneChecks<OperationParser, IAstSelection> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out AstSelection result) => parser.ParseSelection(out result));
+    (OperationParser parser, out IAstSelection result) => parser.ParseSelection(out result));
 }

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-internal sealed record class InlineAst(ParseAt At, params AstSelection[] Selections)
-  : AstBase(At), AstDirectives, AstSelection, IEquatable<InlineAst>
+internal sealed record class InlineAst(ParseAt At, params IAstSelection[] Selections)
+  : AstBase(At), IAstDirectives, IAstSelection, IEquatable<InlineAst>
 {
   public string? OnType { get; set; }
 

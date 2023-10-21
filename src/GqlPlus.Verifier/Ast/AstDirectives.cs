@@ -2,7 +2,18 @@
 
 namespace GqlPlus.Verifier.Ast;
 
-internal interface AstDirectives
+internal abstract record class AstDirectives(ParseAt At, string Name)
+  : AstNamed(At, Name), IAstDirectives, IEquatable<AstDirectives>
 {
-  DirectiveAst[] Directives { get; set; }
+  public DirectiveAst[] Directives { get; set; } = Array.Empty<DirectiveAst>();
+
+  public virtual bool Equals(AstDirectives? other)
+    => base.Equals(other)
+    && Directives.SequenceEqual(other.Directives);
+  public override int GetHashCode()
+    => HashCode.Combine(base.GetHashCode(), Directives.Length);
+
+  internal override IEnumerable<string?> GetFields()
+    => base.GetFields()
+    .Concat(Directives.AsString());
 }

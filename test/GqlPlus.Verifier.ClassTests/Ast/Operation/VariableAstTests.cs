@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-public class VariableAstTests : BaseNamedDirectivesAstTests
+public class VariableAstTests : BaseDirectivesAstTests
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithType(string name, string varType)
@@ -70,8 +70,8 @@ public class VariableAstTests : BaseNamedDirectivesAstTests
     => _checks.InequalityWith(name,
       () => new VariableAst(AstNulls.At, name) { Default = new FieldKeyAst(AstNulls.At, value) });
 
-  internal BaseNamedDirectivesAstChecks<VariableAst> _checks
+  internal BaseDirectivesAstChecks<VariableAst> _checks
     = new(name => new VariableAst(AstNulls.At, name));
 
-  internal override IBaseNamedDirectivesAstChecks DirectivesChecks => _checks;
+  internal override IBaseDirectivesAstChecks DirectivesChecks => _checks;
 }

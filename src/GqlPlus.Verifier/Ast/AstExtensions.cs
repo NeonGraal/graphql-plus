@@ -43,14 +43,19 @@ public static class AstExtensions
         .Append(after)
       : Enumerable.Empty<string>();
 
+  public static string? Camelize(this string? text)
+    => text?.Length > 0
+      ? char.ToLower(text[0]) + text[1..]
+      : text;
+
   public static string Prefixed(this string? text, string prefix)
     => text?.Length > 0 ? prefix + text : "";
 
   public static string Suffixed(this string? text, string suffix)
     => text?.Length > 0 ? text + suffix : "";
 
-  public static string? Camelize(this string? text)
+  public static string Quoted(this string? text, string quote)
     => text?.Length > 0
-      ? char.ToLower(text[0]) + text[1..]
-      : text;
+    ? quote + text.Replace("\\", "\\\\").Replace(quote, "\\" + quote) + quote
+    : "";
 }

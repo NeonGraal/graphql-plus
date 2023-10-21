@@ -1,18 +1,18 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal sealed class BaseNamedDirectivesAstChecks<T>
-  : BaseNamedDirectivesAstChecks<string, T>, IBaseNamedDirectivesAstChecks
-  where T : AstBase, AstDirectives
+internal sealed class BaseDirectivesAstChecks<T>
+  : BaseDirectivesAstChecks<string, T>, IBaseDirectivesAstChecks
+  where T : AstBase, IAstDirectives
 {
-  public BaseNamedDirectivesAstChecks(CreateBy<string> create)
+  public BaseDirectivesAstChecks(CreateBy<string> create)
     : base(create) { }
 }
 
-internal class BaseNamedDirectivesAstChecks<I, T>
-  : BaseNamedAstChecks<I, T>, IBaseNamedDirectivesAstChecks<I>
-  where T : AstBase, AstDirectives
+internal class BaseDirectivesAstChecks<I, T>
+  : BaseNamedAstChecks<I, T>, IBaseDirectivesAstChecks<I>
+  where T : AstBase, IAstDirectives
 {
-  public BaseNamedDirectivesAstChecks(CreateBy<I> create)
+  public BaseDirectivesAstChecks(CreateBy<I> create)
     : base(create) { }
 
   public void HashCode(I input, string directive)
@@ -57,11 +57,11 @@ internal class BaseNamedDirectivesAstChecks<I, T>
   }
 }
 
-internal interface IBaseNamedDirectivesAstChecks
-  : IBaseNamedDirectivesAstChecks<string>, IBaseNamedAstChecks
+internal interface IBaseDirectivesAstChecks
+  : IBaseDirectivesAstChecks<string>, IBaseNamedAstChecks
 { }
 
-internal interface IBaseNamedDirectivesAstChecks<I> : IBaseNamedAstChecks<I>
+internal interface IBaseDirectivesAstChecks<I> : IBaseNamedAstChecks<I>
 {
   void HashCode(I input, string directive);
   void String(I input, string directive, string expected);

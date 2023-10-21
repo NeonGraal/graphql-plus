@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public abstract class BaseNamedDirectivesAstTests
-  : BaseNamedDirectivesAstTests<string>
+public abstract class BaseDirectivesAstTests
+  : BaseDirectivesAstTests<string>
 { }
 
-public abstract class BaseNamedDirectivesAstTests<I> : BaseNamedAstTests<I>
+public abstract class BaseDirectivesAstTests<I> : BaseNamedAstTests<I>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithDirective(I input, string directive)
@@ -35,5 +35,5 @@ public abstract class BaseNamedDirectivesAstTests<I> : BaseNamedAstTests<I>
 
   internal override IBaseNamedAstChecks<I> NamedChecks => DirectivesChecks;
 
-  internal abstract IBaseNamedDirectivesAstChecks<I> DirectivesChecks { get; }
+  internal abstract IBaseDirectivesAstChecks<I> DirectivesChecks { get; }
 }

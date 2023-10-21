@@ -7,7 +7,7 @@ internal static class OperationTestHelpers
   public static DirectiveAst[] Directives(this string directive)
     => new DirectiveAst[] { new(AstNulls.At, directive) };
 
-  public static AstSelection[] Fields(this string field)
+  public static IAstSelection[] Fields(this string field)
     => new FieldAst[] { new(AstNulls.At, field) };
 
   public static ArgumentAst[] ArgumentList(this string label)

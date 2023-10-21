@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
 internal record class OperationAst(ParseAt At, string Name)
-  : AstNamedDirectives(At, Name)
+  : AstDirectives(At, Name)
 {
   public ParseResult Result { get; set; }
   public ParseError[] Errors { get; set; } = Array.Empty<ParseError>();
@@ -13,7 +13,7 @@ internal record class OperationAst(ParseAt At, string Name)
 
   public string? ResultType { get; set; }
   public ArgumentAst? Argument { get; set; }
-  public AstSelection[]? Object { get; set; }
+  public IAstSelection[]? Object { get; set; }
   public ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
 
   public FragmentAst[] Fragments { get; set; } = Array.Empty<FragmentAst>();

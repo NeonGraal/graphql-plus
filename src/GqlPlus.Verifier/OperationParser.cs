@@ -41,7 +41,7 @@ internal class OperationParser : CommonParser
       if (ParseArgument(out var argument)) {
         ast.Argument = argument;
       }
-    } else if (ParseObject(out AstSelection[] selections)) {
+    } else if (ParseObject(out IAstSelection[] selections)) {
       ast.Object = selections;
     } else {
       Error("Result not present. Expected Object or Type.");
@@ -151,19 +151,19 @@ internal class OperationParser : CommonParser
     return directives.ToArray();
   }
 
-  internal bool ParseObject(out AstSelection[] selections)
+  internal bool ParseObject(out IAstSelection[] selections)
   {
-    selections = Array.Empty<AstSelection>();
+    selections = Array.Empty<IAstSelection>();
     if (!_tokens.Take('{')) {
       return false;
     }
 
-    var fields = new List<AstSelection>();
+    var fields = new List<IAstSelection>();
 
     while (!_tokens.Take('}')) {
-      if (ParseSelection(out AstSelection fragment)) {
+      if (ParseSelection(out IAstSelection fragment)) {
         fields.Add(fragment);
-      } else if (ParseField(out AstSelection field)) {
+      } else if (ParseField(out IAstSelection field)) {
         fields.Add(field);
       } else {
         selections = fields.ToArray();
@@ -176,7 +176,7 @@ internal class OperationParser : CommonParser
     return Error("Invalid Object. Expected at least one Field or Selection", fields.Any());
   }
 
-  internal bool ParseSelection(out AstSelection selection)
+  internal bool ParseSelection(out IAstSelection selection)
   {
     selection = AstNulls.Selection;
 
@@ -197,7 +197,7 @@ internal class OperationParser : CommonParser
 
       DirectiveAst[] directives = ParseDirectives();
 
-      if (ParseObject(out AstSelection[] selections)) {
+      if (ParseObject(out IAstSelection[] selections)) {
         selection = new InlineAst(at, selections) {
           OnType = onType,
           Directives = directives,
@@ -211,7 +211,7 @@ internal class OperationParser : CommonParser
     return false;
   }
 
-  internal bool ParseField(out AstSelection field)
+  internal bool ParseField(out IAstSelection field)
   {
     var at = _tokens.At;
     field = AstNulls.Selection;
@@ -238,7 +238,7 @@ internal class OperationParser : CommonParser
     result.Modifiers = ParseModifiers();
     result.Directives = ParseDirectives();
 
-    if (ParseObject(out AstSelection[] selections)) {
+    if (ParseObject(out IAstSelection[] selections)) {
       result.Selections = selections;
     }
 
@@ -276,7 +276,7 @@ internal class OperationParser : CommonParser
         && _tokens.Identifier(out var onType)
       ) {
         DirectiveAst[] directives = ParseDirectives();
-        if (ParseObject(out AstSelection[] selections)) {
+        if (ParseObject(out IAstSelection[] selections)) {
           var fragment = new FragmentAst(at, name, onType, selections) { Directives = directives };
           definitions.Add(fragment);
         }

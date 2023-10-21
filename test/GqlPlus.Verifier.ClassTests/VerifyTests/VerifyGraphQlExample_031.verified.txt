@@ -1,13 +1,13 @@
-﻿!O P@1/1
+﻿!o P@1/1
 query
 Success
 {
-  !F I@3/2
+  !f I@3/2
   nearestThing
   (
-    !A I@16/2
+    !a I@16/2
     {
-      ( !K I@16/2 location ):( !A P@26/2 { ( !K I@28/2 lat ):( !K N@33/2 -53.211 ) ( !K I@42/2 lon ):( !K N@47/2 12.43 ) } )
+      ( !k I@16/2 location ):( !a P@26/2 { ( !k I@28/2 lat ):( !k N@33/2 -53.211 ) ( !k I@42/2 lon ):( !k N@47/2 12.43 ) } )
     }
   )
 }

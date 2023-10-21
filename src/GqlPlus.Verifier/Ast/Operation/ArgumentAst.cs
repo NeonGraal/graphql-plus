@@ -6,7 +6,7 @@ internal sealed record class ArgumentAst
   public string? Variable { get; }
   public ConstantAst? Constant { get; }
 
-  internal override string Abbr => "A";
+  internal override string Abbr => "a";
 
   internal ArgumentAst(ParseAt at)
     : base(at) { }

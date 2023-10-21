@@ -1,13 +1,13 @@
-﻿!O I@1/1
+﻿!o I@1/1
 mutation
 Success
 {
-  !F I@3/2
+  !f I@3/2
   sendEmail
   (
-    !A I@5/3
+    !a I@5/3
     {
-      ( !K I@5/3 message ):( !K S@14/3 '
+      ( !k I@5/3 message ):( !k S@14/3 '
     Hello,
       World!
     Yours,

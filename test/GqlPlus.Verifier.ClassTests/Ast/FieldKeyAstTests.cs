@@ -26,24 +26,24 @@ public class FieldKeyAstTests
   public void String_WithNumber(decimal number)
     => _checks.String(
       () => new FieldKeyAst(AstNulls.At, number),
-      $"( !K {number} )");
+      $"( !k {number} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithString(string contents)
     => _checks.String(
       () => new FieldKeyAst(AstNulls.At, contents),
-      $"( !K '{contents}' )");
+      $"( !k '{contents}' )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumLabel(string enumType, string label)
     => _checks.String(() => new FieldKeyAst(AstNulls.At, enumType, label),
-      $"( !K {enumType}.{label} )");
+      $"( !k {enumType}.{label} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithLabel(string label)
     => _checks.String(
       () => new FieldKeyAst(AstNulls.At, "", label),
-      $"( !K {label} )");
+      $"( !k {label} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithNumber(decimal number)

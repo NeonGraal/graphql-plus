@@ -1,29 +1,29 @@
-﻿!O I@1/1
+﻿!o I@1/1
 query
 Success
 [
-  ( !V I@23/1 devicePicSize :Int )
+  ( !v I@23/1 devicePicSize :Int )
 ]
 {
-  !F I@3/2
+  !f I@3/2
   user
   (
-    !A I@8/2
+    !a I@8/2
     {
-      ( !K I@8/2 id ):( !K N@12/2 4 )
+      ( !k I@8/2 id ):( !k N@12/2 4 )
     }
   )
   {
-    !F I@5/3
+    !f I@5/3
     id
-    !F I@5/4
+    !f I@5/4
     name
-    !F I@5/5
+    !f I@5/5
     profilePic
     (
-      !A I@16/5
+      !a I@16/5
       {
-        ( !K I@16/5 size ):( !A I@23/5 $devicePicSize )
+        ( !k I@16/5 size ):( !a I@23/5 $devicePicSize )
       }
     )
   }

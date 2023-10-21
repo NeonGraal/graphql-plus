@@ -30,10 +30,10 @@ public class FragmentAstTests : BaseNamedDirectivesAstTests<FragmentInput>
   internal override IBaseNamedDirectivesAstChecks<FragmentInput> DirectivesChecks => _checks;
 
   protected override string ExpectedString(FragmentInput input)
-    => $"( !T {input.Name} :{input.OnType} {{ !F {input.Field} }} )";
+    => $"( !t {input.Name} :{input.OnType} {{ !f {input.Field} }} )";
 
   protected override string ExpectedString(FragmentInput input, string directive)
-    => $"( !T {input.Name} ( !D {directive} ) :{input.OnType} {{ !F {input.Field} }} )";
+    => $"( !t {input.Name} ( !d {directive} ) :{input.OnType} {{ !f {input.Field} }} )";
 }
 
 public record struct FragmentInput(string Name, string OnType, string Field);

@@ -7,7 +7,7 @@ internal sealed record class InlineAst(ParseAt At, params AstSelection[] Selecti
 
   public DirectiveAst[] Directives { get; set; } = Array.Empty<DirectiveAst>();
 
-  internal override string Abbr => "I";
+  internal override string Abbr => "i";
 
   public bool Equals(InlineAst? other)
     => base.Equals(other)

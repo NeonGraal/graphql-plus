@@ -18,19 +18,19 @@ public class VariableAstTests : BaseNamedDirectivesAstTests
   public void String_WithType(string name, string varType)
     => _checks.String(
       () => new(AstNulls.At, name) { Type = varType },
-      $"( !V {name} :{varType} )");
+      $"( !v {name} :{varType} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithModifiers(string name)
     => _checks.String(
       () => new(AstNulls.At, name) { Modifers = TestMods() },
-      $"( !V {name} [] ? )");
+      $"( !v {name} [] ? )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithDefault(string name, string value)
     => _checks.String(
       () => new(AstNulls.At, name) { Default = new FieldKeyAst(AstNulls.At, value) },
-      $"( !V {name} =( !K '{value}' ) )");
+      $"( !v {name} =( !k '{value}' ) )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithType(string name, string varType)

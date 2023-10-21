@@ -47,7 +47,7 @@ internal class BaseNamedDirectivesAstChecks<I, T>
       factoryExpression: _createExpression);
 
   public string ExpectedString(I input, string directive)
-    => $"( !{Abbr} {input} ( !D {directive} ) )";
+    => $"( !{Abbr} {input} ( !d {directive} ) )";
 
   private T CreateDirective(I input, string directive)
   {

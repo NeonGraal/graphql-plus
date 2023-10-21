@@ -10,7 +10,7 @@ internal record class FieldKeyAst : AstBase, IComparable<FieldKeyAst>
   public string? EnumLabel
     => Type.Suffixed(".") + Label;
 
-  internal override string Abbr => "K";
+  internal override string Abbr => "k";
 
   internal FieldKeyAst(ParseAt at)
     : base(at) { }

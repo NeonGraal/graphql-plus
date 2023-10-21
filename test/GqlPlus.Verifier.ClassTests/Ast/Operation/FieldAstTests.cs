@@ -26,25 +26,25 @@ public class FieldAstTests : BaseNamedDirectivesAstTests
   public void String_WithAlias(string name, string alias)
     => _checks.String(
       () => new FieldAst(AstNulls.At, name) { Alias = alias },
-      $"( !F {alias}: {name} )");
+      $"( !f {alias}: {name} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithArgument(string variable, string name)
     => _checks.String(
       () => new FieldAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) },
-      $"( !F {name} ( !A ${variable} ) )");
+      $"( !f {name} ( !a ${variable} ) )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithModifiers(string name)
     => _checks.String(
       () => new FieldAst(AstNulls.At, name) { Modifiers = TestMods() },
-      $"( !F {name} []? )");
+      $"( !f {name} []? )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithSelection(string name, string field)
   => _checks.String(
       () => new FieldAst(AstNulls.At, name) { Selections = field.Fields() },
-      $"( !F {name} {{ !F {field} }} )");
+      $"( !f {name} {{ !f {field} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlias(string name, string alias)

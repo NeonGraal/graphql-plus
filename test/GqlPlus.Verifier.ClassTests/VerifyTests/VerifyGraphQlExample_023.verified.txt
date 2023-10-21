@@ -1,27 +1,27 @@
-﻿!O I@1/1
+﻿!o I@1/1
 query
 Success
 {
-  !F I@3/2
+  !f I@3/2
   profiles
   (
-    !A I@12/2
+    !a I@12/2
     {
-      ( !K I@12/2 handles ):( !A P@21/2 [ !K S@22/2 'zuck' !K S@30/2 'coca-cola' ] )
+      ( !k I@12/2 handles ):( !a P@21/2 [ !k S@22/2 'zuck' !k S@30/2 'coca-cola' ] )
     }
   )
   {
-    !F I@5/3
+    !f I@5/3
     handle
-    !I I@9/4
+    !i I@9/4
     :User
     {
-      ( !F I@7/5 friends { !F I@9/6 count } )
+      ( !f I@7/5 friends { !f I@9/6 count } )
     }
-    !I I@9/9
+    !i I@9/9
     :Page
     {
-      ( !F I@7/10 likers { !F I@9/11 count } )
+      ( !f I@7/10 likers { !f I@9/11 count } )
     }
   }
 }

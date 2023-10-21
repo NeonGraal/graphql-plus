@@ -1,13 +1,13 @@
-﻿!O I@1/1
+﻿!o I@1/1
 mutation
 Success
 {
-  !F I@3/2
+  !f I@3/2
   sendEmail
   (
-    !A I@13/2
+    !a I@13/2
     {
-      ( !K I@13/2 message ):( !K S@22/2 'Hello,\n  World!\n\nYours,\n  GraphQL.' )
+      ( !k I@13/2 message ):( !k S@22/2 'Hello,\n  World!\n\nYours,\n  GraphQL.' )
     }
   )
 }

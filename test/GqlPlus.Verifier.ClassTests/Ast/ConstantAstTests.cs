@@ -36,31 +36,31 @@ public class ConstantAstTests
   public void String_WithLabel(string label)
     => _checks.String(
       () => new ConstantAst(new FieldKeyAst(AstNulls.At, "", label)),
-      $"( !K {label} )");
+      $"( !k {label} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumLabel(string enumType, string label)
     => _checks.String(
       () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, label)),
-      $"( !K {enumType}.{label} )");
+      $"( !k {enumType}.{label} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumType(string enumType)
     => _checks.String(
       () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, "label")),
-      $"( !K {enumType}.label )");
+      $"( !k {enumType}.label )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithValues(string label)
     => _checks.String(
       () => new ConstantAst(AstNulls.At, label.ConstantList()),
-      $"( !C [ !K {label} !K {label} ] )");
+      $"( !c [ !k {label} !k {label} ] )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithFields(string key, string label)
     => _checks.String(
       () => new ConstantAst(AstNulls.At, label.ConstantObject(key)),
-      $"( !C {{ ( !K {key} ):( !K {label} ) ( !K {label} ):( !K {key} ) }} )",
+      $"( !c {{ ( !k {key} ):( !k {label} ) ( !k {label} ):( !k {key} ) }} )",
       key == label);
 
   [Theory, RepeatData(Repeats)]

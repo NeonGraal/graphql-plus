@@ -1,26 +1,26 @@
-﻿!O P@1/1
+﻿!o P@1/1
 query
 Success
 {
-  !F I@3/2
+  !f I@3/2
   user
   (
-    !A I@8/2
+    !a I@8/2
     {
-      ( !K I@8/2 id ):( !K N@12/2 4 )
+      ( !k I@8/2 id ):( !k N@12/2 4 )
     }
   )
   {
-    !F I@5/3
+    !f I@5/3
     id
-    !F I@5/4
+    !f I@5/4
     name
-    !F I@5/5
+    !f I@5/5
     profilePic
     (
-      !A I@16/5
+      !a I@16/5
       {
-        ( !K I@16/5 size ):( !K N@22/5 100 )
+        ( !k I@16/5 size ):( !k N@22/5 100 )
       }
     )
   }

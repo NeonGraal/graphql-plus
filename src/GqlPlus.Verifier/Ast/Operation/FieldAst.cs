@@ -8,7 +8,7 @@ internal sealed record class FieldAst(ParseAt At, string Name)
   public ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
   public AstSelection[] Selections { get; set; } = Array.Empty<AstSelection>();
 
-  internal override string Abbr => "F";
+  internal override string Abbr => "f";
 
   public bool Equals(FieldAst? other)
     => base.Equals(other)

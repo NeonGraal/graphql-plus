@@ -3,7 +3,7 @@
 internal sealed record class CategoryAst(ParseAt At, string Name, string Output)
   : AstAliased(At, Name), IEquatable<CategoryAst>
 {
-  internal override string Abbr => "c";
+  internal override string Abbr => "C";
 
   public CategoryOption Option { get; set; } = CategoryOption.Parallel;
 

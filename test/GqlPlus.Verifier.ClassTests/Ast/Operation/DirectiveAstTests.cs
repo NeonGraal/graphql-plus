@@ -11,7 +11,7 @@ public class DirectiveAstTests : BaseNamedAstTests
   public void String_WithArgument(string variable, string name)
     => _checks.String(
       () => new DirectiveAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) },
-      $"( !D {name} ( !A ${variable} ) )");
+      $"( !d {name} ( !a ${variable} ) )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithArgument(string variable, string name)

@@ -3,7 +3,7 @@
 internal sealed record class FragmentAst(ParseAt At, string Name, string OnType, params AstSelection[] Selections)
   : AstNamedDirectives(At, Name), IEquatable<FragmentAst>
 {
-  internal override string Abbr => "T";
+  internal override string Abbr => "t";
 
   public bool Equals(FragmentAst? other)
     => base.Equals(other)

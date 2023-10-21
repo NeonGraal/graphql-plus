@@ -1,20 +1,20 @@
-﻿!O I@1/1
+﻿!o I@1/1
 mutation
 Success
 {
-  !F I@3/2
+  !f I@3/2
   likeStory
   (
-    !A I@13/2
+    !a I@13/2
     {
-      ( !K I@13/2 storyID ):( !K N@22/2 12345 )
+      ( !k I@13/2 storyID ):( !k N@22/2 12345 )
     }
   )
   {
-    !F I@5/3
+    !f I@5/3
     story
     {
-      !F I@7/4
+      !f I@7/4
       likeCount
     }
   }

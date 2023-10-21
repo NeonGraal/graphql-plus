@@ -11,13 +11,13 @@ public class CategoryAstTests : BaseNamedAstTests
   public void String_WithOutputAndName(string name, string output)
     => _checks.String(
       () => new CategoryAst(AstNulls.At, name, output),
-      $"( !c {name} (Parallel) {output} )");
+      $"( !C {name} (Parallel) {output} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithAliases(string output, string alias1, string alias2)
     => _checks.String(
       () => new CategoryAst(AstNulls.At, output) { Aliases = new[] { alias1, alias2 } },
-      $"( !c {output.Camelize()} [ {alias1} {alias2} ] (Parallel) {output} )");
+      $"( !C {output.Camelize()} [ {alias1} {alias2} ] (Parallel) {output} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithOutputAndName(string output, string name)
@@ -41,7 +41,7 @@ public class CategoryAstTests : BaseNamedAstTests
       () => new CategoryAst(AstNulls.At, output) { Aliases = new[] { alias1, alias2 } });
 
   protected override string ExpectedString(string input)
-    => $"( !c {input.Camelize()} (Parallel) {input} )";
+    => $"( !C {input.Camelize()} (Parallel) {input} )";
 
   private readonly BaseNamedAstChecks<CategoryAst> _checks
     = new(name => new CategoryAst(AstNulls.At, name)) {

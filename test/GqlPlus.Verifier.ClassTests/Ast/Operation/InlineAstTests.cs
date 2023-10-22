@@ -10,7 +10,7 @@ public class InlineAstTests : BaseDirectivesAstTests
   public void String_WithOnType(string onType, string field)
     => _checks.String(
       () => new InlineAst(AstNulls.At, field.Fields()) { OnType = onType },
-      $"( !i :{onType} {{ ( !f {field} ) }} )");
+      $"( !i :{onType} {{ !f {field} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithOnType(string onType, string field)
@@ -28,8 +28,8 @@ public class InlineAstTests : BaseDirectivesAstTests
   internal override IBaseNamedDirectivesAstChecks DirectivesChecks => _checks;
 
   protected override string InputString(string input)
-    => $"( !i {{ ( !f {input} ) }} )";
+    => $"( !i {{ !f {input} }} )";
 
   protected override string DirectiveString(string input, string directive)
-    => $"( !i ( !d {directive} ) {{ ( !f {input} ) }} )";
+    => $"( !i ( !d {directive} ) {{ !f {input} }} )";
 }

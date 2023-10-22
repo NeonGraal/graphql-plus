@@ -16,12 +16,22 @@ Success
     !i I@9/4
     :User
     {
-      ( !f I@7/5 friends { !f I@9/6 count } )
+      !f I@7/5
+      friends
+      {
+        !f I@9/6
+        count
+      }
     }
     !i I@9/9
     :Page
     {
-      ( !f I@7/10 likers { !f I@9/11 count } )
+      !f I@7/10
+      likers
+      {
+        !f I@9/11
+        count
+      }
     }
   }
 }

@@ -2,7 +2,9 @@
 query
 Success
 [
-  ( !v I@23/1 devicePicSize :Int )
+  !v I@23/1
+  devicePicSize
+  :Int
 ]
 {
   !f I@3/2

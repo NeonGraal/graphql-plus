@@ -29,4 +29,3 @@ internal abstract record class AstBase : IEquatable<AstBase>
   // override object.GetHashCode
   public override int GetHashCode() => 0;
 }
-

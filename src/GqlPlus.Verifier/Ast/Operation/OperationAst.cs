@@ -64,8 +64,8 @@ internal record class OperationAst(ParseAt At, string Name)
       .Concat(Variables.Bracket("[", "]"))
       .Concat(Directives.AsString())
       .Append(ResultType)
-      .Concat(AstExtensions.Bracket("(", ")", new[] { Argument }))
-      .Concat(AstExtensions.Bracket("{", "}", Object))
+      .Concat(Argument.Bracket("(", ")"))
+      .Concat(Object.Bracket("{", "}"))
       .Append(string.Join("", Modifiers.AsString()))
-      .Concat(AstExtensions.Bracket(string.Empty, string.Empty, Fragments));
+      .Concat(Fragments.Bracket());
 }

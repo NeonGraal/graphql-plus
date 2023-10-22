@@ -8,5 +8,5 @@ internal sealed record class DirectiveAst(ParseAt At, string Name)
   internal override string Abbr => "d";
 
   internal override IEnumerable<string?> GetFields()
-    => base.GetFields().Concat(AstExtensions.Bracket("(", ")", new[] { Argument }));
+    => base.GetFields().Concat(Argument.Bracket("(", ")"));
 }

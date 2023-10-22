@@ -20,7 +20,7 @@ internal sealed record class DirectiveAst(ParseAt At, string Name, string Descri
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Concat(AstExtensions.Bracket("(", ")", new[] { Parameter }))
+      .Concat(Parameter.Bracket("(", ")"))
       .Append($"({Option})")
       .Append(Locations.ToString());
 }

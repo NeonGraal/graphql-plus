@@ -22,8 +22,8 @@ internal sealed record class FieldAst(ParseAt At, string Name)
   internal override IEnumerable<string?> GetFields()
     => //base.GetFields()
       new[] { AbbrAt, Alias.Suffixed(":"), Name }
-      .Concat(AstExtensions.Bracket("(", ")", new[] { Argument }))
+      .Concat(Argument.Bracket("(", ")"))
       .Append(string.Join("", Modifiers.AsString()))
       .Concat(Directives.AsString())
-      .Concat(AstExtensions.Bracket("{", "}", Selections));
+      .Concat(Selections.Bracket("{", "}"));
 }

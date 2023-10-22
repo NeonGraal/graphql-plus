@@ -2,7 +2,9 @@
 query
 Success
 [
-  ( !v I@29/1 expandedInfo :Boolean )
+  !v I@29/1
+  expandedInfo
+  :Boolean
 ]
 {
   !f I@3/2
@@ -21,9 +23,12 @@ Success
     !i P@9/5
     ( !d I@10/5 include ( !a I@18/5 { ( !k I@18/5 if ):( !a I@23/5 $expandedInfo ) } ) )
     {
-      ( !f I@7/6 firstName )
-      ( !f I@7/7 lastName )
-      ( !f I@7/8 birthday )
+      !f I@7/6
+      firstName
+      !f I@7/7
+      lastName
+      !f I@7/8
+      birthday
     }
   }
 }

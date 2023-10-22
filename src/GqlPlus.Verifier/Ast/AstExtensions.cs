@@ -24,24 +24,23 @@ public static class AstExtensions
       ? items.Select(formatter).Prepend(before).Append(after)
       : Enumerable.Empty<string>();
 
-  public static IEnumerable<string> Bracket<T>(
+  public static IEnumerable<string?> Bracket<T>(
     this IEnumerable<T>? items,
-    string before,
-    string after)
-   => items?.Any() == true
-      ? items.Select(i => $"{i}").Prepend(before).Append(after)
-      : Enumerable.Empty<string>();
-
-  internal static IEnumerable<string?> Bracket<T>(
-    string before,
-    string after,
-    T[]? items)
-  => items?.Any(i => i is AstBase) == true
+    string before = "",
+    string after = "")
+   => items?.Any(i => i is AstBase) == true
       ? items.OfType<AstBase>()
         .SelectMany(i => i.GetFields())
         .Prepend(before)
         .Append(after)
+      : items?.Any() == true
+      ? items.Select(i => $"{i}").Prepend(before).Append(after)
       : Enumerable.Empty<string>();
+
+  internal static IEnumerable<string?> Bracket(this AstBase? item, string before, string after)
+    => item is null
+    ? Array.Empty<string?>()
+    : item.GetFields().Prepend(before).Append(after);
 
   public static string? Camelize(this string? text)
     => text?.Length > 0

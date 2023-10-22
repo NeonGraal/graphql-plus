@@ -19,5 +19,5 @@ internal sealed record class InputReferenceAst(ParseAt At, string Name)
     => new[] {
       AbbrAt,
       IsTypeParameter ? Name.Prefixed("$") : Name
-    }.Concat(AstExtensions.Bracket("<", ">", Arguments));
+    }.Concat(Arguments.Bracket("<", ">"));
 }

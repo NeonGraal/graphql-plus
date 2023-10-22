@@ -24,3 +24,9 @@ internal sealed record class CategoryAst(ParseAt At, string Name, string Descrip
       .Append($"({Option})")
       .Append(Output);
 }
+
+public enum CategoryOption
+{
+  Parallel,
+  Single
+}

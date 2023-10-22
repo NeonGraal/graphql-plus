@@ -41,3 +41,10 @@ internal record class ModifierAst(ParseAt At) : IEquatable<ModifierAst>
   public override int GetHashCode()
     => HashCode.Combine(Kind, Key, KeyOptional);
 }
+
+internal enum ModifierKind
+{
+  Optional,
+  List,
+  Dict
+}

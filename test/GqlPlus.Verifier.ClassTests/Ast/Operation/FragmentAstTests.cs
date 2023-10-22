@@ -29,10 +29,10 @@ public class FragmentAstTests : BaseDirectivesAstTests<FragmentInput>
 
   internal override IBaseDirectivesAstChecks<FragmentInput> DirectivesChecks => _checks;
 
-  protected override string ExpectedString(FragmentInput input)
+  protected override string InputString(FragmentInput input)
     => $"( !t {input.Name} :{input.OnType} {{ !f {input.Field} }} )";
 
-  protected override string ExpectedString(FragmentInput input, string directive)
+  protected override string DirectiveString(FragmentInput input, string directive)
     => $"( !t {input.Name} ( !d {directive} ) :{input.OnType} {{ !f {input.Field} }} )";
 }
 

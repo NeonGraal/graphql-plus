@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class CategoryAstTests : BaseNamedAstTests
+public class CategoryAstTests : BaseAliasedAstTests
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithOutputAndName(string name, string output)
@@ -14,12 +14,6 @@ public class CategoryAstTests : BaseNamedAstTests
       $"( !C {name} (Parallel) {output} )");
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithAliases(string output, string alias1, string alias2)
-    => _checks.String(
-      () => new CategoryAst(AstNulls.At, output) { Aliases = new[] { alias1, alias2 } },
-      $"( !C {output.Camelize()} [ {alias1} {alias2} ] (Parallel) {output} )");
-
-  [Theory, RepeatData(Repeats)]
   public void Equality_WithOutputAndName(string output, string name)
     => _checks.Equality(
       () => new CategoryAst(AstNulls.At, name, output));
@@ -30,23 +24,16 @@ public class CategoryAstTests : BaseNamedAstTests
       name => new CategoryAst(AstNulls.At, name, output),
       name1 == name2);
 
-  [Theory, RepeatData(Repeats)]
-  public void Equality_WithAliases(string output, string alias1, string alias2)
-    => _checks.Equality(
-      () => new CategoryAst(AstNulls.At, output) { Aliases = new[] { alias1, alias2 } });
-
-  [Theory, RepeatData(Repeats)]
-  public void Inequality_WithAliases(string output, string alias1, string alias2)
-    => _checks.InequalityWith(output,
-      () => new CategoryAst(AstNulls.At, output) { Aliases = new[] { alias1, alias2 } });
-
-  protected override string ExpectedString(string input)
+  protected override string InputString(string input)
     => $"( !C {input.Camelize()} (Parallel) {input} )";
 
-  private readonly BaseNamedAstChecks<CategoryAst> _checks
+  protected override string AliasesString(string input, params string[] aliases)
+    => $"( !C {input.Camelize()} [ {string.Join(" ", aliases)} ] (Parallel) {input} )";
+
+  private readonly BaseAliasedAstChecks<CategoryAst> _checks
     = new(name => new CategoryAst(AstNulls.At, name)) {
       SameInput = (name1, name2) => name1.Camelize() == name2.Camelize()
     };
 
-  internal override IBaseNamedAstChecks NamedChecks => _checks;
+  internal override IBaseAliasedAstChecks<string> AliasedChecks => _checks;
 }

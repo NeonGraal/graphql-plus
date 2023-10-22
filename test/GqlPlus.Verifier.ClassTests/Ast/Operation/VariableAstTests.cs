@@ -73,5 +73,5 @@ public class VariableAstTests : BaseDirectivesAstTests
   internal BaseDirectivesAstChecks<VariableAst> _checks
     = new(name => new VariableAst(AstNulls.At, name));
 
-  internal override IBaseDirectivesAstChecks DirectivesChecks => _checks;
+  internal override IBaseNamedDirectivesAstChecks DirectivesChecks => _checks;
 }

@@ -25,11 +25,11 @@ public class InlineAstTests : BaseDirectivesAstTests
   private readonly BaseDirectivesAstChecks<InlineAst> _checks
     = new(name => new InlineAst(AstNulls.At, name.Fields()));
 
-  internal override IBaseDirectivesAstChecks DirectivesChecks => _checks;
+  internal override IBaseNamedDirectivesAstChecks DirectivesChecks => _checks;
 
-  protected override string ExpectedString(string input)
+  protected override string InputString(string input)
     => $"( !i {{ ( !f {input} ) }} )";
 
-  protected override string ExpectedString(string input, string directive)
+  protected override string DirectiveString(string input, string directive)
     => $"( !i ( !d {directive} ) {{ ( !f {input} ) }} )";
 }

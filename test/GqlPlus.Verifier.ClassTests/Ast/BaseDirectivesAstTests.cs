@@ -12,7 +12,7 @@ public abstract class BaseDirectivesAstTests<I> : BaseNamedAstTests<I>
 
   [Theory, RepeatData(Repeats)]
   public void String_WithDirective(I input, string directive)
-    => DirectivesChecks.String(input, directive, ExpectedString(input, directive));
+    => DirectivesChecks.String(input, directive, DirectiveString(input, directive));
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithDirective(I input, string directive)
@@ -30,8 +30,8 @@ public abstract class BaseDirectivesAstTests<I> : BaseNamedAstTests<I>
   public void Inequality_ByNames(I input1, I input2, string directive)
     => DirectivesChecks.Inequality_ByInputs(input1, input2, directive);
 
-  protected virtual string ExpectedString(I input, string directive)
-    => DirectivesChecks.ExpectedString(input, directive);
+  protected virtual string DirectiveString(I input, string directive)
+    => DirectivesChecks.DirectiveString(input, directive);
 
   internal override IBaseNamedAstChecks<I> NamedChecks => DirectivesChecks;
 

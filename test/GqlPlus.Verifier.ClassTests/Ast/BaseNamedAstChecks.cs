@@ -50,7 +50,7 @@ internal class BaseNamedAstChecks<I, T>
       () => CreateInput(input),
       factoryExpression: factoryExpression);
 
-  public string ExpectedString(I input)
+  public string InputString(I input)
     => $"( !{Abbr} {input} )";
 }
 
@@ -64,5 +64,5 @@ internal interface IBaseNamedAstChecks<I>
   void String(I input, string expected);
   void Equality(I input);
   void Inequality(I input1, I input2);
-  string ExpectedString(I input);
+  string InputString(I input);
 }

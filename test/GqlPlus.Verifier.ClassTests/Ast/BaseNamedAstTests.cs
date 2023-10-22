@@ -16,7 +16,7 @@ public abstract class BaseNamedAstTests<I>
 
   [Theory, RepeatData(Repeats)]
   public void String(I input)
-  => NamedChecks.String(input, ExpectedString(input));
+  => NamedChecks.String(input, InputString(input));
 
   [Theory, RepeatData(Repeats)]
   public void Equality(I input)
@@ -26,8 +26,8 @@ public abstract class BaseNamedAstTests<I>
   public void Inequality(I input1, I input2)
     => NamedChecks.Inequality(input1, input2);
 
-  protected virtual string ExpectedString(I input)
-    => NamedChecks.ExpectedString(input);
+  protected virtual string InputString(I input)
+    => NamedChecks.InputString(input);
 
   internal abstract IBaseNamedAstChecks<I> NamedChecks { get; }
 }

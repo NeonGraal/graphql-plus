@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
 internal sealed class BaseDirectivesAstChecks<T>
-  : BaseDirectivesAstChecks<string, T>, IBaseDirectivesAstChecks
+  : BaseDirectivesAstChecks<string, T>, IBaseNamedDirectivesAstChecks
   where T : AstBase, IAstDirectives
 {
   public BaseDirectivesAstChecks(CreateBy<string> create)
@@ -46,7 +46,7 @@ internal class BaseDirectivesAstChecks<I, T>
       () => CreateDirective(input, directive), expected,
       factoryExpression: _createExpression);
 
-  public string ExpectedString(I input, string directive)
+  public string DirectiveString(I input, string directive)
     => $"( !{Abbr} {input} ( !d {directive} ) )";
 
   private T CreateDirective(I input, string directive)
@@ -57,7 +57,7 @@ internal class BaseDirectivesAstChecks<I, T>
   }
 }
 
-internal interface IBaseDirectivesAstChecks
+internal interface IBaseNamedDirectivesAstChecks
   : IBaseDirectivesAstChecks<string>, IBaseNamedAstChecks
 { }
 
@@ -69,5 +69,5 @@ internal interface IBaseDirectivesAstChecks<I> : IBaseNamedAstChecks<I>
   void Inequality_WithDirective(I input, string directive);
   void Inequality_ByInputs(I input1, I input2, string directive);
   void Inequality_ByDirectives(I input, string directive1, string directive2);
-  string ExpectedString(I input, string directive);
+  string DirectiveString(I input, string directive);
 }

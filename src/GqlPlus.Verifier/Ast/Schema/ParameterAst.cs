@@ -8,6 +8,9 @@ internal sealed record class ParameterAst(ParseAt At, InputReferenceAst Input)
 
   internal override string Abbr => "P";
 
+  internal ParameterAst(ParseAt at, string input)
+    : this(at, new InputReferenceAst(at, input)) { }
+
   public bool Equals(ParameterAst? other)
     => base.Equals(other)
     && Input.NullEqual(other.Input)

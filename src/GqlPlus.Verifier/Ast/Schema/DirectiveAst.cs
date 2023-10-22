@@ -14,7 +14,9 @@ internal sealed record class DirectiveAst(ParseAt At, string Name, string Descri
 
   public bool Equals(DirectiveAst? other)
     => base.Equals(other)
-    && Option == other.Option;
+    && Option == other.Option
+    && Parameter.NullEqual(other.Parameter)
+    && Locations == other.Locations;
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Option);
 
@@ -25,14 +27,14 @@ internal sealed record class DirectiveAst(ParseAt At, string Name, string Descri
       .Append(Locations.ToString());
 }
 
-internal enum DirectiveOption
+public enum DirectiveOption
 {
   Unique,
   Repeatable,
 }
 
 [Flags]
-internal enum DirectiveLocation
+public enum DirectiveLocation
 {
   None = 0,
   All = 63,

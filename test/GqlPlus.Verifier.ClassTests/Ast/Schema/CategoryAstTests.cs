@@ -24,6 +24,34 @@ public class CategoryAstTests : BaseAliasedAstTests
       name => new CategoryAst(AstNulls.At, name, output),
       name1 == name2);
 
+  [Theory, RepeatData(Repeats)]
+  public void Inequality_BetweenOutput(string output1, string output2, string name)
+    => _checks.InequalityBetween(output1, output2,
+      output => new CategoryAst(AstNulls.At, name, output),
+      output1 == output2);
+
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithOption(string name, CategoryOption option)
+      => _checks.HashCode(
+        () => new CategoryAst(AstNulls.At, name) { Option = option });
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithOption(string name, CategoryOption option)
+    => _checks.String(
+      () => new CategoryAst(AstNulls.At, name) { Option = option },
+      $"( !C {name.Camelize()} ({option}) {name} )");
+
+  [Theory, RepeatData(Repeats)]
+  public void Equality_WithOption(string name, CategoryOption option)
+    => _checks.Equality(
+      () => new CategoryAst(AstNulls.At, name) { Option = option });
+
+  [Theory, RepeatData(Repeats)]
+  public void Inequality_BetweenOptions(string name, CategoryOption option1, CategoryOption option2)
+    => _checks.InequalityBetween(option1, option2,
+      option => new CategoryAst(AstNulls.At, name) { Option = option },
+      option1 == option2);
+
   protected override string InputString(string input)
     => $"( !C {input.Camelize()} (Parallel) {input} )";
 

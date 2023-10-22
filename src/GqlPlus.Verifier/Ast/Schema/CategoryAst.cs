@@ -15,7 +15,8 @@ internal sealed record class CategoryAst(ParseAt At, string Name, string Descrip
 
   public bool Equals(CategoryAst? other)
     => base.Equals(other)
-    && Option == other.Option;
+    && Option == other.Option
+    && Output == other.Output;
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Option);
 

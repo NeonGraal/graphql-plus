@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
 internal sealed class BaseDirectivesAstChecks<T>
-  : BaseDirectivesAstChecks<string, T>, IBaseNamedDirectivesAstChecks
+  : BaseDirectivesAstChecks<string, T>, IBaseDirectivesAstChecks
   where T : AstBase, IAstDirectives
 {
   public BaseDirectivesAstChecks(CreateBy<string> create)
@@ -57,7 +57,7 @@ internal class BaseDirectivesAstChecks<I, T>
   }
 }
 
-internal interface IBaseNamedDirectivesAstChecks
+internal interface IBaseDirectivesAstChecks
   : IBaseDirectivesAstChecks<string>, IBaseNamedAstChecks
 { }
 

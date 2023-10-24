@@ -56,7 +56,7 @@ public class CategoryAstTests : BaseAliasedAstTests
     => $"( !C {input.Camelize()} (Parallel) {input} )";
 
   protected override string AliasesString(string input, params string[] aliases)
-    => $"( !C {input.Camelize()} [ {string.Join(" ", aliases)} ] (Parallel) {input} )";
+    => $"( !C {input.Camelize()} [ {aliases.Joined()} ] (Parallel) {input} )";
 
   private readonly BaseAliasedAstChecks<CategoryAst> _checks
     = new(name => new CategoryAst(AstNulls.At, name)) {

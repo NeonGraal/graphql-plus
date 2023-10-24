@@ -17,7 +17,7 @@ internal sealed record class InputReferenceAst(ParseAt At, string Name)
 
   internal override IEnumerable<string?> GetFields()
     => new[] {
-      AbbrAt,
+      At.ToString(),
       IsTypeParameter ? Name.Prefixed("$") : Name
     }.Concat(Arguments.Bracket("<", ">"));
 }

@@ -41,7 +41,7 @@ public class EnumAstTests : BaseAliasedAstTests
       () => new EnumAst(AstNulls.At, name) { Labels = label.EnumLabels() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenLabelss(string name, string label1, string label2)
+  public void Inequality_BetweenLabels(string name, string label1, string label2)
     => _checks.InequalityBetween(label1, label2,
       label => new EnumAst(AstNulls.At, name) { Labels = label.EnumLabels() },
       label1 == label2);

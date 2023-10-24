@@ -66,6 +66,6 @@ internal record class OperationAst(ParseAt At, string Name)
       .Append(ResultType)
       .Concat(Argument.Bracket("(", ")"))
       .Concat(Object.Bracket("{", "}"))
-      .Append(string.Join("", Modifiers.AsString()))
+      .Append(Modifiers.AsString().Joined(""))
       .Concat(Fragments.Bracket());
 }

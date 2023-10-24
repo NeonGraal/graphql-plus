@@ -60,7 +60,11 @@ public class TokenizerTests
   [Theory, RepeatData(Repeats)]
   public void Number_WithSeparator_AfterReadTrue_IsTrue(decimal expected)
   {
-    var input = string.Join("_", expected.ToString().Select(c => c.ToString())).Replace("_._", ".").Replace("-_", "-");
+    var input = expected.ToString()
+      .Select(c => c.ToString())
+      .Joined("_")
+      .Replace("_._", ".")
+      .Replace("-_", "-");
     Tokenizer tokens = PrepareTokens(input);
 
     TrueAndExpected(tokens.Number, expected);

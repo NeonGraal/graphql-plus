@@ -11,7 +11,7 @@ internal abstract record class AstBase : IEquatable<AstBase>
 
   public sealed override string ToString()
     => "( "
-      + string.Join(" ", GetFields().Where(s => s?.Length > 0))
+      + GetFields().Where(s => s?.Length > 0).Cast<string>().Joined()
       + " )";
 
   protected string AbbrAt

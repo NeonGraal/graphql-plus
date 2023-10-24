@@ -33,7 +33,7 @@ public class DirectiveAstTests : BaseAliasedAstTests
   public void String_WithParameter(string name, string param)
     => _checks.String(
       () => new DirectiveAst(AstNulls.At, name) { Parameter = new ParameterAst(AstNulls.At, param) },
-      $"( !D {name} ( !P !IR {param} ) (Unique) None )");
+      $"( !D {name} ( !P {param} ) (Unique) None )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithParameter(string name, string param)
@@ -63,7 +63,7 @@ public class DirectiveAstTests : BaseAliasedAstTests
       () => new DirectiveAst(AstNulls.At, name) { Locations = location });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenLocationss(string name, DirectiveLocation location1, DirectiveLocation location2)
+  public void Inequality_BetweenLocations(string name, DirectiveLocation location1, DirectiveLocation location2)
     => _checks.InequalityBetween(location1, location2,
       location => new DirectiveAst(AstNulls.At, name) { Locations = location },
       location1 == location2);
@@ -72,7 +72,7 @@ public class DirectiveAstTests : BaseAliasedAstTests
     => $"( !D {input} (Unique) None )";
 
   protected override string AliasesString(string input, params string[] aliases)
-    => $"( !D {input} [ {string.Join(" ", aliases)} ] (Unique) None )";
+    => $"( !D {input} [ {aliases.Joined()} ] (Unique) None )";
 
   private readonly BaseAliasedAstChecks<DirectiveAst> _checks
     = new(name => new DirectiveAst(AstNulls.At, name)) {

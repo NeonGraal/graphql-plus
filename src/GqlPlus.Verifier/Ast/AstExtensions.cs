@@ -37,6 +37,9 @@ public static class AstExtensions
       ? items.Select(i => $"{i}").Prepend(before).Append(after)
       : Enumerable.Empty<string>();
 
+  public static string Joined(this IEnumerable<string>? items, string by = " ")
+    => string.Join(by, items ?? Array.Empty<string>());
+
   internal static IEnumerable<string?> Bracket(this AstBase? item, string before, string after)
     => item is null
     ? Array.Empty<string?>()

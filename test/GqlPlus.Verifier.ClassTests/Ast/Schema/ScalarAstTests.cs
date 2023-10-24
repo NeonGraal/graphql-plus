@@ -73,7 +73,7 @@ public class ScalarAstTests : BaseAliasedAstTests
    => $"( !S {input} Number )";
 
   protected override string AliasesString(string input, params string[] aliases)
-    => $"( !S {input} [ {string.Join(" ", aliases)} ] Number )";
+    => $"( !S {input} [ {aliases.Joined()} ] Number )";
 
   private readonly BaseAliasedAstChecks<ScalarAst> _checks
     = new(name => new ScalarAst(AstNulls.At, name));

@@ -47,7 +47,7 @@ internal class BaseAliasedAstChecks<I, T>
       factoryExpression: _createExpression);
 
   public string AliasesString(I input, params string[] aliases)
-    => $"( !{Abbr} {input} [ {string.Join(" ", aliases)} ] )";
+    => $"( !{Abbr} {input} [ {aliases.Joined()} ] )";
 
   private T CreateAliases(I input, params string[] aliases)
   {

@@ -20,6 +20,11 @@ public class ParameterAstTests : BaseNamedAstTests
       () => new ParameterAst(AstNulls.At, name) { Modifiers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
+  public void Inequality_WithModifiers(string name)
+    => _checks.InequalityWith(name,
+      () => new ParameterAst(AstNulls.At, name) { Modifiers = TestMods() });
+
+  [Theory, RepeatData(Repeats)]
   public void HashCode_WithDefault(string name, string def)
       => _checks.HashCode(
         () => new ParameterAst(AstNulls.At, name) { Default = new FieldKeyAst(AstNulls.At, def) });

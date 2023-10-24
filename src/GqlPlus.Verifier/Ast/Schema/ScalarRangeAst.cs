@@ -12,15 +12,7 @@ internal sealed record class ScalarRangeAst(ParseAt At)
 
   public ScalarRangeAst(ParseAt at, decimal? lower, decimal? upper)
     : this(at)
-  {
-    if (upper < lower) {
-      Lower = upper;
-      Upper = lower;
-    } else {
-      Lower = lower;
-      Upper = upper;
-    }
-  }
+    => (Lower, Upper) = (lower, upper);
 
   public bool Equals(ScalarRangeAst? other)
     => base.Equals(other)

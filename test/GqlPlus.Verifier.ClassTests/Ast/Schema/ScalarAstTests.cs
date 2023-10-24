@@ -26,26 +26,26 @@ public class ScalarAstTests : BaseAliasedAstTests
       kind1 == kind2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithRanges(string name, decimal min, decimal max)
+  public void HashCode_WithRanges(string name, RangeInput input)
       => _checks.HashCode(
-        () => new ScalarAst(AstNulls.At, name, min.ScalarRanges(max)));
+        () => new ScalarAst(AstNulls.At, name, input.ScalarRanges()));
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithRanges(string name, decimal min, decimal max)
+  public void String_WithRanges(string name, RangeInput input)
     => _checks.String(
-      () => new ScalarAst(AstNulls.At, name, min.ScalarRanges(max)),
-      $"( !S {name} Number !SR " + (max < min ? $"{max} .. {min} )" : $"{min} .. {max} )"));
+      () => new ScalarAst(AstNulls.At, name, input.ScalarRanges()),
+      $"( !S {name} Number !SR {input.StringExcluded(false, false)} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithRanges(string name, decimal min, decimal max)
+  public void Equality_WithRanges(string name, RangeInput input)
     => _checks.Equality(
-      () => new ScalarAst(AstNulls.At, name, min.ScalarRanges(max)));
+      () => new ScalarAst(AstNulls.At, name, input.ScalarRanges()));
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenRanges(string name, decimal min1, decimal min2, decimal max)
-    => _checks.InequalityBetween(min1, min2,
-      min => new ScalarAst(AstNulls.At, name, min.ScalarRanges(max)),
-      min1 == min2);
+  public void Inequality_BetweenRanges(string name, RangeInput input1, RangeInput input2)
+    => _checks.InequalityBetween(input1, input2,
+      input => new ScalarAst(AstNulls.At, name, input.ScalarRanges()),
+      input1 == input2);
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithRegexes(string name, string regex)

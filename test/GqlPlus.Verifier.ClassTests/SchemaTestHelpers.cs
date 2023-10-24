@@ -18,4 +18,7 @@ internal static class SchemaTestHelpers
 
   public static ScalarRegexAst[] ScalarRegexes(this string regex)
     => new ScalarRegexAst[] { new(AstNulls.At, regex, true) };
+
+  public static TypeParameterAst[] TypeParameters(this string parameter)
+    => new TypeParameterAst[] { new(AstNulls.At, parameter) };
 }

@@ -19,9 +19,10 @@ internal record class OperationAst(ParseAt At, string Name)
   public FragmentAst[] Fragments { get; set; } = Array.Empty<FragmentAst>();
   public SpreadAst[] Spreads { get; set; } = Array.Empty<SpreadAst>();
 
-  internal override string Abbr => "o";
+  internal override string Abbr => "g";
 
-  public OperationAst(ParseAt at) : this(at, "") { }
+  public OperationAst(ParseAt at)
+    : this(at, "") { }
 
   public string Render()
   {

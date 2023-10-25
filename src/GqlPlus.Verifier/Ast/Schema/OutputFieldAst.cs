@@ -5,7 +5,7 @@ internal sealed record class OutputFieldAst(ParseAt At, string Name, string Desc
 {
   public ParameterAst? Parameter { get; set; }
   public ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
-  public ConstantAst? Default { get; set; }
+  public string? Label { get; set; }
 
   internal override string Abbr => "OF";
 
@@ -17,15 +17,15 @@ internal sealed record class OutputFieldAst(ParseAt At, string Name, string Desc
     && Parameter.NullEqual(other.Parameter)
     && Type.Equals(other.Type)
     && Modifiers.SequenceEqual(other.Modifiers)
-    && Default.NullEqual(other.Default);
+    && Label.NullEqual(other.Label);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Type, Modifiers.Length, Default);
+    => HashCode.Combine(base.GetHashCode(), Type, Modifiers.Length, Label);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Concat(Parameter.Bracket("(", ")"))
-      .Append(":")
-      .Concat(Type.GetFields())
-      .Concat(Modifiers.AsString())
-      .Append(Default is null ? "" : "=" + Default.ToString());
+        .Concat(Parameter.Bracket("(", ")"))
+        .Concat(Label is not null
+          ? new[] { "=", $"{Type.Name}.{Label}" }
+          : Type.GetFields().Prepend(":"))
+        .Concat(Modifiers.AsString());
 }

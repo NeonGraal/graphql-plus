@@ -46,26 +46,26 @@ public class OutputFieldAstTests : BaseAliasedAstTests<OutputFieldInput>
       () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Modifiers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithDefault(OutputFieldInput input, string def)
+  public void HashCode_WithLabel(OutputFieldInput input, string label)
       => _checks.HashCode(
-        () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Default = new FieldKeyAst(AstNulls.At, def) });
+        () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Label = label });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithDefault(OutputFieldInput input, string def)
+  public void String_WithLabel(OutputFieldInput input, string label)
     => _checks.String(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Default = new FieldKeyAst(AstNulls.At, def) },
-      $"( !OF {input.Name} : {input.Type} =( !k '{def}' ) )");
+      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Label = label },
+      $"( !OF {input.Name} = {input.Type}.{label} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithDefault(OutputFieldInput input, string def)
+  public void Equality_WithLabel(OutputFieldInput input, string label)
     => _checks.Equality(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Default = new FieldKeyAst(AstNulls.At, def) });
+      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Label = label });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenDefaults(OutputFieldInput input, string def1, string def2)
-    => _checks.InequalityBetween(def1, def2,
-      def => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Default = new FieldKeyAst(AstNulls.At, def) },
-      def1 == def2);
+  public void Inequality_BetweenLabels(OutputFieldInput input, string label1, string label2)
+    => _checks.InequalityBetween(label1, label2,
+      label => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Label = label },
+      label1 == label2);
 
   protected override string InputString(OutputFieldInput input)
     => $"( !OF {input.Name} : {input.Type} )";

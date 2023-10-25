@@ -1,21 +1,17 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 internal sealed record class OutputReferenceAst(ParseAt At, string Name)
-  : AstNamed(At, Name), IEquatable<OutputReferenceAst>
+  : AstReference<OutputReferenceAst>(At, Name), IEquatable<OutputReferenceAst>
 {
-  public bool IsTypeParameter { get; set; }
-  public OutputReferenceAst[] Arguments { get; set; } = Array.Empty<OutputReferenceAst>();
   public string? Label { get; set; }
 
   internal override string Abbr => "OR";
 
-  public bool Equals(OutputReferenceAst? other)
+  public override bool Equals(OutputReferenceAst? other)
     => base.Equals(other)
-    && IsTypeParameter == other.IsTypeParameter
-    && Arguments.SequenceEqual(other.Arguments)
     && Label.NullEqual(other.Label);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), IsTypeParameter, Arguments.Length, Label);
+    => HashCode.Combine(base.GetHashCode(), Label);
 
   internal override IEnumerable<string?> GetFields()
     => new[] {

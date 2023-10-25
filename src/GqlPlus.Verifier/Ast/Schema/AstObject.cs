@@ -1,18 +1,20 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema;
+﻿using System.Linq;
 
-internal abstract record class ObjectAst<F, R>(ParseAt At, string Name, string Description)
-  : AstAliased(At, Name, Description), IEquatable<ObjectAst<F, R>>
-  where R : AstNamed, IEquatable<R>
+namespace GqlPlus.Verifier.Ast.Schema;
+
+internal abstract record class AstObject<F, R>(ParseAt At, string Name, string Description)
+  : AstAliased(At, Name, Description), IEquatable<AstObject<F, R>>
+  where F : AstField where R : AstReference<R>, IEquatable<R>
 {
   public TypeParameterAst[] Parameters { get; set; } = Array.Empty<TypeParameterAst>();
   public R? Extends { get; set; }
   public F[] Fields { get; set; } = Array.Empty<F>();
   public R[] Alternates { get; set; } = Array.Empty<R>();
 
-  public ObjectAst(ParseAt at, string name)
+  public AstObject(ParseAt at, string name)
     : this(at, name, "") { }
 
-  public virtual bool Equals(ObjectAst<F, R>? other)
+  public virtual bool Equals(AstObject<F, R>? other)
     => base.Equals(other)
       && Parameters.SequenceEqual(other.Parameters)
       && Extends.NullEqual(other.Extends)

@@ -29,5 +29,6 @@ internal sealed record class CategoryAst(ParseAt At, string Name, string Descrip
 public enum CategoryOption
 {
   Parallel,
-  Single
+  Single,
+  Sequential
 }

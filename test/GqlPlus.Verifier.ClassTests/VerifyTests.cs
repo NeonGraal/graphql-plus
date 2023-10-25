@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Operation;
+using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier;
 
@@ -6,10 +7,27 @@ namespace GqlPlus.Verifier;
 public class VerifyTests
 {
   [Theory]
-  [InlineData("Operation_error")]
-  public async Task VerifySample(string sample)
+  [InlineData("default")]
+  public async Task VerifySampleSchema(string sample)
   {
-    var operation = File.ReadAllText("Sample/" + sample + ".gql+");
+    var operation = File.ReadAllText("Sample/Schema_" + sample + ".graphql+");
+    Tokenizer tokenizer = new(operation);
+    SchemaParser parser = new(tokenizer);
+    SchemaAst ast = parser.Parse();
+
+    var settings = new VerifySettings();
+    settings.ScrubEmptyLines();
+    settings.UseDirectory(nameof(VerifyTests));
+    settings.UseFileName(nameof(VerifySampleSchema) + "_" + sample);
+
+    await Verify(ast.Render(), settings);
+  }
+
+  [Theory]
+  [InlineData("error")]
+  public async Task VerifySampleOperation(string sample)
+  {
+    var operation = File.ReadAllText("Sample/Operation_" + sample + ".gql+");
     Tokenizer tokenizer = new(operation);
     OperationParser parser = new(tokenizer);
     OperationAst ast = parser.Parse();
@@ -17,7 +35,7 @@ public class VerifyTests
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
     settings.UseDirectory(nameof(VerifyTests));
-    settings.UseFileName(nameof(VerifySample) + "_" + sample);
+    settings.UseFileName(nameof(VerifySampleOperation) + "_" + sample);
 
     await Verify(ast.Render(), settings);
   }

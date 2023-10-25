@@ -13,6 +13,12 @@ internal static class SchemaTestHelpers
   public static InputReferenceAst[] InputReferences(this string argument)
     => new InputReferenceAst[] { new(AstNulls.At, argument) };
 
+  public static OutputFieldAst[] OutputFields(this string fieldName, string fieldType)
+    => new OutputFieldAst[] { new(AstNulls.At, fieldName, new(AstNulls.At, fieldType)) };
+
+  public static OutputReferenceAst[] OutputReferences(this string argument)
+    => new OutputReferenceAst[] { new(AstNulls.At, argument) };
+
   public static ScalarRangeAst[] ScalarRanges(this RangeInput input)
     => new ScalarRangeAst[] { new(AstNulls.At, input.Lower, input.Upper) };
 

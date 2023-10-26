@@ -340,7 +340,7 @@ internal class Tokenizer
     TokenKind.End => new(_kind, _pos - _lineStart, _line, "<END>"),
     TokenKind.Number => new(_kind, _pos - _lineStart, _line, GetString(Decimal(_pos))),
     TokenKind.Identifer => new(_kind, _pos - _lineStart, _line, GetString(Letters(_pos))),
-    _ => new(_kind, _pos - _lineStart, _line, ErrorContext(_operation[_pos..].ToString())),
+    _ => new(_kind, _pos - _lineStart, _line, ErrorContext(_operation[_pos..].ToString().Replace("\r", ""))),
   };
 
   public static string ErrorContext(string context)

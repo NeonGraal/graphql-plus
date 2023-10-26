@@ -1,7 +1,7 @@
 ﻿!G I@1/1
 Failure
 <
-  !!!  P@13/10 : Text beyond end of Schema. - '\[]\?\r\n\r\ninp' !!!
+  !!!  P@13/10 : Text beyond end of Schema. - '\[]\?\n\ninput' !!!
 >
 {
   !O I@8/1

@@ -6,6 +6,41 @@ Failure
 {
   !O I@8/1
   _Schema
+  {
+    !OF I@9/2
+    category
+    (
+      !P I@18/2
+       I@18/2
+      _CategoryFilter
+    )
+    :
+     I@36/2
+    _Category
+    [String]
+    !OF I@9/3
+    directive
+    (
+      !P I@19/3
+       I@19/3
+      _Filter
+    )
+    :
+     I@29/3
+    _Directive
+    [String]
+    !OF I@9/4
+    type
+    (
+      !P I@14/4
+       I@14/4
+      _TypeFilter
+    )
+    :
+     I@28/4
+    _Type
+    [String]
+  }
 }
 {
   !I I@7/7

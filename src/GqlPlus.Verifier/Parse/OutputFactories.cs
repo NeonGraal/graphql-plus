@@ -19,7 +19,7 @@ internal readonly struct OutputFactories
   public OutputAst Object(ParseAt at, string name, string description)
     => new(at, name, description);
 
-  public bool FieldDefault(OutputFieldAst field) => false;
+  public bool FieldDefault(OutputFieldAst field) => true;
 
   public bool FieldParameter(out ParameterAst? parameter)
     => _parser.ParseParameter(out parameter);

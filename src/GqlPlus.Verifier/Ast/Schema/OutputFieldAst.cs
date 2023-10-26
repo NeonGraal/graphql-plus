@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 internal sealed record class OutputFieldAst(ParseAt At, string Name, string Description, OutputReferenceAst Type)
-  : AstField(At, Name, Description), IEquatable<OutputFieldAst>
+  : AstField<OutputReferenceAst>(At, Name, Description, Type), IEquatable<OutputFieldAst>
 {
   public ParameterAst? Parameter { get; set; }
   public string? Label { get; set; }
@@ -14,10 +14,9 @@ internal sealed record class OutputFieldAst(ParseAt At, string Name, string Desc
   public bool Equals(OutputFieldAst? other)
     => base.Equals(other)
     && Parameter.NullEqual(other.Parameter)
-    && Type.Equals(other.Type)
     && Label.NullEqual(other.Label);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Type, Label);
+    => HashCode.Combine(base.GetHashCode(), Label);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

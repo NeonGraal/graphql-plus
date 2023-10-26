@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Operation;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Parse;
 
 namespace GqlPlus.Verifier;
 
@@ -8,6 +9,7 @@ public class VerifyTests
 {
   [Theory]
   [InlineData("default")]
+  [InlineData("Intro_Schema")]
   public async Task VerifySampleSchema(string sample)
   {
     var operation = File.ReadAllText("Sample/Schema_" + sample + ".graphql+");

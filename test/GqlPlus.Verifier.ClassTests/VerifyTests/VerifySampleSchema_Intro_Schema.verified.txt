@@ -1,0 +1,27 @@
+﻿!G I@1/1
+Failure
+<
+  !!!  P@13/10 : Text beyond end of Schema. - '\[]\?\r\n\r\ninp' !!!
+>
+{
+  !O I@8/1
+  _Schema
+}
+{
+  !I I@7/7
+  _Filter
+  {
+    !IF I@9/8
+    names
+    :
+     I@16/8
+    String
+    []
+    !IF I@9/9
+    includeReferencedTypes
+    :
+     I@33/9
+    Boolean
+    =( !k I@43/9 Boolean.false )
+  }
+}

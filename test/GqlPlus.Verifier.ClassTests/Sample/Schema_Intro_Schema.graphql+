@@ -1,0 +1,27 @@
+﻿output _Schema = {
+        category(_CategoryFilter): _Category[String]
+        directive(_Filter): _Directive[String]
+        type(_TypeFilter): _Type[String]
+    }
+
+input _Filter =  {
+        names: String[]
+        includeReferencedTypes: Boolean = false
+    } String[]?
+
+input _CategoryFilter = _Filter {
+        resolutions: _Resolution[]
+    }
+
+input _TypeFilter = _Filter {
+        kinds: _Kind[]
+    }
+
+output _Aliased = _Named {
+        aliases: String[]
+    }
+
+output _Named = {
+        name: String
+        description: String?
+    }

@@ -1,10 +1,8 @@
-﻿using System.Linq;
-
-namespace GqlPlus.Verifier.Ast.Schema;
+﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 internal abstract record class AstObject<F, R>(ParseAt At, string Name, string Description)
   : AstAliased(At, Name, Description), IEquatable<AstObject<F, R>>
-  where F : AstField where R : AstReference<R>, IEquatable<R>
+  where F : AstField<R> where R : AstReference<R>, IEquatable<R>
 {
   public TypeParameterAst[] Parameters { get; set; } = Array.Empty<TypeParameterAst>();
   public R? Extends { get; set; }

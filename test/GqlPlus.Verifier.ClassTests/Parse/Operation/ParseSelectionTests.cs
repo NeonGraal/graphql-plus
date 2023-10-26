@@ -40,14 +40,14 @@ public class ParseSelectionTests
     => Test.TrueExpected(
       prefix + fragment,
       new SpreadAst(AstNulls.At, fragment),
-      fragment == "on");
+      fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase));
 
   [Theory, RepeatData(Repeats)]
   public void WithSpreadDirective_ReturnsCorrectAst(string fragment, string directive)
     => Test.TrueExpected(
       $"|{fragment}@{directive}",
       new SpreadAst(AstNulls.At, fragment) { Directives = directive.Directives() },
-      fragment == "on");
+      fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase));
 
   [Fact]
   public void WithInvalidSelection_ReturnsFalse()

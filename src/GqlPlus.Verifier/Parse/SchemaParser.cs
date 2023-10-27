@@ -11,12 +11,18 @@ internal class SchemaParser : CommonParser
   private delegate bool Parser<T>(SchemaParser parser, string description, out T declaration);
 
   private readonly Dictionary<string, Parser<AstDescribed>> _parsers = new() {
-    ["category"] = ParserFor((SchemaParser parser, string description, out CategoryAst category)
-      => parser.ParseCategory(out category, description)),
-    ["output"] = ParserFor((SchemaParser parser, string description, out OutputAst output)
-      => parser.ParseOutput(out output, description)),
-    ["input"] = ParserFor((SchemaParser parser, string description, out InputAst input)
-      => parser.ParseInput(out input, description)),
+    ["category"] = ParserFor((SchemaParser parser, string description, out CategoryAst result)
+      => parser.ParseCategory(out result, description)),
+    ["directive"] = ParserFor((SchemaParser parser, string description, out DirectiveAst result)
+      => parser.ParseDirective(out result, description)),
+    ["enum"] = ParserFor((SchemaParser parser, string description, out EnumAst result)
+      => parser.ParseEnum(out result, description)),
+    ["output"] = ParserFor((SchemaParser parser, string description, out OutputAst result)
+      => parser.ParseOutput(out result, description)),
+    ["input"] = ParserFor((SchemaParser parser, string description, out InputAst result)
+      => parser.ParseInput(out result, description)),
+    ["scalar"] = ParserFor((SchemaParser parser, string description, out ScalarAst result)
+      => parser.ParseScalar(out result, description)),
   };
 
   private static Parser<AstDescribed> ParserFor<T>(Parser<T> parser)
@@ -69,20 +75,8 @@ internal class SchemaParser : CommonParser
     _tokens.Identifier(out var name);
 
     var aliases = ParseAliases("Category");
-    var option = CategoryOption.Parallel;
-
-    if (_tokens.Take('(')) {
-      if (_tokens.Identifier(out var opt)) {
-        if (!Enum.TryParse(opt, true, out option)) {
-          return Error("Invalid Category. Unknown option.");
-        }
-
-        if (!_tokens.Take(')')) {
-          return Error("Invalid Category. Expected ')' after option.");
-        }
-      } else {
-        return Error("Invalid Category. Expected option after ')'.");
-      }
+    if (!ParseOption("Category", out CategoryOption option)) {
+      return false;
     }
 
     if (_tokens.Take('=') && _tokens.Identifier(out var output)) {
@@ -100,7 +94,45 @@ internal class SchemaParser : CommonParser
     return Error("Invalid Category. Expected output type after '='.");
   }
 
-  internal bool ParseObject<O, F, R>(out O result, string description, IObjectParser<O, F, R> factories)
+  private bool ParseOption<O>(string label, out O result)
+    where O : struct
+  {
+    result = default;
+    if (!_tokens.Take('(')) {
+      return true;
+    }
+
+    if (!_tokens.Identifier(out var option)) {
+      return Error($"Invalid {label}. Expected option after '('.");
+    }
+
+    if (!Enum.TryParse(option, true, out result)) {
+      return Error($"Invalid {label}. Unknown option.");
+    }
+
+    return Error($"Invalid {label}. Expected ')' after option.", _tokens.Take(')'));
+  }
+
+  internal bool ParseDirective(out DirectiveAst result, string description)
+  {
+    var hasName = _tokens.Prefix('@', out var name, out var at);
+    result = new(at, name, description);
+
+    if (!hasName) {
+      return Error("Invalid Directive. Expected '@' name");
+    }
+
+    var aliases = ParseAliases("Directive");
+    if (!ParseOption("Directive", out DirectiveOption option)) {
+      return false;
+    }
+
+    return true;
+  }
+
+  internal bool ParseEnum(out EnumAst result, string description) => throw new NotImplementedException();
+
+  private bool ParseObject<O, F, R>(out O result, string description, IObjectParser<O, F, R> factories)
     where O : AstObject<F, R> where F : AstField<R> where R : AstReference<R>
   {
     var at = _tokens.At;
@@ -187,7 +219,7 @@ internal class SchemaParser : CommonParser
       return Error($"Invalid {parser.Label}. Expected field type.");
     }
 
-    return parser.FieldEnumLabel(field) || Error($"Invalid {parser.Label}. Expected field details.");
+    return Error($"Invalid {parser.Label}. Expected field details.", parser.FieldEnumLabel(field));
   }
 
   private bool ParseReference<R>(out R reference, IReferenceParser<R> factories, bool isTypeArgument = false)
@@ -287,7 +319,7 @@ internal class SchemaParser : CommonParser
       parameter.Default = constant;
     }
 
-    return _tokens.Take(')') || Error("Invalid Parameter. Expected ')' at end.");
+    return Error("Invalid Parameter. Expected ')' at end.", _tokens.Take(')'));
   }
 
   internal bool ParseInput(out InputAst output, string description)
@@ -333,4 +365,6 @@ internal class SchemaParser : CommonParser
 
     return parameters.ToArray();
   }
+
+  internal bool ParseScalar(out ScalarAst result, string description) => throw new NotImplementedException();
 }

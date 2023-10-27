@@ -19,13 +19,13 @@ A Schema is one (or more) Declarations. Each declaration can be preceded by a do
 
 Declarations have the following general form:
 
-> `label name Parameters? Aliases? ( '(' Options ')' )? '=' Definition`
+> `label name Parameters? Aliases? '=' ( '(' Options ')' )? Definition`
 
 The following declarations are implied but can be specified explicitly:
 
 - `category = Query` and thus `output Query = { }`
-- `category (sequential) = Mutation` and thus `output Mutation = { }`
-- `category (single) = Subscription` and thus `output Subscription = { }`
+- `category = (sequential) Mutation` and thus `output Mutation = { }`
+- `category = (single) Subscription` and thus `output Subscription = { }`
 - `output _Schema` (see [Introspection](Introspection.md))
 
 The names of all Types must be unique.
@@ -35,7 +35,7 @@ Explicit Type name declarations will override that name being used as Type alias
 ## Category
 
 ```PEG
-Category = 'category' category? Aliases? ( '(' Cat_Option ')' )? '=' output
+Category = 'category' category? Aliases? '=' ( '(' Cat_Option ')' )? output
 Cat_Option = 'parallel' | 'sequential' | 'single'
 ```
 
@@ -57,7 +57,7 @@ An explicit Category declaration for an Output type will override that name bein
 ## Directive
 
 ```PEG
-Directive = 'directive' '@'directive Parameter? Aliases? Dir_Repeatable? '=' Dir_Locations
+Directive = 'directive' '@'directive Parameter? Aliases? '=' Dir_Repeatable? Dir_Locations
 Dir_Repeatable = '(' 'repeatable' ')'
 Dir_Locations = Dir_Location '|' Dir_Locations | Dir_Location
 Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
@@ -66,7 +66,7 @@ Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragm
 ## Enum type
 
 ```PEG
-Enum = 'enum' enum Aliases? ( ':' enum )? '=' En_Labels
+Enum = 'enum' enum Aliases? '=' ( ':' enum )? En_Labels
 En_Labels = En_Label '|' En_Labels | En_Label
 En_Label = STRING? label Aliases?
 ```
@@ -325,15 +325,15 @@ Type = Enum | Input | Output | Scalar
 
 Aliases = '[' alias+ ']'
 
-Category = 'category' category? Aliases? ( '(' Cat_Option ')' )? '=' output
+Category = 'category' category? Aliases? '=' ( '(' Cat_Option ')' )? output
 Cat_Option = 'parallel' | 'sequential' | 'single'
 
-Directive = 'directive' '@'directive Parameter? Aliases? Dir_Repeatable? '=' Dir_Locations
+Directive = 'directive' '@'directive Parameter? Aliases? '=' Dir_Repeatable? Dir_Locations
 Dir_Repeatable = '(' 'repeatable' ')'
 Dir_Locations = Dir_Location '|' Dir_Locations | Dir_Location
 Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
 
-Enum = 'enum' enum Aliases? ( ':' enum )? '=' En_Labels
+Enum = 'enum' enum Aliases? '=' ( ':' enum )? En_Labels
 En_Labels = En_Label '|' En_Labels | En_Label
 En_Label = STRING? label Aliases?
 

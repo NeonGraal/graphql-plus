@@ -57,7 +57,7 @@ internal class SchemaParser : CommonParser
     if (_tokens.AtEnd) {
       ast.Result = ParseResult.Success;
     } else {
-      Error("Text beyond end of Schema.");
+      Error("Schema", "no more text");
     }
 
     return ast with {
@@ -74,43 +74,43 @@ internal class SchemaParser : CommonParser
     at = _tokens.At;
     _tokens.Identifier(out var name);
 
-    var aliases = ParseAliases("Category");
-    if (!ParseOption("Category", out CategoryOption option)) {
+    if (!ParsePrefix("Category", out var aliases)
+      || !ParseOption("Category", out CategoryOption option)
+      ) {
       return false;
     }
 
-    if (_tokens.Take('=') && _tokens.Identifier(out var output)) {
+    if (_tokens.Identifier(out var output)) {
       if (string.IsNullOrEmpty(name)) {
         name = output.Camelize();
       }
 
       result = new(at, name!, output) {
-        Aliases = aliases.ToArray(),
+        Aliases = aliases,
         Option = option
       };
       return true;
     }
 
-    return Error("Invalid Category. Expected output type after '='.");
+    return Error("Category", "output type");
   }
 
   private bool ParseOption<O>(string label, out O result)
     where O : struct
   {
     result = default;
-    if (!_tokens.Take('(')) {
-      return true;
-    }
+    return !_tokens.Take('(')
+      || (ParseEnumValue(out result)
+        ? Error(label, "')' after option", _tokens.Take(')'))
+        : Error(label, "valid option"));
+  }
 
-    if (!_tokens.Identifier(out var option)) {
-      return Error($"Invalid {label}. Expected option after '('.");
-    }
-
-    if (!Enum.TryParse(option, true, out result)) {
-      return Error($"Invalid {label}. Unknown option.");
-    }
-
-    return Error($"Invalid {label}. Expected ')' after option.", _tokens.Take(')'));
+  private bool ParseEnumValue<E>(out E result)
+    where E : struct
+  {
+    result = default;
+    return _tokens.Identifier(out var option)
+      && Enum.TryParse(option, true, out result);
   }
 
   internal bool ParseDirective(out DirectiveAst result, string description)
@@ -119,18 +119,87 @@ internal class SchemaParser : CommonParser
     result = new(at, name, description);
 
     if (!hasName) {
-      return Error("Invalid Directive. Expected '@' name");
+      return Error("Directive", "'@' name");
     }
 
-    var aliases = ParseAliases("Directive");
-    if (!ParseOption("Directive", out DirectiveOption option)) {
+    if (!ParsePrefix("Directive", out var aliases)
+      || !ParseOption("Directive", out DirectiveOption _)
+    ) {
       return false;
+    }
+
+    result.Aliases = aliases;
+
+    if (!ParseEnumValue(out DirectiveLocation location)) {
+      return Error("Directive", "at least one location");
+    }
+
+    result.Locations = location;
+
+    while (_tokens.Take("|")) {
+      if (ParseEnumValue(out location)) {
+        result.Locations |= location;
+      } else {
+        return Error("Directive", "location after '|'");
+      }
     }
 
     return true;
   }
 
-  internal bool ParseEnum(out EnumAst result, string description) => throw new NotImplementedException();
+  internal bool ParseEnum(out EnumAst result, string description)
+  {
+    var at = _tokens.At;
+    var hasName = _tokens.Identifier(out var name);
+    result = new(at, name, description);
+
+    if (!hasName) {
+      return Error("Enum", "name");
+    }
+
+    if (!ParsePrefix("Enum", out var aliases)) {
+      return false;
+    }
+
+    result.Aliases = aliases;
+
+    if (_tokens.Take(':')) {
+      if (_tokens.Identifier(out var extends)) {
+        result.Extends = extends;
+      } else {
+        return Error("Enum", "type after ':'");
+      }
+    }
+
+    if (ParseEnumLabel(out var label)) {
+      List<EnumLabelAst> labels = new() { label };
+
+      while (_tokens.Take("|")) {
+        if (ParseEnumLabel(out label)) {
+          labels.Add(label);
+        } else {
+          return Error("Enum", "label");
+        }
+      }
+
+      result.Labels = labels.ToArray();
+      return true;
+    }
+
+    return Error("Enum", "label");
+  }
+
+  private bool ParseEnumLabel(out EnumLabelAst enumLabel)
+  {
+    _tokens.String(out var description);
+    var at = _tokens.At;
+    var hasLabel = _tokens.Identifier(out var label);
+    ParseAliases("Enum", out var aliases);
+
+    enumLabel = new(at, label, description) { Aliases = aliases };
+
+    return Error("Enum", "label", hasLabel);
+  }
 
   private bool ParseObject<O, F, R>(out O result, string description, IObjectParser<O, F, R> factories)
     where O : AstObject<F, R> where F : AstField<R> where R : AstReference<R>
@@ -140,15 +209,16 @@ internal class SchemaParser : CommonParser
 
     result = factories.Object(at, name, description);
     if (!getName) {
-      return Error($"Invalid {factories.Label}. Expected name.");
+      return Error(factories.Label, "name");
     }
 
     result.Parameters = ParseTypeParameters(factories.Label);
-    result.Aliases = ParseAliases(factories.Label);
 
-    if (!_tokens.Take('=')) {
-      return Error($"Invalid {factories.Label}. Expected '=' before definition.");
+    if (!ParsePrefix(factories.Label, out var aliases)) {
+      return false;
     }
+
+    result.Aliases = aliases;
 
     var hasBase = ParseReference(out var reference, factories);
 
@@ -158,7 +228,7 @@ internal class SchemaParser : CommonParser
         if (ParseField(out var field, factories)) {
           fields.Add(field);
         } else {
-          Error($"Invalid {factories.Label}. Expected more fields or '}}'.");
+          Error(factories.Label, "more fields or '}'");
           break;
         }
       }
@@ -196,11 +266,11 @@ internal class SchemaParser : CommonParser
     _tokens.String(out var description);
     if (!_tokens.Identifier(out var name)) {
       field = parser.Field(at, "", description, parser.Reference(at, ""));
-      return Error($"Invalid {parser.Label}. Expected field name");
+      return Error(parser.Label, "field name");
     }
 
     var hasParameter = parser.FieldParameter(out var parameter);
-    var aliases = ParseAliases(parser.Label);
+    ParseAliases(parser.Label, out var aliases);
 
     field = parser.Field(at, name, description, parser.Reference(at, ""));
 
@@ -216,10 +286,10 @@ internal class SchemaParser : CommonParser
         return parser.FieldDefault(field);
       }
 
-      return Error($"Invalid {parser.Label}. Expected field type.");
+      return Error(parser.Label, "field type");
     }
 
-    return Error($"Invalid {parser.Label}. Expected field details.", parser.FieldEnumLabel(field));
+    return Error(parser.Label, "field details", parser.FieldEnumLabel(field));
   }
 
   private bool ParseReference<R>(out R reference, IReferenceParser<R> factories, bool isTypeArgument = false)
@@ -244,7 +314,7 @@ internal class SchemaParser : CommonParser
         reference.Arguments = arguments.ToArray();
 
         if (!_tokens.Take('>')) {
-          return Error($"Invalid {factories.Label}. Expected '>' after arguments.");
+          return Error(factories.Label, "'>' after arguments");
         }
       } else if (isTypeArgument) {
         return factories.TypeEnumLabel(reference);
@@ -268,7 +338,7 @@ internal class SchemaParser : CommonParser
         return true;
       }
 
-      return Error("Invalid Output. Expected label after '.'.");
+      return Error("Output", "label after '.'");
     }
 
     return true;
@@ -280,7 +350,7 @@ internal class SchemaParser : CommonParser
       var at = _tokens.At;
 
       if (!_tokens.Identifier(out var label)) {
-        return Error("Invalid Output. Expected label after '='.");
+        return Error("Output", "label after '='");
       }
 
       if (!_tokens.Take('.')) {
@@ -294,10 +364,10 @@ internal class SchemaParser : CommonParser
         return true;
       }
 
-      return Error("Invalid Output. Expected label after '.'.");
+      return Error("Output", "label after '.'");
     }
 
-    return Error("Invalid Output. Expected ':' or '='.");
+    return Error("Output", "':' or '='");
   }
 
   internal bool ParseParameter(out ParameterAst? parameter)
@@ -309,7 +379,7 @@ internal class SchemaParser : CommonParser
 
     var at = _tokens.At;
     if (!ParseReference(out var reference, new InputParserFactories(this))) {
-      return Error("Invalid Parameter. Expected input reference after '('.");
+      return Error("Parameter", "input reference after '('");
     }
 
     parameter = new(at, reference) {
@@ -319,13 +389,13 @@ internal class SchemaParser : CommonParser
       parameter.Default = constant;
     }
 
-    return Error("Invalid Parameter. Expected ')' at end.", _tokens.Take(')'));
+    return Error("Parameter", "')' at end", _tokens.Take(')'));
   }
 
   internal bool ParseInput(out InputAst output, string description)
    => ParseObject(out output, description, new InputParserFactories(this));
 
-  private string[] ParseAliases(string label)
+  private bool ParseAliases(string label, out string[] result)
   {
     var aliases = new List<string>();
     if (_tokens.Take('[')) {
@@ -334,14 +404,22 @@ internal class SchemaParser : CommonParser
       }
 
       if (!_tokens.Take("]")) {
-        Error($"Invalid {label}. Expected ']' to end aliases.");
+        result = aliases.ToArray();
+        return Error(label, "']' to end aliases");
       } else if (aliases.Count == 0) {
-        Error($"Invalid {label}. Expected at least one alias after '['.");
+        result = aliases.ToArray();
+        return Error(label, "at least one alias after '['");
       }
     }
 
-    return aliases.ToArray();
+    result = aliases.ToArray();
+
+    return true;
   }
+
+  private bool ParsePrefix(string label, out string[] result)
+    => ParseAliases(label, out result)
+      && Error(label, "'=' before definition", _tokens.Take('='));
 
   private TypeParameterAst[] ParseTypeParameters(string label)
   {
@@ -353,18 +431,65 @@ internal class SchemaParser : CommonParser
         if (_tokens.Prefix('$', out var name, out var at)) {
           parameters.Add(new(at, name, description));
         } else {
-          Error($"Invalid {label}. Expected type parameter.");
+          Error(label, "type parameter");
           break;
         }
       }
 
       if (parameters.Count == 0) {
-        Error($"Invalid {label}. Expected at least one type parameter after '<'.");
+        Error(label, "at least one type parameter after '<'");
       }
     }
 
     return parameters.ToArray();
   }
 
-  internal bool ParseScalar(out ScalarAst result, string description) => throw new NotImplementedException();
+  internal bool ParseScalar(out ScalarAst result, string description)
+  {
+    var at = _tokens.At;
+    var hasName = _tokens.Identifier(out var name);
+    result = new(at, name, description);
+
+    if (!hasName) {
+      return Error("Scalar", "name");
+    }
+
+    if (!ParsePrefix("Scalar", out var aliases)) {
+      return false;
+    }
+
+    result.Aliases = aliases;
+
+    if (!ParseEnumValue(out ScalarKind kind)) {
+      return false;
+    }
+
+    result.Kind = kind;
+
+    switch (kind) {
+      case ScalarKind.Number:
+        break;
+      case ScalarKind.String:
+        result.Regexes = ParseRegexes();
+        break;
+      default:
+        return Error("Scalar", "valid kind");
+    }
+
+    return true;
+  }
+
+  private ScalarRegexAst[] ParseRegexes()
+  {
+    var result = new List<ScalarRegexAst>();
+    var at = _tokens.At;
+
+    while (_tokens.Regex(out var regex)) {
+      var excluded = _tokens.Take('!');
+      result.Add(new(at, regex, excluded));
+      at = _tokens.At;
+    }
+
+    return result.ToArray();
+  }
 }

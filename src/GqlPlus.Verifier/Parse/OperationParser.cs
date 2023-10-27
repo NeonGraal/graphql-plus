@@ -44,7 +44,7 @@ internal class OperationParser : CommonParser
     } else if (ParseObject(out IAstSelection[] selections)) {
       ast.Object = selections;
     } else {
-      Error("Result not present. Expected Object or Type.");
+      Error("Operation", "Object or Type");
       return ast with {
         Errors = Errors.ToArray(),
         Usages = Variables.ToArray(),
@@ -58,7 +58,7 @@ internal class OperationParser : CommonParser
     if (_tokens.AtEnd) {
       ast.Result = ParseResult.Success;
     } else {
-      Error("Text beyond end of Operation.");
+      Error("Operation", "no more text");
     }
 
     return ast with {
@@ -97,12 +97,12 @@ internal class OperationParser : CommonParser
     }
 
     if (!result.Any()) {
-      return Error("Invalid Variables. No variables defined.");
+      return Error("Variables", "at least one variable");
     }
 
     variables = result.ToArray();
 
-    return Error("Invalid Variables. Expected ')'.", _tokens.Take(')'));
+    return Error("Variables", "')'.", _tokens.Take(')'));
   }
 
   internal bool ParseVarType(out string varType)
@@ -127,7 +127,7 @@ internal class OperationParser : CommonParser
       }
 
       varNull = "";
-      return Error("Invalid Variable Type. Expected an inner variable type.");
+      return Error("Variable Type", "an inner variable type");
     } else {
       return _tokens.Identifier(out varNull);
     }
@@ -166,12 +166,12 @@ internal class OperationParser : CommonParser
       } else {
         selections = fields.ToArray();
 
-        return Error("Invalid Object. Expected Field or Selection.");
+        return Error("Object", "a field or selection");
       }
     }
 
     selections = fields.ToArray();
-    return Error("Invalid Object. Expected at least one Field or Selection", fields.Any());
+    return Error("Object", "at least one field or selection", fields.Any());
   }
 
   internal bool ParseSelection(out IAstSelection selection)
@@ -183,7 +183,7 @@ internal class OperationParser : CommonParser
       string? onType = null;
       if (_tokens.Take("on") || _tokens.Take(':')) {
         if (!_tokens.Identifier(out onType)) {
-          return Error("Invalid Spread. Expected a type.");
+          return Error("Spread", "a type");
         }
       } else {
         if (_tokens.Identifier(out var name)) {
@@ -203,7 +203,7 @@ internal class OperationParser : CommonParser
         return true;
       }
 
-      return Error("Invalid Inline. Expected Object.");
+      return Error("Inline", "an object");
     }
 
     return false;
@@ -223,7 +223,7 @@ internal class OperationParser : CommonParser
     if (_tokens.Take(':')) {
       at = _tokens.At;
       if (!_tokens.Identifier(out var name)) {
-        return Error("Invalid Field. Expected Name after Alias");
+        return Error("Field", "a name after an alias");
       }
 
       result = new FieldAst(at, name) { Alias = alias };
@@ -303,7 +303,7 @@ internal class OperationParser : CommonParser
         return _tokens.Take(':')
           ? ParseArgValue(out var item)
             ? ParseArgumentMid(at, new() { [key] = item }, out argument)
-            : Error("Invalid Argument. Value not found after Field key separator.")
+            : Error("Argument", "a value after field key separator")
           : ParseArgumentEnd(at, value, out argument);
       }
 
@@ -379,7 +379,7 @@ internal class OperationParser : CommonParser
       ) {
         result.Add(key, value);
       } else {
-        return Error($"Invalid Argument. Possibly missing ':' or '{end}' in Field.");
+        return Error("Argument", "a field in object");
       }
 
       _tokens.Take(',');
@@ -405,7 +405,7 @@ internal class OperationParser : CommonParser
       if (ParseArgValue(out var item)) {
         values.Add(item);
       } else {
-        return Error("Invalid Argument. Possibly missing ',' or ']' in List.");
+        return Error("Argument", "a value in list");
       }
 
       _tokens.Take(',');
@@ -433,7 +433,7 @@ internal class OperationParser : CommonParser
         return true;
       }
 
-      return Error("Invalid Argument. Expected Field Values after ','");
+      return Error("Argument", "a field after ','");
     }
 
     while (!_tokens.Take(')')) {
@@ -443,7 +443,7 @@ internal class OperationParser : CommonParser
       ) {
         fields.Add(key1, ParseArgValues(item1));
       } else {
-        return Error("Invalid Argument. Possibly missing ')' after Fields.");
+        return Error("Argument", "a field");
       }
     }
 
@@ -470,6 +470,6 @@ internal class OperationParser : CommonParser
     }
 
     argument = new(at);
-    return Error("Invalid Argument. Possibly missing ')' after Values.");
+    return Error("Argument", "a value");
   }
 }

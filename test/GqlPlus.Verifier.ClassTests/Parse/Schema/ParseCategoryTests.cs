@@ -13,7 +13,7 @@ public class ParseCategoryTests
   [Theory, RepeatData(Repeats)]
   public void WithOption_ReturnsCorrectAst(string output, CategoryOption option)
     => Test.TrueExpected(
-      "(" + option.ToString().ToLowerInvariant() + ")=" + output,
+      "=(" + option.ToString().ToLowerInvariant() + ")" + output,
       new CategoryAst(AstNulls.At, output) { Option = option });
 
   [Theory, RepeatData(Repeats)]
@@ -31,7 +31,7 @@ public class ParseCategoryTests
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string name, string output, CategoryOption option, string alias1, string alias2)
     => Test.TrueExpected(
-      name + "[" + alias1 + " " + alias2 + "](" + option.ToString().ToLowerInvariant() + ")=" + output,
+      name + "[" + alias1 + " " + alias2 + "]=(" + option.ToString().ToLowerInvariant() + ")" + output,
       new CategoryAst(AstNulls.At, name, output) {
         Option = option,
         Aliases = new[] { alias1, alias2 },

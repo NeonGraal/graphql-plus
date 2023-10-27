@@ -304,7 +304,7 @@ Scal_Number = 'Number' Scal_Range*
 Scal_String = 'String' Scal_Regex*
 
 Scal_Range = '..' '<'? NUMBER | NUMBER '>'? '..' ( '<'? NUMBER )?
-Scal_RegEx = REGEX | '!' REGEX
+Scal_RegEx = REGEX '!'?
 ```
 
 Scalar types define specific domains of:
@@ -368,6 +368,6 @@ Scal_Number = 'Number' Scal_Range*
 Scal_String = 'String' Scal_Regex*
 
 Scal_Range = '..' '<'? NUMBER | NUMBER '>'? '..' ( '<'? NUMBER )?
-Scal_RegEx = REGEX | '!' REGEX
+Scal_RegEx = REGEX '!'?
 
 ```

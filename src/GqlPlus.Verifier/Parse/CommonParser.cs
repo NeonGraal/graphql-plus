@@ -131,7 +131,7 @@ internal class CommonParser
       if (ParseConstant(out var item)) {
         values.Add(item);
       } else {
-        return Error("Invalid Constant. Possibly missing ',' or ']' in List.");
+        return Error("Constant", "value in list");
       }
 
       _tokens.Take(',');
@@ -155,7 +155,7 @@ internal class CommonParser
       ) {
         fields.Add(key, value);
       } else {
-        Error("Invalid Constant. Possibly missing ':' or '}' in Field.");
+        Error("Constant", "field in object");
         return false;
       }
 
@@ -165,10 +165,10 @@ internal class CommonParser
     return true;
   }
 
-  protected bool Error(string message, bool result = false)
+  protected bool Error(string label, string message, bool result = false)
   {
     if (!result) {
-      Errors.Add(_tokens.Error(message));
+      Errors.Add(_tokens.Error($"Invalid {label}. Expected {message}."));
     }
 
     return result;

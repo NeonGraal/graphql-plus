@@ -9,8 +9,4 @@ internal interface IFieldFactories<F, R>
   where R : AstReference<R>
 {
   F Field(ParseAt at, string name, string description, R typeReference);
-  bool FieldParameter(out ParameterAst? parameter);
-  void ApplyParameter(F result, ParameterAst? parameter);
-  bool FieldDefault(F field);
-  bool FieldEnumLabel(F field);
 }

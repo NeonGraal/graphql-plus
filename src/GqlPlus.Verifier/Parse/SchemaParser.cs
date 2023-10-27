@@ -100,7 +100,7 @@ internal class SchemaParser : CommonParser
     return Error("Invalid Category. Expected output type after '='.");
   }
 
-  internal bool ParseObject<O, F, R>(out O result, string description, IObjectFactories<O, F, R> factories)
+  internal bool ParseObject<O, F, R>(out O result, string description, IObjectParser<O, F, R> factories)
     where O : AstObject<F, R> where F : AstField<R> where R : AstReference<R>
   {
     var at = _tokens.At;
@@ -141,7 +141,7 @@ internal class SchemaParser : CommonParser
     return true;
   }
 
-  private R[] ParseAlternates<R>(IReferenceFactories<R> factories, params R[] initial)
+  private R[] ParseAlternates<R>(IReferenceParser<R> factories, params R[] initial)
     where R : AstReference<R>
   {
     var alternates = new List<R>(initial);
@@ -154,40 +154,40 @@ internal class SchemaParser : CommonParser
     return alternates.ToArray();
   }
 
-  private bool ParseField<F, R>(out F field, IFieldFactories<F, R> factories)
+  private bool ParseField<F, R>(out F field, IFieldParser<F, R> parser)
     where F : AstField<R> where R : AstReference<R>
   {
     var at = _tokens.At;
     _tokens.String(out var description);
     if (!_tokens.Identifier(out var name)) {
-      field = factories.Field(at, "", description, factories.Reference(at, ""));
-      return Error($"Invalid {factories.Label}. Expected field name");
+      field = parser.Field(at, "", description, parser.Reference(at, ""));
+      return Error($"Invalid {parser.Label}. Expected field name");
     }
 
-    var hasParameter = factories.FieldParameter(out var parameter);
-    var aliases = ParseAliases(factories.Label);
+    var hasParameter = parser.FieldParameter(out var parameter);
+    var aliases = ParseAliases(parser.Label);
 
-    field = factories.Field(at, name, description, factories.Reference(at, ""));
+    field = parser.Field(at, name, description, parser.Reference(at, ""));
 
     if (_tokens.Take(':')) {
-      if (ParseReference(out var fieldType, factories)) {
-        field = factories.Field(at, name, description, fieldType);
+      if (ParseReference(out var fieldType, parser)) {
+        field = parser.Field(at, name, description, fieldType);
         field.Aliases = aliases;
         if (hasParameter) {
-          factories.ApplyParameter(field, parameter);
+          parser.ApplyParameter(field, parameter);
         }
 
         field.Modifiers = ParseModifiers();
-        return factories.FieldDefault(field);
+        return parser.FieldDefault(field);
       }
 
-      return Error($"Invalid {factories.Label}. Expected field type.");
+      return Error($"Invalid {parser.Label}. Expected field type.");
     }
 
-    return factories.FieldEnumLabel(field) || Error($"Invalid {factories.Label}. Expected field details.");
+    return parser.FieldEnumLabel(field) || Error($"Invalid {parser.Label}. Expected field details.");
   }
 
-  private bool ParseReference<R>(out R reference, IReferenceFactories<R> factories, bool isTypeArgument = false)
+  private bool ParseReference<R>(out R reference, IReferenceParser<R> factories, bool isTypeArgument = false)
     where R : AstReference<R>
   {
     if (_tokens.Prefix('$', out var param, out var at)) {
@@ -223,7 +223,7 @@ internal class SchemaParser : CommonParser
   }
 
   internal bool ParseOutput(out OutputAst output, string description)
-   => ParseObject(out output, description, new OutputFactories(this));
+   => ParseObject(out output, description, new OutputParserFactories(this));
 
   internal bool ParseOutputEnumLabel(OutputReferenceAst reference)
   {
@@ -247,7 +247,7 @@ internal class SchemaParser : CommonParser
     }
 
     var at = _tokens.At;
-    if (!ParseReference(out var reference, new InputFactories(this))) {
+    if (!ParseReference(out var reference, new InputParserFactories(this))) {
       return Error("Invalid Parameter. Expected input reference after '('.");
     }
 
@@ -262,7 +262,7 @@ internal class SchemaParser : CommonParser
   }
 
   internal bool ParseInput(out InputAst output, string description)
-   => ParseObject(out output, description, new InputFactories(this));
+   => ParseObject(out output, description, new InputParserFactories(this));
 
   private string[] ParseAliases(string label)
   {

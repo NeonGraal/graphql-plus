@@ -3,20 +3,30 @@ using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Parse;
 
-internal readonly struct InputFactories
+internal class InputFactories
   : IObjectFactories<InputAst, InputFieldAst, InputReferenceAst>
 {
-  private readonly SchemaParser _parser;
-
-  public InputFactories(SchemaParser parser)
-    => _parser = parser;
-
   public string Label => "Input";
-
-  public void ApplyParameter(InputFieldAst result, ParameterAst? parameter) { }
 
   public InputFieldAst Field(ParseAt at, string name, string description, InputReferenceAst typeReference)
     => new(at, name, description, typeReference);
+
+  public InputAst Object(ParseAt at, string name, string description)
+    => new(at, name, description);
+
+  public InputReferenceAst Reference(ParseAt at, string name)
+    => new(at, name);
+}
+
+internal class InputParserFactories
+  : InputFactories, IObjectParser<InputAst, InputFieldAst, InputReferenceAst>
+{
+  private readonly SchemaParser _parser;
+
+  public InputParserFactories(SchemaParser parser)
+    => _parser = parser;
+
+  public void ApplyParameter(InputFieldAst result, ParameterAst? parameter) { }
 
   public bool FieldDefault(InputFieldAst field)
   {
@@ -35,11 +45,5 @@ internal readonly struct InputFactories
     return false;
   }
 
-  public InputAst Object(ParseAt at, string name, string description)
-    => new(at, name, description);
-
   public bool ParseEnumLabel(InputReferenceAst reference) => true;
-
-  public InputReferenceAst Reference(ParseAt at, string name)
-    => new(at, name);
 }

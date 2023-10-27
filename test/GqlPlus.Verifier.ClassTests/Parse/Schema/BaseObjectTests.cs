@@ -34,5 +34,9 @@ public abstract class BaseObjectTests
   public void WithExtendsField_ReturnsCorrectAst(string name, string extends, string field, string fieldType)
     => Checks.WithExtendsField(name, extends, field, fieldType);
 
+  [Theory, RepeatData(Repeats)]
+  public void WithExtendsGenericField_ReturnsCorrectAst(string name, string extends, string subType, string field, string fieldType)
+    => Checks.WithExtendsGenericField(name, extends, subType, field, fieldType);
+
   internal abstract IBaseObjectChecks Checks { get; }
 }

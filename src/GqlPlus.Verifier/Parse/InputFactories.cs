@@ -45,5 +45,5 @@ internal class InputParserFactories
     return false;
   }
 
-  public bool ParseEnumLabel(InputReferenceAst reference) => true;
+  public bool TypeEnumLabel(InputReferenceAst reference) => true;
 }

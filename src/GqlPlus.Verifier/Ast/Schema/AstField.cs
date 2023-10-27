@@ -3,6 +3,7 @@
 internal abstract record class AstField<R>(ParseAt At, string Name, string Description, R Type)
   : AstAliased(At, Name, Description), IEquatable<AstField<R>>
 {
+  public R Type { get; set; } = Type;
   public ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
 
   public virtual bool Equals(AstField<R>? other)

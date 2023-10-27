@@ -4,6 +4,16 @@ namespace GqlPlus.Verifier.Parse.Schema;
 
 public class ParseInputTests : BaseObjectTests
 {
+  [Theory, RepeatData(Repeats)]
+  public void WithFieldDefault_ReturnsCorrectAst(string name, string field, string fieldType, string content)
+    => Test.TrueExpected(
+      name + "={" + field + ":" + fieldType + "='" + content + "'}",
+      Test.Object(name) with {
+        Fields = new[] { Test.Field(field, fieldType) with {
+          Default = new FieldKeyAst(AstNulls.At, content)
+        } },
+      });
+
   //[Theory, RepeatData(Repeats)]
   //public void WithAll_ReturnsCorrectAst(string name, string name, InputOption option, string alias1, string alias2)
   //  => Test.TrueExpected(

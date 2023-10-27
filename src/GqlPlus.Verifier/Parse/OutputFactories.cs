@@ -34,10 +34,9 @@ internal class OutputParserFactories
   public void ApplyParameter(OutputFieldAst result, ParameterAst? parameter)
     => result.Parameter = parameter;
 
-  public bool ParseEnumLabel(OutputReferenceAst reference)
+  public bool TypeEnumLabel(OutputReferenceAst reference)
     => _parser.ParseOutputEnumLabel(reference);
 
-  public bool FieldEnumLabel(OutputFieldAst field) =>
-    //TODO 
-    false;
+  public bool FieldEnumLabel(OutputFieldAst field)
+    => _parser.ParseOutputFieldLabel(field);
 }

@@ -10,4 +10,5 @@ internal interface IBaseObjectChecks
   void WithFieldGeneric(string name, string field, string fieldType, string subType);
   void WithFieldModified(string name, string field, string fieldType);
   void WithExtendsField(string name, string extends, string field, string fieldType);
+  void WithExtendsGenericField(string name, string extends, string subType, string field, string fieldType);
 }

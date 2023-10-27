@@ -28,6 +28,7 @@ internal class OneChecks<P, T>
 
     success.Should().BeTrue(_oneExpression);
     using var scope = new AssertionScope();
+    scope.FormattingOptions.MaxDepth = 10;
     parser.Errors.Should().BeEmpty();
     result.Should().Be(expected);
   }

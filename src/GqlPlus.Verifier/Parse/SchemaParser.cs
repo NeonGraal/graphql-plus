@@ -215,7 +215,7 @@ internal class SchemaParser : CommonParser
           return Error($"Invalid {factories.Label}. Expected '>' after arguments.");
         }
       } else if (isTypeArgument) {
-        return factories.ParseEnumLabel(reference);
+        return factories.TypeEnumLabel(reference);
       }
 
       return true;
@@ -240,6 +240,32 @@ internal class SchemaParser : CommonParser
     }
 
     return true;
+  }
+
+  internal bool ParseOutputFieldLabel(OutputFieldAst field)
+  {
+    if (_tokens.Take('=')) {
+      var at = _tokens.At;
+
+      if (!_tokens.Identifier(out var label)) {
+        return Error("Invalid Output. Expected label after '='.");
+      }
+
+      if (!_tokens.Take('.')) {
+        field.Label = label;
+        return true;
+      }
+
+      if (_tokens.Identifier(out var value)) {
+        field.Type = new OutputReferenceAst(at, label);
+        field.Label = value;
+        return true;
+      }
+
+      return Error("Invalid Output. Expected label after '.'.");
+    }
+
+    return Error("Invalid Output. Expected ':' or '='.");
   }
 
   internal bool ParseParameter(out ParameterAst? parameter)

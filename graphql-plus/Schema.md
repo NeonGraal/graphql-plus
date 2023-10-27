@@ -344,20 +344,20 @@ Parameter = '(' In_Reference Modifiers? Default? ')'
 Simple = Basic | scalar | enum  # Redefined
 
 Input = 'input' input TypeParameters? Aliases? '=' In_Definition
-In_Definition = In_Object ( '|'? In_Alternates )? | In_Alternates
+In_Definition = (In_Object | In_Reference ) In_Alternates*
 In_Object = In_Base? '{' InField+ '}'
 In_Field = STRING? field fieldAlias* ':' In_Reference Modifiers? Default?
 
-In_Alternates = In_Reference '|' In_Alternates | In_Reference
+In_Alternate = '|' In_Reference
 In_Reference = Internal | Simple | In_Base
 In_Base = '$'typeParameter | input ( '<' In_Reference+ '>' )?
 
 Output = 'output' output TypeParameters? Aliases? '=' Out_Definition
-Out_Definition = Out_Object ( '|'? Out_Alternates )? | Out_Alternates
+Out_Definition = ( Out_Object | Out_Reference ) Out_Alternate*
 Out_Object = Out_Base? '{' ( STRING? field Out_Field )+ '}'
 Out_Field = Parameter? fieldAlias* ':' Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
-Out_Alternates = Out_Reference '|' Out_Alternates | Out_Reference
+Out_Alternate = '|' Out_Reference
 Out_Reference = Internal | Simple | Out_Base
 Out_Base = '$'typeParameter | output ( '<' ( Out_Reference | EnumLabel )+ '>' )?
 

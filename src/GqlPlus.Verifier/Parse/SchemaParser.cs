@@ -125,6 +125,9 @@ internal class SchemaParser : CommonParser
       while (!_tokens.Take('}')) {
         if (ParseField(out var field, factories)) {
           fields.Add(field);
+        } else {
+          Error($"Invalid {factories.Label}. Expected more fields or '}}'.");
+          break;
         }
       }
 

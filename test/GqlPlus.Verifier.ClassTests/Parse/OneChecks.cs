@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Parse;
 
 namespace GqlPlus.Verifier.Common;
 
-internal sealed class OneChecks<P, T>
+internal class OneChecks<P, T>
   : BaseChecks<P> where P : CommonParser
 {
   internal delegate bool One(P parser, out T result);

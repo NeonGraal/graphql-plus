@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Collections;
+using System.Reflection;
 using AutoFixture;
 using AutoFixture.Kernel;
 
@@ -22,22 +23,35 @@ internal sealed class TestsCustomizations : CompositeCustomization
       if (paramInfo is not null
         && !paramInfo.GetCustomAttributes<RegularExpressionAttribute>().Any()
       ) {
-        if (paramInfo.ParameterType == typeof(string)) {
-          return paramInfo.Name == "contents"
-            ? context.Resolve(new RegularExpressionRequest(".{9,999}"))
-            : context.Resolve(new RegularExpressionRequest(IdentifierPattern));
-        }
-
-        if (paramInfo.ParameterType == typeof(decimal)) {
-          return context.Resolve(new RangedNumberRequest(paramInfo.ParameterType, -99999.99999, 99999.99999));
-        }
+        return ResolveType(paramInfo.ParameterType, paramInfo.Name!, context);
       }
 
       var propInfo = request as PropertyInfo;
 
-      return propInfo is not null && propInfo.PropertyType == typeof(string)
-        ? context.Resolve(new RegularExpressionRequest(IdentifierPattern))
+      return propInfo is not null
+        ? ResolveType(propInfo.PropertyType, propInfo.Name, context)
         : new NoSpecimen();
+    }
+
+    private object ResolveType(Type type, string name, ISpecimenContext context)
+    {
+      if (type == typeof(string[])) {
+        var resolved = context.Resolve(new RangedSequenceRequest(new RegularExpressionRequest(IdentifierPattern), 1, 5));
+        var result = resolved is IList<object> list ? list.AsString().ToArray() : resolved;
+        return result;
+      }
+
+      if (type == typeof(string)) {
+        return name == "contents"
+          ? context.Resolve(new RegularExpressionRequest(".{9,999}"))
+          : context.Resolve(new RegularExpressionRequest(IdentifierPattern));
+      }
+
+      if (type == typeof(decimal)) {
+        return context.Resolve(new RangedNumberRequest(type, -99999.99999, 99999.99999));
+      }
+
+      return new NoSpecimen();
     }
   }
 }

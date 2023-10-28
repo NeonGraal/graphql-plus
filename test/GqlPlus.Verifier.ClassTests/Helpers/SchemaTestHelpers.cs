@@ -4,8 +4,8 @@ namespace GqlPlus.Verifier.ClassTests;
 
 internal static class SchemaTestHelpers
 {
-  public static EnumLabelAst[] EnumLabels(this string label)
-    => new EnumLabelAst[] { new(AstNulls.At, label) };
+  public static EnumLabelAst[] EnumLabels(this string label, params string[] labels)
+    => labels.Select(l => new EnumLabelAst(AstNulls.At, l)).Prepend(new(AstNulls.At, label)).ToArray();
 
   public static InputFieldAst[] InputFields(this string fieldName, string fieldType)
     => new InputFieldAst[] { new(AstNulls.At, fieldName, new(AstNulls.At, fieldType)) };
@@ -22,8 +22,8 @@ internal static class SchemaTestHelpers
   public static ScalarRangeAst[] ScalarRanges(this RangeInput input)
     => new ScalarRangeAst[] { new(AstNulls.At, input.Lower, input.Upper) };
 
-  public static ScalarRegexAst[] ScalarRegexes(this string regex)
-    => new ScalarRegexAst[] { new(AstNulls.At, regex, true) };
+  public static ScalarRegexAst[] ScalarRegexes(this string regex, params string[] regexes)
+    => regexes.Select(r => new ScalarRegexAst(AstNulls.At, r, false)).Prepend(new(AstNulls.At, regex, true)).ToArray();
 
   public static TypeParameterAst[] TypeParameters(this string parameter)
     => new TypeParameterAst[] { new(AstNulls.At, parameter) };

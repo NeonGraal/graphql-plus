@@ -18,9 +18,9 @@ public class FieldAstTests : BaseDirectivesAstTests
       () => new FieldAst(AstNulls.At, name) { Modifiers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithSelection(string name, string field)
+  public void HashCode_WithSelection(string name, string[] fields)
   => _checks.HashCode(
-    () => new FieldAst(AstNulls.At, name) { Selections = field.Fields() });
+    () => new FieldAst(AstNulls.At, name) { Selections = fields.Fields() });
 
   [Theory, RepeatData(Repeats)]
   public void String_WithAlias(string name, string alias)
@@ -41,10 +41,10 @@ public class FieldAstTests : BaseDirectivesAstTests
       $"( !f {name} []? )");
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithSelection(string name, string field)
+  public void String_WithSelection(string name, string[] fields)
   => _checks.String(
-      () => new FieldAst(AstNulls.At, name) { Selections = field.Fields() },
-      $"( !f {name} {{ !f {field} }} )");
+      () => new FieldAst(AstNulls.At, name) { Selections = fields.Fields() },
+      $"( !f {name} {{ {fields.Joined("!f ")} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlias(string name, string alias)
@@ -77,14 +77,14 @@ public class FieldAstTests : BaseDirectivesAstTests
       () => new FieldAst(AstNulls.At, name) { Modifiers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithSelection(string name, string field)
+  public void Equality_WithSelection(string name, string[] fields)
     => _checks.Equality(
-      () => new FieldAst(AstNulls.At, name) { Selections = field.Fields() });
+      () => new FieldAst(AstNulls.At, name) { Selections = fields.Fields() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithSelection(string name, string field)
+  public void Inequality_WithSelection(string name, string[] fields)
     => _checks.InequalityWith(name,
-      () => new FieldAst(AstNulls.At, name) { Selections = field.Fields() });
+      () => new FieldAst(AstNulls.At, name) { Selections = fields.Fields() });
 
   private readonly BaseDirectivesAstChecks<FieldAst> _checks = new(name => new FieldAst(AstNulls.At, name));
 

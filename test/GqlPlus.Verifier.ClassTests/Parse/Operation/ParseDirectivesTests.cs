@@ -5,16 +5,16 @@ namespace GqlPlus.Verifier.Parse.Operation;
 public class ParseDirectivesTests
 {
   [Theory, RepeatData(Repeats)]
-  public void WithMinimum_ReturnsCorrectAst(string directive)
+  public void WithMinimum_ReturnsCorrectAst(string directives)
     => Test.Expected(
-      "@" + directive,
-      new DirectiveAst(AstNulls.At, directive));
+      "@" + directives,
+      new DirectiveAst(AstNulls.At, directives));
 
   [Theory, RepeatData(Repeats)]
-  public void WithArgument_ReturnsCorrectAst(string directive, string variable)
+  public void WithArgument_ReturnsCorrectAst(string directives, string variable)
     => Test.Expected(
-      "@" + directive + "($" + variable + ")",
-      new DirectiveAst(AstNulls.At, directive) { Argument = new ArgumentAst(AstNulls.At, variable) });
+      "@" + directives + "($" + variable + ")",
+      new DirectiveAst(AstNulls.At, directives) { Argument = new ArgumentAst(AstNulls.At, variable) });
 
   private static ArrayChecks<OperationParser, DirectiveAst> Test => new(
     tokens => new OperationParser(tokens),

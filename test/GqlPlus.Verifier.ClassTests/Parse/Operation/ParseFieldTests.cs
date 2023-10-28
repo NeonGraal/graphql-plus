@@ -29,27 +29,27 @@ public class ParseFieldTests
       new FieldAst(AstNulls.At, field) { Modifiers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
-  public void WithDirectives_ReturnsCorrectAst(string field, string directive)
+  public void WithDirectives_ReturnsCorrectAst(string field, string[] directives)
     => Test.TrueExpected(
-      field + "@" + directive,
-      new FieldAst(AstNulls.At, field) { Directives = directive.Directives() });
+      field + directives.Joined("@"),
+      new FieldAst(AstNulls.At, field) { Directives = directives.Directives() });
 
   [Theory, RepeatData(Repeats)]
-  public void WithSelection_ReturnsCorrectAst(string field, string selection)
+  public void WithSelection_ReturnsCorrectAst(string field, string[] selections)
     => Test.TrueExpected(
-      field + "{" + selection + "}",
-      new FieldAst(AstNulls.At, field) { Selections = selection.Fields() });
+      field + selections.Bracket("{", "}").Joined(),
+      new FieldAst(AstNulls.At, field) { Selections = selections.Fields() });
 
   [Theory, RepeatData(Repeats)]
-  public void WithAll_ReturnsCorrectAst(string field, string alias, string argument, string directive, string selection)
+  public void WithAll_ReturnsCorrectAst(string field, string alias, string argument, string[] directives, string[] selections)
     => Test.TrueExpected(
-      alias + ":" + field + "($" + argument + ")[]?@" + directive + "{" + selection + "}",
+      alias + ":" + field + "($" + argument + ")[]?" + directives.Joined("@") + selections.Bracket("{", "}").Joined(),
       new FieldAst(AstNulls.At, field) {
         Alias = alias,
         Argument = new(AstNulls.At, argument),
         Modifiers = TestMods(),
-        Directives = directive.Directives(),
-        Selections = selection.Fields(),
+        Directives = directives.Directives(),
+        Selections = selections.Fields(),
       });
 
   [Theory, RepeatData(Repeats)]

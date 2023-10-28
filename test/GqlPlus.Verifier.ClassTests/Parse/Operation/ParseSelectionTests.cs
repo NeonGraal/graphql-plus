@@ -5,34 +5,34 @@ namespace GqlPlus.Verifier.Parse.Operation;
 public class ParseSelectionTests
 {
   [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
-  public void WithInline_ReturnsCorrectAst(string prefix, string field)
+  public void WithInline_ReturnsCorrectAst(string prefix, string[] fields)
     => Test.TrueExpected(
-      prefix + " {" + field + "}",
-      new InlineAst(AstNulls.At, field.Fields()));
+      prefix + " {" + fields.Joined() + "}",
+      new InlineAst(AstNulls.At, fields.Fields()));
 
   [Theory]
   [RepeatInlineData(Repeats, "...", " on ")]
   [RepeatInlineData(Repeats, "|", " on ")]
   [RepeatInlineData(Repeats, "...", ":")]
   [RepeatInlineData(Repeats, "|", ":")]
-  public void WithInlineType_ReturnsCorrectAst(string inlinePrefix, string typePrefix, string field, string inlineType)
+  public void WithInlineType_ReturnsCorrectAst(string inlinePrefix, string typePrefix, string[] fields, string inlineType)
     => Test.TrueExpected(
-      inlinePrefix + typePrefix + inlineType + "{" + field + "}",
-      new InlineAst(AstNulls.At, field.Fields()) { OnType = inlineType });
+      inlinePrefix + typePrefix + inlineType + "{" + fields.Joined() + "}",
+      new InlineAst(AstNulls.At, fields.Fields()) { OnType = inlineType });
 
   [Theory, RepeatData(Repeats)]
-  public void WithInlineDirective_ReturnsCorrectAst(string directive, string field)
+  public void WithInlineDirective_ReturnsCorrectAst(string[] directives, string[] fields)
     => Test.TrueExpected(
-      "|@" + directive + "{" + field + "}",
-      new InlineAst(AstNulls.At, field.Fields()) { Directives = directive.Directives() });
+      "|" + directives.Joined("@") + "{" + fields.Joined() + "}",
+      new InlineAst(AstNulls.At, fields.Fields()) { Directives = directives.Directives() });
 
   [Theory, RepeatData(Repeats)]
-  public void WithInlineAll_ReturnsCorrectAst(string inlineType, string directive, string field)
+  public void WithInlineAll_ReturnsCorrectAst(string inlineType, string[] directives, string[] fields)
     => Test.TrueExpected(
-      $"|:{inlineType}@" + directive + "{" + field + "}",
-      new InlineAst(AstNulls.At, field.Fields()) {
+      $"|:" + inlineType + directives.Joined("@") + "{" + fields.Joined() + "}",
+      new InlineAst(AstNulls.At, fields.Fields()) {
         OnType = inlineType,
-        Directives = directive.Directives(),
+        Directives = directives.Directives(),
       });
 
   [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
@@ -43,10 +43,10 @@ public class ParseSelectionTests
       fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase));
 
   [Theory, RepeatData(Repeats)]
-  public void WithSpreadDirective_ReturnsCorrectAst(string fragment, string directive)
+  public void WithSpreadDirective_ReturnsCorrectAst(string fragment, string[] directives)
     => Test.TrueExpected(
-      $"|{fragment}@{directive}",
-      new SpreadAst(AstNulls.At, fragment) { Directives = directive.Directives() },
+      $"|" + fragment + directives.Joined("@"),
+      new SpreadAst(AstNulls.At, fragment) { Directives = directives.Directives() },
       fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase));
 
   [Fact]

@@ -15,44 +15,44 @@ internal class BaseDirectivesAstChecks<I, T>
   public BaseDirectivesAstChecks(CreateBy<I> create)
     : base(create) { }
 
-  public void HashCode(I input, string directive)
+  public void HashCode(I input, string[] directives)
     => HashCode(
-      () => CreateDirective(input, directive),
+      () => CreateDirective(input, directives),
       _createExpression);
 
-  public void Equality(I input, string directive)
+  public void Equality(I input, string[] directives)
     => Equality(
-      () => CreateDirective(input, directive),
+      () => CreateDirective(input, directives),
       _createExpression);
 
-  public void Inequality_WithDirective(I input, string directive)
+  public void Inequality_WithDirective(I input, string[] directives)
     => Inequality(
-      () => CreateDirective(input, directive),
+      () => CreateDirective(input, directives),
       () => CreateInput(input),
       factoryExpression: _createExpression);
 
-  public void Inequality_ByDirectives(I input, string directive1, string directive2)
+  public void Inequality_ByDirectives(I input, string[] directive1, string[] directive2)
     => InequalityBetween(directive1, directive2,
-      directive => CreateDirective(input, directive),
-      directive1 == directive2, _createExpression);
+      directives => CreateDirective(input, directives),
+      directive1.SequenceEqual(directive2), _createExpression);
 
-  public void Inequality_ByInputs(I input1, I input2, string directive)
+  public void Inequality_ByInputs(I input1, I input2, string[] directives)
     => InequalityBetween(input1, input2,
-      input => CreateDirective(input, directive),
+      input => CreateDirective(input, directives),
       input1!.Equals(input2), _createExpression);
 
-  public void String(I input, string directive, string expected)
+  public void String(I input, string[] directives, string expected)
     => String(
-      () => CreateDirective(input, directive), expected,
+      () => CreateDirective(input, directives), expected,
       factoryExpression: _createExpression);
 
-  public string DirectiveString(I input, string directive)
-    => $"( !{Abbr} {input} ( !d {directive} ) )";
+  public string DirectiveString(I input, string[] directives)
+    => $"( !{Abbr} {input} {directives.Joined(d => $"( !d {d} )")} )";
 
-  private T CreateDirective(I input, string directive)
+  private T CreateDirective(I input, string[] directives)
   {
     var t = CreateInput(input);
-    t.Directives = directive.Directives();
+    t.Directives = directives.Directives();
     return t;
   }
 }
@@ -63,11 +63,11 @@ internal interface IBaseDirectivesAstChecks
 
 internal interface IBaseDirectivesAstChecks<I> : IBaseNamedAstChecks<I>
 {
-  void HashCode(I input, string directive);
-  void String(I input, string directive, string expected);
-  void Equality(I input, string directive);
-  void Inequality_WithDirective(I input, string directive);
-  void Inequality_ByInputs(I input1, I input2, string directive);
-  void Inequality_ByDirectives(I input, string directive1, string directive2);
-  string DirectiveString(I input, string directive);
+  void HashCode(I input, string[] directives);
+  void String(I input, string[] directives, string expected);
+  void Equality(I input, string[] directives);
+  void Inequality_WithDirective(I input, string[] directives);
+  void Inequality_ByInputs(I input1, I input2, string[] directives);
+  void Inequality_ByDirectives(I input, string[] directives1, string[] directives2);
+  string DirectiveString(I input, string[] directives);
 }

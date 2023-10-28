@@ -43,18 +43,18 @@ public class ParseVariablesTests
       TestVar(variable) with { Default = new FieldKeyAst(AstNulls.At, number) });
 
   [Theory, RepeatData(Repeats)]
-  public void WithDirective_ReturnsCorrectAst(string variable, string directive)
-    => Test.TrueExpected($"(${variable}@{directive})",
-      TestVar(variable) with { Directives = directive.Directives() });
+  public void WithDirective_ReturnsCorrectAst(string variable, string[] directives)
+    => Test.TrueExpected($"(${variable}{directives.Joined("@")})",
+      TestVar(variable) with { Directives = directives.Directives() });
 
   [Theory, RepeatData(Repeats)]
-  public void WithAll_ReturnsCorrectAst(string variable, string varType, decimal number, string directive)
-    => Test.TrueExpected($"(${variable}:{varType}[]?={number}@{directive})",
+  public void WithAll_ReturnsCorrectAst(string variable, string varType, decimal number, string[] directives)
+    => Test.TrueExpected($"(${variable}:{varType}[]?={number}{directives.Joined("@")})",
       TestVar(variable) with {
         Type = varType,
         Modifers = TestMods(),
         Default = new FieldKeyAst(AstNulls.At, number),
-        Directives = directive.Directives()
+        Directives = directives.Directives()
       });
 
   [Fact]

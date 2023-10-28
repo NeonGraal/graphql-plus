@@ -23,7 +23,7 @@ internal sealed record class FieldAst(ParseAt At, string Name)
     => //base.GetFields()
       new[] { AbbrAt, Alias.Suffixed(":"), Name }
       .Concat(Argument.Bracket("(", ")"))
-      .Append(Modifiers.AsString().Joined(""))
+      .Append(string.Join("", Modifiers.AsString()))
       .Concat(Directives.AsString())
       .Concat(Selections.Bracket("{", "}"));
 }

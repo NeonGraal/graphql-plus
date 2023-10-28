@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Verifier.Ast;
 
 public static class AstExtensions
 {
@@ -37,8 +39,16 @@ public static class AstExtensions
       ? items.Select(i => $"{i}").Prepend(before).Append(after)
       : Enumerable.Empty<string>();
 
-  public static string Joined(this IEnumerable<string>? items, string by = " ")
-    => string.Join(by, items ?? Array.Empty<string>());
+  public static string Joined(this IEnumerable<string?>? items)
+    => string.Join(" ",
+      items?.Where(i => !string.IsNullOrWhiteSpace(i))
+      ?? Array.Empty<string>());
+
+  public static string Joined(this IEnumerable<string?>? items, Func<string?, string> mapping)
+    => (items?.Select(mapping)).Joined();
+
+  public static string Joined(this IEnumerable<string?>? items, string prefix)
+    => items.Joined(s => prefix + s);
 
   internal static IEnumerable<string?> Bracket(this AstBase? item, string before, string after)
     => item is null

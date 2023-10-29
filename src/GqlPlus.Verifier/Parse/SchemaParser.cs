@@ -264,7 +264,7 @@ internal class SchemaParser : CommonParser
     return alternates.ToArray();
   }
 
-  private bool ParseField<F, R>(out F field, IFieldParser<F, R> parser)
+  internal bool ParseField<F, R>(out F field, IFieldParser<F, R> parser)
     where F : AstField<R> where R : AstReference<R>
   {
     var at = _tokens.At;
@@ -297,7 +297,7 @@ internal class SchemaParser : CommonParser
     return Error(parser.Label, "field details", parser.FieldEnumLabel(field));
   }
 
-  private bool ParseReference<R>(out R reference, IReferenceParser<R> factories, bool isTypeArgument = false)
+  internal bool ParseReference<R>(out R reference, IReferenceParser<R> factories, bool isTypeArgument = false)
     where R : AstReference<R>
   {
     if (_tokens.Prefix('$', out var param, out var at)) {
@@ -488,10 +488,10 @@ internal class SchemaParser : CommonParser
   private ScalarRangeAst[] ParseRanges()
   {
     var result = new List<ScalarRangeAst>();
-    var at = _tokens.At;
     while (ParseRange(out var range)) {
       result.Add(range);
     }
+
     return result.ToArray();
   }
 
@@ -504,6 +504,7 @@ internal class SchemaParser : CommonParser
     if (!_tokens.Take("..") && hasLower) {
       return Error("Scalar", "range operator ('..')");
     }
+
     var excludesUpper = _tokens.Take('<');
     var hasUpper = _tokens.Number(out var max);
 
@@ -511,6 +512,7 @@ internal class SchemaParser : CommonParser
       range.Lower = min;
       range.LowerExcluded = excludesLower;
     }
+
     if (hasUpper) {
       range.Upper = max;
       range.UpperExcluded = excludesUpper;

@@ -122,13 +122,18 @@ internal class SchemaParser : CommonParser
       return Error("Directive", "'@' name");
     }
 
+    if (ParseParameter(out var parameter)) {
+      result.Parameter = parameter;
+    }
+
     if (!ParsePrefix("Directive", out var aliases)
-      || !ParseOption("Directive", out DirectiveOption _)
+      || !ParseOption("Directive", out DirectiveOption option)
     ) {
       return false;
     }
 
     result.Aliases = aliases;
+    result.Option = option;
 
     if (!ParseEnumValue(out DirectiveLocation location)) {
       return Error("Directive", "at least one location");

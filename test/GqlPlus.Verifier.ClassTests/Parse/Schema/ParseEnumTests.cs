@@ -13,12 +13,29 @@ public class ParseEnumTests
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithAliases_ReturnsCorrectAst(string name, string label, string alias1, string alias2)
+  public void WithAliases_ReturnsCorrectAst(string name, string label, string[] aliases)
     => Test.TrueExpected(
-      name + "[" + alias1 + " " + alias2 + " ]=" + label,
+      name + aliases.Bracket("[", "]=").Joined() + label,
       new EnumAst(AstNulls.At, name) {
-        Aliases = new[] { alias1, alias2 },
+        Aliases = aliases,
         Labels = label.EnumLabels(),
+      });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithExtends_ReturnsCorrectAst(string name, string extends, string label)
+    => Test.TrueExpected(
+      name + "=:" + extends + " " + label,
+      new EnumAst(AstNulls.At, name) {
+        Extends = extends,
+        Labels = label.EnumLabels(),
+      });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithLabels_ReturnsCorrectAst(string name, string label1, string label2, string label3)
+    => Test.TrueExpected(
+      name + "=" + label1 + "|" + label2 + "|" + label3,
+      new EnumAst(AstNulls.At, name) {
+        Labels = label1.EnumLabels(label2, label3),
       });
 
   private static OneChecks<SchemaParser, EnumAst> Test => new(

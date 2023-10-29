@@ -21,6 +21,13 @@ internal sealed class BaseObjectChecks<O, F, R>
          Alternates = new[] { Reference(other) },
        });
 
+  public void WithAlternates(string name, string[] others)
+    => TrueExpected(
+      name + "=" + string.Join("|", others),
+       Object(name) with {
+         Alternates = others.Select(Reference).ToArray(),
+       });
+
   public void WithTypeParameters(string name, string other, string parameter)
     => TrueExpected(
       name + "<$" + parameter + " >=" + other,
@@ -29,12 +36,12 @@ internal sealed class BaseObjectChecks<O, F, R>
          Parameters = parameter.TypeParameters(),
        });
 
-  public void WithAliases(string name, string other, string alias1, string alias2)
+  public void WithAliases(string name, string other, string[] aliases)
     => TrueExpected(
-      name + "[" + alias1 + " " + alias2 + " ]=" + other,
+      name + aliases.Bracket("[", "]=").Joined() + other,
        Object(name) with {
          Alternates = new[] { Reference(other) },
-         Aliases = new[] { alias1, alias2 },
+         Aliases = aliases,
        });
 
   public void WithField(string name, string field, string fieldType)
@@ -42,6 +49,13 @@ internal sealed class BaseObjectChecks<O, F, R>
       name + "={" + field + ":" + fieldType + "}",
        Object(name) with {
          Fields = new[] { Field(field, fieldType) },
+       });
+
+  public void WithFields(string name, FieldInput[] fields)
+    => TrueExpected(
+      name + "={" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}",
+       Object(name) with {
+         Fields = fields.Select(f => Field(f.Name, f.Type)).ToArray(),
        });
 
   public void WithFieldAlias(string name, string field, string alias, string fieldType)

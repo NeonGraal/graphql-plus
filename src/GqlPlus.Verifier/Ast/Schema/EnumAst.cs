@@ -14,7 +14,7 @@ internal sealed record class EnumAst(ParseAt At, string Name, string Description
   public bool Equals(EnumAst? other)
     => base.Equals(other)
       && Extends.NullEqual(other.Extends)
-      && Labels.OrderedEqual(other.Labels);
+      && Labels.SequenceEqual(other.Labels);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Extends, Labels.Length);
   internal override IEnumerable<string?> GetFields()

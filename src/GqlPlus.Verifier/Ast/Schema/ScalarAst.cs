@@ -22,8 +22,8 @@ internal sealed record class ScalarAst(ParseAt At, string Name, string Descripti
   public bool Equals(ScalarAst? other)
     => base.Equals(other)
       && Kind == other.Kind
-      && Ranges.OrderedEqual(other.Ranges)
-      && Regexes.OrderedEqual(other.Regexes);
+      && Ranges.SequenceEqual(other.Ranges)
+      && Regexes.SequenceEqual(other.Regexes);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Kind, Ranges.Length, Regexes.Length);
   internal override IEnumerable<string?> GetFields()

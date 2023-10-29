@@ -15,7 +15,7 @@ internal sealed record class InlineAst(ParseAt At, params IAstSelection[] Select
     && Selections.SequenceEqual(other.Selections)
     && Directives.SequenceEqual(other.Directives);
   public override int GetHashCode()
-    => HashCode.Combine(OnType, Selections.Length, Directives.Length);
+    => HashCode.Combine(OnType, Selections?.Length, Directives.Length);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

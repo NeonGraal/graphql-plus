@@ -17,7 +17,7 @@ internal abstract record class AstObject<F, R>(ParseAt At, string Name, string D
       && Parameters.SequenceEqual(other.Parameters)
       && Extends.NullEqual(other.Extends)
       && Fields.SequenceEqual(other.Fields)
-      && Alternates.OrderedEqual(other.Alternates);
+      && Alternates.SequenceEqual(other.Alternates);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Parameters.Length, Extends, Fields.Length, Alternates.Length);
   internal override IEnumerable<string?> GetFields()

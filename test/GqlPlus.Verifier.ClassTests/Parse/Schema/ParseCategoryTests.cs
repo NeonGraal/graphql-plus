@@ -17,10 +17,10 @@ public class ParseCategoryTests
       new CategoryAst(AstNulls.At, output) { Option = option });
 
   [Theory, RepeatData(Repeats)]
-  public void WithAliases_ReturnsCorrectAst(string output, string alias1, string alias2)
+  public void WithAliases_ReturnsCorrectAst(string output, string[] aliases)
     => Test.TrueExpected(
-      "[" + alias1 + " " + alias2 + " ]=" + output,
-      new CategoryAst(AstNulls.At, output) { Aliases = new[] { alias1, alias2 } });
+      aliases.Bracket("[", "]=").Joined() + output,
+      new CategoryAst(AstNulls.At, output) { Aliases = aliases });
 
   [Theory, RepeatData(Repeats)]
   public void WithName_ReturnsCorrectAst(string output, string name)
@@ -29,12 +29,12 @@ public class ParseCategoryTests
       new CategoryAst(AstNulls.At, name, output));
 
   [Theory, RepeatData(Repeats)]
-  public void WithAll_ReturnsCorrectAst(string name, string output, CategoryOption option, string alias1, string alias2)
+  public void WithAll_ReturnsCorrectAst(string name, string output, CategoryOption option, string[] aliases)
     => Test.TrueExpected(
-      name + "[" + alias1 + " " + alias2 + "]=(" + option.ToString().ToLowerInvariant() + ")" + output,
+      name + aliases.Bracket("[", "]=(").Joined() + option.ToString().ToLowerInvariant() + ")" + output,
       new CategoryAst(AstNulls.At, name, output) {
         Option = option,
-        Aliases = new[] { alias1, alias2 },
+        Aliases = aliases,
       });
 
   private static OneChecks<SchemaParser, CategoryAst> Test => new(

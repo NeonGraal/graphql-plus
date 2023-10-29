@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-public class InlineAstTests : BaseDirectivesAstTests
+public class InlineAstTests : BaseDirectivesAstTests<string[]>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithOnType(string onType, string[] fields)
@@ -19,17 +19,17 @@ public class InlineAstTests : BaseDirectivesAstTests
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithOnType(string onType, string[] fields)
-    => _checks.InequalityWith(fields[0],
+    => _checks.InequalityWith(fields,
       () => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType });
 
-  private readonly BaseDirectivesAstChecks<InlineAst> _checks
-    = new(name => new InlineAst(AstNulls.At, new[] { name }.Fields()));
+  private readonly BaseDirectivesAstChecks<string[], InlineAst> _checks
+    = new(input => new InlineAst(AstNulls.At, input?.Fields() ?? Array.Empty<IAstSelection>()));
 
-  internal override IBaseDirectivesAstChecks DirectivesChecks => _checks;
+  internal override IBaseDirectivesAstChecks<string[]> DirectivesChecks => _checks;
 
-  protected override string InputString(string input)
-    => $"( !i {{ !f {input} }} )";
+  protected override string InputString(string[] input)
+    => $"( !i {{ {input.Joined("!f ")} }} )";
 
-  protected override string DirectiveString(string input, string[] directives)
-    => $"( !i {directives.Joined(d => $"( !d {d} )")} {{ !f {input} }} )";
+  protected override string DirectiveString(string[] input, string[] directives)
+    => $"( !i {directives.Joined(d => $"( !d {d} )")} {{ {input.Joined("!f ")} }} )";
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Reflection;
+﻿using System.Reflection;
 using AutoFixture;
 using AutoFixture.Kernel;
 
@@ -36,22 +35,14 @@ internal sealed class TestsCustomizations : CompositeCustomization
     private object ResolveType(Type type, string name, ISpecimenContext context)
     {
       if (type == typeof(string[])) {
-        var resolved = context.Resolve(new RangedSequenceRequest(new RegularExpressionRequest(IdentifierPattern), 1, 5));
-        var result = resolved is IList<object> list ? list.AsString().ToArray() : resolved;
-        return result;
+        return context.Resolve(new RangedSequenceRequest(new RegularExpressionRequest(IdentifierPattern), 1, 5)); ;
       }
 
-      if (type == typeof(string)) {
-        return name == "contents"
+      return type == typeof(string)
+        ? name == "contents"
           ? context.Resolve(new RegularExpressionRequest(".{9,999}"))
-          : context.Resolve(new RegularExpressionRequest(IdentifierPattern));
-      }
-
-      if (type == typeof(decimal)) {
-        return context.Resolve(new RangedNumberRequest(type, -99999.99999, 99999.99999));
-      }
-
-      return new NoSpecimen();
+          : context.Resolve(new RegularExpressionRequest(IdentifierPattern))
+        : type == typeof(decimal) ? context.Resolve(new RangedNumberRequest(type, -99999.99999, 99999.99999)) : new NoSpecimen();
     }
   }
 }

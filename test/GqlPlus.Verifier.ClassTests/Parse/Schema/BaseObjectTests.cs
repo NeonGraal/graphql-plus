@@ -7,16 +7,24 @@ public abstract class BaseObjectTests
     => Checks.WithMinimum(name, other);
 
   [Theory, RepeatData(Repeats)]
+  public void WithAlternates_ReturnsCorrectAst(string name, string[] others)
+    => Checks.WithAlternates(name, others);
+
+  [Theory, RepeatData(Repeats)]
   public void WithTypeParameters_ReturnsCorrectAst(string name, string other, string parameter)
     => Checks.WithTypeParameters(name, other, parameter);
 
   [Theory, RepeatData(Repeats)]
-  public void WithAliases_ReturnsCorrectAst(string name, string other, string alias1, string alias2)
-    => Checks.WithAliases(name, other, alias1, alias2);
+  public void WithAliases_ReturnsCorrectAst(string name, string other, string[] aliases)
+    => Checks.WithAliases(name, other, aliases);
 
   [Theory, RepeatData(Repeats)]
   public void WithField_ReturnsCorrectAst(string name, string field, string fieldType)
     => Checks.WithField(name, field, fieldType);
+
+  [Theory, RepeatData(Repeats)]
+  public void WithFields_ReturnsCorrectAst(string name, FieldInput[] fields)
+    => Checks.WithFields(name, fields);
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldAlias_ReturnsCorrectAst(string name, string field, string alias, string fieldType)

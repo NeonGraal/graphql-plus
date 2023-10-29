@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Parse.Schema;
 public class ParseOutputReferenceTests : BaseReferenceTests
 {
   [Theory, RepeatData(Repeats)]
-  public void WithArgumentEnumLabel_ReturnsCorrectAst(string name, string enumType, string[] labels)
+  public void WithArgumentEnumLabels_ReturnsCorrectAst(string name, string enumType, string[] labels)
     => Test.TrueExpected(
       name + "<" + labels.Joined(enumType + ".") + ">",
       Test.Reference(name) with {

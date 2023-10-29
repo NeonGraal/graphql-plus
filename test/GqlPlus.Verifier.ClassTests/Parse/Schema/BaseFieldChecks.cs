@@ -18,15 +18,25 @@ internal sealed class BaseFieldChecks<F, R>
   public void WithMinimum(string name, string fieldType)
     => TrueExpected(name + ":" + fieldType, Field(name, fieldType));
 
-  public F Field(string field, string fieldType)
+  public void WithAliases(string name, string fieldType, string[] aliases)
+    => TrueExpected(
+      name + "[" + aliases.Joined() + "]:" + fieldType,
+      Field(name, fieldType) with { Aliases = aliases });
+
+  public void WithModifiers(string name, string fieldType)
+    => TrueExpected(
+      name + ":" + fieldType + "[]?",
+      Field(name, fieldType) with { Modifiers = TestMods() });
+
+  internal F Field(string field, string fieldType)
     => _factories.Field(AstNulls.At, field, "", Reference(fieldType));
 
-  public F Field(string field, R fieldType)
+  internal F Field(string field, R fieldType)
     => _factories.Field(AstNulls.At, field, "", fieldType);
 
-  public R Reference(string type)
+  internal R Reference(string type)
     => _factories.Reference(AstNulls.At, type);
 
-  public R Reference(string type, string subType)
+  internal R Reference(string type, string subType)
     => Reference(type) with { Arguments = new[] { Reference(subType) } };
 }

@@ -19,24 +19,8 @@ public abstract class BaseObjectTests
     => Checks.WithAliases(name, other, aliases);
 
   [Theory, RepeatData(Repeats)]
-  public void WithField_ReturnsCorrectAst(string name, string field, string fieldType)
-    => Checks.WithField(name, field, fieldType);
-
-  [Theory, RepeatData(Repeats)]
   public void WithFields_ReturnsCorrectAst(string name, FieldInput[] fields)
     => Checks.WithFields(name, fields);
-
-  [Theory, RepeatData(Repeats)]
-  public void WithFieldAlias_ReturnsCorrectAst(string name, string field, string alias, string fieldType)
-    => Checks.WithFieldAlias(name, field, alias, fieldType);
-
-  [Theory, RepeatData(Repeats)]
-  public void WithFieldGeneric_ReturnsCorrectAst(string name, string field, string fieldType, string subType)
-    => Checks.WithFieldGeneric(name, field, fieldType, subType);
-
-  [Theory, RepeatData(Repeats)]
-  public void WithFieldModified_ReturnsCorrectAst(string name, string field, string fieldType)
-    => Checks.WithFieldModified(name, field, fieldType);
 
   [Theory, RepeatData(Repeats)]
   public void WithExtendsField_ReturnsCorrectAst(string name, string extends, string field, string fieldType)

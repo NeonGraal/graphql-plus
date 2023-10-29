@@ -43,44 +43,11 @@ internal sealed class BaseObjectChecks<O, F, R>
          Alternates = new[] { Reference(other) },
          Aliases = aliases,
        });
-
-  public void WithField(string name, string field, string fieldType)
-    => TrueExpected(
-      name + "={" + field + ":" + fieldType + "}",
-       Object(name) with {
-         Fields = new[] { Field(field, fieldType) },
-       });
-
   public void WithFields(string name, FieldInput[] fields)
     => TrueExpected(
       name + "={" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}",
        Object(name) with {
          Fields = fields.Select(f => Field(f.Name, f.Type)).ToArray(),
-       });
-
-  public void WithFieldAlias(string name, string field, string alias, string fieldType)
-    => TrueExpected(
-      name + "={" + field + "[" + alias + "]:" + fieldType + "}",
-       Object(name) with {
-         Fields = new[] { Field(field, fieldType) with {
-           Aliases = new[] { alias }
-         } },
-       });
-
-  public void WithFieldGeneric(string name, string field, string fieldType, string subType)
-    => TrueExpected(
-      name + "={" + field + ":" + fieldType + "<" + subType + ">}",
-       Object(name) with {
-         Fields = new[] { Field(field, Reference(fieldType, subType)) },
-       });
-
-  public void WithFieldModified(string name, string field, string fieldType)
-    => TrueExpected(
-      name + "={" + field + ":" + fieldType + "[]?}",
-       Object(name) with {
-         Fields = new[] { Field(field, fieldType) with {
-           Modifiers = TestMods()
-         } },
        });
 
   public void WithExtendsField(string name, string extends, string field, string fieldType)

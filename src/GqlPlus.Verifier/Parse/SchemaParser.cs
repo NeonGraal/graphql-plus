@@ -473,6 +473,7 @@ internal class SchemaParser : CommonParser
 
     switch (kind) {
       case ScalarKind.Number:
+        result.Ranges = ParseRanges();
         break;
       case ScalarKind.String:
         result.Regexes = ParseRegexes();
@@ -482,6 +483,40 @@ internal class SchemaParser : CommonParser
     }
 
     return true;
+  }
+
+  private ScalarRangeAst[] ParseRanges()
+  {
+    var result = new List<ScalarRangeAst>();
+    var at = _tokens.At;
+    while (ParseRange(out var range)) {
+      result.Add(range);
+    }
+    return result.ToArray();
+  }
+
+  private bool ParseRange(out ScalarRangeAst range)
+  {
+    var at = _tokens.At;
+    range = new(at);
+    var hasLower = _tokens.Number(out var min);
+    var excludesLower = _tokens.Take('>');
+    if (!_tokens.Take("..") && hasLower) {
+      return Error("Scalar", "range operator ('..')");
+    }
+    var excludesUpper = _tokens.Take('<');
+    var hasUpper = _tokens.Number(out var max);
+
+    if (hasLower) {
+      range.Lower = min;
+      range.LowerExcluded = excludesLower;
+    }
+    if (hasUpper) {
+      range.Upper = max;
+      range.UpperExcluded = excludesUpper;
+    }
+
+    return hasLower || hasUpper;
   }
 
   private ScalarRegexAst[] ParseRegexes()

@@ -1,0 +1,27 @@
+﻿enum _Scalar = Number | String
+
+output _TypeScalar = _ScalarNumber | _ScalarString
+
+output _BaseScalar<$base> = _BaseType<_Kind.Scalar> {
+        base: $base
+    }
+
+output _ScalarNumber = _BaseScalar<_Scalar.Number> {
+        ranges: _ScalarRange[]
+    }
+
+output _ScalarRange = {
+        from: Number?
+        fromInclusive: Boolean
+        to: Number?
+        toInclusive: Boolean
+    }
+
+output _ScalarString = _BaseScalar<_Scalar.String> {
+        regexes: _ScalarRegex[]
+    }
+
+output _ScalarRegex = {
+        regex: String
+        exclude: Boolean
+    }

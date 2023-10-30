@@ -1,0 +1,89 @@
+﻿!G I@1/1
+Success
+{
+  !O I@8/1
+  _OutputBase
+  {
+    !OF I@9/2
+    output
+    :
+     I@17/2
+    String
+    !OF I@9/3
+    arguments
+    :
+     I@20/3
+    _OutputArgument
+    []
+  }
+  |
+   I@25/4
+  String
+}
+{
+  !O I@8/6
+  _OutputField
+   I@23/6
+  _TypeField
+  <
+     I@34/6
+    _OutputBase
+  >
+  {
+    !OF I@9/7
+    parameter
+    :
+     I@20/7
+    _Parameter
+    ?
+  }
+  |
+   I@9/8
+  _OutputEnum
+}
+{
+  !O I@8/10
+  _OutputArgument
+   I@26/10
+  _BaseType
+  <
+     I@36/10
+    _Kind.Enum
+  >
+  {
+    !OF I@9/11
+    label
+    :
+     I@16/11
+    String
+  }
+  |
+   I@9/12
+  _TypeRef
+  <
+     I@18/12
+    _OutputBase
+  >
+}
+{
+  !O I@8/14
+  _OutputEnum
+   I@22/14
+  _BaseType
+  <
+     I@32/14
+    _Kind.Enum
+  >
+  {
+    !OF I@9/15
+    field
+    :
+     I@16/15
+    String
+    !OF I@9/16
+    label
+    :
+     I@16/16
+    String
+  }
+}

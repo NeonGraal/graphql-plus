@@ -1,0 +1,50 @@
+﻿!G I@1/1
+Success
+{
+  !O I@8/1
+  _Directive
+   I@21/1
+  _Aliased
+  {
+    !OF I@5/2
+    parameter
+    :
+     I@16/2
+    _Parameter
+    ?
+    !OF I@5/3
+    repeatable
+    :
+     I@17/3
+    Boolean
+    !OF I@5/4
+    locations
+    :
+     I@16/4
+    _Location
+    []
+  }
+}
+{
+  !O I@8/7
+  _Parameter
+   I@21/7
+  _TypeRef
+  <
+     I@30/7
+    _InputBase
+  >
+  {
+    !OF I@9/8
+    modifiers
+    :
+     I@20/8
+    _TypeModifier
+    []
+    !OF I@9/9
+    default
+    :
+     I@18/9
+    _Constant
+  }
+}

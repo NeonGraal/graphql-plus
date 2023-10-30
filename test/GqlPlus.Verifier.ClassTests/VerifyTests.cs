@@ -10,6 +10,13 @@ public class VerifyTests
   [Theory]
   [InlineData("default")]
   [InlineData("Intro_Schema")]
+  [InlineData("Intro_Category")]
+  [InlineData("Intro_Directive")]
+  [InlineData("Intro_Type")]
+  [InlineData("Intro_Enum")]
+  [InlineData("Intro_Input")]
+  [InlineData("Intro_Output")]
+  [InlineData("Intro_Scalar")]
   public async Task VerifySampleSchema(string sample)
   {
     var operation = File.ReadAllText("Sample/Schema_" + sample + ".graphql+");

@@ -8,6 +8,7 @@ internal interface IBaseObjectChecks
   void WithExtendsField(string name, string extends, string field, string fieldType);
   void WithExtendsGenericField(string name, string extends, string subType, string field, string fieldType);
   void WithAlternates(string name, string[] others);
+  void WithAlternateComments(string name, AlternateComment[] others);
   void WithFields(string name, FieldInput[] fields);
 }
 

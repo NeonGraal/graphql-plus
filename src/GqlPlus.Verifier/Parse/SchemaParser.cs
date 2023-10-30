@@ -225,7 +225,8 @@ internal class SchemaParser : CommonParser
 
     result.Aliases = aliases;
 
-    var hasBase = ParseReference(out var reference, factories);
+    _tokens.String(out var descr);
+    var hasBase = ParseReference(out var reference, factories, descr);
 
     if (_tokens.Take('{')) {
       var fields = new List<F>();
@@ -239,7 +240,7 @@ internal class SchemaParser : CommonParser
       }
 
       if (hasBase) {
-        result.Extends = reference;
+        result.Extends = reference with { Description = descr };
       }
 
       result.Fields = fields.ToArray();
@@ -256,7 +257,8 @@ internal class SchemaParser : CommonParser
   {
     var alternates = new List<R>(initial);
     while (_tokens.Take('|')) {
-      if (ParseReference(out var alternate, factories)) {
+      _tokens.String(out var descr);
+      if (ParseReference(out var alternate, factories, descr)) {
         alternates.Add(alternate);
       }
     }
@@ -280,7 +282,8 @@ internal class SchemaParser : CommonParser
     field = parser.Field(at, name, description, parser.Reference(at, ""));
 
     if (_tokens.Take(':')) {
-      if (ParseReference(out var fieldType, parser)) {
+      _tokens.String(out var descr);
+      if (ParseReference(out var fieldType, parser, descr)) {
         field = parser.Field(at, name, description, fieldType);
         field.Aliases = aliases;
         if (hasParameter) {
@@ -297,11 +300,11 @@ internal class SchemaParser : CommonParser
     return Error(parser.Label, "field details", parser.FieldEnumLabel(field));
   }
 
-  internal bool ParseReference<R>(out R reference, IReferenceParser<R> factories, bool isTypeArgument = false)
+  internal bool ParseReference<R>(out R reference, IReferenceParser<R> factories, string description, bool isTypeArgument = false)
     where R : AstReference<R>
   {
     if (_tokens.Prefix('$', out var param, out var at)) {
-      reference = factories.Reference(at, param);
+      reference = factories.Reference(at, param) with { Description = description };
       reference.IsTypeParameter = true;
       return true;
     }
@@ -309,11 +312,13 @@ internal class SchemaParser : CommonParser
     at = _tokens.At;
 
     if (_tokens.Identifier(out var name)) {
-      reference = factories.Reference(at, name);
+      reference = factories.Reference(at, name) with { Description = description };
       if (_tokens.Take('<')) {
         var arguments = new List<R>();
-        while (ParseReference(out var argument, factories, true)) {
+        _tokens.String(out var descr);
+        while (ParseReference(out var argument, factories, descr, isTypeArgument: true)) {
           arguments.Add(argument);
+          _tokens.String(out descr);
         }
 
         reference.Arguments = arguments.ToArray();
@@ -382,8 +387,9 @@ internal class SchemaParser : CommonParser
       return true;
     }
 
+    _tokens.String(out var descr);
     var at = _tokens.At;
-    if (!ParseReference(out var reference, new InputParserFactories(this))) {
+    if (!ParseReference(out var reference, new InputParserFactories(this), descr)) {
       return Error("Parameter", "input reference after '('");
     }
 

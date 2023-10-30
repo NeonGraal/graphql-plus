@@ -80,7 +80,7 @@ output _TypeObject<$kind $base $field> =_BaseType<$kind> {
         parameters: _Named[]
         base: $base?
         fields: $field[]
-        alternates: $_TypeRef<$base>[]
+        alternates: _TypeRef<$base>[]
     }
 
 output _TypeRef<$base> = _BaseType<_Kind.Internal>
@@ -251,7 +251,7 @@ output _TypeObject<$kind $base $field> =_BaseType<$kind> {
         parameters: _Named[]
         base: $base?
         fields: $field[]
-        alternates: $_TypeRef<$base>[]
+        alternates: _TypeRef<$base>[]
     }
 
 output _TypeRef<$base> = _BaseType<_Kind.Internal>

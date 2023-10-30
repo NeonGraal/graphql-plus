@@ -1,0 +1,6 @@
+﻿output _InputBase = {
+        input: String
+        arguments: _TypeRef<_InputBase>[]
+    } | "TypeParameter" String
+
+output _InputField = _TypeField<_InputBase>

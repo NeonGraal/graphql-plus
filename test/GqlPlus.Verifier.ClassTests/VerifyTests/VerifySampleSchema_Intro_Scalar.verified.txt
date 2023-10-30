@@ -1,0 +1,120 @@
+﻿!G I@1/1
+Success
+{
+  !E I@6/1
+  _Scalar
+  !EL I@16/1
+  Number
+  !EL I@25/1
+  String
+}
+{
+  !O I@8/3
+  _TypeScalar
+  |
+   I@22/3
+  _ScalarNumber
+   I@38/3
+  _ScalarString
+}
+{
+  !O I@8/5
+  _BaseScalar
+  <
+     I@21/5
+    $base
+  >
+   I@29/5
+  _BaseType
+  <
+     I@39/5
+    _Kind.Scalar
+  >
+  {
+    !OF I@9/6
+    base
+    :
+     I@16/6
+    $base
+  }
+}
+{
+  !O I@8/9
+  _ScalarNumber
+   I@24/9
+  _BaseScalar
+  <
+     I@36/9
+    _Scalar.Number
+  >
+  {
+    !OF I@9/10
+    ranges
+    :
+     I@17/10
+    _ScalarRange
+    []
+  }
+}
+{
+  !O I@8/13
+  _ScalarRange
+  {
+    !OF I@9/14
+    from
+    :
+     I@15/14
+    Number
+    ?
+    !OF I@9/15
+    fromInclusive
+    :
+     I@24/15
+    Boolean
+    !OF I@9/16
+    to
+    :
+     I@13/16
+    Number
+    ?
+    !OF I@9/17
+    toInclusive
+    :
+     I@22/17
+    Boolean
+  }
+}
+{
+  !O I@8/20
+  _ScalarString
+   I@24/20
+  _BaseScalar
+  <
+     I@36/20
+    _Scalar.String
+  >
+  {
+    !OF I@9/21
+    regexes
+    :
+     I@18/21
+    _ScalarRegex
+    []
+  }
+}
+{
+  !O I@8/24
+  _ScalarRegex
+  {
+    !OF I@9/25
+    regex
+    :
+     I@16/25
+    String
+    !OF I@9/26
+    exclude
+    :
+     I@18/26
+    Boolean
+  }
+}

@@ -88,7 +88,7 @@ Input and Output types are both Object Union types
 ```PEG
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
-Parameter = '(' In_Reference Modifiers? Default? ')'
+Parameter = '(' STRING? In_Reference Modifiers? Default? ')'
 
 Simple = Basic | scalar | enum  # Redefined
 ```
@@ -199,13 +199,13 @@ The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically 
 
 ```PEG
 Input = 'input' input TypeParameters? Aliases? '=' In_Definition
-In_Definition = (In_Object | In_Reference ) In_Alternates*
+In_Definition = STRING? (In_Object | In_Reference ) In_Alternates*
 In_Object = In_Base? '{' InField+ '}'
-In_Field = STRING? field fieldAlias* ':' In_Reference Modifiers? Default?
+In_Field = STRING? field fieldAlias* ':' STRING? In_Reference Modifiers? Default?
 
-In_Alternate = '|' In_Reference
+In_Alternate = '|' STRING? In_Reference
 In_Reference = Internal | Simple | In_Base
-In_Base = '$'typeParameter | input ( '<' In_Reference+ '>' )?
+In_Base = '$'typeParameter | input ( '<' STRING? In_Reference+ '>' )?
 ```
 
 Input types define the type of Output field's Argument.
@@ -249,13 +249,13 @@ If only present on one Field before merging, optional components will be retaine
 
 ```PEG
 Output = 'output' output TypeParameters? Aliases? '=' Out_Definition
-Out_Definition = ( Out_Object | Out_Reference ) Out_Alternate*
+Out_Definition = STRING? ( Out_Object | Out_Reference ) Out_Alternate*
 Out_Object = Out_Base? '{' ( STRING? field Out_Field )+ '}'
-Out_Field = Parameter? fieldAlias* ':' Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
+Out_Field = Parameter? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
-Out_Alternate = '|' Out_Reference
+Out_Alternate = '|' STRING? Out_Reference
 Out_Reference = Internal | Simple | Out_Base
-Out_Base = '$'typeParameter | output ( '<' ( Out_Reference | EnumLabel )+ '>' )?
+Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | EnumLabel )+ '>' )?
 ```
 
 Output types define the result values for Categories and Output fields.
@@ -339,27 +339,27 @@ En_Label = STRING? label Aliases?
 
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
-Parameter = '(' In_Reference Modifiers? Default? ')'
+Parameter = '(' STRING? In_Reference Modifiers? Default? ')'
 
 Simple = Basic | scalar | enum  # Redefined
 
 Input = 'input' input TypeParameters? Aliases? '=' In_Definition
-In_Definition = (In_Object | In_Reference ) In_Alternates*
+In_Definition = STRING? (In_Object | In_Reference ) In_Alternates*
 In_Object = In_Base? '{' InField+ '}'
-In_Field = STRING? field fieldAlias* ':' In_Reference Modifiers? Default?
+In_Field = STRING? field fieldAlias* ':' STRING? In_Reference Modifiers? Default?
 
-In_Alternate = '|' In_Reference
+In_Alternate = '|' STRING? In_Reference
 In_Reference = Internal | Simple | In_Base
-In_Base = '$'typeParameter | input ( '<' In_Reference+ '>' )?
+In_Base = '$'typeParameter | input ( '<' STRING? In_Reference+ '>' )?
 
 Output = 'output' output TypeParameters? Aliases? '=' Out_Definition
-Out_Definition = ( Out_Object | Out_Reference ) Out_Alternate*
+Out_Definition = STRING? ( Out_Object | Out_Reference ) Out_Alternate*
 Out_Object = Out_Base? '{' ( STRING? field Out_Field )+ '}'
-Out_Field = Parameter? fieldAlias* ':' Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
+Out_Field = Parameter? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
-Out_Alternate = '|' Out_Reference
+Out_Alternate = '|' STRING? Out_Reference
 Out_Reference = Internal | Simple | Out_Base
-Out_Base = '$'typeParameter | output ( '<' ( Out_Reference | EnumLabel )+ '>' )?
+Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | EnumLabel )+ '>' )?
 
 Scalar = 'scalar' scalar Aliases? '=' ScalarDefinition
 ScalarDefinition = Scal_Number | Scal_String

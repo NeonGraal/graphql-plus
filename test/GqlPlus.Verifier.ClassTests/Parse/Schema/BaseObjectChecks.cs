@@ -28,6 +28,13 @@ internal sealed class BaseObjectChecks<O, F, R>
          Alternates = others.Select(Reference).ToArray(),
        });
 
+  public void WithAlternateComments(string name, AlternateComment[] others)
+    => TrueExpected(
+      name + "=" + string.Join("|", others.Select(o => $"'{o.Content}'{o.Alternate}")),
+       Object(name) with {
+         Alternates = others.Select(o => Reference(o.Alternate) with { Description = o.Content }).ToArray(),
+       });
+
   public void WithTypeParameters(string name, string other, string parameter)
     => TrueExpected(
       name + "<$" + parameter + " >=" + other,
@@ -81,3 +88,5 @@ internal sealed class BaseObjectChecks<O, F, R>
   public R Reference(string type, string subType)
     => Reference(type) with { Arguments = new[] { Reference(subType) } };
 }
+
+public record struct AlternateComment(string Content, string Alternate);

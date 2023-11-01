@@ -17,10 +17,22 @@ public class ParseCategoryTests
       new CategoryAst(AstNulls.At, output) { Option = option });
 
   [Theory, RepeatData(Repeats)]
+  public void WithOptionBad_ReturnsFalse(string output, CategoryOption option)
+    => Test.False(
+      "=(" + option.ToString().ToLowerInvariant() + " " + output,
+      ast => { });
+
+  [Theory, RepeatData(Repeats)]
   public void WithAliases_ReturnsCorrectAst(string output, string[] aliases)
     => Test.TrueExpected(
       aliases.Bracket("[", "]=").Joined() + output,
       new CategoryAst(AstNulls.At, output) { Aliases = aliases });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithAliasesBad_ReturnsAst(string output, string[] aliases)
+    => Test.False(
+      aliases.Bracket("[", "=").Joined() + output,
+       ast => { });
 
   [Theory, RepeatData(Repeats)]
   public void WithName_ReturnsCorrectAst(string output, string name)

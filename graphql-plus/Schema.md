@@ -90,6 +90,8 @@ TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
 Parameter = '(' STRING? In_Reference Modifiers? Default? ')'
 
+Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
+
 Simple = Basic | scalar | enum  # Redefined
 ```
 
@@ -340,6 +342,8 @@ En_Label = STRING? label Aliases?
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
 Parameter = '(' STRING? In_Reference Modifiers? Default? ')'
+
+Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
 
 Simple = Basic | scalar | enum  # Redefined
 

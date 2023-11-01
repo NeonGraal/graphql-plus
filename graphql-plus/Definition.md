@@ -55,6 +55,8 @@ FieldKey = EnumLabel | NUMBER | STRING
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 Simple = Basic | enum
 Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
+
+Internal = 'Void' | 'Null' | 'null'
 ```
 
 | Modifier   | Syntax           | Notes                                                                                                                        | Description                   |
@@ -117,6 +119,8 @@ FieldKey = EnumLabel | NUMBER | STRING
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 Simple = Basic | enum
 Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
+
+Internal = 'Void' | 'Null' | 'null'
 
 Constant = Const_List | Const_Object | Const_Value
 Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | EnumLabel

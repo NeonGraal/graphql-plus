@@ -25,26 +25,26 @@ public class EnumAstTests : BaseAliasedAstTests
       extends1 == extends2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithLabels(string name, string label)
+  public void HashCode_WithLabels(string name, string[] labels)
       => _checks.HashCode(
-        () => new EnumAst(AstNulls.At, name) { Labels = label.EnumLabels() });
+        () => new EnumAst(AstNulls.At, name) { Labels = labels.EnumLabels() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithLabels(string name, string label)
+  public void String_WithLabels(string name, string[] labels)
     => _checks.String(
-      () => new EnumAst(AstNulls.At, name) { Labels = label.EnumLabels() },
-      $"( !E {name} !EL {label} )");
+      () => new EnumAst(AstNulls.At, name) { Labels = labels.EnumLabels() },
+      $"( !E {name} {labels.Joined("!EL ")} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithLabels(string name, string label)
+  public void Equality_WithLabels(string name, string[] labels)
     => _checks.Equality(
-      () => new EnumAst(AstNulls.At, name) { Labels = label.EnumLabels() });
+      () => new EnumAst(AstNulls.At, name) { Labels = labels.EnumLabels() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenLabels(string name, string label1, string label2)
-    => _checks.InequalityBetween(label1, label2,
+  public void Inequality_BetweenLabels(string name, string[] labels1, string[] labels2)
+    => _checks.InequalityBetween(labels1, labels2,
       label => new EnumAst(AstNulls.At, name) { Labels = label.EnumLabels() },
-      label1 == label2);
+      labels1.SequenceEqual(labels2));
 
   private readonly BaseAliasedAstChecks<EnumAst> _checks
     = new(name => new EnumAst(AstNulls.At, name)) {

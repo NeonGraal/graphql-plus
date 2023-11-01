@@ -61,7 +61,6 @@ An Operation's Result is either:
 
 ```PEG
 Scalar = Internal | Simple
-Internal = 'Void' | 'Null' | 'null'
 ```
 
 | Type    | Value(s)          | Description                                                                 |
@@ -149,7 +148,6 @@ Directive = '@'directive Argument?
 Result = ( ':' Scalar Argument? | Object ) Modifier?
 
 Scalar = Internal | Simple
-Internal = 'Void' | 'Null' | 'null'
 
 Object = '{' ( Selection | Field )+ '}'
 Field = ( alias ':' )? field Argument? Modifier? Directive* Object?

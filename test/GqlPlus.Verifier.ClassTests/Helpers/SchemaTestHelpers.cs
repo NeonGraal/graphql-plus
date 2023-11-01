@@ -4,8 +4,8 @@ namespace GqlPlus.Verifier.ClassTests;
 
 internal static class SchemaTestHelpers
 {
-  public static EnumLabelAst[] EnumLabels(this string label, params string[] labels)
-    => labels.Select(l => new EnumLabelAst(AstNulls.At, l)).Prepend(new(AstNulls.At, label)).ToArray();
+  public static EnumLabelAst[] EnumLabels(this string[] labels)
+    => labels.Select(l => new EnumLabelAst(AstNulls.At, l)).ToArray();
 
   public static InputFieldAst[] InputFields(this string fieldName, string fieldType)
     => new InputFieldAst[] { new(AstNulls.At, fieldName, new(AstNulls.At, fieldType)) };

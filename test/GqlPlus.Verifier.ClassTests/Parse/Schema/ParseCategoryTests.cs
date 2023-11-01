@@ -2,14 +2,9 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public class ParseCategoryTests
+public sealed class ParseCategoryTests
+  : BaseAliasedTests<string>
 {
-  [Theory, RepeatData(Repeats)]
-  public void WithMinimum_ReturnsCorrectAst(string output)
-    => Test.TrueExpected(
-      "=" + output,
-      new CategoryAst(AstNulls.At, output));
-
   [Theory, RepeatData(Repeats)]
   public void WithOption_ReturnsCorrectAst(string output, CategoryOption option)
     => Test.TrueExpected(
@@ -18,21 +13,11 @@ public class ParseCategoryTests
 
   [Theory, RepeatData(Repeats)]
   public void WithOptionBad_ReturnsFalse(string output, CategoryOption option)
-    => Test.False(
-      "=(" + option.ToString().ToLowerInvariant() + " " + output,
-      ast => { });
+    => Test.False("=(" + option.ToString().ToLowerInvariant() + " " + output);
 
   [Theory, RepeatData(Repeats)]
-  public void WithAliases_ReturnsCorrectAst(string output, string[] aliases)
-    => Test.TrueExpected(
-      aliases.Bracket("[", "]=").Joined() + output,
-      new CategoryAst(AstNulls.At, output) { Aliases = aliases });
-
-  [Theory, RepeatData(Repeats)]
-  public void WithAliasesBad_ReturnsAst(string output, string[] aliases)
-    => Test.False(
-      aliases.Bracket("[", "=").Joined() + output,
-       ast => { });
+  public void WithOptionNone_ReturnsFalse(string output)
+    => Test.False("=()" + output);
 
   [Theory, RepeatData(Repeats)]
   public void WithName_ReturnsCorrectAst(string output, string name)
@@ -49,7 +34,7 @@ public class ParseCategoryTests
         Aliases = aliases,
       });
 
-  private static OneChecks<SchemaParser, CategoryAst> Test => new(
-    tokens => new SchemaParser(tokens),
-    (SchemaParser parser, out CategoryAst result) => parser.ParseCategory(out result, ""));
+  private static ParseCategoryChecks Test => new();
+
+  internal override IBaseAliasedChecks<string> AliasChecks => Test;
 }

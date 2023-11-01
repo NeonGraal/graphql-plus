@@ -33,7 +33,7 @@ internal class OneChecks<P, T>
     result.Should().Be(expected);
   }
 
-  internal void False(string input, Action<T> check, bool skipIf = false)
+  internal void False(string input, Action<T>? check = null, bool skipIf = false)
   {
     if (skipIf) {
       return;
@@ -46,6 +46,6 @@ internal class OneChecks<P, T>
     success.Should().BeFalse(_oneExpression);
     using var scope = new AssertionScope();
     parser.Errors.Should().NotBeEmpty();
-    check(result);
+    check?.Invoke(result);
   }
 }

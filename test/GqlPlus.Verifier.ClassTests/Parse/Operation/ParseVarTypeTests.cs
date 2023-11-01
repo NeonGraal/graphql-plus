@@ -20,11 +20,11 @@ public class ParseVarTypeTests
 
   [Fact]
   public void WithNoType_ReturnsFalse()
-    => Test.False("[]", s => { });
+    => Test.False("[]");
 
   [Fact]
   public void WithNoEnd_ReturnsFalse()
-    => Test.False("[test", s => { });
+    => Test.False("[test");
 
   private static OneChecks<OperationParser, string> Test => new(
     tokens => new OperationParser(tokens),

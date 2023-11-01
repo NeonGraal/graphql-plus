@@ -49,9 +49,9 @@ internal class CommonParser
     return false;
   }
 
-  internal ModifierAst[] ParseModifiers()
+  internal bool ParseModifiers(string label, out ModifierAst[] modifiers)
   {
-    var modifiers = new List<ModifierAst>();
+    var result = new List<ModifierAst>();
 
     var at = _tokens.At;
     while (_tokens.Take('[')) {
@@ -65,17 +65,21 @@ internal class CommonParser
       }
 
       if (_tokens.Take(']')) {
-        modifiers.Add(modifier);
+        result.Add(modifier);
+      } else {
+        modifiers = Array.Empty<ModifierAst>();
+        return Error(label, "']' at end of list or dictionary modifier.");
       }
 
       at = _tokens.At;
     }
 
     if (_tokens.Take('?')) {
-      modifiers.Add(ModifierAst.Optional(at));
+      result.Add(ModifierAst.Optional(at));
     }
 
-    return modifiers.ToArray();
+    modifiers = result.ToArray();
+    return true;
   }
 
   internal bool ParseDefault(out ConstantAst? constant)

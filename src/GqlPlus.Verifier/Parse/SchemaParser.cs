@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using System.Reflection.Emit;
+using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Parse;
@@ -277,7 +278,7 @@ internal class SchemaParser : CommonParser
     }
 
     var hasParameter = parser.FieldParameter(out var parameter);
-    if (!ParseAliases(parser.Label, out var aliases)) {
+    if (!hasParameter || !ParseAliases(parser.Label, out var aliases)) {
       field = parser.NullField();
       return false;
     }
@@ -293,7 +294,10 @@ internal class SchemaParser : CommonParser
           parser.ApplyParameter(field, parameter);
         }
 
-        field.Modifiers = ParseModifiers();
+        if (!ParseModifiers(parser.Label, out var modifiers)) {
+          return false;
+        }
+        field.Modifiers = modifiers;
         return parser.FieldDefault(field);
       }
 
@@ -327,7 +331,9 @@ internal class SchemaParser : CommonParser
         reference.Arguments = arguments.ToArray();
 
         if (!_tokens.Take('>')) {
-          return Error(factories.Label, "'>' after arguments");
+          return Error(factories.Label, "'>' after type argument(s)");
+        } else if (arguments.Count < 1) {
+          return Error(factories.Label, "at least one type argument after '<'");
         }
       } else if (isTypeArgument) {
         return factories.TypeEnumLabel(reference);
@@ -396,9 +402,13 @@ internal class SchemaParser : CommonParser
       return Error("Parameter", "input reference after '('");
     }
 
-    parameter = new(at, reference) {
-      Modifiers = ParseModifiers()
-    };
+    parameter = new(at, reference);
+    if (!ParseModifiers("Parameter", out var modifiers)) {
+      return false;
+    }
+
+    parameter.Modifiers = modifiers;
+
     if (ParseDefault(out var constant)) {
       parameter.Default = constant;
     }

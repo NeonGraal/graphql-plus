@@ -1,9 +1,9 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.ClassTests.Parse.Schema;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public class ParseInputFieldTests : BaseFieldTests
+public class ParseInputFieldTests
+  : BaseFieldTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithDefault_ReturnsCorrectAst(string name, string fieldType, string content)

@@ -52,7 +52,15 @@ internal class OperationParser : CommonParser
       };
     }
 
-    ast.Modifiers = ParseModifiers();
+    if (!ParseModifiers("Operation", out var modifiers)) {
+      return ast with {
+        Errors = Errors.ToArray(),
+        Usages = Variables.ToArray(),
+        Spreads = Spreads.ToArray(),
+      };
+    }
+
+    ast.Modifiers = modifiers;
     ast.Fragments = ParseFragEnd(ast.Fragments);
 
     if (_tokens.AtEnd) {
@@ -86,7 +94,12 @@ internal class OperationParser : CommonParser
         variable.Type = varType;
       }
 
-      variable.Modifers = ParseModifiers();
+      if (!ParseModifiers("Variables", out var modifiers)) {
+        return false;
+      }
+
+      variable.Modifers = modifiers;
+
       if (ParseDefault(out var constant)) {
         variable.Default = constant;
       }
@@ -233,7 +246,11 @@ internal class OperationParser : CommonParser
       result.Argument = argument;
     }
 
-    result.Modifiers = ParseModifiers();
+    if (!ParseModifiers("Field", out var modifiers)) {
+      return false;
+    }
+
+    result.Modifiers = modifiers;
     result.Directives = ParseDirectives();
 
     if (ParseObject(out IAstSelection[] selections)) {

@@ -45,7 +45,7 @@ internal class InputParserFactories
   public bool FieldParameter(out ParameterAst? parameter)
   {
     parameter = default;
-    return false;
+    return true;
   }
 
   public bool TypeEnumLabel(InputReferenceAst reference) => true;

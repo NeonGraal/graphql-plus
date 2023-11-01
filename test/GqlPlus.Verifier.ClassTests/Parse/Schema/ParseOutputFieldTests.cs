@@ -1,5 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.ClassTests.Parse.Schema;
+using GqlPlus.Verifier.Parse.Schema;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
@@ -14,12 +14,20 @@ public class ParseOutputFieldTests : BaseFieldTests
       });
 
   [Theory, RepeatData(Repeats)]
+  public void WithParameterBad_ReturnsFalse(string name, string fieldType, string parameter)
+    => Test.False(name + "(" + parameter + ":" + fieldType);
+
+  [Theory, RepeatData(Repeats)]
   public void WithParameterModifiers_ReturnsCorrectAst(string name, string fieldType, string parameter)
     => Test.TrueExpected(
       name + "(" + parameter + "[]?):" + fieldType,
       Test.Field(name, fieldType) with {
         Parameter = new ParameterAst(AstNulls.At, parameter) with { Modifiers = TestMods() }
       });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithParameterModifiersBad_ReturnsFalse(string name, string fieldType, string parameter)
+    => Test.False(name + "(" + parameter + "[?):" + fieldType);
 
   [Theory, RepeatData(Repeats)]
   public void WithParameterDefault_ReturnsCorrectAst(string name, string fieldType, string parameter, string content)
@@ -42,6 +50,10 @@ public class ParseOutputFieldTests : BaseFieldTests
     => Test.TrueExpected(
       name + "=" + enumType + "." + label,
         Test.Field(name, enumType) with { Label = label });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithFieldEnumLabelBad_ReturnsFalse(string name, string label)
+    => Test.False(name + "=." + label);
 
   internal override IBaseFieldChecks Checks => Test;
 

@@ -2,31 +2,9 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public class ParseDirectiveTests
+public sealed class ParseDirectiveTests
+  : BaseAliasedTests<string>
 {
-  [Theory, RepeatData(Repeats)]
-  public void WithMinimum_ReturnsCorrectAst(string name)
-    => Test.TrueExpected(
-      "@" + name + "=operation",
-      new DirectiveAst(AstNulls.At, name) {
-        Locations = DirectiveLocation.Operation,
-      });
-
-  [Theory, RepeatData(Repeats)]
-  public void WithAliases_ReturnsCorrectAst(string name, string[] aliases)
-    => Test.TrueExpected(
-      "@" + name + aliases.Bracket("[", "]=operation").Joined(),
-      new DirectiveAst(AstNulls.At, name) {
-        Aliases = aliases,
-        Locations = DirectiveLocation.Operation,
-      });
-
-  [Theory, RepeatData(Repeats)]
-  public void WithAliasesBad_ReturnsFalse(string name, string[] aliases)
-    => Test.False(
-      "@" + name + aliases.Bracket("[", "=operation").Joined(),
-      ast => { });
-
   [Theory, RepeatData(Repeats)]
   public void WithRepeatable_ReturnsCorrectAst(string name)
     => Test.TrueExpected(
@@ -37,10 +15,12 @@ public class ParseDirectiveTests
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithRepeatableBad_ReturnsCorrectFalse(string name)
-    => Test.False(
-      "@" + name + "=(repeatable operation",
-      ast => { });
+  public void WithOptionBad_ReturnsFalse(string name)
+    => Test.False("@" + name + "=(repeatable operation");
+
+  [Theory, RepeatData(Repeats)]
+  public void WithOptionNone_ReturnsFalse(string name)
+    => Test.False("@" + name + "=()operation");
 
   [Theory, RepeatData(Repeats)]
   public void WithParameter_ReturnsCorrectAst(string name, string parameter)
@@ -53,9 +33,11 @@ public class ParseDirectiveTests
 
   [Theory, RepeatData(Repeats)]
   public void WithParameterBad_ReturnsFalse(string name, string parameter)
-    => Test.False(
-      "@" + name + "(" + parameter + "=operation",
-      ast => { });
+    => Test.False("@" + name + "(" + parameter + "=operation");
+
+  [Theory, RepeatData(Repeats)]
+  public void WithParameterNone_ReturnsFalse(string name)
+    => Test.False("@" + name + "()=operation");
 
   [Theory, RepeatData(Repeats)]
   public void WithLocations_ReturnsCorrectAst(string name)
@@ -67,11 +49,13 @@ public class ParseDirectiveTests
 
   [Theory, RepeatData(Repeats)]
   public void WithLocationsBad_ReturnsFalse(string name)
-    => Test.False(
-      "@" + name + "=operation||FRAGMENT",
-      ast => { });
+    => Test.False("@" + name + "=operation||FRAGMENT");
 
-  private static OneChecks<SchemaParser, DirectiveAst> Test => new(
-    tokens => new SchemaParser(tokens),
-    (SchemaParser parser, out DirectiveAst result) => parser.ParseDirective(out result, ""));
+  [Theory, RepeatData(Repeats)]
+  public void WithLocationsNone_ReturnsFalse(string name)
+    => Test.False("@" + name + "=|");
+
+  private static ParseDirectiveChecks Test => new();
+
+  internal override IBaseAliasedChecks<string> AliasChecks => Test;
 }

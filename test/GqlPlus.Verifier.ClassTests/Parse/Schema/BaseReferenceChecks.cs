@@ -2,7 +2,7 @@
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Parse;
 
-namespace GqlPlus.Verifier.ClassTests.Parse.Schema;
+namespace GqlPlus.Verifier.Parse.Schema;
 
 internal sealed class BaseReferenceChecks<R>
   : OneChecks<SchemaParser, R>, IBaseReferenceChecks
@@ -27,6 +27,12 @@ internal sealed class BaseReferenceChecks<R>
       Reference(name) with {
         Arguments = references.Select(Reference).ToArray()
       });
+
+  public void WithTypeArgumentsBad(string name, string[] references)
+    => False(name + "<" + references.Joined());
+
+  public void WithTypeArgumentsNone(string name)
+    => False(name + "<>");
 
   public R Reference(string type)
     => _factories.Reference(AstNulls.At, type);

@@ -42,7 +42,7 @@ public class ParseFieldKeyTests
   public void ParseFieldKey_WithLabel_ReturnsCorrectAst(string label)
     => Test.TrueExpected(
       label,
-      new FieldKeyAst(AstNulls.At, "", label));
+      label.FieldKey());
 
   [Theory]
   [InlineData("true", "Boolean", "true")]

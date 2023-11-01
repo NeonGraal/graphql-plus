@@ -20,7 +20,7 @@ public class FieldKeyAstTests
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithLabel(string label)
-    => _checks.HashCode(() => new FieldKeyAst(AstNulls.At, "", label));
+    => _checks.HashCode(() => label.FieldKey());
 
   [Theory, RepeatData(Repeats)]
   public void String_WithNumber(decimal number)
@@ -42,7 +42,7 @@ public class FieldKeyAstTests
   [Theory, RepeatData(Repeats)]
   public void String_WithLabel(string label)
     => _checks.String(
-      () => new FieldKeyAst(AstNulls.At, "", label),
+      label.FieldKey,
       $"( !k {label} )");
 
   [Theory, RepeatData(Repeats)]
@@ -132,13 +132,13 @@ public class FieldKeyAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithLabel(string label)
     => _checks.Equality(
-      () => new FieldKeyAst(AstNulls.At, "", label));
+      label.FieldKey);
 
   [Theory, RepeatData(Repeats)]
   public void Compare_WithLabel(string label1, string label2)
   {
-    var left = new FieldKeyAst(AstNulls.At, "", label1);
-    var right = new FieldKeyAst(AstNulls.At, "", label2);
+    var left = label1.FieldKey();
+    var right = label2.FieldKey();
     var expected = string.Compare(label1, label2, StringComparison.Ordinal);
 
     left.CompareTo(right).Should().Be(expected);
@@ -147,7 +147,7 @@ public class FieldKeyAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithLabel(string label)
   {
-    var left = new FieldKeyAst(AstNulls.At, "", label);
+    var left = label.FieldKey();
     var right = new FieldKeyAst(AstNulls.At, label, label);
 
     (left != right).Should().BeTrue();

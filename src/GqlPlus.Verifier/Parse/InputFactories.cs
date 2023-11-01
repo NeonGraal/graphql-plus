@@ -10,12 +10,15 @@ internal class InputFactories
 
   public InputFieldAst Field(ParseAt at, string name, string description, InputReferenceAst typeReference)
     => new(at, name, description, typeReference);
-
+  public InputFieldAst NullField()
+    => new(AstNulls.At, "", NullReference());
   public InputAst Object(ParseAt at, string name, string description)
     => new(at, name, description);
 
   public InputReferenceAst Reference(ParseAt at, string name)
     => new(at, name);
+  public InputReferenceAst NullReference()
+    => new(AstNulls.At, "");
 }
 
 internal class InputParserFactories

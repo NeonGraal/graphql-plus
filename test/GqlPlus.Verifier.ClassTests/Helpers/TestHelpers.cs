@@ -8,16 +8,19 @@ internal static class TestHelpers
   internal const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
   internal const string PunctuationPattern = @"[!#-&(-*.:<-@[-^`{-~]";
 
+  public static FieldKeyAst FieldKey(this string label)
+    => new(AstNulls.At, "", label);
+
   public static ConstantAst[] ConstantList(this string label)
     => new ConstantAst[] {
-      new FieldKeyAst(AstNulls.At, "", label),
-      new FieldKeyAst(AstNulls.At, "", label)
+      label.FieldKey(),
+      label.FieldKey()
     };
 
   public static ConstantAst.ObjectAst ConstantObject(this string label, string key)
   {
-    var keyAst = new FieldKeyAst(AstNulls.At, "", key);
-    var labelAst = new FieldKeyAst(AstNulls.At, "", label);
+    var keyAst = key.FieldKey();
+    var labelAst = label.FieldKey();
 
     return key == label
       ? new ConstantAst.ObjectAst { [keyAst] = labelAst }

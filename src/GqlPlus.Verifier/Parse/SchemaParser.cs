@@ -272,12 +272,15 @@ internal class SchemaParser : CommonParser
     var at = _tokens.At;
     _tokens.String(out var description);
     if (!_tokens.Identifier(out var name)) {
-      field = parser.Field(at, "", description, parser.Reference(at, ""));
+      field = parser.NullField();
       return Error(parser.Label, "field name");
     }
 
     var hasParameter = parser.FieldParameter(out var parameter);
-    ParseAliases(parser.Label, out var aliases);
+    if (!ParseAliases(parser.Label, out var aliases)) {
+      field = parser.NullField();
+      return false;
+    }
 
     field = parser.Field(at, name, description, parser.Reference(at, ""));
 

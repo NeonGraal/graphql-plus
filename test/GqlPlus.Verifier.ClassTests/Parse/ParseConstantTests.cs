@@ -20,7 +20,7 @@ public class ParseConstantTests
   public void WithLabel_ReturnsCorrectAst(string label)
     => Test.TrueExpected(
       label,
-      new FieldKeyAst(AstNulls.At, "", label));
+      label.FieldKey());
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumLabel_ReturnsCorrectAst(string enumType, string label)

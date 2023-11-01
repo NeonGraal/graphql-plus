@@ -8,4 +8,5 @@ internal interface IReferenceFactories<R>
 {
   string Label { get; }
   R Reference(ParseAt at, string name);
+  R NullReference();
 }

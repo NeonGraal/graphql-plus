@@ -11,15 +11,15 @@ internal static class OperationTestHelpers
     => fields.Select(f => new FieldAst(AstNulls.At, f)).ToArray();
 
   public static ArgumentAst[] Arguments(this string[] labels)
-    => labels.Select(l => new ArgumentAst(new FieldKeyAst(AstNulls.At, "", l))).ToArray();
+    => labels.Select(l => new ArgumentAst(l.FieldKey())).ToArray();
 
   public static ArgumentAst[] ArgumentList(this string label)
-    => new ArgumentAst[] { new(AstNulls.At, label), new FieldKeyAst(AstNulls.At, "", label) };
+    => new ArgumentAst[] { new(AstNulls.At, label), label.FieldKey() };
 
   public static ArgumentAst.ObjectAst ArgumentObject(this string label, string key)
   {
-    var keyAst = new FieldKeyAst(AstNulls.At, "", key);
-    var labelAst = new FieldKeyAst(AstNulls.At, "", label);
+    var keyAst = key.FieldKey();
+    var labelAst = label.FieldKey();
 
     return key == label
       ? new ArgumentAst.ObjectAst { [keyAst] = new(AstNulls.At, label) }

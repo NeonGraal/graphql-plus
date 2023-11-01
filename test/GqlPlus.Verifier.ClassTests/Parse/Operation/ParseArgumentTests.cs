@@ -14,7 +14,7 @@ public class ParseArgumentTests
   public void WithConstant_ReturnsCorrectAst(string label)
     => Test.TrueExpected(
       "(" + label + ")",
-      new ArgumentAst(new FieldKeyAst(AstNulls.At, "", label)));
+      new ArgumentAst(label.FieldKey()));
 
   [Theory, RepeatData(Repeats)]
   public void WithList_ReturnsCorrectAst(string label)

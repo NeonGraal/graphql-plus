@@ -18,37 +18,31 @@ internal class CommonParser
     ["false"] = "Boolean",
   };
 
-  internal bool ParseFieldKey(out FieldKeyAst constant)
+  internal IParseResult<FieldKeyAst> ParseFieldKey()
   {
     var at = _tokens.At;
-    constant = new FieldKeyAst(at);
-
     if (_tokens.Number(out var number)) {
-      constant = new FieldKeyAst(at, number);
-      return true;
+      return new FieldKeyAst(at, number).Ok();
     }
 
     if (_tokens.String(out var contents)) {
-      constant = new FieldKeyAst(at, contents);
-      return true;
+      return new FieldKeyAst(at, contents).Ok();
     }
 
     if (_tokens.Identifier(out var identifier)) {
       if (_tokens.Take('.')) {
         if (_tokens.Identifier(out var label)) {
-          constant = new FieldKeyAst(at, identifier, label);
-          return true;
+          return new FieldKeyAst(at, identifier, label).Ok();
         }
 
-        return false;
+        return Error<FieldKeyAst>("FieldKey", "label after '.'");
       }
 
       var type = _labelTypes.GetValueOrDefault(identifier, "");
-      constant = new FieldKeyAst(at, type, identifier);
-      return true;
+      return new FieldKeyAst(at, type, identifier).Ok();
     }
 
-    return false;
+    return Error<FieldKeyAst>("FieldKey", "number, string or enum");
   }
 
   internal IParseResult<ModifierAst[]> ParseModifiers(string label)
@@ -79,7 +73,7 @@ internal class CommonParser
       result.Add(ModifierAst.Optional(at));
     }
 
-    return result.Ok();
+    return result.OkArray();
   }
 
   internal bool ParseDefault(out ConstantAst? constant)
@@ -97,7 +91,7 @@ internal class CommonParser
     var at = _tokens.At;
     constant = new ConstantAst(at);
 
-    if (ParseFieldKey(out FieldKeyAst fieldKey)) {
+    if (ParseFieldKey().Required(out var fieldKey)) {
       constant = fieldKey;
       return true;
     }
@@ -153,7 +147,7 @@ internal class CommonParser
     }
 
     while (!_tokens.Take('}')) {
-      if (ParseFieldKey(out var key)
+      if (ParseFieldKey().Required(out var key)
         && _tokens.Take(':')
         && ParseConstant(out var value)
       ) {

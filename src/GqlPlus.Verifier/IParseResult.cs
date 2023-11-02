@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace GqlPlus.Verifier;
 
@@ -9,7 +9,10 @@ public readonly struct ParseOk<T> : IParseResult<T>
   public T Result { get; }
 
   public ParseOk(T result)
-    => Result = result;
+  {
+    ArgumentNullException.ThrowIfNull(result);
+    Result = result;
+  }
 }
 
 public readonly struct ParseError<T> : IParseResult<T>
@@ -43,7 +46,7 @@ public static class ParseExtenstions
     return false;
   }
 
-  public static bool HasResult<T>(this IParseResult<T> result, out T? value)
+  public static bool Optional<T>(this IParseResult<T> result, out T? value)
   {
     if (result is ParseOk<T> ok) {
       value = ok.Result;
@@ -54,6 +57,17 @@ public static class ParseExtenstions
     return result is ParseEmpty<T>;
   }
 
+  public static bool Required<T>(this IParseResult<T> result, [NotNullWhen(true)] out T? value)
+  {
+    if (result is ParseOk<T> ok) {
+      value = ok.Result!;
+      return true;
+    }
+
+    value = default;
+    return false;
+  }
+
   public static void WithResult<T>(this IParseResult<T> result, Action<T> action)
   {
     if (result is ParseOk<T> ok) {
@@ -61,6 +75,9 @@ public static class ParseExtenstions
     }
   }
 
-  public static IParseResult<T[]> Ok<T>(this IEnumerable<T> result)
+  public static IParseResult<T[]> OkArray<T>(this IEnumerable<T> result)
     => new ParseOk<T[]>(result.ToArray());
+
+  public static IParseResult<T> Ok<T>(this T result)
+    => new ParseOk<T>(result);
 }

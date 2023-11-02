@@ -361,7 +361,7 @@ internal class OperationParser : CommonParser
 
       var at = _tokens.At;
       ArgumentAst value = new(at);
-      if (ParseFieldKey(out var key)) {
+      if (ParseFieldKey().Required(out var key)) {
         value = key;
         return _tokens.Take(':')
           ? ParseArgValue(out var item)
@@ -440,7 +440,7 @@ internal class OperationParser : CommonParser
     fields.Clear();
 
     while (!_tokens.Take(end)) {
-      if (ParseFieldKey(out var key)
+      if (ParseFieldKey().Required(out var key)
         && _tokens.Take(':')
         && ParseArgValue(out var value)
       ) {
@@ -504,7 +504,7 @@ internal class OperationParser : CommonParser
     }
 
     while (!_tokens.Take(')')) {
-      if (ParseFieldKey(out var key1)
+      if (ParseFieldKey().Required(out var key1)
         && _tokens.Take(":")
         && ParseArgValue(out var item1)
       ) {

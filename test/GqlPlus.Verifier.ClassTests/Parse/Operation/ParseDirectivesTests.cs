@@ -6,17 +6,17 @@ public class ParseDirectivesTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string directives)
-    => Test.Expected(
+    => Test.TrueExpected(
       "@" + directives,
       new DirectiveAst(AstNulls.At, directives));
 
   [Theory, RepeatData(Repeats)]
   public void WithArgument_ReturnsCorrectAst(string directives, string variable)
-    => Test.Expected(
+    => Test.TrueExpected(
       "@" + directives + "($" + variable + ")",
       new DirectiveAst(AstNulls.At, directives) { Argument = new ArgumentAst(AstNulls.At, variable) });
 
-  private static ArrayChecks<OperationParser, DirectiveAst> Test => new(
+  private static ManyChecks<OperationParser, DirectiveAst> Test => new(
     tokens => new OperationParser(tokens),
-    parser => parser.ParseDirectives());
+    (OperationParser parser, out DirectiveAst[] result) => parser.ParseDirectives(out result));
 }

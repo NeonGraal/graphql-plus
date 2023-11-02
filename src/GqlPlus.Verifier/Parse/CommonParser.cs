@@ -34,11 +34,13 @@ internal class CommonParser
     }
 
     if (_tokens.Identifier(out var identifier)) {
-      if (_tokens.Take('.')
-        && _tokens.Identifier(out var label)
-      ) {
-        constant = new FieldKeyAst(at, identifier, label);
-        return true;
+      if (_tokens.Take('.')) {
+        if (_tokens.Identifier(out var label)) {
+          constant = new FieldKeyAst(at, identifier, label);
+          return true;
+        }
+
+        return false;
       }
 
       var type = _labelTypes.GetValueOrDefault(identifier, "");

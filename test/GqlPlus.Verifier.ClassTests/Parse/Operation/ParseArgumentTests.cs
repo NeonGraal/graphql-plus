@@ -65,7 +65,7 @@ public class ParseArgumentTests
   public void WithObjectFieldBad_ReturnsFalse(string key, string label)
     => Test.False(
       '(' + key + ":)",
-      CheckDefault,
+      CheckNull,
       key == label);
 
   [Theory, RepeatData(Repeats)]
@@ -77,6 +77,9 @@ public class ParseArgumentTests
 
   private void CheckDefault(ArgumentAst? result)
     => result.Should().Be(new ArgumentAst(AstNulls.At));
+
+  private void CheckNull(ArgumentAst? result)
+    => result.Should().BeNull();
 
   private static OneChecks<OperationParser, ArgumentAst> Test => new(
     tokens => new OperationParser(tokens),

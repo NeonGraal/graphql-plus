@@ -115,12 +115,12 @@ internal class SchemaParser : CommonParser
 
   internal bool ParseDirective(out DirectiveAst result, string description)
   {
-    var hasName = _tokens.Prefix('@', out var name, out var at);
-    result = new(at, name, description);
-
-    if (!hasName) {
+    if (!_tokens.Prefix('@', out var name, out var at)) {
+      result = new(AstNulls.At, name ?? "", description);
       return Error("Directive", "'@' name");
     }
+
+    result = new(at, name!, description);
 
     if (ParseParameter(out var parameter)) {
       result.Parameter = parameter;
@@ -328,7 +328,12 @@ internal class SchemaParser : CommonParser
     reference, IReferenceParser<R> factories, string description, bool isTypeArgument = false)
     where R : AstReference<R>
   {
-    if (_tokens.Prefix('$', out var param, out var at)) {
+    if (!_tokens.Prefix('$', out var param, out var at)) {
+      reference = null;
+      return false;
+    }
+
+    if (param is not null) {
       reference = factories.Reference(at, param) with { Description = description };
       reference.IsTypeParameter = true;
       return true;
@@ -473,7 +478,7 @@ internal class SchemaParser : CommonParser
 
       while (!_tokens.Take('>')) {
         _tokens.String(out var description);
-        if (_tokens.Prefix('$', out var name, out var at)) {
+        if (_tokens.Prefix('$', out var name, out var at) && name is not null) {
           result.Add(new(at, name, description));
         } else {
           return Error(label, "type parameter");

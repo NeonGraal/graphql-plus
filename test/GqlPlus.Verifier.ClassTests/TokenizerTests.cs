@@ -220,7 +220,7 @@ public class TokenizerTests
     var expected = prefix.First();
 
     TrueAndExpected(
-      (out string result) => tokens.Prefix(expected, out result, out var _),
+      (out string? result) => tokens.Prefix(expected, out result, out var _),
       identifier);
   }
 

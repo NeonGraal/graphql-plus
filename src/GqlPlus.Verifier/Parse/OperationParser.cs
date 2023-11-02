@@ -34,9 +34,21 @@ internal class OperationParser : CommonParser
       ast.Variables = variables;
     }
 
-    ast.Directives = ParseDirectives();
+    if (ParseDirectives(out var directives)) {
+      ast.Directives = directives;
+    }
+
     ast.Fragments = ParseFragStart();
-    if (_tokens.Prefix(':', out var result, out _)) {
+    if (!_tokens.Prefix(':', out var result, out _)) {
+      Error("Operation", "identifier to follow ':'");
+      return ast with {
+        Errors = Errors.ToArray(),
+        Usages = Variables.ToArray(),
+        Spreads = Spreads.ToArray(),
+      };
+    }
+
+    if (result is not null) {
       ast.ResultType = result;
       if (ParseArgument(out var argument)) {
         ast.Argument = argument;
@@ -85,7 +97,11 @@ internal class OperationParser : CommonParser
 
     var result = new List<VariableAst>();
 
-    while (_tokens.Prefix('$', out var name, out var at)) {
+    if (!_tokens.Prefix('$', out var name, out var at)) {
+      return false;
+    }
+
+    while (name is not null) {
       var variable = new VariableAst(at, name);
 
       if (_tokens.Take(':')
@@ -104,9 +120,14 @@ internal class OperationParser : CommonParser
         variable.Default = constant;
       }
 
-      variable.Directives = ParseDirectives();
+      if (ParseDirectives(out var directives)) {
+        variable.Directives = directives;
+      }
 
       result.Add(variable);
+      if (!_tokens.Prefix('$', out name, out at)) {
+        return false;
+      }
     }
 
     if (!result.Any()) {
@@ -146,20 +167,33 @@ internal class OperationParser : CommonParser
     }
   }
 
-  internal DirectiveAst[] ParseDirectives()
+  internal bool ParseDirectives(out DirectiveAst[] directives)
   {
-    var directives = new List<DirectiveAst>();
+    var result = new List<DirectiveAst>();
 
-    while (_tokens.Prefix('@', out var name, out var at)) {
+    if (!_tokens.Prefix('@', out var name, out var at)) {
+      directives = result.ToArray();
+      return false;
+    }
+
+    while (name is not null) {
       var directive = new DirectiveAst(at, name);
       if (ParseArgument(out ArgumentAst? argument)) {
         directive.Argument = argument;
+      } else {
+        directives = result.ToArray();
+        return false;
       }
 
-      directives.Add(directive);
+      result.Add(directive);
+      if (!_tokens.Prefix('@', out name, out at)) {
+        directives = result.ToArray();
+        return false;
+      }
     }
 
-    return directives.ToArray();
+    directives = result.ToArray();
+    return true;
   }
 
   internal bool ParseObject(out IAstSelection[] selections)
@@ -200,20 +234,24 @@ internal class OperationParser : CommonParser
         }
       } else {
         if (_tokens.Identifier(out var name)) {
-          selection = new SpreadAst(at, name) { Directives = ParseDirectives() };
-          Spreads.Add((SpreadAst)selection);
-          return true;
+          if (ParseDirectives(out var directives)) {
+            selection = new SpreadAst(at, name) { Directives = directives };
+            Spreads.Add((SpreadAst)selection);
+            return true;
+          }
         }
       }
 
-      DirectiveAst[] directives = ParseDirectives();
-
-      if (ParseObject(out IAstSelection[] selections)) {
-        selection = new InlineAst(at, selections) {
-          OnType = onType,
-          Directives = directives,
-        };
-        return true;
+      {
+        if (ParseDirectives(out var directives)) {
+          if (ParseObject(out IAstSelection[] selections)) {
+            selection = new InlineAst(at, selections) {
+              OnType = onType,
+              Directives = directives,
+            };
+            return true;
+          }
+        }
       }
 
       return Error("Inline", "an object");
@@ -242,7 +280,7 @@ internal class OperationParser : CommonParser
       result = new FieldAst(at, name) { Alias = alias };
     }
 
-    if (ParseArgument(out ArgumentAst argument)) {
+    if (ParseArgument(out ArgumentAst? argument)) {
       result.Argument = argument;
     }
 
@@ -251,7 +289,9 @@ internal class OperationParser : CommonParser
     }
 
     result.Modifiers = modifiers;
-    result.Directives = ParseDirectives();
+    if (ParseDirectives(out var directives)) {
+      result.Directives = directives;
+    }
 
     if (ParseObject(out IAstSelection[] selections)) {
       result.Selections = selections;
@@ -290,10 +330,11 @@ internal class OperationParser : CommonParser
         && typePrefix(ref _tokens)
         && _tokens.Identifier(out var onType)
       ) {
-        DirectiveAst[] directives = ParseDirectives();
-        if (ParseObject(out IAstSelection[] selections)) {
-          var fragment = new FragmentAst(at, name, onType, selections) { Directives = directives };
-          definitions.Add(fragment);
+        if (ParseDirectives(out var directives)) {
+          if (ParseObject(out IAstSelection[] selections)) {
+            var fragment = new FragmentAst(at, name, onType, selections) { Directives = directives };
+            definitions.Add(fragment);
+          }
         }
       }
     }
@@ -301,12 +342,11 @@ internal class OperationParser : CommonParser
     return definitions.ToArray();
   }
 
-  internal bool ParseArgument(out ArgumentAst argument)
+  internal bool ParseArgument(out ArgumentAst? argument)
   {
-    argument = new ArgumentAst(_tokens.At);
-
+    argument = null;
     if (!_tokens.Take('(')) {
-      return false;
+      return true;
     }
 
     var oldSeparators = _tokens.IgnoreSeparators;
@@ -336,7 +376,11 @@ internal class OperationParser : CommonParser
     var at = _tokens.At;
     argument = new ArgumentAst(at);
 
-    if (_tokens.Prefix('$', out var variable, out at)) {
+    if (!_tokens.Prefix('$', out var variable, out at)) {
+      return false;
+    }
+
+    if (variable is not null) {
       argument = new ArgumentAst(at, variable);
 
       Variables.Add(argument);
@@ -347,7 +391,7 @@ internal class OperationParser : CommonParser
     var oldSeparators = _tokens.IgnoreSeparators;
     try {
       _tokens.IgnoreSeparators = false;
-
+      at = _tokens.At;
       if (ParseArgList(out ArgumentAst[] list)) {
         argument = new ArgumentAst(at, list);
         return true;

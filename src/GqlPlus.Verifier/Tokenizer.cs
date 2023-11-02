@@ -310,13 +310,15 @@ internal class Tokenizer
     return true;
   }
 
-  internal bool Prefix(char one, out string identifier, out ParseAt at)
+  internal bool Prefix(char one, out string? identifier, out ParseAt at)
   {
+    identifier = null;
     if (_kind == TokenKind.Punctuation
       && _operation.Span[_pos] == one
     ) {
       var next = _pos + 1;
 
+      at = At;
       if (next < _len) {
         var code = _operation.Span[next] - ' ';
         if (code > 0
@@ -326,15 +328,21 @@ internal class Tokenizer
           _pos += 1;
           _kind = TokenKind.Identifer;
           at = At;
-          return Identifier(out identifier);
+          if (Identifier(out identifier)) {
+            return true;
+          }
+
+          identifier = null;
         }
       }
+
+      return false;
     }
 
-    identifier = "";
     at = At;
-    return false;
+    return true;
   }
+
   internal ParseAt At
   => _kind switch {
     TokenKind.End => new(_kind, _pos - _lineStart, _line, "<END>"),

@@ -20,7 +20,7 @@ internal abstract record class AstBase : IEquatable<AstBase>
   internal virtual IEnumerable<string?> GetFields()
     => new[] { AbbrAt };
 
-  internal ParseError Error(string message)
+  internal ParseMessage Error(string message)
     => new(At, message);
   // override object.Equals
   public virtual bool Equals(AstBase? other)

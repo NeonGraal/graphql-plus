@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Parse;
 
 internal class CommonParser
 {
-  internal readonly List<ParseError> Errors = new();
+  internal readonly List<ParseMessage> Errors = new();
 
   protected Tokenizer _tokens;
 

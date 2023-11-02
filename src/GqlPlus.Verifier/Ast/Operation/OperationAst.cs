@@ -3,8 +3,8 @@
 internal record class OperationAst(ParseAt At, string Name)
   : AstDirectives(At, Name)
 {
-  public ParseResult Result { get; set; }
-  public ParseError[] Errors { get; set; } = Array.Empty<ParseError>();
+  public ParseResultKind Result { get; set; }
+  public ParseMessage[] Errors { get; set; } = Array.Empty<ParseMessage>();
 
   public string Category { get; set; } = "query";
 

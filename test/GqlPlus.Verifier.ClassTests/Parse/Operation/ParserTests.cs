@@ -24,7 +24,7 @@ public class ParserTests
     using var scope = new AssertionScope();
 
     ast.Should().BeOfType<OperationAst>()
-      .Subject.Result.Should().Be(ParseResult.Success);
+      .Subject.Result.Should().Be(ParseResultKind.Success);
     ast!.Errors.Should().BeEmpty();
   }
 
@@ -52,7 +52,7 @@ public class ParserTests
     using var scope = new AssertionScope();
 
     ast.Should().BeOfType<OperationAst>()
-      .Subject.Result.Should().Be(ParseResult.Failure);
+      .Subject.Result.Should().Be(ParseResultKind.Failure);
     ast!.Errors.Should().NotBeEmpty();
   }
 }

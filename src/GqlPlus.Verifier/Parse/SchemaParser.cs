@@ -55,7 +55,7 @@ internal class SchemaParser : CommonParser
     }
 
     if (_tokens.AtEnd) {
-      ast.Result = ParseResult.Success;
+      ast.Result = ParseResultKind.Success;
     } else {
       Error("Schema", "no more text");
     }

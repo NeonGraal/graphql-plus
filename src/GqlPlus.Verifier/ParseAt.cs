@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier;
 
 public record class ParseAt(TokenKind Kind, int Column, int Line, string Next)
 {

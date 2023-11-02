@@ -7,16 +7,16 @@ namespace GqlPlus.Verifier;
 public class OperationVerifier
 {
   private OperationAst Ast { get; }
-  private List<ParseError> Errors { get; }
+  private List<ParseMessage> Errors { get; }
 
   internal OperationVerifier(OperationAst ast)
     => (Ast, Errors) = (ast, new(ast.Errors));
 
-  public static bool Verify(string operation, out List<ParseError> errors)
+  public static bool Verify(string operation, out List<ParseMessage> errors)
   {
     Tokenizer tokenizer = new(operation);
     OperationParser parser = new(tokenizer);
-    OperationAst ast = parser.Parse();
+    var ast = parser.Parse();
 
     var verifier = new OperationVerifier(ast);
     errors = verifier.Errors;
@@ -31,10 +31,10 @@ public class OperationVerifier
 
     Ast.Errors = Errors.ToArray();
 
-    return Ast.Result == ParseResult.Success && !Ast.Errors.Any();
+    return Ast.Result == ParseResultKind.Success && !Ast.Errors.Any();
   }
 
-  private void Error(ParseError error)
+  private void Error(ParseMessage error)
     => Errors.Add(error);
 
   private void VerifyVariableDefinition(VariableAst d)

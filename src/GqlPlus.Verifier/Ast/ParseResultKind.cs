@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public enum ParseResult
+public enum ParseResultKind
 {
   Failure,
   Success

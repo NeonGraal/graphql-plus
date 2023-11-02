@@ -310,11 +310,13 @@ internal class SchemaParser : CommonParser
           parser.ApplyParameter(field, parameter);
         }
 
-        if (!ParseModifiers(parser.Label, out var modifiers)) {
+        var modifiers = ParseModifiers("Operation");
+
+        if (modifiers.IsError()) {
           return false;
         }
 
-        field.Modifiers = modifiers;
+        field.Modifiers = modifiers.Value ?? Array.Empty<ModifierAst>();
         return parser.FieldDefault(field);
       }
 
@@ -427,11 +429,13 @@ internal class SchemaParser : CommonParser
     }
 
     parameter = new(at, reference);
-    if (!ParseModifiers("Parameter", out var modifiers)) {
+    var modifiers = ParseModifiers("Operation");
+
+    if (modifiers.IsError(Errors.Add)) {
       return false;
     }
 
-    parameter.Modifiers = modifiers;
+    parameter.Modifiers = modifiers.Value ?? Array.Empty<ModifierAst>();
 
     if (ParseDefault(out var constant)) {
       parameter.Default = constant;

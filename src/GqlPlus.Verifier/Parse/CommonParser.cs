@@ -51,7 +51,7 @@ internal class CommonParser
     return false;
   }
 
-  internal bool ParseModifiers(string label, out ModifierAst[] modifiers)
+  internal IParseResult<ModifierAst[]> ParseModifiers(string label)
   {
     var result = new List<ModifierAst>();
 
@@ -69,8 +69,7 @@ internal class CommonParser
       if (_tokens.Take(']')) {
         result.Add(modifier);
       } else {
-        modifiers = Array.Empty<ModifierAst>();
-        return Error(label, "']' at end of list or dictionary modifier.");
+        return Error<ModifierAst[]>(label, "']' at end of list or dictionary modifier.");
       }
 
       at = _tokens.At;
@@ -80,8 +79,7 @@ internal class CommonParser
       result.Add(ModifierAst.Optional(at));
     }
 
-    modifiers = result.ToArray();
-    return true;
+    return result.Ok();
   }
 
   internal bool ParseDefault(out ConstantAst? constant)
@@ -179,4 +177,7 @@ internal class CommonParser
 
     return result;
   }
+
+  protected IParseResult<T> Error<T>(string label, string message)
+    => new ParseError<T>(_tokens.Error(label, message));
 }

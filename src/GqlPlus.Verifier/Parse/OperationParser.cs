@@ -64,7 +64,9 @@ internal class OperationParser : CommonParser
       };
     }
 
-    if (!ParseModifiers("Operation", out var modifiers)) {
+    var modifiers = ParseModifiers("Operation");
+
+    if (modifiers.IsError(Errors.Add)) {
       return ast with {
         Errors = Errors.ToArray(),
         Usages = Variables.ToArray(),
@@ -72,11 +74,11 @@ internal class OperationParser : CommonParser
       };
     }
 
-    ast.Modifiers = modifiers;
+    ast.Modifiers = modifiers.Value ?? Array.Empty<ModifierAst>();
     ast.Fragments = ParseFragEnd(ast.Fragments);
 
     if (_tokens.AtEnd) {
-      ast.Result = ParseResult.Success;
+      ast.Result = ParseResultKind.Success;
     } else {
       Error("Operation", "no more text");
     }
@@ -110,11 +112,13 @@ internal class OperationParser : CommonParser
         variable.Type = varType;
       }
 
-      if (!ParseModifiers("Variables", out var modifiers)) {
+      var modifiers = ParseModifiers("Operation");
+
+      if (modifiers.IsError()) {
         return false;
       }
 
-      variable.Modifers = modifiers;
+      variable.Modifers = modifiers.Value ?? Array.Empty<ModifierAst>();
 
       if (ParseDefault(out var constant)) {
         variable.Default = constant;
@@ -284,11 +288,13 @@ internal class OperationParser : CommonParser
       result.Argument = argument;
     }
 
-    if (!ParseModifiers("Field", out var modifiers)) {
+    var modifiers = ParseModifiers("Operation");
+
+    if (modifiers.IsError()) {
       return false;
     }
 
-    result.Modifiers = modifiers;
+    result.Modifiers = modifiers.Value ?? Array.Empty<ModifierAst>();
     if (ParseDirectives(out var directives)) {
       result.Directives = directives;
     }

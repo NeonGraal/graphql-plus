@@ -67,10 +67,10 @@ public class ParseConstantTests
       CheckDefault,
       key == label);
 
-  private void CheckDefault(ConstantAst result)
+  private void CheckDefault(ConstantAst? result)
     => result.Should().Be(new ConstantAst(AstNulls.At));
 
   private static OneChecks<CommonParser, ConstantAst> Test => new(
     tokens => new CommonParser(tokens),
-    (CommonParser parser, out ConstantAst result) => parser.ParseConstant(out result));
+    (CommonParser parser, out ConstantAst? result) => parser.ParseConstant(out result));
 }

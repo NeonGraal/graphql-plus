@@ -56,10 +56,10 @@ public class ParseFieldTests
   public void WithJustAlias_ReturnsFalse(string alias)
     => Test.False(alias + ":", DefaultCheck);
 
-  private void DefaultCheck(IAstSelection result)
+  private void DefaultCheck(IAstSelection? result)
     => result.Should().BeOfType<AstNulls.NullSelectionAst>();
 
   private static OneChecks<OperationParser, IAstSelection> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out IAstSelection result) => parser.ParseField(out result));
+    (OperationParser parser, out IAstSelection? result) => parser.ParseField(out result));
 }

@@ -75,10 +75,10 @@ public class ParseArgumentTests
       CheckDefault,
       key == label);
 
-  private void CheckDefault(ArgumentAst result)
+  private void CheckDefault(ArgumentAst? result)
     => result.Should().Be(new ArgumentAst(AstNulls.At));
 
   private static OneChecks<OperationParser, ArgumentAst> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out ArgumentAst result) => parser.ParseArgument(out result));
+    (OperationParser parser, out ArgumentAst? result) => parser.ParseArgument(out result));
 }

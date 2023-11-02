@@ -1,7 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
 using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Parse;
-using GqlPlus.Verifier.Parse.Schema;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 

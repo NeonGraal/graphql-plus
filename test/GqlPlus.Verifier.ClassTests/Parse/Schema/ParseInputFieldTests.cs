@@ -17,5 +17,5 @@ public class ParseInputFieldTests
 
   private static BaseFieldChecks<InputFieldAst, InputReferenceAst> Test => new(
     new InputFactories(),
-    (SchemaParser parser, out InputFieldAst result) => parser.ParseField(out result, new InputParserFactories(parser)));
+    (SchemaParser parser, out InputFieldAst? result) => parser.ParseField(out result, new InputParserFactories(parser)));
 }

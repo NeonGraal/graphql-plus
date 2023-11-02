@@ -20,7 +20,7 @@ public class FieldKeyAstTests
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithLabel(string label)
-    => _checks.HashCode(() => label.FieldKey());
+    => _checks.HashCode(label.FieldKey);
 
   [Theory, RepeatData(Repeats)]
   public void String_WithNumber(decimal number)

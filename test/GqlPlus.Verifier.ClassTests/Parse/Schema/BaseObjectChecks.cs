@@ -4,22 +4,15 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal sealed class BaseObjectChecks<O, F, R>
-  : OneChecks<SchemaParser, O>, IBaseObjectChecks
+  : BaseAliasedChecks<ObjectInput, O>, IBaseObjectChecks
   where O : AstObject<F, R> where F : AstField<R> where R : AstReference<R>
 {
   private readonly IObjectFactories<O, F, R> _factories;
 
   internal BaseObjectChecks(IObjectFactories<O, F, R> factories,
     One one, [CallerArgumentExpression(nameof(one))] string oneExpression = "")
-    : base(tokens => new SchemaParser(tokens), one, oneExpression)
+    : base(one, oneExpression)
     => _factories = factories;
-
-  public void WithMinimum(string name, string other)
-    => TrueExpected(
-      name + "=" + other,
-       Object(name) with {
-         Alternates = new[] { Reference(other) },
-       });
 
   public void WithAlternates(string name, string[] others)
     => TrueExpected(
@@ -27,6 +20,20 @@ internal sealed class BaseObjectChecks<O, F, R>
        Object(name) with {
          Alternates = others.Select(Reference).ToArray(),
        });
+
+  public void WithFieldsAndAlternates(string name, FieldInput[] fields, string[] others)
+    => TrueExpected(
+      name + "={" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}|" + string.Join("|", others),
+       Object(name) with {
+         Fields = fields.Select(f => Field(f.Name, f.Type)).ToArray(),
+         Alternates = others.Select(Reference).ToArray(),
+       });
+
+  public void WithFieldsBadAndAlternates(string name, FieldInput[] fields, string[] others)
+    => False(name + "={" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "|" + string.Join("|", others));
+
+  public void WithFieldsAndAlternatesBad(string name, FieldInput[] fields, string[] others)
+    => False(name + "={" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}||" + string.Join("|", others));
 
   public void WithAlternateComments(string name, AlternateComment[] others)
     => TrueExpected(
@@ -37,25 +44,24 @@ internal sealed class BaseObjectChecks<O, F, R>
 
   public void WithTypeParameters(string name, string other, string parameter)
     => TrueExpected(
-      name + "<$" + parameter + " >=" + other,
+      name + "<$" + parameter + ">=" + other,
        Object(name) with {
          Alternates = new[] { Reference(other) },
          Parameters = parameter.TypeParameters(),
        });
 
-  public void WithAliases(string name, string other, string[] aliases)
-    => TrueExpected(
-      name + aliases.Bracket("[", "]=").Joined() + other,
-       Object(name) with {
-         Alternates = new[] { Reference(other) },
-         Aliases = aliases,
-       });
+  public void WithTypeParametersBad(string name, string other, string parameter)
+    => False(name + "<$" + parameter + "=" + other);
+
   public void WithFields(string name, FieldInput[] fields)
     => TrueExpected(
       name + "={" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}",
        Object(name) with {
          Fields = fields.Select(f => Field(f.Name, f.Type)).ToArray(),
        });
+
+  public void WithFieldsBad(string name, FieldInput[] fields)
+    => False(name + "={" + fields.Select(f => f.Name + ":" + f.Type).Joined());
 
   public void WithExtendsField(string name, string extends, string field, string fieldType)
     => TrueExpected(
@@ -65,6 +71,9 @@ internal sealed class BaseObjectChecks<O, F, R>
          Extends = Reference(extends),
        });
 
+  public void WithExtendsFieldBad(string name, string extends, string field, string fieldType)
+    => False(name + "=" + extends + "{" + field + ":" + fieldType);
+
   public void WithExtendsGenericField(string name, string extends, string subType, string field, string fieldType)
     => TrueExpected(
       name + "=" + extends + "<" + subType + ">{" + field + ":" + fieldType + "}",
@@ -72,6 +81,9 @@ internal sealed class BaseObjectChecks<O, F, R>
          Fields = new[] { Field(field, fieldType) },
          Extends = Reference(extends, subType),
        });
+
+  public void WithExtendsGenericFieldBad(string name, string extends, string subType, string field, string fieldType)
+    => False(name + "=" + extends + "<" + subType + "{" + field + ":" + fieldType + "}");
 
   public O Object(string name)
     => _factories.Object(AstNulls.At, name, "");
@@ -87,6 +99,11 @@ internal sealed class BaseObjectChecks<O, F, R>
 
   public R Reference(string type, string subType)
     => Reference(type) with { Arguments = new[] { Reference(subType) } };
+
+  protected internal override string AliasesString(ObjectInput input, string aliases)
+    => input.Name + aliases + "=" + input.Other;
+  protected internal override O AliasedFactory(ObjectInput input)
+    => Object(input.Name) with { Alternates = new[] { Reference(input.Other) } };
 }
 
 public record struct AlternateComment(string Content, string Alternate);

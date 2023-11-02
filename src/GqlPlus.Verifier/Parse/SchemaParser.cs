@@ -1,5 +1,4 @@
-﻿using System.Reflection.Emit;
-using GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Parse;
@@ -218,7 +217,11 @@ internal class SchemaParser : CommonParser
       return Error(factories.Label, "name");
     }
 
-    result.Parameters = ParseTypeParameters(factories.Label);
+    if (!ParseTypeParameters(factories.Label, out var parameters)) {
+      return false;
+    }
+
+    result.Parameters = parameters;
 
     if (!ParsePrefix(factories.Label, out var aliases)) {
       return false;
@@ -227,7 +230,9 @@ internal class SchemaParser : CommonParser
     result.Aliases = aliases;
 
     _tokens.String(out var descr);
-    var hasBase = ParseReference(out var reference, factories, descr);
+    if (!ParseReference(out var reference, factories, descr)) {
+      return false;
+    }
 
     if (_tokens.Take('{')) {
       var fields = new List<F>();
@@ -235,36 +240,47 @@ internal class SchemaParser : CommonParser
         if (ParseField(out var field, factories)) {
           fields.Add(field);
         } else {
-          Error(factories.Label, "more fields or '}'");
-          break;
+          return Error(factories.Label, "more fields or '}'");
         }
       }
 
-      if (hasBase) {
+      if (reference is not null) {
         result.Extends = reference with { Description = descr };
       }
 
       result.Fields = fields.ToArray();
-      result.Alternates = ParseAlternates(factories);
-    } else if (hasBase) {
-      result.Alternates = ParseAlternates(factories, reference);
+      if (!ParseAlternates(out var alternates, factories)) {
+        return false;
+      }
+
+      result.Alternates = alternates;
+    } else if (reference is not null) {
+      if (!ParseAlternates(out var alternates, factories, reference)) {
+        return false;
+      }
+
+      result.Alternates = alternates;
     }
 
     return true;
   }
 
-  private R[] ParseAlternates<R>(IReferenceParser<R> factories, params R[] initial)
+  private bool ParseAlternates<R>(out R[] alternates, IReferenceParser<R> factories, params R[] initial)
     where R : AstReference<R>
   {
-    var alternates = new List<R>(initial);
+    var result = new List<R>(initial);
     while (_tokens.Take('|')) {
       _tokens.String(out var descr);
-      if (ParseReference(out var alternate, factories, descr)) {
-        alternates.Add(alternate);
+      if (ParseReference(out var alternate, factories, descr) && alternate is not null) {
+        result.Add(alternate);
+      } else {
+        alternates = result.ToArray();
+        return Error(factories.Label, "reference after '|'");
       }
     }
 
-    return alternates.ToArray();
+    alternates = result.ToArray();
+    return true;
   }
 
   internal bool ParseField<F, R>(out F field, IFieldParser<F, R> parser)
@@ -287,7 +303,7 @@ internal class SchemaParser : CommonParser
 
     if (_tokens.Take(':')) {
       _tokens.String(out var descr);
-      if (ParseReference(out var fieldType, parser, descr)) {
+      if (ParseReference(out var fieldType, parser, descr) && fieldType is not null) {
         field = parser.Field(at, name, description, fieldType);
         field.Aliases = aliases;
         if (hasParameter) {
@@ -297,6 +313,7 @@ internal class SchemaParser : CommonParser
         if (!ParseModifiers(parser.Label, out var modifiers)) {
           return false;
         }
+
         field.Modifiers = modifiers;
         return parser.FieldDefault(field);
       }
@@ -307,7 +324,8 @@ internal class SchemaParser : CommonParser
     return Error(parser.Label, "field details", parser.FieldEnumLabel(field));
   }
 
-  internal bool ParseReference<R>(out R reference, IReferenceParser<R> factories, string description, bool isTypeArgument = false)
+  internal bool ParseReference<R>(out R?
+    reference, IReferenceParser<R> factories, string description, bool isTypeArgument = false)
     where R : AstReference<R>
   {
     if (_tokens.Prefix('$', out var param, out var at)) {
@@ -323,7 +341,7 @@ internal class SchemaParser : CommonParser
       if (_tokens.Take('<')) {
         var arguments = new List<R>();
         _tokens.String(out var descr);
-        while (ParseReference(out var argument, factories, descr, isTypeArgument: true)) {
+        while (ParseReference(out var argument, factories, descr, isTypeArgument: true) && argument is not null) {
           arguments.Add(argument);
           _tokens.String(out descr);
         }
@@ -342,8 +360,8 @@ internal class SchemaParser : CommonParser
       return true;
     }
 
-    reference = factories.Reference(at, "");
-    return false;
+    reference = default;
+    return true;
   }
 
   internal bool ParseOutput(out OutputAst output, string description)
@@ -398,7 +416,8 @@ internal class SchemaParser : CommonParser
 
     _tokens.String(out var descr);
     var at = _tokens.At;
-    if (!ParseReference(out var reference, new InputParserFactories(this), descr)) {
+    if (!ParseReference(out var reference, new InputParserFactories(this), descr)
+      || reference is null) {
       return Error("Parameter", "input reference after '('");
     }
 
@@ -445,27 +464,29 @@ internal class SchemaParser : CommonParser
     => ParseAliases(label, out result)
       && Error(label, "'=' before definition", _tokens.Take('='));
 
-  private TypeParameterAst[] ParseTypeParameters(string label)
+  private bool ParseTypeParameters(string label, out TypeParameterAst[] parameters)
   {
-    var parameters = new List<TypeParameterAst>();
+    var result = new List<TypeParameterAst>();
 
     if (_tokens.Take('<')) {
+      parameters = Array.Empty<TypeParameterAst>();
+
       while (!_tokens.Take('>')) {
         _tokens.String(out var description);
         if (_tokens.Prefix('$', out var name, out var at)) {
-          parameters.Add(new(at, name, description));
+          result.Add(new(at, name, description));
         } else {
-          Error(label, "type parameter");
-          break;
+          return Error(label, "type parameter");
         }
       }
 
-      if (parameters.Count == 0) {
-        Error(label, "at least one type parameter after '<'");
+      if (result.Count == 0) {
+        return Error(label, "at least one type parameter after '<'");
       }
     }
 
-    return parameters.ToArray();
+    parameters = result.ToArray();
+    return true;
   }
 
   internal bool ParseScalar(out ScalarAst result, string description)

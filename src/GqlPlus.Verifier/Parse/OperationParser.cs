@@ -74,7 +74,7 @@ internal class OperationParser : CommonParser
       };
     }
 
-    ast.Modifiers = modifiers.Value ?? Array.Empty<ModifierAst>();
+    modifiers.WithResult(value => ast.Modifiers = value);
     ast.Fragments = ParseFragEnd(ast.Fragments);
 
     if (_tokens.AtEnd) {
@@ -118,7 +118,7 @@ internal class OperationParser : CommonParser
         return false;
       }
 
-      variable.Modifers = modifiers.Value ?? Array.Empty<ModifierAst>();
+      modifiers.WithResult(value => variable.Modifers = value);
 
       if (ParseDefault(out var constant)) {
         variable.Default = constant;
@@ -294,7 +294,7 @@ internal class OperationParser : CommonParser
       return false;
     }
 
-    result.Modifiers = modifiers.Value ?? Array.Empty<ModifierAst>();
+    modifiers.WithResult(value => result.Modifiers = value);
     if (ParseDirectives(out var directives)) {
       result.Directives = directives;
     }

@@ -29,6 +29,7 @@ public class ParseModifiersTests
     tokens => new CommonParser(tokens),
     parser => {
       var modifiers = parser.ParseModifiers("Modifiers");
-      return modifiers.Value ?? Array.Empty<ModifierAst>();
+      modifiers.HasResult(out var value);
+      return value ?? Array.Empty<ModifierAst>();
     });
 }

@@ -18,7 +18,7 @@ internal class CommonParser
     ["false"] = "Boolean",
   };
 
-  internal IParseResult<FieldKeyAst> ParseFieldKey()
+  internal IResult<FieldKeyAst> ParseFieldKey()
   {
     var at = _tokens.At;
     if (_tokens.Number(out var number)) {
@@ -40,12 +40,12 @@ internal class CommonParser
       return new FieldKeyAst(at, type, identifier).Ok();
     }
 
-    return new ParseEmpty<FieldKeyAst>();
+    return new ResultEmpty<FieldKeyAst>();
   }
 
-  internal IParseResult<ModifierAst[]> ParseModifiers(string label)
+  internal IResultArray<ModifierAst> ParseModifiers(string label)
   {
-    var result = new List<ModifierAst>();
+    var list = new List<ModifierAst>();
 
     var at = _tokens.At;
     while (_tokens.Take('[')) {
@@ -59,24 +59,24 @@ internal class CommonParser
       }
 
       if (_tokens.Take(']')) {
-        result.Add(modifier);
+        list.Add(modifier);
       } else {
-        return Error<ModifierAst[]>(label, "']' at end of list or dictionary modifier.");
+        return PartialArray(label, "']' at end of list or dictionary modifier.", list);
       }
 
       at = _tokens.At;
     }
 
     if (_tokens.Take('?')) {
-      result.Add(ModifierAst.Optional(at));
+      list.Add(ModifierAst.Optional(at));
     }
 
-    return result.OkArray();
+    return list.OkArray();
   }
 
-  internal IParseResult<ConstantAst> ParseDefault() => _tokens.Take('=') ? ParseConstant() : new ParseEmpty<ConstantAst>();
+  internal IResult<ConstantAst> ParseDefault() => _tokens.Take('=') ? ParseConstant() : new ResultEmpty<ConstantAst>();
 
-  internal IParseResult<ConstantAst> ParseConstant()
+  internal IResult<ConstantAst> ParseConstant()
   {
     var at = _tokens.At;
 
@@ -92,37 +92,37 @@ internal class CommonParser
       return list.Required(out var theList)
         ? new ConstantAst(at, theList).Ok()
         : list.IsError()
-        ? list.AsResult<ConstantAst>()
+        ? list.AsResult<ConstantAst, ConstantAst>()
         : ParseConstObject().Required(out AstValues<ConstantAst>.ObjectAst? fields)
         ? new ConstantAst(at, fields).Ok()
-        : new ParseEmpty<ConstantAst>();
+        : new ResultEmpty<ConstantAst>();
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
     }
   }
 
-  private IParseResult<ConstantAst[]> ParseConstList()
+  private IResultArray<ConstantAst> ParseConstList()
   {
-    var values = new List<ConstantAst>();
+    var list = new List<ConstantAst>();
 
     if (!_tokens.Take('[')) {
-      return values.EmptyArray();
+      return list.EmptyArray();
     }
 
     while (!_tokens.Take(']')) {
       if (ParseConstant().Required(out var item)) {
-        values.Add(item);
+        list.Add(item);
       } else {
-        return Error<ConstantAst[]>("Constant", "value in list");
+        return PartialArray("Constant", "value in list", list);
       }
 
       _tokens.Take(',');
     }
 
-    return values.OkArray();
+    return list.OkArray();
   }
 
-  private IParseResult<ConstantAst.ObjectAst> ParseConstObject()
+  private IResult<ConstantAst.ObjectAst> ParseConstObject()
   {
     var fields = new ConstantAst.ObjectAst();
 
@@ -155,10 +155,31 @@ internal class CommonParser
     return result;
   }
 
-  protected IParseResult<T> Error<T>(string label, string message, T? _ = default)
+  protected IResultArray<T> ErrorArray<T>(string label, string message, IEnumerable<T>? _ = default)
   {
     var error = _tokens.Error(label, message);
     Errors.Add(error);
-    return new ParseError<T>(error);
+    return new ResultArrayError<T>(error);
+  }
+
+  protected IResult<T> Error<T>(string label, string message, T? _ = default)
+  {
+    var error = _tokens.Error(label, message);
+    Errors.Add(error);
+    return new ResultError<T>(error);
+  }
+
+  protected IResultArray<T> PartialArray<T>(string label, string message, IEnumerable<T> result)
+  {
+    var error = _tokens.Error(label, message);
+    Errors.Add(error);
+    return new ResultArrayPartial<T>(result.ToArray(), error);
+  }
+
+  protected IResult<T> Partial<T>(string label, string message, T result)
+  {
+    var error = _tokens.Error(label, message);
+    Errors.Add(error);
+    return new ResultPartial<T>(result, error);
   }
 }

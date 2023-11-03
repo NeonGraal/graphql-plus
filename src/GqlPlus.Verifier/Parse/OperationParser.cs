@@ -30,7 +30,7 @@ internal class OperationParser : CommonParser
       }
     }
 
-    if (ParseVariables(out VariableAst[] variables)) {
+    if (ParseVariables().Required(out var variables)) {
       ast.Variables = variables;
     }
 
@@ -90,17 +90,16 @@ internal class OperationParser : CommonParser
     };
   }
 
-  internal bool ParseVariables(out VariableAst[] variables)
+  internal IParseResult<VariableAst[]> ParseVariables()
   {
-    variables = Array.Empty<VariableAst>();
-    if (!_tokens.Take('(')) {
-      return false;
-    }
-
     var result = new List<VariableAst>();
 
+    if (!_tokens.Take('(')) {
+      return result.EmptyArray();
+    }
+
     if (!_tokens.Prefix('$', out var name, out var at)) {
-      return false;
+      return Error<VariableAst[]>("Variables", "identifier after '$'");
     }
 
     while (name is not null) {
@@ -115,7 +114,7 @@ internal class OperationParser : CommonParser
       var modifiers = ParseModifiers("Operation");
 
       if (modifiers.IsError()) {
-        return false;
+        return modifiers.AsResult<VariableAst[]>();
       }
 
       modifiers.WithResult(value => variable.Modifers = value);
@@ -130,17 +129,13 @@ internal class OperationParser : CommonParser
 
       result.Add(variable);
       if (!_tokens.Prefix('$', out name, out at)) {
-        return false;
+        return Error<VariableAst[]>("Variables", "identifier after '$'");
       }
     }
 
-    if (!result.Any()) {
-      return Error("Variables", "at least one variable");
-    }
-
-    variables = result.ToArray();
-
-    return Error("Variables", "')'.", _tokens.Take(')'));
+    return !result.Any()
+      ? Error<VariableAst[]>("Variables", "at least one variable")
+      : _tokens.Take(')') ? result.OkArray() : Error<VariableAst[]>("Variables", "')'.");
   }
 
   internal bool ParseVarType(out string varType)

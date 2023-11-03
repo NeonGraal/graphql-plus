@@ -61,11 +61,11 @@ public class ParseVariablesTests
   public void WithNoVariables_ReturnsFalse()
     => Test.False("()");
 
-  [Fact]
-  public void WithNoEnd_ReturnsFalse()
-    => Test.False("(test");
+  [Theory, RepeatData(Repeats)]
+  public void WithNoEnd_ReturnsFalse(string variable)
+    => Test.False("($" + variable);
 
   private static ManyChecks<OperationParser, VariableAst> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out VariableAst[] result) => parser.ParseVariables(out result));
+    (OperationParser parser, out VariableAst[] result) => parser.ParseVariables().Required(out result));
 }

@@ -37,6 +37,6 @@ internal sealed class ManyChecks<P, T>
     success.Should().BeFalse(_manyExpression);
     using var scope = new AssertionScope();
     parser.Errors.Should().NotBeEmpty();
-    result.Should().BeEmpty();
+    result.Should().BeNullOrEmpty();
   }
 }

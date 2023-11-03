@@ -31,18 +31,16 @@ internal class CommonParser
 
     if (_tokens.Identifier(out var identifier)) {
       if (_tokens.Take('.')) {
-        if (_tokens.Identifier(out var label)) {
-          return new FieldKeyAst(at, identifier, label).Ok();
-        }
-
-        return Error<FieldKeyAst>("FieldKey", "label after '.'");
+        return _tokens.Identifier(out var label)
+          ? new FieldKeyAst(at, identifier, label).Ok()
+          : Error<FieldKeyAst>("FieldKey", "label after '.'");
       }
 
       var type = _labelTypes.GetValueOrDefault(identifier, "");
       return new FieldKeyAst(at, type, identifier).Ok();
     }
 
-    return Error<FieldKeyAst>("FieldKey", "number, string or enum");
+    return new ParseEmpty<FieldKeyAst>();
   }
 
   internal IParseResult<ModifierAst[]> ParseModifiers(string label)
@@ -76,91 +74,76 @@ internal class CommonParser
     return result.OkArray();
   }
 
-  internal bool ParseDefault(out ConstantAst? constant)
-  {
-    if (_tokens.Take('=')) {
-      return ParseConstant(out constant);
-    }
+  internal IParseResult<ConstantAst> ParseDefault() => _tokens.Take('=') ? ParseConstant() : new ParseEmpty<ConstantAst>();
 
-    constant = default;
-    return true;
-  }
-
-  internal bool ParseConstant(out ConstantAst constant)
+  internal IParseResult<ConstantAst> ParseConstant()
   {
     var at = _tokens.At;
-    constant = new ConstantAst(at);
 
     if (ParseFieldKey().Required(out var fieldKey)) {
-      constant = fieldKey;
-      return true;
+      return new ConstantAst(fieldKey).Ok();
     }
 
     var oldSeparators = _tokens.IgnoreSeparators;
     try {
       _tokens.IgnoreSeparators = false;
 
-      if (ParseConstList(out ConstantAst[] list)) {
-        constant = new ConstantAst(at, list);
-        return true;
-      }
-
-      if (ParseConstObject(out AstValues<ConstantAst>.ObjectAst fields)) {
-        constant = new ConstantAst(at, fields);
-        return true;
-      }
-
-      return false;
+      var list = ParseConstList();
+      return list.Required(out var theList)
+        ? new ConstantAst(at, theList).Ok()
+        : list.IsError()
+        ? list.AsResult<ConstantAst>()
+        : ParseConstObject().Required(out AstValues<ConstantAst>.ObjectAst? fields)
+        ? new ConstantAst(at, fields).Ok()
+        : new ParseEmpty<ConstantAst>();
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
     }
   }
 
-  private bool ParseConstList(out ConstantAst[] list)
+  private IParseResult<ConstantAst[]> ParseConstList()
   {
-    list = Array.Empty<ConstantAst>();
+    var values = new List<ConstantAst>();
 
     if (!_tokens.Take('[')) {
-      return false;
+      return values.EmptyArray();
     }
 
-    var values = new List<ConstantAst>();
     while (!_tokens.Take(']')) {
-      if (ParseConstant(out var item)) {
+      if (ParseConstant().Required(out var item)) {
         values.Add(item);
       } else {
-        return Error("Constant", "value in list");
+        return Error<ConstantAst[]>("Constant", "value in list");
       }
 
       _tokens.Take(',');
     }
 
-    list = values.ToArray();
-    return true;
+    return values.OkArray();
   }
 
-  private bool ParseConstObject(out ConstantAst.ObjectAst fields)
+  private IParseResult<ConstantAst.ObjectAst> ParseConstObject()
   {
-    fields = new ConstantAst.ObjectAst();
+    var fields = new ConstantAst.ObjectAst();
+
     if (!_tokens.Take('{')) {
-      return false;
+      return fields.Empty();
     }
 
     while (!_tokens.Take('}')) {
       if (ParseFieldKey().Required(out var key)
         && _tokens.Take(':')
-        && ParseConstant(out var value)
+        && ParseConstant().Required(out var value)
       ) {
         fields.Add(key, value);
       } else {
-        Error("Constant", "field in object");
-        return false;
+        return Error("Constant", "field in object", fields);
       }
 
       _tokens.Take(',');
     }
 
-    return true;
+    return fields.Ok();
   }
 
   protected bool Error(string label, string message, bool result = false)
@@ -172,6 +155,10 @@ internal class CommonParser
     return result;
   }
 
-  protected IParseResult<T> Error<T>(string label, string message)
-    => new ParseError<T>(_tokens.Error(label, message));
+  protected IParseResult<T> Error<T>(string label, string message, T? _ = default)
+  {
+    var error = _tokens.Error(label, message);
+    Errors.Add(error);
+    return new ParseError<T>(error);
+  }
 }

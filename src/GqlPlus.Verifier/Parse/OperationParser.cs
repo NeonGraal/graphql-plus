@@ -120,7 +120,7 @@ internal class OperationParser : CommonParser
 
       modifiers.WithResult(value => variable.Modifers = value);
 
-      if (ParseDefault(out var constant)) {
+      if (ParseDefault().Required(out var constant)) {
         variable.Default = constant;
       }
 
@@ -411,7 +411,7 @@ internal class OperationParser : CommonParser
       _tokens.IgnoreSeparators = oldSeparators;
     }
 
-    if (ParseConstant(out ConstantAst constant)) {
+    if (ParseConstant().Required(out var constant)) {
       argument = constant;
       return true;
     }

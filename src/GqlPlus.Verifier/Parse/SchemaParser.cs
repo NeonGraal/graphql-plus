@@ -319,6 +319,7 @@ internal class SchemaParser : CommonParser
         if (modifiers.Optional(out var value)) {
           field.Modifiers = value ?? Array.Empty<ModifierAst>();
         }
+
         return parser.FieldDefault(field);
       }
 
@@ -441,7 +442,7 @@ internal class SchemaParser : CommonParser
       parameter.Modifiers = value ?? Array.Empty<ModifierAst>();
     }
 
-    if (ParseDefault(out var constant)) {
+    if (ParseDefault().Required(out var constant)) {
       parameter.Default = constant;
     }
 

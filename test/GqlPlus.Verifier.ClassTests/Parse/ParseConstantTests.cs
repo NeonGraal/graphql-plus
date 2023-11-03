@@ -44,7 +44,7 @@ public class ParseConstantTests
   public void WithListInvalid_ReturnsFalse(string label)
     => Test.False(
       '[' + label + ':' + label + ']',
-      CheckDefault);
+      CheckNull);
 
   [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string label)
@@ -64,13 +64,16 @@ public class ParseConstantTests
   public void WithObjectInvalid_ReturnsFalse(string key, string label)
     => Test.False(
       '{' + key + ':' + label + ':' + key + '}',
-      CheckDefault,
+      CheckNull,
       key == label);
 
   private void CheckDefault(ConstantAst? result)
     => result.Should().Be(new ConstantAst(AstNulls.At));
 
+  private void CheckNull(ConstantAst? result)
+    => result.Should().BeNull();
+
   private static OneChecks<CommonParser, ConstantAst> Test => new(
     tokens => new CommonParser(tokens),
-    (CommonParser parser, out ConstantAst? result) => parser.ParseConstant(out result));
+    (CommonParser parser, out ConstantAst? result) => parser.ParseConstant().Required(out result));
 }

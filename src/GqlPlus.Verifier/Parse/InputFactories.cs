@@ -33,7 +33,7 @@ internal class InputParserFactories
 
   public bool FieldDefault(InputFieldAst field)
   {
-    if (_parser.ParseDefault(out var constant)) {
+    if (_parser.ParseDefault().Required(out var constant)) {
       field.Default = constant;
     }
 

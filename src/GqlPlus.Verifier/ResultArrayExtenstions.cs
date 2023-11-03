@@ -6,10 +6,10 @@ public static class ResultArrayExtenstions
     => result switch {
       ResultArrayPartial<T> part
         => part.Result is R newResult
-          ? new ResultPartial<R>(newResult, part.Error)
-          : new ResultError<R>(part.Error),
+          ? new ResultPartial<R>(newResult, part.Message)
+          : new ResultError<R>(part.Message),
       ResultArrayError<T> error
-        => new ResultError<R>(error.Error),
+        => new ResultError<R>(error.Message),
       ResultArrayOk<T> ok when ok.Result is R newResult
         => new ResultOk<R>(newResult),
       _ => new ResultEmpty<R>()
@@ -23,7 +23,7 @@ public static class ResultArrayExtenstions
   public static bool IsError<T>(this IResultArray<T> result, Action<ParseMessage>? action = null)
   {
     if (result is ResultArrayError<T> error) {
-      action?.Invoke(error.Error);
+      action?.Invoke(error.Message);
       return true;
     }
 

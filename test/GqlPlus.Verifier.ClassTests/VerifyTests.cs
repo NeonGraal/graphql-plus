@@ -39,14 +39,14 @@ public class VerifyTests
     var operation = File.ReadAllText("Sample/Operation_" + sample + ".gql+");
     Tokenizer tokenizer = new(operation);
     OperationParser parser = new(tokenizer);
-    OperationAst ast = parser.Parse();
+    parser.Parse().Required(out var ast);
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
     settings.UseDirectory(nameof(VerifyTests));
     settings.UseFileName(nameof(VerifySampleOperation) + "_" + sample);
 
-    await Verify(ast.Render(), settings);
+    await Verify(ast!.Render(), settings);
   }
 
   [Theory]
@@ -56,14 +56,14 @@ public class VerifyTests
     var operation = File.ReadAllText("GraphQl/Example_" + example + ".gql");
     Tokenizer tokenizer = new(operation);
     OperationParser parser = new(tokenizer);
-    OperationAst ast = parser.Parse();
+    parser.Parse().Required(out var ast);
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
     settings.UseDirectory(nameof(VerifyTests));
     settings.UseFileName(nameof(VerifyGraphQlExample) + "_" + example);
 
-    await Verify(ast.Render(), settings);
+    await Verify(ast!.Render(), settings);
   }
 
   public class GraphQlExamplesData : TheoryData<string>

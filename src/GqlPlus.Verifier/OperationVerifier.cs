@@ -16,9 +16,9 @@ public class OperationVerifier
   {
     Tokenizer tokenizer = new(operation);
     OperationParser parser = new(tokenizer);
-    var ast = parser.Parse();
+    parser.Parse().Required(out var ast);
 
-    var verifier = new OperationVerifier(ast);
+    var verifier = new OperationVerifier(ast!);
     errors = verifier.Errors;
 
     return verifier.Verify();

@@ -8,10 +8,10 @@ public static class ResultExtenstions
     => result switch {
       ResultPartial<T> part
         => part.Result is R newResult
-          ? new ResultPartial<R>(newResult, part.Error)
-          : new ResultError<R>(part.Error),
+          ? new ResultPartial<R>(newResult, part.Message)
+          : new ResultError<R>(part.Message),
       ResultError<T> error
-        => new ResultError<R>(error.Error),
+        => new ResultError<R>(error.Message),
       ResultOk<T> ok when ok.Result is R newResult
         => new ResultOk<R>(newResult),
       _ => new ResultEmpty<R>(),
@@ -25,7 +25,7 @@ public static class ResultExtenstions
   public static bool IsError<T>(this IResult<T> result, Action<ParseMessage>? action = null)
   {
     if (result is ResultError<T> error) {
-      action?.Invoke(error.Error);
+      action?.Invoke(error.Message);
       return true;
     }
 
@@ -34,7 +34,7 @@ public static class ResultExtenstions
 
   public static bool Optional<T>(this IResult<T> result, out T? value)
   {
-    if (result is ResultOk<T> ok) {
+    if (result is IResultValue<T> ok) {
       value = ok.Result;
       return true;
     }
@@ -45,18 +45,18 @@ public static class ResultExtenstions
 
   public static bool Required<T>(this IResult<T> result, [NotNullWhen(true)] out T? value)
   {
-    if (result is ResultOk<T> ok) {
+    if (result is IResultValue<T> ok) {
       value = ok.Result!;
       return true;
     }
 
-    value = default;
+    value = result is ResultPartial<T> part ? part.Result : default;
     return false;
   }
 
   public static void WithResult<T>(this IResult<T> result, Action<T> action)
   {
-    if (result is ResultOk<T> ok) {
+    if (result is IResultValue<T> ok) {
       action.Invoke(ok.Result);
     }
   }

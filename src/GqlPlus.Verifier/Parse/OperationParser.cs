@@ -11,17 +11,16 @@ internal class OperationParser : CommonParser
   public OperationParser(Tokenizer tokens)
     : base(tokens) { }
 
-  internal OperationAst Parse()
+  internal IResult<OperationAst> Parse()
   {
     if (_tokens.AtStart) {
       if (!_tokens.Read()) {
-        return new(_tokens.At) { Errors = new[] { _tokens.Error("Unexpected") } };
+        return Error<OperationAst>("Operation", "text at end");
       }
     }
 
     var at = _tokens.At;
     OperationAst ast = new(at);
-
     if (_tokens.Identifier(out var category)) {
       if (_tokens.Identifier(out var name)) {
         ast = new(at, name) { Category = category };
@@ -40,12 +39,7 @@ internal class OperationParser : CommonParser
 
     ParseFragStart().WithResult(value => ast.Fragments = value);
     if (!_tokens.Prefix(':', out var result, out _)) {
-      Error("Operation", "identifier to follow ':'");
-      return ast with {
-        Errors = Errors.ToArray(),
-        Usages = Variables.ToArray(),
-        Spreads = Spreads.ToArray(),
-      };
+      return Partial("Operation", "identifier to follow ':'", Final);
     }
 
     if (result is not null) {
@@ -56,22 +50,13 @@ internal class OperationParser : CommonParser
     } else if (ParseObject(out IAstSelection[] selections)) {
       ast.Object = selections;
     } else {
-      Error("Operation", "Object or Type");
-      return ast with {
-        Errors = Errors.ToArray(),
-        Usages = Variables.ToArray(),
-        Spreads = Spreads.ToArray(),
-      };
+      return Partial("Operation", "Object or Type", Final);
     }
 
     var modifiers = ParseModifiers("Operation");
 
     if (modifiers.IsError(Errors.Add)) {
-      return ast with {
-        Errors = Errors.ToArray(),
-        Usages = Variables.ToArray(),
-        Spreads = Spreads.ToArray(),
-      };
+      return modifiers.AsResult(ast);
     }
 
     modifiers.WithResult(value => ast.Modifiers = value);
@@ -80,14 +65,17 @@ internal class OperationParser : CommonParser
     if (_tokens.AtEnd) {
       ast.Result = ParseResultKind.Success;
     } else {
-      Error("Operation", "no more text");
+      return Partial("Operation", "no more text", Final);
     }
 
-    return ast with {
-      Errors = Errors.ToArray(),
-      Usages = Variables.ToArray(),
-      Spreads = Spreads.ToArray(),
-    };
+    return Final().Ok();
+
+    OperationAst Final()
+      => ast with {
+        Errors = Errors.ToArray(),
+        Usages = Variables.ToArray(),
+        Spreads = Spreads.ToArray(),
+      };
   }
 
   internal IResultArray<VariableAst> ParseVariables()

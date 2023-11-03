@@ -61,7 +61,7 @@ internal class CommonParser
       if (_tokens.Take(']')) {
         list.Add(modifier);
       } else {
-        return PartialArray(label, "']' at end of list or dictionary modifier.", list);
+        return PartialArray(label, "']' at end of list or dictionary modifier.", () => list);
       }
 
       at = _tokens.At;
@@ -114,7 +114,7 @@ internal class CommonParser
       if (ParseConstant().Required(out var item)) {
         list.Add(item);
       } else {
-        return PartialArray("Constant", "value in list", list);
+        return PartialArray("Constant", "value in list", () => list);
       }
 
       _tokens.Take(',');
@@ -170,17 +170,17 @@ internal class CommonParser
     return new ResultError<T>(error);
   }
 
-  protected IResultArray<T> PartialArray<T>(string label, string message, IEnumerable<T> result)
+  protected IResultArray<T> PartialArray<T>(string label, string message, Func<IEnumerable<T>> result)
   {
     var error = _tokens.Error(label, message);
     Errors.Add(error);
-    return new ResultArrayPartial<T>(result.ToArray(), error);
+    return new ResultArrayPartial<T>(result().ToArray(), error);
   }
 
-  protected IResult<T> Partial<T>(string label, string message, T result)
+  protected IResult<T> Partial<T>(string label, string message, Func<T> result)
   {
     var error = _tokens.Error(label, message);
     Errors.Add(error);
-    return new ResultPartial<T>(result, error);
+    return new ResultPartial<T>(result(), error);
   }
 }

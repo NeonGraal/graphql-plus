@@ -19,7 +19,7 @@ public class ParserTests
   {
     var parser = new OperationParser(new Tokenizer(input));
 
-    OperationAst? ast = parser.Parse();
+    parser.Parse().Required(out var ast);
 
     using var scope = new AssertionScope();
 
@@ -30,6 +30,20 @@ public class ParserTests
 
   [Theory]
   [InlineData("")]
+  public void Parse_ShouldFail(string input)
+  {
+    var parser = new OperationParser(new Tokenizer(input));
+
+    var result = parser.Parse();
+    result.Optional(out var ast);
+
+    using var scope = new AssertionScope();
+
+    ast.Should().BeNull();
+    result.IsError(err => err.Message.Should().NotBeNullOrWhiteSpace());
+  }
+
+  [Theory]
   [InlineData(":")]
   [InlineData("query")]
   [InlineData("query Test")]
@@ -43,11 +57,11 @@ public class ParserTests
   [InlineData("($test)")]
   [InlineData(")")]
   [InlineData(":Boolean extra")]
-  public void Parse_ShouldFail(string input)
+  public void Parse_ShouldPartiallySucceed(string input)
   {
     var parser = new OperationParser(new Tokenizer(input));
 
-    OperationAst? ast = parser.Parse();
+    parser.Parse().Required(out var ast);
 
     using var scope = new AssertionScope();
 

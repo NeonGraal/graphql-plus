@@ -38,7 +38,7 @@ internal class OperationParser : CommonParser
       ast.Directives = directives;
     }
 
-    ast.Fragments = ParseFragStart();
+    ParseFragStart().WithResult(value => ast.Fragments = value);
     if (!_tokens.Prefix(':', out var result, out _)) {
       Error("Operation", "identifier to follow ':'");
       return ast with {
@@ -75,7 +75,7 @@ internal class OperationParser : CommonParser
     }
 
     modifiers.WithResult(value => ast.Modifiers = value);
-    ast.Fragments = ParseFragEnd(ast.Fragments);
+    ParseFragEnd(ast.Fragments).WithResult(value => ast.Fragments = value);
 
     if (_tokens.AtEnd) {
       ast.Result = ParseResultKind.Success;
@@ -290,14 +290,14 @@ internal class OperationParser : CommonParser
     return (result as IAstSelection).Ok();
   }
 
-  internal FragmentAst[] ParseFragStart()
+  internal IResultArray<FragmentAst> ParseFragStart()
     => ParseFragment(
         Array.Empty<FragmentAst>(),
         (ref Tokenizer tokens) => tokens.Take('&'),
         (ref Tokenizer tokens) => tokens.Take(':')
       );
 
-  internal FragmentAst[] ParseFragEnd(FragmentAst[] initial)
+  internal IResultArray<FragmentAst> ParseFragEnd(FragmentAst[] initial)
     => ParseFragment(
         initial,
         (ref Tokenizer tokens) => tokens.Take("fragment") || tokens.Take('&'),
@@ -306,7 +306,7 @@ internal class OperationParser : CommonParser
 
   private delegate bool Prefix(ref Tokenizer tokens);
 
-  private FragmentAst[] ParseFragment(
+  private IResultArray<FragmentAst> ParseFragment(
     FragmentAst[] initial,
     Prefix fragPrefix,
     Prefix typePrefix)
@@ -328,7 +328,7 @@ internal class OperationParser : CommonParser
       }
     }
 
-    return definitions.ToArray();
+    return definitions.OkArray();
   }
 
   internal IResult<ArgumentAst> ParseArgument()

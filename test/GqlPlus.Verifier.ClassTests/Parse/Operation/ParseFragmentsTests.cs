@@ -38,9 +38,15 @@ public class ParseFragmentsTests
 
   private static ArrayChecks<OperationParser, FragmentAst> TestStart => new(
     tokens => new OperationParser(tokens),
-    parser => parser.ParseFragStart());
+    parser => {
+      parser.ParseFragStart().Required(out var result);
+      return result ?? Array.Empty<FragmentAst>();
+    });
 
   private static ArrayChecks<OperationParser, FragmentAst> TestEnd => new(
     tokens => new OperationParser(tokens),
-    parser => parser.ParseFragEnd(Array.Empty<FragmentAst>()));
+    parser => {
+      parser.ParseFragEnd(Array.Empty<FragmentAst>()).Required(out var result);
+      return result ?? Array.Empty<FragmentAst>();
+    });
 }

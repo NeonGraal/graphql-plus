@@ -201,7 +201,7 @@ internal class OperationParser : CommonParser
     var fields = new List<IAstSelection>();
 
     while (!_tokens.Take('}')) {
-      if (ParseSelection(out IAstSelection fragment)) {
+      if (ParseSelection().Required(out var fragment)) {
         fields.Add(fragment);
       } else if (ParseField(out IAstSelection field)) {
         fields.Add(field);
@@ -216,23 +216,21 @@ internal class OperationParser : CommonParser
     return Error("Object", "at least one field or selection", fields.Any());
   }
 
-  internal bool ParseSelection(out IAstSelection selection)
+  internal IResult<IAstSelection> ParseSelection()
   {
-    selection = AstNulls.Selection;
-
     if (_tokens.Take("...") || _tokens.Take('|')) {
       var at = _tokens.At;
       string? onType = null;
       if (_tokens.Take("on") || _tokens.Take(':')) {
         if (!_tokens.Identifier(out onType)) {
-          return Error("Spread", "a type");
+          return Error<IAstSelection>("Spread", "a type");
         }
       } else {
         if (_tokens.Identifier(out var name)) {
           if (ParseDirectives().Required(out var directives)) {
-            selection = new SpreadAst(at, name) { Directives = directives };
+            IAstSelection selection = new SpreadAst(at, name) { Directives = directives };
             Spreads.Add((SpreadAst)selection);
-            return true;
+            return selection.Ok();
           }
         }
       }
@@ -240,19 +238,19 @@ internal class OperationParser : CommonParser
       {
         if (ParseDirectives().Required(out var directives)) {
           if (ParseObject(out IAstSelection[] selections)) {
-            selection = new InlineAst(at, selections) {
+            IAstSelection selection = new InlineAst(at, selections) {
               OnType = onType,
               Directives = directives,
             };
-            return true;
+            return selection.Ok();
           }
         }
       }
 
-      return Error("Inline", "an object");
+      return Error<IAstSelection>("Inline", "an object");
     }
 
-    return false;
+    return AstNulls.Selection.Empty();
   }
 
   internal bool ParseField(out IAstSelection field)

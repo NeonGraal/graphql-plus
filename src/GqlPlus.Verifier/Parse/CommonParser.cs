@@ -74,7 +74,8 @@ internal class CommonParser
     return list.OkArray();
   }
 
-  internal IResult<ConstantAst> ParseDefault() => _tokens.Take('=') ? ParseConstant() : new ResultEmpty<ConstantAst>();
+  internal IResult<ConstantAst> ParseDefault()
+    => _tokens.Take('=') ? ParseConstant() : new ResultEmpty<ConstantAst>();
 
   internal IResult<ConstantAst> ParseConstant()
   {

@@ -17,6 +17,7 @@ public class ParseObjectTests
   [Theory, RepeatData(Repeats)]
   public void WithJustSpread_ReturnsCorrectAst(string spread)
     => Test.TrueExpected("{|" + spread + "}",
+      spread.StartsWith("on", StringComparison.OrdinalIgnoreCase),
       new SpreadAst(AstNulls.At, spread));
 
   [Theory, RepeatData(Repeats)]

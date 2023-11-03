@@ -51,16 +51,16 @@ public class ParseSelectionTests
 
   [Fact]
   public void WithInvalidSelection_ReturnsFalse()
-    => Test.False("|?", CheckDefault);
+    => Test.False("|?", CheckNull);
 
   [Fact]
   public void WithInvalidSpread_ReturnsFalse()
-    => Test.False("|:?", CheckDefault);
+    => Test.False("|:?", CheckNull);
 
-  private void CheckDefault(IAstSelection? result)
-    => result.Should().BeOfType<AstNulls.NullSelectionAst>();
+  private void CheckNull(IAstSelection? result)
+    => result.Should().BeNull();
 
   private static OneChecks<OperationParser, IAstSelection> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out IAstSelection? result) => parser.ParseSelection(out result));
+    (OperationParser parser, out IAstSelection? result) => parser.ParseSelection().Required(out result));
 }

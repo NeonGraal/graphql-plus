@@ -16,6 +16,13 @@ internal sealed class ManyChecks<P, T>
     : base(factory)
     => (_many, _manyExpression) = (many, manyExpression);
 
+  internal void TrueExpected(string input, bool skipIf, params T[] expected)
+  {
+    if (!skipIf) {
+      TrueExpected(input, expected);
+    }
+  }
+
   internal void TrueExpected(string input, params T[] expected)
   {
     var parser = Parser(input);

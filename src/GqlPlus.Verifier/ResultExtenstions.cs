@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier;
 
 public static class ResultExtenstions
 {
-  public static IResult<R> AsResult<T, R>(this IResult<T> result)
+  public static IResult<R> AsResult<T, R>(this IResult<T> result, R? _ = default)
     => result switch {
       ResultPartial<T> part
         => part.Result is R newResult
@@ -17,7 +17,7 @@ public static class ResultExtenstions
       _ => new ResultEmpty<R>(),
     };
 
-  public static IResultArray<R> AsResultArray<T, R>(this IResult<T> result)
+  public static IResultArray<R> AsResultArray<T, R>(this IResult<T> result, R[]? _ = default)
     => result is ResultArrayOk<T> ok && ok.Result is R[] newResult
       ? new ResultArrayOk<R>(newResult)
       : new ResultArrayEmpty<R>();

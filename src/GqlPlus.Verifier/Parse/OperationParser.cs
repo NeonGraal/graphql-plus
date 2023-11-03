@@ -114,7 +114,7 @@ internal class OperationParser : CommonParser
       var modifiers = ParseModifiers("Operation");
 
       if (modifiers.IsError()) {
-        return modifiers.AsResultArray<ModifierAst, VariableAst>();
+        return modifiers.AsResultArray(variable);
       }
 
       modifiers.WithResult(value => variable.Modifers = value);
@@ -203,7 +203,7 @@ internal class OperationParser : CommonParser
     while (!_tokens.Take('}')) {
       if (ParseSelection().Required(out var fragment)) {
         fields.Add(fragment);
-      } else if (ParseField(out IAstSelection field)) {
+      } else if (ParseField().Required(out var field)) {
         fields.Add(field);
       } else {
         selections = fields.ToArray();
@@ -253,13 +253,11 @@ internal class OperationParser : CommonParser
     return AstNulls.Selection.Empty();
   }
 
-  internal bool ParseField(out IAstSelection field)
+  internal IResult<IAstSelection> ParseField()
   {
     var at = _tokens.At;
-    field = AstNulls.Selection;
-
     if (!_tokens.Identifier(out var alias)) {
-      return false;
+      return Error<IAstSelection>("Field", "initial identifier");
     }
 
     var result = new FieldAst(at, alias);
@@ -267,7 +265,7 @@ internal class OperationParser : CommonParser
     if (_tokens.Take(':')) {
       at = _tokens.At;
       if (!_tokens.Identifier(out var name)) {
-        return Error("Field", "a name after an alias");
+        return Error<IAstSelection>("Field", "a name after an alias");
       }
 
       result = new FieldAst(at, name) { Alias = alias };
@@ -280,7 +278,7 @@ internal class OperationParser : CommonParser
     var modifiers = ParseModifiers("Operation");
 
     if (modifiers.IsError()) {
-      return false;
+      return modifiers.AsResult(AstNulls.Selection);
     }
 
     modifiers.WithResult(value => result.Modifiers = value);
@@ -292,8 +290,7 @@ internal class OperationParser : CommonParser
       result.Selections = selections;
     }
 
-    field = result;
-    return true;
+    return (result as IAstSelection).Ok();
   }
 
   internal FragmentAst[] ParseFragStart()

@@ -54,12 +54,12 @@ public class ParseFieldTests
 
   [Theory, RepeatData(Repeats)]
   public void WithJustAlias_ReturnsFalse(string alias)
-    => Test.False(alias + ":", DefaultCheck);
+    => Test.False(alias + ":", DefaultNull);
 
-  private void DefaultCheck(IAstSelection? result)
-    => result.Should().BeOfType<AstNulls.NullSelectionAst>();
+  private void DefaultNull(IAstSelection? result)
+    => result.Should().BeNull();
 
   private static OneChecks<OperationParser, IAstSelection> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out IAstSelection? result) => parser.ParseField(out result));
+    (OperationParser parser, out IAstSelection? result) => parser.ParseField().Required(out result));
 }

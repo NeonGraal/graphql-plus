@@ -382,11 +382,11 @@ internal class OperationParser : CommonParser
       _tokens.IgnoreSeparators = false;
       at = _tokens.At;
 
-      if (ParseArgList(out ArgumentAst[] list)) {
+      if (ParseArgList().Required(out ArgumentAst[] list)) {
         return new ArgumentAst(at, list).Ok();
       }
 
-      if (ParseArgObject(out AstValues<ArgumentAst>.ObjectAst fields)) {
+      if (ParseArgObject().Required(out var fields)) {
         return new ArgumentAst(at, fields).Ok();
       }
     } finally {
@@ -411,10 +411,9 @@ internal class OperationParser : CommonParser
       : initial;
   }
 
-  private bool ParseArgFieldValues(char end, ArgumentAst.ObjectAst fields)
+  private IResult<ArgumentAst.ObjectAst> ParseArgFieldValues(char end, ArgumentAst.ObjectAst fields)
   {
     var result = new ArgumentAst.ObjectAst(fields);
-    fields.Clear();
 
     while (!_tokens.Take(end)) {
       if (ParseFieldKey().Required(out var key)
@@ -423,54 +422,47 @@ internal class OperationParser : CommonParser
       ) {
         result.Add(key, value);
       } else {
-        return Error("Argument", "a field in object");
+        return Error("Argument", "a field in object", result);
       }
 
       _tokens.Take(',');
     }
 
-    foreach (var item in result) {
-      fields.Add(item.Key, item.Value);
-    }
-
-    return true;
+    return result.Ok();
   }
 
-  private bool ParseArgList(out ArgumentAst[] list)
+  private IResultArray<ArgumentAst> ParseArgList()
   {
-    list = Array.Empty<ArgumentAst>();
+    var list = new List<ArgumentAst>();
 
     if (!_tokens.Take('[')) {
-      return false;
+      return list.EmptyArray();
     }
 
-    var values = new List<ArgumentAst>();
     while (!_tokens.Take(']')) {
       if (ParseArgValue().Required(out var item)) {
-        values.Add(item);
+        list.Add(item);
       } else {
-        return Error("Argument", "a value in list");
+        return ErrorArray("Argument", "a value in list", list);
       }
 
       _tokens.Take(',');
     }
 
-    list = values.ToArray();
-    return true;
+    return list.OkArray();
   }
 
-  private bool ParseArgObject(out ArgumentAst.ObjectAst fields)
-  {
-    fields = new ArgumentAst.ObjectAst();
-
-    return _tokens.Take('{')
-      && ParseArgFieldValues('}', fields);
-  }
+  private IResult<ArgumentAst.ObjectAst> ParseArgObject()
+    => _tokens.Take('{')
+      ? ParseArgFieldValues('}', new ArgumentAst.ObjectAst())
+      : new ResultEmpty<ArgumentAst.ObjectAst>();
 
   private IResult<ArgumentAst> ParseArgumentMid(ParseAt at, ArgumentAst.ObjectAst fields)
   {
     if (_tokens.Take(',')) {
-      return ParseArgFieldValues(')', fields) ? new ArgumentAst(at, fields).Ok() : Error<ArgumentAst>("Argument", "a field after ','");
+      return ParseArgFieldValues(')', fields).Required(out var result)
+        ? new ArgumentAst(at, result).Ok()
+        : Error<ArgumentAst>("Argument", "a field after ','");
     }
 
     while (!_tokens.Take(')')) {

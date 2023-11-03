@@ -32,13 +32,13 @@ public class ParseArgValueTests
   public void WithListInvalid_ReturnsFalse(string label)
     => Test.False(
       '[' + label + ':' + label + ']',
-      CheckDefault);
+      CheckNull);
 
   [Theory, RepeatData(Repeats)]
   public void WithListDoubleComma_ReturnsFalse(string label)
     => Test.False(
       '[' + label + ",," + label + ']',
-      CheckDefault);
+      CheckNull);
 
   [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string label)
@@ -58,13 +58,13 @@ public class ParseArgValueTests
   public void WithObjectInvalid_ReturnsFalse(string key, string label)
     => Test.False(
       '{' + key + ':' + label + ':' + label + ':' + key + '}',
-      CheckDefault,
+      CheckNull,
       key == label);
 
-  private void CheckDefault(ArgumentAst? result)
-    => result.Should().Be(new ArgumentAst(AstNulls.At));
+  private void CheckNull(ArgumentAst? result)
+    => result.Should().BeNull();
 
   private static OneChecks<OperationParser, ArgumentAst> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out ArgumentAst? result) => parser.ParseArgValue(out result));
+    (OperationParser parser, out ArgumentAst? result) => parser.ParseArgValue().Required(out result));
 }

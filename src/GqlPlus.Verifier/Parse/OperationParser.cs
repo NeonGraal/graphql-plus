@@ -346,63 +346,55 @@ internal class OperationParser : CommonParser
       _tokens.IgnoreSeparators = false;
 
       var at = _tokens.At;
-      ArgumentAst value = new(at);
+      ArgumentAst? value = new(at);
       if (ParseFieldKey().Required(out var key)) {
         value = key;
         return _tokens.Take(':')
-          ? ParseArgValue(out var item)
+          ? ParseArgValue().Required(out var item)
             ? ParseArgumentMid(at, new() { [key] = item }, out argument)
             : Error("Argument", "a value after field key separator")
           : ParseArgumentEnd(at, value, out argument);
       }
 
-      return ParseArgValue(out value)
+      return ParseArgValue().Required(out value)
         && ParseArgumentEnd(at, value, out argument);
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
     }
   }
 
-  internal bool ParseArgValue(out ArgumentAst argument)
+  internal IResult<ArgumentAst> ParseArgValue()
   {
-    var at = _tokens.At;
-    argument = new ArgumentAst(at);
-
-    if (!_tokens.Prefix('$', out var variable, out at)) {
-      return false;
+    _ = _tokens.At;
+    if (!_tokens.Prefix('$', out var variable, out ParseAt? at)) {
+      return Error<ArgumentAst>("Argument", "identifier after '$'");
     }
 
     if (variable is not null) {
-      argument = new ArgumentAst(at, variable);
+      var argument = new ArgumentAst(at, variable);
 
       Variables.Add(argument);
 
-      return true;
+      return argument.Ok();
     }
 
     var oldSeparators = _tokens.IgnoreSeparators;
     try {
       _tokens.IgnoreSeparators = false;
       at = _tokens.At;
+
       if (ParseArgList(out ArgumentAst[] list)) {
-        argument = new ArgumentAst(at, list);
-        return true;
+        return new ArgumentAst(at, list).Ok();
       }
 
       if (ParseArgObject(out AstValues<ArgumentAst>.ObjectAst fields)) {
-        argument = new ArgumentAst(at, fields);
-        return true;
+        return new ArgumentAst(at, fields).Ok();
       }
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
     }
 
-    if (ParseConstant().Required(out var constant)) {
-      argument = constant;
-      return true;
-    }
-
-    return false;
+    return ParseConstant().Required(out var constant) ? new ArgumentAst(constant).Ok() : (IResult<ArgumentAst>)new ResultEmpty<ArgumentAst>();
   }
 
   private ArgumentAst ParseArgValues(ArgumentAst initial)
@@ -410,7 +402,7 @@ internal class OperationParser : CommonParser
     var at = initial.At;
     var values = new List<ArgumentAst> { initial };
     while (_tokens.Take(',')) {
-      if (ParseArgValue(out ArgumentAst value)) {
+      if (ParseArgValue().Required(out var value)) {
         values.Add(value);
       }
     }
@@ -428,7 +420,7 @@ internal class OperationParser : CommonParser
     while (!_tokens.Take(end)) {
       if (ParseFieldKey().Required(out var key)
         && _tokens.Take(':')
-        && ParseArgValue(out var value)
+        && ParseArgValue().Required(out var value)
       ) {
         result.Add(key, value);
       } else {
@@ -455,7 +447,7 @@ internal class OperationParser : CommonParser
 
     var values = new List<ArgumentAst>();
     while (!_tokens.Take(']')) {
-      if (ParseArgValue(out var item)) {
+      if (ParseArgValue().Required(out var item)) {
         values.Add(item);
       } else {
         return Error("Argument", "a value in list");
@@ -492,7 +484,7 @@ internal class OperationParser : CommonParser
     while (!_tokens.Take(')')) {
       if (ParseFieldKey().Required(out var key1)
         && _tokens.Take(":")
-        && ParseArgValue(out var item1)
+        && ParseArgValue().Required(out var item1)
       ) {
         fields.Add(key1, ParseArgValues(item1));
       } else {
@@ -513,7 +505,7 @@ internal class OperationParser : CommonParser
     }
 
     var values = new List<ArgumentAst> { value };
-    while (ParseArgValue(out var item)) {
+    while (ParseArgValue().Required(out var item)) {
       values.Add(item);
     }
 

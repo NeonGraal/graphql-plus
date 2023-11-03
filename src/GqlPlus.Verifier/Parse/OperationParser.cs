@@ -50,7 +50,7 @@ internal class OperationParser : CommonParser
 
     if (result is not null) {
       ast.ResultType = result;
-      if (ParseArgument(out var argument)) {
+      if (ParseArgument().Required(out var argument)) {
         ast.Argument = argument;
       }
     } else if (ParseObject(out IAstSelection[] selections)) {
@@ -176,10 +176,11 @@ internal class OperationParser : CommonParser
 
     while (name is not null) {
       var directive = new DirectiveAst(at, name);
-      if (ParseArgument(out ArgumentAst? argument)) {
-        directive.Argument = argument;
-      } else {
-        return PartialArray("Directive", "argument", result);
+      var argument = ParseArgument();
+      if (argument.Required(out var value)) {
+        directive.Argument = value;
+      } else if (argument.IsError()) {
+        return argument.AsResultArray(result);
       }
 
       result.Add(directive);
@@ -271,7 +272,7 @@ internal class OperationParser : CommonParser
       result = new FieldAst(at, name) { Alias = alias };
     }
 
-    if (ParseArgument(out ArgumentAst? argument)) {
+    if (ParseArgument().Required(out var argument)) {
       result.Argument = argument;
     }
 
@@ -334,11 +335,10 @@ internal class OperationParser : CommonParser
     return definitions.ToArray();
   }
 
-  internal bool ParseArgument(out ArgumentAst? argument)
+  internal IResult<ArgumentAst> ParseArgument()
   {
-    argument = null;
     if (!_tokens.Take('(')) {
-      return true;
+      return new ResultEmpty<ArgumentAst>();
     }
 
     var oldSeparators = _tokens.IgnoreSeparators;
@@ -351,13 +351,16 @@ internal class OperationParser : CommonParser
         value = key;
         return _tokens.Take(':')
           ? ParseArgValue().Required(out var item)
-            ? ParseArgumentMid(at, new() { [key] = item }, out argument)
-            : Error("Argument", "a value after field key separator")
-          : ParseArgumentEnd(at, value, out argument);
+            ? ParseArgumentMid(at, new() { [key] = item })
+            : Error("Argument", "a value after field key separator", value)
+          : ParseArgumentEnd(at, value);
       }
 
-      return ParseArgValue().Required(out value)
-        && ParseArgumentEnd(at, value, out argument);
+      var argValue = ParseArgValue();
+
+      return argValue.Required(out value)
+        ? ParseArgumentEnd(at, value)
+        : argValue;
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
     }
@@ -468,17 +471,10 @@ internal class OperationParser : CommonParser
       && ParseArgFieldValues('}', fields);
   }
 
-  private bool ParseArgumentMid(ParseAt at, ArgumentAst.ObjectAst fields, out ArgumentAst argument)
+  private IResult<ArgumentAst> ParseArgumentMid(ParseAt at, ArgumentAst.ObjectAst fields)
   {
-    argument = new(at);
-
     if (_tokens.Take(',')) {
-      if (ParseArgFieldValues(')', fields)) {
-        argument = new ArgumentAst(at, fields);
-        return true;
-      }
-
-      return Error("Argument", "a field after ','");
+      return ParseArgFieldValues(')', fields) ? new ArgumentAst(at, fields).Ok() : Error<ArgumentAst>("Argument", "a field after ','");
     }
 
     while (!_tokens.Take(')')) {
@@ -488,20 +484,18 @@ internal class OperationParser : CommonParser
       ) {
         fields.Add(key1, ParseArgValues(item1));
       } else {
-        return Error("Argument", "a field");
+        return Error<ArgumentAst>("Argument", "a field");
       }
     }
 
-    argument = new ArgumentAst(at, fields);
-    return true;
+    return new ArgumentAst(at, fields).Ok();
   }
 
-  private bool ParseArgumentEnd(ParseAt at, ArgumentAst value, out ArgumentAst argument)
+  private IResult<ArgumentAst> ParseArgumentEnd(ParseAt at, ArgumentAst value)
   {
     var more = ParseArgValues(value);
     if (more.Values.Length > 1) {
-      argument = more;
-      return true;
+      return more.Ok();
     }
 
     var values = new List<ArgumentAst> { value };
@@ -510,11 +504,10 @@ internal class OperationParser : CommonParser
     }
 
     if (_tokens.Take(")")) {
-      argument = values.Count > 1 ? new(at, values.ToArray()) : value;
-      return true;
+      var argument = values.Count > 1 ? new(at, values.ToArray()) : value;
+      return argument.Ok();
     }
 
-    argument = new(at);
-    return Error("Argument", "a value");
+    return Error("Argument", "a value", more);
   }
 }

@@ -32,7 +32,7 @@ public class ParseArgumentTests
   public void WithListInvalid_ReturnsFalse(string label)
     => Test.False(
       "($" + label + '|' + label + ')',
-      CheckDefault);
+      CheckNull);
 
   [Theory, RepeatData(Repeats)]
   public void WithField_ReturnsTrue(string label)
@@ -58,7 +58,7 @@ public class ParseArgumentTests
   public void WithObjectSemiLabel_ReturnsFalse(string key, string label)
     => Test.False(
       '(' + key + ":$" + label + ',' + label + ')',
-      CheckDefault,
+      CheckNull,
       key == label);
 
   [Theory, RepeatData(Repeats)]
@@ -72,16 +72,13 @@ public class ParseArgumentTests
   public void WithObjectInvalid_ReturnsFalse(string key, string label)
     => Test.False(
       '(' + key + ':' + label + ';' + label + ':' + key + ')',
-      CheckDefault,
+      CheckNull,
       key == label);
-
-  private void CheckDefault(ArgumentAst? result)
-    => result.Should().Be(new ArgumentAst(AstNulls.At));
 
   private void CheckNull(ArgumentAst? result)
     => result.Should().BeNull();
 
   private static OneChecks<OperationParser, ArgumentAst> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out ArgumentAst? result) => parser.ParseArgument(out result));
+    (OperationParser parser, out ArgumentAst? result) => parser.ParseArgument().Required(out result));
 }

@@ -106,7 +106,7 @@ internal class OperationParser : CommonParser
       var variable = new VariableAst(at, name);
 
       if (_tokens.Take(':')
-        && ParseVarType(out var varType)
+        && ParseVarType().Required(out var varType)
       ) {
         variable.Type = varType;
       }
@@ -138,32 +138,28 @@ internal class OperationParser : CommonParser
       : _tokens.Take(')') ? list.OkArray() : ErrorArray("Variables", "')'.", list);
   }
 
-  internal bool ParseVarType(out string varType)
+  internal IResult<string> ParseVarType()
   {
-    if (ParseVarNull(out var nullType)) {
-      varType = _tokens.Take('!') ? nullType + '!' : nullType;
-      return true;
+    if (ParseVarNull().Required(out var nullType)) {
+      var varType = _tokens.Take('!') ? nullType + '!' : nullType;
+      return varType.Ok();
     }
 
-    varType = "";
-    return false;
+    return "".Empty();
   }
 
-  internal bool ParseVarNull(out string varNull)
+  internal IResult<string> ParseVarNull()
   {
     if (_tokens.Take('[')) {
-      if (ParseVarType(out var varType)
+      return ParseVarType().Required(out var varType)
         && _tokens.Take(']')
-      ) {
-        varNull = "[" + varType + "]";
-        return true;
-      }
-
-      varNull = "";
-      return Error("Variable Type", "an inner variable type");
-    } else {
-      return _tokens.Identifier(out varNull);
+        ? $"[{varType}]".Ok()
+        : Error("Variable Type", "an inner variable type", "");
+    } else if (_tokens.Identifier(out var varNull)) {
+      return varNull.Ok();
     }
+
+    return "".Empty();
   }
 
   internal IResultArray<DirectiveAst> ParseDirectives()

@@ -8,6 +8,6 @@ internal interface IFieldParser<F, R>
 {
   IResult<ParameterAst> FieldParameter();
   void ApplyParameter(F result, ParameterAst? parameter);
-  bool FieldDefault(F field);
+  IResult<F> FieldDefault(F field);
   IResult<F> FieldEnumLabel(F field);
 }

@@ -340,7 +340,7 @@ internal class SchemaParser : CommonParser
           field.Modifiers = value ?? Array.Empty<ModifierAst>();
         }
 
-        return parser.FieldDefault(field);
+        return parser.FieldDefault(field).Required(out var _);
       }
 
       return Error(parser.Label, "field type");
@@ -384,7 +384,7 @@ internal class SchemaParser : CommonParser
           return Error(factories.Label, "at least one type argument after '<'");
         }
       } else if (isTypeArgument) {
-        return factories.TypeEnumLabel(reference);
+        return factories.TypeEnumLabel(reference).Required(out var _);
       }
 
       return true;
@@ -397,18 +397,18 @@ internal class SchemaParser : CommonParser
   internal bool ParseOutputDeclaration(out OutputAst output, string description)
    => ParseObject(out output, description, new OutputParserFactories(this));
 
-  internal bool ParseOutputEnumLabel(OutputReferenceAst reference)
+  internal IResult<OutputReferenceAst> ParseOutputEnumLabel(OutputReferenceAst reference)
   {
     if (_tokens.Take('.')) {
       if (_tokens.Identifier(out var label)) {
         reference.Label = label;
-        return true;
+        return reference.Ok();
       }
 
-      return Error("Output", "label after '.'");
+      return Error("Output", "label after '.'", reference);
     }
 
-    return true;
+    return reference.Ok();
   }
 
   internal IResult<OutputFieldAst> ParseOutputFieldLabel(OutputFieldAst field)

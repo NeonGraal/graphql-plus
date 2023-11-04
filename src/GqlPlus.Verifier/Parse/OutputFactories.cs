@@ -30,7 +30,8 @@ internal class OutputParserFactories
   public OutputParserFactories(SchemaParser parser)
     => _parser = parser;
 
-  public bool FieldDefault(OutputFieldAst field) => true;
+  public IResult<OutputFieldAst> FieldDefault(OutputFieldAst field)
+    => field.Ok();
 
   public IResult<ParameterAst> FieldParameter()
     => _parser.ParseParameter();
@@ -38,7 +39,7 @@ internal class OutputParserFactories
   public void ApplyParameter(OutputFieldAst result, ParameterAst? parameter)
     => result.Parameter = parameter;
 
-  public bool TypeEnumLabel(OutputReferenceAst reference)
+  public IResult<OutputReferenceAst> TypeEnumLabel(OutputReferenceAst reference)
     => _parser.ParseOutputEnumLabel(reference);
 
   public IResult<OutputFieldAst> FieldEnumLabel(OutputFieldAst field)

@@ -31,19 +31,22 @@ internal class InputParserFactories
 
   public void ApplyParameter(InputFieldAst result, ParameterAst? parameter) { }
 
-  public bool FieldDefault(InputFieldAst field)
+  public IResult<InputFieldAst> FieldDefault(InputFieldAst field)
   {
-    if (_parser.ParseDefault().Required(out var constant)) {
+    var fieldDefault = _parser.ParseDefault();
+    if (fieldDefault.Required(out var constant)) {
       field.Default = constant;
     }
 
-    return true;
+    return fieldDefault.AsPartial(field);
   }
 
-  public IResult<InputFieldAst> FieldEnumLabel(InputFieldAst field) => field.Ok();
+  public IResult<InputFieldAst> FieldEnumLabel(InputFieldAst field)
+    => field.Ok();
 
   public IResult<ParameterAst> FieldParameter()
     => new ResultEmpty<ParameterAst>();
 
-  public bool TypeEnumLabel(InputReferenceAst reference) => true;
+  public IResult<InputReferenceAst> TypeEnumLabel(InputReferenceAst reference)
+    => reference.Ok();
 }

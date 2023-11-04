@@ -199,11 +199,14 @@ internal class SchemaParser : CommonParser
     _tokens.String(out var description);
     var at = _tokens.At;
     var hasLabel = _tokens.Identifier(out var label);
-    ParseAliases("Enum", out var aliases);
+    var result = ParseAliases("Enum");
 
-    enumLabel = new(at, label, description) { Aliases = aliases };
+    enumLabel = result.Required(out var aliases)
+      ? new(at, label, description) { Aliases = aliases }
+      : new(at, label, description);
 
-    return Error("Enum", "label", hasLabel);
+    return !result.IsError(Errors.Add)
+      && Error("Enum", "label", hasLabel);
   }
 
   private bool ParseObject<O, F, R>(out O result, string description, IObjectParser<O, F, R> factories)
@@ -294,7 +297,7 @@ internal class SchemaParser : CommonParser
     }
 
     var hasParameter = parser.FieldParameter(out var parameter);
-    if (!hasParameter || !ParseAliases(parser.Label, out var aliases)) {
+    if (!hasParameter || !ParseAliases(parser.Label).Required(out var aliases)) {
       field = parser.NullField();
       return false;
     }
@@ -452,7 +455,7 @@ internal class SchemaParser : CommonParser
   internal bool ParseInput(out InputAst output, string description)
    => ParseObject(out output, description, new InputParserFactories(this));
 
-  private bool ParseAliases(string label, out string[] result)
+  private IResultArray<string> ParseAliases(string label)
   {
     var aliases = new List<string>();
     if (_tokens.Take('[')) {
@@ -461,21 +464,17 @@ internal class SchemaParser : CommonParser
       }
 
       if (!_tokens.Take("]")) {
-        result = aliases.ToArray();
-        return Error(label, "']' to end aliases");
+        return PartialArray(label, "']' to end aliases", () => aliases);
       } else if (aliases.Count == 0) {
-        result = aliases.ToArray();
-        return Error(label, "at least one alias after '['");
+        return ErrorArray(label, "at least one alias after '['", aliases);
       }
     }
 
-    result = aliases.ToArray();
-
-    return true;
+    return aliases.OkArray();
   }
 
   private bool ParsePrefix(string label, out string[] result)
-    => ParseAliases(label, out result)
+    => ParseAliases(label).Required(out result)
       && Error(label, "'=' before definition", _tokens.Take('='));
 
   private bool ParseTypeParameters(string label, out TypeParameterAst[] parameters)

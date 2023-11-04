@@ -12,7 +12,9 @@ public interface IResultMessage<T> : IResult<T>
   ParseMessage Message { get; }
 }
 
-public readonly struct ResultOk<T> : IResultValue<T>
+public interface IResultOk<T> : IResultValue<T> { }
+
+public readonly struct ResultOk<T> : IResultOk<T>
 {
   public T Result { get; }
 

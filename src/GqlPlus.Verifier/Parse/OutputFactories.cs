@@ -32,8 +32,8 @@ internal class OutputParserFactories
 
   public bool FieldDefault(OutputFieldAst field) => true;
 
-  public bool FieldParameter(out ParameterAst? parameter)
-    => _parser.ParseParameter(out parameter);
+  public IResult<ParameterAst> FieldParameter()
+    => _parser.ParseParameter();
 
   public void ApplyParameter(OutputFieldAst result, ParameterAst? parameter)
     => result.Parameter = parameter;

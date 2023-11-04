@@ -24,7 +24,7 @@ public static class ResultExtenstions
 
   public static bool IsError<T>(this IResult<T> result, Action<ParseMessage>? action = null)
   {
-    if (result is ResultError<T> error) {
+    if (result is IResultMessage<T> error) {
       action?.Invoke(error.Message);
       return true;
     }
@@ -45,7 +45,7 @@ public static class ResultExtenstions
 
   public static bool Required<T>(this IResult<T> result, [NotNullWhen(true)] out T? value)
   {
-    if (result is IResultValue<T> ok) {
+    if (result is IResultOk<T> ok) {
       value = ok.Result!;
       return true;
     }

@@ -12,17 +12,17 @@ internal class SchemaParser : CommonParser
 
   private readonly Dictionary<string, Parser<AstDescribed>> _parsers = new() {
     ["category"] = ParserFor((SchemaParser parser, string description, out CategoryAst result)
-      => parser.ParseCategory(out result, description)),
+      => parser.ParseCategoryDeclaration(out result, description)),
     ["directive"] = ParserFor((SchemaParser parser, string description, out DirectiveAst result)
-      => parser.ParseDirective(out result, description)),
+      => parser.ParseDirectiveDeclaration(out result, description)),
     ["enum"] = ParserFor((SchemaParser parser, string description, out EnumAst result)
-      => parser.ParseEnum(out result, description)),
+      => parser.ParseEnumDeclaration(out result, description)),
     ["output"] = ParserFor((SchemaParser parser, string description, out OutputAst result)
-      => parser.ParseOutput(out result, description)),
+      => parser.ParseOutputDeclaration(out result, description)),
     ["input"] = ParserFor((SchemaParser parser, string description, out InputAst result)
-      => parser.ParseInput(out result, description)),
+      => parser.ParseInputDeclaration(out result, description)),
     ["scalar"] = ParserFor((SchemaParser parser, string description, out ScalarAst result)
-      => parser.ParseScalar(out result, description)),
+      => parser.ParseScalarDeclaration(out result, description)),
   };
 
   private static Parser<AstDescribed> ParserFor<T>(Parser<T> parser)
@@ -66,7 +66,7 @@ internal class SchemaParser : CommonParser
     };
   }
 
-  internal bool ParseCategory(out CategoryAst result, string description)
+  internal bool ParseCategoryDeclaration(out CategoryAst result, string description)
   {
     var at = _tokens.At;
     result = new(at, "") { Description = description };
@@ -113,7 +113,7 @@ internal class SchemaParser : CommonParser
       && Enum.TryParse(option, true, out result);
   }
 
-  internal bool ParseDirective(out DirectiveAst result, string description)
+  internal bool ParseDirectiveDeclaration(out DirectiveAst result, string description)
   {
     if (!_tokens.Prefix('@', out var name, out var at)) {
       result = new(AstNulls.At, name ?? "", description);
@@ -122,7 +122,7 @@ internal class SchemaParser : CommonParser
 
     result = new(at, name!, description);
 
-    if (ParseParameter(out var parameter)) {
+    if (ParseParameter().Required(out var parameter)) {
       result.Parameter = parameter;
     }
 
@@ -152,7 +152,7 @@ internal class SchemaParser : CommonParser
     return true;
   }
 
-  internal bool ParseEnum(out EnumAst result, string description)
+  internal bool ParseEnumDeclaration(out EnumAst result, string description)
   {
     var at = _tokens.At;
     var hasName = _tokens.Identifier(out var name);
@@ -296,8 +296,8 @@ internal class SchemaParser : CommonParser
       return Error(parser.Label, "field name");
     }
 
-    var hasParameter = parser.FieldParameter(out var parameter);
-    if (!hasParameter || !ParseAliases(parser.Label).Required(out var aliases)) {
+    var hasParameter = parser.FieldParameter();
+    if (hasParameter.IsError() || !ParseAliases(parser.Label).Required(out var aliases)) {
       field = parser.NullField();
       return false;
     }
@@ -309,7 +309,7 @@ internal class SchemaParser : CommonParser
       if (ParseReference(out var fieldType, parser, descr) && fieldType is not null) {
         field = parser.Field(at, name, description, fieldType);
         field.Aliases = aliases;
-        if (hasParameter) {
+        if (hasParameter.Required(out var parameter)) {
           parser.ApplyParameter(field, parameter);
         }
 
@@ -377,7 +377,7 @@ internal class SchemaParser : CommonParser
     return true;
   }
 
-  internal bool ParseOutput(out OutputAst output, string description)
+  internal bool ParseOutputDeclaration(out OutputAst output, string description)
    => ParseObject(out output, description, new OutputParserFactories(this));
 
   internal bool ParseOutputEnumLabel(OutputReferenceAst reference)
@@ -420,25 +420,24 @@ internal class SchemaParser : CommonParser
     return Error("Output", "':' or '='");
   }
 
-  internal bool ParseParameter(out ParameterAst? parameter)
+  internal IResult<ParameterAst> ParseParameter()
   {
-    parameter = default;
     if (!_tokens.Take('(')) {
-      return true;
+      return new ResultEmpty<ParameterAst>();
     }
 
     _tokens.String(out var descr);
     var at = _tokens.At;
     if (!ParseReference(out var reference, new InputParserFactories(this), descr)
       || reference is null) {
-      return Error("Parameter", "input reference after '('");
+      return Error<ParameterAst>("Parameter", "input reference after '('");
     }
 
-    parameter = new(at, reference);
+    var parameter = new ParameterAst(at, reference);
     var modifiers = ParseModifiers("Operation");
 
     if (modifiers.IsError(Errors.Add)) {
-      return false;
+      return modifiers.AsResult(parameter);
     }
 
     if (modifiers.Optional(out var value)) {
@@ -449,10 +448,10 @@ internal class SchemaParser : CommonParser
       parameter.Default = constant;
     }
 
-    return Error("Parameter", "')' at end", _tokens.Take(')'));
+    return _tokens.Take(')') ? parameter.Ok() : Partial("Parameter", "')' at end", () => parameter);
   }
 
-  internal bool ParseInput(out InputAst output, string description)
+  internal bool ParseInputDeclaration(out InputAst output, string description)
    => ParseObject(out output, description, new InputParserFactories(this));
 
   private IResultArray<string> ParseAliases(string label)
@@ -503,7 +502,7 @@ internal class SchemaParser : CommonParser
     return result.OkArray();
   }
 
-  internal bool ParseScalar(out ScalarAst result, string description)
+  internal bool ParseScalarDeclaration(out ScalarAst result, string description)
   {
     var at = _tokens.At;
     var hasName = _tokens.Identifier(out var name);

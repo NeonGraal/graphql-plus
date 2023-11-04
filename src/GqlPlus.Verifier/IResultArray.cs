@@ -2,7 +2,7 @@
 
 public interface IResultArray<T> { }
 
-public readonly struct ResultArrayOk<T> : IResultArray<T>, IResultValue<T[]>
+public readonly struct ResultArrayOk<T> : IResultArray<T>, IResultOk<T[]>
 {
   public T[] Result { get; }
 

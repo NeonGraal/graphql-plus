@@ -190,11 +190,11 @@ internal class SchemaParser : CommonParser
       }
     }
 
-    if (ParseEnumLabel(out var label)) {
+    if (ParseEnumLabel().Required(out var label)) {
       List<EnumLabelAst> labels = new() { label };
 
       while (_tokens.Take("|")) {
-        if (ParseEnumLabel(out label)) {
+        if (ParseEnumLabel().Required(out label)) {
           labels.Add(label);
         } else {
           return Error("Enum", "label");
@@ -208,19 +208,22 @@ internal class SchemaParser : CommonParser
     return Error("Enum", "label");
   }
 
-  private bool ParseEnumLabel(out EnumLabelAst enumLabel)
+  private IResult<EnumLabelAst> ParseEnumLabel()
   {
     _tokens.String(out var description);
     var at = _tokens.At;
-    var hasLabel = _tokens.Identifier(out var label);
-    var result = ParseAliases("Enum");
 
-    enumLabel = result.Required(out var aliases)
-      ? new(at, label, description) { Aliases = aliases }
-      : new(at, label, description);
+    if (!_tokens.Identifier(out var label)) {
+      return Error<EnumLabelAst>("Enum", "label");
+    }
 
-    return !result.IsError(Errors.Add)
-      && Error("Enum", "label", hasLabel);
+    var enumAliases = ParseAliases("Enum");
+
+    var enumLabel = enumAliases.Required(out var aliases)
+      ? new EnumLabelAst(at, label, description) { Aliases = aliases }
+      : new EnumLabelAst(at, label, description);
+
+    return enumAliases.AsPartial(enumLabel, Errors.Add);
   }
 
   private bool ParseObject<O, F, R>(out O result, string description, IObjectParser<O, F, R> factories)

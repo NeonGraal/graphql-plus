@@ -20,6 +20,16 @@ public static class ResultArrayExtenstions
       ? new ResultArrayOk<R>(newResult)
       : new ResultArrayEmpty<R>();
 
+  public static IResult<R> AsPartial<T, R>(this IResultArray<T> old, R result, Action<ParseMessage>? action = null)
+  {
+    if (old is IResultMessage<T[]> part) {
+      action?.Invoke(part.Message);
+      return new ResultPartial<R>(result, part.Message);
+    }
+
+    return new ResultOk<R>(result);
+  }
+
   public static bool IsError<T>(this IResultArray<T> result, Action<ParseMessage>? action = null)
   {
     if (result is ResultArrayError<T> error) {

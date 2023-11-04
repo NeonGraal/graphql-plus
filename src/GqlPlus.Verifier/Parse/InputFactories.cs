@@ -40,7 +40,7 @@ internal class InputParserFactories
     return true;
   }
 
-  public bool FieldEnumLabel(InputFieldAst field) => false;
+  public IResult<InputFieldAst> FieldEnumLabel(InputFieldAst field) => field.Ok();
 
   public IResult<ParameterAst> FieldParameter()
     => new ResultEmpty<ParameterAst>();

@@ -346,7 +346,7 @@ internal class SchemaParser : CommonParser
       return Error(parser.Label, "field type");
     }
 
-    return Error(parser.Label, "field details", parser.FieldEnumLabel(field));
+    return Error(parser.Label, "field details", parser.FieldEnumLabel(field).Required(out var _));
   }
 
   internal bool ParseReference<R>(out R?
@@ -411,30 +411,30 @@ internal class SchemaParser : CommonParser
     return true;
   }
 
-  internal bool ParseOutputFieldLabel(OutputFieldAst field)
+  internal IResult<OutputFieldAst> ParseOutputFieldLabel(OutputFieldAst field)
   {
     if (_tokens.Take('=')) {
       var at = _tokens.At;
 
       if (!_tokens.Identifier(out var label)) {
-        return Error("Output", "label after '='");
+        return Error("Output", "label after '='", field);
       }
 
       if (!_tokens.Take('.')) {
         field.Label = label;
-        return true;
+        return field.Ok();
       }
 
       if (_tokens.Identifier(out var value)) {
         field.Type = new OutputReferenceAst(at, label);
         field.Label = value;
-        return true;
+        return field.Ok();
       }
 
-      return Error("Output", "label after '.'");
+      return Error("Output", "label after '.'", field);
     }
 
-    return Error("Output", "':' or '='");
+    return Error("Output", "':' or '='", field);
   }
 
   internal IResult<ParameterAst> ParseParameter()

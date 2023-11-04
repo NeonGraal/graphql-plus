@@ -41,6 +41,6 @@ internal class OutputParserFactories
   public bool TypeEnumLabel(OutputReferenceAst reference)
     => _parser.ParseOutputEnumLabel(reference);
 
-  public bool FieldEnumLabel(OutputFieldAst field)
+  public IResult<OutputFieldAst> FieldEnumLabel(OutputFieldAst field)
     => _parser.ParseOutputFieldLabel(field);
 }

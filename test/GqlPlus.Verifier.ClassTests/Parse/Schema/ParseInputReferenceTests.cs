@@ -8,5 +8,5 @@ public class ParseInputReferenceTests : BaseReferenceTests
 
   private static BaseReferenceChecks<InputReferenceAst> Test => new(
     new InputFactories(),
-    (SchemaParser parser, out InputReferenceAst? result) => parser.ParseReference(out result, new InputParserFactories(parser), ""));
+    (SchemaParser parser, out InputReferenceAst? result) => parser.ParseReference(new InputParserFactories(parser), "").Required(out result));
 }

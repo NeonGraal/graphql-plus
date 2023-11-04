@@ -250,9 +250,12 @@ internal class SchemaParser : CommonParser
     result.Aliases = aliases;
 
     _tokens.String(out var descr);
-    if (!ParseReference(out var reference, factories, descr)) {
+    var baseReference = ParseReference(factories, descr);
+    if (baseReference.IsError(Errors.Add)) {
       return false;
     }
+
+    baseReference.Required(out var reference);
 
     if (_tokens.Take('{')) {
       var fields = new List<F>();
@@ -291,7 +294,7 @@ internal class SchemaParser : CommonParser
     var result = new List<R>(initial);
     while (_tokens.Take('|')) {
       _tokens.String(out var descr);
-      if (ParseReference(out var alternate, factories, descr) && alternate is not null) {
+      if (ParseReference(factories, descr).Required(out var alternate)) {
         result.Add(alternate);
       } else {
         alternates = result.ToArray();
@@ -323,7 +326,7 @@ internal class SchemaParser : CommonParser
 
     if (_tokens.Take(':')) {
       _tokens.String(out var descr);
-      if (ParseReference(out var fieldType, parser, descr) && fieldType is not null) {
+      if (ParseReference(parser, descr).Required(out var fieldType)) {
         field = parser.Field(at, name, description, fieldType);
         field.Aliases = aliases;
         if (hasParameter.Required(out var parameter)) {
@@ -349,49 +352,50 @@ internal class SchemaParser : CommonParser
     return Error(parser.Label, "field details", parser.FieldEnumLabel(field).Required(out var _));
   }
 
-  internal bool ParseReference<R>(out R?
-    reference, IReferenceParser<R> factories, string description, bool isTypeArgument = false)
+  internal IResult<R> ParseReference<R>(IReferenceParser<R> factories, string description, bool isTypeArgument = false)
     where R : AstReference<R>
   {
     if (!_tokens.Prefix('$', out var param, out var at)) {
-      reference = null;
-      return false;
+      return Error<R>(factories.Label, "identifier after '$'");
     }
 
     if (param is not null) {
-      reference = factories.Reference(at, param) with { Description = description };
-      reference.IsTypeParameter = true;
-      return true;
+      var reference = factories.Reference(at, param) with {
+        Description = description,
+        IsTypeParameter = true,
+      };
+      return reference.Ok();
     }
 
     at = _tokens.At;
 
     if (_tokens.Identifier(out var name)) {
-      reference = factories.Reference(at, name) with { Description = description };
+      var reference = factories.Reference(at, name) with { Description = description };
       if (_tokens.Take('<')) {
         var arguments = new List<R>();
         _tokens.String(out var descr);
-        while (ParseReference(out var argument, factories, descr, isTypeArgument: true) && argument is not null) {
+        var referenceArgument = ParseReference(factories, descr, isTypeArgument: true);
+        while (referenceArgument.Required(out var argument)) {
           arguments.Add(argument);
           _tokens.String(out descr);
+          referenceArgument = ParseReference(factories, descr, isTypeArgument: true);
         }
 
         reference.Arguments = arguments.ToArray();
 
         if (!_tokens.Take('>')) {
-          return Error(factories.Label, "'>' after type argument(s)");
+          return Error(factories.Label, "'>' after type argument(s)", reference);
         } else if (arguments.Count < 1) {
-          return Error(factories.Label, "at least one type argument after '<'");
+          return Error(factories.Label, "at least one type argument after '<'", reference);
         }
       } else if (isTypeArgument) {
-        return factories.TypeEnumLabel(reference).Required(out var _);
+        return factories.TypeEnumLabel(reference);
       }
 
-      return true;
+      return reference.Ok();
     }
 
-    reference = default;
-    return true;
+    return new ResultEmpty<R>();
   }
 
   internal bool ParseOutputDeclaration(out OutputAst output, string description)
@@ -445,8 +449,7 @@ internal class SchemaParser : CommonParser
 
     _tokens.String(out var descr);
     var at = _tokens.At;
-    if (!ParseReference(out var reference, new InputParserFactories(this), descr)
-      || reference is null) {
+    if (!ParseReference(new InputParserFactories(this), descr).Required(out var reference)) {
       return Error<ParameterAst>("Parameter", "input reference after '('");
     }
 

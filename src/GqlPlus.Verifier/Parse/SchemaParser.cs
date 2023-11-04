@@ -220,7 +220,7 @@ internal class SchemaParser : CommonParser
       return Error(factories.Label, "name");
     }
 
-    if (!ParseTypeParameters(factories.Label, out var parameters)) {
+    if (!ParseTypeParameters(factories.Label).Required(out var parameters)) {
       return false;
     }
 
@@ -481,29 +481,26 @@ internal class SchemaParser : CommonParser
       : _tokens.Take('=') ? result.OkArray() : ErrorArray(label, "'=' before definition", result);
   }
 
-  private bool ParseTypeParameters(string label, out TypeParameterAst[] parameters)
+  private IResultArray<TypeParameterAst> ParseTypeParameters(string label)
   {
     var result = new List<TypeParameterAst>();
 
     if (_tokens.Take('<')) {
-      parameters = Array.Empty<TypeParameterAst>();
-
       while (!_tokens.Take('>')) {
         _tokens.String(out var description);
         if (_tokens.Prefix('$', out var name, out var at) && name is not null) {
           result.Add(new(at, name, description));
         } else {
-          return Error(label, "type parameter");
+          return PartialArray(label, "type parameter", () => result);
         }
       }
 
       if (result.Count == 0) {
-        return Error(label, "at least one type parameter after '<'");
+        return ErrorArray(label, "at least one type parameter after '<'", result);
       }
     }
 
-    parameters = result.ToArray();
-    return true;
+    return result.OkArray();
   }
 
   internal bool ParseScalar(out ScalarAst result, string description)
@@ -530,10 +527,16 @@ internal class SchemaParser : CommonParser
 
     switch (kind) {
       case ScalarKind.Number:
-        result.Ranges = ParseRanges();
+        if (ParseRanges().Required(out var ranges)) {
+          result.Ranges = ranges;
+        }
+
         break;
       case ScalarKind.String:
-        result.Regexes = ParseRegexes();
+        if (ParseRegexes().Required(out var regexes)) {
+          result.Regexes = regexes;
+        }
+
         break;
       default:
         return Error("Scalar", "valid kind");
@@ -542,24 +545,24 @@ internal class SchemaParser : CommonParser
     return true;
   }
 
-  private ScalarRangeAst[] ParseRanges()
+  private IResultArray<ScalarRangeAst> ParseRanges()
   {
     var result = new List<ScalarRangeAst>();
-    while (ParseRange(out var range)) {
+    while (ParseRange().Required(out var range)) {
       result.Add(range);
     }
 
-    return result.ToArray();
+    return result.OkArray();
   }
 
-  private bool ParseRange(out ScalarRangeAst range)
+  private IResult<ScalarRangeAst> ParseRange()
   {
     var at = _tokens.At;
-    range = new(at);
+    var range = new ScalarRangeAst(at);
     var hasLower = _tokens.Number(out var min);
     var excludesLower = _tokens.Take('>');
     if (!_tokens.Take("..") && hasLower) {
-      return Error("Scalar", "range operator ('..')");
+      return Error("Scalar", "range operator ('..')", range);
     }
 
     var excludesUpper = _tokens.Take('<');
@@ -575,10 +578,10 @@ internal class SchemaParser : CommonParser
       range.UpperExcluded = excludesUpper;
     }
 
-    return hasLower || hasUpper;
+    return hasLower || hasUpper ? range.Ok() : range.Empty();
   }
 
-  private ScalarRegexAst[] ParseRegexes()
+  private IResultArray<ScalarRegexAst> ParseRegexes()
   {
     var result = new List<ScalarRegexAst>();
     var at = _tokens.At;
@@ -589,6 +592,6 @@ internal class SchemaParser : CommonParser
       at = _tokens.At;
     }
 
-    return result.ToArray();
+    return result.OkArray();
   }
 }

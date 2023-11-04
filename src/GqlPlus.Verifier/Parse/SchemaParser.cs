@@ -74,9 +74,10 @@ internal class SchemaParser : CommonParser
     at = _tokens.At;
     _tokens.Identifier(out var name);
 
-    if (!ParsePrefix("Category").Required(out var aliases)
-      || !ParseOption("Category", out CategoryOption option)
-      ) {
+    var prefix = ParsePrefix("Category");
+    var categoryOption = ParseOption<CategoryOption>("Category");
+
+    if (!prefix.Required(out var aliases) || categoryOption.IsError()) {
       return false;
     }
 
@@ -84,6 +85,8 @@ internal class SchemaParser : CommonParser
       if (string.IsNullOrEmpty(name)) {
         name = output.Camelize();
       }
+
+      categoryOption.Required(out var option);
 
       result = new(at, name!, output) {
         Aliases = aliases,
@@ -95,23 +98,29 @@ internal class SchemaParser : CommonParser
     return Error("Category", "output type");
   }
 
-  private bool ParseOption<O>(string label, out O result)
+  private IResult<O> ParseOption<O>(string label)
     where O : struct
   {
-    result = default;
-    return !_tokens.Take('(')
-      || (ParseEnumValue(out result)
-        ? Error(label, "')' after option", _tokens.Take(')'))
-        : Error(label, "valid option"));
+    if (_tokens.Take('(')) {
+      var enumValue = ParseEnumValue<O>(label);
+
+      return enumValue.Required(out var result)
+        ? _tokens.Take(')')
+          ? enumValue
+          : Partial(label, "')' after option", () => result)
+        : enumValue;
+    }
+
+    return new ResultEmpty<O>();
   }
 
-  private bool ParseEnumValue<E>(out E result)
+  private IResult<E> ParseEnumValue<E>(string label)
     where E : struct
-  {
-    result = default;
-    return _tokens.Identifier(out var option)
-      && Enum.TryParse(option, true, out result);
-  }
+    => _tokens.Identifier(out var option)
+      ? Enum.TryParse<E>(option, true, out var result)
+        ? result.Ok()
+        : Error(label, "valid enum value", result)
+      : new ResultEmpty<E>();
 
   internal bool ParseDirectiveDeclaration(out DirectiveAst result, string description)
   {
@@ -126,23 +135,28 @@ internal class SchemaParser : CommonParser
       result.Parameter = parameter;
     }
 
-    if (!ParsePrefix("Directive").Required(out var aliases)
-      || !ParseOption("Directive", out DirectiveOption option)
-    ) {
+    var prefix = ParsePrefix("Directive");
+    var directiveOption = ParseOption<DirectiveOption>("Directive");
+
+    if (!prefix.Required(out var aliases) || directiveOption.IsError()) {
       return false;
     }
 
     result.Aliases = aliases;
-    result.Option = option;
+    if (directiveOption.Required(out var option)) {
+      result.Option = option;
+    }
 
-    if (!ParseEnumValue(out DirectiveLocation location)) {
+    var directiveLocation = ParseEnumValue<DirectiveLocation>("Directive");
+    if (!directiveLocation.Required(out var location)) {
       return Error("Directive", "at least one location");
     }
 
     result.Locations = location;
 
     while (_tokens.Take("|")) {
-      if (ParseEnumValue(out location)) {
+      directiveLocation = ParseEnumValue<DirectiveLocation>("Directive");
+      if (directiveLocation.Required(out location)) {
         result.Locations |= location;
       } else {
         return Error("Directive", "location after '|'");
@@ -518,7 +532,7 @@ internal class SchemaParser : CommonParser
 
     result.Aliases = aliases;
 
-    if (!ParseEnumValue(out ScalarKind kind)) {
+    if (!ParseEnumValue<ScalarKind>("Scalar").Required(out var kind)) {
       return false;
     }
 

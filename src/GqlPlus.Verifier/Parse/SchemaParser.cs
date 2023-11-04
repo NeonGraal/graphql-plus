@@ -74,7 +74,7 @@ internal class SchemaParser : CommonParser
     at = _tokens.At;
     _tokens.Identifier(out var name);
 
-    if (!ParsePrefix("Category", out var aliases)
+    if (!ParsePrefix("Category").Required(out var aliases)
       || !ParseOption("Category", out CategoryOption option)
       ) {
       return false;
@@ -126,7 +126,7 @@ internal class SchemaParser : CommonParser
       result.Parameter = parameter;
     }
 
-    if (!ParsePrefix("Directive", out var aliases)
+    if (!ParsePrefix("Directive").Required(out var aliases)
       || !ParseOption("Directive", out DirectiveOption option)
     ) {
       return false;
@@ -162,7 +162,7 @@ internal class SchemaParser : CommonParser
       return Error("Enum", "name");
     }
 
-    if (!ParsePrefix("Enum", out var aliases)) {
+    if (!ParsePrefix("Enum").Required(out var aliases)) {
       return false;
     }
 
@@ -226,7 +226,7 @@ internal class SchemaParser : CommonParser
 
     result.Parameters = parameters;
 
-    if (!ParsePrefix(factories.Label, out var aliases)) {
+    if (!ParsePrefix(factories.Label).Required(out var aliases)) {
       return false;
     }
 
@@ -473,9 +473,13 @@ internal class SchemaParser : CommonParser
     return aliases.OkArray();
   }
 
-  private bool ParsePrefix(string label, out string[] result)
-    => ParseAliases(label).Required(out result)
-      && Error(label, "'=' before definition", _tokens.Take('='));
+  private IResultArray<string> ParsePrefix(string label)
+  {
+    var aliases = ParseAliases(label);
+    return !aliases.Required(out var result)
+      ? aliases.AsResultArray(label)
+      : _tokens.Take('=') ? result.OkArray() : ErrorArray(label, "'=' before definition", result);
+  }
 
   private bool ParseTypeParameters(string label, out TypeParameterAst[] parameters)
   {
@@ -512,7 +516,7 @@ internal class SchemaParser : CommonParser
       return Error("Scalar", "name");
     }
 
-    if (!ParsePrefix("Scalar", out var aliases)) {
+    if (!ParsePrefix("Scalar").Required(out var aliases)) {
       return false;
     }
 

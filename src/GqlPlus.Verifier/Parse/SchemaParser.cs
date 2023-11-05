@@ -16,25 +16,13 @@ internal class SchemaParser : CommonParser
       => parser.ParseDirectiveDeclaration(description).AsResult<AstDescribed>(),
     ["enum"] = (parser, description)
       => parser.ParseEnumDeclaration(description).AsResult<AstDescribed>(),
+    ["output"] = (parser, description)
+      => parser.ParseOutputDeclaration(description).AsResult<AstDescribed>(),
+    ["input"] = (parser, description)
+      => parser.ParseInputDeclaration(description).AsResult<AstDescribed>(),
     ["scalar"] = (parser, description)
       => parser.ParseScalarDeclaration(description).AsResult<AstDescribed>(),
   };
-
-  private delegate bool OldParser<T>(SchemaParser parser, string description, out T declaration);
-  private readonly Dictionary<string, OldParser<AstDescribed>> _oldParsers = new() {
-    ["output"] = ParserFor((SchemaParser parser, string description, out OutputAst result)
-      => parser.ParseOutputDeclaration(out result, description)),
-    ["input"] = ParserFor((SchemaParser parser, string description, out InputAst result)
-      => parser.ParseInputDeclaration(out result, description)),
-  };
-
-  private static OldParser<AstDescribed> ParserFor<T>(OldParser<T> parser)
-      where T : AstDescribed
-    => (SchemaParser parent, string description, out AstDescribed declaration) => {
-      var result = parser(parent, description, out T declared);
-      declaration = declared;
-      return result;
-    };
 
   internal SchemaAst Parse()
   {
@@ -52,12 +40,6 @@ internal class SchemaParser : CommonParser
     while (_tokens.Identifier(out var selector)) {
       if (_parsers.TryGetValue(selector, out var parser)) {
         if (parser(this, "").Required(out var declaration)) {
-          declarations.Add(declaration);
-        }
-      }
-
-      if (_oldParsers.TryGetValue(selector, out var oldParser)) {
-        if (oldParser(this, "", out var declaration)) {
           declarations.Add(declaration);
         }
       }
@@ -180,11 +162,11 @@ internal class SchemaParser : CommonParser
     return Error("Enum", "label", result);
   }
 
-  internal bool ParseInputDeclaration(out InputAst output, string description)
-   => ParseObject(out output, description, new InputParserFactories(this));
+  internal IResult<InputAst> ParseInputDeclaration(string description)
+   => ParseObject(description, new InputParserFactories(this));
 
-  internal bool ParseOutputDeclaration(out OutputAst output, string description)
-   => ParseObject(out output, description, new OutputParserFactories(this));
+  internal IResult<OutputAst> ParseOutputDeclaration(string description)
+   => ParseObject(description, new OutputParserFactories(this));
 
   internal IResult<ScalarAst> ParseScalarDeclaration(string description)
   {
@@ -324,44 +306,39 @@ internal class SchemaParser : CommonParser
     return enumAliases.AsPartial(enumLabel, Errors.Add);
   }
 
-  private bool ParseObject<O, F, R>(out O result, string description, IObjectParser<O, F, R> factories)
+  private IResult<O> ParseObject<O, F, R>(string description, IObjectParser<O, F, R> factories)
     where O : AstObject<F, R> where F : AstField<R> where R : AstReference<R>
   {
     var at = _tokens.At;
     var getName = _tokens.Identifier(out var name);
 
-    result = factories.Object(at, name, description);
+    O result = factories.Object(at, name, description);
     if (!getName) {
-      return Error(factories.Label, "name");
+      return Error(factories.Label, "name", result);
     }
 
-    if (!ParseTypeParameters(factories.Label).Required(out var parameters)) {
-      return false;
+    var typeParameters = ParseTypeParameters(factories.Label);
+    if (!typeParameters.Optional(parameters => result.Parameters = parameters)) {
+      return typeParameters.AsResult(result);
     }
 
-    result.Parameters = parameters;
-
-    if (!ParsePrefix(factories.Label).Required(out var aliases)) {
-      return false;
+    var prefix = ParsePrefix(factories.Label);
+    if (!prefix.Required(aliases => result.Aliases = aliases)) {
+      return prefix.AsResult(result);
     }
-
-    result.Aliases = aliases;
 
     _tokens.String(out var descr);
     var baseReference = ParseReference(factories, descr);
-    if (baseReference.IsError(Errors.Add)) {
-      return false;
+    if (!baseReference.Optional(out var reference)) {
+      return baseReference.AsResult(result);
     }
-
-    baseReference.Required(out var reference);
 
     if (_tokens.Take('{')) {
       var fields = new List<F>();
       while (!_tokens.Take('}')) {
-        if (ParseField(factories).Required(out var field)) {
-          fields.Add(field);
-        } else {
-          return Error(factories.Label, "more fields or '}'");
+        var objectField = ParseField(factories);
+        if (!objectField.Required(fields.Add)) {
+          return Error(factories.Label, "more fields or '}'", result);
         }
       }
 
@@ -371,25 +348,17 @@ internal class SchemaParser : CommonParser
 
       result.Fields = fields.ToArray();
       var objectAlternates = ParseAlternates(factories);
-      if (objectAlternates.IsError()) {
-        return false;
-      }
-
-      if (objectAlternates.Required(out var alternates)) {
-        result.Alternates = alternates;
-      }
+      return objectAlternates.Optional(alternates => result.Alternates = alternates)
+        ? result.Ok()
+        : objectAlternates.AsResult(result);
     } else if (reference is not null) {
       var objectAlternates = ParseAlternates(factories, reference);
-      if (objectAlternates.IsError()) {
-        return false;
-      }
-
-      if (objectAlternates.Required(out var alternates)) {
-        result.Alternates = alternates;
-      }
+      return objectAlternates.Optional(alternates => result.Alternates = alternates)
+        ? result.Ok()
+        : objectAlternates.AsResult(result);
     }
 
-    return true;
+    return result.Empty();
   }
 
   private IResultArray<R> ParseAlternates<R>(IReferenceParser<R> factories, params R[] initial)

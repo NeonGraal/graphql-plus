@@ -10,7 +10,7 @@ internal sealed class BaseObjectChecks<O, F, R>
   private readonly IObjectFactories<O, F, R> _factories;
 
   internal BaseObjectChecks(IObjectFactories<O, F, R> factories,
-    One one, [CallerArgumentExpression(nameof(one))] string oneExpression = "")
+    OneResult one, [CallerArgumentExpression(nameof(one))] string oneExpression = "")
     : base(one, oneExpression)
     => _factories = factories;
 

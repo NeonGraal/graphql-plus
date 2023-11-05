@@ -8,5 +8,5 @@ public class ParseOutputTests : BaseObjectTests
 
   private static BaseObjectChecks<OutputAst, OutputFieldAst, OutputReferenceAst> Test => new(
     new OutputFactories(),
-    (SchemaParser parser, out OutputAst? result) => parser.ParseOutputDeclaration(out result, ""));
+    parser => parser.ParseOutputDeclaration(""));
 }

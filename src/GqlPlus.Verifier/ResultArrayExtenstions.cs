@@ -2,24 +2,6 @@
 
 public static class ResultArrayExtenstions
 {
-  public static IResult<R> AsResult<T, R>(this IResultArray<T> result, R? _ = default)
-    => result switch {
-      ResultArrayPartial<T> part
-        => part.Result is R newResult
-          ? new ResultPartial<R>(newResult, part.Message)
-          : new ResultError<R>(part.Message),
-      ResultArrayError<T> error
-        => new ResultError<R>(error.Message),
-      ResultArrayOk<T> ok when ok.Result is R newResult
-        => new ResultOk<R>(newResult),
-      _ => new ResultEmpty<R>()
-    };
-
-  public static IResultArray<R> AsResultArray<T, R>(this IResultArray<T> result, R? _ = default)
-    => result is ResultArrayOk<T> ok && ok.Result is R[] newResult
-      ? new ResultArrayOk<R>(newResult)
-      : new ResultArrayEmpty<R>();
-
   public static IResult<R> AsPartial<T, R>(this IResultArray<T> old, R result, Action<ParseMessage>? action = null)
   {
     if (old is IResultMessage<T[]> part) {

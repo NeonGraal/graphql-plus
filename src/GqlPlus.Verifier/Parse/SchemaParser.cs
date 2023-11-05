@@ -8,11 +8,14 @@ internal class SchemaParser : CommonParser
   public SchemaParser(Tokenizer tokens)
     : base(tokens) { }
 
-  private delegate bool Parser<T>(SchemaParser parser, string description, out T declaration);
-
+  private delegate IResult<T> Parser<T>(SchemaParser parser, string description);
   private readonly Dictionary<string, Parser<AstDescribed>> _parsers = new() {
-    ["category"] = ParserFor((SchemaParser parser, string description, out CategoryAst result)
-      => parser.ParseCategoryDeclaration(out result, description)),
+    ["category"] = (parser, description)
+      => parser.ParseCategoryDeclaration(description).AsResult<AstDescribed>(),
+  };
+
+  private delegate bool OldParser<T>(SchemaParser parser, string description, out T declaration);
+  private readonly Dictionary<string, OldParser<AstDescribed>> _oldParsers = new() {
     ["directive"] = ParserFor((SchemaParser parser, string description, out DirectiveAst result)
       => parser.ParseDirectiveDeclaration(out result, description)),
     ["enum"] = ParserFor((SchemaParser parser, string description, out EnumAst result)
@@ -25,7 +28,7 @@ internal class SchemaParser : CommonParser
       => parser.ParseScalarDeclaration(out result, description)),
   };
 
-  private static Parser<AstDescribed> ParserFor<T>(Parser<T> parser)
+  private static OldParser<AstDescribed> ParserFor<T>(OldParser<T> parser)
       where T : AstDescribed
     => (SchemaParser parent, string description, out AstDescribed declaration) => {
       var result = parser(parent, description, out T declared);
@@ -48,7 +51,13 @@ internal class SchemaParser : CommonParser
 
     while (_tokens.Identifier(out var selector)) {
       if (_parsers.TryGetValue(selector, out var parser)) {
-        if (parser(this, "", out var declaration)) {
+        if (parser(this, "").Required(out var declaration)) {
+          declarations.Add(declaration);
+        }
+      }
+
+      if (_oldParsers.TryGetValue(selector, out var oldParser)) {
+        if (oldParser(this, "", out var declaration)) {
           declarations.Add(declaration);
         }
       }
@@ -66,61 +75,38 @@ internal class SchemaParser : CommonParser
     };
   }
 
-  internal bool ParseCategoryDeclaration(out CategoryAst result, string description)
+  internal IResult<CategoryAst> ParseCategoryDeclaration(string description)
   {
     var at = _tokens.At;
-    result = new(at, "") { Description = description };
-
-    at = _tokens.At;
     _tokens.Identifier(out var name);
+    CategoryAst result = new(at, name, "") { Description = description };
 
     var prefix = ParsePrefix("Category");
-    var categoryOption = ParseOption<CategoryOption>("Category");
-
-    if (!prefix.Required(out var aliases) || categoryOption.IsError()) {
-      return false;
+    if (prefix.IsError()) {
+      return prefix.AsResult(result);
     }
+
+    prefix.WithResult(aliases => result.Aliases = aliases);
+
+    var categoryOption = ParseOption<CategoryOption>("Category");
+    if (categoryOption.IsError()) {
+      return categoryOption.AsResult(result);
+    }
+
+    categoryOption.WithResult(option => result.Option = option);
 
     if (_tokens.Identifier(out var output)) {
       if (string.IsNullOrEmpty(name)) {
         name = output.Camelize();
       }
 
-      categoryOption.Required(out var option);
+      result = result with { Name = name!, Output = output };
 
-      result = new(at, name!, output) {
-        Aliases = aliases,
-        Option = option
-      };
-      return true;
+      return result.Ok();
     }
 
-    return Error("Category", "output type");
+    return Partial("Category", "output type", () => result);
   }
-
-  private IResult<O> ParseOption<O>(string label)
-    where O : struct
-  {
-    if (_tokens.Take('(')) {
-      var enumValue = ParseEnumValue<O>(label);
-
-      return enumValue.Required(out var result)
-        ? _tokens.Take(')')
-          ? enumValue
-          : Partial(label, "')' after option", () => result)
-        : enumValue;
-    }
-
-    return new ResultEmpty<O>();
-  }
-
-  private IResult<E> ParseEnumValue<E>(string label)
-    where E : struct
-    => _tokens.Identifier(out var option)
-      ? Enum.TryParse<E>(option, true, out var result)
-        ? result.Ok()
-        : Error(label, "valid enum value", result)
-      : new ResultEmpty<E>();
 
   internal bool ParseDirectiveDeclaration(out DirectiveAst result, string description)
   {
@@ -206,6 +192,134 @@ internal class SchemaParser : CommonParser
     }
 
     return Error("Enum", "label");
+  }
+
+  internal bool ParseInputDeclaration(out InputAst output, string description)
+   => ParseObject(out output, description, new InputParserFactories(this));
+
+  internal bool ParseOutputDeclaration(out OutputAst output, string description)
+   => ParseObject(out output, description, new OutputParserFactories(this));
+
+  internal bool ParseScalarDeclaration(out ScalarAst result, string description)
+  {
+    var at = _tokens.At;
+    var hasName = _tokens.Identifier(out var name);
+    result = new(at, name, description);
+
+    if (!hasName) {
+      return Error("Scalar", "name");
+    }
+
+    if (!ParsePrefix("Scalar").Required(out var aliases)) {
+      return false;
+    }
+
+    result.Aliases = aliases;
+
+    if (!ParseEnumValue<ScalarKind>("Scalar").Required(out var kind)) {
+      return false;
+    }
+
+    result.Kind = kind;
+
+    switch (kind) {
+      case ScalarKind.Number:
+        if (ParseRanges().Required(out var ranges)) {
+          result.Ranges = ranges;
+        }
+
+        break;
+      case ScalarKind.String:
+        if (ParseRegexes().Required(out var regexes)) {
+          result.Regexes = regexes;
+        }
+
+        break;
+      default:
+        return Error("Scalar", "valid kind");
+    }
+
+    return true;
+  }
+
+  private IResultArray<string> ParsePrefix(string label)
+  {
+    var aliases = ParseAliases(label);
+    return !aliases.Required(out var result)
+      ? aliases.AsResultArray(label)
+      : _tokens.Take('=') ? result.OkArray() : ErrorArray(label, "'=' before definition", result);
+  }
+
+  private IResultArray<string> ParseAliases(string label)
+  {
+    var aliases = new List<string>();
+    if (_tokens.Take('[')) {
+      while (_tokens.Identifier(out var alias)) {
+        aliases.Add(alias);
+      }
+
+      if (!_tokens.Take("]")) {
+        return PartialArray(label, "']' to end aliases", () => aliases);
+      } else if (aliases.Count == 0) {
+        return ErrorArray(label, "at least one alias after '['", aliases);
+      }
+    }
+
+    return aliases.OkArray();
+  }
+
+  private IResult<O> ParseOption<O>(string label)
+    where O : struct
+  {
+    if (_tokens.Take('(')) {
+      var enumValue = ParseEnumValue<O>(label);
+
+      return enumValue.Required(out var result)
+        ? _tokens.Take(')')
+          ? enumValue
+          : Partial(label, "')' after option", () => result)
+        : enumValue;
+    }
+
+    return new ResultEmpty<O>();
+  }
+
+  private IResult<E> ParseEnumValue<E>(string label)
+    where E : struct
+    => _tokens.Identifier(out var option)
+      ? Enum.TryParse<E>(option, true, out var result)
+        ? result.Ok()
+        : Error(label, "valid enum value", result)
+      : new ResultEmpty<E>();
+
+  internal IResult<ParameterAst> ParseParameter()
+  {
+    if (!_tokens.Take('(')) {
+      return new ResultEmpty<ParameterAst>();
+    }
+
+    _tokens.String(out var descr);
+    var at = _tokens.At;
+    if (!ParseReference(new InputParserFactories(this), descr).Required(out var reference)) {
+      return Error<ParameterAst>("Parameter", "input reference after '('");
+    }
+
+    var parameter = new ParameterAst(at, reference);
+    var modifiers = ParseModifiers("Operation");
+
+    if (modifiers.IsError(Errors.Add)) {
+      return modifiers.AsResult(parameter);
+    }
+
+    if (modifiers.Optional(out var value)) {
+      parameter.Modifiers = value ?? Array.Empty<ModifierAst>();
+    }
+
+    if (ParseDefault().Required(out var constant)) {
+      parameter.Default = constant;
+    }
+
+    return _tokens.Take(')') ? parameter.Ok() : Partial("Parameter", "')' at end", () => parameter);
   }
 
   private IResult<EnumLabelAst> ParseEnumLabel()
@@ -402,9 +516,6 @@ internal class SchemaParser : CommonParser
     return new ResultEmpty<R>();
   }
 
-  internal bool ParseOutputDeclaration(out OutputAst output, string description)
-   => ParseObject(out output, description, new OutputParserFactories(this));
-
   internal IResult<OutputReferenceAst> ParseOutputEnumLabel(OutputReferenceAst reference)
   {
     if (_tokens.Take('.')) {
@@ -445,65 +556,6 @@ internal class SchemaParser : CommonParser
     return Error("Output", "':' or '='", field);
   }
 
-  internal IResult<ParameterAst> ParseParameter()
-  {
-    if (!_tokens.Take('(')) {
-      return new ResultEmpty<ParameterAst>();
-    }
-
-    _tokens.String(out var descr);
-    var at = _tokens.At;
-    if (!ParseReference(new InputParserFactories(this), descr).Required(out var reference)) {
-      return Error<ParameterAst>("Parameter", "input reference after '('");
-    }
-
-    var parameter = new ParameterAst(at, reference);
-    var modifiers = ParseModifiers("Operation");
-
-    if (modifiers.IsError(Errors.Add)) {
-      return modifiers.AsResult(parameter);
-    }
-
-    if (modifiers.Optional(out var value)) {
-      parameter.Modifiers = value ?? Array.Empty<ModifierAst>();
-    }
-
-    if (ParseDefault().Required(out var constant)) {
-      parameter.Default = constant;
-    }
-
-    return _tokens.Take(')') ? parameter.Ok() : Partial("Parameter", "')' at end", () => parameter);
-  }
-
-  internal bool ParseInputDeclaration(out InputAst output, string description)
-   => ParseObject(out output, description, new InputParserFactories(this));
-
-  private IResultArray<string> ParseAliases(string label)
-  {
-    var aliases = new List<string>();
-    if (_tokens.Take('[')) {
-      while (_tokens.Identifier(out var alias)) {
-        aliases.Add(alias);
-      }
-
-      if (!_tokens.Take("]")) {
-        return PartialArray(label, "']' to end aliases", () => aliases);
-      } else if (aliases.Count == 0) {
-        return ErrorArray(label, "at least one alias after '['", aliases);
-      }
-    }
-
-    return aliases.OkArray();
-  }
-
-  private IResultArray<string> ParsePrefix(string label)
-  {
-    var aliases = ParseAliases(label);
-    return !aliases.Required(out var result)
-      ? aliases.AsResultArray(label)
-      : _tokens.Take('=') ? result.OkArray() : ErrorArray(label, "'=' before definition", result);
-  }
-
   private IResultArray<TypeParameterAst> ParseTypeParameters(string label)
   {
     var result = new List<TypeParameterAst>();
@@ -524,48 +576,6 @@ internal class SchemaParser : CommonParser
     }
 
     return result.OkArray();
-  }
-
-  internal bool ParseScalarDeclaration(out ScalarAst result, string description)
-  {
-    var at = _tokens.At;
-    var hasName = _tokens.Identifier(out var name);
-    result = new(at, name, description);
-
-    if (!hasName) {
-      return Error("Scalar", "name");
-    }
-
-    if (!ParsePrefix("Scalar").Required(out var aliases)) {
-      return false;
-    }
-
-    result.Aliases = aliases;
-
-    if (!ParseEnumValue<ScalarKind>("Scalar").Required(out var kind)) {
-      return false;
-    }
-
-    result.Kind = kind;
-
-    switch (kind) {
-      case ScalarKind.Number:
-        if (ParseRanges().Required(out var ranges)) {
-          result.Ranges = ranges;
-        }
-
-        break;
-      case ScalarKind.String:
-        if (ParseRegexes().Required(out var regexes)) {
-          result.Regexes = regexes;
-        }
-
-        break;
-      default:
-        return Error("Scalar", "valid kind");
-    }
-
-    return true;
   }
 
   private IResultArray<ScalarRangeAst> ParseRanges()

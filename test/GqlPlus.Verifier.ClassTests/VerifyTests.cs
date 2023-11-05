@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
-using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Parse;
+﻿using GqlPlus.Verifier.Parse;
 
 namespace GqlPlus.Verifier;
 
@@ -22,7 +20,7 @@ public class VerifyTests
     var operation = File.ReadAllText("Sample/Schema_" + sample + ".graphql+");
     Tokenizer tokenizer = new(operation);
     SchemaParser parser = new(tokenizer);
-    SchemaAst ast = parser.Parse();
+    parser.Parse().Required(out var ast);
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();

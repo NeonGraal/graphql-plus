@@ -15,7 +15,7 @@ internal class OperationParser : CommonParser
   {
     if (_tokens.AtStart) {
       if (!_tokens.Read()) {
-        return Error<OperationAst>("Operation", "text at end");
+        return Error<OperationAst>("Operation", "text");
       }
     }
 

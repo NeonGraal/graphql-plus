@@ -24,11 +24,11 @@ internal class SchemaParser : CommonParser
       => parser.ParseScalarDeclaration(description).AsResult<AstDescribed>(),
   };
 
-  internal SchemaAst Parse()
+  internal IResult<SchemaAst> Parse()
   {
     if (_tokens.AtStart) {
       if (!_tokens.Read()) {
-        return new(_tokens.At) { Errors = new[] { _tokens.Error("Unexpected") } };
+        return Error<SchemaAst>("Schema", "text");
       }
     }
 
@@ -39,8 +39,9 @@ internal class SchemaParser : CommonParser
 
     while (_tokens.Identifier(out var selector)) {
       if (_parsers.TryGetValue(selector, out var parser)) {
-        if (parser(this, "").Required(out var declaration)) {
-          declarations.Add(declaration);
+        var declaration = parser(this, "");
+        if (!declaration.Required(declarations.Add)) {
+          return declaration.AsResult<SchemaAst>();
         }
       }
     }
@@ -51,10 +52,12 @@ internal class SchemaParser : CommonParser
       Error("Schema", "no more text");
     }
 
-    return ast with {
+    ast = ast with {
       Declarations = declarations.ToArray(),
       Errors = Errors.ToArray(),
     };
+
+    return ast.Ok();
   }
 
   internal IResult<CategoryAst> ParseCategoryDeclaration(string description)

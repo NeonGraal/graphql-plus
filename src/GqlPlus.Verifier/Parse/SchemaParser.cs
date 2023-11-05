@@ -14,12 +14,12 @@ internal class SchemaParser : CommonParser
       => parser.ParseCategoryDeclaration(description).AsResult<AstDescribed>(),
     ["directive"] = (parser, description)
       => parser.ParseDirectiveDeclaration(description).AsResult<AstDescribed>(),
+    ["enum"] = (parser, description)
+      => parser.ParseEnumDeclaration(description).AsResult<AstDescribed>(),
   };
 
   private delegate bool OldParser<T>(SchemaParser parser, string description, out T declaration);
   private readonly Dictionary<string, OldParser<AstDescribed>> _oldParsers = new() {
-    ["enum"] = ParserFor((SchemaParser parser, string description, out EnumAst result)
-      => parser.ParseEnumDeclaration(out result, description)),
     ["output"] = ParserFor((SchemaParser parser, string description, out OutputAst result)
       => parser.ParseOutputDeclaration(out result, description)),
     ["input"] = ParserFor((SchemaParser parser, string description, out InputAst result)
@@ -140,46 +140,44 @@ internal class SchemaParser : CommonParser
     return result.Ok();
   }
 
-  internal bool ParseEnumDeclaration(out EnumAst result, string description)
+  internal IResult<EnumAst> ParseEnumDeclaration(string description)
   {
     var at = _tokens.At;
     var hasName = _tokens.Identifier(out var name);
-    result = new(at, name, description);
+    EnumAst result = new(at, name, description);
 
     if (!hasName) {
-      return Error("Enum", "name");
+      return Error("Enum", "name", result);
     }
 
-    if (!ParsePrefix("Enum").Required(out var aliases)) {
-      return false;
+    var prefix = ParsePrefix("Enum");
+    if (!prefix.Required(aliases => result.Aliases = aliases)) {
+      return prefix.AsResult(result);
     }
-
-    result.Aliases = aliases;
 
     if (_tokens.Take(':')) {
       if (_tokens.Identifier(out var extends)) {
         result.Extends = extends;
       } else {
-        return Error("Enum", "type after ':'");
+        return Error("Enum", "type after ':'", result);
       }
     }
 
-    if (ParseEnumLabel().Required(out var label)) {
-      List<EnumLabelAst> labels = new() { label };
-
+    List<EnumLabelAst> labels = new();
+    var enumLabel = ParseEnumLabel();
+    if (enumLabel.Required(labels.Add)) {
       while (_tokens.Take("|")) {
-        if (ParseEnumLabel().Required(out label)) {
-          labels.Add(label);
-        } else {
-          return Error("Enum", "label");
+        enumLabel = ParseEnumLabel();
+        if (!enumLabel.Required(labels.Add)) {
+          return enumLabel.AsResult(result);
         }
       }
 
       result.Labels = labels.ToArray();
-      return true;
+      return result.Ok();
     }
 
-    return Error("Enum", "label");
+    return Error("Enum", "label", result);
   }
 
   internal bool ParseInputDeclaration(out InputAst output, string description)

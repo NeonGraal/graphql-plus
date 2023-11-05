@@ -58,5 +58,5 @@ public class ParseOutputFieldTests : BaseFieldTests
 
   private static BaseFieldChecks<OutputFieldAst, OutputReferenceAst> Test => new(
     new OutputFactories(),
-    (SchemaParser parser, out OutputFieldAst? result) => parser.ParseField(new OutputParserFactories(parser)).Required(out result));
+    parser => parser.ParseField(new OutputParserFactories(parser)));
 }

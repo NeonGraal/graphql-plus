@@ -10,7 +10,7 @@ internal sealed class BaseFieldChecks<F, R>
   private readonly IFieldFactories<F, R> _factories;
 
   internal BaseFieldChecks(IFieldFactories<F, R> factories,
-    One one, [CallerArgumentExpression(nameof(one))] string oneExpression = "")
+    OneResult one, [CallerArgumentExpression(nameof(one))] string oneExpression = "")
     : base(one, oneExpression)
     => _factories = factories;
 

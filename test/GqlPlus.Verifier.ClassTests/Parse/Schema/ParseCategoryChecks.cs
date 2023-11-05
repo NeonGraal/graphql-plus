@@ -6,7 +6,7 @@ internal sealed class ParseCategoryChecks
   : BaseAliasedChecks<string, CategoryAst>
 {
   public ParseCategoryChecks()
-    : base((SchemaParser parser, out CategoryAst? result) => parser.ParseCategoryDeclaration("").Required(out result))
+    : base(parser => parser.ParseCategoryDeclaration(""))
   { }
 
   protected internal override CategoryAst AliasedFactory(string input)

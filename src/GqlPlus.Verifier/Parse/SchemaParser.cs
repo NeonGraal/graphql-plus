@@ -16,6 +16,8 @@ internal class SchemaParser : CommonParser
       => parser.ParseDirectiveDeclaration(description).AsResult<AstDescribed>(),
     ["enum"] = (parser, description)
       => parser.ParseEnumDeclaration(description).AsResult<AstDescribed>(),
+    ["scalar"] = (parser, description)
+      => parser.ParseScalarDeclaration(description).AsResult<AstDescribed>(),
   };
 
   private delegate bool OldParser<T>(SchemaParser parser, string description, out T declaration);
@@ -24,8 +26,6 @@ internal class SchemaParser : CommonParser
       => parser.ParseOutputDeclaration(out result, description)),
     ["input"] = ParserFor((SchemaParser parser, string description, out InputAst result)
       => parser.ParseInputDeclaration(out result, description)),
-    ["scalar"] = ParserFor((SchemaParser parser, string description, out ScalarAst result)
-      => parser.ParseScalarDeclaration(out result, description)),
   };
 
   private static OldParser<AstDescribed> ParserFor<T>(OldParser<T> parser)
@@ -186,46 +186,44 @@ internal class SchemaParser : CommonParser
   internal bool ParseOutputDeclaration(out OutputAst output, string description)
    => ParseObject(out output, description, new OutputParserFactories(this));
 
-  internal bool ParseScalarDeclaration(out ScalarAst result, string description)
+  internal IResult<ScalarAst> ParseScalarDeclaration(string description)
   {
     var at = _tokens.At;
     var hasName = _tokens.Identifier(out var name);
-    result = new(at, name, description);
+    ScalarAst result = new(at, name, description);
 
     if (!hasName) {
-      return Error("Scalar", "name");
+      return Error("Scalar", "name", result);
     }
 
-    if (!ParsePrefix("Scalar").Required(out var aliases)) {
-      return false;
+    var prefix = ParsePrefix("Scalar");
+    if (!prefix.Required(aliases => result.Aliases = aliases)) {
+      return prefix.AsResult(result);
     }
 
-    result.Aliases = aliases;
-
-    if (!ParseEnumValue<ScalarKind>("Scalar").Required(out var kind)) {
-      return false;
+    var scalarKind = ParseEnumValue<ScalarKind>("Scalar");
+    if (!scalarKind.Required(kind => result.Kind = kind)) {
+      return scalarKind.AsResult(result);
     }
 
-    result.Kind = kind;
-
-    switch (kind) {
+    switch (result.Kind) {
       case ScalarKind.Number:
-        if (ParseRanges().Required(out var ranges)) {
-          result.Ranges = ranges;
+        var scalarRanges = ParseRanges();
+        if (scalarRanges.Required(ranges => result.Ranges = ranges)) {
+          return result.Ok();
         }
 
-        break;
+        return scalarRanges.AsResult(result);
       case ScalarKind.String:
-        if (ParseRegexes().Required(out var regexes)) {
-          result.Regexes = regexes;
+        var scalarRegexes = ParseRegexes();
+        if (scalarRegexes.Required(regexes => result.Regexes = regexes)) {
+          return result.Ok();
         }
 
-        break;
+        return scalarRegexes.AsResult(result);
       default:
-        return Error("Scalar", "valid kind");
+        return Error("Scalar", "valid kind", result);
     }
-
-    return true;
   }
 
   private IResultArray<string> ParsePrefix(string label)

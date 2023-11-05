@@ -12,12 +12,12 @@ internal class SchemaParser : CommonParser
   private readonly Dictionary<string, Parser<AstDescribed>> _parsers = new() {
     ["category"] = (parser, description)
       => parser.ParseCategoryDeclaration(description).AsResult<AstDescribed>(),
+    ["directive"] = (parser, description)
+      => parser.ParseDirectiveDeclaration(description).AsResult<AstDescribed>(),
   };
 
   private delegate bool OldParser<T>(SchemaParser parser, string description, out T declaration);
   private readonly Dictionary<string, OldParser<AstDescribed>> _oldParsers = new() {
-    ["directive"] = ParserFor((SchemaParser parser, string description, out DirectiveAst result)
-      => parser.ParseDirectiveDeclaration(out result, description)),
     ["enum"] = ParserFor((SchemaParser parser, string description, out EnumAst result)
       => parser.ParseEnumDeclaration(out result, description)),
     ["output"] = ParserFor((SchemaParser parser, string description, out OutputAst result)
@@ -82,18 +82,14 @@ internal class SchemaParser : CommonParser
     CategoryAst result = new(at, name, "") { Description = description };
 
     var prefix = ParsePrefix("Category");
-    if (prefix.IsError()) {
+    if (!prefix.Optional(aliases => result.Aliases = aliases)) {
       return prefix.AsResult(result);
     }
 
-    prefix.WithResult(aliases => result.Aliases = aliases);
-
     var categoryOption = ParseOption<CategoryOption>("Category");
-    if (categoryOption.IsError()) {
+    if (!categoryOption.Optional(option => result.Option = option)) {
       return categoryOption.AsResult(result);
     }
-
-    categoryOption.WithResult(option => result.Option = option);
 
     if (_tokens.Identifier(out var output)) {
       if (string.IsNullOrEmpty(name)) {
@@ -108,48 +104,40 @@ internal class SchemaParser : CommonParser
     return Partial("Category", "output type", () => result);
   }
 
-  internal bool ParseDirectiveDeclaration(out DirectiveAst result, string description)
+  internal IResult<DirectiveAst> ParseDirectiveDeclaration(string description)
   {
-    if (!_tokens.Prefix('@', out var name, out var at)) {
-      result = new(AstNulls.At, name ?? "", description);
-      return Error("Directive", "'@' name");
+    var hasPrefix = _tokens.Prefix('@', out var name, out var at);
+    DirectiveAst result = new(at, name!, description);
+    if (!hasPrefix) {
+      return Error("Directive", "'@' name", result);
     }
 
-    result = new(at, name!, description);
-
-    if (ParseParameter().Required(out var parameter)) {
-      result.Parameter = parameter;
-    }
+    ParseParameter().WithResult(parameter => result.Parameter = parameter);
 
     var prefix = ParsePrefix("Directive");
-    var directiveOption = ParseOption<DirectiveOption>("Directive");
-
-    if (!prefix.Required(out var aliases) || directiveOption.IsError()) {
-      return false;
+    if (!prefix.Optional(aliases => result.Aliases = aliases)) {
+      return prefix.AsResult(result);
     }
 
-    result.Aliases = aliases;
-    if (directiveOption.Required(out var option)) {
-      result.Option = option;
+    var directiveOption = ParseOption<DirectiveOption>("Directive");
+
+    if (!directiveOption.Optional(option => result.Option = option)) {
+      return directiveOption.AsResult(result);
     }
 
     var directiveLocation = ParseEnumValue<DirectiveLocation>("Directive");
-    if (!directiveLocation.Required(out var location)) {
-      return Error("Directive", "at least one location");
+    if (!directiveLocation.Required(location => result.Locations = location)) {
+      return Error("Directive", "at least one location", result);
     }
-
-    result.Locations = location;
 
     while (_tokens.Take("|")) {
       directiveLocation = ParseEnumValue<DirectiveLocation>("Directive");
-      if (directiveLocation.Required(out location)) {
-        result.Locations |= location;
-      } else {
-        return Error("Directive", "location after '|'");
+      if (!directiveLocation.Required(location => result.Locations |= location)) {
+        return Error("Directive", "location after '|'", result);
       }
     }
 
-    return true;
+    return result.Ok();
   }
 
   internal bool ParseEnumDeclaration(out EnumAst result, string description)

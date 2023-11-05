@@ -30,7 +30,22 @@ public static class ResultArrayExtenstions
     }
 
     value = Array.Empty<T>();
-    return result is ResultEmpty<T>;
+    return result is ResultArrayEmpty<T>;
+  }
+
+  public static bool Optional<T>(this IResultArray<T> result, Action<T[]> action)
+  {
+    if (result is ResultArrayOk<T> ok) {
+      action(ok.Result);
+      return true;
+    }
+
+    if (result is ResultArrayEmpty<T>) {
+      action(Array.Empty<T>());
+      return true;
+    }
+
+    return false;
   }
 
   public static bool Required<T>(this IResultArray<T> result, out T[] value)
@@ -41,6 +56,16 @@ public static class ResultArrayExtenstions
     }
 
     value = Array.Empty<T>();
+    return false;
+  }
+
+  public static bool Required<T>(this IResultArray<T> result, Action<T[]> action)
+  {
+    if (result is ResultArrayOk<T> ok) {
+      action(ok.Result!);
+      return true;
+    }
+
     return false;
   }
 

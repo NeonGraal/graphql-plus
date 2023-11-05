@@ -37,13 +37,28 @@ public static class ResultExtenstions
 
   public static bool Optional<T>(this IResult<T> result, out T? value)
   {
-    if (result is IResultValue<T> ok) {
+    if (result is IResultOk<T> ok) {
       value = ok.Result;
       return true;
     }
 
     value = default;
     return result is ResultEmpty<T>;
+  }
+
+  public static bool Optional<T>(this IResult<T> result, Action<T?> action)
+  {
+    if (result is IResultOk<T> ok) {
+      action(ok.Result);
+      return true;
+    }
+
+    if (result is ResultEmpty<T>) {
+      action(default);
+      return true;
+    }
+
+    return false;
   }
 
   public static bool Required<T>(this IResult<T> result, [NotNullWhen(true)] out T? value)
@@ -54,6 +69,16 @@ public static class ResultExtenstions
     }
 
     value = result is ResultPartial<T> part ? part.Result : default;
+    return false;
+  }
+
+  public static bool Required<T>(this IResult<T> result, Action<T> action)
+  {
+    if (result is IResultOk<T> ok) {
+      action(ok.Result!);
+      return true;
+    }
+
     return false;
   }
 

@@ -260,7 +260,7 @@ internal class SchemaParser : CommonParser
     if (_tokens.Take('{')) {
       var fields = new List<F>();
       while (!_tokens.Take('}')) {
-        if (ParseField(out var field, factories)) {
+        if (ParseField(factories).Required(out var field)) {
           fields.Add(field);
         } else {
           return Error(factories.Label, "more fields or '}'");
@@ -306,50 +306,49 @@ internal class SchemaParser : CommonParser
     return true;
   }
 
-  internal bool ParseField<F, R>(out F field, IFieldParser<F, R> parser)
+  internal IResult<F> ParseField<F, R>(IFieldParser<F, R> parser)
     where F : AstField<R> where R : AstReference<R>
   {
     var at = _tokens.At;
     _tokens.String(out var description);
     if (!_tokens.Identifier(out var name)) {
-      field = parser.NullField();
-      return Error(parser.Label, "field name");
+      return Error<F>(parser.Label, "field name");
     }
 
     var hasParameter = parser.FieldParameter();
-    if (hasParameter.IsError() || !ParseAliases(parser.Label).Required(out var aliases)) {
-      field = parser.NullField();
-      return false;
+    if (hasParameter.IsError()) {
+      return hasParameter.AsResult<F>();
     }
 
-    field = parser.Field(at, name, description, parser.Reference(at, ""));
+    var hasAliases = ParseAliases(parser.Label);
+
+    if (hasAliases.IsError()) {
+      return hasAliases.AsResult<F>();
+    }
+
+    var field = parser.Field(at, name, description, parser.Reference(at, ""));
 
     if (_tokens.Take(':')) {
       _tokens.String(out var descr);
       if (ParseReference(parser, descr).Required(out var fieldType)) {
         field = parser.Field(at, name, description, fieldType);
-        field.Aliases = aliases;
-        if (hasParameter.Required(out var parameter)) {
-          parser.ApplyParameter(field, parameter);
-        }
+        hasAliases.WithResult(aliases => field.Aliases = aliases);
+        hasParameter.WithResult(parameter => parser.ApplyParameter(field, parameter));
 
         var modifiers = ParseModifiers("Operation");
-
         if (modifiers.IsError()) {
-          return false;
+          return modifiers.AsResult<F>();
         }
 
-        if (modifiers.Optional(out var value)) {
-          field.Modifiers = value ?? Array.Empty<ModifierAst>();
-        }
+        modifiers.WithResult(modifiers => field.Modifiers = modifiers);
 
-        return parser.FieldDefault(field).Required(out var _);
+        return parser.FieldDefault(field);
       }
 
-      return Error(parser.Label, "field type");
+      return Error(parser.Label, "field type", field);
     }
 
-    return Error(parser.Label, "field details", parser.FieldEnumLabel(field).Required(out var _));
+    return parser.FieldEnumLabel(field);
   }
 
   internal IResult<R> ParseReference<R>(IReferenceParser<R> factories, string description, bool isTypeArgument = false)

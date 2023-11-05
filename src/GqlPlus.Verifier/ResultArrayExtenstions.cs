@@ -32,7 +32,7 @@ public static class ResultArrayExtenstions
 
   public static bool IsError<T>(this IResultArray<T> result, Action<ParseMessage>? action = null)
   {
-    if (result is ResultArrayError<T> error) {
+    if (result is IResultMessage<T[]> error) {
       action?.Invoke(error.Message);
       return true;
     }

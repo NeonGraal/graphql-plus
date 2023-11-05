@@ -1,6 +1,9 @@
 ﻿namespace GqlPlus.Verifier;
 
-public interface IResult<T> { }
+public interface IResult<T>
+{
+  IResult<R> AsResult<R>();
+}
 
 public interface IResultValue<T> : IResult<T>
 {
@@ -23,6 +26,11 @@ public readonly struct ResultOk<T> : IResultOk<T>
     ArgumentNullException.ThrowIfNull(result);
     Result = result;
   }
+
+  public IResult<R> AsResult<R>()
+    => Result is R newResult
+      ? new ResultOk<R>(newResult)
+      : new ResultEmpty<R>();
 }
 
 public readonly struct ResultError<T> : IResultMessage<T>
@@ -30,9 +38,15 @@ public readonly struct ResultError<T> : IResultMessage<T>
   public ParseMessage Message { get; }
 
   public ResultError(ParseMessage message) => Message = message;
+
+  public IResult<R> AsResult<R>()
+    => new ResultError<R>(Message);
 }
 
-public readonly struct ResultEmpty<T> : IResult<T> { }
+public readonly struct ResultEmpty<T> : IResult<T>
+{
+  public IResult<R> AsResult<R>() => new ResultEmpty<R>();
+}
 
 public readonly struct ResultPartial<T> : IResultValue<T>, IResultMessage<T>
 {
@@ -45,4 +59,9 @@ public readonly struct ResultPartial<T> : IResultValue<T>, IResultMessage<T>
 
     (Result, Message) = (result, message);
   }
+
+  public IResult<R> AsResult<R>()
+    => Result is R newResult
+          ? new ResultPartial<R>(newResult, Message)
+          : new ResultError<R>(Message);
 }

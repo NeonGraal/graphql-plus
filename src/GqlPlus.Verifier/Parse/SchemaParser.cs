@@ -272,38 +272,43 @@ internal class SchemaParser : CommonParser
       }
 
       result.Fields = fields.ToArray();
-      if (!ParseAlternates(out var alternates, factories)) {
+      var objectAlternates = ParseAlternates(factories);
+      if (objectAlternates.IsError()) {
         return false;
       }
 
-      result.Alternates = alternates;
+      if (objectAlternates.Required(out var alternates)) {
+        result.Alternates = alternates;
+      }
     } else if (reference is not null) {
-      if (!ParseAlternates(out var alternates, factories, reference)) {
+      var objectAlternates = ParseAlternates(factories, reference);
+      if (objectAlternates.IsError()) {
         return false;
       }
 
-      result.Alternates = alternates;
+      if (objectAlternates.Required(out var alternates)) {
+        result.Alternates = alternates;
+      }
     }
 
     return true;
   }
 
-  private bool ParseAlternates<R>(out R[] alternates, IReferenceParser<R> factories, params R[] initial)
+  private IResultArray<R> ParseAlternates<R>(IReferenceParser<R> factories, params R[] initial)
     where R : AstReference<R>
   {
     var result = new List<R>(initial);
     while (_tokens.Take('|')) {
       _tokens.String(out var descr);
-      if (ParseReference(factories, descr).Required(out var alternate)) {
+      var reference = ParseReference(factories, descr);
+      if (reference.Required(out var alternate)) {
         result.Add(alternate);
       } else {
-        alternates = result.ToArray();
-        return Error(factories.Label, "reference after '|'");
+        return PartialArray(factories.Label, "reference after '|'", () => result);
       }
     }
 
-    alternates = result.ToArray();
-    return true;
+    return result.OkArray();
   }
 
   internal IResult<F> ParseField<F, R>(IFieldParser<F, R> parser)

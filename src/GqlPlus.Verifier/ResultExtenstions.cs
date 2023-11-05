@@ -4,23 +4,16 @@ namespace GqlPlus.Verifier;
 
 public static class ResultExtenstions
 {
-  public static IResult<R> AsResult<T, R>(this IResult<T> result, R? _ = default)
-    => result switch {
-      ResultPartial<T> part
-        => part.Result is R newResult
-          ? new ResultPartial<R>(newResult, part.Message)
-          : new ResultError<R>(part.Message),
-      ResultError<T> error
-        => new ResultError<R>(error.Message),
-      ResultOk<T> ok when ok.Result is R newResult
-        => new ResultOk<R>(newResult),
-      _ => new ResultEmpty<R>(),
-    };
-
   public static IResultArray<R> AsResultArray<T, R>(this IResult<T> result, IEnumerable<R>? _ = default)
-    => result is ResultArrayOk<T> ok && ok.Result is R[] newResult
-      ? new ResultArrayOk<R>(newResult)
-      : new ResultArrayEmpty<R>();
+    => result switch {
+      ResultArrayOk<T> ok when ok.Result is R[] newResult
+        => new ResultArrayOk<R>(newResult),
+      ResultPartial<T> part when part.Result is R[] newResult
+        => new ResultArrayPartial<R>(newResult, part.Message),
+      IResultMessage<T> msg
+        => new ResultArrayError<R>(msg.Message),
+      _ => new ResultArrayEmpty<R>(),
+    };
 
   public static IResult<R> AsPartial<T, R>(this IResult<T> old, R result, Action<ParseMessage>? action = null)
   {

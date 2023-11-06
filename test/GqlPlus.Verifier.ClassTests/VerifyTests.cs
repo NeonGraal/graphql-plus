@@ -27,7 +27,7 @@ public class VerifyTests
     settings.UseDirectory(nameof(VerifyTests));
     settings.UseFileName(nameof(VerifySampleSchema) + "_" + sample);
 
-    await Verify(ast.Render(), settings);
+    await Verify(ast!.Render(), settings);
   }
 
   [Theory]

@@ -16,6 +16,12 @@ internal class OneChecks<P, T>
     : base(factory)
     => (_one, _oneExpression) = (one, oneExpression);
 
+  internal delegate IResult<T> OneResult(P parser);
+
+  public OneChecks(Factory factory, OneResult oneResult,
+    [CallerArgumentExpression(nameof(oneResult))] string oneExpression = "")
+    : this(factory, (P parser, out T? result) => oneResult(parser).Required(out result), oneExpression) { }
+
   internal void TrueExpected(string input, T expected, bool skipIf = false)
   {
     if (skipIf) {

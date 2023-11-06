@@ -10,11 +10,9 @@ internal abstract class BaseAliasedChecks<I, A>
     [CallerArgumentExpression(nameof(one))] string oneExpression = "")
     : base(tokens => new SchemaParser(tokens), one, oneExpression) { }
 
-  internal delegate IResult<A> OneResult(SchemaParser schemaParser);
-
   protected BaseAliasedChecks(OneResult oneResult,
     [CallerArgumentExpression(nameof(oneResult))] string oneExpression = "")
-    : this((SchemaParser parser, out A? result) => oneResult(parser).Required(out result), oneExpression) { }
+    : base(tokens => new SchemaParser(tokens), oneResult, oneExpression) { }
 
   public void WithMinimum(I input)
   => TrueExpected(AliasesString(input, ""), AliasedFactory(input));

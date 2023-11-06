@@ -16,6 +16,12 @@ internal sealed class ManyChecks<P, T>
     : base(factory)
     => (_many, _manyExpression) = (many, manyExpression);
 
+  internal delegate IResultArray<T> ManyResult(P parser);
+
+  public ManyChecks(Factory factory, ManyResult manyResult,
+    [CallerArgumentExpression(nameof(manyResult))] string manyExpression = "")
+    : this(factory, (P parser, out T[] result) => manyResult(parser).Required(out result), manyExpression) { }
+
   internal void TrueExpected(string input, bool skipIf, params T[] expected)
   {
     if (!skipIf) {

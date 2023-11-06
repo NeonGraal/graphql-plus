@@ -215,7 +215,7 @@ internal class SchemaParser : CommonParser
   {
     var aliases = ParseAliases(label);
     return !aliases.Required(out var result)
-      ? aliases.AsResultArray(label)
+      ? aliases
       : _tokens.Take('=') ? result.OkArray() : ErrorArray(label, "'=' before definition", result);
   }
 

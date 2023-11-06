@@ -86,44 +86,57 @@ internal class OperationParser : CommonParser
       return list.EmptyArray();
     }
 
-    if (!_tokens.Prefix('$', out var name, out var at)) {
-      return ErrorArray("Variables", "identifier after '$'", list);
+    var variable = ParseVariable();
+    if (variable.IsError()) {
+      return variable.AsResultArray(list);
     }
 
-    while (name is not null) {
-      var variable = new VariableAst(at, name);
-
-      if (_tokens.Take(':')
-        && ParseVarType().Required(out var varType)
-      ) {
-        variable.Type = varType;
-      }
-
-      var modifiers = ParseModifiers("Operation");
-
-      if (modifiers.IsError()) {
-        return modifiers.AsResultArray(variable);
-      }
-
-      modifiers.WithResult(value => variable.Modifers = value);
-
-      if (ParseDefault().Required(out var constant)) {
-        variable.Default = constant;
-      }
-
-      if (ParseDirectives().Required(out var directives)) {
-        variable.Directives = directives;
-      }
-
-      list.Add(variable);
-      if (!_tokens.Prefix('$', out name, out at)) {
-        return ErrorArray("Variables", "identifier after '$'", list);
+    while (variable.Required(list.Add)) {
+      variable = ParseVariable();
+      if (variable.IsError()) {
+        return variable.AsResultArray(list);
       }
     }
 
-    return !list.Any()
-      ? ErrorArray("Variables", "at least one variable", list)
-      : _tokens.Take(')') ? list.OkArray() : ErrorArray("Variables", "')'.", list);
+    return list.Any()
+      ? _tokens.Take(')')
+        ? list.OkArray()
+        : ErrorArray("Variables", "')'.", list)
+      : ErrorArray("Variables", "at least one variable", list);
+  }
+
+  internal IResult<VariableAst> ParseVariable()
+  {
+    var prefix = _tokens.Prefix('$', out var name, out var at);
+    var variable = new VariableAst(at, name ?? "");
+    if (!prefix) {
+      return Error("Variable", "identifier after '$'", variable);
+    }
+
+    if (name is null) {
+      return variable.Empty();
+    }
+
+    if (_tokens.Take(':')) {
+      if (!ParseVarType().Required(varType => variable.Type = varType)) {
+        return Error("Variable", "type after ':'", variable);
+      }
+    }
+
+    var modifiers = ParseModifiers("Operation");
+    if (!modifiers.Optional(value => variable.Modifers = value)) {
+      return modifiers.AsResult(variable);
+    }
+
+    var constant = ParseDefault();
+    if (!constant.Optional(value => variable.Default = value)) {
+      return constant.AsResult(variable);
+    }
+
+    var directives = ParseDirectives();
+    return directives.Optional(value => variable.Directives = value)
+      ? variable.Ok()
+      : directives.AsResult(variable);
   }
 
   internal IResult<string> ParseVarType()

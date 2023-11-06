@@ -17,7 +17,7 @@ public class ParseModifiersTests
 
   [Fact]
   public void WithFour_ReturnsSpecific()
-    => Test.Expected("[~][_?][]?",
+    => Test.TrueExpected("[~][_?][]?",
       new ModifierAst[] {
         new(AstNulls.At, "~", false),
         new(AstNulls.At, "_", true),
@@ -25,11 +25,7 @@ public class ParseModifiersTests
         ModifierAst.Optional(AstNulls.At),
       });
 
-  private static ArrayChecks<CommonParser, ModifierAst> Test => new(
+  private static ManyChecks<CommonParser, ModifierAst> Test => new(
     tokens => new CommonParser(tokens),
-    parser => {
-      var modifiers = parser.ParseModifiers("Modifiers");
-      modifiers.Optional(out var value);
-      return value ?? Array.Empty<ModifierAst>();
-    });
+    parser => parser.ParseModifiers("Modifiers"));
 }

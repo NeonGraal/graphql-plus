@@ -111,9 +111,8 @@ internal class CommonParser
     }
 
     while (!_tokens.Take(']')) {
-      if (ParseConstant().Required(out var item)) {
-        list.Add(item);
-      } else {
+      var constant = ParseConstant();
+      if (!constant.Required(list.Add)) {
         return PartialArray("Constant", "value in list", () => list);
       }
 
@@ -132,13 +131,24 @@ internal class CommonParser
     }
 
     while (!_tokens.Take('}')) {
-      if (ParseFieldKey().Required(out var key)
-        && _tokens.Take(':')
-        && ParseConstant().Required(out var value)
-      ) {
-        fields.Add(key, value);
-      } else {
-        return Error("Constant", "field in object", fields);
+      var fieldKey = ParseFieldKey();
+      if (fieldKey.IsError()) {
+        return fieldKey.AsResult(fields);
+      }
+
+      if (!_tokens.Take(':')) {
+        return Error("Constant", "':' after key", fields);
+      } else if (!fieldKey.Required(_ => { })) {
+        return Error("Constant", "key before ':'", fields);
+      }
+
+      var constant = ParseConstant();
+      if (constant.IsError()) {
+        return constant.AsResult(fields);
+      }
+
+      if (!fieldKey.Required(key => constant.WithResult(value => fields.Add(key, value)))) {
+        return Error("Constant", "value after ':'", fields);
       }
 
       _tokens.Take(',');

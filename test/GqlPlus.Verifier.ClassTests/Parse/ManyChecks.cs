@@ -52,4 +52,16 @@ internal sealed class ManyChecks<P, T>
     parser.Errors.Should().NotBeEmpty();
     result.Should().BeNullOrEmpty();
   }
+
+  internal void Count(string input, int count)
+  {
+    var parser = Parser(input);
+
+    var success = _many(parser, out T[] result);
+
+    success.Should().BeTrue(_manyExpression);
+    using var scope = new AssertionScope();
+    parser.Errors.Should().BeEmpty();
+    result.Length.Should().Be(count);
+  }
 }

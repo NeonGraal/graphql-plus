@@ -280,15 +280,12 @@ internal class SchemaParser : CommonParser
       return modifiers.AsResult(parameter);
     }
 
-    if (modifiers.Optional(out var value)) {
-      parameter.Modifiers = value ?? Array.Empty<ModifierAst>();
-    }
+    modifiers.Optional(value => parameter.Modifiers = value);
 
-    if (ParseDefault().Required(out var constant)) {
-      parameter.Default = constant;
-    }
-
-    return _tokens.Take(')') ? parameter.Ok() : Partial("Parameter", "')' at end", () => parameter);
+    var constant = ParseDefault();
+    return !constant.Optional(value => parameter.Default = value)
+      ? constant.AsResult(parameter)
+      : _tokens.Take(')') ? parameter.Ok() : Partial("Parameter", "')' at end", () => parameter);
   }
 
   private IResult<EnumLabelAst> ParseEnumLabel()

@@ -35,17 +35,6 @@ public static class ResultExtenstions
     return false;
   }
 
-  public static bool Optional<T>(this IResult<T> result, out T? value)
-  {
-    if (result is IResultOk<T> ok) {
-      value = ok.Result;
-      return true;
-    }
-
-    value = default;
-    return result is ResultEmpty<T>;
-  }
-
   public static bool Optional<T>(this IResult<T> result, Action<T?> action)
   {
     if (result is IResultOk<T> ok) {

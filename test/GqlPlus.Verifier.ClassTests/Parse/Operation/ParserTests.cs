@@ -35,12 +35,12 @@ public class ParserTests
     var parser = new OperationParser(new Tokenizer(input));
 
     var result = parser.Parse();
-    result.Optional(out var ast);
+    result.Optional(ast => {
+      using var scope = new AssertionScope();
 
-    using var scope = new AssertionScope();
-
-    ast.Should().BeNull();
-    result.IsError(err => err.Message.Should().NotBeNullOrWhiteSpace());
+      ast.Should().BeNull();
+      result.IsError(err => err.Message.Should().NotBeNullOrWhiteSpace());
+    });
   }
 
   [Theory]

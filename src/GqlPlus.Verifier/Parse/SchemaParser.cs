@@ -332,7 +332,7 @@ internal class SchemaParser : CommonParser
 
     _tokens.String(out var descr);
     var baseReference = ParseReference(factories, descr);
-    if (!baseReference.Optional(out var reference)) {
+    if (baseReference.IsError()) {
       return baseReference.AsResult(result);
     }
 
@@ -345,16 +345,14 @@ internal class SchemaParser : CommonParser
         }
       }
 
-      if (reference is not null) {
-        result.Extends = reference with { Description = descr };
-      }
+      baseReference.WithResult(reference => result.Extends = reference with { Description = descr });
 
       result.Fields = fields.ToArray();
       var objectAlternates = ParseAlternates(factories);
       return objectAlternates.Optional(alternates => result.Alternates = alternates)
         ? result.Ok()
         : objectAlternates.AsResult(result);
-    } else if (reference is not null) {
+    } else if (baseReference.Required(out var reference)) {
       var objectAlternates = ParseAlternates(factories, reference);
       return objectAlternates.Optional(alternates => result.Alternates = alternates)
         ? result.Ok()

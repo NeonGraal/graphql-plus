@@ -356,5 +356,5 @@ internal class Tokenizer
     => new(At, text);
 
   internal ParseMessage Error(string label, string expected)
-    => new(At, $"Invalid {label}. Expected {expected}");
+    => new(At, $"Invalid {label}. Expected {expected}.");
 }

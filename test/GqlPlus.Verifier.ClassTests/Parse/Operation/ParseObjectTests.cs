@@ -37,5 +37,5 @@ public class ParseObjectTests
 
   private static ManyChecks<OperationParser, IAstSelection> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out IAstSelection[] result) => parser.ParseObject(out result));
+    parser => parser.ParseObject());
 }

@@ -47,9 +47,7 @@ internal class OperationParser : CommonParser
       if (ParseArgument().Required(out var argument)) {
         ast.Argument = argument;
       }
-    } else if (ParseObject(out IAstSelection[] selections)) {
-      ast.Object = selections;
-    } else {
+    } else if (!ParseObject().Required(selections => ast.Object = selections)) {
       return Partial("Operation", "Object or Type", Final);
     }
 
@@ -189,29 +187,30 @@ internal class OperationParser : CommonParser
     return result.OkArray();
   }
 
-  internal bool ParseObject(out IAstSelection[] selections)
+  internal IResultArray<IAstSelection> ParseObject()
   {
-    selections = Array.Empty<IAstSelection>();
+    var fields = new List<IAstSelection>();
     if (!_tokens.Take('{')) {
-      return false;
+      return fields.EmptyArray();
     }
 
-    var fields = new List<IAstSelection>();
-
     while (!_tokens.Take('}')) {
-      if (ParseSelection().Required(out var fragment)) {
-        fields.Add(fragment);
-      } else if (ParseField().Required(out var field)) {
-        fields.Add(field);
-      } else {
-        selections = fields.ToArray();
+      var selection = ParseSelection();
+      if (selection.IsError()) {
+        return selection.AsResultArray(fields);
+      } else if (selection.Required(fields.Add)) {
+        continue;
+      }
 
-        return Error("Object", "a field or selection");
+      var field = ParseField();
+      if (field.IsError()) {
+        return field.AsResultArray(fields);
+      } else if (!field.Required(fields.Add)) {
+        return ErrorArray("Object", "a field or selection", fields);
       }
     }
 
-    selections = fields.ToArray();
-    return Error("Object", "at least one field or selection", fields.Any());
+    return fields.Any() ? fields.OkArray() : ErrorArray("Object", "at least one field or selection", fields);
   }
 
   internal IResult<IAstSelection> ParseSelection()
@@ -235,7 +234,7 @@ internal class OperationParser : CommonParser
 
       {
         if (ParseDirectives().Required(out var directives)) {
-          if (ParseObject(out IAstSelection[] selections)) {
+          if (ParseObject().Required(out IAstSelection[] selections)) {
             IAstSelection selection = new InlineAst(at, selections) {
               OnType = onType,
               Directives = directives,
@@ -276,7 +275,7 @@ internal class OperationParser : CommonParser
     var modifiers = ParseModifiers("Operation");
 
     if (modifiers.IsError()) {
-      return modifiers.AsResult(AstNulls.Selection);
+      return modifiers.AsResult<IAstSelection>();
     }
 
     modifiers.WithResult(value => result.Modifiers = value);
@@ -284,11 +283,10 @@ internal class OperationParser : CommonParser
       result.Directives = directives;
     }
 
-    if (ParseObject(out IAstSelection[] selections)) {
-      result.Selections = selections;
-    }
-
-    return (result as IAstSelection).Ok();
+    var selections = ParseObject();
+    return !selections.Optional(value => result.Selections = value)
+      ? selections.AsResult<IAstSelection>()
+      : (result as IAstSelection).Ok();
   }
 
   internal IResultArray<FragmentAst> ParseFragStart()
@@ -321,7 +319,7 @@ internal class OperationParser : CommonParser
         && _tokens.Identifier(out var onType)
       ) {
         if (ParseDirectives().Required(out var directives)) {
-          if (ParseObject(out IAstSelection[] selections)) {
+          if (ParseObject().Required(out IAstSelection[] selections)) {
             var fragment = new FragmentAst(at, name, onType, selections) { Directives = directives };
             definitions.Add(fragment);
           }

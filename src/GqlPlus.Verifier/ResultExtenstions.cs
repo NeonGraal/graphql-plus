@@ -26,6 +26,9 @@ public static class ResultExtenstions
       : new ResultOk<R>(result);
   }
 
+  public static bool HasValue<T>(this IResult<T> result)
+    => result is IResultValue<T>;
+
   public static bool IsError<T>(this IResult<T> result, Action<ParseMessage>? action = null)
   {
     if (result is IResultMessage<T> error) {
@@ -35,6 +38,9 @@ public static class ResultExtenstions
 
     return false;
   }
+
+  public static bool IsOk<T>(this IResult<T> result)
+    => result is ResultOk<T>;
 
   public static bool Optional<T>(this IResult<T> result, Action<T?> action)
   {
@@ -102,6 +108,22 @@ public static class ResultExtenstions
         => throw new InvalidOperationException(message.Message.ToString()),
       _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " is empty"),
     };
+
+  public static IResult<R> Select<T, R>(this IResult<T> old, Func<T, R?> selector)
+  {
+    R? result = default;
+    if (old is IResultValue<T> value) {
+      result = selector(value.Result);
+    }
+
+    return old switch {
+      IResultOk<T> when result is not null
+        => result.Ok(),
+      IResultMessage<T> part when result is not null
+        => new ResultPartial<R>(result, part.Message),
+      _ => old.AsResult<R>(),
+    };
+  }
 
   public static void WithResult<T>(this IResult<T> result, Action<T> action)
   {

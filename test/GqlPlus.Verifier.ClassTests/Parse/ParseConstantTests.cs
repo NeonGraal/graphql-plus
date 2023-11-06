@@ -75,5 +75,5 @@ public class ParseConstantTests
 
   private static OneChecks<CommonParser, ConstantAst> Test => new(
     tokens => new CommonParser(tokens),
-    (CommonParser parser, out ConstantAst? result) => parser.ParseConstant().Required(out result));
+    parser => parser.ParseConstant());
 }

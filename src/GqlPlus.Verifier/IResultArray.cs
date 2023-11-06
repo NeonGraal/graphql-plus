@@ -21,7 +21,7 @@ public readonly struct ResultArrayOk<T> : IResultArray<T>, IResultOk<T[]>
       : new ResultArrayEmpty<R>();
 }
 
-public readonly struct ResultArrayError<T> : IResultArray<T>, IResultMessage<T[]>
+public readonly struct ResultArrayError<T> : IResultArray<T>, IResultError<T[]>
 {
   public ParseMessage Message { get; }
 
@@ -33,13 +33,13 @@ public readonly struct ResultArrayError<T> : IResultArray<T>, IResultMessage<T[]
     => new ResultArrayError<R>(Message);
 }
 
-public readonly struct ResultArrayEmpty<T> : IResultArray<T>
+public readonly struct ResultArrayEmpty<T> : IResultArray<T>, IResultEmpty<T[]>
 {
   public IResult<R> AsResult<R>(R? _ = default) => new ResultEmpty<R>();
   public IResultArray<R> AsResultArray<R>(R[]? _ = default) => new ResultArrayEmpty<R>();
 }
 
-public readonly struct ResultArrayPartial<T> : IResultArray<T>, IResultValue<T[]>, IResultMessage<T[]>
+public readonly struct ResultArrayPartial<T> : IResultArray<T>, IResultPartial<T[]>
 {
   public T[] Result { get; }
   public ParseMessage Message { get; }

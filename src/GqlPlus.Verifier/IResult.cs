@@ -10,12 +10,18 @@ public interface IResultValue<T> : IResult<T>
   T Result { get; }
 }
 
+public interface IResultOk<T> : IResultValue<T> { }
+
 public interface IResultMessage<T> : IResult<T>
 {
   ParseMessage Message { get; }
 }
 
-public interface IResultOk<T> : IResultValue<T> { }
+public interface IResultError<T> : IResultMessage<T> { }
+
+public interface IResultPartial<T> : IResultValue<T>, IResultMessage<T> { }
+
+public interface IResultEmpty<T> : IResult<T> { }
 
 public readonly struct ResultOk<T> : IResultOk<T>
 {
@@ -33,7 +39,7 @@ public readonly struct ResultOk<T> : IResultOk<T>
       : new ResultEmpty<R>();
 }
 
-public readonly struct ResultError<T> : IResultMessage<T>
+public readonly struct ResultError<T> : IResultError<T>
 {
   public ParseMessage Message { get; }
 
@@ -43,12 +49,12 @@ public readonly struct ResultError<T> : IResultMessage<T>
     => new ResultError<R>(Message);
 }
 
-public readonly struct ResultEmpty<T> : IResult<T>
+public readonly struct ResultEmpty<T> : IResultEmpty<T>
 {
   public IResult<R> AsResult<R>(R? _ = default) => new ResultEmpty<R>();
 }
 
-public readonly struct ResultPartial<T> : IResultValue<T>, IResultMessage<T>
+public readonly struct ResultPartial<T> : IResultPartial<T>
 {
   public T Result { get; }
   public ParseMessage Message { get; }

@@ -16,12 +16,18 @@ public class OperationVerifier
   {
     Tokenizer tokenizer = new(operation);
     OperationParser parser = new(tokenizer);
-    parser.Parse().Required(out var ast);
+    var parse = parser.Parse();
 
-    var verifier = new OperationVerifier(ast!);
+    if (parse is IResultError<OperationAst> error) {
+      errors = new List<ParseMessage> { error.Message };
+      return false;
+    }
+
+    var verifier = new OperationVerifier(parse.Partial()!);
+    var result = verifier.Verify();
+
     errors = verifier.Errors;
-
-    return verifier.Verify();
+    return result;
   }
 
   private bool Verify()

@@ -81,8 +81,9 @@ internal class CommonParser
   {
     var at = _tokens.At;
 
-    if (ParseFieldKey().Required(out var fieldKey)) {
-      return new ConstantAst(fieldKey).Ok();
+    var fieldKey = ParseFieldKey();
+    if (fieldKey.HasValue()) {
+      return fieldKey.Select(value => new ConstantAst(value));
     }
 
     var oldSeparators = _tokens.IgnoreSeparators;

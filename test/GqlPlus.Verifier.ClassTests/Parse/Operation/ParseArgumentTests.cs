@@ -80,5 +80,5 @@ public class ParseArgumentTests
 
   private static OneChecks<OperationParser, ArgumentAst> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out ArgumentAst? result) => parser.ParseArgument().Required(out result));
+    parser => parser.ParseArgument());
 }

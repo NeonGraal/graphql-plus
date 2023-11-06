@@ -28,5 +28,5 @@ public class ParseVarTypeTests
 
   private static OneChecks<OperationParser, string> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out string? result) => parser.ParseVarType().Required(out result));
+    parser => parser.ParseVarType());
 }

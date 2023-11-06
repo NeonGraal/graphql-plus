@@ -62,5 +62,5 @@ public class ParseFieldKeyTests
 
   private static OneChecks<CommonParser, FieldKeyAst> Test => new(
     tokens => new CommonParser(tokens),
-    (CommonParser parser, out FieldKeyAst? result) => parser.ParseFieldKey().Required(out result));
+    parser => parser.ParseFieldKey());
 }

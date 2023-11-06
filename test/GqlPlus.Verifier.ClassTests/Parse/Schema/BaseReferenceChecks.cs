@@ -14,6 +14,11 @@ internal sealed class BaseReferenceChecks<R>
     : base(tokens => new SchemaParser(tokens), one, oneExpression)
     => _factories = factories;
 
+  public BaseReferenceChecks(IReferenceFactories<R> factories,
+    OneResult oneResult, [CallerArgumentExpression(nameof(oneResult))] string oneExpression = "")
+    : base(tokens => new SchemaParser(tokens), oneResult, oneExpression)
+    => _factories = factories;
+
   public void WithMinimum(string name)
     => TrueExpected(name, Reference(name));
 

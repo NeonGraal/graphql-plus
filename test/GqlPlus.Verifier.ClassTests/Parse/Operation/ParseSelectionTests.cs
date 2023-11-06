@@ -62,5 +62,5 @@ public class ParseSelectionTests
 
   private static OneChecks<OperationParser, IAstSelection> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out IAstSelection? result) => parser.ParseSelection().Required(out result));
+    parser => parser.ParseSelection());
 }

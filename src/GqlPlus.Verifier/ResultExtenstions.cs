@@ -15,14 +15,15 @@ public static class ResultExtenstions
       _ => new ResultArrayEmpty<R>(),
     };
 
-  public static IResult<R> AsPartial<T, R>(this IResult<T> old, R result, Action<ParseMessage>? action = null)
+  public static IResult<R> AsPartial<T, R>(this IResult<T> old, R result, Action<T>? action = null)
   {
-    if (old is IResultMessage<T> part) {
-      action?.Invoke(part.Message);
-      return new ResultPartial<R>(result, part.Message);
+    if (old is IResultValue<T> value) {
+      action?.Invoke(value.Result);
     }
 
-    return new ResultOk<R>(result);
+    return old is IResultMessage<T> part
+      ? new ResultPartial<R>(result, part.Message)
+      : new ResultOk<R>(result);
   }
 
   public static bool IsError<T>(this IResult<T> result, Action<ParseMessage>? action = null)
@@ -50,6 +51,28 @@ public static class ResultExtenstions
     return false;
   }
 
+  public static T? Optional<T>(this IResult<T> result)
+    => result switch {
+      ResultEmpty<T>
+        => default,
+      IResultOk<T> ok
+        => ok.Result,
+      IResultMessage<T> message
+        => throw new InvalidOperationException(message.Message.ToString()),
+      _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " has no message"),
+    };
+
+  public static T? Partial<T>(this IResult<T> result)
+    => result switch {
+      ResultEmpty<T>
+        => default,
+      IResultValue<T> ok
+        => ok.Result,
+      IResultMessage<T> message
+        => throw new InvalidOperationException(message.Message.ToString()),
+      _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " has no message"),
+    };
+
   public static bool Required<T>(this IResult<T> result, [NotNullWhen(true)] out T? value)
   {
     if (result is IResultOk<T> ok) {
@@ -70,6 +93,15 @@ public static class ResultExtenstions
 
     return false;
   }
+
+  public static T Required<T>(this IResult<T> result)
+    => result switch {
+      IResultOk<T> ok
+        => ok.Result,
+      IResultMessage<T> message
+        => throw new InvalidOperationException(message.Message.ToString()),
+      _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " is empty"),
+    };
 
   public static void WithResult<T>(this IResult<T> result, Action<T> action)
   {

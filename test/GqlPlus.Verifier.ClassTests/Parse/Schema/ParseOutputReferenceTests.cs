@@ -18,5 +18,5 @@ public class ParseOutputReferenceTests : BaseReferenceTests
 
   private static BaseReferenceChecks<OutputReferenceAst> Test => new(
     new OutputFactories(),
-    (SchemaParser parser, out OutputReferenceAst? result) => parser.ParseReference(new OutputParserFactories(parser), "").Required(out result));
+    parser => parser.ParseReference(new OutputParserFactories(parser), ""));
 }

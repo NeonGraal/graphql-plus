@@ -125,6 +125,16 @@ public static class ResultExtenstions
     };
   }
 
+  public static IResult<T> Map<T>(this IResult<T> old, Func<T, IResult<T>> selector)
+    => old is IResultValue<T> value
+      ? selector(value.Result)
+      : old;
+
+  public static IResult<R> Map<T, R>(this IResult<T> old, Func<T, IResult<R>> selector)
+    => old is IResultValue<T> value
+      ? selector(value.Result)
+      : old.AsResult<R>();
+
   public static void WithResult<T>(this IResult<T> result, Action<T> action)
   {
     if (result is IResultValue<T> ok) {

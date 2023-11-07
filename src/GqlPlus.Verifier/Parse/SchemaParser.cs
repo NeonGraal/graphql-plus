@@ -243,11 +243,10 @@ internal class SchemaParser : CommonParser
     if (_tokens.Take('(')) {
       var enumValue = ParseEnumValue<O>(label);
 
-      return enumValue.Required(out var result)
-        ? _tokens.Take(')')
+      return enumValue.Map<O>(result =>
+        _tokens.Take(')')
           ? enumValue
-          : Partial(label, "')' after option", () => result)
-        : enumValue;
+          : Partial(label, "')' after option", () => result));
     }
 
     return new ResultEmpty<O>();
@@ -269,11 +268,12 @@ internal class SchemaParser : CommonParser
 
     _tokens.String(out var descr);
     var at = _tokens.At;
-    if (!ParseReference(new InputParserFactories(this), descr).Required(out var reference)) {
+    var input = ParseReference(new InputParserFactories(this), descr);
+    if (!input.IsOk()) {
       return Error<ParameterAst>("Parameter", "input reference after '('");
     }
 
-    var parameter = new ParameterAst(at, reference);
+    var parameter = new ParameterAst(at, input.Required());
     var modifiers = ParseModifiers("Operation");
 
     if (modifiers.IsError(Errors.Add)) {
@@ -349,11 +349,13 @@ internal class SchemaParser : CommonParser
       return objectAlternates.Optional(alternates => result.Alternates = alternates)
         ? result.Ok()
         : objectAlternates.AsResult(result);
-    } else if (baseReference.Required(out var reference)) {
-      var objectAlternates = ParseAlternates(factories, reference);
-      return objectAlternates.Optional(alternates => result.Alternates = alternates)
-        ? result.Ok()
-        : objectAlternates.AsResult(result);
+    } else if (baseReference.IsOk()) {
+      return baseReference.Map(reference => {
+        var objectAlternates = ParseAlternates(factories, reference);
+        return objectAlternates.Optional(alternates => result.Alternates = alternates)
+          ? result.Ok()
+          : objectAlternates.AsResult(result);
+      });
     }
 
     return result.Empty();

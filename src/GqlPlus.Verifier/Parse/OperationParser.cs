@@ -457,7 +457,7 @@ internal class OperationParser : CommonParser
 
     while (!_tokens.Take(')')) {
       if (ParseFieldKey().Required(out var key1)
-        && _tokens.Take(":")
+        && _tokens.Take(':')
         && ParseArgValue().Required(out var item1)
       ) {
         fields.Add(key1, ParseArgValues(item1));

@@ -130,30 +130,34 @@ internal class CommonParser
     }
 
     while (!_tokens.Take('}')) {
-      var fieldKey = ParseFieldKey();
-      if (fieldKey.IsError()) {
-        return fieldKey.AsResult(fields);
-      }
+      var field = ParseField("Constant", ParseConstant);
 
-      if (!_tokens.Take(':')) {
-        return Error("Constant", "':' after key", fields);
-      } else if (!fieldKey.Required(_ => { })) {
-        return Error("Constant", "key before ':'", fields);
-      }
-
-      var constant = ParseConstant();
-      if (constant.IsError()) {
-        return constant.AsResult(fields);
-      }
-
-      if (!fieldKey.Required(key => constant.WithResult(value => fields.Add(key, value)))) {
-        return Error("Constant", "value after ':'", fields);
+      if (!field.Required(value => fields.Add(value.Key, value.Value))) {
+        return field.AsResult(fields);
       }
 
       _tokens.Take(',');
     }
 
     return fields.Ok();
+  }
+
+  internal IResult<Field<T>> ParseField<T>(string label, Func<IResult<T>> parseValue)
+    where T : AstValues<T>
+  {
+    var fieldKey = ParseFieldKey();
+    if (fieldKey.IsError()) {
+      return fieldKey.AsResult<Field<T>>();
+    }
+
+    if (!_tokens.Take(':')) {
+      return Error<Field<T>>(label, "':' after key");
+    } else if (!fieldKey.IsOk()) {
+      return Error<Field<T>>(label, "key before ':'");
+    }
+
+    var fieldValue = parseValue();
+    return fieldValue.Select(value => new Field<T>(fieldKey.Required(), value));
   }
 
   protected bool Error(string label, string message, bool result = false)
@@ -193,3 +197,6 @@ internal class CommonParser
     return new ResultPartial<T>(result(), error);
   }
 }
+
+internal record struct Field<T>(FieldKeyAst Key, T Value)
+  where T : AstValues<T>;

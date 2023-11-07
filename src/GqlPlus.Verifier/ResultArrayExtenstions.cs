@@ -42,6 +42,17 @@ public static class ResultArrayExtenstions
     return false;
   }
 
+  public static T[] Optional<T>(this IResultArray<T> result)
+    => result switch {
+      IResultEmpty<T[]>
+        => Array.Empty<T>(),
+      IResultValue<T[]> ok
+        => ok.Result,
+      IResultMessage<T[]> message
+        => throw new InvalidOperationException(message.Message.ToString()),
+      _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " has no message"),
+    };
+
   public static bool Required<T>(this IResultArray<T> result, out T[] value)
   {
     if (result is ResultArrayOk<T> ok) {

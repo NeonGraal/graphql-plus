@@ -29,13 +29,12 @@ internal class OperationParser : CommonParser
       }
     }
 
-    if (ParseVariables().Required(out var variables)) {
-      ast.Variables = variables;
+    var variables = ParseVariables();
+    if (!variables.Optional(value => ast.Variables = value)) {
+      return variables.AsPartial(Final(), Errors.Add);
     }
 
-    if (ParseDirectives().Required(out var directives)) {
-      ast.Directives = directives;
-    }
+    ParseDirectives().Required(directives => ast.Directives = directives);
 
     ParseFragStart().WithResult(value => ast.Fragments = value);
     if (!_tokens.Prefix(':', out var result, out _)) {
@@ -220,23 +219,24 @@ internal class OperationParser : CommonParser
         }
       } else {
         if (_tokens.Identifier(out var name)) {
-          if (ParseDirectives().Required(out var directives)) {
-            IAstSelection selection = new SpreadAst(at, name) { Directives = directives };
-            Spreads.Add((SpreadAst)selection);
-            return selection.Ok();
-          }
+          var selection = new SpreadAst(at, name);
+          ParseDirectives().Optional(directives => selection.Directives = directives);
+          Spreads.Add(selection);
+          return selection.Ok<IAstSelection>();
         }
       }
 
       {
-        if (ParseDirectives().Required(out var directives)) {
-          if (ParseObject().Required(out IAstSelection[] selections)) {
-            IAstSelection selection = new InlineAst(at, selections) {
+        var directives = ParseDirectives();
+        var selections = ParseObject();
+        if (selections.IsOk()) {
+          return selections.Select(values => {
+            var selection = new InlineAst(at, values) {
               OnType = onType,
-              Directives = directives,
             };
-            return selection.Ok();
-          }
+            directives.Optional(directives => selection.Directives = directives);
+            return selection as IAstSelection;
+          });
         }
       }
 
@@ -267,15 +267,11 @@ internal class OperationParser : CommonParser
     ParseArgument().Required(argument => result.Argument = argument);
 
     var modifiers = ParseModifiers("Operation");
-
-    if (modifiers.IsError()) {
+    if (!modifiers.Optional(value => result.Modifiers = value)) {
       return modifiers.AsResult<IAstSelection>();
     }
 
-    modifiers.WithResult(value => result.Modifiers = value);
-    if (ParseDirectives().Required(out var directives)) {
-      result.Directives = directives;
-    }
+    ParseDirectives().WithResult(directives => result.Directives = directives);
 
     var selections = ParseObject();
     return !selections.Optional(value => result.Selections = value)
@@ -284,14 +280,14 @@ internal class OperationParser : CommonParser
   }
 
   internal IResultArray<FragmentAst> ParseFragStart()
-    => ParseFragment(
+    => ParseFragments(
         Array.Empty<FragmentAst>(),
         (ref Tokenizer tokens) => tokens.Take('&'),
         (ref Tokenizer tokens) => tokens.Take(':')
       );
 
   internal IResultArray<FragmentAst> ParseFragEnd(FragmentAst[] initial)
-    => ParseFragment(
+    => ParseFragments(
         initial,
         (ref Tokenizer tokens) => tokens.Take("fragment") || tokens.Take('&'),
         (ref Tokenizer tokens) => tokens.Take("on") || tokens.Take(':')
@@ -299,7 +295,7 @@ internal class OperationParser : CommonParser
 
   private delegate bool Prefix(ref Tokenizer tokens);
 
-  private IResultArray<FragmentAst> ParseFragment(
+  private IResultArray<FragmentAst> ParseFragments(
     FragmentAst[] initial,
     Prefix fragPrefix,
     Prefix typePrefix)
@@ -312,12 +308,11 @@ internal class OperationParser : CommonParser
         && typePrefix(ref _tokens)
         && _tokens.Identifier(out var onType)
       ) {
-        if (ParseDirectives().Required(out var directives)) {
-          if (ParseObject().Required(out IAstSelection[] selections)) {
-            var fragment = new FragmentAst(at, name, onType, selections) { Directives = directives };
-            definitions.Add(fragment);
-          }
-        }
+        var directives = ParseDirectives();
+        ParseObject().Required(selections => {
+          var fragment = new FragmentAst(at, name, onType, selections) { Directives = directives.Optional() };
+          definitions.Add(fragment);
+        });
       }
     }
 
@@ -375,8 +370,9 @@ internal class OperationParser : CommonParser
       _tokens.IgnoreSeparators = false;
       at = _tokens.At;
 
-      if (ParseArgList().Required(out ArgumentAst[] list)) {
-        return new ArgumentAst(at, list).Ok();
+      var list = ParseArgList();
+      if (!list.IsEmpty()) {
+        return list.Select(value => new ArgumentAst(at, value));
       }
 
       var fields = ParseArgObject();

@@ -8,19 +8,15 @@ internal sealed class ManyChecks<P, T>
 {
   internal delegate bool Many(P parser, out T[] result);
 
-  private readonly Many _many;
+  private readonly ManyResult _many;
   private readonly string _manyExpression;
 
-  public ManyChecks(Factory factory, Many many,
+  public ManyChecks(Factory factory, ManyResult many,
     [CallerArgumentExpression(nameof(many))] string manyExpression = "")
     : base(factory)
     => (_many, _manyExpression) = (many, manyExpression);
 
   internal delegate IResultArray<T> ManyResult(P parser);
-
-  public ManyChecks(Factory factory, ManyResult manyResult,
-    [CallerArgumentExpression(nameof(manyResult))] string manyExpression = "")
-    : this(factory, (P parser, out T[] result) => manyResult(parser).Required(out result), manyExpression) { }
 
   internal void TrueExpected(string input, bool skipIf, params T[] expected)
   {
@@ -33,35 +29,34 @@ internal sealed class ManyChecks<P, T>
   {
     var parser = Parser(input);
 
-    var success = _many(parser, out T[] result);
+    var success = _many(parser);
 
-    success.Should().BeTrue(_manyExpression);
+    success.IsOk().Should().BeTrue(_manyExpression);
     using var scope = new AssertionScope();
     parser.Errors.Should().BeEmpty();
-    result.Should().Equal(expected);
+    success.Required().Should().Equal(expected);
   }
 
   internal void False(string input)
   {
     var parser = Parser(input);
 
-    var success = _many(parser, out T[] result);
+    var success = _many(parser);
 
-    success.Should().BeFalse(_manyExpression);
+    success.IsOk().Should().BeFalse(_manyExpression);
     using var scope = new AssertionScope();
     parser.Errors.Should().NotBeEmpty();
-    result.Should().BeNullOrEmpty();
   }
 
   internal void Count(string input, int count)
   {
     var parser = Parser(input);
 
-    var success = _many(parser, out T[] result);
+    var success = _many(parser);
 
-    success.Should().BeTrue(_manyExpression);
+    success.IsOk().Should().BeTrue(_manyExpression);
     using var scope = new AssertionScope();
     parser.Errors.Should().BeEmpty();
-    result.Length.Should().Be(count);
+    success.Required().Length.Should().Be(count);
   }
 }

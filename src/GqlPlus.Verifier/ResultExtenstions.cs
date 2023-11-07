@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Verifier;
+﻿namespace GqlPlus.Verifier;
 
 public static class ResultExtenstions
 {
@@ -92,17 +90,6 @@ public static class ResultExtenstions
         => throw new InvalidOperationException(message.Message.ToString()),
       _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " has no message"),
     };
-
-  public static bool Required<T>(this IResult<T> result, [NotNullWhen(true)] out T? value)
-  {
-    if (result is IResultOk<T> ok) {
-      value = ok.Result!;
-      return true;
-    }
-
-    value = result is ResultPartial<T> part ? part.Result : default;
-    return false;
-  }
 
   public static bool Required<T>(this IResult<T> result, Action<T> action)
   {

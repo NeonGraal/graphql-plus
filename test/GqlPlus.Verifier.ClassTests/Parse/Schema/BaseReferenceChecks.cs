@@ -9,11 +9,6 @@ internal sealed class BaseReferenceChecks<R>
 {
   private readonly IReferenceFactories<R> _factories;
 
-  internal BaseReferenceChecks(IReferenceFactories<R> factories,
-    One one, [CallerArgumentExpression(nameof(one))] string oneExpression = "")
-    : base(tokens => new SchemaParser(tokens), one, oneExpression)
-    => _factories = factories;
-
   public BaseReferenceChecks(IReferenceFactories<R> factories,
     OneResult oneResult, [CallerArgumentExpression(nameof(oneResult))] string oneExpression = "")
     : base(tokens => new SchemaParser(tokens), oneResult, oneExpression)

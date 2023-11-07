@@ -53,17 +53,6 @@ public static class ResultArrayExtenstions
       _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " has no message"),
     };
 
-  public static bool Required<T>(this IResultArray<T> result, out T[] value)
-  {
-    if (result is ResultArrayOk<T> ok) {
-      value = ok.Result!;
-      return true;
-    }
-
-    value = Array.Empty<T>();
-    return false;
-  }
-
   public static bool Required<T>(this IResultArray<T> result, Action<T[]> action)
   {
     if (result is ResultArrayOk<T> ok) {

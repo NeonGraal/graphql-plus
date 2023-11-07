@@ -6,10 +6,6 @@ internal abstract class BaseAliasedChecks<I, A>
   : OneChecks<SchemaParser, A>, IBaseAliasedChecks<I>
   where A : AstAliased
 {
-  protected BaseAliasedChecks(One one,
-    [CallerArgumentExpression(nameof(one))] string oneExpression = "")
-    : base(tokens => new SchemaParser(tokens), one, oneExpression) { }
-
   protected BaseAliasedChecks(OneResult oneResult,
     [CallerArgumentExpression(nameof(oneResult))] string oneExpression = "")
     : base(tokens => new SchemaParser(tokens), oneResult, oneExpression) { }

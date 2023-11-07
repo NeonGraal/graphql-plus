@@ -37,7 +37,7 @@ public class VerifyTests
     var operation = File.ReadAllText("Sample/Operation_" + sample + ".gql+");
     Tokenizer tokenizer = new(operation);
     OperationParser parser = new(tokenizer);
-    var ast = parser.Parse().Partial();
+    var ast = parser.Parse().Optional();
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();

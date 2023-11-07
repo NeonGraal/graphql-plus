@@ -23,7 +23,7 @@ public class OperationVerifier
       return false;
     }
 
-    var verifier = new OperationVerifier(parse.Partial()!);
+    var verifier = new OperationVerifier(parse.Optional()!);
     var result = verifier.Verify();
 
     errors = verifier.Errors;

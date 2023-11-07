@@ -145,10 +145,11 @@ internal class OperationParser : CommonParser
   internal IResult<string> ParseVarNull()
   {
     if (_tokens.Take('[')) {
-      return ParseVarType().Required(out var varType)
-        && _tokens.Take(']')
-        ? $"[{varType}]".Ok()
-        : Error("Variable Type", "an inner variable type", "");
+      return ParseVarType().MapOk(
+        varType => _tokens.Take(']')
+          ? $"[{varType}]".Ok()
+          : Error("Variable Type", "an inner variable type", ""),
+        () => Error("Variable Type", "an inner variable type", ""));
     } else if (_tokens.Identifier(out var varNull)) {
       return varNull.Ok();
     }
@@ -335,20 +336,20 @@ internal class OperationParser : CommonParser
 
       var at = _tokens.At;
       ArgumentAst? value = new(at);
-      if (ParseFieldKey().Required(out var key)) {
-        value = key;
-        return _tokens.Take(':')
-          ? ParseArgValue().Required(out var item)
-            ? ParseArgumentMid(at, new() { [key] = item })
-            : Error("Argument", "a value after field key separator", value)
-          : ParseArgumentEnd(at, value);
+
+      var fieldKey = ParseFieldKey();
+      if (fieldKey.IsOk()) {
+        return fieldKey.Map(key =>
+          _tokens.Take(':')
+          ? ParseArgValue().MapOk(
+            item => ParseArgumentMid(at, new() { [key] = item }),
+            () => Error("Argument", "a value after field key separator", value))
+          : ParseArgumentEnd(at, key));
       }
 
       var argValue = ParseArgValue();
 
-      return argValue.Required(out value)
-        ? ParseArgumentEnd(at, value)
-        : argValue;
+      return argValue.MapOk(value => ParseArgumentEnd(at, value), () => argValue);
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
     }
@@ -378,16 +379,17 @@ internal class OperationParser : CommonParser
         return new ArgumentAst(at, list).Ok();
       }
 
-      if (ParseArgObject().Required(out var fields)) {
-        return new ArgumentAst(at, fields).Ok();
+      var fields = ParseArgObject();
+      if (!fields.IsEmpty()) {
+        return fields.Select(value => new ArgumentAst(at, value));
       }
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
     }
 
-    return ParseConstant().Required(out var constant)
-      ? new ArgumentAst(constant).Ok()
-      : (IResult<ArgumentAst>)new ResultEmpty<ArgumentAst>();
+    return ParseConstant().MapOk(
+      constant => new ArgumentAst(constant).Ok(),
+      () => new ResultEmpty<ArgumentAst>());
   }
 
   private ArgumentAst ParseArgValues(ArgumentAst initial)
@@ -408,12 +410,8 @@ internal class OperationParser : CommonParser
     var result = new ArgumentAst.ObjectAst(fields);
 
     while (!_tokens.Take(end)) {
-      if (ParseFieldKey().Required(out var key)
-        && _tokens.Take(':')
-        && ParseArgValue().Required(out var value)
-      ) {
-        result.Add(key, value);
-      } else {
+      var field = ParseField("Argument", ParseArgValue);
+      if (!field.Required(value => result.Add(value.Key, value.Value))) {
         return Error("Argument", "a field in object", result);
       }
 
@@ -450,19 +448,14 @@ internal class OperationParser : CommonParser
   private IResult<ArgumentAst> ParseArgumentMid(ParseAt at, ArgumentAst.ObjectAst fields)
   {
     if (_tokens.Take(',')) {
-      return ParseArgFieldValues(')', fields).Required(out var result)
-        ? new ArgumentAst(at, result).Ok()
-        : Error<ArgumentAst>("Argument", "a field after ','");
+      return ParseArgFieldValues(')', fields).Select(result => new ArgumentAst(at, result));
     }
 
     while (!_tokens.Take(')')) {
-      if (ParseFieldKey().Required(out var key1)
-        && _tokens.Take(':')
-        && ParseArgValue().Required(out var item1)
-      ) {
-        fields.Add(key1, ParseArgValues(item1));
-      } else {
-        return Error<ArgumentAst>("Argument", "a field");
+      var field = ParseField("Argument", ParseArgValue);
+
+      if (!field.Required(value => fields.Add(value.Key, ParseArgValues(value.Value)))) {
+        return field.AsResult<ArgumentAst>();
       }
     }
 

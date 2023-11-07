@@ -61,7 +61,7 @@ public class ParserTests
   {
     var parser = new OperationParser(new Tokenizer(input));
 
-    var ast = parser.Parse().Partial();
+    var ast = parser.Parse().Optional();
 
     using var scope = new AssertionScope();
 

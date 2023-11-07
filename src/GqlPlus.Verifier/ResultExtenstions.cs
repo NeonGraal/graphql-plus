@@ -29,6 +29,9 @@ public static class ResultExtenstions
   public static bool HasValue<T>(this IResult<T> result)
     => result is IResultValue<T>;
 
+  public static bool IsEmpty<T>(this IResult<T> result)
+    => result is IResultEmpty<T>;
+
   public static bool IsError<T>(this IResult<T> result, Action<ParseMessage>? action = null)
   {
     if (result is IResultMessage<T> error) {
@@ -40,7 +43,7 @@ public static class ResultExtenstions
   }
 
   public static bool IsOk<T>(this IResult<T> result)
-    => result is ResultOk<T>;
+    => result is IResultOk<T>;
 
   public static bool Optional<T>(this IResult<T> result, Action<T?> action)
   {
@@ -58,17 +61,6 @@ public static class ResultExtenstions
   }
 
   public static T? Optional<T>(this IResult<T> result)
-    => result switch {
-      ResultEmpty<T>
-        => default,
-      IResultOk<T> ok
-        => ok.Result,
-      IResultMessage<T> message
-        => throw new InvalidOperationException(message.Message.ToString()),
-      _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " has no message"),
-    };
-
-  public static T? Partial<T>(this IResult<T> result)
     => result switch {
       ResultEmpty<T>
         => default,
@@ -125,15 +117,37 @@ public static class ResultExtenstions
     };
   }
 
+  public static IResult<R> SelectOk<T, R>(this IResult<T> old, Func<T, R?> selector)
+  {
+    R? result = default;
+    if (old is IResultOk<T> value) {
+      result = selector(value.Result);
+    }
+
+    return old switch {
+      IResultOk<T> when result is not null
+        => result.Ok(),
+      IResultMessage<T> part when result is not null
+        => new ResultPartial<R>(result, part.Message),
+      _ => old.AsResult<R>(),
+    };
+  }
+
   public static IResult<T> Map<T>(this IResult<T> old, Func<T, IResult<T>> selector)
-    => old is IResultValue<T> value
-      ? selector(value.Result)
-      : old;
+    => old.Map(selector, () => old);
 
   public static IResult<R> Map<T, R>(this IResult<T> old, Func<T, IResult<R>> selector)
+    => old.Map(selector, () => old.AsResult<R>());
+
+  public static IResult<R> Map<T, R>(this IResult<T> old, Func<T, IResult<R>> onValue, Func<IResult<R>> otherwise)
     => old is IResultValue<T> value
-      ? selector(value.Result)
-      : old.AsResult<R>();
+      ? onValue(value.Result)
+      : otherwise();
+
+  public static IResult<R> MapOk<T, R>(this IResult<T> old, Func<T, IResult<R>> onValue, Func<IResult<R>> otherwise)
+    => old is IResultOk<T> value
+      ? onValue(value.Result)
+      : otherwise();
 
   public static void WithResult<T>(this IResult<T> result, Action<T> action)
   {

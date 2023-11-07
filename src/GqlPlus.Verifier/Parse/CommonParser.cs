@@ -157,7 +157,7 @@ internal class CommonParser
     }
 
     var fieldValue = parseValue();
-    return fieldValue.Select(value => new Field<T>(fieldKey.Required(), value));
+    return fieldValue.SelectOk(value => new Field<T>(fieldKey.Required(), value));
   }
 
   protected bool Error(string label, string message, bool result = false)

@@ -22,5 +22,5 @@ public class ParseVariablesTests
 
   private static ManyChecks<OperationParser, VariableAst> Test => new(
     tokens => new OperationParser(tokens),
-    (OperationParser parser, out VariableAst[] result) => parser.ParseVariables().Required(out result));
+    parser => parser.ParseVariables());
 }

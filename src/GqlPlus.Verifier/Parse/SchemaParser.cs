@@ -214,9 +214,9 @@ internal class SchemaParser : CommonParser
   private IResultArray<string> ParsePrefix(string label)
   {
     var aliases = ParseAliases(label);
-    return !aliases.Required(out var result)
-      ? aliases
-      : _tokens.Take('=') ? result.OkArray() : ErrorArray(label, "'=' before definition", result);
+    return aliases.MapOk(
+      result => _tokens.Take('=') ? result.OkArray() : ErrorArray(label, "'=' before definition", result),
+      () => aliases);
   }
 
   private IResultArray<string> ParseAliases(string label)
@@ -298,9 +298,8 @@ internal class SchemaParser : CommonParser
     }
 
     var enumAliases = ParseAliases("Enum");
-
-    var enumLabel = enumAliases.Required(out var aliases)
-      ? new EnumLabelAst(at, label, description) { Aliases = aliases }
+    var enumLabel = enumAliases.IsOk()
+      ? new EnumLabelAst(at, label, description) { Aliases = enumAliases.Required() }
       : new EnumLabelAst(at, label, description);
 
     return enumAliases.AsPartial(enumLabel, Errors.Add);

@@ -91,11 +91,11 @@ internal class CommonParser
       _tokens.IgnoreSeparators = false;
 
       var list = ParseConstList();
-      return list.Required(out var theList)
-        ? new ConstantAst(at, theList).Ok()
-        : list.IsError()
+      return list.MapOk(
+        theList => new ConstantAst(at, theList).Ok(),
+        () => list.IsError()
           ? list.AsResult(AstNulls.Constant)
-          : ParseConstObject().Select(fields => new ConstantAst(at, fields));
+          : ParseConstObject().Select(fields => new ConstantAst(at, fields)));
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
     }

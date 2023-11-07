@@ -22,16 +22,10 @@ public static class ResultArrayExtenstions
     return false;
   }
 
-  public static bool Optional<T>(this IResultArray<T> result, out T[] value)
-  {
-    if (result is ResultArrayOk<T> ok) {
-      value = ok.Result;
-      return true;
-    }
-
-    value = Array.Empty<T>();
-    return result is ResultArrayEmpty<T>;
-  }
+  public static IResultArray<R> MapOk<T, R>(this IResultArray<T> old, Func<T[], IResultArray<R>> onValue, Func<IResultArray<R>> otherwise)
+    => old is IResultOk<T[]> value
+      ? onValue(value.Result)
+      : otherwise();
 
   public static bool Optional<T>(this IResultArray<T> result, Action<T[]> action)
   {

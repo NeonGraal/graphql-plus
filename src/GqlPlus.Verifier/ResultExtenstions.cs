@@ -26,6 +26,9 @@ public static class ResultExtenstions
       : new ResultOk<R>(result);
   }
 
+  public static IResult<T> Empty<T>(this T _)
+    => new ResultEmpty<T>();
+
   public static bool HasValue<T>(this IResult<T> result)
     => result is IResultValue<T>;
 
@@ -44,6 +47,25 @@ public static class ResultExtenstions
 
   public static bool IsOk<T>(this IResult<T> result)
     => result is IResultOk<T>;
+
+  public static IResult<T> Map<T>(this IResult<T> old, Func<T, IResult<T>> selector)
+    => old.Map(selector, () => old);
+
+  public static IResult<R> Map<T, R>(this IResult<T> old, Func<T, IResult<R>> selector)
+    => old.Map(selector, () => old.AsResult<R>());
+
+  public static IResult<R> Map<T, R>(this IResult<T> old, Func<T, IResult<R>> onValue, Func<IResult<R>> otherwise)
+    => old is IResultValue<T> value
+      ? onValue(value.Result)
+      : otherwise();
+
+  public static IResult<R> MapOk<T, R>(this IResult<T> old, Func<T, IResult<R>> onValue, Func<IResult<R>> otherwise)
+    => old is IResultOk<T> value
+      ? onValue(value.Result)
+      : otherwise();
+
+  public static IResult<T> Ok<T>(this T result)
+    => new ResultOk<T>(result);
 
   public static bool Optional<T>(this IResult<T> result, Action<T?> action)
   {
@@ -133,32 +155,10 @@ public static class ResultExtenstions
     };
   }
 
-  public static IResult<T> Map<T>(this IResult<T> old, Func<T, IResult<T>> selector)
-    => old.Map(selector, () => old);
-
-  public static IResult<R> Map<T, R>(this IResult<T> old, Func<T, IResult<R>> selector)
-    => old.Map(selector, () => old.AsResult<R>());
-
-  public static IResult<R> Map<T, R>(this IResult<T> old, Func<T, IResult<R>> onValue, Func<IResult<R>> otherwise)
-    => old is IResultValue<T> value
-      ? onValue(value.Result)
-      : otherwise();
-
-  public static IResult<R> MapOk<T, R>(this IResult<T> old, Func<T, IResult<R>> onValue, Func<IResult<R>> otherwise)
-    => old is IResultOk<T> value
-      ? onValue(value.Result)
-      : otherwise();
-
   public static void WithResult<T>(this IResult<T> result, Action<T> action)
   {
     if (result is IResultValue<T> ok) {
       action.Invoke(ok.Result);
     }
   }
-
-  public static IResult<T> Ok<T>(this T result)
-    => new ResultOk<T>(result);
-
-  public static IResult<T> Empty<T>(this T _)
-    => new ResultEmpty<T>();
 }

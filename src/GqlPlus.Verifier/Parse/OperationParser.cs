@@ -167,10 +167,10 @@ internal class OperationParser : CommonParser
     while (name is not null) {
       var directive = new DirectiveAst(at, name);
       var argument = ParseArgument();
-      if (argument.Required(out var value)) {
-        directive.Argument = value;
-      } else if (argument.IsError()) {
-        return argument.AsResultArray(result);
+      if (!argument.Required(value => directive.Argument = value)) {
+        if (argument.IsError()) {
+          return argument.AsResultArray(result);
+        }
       }
 
       result.Add(directive);
@@ -263,9 +263,7 @@ internal class OperationParser : CommonParser
       result = new FieldAst(at, name) { Alias = alias };
     }
 
-    if (ParseArgument().Required(out var argument)) {
-      result.Argument = argument;
-    }
+    ParseArgument().Required(argument => result.Argument = argument);
 
     var modifiers = ParseModifiers("Operation");
 
@@ -387,7 +385,9 @@ internal class OperationParser : CommonParser
       _tokens.IgnoreSeparators = oldSeparators;
     }
 
-    return ParseConstant().Required(out var constant) ? new ArgumentAst(constant).Ok() : (IResult<ArgumentAst>)new ResultEmpty<ArgumentAst>();
+    return ParseConstant().Required(out var constant)
+      ? new ArgumentAst(constant).Ok()
+      : (IResult<ArgumentAst>)new ResultEmpty<ArgumentAst>();
   }
 
   private ArgumentAst ParseArgValues(ArgumentAst initial)
@@ -395,9 +395,7 @@ internal class OperationParser : CommonParser
     var at = initial.At;
     var values = new List<ArgumentAst> { initial };
     while (_tokens.Take(',')) {
-      if (ParseArgValue().Required(out var value)) {
-        values.Add(value);
-      }
+      ParseArgValue().Required(values.Add);
     }
 
     return values.Count > 1
@@ -434,9 +432,7 @@ internal class OperationParser : CommonParser
     }
 
     while (!_tokens.Take(']')) {
-      if (ParseArgValue().Required(out var item)) {
-        list.Add(item);
-      } else {
+      if (!ParseArgValue().Required(list.Add)) {
         return ErrorArray("Argument", "a value in list", list);
       }
 

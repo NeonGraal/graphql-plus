@@ -366,9 +366,7 @@ internal class SchemaParser : CommonParser
     while (_tokens.Take('|')) {
       _tokens.String(out var descr);
       var reference = ParseReference(factories, descr);
-      if (reference.Required(out var alternate)) {
-        result.Add(alternate);
-      } else {
+      if (!reference.Required(result.Add)) {
         return PartialArray(factories.Label, "reference after '|'", () => result);
       }
     }
@@ -400,8 +398,9 @@ internal class SchemaParser : CommonParser
 
     if (_tokens.Take(':')) {
       _tokens.String(out var descr);
-      if (ParseReference(parser, descr).Required(out var fieldType)) {
-        field = parser.Field(at, name, description, fieldType);
+      if (ParseReference(parser, descr).Required(fieldType
+        => field = parser.Field(at, name, description, fieldType))
+        ) {
         hasAliases.WithResult(aliases => field.Aliases = aliases);
         hasParameter.WithResult(parameter => parser.ApplyParameter(field, parameter));
 

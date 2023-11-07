@@ -444,8 +444,7 @@ internal class SchemaParser : CommonParser
         var arguments = new List<R>();
         _tokens.String(out var descr);
         var referenceArgument = ParseReference(factories, descr, isTypeArgument: true);
-        while (referenceArgument.Required(out var argument)) {
-          arguments.Add(argument);
+        while (referenceArgument.Required(arguments.Add)) {
           _tokens.String(out descr);
           referenceArgument = ParseReference(factories, descr, isTypeArgument: true);
         }
@@ -532,9 +531,7 @@ internal class SchemaParser : CommonParser
   private IResultArray<ScalarRangeAst> ParseRanges()
   {
     var result = new List<ScalarRangeAst>();
-    while (ParseRange().Required(out var range)) {
-      result.Add(range);
-    }
+    while (ParseRange().Required(result.Add)) { }
 
     return result.OkArray();
   }

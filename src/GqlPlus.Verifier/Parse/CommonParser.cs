@@ -95,9 +95,7 @@ internal class CommonParser
         ? new ConstantAst(at, theList).Ok()
         : list.IsError()
           ? list.AsResult(AstNulls.Constant)
-          : ParseConstObject().Required(out var fields)
-            ? new ConstantAst(at, fields).Ok()
-            : AstNulls.Constant.Empty();
+          : ParseConstObject().Select(fields => new ConstantAst(at, fields));
     } finally {
       _tokens.IgnoreSeparators = oldSeparators;
     }

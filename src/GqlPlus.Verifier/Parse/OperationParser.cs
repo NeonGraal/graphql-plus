@@ -44,8 +44,9 @@ internal class OperationParser : CommonParser
 
     if (result is not null) {
       ast.ResultType = result;
-      if (ParseArgument().Required(out var argument)) {
-        ast.Argument = argument;
+      var argument = ParseArgument();
+      if (!argument.Optional(value => ast.Argument = value)) {
+        return argument.AsResult(ast);
       }
     } else if (!ParseObject().Required(selections => ast.Object = selections)) {
       return Partial("Operation", "Object or Type", Final);
@@ -138,14 +139,8 @@ internal class OperationParser : CommonParser
   }
 
   internal IResult<string> ParseVarType()
-  {
-    if (ParseVarNull().Required(out var nullType)) {
-      var varType = _tokens.Take('!') ? nullType + '!' : nullType;
-      return varType.Ok();
-    }
-
-    return "".Empty();
-  }
+    => ParseVarNull().Select(nullType
+      => _tokens.Take('!') ? nullType + '!' : nullType);
 
   internal IResult<string> ParseVarNull()
   {
@@ -486,9 +481,7 @@ internal class OperationParser : CommonParser
     }
 
     var values = new List<ArgumentAst> { value };
-    while (ParseArgValue().Required(out var item)) {
-      values.Add(item);
-    }
+    while (ParseArgValue().Required(values.Add)) { }
 
     if (_tokens.Take(")")) {
       var argument = values.Count > 1 ? new(at, values.ToArray()) : value;

@@ -29,6 +29,10 @@ public class ParseFieldTests
       new FieldAst(AstNulls.At, field) { Modifiers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
+  public void WithModifiersBad_ReturnsFalse(string field)
+    => Test.False(field + "[?]");
+
+  [Theory, RepeatData(Repeats)]
   public void WithDirectives_ReturnsCorrectAst(string field, string[] directives)
     => Test.TrueExpected(
       field + directives.Joined("@"),
@@ -39,6 +43,10 @@ public class ParseFieldTests
     => Test.TrueExpected(
       field + selections.Bracket("{", "}").Joined(),
       new FieldAst(AstNulls.At, field) { Selections = selections.Fields() });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithSelectionBad_ReturnsFalse(string field)
+    => Test.False(field + "{}");
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string field, string alias, string argument, string[] directives, string[] selections)

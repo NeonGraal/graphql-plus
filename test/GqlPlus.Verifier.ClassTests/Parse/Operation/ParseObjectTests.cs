@@ -10,6 +10,10 @@ public class ParseObjectTests
     new FieldAst(AstNulls.At, field));
 
   [Theory, RepeatData(Repeats)]
+  public void WithBadField_ReturnsCorrectAst(string field)
+    => Test.False("{" + field + "{}}");
+
+  [Theory, RepeatData(Repeats)]
   public void WithJustInline_ReturnsCorrectAst(string inline)
     => Test.TrueExpected("{|{" + inline + "}}",
       new InlineAst(AstNulls.At, new FieldAst(AstNulls.At, inline)));
@@ -34,6 +38,10 @@ public class ParseObjectTests
   [Fact]
   public void WithNotField_ReturnsFalse()
     => Test.False("{9");
+
+  [Fact]
+  public void WithBadSelection_ReturnsFalse()
+    => Test.False("{|}");
 
   private static ManyChecks<OperationParser, IAstSelection> Test => new(
     tokens => new OperationParser(tokens),

@@ -10,6 +10,21 @@ public class ParseFragmentsTests
       '&' + fragment + ':' + onType + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()));
 
+  [Theory, RepeatData(Repeats)]
+  public void Start_WithNoName_ReturnsFalse(string onType, string[] fields)
+    => TestStart.False(
+      "&:" + onType + "{" + fields.Joined() + "}");
+
+  [Theory, RepeatData(Repeats)]
+  public void Start_WithNoTypePrefix_ReturnsFalse(string fragment, string onType, string[] fields)
+    => TestStart.False(
+      "&" + fragment + onType + "{" + fields.Joined() + "}");
+
+  [Theory, RepeatData(Repeats)]
+  public void Start_WithNoType_ReturnsFalse(string fragment, string[] fields)
+    => TestStart.False(
+      "&" + fragment + ":{" + fields.Joined() + "}");
+
   [Theory]
   [RepeatInlineData(Repeats, "fragment ", " on ")]
   [RepeatInlineData(Repeats, "&", " on ")]

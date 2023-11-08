@@ -11,6 +11,10 @@ public class ParseArgValueTests
       new ArgumentAst(AstNulls.At, variable));
 
   [Theory, RepeatData(Repeats)]
+  public void WithVariableBad_ReturnsFalse(string variable)
+    => Test.False("$ " + variable);
+
+  [Theory, RepeatData(Repeats)]
   public void WithConstant_ReturnsCorrectAst(string label)
     => Test.TrueExpected(
       label,

@@ -304,16 +304,34 @@ internal class OperationParser : CommonParser
 
     while (fragPrefix(ref _tokens)) {
       var at = _tokens.At;
-      if (_tokens.Identifier(out var name)
-        && typePrefix(ref _tokens)
-        && _tokens.Identifier(out var onType)
-      ) {
-        var directives = ParseDirectives();
-        ParseObject().Required(selections => {
-          var fragment = new FragmentAst(at, name, onType, selections) { Directives = directives.Optional() };
-          definitions.Add(fragment);
-        });
+      if (!_tokens.Identifier(out var name)) {
+        return ErrorArray("Fragment", "name after 'fragment' or '&'", definitions);
       }
+
+      if (!typePrefix(ref _tokens)) {
+        return ErrorArray("Fragment", "':' or 'on' after fragment name", definitions);
+      }
+
+      if (!_tokens.Identifier(out var onType)) {
+        return ErrorArray("Fragment", "type after ':' or 'on'", definitions);
+      }
+
+      var directives = ParseDirectives();
+
+      if (directives.IsError()) {
+        return directives.AsResultArray(definitions);
+      }
+
+      var fields = ParseObject();
+      if (!fields.Required(NewFragment)) {
+        return fields.AsResultArray(definitions);
+      }
+
+      void NewFragment(IAstSelection[] selections)
+        => definitions.Add(
+          new FragmentAst(at, name, onType, selections) {
+            Directives = directives.Optional()
+          });
     }
 
     return definitions.OkArray();

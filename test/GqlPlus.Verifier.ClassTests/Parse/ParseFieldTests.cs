@@ -11,6 +11,16 @@ public class ParseFieldTests
       new Field<ConstantAst>(key.FieldKey(), label.FieldKey()));
 
   [Theory, RepeatData(Repeats)]
+  public void WithFieldKeyNoLabel_ReturnsFalse(string key, string label)
+    => Test.False(
+      key + ".:" + label);
+
+  [Theory, RepeatData(Repeats)]
+  public void WithFieldValueNoLabel_ReturnsFalse(string key, string label)
+    => Test.False(
+      key + ":" + label + ".");
+
+  [Theory, RepeatData(Repeats)]
   public void WithFieldNoKey_ReturnsFalse(string label)
     => Test.False(':' + label, CheckNull);
 

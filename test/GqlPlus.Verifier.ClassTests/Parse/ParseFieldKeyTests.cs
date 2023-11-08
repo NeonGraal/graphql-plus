@@ -60,6 +60,10 @@ public class ParseFieldKeyTests
       theType + "." + label,
       new FieldKeyAst(AstNulls.At, theType, label));
 
+  [Theory, RepeatData(Repeats)]
+  public void ParseFieldKey_WithTypeAndNoLabel_ReturnsFalse(string theType)
+    => Test.False(theType + ".");
+
   private static OneChecks<CommonParser, FieldKeyAst> Test => new(
     tokens => new CommonParser(tokens),
     parser => parser.ParseFieldKey());

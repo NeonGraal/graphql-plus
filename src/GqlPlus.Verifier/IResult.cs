@@ -5,6 +5,9 @@ public interface IResult<T>
   IResult<R> AsResult<R>(R? _ = default);
 }
 
+public delegate IResult<T> OnResult<T>();
+public delegate IResult<R> SelectResult<T, R>(T value);
+
 public interface IResultValue<T> : IResult<T>
 {
   T Result { get; }

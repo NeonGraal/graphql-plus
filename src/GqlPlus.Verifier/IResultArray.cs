@@ -5,6 +5,9 @@ public interface IResultArray<T> : IResult<T[]>
   IResultArray<R> AsResultArray<R>(R[]? _ = default);
 }
 
+public delegate IResultArray<T> OnResultArray<T>();
+public delegate IResultArray<R> SelectResultArray<T, R>(T[] value);
+
 public readonly struct ResultArrayOk<T> : IResultArray<T>, IResultOk<T[]>
 {
   public T[] Result { get; }

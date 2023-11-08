@@ -38,14 +38,26 @@ public class ParseVariableTests
       TestVar(variable) with { Modifers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
+  public void WithModifiersBad_ReturnsFalse(string variable)
+    => Test.False($"${variable}[?]");
+
+  [Theory, RepeatData(Repeats)]
   public void WithDefault_ReturnsCorrectAst(string variable, decimal number)
     => Test.TrueExpected($"${variable}={number}",
       TestVar(variable) with { Default = new FieldKeyAst(AstNulls.At, number) });
 
   [Theory, RepeatData(Repeats)]
+  public void WithDefaultBad_ReturnsFalse(string variable)
+    => Test.False($"${variable}=");
+
+  [Theory, RepeatData(Repeats)]
   public void WithDirective_ReturnsCorrectAst(string variable, string[] directives)
     => Test.TrueExpected($"${variable}{directives.Joined("@")}",
       TestVar(variable) with { Directives = directives.Directives() });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithDirectiveBad_ReturnsFalse(string variable)
+    => Test.False($"${variable}@");
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string variable, string varType, decimal number, string[] directives)

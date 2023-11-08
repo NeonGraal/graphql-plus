@@ -46,18 +46,21 @@ public static class ResultExtenstions
   public static bool IsOk<T>(this IResult<T> result)
     => result is IResultOk<T>;
 
-  public static IResult<T> Map<T>(this IResult<T> old, Func<T, IResult<T>> selector)
+  public static IResult<T> Map<T>(this IResult<T> old, SelectResult<T, T> selector)
     => old.Map(selector, () => old);
 
-  public static IResult<R> Map<T, R>(this IResult<T> old, Func<T, IResult<R>> selector)
+  public static IResult<R> Map<T, R>(this IResult<T> old, SelectResult<T, R> selector)
     => old.Map(selector, () => old.AsResult<R>());
 
-  public static IResult<R> Map<T, R>(this IResult<T> old, Func<T, IResult<R>> onValue, Func<IResult<R>> otherwise)
+  public static IResult<R> Map<T, R>(this IResult<T> old, SelectResult<T, R> onValue, OnResult<R> otherwise)
     => old is IResultValue<T> value
       ? onValue(value.Result)
       : otherwise();
 
-  public static IResult<R> MapOk<T, R>(this IResult<T> old, Func<T, IResult<R>> onValue, Func<IResult<R>> otherwise)
+  public static IResult<T> MapEmpty<T>(this IResult<T> result, OnResult<T> onEmpty)
+    => result is IResultEmpty<T> ? onEmpty() : result;
+
+  public static IResult<R> MapOk<T, R>(this IResult<T> old, SelectResult<T, R> onValue, OnResult<R> otherwise)
     => old is IResultOk<T> value
       ? onValue(value.Result)
       : otherwise();
@@ -126,7 +129,7 @@ public static class ResultExtenstions
     };
   }
 
-  public static IResult<R> SelectOk<T, R>(this IResult<T> old, Func<T, R?> selector)
+  public static IResult<R> SelectOk<T, R>(this IResult<T> old, Func<T, R?> selector, OnResult<R> onEmpty)
   {
     R? result = default;
     if (old is IResultOk<T> value) {
@@ -138,6 +141,8 @@ public static class ResultExtenstions
         => result.Ok(),
       IResultMessage<T> part when result is not null
         => new ResultPartial<R>(result, part.Message),
+      IResultEmpty<T>
+        => onEmpty(),
       _ => old.AsResult<R>(),
     };
   }

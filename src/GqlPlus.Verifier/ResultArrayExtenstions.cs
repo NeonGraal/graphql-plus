@@ -22,7 +22,7 @@ public static class ResultArrayExtenstions
     return false;
   }
 
-  public static IResultArray<R> MapOk<T, R>(this IResultArray<T> old, Func<T[], IResultArray<R>> onValue, Func<IResultArray<R>> otherwise)
+  public static IResultArray<R> MapOk<T, R>(this IResultArray<T> old, SelectResultArray<T, R> onValue, OnResultArray<R> otherwise)
     => old is IResultOk<T[]> value
       ? onValue(value.Result)
       : otherwise();

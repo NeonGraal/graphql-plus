@@ -12,8 +12,7 @@ public class ParserTests
   [InlineData("&person:Person{name}{...person}")]
   [InlineData("{...person}fragment person on Person{name}")]
   [InlineData("{...person}&person on Person{name}")]
-  [InlineData("($test)@test($test):Boolean")]
-  [InlineData("($test):Boolean($test)")]
+  [InlineData("($test:Boolean):Boolean($test)")]
   [InlineData("{test}[]")]
   public void Parse_ShouldSucceed(string input)
   {
@@ -53,10 +52,13 @@ public class ParserTests
   [InlineData("(")]
   [InlineData("($")]
   [InlineData("($test")]
+  [InlineData("($test[?])")]
+  [InlineData("($test $more:)")]
   [InlineData("()")]
   [InlineData("($test)")]
   [InlineData(")")]
   [InlineData(":Boolean extra")]
+  [InlineData("{test}[?]")]
   public void Parse_ShouldPartiallySucceed(string input)
   {
     var parser = new OperationParser(new Tokenizer(input));

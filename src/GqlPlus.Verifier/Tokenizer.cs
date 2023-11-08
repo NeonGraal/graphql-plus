@@ -326,11 +326,8 @@ internal class Tokenizer
           _pos += 1;
           _kind = TokenKind.Identifer;
           at = At;
-          if (Identifier(out identifier)) {
-            return true;
-          }
-
-          identifier = null;
+          Identifier(out identifier);
+          return true;
         }
       }
 

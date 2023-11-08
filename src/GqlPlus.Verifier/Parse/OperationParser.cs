@@ -45,7 +45,7 @@ internal class OperationParser : CommonParser
       ast.ResultType = result;
       var argument = ParseArgument();
       if (!argument.Optional(value => ast.Argument = value)) {
-        return argument.AsResult(ast);
+        return argument.AsPartial(Final());
       }
     } else if (!ParseObject().Required(selections => ast.Object = selections)) {
       return Partial("Operation", "Object or Type", Final);
@@ -54,7 +54,7 @@ internal class OperationParser : CommonParser
     var modifiers = ParseModifiers("Operation");
 
     if (modifiers.IsError(Errors.Add)) {
-      return modifiers.AsResult(ast);
+      return modifiers.AsPartial(Final());
     }
 
     modifiers.WithResult(value => ast.Modifiers = value);

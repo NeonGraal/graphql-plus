@@ -20,7 +20,7 @@ internal record class SchemaAst(ParseAt At, string Name)
     var begins = new[] { "(", "{", "[", "<" };
     var ends = new[] { ")", "}", "]", ">" };
     foreach (var field in GetFields()) {
-      if (field is null) {
+      if (string.IsNullOrWhiteSpace(field)) {
         continue;
       }
 

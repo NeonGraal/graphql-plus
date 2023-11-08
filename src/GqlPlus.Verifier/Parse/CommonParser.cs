@@ -75,7 +75,9 @@ internal class CommonParser
   }
 
   internal IResult<ConstantAst> ParseDefault()
-    => _tokens.Take('=') ? ParseConstant() : new ResultEmpty<ConstantAst>();
+    => _tokens.Take('=') ? ParseConstant().MapEmpty(
+          () => Error<ConstantAst>("Default", "value after '='")
+        ) : new ResultEmpty<ConstantAst>();
 
   internal IResult<ConstantAst> ParseConstant()
   {
@@ -157,7 +159,9 @@ internal class CommonParser
     }
 
     var fieldValue = parseValue();
-    return fieldValue.SelectOk(value => new Field<T>(fieldKey.Required(), value));
+    return fieldValue.SelectOk(
+      value => new Field<T>(fieldKey.Required(), value),
+      () => fieldValue.AsResult<Field<T>>());
   }
 
   protected bool Error(string label, string message, bool result = false)

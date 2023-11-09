@@ -14,4 +14,15 @@ public class ResultErrorTests
     result.Should().BeOfType<ResultArrayError<string>>()
       .Subject.Message.Message.Should().Be("Error");
   }
+
+  [Fact]
+  public void Optional_ThrowsInvalidOperation()
+  {
+    var input = "Error".Error("Error".ParseMessage());
+
+    Action action = () => input.Optional();
+
+    action.Should().Throw<InvalidOperationException>()
+      .Which.Message.Should().Contain("Error");
+  }
 }

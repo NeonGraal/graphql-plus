@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Verifier;
 
 public static class ResultExtenstions
 {
@@ -54,6 +56,7 @@ public static class ResultExtenstions
   public static IResult<T> Map<T>(this IResult<T> old, SelectResult<T, T> selector)
     => old.Map(selector, () => old);
 
+  [ExcludeFromCodeCoverage]
   public static IResult<R> Map<T, R>(this IResult<T> old, SelectResult<T, R> selector)
     => old.Map(selector, () => old.AsResult<R>());
 

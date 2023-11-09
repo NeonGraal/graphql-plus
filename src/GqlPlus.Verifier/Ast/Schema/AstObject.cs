@@ -9,9 +9,6 @@ internal abstract record class AstObject<F, R>(ParseAt At, string Name, string D
   public F[] Fields { get; set; } = Array.Empty<F>();
   public R[] Alternates { get; set; } = Array.Empty<R>();
 
-  public AstObject(ParseAt at, string name)
-    : this(at, name, "") { }
-
   public virtual bool Equals(AstObject<F, R>? other)
     => base.Equals(other)
       && Parameters.SequenceEqual(other.Parameters)

@@ -15,7 +15,7 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithConstant(string enumType, string label)
     => _checks.HashCode(
-      () => new ArgumentAst(new FieldKeyAst(AstNulls.At, enumType, label)));
+      () => new FieldKeyAst(AstNulls.At, enumType, label));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithValues(string label)
@@ -34,10 +34,10 @@ public class ArgumentAstTests
       $"( !a ${variable} )");
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithConstant(string enumType, string label)
+  public void String_WithConstant(string label)
     => _checks.String(
-      () => new ArgumentAst(new FieldKeyAst(AstNulls.At, enumType, label)),
-      $"( !k {enumType}.{label} )");
+      () => new ConstantAst(label.FieldKey()),
+      $"( !k {label} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithValues(string label)
@@ -65,13 +65,13 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithConstant(string enumType, string label)
     => _checks.Equality(
-      () => new ArgumentAst(new FieldKeyAst(AstNulls.At, enumType, label)));
+      () => new FieldKeyAst(AstNulls.At, enumType, label));
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithConstant(string enumType, string label)
     => _checks.Inequality(
-      () => new ArgumentAst(new FieldKeyAst(AstNulls.At, enumType, label)),
-      () => new ArgumentAst(new FieldKeyAst(AstNulls.At, label, enumType)),
+      () => new FieldKeyAst(AstNulls.At, enumType, label),
+      () => new FieldKeyAst(AstNulls.At, label, enumType),
       enumType == label);
 
   [Theory, RepeatData(Repeats)]

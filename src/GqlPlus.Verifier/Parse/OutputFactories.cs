@@ -1,5 +1,4 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Parse;
 
@@ -10,16 +9,12 @@ internal class OutputFactories
 
   public OutputFieldAst Field(ParseAt at, string name, string description, OutputReferenceAst typeReference)
     => new(at, name, description, typeReference);
-  public OutputFieldAst NullField()
-    => new(AstNulls.At, "", NullReference());
 
   public OutputAst Object(ParseAt at, string name, string description)
     => new(at, name, description);
 
   public OutputReferenceAst Reference(ParseAt at, string name)
     => new(at, name);
-  public OutputReferenceAst NullReference()
-    => new(AstNulls.At, "");
 }
 
 internal class OutputParserFactories

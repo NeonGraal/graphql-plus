@@ -1,4 +1,4 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Parse;
@@ -10,15 +10,12 @@ internal class InputFactories
 
   public InputFieldAst Field(ParseAt at, string name, string description, InputReferenceAst typeReference)
     => new(at, name, description, typeReference);
-  public InputFieldAst NullField()
-    => new(AstNulls.At, "", NullReference());
+
   public InputAst Object(ParseAt at, string name, string description)
     => new(at, name, description);
 
   public InputReferenceAst Reference(ParseAt at, string name)
     => new(at, name);
-  public InputReferenceAst NullReference()
-    => new(AstNulls.At, "");
 }
 
 internal class InputParserFactories
@@ -29,11 +26,13 @@ internal class InputParserFactories
   public InputParserFactories(SchemaParser parser)
     => _parser = parser;
 
+  [ExcludeFromCodeCoverage]
   public void ApplyParameter(InputFieldAst result, ParameterAst? parameter) { }
 
   public IResult<InputFieldAst> FieldDefault(InputFieldAst field)
     => _parser.ParseDefault().AsPartial(field, constant => field.Default = constant);
 
+  [ExcludeFromCodeCoverage]
   public IResult<InputFieldAst> FieldEnumLabel(InputFieldAst field)
     => field.Ok();
 

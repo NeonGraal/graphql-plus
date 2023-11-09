@@ -40,7 +40,7 @@ internal class CommonParser
       return new FieldKeyAst(at, type, identifier).Ok();
     }
 
-    return new ResultEmpty<FieldKeyAst>();
+    return 0.Empty<FieldKeyAst>();
   }
 
   internal IResultArray<ModifierAst> ParseModifiers(string label)
@@ -77,7 +77,7 @@ internal class CommonParser
   internal IResult<ConstantAst> ParseDefault()
     => _tokens.Take('=') ? ParseConstant().MapEmpty(
           () => Error<ConstantAst>("Default", "value after '='")
-        ) : new ResultEmpty<ConstantAst>();
+        ) : 0.Empty<ConstantAst>();
 
   internal IResult<ConstantAst> ParseConstant()
   {
@@ -173,18 +173,18 @@ internal class CommonParser
     return result;
   }
 
-  protected IResultArray<T> ErrorArray<T>(string label, string message, IEnumerable<T>? _ = default)
+  protected IResultArray<T> ErrorArray<T>(string label, string message, IEnumerable<T>? value = default)
   {
     var error = _tokens.Error(label, message);
     Errors.Add(error);
-    return new ResultArrayError<T>(error);
+    return value.ErrorArray(error);
   }
 
-  protected IResult<T> Error<T>(string label, string message, T? _ = default)
+  protected IResult<T> Error<T>(string label, string message, T? value = default)
   {
     var error = _tokens.Error(label, message);
     Errors.Add(error);
-    return new ResultError<T>(error);
+    return value.Error(error);
   }
 
   protected IResultArray<T> PartialArray<T>(string label, string message, Func<IEnumerable<T>> result)

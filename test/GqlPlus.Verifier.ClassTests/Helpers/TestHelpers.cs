@@ -27,6 +27,9 @@ internal static class TestHelpers
       : new ConstantAst.ObjectAst { [keyAst] = labelAst, [labelAst] = keyAst };
   }
 
+  public static ParseMessage ParseMessage(this string message)
+    => new(AstNulls.At, message);
+
   public static string Quote(this string contents)
   {
     contents = contents.Replace(@"\", @"\\");

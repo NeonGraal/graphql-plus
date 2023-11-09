@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Verifier;
 
 public static class ResultArrayExtenstions
 {
@@ -42,6 +44,7 @@ public static class ResultArrayExtenstions
     return false;
   }
 
+  [ExcludeFromCodeCoverage]
   public static T[] Optional<T>(this IResultArray<T> result)
     => result switch {
       IResultEmpty<T[]>
@@ -65,7 +68,7 @@ public static class ResultArrayExtenstions
 
   public static void WithResult<T>(this IResultArray<T> result, Action<T[]> action)
   {
-    if (result is ResultArrayOk<T> ok) {
+    if (result is IResultValue<T[]> ok) {
       action.Invoke(ok.Result);
     }
   }
@@ -73,6 +76,12 @@ public static class ResultArrayExtenstions
   public static IResultArray<T> OkArray<T>(this IEnumerable<T> result)
     => new ResultArrayOk<T>(result.ToArray());
 
-  public static IResultArray<T> EmptyArray<T>(this IEnumerable<T> _)
+  public static IResultArray<T> EmptyArray<T>(this IEnumerable<T>? _)
     => new ResultArrayEmpty<T>();
+
+  public static IResultArray<T> PartialArray<T>(this IEnumerable<T> result, ParseMessage message)
+    => new ResultArrayPartial<T>(result.ToArray(), message);
+
+  public static IResultArray<T> ErrorArray<T>(this IEnumerable<T>? _, ParseMessage message)
+    => new ResultArrayError<T>(message);
 }

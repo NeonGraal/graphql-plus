@@ -4,9 +4,9 @@ public static class ResultExtenstions
 {
   public static IResultArray<R> AsResultArray<T, R>(this IResult<T> result, IEnumerable<R>? _ = default)
     => result switch {
-      ResultArrayOk<T> ok when ok.Result is R[] newResult
+      IResultOk<T> ok when ok.Result is R[] newResult
         => new ResultArrayOk<R>(newResult),
-      ResultPartial<T> part when part.Result is R[] newResult
+      IResultPartial<T> part when part.Result is R[] newResult
         => new ResultArrayPartial<R>(newResult, part.Message),
       IResultMessage<T> msg
         => new ResultArrayError<R>(msg.Message),
@@ -24,8 +24,13 @@ public static class ResultExtenstions
       : new ResultOk<R>(result);
   }
 
-  public static IResult<T> Empty<T>(this T _)
+  public static IResult<T> Empty<T>(this T? _)
     => new ResultEmpty<T>();
+  public static IResult<T> Empty<T>(this int _)
+    => new ResultEmpty<T>();
+
+  public static IResult<T> Error<T>(this T? _, ParseMessage error)
+    => new ResultError<T>(error);
 
   public static bool HasValue<T>(this IResult<T> result)
     => result is IResultValue<T>;
@@ -94,6 +99,9 @@ public static class ResultExtenstions
       _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " has no message"),
     };
 
+  public static IResult<T> Partial<T>(this T result, ParseMessage error)
+    => new ResultPartial<T>(result, error);
+
   public static bool Required<T>(this IResult<T> result, Action<T> action)
   {
     if (result is IResultOk<T> ok) {
@@ -113,7 +121,7 @@ public static class ResultExtenstions
       _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " is empty"),
     };
 
-  public static IResult<R> Select<T, R>(this IResult<T> old, Func<T, R?> selector)
+  public static IResult<R> Select<T, R>(this IResult<T> old, Func<T, R?> selector, OnResult<R>? onEmpty = null)
   {
     R? result = default;
     if (old is IResultValue<T> value) {
@@ -125,11 +133,13 @@ public static class ResultExtenstions
         => result.Ok(),
       IResultMessage<T> part when result is not null
         => new ResultPartial<R>(result, part.Message),
+      IResultEmpty<T> when onEmpty is not null
+        => onEmpty(),
       _ => old.AsResult<R>(),
     };
   }
 
-  public static IResult<R> SelectOk<T, R>(this IResult<T> old, Func<T, R?> selector, OnResult<R> onEmpty)
+  public static IResult<R> SelectOk<T, R>(this IResult<T> old, Func<T, R?> selector, OnResult<R>? onEmpty = null)
   {
     R? result = default;
     if (old is IResultOk<T> value) {
@@ -139,9 +149,7 @@ public static class ResultExtenstions
     return old switch {
       IResultOk<T> when result is not null
         => result.Ok(),
-      IResultMessage<T> part when result is not null
-        => new ResultPartial<R>(result, part.Message),
-      IResultEmpty<T>
+      IResultEmpty<T> when onEmpty is not null
         => onEmpty(),
       _ => old.AsResult<R>(),
     };

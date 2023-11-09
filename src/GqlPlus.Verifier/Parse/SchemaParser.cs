@@ -249,7 +249,7 @@ internal class SchemaParser : CommonParser
           : Partial(label, "')' after option", () => result));
     }
 
-    return new ResultEmpty<O>();
+    return 0.Empty<O>();
   }
 
   private IResult<E> ParseEnumValue<E>(string label)
@@ -258,12 +258,12 @@ internal class SchemaParser : CommonParser
       ? Enum.TryParse<E>(option, true, out var result)
         ? result.Ok()
         : Error(label, "valid enum value", result)
-      : new ResultEmpty<E>();
+      : 0.Empty<E>();
 
   internal IResult<ParameterAst> ParseParameter()
   {
     if (!_tokens.Take('(')) {
-      return new ResultEmpty<ParameterAst>();
+      return default(ParameterAst).Empty();
     }
 
     _tokens.String(out var descr);
@@ -463,7 +463,7 @@ internal class SchemaParser : CommonParser
       return reference.Ok();
     }
 
-    return new ResultEmpty<R>();
+    return 0.Empty<R>();
   }
 
   internal IResult<OutputReferenceAst> ParseOutputEnumLabel(OutputReferenceAst reference)

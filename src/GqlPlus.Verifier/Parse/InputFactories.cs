@@ -37,7 +37,7 @@ internal class InputParserFactories
     => field.Ok();
 
   public IResult<ParameterAst> FieldParameter()
-    => new ResultEmpty<ParameterAst>();
+    => 0.Empty<ParameterAst>();
 
   public IResult<InputReferenceAst> TypeEnumLabel(InputReferenceAst reference)
     => reference.Ok();

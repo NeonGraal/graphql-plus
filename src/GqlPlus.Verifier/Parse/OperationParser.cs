@@ -340,7 +340,7 @@ internal class OperationParser : CommonParser
   internal IResult<ArgumentAst> ParseArgument()
   {
     if (!_tokens.Take('(')) {
-      return new ResultEmpty<ArgumentAst>();
+      return 0.Empty<ArgumentAst>();
     }
 
     var oldSeparators = _tokens.IgnoreSeparators;
@@ -403,7 +403,7 @@ internal class OperationParser : CommonParser
 
     return ParseConstant().MapOk(
       constant => new ArgumentAst(constant).Ok(),
-      () => new ResultEmpty<ArgumentAst>());
+      () => 0.Empty<ArgumentAst>());
   }
 
   private ArgumentAst ParseArgValues(ArgumentAst initial)
@@ -457,7 +457,7 @@ internal class OperationParser : CommonParser
   private IResult<ArgumentAst.ObjectAst> ParseArgObject()
     => _tokens.Take('{')
       ? ParseArgFieldValues('}', new ArgumentAst.ObjectAst())
-      : new ResultEmpty<ArgumentAst.ObjectAst>();
+      : default(ArgumentAst.ObjectAst).Empty();
 
   private IResult<ArgumentAst> ParseArgumentMid(ParseAt at, ArgumentAst.ObjectAst fields)
   {

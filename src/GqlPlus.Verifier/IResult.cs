@@ -39,7 +39,7 @@ public readonly struct ResultOk<T> : IResultOk<T>
   public IResult<R> AsResult<R>(R? _ = default)
     => Result is R newResult
       ? new ResultOk<R>(newResult)
-      : new ResultEmpty<R>();
+      : _.Empty<R>();
 }
 
 public readonly struct ResultError<T> : IResultError<T>
@@ -54,7 +54,7 @@ public readonly struct ResultError<T> : IResultError<T>
 
 public readonly struct ResultEmpty<T> : IResultEmpty<T>
 {
-  public IResult<R> AsResult<R>(R? _ = default) => new ResultEmpty<R>();
+  public IResult<R> AsResult<R>(R? _ = default) => _.Empty<R>();
 }
 
 public readonly struct ResultPartial<T> : IResultPartial<T>

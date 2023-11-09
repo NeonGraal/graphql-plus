@@ -12,12 +12,12 @@ public readonly struct ResultArrayOk<T> : IResultArray<T>, IResultOk<T[]>
 {
   public T[] Result { get; }
 
-  public ResultArrayOk(T[] result) => Result = result ?? Array.Empty<T>();
+  public ResultArrayOk(T[] result) => Result = result;
 
   public IResult<R> AsResult<R>(R? _ = default)
     => Result is R newResult
       ? new ResultOk<R>(newResult)
-      : new ResultEmpty<R>();
+      : _.Empty();
   public IResultArray<R> AsResultArray<R>(R[]? _ = default)
     => Result is R[] newResult
       ? new ResultArrayOk<R>(newResult)
@@ -38,7 +38,7 @@ public readonly struct ResultArrayError<T> : IResultArray<T>, IResultError<T[]>
 
 public readonly struct ResultArrayEmpty<T> : IResultArray<T>, IResultEmpty<T[]>
 {
-  public IResult<R> AsResult<R>(R? _ = default) => new ResultEmpty<R>();
+  public IResult<R> AsResult<R>(R? _ = default) => _.Empty();
   public IResultArray<R> AsResultArray<R>(R[]? _ = default) => new ResultArrayEmpty<R>();
 }
 
@@ -48,7 +48,7 @@ public readonly struct ResultArrayPartial<T> : IResultArray<T>, IResultPartial<T
   public ParseMessage Message { get; }
 
   public ResultArrayPartial(T[] result, ParseMessage message)
-    => (Result, Message) = (result ?? Array.Empty<T>(), message);
+    => (Result, Message) = (result, message);
 
   public IResult<R> AsResult<R>(R? _ = default)
     => Result is R newResult

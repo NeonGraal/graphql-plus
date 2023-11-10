@@ -7,6 +7,7 @@ public class VerifyTests
 {
   [Theory]
   [InlineData("default")]
+  [InlineData("all")]
   [InlineData("Intro_Schema")]
   [InlineData("Intro_Category")]
   [InlineData("Intro_Directive")]

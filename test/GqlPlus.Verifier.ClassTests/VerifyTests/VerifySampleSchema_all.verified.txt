@@ -1,0 +1,70 @@
+﻿!G I@1/1
+Success
+{
+  !C P@10/1
+  all
+  (Parallel)
+  All
+}
+{
+  !D I@12/2
+  all
+  (Unique)
+  All
+}
+{
+  !E I@6/3
+  One
+  !EL I@12/3
+  Two
+  !EL I@18/3
+  Three
+}
+{
+  !I I@7/4
+  Param
+  {
+    !IF I@17/4
+    afterId
+    :
+     I@26/4
+    Guid
+    ?
+    !IF I@32/4
+    beforeId
+    :
+     I@42/4
+    Guid
+  }
+  |
+   I@51/4
+  String
+}
+{
+  !O I@8/5
+  All
+  {
+    !OF I@16/5
+    items
+    (
+      !P I@22/5
+       I@22/5
+      Param
+      ?
+    )
+    :
+     I@31/5
+    String
+    []
+  }
+  |
+   I@44/5
+  String
+}
+{
+  !S I@8/6
+  Guid
+  String
+  !SX R@22/6
+  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/
+}

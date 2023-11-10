@@ -7,9 +7,21 @@ public class ResultPartialTests : BaseResultTests
   private readonly string[] _partialArray = { Partial };
 
   [Fact]
+  public void AsPartial_ReturnsResultOk()
+  {
+    var input = Partial.Partial(_partialMessage);
+
+    var result = input.AsPartial(Sample);
+
+    result.Should().BeOfType<ResultPartial<string>>()
+      .Subject.Message.Message.Should().Contain(Partial);
+    result.Optional().Should().Be(Sample);
+  }
+
+  [Fact]
   public void Array_AsResultArray_ReturnsResultArrayPartial()
   {
-    var input = _partialArray.PartialArray(_partialMessage);
+    var input = _partialArray.Partial(_partialMessage);
 
     var result = input.AsResultArray(_sample);
 
@@ -30,14 +42,25 @@ public class ResultPartialTests : BaseResultTests
   }
 
   [Fact]
+  public void Map_ReturnsOtherwise()
+  {
+    var input = Partial.Partial(_partialMessage);
+
+    var result = input.Map(a => Partial.Ok(), () => Sample.Ok());
+
+    result.Should().BeOfType<ResultOk<string>>()
+      .Subject.Required().Should().Be(Partial);
+  }
+
+  [Fact]
   public void Array_Map_ReturnsOtherwise()
   {
     var input = _partialArray.PartialArray(_partialMessage);
 
-    var result = input.Map(a => a.Ok(), () => _sample.Ok());
+    var result = input.Map(a => Sample.Ok(), () => Sample.Ok());
 
-    result.Should().BeOfType<ResultOk<string[]>>()
-      .Subject.Required().Should().Equal(Partial);
+    result.Should().BeOfType<ResultOk<string>>()
+      .Subject.Required().Should().Be(Sample);
   }
 
   [Fact]

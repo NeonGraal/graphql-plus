@@ -7,6 +7,18 @@ public class ResultErrorTests : BaseResultTests
   private readonly ParseMessage _errorMessage = Error.ParseMessage();
 
   [Fact]
+  public void AsPartial_ReturnsResultOk()
+  {
+    var input = Error.Error(_errorMessage);
+
+    var result = input.AsPartial(Sample);
+
+    result.Should().BeOfType<ResultPartial<string>>()
+      .Subject.Message.Message.Should().Contain(Error);
+    result.Optional().Should().Be(Sample);
+  }
+
+  [Fact]
   public void Array_AsPartial_ReturnsResultOk()
   {
     var input = _errorArray.ErrorArray(_errorMessage);
@@ -27,6 +39,17 @@ public class ResultErrorTests : BaseResultTests
 
     result.Should().BeOfType<ResultArrayError<string>>()
       .Subject.Message.Message.Should().Be(Error);
+  }
+
+  [Fact]
+  public void Map_ReturnsOtherwise()
+  {
+    var input = Error.Error(_errorMessage);
+
+    var result = input.Map(a => Error.Ok(), () => Sample.Ok());
+
+    result.Should().BeOfType<ResultOk<string>>()
+      .Subject.Required().Should().Be(Sample);
   }
 
   [Fact]

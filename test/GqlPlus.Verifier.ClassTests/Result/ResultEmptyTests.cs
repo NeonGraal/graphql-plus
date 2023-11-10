@@ -31,10 +31,10 @@ public class ResultEmptyTests : BaseResultTests
   {
     var input = _emptyArray.EmptyArray();
 
-    var result = input.Map(a => a.Ok(), () => _sample.Ok());
+    var result = input.Map(a => Empty.Ok(), () => Sample.Ok());
 
-    result.Should().BeOfType<ResultOk<string[]>>()
-      .Subject.Required().Should().Equal(_sample);
+    result.Should().BeOfType<ResultOk<string>>()
+      .Subject.Required().Should().Be(Sample);
   }
 
   [Fact]

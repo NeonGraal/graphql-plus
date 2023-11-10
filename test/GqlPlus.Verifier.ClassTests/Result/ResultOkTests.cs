@@ -6,6 +6,17 @@ public class ResultOkTests : BaseResultTests
   private readonly string[] _okArray = { Ok };
 
   [Fact]
+  public void Array_AsPartial_ReturnsResultOk()
+  {
+    var input = _okArray.OkArray();
+
+    var result = input.AsPartial(Sample);
+
+    result.Should().BeOfType<ResultOk<string>>()
+      .Subject.Optional().Should().Be(Sample);
+  }
+
+  [Fact]
   public void Array_AsResultArray_ReturnsResultArrayOk()
   {
     var input = _okArray.Ok();
@@ -24,6 +35,17 @@ public class ResultOkTests : BaseResultTests
     var result = input.AsResultArray(_sample);
 
     result.Should().BeOfType<ResultArrayEmpty<string>>();
+  }
+
+  [Fact]
+  public void Array_Map_ReturnsOtherwise()
+  {
+    var input = _okArray.OkArray();
+
+    var result = input.Map(a => Ok.Ok(), () => Sample.Ok());
+
+    result.Should().BeOfType<ResultOk<string>>()
+      .Subject.Required().Should().Be(Ok);
   }
 
   [Fact]

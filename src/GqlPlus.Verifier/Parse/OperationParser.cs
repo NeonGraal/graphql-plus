@@ -200,9 +200,9 @@ internal class OperationParser : CommonParser
       var field = ParseField();
       if (field.IsError()) {
         return field.AsResultArray(fields);
-      } else if (!field.Required(fields.Add)) {
-        return ErrorArray("Object", "a field or selection", fields);
       }
+
+      field.WithResult(fields.Add);
     }
 
     return fields.Any() ? fields.OkArray() : ErrorArray("Object", "at least one field or selection", fields);

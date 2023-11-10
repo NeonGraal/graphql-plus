@@ -58,6 +58,7 @@ public class ParserTests
   [InlineData("($test)")]
   [InlineData(")")]
   [InlineData(":Boolean extra")]
+  [InlineData(":Boolean($)")]
   [InlineData("{test}[?]")]
   public void Parse_ShouldPartiallySucceed(string input)
   {

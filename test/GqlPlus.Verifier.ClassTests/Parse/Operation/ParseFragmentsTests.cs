@@ -25,6 +25,10 @@ public class ParseFragmentsTests
     => TestStart.False(
       "&" + fragment + ":{" + fields.Joined() + "}");
 
+  [Theory, RepeatData(Repeats)]
+  public void Start_WithNoFields_ReturnsFalse(string fragment, string onType)
+    => TestStart.False('&' + fragment + ':' + onType + "{}");
+
   [Theory]
   [RepeatInlineData(Repeats, "fragment ", " on ")]
   [RepeatInlineData(Repeats, "&", " on ")]
@@ -40,6 +44,10 @@ public class ParseFragmentsTests
     => TestStart.TrueExpected(
       "&" + fragment + ":" + onType + directives.Joined("@") + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()) { Directives = directives.Directives() });
+
+  [Theory, RepeatData(Repeats)]
+  public void Start_WithDirectiveBad_ReturnsFalse(string fragment, string onType, string[] fields)
+    => TestStart.False("&" + fragment + ":" + onType + "@{" + fields.Joined() + "}");
 
   [Theory]
   [RepeatInlineData(Repeats, "fragment ", " on ")]

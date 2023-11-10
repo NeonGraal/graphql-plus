@@ -16,6 +16,14 @@ public class ParseDirectivesTests
       "@" + directives + "($" + variable + ")",
       new DirectiveAst(AstNulls.At, directives) { Argument = new ArgumentAst(AstNulls.At, variable) });
 
+  [Theory, RepeatData(Repeats)]
+  public void WithArgumentBad_ReturnsFalse(string directives)
+    => Test.False("@" + directives + "($)");
+
+  [Theory, RepeatData(Repeats)]
+  public void WithSecondBad_ReturnsFalse(string directives)
+    => Test.False("@" + directives + "@");
+
   private static ManyChecks<OperationParser, DirectiveAst> Test => new(
     tokens => new OperationParser(tokens),
     parser => parser.ParseDirectives());

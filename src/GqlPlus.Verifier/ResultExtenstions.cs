@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Verifier;
+﻿namespace GqlPlus.Verifier;
 
 public static class ResultExtenstions
 {
@@ -14,17 +12,6 @@ public static class ResultExtenstions
         => new ResultArrayError<R>(msg.Message),
       _ => new ResultArrayEmpty<R>(),
     };
-
-  public static IResult<R> AsPartial<T, R>(this IResult<T> old, R result, Action<T>? action = null)
-  {
-    if (old is IResultValue<T> value) {
-      action?.Invoke(value.Result);
-    }
-
-    return old is IResultMessage<T> part
-      ? new ResultPartial<R>(result, part.Message)
-      : new ResultOk<R>(result);
-  }
 
   public static IResult<T> Empty<T>(this T? _)
     => new ResultEmpty<T>();
@@ -52,18 +39,6 @@ public static class ResultExtenstions
 
   public static bool IsOk<T>(this IResult<T> result)
     => result is IResultOk<T>;
-
-  public static IResult<T> Map<T>(this IResult<T> old, SelectResult<T, T> selector)
-    => old.Map(selector, () => old);
-
-  [ExcludeFromCodeCoverage]
-  public static IResult<R> Map<T, R>(this IResult<T> old, SelectResult<T, R> selector)
-    => old.Map(selector, () => old.AsResult<R>());
-
-  public static IResult<R> Map<T, R>(this IResult<T> old, SelectResult<T, R> onValue, OnResult<R> otherwise)
-    => old is IResultValue<T> value
-      ? onValue(value.Result)
-      : otherwise();
 
   public static IResult<T> MapEmpty<T>(this IResult<T> result, OnResult<T> onEmpty)
     => result is IResultEmpty<T> ? onEmpty() : result;

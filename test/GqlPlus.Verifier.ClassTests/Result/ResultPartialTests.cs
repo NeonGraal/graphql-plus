@@ -1,74 +1,98 @@
 ﻿namespace GqlPlus.Verifier.Result;
 
-public class ResultPartialTests
+public class ResultPartialTests : BaseResultTests
 {
-  private readonly string[] _sample = { "Sample" };
-  private readonly IResult<string> _partial = "Partial".Partial("Partial".ParseMessage());
+  private const string Partial = "Partial";
+  private readonly ParseMessage _partialMessage = Partial.ParseMessage();
+  private readonly string[] _partialArray = { Partial };
 
   [Fact]
   public void Array_AsResultArray_ReturnsResultArrayPartial()
   {
-    var input = new[] { "Partial" }.Partial("Partial".ParseMessage());
+    var input = _partialArray.PartialArray(_partialMessage);
 
     var result = input.AsResultArray(_sample);
 
     result.Should().BeOfType<ResultArrayPartial<string>>()
-      .Subject.Message.Message.Should().Be("Partial");
-    result.Optional().Should().BeEquivalentTo(new object[] { "Partial" });
+      .Subject.Message.Message.Should().Be(Partial);
+    result.Optional().Should().BeEquivalentTo(new object[] { Partial });
   }
 
   [Fact]
-  public void AsResultArray_ReturnsResultArrayPartial()
+  public void AsResultArray_ReturnsResultArrayError()
   {
-    var result = _partial.AsResultArray(_sample);
+    var input = Partial.Partial(_partialMessage);
+
+    var result = input.AsResultArray(_sample);
 
     result.Should().BeOfType<ResultArrayError<string>>()
-      .Subject.Message.Message.Should().Be("Partial");
+      .Subject.Message.Message.Should().Be(Partial);
+  }
+
+  [Fact]
+  public void Array_Map_ReturnsOtherwise()
+  {
+    var input = _partialArray.PartialArray(_partialMessage);
+
+    var result = input.Map(a => a.Ok(), () => _sample.Ok());
+
+    result.Should().BeOfType<ResultOk<string[]>>()
+      .Subject.Required().Should().Equal(Partial);
   }
 
   [Fact]
   public void Required_ThrowsInvalidOperation()
   {
-    Action action = () => _partial.Required();
+    var input = Partial.Partial(_partialMessage);
+
+    Action action = () => input.Required();
 
     action.Should().Throw<InvalidOperationException>()
-      .Which.Message.Should().Contain("Partial");
+      .Which.Message.Should().Contain(Partial);
   }
 
   [Fact]
   public void Select_WithLength_ReturnsResultPartial()
   {
-    var result = _partial.Select(s => s.Length);
+    var input = Partial.Partial(_partialMessage);
+
+    var result = input.Select(s => s.Length);
 
     result.Should().BeOfType<ResultPartial<int>>()
-      .Subject.Message.Message.Should().Contain("Partial");
+      .Subject.Message.Message.Should().Contain(Partial);
     result.Optional().Should().Be(7);
   }
 
   [Fact]
   public void Select_WithNull_ReturnsResultPartial()
   {
-    var result = _partial.Select(s => (Tokenizer?)null);
+    var input = Partial.Partial(_partialMessage);
+
+    var result = input.Select(s => (Tokenizer?)null);
 
     result.Should().BeOfType<ResultError<Tokenizer>>()
-      .Subject.Message.Message.Should().Be("Partial");
+      .Subject.Message.Message.Should().Be(Partial);
   }
 
   [Fact]
   public void SelectOk_WithLength_ReturnsResultError()
   {
-    var result = _partial.SelectOk(s => s.Length);
+    var input = Partial.Partial(_partialMessage);
+
+    var result = input.SelectOk(s => s.Length);
 
     result.Should().BeOfType<ResultError<int>>()
-      .Subject.Message.Message.Should().Be("Partial");
+      .Subject.Message.Message.Should().Be(Partial);
   }
 
   [Fact]
   public void SelectOk_WithNull_ReturnsResultError()
   {
-    var result = _partial.SelectOk(s => (Tokenizer?)null);
+    var input = Partial.Partial(_partialMessage);
+
+    var result = input.SelectOk(s => (Tokenizer?)null);
 
     result.Should().BeOfType<ResultError<Tokenizer>>()
-      .Subject.Message.Message.Should().Be("Partial");
+      .Subject.Message.Message.Should().Be(Partial);
   }
 }

@@ -14,14 +14,39 @@ public readonly struct ResultArrayOk<T> : IResultArray<T>, IResultOk<T[]>
 
   public ResultArrayOk(T[] result) => Result = result;
 
+  public IResult<R> AsPartial<R>(R result, Action<T[]>? action = null)
+  {
+    action?.Invoke(Result);
+    return result.Ok();
+  }
+
   public IResult<R> AsResult<R>(R? _ = default)
     => Result is R newResult
-      ? new ResultOk<R>(newResult)
+      ? newResult.Ok()
       : _.Empty();
+
   public IResultArray<R> AsResultArray<R>(R[]? _ = default)
     => Result is R[] newResult
-      ? new ResultArrayOk<R>(newResult)
-      : new ResultArrayEmpty<R>();
+      ? newResult.OkArray()
+      : _.EmptyArray();
+
+  public IResult<R> Map<R>(SelectResult<T[], R> onValue, OnResult<R>? otherwise = null)
+    => onValue(Result);
+}
+
+public readonly struct ResultArrayEmpty<T> : IResultArray<T>, IResultEmpty<T[]>
+{
+  public IResult<R> AsPartial<R>(R result, Action<T[]>? action = null)
+    => result.Ok();
+
+  public IResult<R> AsResult<R>(R? _ = default)
+    => _.Empty();
+
+  public IResultArray<R> AsResultArray<R>(R[]? _ = default)
+    => _.EmptyArray();
+
+  public IResult<R> Map<R>(SelectResult<T[], R> onValue, OnResult<R>? otherwise = null)
+    => otherwise?.Invoke() ?? AsResult<R>();
 }
 
 public readonly struct ResultArrayError<T> : IResultArray<T>, IResultError<T[]>
@@ -30,16 +55,17 @@ public readonly struct ResultArrayError<T> : IResultArray<T>, IResultError<T[]>
 
   public ResultArrayError(ParseMessage message) => Message = message;
 
-  public IResult<R> AsResult<R>(R? _ = default)
-    => new ResultError<R>(Message);
-  public IResultArray<R> AsResultArray<R>(R[]? _ = default)
-    => new ResultArrayError<R>(Message);
-}
+  public IResult<R> AsPartial<R>(R result, Action<T[]>? action = null)
+    => result.Partial(Message);
 
-public readonly struct ResultArrayEmpty<T> : IResultArray<T>, IResultEmpty<T[]>
-{
-  public IResult<R> AsResult<R>(R? _ = default) => _.Empty();
-  public IResultArray<R> AsResultArray<R>(R[]? _ = default) => new ResultArrayEmpty<R>();
+  public IResult<R> AsResult<R>(R? _ = default)
+    => _.Error(Message);
+
+  public IResultArray<R> AsResultArray<R>(R[]? _ = default)
+    => _.ErrorArray(Message);
+
+  public IResult<R> Map<R>(SelectResult<T[], R> onValue, OnResult<R>? otherwise = null)
+    => otherwise?.Invoke() ?? AsResult<R>();
 }
 
 public readonly struct ResultArrayPartial<T> : IResultArray<T>, IResultPartial<T[]>
@@ -50,12 +76,22 @@ public readonly struct ResultArrayPartial<T> : IResultArray<T>, IResultPartial<T
   public ResultArrayPartial(T[] result, ParseMessage message)
     => (Result, Message) = (result, message);
 
+  public IResult<R> AsPartial<R>(R result, Action<T[]>? action = null)
+  {
+    action?.Invoke(Result);
+    return result.Partial(Message);
+  }
+
   public IResult<R> AsResult<R>(R? _ = default)
     => Result is R newResult
-          ? new ResultPartial<R>(newResult, Message)
-          : new ResultError<R>(Message);
+          ? newResult.Partial(Message)
+          : _.Error(Message);
+
   public IResultArray<R> AsResultArray<R>(R[]? _ = default)
     => Result is R[] newResult
-          ? new ResultArrayPartial<R>(newResult, Message)
-          : new ResultArrayError<R>(Message);
+          ? newResult.PartialArray(Message)
+          : _.ErrorArray(Message);
+
+  public IResult<R> Map<R>(SelectResult<T[], R> onValue, OnResult<R>? otherwise = null)
+    => onValue(Result);
 }

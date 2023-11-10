@@ -3,6 +3,8 @@
 public interface IResult<T>
 {
   IResult<R> AsResult<R>(R? _ = default);
+  IResult<R> AsPartial<R>(R result, Action<T>? action = null);
+  IResult<R> Map<R>(SelectResult<T, R> onValue, OnResult<R>? otherwise = null);
 }
 
 public delegate IResult<T> OnResult<T>();
@@ -36,10 +38,31 @@ public readonly struct ResultOk<T> : IResultOk<T>
     Result = result;
   }
 
+  public IResult<R> AsPartial<R>(R result, Action<T>? action = null)
+  {
+    action?.Invoke(Result);
+    return result.Ok();
+  }
+
   public IResult<R> AsResult<R>(R? _ = default)
     => Result is R newResult
-      ? new ResultOk<R>(newResult)
-      : _.Empty<R>();
+      ? newResult.Ok()
+      : _.Empty();
+
+  public IResult<R> Map<R>(SelectResult<T, R> onValue, OnResult<R>? otherwise = null)
+    => onValue(Result);
+}
+
+public readonly struct ResultEmpty<T> : IResultEmpty<T>
+{
+  public IResult<R> AsPartial<R>(R result, Action<T>? action = null)
+    => result.Ok();
+
+  public IResult<R> AsResult<R>(R? _ = default)
+    => _.Empty();
+
+  public IResult<R> Map<R>(SelectResult<T, R> onValue, OnResult<R>? otherwise = null)
+    => otherwise?.Invoke() ?? AsResult<R>();
 }
 
 public readonly struct ResultError<T> : IResultError<T>
@@ -48,13 +71,14 @@ public readonly struct ResultError<T> : IResultError<T>
 
   public ResultError(ParseMessage message) => Message = message;
 
-  public IResult<R> AsResult<R>(R? _ = default)
-    => new ResultError<R>(Message);
-}
+  public IResult<R> AsPartial<R>(R result, Action<T>? action = null)
+    => result.Partial(Message);
 
-public readonly struct ResultEmpty<T> : IResultEmpty<T>
-{
-  public IResult<R> AsResult<R>(R? _ = default) => _.Empty<R>();
+  public IResult<R> AsResult<R>(R? _ = default)
+    => _.Error(Message);
+
+  public IResult<R> Map<R>(SelectResult<T, R> onValue, OnResult<R>? otherwise = null)
+    => otherwise?.Invoke() ?? AsResult<R>();
 }
 
 public readonly struct ResultPartial<T> : IResultPartial<T>
@@ -69,8 +93,17 @@ public readonly struct ResultPartial<T> : IResultPartial<T>
     (Result, Message) = (result, message);
   }
 
+  public IResult<R> AsPartial<R>(R result, Action<T>? action = null)
+  {
+    action?.Invoke(Result);
+    return result.Partial(Message);
+  }
+
   public IResult<R> AsResult<R>(R? _ = default)
     => Result is R newResult
-          ? new ResultPartial<R>(newResult, Message)
-          : new ResultError<R>(Message);
+          ? newResult.Partial(Message)
+          : _.Error(Message);
+
+  public IResult<R> Map<R>(SelectResult<T, R> onValue, OnResult<R>? otherwise = null)
+    => onValue(Result);
 }

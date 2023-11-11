@@ -19,14 +19,14 @@ A Schema is one (or more) Declarations. Each declaration can be preceded by a do
 
 Declarations have the following general form:
 
-> `label name Parameters? Aliases? '=' ( '(' Options ')' )? Definition`
+> `label name Parameters? Aliases? '{' ( '(' Options ')' )? Definition '}'`
 
 The following declarations are implied but can be specified explicitly:
 
-- `category = Query` and thus `output Query = { }`
-- `category = (sequential) Mutation` and thus `output Mutation = { }`
-- `category = (single) Subscription` and thus `output Subscription = { }`
-- `output _Schema` (see [Introspection](Introspection.md))
+- `category { Query }` and thus `output Query { }`
+- `category { (sequential) Mutation }` and thus `output Mutation { }`
+- `category { (single) Subscription }` and thus `output Subscription { }`
+- `output _Schema { ... }` (see [Introspection](Introspection.md))
 
 The names of all Types must be unique.
 The aliases of all Types must be unique.
@@ -35,7 +35,7 @@ Explicit Type name declarations will override that name being used as Type alias
 ## Category
 
 ```PEG
-Category = 'category' category? Aliases? '=' ( '(' Cat_Option ')' )? output
+Category = 'category' category? Aliases? '{' ( '(' Cat_Option ')' )? output '}'
 Cat_Option = 'parallel' | 'sequential' | 'single'
 ```
 
@@ -57,17 +57,15 @@ An explicit Category declaration for an Output type will override that name bein
 ## Directive
 
 ```PEG
-Directive = 'directive' '@'directive Parameter? Aliases? '=' Dir_Repeatable? Dir_Locations
+Directive = 'directive' '@'directive Parameter? Aliases? '{' Dir_Repeatable? Dir_Location+ '}'
 Dir_Repeatable = '(' 'repeatable' ')'
-Dir_Locations = Dir_Location '|' Dir_Locations | Dir_Location
 Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
 ```
 
 ## Enum type
 
 ```PEG
-Enum = 'enum' enum Aliases? '=' ( ':' enum )? En_Labels
-En_Labels = En_Label '|' En_Labels | En_Label
+Enum = 'enum' enum Aliases? '{' ( ':' enum )? En_Label+ '}'
 En_Label = STRING? label Aliases?
 ```
 
@@ -112,32 +110,32 @@ Modifiers are equivalent to predefined generic Input and Output types as follows
 
 ```gqlp
 "$T?"
-input|output _Opt<$T> Opt = $T | Null
+input|output _Opt<$T> [Opt] { $T | Null }
 
 "$T[]"
-input|output _List<$T> List = $T[]
+input|output _List<$T> [List] { $T[] }
 
 "$T[$K]"
-input|output _Dict<$K $T> Dict = { $K: $T }
+input|output _Dict<$K $T> [Dict] { $K: $T }
 ```
 
 The following GraphQlPlus idioms have equivalent generic Input and Output types.
 
 ```gqlp
 "$T[*]"
-input|output _Map<$T> Map = _Dict<String $T>
+input|output _Map<$T> [Map] { _Dict<String $T> }
 
 "$T[0]"
-input|output _Array<$T> Array = _Dict<Number $T>
+input|output _Array<$T> [Array] { _Dict<Number $T> }
 
 "$T[~]"
-input|output _IfElse<$T> IfElse = _Dict<Boolean $T>
+input|output _IfElse<$T> [IfElse] { _Dict<Boolean $T> }
 
 "_[$K]"
-input|output Set<$K> = _Dict<$K Unit>
+input|output Set<$K> { _Dict<$K Unit> }
 
 "~[$K]"
-input|output Mask<$K> = _Dict<$K Boolean>
+input|output Mask<$K> { _Dict<$K Boolean> }
 ```
 
 These Generic types are the Input types if `$T` is an Input type and Output types if `$T` is an Output type.
@@ -164,33 +162,33 @@ These Generic types are the Input types if `$T` is an Input type and Output type
 Boolean, Null, Unit and Void are effectively enum types as follows:
 
 ```gqlp
-enum Boolean ~ = true | false
+enum Boolean [~] { true false }
 
-enum Null null = null
+enum Null [null] { null }
 
-enum Unit _ = _
+enum Unit [_] { _ }
 
-enum Void =  # no valid value
+enum Void { }  # no valid value
 ```
 
 Number and String are effectively scalar types as follows:
 
 ```gqlp
-scalar Number 0 = Number
+scalar Number [0] { Number }
 
-scalar String * = String
+scalar String [*] { String }
 ```
 
 Object is a general Dictionary as follows:
 
 ```gqlp
 "%"
-input|output Object % = _Map<Any>
+input|output Object [%] { _Map<Any> }
 
-input|output _Any<$T> = $T | _Scalar | Object | _Any<$T>? | _Any<$T>[] | _Any<$T>[Simple] | _Any<$T>[Simple?]
+input|output _Any<$T> { $T | _Scalar | Object | _Any<$T>? | _Any<$T>[] | _Any<$T>[Simple] | _Any<$T>[Simple?] }
 
-input Any = _Any<_Input>
-output Any =  _Any<_Output>
+input Any { _Any<_Input> }
+output Any { _Any<_Output> }
 ```
 
 The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically defined to be a union of all Scalar, Output, Input and Enum types respectively.
@@ -200,9 +198,9 @@ The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically 
 ## Input type
 
 ```PEG
-Input = 'input' input TypeParameters? Aliases? '=' In_Definition
+Input = 'input' input TypeParameters? Aliases? '{' In_Definition '}'
 In_Definition = STRING? (In_Object | In_Reference ) In_Alternates*
-In_Object = In_Base? '{' InField+ '}'
+In_Object = ( ':' In_Base )? InField+
 In_Field = STRING? field fieldAlias* ':' STRING? In_Reference Modifiers? Default?
 
 In_Alternate = '|' STRING? In_Reference
@@ -250,9 +248,9 @@ If only present on one Field before merging, optional components will be retaine
 ## Output type
 
 ```PEG
-Output = 'output' output TypeParameters? Aliases? '=' Out_Definition
+Output = 'output' output TypeParameters? Aliases? '{' Out_Definition '}'
 Out_Definition = STRING? ( Out_Object | Out_Reference ) Out_Alternate*
-Out_Object = Out_Base? '{' ( STRING? field Out_Field )+ '}'
+Out_Object = ( ':' Out_Base )? ( STRING? field Out_Field )+
 Out_Field = Parameter? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
 Out_Alternate = '|' STRING? Out_Reference
@@ -299,7 +297,7 @@ Multiple Output declarations with the same base, or no base, will have their fie
 ## Scalar type
 
 ```PEG
-Scalar = 'scalar' scalar Aliases? '=' ScalarDefinition
+Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
 ScalarDefinition = Scal_Number | Scal_String
 
 Scal_Number = 'Number' Scal_Range*
@@ -327,16 +325,14 @@ Type = Enum | Input | Output | Scalar
 
 Aliases = '[' alias+ ']'
 
-Category = 'category' category? Aliases? '=' ( '(' Cat_Option ')' )? output
+Category = 'category' category? Aliases? '{' ( '(' Cat_Option ')' )? output '}'
 Cat_Option = 'parallel' | 'sequential' | 'single'
 
-Directive = 'directive' '@'directive Parameter? Aliases? '=' Dir_Repeatable? Dir_Locations
+Directive = 'directive' '@'directive Parameter? Aliases? '{' Dir_Repeatable? Dir_Location+ '}'
 Dir_Repeatable = '(' 'repeatable' ')'
-Dir_Locations = Dir_Location '|' Dir_Locations | Dir_Location
 Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
 
-Enum = 'enum' enum Aliases? '=' ( ':' enum )? En_Labels
-En_Labels = En_Label '|' En_Labels | En_Label
+Enum = 'enum' enum Aliases? '{' ( ':' enum )? En_Label+ '}'
 En_Label = STRING? label Aliases?
 
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
@@ -347,25 +343,25 @@ Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
 
 Simple = Basic | scalar | enum  # Redefined
 
-Input = 'input' input TypeParameters? Aliases? '=' In_Definition
+Input = 'input' input TypeParameters? Aliases? '{' In_Definition '}'
 In_Definition = STRING? (In_Object | In_Reference ) In_Alternates*
-In_Object = In_Base? '{' InField+ '}'
+In_Object = ( ':' In_Base )? InField+
 In_Field = STRING? field fieldAlias* ':' STRING? In_Reference Modifiers? Default?
 
 In_Alternate = '|' STRING? In_Reference
 In_Reference = Internal | Simple | In_Base
 In_Base = '$'typeParameter | input ( '<' STRING? In_Reference+ '>' )?
 
-Output = 'output' output TypeParameters? Aliases? '=' Out_Definition
+Output = 'output' output TypeParameters? Aliases? '{' Out_Definition '}'
 Out_Definition = STRING? ( Out_Object | Out_Reference ) Out_Alternate*
-Out_Object = Out_Base? '{' ( STRING? field Out_Field )+ '}'
+Out_Object = ( ':' Out_Base )? ( STRING? field Out_Field )+
 Out_Field = Parameter? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
 Out_Alternate = '|' STRING? Out_Reference
 Out_Reference = Internal | Simple | Out_Base
 Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | EnumLabel )+ '>' )?
 
-Scalar = 'scalar' scalar Aliases? '=' ScalarDefinition
+Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
 ScalarDefinition = Scal_Number | Scal_String
 
 Scal_Number = 'Number' Scal_Range*

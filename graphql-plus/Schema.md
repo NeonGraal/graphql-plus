@@ -90,6 +90,8 @@ TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
 Parameter = '(' In_Reference Modifiers? Default? ')'
 
+Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
+
 Simple = Basic | scalar | enum  # Redefined
 ```
 

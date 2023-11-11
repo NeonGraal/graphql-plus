@@ -133,6 +133,13 @@ public static class ResultExtenstions
     };
   }
 
+  public static void WithMessage<T>(this IResult<T> result, Action<ParseMessage> action)
+  {
+    if (result is IResultMessage<T> message) {
+      action.Invoke(message.Message);
+    }
+  }
+
   public static void WithResult<T>(this IResult<T> result, Action<T> action)
   {
     if (result is IResultValue<T> ok) {

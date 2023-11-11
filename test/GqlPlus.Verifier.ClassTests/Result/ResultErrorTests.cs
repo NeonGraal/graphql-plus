@@ -73,4 +73,12 @@ public class ResultErrorTests : BaseResultTests
     action.Should().Throw<InvalidOperationException>()
       .Which.Message.Should().Contain(Error);
   }
+
+  [Fact]
+  public void WithMesssage_CallsActionParameter()
+  {
+    var input = Error.Error(_errorMessage);
+
+    input.WithMessage(m => m.Message.Should().Be(Error));
+  }
 }

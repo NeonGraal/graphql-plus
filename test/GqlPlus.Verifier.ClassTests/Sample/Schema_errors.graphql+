@@ -1,0 +1,6 @@
+﻿category query =
+directive @
+enum None []
+input Empty = {}
+output NoParams<>
+scalar Other = Enum

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-public class ParserTests
+public class OperationParserTests
 {
   [Theory]
   [InlineData(":Boolean")]

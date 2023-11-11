@@ -40,16 +40,19 @@ internal class SchemaParser : CommonParser
     while (_tokens.Identifier(out var selector)) {
       if (_parsers.TryGetValue(selector, out var parser)) {
         var declaration = parser(this, "");
-        if (!declaration.Required(declarations.Add)) {
-          return declaration.AsResult<SchemaAst>();
-        }
+        declaration.WithMessage(Errors.Add);
+        declaration.WithResult(declarations.Add);
+      } else {
+        Error("Schema", $"declaration selector. '{selector}' unknown");
       }
     }
 
-    if (_tokens.AtEnd) {
-      ast.Result = ParseResultKind.Success;
-    } else {
+    if (!_tokens.AtEnd) {
       Error("Schema", "no more text");
+    }
+
+    if (Errors.Count == 0) {
+      ast.Result = ParseResultKind.Success;
     }
 
     ast = ast with {

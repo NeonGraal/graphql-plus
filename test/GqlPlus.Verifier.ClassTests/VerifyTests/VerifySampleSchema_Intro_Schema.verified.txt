@@ -1,6 +1,7 @@
 ﻿!G I@1/1
 Failure
 <
+  !!!  P@13/10 : Invalid Schema. Expected declaration selector. 'String' unknown. - '\[]\?\n\ninput' !!!
   !!!  P@13/10 : Invalid Schema. Expected no more text. - '\[]\?\n\ninput' !!!
 >
 {

@@ -230,6 +230,42 @@ internal class SchemaParser : CommonParser
     return Error("Enum", "label", result);
   }
 
+  internal IResult<EnumAst> ParseEnumDeclarationNew(string description)
+  {
+    var at = _tokens.At;
+    var hasName = _tokens.Identifier(out var name);
+    EnumAst result = new(at, name, description);
+
+    if (!hasName) {
+      return Error("Enum", "name", result);
+    }
+
+    var prefix = ParsePrefixNew("Enum");
+    if (!prefix.Required(aliases => result.Aliases = aliases)) {
+      return prefix.AsResult(result);
+    }
+
+    if (_tokens.Take(':')) {
+      if (_tokens.Identifier(out var extends)) {
+        result.Extends = extends;
+      } else {
+        return Error("Enum", "type after ':'", result);
+      }
+    }
+
+    List<EnumLabelAst> labels = new();
+    while (!_tokens.Take("}")) {
+      var enumLabel = ParseEnumLabel();
+      if (!enumLabel.Required(labels.Add)) {
+        result.Labels = labels.ToArray();
+        return enumLabel.AsResult(result);
+      }
+    }
+
+    result.Labels = labels.ToArray();
+    return Partial("Enum", "at least one label", () => result, labels.Any());
+  }
+
   internal IResult<InputAst> ParseInputDeclaration(string description)
    => ParseObject(description, new InputParserFactories(this));
 

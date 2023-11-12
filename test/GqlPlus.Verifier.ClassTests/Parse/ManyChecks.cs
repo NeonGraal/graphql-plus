@@ -1,7 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
-using GqlPlus.Verifier.Parse;
 
-namespace GqlPlus.Verifier.Common;
+namespace GqlPlus.Verifier.Parse;
 
 internal sealed class ManyChecks<P, T>
   : BaseChecks<P> where P : CommonParser

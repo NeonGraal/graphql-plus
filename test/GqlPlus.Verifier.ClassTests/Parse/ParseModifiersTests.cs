@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifier.Parse;
-
-namespace GqlPlus.Verifier.Common;
+﻿namespace GqlPlus.Verifier.Parse;
 
 public class ParseModifiersTests
 {

@@ -6,11 +6,11 @@ internal sealed class ParseCategoryChecks
   : BaseAliasedChecks<string, CategoryAst>
 {
   public ParseCategoryChecks()
-    : base(parser => parser.ParseCategoryDeclaration(""))
+    : base(parser => parser.ParseCategoryDeclarationNew(""))
   { }
 
   protected internal override CategoryAst AliasedFactory(string input)
     => new(AstNulls.At, input);
   protected internal override string AliasesString(string input, string aliases)
-    => aliases + "=" + input;
+    => aliases + "{" + input + "}";
 }

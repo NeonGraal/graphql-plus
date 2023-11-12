@@ -1,7 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
-using GqlPlus.Verifier.Parse;
 
-namespace GqlPlus.Verifier.Common;
+namespace GqlPlus.Verifier.Parse;
 
 internal class OneChecks<P, T>
   : BaseChecks<P> where P : CommonParser
@@ -31,6 +30,58 @@ internal class OneChecks<P, T>
     scope.FormattingOptions.MaxDepth = 10;
     parser.Errors.Should().BeEmpty();
     success.Required().Should().Be(expected);
+  }
+
+  internal void Ok(string input, T expected, bool skipIf = false)
+  {
+    if (skipIf) {
+      return;
+    }
+
+    var parser = Parser(input);
+
+    var success = _one(parser);
+
+    using var scope = new AssertionScope();
+    scope.FormattingOptions.MaxDepth = 10;
+    success.IsOk().Should().BeTrue(_oneExpression + " -> " + input);
+    parser.Errors.Should().BeEmpty();
+    success.Required().Should().Be(expected);
+  }
+
+  internal void Partial(string input, string error, T expected, bool skipIf = false)
+  {
+    if (skipIf) {
+      return;
+    }
+
+    var parser = Parser(input);
+
+    var success = _one(parser);
+
+    success.IsError().Should().BeTrue(_oneExpression + " -> " + input);
+    using var scope = new AssertionScope();
+    scope.FormattingOptions.MaxDepth = 10;
+    parser.Errors.Should().NotBeEmpty()
+      .And.Contain(pm => pm.Message.Contains(error));
+    success.Optional().Should().Be(expected);
+  }
+
+  internal void Error(string input, string error, bool skipIf = false)
+  {
+    if (skipIf) {
+      return;
+    }
+
+    var parser = Parser(input);
+
+    var success = _one(parser);
+
+    success.IsError().Should().BeTrue(_oneExpression + " -> " + input);
+    using var scope = new AssertionScope();
+    scope.FormattingOptions.MaxDepth = 10;
+    parser.Errors.Should().NotBeEmpty()
+      .And.Contain(pm => pm.Message.Contains(error));
   }
 
   internal void False(string input, Action<T?>? check = null, bool skipIf = false)

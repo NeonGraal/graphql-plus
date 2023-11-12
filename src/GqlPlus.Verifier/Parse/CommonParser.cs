@@ -194,8 +194,12 @@ internal class CommonParser
     return new ResultArrayPartial<T>(result().ToArray(), error);
   }
 
-  protected IResult<T> Partial<T>(string label, string message, Func<T> result)
+  protected IResult<T> Partial<T>(string label, string message, Func<T> result, bool okIf = false)
   {
+    if (okIf) {
+      return result().Ok();
+    }
+
     var error = _tokens.Error(label, message);
     Errors.Add(error);
     return new ResultPartial<T>(result(), error);

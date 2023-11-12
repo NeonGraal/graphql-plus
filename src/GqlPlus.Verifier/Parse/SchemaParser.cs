@@ -92,6 +92,35 @@ internal class SchemaParser : CommonParser
     return Partial("Category", "output type", () => result);
   }
 
+  internal IResult<CategoryAst> ParseCategoryDeclarationNew(string description)
+  {
+    var at = _tokens.At;
+    _tokens.Identifier(out var name);
+    CategoryAst result = new(at, name, "") { Description = description };
+
+    var prefix = ParsePrefixNew("Category");
+    if (!prefix.Optional(aliases => result.Aliases = aliases)) {
+      return prefix.AsResult(result);
+    }
+
+    var categoryOption = ParseOption<CategoryOption>("Category");
+    if (!categoryOption.Optional(option => result.Option = option)) {
+      return categoryOption.AsResult(result);
+    }
+
+    if (_tokens.Identifier(out var output)) {
+      if (string.IsNullOrEmpty(name)) {
+        name = output.Camelize();
+      }
+
+      result = result with { Name = name!, Output = output };
+
+      return End("Category", () => result);
+    }
+
+    return Partial("Category", "output type", () => result);
+  }
+
   internal IResult<DirectiveAst> ParseDirectiveDeclaration(string description)
   {
     var hasPrefix = _tokens.Prefix('@', out var name, out var at);
@@ -221,6 +250,17 @@ internal class SchemaParser : CommonParser
       result => _tokens.Take('=') ? result.OkArray() : ErrorArray(label, "'=' before definition", result),
       () => aliases);
   }
+
+  private IResultArray<string> ParsePrefixNew(string label)
+  {
+    var aliases = ParseAliases(label);
+    return aliases.MapOk(
+      result => _tokens.Take('{') ? result.OkArray() : ErrorArray(label, "'{' before definition", result),
+      () => aliases);
+  }
+
+  private IResult<T> End<T>(string label, Func<T> result)
+    => Partial<T>(label, "'}' at end of definition", result, _tokens.Take('}'));
 
   private IResultArray<string> ParseAliases(string label)
   {

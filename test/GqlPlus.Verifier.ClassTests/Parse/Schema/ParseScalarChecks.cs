@@ -6,7 +6,7 @@ internal sealed class ParseScalarChecks
   : BaseAliasedChecks<ScalarInput, ScalarAst>
 {
   public ParseScalarChecks()
-    : base(parser => parser.ParseScalarDeclaration(""))
+    : base(parser => parser.ParseScalarDeclarationNew(""))
   { }
 
   protected internal override ScalarAst AliasedFactory(ScalarInput input)
@@ -16,7 +16,7 @@ internal sealed class ParseScalarChecks
     };
 
   protected internal override string AliasesString(ScalarInput input, string aliases)
-    => input.Name + aliases + "=string/" + input.Regex + "/!";
+    => input.Name + aliases + "{string/" + input.Regex + "/!}";
 }
 
 public record struct ScalarInput(string Name, string Regex);

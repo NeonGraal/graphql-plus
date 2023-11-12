@@ -312,6 +312,46 @@ internal class SchemaParser : CommonParser
     }
   }
 
+  internal IResult<ScalarAst> ParseScalarDeclarationNew(string description)
+  {
+    var at = _tokens.At;
+    var hasName = _tokens.Identifier(out var name);
+    ScalarAst result = new(at, name, description);
+
+    if (!hasName) {
+      return Error("Scalar", "name", result);
+    }
+
+    var prefix = ParsePrefixNew("Scalar");
+    if (!prefix.Required(aliases => result.Aliases = aliases)) {
+      return prefix.AsResult(result);
+    }
+
+    var scalarKind = ParseEnumValue<ScalarKind>("Scalar");
+    if (!scalarKind.Required(kind => result.Kind = kind)) {
+      return scalarKind.AsResult(result);
+    }
+
+    switch (result.Kind) {
+      case ScalarKind.Number:
+        var scalarRanges = ParseRanges();
+        if (scalarRanges.Required(ranges => result.Ranges = ranges)) {
+          return End("Scalar", () => result);
+        }
+
+        return scalarRanges.AsResult(result);
+      case ScalarKind.String:
+        var scalarRegexes = ParseRegexes();
+        if (scalarRegexes.Required(regexes => result.Regexes = regexes)) {
+          return End("Scalar", () => result);
+        }
+
+        return scalarRegexes.AsResult(result);
+      default:
+        return Partial("Scalar", "valid kind", () => result);
+    }
+  }
+
   private IResultArray<string> ParsePrefix(string label)
   {
     var aliases = ParseAliases(label);
@@ -329,7 +369,7 @@ internal class SchemaParser : CommonParser
   }
 
   private IResult<T> End<T>(string label, Func<T> result)
-    => Partial<T>(label, "'}' at end of definition", result, _tokens.Take('}'));
+    => Partial(label, "'}' at end of definition", result, _tokens.Take('}'));
 
   private IResultArray<string> ParseAliases(string label)
   {
@@ -355,7 +395,7 @@ internal class SchemaParser : CommonParser
     if (_tokens.Take('(')) {
       var enumValue = ParseEnumValue<O>(label);
 
-      return enumValue.Map<O>(result =>
+      return enumValue.Map(result =>
         _tokens.Take(')')
           ? enumValue
           : Partial(label, "')' after option", () => result));

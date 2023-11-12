@@ -157,6 +157,39 @@ internal class SchemaParser : CommonParser
     return result.Ok();
   }
 
+  internal IResult<DirectiveAst> ParseDirectiveDeclarationNew(string description)
+  {
+    var hasPrefix = _tokens.Prefix('@', out var name, out var at);
+    DirectiveAst result = new(at, name!, description);
+    if (!hasPrefix) {
+      return Error("Directive", "'@' name", result);
+    }
+
+    var parameter = ParseParameter();
+    if (!parameter.Optional(parameter => result.Parameter = parameter)) {
+      return parameter.AsResult(result);
+    }
+
+    var prefix = ParsePrefixNew("Directive");
+    if (!prefix.Optional(aliases => result.Aliases = aliases)) {
+      return prefix.AsResult(result);
+    }
+
+    var directiveOption = ParseOption<DirectiveOption>("Directive");
+    if (!directiveOption.Optional(option => result.Option = option)) {
+      return directiveOption.AsResult(result);
+    }
+
+    while (!_tokens.Take("}")) {
+      var directiveLocation = ParseEnumValue<DirectiveLocation>("Directive");
+      if (!directiveLocation.Required(location => result.Locations |= location)) {
+        return Error("Directive", "location", result);
+      }
+    }
+
+    return Partial("Directive", "at least one location", () => result, result.Locations != DirectiveLocation.None);
+  }
+
   internal IResult<EnumAst> ParseEnumDeclaration(string description)
   {
     var at = _tokens.At;

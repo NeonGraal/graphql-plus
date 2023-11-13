@@ -86,35 +86,6 @@ internal class SchemaParser : CommonParser
 
       result = result with { Name = name!, Output = output };
 
-      return result.Ok();
-    }
-
-    return Partial("Category", "output type", () => result);
-  }
-
-  internal IResult<CategoryAst> ParseCategoryDeclarationNew(string description)
-  {
-    var at = _tokens.At;
-    _tokens.Identifier(out var name);
-    CategoryAst result = new(at, name, "") { Description = description };
-
-    var prefix = ParsePrefixNew("Category");
-    if (!prefix.Optional(aliases => result.Aliases = aliases)) {
-      return prefix.AsResult(result);
-    }
-
-    var categoryOption = ParseOption<CategoryOption>("Category");
-    if (!categoryOption.Optional(option => result.Option = option)) {
-      return categoryOption.AsResult(result);
-    }
-
-    if (_tokens.Identifier(out var output)) {
-      if (string.IsNullOrEmpty(name)) {
-        name = output.Camelize();
-      }
-
-      result = result with { Name = name!, Output = output };
-
       return End("Category", () => result);
     }
 
@@ -129,48 +100,12 @@ internal class SchemaParser : CommonParser
       return Error("Directive", "'@' name", result);
     }
 
-    ParseParameter().WithResult(parameter => result.Parameter = parameter);
-
-    var prefix = ParsePrefix("Directive");
-    if (!prefix.Optional(aliases => result.Aliases = aliases)) {
-      return prefix.AsResult(result);
-    }
-
-    var directiveOption = ParseOption<DirectiveOption>("Directive");
-
-    if (!directiveOption.Optional(option => result.Option = option)) {
-      return directiveOption.AsResult(result);
-    }
-
-    var directiveLocation = ParseEnumValue<DirectiveLocation>("Directive");
-    if (!directiveLocation.Required(location => result.Locations = location)) {
-      return Error("Directive", "at least one location", result);
-    }
-
-    while (_tokens.Take("|")) {
-      directiveLocation = ParseEnumValue<DirectiveLocation>("Directive");
-      if (!directiveLocation.Required(location => result.Locations |= location)) {
-        return Error("Directive", "location after '|'", result);
-      }
-    }
-
-    return result.Ok();
-  }
-
-  internal IResult<DirectiveAst> ParseDirectiveDeclarationNew(string description)
-  {
-    var hasPrefix = _tokens.Prefix('@', out var name, out var at);
-    DirectiveAst result = new(at, name!, description);
-    if (!hasPrefix) {
-      return Error("Directive", "'@' name", result);
-    }
-
     var parameter = ParseParameter();
     if (!parameter.Optional(parameter => result.Parameter = parameter)) {
       return parameter.AsResult(result);
     }
 
-    var prefix = ParsePrefixNew("Directive");
+    var prefix = ParsePrefix("Directive");
     if (!prefix.Optional(aliases => result.Aliases = aliases)) {
       return prefix.AsResult(result);
     }
@@ -214,46 +149,6 @@ internal class SchemaParser : CommonParser
     }
 
     List<EnumLabelAst> labels = new();
-    var enumLabel = ParseEnumLabel();
-    if (enumLabel.Required(labels.Add)) {
-      while (_tokens.Take("|")) {
-        enumLabel = ParseEnumLabel();
-        if (!enumLabel.Required(labels.Add)) {
-          return enumLabel.AsResult(result);
-        }
-      }
-
-      result.Labels = labels.ToArray();
-      return result.Ok();
-    }
-
-    return Error("Enum", "label", result);
-  }
-
-  internal IResult<EnumAst> ParseEnumDeclarationNew(string description)
-  {
-    var at = _tokens.At;
-    var hasName = _tokens.Identifier(out var name);
-    EnumAst result = new(at, name, description);
-
-    if (!hasName) {
-      return Error("Enum", "name", result);
-    }
-
-    var prefix = ParsePrefixNew("Enum");
-    if (!prefix.Required(aliases => result.Aliases = aliases)) {
-      return prefix.AsResult(result);
-    }
-
-    if (_tokens.Take(':')) {
-      if (_tokens.Identifier(out var extends)) {
-        result.Extends = extends;
-      } else {
-        return Error("Enum", "type after ':'", result);
-      }
-    }
-
-    List<EnumLabelAst> labels = new();
     while (!_tokens.Take("}")) {
       var enumLabel = ParseEnumLabel();
       if (!enumLabel.Required(labels.Add)) {
@@ -269,14 +164,8 @@ internal class SchemaParser : CommonParser
   internal IResult<InputAst> ParseInputDeclaration(string description)
    => ParseObject(description, new InputParserFactories(this));
 
-  internal IResult<InputAst> ParseInputDeclarationNew(string description)
-   => ParseObjectNew(description, new InputParserFactories(this));
-
   internal IResult<OutputAst> ParseOutputDeclaration(string description)
    => ParseObject(description, new OutputParserFactories(this));
-
-  internal IResult<OutputAst> ParseOutputDeclarationNew(string description)
-   => ParseObjectNew(description, new OutputParserFactories(this));
 
   internal IResult<ScalarAst> ParseScalarDeclaration(string description)
   {
@@ -289,46 +178,6 @@ internal class SchemaParser : CommonParser
     }
 
     var prefix = ParsePrefix("Scalar");
-    if (!prefix.Required(aliases => result.Aliases = aliases)) {
-      return prefix.AsResult(result);
-    }
-
-    var scalarKind = ParseEnumValue<ScalarKind>("Scalar");
-    if (!scalarKind.Required(kind => result.Kind = kind)) {
-      return scalarKind.AsResult(result);
-    }
-
-    switch (result.Kind) {
-      case ScalarKind.Number:
-        var scalarRanges = ParseRanges();
-        if (scalarRanges.Required(ranges => result.Ranges = ranges)) {
-          return result.Ok();
-        }
-
-        return scalarRanges.AsResult(result);
-      case ScalarKind.String:
-        var scalarRegexes = ParseRegexes();
-        if (scalarRegexes.Required(regexes => result.Regexes = regexes)) {
-          return result.Ok();
-        }
-
-        return scalarRegexes.AsResult(result);
-      default:
-        return Error("Scalar", "valid kind", result);
-    }
-  }
-
-  internal IResult<ScalarAst> ParseScalarDeclarationNew(string description)
-  {
-    var at = _tokens.At;
-    var hasName = _tokens.Identifier(out var name);
-    ScalarAst result = new(at, name, description);
-
-    if (!hasName) {
-      return Error("Scalar", "name", result);
-    }
-
-    var prefix = ParsePrefixNew("Scalar");
     if (!prefix.Required(aliases => result.Aliases = aliases)) {
       return prefix.AsResult(result);
     }
@@ -359,14 +208,6 @@ internal class SchemaParser : CommonParser
   }
 
   private IResultArray<string> ParsePrefix(string label)
-  {
-    var aliases = ParseAliases(label);
-    return aliases.MapOk(
-      result => _tokens.Take('=') ? result.OkArray() : ErrorArray(label, "'=' before definition", result),
-      () => aliases);
-  }
-
-  private IResultArray<string> ParsePrefixNew(string label)
   {
     var aliases = ParseAliases(label);
     return aliases.MapOk(
@@ -476,65 +317,10 @@ internal class SchemaParser : CommonParser
 
     var typeParameters = ParseTypeParameters(factories.Label);
     if (!typeParameters.Optional(parameters => result.Parameters = parameters)) {
-      return typeParameters.AsResult(result);
-    }
-
-    var prefix = ParsePrefix(factories.Label);
-    if (!prefix.Required(aliases => result.Aliases = aliases)) {
-      return prefix.AsResult(result);
-    }
-
-    _tokens.String(out var descr);
-    var baseReference = ParseReference(factories, descr);
-    if (baseReference.IsError()) {
-      return baseReference.AsResult(result);
-    }
-
-    if (_tokens.Take('{')) {
-      var fields = new List<F>();
-      while (!_tokens.Take('}')) {
-        var objectField = ParseField(factories);
-        if (!objectField.Required(fields.Add)) {
-          return Error(factories.Label, "more fields or '}'", result);
-        }
-      }
-
-      baseReference.WithResult(reference => result.Extends = reference with { Description = descr });
-
-      result.Fields = fields.ToArray();
-      var objectAlternates = ParseAlternates(factories);
-      return objectAlternates.Optional(alternates => result.Alternates = alternates)
-        ? result.Ok()
-        : objectAlternates.AsResult(result);
-    } else if (baseReference.IsOk()) {
-      return baseReference.Map(reference => {
-        var objectAlternates = ParseAlternates(factories, reference);
-        return objectAlternates.Optional(alternates => result.Alternates = alternates)
-          ? result.Ok()
-          : objectAlternates.AsResult(result);
-      });
-    }
-
-    return result.Empty();
-  }
-
-  private IResult<O> ParseObjectNew<O, F, R>(string description, IObjectParser<O, F, R> factories)
-    where O : AstObject<F, R> where F : AstField<R> where R : AstReference<R>
-  {
-    var at = _tokens.At;
-    var getName = _tokens.Identifier(out var name);
-
-    O result = factories.Object(at, name, description);
-    if (!getName) {
-      return Error(factories.Label, "name", result);
-    }
-
-    var typeParameters = ParseTypeParameters(factories.Label);
-    if (!typeParameters.Optional(parameters => result.Parameters = parameters)) {
       return typeParameters.AsPartial(result);
     }
 
-    var prefix = ParsePrefixNew(factories.Label);
+    var prefix = ParsePrefix(factories.Label);
     if (!prefix.Required(aliases => result.Aliases = aliases)) {
       return prefix.AsPartial(result);
     }
@@ -550,13 +336,13 @@ internal class SchemaParser : CommonParser
     }
 
     var fields = new List<F>();
-    var objectField = ParseFieldNew(factories);
+    var objectField = ParseField(factories);
     if (objectField.IsError()) {
       return objectField.AsPartial(result);
     }
 
     while (objectField.Required(fields.Add)) {
-      objectField = ParseFieldNew(factories);
+      objectField = ParseField(factories);
       if (objectField.IsError()) {
         result.Fields = fields.ToArray();
         return objectField.AsPartial(result);
@@ -586,52 +372,6 @@ internal class SchemaParser : CommonParser
   }
 
   internal IResult<F> ParseField<F, R>(IFieldParser<F, R> parser)
-    where F : AstField<R> where R : AstReference<R>
-  {
-    var at = _tokens.At;
-    _tokens.String(out var description);
-    if (!_tokens.Identifier(out var name)) {
-      return Error<F>(parser.Label, "field name");
-    }
-
-    var hasParameter = parser.FieldParameter();
-    if (hasParameter.IsError()) {
-      return hasParameter.AsResult<F>();
-    }
-
-    var hasAliases = ParseAliases(parser.Label);
-
-    if (hasAliases.IsError()) {
-      return hasAliases.AsResult<F>();
-    }
-
-    var field = parser.Field(at, name, description, parser.Reference(at, ""));
-
-    if (_tokens.Take(':')) {
-      _tokens.String(out var descr);
-      if (ParseReference(parser, descr).Required(fieldType
-        => field = parser.Field(at, name, description, fieldType))
-        ) {
-        hasAliases.WithResult(aliases => field.Aliases = aliases);
-        hasParameter.WithResult(parameter => parser.ApplyParameter(field, parameter));
-
-        var modifiers = ParseModifiers("Operation");
-        if (modifiers.IsError()) {
-          return modifiers.AsResult<F>();
-        }
-
-        modifiers.WithResult(modifiers => field.Modifiers = modifiers);
-
-        return parser.FieldDefault(field);
-      }
-
-      return Error(parser.Label, "field type", field);
-    }
-
-    return parser.FieldEnumLabel(field);
-  }
-
-  internal IResult<F> ParseFieldNew<F, R>(IFieldParser<F, R> parser)
     where F : AstField<R> where R : AstReference<R>
   {
     var at = _tokens.At;

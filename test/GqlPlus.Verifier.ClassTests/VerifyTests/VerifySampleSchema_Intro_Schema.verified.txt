@@ -1,9 +1,5 @@
 ﻿!G I@1/1
-Failure
-<
-  !!!  P@13/10 : Invalid Schema. Expected declaration selector. 'String' unknown. - '\[]\?\n\ninput' !!!
-  !!!  P@13/10 : Invalid Schema. Expected no more text. - '\[]\?\n\ninput' !!!
->
+Success
 {
   !O I@8/1
   _Schema
@@ -59,5 +55,67 @@ Failure
      I@33/9
     Boolean
     =( !k I@43/9 Boolean.false )
+  }
+  |
+   I@7/10
+  String
+}
+{
+  !I I@7/13
+  _CategoryFilter
+   I@7/14
+  _Filter
+  {
+    !IF I@9/15
+    resolutions
+    :
+     I@22/15
+    _Resolution
+    []
+  }
+}
+{
+  !I I@7/18
+  _TypeFilter
+   I@7/19
+  _Filter
+  {
+    !IF I@9/20
+    kinds
+    :
+     I@16/20
+    _Kind
+    []
+  }
+}
+{
+  !O I@8/23
+  _Aliased
+   I@7/24
+  _Named
+  {
+    !OF I@9/25
+    aliases
+    :
+     I@18/25
+    String
+    []
+  }
+}
+{
+  !O I@8/28
+  _Named
+  {
+    !OF I@9/29
+    name
+    :
+     I@15/29
+    String
+    !OF I@9/30
+    description
+    :
+     I@22/30
+    String
+    ?
   }
 }

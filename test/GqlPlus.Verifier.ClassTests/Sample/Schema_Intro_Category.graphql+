@@ -1,6 +1,7 @@
-﻿output _Category = _Aliased {
+﻿output _Category { 
+    : _Aliased
         resolution: _Resolution
         type: _Type[String]
     }
 
-enum _Resolution = Single | Sequential | Parallel
+enum _Resolution { Single Sequential Parallel }

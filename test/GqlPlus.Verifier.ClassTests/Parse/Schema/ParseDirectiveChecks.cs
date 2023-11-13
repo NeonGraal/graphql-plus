@@ -6,7 +6,7 @@ internal sealed class ParseDirectiveChecks
   : BaseAliasedChecks<string, DirectiveAst>
 {
   public ParseDirectiveChecks()
-    : base(parser => parser.ParseDirectiveDeclarationNew(""))
+    : base(parser => parser.ParseDirectiveDeclaration(""))
   { }
 
   protected internal override DirectiveAst AliasedFactory(string input)

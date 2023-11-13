@@ -6,7 +6,7 @@ internal sealed class ParseEnumChecks
   : BaseAliasedChecks<EnumInput, EnumAst>
 {
   public ParseEnumChecks()
-    : base(parser => parser.ParseEnumDeclarationNew(""))
+    : base(parser => parser.ParseEnumDeclaration(""))
   { }
 
   protected internal override EnumAst AliasedFactory(EnumInput input)

@@ -1,4 +1,5 @@
-﻿output _TypeEnum = _BaseType<_Kind.Enum> {
+﻿output _TypeEnum {
+    : _BaseType<_Kind.Enum>
         base: String?
         labels: _Aliased[]
     }

@@ -1,17 +1,23 @@
-﻿output _OutputBase = {
+﻿output _OutputBase {
         output: String
         arguments: _OutputArgument[]
-    } | "TypeParameter" String
+    | "TypeParameter" String
+    }
 
-output _OutputField = _TypeField<_OutputBase> {
+output _OutputField {
+    : _TypeField<_OutputBase>
         parameter: _Parameter?
-    } | _OutputEnum
+    | _OutputEnum
+    }
 
-output _OutputArgument = _BaseType<_Kind.Enum> {
+output _OutputArgument {
+    : _BaseType<_Kind.Enum>
         label: String
-    } | _TypeRef<_OutputBase>
+    | _TypeRef<_OutputBase>
+    }
 
-output _OutputEnum = _BaseType<_Kind.Enum> {
+output _OutputEnum {
+    : _BaseType<_Kind.Enum>
         field: String
         label: String
     }

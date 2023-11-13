@@ -8,5 +8,5 @@ public class ParseInputTests : BaseObjectTests
 
   private static BaseObjectChecks<InputAst, InputFieldAst, InputReferenceAst> Test => new(
     new InputFactories(),
-    parser => parser.ParseInputDeclarationNew(""));
+    parser => parser.ParseInputDeclaration(""));
 }

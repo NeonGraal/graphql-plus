@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Parse.Schema;
 public class SchemaParserTests
 {
   [Theory]
-  [InlineData("category = Query")]
+  [InlineData("category { Query }")]
   public void Parse_ShouldSucceed(string input)
   {
     var parser = new SchemaParser(new Tokenizer(input));
@@ -35,7 +35,7 @@ public class SchemaParserTests
   }
 
   [Theory]
-  [InlineData("category = Query extra")]
+  [InlineData("category { Query } extra")]
   public void Parse_ShouldPartiallySucceed(string input)
   {
     var parser = new SchemaParser(new Tokenizer(input));

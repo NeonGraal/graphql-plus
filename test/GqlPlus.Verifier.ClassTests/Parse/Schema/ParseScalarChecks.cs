@@ -6,7 +6,7 @@ internal sealed class ParseScalarChecks
   : BaseAliasedChecks<ScalarInput, ScalarAst>
 {
   public ParseScalarChecks()
-    : base(parser => parser.ParseScalarDeclarationNew(""))
+    : base(parser => parser.ParseScalarDeclaration(""))
   { }
 
   protected internal override ScalarAst AliasedFactory(ScalarInput input)

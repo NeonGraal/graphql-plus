@@ -3,23 +3,23 @@ Success
 {
   !O I@8/1
   _TypeEnum
-   I@20/1
+   I@7/2
   _BaseType
   <
-     I@30/1
+     I@17/2
     _Kind.Enum
   >
   {
-    !OF I@9/2
+    !OF I@9/3
     base
     :
-     I@15/2
+     I@15/3
     String
     ?
-    !OF I@9/3
+    !OF I@9/4
     labels
     :
-     I@17/3
+     I@17/4
     _Aliased
     []
   }

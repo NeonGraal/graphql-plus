@@ -1,10 +1,10 @@
-﻿category = Query
-output Query = {}
+﻿category { Query }
+output Query { }
 
-category = (sequential) Mutation
-output Mutation = {}
+category { (sequential) Mutation }
+output Mutation { }
 
-category = (single) Subscription
-output Subscription = {}
+category { (single) Subscription }
+output Subscription { }
 
-output _Schema = {}
+output _Schema { }

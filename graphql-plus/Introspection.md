@@ -149,7 +149,9 @@ output _InputBase {
     | "TypeParameter" String
     }
 
-output _InputField = _TypeField<_InputBase>
+output _InputField {
+    | _TypeField<_InputBase>
+    }
 ```
 
 ## Output
@@ -185,7 +187,10 @@ output _OutputEnum {
 ```gqlp
 enum _Scalar { Number String }
 
-output _TypeScalar { _ScalarNumber | _ScalarString }
+output _TypeScalar {
+    | _ScalarNumber
+    | _ScalarString
+    }
 
 output _BaseScalar<$base> {
     : _BaseType<_Kind.Scalar>
@@ -342,7 +347,9 @@ output _InputBase {
     | "TypeParameter" String
     }
 
-output _InputField = _TypeField<_InputBase>
+output _InputField {
+    | _TypeField<_InputBase>
+    }
 
 output _OutputBase {
         output: String
@@ -370,7 +377,10 @@ output _OutputEnum {
 
 enum _Scalar { Number String }
 
-output _TypeScalar { _ScalarNumber | _ScalarString }
+output _TypeScalar {
+    | _ScalarNumber
+    | _ScalarString
+    }
 
 output _BaseScalar<$base> {
     : _BaseType<_Kind.Scalar>

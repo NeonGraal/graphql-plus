@@ -199,8 +199,8 @@ The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically 
 
 ```PEG
 Input = 'input' input TypeParameters? Aliases? '{' In_Definition '}'
-In_Definition = STRING? (In_Object | In_Reference ) In_Alternates*
-In_Object = ( ':' In_Base )? InField+
+In_Definition = In_Object? In_Alternate*
+In_Object = STRING? ( ':' In_Base )? InField+
 In_Field = STRING? field fieldAlias* ':' STRING? In_Reference Modifiers? Default?
 
 In_Alternate = '|' STRING? In_Reference
@@ -249,8 +249,8 @@ If only present on one Field before merging, optional components will be retaine
 
 ```PEG
 Output = 'output' output TypeParameters? Aliases? '{' Out_Definition '}'
-Out_Definition = STRING? ( Out_Object | Out_Reference ) Out_Alternate*
-Out_Object = ( ':' Out_Base )? ( STRING? field Out_Field )+
+Out_Definition = Out_Object? Out_Alternate*
+Out_Object = STRING? ( ':' Out_Base )? ( STRING? field Out_Field )+
 Out_Field = Parameter? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
 Out_Alternate = '|' STRING? Out_Reference
@@ -344,8 +344,8 @@ Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
 Simple = Basic | scalar | enum  # Redefined
 
 Input = 'input' input TypeParameters? Aliases? '{' In_Definition '}'
-In_Definition = STRING? (In_Object | In_Reference ) In_Alternates*
-In_Object = ( ':' In_Base )? InField+
+In_Definition = In_Object? In_Alternate*
+In_Object = STRING? ( ':' In_Base )? InField+
 In_Field = STRING? field fieldAlias* ':' STRING? In_Reference Modifiers? Default?
 
 In_Alternate = '|' STRING? In_Reference
@@ -353,8 +353,8 @@ In_Reference = Internal | Simple | In_Base
 In_Base = '$'typeParameter | input ( '<' STRING? In_Reference+ '>' )?
 
 Output = 'output' output TypeParameters? Aliases? '{' Out_Definition '}'
-Out_Definition = STRING? ( Out_Object | Out_Reference ) Out_Alternate*
-Out_Object = ( ':' Out_Base )? ( STRING? field Out_Field )+
+Out_Definition = Out_Object? Out_Alternate*
+Out_Object = STRING? ( ':' Out_Base )? ( STRING? field Out_Field )+
 Out_Field = Parameter? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
 Out_Alternate = '|' STRING? Out_Reference

@@ -71,7 +71,7 @@ output _Parameter {
 
 ```gqlp
 output _Type {
-      _BaseType<_Kind.Basic>
+    | _BaseType<_Kind.Basic>
     | _BaseType<_Kind.Internal>
     | _TypeEnum
     | _TypeObject<_Kind.Input _InputBase _InputField>
@@ -95,7 +95,7 @@ output _TypeObject<$kind $base $field> {
     }
 
 output _TypeRef<$base> {
-      _BaseType<_Kind.Internal>
+    | _BaseType<_Kind.Internal>
     | _TypeSimple
     | $base
     }
@@ -107,13 +107,13 @@ output _TypeField<$base> {
     }
 
 output _TypeSimple {
-      _BaseType<_Kind.Basic>
+    | _BaseType<_Kind.Basic>
     | _BaseType<_Kind.Scalar>
     | _BaseType<_Kind.Enum>
     }
 
 output _TypeModifier = {
-      _BaseModifier<_Modifier.Optional>
+    | _BaseModifier<_Modifier.Optional>
     | _BaseModifier<_Modifier.List>
     | _ModifierDictionary
     }
@@ -272,7 +272,7 @@ output _Parameter {
     }
 
 output _Type {
-      _BaseType<_Kind.Basic>
+    | _BaseType<_Kind.Basic>
     | _BaseType<_Kind.Internal>
     | _TypeEnum
     | _TypeObject<_Kind.Input _InputBase _InputField>
@@ -296,7 +296,7 @@ output _TypeObject<$kind $base $field> {
     }
 
 output _TypeRef<$base> {
-      _BaseType<_Kind.Internal>
+    | _BaseType<_Kind.Internal>
     | _TypeSimple
     | $base
     }
@@ -308,13 +308,13 @@ output _TypeField<$base> {
     }
 
 output _TypeSimple {
-      _BaseType<_Kind.Basic>
+    | _BaseType<_Kind.Basic>
     | _BaseType<_Kind.Scalar>
     | _BaseType<_Kind.Enum>
     }
 
 output _TypeModifier = {
-      _BaseModifier<_Modifier.Optional>
+    | _BaseModifier<_Modifier.Optional>
     | _BaseModifier<_Modifier.List>
     | _ModifierDictionary
     }

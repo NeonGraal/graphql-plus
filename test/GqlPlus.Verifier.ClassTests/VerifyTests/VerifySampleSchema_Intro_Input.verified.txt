@@ -21,6 +21,7 @@ Success
     []
   }
   |
+  !AO
    I@23/4
   String
 }
@@ -28,6 +29,7 @@ Success
   !O I@8/7
   _InputField
   |
+  !AO
    I@7/8
   _TypeField
   <

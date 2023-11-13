@@ -203,7 +203,7 @@ In_Definition = In_Object? In_Alternate*
 In_Object = ( ':' STRING? In_Base )? InField+
 In_Field = STRING? field fieldAlias* ':' STRING? In_Reference Modifiers? Default?
 
-In_Alternate = '|' STRING? In_Reference
+In_Alternate = '|' STRING? In_Reference Modifiers?
 In_Reference = Internal | Simple | In_Base
 In_Base = '$'typeParameter | input ( '<' STRING? In_Reference+ '>' )?
 ```
@@ -253,7 +253,7 @@ Out_Definition = Out_Object? Out_Alternate*
 Out_Object = ( ':' STRING? Out_Base )? ( STRING? field Out_Field )+
 Out_Field = Parameter? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
-Out_Alternate = '|' STRING? Out_Reference
+Out_Alternate = '|' STRING? Out_Reference Modifiers?
 Out_Reference = Internal | Simple | Out_Base
 Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | EnumLabel )+ '>' )?
 ```
@@ -348,7 +348,7 @@ In_Definition = In_Object? In_Alternate*
 In_Object = ( ':' STRING? In_Base )? InField+
 In_Field = STRING? field fieldAlias* ':' STRING? In_Reference Modifiers? Default?
 
-In_Alternate = '|' STRING? In_Reference
+In_Alternate = '|' STRING? In_Reference Modifiers?
 In_Reference = Internal | Simple | In_Base
 In_Base = '$'typeParameter | input ( '<' STRING? In_Reference+ '>' )?
 
@@ -357,7 +357,7 @@ Out_Definition = Out_Object? Out_Alternate*
 Out_Object = ( ':' STRING? Out_Base )? ( STRING? field Out_Field )+
 Out_Field = Parameter? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
-Out_Alternate = '|' STRING? Out_Reference
+Out_Alternate = '|' STRING? Out_Reference Modifiers?
 Out_Reference = Internal | Simple | Out_Base
 Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | EnumLabel )+ '>' )?
 

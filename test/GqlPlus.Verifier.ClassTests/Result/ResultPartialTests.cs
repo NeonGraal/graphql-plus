@@ -10,12 +10,17 @@ public class ResultPartialTests : BaseResultTests
   public void AsPartial_ReturnsResultOk()
   {
     var input = Partial.Partial(_partialMessage);
+    var withValue = false;
+    var action = false;
 
-    var result = input.AsPartial(Sample);
+    var result = input.AsPartial(Sample, v => withValue = true, () => action = true);
 
     result.Should().BeOfType<ResultPartial<string>>()
       .Subject.Message.Message.Should().Contain(Partial);
+    using var scope = new AssertionScope();
     result.Optional().Should().Be(Sample);
+    withValue.Should().BeTrue();
+    action.Should().BeTrue();
   }
 
   [Fact]

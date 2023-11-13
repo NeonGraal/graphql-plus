@@ -19,7 +19,7 @@ output _TypeObject<$kind $base $field> {
         parameters: _Named[]
         base: $base?
         fields: $field[]
-        alternates: _TypeRef<$base>[]
+        alternates: _Alternate<$base>[]
     }
 
 output _TypeRef<$base> {
@@ -28,7 +28,13 @@ output _TypeRef<$base> {
     | $base
     }
 
-output _TypeField<$base> = _Aliased {
+output _Alternate<$base> {
+      type: _TypeRef<$base>
+      modifiers: _TypeModifier[]
+    }
+
+output _TypeField<$base> {
+    : _Aliased
       type: _TypeRef<$base>
       modifiers: _TypeModifier[]
     }

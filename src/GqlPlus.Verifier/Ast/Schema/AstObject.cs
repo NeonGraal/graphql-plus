@@ -7,7 +7,7 @@ internal abstract record class AstObject<F, R>(ParseAt At, string Name, string D
   public TypeParameterAst[] Parameters { get; set; } = Array.Empty<TypeParameterAst>();
   public R? Extends { get; set; }
   public F[] Fields { get; set; } = Array.Empty<F>();
-  public R[] Alternates { get; set; } = Array.Empty<R>();
+  public AstAlternate<R>[] Alternates { get; set; } = Array.Empty<AstAlternate<R>>();
 
   public virtual bool Equals(AstObject<F, R>? other)
     => base.Equals(other)

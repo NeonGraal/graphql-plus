@@ -12,8 +12,10 @@ Success
   !O I@8/3
   _TypeScalar
   |
+  !AO
    I@7/4
   _ScalarNumber
+  !AO
    I@7/5
   _ScalarString
 }

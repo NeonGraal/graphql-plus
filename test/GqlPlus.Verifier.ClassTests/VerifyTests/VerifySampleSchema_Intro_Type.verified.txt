@@ -4,20 +4,24 @@ Success
   !O I@8/1
   _Type
   |
+  !AO
    I@7/2
   _BaseType
   <
      I@17/2
     _Kind.Basic
   >
+  !AO
    I@7/3
   _BaseType
   <
      I@17/3
     _Kind.Internal
   >
+  !AO
    I@7/4
   _TypeEnum
+  !AO
    I@7/5
   _TypeObject
   <
@@ -28,6 +32,7 @@ Success
      I@42/5
     _InputField
   >
+  !AO
    I@7/6
   _TypeObject
   <
@@ -38,6 +43,7 @@ Success
      I@44/6
     _OutputField
   >
+  !AO
    I@7/7
   _TypeScalar
 }
@@ -114,9 +120,9 @@ Success
     alternates
     :
      I@21/22
-    _TypeRef
+    _Alternate
     <
-       I@31/22
+       I@33/22
       $base
     >
     []
@@ -130,125 +136,159 @@ Success
     $base
   >
   |
+  !AO
    I@7/26
   _BaseType
   <
      I@17/26
     _Kind.Internal
   >
+  !AO
    I@7/27
   _TypeSimple
+  !AO
    I@8/28
   $base
 }
 {
   !O I@8/31
-  _TypeField
+  _Alternate
   <
      I@20/31
     $base
   >
-   I@7/32
-  _Aliased
   {
-    !OF I@7/33
+    !OF I@7/32
     type
     :
-     I@13/33
+     I@13/32
     _TypeRef
     <
-       I@23/33
+       I@23/32
       $base
     >
-    !OF I@7/34
+    !OF I@7/33
     modifiers
     :
-     I@18/34
+     I@18/33
     _TypeModifier
     []
   }
 }
 {
-  !O I@8/37
+  !O I@8/36
+  _TypeField
+  <
+     I@20/36
+    $base
+  >
+   I@7/37
+  _Aliased
+  {
+    !OF I@7/38
+    type
+    :
+     I@13/38
+    _TypeRef
+    <
+       I@23/38
+      $base
+    >
+    !OF I@7/39
+    modifiers
+    :
+     I@18/39
+    _TypeModifier
+    []
+  }
+}
+{
+  !O I@8/42
   _TypeSimple
   |
-   I@7/38
+  !AO
+   I@7/43
   _BaseType
   <
-     I@17/38
+     I@17/43
     _Kind.Basic
   >
-   I@7/39
+  !AO
+   I@7/44
   _BaseType
   <
-     I@17/39
+     I@17/44
     _Kind.Scalar
   >
-   I@7/40
+  !AO
+   I@7/45
   _BaseType
   <
-     I@17/40
+     I@17/45
     _Kind.Enum
   >
 }
 {
-  !O I@8/43
+  !O I@8/48
   _TypeModifier
   |
-   I@7/44
+  !AO
+   I@7/49
   _BaseModifier
   <
-     I@21/44
+     I@21/49
     _Modifier.Optional
   >
-   I@7/45
+  !AO
+   I@7/50
   _BaseModifier
   <
-     I@21/45
+     I@21/50
     _Modifier.List
   >
-   I@7/46
+  !AO
+   I@7/51
   _ModifierDictionary
 }
 {
-  !E I@6/49
+  !E I@6/54
   _Modifier
-  !EL I@18/49
+  !EL I@18/54
   Optional
-  !EL I@27/49
+  !EL I@27/54
   List
-  !EL I@32/49
+  !EL I@32/54
   ModifierDictionary
 }
 {
-  !O I@8/51
+  !O I@8/56
   _BaseModifier
   <
-     I@23/51
+     I@23/56
     $kind
   >
   {
-    !OF I@9/52
+    !OF I@9/57
     kind
     :
-     I@16/52
+     I@16/57
     $kind
   }
 }
 {
-  !O I@8/55
+  !O I@8/60
   _ModifierDictionary
-   I@7/56
+   I@7/61
   _BaseModifier
   <
-     I@21/56
+     I@21/61
     _Modifier.Dictionary
   >
   {
-    !OF I@9/57
+    !OF I@9/62
     by
     :
-     I@13/57
+     I@13/62
     _TypeSimple
   }
 }

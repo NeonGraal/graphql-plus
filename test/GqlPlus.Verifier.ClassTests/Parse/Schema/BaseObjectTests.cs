@@ -12,6 +12,10 @@ public abstract class BaseObjectTests
     => Checks.WithAlternateComments(name, others);
 
   [Theory, RepeatData(Repeats)]
+  public void WithAlternateModifiers_ReturnsCorrectAst(string name, string[] others)
+    => Checks.WithAlternateModifiers(name, others);
+
+  [Theory, RepeatData(Repeats)]
   public void WithTypeParameters_ReturnsCorrectAst(string name, string other, string parameter)
     => Checks.WithTypeParameters(name, other, parameter);
 

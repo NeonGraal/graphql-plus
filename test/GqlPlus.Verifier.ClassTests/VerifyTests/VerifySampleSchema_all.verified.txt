@@ -37,6 +37,7 @@ Success
     Guid
   }
   |
+  !AI
    I@47/4
   String
 }
@@ -58,6 +59,7 @@ Success
     []
   }
   |
+  !AO
    I@40/5
   String
 }

@@ -2,6 +2,16 @@
 
 public static class ResultExtenstions
 {
+  public static IResultArray<R> AsPartialArray<T, R>(this IResult<T> result, IEnumerable<R>? _ = default)
+    => result switch {
+      IResultOk<T> ok when ok.Result is R[] newResult
+        => new ResultArrayOk<R>(newResult),
+      IResultPartial<T> part when part.Result is R[] newResult
+        => new ResultArrayPartial<R>(newResult, part.Message),
+      IResultMessage<T> msg
+        => new ResultArrayError<R>(msg.Message),
+      _ => new ResultArrayEmpty<R>(),
+    };
   public static IResultArray<R> AsResultArray<T, R>(this IResult<T> result, IEnumerable<R>? _ = default)
     => result switch {
       IResultOk<T> ok when ok.Result is R[] newResult

@@ -10,24 +10,34 @@ public class ResultErrorTests : BaseResultTests
   public void AsPartial_ReturnsResultOk()
   {
     var input = Error.Error(_errorMessage);
+    var withValue = false;
+    var action = false;
 
-    var result = input.AsPartial(Sample);
+    var result = input.AsPartial(Sample, v => withValue = true, () => action = true);
 
     result.Should().BeOfType<ResultPartial<string>>()
       .Subject.Message.Message.Should().Contain(Error);
+    using var scope = new AssertionScope();
     result.Optional().Should().Be(Sample);
+    withValue.Should().BeFalse();
+    action.Should().BeTrue();
   }
 
   [Fact]
   public void Array_AsPartial_ReturnsResultOk()
   {
     var input = _errorArray.ErrorArray(_errorMessage);
+    var withValue = false;
+    var action = false;
 
-    var result = input.AsPartial(Sample);
+    var result = input.AsPartial(Sample, v => withValue = true, () => action = true);
 
     result.Should().BeOfType<ResultPartial<string>>()
       .Subject.Message.Message.Should().Contain(Error);
+    using var scope = new AssertionScope();
     result.Optional().Should().Be(Sample);
+    withValue.Should().BeFalse();
+    action.Should().BeTrue();
   }
 
   [Fact]

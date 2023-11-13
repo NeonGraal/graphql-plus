@@ -14,9 +14,10 @@ public readonly struct ResultArrayOk<T> : IResultArray<T>, IResultOk<T[]>
 
   public ResultArrayOk(T[] result) => Result = result;
 
-  public IResult<R> AsPartial<R>(R result, Action<T[]>? action = null)
+  public IResult<R> AsPartial<R>(R result, Action<T[]>? withValue = null, Action? action = null)
   {
-    action?.Invoke(Result);
+    withValue?.Invoke(Result);
+    action?.Invoke();
     return result.Ok();
   }
 
@@ -36,8 +37,11 @@ public readonly struct ResultArrayOk<T> : IResultArray<T>, IResultOk<T[]>
 
 public readonly struct ResultArrayEmpty<T> : IResultArray<T>, IResultEmpty<T[]>
 {
-  public IResult<R> AsPartial<R>(R result, Action<T[]>? action = null)
-    => result.Ok();
+  public IResult<R> AsPartial<R>(R result, Action<T[]>? withValue = null, Action? action = null)
+  {
+    action?.Invoke();
+    return result.Ok();
+  }
 
   public IResult<R> AsResult<R>(R? _ = default)
     => _.Empty();
@@ -55,8 +59,11 @@ public readonly struct ResultArrayError<T> : IResultArray<T>, IResultError<T[]>
 
   public ResultArrayError(ParseMessage message) => Message = message;
 
-  public IResult<R> AsPartial<R>(R result, Action<T[]>? action = null)
-    => result.Partial(Message);
+  public IResult<R> AsPartial<R>(R result, Action<T[]>? withValue = null, Action? action = null)
+  {
+    action?.Invoke();
+    return result.Partial(Message);
+  }
 
   public IResult<R> AsResult<R>(R? _ = default)
     => _.Error(Message);
@@ -76,9 +83,10 @@ public readonly struct ResultArrayPartial<T> : IResultArray<T>, IResultPartial<T
   public ResultArrayPartial(T[] result, ParseMessage message)
     => (Result, Message) = (result, message);
 
-  public IResult<R> AsPartial<R>(R result, Action<T[]>? action = null)
+  public IResult<R> AsPartial<R>(R result, Action<T[]>? withValue = null, Action? action = null)
   {
-    action?.Invoke(Result);
+    withValue?.Invoke(Result);
+    action?.Invoke();
     return result.Partial(Message);
   }
 

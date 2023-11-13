@@ -3,7 +3,7 @@
 public interface IResult<T>
 {
   IResult<R> AsResult<R>(R? _ = default);
-  IResult<R> AsPartial<R>(R result, Action<T>? action = null);
+  IResult<R> AsPartial<R>(R result, Action<T>? withValue = null, Action? action = null);
   IResult<R> Map<R>(SelectResult<T, R> onValue, OnResult<R>? otherwise = null);
 }
 
@@ -38,9 +38,10 @@ public readonly struct ResultOk<T> : IResultOk<T>
     Result = result;
   }
 
-  public IResult<R> AsPartial<R>(R result, Action<T>? action = null)
+  public IResult<R> AsPartial<R>(R result, Action<T>? withValue = null, Action? action = null)
   {
-    action?.Invoke(Result);
+    withValue?.Invoke(Result);
+    action?.Invoke();
     return result.Ok();
   }
 
@@ -55,8 +56,11 @@ public readonly struct ResultOk<T> : IResultOk<T>
 
 public readonly struct ResultEmpty<T> : IResultEmpty<T>
 {
-  public IResult<R> AsPartial<R>(R result, Action<T>? action = null)
-    => result.Ok();
+  public IResult<R> AsPartial<R>(R result, Action<T>? withValue = null, Action? action = null)
+  {
+    action?.Invoke();
+    return result.Ok();
+  }
 
   public IResult<R> AsResult<R>(R? _ = default)
     => _.Empty();
@@ -71,8 +75,11 @@ public readonly struct ResultError<T> : IResultError<T>
 
   public ResultError(ParseMessage message) => Message = message;
 
-  public IResult<R> AsPartial<R>(R result, Action<T>? action = null)
-    => result.Partial(Message);
+  public IResult<R> AsPartial<R>(R result, Action<T>? withValue = null, Action? action = null)
+  {
+    action?.Invoke();
+    return result.Partial(Message);
+  }
 
   public IResult<R> AsResult<R>(R? _ = default)
     => _.Error(Message);
@@ -93,9 +100,10 @@ public readonly struct ResultPartial<T> : IResultPartial<T>
     (Result, Message) = (result, message);
   }
 
-  public IResult<R> AsPartial<R>(R result, Action<T>? action = null)
+  public IResult<R> AsPartial<R>(R result, Action<T>? withValue = null, Action? action = null)
   {
-    action?.Invoke(Result);
+    withValue?.Invoke(Result);
+    action?.Invoke();
     return result.Partial(Message);
   }
 

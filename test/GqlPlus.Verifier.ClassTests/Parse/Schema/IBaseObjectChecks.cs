@@ -11,6 +11,7 @@ internal interface IBaseObjectChecks
   void WithExtendsGenericFieldBad(string name, string extends, string subType, string field, string fieldType);
   void WithAlternates(string name, string[] others);
   void WithAlternateComments(string name, AlternateComment[] others);
+  void WithAlternateModifiers(string name, string[] others);
   void WithFields(string name, FieldInput[] fields);
   void WithFieldsBad(string name, FieldInput[] fields);
   void WithFieldsAndAlternates(string name, FieldInput[] fields, string[] others);

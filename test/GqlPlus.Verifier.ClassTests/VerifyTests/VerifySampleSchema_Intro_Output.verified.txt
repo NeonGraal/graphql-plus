@@ -17,6 +17,7 @@ Success
     []
   }
   |
+  !AO
    I@23/4
   String
 }
@@ -38,6 +39,7 @@ Success
     ?
   }
   |
+  !AO
    I@7/10
   _OutputEnum
 }
@@ -58,6 +60,7 @@ Success
     String
   }
   |
+  !AO
    I@7/16
   _TypeRef
   <

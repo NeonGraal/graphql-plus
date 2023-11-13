@@ -5,23 +5,23 @@ public class OutputAstTests : BaseAliasedAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithAlternates(string name, string alternate)
       => _checks.HashCode(
-        () => new OutputAst(AstNulls.At, name) { Alternates = alternate.OutputReferences() });
+        () => new OutputAst(AstNulls.At, name) { Alternates = alternate.Alternates(Reference) });
 
   [Theory, RepeatData(Repeats)]
   public void String_WithAlternates(string name, string alternate)
     => _checks.String(
-      () => new OutputAst(AstNulls.At, name) { Alternates = alternate.OutputReferences() },
-      $"( !O {name} | {alternate} )");
+      () => new OutputAst(AstNulls.At, name) { Alternates = alternate.Alternates(Reference) },
+      $"( !O {name} | !AO {alternate} [] ? )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlternates(string name, string alternate)
     => _checks.Equality(
-      () => new OutputAst(AstNulls.At, name) { Alternates = alternate.OutputReferences() });
+      () => new OutputAst(AstNulls.At, name) { Alternates = alternate.Alternates(Reference) });
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_BetweenAlternates(string name, string alternate1, string alternate2)
     => _checks.InequalityBetween(alternate1, alternate2,
-      alternate => new OutputAst(AstNulls.At, name) { Alternates = alternate.OutputReferences() },
+      alternate => new OutputAst(AstNulls.At, name) { Alternates = alternate.Alternates(Reference) },
       alternate1 == alternate2);
 
   [Theory, RepeatData(Repeats)]
@@ -89,6 +89,9 @@ public class OutputAstTests : BaseAliasedAstTests
     => _checks.InequalityBetween(parameter1, parameter2,
       parameter => new OutputAst(AstNulls.At, name) { Parameters = parameter.TypeParameters() },
       parameter1 == parameter2);
+
+  private static OutputReferenceAst Reference(string argument)
+    => new(AstNulls.At, argument);
 
   protected override string InputString(string input)
     => $"( !O {input} )";

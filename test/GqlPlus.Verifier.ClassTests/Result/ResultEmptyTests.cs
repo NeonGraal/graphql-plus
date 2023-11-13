@@ -9,11 +9,16 @@ public class ResultEmptyTests : BaseResultTests
   public void Array_AsPartial_ReturnsResultOk()
   {
     var input = _emptyArray.EmptyArray();
+    var withValue = false;
+    var action = false;
 
-    var result = input.AsPartial(Sample);
+    var result = input.AsPartial(Sample, v => withValue = true, () => action = true);
 
-    result.Should().BeOfType<ResultOk<string>>()
-      .Subject.Optional().Should().Be(Sample);
+    result.Should().BeOfType<ResultOk<string>>();
+    using var scope = new AssertionScope();
+    result.Optional().Should().Be(Sample);
+    withValue.Should().BeFalse();
+    action.Should().BeTrue();
   }
 
   [Fact]

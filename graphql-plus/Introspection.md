@@ -91,13 +91,18 @@ output _TypeObject<$kind $base $field> {
         parameters: _Named[]
         base: $base?
         fields: $field[]
-        alternates: _TypeRef<$base>[]
+        alternates: _Alternate<$base>[]
     }
 
 output _TypeRef<$base> {
     | _BaseType<_Kind.Internal>
     | _TypeSimple
     | $base
+    }
+
+output _Alternate<$base> {
+      type: _TypeRef<$base>
+      modifiers: _TypeModifier[]
     }
 
 output _TypeField<$base> {
@@ -297,13 +302,18 @@ output _TypeObject<$kind $base $field> {
         parameters: _Named[]
         base: $base?
         fields: $field[]
-        alternates: _TypeRef<$base>[]
+        alternates: _Alternate<$base>[]
     }
 
 output _TypeRef<$base> {
     | _BaseType<_Kind.Internal>
     | _TypeSimple
     | $base
+    }
+
+output _Alternate<$base> {
+      type: _TypeRef<$base>
+      modifiers: _TypeModifier[]
     }
 
 output _TypeField<$base> {

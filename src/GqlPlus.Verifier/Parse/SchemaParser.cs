@@ -344,8 +344,8 @@ internal class SchemaParser : CommonParser
     while (objectField.Required(fields.Add)) {
       objectField = ParseField(factories);
       if (objectField.IsError()) {
-        result.Fields = fields.ToArray();
-        return objectField.AsPartial(result);
+        return objectField.AsPartial(result, fields.Add, () =>
+          result.Fields = fields.ToArray());
       }
     }
 
@@ -356,15 +356,22 @@ internal class SchemaParser : CommonParser
       : End(factories.Label, () => result);
   }
 
-  private IResultArray<R> ParseAlternates<R>(IReferenceParser<R> factories, params R[] initial)
+  private IResultArray<AstAlternate<R>> ParseAlternates<R>(IReferenceParser<R> factories)
     where R : AstReference<R>
   {
-    var result = new List<R>(initial);
+    var result = new List<AstAlternate<R>>();
     while (_tokens.Take('|')) {
       _tokens.String(out var descr);
       var reference = ParseReference(factories, descr);
-      if (!reference.Required(result.Add)) {
-        return PartialArray(factories.Label, "reference after '|'", () => result);
+      if (!reference.IsOk()) {
+        return reference.AsPartialArray(result);
+      }
+
+      AstAlternate<R> alternate = new(reference.Required());
+      result.Add(alternate);
+      var modifiers = ParseModifiers(factories.Label);
+      if (!modifiers.Optional(value => alternate.Modifiers = value)) {
+        return modifiers.AsPartialArray(result);
       }
     }
 

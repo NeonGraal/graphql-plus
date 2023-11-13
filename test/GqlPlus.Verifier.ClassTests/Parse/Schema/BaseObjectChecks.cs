@@ -18,7 +18,7 @@ internal sealed class BaseObjectChecks<O, F, R>
     => TrueExpected(
       name + "{" + others.Joined("|") + "}",
        Object(name) with {
-         Alternates = others.Select(Reference).ToArray(),
+         Alternates = others.Select(Alternate).ToArray(),
        });
 
   public void WithFieldsAndAlternates(string name, FieldInput[] fields, string[] others)
@@ -26,7 +26,7 @@ internal sealed class BaseObjectChecks<O, F, R>
       name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + others.Joined("|") + "}",
        Object(name) with {
          Fields = fields.Select(f => Field(f.Name, f.Type)).ToArray(),
-         Alternates = others.Select(Reference).ToArray(),
+         Alternates = others.Select(Alternate).ToArray(),
        });
 
   public void WithFieldsBadAndAlternates(string name, FieldInput[] fields, string[] others)
@@ -39,16 +39,21 @@ internal sealed class BaseObjectChecks<O, F, R>
     => TrueExpected(
       name + "{" + others.Select(o => $"|'{o.Content}'{o.Alternate}").Joined() + "}",
        Object(name) with {
-         Alternates = others.Select(o => Reference(o.Alternate) with {
-           Description = o.Content
-         }).ToArray(),
+         Alternates = others.Select(o => Alternate(o.Alternate, o.Content)).ToArray(),
+       });
+
+  public void WithAlternateModifiers(string name, string[] others)
+    => TrueExpected(
+      name + "{" + others.Joined(a => $"|{a}[]?") + "}",
+       Object(name) with {
+         Alternates = others.Select(a => Alternate(a) with { Modifiers = TestMods() }).ToArray(),
        });
 
   public void WithTypeParameters(string name, string other, string parameter)
     => TrueExpected(
       name + "<$" + parameter + ">{|" + other + "}",
        Object(name) with {
-         Alternates = new[] { Reference(other) },
+         Alternates = new[] { Alternate(other) },
          Parameters = parameter.TypeParameters(),
        });
 
@@ -102,10 +107,16 @@ internal sealed class BaseObjectChecks<O, F, R>
   public R Reference(string type, string subType)
     => Reference(type) with { Arguments = new[] { Reference(subType) } };
 
+  public AstAlternate<R> Alternate(string type)
+    => new(Reference(type));
+
+  public AstAlternate<R> Alternate(string type, string description)
+    => new(Reference(type) with { Description = description });
+
   protected internal override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";
   protected internal override O AliasedFactory(ObjectInput input)
-    => Object(input.Name) with { Alternates = new[] { Reference(input.Other) } };
+    => Object(input.Name) with { Alternates = new[] { Alternate(input.Other, "") } };
 }
 
 public record struct AlternateComment(string Content, string Alternate);

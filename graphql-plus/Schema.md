@@ -200,7 +200,7 @@ The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically 
 ```PEG
 Input = 'input' input TypeParameters? Aliases? '{' In_Definition '}'
 In_Definition = In_Object? In_Alternate*
-In_Object = STRING? ( ':' In_Base )? InField+
+In_Object = ( ':' STRING? In_Base )? InField+
 In_Field = STRING? field fieldAlias* ':' STRING? In_Reference Modifiers? Default?
 
 In_Alternate = '|' STRING? In_Reference
@@ -250,7 +250,7 @@ If only present on one Field before merging, optional components will be retaine
 ```PEG
 Output = 'output' output TypeParameters? Aliases? '{' Out_Definition '}'
 Out_Definition = Out_Object? Out_Alternate*
-Out_Object = STRING? ( ':' Out_Base )? ( STRING? field Out_Field )+
+Out_Object = ( ':' STRING? Out_Base )? ( STRING? field Out_Field )+
 Out_Field = Parameter? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
 Out_Alternate = '|' STRING? Out_Reference
@@ -345,7 +345,7 @@ Simple = Basic | scalar | enum  # Redefined
 
 Input = 'input' input TypeParameters? Aliases? '{' In_Definition '}'
 In_Definition = In_Object? In_Alternate*
-In_Object = STRING? ( ':' In_Base )? InField+
+In_Object = ( ':' STRING? In_Base )? InField+
 In_Field = STRING? field fieldAlias* ':' STRING? In_Reference Modifiers? Default?
 
 In_Alternate = '|' STRING? In_Reference
@@ -354,7 +354,7 @@ In_Base = '$'typeParameter | input ( '<' STRING? In_Reference+ '>' )?
 
 Output = 'output' output TypeParameters? Aliases? '{' Out_Definition '}'
 Out_Definition = Out_Object? Out_Alternate*
-Out_Object = STRING? ( ':' Out_Base )? ( STRING? field Out_Field )+
+Out_Object = ( ':' STRING? Out_Base )? ( STRING? field Out_Field )+
 Out_Field = Parameter? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
 Out_Alternate = '|' STRING? Out_Reference

@@ -269,8 +269,14 @@ internal class SchemaParser : CommonParser
   internal IResult<InputAst> ParseInputDeclaration(string description)
    => ParseObject(description, new InputParserFactories(this));
 
+  internal IResult<InputAst> ParseInputDeclarationNew(string description)
+   => ParseObjectNew(description, new InputParserFactories(this));
+
   internal IResult<OutputAst> ParseOutputDeclaration(string description)
    => ParseObject(description, new OutputParserFactories(this));
+
+  internal IResult<OutputAst> ParseOutputDeclarationNew(string description)
+   => ParseObjectNew(description, new OutputParserFactories(this));
 
   internal IResult<ScalarAst> ParseScalarDeclaration(string description)
   {
@@ -512,6 +518,58 @@ internal class SchemaParser : CommonParser
     return result.Empty();
   }
 
+  private IResult<O> ParseObjectNew<O, F, R>(string description, IObjectParser<O, F, R> factories)
+    where O : AstObject<F, R> where F : AstField<R> where R : AstReference<R>
+  {
+    var at = _tokens.At;
+    var getName = _tokens.Identifier(out var name);
+
+    O result = factories.Object(at, name, description);
+    if (!getName) {
+      return Error(factories.Label, "name", result);
+    }
+
+    var typeParameters = ParseTypeParameters(factories.Label);
+    if (!typeParameters.Optional(parameters => result.Parameters = parameters)) {
+      return typeParameters.AsPartial(result);
+    }
+
+    var prefix = ParsePrefixNew(factories.Label);
+    if (!prefix.Required(aliases => result.Aliases = aliases)) {
+      return prefix.AsPartial(result);
+    }
+
+    if (_tokens.Take(':')) {
+      _tokens.String(out var descr);
+      var baseReference = ParseReference(factories, descr);
+      if (baseReference.IsError()) {
+        return baseReference.AsResult(result);
+      }
+
+      baseReference.WithResult(reference => result.Extends = reference with { Description = descr });
+    }
+
+    var fields = new List<F>();
+    var objectField = ParseFieldNew(factories);
+    if (objectField.IsError()) {
+      return objectField.AsPartial(result);
+    }
+
+    while (objectField.Required(fields.Add)) {
+      objectField = ParseFieldNew(factories);
+      if (objectField.IsError()) {
+        result.Fields = fields.ToArray();
+        return objectField.AsPartial(result);
+      }
+    }
+
+    result.Fields = fields.ToArray();
+    var objectAlternates = ParseAlternates(factories);
+    return !objectAlternates.Optional(alternates => result.Alternates = alternates)
+      ? objectAlternates.AsPartial(result)
+      : End(factories.Label, () => result);
+  }
+
   private IResultArray<R> ParseAlternates<R>(IReferenceParser<R> factories, params R[] initial)
     where R : AstReference<R>
   {
@@ -543,6 +601,51 @@ internal class SchemaParser : CommonParser
 
     var hasAliases = ParseAliases(parser.Label);
 
+    if (hasAliases.IsError()) {
+      return hasAliases.AsResult<F>();
+    }
+
+    var field = parser.Field(at, name, description, parser.Reference(at, ""));
+
+    if (_tokens.Take(':')) {
+      _tokens.String(out var descr);
+      if (ParseReference(parser, descr).Required(fieldType
+        => field = parser.Field(at, name, description, fieldType))
+        ) {
+        hasAliases.WithResult(aliases => field.Aliases = aliases);
+        hasParameter.WithResult(parameter => parser.ApplyParameter(field, parameter));
+
+        var modifiers = ParseModifiers("Operation");
+        if (modifiers.IsError()) {
+          return modifiers.AsResult<F>();
+        }
+
+        modifiers.WithResult(modifiers => field.Modifiers = modifiers);
+
+        return parser.FieldDefault(field);
+      }
+
+      return Error(parser.Label, "field type", field);
+    }
+
+    return parser.FieldEnumLabel(field);
+  }
+
+  internal IResult<F> ParseFieldNew<F, R>(IFieldParser<F, R> parser)
+    where F : AstField<R> where R : AstReference<R>
+  {
+    var at = _tokens.At;
+    _tokens.String(out var description);
+    if (!_tokens.Identifier(out var name)) {
+      return 0.Empty<F>();
+    }
+
+    var hasParameter = parser.FieldParameter();
+    if (hasParameter.IsError()) {
+      return hasParameter.AsResult<F>();
+    }
+
+    var hasAliases = ParseAliases(parser.Label);
     if (hasAliases.IsError()) {
       return hasAliases.AsResult<F>();
     }
@@ -631,6 +734,9 @@ internal class SchemaParser : CommonParser
 
     return reference.Ok();
   }
+
+  internal IResult<InputFieldAst> ParseInputFieldLabel(InputFieldAst field)
+    => Error("Input", "':'", field);
 
   internal IResult<OutputFieldAst> ParseOutputFieldLabel(OutputFieldAst field)
   {

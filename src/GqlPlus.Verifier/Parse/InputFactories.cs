@@ -34,7 +34,7 @@ internal class InputParserFactories
 
   [ExcludeFromCodeCoverage]
   public IResult<InputFieldAst> FieldEnumLabel(InputFieldAst field)
-    => field.Ok();
+    => _parser.ParseInputFieldLabel(field);
 
   public IResult<ParameterAst> FieldParameter()
     => 0.Empty<ParameterAst>();

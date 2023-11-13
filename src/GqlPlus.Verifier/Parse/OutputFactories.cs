@@ -28,6 +28,9 @@ internal class OutputParserFactories
   public IResult<OutputFieldAst> FieldDefault(OutputFieldAst field)
     => field.Ok();
 
+  public IResult<OutputFieldAst> FieldEnumLabel(OutputFieldAst field)
+    => _parser.ParseOutputFieldLabel(field);
+
   public IResult<ParameterAst> FieldParameter()
     => _parser.ParseParameter();
 
@@ -36,7 +39,4 @@ internal class OutputParserFactories
 
   public IResult<OutputReferenceAst> TypeEnumLabel(OutputReferenceAst reference)
     => _parser.ParseOutputEnumLabel(reference);
-
-  public IResult<OutputFieldAst> FieldEnumLabel(OutputFieldAst field)
-    => _parser.ParseOutputFieldLabel(field);
 }

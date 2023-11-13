@@ -16,74 +16,76 @@ internal sealed class BaseObjectChecks<O, F, R>
 
   public void WithAlternates(string name, string[] others)
     => TrueExpected(
-      name + "=" + string.Join("|", others),
+      name + "{" + others.Joined("|") + "}",
        Object(name) with {
          Alternates = others.Select(Reference).ToArray(),
        });
 
   public void WithFieldsAndAlternates(string name, FieldInput[] fields, string[] others)
     => TrueExpected(
-      name + "={" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}|" + string.Join("|", others),
+      name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + others.Joined("|") + "}",
        Object(name) with {
          Fields = fields.Select(f => Field(f.Name, f.Type)).ToArray(),
          Alternates = others.Select(Reference).ToArray(),
        });
 
   public void WithFieldsBadAndAlternates(string name, FieldInput[] fields, string[] others)
-    => False(name + "={" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "|" + string.Join("|", others));
+    => False(name + "{" + fields.Select(f => f.Name + " " + f.Type).Joined() + others.Joined("|") + "}");
 
   public void WithFieldsAndAlternatesBad(string name, FieldInput[] fields, string[] others)
-    => False(name + "={" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}||" + string.Join("|", others));
+    => False(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "||" + others.Joined("|") + "}");
 
   public void WithAlternateComments(string name, AlternateComment[] others)
     => TrueExpected(
-      name + "=" + string.Join("|", others.Select(o => $"'{o.Content}'{o.Alternate}")),
+      name + "{" + others.Select(o => $"|'{o.Content}'{o.Alternate}").Joined() + "}",
        Object(name) with {
-         Alternates = others.Select(o => Reference(o.Alternate) with { Description = o.Content }).ToArray(),
+         Alternates = others.Select(o => Reference(o.Alternate) with {
+           Description = o.Content
+         }).ToArray(),
        });
 
   public void WithTypeParameters(string name, string other, string parameter)
     => TrueExpected(
-      name + "<$" + parameter + ">=" + other,
+      name + "<$" + parameter + ">{|" + other + "}",
        Object(name) with {
          Alternates = new[] { Reference(other) },
          Parameters = parameter.TypeParameters(),
        });
 
   public void WithTypeParametersBad(string name, string other, string parameter)
-    => False(name + "<$" + parameter + "=" + other);
+    => False(name + "<$" + parameter + "{|" + other);
 
   public void WithFields(string name, FieldInput[] fields)
     => TrueExpected(
-      name + "={" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}",
+      name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}",
        Object(name) with {
          Fields = fields.Select(f => Field(f.Name, f.Type)).ToArray(),
        });
 
   public void WithFieldsBad(string name, FieldInput[] fields)
-    => False(name + "={" + fields.Select(f => f.Name + ":" + f.Type).Joined());
+    => False(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined());
 
   public void WithExtendsField(string name, string extends, string field, string fieldType)
     => TrueExpected(
-      name + "=" + extends + "{" + field + ":" + fieldType + "}",
+      name + "{:" + extends + " " + field + ":" + fieldType + "}",
        Object(name) with {
          Fields = new[] { Field(field, fieldType) },
          Extends = Reference(extends),
        });
 
   public void WithExtendsFieldBad(string name, string extends, string field, string fieldType)
-    => False(name + "=" + extends + "{" + field + ":" + fieldType);
+    => False(name + "{:" + extends + " " + field + ":" + fieldType);
 
   public void WithExtendsGenericField(string name, string extends, string subType, string field, string fieldType)
     => TrueExpected(
-      name + "=" + extends + "<" + subType + ">{" + field + ":" + fieldType + "}",
+      name + "{:" + extends + "<" + subType + ">" + field + ":" + fieldType + "}",
        Object(name) with {
          Fields = new[] { Field(field, fieldType) },
          Extends = Reference(extends, subType),
        });
 
   public void WithExtendsGenericFieldBad(string name, string extends, string subType, string field, string fieldType)
-    => False(name + "=" + extends + "<" + subType + "{" + field + ":" + fieldType + "}");
+    => False(name + "{:" + extends + "<" + subType + " " + field + ":" + fieldType + "}");
 
   public O Object(string name)
     => _factories.Object(AstNulls.At, name, "");
@@ -101,7 +103,7 @@ internal sealed class BaseObjectChecks<O, F, R>
     => Reference(type) with { Arguments = new[] { Reference(subType) } };
 
   protected internal override string AliasesString(ObjectInput input, string aliases)
-    => input.Name + aliases + "=" + input.Other;
+    => input.Name + aliases + "{|" + input.Other + "}";
   protected internal override O AliasedFactory(ObjectInput input)
     => Object(input.Name) with { Alternates = new[] { Reference(input.Other) } };
 }

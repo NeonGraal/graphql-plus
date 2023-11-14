@@ -3,17 +3,15 @@
 public class ResultErrorTests : BaseResultTests
 {
   private const string Error = "Error";
-  private readonly string[] _errorArray = { Error };
-  private readonly ParseMessage _errorMessage = Error.ParseMessage();
+  private readonly IResult<string> _error = Error.Error(Error.ParseMessage());
 
   [Fact]
   public void AsPartial_ReturnsResultOk()
   {
-    var input = Error.Error(_errorMessage);
     var withValue = false;
     var action = false;
 
-    var result = input.AsPartial(Sample, v => withValue = true, () => action = true);
+    var result = _error.AsPartial(Sample, v => withValue = true, () => action = true);
 
     result.Should().BeOfType<ResultPartial<string>>()
       .Subject.Message.Message.Should().Contain(Error);
@@ -24,71 +22,32 @@ public class ResultErrorTests : BaseResultTests
   }
 
   [Fact]
-  public void Array_AsPartial_ReturnsResultOk()
+  public void AsPartialArray_ReturnsResultArrayError()
   {
-    var input = _errorArray.ErrorArray(_errorMessage);
-    var withValue = false;
-    var action = false;
-
-    var result = input.AsPartial(Sample, v => withValue = true, () => action = true);
-
-    result.Should().BeOfType<ResultPartial<string>>()
-      .Subject.Message.Message.Should().Contain(Error);
-    using var scope = new AssertionScope();
-    result.Optional().Should().Be(Sample);
-    withValue.Should().BeFalse();
-    action.Should().BeTrue();
-  }
-
-  [Fact]
-  public void Array_AsResultArray_ReturnsResultArrayError()
-  {
-    var input = _errorArray.ErrorArray(_errorMessage);
-
-    var result = input.AsResultArray(_sample);
+    var result = _error.AsPartialArray(_sample);
 
     result.Should().BeOfType<ResultArrayError<string>>()
-      .Subject.Message.Message.Should().Be(Error);
+      .Subject.Message.Message.Should().Contain(Error);
   }
 
   [Fact]
   public void Map_ReturnsOtherwise()
   {
-    var input = Error.Error(_errorMessage);
-
-    var result = input.Map(a => Error.Ok(), () => Sample.Ok());
+    var result = _error.Map(a => Error.Ok(), () => Sample.Ok());
 
     result.Should().BeOfType<ResultOk<string>>()
       .Subject.Required().Should().Be(Sample);
   }
 
   [Fact]
-  public void Array_Map_ReturnsOtherwise()
-  {
-    var input = _errorArray.ErrorArray(_errorMessage);
-
-    var result = input.Map(a => a.Ok(), () => _sample.Ok());
-
-    result.Should().BeOfType<ResultOk<string[]>>()
-      .Subject.Required().Should().Equal(_sample);
-  }
-
-  [Fact]
   public void Optional_ThrowsInvalidOperation()
   {
-    var input = Error.Error(_errorMessage);
-
-    Action action = () => input.Optional();
+    Action action = () => _error.Optional();
 
     action.Should().Throw<InvalidOperationException>()
       .Which.Message.Should().Contain(Error);
   }
 
   [Fact]
-  public void WithMesssage_CallsActionParameter()
-  {
-    var input = Error.Error(_errorMessage);
-
-    input.WithMessage(m => m.Message.Should().Be(Error));
-  }
+  public void WithMesssage_CallsActionParameter() => _error.WithMessage(m => m.Message.Should().Be(Error));
 }

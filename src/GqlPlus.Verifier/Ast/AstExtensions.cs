@@ -58,11 +58,6 @@ public static class AstExtensions
       ? char.ToLower(text[0]) + text[1..]
       : text;
 
-  public static string? Pascalize(this string? text)
-    => text?.Length > 0
-      ? char.ToUpper(text[0]) + text[1..]
-      : text;
-
   public static string Prefixed(this string? text, string prefix)
     => text?.Length > 0 ? prefix + text : "";
 

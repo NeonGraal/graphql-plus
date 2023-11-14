@@ -19,7 +19,7 @@ internal sealed record class AstAlternate<R>(ParseAt At, R Type)
     => HashCode.Combine(base.GetHashCode(), Type, Modifiers.Length);
 
   internal override IEnumerable<string?> GetFields()
-  => new[] { "!A" + Type.Abbr[..1] }
+  => new[] { "!" + Abbr + Type.Abbr[..1] }
     .Concat(Type.GetFields())
     .Concat(Modifiers.AsString());
 }

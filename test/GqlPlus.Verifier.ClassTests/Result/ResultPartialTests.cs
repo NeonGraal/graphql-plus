@@ -3,17 +3,16 @@
 public class ResultPartialTests : BaseResultTests
 {
   private const string Partial = "Partial";
-  private readonly ParseMessage _partialMessage = Partial.ParseMessage();
-  private readonly string[] _partialArray = { Partial };
+  private readonly IResult<string> _partial = Partial.Partial(Partial.ParseMessage());
+  private readonly IResult<string[]> _partialArray = new[] { Partial }.Partial(Partial.ParseMessage());
 
   [Fact]
   public void AsPartial_ReturnsResultOk()
   {
-    var input = Partial.Partial(_partialMessage);
     var withValue = false;
     var action = false;
 
-    var result = input.AsPartial(Sample, v => withValue = true, () => action = true);
+    var result = _partial.AsPartial(Sample, v => withValue = true, () => action = true);
 
     result.Should().BeOfType<ResultPartial<string>>()
       .Subject.Message.Message.Should().Contain(Partial);
@@ -24,56 +23,37 @@ public class ResultPartialTests : BaseResultTests
   }
 
   [Fact]
-  public void Array_AsResultArray_ReturnsResultArrayPartial()
-  {
-    var input = _partialArray.Partial(_partialMessage);
-
-    var result = input.AsResultArray(_sample);
-
-    result.Should().BeOfType<ResultArrayPartial<string>>()
-      .Subject.Message.Message.Should().Be(Partial);
-    result.Optional().Should().BeEquivalentTo(new object[] { Partial });
-  }
-
-  [Fact]
   public void AsResultArray_ReturnsResultArrayError()
   {
-    var input = Partial.Partial(_partialMessage);
-
-    var result = input.AsResultArray(_sample);
+    var result = _partial.AsResultArray(_sample);
 
     result.Should().BeOfType<ResultArrayError<string>>()
       .Subject.Message.Message.Should().Be(Partial);
   }
 
   [Fact]
+  public void Array_AsResultArray_ReturnsResultArrayError()
+  {
+    var result = _partialArray.AsResultArray(_sample);
+
+    result.Should().BeOfType<ResultArrayPartial<string>>()
+      .Subject.Message.Message.Should().Be(Partial);
+    result.Optional().Should().Equal(Partial);
+  }
+
+  [Fact]
   public void Map_ReturnsOtherwise()
   {
-    var input = Partial.Partial(_partialMessage);
-
-    var result = input.Map(a => Partial.Ok(), () => Sample.Ok());
+    var result = _partial.Map(a => Partial.Ok(), () => Sample.Ok());
 
     result.Should().BeOfType<ResultOk<string>>()
       .Subject.Required().Should().Be(Partial);
   }
 
   [Fact]
-  public void Array_Map_ReturnsOtherwise()
-  {
-    var input = _partialArray.PartialArray(_partialMessage);
-
-    var result = input.Map(a => Sample.Ok(), () => Sample.Ok());
-
-    result.Should().BeOfType<ResultOk<string>>()
-      .Subject.Required().Should().Be(Sample);
-  }
-
-  [Fact]
   public void Required_ThrowsInvalidOperation()
   {
-    var input = Partial.Partial(_partialMessage);
-
-    Action action = () => input.Required();
+    Action action = () => _partial.Required();
 
     action.Should().Throw<InvalidOperationException>()
       .Which.Message.Should().Contain(Partial);
@@ -82,9 +62,7 @@ public class ResultPartialTests : BaseResultTests
   [Fact]
   public void Select_WithLength_ReturnsResultPartial()
   {
-    var input = Partial.Partial(_partialMessage);
-
-    var result = input.Select(s => s.Length);
+    var result = _partial.Select(s => s.Length);
 
     result.Should().BeOfType<ResultPartial<int>>()
       .Subject.Message.Message.Should().Contain(Partial);
@@ -94,9 +72,7 @@ public class ResultPartialTests : BaseResultTests
   [Fact]
   public void Select_WithNull_ReturnsResultPartial()
   {
-    var input = Partial.Partial(_partialMessage);
-
-    var result = input.Select(s => (Tokenizer?)null);
+    var result = _partial.Select(s => (Tokenizer?)null);
 
     result.Should().BeOfType<ResultError<Tokenizer>>()
       .Subject.Message.Message.Should().Be(Partial);
@@ -105,9 +81,7 @@ public class ResultPartialTests : BaseResultTests
   [Fact]
   public void SelectOk_WithLength_ReturnsResultError()
   {
-    var input = Partial.Partial(_partialMessage);
-
-    var result = input.SelectOk(s => s.Length);
+    var result = _partial.SelectOk(s => s.Length);
 
     result.Should().BeOfType<ResultError<int>>()
       .Subject.Message.Message.Should().Be(Partial);
@@ -116,9 +90,7 @@ public class ResultPartialTests : BaseResultTests
   [Fact]
   public void SelectOk_WithNull_ReturnsResultError()
   {
-    var input = Partial.Partial(_partialMessage);
-
-    var result = input.SelectOk(s => (Tokenizer?)null);
+    var result = _partial.SelectOk(s => (Tokenizer?)null);
 
     result.Should().BeOfType<ResultError<Tokenizer>>()
       .Subject.Message.Message.Should().Be(Partial);

@@ -6,6 +6,10 @@ public sealed class ParseDirectiveTests
   : BaseAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
+  public void WithNameBad_ReturnsFalse(decimal id)
+    => Test.False($"@{id}{{operation}}");
+
+  [Theory, RepeatData(Repeats)]
   public void WithRepeatable_ReturnsCorrectAst(string name)
     => Test.TrueExpected(
       "@" + name + "{(repeatable)operation}",

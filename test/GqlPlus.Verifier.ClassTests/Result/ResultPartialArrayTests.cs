@@ -12,7 +12,7 @@ public class ResultPartialArrayTests : BaseResultTests
 
     result.Should().BeOfType<ResultArrayPartial<string>>()
       .Subject.Message.Message.Should().Be(Partial);
-    result.Optional().Should().BeEquivalentTo(new[] { Partial });
+    result.Optional().Should().BeEquivalentTo(_sample);
   }
 
   [Fact]

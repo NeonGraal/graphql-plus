@@ -6,6 +6,16 @@ public sealed class ParseScalarTests
   : BaseAliasedTests<ScalarInput>
 {
   [Theory, RepeatData(Repeats)]
+  public void WithNameBad_ReturnsFalse(decimal id)
+    => Test.False($"{id}{{String}}");
+
+  [Theory, RepeatData(Repeats)]
+  public void WithKindBad_ReturnsFalse(string name, string kind)
+    => Test.False(
+      $"{name}{{{kind}}}",
+      skipIf: Enum.TryParse<ScalarKind>(kind, out var _));
+
+  [Theory, RepeatData(Repeats)]
   public void WithRegexes_ReturnsCorrectAst(string name, string regex1, string regex2)
     => Test.TrueExpected(
       name + "{string/" + regex1 + "/!/" + regex2 + "/}",
@@ -13,6 +23,10 @@ public sealed class ParseScalarTests
         Kind = ScalarKind.String,
         Regexes = regex1.ScalarRegexes(regex2),
       });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithNoBounds_ReturnsFalse(string name)
+    => Test.False(name + "{number ..}");
 
   [Theory, RepeatData(Repeats)]
   public void WithLowerBound_ReturnsCorrectAst(string name, decimal min)

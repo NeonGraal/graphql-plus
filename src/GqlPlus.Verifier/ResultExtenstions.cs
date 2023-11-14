@@ -2,16 +2,19 @@
 
 public static class ResultExtenstions
 {
-  public static IResultArray<R> AsPartialArray<T, R>(this IResult<T> result, IEnumerable<R>? _ = default)
-    => result switch {
-      IResultOk<T> ok when ok.Result is R[] newResult
-        => new ResultArrayOk<R>(newResult),
-      IResultPartial<T> part when part.Result is R[] newResult
-        => new ResultArrayPartial<R>(newResult, part.Message),
+  public static IResultArray<R> AsPartialArray<T, R>(this IResult<T> old, IEnumerable<R> result, Action<T>? withValue = null)
+  {
+    if (old is IResultValue<T> value) {
+      withValue?.Invoke(value.Result);
+    }
+
+    return old switch {
       IResultMessage<T> msg
-        => new ResultArrayError<R>(msg.Message),
-      _ => new ResultArrayEmpty<R>(),
+        => result.PartialArray(msg.Message),
+      _ => result.OkArray(),
     };
+  }
+
   public static IResultArray<R> AsResultArray<T, R>(this IResult<T> result, IEnumerable<R>? _ = default)
     => result switch {
       IResultOk<T> ok when ok.Result is R[] newResult

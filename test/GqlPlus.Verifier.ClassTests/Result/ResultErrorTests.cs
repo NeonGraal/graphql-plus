@@ -26,8 +26,9 @@ public class ResultErrorTests : BaseResultTests
   {
     var result = _error.AsPartialArray(_sample);
 
-    result.Should().BeOfType<ResultArrayError<string>>()
+    result.Should().BeOfType<ResultArrayPartial<string>>()
       .Subject.Message.Message.Should().Contain(Error);
+    result.Optional().Should().BeEquivalentTo(_sample);
   }
 
   [Fact]

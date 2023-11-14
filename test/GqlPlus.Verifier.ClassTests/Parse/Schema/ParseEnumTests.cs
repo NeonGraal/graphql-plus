@@ -6,6 +6,10 @@ public sealed class ParseEnumTests
   : BaseAliasedTests<EnumInput>
 {
   [Theory, RepeatData(Repeats)]
+  public void WithNameBad_ReturnsFalse(decimal id, string label)
+    => Test.False($"{id}{{{label}}}");
+
+  [Theory, RepeatData(Repeats)]
   public void WithExtends_ReturnsCorrectAst(EnumInput input, string extends)
     => Test.TrueExpected(input.Name + "{:" + extends + " " + input.Label + "}",
       Test.AliasedFactory(input) with {
@@ -13,8 +17,8 @@ public sealed class ParseEnumTests
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithExtendsBad_ReturnsFalse(string name, string extends, string label)
-    => Test.False(name + "{:" + extends + label + "}");
+  public void WithExtendsBad_ReturnsFalse(string name)
+    => Test.False(name + "{:}");
 
   [Theory, RepeatData(Repeats)]
   public void WithLabels_ReturnsCorrectAst(string name, string[] labels)

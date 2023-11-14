@@ -3,8 +3,11 @@
 internal interface IBaseObjectChecks
   : IBaseAliasedChecks<ObjectInput>
 {
+  void WithNameBad(decimal id, string[] others);
   void WithTypeParameters(string name, string other, string parameter);
+  void WithTypeParameterBad(string name, string other);
   void WithTypeParametersBad(string name, string other, string parameter);
+  void WithTypeParametersNone(string name, string other);
   void WithExtendsField(string name, string extends, string field, string fieldType);
   void WithExtendsFieldBad(string name, string extends, string field, string fieldType);
   void WithExtendsGenericField(string name, string extends, string subType, string field, string fieldType);

@@ -26,8 +26,7 @@ public class ResultOkArrayTests : BaseResultTests
     var result = _okArray.AsPartialArray(_sample);
 
     result.Should().BeOfType<ResultArrayOk<string>>();
-    using var scope = new AssertionScope();
-    result.Optional().Should().BeEquivalentTo(new[] { Ok });
+    result.Optional().Should().BeEquivalentTo(_sample);
   }
 
   [Fact]

@@ -4,6 +4,10 @@ public abstract class BaseObjectTests
   : BaseAliasedTests<ObjectInput>
 {
   [Theory, RepeatData(Repeats)]
+  public void WithNameBad_ReturnsFalse(decimal id, string[] others)
+    => Checks.WithNameBad(id, others);
+
+  [Theory, RepeatData(Repeats)]
   public void WithAlternates_ReturnsCorrectAst(string name, string[] others)
     => Checks.WithAlternates(name, others);
 
@@ -20,8 +24,16 @@ public abstract class BaseObjectTests
     => Checks.WithTypeParameters(name, other, parameter);
 
   [Theory, RepeatData(Repeats)]
+  public void WithTypeParameterBad_ReturnsFalse(string name, string other)
+    => Checks.WithTypeParameterBad(name, other);
+
+  [Theory, RepeatData(Repeats)]
   public void WithTypeParametersBad_ReturnsFalse(string name, string other, string parameter)
     => Checks.WithTypeParametersBad(name, other, parameter);
+
+  [Theory, RepeatData(Repeats)]
+  public void WithTypeParametersNone_ReturnsFalse(string name, string other)
+    => Checks.WithTypeParametersNone(name, other);
 
   [Theory, RepeatData(Repeats)]
   public void WithFields_ReturnsCorrectAst(string name, FieldInput[] fields)

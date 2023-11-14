@@ -536,7 +536,17 @@ internal class SchemaParser : CommonParser
   private IResultArray<ScalarRangeAst> ParseRanges()
   {
     var result = new List<ScalarRangeAst>();
-    while (ParseRange().Required(result.Add)) { }
+    var range = ParseRange();
+    if (range.IsError()) {
+      return range.AsResultArray(result);
+    }
+
+    while (range.Required(result.Add)) {
+      range = ParseRange();
+      if (range.IsError()) {
+        return range.AsPartialArray(result, result.Add);
+      }
+    }
 
     return result.OkArray();
   }
@@ -547,7 +557,8 @@ internal class SchemaParser : CommonParser
     var range = new ScalarRangeAst(at);
     var hasLower = _tokens.Number(out var min);
     var excludesLower = _tokens.Take('>');
-    if (!_tokens.Take("..") && hasLower) {
+    var hasRange = _tokens.Take("..");
+    if (hasLower && !hasRange) {
       return Error("Scalar", "range operator ('..')", range);
     }
 
@@ -564,7 +575,11 @@ internal class SchemaParser : CommonParser
       range.UpperExcluded = excludesUpper;
     }
 
-    return hasLower || hasUpper ? range.Ok() : range.Empty();
+    return hasLower || hasUpper
+      ? range.Ok()
+      : hasRange
+        ? Error("Scalar", "min or max bounds", range)
+        : range.Empty();
   }
 
   private IResultArray<ScalarRegexAst> ParseRegexes()

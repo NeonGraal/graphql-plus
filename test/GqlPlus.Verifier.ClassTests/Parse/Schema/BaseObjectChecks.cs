@@ -14,6 +14,9 @@ internal sealed class BaseObjectChecks<O, F, R>
     : base(one, oneExpression)
     => _factories = factories;
 
+  public void WithNameBad(decimal id, string[] others)
+      => False($"{id}{{" + others.Joined("|") + "}");
+
   public void WithAlternates(string name, string[] others)
     => TrueExpected(
       name + "{" + others.Joined("|") + "}",
@@ -57,8 +60,14 @@ internal sealed class BaseObjectChecks<O, F, R>
          Parameters = parameter.TypeParameters(),
        });
 
+  public void WithTypeParameterBad(string name, string other)
+    => False(name + "<$>{|" + other);
+
   public void WithTypeParametersBad(string name, string other, string parameter)
     => False(name + "<$" + parameter + "{|" + other);
+
+  public void WithTypeParametersNone(string name, string other)
+    => False(name + "<>{|" + other);
 
   public void WithFields(string name, FieldInput[] fields)
     => TrueExpected(

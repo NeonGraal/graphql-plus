@@ -2,6 +2,7 @@
 
 public interface IResultArray<T> : IResult<T[]>
 {
+  IResultArray<R> AsPartialArray<R>(IEnumerable<R> result, Action<T[]>? withValue = null);
   IResultArray<R> AsResultArray<R>(R[]? _ = default);
 }
 
@@ -19,6 +20,12 @@ public readonly struct ResultArrayOk<T> : IResultArray<T>, IResultOk<T[]>
     withValue?.Invoke(Result);
     action?.Invoke();
     return result.Ok();
+  }
+
+  public IResultArray<R> AsPartialArray<R>(IEnumerable<R> result, Action<T[]>? withValue = null)
+  {
+    withValue?.Invoke(Result);
+    return result.OkArray();
   }
 
   public IResult<R> AsResult<R>(R? _ = default)
@@ -43,6 +50,9 @@ public readonly struct ResultArrayEmpty<T> : IResultArray<T>, IResultEmpty<T[]>
     return result.Ok();
   }
 
+  public IResultArray<R> AsPartialArray<R>(IEnumerable<R> result, Action<T[]>? withValue = null)
+    => result.OkArray();
+
   public IResult<R> AsResult<R>(R? _ = default)
     => _.Empty();
 
@@ -64,6 +74,9 @@ public readonly struct ResultArrayError<T> : IResultArray<T>, IResultError<T[]>
     action?.Invoke();
     return result.Partial(Message);
   }
+
+  public IResultArray<R> AsPartialArray<R>(IEnumerable<R> result, Action<T[]>? withValue = null)
+    => result.PartialArray(Message);
 
   public IResult<R> AsResult<R>(R? _ = default)
     => _.Error(Message);
@@ -88,6 +101,12 @@ public readonly struct ResultArrayPartial<T> : IResultArray<T>, IResultPartial<T
     withValue?.Invoke(Result);
     action?.Invoke();
     return result.Partial(Message);
+  }
+
+  public IResultArray<R> AsPartialArray<R>(IEnumerable<R> result, Action<T[]>? withValue = null)
+  {
+    withValue?.Invoke(Result);
+    return result.PartialArray(Message);
   }
 
   public IResult<R> AsResult<R>(R? _ = default)

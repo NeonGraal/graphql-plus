@@ -52,6 +52,9 @@ internal sealed class BaseObjectChecks<O, F, R>
          Alternates = others.Select(a => Alternate(a) with { Modifiers = TestMods() }).ToArray(),
        });
 
+  public void WithAlternateModifiersBad(string name, string[] others)
+    => False(name + "{" + others.Joined(a => $"|{a}[?]") + "}");
+
   public void WithTypeParameters(string name, string other, string parameter)
     => TrueExpected(
       name + "<$" + parameter + ">{|" + other + "}",
@@ -68,6 +71,9 @@ internal sealed class BaseObjectChecks<O, F, R>
 
   public void WithTypeParametersNone(string name, string other)
     => False(name + "<>{|" + other);
+
+  public void WithFieldBad(string name, FieldInput[] fields, string fieldName)
+    => False(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + " " + fieldName + ":}");
 
   public void WithFields(string name, FieldInput[] fields)
     => TrueExpected(

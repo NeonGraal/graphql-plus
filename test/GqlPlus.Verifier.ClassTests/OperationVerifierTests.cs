@@ -41,6 +41,7 @@ public class OperationVerifierTests
   {
     public InvalidGraphQlPlusOperations()
     {
+      Add(""); // Bad parse
       Add("($var):Boolean"); // Defined variables must be used at least once
       Add(":Boolean($var)"); // Used variables must be defined
       Add("($var:Id=null):Boolean($var)");

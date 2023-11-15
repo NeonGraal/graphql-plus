@@ -14,6 +14,10 @@ public class ParseOutputReferenceTests : BaseReferenceTests
           .ToArray()
       });
 
+  [Theory, RepeatData(Repeats)]
+  public void WithArgumentEnumLabelBad_ReturnsFalse(string name, string enumType)
+    => Test.False(name + "<" + enumType + ".>");
+
   internal override IBaseReferenceChecks Checks => Test;
 
   private static BaseReferenceChecks<OutputReferenceAst> Test => new(

@@ -9,7 +9,7 @@ public abstract class BaseFieldTests
 
   [Theory, RepeatData(Repeats)]
   public void WithModifiersBad_ReturnsFalse(string name, string fieldType)
-  => Checks.WithModifiers(name, fieldType);
+  => Checks.WithModifiersBad(name, fieldType);
 
   internal abstract IBaseFieldChecks Checks { get; }
 

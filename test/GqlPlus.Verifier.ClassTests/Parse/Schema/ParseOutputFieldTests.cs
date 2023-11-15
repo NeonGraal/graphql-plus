@@ -45,6 +45,10 @@ public class ParseOutputFieldTests : BaseFieldTests
         Test.Field(name, "") with { Label = label });
 
   [Theory, RepeatData(Repeats)]
+  public void WithFieldLabelBad_ReturnsFalse(string name)
+    => Test.False(name + "=");
+
+  [Theory, RepeatData(Repeats)]
   public void WithFieldEnumLabel_ReturnsCorrectAst(string name, string enumType, string label)
     => Test.TrueExpected(
       name + "=" + enumType + "." + label,
@@ -52,7 +56,7 @@ public class ParseOutputFieldTests : BaseFieldTests
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldEnumLabelBad_ReturnsFalse(string name, string label)
-    => Test.False(name + "=." + label);
+    => Test.False(name + "=" + label + ".");
 
   internal override IBaseFieldChecks Checks => Test;
 

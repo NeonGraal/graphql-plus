@@ -20,6 +20,10 @@ public abstract class BaseObjectTests
     => Checks.WithAlternateModifiers(name, others);
 
   [Theory, RepeatData(Repeats)]
+  public void WithAlternateModifiersBad_ReturnsFalse(string name, string[] others)
+    => Checks.WithAlternateModifiersBad(name, others);
+
+  [Theory, RepeatData(Repeats)]
   public void WithTypeParameters_ReturnsCorrectAst(string name, string other, string parameter)
     => Checks.WithTypeParameters(name, other, parameter);
 
@@ -34,6 +38,10 @@ public abstract class BaseObjectTests
   [Theory, RepeatData(Repeats)]
   public void WithTypeParametersNone_ReturnsFalse(string name, string other)
     => Checks.WithTypeParametersNone(name, other);
+
+  [Theory, RepeatData(Repeats)]
+  public void WithFieldBad_ReturnsFalse(string name, FieldInput[] fields, string fieldName)
+    => Checks.WithFieldBad(name, fields, fieldName);
 
   [Theory, RepeatData(Repeats)]
   public void WithFields_ReturnsCorrectAst(string name, FieldInput[] fields)

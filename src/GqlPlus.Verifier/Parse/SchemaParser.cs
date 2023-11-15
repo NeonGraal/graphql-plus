@@ -201,9 +201,9 @@ internal class SchemaParser : CommonParser
           return End("Scalar", () => result);
         }
 
-        return scalarRegexes.AsResult(result);
+        return scalarRegexes.AsResult(result); // not covered
       default:
-        return Partial("Scalar", "valid kind", () => result);
+        return Partial("Scalar", "valid kind", () => result); // not covered
     }
   }
 

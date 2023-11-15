@@ -10,6 +10,10 @@ public abstract class BaseReferenceTests
   public void WithTypeParameter_ReturnsCorrectAst(string name)
   => Checks.WithTypeParameter(name);
 
+  [Fact]
+  public void WithTypeParameterBad_ReturnsFalse()
+  => Checks.WithTypeParameterBad();
+
   [Theory, RepeatData(Repeats)]
   public void WithTypeArguments_ReturnsCorrectAst(string name, string[] references)
   => Checks.WithTypeArguments(name, references);

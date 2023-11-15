@@ -25,6 +25,10 @@ public sealed class ParseScalarTests
       });
 
   [Theory, RepeatData(Repeats)]
+  public void WithRegexesBad_ReturnsCorrectAst(string name, string regex1, string regex2)
+    => Test.False(name + "{string/" + regex1 + "/!/" + regex2 + "}");
+
+  [Theory, RepeatData(Repeats)]
   public void WithNoBounds_ReturnsFalse(string name)
     => Test.False(name + "{number ..}");
 
@@ -36,6 +40,10 @@ public sealed class ParseScalarTests
         Kind = ScalarKind.Number,
         Ranges = new ScalarRangeAst[] { new(AstNulls.At, min, null) },
       });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithLowerBoundBad_ReturnsFalse(string name, decimal min)
+    => Test.False(name + $"{{number {min}}}");
 
   [Theory, RepeatData(Repeats)]
   public void WithUpperBound_ReturnsCorrectAst(string name, decimal max)
@@ -58,6 +66,12 @@ public sealed class ParseScalarTests
         } },
       },
       max <= min);
+
+  [Theory, RepeatData(Repeats)]
+  public void WithRangeBoundsBad_ReturnsCorrectAst(string name, decimal min, decimal max)
+    => Test.False(
+      name + $"{{number ..<{max} {min}>}}",
+      skipIf: max > min);
 
   private static ParseScalarChecks Test => new();
 

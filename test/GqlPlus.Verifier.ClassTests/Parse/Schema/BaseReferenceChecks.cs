@@ -20,6 +20,9 @@ internal sealed class BaseReferenceChecks<R>
   public void WithTypeParameter(string name)
     => TrueExpected("$" + name, Reference(name) with { IsTypeParameter = true });
 
+  public void WithTypeParameterBad()
+    => False("$");
+
   public void WithTypeArguments(string name, string[] references)
     => TrueExpected(
       name + "<" + references.Joined() + ">",

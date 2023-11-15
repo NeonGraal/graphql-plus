@@ -32,6 +32,20 @@ public class ResultPartialTests : BaseResultTests
   }
 
   [Fact]
+  public void AsPartialArray_ReturnsResultArrayError()
+  {
+    var withValue = false;
+
+    var result = _partial.AsPartialArray(_sample, v => withValue = true);
+
+    result.Should().BeOfType<ResultArrayPartial<string>>()
+      .Subject.Message.Message.Should().Contain(Partial);
+    using var scope = new AssertionScope();
+    result.Optional().Should().BeEquivalentTo(_sample);
+    withValue.Should().BeTrue();
+  }
+
+  [Fact]
   public void Array_AsResultArray_ReturnsResultArrayError()
   {
     var result = _partialArray.AsResultArray(_sample);

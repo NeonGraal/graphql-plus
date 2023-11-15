@@ -24,11 +24,15 @@ public class ResultErrorTests : BaseResultTests
   [Fact]
   public void AsPartialArray_ReturnsResultArrayError()
   {
-    var result = _error.AsPartialArray(_sample);
+    var withValue = false;
+
+    var result = _error.AsPartialArray(_sample, v => withValue = true);
 
     result.Should().BeOfType<ResultArrayPartial<string>>()
       .Subject.Message.Message.Should().Contain(Error);
+    using var scope = new AssertionScope();
     result.Optional().Should().BeEquivalentTo(_sample);
+    withValue.Should().BeFalse();
   }
 
   [Fact]

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Parse;
+﻿namespace GqlPlus.Verifier.Parse.Common;
 
 public class ParseConstantTests
 {
@@ -71,7 +71,8 @@ public class ParseConstantTests
   private void CheckNull(ConstantAst? result)
     => result.Should().BeNull();
 
-  private static OneChecks<CommonParser, ConstantAst> Test => new(
-    tokens => new CommonParser(tokens),
-    parser => parser.ParseConstant());
+  private readonly OneChecks<ConstantAst> Test;
+
+  public ParseConstantTests(IParser<ConstantAst> parser)
+    => Test = new(tokens => parser.Parse(tokens, "test"));
 }

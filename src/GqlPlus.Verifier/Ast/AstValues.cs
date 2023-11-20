@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal abstract record class AstValues<T>
+public abstract record class AstValues<T>
   : AstBase, IEquatable<AstValues<T>>
 {
   public T[] Values { get; } = Array.Empty<T>();
@@ -27,7 +27,7 @@ internal abstract record class AstValues<T>
       .Concat(Values.Bracket("[", "]"))
       .Concat(Fields.Bracket("{", "}", kv => $"{kv.Key}:{kv.Value}"));
 
-  internal class ObjectAst : Dictionary<FieldKeyAst, T>, IEquatable<Dictionary<FieldKeyAst, T>>
+  public class ObjectAst : Dictionary<FieldKeyAst, T>, IEquatable<Dictionary<FieldKeyAst, T>>
   {
     public ObjectAst() : base() { }
     public ObjectAst(IDictionary<FieldKeyAst, T> dict) : base(dict) { }

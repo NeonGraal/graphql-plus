@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Parse.Common;
 
 namespace GqlPlus.Verifier.Parse;
 
@@ -205,6 +206,3 @@ internal class CommonParser
     return new ResultPartial<T>(result(), error);
   }
 }
-
-internal record struct Field<T>(FieldKeyAst Key, T Value)
-  where T : AstValues<T>;

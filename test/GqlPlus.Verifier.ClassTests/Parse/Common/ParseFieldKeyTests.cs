@@ -66,5 +66,4 @@ public class ParseFieldKeyTests
 
   public ParseFieldKeyTests(IParser<FieldKeyAst> parser)
     => Test = new(tokens => parser.Parse(tokens, "test"));
-
 }

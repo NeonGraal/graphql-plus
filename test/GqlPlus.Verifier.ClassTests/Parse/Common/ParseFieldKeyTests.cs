@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Parse;
+﻿namespace GqlPlus.Verifier.Parse.Common;
 
 public class ParseFieldKeyTests
 {
@@ -62,7 +62,9 @@ public class ParseFieldKeyTests
   public void ParseFieldKey_WithTypeAndNoLabel_ReturnsFalse(string theType)
     => Test.False(theType + ".");
 
-  private static OneChecks<CommonParser, FieldKeyAst> Test => new(
-    tokens => new CommonParser(tokens),
-    parser => parser.ParseFieldKey());
+  private OneChecks<FieldKeyAst> Test { get; }
+
+  public ParseFieldKeyTests(IParser<FieldKeyAst> parser)
+    => Test = new(tokens => parser.Parse(tokens, "test"));
+
 }

@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal record class FieldKeyAst : AstBase, IComparable<FieldKeyAst>
+public record class FieldKeyAst : AstBase, IComparable<FieldKeyAst>
 {
   internal string? Type { get; }
   internal string? Label { get; }

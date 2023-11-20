@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier;
 
-internal class Tokenizer
+public class Tokenizer
 {
   internal const int ErrorContextLen = 10;
   internal const string TripleQuote = "\"\"\"";
@@ -354,4 +354,10 @@ internal class Tokenizer
 
   internal ParseMessage Error(string label, string expected)
     => new(At, $"Invalid {label}. Expected {expected}.");
+
+  internal IResult<T> Error<T>(string label, string expected)
+    => 0.Error<T>(Error(label, expected));
+
+  internal IResultArray<T> PartialArray<T>(string label, string expected, Func<T[]> result)
+    => result().PartialArray(Error(label, expected));
 }

@@ -33,6 +33,8 @@ public static class ResultExtenstions
 
   public static IResult<T> Error<T>(this T? _, ParseMessage error)
     => new ResultError<T>(error);
+  public static IResult<T> Error<T>(this int _, ParseMessage error)
+    => new ResultError<T>(error);
 
   public static bool HasValue<T>(this IResult<T> result)
     => result is IResultValue<T>;

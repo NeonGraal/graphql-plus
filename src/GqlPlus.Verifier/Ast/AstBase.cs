@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal abstract record class AstBase : IEquatable<AstBase>
+public abstract record class AstBase : IEquatable<AstBase>
 {
   internal abstract string Abbr { get; }
 

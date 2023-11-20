@@ -97,4 +97,4 @@ internal class ParseArgument : IParserArgument
   }
 }
 
-internal interface IParserArgument : IParser<ArgumentAst> { }
+public interface IParserArgument : IParser<ArgumentAst> { }

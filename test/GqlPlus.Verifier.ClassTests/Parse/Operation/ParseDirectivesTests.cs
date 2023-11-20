@@ -24,12 +24,8 @@ public class ParseDirectivesTests
   public void WithSecondBad_ReturnsFalse(string directives)
     => Test.False("@" + directives + "@");
 
-  private static ManyChecks<OperationParser, DirectiveAst> Test => new(
-    tokens => new OperationParser(tokens),
-    parser => parser.ParseDirectives());
+  private ManyChecks<DirectiveAst> Test;
 
-  //private ManyChecks<DirectiveAst> Test;
-
-  //public ParseDirectivesTests(IParserArray<DirectiveAst> parser)
-  //  => Test = new(parser);
+  public ParseDirectivesTests(IParserArray<DirectiveAst> parser)
+    => Test = new(parser);
 }

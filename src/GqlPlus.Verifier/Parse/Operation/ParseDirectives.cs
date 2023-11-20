@@ -4,9 +4,9 @@ namespace GqlPlus.Verifier.Parse.Operation;
 
 internal class ParseDirectives : IParserArray<DirectiveAst>
 {
-  private readonly IParser<ArgumentAst> _argument;
+  private readonly IParserArgument _argument;
 
-  public ParseDirectives(IParser<ArgumentAst> argument)
+  public ParseDirectives(IParserArgument argument)
     => _argument = argument.ThrowIfNull();
 
   public IResultArray<DirectiveAst> Parse(Tokenizer tokens)

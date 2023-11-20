@@ -10,7 +10,7 @@ public static class OperationParsers
     => services
       .AddCommonParsers()
       .AddSingleton<IParserArgument, ParseArgument>()
-      .AddSingleton<IParser<ArgumentAst>, ParseArgumentValue>()
+      .AddParserValue<ArgumentAst, ParseArgumentValue>()
       .AddSingleton<IParserArray<DirectiveAst>, ParseDirectives>()
       .AddSingleton<IParser<VariableAst>, ParseVariable>();
 }

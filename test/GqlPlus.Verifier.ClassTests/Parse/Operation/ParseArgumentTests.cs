@@ -78,12 +78,8 @@ public class ParseArgumentTests
   private void CheckNull(ArgumentAst? result)
     => result.Should().BeNull();
 
-  private static OneChecks<OperationParser, ArgumentAst> Test => new(
-    tokens => new OperationParser(tokens),
-    parser => parser.ParseArgument());
+  private OneChecks<ArgumentAst> Test;
 
-  //private OneChecks<ArgumentAst> Test;
-
-  //public ParseArgumentTests(IParser<ArgumentAst> parser)
-  //  => Test = new(parser);
+  public ParseArgumentTests(IParserArgument parser)
+    => Test = new(parser);
 }

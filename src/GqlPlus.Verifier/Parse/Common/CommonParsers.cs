@@ -12,6 +12,7 @@ public static class CommonParsers
       .AddSingleton<IParserDefault, ParseDefault>()
       .AddSingleton<ParseConstant>()
       .AddSingleton<IParser<ConstantAst>>(x => x.GetRequiredService<ParseConstant>())
+      .AddSingleton<IParserValue<ConstantAst>>(x => x.GetRequiredService<ParseConstant>())
       .AddSingleton<IParser<Field<ConstantAst>>>(x => x.GetRequiredService<ParseConstant>());
 
 }

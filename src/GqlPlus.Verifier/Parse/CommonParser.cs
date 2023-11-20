@@ -146,7 +146,7 @@ internal class CommonParser
   }
 
   internal IResult<Field<T>> ParseField<T>(string label, Func<IResult<T>> parseValue)
-    where T : AstValues<T>
+    where T : AstValue<T>
   {
     var fieldKey = ParseFieldKey();
     if (fieldKey.IsError()) {

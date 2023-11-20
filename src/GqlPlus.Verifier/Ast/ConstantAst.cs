@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
 public sealed record class ConstantAst
-  : AstValues<ConstantAst>, IEquatable<ConstantAst>
+  : AstValue<ConstantAst>, IEquatable<ConstantAst>
 {
   public FieldKeyAst? Value { get; set; }
 

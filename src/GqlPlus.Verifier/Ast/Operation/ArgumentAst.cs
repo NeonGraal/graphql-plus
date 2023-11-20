@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-internal sealed record class ArgumentAst
-  : AstValues<ArgumentAst>, IEquatable<ArgumentAst>
+public sealed record class ArgumentAst
+  : AstValue<ArgumentAst>, IEquatable<ArgumentAst>
 {
   public string? Variable { get; }
   public ConstantAst? Constant { get; }

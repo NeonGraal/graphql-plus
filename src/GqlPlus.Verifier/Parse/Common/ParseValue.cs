@@ -2,12 +2,12 @@
 
 namespace GqlPlus.Verifier.Parse.Common;
 
-public abstract class ParseValues<T> : IParserValues<T>, IParser<Field<T>>
-  where T : AstValues<T>
+public abstract class ParseValue<T> : IParserValue<T>, IParser<Field<T>>
+  where T : AstValue<T>
 {
   protected readonly IParser<FieldKeyAst> _fieldKey;
 
-  public ParseValues(
+  public ParseValue(
     IParser<FieldKeyAst> fieldKey)
     => _fieldKey = fieldKey.ThrowIfNull();
 
@@ -37,9 +37,9 @@ public abstract class ParseValues<T> : IParserValues<T>, IParser<Field<T>>
   IResult<Field<T>> IParser<Field<T>>.Parse(Tokenizer tokens)
     => ParseField(tokens);
 
-  protected abstract AstValues<T>.ObjectAst NewObject(AstValues<T>.ObjectAst? fields = default);
+  protected abstract AstValue<T>.ObjectAst NewObject(AstValue<T>.ObjectAst? fields = default);
 
-  public IResult<AstValues<T>.ObjectAst> ParseFieldValues(Tokenizer tokens, char last, AstValues<T>.ObjectAst fields)
+  public IResult<AstValue<T>.ObjectAst> ParseFieldValues(Tokenizer tokens, char last, AstValue<T>.ObjectAst fields)
   {
     var result = NewObject(fields);
 
@@ -74,18 +74,18 @@ public abstract class ParseValues<T> : IParserValues<T>, IParser<Field<T>>
     return list.OkArray();
   }
 
-  protected IResult<AstValues<T>.ObjectAst> ParseObject(Tokenizer tokens)
+  protected IResult<AstValue<T>.ObjectAst> ParseObject(Tokenizer tokens)
     => tokens.Take('{')
       ? ParseFieldValues(tokens, '}', NewObject())
-      : default(AstValues<T>.ObjectAst).Empty();
+      : default(AstValue<T>.ObjectAst).Empty();
 }
 
 public record struct Field<T>(FieldKeyAst Key, T Value)
-  where T : AstValues<T>;
+  where T : AstValue<T>;
 
-public interface IParserValues<T> : IParser<T>
-  where T : AstValues<T>
+public interface IParserValue<T> : IParser<T>
+  where T : AstValue<T>
 {
   IResult<Field<T>> ParseField(Tokenizer tokens);
-  IResult<AstValues<T>.ObjectAst> ParseFieldValues(Tokenizer tokens, char last, AstValues<T>.ObjectAst fields);
+  IResult<AstValue<T>.ObjectAst> ParseFieldValues(Tokenizer tokens, char last, AstValue<T>.ObjectAst fields);
 }

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse.Common;
 
-public class ParseConstant : ParseValues<ConstantAst>
+public class ParseConstant : ParseValue<ConstantAst>
 {
   public ParseConstant(
       IParser<FieldKeyAst> fieldKey)
@@ -38,7 +38,7 @@ public class ParseConstant : ParseValues<ConstantAst>
     }
   }
 
-  protected override AstValues<ConstantAst>.ObjectAst NewObject(AstValues<ConstantAst>.ObjectAst? fields = null)
+  protected override AstValue<ConstantAst>.ObjectAst NewObject(AstValue<ConstantAst>.ObjectAst? fields = null)
     => fields is null
       ? new ConstantAst.ObjectAst()
       : new ConstantAst.ObjectAst(fields);

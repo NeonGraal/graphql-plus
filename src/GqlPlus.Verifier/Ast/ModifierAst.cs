@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Ast;
 
-internal record class ModifierAst(ParseAt At) : IEquatable<ModifierAst>
+public record class ModifierAst(ParseAt At) : IEquatable<ModifierAst>
 {
   internal static ModifierAst Optional(ParseAt at)
     => new(at, ModifierKind.Optional);

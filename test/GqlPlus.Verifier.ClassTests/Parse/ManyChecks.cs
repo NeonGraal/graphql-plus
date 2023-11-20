@@ -59,3 +59,48 @@ internal sealed class ManyChecks<P, T>
     success.Required().Length.Should().Be(count);
   }
 }
+
+internal sealed class ManyChecks<T>
+{
+  private readonly Many _many;
+  private readonly string _manyExpression;
+
+  public ManyChecks(Many many,
+    [CallerArgumentExpression(nameof(many))] string manyExpression = "")
+    => (_many, _manyExpression) = (many, manyExpression);
+
+  internal delegate IResultArray<T> Many(Tokenizer tokens);
+
+  internal void TrueExpected(string input, bool skipIf, params T[] expected)
+  {
+    if (!skipIf) {
+      TrueExpected(input, expected);
+    }
+  }
+
+  internal void TrueExpected(string input, params T[] expected)
+  {
+    var result = _many(Tokens(input));
+
+    result.IsOk().Should().BeTrue(_manyExpression);
+    using var scope = new AssertionScope();
+    result.Required().Should().Equal(expected);
+  }
+
+  internal void False(string input)
+  {
+    var result = _many(Tokens(input));
+
+    using var scope = new AssertionScope();
+    result.IsError(message => message.Message.Contains("Expected")).Should().BeTrue(_manyExpression);
+  }
+
+  internal void Count(string input, int count)
+  {
+    var result = _many(Tokens(input));
+
+    result.IsOk().Should().BeTrue(_manyExpression);
+    using var scope = new AssertionScope();
+    result.Required().Length.Should().Be(count);
+  }
+}

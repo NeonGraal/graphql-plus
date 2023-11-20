@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Parse;
+﻿namespace GqlPlus.Verifier.Parse.Common;
 
 public class ParseModifiersTests
 {
@@ -23,7 +23,10 @@ public class ParseModifiersTests
         ModifierAst.Optional(AstNulls.At),
       });
 
-  private static ManyChecks<CommonParser, ModifierAst> Test => new(
-    tokens => new CommonParser(tokens),
-    parser => parser.ParseModifiers("Modifiers"));
+  private static ManyChecks<ModifierAst> Test;
+
+  public ParseModifiersTests(IParserArray<ModifierAst> parser)
+  {
+    Test = new(tokens => parser.Parse(tokens, "test"));
+  }
 }

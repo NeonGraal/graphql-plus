@@ -48,7 +48,7 @@ public class ParseConstant : ParseValues<ConstantAst>
     while (!tokens.Take(']')) {
       var constant = Parse(tokens);
       if (!constant.Required(list.Add)) {
-        return tokens.PartialArray("Constant", "value in list", list.ToArray);
+        return tokens.PartialArray("Constant", "value in list", list);
       }
 
       tokens.Take(',');

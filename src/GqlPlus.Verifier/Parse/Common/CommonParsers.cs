@@ -9,6 +9,7 @@ public static class CommonParsers
     => services
       .AddSingleton<IParser<FieldKeyAst>, ParseFieldKey>()
       .AddSingleton<IParserArray<ModifierAst>, ParseModifiers>()
+      .AddSingleton<IParserDefault, ParseDefault>()
       .AddSingleton<ParseConstant>()
       .AddSingleton<IParser<ConstantAst>>(x => x.GetRequiredService<ParseConstant>())
       .AddSingleton<IParser<Field<ConstantAst>>>(x => x.GetRequiredService<ParseConstant>());

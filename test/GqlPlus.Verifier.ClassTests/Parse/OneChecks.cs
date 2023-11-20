@@ -138,6 +138,15 @@ internal class OneChecks<T>
     result.Required().Should().Be(expected);
   }
 
+  internal void Empty(string input)
+  {
+    var result = _parser.Parse(Tokens(input));
+
+    using var scope = new AssertionScope();
+    scope.FormattingOptions.MaxDepth = 10;
+    result.IsEmpty().Should().BeTrue(_type + " -> " + input);
+  }
+
   internal void Partial(string input, string error, T expected, bool skipIf = false)
   {
     if (skipIf) {

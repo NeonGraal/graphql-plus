@@ -11,7 +11,7 @@ internal class ParseFieldKey : IParser<FieldKeyAst>
     ["false"] = "Boolean",
   };
 
-  public IResult<FieldKeyAst> Parse(Tokenizer tokens, string _)
+  public IResult<FieldKeyAst> Parse(Tokenizer tokens)
   {
     var at = tokens.At;
     if (tokens.Number(out var number)) {
@@ -24,9 +24,9 @@ internal class ParseFieldKey : IParser<FieldKeyAst>
 
     if (tokens.Identifier(out var identifier)) {
       if (tokens.Take('.')) {
-        return tokens.Identifier(out var label)
-          ? new FieldKeyAst(at, identifier, label).Ok()
-          : tokens.Error<FieldKeyAst>("FieldKey", "label after '.'");
+        return tokens.Identifier(out var value)
+          ? new FieldKeyAst(at, identifier, value).Ok()
+          : tokens.Error<FieldKeyAst>("FieldKey", "enum value after '.'");
       }
 
       var type = _labelTypes.GetValueOrDefault(identifier, "");

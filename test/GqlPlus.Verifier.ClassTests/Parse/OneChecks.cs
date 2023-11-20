@@ -103,14 +103,11 @@ internal class OneChecks<P, T>
 
 internal class OneChecks<T>
 {
-  private readonly One _one;
-  private readonly string _oneExpression;
+  private readonly IParser<T> _parser;
+  private readonly string _type = typeof(T).ToString();
 
-  public OneChecks(One one,
-    [CallerArgumentExpression(nameof(one))] string oneExpression = "")
-    => (_one, _oneExpression) = (one, oneExpression);
-
-  internal delegate IResult<T> One(Tokenizer tokens);
+  public OneChecks(IParser<T> parser)
+    => _parser = parser;
 
   internal void TrueExpected(string input, T expected, bool skipIf = false)
   {
@@ -118,13 +115,13 @@ internal class OneChecks<T>
       return;
     }
 
-    var success = _one(Tokens(input));
+    var result = _parser.Parse(Tokens(input));
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
-    success.IsOk().Should().BeTrue(_oneExpression + " -> " + input);
+    result.IsOk().Should().BeTrue(_type + " -> " + input);
     scope.FormattingOptions.MaxDepth = 10;
-    success.Required().Should().Be(expected);
+    result.Required().Should().Be(expected);
   }
 
   internal void Ok(string input, T expected, bool skipIf = false)
@@ -133,11 +130,11 @@ internal class OneChecks<T>
       return;
     }
 
-    var result = _one(Tokens(input));
+    var result = _parser.Parse(Tokens(input));
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
-    result.IsOk().Should().BeTrue(_oneExpression + " -> " + input);
+    result.IsOk().Should().BeTrue(_type + " -> " + input);
     result.Required().Should().Be(expected);
   }
 
@@ -147,11 +144,11 @@ internal class OneChecks<T>
       return;
     }
 
-    var result = _one(Tokens(input));
+    var result = _parser.Parse(Tokens(input));
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
-    result.IsError(message => message.Message.Contains(error)).Should().BeTrue(_oneExpression + " -> " + input);
+    result.IsError(message => message.Message.Contains(error)).Should().BeTrue(_type + " -> " + input);
     result.Optional().Should().Be(expected);
   }
 
@@ -161,11 +158,11 @@ internal class OneChecks<T>
       return;
     }
 
-    var result = _one(Tokens(input));
+    var result = _parser.Parse(Tokens(input));
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
-    result.IsError(message => message.Message.Contains(error)).Should().BeTrue(_oneExpression + " -> " + input);
+    result.IsError(message => message.Message.Contains(error)).Should().BeTrue(_type + " -> " + input);
   }
 
   internal void False(string input, Action<T?>? check = null, bool skipIf = false)
@@ -174,11 +171,11 @@ internal class OneChecks<T>
       return;
     }
 
-    var result = _one(Tokens(input));
+    var result = _parser.Parse(Tokens(input));
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
-    result.IsError(message => message.Message.Contains("Expected")).Should().BeTrue(_oneExpression + " -> " + input);
+    result.IsError(message => message.Message.Contains("Expected")).Should().BeTrue(_type + " -> " + input);
     result.Optional(result => check?.Invoke(result));
   }
 }

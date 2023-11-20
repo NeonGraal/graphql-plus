@@ -36,5 +36,5 @@ public class ParseFieldTests
   private readonly OneChecks<Field<ConstantAst>> Test;
 
   public ParseFieldTests(IParser<Field<ConstantAst>> parser)
-    => Test = new(tokens => parser.Parse(tokens, "test"));
+    => Test = new(parser);
 }

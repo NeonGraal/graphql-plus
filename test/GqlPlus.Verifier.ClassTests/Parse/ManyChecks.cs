@@ -60,16 +60,13 @@ internal sealed class ManyChecks<P, T>
   }
 }
 
-internal sealed class ManyChecks<T>
+internal class ManyChecks<T>
 {
-  private readonly Many _many;
-  private readonly string _manyExpression;
+  private readonly IParserArray<T> _parser;
+  private readonly string _type = typeof(T).ToString();
 
-  public ManyChecks(Many many,
-    [CallerArgumentExpression(nameof(many))] string manyExpression = "")
-    => (_many, _manyExpression) = (many, manyExpression);
-
-  internal delegate IResultArray<T> Many(Tokenizer tokens);
+  public ManyChecks(IParserArray<T> parser)
+    => _parser = parser;
 
   internal void TrueExpected(string input, bool skipIf, params T[] expected)
   {
@@ -80,26 +77,26 @@ internal sealed class ManyChecks<T>
 
   internal void TrueExpected(string input, params T[] expected)
   {
-    var result = _many(Tokens(input));
+    var result = _parser.Parse(Tokens(input));
 
-    result.IsOk().Should().BeTrue(_manyExpression);
+    result.IsOk().Should().BeTrue(_type);
     using var scope = new AssertionScope();
     result.Required().Should().Equal(expected);
   }
 
   internal void False(string input)
   {
-    var result = _many(Tokens(input));
+    var result = _parser.Parse(Tokens(input));
 
     using var scope = new AssertionScope();
-    result.IsError(message => message.Message.Contains("Expected")).Should().BeTrue(_manyExpression);
+    result.IsError(message => message.Message.Contains("Expected")).Should().BeTrue(_type);
   }
 
   internal void Count(string input, int count)
   {
-    var result = _many(Tokens(input));
+    var result = _parser.Parse(Tokens(input));
 
-    result.IsOk().Should().BeTrue(_manyExpression);
+    result.IsOk().Should().BeTrue(_type);
     using var scope = new AssertionScope();
     result.Required().Length.Should().Be(count);
   }

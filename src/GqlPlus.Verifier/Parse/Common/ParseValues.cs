@@ -11,11 +11,13 @@ public abstract class ParseValues<T> : IParser<Field<T>>, IParser<T>
     IParser<FieldKeyAst> fieldKey)
     => _fieldKey = fieldKey;
 
-  public abstract IResult<T> Parse(Tokenizer tokens, string label);
+  protected abstract string Label { get; }
+
+  public abstract IResult<T> Parse(Tokenizer tokens);
 
   protected IResult<Field<T>> ParseField(Tokenizer tokens, string label)
   {
-    var fieldKey = _fieldKey.Parse(tokens, label);
+    var fieldKey = _fieldKey.Parse(tokens);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<Field<T>>();
     }
@@ -26,14 +28,14 @@ public abstract class ParseValues<T> : IParser<Field<T>>, IParser<T>
       return tokens.Error<Field<T>>(label, "key before ':'");
     }
 
-    var fieldValue = Parse(tokens, label);
+    var fieldValue = Parse(tokens);
     return fieldValue.SelectOk(
       value => new Field<T>(fieldKey.Required(), value),
       () => fieldValue.AsResult<Field<T>>());
   }
 
-  IResult<Field<T>> IParser<Field<T>>.Parse(Tokenizer tokens, string label)
-    => ParseField(tokens, label);
+  IResult<Field<T>> IParser<Field<T>>.Parse(Tokenizer tokens)
+    => ParseField(tokens, Label);
 }
 
 public record struct Field<T>(FieldKeyAst Key, T Value)

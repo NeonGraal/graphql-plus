@@ -8,11 +8,13 @@ public class ParseConstant : ParseValues<ConstantAst>
       IParser<FieldKeyAst> fieldKey)
     : base(fieldKey) { }
 
-  public override IResult<ConstantAst> Parse(Tokenizer tokens, string label)
+  protected override string Label => "Constant";
+
+  public override IResult<ConstantAst> Parse(Tokenizer tokens)
   {
     var at = tokens.At;
 
-    var fieldKey = _fieldKey.Parse(tokens, "Constant");
+    var fieldKey = _fieldKey.Parse(tokens);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<ConstantAst>();
     }
@@ -44,7 +46,7 @@ public class ParseConstant : ParseValues<ConstantAst>
     }
 
     while (!tokens.Take(']')) {
-      var constant = Parse(tokens, "");
+      var constant = Parse(tokens);
       if (!constant.Required(list.Add)) {
         return tokens.PartialArray("Constant", "value in list", list.ToArray);
       }

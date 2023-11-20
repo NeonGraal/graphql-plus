@@ -74,5 +74,5 @@ public class ParseConstantTests
   private readonly OneChecks<ConstantAst> Test;
 
   public ParseConstantTests(IParser<ConstantAst> parser)
-    => Test = new(tokens => parser.Parse(tokens, "test"));
+    => Test = new(parser);
 }

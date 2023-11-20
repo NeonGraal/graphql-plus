@@ -27,4 +27,9 @@ public class ParseDirectivesTests
   private static ManyChecks<OperationParser, DirectiveAst> Test => new(
     tokens => new OperationParser(tokens),
     parser => parser.ParseDirectives());
+
+  //private ManyChecks<DirectiveAst> Test;
+
+  //public ParseDirectivesTests(IParserArray<DirectiveAst> parser)
+  //  => Test = new(parser);
 }

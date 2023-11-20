@@ -69,7 +69,8 @@ public class ParseVariableTests
         Directives = directives.Directives()
       });
 
-  private static OneChecks<OperationParser, VariableAst> Test => new(
-    tokens => new OperationParser(tokens),
-    parser => parser.ParseVariable());
+  private OneChecks<VariableAst> Test;
+
+  public ParseVariableTests(IParser<VariableAst> parser)
+    => Test = new(parser);
 }

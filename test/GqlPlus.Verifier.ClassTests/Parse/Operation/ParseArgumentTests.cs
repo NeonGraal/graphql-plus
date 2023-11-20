@@ -81,4 +81,9 @@ public class ParseArgumentTests
   private static OneChecks<OperationParser, ArgumentAst> Test => new(
     tokens => new OperationParser(tokens),
     parser => parser.ParseArgument());
+
+  //private OneChecks<ArgumentAst> Test;
+
+  //public ParseArgumentTests(IParser<ArgumentAst> parser)
+  //  => Test = new(parser);
 }

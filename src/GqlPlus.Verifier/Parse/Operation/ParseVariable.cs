@@ -7,17 +7,20 @@ namespace GqlPlus.Verifier.Parse.Operation;
 internal class ParseVariable : IParser<VariableAst>
 {
   private readonly IParserArray<ModifierAst> _modifiers;
-  private readonly IParserDefault _default;
   private readonly IParserArray<DirectiveAst> _directives;
+  private readonly IParserDefault _default;
+  private readonly IParserVarType _varTypeParser;
 
   public ParseVariable(
     IParserArray<ModifierAst> modifiers,
+    IParserArray<DirectiveAst> directives,
     IParserDefault defaultParser,
-    IParserArray<DirectiveAst> directives)
+    IParserVarType varTypeParser)
   {
     _modifiers = modifiers.ThrowIfNull();
     _default = defaultParser.ThrowIfNull();
     _directives = directives.ThrowIfNull();
+    _varTypeParser = varTypeParser.ThrowIfNull();
   }
 
   public IResult<VariableAst> Parse(Tokenizer tokens)
@@ -33,7 +36,7 @@ internal class ParseVariable : IParser<VariableAst>
     }
 
     if (tokens.Take(':')) {
-      if (!ParseVarType(tokens).Required(varType => variable.Type = varType)) {
+      if (!_varTypeParser.Parse(tokens).Required(varType => variable.Type = varType)) {
         return tokens.Partial("Variable", "type after ':'", variable);
       }
     }
@@ -52,24 +55,5 @@ internal class ParseVariable : IParser<VariableAst>
     return directives.Optional(value => variable.Directives = value)
       ? variable.Ok()
       : directives.AsResult(variable);
-  }
-
-  internal IResult<string> ParseVarType(Tokenizer tokens)
-    => ParseVarNull(tokens).Select(nullType
-      => tokens.Take('!') ? nullType + '!' : nullType);
-
-  internal IResult<string> ParseVarNull(Tokenizer tokens)
-  {
-    if (tokens.Take('[')) {
-      return ParseVarType(tokens).MapOk(
-        varType => tokens.Take(']')
-          ? $"[{varType}]".Ok()
-          : tokens.Partial("Variable Type", "an inner variable type", varType),
-        () => tokens.Error("Variable Type", "an inner variable type", ""));
-    } else if (tokens.Identifier(out var varNull)) {
-      return varNull.Ok();
-    }
-
-    return "".Empty();
   }
 }

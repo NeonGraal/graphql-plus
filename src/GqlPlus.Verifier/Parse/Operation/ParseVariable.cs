@@ -29,7 +29,7 @@ internal class ParseVariable : IParser<VariableAst>
     var prefix = tokens.Prefix('$', out var name, out var at);
     var variable = new VariableAst(at, name ?? "");
     if (!prefix) {
-      return tokens.Partial("Variable", "identifier after '$'", variable);
+      return tokens.Partial("Variable", "identifier after '$'", () => variable);
     }
 
     if (name is null) {
@@ -38,7 +38,7 @@ internal class ParseVariable : IParser<VariableAst>
 
     if (tokens.Take(':')) {
       if (!_varTypeParser.Parse(tokens).Required(varType => variable.Type = varType)) {
-        return tokens.Partial("Variable", "type after ':'", variable);
+        return tokens.Partial("Variable", "type after ':'", () => variable);
       }
     }
 

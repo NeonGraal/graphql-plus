@@ -45,7 +45,7 @@ internal class ParseObject : IParserObject
 
     return fields.Any()
       ? fields.OkArray()
-      : tokens.PartialArray("Object", "at least one field or selection", fields);
+      : tokens.PartialArray("Object", "at least one field or selection", () => fields);
   }
 
   public IResult<FieldAst> ParseField(Tokenizer tokens)

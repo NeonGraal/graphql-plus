@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-internal record class OperationAst(ParseAt At, string Name)
+public record class OperationAst(ParseAt At, string Name)
   : AstDirectives(At, Name)
 {
   public ParseResultKind Result { get; set; }

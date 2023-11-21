@@ -4,6 +4,11 @@ namespace GqlPlus.Verifier.Parse.Operation;
 
 public class OperationParserTests
 {
+  private readonly IParser<OperationAst> _parser;
+
+  public OperationParserTests(IParser<OperationAst> parser)
+    => _parser = parser;
+
   [Theory]
   [InlineData(":Boolean")]
   [InlineData("query:Boolean?")]
@@ -16,9 +21,9 @@ public class OperationParserTests
   [InlineData("{test}[]")]
   public void Parse_ShouldSucceed(string input)
   {
-    var parser = new OperationParser(new Tokenizer(input));
+    var context = new OperationContext(input);
 
-    var ast = parser.Parse().Required();
+    var ast = _parser.Parse(context).Required();
 
     using var scope = new AssertionScope();
 
@@ -31,9 +36,9 @@ public class OperationParserTests
   [InlineData("")]
   public void Parse_ShouldFail(string input)
   {
-    var parser = new OperationParser(new Tokenizer(input));
+    var context = new OperationContext(input);
 
-    var result = parser.Parse();
+    var result = _parser.Parse(context);
     result.Optional(ast => {
       using var scope = new AssertionScope();
 
@@ -62,9 +67,9 @@ public class OperationParserTests
   [InlineData("{test}[?]")]
   public void Parse_ShouldPartiallySucceed(string input)
   {
-    var parser = new OperationParser(new Tokenizer(input));
+    var context = new OperationContext(input);
 
-    var ast = parser.Parse().Optional();
+    var ast = _parser.Parse(context).Optional();
 
     using var scope = new AssertionScope();
 

@@ -33,7 +33,7 @@ internal class ParseVariables : IParserArray<VariableAst>
     return list.Any()
       ? tokens.Take(')')
         ? list.OkArray()
-        : tokens.PartialArray("Variables", "')'.", list)
+        : tokens.PartialArray("Variables", "')'.", () => list)
       : tokens.ErrorArray("Variables", "at least one variable", list);
   }
 }

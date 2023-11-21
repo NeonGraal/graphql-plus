@@ -29,7 +29,7 @@ internal class ParseDirectives : IParserArray<DirectiveAst>
 
       result.Add(directive);
       if (!tokens.Prefix('@', out name, out at)) {
-        return tokens.PartialArray("Directive", "identifier after '@'", result);
+        return tokens.PartialArray("Directive", "identifier after '@'", () => result);
       }
     }
 

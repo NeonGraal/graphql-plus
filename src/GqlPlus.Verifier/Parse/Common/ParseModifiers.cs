@@ -23,7 +23,7 @@ internal class ParseModifiers : IParserArray<ModifierAst>
       if (tokens.Take(']')) {
         list.Add(modifier);
       } else {
-        return tokens.PartialArray("Modifier", "']' at end of list or dictionary modifier.", list);
+        return tokens.PartialArray("Modifier", "']' at end of list or dictionary modifier.", () => list);
       }
 
       at = tokens.At;

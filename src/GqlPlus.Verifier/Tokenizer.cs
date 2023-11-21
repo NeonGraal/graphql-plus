@@ -370,9 +370,15 @@ public class Tokenizer
   internal IResultArray<T> ErrorArray<T>(string label, string expected, IEnumerable<T>? result = default)
     => result.ErrorArray(Error(label, expected));
 
-  internal IResult<T> Partial<T>(string label, string expected, T result)
-    => result.Partial(Error(label, expected));
+  internal IResult<T> Partial<T>(string label, string expected, Func<T> result)
+  {
+    var error = Error(label, expected);
+    return result().Partial(error);
+  }
 
-  internal IResultArray<T> PartialArray<T>(string label, string expected, IEnumerable<T> result)
-    => result.PartialArray(Error(label, expected));
+  internal IResultArray<T> PartialArray<T>(string label, string expected, Func<IEnumerable<T>> result)
+  {
+    var error = Error(label, expected);
+    return result().PartialArray(error);
+  }
 }

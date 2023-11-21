@@ -13,7 +13,7 @@ internal class ParseVarType : IParserVarType
       return Parse(tokens).MapOk(
         varType => tokens.Take(']')
           ? $"[{varType}]".Ok()
-          : tokens.Partial("Variable Type", "an inner variable type", varType),
+          : tokens.Partial("Variable Type", "an inner variable type", () => varType),
         () => tokens.Error("Variable Type", "an inner variable type", ""));
     } else if (tokens.Identifier(out var varNull)) {
       return varNull.Ok();

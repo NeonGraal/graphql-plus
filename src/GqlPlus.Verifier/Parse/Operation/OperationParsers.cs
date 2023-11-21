@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Operation;
 using GqlPlus.Verifier.Parse.Common;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,6 +13,10 @@ public static class OperationParsers
       .AddSingleton<IParserArgument, ParseArgument>()
       .AddParserValue<ArgumentAst, ParseArgumentValue>()
       .AddSingleton<IParserArray<DirectiveAst>, ParseDirectives>()
+      .AddSingleton<ParseObject>()
+      .AddSingleton<IParserArray<IAstSelection>>(x => x.GetRequiredService<ParseObject>())
+      .AddSingleton<IParser<IAstSelection>>(x => x.GetRequiredService<ParseObject>())
+      .AddSingleton<IParser<FieldAst>>(x => x.GetRequiredService<ParseObject>())
       .AddSingleton<IParser<VariableAst>, ParseVariable>()
       .AddSingleton<IParserArray<VariableAst>, ParseVariables>()
       .AddSingleton<IParserVarType, ParseVarType>();

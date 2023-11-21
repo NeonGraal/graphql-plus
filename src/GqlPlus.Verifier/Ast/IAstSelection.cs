@@ -1,3 +1,3 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-internal interface IAstSelection { }
+public interface IAstSelection { }

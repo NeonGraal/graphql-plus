@@ -13,7 +13,8 @@ public abstract class ParseValue<T> : IParserValue<T>, IParser<Field<T>>
 
   protected abstract string Label { get; }
 
-  public abstract IResult<T> Parse(Tokenizer tokens);
+  public abstract IResult<T> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer;
 
   public IResult<Field<T>> ParseField(Tokenizer tokens)
   {
@@ -34,7 +35,7 @@ public abstract class ParseValue<T> : IParserValue<T>, IParser<Field<T>>
       () => fieldValue.AsResult<Field<T>>());
   }
 
-  IResult<Field<T>> IParser<Field<T>>.Parse(Tokenizer tokens)
+  IResult<Field<T>> IParser<Field<T>>.Parse<TContext>(TContext tokens)
     => ParseField(tokens);
 
   protected abstract AstValue<T>.ObjectAst NewObject(AstValue<T>.ObjectAst? fields = default);

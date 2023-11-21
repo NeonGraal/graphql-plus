@@ -11,7 +11,8 @@ internal class ParseFieldKey : IParser<FieldKeyAst>
     ["false"] = "Boolean",
   };
 
-  public IResult<FieldKeyAst> Parse(Tokenizer tokens)
+  public IResult<FieldKeyAst> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer
   {
     var at = tokens.At;
     if (tokens.Number(out var number)) {

@@ -1,11 +1,13 @@
 ﻿namespace GqlPlus.Verifier.Parse;
 
-public interface IParser<T>
+public interface IParser<TResult>
 {
-  IResult<T> Parse(Tokenizer tokens);
+  IResult<TResult> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer;
 }
 
-public interface IParserArray<T>
+public interface IParserArray<TResult>
 {
-  IResultArray<T> Parse(Tokenizer tokens);
+  IResultArray<TResult> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer;
 }

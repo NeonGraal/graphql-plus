@@ -9,7 +9,8 @@ internal class ParseVariables : IParserArray<VariableAst>
   public ParseVariables(IParser<VariableAst> variable)
     => _variable = variable;
 
-  public IResultArray<VariableAst> Parse(Tokenizer tokens)
+  public IResultArray<VariableAst> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer
   {
     var list = new List<VariableAst>();
 

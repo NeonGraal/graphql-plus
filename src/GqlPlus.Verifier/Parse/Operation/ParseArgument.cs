@@ -17,7 +17,8 @@ internal class ParseArgument : IParserArgument
     _argument = argument.ThrowIfNull();
   }
 
-  public IResult<ArgumentAst> Parse(Tokenizer tokens)
+  public IResult<ArgumentAst> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer
   {
     if (!tokens.Take('(')) {
       return 0.Empty<ArgumentAst>();

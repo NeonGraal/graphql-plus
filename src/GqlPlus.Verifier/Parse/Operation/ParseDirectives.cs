@@ -9,7 +9,8 @@ internal class ParseDirectives : IParserArray<DirectiveAst>
   public ParseDirectives(IParserArgument argument)
     => _argument = argument.ThrowIfNull();
 
-  public IResultArray<DirectiveAst> Parse(Tokenizer tokens)
+  public IResultArray<DirectiveAst> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer
   {
     var result = new List<DirectiveAst>();
 

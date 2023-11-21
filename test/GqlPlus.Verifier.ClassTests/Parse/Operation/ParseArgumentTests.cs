@@ -78,7 +78,7 @@ public class ParseArgumentTests
   private void CheckNull(ArgumentAst? result)
     => result.Should().BeNull();
 
-  private OneChecks<ArgumentAst> Test;
+  private readonly OneChecks<ArgumentAst> Test;
 
   public ParseArgumentTests(IParserArgument parser)
     => Test = new(parser);

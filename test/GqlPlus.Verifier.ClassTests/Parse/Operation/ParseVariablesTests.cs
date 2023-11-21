@@ -20,7 +20,7 @@ public class ParseVariablesTests
   public void WithNoEnd_ReturnsFalse(string variable)
     => Test.False("($" + variable);
 
-  private ManyChecks<VariableAst> Test;
+  private readonly ManyChecks<VariableAst> Test;
 
   public ParseVariablesTests(IParserArray<VariableAst> parser)
     => Test = new(parser);

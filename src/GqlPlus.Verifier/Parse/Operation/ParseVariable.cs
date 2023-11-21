@@ -23,7 +23,8 @@ internal class ParseVariable : IParser<VariableAst>
     _varTypeParser = varTypeParser.ThrowIfNull();
   }
 
-  public IResult<VariableAst> Parse(Tokenizer tokens)
+  public IResult<VariableAst> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer
   {
     var prefix = tokens.Prefix('$', out var name, out var at);
     var variable = new VariableAst(at, name ?? "");

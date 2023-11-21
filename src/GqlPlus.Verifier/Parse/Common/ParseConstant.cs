@@ -10,7 +10,7 @@ public class ParseConstant : ParseValue<ConstantAst>
 
   protected override string Label => "Constant";
 
-  public override IResult<ConstantAst> Parse(Tokenizer tokens)
+  public override IResult<ConstantAst> Parse<TContext>(TContext tokens)
   {
     var at = tokens.At;
 

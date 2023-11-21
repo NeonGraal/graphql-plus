@@ -115,12 +115,14 @@ internal class OneChecks<T>
       return;
     }
 
-    var result = _parser.Parse(Tokens(input));
+    var tokens = Tokens(input);
+    var result = _parser.Parse(tokens);
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
     result.IsOk().Should().BeTrue(_type + " -> " + input);
     scope.FormattingOptions.MaxDepth = 10;
+    tokens.Errors.Should().BeEmpty();
     result.Required().Should().Be(expected);
   }
 
@@ -130,21 +132,25 @@ internal class OneChecks<T>
       return;
     }
 
-    var result = _parser.Parse(Tokens(input));
+    var tokens = Tokens(input);
+    var result = _parser.Parse(tokens);
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
     result.IsOk().Should().BeTrue(_type + " -> " + input);
+    tokens.Errors.Should().BeEmpty();
     result.Required().Should().Be(expected);
   }
 
   internal void Empty(string input)
   {
-    var result = _parser.Parse(Tokens(input));
+    var tokens = Tokens(input);
+    var result = _parser.Parse(tokens);
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
     result.IsEmpty().Should().BeTrue(_type + " -> " + input);
+    tokens.Errors.Should().BeEmpty();
   }
 
   internal void Partial(string input, string error, T expected, bool skipIf = false)

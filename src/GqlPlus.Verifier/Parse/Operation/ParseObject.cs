@@ -19,7 +19,8 @@ internal class ParseObject : IParserObject
     _argument = argument;
   }
 
-  public IResultArray<IAstSelection> Parse(Tokenizer tokens)
+  public IResultArray<IAstSelection> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer
   {
     var fields = new List<IAstSelection>();
     if (!tokens.Take('{')) {
@@ -93,7 +94,11 @@ internal class ParseObject : IParserObject
         if (tokens.Identifier(out var name)) {
           var selection = new SpreadAst(at, name);
           _directives.Parse(tokens).Optional(directives => selection.Directives = directives);
-          // TODO: Spreads.Add(selection);
+
+          if (tokens is OperationContext context) {
+            context.Spreads.Add(selection);
+          }
+
           return selection.Ok<IAstSelection>();
         }
       }
@@ -118,10 +123,10 @@ internal class ParseObject : IParserObject
     return AstNulls.Selection.Empty();
   }
 
-  IResult<IAstSelection> IParser<IAstSelection>.Parse(Tokenizer tokens)
+  IResult<IAstSelection> IParser<IAstSelection>.Parse<TContext>(TContext tokens)
     => ParseSelection(tokens);
 
-  IResult<FieldAst> IParser<FieldAst>.Parse(Tokenizer tokens)
+  IResult<FieldAst> IParser<FieldAst>.Parse<TContext>(TContext tokens)
     => ParseField(tokens);
 }
 

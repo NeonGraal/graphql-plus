@@ -4,7 +4,8 @@ namespace GqlPlus.Verifier.Parse.Common;
 
 internal class ParseModifiers : IParserArray<ModifierAst>
 {
-  public IResultArray<ModifierAst> Parse(Tokenizer tokens)
+  public IResultArray<ModifierAst> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer
   {
     var list = new List<ModifierAst>();
 

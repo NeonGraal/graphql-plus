@@ -2,7 +2,8 @@
 
 internal class ParseVarType : IParserVarType
 {
-  public IResult<string> Parse(Tokenizer tokens)
+  public IResult<string> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer
 => ParseVarNull(tokens).Select(nullType
       => tokens.Take('!') ? nullType + '!' : nullType);
 

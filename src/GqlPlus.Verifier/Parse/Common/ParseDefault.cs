@@ -9,7 +9,8 @@ internal class ParseDefault : IParserDefault
   public ParseDefault(IParser<ConstantAst> constant)
     => _constant = constant.ThrowIfNull();
 
-  public IResult<ConstantAst> Parse(Tokenizer tokens)
+  public IResult<ConstantAst> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer
     => tokens.Take('=') ? _constant.Parse(tokens).MapEmpty(
           () => tokens.Error<ConstantAst>("Default", "value after '='")
         ) : 0.Empty<ConstantAst>();

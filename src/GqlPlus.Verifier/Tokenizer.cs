@@ -349,11 +349,17 @@ public class Tokenizer
   public static string ErrorContext(string context)
     => context.Length < ErrorContextLen ? context + "<END>" : context[..ErrorContextLen];
 
+  internal readonly List<ParseMessage> Errors = new();
+
   internal ParseMessage Error(string text)
-    => new(At, text);
+  {
+    ParseMessage parseMessage = new(At, text);
+    Errors.Add(parseMessage);
+    return parseMessage;
+  }
 
   internal ParseMessage Error(string label, string expected)
-    => new(At, $"Invalid {label}. Expected {expected}.");
+    => Error($"Invalid {label}. Expected {expected}.");
 
   internal IResult<T> Error<T>(string label, string expected)
     => 0.Error<T>(Error(label, expected));

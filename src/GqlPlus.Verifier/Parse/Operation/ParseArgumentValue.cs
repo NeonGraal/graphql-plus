@@ -16,7 +16,7 @@ internal class ParseArgumentValue : ParseValue<ArgumentAst>
 
   protected override string Label => "Argument";
 
-  public override IResult<ArgumentAst> Parse(Tokenizer tokens)
+  public override IResult<ArgumentAst> Parse<TContext>(TContext tokens)
   {
     _ = tokens.At;
     if (!tokens.Prefix('$', out var variable, out ParseAt? at)) {
@@ -26,7 +26,9 @@ internal class ParseArgumentValue : ParseValue<ArgumentAst>
     if (variable is not null) {
       var argument = new ArgumentAst(at, variable);
 
-      // TODO: Variables.Add(argument);
+      if (tokens is OperationContext context) {
+        context.Variables.Add(argument);
+      }
 
       return argument.Ok();
     }

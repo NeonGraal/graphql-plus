@@ -13,6 +13,8 @@ public static class OperationParsers
       .AddSingleton<IParserArgument, ParseArgument>()
       .AddParserValue<ArgumentAst, ParseArgumentValue>()
       .AddSingleton<IParserArray<DirectiveAst>, ParseDirectives>()
+      .AddSingleton<IParserStartFragments, ParseStartFragments>()
+      .AddSingleton<IParserEndFragments, ParseEndFragments>()
       .AddSingleton<ParseObject>()
       .AddSingleton<IParserArray<IAstSelection>>(x => x.GetRequiredService<ParseObject>())
       .AddSingleton<IParser<IAstSelection>>(x => x.GetRequiredService<ParseObject>())

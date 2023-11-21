@@ -59,11 +59,14 @@ public class ParseFragmentsTests
       fragmentPrefix + fragment + typePrefix + onType + directives.Joined("@") + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()) { Directives = directives.Directives() });
 
-  private static ManyChecks<OperationParser, FragmentAst> TestStart => new(
-    tokens => new OperationParser(tokens),
-    parser => parser.ParseFragStart());
+  private readonly ManyChecks<FragmentAst> TestStart;
+  private readonly ManyChecks<FragmentAst> TestEnd;
 
-  private static ManyChecks<OperationParser, FragmentAst> TestEnd => new(
-    tokens => new OperationParser(tokens),
-    parser => parser.ParseFragEnd(Array.Empty<FragmentAst>()));
+  public ParseFragmentsTests(
+    IParserStartFragments startParser,
+    IParserEndFragments endParser)
+  {
+    TestStart = new(startParser);
+    TestEnd = new(endParser);
+  }
 }

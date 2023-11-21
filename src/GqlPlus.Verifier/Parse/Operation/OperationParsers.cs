@@ -12,5 +12,6 @@ public static class OperationParsers
       .AddSingleton<IParserArgument, ParseArgument>()
       .AddParserValue<ArgumentAst, ParseArgumentValue>()
       .AddSingleton<IParserArray<DirectiveAst>, ParseDirectives>()
-      .AddSingleton<IParser<VariableAst>, ParseVariable>();
+      .AddSingleton<IParser<VariableAst>, ParseVariable>()
+      .AddSingleton<IParserArray<VariableAst>, ParseVariables>();
 }

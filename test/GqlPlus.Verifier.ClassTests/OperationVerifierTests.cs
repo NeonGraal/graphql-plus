@@ -1,4 +1,7 @@
-﻿namespace GqlPlus.Verifier;
+﻿using GqlPlus.Verifier.Ast.Operation;
+using GqlPlus.Verifier.Parse;
+
+namespace GqlPlus.Verifier;
 
 public class OperationVerifierTests
 {
@@ -6,7 +9,7 @@ public class OperationVerifierTests
   [ClassData(typeof(ValidGraphQlPlusOperations))]
   public void Verify_ValidOperations_ReturnsValid(string operation)
   {
-    var result = OperationVerifier.Verify(operation, out var errors);
+    var result = OperationVerifier.Verify(operation, _parser, out var errors);
 
     using var scope = new AssertionScope();
 
@@ -18,13 +21,18 @@ public class OperationVerifierTests
   [ClassData(typeof(InvalidGraphQlPlusOperations))]
   public void Verify_InvalidOperations_ReturnsInvalid(string operation)
   {
-    var result = OperationVerifier.Verify(operation, out var errors);
+    var result = OperationVerifier.Verify(operation, _parser, out var errors);
 
     using var scope = new AssertionScope();
 
     result.Should().BeFalse();
     errors.Should().NotBeNullOrEmpty();
   }
+
+  private readonly IParser<OperationAst> _parser;
+
+  public OperationVerifierTests(IParser<OperationAst> parser)
+    => _parser = parser;
 
   public class ValidGraphQlPlusOperations : TheoryData<string>
   {

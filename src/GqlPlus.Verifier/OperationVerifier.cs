@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Operation;
 using GqlPlus.Verifier.Parse;
+using GqlPlus.Verifier.Parse.Operation;
 
 namespace GqlPlus.Verifier;
 
@@ -12,11 +13,10 @@ public class OperationVerifier
   internal OperationVerifier(OperationAst ast)
     => (Ast, Errors) = (ast, new(ast.Errors));
 
-  public static bool Verify(string operation, out List<ParseMessage> errors)
+  public static bool Verify(string operation, IParser<OperationAst> parser, out List<ParseMessage> errors)
   {
-    Tokenizer tokenizer = new(operation);
-    OperationParser parser = new(tokenizer);
-    var parse = parser.Parse();
+    OperationContext tokens = new(operation);
+    var parse = parser.Parse(tokens);
 
     if (parse is IResultError<OperationAst> error) {
       errors = new List<ParseMessage> { error.Message };

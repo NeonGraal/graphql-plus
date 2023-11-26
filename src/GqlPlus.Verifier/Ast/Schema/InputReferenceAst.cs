@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class InputReferenceAst(ParseAt At, string Name)
+public sealed record class InputReferenceAst(ParseAt At, string Name)
   : AstReference<InputReferenceAst>(At, Name), IEquatable<InputReferenceAst>
 {
   internal override string Abbr => "IR";

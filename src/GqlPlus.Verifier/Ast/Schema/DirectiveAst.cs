@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class DirectiveAst(ParseAt At, string Name, string Description)
+public sealed record class DirectiveAst(ParseAt At, string Name, string Description)
   : AstAliased(At, Name, Description), IEquatable<DirectiveAst>
 {
   public DirectiveOption Option { get; set; } = DirectiveOption.Unique;

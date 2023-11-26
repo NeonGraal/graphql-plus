@@ -62,4 +62,9 @@ public sealed class ParseDirectiveTests
   private static ParseDirectiveChecks Test => new();
 
   internal override IBaseAliasedChecks<string> AliasChecks => Test;
+
+  //private ParseDirectiveChecks Test;
+
+  //public ParseDirectiveTests(IParser<DirectiveAst> parser)
+  //  => Test = new(parser);
 }

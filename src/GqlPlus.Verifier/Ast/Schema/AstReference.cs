@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal abstract record class AstReference<T>(ParseAt At, string Name, string Description)
+public abstract record class AstReference<T>(ParseAt At, string Name, string Description)
   : AstDescribed(At, Name, Description), IEquatable<T>
   where T : AstReference<T>
 {

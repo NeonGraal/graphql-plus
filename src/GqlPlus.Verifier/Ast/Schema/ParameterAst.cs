@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class ParameterAst(ParseAt At, InputReferenceAst Input)
+public sealed record class ParameterAst(ParseAt At, InputReferenceAst Input)
   : AstBase(At), IEquatable<ParameterAst>
 {
   public ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();

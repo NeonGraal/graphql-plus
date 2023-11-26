@@ -7,36 +7,39 @@ public sealed class ParseCategoryTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithOption_ReturnsCorrectAst(string output, CategoryOption option)
-    => Test.Ok(
+    => _test.Ok(
       "{(" + option.ToString().ToLowerInvariant() + ")" + output + "}",
       new CategoryAst(AstNulls.At, output) { Option = option });
 
   [Theory, RepeatData(Repeats)]
   public void WithOptionBad_ReturnsFalse(string output, CategoryOption option)
-    => Test.Error(
+    => _test.Error(
       "{(" + option.ToString().ToLowerInvariant() + " " + output + "}",
       "')'");
 
   [Theory, RepeatData(Repeats)]
   public void WithOptionNone_ReturnsFalse(string output)
-    => Test.Error("{()" + output, "");
+    => _test.Error("{()" + output, "");
 
   [Theory, RepeatData(Repeats)]
   public void WithName_ReturnsCorrectAst(string output, string name)
-    => Test.Ok(
+    => _test.Ok(
       name + "{" + output + "}",
       new CategoryAst(AstNulls.At, name, output));
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string name, string output, CategoryOption option, string[] aliases)
-    => Test.Ok(
+    => _test.Ok(
       name + aliases.Bracket("[", "]{(").Joined() + option.ToString().ToLowerInvariant() + ")" + output + "}",
       new CategoryAst(AstNulls.At, name, output) {
         Option = option,
         Aliases = aliases,
       });
 
-  private static ParseCategoryChecks Test => new();
+  private readonly ParseCategoryChecks _test;
 
-  internal override IBaseAliasedChecks<string> AliasChecks => Test;
+  internal override IBaseAliasedChecks<string> AliasChecks => _test;
+
+  public ParseCategoryTests(IParser<CategoryAst> parser)
+    => _test = new(parser);
 }

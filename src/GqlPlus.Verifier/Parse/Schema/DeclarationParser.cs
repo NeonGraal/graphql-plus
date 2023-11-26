@@ -31,9 +31,12 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
     where TContext : Tokenizer
   {
     tokens.String(out var description);
-    _name.ParseName(tokens, out var name, out var at);
-
+    var hasName = _name.ParseName(tokens, out var name, out var at);
     TResult result = MakeResult(at, name, description);
+
+    if (!hasName) {
+      return tokens.Error(Label, "name", result);
+    }
 
     var parameter = _param.Parse(tokens);
     if (!ApplyParameter(result, parameter)) {

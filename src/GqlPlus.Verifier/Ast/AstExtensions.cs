@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Verifier.Ast;
 
 public static class AstExtensions
 {
@@ -53,6 +55,7 @@ public static class AstExtensions
     ? Array.Empty<string?>()
     : item.GetFields().Prepend(before).Append(after);
 
+  [return: NotNullIfNotNull(nameof(text))]
   public static string? Camelize(this string? text)
     => text?.Length > 0
       ? char.ToLower(text[0]) + text[1..]

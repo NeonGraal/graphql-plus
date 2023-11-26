@@ -1,4 +1,6 @@
-﻿using GqlPlus.Verifier.Parse;
+﻿using GqlPlus.Verifier.Ast.Operation;
+using GqlPlus.Verifier.Parse;
+using GqlPlus.Verifier.Parse.Operation;
 
 namespace GqlPlus.Verifier;
 
@@ -20,7 +22,7 @@ public class VerifyTests
   public async Task VerifySampleSchema(string sample)
   {
     var operation = File.ReadAllText("Sample/Schema_" + sample + ".graphql+");
-    Tokenizer tokenizer = new(operation);
+    OperationContext tokenizer = new(operation);
     SchemaParser parser = new(tokenizer);
     var ast = parser.Parse().Required();
 
@@ -37,9 +39,8 @@ public class VerifyTests
   public async Task VerifySampleOperation(string sample)
   {
     var operation = File.ReadAllText("Sample/Operation_" + sample + ".gql+");
-    Tokenizer tokenizer = new(operation);
-    OperationParser parser = new(tokenizer);
-    var ast = parser.Parse().Optional();
+    OperationContext tokens = new(operation);
+    var ast = _operation.Parse(tokens).Optional();
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
@@ -54,9 +55,8 @@ public class VerifyTests
   public async Task VerifyGraphQlExample(string example)
   {
     var operation = File.ReadAllText("GraphQl/Example_" + example + ".gql");
-    Tokenizer tokenizer = new(operation);
-    OperationParser parser = new(tokenizer);
-    var ast = parser.Parse().Required();
+    OperationContext tokens = new(operation);
+    var ast = _operation.Parse(tokens).Required();
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
@@ -65,6 +65,11 @@ public class VerifyTests
 
     await Verify(ast.Render(), settings);
   }
+
+  private readonly IParser<OperationAst> _operation;
+
+  public VerifyTests(IParser<OperationAst> operation)
+    => _operation = operation;
 
   public class GraphQlExamplesData : TheoryData<string>
   {

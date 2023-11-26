@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Parse.Common;
 
 namespace GqlPlus.Verifier.Parse;
 
@@ -85,84 +84,9 @@ internal class CommonParser
     var at = _tokens.At;
 
     var fieldKey = ParseFieldKey();
-    if (fieldKey.HasValue()) {
-      return fieldKey.Select(value => new ConstantAst(value));
-    }
-
-    var oldSeparators = _tokens.IgnoreSeparators;
-    try {
-      _tokens.IgnoreSeparators = false;
-
-      var list = ParseConstList();
-      return list.MapOk(
-        theList => new ConstantAst(at, theList).Ok(),
-        () => list.IsError()
-          ? list.AsResult(AstNulls.Constant)
-          : ParseConstObject().Select(fields => new ConstantAst(at, fields)));
-    } finally {
-      _tokens.IgnoreSeparators = oldSeparators;
-    }
-  }
-
-  private IResultArray<ConstantAst> ParseConstList()
-  {
-    var list = new List<ConstantAst>();
-
-    if (!_tokens.Take('[')) {
-      return list.EmptyArray();
-    }
-
-    while (!_tokens.Take(']')) {
-      var constant = ParseConstant();
-      if (!constant.Required(list.Add)) {
-        return PartialArray("Constant", "value in list", () => list);
-      }
-
-      _tokens.Take(',');
-    }
-
-    return list.OkArray();
-  }
-
-  private IResult<ConstantAst.ObjectAst> ParseConstObject()
-  {
-    var fields = new ConstantAst.ObjectAst();
-
-    if (!_tokens.Take('{')) {
-      return fields.Empty();
-    }
-
-    while (!_tokens.Take('}')) {
-      var field = ParseField("Constant", ParseConstant);
-
-      if (!field.Required(value => fields.Add(value.Key, value.Value))) {
-        return field.AsResult(fields);
-      }
-
-      _tokens.Take(',');
-    }
-
-    return fields.Ok();
-  }
-
-  internal IResult<Field<T>> ParseField<T>(string label, Func<IResult<T>> parseValue)
-    where T : AstValue<T>
-  {
-    var fieldKey = ParseFieldKey();
-    if (fieldKey.IsError()) {
-      return fieldKey.AsResult<Field<T>>();
-    }
-
-    if (!_tokens.Take(':')) {
-      return Error<Field<T>>(label, "':' after key");
-    } else if (!fieldKey.IsOk()) {
-      return Error<Field<T>>(label, "key before ':'");
-    }
-
-    var fieldValue = parseValue();
-    return fieldValue.SelectOk(
-      value => new Field<T>(fieldKey.Required(), value),
-      () => fieldValue.AsResult<Field<T>>());
+    return fieldKey.HasValue()
+      ? fieldKey.Select(value => new ConstantAst(value))
+      : 0.Error<ConstantAst>(_tokens.Error("Constant", "Unused"));
   }
 
   protected bool Error(string label, string message, bool result = false)

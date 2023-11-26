@@ -40,15 +40,7 @@ internal class ParseOperation : IParser<OperationAst>
       }
     }
 
-    var at = tokens.At;
-    OperationAst ast = new(at);
-    if (tokens.Identifier(out var category)) {
-      if (tokens.Identifier(out var name)) {
-        ast = new(at, name) { Category = category };
-      } else {
-        ast.Category = category;
-      }
-    }
+    OperationAst ast = ParseCategory(tokens);
 
     var variables = _variables.Parse(tokens);
     if (!variables.Optional(value => ast.Variables = value)) {
@@ -98,5 +90,16 @@ internal class ParseOperation : IParser<OperationAst>
             Spreads = context.Spreads.ToArray(),
           }
           : ast with { Errors = tokens.Errors.ToArray(), };
+  }
+
+  private static OperationAst ParseCategory<TContext>(TContext tokens)
+    where TContext : Tokenizer
+  {
+    var at = tokens.At;
+    return tokens.Identifier(out var category)
+      ? tokens.Identifier(out var name)
+        ? new(at, name) { Category = category }
+        : new(at) { Category = category }
+      : new(at);
   }
 }

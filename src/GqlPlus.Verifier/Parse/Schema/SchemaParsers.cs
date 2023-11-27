@@ -26,5 +26,12 @@ public static class SchemaParsers
       .AddSingleton<IParser<EnumDefinition>, ParseEnumDefinition>()
       .AddSingleton<IParser<EnumLabelAst>, ParseEnumLabel>()
       .AddSingleton<IParser<EnumAst>, ParseEnum>()
+      // Scalar
+      .AddSingleton<IParser<ScalarDefinition>, ParseScalarDefinition>()
+      .AddSingleton<IParser<ScalarRangeAst>, ParseScalarRange>()
+      .AddSingleton<IParserArray<ScalarRangeAst>, ArrayParser<ScalarRangeAst>>()
+      .AddSingleton<IParser<ScalarRegexAst>, ParseScalarRegex>()
+      .AddSingleton<IParserArray<ScalarRegexAst>, ArrayParser<ScalarRegexAst>>()
+      .AddSingleton<IParser<ScalarAst>, ParseScalar>()
       ;
 }

@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class ScalarRegexAst(ParseAt At, string Regex, bool Excludes)
+public sealed record class ScalarRegexAst(ParseAt At, string Regex, bool Excludes)
   : AstBase(At), IEquatable<ScalarRegexAst>
 {
   internal override string Abbr => "SX";

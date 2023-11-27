@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class ScalarRangeAst(ParseAt At)
+public sealed record class ScalarRangeAst(ParseAt At)
   : AstBase(At), IEquatable<ScalarRangeAst>
 {
   public decimal? Lower { get; set; }

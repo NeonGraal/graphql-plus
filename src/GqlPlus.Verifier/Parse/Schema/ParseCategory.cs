@@ -64,8 +64,6 @@ internal class ParseCategoryDefinition : IParser<CategoryOutput>
     }
 
     var result = new CategoryOutput(output);
-    return tokens.Take('}')
-      ? result.Ok()
-      : tokens.Partial("Category", "'}' at end of definition", () => result);
+    return tokens.End("Category", () => result);
   }
 }

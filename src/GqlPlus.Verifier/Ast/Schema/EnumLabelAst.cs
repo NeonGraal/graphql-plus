@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class EnumLabelAst(ParseAt At, string Name, string Description)
+public sealed record class EnumLabelAst(ParseAt At, string Name, string Description)
   : AstAliased(At, Name, Description), IEquatable<EnumLabelAst>
 {
   internal override string Abbr => "EL";

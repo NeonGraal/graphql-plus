@@ -10,13 +10,21 @@ public static class SchemaParsers
     => services
       .AddSingleton<CategoryName>()
       .AddSingleton<IParser<NullAst>, ParseNull>()
+      .AddSingleton<IParser<ParameterAst>, ParseParameter>()
+      .AddSingleton<IParserArray<string>, ParseAliases>()
+      .AddSingleton<TypeName>()
+      // Category
       .AddSingleton<IParser<CategoryOption>, ParseCategoryOption>()
       .AddSingleton<IParser<CategoryOutput>, ParseCategoryDefinition>()
       .AddSingleton<IParser<CategoryAst>, ParseCategory>()
+      // Directive
       .AddSingleton<DirectiveName>()
-      .AddSingleton<IParser<ParameterAst>, ParseParameter>()
       .AddSingleton<IParser<DirectiveOption>, ParseDirectiveOption>()
       .AddSingleton<IParser<DirectiveLocation>, ParseDirectiveDefinition>()
       .AddSingleton<IParser<DirectiveAst>, ParseDirective>()
+      // Enum
+      .AddSingleton<IParser<EnumDefinition>, ParseEnumDefinition>()
+      .AddSingleton<IParser<EnumLabelAst>, ParseEnumLabel>()
+      .AddSingleton<IParser<EnumAst>, ParseEnum>()
       ;
 }

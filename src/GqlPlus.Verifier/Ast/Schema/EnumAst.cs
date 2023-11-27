@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class EnumAst(ParseAt At, string Name, string Description)
+public sealed record class EnumAst(ParseAt At, string Name, string Description)
   : AstAliased(At, Name, Description), IEquatable<EnumAst>
 {
   public string? Extends { get; set; }

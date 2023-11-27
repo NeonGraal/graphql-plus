@@ -8,9 +8,10 @@ internal class ParseDirective : DeclarationParser<DirectiveName, ParameterAst, D
   public ParseDirective(
     DirectiveName name,
     IParser<ParameterAst> param,
+    IParserArray<string> aliases,
     IParser<DirectiveOption> option,
     IParser<DirectiveLocation> definition
-  ) : base(name, param, option, definition) { }
+  ) : base(name, param, aliases, option, definition) { }
 
   protected override string Label => "Directive";
 

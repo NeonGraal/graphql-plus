@@ -9,9 +9,10 @@ internal class ParseCategory : DeclarationParser<CategoryName, NullAst, Category
   public ParseCategory(
     CategoryName name,
     IParser<NullAst> param,
+    IParserArray<string> aliases,
     IParser<CategoryOption> option,
     IParser<CategoryOutput> definition
-  ) : base(name, param, option, definition)
+  ) : base(name, param, aliases, option, definition)
   {
   }
 

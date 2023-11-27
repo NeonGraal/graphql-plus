@@ -33,7 +33,11 @@ public sealed class ParseEnumTests
     => Test.False(name + "{" + string.Join("|", labels) + "}",
       skipIf: labels.Length < 2);
 
-  private static ParseEnumChecks Test => new();
+  private readonly ParseEnumChecks Test;
+
+  public ParseEnumTests(IParser<EnumAst> parser)
+    => Test = new(parser);
 
   internal override IBaseAliasedChecks<EnumInput> AliasChecks => Test;
+
 }

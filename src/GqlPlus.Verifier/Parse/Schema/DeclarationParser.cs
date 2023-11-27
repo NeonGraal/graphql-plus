@@ -10,6 +10,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 {
   private readonly TName _name;
   private readonly IParser<TParam> _param;
+  private readonly IParserArray<string> _aliases;
   private readonly IParser<TOption> _option;
   private readonly IParser<TDefinition> _definition;
 
@@ -18,11 +19,13 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   public DeclarationParser(
     TName name,
     IParser<TParam> param,
+    IParserArray<string> aliases,
     IParser<TOption> option,
     IParser<TDefinition> definition)
   {
     _name = name.ThrowIfNull();
     _param = param.ThrowIfNull();
+    _aliases = aliases.ThrowIfNull();
     _option = option.ThrowIfNull();
     _definition = definition.ThrowIfNull();
   }
@@ -43,7 +46,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
       return parameter.AsPartial(result);
     }
 
-    var aliases = ParseAliases(tokens);
+    var aliases = _aliases.Parse(tokens);
     if (!aliases.Optional(value => result.Aliases = value)) {
       return aliases.AsPartial(result);
     }
@@ -69,24 +72,6 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 
   [return: NotNull]
   protected abstract TResult MakeResult(ParseAt at, string? name, string description);
-
-  private IResultArray<string> ParseAliases(Tokenizer tokens)
-  {
-    var aliases = new List<string>();
-    if (tokens.Take('[')) {
-      while (tokens.Identifier(out var alias)) {
-        aliases.Add(alias);
-      }
-
-      if (!tokens.Take("]")) {
-        return tokens.PartialArray(Label, "']' to end aliases", () => aliases);
-      } else if (aliases.Count == 0) {
-        return tokens.ErrorArray(Label, "at least one alias after '['", aliases);
-      }
-    }
-
-    return aliases.OkArray();
-  }
 }
 
 internal interface INameParser

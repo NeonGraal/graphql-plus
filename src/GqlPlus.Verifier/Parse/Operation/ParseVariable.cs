@@ -42,7 +42,7 @@ internal class ParseVariable : IParser<VariableAst>
       }
     }
 
-    var modifiers = _modifiers.Parse(tokens);
+    var modifiers = _modifiers.Parse(tokens, "Variable");
     if (!modifiers.Optional(value => variable.Modifers = value)) {
       return modifiers.AsResult(variable);
     }
@@ -52,7 +52,7 @@ internal class ParseVariable : IParser<VariableAst>
       return constant.AsResult(variable);
     }
 
-    var directives = _directives.Parse(tokens); ;
+    var directives = _directives.Parse(tokens, "Variable");
     return directives.Optional(value => variable.Directives = value)
       ? variable.Ok()
       : directives.AsResult(variable);

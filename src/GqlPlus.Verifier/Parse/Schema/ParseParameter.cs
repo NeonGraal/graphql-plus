@@ -35,7 +35,7 @@ internal class ParseParameter : IParser<ParameterAst>
     }
 
     var parameter = new ParameterAst(at, input.Required() with { Description = descr });
-    var modifiers = _modifiers.Parse(tokens);
+    var modifiers = _modifiers.Parse(tokens, "Parameter");
 
     if (modifiers.IsError()) {
       return modifiers.AsResult(parameter);

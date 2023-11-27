@@ -7,9 +7,9 @@ internal class ParseVariables : IParserArray<VariableAst>
   private readonly IParser<VariableAst> _variable;
 
   public ParseVariables(IParser<VariableAst> variable)
-    => _variable = variable;
+    => _variable = variable.ThrowIfNull();
 
-  public IResultArray<VariableAst> Parse<TContext>(TContext tokens)
+  public IResultArray<VariableAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var list = new List<VariableAst>();

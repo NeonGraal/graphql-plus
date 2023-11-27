@@ -8,6 +8,6 @@ public interface IParser<TResult>
 
 public interface IParserArray<TResult>
 {
-  IResultArray<TResult> Parse<TContext>(TContext tokens)
+  IResultArray<TResult> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer;
 }

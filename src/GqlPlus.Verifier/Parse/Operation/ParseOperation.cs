@@ -42,14 +42,14 @@ internal class ParseOperation : IParser<OperationAst>
 
     OperationAst ast = ParseCategory(tokens);
 
-    var variables = _variables.Parse(tokens);
+    var variables = _variables.Parse(tokens, "Operation");
     if (!variables.Optional(value => ast.Variables = value)) {
       return variables.AsPartial(Final());
     }
 
-    _directives.Parse(tokens).Required(directives => ast.Directives = directives);
+    _directives.Parse(tokens, "Operation").Required(directives => ast.Directives = directives);
 
-    _startFragments.Parse(tokens).WithResult(value => ast.Fragments = value);
+    _startFragments.Parse(tokens, "Operation").WithResult(value => ast.Fragments = value);
     if (!tokens.Prefix(':', out var result, out _)) {
       return tokens.Partial("Operation", "identifier to follow ':'", Final);
     }
@@ -60,18 +60,18 @@ internal class ParseOperation : IParser<OperationAst>
       if (!argument.Optional(value => ast.Argument = value)) {
         return argument.AsPartial(Final());
       }
-    } else if (!_object.Parse(tokens).Required(selections => ast.Object = selections)) {
+    } else if (!_object.Parse(tokens, "Operation").Required(selections => ast.Object = selections)) {
       return tokens.Partial("Operation", "Object or Type", Final);
     }
 
-    var modifiers = _modifiers.Parse(tokens);
+    var modifiers = _modifiers.Parse(tokens, "Operation");
 
     if (modifiers.IsError()) {
       return modifiers.AsPartial(Final());
     }
 
     modifiers.WithResult(value => ast.Modifiers = value);
-    _endFragments.Parse(tokens).WithResult(value =>
+    _endFragments.Parse(tokens, "Operation").WithResult(value =>
       ast.Fragments = ast.Fragments.Concat(value).ToArray());
 
     if (tokens.AtEnd) {

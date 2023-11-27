@@ -2,7 +2,7 @@
 
 internal class ParseAliases : IParserArray<string>
 {
-  public IResultArray<string> Parse<TContext>(TContext tokens)
+  public IResultArray<string> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var aliases = new List<string>();
@@ -12,9 +12,9 @@ internal class ParseAliases : IParserArray<string>
       }
 
       if (!tokens.Take("]")) {
-        return tokens.PartialArray("Aliases", "']' to end aliases", () => aliases);
+        return tokens.PartialArray(label, "']' to end aliases", () => aliases);
       } else if (aliases.Count == 0) {
-        return tokens.ErrorArray("Aliases", "at least one alias after '['", aliases);
+        return tokens.ErrorArray(label, "at least one alias after '['", aliases);
       }
     }
 

@@ -73,14 +73,14 @@ internal class ParseScalarDefinition : IParser<ScalarDefinition>
 
     switch (result.Kind) {
       case ScalarKind.Number:
-        var scalarRanges = _ranges.Parse(tokens);
+        var scalarRanges = _ranges.Parse(tokens, "Scalar");
         if (scalarRanges.Required(ranges => result.Ranges = ranges)) {
           return tokens.End("Scalar", () => result);
         }
 
         return scalarRanges.AsResult(result);
       case ScalarKind.String:
-        var scalarRegexes = _regexes.Parse(tokens);
+        var scalarRegexes = _regexes.Parse(tokens, "Scalar");
         if (scalarRegexes.Required(regexes => result.Regexes = regexes)) {
           return tokens.End("Scalar", () => result);
         }

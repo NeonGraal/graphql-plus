@@ -77,7 +77,7 @@ internal class ManyChecks<T>
 
   internal void TrueExpected(string input, params T[] expected)
   {
-    var result = _parser.Parse(Tokens(input));
+    var result = _parser.Parse(Tokens(input), _type);
 
     result.IsOk().Should().BeTrue(_type);
     using var scope = new AssertionScope();
@@ -86,7 +86,7 @@ internal class ManyChecks<T>
 
   internal void False(string input)
   {
-    var result = _parser.Parse(Tokens(input));
+    var result = _parser.Parse(Tokens(input), _type);
 
     using var scope = new AssertionScope();
     result.IsError(message => message.Message.Contains("Expected")).Should().BeTrue(_type);
@@ -94,7 +94,7 @@ internal class ManyChecks<T>
 
   internal void Count(string input, int count)
   {
-    var result = _parser.Parse(Tokens(input));
+    var result = _parser.Parse(Tokens(input), _type);
 
     result.IsOk().Should().BeTrue(_type);
     using var scope = new AssertionScope();

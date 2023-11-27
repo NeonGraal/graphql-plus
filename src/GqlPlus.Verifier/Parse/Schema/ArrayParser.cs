@@ -7,7 +7,7 @@ internal class ArrayParser<TItem> : IParserArray<TItem>
   public ArrayParser(IParser<TItem> regex)
     => _regex = regex.ThrowIfNull();
 
-  public IResultArray<TItem> Parse<TContext>(TContext tokens)
+  public IResultArray<TItem> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var result = new List<TItem>();

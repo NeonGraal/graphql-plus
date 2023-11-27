@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Parse.Common;
 
 internal class ParseModifiers : IParserArray<ModifierAst>
 {
-  public IResultArray<ModifierAst> Parse<TContext>(TContext tokens)
+  public IResultArray<ModifierAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var list = new List<ModifierAst>();
@@ -23,7 +23,7 @@ internal class ParseModifiers : IParserArray<ModifierAst>
       if (tokens.Take(']')) {
         list.Add(modifier);
       } else {
-        return tokens.PartialArray("Modifier", "']' at end of list or dictionary modifier.", () => list);
+        return tokens.PartialArray(label, "']' at end of list or dictionary modifier.", () => list);
       }
 
       at = tokens.At;

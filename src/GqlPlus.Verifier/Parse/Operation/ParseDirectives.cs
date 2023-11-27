@@ -9,13 +9,13 @@ internal class ParseDirectives : IParserArray<DirectiveAst>
   public ParseDirectives(IParserArgument argument)
     => _argument = argument.ThrowIfNull();
 
-  public IResultArray<DirectiveAst> Parse<TContext>(TContext tokens)
+  public IResultArray<DirectiveAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var result = new List<DirectiveAst>();
 
     if (!tokens.Prefix('@', out var name, out var at)) {
-      return tokens.ErrorArray("Directive", "identifier after '@'", result);
+      return tokens.ErrorArray(label, "identifier after '@'", result);
     }
 
     while (name is not null) {
@@ -29,7 +29,7 @@ internal class ParseDirectives : IParserArray<DirectiveAst>
 
       result.Add(directive);
       if (!tokens.Prefix('@', out name, out at)) {
-        return tokens.PartialArray("Directive", "identifier after '@'", () => result);
+        return tokens.PartialArray(label, "identifier after '@'", () => result);
       }
     }
 

@@ -7,7 +7,7 @@ internal class ParseEnumLabel : IParser<EnumLabelAst>
   private readonly IParserArray<string> _aliases;
 
   public ParseEnumLabel(IParserArray<string> aliases)
-    => _aliases = aliases;
+    => _aliases = aliases.ThrowIfNull();
 
   public IResult<EnumLabelAst> Parse<TContext>(TContext tokens)
     where TContext : Tokenizer
@@ -19,7 +19,7 @@ internal class ParseEnumLabel : IParser<EnumLabelAst>
       return tokens.Error<EnumLabelAst>("Enum", "label");
     }
 
-    var enumAliases = _aliases.Parse(tokens);
+    var enumAliases = _aliases.Parse(tokens, "Enum Label");
     var enumLabel = enumAliases.IsOk()
       ? new EnumLabelAst(at, label, description) { Aliases = enumAliases.Required() }
       : new EnumLabelAst(at, label, description);

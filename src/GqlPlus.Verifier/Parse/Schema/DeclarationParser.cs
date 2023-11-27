@@ -46,7 +46,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
       return parameter.AsPartial(result);
     }
 
-    var aliases = _aliases.Parse(tokens);
+    var aliases = _aliases.Parse(tokens, Label);
     if (!aliases.Optional(value => result.Aliases = value)) {
       return aliases.AsPartial(result);
     }

@@ -14,12 +14,12 @@ internal class ParseObject : IParserObject
     IParserArray<DirectiveAst> directives,
     IParserArgument argument)
   {
-    _modifiers = modifiers;
-    _directives = directives;
-    _argument = argument;
+    _modifiers = modifiers.ThrowIfNull();
+    _directives = directives.ThrowIfNull();
+    _argument = argument.ThrowIfNull();
   }
 
-  public IResultArray<IAstSelection> Parse<TContext>(TContext tokens)
+  public IResultArray<IAstSelection> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var fields = new List<IAstSelection>();
@@ -68,14 +68,14 @@ internal class ParseObject : IParserObject
 
     _argument.Parse(tokens).Required(argument => result.Argument = argument);
 
-    var modifiers = _modifiers.Parse(tokens);
+    var modifiers = _modifiers.Parse(tokens, "Field");
     if (!modifiers.Optional(value => result.Modifiers = value)) {
       return modifiers.AsResult<FieldAst>();
     }
 
-    _directives.Parse(tokens).WithResult(directives => result.Directives = directives);
+    _directives.Parse(tokens, alias).WithResult(directives => result.Directives = directives);
 
-    var selections = Parse(tokens);
+    var selections = Parse(tokens, "Field");
     return !selections.Optional(value => result.Selections = value)
       ? selections.AsResult<FieldAst>()
       : result.Ok();
@@ -93,7 +93,7 @@ internal class ParseObject : IParserObject
       } else {
         if (tokens.Identifier(out var name)) {
           var selection = new SpreadAst(at, name);
-          _directives.Parse(tokens).Optional(directives => selection.Directives = directives);
+          _directives.Parse(tokens, "Spread").Optional(directives => selection.Directives = directives);
 
           if (tokens is OperationContext context) {
             context.Spreads.Add(selection);
@@ -104,8 +104,8 @@ internal class ParseObject : IParserObject
       }
 
       {
-        var directives = _directives.Parse(tokens);
-        var selections = Parse(tokens);
+        var directives = _directives.Parse(tokens, "Inline");
+        var selections = Parse(tokens, "Object");
         if (selections.IsOk()) {
           return selections.Select(values => {
             var selection = new InlineAst(at, values) {

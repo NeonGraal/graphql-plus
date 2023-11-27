@@ -21,7 +21,7 @@ internal abstract class ParseFragments : IParserArray<FragmentAst>
   protected abstract bool TypePrefix<TContext>(ref TContext tokens)
     where TContext : Tokenizer;
 
-  public IResultArray<FragmentAst> Parse<TContext>(TContext tokens)
+  public IResultArray<FragmentAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var definitions = new List<FragmentAst>();
@@ -40,13 +40,13 @@ internal abstract class ParseFragments : IParserArray<FragmentAst>
         return tokens.ErrorArray("Fragment", "type after ':' or 'on'", definitions);
       }
 
-      var directives = _directives.Parse(tokens);
+      var directives = _directives.Parse(tokens, "Fragment");
 
       if (directives.IsError()) {
         return directives.AsResultArray(definitions);
       }
 
-      var fields = _object.Parse(tokens);
+      var fields = _object.Parse(tokens, "Fragment");
       if (!fields.Required(NewFragment)) {
         return fields.AsResultArray(definitions);
       }

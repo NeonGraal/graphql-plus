@@ -45,7 +45,7 @@ internal class ParseEnumDefinition : IParser<EnumDefinition>
   private readonly IParser<EnumLabelAst> _enumLabel;
 
   public ParseEnumDefinition(IParser<EnumLabelAst> enumLabel)
-    => _enumLabel = enumLabel;
+    => _enumLabel = enumLabel.ThrowIfNull();
 
   public IResult<EnumDefinition> Parse<TContext>(TContext tokens)
     where TContext : Tokenizer

@@ -7,11 +7,11 @@ namespace GqlPlus.Verifier.Parse.Operation;
 internal class ParseArgument : IParserArgument
 {
   protected readonly IParser<FieldKeyAst> _fieldKey;
-  protected readonly IParserValue<ArgumentAst> _argument;
+  protected readonly IValueParser<ArgumentAst> _argument;
 
   public ParseArgument(
     IParser<FieldKeyAst> fieldKey,
-    IParserValue<ArgumentAst> argument)
+    IValueParser<ArgumentAst> argument)
   {
     _fieldKey = fieldKey.ThrowIfNull();
     _argument = argument.ThrowIfNull();

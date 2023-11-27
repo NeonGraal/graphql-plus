@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Parse.Common;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal class ParseArgumentValue : ParseValue<ArgumentAst>
+internal class ParseArgumentValue : ValueParser<ArgumentAst>
 {
   private readonly IParser<ConstantAst> _constant;
 

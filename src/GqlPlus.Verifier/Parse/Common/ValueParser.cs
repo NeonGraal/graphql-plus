@@ -1,15 +1,22 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Parse.Schema;
 
 namespace GqlPlus.Verifier.Parse.Common;
 
-public abstract class ParseValue<T> : IParserValue<T>, IParser<Field<T>>
+public abstract class ValueParser<T> : IValueParser<T>
   where T : AstValue<T>
 {
-  protected readonly IParser<FieldKeyAst> _fieldKey;
+  protected readonly IParser<FieldKeyAst> FieldKey;
 
-  public ParseValue(
+  public ParserProxy<Field<T>, Tokenizer> FieldIParser { get; }
+
+  public ValueParser(
     IParser<FieldKeyAst> fieldKey)
-    => _fieldKey = fieldKey.ThrowIfNull();
+  {
+    FieldKey = fieldKey.ThrowIfNull();
+
+    FieldIParser = new(ParseField);
+  }
 
   protected abstract string Label { get; }
 
@@ -18,7 +25,7 @@ public abstract class ParseValue<T> : IParserValue<T>, IParser<Field<T>>
 
   public IResult<Field<T>> ParseField(Tokenizer tokens)
   {
-    var fieldKey = _fieldKey.Parse(tokens);
+    var fieldKey = FieldKey.Parse(tokens);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<Field<T>>();
     }
@@ -34,9 +41,6 @@ public abstract class ParseValue<T> : IParserValue<T>, IParser<Field<T>>
       value => new Field<T>(fieldKey.Required(), value),
       () => fieldValue.AsResult<Field<T>>());
   }
-
-  IResult<Field<T>> IParser<Field<T>>.Parse<TContext>(TContext tokens)
-    => ParseField(tokens);
 
   protected abstract AstValue<T>.ObjectAst NewObject(AstValue<T>.ObjectAst? fields = default);
 
@@ -84,9 +88,11 @@ public abstract class ParseValue<T> : IParserValue<T>, IParser<Field<T>>
 public record struct Field<T>(FieldKeyAst Key, T Value)
   where T : AstValue<T>;
 
-public interface IParserValue<T> : IParser<T>
+public interface IValueParser<T> : IParser<T>
   where T : AstValue<T>
 {
+  ParserProxy<Field<T>, Tokenizer> FieldIParser { get; }
+
   IResult<Field<T>> ParseField(Tokenizer tokens);
   IResult<AstValue<T>.ObjectAst> ParseFieldValues(Tokenizer tokens, char last, AstValue<T>.ObjectAst fields);
 }

@@ -10,7 +10,7 @@ public static class OperationParsers
   public static IServiceCollection AddOperationParsers(this IServiceCollection services)
     => services
       .AddSingleton<IParserArgument, ParseArgument>()
-      .AddParserValue<ArgumentAst, ParseArgumentValue>()
+      .AddValueParser<ArgumentAst, ParseArgumentValue>()
       .AddSingleton<IParserArray<DirectiveAst>, ParseDirectives>()
       .AddSingleton<IParserStartFragments, ParseStartFragments>()
       .AddSingleton<IParserEndFragments, ParseEndFragments>()

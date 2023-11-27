@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse.Common;
 
-public class ParseConstant : ParseValue<ConstantAst>
+public class ParseConstant : ValueParser<ConstantAst>
 {
   public ParseConstant(
       IParser<FieldKeyAst> fieldKey)
@@ -14,7 +14,7 @@ public class ParseConstant : ParseValue<ConstantAst>
   {
     var at = tokens.At;
 
-    var fieldKey = _fieldKey.Parse(tokens);
+    var fieldKey = FieldKey.Parse(tokens);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<ConstantAst>();
     }

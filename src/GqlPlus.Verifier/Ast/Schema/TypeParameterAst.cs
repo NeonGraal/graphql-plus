@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class TypeParameterAst(ParseAt At, string Name, string Description)
+public sealed record class TypeParameterAst(ParseAt At, string Name, string Description)
   : AstDescribed(At, Name, Description), IEquatable<TypeParameterAst>
 {
 

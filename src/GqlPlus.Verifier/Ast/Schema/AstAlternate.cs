@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class AstAlternate<R>(ParseAt At, R Type)
+public sealed record class AstAlternate<R>(ParseAt At, R Type)
   : AstBase(At), IEquatable<AstAlternate<R>>
   where R : AstReference<R>, IEquatable<R>
 {

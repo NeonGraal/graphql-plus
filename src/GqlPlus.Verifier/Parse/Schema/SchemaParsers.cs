@@ -33,5 +33,21 @@ public static class SchemaParsers
       .AddSingleton<IParser<ScalarRegexAst>, ParseScalarRegex>()
       .AddSingleton<IParserArray<ScalarRegexAst>, ArrayParser<ScalarRegexAst>>()
       .AddSingleton<IParser<ScalarAst>, ParseScalar>()
+      // Objects
+      .AddObjectParser<ParseInput, InputAst, InputFieldAst, InputReferenceAst>()
+      .AddObjectParser<ParseOutput, OutputAst, OutputFieldAst, OutputReferenceAst>()
+      ;
+
+  public static IServiceCollection AddObjectParser<P, O, F, R>(this IServiceCollection services)
+    where P : class, IObjectParser<O, F, R>
+    where O : AstObject<F, R>
+    where F : AstField<R>
+    where R : AstReference<R>
+    => services
+      .AddSingleton<P>()
+      .AddSingleton<IParser<O>>(x => x.GetRequiredService<P>())
+      .AddSingleton<IParser<F>>(x => x.GetRequiredService<P>().FieldIParser)
+      .AddSingleton<IParser<R>>(x => x.GetRequiredService<P>().ReferenceIParser)
+      .AddSingleton<IParser<ObjectDefinition<F, R>>>(x => x.GetRequiredService<P>().DefinitionIParser)
       ;
 }

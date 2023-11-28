@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Parse.Schema;
 
-internal interface IBaseReferenceChecks
+public interface IBaseReferenceChecks
 {
   void WithMinimum(string name);
   void WithTypeParameter(string name);

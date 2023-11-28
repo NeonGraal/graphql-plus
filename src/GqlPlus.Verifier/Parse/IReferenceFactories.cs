@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse;
 
-internal interface IReferenceFactories<R>
+public interface IReferenceFactories<R>
   where R : AstReference<R>
 {
   string Label { get; }

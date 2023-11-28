@@ -6,7 +6,8 @@ public class ParseInputReferenceTests : BaseReferenceTests
 {
   internal override IBaseReferenceChecks Checks => Test;
 
-  private static BaseReferenceChecks<InputReferenceAst> Test => new(
-    new InputFactories(),
-    parser => parser.ParseReference(new InputParserFactories(parser), ""));
+  private readonly BaseReferenceParsedChecks<InputReferenceAst> Test;
+
+  public ParseInputReferenceTests(IParser<InputReferenceAst> parser)
+    => Test = new(new InputFactories(), parser);
 }

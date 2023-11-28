@@ -6,7 +6,8 @@ public class ParseOutputTests : BaseObjectTests
 {
   internal override IBaseObjectChecks Checks => Test;
 
-  private static BaseObjectChecks<OutputAst, OutputFieldAst, OutputReferenceAst> Test => new(
-    new OutputFactories(),
-    parser => parser.ParseOutputDeclaration(""));
+  private readonly BaseObjectParserChecks<OutputAst, OutputFieldAst, OutputReferenceAst> Test;
+
+  public ParseOutputTests(IParser<OutputAst> parser)
+    => Test = new(new OutputFactories(), parser);
 }

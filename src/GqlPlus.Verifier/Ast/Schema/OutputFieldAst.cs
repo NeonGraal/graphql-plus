@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class OutputFieldAst(ParseAt At, string Name, string Description, OutputReferenceAst Type)
+public sealed record class OutputFieldAst(ParseAt At, string Name, string Description, OutputReferenceAst Type)
   : AstField<OutputReferenceAst>(At, Name, Description, Type), IEquatable<OutputFieldAst>
 {
   public ParameterAst? Parameter { get; set; }

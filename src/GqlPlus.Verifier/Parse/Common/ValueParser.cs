@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Parse.Schema;
 
 namespace GqlPlus.Verifier.Parse.Common;
 

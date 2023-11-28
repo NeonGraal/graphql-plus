@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Parse.Schema;
+﻿namespace GqlPlus.Verifier.Parse;
 
 public class ParserProxy<T, C> : IParser<T>
   where C : Tokenizer

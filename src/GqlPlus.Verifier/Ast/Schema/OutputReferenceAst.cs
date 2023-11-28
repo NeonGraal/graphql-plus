@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class OutputReferenceAst(ParseAt At, string Name)
+public sealed record class OutputReferenceAst(ParseAt At, string Name)
   : AstReference<OutputReferenceAst>(At, Name), IEquatable<OutputReferenceAst>
 {
   public string? Label { get; set; }

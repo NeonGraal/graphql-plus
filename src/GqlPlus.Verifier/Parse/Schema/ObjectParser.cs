@@ -9,9 +9,8 @@ internal abstract class ObjectParser<O, F, R>
 {
   private readonly IParserArray<ModifierAst> _modifiers;
 
-  public ParserProxy<F, SchemaContext> FieldIParser { get; }
-  public ParserProxy<R, SchemaContext> ReferenceIParser { get; }
-  public ParserProxy<ObjectDefinition<F, R>, SchemaContext> DefinitionIParser { get; }
+  public ParserProxy<F, Tokenizer> FieldIParser { get; }
+  public ParserProxy<R, Tokenizer> ReferenceIParser { get; }
 
   protected ObjectParser(
     IParserArray<ModifierAst> modifiers,
@@ -26,7 +25,6 @@ internal abstract class ObjectParser<O, F, R>
 
     FieldIParser = new(ParseField);
     ReferenceIParser = new(tokens => ParseReference(tokens, false));
-    DefinitionIParser = new(ParseDefinition);
   }
 
   private IResult<R> ParseReference<TContext>(TContext tokens, bool isTypeArgument)
@@ -64,7 +62,7 @@ internal abstract class ObjectParser<O, F, R>
           return tokens.Error(Label, "at least one type argument after '<'", reference);
         }
       } else if (isTypeArgument) {
-        return TypeEnumLabel(reference);
+        return TypeEnumLabel(tokens, reference);
       }
 
       return reference.Ok();
@@ -74,7 +72,8 @@ internal abstract class ObjectParser<O, F, R>
   }
 
   protected abstract R Reference(ParseAt at, string param);
-  protected abstract IResult<R> TypeEnumLabel(R reference);
+  protected abstract IResult<R> TypeEnumLabel<TContext>(TContext tokens, R reference)
+      where TContext : Tokenizer;
 
   private IResult<F> ParseField<TContext>(TContext tokens)
     where TContext : Tokenizer
@@ -85,7 +84,7 @@ internal abstract class ObjectParser<O, F, R>
       return 0.Empty<F>();
     }
 
-    var hasParameter = FieldParameter();
+    var hasParameter = FieldParameter(tokens);
     if (hasParameter.IsError()) {
       return hasParameter.AsResult<F>();
     }
@@ -112,30 +111,98 @@ internal abstract class ObjectParser<O, F, R>
 
         modifiers.WithResult(modifiers => field.Modifiers = modifiers);
 
-        return FieldDefault(field);
+        return FieldDefault(tokens, field);
       }
 
       return tokens.Error(Label, "field type", field);
     }
 
-    return FieldEnumLabel(field);
+    return FieldEnumLabel(tokens, field);
   }
 
   protected abstract void ApplyParameter(F field, ParameterAst? parameter);
-  protected abstract F Field(ParseAt at, string name, string description, R r);
-  protected abstract IResult<F> FieldDefault(F field);
-  protected abstract IResult<F> FieldEnumLabel(F field);
-  protected abstract IResult<ParameterAst> FieldParameter();
+  protected abstract F Field(ParseAt at, string name, string description, R typeReference);
+  protected abstract IResult<F> FieldDefault<TContext>(TContext tokens, F field)
+      where TContext : Tokenizer;
+  protected abstract IResult<F> FieldEnumLabel<TContext>(TContext tokens, F field)
+      where TContext : Tokenizer;
+  protected abstract IResult<ParameterAst> FieldParameter<TContext>(TContext tokens)
+      where TContext : Tokenizer;
 
   protected override bool ApplyParameter(O result, IResult<ObjectParameters> parameter)
     => parameter.Optional(value => result.Parameters = value?.Parameters ?? Array.Empty<TypeParameterAst>());
+}
 
-  private IResult<ObjectDefinition<F, R>> ParseDefinition(SchemaContext tokens)
+internal class ObjectParameters
+{
+  internal TypeParameterAst[] Parameters { get; set; } = Array.Empty<TypeParameterAst>();
+}
+
+internal class ParseObjectParameters : IParser<ObjectParameters>
+{
+  public IResult<ObjectParameters> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer
+  {
+    var result = new ObjectParameters();
+    var list = new List<TypeParameterAst>();
+
+    if (tokens.Take('<')) {
+      while (!tokens.Take('>')) {
+        tokens.String(out var description);
+        if (tokens.Prefix('$', out var name, out var at) && name is not null) {
+          list.Add(new(at, name, description));
+        } else {
+          result.Parameters = list.ToArray();
+          return tokens.Partial("Type Parameter", "type parameter", () => result);
+        }
+      }
+
+      if (list.Count == 0) {
+        return tokens.Error("Type Parameter", "at least one type parameter after '<'", result);
+      }
+
+      result.Parameters = list.ToArray();
+      return result.Ok();
+    }
+
+    return result.Empty();
+  }
+}
+
+public class ObjectDefinition<F, R>
+  where F : AstField<R> where R : AstReference<R>
+{
+  public R? Extends { get; set; }
+  public F[] Fields { get; set; } = Array.Empty<F>();
+  public AstAlternate<R>[] Alternates { get; set; } = Array.Empty<AstAlternate<R>>();
+}
+
+public abstract class ParseObjectDefinition<F, R> : IParser<ObjectDefinition<F, R>>
+  where F : AstField<R> where R : AstReference<R>
+{
+  private readonly Lazy<IParser<F>> _field;
+  private readonly Lazy<IParserArray<ModifierAst>> _modifiers;
+  private readonly Lazy<IParser<R>> _reference;
+
+  protected ParseObjectDefinition(
+    Func<IParser<F>> field,
+    Func<IParserArray<ModifierAst>> modifiers,
+    Func<IParser<R>> reference)
+  {
+    _field = field.ThrowIfNull().Lazy();
+    _modifiers = modifiers.ThrowIfNull().Lazy();
+    _reference = reference.ThrowIfNull().Lazy();
+  }
+
+  protected abstract string Label { get; }
+
+  public IResult<ObjectDefinition<F, R>> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer
   {
     ObjectDefinition<F, R> result = new();
     tokens.String(out var descr);
     if (tokens.Take(':')) {
-      var baseReference = ParseReference(tokens, isTypeArgument: false);
+      var baseReference = _reference.Value.Parse(tokens);
       if (baseReference.IsError()) {
         return baseReference.AsResult(result);
       }
@@ -144,13 +211,13 @@ internal abstract class ObjectParser<O, F, R>
     }
 
     var fields = new List<F>();
-    var objectField = ParseField(tokens);
+    var objectField = _field.Value.Parse(tokens);
     if (objectField.IsError()) {
       return objectField.AsPartial(result);
     }
 
     while (objectField.Required(fields.Add)) {
-      objectField = ParseField(tokens);
+      objectField = _field.Value.Parse(tokens);
       if (objectField.IsError()) {
         return objectField.AsPartial(result, fields.Add, () =>
           result.Fields = fields.ToArray());
@@ -169,14 +236,14 @@ internal abstract class ObjectParser<O, F, R>
   {
     var result = new List<AstAlternate<R>>();
     while (tokens.Take('|')) {
-      var reference = ParseReference(tokens, isTypeArgument: false);
+      var reference = _reference.Value.Parse(tokens);
       if (!reference.IsOk()) {
         return reference.AsPartialArray(result);
       }
 
       AstAlternate<R> alternate = new(reference.Required());
       result.Add(alternate);
-      var modifiers = _modifiers.Parse(tokens, Label);
+      var modifiers = _modifiers.Value.Parse(tokens, Label);
       if (!modifiers.Optional(value => alternate.Modifiers = value)) {
         return modifiers.AsPartialArray(result);
       }
@@ -186,23 +253,9 @@ internal abstract class ObjectParser<O, F, R>
   }
 }
 
-internal class ObjectParameters
-{
-  internal TypeParameterAst[] Parameters { get; set; } = Array.Empty<TypeParameterAst>();
-}
-
-public class ObjectDefinition<F, R>
-  where F : AstField<R> where R : AstReference<R>
-{
-  public R? Extends { get; set; }
-  public F[] Fields { get; set; } = Array.Empty<F>();
-  public AstAlternate<R>[] Alternates { get; set; } = Array.Empty<AstAlternate<R>>();
-}
-
 public interface IObjectParser<O, F, R> : IParser<O>
   where F : AstField<R> where R : AstReference<R>
 {
-  ParserProxy<F, SchemaContext> FieldIParser { get; }
-  ParserProxy<R, SchemaContext> ReferenceIParser { get; }
-  ParserProxy<ObjectDefinition<F, R>, SchemaContext> DefinitionIParser { get; }
+  ParserProxy<F, Tokenizer> FieldIParser { get; }
+  ParserProxy<R, Tokenizer> ReferenceIParser { get; }
 }

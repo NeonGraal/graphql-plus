@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Parse.Common;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Verifier.Parse.Schema;
@@ -34,20 +35,22 @@ public static class SchemaParsers
       .AddSingleton<IParserArray<ScalarRegexAst>, ArrayParser<ScalarRegexAst>>()
       .AddSingleton<IParser<ScalarAst>, ParseScalar>()
       // Objects
-      .AddObjectParser<ParseInput, InputAst, InputFieldAst, InputReferenceAst>()
-      .AddObjectParser<ParseOutput, OutputAst, OutputFieldAst, OutputReferenceAst>()
+      .AddSingleton<IParser<ObjectParameters>, ParseObjectParameters>()
+      .AddObjectParser<ParseInput, ParseInputDefinition, InputAst, InputFieldAst, InputReferenceAst>()
+      .AddObjectParser<ParseOutput, ParseOutputDefinition, OutputAst, OutputFieldAst, OutputReferenceAst>()
       ;
 
-  public static IServiceCollection AddObjectParser<P, O, F, R>(this IServiceCollection services)
+  public static IServiceCollection AddObjectParser<P, D, O, F, R>(this IServiceCollection services)
     where P : class, IObjectParser<O, F, R>
+    where D : ParseObjectDefinition<F, R>
     where O : AstObject<F, R>
     where F : AstField<R>
     where R : AstReference<R>
     => services
       .AddSingleton<P>()
       .AddSingleton<IParser<O>>(x => x.GetRequiredService<P>())
-      .AddSingleton<IParser<F>>(x => x.GetRequiredService<P>().FieldIParser)
-      .AddSingleton<IParser<R>>(x => x.GetRequiredService<P>().ReferenceIParser)
-      .AddSingleton<IParser<ObjectDefinition<F, R>>>(x => x.GetRequiredService<P>().DefinitionIParser)
+      .AddFunc<IParser<F>>(x => x.GetRequiredService<P>().FieldIParser)
+      .AddFunc<IParser<R>>(x => x.GetRequiredService<P>().ReferenceIParser)
+      .AddSingleton<IParser<ObjectDefinition<F, R>>, D>()
       ;
 }

@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class OutputAst(ParseAt At, string Name, string Description)
+public sealed record class OutputAst(ParseAt At, string Name, string Description)
   : AstObject<OutputFieldAst, OutputReferenceAst>(At, Name, Description)
 {
   internal override string Abbr => "O";

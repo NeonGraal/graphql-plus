@@ -60,7 +60,8 @@ public class ParseOutputFieldTests : BaseFieldTests
 
   internal override IBaseFieldChecks Checks => Test;
 
-  private static BaseFieldChecks<OutputFieldAst, OutputReferenceAst> Test => new(
-    new OutputFactories(),
-    parser => parser.ParseField(new OutputParserFactories(parser)));
+  private readonly BaseFieldParserChecks<OutputFieldAst, OutputReferenceAst> Test;
+
+  public ParseOutputFieldTests(IParser<OutputFieldAst> parser)
+    => Test = new(new OutputFactories(), parser);
 }

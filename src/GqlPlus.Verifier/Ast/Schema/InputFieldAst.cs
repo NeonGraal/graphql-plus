@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed record class InputFieldAst(ParseAt At, string Name, string Description, InputReferenceAst Type)
+public sealed record class InputFieldAst(ParseAt At, string Name, string Description, InputReferenceAst Type)
   : AstField<InputReferenceAst>(At, Name, Description, Type), IEquatable<InputFieldAst>
 {
   public ConstantAst? Default { get; set; }

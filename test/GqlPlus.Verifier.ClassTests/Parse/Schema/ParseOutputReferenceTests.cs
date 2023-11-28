@@ -20,7 +20,8 @@ public class ParseOutputReferenceTests : BaseReferenceTests
 
   internal override IBaseReferenceChecks Checks => Test;
 
-  private static BaseReferenceChecks<OutputReferenceAst> Test => new(
-    new OutputFactories(),
-    parser => parser.ParseReference(new OutputParserFactories(parser), ""));
+  private readonly BaseReferenceParsedChecks<OutputReferenceAst> Test;
+
+  public ParseOutputReferenceTests(IParser<OutputReferenceAst> parser)
+    => Test = new(new OutputFactories(), parser);
 }

@@ -16,6 +16,7 @@ internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, Scala
 
   protected override string Label => "Scalar";
 
+  [ExcludeFromCodeCoverage]
   protected override bool ApplyDefinition(ScalarAst result, IResult<ScalarDefinition> definition)
     => definition.Required(value => {
       result.Kind = value.Kind;
@@ -29,7 +30,7 @@ internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, Scala
           break;
 
         default:
-          break;//
+          break; // Not covered
       }
     });
 

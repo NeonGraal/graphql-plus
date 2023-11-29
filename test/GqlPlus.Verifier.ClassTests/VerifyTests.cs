@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Operation;
+using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
 
@@ -21,10 +22,10 @@ public class VerifyTests
   [InlineData("Intro_Scalar")]
   public async Task VerifySampleSchema(string sample)
   {
-    var operation = File.ReadAllText("Sample/Schema_" + sample + ".graphql+");
-    OperationContext tokenizer = new(operation);
-    SchemaParser parser = new(tokenizer);
-    var ast = parser.Parse().Required();
+    var schema = File.ReadAllText("Sample/Schema_" + sample + ".graphql+");
+    Tokenizer tokens = new(schema);
+
+    var ast = _schema.Parse(tokens).Required();
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
@@ -67,9 +68,15 @@ public class VerifyTests
   }
 
   private readonly IParser<OperationAst> _operation;
+  private readonly IParser<SchemaAst> _schema;
 
-  public VerifyTests(IParser<OperationAst> operation)
-    => _operation = operation;
+  public VerifyTests(
+    IParser<OperationAst> operation,
+    IParser<SchemaAst> schema)
+  {
+    _operation = operation.ThrowIfNull();
+    _schema = schema.ThrowIfNull();
+  }
 
   public class GraphQlExamplesData : TheoryData<string>
   {

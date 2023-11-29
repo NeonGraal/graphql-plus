@@ -38,6 +38,8 @@ public static class SchemaParsers
       .AddSingleton<IParser<ObjectParameters>, ParseObjectParameters>()
       .AddObjectParser<ParseInput, ParseInputDefinition, InputAst, InputFieldAst, InputReferenceAst>()
       .AddObjectParser<ParseOutput, ParseOutputDefinition, OutputAst, OutputFieldAst, OutputReferenceAst>()
+      // Schema
+      .AddSingleton<IParser<SchemaAst>, ParseSchema>()
       ;
 
   public static IServiceCollection AddObjectParser<P, D, O, F, R>(this IServiceCollection services)

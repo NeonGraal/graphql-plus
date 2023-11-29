@@ -9,7 +9,7 @@ internal static class SchemaTestHelpers
     => new[] { new AstAlternate<T>(factory(argument)) { Modifiers = TestMods() } };
 
   public static EnumLabelAst[] EnumLabels(this string[] labels)
-    => labels.Select(l => new EnumLabelAst(AstNulls.At, l)).ToArray();
+    => labels.Select(l => new EnumLabelAst(AstNulls.At, l, "")).ToArray();
 
   public static InputFieldAst[] InputFields(this string fieldName, string fieldType)
     => new InputFieldAst[] { new(AstNulls.At, fieldName, new(AstNulls.At, fieldType)) };

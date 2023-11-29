@@ -32,7 +32,7 @@ public class OperationVerifierTests
   private readonly IParser<OperationAst> _parser;
 
   public OperationVerifierTests(IParser<OperationAst> parser)
-    => _parser = parser;
+    => _parser = parser.ThrowIfNull();
 
   public class ValidGraphQlPlusOperations : TheoryData<string>
   {

@@ -33,6 +33,10 @@ public sealed class ParseEnumTests
     => Test.False(name + "{" + string.Join("|", labels) + "}",
       skipIf: labels.Length < 2);
 
+  [Theory, RepeatData(Repeats)]
+  public void WithLabelsNone_ReturnsFalse(string name)
+    => Test.False(name + "{}");
+
   private readonly ParseEnumChecks Test;
 
   public ParseEnumTests(IParser<EnumAst> parser)

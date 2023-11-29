@@ -7,7 +7,7 @@ public class OperationParserTests
   private readonly IParser<OperationAst> _parser;
 
   public OperationParserTests(IParser<OperationAst> parser)
-    => _parser = parser;
+    => _parser = parser.ThrowIfNull();
 
   [Theory]
   [InlineData(":Boolean")]

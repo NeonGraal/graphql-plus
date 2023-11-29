@@ -30,7 +30,6 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
     });
 
   protected override bool ApplyOption(InputAst result, IResult<NullAst> option) => true;
-  protected override void ApplyParameter(InputFieldAst field, ParameterAst? parameter) => throw new NotImplementedException();
 
   protected override InputFieldAst Field(ParseAt at, string name, string description, InputReferenceAst typeReference)
     => new(at, name, description, typeReference);
@@ -42,6 +41,9 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
     => tokens.Error("Input", "':'", field);
 
   protected override IResult<ParameterAst> FieldParameter<TContext>(TContext tokens) => 0.Empty<ParameterAst>();
+
+  [ExcludeFromCodeCoverage]
+  protected override void ApplyFieldParameter(InputFieldAst field, ParameterAst? parameter) => throw new NotImplementedException();
 
   [return: NotNull]
   protected override InputAst MakeResult(ParseAt at, string? name, string description)

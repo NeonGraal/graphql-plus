@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal record class SchemaAst(ParseAt At, string Name)
+public record class SchemaAst(ParseAt At, string Name)
   : AstDirectives(At, Name)
 {
   public ParseResultKind Result { get; set; }

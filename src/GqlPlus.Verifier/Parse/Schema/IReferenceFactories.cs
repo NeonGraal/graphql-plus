@@ -1,10 +1,9 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.Parse;
+namespace GqlPlus.Verifier.Parse.Schema;
 
 public interface IReferenceFactories<R>
   where R : AstReference<R>
 {
-  string Label { get; }
   R Reference(ParseAt at, string name);
 }

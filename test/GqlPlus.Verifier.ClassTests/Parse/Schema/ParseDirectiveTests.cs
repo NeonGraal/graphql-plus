@@ -59,12 +59,10 @@ public sealed class ParseDirectiveTests
   public void WithLocationsNone_ReturnsFalse(string name)
     => Test.False("@" + name + "{}");
 
-  private static ParseDirectiveChecks Test => new();
-
   internal override IBaseAliasedChecks<string> AliasChecks => Test;
 
-  //private ParseDirectiveChecks Test;
+  private readonly ParseDirectiveChecks Test;
 
-  //public ParseDirectiveTests(IParser<DirectiveAst> parser)
-  //  => Test = new(parser);
+  public ParseDirectiveTests(IParser<DirectiveAst> parser)
+    => Test = new(parser);
 }

@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.Parse;
+namespace GqlPlus.Verifier.Parse.Schema;
 
 internal interface IFieldFactories<F, R>
   : IReferenceFactories<R>

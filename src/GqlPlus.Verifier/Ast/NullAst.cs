@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Ast;
 
+[ExcludeFromCodeCoverage]
 public record class NullAst(ParseAt At)
 {
-  [ExcludeFromCodeCoverage]
   public override string ToString() => "NULL";
 }

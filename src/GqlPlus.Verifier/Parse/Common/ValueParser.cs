@@ -38,7 +38,7 @@ public abstract class ValueParser<T> : IValueParser<T>
     var fieldValue = Parse(tokens);
     return fieldValue.SelectOk(
       value => new Field<T>(fieldKey.Required(), value),
-      () => fieldValue.AsResult<Field<T>>());
+      () => fieldValue.AsResult<Field<T>>()); // Not Covered
   }
 
   protected abstract AstValue<T>.ObjectAst NewObject(AstValue<T>.ObjectAst? fields = default);

@@ -30,7 +30,7 @@ internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputRefer
 
   protected override bool ApplyOption(OutputAst result, IResult<NullAst> option) => true;
 
-  protected override void ApplyParameter(OutputFieldAst field, ParameterAst? parameter)
+  protected override void ApplyFieldParameter(OutputFieldAst field, ParameterAst? parameter)
     => field.Parameter = parameter;
 
   protected override OutputFieldAst Field(ParseAt at, string name, string description, OutputReferenceAst typeReference)

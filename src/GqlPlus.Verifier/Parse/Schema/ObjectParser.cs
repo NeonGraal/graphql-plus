@@ -102,7 +102,7 @@ internal abstract class ObjectParser<O, F, R>
         => field = Field(at, name, description, fieldType))
         ) {
         hasAliases.WithResult(aliases => field.Aliases = aliases);
-        hasParameter.WithResult(parameter => ApplyParameter(field, parameter));
+        hasParameter.WithResult(parameter => ApplyFieldParameter(field, parameter));
 
         var modifiers = _modifiers.Parse(tokens, Label);
         if (modifiers.IsError()) {
@@ -120,7 +120,7 @@ internal abstract class ObjectParser<O, F, R>
     return FieldEnumLabel(tokens, field);
   }
 
-  protected abstract void ApplyParameter(F field, ParameterAst? parameter);
+  protected abstract void ApplyFieldParameter(F field, ParameterAst? parameter);
   protected abstract F Field(ParseAt at, string name, string description, R typeReference);
   protected abstract IResult<F> FieldDefault<TContext>(TContext tokens, F field)
       where TContext : Tokenizer;

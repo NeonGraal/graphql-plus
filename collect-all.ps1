@@ -34,3 +34,5 @@ Get-ChildItem ./graphql-plus -Filter *.md | ForEach-Object {
   }
   $doc | Set-Content $_.FullName
 }
+
+prettier -w .

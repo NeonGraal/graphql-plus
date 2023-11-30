@@ -124,6 +124,18 @@ Type parameters can be defined on either Input or Output types. Each parameter c
 
 ### Fields and Alternates
 
+```PEG
+# base definition
+Object = 'object' object TypeParameters? Aliases? '{' Obj_Definition '}'
+Obj_Definition = Obj_Object? Obj_Alternate*
+Obj_Object = ( ':' STRING? Obj_Base )? Obj_Field+
+Obj_Field = STRING? field fieldAlias* ':' STRING? Obj_Reference Modifiers?
+
+Obj_Alternate = '|' STRING? Obj_Reference Modifiers?
+Obj_Reference = Internal | Simple | Obj_Base
+Obj_Base = '$'typeParameter | input ( '<' STRING? Obj_Reference+ '>' )?
+```
+
 An Object Union type is defined as either:
 
 - an object definition followed by zero or more Alternate object Type references, or
@@ -259,7 +271,7 @@ The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically 
 ```PEG
 Input = 'input' input TypeParameters? Aliases? '{' In_Definition '}'
 In_Definition = In_Object? In_Alternate*
-In_Object = ( ':' STRING? In_Base )? InField+
+In_Object = ( ':' STRING? In_Base )? In_Field+
 In_Field = STRING? field fieldAlias* ':' STRING? In_Reference Modifiers? Default?
 
 In_Alternate = '|' STRING? In_Reference Modifiers?
@@ -367,9 +379,19 @@ Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
 
 Simple = Basic | scalar | enum  # Redefined
 
+# base definition
+Object = 'object' object TypeParameters? Aliases? '{' Obj_Definition '}'
+Obj_Definition = Obj_Object? Obj_Alternate*
+Obj_Object = ( ':' STRING? Obj_Base )? Obj_Field+
+Obj_Field = STRING? field fieldAlias* ':' STRING? Obj_Reference Modifiers?
+
+Obj_Alternate = '|' STRING? Obj_Reference Modifiers?
+Obj_Reference = Internal | Simple | Obj_Base
+Obj_Base = '$'typeParameter | input ( '<' STRING? Obj_Reference+ '>' )?
+
 Input = 'input' input TypeParameters? Aliases? '{' In_Definition '}'
 In_Definition = In_Object? In_Alternate*
-In_Object = ( ':' STRING? In_Base )? InField+
+In_Object = ( ':' STRING? In_Base )? In_Field+
 In_Field = STRING? field fieldAlias* ':' STRING? In_Reference Modifiers? Default?
 
 In_Alternate = '|' STRING? In_Reference Modifiers?

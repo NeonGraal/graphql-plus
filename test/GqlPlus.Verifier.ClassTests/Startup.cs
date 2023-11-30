@@ -1,4 +1,4 @@
-﻿using GqlPlus.Verifier.Parse.Common;
+﻿using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
 using GqlPlus.Verifier.Parse.Schema;
 using Microsoft.Extensions.DependencyInjection;

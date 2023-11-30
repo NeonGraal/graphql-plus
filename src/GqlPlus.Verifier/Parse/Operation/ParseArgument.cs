@@ -1,20 +1,19 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Operation;
-using GqlPlus.Verifier.Parse.Common;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
 internal class ParseArgument : IParserArgument
 {
-  protected readonly IParser<FieldKeyAst> _fieldKey;
-  protected readonly IValueParser<ArgumentAst> _argument;
+  protected readonly IParser<FieldKeyAst> FieldKey;
+  protected readonly IValueParser<ArgumentAst> Argument;
 
   public ParseArgument(
     IParser<FieldKeyAst> fieldKey,
     IValueParser<ArgumentAst> argument)
   {
-    _fieldKey = fieldKey.ThrowIfNull();
-    _argument = argument.ThrowIfNull();
+    FieldKey = fieldKey.ThrowIfNull();
+    Argument = argument.ThrowIfNull();
   }
 
   public IResult<ArgumentAst> Parse<TContext>(TContext tokens)
@@ -31,17 +30,17 @@ internal class ParseArgument : IParserArgument
       var at = tokens.At;
       ArgumentAst? value = new(at);
 
-      var fieldKey = _fieldKey.Parse(tokens);
+      var fieldKey = FieldKey.Parse(tokens);
       if (fieldKey.IsOk()) {
         return fieldKey.Map(key =>
           tokens.Take(':')
-          ? _argument.Parse(tokens).MapOk(
+          ? Argument.Parse(tokens).MapOk(
             item => ParseArgumentMid(tokens, at, new() { [key] = item }),
             () => tokens.Error("Argument", "a value after field key separator", value))
           : ParseArgumentEnd(tokens, at, key));
       }
 
-      var argValue = _argument.Parse(tokens);
+      var argValue = Argument.Parse(tokens);
 
       return argValue.MapOk(value => ParseArgumentEnd(tokens, at, value), () => argValue);
     } finally {
@@ -54,7 +53,7 @@ internal class ParseArgument : IParserArgument
     var at = initial.At;
     var values = new List<ArgumentAst> { initial };
     while (tokens.Take(',')) {
-      _argument.Parse(tokens).Required(values.Add);
+      Argument.Parse(tokens).Required(values.Add);
     }
 
     return values.Count > 1
@@ -65,11 +64,11 @@ internal class ParseArgument : IParserArgument
   private IResult<ArgumentAst> ParseArgumentMid(Tokenizer tokens, ParseAt at, ArgumentAst.ObjectAst fields)
   {
     if (tokens.Take(',')) {
-      return _argument.ParseFieldValues(tokens, ')', fields).Select(result => new ArgumentAst(at, result));
+      return Argument.ParseFieldValues(tokens, ')', fields).Select(result => new ArgumentAst(at, result));
     }
 
     while (!tokens.Take(')')) {
-      var field = _argument.ParseField(tokens);
+      var field = Argument.ParseField(tokens);
 
       if (!field.Required(value => fields.Add(value.Key, ParseArgValues(tokens, value.Value)))) {
         return field.AsResult<ArgumentAst>();
@@ -87,7 +86,7 @@ internal class ParseArgument : IParserArgument
     }
 
     var values = new List<ArgumentAst> { value };
-    while (_argument.Parse(tokens).Required(values.Add)) { }
+    while (Argument.Parse(tokens).Required(values.Add)) { }
 
     if (tokens.Take(")")) {
       var argument = values.Count > 1 ? new(at, values.ToArray()) : value;

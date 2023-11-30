@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 
-namespace GqlPlus.Verifier.Parse.Common;
+namespace GqlPlus.Verifier.Parse;
 
 internal class ParseFieldKey : IParser<FieldKeyAst>
 {

@@ -5,7 +5,7 @@ public class ArgumentAstTests
   [Fact]
   public void HashCode_WithNull()
     => _checks.HashCode(
-      () => new ArgumentAst(AstNulls.At));
+      () => new ArgumentAst(AstNulls.At) with { At = AstNulls.At });
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithVariable(string variable)

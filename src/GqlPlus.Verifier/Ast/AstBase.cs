@@ -1,13 +1,8 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public abstract record class AstBase : IEquatable<AstBase>
+public abstract record class AstBase(ParseAt At) : IEquatable<AstBase>
 {
   internal abstract string Abbr { get; }
-
-  public ParseAt At { get; }
-
-  internal AstBase(ParseAt loc)
-    => At = loc;
 
   public sealed override string ToString()
     => "( "

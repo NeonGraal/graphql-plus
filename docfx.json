@@ -11,7 +11,7 @@
       }
     ],
     "output": "_site",
-    "globalMetadataFiles": ["global.json"],
+    "globalMetadataFiles": ["global-metadata.json"],
     "fileMetadataFiles": [],
     "template": ["default", "modern", "local"],
     "postProcessors": [],

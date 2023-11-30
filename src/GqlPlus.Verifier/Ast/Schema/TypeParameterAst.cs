@@ -3,7 +3,6 @@
 public sealed record class TypeParameterAst(ParseAt At, string Name, string Description)
   : AstDescribed(At, Name, Description), IEquatable<TypeParameterAst>
 {
-
   internal override string Abbr => "T";
 
   internal TypeParameterAst(ParseAt at, string name)

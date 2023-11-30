@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GqlPlus.Verifier.Parse.Common;
+namespace GqlPlus.Verifier.Parse;
 
 public static class CommonParsers
 {

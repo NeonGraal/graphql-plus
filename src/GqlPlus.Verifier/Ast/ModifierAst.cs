@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Ast;
 
-public record class ModifierAst(ParseAt At) : IEquatable<ModifierAst>
+public sealed record class ModifierAst(ParseAt At) : IEquatable<ModifierAst>
 {
   internal static ModifierAst Optional(ParseAt at)
     => new(at, ModifierKind.Optional);
@@ -31,7 +31,7 @@ public record class ModifierAst(ParseAt At) : IEquatable<ModifierAst>
     };
 
   // override object.Equals
-  public virtual bool Equals(ModifierAst? other)
+  public bool Equals(ModifierAst? other)
     => other is not null
     && Kind == other.Kind
     && Key.NullEqual(other.Key)

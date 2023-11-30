@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Parse.Common;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 

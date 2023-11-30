@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Parse.Common;
+﻿namespace GqlPlus.Verifier.Parse;
 
 public class ParseFieldKeyTests
 {

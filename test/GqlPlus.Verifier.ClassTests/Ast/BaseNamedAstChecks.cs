@@ -28,7 +28,7 @@ internal class BaseNamedAstChecks<I, T>
 
   public void HashCode(I input)
     => HashCode(
-      () => CreateInput(input),
+      () => CreateInput(input) with { At = AstNulls.At },
       _createExpression);
 
   public void String(I input, string expected)

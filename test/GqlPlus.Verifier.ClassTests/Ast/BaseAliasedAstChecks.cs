@@ -50,11 +50,7 @@ internal class BaseAliasedAstChecks<I, T>
     => $"( !{Abbr} {input} [ {aliases.Joined()} ] )";
 
   private T CreateAliases(I input, params string[] aliases)
-  {
-    var t = CreateInput(input);
-    t.Aliases = aliases;
-    return t;
-  }
+    => CreateInput(input) with { Aliases = aliases };
 }
 
 internal interface IBaseAliasedAstChecks

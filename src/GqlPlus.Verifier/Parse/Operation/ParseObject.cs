@@ -130,7 +130,7 @@ internal class ParseObject : IParserObject
     => ParseField(tokens);
 }
 
-public interface IParserObject
+internal interface IParserObject
   : IParserArray<IAstSelection>, IParser<FieldAst>, IParser<IAstSelection>
 {
   IResult<FieldAst> ParseField(Tokenizer tokens);

@@ -1,78 +1,78 @@
-﻿namespace GqlPlus.Verifier.Parse.Common;
+﻿namespace GqlPlus.Verifier.Parse;
 
-public class ParseDefaultTests
+public class ParseConstantTests
 {
-  [Fact]
-  public void WithEmpty_ReturnsEmpty()
-    => Test.Empty("");
-
-  [Fact]
-  public void WithInvalid_ReturnsFalse()
-    => Test.False("=");
-
   [Theory, RepeatData(Repeats)]
   public void WithNumber_ReturnsCorrectAst(decimal number)
     => Test.TrueExpected(
-      "=" + number.ToString(),
+      number.ToString(),
       new FieldKeyAst(AstNulls.At, number));
 
   [Theory, RepeatData(Repeats)]
   public void WithString_ReturnsCorrectAst(string contents)
     => Test.TrueExpected(
-      "=" + contents.Quote(),
+      contents.Quote(),
       new FieldKeyAst(AstNulls.At, contents));
 
   [Theory, RepeatData(Repeats)]
   public void WithLabel_ReturnsCorrectAst(string label)
     => Test.TrueExpected(
-      "=" + label,
+      label,
       label.FieldKey());
-
-  [Theory, RepeatData(Repeats)]
-  public void WithLabelInvalid_ReturnsFalse(string label)
-    => Test.False("=." + label);
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumLabel_ReturnsCorrectAst(string enumType, string label)
     => Test.TrueExpected(
-      "=" + enumType + "." + label,
+      enumType + "." + label,
       new FieldKeyAst(AstNulls.At, enumType, label));
-
-  [Theory, RepeatData(Repeats)]
-  public void WithEnumInvalid_ReturnsFalse(string enumType)
-    => Test.False("=" + enumType + ".");
 
   [Theory, RepeatData(Repeats)]
   public void WithList_ReturnsCorrectAst(string label)
     => Test.TrueExpected(
-      "=" + '[' + label + ' ' + label + ']',
+      '[' + label + ' ' + label + ']',
+      new ConstantAst(AstNulls.At, label.ConstantList()));
+
+  [Theory, RepeatData(Repeats)]
+  public void WithListComma_ReturnsCorrectAst(string label)
+    => Test.TrueExpected(
+      '[' + label + ',' + label + ']',
       new ConstantAst(AstNulls.At, label.ConstantList()));
 
   [Theory, RepeatData(Repeats)]
   public void WithListInvalid_ReturnsFalse(string label)
     => Test.False(
-      "=" + '[' + label + ':' + label + ']',
+      '[' + label + ':' + label + ']',
       CheckNull);
 
   [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string label)
     => Test.TrueExpected(
-      "=" + '{' + key + ':' + label + ' ' + label + ':' + key + '}',
+      '{' + key + ':' + label + ' ' + label + ':' + key + '}',
+      new ConstantAst(AstNulls.At, label.ConstantObject(key)),
+      key == label);
+
+  [Theory, RepeatData(Repeats)]
+  public void WithObjectSemi_ReturnsCorrectAst(string key, string label)
+    => Test.TrueExpected(
+      '{' + key + ':' + label + ',' + label + ':' + key + '}',
       new ConstantAst(AstNulls.At, label.ConstantObject(key)),
       key == label);
 
   [Theory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string label)
     => Test.False(
-      "=" + '{' + key + ':' + label + ':' + key + '}',
+      '{' + key + ':' + label + ':' + key + '}',
       CheckNull,
       key == label);
+
+  private void CheckDefault(ConstantAst? result)
+    => result.Should().Be(new ConstantAst(AstNulls.At));
 
   private void CheckNull(ConstantAst? result)
     => result.Should().BeNull();
 
   private readonly OneChecks<ConstantAst> Test;
 
-  public ParseDefaultTests(IParserDefault parser)
+  public ParseConstantTests(IParser<ConstantAst> parser)
     => Test = new(parser);
 }

@@ -5,7 +5,7 @@ public class ConstantAstTests
   [Fact]
   public void HashCode_WithNull()
     => _checks.HashCode(
-      () => new ConstantAst(AstNulls.At));
+      () => new ConstantAst(AstNulls.At) with { At = AstNulls.At });
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithLabel(string label)

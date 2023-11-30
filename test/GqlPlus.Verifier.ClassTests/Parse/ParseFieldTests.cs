@@ -1,40 +1,40 @@
-﻿namespace GqlPlus.Verifier.Parse.Common;
+﻿namespace GqlPlus.Verifier.Parse;
 
 public class ParseFieldTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithFieldValid_ReturnsCorrectAst(string key, string label)
-    => Test.TrueExpected(
+    => _test.TrueExpected(
       key + ':' + label,
       new Field<ConstantAst>(key.FieldKey(), label.FieldKey()));
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldKeyNoLabel_ReturnsFalse(string key, string label)
-    => Test.False(
+    => _test.False(
       key + ".:" + label);
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldValueNoLabel_ReturnsFalse(string key, string label)
-    => Test.False(
+    => _test.False(
       key + ":" + label + ".");
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldNoKey_ReturnsFalse(string label)
-    => Test.False(':' + label, CheckNull);
+    => _test.False(':' + label, CheckNull);
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldNoColon_ReturnsFalse(string key, string label)
-    => Test.False(key + ' ' + label, CheckNull);
+    => _test.False(key + ' ' + label, CheckNull);
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldNoValue_ReturnsFalse(string key)
-    => Test.False(key + ' ', CheckNull);
+    => _test.False(key + ' ', CheckNull);
 
   private void CheckNull(Field<ConstantAst> result)
     => result.Should().Be((Field<ConstantAst>)default);
 
-  private readonly OneChecks<Field<ConstantAst>> Test;
+  private readonly OneChecks<Field<ConstantAst>> _test;
 
   public ParseFieldTests(IParser<Field<ConstantAst>> parser)
-    => Test = new(parser);
+    => _test = new(parser);
 }

@@ -62,7 +62,7 @@ output _Directive {
 
 ```
 
-## Type
+## Types
 
 ```gqlp
 output _Type {
@@ -88,7 +88,7 @@ output _TypeSimple {
     }
 ```
 
-## Enum
+## Enum type
 
 ```gqlp
 output _TypeEnum {
@@ -98,7 +98,7 @@ output _TypeEnum {
     }
 ```
 
-## Object Union Type
+## Object Union type
 
 ```gqlp
 output _TypeObject<$kind $base $field> {
@@ -150,7 +150,7 @@ output _ModifierDictionary {
     }
 ```
 
-## Input
+## Input type (Object Union)
 
 ```gqlp
 output _InputBase {
@@ -164,7 +164,7 @@ output _InputField {
     }
 ```
 
-## Output
+## Output type (Object Union)
 
 ```gqlp
 output _OutputBase {
@@ -192,7 +192,7 @@ output _OutputEnum {
     }
 ```
 
-## Scalar
+## Scalar type
 
 ```gqlp
 enum _Scalar { Number String }

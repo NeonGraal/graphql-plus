@@ -55,7 +55,7 @@ enum _Resolution { Single Sequential Parallel }
 ```gqlp
 output _Directive {
     : _Aliased
-        parameter: _Parameter?
+        parameter: _Parameter[]?
         repeatable: Boolean
         locations: _Location[]
     }
@@ -88,7 +88,7 @@ enum _Kind { Basic Enum Internal Input Output Scalar }
 
 output _TypeObject<$kind $base $field> {
     : _BaseType<$kind>
-        parameters: _Named[]
+        typeParameters: _Named[]
         base: $base?
         fields: $field[]
         alternates: _Alternate<$base>[]
@@ -170,7 +170,7 @@ output _OutputBase {
 
 output _OutputField {
     : _TypeField<_OutputBase>
-        parameter: _Parameter?
+        parameter: _Parameter[]?
     | _OutputEnum
     }
 
@@ -270,7 +270,7 @@ enum _Resolution { Single Sequential Parallel }
 
 output _Directive {
     : _Aliased
-        parameter: _Parameter?
+        parameter: _Parameter[]?
         repeatable: Boolean
         locations: _Location[]
     }
@@ -299,7 +299,7 @@ enum _Kind { Basic Enum Internal Input Output Scalar }
 
 output _TypeObject<$kind $base $field> {
     : _BaseType<$kind>
-        parameters: _Named[]
+        typeParameters: _Named[]
         base: $base?
         fields: $field[]
         alternates: _Alternate<$base>[]
@@ -369,7 +369,7 @@ output _OutputBase {
 
 output _OutputField {
     : _TypeField<_OutputBase>
-        parameter: _Parameter?
+        parameter: _Parameter[]?
     | _OutputEnum
     }
 

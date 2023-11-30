@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Parse.Operation;
 using GqlPlus.Verifier.Parse.Schema;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GqlPlus.Verifier.ClassTests;
+namespace GqlPlus.Verifier;
 
 public class Startup
 {

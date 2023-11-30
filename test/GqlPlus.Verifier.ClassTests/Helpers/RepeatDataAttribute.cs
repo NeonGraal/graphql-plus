@@ -2,7 +2,7 @@
 using AutoFixture;
 using AutoFixture.Xunit2;
 
-namespace GqlPlus.Verifier.ClassTests;
+namespace GqlPlus.Verifier;
 
 public class RepeatDataAttribute : AutoDataAttribute
 {

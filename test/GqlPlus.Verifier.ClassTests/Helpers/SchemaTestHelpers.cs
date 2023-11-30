@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.ClassTests;
+namespace GqlPlus.Verifier;
 
 internal static class SchemaTestHelpers
 {

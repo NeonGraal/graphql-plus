@@ -2,7 +2,7 @@
 using AutoFixture;
 using AutoFixture.Kernel;
 
-namespace GqlPlus.Verifier.ClassTests;
+namespace GqlPlus.Verifier;
 
 internal sealed class TestsCustomizations : CompositeCustomization
 {

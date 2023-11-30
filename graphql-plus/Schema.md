@@ -104,27 +104,6 @@ Multiple Enum declarations with the same name and base Enum, will have their Lab
 Input and Output types are both Object Union types
 
 ```PEG
-TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
-
-Parameter = '(' Param_Type+ ')'
-Param_Type = STRING? In_Reference Modifiers? Default?
-
-Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
-
-Simple = Basic | scalar | enum  # Redefined
-```
-
-A Parameter is one or more Alternate Input type references, possibly with a documentation string, Modifiers and/or a Default.
-
-The order of Parameter Alternates is significant.
-Parameter Alternates with the same Input Type but different Modifiers (including no Modifers) are not permitted.
-Parameter Alternates are merged and de-duplicated by their Modified Input Type.
-
-Type parameters can be defined on either Input or Output types. Each parameter can be preceded by a documentation string.
-
-### Fields and Alternates
-
-```PEG
 # base definition
 Object = 'object' object TypeParameters? Aliases? '{' Obj_Definition '}'
 Obj_Definition = Obj_Object? Obj_Alternate*
@@ -134,7 +113,11 @@ Obj_Field = STRING? field fieldAlias* ':' STRING? Obj_Reference Modifiers?
 Obj_Alternate = '|' STRING? Obj_Reference Modifiers?
 Obj_Reference = Internal | Simple | Obj_Base
 Obj_Base = '$'typeParameter | input ( '<' STRING? Obj_Reference+ '>' )?
+
+TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 ```
+
+Type parameters can be defined on Object union types. Each parameter can be preceded by a documentation string.
 
 An Object Union type is defined as either:
 
@@ -167,6 +150,19 @@ When merging, Fields with the same name must have the same Modified Type.
 Field Aliases will be merged and de-duplicated. Any Aliases matching Field names in the merged object will be discarded.
 
 When merging, Alternates with the same Type must have the the same Modifiers (including none).
+
+### Parameter
+
+```PEG
+Parameter = '(' Param_Type+ ')'
+Param_Type = STRING? In_Reference Modifiers? Default?
+```
+
+A Parameter is one or more Alternate Input type references, possibly with a documentation string, Modifiers and/or a Default.
+
+The order of Parameter Alternates is significant.
+Parameter Alternates with the same Input Type but different Modifiers (including no Modifers) are not permitted.
+Parameter Alternates are merged and de-duplicated by their Modified Input Type.
 
 ### Modifiers
 
@@ -225,6 +221,14 @@ These Generic types are the Input types if `$T` is an Input type and Output type
 
 ### Built-In types
 
+```PEG
+Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
+
+Simple = Basic | scalar | enum  # Redefined
+```
+
+The above types from [Definition](Definition.md) are redefined for Schemas
+
 <details>
 <summary>Built-In types</summary>
 
@@ -256,7 +260,7 @@ Object is a general Dictionary as follows:
 "%"
 input|output Object [%] { _Map<Any> }
 
-input|output _Any<$T> { $T | _Scalar | Object | _Any<$T>? | _Any<$T>[] | _Any<$T>[Simple] | _Any<$T>[Simple?] }
+input|output _Any<$T> { $T | _Scalar | Object | _Enum | _Any<$T>? | _Any<$T>[] | _Any<$T>[Simple] | _Any<$T>[Simple?] }
 
 input Any { _Any<_Input> }
 output Any { _Any<_Output> }
@@ -370,15 +374,6 @@ Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragm
 Enum = 'enum' enum Aliases? '{' ( ':' enum )? En_Label+ '}'
 En_Label = STRING? label Aliases?
 
-TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
-
-Parameter = '(' Param_Type+ ')'
-Param_Type = STRING? In_Reference Modifiers? Default?
-
-Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
-
-Simple = Basic | scalar | enum  # Redefined
-
 # base definition
 Object = 'object' object TypeParameters? Aliases? '{' Obj_Definition '}'
 Obj_Definition = Obj_Object? Obj_Alternate*
@@ -388,6 +383,15 @@ Obj_Field = STRING? field fieldAlias* ':' STRING? Obj_Reference Modifiers?
 Obj_Alternate = '|' STRING? Obj_Reference Modifiers?
 Obj_Reference = Internal | Simple | Obj_Base
 Obj_Base = '$'typeParameter | input ( '<' STRING? Obj_Reference+ '>' )?
+
+TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
+
+Parameter = '(' Param_Type+ ')'
+Param_Type = STRING? In_Reference Modifiers? Default?
+
+Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
+
+Simple = Basic | scalar | enum  # Redefined
 
 Input = 'input' input TypeParameters? Aliases? '{' In_Definition '}'
 In_Definition = In_Object? In_Alternate*

@@ -91,13 +91,18 @@ output _TypeObject<$kind $base $field> {
         parameters: _Named[]
         base: $base?
         fields: $field[]
-        alternates: _TypeRef<$base>[]
+        alternates: _Alternate<$base>[]
     }
 
 output _TypeRef<$base> {
     | _BaseType<_Kind.Internal>
     | _TypeSimple
     | $base
+    }
+
+output _Alternate<$base> {
+      type: _TypeRef<$base>
+      modifiers: _TypeModifier[]
     }
 
 output _TypeField<$base> {
@@ -149,7 +154,9 @@ output _InputBase {
     | "TypeParameter" String
     }
 
-output _InputField = _TypeField<_InputBase>
+output _InputField {
+    | _TypeField<_InputBase>
+    }
 ```
 
 ## Output
@@ -185,7 +192,10 @@ output _OutputEnum {
 ```gqlp
 enum _Scalar { Number String }
 
-output _TypeScalar { _ScalarNumber | _ScalarString }
+output _TypeScalar {
+    | _ScalarNumber
+    | _ScalarString
+    }
 
 output _BaseScalar<$base> {
     : _BaseType<_Kind.Scalar>
@@ -292,13 +302,18 @@ output _TypeObject<$kind $base $field> {
         parameters: _Named[]
         base: $base?
         fields: $field[]
-        alternates: _TypeRef<$base>[]
+        alternates: _Alternate<$base>[]
     }
 
 output _TypeRef<$base> {
     | _BaseType<_Kind.Internal>
     | _TypeSimple
     | $base
+    }
+
+output _Alternate<$base> {
+      type: _TypeRef<$base>
+      modifiers: _TypeModifier[]
     }
 
 output _TypeField<$base> {
@@ -342,7 +357,9 @@ output _InputBase {
     | "TypeParameter" String
     }
 
-output _InputField = _TypeField<_InputBase>
+output _InputField {
+    | _TypeField<_InputBase>
+    }
 
 output _OutputBase {
         output: String
@@ -370,7 +387,10 @@ output _OutputEnum {
 
 enum _Scalar { Number String }
 
-output _TypeScalar { _ScalarNumber | _ScalarString }
+output _TypeScalar {
+    | _ScalarNumber
+    | _ScalarString
+    }
 
 output _BaseScalar<$base> {
     : _BaseType<_Kind.Scalar>

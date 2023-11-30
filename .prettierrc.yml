@@ -2,3 +2,5 @@ printWidth: 150
 tabWidth: 2
 trailingComma: "all"
 useTabs: false
+bracketSameLine: true
+bracketSpacing: true

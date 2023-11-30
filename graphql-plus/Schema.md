@@ -28,9 +28,25 @@ The following declarations are implied but can be specified explicitly:
 - `category { (single) Subscription }` and thus `output Subscription { }`
 - `output _Schema { ... }` (see [Introspection](Introspection.md))
 
+### Types
+
+Most declarations define a Type.
+
 The names of all Types must be unique.
-The aliases of all Types must be unique.
-Explicit Type name declarations will override that name being used as Type alias.
+The Aliases of all Types must be unique.
+Explicit Type name declarations will override that name being used as Type Alias.
+
+### Merging and De-duplicating
+
+Where duplicate definitions are permitted, some item lists can be merged and de-duplicated.
+
+Merging two (or more) lists will be done by some matching criteria.
+Other (ie, not part of the matching criteria) required components of any matching items must be the same.
+Optional components, if present, must be the same.
+If only present on one item before merging, optional components will be retained on the merged item.
+
+De-duplicating two (or more) lists will be done by the merging matching criteria.
+As order is significant in most lists, the first item of any duplicates will be kept, possibly updated by any merging.
 
 ## Category
 
@@ -52,7 +68,7 @@ By default an operation over a Category can specify multiple fields that are res
 | `single`     | One and only one field can be specified in an operation of this category.                       |
 
 Duplicate Category declarations are not permitted.
-An explicit Category declaration for an Output type will override that name being used as an alias for a different Category.
+An explicit Category declaration for an Output type will override that name being used as an Alias for a different Category.
 
 ## Directive
 
@@ -62,6 +78,10 @@ Dir_Repeatable = '(' 'repeatable' ')'
 Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
 ```
 
+A Directive is defined by name and may have a Parameter.
+
+Multiple Directive declarations with the same name will have their Parameters merged and de-duplicated.
+
 ## Enum type
 
 ```PEG
@@ -69,15 +89,15 @@ Enum = 'enum' enum Aliases? '{' ( ':' enum )? En_Label+ '}'
 En_Label = STRING? label Aliases?
 ```
 
-An Enum is a type defined with one or more Labels.
-Each Label can be preceded by a documentation string and may have one or more aliases.
-Label names and Label aliases must be unique for that Enum.
-Explicit Label names will override that name being used as a Label alias.
+An Enum is a Type defined with one or more Labels.
+Each Label can be preceded by a documentation string and may have one or more Aliases.
+Label names and Label Aliases must be unique for that Enum.
+Explicit Label names will override that name being used as a Label Alias.
 
-An Enum can extend another enum and thus implicitly includes the extended enum's labels.
+An Enum can extend another Enum, called it's base Enum, and thus it's Labels are merged and de-duplicated into the base Enum's Labels.
 
-Duplicate Enum declarations with different base Enums are not permitted.
-Multiple Enum declarations with the same base, or no base, will have their labels and Type aliases merged and de-duplicated.
+Multiple Enum declarations with the same name but different base Enums are not permitted.
+Multiple Enum declarations with the same name and base Enum, will have their Labels and Aliases merged and de-duplicated.
 
 ## Object Union types
 
@@ -86,16 +106,55 @@ Input and Output types are both Object Union types
 ```PEG
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
-Parameter = '(' STRING? In_Reference Modifiers? Default? ')'
+Parameter = '(' Param_Type+ ')'
+Param_Type = STRING? In_Reference Modifiers? Default?
 
 Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
 
 Simple = Basic | scalar | enum  # Redefined
 ```
 
+A Parameter is one or more Alternate Input type references, possibly with a documentation string, Modifiers and/or a Default.
+
+The order of Parameter Alternates is significant.
+Parameter Alternates with the same Input Type but different Modifiers (including no Modifers) are not permitted.
+Parameter Alternates are merged and de-duplicated by their Modified Input Type.
+
 Type parameters can be defined on either Input or Output types. Each parameter can be preceded by a documentation string.
 
-An Enum Label reference may drop the Enum portion if the Label is unique within the Schema.
+### Fields and Alternates
+
+An Object Union type is defined as either:
+
+- an object definition followed by zero or more Alternate object Type references, or
+- one or more Alternate object Type references
+
+The order of Alternates is significant.
+
+An object Type reference may be an Internal, Simple or another object Type.
+If an object Type it may have Type Arguments of object Type references.
+
+An object is defined with an optional base Type and has one or more Fields.
+
+A Field is defined with at least:
+
+- an optional documentation string,
+- a Field name
+- zero or more Field Aliases
+- a type parameter or object type references, the Field's base Type
+- zero or more Modifiers
+
+Field names and Field Aliases must be unique within the object, including any base object.
+Explicit Field names will override the same name being used as a Field Alias.
+
+Multiple object declarations with the same name but different base Type (including no base Type) are not permitted.
+Multiple object declarations with the same name and base Type (or no base Type) will have their Fields merged and de-duplicated by name
+and their Alternates merged and de-duplicated by Type.
+
+When merging, Fields with the same name must have the same Modified Type.
+Field Aliases will be merged and de-duplicated. Any Aliases matching Field names in the merged object will be discarded.
+
+When merging, Alternates with the same Type must have the the same Modifiers (including none).
 
 ### Modifiers
 
@@ -210,40 +269,18 @@ In_Base = '$'typeParameter | input ( '<' STRING? In_Reference+ '>' )?
 
 Input types define the type of Output field's Argument.
 
-An Input type is defined as either:
+An Input type is defined as an object union type with the following alterations.
 
-- an Input object definition followed by zero or more Input type references, or
-- one or more Input type references
-
-An Input object may have a base Input type and has one or more Input fields.
-
-An Input Field comprises:
+An Input Field redefines an object Field as follows:
 
 - an optional documentation string,
 - a Field name
-- zero or more Field aliases
+- zero or more Field Aliases
 - a type parameter or Input type references
 - zero or more type Modifiers
 - an optional Default value
 
-An Input type reference may be an Internal, Simple or Input type.
-If an Input type is may have Type Arguments of Input type references.
-
 A Default of `null` is only allowed on Optional fields. The Default must be compatible with the Modified Type of the field.
-
-Input Field names and Field aliases must be unique within the Input object, including any base object.
-Explicit Field names will override the same name being used as a Field alias.
-
-An Operation's Argument value is mapped into a Field's Argument Input type as follows:
-
-> ...
-
-Duplicate Input declarations with different base Inputs are not permitted.
-Multiple Input declarations with the same base, or no base, will have their fields and alternates merged and de-duplicated.
-
-When merging, Fields with the same name must have the same Modified Type. Field aliases will be merged and de-duplicated.
-Optional components (documentation string and default), if present, must be the same.
-If only present on one Field before merging, optional components will be retained on the merged Field.
 
 ## Output type
 
@@ -260,19 +297,16 @@ Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | EnumLabel )
 
 Output types define the result values for Categories and Output fields.
 
-An Output type is defined as either:
+An Output type is defined as an object union type with the following alterations.
 
-- an Output object definition followed by zero or more Output type references, or
-- one or more Output type references
+An Output type reference may have Type Arguments of Output type references and/or Enum Labels.
 
-An Output object may have a base Output type and has one or more Output fields.
-
-An Output Field comprises:
+An Output Field redefines an object Field as follows:
 
 - an optional documentation string,
 - a Field name
 - an optional Parameter
-- zero or more Field aliases
+- zero or more Field Aliases
 - a type parameter or an Output type reference
 - zero or more type Modifiers
 
@@ -280,19 +314,8 @@ or:
 
 - an optional documentation string,
 - a Field name
-- zero or more Field aliases
+- zero or more Field Aliases
 - an Enum Label (which will imply the field Type)
-
-An Output type reference may be an Internal, Simple or Output type.
-If an Output type is may have Type Arguments of Output type references and/or Enum Labels.
-
-A Parameter is a Input type reference, possibly with Modifiers and/or a Default.
-
-Output Field names and Field aliases must be unique within the Output object, including any base object.
-Explicit Field names will override the same name being used as a Field alias.
-
-Duplicate Output declarations with different base Outputs are not permitted.
-Multiple Output declarations with the same base, or no base, will have their fields and alternates merged and de-duplicated.
 
 ## Scalar type
 
@@ -312,8 +335,8 @@ Scalar types define specific domains of:
 - Numbers, possibly only those in a given range. Ranges may be upper and/or lower bounded and each bound may be inclusive or exclusive.
 - Strings, possibly only those that match (or don't match) one or more regular expressions.
 
-Duplicate Scalar declarations with different bases are not permitted.
-Multiple Scalar declarations with the same base will have their ranges or regexes merged and de-duplicated.
+Duplicate Scalar declarations for a name with different bases are not permitted.
+Multiple Scalar declarations with the same name and base will have their Ranges or Regexes merged and de-duplicated.
 
 ## Complete Grammar
 
@@ -337,7 +360,8 @@ En_Label = STRING? label Aliases?
 
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
-Parameter = '(' STRING? In_Reference Modifiers? Default? ')'
+Parameter = '(' Param_Type+ ')'
+Param_Type = STRING? In_Reference Modifiers? Default?
 
 Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
 

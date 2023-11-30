@@ -19,7 +19,7 @@ public sealed record class ModifierAst(ParseAt At) : IEquatable<ModifierAst>
   internal string? Key { get; init; }
   internal bool KeyOptional { get; init; }
 
-  private readonly string _toString;
+  private readonly string _toString = "";
 
   public override string ToString()
     => _toString;

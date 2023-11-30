@@ -52,13 +52,13 @@ public class OperationVerifierTests
       Add(""); // Bad parse
       Add("($var):Boolean"); // Defined variables must be used at least once
       Add(":Boolean($var)"); // Used variables must be defined
-      Add("($var:Id=null):Boolean($var)");
-      Add("($var:Id[]={a:b}):Boolean($var)");
-      Add("($var:Id[*]=[a]):Boolean($var)");
-      Add("($var:Id[]?={a:b}):Boolean($var)");
-      Add("($var:Id[*]?=[a]):Boolean($var)");
-      Add("&named:Named{name}{name}");
-      Add("{...named}");
+      Add("($var:Id=null):Boolean($var)"); // Not nullable type can't have a null default value
+      Add("($var:Id[]={a:b}):Boolean($var)"); // List type can't have a map default value
+      Add("($var:Id[*]=[a]):Boolean($var)"); // Map type can't have a list default value
+      Add("($var:Id[]?={a:b}):Boolean($var)"); // Nullable List type can't have a map default value
+      Add("($var:Id[*]?=[a]):Boolean($var)"); // Nullable Map type can't have a list default value
+      Add("&named:Named{name}{name}"); // Defined fragment must be used
+      Add("{...named}"); // Used fragment must be defined
     }
   }
 }

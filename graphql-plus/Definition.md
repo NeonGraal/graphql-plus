@@ -59,6 +59,8 @@ Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
 Internal = 'Void' | 'Null' | 'null'
 ```
 
+An Enum Label reference may drop the Enum portion if the Label is unique.
+
 | Modifier   | Syntax           | Notes                                                                                                                        | Description                   |
 | ---------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
 | Optional   | `?`              | An Optional Result may have the value of `null`. <br/> The `Null` type is effectively the same as `Void?` and so is `Null?`. | Optional _type_               |

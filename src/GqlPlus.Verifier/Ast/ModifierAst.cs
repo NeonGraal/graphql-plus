@@ -1,34 +1,28 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast;
 
 public sealed record class ModifierAst(ParseAt At) : IEquatable<ModifierAst>
 {
   internal static ModifierAst Optional(ParseAt at)
-    => new(at, ModifierKind.Optional);
+    => new(at, ModifierKind.Optional, "?");
   internal static ModifierAst List(ParseAt at)
-    => new(at, ModifierKind.List);
+    => new(at, ModifierKind.List, "[]");
 
-  private ModifierAst(ParseAt at, ModifierKind kind)
+  private ModifierAst(ParseAt at, ModifierKind kind, string toString)
     : this(at)
-    => Kind = kind;
+    => (Kind, _toString) = (kind, toString);
 
   internal ModifierAst(ParseAt at, string key, bool optional)
-    : this(at, ModifierKind.Dict)
+    : this(at, ModifierKind.Dict, "[" + key + (optional ? "?]" : "]"))
     => (Key, KeyOptional) = (key, optional);
 
   internal ModifierKind Kind { get; }
   internal string? Key { get; init; }
   internal bool KeyOptional { get; init; }
 
-  [ExcludeFromCodeCoverage]
+  private readonly string _toString;
+
   public override string ToString()
-    => Kind switch {
-      ModifierKind.Optional => "?",
-      ModifierKind.List => "[]",
-      ModifierKind.Dict => $"[{Key}" + (KeyOptional ? "?]" : "]"),
-      _ => "!?!",
-    };
+    => _toString;
 
   // override object.Equals
   public bool Equals(ModifierAst? other)

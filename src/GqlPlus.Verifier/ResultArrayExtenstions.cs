@@ -1,19 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Verifier;
+﻿namespace GqlPlus.Verifier;
 
 public static class ResultArrayExtenstions
 {
-  public static IResult<R> AsPartial<T, R>(this IResultArray<T> old, R result, Action<ParseMessage>? action = null)
-  {
-    if (old is IResultMessage<T[]> part) {
-      action?.Invoke(part.Message);
-      return new ResultPartial<R>(result, part.Message);
-    }
-
-    return new ResultOk<R>(result);
-  }
-
   public static bool IsError<T>(this IResultArray<T> result, Action<ParseMessage>? action = null)
   {
     if (result is IResultMessage<T[]> error) {
@@ -23,11 +11,6 @@ public static class ResultArrayExtenstions
 
     return false;
   }
-
-  public static IResultArray<R> MapOk<T, R>(this IResultArray<T> old, SelectResultArray<T, R> onValue, OnResultArray<R> otherwise)
-    => old is IResultOk<T[]> value
-      ? onValue(value.Result)
-      : otherwise();
 
   public static bool Optional<T>(this IResultArray<T> result, Action<T[]> action)
   {
@@ -44,7 +27,6 @@ public static class ResultArrayExtenstions
     return false;
   }
 
-  [ExcludeFromCodeCoverage]
   public static T[] Optional<T>(this IResultArray<T> result)
     => result switch {
       IResultEmpty<T[]>
@@ -77,9 +59,6 @@ public static class ResultArrayExtenstions
     => new ResultArrayOk<T>(result.ToArray());
 
   public static IResultArray<T> EmptyArray<T>(this IEnumerable<T>? _)
-    => new ResultArrayEmpty<T>();
-
-  public static IResultArray<T> EmptyArray<T>(this int _)
     => new ResultArrayEmpty<T>();
 
   public static IResultArray<T> PartialArray<T>(this IEnumerable<T> result, ParseMessage message)

@@ -70,4 +70,12 @@ public class ResultErrorArrayTests : BaseResultTests
     result.Should().BeOfType<ResultOk<string[]>>()
       .Subject.Required().Should().Equal(_sample);
   }
+
+  [Fact]
+  public void Optional_ReturnsEmpty()
+  {
+    var action = () => _errorArray.Optional();
+
+    action.Should().Throw<InvalidOperationException>().WithMessage("*Error*");
+  }
 }

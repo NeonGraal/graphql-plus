@@ -61,12 +61,12 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
     }
 
     var definition = _definition.Parse(tokens);
-    return ApplyDefinition(result, definition)
+    return definition.Required(value => ApplyDefinition(result, value))
       ? result.Ok()
       : definition.AsPartial(result);
   }
 
-  protected abstract bool ApplyDefinition(TResult result, IResult<TDefinition> definition);
+  protected abstract void ApplyDefinition(TResult result, TDefinition value);
   protected abstract bool ApplyOption(TResult result, IResult<TOption> option);
   protected abstract bool ApplyParameter(TResult result, IResult<TParam> parameter);
 

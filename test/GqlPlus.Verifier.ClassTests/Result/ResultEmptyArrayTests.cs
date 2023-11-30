@@ -65,4 +65,12 @@ public class ResultEmptyArrayTests : BaseResultTests
     result.Should().BeOfType<ResultOk<string>>()
       .Subject.Required().Should().Be(Sample);
   }
+
+  [Fact]
+  public void Optional_ReturnsEmpty()
+  {
+    var result = _emptyArray.Optional();
+
+    result.Should().BeEmpty();
+  }
 }

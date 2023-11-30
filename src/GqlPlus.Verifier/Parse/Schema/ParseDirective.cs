@@ -15,8 +15,8 @@ internal class ParseDirective : DeclarationParser<DirectiveName, ParameterAst, D
 
   protected override string Label => "Directive";
 
-  protected override bool ApplyDefinition(DirectiveAst result, IResult<DirectiveLocation> definition)
-    => definition.Required(value => result.Locations = value);
+  protected override void ApplyDefinition(DirectiveAst result, DirectiveLocation value)
+    => result.Locations = value;
 
   protected override bool ApplyOption(DirectiveAst result, IResult<DirectiveOption> option)
     => option.Optional(value => result.Option = value);

@@ -21,12 +21,12 @@ internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputRefer
 
   protected override string Label => "Output";
 
-  protected override bool ApplyDefinition(OutputAst result, IResult<ObjectDefinition<OutputFieldAst, OutputReferenceAst>> definition)
-    => definition.Required(value => {
-      result.Extends = value.Extends;
-      result.Fields = value.Fields;
-      result.Alternates = value.Alternates;
-    });
+  protected override void ApplyDefinition(OutputAst result, ObjectDefinition<OutputFieldAst, OutputReferenceAst> value)
+  {
+    result.Extends = value.Extends;
+    result.Fields = value.Fields;
+    result.Alternates = value.Alternates;
+  }
 
   protected override bool ApplyOption(OutputAst result, IResult<NullAst> option) => true;
 

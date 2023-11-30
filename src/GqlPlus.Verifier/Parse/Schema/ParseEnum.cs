@@ -18,12 +18,10 @@ internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDef
 
   protected override string Label => "Enum";
 
-  protected override bool ApplyDefinition(EnumAst result, IResult<EnumDefinition> definition)
+  protected override void ApplyDefinition(EnumAst result, EnumDefinition value)
   {
-    return definition.Required(value => {
-      result.Extends = value.Extends;
-      result.Labels = value.Labels;
-    });
+    result.Extends = value.Extends;
+    result.Labels = value.Labels;
   }
 
   protected override bool ApplyOption(EnumAst result, IResult<NullAst> option) => true;

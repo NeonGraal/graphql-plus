@@ -21,12 +21,12 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
 
   protected override string Label => "Input";
 
-  protected override bool ApplyDefinition(InputAst result, IResult<ObjectDefinition<InputFieldAst, InputReferenceAst>> definition)
-    => definition.Required(value => {
-      result.Extends = value.Extends;
-      result.Fields = value.Fields;
-      result.Alternates = value.Alternates;
-    });
+  protected override void ApplyDefinition(InputAst result, ObjectDefinition<InputFieldAst, InputReferenceAst> value)
+  {
+    result.Extends = value.Extends;
+    result.Fields = value.Fields;
+    result.Alternates = value.Alternates;
+  }
 
   protected override bool ApplyOption(InputAst result, IResult<NullAst> option) => true;
 

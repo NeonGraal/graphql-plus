@@ -16,23 +16,22 @@ internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, Scala
 
   protected override string Label => "Scalar";
 
-  [ExcludeFromCodeCoverage]
-  protected override bool ApplyDefinition(ScalarAst result, IResult<ScalarDefinition> definition)
-    => definition.Required(value => {
-      result.Kind = value.Kind;
-      switch (result.Kind) {
-        case ScalarKind.Number:
-          result.Ranges = value.Ranges;
-          break;
+  protected override void ApplyDefinition(ScalarAst result, ScalarDefinition value)
+  {
+    result.Kind = value.Kind;
+    switch (result.Kind) {
+      case ScalarKind.Number:
+        result.Ranges = value.Ranges;
+        break;
 
-        case ScalarKind.String:
-          result.Regexes = value.Regexes;
-          break;
+      case ScalarKind.String:
+        result.Regexes = value.Regexes;
+        break;
 
-        default:
-          break; // Not covered
-      }
-    });
+      default:
+        break; // Not covered
+    }
+  }
 
   protected override bool ApplyOption(ScalarAst result, IResult<NullAst> option) => true;
   protected override bool ApplyParameter(ScalarAst result, IResult<NullAst> parameter) => true;

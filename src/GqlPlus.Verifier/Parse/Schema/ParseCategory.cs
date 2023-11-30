@@ -18,14 +18,14 @@ internal class ParseCategory : DeclarationParser<CategoryName, NullAst, Category
 
   protected override string Label => "Category";
 
-  protected override bool ApplyDefinition(CategoryAst result, IResult<CategoryOutput> definition)
-    => definition.Required(value => {
-      if (string.IsNullOrWhiteSpace(result.Name)) {
-        result.Name = value.Output.Camelize();
-      }
+  protected override void ApplyDefinition(CategoryAst result, CategoryOutput value)
+  {
+    if (string.IsNullOrWhiteSpace(result.Name)) {
+      result.Name = value.Output.Camelize();
+    }
 
-      result.Output = value.Output;
-    });
+    result.Output = value.Output;
+  }
 
   protected override bool ApplyOption(CategoryAst result, IResult<CategoryOption> option)
     => option.Optional(value => result.Option = value);

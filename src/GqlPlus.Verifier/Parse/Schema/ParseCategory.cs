@@ -8,7 +8,7 @@ internal class ParseCategory : DeclarationParser<CategoryName, NullAst, Category
 {
   public ParseCategory(
     CategoryName name,
-    IParser<NullAst> param,
+    IParserArray<NullAst> param,
     IParserArray<string> aliases,
     IParser<CategoryOption> option,
     IParser<CategoryOutput> definition
@@ -30,7 +30,7 @@ internal class ParseCategory : DeclarationParser<CategoryName, NullAst, Category
   protected override bool ApplyOption(CategoryAst result, IResult<CategoryOption> option)
     => option.Optional(value => result.Option = value);
 
-  protected override bool ApplyParameter(CategoryAst result, IResult<NullAst> parameter) => true;
+  protected override bool ApplyParameters(CategoryAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
   protected override CategoryAst MakeResult(ParseAt at, string? name, string description)

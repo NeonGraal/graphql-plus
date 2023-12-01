@@ -10,7 +10,8 @@ public static class SchemaParsers
     => services
       .AddSingleton<CategoryName>()
       .AddSingleton<IParser<NullAst>, ParseNull>()
-      .AddSingleton<IParser<ParameterAst>, ParseParameter>()
+      .AddSingleton<IParserArray<NullAst>, ParseNulls>()
+      .AddSingleton<IParserArray<ParameterAst>, ParseParameters>()
       .AddSingleton<IParserArray<string>, ParseAliases>()
       .AddSingleton<TypeName>()
       // Category
@@ -34,7 +35,7 @@ public static class SchemaParsers
       .AddSingleton<IParserArray<ScalarRegexAst>, ArrayParser<ScalarRegexAst>>()
       .AddSingleton<IParser<ScalarAst>, ParseScalar>()
       // Objects
-      .AddSingleton<IParser<ObjectParameters>, ParseObjectParameters>()
+      .AddSingleton<IParserArray<TypeParameterAst>, ParseTypeParameters>()
       .AddObjectParser<ParseInput, ParseInputDefinition, InputAst, InputFieldAst, InputReferenceAst>()
       .AddObjectParser<ParseOutput, ParseOutputDefinition, OutputAst, OutputFieldAst, OutputReferenceAst>()
       // Schema

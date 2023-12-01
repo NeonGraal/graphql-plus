@@ -11,7 +11,7 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
   public ParseInput(
     IParserArray<ModifierAst> modifiers,
     TypeName name,
-    IParser<ObjectParameters> param,
+    IParserArray<TypeParameterAst> param,
     IParserArray<string> aliases,
     IParser<NullAst> option,
     IParser<ObjectDefinition<InputFieldAst, InputReferenceAst>> definition,
@@ -39,10 +39,10 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
   protected override IResult<InputFieldAst> FieldEnumLabel<TContext>(TContext tokens, InputFieldAst field)
     => tokens.Error("Input", "':'", field);
 
-  protected override IResult<ParameterAst> FieldParameter<TContext>(TContext tokens) => 0.Empty<ParameterAst>();
+  protected override IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens) => 0.EmptyArray<ParameterAst>();
 
   [ExcludeFromCodeCoverage]
-  protected override void ApplyFieldParameter(InputFieldAst field, ParameterAst? parameter) => throw new NotImplementedException();
+  protected override void ApplyFieldParameters(InputFieldAst field, ParameterAst[] parameters) => throw new NotImplementedException();
 
   [return: NotNull]
   protected override InputAst MakeResult(ParseAt at, string? name, string description)

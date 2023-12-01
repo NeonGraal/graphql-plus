@@ -53,19 +53,19 @@ internal sealed class BaseObjectParserChecks<O, F, R>
   public void WithAlternateModifiersBad(string name, string[] others)
     => False(name + "{" + others.Joined(a => $"|{a}[?]") + "}");
 
-  public void WithTypeParameters(string name, string other, string parameter)
+  public void WithTypeParameters(string name, string other, string[] parameters)
     => TrueExpected(
-      name + "<$" + parameter + ">{|" + other + "}",
+      name + "<" + parameters.Joined("$") + ">{|" + other + "}",
        Object(name) with {
          Alternates = new[] { Alternate(other) },
-         Parameters = parameter.TypeParameters(),
+         Parameters = parameters.TypeParameters(),
        });
 
   public void WithTypeParameterBad(string name, string other)
     => False(name + "<$>{|" + other);
 
-  public void WithTypeParametersBad(string name, string other, string parameter)
-    => False(name + "<$" + parameter + "{|" + other);
+  public void WithTypeParametersBad(string name, string other, string[] parameters)
+    => False(name + "<" + parameters.Joined("$") + "{|" + other);
 
   public void WithTypeParametersNone(string name, string other)
     => False(name + "<>{|" + other);

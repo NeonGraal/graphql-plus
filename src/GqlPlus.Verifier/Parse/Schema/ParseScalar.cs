@@ -8,7 +8,7 @@ internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, Scala
 {
   public ParseScalar(
     TypeName name,
-    IParser<NullAst> param,
+    IParserArray<NullAst> param,
     IParserArray<string> aliases,
     IParser<NullAst> option,
     IParser<ScalarDefinition> definition
@@ -34,7 +34,7 @@ internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, Scala
   }
 
   protected override bool ApplyOption(ScalarAst result, IResult<NullAst> option) => true;
-  protected override bool ApplyParameter(ScalarAst result, IResult<NullAst> parameter) => true;
+  protected override bool ApplyParameters(ScalarAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
   protected override ScalarAst MakeResult(ParseAt at, string? name, string description)

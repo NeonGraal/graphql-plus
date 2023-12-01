@@ -69,26 +69,26 @@ public class OutputAstTests : BaseAliasedAstTests
       field1 == field2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithParameters(string name, string parameter)
+  public void HashCode_WithParameters(string name, string[] parameters)
       => _checks.HashCode(
-        () => new OutputAst(AstNulls.At, name) { Parameters = parameter.TypeParameters() });
+        () => new OutputAst(AstNulls.At, name) { Parameters = parameters.TypeParameters() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithParameters(string name, string parameter)
+  public void String_WithParameters(string name, string[] parameters)
     => _checks.String(
-      () => new OutputAst(AstNulls.At, name) { Parameters = parameter.TypeParameters() },
-      $"( !O {name} < ${parameter} > )");
+      () => new OutputAst(AstNulls.At, name) { Parameters = parameters.TypeParameters() },
+      $"( !O {name} < {parameters.Joined("$")} > )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithParameters(string name, string parameter)
+  public void Equality_WithParameters(string name, string[] parameters)
     => _checks.Equality(
-      () => new OutputAst(AstNulls.At, name) { Parameters = parameter.TypeParameters() });
+      () => new OutputAst(AstNulls.At, name) { Parameters = parameters.TypeParameters() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenParameterss(string name, string parameter1, string parameter2)
-    => _checks.InequalityBetween(parameter1, parameter2,
-      parameter => new OutputAst(AstNulls.At, name) { Parameters = parameter.TypeParameters() },
-      parameter1 == parameter2);
+  public void Inequality_BetweenParameterss(string name, string[] parameters1, string[] parameters2)
+    => _checks.InequalityBetween(parameters1, parameters2,
+      parameters => new OutputAst(AstNulls.At, name) { Parameters = parameters.TypeParameters() },
+      parameters1.SequenceEqual(parameters2));
 
   private static OutputReferenceAst Reference(string argument)
     => new(AstNulls.At, argument);

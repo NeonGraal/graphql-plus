@@ -6,16 +6,16 @@ namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputReferenceAst>
 {
-  private readonly IParser<ParameterAst> _parameter;
+  private readonly IParserArray<ParameterAst> _parameter;
 
   public ParseOutput(
     IParserArray<ModifierAst> modifiers,
     TypeName name,
-    IParser<ObjectParameters> param,
+    IParserArray<TypeParameterAst> param,
     IParserArray<string> aliases,
     IParser<NullAst> option,
     IParser<ObjectDefinition<OutputFieldAst, OutputReferenceAst>> definition,
-    IParser<ParameterAst> parameter
+    IParserArray<ParameterAst> parameter
   ) : base(modifiers, name, param, aliases, option, definition)
     => _parameter = parameter.ThrowIfNull();
 
@@ -30,8 +30,8 @@ internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputRefer
 
   protected override bool ApplyOption(OutputAst result, IResult<NullAst> option) => true;
 
-  protected override void ApplyFieldParameter(OutputFieldAst field, ParameterAst? parameter)
-    => field.Parameter = parameter;
+  protected override void ApplyFieldParameters(OutputFieldAst field, ParameterAst[] parameters)
+    => field.Parameters = parameters;
 
   protected override OutputFieldAst Field(ParseAt at, string name, string description, OutputReferenceAst typeReference)
     => new(at, name, description, typeReference);
@@ -65,8 +65,8 @@ internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputRefer
     return tokens.Error("Output", "':' or '='", field);
   }
 
-  protected override IResult<ParameterAst> FieldParameter<TContext>(TContext tokens)
-    => _parameter.Parse(tokens);
+  protected override IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
+    => _parameter.Parse(tokens, Label);
 
   [return: NotNull]
   protected override OutputAst MakeResult(ParseAt at, string? name, string description)

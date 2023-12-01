@@ -25,26 +25,26 @@ public class DirectiveAstTests : BaseAliasedAstTests
       option1 == option2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithParameter(string name, string param)
+  public void HashCode_WithParameter(string name, string[] parameters)
       => _checks.HashCode(
-        () => new DirectiveAst(AstNulls.At, name) { Parameter = new ParameterAst(AstNulls.At, param) });
+        () => new DirectiveAst(AstNulls.At, name) { Parameters = parameters.Parameters() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithParameter(string name, string param)
+  public void String_WithParameters(string name, string[] parameters)
     => _checks.String(
-      () => new DirectiveAst(AstNulls.At, name) { Parameter = new ParameterAst(AstNulls.At, param) },
-      $"( !D {name} ( !P {param} ) (Unique) None )");
+      () => new DirectiveAst(AstNulls.At, name) { Parameters = parameters.Parameters() },
+      $"( !D {name} ( {parameters.Joined("!P ")} ) (Unique) None )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithParameter(string name, string param)
+  public void Equality_WithParameter(string name, string[] parameters)
     => _checks.Equality(
-      () => new DirectiveAst(AstNulls.At, name) { Parameter = new ParameterAst(AstNulls.At, param) });
+      () => new DirectiveAst(AstNulls.At, name) { Parameters = parameters.Parameters() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenParameters(string name, string param1, string param2)
-    => _checks.InequalityBetween(param1, param2,
-      param => new DirectiveAst(AstNulls.At, name) { Parameter = new ParameterAst(AstNulls.At, param) },
-      param1 == param2);
+  public void Inequality_BetweenParameters(string name, string[] parameters1, string[] parameters2)
+    => _checks.InequalityBetween(parameters1, parameters2,
+      parameters => new DirectiveAst(AstNulls.At, name) { Parameters = parameters.Parameters() },
+      parameters1.SequenceEqual(parameters2));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithLocations(string name, DirectiveLocation location)

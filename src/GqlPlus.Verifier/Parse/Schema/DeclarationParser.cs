@@ -9,7 +9,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   where TResult : AstAliased
 {
   private readonly TName _name;
-  private readonly IParser<TParam> _param;
+  private readonly IParserArray<TParam> _param;
   private readonly IParser<TOption> _option;
   private readonly IParser<TDefinition> _definition;
 
@@ -18,7 +18,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 
   public DeclarationParser(
     TName name,
-    IParser<TParam> param,
+    IParserArray<TParam> param,
     IParserArray<string> aliases,
     IParser<TOption> option,
     IParser<TDefinition> definition)
@@ -41,9 +41,9 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
       return tokens.Error(Label, "name", result);
     }
 
-    var parameter = _param.Parse(tokens);
-    if (!ApplyParameter(result, parameter)) {
-      return parameter.AsPartial(result);
+    var parameters = _param.Parse(tokens, Label);
+    if (!ApplyParameters(result, parameters)) {
+      return parameters.AsPartial(result);
     }
 
     var aliases = Aliases.Parse(tokens, Label);
@@ -68,7 +68,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 
   protected abstract void ApplyDefinition(TResult result, TDefinition value);
   protected abstract bool ApplyOption(TResult result, IResult<TOption> option);
-  protected abstract bool ApplyParameter(TResult result, IResult<TParam> parameter);
+  protected abstract bool ApplyParameters(TResult result, IResultArray<TParam> parameter);
 
   [return: NotNull]
   protected abstract TResult MakeResult(ParseAt at, string? name, string description);

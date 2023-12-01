@@ -8,7 +8,7 @@ internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDef
 {
   public ParseEnum(
     TypeName name,
-    IParser<NullAst> param,
+    IParserArray<NullAst> param,
     IParserArray<string> aliases,
     IParser<NullAst> option,
     IParser<EnumDefinition> definition
@@ -25,7 +25,7 @@ internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDef
   }
 
   protected override bool ApplyOption(EnumAst result, IResult<NullAst> option) => true;
-  protected override bool ApplyParameter(EnumAst result, IResult<NullAst> parameter) => true;
+  protected override bool ApplyParameters(EnumAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
   protected override EnumAst MakeResult(ParseAt at, string? name, string description)

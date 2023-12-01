@@ -69,26 +69,26 @@ public class InputAstTests : BaseAliasedAstTests
       field1 == field2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithParameters(string name, string parameter)
+  public void HashCode_WithParameters(string name, string[] parameters)
       => _checks.HashCode(
-        () => new InputAst(AstNulls.At, name) { Parameters = parameter.TypeParameters() });
+        () => new InputAst(AstNulls.At, name) { Parameters = parameters.TypeParameters() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithParameters(string name, string parameter)
+  public void String_WithParameters(string name, string[] parameters)
     => _checks.String(
-      () => new InputAst(AstNulls.At, name) { Parameters = parameter.TypeParameters() },
-      $"( !I {name} < ${parameter} > )");
+      () => new InputAst(AstNulls.At, name) { Parameters = parameters.TypeParameters() },
+      $"( !I {name} < {parameters.Joined("$")} > )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithParameters(string name, string parameter)
+  public void Equality_WithParameters(string name, string[] parameters)
     => _checks.Equality(
-      () => new InputAst(AstNulls.At, name) { Parameters = parameter.TypeParameters() });
+      () => new InputAst(AstNulls.At, name) { Parameters = parameters.TypeParameters() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenParameterss(string name, string parameter1, string parameter2)
-    => _checks.InequalityBetween(parameter1, parameter2,
-      parameter => new InputAst(AstNulls.At, name) { Parameters = parameter.TypeParameters() },
-      parameter1 == parameter2);
+  public void Inequality_BetweenParameterss(string name, string[] parameters1, string[] parameters2)
+    => _checks.InequalityBetween(parameters1, parameters2,
+      parameters => new InputAst(AstNulls.At, name) { Parameters = parameters.TypeParameters() },
+      parameters1.SequenceEqual(parameters2));
 
   private static InputReferenceAst Reference(string argument)
     => new(AstNulls.At, argument);

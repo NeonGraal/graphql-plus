@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal abstract class ObjectParser<O, F, R>
-  : DeclarationParser<TypeName, ObjectParameters, NullAst, ObjectDefinition<F, R>, O>, IObjectParser<O, F, R>
+  : DeclarationParser<TypeName, TypeParameterAst, NullAst, ObjectDefinition<F, R>, O>, IObjectParser<O, F, R>
   where O : AstObject<F, R> where F : AstField<R> where R : AstReference<R>
 {
   private readonly IParserArray<ModifierAst> _modifiers;
@@ -15,7 +15,7 @@ internal abstract class ObjectParser<O, F, R>
   protected ObjectParser(
     IParserArray<ModifierAst> modifiers,
     TypeName name,
-    IParser<ObjectParameters> param,
+    IParserArray<TypeParameterAst> param,
     IParserArray<string> aliases,
     IParser<NullAst> option,
     IParser<ObjectDefinition<F, R>> definition
@@ -102,7 +102,7 @@ internal abstract class ObjectParser<O, F, R>
         => field = Field(at, name, description, fieldType))
         ) {
         hasAliases.WithResult(aliases => field.Aliases = aliases);
-        hasParameter.WithResult(parameter => ApplyFieldParameter(field, parameter));
+        hasParameter.WithResult(parameter => ApplyFieldParameters(field, parameter));
 
         var modifiers = _modifiers.Parse(tokens, Label);
         if (modifiers.IsError()) {
@@ -120,53 +120,17 @@ internal abstract class ObjectParser<O, F, R>
     return FieldEnumLabel(tokens, field);
   }
 
-  protected abstract void ApplyFieldParameter(F field, ParameterAst? parameter);
+  protected abstract void ApplyFieldParameters(F field, ParameterAst[] parameters);
   protected abstract F Field(ParseAt at, string name, string description, R typeReference);
   protected abstract IResult<F> FieldDefault<TContext>(TContext tokens, F field)
       where TContext : Tokenizer;
   protected abstract IResult<F> FieldEnumLabel<TContext>(TContext tokens, F field)
       where TContext : Tokenizer;
-  protected abstract IResult<ParameterAst> FieldParameter<TContext>(TContext tokens)
+  protected abstract IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
       where TContext : Tokenizer;
 
-  protected override bool ApplyParameter(O result, IResult<ObjectParameters> parameter)
-    => parameter.Optional(value => result.Parameters = value?.Parameters ?? Array.Empty<TypeParameterAst>());
-}
-
-internal class ObjectParameters
-{
-  internal TypeParameterAst[] Parameters { get; set; } = Array.Empty<TypeParameterAst>();
-}
-
-internal class ParseObjectParameters : IParser<ObjectParameters>
-{
-  public IResult<ObjectParameters> Parse<TContext>(TContext tokens)
-    where TContext : Tokenizer
-  {
-    var result = new ObjectParameters();
-    var list = new List<TypeParameterAst>();
-
-    if (tokens.Take('<')) {
-      while (!tokens.Take('>')) {
-        tokens.String(out var description);
-        if (tokens.Prefix('$', out var name, out var at) && name is not null) {
-          list.Add(new(at, name, description));
-        } else {
-          result.Parameters = list.ToArray();
-          return tokens.Partial("Type Parameter", "type parameter", () => result);
-        }
-      }
-
-      if (list.Count == 0) {
-        return tokens.Error("Type Parameter", "at least one type parameter after '<'", result);
-      }
-
-      result.Parameters = list.ToArray();
-      return result.Ok();
-    }
-
-    return result.Empty();
-  }
+  protected override bool ApplyParameters(O result, IResultArray<TypeParameterAst> parameter)
+    => parameter.Optional(value => result.Parameters = value ?? Array.Empty<TypeParameterAst>());
 }
 
 public class ObjectDefinition<F, R>

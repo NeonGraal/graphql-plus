@@ -3,26 +3,26 @@
 public class OutputFieldAstTests : BaseAliasedAstTests<OutputFieldInput>
 {
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithParameter(OutputFieldInput input, string param)
+  public void HashCode_WithParameter(OutputFieldInput input, string[] parameters)
       => _checks.HashCode(
-        () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameter = new ParameterAst(AstNulls.At, param) });
+        () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithParameter(OutputFieldInput input, string param)
+  public void String_WithParameters(OutputFieldInput input, string[] parameters)
     => _checks.String(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameter = new ParameterAst(AstNulls.At, param) },
-      $"( !OF {input.Name} ( !P {param} ) : {input.Type} )");
+      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() },
+      $"( !OF {input.Name} ( {parameters.Joined("!P ")} ) : {input.Type} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithParameter(OutputFieldInput input, string param)
+  public void Equality_WithParameter(OutputFieldInput input, string[] parameters)
     => _checks.Equality(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameter = new ParameterAst(AstNulls.At, param) });
+      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenParameters(OutputFieldInput input, string param1, string param2)
-    => _checks.InequalityBetween(param1, param2,
-      param => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameter = new ParameterAst(AstNulls.At, param) },
-      param1 == param2);
+  public void Inequality_BetweenParameters(OutputFieldInput input, string[] parameters1, string[] parameters2)
+    => _checks.InequalityBetween(parameters1, parameters2,
+      parameters => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() },
+      parameters1.SequenceEqual(parameters2));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithModifiers(OutputFieldInput input)

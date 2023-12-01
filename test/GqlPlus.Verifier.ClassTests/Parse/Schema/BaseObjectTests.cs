@@ -24,16 +24,16 @@ public abstract class BaseObjectTests
     => Checks.WithAlternateModifiersBad(name, others);
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeParameters_ReturnsCorrectAst(string name, string other, string parameter)
-    => Checks.WithTypeParameters(name, other, parameter);
+  public void WithTypeParameters_ReturnsCorrectAst(string name, string other, string[] parameters)
+    => Checks.WithTypeParameters(name, other, parameters);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeParameterBad_ReturnsFalse(string name, string other)
     => Checks.WithTypeParameterBad(name, other);
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeParametersBad_ReturnsFalse(string name, string other, string parameter)
-    => Checks.WithTypeParametersBad(name, other, parameter);
+  public void WithTypeParametersBad_ReturnsFalse(string name, string other, string[] parameters)
+    => Checks.WithTypeParametersBad(name, other, parameters);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeParametersNone_ReturnsFalse(string name, string other)

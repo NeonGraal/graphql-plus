@@ -61,6 +61,9 @@ public static class ResultArrayExtenstions
   public static IResultArray<T> EmptyArray<T>(this IEnumerable<T>? _)
     => new ResultArrayEmpty<T>();
 
+  public static IResultArray<T> EmptyArray<T>(this int _)
+    => new ResultArrayEmpty<T>();
+
   public static IResultArray<T> PartialArray<T>(this IEnumerable<T> result, ParseMessage message)
     => new ResultArrayPartial<T>(result.ToArray(), message);
 

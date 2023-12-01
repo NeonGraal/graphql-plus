@@ -30,6 +30,6 @@ public static class CommonParsers
   public static IServiceCollection AddFunc<T>(this IServiceCollection services, Func<IServiceProvider, T> factory)
     where T : class
     => services
-      .AddSingleton<T>(factory)
+      .AddSingleton(factory)
       .AddSingleton<Func<T>>(x => () => x.GetRequiredService<T>());
 }

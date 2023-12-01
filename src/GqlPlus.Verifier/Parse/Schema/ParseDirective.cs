@@ -7,7 +7,7 @@ internal class ParseDirective : DeclarationParser<DirectiveName, ParameterAst, D
 {
   public ParseDirective(
     DirectiveName name,
-    IParser<ParameterAst> param,
+    IParserArray<ParameterAst> param,
     IParserArray<string> aliases,
     IParser<DirectiveOption> option,
     IParser<DirectiveLocation> definition
@@ -21,8 +21,8 @@ internal class ParseDirective : DeclarationParser<DirectiveName, ParameterAst, D
   protected override bool ApplyOption(DirectiveAst result, IResult<DirectiveOption> option)
     => option.Optional(value => result.Option = value);
 
-  protected override bool ApplyParameter(DirectiveAst result, IResult<ParameterAst> parameter)
-    => parameter.Optional(value => result.Parameter = value);
+  protected override bool ApplyParameters(DirectiveAst result, IResultArray<ParameterAst> parameter)
+    => parameter.Optional(value => result.Parameters = value);
 
   [return: NotNull]
   protected override DirectiveAst MakeResult(ParseAt at, string? name, string description)

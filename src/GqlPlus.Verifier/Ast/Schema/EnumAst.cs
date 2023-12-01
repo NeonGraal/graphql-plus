@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class EnumAst(ParseAt At, string Name, string Description)
-  : AstAliased(At, Name, Description), IEquatable<EnumAst>
+  : AstType(At, Name, Description), IEquatable<EnumAst>
 {
   public string? Extends { get; set; }
   public EnumLabelAst[] Labels { get; set; } = Array.Empty<EnumLabelAst>();

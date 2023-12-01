@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class ScalarAst(ParseAt At, string Name, string Description)
-  : AstAliased(At, Name, Description), IEquatable<ScalarAst>
+  : AstType(At, Name, Description), IEquatable<ScalarAst>
 {
   public ScalarKind Kind { get; set; } = ScalarKind.Number;
   public ScalarRangeAst[] Ranges { get; set; } = Array.Empty<ScalarRangeAst>();

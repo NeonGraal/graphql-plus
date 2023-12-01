@@ -6,11 +6,11 @@ namespace GqlPlus.Verifier.Parse.Schema;
 internal class ParseSchema : IParser<SchemaAst>
 {
 
-  private delegate IResult<AstDescribed> Parser(Tokenizer tokens);
+  private delegate IResult<AstAliased> Parser(Tokenizer tokens);
   private readonly Dictionary<string, Parser> _parsers = new();
 
   private static Parser MakeParser<T>(IParser<T> parser)
-    => tokens => parser.Parse(tokens).AsResult<AstDescribed>();
+    => tokens => parser.Parse(tokens).AsResult<AstAliased>();
 
   public ParseSchema(
     IParser<CategoryAst> category,

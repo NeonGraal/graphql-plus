@@ -1,9 +1,10 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class CategoryAst(ParseAt At, string Name, string Description, string Output)
-  : AstAliased(At, Name, Description), IEquatable<CategoryAst>
+  : AstDeclaration(At, Name, Description), IEquatable<CategoryAst>
 {
   internal override string Abbr => "C";
+  internal override string GroupName => "Categories";
 
   public string Output { get; set; } = Output;
 

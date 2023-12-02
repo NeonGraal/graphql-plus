@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 public record class SchemaAst(ParseAt At, string Name)
-  : AstDirectives(At, Name)
+  : AstNamed(At, Name)
 {
   public ParseResultKind Result { get; set; }
   public ParseMessage[] Errors { get; set; } = Array.Empty<ParseMessage>();

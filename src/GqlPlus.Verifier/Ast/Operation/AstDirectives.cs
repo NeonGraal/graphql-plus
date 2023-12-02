@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
-
-namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast.Operation;
 
 public abstract record class AstDirectives(ParseAt At, string Name)
   : AstNamed(At, Name), IAstDirectives, IEquatable<AstDirectives>

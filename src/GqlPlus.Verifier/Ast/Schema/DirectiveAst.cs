@@ -1,13 +1,14 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class DirectiveAst(ParseAt At, string Name, string Description)
-  : AstAliased(At, Name, Description), IEquatable<DirectiveAst>
+  : AstDeclaration(At, Name, Description), IEquatable<DirectiveAst>
 {
   public DirectiveOption Option { get; set; } = DirectiveOption.Unique;
   public ParameterAst[] Parameters { get; set; } = Array.Empty<ParameterAst>();
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 
   internal override string Abbr => "D";
+  internal override string GroupName => "Directives";
 
   public DirectiveAst(ParseAt at, string name)
     : this(at, name, "") { }

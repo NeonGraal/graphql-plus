@@ -1,17 +1,17 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class AstAlternate<R>(ParseAt At, R Type)
-  : AstBase(At), IEquatable<AstAlternate<R>>
+public sealed record class AlternateAst<R>(ParseAt At, R Type)
+  : AstBase(At), IEquatable<AlternateAst<R>>
   where R : AstReference<R>, IEquatable<R>
 {
   public ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
 
   internal override string Abbr => "A";
 
-  internal AstAlternate(R @type)
+  internal AlternateAst(R @type)
     : this(type.At, type) { }
 
-  public bool Equals(AstAlternate<R>? other)
+  public bool Equals(AlternateAst<R>? other)
     => base.Equals(other)
     && (Type?.Equals(other.Type) ?? other.Type is null)
     && Modifiers.SequenceEqual(other.Modifiers);

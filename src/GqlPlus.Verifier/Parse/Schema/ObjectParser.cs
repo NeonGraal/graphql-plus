@@ -138,7 +138,7 @@ public class ObjectDefinition<F, R>
 {
   public R? Extends { get; set; }
   public F[] Fields { get; set; } = Array.Empty<F>();
-  public AstAlternate<R>[] Alternates { get; set; } = Array.Empty<AstAlternate<R>>();
+  public AlternateAst<R>[] Alternates { get; set; } = Array.Empty<AlternateAst<R>>();
 }
 
 public abstract class ParseObjectDefinition<F, R> : IParser<ObjectDefinition<F, R>>
@@ -195,17 +195,17 @@ public abstract class ParseObjectDefinition<F, R> : IParser<ObjectDefinition<F, 
       : tokens.End(Label, () => result);
   }
 
-  private IResultArray<AstAlternate<R>> ParseAlternates<TContext>(TContext tokens)
+  private IResultArray<AlternateAst<R>> ParseAlternates<TContext>(TContext tokens)
     where TContext : Tokenizer
   {
-    var result = new List<AstAlternate<R>>();
+    var result = new List<AlternateAst<R>>();
     while (tokens.Take('|')) {
       var reference = _reference.Value.Parse(tokens);
       if (!reference.IsOk()) {
         return reference.AsPartialArray(result);
       }
 
-      AstAlternate<R> alternate = new(reference.Required());
+      AlternateAst<R> alternate = new(reference.Required());
       result.Add(alternate);
       var modifiers = _modifiers.Value.Parse(tokens, Label);
       if (!modifiers.Optional(value => alternate.Modifiers = value)) {

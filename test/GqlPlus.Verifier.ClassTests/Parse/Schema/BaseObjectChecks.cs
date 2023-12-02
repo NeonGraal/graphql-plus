@@ -120,10 +120,10 @@ internal sealed class BaseObjectParserChecks<O, F, R>
   public R Reference(string type, string subType)
     => Reference(type) with { Arguments = new[] { Reference(subType) } };
 
-  public AstAlternate<R> Alternate(string type)
+  public AlternateAst<R> Alternate(string type)
     => new(Reference(type));
 
-  public AstAlternate<R> Alternate(string type, string description)
+  public AlternateAst<R> Alternate(string type, string description)
     => new(Reference(type) with { Description = description });
 
   protected internal override string AliasesString(ObjectInput input, string aliases)

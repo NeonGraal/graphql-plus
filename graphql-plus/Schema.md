@@ -41,7 +41,8 @@ Explicit Type name declarations will override that name being used as Type Alias
 Where duplicate definitions are permitted, some item lists can be merged and de-duplicated.
 
 Merging two (or more) lists will be done by some matching criteria.
-Other (ie, not part of the matching criteria) required components of any matching items must be the same.
+List components of any matching items will be merged and de-duplicated.
+Other (ie, not lists or part of the matching criteria) required components of any matching items must be the same.
 Optional components, if present, must be the same.
 If only present on one item before merging, optional components will be retained on the merged item.
 
@@ -68,7 +69,7 @@ By default an operation over a Category can specify multiple fields that are res
 | `single`     | One and only one field can be specified in an operation of this category.                       |
 
 Duplicate Category declarations are not permitted.
-An explicit Category declaration for an Output type will override that name being used as an Alias for a different Category.
+An explicit Category declaration for a name (even if defaulted from Output type) will override that name being used as an Alias for a different Category.
 
 ## Directive
 

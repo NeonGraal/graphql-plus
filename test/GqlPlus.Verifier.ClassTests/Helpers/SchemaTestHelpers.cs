@@ -4,9 +4,9 @@ namespace GqlPlus.Verifier;
 
 internal static class SchemaTestHelpers
 {
-  public static AstAlternate<T>[] Alternates<T>(this string argument, Func<string, T> factory)
+  public static AlternateAst<T>[] Alternates<T>(this string argument, Func<string, T> factory)
     where T : AstReference<T>
-    => new[] { new AstAlternate<T>(factory(argument)) { Modifiers = TestMods() } };
+    => new[] { new AlternateAst<T>(factory(argument)) { Modifiers = TestMods() } };
 
   public static EnumLabelAst[] EnumLabels(this string[] labels)
     => labels.Select(l => new EnumLabelAst(AstNulls.At, l, "")).ToArray();

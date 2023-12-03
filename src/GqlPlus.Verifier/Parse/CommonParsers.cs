@@ -10,7 +10,6 @@ public static class CommonParsers
       .AddParser<FieldKeyAst, ParseFieldKey>()
       .AddParserArray<ModifierAst, ParseModifiers>()
       .AddParser<IParserDefault, ConstantAst, ParseDefault>()
-      .AddValueParser<ConstantAst, ParseConstant>()
       .AddValueParsers<ConstantAst, ParseConstant>();
 
   public static IServiceCollection AddValueParser<T, P>(this IServiceCollection services)

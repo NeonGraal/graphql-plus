@@ -6,16 +6,16 @@ namespace GqlPlus.Verifier.Parse.Operation;
 
 internal class ParseArgumentValue : ValueParser<ArgumentAst>
 {
-  private readonly IParser<ConstantAst> _constant;
+  private readonly Parser<ConstantAst>.L _constant;
 
   public ParseArgumentValue(
     Parser<FieldKeyAst>.D fieldKey,
     Parser<AstKeyValue<ArgumentAst>>.D keyValueParser,
     Parser<ArgumentAst>.DA listParser,
     Parser<AstObject<ArgumentAst>>.D objectParser,
-    IParser<ConstantAst> constant
+    Parser<ConstantAst>.D constant
   ) : base(fieldKey, keyValueParser, listParser, objectParser)
-    => _constant = constant.ThrowIfNull();
+    => _constant = constant;
 
   protected override string Label => "Argument";
 
@@ -54,7 +54,7 @@ internal class ParseArgumentValue : ValueParser<ArgumentAst>
       tokens.IgnoreSeparators = oldSeparators;
     }
 
-    return _constant.Parse(tokens).MapOk(
+    return _constant.Parse(tokens, "Constant").MapOk(
       constant => new ArgumentAst(constant).Ok(),
       () => 0.Empty<ArgumentAst>());
   }

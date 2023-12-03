@@ -6,7 +6,7 @@ public record class SchemaAst(ParseAt At, string Name)
   public ParseResultKind Result { get; set; }
   public ParseMessage[] Errors { get; set; } = Array.Empty<ParseMessage>();
 
-  public AstDescribed[] Declarations { get; set; } = Array.Empty<AstDescribed>();
+  public AstDeclaration[] Declarations { get; set; } = Array.Empty<AstDeclaration>();
 
   internal override string Abbr => "G";
 

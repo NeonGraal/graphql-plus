@@ -6,11 +6,11 @@ namespace GqlPlus.Verifier.Parse.Schema;
 internal class ParseSchema : IParser<SchemaAst>
 {
 
-  private delegate IResult<AstAliased> Parser(Tokenizer tokens);
+  private delegate IResult<AstDeclaration> Parser(Tokenizer tokens);
   private readonly Dictionary<string, Parser> _parsers = new();
 
   private static Parser MakeParser<T>(IParser<T> parser)
-    => tokens => parser.Parse(tokens).AsResult<AstAliased>();
+    => tokens => parser.Parse(tokens).AsResult<AstDeclaration>();
 
   public ParseSchema(
     IParser<CategoryAst> category,
@@ -40,7 +40,7 @@ internal class ParseSchema : IParser<SchemaAst>
     var at = tokens.At;
     SchemaAst ast = new(at);
 
-    var declarations = new List<AstDescribed>();
+    var declarations = new List<AstDeclaration>();
 
     while (tokens.Identifier(out var selector)) {
       if (_parsers.TryGetValue(selector, out var parser)) {

@@ -35,7 +35,7 @@ public class SchemaVerifier
     var outputTypes = new Declarations<OutputAst>(Ast.Declarations);
     var categories = new Declarations<CategoryAst>(Ast.Declarations);
 
-    VerifyCategories(categories, outputTypes.Either);
+    VerifyCategories(categories, outputTypes.Ids);
     VerifyTypes(allTypes);
 
     Ast.Errors = Errors.ToArray();
@@ -49,7 +49,7 @@ public class SchemaVerifier
 
   private void VerifyCategories(Declarations<CategoryAst> categories, HashSet<string> outputTypes)
   {
-    foreach (var group in categories.ByName) {
+    foreach (var group in categories.ById) {
       if (group.Count() > 1) {
         Error(group.Last(), $"Invalid Categories. Multiple Categories named '{group.Key}' found.");
         continue;
@@ -62,19 +62,13 @@ public class SchemaVerifier
         continue;
       }
     }
-
-    foreach (var group in categories.ByAlias) {
-      if (group.Count() > 1) {
-        Error(group.Last(), $"Invalid Categories. Multiple Categories with alias '{group.Key}' found.");
-        continue;
-      }
-    }
   }
 
   private void VerifyTypes(Declarations<AstType> allTypes)
   {
-    foreach (var group in allTypes.ByName) {
-      if (group.Count() > 1) {
+    foreach (var group in allTypes.ById) {
+      var set = group.GroupBy(t => t.GetType());
+      if (set.Count() > 1) {
         Error(group.Last(), $"Invalid Types. Multiple Types named '{group.Key}' found.");
         continue;
       }
@@ -86,25 +80,22 @@ internal readonly struct Declarations<T>
     where T : AstAliased
 {
   internal readonly T[] All;
-  internal readonly ILookup<string, T> ByName;
-  internal readonly ILookup<string, T> ByAlias;
-  internal readonly ILookup<string, T> ByEither;
-  internal readonly HashSet<string> Names;
-  internal readonly HashSet<string> Aliases;
-  internal readonly HashSet<string> Either;
+  internal readonly ILookup<string, T> ById;
+  internal readonly HashSet<string> Ids;
 
   internal Declarations(IEnumerable<object> types)
   {
     All = types.OfType<T>().ToArray();
-    ByName = All.ToLookup(t => t.Name);
-    Names = ByName.Select(l => l.Key).Distinct()
+    var names = All
+      .Select(l => l.Name).Distinct().ToHashSet();
+
+    Ids = All.SelectMany(i => i.Aliases).Union(names).Distinct()
       .ToHashSet();
-    var names = Names;
-    ByAlias = All.SelectMany(t => t.Aliases.Select(a => (Alias: a, Type: t)))
-      .Where(p => !names.Contains(p.Alias))
-      .ToLookup(p => p.Alias, p => p.Type);
-    Aliases = ByAlias.Select(l => l.Key).Distinct()
-      .ToHashSet();
-    Either = Names.Union(Aliases).ToHashSet();
+
+    ById = All.SelectMany(t => t.Aliases.Select(a => (Id: a, Item: t)))
+      .Where(p => !names.Contains(p.Id))
+      .Concat(All.Select(t => (Id: t.Name, Item: t)))
+      .ToLookup(p => p.Id, p => p.Item);
+    ;
   }
 }

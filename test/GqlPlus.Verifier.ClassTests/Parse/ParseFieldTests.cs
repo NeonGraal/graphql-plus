@@ -6,7 +6,7 @@ public class ParseFieldTests
   public void WithFieldValid_ReturnsCorrectAst(string key, string label)
     => _test.TrueExpected(
       key + ':' + label,
-      new Field<ConstantAst>(key.FieldKey(), label.FieldKey()));
+      new AstKeyValue<ConstantAst>(key.FieldKey(), label.FieldKey()));
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldKeyNoLabel_ReturnsFalse(string key, string label)
@@ -30,11 +30,11 @@ public class ParseFieldTests
   public void WithFieldNoValue_ReturnsFalse(string key)
     => _test.False(key + ' ', CheckNull);
 
-  private void CheckNull(Field<ConstantAst> result)
-    => result.Should().Be((Field<ConstantAst>)default);
+  private void CheckNull(AstKeyValue<ConstantAst> result)
+    => result.Should().Be((AstKeyValue<ConstantAst>)default);
 
-  private readonly OneChecks<Field<ConstantAst>> _test;
+  private readonly OneChecks<AstKeyValue<ConstantAst>> _test;
 
-  public ParseFieldTests(IParser<Field<ConstantAst>> parser)
+  public ParseFieldTests(IParser<AstKeyValue<ConstantAst>> parser)
     => _test = new(parser);
 }

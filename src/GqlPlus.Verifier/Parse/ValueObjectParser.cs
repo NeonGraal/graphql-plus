@@ -5,9 +5,9 @@ namespace GqlPlus.Verifier.Parse;
 public abstract class ValueObjectParser<T> : Parser<AstObject<T>>.I
   where T : AstValue<T>
 {
-  private readonly Parser<Field<T>>.L _field;
+  private readonly Parser<AstKeyValue<T>>.L _field;
 
-  protected ValueObjectParser(Parser<Field<T>>.D field)
+  protected ValueObjectParser(Parser<AstKeyValue<T>>.D field)
     => _field = field;
 
   public abstract string Label { get; }

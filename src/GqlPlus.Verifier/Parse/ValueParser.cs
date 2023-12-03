@@ -7,7 +7,7 @@ public abstract class ValueParser<T> : IValueParser<T>, Parser<T>.I
 {
   protected readonly Parser<FieldKeyAst>.L FieldKey;
 
-  public ParserProxy<Field<T>, Tokenizer> FieldIParser { get; }
+  public ParserProxy<AstKeyValue<T>, Tokenizer> FieldIParser { get; }
 
   public ValueParser(Parser<FieldKeyAst>.D fieldKey)
   {
@@ -21,23 +21,23 @@ public abstract class ValueParser<T> : IValueParser<T>, Parser<T>.I
   public abstract IResult<T> Parse<TContext>(TContext tokens)
     where TContext : Tokenizer;
 
-  public IResult<Field<T>> ParseField(Tokenizer tokens)
+  public IResult<AstKeyValue<T>> ParseField(Tokenizer tokens)
   {
     var fieldKey = FieldKey.Parse(tokens);
     if (fieldKey.IsError()) {
-      return fieldKey.AsResult<Field<T>>();
+      return fieldKey.AsResult<AstKeyValue<T>>();
     }
 
     if (!tokens.Take(':')) {
-      return tokens.Error<Field<T>>(Label, "':' after key");
+      return tokens.Error<AstKeyValue<T>>(Label, "':' after key");
     } else if (!fieldKey.IsOk()) {
-      return tokens.Error<Field<T>>(Label, "key before ':'");
+      return tokens.Error<AstKeyValue<T>>(Label, "key before ':'");
     }
 
     var fieldValue = Parse(tokens);
     return fieldValue.SelectOk(
-      value => new Field<T>(fieldKey.Required(), value),
-      () => fieldValue.AsResult<Field<T>>()); // Not Covered
+      value => new AstKeyValue<T>(fieldKey.Required(), value),
+      () => fieldValue.AsResult<AstKeyValue<T>>()); // Not Covered
   }
 
   protected AstObject<T> NewObject(AstObject<T>? fields = default)
@@ -87,8 +87,8 @@ public abstract class ValueParser<T> : IValueParser<T>, Parser<T>.I
 public interface IValueParser<T> : IParser<T>
   where T : AstValue<T>
 {
-  ParserProxy<Field<T>, Tokenizer> FieldIParser { get; }
+  ParserProxy<AstKeyValue<T>, Tokenizer> FieldIParser { get; }
 
-  IResult<Field<T>> ParseField(Tokenizer tokens);
+  IResult<AstKeyValue<T>> ParseField(Tokenizer tokens);
   IResult<AstObject<T>> ParseFieldValues(Tokenizer tokens, char last, AstObject<T> fields);
 }

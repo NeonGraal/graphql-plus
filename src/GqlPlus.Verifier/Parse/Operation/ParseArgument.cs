@@ -61,7 +61,7 @@ internal class ParseArgument : IParserArgument
       : initial;
   }
 
-  private IResult<ArgumentAst> ParseArgumentMid(Tokenizer tokens, TokenAt at, ArgumentAst.ObjectAst fields)
+  private IResult<ArgumentAst> ParseArgumentMid(Tokenizer tokens, TokenAt at, AstObject<ArgumentAst> fields)
   {
     if (tokens.Take(',')) {
       return Argument.ParseFieldValues(tokens, ')', fields).Select(result => new ArgumentAst(at, result));

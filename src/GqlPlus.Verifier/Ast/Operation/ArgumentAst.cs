@@ -16,7 +16,7 @@ public sealed record class ArgumentAst
     : base(constant.At) => Constant = constant;
   internal ArgumentAst(TokenAt at, ArgumentAst[] values)
     : base(at, values) { }
-  internal ArgumentAst(TokenAt at, ObjectAst fields)
+  internal ArgumentAst(TokenAt at, AstObject<ArgumentAst> fields)
     : base(at, fields) { }
 
   public static implicit operator ArgumentAst(FieldKeyAst field)

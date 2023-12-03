@@ -16,13 +16,13 @@ internal static class OperationTestHelpers
   public static ArgumentAst[] ArgumentList(this string label)
     => new ArgumentAst[] { new(AstNulls.At, label), label.FieldKey() };
 
-  public static ArgumentAst.ObjectAst ArgumentObject(this string label, string key)
+  public static AstObject<ArgumentAst> ArgumentObject(this string label, string key)
   {
     var keyAst = key.FieldKey();
     var labelAst = label.FieldKey();
 
     return key == label
-      ? new ArgumentAst.ObjectAst { [keyAst] = new(AstNulls.At, label) }
-      : new ArgumentAst.ObjectAst { [keyAst] = new(AstNulls.At, label), [labelAst] = keyAst };
+      ? new() { [keyAst] = new(AstNulls.At, label) }
+      : new() { [keyAst] = new(AstNulls.At, label), [labelAst] = keyAst };
   }
 }

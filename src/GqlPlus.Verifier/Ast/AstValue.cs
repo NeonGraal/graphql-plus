@@ -2,14 +2,15 @@
 
 public abstract record class AstValue<T>(TokenAt At)
   : AstBase(At), IEquatable<AstValue<T>>
+  where T : AstValue<T>
 {
   public T[] Values { get; protected init; } = Array.Empty<T>();
-  public ObjectAst Fields { get; protected init; } = new ObjectAst();
+  public AstObject<T> Fields { get; protected init; } = new AstObject<T>();
 
   internal AstValue(TokenAt at, T[] values)
     : this(at)
     => Values = values;
-  internal AstValue(TokenAt at, ObjectAst fields)
+  internal AstValue(TokenAt at, AstObject<T> fields)
     : this(at)
     => Fields = fields;
 
@@ -24,15 +25,4 @@ public abstract record class AstValue<T>(TokenAt At)
     => base.GetFields()
       .Concat(Values.Bracket("[", "]"))
       .Concat(Fields.Bracket("{", "}", kv => $"{kv.Key}:{kv.Value}"));
-
-  public class ObjectAst : Dictionary<FieldKeyAst, T>, IEquatable<Dictionary<FieldKeyAst, T>>
-  {
-    public ObjectAst() : base() { }
-    public ObjectAst(IDictionary<FieldKeyAst, T> dict) : base(dict) { }
-
-    public virtual bool Equals(Dictionary<FieldKeyAst, T>? other)
-      => other is not null
-      && Keys.Order().SequenceEqual(other.Keys.Order())
-      && Keys.All(k => this[k]?.Equals(other[k]) ?? false);
-  }
 }

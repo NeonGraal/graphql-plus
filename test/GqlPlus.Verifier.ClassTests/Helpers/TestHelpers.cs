@@ -17,14 +17,14 @@ internal static class TestHelpers
       label.FieldKey()
     };
 
-  public static ConstantAst.ObjectAst ConstantObject(this string label, string key)
+  public static AstObject<ConstantAst> ConstantObject(this string label, string key)
   {
     var keyAst = key.FieldKey();
     var labelAst = label.FieldKey();
 
     return key == label
-      ? new ConstantAst.ObjectAst { [keyAst] = labelAst }
-      : new ConstantAst.ObjectAst { [keyAst] = labelAst, [labelAst] = keyAst };
+      ? new() { [keyAst] = labelAst }
+      : new() { [keyAst] = labelAst, [labelAst] = keyAst };
   }
 
   public static TokenMessage ParseMessage(this string message)

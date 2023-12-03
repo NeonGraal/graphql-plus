@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse;
 
-public abstract class ValueParser<T> : IValueParser<T>
+public abstract class ValueParser<T> : IValueParser<T>, Parser<T>.I
   where T : AstValue<T>
 {
   protected readonly Parser<FieldKeyAst>.L FieldKey;
@@ -40,16 +40,17 @@ public abstract class ValueParser<T> : IValueParser<T>
       () => fieldValue.AsResult<Field<T>>()); // Not Covered
   }
 
-  protected abstract AstValue<T>.ObjectAst NewObject(AstValue<T>.ObjectAst? fields = default);
+  protected AstObject<T> NewObject(AstObject<T>? fields = default)
+    => fields is null ? new() : new(fields);
 
-  public IResult<AstValue<T>.ObjectAst> ParseFieldValues(Tokenizer tokens, char last, AstValue<T>.ObjectAst fields)
+  public IResult<AstObject<T>> ParseFieldValues(Tokenizer tokens, char last, AstObject<T> fields)
   {
     var result = NewObject(fields);
 
     while (!tokens.Take(last)) {
       var field = ParseField(tokens);
       if (!field.Required(value => result.Add(value.Key, value.Value))) {
-        return tokens.Error("Argument", "a field in object", result);
+        return tokens.Error(Label, "a field in object", result);
       }
 
       tokens.Take(',');
@@ -68,7 +69,7 @@ public abstract class ValueParser<T> : IValueParser<T>
 
     while (!tokens.Take(']')) {
       if (!Parse(tokens).Required(list.Add)) {
-        return tokens.ErrorArray("Argument", "a value in list", list);
+        return tokens.ErrorArray(Label, "a value in list", list);
       }
 
       tokens.Take(',');
@@ -77,14 +78,11 @@ public abstract class ValueParser<T> : IValueParser<T>
     return list.OkArray();
   }
 
-  protected IResult<AstValue<T>.ObjectAst> ParseObject(Tokenizer tokens)
+  protected IResult<AstObject<T>> ParseObject(Tokenizer tokens)
     => tokens.Take('{')
       ? ParseFieldValues(tokens, '}', NewObject())
-      : default(AstValue<T>.ObjectAst).Empty();
+      : default(AstObject<T>).Empty();
 }
-
-public record struct Field<T>(FieldKeyAst Key, T Value)
-  where T : AstValue<T>;
 
 public interface IValueParser<T> : IParser<T>
   where T : AstValue<T>
@@ -92,5 +90,5 @@ public interface IValueParser<T> : IParser<T>
   ParserProxy<Field<T>, Tokenizer> FieldIParser { get; }
 
   IResult<Field<T>> ParseField(Tokenizer tokens);
-  IResult<AstValue<T>.ObjectAst> ParseFieldValues(Tokenizer tokens, char last, AstValue<T>.ObjectAst fields);
+  IResult<AstObject<T>> ParseFieldValues(Tokenizer tokens, char last, AstObject<T> fields);
 }

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 public abstract record class AstAliased(TokenAt At, string Name, string Description)
   : AstDescribed(At, Name, Description), IEquatable<AstAliased>

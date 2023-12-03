@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 internal sealed class BaseAliasedAstChecks<T>
   : BaseAliasedAstChecks<string, T>, IBaseAliasedAstChecks

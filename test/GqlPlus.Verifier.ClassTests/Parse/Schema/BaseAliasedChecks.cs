@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Parse.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
+
+namespace GqlPlus.Verifier.Parse.Schema;
 
 internal abstract class BaseAliasedParserChecks<I, A>
   : OneChecks<A>, IBaseAliasedChecks<I>

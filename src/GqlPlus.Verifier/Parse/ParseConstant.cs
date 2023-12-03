@@ -36,9 +36,4 @@ public class ParseConstant : ValueParser<ConstantAst>
       tokens.IgnoreSeparators = oldSeparators;
     }
   }
-
-  protected override AstValue<ConstantAst>.ObjectAst NewObject(AstValue<ConstantAst>.ObjectAst? fields = null)
-    => fields is null
-      ? new ConstantAst.ObjectAst()
-      : new ConstantAst.ObjectAst(fields);
 }

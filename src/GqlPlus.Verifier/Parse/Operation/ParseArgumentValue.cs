@@ -54,9 +54,4 @@ internal class ParseArgumentValue : ValueParser<ArgumentAst>
       constant => new ArgumentAst(constant).Ok(),
       () => 0.Empty<ArgumentAst>());
   }
-
-  protected override AstValue<ArgumentAst>.ObjectAst NewObject(AstValue<ArgumentAst>.ObjectAst? fields = null)
-    => fields is null
-      ? new AstValue<ArgumentAst>.ObjectAst()
-      : new AstValue<ArgumentAst>.ObjectAst(fields);
 }

@@ -15,7 +15,7 @@ public sealed record class ConstantAst(TokenAt At)
     : this(at)
     => Values = values;
 
-  internal ConstantAst(TokenAt at, ObjectAst fields)
+  internal ConstantAst(TokenAt at, AstObject<ConstantAst> fields)
     : this(at)
     => Fields = fields;
 

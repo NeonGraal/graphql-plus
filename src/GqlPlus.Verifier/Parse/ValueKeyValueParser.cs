@@ -8,7 +8,7 @@ public class ValueKeyValueParser<T> : Parser<AstKeyValue<T>>.I
   private readonly Parser<FieldKeyAst>.L _key;
   private readonly Parser<T>.L _value;
 
-  protected ValueKeyValueParser(
+  public ValueKeyValueParser(
     Parser<FieldKeyAst>.D key,
     Parser<T>.D value)
   {

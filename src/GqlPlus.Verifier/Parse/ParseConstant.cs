@@ -4,8 +4,12 @@ namespace GqlPlus.Verifier.Parse;
 
 public class ParseConstant : ValueParser<ConstantAst>
 {
-  public ParseConstant(Parser<FieldKeyAst>.D fieldKey)
-    : base(fieldKey) { }
+  public ParseConstant(
+    Parser<FieldKeyAst>.D fieldKey,
+    Parser<AstKeyValue<ConstantAst>>.D keyValueParser,
+    Parser<ConstantAst>.DA listParser,
+    Parser<AstObject<ConstantAst>>.D objectParser
+  ) : base(fieldKey, keyValueParser, listParser, objectParser) { }
 
   protected override string Label => "Constant";
 
@@ -26,12 +30,12 @@ public class ParseConstant : ValueParser<ConstantAst>
     try {
       tokens.IgnoreSeparators = false;
 
-      var list = ParseList(tokens);
+      var list = ListParser.Parse(tokens, label);
       return list.MapOk(
         theList => new ConstantAst(at, theList).Ok(),
         () => list.IsError()
           ? list.AsResult(AstNulls.Constant)
-          : ParseObject(tokens).Select(fields => new ConstantAst(at, fields)));
+          : ObjectParser.Parse(tokens, label).Select(fields => new ConstantAst(at, fields)));
     } finally {
       tokens.IgnoreSeparators = oldSeparators;
     }

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using System.Reflection.Metadata;
+using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Operation;
 
 namespace GqlPlus.Verifier.Parse.Operation;
@@ -8,9 +9,12 @@ internal class ParseArgumentValue : ValueParser<ArgumentAst>
   private readonly IParser<ConstantAst> _constant;
 
   public ParseArgumentValue(
-      Parser<FieldKeyAst>.D fieldKey,
-      IParser<ConstantAst> constant)
-    : base(fieldKey)
+    Parser<FieldKeyAst>.D fieldKey,
+    Parser<AstKeyValue<ArgumentAst>>.D keyValueParser,
+    Parser<ArgumentAst>.DA listParser,
+    Parser<AstObject<ArgumentAst>>.D objectParser,
+    IParser<ConstantAst> constant
+  ) : base(fieldKey, keyValueParser, listParser, objectParser)
     => _constant = constant.ThrowIfNull();
 
   protected override string Label => "Argument";

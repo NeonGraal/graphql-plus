@@ -6,12 +6,22 @@ public abstract class ValueParser<T> : IValueParser<T>, Parser<T>.I
   where T : AstValue<T>
 {
   protected readonly Parser<FieldKeyAst>.L FieldKey;
+  protected readonly Parser<AstKeyValue<T>>.L KeyValueParser;
+  protected readonly Parser<T>.LA ListParser;
+  protected readonly Parser<AstObject<T>>.L ObjectParser;
 
   public ParserProxy<AstKeyValue<T>, Tokenizer> FieldIParser { get; }
 
-  public ValueParser(Parser<FieldKeyAst>.D fieldKey)
+  public ValueParser(
+    Parser<FieldKeyAst>.D fieldKey,
+    Parser<AstKeyValue<T>>.D keyValueParser,
+    Parser<T>.DA listParser,
+    Parser<AstObject<T>>.D objectParser)
   {
     FieldKey = fieldKey;
+    KeyValueParser = keyValueParser;
+    ListParser = listParser;
+    ObjectParser = objectParser;
 
     FieldIParser = new(ParseField);
   }

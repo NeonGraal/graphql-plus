@@ -7,7 +7,7 @@ public class ValueObjectParser<T> : Parser<AstObject<T>>.I
 {
   private readonly Parser<AstKeyValue<T>>.L _field;
 
-  protected ValueObjectParser(Parser<AstKeyValue<T>>.D field)
+  public ValueObjectParser(Parser<AstKeyValue<T>>.D field)
     => _field = field;
 
   public IResult<AstObject<T>> Parse<TContext>(TContext tokens, string label)

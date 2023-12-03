@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public abstract record class AstBase(ParseAt At) : IEquatable<AstBase>
+public abstract record class AstBase(TokenAt At) : IEquatable<AstBase>
 {
   internal abstract string Abbr { get; }
 
@@ -15,7 +15,7 @@ public abstract record class AstBase(ParseAt At) : IEquatable<AstBase>
   internal virtual IEnumerable<string?> GetFields()
     => new[] { AbbrAt };
 
-  internal ParseMessage Error(string message)
+  internal TokenMessage Error(string message)
     => new(At, message);
   // override object.Equals
   public virtual bool Equals(AstBase? other)

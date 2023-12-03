@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-public sealed record class FieldAst(ParseAt At, string Name)
+public sealed record class FieldAst(TokenAt At, string Name)
   : AstDirectives(At, Name), IAstSelection
 {
   public string? Alias { get; init; }

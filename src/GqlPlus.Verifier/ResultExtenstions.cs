@@ -31,9 +31,9 @@ public static class ResultExtenstions
   public static IResult<T> Empty<T>(this int _)
     => new ResultEmpty<T>();
 
-  public static IResult<T> Error<T>(this T? _, ParseMessage error)
+  public static IResult<T> Error<T>(this T? _, TokenMessage error)
     => new ResultError<T>(error);
-  public static IResult<T> Error<T>(this int _, ParseMessage error)
+  public static IResult<T> Error<T>(this int _, TokenMessage error)
     => new ResultError<T>(error);
 
   public static bool HasValue<T>(this IResult<T> result)
@@ -42,7 +42,7 @@ public static class ResultExtenstions
   public static bool IsEmpty<T>(this IResult<T> result)
     => result is IResultEmpty<T>;
 
-  public static bool IsError<T>(this IResult<T> result, Action<ParseMessage>? action = null)
+  public static bool IsError<T>(this IResult<T> result, Action<TokenMessage>? action = null)
   {
     if (result is IResultMessage<T> error) {
       action?.Invoke(error.Message);
@@ -92,7 +92,7 @@ public static class ResultExtenstions
       _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " has no message"),
     };
 
-  public static IResult<T> Partial<T>(this T result, ParseMessage error)
+  public static IResult<T> Partial<T>(this T result, TokenMessage error)
     => new ResultPartial<T>(result, error);
 
   public static bool Required<T>(this IResult<T> result, Action<T> action)
@@ -148,7 +148,7 @@ public static class ResultExtenstions
     };
   }
 
-  public static void WithMessage<T>(this IResult<T> result, Action<ParseMessage> action)
+  public static void WithMessage<T>(this IResult<T> result, Action<TokenMessage> action)
   {
     if (result is IResultMessage<T> message) {
       action.Invoke(message.Message);

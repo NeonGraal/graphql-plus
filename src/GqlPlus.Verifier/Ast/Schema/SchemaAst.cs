@@ -1,16 +1,16 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public record class SchemaAst(ParseAt At, string Name)
+public record class SchemaAst(TokenAt At, string Name)
   : AstNamed(At, Name)
 {
   public ParseResultKind Result { get; set; }
-  public ParseMessage[] Errors { get; set; } = Array.Empty<ParseMessage>();
+  public TokenMessage[] Errors { get; set; } = Array.Empty<TokenMessage>();
 
   public AstDeclaration[] Declarations { get; set; } = Array.Empty<AstDeclaration>();
 
   internal override string Abbr => "G";
 
-  public SchemaAst(ParseAt at)
+  public SchemaAst(TokenAt at)
     : this(at, "") { }
 
   public string Render()

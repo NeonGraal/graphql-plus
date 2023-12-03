@@ -65,9 +65,9 @@ public readonly struct ResultArrayEmpty<T> : IResultArray<T>, IResultEmpty<T[]>
 
 public readonly struct ResultArrayError<T> : IResultArray<T>, IResultError<T[]>
 {
-  public ParseMessage Message { get; }
+  public TokenMessage Message { get; }
 
-  public ResultArrayError(ParseMessage message) => Message = message;
+  public ResultArrayError(TokenMessage message) => Message = message;
 
   public IResult<R> AsPartial<R>(R result, Action<T[]>? withValue = null, Action? action = null)
   {
@@ -91,9 +91,9 @@ public readonly struct ResultArrayError<T> : IResultArray<T>, IResultError<T[]>
 public readonly struct ResultArrayPartial<T> : IResultArray<T>, IResultPartial<T[]>
 {
   public T[] Result { get; }
-  public ParseMessage Message { get; }
+  public TokenMessage Message { get; }
 
-  public ResultArrayPartial(T[] result, ParseMessage message)
+  public ResultArrayPartial(T[] result, TokenMessage message)
     => (Result, Message) = (result, message);
 
   public IResult<R> AsPartial<R>(R result, Action<T[]>? withValue = null, Action? action = null)

@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-public abstract record class AstDirectives(ParseAt At, string Name)
+public abstract record class AstDirectives(TokenAt At, string Name)
   : AstNamed(At, Name), IAstDirectives, IEquatable<AstDirectives>
 {
   public DirectiveAst[] Directives { get; set; } = Array.Empty<DirectiveAst>();

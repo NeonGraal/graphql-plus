@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public abstract record class AstDescribed(ParseAt At, string Name, string Description)
+public abstract record class AstDescribed(TokenAt At, string Name, string Description)
   : AstNamed(At, Name), IEquatable<AstDescribed>
 {
   public virtual bool Equals(AstDescribed? other)

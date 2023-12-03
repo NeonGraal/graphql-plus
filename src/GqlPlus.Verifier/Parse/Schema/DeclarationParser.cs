@@ -71,10 +71,10 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   protected abstract bool ApplyParameters(TResult result, IResultArray<TParam> parameter);
 
   [return: NotNull]
-  protected abstract TResult MakeResult(ParseAt at, string? name, string description);
+  protected abstract TResult MakeResult(TokenAt at, string? name, string description);
 }
 
 internal interface INameParser
 {
-  bool ParseName(Tokenizer tokens, out string? name, out ParseAt at);
+  bool ParseName(Tokenizer tokens, out string? name, out TokenAt at);
 }

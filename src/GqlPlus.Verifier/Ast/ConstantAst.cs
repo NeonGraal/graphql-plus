@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public sealed record class ConstantAst(ParseAt At)
+public sealed record class ConstantAst(TokenAt At)
   : AstValue<ConstantAst>(At), IEquatable<ConstantAst>
 {
   public FieldKeyAst? Value { get; set; }
@@ -11,11 +11,11 @@ public sealed record class ConstantAst(ParseAt At)
     : this(value.At)
     => Value = value;
 
-  internal ConstantAst(ParseAt at, ConstantAst[] values)
+  internal ConstantAst(TokenAt at, ConstantAst[] values)
     : this(at)
     => Values = values;
 
-  internal ConstantAst(ParseAt at, ObjectAst fields)
+  internal ConstantAst(TokenAt at, ObjectAst fields)
     : this(at)
     => Fields = fields;
 

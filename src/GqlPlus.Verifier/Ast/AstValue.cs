@@ -1,15 +1,15 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public abstract record class AstValue<T>(ParseAt At)
+public abstract record class AstValue<T>(TokenAt At)
   : AstBase(At), IEquatable<AstValue<T>>
 {
   public T[] Values { get; protected init; } = Array.Empty<T>();
   public ObjectAst Fields { get; protected init; } = new ObjectAst();
 
-  internal AstValue(ParseAt at, T[] values)
+  internal AstValue(TokenAt at, T[] values)
     : this(at)
     => Values = values;
-  internal AstValue(ParseAt at, ObjectAst fields)
+  internal AstValue(TokenAt at, ObjectAst fields)
     : this(at)
     => Fields = fields;
 

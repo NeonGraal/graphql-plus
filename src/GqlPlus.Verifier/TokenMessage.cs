@@ -2,10 +2,10 @@
 
 namespace GqlPlus.Verifier;
 
-public record class ParseMessage(TokenKind Kind, int Column, int Line, string Next, string Message)
-  : ParseAt(Kind, Column, Line, Next)
+public record class TokenMessage(TokenKind Kind, int Column, int Line, string Next, string Message)
+  : TokenAt(Kind, Column, Line, Next)
 {
-  public ParseMessage(ParseAt at, string message)
+  public TokenMessage(TokenAt at, string message)
     : this(at.Kind, at.Column, at.Line, at.Next, message) { }
 
   public override string? ToString()

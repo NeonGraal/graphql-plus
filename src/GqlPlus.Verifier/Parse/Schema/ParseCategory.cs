@@ -33,7 +33,7 @@ internal class ParseCategory : DeclarationParser<CategoryName, NullAst, Category
   protected override bool ApplyParameters(CategoryAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
-  protected override CategoryAst MakeResult(ParseAt at, string? name, string description)
+  protected override CategoryAst MakeResult(TokenAt at, string? name, string description)
     => new(at, name ?? "", "") { Description = description };
 }
 
@@ -41,7 +41,7 @@ internal record CategoryOutput(string Output);
 
 internal class CategoryName : INameParser
 {
-  public bool ParseName(Tokenizer tokens, out string? name, out ParseAt at)
+  public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
   {
     at = tokens.At;
     tokens.Identifier(out name);

@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class ScalarRangeAst(ParseAt At)
+public sealed record class ScalarRangeAst(TokenAt At)
   : AstBase(At), IEquatable<ScalarRangeAst>
 {
   public decimal? Lower { get; set; }
@@ -10,7 +10,7 @@ public sealed record class ScalarRangeAst(ParseAt At)
 
   internal override string Abbr => "SR";
 
-  public ScalarRangeAst(ParseAt at, decimal? lower, decimal? upper)
+  public ScalarRangeAst(TokenAt at, decimal? lower, decimal? upper)
     : this(at)
     => (Lower, Upper) = (lower, upper);
 

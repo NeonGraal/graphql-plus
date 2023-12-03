@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public record class NullAst(ParseAt At)
+public record class NullAst(TokenAt At)
 {
   public override string ToString() => "NULL";
 }

@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public abstract record class AstObject<F, R>(ParseAt At, string Name, string Description)
+public abstract record class AstObject<F, R>(TokenAt At, string Name, string Description)
   : AstType(At, Name, Description), IEquatable<AstObject<F, R>>
   where F : AstField<R> where R : AstReference<R>, IEquatable<R>
 {

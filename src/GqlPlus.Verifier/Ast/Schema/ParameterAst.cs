@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class ParameterAst(ParseAt At, InputReferenceAst Input)
+public sealed record class ParameterAst(TokenAt At, InputReferenceAst Input)
   : AstBase(At), IEquatable<ParameterAst>
 {
   public ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
@@ -8,7 +8,7 @@ public sealed record class ParameterAst(ParseAt At, InputReferenceAst Input)
 
   internal override string Abbr => "P";
 
-  internal ParameterAst(ParseAt at, string input)
+  internal ParameterAst(TokenAt at, string input)
     : this(at, new InputReferenceAst(at, input)) { }
 
   public bool Equals(ParameterAst? other)

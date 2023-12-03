@@ -18,7 +18,7 @@ internal class ParseArgumentValue : ValueParser<ArgumentAst>
   public override IResult<ArgumentAst> Parse<TContext>(TContext tokens)
   {
     _ = tokens.At;
-    if (!tokens.Prefix('$', out var variable, out ParseAt? at)) {
+    if (!tokens.Prefix('$', out var variable, out TokenAt? at)) {
       return tokens.Error<ArgumentAst>("Argument", "identifier after '$'");
     }
 

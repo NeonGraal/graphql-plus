@@ -308,7 +308,7 @@ public class Tokenizer
     return true;
   }
 
-  internal bool Prefix(char one, out string? identifier, out ParseAt at)
+  internal bool Prefix(char one, out string? identifier, out TokenAt at)
   {
     identifier = null;
     if (_kind == TokenKind.Punctuation
@@ -338,7 +338,7 @@ public class Tokenizer
     return true;
   }
 
-  internal ParseAt At
+  internal TokenAt At
   => _kind switch {
     TokenKind.End => new(_kind, _pos - _lineStart, _line, "<END>"),
     TokenKind.Number => new(_kind, _pos - _lineStart, _line, GetString(Decimal(_pos))),
@@ -349,16 +349,16 @@ public class Tokenizer
   public static string ErrorContext(string context)
     => context.Length < ErrorContextLen ? context + "<END>" : context[..ErrorContextLen];
 
-  internal readonly List<ParseMessage> Errors = new();
+  internal readonly List<TokenMessage> Errors = new();
 
-  internal ParseMessage Error(string text)
+  internal TokenMessage Error(string text)
   {
-    ParseMessage parseMessage = new(At, text);
+    TokenMessage parseMessage = new(At, text);
     Errors.Add(parseMessage);
     return parseMessage;
   }
 
-  internal ParseMessage Error(string label, string expected)
+  internal TokenMessage Error(string label, string expected)
     => Error($"Invalid {label}. Expected {expected}.");
 
   internal IResult<T> Error<T>(string label, string expected)

@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class ScalarAst(ParseAt At, string Name, string Description)
+public sealed record class ScalarAst(TokenAt At, string Name, string Description)
   : AstType(At, Name, Description), IEquatable<ScalarAst>
 {
   public ScalarKind Kind { get; set; } = ScalarKind.Number;
@@ -9,13 +9,13 @@ public sealed record class ScalarAst(ParseAt At, string Name, string Description
 
   internal override string Abbr => "S";
 
-  public ScalarAst(ParseAt at, string name)
+  public ScalarAst(TokenAt at, string name)
     : this(at, name, "") { }
 
-  public ScalarAst(ParseAt at, string name, ScalarRangeAst[] ranges)
+  public ScalarAst(TokenAt at, string name, ScalarRangeAst[] ranges)
     : this(at, name, "")
     => Ranges = ranges;
-  public ScalarAst(ParseAt at, string name, ScalarRegexAst[] regexes)
+  public ScalarAst(TokenAt at, string name, ScalarRegexAst[] regexes)
     : this(at, name, "")
     => (Kind, Regexes) = (ScalarKind.String, regexes);
 

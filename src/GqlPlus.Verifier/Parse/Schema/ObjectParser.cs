@@ -71,7 +71,7 @@ internal abstract class ObjectParser<O, F, R>
     return 0.Empty<R>();
   }
 
-  protected abstract R Reference(ParseAt at, string param);
+  protected abstract R Reference(TokenAt at, string param);
   protected abstract IResult<R> TypeEnumLabel<TContext>(TContext tokens, R reference)
       where TContext : Tokenizer;
 
@@ -121,7 +121,7 @@ internal abstract class ObjectParser<O, F, R>
   }
 
   protected abstract void ApplyFieldParameters(F field, ParameterAst[] parameters);
-  protected abstract F Field(ParseAt at, string name, string description, R typeReference);
+  protected abstract F Field(TokenAt at, string name, string description, R typeReference);
   protected abstract IResult<F> FieldDefault<TContext>(TContext tokens, F field)
       where TContext : Tokenizer;
   protected abstract IResult<F> FieldEnumLabel<TContext>(TContext tokens, F field)

@@ -1,13 +1,13 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class InputFieldAst(ParseAt At, string Name, string Description, InputReferenceAst Type)
+public sealed record class InputFieldAst(TokenAt At, string Name, string Description, InputReferenceAst Type)
   : AstField<InputReferenceAst>(At, Name, Description, Type), IEquatable<InputFieldAst>
 {
   public ConstantAst? Default { get; set; }
 
   internal override string Abbr => "IF";
 
-  public InputFieldAst(ParseAt at, string name, InputReferenceAst fieldType)
+  public InputFieldAst(TokenAt at, string name, InputReferenceAst fieldType)
     : this(at, name, "", fieldType) { }
 
   public bool Equals(InputFieldAst? other)

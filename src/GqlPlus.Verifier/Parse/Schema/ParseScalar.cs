@@ -37,7 +37,7 @@ internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, Scala
   protected override bool ApplyParameters(ScalarAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
-  protected override ScalarAst MakeResult(ParseAt at, string? name, string description)
+  protected override ScalarAst MakeResult(TokenAt at, string? name, string description)
     => new(at, name!, description);
 }
 

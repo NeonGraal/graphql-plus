@@ -290,7 +290,7 @@ public class TokenizerTests
     CheckParseError(result, TokenKind.String, expected, message);
   }
 
-  private void CheckParseError(ParseMessage result, TokenKind kind, string expected, string message, int pos = 1)
+  private void CheckParseError(TokenMessage result, TokenKind kind, string expected, string message, int pos = 1)
   {
     using var scope = new AssertionScope();
 

@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-public record class OperationAst(ParseAt At, string Name)
+public record class OperationAst(TokenAt At, string Name)
   : AstDirectives(At, Name)
 {
   public ParseResultKind Result { get; set; }
-  public ParseMessage[] Errors { get; set; } = Array.Empty<ParseMessage>();
+  public TokenMessage[] Errors { get; set; } = Array.Empty<TokenMessage>();
 
   public string Category { get; set; } = "query";
 
@@ -21,7 +21,7 @@ public record class OperationAst(ParseAt At, string Name)
 
   internal override string Abbr => "g";
 
-  public OperationAst(ParseAt at)
+  public OperationAst(TokenAt at)
     : this(at, "") { }
 
   public string Render()

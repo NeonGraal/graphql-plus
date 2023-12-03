@@ -61,7 +61,7 @@ internal class ParseArgument : IParserArgument
       : initial;
   }
 
-  private IResult<ArgumentAst> ParseArgumentMid(Tokenizer tokens, ParseAt at, ArgumentAst.ObjectAst fields)
+  private IResult<ArgumentAst> ParseArgumentMid(Tokenizer tokens, TokenAt at, ArgumentAst.ObjectAst fields)
   {
     if (tokens.Take(',')) {
       return Argument.ParseFieldValues(tokens, ')', fields).Select(result => new ArgumentAst(at, result));
@@ -78,7 +78,7 @@ internal class ParseArgument : IParserArgument
     return new ArgumentAst(at, fields).Ok();
   }
 
-  private IResult<ArgumentAst> ParseArgumentEnd(Tokenizer tokens, ParseAt at, ArgumentAst value)
+  private IResult<ArgumentAst> ParseArgumentEnd(Tokenizer tokens, TokenAt at, ArgumentAst value)
   {
     var more = ParseArgValues(tokens, value);
     if (more.Values.Length > 1) {

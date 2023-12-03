@@ -28,7 +28,7 @@ internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDef
   protected override bool ApplyParameters(EnumAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
-  protected override EnumAst MakeResult(ParseAt at, string? name, string description)
+  protected override EnumAst MakeResult(TokenAt at, string? name, string description)
     => new(at, name!, description);
 }
 
@@ -76,7 +76,7 @@ internal class ParseEnumDefinition : IParser<EnumDefinition>
 
 internal class TypeName : INameParser
 {
-  public bool ParseName(Tokenizer tokens, out string? name, out ParseAt at)
+  public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
   {
     at = tokens.At;
     return tokens.Identifier(out name);

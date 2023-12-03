@@ -1,17 +1,17 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public sealed record class ModifierAst(ParseAt At) : IEquatable<ModifierAst>
+public sealed record class ModifierAst(TokenAt At) : IEquatable<ModifierAst>
 {
-  internal static ModifierAst Optional(ParseAt at)
+  internal static ModifierAst Optional(TokenAt at)
     => new(at, ModifierKind.Optional, "?");
-  internal static ModifierAst List(ParseAt at)
+  internal static ModifierAst List(TokenAt at)
     => new(at, ModifierKind.List, "[]");
 
-  private ModifierAst(ParseAt at, ModifierKind kind, string toString)
+  private ModifierAst(TokenAt at, ModifierKind kind, string toString)
     : this(at)
     => (Kind, _toString) = (kind, toString);
 
-  internal ModifierAst(ParseAt at, string key, bool optional)
+  internal ModifierAst(TokenAt at, string key, bool optional)
     : this(at, ModifierKind.Dict, "[" + key + (optional ? "?]" : "]"))
     => (Key, KeyOptional) = (key, optional);
 

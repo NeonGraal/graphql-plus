@@ -8,15 +8,15 @@ public sealed record class ArgumentAst
 
   internal override string Abbr => "a";
 
-  internal ArgumentAst(ParseAt at)
+  internal ArgumentAst(TokenAt at)
     : base(at) { }
-  internal ArgumentAst(ParseAt at, string variable)
+  internal ArgumentAst(TokenAt at, string variable)
     : base(at) => Variable = variable;
   internal ArgumentAst(ConstantAst constant)
     : base(constant.At) => Constant = constant;
-  internal ArgumentAst(ParseAt at, ArgumentAst[] values)
+  internal ArgumentAst(TokenAt at, ArgumentAst[] values)
     : base(at, values) { }
-  internal ArgumentAst(ParseAt at, ObjectAst fields)
+  internal ArgumentAst(TokenAt at, ObjectAst fields)
     : base(at, fields) { }
 
   public static implicit operator ArgumentAst(FieldKeyAst field)

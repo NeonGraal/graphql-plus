@@ -33,7 +33,7 @@ internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputRefer
   protected override void ApplyFieldParameters(OutputFieldAst field, ParameterAst[] parameters)
     => field.Parameters = parameters;
 
-  protected override OutputFieldAst Field(ParseAt at, string name, string description, OutputReferenceAst typeReference)
+  protected override OutputFieldAst Field(TokenAt at, string name, string description, OutputReferenceAst typeReference)
     => new(at, name, description, typeReference);
 
   protected override IResult<OutputFieldAst> FieldDefault<TContext>(TContext tokens, OutputFieldAst field)
@@ -69,10 +69,10 @@ internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputRefer
     => _parameter.Parse(tokens, Label);
 
   [return: NotNull]
-  protected override OutputAst MakeResult(ParseAt at, string? name, string description)
+  protected override OutputAst MakeResult(TokenAt at, string? name, string description)
     => new(at, name!, description);
 
-  protected override OutputReferenceAst Reference(ParseAt at, string param)
+  protected override OutputReferenceAst Reference(TokenAt at, string param)
     => new(at, param);
 
   protected override IResult<OutputReferenceAst> TypeEnumLabel<TContext>(TContext tokens, OutputReferenceAst reference)

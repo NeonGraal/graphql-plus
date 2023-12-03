@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class EnumAst(ParseAt At, string Name, string Description)
+public sealed record class EnumAst(TokenAt At, string Name, string Description)
   : AstType(At, Name, Description), IEquatable<EnumAst>
 {
   public string? Extends { get; set; }
@@ -8,7 +8,7 @@ public sealed record class EnumAst(ParseAt At, string Name, string Description)
 
   internal override string Abbr => "E";
 
-  public EnumAst(ParseAt at, string name)
+  public EnumAst(TokenAt at, string name)
     : this(at, name, "") { }
 
   public bool Equals(EnumAst? other)

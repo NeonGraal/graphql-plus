@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public abstract record class AstField<R>(ParseAt At, string Name, string Description, R Type)
+public abstract record class AstField<R>(TokenAt At, string Name, string Description, R Type)
   : AstAliased(At, Name, Description), IEquatable<AstField<R>>
 {
   public R Type { get; set; } = Type;

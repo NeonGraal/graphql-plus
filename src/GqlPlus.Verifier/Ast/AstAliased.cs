@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public abstract record class AstAliased(ParseAt At, string Name, string Description)
+public abstract record class AstAliased(TokenAt At, string Name, string Description)
   : AstDescribed(At, Name, Description), IEquatable<AstAliased>
 {
   public string[] Aliases { get; set; } = Array.Empty<string>();

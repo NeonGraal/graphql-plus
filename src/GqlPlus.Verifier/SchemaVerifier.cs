@@ -7,18 +7,18 @@ namespace GqlPlus.Verifier;
 public class SchemaVerifier
 {
   private SchemaAst Ast { get; }
-  private List<ParseMessage> Errors { get; }
+  private List<TokenMessage> Errors { get; }
 
   internal SchemaVerifier(SchemaAst ast)
     => (Ast, Errors) = (ast, new(ast.Errors));
 
-  public static bool Verify(string operation, IParser<SchemaAst> parser, out List<ParseMessage> errors)
+  public static bool Verify(string operation, IParser<SchemaAst> parser, out List<TokenMessage> errors)
   {
     Tokenizer tokens = new(operation);
     var parse = parser.Parse(tokens);
 
     if (parse is IResultError<SchemaAst> error) {
-      errors = new List<ParseMessage> { error.Message };
+      errors = new List<TokenMessage> { error.Message };
       return false;
     }
 

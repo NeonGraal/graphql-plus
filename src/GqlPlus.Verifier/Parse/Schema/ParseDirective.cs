@@ -25,13 +25,13 @@ internal class ParseDirective : DeclarationParser<DirectiveName, ParameterAst, D
     => parameter.Optional(value => result.Parameters = value);
 
   [return: NotNull]
-  protected override DirectiveAst MakeResult(ParseAt at, string? name, string description)
+  protected override DirectiveAst MakeResult(TokenAt at, string? name, string description)
     => new(at, name!, description);
 }
 
 internal class DirectiveName : INameParser
 {
-  public bool ParseName(Tokenizer tokens, out string? name, out ParseAt at)
+  public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
     => tokens.Prefix('@', out name, out at);
 }
 

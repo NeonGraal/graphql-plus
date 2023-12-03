@@ -19,7 +19,7 @@ public interface IResultOk<T> : IResultValue<T> { }
 
 public interface IResultMessage<T> : IResult<T>
 {
-  ParseMessage Message { get; }
+  TokenMessage Message { get; }
 }
 
 public interface IResultError<T> : IResultMessage<T> { }
@@ -71,9 +71,9 @@ public readonly struct ResultEmpty<T> : IResultEmpty<T>
 
 public readonly struct ResultError<T> : IResultError<T>
 {
-  public ParseMessage Message { get; }
+  public TokenMessage Message { get; }
 
-  public ResultError(ParseMessage message) => Message = message;
+  public ResultError(TokenMessage message) => Message = message;
 
   public IResult<R> AsPartial<R>(R result, Action<T>? withValue = null, Action? action = null)
   {
@@ -91,9 +91,9 @@ public readonly struct ResultError<T> : IResultError<T>
 public readonly struct ResultPartial<T> : IResultPartial<T>
 {
   public T Result { get; }
-  public ParseMessage Message { get; }
+  public TokenMessage Message { get; }
 
-  public ResultPartial(T result, ParseMessage message)
+  public ResultPartial(T result, TokenMessage message)
   {
     ArgumentNullException.ThrowIfNull(result);
 

@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public record class FieldKeyAst(ParseAt At)
+public record class FieldKeyAst(TokenAt At)
   : AstBase(At), IComparable<FieldKeyAst>
 {
   internal string? Type { get; }
@@ -13,13 +13,13 @@ public record class FieldKeyAst(ParseAt At)
 
   internal override string Abbr => "k";
 
-  internal FieldKeyAst(ParseAt at, decimal number)
+  internal FieldKeyAst(TokenAt at, decimal number)
     : this(at)
     => Number = number;
-  internal FieldKeyAst(ParseAt at, string content)
+  internal FieldKeyAst(TokenAt at, string content)
     : this(at)
     => String = content;
-  internal FieldKeyAst(ParseAt at, string theType, string label)
+  internal FieldKeyAst(TokenAt at, string theType, string label)
     : this(at)
     => (Type, Label) = (theType, label);
 

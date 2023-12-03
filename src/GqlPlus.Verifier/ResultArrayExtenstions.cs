@@ -2,7 +2,7 @@
 
 public static class ResultArrayExtenstions
 {
-  public static bool IsError<T>(this IResultArray<T> result, Action<ParseMessage>? action = null)
+  public static bool IsError<T>(this IResultArray<T> result, Action<TokenMessage>? action = null)
   {
     if (result is IResultMessage<T[]> error) {
       action?.Invoke(error.Message);
@@ -64,9 +64,9 @@ public static class ResultArrayExtenstions
   public static IResultArray<T> EmptyArray<T>(this int _)
     => new ResultArrayEmpty<T>();
 
-  public static IResultArray<T> PartialArray<T>(this IEnumerable<T> result, ParseMessage message)
+  public static IResultArray<T> PartialArray<T>(this IEnumerable<T> result, TokenMessage message)
     => new ResultArrayPartial<T>(result.ToArray(), message);
 
-  public static IResultArray<T> ErrorArray<T>(this IEnumerable<T>? _, ParseMessage message)
+  public static IResultArray<T> ErrorArray<T>(this IEnumerable<T>? _, TokenMessage message)
     => new ResultArrayError<T>(message);
 }

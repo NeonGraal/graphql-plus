@@ -30,7 +30,7 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
 
   protected override bool ApplyOption(InputAst result, IResult<NullAst> option) => true;
 
-  protected override InputFieldAst Field(ParseAt at, string name, string description, InputReferenceAst typeReference)
+  protected override InputFieldAst Field(TokenAt at, string name, string description, InputReferenceAst typeReference)
     => new(at, name, description, typeReference);
 
   protected override IResult<InputFieldAst> FieldDefault<TContext>(TContext tokens, InputFieldAst field)
@@ -45,10 +45,10 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
   protected override void ApplyFieldParameters(InputFieldAst field, ParameterAst[] parameters) => throw new NotImplementedException();
 
   [return: NotNull]
-  protected override InputAst MakeResult(ParseAt at, string? name, string description)
+  protected override InputAst MakeResult(TokenAt at, string? name, string description)
     => new(at, name!, description);
 
-  protected override InputReferenceAst Reference(ParseAt at, string param) => new(at, param);
+  protected override InputReferenceAst Reference(TokenAt at, string param) => new(at, param);
   protected override IResult<InputReferenceAst> TypeEnumLabel<TContext>(TContext tokens, InputReferenceAst reference)
     => reference.Ok();
 }

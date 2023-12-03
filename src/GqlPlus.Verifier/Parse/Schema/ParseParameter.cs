@@ -7,16 +7,16 @@ internal class ParseParameters : IParserArray<ParameterAst>
 {
   private readonly IParser<InputReferenceAst> _input;
   private readonly Parser<ModifierAst>.LA _modifiers;
-  private readonly IParserDefault _default;
+  private readonly Parser<IParserDefault, ConstantAst>.L _default;
 
   public ParseParameters(
     IParser<InputReferenceAst> input,
     Parser<ModifierAst>.DA modifiers,
-    IParserDefault defaultParser)
+    Parser<IParserDefault, ConstantAst>.D defaultParser)
   {
     _input = input.ThrowIfNull();
     _modifiers = modifiers;
-    _default = defaultParser.ThrowIfNull();
+    _default = defaultParser;
   }
 
   public IResultArray<ParameterAst> Parse<TContext>(TContext tokens, string label)
@@ -44,7 +44,7 @@ internal class ParseParameters : IParserArray<ParameterAst>
       }
 
       modifiers.Optional(value => parameter.Modifiers = value);
-      var constant = _default.Parse(tokens);
+      var constant = _default.Parse(tokens, "Default");
       if (constant.IsError()) {
         return constant.AsResultArray(list);
       }

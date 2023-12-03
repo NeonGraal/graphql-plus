@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReferenceAst>
 {
-  private readonly IParserDefault _default;
+  private readonly Parser<IParserDefault, ConstantAst>.L _default;
 
   public ParseInput(
     Parser<ModifierAst>.DA modifiers,
@@ -15,9 +15,9 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
     IParserArray<string> aliases,
     IParser<NullAst> option,
     IParser<ObjectDefinition<InputFieldAst, InputReferenceAst>> definition,
-    IParserDefault defaultParser
+    Parser<IParserDefault, ConstantAst>.D defaultParser
   ) : base(modifiers, name, param, aliases, option, definition)
-    => _default = defaultParser.ThrowIfNull();
+    => _default = defaultParser;
 
   protected override string Label => "Input";
 
@@ -34,7 +34,7 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
     => new(at, name, description, typeReference);
 
   protected override IResult<InputFieldAst> FieldDefault<TContext>(TContext tokens, InputFieldAst field)
-    => _default.Parse(tokens).AsPartial(field, constant => field.Default = constant);
+    => _default.Parse(tokens, "Default").AsPartial(field, constant => field.Default = constant);
 
   protected override IResult<InputFieldAst> FieldEnumLabel<TContext>(TContext tokens, InputFieldAst field)
     => tokens.Error("Input", "':'", field);

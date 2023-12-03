@@ -9,7 +9,7 @@ public static class CommonParsers
     => services
       .AddParser<FieldKeyAst, ParseFieldKey>()
       .AddParserArray<ModifierAst, ParseModifiers>()
-      .AddSingleton<IParserDefault, ParseDefault>()
+      .AddParser<IParserDefault, ConstantAst, ParseDefault>()
       .AddValueParser<ConstantAst, ParseConstant>()
       .AddValueParsers<ConstantAst, ParseConstant>();
 
@@ -47,13 +47,18 @@ public static class CommonParsers
     where S : class, Parser<T>.I
     => services
       .AddSingleton<S>()
-      .AddSingleton<Parser<T>.I>(x => x.GetRequiredService<S>())
       .AddSingleton<Parser<T>.D>(x => () => x.GetRequiredService<S>());
+
+  public static IServiceCollection AddParser<I, T, S>(this IServiceCollection services)
+    where S : class, I
+    where I : class, Parser<T>.I
+    => services
+      .AddSingleton<S>()
+      .AddSingleton<Parser<I, T>.D>(x => () => x.GetRequiredService<S>());
 
   public static IServiceCollection AddParserArray<T, S>(this IServiceCollection services)
     where S : class, Parser<T>.IA
     => services
       .AddSingleton<S>()
-      .AddSingleton<Parser<T>.IA>(x => x.GetRequiredService<S>())
       .AddSingleton<Parser<T>.DA>(x => () => x.GetRequiredService<S>());
 }

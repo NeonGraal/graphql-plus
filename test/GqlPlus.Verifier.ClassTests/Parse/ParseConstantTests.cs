@@ -71,8 +71,8 @@ public class ParseConstantTests
   private void CheckNull(ConstantAst? result)
     => result.Should().BeNull();
 
-  private readonly OneChecks<ConstantAst> Test;
+  private readonly OneChecksParser<ConstantAst> Test;
 
-  public ParseConstantTests(IParser<ConstantAst> parser)
+  public ParseConstantTests(Parser<ConstantAst>.D parser)
     => Test = new(parser);
 }

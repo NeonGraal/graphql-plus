@@ -7,17 +7,17 @@ internal class ParseVariable : IParser<VariableAst>
 {
   private readonly Parser<ModifierAst>.LA _modifiers;
   private readonly IParserArray<DirectiveAst> _directives;
-  private readonly IParserDefault _default;
+  private readonly Parser<IParserDefault, ConstantAst>.L _default;
   private readonly IParserVarType _varTypeParser;
 
   public ParseVariable(
     Parser<ModifierAst>.DA modifiers,
     IParserArray<DirectiveAst> directives,
-    IParserDefault defaultParser,
+    Parser<IParserDefault, ConstantAst>.D defaultParser,
     IParserVarType varTypeParser)
   {
     _modifiers = modifiers;
-    _default = defaultParser.ThrowIfNull();
+    _default = defaultParser;
     _directives = directives.ThrowIfNull();
     _varTypeParser = varTypeParser.ThrowIfNull();
   }
@@ -46,7 +46,7 @@ internal class ParseVariable : IParser<VariableAst>
       return modifiers.AsResult(variable);
     }
 
-    var constant = _default.Parse(tokens);
+    var constant = _default.Parse(tokens, "Default");
     if (!constant.Optional(value => variable.Default = value)) {
       return constant.AsResult(variable);
     }

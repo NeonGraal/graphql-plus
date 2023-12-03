@@ -56,14 +56,9 @@ public class Parser<T>
   }
 }
 
-public class ResultParser<T>
+public class Parser<I, T>
+  where I : Parser<T>.I
 {
-  public interface I
-  {
-    T Parse<TContext>(TContext tokens, string label)
-      where TContext : Tokenizer;
-  }
-
   public delegate I D();
 
   public class L : Lazy<I>
@@ -74,7 +69,7 @@ public class ResultParser<T>
 
     public static implicit operator L(D factory) => new(factory.ThrowIfNull());
 
-    public T Parse<TContext>(TContext tokens, string label)
+    public IResult<T> Parse<TContext>(TContext tokens, string label)
       where TContext : Tokenizer
       => Value.Parse(tokens, label);
   }

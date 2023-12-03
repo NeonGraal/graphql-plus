@@ -11,7 +11,7 @@ internal class ParseFieldKey : Parser<FieldKeyAst>.I
     ["false"] = "Boolean",
   };
 
-  public IResult<FieldKeyAst> Parse<TContext>(TContext tokens)
+  public IResult<FieldKeyAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var at = tokens.At;
@@ -27,7 +27,7 @@ internal class ParseFieldKey : Parser<FieldKeyAst>.I
       if (tokens.Take('.')) {
         return tokens.Identifier(out var value)
           ? new FieldKeyAst(at, identifier, value).Ok()
-          : tokens.Error<FieldKeyAst>("FieldKey", "enum value after '.'");
+          : tokens.Error<FieldKeyAst>(label, "enum value after '.'");
       }
 
       var type = _labelTypes.GetValueOrDefault(identifier, "");

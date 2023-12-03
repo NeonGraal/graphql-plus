@@ -30,7 +30,7 @@ internal class ParseArgument : IParserArgument
       var at = tokens.At;
       ArgumentAst? value = new(at);
 
-      var fieldKey = FieldKey.Parse(tokens);
+      var fieldKey = FieldKey.Parse(tokens, "Argument");
       if (fieldKey.IsOk()) {
         return fieldKey.Map(key =>
           tokens.Take(':')

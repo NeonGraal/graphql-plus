@@ -18,12 +18,16 @@ public abstract class ValueParser<T> : IValueParser<T>, Parser<T>.I
 
   protected abstract string Label { get; }
 
-  public abstract IResult<T> Parse<TContext>(TContext tokens)
+  public IResult<T> Parse<TContext>(TContext tokens)
+    where TContext : Tokenizer
+    => Parse(tokens, Label);
+
+  public abstract IResult<T> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer;
 
   public IResult<AstKeyValue<T>> ParseField(Tokenizer tokens)
   {
-    var fieldKey = FieldKey.Parse(tokens);
+    var fieldKey = FieldKey.Parse(tokens, Label);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<AstKeyValue<T>>();
     }

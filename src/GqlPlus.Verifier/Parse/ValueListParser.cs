@@ -17,7 +17,7 @@ public sealed class ValueListParser<T> : Parser<T>.IA
     }
 
     while (!tokens.Take(']')) {
-      if (!_value.Parse(tokens).Required(list.Add)) {
+      if (!_value.Parse(tokens, label).Required(list.Add)) {
         return tokens.ErrorArray(label, "a value in list", list);
       }
 

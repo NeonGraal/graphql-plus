@@ -15,11 +15,11 @@ internal class ParseArgumentValue : ValueParser<ArgumentAst>
 
   protected override string Label => "Argument";
 
-  public override IResult<ArgumentAst> Parse<TContext>(TContext tokens)
+  public override IResult<ArgumentAst> Parse<TContext>(TContext tokens, string label)
   {
     _ = tokens.At;
     if (!tokens.Prefix('$', out var variable, out TokenAt? at)) {
-      return tokens.Error<ArgumentAst>("Argument", "identifier after '$'");
+      return tokens.Error<ArgumentAst>(label, "identifier after '$'");
     }
 
     if (variable is not null) {

@@ -9,11 +9,11 @@ public class ParseConstant : ValueParser<ConstantAst>
 
   protected override string Label => "Constant";
 
-  public override IResult<ConstantAst> Parse<TContext>(TContext tokens)
+  public override IResult<ConstantAst> Parse<TContext>(TContext tokens, string label)
   {
     var at = tokens.At;
 
-    var fieldKey = FieldKey.Parse(tokens);
+    var fieldKey = FieldKey.Parse(tokens, label);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<ConstantAst>();
     }

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse;
 
-public abstract class ValueObjectParser<T> : Parser<AstObject<T>>.I
+public class ValueObjectParser<T> : Parser<AstObject<T>>.I
   where T : AstValue<T>
 {
   private readonly Parser<AstKeyValue<T>>.L _field;
@@ -10,9 +10,7 @@ public abstract class ValueObjectParser<T> : Parser<AstObject<T>>.I
   protected ValueObjectParser(Parser<AstKeyValue<T>>.D field)
     => _field = field;
 
-  public abstract string Label { get; }
-
-  public IResult<AstObject<T>> Parse<TContext>(TContext tokens)
+  public IResult<AstObject<T>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var result = new AstObject<T>();
@@ -22,9 +20,9 @@ public abstract class ValueObjectParser<T> : Parser<AstObject<T>>.I
     }
 
     while (!tokens.Take('}')) {
-      var field = _field.Parse(tokens);
+      var field = _field.Parse(tokens, label);
       if (!field.Required(value => result.Add(value.Key, value.Value))) {
-        return tokens.Error(Label, "a field in object", result);
+        return tokens.Error(label, "a field in object", result);
       }
 
       tokens.Take(',');

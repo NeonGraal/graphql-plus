@@ -9,12 +9,6 @@ internal class ParseDefault : IParserDefault
   public ParseDefault(Parser<ConstantAst>.D constant)
     => _constant = constant;
 
-  public IResult<ConstantAst> Parse<TContext>(TContext tokens)
-    where TContext : Tokenizer
-    => tokens.Take('=') ? _constant.Parse(tokens, "Default").MapEmpty(
-          () => tokens.Error<ConstantAst>("Default", "value after '='")
-        ) : 0.Empty<ConstantAst>();
-
   public IResult<ConstantAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
     => tokens.Take('=') ? _constant.Parse(tokens, "Default").MapEmpty(
@@ -22,6 +16,4 @@ internal class ParseDefault : IParserDefault
         ) : 0.Empty<ConstantAst>();
 }
 
-public interface IParserDefault
-  : IParser<ConstantAst>, Parser<ConstantAst>.I
-{ }
+public interface IParserDefault : Parser<ConstantAst>.I { }

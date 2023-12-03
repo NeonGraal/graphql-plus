@@ -12,29 +12,15 @@ public static class CommonParsers
       .AddParser<IParserDefault, ConstantAst, ParseDefault>()
       .AddValueParsers<ConstantAst, ParseConstant>();
 
-  public static IServiceCollection AddValueParser<T, P>(this IServiceCollection services)
-    where P : class, IValueParser<T>
-    where T : AstValue<T>
-    => services
-      .AddSingleton<P>()
-      .AddSingleton<IParser<T>>(x => x.GetRequiredService<P>())
-      .AddSingleton<IValueParser<T>>(x => x.GetRequiredService<P>())
-      .AddSingleton<IParser<AstKeyValue<T>>>(x => x.GetRequiredService<P>().FieldIParser);
-
   public static IServiceCollection AddValueParsers<T, P>(this IServiceCollection services)
     where T : AstValue<T>
-    where P : class, Parser<T>.I
+    where P : class, Parser<T>.I, IValueParser<T>
     => services
       .AddParser<T, P>()
+      .AddSingleton<IValueParser<T>>(x => x.GetRequiredService<P>())
       .AddParser<AstKeyValue<T>, ValueKeyValueParser<T>>()
       .AddParserArray<T, ValueListParser<T>>()
       .AddParser<AstObject<T>, ValueObjectParser<T>>();
-
-  public static IServiceCollection AddFunc<T, I>(this IServiceCollection services)
-    where T : class where I : class, T
-    => services
-      .AddSingleton<T, I>()
-      .AddSingleton<Func<T>>(x => () => x.GetRequiredService<T>());
 
   public static IServiceCollection AddFunc<T>(this IServiceCollection services, Func<IServiceProvider, T> factory)
     where T : class

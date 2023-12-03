@@ -1,7 +1,9 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Verifier.Ast;
 
 namespace GqlPlus.Verifier.Parse;
 
+[ExcludeFromCodeCoverage]
 public class ValueKeyValueParser<T> : Parser<AstKeyValue<T>>.I
   where T : AstValue<T>
 {

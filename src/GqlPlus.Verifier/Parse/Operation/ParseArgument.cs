@@ -7,13 +7,16 @@ internal class ParseArgument : IParserArgument
 {
   protected readonly Parser<FieldKeyAst>.L FieldKey;
   protected readonly IValueParser<ArgumentAst> Argument;
+  private readonly Parser<ArgumentAst>.L Value;
 
   public ParseArgument(
     Parser<FieldKeyAst>.D fieldKey,
-    IValueParser<ArgumentAst> argument)
+    IValueParser<ArgumentAst> argument,
+    Parser<ArgumentAst>.D value)
   {
     FieldKey = fieldKey;
     Argument = argument.ThrowIfNull();
+    Value = value;
   }
 
   public IResult<ArgumentAst> Parse<TContext>(TContext tokens)
@@ -48,6 +51,38 @@ internal class ParseArgument : IParserArgument
     }
   }
 
+  public IResult<ArgumentAst> Parse<TContext>(TContext tokens, string label)
+    where TContext : Tokenizer
+  {
+    if (!tokens.Take('(')) {
+      return 0.Empty<ArgumentAst>();
+    }
+
+    var oldSeparators = tokens.IgnoreSeparators;
+    try {
+      tokens.IgnoreSeparators = false;
+
+      var at = tokens.At;
+      ArgumentAst? value = new(at);
+
+      var fieldKey = FieldKey.Parse(tokens, label);
+      if (fieldKey.IsOk()) {
+        return fieldKey.Map(key =>
+          tokens.Take(':')
+          ? Argument.Parse(tokens).MapOk(
+            item => ParseArgumentMid(tokens, at, new() { [key] = item }),
+            () => tokens.Error(label, "a value after field key separator", value))
+          : ParseArgumentEnd(tokens, at, key));
+      }
+
+      var argValue = Value.Parse(tokens, label);
+
+      return argValue.MapOk(value => ParseArgumentEnd(tokens, at, value), () => argValue);
+    } finally {
+      tokens.IgnoreSeparators = oldSeparators;
+    }
+  }
+
   private ArgumentAst ParseArgValues(Tokenizer tokens, ArgumentAst initial)
   {
     var at = initial.At;
@@ -68,7 +103,7 @@ internal class ParseArgument : IParserArgument
     }
 
     while (!tokens.Take(')')) {
-      var field = Argument.ParseField(tokens);
+      var field = Argument.KeyValueParser.Parse(tokens, "Argument");
 
       if (!field.Required(value => fields.Add(value.Key, ParseArgValues(tokens, value.Value)))) {
         return field.AsResult<ArgumentAst>();
@@ -86,7 +121,7 @@ internal class ParseArgument : IParserArgument
     }
 
     var values = new List<ArgumentAst> { value };
-    while (Argument.Parse(tokens).Required(values.Add)) { }
+    while (Value.Parse(tokens, "Argument").Required(values.Add)) { }
 
     if (tokens.Take(")")) {
       var argument = values.Count > 1 ? new(at, values.ToArray()) : value;
@@ -97,4 +132,6 @@ internal class ParseArgument : IParserArgument
   }
 }
 
-public interface IParserArgument : IParser<ArgumentAst> { }
+public interface IParserArgument
+  : IParser<ArgumentAst>, Parser<ArgumentAst>.I
+{ }

@@ -1,5 +1,4 @@
-﻿using System.Reflection.Metadata;
-using GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Operation;
 
 namespace GqlPlus.Verifier.Parse.Operation;
@@ -41,12 +40,12 @@ internal class ParseArgumentValue : ValueParser<ArgumentAst>
       tokens.IgnoreSeparators = false;
       at = tokens.At;
 
-      var list = ParseList(tokens);
+      var list = ListParser.Parse(tokens, label);
       if (!list.IsEmpty()) {
         return list.Select(value => new ArgumentAst(at, value));
       }
 
-      var fields = ParseObject(tokens);
+      var fields = ObjectParser.Parse(tokens, label);
       if (!fields.IsEmpty()) {
         return fields.Select(value => new ArgumentAst(at, value));
       }

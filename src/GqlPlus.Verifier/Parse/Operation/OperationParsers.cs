@@ -8,7 +8,6 @@ public static class OperationParsers
 {
   public static IServiceCollection AddOperationParsers(this IServiceCollection services)
     => services
-      .AddSingleton<IParserArgument, ParseArgument>()
       .AddParser<IParserArgument, ArgumentAst, ParseArgument>()
       .AddValueParsers<ArgumentAst, ParseArgumentValue>()
       .AddSingleton<IParserArray<DirectiveAst>, ParseDirectives>()

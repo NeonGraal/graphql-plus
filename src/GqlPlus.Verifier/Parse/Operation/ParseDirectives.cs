@@ -4,10 +4,10 @@ namespace GqlPlus.Verifier.Parse.Operation;
 
 internal class ParseDirectives : IParserArray<DirectiveAst>
 {
-  private readonly IParserArgument _argument;
+  private readonly Parser<IParserArgument, ArgumentAst>.L _argument;
 
-  public ParseDirectives(IParserArgument argument)
-    => _argument = argument.ThrowIfNull();
+  public ParseDirectives(Parser<IParserArgument, ArgumentAst>.D argument)
+    => _argument = argument;
 
   public IResultArray<DirectiveAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -20,7 +20,7 @@ internal class ParseDirectives : IParserArray<DirectiveAst>
 
     while (name is not null) {
       var directive = new DirectiveAst(at, name);
-      var argument = _argument.Parse(tokens);
+      var argument = _argument.Parse(tokens, "Argument");
       if (!argument.Required(value => directive.Argument = value)) {
         if (argument.IsError()) {
           return argument.AsResultArray(result);

@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Parse.Operation;
 
 internal class ParseOperation : IParser<OperationAst>
 {
-  private readonly IParserArgument _argument;
+  private readonly Parser<IParserArgument, ArgumentAst>.L _argument;
   private readonly IParserArray<DirectiveAst> _directives;
   private readonly IParserStartFragments _startFragments;
   private readonly IParserEndFragments _endFragments;
@@ -14,7 +14,7 @@ internal class ParseOperation : IParser<OperationAst>
   private readonly IParserArray<VariableAst> _variables;
 
   public ParseOperation(
-    IParserArgument argument,
+    Parser<IParserArgument, ArgumentAst>.D argument,
     IParserArray<DirectiveAst> directives,
     IParserStartFragments startFragments,
     IParserEndFragments endFragments,
@@ -22,7 +22,7 @@ internal class ParseOperation : IParser<OperationAst>
     IParserArray<IAstSelection> objectParser,
     IParserArray<VariableAst> variables)
   {
-    _argument = argument.ThrowIfNull();
+    _argument = argument;
     _directives = directives.ThrowIfNull();
     _startFragments = startFragments.ThrowIfNull();
     _endFragments = endFragments.ThrowIfNull();
@@ -56,7 +56,7 @@ internal class ParseOperation : IParser<OperationAst>
 
     if (result is not null) {
       ast.ResultType = result;
-      var argument = _argument.Parse(tokens);
+      var argument = _argument.Parse(tokens, "Argument");
       if (!argument.Optional(value => ast.Argument = value)) {
         return argument.AsPartial(Final());
       }

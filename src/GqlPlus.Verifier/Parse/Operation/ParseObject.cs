@@ -7,16 +7,16 @@ internal class ParseObject : IParserObject
 {
   private readonly Parser<ModifierAst>.LA _modifiers;
   private readonly IParserArray<DirectiveAst> _directives;
-  private readonly IParserArgument _argument;
+  private readonly Parser<IParserArgument, ArgumentAst>.L _argument;
 
   public ParseObject(
     Parser<ModifierAst>.DA modifiers,
     IParserArray<DirectiveAst> directives,
-    IParserArgument argument)
+    Parser<IParserArgument, ArgumentAst>.D argument)
   {
     _modifiers = modifiers;
     _directives = directives.ThrowIfNull();
-    _argument = argument.ThrowIfNull();
+    _argument = argument;
   }
 
   public IResultArray<IAstSelection> Parse<TContext>(TContext tokens, string label)
@@ -66,7 +66,7 @@ internal class ParseObject : IParserObject
       result = new FieldAst(at, name) { Alias = alias };
     }
 
-    _argument.Parse(tokens).Required(argument => result.Argument = argument);
+    _argument.Parse(tokens, "Argument").Required(argument => result.Argument = argument);
 
     var modifiers = _modifiers.Parse(tokens, "Field");
     if (!modifiers.Optional(value => result.Modifiers = value)) {

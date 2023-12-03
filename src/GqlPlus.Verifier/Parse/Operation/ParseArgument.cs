@@ -19,38 +19,6 @@ internal class ParseArgument : IParserArgument
     Value = value;
   }
 
-  public IResult<ArgumentAst> Parse<TContext>(TContext tokens)
-    where TContext : Tokenizer
-  {
-    if (!tokens.Take('(')) {
-      return 0.Empty<ArgumentAst>();
-    }
-
-    var oldSeparators = tokens.IgnoreSeparators;
-    try {
-      tokens.IgnoreSeparators = false;
-
-      var at = tokens.At;
-      ArgumentAst? value = new(at);
-
-      var fieldKey = FieldKey.Parse(tokens, "Argument");
-      if (fieldKey.IsOk()) {
-        return fieldKey.Map(key =>
-          tokens.Take(':')
-          ? Argument.Parse(tokens).MapOk(
-            item => ParseArgumentMid(tokens, at, new() { [key] = item }),
-            () => tokens.Error("Argument", "a value after field key separator", value))
-          : ParseArgumentEnd(tokens, at, key));
-      }
-
-      var argValue = Argument.Parse(tokens);
-
-      return argValue.MapOk(value => ParseArgumentEnd(tokens, at, value), () => argValue);
-    } finally {
-      tokens.IgnoreSeparators = oldSeparators;
-    }
-  }
-
   public IResult<ArgumentAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
@@ -132,6 +100,4 @@ internal class ParseArgument : IParserArgument
   }
 }
 
-public interface IParserArgument
-  : IParser<ArgumentAst>, Parser<ArgumentAst>.I
-{ }
+public interface IParserArgument : Parser<ArgumentAst>.I { }

@@ -9,7 +9,7 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
   private readonly IParserDefault _default;
 
   public ParseInput(
-    IParserArray<ModifierAst> modifiers,
+    Parser<ModifierAst>.DA modifiers,
     TypeName name,
     IParserArray<TypeParameterAst> param,
     IParserArray<string> aliases,
@@ -57,7 +57,7 @@ internal class ParseInputDefinition : ParseObjectDefinition<InputFieldAst, Input
 {
   public ParseInputDefinition(
     Func<IParser<InputFieldAst>> field,
-    Func<IParserArray<ModifierAst>> modifiers,
+    Parser<ModifierAst>.DA modifiers,
     Func<IParser<InputReferenceAst>> reference
   ) : base(field, modifiers, reference) { }
 

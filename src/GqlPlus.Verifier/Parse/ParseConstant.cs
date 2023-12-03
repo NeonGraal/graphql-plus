@@ -4,8 +4,7 @@ namespace GqlPlus.Verifier.Parse;
 
 public class ParseConstant : ValueParser<ConstantAst>
 {
-  public ParseConstant(
-      IParser<FieldKeyAst> fieldKey)
+  public ParseConstant(Parser<FieldKeyAst>.D fieldKey)
     : base(fieldKey) { }
 
   protected override string Label => "Constant";

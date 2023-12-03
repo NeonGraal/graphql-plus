@@ -5,14 +5,13 @@ namespace GqlPlus.Verifier.Parse;
 public abstract class ValueParser<T> : IValueParser<T>
   where T : AstValue<T>
 {
-  protected readonly IParser<FieldKeyAst> FieldKey;
+  protected readonly Parser<FieldKeyAst>.L FieldKey;
 
   public ParserProxy<Field<T>, Tokenizer> FieldIParser { get; }
 
-  public ValueParser(
-    IParser<FieldKeyAst> fieldKey)
+  public ValueParser(Parser<FieldKeyAst>.D fieldKey)
   {
-    FieldKey = fieldKey.ThrowIfNull();
+    FieldKey = fieldKey;
 
     FieldIParser = new(ParseField);
   }

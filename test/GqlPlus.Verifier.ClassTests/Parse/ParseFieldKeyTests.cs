@@ -62,8 +62,8 @@ public class ParseFieldKeyTests
   public void ParseFieldKey_WithTypeAndNoLabel_ReturnsFalse(string theType)
     => Test.False(theType + ".");
 
-  private OneChecks<FieldKeyAst> Test { get; }
+  private OneChecksParser<FieldKeyAst> Test { get; }
 
-  public ParseFieldKeyTests(IParser<FieldKeyAst> parser)
+  public ParseFieldKeyTests(Parser<FieldKeyAst>.D parser)
     => Test = new(parser);
 }

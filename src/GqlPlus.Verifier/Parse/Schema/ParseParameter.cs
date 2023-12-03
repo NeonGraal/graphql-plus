@@ -6,16 +6,16 @@ namespace GqlPlus.Verifier.Parse.Schema;
 internal class ParseParameters : IParserArray<ParameterAst>
 {
   private readonly IParser<InputReferenceAst> _input;
-  private readonly IParserArray<ModifierAst> _modifiers;
+  private readonly Parser<ModifierAst>.LA _modifiers;
   private readonly IParserDefault _default;
 
   public ParseParameters(
     IParser<InputReferenceAst> input,
-    IParserArray<ModifierAst> modifiers,
+    Parser<ModifierAst>.DA modifiers,
     IParserDefault defaultParser)
   {
     _input = input.ThrowIfNull();
-    _modifiers = modifiers.ThrowIfNull();
+    _modifiers = modifiers;
     _default = defaultParser.ThrowIfNull();
   }
 

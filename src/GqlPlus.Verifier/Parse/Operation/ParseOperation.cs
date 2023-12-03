@@ -9,7 +9,7 @@ internal class ParseOperation : IParser<OperationAst>
   private readonly IParserArray<DirectiveAst> _directives;
   private readonly IParserStartFragments _startFragments;
   private readonly IParserEndFragments _endFragments;
-  private readonly IParserArray<ModifierAst> _modifiers;
+  private readonly Parser<ModifierAst>.LA _modifiers;
   private readonly IParserArray<IAstSelection> _object;
   private readonly IParserArray<VariableAst> _variables;
 
@@ -18,7 +18,7 @@ internal class ParseOperation : IParser<OperationAst>
     IParserArray<DirectiveAst> directives,
     IParserStartFragments startFragments,
     IParserEndFragments endFragments,
-    IParserArray<ModifierAst> modifiers,
+    Parser<ModifierAst>.DA modifiers,
     IParserArray<IAstSelection> objectParser,
     IParserArray<VariableAst> variables)
   {
@@ -26,7 +26,7 @@ internal class ParseOperation : IParser<OperationAst>
     _directives = directives.ThrowIfNull();
     _startFragments = startFragments.ThrowIfNull();
     _endFragments = endFragments.ThrowIfNull();
-    _modifiers = modifiers.ThrowIfNull();
+    _modifiers = modifiers;
     _object = objectParser.ThrowIfNull();
     _variables = variables.ThrowIfNull();
   }

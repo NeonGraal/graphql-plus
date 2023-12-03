@@ -11,3 +11,47 @@ public interface IParserArray<TResult>
   IResultArray<TResult> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer;
 }
+
+public class Parser<T>
+{
+  public interface I
+  {
+    IResult<T> Parse<TContext>(TContext context)
+      where TContext : Tokenizer;
+  }
+
+  public interface IA
+  {
+    IResultArray<T> Parse<TContext>(TContext tokens, string label)
+      where TContext : Tokenizer;
+  }
+
+  public delegate I D();
+  public delegate IA DA();
+
+  public class L : Lazy<I>
+  {
+    public L(D factory)
+      : base(() => factory())
+    { }
+
+    public static implicit operator L(D factory) => new(factory.ThrowIfNull());
+
+    public IResult<T> Parse<TContext>(TContext context)
+      where TContext : Tokenizer
+      => Value.Parse(context);
+  }
+
+  public class LA : Lazy<IA>
+  {
+    public LA(DA factory)
+      : base(() => factory())
+    { }
+
+    public static implicit operator LA(DA factory) => new(factory.ThrowIfNull());
+
+    public IResultArray<T> Parse<TContext>(TContext tokens, string label)
+      where TContext : Tokenizer
+      => Value.Parse(tokens, label);
+  }
+}

@@ -23,8 +23,8 @@ public class ParseModifiersTests
         ModifierAst.Optional(AstNulls.At),
       });
 
-  private readonly ManyChecks<ModifierAst> Test;
+  private readonly ManyChecksParser<ModifierAst> Test;
 
-  public ParseModifiersTests(IParserArray<ModifierAst> parser)
+  public ParseModifiersTests(Parser<ModifierAst>.DA parser)
     => Test = new(parser);
 }

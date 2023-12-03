@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse;
 
-internal class ParseFieldKey : IParser<FieldKeyAst>
+internal class ParseFieldKey : Parser<FieldKeyAst>.I
 {
   private readonly Dictionary<string, string> _labelTypes = new() {
     ["_"] = "Unit",

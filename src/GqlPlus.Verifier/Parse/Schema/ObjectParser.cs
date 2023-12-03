@@ -7,13 +7,13 @@ internal abstract class ObjectParser<O, F, R>
   : DeclarationParser<TypeName, TypeParameterAst, NullAst, ObjectDefinition<F, R>, O>, IObjectParser<O, F, R>
   where O : AstObject<F, R> where F : AstField<R> where R : AstReference<R>
 {
-  private readonly IParserArray<ModifierAst> _modifiers;
+  private readonly Parser<ModifierAst>.LA _modifiers;
 
   public ParserProxy<F, Tokenizer> FieldIParser { get; }
   public ParserProxy<R, Tokenizer> ReferenceIParser { get; }
 
   protected ObjectParser(
-    IParserArray<ModifierAst> modifiers,
+    Parser<ModifierAst>.DA modifiers,
     TypeName name,
     IParserArray<TypeParameterAst> param,
     IParserArray<string> aliases,
@@ -21,7 +21,7 @@ internal abstract class ObjectParser<O, F, R>
     IParser<ObjectDefinition<F, R>> definition
   ) : base(name, param, aliases, option, definition)
   {
-    _modifiers = modifiers.ThrowIfNull();
+    _modifiers = modifiers;
 
     FieldIParser = new(ParseField);
     ReferenceIParser = new(tokens => ParseReference(tokens, false));
@@ -145,16 +145,16 @@ public abstract class ParseObjectDefinition<F, R> : IParser<ObjectDefinition<F, 
   where F : AstField<R> where R : AstReference<R>
 {
   private readonly Lazy<IParser<F>> _field;
-  private readonly Lazy<IParserArray<ModifierAst>> _modifiers;
+  private readonly Parser<ModifierAst>.LA _modifiers;
   private readonly Lazy<IParser<R>> _reference;
 
   protected ParseObjectDefinition(
     Func<IParser<F>> field,
-    Func<IParserArray<ModifierAst>> modifiers,
+    Parser<ModifierAst>.DA modifiers,
     Func<IParser<R>> reference)
   {
     _field = field.ThrowIfNull().Lazy();
-    _modifiers = modifiers.ThrowIfNull().Lazy();
+    _modifiers = modifiers;
     _reference = reference.ThrowIfNull().Lazy();
   }
 

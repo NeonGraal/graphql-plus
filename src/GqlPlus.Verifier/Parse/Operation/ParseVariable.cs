@@ -5,18 +5,18 @@ namespace GqlPlus.Verifier.Parse.Operation;
 
 internal class ParseVariable : IParser<VariableAst>
 {
-  private readonly IParserArray<ModifierAst> _modifiers;
+  private readonly Parser<ModifierAst>.LA _modifiers;
   private readonly IParserArray<DirectiveAst> _directives;
   private readonly IParserDefault _default;
   private readonly IParserVarType _varTypeParser;
 
   public ParseVariable(
-    IParserArray<ModifierAst> modifiers,
+    Parser<ModifierAst>.DA modifiers,
     IParserArray<DirectiveAst> directives,
     IParserDefault defaultParser,
     IParserVarType varTypeParser)
   {
-    _modifiers = modifiers.ThrowIfNull();
+    _modifiers = modifiers;
     _default = defaultParser.ThrowIfNull();
     _directives = directives.ThrowIfNull();
     _varTypeParser = varTypeParser.ThrowIfNull();

@@ -8,7 +8,7 @@ internal class ParseArgumentValue : ValueParser<ArgumentAst>
   private readonly IParser<ConstantAst> _constant;
 
   public ParseArgumentValue(
-      IParser<FieldKeyAst> fieldKey,
+      Parser<FieldKeyAst>.D fieldKey,
       IParser<ConstantAst> constant)
     : base(fieldKey)
     => _constant = constant.ThrowIfNull();

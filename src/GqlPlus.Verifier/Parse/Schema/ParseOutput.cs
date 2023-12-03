@@ -9,7 +9,7 @@ internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputRefer
   private readonly IParserArray<ParameterAst> _parameter;
 
   public ParseOutput(
-    IParserArray<ModifierAst> modifiers,
+    Parser<ModifierAst>.DA modifiers,
     TypeName name,
     IParserArray<TypeParameterAst> param,
     IParserArray<string> aliases,
@@ -94,7 +94,7 @@ internal class ParseOutputDefinition : ParseObjectDefinition<OutputFieldAst, Out
 {
   public ParseOutputDefinition(
     Func<IParser<OutputFieldAst>> field,
-    Func<IParserArray<ModifierAst>> modifiers,
+    Parser<ModifierAst>.DA modifiers,
     Func<IParser<OutputReferenceAst>> reference
   ) : base(field, modifiers, reference) { }
 

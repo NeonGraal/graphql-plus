@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse;
 
-internal class ParseModifiers : IParserArray<ModifierAst>
+internal class ParseModifiers : Parser<ModifierAst>.IA
 {
   public IResultArray<ModifierAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class DirectiveAst(TokenAt At, string Name, string Description)
   : AstDeclaration(At, Name, Description), IEquatable<DirectiveAst>

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast.Operation;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Ast.Operation;
 
 public sealed record class FieldAst(TokenAt At, string Name)
   : AstDirectives(At, Name), IAstSelection

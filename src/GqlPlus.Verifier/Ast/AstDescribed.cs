@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Ast;
 
 public abstract record class AstDescribed(TokenAt At, string Name, string Description)
   : AstNamed(At, Name), IEquatable<AstDescribed>

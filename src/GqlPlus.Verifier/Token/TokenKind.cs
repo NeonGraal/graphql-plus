@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier;
+﻿namespace GqlPlus.Verifier.Token;
 
 public enum TokenKind
 {

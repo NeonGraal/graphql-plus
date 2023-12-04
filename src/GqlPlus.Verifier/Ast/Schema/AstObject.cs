@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Ast.Schema;
 
 public abstract record class AstObject<F, R>(TokenAt At, string Name, string Description)
   : AstType(At, Name, Description), IEquatable<AstObject<F, R>>

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class ScalarRegexAst(TokenAt At, string Regex, bool Excludes)
   : AstBase(At), IEquatable<ScalarRegexAst>

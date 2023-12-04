@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class CategoryAst(TokenAt At, string Name, string Description, string Output)
   : AstDeclaration(At, Name, Description), IEquatable<CategoryAst>

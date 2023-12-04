@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class ScalarRangeAst(TokenAt At)
   : AstBase(At), IEquatable<ScalarRangeAst>

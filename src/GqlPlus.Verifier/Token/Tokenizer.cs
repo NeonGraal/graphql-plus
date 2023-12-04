@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Result;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus.Verifier.Token;
 
 public class Tokenizer
 {

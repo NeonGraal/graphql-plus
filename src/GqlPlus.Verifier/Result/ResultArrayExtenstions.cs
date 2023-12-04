@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Result;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Result;
 
 public static class ResultArrayExtenstions
 {

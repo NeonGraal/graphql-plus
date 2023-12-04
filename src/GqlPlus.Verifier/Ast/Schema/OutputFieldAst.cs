@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class OutputFieldAst(TokenAt At, string Name, string Description, OutputReferenceAst Type)
   : AstField<OutputReferenceAst>(At, Name, Description, Type), IEquatable<OutputFieldAst>

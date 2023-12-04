@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Operation;
 using GqlPlus.Verifier.Result;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 

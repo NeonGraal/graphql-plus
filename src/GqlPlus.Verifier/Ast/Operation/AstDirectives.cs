@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast.Operation;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Ast.Operation;
 
 public abstract record class AstDirectives(TokenAt At, string Name)
   : AstNamed(At, Name), IAstDirectives, IEquatable<AstDirectives>

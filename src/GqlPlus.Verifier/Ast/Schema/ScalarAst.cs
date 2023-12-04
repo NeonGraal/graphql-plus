@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class ScalarAst(TokenAt At, string Name, string Description)
   : AstType(At, Name, Description), IEquatable<ScalarAst>

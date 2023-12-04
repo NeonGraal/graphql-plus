@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast.Operation;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Ast.Operation;
 
 public sealed record class VariableAst(TokenAt At, string Name)
   : AstDirectives(At, Name), IEquatable<VariableAst>

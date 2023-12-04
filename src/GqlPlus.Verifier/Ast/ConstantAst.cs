@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Ast;
 
 public sealed record class ConstantAst(TokenAt At)
   : AstValue<ConstantAst>(At), IEquatable<ConstantAst>

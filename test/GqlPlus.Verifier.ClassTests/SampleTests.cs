@@ -4,11 +4,12 @@ using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
 using GqlPlus.Verifier.Result;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier;
 
 [UsesVerify]
-public class VerifyTests
+public class SampleTests
 {
   [Theory]
   [InlineData("all")]
@@ -31,7 +32,7 @@ public class VerifyTests
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(VerifyTests));
+    settings.UseDirectory(nameof(SampleTests));
     settings.UseFileName(nameof(VerifySampleSchema) + "_" + sample);
 
     await Verify(ast.Render(), settings);
@@ -47,7 +48,7 @@ public class VerifyTests
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(VerifyTests));
+    settings.UseDirectory(nameof(SampleTests));
     settings.UseFileName(nameof(VerifySampleOperation) + "_" + sample);
 
     await Verify(ast?.Render(), settings);
@@ -63,7 +64,7 @@ public class VerifyTests
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(VerifyTests));
+    settings.UseDirectory(nameof(SampleTests));
     settings.UseFileName(nameof(VerifyGraphQlExample) + "_" + example);
 
     await Verify(ast.Render(), settings);
@@ -72,7 +73,7 @@ public class VerifyTests
   private readonly Parser<OperationAst>.L _operation;
   private readonly IParser<SchemaAst> _schema;
 
-  public VerifyTests(
+  public SampleTests(
     Parser<OperationAst>.D operation,
     IParser<SchemaAst> schema)
   {

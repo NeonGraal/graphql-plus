@@ -69,8 +69,8 @@ public class ParseVariableTests
         Directives = directives.Directives()
       });
 
-  private readonly OneChecks<VariableAst> Test;
+  private readonly OneChecksParser<VariableAst> Test;
 
-  public ParseVariableTests(IParser<VariableAst> parser)
+  public ParseVariableTests(Parser<VariableAst>.D parser)
     => Test = new(parser);
 }

@@ -4,10 +4,10 @@ namespace GqlPlus.Verifier.Parse.Operation;
 
 internal class ParseVariables : IParserArray<VariableAst>
 {
-  private readonly IParser<VariableAst> _variable;
+  private readonly Parser<VariableAst>.L _variable;
 
-  public ParseVariables(IParser<VariableAst> variable)
-    => _variable = variable.ThrowIfNull();
+  public ParseVariables(Parser<VariableAst>.D variable)
+    => _variable = variable;
 
   public IResultArray<VariableAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -18,13 +18,13 @@ internal class ParseVariables : IParserArray<VariableAst>
       return list.EmptyArray();
     }
 
-    var variable = _variable.Parse(tokens);
+    var variable = _variable.Parse(tokens, label);
     if (variable.IsError()) {
       return variable.AsResultArray(list);
     }
 
     while (variable.Required(list.Add)) {
-      variable = _variable.Parse(tokens);
+      variable = _variable.Parse(tokens, label);
       if (variable.IsError()) {
         return variable.AsResultArray(list);
       }
@@ -33,7 +33,7 @@ internal class ParseVariables : IParserArray<VariableAst>
     return list.Any()
       ? tokens.Take(')')
         ? list.OkArray()
-        : tokens.PartialArray("Variables", "')'.", () => list)
-      : tokens.ErrorArray("Variables", "at least one variable", list);
+        : tokens.PartialArray(label, "')'.", () => list)
+      : tokens.ErrorArray(label, "at least one variable", list);
   }
 }

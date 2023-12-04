@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Ast.Operation;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal class ParseVariable : IParser<VariableAst>
+internal class ParseVariable : Parser<VariableAst>.I
 {
   private readonly Parser<ModifierAst>.LA _modifiers;
   private readonly Parser<DirectiveAst>.LA _directives;
@@ -22,13 +22,13 @@ internal class ParseVariable : IParser<VariableAst>
     _varTypeParser = varTypeParser.ThrowIfNull();
   }
 
-  public IResult<VariableAst> Parse<TContext>(TContext tokens)
+  public IResult<VariableAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var prefix = tokens.Prefix('$', out var name, out var at);
     var variable = new VariableAst(at, name ?? "");
     if (!prefix) {
-      return tokens.Partial("Variable", "identifier after '$'", () => variable);
+      return tokens.Partial(label, "identifier after '$'", () => variable);
     }
 
     if (name is null) {
@@ -37,21 +37,21 @@ internal class ParseVariable : IParser<VariableAst>
 
     if (tokens.Take(':')) {
       if (!_varTypeParser.Parse(tokens).Required(varType => variable.Type = varType)) {
-        return tokens.Partial("Variable", "type after ':'", () => variable);
+        return tokens.Partial(label, "type after ':'", () => variable);
       }
     }
 
-    var modifiers = _modifiers.Parse(tokens, "Variable");
+    var modifiers = _modifiers.Parse(tokens, label);
     if (!modifiers.Optional(value => variable.Modifers = value)) {
       return modifiers.AsResult(variable);
     }
 
-    var constant = _default.Parse(tokens, "Default");
+    var constant = _default.Parse(tokens, label);
     if (!constant.Optional(value => variable.Default = value)) {
       return constant.AsResult(variable);
     }
 
-    var directives = _directives.Parse(tokens, "Variable");
+    var directives = _directives.Parse(tokens, label);
     return directives.Optional(value => variable.Directives = value)
       ? variable.Ok()
       : directives.AsResult(variable);

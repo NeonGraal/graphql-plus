@@ -2,6 +2,7 @@
 using GqlPlus.Verifier.Ast.Operation;
 using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
+using GqlPlus.Verifier.Result;
 
 namespace GqlPlus.Verifier;
 
@@ -19,7 +20,7 @@ public class OperationVerifier
     var parse = parser.Parse(tokens, "Operation");
 
     if (parse is IResultError<OperationAst> error) {
-      errors = new List<TokenMessage> { error.Message };
+      errors = [error.Message];
       return false;
     }
 

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Parse;
+﻿using GqlPlus.Verifier.Result;
+
+namespace GqlPlus.Verifier.Parse;
 
 public sealed class ValueListParser<T> : Parser<T>.IA
 {

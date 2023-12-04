@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Result;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
@@ -56,7 +57,7 @@ internal class ParseEnumDefinition : Parser<EnumDefinition>.I
       }
     }
 
-    List<EnumLabelAst> labels = new();
+    List<EnumLabelAst> labels = [];
     while (!tokens.Take("}")) {
       var enumLabel = _enumLabel.Parse(tokens, "Enum Label");
       if (!enumLabel.Required(labels.Add)) {

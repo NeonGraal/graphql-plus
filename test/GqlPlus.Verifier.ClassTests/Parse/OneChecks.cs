@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Parse;
+﻿using GqlPlus.Verifier.Result;
+
+namespace GqlPlus.Verifier.Parse;
 
 internal class OneChecksParser<T>
 {

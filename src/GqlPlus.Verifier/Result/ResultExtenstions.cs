@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier;
+﻿namespace GqlPlus.Verifier.Result;
 
 public static class ResultExtenstions
 {

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Parse.Schema;
+﻿using GqlPlus.Verifier.Result;
+
+namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseAliases : Parser<string>.IA
 {

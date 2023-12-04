@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Parse.Operation;
+﻿using GqlPlus.Verifier.Result;
+
+namespace GqlPlus.Verifier.Parse.Operation;
 
 internal class ParseVarType : IParserVarType
 {

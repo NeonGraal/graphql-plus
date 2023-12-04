@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Parse;
+using GqlPlus.Verifier.Result;
 
 namespace GqlPlus.Verifier;
 
@@ -18,7 +19,7 @@ public class SchemaVerifier
     var parse = parser.Parse(tokens);
 
     if (parse is IResultError<SchemaAst> error) {
-      errors = new List<TokenMessage> { error.Message };
+      errors = [error.Message];
       return false;
     }
 

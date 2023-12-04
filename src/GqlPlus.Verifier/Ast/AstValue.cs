@@ -5,7 +5,7 @@ public abstract record class AstValue<T>(TokenAt At)
   where T : AstValue<T>
 {
   public T[] Values { get; protected init; } = Array.Empty<T>();
-  public AstObject<T> Fields { get; protected init; } = new AstObject<T>();
+  public AstObject<T> Fields { get; protected init; } = [];
 
   internal AstValue(TokenAt at, T[] values)
     : this(at)

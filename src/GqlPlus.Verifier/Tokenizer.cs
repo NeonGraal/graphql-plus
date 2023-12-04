@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier;
+﻿using GqlPlus.Verifier.Result;
+
+namespace GqlPlus.Verifier;
 
 public class Tokenizer
 {
@@ -349,7 +351,7 @@ public class Tokenizer
   public static string ErrorContext(string context)
     => context.Length < ErrorContextLen ? context + "<END>" : context[..ErrorContextLen];
 
-  internal readonly List<TokenMessage> Errors = new();
+  internal readonly List<TokenMessage> Errors = [];
 
   internal TokenMessage Error(string text)
   {

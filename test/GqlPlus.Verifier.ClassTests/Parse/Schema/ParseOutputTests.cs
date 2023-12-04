@@ -4,10 +4,10 @@ namespace GqlPlus.Verifier.Parse.Schema;
 
 public class ParseOutputTests : BaseObjectTests
 {
-  internal override IBaseObjectChecks Checks => Test;
+  internal override IBaseObjectChecks Checks => _test;
 
-  private readonly BaseObjectParserChecks<OutputAst, OutputFieldAst, OutputReferenceAst> Test;
+  private readonly BaseObjectParserChecks<OutputAst, OutputFieldAst, OutputReferenceAst> _test;
 
-  public ParseOutputTests(IParser<OutputAst> parser)
-    => Test = new(new OutputFactories(), parser);
+  public ParseOutputTests(Parser<OutputAst>.D parser)
+    => _test = new(new OutputFactories(), parser);
 }

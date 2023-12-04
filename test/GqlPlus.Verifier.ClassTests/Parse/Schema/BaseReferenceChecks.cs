@@ -3,12 +3,12 @@
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal sealed class BaseReferenceParsedChecks<R>
-  : OneChecks<R>, IBaseReferenceChecks
+  : OneChecksParser<R>, IBaseReferenceChecks
   where R : AstReference<R>
 {
   private readonly IReferenceFactories<R> _factories;
 
-  public BaseReferenceParsedChecks(IReferenceFactories<R> factories, IParser<R> parser)
+  public BaseReferenceParsedChecks(IReferenceFactories<R> factories, Parser<R>.D parser)
     : base(parser)
     => _factories = factories;
 

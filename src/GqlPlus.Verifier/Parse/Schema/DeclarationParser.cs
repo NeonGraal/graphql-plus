@@ -4,14 +4,14 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, TResult>
-  : IParser<TResult>
+  : Parser<TResult>.I
   where TName : INameParser
   where TResult : AstAliased
 {
   private readonly TName _name;
   private readonly Parser<TParam>.LA _param;
   private readonly Parser<TOption>.L _option;
-  private readonly IParser<TDefinition> _definition;
+  private readonly Parser<TDefinition>.L _definition;
 
   protected readonly Parser<string>.LA Aliases;
   protected abstract string Label { get; }
@@ -21,16 +21,16 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
     Parser<TParam>.DA param,
     Parser<string>.DA aliases,
     Parser<TOption>.D option,
-    IParser<TDefinition> definition)
+    Parser<TDefinition>.D definition)
   {
     _name = name.ThrowIfNull();
     _param = param;
     Aliases = aliases;
     _option = option;
-    _definition = definition.ThrowIfNull();
+    _definition = definition;
   }
 
-  public IResult<TResult> Parse<TContext>(TContext tokens)
+  public IResult<TResult> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     tokens.String(out var description);
@@ -38,29 +38,29 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
     TResult result = MakeResult(at, name, description);
 
     if (!hasName) {
-      return tokens.Error(Label, "name", result);
+      return tokens.Error(label, "name", result);
     }
 
-    var parameters = _param.Parse(tokens, Label);
+    var parameters = _param.Parse(tokens, label);
     if (!ApplyParameters(result, parameters)) {
       return parameters.AsPartial(result);
     }
 
-    var aliases = Aliases.Parse(tokens, Label);
+    var aliases = Aliases.Parse(tokens, label);
     if (!aliases.Optional(value => result.Aliases = value)) {
       return aliases.AsPartial(result);
     }
 
     if (!tokens.Take('{')) {
-      return tokens.Partial(Label, "'{' before definition", () => result);
+      return tokens.Partial(label, "'{' before definition", () => result);
     }
 
-    var option = _option.Parse(tokens, Label);
+    var option = _option.Parse(tokens, label);
     if (!ApplyOption(result, option)) {
       return option.AsPartial(result);
     }
 
-    var definition = _definition.Parse(tokens);
+    var definition = _definition.Parse(tokens, label);
     return definition.Required(value => ApplyDefinition(result, value))
       ? result.Ok()
       : definition.AsPartial(result);

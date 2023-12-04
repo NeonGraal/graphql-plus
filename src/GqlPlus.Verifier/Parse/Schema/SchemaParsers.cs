@@ -8,36 +8,45 @@ public static class SchemaParsers
 {
   public static IServiceCollection AddSchemaParsers(this IServiceCollection services)
     => services
-      .AddSingleton<CategoryName>()
       .AddParser<NullAst, ParseNull>()
       .AddParserArray<NullAst, ParseNulls>()
       .AddParserArray<ParameterAst, ParseParameters>()
       .AddParserArray<string, ParseAliases>()
-      .AddSingleton<TypeName>()
       // Category
+      .AddSingleton<CategoryName>()
       .AddOption<CategoryOption>()
-      .AddSingleton<IParser<CategoryOutput>, ParseCategoryDefinition>()
-      .AddSingleton<IParser<CategoryAst>, ParseCategory>()
+      .AddParser<CategoryOutput, ParseCategoryDefinition>()
+      .AddParser<CategoryAst, ParseCategory>()
       // Directive
       .AddSingleton<DirectiveName>()
       .AddOption<DirectiveOption>()
-      .AddSingleton<IParser<DirectiveLocation>, ParseDirectiveDefinition>()
-      .AddSingleton<IParser<DirectiveAst>, ParseDirective>()
+      .AddParser<DirectiveLocation, ParseDirectiveDefinition>()
+      .AddParser<DirectiveAst, ParseDirective>()
+      // Types
+      .AddSingleton<TypeName>()
       // Enum
-      .AddSingleton<IParser<EnumDefinition>, ParseEnumDefinition>()
+      .AddParser<EnumDefinition, ParseEnumDefinition>()
       .AddSingleton<IParser<EnumLabelAst>, ParseEnumLabel>()
-      .AddSingleton<IParser<EnumAst>, ParseEnum>()
+      .AddParser<EnumAst, ParseEnum>()
       // Scalar
-      .AddSingleton<IParser<ScalarDefinition>, ParseScalarDefinition>()
+      .AddParser<ScalarDefinition, ParseScalarDefinition>()
       .AddSingleton<IParser<ScalarRangeAst>, ParseScalarRange>()
       .AddSingleton<IParserArray<ScalarRangeAst>, ArrayParser<ScalarRangeAst>>()
       .AddSingleton<IParser<ScalarRegexAst>, ParseScalarRegex>()
       .AddSingleton<IParserArray<ScalarRegexAst>, ArrayParser<ScalarRegexAst>>()
-      .AddSingleton<IParser<ScalarAst>, ParseScalar>()
+      .AddParser<ScalarAst, ParseScalar>()
       // Objects
       .AddParserArray<TypeParameterAst, ParseTypeParameters>()
-      .AddObjectParser<ParseInput, ParseInputDefinition, InputAst, InputFieldAst, InputReferenceAst>()
-      .AddObjectParser<ParseOutput, ParseOutputDefinition, OutputAst, OutputFieldAst, OutputReferenceAst>()
+      // Input
+      .AddParser<InputReferenceAst, ParseInputReference>()
+      .AddParser<InputFieldAst, ParseInputField>()
+      .AddParser<InputAst, ParseInput>()
+      .AddObjectParser<ParseInputDefinition, InputFieldAst, InputReferenceAst>()
+      // Output
+      .AddParser<OutputReferenceAst, ParseOutputReference>()
+      .AddParser<OutputFieldAst, ParseOutputField>()
+      .AddParser<OutputAst, ParseOutput>()
+      .AddObjectParser<ParseOutputDefinition, OutputFieldAst, OutputReferenceAst>()
       // Schema
       .AddSingleton<IParser<SchemaAst>, ParseSchema>()
       ;
@@ -46,17 +55,9 @@ public static class SchemaParsers
     where O : struct
     => services.AddParser<O, OptionParser<O>>();
 
-  public static IServiceCollection AddObjectParser<P, D, O, F, R>(this IServiceCollection services)
-    where P : class, IObjectParser<O, F, R>
+  public static IServiceCollection AddObjectParser<D, F, R>(this IServiceCollection services)
     where D : ParseObjectDefinition<F, R>
-    where O : AstObject<F, R>
     where F : AstField<R>
     where R : AstReference<R>
-    => services
-      .AddSingleton<P>()
-      .AddSingleton<IParser<O>>(x => x.GetRequiredService<P>())
-      .AddFunc<IParser<F>>(x => x.GetRequiredService<P>().FieldIParser)
-      .AddFunc<IParser<R>>(x => x.GetRequiredService<P>().ReferenceIParser)
-      .AddSingleton<IParser<ObjectDefinition<F, R>>, D>()
-      ;
+    => services.AddParser<ObjectDefinition<F, R>, D>();
 }

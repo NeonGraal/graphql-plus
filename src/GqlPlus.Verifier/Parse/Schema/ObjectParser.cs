@@ -18,7 +18,7 @@ internal abstract class ObjectParser<O, F, R>
     Parser<TypeParameterAst>.DA param,
     Parser<string>.DA aliases,
     Parser<NullAst>.D option,
-    IParser<ObjectDefinition<F, R>> definition
+    Parser<ObjectDefinition<F, R>>.D definition
   ) : base(name, param, aliases, option, definition)
   {
     _modifiers = modifiers;
@@ -141,32 +141,32 @@ public class ObjectDefinition<F, R>
   public AlternateAst<R>[] Alternates { get; set; } = Array.Empty<AlternateAst<R>>();
 }
 
-public abstract class ParseObjectDefinition<F, R> : IParser<ObjectDefinition<F, R>>
+public abstract class ParseObjectDefinition<F, R> : Parser<ObjectDefinition<F, R>>.I
   where F : AstField<R> where R : AstReference<R>
 {
-  private readonly Lazy<IParser<F>> _field;
+  private readonly Parser<F>.L _field;
   private readonly Parser<ModifierAst>.LA _modifiers;
-  private readonly Lazy<IParser<R>> _reference;
+  private readonly Parser<R>.L _reference;
 
   protected ParseObjectDefinition(
-    Func<IParser<F>> field,
+    Parser<F>.D field,
     Parser<ModifierAst>.DA modifiers,
-    Func<IParser<R>> reference)
+    Parser<R>.D reference)
   {
-    _field = field.ThrowIfNull().Lazy();
+    _field = field;
     _modifiers = modifiers;
-    _reference = reference.ThrowIfNull().Lazy();
+    _reference = reference;
   }
 
   protected abstract string Label { get; }
 
-  public IResult<ObjectDefinition<F, R>> Parse<TContext>(TContext tokens)
+  public IResult<ObjectDefinition<F, R>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     ObjectDefinition<F, R> result = new();
     tokens.String(out var descr);
     if (tokens.Take(':')) {
-      var baseReference = _reference.Value.Parse(tokens);
+      var baseReference = _reference.Parse(tokens, label);
       if (baseReference.IsError()) {
         return baseReference.AsResult(result);
       }
@@ -175,13 +175,13 @@ public abstract class ParseObjectDefinition<F, R> : IParser<ObjectDefinition<F, 
     }
 
     var fields = new List<F>();
-    var objectField = _field.Value.Parse(tokens);
+    var objectField = _field.Parse(tokens, label);
     if (objectField.IsError()) {
       return objectField.AsPartial(result);
     }
 
     while (objectField.Required(fields.Add)) {
-      objectField = _field.Value.Parse(tokens);
+      objectField = _field.Parse(tokens, label);
       if (objectField.IsError()) {
         return objectField.AsPartial(result, fields.Add, () =>
           result.Fields = fields.ToArray());
@@ -189,18 +189,18 @@ public abstract class ParseObjectDefinition<F, R> : IParser<ObjectDefinition<F, 
     }
 
     result.Fields = fields.ToArray();
-    var objectAlternates = ParseAlternates(tokens);
+    var objectAlternates = ParseAlternates(tokens, label);
     return !objectAlternates.Optional(alternates => result.Alternates = alternates)
       ? objectAlternates.AsPartial(result)
       : tokens.End(Label, () => result);
   }
 
-  private IResultArray<AlternateAst<R>> ParseAlternates<TContext>(TContext tokens)
+  private IResultArray<AlternateAst<R>> ParseAlternates<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var result = new List<AlternateAst<R>>();
     while (tokens.Take('|')) {
-      var reference = _reference.Value.Parse(tokens);
+      var reference = _reference.Parse(tokens, label);
       if (!reference.IsOk()) {
         return reference.AsPartialArray(result);
       }
@@ -217,7 +217,7 @@ public abstract class ParseObjectDefinition<F, R> : IParser<ObjectDefinition<F, 
   }
 }
 
-public interface IObjectParser<O, F, R> : IParser<O>
+public interface IObjectParser<O, F, R> : Parser<O>.I
   where F : AstField<R> where R : AstReference<R>
 {
   ParserProxy<F, Tokenizer> FieldIParser { get; }

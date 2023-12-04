@@ -14,7 +14,7 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
     Parser<TypeParameterAst>.DA param,
     Parser<string>.DA aliases,
     Parser<NullAst>.D option,
-    IParser<ObjectDefinition<InputFieldAst, InputReferenceAst>> definition,
+    Parser<ObjectDefinition<InputFieldAst, InputReferenceAst>>.D definition,
     Parser<IParserDefault, ConstantAst>.D defaultParser
   ) : base(modifiers, name, param, aliases, option, definition)
     => _default = defaultParser;
@@ -56,9 +56,9 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
 internal class ParseInputDefinition : ParseObjectDefinition<InputFieldAst, InputReferenceAst>
 {
   public ParseInputDefinition(
-    Func<IParser<InputFieldAst>> field,
+    Parser<InputFieldAst>.D field,
     Parser<ModifierAst>.DA modifiers,
-    Func<IParser<InputReferenceAst>> reference
+    Parser<InputReferenceAst>.D reference
   ) : base(field, modifiers, reference) { }
 
   protected override string Label => "Input";

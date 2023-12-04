@@ -11,7 +11,7 @@ internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, Scala
     Parser<NullAst>.DA param,
     Parser<string>.DA aliases,
     Parser<NullAst>.D option,
-    IParser<ScalarDefinition> definition
+    Parser<ScalarDefinition>.D definition
   ) : base(name, param, aliases, option, definition) { }
 
   protected override string Label => "Scalar";
@@ -48,7 +48,7 @@ internal class ScalarDefinition
   public ScalarRegexAst[] Regexes { get; set; } = Array.Empty<ScalarRegexAst>();
 }
 
-internal class ParseScalarDefinition : IParser<ScalarDefinition>
+internal class ParseScalarDefinition : Parser<ScalarDefinition>.I
 {
   private readonly IParserArray<ScalarRangeAst> _ranges;
   private readonly IParserArray<ScalarRegexAst> _regexes;
@@ -61,12 +61,12 @@ internal class ParseScalarDefinition : IParser<ScalarDefinition>
     _regexes = regexes.ThrowIfNull();
   }
 
-  public IResult<ScalarDefinition> Parse<TContext>(TContext tokens)
+  public IResult<ScalarDefinition> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     ScalarDefinition result = new();
 
-    var scalarKind = tokens.ParseEnumValue<ScalarKind>("Scalar");
+    var scalarKind = tokens.ParseEnumValue<ScalarKind>(label);
     if (!scalarKind.Required(kind => result.Kind = kind)) {
       return scalarKind.AsResult(result);
     }

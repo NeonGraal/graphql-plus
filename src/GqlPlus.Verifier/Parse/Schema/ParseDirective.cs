@@ -10,7 +10,7 @@ internal class ParseDirective : DeclarationParser<DirectiveName, ParameterAst, D
     Parser<ParameterAst>.DA param,
     Parser<string>.DA aliases,
     Parser<DirectiveOption>.D option,
-    IParser<DirectiveLocation> definition
+    Parser<DirectiveLocation>.D definition
   ) : base(name, param, aliases, option, definition) { }
 
   protected override string Label => "Directive";
@@ -35,22 +35,22 @@ internal class DirectiveName : INameParser
     => tokens.Prefix('@', out name, out at);
 }
 
-internal class ParseDirectiveDefinition : IParser<DirectiveLocation>
+internal class ParseDirectiveDefinition : Parser<DirectiveLocation>.I
 {
-  public IResult<DirectiveLocation> Parse<TContext>(TContext tokens)
+  public IResult<DirectiveLocation> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var locations = DirectiveLocation.None;
 
     while (!tokens.Take("}")) {
-      var directiveLocation = tokens.ParseEnumValue<DirectiveLocation>("Directive");
+      var directiveLocation = tokens.ParseEnumValue<DirectiveLocation>(label);
       if (!directiveLocation.Required(location => locations |= location)) {
-        return tokens.Partial("Directive", "location", () => locations);
+        return tokens.Partial(label, "location", () => locations);
       }
     }
 
     return locations == DirectiveLocation.None
-      ? tokens.Partial("Directive", "at least one location", () => locations)
+      ? tokens.Partial(label, "at least one location", () => locations)
       : locations.Ok();
   }
 }

@@ -7,22 +7,22 @@ public sealed class ParseEnumTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithNameBad_ReturnsFalse(decimal id, string label)
-    => Test.False($"{id}{{{label}}}");
+    => _test.False($"{id}{{{label}}}");
 
   [Theory, RepeatData(Repeats)]
   public void WithExtends_ReturnsCorrectAst(EnumInput input, string extends)
-    => Test.TrueExpected(input.Name + "{:" + extends + " " + input.Label + "}",
-      Test.AliasedFactory(input) with {
+    => _test.TrueExpected(input.Name + "{:" + extends + " " + input.Label + "}",
+      _test.AliasedFactory(input) with {
         Extends = extends,
       });
 
   [Theory, RepeatData(Repeats)]
   public void WithExtendsBad_ReturnsFalse(string name)
-    => Test.False(name + "{:}");
+    => _test.False(name + "{:}");
 
   [Theory, RepeatData(Repeats)]
   public void WithLabels_ReturnsCorrectAst(string name, string[] labels)
-    => Test.TrueExpected(
+    => _test.TrueExpected(
       name + labels.Bracket("{", "}").Joined(),
       new EnumAst(AstNulls.At, name) {
         Labels = labels.EnumLabels(),
@@ -30,18 +30,17 @@ public sealed class ParseEnumTests
 
   [Theory, RepeatData(Repeats)]
   public void WithLabelsBad_ReturnsFalse(string name, string[] labels)
-    => Test.False(name + "{" + string.Join("|", labels) + "}",
+    => _test.False(name + "{" + string.Join("|", labels) + "}",
       skipIf: labels.Length < 2);
 
   [Theory, RepeatData(Repeats)]
   public void WithLabelsNone_ReturnsFalse(string name)
-    => Test.False(name + "{}");
+    => _test.False(name + "{}");
 
-  private readonly ParseEnumChecks Test;
+  internal override IBaseAliasedChecks<EnumInput> AliasChecks => _test;
 
-  public ParseEnumTests(IParser<EnumAst> parser)
-    => Test = new(parser);
+  private readonly ParseEnumChecks _test;
 
-  internal override IBaseAliasedChecks<EnumInput> AliasChecks => Test;
-
+  public ParseEnumTests(Parser<EnumAst>.D parser)
+    => _test = new(parser);
 }

@@ -3,10 +3,10 @@
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal abstract class BaseAliasedParserChecks<I, A>
-  : OneChecks<A>, IBaseAliasedChecks<I>
+  : OneChecksParser<A>, IBaseAliasedChecks<I>
   where A : AstAliased
 {
-  protected BaseAliasedParserChecks(IParser<A> parser)
+  protected BaseAliasedParserChecks(Parser<A>.D parser)
     : base(parser) { }
 
   public void WithMinimum(I input)

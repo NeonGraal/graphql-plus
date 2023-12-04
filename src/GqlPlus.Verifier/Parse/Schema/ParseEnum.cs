@@ -11,7 +11,7 @@ internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDef
     Parser<NullAst>.DA param,
     Parser<string>.DA aliases,
     Parser<NullAst>.D option,
-    IParser<EnumDefinition> definition
+    Parser<EnumDefinition>.D definition
   ) : base(name, param, aliases, option, definition)
   {
   }
@@ -38,14 +38,14 @@ internal class EnumDefinition
   internal EnumLabelAst[] Labels { get; set; } = Array.Empty<EnumLabelAst>();
 }
 
-internal class ParseEnumDefinition : IParser<EnumDefinition>
+internal class ParseEnumDefinition : Parser<EnumDefinition>.I
 {
   private readonly IParser<EnumLabelAst> _enumLabel;
 
   public ParseEnumDefinition(IParser<EnumLabelAst> enumLabel)
     => _enumLabel = enumLabel.ThrowIfNull();
 
-  public IResult<EnumDefinition> Parse<TContext>(TContext tokens)
+  public IResult<EnumDefinition> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     EnumDefinition result = new();
@@ -54,7 +54,7 @@ internal class ParseEnumDefinition : IParser<EnumDefinition>
       if (tokens.Identifier(out var extends)) {
         result.Extends = extends;
       } else {
-        return tokens.Error("Enum", "type after ':'", result);
+        return tokens.Error(label, "type after ':'", result);
       }
     }
 
@@ -70,7 +70,7 @@ internal class ParseEnumDefinition : IParser<EnumDefinition>
     result.Labels = labels.ToArray();
     return labels.Any()
       ? result.Ok()
-      : tokens.Partial("Enum", "at least one label", () => result);
+      : tokens.Partial(label, "at least one label", () => result);
   }
 }
 

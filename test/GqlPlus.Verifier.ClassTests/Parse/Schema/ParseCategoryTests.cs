@@ -36,10 +36,10 @@ public sealed class ParseCategoryTests
         Aliases = aliases,
       });
 
-  private readonly ParseCategoryChecks _test;
-
   internal override IBaseAliasedChecks<string> AliasChecks => _test;
 
-  public ParseCategoryTests(IParser<CategoryAst> parser)
+  private readonly ParseCategoryChecks _test;
+
+  public ParseCategoryTests(Parser<CategoryAst>.D parser)
     => _test = new(parser);
 }

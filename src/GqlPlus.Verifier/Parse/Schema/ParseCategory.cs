@@ -11,7 +11,7 @@ internal class ParseCategory : DeclarationParser<CategoryName, NullAst, Category
     Parser<NullAst>.DA param,
     Parser<string>.DA aliases,
     Parser<CategoryOption>.D option,
-    IParser<CategoryOutput> definition
+    Parser<CategoryOutput>.D definition
   ) : base(name, param, aliases, option, definition)
   {
   }
@@ -49,16 +49,16 @@ internal class CategoryName : INameParser
   }
 }
 
-internal class ParseCategoryDefinition : IParser<CategoryOutput>
+internal class ParseCategoryDefinition : Parser<CategoryOutput>.I
 {
-  public IResult<CategoryOutput> Parse<TContext>(TContext tokens)
+  public IResult<CategoryOutput> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     if (!tokens.Identifier(out var output)) {
-      return tokens.Error<CategoryOutput>("Category", "output type");
+      return tokens.Error<CategoryOutput>(label, "output type");
     }
 
     var result = new CategoryOutput(output);
-    return tokens.End("Category", () => result);
+    return tokens.End(label, () => result);
   }
 }

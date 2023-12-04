@@ -7,16 +7,16 @@ public class ParseInputFieldTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithDefault_ReturnsCorrectAst(string name, string fieldType, string content)
-    => Test.TrueExpected(
+    => _test.TrueExpected(
       name + ":" + fieldType + "='" + content + "'",
-      Test.Field(name, fieldType) with {
+      _test.Field(name, fieldType) with {
         Default = new FieldKeyAst(AstNulls.At, content)
       });
 
-  internal override IBaseFieldChecks Checks => Test;
+  internal override IBaseFieldChecks Checks => _test;
 
-  private readonly BaseFieldParserChecks<InputFieldAst, InputReferenceAst> Test;
+  private readonly BaseFieldParserChecks<InputFieldAst, InputReferenceAst> _test;
 
-  public ParseInputFieldTests(IParser<InputFieldAst> parser)
-    => Test = new(new InputFactories(), parser);
+  public ParseInputFieldTests(Parser<InputFieldAst>.D parser)
+    => _test = new(new InputFactories(), parser);
 }

@@ -73,10 +73,10 @@ public sealed class ParseScalarTests
       name + $"{{number ..<{max} {min}>}}",
       skipIf: max > min);
 
+  internal override IBaseAliasedChecks<ScalarInput> AliasChecks => _test;
+
   private readonly ParseScalarChecks _test;
 
-  public ParseScalarTests(IParser<ScalarAst> parser)
+  public ParseScalarTests(Parser<ScalarAst>.D parser)
     => _test = new(parser);
-
-  internal override IBaseAliasedChecks<ScalarInput> AliasChecks => _test;
 }

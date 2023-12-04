@@ -66,6 +66,6 @@ public class ParseOutputFieldTests : BaseFieldTests
 
   private readonly BaseFieldParserChecks<OutputFieldAst, OutputReferenceAst> _test;
 
-  public ParseOutputFieldTests(IParser<OutputFieldAst> parser)
+  public ParseOutputFieldTests(Parser<OutputFieldAst>.D parser)
     => _test = new(new OutputFactories(), parser);
 }

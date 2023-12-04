@@ -56,6 +56,12 @@ public static class AstExtensions
     : item.GetFields().Prepend(before).Append(after);
 
   [return: NotNullIfNotNull(nameof(text))]
+  public static string? Capitalize(this string? text)
+    => text?.Length > 0
+      ? char.ToUpper(text[0]) + text[1..]
+      : text;
+
+  [return: NotNullIfNotNull(nameof(text))]
   public static string? Camelize(this string? text)
     => text?.Length > 0
       ? char.ToLower(text[0]) + text[1..]

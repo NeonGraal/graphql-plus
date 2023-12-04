@@ -8,7 +8,7 @@ internal sealed class BaseObjectParserChecks<O, F, R>
 {
   private readonly IObjectFactories<O, F, R> _factories;
 
-  internal BaseObjectParserChecks(IObjectFactories<O, F, R> factories, IParser<O> parser)
+  internal BaseObjectParserChecks(IObjectFactories<O, F, R> factories, Parser<O>.D parser)
     : base(parser)
     => _factories = factories;
 

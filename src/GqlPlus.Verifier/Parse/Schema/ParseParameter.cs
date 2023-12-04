@@ -5,16 +5,16 @@ namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseParameters : Parser<ParameterAst>.IA
 {
-  private readonly IParser<InputReferenceAst> _input;
+  private readonly Parser<InputReferenceAst>.L _input;
   private readonly Parser<ModifierAst>.LA _modifiers;
   private readonly Parser<IParserDefault, ConstantAst>.L _default;
 
   public ParseParameters(
-    IParser<InputReferenceAst> input,
+    Parser<InputReferenceAst>.D input,
     Parser<ModifierAst>.DA modifiers,
     Parser<IParserDefault, ConstantAst>.D defaultParser)
   {
-    _input = input.ThrowIfNull();
+    _input = input;
     _modifiers = modifiers;
     _default = defaultParser;
   }
@@ -31,7 +31,7 @@ internal class ParseParameters : Parser<ParameterAst>.IA
     while (!tokens.Take(')')) {
       tokens.String(out var descr);
       var at = tokens.At;
-      var input = _input.Parse(tokens);
+      var input = _input.Parse(tokens, label);
       if (!input.IsOk()) {
         return tokens.ErrorArray("Parameter", "input reference after '('", list);
       }

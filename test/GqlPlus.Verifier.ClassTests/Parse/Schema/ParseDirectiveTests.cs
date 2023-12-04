@@ -63,6 +63,6 @@ public sealed class ParseDirectiveTests
 
   private readonly ParseDirectiveChecks _test;
 
-  public ParseDirectiveTests(IParser<DirectiveAst> parser)
+  public ParseDirectiveTests(Parser<DirectiveAst>.D parser)
     => _test = new(parser);
 }

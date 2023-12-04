@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Parse.Schema;
 internal sealed class ParseScalarChecks
   : BaseAliasedParserChecks<ScalarInput, ScalarAst>
 {
-  public ParseScalarChecks(IParser<ScalarAst> parser)
+  public ParseScalarChecks(Parser<ScalarAst>.D parser)
     : base(parser)
   { }
 

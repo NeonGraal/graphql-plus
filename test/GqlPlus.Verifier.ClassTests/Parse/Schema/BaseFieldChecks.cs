@@ -8,7 +8,7 @@ internal sealed class BaseFieldParserChecks<F, R>
 {
   private readonly IFieldFactories<F, R> _factories;
 
-  internal BaseFieldParserChecks(IFieldFactories<F, R> factories, IParser<F> parser)
+  internal BaseFieldParserChecks(IFieldFactories<F, R> factories, Parser<F>.D parser)
     : base(parser)
     => _factories = factories;
 

@@ -6,22 +6,22 @@ public class ParseOutputReferenceTests : BaseReferenceTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithArgumentEnumLabels_ReturnsCorrectAst(string name, string enumType, string[] labels)
-    => Test.TrueExpected(
+    => _test.TrueExpected(
       name + "<" + labels.Joined(enumType + ".") + ">",
-      Test.Reference(name) with {
+      _test.Reference(name) with {
         Arguments = labels.Select(
-          label => Test.Reference(enumType) with { Label = label })
+          label => _test.Reference(enumType) with { Label = label })
           .ToArray()
       });
 
   [Theory, RepeatData(Repeats)]
   public void WithArgumentEnumLabelBad_ReturnsFalse(string name, string enumType)
-    => Test.False(name + "<" + enumType + ".>");
+    => _test.False(name + "<" + enumType + ".>");
 
-  internal override IBaseReferenceChecks Checks => Test;
+  internal override IBaseReferenceChecks Checks => _test;
 
-  private readonly BaseReferenceParsedChecks<OutputReferenceAst> Test;
+  private readonly BaseReferenceParsedChecks<OutputReferenceAst> _test;
 
-  public ParseOutputReferenceTests(IParser<OutputReferenceAst> parser)
-    => Test = new(new OutputFactories(), parser);
+  public ParseOutputReferenceTests(Parser<OutputReferenceAst>.D parser)
+    => _test = new(new OutputFactories(), parser);
 }

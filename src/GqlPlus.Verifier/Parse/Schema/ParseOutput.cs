@@ -14,7 +14,7 @@ internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputRefer
     Parser<TypeParameterAst>.DA param,
     Parser<string>.DA aliases,
     Parser<NullAst>.D option,
-    IParser<ObjectDefinition<OutputFieldAst, OutputReferenceAst>> definition,
+    Parser<ObjectDefinition<OutputFieldAst, OutputReferenceAst>>.D definition,
     Parser<ParameterAst>.DA parameter
   ) : base(modifiers, name, param, aliases, option, definition)
     => _parameter = parameter;
@@ -93,9 +93,9 @@ internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputRefer
 internal class ParseOutputDefinition : ParseObjectDefinition<OutputFieldAst, OutputReferenceAst>
 {
   public ParseOutputDefinition(
-    Func<IParser<OutputFieldAst>> field,
+    Parser<OutputFieldAst>.D field,
     Parser<ModifierAst>.DA modifiers,
-    Func<IParser<OutputReferenceAst>> reference
+    Parser<OutputReferenceAst>.D reference
   ) : base(field, modifiers, reference) { }
 
   protected override string Label => "Output";

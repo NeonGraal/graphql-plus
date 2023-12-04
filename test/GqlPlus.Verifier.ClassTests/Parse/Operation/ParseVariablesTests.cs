@@ -9,19 +9,19 @@ public class ParseVariablesTests
 
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string[] variables)
-    => Test.TrueExpected("(" + variables.Joined(v => "$" + v) + ")",
+    => _test.TrueExpected("(" + variables.Joined(v => "$" + v) + ")",
       variables.Select(TestVar).ToArray());
 
   [Fact]
   public void WithNoVariables_ReturnsFalse()
-    => Test.False("()");
+    => _test.False("()");
 
   [Theory, RepeatData(Repeats)]
   public void WithNoEnd_ReturnsFalse(string variable)
-    => Test.False("($" + variable);
+    => _test.False("($" + variable);
 
-  private readonly ManyChecksParser<VariableAst> Test;
+  private readonly ManyChecksParser<VariableAst> _test;
 
   public ParseVariablesTests(Parser<VariableAst>.DA parser)
-    => Test = new(parser);
+    => _test = new(parser);
 }

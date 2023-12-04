@@ -23,7 +23,6 @@ public abstract class ValueParser<T> : IValueParser<T>, Parser<T>.I
     ObjectParser = objectParser;
   }
 
-  protected abstract string Label { get; }
   public abstract IResult<T> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer;
 

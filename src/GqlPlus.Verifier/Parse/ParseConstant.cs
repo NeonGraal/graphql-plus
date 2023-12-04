@@ -11,8 +11,6 @@ public class ParseConstant : ValueParser<ConstantAst>
     Parser<AstObject<ConstantAst>>.D objectParser
   ) : base(fieldKey, keyValueParser, listParser, objectParser) { }
 
-  protected override string Label => "Constant";
-
   public override IResult<ConstantAst> Parse<TContext>(TContext tokens, string label)
   {
     var at = tokens.At;

@@ -14,8 +14,6 @@ internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, Scala
     Parser<ScalarDefinition>.D definition
   ) : base(name, param, aliases, option, definition) { }
 
-  protected override string Label => "Scalar";
-
   protected override void ApplyDefinition(ScalarAst result, ScalarDefinition value)
   {
     result.Kind = value.Kind;

@@ -15,8 +15,6 @@ internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputRefer
   ) : base(name, param, aliases, option, definition)
   { }
 
-  protected override string Label => "Output";
-
   protected override void ApplyDefinition(OutputAst result, ObjectDefinition<OutputFieldAst, OutputReferenceAst> value)
   {
     result.Extends = value.Extends;

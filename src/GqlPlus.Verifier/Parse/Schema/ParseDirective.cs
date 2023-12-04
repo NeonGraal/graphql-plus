@@ -13,8 +13,6 @@ internal class ParseDirective : DeclarationParser<DirectiveName, ParameterAst, D
     Parser<DirectiveLocation>.D definition
   ) : base(name, param, aliases, option, definition) { }
 
-  protected override string Label => "Directive";
-
   protected override void ApplyDefinition(DirectiveAst result, DirectiveLocation value)
     => result.Locations = value;
 

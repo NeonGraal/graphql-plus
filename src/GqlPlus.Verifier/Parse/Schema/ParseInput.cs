@@ -14,8 +14,6 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
     Parser<ObjectDefinition<InputFieldAst, InputReferenceAst>>.D definition
   ) : base(name, param, aliases, option, definition) { }
 
-  protected override string Label => "Input";
-
   protected override void ApplyDefinition(InputAst result, ObjectDefinition<InputFieldAst, InputReferenceAst> value)
   {
     result.Extends = value.Extends;

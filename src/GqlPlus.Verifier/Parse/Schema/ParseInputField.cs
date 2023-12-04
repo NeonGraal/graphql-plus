@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Parse.Schema;
@@ -15,8 +16,10 @@ internal class ParseInputField : ObjectFieldParser<InputFieldAst, InputReference
   ) : base(aliases, modifiers, reference)
     => _default = defaultParser;
 
+  [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParameters(InputFieldAst field, ParameterAst[] parameters)
     => throw new NotImplementedException();
+
   protected override InputFieldAst Field(TokenAt at, string name, string description, InputReferenceAst typeReference)
     => new(at, name, description, typeReference);
 

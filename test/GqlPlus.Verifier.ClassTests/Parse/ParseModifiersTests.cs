@@ -11,11 +11,11 @@ public class ParseModifiersTests
   [InlineData("[]?", 2)]
   [InlineData("[_?][]?", 3)]
   public void WithInput_ReturnsGivenNumber(string input, int count)
-    => Test.Count(input, count);
+    => _test.Count(input, count);
 
   [Fact]
   public void WithFour_ReturnsSpecific()
-    => Test.TrueExpected("[~][_?][]?",
+    => _test.TrueExpected("[~][_?][]?",
       new ModifierAst[] {
         new(AstNulls.At, "~", false),
         new(AstNulls.At, "_", true),
@@ -23,8 +23,8 @@ public class ParseModifiersTests
         ModifierAst.Optional(AstNulls.At),
       });
 
-  private readonly ManyChecksParser<ModifierAst> Test;
+  private readonly ManyChecksParser<ModifierAst> _test;
 
   public ParseModifiersTests(Parser<ModifierAst>.DA parser)
-    => Test = new(parser);
+    => _test = new(parser);
 }

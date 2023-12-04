@@ -14,7 +14,6 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   private readonly Parser<TDefinition>.L _definition;
 
   protected readonly Parser<string>.LA Aliases;
-  protected abstract string Label { get; }
 
   public DeclarationParser(
     TName name,

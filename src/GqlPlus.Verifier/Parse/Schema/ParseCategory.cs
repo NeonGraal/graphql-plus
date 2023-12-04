@@ -16,8 +16,6 @@ internal class ParseCategory : DeclarationParser<CategoryName, NullAst, Category
   {
   }
 
-  protected override string Label => "Category";
-
   protected override void ApplyDefinition(CategoryAst result, CategoryOutput value)
   {
     if (string.IsNullOrWhiteSpace(result.Name)) {

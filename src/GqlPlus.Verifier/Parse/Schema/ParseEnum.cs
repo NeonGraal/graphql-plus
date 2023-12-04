@@ -16,8 +16,6 @@ internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDef
   {
   }
 
-  protected override string Label => "Enum";
-
   protected override void ApplyDefinition(EnumAst result, EnumDefinition value)
   {
     result.Extends = value.Extends;

@@ -21,12 +21,6 @@ public static class CommonParsers
       .AddParserArray<T, ValueListParser<T>>()
       .AddParser<AstObject<T>, ValueObjectParser<T>>();
 
-  public static IServiceCollection AddFunc<T>(this IServiceCollection services, Func<IServiceProvider, T> factory)
-    where T : class
-    => services
-      .AddSingleton(factory)
-      .AddSingleton<Func<T>>(x => () => x.GetRequiredService<T>());
-
   public static IServiceCollection AddParser<T, S>(this IServiceCollection services)
     where S : class, Parser<T>.I
     => services

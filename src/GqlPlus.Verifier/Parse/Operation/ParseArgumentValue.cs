@@ -16,8 +16,6 @@ internal class ParseArgumentValue : ValueParser<ArgumentAst>
   ) : base(fieldKey, keyValueParser, listParser, objectParser)
     => _constant = constant;
 
-  protected override string Label => "Argument";
-
   public override IResult<ArgumentAst> Parse<TContext>(TContext tokens, string label)
   {
     _ = tokens.At;

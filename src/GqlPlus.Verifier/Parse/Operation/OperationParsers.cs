@@ -19,6 +19,6 @@ public static class OperationParsers
       .AddSingleton<IParser<FieldAst>>(x => x.GetRequiredService<ParseObject>())
       .AddSingleton<IParser<OperationAst>, ParseOperation>()
       .AddParser<VariableAst, ParseVariable>()
-      .AddSingleton<IParserArray<VariableAst>, ParseVariables>()
+      .AddParserArray<VariableAst, ParseVariables>()
       .AddSingleton<IParserVarType, ParseVarType>();
 }

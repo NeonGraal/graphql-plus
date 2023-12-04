@@ -20,8 +20,8 @@ public class ParseVariablesTests
   public void WithNoEnd_ReturnsFalse(string variable)
     => Test.False("($" + variable);
 
-  private readonly ManyChecks<VariableAst> Test;
+  private readonly ManyChecksParser<VariableAst> Test;
 
-  public ParseVariablesTests(IParserArray<VariableAst> parser)
+  public ParseVariablesTests(Parser<VariableAst>.DA parser)
     => Test = new(parser);
 }

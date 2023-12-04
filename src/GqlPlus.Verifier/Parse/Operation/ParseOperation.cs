@@ -11,7 +11,7 @@ internal class ParseOperation : IParser<OperationAst>
   private readonly IParserEndFragments _endFragments;
   private readonly Parser<ModifierAst>.LA _modifiers;
   private readonly IParserArray<IAstSelection> _object;
-  private readonly IParserArray<VariableAst> _variables;
+  private readonly Parser<VariableAst>.LA _variables;
 
   public ParseOperation(
     Parser<IParserArgument, ArgumentAst>.D argument,
@@ -20,7 +20,7 @@ internal class ParseOperation : IParser<OperationAst>
     IParserEndFragments endFragments,
     Parser<ModifierAst>.DA modifiers,
     IParserArray<IAstSelection> objectParser,
-    IParserArray<VariableAst> variables)
+    Parser<VariableAst>.DA variables)
   {
     _argument = argument;
     _directives = directives;
@@ -28,7 +28,7 @@ internal class ParseOperation : IParser<OperationAst>
     _endFragments = endFragments.ThrowIfNull();
     _modifiers = modifiers;
     _object = objectParser.ThrowIfNull();
-    _variables = variables.ThrowIfNull();
+    _variables = variables;
   }
 
   public IResult<OperationAst> Parse<TContext>(TContext tokens)

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal class ParseVariables : IParserArray<VariableAst>
+internal class ParseVariables : Parser<VariableAst>.IA
 {
   private readonly Parser<VariableAst>.L _variable;
 

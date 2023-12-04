@@ -16,8 +16,7 @@ public static class CommonParsers
     where T : AstValue<T>
     where P : class, Parser<T>.I, IValueParser<T>
     => services
-      .AddParser<T, P>()
-      .AddSingleton<IValueParser<T>>(x => x.GetRequiredService<P>())
+      .AddParser<IValueParser<T>, T, P>()
       .AddParser<AstKeyValue<T>, ValueKeyValueParser<T>>()
       .AddParserArray<T, ValueListParser<T>>()
       .AddParser<AstObject<T>, ValueObjectParser<T>>();
@@ -39,6 +38,7 @@ public static class CommonParsers
     where I : class, Parser<T>.I
     => services
       .AddSingleton<S>()
+      .AddSingleton<Parser<T>.D>(x => () => x.GetRequiredService<S>())
       .AddSingleton<Parser<I, T>.D>(x => () => x.GetRequiredService<S>());
 
   public static IServiceCollection AddParserArray<T, S>(this IServiceCollection services)

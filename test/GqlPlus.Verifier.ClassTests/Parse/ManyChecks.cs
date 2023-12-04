@@ -102,7 +102,7 @@ where I : Parser<T>.IA
 
   internal void TrueExpected(string input, params T[] expected)
   {
-    var result = _parser.Parse(Tokens(input), _type);
+    var result = _parser.I.Parse(Tokens(input), _type);
 
     result.IsOk().Should().BeTrue(_type);
     using var scope = new AssertionScope();
@@ -111,7 +111,7 @@ where I : Parser<T>.IA
 
   internal void False(string input)
   {
-    var result = _parser.Parse(Tokens(input), _type);
+    var result = _parser.I.Parse(Tokens(input), _type);
 
     using var scope = new AssertionScope();
     result.IsError(message => message.Message.Contains("Expected")).Should().BeTrue(_type);
@@ -119,7 +119,7 @@ where I : Parser<T>.IA
 
   internal void Count(string input, int count)
   {
-    var result = _parser.Parse(Tokens(input), _type);
+    var result = _parser.I.Parse(Tokens(input), _type);
 
     result.IsOk().Should().BeTrue(_type);
     using var scope = new AssertionScope();

@@ -5,18 +5,15 @@ namespace GqlPlus.Verifier.Parse.Operation;
 
 internal class ParseArgument : IParserArgument
 {
-  protected readonly Parser<FieldKeyAst>.L FieldKey;
-  protected readonly IValueParser<ArgumentAst> Argument;
-  private readonly Parser<ArgumentAst>.L Value;
+  private readonly Parser<FieldKeyAst>.L _fieldKey;
+  private readonly Parser<IValueParser<ArgumentAst>, ArgumentAst>.L _argument;
 
   public ParseArgument(
     Parser<FieldKeyAst>.D fieldKey,
-    IValueParser<ArgumentAst> argument,
-    Parser<ArgumentAst>.D value)
+    Parser<IValueParser<ArgumentAst>, ArgumentAst>.D argument)
   {
-    FieldKey = fieldKey;
-    Argument = argument.ThrowIfNull();
-    Value = value;
+    _fieldKey = fieldKey;
+    _argument = argument;
   }
 
   public IResult<ArgumentAst> Parse<TContext>(TContext tokens, string label)
@@ -33,17 +30,17 @@ internal class ParseArgument : IParserArgument
       var at = tokens.At;
       ArgumentAst? value = new(at);
 
-      var fieldKey = FieldKey.Parse(tokens, label);
+      var fieldKey = _fieldKey.Parse(tokens, label);
       if (fieldKey.IsOk()) {
         return fieldKey.Map(key =>
           tokens.Take(':')
-          ? Argument.Parse(tokens).MapOk(
+          ? _argument.I.Parse(tokens, "Argument").MapOk(
             item => ParseArgumentMid(tokens, at, new() { [key] = item }),
             () => tokens.Error(label, "a value after field key separator", value))
           : ParseArgumentEnd(tokens, at, key));
       }
 
-      var argValue = Value.Parse(tokens, label);
+      var argValue = _argument.I.Parse(tokens, label);
 
       return argValue.MapOk(value => ParseArgumentEnd(tokens, at, value), () => argValue);
     } finally {
@@ -56,7 +53,7 @@ internal class ParseArgument : IParserArgument
     var at = initial.At;
     var values = new List<ArgumentAst> { initial };
     while (tokens.Take(',')) {
-      Argument.Parse(tokens).Required(values.Add);
+      _argument.I.Parse(tokens, "Argument").Required(values.Add);
     }
 
     return values.Count > 1
@@ -67,11 +64,11 @@ internal class ParseArgument : IParserArgument
   private IResult<ArgumentAst> ParseArgumentMid(Tokenizer tokens, TokenAt at, AstObject<ArgumentAst> fields)
   {
     if (tokens.Take(',')) {
-      return Argument.ParseFieldValues(tokens, ')', fields).Select(result => new ArgumentAst(at, result));
+      return _argument.I.ParseFieldValues(tokens, "Argument", ')', fields).Select(result => new ArgumentAst(at, result));
     }
 
     while (!tokens.Take(')')) {
-      var field = Argument.KeyValueParser.Parse(tokens, "Argument");
+      var field = _argument.I.KeyValueParser.Parse(tokens, "Argument");
 
       if (!field.Required(value => fields.Add(value.Key, ParseArgValues(tokens, value.Value)))) {
         return field.AsResult<ArgumentAst>();
@@ -89,7 +86,7 @@ internal class ParseArgument : IParserArgument
     }
 
     var values = new List<ArgumentAst> { value };
-    while (Value.Parse(tokens, "Argument").Required(values.Add)) { }
+    while (_argument.I.Parse(tokens, "Argument").Required(values.Add)) { }
 
     if (tokens.Take(")")) {
       var argument = values.Count > 1 ? new(at, values.ToArray()) : value;

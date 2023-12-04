@@ -44,7 +44,7 @@ internal class ParseParameters : Parser<ParameterAst>.IA
       }
 
       modifiers.Optional(value => parameter.Modifiers = value);
-      var constant = _default.Parse(tokens, "Default");
+      var constant = _default.I.Parse(tokens, "Default");
       if (constant.IsError()) {
         return constant.AsResultArray(list);
       }

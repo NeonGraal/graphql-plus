@@ -41,7 +41,7 @@ internal class ParseField : Parser<FieldAst>.I
       result = new FieldAst(at, name) { Alias = alias };
     }
 
-    _argument.Parse(tokens, "Argument").Required(argument => result.Argument = argument);
+    _argument.I.Parse(tokens, "Argument").Required(argument => result.Argument = argument);
 
     var modifiers = _modifiers.Parse(tokens, label);
     if (!modifiers.Optional(value => result.Modifiers = value)) {

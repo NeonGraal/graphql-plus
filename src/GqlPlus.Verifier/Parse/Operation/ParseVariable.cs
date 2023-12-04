@@ -36,7 +36,7 @@ internal class ParseVariable : Parser<VariableAst>.I
     }
 
     if (tokens.Take(':')) {
-      if (!_varTypeParser.Parse(tokens, "Variable Type").Required(varType => variable.Type = varType)) {
+      if (!_varTypeParser.I.Parse(tokens, "Variable Type").Required(varType => variable.Type = varType)) {
         return tokens.Partial(label, "type after ':'", () => variable);
       }
     }
@@ -46,7 +46,7 @@ internal class ParseVariable : Parser<VariableAst>.I
       return modifiers.AsResult(variable);
     }
 
-    var constant = _default.Parse(tokens, label);
+    var constant = _default.I.Parse(tokens, label);
     if (!constant.Optional(value => variable.Default = value)) {
       return constant.AsResult(variable);
     }

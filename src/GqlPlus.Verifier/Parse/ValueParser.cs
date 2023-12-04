@@ -24,22 +24,17 @@ public abstract class ValueParser<T> : IValueParser<T>, Parser<T>.I
   }
 
   protected abstract string Label { get; }
-
-  public IResult<T> Parse<TContext>(TContext tokens)
-    where TContext : Tokenizer
-    => Parse(tokens, Label);
-
   public abstract IResult<T> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer;
 
-  public IResult<AstObject<T>> ParseFieldValues(Tokenizer tokens, char last, AstObject<T> fields)
+  public IResult<AstObject<T>> ParseFieldValues(Tokenizer tokens, string label, char last, AstObject<T> fields)
   {
     var result = new AstObject<T>(fields);
 
     while (!tokens.Take(last)) {
-      var field = KeyValueParser.Parse(tokens, Label);
+      var field = KeyValueParser.Parse(tokens, label);
       if (!field.Required(value => result.Add(value.Key, value.Value))) {
-        return tokens.Error(Label, "a field in object", result);
+        return tokens.Error(label, "a field in object", result);
       }
 
       tokens.Take(',');
@@ -49,10 +44,10 @@ public abstract class ValueParser<T> : IValueParser<T>, Parser<T>.I
   }
 }
 
-public interface IValueParser<T> : IParser<T>
+public interface IValueParser<T> : Parser<T>.I
   where T : AstValue<T>
 {
   Parser<AstKeyValue<T>>.L KeyValueParser { get; }
 
-  IResult<AstObject<T>> ParseFieldValues(Tokenizer tokens, char last, AstObject<T> fields);
+  IResult<AstObject<T>> ParseFieldValues(Tokenizer tokens, string label, char last, AstObject<T> fields);
 }

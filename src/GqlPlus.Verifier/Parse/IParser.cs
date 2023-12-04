@@ -69,9 +69,7 @@ public class Parser<I, T>
 
     public static implicit operator L(D factory) => new(factory.ThrowIfNull());
 
-    public IResult<T> Parse<TContext>(TContext tokens, string label)
-      where TContext : Tokenizer
-      => Value.Parse(tokens, label);
+    public I I => Value;
   }
 }
 
@@ -88,8 +86,6 @@ public class ParserArray<I, T>
 
     public static implicit operator LA(DA factory) => new(factory.ThrowIfNull());
 
-    public IResultArray<T> Parse<TContext>(TContext tokens, string label)
-      where TContext : Tokenizer
-      => Value.Parse(tokens, label);
+    public I I => Value;
   }
 }

@@ -204,7 +204,7 @@ internal class OneChecksParser<I, T>
     }
 
     var tokens = Tokens(input);
-    var result = _parser.Parse(tokens, "Test");
+    var result = _parser.I.Parse(tokens, "Test");
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
@@ -221,7 +221,7 @@ internal class OneChecksParser<I, T>
     }
 
     var tokens = Tokens(input);
-    var result = _parser.Parse(tokens, "Test");
+    var result = _parser.I.Parse(tokens, "Test");
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
@@ -233,7 +233,7 @@ internal class OneChecksParser<I, T>
   internal void Empty(string input)
   {
     var tokens = Tokens(input);
-    var result = _parser.Parse(tokens, "Test");
+    var result = _parser.I.Parse(tokens, "Test");
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
@@ -247,7 +247,7 @@ internal class OneChecksParser<I, T>
       return;
     }
 
-    var result = _parser.Parse(Tokens(input), "Test");
+    var result = _parser.I.Parse(Tokens(input), "Test");
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
@@ -261,7 +261,7 @@ internal class OneChecksParser<I, T>
       return;
     }
 
-    var result = _parser.Parse(Tokens(input), "Test");
+    var result = _parser.I.Parse(Tokens(input), "Test");
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
@@ -274,7 +274,7 @@ internal class OneChecksParser<I, T>
       return;
     }
 
-    var result = _parser.Parse(Tokens(input), "Test");
+    var result = _parser.I.Parse(Tokens(input), "Test");
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;

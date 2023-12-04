@@ -49,14 +49,14 @@ internal class ParseOperation : Parser<OperationAst>.I
 
     _directives.Parse(tokens, label).Required(directives => ast.Directives = directives);
 
-    _startFragments.Parse(tokens, label).WithResult(value => ast.Fragments = value);
+    _startFragments.I.Parse(tokens, label).WithResult(value => ast.Fragments = value);
     if (!tokens.Prefix(':', out var result, out _)) {
       return tokens.Partial(label, "identifier to follow ':'", Final);
     }
 
     if (result is not null) {
       ast.ResultType = result;
-      var argument = _argument.Parse(tokens, "Argument");
+      var argument = _argument.I.Parse(tokens, "Argument");
       if (!argument.Optional(value => ast.Argument = value)) {
         return argument.AsPartial(Final());
       }
@@ -71,7 +71,7 @@ internal class ParseOperation : Parser<OperationAst>.I
     }
 
     modifiers.WithResult(value => ast.Modifiers = value);
-    _endFragments.Parse(tokens, label).WithResult(value =>
+    _endFragments.I.Parse(tokens, label).WithResult(value =>
       ast.Fragments = ast.Fragments.Concat(value).ToArray());
 
     if (tokens.AtEnd) {

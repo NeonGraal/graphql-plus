@@ -20,7 +20,7 @@ internal class ParseDirectives : Parser<DirectiveAst>.IA
 
     while (name is not null) {
       var directive = new DirectiveAst(at, name);
-      var argument = _argument.Parse(tokens, "Argument");
+      var argument = _argument.I.Parse(tokens, "Argument");
       if (!argument.Required(value => directive.Argument = value)) {
         if (argument.IsError()) {
           return argument.AsResultArray(result);

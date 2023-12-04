@@ -46,4 +46,11 @@ public static class CommonParsers
     => services
       .AddSingleton<S>()
       .AddSingleton<Parser<T>.DA>(x => () => x.GetRequiredService<S>());
+
+  public static IServiceCollection AddParserArray<I, T, S>(this IServiceCollection services)
+    where S : class, I
+    where I : class, Parser<T>.IA
+    => services
+      .AddSingleton<S>()
+      .AddSingleton<ParserArray<I, T>.DA>(x => () => x.GetRequiredService<S>());
 }

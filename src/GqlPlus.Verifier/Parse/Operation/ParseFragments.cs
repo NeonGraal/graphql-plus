@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Ast.Operation;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal abstract class ParseFragments : IParserArray<FragmentAst>
+internal abstract class ParseFragments : Parser<FragmentAst>.IA
 {
   private readonly Parser<DirectiveAst>.LA _directives;
   private readonly IParserArray<IAstSelection> _object;
@@ -88,6 +88,6 @@ internal class ParseEndFragments : ParseFragments, IParserEndFragments
     => tokens.Take("on") || tokens.Take(':');
 }
 
-public interface IParserStartFragments : IParserArray<FragmentAst> { }
+public interface IParserStartFragments : Parser<FragmentAst>.IA { }
 
-public interface IParserEndFragments : IParserArray<FragmentAst> { }
+public interface IParserEndFragments : Parser<FragmentAst>.IA { }

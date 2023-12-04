@@ -7,8 +7,8 @@ internal class ParseOperation : IParser<OperationAst>
 {
   private readonly Parser<IParserArgument, ArgumentAst>.L _argument;
   private readonly Parser<DirectiveAst>.LA _directives;
-  private readonly IParserStartFragments _startFragments;
-  private readonly IParserEndFragments _endFragments;
+  private readonly ParserArray<IParserStartFragments, FragmentAst>.LA _startFragments;
+  private readonly ParserArray<IParserEndFragments, FragmentAst>.LA _endFragments;
   private readonly Parser<ModifierAst>.LA _modifiers;
   private readonly IParserArray<IAstSelection> _object;
   private readonly Parser<VariableAst>.LA _variables;
@@ -16,16 +16,16 @@ internal class ParseOperation : IParser<OperationAst>
   public ParseOperation(
     Parser<IParserArgument, ArgumentAst>.D argument,
     Parser<DirectiveAst>.DA directives,
-    IParserStartFragments startFragments,
-    IParserEndFragments endFragments,
+    ParserArray<IParserStartFragments, FragmentAst>.DA startFragments,
+    ParserArray<IParserEndFragments, FragmentAst>.DA endFragments,
     Parser<ModifierAst>.DA modifiers,
     IParserArray<IAstSelection> objectParser,
     Parser<VariableAst>.DA variables)
   {
     _argument = argument;
     _directives = directives;
-    _startFragments = startFragments.ThrowIfNull();
-    _endFragments = endFragments.ThrowIfNull();
+    _startFragments = startFragments;
+    _endFragments = endFragments;
     _modifiers = modifiers;
     _object = objectParser.ThrowIfNull();
     _variables = variables;

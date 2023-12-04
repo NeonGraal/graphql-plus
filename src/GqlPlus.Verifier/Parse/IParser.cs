@@ -74,3 +74,22 @@ public class Parser<I, T>
       => Value.Parse(tokens, label);
   }
 }
+
+public class ParserArray<I, T>
+  where I : Parser<T>.IA
+{
+  public delegate I DA();
+
+  public class LA : Lazy<I>
+  {
+    public LA(DA factory)
+      : base(() => factory())
+    { }
+
+    public static implicit operator LA(DA factory) => new(factory.ThrowIfNull());
+
+    public IResultArray<T> Parse<TContext>(TContext tokens, string label)
+      where TContext : Tokenizer
+      => Value.Parse(tokens, label);
+  }
+}

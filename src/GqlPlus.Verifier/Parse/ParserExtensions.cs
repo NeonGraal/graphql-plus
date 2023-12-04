@@ -9,7 +9,4 @@ public static class ParserExtensions
     ArgumentNullException.ThrowIfNull(value, expression);
     return value;
   }
-
-  public static Lazy<T> Lazy<T>(this Func<T> factory)
-    => new(factory);
 }

@@ -29,10 +29,10 @@ public class OperationVerifierTests
     errors.Should().NotBeNullOrEmpty();
   }
 
-  private readonly IParser<OperationAst> _parser;
+  private readonly Parser<OperationAst>.L _parser;
 
-  public OperationVerifierTests(IParser<OperationAst> parser)
-    => _parser = parser.ThrowIfNull();
+  public OperationVerifierTests(Parser<OperationAst>.D parser)
+    => _parser = parser;
 
   public class ValidGraphQlPlusOperations : TheoryData<string>
   {

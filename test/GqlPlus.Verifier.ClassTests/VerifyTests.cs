@@ -41,7 +41,7 @@ public class VerifyTests
   {
     var operation = File.ReadAllText("Sample/Operation_" + sample + ".gql+");
     OperationContext tokens = new(operation);
-    var ast = _operation.Parse(tokens).Optional();
+    var ast = _operation.Parse(tokens, "Operation").Optional();
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
@@ -57,7 +57,7 @@ public class VerifyTests
   {
     var operation = File.ReadAllText("GraphQl/Example_" + example + ".gql");
     OperationContext tokens = new(operation);
-    var ast = _operation.Parse(tokens).Required();
+    var ast = _operation.Parse(tokens, "Operation").Required();
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
@@ -67,14 +67,14 @@ public class VerifyTests
     await Verify(ast.Render(), settings);
   }
 
-  private readonly IParser<OperationAst> _operation;
+  private readonly Parser<OperationAst>.L _operation;
   private readonly IParser<SchemaAst> _schema;
 
   public VerifyTests(
-    IParser<OperationAst> operation,
+    Parser<OperationAst>.D operation,
     IParser<SchemaAst> schema)
   {
-    _operation = operation.ThrowIfNull();
+    _operation = operation;
     _schema = schema.ThrowIfNull();
   }
 

@@ -13,10 +13,10 @@ public class OperationVerifier
   internal OperationVerifier(OperationAst ast)
     => (Ast, Errors) = (ast, new(ast.Errors));
 
-  public static bool Verify(string operation, IParser<OperationAst> parser, out List<TokenMessage> errors)
+  public static bool Verify(string operation, Parser<OperationAst>.L parser, out List<TokenMessage> errors)
   {
     OperationContext tokens = new(operation);
-    var parse = parser.Parse(tokens);
+    var parse = parser.Parse(tokens, "Operation");
 
     if (parse is IResultError<OperationAst> error) {
       errors = new List<TokenMessage> { error.Message };

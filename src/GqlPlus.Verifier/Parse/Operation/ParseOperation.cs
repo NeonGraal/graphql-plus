@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Ast.Operation;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal class ParseOperation : IParser<OperationAst>
+internal class ParseOperation : Parser<OperationAst>.I
 {
   private readonly Parser<IParserArgument, ArgumentAst>.L _argument;
   private readonly Parser<DirectiveAst>.LA _directives;
@@ -31,27 +31,27 @@ internal class ParseOperation : IParser<OperationAst>
     _variables = variables;
   }
 
-  public IResult<OperationAst> Parse<TContext>(TContext tokens)
+  public IResult<OperationAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     if (tokens.AtStart) {
       if (!tokens.Read()) {
-        return tokens.Error<OperationAst>("Operation", "text");
+        return tokens.Error<OperationAst>(label, "text");
       }
     }
 
     OperationAst ast = ParseCategory(tokens);
 
-    var variables = _variables.Parse(tokens, "Operation");
+    var variables = _variables.Parse(tokens, label);
     if (!variables.Optional(value => ast.Variables = value)) {
       return variables.AsPartial(Final());
     }
 
-    _directives.Parse(tokens, "Operation").Required(directives => ast.Directives = directives);
+    _directives.Parse(tokens, label).Required(directives => ast.Directives = directives);
 
-    _startFragments.Parse(tokens, "Operation").WithResult(value => ast.Fragments = value);
+    _startFragments.Parse(tokens, label).WithResult(value => ast.Fragments = value);
     if (!tokens.Prefix(':', out var result, out _)) {
-      return tokens.Partial("Operation", "identifier to follow ':'", Final);
+      return tokens.Partial(label, "identifier to follow ':'", Final);
     }
 
     if (result is not null) {
@@ -60,24 +60,24 @@ internal class ParseOperation : IParser<OperationAst>
       if (!argument.Optional(value => ast.Argument = value)) {
         return argument.AsPartial(Final());
       }
-    } else if (!_object.Parse(tokens, "Operation").Required(selections => ast.Object = selections)) {
-      return tokens.Partial("Operation", "Object or Type", Final);
+    } else if (!_object.Parse(tokens, label).Required(selections => ast.Object = selections)) {
+      return tokens.Partial(label, "Object or Type", Final);
     }
 
-    var modifiers = _modifiers.Parse(tokens, "Operation");
+    var modifiers = _modifiers.Parse(tokens, label);
 
     if (modifiers.IsError()) {
       return modifiers.AsPartial(Final());
     }
 
     modifiers.WithResult(value => ast.Modifiers = value);
-    _endFragments.Parse(tokens, "Operation").WithResult(value =>
+    _endFragments.Parse(tokens, label).WithResult(value =>
       ast.Fragments = ast.Fragments.Concat(value).ToArray());
 
     if (tokens.AtEnd) {
       ast.Result = ParseResultKind.Success;
     } else {
-      return tokens.Partial("Operation", "no more text", Final);
+      return tokens.Partial(label, "no more text", Final);
     }
 
     return Final().Ok();

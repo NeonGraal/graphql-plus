@@ -4,10 +4,10 @@ namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseEnumLabel : IParser<EnumLabelAst>
 {
-  private readonly IParserArray<string> _aliases;
+  private readonly Parser<string>.LA _aliases;
 
-  public ParseEnumLabel(IParserArray<string> aliases)
-    => _aliases = aliases.ThrowIfNull();
+  public ParseEnumLabel(Parser<string>.DA aliases)
+    => _aliases = aliases;
 
   public IResult<EnumLabelAst> Parse<TContext>(TContext tokens)
     where TContext : Tokenizer

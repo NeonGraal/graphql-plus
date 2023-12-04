@@ -12,7 +12,7 @@ public static class SchemaParsers
       .AddParser<NullAst, ParseNull>()
       .AddParserArray<NullAst, ParseNulls>()
       .AddParserArray<ParameterAst, ParseParameters>()
-      .AddSingleton<IParserArray<string>, ParseAliases>()
+      .AddParserArray<string, ParseAliases>()
       .AddSingleton<TypeName>()
       // Category
       .AddOption<CategoryOption>()

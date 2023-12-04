@@ -12,7 +12,7 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
     Parser<ModifierAst>.DA modifiers,
     TypeName name,
     Parser<TypeParameterAst>.DA param,
-    IParserArray<string> aliases,
+    Parser<string>.DA aliases,
     Parser<NullAst>.D option,
     IParser<ObjectDefinition<InputFieldAst, InputReferenceAst>> definition,
     Parser<IParserDefault, ConstantAst>.D defaultParser

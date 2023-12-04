@@ -8,7 +8,7 @@ internal class ParseDirective : DeclarationParser<DirectiveName, ParameterAst, D
   public ParseDirective(
     DirectiveName name,
     Parser<ParameterAst>.DA param,
-    IParserArray<string> aliases,
+    Parser<string>.DA aliases,
     Parser<DirectiveOption>.D option,
     IParser<DirectiveLocation> definition
   ) : base(name, param, aliases, option, definition) { }

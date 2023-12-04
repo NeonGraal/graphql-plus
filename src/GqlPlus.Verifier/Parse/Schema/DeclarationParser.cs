@@ -13,19 +13,19 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   private readonly Parser<TOption>.L _option;
   private readonly IParser<TDefinition> _definition;
 
-  protected readonly IParserArray<string> Aliases;
+  protected readonly Parser<string>.LA Aliases;
   protected abstract string Label { get; }
 
   public DeclarationParser(
     TName name,
     Parser<TParam>.DA param,
-    IParserArray<string> aliases,
+    Parser<string>.DA aliases,
     Parser<TOption>.D option,
     IParser<TDefinition> definition)
   {
     _name = name.ThrowIfNull();
     _param = param;
-    Aliases = aliases.ThrowIfNull();
+    Aliases = aliases;
     _option = option;
     _definition = definition.ThrowIfNull();
   }

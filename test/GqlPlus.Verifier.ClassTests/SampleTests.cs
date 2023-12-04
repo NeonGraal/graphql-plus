@@ -25,15 +25,15 @@ public class SampleTests
   [InlineData("Intro_Scalar")]
   public async Task VerifySampleSchema(string sample)
   {
-    var schema = File.ReadAllText("Sample/Schema_" + sample + ".graphql+");
+    var schema = File.ReadAllText("Sample/Schema/" + sample + ".graphql+");
     Tokenizer tokens = new(schema);
 
     var ast = _schema.Parse(tokens).Required();
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(SampleTests));
-    settings.UseFileName(nameof(VerifySampleSchema) + "_" + sample);
+    settings.UseDirectory(nameof(SampleTests) + "/Schema");
+    settings.UseFileName(sample);
 
     await Verify(ast.Render(), settings);
   }
@@ -49,7 +49,7 @@ public class SampleTests
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
     settings.UseDirectory(nameof(SampleTests));
-    settings.UseFileName(nameof(VerifySampleOperation) + "_" + sample);
+    settings.UseFileName("Operation_" + sample);
 
     await Verify(ast?.Render(), settings);
   }
@@ -58,14 +58,14 @@ public class SampleTests
   [ClassData(typeof(GraphQlExamplesData))]
   public async Task VerifyGraphQlExample(string example)
   {
-    var operation = File.ReadAllText("GraphQl/Example_" + example + ".gql");
+    var operation = File.ReadAllText("Sample/GraphQl/Example_" + example + ".gql");
     OperationContext tokens = new(operation);
     var ast = _operation.Parse(tokens, "Operation").Required();
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(SampleTests));
-    settings.UseFileName(nameof(VerifyGraphQlExample) + "_" + example);
+    settings.UseDirectory(nameof(SampleTests) + "/GraphQl");
+    settings.UseFileName("Example_" + example);
 
     await Verify(ast.Render(), settings);
   }

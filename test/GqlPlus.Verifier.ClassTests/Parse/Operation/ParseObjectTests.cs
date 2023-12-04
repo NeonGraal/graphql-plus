@@ -43,8 +43,8 @@ public class ParseObjectTests
   public void WithBadSelection_ReturnsFalse()
     => Test.False("{|}");
 
-  private readonly ManyChecks<IAstSelection> Test;
+  private readonly ManyChecksParser<IAstSelection> Test;
 
-  public ParseObjectTests(IParserArray<IAstSelection> parser)
+  public ParseObjectTests(Parser<IAstSelection>.DA parser)
     => Test = new(parser);
 }

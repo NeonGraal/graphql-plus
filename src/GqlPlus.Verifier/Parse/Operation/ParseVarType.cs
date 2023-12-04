@@ -2,7 +2,7 @@
 
 internal class ParseVarType : IParserVarType
 {
-  public IResult<string> Parse<TContext>(TContext tokens)
+  public IResult<string> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
 => ParseVarNull(tokens).Select(nullType
       => tokens.Take('!') ? nullType + '!' : nullType);
@@ -10,7 +10,7 @@ internal class ParseVarType : IParserVarType
   internal IResult<string> ParseVarNull(Tokenizer tokens)
   {
     if (tokens.Take('[')) {
-      return Parse(tokens).MapOk(
+      return Parse(tokens, "Variable Type").MapOk(
         varType => tokens.Take(']')
           ? $"[{varType}]".Ok()
           : tokens.Partial("Variable Type", "an inner variable type", () => varType),
@@ -23,4 +23,4 @@ internal class ParseVarType : IParserVarType
   }
 }
 
-public interface IParserVarType : IParser<string> { }
+public interface IParserVarType : Parser<string>.I { }

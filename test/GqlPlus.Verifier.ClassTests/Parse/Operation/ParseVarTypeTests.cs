@@ -26,8 +26,8 @@ public class ParseVarTypeTests
   public void WithNoEnd_ReturnsFalse()
     => Test.False("[test");
 
-  private readonly OneChecks<string> Test;
+  private readonly OneChecksParser<IParserVarType, string> Test;
 
-  public ParseVarTypeTests(IParserVarType parser)
+  public ParseVarTypeTests(Parser<IParserVarType, string>.D parser)
     => Test = new(parser);
 }

@@ -2,6 +2,6 @@
 query
 Failure
 <
-  !!!  E@1/2 : Invalid Object. Expected at least one field or selection. - '<END>' !!!
+  !!!  E@1/2 : Invalid Operation. Expected at least one field or selection. - '<END>' !!!
   !!!  E@1/2 : Invalid Operation. Expected Object or Type. - '<END>' !!!
 >

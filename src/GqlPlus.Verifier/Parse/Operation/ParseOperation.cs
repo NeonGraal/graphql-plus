@@ -10,7 +10,7 @@ internal class ParseOperation : Parser<OperationAst>.I
   private readonly ParserArray<IParserStartFragments, FragmentAst>.LA _startFragments;
   private readonly ParserArray<IParserEndFragments, FragmentAst>.LA _endFragments;
   private readonly Parser<ModifierAst>.LA _modifiers;
-  private readonly IParserArray<IAstSelection> _object;
+  private readonly Parser<IAstSelection>.LA _object;
   private readonly Parser<VariableAst>.LA _variables;
 
   public ParseOperation(
@@ -19,7 +19,7 @@ internal class ParseOperation : Parser<OperationAst>.I
     ParserArray<IParserStartFragments, FragmentAst>.DA startFragments,
     ParserArray<IParserEndFragments, FragmentAst>.DA endFragments,
     Parser<ModifierAst>.DA modifiers,
-    IParserArray<IAstSelection> objectParser,
+    Parser<IAstSelection>.DA objectParser,
     Parser<VariableAst>.DA variables)
   {
     _argument = argument;
@@ -27,7 +27,7 @@ internal class ParseOperation : Parser<OperationAst>.I
     _startFragments = startFragments;
     _endFragments = endFragments;
     _modifiers = modifiers;
-    _object = objectParser.ThrowIfNull();
+    _object = objectParser;
     _variables = variables;
   }
 

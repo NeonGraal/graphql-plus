@@ -13,12 +13,11 @@ public static class OperationParsers
       .AddParserArray<DirectiveAst, ParseDirectives>()
       .AddParserArray<IParserStartFragments, FragmentAst, ParseStartFragments>()
       .AddParserArray<IParserEndFragments, FragmentAst, ParseEndFragments>()
-      .AddSingleton<ParseObject>()
-      .AddSingleton<IParserArray<IAstSelection>>(x => x.GetRequiredService<ParseObject>())
-      .AddSingleton<IParser<IAstSelection>>(x => x.GetRequiredService<ParseObject>())
-      .AddSingleton<IParser<FieldAst>>(x => x.GetRequiredService<ParseObject>())
+      .AddParserArray<IAstSelection, ParseObject>()
+      .AddParser<IAstSelection, ParseSelection>()
+      .AddParser<FieldAst, ParseField>()
       .AddParser<OperationAst, ParseOperation>()
       .AddParser<VariableAst, ParseVariable>()
       .AddParserArray<VariableAst, ParseVariables>()
-      .AddSingleton<IParserVarType, ParseVarType>();
+      .AddParser<IParserVarType, string, ParseVarType>();
 }

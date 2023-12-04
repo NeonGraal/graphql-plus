@@ -8,18 +8,18 @@ internal class ParseVariable : Parser<VariableAst>.I
   private readonly Parser<ModifierAst>.LA _modifiers;
   private readonly Parser<DirectiveAst>.LA _directives;
   private readonly Parser<IParserDefault, ConstantAst>.L _default;
-  private readonly IParserVarType _varTypeParser;
+  private readonly Parser<IParserVarType, string>.L _varTypeParser;
 
   public ParseVariable(
     Parser<ModifierAst>.DA modifiers,
     Parser<DirectiveAst>.DA directives,
     Parser<IParserDefault, ConstantAst>.D defaultParser,
-    IParserVarType varTypeParser)
+    Parser<IParserVarType, string>.D varTypeParser)
   {
     _modifiers = modifiers;
     _default = defaultParser;
     _directives = directives;
-    _varTypeParser = varTypeParser.ThrowIfNull();
+    _varTypeParser = varTypeParser;
   }
 
   public IResult<VariableAst> Parse<TContext>(TContext tokens, string label)
@@ -36,7 +36,7 @@ internal class ParseVariable : Parser<VariableAst>.I
     }
 
     if (tokens.Take(':')) {
-      if (!_varTypeParser.Parse(tokens).Required(varType => variable.Type = varType)) {
+      if (!_varTypeParser.Parse(tokens, "Variable Type").Required(varType => variable.Type = varType)) {
         return tokens.Partial(label, "type after ':'", () => variable);
       }
     }

@@ -6,14 +6,14 @@ namespace GqlPlus.Verifier.Parse.Operation;
 internal abstract class ParseFragments : Parser<FragmentAst>.IA
 {
   private readonly Parser<DirectiveAst>.LA _directives;
-  private readonly IParserArray<IAstSelection> _object;
+  private readonly Parser<IAstSelection>.LA _object;
 
   public ParseFragments(
     Parser<DirectiveAst>.DA directives,
-    IParserArray<IAstSelection> objectParser)
+    Parser<IAstSelection>.DA objectParser)
   {
     _directives = directives;
-    _object = objectParser.ThrowIfNull();
+    _object = objectParser;
   }
 
   protected abstract bool FragmentPrefix<TContext>(ref TContext tokens)
@@ -66,7 +66,7 @@ internal class ParseStartFragments : ParseFragments, IParserStartFragments
 {
   public ParseStartFragments(
     Parser<DirectiveAst>.DA directives,
-    IParserArray<IAstSelection> objectParser)
+    Parser<IAstSelection>.DA objectParser)
     : base(directives, objectParser) { }
 
   protected override bool FragmentPrefix<TContext>(ref TContext tokens)
@@ -79,7 +79,7 @@ internal class ParseEndFragments : ParseFragments, IParserEndFragments
 {
   public ParseEndFragments(
     Parser<DirectiveAst>.DA directives,
-    IParserArray<IAstSelection> objectParser)
+    Parser<IAstSelection>.DA objectParser)
     : base(directives, objectParser) { }
 
   protected override bool FragmentPrefix<TContext>(ref TContext tokens)

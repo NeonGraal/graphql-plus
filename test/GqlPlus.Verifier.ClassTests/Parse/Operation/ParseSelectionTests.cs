@@ -60,8 +60,8 @@ public class ParseSelectionTests
   private void CheckNull(IAstSelection? result)
     => result.Should().BeNull();
 
-  private readonly OneChecks<IAstSelection> Test;
+  private readonly OneChecksParser<IAstSelection> Test;
 
-  public ParseSelectionTests(IParser<IAstSelection> parser)
+  public ParseSelectionTests(Parser<IAstSelection>.D parser)
     => Test = new(parser);
 }

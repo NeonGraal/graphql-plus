@@ -50,15 +50,15 @@ internal class ScalarDefinition
 
 internal class ParseScalarDefinition : Parser<ScalarDefinition>.I
 {
-  private readonly IParserArray<ScalarRangeAst> _ranges;
-  private readonly IParserArray<ScalarRegexAst> _regexes;
+  private readonly Parser<ScalarRangeAst>.LA _ranges;
+  private readonly Parser<ScalarRegexAst>.LA _regexes;
 
   public ParseScalarDefinition(
-    IParserArray<ScalarRangeAst> ranges,
-    IParserArray<ScalarRegexAst> regexes)
+    Parser<ScalarRangeAst>.DA ranges,
+    Parser<ScalarRegexAst>.DA regexes)
   {
-    _ranges = ranges.ThrowIfNull();
-    _regexes = regexes.ThrowIfNull();
+    _ranges = ranges;
+    _regexes = regexes;
   }
 
   public IResult<ScalarDefinition> Parse<TContext>(TContext tokens, string label)
@@ -73,28 +73,28 @@ internal class ParseScalarDefinition : Parser<ScalarDefinition>.I
 
     switch (result.Kind) {
       case ScalarKind.Number:
-        var scalarRanges = _ranges.Parse(tokens, "Scalar");
+        var scalarRanges = _ranges.Parse(tokens, label);
         if (scalarRanges.Required(ranges => result.Ranges = ranges)) {
-          return tokens.End("Scalar", () => result);
+          return tokens.End(label, () => result);
         }
 
         return scalarRanges.AsResult(result);
       case ScalarKind.String:
-        var scalarRegexes = _regexes.Parse(tokens, "Scalar");
+        var scalarRegexes = _regexes.Parse(tokens, label);
         if (scalarRegexes.Required(regexes => result.Regexes = regexes)) {
-          return tokens.End("Scalar", () => result);
+          return tokens.End(label, () => result);
         }
 
         return scalarRegexes.AsResult(result); // not covered
       default:
-        return tokens.Partial("Scalar", "valid kind", () => result); // not covered
+        return tokens.Partial(label, "valid kind", () => result); // not covered
     }
   }
 }
 
-internal class ParseScalarRange : IParser<ScalarRangeAst>
+internal class ParseScalarRange : Parser<ScalarRangeAst>.I
 {
-  public IResult<ScalarRangeAst> Parse<TContext>(TContext tokens)
+  public IResult<ScalarRangeAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var at = tokens.At;
@@ -103,7 +103,7 @@ internal class ParseScalarRange : IParser<ScalarRangeAst>
     var excludesLower = tokens.Take('>');
     var hasRange = tokens.Take("..");
     if (hasLower && !hasRange) {
-      return tokens.Error("Scalar", "range operator ('..')", range);
+      return tokens.Error(label, "range operator ('..')", range);
     }
 
     var excludesUpper = tokens.Take('<');
@@ -122,14 +122,14 @@ internal class ParseScalarRange : IParser<ScalarRangeAst>
     return hasLower || hasUpper
       ? range.Ok()
       : hasRange
-        ? tokens.Error("Scalar", "min or max bounds", range)
+        ? tokens.Error(label, "min or max bounds", range)
         : range.Empty();
   }
 }
 
-internal class ParseScalarRegex : IParser<ScalarRegexAst>
+internal class ParseScalarRegex : Parser<ScalarRegexAst>.I
 {
-  public IResult<ScalarRegexAst> Parse<TContext>(TContext tokens)
+  public IResult<ScalarRegexAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     ScalarRegexAst? result = null;

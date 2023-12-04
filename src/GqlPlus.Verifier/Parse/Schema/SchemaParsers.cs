@@ -26,14 +26,14 @@ public static class SchemaParsers
       .AddSingleton<TypeName>()
       // Enum
       .AddParser<EnumDefinition, ParseEnumDefinition>()
-      .AddSingleton<IParser<EnumLabelAst>, ParseEnumLabel>()
+      .AddParser<EnumLabelAst, ParseEnumLabel>()
       .AddParser<EnumAst, ParseEnum>()
       // Scalar
       .AddParser<ScalarDefinition, ParseScalarDefinition>()
-      .AddSingleton<IParser<ScalarRangeAst>, ParseScalarRange>()
-      .AddSingleton<IParserArray<ScalarRangeAst>, ArrayParser<ScalarRangeAst>>()
-      .AddSingleton<IParser<ScalarRegexAst>, ParseScalarRegex>()
-      .AddSingleton<IParserArray<ScalarRegexAst>, ArrayParser<ScalarRegexAst>>()
+      .AddParser<ScalarRangeAst, ParseScalarRange>()
+      .AddParserArray<ScalarRangeAst, ArrayParser<ScalarRangeAst>>()
+      .AddParser<ScalarRegexAst, ParseScalarRegex>()
+      .AddParserArray<ScalarRegexAst, ArrayParser<ScalarRegexAst>>()
       .AddParser<ScalarAst, ParseScalar>()
       // Objects
       .AddParserArray<TypeParameterAst, ParseTypeParameters>()

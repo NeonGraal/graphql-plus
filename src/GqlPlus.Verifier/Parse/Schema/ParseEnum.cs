@@ -40,10 +40,10 @@ internal class EnumDefinition
 
 internal class ParseEnumDefinition : Parser<EnumDefinition>.I
 {
-  private readonly IParser<EnumLabelAst> _enumLabel;
+  private readonly Parser<EnumLabelAst>.L _enumLabel;
 
-  public ParseEnumDefinition(IParser<EnumLabelAst> enumLabel)
-    => _enumLabel = enumLabel.ThrowIfNull();
+  public ParseEnumDefinition(Parser<EnumLabelAst>.D enumLabel)
+    => _enumLabel = enumLabel;
 
   public IResult<EnumDefinition> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -60,7 +60,7 @@ internal class ParseEnumDefinition : Parser<EnumDefinition>.I
 
     List<EnumLabelAst> labels = new();
     while (!tokens.Take("}")) {
-      var enumLabel = _enumLabel.Parse(tokens);
+      var enumLabel = _enumLabel.Parse(tokens, "Enum Label");
       if (!enumLabel.Required(labels.Add)) {
         result.Labels = labels.ToArray();
         return enumLabel.AsResult(result);

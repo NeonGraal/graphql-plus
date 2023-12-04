@@ -9,18 +9,18 @@ public static class SchemaParsers
   public static IServiceCollection AddSchemaParsers(this IServiceCollection services)
     => services
       .AddSingleton<CategoryName>()
-      .AddSingleton<IParser<NullAst>, ParseNull>()
+      .AddParser<NullAst, ParseNull>()
       .AddParserArray<NullAst, ParseNulls>()
       .AddParserArray<ParameterAst, ParseParameters>()
       .AddSingleton<IParserArray<string>, ParseAliases>()
       .AddSingleton<TypeName>()
       // Category
-      .AddSingleton<IParser<CategoryOption>, ParseCategoryOption>()
+      .AddOption<CategoryOption>()
       .AddSingleton<IParser<CategoryOutput>, ParseCategoryDefinition>()
       .AddSingleton<IParser<CategoryAst>, ParseCategory>()
       // Directive
       .AddSingleton<DirectiveName>()
-      .AddSingleton<IParser<DirectiveOption>, ParseDirectiveOption>()
+      .AddOption<DirectiveOption>()
       .AddSingleton<IParser<DirectiveLocation>, ParseDirectiveDefinition>()
       .AddSingleton<IParser<DirectiveAst>, ParseDirective>()
       // Enum
@@ -41,6 +41,10 @@ public static class SchemaParsers
       // Schema
       .AddSingleton<IParser<SchemaAst>, ParseSchema>()
       ;
+
+  public static IServiceCollection AddOption<O>(this IServiceCollection services)
+    where O : struct
+    => services.AddParser<O, OptionParser<O>>();
 
   public static IServiceCollection AddObjectParser<P, D, O, F, R>(this IServiceCollection services)
     where P : class, IObjectParser<O, F, R>

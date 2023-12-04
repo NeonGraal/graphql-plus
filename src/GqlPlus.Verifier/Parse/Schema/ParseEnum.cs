@@ -10,7 +10,7 @@ internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDef
     TypeName name,
     Parser<NullAst>.DA param,
     IParserArray<string> aliases,
-    IParser<NullAst> option,
+    Parser<NullAst>.D option,
     IParser<EnumDefinition> definition
   ) : base(name, param, aliases, option, definition)
   {

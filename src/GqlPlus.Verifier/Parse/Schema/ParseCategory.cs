@@ -10,7 +10,7 @@ internal class ParseCategory : DeclarationParser<CategoryName, NullAst, Category
     CategoryName name,
     Parser<NullAst>.DA param,
     IParserArray<string> aliases,
-    IParser<CategoryOption> option,
+    Parser<CategoryOption>.D option,
     IParser<CategoryOutput> definition
   ) : base(name, param, aliases, option, definition)
   {
@@ -47,11 +47,6 @@ internal class CategoryName : INameParser
     tokens.Identifier(out name);
     return true;
   }
-}
-
-internal class ParseCategoryOption : OptionParser<CategoryOption>
-{
-  protected override string Label => "Category";
 }
 
 internal class ParseCategoryDefinition : IParser<CategoryOutput>

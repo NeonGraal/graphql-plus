@@ -13,7 +13,7 @@ internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputRefer
     TypeName name,
     Parser<TypeParameterAst>.DA param,
     IParserArray<string> aliases,
-    IParser<NullAst> option,
+    Parser<NullAst>.D option,
     IParser<ObjectDefinition<OutputFieldAst, OutputReferenceAst>> definition,
     Parser<ParameterAst>.DA parameter
   ) : base(modifiers, name, param, aliases, option, definition)

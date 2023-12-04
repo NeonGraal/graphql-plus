@@ -1,20 +1,18 @@
 ﻿namespace GqlPlus.Verifier.Parse.Schema;
 
-internal abstract class OptionParser<O> : IParser<O>
+internal class OptionParser<O> : Parser<O>.I
   where O : struct
 {
-  protected abstract string Label { get; }
-
-  public IResult<O> Parse<TContext>(TContext tokens)
+  public IResult<O> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     if (tokens.Take('(')) {
-      var enumValue = tokens.ParseEnumValue<O>(Label);
+      var enumValue = tokens.ParseEnumValue<O>(label);
 
       return enumValue.Map(result =>
         tokens.Take(')')
           ? enumValue
-          : tokens.Partial(Label, "')' after option", () => result));
+          : tokens.Partial(label, "')' after option", () => result));
     }
 
     return 0.Empty<O>();

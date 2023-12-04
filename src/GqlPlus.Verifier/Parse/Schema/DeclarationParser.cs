@@ -10,7 +10,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 {
   private readonly TName _name;
   private readonly Parser<TParam>.LA _param;
-  private readonly IParser<TOption> _option;
+  private readonly Parser<TOption>.L _option;
   private readonly IParser<TDefinition> _definition;
 
   protected readonly IParserArray<string> Aliases;
@@ -20,13 +20,13 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
     TName name,
     Parser<TParam>.DA param,
     IParserArray<string> aliases,
-    IParser<TOption> option,
+    Parser<TOption>.D option,
     IParser<TDefinition> definition)
   {
     _name = name.ThrowIfNull();
     _param = param;
     Aliases = aliases.ThrowIfNull();
-    _option = option.ThrowIfNull();
+    _option = option;
     _definition = definition.ThrowIfNull();
   }
 
@@ -55,7 +55,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
       return tokens.Partial(Label, "'{' before definition", () => result);
     }
 
-    var option = _option.Parse(tokens);
+    var option = _option.Parse(tokens, Label);
     if (!ApplyOption(result, option)) {
       return option.AsPartial(result);
     }

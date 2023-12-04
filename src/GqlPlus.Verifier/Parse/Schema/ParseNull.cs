@@ -2,9 +2,9 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseNull : IParser<NullAst>
+internal class ParseNull : Parser<NullAst>.I
 {
-  public IResult<NullAst> Parse<TContext>(TContext tokens)
+  public IResult<NullAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
     => 0.Empty<NullAst>();
 }

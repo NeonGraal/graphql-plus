@@ -9,7 +9,7 @@ internal class ParseDirective : DeclarationParser<DirectiveName, ParameterAst, D
     DirectiveName name,
     Parser<ParameterAst>.DA param,
     IParserArray<string> aliases,
-    IParser<DirectiveOption> option,
+    Parser<DirectiveOption>.D option,
     IParser<DirectiveLocation> definition
   ) : base(name, param, aliases, option, definition) { }
 
@@ -33,11 +33,6 @@ internal class DirectiveName : INameParser
 {
   public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
     => tokens.Prefix('@', out name, out at);
-}
-
-internal class ParseDirectiveOption : OptionParser<DirectiveOption>
-{
-  protected override string Label => "Directive";
 }
 
 internal class ParseDirectiveDefinition : IParser<DirectiveLocation>

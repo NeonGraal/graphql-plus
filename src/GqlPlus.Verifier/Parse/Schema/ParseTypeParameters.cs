@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseTypeParameters : IParserArray<TypeParameterAst>
+internal class ParseTypeParameters : Parser<TypeParameterAst>.IA
 {
   public IResultArray<TypeParameterAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

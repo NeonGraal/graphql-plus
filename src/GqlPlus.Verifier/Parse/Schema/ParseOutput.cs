@@ -6,18 +6,18 @@ namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputReferenceAst>
 {
-  private readonly IParserArray<ParameterAst> _parameter;
+  private readonly Parser<ParameterAst>.LA _parameter;
 
   public ParseOutput(
     Parser<ModifierAst>.DA modifiers,
     TypeName name,
-    IParserArray<TypeParameterAst> param,
+    Parser<TypeParameterAst>.DA param,
     IParserArray<string> aliases,
     IParser<NullAst> option,
     IParser<ObjectDefinition<OutputFieldAst, OutputReferenceAst>> definition,
-    IParserArray<ParameterAst> parameter
+    Parser<ParameterAst>.DA parameter
   ) : base(modifiers, name, param, aliases, option, definition)
-    => _parameter = parameter.ThrowIfNull();
+    => _parameter = parameter;
 
   protected override string Label => "Output";
 

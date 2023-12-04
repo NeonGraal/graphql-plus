@@ -11,7 +11,7 @@ internal class ParseInput : ObjectParser<InputAst, InputFieldAst, InputReference
   public ParseInput(
     Parser<ModifierAst>.DA modifiers,
     TypeName name,
-    IParserArray<TypeParameterAst> param,
+    Parser<TypeParameterAst>.DA param,
     IParserArray<string> aliases,
     IParser<NullAst> option,
     IParser<ObjectDefinition<InputFieldAst, InputReferenceAst>> definition,

@@ -9,7 +9,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   where TResult : AstAliased
 {
   private readonly TName _name;
-  private readonly IParserArray<TParam> _param;
+  private readonly Parser<TParam>.LA _param;
   private readonly IParser<TOption> _option;
   private readonly IParser<TDefinition> _definition;
 
@@ -18,13 +18,13 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 
   public DeclarationParser(
     TName name,
-    IParserArray<TParam> param,
+    Parser<TParam>.DA param,
     IParserArray<string> aliases,
     IParser<TOption> option,
     IParser<TDefinition> definition)
   {
     _name = name.ThrowIfNull();
-    _param = param.ThrowIfNull();
+    _param = param;
     Aliases = aliases.ThrowIfNull();
     _option = option.ThrowIfNull();
     _definition = definition.ThrowIfNull();

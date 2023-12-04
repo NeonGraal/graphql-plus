@@ -9,7 +9,7 @@ internal class ParseNull : IParser<NullAst>
     => 0.Empty<NullAst>();
 }
 
-internal class ParseNulls : IParserArray<NullAst>
+internal class ParseNulls : Parser<NullAst>.IA
 {
   public IResultArray<NullAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

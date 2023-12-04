@@ -8,7 +8,7 @@ internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDef
 {
   public ParseEnum(
     TypeName name,
-    IParserArray<NullAst> param,
+    Parser<NullAst>.DA param,
     IParserArray<string> aliases,
     IParser<NullAst> option,
     IParser<EnumDefinition> definition

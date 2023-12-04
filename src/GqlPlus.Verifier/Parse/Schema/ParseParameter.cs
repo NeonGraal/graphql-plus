@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseParameters : IParserArray<ParameterAst>
+internal class ParseParameters : Parser<ParameterAst>.IA
 {
   private readonly IParser<InputReferenceAst> _input;
   private readonly Parser<ModifierAst>.LA _modifiers;

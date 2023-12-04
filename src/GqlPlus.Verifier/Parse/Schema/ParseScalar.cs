@@ -8,7 +8,7 @@ internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, Scala
 {
   public ParseScalar(
     TypeName name,
-    IParserArray<NullAst> param,
+    Parser<NullAst>.DA param,
     IParserArray<string> aliases,
     IParser<NullAst> option,
     IParser<ScalarDefinition> definition

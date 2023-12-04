@@ -8,7 +8,7 @@ internal class ParseCategory : DeclarationParser<CategoryName, NullAst, Category
 {
   public ParseCategory(
     CategoryName name,
-    IParserArray<NullAst> param,
+    Parser<NullAst>.DA param,
     IParserArray<string> aliases,
     IParser<CategoryOption> option,
     IParser<CategoryOutput> definition

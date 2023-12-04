@@ -15,7 +15,7 @@ internal abstract class ObjectParser<O, F, R>
   protected ObjectParser(
     Parser<ModifierAst>.DA modifiers,
     TypeName name,
-    IParserArray<TypeParameterAst> param,
+    Parser<TypeParameterAst>.DA param,
     IParserArray<string> aliases,
     IParser<NullAst> option,
     IParser<ObjectDefinition<F, R>> definition

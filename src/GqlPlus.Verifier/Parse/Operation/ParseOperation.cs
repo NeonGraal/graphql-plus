@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Parse.Operation;
 internal class ParseOperation : IParser<OperationAst>
 {
   private readonly Parser<IParserArgument, ArgumentAst>.L _argument;
-  private readonly IParserArray<DirectiveAst> _directives;
+  private readonly Parser<DirectiveAst>.LA _directives;
   private readonly IParserStartFragments _startFragments;
   private readonly IParserEndFragments _endFragments;
   private readonly Parser<ModifierAst>.LA _modifiers;
@@ -15,7 +15,7 @@ internal class ParseOperation : IParser<OperationAst>
 
   public ParseOperation(
     Parser<IParserArgument, ArgumentAst>.D argument,
-    IParserArray<DirectiveAst> directives,
+    Parser<DirectiveAst>.DA directives,
     IParserStartFragments startFragments,
     IParserEndFragments endFragments,
     Parser<ModifierAst>.DA modifiers,
@@ -23,7 +23,7 @@ internal class ParseOperation : IParser<OperationAst>
     IParserArray<VariableAst> variables)
   {
     _argument = argument;
-    _directives = directives.ThrowIfNull();
+    _directives = directives;
     _startFragments = startFragments.ThrowIfNull();
     _endFragments = endFragments.ThrowIfNull();
     _modifiers = modifiers;

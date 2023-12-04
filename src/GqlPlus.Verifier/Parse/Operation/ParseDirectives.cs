@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal class ParseDirectives : IParserArray<DirectiveAst>
+internal class ParseDirectives : Parser<DirectiveAst>.IA
 {
   private readonly Parser<IParserArgument, ArgumentAst>.L _argument;
 

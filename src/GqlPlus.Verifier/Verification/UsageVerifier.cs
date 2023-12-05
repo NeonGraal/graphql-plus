@@ -1,41 +1,52 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-internal abstract class UsageVerifier<TUsage, TDefinition> : IVerify<TUsage[]>
+internal abstract class UsageVerifier<TUsage, TDefinition>(
+    IVerify<TUsage>? usage,
+    IVerify<TDefinition>? definition
+) : IVerifyUsage<TUsage, TDefinition>
   where TUsage : AstBase where TDefinition : AstNamed
 {
-  public abstract bool Verify<TContext>(TContext context, TUsage[] target) where TContext : VerificationContext;
+  public abstract string Label { get; }
+  public abstract string UsageKey(TUsage item);
 
-  protected void VerifyUsages(
-    TUsage[] usages,
-    TDefinition[] definitions,
-    VerificationContext context
-  )
+  public IEnumerable<TokenMessage> Verify(UsageDefinitions<TUsage, TDefinition> target)
   {
-    var used = usages.ToDictionary(UsageKey);
+    var errors = new List<TokenMessage>();
 
-    var defined = definitions.ToDictionary(f => f.Name);
+    var used = target.Usages.ToDictionary(UsageKey);
+
+    var defined = target.Definitions.ToDictionary(f => f.Name);
 
     foreach (var (k, u) in used) {
       if (!defined.ContainsKey(k)) {
-        context.Error(u, $"Invalid {Label} usage. {Label} not defined.");
+        errors.Add(u.Error($"Invalid {Label} usage. {Label} not defined."));
       }
 
-      VerifyUsage(u, context);
+      if (usage is not null) {
+        errors.AddRange(usage.Verify(u));
+      }
     }
 
     foreach (var (k, d) in defined) {
       if (!used.ContainsKey(k)) {
-        context.Error(d, $"Invalid {Label} definition. {Label} not used.");
+        errors.Add(d.Error($"Invalid {Label} definition. {Label} not used."));
       }
 
-      VerifyDefinition(d, context);
+      if (definition is not null) {
+        errors.AddRange(definition.Verify(d));
+      }
     }
-  }
 
-  public abstract string Label { get; }
-  public abstract string UsageKey(TUsage item);
-  protected abstract void VerifyDefinition(TDefinition d, VerificationContext context);
-  protected abstract void VerifyUsage(TUsage u, VerificationContext context);
+    return errors;
+  }
 }
+
+public record class UsageDefinitions<TUsage, TDefinition>(TUsage[] Usages, TDefinition[] Definitions)
+  where TUsage : AstBase where TDefinition : AstNamed;
+
+public interface IVerifyUsage<TUsage, TDefinition> : IVerify<UsageDefinitions<TUsage, TDefinition>>
+    where TUsage : AstBase where TDefinition : AstNamed
+{ }

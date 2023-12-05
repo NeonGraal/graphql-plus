@@ -1,26 +1,20 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Operation;
+﻿using GqlPlus.Verifier.Ast.Operation;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-internal class VerifyOperation(IVerify<ArgumentAst[]> usages, IVerify<SpreadAst[]> spreads) : IVerify<OperationAst>
+internal class VerifyOperation(
+  IVerifyUsage<ArgumentAst, VariableAst> usages,
+  IVerifyUsage<SpreadAst, FragmentAst> spreads
+) : IVerify<OperationAst>
 {
-  private readonly IVerify<ArgumentAst[]> _usages = usages;
-  private readonly IVerify<SpreadAst[]> _spreads = spreads;
-
-  public bool Verify<TContext>(TContext context, OperationAst target)
-    where TContext : VerificationContext
+  public IEnumerable<TokenMessage> Verify(OperationAst target)
   {
-    if (!_usages.Verify(new VariablesContext(context, target.Variables), target.Usages)) {
+    var errors = new List<TokenMessage>();
 
-    }
+    errors.AddRange(usages.Verify(new(target.Usages, target.Variables)));
+    errors.AddRange(spreads.Verify(new(target.Spreads, target.Fragments)));
 
-    if (!_spreads.Verify(new FragmentsContext(context, target.Fragments), target.Spreads)) {
-
-    }
-
-    target.Errors = [.. context.Errors];
-
-    return target.Result == ParseResultKind.Success && !target.Errors.Any();
+    return errors.Union(target.Errors);
   }
 }

@@ -1,7 +1,8 @@
-﻿namespace GqlPlus.Verifier.Verification;
+﻿using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Verification;
 
 public interface IVerify<TTarget>
 {
-  bool Verify<TContext>(TContext context, TTarget target)
-    where TContext : VerificationContext;
+  IEnumerable<TokenMessage> Verify(TTarget target);
 }

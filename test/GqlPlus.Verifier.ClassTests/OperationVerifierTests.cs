@@ -2,6 +2,7 @@
 using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
 using GqlPlus.Verifier.Result;
+using GqlPlus.Verifier.Token;
 using GqlPlus.Verifier.Verification;
 
 namespace GqlPlus.Verifier;
@@ -17,13 +18,9 @@ public class OperationVerifierTests
       error.Message.Should().BeNull();
     }
 
-    VerificationContext context = new();
-    var result = _verifier.Verify(context, parse.Required());
+    var result = _verifier.Verify(parse.Required());
 
-    using var scope = new AssertionScope();
-
-    result.Should().BeTrue();
-    context.Errors.Should().BeNullOrEmpty();
+    result.Should().BeNullOrEmpty();
   }
 
   [Theory]
@@ -32,18 +29,14 @@ public class OperationVerifierTests
   {
     var parse = Parse(operation);
 
-    var result = false;
-    VerificationContext context = new();
+    var result = new List<TokenMessage>();
     if (parse.IsOk()) {
-      result = _verifier.Verify(context, parse.Required());
+      result.AddRange(_verifier.Verify(parse.Required()));
     } else {
-      parse.IsError(context.Errors.Add);
+      parse.IsError(result.Add);
     }
 
-    using var scope = new AssertionScope();
-
-    result.Should().BeFalse();
-    context.Errors.Should().NotBeNullOrEmpty();
+    result.Should().NotBeNullOrEmpty();
   }
 
   private readonly Parser<OperationAst>.L _parser;

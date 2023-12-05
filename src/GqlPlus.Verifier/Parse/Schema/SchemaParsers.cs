@@ -48,7 +48,7 @@ public static class SchemaParsers
       .AddParser<OutputAst, ParseOutput>()
       .AddObjectParser<ParseOutputDefinition, OutputFieldAst, OutputReferenceAst>()
       // Schema
-      .AddSingleton<IParser<SchemaAst>, ParseSchema>()
+      .AddParser<SchemaAst, ParseSchema>()
       ;
 
   public static IServiceCollection AddOption<O>(this IServiceCollection services)

@@ -4,8 +4,8 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Verification;
 
 internal abstract class UsageVerifier<TUsage, TDefinition>(
-    IVerify<TUsage>? usage,
-    IVerify<TDefinition>? definition
+    IVerify<TUsage> usage,
+    IVerify<TDefinition> definition
 ) : IVerifyUsage<TUsage, TDefinition>
   where TUsage : AstBase where TDefinition : AstNamed
 {

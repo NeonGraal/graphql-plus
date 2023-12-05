@@ -7,8 +7,12 @@ using GqlPlus.Verifier.Verification;
 
 namespace GqlPlus.Verifier;
 
-public class OperationVerifierTests
+public class OperationVerifierTests(
+    Parser<OperationAst>.D parser,
+    IVerify<OperationAst> verifier)
 {
+  private readonly Parser<OperationAst>.L _parser = parser;
+
   [Theory]
   [ClassData(typeof(ValidGraphQlPlusOperations))]
   public void Verify_ValidOperations_ReturnsValid(string operation)
@@ -18,7 +22,7 @@ public class OperationVerifierTests
       error.Message.Should().BeNull();
     }
 
-    var result = _verifier.Verify(parse.Required());
+    var result = verifier.Verify(parse.Required());
 
     result.Should().BeNullOrEmpty();
   }
@@ -31,23 +35,12 @@ public class OperationVerifierTests
 
     var result = new List<TokenMessage>();
     if (parse.IsOk()) {
-      result.AddRange(_verifier.Verify(parse.Required()));
+      result.AddRange(verifier.Verify(parse.Required()));
     } else {
       parse.IsError(result.Add);
     }
 
     result.Should().NotBeNullOrEmpty();
-  }
-
-  private readonly Parser<OperationAst>.L _parser;
-  private readonly IVerify<OperationAst> _verifier;
-
-  public OperationVerifierTests(
-    Parser<OperationAst>.D parser,
-    IVerify<OperationAst> verifier)
-  {
-    _parser = parser;
-    _verifier = verifier;
   }
 
   private IResult<OperationAst> Parse(string operation)

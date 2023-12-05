@@ -5,7 +5,7 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseSchema : IParser<SchemaAst>
+internal class ParseSchema : Parser<SchemaAst>.I
 {
 
   private delegate IResult<AstDeclaration> Parser(Tokenizer tokens, string label);
@@ -30,12 +30,12 @@ internal class ParseSchema : IParser<SchemaAst>
     _parsers.Add("scalar", MakeParser<ScalarAst>(scalar));
   }
 
-  public IResult<SchemaAst> Parse<TContext>(TContext tokens)
+  public IResult<SchemaAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     if (tokens.AtStart) {
       if (!tokens.Read()) {
-        return tokens.Error<SchemaAst>("Schema", "text");
+        return tokens.Error<SchemaAst>(label, "text");
       }
     }
 
@@ -50,12 +50,12 @@ internal class ParseSchema : IParser<SchemaAst>
         declaration.WithMessage(tokens.Errors.Add);
         declaration.WithResult(declarations.Add);
       } else {
-        tokens.Error("Schema", $"declaration selector. '{selector}' unknown");
+        tokens.Error(label, $"declaration selector. '{selector}' unknown");
       }
     }
 
     if (!tokens.AtEnd) {
-      tokens.Error("Schema", "no more text");
+      tokens.Error(label, "no more text");
     }
 
     if (tokens.Errors.Count == 0) {
@@ -63,8 +63,8 @@ internal class ParseSchema : IParser<SchemaAst>
     }
 
     ast = ast with {
-      Declarations = declarations.ToArray(),
-      Errors = tokens.Errors.ToArray(),
+      Declarations = [.. declarations],
+      Errors = [.. tokens.Errors],
     };
 
     return ast.Ok();

@@ -4,12 +4,9 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public class SchemaParserTests
+public class SchemaParserTests(Parser<SchemaAst>.D parser)
 {
-  private readonly IParser<SchemaAst> _parser;
-
-  public SchemaParserTests(IParser<SchemaAst> parser)
-    => _parser = parser.ThrowIfNull();
+  private readonly Parser<SchemaAst>.L _parser = parser;
 
   [Theory]
   [InlineData("category { Query }")]
@@ -18,7 +15,7 @@ public class SchemaParserTests
   {
     var tokens = new Tokenizer(input);
 
-    var ast = _parser.Parse(tokens).Required();
+    var ast = _parser.Parse(tokens, "Schema").Required();
 
     using var scope = new AssertionScope();
 
@@ -33,7 +30,7 @@ public class SchemaParserTests
   {
     var tokens = new Tokenizer(input);
 
-    var result = _parser.Parse(tokens);
+    var result = _parser.Parse(tokens, "Schema");
     result.Optional(ast => {
       using var scope = new AssertionScope();
 
@@ -49,7 +46,7 @@ public class SchemaParserTests
   {
     var tokens = new Tokenizer(input);
 
-    var ast = _parser.Parse(tokens).Optional();
+    var ast = _parser.Parse(tokens, "Schema").Optional();
 
     using var scope = new AssertionScope();
 

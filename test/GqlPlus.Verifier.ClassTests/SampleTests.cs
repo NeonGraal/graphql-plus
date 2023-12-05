@@ -9,8 +9,13 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier;
 
 [UsesVerify]
-public class SampleTests
+public class SampleTests(
+    Parser<OperationAst>.D operation,
+    Parser<SchemaAst>.D schema)
 {
+  private readonly Parser<OperationAst>.L _operation = operation;
+  private readonly Parser<SchemaAst>.L _schema = schema;
+
   [Theory]
   [InlineData("all")]
   [InlineData("default")]
@@ -28,7 +33,7 @@ public class SampleTests
     var schema = File.ReadAllText("Sample/Schema/" + sample + ".graphql+");
     Tokenizer tokens = new(schema);
 
-    var ast = _schema.Parse(tokens).Required();
+    var ast = _schema.Parse(tokens, "Schema").Required();
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
@@ -68,17 +73,6 @@ public class SampleTests
     settings.UseFileName("Example_" + example);
 
     await Verify(ast.Render(), settings);
-  }
-
-  private readonly Parser<OperationAst>.L _operation;
-  private readonly IParser<SchemaAst> _schema;
-
-  public SampleTests(
-    Parser<OperationAst>.D operation,
-    IParser<SchemaAst> schema)
-  {
-    _operation = operation;
-    _schema = schema.ThrowIfNull();
   }
 
   public class GraphQlExamplesData : TheoryData<string>

@@ -1,5 +1,8 @@
 ﻿using GqlPlus.Verifier.Ast.Operation;
 using GqlPlus.Verifier.Parse;
+using GqlPlus.Verifier.Parse.Operation;
+using GqlPlus.Verifier.Result;
+using GqlPlus.Verifier.Verification;
 
 namespace GqlPlus.Verifier;
 
@@ -9,30 +12,56 @@ public class OperationVerifierTests
   [ClassData(typeof(ValidGraphQlPlusOperations))]
   public void Verify_ValidOperations_ReturnsValid(string operation)
   {
-    var result = OperationVerifier.Verify(operation, _parser, out var errors);
+    var parse = Parse(operation);
+    if (parse is IResultError<OperationAst> error) {
+      error.Message.Should().BeNull();
+    }
+
+    VerificationContext context = new();
+    var result = _verifier.Verify(context, parse.Required());
 
     using var scope = new AssertionScope();
 
     result.Should().BeTrue();
-    errors.Should().BeNullOrEmpty();
+    context.Errors.Should().BeNullOrEmpty();
   }
 
   [Theory]
   [ClassData(typeof(InvalidGraphQlPlusOperations))]
   public void Verify_InvalidOperations_ReturnsInvalid(string operation)
   {
-    var result = OperationVerifier.Verify(operation, _parser, out var errors);
+    var parse = Parse(operation);
+
+    var result = false;
+    VerificationContext context = new();
+    if (parse.IsOk()) {
+      result = _verifier.Verify(context, parse.Required());
+    } else {
+      parse.IsError(context.Errors.Add);
+    }
 
     using var scope = new AssertionScope();
 
     result.Should().BeFalse();
-    errors.Should().NotBeNullOrEmpty();
+    context.Errors.Should().NotBeNullOrEmpty();
   }
 
   private readonly Parser<OperationAst>.L _parser;
+  private readonly IVerify<OperationAst> _verifier;
 
-  public OperationVerifierTests(Parser<OperationAst>.D parser)
-    => _parser = parser;
+  public OperationVerifierTests(
+    Parser<OperationAst>.D parser,
+    IVerify<OperationAst> verifier)
+  {
+    _parser = parser;
+    _verifier = verifier;
+  }
+
+  private IResult<OperationAst> Parse(string operation)
+  {
+    OperationContext tokens = new(operation);
+    return _parser.Parse(tokens, "Operation");
+  }
 
   public class ValidGraphQlPlusOperations : TheoryData<string>
   {

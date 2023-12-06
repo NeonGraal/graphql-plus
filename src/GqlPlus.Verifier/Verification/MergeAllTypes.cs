@@ -5,8 +5,5 @@ namespace GqlPlus.Verifier.Verification;
 internal class MergeAllTypes
   : IMerge<AstType>
 {
-  public bool CanMerge(AstType[] items)
-  {
-    return true;
-  }
+  public bool CanMerge(AstType[] items) => items.Select(i => i.GetType()).Distinct().Count() < 2;
 }

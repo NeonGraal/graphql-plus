@@ -6,7 +6,7 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputReferenceAst>
+internal class ParseOutput : ObjectParser<OutputDeclAst, OutputFieldAst, OutputReferenceAst>
 {
   public ParseOutput(
     TypeName name,
@@ -17,17 +17,17 @@ internal class ParseOutput : ObjectParser<OutputAst, OutputFieldAst, OutputRefer
   ) : base(name, param, aliases, option, definition)
   { }
 
-  protected override void ApplyDefinition(OutputAst result, ObjectDefinition<OutputFieldAst, OutputReferenceAst> value)
+  protected override void ApplyDefinition(OutputDeclAst result, ObjectDefinition<OutputFieldAst, OutputReferenceAst> value)
   {
     result.Extends = value.Extends;
     result.Fields = value.Fields;
     result.Alternates = value.Alternates;
   }
 
-  protected override bool ApplyOption(OutputAst result, IResult<NullAst> option) => true;
+  protected override bool ApplyOption(OutputDeclAst result, IResult<NullAst> option) => true;
 
   [return: NotNull]
-  protected override OutputAst MakeResult(TokenAt at, string? name, string description)
+  protected override OutputDeclAst MakeResult(TokenAt at, string? name, string description)
     => new(at, name!, description);
 }
 

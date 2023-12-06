@@ -4,38 +4,26 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Verification;
 
 internal class VerifySchema(
-  IVerifyAliased<CategoryAst> categories,
-  IVerifyUsageAliased<CategoryAst, OutputAst> categoryOutputs,
-  IVerifyUsageAliased<EnumAst, AstType> enumAllTypes,
-  IVerifyUsageAliased<InputAst, AstType> inputAllTypes,
-  IVerifyUsageAliased<OutputAst, AstType> outputAllTypes,
-  IVerifyUsageAliased<ScalarAst, AstType> scalarAllTypes
+  IVerifyAliased<CategoryDeclAst> categories,
+  IVerifyUsageAliased<CategoryDeclAst, OutputDeclAst> categoryOutputs,
+  IVerifyAliased<DirectiveDeclAst> directives,
+  IVerifyUsageAliased<DirectiveDeclAst, InputDeclAst> directiveInputs,
+  IVerify<AstType[]> types
 ) : IVerify<SchemaAst>
 {
   public ITokenMessages Verify(SchemaAst target)
   {
     var errors = new TokenMessages();
 
-    var categoryDeclarations = target.Declarations.OfType<CategoryAst>().ToArray();
-
-    errors.AddRange(categories.Verify(categoryDeclarations));
-
+    var allCategories = target.Declarations.OfType<CategoryDeclAst>().ToArray();
+    var allDirectives = target.Declarations.OfType<DirectiveDeclAst>().ToArray();
     var allTypes = target.Declarations.OfType<AstType>().ToArray();
 
-    var enumTypes = allTypes.OfType<EnumAst>().ToArray();
-    var inputTypes = allTypes.OfType<InputAst>().ToArray();
-    var outputTypes = allTypes.OfType<OutputAst>().ToArray();
-    var scalarTypes = allTypes.OfType<ScalarAst>().ToArray();
-
-    var allInputTypes = allTypes.Except(outputTypes).ToArray();
-    var allOutputTypes = allTypes.Except(inputTypes).ToArray();
-
-    errors.AddRange(categoryOutputs.Verify(new(categoryDeclarations, outputTypes)));
-
-    errors.AddRange(enumAllTypes.Verify(new(enumTypes, allTypes)));
-    errors.AddRange(inputAllTypes.Verify(new(inputTypes, allInputTypes)));
-    errors.AddRange(outputAllTypes.Verify(new(outputTypes, allOutputTypes)));
-    errors.AddRange(scalarAllTypes.Verify(new(scalarTypes, allTypes)));
+    errors.AddRange(categories.Verify(allCategories));
+    errors.AddRange(categoryOutputs.Verify(new(allCategories, [.. allTypes.OfType<OutputDeclAst>()])));
+    errors.AddRange(directives.Verify(allDirectives));
+    errors.AddRange(directiveInputs.Verify(new(allDirectives, [.. allTypes.OfType<InputDeclAst>()])));
+    errors.AddRange(types.Verify(allTypes));
 
     errors.AddRange(target.Errors);
     return errors;

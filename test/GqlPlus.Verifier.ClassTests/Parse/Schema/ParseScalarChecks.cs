@@ -3,13 +3,13 @@
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal sealed class ParseScalarChecks
-  : BaseAliasedParserChecks<ScalarInput, ScalarAst>
+  : BaseAliasedParserChecks<ScalarInput, ScalarDeclAst>
 {
-  public ParseScalarChecks(Parser<ScalarAst>.D parser)
+  public ParseScalarChecks(Parser<ScalarDeclAst>.D parser)
     : base(parser)
   { }
 
-  protected internal override ScalarAst AliasedFactory(ScalarInput input)
+  protected internal override ScalarDeclAst AliasedFactory(ScalarInput input)
     => new(AstNulls.At, input.Name) {
       Kind = ScalarKind.String,
       Regexes = input.Regex.ScalarRegexes(),

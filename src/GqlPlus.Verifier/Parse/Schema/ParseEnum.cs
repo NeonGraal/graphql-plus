@@ -6,7 +6,7 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDefinition, EnumAst>
+internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDefinition, EnumDeclAst>
 {
   public ParseEnum(
     TypeName name,
@@ -18,17 +18,17 @@ internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDef
   {
   }
 
-  protected override void ApplyDefinition(EnumAst result, EnumDefinition value)
+  protected override void ApplyDefinition(EnumDeclAst result, EnumDefinition value)
   {
     result.Extends = value.Extends;
     result.Labels = value.Labels;
   }
 
-  protected override bool ApplyOption(EnumAst result, IResult<NullAst> option) => true;
-  protected override bool ApplyParameters(EnumAst result, IResultArray<NullAst> parameter) => true;
+  protected override bool ApplyOption(EnumDeclAst result, IResult<NullAst> option) => true;
+  protected override bool ApplyParameters(EnumDeclAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
-  protected override EnumAst MakeResult(TokenAt at, string? name, string description)
+  protected override EnumDeclAst MakeResult(TokenAt at, string? name, string description)
     => new(at, name!, description);
 }
 

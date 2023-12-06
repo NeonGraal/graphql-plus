@@ -19,7 +19,7 @@ public sealed class ParseScalarTests
   public void WithRegexes_ReturnsCorrectAst(string name, string regex1, string regex2)
     => _test.TrueExpected(
       name + "{string/" + regex1 + "/!/" + regex2 + "/}",
-      new ScalarAst(AstNulls.At, name) {
+      new ScalarDeclAst(AstNulls.At, name) {
         Kind = ScalarKind.String,
         Regexes = regex1.ScalarRegexes(regex2),
       });
@@ -36,7 +36,7 @@ public sealed class ParseScalarTests
   public void WithLowerBound_ReturnsCorrectAst(string name, decimal min)
     => _test.TrueExpected(
       name + $"{{number {min}..}}",
-      new ScalarAst(AstNulls.At, name) {
+      new ScalarDeclAst(AstNulls.At, name) {
         Kind = ScalarKind.Number,
         Ranges = new ScalarRangeAst[] { new(AstNulls.At, min, null) },
       });
@@ -49,7 +49,7 @@ public sealed class ParseScalarTests
   public void WithUpperBound_ReturnsCorrectAst(string name, decimal max)
     => _test.TrueExpected(
       name + $"{{number ..{max}}}",
-      new ScalarAst(AstNulls.At, name) {
+      new ScalarDeclAst(AstNulls.At, name) {
         Kind = ScalarKind.Number
         ,
         Ranges = new ScalarRangeAst[] { new(AstNulls.At, null, max) },
@@ -59,7 +59,7 @@ public sealed class ParseScalarTests
   public void WithRangeBounds_ReturnsCorrectAst(string name, decimal min, decimal max)
     => _test.TrueExpected(
       name + $"{{number {min}>..<{max}}}",
-      new ScalarAst(AstNulls.At, name) {
+      new ScalarDeclAst(AstNulls.At, name) {
         Kind = ScalarKind.Number,
         Ranges = new ScalarRangeAst[] { new(AstNulls.At, min, max) {
           LowerExcluded = true, UpperExcluded = true,
@@ -77,6 +77,6 @@ public sealed class ParseScalarTests
 
   private readonly ParseScalarChecks _test;
 
-  public ParseScalarTests(Parser<ScalarAst>.D parser)
+  public ParseScalarTests(Parser<ScalarDeclAst>.D parser)
     => _test = new(parser);
 }

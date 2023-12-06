@@ -9,7 +9,7 @@ public sealed class ParseCategoryTests
   public void WithOption_ReturnsCorrectAst(string output, CategoryOption option)
     => _test.Ok(
       "{(" + option.ToString().ToLowerInvariant() + ")" + output + "}",
-      new CategoryAst(AstNulls.At, output) { Option = option });
+      new CategoryDeclAst(AstNulls.At, output) { Option = option });
 
   [Theory, RepeatData(Repeats)]
   public void WithOptionBad_ReturnsFalse(string output, CategoryOption option)
@@ -25,13 +25,13 @@ public sealed class ParseCategoryTests
   public void WithName_ReturnsCorrectAst(string output, string name)
     => _test.Ok(
       name + "{" + output + "}",
-      new CategoryAst(AstNulls.At, name, output));
+      new CategoryDeclAst(AstNulls.At, name, output));
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string name, string output, CategoryOption option, string[] aliases)
     => _test.Ok(
       name + aliases.Bracket("[", "]{(").Joined() + option.ToString().ToLowerInvariant() + ")" + output + "}",
-      new CategoryAst(AstNulls.At, name, output) {
+      new CategoryDeclAst(AstNulls.At, name, output) {
         Option = option,
         Aliases = aliases,
       });
@@ -40,6 +40,6 @@ public sealed class ParseCategoryTests
 
   private readonly ParseCategoryChecks _test;
 
-  public ParseCategoryTests(Parser<CategoryAst>.D parser)
+  public ParseCategoryTests(Parser<CategoryDeclAst>.D parser)
     => _test = new(parser);
 }

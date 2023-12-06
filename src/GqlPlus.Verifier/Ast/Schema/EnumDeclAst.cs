@@ -2,18 +2,21 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class EnumAst(TokenAt At, string Name, string Description)
-  : AstType(At, Name, Description), IEquatable<EnumAst>
+public sealed record class EnumDeclAst(
+  TokenAt At,
+  string Name,
+  string Description
+) : AstType(At, Name, Description), IEquatable<EnumDeclAst>
 {
   public string? Extends { get; set; }
   public EnumLabelAst[] Labels { get; set; } = Array.Empty<EnumLabelAst>();
 
   internal override string Abbr => "E";
 
-  public EnumAst(TokenAt at, string name)
+  public EnumDeclAst(TokenAt at, string name)
     : this(at, name, "") { }
 
-  public bool Equals(EnumAst? other)
+  public bool Equals(EnumDeclAst? other)
     => base.Equals(other)
       && Extends.NullEqual(other.Extends)
       && Labels.SequenceEqual(other.Labels);

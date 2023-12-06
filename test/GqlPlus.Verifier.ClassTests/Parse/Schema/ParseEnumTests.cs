@@ -24,7 +24,7 @@ public sealed class ParseEnumTests
   public void WithLabels_ReturnsCorrectAst(string name, string[] labels)
     => _test.TrueExpected(
       name + labels.Bracket("{", "}").Joined(),
-      new EnumAst(AstNulls.At, name) {
+      new EnumDeclAst(AstNulls.At, name) {
         Labels = labels.EnumLabels(),
       });
 
@@ -41,6 +41,6 @@ public sealed class ParseEnumTests
 
   private readonly ParseEnumChecks _test;
 
-  public ParseEnumTests(Parser<EnumAst>.D parser)
+  public ParseEnumTests(Parser<EnumDeclAst>.D parser)
     => _test = new(parser);
 }

@@ -6,7 +6,7 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, ScalarDefinition, ScalarAst>
+internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, ScalarDefinition, ScalarDeclAst>
 {
   public ParseScalar(
     TypeName name,
@@ -16,7 +16,7 @@ internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, Scala
     Parser<ScalarDefinition>.D definition
   ) : base(name, param, aliases, option, definition) { }
 
-  protected override void ApplyDefinition(ScalarAst result, ScalarDefinition value)
+  protected override void ApplyDefinition(ScalarDeclAst result, ScalarDefinition value)
   {
     result.Kind = value.Kind;
     switch (result.Kind) {
@@ -33,11 +33,11 @@ internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, Scala
     }
   }
 
-  protected override bool ApplyOption(ScalarAst result, IResult<NullAst> option) => true;
-  protected override bool ApplyParameters(ScalarAst result, IResultArray<NullAst> parameter) => true;
+  protected override bool ApplyOption(ScalarDeclAst result, IResult<NullAst> option) => true;
+  protected override bool ApplyParameters(ScalarDeclAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
-  protected override ScalarAst MakeResult(TokenAt at, string? name, string description)
+  protected override ScalarDeclAst MakeResult(TokenAt at, string? name, string description)
     => new(at, name!, description);
 }
 

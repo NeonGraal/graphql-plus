@@ -13,7 +13,7 @@ public sealed class ParseDirectiveTests
   public void WithRepeatable_ReturnsCorrectAst(string name)
     => _test.TrueExpected(
       "@" + name + "{(repeatable)operation}",
-      new DirectiveAst(AstNulls.At, name) {
+      new DirectiveDeclAst(AstNulls.At, name) {
         Option = DirectiveOption.Repeatable,
         Locations = DirectiveLocation.Operation,
       });
@@ -30,7 +30,7 @@ public sealed class ParseDirectiveTests
   public void WithParameters_ReturnsCorrectAst(string name, string[] parameters)
     => _test.TrueExpected(
       "@" + name + "(" + parameters.Joined() + "){operation}",
-      new DirectiveAst(AstNulls.At, name) {
+      new DirectiveDeclAst(AstNulls.At, name) {
         Parameters = parameters.Parameters(),
         Locations = DirectiveLocation.Operation,
       });
@@ -47,7 +47,7 @@ public sealed class ParseDirectiveTests
   public void WithLocations_ReturnsCorrectAst(string name)
     => _test.TrueExpected(
       "@" + name + "{operation Field FRAGMENT}",
-      new DirectiveAst(AstNulls.At, name) {
+      new DirectiveDeclAst(AstNulls.At, name) {
         Locations = DirectiveLocation.Operation | DirectiveLocation.Field | DirectiveLocation.Fragment,
       });
 
@@ -63,6 +63,6 @@ public sealed class ParseDirectiveTests
 
   private readonly ParseDirectiveChecks _test;
 
-  public ParseDirectiveTests(Parser<DirectiveAst>.D parser)
+  public ParseDirectiveTests(Parser<DirectiveDeclAst>.D parser)
     => _test = new(parser);
 }

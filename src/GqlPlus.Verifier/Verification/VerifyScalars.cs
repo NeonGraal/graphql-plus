@@ -3,10 +3,10 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-internal class VerifyScalars(IVerify<ScalarAst> definition)
-  : AliasedVerifier<ScalarAst>(definition)
+internal class VerifyScalars(IVerify<ScalarDeclAst> definition)
+  : AliasedVerifier<ScalarDeclAst>(definition)
 {
   public override string Label => "Scalars";
 
-  protected override object GroupKey(ScalarAst aliased) => TokenMessages.Empty;
+  protected override object GroupKey(ScalarDeclAst aliased) => TokenMessages.Empty;
 }

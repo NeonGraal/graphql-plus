@@ -6,7 +6,7 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseCategory : DeclarationParser<CategoryName, NullAst, CategoryOption, CategoryOutput, CategoryAst>
+internal class ParseCategory : DeclarationParser<CategoryName, NullAst, CategoryOption, CategoryOutput, CategoryDeclAst>
 {
   public ParseCategory(
     CategoryName name,
@@ -18,7 +18,7 @@ internal class ParseCategory : DeclarationParser<CategoryName, NullAst, Category
   {
   }
 
-  protected override void ApplyDefinition(CategoryAst result, CategoryOutput value)
+  protected override void ApplyDefinition(CategoryDeclAst result, CategoryOutput value)
   {
     if (string.IsNullOrWhiteSpace(result.Name)) {
       result.Name = value.Output.Camelize();
@@ -27,13 +27,13 @@ internal class ParseCategory : DeclarationParser<CategoryName, NullAst, Category
     result.Output = value.Output;
   }
 
-  protected override bool ApplyOption(CategoryAst result, IResult<CategoryOption> option)
+  protected override bool ApplyOption(CategoryDeclAst result, IResult<CategoryOption> option)
     => option.Optional(value => result.Option = value);
 
-  protected override bool ApplyParameters(CategoryAst result, IResultArray<NullAst> parameter) => true;
+  protected override bool ApplyParameters(CategoryDeclAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
-  protected override CategoryAst MakeResult(TokenAt at, string? name, string description)
+  protected override CategoryDeclAst MakeResult(TokenAt at, string? name, string description)
     => new(at, name ?? "", "") { Description = description };
 }
 

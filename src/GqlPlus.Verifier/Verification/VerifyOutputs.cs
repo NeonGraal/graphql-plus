@@ -3,10 +3,10 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-internal class VerifyOutputs(IVerify<OutputAst> definition)
-  : AliasedVerifier<OutputAst>(definition)
+internal class VerifyOutputs(IVerify<OutputDeclAst> definition)
+  : AliasedVerifier<OutputDeclAst>(definition)
 {
   public override string Label => "Outputs";
 
-  protected override object GroupKey(OutputAst aliased) => TokenMessages.Empty;
+  protected override object GroupKey(OutputDeclAst aliased) => TokenMessages.Empty;
 }

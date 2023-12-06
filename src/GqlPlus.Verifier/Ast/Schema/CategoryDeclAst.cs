@@ -2,8 +2,12 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class CategoryAst(TokenAt At, string Name, string Description, string Output)
-  : AstDeclaration(At, Name, Description), IEquatable<CategoryAst>
+public sealed record class CategoryDeclAst(
+  TokenAt At,
+  string Name,
+  string Description,
+  string Output
+) : AstDeclaration(At, Name, Description), IEquatable<CategoryDeclAst>
 {
   internal override string Abbr => "C";
   internal override string GroupName => "Categories";
@@ -12,13 +16,13 @@ public sealed record class CategoryAst(TokenAt At, string Name, string Descripti
 
   public CategoryOption Option { get; set; } = CategoryOption.Parallel;
 
-  public CategoryAst(TokenAt at, string output)
+  public CategoryDeclAst(TokenAt at, string output)
     : this(at, output.Camelize()!, "", output) { }
 
-  public CategoryAst(TokenAt at, string name, string output)
+  public CategoryDeclAst(TokenAt at, string name, string output)
     : this(at, name, "", output) { }
 
-  public bool Equals(CategoryAst? other)
+  public bool Equals(CategoryDeclAst? other)
     => base.Equals(other)
     && Option == other.Option
     && Output == other.Output;

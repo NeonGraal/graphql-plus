@@ -3,9 +3,8 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-internal class VerifyInputTypes : UsageAliasedVerifier<InputAst, AstType>
+internal class VerifyInputTypes : UsageAliasedVerifier<InputDeclAst, AstType>
 {
-  protected override string Label => "Inputs";
-  protected override string UsageKey(InputAst item) => item.Extends?.Name ?? "";
-  protected override ITokenMessages UsageValue(InputAst usage, IMap<AstType[]> byId) => TokenMessages.Empty;
+  //  protected override string UsageKey(InputAst item) => item.Extends?.Name ?? "";
+  protected override ITokenMessages UsageValue(InputDeclAst usage, IMap<AstType[]> byId) => TokenMessages.Empty;
 }

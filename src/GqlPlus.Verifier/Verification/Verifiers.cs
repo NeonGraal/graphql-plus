@@ -10,23 +10,31 @@ public static class Verifiers
   public static IServiceCollection AddVerifiers(this IServiceCollection services)
     => services
       // Operation
-      .AddSingleton<IVerify<OperationAst>, VerifyOperation>()
+      .AddVerify<OperationAst, VerifyOperation>()
       .AddVerifyUsageNamed<ArgumentAst, VariableAst, VerifyVariableUsage>()
       .AddVerifyUsageNamed<SpreadAst, FragmentAst, VerifyFragmentUsage>()
-      .AddSingleton<IVerify<VariableAst>, VerifyVariable>()
+      .AddVerify<VariableAst, VerifyVariable>()
       // Schema
-      .AddSingleton<IVerify<SchemaAst>, VerifySchema>()
-      .AddVerifyAliased<CategoryAst, VerifyCategories>()
-      .AddVerifyUsageAliased<CategoryAst, OutputAst, VerifyCategoryOutput>()
-      .AddVerifyAliased<EnumAst, VerifyEnums>()
-      .AddVerifyUsageAliased<EnumAst, AstType, VerifyEnumTypes>()
-      .AddVerifyAliased<InputAst, VerifyInputs>()
-      .AddVerifyUsageAliased<InputAst, AstType, VerifyInputTypes>()
-      .AddVerifyAliased<OutputAst, VerifyOutputs>()
-      .AddVerifyUsageAliased<OutputAst, AstType, VerifyOutputTypes>()
-      .AddVerifyAliased<ScalarAst, VerifyScalars>()
-      .AddVerifyUsageAliased<ScalarAst, AstType, VerifyScalarTypes>()
+      .AddVerify<SchemaAst, VerifySchema>()
+      .AddVerifyAliased<CategoryDeclAst, VerifyCategories>()
+      .AddVerifyUsageAliased<CategoryDeclAst, OutputDeclAst, VerifyCategoryOutput>()
+      .AddVerifyAliased<DirectiveDeclAst, VerifyDirectives>()
+      .AddVerifyUsageAliased<DirectiveDeclAst, InputDeclAst, VerifyDirectiveInput>()
+      // Schmea Types
+      .AddVerify<AstType[], VerifyAllTypes>()
+      .AddVerifyAliased<EnumDeclAst, VerifyEnums>()
+      .AddVerifyUsageAliased<EnumDeclAst, AstType, VerifyEnumTypes>()
+      .AddVerifyAliased<InputDeclAst, VerifyInputs>()
+      .AddVerifyUsageAliased<InputDeclAst, AstType, VerifyInputTypes>()
+      .AddVerifyAliased<OutputDeclAst, VerifyOutputs>()
+      .AddVerifyUsageAliased<OutputDeclAst, AstType, VerifyOutputTypes>()
+      .AddVerifyAliased<ScalarDeclAst, VerifyScalars>()
+      .AddVerifyUsageAliased<ScalarDeclAst, AstType, VerifyScalarTypes>()
     ;
+
+  public static IServiceCollection AddVerify<T, S>(this IServiceCollection services)
+    where S : class, IVerify<T>
+    => services.AddSingleton<IVerify<T>, S>();
 
   public static IServiceCollection AddVerifyUsageNamed<U, D, S>(this IServiceCollection services)
     where S : class, IVerifyUsageNamed<U, D>

@@ -15,19 +15,19 @@ internal class ParseSchema : Parser<SchemaAst>.I
     => (tokens, label) => parser.Parse(tokens, label).AsResult<AstDeclaration>();
 
   public ParseSchema(
-    Parser<CategoryAst>.D category,
-    Parser<DirectiveAst>.D directive,
-    Parser<EnumAst>.D enumParser,
-    Parser<InputAst>.D input,
-    Parser<OutputAst>.D output,
-    Parser<ScalarAst>.D scalar)
+    Parser<CategoryDeclAst>.D category,
+    Parser<DirectiveDeclAst>.D directive,
+    Parser<EnumDeclAst>.D enumParser,
+    Parser<InputDeclAst>.D input,
+    Parser<OutputDeclAst>.D output,
+    Parser<ScalarDeclAst>.D scalar)
   {
-    _parsers.Add("category", MakeParser<CategoryAst>(category));
-    _parsers.Add("directive", MakeParser<DirectiveAst>(directive));
-    _parsers.Add("enum", MakeParser<EnumAst>(enumParser));
-    _parsers.Add("input", MakeParser<InputAst>(input));
-    _parsers.Add("output", MakeParser<OutputAst>(output));
-    _parsers.Add("scalar", MakeParser<ScalarAst>(scalar));
+    _parsers.Add("category", MakeParser<CategoryDeclAst>(category));
+    _parsers.Add("directive", MakeParser<DirectiveDeclAst>(directive));
+    _parsers.Add("enum", MakeParser<EnumDeclAst>(enumParser));
+    _parsers.Add("input", MakeParser<InputDeclAst>(input));
+    _parsers.Add("output", MakeParser<OutputDeclAst>(output));
+    _parsers.Add("scalar", MakeParser<ScalarDeclAst>(scalar));
   }
 
   public IResult<SchemaAst> Parse<TContext>(TContext tokens, string label)

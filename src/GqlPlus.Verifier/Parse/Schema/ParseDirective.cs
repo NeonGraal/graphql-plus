@@ -5,7 +5,7 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseDirective : DeclarationParser<DirectiveName, ParameterAst, DirectiveOption, DirectiveLocation, DirectiveAst>
+internal class ParseDirective : DeclarationParser<DirectiveName, ParameterAst, DirectiveOption, DirectiveLocation, DirectiveDeclAst>
 {
   public ParseDirective(
     DirectiveName name,
@@ -15,17 +15,17 @@ internal class ParseDirective : DeclarationParser<DirectiveName, ParameterAst, D
     Parser<DirectiveLocation>.D definition
   ) : base(name, param, aliases, option, definition) { }
 
-  protected override void ApplyDefinition(DirectiveAst result, DirectiveLocation value)
+  protected override void ApplyDefinition(DirectiveDeclAst result, DirectiveLocation value)
     => result.Locations = value;
 
-  protected override bool ApplyOption(DirectiveAst result, IResult<DirectiveOption> option)
+  protected override bool ApplyOption(DirectiveDeclAst result, IResult<DirectiveOption> option)
     => option.Optional(value => result.Option = value);
 
-  protected override bool ApplyParameters(DirectiveAst result, IResultArray<ParameterAst> parameter)
+  protected override bool ApplyParameters(DirectiveDeclAst result, IResultArray<ParameterAst> parameter)
     => parameter.Optional(value => result.Parameters = value);
 
   [return: NotNull]
-  protected override DirectiveAst MakeResult(TokenAt at, string? name, string description)
+  protected override DirectiveDeclAst MakeResult(TokenAt at, string? name, string description)
     => new(at, name!, description);
 }
 

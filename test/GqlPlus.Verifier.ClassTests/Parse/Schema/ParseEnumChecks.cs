@@ -3,12 +3,12 @@
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal sealed class ParseEnumChecks
-  : BaseAliasedParserChecks<EnumInput, EnumAst>
+  : BaseAliasedParserChecks<EnumInput, EnumDeclAst>
 {
-  public ParseEnumChecks(Parser<EnumAst>.D parser)
+  public ParseEnumChecks(Parser<EnumDeclAst>.D parser)
     : base(parser) { }
 
-  protected internal override EnumAst AliasedFactory(EnumInput input)
+  protected internal override EnumDeclAst AliasedFactory(EnumInput input)
     => new(AstNulls.At, input.Name) { Labels = new[] { input.Label }.EnumLabels(), };
 
   protected internal override string AliasesString(EnumInput input, string aliases)

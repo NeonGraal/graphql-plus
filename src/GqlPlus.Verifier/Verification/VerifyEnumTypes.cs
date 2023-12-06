@@ -3,9 +3,8 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-internal class VerifyEnumTypes : UsageAliasedVerifier<EnumAst, AstType>
+internal class VerifyEnumTypes : UsageAliasedVerifier<EnumDeclAst, AstType>
 {
-  protected override string Label => "Enums";
-  protected override string UsageKey(EnumAst item) => item.Extends ?? "";
-  protected override ITokenMessages UsageValue(EnumAst usage, IMap<AstType[]> byId) => TokenMessages.Empty;
+  //  protected override string UsageKey(EnumAst item) => item.Extends ?? "";
+  protected override ITokenMessages UsageValue(EnumDeclAst usage, IMap<AstType[]> byId) => TokenMessages.Empty;
 }

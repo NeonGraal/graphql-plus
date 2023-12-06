@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.RegularExpressions;
 
 namespace GqlPlus.Verifier.Token;
 
@@ -14,8 +15,8 @@ public record class TokenMessage(TokenKind Kind, int Column, int Line, string Ne
 
 public class TokenMessages : List<TokenMessage>, ITokenMessages
 {
+  [SuppressMessage("Style", "IDE0025:Use expression body for property")]
   public static TokenMessages Empty { get => []; }
 }
-
 
 public interface ITokenMessages : IEnumerable<TokenMessage>;

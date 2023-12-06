@@ -2,10 +2,10 @@
 
 namespace GqlPlus.Verifier.Verification;
 
-internal class VerifyCategories(IVerify<CategoryAst> definition)
-  : AliasedVerifier<CategoryAst>(definition)
+internal class VerifyCategories(IVerify<CategoryDeclAst> definition)
+  : AliasedVerifier<CategoryDeclAst>(definition)
 {
   public override string Label => "Categories";
 
-  protected override object GroupKey(CategoryAst aliased) => "";
+  protected override object GroupKey(CategoryDeclAst aliased) => "";
 }

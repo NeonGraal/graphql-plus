@@ -16,36 +16,36 @@ public static class SchemaParsers
       .AddSingleton<CategoryName>()
       .AddOption<CategoryOption>()
       .AddParser<CategoryOutput, ParseCategoryDefinition>()
-      .AddParser<CategoryAst, ParseCategory>()
+      .AddParser<CategoryDeclAst, ParseCategory>()
       // Directive
       .AddSingleton<DirectiveName>()
       .AddOption<DirectiveOption>()
       .AddParser<DirectiveLocation, ParseDirectiveDefinition>()
-      .AddParser<DirectiveAst, ParseDirective>()
+      .AddParser<DirectiveDeclAst, ParseDirective>()
       // Types
       .AddSingleton<TypeName>()
       // Enum
       .AddParser<EnumDefinition, ParseEnumDefinition>()
       .AddParser<EnumLabelAst, ParseEnumLabel>()
-      .AddParser<EnumAst, ParseEnum>()
+      .AddParser<EnumDeclAst, ParseEnum>()
       // Scalar
       .AddParser<ScalarDefinition, ParseScalarDefinition>()
       .AddParser<ScalarRangeAst, ParseScalarRange>()
       .AddParserArray<ScalarRangeAst, ArrayParser<ScalarRangeAst>>()
       .AddParser<ScalarRegexAst, ParseScalarRegex>()
       .AddParserArray<ScalarRegexAst, ArrayParser<ScalarRegexAst>>()
-      .AddParser<ScalarAst, ParseScalar>()
+      .AddParser<ScalarDeclAst, ParseScalar>()
       // Objects
       .AddParserArray<TypeParameterAst, ParseTypeParameters>()
       // Input
       .AddParser<InputReferenceAst, ParseInputReference>()
       .AddParser<InputFieldAst, ParseInputField>()
-      .AddParser<InputAst, ParseInput>()
+      .AddParser<InputDeclAst, ParseInput>()
       .AddObjectParser<ParseInputDefinition, InputFieldAst, InputReferenceAst>()
       // Output
       .AddParser<OutputReferenceAst, ParseOutputReference>()
       .AddParser<OutputFieldAst, ParseOutputField>()
-      .AddParser<OutputAst, ParseOutput>()
+      .AddParser<OutputDeclAst, ParseOutput>()
       .AddObjectParser<ParseOutputDefinition, OutputFieldAst, OutputReferenceAst>()
       // Schema
       .AddParser<SchemaAst, ParseSchema>()

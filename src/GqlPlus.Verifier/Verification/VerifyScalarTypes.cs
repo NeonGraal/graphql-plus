@@ -3,9 +3,8 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-internal class VerifyScalarTypes : UsageAliasedVerifier<ScalarAst, AstType>
+internal class VerifyScalarTypes : UsageAliasedVerifier<ScalarDeclAst, AstType>
 {
-  protected override string Label => "Scalars";
-  protected override string UsageKey(ScalarAst item) => item.Kind.ToString();
-  protected override ITokenMessages UsageValue(ScalarAst usage, IMap<AstType[]> byId) => TokenMessages.Empty;
+  //  protected override string UsageKey(ScalarAst item) => item.Kind.ToString();
+  protected override ITokenMessages UsageValue(ScalarDeclAst usage, IMap<AstType[]> byId) => TokenMessages.Empty;
 }

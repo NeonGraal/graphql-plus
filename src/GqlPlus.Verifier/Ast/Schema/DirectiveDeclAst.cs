@@ -2,8 +2,11 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class DirectiveAst(TokenAt At, string Name, string Description)
-  : AstDeclaration(At, Name, Description), IEquatable<DirectiveAst>
+public sealed record class DirectiveDeclAst(
+  TokenAt At,
+  string Name,
+  string Description
+) : AstDeclaration(At, Name, Description), IEquatable<DirectiveDeclAst>
 {
   public DirectiveOption Option { get; set; } = DirectiveOption.Unique;
   public ParameterAst[] Parameters { get; set; } = Array.Empty<ParameterAst>();
@@ -12,10 +15,10 @@ public sealed record class DirectiveAst(TokenAt At, string Name, string Descript
   internal override string Abbr => "D";
   internal override string GroupName => "Directives";
 
-  public DirectiveAst(TokenAt at, string name)
+  public DirectiveDeclAst(TokenAt at, string name)
     : this(at, name, "") { }
 
-  public bool Equals(DirectiveAst? other)
+  public bool Equals(DirectiveDeclAst? other)
     => base.Equals(other)
     && Option == other.Option
     && Parameters.SequenceEqual(other.Parameters)

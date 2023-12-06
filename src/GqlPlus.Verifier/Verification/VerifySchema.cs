@@ -4,10 +4,11 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Verification;
 
 internal class VerifySchema(
-  IVerifyAliased<CategoryDeclAst> categories,
+  IVerifyAliased<CategoryDeclAst> categoriesAliased,
   IVerifyUsageAliased<CategoryDeclAst, OutputDeclAst> categoryOutputs,
-  IVerifyAliased<DirectiveDeclAst> directives,
+  IVerifyAliased<DirectiveDeclAst> directivesAliased,
   IVerifyUsageAliased<DirectiveDeclAst, InputDeclAst> directiveInputs,
+  IVerifyAliased<AstType> typesAliased,
   IVerify<AstType[]> types
 ) : IVerify<SchemaAst>
 {
@@ -15,15 +16,18 @@ internal class VerifySchema(
   {
     var errors = new TokenMessages();
 
-    var allCategories = target.Declarations.OfType<CategoryDeclAst>().ToArray();
-    var allDirectives = target.Declarations.OfType<DirectiveDeclAst>().ToArray();
+    var categories = target.Declarations.OfType<CategoryDeclAst>().ToArray();
+    var directives = target.Declarations.OfType<DirectiveDeclAst>().ToArray();
     var allTypes = target.Declarations.OfType<AstType>().ToArray();
 
-    errors.AddRange(categories.Verify(allCategories));
-    errors.AddRange(categoryOutputs.Verify(new(allCategories, [.. allTypes.OfType<OutputDeclAst>()])));
-    errors.AddRange(directives.Verify(allDirectives));
-    errors.AddRange(directiveInputs.Verify(new(allDirectives, [.. allTypes.OfType<InputDeclAst>()])));
+    errors.AddRange(categoriesAliased.Verify(categories));
+    errors.AddRange(categoryOutputs.Verify(new(categories, [.. allTypes.OfType<OutputDeclAst>()])));
+
+    errors.AddRange(directivesAliased.Verify(directives));
+    errors.AddRange(directiveInputs.Verify(new(directives, [.. allTypes.OfType<InputDeclAst>()])));
+
     errors.AddRange(types.Verify(allTypes));
+    errors.AddRange(typesAliased.Verify(allTypes));
 
     errors.AddRange(target.Errors);
     return errors;

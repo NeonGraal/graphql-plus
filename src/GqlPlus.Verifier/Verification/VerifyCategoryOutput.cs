@@ -9,7 +9,7 @@ internal class VerifyCategoryOutput : UsageAliasedVerifier<CategoryDeclAst, Outp
   protected override ITokenMessages UsageValue(CategoryDeclAst usage, IMap<OutputDeclAst[]> byId)
   {
     return byId.ContainsKey(usage.Output)
-      ? TokenMessages.Empty
+      ? new TokenMessages()
       : [usage.Error($"Invalid Category Output. '{usage.Output}' not defined.")];
   }
 }

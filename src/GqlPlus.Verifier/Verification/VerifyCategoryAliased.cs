@@ -2,8 +2,10 @@
 
 namespace GqlPlus.Verifier.Verification;
 
-internal class VerifyCategories(IVerify<CategoryDeclAst> definition)
-  : AliasedVerifier<CategoryDeclAst>(definition)
+internal class VerifyCategoryAliased(
+  IVerify<CategoryDeclAst> definition,
+   IMerge<CategoryDeclAst> merger
+) : AliasedVerifier<CategoryDeclAst>(definition, merger)
 {
   public override string Label => "Categories";
 

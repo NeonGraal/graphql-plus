@@ -16,25 +16,31 @@ public static class Verifiers
       .AddVerify<VariableAst, VerifyVariable>()
       // Schema
       .AddVerify<SchemaAst, VerifySchema>()
-      .AddVerifyAliased<CategoryDeclAst, VerifyCategories>()
+      .AddVerifyAliased<CategoryDeclAst, VerifyCategoryAliased>()
       .AddVerifyUsageAliased<CategoryDeclAst, OutputDeclAst, VerifyCategoryOutput>()
-      .AddVerifyAliased<DirectiveDeclAst, VerifyDirectives>()
+      .AddVerifyAliased<DirectiveDeclAst, VerifyDirectiveAliased>()
       .AddVerifyUsageAliased<DirectiveDeclAst, InputDeclAst, VerifyDirectiveInput>()
       // Schmea Types
       .AddVerify<AstType[], VerifyAllTypes>()
-      .AddVerifyAliased<EnumDeclAst, VerifyEnums>()
+      .AddVerifyAliased<AstType, VerifyAllTypesAliased>()
+      .AddVerifyAliased<EnumDeclAst, VerifyEnumsAliased>()
       .AddVerifyUsageAliased<EnumDeclAst, AstType, VerifyEnumTypes>()
-      .AddVerifyAliased<InputDeclAst, VerifyInputs>()
+      .AddVerifyAliased<InputDeclAst, VerifyInputsAliased>()
       .AddVerifyUsageAliased<InputDeclAst, AstType, VerifyInputTypes>()
-      .AddVerifyAliased<OutputDeclAst, VerifyOutputs>()
+      .AddVerifyAliased<OutputDeclAst, VerifyOutputsAliased>()
       .AddVerifyUsageAliased<OutputDeclAst, AstType, VerifyOutputTypes>()
-      .AddVerifyAliased<ScalarDeclAst, VerifyScalars>()
+      .AddVerifyAliased<ScalarDeclAst, VerifyScalarsAliased>()
       .AddVerifyUsageAliased<ScalarDeclAst, AstType, VerifyScalarTypes>()
+      .AddMerge<AstType, MergeAllTypes>()
     ;
 
   public static IServiceCollection AddVerify<T, S>(this IServiceCollection services)
     where S : class, IVerify<T>
     => services.AddSingleton<IVerify<T>, S>();
+
+  public static IServiceCollection AddMerge<T, S>(this IServiceCollection services)
+    where S : class, IMerge<T>
+    => services.AddSingleton<IMerge<T>, S>();
 
   public static IServiceCollection AddVerifyUsageNamed<U, D, S>(this IServiceCollection services)
     where S : class, IVerifyUsageNamed<U, D>
@@ -51,6 +57,7 @@ public static class Verifiers
     => services
       .AddSingleton<IVerifyAliased<A>, S>()
       .AddSingleton<IVerify<A>, NullVerifier<A>>()
+      .AddSingleton<IMerge<A>, NullMerger<A>>()
     ;
 
   public static IServiceCollection AddVerifyUsageAliased<U, A, S>(this IServiceCollection services)

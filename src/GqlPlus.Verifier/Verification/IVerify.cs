@@ -2,7 +2,12 @@
 
 namespace GqlPlus.Verifier.Verification;
 
-public interface IVerify<TTarget>
+public interface IVerify<TItem>
 {
-  ITokenMessages Verify(TTarget target);
+  ITokenMessages Verify(TItem item);
+}
+
+public interface IMerge<TItem>
+{
+  bool CanMerge(TItem[] items);
 }

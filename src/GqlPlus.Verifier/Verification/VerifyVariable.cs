@@ -10,7 +10,7 @@ internal class VerifyVariable : IVerify<VariableAst>
   {
     var def = target.Default;
     if (def is null) {
-      return TokenMessages.Empty;
+      return new TokenMessages();
     }
 
     var lastModifier = target.Modifers.LastOrDefault();
@@ -29,10 +29,10 @@ internal class VerifyVariable : IVerify<VariableAst>
       ? ([def.Error($"Invalid Variable definition. {label}Dictionary Type must have Object default.")])
       : lastModifier?.Kind == ModifierKind.List && def.Fields.Count > 0
       ? ([def.Error($"Invalid Variable definition. {label}List Type cannot have Object default.")])
-      : TokenMessages.Empty;
+      : new TokenMessages();
 
   private TokenMessages VerifyVariableNullDefault(ConstantAst def)
     => def.Value?.EnumLabel == "Null.null"
       ? ([def.Error("Invalid Variable definition. Default of 'null' must be on Optional Type.")])
-      : TokenMessages.Empty;
+      : new TokenMessages();
 }

@@ -6,5 +6,5 @@ namespace GqlPlus.Verifier.Verification;
 internal class VerifyEnumTypes : UsageAliasedVerifier<EnumDeclAst, AstType>
 {
   //  protected override string UsageKey(EnumAst item) => item.Extends ?? "";
-  protected override ITokenMessages UsageValue(EnumDeclAst usage, IMap<AstType[]> byId) => TokenMessages.Empty;
+  protected override ITokenMessages UsageValue(EnumDeclAst usage, IMap<AstType[]> byId) => new TokenMessages();
 }

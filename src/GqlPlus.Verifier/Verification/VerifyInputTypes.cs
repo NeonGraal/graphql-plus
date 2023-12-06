@@ -6,5 +6,5 @@ namespace GqlPlus.Verifier.Verification;
 internal class VerifyInputTypes : UsageAliasedVerifier<InputDeclAst, AstType>
 {
   //  protected override string UsageKey(InputAst item) => item.Extends?.Name ?? "";
-  protected override ITokenMessages UsageValue(InputDeclAst usage, IMap<AstType[]> byId) => TokenMessages.Empty;
+  protected override ITokenMessages UsageValue(InputDeclAst usage, IMap<AstType[]> byId) => new TokenMessages();
 }

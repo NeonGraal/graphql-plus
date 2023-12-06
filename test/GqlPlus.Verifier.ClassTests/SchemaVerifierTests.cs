@@ -1,38 +1,52 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Parse;
+using GqlPlus.Verifier.Result;
+using GqlPlus.Verifier.Token;
+using GqlPlus.Verifier.Verification;
 
 namespace GqlPlus.Verifier;
 
-public class SchemaVerifierTests
+public class SchemaVerifierTests(
+    Parser<SchemaAst>.D parser,
+    IVerify<SchemaAst> verifier)
 {
+  private readonly Parser<SchemaAst>.L _parser = parser;
+
   [Theory]
   [ClassData(typeof(ValidGraphQlPlusSchemas))]
-  public void Verify_ValidSchemas_ReturnsValid(string operation)
+  public void Verify_ValidSchemas_ReturnsValid(string schema)
   {
-    var result = SchemaVerifier.Verify(operation, _parser, out var errors);
+    var parse = Parse(schema);
+    if (parse is IResultError<SchemaAst> error) {
+      error.Message.Should().BeNull();
+    }
 
-    using var scope = new AssertionScope();
+    var result = verifier.Verify(parse.Required());
 
-    result.Should().BeTrue();
-    errors.Should().BeNullOrEmpty();
+    result.Should().BeNullOrEmpty();
   }
 
   [Theory]
   [ClassData(typeof(InvalidGraphQlPlusSchemas))]
-  public void Verify_InvalidSchemas_ReturnsInvalid(string operation)
+  public void Verify_InvalidSchemas_ReturnsInvalid(string schema)
   {
-    var result = SchemaVerifier.Verify(operation, _parser, out var errors);
+    var parse = Parse(schema);
 
-    using var scope = new AssertionScope();
+    var result = new TokenMessages();
+    if (parse.IsOk()) {
+      result.AddRange(verifier.Verify(parse.Required()));
+    } else {
+      parse.IsError(result.Add);
+    }
 
-    result.Should().BeFalse();
-    errors.Should().NotBeNullOrEmpty();
+    result.Should().NotBeNullOrEmpty();
   }
 
-  private readonly IParser<SchemaAst> _parser;
-
-  public SchemaVerifierTests(IParser<SchemaAst> parser)
-    => _parser = parser.ThrowIfNull();
+  private IResult<SchemaAst> Parse(string schema)
+  {
+    Tokenizer tokens = new(schema);
+    return _parser.Parse(tokens, "Schema");
+  }
 
   public class ValidGraphQlPlusSchemas : TheoryData<string>
   {

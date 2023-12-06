@@ -33,7 +33,7 @@ public class OperationVerifierTests(
   {
     var parse = Parse(operation);
 
-    var result = new List<TokenMessage>();
+    var result = new TokenMessages();
     if (parse.IsOk()) {
       result.AddRange(verifier.Verify(parse.Required()));
     } else {

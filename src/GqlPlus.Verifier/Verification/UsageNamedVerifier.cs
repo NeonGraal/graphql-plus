@@ -3,18 +3,18 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-internal abstract class UsageVerifier<TUsage, TDefinition>(
+internal abstract class UsageNamedVerifier<TUsage, TNamed>(
     IVerify<TUsage> usage,
-    IVerify<TDefinition> definition
-) : IVerifyUsage<TUsage, TDefinition>
-  where TUsage : AstBase where TDefinition : AstNamed
+    IVerify<TNamed> definition
+) : IVerifyUsageNamed<TUsage, TNamed>
+  where TUsage : AstBase where TNamed : AstNamed
 {
   public abstract string Label { get; }
   public abstract string UsageKey(TUsage item);
 
-  public IEnumerable<TokenMessage> Verify(UsageDefinitions<TUsage, TDefinition> target)
+  public ITokenMessages Verify(UsageNames<TUsage, TNamed> target)
   {
-    var errors = new List<TokenMessage>();
+    var errors = new TokenMessages();
 
     var used = target.Usages.ToDictionary(UsageKey);
 
@@ -44,9 +44,9 @@ internal abstract class UsageVerifier<TUsage, TDefinition>(
   }
 }
 
-public record class UsageDefinitions<TUsage, TDefinition>(TUsage[] Usages, TDefinition[] Definitions)
-  where TUsage : AstBase where TDefinition : AstNamed;
+public record class UsageNames<TUsage, TNamed>(TUsage[] Usages, TNamed[] Definitions)
+  where TUsage : AstBase where TNamed : AstNamed;
 
-public interface IVerifyUsage<TUsage, TDefinition> : IVerify<UsageDefinitions<TUsage, TDefinition>>
-    where TUsage : AstBase where TDefinition : AstNamed
+public interface IVerifyUsageNamed<TUsage, TNamed> : IVerify<UsageNames<TUsage, TNamed>>
+    where TUsage : AstBase where TNamed : AstNamed
 { }

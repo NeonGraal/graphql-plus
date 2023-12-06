@@ -351,7 +351,7 @@ public class Tokenizer
   public static string ErrorContext(string context)
     => context.Length < ErrorContextLen ? context + "<END>" : context[..ErrorContextLen];
 
-  internal readonly List<TokenMessage> Errors = [];
+  internal readonly TokenMessages Errors = [];
 
   internal TokenMessage Error(string text)
   {

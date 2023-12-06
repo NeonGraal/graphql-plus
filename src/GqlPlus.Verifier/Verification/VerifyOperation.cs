@@ -4,17 +4,19 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Verification;
 
 internal class VerifyOperation(
-  IVerifyUsage<ArgumentAst, VariableAst> usages,
-  IVerifyUsage<SpreadAst, FragmentAst> spreads
+  IVerifyUsageNamed<ArgumentAst, VariableAst> usages,
+  IVerifyUsageNamed<SpreadAst, FragmentAst> spreads
 ) : IVerify<OperationAst>
 {
-  public IEnumerable<TokenMessage> Verify(OperationAst target)
+  public ITokenMessages Verify(OperationAst target)
   {
-    var errors = new List<TokenMessage>();
+    var errors = new TokenMessages();
 
     errors.AddRange(usages.Verify(new(target.Usages, target.Variables)));
     errors.AddRange(spreads.Verify(new(target.Spreads, target.Fragments)));
 
-    return errors.Union(target.Errors);
+    errors.AddRange(target.Errors);
+
+    return errors;
   }
 }

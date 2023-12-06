@@ -5,47 +5,57 @@ using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
 using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
+using GqlPlus.Verifier.Verification;
 
 namespace GqlPlus.Verifier;
 
 [UsesVerify]
 public class SampleTests(
     Parser<OperationAst>.D operation,
-    Parser<SchemaAst>.D schema)
+    Parser<SchemaAst>.D schemaParser,
+    IVerify<SchemaAst> schemaVerifier)
 {
   private readonly Parser<OperationAst>.L _operation = operation;
-  private readonly Parser<SchemaAst>.L _schema = schema;
+  private readonly Parser<SchemaAst>.L _schemaParser = schemaParser;
 
   [Theory]
-  [InlineData("all")]
-  [InlineData("default")]
-  [InlineData("errors")]
-  [InlineData("Intro_Schema")]
-  [InlineData("Intro_Category")]
-  [InlineData("Intro_Directive")]
-  [InlineData("Intro_Type")]
-  [InlineData("Intro_Enum")]
-  [InlineData("Intro_Input")]
-  [InlineData("Intro_Output")]
-  [InlineData("Intro_Scalar")]
-  public async Task VerifySampleSchema(string sample)
+  [ClassData(typeof(SampleSchemaData))]
+  public async Task ParseSampleSchema(string sample)
   {
     var schema = File.ReadAllText("Sample/Schema/" + sample + ".graphql+");
     Tokenizer tokens = new(schema);
 
-    var ast = _schema.Parse(tokens, "Schema").Required();
+    var ast = _schemaParser.Parse(tokens, "Schema").Required();
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(SampleTests) + "/Schema");
+    settings.UseDirectory(nameof(SampleTests) + "/ParseSchema");
     settings.UseFileName(sample);
 
     await Verify(ast.Render(), settings);
   }
 
   [Theory]
+  [ClassData(typeof(SampleSchemaData))]
+  public async Task VerifySampleSchema(string sample)
+  {
+    var schema = File.ReadAllText("Sample/Schema/" + sample + ".graphql+");
+    Tokenizer tokens = new(schema);
+
+    var ast = _schemaParser.Parse(tokens, "Schema").Required();
+    var errors = schemaVerifier.Verify(ast)!;
+
+    var settings = new VerifySettings();
+    settings.ScrubEmptyLines();
+    settings.UseDirectory(nameof(SampleTests) + "/VerifySchema");
+    settings.UseFileName(sample);
+
+    await Verify(errors.Select(e => $"{e}"), settings);
+  }
+
+  [Theory]
   [InlineData("error")]
-  public async Task VerifySampleOperation(string sample)
+  public async Task ParseSampleOperation(string sample)
   {
     var operation = File.ReadAllText("Sample/Operation_" + sample + ".gql+");
     OperationContext tokens = new(operation);
@@ -60,8 +70,8 @@ public class SampleTests(
   }
 
   [Theory]
-  [ClassData(typeof(GraphQlExamplesData))]
-  public async Task VerifyGraphQlExample(string example)
+  [ClassData(typeof(SampleGraphQlData))]
+  public async Task ParseSampleGraphQl(string example)
   {
     var operation = File.ReadAllText("Sample/GraphQl/Example_" + example + ".gql");
     OperationContext tokens = new(operation);
@@ -69,17 +79,35 @@ public class SampleTests(
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(SampleTests) + "/GraphQl");
+    settings.UseDirectory(nameof(SampleTests) + "/ParseGraphQl");
     settings.UseFileName("Example_" + example);
 
     await Verify(ast.Render(), settings);
   }
 
-  public class GraphQlExamplesData : TheoryData<string>
+  public class SampleSchemaData : TheoryData<string>
+  {
+    public SampleSchemaData()
+    {
+      Add("all");
+      Add("default");
+      Add("errors");
+      Add("Intro_Schema");
+      Add("Intro_Category");
+      Add("Intro_Directive");
+      Add("Intro_Type");
+      Add("Intro_Enum");
+      Add("Intro_Input");
+      Add("Intro_Output");
+      Add("Intro_Scalar");
+    }
+  }
+
+  public class SampleGraphQlData : TheoryData<string>
   {
     private const string Examples = "003 005 006 007 008 009a 009b 010 012 013 014 016 018 019"
       + " 020 021 023 024 025 026 029 030 031 032";
-    public GraphQlExamplesData()
+    public SampleGraphQlData()
     {
       foreach (var example in Examples.Split()) {
         Add(example);

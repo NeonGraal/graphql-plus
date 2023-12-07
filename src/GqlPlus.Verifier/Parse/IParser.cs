@@ -32,12 +32,8 @@ public class Parser<T>
   public delegate I D();
   public delegate IA DA();
 
-  public class L : Lazy<I>
+  public class L(D factory) : Lazy<I>(() => factory())
   {
-    public L(D factory)
-      : base(() => factory())
-    { }
-
     public static implicit operator L(D factory) => new(factory.ThrowIfNull());
 
     public IResult<T> Parse<TContext>(TContext tokens, string label)
@@ -45,12 +41,8 @@ public class Parser<T>
       => Value.Parse(tokens, label);
   }
 
-  public class LA : Lazy<IA>
+  public class LA(DA factory) : Lazy<IA>(() => factory())
   {
-    public LA(DA factory)
-      : base(() => factory())
-    { }
-
     public static implicit operator LA(DA factory) => new(factory.ThrowIfNull());
 
     public IResultArray<T> Parse<TContext>(TContext tokens, string label)
@@ -64,12 +56,8 @@ public class Parser<I, T>
 {
   public delegate I D();
 
-  public class L : Lazy<I>
+  public class L(D factory) : Lazy<I>(() => factory())
   {
-    public L(D factory)
-      : base(() => factory())
-    { }
-
     public static implicit operator L(D factory) => new(factory.ThrowIfNull());
 
     public I I => Value;
@@ -81,12 +69,8 @@ public class ParserArray<I, T>
 {
   public delegate I DA();
 
-  public class LA : Lazy<I>
+  public class LA(DA factory) : Lazy<I>(() => factory())
   {
-    public LA(DA factory)
-      : base(() => factory())
-    { }
-
     public static implicit operator LA(DA factory) => new(factory.ThrowIfNull());
 
     public I I => Value;

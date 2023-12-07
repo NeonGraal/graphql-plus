@@ -36,7 +36,7 @@ public static class TestHelpers
   {
     contents = contents.Replace(@"\", @"\\");
     return contents.Contains('"')
-      ? contents.Contains("'")
+      ? contents.Contains('\'')
         ? "'" + contents.Replace("'", @"\'") + "'"
         : $"'{contents}'"
       : '"' + contents + '"';

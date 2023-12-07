@@ -5,18 +5,15 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal class ParseArgumentValue : ValueParser<ArgumentAst>
+internal class ParseArgumentValue(
+  Parser<FieldKeyAst>.D fieldKey,
+  Parser<AstKeyValue<ArgumentAst>>.D keyValueParser,
+  Parser<ArgumentAst>.DA listParser,
+  Parser<AstObject<ArgumentAst>>.D objectParser,
+  Parser<ConstantAst>.D constant
+) : ValueParser<ArgumentAst>(fieldKey, keyValueParser, listParser, objectParser)
 {
-  private readonly Parser<ConstantAst>.L _constant;
-
-  public ParseArgumentValue(
-    Parser<FieldKeyAst>.D fieldKey,
-    Parser<AstKeyValue<ArgumentAst>>.D keyValueParser,
-    Parser<ArgumentAst>.DA listParser,
-    Parser<AstObject<ArgumentAst>>.D objectParser,
-    Parser<ConstantAst>.D constant
-  ) : base(fieldKey, keyValueParser, listParser, objectParser)
-    => _constant = constant;
+  private readonly Parser<ConstantAst>.L _constant = constant;
 
   public override IResult<ArgumentAst> Parse<TContext>(TContext tokens, string label)
   {

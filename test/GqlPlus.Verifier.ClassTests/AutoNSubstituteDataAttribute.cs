@@ -4,7 +4,7 @@ using AutoFixture.Xunit2;
 
 namespace GqlPlus.Verifier;
 
-internal class AutoNSubstituteDataAttribute : AutoDataAttribute
+internal sealed class AutoNSubstituteDataAttribute : AutoDataAttribute
 {
   public AutoNSubstituteDataAttribute()
       : base(() => new Fixture()

@@ -4,13 +4,12 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse;
 
-public class ValueObjectParser<T> : Parser<AstObject<T>>.I
+public class ValueObjectParser<T>(
+  Parser<AstKeyValue<T>>.D field
+) : Parser<AstObject<T>>.I
   where T : AstValue<T>
 {
-  private readonly Parser<AstKeyValue<T>>.L _field;
-
-  public ValueObjectParser(Parser<AstKeyValue<T>>.D field)
-    => _field = field;
+  private readonly Parser<AstKeyValue<T>>.L _field = field;
 
   public IResult<AstObject<T>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

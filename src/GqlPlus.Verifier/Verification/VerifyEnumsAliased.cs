@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Merging;
 
 namespace GqlPlus.Verifier.Verification;
 

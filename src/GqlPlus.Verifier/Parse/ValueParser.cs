@@ -4,26 +4,19 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse;
 
-public abstract class ValueParser<T> : IValueParser<T>, Parser<T>.I
+public abstract class ValueParser<T>(
+  Parser<FieldKeyAst>.D fieldKey,
+  Parser<AstKeyValue<T>>.D keyValueParser,
+  Parser<T>.DA listParser,
+  Parser<AstObject<T>>.D objectParser
+) : IValueParser<T>, Parser<T>.I
   where T : AstValue<T>
 {
-  protected readonly Parser<FieldKeyAst>.L FieldKey;
-  protected readonly Parser<T>.LA ListParser;
-  protected readonly Parser<AstObject<T>>.L ObjectParser;
+  protected readonly Parser<FieldKeyAst>.L FieldKey = fieldKey;
+  protected readonly Parser<T>.LA ListParser = listParser;
+  protected readonly Parser<AstObject<T>>.L ObjectParser = objectParser;
 
-  public Parser<AstKeyValue<T>>.L KeyValueParser { get; }
-
-  public ValueParser(
-    Parser<FieldKeyAst>.D fieldKey,
-    Parser<AstKeyValue<T>>.D keyValueParser,
-    Parser<T>.DA listParser,
-    Parser<AstObject<T>>.D objectParser)
-  {
-    FieldKey = fieldKey;
-    KeyValueParser = keyValueParser;
-    ListParser = listParser;
-    ObjectParser = objectParser;
-  }
+  public Parser<AstKeyValue<T>>.L KeyValueParser { get; } = keyValueParser;
 
   public abstract IResult<T> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer;

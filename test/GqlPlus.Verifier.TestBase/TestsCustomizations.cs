@@ -4,7 +4,7 @@ using AutoFixture.Kernel;
 
 namespace GqlPlus.Verifier;
 
-internal sealed class TestsCustomizations : CompositeCustomization
+public sealed class TestsCustomizations : CompositeCustomization
 {
   public TestsCustomizations() : base(new IdentifierCustomization()) { }
 
@@ -32,7 +32,7 @@ internal sealed class TestsCustomizations : CompositeCustomization
         : new NoSpecimen();
     }
 
-    private object ResolveType(Type type, string name, ISpecimenContext context)
+    private static object ResolveType(Type type, string name, ISpecimenContext context)
     {
       if (type == typeof(string[])) {
         return context.Resolve(new RangedSequenceRequest(new RegularExpressionRequest(IdentifierPattern), 1, 5)); ;

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Parse;
+﻿using GqlPlus.Verifier.Merging;
+using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
 using GqlPlus.Verifier.Parse.Schema;
 using GqlPlus.Verifier.Verification;
@@ -8,10 +9,11 @@ namespace GqlPlus.Verifier;
 
 public class Startup
 {
-  public void ConfigureServices(IServiceCollection services)
+  public static void ConfigureServices(IServiceCollection services)
     => services
       .AddCommonParsers()
       .AddOperationParsers()
       .AddSchemaParsers()
-      .AddVerifiers();
+      .AddVerifiers()
+      .AddMergers();
 }

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier;
 
-internal static class OperationTestHelpers
+public static class OperationTestHelpers
 {
   public static DirectiveAst[] Directives(this string[] directives)
     => directives.Select(d => new DirectiveAst(AstNulls.At, d)).ToArray();

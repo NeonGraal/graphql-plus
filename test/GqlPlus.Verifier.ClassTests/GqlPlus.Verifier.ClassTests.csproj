@@ -1,29 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <IsPackable>false</IsPackable>
-    <IsTestProject>true</IsTestProject>
-  </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="AutoFixture.Xunit2" Version="4.18.1" />
-    <PackageReference Include="FluentAssertions" Version="6.12.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="Verify.Xunit" Version="22.6.0" />
-    <PackageReference Include="xunit" Version="2.6.2" />
-    <PackageReference Include="Xunit.DependencyInjection" Version="8.9.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.4">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <ProjectReference Include="..\GqlPlus.Verifier.TestBase\GqlPlus.Verifier.TestBase.csproj" />
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\..\src\GqlPlus.Verifier\GqlPlus.Verifier.csproj" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Sample\**" CopyToOutputDirectory="Always" />
-  </ItemGroup>
-
 </Project>

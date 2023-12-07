@@ -1,5 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("GqlPlus.Verifier.ClassTests")]
-[assembly: SuppressMessage("Style", "IDE0058:Expression value is never used")]
+[assembly: InternalsVisibleTo("GqlPlus.Verifier.ComponentTests")]
+[assembly: InternalsVisibleTo("GqlPlus.Verifier.TestBase")]

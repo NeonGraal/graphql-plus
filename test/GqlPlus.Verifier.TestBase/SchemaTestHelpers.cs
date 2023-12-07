@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier;
 
-internal static class SchemaTestHelpers
+public static class SchemaTestHelpers
 {
   public static AlternateAst<T>[] Alternates<T>(this string argument, Func<string, T> factory)
     where T : AstReference<T>
@@ -29,8 +29,8 @@ internal static class SchemaTestHelpers
   public static ParameterAst[] Parameters(this string[] parameters, Func<ParameterAst, ParameterAst> mapping)
     => parameters.Select(parameter => mapping(new ParameterAst(AstNulls.At, parameter))).ToArray();
 
-  public static ScalarRangeAst[] ScalarRanges(this RangeInput input)
-    => new ScalarRangeAst[] { new(AstNulls.At, input.Lower, input.Upper) };
+  //public static ScalarRangeAst[] ScalarRanges(this RangeInput input)
+  //  => new ScalarRangeAst[] { new(AstNulls.At, input.Lower, input.Upper) };
 
   public static ScalarRegexAst[] ScalarRegexes(this string regex, params string[] regexes)
     => regexes.Select(r => new ScalarRegexAst(AstNulls.At, r, false)).Prepend(new(AstNulls.At, regex, true)).ToArray();

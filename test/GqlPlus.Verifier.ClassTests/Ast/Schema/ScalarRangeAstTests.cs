@@ -47,4 +47,7 @@ public record struct RangeInput(decimal? Min, decimal? Max)
       : Upper is null ? $"{Lower}{lowExc} .."
       : $"{Lower}{lowExc} .. {upExc}{Upper}";
   }
+
+  public ScalarRangeAst[] ScalarRanges()
+    => new ScalarRangeAst[] { new(AstNulls.At, Lower, Upper) };
 }

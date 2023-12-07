@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Verify.Xunit" Version="22.6.0" />
+    <PackageReference Include="Xunit.DependencyInjection" Version="8.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GqlPlus.Verifier.TestBase\GqlPlus.Verifier.TestBase.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Sample\**" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+</Project>

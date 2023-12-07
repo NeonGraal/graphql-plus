@@ -2,13 +2,13 @@
 
 namespace GqlPlus.Verifier;
 
-internal static class TestHelpers
+public static class TestHelpers
 {
-  internal const int Repeats = 5;
-  internal const int CiRepeats = 25;
+  public const int Repeats = 5;
+  public const int CiRepeats = 25;
 
-  internal const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
-  internal const string PunctuationPattern = @"[!#-&(-*.:<-@[-^`{-~]";
+  public const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
+  public const string PunctuationPattern = @"[!#-&(-*.:<-@[-^`{-~]";
 
   public static FieldKeyAst FieldKey(this string label)
     => new(AstNulls.At, "", label);

@@ -1,9 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="AutoFixture.AutoNSubstitute" Version="4.18.1" />
     <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\GqlPlus.Verifier.TestBase\GqlPlus.Verifier.TestBase.csproj" />
   </ItemGroup>
+
 </Project>

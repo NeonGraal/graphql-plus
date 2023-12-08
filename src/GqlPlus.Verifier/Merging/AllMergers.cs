@@ -9,7 +9,9 @@ public static class AllMergers
   public static IServiceCollection AddMergers(this IServiceCollection services)
     => services
       .AddMerge<AstType, MergeAllTypes>()
-      .AddMerge<CategoryDeclAst, CategoryMerger>()
+      .AddMerge<CategoryDeclAst, MergeCategories>()
+      .AddMerge<DirectiveDeclAst, MergeDirectives>()
+      .AddMerge<EnumDeclAst, MergeEnums>()
     ;
 
   public static IServiceCollection AddMerge<T, S>(this IServiceCollection services)

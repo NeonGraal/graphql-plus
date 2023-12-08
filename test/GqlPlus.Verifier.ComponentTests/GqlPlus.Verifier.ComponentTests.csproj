@@ -1,5 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Verify.Xunit" Version="22.6.0" />
     <PackageReference Include="Xunit.DependencyInjection" Version="8.9.0" />

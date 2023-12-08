@@ -133,6 +133,8 @@ An Argument is usually a single value. If multiple values are provided they are 
 
 Commas (`,`) can be used to separate list values and object fields.
 
+If a Argument Object FieldKey appears more than once, all the values will be merged in the similar way as for Constant Object Field values, with Variables being treated as a Value, List or Object depending on their Modifiers.
+
 ## Complete Grammar
 
 ```PEG

@@ -22,7 +22,7 @@ Declarations have the following general form:
 > `label name Parameters? Aliases? '{' ( '(' Options ')' )? Definition '}'`
 
 Multiple Declarations with the same label and name are permitted if their Options and Definitions can be merged.
-When merging Declarations, Parameters and Aliases will be merged and de-duplicated.
+When merging Declarations, Parameters and Aliases will be merged.
 
 The following declarations are implied but can be specified explicitly:
 
@@ -35,7 +35,7 @@ The following declarations are implied but can be specified explicitly:
 
 Many named items can also have Aliases, which are a list of alternate ids for a given item.
 
-Within a list of named items with Aliases, after merging, Aliases must be unique.
+Within any list of named items with Aliases, after merging, Aliases must be unique.
 Any conflicts between names and Aliases will be resolved in the favour of the name,
 ie. Any Aliases in a list of items that match any of the item's names will simply be removed.
 
@@ -44,12 +44,14 @@ ie. Any Aliases in a list of items that match any of the item's names will simpl
 Some item lists can be merged and thus de-duplicated.
 
 Merging two (or more) lists will be done by some matching criteria.
-List components of any matching items will be merged.
-Other (ie, not lists or part of the matching criteria) required components of any matching items must be the same.
-Optional components, if present, must be the same.
-If only present on one item before merging, optional components will be retained on the merged item.
+If the items are named the default matching criteria is by name.
 
-De-duplicating two (or more) lists will be done by the merging matching criteria.
+- List components of any matching items will be merged.
+- Other (ie, not lists or part of the matching criteria) required components of any matching items must be the same.
+- Optional components, if present, must be the same.
+- If only present on some items before merging, optional components will be retained on the merged item.
+
+De-duplicating two (or more) lists will be done by the matching criteria.
 As order is significant in most lists, the first item of any duplicates will be kept, possibly updated by any merging.
 
 It is an error if merging of duplicate items is not possible.
@@ -59,7 +61,7 @@ It is an error if merging of duplicate items is not possible.
 Most declarations define a Type.
 
 The names and Aliases of all Types must be unique across all kinds of Types within the Schema.
-Merging of Types is only possible if all the kinds match.
+Merging of Types is only possible if the kinds match.
 
 ## Category
 
@@ -91,10 +93,10 @@ Dir_Repeatable = '(' 'repeatable' ')'
 Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
 ```
 
-A Directive is defined by name and has a set of Locations where it may appear in an Operation.
+A Directive is defined with a set of Locations where it may appear in an Operation.
 A Directive may have Input Parameters.
 
-By default a Directive can only appear once at any Location, but this can be changed with the `repeatable` Directive option
+By default a Directive can only appear once at any Location, but this can be changed with the `repeatable` Directive option.
 
 Directives can be merged if their Options match.
 
@@ -158,12 +160,12 @@ A Field is defined with at least:
 Field names and Field Aliases must be unique within the object, including any base object.
 Explicit Field names will override the same name being used as a Field Alias.
 
-Object Unions will be merged by base Type.
-Type Parameters and Fields will be merged by name and Alternates merged by Type.
+Object Unions can be merged if their base Types match.
+Alternates are merged by Type.
 
 Fields can be merged if their Modified Types match.
 
-Alternates can be merged if their Modifers match.
+Alternates can be merged if their Modifiers match.
 
 ### Parameter
 
@@ -175,7 +177,7 @@ InParam_Type = STRING? In_Reference Modifiers? Default?
 Input Parameters define one or more Alternate Input type references, possibly with a documentation string, Modifiers and/or a Default.
 
 The order of Alternates is significant.
-Alternates are merged by their Input type and can be merged if their Modifers match.
+Alternates are merged by their Input type and can be merged if their Modifiers match.
 
 ### Modifiers
 

@@ -27,6 +27,7 @@ public class ParseObjectTests
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string field, string inline, string spread)
     => _test.TrueExpected("{" + field + "|{" + inline + "}|" + spread + "}",
+          spread.StartsWith("on", StringComparison.OrdinalIgnoreCase),
           new FieldAst(AstNulls.At, field),
           new InlineAst(AstNulls.At, new FieldAst(AstNulls.At, inline)),
           new SpreadAst(AstNulls.At, spread));

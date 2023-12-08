@@ -21,6 +21,9 @@ Declarations have the following general form:
 
 > `label name Parameters? Aliases? '{' ( '(' Options ')' )? Definition '}'`
 
+Multiple Declarations with the same label and name are permitted if their Options and Definitions can be merged.
+When merging Declarations, Parameters and Aliases will be merged.
+
 The following declarations are implied but can be specified explicitly:
 
 - `category { Query }` and thus `output Query { }`
@@ -28,25 +31,37 @@ The following declarations are implied but can be specified explicitly:
 - `category { (single) Subscription }` and thus `output Subscription { }`
 - `output _Schema { ... }` (see [Introspection](Introspection.md))
 
+### Names and Aliases
+
+Many named items can also have Aliases, which are a list of alternate ids for a given item.
+
+Within any list of named items with Aliases, after merging, Aliases must be unique.
+Any conflicts between names and Aliases will be resolved in the favour of the name,
+ie. Any Aliases in a list of items that match any of the item's names will simply be removed.
+
+### Merging (and De-duplicating)
+
+Some item lists can be merged and thus de-duplicated.
+
+Merging two (or more) lists will be done by some matching criteria.
+If the items are named the default matching criteria is by name.
+
+- List components of any matching items will be merged.
+- Other (ie, not lists or part of the matching criteria) required components of any matching items must be the same.
+- Optional components, if present, must be the same.
+- If only present on some items before merging, optional components will be retained on the merged item.
+
+De-duplicating two (or more) lists will be done by the matching criteria.
+As order is significant in most lists, the first item of any duplicates will be kept, possibly updated by any merging.
+
+It is an error if merging of duplicate items is not possible.
+
 ### Types
 
 Most declarations define a Type.
 
-The names of all Types must be unique.
-The Aliases of all Types must be unique.
-Explicit Type name declarations will override that name being used as Type Alias.
-
-### Merging and De-duplicating
-
-Where duplicate definitions are permitted, some item lists can be merged and de-duplicated.
-
-Merging two (or more) lists will be done by some matching criteria.
-Other (ie, not part of the matching criteria) required components of any matching items must be the same.
-Optional components, if present, must be the same.
-If only present on one item before merging, optional components will be retained on the merged item.
-
-De-duplicating two (or more) lists will be done by the merging matching criteria.
-As order is significant in most lists, the first item of any duplicates will be kept, possibly updated by any merging.
+The names and Aliases of all Types must be unique across all kinds of Types within the Schema.
+Merging of Types is only possible if the kinds match.
 
 ## Category
 
@@ -59,7 +74,8 @@ A Category is a set of fields defined by an Output type.
 
 A Category has a default name of the Output type name with the first character changed to lowercase.
 
-By default an operation over a Category can specify multiple fields that are resolved in parallel but this can be changed with the following Category Options:
+By default an operation over a Category can specify multiple fields that are resolved in parallel
+but this can be changed with the following Category Options:
 
 | Option       | Description                                                                                     |
 | ------------ | ----------------------------------------------------------------------------------------------- |
@@ -67,41 +83,43 @@ By default an operation over a Category can specify multiple fields that are res
 | `sequential` | Multiple fields specified in an operation of this category will be resolved in the order given. |
 | `single`     | One and only one field can be specified in an operation of this category.                       |
 
-Duplicate Category declarations are not permitted.
-An explicit Category declaration for an Output type will override that name being used as an Alias for a different Category.
+Categories can be merged if their Options and Output Types match.
 
 ## Directive
 
 ```PEG
-Directive = 'directive' '@'directive Parameter? Aliases? '{' Dir_Repeatable? Dir_Location+ '}'
+Directive = 'directive' '@'directive InputParameters? Aliases? '{' Dir_Repeatable? Dir_Location+ '}'
 Dir_Repeatable = '(' 'repeatable' ')'
 Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
 ```
 
-A Directive is defined by name and may have a Parameter.
+A Directive is defined with a set of Locations where it may appear in an Operation.
+A Directive may have Input Parameters.
 
-Multiple Directive declarations with the same name will have their Parameters merged and de-duplicated.
+By default a Directive can only appear once at any Location, but this can be changed with the `repeatable` Directive option.
+
+Directives can be merged if their Options match.
+
+Locations will be merged by value.
 
 ## Enum type
 
 ```PEG
-Enum = 'enum' enum Aliases? '{' ( ':' enum )? En_Label+ '}'
-En_Label = STRING? label Aliases?
+Enum = 'enum' enum Aliases? '{' ( ':' enum )? En_Value+ '}'
+En_Value = STRING? value Aliases?
 ```
 
-An Enum is a Type defined with one or more Labels.
-Each Label can be preceded by a documentation string and may have one or more Aliases.
-Label names and Label Aliases must be unique for that Enum.
-Explicit Label names will override that name being used as a Label Alias.
+An Enum is a Type defined with one or more Values.
 
-An Enum can extend another Enum, called it's base Enum, and thus it's Labels are merged and de-duplicated into the base Enum's Labels.
+Each Value can be preceded by a documentation string and may have one or more Aliases.
 
-Multiple Enum declarations with the same name but different base Enums are not permitted.
-Multiple Enum declarations with the same name and base Enum, will have their Labels and Aliases merged and de-duplicated.
+An Enum can extend another Enum, called it's base Enum, and it's Values are merged into the base Enum's Values.
+
+Enums can be merged if their base Enums match.
 
 ## Object Union types
 
-Input and Output types are both Object Union types
+Input and Output types are both Object Union types.
 
 ```PEG
 # base definition
@@ -142,27 +160,24 @@ A Field is defined with at least:
 Field names and Field Aliases must be unique within the object, including any base object.
 Explicit Field names will override the same name being used as a Field Alias.
 
-Multiple object declarations with the same name but different base Type (including no base Type) are not permitted.
-Multiple object declarations with the same name and base Type (or no base Type) will have their Fields merged and de-duplicated by name
-and their Alternates merged and de-duplicated by Type.
+Object Unions can be merged if their base Types match.
+Alternates are merged by Type.
 
-When merging, Fields with the same name must have the same Modified Type.
-Field Aliases will be merged and de-duplicated. Any Aliases matching Field names in the merged object will be discarded.
+Fields can be merged if their Modified Types match.
 
-When merging, Alternates with the same Type must have the the same Modifiers (including none).
+Alternates can be merged if their Modifiers match.
 
 ### Parameter
 
 ```PEG
-Parameter = '(' Param_Type+ ')'
-Param_Type = STRING? In_Reference Modifiers? Default?
+InputParameters = '(' InParam_Type+ ')'
+InParam_Type = STRING? In_Reference Modifiers? Default?
 ```
 
-A Parameter is one or more Alternate Input type references, possibly with a documentation string, Modifiers and/or a Default.
+Input Parameters define one or more Alternate Input type references, possibly with a documentation string, Modifiers and/or a Default.
 
-The order of Parameter Alternates is significant.
-Parameter Alternates with the same Input Type but different Modifiers (including no Modifers) are not permitted.
-Parameter Alternates are merged and de-duplicated by their Modified Input Type.
+The order of Alternates is significant.
+Alternates are merged by their Input type and can be merged if their Modifiers match.
 
 ### Modifiers
 
@@ -304,7 +319,7 @@ A Default of `null` is only allowed on Optional fields. The Default must be comp
 Output = 'output' output TypeParameters? Aliases? '{' Out_Definition '}'
 Out_Definition = Out_Object? Out_Alternate*
 Out_Object = ( ':' STRING? Out_Base )? ( STRING? field Out_Field )+
-Out_Field = Parameter? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
+Out_Field = InputParameters? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
 Out_Alternate = '|' STRING? Out_Reference Modifiers?
 Out_Reference = Internal | Simple | Out_Base
@@ -321,7 +336,7 @@ An Output Field redefines an object Field as follows:
 
 - an optional documentation string,
 - a Field name
-- an optional Parameter
+- optional Input Parameters
 - zero or more Field Aliases
 - a type parameter or an Output type reference
 - zero or more type Modifiers
@@ -346,13 +361,12 @@ Scal_Range = '..' '<'? NUMBER | NUMBER '>'? '..' ( '<'? NUMBER )?
 Scal_RegEx = REGEX '!'?
 ```
 
-Scalar types define specific domains of:
+Scalar types define specific domains of the following kinds:
 
 - Numbers, possibly only those in a given range. Ranges may be upper and/or lower bounded and each bound may be inclusive or exclusive.
 - Strings, possibly only those that match (or don't match) one or more regular expressions.
 
-Duplicate Scalar declarations for a name with different bases are not permitted.
-Multiple Scalar declarations with the same name and base will have their Ranges or Regexes merged and de-duplicated.
+Scalar declarations can be merged if their kinds match.
 
 ## Complete Grammar
 
@@ -367,12 +381,12 @@ Aliases = '[' alias+ ']'
 Category = 'category' category? Aliases? '{' ( '(' Cat_Option ')' )? output '}'
 Cat_Option = 'parallel' | 'sequential' | 'single'
 
-Directive = 'directive' '@'directive Parameter? Aliases? '{' Dir_Repeatable? Dir_Location+ '}'
+Directive = 'directive' '@'directive InputParameters? Aliases? '{' Dir_Repeatable? Dir_Location+ '}'
 Dir_Repeatable = '(' 'repeatable' ')'
 Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
 
-Enum = 'enum' enum Aliases? '{' ( ':' enum )? En_Label+ '}'
-En_Label = STRING? label Aliases?
+Enum = 'enum' enum Aliases? '{' ( ':' enum )? En_Value+ '}'
+En_Value = STRING? value Aliases?
 
 # base definition
 Object = 'object' object TypeParameters? Aliases? '{' Obj_Definition '}'
@@ -386,8 +400,8 @@ Obj_Base = '$'typeParameter | input ( '<' STRING? Obj_Reference+ '>' )?
 
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
-Parameter = '(' Param_Type+ ')'
-Param_Type = STRING? In_Reference Modifiers? Default?
+InputParameters = '(' InParam_Type+ ')'
+InParam_Type = STRING? In_Reference Modifiers? Default?
 
 Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
 
@@ -405,7 +419,7 @@ In_Base = '$'typeParameter | input ( '<' STRING? In_Reference+ '>' )?
 Output = 'output' output TypeParameters? Aliases? '{' Out_Definition '}'
 Out_Definition = Out_Object? Out_Alternate*
 Out_Object = ( ':' STRING? Out_Base )? ( STRING? field Out_Field )+
-Out_Field = Parameter? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
+Out_Field = InputParameters? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
 
 Out_Alternate = '|' STRING? Out_Reference Modifiers?
 Out_Reference = Internal | Simple | Out_Base

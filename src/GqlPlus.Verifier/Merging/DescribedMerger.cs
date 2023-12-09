@@ -2,11 +2,9 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-public class DescribedMerger<TItem> : IMerge<TItem>
+public abstract class DescribedMerger<TItem> : DistinctMerger<TItem>
   where TItem : IAstDescribed
 {
-  public virtual bool CanMerge(TItem[] items)
-    => items.CanMerge(item => item.Description);
-
-  public virtual TItem Merge(TItem[] items) => throw new NotImplementedException();
+  public override bool CanMerge(TItem[] items)
+    => base.CanMerge(items) && items.CanMerge(item => item.Description);
 }

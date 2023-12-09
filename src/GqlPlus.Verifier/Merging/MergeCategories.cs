@@ -6,7 +6,9 @@ internal class MergeCategories
   : DescribedMerger<CategoryDeclAst>
 {
   public override bool CanMerge(CategoryDeclAst[] items)
-    => items.Select(i => i.Output).Distinct().Count() == 1
-     && items.CanMerge(item => item.Option)
-    && base.CanMerge(items);
+    => base.CanMerge(items)
+     && items.CanMerge(item => item.Option);
+
+  protected override string ItemGroupKey(CategoryDeclAst item)
+    => item.Output;
 }

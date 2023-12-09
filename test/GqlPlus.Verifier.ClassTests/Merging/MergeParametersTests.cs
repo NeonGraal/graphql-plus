@@ -31,13 +31,23 @@ public class MergeParametersTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsSameExtends_ReturnsTrue(string input)
+  public void CanMerge_TwoItemsSameModifers_ReturnsTrue(string input)
   {
-    var items = new[] { new ParameterAst(AstNulls.At, input), new ParameterAst(AstNulls.At, input) };
+    var items = new[] { new ParameterAst(AstNulls.At, input) { Modifiers = TestMods() }, new ParameterAst(AstNulls.At, input) { Modifiers = TestMods() } };
 
     var result = _merger.CanMerge(items);
 
     result.Should().BeTrue();
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void CanMerge_TwoItemsDifferentModifers_ReturnsFalse(string input)
+  {
+    var items = new[] { new ParameterAst(AstNulls.At, input) { Modifiers = TestMods() }, new ParameterAst(AstNulls.At, input) };
+
+    var result = _merger.CanMerge(items);
+
+    result.Should().BeFalse();
   }
 
   protected override ParameterAst MakeItem(string name, string description = "")

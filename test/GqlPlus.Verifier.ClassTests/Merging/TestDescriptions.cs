@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestDescriptions<TItem>
-  where TItem : AstDescribed
+  where TItem : IAstDescribed
 {
   protected abstract DescribedMerger<TItem> Merger { get; }
 

@@ -3,12 +3,14 @@
 namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class ParameterAst(TokenAt At, InputReferenceAst Input)
-  : AstBase(At), IEquatable<ParameterAst>
+  : AstBase(At), IEquatable<ParameterAst>, IAstDescribed
 {
   public ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
   public ConstantAst? Default { get; set; }
 
   internal override string Abbr => "P";
+
+  public string Description => Input.Description;
 
   internal ParameterAst(TokenAt at, string input)
     : this(at, new InputReferenceAst(at, input)) { }

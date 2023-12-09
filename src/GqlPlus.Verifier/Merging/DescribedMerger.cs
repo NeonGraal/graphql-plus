@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 public class DescribedMerger<TItem> : IMerge<TItem>
-  where TItem : AstDescribed
+  where TItem : IAstDescribed
 {
   public virtual bool CanMerge(TItem[] items)
     => items.CanMerge(item => item.Description);

@@ -15,12 +15,12 @@ public class FieldKeyAstTests
     => _checks.HashCode(() => new FieldKeyAst(AstNulls.At, contents));
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithEnumLabel(string enumType, string label)
-    => _checks.HashCode(() => new FieldKeyAst(AstNulls.At, enumType, label));
+  public void HashCode_WithEnumTypeAndValue(string enumType, string enumValue)
+    => _checks.HashCode(() => new FieldKeyAst(AstNulls.At, enumType, enumValue));
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithLabel(string label)
-    => _checks.HashCode(label.FieldKey);
+  public void HashCode_WithEnumValue(string enumValue)
+    => _checks.HashCode(enumValue.FieldKey);
 
   [Theory, RepeatData(Repeats)]
   public void String_WithNumber(decimal number)
@@ -35,15 +35,15 @@ public class FieldKeyAstTests
       $"( !k '{contents}' )");
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithEnumLabel(string enumType, string label)
-    => _checks.String(() => new FieldKeyAst(AstNulls.At, enumType, label),
-      $"( !k {enumType}.{label} )");
+  public void String_WithEnumTypeAndValue(string enumType, string enumValue)
+    => _checks.String(() => new FieldKeyAst(AstNulls.At, enumType, enumValue),
+      $"( !k {enumType}.{enumValue} )");
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithLabel(string label)
+  public void String_WithEnumValue(string enumValue)
     => _checks.String(
-      label.FieldKey,
-      $"( !k {label} )");
+      enumValue.FieldKey,
+      $"( !k {enumValue} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithNumber(decimal number)
@@ -69,10 +69,10 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithNumberEnumLabel(decimal number, string enumType, string label)
+  public void Inequality_WithNumberEnumValue(decimal number, string enumType, string enumValue)
   {
     var left = new FieldKeyAst(AstNulls.At, number);
-    var right = new FieldKeyAst(AstNulls.At, enumType, label);
+    var right = new FieldKeyAst(AstNulls.At, enumType, enumValue);
 
     (left != right).Should().BeTrue();
   }
@@ -93,62 +93,62 @@ public class FieldKeyAstTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithStringEnumLabel(string contents, string enumType, string label)
+  public void Inequality_WithStringEnumValue(string contents, string enumType, string enumValue)
   {
     var left = new FieldKeyAst(AstNulls.At, contents);
-    var right = new FieldKeyAst(AstNulls.At, enumType, label);
+    var right = new FieldKeyAst(AstNulls.At, enumType, enumValue);
 
     (left != right).Should().BeTrue();
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithEnumLabel(string enumType, string label)
+  public void Equality_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.Equality(
-      () => new FieldKeyAst(AstNulls.At, enumType, label));
+      () => new FieldKeyAst(AstNulls.At, enumType, enumValue));
 
   [Theory, RepeatData(Repeats)]
-  public void Compare_WithEnumLabel(string enumType, string label1, string label2)
+  public void Compare_WithEnumTypeAndValue(string enumType, string enumValue1, string enumValue2)
   {
-    var left = new FieldKeyAst(AstNulls.At, enumType, label1);
-    var right = new FieldKeyAst(AstNulls.At, enumType, label2);
-    var expected = string.Compare(enumType + "." + label1, enumType + "." + label2, StringComparison.Ordinal);
+    var left = new FieldKeyAst(AstNulls.At, enumType, enumValue1);
+    var right = new FieldKeyAst(AstNulls.At, enumType, enumValue2);
+    var expected = string.Compare(enumType + "." + enumValue1, enumType + "." + enumValue2, StringComparison.Ordinal);
 
     left.CompareTo(right).Should().Be(expected);
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithEnumLabel(string enumType, string label)
+  public void Inequality_WithEnumTypeAndValue(string enumType, string enumValue)
   {
-    if (enumType == label) {
+    if (enumType == enumValue) {
       return;
     }
 
-    var left = new FieldKeyAst(AstNulls.At, enumType, label);
-    var right = new FieldKeyAst(AstNulls.At, label, enumType);
+    var left = new FieldKeyAst(AstNulls.At, enumType, enumValue);
+    var right = new FieldKeyAst(AstNulls.At, enumValue, enumType);
 
     (left != right).Should().BeTrue();
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithLabel(string label)
+  public void Equality_WithEnumValue(string enumValue)
     => _checks.Equality(
-      label.FieldKey);
+      enumValue.FieldKey);
 
   [Theory, RepeatData(Repeats)]
-  public void Compare_WithLabel(string label1, string label2)
+  public void Compare_WithEnumValue(string enumValue1, string enumValue2)
   {
-    var left = label1.FieldKey();
-    var right = label2.FieldKey();
-    var expected = string.Compare(label1, label2, StringComparison.Ordinal);
+    var left = enumValue1.FieldKey();
+    var right = enumValue2.FieldKey();
+    var expected = string.Compare(enumValue1, enumValue2, StringComparison.Ordinal);
 
     left.CompareTo(right).Should().Be(expected);
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithLabel(string label)
+  public void Inequality_WithEnumValue(string enumValue)
   {
-    var left = label.FieldKey();
-    var right = new FieldKeyAst(AstNulls.At, label, label);
+    var left = enumValue.FieldKey();
+    var right = new FieldKeyAst(AstNulls.At, enumValue, enumValue);
 
     (left != right).Should().BeTrue();
   }
@@ -156,14 +156,14 @@ public class FieldKeyAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithEnumType(string enumType)
     => _checks.Equality(
-      () => new FieldKeyAst(AstNulls.At, enumType, "label"));
+      () => new FieldKeyAst(AstNulls.At, enumType, "enumValue"));
 
   [Theory, RepeatData(Repeats)]
   public void Compare_WithEnumType(string enumType1, string enumType2)
   {
-    var left = new FieldKeyAst(AstNulls.At, enumType1, "label");
-    var right = new FieldKeyAst(AstNulls.At, enumType2, "label");
-    var expected = string.Compare(enumType1 + ".label", enumType2 + ".label", StringComparison.Ordinal);
+    var left = new FieldKeyAst(AstNulls.At, enumType1, "enumValue");
+    var right = new FieldKeyAst(AstNulls.At, enumType2, "enumValue");
+    var expected = string.Compare(enumType1 + ".enumValue", enumType2 + ".enumValue", StringComparison.Ordinal);
 
     left.CompareTo(right).Should().Be(expected);
   }
@@ -171,8 +171,8 @@ public class FieldKeyAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithEnumType(string enumType)
   {
-    var left = new FieldKeyAst(AstNulls.At, enumType, "label");
-    var right = new FieldKeyAst(AstNulls.At, enumType, enumType + "label");
+    var left = new FieldKeyAst(AstNulls.At, enumType, "enumValue");
+    var right = new FieldKeyAst(AstNulls.At, enumType, enumType + "enumValue");
 
     (left != right).Should().BeTrue();
   }

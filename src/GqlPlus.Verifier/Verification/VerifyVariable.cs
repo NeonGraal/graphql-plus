@@ -32,7 +32,7 @@ internal class VerifyVariable : IVerify<VariableAst>
       : new TokenMessages();
 
   private TokenMessages VerifyVariableNullDefault(ConstantAst def)
-    => def.Value?.EnumLabel == "Null.null"
+    => def.Value?.EnumValue == "Null.null"
       ? ([def.Error("Invalid Variable definition. Default of 'null' must be on Optional Type.")])
       : new TokenMessages();
 }

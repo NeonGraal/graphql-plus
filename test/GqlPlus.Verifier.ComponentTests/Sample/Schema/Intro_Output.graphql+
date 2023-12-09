@@ -12,12 +12,12 @@ output _OutputField {
 
 output _OutputArgument {
     : _BaseType<_Kind.Enum>
-        label: String
+        value: String
     | _TypeRef<_OutputBase>
     }
 
 output _OutputEnum {
     : _BaseType<_Kind.Enum>
         field: String
-        label: String
+        value: String
     }

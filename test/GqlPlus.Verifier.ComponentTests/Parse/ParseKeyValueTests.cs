@@ -3,28 +3,28 @@
 public class ParseKeyValueTests
 {
   [Theory, RepeatData(Repeats)]
-  public void WithKeyValueValid_ReturnsCorrectAst(string key, string label)
+  public void WithKeyValueValid_ReturnsCorrectAst(string key, string value)
     => _test.TrueExpected(
-      key + ':' + label,
-      new AstKeyValue<ConstantAst>(key.FieldKey(), label.FieldKey()));
+      key + ':' + value,
+      new AstKeyValue<ConstantAst>(key.FieldKey(), value.FieldKey()));
 
   [Theory, RepeatData(Repeats)]
-  public void WithKeyValueKeyNoLabel_ReturnsFalse(string key, string label)
+  public void WithKeyValueKeyNoEnumValue_ReturnsFalse(string key, string value)
     => _test.False(
-      key + ".:" + label);
+      key + ".:" + value);
 
   [Theory, RepeatData(Repeats)]
-  public void WithKeyValueValueNoLabel_ReturnsFalse(string key, string label)
+  public void WithKeyValueValueNoEnumValue_ReturnsFalse(string key, string value)
     => _test.False(
-      key + ":" + label + ".");
+      key + ":" + value + ".");
 
   [Theory, RepeatData(Repeats)]
-  public void WithKeyValueNoKey_ReturnsFalse(string label)
-    => _test.False(':' + label, CheckNull);
+  public void WithKeyValueNoKey_ReturnsFalse(string value)
+    => _test.False(':' + value, CheckNull);
 
   [Theory, RepeatData(Repeats)]
-  public void WithKeyValueNoColon_ReturnsFalse(string key, string label)
-    => _test.False(key + ' ' + label, CheckNull);
+  public void WithKeyValueNoColon_ReturnsFalse(string key, string value)
+    => _test.False(key + ' ' + value, CheckNull);
 
   [Theory, RepeatData(Repeats)]
   public void WithKeyValueNoValue_ReturnsFalse(string key)

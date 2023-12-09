@@ -10,7 +10,7 @@ public class SchemaParserTests(Parser<SchemaAst>.D parser)
 
   [Theory]
   [InlineData("category { Query }")]
-  [InlineData("enum Test { Label }")]
+  [InlineData("enum Test { Value }")]
   public void Parse_ShouldSucceed(string input)
   {
     var tokens = new Tokenizer(input);
@@ -40,7 +40,7 @@ public class SchemaParserTests(Parser<SchemaAst>.D parser)
   }
 
   [Theory]
-  [InlineData("enum Test Label }")]
+  [InlineData("enum Test Value }")]
   [InlineData("category { Query } extra")]
   public void Parse_ShouldPartiallySucceed(string input)
   {

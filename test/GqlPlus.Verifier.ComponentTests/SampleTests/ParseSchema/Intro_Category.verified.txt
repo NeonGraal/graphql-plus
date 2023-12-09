@@ -22,10 +22,10 @@ Success
 {
   !E I@6/7
   _Resolution
-  !EL I@20/7
+  !EV I@20/7
   Single
-  !EL I@27/7
+  !EV I@27/7
   Sequential
-  !EL I@38/7
+  !EV I@38/7
   Parallel
 }

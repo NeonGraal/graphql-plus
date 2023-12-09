@@ -37,33 +37,34 @@ public class ParseFieldKeyTests
       new FieldKeyAst(AstNulls.At, contents));
 
   [Theory, RepeatData(Repeats)]
-  public void WithLabel_ReturnsCorrectAst(string label)
+  public void WithEnumValue_ReturnsCorrectAst(string enumValue)
     => Test.TrueExpected(
-      label,
-      label.FieldKey());
+      enumValue,
+      enumValue.FieldKey());
 
   [Theory]
   [InlineData("true", "Boolean", "true")]
   [InlineData("false", "Boolean", "false")]
   [InlineData("null", "Null", "null")]
   [InlineData("_", "Unit", "_")]
-  public void WithSpecifcLabels_ReturnsCorrectAst(string label, string enumType, string enumLabel)
+  public void WithSpecificValues_ReturnsCorrectAst(string value, string enumType, string enumValue)
     => Test.TrueExpected(
-      label,
-      new FieldKeyAst(AstNulls.At, enumType, enumLabel));
+      value,
+      new FieldKeyAst(AstNulls.At, enumType, enumValue));
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeAndLabel_ReturnsCorrectAst(string theType, string label)
+  public void WithTypeAndValue_ReturnsCorrectAst(string enumType, string enumValue)
     => Test.TrueExpected(
-      theType + "." + label,
-      new FieldKeyAst(AstNulls.At, theType, label));
+      enumType + "." + enumValue,
+      new FieldKeyAst(AstNulls.At, enumType, enumValue));
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeAndNoLabel_ReturnsFalse(string theType)
-    => Test.False(theType + ".");
+  public void WithTypeAndNoValue_ReturnsFalse(string enumType)
+    => Test.False(enumType + ".");
 
   private OneChecksParser<FieldKeyAst> Test { get; }
 
   public ParseFieldKeyTests(Parser<FieldKeyAst>.D parser)
     => Test = new(parser);
 }
+

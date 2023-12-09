@@ -28,7 +28,7 @@ internal class ParseInputField : ObjectFieldParser<InputFieldAst, InputReference
   protected override IResult<InputFieldAst> FieldDefault<TContext>(TContext tokens, InputFieldAst field)
     => _default.I.Parse(tokens, "Default").AsPartial(field, constant => field.Default = constant);
 
-  protected override IResult<InputFieldAst> FieldEnumLabel<TContext>(TContext tokens, InputFieldAst field)
+  protected override IResult<InputFieldAst> FieldEnumValue<TContext>(TContext tokens, InputFieldAst field)
     => tokens.Error("Input", "':'", field);
 
   protected override IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)

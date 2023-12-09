@@ -319,18 +319,18 @@ A Default of `null` is only allowed on Optional fields. The Default must be comp
 Output = 'output' output TypeParameters? Aliases? '{' Out_Definition '}'
 Out_Definition = Out_Object? Out_Alternate*
 Out_Object = ( ':' STRING? Out_Base )? ( STRING? field Out_Field )+
-Out_Field = InputParameters? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
+Out_Field = InputParameters? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumValue
 
 Out_Alternate = '|' STRING? Out_Reference Modifiers?
 Out_Reference = Internal | Simple | Out_Base
-Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | EnumLabel )+ '>' )?
+Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | EnumValue )+ '>' )?
 ```
 
 Output types define the result values for Categories and Output fields.
 
 An Output type is defined as an object union type with the following alterations.
 
-An Output type reference may have Type Arguments of Output type references and/or Enum Labels.
+An Output type reference may have Type Arguments of Output type references and/or Enum Values.
 
 An Output Field redefines an object Field as follows:
 
@@ -346,7 +346,7 @@ or:
 - an optional documentation string,
 - a Field name
 - zero or more Field Aliases
-- an Enum Label (which will imply the field Type)
+- an Enum Value (which will imply the field Type)
 
 ## Scalar type
 
@@ -419,11 +419,11 @@ In_Base = '$'typeParameter | input ( '<' STRING? In_Reference+ '>' )?
 Output = 'output' output TypeParameters? Aliases? '{' Out_Definition '}'
 Out_Definition = Out_Object? Out_Alternate*
 Out_Object = ( ':' STRING? Out_Base )? ( STRING? field Out_Field )+
-Out_Field = InputParameters? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumLabel
+Out_Field = InputParameters? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumValue
 
 Out_Alternate = '|' STRING? Out_Reference Modifiers?
 Out_Reference = Internal | Simple | Out_Base
-Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | EnumLabel )+ '>' )?
+Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | EnumValue )+ '>' )?
 
 Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
 ScalarDefinition = Scal_Number | Scal_String

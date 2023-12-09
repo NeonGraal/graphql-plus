@@ -3,9 +3,9 @@ Success
 {
   !E I@6/1
   _Scalar
-  !EL I@16/1
+  !EV I@16/1
   Number
-  !EL I@23/1
+  !EV I@23/1
   String
 }
 {

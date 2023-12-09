@@ -6,22 +6,18 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDefinition, EnumDeclAst>
+internal class ParseEnum(
+  TypeName name,
+  Parser<NullAst>.DA param,
+  Parser<string>.DA aliases,
+  Parser<NullAst>.D option,
+  Parser<EnumDefinition>.D definition
+  ) : DeclarationParser<TypeName, NullAst, NullAst, EnumDefinition, EnumDeclAst>(name, param, aliases, option, definition)
 {
-  public ParseEnum(
-    TypeName name,
-    Parser<NullAst>.DA param,
-    Parser<string>.DA aliases,
-    Parser<NullAst>.D option,
-    Parser<EnumDefinition>.D definition
-  ) : base(name, param, aliases, option, definition)
-  {
-  }
-
   protected override void ApplyDefinition(EnumDeclAst result, EnumDefinition value)
   {
     result.Extends = value.Extends;
-    result.Labels = value.Labels;
+    result.Values = value.Values;
   }
 
   protected override bool ApplyOption(EnumDeclAst result, IResult<NullAst> option) => true;
@@ -35,15 +31,13 @@ internal class ParseEnum : DeclarationParser<TypeName, NullAst, NullAst, EnumDef
 internal class EnumDefinition
 {
   internal string? Extends { get; set; }
-  internal EnumLabelAst[] Labels { get; set; } = Array.Empty<EnumLabelAst>();
+  internal EnumValueAst[] Values { get; set; } = [];
 }
 
-internal class ParseEnumDefinition : Parser<EnumDefinition>.I
+internal class ParseEnumDefinition(Parser<EnumValueAst>.D enumValue)
+  : Parser<EnumDefinition>.I
 {
-  private readonly Parser<EnumLabelAst>.L _enumLabel;
-
-  public ParseEnumDefinition(Parser<EnumLabelAst>.D enumLabel)
-    => _enumLabel = enumLabel;
+  private readonly Parser<EnumValueAst>.L _enumValue = enumValue;
 
   public IResult<EnumDefinition> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -58,19 +52,19 @@ internal class ParseEnumDefinition : Parser<EnumDefinition>.I
       }
     }
 
-    List<EnumLabelAst> labels = [];
+    List<EnumValueAst> values = [];
     while (!tokens.Take("}")) {
-      var enumLabel = _enumLabel.Parse(tokens, "Enum Label");
-      if (!enumLabel.Required(labels.Add)) {
-        result.Labels = labels.ToArray();
-        return enumLabel.AsResult(result);
+      var enumValue = _enumValue.Parse(tokens, "Enum Value");
+      if (!enumValue.Required(values.Add)) {
+        result.Values = [.. values];
+        return enumValue.AsResult(result);
       }
     }
 
-    result.Labels = labels.ToArray();
-    return labels.Any()
+    result.Values = [.. values];
+    return values.Count != 0
       ? result.Ok()
-      : tokens.Partial(label, "at least one label", () => result);
+      : tokens.Partial(label, "at least one value", () => result);
   }
 }
 

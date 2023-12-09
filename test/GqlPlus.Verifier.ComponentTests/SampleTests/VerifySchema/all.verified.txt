@@ -1,1 +1,3 @@
-﻿[]
+﻿[
+  !!!  I@12/2 : Invalid Directives. Multiple Directives with id 'all' and group '' found. - 'all' !!!
+]

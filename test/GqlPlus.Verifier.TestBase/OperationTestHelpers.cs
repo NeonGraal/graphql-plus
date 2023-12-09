@@ -10,19 +10,19 @@ public static class OperationTestHelpers
   public static IAstSelection[] Fields(this string[] fields)
     => fields.Select(f => new FieldAst(AstNulls.At, f)).ToArray();
 
-  public static ArgumentAst[] Arguments(this string[] labels)
-    => labels.Select(l => new ArgumentAst(l.FieldKey())).ToArray();
+  public static ArgumentAst[] Arguments(this string[] values)
+    => values.Select(l => new ArgumentAst(l.FieldKey())).ToArray();
 
-  public static ArgumentAst[] ArgumentList(this string label)
-    => new ArgumentAst[] { new(AstNulls.At, label), label.FieldKey() };
+  public static ArgumentAst[] ArgumentList(this string value)
+    => new ArgumentAst[] { new(AstNulls.At, value), value.FieldKey() };
 
-  public static AstObject<ArgumentAst> ArgumentObject(this string label, string key)
+  public static AstObject<ArgumentAst> ArgumentObject(this string value, string key)
   {
     var keyAst = key.FieldKey();
-    var labelAst = label.FieldKey();
+    var valueAst = value.FieldKey();
 
-    return key == label
-      ? new() { [keyAst] = new(AstNulls.At, label) }
-      : new() { [keyAst] = new(AstNulls.At, label), [labelAst] = keyAst };
+    return key == value
+      ? new() { [keyAst] = new(AstNulls.At, value) }
+      : new() { [keyAst] = new(AstNulls.At, value), [valueAst] = keyAst };
   }
 }

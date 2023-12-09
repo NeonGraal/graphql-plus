@@ -64,14 +64,14 @@ public abstract class ObjectFieldParser<F, R> : Parser<F>.I
       return tokens.Error(label, "field type", field);
     }
 
-    return FieldEnumLabel(tokens, field);
+    return FieldEnumValue(tokens, field);
   }
 
   protected abstract void ApplyFieldParameters(F field, ParameterAst[] parameters);
   protected abstract F Field(TokenAt at, string name, string description, R typeReference);
   protected abstract IResult<F> FieldDefault<TContext>(TContext tokens, F field)
       where TContext : Tokenizer;
-  protected abstract IResult<F> FieldEnumLabel<TContext>(TContext tokens, F field)
+  protected abstract IResult<F> FieldEnumValue<TContext>(TContext tokens, F field)
       where TContext : Tokenizer;
   protected abstract IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
       where TContext : Tokenizer;

@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Parse;
 
 internal class ParseFieldKey : Parser<FieldKeyAst>.I
 {
-  private readonly Dictionary<string, string> _labelTypes = new() {
+  private readonly Dictionary<string, string> _enumValueTypes = new() {
     ["_"] = "Unit",
     ["null"] = "Null",
     ["true"] = "Boolean",
@@ -25,15 +25,15 @@ internal class ParseFieldKey : Parser<FieldKeyAst>.I
       return new FieldKeyAst(at, contents).Ok();
     }
 
-    if (tokens.Identifier(out var identifier)) {
+    if (tokens.Identifier(out var enumType)) {
       if (tokens.Take('.')) {
-        return tokens.Identifier(out var value)
-          ? new FieldKeyAst(at, identifier, value).Ok()
+        return tokens.Identifier(out var enumValue)
+          ? new FieldKeyAst(at, enumType, enumValue).Ok()
           : tokens.Error<FieldKeyAst>(label, "enum value after '.'");
       }
 
-      var type = _labelTypes.GetValueOrDefault(identifier, "");
-      return new FieldKeyAst(at, type, identifier).Ok();
+      var type = _enumValueTypes.GetValueOrDefault(enumType, "");
+      return new FieldKeyAst(at, type, enumType).Ok();
     }
 
     return 0.Empty<FieldKeyAst>();

@@ -6,7 +6,7 @@ public sealed record class OutputFieldAst(TokenAt At, string Name, string Descri
   : AstField<OutputReferenceAst>(At, Name, Description, Type), IEquatable<OutputFieldAst>
 {
   public ParameterAst[] Parameters { get; set; } = Array.Empty<ParameterAst>();
-  public string? Label { get; set; }
+  public string? EnumValue { get; set; }
 
   internal override string Abbr => "OF";
 
@@ -16,15 +16,15 @@ public sealed record class OutputFieldAst(TokenAt At, string Name, string Descri
   public bool Equals(OutputFieldAst? other)
     => base.Equals(other)
     && Parameters.SequenceEqual(other.Parameters)
-    && Label.NullEqual(other.Label);
+    && EnumValue.NullEqual(other.EnumValue);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Label);
+    => HashCode.Combine(base.GetHashCode(), EnumValue);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
         .Concat(Parameters.Bracket("(", ")"))
-        .Concat(Label is not null
-          ? new[] { "=", $"{Type.Name}.{Label}" }
+        .Concat(EnumValue is not null
+          ? new[] { "=", $"{Type.Name}.{EnumValue}" }
           : Type.GetFields().Prepend(":"))
         .Concat(Modifiers.AsString());
 }

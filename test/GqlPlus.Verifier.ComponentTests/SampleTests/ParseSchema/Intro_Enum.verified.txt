@@ -17,7 +17,7 @@ Success
     String
     ?
     !OF I@9/4
-    labels
+    values
     :
      I@17/4
     _Aliased

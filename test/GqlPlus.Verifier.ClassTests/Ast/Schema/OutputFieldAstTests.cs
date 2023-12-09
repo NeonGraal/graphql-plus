@@ -46,26 +46,26 @@ public class OutputFieldAstTests : BaseAliasedAstTests<OutputFieldInput>
       () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Modifiers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithLabel(OutputFieldInput input, string label)
+  public void HashCode_WithEnumValue(OutputFieldInput input, string enumValue)
       => _checks.HashCode(
-        () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Label = label });
+        () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { EnumValue = enumValue });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithLabel(OutputFieldInput input, string label)
+  public void String_WithEnumValue(OutputFieldInput input, string enumValue)
     => _checks.String(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Label = label },
-      $"( !OF {input.Name} = {input.Type}.{label} )");
+      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { EnumValue = enumValue },
+      $"( !OF {input.Name} = {input.Type}.{enumValue} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithLabel(OutputFieldInput input, string label)
+  public void Equality_WithEnumValue(OutputFieldInput input, string enumValue)
     => _checks.Equality(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Label = label });
+      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { EnumValue = enumValue });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenLabels(OutputFieldInput input, string label1, string label2)
-    => _checks.InequalityBetween(label1, label2,
-      label => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Label = label },
-      label1 == label2);
+  public void Inequality_BetweenEnumValues(OutputFieldInput input, string enumValue1, string enumValue2)
+    => _checks.InequalityBetween(enumValue1, enumValue2,
+      enumValue => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { EnumValue = enumValue },
+      enumValue1 == enumValue2);
 
   protected override string InputString(OutputFieldInput input)
     => $"( !OF {input.Name} : {input.Type} )";

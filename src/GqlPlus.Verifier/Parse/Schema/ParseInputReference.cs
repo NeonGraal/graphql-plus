@@ -9,6 +9,6 @@ internal class ParseInputReference : ObjectReferenceParser<InputReferenceAst>
   protected override InputReferenceAst Reference(TokenAt at, string param)
     => new(at, param);
 
-  protected override IResult<InputReferenceAst> TypeEnumLabel<TContext>(TContext tokens, InputReferenceAst reference)
+  protected override IResult<InputReferenceAst> TypeEnumValue<TContext>(TContext tokens, InputReferenceAst reference)
     => reference.Ok();
 }

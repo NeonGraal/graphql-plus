@@ -11,69 +11,69 @@ public class ParseArgumentTests
       new ArgumentAst(AstNulls.At, variable));
 
   [Theory, RepeatData(Repeats)]
-  public void WithConstant_ReturnsCorrectAst(string label)
+  public void WithConstant_ReturnsCorrectAst(string enumValue)
     => _test.TrueExpected(
-      "(" + label + ")",
-      new ArgumentAst(label.FieldKey()));
+      "(" + enumValue + ")",
+      new ArgumentAst(enumValue.FieldKey()));
 
   [Theory, RepeatData(Repeats)]
-  public void WithList_ReturnsCorrectAst(string label)
+  public void WithList_ReturnsCorrectAst(string enumValue)
     => _test.TrueExpected(
-      "($" + label + ' ' + label + ')',
-      new ArgumentAst(AstNulls.At, label.ArgumentList()));
+      "($" + enumValue + ' ' + enumValue + ')',
+      new ArgumentAst(AstNulls.At, enumValue.ArgumentList()));
 
   [Theory, RepeatData(Repeats)]
-  public void WithListComma_ReturnsCorrectAst(string label)
+  public void WithListComma_ReturnsCorrectAst(string enumValue)
     => _test.TrueExpected(
-      "($" + label + ',' + label + ')',
-      new ArgumentAst(AstNulls.At, label.ArgumentList()));
+      "($" + enumValue + ',' + enumValue + ')',
+      new ArgumentAst(AstNulls.At, enumValue.ArgumentList()));
 
   [Theory, RepeatData(Repeats)]
-  public void WithListInvalid_ReturnsFalse(string label)
+  public void WithListInvalid_ReturnsFalse(string enumValue)
     => _test.False(
-      "($" + label + '|' + label + ')',
+      "($" + enumValue + '|' + enumValue + ')',
       CheckNull);
 
   [Theory, RepeatData(Repeats)]
-  public void WithField_ReturnsTrue(string label)
+  public void WithField_ReturnsTrue(string enumValue)
     => _test.TrueExpected(
-      '(' + label + ":$" + label + ')',
-      new ArgumentAst(AstNulls.At, label.ArgumentObject(label)));
+      '(' + enumValue + ":$" + enumValue + ')',
+      new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(enumValue)));
 
   [Theory, RepeatData(Repeats)]
-  public void WithObject_ReturnsCorrectAst(string key, string label)
+  public void WithObject_ReturnsCorrectAst(string key, string enumValue)
     => _test.TrueExpected(
-      '(' + key + ":$" + label + ' ' + label + ':' + key + ')',
-      new ArgumentAst(AstNulls.At, label.ArgumentObject(key)),
-      key == label);
+      '(' + key + ":$" + enumValue + ' ' + enumValue + ':' + key + ')',
+      new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),
+      key == enumValue);
 
   [Theory, RepeatData(Repeats)]
-  public void WithObjectSemi_ReturnsCorrectAst(string key, string label)
+  public void WithObjectSemi_ReturnsCorrectAst(string key, string enumValue)
     => _test.TrueExpected(
-      '(' + key + ":$" + label + ',' + label + ':' + key + ')',
-      new ArgumentAst(AstNulls.At, label.ArgumentObject(key)),
-      key == label);
+      '(' + key + ":$" + enumValue + ',' + enumValue + ':' + key + ')',
+      new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),
+      key == enumValue);
 
   [Theory, RepeatData(Repeats)]
-  public void WithObjectSemiLabel_ReturnsFalse(string key, string label)
+  public void WithObjectSemiEnumValue_ReturnsFalse(string key, string enumValue)
     => _test.False(
-      '(' + key + ":$" + label + ',' + label + ')',
+      '(' + key + ":$" + enumValue + ',' + enumValue + ')',
       CheckNull,
-      key == label);
+      key == enumValue);
 
   [Theory, RepeatData(Repeats)]
-  public void WithObjectFieldBad_ReturnsFalse(string key, string label)
+  public void WithObjectFieldBad_ReturnsFalse(string key, string enumValue)
     => _test.False(
       '(' + key + ":)",
       CheckNull,
-      key == label);
+      key == enumValue);
 
   [Theory, RepeatData(Repeats)]
-  public void WithObjectInvalid_ReturnsFalse(string key, string label)
+  public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
     => _test.False(
-      '(' + key + ':' + label + ';' + label + ':' + key + ')',
+      '(' + key + ':' + enumValue + ';' + enumValue + ':' + key + ')',
       CheckNull,
-      key == label);
+      key == enumValue);
 
   private void CheckNull(ArgumentAst? result)
     => result.Should().BeNull();

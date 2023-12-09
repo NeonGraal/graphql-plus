@@ -9,10 +9,10 @@ internal sealed class ParseEnumChecks
     : base(parser) { }
 
   protected internal override EnumDeclAst AliasedFactory(EnumInput input)
-    => new(AstNulls.At, input.Name) { Labels = new[] { input.Label }.EnumLabels(), };
+    => new(AstNulls.At, input.Type) { Values = new[] { input.Value }.EnumValues(), };
 
   protected internal override string AliasesString(EnumInput input, string aliases)
-    => input.Name + aliases + "{" + input.Label + "}";
+    => input.Type + aliases + "{" + input.Value + "}";
 }
 
-public record struct EnumInput(string Name, string Label);
+public record struct EnumInput(string Type, string Value);

@@ -48,9 +48,9 @@ Language definitions are given in a modified PEG (Parsing Expression Grammar)
 ```PEG
 Default = '=' Constant
 
-EnumLabel = ( enum '.' )? label
+EnumValue = ( enum '.' )? value
 
-FieldKey = EnumLabel | NUMBER | STRING
+FieldKey = EnumValue | NUMBER | STRING
 
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 Simple = Basic | enum
@@ -59,7 +59,7 @@ Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
 Internal = 'Void' | 'Null' | 'null'
 ```
 
-An Enum Label reference may drop the Enum portion if the Label is unique.
+An Enum Value reference may drop the Enum portion if the Value is unique.
 
 | Modifier   | Syntax           | Notes                                                                                                                        | Description                   |
 | ---------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
@@ -98,7 +98,7 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 
 ```PEG
 Constant = Const_List | Const_Object | Const_Value
-Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | EnumLabel
+Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | EnumValue
 Const_List = '[' Cons_Values* ']'
 Const_Values = Constant ',' Const_Values | Constant
 
@@ -123,9 +123,9 @@ If a Constant Object FieldKey appears more than once, all the values will be mer
 ```PEG
 Default = '=' Constant
 
-EnumLabel = ( enum '.' )? label
+EnumValue = ( enum '.' )? value
 
-FieldKey = EnumLabel | NUMBER | STRING
+FieldKey = EnumValue | NUMBER | STRING
 
 Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 Simple = Basic | enum
@@ -134,7 +134,7 @@ Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
 Internal = 'Void' | 'Null' | 'null'
 
 Constant = Const_List | Const_Object | Const_Value
-Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | EnumLabel
+Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | EnumValue
 Const_List = '[' Cons_Values* ']'
 Const_Values = Constant ',' Const_Values | Constant
 

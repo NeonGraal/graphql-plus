@@ -261,13 +261,13 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Error_BeforeIdentifier_ReturnsAtIdentifier(string label, string message)
+  public void Error_BeforeIdentifier_ReturnsAtIdentifier(string value, string message)
   {
-    var tokens = PrepareTokens(label);
+    var tokens = PrepareTokens(value);
 
     var result = tokens.Error(message);
 
-    CheckParseError(result, TokenKind.Identifer, label, message);
+    CheckParseError(result, TokenKind.Identifer, value, message);
   }
 
   [Theory, RepeatData(Repeats)]

@@ -15,9 +15,9 @@ Success
 {
   !E I@6/3
   One
-  !EL I@12/3
+  !EV I@12/3
   Two
-  !EL I@16/3
+  !EV I@16/3
   Three
 }
 {

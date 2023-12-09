@@ -26,7 +26,7 @@ public static class SchemaParsers
       .AddSingleton<TypeName>()
       // Enum
       .AddParser<EnumDefinition, ParseEnumDefinition>()
-      .AddParser<EnumLabelAst, ParseEnumLabel>()
+      .AddParser<EnumValueAst, ParseEnumValue>()
       .AddParser<EnumDeclAst, ParseEnum>()
       // Scalar
       .AddParser<ScalarDefinition, ParseScalarDefinition>()

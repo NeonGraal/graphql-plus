@@ -1,9 +1,9 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class EnumLabelAstTests : BaseAliasedAstTests
+public class EnumValueAstTests : BaseAliasedAstTests
 {
-  private readonly BaseAliasedAstChecks<EnumLabelAst> _checks
-    = new(name => new EnumLabelAst(AstNulls.At, name, "")) {
+  private readonly BaseAliasedAstChecks<EnumValueAst> _checks
+    = new(name => new EnumValueAst(AstNulls.At, name, "")) {
       SameInput = (name1, name2) => name1.Camelize() == name2.Camelize()
     };
 

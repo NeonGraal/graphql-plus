@@ -25,26 +25,26 @@ public class EnumAstTests : BaseAliasedAstTests
       extends1 == extends2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithLabels(string name, string[] labels)
+  public void HashCode_WithEnumValues(string name, string[] enumValues)
       => _checks.HashCode(
-        () => new EnumDeclAst(AstNulls.At, name) { Labels = labels.EnumLabels() });
+        () => new EnumDeclAst(AstNulls.At, name) { Values = enumValues.EnumValues() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithLabels(string name, string[] labels)
+  public void String_WithEnumValues(string name, string[] enumValues)
     => _checks.String(
-      () => new EnumDeclAst(AstNulls.At, name) { Labels = labels.EnumLabels() },
-      $"( !E {name} {labels.Joined("!EL ")} )");
+      () => new EnumDeclAst(AstNulls.At, name) { Values = enumValues.EnumValues() },
+      $"( !E {name} {enumValues.Joined("!EV ")} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithLabels(string name, string[] labels)
+  public void Equality_WithEnumValues(string name, string[] enumValues)
     => _checks.Equality(
-      () => new EnumDeclAst(AstNulls.At, name) { Labels = labels.EnumLabels() });
+      () => new EnumDeclAst(AstNulls.At, name) { Values = enumValues.EnumValues() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenLabels(string name, string[] labels1, string[] labels2)
-    => _checks.InequalityBetween(labels1, labels2,
-      label => new EnumDeclAst(AstNulls.At, name) { Labels = label.EnumLabels() },
-      labels1.SequenceEqual(labels2));
+  public void Inequality_BetweenEnumValues(string name, string[] enumValues1, string[] enumValues2)
+    => _checks.InequalityBetween(enumValues1, enumValues2,
+      enumValue => new EnumDeclAst(AstNulls.At, name) { Values = enumValue.EnumValues() },
+      enumValues1.SequenceEqual(enumValues2));
 
   private readonly BaseAliasedAstChecks<EnumDeclAst> _checks
     = new(name => new EnumDeclAst(AstNulls.At, name)) {

@@ -67,17 +67,17 @@ Success
 {
   !E I@6/15
   _Kind
-  !EL I@14/15
+  !EV I@14/15
   Basic
-  !EL I@20/15
+  !EV I@20/15
   Enum
-  !EL I@25/15
+  !EV I@25/15
   Internal
-  !EL I@34/15
+  !EV I@34/15
   Input
-  !EL I@40/15
+  !EV I@40/15
   Output
-  !EL I@47/15
+  !EV I@47/15
   Scalar
 }
 {
@@ -253,11 +253,11 @@ Success
 {
   !E I@6/54
   _Modifier
-  !EL I@18/54
+  !EV I@18/54
   Optional
-  !EL I@27/54
+  !EV I@27/54
   List
-  !EL I@32/54
+  !EV I@32/54
   ModifierDictionary
 }
 {

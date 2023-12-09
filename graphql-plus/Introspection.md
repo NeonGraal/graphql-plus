@@ -94,7 +94,7 @@ output _TypeSimple {
 output _TypeEnum {
     : _BaseType<_TypeKind.Enum>
         base: String?
-        labels: _Aliased[]
+        values: _Aliased[]
     }
 ```
 
@@ -181,14 +181,14 @@ output _OutputField {
 
 output _OutputArgument {
     : _BaseType<_TypeKind.Enum>
-        label: String
+        value: String
     | _Ref<_OutputBase>
     }
 
 output _OutputEnum {
     : _BaseType<_TypeKind.Enum>
         field: String
-        label: String
+        value: String
     }
 ```
 
@@ -306,7 +306,7 @@ output _TypeSimple {
 output _TypeEnum {
     : _BaseType<_TypeKind.Enum>
         base: String?
-        labels: _Aliased[]
+        values: _Aliased[]
     }
 
 output _TypeObject<$kind $base $field> {
@@ -381,14 +381,14 @@ output _OutputField {
 
 output _OutputArgument {
     : _BaseType<_TypeKind.Enum>
-        label: String
+        value: String
     | _Ref<_OutputBase>
     }
 
 output _OutputEnum {
     : _BaseType<_TypeKind.Enum>
         field: String
-        label: String
+        value: String
     }
 
 enum _Scalar { Number String }

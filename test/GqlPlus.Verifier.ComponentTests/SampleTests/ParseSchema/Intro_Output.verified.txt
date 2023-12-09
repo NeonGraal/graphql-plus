@@ -54,7 +54,7 @@ Success
   >
   {
     !OF I@9/15
-    label
+    value
     :
      I@16/15
     String
@@ -84,7 +84,7 @@ Success
      I@16/21
     String
     !OF I@9/22
-    label
+    value
     :
      I@16/22
     String

@@ -8,8 +8,8 @@ public static class SchemaTestHelpers
     where T : AstReference<T>
     => new[] { new AlternateAst<T>(factory(argument)) { Modifiers = TestMods() } };
 
-  public static EnumLabelAst[] EnumLabels(this string[] labels)
-    => labels.Select(l => new EnumLabelAst(AstNulls.At, l, "")).ToArray();
+  public static EnumValueAst[] EnumValues(this string[] enumValues)
+    => enumValues.Select(l => new EnumValueAst(AstNulls.At, l, "")).ToArray();
 
   public static InputFieldAst[] InputFields(this string fieldName, string fieldType)
     => new InputFieldAst[] { new(AstNulls.At, fieldName, new(AstNulls.At, fieldType)) };

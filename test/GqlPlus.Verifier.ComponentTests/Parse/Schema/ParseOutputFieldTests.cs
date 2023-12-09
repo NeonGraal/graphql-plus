@@ -43,24 +43,24 @@ public class ParseOutputFieldTests : BaseFieldTests
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithFieldLabel_ReturnsCorrectAst(string name, string label)
+  public void WithFieldEnumValue_ReturnsCorrectAst(string name, string enumValue)
     => _test.TrueExpected(
-      name + "=" + label,
-        _test.Field(name, "") with { Label = label });
+      name + "=" + enumValue,
+        _test.Field(name, "") with { EnumValue = enumValue });
 
   [Theory, RepeatData(Repeats)]
-  public void WithFieldLabelBad_ReturnsFalse(string name)
+  public void WithFieldEnumValueBad_ReturnsFalse(string name)
     => _test.False(name + "=");
 
   [Theory, RepeatData(Repeats)]
-  public void WithFieldEnumLabel_ReturnsCorrectAst(string name, string enumType, string label)
+  public void WithFieldEnumTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumValue)
     => _test.TrueExpected(
-      name + "=" + enumType + "." + label,
-        _test.Field(name, enumType) with { Label = label });
+      name + "=" + enumType + "." + enumValue,
+        _test.Field(name, enumType) with { EnumValue = enumValue });
 
   [Theory, RepeatData(Repeats)]
-  public void WithFieldEnumLabelBad_ReturnsFalse(string name, string label)
-    => _test.False(name + "=" + label + ".");
+  public void WithFieldEnumTypeAndValueBad_ReturnsFalse(string name, string enumValue)
+    => _test.False(name + "=" + enumValue + ".");
 
   internal override IBaseFieldChecks Checks => _test;
 

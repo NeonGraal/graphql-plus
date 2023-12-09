@@ -46,7 +46,7 @@ internal abstract class ObjectReferenceParser<R> : Parser<R>.I
           return tokens.Error(label, "at least one type argument after '<'", reference);
         }
       } else if (isTypeArgument) {
-        return TypeEnumLabel(tokens, reference);
+        return TypeEnumValue(tokens, reference);
       }
 
       return reference.Ok();
@@ -56,6 +56,6 @@ internal abstract class ObjectReferenceParser<R> : Parser<R>.I
   }
 
   protected abstract R Reference(TokenAt at, string param);
-  protected abstract IResult<R> TypeEnumLabel<TContext>(TContext tokens, R reference)
+  protected abstract IResult<R> TypeEnumValue<TContext>(TContext tokens, R reference)
       where TContext : Tokenizer;
 }

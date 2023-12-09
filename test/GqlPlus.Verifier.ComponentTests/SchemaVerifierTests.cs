@@ -62,7 +62,7 @@ public class SchemaVerifierTests(
     public InvalidGraphQlPlusSchemas()
     {
       Add(""); // Bad parse
-      Add("enum Test { Label } output Test { }"); // Type names must be unique
+      Add("enum Test { Value } output Test { }"); // Type names must be unique
       Add("category { Test }"); // Category output not defined
       Add("category { Test } category test { Output } output Test { } output Output { }"); // Duplicate Category names
       Add("category [a] { Test } category [a] { Output } output Test { } output Output { }"); // Duplicate Category aliases

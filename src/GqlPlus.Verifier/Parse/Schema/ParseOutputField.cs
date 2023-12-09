@@ -26,27 +26,27 @@ internal class ParseOutputField : ObjectFieldParser<OutputFieldAst, OutputRefere
   protected override IResult<OutputFieldAst> FieldDefault<TContext>(TContext tokens, OutputFieldAst field)
     => field.Ok();
 
-  protected override IResult<OutputFieldAst> FieldEnumLabel<TContext>(TContext tokens, OutputFieldAst field)
+  protected override IResult<OutputFieldAst> FieldEnumValue<TContext>(TContext tokens, OutputFieldAst field)
   {
     if (tokens.Take('=')) {
       var at = tokens.At;
 
-      if (!tokens.Identifier(out var label)) {
-        return tokens.Error("Output", "label after '='", field);
+      if (!tokens.Identifier(out var enumType)) {
+        return tokens.Error("Output", "enum value after '='", field);
       }
 
       if (!tokens.Take('.')) {
-        field.Label = label;
+        field.EnumValue = enumType;
         return field.Ok();
       }
 
-      if (tokens.Identifier(out var value)) {
-        field.Type = new OutputReferenceAst(at, label);
-        field.Label = value;
+      if (tokens.Identifier(out var enumValue)) {
+        field.Type = new OutputReferenceAst(at, enumType);
+        field.EnumValue = enumValue;
         return field.Ok();
       }
 
-      return tokens.Error("Output", "label after '.'", field);
+      return tokens.Error("Output", "enum value after '.'", field);
     }
 
     return tokens.Error("Output", "':' or '='", field);

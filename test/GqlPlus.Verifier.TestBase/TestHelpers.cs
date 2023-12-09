@@ -10,23 +10,23 @@ public static class TestHelpers
   public const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
   public const string PunctuationPattern = @"[!#-&(-*.:<-@[-^`{-~]";
 
-  public static FieldKeyAst FieldKey(this string label)
-    => new(AstNulls.At, "", label);
+  public static FieldKeyAst FieldKey(this string value)
+    => new(AstNulls.At, "", value);
 
-  public static ConstantAst[] ConstantList(this string label)
+  public static ConstantAst[] ConstantList(this string value)
     => new ConstantAst[] {
-      label.FieldKey(),
-      label.FieldKey()
+      value.FieldKey(),
+      value.FieldKey()
     };
 
-  public static AstObject<ConstantAst> ConstantObject(this string label, string key)
+  public static AstObject<ConstantAst> ConstantObject(this string value, string key)
   {
     var keyAst = key.FieldKey();
-    var labelAst = label.FieldKey();
+    var valueAst = value.FieldKey();
 
-    return key == label
-      ? new() { [keyAst] = labelAst }
-      : new() { [keyAst] = labelAst, [labelAst] = keyAst };
+    return key == value
+      ? new() { [keyAst] = valueAst }
+      : new() { [keyAst] = valueAst, [valueAst] = keyAst };
   }
 
   public static TokenMessage ParseMessage(this string message)

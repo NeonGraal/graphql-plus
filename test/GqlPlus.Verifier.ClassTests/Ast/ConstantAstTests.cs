@@ -8,115 +8,115 @@ public class ConstantAstTests
       () => new ConstantAst(AstNulls.At) with { At = AstNulls.At });
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithLabel(string label)
+  public void HashCode_WithEnumValue(string enumValue)
     => _checks.HashCode(
-      () => new ConstantAst(new FieldKeyAst(AstNulls.At, "", label)));
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, "", enumValue)));
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithEnumLabel(string enumType, string label)
+  public void HashCode_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.HashCode(
-      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, label)));
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, enumValue)));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithEnumType(string enumType)
     => _checks.HashCode(
-      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, "label")));
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, "enumValue")));
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithValues(string label)
+  public void HashCode_WithValues(string enumValue)
     => _checks.HashCode(
-      () => new ConstantAst(AstNulls.At, label.ConstantList()));
+      () => new ConstantAst(AstNulls.At, enumValue.ConstantList()));
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithFields(string key, string label)
+  public void HashCode_WithFields(string key, string enumValue)
     => _checks.HashCode(
-      () => new ConstantAst(AstNulls.At, label.ConstantObject(key)));
+      () => new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)));
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithLabel(string label)
+  public void String_WithEnumValue(string enumValue)
     => _checks.String(
-      () => new ConstantAst(label.FieldKey()),
-      $"( !k {label} )");
+      () => new ConstantAst(enumValue.FieldKey()),
+      $"( !k {enumValue} )");
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithEnumLabel(string enumType, string label)
+  public void String_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.String(
-      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, label)),
-      $"( !k {enumType}.{label} )");
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, enumValue)),
+      $"( !k {enumType}.{enumValue} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumType(string enumType)
     => _checks.String(
-      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, "label")),
-      $"( !k {enumType}.label )");
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, "enumValue")),
+      $"( !k {enumType}.enumValue )");
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithValues(string label)
+  public void String_WithValues(string enumValue)
     => _checks.String(
-      () => new ConstantAst(AstNulls.At, label.ConstantList()),
-      $"( !c [ !k {label} !k {label} ] )");
+      () => new ConstantAst(AstNulls.At, enumValue.ConstantList()),
+      $"( !c [ !k {enumValue} !k {enumValue} ] )");
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithFields(string key, string label)
+  public void String_WithFields(string key, string enumValue)
     => _checks.String(
-      () => new ConstantAst(AstNulls.At, label.ConstantObject(key)),
-      $"( !c {{ ( !k {key} ):( !k {label} ) ( !k {label} ):( !k {key} ) }} )",
-      key == label);
+      () => new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)),
+      $"( !c {{ ( !k {key} ):( !k {enumValue} ) ( !k {enumValue} ):( !k {key} ) }} )",
+      key == enumValue);
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithLabel(string label)
+  public void Equality_WithEnumValue(string enumValue)
     => _checks.Equality(
-      () => label.FieldKey());
+      () => enumValue.FieldKey());
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithEnumLabel(string enumType, string label)
+  public void Equality_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.Equality(
-      () => new FieldKeyAst(AstNulls.At, enumType, label));
+      () => new FieldKeyAst(AstNulls.At, enumType, enumValue));
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithEnumType(string enumType)
     => _checks.Equality(
-      () => new FieldKeyAst(AstNulls.At, enumType, "label"));
+      () => new FieldKeyAst(AstNulls.At, enumType, "enumValue"));
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithLabel(string label)
-    => _checks.InequalityBetween(label, label + "a",
+  public void Inequality_WithEnumValue(string enumValue)
+    => _checks.InequalityBetween(enumValue, enumValue + "a",
       l => l.FieldKey(),
       false);
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithEnumLabel(string enumType, string label)
+  public void Inequality_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.Inequality(
-      () => new FieldKeyAst(AstNulls.At, enumType, label),
-      () => new FieldKeyAst(AstNulls.At, label, enumType),
-      enumType == label);
+      () => new FieldKeyAst(AstNulls.At, enumType, enumValue),
+      () => new FieldKeyAst(AstNulls.At, enumValue, enumType),
+      enumType == enumValue);
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithEnumType(string enumType)
     => _checks.InequalityBetween(enumType, enumType + "a",
-      e => new FieldKeyAst(AstNulls.At, e, "label"), false);
+      e => new FieldKeyAst(AstNulls.At, e, "enumValue"), false);
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithValues(string label)
+  public void Equality_WithValues(string enumValue)
     => _checks.Equality(
-      () => new ConstantAst(AstNulls.At, label.ConstantList()));
+      () => new ConstantAst(AstNulls.At, enumValue.ConstantList()));
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithValues(string label)
+  public void Inequality_WithValues(string enumValue)
     => _checks.Inequality(
-      () => new ConstantAst(AstNulls.At, label.ConstantList()),
-      () => label.FieldKey());
+      () => new ConstantAst(AstNulls.At, enumValue.ConstantList()),
+      () => enumValue.FieldKey());
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithFields(string key, string label)
+  public void Equality_WithFields(string key, string enumValue)
     => _checks.Equality(
-      () => new ConstantAst(AstNulls.At, label.ConstantObject(key)));
+      () => new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)));
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithFields(string key, string label)
+  public void Inequality_WithFields(string key, string enumValue)
     => _checks.Inequality(
-      () => new ConstantAst(AstNulls.At, label.ConstantObject(key)),
-      () => new FieldKeyAst(AstNulls.At, key, label));
+      () => new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)),
+      () => new FieldKeyAst(AstNulls.At, key, enumValue));
 
   internal BaseAstChecks<string, ConstantAst> _checks = new();
 }

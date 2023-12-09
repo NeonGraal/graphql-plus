@@ -15,55 +15,55 @@ public class ParseConstantTests
       new FieldKeyAst(AstNulls.At, contents));
 
   [Theory, RepeatData(Repeats)]
-  public void WithLabel_ReturnsCorrectAst(string label)
+  public void WithEnumValue_ReturnsCorrectAst(string enumValue)
     => _test.TrueExpected(
-      label,
-      label.FieldKey());
+      enumValue,
+      enumValue.FieldKey());
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumLabel_ReturnsCorrectAst(string enumType, string label)
+  public void WithEnumTypeAndValue_ReturnsCorrectAst(string enumType, string enumValue)
     => _test.TrueExpected(
-      enumType + "." + label,
-      new FieldKeyAst(AstNulls.At, enumType, label));
+      enumType + "." + enumValue,
+      new FieldKeyAst(AstNulls.At, enumType, enumValue));
 
   [Theory, RepeatData(Repeats)]
-  public void WithList_ReturnsCorrectAst(string label)
+  public void WithList_ReturnsCorrectAst(string enumValue)
     => _test.TrueExpected(
-      '[' + label + ' ' + label + ']',
-      new ConstantAst(AstNulls.At, label.ConstantList()));
+      '[' + enumValue + ' ' + enumValue + ']',
+      new ConstantAst(AstNulls.At, enumValue.ConstantList()));
 
   [Theory, RepeatData(Repeats)]
-  public void WithListComma_ReturnsCorrectAst(string label)
+  public void WithListComma_ReturnsCorrectAst(string enumValue)
     => _test.TrueExpected(
-      '[' + label + ',' + label + ']',
-      new ConstantAst(AstNulls.At, label.ConstantList()));
+      '[' + enumValue + ',' + enumValue + ']',
+      new ConstantAst(AstNulls.At, enumValue.ConstantList()));
 
   [Theory, RepeatData(Repeats)]
-  public void WithListInvalid_ReturnsFalse(string label)
+  public void WithListInvalid_ReturnsFalse(string enumValue)
     => _test.False(
-      '[' + label + ':' + label + ']',
+      '[' + enumValue + ':' + enumValue + ']',
       CheckNull);
 
   [Theory, RepeatData(Repeats)]
-  public void WithObject_ReturnsCorrectAst(string key, string label)
+  public void WithObject_ReturnsCorrectAst(string key, string enumValue)
     => _test.TrueExpected(
-      '{' + key + ':' + label + ' ' + label + ':' + key + '}',
-      new ConstantAst(AstNulls.At, label.ConstantObject(key)),
-      key == label);
+      '{' + key + ':' + enumValue + ' ' + enumValue + ':' + key + '}',
+      new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)),
+      key == enumValue);
 
   [Theory, RepeatData(Repeats)]
-  public void WithObjectSemi_ReturnsCorrectAst(string key, string label)
+  public void WithObjectSemi_ReturnsCorrectAst(string key, string enumValue)
     => _test.TrueExpected(
-      '{' + key + ':' + label + ',' + label + ':' + key + '}',
-      new ConstantAst(AstNulls.At, label.ConstantObject(key)),
-      key == label);
+      '{' + key + ':' + enumValue + ',' + enumValue + ':' + key + '}',
+      new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)),
+      key == enumValue);
 
   [Theory, RepeatData(Repeats)]
-  public void WithObjectInvalid_ReturnsFalse(string key, string label)
+  public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
     => _test.False(
-      '{' + key + ':' + label + ':' + key + '}',
+      '{' + key + ':' + enumValue + ':' + key + '}',
       CheckNull,
-      key == label);
+      key == enumValue);
 
   private void CheckDefault(ConstantAst? result)
     => result.Should().Be(new ConstantAst(AstNulls.At));

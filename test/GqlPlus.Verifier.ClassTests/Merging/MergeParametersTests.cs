@@ -66,6 +66,4 @@ public class MergeParametersTests
 
   protected override ParameterAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, new InputReferenceAst(AstNulls.At, name) with { Description = description });
-  protected override ParameterAst MakeDistinct(string name)
-    => new(AstNulls.At, new InputReferenceAst(AstNulls.At, name));
 }

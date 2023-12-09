@@ -38,7 +38,7 @@ internal abstract class ObjectReferenceParser<R> : Parser<R>.I
           referenceArgument = ParseReference(tokens, label, isTypeArgument: true);
         }
 
-        reference.Arguments = arguments.ToArray();
+        reference.Arguments = [.. arguments];
 
         if (!tokens.Take('>')) {
           return tokens.Error(label, "'>' after type argument(s)", reference);

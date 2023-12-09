@@ -2,15 +2,16 @@
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-public class ParseVariablesTests
+public class ParseVariablesTests(Parser<VariableAst>.DA parser)
 {
   private static VariableAst TestVar(string variable)
     => new(AstNulls.At, variable);
 
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string[] variables)
-    => _test.TrueExpected("(" + variables.Joined(v => "$" + v) + ")",
-      variables.Select(TestVar).ToArray());
+    => _test.TrueExpected(
+      "(" + variables.Joined(v => "$" + v) + ")",
+      [.. variables.Select(TestVar)]);
 
   [Fact]
   public void WithNoVariables_ReturnsFalse()
@@ -20,8 +21,5 @@ public class ParseVariablesTests
   public void WithNoEnd_ReturnsFalse(string variable)
     => _test.False("($" + variable);
 
-  private readonly ManyChecksParser<VariableAst> _test;
-
-  public ParseVariablesTests(Parser<VariableAst>.DA parser)
-    => _test = new(parser);
+  private readonly ManyChecksParser<VariableAst> _test = new(parser);
 }

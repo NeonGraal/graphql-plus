@@ -5,18 +5,13 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal class ParseArgument : IParserArgument
+internal class ParseArgument(
+  Parser<FieldKeyAst>.D fieldKey,
+  Parser<IValueParser<ArgumentAst>, ArgumentAst>.D argument
+) : IParserArgument
 {
-  private readonly Parser<FieldKeyAst>.L _fieldKey;
-  private readonly Parser<IValueParser<ArgumentAst>, ArgumentAst>.L _argument;
-
-  public ParseArgument(
-    Parser<FieldKeyAst>.D fieldKey,
-    Parser<IValueParser<ArgumentAst>, ArgumentAst>.D argument)
-  {
-    _fieldKey = fieldKey;
-    _argument = argument;
-  }
+  private readonly Parser<FieldKeyAst>.L _fieldKey = fieldKey;
+  private readonly Parser<IValueParser<ArgumentAst>, ArgumentAst>.L _argument = argument;
 
   public IResult<ArgumentAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -59,7 +54,7 @@ internal class ParseArgument : IParserArgument
     }
 
     return values.Count > 1
-      ? new(at, values.ToArray())
+      ? new(at, [.. values])
       : initial;
   }
 
@@ -91,7 +86,7 @@ internal class ParseArgument : IParserArgument
     while (_argument.I.Parse(tokens, "Argument").Required(values.Add)) { }
 
     if (tokens.Take(")")) {
-      var argument = values.Count > 1 ? new(at, values.ToArray()) : value;
+      var argument = values.Count > 1 ? new(at, [.. values]) : value;
       return argument.Ok();
     }
 

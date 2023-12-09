@@ -5,13 +5,13 @@ namespace GqlPlus.Verifier;
 public static class OperationTestHelpers
 {
   public static DirectiveAst[] Directives(this string[] directives)
-    => directives.Select(d => new DirectiveAst(AstNulls.At, d)).ToArray();
+    => [.. directives.Select(d => new DirectiveAst(AstNulls.At, d))];
 
   public static IAstSelection[] Fields(this string[] fields)
-    => fields.Select(f => new FieldAst(AstNulls.At, f)).ToArray();
+    => [.. fields.Select(f => new FieldAst(AstNulls.At, f))];
 
   public static ArgumentAst[] Arguments(this string[] values)
-    => values.Select(l => new ArgumentAst(l.FieldKey())).ToArray();
+    => [.. values.Select(l => new ArgumentAst(l.FieldKey()))];
 
   public static ArgumentAst[] ArgumentList(this string value)
     => new ArgumentAst[] { new(AstNulls.At, value), value.FieldKey() };

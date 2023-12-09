@@ -56,6 +56,4 @@ public class MergeDirectivesTests
 
   protected override DirectiveDeclAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description);
-  protected override DirectiveDeclAst MakeDistinct(string name)
-    => new(AstNulls.At, name);
 }

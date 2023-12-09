@@ -22,7 +22,7 @@ public static class ResultArrayExtenstions
     }
 
     if (result is ResultArrayEmpty<T>) {
-      action(Array.Empty<T>());
+      action([]);
       return true;
     }
 
@@ -32,7 +32,7 @@ public static class ResultArrayExtenstions
   public static T[] Optional<T>(this IResultArray<T> result)
     => result switch {
       IResultEmpty<T[]>
-        => Array.Empty<T>(),
+        => [],
       IResultValue<T[]> ok
         => ok.Result,
       IResultMessage<T[]> message
@@ -58,7 +58,7 @@ public static class ResultArrayExtenstions
   }
 
   public static IResultArray<T> OkArray<T>(this IEnumerable<T> result)
-    => new ResultArrayOk<T>(result.ToArray());
+    => new ResultArrayOk<T>([.. result]);
 
   public static IResultArray<T> EmptyArray<T>(this IEnumerable<T>? _)
     => new ResultArrayEmpty<T>();
@@ -67,7 +67,7 @@ public static class ResultArrayExtenstions
     => new ResultArrayEmpty<T>();
 
   public static IResultArray<T> PartialArray<T>(this IEnumerable<T> result, TokenMessage message)
-    => new ResultArrayPartial<T>(result.ToArray(), message);
+    => new ResultArrayPartial<T>([.. result], message);
 
   public static IResultArray<T> ErrorArray<T>(this IEnumerable<T>? _, TokenMessage message)
     => new ResultArrayError<T>(message);

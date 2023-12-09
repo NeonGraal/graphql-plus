@@ -5,33 +5,23 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal class ParseOperation : Parser<OperationAst>.I
+internal class ParseOperation(
+  Parser<IParserArgument, ArgumentAst>.D argument,
+  Parser<DirectiveAst>.DA directives,
+  ParserArray<IParserStartFragments, FragmentAst>.DA startFragments,
+  ParserArray<IParserEndFragments, FragmentAst>.DA endFragments,
+  Parser<ModifierAst>.DA modifiers,
+  Parser<IAstSelection>.DA objectParser,
+  Parser<VariableAst>.DA variables
+) : Parser<OperationAst>.I
 {
-  private readonly Parser<IParserArgument, ArgumentAst>.L _argument;
-  private readonly Parser<DirectiveAst>.LA _directives;
-  private readonly ParserArray<IParserStartFragments, FragmentAst>.LA _startFragments;
-  private readonly ParserArray<IParserEndFragments, FragmentAst>.LA _endFragments;
-  private readonly Parser<ModifierAst>.LA _modifiers;
-  private readonly Parser<IAstSelection>.LA _object;
-  private readonly Parser<VariableAst>.LA _variables;
-
-  public ParseOperation(
-    Parser<IParserArgument, ArgumentAst>.D argument,
-    Parser<DirectiveAst>.DA directives,
-    ParserArray<IParserStartFragments, FragmentAst>.DA startFragments,
-    ParserArray<IParserEndFragments, FragmentAst>.DA endFragments,
-    Parser<ModifierAst>.DA modifiers,
-    Parser<IAstSelection>.DA objectParser,
-    Parser<VariableAst>.DA variables)
-  {
-    _argument = argument;
-    _directives = directives;
-    _startFragments = startFragments;
-    _endFragments = endFragments;
-    _modifiers = modifiers;
-    _object = objectParser;
-    _variables = variables;
-  }
+  private readonly Parser<IParserArgument, ArgumentAst>.L _argument = argument;
+  private readonly Parser<DirectiveAst>.LA _directives = directives;
+  private readonly ParserArray<IParserStartFragments, FragmentAst>.LA _startFragments = startFragments;
+  private readonly ParserArray<IParserEndFragments, FragmentAst>.LA _endFragments = endFragments;
+  private readonly Parser<ModifierAst>.LA _modifiers = modifiers;
+  private readonly Parser<IAstSelection>.LA _object = objectParser;
+  private readonly Parser<VariableAst>.LA _variables = variables;
 
   public IResult<OperationAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -74,7 +64,7 @@ internal class ParseOperation : Parser<OperationAst>.I
 
     modifiers.WithResult(value => ast.Modifiers = value);
     _endFragments.I.Parse(tokens, label).WithResult(value =>
-      ast.Fragments = ast.Fragments.Concat(value).ToArray());
+      ast.Fragments = [.. ast.Fragments.Concat(value)]);
 
     if (tokens.AtEnd) {
       ast.Result = ParseResultKind.Success;
@@ -87,11 +77,11 @@ internal class ParseOperation : Parser<OperationAst>.I
     OperationAst Final()
       => tokens is OperationContext context
           ? ast with {
-            Errors = tokens.Errors.ToArray(),
-            Usages = context.Variables.ToArray(),
-            Spreads = context.Spreads.ToArray(),
+            Errors = [.. tokens.Errors],
+            Usages = [.. context.Variables],
+            Spreads = [.. context.Spreads],
           }
-          : ast with { Errors = tokens.Errors.ToArray(), };
+          : ast with { Errors = [.. tokens.Errors], };
   }
 
   private static OperationAst ParseCategory<TContext>(TContext tokens)

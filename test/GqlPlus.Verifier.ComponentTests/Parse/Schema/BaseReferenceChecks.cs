@@ -2,15 +2,12 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal sealed class BaseReferenceParsedChecks<R>
-  : OneChecksParser<R>, IBaseReferenceChecks
+internal sealed class BaseReferenceParsedChecks<R>(
+  IReferenceFactories<R> factories, Parser<R>.D parser
+) : OneChecksParser<R>(parser), IBaseReferenceChecks
   where R : AstReference<R>
 {
-  private readonly IReferenceFactories<R> _factories;
-
-  public BaseReferenceParsedChecks(IReferenceFactories<R> factories, Parser<R>.D parser)
-    : base(parser)
-    => _factories = factories;
+  private readonly IReferenceFactories<R> _factories = factories;
 
   public void WithMinimum(string name)
     => TrueExpected(name, Reference(name));
@@ -25,7 +22,7 @@ internal sealed class BaseReferenceParsedChecks<R>
     => TrueExpected(
       name + "<" + references.Joined() + ">",
       Reference(name) with {
-        Arguments = references.Select(Reference).ToArray()
+        Arguments = [.. references.Select(Reference)]
       });
 
   public void WithTypeArgumentsBad(string name, string[] references)

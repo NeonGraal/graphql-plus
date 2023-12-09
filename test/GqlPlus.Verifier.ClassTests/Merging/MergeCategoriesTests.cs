@@ -42,6 +42,4 @@ public class MergeCategoriesTests
 
   protected override CategoryDeclAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description, name);
-  protected override CategoryDeclAst MakeDistinct(string name)
-    => new(AstNulls.At, name);
 }

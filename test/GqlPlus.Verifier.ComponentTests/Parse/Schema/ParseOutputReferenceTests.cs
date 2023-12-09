@@ -2,16 +2,16 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public class ParseOutputReferenceTests : BaseReferenceTests
+public class ParseOutputReferenceTests(
+  Parser<OutputReferenceAst>.D parser
+) : BaseReferenceTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithArgumentEnumValues_ReturnsCorrectAst(string name, string enumType, string[] enumValues)
     => _test.TrueExpected(
       name + "<" + enumValues.Joined(enumType + ".") + ">",
       _test.Reference(name) with {
-        Arguments = enumValues.Select(
-          enumValue => _test.Reference(enumType) with { EnumValue = enumValue })
-          .ToArray()
+        Arguments = [.. enumValues.Select(enumValue => _test.Reference(enumType) with { EnumValue = enumValue })]
       });
 
   [Theory, RepeatData(Repeats)]
@@ -20,8 +20,5 @@ public class ParseOutputReferenceTests : BaseReferenceTests
 
   internal override IBaseReferenceChecks Checks => _test;
 
-  private readonly BaseReferenceParsedChecks<OutputReferenceAst> _test;
-
-  public ParseOutputReferenceTests(Parser<OutputReferenceAst>.D parser)
-    => _test = new(new OutputFactories(), parser);
+  private readonly BaseReferenceParsedChecks<OutputReferenceAst> _test = new(new OutputFactories(), parser);
 }

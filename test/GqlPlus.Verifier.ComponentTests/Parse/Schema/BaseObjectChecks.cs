@@ -19,15 +19,15 @@ internal sealed class BaseObjectParserChecks<O, F, R>
     => TrueExpected(
       name + "{" + others.Joined("|") + "}",
        Object(name) with {
-         Alternates = others.Select(Alternate).ToArray(),
+         Alternates = [.. others.Select(Alternate)],
        });
 
   public void WithFieldsAndAlternates(string name, FieldInput[] fields, string[] others)
     => TrueExpected(
       name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + others.Joined("|") + "}",
        Object(name) with {
-         Fields = fields.Select(f => Field(f.Name, f.Type)).ToArray(),
-         Alternates = others.Select(Alternate).ToArray(),
+         Fields = [.. fields.Select(f => Field(f.Name, f.Type))],
+         Alternates = [.. others.Select(Alternate)],
        });
 
   public void WithFieldsBadAndAlternates(string name, FieldInput[] fields, string[] others)
@@ -40,14 +40,14 @@ internal sealed class BaseObjectParserChecks<O, F, R>
     => TrueExpected(
       name + "{" + others.Select(o => $"|'{o.Content}'{o.Alternate}").Joined() + "}",
        Object(name) with {
-         Alternates = others.Select(o => Alternate(o.Alternate, o.Content)).ToArray(),
+         Alternates = [.. others.Select(o => Alternate(o.Alternate, o.Content))],
        });
 
   public void WithAlternateModifiers(string name, string[] others)
     => TrueExpected(
       name + "{" + others.Joined(a => $"|{a}[]?") + "}",
        Object(name) with {
-         Alternates = others.Select(a => Alternate(a) with { Modifiers = TestMods() }).ToArray(),
+         Alternates = [.. others.Select(a => Alternate(a) with { Modifiers = TestMods() })],
        });
 
   public void WithAlternateModifiersBad(string name, string[] others)
@@ -57,7 +57,7 @@ internal sealed class BaseObjectParserChecks<O, F, R>
     => TrueExpected(
       name + "<" + parameters.Joined("$") + ">{|" + other + "}",
        Object(name) with {
-         Alternates = new[] { Alternate(other) },
+         Alternates = [Alternate(other)],
          Parameters = parameters.TypeParameters(),
        });
 
@@ -77,7 +77,7 @@ internal sealed class BaseObjectParserChecks<O, F, R>
     => TrueExpected(
       name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}",
        Object(name) with {
-         Fields = fields.Select(f => Field(f.Name, f.Type)).ToArray(),
+         Fields = [.. fields.Select(f => Field(f.Name, f.Type))],
        });
 
   public void WithFieldsBad(string name, FieldInput[] fields)
@@ -87,7 +87,7 @@ internal sealed class BaseObjectParserChecks<O, F, R>
     => TrueExpected(
       name + "{:" + extends + " " + field + ":" + fieldType + "}",
        Object(name) with {
-         Fields = new[] { Field(field, fieldType) },
+         Fields = [Field(field, fieldType)],
          Extends = Reference(extends),
        });
 
@@ -98,7 +98,7 @@ internal sealed class BaseObjectParserChecks<O, F, R>
     => TrueExpected(
       name + "{:" + extends + "<" + subType + ">" + field + ":" + fieldType + "}",
        Object(name) with {
-         Fields = new[] { Field(field, fieldType) },
+         Fields = [Field(field, fieldType)],
          Extends = Reference(extends, subType),
        });
 
@@ -118,7 +118,7 @@ internal sealed class BaseObjectParserChecks<O, F, R>
     => _factories.Reference(AstNulls.At, type);
 
   public R Reference(string type, string subType)
-    => Reference(type) with { Arguments = new[] { Reference(subType) } };
+    => Reference(type) with { Arguments = [Reference(subType)] };
 
   public AlternateAst<R> Alternate(string type)
     => new(Reference(type));
@@ -129,7 +129,7 @@ internal sealed class BaseObjectParserChecks<O, F, R>
   protected internal override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";
   protected internal override O AliasedFactory(ObjectInput input)
-    => Object(input.Name) with { Alternates = new[] { Alternate(input.Other, "") } };
+    => Object(input.Name) with { Alternates = [Alternate(input.Other, "")] };
 }
 
 public record struct AlternateComment(string Content, string Alternate);

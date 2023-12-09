@@ -18,15 +18,15 @@ internal abstract class ObjectParser<O, F, R>
   ) : base(name, param, aliases, option, definition) { }
 
   protected override bool ApplyParameters(O result, IResultArray<TypeParameterAst> parameter)
-    => parameter.Optional(value => result.Parameters = value ?? Array.Empty<TypeParameterAst>());
+    => parameter.Optional(value => result.Parameters = value ?? []);
 }
 
 public class ObjectDefinition<F, R>
   where F : AstField<R> where R : AstReference<R>
 {
   public R? Extends { get; set; }
-  public F[] Fields { get; set; } = Array.Empty<F>();
-  public AlternateAst<R>[] Alternates { get; set; } = Array.Empty<AlternateAst<R>>();
+  public F[] Fields { get; set; } = [];
+  public AlternateAst<R>[] Alternates { get; set; } = [];
 }
 
 public abstract class ParseObjectDefinition<F, R> : Parser<ObjectDefinition<F, R>>.I
@@ -72,11 +72,11 @@ public abstract class ParseObjectDefinition<F, R> : Parser<ObjectDefinition<F, R
       objectField = _field.Parse(tokens, label);
       if (objectField.IsError()) {
         return objectField.AsPartial(result, fields.Add, () =>
-          result.Fields = fields.ToArray());
+          result.Fields = [.. fields]);
       }
     }
 
-    result.Fields = fields.ToArray();
+    result.Fields = [.. fields];
     var objectAlternates = ParseAlternates(tokens, label);
     return !objectAlternates.Optional(alternates => result.Alternates = alternates)
       ? objectAlternates.AsPartial(result)

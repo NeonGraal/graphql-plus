@@ -9,7 +9,7 @@ public static class SchemaTestHelpers
     => new[] { new AlternateAst<T>(factory(argument)) { Modifiers = TestMods() } };
 
   public static EnumValueAst[] EnumValues(this string[] enumValues)
-    => enumValues.Select(l => new EnumValueAst(AstNulls.At, l, "")).ToArray();
+    => [.. enumValues.Select(l => new EnumValueAst(AstNulls.At, l, ""))];
 
   public static InputFieldAst[] InputFields(this string fieldName, string fieldType)
     => new InputFieldAst[] { new(AstNulls.At, fieldName, new(AstNulls.At, fieldType)) };
@@ -24,17 +24,17 @@ public static class SchemaTestHelpers
     => new OutputReferenceAst[] { new(AstNulls.At, argument) };
 
   public static ParameterAst[] Parameters(this string[] parameters)
-    => parameters.Select(parameter => new ParameterAst(AstNulls.At, parameter)).ToArray();
+    => [.. parameters.Select(parameter => new ParameterAst(AstNulls.At, parameter))];
 
   public static ParameterAst[] Parameters(this string[] parameters, Func<ParameterAst, ParameterAst> mapping)
-    => parameters.Select(parameter => mapping(new ParameterAst(AstNulls.At, parameter))).ToArray();
+    => [.. parameters.Select(parameter => mapping(new ParameterAst(AstNulls.At, parameter)))];
 
   //public static ScalarRangeAst[] ScalarRanges(this RangeInput input)
   //  => new ScalarRangeAst[] { new(AstNulls.At, input.Lower, input.Upper) };
 
   public static ScalarRegexAst[] ScalarRegexes(this string regex, params string[] regexes)
-    => regexes.Select(r => new ScalarRegexAst(AstNulls.At, r, false)).Prepend(new(AstNulls.At, regex, true)).ToArray();
+    => [.. regexes.Select(r => new ScalarRegexAst(AstNulls.At, r, false)).Prepend(new(AstNulls.At, regex, true))];
 
   public static TypeParameterAst[] TypeParameters(this string[] parameters)
-    => parameters.Select(parameter => new TypeParameterAst(AstNulls.At, parameter)).ToArray();
+    => [.. parameters.Select(parameter => new TypeParameterAst(AstNulls.At, parameter))];
 }

@@ -10,5 +10,5 @@ internal class MergeDirectives(IMerge<ParameterAst> parameters)
 
   public override bool CanMerge(DirectiveDeclAst[] items)
     => base.CanMerge(items)
-      && parameters.CanMerge(items.SelectMany(item => item.Parameters).ToArray());
+      && parameters.CanMerge([.. items.SelectMany(item => item.Parameters)]);
 }

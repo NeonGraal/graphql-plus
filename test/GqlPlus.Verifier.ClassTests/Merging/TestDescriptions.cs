@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -10,6 +11,8 @@ public abstract class TestDescriptions<TItem>
   protected override DistinctMerger<TItem> MergerDistinct => MergerDescribed;
 
   protected abstract TItem MakeDescribed(string name, string description = "");
+  protected override TItem MakeDistinct(string name)
+    => MakeDescribed(name);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneDescription_ReturnsTrue(string name, string description)

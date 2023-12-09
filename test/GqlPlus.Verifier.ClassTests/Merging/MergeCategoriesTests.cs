@@ -8,27 +8,7 @@ public class MergeCategoriesTests
 {
   private readonly MergeCategories _merger = new();
 
-  protected override DescribedMerger<CategoryDeclAst> Merger => _merger;
-
-  [Fact]
-  public void CanMerge_NoItems_ReturnsFalse()
-  {
-    var items = Array.Empty<CategoryDeclAst>();
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void CanMerge_OneItem_ReturnsTrue(string category)
-  {
-    var items = new[] { new CategoryDeclAst(AstNulls.At, category) };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+  protected override DescribedMerger<CategoryDeclAst> MergerDescribed => _merger;
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameOutput_ReturnsTrue(string category)
@@ -60,6 +40,8 @@ public class MergeCategoriesTests
     result.Should().BeFalse();
   }
 
-  protected override CategoryDeclAst MakeItem(string name, string description = "")
+  protected override CategoryDeclAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description, name);
+  protected override CategoryDeclAst MakeDistinct(string name)
+    => new(AstNulls.At, name);
 }

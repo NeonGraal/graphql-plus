@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Parse;
 
-public class ParseFieldKeyTests
+public class ParseFieldKeyTests(Parser<FieldKeyAst>.D parser)
 {
   [Theory, RepeatData(Repeats)]
   public void WithNumber_ReturnsCorrectAst(decimal number)
@@ -62,9 +62,6 @@ public class ParseFieldKeyTests
   public void WithTypeAndNoValue_ReturnsFalse(string enumType)
     => Test.False(enumType + ".");
 
-  private OneChecksParser<FieldKeyAst> Test { get; }
-
-  public ParseFieldKeyTests(Parser<FieldKeyAst>.D parser)
-    => Test = new(parser);
+  private OneChecksParser<FieldKeyAst> Test { get; } = new(parser);
 }
 

@@ -4,12 +4,11 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseEnumValue : Parser<EnumValueAst>.I
+internal class ParseEnumValue(
+  Parser<string>.DA aliases
+) : Parser<EnumValueAst>.I
 {
-  private readonly Parser<string>.LA _aliases;
-
-  public ParseEnumValue(Parser<string>.DA aliases)
-    => _aliases = aliases;
+  private readonly Parser<string>.LA _aliases = aliases;
 
   public IResult<EnumValueAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

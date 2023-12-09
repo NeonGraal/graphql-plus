@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Ast.Schema;
 public sealed record class OutputFieldAst(TokenAt At, string Name, string Description, OutputReferenceAst Type)
   : AstField<OutputReferenceAst>(At, Name, Description, Type), IEquatable<OutputFieldAst>
 {
-  public ParameterAst[] Parameters { get; set; } = Array.Empty<ParameterAst>();
+  public ParameterAst[] Parameters { get; set; } = [];
   public string? EnumValue { get; set; }
 
   internal override string Abbr => "OF";

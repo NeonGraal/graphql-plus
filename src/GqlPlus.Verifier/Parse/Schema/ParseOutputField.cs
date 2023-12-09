@@ -5,17 +5,14 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseOutputField : ObjectFieldParser<OutputFieldAst, OutputReferenceAst>
+internal class ParseOutputField(
+  Parser<string>.DA aliases,
+  Parser<ModifierAst>.DA modifiers,
+  Parser<OutputReferenceAst>.D reference,
+  Parser<ParameterAst>.DA parameter
+) : ObjectFieldParser<OutputFieldAst, OutputReferenceAst>(aliases, modifiers, reference)
 {
-  private readonly Parser<ParameterAst>.LA _parameter;
-
-  public ParseOutputField(
-    Parser<string>.DA aliases,
-    Parser<ModifierAst>.DA modifiers,
-    Parser<OutputReferenceAst>.D reference,
-    Parser<ParameterAst>.DA parameter
-  ) : base(aliases, modifiers, reference)
-    => _parameter = parameter;
+  private readonly Parser<ParameterAst>.LA _parameter = parameter;
 
   protected override void ApplyFieldParameters(OutputFieldAst field, ParameterAst[] parameters)
     => field.Parameters = parameters;

@@ -1,7 +1,9 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Ast;
 
+[SuppressMessage("Design", "CA1036:Override methods on comparable types")]
 public record class FieldKeyAst(TokenAt At)
   : AstBase(At), IComparable<FieldKeyAst>
 {

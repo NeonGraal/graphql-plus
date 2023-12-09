@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Parse;
 
-public class ParseDefaultTests
+public class ParseDefaultTests(Parser<IParserDefault, ConstantAst>.D parser)
 {
   [Fact]
   public void WithEmpty_ReturnsEmpty()
@@ -71,8 +71,5 @@ public class ParseDefaultTests
   private void CheckNull(ConstantAst? result)
     => result.Should().BeNull();
 
-  private readonly OneChecksParser<IParserDefault, ConstantAst> _test;
-
-  public ParseDefaultTests(Parser<IParserDefault, ConstantAst>.D parser)
-    => _test = new(parser);
+  private readonly OneChecksParser<IParserDefault, ConstantAst> _test = new(parser);
 }

@@ -8,27 +8,7 @@ public class MergeParametersTests
 {
   private readonly MergeParameters _merger = new();
 
-  protected override DescribedMerger<ParameterAst> Merger => _merger;
-
-  [Fact]
-  public void CanMerge_NoItems_ReturnsFalse()
-  {
-    var items = Array.Empty<ParameterAst>();
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void CanMerge_OneItem_ReturnsTrue(string input)
-  {
-    var items = new[] { new ParameterAst(AstNulls.At, input) };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+  protected override DescribedMerger<ParameterAst> MergerDescribed => _merger;
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameModifers_ReturnsTrue(string input)
@@ -84,6 +64,8 @@ public class MergeParametersTests
     result.Should().BeFalse();
   }
 
-  protected override ParameterAst MakeItem(string name, string description = "")
+  protected override ParameterAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, new InputReferenceAst(AstNulls.At, name) with { Description = description });
+  protected override ParameterAst MakeDistinct(string name)
+    => new(AstNulls.At, new InputReferenceAst(AstNulls.At, name));
 }

@@ -8,37 +8,17 @@ public class MergeDirectivesTests
   : TestDescriptions<DirectiveDeclAst>
 {
   private readonly MergeDirectives _merger;
-  private readonly IMerge<ParameterAst> _paremeters;
+  private readonly IMerge<ParameterAst> _parameters;
 
   public MergeDirectivesTests()
   {
-    _paremeters = Substitute.For<IMerge<ParameterAst>>();
-    _paremeters.CanMerge([]).ReturnsForAnyArgs(true);
+    _parameters = Substitute.For<IMerge<ParameterAst>>();
+    _parameters.CanMerge([]).ReturnsForAnyArgs(true);
 
-    _merger = new(_paremeters);
+    _merger = new(_parameters);
   }
 
-  protected override DescribedMerger<DirectiveDeclAst> Merger => _merger;
-
-  [Fact]
-  public void CanMerge_NoItems_ReturnsFalse()
-  {
-    var items = Array.Empty<DirectiveDeclAst>();
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void CanMerge_OneItem_ReturnsTrue(string name)
-  {
-    var items = new[] { new DirectiveDeclAst(AstNulls.At, name) };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+  protected override DescribedMerger<DirectiveDeclAst> MergerDescribed => _merger;
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameOption_ReturnsTrue(string name)
@@ -67,13 +47,15 @@ public class MergeDirectivesTests
   public void CanMerge_TwoItemsParametersCantMerge_ReturnsFalse(string name)
   {
     var items = new[] { new DirectiveDeclAst(AstNulls.At, name), new DirectiveDeclAst(AstNulls.At, name) };
-    _paremeters.CanMerge([]).ReturnsForAnyArgs(false);
+    _parameters.CanMerge([]).ReturnsForAnyArgs(false);
 
     var result = _merger.CanMerge(items);
 
     result.Should().BeFalse();
   }
 
-  protected override DirectiveDeclAst MakeItem(string name, string description = "")
+  protected override DirectiveDeclAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description);
+  protected override DirectiveDeclAst MakeDistinct(string name)
+    => new(AstNulls.At, name);
 }

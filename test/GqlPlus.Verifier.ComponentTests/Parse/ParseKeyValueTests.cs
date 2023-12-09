@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Parse;
 
-public class ParseKeyValueTests
+public class ParseKeyValueTests(Parser<AstKeyValue<ConstantAst>>.D parser)
 {
   [Theory, RepeatData(Repeats)]
   public void WithKeyValueValid_ReturnsCorrectAst(string key, string value)
@@ -33,8 +33,5 @@ public class ParseKeyValueTests
   private void CheckNull(AstKeyValue<ConstantAst> result)
     => result.Should().Be((AstKeyValue<ConstantAst>)default);
 
-  private readonly OneChecksParser<AstKeyValue<ConstantAst>> _test;
-
-  public ParseKeyValueTests(Parser<AstKeyValue<ConstantAst>>.D parser)
-    => _test = new(parser);
+  private readonly OneChecksParser<AstKeyValue<ConstantAst>> _test = new(parser);
 }

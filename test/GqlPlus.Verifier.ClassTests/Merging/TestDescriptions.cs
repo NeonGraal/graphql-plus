@@ -3,18 +3,20 @@
 namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestDescriptions<TItem>
-  where TItem : IAstDescribed
+  : TestDistinct<TItem>
+  where TItem : AstBase, IAstDescribed
 {
-  protected abstract DescribedMerger<TItem> Merger { get; }
+  protected abstract DescribedMerger<TItem> MergerDescribed { get; }
+  protected override DistinctMerger<TItem> MergerDistinct => MergerDescribed;
 
-  protected abstract TItem MakeItem(string name, string description = "");
+  protected abstract TItem MakeDescribed(string name, string description = "");
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneDescription_ReturnsTrue(string name, string description)
   {
-    var items = new[] { MakeItem(name, description), MakeItem(name) };
+    var items = new[] { MakeDescribed(name, description), MakeDescribed(name) };
 
-    var result = Merger.CanMerge(items);
+    var result = MergerDescribed.CanMerge(items);
 
     result.Should().BeTrue();
   }
@@ -22,9 +24,9 @@ public abstract class TestDescriptions<TItem>
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameDescription_ReturnsTrue(string name, string description)
   {
-    var items = new[] { MakeItem(name, description), MakeItem(name, description) };
+    var items = new[] { MakeDescribed(name, description), MakeDescribed(name, description) };
 
-    var result = Merger.CanMerge(items);
+    var result = MergerDescribed.CanMerge(items);
 
     result.Should().BeTrue();
   }
@@ -36,9 +38,9 @@ public abstract class TestDescriptions<TItem>
       return;
     }
 
-    var items = new[] { MakeItem(name, description1), MakeItem(name, description2) };
+    var items = new[] { MakeDescribed(name, description1), MakeDescribed(name, description2) };
 
-    var result = Merger.CanMerge(items);
+    var result = MergerDescribed.CanMerge(items);
 
     result.Should().BeFalse();
   }

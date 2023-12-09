@@ -9,7 +9,7 @@ public sealed record class EnumDeclAst(
 ) : AstType(At, Name, Description), IEquatable<EnumDeclAst>
 {
   public string? Extends { get; set; }
-  public EnumValueAst[] Values { get; set; } = Array.Empty<EnumValueAst>();
+  public EnumValueAst[] Values { get; set; } = [];
 
   internal override string Abbr => "E";
 

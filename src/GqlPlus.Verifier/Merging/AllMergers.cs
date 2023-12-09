@@ -12,6 +12,7 @@ public static class AllMergers
       .AddMerge<CategoryDeclAst, MergeCategories>()
       .AddMerge<DirectiveDeclAst, MergeDirectives>()
       .AddMerge<EnumDeclAst, MergeEnums>()
+      .AddMerge<ParameterAst, MergeParameters>()
     ;
 
   public static IServiceCollection AddMerge<T, S>(this IServiceCollection services)

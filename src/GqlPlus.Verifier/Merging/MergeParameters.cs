@@ -8,4 +8,7 @@ internal class MergeParameters
 {
   protected override string ItemGroupKey(ParameterAst item)
     => item.Modifiers.AsString().Joined();
+  public override bool CanMerge(ParameterAst[] items)
+    => base.CanMerge(items)
+    && items.CanMerge(item => item.Default);
 }

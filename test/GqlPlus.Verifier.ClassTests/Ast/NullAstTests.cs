@@ -10,5 +10,5 @@ public class NullAstTests
   public void String()
     => _checks.String(() => new NullAst(AstNulls.At), "NULL");
 
-  internal BaseAstChecks<string, NullAst> _checks = new();
+  internal BaseAstChecks<NullAst> _checks = new();
 }

@@ -96,5 +96,5 @@ public class ArgumentAstTests
       () => new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),
       () => new ArgumentAst(AstNulls.At, enumValue));
 
-  internal BaseAstChecks<string, ArgumentAst> _checks = new();
+  internal BaseAstChecks<ArgumentAst> _checks = new();
 }

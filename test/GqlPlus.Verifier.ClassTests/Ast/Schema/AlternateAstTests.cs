@@ -23,5 +23,5 @@ public class AlternateAstTests
   private static AlternateAst<InputReferenceAst> Alternate(string argument)
     => new(new(AstNulls.At, argument));
 
-  internal BaseAstChecks<string, AlternateAst<InputReferenceAst>> _checks = new();
+  internal BaseAstChecks<AlternateAst<InputReferenceAst>> _checks = new();
 }

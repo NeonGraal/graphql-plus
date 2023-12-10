@@ -46,5 +46,5 @@ public class ModifierAstTests
       k => new ModifierAst(AstNulls.At, k, false),
       key1 == key2);
 
-  internal BaseAstChecks<string, ModifierAst> _checks = new();
+  internal BaseAstChecks<ModifierAst> _checks = new();
 }

@@ -118,5 +118,5 @@ public class ConstantAstTests
       () => new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)),
       () => new FieldKeyAst(AstNulls.At, key, enumValue));
 
-  internal BaseAstChecks<string, ConstantAst> _checks = new();
+  internal BaseAstChecks<ConstantAst> _checks = new();
 }

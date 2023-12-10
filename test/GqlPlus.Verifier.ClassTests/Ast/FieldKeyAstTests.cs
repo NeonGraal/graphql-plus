@@ -177,5 +177,5 @@ public class FieldKeyAstTests
     (left != right).Should().BeTrue();
   }
 
-  internal BaseAstChecks<string, FieldKeyAst> _checks = new();
+  internal BaseAstChecks<FieldKeyAst> _checks = new();
 }

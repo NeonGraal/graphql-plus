@@ -52,8 +52,10 @@ public class OutputFieldAstTests : AstFieldTests<OutputFieldAst, OutputReference
   protected override string AliasesString(FieldInput input, params string[] aliases)
     => $"( !OF {input.Name} [ {aliases.Joined()} ] : {input.Type} )";
 
-  private readonly AstFieldChecks<OutputFieldAst, OutputReferenceAst> _checks
-    = new(input => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)));
+  private readonly AstFieldChecks<OutputFieldAst, OutputReferenceAst> _checks = new(
+          (input, reference) => new(AstNulls.At, input.Name, reference),
+      input => new(AstNulls.At, input.Type),
+      arguments => arguments.OutputReferences());
 
   internal override IAstFieldChecks<OutputFieldAst, OutputReferenceAst> FieldChecks => _checks;
 }

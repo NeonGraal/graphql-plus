@@ -20,6 +20,18 @@ public abstract class AstFieldTests<TField, TReference>
   public void Inequality_WithModifiers(FieldInput input)
     => FieldChecks.Inequality_WithModifiers(input);
 
+  [Theory, RepeatData(Repeats)]
+  public void ModifiedType_WithArguments(FieldInput input, string argument)
+    => FieldChecks.ModifiedType_WithArguments(input, argument);
+
+  [Theory, RepeatData(Repeats)]
+  public void ModifiedType_WithModifiers(FieldInput input)
+    => FieldChecks.ModifiedType_WithModifiers(input);
+
+  [Theory, RepeatData(Repeats)]
+  public void ModifiedType_WithModifiersAndArguments(FieldInput input, string argument)
+    => FieldChecks.ModifiedType_WithModifiersAndArguments(input, argument);
+
   internal override IBaseAliasedAstChecks<FieldInput> AliasedChecks => FieldChecks;
 
   internal abstract IAstFieldChecks<TField, TReference> FieldChecks { get; }

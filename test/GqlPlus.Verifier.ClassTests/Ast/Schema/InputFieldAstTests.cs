@@ -30,8 +30,10 @@ public class InputFieldAstTests : AstFieldTests<InputFieldAst, InputReferenceAst
   protected override string AliasesString(FieldInput input, params string[] aliases)
     => $"( !IF {input.Name} [ {aliases.Joined()} ] : {input.Type} )";
 
-  private readonly AstFieldChecks<InputFieldAst, InputReferenceAst> _checks
-    = new(input => new InputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)));
+  private readonly AstFieldChecks<InputFieldAst, InputReferenceAst> _checks = new(
+      (input, reference) => new(AstNulls.At, input.Name, reference),
+      input => new(AstNulls.At, input.Type),
+      arguments => arguments.InputReferences());
 
   internal override IAstFieldChecks<InputFieldAst, InputReferenceAst> FieldChecks => _checks;
 }

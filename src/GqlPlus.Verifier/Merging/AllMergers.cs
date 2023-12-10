@@ -14,6 +14,7 @@ public static class AllMergers
       .AddMerge<ParameterAst, MergeParameters>()
       .AddMerge<EnumDeclAst, MergeEnums>()
       .AddMerge<EnumValueAst, MergeEnumValues>()
+      .AddMerge<TypeParameterAst, MergeTypeParameters>()
       .AddMerge<AlternateAst<InputReferenceAst>, AlternatesMerger<InputReferenceAst>>()
       .AddMerge<AlternateAst<OutputReferenceAst>, AlternatesMerger<OutputReferenceAst>>()
       .AddMerge<ScalarDeclAst, MergeScalars>()

@@ -14,6 +14,9 @@ public static class AllMergers
       .AddMerge<EnumDeclAst, MergeEnums>()
       .AddMerge<EnumValueAst, MergeEnumValues>()
       .AddMerge<ParameterAst, MergeParameters>()
+      .AddMerge<ScalarDeclAst, MergeScalars>()
+      .AddMerge<ScalarRangeAst, MergeScalarRanges>()
+      .AddMerge<ScalarRegexAst, MergeScalarRegexes>()
     ;
 
   public static IServiceCollection AddMerge<T, S>(this IServiceCollection services)

@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeParameters
-  : DescribedMerger<ParameterAst>
+  : AlternatesMerger<ParameterAst, InputReferenceAst>
 {
   protected override string ItemGroupKey(ParameterAst item)
     => item.Modifiers.AsString().Joined();

@@ -7,7 +7,7 @@ Success
     !OF I@9/2
     category
     (
-      !P I@18/2
+      !P
        I@18/2
       _CategoryFilter
     )
@@ -18,7 +18,7 @@ Success
     !OF I@9/3
     directive
     (
-      !P I@19/3
+      !P
        I@19/3
       _Filter
     )
@@ -29,7 +29,7 @@ Success
     !OF I@9/4
     type
     (
-      !P I@14/4
+      !P
        I@14/4
       _TypeFilter
     )

@@ -3,29 +3,24 @@
 namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class ParameterAst(TokenAt At, InputReferenceAst Input)
-  : AstBase(At), IEquatable<ParameterAst>, IAstDescribed
+  : AlternateAst<InputReferenceAst>(At, Input), IEquatable<ParameterAst>
 {
-  public ModifierAst[] Modifiers { get; set; } = [];
   public ConstantAst? Default { get; set; }
 
   internal override string Abbr => "P";
-
-  public string Description => Input.Description;
 
   internal ParameterAst(TokenAt at, string input)
     : this(at, new InputReferenceAst(at, input)) { }
 
   public bool Equals(ParameterAst? other)
     => base.Equals(other)
-    && Input.NullEqual(other.Input)
-    && Modifiers.SequenceEqual(other.Modifiers)
     && Default.NullEqual(other.Default);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Input, Modifiers.Length, Default);
+    => HashCode.Combine(base.GetHashCode(), Default);
 
   internal override IEnumerable<string?> GetFields()
-    => base.GetFields()
-      .Concat(Input.GetFields())
+    => new[] { "!" + Abbr }
+      .Concat(Type.GetFields())
       .Concat(Modifiers.AsString())
       .Append(Default is null ? "" : "=" + Default.ToString());
 }

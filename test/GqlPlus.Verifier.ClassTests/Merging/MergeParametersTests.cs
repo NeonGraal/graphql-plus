@@ -4,31 +4,11 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeParametersTests
-  : TestDescriptions<ParameterAst>
+  : TestAlternates<ParameterAst, InputReferenceAst>
 {
   private readonly MergeParameters _merger = new();
 
-  protected override DescribedMerger<ParameterAst> MergerDescribed => _merger;
-
-  [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsSameModifers_ReturnsTrue(string input)
-  {
-    var items = new[] { new ParameterAst(AstNulls.At, input) { Modifiers = TestMods() }, new ParameterAst(AstNulls.At, input) { Modifiers = TestMods() } };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
-
-  [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsDifferentModifers_ReturnsFalse(string input)
-  {
-    var items = new[] { new ParameterAst(AstNulls.At, input) { Modifiers = TestMods() }, new ParameterAst(AstNulls.At, input) };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
+  protected override AlternatesMerger<ParameterAst, InputReferenceAst> MergerAlternate => _merger;
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneDefault_ReturnsTrue(string input, string value)
@@ -64,6 +44,6 @@ public class MergeParametersTests
     result.Should().BeFalse();
   }
 
-  protected override ParameterAst MakeDescribed(string name, string description = "")
+  protected override ParameterAst MakeAlternate(string name, string description = "")
     => new(AstNulls.At, new InputReferenceAst(AstNulls.At, name) with { Description = description });
 }

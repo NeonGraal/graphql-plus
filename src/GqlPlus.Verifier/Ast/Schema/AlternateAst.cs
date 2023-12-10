@@ -2,18 +2,20 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class AlternateAst<R>(TokenAt At, R Type)
-  : AstBase(At), IEquatable<AlternateAst<R>>
+public record class AlternateAst<R>(TokenAt At, R Type)
+  : AstBase(At), IEquatable<AlternateAst<R>>, IAstDescribed
   where R : AstReference<R>, IEquatable<R>
 {
   public ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
 
   internal override string Abbr => "A";
 
+  public string Description => Type.Description;
+
   internal AlternateAst(R @type)
     : this(type.At, type) { }
 
-  public bool Equals(AlternateAst<R>? other)
+  public virtual bool Equals(AlternateAst<R>? other)
     => base.Equals(other)
     && (Type?.Equals(other.Type) ?? other.Type is null)
     && Modifiers.SequenceEqual(other.Modifiers);
@@ -21,7 +23,7 @@ public sealed record class AlternateAst<R>(TokenAt At, R Type)
     => HashCode.Combine(base.GetHashCode(), Type, Modifiers.Length);
 
   internal override IEnumerable<string?> GetFields()
-  => new[] { "!" + Abbr + Type.Abbr[..1] }
-    .Concat(Type.GetFields())
-    .Concat(Modifiers.AsString());
+    => new[] { "!" + Abbr + Type.Abbr[..1] }
+      .Concat(Type.GetFields())
+      .Concat(Modifiers.AsString());
 }

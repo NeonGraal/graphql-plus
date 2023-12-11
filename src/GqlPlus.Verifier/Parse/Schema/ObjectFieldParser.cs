@@ -44,7 +44,6 @@ public abstract class ObjectFieldParser<F, R> : Parser<F>.I
     var field = Field(at, name, description, Reference(at, ""));
 
     if (tokens.Take(':')) {
-      tokens.String(out var descr);
       if (_reference.Parse(tokens, label).Required(fieldType
         => field = Field(at, name, description, fieldType))
         ) {
@@ -75,5 +74,5 @@ public abstract class ObjectFieldParser<F, R> : Parser<F>.I
       where TContext : Tokenizer;
   protected abstract IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
       where TContext : Tokenizer;
-  protected abstract R Reference(TokenAt at, string param);
+  protected abstract R Reference(TokenAt at, string param, string description = "");
 }

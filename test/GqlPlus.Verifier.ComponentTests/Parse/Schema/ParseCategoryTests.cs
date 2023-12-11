@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public sealed class ParseCategoryTests
+public sealed class ParseCategoryTests(Parser<CategoryDeclAst>.D parser)
   : BaseAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
@@ -38,8 +38,5 @@ public sealed class ParseCategoryTests
 
   internal override IBaseAliasedChecks<string> AliasChecks => _test;
 
-  private readonly ParseCategoryChecks _test;
-
-  public ParseCategoryTests(Parser<CategoryDeclAst>.D parser)
-    => _test = new(parser);
+  private readonly ParseCategoryChecks _test = new(parser);
 }

@@ -8,7 +8,7 @@ public abstract class TestFields<TField, TReference>
   where TField : AstField<TReference>, IAstDescribed
   where TReference : AstReference<TReference>
 {
-  protected abstract FieldMerger<TField, TReference> MergerField { get; }
+  protected abstract FieldsMerger<TField, TReference> MergerField { get; }
   protected override DescribedsMerger<TField> MergerDescribed => MergerField;
 
   protected abstract TField MakeField(string name, string type, string description = "");

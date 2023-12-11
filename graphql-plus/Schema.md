@@ -318,12 +318,14 @@ A Default of `null` is only allowed on Optional fields. The Default must be comp
 ```PEG
 Output = 'output' output TypeParameters? Aliases? '{' Out_Definition '}'
 Out_Definition = Out_Object? Out_Alternate*
-Out_Object = ( ':' STRING? Out_Base )? ( STRING? field Out_Field )+
-Out_Field = InputParameters? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumValue
+Out_Object = ( ':' STRING? Out_Base )? ( STRING? field Out_EnumField )+
+Out_EnumField = Out_Field | Out_Enum
+Out_Field = InputParameters? fieldAlias* ':' STRING? Out_Reference Modifiers?
+Out_Enum = fieldAlias* '=' STRING? EnumValue
 
 Out_Alternate = '|' STRING? Out_Reference Modifiers?
 Out_Reference = Internal | Simple | Out_Base
-Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | EnumValue )+ '>' )?
+Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | STRING? EnumValue )+ '>' )?
 ```
 
 Output types define the result values for Categories and Output fields.

@@ -6,8 +6,8 @@ namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseOutputReference : ObjectReferenceParser<OutputReferenceAst>
 {
-  protected override OutputReferenceAst Reference(TokenAt at, string param)
-    => new(at, param);
+  protected override OutputReferenceAst Reference(TokenAt at, string param, string description)
+    => new(at, param, description);
 
   protected override IResult<OutputReferenceAst> TypeEnumValue<TContext>(TContext tokens, OutputReferenceAst reference)
   {

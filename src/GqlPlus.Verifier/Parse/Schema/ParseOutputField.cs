@@ -26,6 +26,7 @@ internal class ParseOutputField(
   protected override IResult<OutputFieldAst> FieldEnumValue<TContext>(TContext tokens, OutputFieldAst field)
   {
     if (tokens.Take('=')) {
+      tokens.String(out var description);
       var at = tokens.At;
 
       if (!tokens.Identifier(out var enumType)) {
@@ -38,7 +39,7 @@ internal class ParseOutputField(
       }
 
       if (tokens.Identifier(out var enumValue)) {
-        field.Type = new OutputReferenceAst(at, enumType);
+        field.Type = new OutputReferenceAst(at, enumType, description);
         field.EnumValue = enumValue;
         return field.Ok();
       }
@@ -52,6 +53,6 @@ internal class ParseOutputField(
   protected override IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
     => _parameter.Parse(tokens, "Output");
 
-  protected override OutputReferenceAst Reference(TokenAt at, string param)
-    => new(at, param);
+  protected override OutputReferenceAst Reference(TokenAt at, string param, string description)
+    => new(at, param, description);
 }

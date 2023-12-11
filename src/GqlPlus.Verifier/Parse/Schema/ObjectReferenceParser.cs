@@ -20,8 +20,7 @@ internal abstract class ObjectReferenceParser<R> : Parser<R>.I
     }
 
     if (param is not null) {
-      var reference = Reference(at, param) with {
-        Description = description,
+      var reference = Reference(at, param, description) with {
         IsTypeParameter = true,
       };
       return reference.Ok();
@@ -30,7 +29,7 @@ internal abstract class ObjectReferenceParser<R> : Parser<R>.I
     at = tokens.At;
 
     if (tokens.Identifier(out var name)) {
-      var reference = Reference(at, name) with { Description = description };
+      var reference = Reference(at, name, description);
       if (tokens.Take('<')) {
         var arguments = new List<R>();
         var referenceArgument = ParseReference(tokens, label, isTypeArgument: true);
@@ -55,7 +54,7 @@ internal abstract class ObjectReferenceParser<R> : Parser<R>.I
     return 0.Empty<R>();
   }
 
-  protected abstract R Reference(TokenAt at, string param);
+  protected abstract R Reference(TokenAt at, string type, string description);
   protected abstract IResult<R> TypeEnumValue<TContext>(TContext tokens, R reference)
       where TContext : Tokenizer;
 }

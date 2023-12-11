@@ -52,14 +52,13 @@ public abstract class ParseObjectDefinition<F, R> : Parser<ObjectDefinition<F, R
     where TContext : Tokenizer
   {
     ObjectDefinition<F, R> result = new();
-    tokens.String(out var descr);
     if (tokens.Take(':')) {
       var baseReference = _reference.Parse(tokens, label);
       if (baseReference.IsError()) {
         return baseReference.AsResult(result);
       }
 
-      baseReference.WithResult(reference => result.Extends = reference with { Description = descr });
+      baseReference.WithResult(reference => result.Extends = reference);
     }
 
     var fields = new List<F>();

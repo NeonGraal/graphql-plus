@@ -6,18 +6,14 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseCategory : DeclarationParser<CategoryName, NullAst, CategoryOption, CategoryOutput, CategoryDeclAst>
+internal class ParseCategory(
+  CategoryName name,
+  Parser<NullAst>.DA param,
+  Parser<string>.DA aliases,
+  Parser<CategoryOption>.D option,
+  Parser<CategoryOutput>.D definition
+) : DeclarationParser<CategoryName, NullAst, CategoryOption, CategoryOutput, CategoryDeclAst>(name, param, aliases, option, definition)
 {
-  public ParseCategory(
-    CategoryName name,
-    Parser<NullAst>.DA param,
-    Parser<string>.DA aliases,
-    Parser<CategoryOption>.D option,
-    Parser<CategoryOutput>.D definition
-  ) : base(name, param, aliases, option, definition)
-  {
-  }
-
   protected override void ApplyDefinition(CategoryDeclAst result, CategoryOutput value)
   {
     if (string.IsNullOrWhiteSpace(result.Name)) {
@@ -34,7 +30,7 @@ internal class ParseCategory : DeclarationParser<CategoryName, NullAst, Category
 
   [return: NotNull]
   protected override CategoryDeclAst MakeResult(TokenAt at, string? name, string description)
-    => new(at, name ?? "", "") { Description = description };
+    => new(at, name ?? "", description, "");
 }
 
 internal record CategoryOutput(string Output);

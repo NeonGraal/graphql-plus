@@ -11,5 +11,5 @@ public class AlternatesMergerTests
   protected override AlternatesMerger<AlternateAst<OutputReferenceAst>, OutputReferenceAst> MergerAlternate => _merger;
 
   protected override AlternateAst<OutputReferenceAst> MakeAlternate(string name, string description = "")
-    => new(AstNulls.At, new OutputReferenceAst(AstNulls.At, name) with { Description = description });
+    => new(AstNulls.At, new OutputReferenceAst(AstNulls.At, name, description));
 }

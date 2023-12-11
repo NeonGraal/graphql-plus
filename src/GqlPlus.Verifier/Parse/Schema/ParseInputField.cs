@@ -6,17 +6,14 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseInputField : ObjectFieldParser<InputFieldAst, InputReferenceAst>
+internal class ParseInputField(
+  Parser<string>.DA aliases,
+  Parser<ModifierAst>.DA modifiers,
+  Parser<InputReferenceAst>.D reference,
+  Parser<IParserDefault, ConstantAst>.D defaultParser
+) : ObjectFieldParser<InputFieldAst, InputReferenceAst>(aliases, modifiers, reference)
 {
-  private readonly Parser<IParserDefault, ConstantAst>.L _default;
-
-  public ParseInputField(
-    Parser<string>.DA aliases,
-    Parser<ModifierAst>.DA modifiers,
-    Parser<InputReferenceAst>.D reference,
-    Parser<IParserDefault, ConstantAst>.D defaultParser
-  ) : base(aliases, modifiers, reference)
-    => _default = defaultParser;
+  private readonly Parser<IParserDefault, ConstantAst>.L _default = defaultParser;
 
   [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParameters(InputFieldAst field, ParameterAst[] parameters)
@@ -34,6 +31,6 @@ internal class ParseInputField : ObjectFieldParser<InputFieldAst, InputReference
   protected override IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
     => 0.EmptyArray<ParameterAst>();
 
-  protected override InputReferenceAst Reference(TokenAt at, string param)
-    => new(at, param);
+  protected override InputReferenceAst Reference(TokenAt at, string param, string description)
+    => new(at, param, description);
 }

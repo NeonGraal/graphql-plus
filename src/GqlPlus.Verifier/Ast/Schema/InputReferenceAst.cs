@@ -2,9 +2,12 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class InputReferenceAst(TokenAt At, string Name)
-  : AstReference<InputReferenceAst>(At, Name), IEquatable<InputReferenceAst>
+public sealed record class InputReferenceAst(TokenAt At, string Name, string Description)
+  : AstReference<InputReferenceAst>(At, Name, Description), IEquatable<InputReferenceAst>
 {
+  public InputReferenceAst(TokenAt at, string name)
+    : this(at, name, "") { }
+
   internal override string Abbr => "IR";
 
   public override bool Equals(InputReferenceAst? other)

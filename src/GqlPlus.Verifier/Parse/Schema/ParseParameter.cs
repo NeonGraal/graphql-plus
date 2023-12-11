@@ -31,14 +31,13 @@ internal class ParseParameters : Parser<ParameterAst>.IA
     }
 
     while (!tokens.Take(')')) {
-      tokens.String(out var descr);
       var at = tokens.At;
       var input = _input.Parse(tokens, label);
       if (!input.IsOk()) {
         return tokens.ErrorArray("Parameter", "input reference after '('", list);
       }
 
-      var parameter = new ParameterAst(at, input.Required() with { Description = descr });
+      var parameter = new ParameterAst(at, input.Required());
       list.Add(parameter);
       var modifiers = _modifiers.Parse(tokens, "Parameter");
       if (modifiers.IsError()) {

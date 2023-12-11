@@ -99,37 +99,37 @@ internal sealed class BaseObjectParserChecks<O, F, R>
       name + "{:" + extends + "<" + subType + ">" + field + ":" + fieldType + "}",
        Object(name) with {
          Fields = [Field(field, fieldType)],
-         Extends = Reference(extends, subType),
+         Extends = ReferenceWithArgs(extends, subType),
        });
 
   public void WithExtendsGenericFieldBad(string name, string extends, string subType, string field, string fieldType)
     => False(name + "{:" + extends + "<" + subType + " " + field + ":" + fieldType + "}");
 
   public O Object(string name)
-    => _factories.Object(AstNulls.At, name, "");
+    => _factories.Object(AstNulls.At, name);
 
   public F Field(string field, string fieldType)
-    => _factories.Field(AstNulls.At, field, "", Reference(fieldType));
+    => _factories.Field(AstNulls.At, field, Reference(fieldType));
 
   public F Field(string field, R fieldType)
-    => _factories.Field(AstNulls.At, field, "", fieldType);
+    => _factories.Field(AstNulls.At, field, fieldType);
 
-  public R Reference(string type)
-    => _factories.Reference(AstNulls.At, type);
+  public R Reference(string type, string description = "")
+    => _factories.Reference(AstNulls.At, type, description);
 
-  public R Reference(string type, string subType)
+  public R ReferenceWithArgs(string type, string subType)
     => Reference(type) with { Arguments = [Reference(subType)] };
 
   public AlternateAst<R> Alternate(string type)
     => new(Reference(type));
 
   public AlternateAst<R> Alternate(string type, string description)
-    => new(Reference(type) with { Description = description });
+    => new(Reference(type, description));
 
   protected internal override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";
   protected internal override O AliasedFactory(ObjectInput input)
-    => Object(input.Name) with { Alternates = [Alternate(input.Other, "")] };
+    => Object(input.Name) with { Alternates = [Alternate(input.Other)] };
 }
 
 public record struct AlternateComment(string Content, string Alternate);

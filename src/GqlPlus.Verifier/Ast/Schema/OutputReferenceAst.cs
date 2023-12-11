@@ -2,9 +2,12 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class OutputReferenceAst(TokenAt At, string Name)
-  : AstReference<OutputReferenceAst>(At, Name), IEquatable<OutputReferenceAst>
+public sealed record class OutputReferenceAst(TokenAt At, string Name, string Description)
+  : AstReference<OutputReferenceAst>(At, Name, Description), IEquatable<OutputReferenceAst>
 {
+  public OutputReferenceAst(TokenAt at, string name)
+    : this(at, name, "") { }
+
   public string? EnumValue { get; set; }
 
   internal override string Abbr => "OR";

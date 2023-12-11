@@ -2,13 +2,10 @@
 
 namespace GqlPlus.Verifier.Parse;
 
-internal class OneChecksParser<T>
+internal class OneChecksParser<T>(Parser<T>.D parser)
 {
-  private readonly Parser<T>.L _parser;
+  private readonly Parser<T>.L _parser = parser;
   private readonly string _type = typeof(T).ToString();
-
-  public OneChecksParser(Parser<T>.D parser)
-    => _parser = parser;
 
   internal void TrueExpected(string input, T expected, bool skipIf = false)
   {
@@ -96,14 +93,11 @@ internal class OneChecksParser<T>
   }
 }
 
-internal sealed class OneChecksParser<I, T>
+internal sealed class OneChecksParser<I, T>(Parser<I, T>.D parser)
   where I : Parser<T>.I
 {
-  private readonly Parser<I, T>.L _parser;
+  private readonly Parser<I, T>.L _parser = parser;
   private readonly string _type = typeof(I).ToString();
-
-  public OneChecksParser(Parser<I, T>.D parser)
-    => _parser = parser;
 
   internal void TrueExpected(string input, T expected, bool skipIf = false)
   {

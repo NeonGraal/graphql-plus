@@ -9,8 +9,8 @@ public sealed record class ParameterAst(TokenAt At, InputReferenceAst Input)
 
   internal override string Abbr => "P";
 
-  internal ParameterAst(TokenAt at, string input)
-    : this(at, new InputReferenceAst(at, input)) { }
+  internal ParameterAst(TokenAt at, string input, string description = "")
+    : this(at, new InputReferenceAst(at, input, description)) { }
 
   public bool Equals(ParameterAst? other)
     => base.Equals(other)

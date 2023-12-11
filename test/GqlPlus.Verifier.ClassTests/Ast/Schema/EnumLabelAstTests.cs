@@ -3,7 +3,7 @@
 public class EnumValueAstTests : BaseAliasedAstTests
 {
   private readonly BaseAliasedAstChecks<EnumValueAst> _checks
-    = new(name => new EnumValueAst(AstNulls.At, name, "")) {
+    = new(name => new EnumValueAst(AstNulls.At, name)) {
       SameInput = (name1, name2) => name1.Camelize() == name2.Camelize()
     };
 

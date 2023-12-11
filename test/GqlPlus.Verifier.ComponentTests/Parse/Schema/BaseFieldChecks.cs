@@ -24,7 +24,7 @@ internal sealed class BaseFieldParserChecks<F, R>
     => False(name + ":" + fieldType + "[?");
 
   internal F Field(string field, string fieldType)
-    => _factories.Field(AstNulls.At, field, "", Reference(fieldType));
+    => _factories.Field(AstNulls.At, field, Reference(fieldType));
 
   internal R Reference(string type)
     => _factories.Reference(AstNulls.At, type);

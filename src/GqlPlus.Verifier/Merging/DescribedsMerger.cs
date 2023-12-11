@@ -7,5 +7,6 @@ public abstract class DescribedsMerger<TItem>
   where TItem : IAstDescribed
 {
   public override bool CanMerge(TItem[] items)
-    => base.CanMerge(items) && items.CanMerge(item => item.Description);
+    => base.CanMerge(items)
+      && items.CanMerge(item => item.Description);
 }

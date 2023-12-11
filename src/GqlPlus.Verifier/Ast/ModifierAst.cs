@@ -44,3 +44,8 @@ internal enum ModifierKind
   List,
   Dict
 }
+
+public interface IAstModified
+{
+  ModifierAst[] Modifiers { get; set; }
+}

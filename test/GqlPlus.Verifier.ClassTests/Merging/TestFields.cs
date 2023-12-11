@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestFields<TField, TReference>
-  : TestDescriptions<TField>
+  : TestModified<TField>
   where TField : AstField<TReference>, IAstDescribed
   where TReference : AstReference<TReference>
 {

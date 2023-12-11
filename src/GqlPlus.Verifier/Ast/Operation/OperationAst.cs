@@ -3,23 +3,23 @@
 namespace GqlPlus.Verifier.Ast.Operation;
 
 public record class OperationAst(TokenAt At, string Name)
-  : AstDirectives(At, Name)
+  : AstDirectives(At, Name), IAstModified
 {
   public ParseResultKind Result { get; set; }
-  public TokenMessage[] Errors { get; set; } = Array.Empty<TokenMessage>();
+  public TokenMessage[] Errors { get; set; } = [];
 
   public string Category { get; set; } = "query";
 
-  public VariableAst[] Variables { get; set; } = Array.Empty<VariableAst>();
-  public ArgumentAst[] Usages { get; init; } = Array.Empty<ArgumentAst>();
+  public VariableAst[] Variables { get; set; } = [];
+  public ArgumentAst[] Usages { get; init; } = [];
 
   public string? ResultType { get; set; }
   public ArgumentAst? Argument { get; set; }
   public IAstSelection[]? Object { get; set; }
-  public ModifierAst[] Modifiers { get; set; } = Array.Empty<ModifierAst>();
+  public ModifierAst[] Modifiers { get; set; } = [];
 
-  public FragmentAst[] Fragments { get; set; } = Array.Empty<FragmentAst>();
-  public SpreadAst[] Spreads { get; set; } = Array.Empty<SpreadAst>();
+  public FragmentAst[] Fragments { get; set; } = [];
+  public SpreadAst[] Spreads { get; set; } = [];
 
   internal override string Abbr => "g";
 

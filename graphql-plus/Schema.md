@@ -420,12 +420,14 @@ In_Base = '$'typeParameter | input ( '<' STRING? In_Reference+ '>' )?
 
 Output = 'output' output TypeParameters? Aliases? '{' Out_Definition '}'
 Out_Definition = Out_Object? Out_Alternate*
-Out_Object = ( ':' STRING? Out_Base )? ( STRING? field Out_Field )+
-Out_Field = InputParameters? fieldAlias* ':' STRING? Out_Reference Modifiers? | fieldAlias* '=' EnumValue
+Out_Object = ( ':' STRING? Out_Base )? ( STRING? field Out_EnumField )+
+Out_EnumField = Out_Field | Out_Enum
+Out_Field = InputParameters? fieldAlias* ':' STRING? Out_Reference Modifiers?
+Out_Enum = fieldAlias* '=' STRING? EnumValue
 
 Out_Alternate = '|' STRING? Out_Reference Modifiers?
 Out_Reference = Internal | Simple | Out_Base
-Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | EnumValue )+ '>' )?
+Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | STRING? EnumValue )+ '>' )?
 
 Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
 ScalarDefinition = Scal_Number | Scal_String

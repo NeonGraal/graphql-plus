@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Ast.Schema;
 
 public abstract record class AstField<R>(TokenAt At, string Name, string Description, R Type)
-  : AstAliased(At, Name, Description), IEquatable<AstField<R>>
+  : AstAliased(At, Name, Description), IEquatable<AstField<R>>, IAstModified
   where R : AstReference<R>, IEquatable<R>
 {
   public R Type { get; set; } = Type;

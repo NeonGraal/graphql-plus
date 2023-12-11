@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public abstract class FieldMerger<TField, TReference>
-  : DescribedMerger<TField>
+  : DescribedsMerger<TField>
   where TField : AstField<TReference>, IAstDescribed
   where TReference : AstReference<TReference>
 {

@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeCategories
-  : DescribedMerger<CategoryDeclAst>
+  : DescribedsMerger<CategoryDeclAst>
 {
   public override bool CanMerge(CategoryDeclAst[] items)
     => base.CanMerge(items)

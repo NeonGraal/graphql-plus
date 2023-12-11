@@ -8,7 +8,7 @@ public class MergeTypeParametersTests
 {
   private readonly MergeTypeParameters _merger = new();
 
-  protected override DescribedMerger<TypeParameterAst> MergerDescribed => _merger;
+  protected override DescribedsMerger<TypeParameterAst> MergerDescribed => _merger;
 
   protected override TypeParameterAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description);

@@ -28,7 +28,7 @@ public class MergeScalarRegexsTests
     result.Should().BeFalse();
   }
 
-  protected override DistinctMerger<ScalarRegexAst> MergerDistinct => _merger;
+  protected override DistinctsMerger<ScalarRegexAst> MergerDistinct => _merger;
 
   protected override ScalarRegexAst MakeDistinct(string name)
     => new(AstNulls.At, name, false);

@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public class AlternatesMerger<TAlternate, TReference>
-  : DescribedMerger<TAlternate>
+  : DescribedsMerger<TAlternate>
   where TAlternate : AlternateAst<TReference>
   where TReference : AstReference<TReference>, IEquatable<TReference>
 {

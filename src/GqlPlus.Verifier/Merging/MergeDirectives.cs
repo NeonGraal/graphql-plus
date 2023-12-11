@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeDirectives(IMerge<ParameterAst> parameters)
-  : DescribedMerger<DirectiveDeclAst>
+  : DescribedsMerger<DirectiveDeclAst>
 {
   protected override string ItemGroupKey(DirectiveDeclAst item)
     => item.Option.ToString();

@@ -9,7 +9,7 @@ public abstract class TestFields<TField, TReference>
   where TReference : AstReference<TReference>
 {
   protected abstract FieldMerger<TField, TReference> MergerField { get; }
-  protected override DescribedMerger<TField> MergerDescribed => MergerField;
+  protected override DescribedsMerger<TField> MergerDescribed => MergerField;
 
   protected abstract TField MakeField(string name, string type, string description = "");
   protected override TField MakeDescribed(string name, string description = "")

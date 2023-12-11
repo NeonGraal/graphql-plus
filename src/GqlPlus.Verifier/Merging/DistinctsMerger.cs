@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Merging;
 
-public abstract class DistinctMerger<TItem>
+public abstract class DistinctsMerger<TItem>
   : IMerge<TItem>
 {
   public virtual bool CanMerge(TItem[] items)

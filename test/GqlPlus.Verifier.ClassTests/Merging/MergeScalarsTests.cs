@@ -21,7 +21,7 @@ public class MergeScalarsTests
     _merger = new(_ranges, _regexes);
   }
 
-  protected override DescribedMerger<ScalarDeclAst> MergerDescribed => _merger;
+  protected override DescribedsMerger<ScalarDeclAst> MergerDescribed => _merger;
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameKinds_ReturnsTrue(string name)

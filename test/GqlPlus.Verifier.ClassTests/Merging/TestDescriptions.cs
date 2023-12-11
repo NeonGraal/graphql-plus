@@ -6,8 +6,8 @@ public abstract class TestDescriptions<TItem>
   : TestDistinct<TItem>
   where TItem : AstBase, IAstDescribed
 {
-  protected abstract DescribedMerger<TItem> MergerDescribed { get; }
-  protected override DistinctMerger<TItem> MergerDistinct => MergerDescribed;
+  protected abstract DescribedsMerger<TItem> MergerDescribed { get; }
+  protected override DistinctsMerger<TItem> MergerDistinct => MergerDescribed;
 
   protected abstract TItem MakeDescribed(string name, string description = "");
   protected override TItem MakeDistinct(string name)

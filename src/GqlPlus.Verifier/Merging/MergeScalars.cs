@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Merging;
 internal class MergeScalars(
   IMerge<ScalarRangeAst> ranges,
   IMerge<ScalarRegexAst> regexes
-) : DescribedMerger<ScalarDeclAst>
+) : DescribedsMerger<ScalarDeclAst>
 {
   protected override string ItemGroupKey(ScalarDeclAst item)
     => item.Kind.ToString();

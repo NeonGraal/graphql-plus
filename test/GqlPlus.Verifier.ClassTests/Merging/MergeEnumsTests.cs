@@ -18,7 +18,7 @@ public class MergeEnumsTests
     _merger = new(_enumValues);
   }
 
-  protected override DescribedMerger<EnumDeclAst> MergerDescribed => _merger;
+  protected override DescribedsMerger<EnumDeclAst> MergerDescribed => _merger;
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameExtends_ReturnsTrue(string name)

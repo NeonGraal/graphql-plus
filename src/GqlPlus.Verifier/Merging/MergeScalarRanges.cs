@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeScalarRanges
-  : DistinctMerger<ScalarRangeAst>
+  : DistinctsMerger<ScalarRangeAst>
 {
   protected override string ItemGroupKey(ScalarRangeAst item)
     => "";

@@ -8,7 +8,7 @@ public class MergeScalarRangesTests
 {
   private readonly MergeScalarRanges _merger = new();
 
-  protected override DistinctMerger<ScalarRangeAst> MergerDistinct => _merger;
+  protected override DistinctsMerger<ScalarRangeAst> MergerDistinct => _merger;
 
   protected override ScalarRangeAst MakeDistinct(string name)
     => new(AstNulls.At);

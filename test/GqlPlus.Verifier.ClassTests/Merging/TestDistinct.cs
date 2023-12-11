@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Merging;
 public abstract class TestDistinct<TItem>
   where TItem : AstBase
 {
-  protected abstract DistinctMerger<TItem> MergerDistinct { get; }
+  protected abstract DistinctsMerger<TItem> MergerDistinct { get; }
 
   protected abstract TItem MakeDistinct(string name);
 

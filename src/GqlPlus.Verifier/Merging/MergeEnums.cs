@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeEnums(IMerge<EnumValueAst> enumValues)
-  : DescribedMerger<EnumDeclAst>
+  : DescribedsMerger<EnumDeclAst>
 {
   protected override string ItemGroupKey(EnumDeclAst item)
     => item.Extends ?? "";

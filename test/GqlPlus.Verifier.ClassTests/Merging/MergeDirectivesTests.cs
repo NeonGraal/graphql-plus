@@ -18,7 +18,7 @@ public class MergeDirectivesTests
     _merger = new(_parameters);
   }
 
-  protected override DescribedMerger<DirectiveDeclAst> MergerDescribed => _merger;
+  protected override DescribedsMerger<DirectiveDeclAst> MergerDescribed => _merger;
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameOption_ReturnsTrue(string name)

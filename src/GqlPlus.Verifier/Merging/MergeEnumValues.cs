@@ -3,8 +3,8 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeEnumValues
-  : DescribedsMerger<EnumValueAst>
+  : NamedsMerger<EnumValueAst>
 {
-  protected override string ItemGroupKey(EnumValueAst item)
+  protected override string ItemMatchKey(EnumValueAst item)
     => "";
 }

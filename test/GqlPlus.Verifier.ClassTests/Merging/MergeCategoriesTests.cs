@@ -21,9 +21,13 @@ public class MergeCategoriesTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsDifferentOutput_ReturnsFalse(string category1, string category2)
+  public void CanMerge_TwoItemsDifferentOutput_ReturnsFalse(string name, string category1, string category2)
   {
-    var items = new[] { new CategoryDeclAst(AstNulls.At, category1), new CategoryDeclAst(AstNulls.At, category2) };
+    if (category1 == category2) {
+      return;
+    }
+
+    var items = new[] { new CategoryDeclAst(AstNulls.At, name, category1), new CategoryDeclAst(AstNulls.At, name, category2) };
 
     var result = _merger.CanMerge(items);
 

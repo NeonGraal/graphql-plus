@@ -6,5 +6,7 @@ internal class MergeScalarRanges
   : DistinctsMerger<ScalarRangeAst>
 {
   protected override string ItemGroupKey(ScalarRangeAst item)
+    => item.ToString();
+  protected override string ItemMatchKey(ScalarRangeAst item)
     => "";
 }

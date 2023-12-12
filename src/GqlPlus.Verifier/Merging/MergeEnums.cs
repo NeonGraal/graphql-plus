@@ -3,9 +3,9 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeEnums(IMerge<EnumValueAst> enumValues)
-  : DescribedsMerger<EnumDeclAst>
+  : NamedsMerger<EnumDeclAst>
 {
-  protected override string ItemGroupKey(EnumDeclAst item)
+  protected override string ItemMatchKey(EnumDeclAst item)
     => item.Extends ?? "";
   public override bool CanMerge(EnumDeclAst[] items)
     => base.CanMerge(items)

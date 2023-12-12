@@ -98,7 +98,7 @@ A Directive may have Input Parameters.
 
 By default a Directive can only appear once at any Location, but this can be changed with the `repeatable` Directive option.
 
-Directives can be merged if their Options match.
+Directives can be merged if their Options match and their Parameters can be merged.
 
 Locations will be merged by value.
 
@@ -115,7 +115,7 @@ Each Value can be preceded by a documentation string and may have one or more Al
 
 An Enum can extend another Enum, called it's base Enum, and it's Values are merged into the base Enum's Values.
 
-Enums can be merged if their base Enums match.
+Enums can be merged if their base Enums match and their Values can be merged.
 
 ## Object Union types
 
@@ -160,7 +160,7 @@ A Field is defined with at least:
 Field names and Field Aliases must be unique within the object, including any base object.
 Explicit Field names will override the same name being used as a Field Alias.
 
-Object Unions can be merged if their base Types match.
+Object Unions can be merged if their base Types match and their Fields and Alternates can both be merged.
 Alternates are merged by Type.
 
 Fields can be merged if their Modified Types match.
@@ -368,7 +368,7 @@ Scalar types define specific domains of the following kinds:
 - Numbers, possibly only those in a given range. Ranges may be upper and/or lower bounded and each bound may be inclusive or exclusive.
 - Strings, possibly only those that match (or don't match) one or more regular expressions.
 
-Scalar declarations can be merged if their kinds match.
+Scalar declarations can be merged if their kinds match and their Ranges or Regexes can be merged.
 
 ## Complete Grammar
 

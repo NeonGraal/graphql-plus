@@ -11,6 +11,7 @@ public abstract class DistinctsMerger<TItem>
         return false;
       }
     }
+
     return items.Length > 0;
   }
 

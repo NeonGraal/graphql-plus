@@ -58,7 +58,7 @@ internal sealed class BaseObjectParserChecks<O, F, R>
       name + "<" + parameters.Joined("$") + ">{|" + other + "}",
        Object(name) with {
          Alternates = [Alternate(other)],
-         Parameters = parameters.TypeParameters(),
+         TypeParameters = parameters.TypeParameters(),
        });
 
   public void WithTypeParameterBad(string name, string other)

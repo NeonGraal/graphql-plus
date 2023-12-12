@@ -69,26 +69,26 @@ public class InputAstTests : BaseAliasedAstTests
       field1 == field2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithParameters(string name, string[] parameters)
+  public void HashCode_WithTypeParameters(string name, string[] typeParameters)
       => _checks.HashCode(
-        () => new InputDeclAst(AstNulls.At, name) { Parameters = parameters.TypeParameters() });
+        () => new InputDeclAst(AstNulls.At, name) { TypeParameters = typeParameters.TypeParameters() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithParameters(string name, string[] parameters)
+  public void String_WithTypeParameters(string name, string[] typeParameters)
     => _checks.String(
-      () => new InputDeclAst(AstNulls.At, name) { Parameters = parameters.TypeParameters() },
-      $"( !I {name} < {parameters.Joined("$")} > )");
+      () => new InputDeclAst(AstNulls.At, name) { TypeParameters = typeParameters.TypeParameters() },
+      $"( !I {name} < {typeParameters.Joined("$")} > )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithParameters(string name, string[] parameters)
+  public void Equality_WithTypeParameters(string name, string[] typeParameters)
     => _checks.Equality(
-      () => new InputDeclAst(AstNulls.At, name) { Parameters = parameters.TypeParameters() });
+      () => new InputDeclAst(AstNulls.At, name) { TypeParameters = typeParameters.TypeParameters() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenParameterss(string name, string[] parameters1, string[] parameters2)
-    => _checks.InequalityBetween(parameters1, parameters2,
-      parameters => new InputDeclAst(AstNulls.At, name) { Parameters = parameters.TypeParameters() },
-      parameters1.SequenceEqual(parameters2));
+  public void Inequality_BetweenTypeParameterss(string name, string[] typeParameters1, string[] typeParameters2)
+    => _checks.InequalityBetween(typeParameters1, typeParameters2,
+      parameters => new InputDeclAst(AstNulls.At, name) { TypeParameters = parameters.TypeParameters() },
+      typeParameters1.SequenceEqual(typeParameters2));
 
   private static InputReferenceAst Reference(string argument)
     => new(AstNulls.At, argument);

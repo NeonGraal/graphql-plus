@@ -4,9 +4,9 @@ internal interface IBaseObjectChecks
   : IBaseAliasedChecks<ObjectInput>
 {
   void WithNameBad(decimal id, string[] others);
-  void WithTypeParameters(string name, string other, string[] parameters);
+  void WithTypeParameters(string name, string other, string[] typeParameters);
   void WithTypeParameterBad(string name, string other);
-  void WithTypeParametersBad(string name, string other, string[] parameters);
+  void WithTypeParametersBad(string name, string other, string[] typeParameters);
   void WithTypeParametersNone(string name, string other);
   void WithExtendsField(string name, string extends, string field, string fieldType);
   void WithExtendsFieldBad(string name, string extends, string field, string fieldType);

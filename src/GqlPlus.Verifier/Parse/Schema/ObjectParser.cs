@@ -18,7 +18,7 @@ internal abstract class ObjectParser<O, F, R>
   ) : base(name, param, aliases, option, definition) { }
 
   protected override bool ApplyParameters(O result, IResultArray<TypeParameterAst> parameter)
-    => parameter.Optional(value => result.Parameters = value ?? []);
+    => parameter.Optional(value => result.TypeParameters = value ?? []);
 }
 
 public class ObjectDefinition<F, R>

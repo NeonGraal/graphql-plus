@@ -13,7 +13,7 @@ public abstract class TestFields<TField, TReference>
 
   protected abstract TField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "");
   protected override TField MakeDescribed(string name, string description = "")
-    => MakeField(name, name, description);
+    => MakeField(name, name, description, description);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameType_ReturnsTrue(string name, string type)

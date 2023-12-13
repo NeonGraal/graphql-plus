@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeTypeParameters
-  : NamedsMerger<TypeParameterAst>
+  : DescribedsMerger<TypeParameterAst>
 {
   protected override string ItemMatchKey(TypeParameterAst item)
     => "";

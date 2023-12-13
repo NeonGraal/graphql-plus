@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using System.Text.RegularExpressions;
+using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using NSubstitute;
 
@@ -44,9 +45,12 @@ public class MergeScalarsTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsRangesCantMerge_ReturnsFalse(string name)
+  public void CanMerge_TwoItemsRangesCantMerge_ReturnsFalse(string name, RangeInput range)
   {
-    var items = new[] { new ScalarDeclAst(AstNulls.At, name), new ScalarDeclAst(AstNulls.At, name) };
+    var items = new[] {
+      new ScalarDeclAst(AstNulls.At, name) with { Ranges = range.ScalarRanges() },
+      new ScalarDeclAst(AstNulls.At, name) with { Ranges = range.ScalarRanges() },
+    };
     _ranges.CanMerge([]).ReturnsForAnyArgs(false);
 
     var result = _merger.CanMerge(items);
@@ -55,9 +59,12 @@ public class MergeScalarsTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsRegexesCantMerge_ReturnsFalse(string name)
+  public void CanMerge_TwoItemsRegexesCantMerge_ReturnsFalse(string name, string regex)
   {
-    var items = new[] { new ScalarDeclAst(AstNulls.At, name), new ScalarDeclAst(AstNulls.At, name) };
+    var items = new[] {
+      new ScalarDeclAst(AstNulls.At, name) with { Regexes = regex.ScalarRegexes() },
+      new ScalarDeclAst(AstNulls.At, name) with { Regexes = regex.ScalarRegexes() },
+    };
     _regexes.CanMerge([]).ReturnsForAnyArgs(false);
 
     var result = _merger.CanMerge(items);

@@ -46,9 +46,12 @@ public abstract class TestObjects<TObject, TField, TReference>
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsAlternatesCantMerge_ReturnsFalse(string name)
+  public void CanMerge_TwoItemsAlternatesCantMerge_ReturnsFalse(string name, string alternate)
   {
-    var items = new[] { MakeObject(name), MakeObject(name) };
+    var items = new[] {
+      MakeObject(name) with { Alternates = alternate.Alternates(a => MakeReference(a))},
+      MakeObject(name) with { Alternates = alternate.Alternates(a => MakeReference(a))},
+    };
     Alternates.CanMerge([]).ReturnsForAnyArgs(false);
 
     var result = MergerObject.CanMerge(items);
@@ -57,9 +60,12 @@ public abstract class TestObjects<TObject, TField, TReference>
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsFieldsCantMerge_ReturnsFalse(string name)
+  public void CanMerge_TwoItemsFieldsCantMerge_ReturnsFalse(string name, string field, string type)
   {
-    var items = new[] { MakeObject(name), MakeObject(name) };
+    var items = new[] {
+      MakeObject(name) with { Fields = MakeFields(field, type) },
+      MakeObject(name) with { Fields = MakeFields(field, type) },
+    };
     Fields.CanMerge([]).ReturnsForAnyArgs(false);
 
     var result = MergerObject.CanMerge(items);
@@ -87,7 +93,8 @@ public abstract class TestObjects<TObject, TField, TReference>
   protected override DescribedsMerger<TObject> MergerDescribed => MergerObject;
 
   protected abstract TObject MakeObject(string name, string description = "");
-  protected abstract TReference MakeReference(string type, string description = "");
+  protected abstract TField[] MakeFields(string field, string type);
+  protected abstract TReference MakeReference(string type);
   protected override TObject MakeDescribed(string name, string description = "")
     => MakeObject(name, description);
 }

@@ -44,9 +44,12 @@ public class MergeDirectivesTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsParametersCantMerge_ReturnsFalse(string name)
+  public void CanMerge_TwoItemsParametersCantMerge_ReturnsFalse(string name, string[] parameters)
   {
-    var items = new[] { new DirectiveDeclAst(AstNulls.At, name), new DirectiveDeclAst(AstNulls.At, name) };
+    var items = new[] {
+      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
+      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() }
+    };
     _parameters.CanMerge([]).ReturnsForAnyArgs(false);
 
     var result = _merger.CanMerge(items);

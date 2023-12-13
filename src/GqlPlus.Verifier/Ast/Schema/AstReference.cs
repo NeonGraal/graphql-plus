@@ -9,6 +9,11 @@ public abstract record class AstReference<TReference>(TokenAt At, string Name, s
   public bool IsTypeParameter { get; set; }
   public TReference[] Arguments { get; set; } = [];
 
+  public string FullType => Arguments
+    .Bracket("<", ">")
+    .Prepend(IsTypeParameter ? Name.Prefixed("$") : Name)
+    .Joined();
+
   protected AstReference(TokenAt at, string name)
     : this(at, name, "") { }
 

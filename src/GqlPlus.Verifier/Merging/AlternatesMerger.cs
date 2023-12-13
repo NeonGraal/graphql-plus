@@ -8,8 +8,6 @@ public class AlternatesMerger<TAlternate, TReference>
   where TAlternate : AlternateAst<TReference>
   where TReference : AstReference<TReference>, IEquatable<TReference>
 {
-  protected override string ItemGroupKey(TAlternate item)
-    => item.Type.GetFields().Joined();
   protected override string ItemMatchKey(TAlternate item)
     => item.Modifiers.AsString().Joined();
 }

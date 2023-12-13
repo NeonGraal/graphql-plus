@@ -7,7 +7,7 @@ public class ObjectsMerger<TObject, TField, TReference>(
   IMerge<TypeParameterAst> typeParameters,
   IMerge<AlternateAst<TReference>> alternates,
   IMerge<TField> fields
-) : NamedsMerger<TObject>
+) : DescribedsMerger<TObject>
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>, IAstDescribed
   where TReference : AstReference<TReference>
@@ -16,7 +16,7 @@ public class ObjectsMerger<TObject, TField, TReference>(
     => item.Extends?.Name ?? "";
   public override bool CanMerge(TObject[] items)
     => base.CanMerge(items)
-      && typeParameters.CanMerge([.. items.SelectMany(item => item.TypeParameters)])
-      && fields.CanMerge([.. items.SelectMany(item => item.Fields)])
-      && alternates.CanMerge([.. items.SelectMany(item => item.Alternates)]);
+      && items.ManyMerge(item => item.TypeParameters, typeParameters)
+      && items.ManyGroupMerge(item => item.Fields, f => f.Name, fields)
+      && items.ManyGroupMerge(item => item.Alternates, a => a.Type.FullType, alternates);
 }

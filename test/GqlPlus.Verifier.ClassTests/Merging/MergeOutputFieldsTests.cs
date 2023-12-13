@@ -10,47 +10,27 @@ public class MergeOutputFieldsTests
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsParametersCantMerge_ReturnsFalse(string name, string type)
   {
-    var items = new[] { MakeField(name, type), MakeField(name, type) };
     _parameters.CanMerge([]).ReturnsForAnyArgs(false);
 
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
+    CanMerge_False([MakeField(name, type), MakeField(name, type)]);
   }
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameEnum_ReturnsTrue(string name, string type, string value)
-  {
-    var items = new[] { MakeField(name, type) with { EnumValue = value }, MakeField(name, type) with { EnumValue = value } };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+    => CanMerge_True([
+      MakeField(name, type) with { EnumValue = value },
+      MakeField(name, type) with { EnumValue = value }]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsDifferentEnums_ReturnsFalse(string name, string type, string value1, string value2)
-  {
-    if (value1 == value2) {
-      return;
-    }
-
-    var items = new[] { MakeField(name, type) with { EnumValue = value1 }, MakeField(name, type) with { EnumValue = value2 } };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
+    => CanMerge_False([
+      MakeField(name, type) with { EnumValue = value1 },
+      MakeField(name, type) with { EnumValue = value2 }],
+      value1 == value2);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneEnum_ReturnsFalse(string name, string type, string value)
-  {
-    var items = new[] { MakeField(name, type) with { EnumValue = value }, MakeField(name, type) };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
+    => CanMerge_False([MakeField(name, type) with { EnumValue = value }, MakeField(name, type)]);
 
   private readonly MergeOutputFields _merger;
   private readonly IMerge<ParameterAst> _parameters;

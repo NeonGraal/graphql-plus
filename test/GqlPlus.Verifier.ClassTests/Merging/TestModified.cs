@@ -9,21 +9,9 @@ public abstract class TestModified<TModified>
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameModifers_ReturnsTrue(string input)
-  {
-    var items = new[] { MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() } };
-
-    var result = MergerDescribed.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+    => CanMerge_True([MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() }]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsDifferentModifers_ReturnsFalse(string input)
-  {
-    var items = new[] { MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) };
-
-    var result = MergerDescribed.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
+    => CanMerge_False([MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input)]);
 }

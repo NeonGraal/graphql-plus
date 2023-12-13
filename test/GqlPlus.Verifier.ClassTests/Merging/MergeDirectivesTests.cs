@@ -22,39 +22,24 @@ public class MergeDirectivesTests
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameOption_ReturnsTrue(string name)
-  {
-    var items = new[] {
+    => CanMerge_True([
       new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable },
-      new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable }
-    };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+      new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable }]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsDifferentOption_ReturnsFalse(string name)
-  {
-    var items = new[] { new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable }, new DirectiveDeclAst(AstNulls.At, name) };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
+    => CanMerge_False([
+      new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable },
+      new DirectiveDeclAst(AstNulls.At, name)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsParametersCantMerge_ReturnsFalse(string name, string[] parameters)
   {
-    var items = new[] {
-      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
-      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() }
-    };
     _parameters.CanMerge([]).ReturnsForAnyArgs(false);
 
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
+    CanMerge_False([
+      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
+      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() }]);
   }
 
   protected override DirectiveDeclAst MakeDescribed(string name, string description = "")

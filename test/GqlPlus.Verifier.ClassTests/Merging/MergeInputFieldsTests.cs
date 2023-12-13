@@ -8,37 +8,20 @@ public class MergeInputFieldsTests
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneDefault_ReturnsTrue(string name, string type, string value)
-  {
-    var items = new[] { MakeField(name, type) with { Default = value.FieldKey() }, MakeField(name, type) };
-
-    var result = MergerField.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+    => CanMerge_True([MakeField(name, type) with { Default = value.FieldKey() }, MakeField(name, type)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameDefault_ReturnsTrue(string name, string type, string value)
-  {
-    var items = new[] { MakeField(name, type) with { Default = value.FieldKey() }, MakeField(name, type) with { Default = value.FieldKey() } };
-
-    var result = MergerField.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+    => CanMerge_True([
+      MakeField(name, type) with { Default = value.FieldKey() },
+      MakeField(name, type) with { Default = value.FieldKey() }]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsDifferentDefaults_ReturnsFalse(string name, string type, string value1, string value2)
-  {
-    if (value1 == value2) {
-      return;
-    }
-
-    var items = new[] { MakeField(name, type) with { Default = value1.FieldKey() }, MakeField(name, type) with { Default = value2.FieldKey() } };
-
-    var result = MergerField.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
+    => CanMerge_False([
+      MakeField(name, type) with { Default = value1.FieldKey() },
+      MakeField(name, type) with { Default = value2.FieldKey() }],
+      value1 == value2);
 
   private readonly MergeInputFields _merger = new();
 

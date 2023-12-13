@@ -10,23 +10,15 @@ public class MergeScalarRegexsTests
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameExcludes_ReturnsTrue(string name)
-  {
-    var items = new[] { new ScalarRegexAst(AstNulls.At, name, false), new ScalarRegexAst(AstNulls.At, name, false) };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+    => CanMerge_True([
+      new ScalarRegexAst(AstNulls.At, name, false),
+      new ScalarRegexAst(AstNulls.At, name, false)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsDifferentExcludes_ReturnsFalse(string name)
-  {
-    var items = new[] { new ScalarRegexAst(AstNulls.At, name, true), new ScalarRegexAst(AstNulls.At, name, false) };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
+    => CanMerge_False([
+      new ScalarRegexAst(AstNulls.At, name, true),
+      new ScalarRegexAst(AstNulls.At, name, false)]);
 
   protected override DistinctsMerger<ScalarRegexAst> MergerDistinct => _merger;
 

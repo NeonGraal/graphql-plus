@@ -12,37 +12,20 @@ public class MergeParametersTests
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneDefault_ReturnsTrue(string input, string value)
-  {
-    var items = new[] { MakeAlternate(input) with { Default = value.FieldKey() }, MakeAlternate(input) };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+    => CanMerge_True([MakeAlternate(input) with { Default = value.FieldKey() }, MakeAlternate(input)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameDefault_ReturnsTrue(string input, string value)
-  {
-    var items = new[] { MakeAlternate(input) with { Default = value.FieldKey() }, MakeAlternate(input) with { Default = value.FieldKey() } };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+    => CanMerge_True([
+      MakeAlternate(input) with { Default = value.FieldKey() },
+      MakeAlternate(input) with { Default = value.FieldKey() }]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsDifferentDefault_ReturnsFalse(string input, string value1, string value2)
-  {
-    if (value1 == value2) {
-      return;
-    }
-
-    var items = new[] { MakeAlternate(input) with { Default = value1.FieldKey() }, MakeAlternate(input) with { Default = value2.FieldKey() } };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
+    => CanMerge_False([
+      MakeAlternate(input) with { Default = value1.FieldKey() },
+      MakeAlternate(input) with { Default = value2.FieldKey() }],
+      value1 == value2);
 
   protected override ParameterAst MakeAlternate(string name, string description = "")
     => new(AstNulls.At, new InputReferenceAst(AstNulls.At, name, description));

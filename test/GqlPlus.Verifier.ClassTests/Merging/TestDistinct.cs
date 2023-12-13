@@ -11,19 +11,25 @@ public abstract class TestDistinct<TItem>
 
   [Fact]
   public void CanMerge_NoItems_ReturnsFalse()
+   => CanMerge_False([]);
+
+  [Theory, RepeatData(Repeats)]
+  public void CanMerge_OneItem_ReturnsTrue(string name)
+    => CanMerge_True([MakeDistinct(name)]);
+
+  protected void CanMerge_False(TItem[] items, bool skipIf = false)
   {
-    var items = Array.Empty<TItem>();
+    if (skipIf) {
+      return;
+    }
 
     var result = MergerDistinct.CanMerge(items);
 
     result.Should().BeFalse();
   }
 
-  [Theory, RepeatData(Repeats)]
-  public void CanMerge_OneItem_ReturnsTrue(string name)
+  protected void CanMerge_True(TItem[] items)
   {
-    var items = new[] { MakeDistinct(name) };
-
     var result = MergerDistinct.CanMerge(items);
 
     result.Should().BeTrue();

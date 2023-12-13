@@ -22,33 +22,18 @@ public class MergeEnumsTests
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameExtends_ReturnsTrue(string name)
-  {
-    var items = new[] { new EnumDeclAst(AstNulls.At, name), new EnumDeclAst(AstNulls.At, name) };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+    => CanMerge_True([new EnumDeclAst(AstNulls.At, name), new EnumDeclAst(AstNulls.At, name)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsDifferentExtends_ReturnsFalse(string name, string extends)
-  {
-    var items = new[] { new EnumDeclAst(AstNulls.At, name) { Extends = extends }, new EnumDeclAst(AstNulls.At, name) };
-
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
+    => CanMerge_False([new EnumDeclAst(AstNulls.At, name) { Extends = extends }, new EnumDeclAst(AstNulls.At, name)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsValuesCantMerge_ReturnsFalse(string name)
   {
-    var items = new[] { new EnumDeclAst(AstNulls.At, name), new EnumDeclAst(AstNulls.At, name) };
     _enumValues.CanMerge([]).ReturnsForAnyArgs(false);
 
-    var result = _merger.CanMerge(items);
-
-    result.Should().BeFalse();
+    CanMerge_False([new EnumDeclAst(AstNulls.At, name), new EnumDeclAst(AstNulls.At, name)]);
   }
 
   protected override EnumDeclAst MakeDescribed(string name, string description = "")

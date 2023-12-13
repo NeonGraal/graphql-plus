@@ -12,65 +12,43 @@ public abstract class TestObjects<TObject, TField, TReference>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameBaseType_ReturnsTrue(string name, string type)
-  {
-    var items = new[] { MakeObject(name) with { Extends = MakeReference(type) }, MakeObject(name) with { Extends = MakeReference(type) } };
-
-    var result = MergerObject.CanMerge(items);
-
-    result.Should().BeTrue();
-  }
+    => CanMerge_True([
+      MakeObject(name) with { Extends = MakeReference(type) },
+      MakeObject(name) with { Extends = MakeReference(type) }]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsDifferentTypes_ReturnsFalse(string name, string type1, string type2)
-  {
-    if (type1 == type2) {
-      return;
-    }
-
-    var items = new[] { MakeObject(name) with { Extends = MakeReference(type1) }, MakeObject(name) with { Extends = MakeReference(type2) } };
-
-    var result = MergerObject.CanMerge(items);
-
-    result.Should().BeFalse();
-  }
+    => CanMerge_False([
+      MakeObject(name) with { Extends = MakeReference(type1) },
+      MakeObject(name) with { Extends = MakeReference(type2) }],
+      type1 == type2);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsTypeParametersCantMerge_ReturnsFalse(string name)
   {
-    var items = new[] { MakeObject(name), MakeObject(name) };
     TypeParameters.CanMerge([]).ReturnsForAnyArgs(false);
 
-    var result = MergerObject.CanMerge(items);
-
-    result.Should().BeFalse();
+    CanMerge_False([MakeObject(name), MakeObject(name)]);
   }
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsAlternatesCantMerge_ReturnsFalse(string name, string alternate)
   {
-    var items = new[] {
-      MakeObject(name) with { Alternates = alternate.Alternates(a => MakeReference(a))},
-      MakeObject(name) with { Alternates = alternate.Alternates(a => MakeReference(a))},
-    };
     Alternates.CanMerge([]).ReturnsForAnyArgs(false);
 
-    var result = MergerObject.CanMerge(items);
-
-    result.Should().BeFalse();
+    CanMerge_False([
+      MakeObject(name) with { Alternates = alternate.Alternates(MakeReference) },
+      MakeObject(name) with { Alternates = alternate.Alternates(MakeReference) }]);
   }
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsFieldsCantMerge_ReturnsFalse(string name, string field, string type)
   {
-    var items = new[] {
-      MakeObject(name) with { Fields = MakeFields(field, type) },
-      MakeObject(name) with { Fields = MakeFields(field, type) },
-    };
     Fields.CanMerge([]).ReturnsForAnyArgs(false);
 
-    var result = MergerObject.CanMerge(items);
-
-    result.Should().BeFalse();
+    CanMerge_False([
+      MakeObject(name) with { Fields = MakeFields(field, type) },
+      MakeObject(name) with { Fields = MakeFields(field, type) }]);
   }
 
   protected readonly IMerge<TypeParameterAst> TypeParameters;

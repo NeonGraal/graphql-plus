@@ -50,9 +50,7 @@ internal class BaseDirectivesAstChecks<TInput, TAst>
     => $"( !{Abbr} {input} {directives.Joined(d => $"( !d {d} )")} )";
 
   private TAst CreateDirective(TInput input, string[] directives)
-  {
-    return CreateInput(input) with { Directives = directives.Directives() };
-  }
+    => CreateInput(input) with { Directives = directives.Directives() };
 }
 
 internal interface IBaseDirectivesAstChecks

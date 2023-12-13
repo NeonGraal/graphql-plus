@@ -1,5 +1,7 @@
 {
   "_appFooter": "Copyright Struan Judd ©️ 2023",
   "_disableTocFilter": true,
-  "_disableBreadcrumb": true
+  "_disableBreadcrumb": true,
+  "pdf": true,
+  "pdfTocPage": true
 }

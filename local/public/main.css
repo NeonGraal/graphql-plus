@@ -10,3 +10,9 @@ details {
 .affix {
   width: auto !important;
 }
+
+@media print {
+  article, .pdftoc {
+    border-bottom: 3px dashed #999; 
+  }
+}

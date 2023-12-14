@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
 using GqlPlus.Verifier.Verification;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus.Verifier.Verification;
 
 public class SchemaVerifierTests(
     Parser<SchemaAst>.D parser,

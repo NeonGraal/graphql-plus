@@ -5,9 +5,9 @@ using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
 using GqlPlus.Verifier.Verification;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus.Verifier.Verification;
 
-public class OperationVerifierTests(
+public class VerifyOperationTests(
     Parser<OperationAst>.D parser,
     IVerify<OperationAst> verifier)
 {

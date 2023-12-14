@@ -1,185 +1,188 @@
-﻿Service: ArrayParser<ScalarRangeAst>, Singleton, ArrayParser<ScalarRangeAst>
-Service: ArrayParser<ScalarRegexAst>, Singleton, ArrayParser<ScalarRegexAst>
-Service: CategoryName, Singleton, CategoryName
-Service: DirectiveName, Singleton, DirectiveName
-Service: HostBuilderContext, Singleton, Microsoft.Extensions.Hosting.HostBuilderContext()
-Service: IApplicationLifetime, Singleton, () => 
-Service: IConfiguration, Singleton, () => 
-Service: IConfigureOptions<HostOptions>, Singleton, Microsoft.Extensions.Options.ConfigureNamedOptions`1[Microsoft.Extensions.Hosting.HostOptions]()
-Service: IConfigureOptions<LoggerFilterOptions>, Singleton, Microsoft.Extensions.Logging.DefaultLoggerLevelConfigureOptions()
-Service: IHost, Singleton, () => 
-Service: IHostApplicationLifetime, Singleton, ApplicationLifetime
-Service: IHostEnvironment, Singleton, Microsoft.Extensions.Hosting.Internal.HostingEnvironment()
-Service: IHostingEnvironment, Singleton, Microsoft.Extensions.Hosting.Internal.HostingEnvironment()
-Service: IHostLifetime, Singleton, ConsoleLifetime
-Service: ILogger`1, Singleton, Logger`1
-Service: ILoggerFactory, Singleton, LoggerFactory
-Service: IMerge<AlternateAst<InputReferenceAst>>, Singleton, AlternatesMerger<InputReferenceAst>
-Service: IMerge<AlternateAst<OutputReferenceAst>>, Singleton, AlternatesMerger<OutputReferenceAst>
-Service: IMerge<AstType>, Singleton, NullMerger<AstType>
-Service: IMerge<AstType>, Singleton, MergeAllTypes
-Service: IMerge<CategoryDeclAst>, Singleton, NullMerger<CategoryDeclAst>
-Service: IMerge<CategoryDeclAst>, Singleton, MergeCategories
-Service: IMerge<DirectiveDeclAst>, Singleton, NullMerger<DirectiveDeclAst>
-Service: IMerge<DirectiveDeclAst>, Singleton, MergeDirectives
-Service: IMerge<EnumDeclAst>, Singleton, NullMerger<EnumDeclAst>
-Service: IMerge<EnumDeclAst>, Singleton, MergeEnums
-Service: IMerge<EnumValueAst>, Singleton, MergeEnumValues
-Service: IMerge<InputDeclAst>, Singleton, NullMerger<InputDeclAst>
-Service: IMerge<InputDeclAst>, Singleton, MergeInputObjects
-Service: IMerge<InputFieldAst>, Singleton, MergeInputFields
-Service: IMerge<OutputDeclAst>, Singleton, NullMerger<OutputDeclAst>
-Service: IMerge<OutputDeclAst>, Singleton, MergeOutputObjects
-Service: IMerge<OutputFieldAst>, Singleton, MergeOutputFields
-Service: IMerge<ParameterAst>, Singleton, MergeParameters
-Service: IMerge<ScalarDeclAst>, Singleton, NullMerger<ScalarDeclAst>
-Service: IMerge<ScalarDeclAst>, Singleton, MergeScalars
-Service: IMerge<ScalarRangeAst>, Singleton, MergeScalarRanges
-Service: IMerge<ScalarRegexAst>, Singleton, MergeScalarRegexes
-Service: IMerge<TypeParameterAst>, Singleton, MergeTypeParameters
-Service: IMessageSink, Singleton, Xunit.Sdk.TestFrameworkProxy+MessageSinkWrapper()
-Service: IOptions`1, Singleton, UnnamedOptionsManager`1
-Service: IOptionsFactory`1, Transient, OptionsFactory`1
-Service: IOptionsMonitor`1, Singleton, OptionsMonitor`1
-Service: IOptionsMonitorCache`1, Singleton, OptionsCache`1
-Service: IOptionsSnapshot`1, Scoped, OptionsManager`1
-Service: IServiceCollection, Singleton, () => 
-Service: ITestOutputHelperAccessor, Singleton, TestOutputHelperAccessor
-Service: IVerify<ArgumentAst>, Singleton, NullVerifier<ArgumentAst>
-Service: IVerify<AstType[]>, Singleton, VerifyAllTypes
-Service: IVerify<AstType>, Singleton, NullVerifier<AstType>
-Service: IVerify<CategoryDeclAst>, Singleton, NullVerifier<CategoryDeclAst>
-Service: IVerify<DirectiveDeclAst>, Singleton, NullVerifier<DirectiveDeclAst>
-Service: IVerify<EnumDeclAst>, Singleton, NullVerifier<EnumDeclAst>
-Service: IVerify<FragmentAst>, Singleton, NullVerifier<FragmentAst>
-Service: IVerify<InputDeclAst>, Singleton, NullVerifier<InputDeclAst>
-Service: IVerify<OperationAst>, Singleton, VerifyOperation
-Service: IVerify<OutputDeclAst>, Singleton, NullVerifier<OutputDeclAst>
-Service: IVerify<ScalarDeclAst>, Singleton, NullVerifier<ScalarDeclAst>
-Service: IVerify<SchemaAst>, Singleton, VerifySchema
-Service: IVerify<SpreadAst>, Singleton, NullVerifier<SpreadAst>
-Service: IVerify<VariableAst>, Singleton, NullVerifier<VariableAst>
-Service: IVerify<VariableAst>, Singleton, VerifyVariable
-Service: IVerifyAliased<AstType>, Singleton, VerifyAllTypesAliased
-Service: IVerifyAliased<CategoryDeclAst>, Singleton, VerifyCategoryAliased
-Service: IVerifyAliased<DirectiveDeclAst>, Singleton, VerifyDirectiveAliased
-Service: IVerifyAliased<EnumDeclAst>, Singleton, VerifyEnumsAliased
-Service: IVerifyAliased<InputDeclAst>, Singleton, VerifyInputsAliased
-Service: IVerifyAliased<OutputDeclAst>, Singleton, VerifyOutputsAliased
-Service: IVerifyAliased<ScalarDeclAst>, Singleton, VerifyScalarsAliased
-Service: IVerifyUsageAliased<CategoryDeclAst,OutputDeclAst>, Singleton, VerifyCategoryOutput
-Service: IVerifyUsageAliased<DirectiveDeclAst,InputDeclAst>, Singleton, VerifyDirectiveInput
-Service: IVerifyUsageAliased<EnumDeclAst,AstType>, Singleton, VerifyEnumTypes
-Service: IVerifyUsageAliased<InputDeclAst,AstType>, Singleton, VerifyInputTypes
-Service: IVerifyUsageAliased<OutputDeclAst,AstType>, Singleton, VerifyOutputTypes
-Service: IVerifyUsageAliased<ScalarDeclAst,AstType>, Singleton, VerifyScalarTypes
-Service: IVerifyUsageNamed<ArgumentAst,VariableAst>, Singleton, VerifyVariableUsage
-Service: IVerifyUsageNamed<SpreadAst,FragmentAst>, Singleton, VerifyFragmentUsage
-Service: IXunitTestCaseRunnerWrapper, Singleton, DependencyInjectionTestCaseRunnerWrapper
-Service: IXunitTestCaseRunnerWrapper, Singleton, DependencyInjectionTheoryTestCaseRunnerWrapper
-Service: OptionParser<CategoryOption>, Singleton, OptionParser<CategoryOption>
-Service: OptionParser<DirectiveOption>, Singleton, OptionParser<DirectiveOption>
-Service: ParseAliases, Singleton, ParseAliases
-Service: ParseArgument, Singleton, ParseArgument
-Service: ParseArgumentValue, Singleton, ParseArgumentValue
-Service: ParseCategory, Singleton, ParseCategory
-Service: ParseCategoryDefinition, Singleton, ParseCategoryDefinition
-Service: ParseConstant, Singleton, ParseConstant
-Service: ParseDefault, Singleton, ParseDefault
-Service: ParseDirective, Singleton, ParseDirective
-Service: ParseDirectiveDefinition, Singleton, ParseDirectiveDefinition
-Service: ParseDirectives, Singleton, ParseDirectives
-Service: ParseEndFragments, Singleton, ParseEndFragments
-Service: ParseEnum, Singleton, ParseEnum
-Service: ParseEnumDefinition, Singleton, ParseEnumDefinition
-Service: ParseEnumValue, Singleton, ParseEnumValue
-Service: ParseField, Singleton, ParseField
-Service: ParseFieldKey, Singleton, ParseFieldKey
-Service: ParseInput, Singleton, ParseInput
-Service: ParseInputDefinition, Singleton, ParseInputDefinition
-Service: ParseInputField, Singleton, ParseInputField
-Service: ParseInputReference, Singleton, ParseInputReference
-Service: ParseModifiers, Singleton, ParseModifiers
-Service: ParseNull, Singleton, ParseNull
-Service: ParseNulls, Singleton, ParseNulls
-Service: ParseObject, Singleton, ParseObject
-Service: ParseOperation, Singleton, ParseOperation
-Service: ParseOutput, Singleton, ParseOutput
-Service: ParseOutputDefinition, Singleton, ParseOutputDefinition
-Service: ParseOutputField, Singleton, ParseOutputField
-Service: ParseOutputReference, Singleton, ParseOutputReference
-Service: ParseParameters, Singleton, ParseParameters
-Service: Parser<ArgumentAst>+D, Singleton, () => 
-Service: Parser<ArgumentAst>+D, Singleton, () => 
-Service: Parser<ArgumentAst>+DA, Singleton, () => 
-Service: Parser<AstKeyValue<ArgumentAst>>+D, Singleton, () => 
-Service: Parser<AstKeyValue<ConstantAst>>+D, Singleton, () => 
-Service: Parser<AstObject<ArgumentAst>>+D, Singleton, () => 
-Service: Parser<AstObject<ConstantAst>>+D, Singleton, () => 
-Service: Parser<CategoryDeclAst>+D, Singleton, () => 
-Service: Parser<CategoryOption>+D, Singleton, () => 
-Service: Parser<CategoryOutput>+D, Singleton, () => 
-Service: Parser<ConstantAst>+D, Singleton, () => 
-Service: Parser<ConstantAst>+D, Singleton, () => 
-Service: Parser<ConstantAst>+DA, Singleton, () => 
-Service: Parser<DirectiveAst>+DA, Singleton, () => 
-Service: Parser<DirectiveDeclAst>+D, Singleton, () => 
-Service: Parser<DirectiveLocation>+D, Singleton, () => 
-Service: Parser<DirectiveOption>+D, Singleton, () => 
-Service: Parser<EnumDeclAst>+D, Singleton, () => 
-Service: Parser<EnumDefinition>+D, Singleton, () => 
-Service: Parser<EnumValueAst>+D, Singleton, () => 
-Service: Parser<FieldAst>+D, Singleton, () => 
-Service: Parser<FieldKeyAst>+D, Singleton, () => 
-Service: Parser<IAstSelection>+D, Singleton, () => 
-Service: Parser<IAstSelection>+DA, Singleton, () => 
-Service: Parser<InputDeclAst>+D, Singleton, () => 
-Service: Parser<InputFieldAst>+D, Singleton, () => 
-Service: Parser<InputReferenceAst>+D, Singleton, () => 
-Service: Parser<IParserArgument,ArgumentAst>+D, Singleton, () => 
-Service: Parser<IParserDefault,ConstantAst>+D, Singleton, () => 
-Service: Parser<IParserVarType,String>+D, Singleton, () => 
-Service: Parser<IValueParser<ArgumentAst>,ArgumentAst>+D, Singleton, () => 
-Service: Parser<IValueParser<ConstantAst>,ConstantAst>+D, Singleton, () => 
-Service: Parser<ModifierAst>+DA, Singleton, () => 
-Service: Parser<NullAst>+D, Singleton, () => 
-Service: Parser<NullAst>+DA, Singleton, () => 
-Service: Parser<ObjectDefinition<InputFieldAst,InputReferenceAst>>+D, Singleton, () => 
-Service: Parser<ObjectDefinition<OutputFieldAst,OutputReferenceAst>>+D, Singleton, () => 
-Service: Parser<OperationAst>+D, Singleton, () => 
-Service: Parser<OutputDeclAst>+D, Singleton, () => 
-Service: Parser<OutputFieldAst>+D, Singleton, () => 
-Service: Parser<OutputReferenceAst>+D, Singleton, () => 
-Service: Parser<ParameterAst>+DA, Singleton, () => 
-Service: Parser<ScalarDeclAst>+D, Singleton, () => 
-Service: Parser<ScalarDefinition>+D, Singleton, () => 
-Service: Parser<ScalarRangeAst>+D, Singleton, () => 
-Service: Parser<ScalarRangeAst>+DA, Singleton, () => 
-Service: Parser<ScalarRegexAst>+D, Singleton, () => 
-Service: Parser<ScalarRegexAst>+DA, Singleton, () => 
-Service: Parser<SchemaAst>+D, Singleton, () => 
-Service: Parser<String>+D, Singleton, () => 
-Service: Parser<String>+DA, Singleton, () => 
-Service: Parser<TypeParameterAst>+DA, Singleton, () => 
-Service: Parser<VariableAst>+D, Singleton, () => 
-Service: Parser<VariableAst>+DA, Singleton, () => 
-Service: ParserArray<IParserEndFragments,FragmentAst>+DA, Singleton, () => 
-Service: ParserArray<IParserStartFragments,FragmentAst>+DA, Singleton, () => 
-Service: ParseScalar, Singleton, ParseScalar
-Service: ParseScalarDefinition, Singleton, ParseScalarDefinition
-Service: ParseScalarRange, Singleton, ParseScalarRange
-Service: ParseScalarRegex, Singleton, ParseScalarRegex
-Service: ParseSchema, Singleton, ParseSchema
-Service: ParseSelection, Singleton, ParseSelection
-Service: ParseStartFragments, Singleton, ParseStartFragments
-Service: ParseTypeParameters, Singleton, ParseTypeParameters
-Service: ParseVariable, Singleton, ParseVariable
-Service: ParseVariables, Singleton, ParseVariables
-Service: ParseVarType, Singleton, ParseVarType
-Service: TypeName, Singleton, TypeName
-Service: ValueKeyValueParser<ArgumentAst>, Singleton, ValueKeyValueParser<ArgumentAst>
-Service: ValueKeyValueParser<ConstantAst>, Singleton, ValueKeyValueParser<ConstantAst>
-Service: ValueListParser<ArgumentAst>, Singleton, ValueListParser<ArgumentAst>
-Service: ValueListParser<ConstantAst>, Singleton, ValueListParser<ConstantAst>
-Service: ValueObjectParser<ArgumentAst>, Singleton, ValueObjectParser<ArgumentAst>
-Service: ValueObjectParser<ConstantAst>, Singleton, ValueObjectParser<ConstantAst>
+﻿GqlPlus.Verifier.Parse.Schema::ArrayParser<ScalarRangeAst>, Singleton, ArrayParser<ScalarRangeAst>
+GqlPlus.Verifier.Parse.Schema::ArrayParser<ScalarRegexAst>, Singleton, ArrayParser<ScalarRegexAst>
+GqlPlus.Verifier.Parse.Schema::CategoryName, Singleton, CategoryName
+GqlPlus.Verifier.Parse.Schema::DirectiveName, Singleton, DirectiveName
+Microsoft.Extensions.Hosting::HostBuilderContext, Singleton, = HostBuilderContext
+Microsoft.Extensions.Hosting::IApplicationLifetime, Singleton, () => 
+Microsoft.Extensions.Configuration::IConfiguration, Singleton, () => 
+Microsoft.Extensions.Options::IConfigureOptions<HostOptions>, Singleton, = ConfigureNamedOptions<HostOptions>
+Microsoft.Extensions.Options::IConfigureOptions<LoggerFilterOptions>, Singleton, = Microsoft.Extensions.Logging::DefaultLoggerLevelConfigureOptions
+Microsoft.Extensions.Options::IConfigureOptions<XUnitLoggerOptions>, Singleton, = ConfigureNamedOptions<XUnitLoggerOptions>
+Microsoft.Extensions.Hosting::IHost, Singleton, () => 
+Microsoft.Extensions.Hosting::IHostApplicationLifetime, Singleton, Microsoft.Extensions.Hosting.Internal::ApplicationLifetime
+Microsoft.Extensions.Hosting::IHostEnvironment, Singleton, = Microsoft.Extensions.Hosting.Internal::HostingEnvironment
+Microsoft.Extensions.Hosting::IHostingEnvironment, Singleton, = Microsoft.Extensions.Hosting.Internal::HostingEnvironment
+Microsoft.Extensions.Hosting::IHostLifetime, Singleton, Microsoft.Extensions.Hosting.Internal::ConsoleLifetime
+Microsoft.Extensions.Logging::ILogger<TCategoryName>, Singleton, Logger<T>
+Microsoft.Extensions.Logging::ILoggerFactory, Singleton, LoggerFactory
+Microsoft.Extensions.Logging::ILoggerProvider, Singleton, () => 
+GqlPlus.Verifier.Merging::IMerge<AlternateAst<InputReferenceAst>>, Singleton, AlternatesMerger<InputReferenceAst>
+GqlPlus.Verifier.Merging::IMerge<AlternateAst<OutputReferenceAst>>, Singleton, AlternatesMerger<OutputReferenceAst>
+GqlPlus.Verifier.Merging::IMerge<AstType>, Singleton, NullMerger<AstType>
+GqlPlus.Verifier.Merging::IMerge<AstType>, Singleton, MergeAllTypes
+GqlPlus.Verifier.Merging::IMerge<CategoryDeclAst>, Singleton, NullMerger<CategoryDeclAst>
+GqlPlus.Verifier.Merging::IMerge<CategoryDeclAst>, Singleton, MergeCategories
+GqlPlus.Verifier.Merging::IMerge<DirectiveDeclAst>, Singleton, NullMerger<DirectiveDeclAst>
+GqlPlus.Verifier.Merging::IMerge<DirectiveDeclAst>, Singleton, MergeDirectives
+GqlPlus.Verifier.Merging::IMerge<EnumDeclAst>, Singleton, NullMerger<EnumDeclAst>
+GqlPlus.Verifier.Merging::IMerge<EnumDeclAst>, Singleton, MergeEnums
+GqlPlus.Verifier.Merging::IMerge<EnumValueAst>, Singleton, MergeEnumValues
+GqlPlus.Verifier.Merging::IMerge<InputDeclAst>, Singleton, NullMerger<InputDeclAst>
+GqlPlus.Verifier.Merging::IMerge<InputDeclAst>, Singleton, MergeInputObjects
+GqlPlus.Verifier.Merging::IMerge<InputFieldAst>, Singleton, MergeInputFields
+GqlPlus.Verifier.Merging::IMerge<OutputDeclAst>, Singleton, NullMerger<OutputDeclAst>
+GqlPlus.Verifier.Merging::IMerge<OutputDeclAst>, Singleton, MergeOutputObjects
+GqlPlus.Verifier.Merging::IMerge<OutputFieldAst>, Singleton, MergeOutputFields
+GqlPlus.Verifier.Merging::IMerge<ParameterAst>, Singleton, MergeParameters
+GqlPlus.Verifier.Merging::IMerge<ScalarDeclAst>, Singleton, NullMerger<ScalarDeclAst>
+GqlPlus.Verifier.Merging::IMerge<ScalarDeclAst>, Singleton, MergeScalars
+GqlPlus.Verifier.Merging::IMerge<ScalarRangeAst>, Singleton, MergeScalarRanges
+GqlPlus.Verifier.Merging::IMerge<ScalarRegexAst>, Singleton, MergeScalarRegexes
+GqlPlus.Verifier.Merging::IMerge<TypeParameterAst>, Singleton, MergeTypeParameters
+Xunit.Abstractions::IMessageSink, Singleton, = Xunit.Sdk::TestFrameworkProxy+MessageSinkWrapper
+Microsoft.Extensions.Options::IOptions<TOptions>, Singleton, UnnamedOptionsManager<TOptions>
+Microsoft.Extensions.Options::IOptionsFactory<TOptions>, Transient, OptionsFactory<TOptions>
+Microsoft.Extensions.Options::IOptionsMonitor<TOptions>, Singleton, OptionsMonitor<TOptions>
+Microsoft.Extensions.Options::IOptionsMonitorCache<TOptions>, Singleton, OptionsCache<TOptions>
+Microsoft.Extensions.Options::IOptionsSnapshot<TOptions>, Scoped, OptionsManager<TOptions>
+Microsoft.Extensions.DependencyInjection::IServiceCollection, Singleton, () => 
+Xunit.DependencyInjection::ITestOutputHelperAccessor, Singleton, TestOutputHelperAccessor
+GqlPlus.Verifier.Verification::IVerify<ArgumentAst>, Singleton, NullVerifier<ArgumentAst>
+GqlPlus.Verifier.Verification::IVerify<AstType[]>, Singleton, VerifyAllTypes
+GqlPlus.Verifier.Verification::IVerify<AstType>, Singleton, NullVerifier<AstType>
+GqlPlus.Verifier.Verification::IVerify<CategoryDeclAst>, Singleton, NullVerifier<CategoryDeclAst>
+GqlPlus.Verifier.Verification::IVerify<DirectiveDeclAst>, Singleton, NullVerifier<DirectiveDeclAst>
+GqlPlus.Verifier.Verification::IVerify<EnumDeclAst>, Singleton, NullVerifier<EnumDeclAst>
+GqlPlus.Verifier.Verification::IVerify<FragmentAst>, Singleton, NullVerifier<FragmentAst>
+GqlPlus.Verifier.Verification::IVerify<InputDeclAst>, Singleton, NullVerifier<InputDeclAst>
+GqlPlus.Verifier.Verification::IVerify<OperationAst>, Singleton, VerifyOperation
+GqlPlus.Verifier.Verification::IVerify<OutputDeclAst>, Singleton, NullVerifier<OutputDeclAst>
+GqlPlus.Verifier.Verification::IVerify<ScalarDeclAst>, Singleton, NullVerifier<ScalarDeclAst>
+GqlPlus.Verifier.Verification::IVerify<SchemaAst>, Singleton, VerifySchema
+GqlPlus.Verifier.Verification::IVerify<SpreadAst>, Singleton, NullVerifier<SpreadAst>
+GqlPlus.Verifier.Verification::IVerify<VariableAst>, Singleton, NullVerifier<VariableAst>
+GqlPlus.Verifier.Verification::IVerify<VariableAst>, Singleton, VerifyVariable
+GqlPlus.Verifier.Verification::IVerifyAliased<AstType>, Singleton, VerifyAllTypesAliased
+GqlPlus.Verifier.Verification::IVerifyAliased<CategoryDeclAst>, Singleton, VerifyCategoryAliased
+GqlPlus.Verifier.Verification::IVerifyAliased<DirectiveDeclAst>, Singleton, VerifyDirectiveAliased
+GqlPlus.Verifier.Verification::IVerifyAliased<EnumDeclAst>, Singleton, VerifyEnumsAliased
+GqlPlus.Verifier.Verification::IVerifyAliased<InputDeclAst>, Singleton, VerifyInputsAliased
+GqlPlus.Verifier.Verification::IVerifyAliased<OutputDeclAst>, Singleton, VerifyOutputsAliased
+GqlPlus.Verifier.Verification::IVerifyAliased<ScalarDeclAst>, Singleton, VerifyScalarsAliased
+GqlPlus.Verifier.Verification::IVerifyUsageAliased<CategoryDeclAst,OutputDeclAst>, Singleton, VerifyCategoryOutput
+GqlPlus.Verifier.Verification::IVerifyUsageAliased<DirectiveDeclAst,InputDeclAst>, Singleton, VerifyDirectiveInput
+GqlPlus.Verifier.Verification::IVerifyUsageAliased<EnumDeclAst,AstType>, Singleton, VerifyEnumTypes
+GqlPlus.Verifier.Verification::IVerifyUsageAliased<InputDeclAst,AstType>, Singleton, VerifyInputTypes
+GqlPlus.Verifier.Verification::IVerifyUsageAliased<OutputDeclAst,AstType>, Singleton, VerifyOutputTypes
+GqlPlus.Verifier.Verification::IVerifyUsageAliased<ScalarDeclAst,AstType>, Singleton, VerifyScalarTypes
+GqlPlus.Verifier.Verification::IVerifyUsageNamed<ArgumentAst,VariableAst>, Singleton, VerifyVariableUsage
+GqlPlus.Verifier.Verification::IVerifyUsageNamed<SpreadAst,FragmentAst>, Singleton, VerifyFragmentUsage
+Xunit.DependencyInjection::IXunitTestCaseRunnerWrapper, Singleton, DependencyInjectionTestCaseRunnerWrapper
+Xunit.DependencyInjection::IXunitTestCaseRunnerWrapper, Singleton, DependencyInjectionTheoryTestCaseRunnerWrapper
+GqlPlus.Verifier.Parse.Schema::OptionParser<CategoryOption>, Singleton, OptionParser<CategoryOption>
+GqlPlus.Verifier.Parse.Schema::OptionParser<DirectiveOption>, Singleton, OptionParser<DirectiveOption>
+GqlPlus.Verifier.Parse.Schema::ParseAliases, Singleton, ParseAliases
+GqlPlus.Verifier.Parse.Operation::ParseArgument, Singleton, ParseArgument
+GqlPlus.Verifier.Parse.Operation::ParseArgumentValue, Singleton, ParseArgumentValue
+GqlPlus.Verifier.Parse.Schema::ParseCategory, Singleton, ParseCategory
+GqlPlus.Verifier.Parse.Schema::ParseCategoryDefinition, Singleton, ParseCategoryDefinition
+GqlPlus.Verifier.Parse::ParseConstant, Singleton, ParseConstant
+GqlPlus.Verifier.Parse::ParseDefault, Singleton, ParseDefault
+GqlPlus.Verifier.Parse.Schema::ParseDirective, Singleton, ParseDirective
+GqlPlus.Verifier.Parse.Schema::ParseDirectiveDefinition, Singleton, ParseDirectiveDefinition
+GqlPlus.Verifier.Parse.Operation::ParseDirectives, Singleton, ParseDirectives
+GqlPlus.Verifier.Parse.Operation::ParseEndFragments, Singleton, ParseEndFragments
+GqlPlus.Verifier.Parse.Schema::ParseEnum, Singleton, ParseEnum
+GqlPlus.Verifier.Parse.Schema::ParseEnumDefinition, Singleton, ParseEnumDefinition
+GqlPlus.Verifier.Parse.Schema::ParseEnumValue, Singleton, ParseEnumValue
+GqlPlus.Verifier.Parse.Operation::ParseField, Singleton, ParseField
+GqlPlus.Verifier.Parse::ParseFieldKey, Singleton, ParseFieldKey
+GqlPlus.Verifier.Parse.Schema::ParseInput, Singleton, ParseInput
+GqlPlus.Verifier.Parse.Schema::ParseInputDefinition, Singleton, ParseInputDefinition
+GqlPlus.Verifier.Parse.Schema::ParseInputField, Singleton, ParseInputField
+GqlPlus.Verifier.Parse.Schema::ParseInputReference, Singleton, ParseInputReference
+GqlPlus.Verifier.Parse::ParseModifiers, Singleton, ParseModifiers
+GqlPlus.Verifier.Parse.Schema::ParseNull, Singleton, ParseNull
+GqlPlus.Verifier.Parse.Schema::ParseNulls, Singleton, ParseNulls
+GqlPlus.Verifier.Parse.Operation::ParseObject, Singleton, ParseObject
+GqlPlus.Verifier.Parse.Operation::ParseOperation, Singleton, ParseOperation
+GqlPlus.Verifier.Parse.Schema::ParseOutput, Singleton, ParseOutput
+GqlPlus.Verifier.Parse.Schema::ParseOutputDefinition, Singleton, ParseOutputDefinition
+GqlPlus.Verifier.Parse.Schema::ParseOutputField, Singleton, ParseOutputField
+GqlPlus.Verifier.Parse.Schema::ParseOutputReference, Singleton, ParseOutputReference
+GqlPlus.Verifier.Parse.Schema::ParseParameters, Singleton, ParseParameters
+GqlPlus.Verifier.Parse::Parser<ArgumentAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ArgumentAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ArgumentAst>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<AstKeyValue<ArgumentAst>>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<AstKeyValue<ConstantAst>>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<AstObject<ArgumentAst>>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<AstObject<ConstantAst>>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<CategoryDeclAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<CategoryOption>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<CategoryOutput>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ConstantAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ConstantAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ConstantAst>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<DirectiveAst>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<DirectiveDeclAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<DirectiveLocation>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<DirectiveOption>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<EnumDeclAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<EnumDefinition>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<EnumValueAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<FieldAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<FieldKeyAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<IAstSelection>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<IAstSelection>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<InputDeclAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<InputFieldAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<InputReferenceAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<IParserArgument,ArgumentAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<IParserDefault,ConstantAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<IParserVarType,String>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<IValueParser<ArgumentAst>,ArgumentAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<IValueParser<ConstantAst>,ConstantAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ModifierAst>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<NullAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<NullAst>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ObjectDefinition<InputFieldAst,InputReferenceAst>>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ObjectDefinition<OutputFieldAst,OutputReferenceAst>>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<OperationAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<OutputDeclAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<OutputFieldAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<OutputReferenceAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ParameterAst>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ScalarDeclAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ScalarDefinition>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ScalarRangeAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ScalarRangeAst>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ScalarRegexAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<ScalarRegexAst>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<SchemaAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<String>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<String>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<TypeParameterAst>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<VariableAst>+D, Singleton, () => 
+GqlPlus.Verifier.Parse::Parser<VariableAst>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::ParserArray<IParserEndFragments,FragmentAst>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse::ParserArray<IParserStartFragments,FragmentAst>+DA, Singleton, () => 
+GqlPlus.Verifier.Parse.Schema::ParseScalar, Singleton, ParseScalar
+GqlPlus.Verifier.Parse.Schema::ParseScalarDefinition, Singleton, ParseScalarDefinition
+GqlPlus.Verifier.Parse.Schema::ParseScalarRange, Singleton, ParseScalarRange
+GqlPlus.Verifier.Parse.Schema::ParseScalarRegex, Singleton, ParseScalarRegex
+GqlPlus.Verifier.Parse.Schema::ParseSchema, Singleton, ParseSchema
+GqlPlus.Verifier.Parse.Operation::ParseSelection, Singleton, ParseSelection
+GqlPlus.Verifier.Parse.Operation::ParseStartFragments, Singleton, ParseStartFragments
+GqlPlus.Verifier.Parse.Schema::ParseTypeParameters, Singleton, ParseTypeParameters
+GqlPlus.Verifier.Parse.Operation::ParseVariable, Singleton, ParseVariable
+GqlPlus.Verifier.Parse.Operation::ParseVariables, Singleton, ParseVariables
+GqlPlus.Verifier.Parse.Operation::ParseVarType, Singleton, ParseVarType
+Xunit.DependencyInjection.Logging::TestOutputHelperAccessorWrapper, Singleton, TestOutputHelperAccessorWrapper
+GqlPlus.Verifier.Parse.Schema::TypeName, Singleton, TypeName
+GqlPlus.Verifier.Parse::ValueKeyValueParser<ArgumentAst>, Singleton, ValueKeyValueParser<ArgumentAst>
+GqlPlus.Verifier.Parse::ValueKeyValueParser<ConstantAst>, Singleton, ValueKeyValueParser<ConstantAst>
+GqlPlus.Verifier.Parse::ValueListParser<ArgumentAst>, Singleton, ValueListParser<ArgumentAst>
+GqlPlus.Verifier.Parse::ValueListParser<ConstantAst>, Singleton, ValueListParser<ConstantAst>
+GqlPlus.Verifier.Parse::ValueObjectParser<ArgumentAst>, Singleton, ValueObjectParser<ArgumentAst>
+GqlPlus.Verifier.Parse::ValueObjectParser<ConstantAst>, Singleton, ValueObjectParser<ConstantAst>

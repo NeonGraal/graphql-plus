@@ -4,6 +4,7 @@ using GqlPlus.Verifier.Parse.Operation;
 using GqlPlus.Verifier.Parse.Schema;
 using GqlPlus.Verifier.Verification;
 using Microsoft.Extensions.DependencyInjection;
+using Xunit.DependencyInjection.Logging;
 
 namespace GqlPlus.Verifier;
 
@@ -16,5 +17,8 @@ public class Startup
       .AddSchemaParsers()
       .AddVerifiers()
       .AddMergers()
-      .AddSingleton(_ => services);
+      .AddSingleton(_ => services)
+      .AddLogging(lb =>
+        lb.AddXunitOutput(options =>
+          options.TimestampFormat = "HH:mm:ss.fff"));
 }

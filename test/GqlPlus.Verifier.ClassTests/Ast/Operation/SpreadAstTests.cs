@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-public class SpreadAstTests : BaseDirectivesAstTests
+public class SpreadAstTests : AstDirectivesTests
 {
-  internal override IBaseDirectivesAstChecks DirectivesChecks { get; }
-    = new BaseDirectivesAstChecks<SpreadAst>(name => new SpreadAst(AstNulls.At, name));
+  internal override IAstDirectivesChecks DirectivesChecks { get; }
+    = new AstDirectivesChecks<SpreadAst>(name => new SpreadAst(AstNulls.At, name));
 }

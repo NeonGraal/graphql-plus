@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class DirectiveAstTests : BaseAliasedAstTests
+public class DirectiveAstTests : AstAliasedTests
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithOption(string name, DirectiveOption option)
@@ -74,10 +74,10 @@ public class DirectiveAstTests : BaseAliasedAstTests
   protected override string AliasesString(string input, params string[] aliases)
     => $"( !D {input} [ {aliases.Joined()} ] (Unique) None )";
 
-  private readonly BaseAliasedAstChecks<DirectiveDeclAst> _checks
+  private readonly AstAliasedChecks<DirectiveDeclAst> _checks
     = new(name => new DirectiveDeclAst(AstNulls.At, name)) {
       SameInput = (name1, name2) => name1.Camelize() == name2.Camelize()
     };
 
-  internal override IBaseAliasedAstChecks<string> AliasedChecks => _checks;
+  internal override IAstAliasedChecks<string> AliasedChecks => _checks;
 }

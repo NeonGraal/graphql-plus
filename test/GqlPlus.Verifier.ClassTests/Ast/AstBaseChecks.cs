@@ -2,17 +2,17 @@
 
 namespace GqlPlus.Verifier.Ast;
 
-internal sealed class BaseNamedAstChecks<TAst>
-  : BaseNamedAstChecks<string, TAst>, IBaseNamedAstChecks
+internal sealed class AstBaseChecks<TAst>
+  : AstBaseChecks<string, TAst>, IAstBaseChecks
   where TAst : AstBase
 {
-  public BaseNamedAstChecks(CreateBy<string> createInput,
+  public AstBaseChecks(CreateBy<string> createInput,
     [CallerArgumentExpression(nameof(createInput))] string createExpression = "")
     : base(createInput, createExpression) { }
 }
 
-internal class BaseNamedAstChecks<TInput, TAst>
-  : BaseAstChecks<TAst>, IBaseNamedAstChecks<TInput>
+internal class AstBaseChecks<TInput, TAst>
+  : BaseAstChecks<TAst>, IAstBaseChecks<TInput>
   where TAst : AstBase
 {
   internal Func<TInput, TInput, bool> SameInput { get; init; }
@@ -22,7 +22,7 @@ internal class BaseNamedAstChecks<TInput, TAst>
   protected readonly string Abbr;
   protected readonly string _createExpression;
 
-  public BaseNamedAstChecks(CreateBy<TInput> createInput,
+  public AstBaseChecks(CreateBy<TInput> createInput,
     [CallerArgumentExpression(nameof(createInput))] string createExpression = "")
     => (CreateInput, Abbr, _createExpression) = (createInput, createInput(default!).Abbr, createExpression);
 
@@ -54,11 +54,11 @@ internal class BaseNamedAstChecks<TInput, TAst>
     => $"( !{Abbr} {input} )";
 }
 
-internal interface IBaseNamedAstChecks
-  : IBaseNamedAstChecks<string>
+internal interface IAstBaseChecks
+  : IAstBaseChecks<string>
 { }
 
-internal interface IBaseNamedAstChecks<TInput>
+internal interface IAstBaseChecks<TInput>
 {
   void HashCode(TInput input);
   void String(TInput input, string expected);

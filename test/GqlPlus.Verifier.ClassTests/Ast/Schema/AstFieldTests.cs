@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 public abstract class AstFieldTests<TField, TReference>
-  : BaseAliasedAstTests<FieldInput>
+  : AstAliasedTests<FieldInput>
   where TField : AstField<TReference> where TReference : AstReference<TReference>
 {
   [Theory, RepeatData(Repeats)]
@@ -32,7 +32,7 @@ public abstract class AstFieldTests<TField, TReference>
   public void ModifiedType_WithModifiersAndArguments(FieldInput input, string argument)
     => FieldChecks.ModifiedType_WithModifiersAndArguments(input, argument);
 
-  internal override IBaseAliasedAstChecks<FieldInput> AliasedChecks => FieldChecks;
+  internal override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 
   internal abstract IAstFieldChecks<TField, TReference> FieldChecks { get; }
 }

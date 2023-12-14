@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class OutputAstTests : BaseAliasedAstTests
+public class OutputAstTests : AstAliasedTests
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithAlternates(string name, string alternate)
@@ -96,8 +96,8 @@ public class OutputAstTests : BaseAliasedAstTests
   protected override string InputString(string input)
     => $"( !O {input} )";
 
-  private readonly BaseAliasedAstChecks<OutputDeclAst> _checks
+  private readonly AstAliasedChecks<OutputDeclAst> _checks
     = new(regex => new OutputDeclAst(AstNulls.At, regex));
 
-  internal override IBaseAliasedAstChecks AliasedChecks => _checks;
+  internal override IAstAliasedChecks AliasedChecks => _checks;
 }

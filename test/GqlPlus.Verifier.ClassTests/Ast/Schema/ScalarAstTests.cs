@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class ScalarAstTests : BaseAliasedAstTests
+public class ScalarAstTests : AstAliasedTests
 {
 
   [Theory, RepeatData(Repeats)]
@@ -75,8 +75,8 @@ public class ScalarAstTests : BaseAliasedAstTests
   protected override string AliasesString(string input, params string[] aliases)
     => $"( !S {input} [ {aliases.Joined()} ] Number )";
 
-  private readonly BaseAliasedAstChecks<ScalarDeclAst> _checks
+  private readonly AstAliasedChecks<ScalarDeclAst> _checks
     = new(name => new ScalarDeclAst(AstNulls.At, name));
 
-  internal override IBaseAliasedAstChecks<string> AliasedChecks => _checks;
+  internal override IAstAliasedChecks<string> AliasedChecks => _checks;
 }

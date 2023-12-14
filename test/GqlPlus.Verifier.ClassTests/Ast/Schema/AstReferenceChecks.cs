@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 internal sealed class AstReferenceChecks<TReference>
-  : BaseNamedAstChecks<string, TReference>, IAstReferenceChecks<TReference>
+  : AstBaseChecks<string, TReference>, IAstReferenceChecks<TReference>
   where TReference : AstReference<TReference>
 {
   private readonly ReferenceBy _createReference;
@@ -82,7 +82,7 @@ internal sealed class AstReferenceChecks<TReference>
 }
 
 internal interface IAstReferenceChecks<TReference>
-  : IBaseNamedAstChecks<string>
+  : IAstBaseChecks<string>
   where TReference : AstReference<TReference>
 {
   void HashCode_WithIsTypeParameter(string input);

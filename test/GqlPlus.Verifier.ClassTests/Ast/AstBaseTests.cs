@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public abstract class BaseNamedAstTests
-  : BaseNamedAstTests<string>
+public abstract class AstBaseTests
+  : AstBaseTests<string>
 { }
 
-public abstract class BaseNamedAstTests<I>
+public abstract class AstBaseTests<I>
 {
   [Fact]
   public void HashCode_WithNull()
@@ -29,5 +29,5 @@ public abstract class BaseNamedAstTests<I>
   protected virtual string InputString(I input)
     => NamedChecks.InputString(input);
 
-  internal abstract IBaseNamedAstChecks<I> NamedChecks { get; }
+  internal abstract IAstBaseChecks<I> NamedChecks { get; }
 }

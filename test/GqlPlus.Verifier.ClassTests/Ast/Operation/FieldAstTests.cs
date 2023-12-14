@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-public class FieldAstTests : BaseDirectivesAstTests
+public class FieldAstTests : AstDirectivesTests
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithAlias(string name, string alias)
@@ -86,7 +86,7 @@ public class FieldAstTests : BaseDirectivesAstTests
     => _checks.InequalityWith(name,
       () => new FieldAst(AstNulls.At, name) { Selections = fields.Fields() });
 
-  private readonly BaseDirectivesAstChecks<FieldAst> _checks = new(name => new FieldAst(AstNulls.At, name));
+  private readonly AstDirectivesChecks<FieldAst> _checks = new(name => new FieldAst(AstNulls.At, name));
 
-  internal override IBaseDirectivesAstChecks DirectivesChecks => _checks;
+  internal override IAstDirectivesChecks DirectivesChecks => _checks;
 }

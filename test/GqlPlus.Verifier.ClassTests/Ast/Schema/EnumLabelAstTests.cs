@@ -1,11 +1,11 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class EnumValueAstTests : BaseAliasedAstTests
+public class EnumValueAstTests : AstAliasedTests
 {
-  private readonly BaseAliasedAstChecks<EnumValueAst> _checks
+  private readonly AstAliasedChecks<EnumValueAst> _checks
     = new(name => new EnumValueAst(AstNulls.At, name)) {
       SameInput = (name1, name2) => name1.Camelize() == name2.Camelize()
     };
 
-  internal override IBaseAliasedAstChecks<string> AliasedChecks => _checks;
+  internal override IAstAliasedChecks<string> AliasedChecks => _checks;
 }

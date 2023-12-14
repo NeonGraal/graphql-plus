@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 internal sealed class AstFieldChecks<TField, TReference>
-  : BaseAliasedAstChecks<FieldInput, TField>, IAstFieldChecks<TField, TReference>
+  : AstAliasedChecks<FieldInput, TField>, IAstFieldChecks<TField, TReference>
   where TField : AstField<TReference> where TReference : AstReference<TReference>
 {
   private readonly FieldBy _createField;
@@ -68,7 +68,7 @@ internal sealed class AstFieldChecks<TField, TReference>
 public record struct FieldInput(string Name, string Type);
 
 internal interface IAstFieldChecks<TField, TReference>
-  : IBaseAliasedAstChecks<FieldInput>
+  : IAstAliasedChecks<FieldInput>
   where TField : AstField<TReference> where TReference : AstReference<TReference>
 {
   void HashCode_WithModifiers(FieldInput input);

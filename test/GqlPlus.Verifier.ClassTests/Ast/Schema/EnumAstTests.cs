@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class EnumAstTests : BaseAliasedAstTests
+public class EnumAstTests : AstAliasedTests
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithExtends(string name, string extends)
@@ -46,10 +46,10 @@ public class EnumAstTests : BaseAliasedAstTests
       enumValue => new EnumDeclAst(AstNulls.At, name) { Values = enumValue.EnumValues() },
       enumValues1.SequenceEqual(enumValues2));
 
-  private readonly BaseAliasedAstChecks<EnumDeclAst> _checks
+  private readonly AstAliasedChecks<EnumDeclAst> _checks
     = new(name => new EnumDeclAst(AstNulls.At, name)) {
       SameInput = (name1, name2) => name1.Camelize() == name2.Camelize()
     };
 
-  internal override IBaseAliasedAstChecks<string> AliasedChecks => _checks;
+  internal override IAstAliasedChecks<string> AliasedChecks => _checks;
 }

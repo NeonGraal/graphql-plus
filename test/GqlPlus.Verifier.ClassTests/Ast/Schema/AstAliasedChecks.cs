@@ -1,18 +1,18 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-internal sealed class BaseAliasedAstChecks<TAliased>
-  : BaseAliasedAstChecks<string, TAliased>, IBaseAliasedAstChecks
+internal sealed class AstAliasedChecks<TAliased>
+  : AstAliasedChecks<string, TAliased>, IAstAliasedChecks
   where TAliased : AstAliased
 {
-  public BaseAliasedAstChecks(CreateBy<string> create)
+  public AstAliasedChecks(CreateBy<string> create)
     : base(create) { }
 }
 
-internal class BaseAliasedAstChecks<TInput, TAliased>
-  : BaseNamedAstChecks<TInput, TAliased>, IBaseAliasedAstChecks<TInput>
+internal class AstAliasedChecks<TInput, TAliased>
+  : AstBaseChecks<TInput, TAliased>, IAstAliasedChecks<TInput>
   where TAliased : AstAliased
 {
-  public BaseAliasedAstChecks(CreateBy<TInput> create)
+  public AstAliasedChecks(CreateBy<TInput> create)
     : base(create) { }
 
   public void HashCode(TInput input, params string[] aliases)
@@ -53,11 +53,11 @@ internal class BaseAliasedAstChecks<TInput, TAliased>
     => CreateInput(input) with { Aliases = aliases };
 }
 
-internal interface IBaseAliasedAstChecks
-  : IBaseAliasedAstChecks<string>, IBaseNamedAstChecks
+internal interface IAstAliasedChecks
+  : IAstAliasedChecks<string>, IAstBaseChecks
 { }
 
-internal interface IBaseAliasedAstChecks<TInput> : IBaseNamedAstChecks<TInput>
+internal interface IAstAliasedChecks<TInput> : IAstBaseChecks<TInput>
 {
   void HashCode(TInput input, params string[] aliases);
   void String(TInput input, string expected, params string[] aliases);

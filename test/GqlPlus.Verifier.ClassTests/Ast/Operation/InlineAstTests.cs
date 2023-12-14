@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-public class InlineAstTests : BaseDirectivesAstTests<string[]>
+public class InlineAstTests : AstDirectivesTests<string[]>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithOnType(string onType, string[] fields)
@@ -22,10 +22,10 @@ public class InlineAstTests : BaseDirectivesAstTests<string[]>
     => _checks.InequalityWith(fields,
       () => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType });
 
-  private readonly BaseDirectivesAstChecks<string[], InlineAst> _checks
+  private readonly AstDirectivesChecks<string[], InlineAst> _checks
     = new(input => new InlineAst(AstNulls.At, input?.Fields() ?? Array.Empty<IAstSelection>()));
 
-  internal override IBaseDirectivesAstChecks<string[]> DirectivesChecks => _checks;
+  internal override IAstDirectivesChecks<string[]> DirectivesChecks => _checks;
 
   protected override string InputString(string[] input)
     => $"( !i {{ {input.Joined("!f ")} }} )";

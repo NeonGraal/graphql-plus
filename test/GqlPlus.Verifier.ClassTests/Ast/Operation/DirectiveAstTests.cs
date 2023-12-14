@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-public class DirectiveAstTests : BaseNamedAstTests
+public class DirectiveAstTests : AstBaseTests
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithArgument(string variable, string name)
@@ -29,7 +29,7 @@ public class DirectiveAstTests : BaseNamedAstTests
       variable => new DirectiveAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) },
       variable1 == variable2);
 
-  private readonly BaseNamedAstChecks<DirectiveAst> _checks = new(name => new DirectiveAst(AstNulls.At, name));
+  private readonly AstBaseChecks<DirectiveAst> _checks = new(name => new DirectiveAst(AstNulls.At, name));
 
-  internal override IBaseNamedAstChecks NamedChecks => _checks;
+  internal override IAstBaseChecks NamedChecks => _checks;
 }

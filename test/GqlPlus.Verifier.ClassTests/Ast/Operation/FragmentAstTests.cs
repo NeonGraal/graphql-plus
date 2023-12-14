@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Operation;
 
-public class FragmentAstTests : BaseDirectivesAstTests<FragmentInput>
+public class FragmentAstTests : AstDirectivesTests<FragmentInput>
 {
   [Fact]
   public void HashCode_Null()
@@ -24,10 +24,10 @@ public class FragmentAstTests : BaseDirectivesAstTests<FragmentInput>
       field => new FragmentAst(AstNulls.At, name, onType, field.Fields()),
       fields1.SequenceEqual(fields2));
 
-  internal BaseDirectivesAstChecks<FragmentInput, FragmentAst> _checks
+  internal AstDirectivesChecks<FragmentInput, FragmentAst> _checks
     = new(input => new FragmentAst(AstNulls.At, input.Name, input.OnType, new[] { input.Field }.Fields()));
 
-  internal override IBaseDirectivesAstChecks<FragmentInput> DirectivesChecks => _checks;
+  internal override IAstDirectivesChecks<FragmentInput> DirectivesChecks => _checks;
 
   protected override string InputString(FragmentInput input)
     => $"( !t {input.Name} :{input.OnType} {{ !f {input.Field} }} )";

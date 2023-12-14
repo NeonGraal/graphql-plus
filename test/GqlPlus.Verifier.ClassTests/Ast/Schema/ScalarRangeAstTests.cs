@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class ScalarRangeAstTests : BaseNamedAstTests<RangeInput>
+public class ScalarRangeAstTests : AstBaseTests<RangeInput>
 {
 
   [Theory, RepeatData(Repeats)]
@@ -28,10 +28,10 @@ public class ScalarRangeAstTests : BaseNamedAstTests<RangeInput>
   protected override string InputString(RangeInput input)
     => $"( !SR {input.StringExcluded(false, false)} )";
 
-  private readonly BaseNamedAstChecks<RangeInput, ScalarRangeAst> _checks
+  private readonly AstBaseChecks<RangeInput, ScalarRangeAst> _checks
     = new(input => new ScalarRangeAst(AstNulls.At, input.Lower, input.Upper));
 
-  internal override IBaseNamedAstChecks<RangeInput> NamedChecks => _checks;
+  internal override IAstBaseChecks<RangeInput> NamedChecks => _checks;
 }
 
 public record struct RangeInput(decimal? Min, decimal? Max)

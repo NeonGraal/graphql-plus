@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public abstract class BaseAliasedAstTests
-  : BaseAliasedAstTests<string>
+public abstract class AstAliasedTests
+  : AstAliasedTests<string>
 { }
 
-public abstract class BaseAliasedAstTests<I> : BaseNamedAstTests<I>
+public abstract class AstAliasedTests<I> : AstBaseTests<I>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithAlias(I input, string aliased)
@@ -49,7 +49,7 @@ public abstract class BaseAliasedAstTests<I> : BaseNamedAstTests<I>
   protected virtual string AliasesString(I input, params string[] aliases)
     => AliasedChecks.AliasesString(input, aliases);
 
-  internal override IBaseNamedAstChecks<I> NamedChecks => AliasedChecks;
+  internal override IAstBaseChecks<I> NamedChecks => AliasedChecks;
 
-  internal abstract IBaseAliasedAstChecks<I> AliasedChecks { get; }
+  internal abstract IAstAliasedChecks<I> AliasedChecks { get; }
 }

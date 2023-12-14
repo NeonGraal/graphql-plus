@@ -1,0 +1,185 @@
+﻿Service: ArrayParser<ScalarRangeAst>, Singleton, ArrayParser<ScalarRangeAst>
+Service: ArrayParser<ScalarRegexAst>, Singleton, ArrayParser<ScalarRegexAst>
+Service: CategoryName, Singleton, CategoryName
+Service: DirectiveName, Singleton, DirectiveName
+Service: HostBuilderContext, Singleton, Microsoft.Extensions.Hosting.HostBuilderContext()
+Service: IApplicationLifetime, Singleton, () => 
+Service: IConfiguration, Singleton, () => 
+Service: IConfigureOptions<HostOptions>, Singleton, Microsoft.Extensions.Options.ConfigureNamedOptions`1[Microsoft.Extensions.Hosting.HostOptions]()
+Service: IConfigureOptions<LoggerFilterOptions>, Singleton, Microsoft.Extensions.Logging.DefaultLoggerLevelConfigureOptions()
+Service: IHost, Singleton, () => 
+Service: IHostApplicationLifetime, Singleton, ApplicationLifetime
+Service: IHostEnvironment, Singleton, Microsoft.Extensions.Hosting.Internal.HostingEnvironment()
+Service: IHostingEnvironment, Singleton, Microsoft.Extensions.Hosting.Internal.HostingEnvironment()
+Service: IHostLifetime, Singleton, ConsoleLifetime
+Service: ILogger`1, Singleton, Logger`1
+Service: ILoggerFactory, Singleton, LoggerFactory
+Service: IMerge<AlternateAst<InputReferenceAst>>, Singleton, AlternatesMerger<InputReferenceAst>
+Service: IMerge<AlternateAst<OutputReferenceAst>>, Singleton, AlternatesMerger<OutputReferenceAst>
+Service: IMerge<AstType>, Singleton, NullMerger<AstType>
+Service: IMerge<AstType>, Singleton, MergeAllTypes
+Service: IMerge<CategoryDeclAst>, Singleton, NullMerger<CategoryDeclAst>
+Service: IMerge<CategoryDeclAst>, Singleton, MergeCategories
+Service: IMerge<DirectiveDeclAst>, Singleton, NullMerger<DirectiveDeclAst>
+Service: IMerge<DirectiveDeclAst>, Singleton, MergeDirectives
+Service: IMerge<EnumDeclAst>, Singleton, NullMerger<EnumDeclAst>
+Service: IMerge<EnumDeclAst>, Singleton, MergeEnums
+Service: IMerge<EnumValueAst>, Singleton, MergeEnumValues
+Service: IMerge<InputDeclAst>, Singleton, NullMerger<InputDeclAst>
+Service: IMerge<InputDeclAst>, Singleton, MergeInputObjects
+Service: IMerge<InputFieldAst>, Singleton, MergeInputFields
+Service: IMerge<OutputDeclAst>, Singleton, NullMerger<OutputDeclAst>
+Service: IMerge<OutputDeclAst>, Singleton, MergeOutputObjects
+Service: IMerge<OutputFieldAst>, Singleton, MergeOutputFields
+Service: IMerge<ParameterAst>, Singleton, MergeParameters
+Service: IMerge<ScalarDeclAst>, Singleton, NullMerger<ScalarDeclAst>
+Service: IMerge<ScalarDeclAst>, Singleton, MergeScalars
+Service: IMerge<ScalarRangeAst>, Singleton, MergeScalarRanges
+Service: IMerge<ScalarRegexAst>, Singleton, MergeScalarRegexes
+Service: IMerge<TypeParameterAst>, Singleton, MergeTypeParameters
+Service: IMessageSink, Singleton, Xunit.Sdk.TestFrameworkProxy+MessageSinkWrapper()
+Service: IOptions`1, Singleton, UnnamedOptionsManager`1
+Service: IOptionsFactory`1, Transient, OptionsFactory`1
+Service: IOptionsMonitor`1, Singleton, OptionsMonitor`1
+Service: IOptionsMonitorCache`1, Singleton, OptionsCache`1
+Service: IOptionsSnapshot`1, Scoped, OptionsManager`1
+Service: IServiceCollection, Singleton, () => 
+Service: ITestOutputHelperAccessor, Singleton, TestOutputHelperAccessor
+Service: IVerify<ArgumentAst>, Singleton, NullVerifier<ArgumentAst>
+Service: IVerify<AstType[]>, Singleton, VerifyAllTypes
+Service: IVerify<AstType>, Singleton, NullVerifier<AstType>
+Service: IVerify<CategoryDeclAst>, Singleton, NullVerifier<CategoryDeclAst>
+Service: IVerify<DirectiveDeclAst>, Singleton, NullVerifier<DirectiveDeclAst>
+Service: IVerify<EnumDeclAst>, Singleton, NullVerifier<EnumDeclAst>
+Service: IVerify<FragmentAst>, Singleton, NullVerifier<FragmentAst>
+Service: IVerify<InputDeclAst>, Singleton, NullVerifier<InputDeclAst>
+Service: IVerify<OperationAst>, Singleton, VerifyOperation
+Service: IVerify<OutputDeclAst>, Singleton, NullVerifier<OutputDeclAst>
+Service: IVerify<ScalarDeclAst>, Singleton, NullVerifier<ScalarDeclAst>
+Service: IVerify<SchemaAst>, Singleton, VerifySchema
+Service: IVerify<SpreadAst>, Singleton, NullVerifier<SpreadAst>
+Service: IVerify<VariableAst>, Singleton, NullVerifier<VariableAst>
+Service: IVerify<VariableAst>, Singleton, VerifyVariable
+Service: IVerifyAliased<AstType>, Singleton, VerifyAllTypesAliased
+Service: IVerifyAliased<CategoryDeclAst>, Singleton, VerifyCategoryAliased
+Service: IVerifyAliased<DirectiveDeclAst>, Singleton, VerifyDirectiveAliased
+Service: IVerifyAliased<EnumDeclAst>, Singleton, VerifyEnumsAliased
+Service: IVerifyAliased<InputDeclAst>, Singleton, VerifyInputsAliased
+Service: IVerifyAliased<OutputDeclAst>, Singleton, VerifyOutputsAliased
+Service: IVerifyAliased<ScalarDeclAst>, Singleton, VerifyScalarsAliased
+Service: IVerifyUsageAliased<CategoryDeclAst,OutputDeclAst>, Singleton, VerifyCategoryOutput
+Service: IVerifyUsageAliased<DirectiveDeclAst,InputDeclAst>, Singleton, VerifyDirectiveInput
+Service: IVerifyUsageAliased<EnumDeclAst,AstType>, Singleton, VerifyEnumTypes
+Service: IVerifyUsageAliased<InputDeclAst,AstType>, Singleton, VerifyInputTypes
+Service: IVerifyUsageAliased<OutputDeclAst,AstType>, Singleton, VerifyOutputTypes
+Service: IVerifyUsageAliased<ScalarDeclAst,AstType>, Singleton, VerifyScalarTypes
+Service: IVerifyUsageNamed<ArgumentAst,VariableAst>, Singleton, VerifyVariableUsage
+Service: IVerifyUsageNamed<SpreadAst,FragmentAst>, Singleton, VerifyFragmentUsage
+Service: IXunitTestCaseRunnerWrapper, Singleton, DependencyInjectionTestCaseRunnerWrapper
+Service: IXunitTestCaseRunnerWrapper, Singleton, DependencyInjectionTheoryTestCaseRunnerWrapper
+Service: OptionParser<CategoryOption>, Singleton, OptionParser<CategoryOption>
+Service: OptionParser<DirectiveOption>, Singleton, OptionParser<DirectiveOption>
+Service: ParseAliases, Singleton, ParseAliases
+Service: ParseArgument, Singleton, ParseArgument
+Service: ParseArgumentValue, Singleton, ParseArgumentValue
+Service: ParseCategory, Singleton, ParseCategory
+Service: ParseCategoryDefinition, Singleton, ParseCategoryDefinition
+Service: ParseConstant, Singleton, ParseConstant
+Service: ParseDefault, Singleton, ParseDefault
+Service: ParseDirective, Singleton, ParseDirective
+Service: ParseDirectiveDefinition, Singleton, ParseDirectiveDefinition
+Service: ParseDirectives, Singleton, ParseDirectives
+Service: ParseEndFragments, Singleton, ParseEndFragments
+Service: ParseEnum, Singleton, ParseEnum
+Service: ParseEnumDefinition, Singleton, ParseEnumDefinition
+Service: ParseEnumValue, Singleton, ParseEnumValue
+Service: ParseField, Singleton, ParseField
+Service: ParseFieldKey, Singleton, ParseFieldKey
+Service: ParseInput, Singleton, ParseInput
+Service: ParseInputDefinition, Singleton, ParseInputDefinition
+Service: ParseInputField, Singleton, ParseInputField
+Service: ParseInputReference, Singleton, ParseInputReference
+Service: ParseModifiers, Singleton, ParseModifiers
+Service: ParseNull, Singleton, ParseNull
+Service: ParseNulls, Singleton, ParseNulls
+Service: ParseObject, Singleton, ParseObject
+Service: ParseOperation, Singleton, ParseOperation
+Service: ParseOutput, Singleton, ParseOutput
+Service: ParseOutputDefinition, Singleton, ParseOutputDefinition
+Service: ParseOutputField, Singleton, ParseOutputField
+Service: ParseOutputReference, Singleton, ParseOutputReference
+Service: ParseParameters, Singleton, ParseParameters
+Service: Parser<ArgumentAst>+D, Singleton, () => 
+Service: Parser<ArgumentAst>+D, Singleton, () => 
+Service: Parser<ArgumentAst>+DA, Singleton, () => 
+Service: Parser<AstKeyValue<ArgumentAst>>+D, Singleton, () => 
+Service: Parser<AstKeyValue<ConstantAst>>+D, Singleton, () => 
+Service: Parser<AstObject<ArgumentAst>>+D, Singleton, () => 
+Service: Parser<AstObject<ConstantAst>>+D, Singleton, () => 
+Service: Parser<CategoryDeclAst>+D, Singleton, () => 
+Service: Parser<CategoryOption>+D, Singleton, () => 
+Service: Parser<CategoryOutput>+D, Singleton, () => 
+Service: Parser<ConstantAst>+D, Singleton, () => 
+Service: Parser<ConstantAst>+D, Singleton, () => 
+Service: Parser<ConstantAst>+DA, Singleton, () => 
+Service: Parser<DirectiveAst>+DA, Singleton, () => 
+Service: Parser<DirectiveDeclAst>+D, Singleton, () => 
+Service: Parser<DirectiveLocation>+D, Singleton, () => 
+Service: Parser<DirectiveOption>+D, Singleton, () => 
+Service: Parser<EnumDeclAst>+D, Singleton, () => 
+Service: Parser<EnumDefinition>+D, Singleton, () => 
+Service: Parser<EnumValueAst>+D, Singleton, () => 
+Service: Parser<FieldAst>+D, Singleton, () => 
+Service: Parser<FieldKeyAst>+D, Singleton, () => 
+Service: Parser<IAstSelection>+D, Singleton, () => 
+Service: Parser<IAstSelection>+DA, Singleton, () => 
+Service: Parser<InputDeclAst>+D, Singleton, () => 
+Service: Parser<InputFieldAst>+D, Singleton, () => 
+Service: Parser<InputReferenceAst>+D, Singleton, () => 
+Service: Parser<IParserArgument,ArgumentAst>+D, Singleton, () => 
+Service: Parser<IParserDefault,ConstantAst>+D, Singleton, () => 
+Service: Parser<IParserVarType,String>+D, Singleton, () => 
+Service: Parser<IValueParser<ArgumentAst>,ArgumentAst>+D, Singleton, () => 
+Service: Parser<IValueParser<ConstantAst>,ConstantAst>+D, Singleton, () => 
+Service: Parser<ModifierAst>+DA, Singleton, () => 
+Service: Parser<NullAst>+D, Singleton, () => 
+Service: Parser<NullAst>+DA, Singleton, () => 
+Service: Parser<ObjectDefinition<InputFieldAst,InputReferenceAst>>+D, Singleton, () => 
+Service: Parser<ObjectDefinition<OutputFieldAst,OutputReferenceAst>>+D, Singleton, () => 
+Service: Parser<OperationAst>+D, Singleton, () => 
+Service: Parser<OutputDeclAst>+D, Singleton, () => 
+Service: Parser<OutputFieldAst>+D, Singleton, () => 
+Service: Parser<OutputReferenceAst>+D, Singleton, () => 
+Service: Parser<ParameterAst>+DA, Singleton, () => 
+Service: Parser<ScalarDeclAst>+D, Singleton, () => 
+Service: Parser<ScalarDefinition>+D, Singleton, () => 
+Service: Parser<ScalarRangeAst>+D, Singleton, () => 
+Service: Parser<ScalarRangeAst>+DA, Singleton, () => 
+Service: Parser<ScalarRegexAst>+D, Singleton, () => 
+Service: Parser<ScalarRegexAst>+DA, Singleton, () => 
+Service: Parser<SchemaAst>+D, Singleton, () => 
+Service: Parser<String>+D, Singleton, () => 
+Service: Parser<String>+DA, Singleton, () => 
+Service: Parser<TypeParameterAst>+DA, Singleton, () => 
+Service: Parser<VariableAst>+D, Singleton, () => 
+Service: Parser<VariableAst>+DA, Singleton, () => 
+Service: ParserArray<IParserEndFragments,FragmentAst>+DA, Singleton, () => 
+Service: ParserArray<IParserStartFragments,FragmentAst>+DA, Singleton, () => 
+Service: ParseScalar, Singleton, ParseScalar
+Service: ParseScalarDefinition, Singleton, ParseScalarDefinition
+Service: ParseScalarRange, Singleton, ParseScalarRange
+Service: ParseScalarRegex, Singleton, ParseScalarRegex
+Service: ParseSchema, Singleton, ParseSchema
+Service: ParseSelection, Singleton, ParseSelection
+Service: ParseStartFragments, Singleton, ParseStartFragments
+Service: ParseTypeParameters, Singleton, ParseTypeParameters
+Service: ParseVariable, Singleton, ParseVariable
+Service: ParseVariables, Singleton, ParseVariables
+Service: ParseVarType, Singleton, ParseVarType
+Service: TypeName, Singleton, TypeName
+Service: ValueKeyValueParser<ArgumentAst>, Singleton, ValueKeyValueParser<ArgumentAst>
+Service: ValueKeyValueParser<ConstantAst>, Singleton, ValueKeyValueParser<ConstantAst>
+Service: ValueListParser<ArgumentAst>, Singleton, ValueListParser<ArgumentAst>
+Service: ValueListParser<ConstantAst>, Singleton, ValueListParser<ConstantAst>
+Service: ValueObjectParser<ArgumentAst>, Singleton, ValueObjectParser<ArgumentAst>
+Service: ValueObjectParser<ConstantAst>, Singleton, ValueObjectParser<ConstantAst>

@@ -12,6 +12,12 @@ public record class TokenMessage(TokenKind Kind, int Column, int Line, string Ne
     => $"!!! {base.ToString()} : {Message} - '{Regex.Escape(Next)}' !!!";
 }
 
-public class TokenMessages : List<TokenMessage>, ITokenMessages { }
+public class TokenMessages : List<TokenMessage>, ITokenMessages
+{
+  public TokenMessages() { }
+
+  public TokenMessages(IEnumerable<TokenMessage> collection)
+    : base(collection) { }
+}
 
 public interface ITokenMessages : IEnumerable<TokenMessage>;

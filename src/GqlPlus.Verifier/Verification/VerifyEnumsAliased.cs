@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Verification;
 
 internal class VerifyEnumsAliased(
   IVerify<EnumDeclAst> definition,
-   IMerge<EnumDeclAst> merger
+  IMerge<EnumDeclAst> merger
 ) : AliasedVerifier<EnumDeclAst>(definition, merger)
 {
   public override string Label => "Enums";

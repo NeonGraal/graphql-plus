@@ -15,5 +15,6 @@ public class Startup
       .AddOperationParsers()
       .AddSchemaParsers()
       .AddVerifiers()
-      .AddMergers();
+      .AddMergers()
+      .AddSingleton(_ => services);
 }

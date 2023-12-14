@@ -53,7 +53,12 @@ public class SchemaVerifierTests(
     public ValidGraphQlPlusSchemas()
     {
       Add("category { Test } output Test { }");
+      Add("directive @Test(Test) { all } input Test { }");
+      Add("directive @Test { all } directive @Test { all }");
+      Add("enum Test { one } enum Test { two }");
+      Add("input Test { } input Test { }");
       Add("output Test { } output Test { }");
+      Add("scalar Test { string } scalar Test { string }");
     }
   }
 
@@ -66,6 +71,8 @@ public class SchemaVerifierTests(
       Add("category { Test }"); // Category output not defined
       Add("category { Test } category test { Output } output Test { } output Output { }"); // Duplicate Category names
       Add("category [a] { Test } category [a] { Output } output Test { } output Output { }"); // Duplicate Category aliases
+      Add("directive @Test { all } directive @Test { ( repeatable ) all }"); // Directives to be merged must have same Option
+      Add("directive @Test(Test) { all }"); // Directive Parameter not defined
     }
   }
 }

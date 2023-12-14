@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Verification;
 
 internal class VerifyOutputsAliased(
   IVerify<OutputDeclAst> definition,
-   IMerge<OutputDeclAst> merger
+  IMerge<OutputDeclAst> merger
 ) : AliasedVerifier<OutputDeclAst>(definition, merger)
 {
   public override string Label => "Outputs";

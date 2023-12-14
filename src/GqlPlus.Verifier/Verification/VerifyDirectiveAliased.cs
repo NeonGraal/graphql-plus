@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Verification;
 
 internal class VerifyDirectiveAliased(
   IVerify<DirectiveDeclAst> definition,
-   IMerge<DirectiveDeclAst> merger
+  IMerge<DirectiveDeclAst> merger
 ) : AliasedVerifier<DirectiveDeclAst>(definition, merger)
 {
   public override string Label => "Directives";

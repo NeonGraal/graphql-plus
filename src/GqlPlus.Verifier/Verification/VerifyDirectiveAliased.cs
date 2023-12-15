@@ -10,6 +10,4 @@ internal class VerifyDirectiveAliased(
 ) : AliasedVerifier<DirectiveDeclAst>(definition, merger, logger)
 {
   public override string Label => "Directives";
-
-  protected override object GroupKey(DirectiveDeclAst aliased) => "";
 }

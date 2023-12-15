@@ -10,6 +10,4 @@ internal class VerifyOutputsAliased(
 ) : AliasedVerifier<OutputDeclAst>(definition, merger, logger)
 {
   public override string Label => "Outputs";
-
-  protected override object GroupKey(OutputDeclAst item) => item.Extends?.Name ?? "";
 }

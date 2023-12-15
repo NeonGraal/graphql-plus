@@ -10,6 +10,4 @@ internal class VerifyEnumsAliased(
 ) : AliasedVerifier<EnumDeclAst>(definition, merger, logger)
 {
   public override string Label => "Enums";
-
-  protected override object GroupKey(EnumDeclAst item) => "";
 }

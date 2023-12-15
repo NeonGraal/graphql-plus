@@ -79,6 +79,14 @@ public class SchemaVerifierTests(
     ["directive-no-param"] = "directive @Test(Test) { all }",
     ["enum-no-base"] = "enum Test { : Base all }",
     ["enum-diff-base"] = "enum Test { : Base all } enum Test { all } enum Base { all }",
+    ["input-diff-base"] = "input Test { :Base } input Test { } input Base { }",
+    ["input-alts-diff-mods"] = "input Test { | Test1 } input Test { | Test1[] } input Test1 { }",
+    ["input-fields-diff-type"] = "input Test { field: Test } input Test { field: Test1 } input Test1 { }",
+    ["input-fields-diff-mods"] = "input Test { field: Test } input Test { field: Test[] } ",
+    ["output-diff-base"] = "output Test { :Base } output Test { } output Base { }",
+    ["output-alts-diff-mods"] = "output Test { | Test1 } output Test { | Test1[] } output Test1 { }",
+    ["output-fields-diff-type"] = "output Test { field: Test } output Test { field: Test1 } output Test1 { }",
+    ["output-fields-diff-mods"] = "output Test { field: Test } output Test { field: Test[] } ",
     ["scalar-diff-kind"] = "scalar Test { string } scalar Test { number }",
   };
 

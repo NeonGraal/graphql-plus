@@ -10,7 +10,7 @@ internal class NullVerifier<TAst>(ILoggerFactory logger)
 
   public ITokenMessages Verify(TAst target)
   {
-    _logger.LogInformation("Null verification of {Type}", target.GetType().ExpandTypeName());
+    _logger.LogInformation("Null verification of {Type} - {Target}", target.GetType().ExpandTypeName(), target);
     return new TokenMessages();
   }
 }

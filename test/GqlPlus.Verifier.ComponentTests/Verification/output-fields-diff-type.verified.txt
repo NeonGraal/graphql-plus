@@ -1,0 +1,3 @@
+﻿[
+  Multiple Outputs with id 'Test' can't be merged.
+]

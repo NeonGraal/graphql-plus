@@ -10,6 +10,4 @@ internal class VerifyInputsAliased(
 ) : AliasedVerifier<InputDeclAst>(definition, merger, logger)
 {
   public override string Label => "Inputs";
-
-  protected override object GroupKey(InputDeclAst item) => item.Extends?.Name ?? "";
 }

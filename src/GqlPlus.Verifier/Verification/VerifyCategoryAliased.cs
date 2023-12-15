@@ -10,6 +10,4 @@ internal class VerifyCategoryAliased(
 ) : AliasedVerifier<CategoryDeclAst>(definition, merger, logger)
 {
   public override string Label => "Categories";
-
-  protected override object GroupKey(CategoryDeclAst aliased) => "";
 }

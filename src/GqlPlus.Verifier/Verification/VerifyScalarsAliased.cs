@@ -10,6 +10,4 @@ internal class VerifyScalarsAliased(
 ) : AliasedVerifier<ScalarDeclAst>(definition, merger, logger)
 {
   public override string Label => "Scalars";
-
-  protected override object GroupKey(ScalarDeclAst item) => "";
 }

@@ -6,10 +6,10 @@ public abstract record class AstObject<F, R>(TokenAt At, string Name, string Des
   : AstType(At, Name, Description), IEquatable<AstObject<F, R>>
   where F : AstField<R> where R : AstReference<R>, IEquatable<R>
 {
-  public TypeParameterAst[] TypeParameters { get; set; } = Array.Empty<TypeParameterAst>();
+  public TypeParameterAst[] TypeParameters { get; set; } = [];
   public R? Extends { get; set; }
-  public F[] Fields { get; set; } = Array.Empty<F>();
-  public AlternateAst<R>[] Alternates { get; set; } = Array.Empty<AlternateAst<R>>();
+  public F[] Fields { get; set; } = [];
+  public AlternateAst<R>[] Alternates { get; set; } = [];
 
   public virtual bool Equals(AstObject<F, R>? other)
     => base.Equals(other)

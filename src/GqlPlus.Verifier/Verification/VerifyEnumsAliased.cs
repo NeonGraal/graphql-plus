@@ -5,10 +5,11 @@ namespace GqlPlus.Verifier.Verification;
 
 internal class VerifyEnumsAliased(
   IVerify<EnumDeclAst> definition,
-  IMerge<EnumDeclAst> merger
-) : AliasedVerifier<EnumDeclAst>(definition, merger)
+  IMerge<EnumDeclAst> merger,
+  ILoggerFactory logger
+) : AliasedVerifier<EnumDeclAst>(definition, merger, logger)
 {
   public override string Label => "Enums";
 
-  protected override object GroupKey(EnumDeclAst item) => item.Name + "-" + (item.Extends ?? "");
+  protected override object GroupKey(EnumDeclAst item) => "";
 }

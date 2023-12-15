@@ -3,13 +3,12 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-internal class VerifyCategoryOutput : UsageAliasedVerifier<CategoryDeclAst, OutputDeclAst>
+internal class VerifyCategoryOutput(
+  IVerifyAliased<CategoryDeclAst> aliased
+) : UsageAliasedVerifier<CategoryDeclAst, OutputDeclAst>(aliased)
 {
-  // protected override string UsageKey(CategoryAst item) => item.Output;
   protected override ITokenMessages UsageValue(CategoryDeclAst usage, IMap<OutputDeclAst[]> byId)
-  {
-    return byId.ContainsKey(usage.Output)
+    => byId.ContainsKey(usage.Output)
       ? new TokenMessages()
       : [usage.Error($"Invalid Category Output. '{usage.Output}' not defined.")];
-  }
 }

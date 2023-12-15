@@ -26,7 +26,7 @@ public static class AllVerifiers
       .AddVerify<AstType[], VerifyAllTypes>()
       .AddVerifyAliased<AstType, VerifyAllTypesAliased>()
       .AddVerifyAliased<EnumDeclAst, VerifyEnumsAliased>()
-      .AddVerifyUsageAliased<EnumDeclAst, AstType, VerifyEnumTypes>()
+      .AddVerifyUsageAliased<EnumDeclAst, EnumDeclAst, VerifyEnumTypes>()
       .AddVerifyAliased<InputDeclAst, VerifyInputsAliased>()
       .AddVerifyUsageAliased<InputDeclAst, AstType, VerifyInputTypes>()
       .AddVerifyAliased<OutputDeclAst, VerifyOutputsAliased>()

@@ -5,8 +5,9 @@ namespace GqlPlus.Verifier.Verification;
 
 internal class VerifyScalarsAliased(
   IVerify<ScalarDeclAst> definition,
-  IMerge<ScalarDeclAst> merger
-) : AliasedVerifier<ScalarDeclAst>(definition, merger)
+  IMerge<ScalarDeclAst> merger,
+  ILoggerFactory logger
+) : AliasedVerifier<ScalarDeclAst>(definition, merger, logger)
 {
   public override string Label => "Scalars";
 

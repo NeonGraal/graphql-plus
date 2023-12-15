@@ -1,15 +1,16 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Token;
-using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Verifier.Verification;
-internal class NullVerifier<T>(ILoggerFactory logger) : IVerify<T> where T : AstBase
+internal class NullVerifier<TAst>(ILoggerFactory logger)
+  : IVerify<TAst>
+  where TAst : AstBase
 {
-  private readonly ILogger _logger = logger.CreateLogger(typeof(T).ExpandTypeName());
+  private readonly ILogger _logger = logger.CreateLogger(nameof(NullVerifier<TAst>));
 
-  public ITokenMessages Verify(T target)
+  public ITokenMessages Verify(TAst target)
   {
-    _logger.LogInformation("Null verification");
+    _logger.LogInformation("Null verification of {Type}", target.GetType().ExpandTypeName());
     return new TokenMessages();
   }
 }

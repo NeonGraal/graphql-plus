@@ -3,8 +3,12 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-internal class VerifyEnumTypes : UsageAliasedVerifier<EnumDeclAst, AstType>
+internal class VerifyEnumTypes(
+  IVerifyAliased<EnumDeclAst> aliased
+) : UsageAliasedVerifier<EnumDeclAst, EnumDeclAst>(aliased)
 {
-  //  protected override string UsageKey(EnumAst item) => item.Extends ?? "";
-  protected override ITokenMessages UsageValue(EnumDeclAst usage, IMap<AstType[]> byId) => new TokenMessages();
+  protected override ITokenMessages UsageValue(EnumDeclAst usage, IMap<EnumDeclAst[]> byId)
+    => usage.Extends is null || byId.ContainsKey(usage.Extends)
+      ? new TokenMessages()
+      : [usage.Error($"Invalid Enum Base. '{usage.Extends}' not defined.")];
 }

@@ -3,7 +3,9 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-internal class VerifyDirectiveInput : UsageAliasedVerifier<DirectiveDeclAst, InputDeclAst>
+internal class VerifyDirectiveInput(
+  IVerifyAliased<DirectiveDeclAst> aliased
+) : UsageAliasedVerifier<DirectiveDeclAst, InputDeclAst>(aliased)
 {
   protected override ITokenMessages UsageValue(DirectiveDeclAst usage, IMap<InputDeclAst[]> byId)
     => new TokenMessages(usage.Parameters

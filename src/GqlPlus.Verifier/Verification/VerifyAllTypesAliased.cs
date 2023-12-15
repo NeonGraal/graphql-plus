@@ -5,8 +5,9 @@ namespace GqlPlus.Verifier.Verification;
 
 internal class VerifyAllTypesAliased(
   IVerify<AstType> definition,
-   IMerge<AstType> merger
-) : AliasedVerifier<AstType>(definition, merger)
+  IMerge<AstType> merger,
+  ILoggerFactory logger
+) : AliasedVerifier<AstType>(definition, merger, logger)
 {
   public override string Label => "Types";
 

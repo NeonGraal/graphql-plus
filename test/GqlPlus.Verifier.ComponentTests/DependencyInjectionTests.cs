@@ -50,21 +50,15 @@ public class DependencyInjectionTests(IServiceCollection services, ITestOutputHe
     }
   }
 
-  private static readonly HashSet<string> s_knownGenerics = [
-    "IConfigureOptions`1",
-    "ILogger`1",
-    "IOptions`1",
-    "IOptionsChangeTokenSource`1",
-    "IOptionsMonitor`1",
-    "IPostConfigureOptions`1",
-    "IValidateOptions`1",
+  private static readonly HashSet<string> s_optionalTypes = [
     "LoggerFilterOptions",
   ];
 
   private static bool MatchType(HashSet<string> hashset, Type parameterType)
   {
     return hashset.Contains(parameterType.FullTypeName())
-|| s_knownGenerics.Contains(parameterType.Name)
-|| parameterType.Name == "IEnumerable`1" && MatchType(hashset, parameterType.GenericTypeArguments[0]);
+      || s_optionalTypes.Contains(parameterType.Name)
+      || parameterType.Name == "IEnumerable`1"
+      || parameterType.IsGenericType && MatchType(hashset, parameterType.GetGenericTypeDefinition());
   }
 }

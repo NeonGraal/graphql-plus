@@ -15,6 +15,10 @@ public static class TypeHelpers
       return "{null}";
     }
 
+    if (t.IsGenericTypeParameter) {
+      return "";      
+    }
+
     if (t.IsGenericType || t.IsGenericTypeDefinition) {
       var baseType = NestedTypeName(t.GetGenericTypeDefinition());
       var args = t.GetGenericArguments();

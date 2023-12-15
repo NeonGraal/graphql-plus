@@ -9,7 +9,7 @@ public sealed record class DirectiveDeclAst(
 ) : AstDeclaration(At, Name, Description), IEquatable<DirectiveDeclAst>
 {
   public DirectiveOption Option { get; set; } = DirectiveOption.Unique;
-  public ParameterAst[] Parameters { get; set; } = Array.Empty<ParameterAst>();
+  public ParameterAst[] Parameters { get; set; } = [];
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 
   internal override string Abbr => "D";

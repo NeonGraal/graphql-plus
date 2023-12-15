@@ -1,0 +1,3 @@
+﻿[
+  Invalid Schema. Expected text.
+]

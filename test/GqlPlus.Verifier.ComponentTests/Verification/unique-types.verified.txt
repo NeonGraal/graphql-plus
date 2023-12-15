@@ -1,0 +1,3 @@
+﻿[
+  Invalid Types. Multiple Types with id 'Test' and group 'Test' found.
+]

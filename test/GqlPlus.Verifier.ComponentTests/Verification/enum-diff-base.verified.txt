@@ -1,0 +1,3 @@
+﻿[
+  Invalid Enums. Multiple Enums with id 'Test' and group '' found.
+]

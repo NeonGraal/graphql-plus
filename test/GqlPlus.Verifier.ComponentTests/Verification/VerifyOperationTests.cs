@@ -3,7 +3,6 @@ using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
 using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
-using GqlPlus.Verifier.Verification;
 
 namespace GqlPlus.Verifier.Verification;
 

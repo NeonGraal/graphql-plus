@@ -8,33 +8,33 @@ Success
     category
     (
       !P
-       I@18/2
+      I@18/2
       _CategoryFilter
     )
     :
-     I@36/2
+    I@36/2
     _Category
     [String]
     !OF I@9/3
     directive
     (
       !P
-       I@19/3
+      I@19/3
       _Filter
     )
     :
-     I@29/3
+    I@29/3
     _Directive
     [String]
     !OF I@9/4
     type
     (
       !P
-       I@14/4
+      I@14/4
       _TypeFilter
     )
     :
-     I@28/4
+    I@28/4
     _Type
     [String]
   }
@@ -46,19 +46,19 @@ Success
     !IF I@9/8
     names
     :
-     I@16/8
+    I@16/8
     String
     []
     !IF I@9/9
     includeReferencedTypes
     :
-     I@33/9
+    I@33/9
     Boolean
     =( !k I@43/9 Boolean.false )
   }
   |
   !AI
-   I@7/10
+  I@7/10
   String
   []
   ?
@@ -67,13 +67,13 @@ Success
   !I I@7/13
   _CategoryFilter
   :
-   I@7/14
+  I@7/14
   _Filter
   {
     !IF I@9/15
     resolutions
     :
-     I@22/15
+    I@22/15
     _Resolution
     []
   }
@@ -82,13 +82,13 @@ Success
   !I I@7/18
   _TypeFilter
   :
-   I@7/19
+  I@7/19
   _Filter
   {
     !IF I@9/20
     kinds
     :
-     I@16/20
+    I@16/20
     _Kind
     []
   }
@@ -97,13 +97,13 @@ Success
   !O I@8/23
   _Aliased
   :
-   I@7/24
+  I@7/24
   _Named
   {
     !OF I@9/25
     aliases
     :
-     I@18/25
+    I@18/25
     String
     []
   }
@@ -115,12 +115,12 @@ Success
     !OF I@9/29
     name
     :
-     I@15/29
+    I@15/29
     String
     !OF I@9/30
     description
     :
-     I@22/30
+    I@22/30
     String
     ?
   }

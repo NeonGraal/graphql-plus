@@ -7,22 +7,22 @@ Success
     !OF I@9/2
     input
     :
-     I@16/2
+    I@16/2
     String
     !OF I@9/3
     arguments
     :
-     I@20/3
+    I@20/3
     _TypeRef
     <
-       I@29/3
+      I@29/3
       _InputBase
     >
     []
   }
   |
   !AO
-   I@23/4
+  I@23/4
   String
 }
 {
@@ -30,10 +30,10 @@ Success
   _InputField
   |
   !AO
-   I@7/8
+  I@7/8
   _TypeField
   <
-     I@18/8
+    I@18/8
     _InputBase
   >
 }

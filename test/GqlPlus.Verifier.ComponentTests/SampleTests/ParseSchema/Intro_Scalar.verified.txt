@@ -13,31 +13,31 @@ Success
   _TypeScalar
   |
   !AO
-   I@7/4
+  I@7/4
   _ScalarNumber
   !AO
-   I@7/5
+  I@7/5
   _ScalarString
 }
 {
   !O I@8/8
   _BaseScalar
   <
-     I@21/8
+    I@21/8
     $base
   >
   :
-   I@7/9
+  I@7/9
   _BaseType
   <
-     I@17/9
+    I@17/9
     _Kind.Scalar
   >
   {
     !OF I@9/10
     base
     :
-     I@16/10
+    I@16/10
     $base
   }
 }
@@ -45,17 +45,17 @@ Success
   !O I@8/13
   _ScalarNumber
   :
-   I@7/14
+  I@7/14
   _BaseScalar
   <
-     I@19/14
+    I@19/14
     _Scalar.Number
   >
   {
     !OF I@9/15
     ranges
     :
-     I@17/15
+    I@17/15
     _ScalarRange
     []
   }
@@ -67,24 +67,24 @@ Success
     !OF I@9/19
     from
     :
-     I@15/19
+    I@15/19
     Number
     ?
     !OF I@9/20
     fromInclusive
     :
-     I@24/20
+    I@24/20
     Boolean
     !OF I@9/21
     to
     :
-     I@13/21
+    I@13/21
     Number
     ?
     !OF I@9/22
     toInclusive
     :
-     I@22/22
+    I@22/22
     Boolean
   }
 }
@@ -92,17 +92,17 @@ Success
   !O I@8/25
   _ScalarString
   :
-   I@7/26
+  I@7/26
   _BaseScalar
   <
-     I@19/26
+    I@19/26
     _Scalar.String
   >
   {
     !OF I@9/27
     regexes
     :
-     I@18/27
+    I@18/27
     _ScalarRegex
     []
   }
@@ -114,12 +114,12 @@ Success
     !OF I@9/31
     regex
     :
-     I@16/31
+    I@16/31
     String
     !OF I@9/32
     exclude
     :
-     I@18/32
+    I@18/32
     Boolean
   }
 }

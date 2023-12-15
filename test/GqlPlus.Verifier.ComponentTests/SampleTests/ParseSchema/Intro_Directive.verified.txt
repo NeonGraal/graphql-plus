@@ -4,24 +4,24 @@ Success
   !O I@8/1
   _Directive
   :
-   I@7/2
+  I@7/2
   _Aliased
   {
     !OF I@9/3
     parameter
     :
-     I@20/3
+    I@20/3
     _Parameter
     ?
     !OF I@9/4
     repeatable
     :
-     I@21/4
+    I@21/4
     Boolean
     !OF I@9/5
     locations
     :
-     I@20/5
+    I@20/5
     _Location
     []
   }
@@ -30,23 +30,23 @@ Success
   !O I@8/8
   _Parameter
   :
-   I@7/9
+  I@7/9
   _TypeRef
   <
-     I@16/9
+    I@16/9
     _InputBase
   >
   {
     !OF I@9/10
     modifiers
     :
-     I@20/10
+    I@20/10
     _TypeModifier
     []
     !OF I@9/11
     default
     :
-     I@18/11
+    I@18/11
     _Constant
   }
 }

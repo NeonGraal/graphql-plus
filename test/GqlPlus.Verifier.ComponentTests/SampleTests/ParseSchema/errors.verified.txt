@@ -1,9 +1,9 @@
 ﻿!G I@1/1
 Failure
 <
-  !!!  P@17/1 : Invalid Category. Expected output type. - '}\ndirectiv' !!!
-  !!!  P@17/1 : Invalid Category. Expected output type. - '}\ndirectiv' !!!
-  !!!  P@17/1 : Invalid Schema. Expected no more text. - '}\ndirectiv' !!!
+  !!! P@17/1 : Invalid Category. Expected output type. - '}\ndirectiv' !!!
+  !!! P@17/1 : Invalid Category. Expected output type. - '}\ndirectiv' !!!
+  !!! P@17/1 : Invalid Schema. Expected no more text. - '}\ndirectiv' !!!
 >
 {
   !C I@10/1

@@ -1,4 +1,4 @@
 ﻿[
-  !!!  P@10/4 : Invalid Categories. Multiple Categories with id 'mutation' and group '' found. - '\{\ \(sequent' !!!,
-  !!!  P@10/7 : Invalid Categories. Multiple Categories with id 'subscription' and group '' found. - '\{\ \(single\)' !!!
+  !!! P@10/4 : Multiple Categories with id 'mutation' and group '' can't be merged. - '\{\ \(sequent' !!!,
+  !!! P@10/7 : Multiple Categories with id 'subscription' and group '' can't be merged. - '\{\ \(single\)' !!!
 ]

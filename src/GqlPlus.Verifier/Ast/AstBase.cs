@@ -8,11 +8,11 @@ public abstract record class AstBase(TokenAt At) : IEquatable<AstBase>
 
   public sealed override string ToString()
     => "( "
-      + GetFields().Where(s => s?.Length > 0).Cast<string>().Joined()
+      + GetFields().Cast<string>().Joined()
       + " )";
 
   protected string AbbrAt
-    => "!" + Abbr + At.ToString();
+    => new[] { "!" + Abbr, At.ToString() }.Joined();
 
   internal virtual IEnumerable<string?> GetFields()
     => new[] { AbbrAt };

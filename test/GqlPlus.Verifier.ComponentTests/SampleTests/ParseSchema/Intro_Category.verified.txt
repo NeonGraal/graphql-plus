@@ -4,18 +4,18 @@ Success
   !O I@8/1
   _Category
   :
-   I@7/2
+  I@7/2
   _Aliased
   {
     !OF I@9/3
     resolution
     :
-     I@21/3
+    I@21/3
     _Resolution
     !OF I@9/4
     type
     :
-     I@15/4
+    I@15/4
     _Type
     [String]
   }

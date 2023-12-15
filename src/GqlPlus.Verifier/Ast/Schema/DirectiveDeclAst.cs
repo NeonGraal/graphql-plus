@@ -13,7 +13,6 @@ public sealed record class DirectiveDeclAst(
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 
   internal override string Abbr => "D";
-  internal override string GroupName => "Directives";
 
   public DirectiveDeclAst(TokenAt at, string name)
     : this(at, name, "") { }

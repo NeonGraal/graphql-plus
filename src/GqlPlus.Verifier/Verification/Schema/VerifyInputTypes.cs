@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Token;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyInputTypes(
   IVerifyAliased<InputDeclAst> aliased

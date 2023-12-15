@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Operation;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyFragmentUsage(
     IVerify<SpreadAst> usage,

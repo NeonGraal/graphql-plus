@@ -10,7 +10,6 @@ public sealed record class CategoryDeclAst(
 ) : AstDeclaration(At, Name, Description), IEquatable<CategoryDeclAst>
 {
   internal override string Abbr => "C";
-  internal override string GroupName => "Categories";
 
   public string Output { get; set; } = Output;
 

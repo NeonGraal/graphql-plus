@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Token;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verifier.Verification.Schema;
 
 internal abstract class GroupedVerifier<TAliased>(
    IMerge<TAliased> merger,

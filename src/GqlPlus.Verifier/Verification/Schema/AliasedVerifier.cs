@@ -2,7 +2,7 @@
 using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Token;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verifier.Verification.Schema;
 
 internal abstract class AliasedVerifier<TAliased>(
    IVerify<TAliased> verifier,

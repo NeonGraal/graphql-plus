@@ -6,7 +6,7 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Verification;
 
 [UsesVerify]
-public class SchemaVerifierTests(
+public class VerifySchemaTests(
     Parser<SchemaAst>.D parser,
     IVerify<SchemaAst> verifier)
 {
@@ -41,7 +41,7 @@ public class SchemaVerifierTests(
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
-    settings.UseFileName(schema);
+    settings.UseMethodName(schema);
 
     await Verify(result.Select(m => m.Message), settings);
   }

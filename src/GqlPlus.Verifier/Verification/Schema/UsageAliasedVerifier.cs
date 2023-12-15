@@ -2,7 +2,7 @@
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Token;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verifier.Verification.Schema;
 
 internal abstract class UsageAliasedVerifier<TUsage, TAliased>(
   IVerifyAliased<TUsage> aliased

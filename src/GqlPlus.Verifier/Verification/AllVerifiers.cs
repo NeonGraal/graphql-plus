@@ -2,6 +2,7 @@
 using GqlPlus.Verifier.Ast.Operation;
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Merging;
+using GqlPlus.Verifier.Verification.Schema;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 

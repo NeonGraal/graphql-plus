@@ -2,7 +2,7 @@
 using GqlPlus.Verifier.Ast.Operation;
 using GqlPlus.Verifier.Token;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyVariable : IVerify<VariableAst>
 {

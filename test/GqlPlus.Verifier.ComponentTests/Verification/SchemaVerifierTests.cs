@@ -28,7 +28,7 @@ public class SchemaVerifierTests(
 
   [Theory]
   [MemberData(nameof(InvalidSchemas))]
-  public async Task Verify_InvalidSchemas_ReturnsInvalidAsync(string schema)
+  public async Task Verify_InvalidSchemas_ReturnsInvalid(string schema)
   {
     var parse = Parse(s_invalidSchemas[schema]);
 
@@ -57,9 +57,13 @@ public class SchemaVerifierTests(
     ["directive-parameter"] = "directive @Test(Test) { all } input Test { }",
     ["directive-merge"] = "directive @Test { all } directive @Test { all }",
     ["enum-merge"] = "enum Test { one } enum Test { two }",
-    ["enum-extends"] = "enum Base { one } enum Test { : Base two }",
+    ["enum-extends"] = "enum Base { one } enum Test { :Base two }",
     ["input-merge"] = "input Test { } input Test { }",
+    ["input-merge-alts"] = "input Test { | Test1 } input Test { | Test1 } input Test1 { }",
+    ["input-merge-fields"] = "input Test { field: Test } input Test { field: Test }",
     ["output-merge"] = "output Test { } output Test { }",
+    ["output-merge-alts"] = "output Test { | Test1 } output Test { | Test1 } output Test1 { }",
+    ["output-merge-fields"] = "output Test { field: Test } output Test { field: Test }",
     ["scalar-merge"] = "scalar Test { string } scalar Test { string }",
   };
 
@@ -75,6 +79,7 @@ public class SchemaVerifierTests(
     ["directive-no-param"] = "directive @Test(Test) { all }",
     ["enum-no-base"] = "enum Test { : Base all }",
     ["enum-diff-base"] = "enum Test { : Base all } enum Test { all } enum Base { all }",
+    ["scalar-diff-kind"] = "scalar Test { string } scalar Test { number }",
   };
 
   public static IEnumerable<object[]> InvalidSchemas => s_invalidSchemas.Keys.Select(k => new object[] { k });

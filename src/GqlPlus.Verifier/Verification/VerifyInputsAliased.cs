@@ -11,5 +11,5 @@ internal class VerifyInputsAliased(
 {
   public override string Label => "Inputs";
 
-  protected override object GroupKey(InputDeclAst item) => item.Name + "-" + (item.Extends?.Name ?? "");
+  protected override object GroupKey(InputDeclAst item) => item.Extends?.Name ?? "";
 }

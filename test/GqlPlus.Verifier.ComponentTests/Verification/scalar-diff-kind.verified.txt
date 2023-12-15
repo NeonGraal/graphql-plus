@@ -1,0 +1,3 @@
+﻿[
+  Invalid Scalars. Multiple Scalars with id 'Test' and group '' found.
+]

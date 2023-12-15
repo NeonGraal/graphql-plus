@@ -11,5 +11,5 @@ internal class VerifyScalarsAliased(
 {
   public override string Label => "Scalars";
 
-  protected override object GroupKey(ScalarDeclAst item) => item.Name + "-" + item.Kind;
+  protected override object GroupKey(ScalarDeclAst item) => "";
 }

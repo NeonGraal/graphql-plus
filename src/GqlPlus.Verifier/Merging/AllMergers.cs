@@ -28,7 +28,9 @@ public static class AllMergers
 
   public static IServiceCollection AddMerge<T, S>(this IServiceCollection services)
     where S : class, IMerge<T>
-    => services.AddSingleton<IMerge<T>, S>();
+    => services
+      .RemoveAll<IMerge<T>>()
+      .AddSingleton<IMerge<T>, S>();
 
   public static IServiceCollection TryAddMerge<T, S>(this IServiceCollection services)
     where S : class, IMerge<T>

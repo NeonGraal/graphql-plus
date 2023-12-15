@@ -2,9 +2,11 @@
 
 namespace GqlPlus.Verifier;
 
-internal class Map<T>(IDictionary<string, T> dictionary)
-  : Dictionary<string, T>(dictionary), IMap<T>
-{ }
+internal class Map<T> : Dictionary<string, T>, IMap<T>
+{
+  public Map() { }
+  public Map(IDictionary<string, T> dictionary) : base(dictionary) { }
+}
 
 public interface IMap<T> : IDictionary<string, T>;
 

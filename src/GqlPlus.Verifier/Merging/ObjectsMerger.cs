@@ -15,8 +15,12 @@ public class ObjectsMerger<TObject, TField, TReference>(
   protected override string ItemMatchKey(TObject item)
     => item.Extends?.Name ?? "";
   public override bool CanMerge(TObject[] items)
-    => base.CanMerge(items)
-      && items.ManyMerge(item => item.TypeParameters, typeParameters)
-      && items.ManyGroupMerge(item => item.Fields, f => f.Name, fields)
-      && items.ManyGroupMerge(item => item.Alternates, a => a.Type.FullType, alternates);
+  {
+    var baseCanMerge = base.CanMerge(items);
+    var typeParametersCanMerge = items.ManyMerge(item => item.TypeParameters, typeParameters);
+    var fieldsCanMerge = items.ManyGroupMerge(item => item.Fields, f => f.Name, fields);
+    var alternatesCanMerge = items.ManyGroupMerge(item => item.Alternates, a => a.Type.FullType, alternates);
+
+    return baseCanMerge && typeParametersCanMerge && fieldsCanMerge && alternatesCanMerge;
+  }
 }

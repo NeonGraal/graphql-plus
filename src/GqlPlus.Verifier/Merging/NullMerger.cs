@@ -2,9 +2,17 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal class NullMerger<A> : IMerge<A>
-  where A : AstAliased
+internal class NullMerger<TAliased>(ILoggerFactory logger)
+  : IMerge<TAliased>
+  where TAliased : AstAliased
 {
-  public bool CanMerge(A[] items) => items.Length == 1;
-  public A Merge(A[] items) => items.First();
+  private readonly ILogger _logger = logger.CreateLogger(nameof(NullMerger<TAliased>));
+
+  public bool CanMerge(TAliased[] items)
+  {
+    _logger.LogInformation("Null merging of {Type}", items.GetType().GetElementType()?.ExpandTypeName());
+    return items.Length == 1;
+  }
+
+  public TAliased Merge(TAliased[] items) => items.First();
 }

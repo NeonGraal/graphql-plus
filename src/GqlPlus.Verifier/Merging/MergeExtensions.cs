@@ -59,5 +59,8 @@ public static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       IMerge<TGroup> merger)
-    => merger.CanMerge([.. items.SelectMany(many)]);
+  {
+    TGroup[] groups = [.. items.SelectMany(many)];
+    return groups.Length < 2 || merger.CanMerge(groups);
+  }
 }

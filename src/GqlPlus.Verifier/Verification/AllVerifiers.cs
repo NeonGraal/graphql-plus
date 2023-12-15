@@ -59,8 +59,7 @@ public static class AllVerifiers
     where A : AstAliased
     => services
       .AddSingleton<IVerifyAliased<A>, S>()
-      .TryAddVerify<A, NullVerifier<A>>()
-      .TryAddMerge<A, NullMerger<A>>();
+      .TryAddVerify<A, NullVerifier<A>>();
 
   public static IServiceCollection AddVerifyUsageAliased<U, A, S>(this IServiceCollection services)
     where S : class, IVerifyUsageAliased<U, A>

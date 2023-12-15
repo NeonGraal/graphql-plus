@@ -26,13 +26,12 @@ public abstract class TestObjects<TObject, TField, TReference>
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsTypeParametersCantMerge_ReturnsFalse(string name, string[] typeParameters)
   {
-    if (typeParameters.Length < 2) {
-      return;
-    }
-
     TypeParameters.CanMerge([]).ReturnsForAnyArgs(false);
 
-    CanMerge_False([MakeObject(name) with { TypeParameters = typeParameters.TypeParameters() }, MakeObject(name)]);
+    CanMerge_False([
+      MakeObject(name) with { TypeParameters = typeParameters.TypeParameters() },
+      MakeObject(name)],
+      typeParameters.Length < 2);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -42,7 +41,7 @@ public abstract class TestObjects<TObject, TField, TReference>
 
     CanMerge_False([
       MakeObject(name) with { Alternates = alternate.Alternates(MakeReference) },
-      MakeObject(name) with { Alternates = alternate.Alternates(MakeReference) }]);
+      MakeObject(name)]);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -52,7 +51,7 @@ public abstract class TestObjects<TObject, TField, TReference>
 
     CanMerge_False([
       MakeObject(name) with { Fields = MakeFields(field, type) },
-      MakeObject(name) with { Fields = MakeFields(field, type) }]);
+      MakeObject(name)]);
   }
 
   protected readonly IMerge<TypeParameterAst> TypeParameters;

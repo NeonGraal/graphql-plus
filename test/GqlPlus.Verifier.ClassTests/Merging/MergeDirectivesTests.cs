@@ -39,7 +39,8 @@ public class MergeDirectivesTests
 
     CanMerge_False([
       new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
-      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() }]);
+      new DirectiveDeclAst(AstNulls.At, name)],
+      parameters.Length < 2);
   }
 
   protected override DirectiveDeclAst MakeDescribed(string name, string description = "")

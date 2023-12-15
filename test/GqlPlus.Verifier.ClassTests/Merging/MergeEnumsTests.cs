@@ -31,13 +31,12 @@ public class MergeEnumsTests
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsValuesCantMerge_ReturnsFalse(string name, string[] values)
   {
-    if (values.Length < 2) {
-      return;
-    }
-
     _enumValues.CanMerge([]).ReturnsForAnyArgs(false);
 
-    CanMerge_False([new EnumDeclAst(AstNulls.At, name) with { Values = values.EnumValues() }, new EnumDeclAst(AstNulls.At, name)]);
+    CanMerge_False([
+      new EnumDeclAst(AstNulls.At, name) with { Values = values.EnumValues() },
+      new EnumDeclAst(AstNulls.At, name)],
+      values.Length < 2);
   }
 
   protected override EnumDeclAst MakeDescribed(string name, string description = "")

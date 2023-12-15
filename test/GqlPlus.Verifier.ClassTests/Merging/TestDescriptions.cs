@@ -23,5 +23,5 @@ public abstract class TestDescriptions<TItem>
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsDifferentDescription_ReturnsFalse(string name, string description1, string description2)
-  => CanMerge_False([MakeDescribed(name, description1), MakeDescribed(name, description2)]);
+  => CanMerge_False([MakeDescribed(name, description1), MakeDescribed(name, description2)], description1 == description2);
 }

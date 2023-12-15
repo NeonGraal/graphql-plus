@@ -24,11 +24,15 @@ public abstract class TestObjects<TObject, TField, TReference>
       type1 == type2);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsTypeParametersCantMerge_ReturnsFalse(string name)
+  public void CanMerge_TwoItemsTypeParametersCantMerge_ReturnsFalse(string name, string[] typeParameters)
   {
+    if (typeParameters.Length < 2) {
+      return;
+    }
+
     TypeParameters.CanMerge([]).ReturnsForAnyArgs(false);
 
-    CanMerge_False([MakeObject(name), MakeObject(name)]);
+    CanMerge_False([MakeObject(name) with { TypeParameters = typeParameters.TypeParameters() }, MakeObject(name)]);
   }
 
   [Theory, RepeatData(Repeats)]

@@ -29,11 +29,15 @@ public class MergeEnumsTests
     => CanMerge_False([new EnumDeclAst(AstNulls.At, name) { Extends = extends }, new EnumDeclAst(AstNulls.At, name)]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsValuesCantMerge_ReturnsFalse(string name)
+  public void CanMerge_TwoItemsValuesCantMerge_ReturnsFalse(string name, string[] values)
   {
+    if (values.Length < 2) {
+      return;
+    }
+
     _enumValues.CanMerge([]).ReturnsForAnyArgs(false);
 
-    CanMerge_False([new EnumDeclAst(AstNulls.At, name), new EnumDeclAst(AstNulls.At, name)]);
+    CanMerge_False([new EnumDeclAst(AstNulls.At, name) with { Values = values.EnumValues() }, new EnumDeclAst(AstNulls.At, name)]);
   }
 
   protected override EnumDeclAst MakeDescribed(string name, string description = "")

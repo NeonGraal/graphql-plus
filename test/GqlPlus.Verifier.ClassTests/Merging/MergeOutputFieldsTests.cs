@@ -8,11 +8,15 @@ public class MergeOutputFieldsTests
   : TestFields<OutputFieldAst, OutputReferenceAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsParametersCantMerge_ReturnsFalse(string name, string type)
+  public void CanMerge_TwoItemsParametersCantMerge_ReturnsFalse(string name, string type, string[] parameters)
   {
+    if (parameters.Length < 2) {
+      return;
+    }
+
     _parameters.CanMerge([]).ReturnsForAnyArgs(false);
 
-    CanMerge_False([MakeField(name, type), MakeField(name, type)]);
+    CanMerge_False([MakeField(name, type) with { Parameters = parameters.Parameters() }, MakeField(name, type)]);
   }
 
   [Theory, RepeatData(Repeats)]

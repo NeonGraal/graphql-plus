@@ -22,7 +22,7 @@ public abstract record class AstObject<F, R>(TokenAt At, string Name, string Des
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Concat(TypeParameters.Bracket("<", ">"))
-      .Concat(Extends.Bracket("", ""))
+      .Concat(Extends.Bracket(":", ""))
       .Concat(Fields.Bracket("{", "}"))
       .Concat(Alternates.Bracket("|"));
 }

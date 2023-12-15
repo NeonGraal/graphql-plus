@@ -54,6 +54,7 @@ Success
      I@19/10
     $kind
   >
+  :
    I@7/11
   _Aliased
   {
@@ -91,6 +92,7 @@ Success
      I@33/17
     $field
   >
+  :
    I@7/18
   _BaseType
   <
@@ -182,6 +184,7 @@ Success
      I@20/36
     $base
   >
+  :
    I@7/37
   _Aliased
   {
@@ -278,6 +281,7 @@ Success
 {
   !O I@8/60
   _ModifierDictionary
+  :
    I@7/61
   _BaseModifier
   <

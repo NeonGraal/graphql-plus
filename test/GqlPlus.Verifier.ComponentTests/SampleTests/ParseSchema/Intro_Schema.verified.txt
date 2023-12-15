@@ -66,6 +66,7 @@ Success
 {
   !I I@7/13
   _CategoryFilter
+  :
    I@7/14
   _Filter
   {
@@ -80,6 +81,7 @@ Success
 {
   !I I@7/18
   _TypeFilter
+  :
    I@7/19
   _Filter
   {
@@ -94,6 +96,7 @@ Success
 {
   !O I@8/23
   _Aliased
+  :
    I@7/24
   _Named
   {

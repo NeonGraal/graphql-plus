@@ -21,9 +21,6 @@ internal abstract class UsageAliasedVerifier<TUsage, TAliased>(
 
     foreach (var usage in target.Usages) {
       errors.AddRange(UsageValue(usage, byId));
-      //if (!byId.ContainsKey(k)) {
-      //  errors.Add(u.First().Error($"Invalid {Label} usage. {Label} not defined."));
-      //}
     }
 
     return errors;

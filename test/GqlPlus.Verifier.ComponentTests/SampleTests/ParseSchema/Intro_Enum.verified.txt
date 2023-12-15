@@ -3,6 +3,7 @@ Success
 {
   !O I@8/1
   _TypeEnum
+  :
    I@7/2
   _BaseType
   <

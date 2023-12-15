@@ -33,7 +33,7 @@ public class InputAstTests : AstAliasedTests
   public void String_WithExtends(string name, string extends)
     => _checks.String(
       () => new InputDeclAst(AstNulls.At, name) { Extends = new(AstNulls.At, extends) },
-      $"( !I {name} {extends} )");
+      $"( !I {name} : {extends} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithExtends(string name, string extends)

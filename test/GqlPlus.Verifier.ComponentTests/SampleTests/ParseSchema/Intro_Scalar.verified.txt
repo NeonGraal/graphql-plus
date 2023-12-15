@@ -26,6 +26,7 @@ Success
      I@21/8
     $base
   >
+  :
    I@7/9
   _BaseType
   <
@@ -43,6 +44,7 @@ Success
 {
   !O I@8/13
   _ScalarNumber
+  :
    I@7/14
   _BaseScalar
   <
@@ -89,6 +91,7 @@ Success
 {
   !O I@8/25
   _ScalarString
+  :
    I@7/26
   _BaseScalar
   <

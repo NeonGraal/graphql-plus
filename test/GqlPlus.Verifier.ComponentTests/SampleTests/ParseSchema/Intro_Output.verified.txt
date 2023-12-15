@@ -24,6 +24,7 @@ Success
 {
   !O I@8/7
   _OutputField
+  :
    I@7/8
   _TypeField
   <
@@ -46,6 +47,7 @@ Success
 {
   !O I@8/13
   _OutputArgument
+  :
    I@7/14
   _BaseType
   <
@@ -71,6 +73,7 @@ Success
 {
   !O I@8/19
   _OutputEnum
+  :
    I@7/20
   _BaseType
   <

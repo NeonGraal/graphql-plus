@@ -77,11 +77,11 @@ internal class ParseOperation(
     OperationAst Final()
       => tokens is OperationContext context
           ? ast with {
-            Errors = [.. tokens.Errors],
+            Errors = tokens.Errors,
             Usages = [.. context.Variables],
             Spreads = [.. context.Spreads],
           }
-          : ast with { Errors = [.. tokens.Errors], };
+          : ast with { Errors = tokens.Errors, };
   }
 
   private static OperationAst ParseCategory<TContext>(TContext tokens)

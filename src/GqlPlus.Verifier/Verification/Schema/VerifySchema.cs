@@ -24,8 +24,6 @@ internal class VerifySchema(
     types.Verify(astTypes, errors);
     typesAliased.Verify(astTypes, errors);
 
-    foreach (var error in item.Errors) {
-      errors.Add(error);
-    }
+    errors.Add(item.Errors);
   }
 }

@@ -6,9 +6,9 @@ public record class SchemaAst(TokenAt At, string Name)
   : AstNamed(At, Name)
 {
   public ParseResultKind Result { get; set; }
-  public TokenMessage[] Errors { get; set; } = Array.Empty<TokenMessage>();
+  public TokenMessages Errors { get; set; } = [];
 
-  public AstDeclaration[] Declarations { get; set; } = Array.Empty<AstDeclaration>();
+  public AstDeclaration[] Declarations { get; set; } = [];
 
   internal override string Abbr => "G";
 

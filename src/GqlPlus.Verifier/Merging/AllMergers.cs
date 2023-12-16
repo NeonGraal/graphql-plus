@@ -31,11 +31,4 @@ public static class AllMergers
     => services
       .RemoveAll<IMerge<T>>()
       .AddSingleton<IMerge<T>, S>();
-
-  public static IServiceCollection TryAddMerge<T, S>(this IServiceCollection services)
-    where S : class, IMerge<T>
-  {
-    services.TryAddSingleton<IMerge<T>, S>();
-    return services;
-  }
 }

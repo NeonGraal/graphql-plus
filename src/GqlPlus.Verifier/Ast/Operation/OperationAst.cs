@@ -6,7 +6,7 @@ public record class OperationAst(TokenAt At, string Name)
   : AstDirectives(At, Name), IAstModified
 {
   public ParseResultKind Result { get; set; }
-  public TokenMessage[] Errors { get; set; } = [];
+  public TokenMessages Errors { get; set; } = [];
 
   public string Category { get; set; } = "query";
 

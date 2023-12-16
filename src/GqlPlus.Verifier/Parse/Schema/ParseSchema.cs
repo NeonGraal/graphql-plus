@@ -64,7 +64,7 @@ internal class ParseSchema : Parser<SchemaAst>.I
 
     ast = ast with {
       Declarations = [.. declarations],
-      Errors = [.. tokens.Errors],
+      Errors = tokens.Errors,
     };
 
     return ast.Ok();

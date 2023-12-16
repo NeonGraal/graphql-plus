@@ -33,7 +33,6 @@ public static class AllVerifiers
       .AddVerifyAliased<OutputDeclAst, VerifyOutputsAliased>()
       .AddVerifyUsageAliased<OutputDeclAst, AstType, VerifyOutputTypes>()
       .AddVerifyAliased<ScalarDeclAst, VerifyScalarsAliased>()
-      .AddVerifyUsageAliased<ScalarDeclAst, AstType, VerifyScalarTypes>()
     ;
 
   public static IServiceCollection AddVerify<T, S>(this IServiceCollection services)

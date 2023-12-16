@@ -13,8 +13,6 @@ internal class VerifyOperation(
     usages.Verify(new(item.Usages, item.Variables), errors);
     spreads.Verify(new(item.Spreads, item.Fragments), errors);
 
-    foreach (var error in item.Errors) {
-      errors.Add(error);
-    }
+    errors.Add(item.Errors);
   }
 }

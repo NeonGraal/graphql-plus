@@ -10,48 +10,42 @@ public class VerifySchemaTests(
     Parser<SchemaAst>.D parser,
     IVerify<SchemaAst> verifier)
 {
-  private readonly Parser<SchemaAst>.L _parser = parser;
-
   [Theory]
   [MemberData(nameof(ValidSchemas))]
-  public void Verify_ValidSchemas_ReturnsValid(string schema)
-  {
-    var parse = Parse(s_validSchemas[schema]);
-    if (parse is IResultError<SchemaAst> error) {
-      error.Message.Should().BeNull();
-    }
-
-    var result = new TokenMessages();
-
-    verifier.Verify(parse.Required(), result);
-
-    result.Should().BeNullOrEmpty();
-  }
+  public void Verify_ValidSchemas(string schema)
+    => Verify_Valid(s_validSchemas[schema]);
 
   [Theory]
   [MemberData(nameof(InvalidSchemas))]
-  public async Task Verify_InvalidSchemas_ReturnsInvalid(string schema)
+  public async Task Verify_InvalidSchemas(string schema)
+    => await Verify_Invalid(s_invalidSchemas[schema], schema);
+
+  [Theory]
+  [MemberData(nameof(ValidObjects))]
+  public void Verify_ValidObjects(string schema)
   {
-    var parse = Parse(s_invalidSchemas[schema]);
-
-    var result = new TokenMessages();
-    if (parse.IsOk()) {
-      verifier.Verify(parse.Required(), result);
+    var input = s_validObjects[schema];
+    if (input.StartsWith("object", StringComparison.Ordinal)) {
+      Verify_Valid(input.Replace("object", "input"));
+      Verify_Valid(input.Replace("object", "output"));
     } else {
-      parse.IsError(result.Add);
+      Verify_Valid(input);
     }
-
-    var settings = new VerifySettings();
-    settings.ScrubEmptyLines();
-    settings.UseMethodName(schema);
-
-    await Verify(result.Select(m => m.Message), settings);
   }
 
-  private IResult<SchemaAst> Parse(string schema)
+  [Theory]
+  [MemberData(nameof(InvalidObjects))]
+  public async Task Verify_InvalidObjects(string schema)
   {
-    Tokenizer tokens = new(schema);
-    return _parser.Parse(tokens, "Schema");
+    var input = s_invalidObjects[schema];
+    if (input.StartsWith("object", StringComparison.Ordinal)) {
+      using var scope = new AssertionScope();
+
+      await Verify_Invalid(input.Replace("object", "input"), "input-" + schema);
+      await Verify_Invalid(input.Replace("object", "output"), "output-" + schema);
+    } else {
+      await Verify_Invalid(input, schema);
+    }
   }
 
   private static readonly Map<string> s_validSchemas = new() {
@@ -61,19 +55,9 @@ public class VerifySchemaTests(
     ["directive-merge"] = "directive @Test { all } directive @Test { all }",
     ["enum-merge"] = "enum Test { one } enum Test { two }",
     ["enum-extends"] = "enum Base { base } enum Test { :Base test }",
-    ["input-merge"] = "input Test { } input Test { }",
-    ["input-merge-alts"] = "input Test { | Test1 } input Test { | Test1 } input Test1 { }",
-    ["input-merge-fields"] = "input Test { field: Test } input Test { field: Test }",
-    ["input-field-optional-null"] = "input Test { field: Test? = null}",
-    ["output-merge"] = "output Test { } output Test { }",
-    ["output-merge-alts"] = "output Test { | Test1 } output Test { | Test1 } output Test1 { }",
-    ["output-merge-fields"] = "output Test { field: Test } output Test { field: Test }",
-    ["output-merge-params"] = "output Test { field(Param): Test } output Test { field: Test } input Param { }",
-    ["output-merge-enums"] = "output Test { field = true } output Test { field = true }",
     ["scalar-merge"] = "scalar Test { string } scalar Test { string }",
   };
-
-  public static IEnumerable<object[]> ValidSchemas => s_validSchemas.Keys.Select(k => new object[] { k });
+  public static IEnumerable<object[]> ValidSchemas => SchemaKeys(s_validSchemas);
 
   private static readonly Map<string> s_invalidSchemas = new() {
     ["bad-parse"] = "",
@@ -86,19 +70,71 @@ public class VerifySchemaTests(
     ["directive-diff-parameter"] = "directive @Test(Test) { all } directive @Test(Test?) { all } input Test { }",
     ["enum-no-base"] = "enum Test { : Base test }",
     ["enum-diff-base"] = "enum Test { : Base test } enum Test { test } enum Base { base }",
-    ["input-diff-base"] = "input Test { :Base } input Test { } input Base { }",
-    ["input-alts-diff-mods"] = "input Test { | Test1 } input Test { | Test1[] } input Test1 { }",
-    ["input-fields-diff-type"] = "input Test { field: Test } input Test { field: Test1 } input Test1 { }",
-    ["input-fields-diff-mods"] = "input Test { field: Test } input Test { field: Test[] } ",
-    ["input-field-null"] = "input Test { field: Test = null }",
-    ["output-diff-base"] = "output Test { :Base } output Test { } output Base { }",
-    ["output-alts-diff-mods"] = "output Test { | Test1 } output Test { | Test1[] } output Test1 { }",
-    ["output-fields-diff-type"] = "output Test { field: Test } output Test { field: Test1 } output Test1 { }",
-    ["output-fields-diff-mods"] = "output Test { field: Test } output Test { field: Test[] } ",
-    ["output-diff-params"] = "output Test { field(Param): Test } output Test { field(Param?): Test } input Param { }",
-    ["output-diff-enums"] = "output Test { field = true } output Test { field = false }",
     ["scalar-diff-kind"] = "scalar Test { string } scalar Test { number }",
   };
+  public static IEnumerable<object[]> InvalidSchemas => SchemaKeys(s_invalidSchemas);
 
-  public static IEnumerable<object[]> InvalidSchemas => s_invalidSchemas.Keys.Select(k => new object[] { k });
+  private static readonly Map<string> s_validObjects = new() {
+    ["merge"] = "object Test { } object Test { }",
+    ["merge-alts"] = "object Test { | Test1 } object Test { | Test1 } object Test1 { }",
+    ["merge-fields"] = "object Test { field: Test } object Test { field: Test }",
+    ["input-field-optional-null"] = "input Test { field: Test? = null}",
+    ["output-merge-params"] = "output Test { field(Param): Test } output Test { field: Test } input Param { }",
+    ["output-merge-enums"] = "output Test { field = true } output Test { field = true }",
+  };
+  public static IEnumerable<object[]> ValidObjects => SchemaKeys(s_validObjects);
+
+  private static readonly Map<string> s_invalidObjects = new() {
+    ["diff-base"] = "object Test { :Base } object Test { } object Base { }",
+    ["alts-diff-mods"] = "object Test { | Test1 } object Test { | Test1[] } object Test1 { }",
+    ["fields-diff-type"] = "object Test { field: Test } object Test { field: Test1 } object Test1 { }",
+    ["fields-diff-mods"] = "object Test { field: Test } object Test { field: Test[] } ",
+    ["input-field-null"] = "input Test { field: Test = null }",
+    ["output-diff-params"] = "output Test { field(Param): Test } output Test { field(Param?): Test } input Param { }",
+    ["output-diff-enums"] = "output Test { field = true } output Test { field = false }",
+  };
+  public static IEnumerable<object[]> InvalidObjects => SchemaKeys(s_invalidObjects);
+
+  private static IEnumerable<object[]> SchemaKeys(Map<string> schemas)
+    => schemas.Keys.Select(k => new object[] { k });
+
+  private readonly Parser<SchemaAst>.L _parser = parser;
+
+  private IResult<SchemaAst> Parse(string schema)
+  {
+    Tokenizer tokens = new(schema);
+    return _parser.Parse(tokens, "Schema");
+  }
+
+  private void Verify_Valid(string input)
+  {
+    var parse = Parse(input);
+    if (parse is IResultError<SchemaAst> error) {
+      error.Message.Should().BeNull();
+    }
+
+    var result = new TokenMessages();
+
+    verifier.Verify(parse.Required(), result);
+
+    result.Should().BeNullOrEmpty();
+  }
+
+  private async Task Verify_Invalid(string input, string test)
+  {
+    var parse = Parse(input);
+
+    var result = new TokenMessages();
+    if (parse.IsOk()) {
+      verifier.Verify(parse.Required(), result);
+    } else {
+      parse.IsError(result.Add);
+    }
+
+    var settings = new VerifySettings();
+    settings.ScrubEmptyLines();
+    settings.UseMethodName(test);
+
+    await Verify(result.Select(m => m.Message), settings);
+  }
 }

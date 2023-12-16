@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Parse;
 
-public class ParseConstantTests
+public class ParseConstantTests(Parser<ConstantAst>.D parser)
 {
   [Theory, RepeatData(Repeats)]
   public void WithNumber_ReturnsCorrectAst(decimal number)
@@ -65,14 +65,8 @@ public class ParseConstantTests
       CheckNull,
       key == enumValue);
 
-  private void CheckDefault(ConstantAst? result)
-    => result.Should().Be(new ConstantAst(AstNulls.At));
-
   private void CheckNull(ConstantAst? result)
     => result.Should().BeNull();
 
-  private readonly OneChecksParser<ConstantAst> _test;
-
-  public ParseConstantTests(Parser<ConstantAst>.D parser)
-    => _test = new(parser);
+  private readonly OneChecksParser<ConstantAst> _test = new(parser);
 }

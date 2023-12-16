@@ -5,21 +5,14 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseParameters : Parser<ParameterAst>.IA
+internal class ParseParameters(
+  Parser<InputReferenceAst>.D input,
+  Parser<ModifierAst>.DA modifiers,
+  Parser<IParserDefault, ConstantAst>.D defaultParser) : Parser<ParameterAst>.IA
 {
-  private readonly Parser<InputReferenceAst>.L _input;
-  private readonly Parser<ModifierAst>.LA _modifiers;
-  private readonly Parser<IParserDefault, ConstantAst>.L _default;
-
-  public ParseParameters(
-    Parser<InputReferenceAst>.D input,
-    Parser<ModifierAst>.DA modifiers,
-    Parser<IParserDefault, ConstantAst>.D defaultParser)
-  {
-    _input = input;
-    _modifiers = modifiers;
-    _default = defaultParser;
-  }
+  private readonly Parser<InputReferenceAst>.L _input = input;
+  private readonly Parser<ModifierAst>.LA _modifiers = modifiers;
+  private readonly Parser<IParserDefault, ConstantAst>.L _default = defaultParser;
 
   public IResultArray<ParameterAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

@@ -21,7 +21,9 @@ public class VerifySchemaTests(
       error.Message.Should().BeNull();
     }
 
-    var result = verifier.Verify(parse.Required());
+    var result = new TokenMessages();
+
+    verifier.Verify(parse.Required(), result);
 
     result.Should().BeNullOrEmpty();
   }
@@ -34,7 +36,7 @@ public class VerifySchemaTests(
 
     var result = new TokenMessages();
     if (parse.IsOk()) {
-      result.AddRange(verifier.Verify(parse.Required()));
+      verifier.Verify(parse.Required(), result);
     } else {
       parse.IsError(result.Add);
     }

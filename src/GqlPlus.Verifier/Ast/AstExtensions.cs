@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Ast;
 
@@ -77,4 +78,7 @@ public static class AstExtensions
     => text?.Length > 0
     ? quote + text.Replace("\\", "\\\\").Replace(quote, "\\" + quote) + quote
     : "";
+  public static void AddError<TAst>(this ITokenMessages errors, TAst item, string message)
+    where TAst : AstBase
+    => errors.Add(item.Error(message));
 }

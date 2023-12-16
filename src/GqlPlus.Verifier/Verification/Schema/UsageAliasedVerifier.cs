@@ -9,21 +9,17 @@ internal abstract class UsageAliasedVerifier<TUsage, TAliased>(
 ) : IVerifyUsageAliased<TUsage, TAliased>
  where TUsage : AstAliased where TAliased : AstAliased
 {
-  protected abstract ITokenMessages UsageValue(TUsage usage, IMap<TAliased[]> byId);
+  protected abstract void UsageValue(TUsage usage, IMap<TAliased[]> byId, ITokenMessages errors);
 
-  public ITokenMessages Verify(UsageAliases<TUsage, TAliased> target)
+  public void Verify(UsageAliases<TUsage, TAliased> item, ITokenMessages errors)
   {
-    var errors = new TokenMessages();
+    aliased.Verify(item.Usages, errors);
 
-    errors.AddRange(aliased.Verify(target.Usages));
+    var byId = item.Definitions.AliasedMap();
 
-    var byId = target.Definitions.AliasedMap();
-
-    foreach (var usage in target.Usages) {
-      errors.AddRange(UsageValue(usage, byId));
+    foreach (var usage in item.Usages) {
+      UsageValue(usage, byId, errors);
     }
-
-    return errors;
   }
 }
 

@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Token;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verifier.Verification.Operation;
 
 internal abstract class UsageNamedVerifier<TUsage, TNamed>(
     IVerify<TUsage> usage,
@@ -12,35 +12,27 @@ internal abstract class UsageNamedVerifier<TUsage, TNamed>(
   public abstract string Label { get; }
   public abstract string UsageKey(TUsage item);
 
-  public ITokenMessages Verify(UsageNames<TUsage, TNamed> target)
+  public void Verify(UsageNames<TUsage, TNamed> item, ITokenMessages errors)
   {
-    var errors = new TokenMessages();
+    var used = item.Usages.ToDictionary(UsageKey);
 
-    var used = target.Usages.ToDictionary(UsageKey);
-
-    var defined = target.Definitions.ToDictionary(f => f.Name);
+    var defined = item.Definitions.ToDictionary(f => f.Name);
 
     foreach (var (k, u) in used) {
       if (!defined.ContainsKey(k)) {
-        errors.Add(u.Error($"Invalid {Label} usage. {Label} not defined."));
+        errors.AddError(u, $"Invalid {Label} usage. {Label} not defined.");
       }
 
-      if (usage is not null) {
-        errors.AddRange(usage.Verify(u));
-      }
+      usage?.Verify(u, errors);
     }
 
     foreach (var (k, d) in defined) {
       if (!used.ContainsKey(k)) {
-        errors.Add(d.Error($"Invalid {Label} definition. {Label} not used."));
+        errors.AddError(d, $"Invalid {Label} definition. {Label} not used.");
       }
 
-      if (definition is not null) {
-        errors.AddRange(definition.Verify(d));
-      }
+      definition?.Verify(d, errors);
     }
-
-    return errors;
   }
 }
 

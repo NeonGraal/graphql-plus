@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
@@ -7,10 +8,12 @@ internal class VerifyDirectiveInput(
   IVerifyAliased<DirectiveDeclAst> aliased
 ) : UsageAliasedVerifier<DirectiveDeclAst, InputDeclAst>(aliased)
 {
-  protected override ITokenMessages UsageValue(DirectiveDeclAst usage, IMap<InputDeclAst[]> byId)
-    => new TokenMessages(usage.Parameters
-      .SelectMany(p =>
-        byId.ContainsKey(p.Input.Name)
-        ? new TokenMessages()
-        : [p.Error($"Invalid Directive Parameter. '{p.Input}' not defined")]));
+  protected override void UsageValue(DirectiveDeclAst usage, IMap<InputDeclAst[]> byId, ITokenMessages errors)
+  {
+    foreach (var parameter in usage.Parameters) {
+      if (!byId.ContainsKey(parameter.Input.Name)) {
+        errors.AddError(parameter, $"Invalid Directive Parameter. '{parameter.Input}' not defined");
+      }
+    }
+  }
 }

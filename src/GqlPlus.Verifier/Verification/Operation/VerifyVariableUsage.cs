@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Operation;
 
-namespace GqlPlus.Verifier.Verification.Schema;
+namespace GqlPlus.Verifier.Verification.Operation;
 
 internal class VerifyVariableUsage(
     IVerify<ArgumentAst> usage,

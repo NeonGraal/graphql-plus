@@ -20,4 +20,4 @@ public class TokenMessages : List<TokenMessage>, ITokenMessages
     : base(collection) { }
 }
 
-public interface ITokenMessages : IEnumerable<TokenMessage>;
+public interface ITokenMessages : IList<TokenMessage>;

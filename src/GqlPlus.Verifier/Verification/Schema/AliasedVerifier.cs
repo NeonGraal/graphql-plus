@@ -13,13 +13,12 @@ internal abstract class AliasedVerifier<TAliased>(
 {
   private readonly ILogger _logger = logger.CreateLogger(nameof(AliasedVerifier<TAliased>));
 
-  public override ITokenMessages Verify(TAliased[] item)
+  public override void Verify(TAliased[] item, ITokenMessages errors)
   {
-    var errors = new TokenMessages();
+    base.Verify(item, errors);
 
-    errors.AddRange(base.Verify(item));
-    errors.AddRange(item.SelectMany(verifier.Verify));
-
-    return errors;
+    foreach (var each in item) {
+      verifier.Verify(each, errors);
+    }
   }
 }

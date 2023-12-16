@@ -16,7 +16,7 @@ public static class TypeHelpers
     }
 
     if (t.IsGenericTypeParameter) {
-      return "";      
+      return "";
     }
 
     if (t.IsGenericType || t.IsGenericTypeDefinition) {

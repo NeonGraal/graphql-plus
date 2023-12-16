@@ -1,5 +1,4 @@
-﻿
-using GqlPlus.Verifier.Ast.Operation;
+﻿using GqlPlus.Verifier.Ast.Operation;
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
@@ -43,7 +42,9 @@ public class SampleTests(
     Tokenizer tokens = new(schema);
 
     var ast = _schemaParser.Parse(tokens, "Schema").Required();
-    var errors = schemaVerifier.Verify(ast)!;
+    var errors = new TokenMessages();
+
+    schemaVerifier.Verify(ast, errors);
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();

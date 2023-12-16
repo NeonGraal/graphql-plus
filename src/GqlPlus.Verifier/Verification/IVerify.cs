@@ -4,5 +4,5 @@ namespace GqlPlus.Verifier.Verification;
 
 public interface IVerify<TItem>
 {
-  ITokenMessages Verify(TItem item);
+  void Verify(TItem item, ITokenMessages errors);
 }

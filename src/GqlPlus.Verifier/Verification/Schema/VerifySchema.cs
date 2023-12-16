@@ -10,22 +10,21 @@ internal class VerifySchema(
   IVerify<AstType[]> types
 ) : IVerify<SchemaAst>
 {
-  public ITokenMessages Verify(SchemaAst target)
+  public void Verify(SchemaAst item, ITokenMessages errors)
   {
-    var errors = new TokenMessages();
+    var categories = item.Declarations.OfType<CategoryDeclAst>().ToArray();
+    var directives = item.Declarations.OfType<DirectiveDeclAst>().ToArray();
+    var allTypes = item.Declarations.OfType<AstType>().ToArray();
 
-    var categories = target.Declarations.OfType<CategoryDeclAst>().ToArray();
-    var directives = target.Declarations.OfType<DirectiveDeclAst>().ToArray();
-    var allTypes = target.Declarations.OfType<AstType>().ToArray();
+    categoryOutputs.Verify(new(categories, [.. allTypes.OfType<OutputDeclAst>()]), errors);
 
-    errors.AddRange(categoryOutputs.Verify(new(categories, [.. allTypes.OfType<OutputDeclAst>()])));
+    directiveInputs.Verify(new(directives, [.. allTypes.OfType<InputDeclAst>()]), errors);
 
-    errors.AddRange(directiveInputs.Verify(new(directives, [.. allTypes.OfType<InputDeclAst>()])));
+    types.Verify(allTypes, errors);
+    typesAliased.Verify(allTypes, errors);
 
-    errors.AddRange(types.Verify(allTypes));
-    errors.AddRange(typesAliased.Verify(allTypes));
-
-    errors.AddRange(target.Errors);
-    return errors;
+    foreach (var error in item.Errors) {
+      errors.Add(error);
+    }
   }
 }

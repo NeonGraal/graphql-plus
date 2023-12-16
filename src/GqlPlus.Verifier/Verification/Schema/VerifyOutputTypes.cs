@@ -9,5 +9,7 @@ internal class VerifyOutputTypes(
 {
 
   // protected override string UsageKey(OutputAst item) => item.Extends?.Name ?? "";
-  protected override ITokenMessages UsageValue(OutputDeclAst usage, IMap<AstType[]> byId) => new TokenMessages();
+  protected override void UsageValue(OutputDeclAst usage, IMap<AstType[]> byId, ITokenMessages errors)
+  {
+  }
 }

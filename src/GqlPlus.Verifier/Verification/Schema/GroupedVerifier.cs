@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Token;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
@@ -15,12 +14,10 @@ internal abstract class GroupedVerifier<TAliased>(
 
   public abstract string Label { get; }
 
-  public virtual ITokenMessages Verify(TAliased[] item)
+  public virtual void Verify(TAliased[] item, ITokenMessages errors)
   {
-    var errors = new TokenMessages();
-
     if (item.Length == 0) {
-      return errors;
+      return;
     }
 
     _logger.LogInformation("Group verifying of {Type}", item.GetType().GetElementType()?.ExpandTypeName());
@@ -34,8 +31,6 @@ internal abstract class GroupedVerifier<TAliased>(
         errors.Add(definitions.Last().Error($"Multiple {Label} with id '{id}' can't be merged."));
       }
     }
-
-    return errors;
   }
 }
 

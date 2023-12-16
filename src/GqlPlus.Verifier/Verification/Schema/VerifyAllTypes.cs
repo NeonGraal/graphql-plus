@@ -10,23 +10,19 @@ internal class VerifyAllTypes(
   IVerifyUsageAliased<ScalarDeclAst, AstType> scalarAllTypes
 ) : IVerify<AstType[]>
 {
-  public ITokenMessages Verify(AstType[] target)
+  public void Verify(AstType[] item, ITokenMessages errors)
   {
-    var errors = new TokenMessages();
+    var enumTypes = item.OfType<EnumDeclAst>().ToArray();
+    var inputTypes = item.OfType<InputDeclAst>().ToArray();
+    var outputTypes = item.OfType<OutputDeclAst>().ToArray();
+    var scalarTypes = item.OfType<ScalarDeclAst>().ToArray();
 
-    var enumTypes = target.OfType<EnumDeclAst>().ToArray();
-    var inputTypes = target.OfType<InputDeclAst>().ToArray();
-    var outputTypes = target.OfType<OutputDeclAst>().ToArray();
-    var scalarTypes = target.OfType<ScalarDeclAst>().ToArray();
+    var allInputTypes = item.Except(outputTypes).ToArray();
+    var allOutputTypes = item.Except(inputTypes).ToArray();
 
-    var allInputTypes = target.Except(outputTypes).ToArray();
-    var allOutputTypes = target.Except(inputTypes).ToArray();
-
-    errors.AddRange(enumAllTypes.Verify(new(enumTypes, enumTypes)));
-    errors.AddRange(inputAllTypes.Verify(new(inputTypes, allInputTypes)));
-    errors.AddRange(outputAllTypes.Verify(new(outputTypes, allOutputTypes)));
-    errors.AddRange(scalarAllTypes.Verify(new(scalarTypes, target)));
-
-    return errors;
+    enumAllTypes.Verify(new(enumTypes, enumTypes), errors);
+    inputAllTypes.Verify(new(inputTypes, allInputTypes), errors);
+    outputAllTypes.Verify(new(outputTypes, allOutputTypes), errors);
+    scalarAllTypes.Verify(new(scalarTypes, item), errors);
   }
 }

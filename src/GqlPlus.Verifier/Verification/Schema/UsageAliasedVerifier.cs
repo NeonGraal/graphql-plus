@@ -11,7 +11,7 @@ internal abstract class UsageAliasedVerifier<TUsage, TAliased>(
 {
   protected abstract void UsageValue(TUsage usage, IMap<TAliased[]> byId, ITokenMessages errors);
 
-  public void Verify(UsageAliases<TUsage, TAliased> item, ITokenMessages errors)
+  public virtual void Verify(UsageAliases<TUsage, TAliased> item, ITokenMessages errors)
   {
     aliased.Verify(item.Usages, errors);
 

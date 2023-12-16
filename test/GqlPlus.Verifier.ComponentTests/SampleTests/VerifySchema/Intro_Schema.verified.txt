@@ -1,6 +1,7 @@
 ﻿[
-  !!! I@7/7 : Invalid Input Field. '( I@16/8 String )' not defined. - '_Filter' !!!,
-  !!! I@7/7 : Invalid Input Field. '( I@33/9 Boolean )' not defined. - '_Filter' !!!,
-  !!! I@7/13 : Invalid Input Field. '( I@22/15 _Resolution )' not defined. - '_CategoryFilter' !!!,
-  !!! I@7/18 : Invalid Input Field. '( I@16/20 _Kind )' not defined. - '_TypeFilter' !!!
+  !!! I@9/15 : Invalid Input Field. '( I@22/15 _Resolution )' not defined. - 'resolutions' !!!,
+  !!! I@9/20 : Invalid Input Field. '( I@16/20 _Kind )' not defined. - 'kinds' !!!,
+  !!! I@9/2 : Invalid Output Field. '( I@36/2 _Category )' not defined. - 'category' !!!,
+  !!! I@9/3 : Invalid Output Field. '( I@29/3 _Directive )' not defined. - 'directive' !!!,
+  !!! I@9/4 : Invalid Output Field. '( I@28/4 _Type )' not defined. - 'type' !!!
 ]

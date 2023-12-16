@@ -14,14 +14,15 @@ internal class VerifySchema(
   {
     var categories = item.Declarations.OfType<CategoryDeclAst>().ToArray();
     var directives = item.Declarations.OfType<DirectiveDeclAst>().ToArray();
-    var allTypes = item.Declarations.OfType<AstType>().ToArray();
+    var astTypes = item.Declarations.OfType<AstType>().ToArray();
+    var allTypes = astTypes.Concat(BuiltIn.Basic).Concat(BuiltIn.Internal);
 
     categoryOutputs.Verify(new(categories, [.. allTypes.OfType<OutputDeclAst>()]), errors);
 
     directiveInputs.Verify(new(directives, [.. allTypes.OfType<InputDeclAst>()]), errors);
 
-    types.Verify(allTypes, errors);
-    typesAliased.Verify(allTypes, errors);
+    types.Verify(astTypes, errors);
+    typesAliased.Verify(astTypes, errors);
 
     foreach (var error in item.Errors) {
       errors.Add(error);

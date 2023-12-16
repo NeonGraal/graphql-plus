@@ -6,13 +6,6 @@ namespace GqlPlus.Verifier.Parse;
 
 internal class ParseFieldKey : Parser<FieldKeyAst>.I
 {
-  private readonly Dictionary<string, string> _enumValueTypes = new() {
-    ["_"] = "Unit",
-    ["null"] = "Null",
-    ["true"] = "Boolean",
-    ["false"] = "Boolean",
-  };
-
   public IResult<FieldKeyAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
@@ -32,7 +25,7 @@ internal class ParseFieldKey : Parser<FieldKeyAst>.I
           : tokens.Error<FieldKeyAst>(label, "enum value after '.'");
       }
 
-      var type = _enumValueTypes.GetValueOrDefault(enumType, "");
+      var type = BuiltIn.EnumValues.GetValueOrDefault(enumType, "");
       return new FieldKeyAst(at, type, enumType).Ok();
     }
 

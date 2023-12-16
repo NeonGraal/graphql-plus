@@ -1,1 +1,12 @@
-﻿[]
+﻿[
+  !!! I@7/4 : Invalid Output Alternate. '( I@7/4 _TypeEnum )' not defined. - '_TypeEnum' !!!,
+  !!! I@7/7 : Invalid Output Alternate. '( I@7/7 _TypeScalar )' not defined. - '_TypeScalar' !!!,
+  !!! I@8/10 : Invalid Output Base. '( I@7/11 _Aliased )' not defined. - '_BaseType' !!!,
+  !!! I@9/12 : Invalid Output Field. '( I@16/12 $kind )' not defined. - 'kind' !!!,
+  !!! I@9/19 : Invalid Output Field. '( I@21/19 _Named )' not defined. - 'parameters' !!!,
+  !!! I@9/20 : Invalid Output Field. '( I@16/20 $base )' not defined. - 'base' !!!,
+  !!! I@9/21 : Invalid Output Field. '( I@18/21 $field )' not defined. - 'fields' !!!,
+  !!! I@8/28 : Invalid Output Alternate. '( I@8/28 $base )' not defined. - 'base' !!!,
+  !!! I@8/36 : Invalid Output Base. '( I@7/37 _Aliased )' not defined. - '_TypeField' !!!,
+  !!! I@9/57 : Invalid Output Field. '( I@16/57 $kind )' not defined. - 'kind' !!!
+]

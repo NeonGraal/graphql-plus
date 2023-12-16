@@ -5,19 +5,19 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal abstract class ObjectParser<O, F, R>
-  : DeclarationParser<TypeName, TypeParameterAst, NullAst, ObjectDefinition<F, R>, O>, Parser<O>.I
-  where O : AstObject<F, R> where F : AstField<R> where R : AstReference<R>
+internal abstract class ObjectParser<TObject, TField, TReference>
+  : DeclarationParser<TypeName, TypeParameterAst, NullAst, ObjectDefinition<TField, TReference>, TObject>, Parser<TObject>.I
+  where TObject : AstObject<TField, TReference> where TField : AstField<TReference> where TReference : AstReference<TReference>
 {
   protected ObjectParser(
     TypeName name,
     Parser<TypeParameterAst>.DA param,
     Parser<string>.DA aliases,
     Parser<NullAst>.D option,
-    Parser<ObjectDefinition<F, R>>.D definition
+    Parser<ObjectDefinition<TField, TReference>>.D definition
   ) : base(name, param, aliases, option, definition) { }
 
-  protected override bool ApplyParameters(O result, IResultArray<TypeParameterAst> parameter)
+  protected override bool ApplyParameters(TObject result, IResultArray<TypeParameterAst> parameter)
     => parameter.Optional(value => result.TypeParameters = value ?? []);
 }
 

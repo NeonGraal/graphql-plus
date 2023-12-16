@@ -1,1 +1,7 @@
-﻿[]
+﻿[
+  !!! I@8/7 : Invalid Output Base. '( I@7/8 _TypeField < I@18/8 _OutputBase > )' not defined. - '_OutputField' !!!,
+  !!! I@9/9 : Invalid Output Field. '( I@20/9 _Parameter )' not defined. - 'parameter' !!!,
+  !!! I@8/13 : Invalid Output Base. '( I@7/14 _BaseType < I@17/14 _Kind.Enum > )' not defined. - '_OutputArgument' !!!,
+  !!! I@7/16 : Invalid Output Alternate. '( I@7/16 _TypeRef < I@16/16 _OutputBase > )' not defined. - '_TypeRef' !!!,
+  !!! I@8/19 : Invalid Output Base. '( I@7/20 _BaseType < I@17/20 _Kind.Enum > )' not defined. - '_OutputEnum' !!!
+]

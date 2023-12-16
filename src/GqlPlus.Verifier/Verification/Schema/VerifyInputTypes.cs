@@ -6,18 +6,16 @@ namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyInputTypes(
   IVerifyAliased<InputDeclAst> aliased
-) : UsageAliasedVerifier<InputDeclAst, AstType>(aliased)
+) : AstObjectTypesVerifier<InputDeclAst, InputFieldAst, InputReferenceAst>(aliased)
 {
-  protected override void UsageValue(InputDeclAst usage, IMap<AstType[]> byId, ITokenMessages errors)
-  {
-    foreach (var field in usage.Fields) {
-      if (!byId.ContainsKey(field.Type.Name)) {
-        errors.AddError(usage, $"Invalid Input Field. '{field.Type}' not defined.");
-      }
+  public override string Label => "Input";
 
-      if (field.Default?.Value?.EnumValue == "Null.null" && !(field.Modifiers.LastOrDefault()?.Kind == ModifierKind.Optional)) {
-        errors.AddError(usage, $"Invalid Input Field Default. 'null' default requires Optional type, not '{field.ModifiedType}'.");
-      }
+  protected override void UsageField(InputFieldAst field, IMap<AstType[]> byId, ITokenMessages errors)
+  {
+    base.UsageField(field, byId, errors);
+
+    if (field.Default?.Value?.EnumValue == "Null.null" && !(field.Modifiers.LastOrDefault()?.Kind == ModifierKind.Optional)) {
+      errors.AddError(field, $"Invalid Input Field Default. 'null' default requires Optional type, not '{field.ModifiedType}'.");
     }
   }
 }

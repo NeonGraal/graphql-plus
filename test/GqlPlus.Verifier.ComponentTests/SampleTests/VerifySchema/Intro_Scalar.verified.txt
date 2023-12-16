@@ -1,1 +1,4 @@
-﻿[]
+﻿[
+  !!! I@8/8 : Invalid Output Base. '( I@7/9 _BaseType < I@17/9 _Kind.Scalar > )' not defined. - '_BaseScalar' !!!,
+  !!! I@9/10 : Invalid Output Field. '( I@16/10 $base )' not defined. - 'base' !!!
+]

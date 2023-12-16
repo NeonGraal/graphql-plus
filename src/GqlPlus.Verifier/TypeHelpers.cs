@@ -25,8 +25,8 @@ public static class TypeHelpers
     return NestedTypeName(t);
   }
 
-  private static string NestedTypeName(Type? t)
-    => t.IsNested && !t.IsGenericTypeParameter
+  private static string NestedTypeName(Type t)
+    => t.IsNested && !t.IsGenericTypeParameter && t.DeclaringType is not null
       ? NestedTypeName(t.DeclaringType) + "+" + t.Name
       : t.Name;
 }

@@ -261,7 +261,7 @@ Success
   !EV I@27/54
   List
   !EV I@32/54
-  ModifierDictionary
+  Dictionary
 }
 {
   !O I@8/56

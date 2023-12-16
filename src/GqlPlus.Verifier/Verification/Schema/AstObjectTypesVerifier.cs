@@ -4,25 +4,31 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
-internal abstract class AstObjectTypesVerifier<TObject, TField, TReference>(
+internal abstract class AstObjectTypesVerifier<TObject, TField, TReference, TContext>(
   IVerifyAliased<TObject> aliased
-) : UsageAliasedVerifier<TObject, AstType>(aliased)
-  where TObject : AstObject<TField, TReference> where TField : AstField<TReference> where TReference : AstReference<TReference>
+) : UsageAliasedVerifier<TObject, AstType, TContext>(aliased)
+  where TObject : AstObject<TField, TReference>
+  where TField : AstField<TReference>
+  where TReference : AstReference<TReference>
+  where TContext : UsageContext
 {
   public abstract string Label { get; }
 
-  protected override void UsageValue(TObject usage, IMap<AstType[]> byId, ITokenMessages errors)
+  //protected ObjectContext MakeContext(TObject usage, IMap<AstType[]> byId, ITokenMessages errors)
+  //{
+  //  var validTypes = byId
+  //    .Select(p => (Id: p.Key, Type: (AstDescribed)p.Value.First()))
+  //    .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (AstDescribed)p)))
+  //    .ToMap(p => p.Id, p => p.Type);
+
+  //  throw new(validTypes, errors, []);
+  //}
+
+  protected override void UsageValue(TObject usage, TContext context)
   {
-    if (usage.Extends is not null && !byId.ContainsKey(usage.Extends.Name)) {
-      errors.AddError(usage, $"Invalid {Label} Base. '{usage.Extends}' not defined.");
+    if (usage.Extends is not null) {
+      CheckType(usage.Extends, context);
     }
-
-    var validTypes = byId
-      .Select(p => (Id: p.Key, Type: (AstDescribed)p.Value.First()))
-      .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (AstDescribed)p)))
-      .ToMap(p => p.Id, p => p.Type);
-
-    ObjectContext context = new(validTypes, errors, []);
 
     foreach (var field in usage.Fields) {
       UsageField(field, context);
@@ -34,33 +40,36 @@ internal abstract class AstObjectTypesVerifier<TObject, TField, TReference>(
 
     foreach (var typeParameter in usage.TypeParameters) {
       if (!context.Used.Contains("$" + typeParameter.Name)) {
-        errors.AddError(typeParameter, $"Invalid {Label}. '${typeParameter.Name}' not used.");
+        context.AddError(typeParameter, $"Invalid {Label}. '${typeParameter.Name}' not used.");
       }
     }
   }
 
-  protected virtual void UsageAlternate(AlternateAst<TReference> alternate, ObjectContext context)
+  protected virtual void UsageAlternate(AlternateAst<TReference> alternate, TContext context)
+    => CheckType(alternate.Type, context);
+
+  protected virtual void UsageField(TField field, TContext context)
+    => CheckType(field.Type, context);
+
+  protected virtual void CheckArgumentType(TReference type, TContext context)
+    => CheckType(type, context);
+
+  protected virtual void CheckType(TReference type, TContext context)
   {
-    if (context.Types.ContainsKey(alternate.Type.TypeName)) {
-      context.Used.Add(alternate.Type.TypeName);
+    if (context.GetType(type.TypeName, out AstDescribed? value)) {
+      var numArgs = type.Arguments.Length;
+      if (value is AstObject<TField, TReference> definition) {
+        var numParams = definition.TypeParameters.Length;
+        if (numParams != numArgs) {
+          context.AddError(type, $"Invalid {Label}. Arguments mismatch, expected {numParams} given {numArgs}");
+        }
+      }
+
+      foreach (var arg in type.Arguments) {
+        CheckArgumentType(arg, context);
+      }
     } else {
-      context.AddError(alternate, $"Invalid {Label} Alternate. '{alternate.Type.TypeName}' not defined.");
+      context.AddError(type, $"Invalid {Label}. '{type.TypeName}' not defined.");
     }
   }
-
-  protected virtual void UsageField(TField field, ObjectContext context)
-  {
-    if (context.Types.ContainsKey(field.Type.TypeName)) {
-      context.Used.Add(field.Type.TypeName);
-    } else {
-      context.AddError(field, $"Invalid {Label} Field. '{field.Type.TypeName}' not defined.");
-    }
-  }
-}
-
-internal record struct ObjectContext(IMap<AstDescribed> Types, ITokenMessages Errors, HashSet<string> Used)
-{
-  public readonly void AddError<TAst>(TAst item, string message)
-      where TAst : AstBase
-      => Errors.AddError(item, message);
 }

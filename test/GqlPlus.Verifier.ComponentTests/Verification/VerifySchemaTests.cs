@@ -26,6 +26,8 @@ public class VerifySchemaTests(
   {
     var input = s_validObjects[schema];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
+      using var scope = new AssertionScope();
+
       Verify_Valid(input.Replace("object", "input"));
       Verify_Valid(input.Replace("object", "output"));
     } else {
@@ -37,14 +39,13 @@ public class VerifySchemaTests(
   [MemberData(nameof(InvalidObjects))]
   public async Task Verify_InvalidObjects(string schema)
   {
-    var input = s_invalidObjects[schema];
-    if (input.StartsWith("object", StringComparison.Ordinal)) {
-      using var scope = new AssertionScope();
-
-      await Verify_Invalid(input.Replace("object", "input"), "input-" + schema);
-      await Verify_Invalid(input.Replace("object", "output"), "output-" + schema);
+    var doc = s_invalidObjects[schema];
+    if (doc.StartsWith("object", StringComparison.Ordinal)) {
+      await WhenAll(
+        Verify_Invalid(doc.Replace("object", "input"), "input-" + schema),
+        Verify_Invalid(doc.Replace("object", "output"), "output-" + schema));
     } else {
-      await Verify_Invalid(input, schema);
+      await Verify_Invalid(doc, schema);
     }
   }
 
@@ -75,19 +76,34 @@ public class VerifySchemaTests(
   public static IEnumerable<object[]> InvalidSchemas => SchemaKeys(s_invalidSchemas);
 
   private static readonly Map<string> s_validObjects = new() {
-    ["generic-alternate"] = "object Test<$type> { | $type }",
+    ["base"] = "object Test { : Base } object Base { }",
+    ["generic-alt"] = "object Test<$type> { | $type }",
+    ["generic-base"] = "object Test<$type> { : $type }",
     ["generic-field"] = "object Test<$type> { field: $type }",
+    ["generic-alt-arg"] = "object Test<$type> { | Ref<$type> } object Ref<$ref> { | $ref }",
+    ["generic-base-arg"] = "object Test<$type> { : Ref<$type> } object Ref<$ref> { | $ref }",
+    ["generic-field-arg"] = "object Test<$type> { field: Ref<$type> } object Ref<$ref> { | $ref }",
+    ["generic-param"] = "object Test { field: Ref<Test1> } object Ref<$ref> { | $ref } object Test1 { }",
     ["merge"] = "object Test { } object Test { }",
     ["merge-alts"] = "object Test { | Test1 } object Test { | Test1 } object Test1 { }",
     ["merge-fields"] = "object Test { field: Test } object Test { field: Test }",
     ["input-field-optional-null"] = "input Test { field: Test? = null}",
     ["output-merge-params"] = "output Test { field(Param): Test } output Test { field: Test } input Param { }",
-    ["output-merge-enums"] = "output Test { field = true } output Test { field = true }",
+    ["output-merge-enums"] = "output Test { field = Boolean.true } output Test { field = true }",
+    ["output-generic-enum"] = "output Test { | Ref<Boolean.false> } output Ref<$type> { field: $type }",
+    ["output-generic-value"] = "output Test { | Ref<false> } output Ref<$type> { field: $type }",
   };
   public static IEnumerable<object[]> ValidObjects => SchemaKeys(s_validObjects);
 
   private static readonly Map<string> s_invalidObjects = new() {
-    ["generic-undefined"] = "object Test { field: $type }",
+    ["base-undef"] = "object Test { : Base }",
+    ["generic-alt-undef"] = "object Test { | $type }",
+    ["generic-base-undef"] = "object Test { : $type }",
+    ["generic-field-undef"] = "object Test { field: $type }",
+    ["generic-arg-undef"] = "object Test { field: Ref<$type> } object Ref<$ref> { | $ref }",
+    ["generic-arg-more"] = "object Test<$type> { field: Ref<$type> } object Ref { }",
+    ["generic-arg-less"] = "object Test { field: Ref } object Ref<$ref> { | $ref }",
+    ["generic-param-undef"] = "object Test { field: Ref<Test1> } object Ref<$ref> { | $ref }",
     ["generic-unused"] = "object Test<$type> { }",
     ["alts-diff-mods"] = "object Test { | Test1 } object Test { | Test1[] } object Test1 { }",
     ["fields-diff-type"] = "object Test { field: Test } object Test { field: Test1 } object Test1 { }",
@@ -95,7 +111,9 @@ public class VerifySchemaTests(
     ["input-field-null"] = "input Test { field: Test = null }",
     ["output-diff-params"] = "output Test { field(Param): Test } output Test { field(Param?): Test } input Param { }",
     ["output-bad-enum"] = "output Test { field = unknown }",
+    ["output-bad-enumValue"] = "output Test { field = Boolean.unknown }",
     ["output-diff-enums"] = "output Test { field = true } output Test { field = false }",
+    ["output-generic-enum-bad"] = "output Test { | Ref<Boolean.unknown> } output Ref<$type> { field: $type }",
   };
   public static IEnumerable<object[]> InvalidObjects => SchemaKeys(s_invalidObjects);
 
@@ -140,5 +158,22 @@ public class VerifySchemaTests(
     settings.UseMethodName(test);
 
     await Verify(result.Select(m => m.Message), settings);
+  }
+
+  private static async Task WhenAll(params Task[] tasks)
+  {
+    using var scope = new AssertionScope();
+
+    var all = Task.WhenAll(tasks);
+
+    try {
+      await all;
+    } catch (Exception) {
+      if (all.Exception is not null) {
+        throw all.Exception;
+      }
+
+      throw;
+    }
   }
 }

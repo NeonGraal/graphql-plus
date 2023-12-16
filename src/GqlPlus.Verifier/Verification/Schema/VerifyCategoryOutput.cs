@@ -1,17 +1,19 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyCategoryOutput(
   IVerifyAliased<CategoryDeclAst> aliased
-) : UsageAliasedVerifier<CategoryDeclAst, OutputDeclAst>(aliased)
+) : UsageAliasedVerifier<CategoryDeclAst, OutputDeclAst, UsageContext>(aliased)
 {
-  protected override void UsageValue(CategoryDeclAst usage, IMap<OutputDeclAst[]> byId, ITokenMessages errors)
+  protected override UsageContext MakeContext(CategoryDeclAst usage, IMap<OutputDeclAst[]> byId, ITokenMessages errors)
+    => MakeUsageContext(byId, errors);
+
+  protected override void UsageValue(CategoryDeclAst usage, UsageContext context)
   {
-    if (!byId.ContainsKey(usage.Output)) {
-      errors.AddError(usage, $"Invalid Category Output. '{usage.Output}' not defined.");
+    if (!context.GetType(usage.Output, out var _)) {
+      context.AddError(usage, $"Invalid Category Output. '{usage.Output}' not defined.");
     }
   }
 }

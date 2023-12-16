@@ -26,4 +26,7 @@ public sealed record class EnumDeclAst(
     => base.GetFields()
       .Append(Extends.Prefixed(":"))
       .Concat(Values.Bracket());
+
+  internal bool HasValue(string value)
+    => Values.Any(v => v.Name == value || v.Aliases.Contains(value));
 }

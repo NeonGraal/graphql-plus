@@ -1,4 +1,4 @@
 ﻿[
-  !!! I@8/1 : Invalid Output Base. '( I@7/2 _Aliased )' not defined. - '_Category' !!!,
-  !!! I@9/4 : Invalid Output Field. '_Type' not defined. - 'type' !!!
+  !!! I@7/2 : Invalid Output. '_Aliased' not defined. - '_Aliased' !!!,
+  !!! I@15/4 : Invalid Output. '_Type' not defined. - '_Type' !!!
 ]

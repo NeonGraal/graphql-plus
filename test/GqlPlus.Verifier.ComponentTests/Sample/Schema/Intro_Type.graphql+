@@ -51,7 +51,7 @@ output _TypeModifier {
     | _ModifierDictionary
     }
 
-enum _Modifier { Optional List ModifierDictionary }
+enum _Modifier { Optional List Dictionary }
 
 output _BaseModifier<$kind> {
         kind: $kind

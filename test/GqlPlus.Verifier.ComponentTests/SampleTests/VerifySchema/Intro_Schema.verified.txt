@@ -1,7 +1,7 @@
 ﻿[
-  !!! I@9/15 : Invalid Input Field. '( I@22/15 _Resolution )' not defined. - 'resolutions' !!!,
-  !!! I@9/20 : Invalid Input Field. '( I@16/20 _Kind )' not defined. - 'kinds' !!!,
-  !!! I@9/2 : Invalid Output Field. '( I@36/2 _Category )' not defined. - 'category' !!!,
-  !!! I@9/3 : Invalid Output Field. '( I@29/3 _Directive )' not defined. - 'directive' !!!,
-  !!! I@9/4 : Invalid Output Field. '( I@28/4 _Type )' not defined. - 'type' !!!
+  !!! I@9/15 : Invalid Input Field. '_Resolution' not defined. - 'resolutions' !!!,
+  !!! I@9/20 : Invalid Input Field. '_Kind' not defined. - 'kinds' !!!,
+  !!! I@9/2 : Invalid Output Field. '_Category' not defined. - 'category' !!!,
+  !!! I@9/3 : Invalid Output Field. '_Directive' not defined. - 'directive' !!!,
+  !!! I@9/4 : Invalid Output Field. '_Type' not defined. - 'type' !!!
 ]

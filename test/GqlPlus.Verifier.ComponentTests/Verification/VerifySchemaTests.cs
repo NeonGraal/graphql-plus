@@ -75,6 +75,8 @@ public class VerifySchemaTests(
   public static IEnumerable<object[]> InvalidSchemas => SchemaKeys(s_invalidSchemas);
 
   private static readonly Map<string> s_validObjects = new() {
+    ["generic-alternate"] = "object Test<$type> { | $type }",
+    ["generic-field"] = "object Test<$type> { field: $type }",
     ["merge"] = "object Test { } object Test { }",
     ["merge-alts"] = "object Test { | Test1 } object Test { | Test1 } object Test1 { }",
     ["merge-fields"] = "object Test { field: Test } object Test { field: Test }",
@@ -85,7 +87,8 @@ public class VerifySchemaTests(
   public static IEnumerable<object[]> ValidObjects => SchemaKeys(s_validObjects);
 
   private static readonly Map<string> s_invalidObjects = new() {
-    ["diff-base"] = "object Test { :Base } object Test { } object Base { }",
+    ["generic-undefined"] = "object Test { field: $type }",
+    ["generic-unused"] = "object Test<$type> { }",
     ["alts-diff-mods"] = "object Test { | Test1 } object Test { | Test1[] } object Test1 { }",
     ["fields-diff-type"] = "object Test { field: Test } object Test { field: Test1 } object Test1 { }",
     ["fields-diff-mods"] = "object Test { field: Test } object Test { field: Test[] } ",

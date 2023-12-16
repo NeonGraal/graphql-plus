@@ -1,7 +1,7 @@
 ﻿[
   !!! I@8/1 : Invalid Output Base. '( I@7/2 _Aliased )' not defined. - '_Directive' !!!,
-  !!! I@9/5 : Invalid Output Field. '( I@20/5 _Location )' not defined. - 'locations' !!!,
+  !!! I@9/5 : Invalid Output Field. '_Location' not defined. - 'locations' !!!,
   !!! I@8/8 : Invalid Output Base. '( I@7/9 _TypeRef < I@16/9 _InputBase > )' not defined. - '_Parameter' !!!,
-  !!! I@9/10 : Invalid Output Field. '( I@20/10 _TypeModifier )' not defined. - 'modifiers' !!!,
-  !!! I@9/11 : Invalid Output Field. '( I@18/11 _Constant )' not defined. - 'default' !!!
+  !!! I@9/10 : Invalid Output Field. '_TypeModifier' not defined. - 'modifiers' !!!,
+  !!! I@9/11 : Invalid Output Field. '_Constant' not defined. - 'default' !!!
 ]

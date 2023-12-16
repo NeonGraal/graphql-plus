@@ -1,4 +1,4 @@
 ﻿[
   !!! I@8/1 : Invalid Output Base. '( I@7/2 _BaseType < I@17/2 _Kind.Enum > )' not defined. - '_TypeEnum' !!!,
-  !!! I@9/4 : Invalid Output Field. '( I@17/4 _Aliased )' not defined. - 'values' !!!
+  !!! I@9/4 : Invalid Output Field. '_Aliased' not defined. - 'values' !!!
 ]

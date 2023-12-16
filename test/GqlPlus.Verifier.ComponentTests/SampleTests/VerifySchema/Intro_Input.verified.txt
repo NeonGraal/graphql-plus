@@ -1,4 +1,4 @@
 ﻿[
-  !!! I@9/3 : Invalid Output Field. '( I@20/3 _TypeRef < I@29/3 _InputBase > )' not defined. - 'arguments' !!!,
-  !!! I@7/8 : Invalid Output Alternate. '( I@7/8 _TypeField < I@18/8 _InputBase > )' not defined. - '_TypeField' !!!
+  !!! I@9/3 : Invalid Output Field. '_TypeRef' not defined. - 'arguments' !!!,
+  !!! I@7/8 : Invalid Output Alternate. '_TypeField' not defined. - '_TypeField' !!!
 ]

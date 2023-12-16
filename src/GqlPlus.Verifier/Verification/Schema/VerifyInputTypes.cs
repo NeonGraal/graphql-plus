@@ -10,12 +10,12 @@ internal class VerifyInputTypes(
 {
   public override string Label => "Input";
 
-  protected override void UsageField(InputFieldAst field, IMap<AstType[]> byId, ITokenMessages errors)
+  protected override void UsageField(InputFieldAst field, ObjectContext context)
   {
-    base.UsageField(field, byId, errors);
+    base.UsageField(field, context);
 
     if (field.Default?.Value?.EnumValue == "Null.null" && !(field.Modifiers.LastOrDefault()?.Kind == ModifierKind.Optional)) {
-      errors.AddError(field, $"Invalid Input Field Default. 'null' default requires Optional type, not '{field.ModifiedType}'.");
+      context.AddError(field, $"Invalid Input Field Default. 'null' default requires Optional type, not '{field.ModifiedType}'.");
     }
   }
 }

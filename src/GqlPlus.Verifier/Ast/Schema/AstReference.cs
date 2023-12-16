@@ -14,9 +14,6 @@ public abstract record class AstReference<TReference>(TokenAt At, string Name, s
     .Prepend(IsTypeParameter ? Name.Prefixed("$") : Name)
     .Joined();
 
-  protected AstReference(TokenAt at, string name)
-    : this(at, name, "") { }
-
   public virtual bool Equals(TReference? other)
     => base.Equals(other)
     && IsTypeParameter == other.IsTypeParameter

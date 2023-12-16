@@ -3,18 +3,12 @@
 public static class TypeHelpers
 {
   public static string FullTypeName(this Type t, string? ns = null)
-      => t is null
-        ? "{null}"
-        : t.Namespace is null || t.Namespace == ns
-          ? ExpandTypeName(t)
-          : t.Namespace + "::" + ExpandTypeName(t);
+      => t.Namespace is null || t.Namespace == ns
+        ? ExpandTypeName(t)
+        : t.Namespace + "::" + ExpandTypeName(t);
 
   public static string ExpandTypeName(this Type t)
   {
-    if (t is null) {
-      return "{null}";
-    }
-
     if (t.IsGenericTypeParameter) {
       return "";
     }
@@ -32,9 +26,7 @@ public static class TypeHelpers
   }
 
   private static string NestedTypeName(Type? t)
-    => t is null
-      ? "{null}"
-      : t.IsNested && !t.IsGenericTypeParameter
-        ? NestedTypeName(t.DeclaringType) + "+" + t.Name
-        : t.Name;
+    => t.IsNested && !t.IsGenericTypeParameter
+      ? NestedTypeName(t.DeclaringType) + "+" + t.Name
+      : t.Name;
 }

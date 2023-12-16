@@ -91,6 +91,7 @@ public class VerifySchemaTests(
     ["fields-diff-mods"] = "object Test { field: Test } object Test { field: Test[] } ",
     ["input-field-null"] = "input Test { field: Test = null }",
     ["output-diff-params"] = "output Test { field(Param): Test } output Test { field(Param?): Test } input Param { }",
+    ["output-bad-enum"] = "output Test { field = unknown }",
     ["output-diff-enums"] = "output Test { field = true } output Test { field = false }",
   };
   public static IEnumerable<object[]> InvalidObjects => SchemaKeys(s_invalidObjects);

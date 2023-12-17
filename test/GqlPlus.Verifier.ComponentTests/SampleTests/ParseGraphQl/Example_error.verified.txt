@@ -1,7 +1,0 @@
-﻿!O P@0
-query
-Failure
-<
-  !!!  E@3 : Invalid Object. Expected at least one Field or Selection - '<END>' !!!
-  !!!  E@3 : Result not present. Expected Object or Type. - '<END>' !!!
->

@@ -1,3 +1,0 @@
-﻿[
-  Multiple Inputs with id 'Test' can't be merged.
-]

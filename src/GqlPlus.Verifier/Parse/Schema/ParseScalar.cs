@@ -6,16 +6,14 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, ScalarDefinition, ScalarDeclAst>
+internal class ParseScalar(
+  TypeName name,
+  Parser<NullAst>.DA param,
+  Parser<string>.DA aliases,
+  Parser<NullAst>.D option,
+  Parser<ScalarDefinition>.D definition
+) : DeclarationParser<TypeName, NullAst, NullAst, ScalarDefinition, ScalarDeclAst>(name, param, aliases, option, definition)
 {
-  public ParseScalar(
-    TypeName name,
-    Parser<NullAst>.DA param,
-    Parser<string>.DA aliases,
-    Parser<NullAst>.D option,
-    Parser<ScalarDefinition>.D definition
-  ) : base(name, param, aliases, option, definition) { }
-
   protected override void ApplyDefinition(ScalarDeclAst result, ScalarDefinition value)
   {
     result.Kind = value.Kind;
@@ -44,22 +42,17 @@ internal class ParseScalar : DeclarationParser<TypeName, NullAst, NullAst, Scala
 internal class ScalarDefinition
 {
   public ScalarKind Kind { get; set; } = ScalarKind.Number;
-  public ScalarRangeAst[] Ranges { get; set; } = Array.Empty<ScalarRangeAst>();
-  public ScalarRegexAst[] Regexes { get; set; } = Array.Empty<ScalarRegexAst>();
+  public ScalarRangeAst[] Ranges { get; set; } = [];
+  public ScalarRegexAst[] Regexes { get; set; } = [];
 }
 
-internal class ParseScalarDefinition : Parser<ScalarDefinition>.I
+internal class ParseScalarDefinition(
+  Parser<ScalarRangeAst>.DA ranges,
+  Parser<ScalarRegexAst>.DA regexes
+) : Parser<ScalarDefinition>.I
 {
-  private readonly Parser<ScalarRangeAst>.LA _ranges;
-  private readonly Parser<ScalarRegexAst>.LA _regexes;
-
-  public ParseScalarDefinition(
-    Parser<ScalarRangeAst>.DA ranges,
-    Parser<ScalarRegexAst>.DA regexes)
-  {
-    _ranges = ranges;
-    _regexes = regexes;
-  }
+  private readonly Parser<ScalarRangeAst>.LA _ranges = ranges;
+  private readonly Parser<ScalarRegexAst>.LA _regexes = regexes;
 
   public IResult<ScalarDefinition> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -89,57 +82,5 @@ internal class ParseScalarDefinition : Parser<ScalarDefinition>.I
       default:
         return tokens.Partial(label, "valid kind", () => result); // not covered
     }
-  }
-}
-
-internal class ParseScalarRange : Parser<ScalarRangeAst>.I
-{
-  public IResult<ScalarRangeAst> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
-  {
-    var at = tokens.At;
-    var range = new ScalarRangeAst(at);
-    var hasLower = tokens.Number(out var min);
-    var excludesLower = tokens.Take('>');
-    var hasRange = tokens.Take("..");
-    if (hasLower && !hasRange) {
-      return tokens.Error(label, "range operator ('..')", range);
-    }
-
-    var excludesUpper = tokens.Take('<');
-    var hasUpper = tokens.Number(out var max);
-
-    if (hasLower) {
-      range.Lower = min;
-      range.LowerExcluded = excludesLower;
-    }
-
-    if (hasUpper) {
-      range.Upper = max;
-      range.UpperExcluded = excludesUpper;
-    }
-
-    return hasLower || hasUpper
-      ? range.Ok()
-      : hasRange
-        ? tokens.Error(label, "min or max bounds", range)
-        : range.Empty();
-  }
-}
-
-internal class ParseScalarRegex : Parser<ScalarRegexAst>.I
-{
-  public IResult<ScalarRegexAst> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
-  {
-    ScalarRegexAst? result = null;
-    var at = tokens.At;
-    if (tokens.Regex(out var regex)) {
-      var excluded = tokens.Take('!');
-      result = new(at, regex, excluded);
-      return result.Ok();
-    }
-
-    return result.Empty();
   }
 }

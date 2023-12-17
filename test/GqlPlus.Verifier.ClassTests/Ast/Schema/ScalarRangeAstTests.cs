@@ -36,16 +36,16 @@ public class ScalarRangeAstTests : AstBaseTests<RangeInput>
 
 public record struct RangeInput(decimal? Min, decimal? Max)
 {
-  internal decimal? Lower => Max < Min ? Max : Min;
-  internal decimal? Upper => Max < Min ? Min : Max;
+  internal readonly decimal? Lower => Max < Min ? Max : Min;
+  internal readonly decimal? Upper => Max < Min ? Min : Max;
 
   internal string StringExcluded(bool minEx, bool maxEx)
   {
     var upExc = maxEx ? "< " : "";
     var lowExc = minEx ? " >" : "";
-    return Lower is null ? $".. {upExc}{Upper}"
-      : Upper is null ? $"{Lower}{lowExc} .."
-      : $"{Lower}{lowExc} .. {upExc}{Upper}";
+    return Lower is null ? $": {upExc}{Upper}"
+      : Upper is null ? $"{Lower}{lowExc} :"
+      : $"{Lower}{lowExc} : {upExc}{Upper}";
   }
 
   public ScalarRangeAst[] ScalarRanges()

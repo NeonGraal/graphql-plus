@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public sealed class ParseScalarTests
-  : BaseAliasedTests<ScalarInput>
+public sealed class ParseScalarTests(Parser<ScalarDeclAst>.D parser)
+    : BaseAliasedTests<ScalarInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithNameBad_ReturnsFalse(decimal id)
@@ -30,15 +30,15 @@ public sealed class ParseScalarTests
 
   [Theory, RepeatData(Repeats)]
   public void WithNoBounds_ReturnsFalse(string name)
-    => _test.False(name + "{number ..}");
+    => _test.False(name + "{number :}");
 
   [Theory, RepeatData(Repeats)]
   public void WithLowerBound_ReturnsCorrectAst(string name, decimal min)
     => _test.TrueExpected(
-      name + $"{{number {min}..}}",
+      name + $"{{number {min}:}}",
       new ScalarDeclAst(AstNulls.At, name) {
         Kind = ScalarKind.Number,
-        Ranges = new ScalarRangeAst[] { new(AstNulls.At, min, null) },
+        Ranges = [new(AstNulls.At, min, null)],
       });
 
   [Theory, RepeatData(Repeats)]
@@ -48,35 +48,33 @@ public sealed class ParseScalarTests
   [Theory, RepeatData(Repeats)]
   public void WithUpperBound_ReturnsCorrectAst(string name, decimal max)
     => _test.TrueExpected(
-      name + $"{{number ..{max}}}",
+      name + $"{{number :{max}}}",
       new ScalarDeclAst(AstNulls.At, name) {
         Kind = ScalarKind.Number
         ,
-        Ranges = new ScalarRangeAst[] { new(AstNulls.At, null, max) },
+        Ranges = [new(AstNulls.At, null, max)],
       });
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeBounds_ReturnsCorrectAst(string name, decimal min, decimal max)
     => _test.TrueExpected(
-      name + $"{{number {min}>..<{max}}}",
+      name + $"{{number {min}>:<{max}}}",
       new ScalarDeclAst(AstNulls.At, name) {
         Kind = ScalarKind.Number,
-        Ranges = new ScalarRangeAst[] { new(AstNulls.At, min, max) {
-          LowerExcluded = true, UpperExcluded = true,
-        } },
+        Ranges = [new(AstNulls.At, min, max) {
+          LowerExcluded = true,
+          UpperExcluded = true,
+        }],
       },
       max <= min);
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeBoundsBad_ReturnsCorrectAst(string name, decimal min, decimal max)
     => _test.False(
-      name + $"{{number ..<{max} {min}>}}",
+      name + $"{{number :<{max} {min}>}}",
       skipIf: max > min);
 
   internal override IBaseAliasedChecks<ScalarInput> AliasChecks => _test;
 
-  private readonly ParseScalarChecks _test;
-
-  public ParseScalarTests(Parser<ScalarDeclAst>.D parser)
-    => _test = new(parser);
+  private readonly ParseScalarChecks _test = new(parser);
 }

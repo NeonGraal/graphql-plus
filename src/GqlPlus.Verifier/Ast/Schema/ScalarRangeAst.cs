@@ -27,6 +27,6 @@ public sealed record class ScalarRangeAst(TokenAt At)
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()
       .Append(Lower?.ToString().Suffixed(LowerExcluded ? " >" : ""))
-      .Append("..")
+      .Append(":")
       .Append(Upper?.ToString().Prefixed(UpperExcluded ? "< " : ""));
 }

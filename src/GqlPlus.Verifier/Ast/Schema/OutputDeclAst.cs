@@ -9,6 +9,7 @@ public sealed record class OutputDeclAst(
 ) : AstObject<OutputFieldAst, OutputReferenceAst>(At, Name, Description)
 {
   internal override string Abbr => "O";
+  public override string Label => "Output";
 
   public OutputDeclAst(TokenAt at, string name)
     : this(at, name, "") { }

@@ -4,8 +4,8 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Verification.Operation;
 
 internal class VerifyOperation(
-  IVerifyUsageNamed<ArgumentAst, VariableAst> usages,
-  IVerifyUsageNamed<SpreadAst, FragmentAst> spreads
+  IVerifyNamed<ArgumentAst, VariableAst> usages,
+  IVerifyNamed<SpreadAst, FragmentAst> spreads
 ) : IVerify<OperationAst>
 {
   public void Verify(OperationAst item, ITokenMessages errors)

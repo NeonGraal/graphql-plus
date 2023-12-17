@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyDirectiveInput(
   IVerifyAliased<DirectiveDeclAst> aliased
-) : UsageAliasedVerifier<DirectiveDeclAst, InputDeclAst, UsageContext>(aliased)
+) : UsageVerifier<DirectiveDeclAst, InputDeclAst, UsageContext>(aliased)
 {
   protected override UsageContext MakeContext(DirectiveDeclAst usage, IMap<InputDeclAst[]> byId, ITokenMessages errors)
     => MakeUsageContext(byId, errors);
@@ -14,7 +14,7 @@ internal class VerifyDirectiveInput(
   {
     foreach (var parameter in usage.Parameters) {
       if (!context.GetType(parameter.Input.TypeName, out var _)) {
-        context.AddError(parameter, $"Invalid Directive Parameter. '{parameter.Input}' not defined");
+        context.AddError(parameter, "Directive Parameter", $"'{parameter.Input}' not defined");
       }
     }
   }

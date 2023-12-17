@@ -8,8 +8,6 @@ internal class VerifyInputTypes(
   IVerifyAliased<InputDeclAst> aliased
 ) : AstObjectTypesVerifier<InputDeclAst, InputFieldAst, InputReferenceAst, UsageContext>(aliased)
 {
-  public override string Label => "Input";
-
   protected override UsageContext MakeContext(InputDeclAst usage, IMap<AstType[]> byId, ITokenMessages errors)
   {
     var validTypes = byId
@@ -25,7 +23,7 @@ internal class VerifyInputTypes(
     base.UsageField(field, context);
 
     if (field.Default?.Value?.EnumValue == "Null.null" && !(field.Modifiers.LastOrDefault()?.Kind == ModifierKind.Optional)) {
-      context.AddError(field, $"Invalid Input Field Default. 'null' default requires Optional type, not '{field.ModifiedType}'.");
+      context.AddError(field, "Input Field Default", $"'null' default requires Optional type, not '{field.ModifiedType}'");
     }
   }
 }

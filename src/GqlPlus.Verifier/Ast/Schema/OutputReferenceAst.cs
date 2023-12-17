@@ -11,6 +11,7 @@ public sealed record class OutputReferenceAst(TokenAt At, string Name, string De
   public string? EnumValue { get; set; }
 
   internal override string Abbr => "OR";
+  public override string Label => "Output";
 
   public override bool Equals(OutputReferenceAst? other)
     => base.Equals(other)

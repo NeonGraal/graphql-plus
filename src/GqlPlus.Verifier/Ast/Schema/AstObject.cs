@@ -2,16 +2,18 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public abstract record class AstObject<F, R>(TokenAt At, string Name, string Description)
-  : AstType(At, Name, Description), IEquatable<AstObject<F, R>>
-  where F : AstField<R> where R : AstReference<R>, IEquatable<R>
+public abstract record class AstObject<TField, TReference>(TokenAt At, string Name, string Description)
+  : AstType(At, Name, Description), IEquatable<AstObject<TField, TReference>>, IAstObject
+  where TField : AstField<TReference> where TReference : AstReference<TReference>, IEquatable<TReference>
 {
   public TypeParameterAst[] TypeParameters { get; set; } = [];
-  public R? Extends { get; set; }
-  public F[] Fields { get; set; } = [];
-  public AlternateAst<R>[] Alternates { get; set; } = [];
+  public TReference? Extends { get; set; }
+  public TField[] Fields { get; set; } = [];
+  public AlternateAst<TReference>[] Alternates { get; set; } = [];
 
-  public virtual bool Equals(AstObject<F, R>? other)
+  public abstract string Label { get; }
+
+  public virtual bool Equals(AstObject<TField, TReference>? other)
     => base.Equals(other)
       && TypeParameters.SequenceEqual(other.TypeParameters)
       && Extends.NullEqual(other.Extends)
@@ -25,4 +27,11 @@ public abstract record class AstObject<F, R>(TokenAt At, string Name, string Des
       .Concat(Extends.Bracket(":", ""))
       .Concat(Fields.Bracket("{", "}"))
       .Concat(Alternates.Bracket("|"));
+}
+
+public interface IAstObject
+{
+  string Name { get; }
+  TypeParameterAst[] TypeParameters { get; }
+  string Label { get; }
 }

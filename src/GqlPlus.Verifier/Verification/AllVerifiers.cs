@@ -47,10 +47,10 @@ public static class AllVerifiers
   }
 
   public static IServiceCollection AddVerifyUsageNamed<U, D, S>(this IServiceCollection services)
-    where S : class, IVerifyUsageNamed<U, D>
+    where S : class, IVerifyNamed<U, D>
     where U : AstBase where D : AstNamed
   => services
-      .AddSingleton<IVerifyUsageNamed<U, D>, S>()
+      .AddSingleton<IVerifyNamed<U, D>, S>()
       .TryAddVerify<U, NullVerifier<U>>()
       .TryAddVerify<D, NullVerifier<D>>();
 
@@ -62,10 +62,10 @@ public static class AllVerifiers
       .TryAddVerify<A, NullVerifier<A>>();
 
   public static IServiceCollection AddVerifyUsageAliased<U, A, S>(this IServiceCollection services)
-    where S : class, IVerifyUsageAliased<U, A>
+    where S : class, IVerifyUsage<U, A>
     where U : AstBase where A : AstAliased
     => services
-      .AddSingleton<IVerifyUsageAliased<U, A>, S>()
+      .AddSingleton<IVerifyUsage<U, A>, S>()
       .TryAddVerify<U, NullVerifier<U>>()
       .TryAddVerify<A, NullVerifier<A>>();
 }

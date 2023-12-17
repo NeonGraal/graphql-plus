@@ -4,8 +4,8 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifySchema(
-  IVerifyUsageAliased<CategoryDeclAst, OutputDeclAst> categoryOutputs,
-  IVerifyUsageAliased<DirectiveDeclAst, InputDeclAst> directiveInputs,
+  IVerifyUsage<CategoryDeclAst, OutputDeclAst> categoryOutputs,
+  IVerifyUsage<DirectiveDeclAst, InputDeclAst> directiveInputs,
   IVerifyAliased<AstType> typesAliased,
   IVerify<AstType[]> types
 ) : IVerify<SchemaAst>

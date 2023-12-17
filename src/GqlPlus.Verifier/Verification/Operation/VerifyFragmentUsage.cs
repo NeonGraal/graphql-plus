@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Verification.Operation;
 internal class VerifyFragmentUsage(
     IVerify<SpreadAst> usage,
     IVerify<FragmentAst> definition
-) : UsageNamedVerifier<SpreadAst, FragmentAst>(usage, definition)
+) : NamedVerifier<SpreadAst, FragmentAst>(usage, definition)
 {
   public override string Label => "Spread";
 

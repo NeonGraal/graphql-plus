@@ -3,16 +3,16 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Operation;
 
-internal abstract class UsageNamedVerifier<TUsage, TNamed>(
+internal abstract class NamedVerifier<TUsage, TNamed>(
     IVerify<TUsage> usage,
     IVerify<TNamed> definition
-) : IVerifyUsageNamed<TUsage, TNamed>
+) : IVerifyNamed<TUsage, TNamed>
   where TUsage : AstBase where TNamed : AstNamed
 {
   public abstract string Label { get; }
   public abstract string UsageKey(TUsage item);
 
-  public void Verify(UsageNames<TUsage, TNamed> item, ITokenMessages errors)
+  public void Verify(UsageNamed<TUsage, TNamed> item, ITokenMessages errors)
   {
     var used = item.Usages.ToDictionary(UsageKey);
 
@@ -36,9 +36,9 @@ internal abstract class UsageNamedVerifier<TUsage, TNamed>(
   }
 }
 
-public record class UsageNames<TUsage, TNamed>(TUsage[] Usages, TNamed[] Definitions)
+public record class UsageNamed<TUsage, TNamed>(TUsage[] Usages, TNamed[] Definitions)
   where TUsage : AstBase where TNamed : AstNamed;
 
-public interface IVerifyUsageNamed<TUsage, TNamed> : IVerify<UsageNames<TUsage, TNamed>>
+public interface IVerifyNamed<TUsage, TNamed> : IVerify<UsageNamed<TUsage, TNamed>>
     where TUsage : AstBase where TNamed : AstNamed
 { }

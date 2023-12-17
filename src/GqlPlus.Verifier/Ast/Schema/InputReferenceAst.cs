@@ -9,6 +9,7 @@ public sealed record class InputReferenceAst(TokenAt At, string Name, string Des
     : this(at, name, "") { }
 
   internal override string Abbr => "IR";
+  public override string Label => "Input";
 
   public override bool Equals(InputReferenceAst? other)
     => base.Equals(other);

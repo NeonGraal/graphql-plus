@@ -94,7 +94,8 @@ public class VerifySchemaTests(
     ["output-merge-enums"] = "output Test { field = Boolean.true } output Test { field = true }",
     ["output-generic-enum"] = "output Test { | Ref<Boolean.false> } output Ref<$type> { field: $type }",
     ["output-generic-value"] = "output Test { | Ref<false> } output Ref<$type> { field: $type }",
-    ["output-params-Scalar"] = "output Test { field(Param[Scalar]): Test } input Param { } scalar Scalar { number 1 : 10 }",
+    ["output-params"] = "output Test { field(Param): Test } input Param { }",
+    ["output-params-mods-Scalar"] = "output Test { field(Param[Scalar]): Test } input Param { } scalar Scalar { number 1 : 10 }",
   };
   public static IEnumerable<object[]> ValidObjects => SchemaKeys(s_validObjects);
 
@@ -105,6 +106,8 @@ public class VerifySchemaTests(
     ["base-undef"] = "object Test { : Base }",
     ["fields-diff-type"] = "object Test { field: Test } object Test { field: Test1 } object Test1 { }",
     ["fields-diff-mods"] = "object Test { field: Test } object Test { field: Test[] }",
+    ["fields-mods-undef"] = "object Test { field: Test[Enum] }",
+    ["fields-mods-wrong"] = "object Test { field: Test[Test] }",
     ["generic-alt-undef"] = "object Test { | $type }",
     ["generic-base-undef"] = "object Test { : $type }",
     ["generic-field-undef"] = "object Test { field: $type }",
@@ -114,11 +117,16 @@ public class VerifySchemaTests(
     ["generic-param-undef"] = "object Test { field: Ref<Test1> } object Ref<$ref> { | $ref }",
     ["generic-unused"] = "object Test<$type> { }",
     ["input-field-null"] = "input Test { field: Test = null }",
-    ["output-diff-params"] = "output Test { field(Param): Test } output Test { field(Param?): Test } input Param { }",
+    ["input-base-output"] = "input Test { : Bad } output Bad { }",
     ["output-bad-enum"] = "output Test { field = unknown }",
     ["output-bad-enumValue"] = "output Test { field = Boolean.unknown }",
+    ["output-base-input"] = "output Test { : Bad } input Bad { }",
     ["output-diff-enums"] = "output Test { field = true } output Test { field = false }",
+    ["output-diff-params"] = "output Test { field(Param): Test } output Test { field(Param?): Test } input Param { }",
     ["output-generic-enum-bad"] = "output Test { | Ref<Boolean.unknown> } output Ref<$type> { field: $type }",
+    ["output-params-undef"] = "output Test { field(Param): Test }",
+    ["output-params-mods-undef"] = "output Test { field(Param[Scalar]): Test } input Param { }",
+    ["output-params-mods-wrong"] = "output Test { field(Param[Test]): Test } input Param { }",
   };
   public static IEnumerable<object[]> InvalidObjects => SchemaKeys(s_invalidObjects);
 

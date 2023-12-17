@@ -8,8 +8,6 @@ internal class VerifyOutputTypes(
   IVerifyAliased<OutputDeclAst> aliased
 ) : AstObjectTypesVerifier<OutputDeclAst, OutputFieldAst, OutputReferenceAst, OutputContext>(aliased)
 {
-  public override string Label => "Output";
-
   protected override void UsageValue(OutputDeclAst usage, OutputContext context)
   {
     var enumFields = usage.Fields
@@ -19,16 +17,16 @@ internal class VerifyOutputTypes(
       if (context.GetType(enumField.Type.TypeName, out var type)) {
         if (type is EnumDeclAst enumDecl) {
           if (!enumDecl.HasValue(enumField.EnumValue!)) {
-            context.AddError(enumField, $"Invalid Output Field Enum Value. '{enumField.EnumValue}' is not a Value of '{enumField.Type.Name}'");
+            context.AddError(enumField, "Output Field Enum Value", $"'{enumField.EnumValue}' is not a Value of '{enumField.Type.Name}'");
           }
         } else {
-          context.AddError(enumField, $"Invalid Output Field Enum. '{enumField.Type.Name}' is not an Enum type");
+          context.AddError(enumField, "Output Field Enum Value", $"'{enumField.Type.Name}' is not an Enum type");
         }
       } else {
         if (context.GetEnumValue(enumField.EnumValue!, out var enumType)) {
           enumField.Type = new(enumField.At, enumType!);
         } else {
-          context.AddError(enumField, $"Invalid Output Field Enum. Enum Value '{enumField.EnumValue}' not defined.");
+          context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.EnumValue}' not defined");
         }
       }
     }
@@ -36,25 +34,15 @@ internal class VerifyOutputTypes(
     base.UsageValue(usage, context);
   }
 
-  protected override void CheckArgumentType(OutputReferenceAst type, OutputContext context)
+  protected override void UsageField(OutputFieldAst field, OutputContext context)
   {
-    if (context.GetEnumValue(type.Name, out var enumType)) {
-      type.EnumValue = type.Name;
-      type.Name = enumType!;
+    foreach (var parameter in field.Parameters) {
+      context.CheckType(parameter.Type);
+
+      context.CheckModifiers(parameter);
     }
 
-    if (!string.IsNullOrWhiteSpace(type.EnumValue)
-      && context.GetType(type.TypeName, out var theType)) {
-      if (theType is EnumDeclAst enumDecl) {
-        if (!enumDecl.HasValue(type.EnumValue!)) {
-          context.AddError(type, $"Invalid Output Argument Enum Value. '{type.EnumValue}' is not a Value of '{type.Name}'");
-        }
-      } else {
-        context.AddError(type, $"Invalid Output Argument Enum. '{type.Name}' is not an Enum type");
-      }
-    } else {
-      base.CheckArgumentType(type, context);
-    }
+    base.UsageField(field, context);
   }
 
   protected override OutputContext MakeContext(OutputDeclAst usage, IMap<AstType[]> byId, ITokenMessages errors)
@@ -73,11 +61,4 @@ internal class VerifyOutputTypes(
 
     return new(validTypes, errors, enumValues);
   }
-}
-
-internal record class OutputContext(IMap<AstDescribed> Types, ITokenMessages Errors, IMap<string> EnumValues)
-  : UsageContext(Types, Errors)
-{
-  public bool GetEnumValue(string value, out string? type)
-    => EnumValues.TryGetValue(value, out type);
 }

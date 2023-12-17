@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Verification.Operation;
 internal class VerifyVariableUsage(
     IVerify<ArgumentAst> usage,
     IVerify<VariableAst> definition
-) : UsageNamedVerifier<ArgumentAst, VariableAst>(usage, definition)
+) : NamedVerifier<ArgumentAst, VariableAst>(usage, definition)
 {
   public override string Label => "Variable";
 

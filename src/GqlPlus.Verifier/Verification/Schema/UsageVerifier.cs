@@ -4,15 +4,15 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
-internal abstract class UsageAliasedVerifier<TUsage, TAliased, TContext>(
+internal abstract class UsageVerifier<TUsage, TAliased, TContext>(
   IVerifyAliased<TUsage> aliased
-) : IVerifyUsageAliased<TUsage, TAliased>
+) : IVerifyUsage<TUsage, TAliased>
  where TUsage : AstAliased where TAliased : AstAliased where TContext : UsageContext
 {
   protected abstract void UsageValue(TUsage usage, TContext context);
   protected abstract TContext MakeContext(TUsage usage, IMap<TAliased[]> byId, ITokenMessages errors);
 
-  public virtual void Verify(UsageAliases<TUsage, TAliased> item, ITokenMessages errors)
+  public virtual void Verify(UsageAliased<TUsage, TAliased> item, ITokenMessages errors)
   {
     var byId = item.Definitions.AliasedMap();
 
@@ -32,29 +32,9 @@ internal abstract class UsageAliasedVerifier<TUsage, TAliased, TContext>(
       , errors);
 }
 
-public record class UsageAliases<TUsage, TAliased>(TUsage[] Usages, TAliased[] Definitions)
+public record class UsageAliased<TUsage, TAliased>(TUsage[] Usages, TAliased[] Definitions)
   where TUsage : AstBase where TAliased : AstAliased;
 
-public interface IVerifyUsageAliased<TUsage, TAliased> : IVerify<UsageAliases<TUsage, TAliased>>
+public interface IVerifyUsage<TUsage, TAliased> : IVerify<UsageAliased<TUsage, TAliased>>
     where TUsage : AstBase where TAliased : AstAliased
 { }
-
-internal record class UsageContext(IMap<AstDescribed> Types, ITokenMessages Errors)
-{
-  public readonly HashSet<string> Used = [];
-
-  public void AddError<TAst>(TAst item, string message)
-      where TAst : AstBase
-      => Errors.AddError(item, message);
-
-  public bool GetType(string type, out AstDescribed? value)
-  {
-    if (Types.TryGetValue(type, out value)) {
-      Used.Add(type);
-      return true;
-    }
-
-    value = default;
-    return false;
-  }
-}

@@ -35,7 +35,21 @@ internal abstract class AstObjectTypesVerifier<TObject, TField, TReference, TCon
   }
 
   protected virtual void UsageAlternate(AlternateAst<TReference> alternate, TContext context)
-    => CheckType(alternate.Type, context);
+  {
+    CheckType(alternate.Type, context);
+
+    foreach (var modifier in alternate.Modifiers) {
+      if (modifier.Kind == ModifierKind.Dict) {
+        if (context.GetType(modifier.Key!, out var key)) {
+          if (key is not EnumDeclAst and not ScalarDeclAst) {
+            context.AddError(alternate, $"Invalid {Label} Alternate Modifier. '{modifier.Key}' invalid type.");
+          }
+        } else {
+          context.AddError(alternate, $"Invalid {Label} Alternate Modifier. '{modifier.Key}' not defined.");
+        }
+      }
+    }
+  }
 
   protected virtual void UsageField(TField field, TContext context)
     => CheckType(field.Type, context);

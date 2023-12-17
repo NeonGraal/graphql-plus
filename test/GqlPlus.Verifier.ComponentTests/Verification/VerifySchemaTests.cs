@@ -76,7 +76,9 @@ public class VerifySchemaTests(
   public static IEnumerable<object[]> InvalidSchemas => SchemaKeys(s_invalidSchemas);
 
   private static readonly Map<string> s_validObjects = new() {
+    ["alts-mods-Boolean"] = "object Test { | Test[~] }",
     ["base"] = "object Test { : Base } object Base { }",
+    ["fields-mods-Enum"] = "object Test { field: Test[Enum] } enum Enum { value } ",
     ["generic-alt"] = "object Test<$type> { | $type }",
     ["generic-base"] = "object Test<$type> { : $type }",
     ["generic-field"] = "object Test<$type> { field: $type }",
@@ -92,11 +94,17 @@ public class VerifySchemaTests(
     ["output-merge-enums"] = "output Test { field = Boolean.true } output Test { field = true }",
     ["output-generic-enum"] = "output Test { | Ref<Boolean.false> } output Ref<$type> { field: $type }",
     ["output-generic-value"] = "output Test { | Ref<false> } output Ref<$type> { field: $type }",
+    ["output-params-Scalar"] = "output Test { field(Param[Scalar]): Test } input Param { } scalar Scalar { number 1 : 10 }",
   };
   public static IEnumerable<object[]> ValidObjects => SchemaKeys(s_validObjects);
 
   private static readonly Map<string> s_invalidObjects = new() {
+    ["alts-mods-undef"] = "object Test { | Test[Scalar] }",
+    ["alts-mods-wrong"] = "object Test { | Test[Test] }",
+    ["alts-diff-mods"] = "object Test { | Test1 } object Test { | Test1[] } object Test1 { }",
     ["base-undef"] = "object Test { : Base }",
+    ["fields-diff-type"] = "object Test { field: Test } object Test { field: Test1 } object Test1 { }",
+    ["fields-diff-mods"] = "object Test { field: Test } object Test { field: Test[] }",
     ["generic-alt-undef"] = "object Test { | $type }",
     ["generic-base-undef"] = "object Test { : $type }",
     ["generic-field-undef"] = "object Test { field: $type }",
@@ -105,9 +113,6 @@ public class VerifySchemaTests(
     ["generic-arg-less"] = "object Test { field: Ref } object Ref<$ref> { | $ref }",
     ["generic-param-undef"] = "object Test { field: Ref<Test1> } object Ref<$ref> { | $ref }",
     ["generic-unused"] = "object Test<$type> { }",
-    ["alts-diff-mods"] = "object Test { | Test1 } object Test { | Test1[] } object Test1 { }",
-    ["fields-diff-type"] = "object Test { field: Test } object Test { field: Test1 } object Test1 { }",
-    ["fields-diff-mods"] = "object Test { field: Test } object Test { field: Test[] } ",
     ["input-field-null"] = "input Test { field: Test = null }",
     ["output-diff-params"] = "output Test { field(Param): Test } output Test { field(Param?): Test } input Param { }",
     ["output-bad-enum"] = "output Test { field = unknown }",

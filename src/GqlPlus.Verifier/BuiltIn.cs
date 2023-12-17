@@ -19,6 +19,7 @@ internal static class BuiltIn
     new OutputDeclAst(AstNulls.At, "Object") { Aliases = ["%"], Alternates = [new(AstNulls.At, new(AstNulls.At, "Any")) { Modifiers = [new ModifierAst(AstNulls.At, "String", false)] }] },
     new InputDeclAst(AstNulls.At, "Any"),
     new OutputDeclAst(AstNulls.At, "Any"),
+    new ScalarDeclAst(AstNulls.At, "Simple", Array.Empty<ScalarRegexAst>()),
   ];
 
   internal static Map<string> EnumValues = new() {

@@ -47,7 +47,7 @@ output _Category {
         type: _Type[String]
     }
 
-enum _Resolution { Single Sequential Parallel }
+enum _Resolution { Parallel Sequential Single }
 ```
 
 ## Directive
@@ -57,8 +57,10 @@ output _Directive {
     : _Aliased
         parameters: _Parameter[]
         repeatable: Boolean
-        locations: _Location[]
+        locations: _[_Location]
     }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
 
 ```
 
@@ -129,16 +131,40 @@ output _Field<$base> {
 output _Parameter {
     : _Ref<_InputBase>
         modifiers: _Modifier[]
-        default: _Constant
+        default: _Constant?
+    }
+```
+
+## Common
+
+```gqlp
+output _Constant {
+        enum: _BaseType<_TypeKind.Enum>
+        value: String
+    | Boolean
+    | Null
+    | Unit
+    | Number
+    | String
+    | _ConstantList
+    | _ConstantMap
     }
 
-output _Modifier = {
+output _ConstantList {
+    | _Constant[]
+    }
+
+output _ConstantMap {
+    | _Constant[Simple]
+    }
+
+output _Modifier {
     | _BaseModifier<_ModifierKind.Optional>
     | _BaseModifier<_ModifierKind.List>
     | _ModifierDictionary
     }
 
-enum _ModifierKind { Optional List ModifierDictionary }
+enum _ModifierKind { Optional List Dictionary }
 
 output _BaseModifier<$kind> {
         kind: $kind
@@ -160,7 +186,8 @@ output _InputBase {
     }
 
 output _InputField {
-    | _Field<_InputBase>
+    : _Field<_InputBase>
+        default: _Constant?
     }
 ```
 
@@ -271,14 +298,16 @@ output _Category {
         type: _Type[String]
     }
 
-enum _Resolution { Single Sequential Parallel }
+enum _Resolution { Parallel Sequential Single }
 
 output _Directive {
     : _Aliased
         parameters: _Parameter[]
         repeatable: Boolean
-        locations: _Location[]
+        locations: _[_Location]
     }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
 
 
 output _Type {
@@ -337,16 +366,36 @@ output _Field<$base> {
 output _Parameter {
     : _Ref<_InputBase>
         modifiers: _Modifier[]
-        default: _Constant
+        default: _Constant?
     }
 
-output _Modifier = {
+output _Constant {
+        enum: _BaseType<_TypeKind.Enum>
+        value: String
+    | Boolean
+    | Null
+    | Unit
+    | Number
+    | String
+    | _ConstantList
+    | _ConstantMap
+    }
+
+output _ConstantList {
+    | _Constant[]
+    }
+
+output _ConstantMap {
+    | _Constant[Simple]
+    }
+
+output _Modifier {
     | _BaseModifier<_ModifierKind.Optional>
     | _BaseModifier<_ModifierKind.List>
     | _ModifierDictionary
     }
 
-enum _ModifierKind { Optional List ModifierDictionary }
+enum _ModifierKind { Optional List Dictionary }
 
 output _BaseModifier<$kind> {
         kind: $kind
@@ -364,7 +413,8 @@ output _InputBase {
     }
 
 output _InputField {
-    | _Field<_InputBase>
+    : _Field<_InputBase>
+        default: _Constant?
     }
 
 output _OutputBase {

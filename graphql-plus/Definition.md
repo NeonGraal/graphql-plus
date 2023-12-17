@@ -16,14 +16,14 @@ Language definitions are given in a modified PEG (Parsing Expression Grammar)
 | Positive   | `&` exp       | The expression must match at this point.                                                 |
 | Negative   | `!` exp       | The expression must NOT match at this point.                                             |
 |            |
-| Term       | `Operation`   | A Term is defined elsewhere in the language definition. Terms are capitalized.           |
-| Word       | `category`    | A Word is a simple name defined by the regex `\[A-Za-z][A-Za-z0-9_.]+`                   |
+| Term       | `Operation`   | Defined elsewhere in the language definition. Terms are capitalized.                     |
+| Word       | `category`    | A simple name defined by the regex `\[A-Za-z][A-Za-z0-9_.]+`                             |
 | Prefix     | `'$'variable` | A String surrounded by quotes immediately followed by a Word.                            |
 | Literal    | `'('`         | A String surrounded by quotes that must appear exactly as written.                       |
 | Built-In   | `NUMBER`      | An expression that matches a specific regex as defined below. Built-Ins are in all-caps. |
 |            |
 | Repetition |
-| Optional   | exp `?`       | The expression occurs zero or once.                                                      |
+| Optional   | exp `?`       | The expression occurs zero or one times.                                                 |
 | Some       | exp `*`       | The expression occurs zero or more times.                                                |
 | Many       | exp `+`       | The expression occurs one or more times.                                                 |
 |            |
@@ -112,11 +112,12 @@ A Constant is a single value. Commas (`,`) can be used to separate list values a
 If a Constant Object FieldKey appears more than once, all the values will be merged as follows:
 
 > A merged with B results in:
-> | | B Value `b` | B List `[b1,b2]` | B Object `{b1:b2,b3:b4}` |
-> |---|---|---|---|
-> | A Value `a` | `b` | `[a,b1,b2]` | `{b1:b2,b3:b4}` |
-> | A List `[a1,a2]` | `[a1,a2,b]` | `[a1,a2,b1,b2]` | `{b1:b2,b3:b4}` |
-> | A Object `{a1:a2,a3:a4}` | `{a1:a2,a3:a4}` |`{a1:a2,a3:a4}` |`{a1:a2,a3:a4,b1:b2,b3:b4}` |
+>
+> |                          |     B Value `b` | B List `[b1,b2]` |    B Object `{b1:b2,b3:b4}` |
+> | -----------------------: | --------------: | ---------------: | --------------------------: |
+> |              A Value `a` |             `b` |      `[a,b1,b2]` |             `{b1:b2,b3:b4}` |
+> |         A List `[a1,a2]` |     `[a1,a2,b]` |  `[a1,a2,b1,b2]` |             `{b1:b2,b3:b4}` |
+> | A Object `{a1:a2,a3:a4}` | `{a1:a2,a3:a4}` |  `{a1:a2,a3:a4}` | `{a1:a2,a3:a4,b1:b2,b3:b4}` |
 
 ## Complete Grammar
 

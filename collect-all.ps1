@@ -1,17 +1,30 @@
 Get-ChildItem ./graphql-plus -Filter *.md | ForEach-Object {
   $all = @{}
+  $sections = @{ "Complete" = @() }
   $current = @()
   $type = ""
   $doc = @()
   $end = $false
+  $name = $_.Name.Substring(0,5)
 
   $_ | Get-Content | ForEach-Object {
     if ($end) { return }
     $doc += @($_)
+
+    if ($_ -match "## (\w+)") {
+      $section = $Matches[1]
+    }
     
     if ($type) {
       if ($_ -eq "``````") {
         $all[$type] += $current + @("")
+
+        if ($type -eq "gqlp" -and $section) {
+          $sections[$section] = $current + @()
+          $sections["Complete"] += $current + @()
+          $section = ""
+        }
+
         $type = ""
       } else {
         $current += @($_)

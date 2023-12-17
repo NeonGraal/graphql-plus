@@ -130,7 +130,7 @@ Obj_Field = STRING? field fieldAlias* ':' STRING? Obj_Reference Modifiers?
 
 Obj_Alternate = '|' STRING? Obj_Reference Modifiers?
 Obj_Reference = Internal | Simple | Obj_Base
-Obj_Base = '$'typeParameter | input ( '<' STRING? Obj_Reference+ '>' )?
+Obj_Base = '$'typeParameter | object ( '<' STRING? Obj_Reference+ '>' )?
 
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 ```
@@ -161,11 +161,10 @@ Field names and Field Aliases must be unique within the object, including any ba
 Explicit Field names will override the same name being used as a Field Alias.
 
 Object Unions can be merged if their base Types match and their Fields and Alternates can both be merged.
-Alternates are merged by Type.
 
 Fields can be merged if their Modified Types match.
 
-Alternates can be merged if their Modifiers match.
+Alternates are merged by Type and can be merged if their Modifiers match.
 
 ### Parameter
 
@@ -325,7 +324,7 @@ Out_Enum = fieldAlias* '=' STRING? EnumValue
 
 Out_Alternate = '|' STRING? Out_Reference Modifiers?
 Out_Reference = Internal | Simple | Out_Base
-Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | STRING? EnumValue )+ '>' )?
+Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference |  STRING? EnumValue )+ '>' )?
 ```
 
 Output types define the result values for Categories and Output fields.
@@ -333,6 +332,7 @@ Output types define the result values for Categories and Output fields.
 An Output type is defined as an object union type with the following alterations.
 
 An Output type reference may have Type Arguments of Output type references and/or Enum Values.
+If there is a conflict between a bare Enum Value and a Type, the Type will have precedence.
 
 An Output Field redefines an object Field as follows:
 
@@ -398,7 +398,7 @@ Obj_Field = STRING? field fieldAlias* ':' STRING? Obj_Reference Modifiers?
 
 Obj_Alternate = '|' STRING? Obj_Reference Modifiers?
 Obj_Reference = Internal | Simple | Obj_Base
-Obj_Base = '$'typeParameter | input ( '<' STRING? Obj_Reference+ '>' )?
+Obj_Base = '$'typeParameter | object ( '<' STRING? Obj_Reference+ '>' )?
 
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 

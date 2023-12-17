@@ -4,4 +4,4 @@ output _Category {
         type: _Type[String]
     }
 
-enum _Resolution { Single Sequential Parallel }
+enum _Resolution { Parallel Sequential Single }

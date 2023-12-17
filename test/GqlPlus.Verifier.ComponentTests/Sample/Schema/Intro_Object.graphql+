@@ -26,42 +26,5 @@ output _Field<$base> {
 output _Parameter {
     : _Ref<_InputBase>
         modifiers: _Modifier[]
-        default: _Constant
-    }
-
-output _Constant {
-        enum: _BaseType<_TypeKind.Enum>
-        value: String
-    | Boolean
-    | Null
-    | Unit
-    | Number
-    | String
-    | _ConstantList
-    | _ConstantMap
-    }
-
-output _ConstantList {
-    | _Constant[]
-    }
-
-output _ConstantMap {
-    | _Constant[Simple]
-    }
-
-output _Modifier {
-    | _BaseModifier<_ModifierKind.Optional>
-    | _BaseModifier<_ModifierKind.List>
-    | _ModifierDictionary
-    }
-
-enum _ModifierKind { Optional List Dictionary }
-
-output _BaseModifier<$kind> {
-        kind: $kind
-    }
-
-output _ModifierDictionary {
-    : _BaseModifier<_ModifierKind.Dictionary>
-        by: _TypeSimple
+        default: _Constant?
     }

@@ -22,8 +22,8 @@ Success
     locations
     :
     I@20/5
-    _Location
-    []
+    _
+    [_Location]
   }
 }
 {

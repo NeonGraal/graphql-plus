@@ -427,7 +427,7 @@ Out_Enum = fieldAlias* '=' STRING? EnumValue
 
 Out_Alternate = '|' STRING? Out_Reference Modifiers?
 Out_Reference = Internal | Simple | Out_Base
-Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | STRING? EnumValue )+ '>' )?
+Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference |  STRING? EnumValue )+ '>' )?
 
 Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
 ScalarDefinition = Scal_Number | Scal_String

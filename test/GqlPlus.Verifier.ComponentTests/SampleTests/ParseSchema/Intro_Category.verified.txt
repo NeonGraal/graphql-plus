@@ -24,9 +24,9 @@ Success
   !E I@6/7
   _Resolution
   !EV I@20/7
-  Single
-  !EV I@27/7
-  Sequential
-  !EV I@38/7
   Parallel
+  !EV I@29/7
+  Sequential
+  !EV I@40/7
+  Single
 }

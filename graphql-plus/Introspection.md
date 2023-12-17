@@ -47,7 +47,7 @@ output _Category {
         type: _Type[String]
     }
 
-enum _Resolution { Single Sequential Parallel }
+enum _Resolution { Parallel Sequential Single }
 ```
 
 ## Directive
@@ -57,7 +57,7 @@ output _Directive {
     : _Aliased
         parameters: _Parameter[]
         repeatable: Boolean
-        locations: _Location[]
+        locations: _[_Location]
     }
 
 enum _Location { Operation Variable Field Inline Spread Fragment }
@@ -131,9 +131,13 @@ output _Field<$base> {
 output _Parameter {
     : _Ref<_InputBase>
         modifiers: _Modifier[]
-        default: _Constant
+        default: _Constant?
     }
+```
 
+## Common
+
+```gqlp
 output _Constant {
         enum: _BaseType<_TypeKind.Enum>
         value: String
@@ -182,7 +186,8 @@ output _InputBase {
     }
 
 output _InputField {
-    | _Field<_InputBase>
+    : _Field<_InputBase>
+        default: _Constant?
     }
 ```
 
@@ -293,13 +298,13 @@ output _Category {
         type: _Type[String]
     }
 
-enum _Resolution { Single Sequential Parallel }
+enum _Resolution { Parallel Sequential Single }
 
 output _Directive {
     : _Aliased
         parameters: _Parameter[]
         repeatable: Boolean
-        locations: _Location[]
+        locations: _[_Location]
     }
 
 enum _Location { Operation Variable Field Inline Spread Fragment }
@@ -361,7 +366,7 @@ output _Field<$base> {
 output _Parameter {
     : _Ref<_InputBase>
         modifiers: _Modifier[]
-        default: _Constant
+        default: _Constant?
     }
 
 output _Constant {
@@ -408,7 +413,8 @@ output _InputBase {
     }
 
 output _InputField {
-    | _Field<_InputBase>
+    : _Field<_InputBase>
+        default: _Constant?
     }
 
 output _OutputBase {

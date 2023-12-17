@@ -12,7 +12,8 @@ details {
 }
 
 @media print {
-  article, .pdftoc {
-    border-bottom: 3px dashed #999; 
+  article,
+  .pdftoc {
+    border-bottom: 3px dashed #999;
   }
 }

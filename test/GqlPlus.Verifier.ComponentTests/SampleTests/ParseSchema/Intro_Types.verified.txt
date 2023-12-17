@@ -1,0 +1,109 @@
+﻿!G I@1/1
+Success
+{
+  !O I@8/1
+  _Type
+  |
+  !AO
+  I@7/2
+  _BaseType
+  <
+    I@17/2
+    _TypeKind.Basic
+  >
+  !AO
+  I@7/3
+  _BaseType
+  <
+    I@17/3
+    _TypeKind.Internal
+  >
+  !AO
+  I@7/4
+  _TypeEnum
+  !AO
+  I@7/5
+  _TypeObject
+  <
+    I@19/5
+    _TypeKind.Input
+    I@35/5
+    _InputBase
+    I@46/5
+    _InputField
+  >
+  !AO
+  I@7/6
+  _TypeObject
+  <
+    I@19/6
+    _TypeKind.Output
+    I@36/6
+    _OutputBase
+    I@48/6
+    _OutputField
+  >
+  !AO
+  I@7/7
+  _TypeScalar
+}
+{
+  !O I@8/10
+  _BaseType
+  <
+    I@19/10
+    $kind
+  >
+  :
+  I@7/11
+  _Aliased
+  {
+    !OF I@9/12
+    kind
+    :
+    I@16/12
+    $kind
+  }
+}
+{
+  !E I@6/15
+  _TypeKind
+  !EV I@18/15
+  Basic
+  !EV I@24/15
+  Enum
+  !EV I@29/15
+  Internal
+  !EV I@38/15
+  Input
+  !EV I@44/15
+  Output
+  !EV I@51/15
+  Scalar
+}
+{
+  !O I@8/17
+  _TypeSimple
+  |
+  !AO
+  I@7/18
+  _BaseType
+  <
+    I@17/18
+    _TypeKind.Basic
+  >
+  !AO
+  I@7/19
+  _BaseType
+  <
+    I@17/19
+    _TypeKind.Scalar
+  >
+  !AO
+  I@7/20
+  _BaseType
+  <
+    I@17/20
+    _TypeKind.Enum
+  >
+}

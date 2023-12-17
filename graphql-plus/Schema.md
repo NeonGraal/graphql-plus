@@ -398,7 +398,7 @@ Obj_Field = STRING? field fieldAlias* ':' STRING? Obj_Reference Modifiers?
 
 Obj_Alternate = '|' STRING? Obj_Reference Modifiers?
 Obj_Reference = Internal | Simple | Obj_Base
-Obj_Base = '$'typeParameter | input ( '<' STRING? Obj_Reference+ '>' )?
+Obj_Base = '$'typeParameter | object ( '<' STRING? Obj_Reference+ '>' )?
 
 TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 

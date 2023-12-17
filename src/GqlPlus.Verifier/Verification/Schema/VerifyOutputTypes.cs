@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Token;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
@@ -17,7 +16,7 @@ internal class VerifyOutputTypes(
       .Where(f => !string.IsNullOrWhiteSpace(f.EnumValue));
 
     foreach (var enumField in enumFields) {
-      if (context.GetType(enumField.Type.Name, out var type)) {
+      if (context.GetType(enumField.Type.TypeName, out var type)) {
         if (type is EnumDeclAst enumDecl) {
           if (!enumDecl.HasValue(enumField.EnumValue!)) {
             context.AddError(enumField, $"Invalid Output Field Enum Value. '{enumField.EnumValue}' is not a Value of '{enumField.Type.Name}'");
@@ -45,7 +44,7 @@ internal class VerifyOutputTypes(
     }
 
     if (!string.IsNullOrWhiteSpace(type.EnumValue)
-      && context.GetType(type.Name, out var theType)) {
+      && context.GetType(type.TypeName, out var theType)) {
       if (theType is EnumDeclAst enumDecl) {
         if (!enumDecl.HasValue(type.EnumValue!)) {
           context.AddError(type, $"Invalid Output Argument Enum Value. '{type.EnumValue}' is not a Value of '{type.Name}'");

@@ -112,11 +112,12 @@ A Constant is a single value. Commas (`,`) can be used to separate list values a
 If a Constant Object FieldKey appears more than once, all the values will be merged as follows:
 
 > A merged with B results in:
-> | | B Value `b` | B List `[b1,b2]` | B Object `{b1:b2,b3:b4}` |
-> |---|---|---|---|
-> | A Value `a` | `b` | `[a,b1,b2]` | `{b1:b2,b3:b4}` |
-> | A List `[a1,a2]` | `[a1,a2,b]` | `[a1,a2,b1,b2]` | `{b1:b2,b3:b4}` |
-> | A Object `{a1:a2,a3:a4}` | `{a1:a2,a3:a4}` |`{a1:a2,a3:a4}` |`{a1:a2,a3:a4,b1:b2,b3:b4}` |
+>
+> |                          |     B Value `b` | B List `[b1,b2]` |    B Object `{b1:b2,b3:b4}` |
+> | -----------------------: | --------------: | ---------------: | --------------------------: |
+> |              A Value `a` |             `b` |      `[a,b1,b2]` |             `{b1:b2,b3:b4}` |
+> |         A List `[a1,a2]` |     `[a1,a2,b]` |  `[a1,a2,b1,b2]` |             `{b1:b2,b3:b4}` |
+> | A Object `{a1:a2,a3:a4}` | `{a1:a2,a3:a4}` |  `{a1:a2,a3:a4}` | `{a1:a2,a3:a4,b1:b2,b3:b4}` |
 
 ## Complete Grammar
 

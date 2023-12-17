@@ -1,12 +1,9 @@
-﻿output _Directive {
+output _Directive {
     : _Aliased
-        parameter: _Parameter?
+        parameters: _Parameter[]
         repeatable: Boolean
         locations: _Location[]
     }
 
-output _Parameter {
-    : _TypeRef<_InputBase>
-        modifiers: _TypeModifier[]
-        default: _Constant
-    }
+enum _Location { Operation Variable Field Inline Spread Fragment }
+

@@ -8,11 +8,11 @@ Success
   _Aliased
   {
     !OF I@9/3
-    parameter
+    parameters
     :
-    I@20/3
+    I@21/3
     _Parameter
-    ?
+    []
     !OF I@9/4
     repeatable
     :
@@ -27,26 +27,18 @@ Success
   }
 }
 {
-  !O I@8/8
-  _Parameter
-  :
-  I@7/9
-  _TypeRef
-  <
-    I@16/9
-    _InputBase
-  >
-  {
-    !OF I@9/10
-    modifiers
-    :
-    I@20/10
-    _TypeModifier
-    []
-    !OF I@9/11
-    default
-    :
-    I@18/11
-    _Constant
-  }
+  !E I@6/8
+  _Location
+  !EV I@18/8
+  Operation
+  !EV I@28/8
+  Variable
+  !EV I@37/8
+  Field
+  !EV I@43/8
+  Inline
+  !EV I@50/8
+  Spread
+  !EV I@57/8
+  Fragment
 }

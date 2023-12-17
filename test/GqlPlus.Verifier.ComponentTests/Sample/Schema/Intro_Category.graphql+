@@ -1,4 +1,4 @@
-﻿output _Category { 
+output _Category {
     : _Aliased
         resolution: _Resolution
         type: _Type[String]

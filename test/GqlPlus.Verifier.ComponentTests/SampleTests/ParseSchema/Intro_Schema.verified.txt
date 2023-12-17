@@ -58,7 +58,7 @@ Success
   }
   |
   !AI
-  I@7/10
+  I@15/10
   String
   []
   ?
@@ -89,7 +89,7 @@ Success
     kinds
     :
     I@16/20
-    _Kind
+    _TypeKind
     []
   }
 }

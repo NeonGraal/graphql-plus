@@ -1,7 +1,9 @@
 ﻿[
-  !!! I@7/8 : Invalid Output. '_TypeField' not defined. - '_TypeField' !!!,
+  !!! I@7/8 : Invalid Output. '_Field' not defined. - '_Field' !!!,
   !!! I@20/9 : Invalid Output. '_Parameter' not defined. - '_Parameter' !!!,
   !!! I@7/14 : Invalid Output. '_BaseType' not defined. - '_BaseType' !!!,
-  !!! I@7/16 : Invalid Output. '_TypeRef' not defined. - '_TypeRef' !!!,
-  !!! I@7/20 : Invalid Output. '_BaseType' not defined. - '_BaseType' !!!
+  !!! I@17/14 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@7/16 : Invalid Output. '_Ref' not defined. - '_Ref' !!!,
+  !!! I@7/20 : Invalid Output. '_BaseType' not defined. - '_BaseType' !!!,
+  !!! I@17/20 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!
 ]

@@ -1,0 +1,12 @@
+﻿[
+  !!! I@7/2 : Invalid Output. '_BaseType' not defined. - '_BaseType' !!!,
+  !!! I@25/3 : Invalid Output. '_Named' not defined. - '_Named' !!!,
+  !!! I@7/10 : Invalid Output. '_BaseType' not defined. - '_BaseType' !!!,
+  !!! I@17/10 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@7/11 : Invalid Output. '_TypeSimple' not defined. - '_TypeSimple' !!!,
+  !!! I@7/21 : Invalid Output. '_Aliased' not defined. - '_Aliased' !!!,
+  !!! I@12/27 : Invalid Output. '_InputBase' not defined. - '_InputBase' !!!,
+  !!! I@15/33 : Invalid Output. '_BaseType' not defined. - '_BaseType' !!!,
+  !!! I@25/33 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@13/66 : Invalid Output. '_TypeSimple' not defined. - '_TypeSimple' !!!
+]

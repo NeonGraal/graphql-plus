@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
@@ -13,16 +12,6 @@ internal abstract class AstObjectTypesVerifier<TObject, TField, TReference, TCon
   where TContext : UsageContext
 {
   public abstract string Label { get; }
-
-  //protected ObjectContext MakeContext(TObject usage, IMap<AstType[]> byId, ITokenMessages errors)
-  //{
-  //  var validTypes = byId
-  //    .Select(p => (Id: p.Key, Type: (AstDescribed)p.Value.First()))
-  //    .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (AstDescribed)p)))
-  //    .ToMap(p => p.Id, p => p.Type);
-
-  //  throw new(validTypes, errors, []);
-  //}
 
   protected override void UsageValue(TObject usage, TContext context)
   {
@@ -64,12 +53,12 @@ internal abstract class AstObjectTypesVerifier<TObject, TField, TReference, TCon
           context.AddError(type, $"Invalid {Label}. Arguments mismatch, expected {numParams} given {numArgs}");
         }
       }
-
-      foreach (var arg in type.Arguments) {
-        CheckArgumentType(arg, context);
-      }
     } else {
       context.AddError(type, $"Invalid {Label}. '{type.TypeName}' not defined.");
+    }
+
+    foreach (var arg in type.Arguments) {
+      CheckArgumentType(arg, context);
     }
   }
 }

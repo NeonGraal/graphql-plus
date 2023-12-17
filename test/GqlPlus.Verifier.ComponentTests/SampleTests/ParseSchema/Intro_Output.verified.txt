@@ -26,9 +26,9 @@ Success
   _OutputField
   :
   I@7/8
-  _TypeField
+  _Field
   <
-    I@18/8
+    I@14/8
     _OutputBase
   >
   {
@@ -37,7 +37,7 @@ Success
     :
     I@20/9
     _Parameter
-    ?
+    []
   }
   |
   !AO
@@ -52,7 +52,7 @@ Success
   _BaseType
   <
     I@17/14
-    _Kind.Enum
+    _TypeKind.Enum
   >
   {
     !OF I@9/15
@@ -64,9 +64,9 @@ Success
   |
   !AO
   I@7/16
-  _TypeRef
+  _Ref
   <
-    I@16/16
+    I@12/16
     _OutputBase
   >
 }
@@ -78,7 +78,7 @@ Success
   _BaseType
   <
     I@17/20
-    _Kind.Enum
+    _TypeKind.Enum
   >
   {
     !OF I@9/21

@@ -13,9 +13,9 @@ Success
     arguments
     :
     I@20/3
-    _TypeRef
+    _Ref
     <
-      I@29/3
+      I@25/3
       _InputBase
     >
     []
@@ -31,9 +31,9 @@ Success
   |
   !AO
   I@7/8
-  _TypeField
+  _Field
   <
-    I@18/8
+    I@14/8
     _InputBase
   >
 }

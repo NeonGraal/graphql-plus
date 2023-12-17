@@ -31,7 +31,7 @@ Success
   _BaseType
   <
     I@17/9
-    _Kind.Scalar
+    _TypeKind.Scalar
   >
   {
     !OF I@9/10

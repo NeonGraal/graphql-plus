@@ -1,9 +1,9 @@
-﻿output _InputBase {
+output _InputBase {
         input: String
-        arguments: _TypeRef<_InputBase>[]
+        arguments: _Ref<_InputBase>[]
     | "TypeParameter" String
     }
 
 output _InputField {
-    | _TypeField<_InputBase>
+    | _Field<_InputBase>
     }

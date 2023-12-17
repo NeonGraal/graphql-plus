@@ -1,12 +1,12 @@
-﻿enum _Scalar { Number String }
+enum _Scalar { Number String }
 
 output _TypeScalar {
-    | _ScalarNumber 
+    | _ScalarNumber
     | _ScalarString
     }
 
 output _BaseScalar<$base> {
-    : _BaseType<_Kind.Scalar>
+    : _BaseType<_TypeKind.Scalar>
         base: $base
     }
 

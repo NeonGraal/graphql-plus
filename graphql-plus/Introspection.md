@@ -60,6 +60,8 @@ output _Directive {
         locations: _Location[]
     }
 
+enum _Location { Operation Variable Field Inline Spread Fragment }
+
 ```
 
 ## Types
@@ -132,13 +134,33 @@ output _Parameter {
         default: _Constant
     }
 
-output _Modifier = {
+output _Constant {
+        enum: _BaseType<_TypeKind.Enum>
+        value: String
+    | Boolean
+    | Null
+    | Unit
+    | Number
+    | String
+    | _ConstantList
+    | _ConstantMap
+    }
+
+output _ConstantList {
+    | _Constant[]
+    }
+
+output _ConstantMap {
+    | _Constant[Simple]
+    }
+
+output _Modifier {
     | _BaseModifier<_ModifierKind.Optional>
     | _BaseModifier<_ModifierKind.List>
     | _ModifierDictionary
     }
 
-enum _ModifierKind { Optional List ModifierDictionary }
+enum _ModifierKind { Optional List Dictionary }
 
 output _BaseModifier<$kind> {
         kind: $kind
@@ -280,6 +302,8 @@ output _Directive {
         locations: _Location[]
     }
 
+enum _Location { Operation Variable Field Inline Spread Fragment }
+
 
 output _Type {
     | _BaseType<_TypeKind.Basic>
@@ -340,13 +364,33 @@ output _Parameter {
         default: _Constant
     }
 
-output _Modifier = {
+output _Constant {
+        enum: _BaseType<_TypeKind.Enum>
+        value: String
+    | Boolean
+    | Null
+    | Unit
+    | Number
+    | String
+    | _ConstantList
+    | _ConstantMap
+    }
+
+output _ConstantList {
+    | _Constant[]
+    }
+
+output _ConstantMap {
+    | _Constant[Simple]
+    }
+
+output _Modifier {
     | _BaseModifier<_ModifierKind.Optional>
     | _BaseModifier<_ModifierKind.List>
     | _ModifierDictionary
     }
 
-enum _ModifierKind { Optional List ModifierDictionary }
+enum _ModifierKind { Optional List Dictionary }
 
 output _BaseModifier<$kind> {
         kind: $kind

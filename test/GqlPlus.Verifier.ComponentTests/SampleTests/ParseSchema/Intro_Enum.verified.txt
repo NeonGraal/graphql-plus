@@ -8,7 +8,7 @@ Success
   _BaseType
   <
     I@17/2
-    _Kind.Enum
+    _TypeKind.Enum
   >
   {
     !OF I@9/3

@@ -1,11 +1,10 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
-internal abstract class AstObjectTypesVerifier<TObject, TField, TReference, TContext>(
+internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>(
   IVerifyAliased<TObject> aliased
-) : UsageVerifier<TObject, AstType, TContext>(aliased)
+) : AstTypeVerifier<TObject, TContext>(aliased)
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>
   where TReference : AstReference<TReference>

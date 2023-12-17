@@ -11,8 +11,6 @@ public abstract record class AstObject<TField, TReference>(TokenAt At, string Na
   public TField[] Fields { get; set; } = [];
   public AlternateAst<TReference>[] Alternates { get; set; } = [];
 
-  public abstract string Label { get; }
-
   public virtual bool Equals(AstObject<TField, TReference>? other)
     => base.Equals(other)
       && TypeParameters.SequenceEqual(other.TypeParameters)
@@ -29,9 +27,7 @@ public abstract record class AstObject<TField, TReference>(TokenAt At, string Na
       .Concat(Alternates.Bracket("|"));
 }
 
-public interface IAstObject
+public interface IAstObject : IAstType
 {
-  string Name { get; }
   TypeParameterAst[] TypeParameters { get; }
-  string Label { get; }
 }

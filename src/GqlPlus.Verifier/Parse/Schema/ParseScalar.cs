@@ -26,6 +26,10 @@ internal class ParseScalar(
         result.Regexes = value.Regexes;
         break;
 
+      case ScalarKind.Union:
+        result.References = value.References;
+        break;
+
       default:
         break; // Not covered
     }
@@ -44,14 +48,17 @@ internal class ScalarDefinition
   public ScalarKind Kind { get; set; } = ScalarKind.Number;
   public ScalarRangeAst[] Ranges { get; set; } = [];
   public ScalarRegexAst[] Regexes { get; set; } = [];
+  public ScalarReferenceAst[] References { get; set; } = [];
 }
 
 internal class ParseScalarDefinition(
   Parser<ScalarRangeAst>.DA ranges,
+  Parser<ScalarReferenceAst>.DA references,
   Parser<ScalarRegexAst>.DA regexes
 ) : Parser<ScalarDefinition>.I
 {
   private readonly Parser<ScalarRangeAst>.LA _ranges = ranges;
+  private readonly Parser<ScalarReferenceAst>.LA _references = references;
   private readonly Parser<ScalarRegexAst>.LA _regexes = regexes;
 
   public IResult<ScalarDefinition> Parse<TContext>(TContext tokens, string label)
@@ -79,6 +86,13 @@ internal class ParseScalarDefinition(
         }
 
         return scalarRegexes.AsResult(result); // not covered
+      case ScalarKind.Union:
+        var scalarReferences = _references.Parse(tokens, label);
+        if (scalarReferences.Required(references => result.References = references)) {
+          return tokens.End(label, () => result);
+        }
+
+        return scalarReferences.AsResult(result); // not covered
       default:
         return tokens.Partial(label, "valid kind", () => result); // not covered
     }

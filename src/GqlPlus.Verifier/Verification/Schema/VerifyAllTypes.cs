@@ -4,10 +4,10 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyAllTypes(
-  IVerifyUsage<EnumDeclAst, EnumDeclAst> enumAllTypes,
+  IVerifyUsage<EnumDeclAst, AstType> enumAllTypes,
   IVerifyUsage<InputDeclAst, AstType> inputAllTypes,
   IVerifyUsage<OutputDeclAst, AstType> outputAllTypes,
-  IVerifyAliased<ScalarDeclAst> scalarAllTypes
+  IVerifyUsage<ScalarDeclAst, AstType> scalarAllTypes
 ) : IVerify<AstType[]>
 {
   public void Verify(AstType[] item, ITokenMessages errors)
@@ -19,9 +19,9 @@ internal class VerifyAllTypes(
     var outputTypes = allTypes.OfType<OutputDeclAst>().ToArray();
     var scalarTypes = allTypes.OfType<ScalarDeclAst>().ToArray();
 
-    enumAllTypes.Verify(new(enumTypes, enumTypes), errors);
+    enumAllTypes.Verify(new(enumTypes, allTypes), errors);
     inputAllTypes.Verify(new(inputTypes, allTypes), errors);
     outputAllTypes.Verify(new(outputTypes, allTypes), errors);
-    scalarAllTypes.Verify(scalarTypes, errors);
+    scalarAllTypes.Verify(new(scalarTypes, allTypes), errors);
   }
 }

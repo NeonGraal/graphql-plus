@@ -16,6 +16,23 @@ public sealed class ParseScalarTests(Parser<ScalarDeclAst>.D parser)
       skipIf: Enum.TryParse<ScalarKind>(kind, out var _));
 
   [Theory, RepeatData(Repeats)]
+  public void WithReferences_ReturnsCorrectAst(string name, string reference1, string reference2)
+    => _test.TrueExpected(
+      name + "{union|" + reference1 + "|" + reference2 + "}",
+      new ScalarDeclAst(AstNulls.At, name) {
+        Kind = ScalarKind.Union,
+        References = reference1.ScalarReferences(reference2),
+      });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithReferencesFirstBad_ReturnsFalse(string name, string reference1, string reference2)
+    => _test.False(name + "{union " + reference1 + "|" + reference2 + "}");
+
+  [Theory, RepeatData(Repeats)]
+  public void WithReferencesSecondBad_ReturnsFalse(string name, string reference1, string reference2)
+    => _test.False(name + "{union|" + reference1 + " " + reference2 + "}");
+
+  [Theory, RepeatData(Repeats)]
   public void WithRegexes_ReturnsCorrectAst(string name, string regex1, string regex2)
     => _test.TrueExpected(
       name + "{string/" + regex1 + "/!/" + regex2 + "/}",
@@ -25,15 +42,15 @@ public sealed class ParseScalarTests(Parser<ScalarDeclAst>.D parser)
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithRegexesBad_ReturnsCorrectAst(string name, string regex1, string regex2)
+  public void WithRegexesBad_ReturnsFalse(string name, string regex1, string regex2)
     => _test.False(name + "{string/" + regex1 + "/!/" + regex2 + "}");
 
   [Theory, RepeatData(Repeats)]
-  public void WithNoBounds_ReturnsFalse(string name)
+  public void WithRangeNoBounds_ReturnsFalse(string name)
     => _test.False(name + "{number :}");
 
   [Theory, RepeatData(Repeats)]
-  public void WithLowerBound_ReturnsCorrectAst(string name, decimal min)
+  public void WithRangeLowerBound_ReturnsCorrectAst(string name, decimal min)
     => _test.TrueExpected(
       name + $"{{number {min}:}}",
       new ScalarDeclAst(AstNulls.At, name) {
@@ -42,11 +59,11 @@ public sealed class ParseScalarTests(Parser<ScalarDeclAst>.D parser)
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithLowerBoundBad_ReturnsFalse(string name, decimal min)
+  public void WithRangeLowerBoundBad_ReturnsFalse(string name, decimal min)
     => _test.False(name + $"{{number {min}}}");
 
   [Theory, RepeatData(Repeats)]
-  public void WithUpperBound_ReturnsCorrectAst(string name, decimal max)
+  public void WithRangeUpperBound_ReturnsCorrectAst(string name, decimal max)
     => _test.TrueExpected(
       name + $"{{number :{max}}}",
       new ScalarDeclAst(AstNulls.At, name) {

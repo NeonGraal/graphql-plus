@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyOutputTypes(
   IVerifyAliased<OutputDeclAst> aliased
-) : AstObjectTypesVerifier<OutputDeclAst, OutputFieldAst, OutputReferenceAst, OutputContext>(aliased)
+) : AstObjectVerifier<OutputDeclAst, OutputFieldAst, OutputReferenceAst, OutputContext>(aliased)
 {
   protected override void UsageValue(OutputDeclAst usage, OutputContext context)
   {

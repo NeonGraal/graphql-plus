@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Parse.Schema;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Verifier.Parse;
@@ -40,6 +41,12 @@ public static class CommonParsers
     => services
       .AddSingleton<S>()
       .AddSingleton<Parser<T>.DA>(x => () => x.GetRequiredService<S>());
+
+  public static IServiceCollection AddArrayParser<T, S>(this IServiceCollection services)
+    where S : class, Parser<T>.I
+    => services
+      .AddParser<T, S>()
+      .AddParserArray<T, ArrayParser<T>>();
 
   public static IServiceCollection AddParserArray<I, T, S>(this IServiceCollection services)
     where S : class, I

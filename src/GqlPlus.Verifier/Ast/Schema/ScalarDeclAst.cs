@@ -14,6 +14,7 @@ public sealed record class ScalarDeclAst(
   public ScalarReferenceAst[] References { get; set; } = [];
 
   internal override string Abbr => "S";
+  public override string Label => "Scalar";
 
   public ScalarDeclAst(TokenAt at, string name)
     : this(at, name, "") { }

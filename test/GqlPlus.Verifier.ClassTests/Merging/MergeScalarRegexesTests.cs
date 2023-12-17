@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class MergeScalarRegexsTests
+public class MergeScalarRegexesTests
   : TestDistinct<ScalarRegexAst>
 {
   private readonly MergeScalarRegexes _merger = new();

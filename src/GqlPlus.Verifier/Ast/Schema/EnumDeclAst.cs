@@ -12,6 +12,7 @@ public sealed record class EnumDeclAst(
   public EnumValueAst[] Values { get; set; } = [];
 
   internal override string Abbr => "E";
+  public override string Label => "Enum";
 
   public EnumDeclAst(TokenAt at, string name)
     : this(at, name, "") { }

@@ -27,12 +27,13 @@ public static class AllVerifiers
       .AddVerify<AstType[], VerifyAllTypes>()
       .AddVerifyAliased<AstType, VerifyAllTypesAliased>()
       .AddVerifyAliased<EnumDeclAst, VerifyEnumsAliased>()
-      .AddVerifyUsageAliased<EnumDeclAst, EnumDeclAst, VerifyEnumTypes>()
+      .AddVerifyUsageAliased<EnumDeclAst, AstType, VerifyEnumTypes>()
       .AddVerifyAliased<InputDeclAst, VerifyInputsAliased>()
       .AddVerifyUsageAliased<InputDeclAst, AstType, VerifyInputTypes>()
       .AddVerifyAliased<OutputDeclAst, VerifyOutputsAliased>()
       .AddVerifyUsageAliased<OutputDeclAst, AstType, VerifyOutputTypes>()
       .AddVerifyAliased<ScalarDeclAst, VerifyScalarsAliased>()
+      .AddVerifyUsageAliased<ScalarDeclAst, AstType, VerifyScalarTypes>()
     ;
 
   public static IServiceCollection AddVerify<T, S>(this IServiceCollection services)

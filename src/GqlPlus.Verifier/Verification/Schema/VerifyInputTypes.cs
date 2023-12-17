@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyInputTypes(
   IVerifyAliased<InputDeclAst> aliased
-) : AstObjectTypesVerifier<InputDeclAst, InputFieldAst, InputReferenceAst, UsageContext>(aliased)
+) : AstObjectVerifier<InputDeclAst, InputFieldAst, InputReferenceAst, UsageContext>(aliased)
 {
   protected override UsageContext MakeContext(InputDeclAst usage, IMap<AstType[]> byId, ITokenMessages errors)
   {

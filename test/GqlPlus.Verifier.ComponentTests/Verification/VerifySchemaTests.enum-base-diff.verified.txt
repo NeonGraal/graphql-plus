@@ -1,0 +1,3 @@
+﻿[
+  Multiple Enums with id 'Test' can't be merged.
+]

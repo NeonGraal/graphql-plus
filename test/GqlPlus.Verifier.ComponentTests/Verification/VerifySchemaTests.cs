@@ -56,7 +56,9 @@ public class VerifySchemaTests(
     ["directive-merge"] = "directive @Test { all } directive @Test { all }",
     ["enum-merge"] = "enum Test { one } enum Test { two }",
     ["enum-extends"] = "enum Base { base } enum Test { :Base test }",
-    ["scalar-merge"] = "scalar Test { string } scalar Test { string }",
+    ["scalar-number"] = "scalar Test { number 1:9 } scalar Test { number 1:9 }",
+    ["scalar-string"] = "scalar Test { string /a+/} scalar Test { string /a+/ }",
+    ["scalar-union"] = "scalar Test { union | Boolean } scalar Test { union | Boolean }",
   };
   public static IEnumerable<object[]> ValidSchemas => SchemaKeys(s_validSchemas);
 
@@ -69,14 +71,18 @@ public class VerifySchemaTests(
     ["directive-diff-option"] = "directive @Test { all } directive @Test { ( repeatable ) all }",
     ["directive-no-param"] = "directive @Test(Test) { all }",
     ["directive-diff-parameter"] = "directive @Test(Test) { all } directive @Test(Test?) { all } input Test { }",
-    ["enum-no-base"] = "enum Test { : Base test }",
-    ["enum-diff-base"] = "enum Test { : Base test } enum Test { test } enum Base { base }",
+    ["enum-base-undef"] = "enum Test { : Base test }",
+    ["enum-base-diff"] = "enum Test { : Base test } enum Test { test } enum Base { base }",
     ["scalar-diff-kind"] = "scalar Test { string } scalar Test { number }",
+    ["scalar-string-diff"] = "scalar Test { string /a+/} scalar Test { string /a+/! }",
+    ["scalar-union-undef"] = "scalar Test { union | Bad }",
+    ["scalar-union-self"] = "scalar Test { union | Test }",
+    ["scalar-union-recurse"] = "scalar Test { union | Bad } scalar Bad { union | Test }",
   };
   public static IEnumerable<object[]> InvalidSchemas => SchemaKeys(s_invalidSchemas);
 
   private static readonly Map<string> s_validObjects = new() {
-    ["alts-mods-Boolean"] = "object Test { | Test[~] }",
+    ["alts-mods-Boolean"] = "object Test { | Alt[~] } object Alt { }",
     ["base"] = "object Test { : Base } object Base { }",
     ["fields-mods-Enum"] = "object Test { field: Test[Enum] } enum Enum { value } ",
     ["generic-alt"] = "object Test<$type> { | $type }",
@@ -85,11 +91,14 @@ public class VerifySchemaTests(
     ["generic-alt-arg"] = "object Test<$type> { | Ref<$type> } object Ref<$ref> { | $ref }",
     ["generic-base-arg"] = "object Test<$type> { : Ref<$type> } object Ref<$ref> { | $ref }",
     ["generic-field-arg"] = "object Test<$type> { field: Ref<$type> } object Ref<$ref> { | $ref }",
-    ["generic-param"] = "object Test { field: Ref<Test1> } object Ref<$ref> { | $ref } object Test1 { }",
+    ["generic-param"] = "object Test { field: Ref<Alt> } object Ref<$ref> { | $ref } object Alt { }",
     ["merge"] = "object Test { } object Test { }",
     ["merge-alts"] = "object Test { | Test1 } object Test { | Test1 } object Test1 { }",
     ["merge-fields"] = "object Test { field: Test } object Test { field: Test }",
-    ["input-field-optional-null"] = "input Test { field: Test? = null}",
+    ["input-field-Number"] = "input Test { field: Number = 0 }",
+    ["input-field-String"] = "input Test { field: String = '' }",
+    ["input-field-Enum"] = "input Test { field: Enum = value } enum Enum { value }",
+    ["input-field-null"] = "input Test { field: Test? = null }",
     ["output-merge-params"] = "output Test { field(Param): Test } output Test { field: Test } input Param { }",
     ["output-merge-enums"] = "output Test { field = Boolean.true } output Test { field = true }",
     ["output-generic-enum"] = "output Test { | Ref<Boolean.false> } output Ref<$type> { field: $type }",

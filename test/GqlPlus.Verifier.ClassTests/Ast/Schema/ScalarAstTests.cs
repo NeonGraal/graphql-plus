@@ -69,6 +69,28 @@ public class ScalarAstTests : AstAliasedTests
       regex => new ScalarDeclAst(AstNulls.At, name, regex.ScalarRegexes()),
       regex1 == regex2);
 
+  [Theory, RepeatData(Repeats)]
+  public void HashCode_WithTypes(string name, string type)
+      => _checks.HashCode(
+        () => new ScalarDeclAst(AstNulls.At, name, type.ScalarReferences()));
+
+  [Theory, RepeatData(Repeats)]
+  public void String_WithTypes(string name, string type)
+    => _checks.String(
+      () => new ScalarDeclAst(AstNulls.At, name, type.ScalarReferences()),
+      $"( !S {name} Union !ST {type} )");
+
+  [Theory, RepeatData(Repeats)]
+  public void Equality_WithTypes(string name, string type)
+    => _checks.Equality(
+      () => new ScalarDeclAst(AstNulls.At, name, type.ScalarReferences()));
+
+  [Theory, RepeatData(Repeats)]
+  public void Inequality_BetweenTypes(string name, string type1, string type2)
+    => _checks.InequalityBetween(type1, type2,
+      type => new ScalarDeclAst(AstNulls.At, name, type.ScalarReferences()),
+      type1 == type2);
+
   protected override string InputString(string input)
    => $"( !S {input} Number )";
 

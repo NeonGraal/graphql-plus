@@ -114,6 +114,7 @@ An Enum is a Type defined with one or more Values.
 Each Value can be preceded by a documentation string and may have one or more Aliases.
 
 An Enum can extend another Enum, called it's base Enum, and it's Values are merged into the base Enum's Values.
+An Enum cannot be based on itself, recursively.
 
 Enums can be merged if their base Enums match and their Values can be merged.
 
@@ -143,11 +144,13 @@ An Object Union type is defined as either:
 - one or more Alternate object Type references
 
 The order of Alternates is significant.
+An Alternate must not include itelf, recursively.
 
 An object Type reference may be an Internal, Simple or another object Type.
 If an object Type it may have Type Arguments of object Type references.
 
 An object is defined with an optional base Type and has one or more Fields.
+An object most not be based on itself, recursively.
 
 A Field is defined with at least:
 
@@ -354,19 +357,22 @@ or:
 
 ```PEG
 Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
-ScalarDefinition = Scal_Number | Scal_String
+ScalarDefinition = Scal_Number | Scal_String | Scalar_Union
 
 Scal_Number = 'Number' Scal_Range*
 Scal_String = 'String' Scal_Regex*
+Scal_Union = 'Union' Scal_Reference+
 
-Scal_Range = '..' '<'? NUMBER | NUMBER '>'? '..' ( '<'? NUMBER )?
+Scal_Range = ':' '<'? NUMBER | NUMBER '>'? ':' ( '<'? NUMBER )?
 Scal_RegEx = REGEX '!'?
+Scal_Reference = '|' Simple
 ```
 
 Scalar types define specific domains of the following kinds:
 
 - Numbers, possibly only those in a given range. Ranges may be upper and/or lower bounded and each bound may be inclusive or exclusive.
 - Strings, possibly only those that match (or don't match) one or more regular expressions.
+- Union of one or more Simple types. A Scalar Union must not include itself, recursively.
 
 Scalar declarations can be merged if their kinds match and their Ranges or Regexes can be merged.
 
@@ -430,12 +436,14 @@ Out_Reference = Internal | Simple | Out_Base
 Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference |  STRING? EnumValue )+ '>' )?
 
 Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
-ScalarDefinition = Scal_Number | Scal_String
+ScalarDefinition = Scal_Number | Scal_String | Scalar_Union
 
 Scal_Number = 'Number' Scal_Range*
 Scal_String = 'String' Scal_Regex*
+Scal_Union = 'Union' Scal_Reference+
 
-Scal_Range = '..' '<'? NUMBER | NUMBER '>'? '..' ( '<'? NUMBER )?
+Scal_Range = ':' '<'? NUMBER | NUMBER '>'? ':' ( '<'? NUMBER )?
 Scal_RegEx = REGEX '!'?
+Scal_Reference = '|' Simple
 
 ```

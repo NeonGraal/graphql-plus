@@ -25,6 +25,10 @@ public sealed class ParseScalarTests(Parser<ScalarDeclAst>.D parser)
       });
 
   [Theory, RepeatData(Repeats)]
+  public void WithReferencesBad_ReturnsFalse(string name)
+    => _test.False(name + "{union | }");
+
+  [Theory, RepeatData(Repeats)]
   public void WithReferencesFirstBad_ReturnsFalse(string name, string reference1, string reference2)
     => _test.False(name + "{union " + reference1 + "|" + reference2 + "}");
 
@@ -42,7 +46,11 @@ public sealed class ParseScalarTests(Parser<ScalarDeclAst>.D parser)
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithRegexesBad_ReturnsFalse(string name, string regex1, string regex2)
+  public void WithRegexesFirstBad_ReturnsFalse(string name)
+    => _test.False(name + "{string/}");
+
+  [Theory, RepeatData(Repeats)]
+  public void WithRegexesSecondBad_ReturnsFalse(string name, string regex1, string regex2)
     => _test.False(name + "{string/" + regex1 + "/!/" + regex2 + "}");
 
   [Theory, RepeatData(Repeats)]

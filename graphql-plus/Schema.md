@@ -114,6 +114,7 @@ An Enum is a Type defined with one or more Values.
 Each Value can be preceded by a documentation string and may have one or more Aliases.
 
 An Enum can extend another Enum, called it's base Enum, and it's Values are merged into the base Enum's Values.
+An Enum cannot be based on itself, recursively.
 
 Enums can be merged if their base Enums match and their Values can be merged.
 
@@ -143,11 +144,13 @@ An Object Union type is defined as either:
 - one or more Alternate object Type references
 
 The order of Alternates is significant.
+An Alternate must not include itelf, recursively.
 
 An object Type reference may be an Internal, Simple or another object Type.
 If an object Type it may have Type Arguments of object Type references.
 
 An object is defined with an optional base Type and has one or more Fields.
+An object most not be based on itself, recursively.
 
 A Field is defined with at least:
 
@@ -213,10 +216,10 @@ input|output _Array<$T> [Array] { _Dict<Number $T> }
 input|output _IfElse<$T> [IfElse] { _Dict<Boolean $T> }
 
 "_[$K]"
-input|output Set<$K> { _Dict<$K Unit> }
+input|output _Set<$K> [Set] { _Dict<$K Unit> }
 
 "~[$K]"
-input|output Mask<$K> { _Dict<$K Boolean> }
+input|output _Mask<$K> [Mask] { _Dict<$K Boolean> }
 ```
 
 These Generic types are the Input types if `$T` is an Input type and Output types if `$T` is an Output type.
@@ -272,12 +275,13 @@ Object is a general Dictionary as follows:
 
 ```gqlp
 "%"
-input|output Object [%] { _Map<Any> }
+input|output _Object [Object,%] { : _Map<Any> } // recursive
 
-input|output _Any<$T> { $T | _Scalar | Object | _Enum | _Any<$T>? | _Any<$T>[] | _Any<$T>[Simple] | _Any<$T>[Simple?] }
+input|output _Most<$T> [Most] { $T | Object | _Most<$T>? | _Most<$T>[] | _Most<$T>[Simple] | _Most<$T>[Simple?] } // recursive! not in _Input or _Output
 
-input Any { _Any<_Input> }
-output Any { _Any<_Output> }
+input _Any [Any] { : _Most<_Input> } // not in _Input
+output _Any [Any] { : _Most<_Output> } // not in _Output
+scalar _Any [Any] { | Basic | Internal | _Enum | _Scalar } // not in _Scalar
 ```
 
 The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically defined to be a union of all Scalar, Output, Input and Enum types respectively.
@@ -354,19 +358,22 @@ or:
 
 ```PEG
 Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
-ScalarDefinition = Scal_Number | Scal_String
+ScalarDefinition = Scal_Number | Scal_String | Scalar_Union
 
 Scal_Number = 'Number' Scal_Range*
 Scal_String = 'String' Scal_Regex*
+Scal_Union = 'Union' Scal_Reference+
 
-Scal_Range = '..' '<'? NUMBER | NUMBER '>'? '..' ( '<'? NUMBER )?
+Scal_Range = ':' '<'? NUMBER | NUMBER '>'? ':' ( '<'? NUMBER )?
 Scal_RegEx = REGEX '!'?
+Scal_Reference = '|' Simple
 ```
 
 Scalar types define specific domains of the following kinds:
 
 - Numbers, possibly only those in a given range. Ranges may be upper and/or lower bounded and each bound may be inclusive or exclusive.
 - Strings, possibly only those that match (or don't match) one or more regular expressions.
+- Union of one or more Simple types. A Scalar Union must not include itself, recursively.
 
 Scalar declarations can be merged if their kinds match and their Ranges or Regexes can be merged.
 
@@ -427,15 +434,17 @@ Out_Enum = fieldAlias* '=' STRING? EnumValue
 
 Out_Alternate = '|' STRING? Out_Reference Modifiers?
 Out_Reference = Internal | Simple | Out_Base
-Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference | STRING? EnumValue )+ '>' )?
+Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference |  STRING? EnumValue )+ '>' )?
 
 Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
-ScalarDefinition = Scal_Number | Scal_String
+ScalarDefinition = Scal_Number | Scal_String | Scalar_Union
 
 Scal_Number = 'Number' Scal_Range*
 Scal_String = 'String' Scal_Regex*
+Scal_Union = 'Union' Scal_Reference+
 
-Scal_Range = '..' '<'? NUMBER | NUMBER '>'? '..' ( '<'? NUMBER )?
+Scal_Range = ':' '<'? NUMBER | NUMBER '>'? ':' ( '<'? NUMBER )?
 Scal_RegEx = REGEX '!'?
+Scal_Reference = '|' Simple
 
 ```

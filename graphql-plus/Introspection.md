@@ -141,11 +141,8 @@ output _Parameter {
 output _Constant {
         enum: _BaseType<_TypeKind.Enum>
         value: String
-    | Boolean
-    | Null
-    | Unit
-    | Number
-    | String
+    | Internal
+    | Simple
     | _ConstantList
     | _ConstantMap
     }
@@ -222,11 +219,12 @@ output _OutputEnum {
 ## Scalar type
 
 ```gqlp
-enum _Scalar { Number String }
+enum _Scalar { Number String Union }
 
 output _TypeScalar {
     | _ScalarNumber
     | _ScalarString
+    | _ScalarUnion
     }
 
 output _BaseScalar<$base> {
@@ -254,6 +252,11 @@ output _ScalarString {
 output _ScalarRegex {
         regex: String
         exclude: Boolean
+    }
+
+output _ScalarUnion {
+    : _BaseScalar<_Scalar.Union>
+        references: _TypeSimple[]
     }
 ```
 
@@ -372,11 +375,8 @@ output _Parameter {
 output _Constant {
         enum: _BaseType<_TypeKind.Enum>
         value: String
-    | Boolean
-    | Null
-    | Unit
-    | Number
-    | String
+    | Internal
+    | Simple
     | _ConstantList
     | _ConstantMap
     }
@@ -441,11 +441,12 @@ output _OutputEnum {
         value: String
     }
 
-enum _Scalar { Number String }
+enum _Scalar { Number String Union }
 
 output _TypeScalar {
     | _ScalarNumber
     | _ScalarString
+    | _ScalarUnion
     }
 
 output _BaseScalar<$base> {
@@ -473,6 +474,11 @@ output _ScalarString {
 output _ScalarRegex {
         regex: String
         exclude: Boolean
+    }
+
+output _ScalarUnion {
+    : _BaseScalar<_Scalar.Union>
+        references: _TypeSimple[]
     }
 
 ```

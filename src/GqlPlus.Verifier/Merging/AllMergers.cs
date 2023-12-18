@@ -24,6 +24,7 @@ public static class AllMergers
       .AddMerge<ScalarDeclAst, MergeScalars>()
       .AddMerge<ScalarRangeAst, MergeScalarRanges>()
       .AddMerge<ScalarRegexAst, MergeScalarRegexes>()
+      .AddMerge<SchemaAst, MergeSchemas>()
     ;
 
   public static IServiceCollection AddMerge<T, S>(this IServiceCollection services)

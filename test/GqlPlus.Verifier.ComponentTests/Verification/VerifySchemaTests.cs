@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
@@ -8,7 +9,8 @@ namespace GqlPlus.Verifier.Verification;
 [UsesVerify]
 public class VerifySchemaTests(
     Parser<SchemaAst>.D parser,
-    IVerify<SchemaAst> verifier)
+    IVerify<SchemaAst> verifier,
+    IMerge<SchemaAst> merger)
 {
   [Theory]
   [MemberData(nameof(ValidSchemas))]
@@ -54,13 +56,63 @@ public class VerifySchemaTests(
   [MemberData(nameof(InvalidObjects))]
   public async Task Verify_InvalidObjects(string schema)
   {
-    var doc = s_invalidObjects[schema];
-    if (doc.StartsWith("object", StringComparison.Ordinal)) {
+    var input = s_invalidObjects[schema];
+    if (input.StartsWith("object", StringComparison.Ordinal)) {
       await WhenAll(
-        Verify_Invalid(doc.Replace("object", "input"), "input-" + schema),
-        Verify_Invalid(doc.Replace("object", "output"), "output-" + schema));
+        Verify_Invalid(input.Replace("object", "input"), "input-" + schema),
+        Verify_Invalid(input.Replace("object", "output"), "output-" + schema));
     } else {
-      await Verify_Invalid(doc, schema);
+      await Verify_Invalid(input, schema);
+    }
+  }
+
+  [Fact(Skip = "WIP")]
+  public void CanMerge_Schemas()
+  {
+    var schemas = s_validObjects.Values
+      .SelectMany(input => new[] {
+        input.Replace("object", "input"),
+        input.Replace("object", "output"),
+      })
+      .Concat(s_validMerges.Values)
+      .Concat(s_validSchemas.Values)
+      .Select(input => Parse(input).Required())
+      .ToArray();
+
+    var result = merger.CanMerge(schemas);
+
+    result.Should().BeTrue();
+  }
+
+  [Fact(Skip = "WIP")]
+  public async Task Merge_Schemas()
+  {
+    var schemas = s_validObjects.Values
+      .SelectMany(input => new[] {
+        input.Replace("object", "input"),
+        input.Replace("object", "output"),
+      })
+      .Concat(s_validMerges.Values)
+      .Concat(s_validSchemas.Values)
+      .Select(input => Parse(input).Required())
+      .ToArray();
+
+    var result = merger.Merge(schemas);
+
+    await Verify(result.Render());
+  }
+
+  [Theory(Skip = "WIP")]
+  [MemberData(nameof(ValidMerges))]
+  public async Task Merge_Valid(string schema)
+  {
+    var input = s_validMerges[schema];
+    if (input.StartsWith("object", StringComparison.Ordinal)) {
+      await WhenAll(
+        Verify_Merge(input.Replace("object", "input"), "input-" + schema),
+        Verify_Merge(input.Replace("object", "output"), "output-" + schema));
+    } else {
+      await Verify_Merge(input, schema);
     }
   }
 
@@ -212,6 +264,19 @@ public class VerifySchemaTests(
     settings.UseMethodName(test);
 
     await Verify(result.Select(m => m.Message), settings);
+  }
+
+  private async Task Verify_Merge(string input, string test)
+  {
+    var parse = Parse(input);
+
+    var result = merger.Merge([parse.Required()]);
+
+    var settings = new VerifySettings();
+    settings.ScrubEmptyLines();
+    settings.UseMethodName(test + "-merge");
+
+    await Verify(result.Render(), settings);
   }
 
   private static async Task WhenAll(params Task[] tasks)

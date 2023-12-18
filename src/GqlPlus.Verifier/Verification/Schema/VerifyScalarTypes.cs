@@ -22,7 +22,7 @@ internal class VerifyScalarTypes(
       } else if (context.GetType(reference.Name, out var alternate) && alternate is AstType type) {
         if (type is ScalarDeclAst scalar) {
           CheckSelfReference(usage.Name, scalar, context);
-        } else if (type.Label is not "Enum") {
+        } else if (type.Label is not "Enum" and not "Scalar" and not "All") {
           context.AddError(usage, "Scalar Reference", $"Type kind mismatch for {reference.Name}. Found {type?.Label}");
         }
       } else {

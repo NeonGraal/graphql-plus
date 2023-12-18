@@ -216,10 +216,10 @@ input|output _Array<$T> [Array] { _Dict<Number $T> }
 input|output _IfElse<$T> [IfElse] { _Dict<Boolean $T> }
 
 "_[$K]"
-input|output Set<$K> { _Dict<$K Unit> }
+input|output _Set<$K> [Set] { _Dict<$K Unit> }
 
 "~[$K]"
-input|output Mask<$K> { _Dict<$K Boolean> }
+input|output _Mask<$K> [Mask] { _Dict<$K Boolean> }
 ```
 
 These Generic types are the Input types if `$T` is an Input type and Output types if `$T` is an Output type.
@@ -275,12 +275,13 @@ Object is a general Dictionary as follows:
 
 ```gqlp
 "%"
-input|output Object [%] { _Map<Any> }
+input|output _Object [Object,%] { : _Map<Any> } // recursive
 
-input|output _Any<$T> { $T | _Scalar | Object | _Enum | _Any<$T>? | _Any<$T>[] | _Any<$T>[Simple] | _Any<$T>[Simple?] }
+input|output _Most<$T> [Most] { $T | Object | _Most<$T>? | _Most<$T>[] | _Most<$T>[Simple] | _Most<$T>[Simple?] } // recursive! not in _Input or _Output
 
-input Any { _Any<_Input> }
-output Any { _Any<_Output> }
+input _Any [Any] { : _Most<_Input> } // not in _Input
+output _Any [Any] { : _Most<_Output> } // not in _Output
+scalar _Any [Any] { | Basic | Internal | _Enum | _Scalar } // not in _Scalar
 ```
 
 The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically defined to be a union of all Scalar, Output, Input and Enum types respectively.

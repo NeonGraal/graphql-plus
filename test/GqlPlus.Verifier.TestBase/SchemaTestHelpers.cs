@@ -29,12 +29,6 @@ public static class SchemaTestHelpers
   public static ParameterAst[] Parameters(this string[] parameters, Func<ParameterAst, ParameterAst> mapping)
     => [.. parameters.Select(parameter => mapping(new ParameterAst(AstNulls.At, parameter)))];
 
-  public static ScalarRegexAst[] ScalarRegexes(this string regex, params string[] regexes)
-    => [.. regexes.Select(r => new ScalarRegexAst(AstNulls.At, r, false)).Prepend(new(AstNulls.At, regex, true))];
-
-  public static ScalarReferenceAst[] ScalarReferences(this string reference, params string[] references)
-    => [.. references.Select(r => new ScalarReferenceAst(AstNulls.At, r)).Prepend(new(AstNulls.At, reference))];
-
   public static TypeParameterAst[] TypeParameters(this string[] parameters)
     => [.. parameters.Select(parameter => new TypeParameterAst(AstNulls.At, parameter))];
 }

@@ -1,0 +1,20 @@
+﻿[
+  ( !E Void ),
+  ( !E Null [ null ] !EV null ),
+  ( !S Simple Union !ST ~ !ST 0 !ST * !ST _ !ST _Scalar !ST _Enum ),
+  ( !D _Opt < $T > | !AD $T !AD Null ),
+  ( !D _List < $T > | !AD $T [] ),
+  ( !D _Dict < $K $T > | !AD $T [$K] ),
+  ( !D _Map < $T > : _Dict < String $T > ),
+  ( !D _Array < $T > : _Dict < Number $T > ),
+  ( !D _IfElse < $T > : _Dict < Boolean $T > ),
+  ( !D _Set < $K > : _Dict < $K Unit > ),
+  ( !D _Mask < $K > : _Dict < Boolean, true $T > ),
+  ( !D _Object [ % _Object ] : _Map < Any > ),
+  ( !D _Most < $T > | !AD $T !AD Object !AD _Most < $T > [] !AD _Most < $T > ? !AD _Most < $T > [Single] !AD _Most < $T > [Single?] ),
+  ( !Z _Any [ Any ] ),
+  ( !Z _Enum ),
+  ( !Z _Input ),
+  ( !Z _Output ),
+  ( !Z _Scalar )
+]

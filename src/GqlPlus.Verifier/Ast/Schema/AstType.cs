@@ -12,5 +12,4 @@ public interface IAstType
 {
   string Name { get; }
   string Label { get; }
-
 }

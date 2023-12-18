@@ -2,12 +2,11 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal class MergeAllTypes
-  : IMerge<AstType>
+internal class MergeAllTypes : DistinctsMerger<AstType>
 {
-  public bool CanMerge(AstType[] items)
+  public override bool CanMerge(AstType[] items)
     => items.Select(i => i.GetType()).Distinct().Count() == 1;
 
-  // Todo: Implement Merge
-  public AstType Merge(AstType[] items) => throw new NotImplementedException();
+  protected override string ItemMatchKey(AstType item)
+    => throw new InvalidOperationException();
 }

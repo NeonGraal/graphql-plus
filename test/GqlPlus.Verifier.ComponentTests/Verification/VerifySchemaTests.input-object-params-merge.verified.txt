@@ -1,0 +1,32 @@
+﻿!G I@1/1
+Success
+{
+  !I I@7/1
+  Test
+  <
+    I@13/1
+    $test
+  >
+  {
+    !IF I@21/1
+    test
+    :
+    I@28/1
+    $test
+  }
+}
+{
+  !I I@41/1
+  Test
+  <
+    I@47/1
+    $type
+  >
+  {
+    !IF I@55/1
+    type
+    :
+    I@62/1
+    $type
+  }
+}

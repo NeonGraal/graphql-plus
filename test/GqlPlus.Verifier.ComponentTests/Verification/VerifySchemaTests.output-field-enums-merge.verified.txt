@@ -1,0 +1,22 @@
+﻿!G I@1/1
+Success
+{
+  !O I@8/1
+  Test
+  {
+    !OF I@15/1
+    field
+    =
+    Boolean.true
+  }
+}
+{
+  !O I@45/1
+  Test
+  {
+    !OF I@52/1
+    field
+    =
+    .true
+  }
+}

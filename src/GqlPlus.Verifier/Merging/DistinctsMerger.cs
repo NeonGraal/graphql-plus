@@ -12,5 +12,10 @@ public abstract class DistinctsMerger<TItem>
   protected abstract string ItemMatchKey(TItem item);
 
   // Todo: Implement Merge
-  public virtual TItem Merge(TItem[] items) => throw new NotImplementedException();
+  public virtual TItem Merge(TItem[] items)
+    => items.Length switch {
+      0 => throw new InvalidOperationException(),
+      1 => items[0],
+      _ => throw new NotImplementedException(),
+    };
 }

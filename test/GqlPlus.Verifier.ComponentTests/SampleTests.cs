@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
+﻿using DiffEngine;
+using GqlPlus.Verifier.Ast.Operation;
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
@@ -16,6 +17,11 @@ public class SampleTests(
 {
   private readonly Parser<OperationAst>.L _operation = operation;
   private readonly Parser<SchemaAst>.L _schemaParser = schemaParser;
+
+  static SampleTests()
+  {
+    DiffRunner.MaxInstancesToLaunch(20);
+  }
 
   [Theory]
   [ClassData(typeof(SampleSchemaData))]

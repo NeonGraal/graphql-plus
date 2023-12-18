@@ -1,0 +1,32 @@
+﻿!G I@1/1
+Success
+{
+  !O I@8/1
+  Test
+  <
+    I@14/1
+    $test
+  >
+  {
+    !OF I@22/1
+    test
+    :
+    I@29/1
+    $test
+  }
+}
+{
+  !O I@43/1
+  Test
+  <
+    I@49/1
+    $type
+  >
+  {
+    !OF I@57/1
+    type
+    :
+    I@64/1
+    $type
+  }
+}

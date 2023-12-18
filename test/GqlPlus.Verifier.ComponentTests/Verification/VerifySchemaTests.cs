@@ -66,7 +66,7 @@ public class VerifySchemaTests(
     }
   }
 
-  [Fact(Skip = "WIP")]
+  [Fact]
   public void CanMerge_Schemas()
   {
     var schemas = s_validObjects.Values
@@ -84,7 +84,7 @@ public class VerifySchemaTests(
     result.Should().BeTrue();
   }
 
-  [Fact(Skip = "WIP")]
+  [Fact]
   public async Task Merge_Schemas()
   {
     var schemas = s_validObjects.Values
@@ -102,7 +102,7 @@ public class VerifySchemaTests(
     await Verify(result.Render());
   }
 
-  [Theory(Skip = "WIP")]
+  [Theory]
   [MemberData(nameof(ValidMerges))]
   public async Task Merge_Valid(string schema)
   {

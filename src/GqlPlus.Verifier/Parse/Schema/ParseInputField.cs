@@ -17,7 +17,7 @@ internal class ParseInputField(
 
   [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParameters(InputFieldAst field, ParameterAst[] parameters)
-    => throw new NotImplementedException();
+    => throw new InvalidOperationException();
 
   protected override InputFieldAst Field(TokenAt at, string name, string description, InputReferenceAst typeReference)
     => new(at, name, description, typeReference);

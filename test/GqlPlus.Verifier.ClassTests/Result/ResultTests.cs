@@ -15,8 +15,8 @@ public class ResultTests : BaseResultTests
 
   public class TestResult<T> : IResult<T>
   {
-    public IResult<R> AsPartial<R>(R result, Action<T>? withValue = null, Action? action = null) => throw new NotImplementedException();
-    public IResult<R> AsResult<R>(R? _ = default) => throw new NotImplementedException();
-    public IResult<R> Map<R>(SelectResult<T, R> onValue, OnResult<R>? otherwise = null) => throw new NotImplementedException();
+    public IResult<R> AsPartial<R>(R result, Action<T>? withValue = null, Action? action = null) => throw new InvalidOperationException();
+    public IResult<R> AsResult<R>(R? _ = default) => throw new InvalidOperationException();
+    public IResult<R> Map<R>(SelectResult<T, R> onValue, OnResult<R>? otherwise = null) => throw new InvalidOperationException();
   }
 }

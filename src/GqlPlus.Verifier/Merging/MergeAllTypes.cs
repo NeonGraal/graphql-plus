@@ -8,5 +8,6 @@ internal class MergeAllTypes
   public bool CanMerge(AstType[] items)
     => items.Select(i => i.GetType()).Distinct().Count() == 1;
 
+  // Todo: Implement Merge
   public AstType Merge(AstType[] items) => throw new NotImplementedException();
 }

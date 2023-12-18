@@ -9,7 +9,7 @@
 ```PEG
 Schema = Declaration+
 
-Declaration = STRING? ( Category | Directive | Type )
+Declaration = STRING? ( Category | Directive | Option | Type )
 Type = Enum | Input | Output | Scalar
 
 Aliases = '[' alias+ ']'
@@ -56,14 +56,7 @@ As order is significant in most lists, the first item of any duplicates will be 
 
 It is an error if merging of duplicate items is not possible.
 
-### Types
-
-Most declarations define a Type.
-
-The names and Aliases of all Types must be unique across all kinds of Types within the Schema.
-Merging of Types is only possible if the kinds match.
-
-## Category
+## Category declaration
 
 ```PEG
 Category = 'category' category? Aliases? '{' ( '(' Cat_Option ')' )? output '}'
@@ -85,7 +78,7 @@ but this can be changed with the following Category Options:
 
 Categories can be merged if their Options and Output Types match.
 
-## Directive
+## Directive declaration
 
 ```PEG
 Directive = 'directive' '@'directive InputParameters? Aliases? '{' Dir_Repeatable? Dir_Location+ '}'
@@ -102,6 +95,78 @@ Directives can be merged if their Options match and their Parameters can be merg
 
 Locations will be merged by value.
 
+## Option declaration
+
+```PEG
+Option = 'option' name Aliases? '{' Opt_Setting* '}'
+Opt_Setting = Opt_Kind '=' Boolean
+Opt_Kind = 'Strict' | 'GraphQl_Compatibility'
+```
+
+An Option defines valid options for the Schema as a whole, including the Schema name and Aliases.
+A Schema must have only one name.
+
+Options can be merged if Option Settings are unique.
+
+## Type declarations
+
+Most declarations define a Type.
+
+The names and Aliases of all Types must be unique across all kinds of Types within the Schema.
+Merging of Types is only possible if the kinds match.
+
+### Built-In types
+
+```PEG
+Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
+
+Simple = Basic | scalar | enum  # Redefined
+```
+
+The above types from [Definition](Definition.md) are redefined for Schemas
+
+<details>
+<summary>Built-In types</summary>
+
+<i>The following GraphQlPlus isn't strictly valid but ...</i>
+
+Boolean, Null, Unit and Void are effectively enum types as follows:
+
+```gqlp
+enum Boolean [~] { true false }
+
+enum Null [null] { null }
+
+enum Unit [_] { _ }
+
+enum Void { }  # no valid value
+```
+
+Number and String are effectively scalar types as follows:
+
+```gqlp
+scalar Number [0] { Number }
+
+scalar String [*] { String }
+```
+
+Object is a general Dictionary as follows:
+
+```gqlp
+"%"
+input|output _Object [Object,%] { : _Map<Any> } // recursive
+
+input|output _Most<$T> [Most] { $T | Object | _Most<$T>? | _Most<$T>[] | _Most<$T>[Simple] | _Most<$T>[Simple?] } // recursive! not in _Input or _Output
+
+input _Any [Any] { : _Most<_Input> } // not in _Input
+output _Any [Any] { : _Most<_Output> } // not in _Output
+scalar _Any [Any] { | Basic | Internal | _Enum | _Scalar } // not in _Scalar
+```
+
+The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically defined to be a union of all Scalar, Output, Input and Enum types respectively.
+
+</details>
+
 ## Enum type
 
 ```PEG
@@ -117,6 +182,29 @@ An Enum can extend another Enum, called it's base Enum, and it's Values are merg
 An Enum cannot be based on itself, recursively.
 
 Enums can be merged if their base Enums match and their Values can be merged.
+
+## Scalar type
+
+```PEG
+Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
+ScalarDefinition = Scal_Number | Scal_String | Scalar_Union
+
+Scal_Number = 'Number' Scal_Range*
+Scal_String = 'String' Scal_Regex*
+Scal_Union = 'Union' Scal_Reference+
+
+Scal_Range = ':' '<'? NUMBER | NUMBER '>'? ':' ( '<'? NUMBER )?
+Scal_RegEx = REGEX '!'?
+Scal_Reference = '|' Simple
+```
+
+Scalar types define specific domains of the following kinds:
+
+- Numbers, possibly only those in a given range. Ranges may be upper and/or lower bounded and each bound may be inclusive or exclusive.
+- Strings, possibly only those that match (or don't match) one or more regular expressions.
+- Union of one or more Simple types. A Scalar Union must not include itself, recursively.
+
+Scalar declarations can be merged if their kinds match and their Ranges or Regexes can be merged.
 
 ## Object Union types
 
@@ -236,58 +324,6 @@ These Generic types are the Input types if `$T` is an Input type and Output type
 | `String[Number?]`          | Dict<Opt<Number> String>                 |
 | `String[][Number][Unit?]?` | Opt<Dict<Opt<Unit> Array<List<String>>>> |
 
-### Built-In types
-
-```PEG
-Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
-
-Simple = Basic | scalar | enum  # Redefined
-```
-
-The above types from [Definition](Definition.md) are redefined for Schemas
-
-<details>
-<summary>Built-In types</summary>
-
-<i>The following GraphQlPlus isn't strictly valid but ...</i>
-
-Boolean, Null, Unit and Void are effectively enum types as follows:
-
-```gqlp
-enum Boolean [~] { true false }
-
-enum Null [null] { null }
-
-enum Unit [_] { _ }
-
-enum Void { }  # no valid value
-```
-
-Number and String are effectively scalar types as follows:
-
-```gqlp
-scalar Number [0] { Number }
-
-scalar String [*] { String }
-```
-
-Object is a general Dictionary as follows:
-
-```gqlp
-"%"
-input|output _Object [Object,%] { : _Map<Any> } // recursive
-
-input|output _Most<$T> [Most] { $T | Object | _Most<$T>? | _Most<$T>[] | _Most<$T>[Simple] | _Most<$T>[Simple?] } // recursive! not in _Input or _Output
-
-input _Any [Any] { : _Most<_Input> } // not in _Input
-output _Any [Any] { : _Most<_Output> } // not in _Output
-scalar _Any [Any] { | Basic | Internal | _Enum | _Scalar } // not in _Scalar
-```
-
-The internal types `_Scalar`, `_Output`, `_Input` and `_Enum` are automatically defined to be a union of all Scalar, Output, Input and Enum types respectively.
-
-</details>
-
 ## Input type
 
 ```PEG
@@ -354,35 +390,12 @@ or:
 - zero or more Field Aliases
 - an Enum Value (which will imply the field Type)
 
-## Scalar type
-
-```PEG
-Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
-ScalarDefinition = Scal_Number | Scal_String | Scalar_Union
-
-Scal_Number = 'Number' Scal_Range*
-Scal_String = 'String' Scal_Regex*
-Scal_Union = 'Union' Scal_Reference+
-
-Scal_Range = ':' '<'? NUMBER | NUMBER '>'? ':' ( '<'? NUMBER )?
-Scal_RegEx = REGEX '!'?
-Scal_Reference = '|' Simple
-```
-
-Scalar types define specific domains of the following kinds:
-
-- Numbers, possibly only those in a given range. Ranges may be upper and/or lower bounded and each bound may be inclusive or exclusive.
-- Strings, possibly only those that match (or don't match) one or more regular expressions.
-- Union of one or more Simple types. A Scalar Union must not include itself, recursively.
-
-Scalar declarations can be merged if their kinds match and their Ranges or Regexes can be merged.
-
 ## Complete Grammar
 
 ```PEG
 Schema = Declaration+
 
-Declaration = STRING? ( Category | Directive | Type )
+Declaration = STRING? ( Category | Directive | Option | Type )
 Type = Enum | Input | Output | Scalar
 
 Aliases = '[' alias+ ']'
@@ -394,8 +407,27 @@ Directive = 'directive' '@'directive InputParameters? Aliases? '{' Dir_Repeatabl
 Dir_Repeatable = '(' 'repeatable' ')'
 Dir_Location = 'Operation' | 'Variable' | 'Field' | 'Inline' | 'Spread' | 'Fragment'
 
+Option = 'option' name Aliases? '{' Opt_Setting* '}'
+Opt_Setting = Opt_Kind '=' Boolean
+Opt_Kind = 'Strict' | 'GraphQl_Compatibility'
+
+Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
+
+Simple = Basic | scalar | enum  # Redefined
+
 Enum = 'enum' enum Aliases? '{' ( ':' enum )? En_Value+ '}'
 En_Value = STRING? value Aliases?
+
+Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
+ScalarDefinition = Scal_Number | Scal_String | Scalar_Union
+
+Scal_Number = 'Number' Scal_Range*
+Scal_String = 'String' Scal_Regex*
+Scal_Union = 'Union' Scal_Reference+
+
+Scal_Range = ':' '<'? NUMBER | NUMBER '>'? ':' ( '<'? NUMBER )?
+Scal_RegEx = REGEX '!'?
+Scal_Reference = '|' Simple
 
 # base definition
 Object = 'object' object TypeParameters? Aliases? '{' Obj_Definition '}'
@@ -411,10 +443,6 @@ TypeParameters = '<' ( STRING? '$'typeParameter )+ '>'
 
 InputParameters = '(' InParam_Type+ ')'
 InParam_Type = STRING? In_Reference Modifiers? Default?
-
-Internal = 'Null' | 'null' | 'Object' | '%' | 'Void'  # Redefined
-
-Simple = Basic | scalar | enum  # Redefined
 
 Input = 'input' input TypeParameters? Aliases? '{' In_Definition '}'
 In_Definition = In_Object? In_Alternate*
@@ -435,16 +463,5 @@ Out_Enum = fieldAlias* '=' STRING? EnumValue
 Out_Alternate = '|' STRING? Out_Reference Modifiers?
 Out_Reference = Internal | Simple | Out_Base
 Out_Base = '$'typeParameter | output ( '<' ( STRING? Out_Reference |  STRING? EnumValue )+ '>' )?
-
-Scalar = 'scalar' scalar Aliases? '{' ScalarDefinition '}'
-ScalarDefinition = Scal_Number | Scal_String | Scalar_Union
-
-Scal_Number = 'Number' Scal_Range*
-Scal_String = 'String' Scal_Regex*
-Scal_Union = 'Union' Scal_Reference+
-
-Scal_Range = ':' '<'? NUMBER | NUMBER '>'? ':' ( '<'? NUMBER )?
-Scal_RegEx = REGEX '!'?
-Scal_Reference = '|' Simple
 
 ```

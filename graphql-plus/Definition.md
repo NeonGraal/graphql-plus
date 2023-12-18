@@ -52,14 +52,23 @@ EnumValue = ( enum '.' )? value
 
 FieldKey = EnumValue | NUMBER | STRING
 
-Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
+Boolean = 'true' | 'false'
+
 Simple = Basic | enum
 Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
 
 Internal = 'Void' | 'Null' | 'null'
+
+Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
 ```
 
 An Enum Value reference may drop the Enum portion if the Value is unique.
+Enum Value includes (`Boolean.`)`false`, (`Boolean.`)`true`, (`Null.`)`null` and (`Unit.`)`_`.
+
+`Boolean`, `Null`, `Unit` and `Void` are all Enum types.
+`Number` and `String` are Scalar types.
+
+### Modifiers
 
 | Modifier   | Syntax           | Notes                                                                                                                        | Description                   |
 | ---------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
@@ -98,7 +107,7 @@ Multiple Modifiers from left to right are from outside to inside finishing with 
 
 ```PEG
 Constant = Const_List | Const_Object | Const_Value
-Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | EnumValue
+Const_Value = NUMBER | STRING | Boolean | 'null' | '_' | EnumValue
 Const_List = '[' Cons_Values* ']'
 Const_Values = Constant ',' Const_Values | Constant
 
@@ -128,14 +137,17 @@ EnumValue = ( enum '.' )? value
 
 FieldKey = EnumValue | NUMBER | STRING
 
-Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
+Boolean = 'true' | 'false'
+
 Simple = Basic | enum
 Basic = 'Boolean' | '~' | 'Number' | '0' | 'String' | '*' | 'Unit' |  '_'
 
 Internal = 'Void' | 'Null' | 'null'
 
+Modifier = '?' | '[]' Modifier? | '[' Simple '?'? ']' Modifier?
+
 Constant = Const_List | Const_Object | Const_Value
-Const_Value = 'true' | 'false' | 'null' | '_' | NUMBER | STRING | EnumValue
+Const_Value = NUMBER | STRING | Boolean | 'null' | '_' | EnumValue
 Const_List = '[' Cons_Values* ']'
 Const_Values = Constant ',' Const_Values | Constant
 

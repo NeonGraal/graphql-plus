@@ -18,6 +18,7 @@ internal static class BuiltIn
     new EnumDeclAst(AstNulls.At, "Null") { Aliases = ["null"], Values = [new(AstNulls.At, "null")] },
 
     new ScalarDeclAst(AstNulls.At, "Simple", "~".ScalarReferences("0", "*", "_", "_Scalar", "_Enum")),
+    new ScalarDeclAst(AstNulls.At, "Internal", "Void".ScalarReferences("Null")),
 
     DualObj("Opt", TypeParameters("T"), DualAlt(null), DualType("Null")),
     DualObj("List", TypeParameters("T"), DualAlt("")),

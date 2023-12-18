@@ -1,11 +1,8 @@
 output _Constant {
         enum: _BaseType<_TypeKind.Enum>
         value: String
-    | Boolean
-    | Null
-    | Unit
-    | Number
-    | String
+    | Internal
+    | Simple
     | _ConstantList
     | _ConstantMap
     }

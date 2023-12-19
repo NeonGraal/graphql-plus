@@ -17,6 +17,26 @@ public abstract class TestDistinct<TItem>
   public void CanMerge_OneItem_ReturnsTrue(string name)
     => CanMerge_True([MakeDistinct(name)]);
 
+  [Fact]
+  public void Merge_NoItems_ThrowsException()
+  {
+    Func<TItem> action = () => MergerDistinct.Merge([]);
+
+    action.Should().Throw<InvalidOperationException>();
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Merge_OneItem_ReturnsItem(string name)
+  {
+    var item = MakeDistinct(name);
+
+    var result = MergerDistinct.Merge([item]);
+
+    using var scope = new AssertionScope();
+
+    result.Should().BeOfType<TItem>();
+  }
+
   protected void CanMerge_False(TItem[] items, bool skipIf = false)
   {
     if (skipIf) {

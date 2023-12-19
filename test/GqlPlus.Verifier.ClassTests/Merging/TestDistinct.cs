@@ -30,11 +30,7 @@ public abstract class TestDistinct<TItem>
   {
     var item = MakeDistinct(name);
 
-    var result = MergerDistinct.Merge([item]);
-
-    using var scope = new AssertionScope();
-
-    result.Should().BeOfType<TItem>();
+    Merge_Expected([item], item);
   }
 
   protected void CanMerge_False(TItem[] items, bool skipIf = false)
@@ -53,5 +49,15 @@ public abstract class TestDistinct<TItem>
     var result = MergerDistinct.CanMerge(items);
 
     result.Should().BeTrue();
+  }
+
+  protected void Merge_Expected(TItem[] items, TItem expected)
+  {
+    var result = MergerDistinct.Merge(items);
+
+    using var scope = new AssertionScope();
+
+    result.Should().BeOfType<TItem>();
+    result.Should().BeEquivalentTo(expected);
   }
 }

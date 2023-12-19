@@ -2,21 +2,21 @@
 Success
 {
   !I I@7/1
-  Test
+  InAlts
   |
   !AI
-  I@16/1
-  Type
+  I@18/1
+  InAltsType
 }
 {
-  !I I@29/1
-  Test
+  !I I@37/1
+  InAlts
   |
   !AI
-  I@38/1
-  Type
+  I@48/1
+  InAltsType
 }
 {
-  !I I@51/1
-  Type
+  !I I@67/1
+  InAltsType
 }

@@ -14,4 +14,7 @@ internal class MergeDirectives(
     return base.CanMerge(items)
         && items.ManyGroupMerge(d => d.Parameters, p => p.Type.FullType, parameters);
   }
+
+  public override DirectiveDeclAst Merge(DirectiveDeclAst[] items)
+    => items.First() with { Description = MergeDescriptions(items) };
 }

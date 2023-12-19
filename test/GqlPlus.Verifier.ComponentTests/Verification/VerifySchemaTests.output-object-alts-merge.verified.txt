@@ -2,21 +2,21 @@
 Success
 {
   !O I@8/1
-  Test
+  OutAlts
   |
   !AO
-  I@17/1
-  Type
+  I@20/1
+  OutAltsType
 }
 {
-  !O I@31/1
-  Test
+  !O I@41/1
+  OutAlts
   |
   !AO
-  I@40/1
-  Type
+  I@53/1
+  OutAltsType
 }
 {
-  !O I@54/1
-  Type
+  !O I@74/1
+  OutAltsType
 }

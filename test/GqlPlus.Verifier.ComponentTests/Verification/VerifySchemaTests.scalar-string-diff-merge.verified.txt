@@ -2,13 +2,13 @@
 Success
 {
   !S I@8/1
-  Test
+  StrDiff
   String
-  !SX R@22/1
+  !SX R@25/1
   /a+/
 }
 {
-  !S I@36/1
-  Test
+  !S I@39/1
+  StrDiff
   String
 }

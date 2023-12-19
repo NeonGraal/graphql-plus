@@ -2,31 +2,31 @@
 Success
 {
   !O I@8/1
-  Test
+  OutParams
   <
-    I@14/1
+    I@19/1
     $test
   >
   {
-    !OF I@22/1
+    !OF I@27/1
     test
     :
-    I@29/1
+    I@34/1
     $test
   }
 }
 {
-  !O I@43/1
-  Test
+  !O I@48/1
+  OutParams
   <
-    I@49/1
+    I@59/1
     $type
   >
   {
-    !OF I@57/1
+    !OF I@67/1
     type
     :
-    I@64/1
+    I@74/1
     $type
   }
 }

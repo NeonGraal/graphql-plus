@@ -2,18 +2,18 @@
 Success
 {
   !S I@8/1
-  Test
+  NumSame
   Number
-  !SR N@22/1
+  !SR N@25/1
   1
   :
   9
 }
 {
-  !S I@35/1
-  Test
+  !S I@38/1
+  NumSame
   Number
-  !SR N@49/1
+  !SR N@55/1
   1
   :
   9

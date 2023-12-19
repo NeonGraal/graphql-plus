@@ -2,22 +2,22 @@
 Success
 {
   !D I@12/1
-  Test
+  DirParams
   (
     !P
-    I@17/1
-    Test
+    I@22/1
+    DirParamsIn
   )
   (Unique)
   All
 }
 {
-  !D I@42/1
-  Test
+  !D I@54/1
+  DirParams
   (Unique)
   All
 }
 {
-  !I I@61/1
-  Test
+  !I I@78/1
+  DirParamsIn
 }

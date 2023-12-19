@@ -14,6 +14,7 @@ public class ObjectsMerger<TObject, TField, TReference>(
 {
   protected override string ItemMatchKey(TObject item)
     => item.Extends?.Name ?? "";
+
   public override bool CanMerge(TObject[] items)
   {
     var baseCanMerge = base.CanMerge(items);
@@ -23,4 +24,7 @@ public class ObjectsMerger<TObject, TField, TReference>(
 
     return baseCanMerge && typeParametersCanMerge && fieldsCanMerge && alternatesCanMerge;
   }
+
+  public override TObject Merge(TObject[] items)
+    => items.First() with { Description = MergeDescriptions(items) };
 }

@@ -2,14 +2,14 @@
 Success
 {
   !I I@7/1
-  Test
+  InAltMods
   |
   !AI
-  I@16/1
-  Alt
+  I@21/1
+  InModsAlt
   [~]
 }
 {
-  !I I@31/1
-  Alt
+  !I I@42/1
+  InModsAlt
 }

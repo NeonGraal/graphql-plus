@@ -10,7 +10,11 @@ public class FieldsMerger<TField, TReference>
 {
   protected override string ItemMatchKey(TField item)
     => item.ModifiedType;
+
   public override bool CanMerge(TField[] items)
     => base.CanMerge(items)
       && items.CanMerge(item => item.Type.Description);
+
+  public override TField Merge(TField[] items)
+    => items.First() with { Description = MergeDescriptions(items) };
 }

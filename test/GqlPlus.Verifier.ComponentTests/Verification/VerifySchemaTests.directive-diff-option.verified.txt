@@ -1,3 +1,3 @@
 ﻿[
-  Multiple Directives with id 'Test' can't be merged.
+  Multiple Directives with name 'Test' can't be merged.
 ]

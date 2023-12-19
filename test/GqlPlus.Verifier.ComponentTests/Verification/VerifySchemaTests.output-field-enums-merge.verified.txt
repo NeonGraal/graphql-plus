@@ -2,19 +2,19 @@
 Success
 {
   !O I@8/1
-  Test
+  FieldEnums
   {
-    !OF I@15/1
+    !OF I@21/1
     field
     =
     Boolean.true
   }
 }
 {
-  !O I@45/1
-  Test
+  !O I@51/1
+  FieldEnums
   {
-    !OF I@52/1
+    !OF I@64/1
     field
     =
     .true

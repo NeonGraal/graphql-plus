@@ -1,4 +1,4 @@
 ﻿[
-  !!! P@10/4 : Multiple Categories with id 'mutation' can't be merged. - '\{\ \(sequent' !!!,
-  !!! P@10/7 : Multiple Categories with id 'subscription' can't be merged. - '\{\ \(single\)' !!!
+  !!! P@10/4 : Multiple Categories with name 'mutation' can't be merged. - '\{\ \(sequent' !!!,
+  !!! P@10/7 : Multiple Categories with name 'subscription' can't be merged. - '\{\ \(single\)' !!!
 ]

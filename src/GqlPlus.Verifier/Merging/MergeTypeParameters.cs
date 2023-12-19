@@ -5,6 +5,6 @@ namespace GqlPlus.Verifier.Merging;
 internal class MergeTypeParameters
   : DescribedsMerger<TypeParameterAst>
 {
-  protected override string ItemMatchKey(TypeParameterAst item)
-    => "";
+  public override TypeParameterAst Merge(TypeParameterAst[] items)
+    => items.First() with { Description = MergeDescriptions(items) };
 }

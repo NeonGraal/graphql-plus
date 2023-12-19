@@ -8,6 +8,12 @@ public class AlternatesMerger<TAlternate, TReference>
   where TAlternate : AlternateAst<TReference>
   where TReference : AstReference<TReference>, IEquatable<TReference>
 {
+  public override TAlternate Merge(TAlternate[] items)
+  {
+    var first = items.First();
+    return first with { Type = first.Type with { Description = MergeDescriptions(items) } };
+  }
+
   protected override string ItemMatchKey(TAlternate item)
     => item.Modifiers.AsString().Joined();
 }

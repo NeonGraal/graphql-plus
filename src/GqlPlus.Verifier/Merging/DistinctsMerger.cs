@@ -9,13 +9,8 @@ public abstract class DistinctsMerger<TItem>
     return distinct.Count == 1;
   }
 
-  protected abstract string ItemMatchKey(TItem item);
+  public abstract TItem Merge(TItem[] items);
+  public TItem[] MergeAll(TItem[] items) => throw new NotImplementedException();
 
-  // Todo: Implement Merge
-  public virtual TItem Merge(TItem[] items)
-    => items.Length switch {
-      0 => throw new InvalidOperationException(),
-      1 => items[0],
-      _ => throw new NotImplementedException(),
-    };
+  protected virtual string ItemMatchKey(TItem item) => "";
 }

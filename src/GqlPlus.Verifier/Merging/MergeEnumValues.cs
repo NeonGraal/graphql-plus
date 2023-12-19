@@ -5,6 +5,6 @@ namespace GqlPlus.Verifier.Merging;
 internal class MergeEnumValues
   : DescribedsMerger<EnumValueAst>
 {
-  protected override string ItemMatchKey(EnumValueAst item)
-    => "";
+  public override EnumValueAst Merge(EnumValueAst[] items)
+    => items.First() with { Description = MergeDescriptions(items) };
 }

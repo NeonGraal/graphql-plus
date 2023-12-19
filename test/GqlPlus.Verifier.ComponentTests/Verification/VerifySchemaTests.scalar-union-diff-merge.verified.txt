@@ -2,15 +2,15 @@
 Success
 {
   !S I@8/1
-  Test
+  UnDiff
   Union
-  !ST P@21/1
+  !ST P@23/1
   Boolean
 }
 {
-  !S I@40/1
-  Test
+  !S I@42/1
+  UnDiff
   Union
-  !ST P@53/1
+  !ST P@57/1
   Number
 }

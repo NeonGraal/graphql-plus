@@ -2,13 +2,13 @@
 Success
 {
   !E I@6/1
-  Test
-  !EV I@13/1
-  one
+  EnSame
+  !EV I@15/1
+  same
 }
 {
-  !E I@24/1
-  Test
-  !EV I@31/1
-  one
+  !E I@27/1
+  EnSame
+  !EV I@36/1
+  same
 }

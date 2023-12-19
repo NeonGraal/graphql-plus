@@ -30,8 +30,8 @@ public class VerifySchemaTests(
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       using var scope = new AssertionScope();
 
-      Verify_Valid(input.Replace("object", "input"));
-      Verify_Valid(input.Replace("object", "output"));
+      Verify_Valid(ReplaceObject(input, "input", "In"));
+      Verify_Valid(ReplaceObject(input, "output", "Out"));
     } else {
       Verify_Valid(input);
     }
@@ -45,8 +45,8 @@ public class VerifySchemaTests(
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       using var scope = new AssertionScope();
 
-      Verify_Valid(input.Replace("object", "input"));
-      Verify_Valid(input.Replace("object", "output"));
+      Verify_Valid(ReplaceObject(input, "input", "In"));
+      Verify_Valid(ReplaceObject(input, "output", "Out"));
     } else {
       Verify_Valid(input);
     }
@@ -59,8 +59,8 @@ public class VerifySchemaTests(
     var input = s_invalidObjects[schema];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       await WhenAll(
-        Verify_Invalid(input.Replace("object", "input"), "input-" + schema),
-        Verify_Invalid(input.Replace("object", "output"), "output-" + schema));
+        Verify_Invalid(ReplaceObject(input, "input", "In"), "input-" + schema),
+        Verify_Invalid(ReplaceObject(input, "output", "Out"), "output-" + schema));
     } else {
       await Verify_Invalid(input, schema);
     }
@@ -71,8 +71,8 @@ public class VerifySchemaTests(
   {
     var schemas = s_validObjects.Values
       .SelectMany(input => new[] {
-        input.Replace("object", "input"),
-        input.Replace("object", "output"),
+        ReplaceObject(input, "input", "In"),
+        ReplaceObject(input, "output", "Out"),
       })
       .Concat(s_validMerges.Values)
       .Concat(s_validSchemas.Values)
@@ -89,8 +89,8 @@ public class VerifySchemaTests(
   {
     var schemas = s_validObjects.Values
       .SelectMany(input => new[] {
-        input.Replace("object", "input"),
-        input.Replace("object", "output"),
+        ReplaceObject(input, "input", "In"),
+        ReplaceObject(input, "output", "Out"),
       })
       .Concat(s_validMerges.Values)
       .Concat(s_validSchemas.Values)
@@ -109,17 +109,17 @@ public class VerifySchemaTests(
     var input = s_validMerges[schema];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       await WhenAll(
-        Verify_Merge(input.Replace("object", "input"), "input-" + schema),
-        Verify_Merge(input.Replace("object", "output"), "output-" + schema));
+        Verify_Merge(ReplaceObject(input, "input", "In"), "input-" + schema),
+        Verify_Merge(ReplaceObject(input, "output", "Out"), "output-" + schema));
     } else {
       await Verify_Merge(input, schema);
     }
   }
 
   private static readonly Map<string> s_validSchemas = new() {
-    ["category-output"] = "category { Test } output Test { }",
-    ["directive-parameter"] = "directive @Test(Test) { all } input Test { }",
-    ["enum-extends"] = "enum Test { :Base test } enum Base { base } ",
+    ["category-output"] = "category { Cat } output Cat { }",
+    ["directive-param"] = "directive @DirParam(DirParamIn) { all } input DirParamIn { }",
+    ["enum-extends"] = "enum EnExt { :EnExtBase valExt } enum EnExtBase { valBase } ",
   };
   public static IEnumerable<object[]> ValidSchemas => SchemaKeys(s_validSchemas);
 
@@ -146,47 +146,47 @@ public class VerifySchemaTests(
   public static IEnumerable<object[]> InvalidSchemas => SchemaKeys(s_invalidSchemas);
 
   private static readonly Map<string> s_validMerges = new() {
-    ["directive-params"] = "directive @Test(Test) { all } directive @Test { all } input Test { }",
-    ["directive"] = "directive @Test { all } directive @Test { all }",
-    ["enum-same"] = "enum Test { one } enum Test { one }",
-    ["enum-diff"] = "enum Test { one } enum Test { two }",
-    ["object"] = "object Test { } object Test { }",
-    ["object-base"] = "object Test { : Base } object Test { : Base } object Base { }",
-    ["object-params"] = "object Test<$test> { test: $test } object Test<$type> { type: $type }",
-    ["object-alts"] = "object Test { | Type } object Test { | Type } object Type { }",
-    ["object-fields"] = "object Test { field: Test } object Test { field: Test }",
-    ["output-field-params"] = "output Test { field(Param): Test } output Test { field: Test } input Param { }",
-    ["output-field-enums"] = "output Test { field = Boolean.true } output Test { field = true }",
-    ["scalar-number"] = "scalar Test { number } scalar Test { number }",
-    ["scalar-number-same"] = "scalar Test { number 1:9 } scalar Test { number 1:9 }",
-    ["scalar-number-diff"] = "scalar Test { number 1:9 } scalar Test { number }",
-    ["scalar-string"] = "scalar Test { string } scalar Test { string }",
-    ["scalar-string-same"] = "scalar Test { string /a+/ } scalar Test { string /a+/ }",
-    ["scalar-string-diff"] = "scalar Test { string /a+/ } scalar Test { string }",
-    ["scalar-union-same"] = "scalar Test { union | Boolean } scalar Test { union | Boolean }",
-    ["scalar-union-diff"] = "scalar Test { union | Boolean } scalar Test { union | Number }",
+    ["directive-params"] = "directive @DirParams(DirParamsIn) { all } directive @DirParams { all } input DirParamsIn { }",
+    ["directive"] = "directive @Dir { all } directive @Dir { all }",
+    ["enum-same"] = "enum EnSame { same } enum EnSame { same }",
+    ["enum-diff"] = "enum EnDiff { one } enum EnDiff { two }",
+    ["object"] = "object Obj { } object Obj { }",
+    ["object-base"] = "object ObjBase { : BaseObj } object ObjBase { : BaseObj } object BaseObj { }",
+    ["object-params"] = "object ObjParams<$test> { test: $test } object ObjParams<$type> { type: $type }",
+    ["object-alts"] = "object ObjAlts { | ObjAltsType } object ObjAlts { | ObjAltsType } object ObjAltsType { }",
+    ["object-fields"] = "object ObjFields { field: ObjFields } object ObjFields { field: ObjFields }",
+    ["output-field-params"] = "output FieldParams { field(FieldParam): FieldParams } output FieldParams { field: FieldParams } input FieldParam { }",
+    ["output-field-enums"] = "output FieldEnums { field = Boolean.true } output FieldEnums { field = true }",
+    ["scalar-number"] = "scalar Num { number } scalar Num { number }",
+    ["scalar-number-same"] = "scalar NumSame { number 1:9 } scalar NumSame { number 1:9 }",
+    ["scalar-number-diff"] = "scalar NumDiff { number 1:9 } scalar NumDiff { number }",
+    ["scalar-string"] = "scalar Str { string } scalar Str { string }",
+    ["scalar-string-same"] = "scalar StrSame { string /a+/ } scalar StrSame { string /a+/ }",
+    ["scalar-string-diff"] = "scalar StrDiff { string /a+/ } scalar StrDiff { string }",
+    ["scalar-union-same"] = "scalar UnSame { union | Boolean } scalar UnSame { union | Boolean }",
+    ["scalar-union-diff"] = "scalar UnDiff { union | Boolean } scalar UnDiff { union | Number }",
   };
   public static IEnumerable<object[]> ValidMerges => SchemaKeys(s_validMerges);
 
   private static readonly Map<string> s_validObjects = new() {
-    ["alts-mods-Boolean"] = "object Test { | Alt[~] } object Alt { }",
-    ["base"] = "object Test { : Base } object Base { }",
-    ["fields-mods-Enum"] = "object Test { field: Test[Enum] } enum Enum { value } ",
-    ["generic-alt"] = "object Test<$type> { | $type }",
-    ["generic-base"] = "object Test<$type> { : $type }",
-    ["generic-field"] = "object Test<$type> { field: $type }",
-    ["generic-alt-arg"] = "object Test<$type> { | Ref<$type> } object Ref<$ref> { | $ref }",
-    ["generic-base-arg"] = "object Test<$type> { : Ref<$type> } object Ref<$ref> { | $ref }",
-    ["generic-field-arg"] = "object Test<$type> { field: Ref<$type> } object Ref<$ref> { | $ref }",
-    ["generic-param"] = "object Test { field: Ref<Alt> } object Ref<$ref> { | $ref } object Alt { }",
-    ["input-field-Number"] = "input Test { field: Number = 0 }",
-    ["input-field-String"] = "input Test { field: String = '' }",
-    ["input-field-Enum"] = "input Test { field: Enum = value } enum Enum { value }",
-    ["input-field-null"] = "input Test { field: Test? = null }",
-    ["output-generic-enum"] = "output Test { | Ref<Boolean.false> } output Ref<$type> { field: $type }",
-    ["output-generic-value"] = "output Test { | Ref<false> } output Ref<$type> { field: $type }",
-    ["output-params"] = "output Test { field(Param): Test } input Param { }",
-    ["output-params-mods-Scalar"] = "output Test { field(Param[Scalar]): Test } input Param { } scalar Scalar { number 1 : 10 }",
+    ["alts-mods-Boolean"] = "object ObjAltMods { | ObjModsAlt[~] } object ObjModsAlt { }",
+    ["base"] = "object ObjTestBase { : ObjBaseTest } object ObjBaseTest { }",
+    ["fields-mods-Enum"] = "object ObjFieldMods { field: ObjFieldMods[ObjFieldEnum] } enum ObjFieldEnum { value } ",
+    ["generic-alt"] = "object ObjGenAlt<$type> { | $type }",
+    ["generic-base"] = "object ObjGenBase<$type> { : $type }",
+    ["generic-field"] = "object ObjGenField<$type> { field: $type }",
+    ["generic-alt-arg"] = "object ObjGenAltArg<$type> { | ObjGenAltRef<$type> } object ObjGenAltRef<$ref> { | $ref }",
+    ["generic-base-arg"] = "object ObjGenBaseArg<$type> { : ObjGenBaseRef<$type> } object ObjGenBaseRef<$ref> { | $ref }",
+    ["generic-field-arg"] = "object ObjGenFieldArg<$type> { field: ObjGenFieldRef<$type> } object ObjGenFieldRef<$ref> { | $ref }",
+    ["generic-param"] = "object ObjGenParam { field: ObjGenParamRef<ObjGenParamAlt> } object ObjGenParamRef<$ref> { | $ref } object ObjGenParamAlt { }",
+    ["input-field-Number"] = "input FieldNum { field: Number = 0 }",
+    ["input-field-String"] = "input FieldStr { field: String = '' }",
+    ["input-field-Enum"] = "input FieldEnum { field: EnumField = value } enum EnumField { value }",
+    ["input-field-null"] = "input FieldNull { field: FieldNull? = null }",
+    ["output-generic-enum"] = "output GenEnum { | GenEnumRef<Boolean.false> } output GenEnumRef<$type> { field: $type }",
+    ["output-generic-value"] = "output GenValue { | GenValueRef<false> } output GenValueRef<$type> { field: $type }",
+    ["output-params"] = "output Params { field(Param): Params } input Param { }",
+    ["output-params-mods-Scalar"] = "output ParamsScalar { field(ParamScalar[ScalarParam]): ParamsScalar } input ParamScalar { } scalar ScalarParam { number 1 : 10 }",
   };
   public static IEnumerable<object[]> ValidObjects => SchemaKeys(s_validObjects);
 
@@ -234,9 +234,15 @@ public class VerifySchemaTests(
     return _parser.Parse(tokens, "Schema");
   }
 
+  private static string ReplaceObject(string input, string objectReplace, string objReplace)
+    => input
+    .Replace("object", objectReplace)
+    .Replace("Obj", objReplace);
+
   private void Verify_Valid(string input)
   {
     var parse = Parse(input);
+
     if (parse is IResultError<SchemaAst> error) {
       error.Message.Should().BeNull();
     }

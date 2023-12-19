@@ -2,11 +2,11 @@
 Success
 {
   !S I@8/1
-  Test
+  Num
   Number
 }
 {
-  !S I@31/1
-  Test
+  !S I@30/1
+  Num
   Number
 }

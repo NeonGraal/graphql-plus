@@ -9,4 +9,10 @@ public abstract class DescribedsMerger<TItem>
   public override bool CanMerge(TItem[] items)
     => base.CanMerge(items)
       && items.CanMerge(item => item.Description);
+
+  protected string MergeDescriptions(TItem[] items)
+    => items
+      .Select(item => item.Description)
+      .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr))
+      ?? "";
 }

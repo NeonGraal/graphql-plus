@@ -22,13 +22,14 @@ internal abstract class GroupedVerifier<TAliased>(
 
     _logger.LogInformation("Group verifying of {Type}", item.GetType().GetElementType()?.ExpandTypeName());
 
-    var byId = item.AliasedMap();
+    var byName = item.GroupBy(t => t.Name)
+      .ToMap(g => g.Key, g => g.ToArray());
 
-    foreach (var (id, definitions) in byId) {
-      _logger.LogInformation("Verifying {Id} with {Count} definitions", id, definitions.Length);
+    foreach (var (name, definitions) in byName) {
+      _logger.LogInformation("Verifying {Name} with {Count} definitions", name, definitions.Length);
 
       if (!merger.CanMerge(definitions)) {
-        errors.Add(definitions.Last().Error($"Multiple {Label} with id '{id}' can't be merged."));
+        errors.Add(definitions.Last().Error($"Multiple {Label} with name '{name}' can't be merged."));
       }
     }
   }

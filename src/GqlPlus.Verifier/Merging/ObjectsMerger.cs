@@ -19,9 +19,9 @@ public class ObjectsMerger<TObject, TField, TReference>(
   {
     var baseCanMerge = base.CanMerge(items);
     var descriptionsCanMerge = items.CanMerge(item => item.Description);
-    var typeParametersCanMerge = items.ManyMerge(item => item.TypeParameters, typeParameters);
-    var fieldsCanMerge = items.ManyGroupMerge(item => item.Fields, f => f.Name, fields);
-    var alternatesCanMerge = items.ManyGroupMerge(item => item.Alternates, a => a.Type.FullType, alternates);
+    var typeParametersCanMerge = items.ManyCanMerge(item => item.TypeParameters, typeParameters);
+    var fieldsCanMerge = items.ManyGroupCanMerge(item => item.Fields, f => f.Name, fields);
+    var alternatesCanMerge = items.ManyGroupCanMerge(item => item.Alternates, a => a.Type.FullType, alternates);
 
     return baseCanMerge && descriptionsCanMerge && typeParametersCanMerge && fieldsCanMerge && alternatesCanMerge;
   }

@@ -12,9 +12,7 @@ namespace GqlPlus.Verifier;
 public class Startup
 {
   static Startup()
-  {
-    DiffRunner.MaxInstancesToLaunch(20);
-  }
+    => DiffRunner.MaxInstancesToLaunch(20);
 
   public static void ConfigureServices(IServiceCollection services)
     => services

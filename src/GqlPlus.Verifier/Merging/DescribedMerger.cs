@@ -6,7 +6,7 @@ public abstract class DescribedMerger<TItem>
   : DistinctMerger<TItem>
   where TItem : IAstDescribed
 {
-  public override bool CanMerge(TItem[] items)
-    => base.CanMerge(items)
-      && items.CanMerge(item => item.Description);
+  protected override bool CanMergeGroup(IGrouping<string, TItem> group)
+    => base.CanMergeGroup(group)
+    && group.CanMerge(item => item.Description);
 }

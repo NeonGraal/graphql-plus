@@ -50,14 +50,15 @@ public static class MergeExtensions
     return true;
   }
 
-  public static bool ManyGroupMerge<TItem, TGroup>(
+  public static bool ManyGroupCanMerge<TItem, TGroup>(
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       Func<TGroup, string> groupKey,
       IMerge<TGroup> merger)
-    => items.SelectMany(many).GroupBy(groupKey).All(p => merger.CanMerge([.. p]));
+    => items.SelectMany(many).GroupBy(groupKey)
+      .All(p => merger.CanMerge([.. p]));
 
-  public static bool ManyMerge<TItem, TGroup>(
+  public static bool ManyCanMerge<TItem, TGroup>(
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       IMerge<TGroup> merger)

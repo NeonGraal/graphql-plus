@@ -9,5 +9,5 @@ internal class MergeOutputFields(
   public override bool CanMerge(OutputFieldAst[] items)
     => base.CanMerge(items)
       && items.CanMerge(item => item.EnumValue ?? "-")
-      && items.ManyMerge(item => item.Parameters, parameters);
+      && items.ManyCanMerge(item => item.Parameters, parameters);
 }

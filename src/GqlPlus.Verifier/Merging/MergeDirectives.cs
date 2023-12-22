@@ -12,7 +12,7 @@ internal class MergeDirectives(
   public override bool CanMerge(DirectiveDeclAst[] items)
     => base.CanMerge(items)
       && items.CanMerge(item => item.Description)
-      && items.ManyGroupMerge(d => d.Parameters, p => p.Type.FullType, parameters);
+      && items.ManyGroupCanMerge(d => d.Parameters, p => p.Type.FullType, parameters);
 
   protected override DirectiveDeclAst MergeGroup(DirectiveDeclAst[] items)
     => items.First() with { Description = items.MergeDescriptions() };

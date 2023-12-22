@@ -12,7 +12,7 @@ internal class MergeEnums(
   public override bool CanMerge(EnumDeclAst[] items)
     => base.CanMerge(items)
       && items.CanMerge(item => item.Description)
-      && items.ManyMerge(e => e.Values, enumValues);
+      && items.ManyCanMerge(e => e.Values, enumValues);
 
   protected override EnumDeclAst MergeGroup(EnumDeclAst[] items)
     => items.First() with { Description = items.MergeDescriptions() };

@@ -13,8 +13,8 @@ internal class MergeScalars(
   public override bool CanMerge(ScalarDeclAst[] items)
     => base.CanMerge(items)
       && items.CanMerge(item => item.Description)
-      && items.ManyMerge(i => i.Ranges, ranges)
-      && items.ManyGroupMerge(i => i.Regexes, r => r.Regex, regexes);
+      && items.ManyCanMerge(i => i.Ranges, ranges)
+      && items.ManyGroupCanMerge(i => i.Regexes, r => r.Regex, regexes);
 
   protected override ScalarDeclAst MergeGroup(ScalarDeclAst[] items)
     => items.First() with { Description = items.MergeDescriptions() };

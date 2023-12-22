@@ -7,11 +7,7 @@ public class BaseMerger<TItem>
     => items.Length > 0;
 
   public virtual TItem[] Merge(TItem[] items)
-  {
-    if (items is null || items.Length == 0) {
-      throw new InvalidOperationException();
-    }
-
-    return items;
-  }
+    => items is null || items.Length == 0
+      ? throw new InvalidOperationException()
+      : items;
 }

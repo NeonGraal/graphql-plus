@@ -27,6 +27,12 @@ public class MergeCategoriesTests
       new CategoryDeclAst(AstNulls.At, category) { Option = CategoryOption.Single },
       new CategoryDeclAst(AstNulls.At, category) { Option = CategoryOption.Sequential }]);
 
+  [Theory, RepeatData(Repeats)]
+  public void Merge_TwoItemsSameOutput_ReturnsExpected(string category)
+    => Merge_Expected(
+      [new CategoryDeclAst(AstNulls.At, category), new CategoryDeclAst(AstNulls.At, category)],
+      new CategoryDeclAst(AstNulls.At, category));
+
   protected override CategoryDeclAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description, name);
 }

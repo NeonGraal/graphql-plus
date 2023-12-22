@@ -14,9 +14,6 @@ public class AlternatesMerger<TAlternate, TReference>
     return first with { Type = first.Type with { Description = items.MergeDescriptions() } };
   }
 
-  public override bool CanMerge(TAlternate[] items)
-    => base.CanMerge(items);
-
   protected override string ItemGroupKey(TAlternate item)
     => item.Type.TypeName;
 

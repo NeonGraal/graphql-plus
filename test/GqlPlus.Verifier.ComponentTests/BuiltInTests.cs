@@ -4,14 +4,10 @@
 public class BuiltInTests
 {
   [Fact]
-  public async Task VerifyBasicTypes()
-  {
-    await Verify(BuiltIn.Basic.AsString());
-  }
+  public Task VerifyBasicTypes()
+    => Verify(BuiltIn.Basic.AsString());
 
   [Fact]
-  public async Task VerifyInternalTypes()
-  {
-    await Verify(BuiltIn.Internal.AsString());
-  }
+  public Task VerifyInternalTypes()
+    => Verify(BuiltIn.Internal.AsString());
 }

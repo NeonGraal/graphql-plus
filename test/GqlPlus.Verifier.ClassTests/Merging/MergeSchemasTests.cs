@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeSchemasTests
-  : TestDistinct<SchemaAst>
+  : TestGroups<SchemaAst>
 {
   private readonly MergeSchemas _merger = new();
 
@@ -14,7 +14,7 @@ public class MergeSchemasTests
       new SchemaAst(AstNulls.At, name),
       new SchemaAst(AstNulls.At, name)]);
 
-  protected override DistinctsMerger<SchemaAst> MergerDistinct => _merger;
+  protected override GroupsMerger<SchemaAst> MergerGroups => _merger;
 
   protected override SchemaAst MakeDistinct(string name)
     => new(AstNulls.At, name);

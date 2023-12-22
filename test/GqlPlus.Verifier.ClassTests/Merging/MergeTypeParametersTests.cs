@@ -11,17 +11,16 @@ public class MergeTypeParametersTests
   {
     var items = Enumerable.Range(1, 5).Select(i => MakeDistinct(name)).ToArray();
 
-    var result = MergerDistinct.Merge(items);
+    var result = MergerGroups.Merge(items);
 
     using var scope = new AssertionScope();
 
-    result.Should().BeOfType<TypeParameterAst>();
-    result.Name.Should().Be(name);
+    result.Should().BeOfType<TypeParameterAst[]>();
   }
 
   private readonly MergeTypeParameters _merger = new();
 
-  protected override DescribedsMerger<TypeParameterAst> MergerDescribed => _merger;
+  protected override GroupsMerger<TypeParameterAst> MergerGroups => _merger;
 
   protected override TypeParameterAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description);

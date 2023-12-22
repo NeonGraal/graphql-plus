@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Merging;
+﻿using GqlPlus.Verifier.Ast;
+
+namespace GqlPlus.Verifier.Merging;
 
 public static class MergeExtensions
 {
@@ -63,4 +65,12 @@ public static class MergeExtensions
     TGroup[] groups = [.. items.SelectMany(many)];
     return groups.Length < 2 || merger.CanMerge(groups);
   }
+
+  public static string MergeDescriptions<TItem>(this TItem[] items)
+    where TItem : IAstDescribed
+    => items
+      .Select(item => item.Description)
+      .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr))
+      ?? "";
+
 }

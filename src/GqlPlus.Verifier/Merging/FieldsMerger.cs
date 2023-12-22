@@ -4,8 +4,8 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public class FieldsMerger<TField, TReference>
-  : DescribedsMerger<TField>
-  where TField : AstField<TReference>, IAstDescribed
+  : NamedMerger<TField>
+  where TField : AstField<TReference>
   where TReference : AstReference<TReference>
 {
   protected override string ItemMatchKey(TField item)
@@ -15,6 +15,6 @@ public class FieldsMerger<TField, TReference>
     => base.CanMerge(items)
       && items.CanMerge(item => item.Type.Description);
 
-  public override TField Merge(TField[] items)
-    => items.First() with { Description = MergeDescriptions(items) };
+  protected override TField MergeGroup(TField[] items)
+    => items.First() with { Description = items.MergeDescriptions() };
 }

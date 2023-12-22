@@ -99,7 +99,7 @@ public class VerifySchemaTests(
 
     var result = merger.Merge(schemas);
 
-    await Verify(result.Render());
+    await Verify(result.Select(s => s.Render()));
   }
 
   [Theory]
@@ -282,7 +282,7 @@ public class VerifySchemaTests(
     settings.ScrubEmptyLines();
     settings.UseMethodName(test + "-merge");
 
-    await Verify(result.Render(), settings);
+    await Verify(result.Select(s => s.Render()), settings);
   }
 
   private static async Task WhenAll(params Task[] tasks)

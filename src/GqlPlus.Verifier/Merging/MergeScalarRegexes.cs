@@ -3,11 +3,13 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeScalarRegexes
-  : DistinctsMerger<ScalarRegexAst>
+  : DistinctMerger<ScalarRegexAst>
 {
-  public override ScalarRegexAst Merge(ScalarRegexAst[] items)
-    => items.First();
+  protected override string ItemGroupKey(ScalarRegexAst item) => item.Regex;
 
   protected override string ItemMatchKey(ScalarRegexAst item)
     => item.Excludes.ToString();
+
+  protected override ScalarRegexAst MergeGroup(ScalarRegexAst[] items)
+    => items.First();
 }

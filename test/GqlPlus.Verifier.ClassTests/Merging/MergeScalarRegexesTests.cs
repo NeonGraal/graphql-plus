@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeScalarRegexesTests
-  : TestDistinct<ScalarRegexAst>
+  : TestGroups<ScalarRegexAst>
 {
   private readonly MergeScalarRegexes _merger = new();
 
@@ -20,7 +20,7 @@ public class MergeScalarRegexesTests
       new ScalarRegexAst(AstNulls.At, name, true),
       new ScalarRegexAst(AstNulls.At, name, false)]);
 
-  protected override DistinctsMerger<ScalarRegexAst> MergerDistinct => _merger;
+  protected override GroupsMerger<ScalarRegexAst> MergerGroups => _merger;
 
   protected override ScalarRegexAst MakeDistinct(string name)
     => new(AstNulls.At, name, false);

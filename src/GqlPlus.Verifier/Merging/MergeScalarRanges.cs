@@ -3,8 +3,6 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeScalarRanges
-  : DistinctsMerger<ScalarRangeAst>
+  : BaseMerger<ScalarRangeAst>
 {
-  public override ScalarRangeAst Merge(ScalarRangeAst[] items)
-    => items.First();
 }

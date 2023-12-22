@@ -2,10 +2,10 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-public abstract class TestDistinct<TItem>
+public abstract class TestBase<TItem>
   where TItem : AstBase
 {
-  protected abstract DistinctsMerger<TItem> MergerDistinct { get; }
+  protected abstract IMerge<TItem> MergerBase { get; }
 
   protected abstract TItem MakeDistinct(string name);
 
@@ -20,7 +20,7 @@ public abstract class TestDistinct<TItem>
   [Fact]
   public void Merge_NoItems_ThrowsException()
   {
-    Func<TItem> action = () => MergerDistinct.Merge([]);
+    Func<TItem[]> action = () => MergerBase.Merge([]);
 
     action.Should().Throw<InvalidOperationException>();
   }
@@ -39,25 +39,25 @@ public abstract class TestDistinct<TItem>
       return;
     }
 
-    var result = MergerDistinct.CanMerge(items);
+    var result = MergerBase.CanMerge(items);
 
     result.Should().BeFalse();
   }
 
   protected void CanMerge_True(TItem[] items)
   {
-    var result = MergerDistinct.CanMerge(items);
+    var result = MergerBase.CanMerge(items);
 
     result.Should().BeTrue();
   }
 
-  protected void Merge_Expected(TItem[] items, TItem expected)
+  protected void Merge_Expected(TItem[] items, params TItem[] expected)
   {
-    var result = MergerDistinct.Merge(items);
+    var result = MergerBase.Merge(items);
 
     using var scope = new AssertionScope();
 
-    result.Should().BeOfType<TItem>();
+    result.Should().BeOfType<TItem[]>();
     result.Should().BeEquivalentTo(expected);
   }
 }

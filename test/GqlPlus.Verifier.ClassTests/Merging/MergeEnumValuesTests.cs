@@ -8,7 +8,7 @@ public class MergeEnumValuesTests
 {
   private readonly MergeEnumValues _merger = new();
 
-  protected override DescribedsMerger<EnumValueAst> MergerDescribed => _merger;
+  protected override GroupsMerger<EnumValueAst> MergerGroups => _merger;
 
   protected override EnumValueAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description);

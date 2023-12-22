@@ -4,15 +4,21 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public class AlternatesMerger<TAlternate, TReference>
-  : DescribedsMerger<TAlternate>
+  : DescribedMerger<TAlternate>
   where TAlternate : AlternateAst<TReference>
   where TReference : AstReference<TReference>, IEquatable<TReference>
 {
-  public override TAlternate Merge(TAlternate[] items)
+  protected override TAlternate MergeGroup(TAlternate[] items)
   {
     var first = items.First();
-    return first with { Type = first.Type with { Description = MergeDescriptions(items) } };
+    return first with { Type = first.Type with { Description = items.MergeDescriptions() } };
   }
+
+  public override bool CanMerge(TAlternate[] items)
+    => base.CanMerge(items);
+
+  protected override string ItemGroupKey(TAlternate item)
+    => item.Type.TypeName;
 
   protected override string ItemMatchKey(TAlternate item)
     => item.Modifiers.AsString().Joined();

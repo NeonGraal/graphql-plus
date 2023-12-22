@@ -8,7 +8,7 @@ public class MergeCategoriesTests
 {
   private readonly MergeCategories _merger = new();
 
-  protected override DescribedsMerger<CategoryDeclAst> MergerDescribed => _merger;
+  protected override GroupsMerger<CategoryDeclAst> MergerGroups => _merger;
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameOutput_ReturnsTrue(string category)

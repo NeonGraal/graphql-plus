@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Merging;
+﻿using DiffEngine;
+using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
 using GqlPlus.Verifier.Parse.Schema;
@@ -10,6 +11,11 @@ namespace GqlPlus.Verifier;
 
 public class Startup
 {
+  static Startup()
+  {
+    DiffRunner.MaxInstancesToLaunch(20);
+  }
+
   public static void ConfigureServices(IServiceCollection services)
     => services
       .AddCommonParsers()

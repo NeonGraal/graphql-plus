@@ -18,11 +18,6 @@ public class SampleTests(
   private readonly Parser<OperationAst>.L _operation = operation;
   private readonly Parser<SchemaAst>.L _schemaParser = schemaParser;
 
-  static SampleTests()
-  {
-    DiffRunner.MaxInstancesToLaunch(20);
-  }
-
   [Theory]
   [ClassData(typeof(SampleSchemaData))]
   public async Task ParseSampleSchema(string sample)

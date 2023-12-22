@@ -2,8 +2,15 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal class MergeSchemas : DistinctsMerger<SchemaAst>
+internal class MergeSchemas
+  : GroupsMerger<SchemaAst>
 {
-  public override SchemaAst Merge(SchemaAst[] items)
+  protected override string ItemGroupKey(SchemaAst item)
+    => item.Name;
+
+  protected override bool CanMergeGroup(IGrouping<string, SchemaAst> group)
+    => true;
+
+  protected override SchemaAst MergeGroup(SchemaAst[] items)
     => items.First();
 }

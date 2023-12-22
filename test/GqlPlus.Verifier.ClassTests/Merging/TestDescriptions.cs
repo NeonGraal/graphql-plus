@@ -3,12 +3,9 @@
 namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestDescriptions<TItem>
-  : TestDistinct<TItem>
+  : TestGroups<TItem>
   where TItem : AstBase, IAstDescribed
 {
-  protected abstract DescribedsMerger<TItem> MergerDescribed { get; }
-  protected override DistinctsMerger<TItem> MergerDistinct => MergerDescribed;
-
   protected abstract TItem MakeDescribed(string name, string description = "");
   protected override TItem MakeDistinct(string name)
     => MakeDescribed(name);

@@ -7,5 +7,5 @@ internal class MergeInputFields
 {
   public override bool CanMerge(InputFieldAst[] items)
     => base.CanMerge(items)
-      && items.CanMerge(item => item.Default);
+       && items.CanMerge(item => item.Default);
 }

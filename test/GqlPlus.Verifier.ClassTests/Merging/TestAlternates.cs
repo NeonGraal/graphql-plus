@@ -8,7 +8,7 @@ public abstract class TestAlternates<TAlternate, TReference>
   where TReference : AstReference<TReference>, IEquatable<TReference>
 {
   protected abstract AlternatesMerger<TAlternate, TReference> MergerAlternate { get; }
-  protected override DescribedsMerger<TAlternate> MergerDescribed => MergerAlternate;
+  protected override GroupsMerger<TAlternate> MergerGroups => MergerAlternate;
 
   protected abstract TAlternate MakeAlternate(string name, string description = "");
   protected override TAlternate MakeDescribed(string name, string description = "")

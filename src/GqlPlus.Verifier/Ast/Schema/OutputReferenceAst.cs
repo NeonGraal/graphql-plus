@@ -22,8 +22,8 @@ public sealed record class OutputReferenceAst(TokenAt At, string Name, string De
   internal override IEnumerable<string?> GetFields()
     => new[] {
       At.ToString(),
-      EnumValue is not null
-        ? $"{Name}.{EnumValue}"
-        : IsTypeParameter ? Name.Prefixed("$") : Name
+      string.IsNullOrWhiteSpace(EnumValue)
+        ? IsTypeParameter ? Name.Prefixed("$") : Name
+        : $"{Name}.{EnumValue}"
     }.Concat(Arguments.Bracket("<", ">"));
 }

@@ -49,7 +49,6 @@ public abstract class ObjectFieldParser<F, R> : Parser<F>.I
         ) {
         hasAliases.WithResult(aliases => field.Aliases = aliases);
         hasParameter.WithResult(parameter => ApplyFieldParameters(field, parameter));
-
         var modifiers = _modifiers.Parse(tokens, label);
         if (modifiers.IsError()) {
           return modifiers.AsResult<F>();
@@ -63,6 +62,7 @@ public abstract class ObjectFieldParser<F, R> : Parser<F>.I
       return tokens.Error(label, "field type", field);
     }
 
+    hasAliases.WithResult(aliases => field.Aliases = aliases);
     return FieldEnumValue(tokens, field);
   }
 

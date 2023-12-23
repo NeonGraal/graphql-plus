@@ -8,7 +8,6 @@ internal class MergeOutputFields(
 {
   protected override bool CanMergeGroup(IGrouping<string, OutputFieldAst> group)
     => base.CanMergeGroup(group)
-      && group.CanMerge(item => item.EnumValue ?? "-")
       && group.ManyCanMerge(item => item.Parameters, parameters);
 
   protected override OutputFieldAst MergeGroup(OutputFieldAst[] group)

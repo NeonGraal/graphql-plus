@@ -3,12 +3,16 @@
 Success
 {
   !O I@8/1
-  FieldEnums
+  FieldEnumAlias
   {
-    !OF I@21/1
+    !OF I@25/1
     field
+    [
+      field1
+      field2
+    ]
     =
-    I@29/1
+    I@42/1
     Boolean.true
   }
 }

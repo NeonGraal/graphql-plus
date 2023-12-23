@@ -27,23 +27,23 @@ public class OutputFieldAstTests : AstFieldTests<OutputFieldAst, OutputReference
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithEnumValue(FieldInput input, string enumValue)
       => _checks.HashCode(
-        () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { EnumValue = enumValue });
+        () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type) { EnumValue = enumValue }));
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumValue(FieldInput input, string enumValue)
     => _checks.String(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { EnumValue = enumValue },
+      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type) { EnumValue = enumValue }),
       $"( !OF {input.Name} = {input.Type}.{enumValue} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithEnumValue(FieldInput input, string enumValue)
     => _checks.Equality(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { EnumValue = enumValue });
+      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type) { EnumValue = enumValue }));
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_BetweenEnumValues(FieldInput input, string enumValue1, string enumValue2)
     => _checks.InequalityBetween(enumValue1, enumValue2,
-      enumValue => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { EnumValue = enumValue },
+      enumValue => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type) { EnumValue = enumValue }),
       enumValue1 == enumValue2);
 
   protected override string InputString(FieldInput input)

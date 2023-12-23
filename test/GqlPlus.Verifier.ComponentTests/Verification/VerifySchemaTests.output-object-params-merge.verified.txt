@@ -7,6 +7,8 @@ Success
   <
     I@19/1
     $test
+    I@59/1
+    $type
   >
   {
     !OF I@27/1
@@ -14,16 +16,6 @@ Success
     :
     I@34/1
     $test
-  }
-}
-{
-  !O I@48/1
-  OutParams
-  <
-    I@59/1
-    $type
-  >
-  {
     !OF I@67/1
     type
     :

@@ -11,22 +11,22 @@ internal class VerifyOutputTypes(
   protected override void UsageValue(OutputDeclAst usage, OutputContext context)
   {
     var enumFields = usage.Fields
-      .Where(f => !string.IsNullOrWhiteSpace(f.EnumValue));
+      .Where(f => !string.IsNullOrWhiteSpace(f.Type.EnumValue));
 
     foreach (var enumField in enumFields) {
       if (context.GetType(enumField.Type.TypeName, out var type)) {
         if (type is EnumDeclAst enumDecl) {
-          if (!enumDecl.HasValue(enumField.EnumValue!)) {
-            context.AddError(enumField, "Output Field Enum Value", $"'{enumField.EnumValue}' is not a Value of '{enumField.Type.Name}'");
+          if (!enumDecl.HasValue(enumField.Type.EnumValue!)) {
+            context.AddError(enumField, "Output Field Enum Value", $"'{enumField.Type.EnumValue}' is not a Value of '{enumField.Type.Name}'");
           }
         } else {
           context.AddError(enumField, "Output Field Enum Value", $"'{enumField.Type.Name}' is not an Enum type");
         }
       } else {
-        if (context.GetEnumValue(enumField.EnumValue!, out var enumType)) {
-          enumField.Type = new(enumField.At, enumType!);
+        if (context.GetEnumValue(enumField.Type.EnumValue!, out var enumType)) {
+          enumField.Type.Name = enumType!;
         } else {
-          context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.EnumValue}' not defined");
+          context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.Type.EnumValue}' not defined");
         }
       }
     }

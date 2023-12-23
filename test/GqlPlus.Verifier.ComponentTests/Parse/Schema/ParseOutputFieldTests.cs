@@ -46,7 +46,13 @@ public class ParseOutputFieldTests(Parser<OutputFieldAst>.D parser) : BaseFieldT
   public void WithFieldEnumValue_ReturnsCorrectAst(string name, string enumValue)
     => _test.TrueExpected(
       name + "=" + enumValue,
-        _test.Field(name, "") with { EnumValue = enumValue });
+        FieldEnum(name, "", enumValue));
+
+  [Theory, RepeatData(Repeats)]
+  public void WithFieldEnumAliasValue_ReturnsCorrectAst(string name, string enumValue, string alias)
+    => _test.TrueExpected(
+      name + "[" + alias + "]=" + enumValue,
+        FieldEnum(name, "", enumValue) with { Aliases = [alias] });
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldEnumValueBad_ReturnsFalse(string name)
@@ -56,7 +62,13 @@ public class ParseOutputFieldTests(Parser<OutputFieldAst>.D parser) : BaseFieldT
   public void WithFieldEnumTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumValue)
     => _test.TrueExpected(
       name + "=" + enumType + "." + enumValue,
-        _test.Field(name, enumType) with { EnumValue = enumValue });
+        FieldEnum(name, enumType, enumValue));
+
+  [Theory, RepeatData(Repeats)]
+  public void WithFieldEnumAliasTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumValue, string alias)
+    => _test.TrueExpected(
+      name + "[" + alias + "]=" + enumType + "." + enumValue,
+        FieldEnum(name, enumType, enumValue) with { Aliases = [alias] });
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldEnumTypeAndValueBad_ReturnsFalse(string name, string enumValue)
@@ -65,4 +77,7 @@ public class ParseOutputFieldTests(Parser<OutputFieldAst>.D parser) : BaseFieldT
   internal override IBaseFieldChecks Checks => _test;
 
   private readonly BaseFieldParserChecks<OutputFieldAst, OutputReferenceAst> _test = new(new OutputFactories(), parser);
+
+  private static OutputFieldAst FieldEnum(string name, string enumType, string enumValue)
+    => new(AstNulls.At, name, new(AstNulls.At, enumType) { EnumValue = enumValue });
 }

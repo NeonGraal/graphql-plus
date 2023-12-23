@@ -26,9 +26,15 @@ public class ObjectsMerger<TObject, TField, TReference>(
   }
 
   protected override TObject MergeGroup(TObject[] group)
-    => base.MergeGroup(group) with {
-      TypeParameters = group.ManyMerge(item => item.TypeParameters, typeParameters),
-      Fields = group.ManyMerge(item => item.Fields, fields),
-      Alternates = group.ManyMerge(item => item.Alternates, alternates),
+  {
+    var typeParameterAsts = group.ManyMerge(item => item.TypeParameters, typeParameters);
+    var fieldAsts = group.ManyMerge(item => item.Fields, fields);
+    var alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
+
+    return base.MergeGroup(group) with {
+      TypeParameters = typeParameterAsts,
+      Fields = fieldAsts,
+      Alternates = alternateAsts,
     };
+  }
 }

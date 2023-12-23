@@ -5,7 +5,7 @@ using NSubstitute;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeDirectivesTests
-  : TestDescriptions<DirectiveDeclAst>
+  : TestAliased<DirectiveDeclAst>
 {
   private readonly MergeDirectives _merger;
   private readonly IMerge<ParameterAst> _parameters;
@@ -62,6 +62,6 @@ public class MergeDirectivesTests
     _parameters.ReceivedWithAnyArgs(1).Merge([]);
   }
 
-  protected override DirectiveDeclAst MakeDescribed(string name, string description = "")
-    => new(AstNulls.At, name, description);
+  protected override DirectiveDeclAst MakeAliased(string name, string[] aliases, string description = "")
+    => new(AstNulls.At, name, description) { Aliases = aliases };
 }

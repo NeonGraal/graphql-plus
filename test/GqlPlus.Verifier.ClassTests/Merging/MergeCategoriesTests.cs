@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeCategoriesTests
-  : TestDescriptions<CategoryDeclAst>
+  : TestAliased<CategoryDeclAst>
 {
   private readonly MergeCategories _merger = new();
 
@@ -33,6 +33,6 @@ public class MergeCategoriesTests
       [new CategoryDeclAst(AstNulls.At, category), new CategoryDeclAst(AstNulls.At, category)],
       new CategoryDeclAst(AstNulls.At, category));
 
-  protected override CategoryDeclAst MakeDescribed(string name, string description = "")
-    => new(AstNulls.At, name, description, name);
+  protected override CategoryDeclAst MakeAliased(string name, string[] aliases, string description = "")
+    => new(AstNulls.At, name, description, name) { Aliases = aliases };
 }

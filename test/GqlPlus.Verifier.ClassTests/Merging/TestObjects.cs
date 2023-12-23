@@ -5,7 +5,7 @@ using NSubstitute;
 namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestObjects<TObject, TField, TReference>
-  : TestDescriptions<TObject>
+  : TestAliased<TObject>
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>, IAstDescribed
   where TReference : AstReference<TReference>
@@ -71,6 +71,7 @@ public abstract class TestObjects<TObject, TField, TReference>
   protected abstract TObject MakeObject(string name, string description = "");
   protected abstract TField[] MakeFields(string field, string type);
   protected abstract TReference MakeReference(string type);
-  protected override TObject MakeDescribed(string name, string description = "")
-    => MakeObject(name, description);
+  protected override TObject MakeAliased(string name, string[] aliases, string description = "")
+    => MakeObject(name, description) with { Aliases = aliases };
+
 }

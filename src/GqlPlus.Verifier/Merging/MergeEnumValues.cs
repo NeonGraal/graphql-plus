@@ -3,16 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeEnumValues
-  : GroupsMerger<EnumValueAst>
+  : AliasedMerger<EnumValueAst>
 {
-  protected override string ItemGroupKey(EnumValueAst item) => item.Name;
-
-  protected override bool CanMergeGroup(IGrouping<string, EnumValueAst> group)
-    => group.CanMerge(item => item.Description);
-
-  protected override EnumValueAst MergeGroup(EnumValueAst[] items)
-    => items.First() with {
-      Description = items.MergeDescriptions(),
-      Aliases = items.MergeAliases()
-    };
+  protected override string ItemMatchKey(EnumValueAst item) => item.Name;
 }

@@ -6,8 +6,13 @@ internal class MergeOutputFields(
   IMerge<ParameterAst> parameters
 ) : FieldsMerger<OutputFieldAst, OutputReferenceAst>
 {
-  public override bool CanMerge(OutputFieldAst[] items)
-    => base.CanMerge(items)
-      && items.CanMerge(item => item.EnumValue ?? "-")
-      && items.ManyCanMerge(item => item.Parameters, parameters);
+  protected override bool CanMergeGroup(IGrouping<string, OutputFieldAst> group)
+    => base.CanMergeGroup(group)
+      && group.CanMerge(item => item.EnumValue ?? "-")
+      && group.ManyCanMerge(item => item.Parameters, parameters);
+
+  protected override OutputFieldAst MergeGroup(OutputFieldAst[] group)
+    => base.MergeGroup(group) with {
+      Parameters = group.ManyMerge(item => item.Parameters, parameters),
+    };
 }

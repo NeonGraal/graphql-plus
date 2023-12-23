@@ -59,8 +59,18 @@ public abstract class TestBase<TItem>
     result.Should().BeTrue();
   }
 
+  protected void Merge_Expected(TItem[] items, bool skipIf, params TItem[] expected)
+  {
+    if (skipIf) {
+      return;
+    }
+
+    Merge_Expected(items, expected);
+  }
+
   protected void Merge_Expected(TItem[] items, params TItem[] expected)
   {
+
     var result = MergerBase.Merge(items);
 
     using var scope = new AssertionScope();

@@ -12,7 +12,7 @@ public class MergeParametersTests
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneDefault_ReturnsTrue(string input, string value)
-    => CanMerge_True([MakeAlternate(input) with { Default = value.FieldKey() }, MakeAlternate(input)]);
+    => CanMerge_True([MakeAlternate(input), MakeAlternate(input) with { Default = value.FieldKey() }]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameDefault_ReturnsTrue(string input, string value)

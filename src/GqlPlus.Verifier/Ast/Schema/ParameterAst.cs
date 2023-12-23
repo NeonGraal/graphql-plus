@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class ParameterAst(TokenAt At, InputReferenceAst Input)
-  : AlternateAst<InputReferenceAst>(At, Input), IEquatable<ParameterAst>
+public sealed record class ParameterAst(TokenAt At, InputReferenceAst Type)
+  : AlternateAst<InputReferenceAst>(At, Type), IEquatable<ParameterAst>
 {
   public ConstantAst? Default { get; set; }
 

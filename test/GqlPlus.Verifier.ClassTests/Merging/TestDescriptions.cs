@@ -12,7 +12,7 @@ public abstract class TestDescriptions<TItem>
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneDescription_ReturnsTrue(string name, string description)
-    => CanMerge_True([MakeDescribed(name, description), MakeDescribed(name)]);
+    => CanMerge_True([MakeDescribed(name), MakeDescribed(name, description)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameDescription_ReturnsTrue(string name, string description)
@@ -24,7 +24,7 @@ public abstract class TestDescriptions<TItem>
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoItemsOneDescription_ReturnsExpected(string name, string description)
-    => Merge_Expected([MakeDescribed(name, description), MakeDescribed(name)], MakeDescribed(name, description));
+    => Merge_Expected([MakeDescribed(name), MakeDescribed(name, description)], MakeDescribed(name, description));
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoItemsSameDescription_ReturnsExpected(string name, string description)

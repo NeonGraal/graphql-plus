@@ -24,4 +24,11 @@ public class ObjectsMerger<TObject, TField, TReference>(
 
     return baseCanMerge && typeParametersCanMerge && fieldsCanMerge && alternatesCanMerge;
   }
+
+  protected override TObject MergeGroup(TObject[] group)
+    => base.MergeGroup(group) with {
+      TypeParameters = group.ManyMerge(item => item.TypeParameters, typeParameters),
+      Fields = group.ManyMerge(item => item.Fields, fields),
+      Alternates = group.ManyMerge(item => item.Alternates, alternates),
+    };
 }

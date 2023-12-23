@@ -31,8 +31,14 @@ public abstract class TestFields<TField, TReference>
     => CanMerge_False([MakeField(name, type1), MakeField(name, type2)], type1 == type2);
 
   [Theory, RepeatData(Repeats)]
+  public void Merge_TwoItemsSameType_ReturnsExpected(string name, string type)
+    => Merge_Expected(
+      [MakeField(name, type), MakeField(name, type)],
+      MakeField(name, type));
+
+  [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneTypeDescription_ReturnsTrue(string name, string type, string description)
-  => CanMerge_True([MakeField(name, type, typeDescription: description), MakeField(name, type)]);
+  => CanMerge_True([MakeField(name, type), MakeField(name, type, typeDescription: description)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameTypeDescription_ReturnsTrue(string name, string type, string description)
@@ -44,6 +50,18 @@ public abstract class TestFields<TField, TReference>
     MakeField(name, type, typeDescription: description1),
     MakeField(name, type, typeDescription: description2)],
     description1 == description2);
+
+  [Theory, RepeatData(Repeats)]
+  public void Merge_TwoItemsOneTypeDescription_ReturnsExpected(string name, string type, string description)
+    => Merge_Expected(
+      [MakeField(name, type), MakeField(name, type, typeDescription: description)],
+      MakeField(name, type, typeDescription: description));
+
+  [Theory, RepeatData(Repeats)]
+  public void Merge_TwoItemsSameTypeDescription_ReturnsExpected(string name, string type, string description)
+    => Merge_Expected(
+      [MakeField(name, type, typeDescription: description), MakeField(name, type, typeDescription: description)],
+      MakeField(name, type, typeDescription: description));
 
   protected abstract FieldsMerger<TField, TReference> MergerField { get; }
   protected override GroupsMerger<TField> MergerGroups => MergerField;

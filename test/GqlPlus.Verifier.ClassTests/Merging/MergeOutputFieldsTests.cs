@@ -20,10 +20,29 @@ public class MergeOutputFieldsTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsSameEnum_ReturnsTrue(string name, string type, string value)
+  public void CanMerge_TwoItemsEnum_ReturnsTrue(string name, string type, string value)
     => CanMerge_True([
       MakeField(name, type) with { EnumValue = value },
       MakeField(name, type) with { EnumValue = value }]);
+
+  [Theory, RepeatData(Repeats)]
+  public void CanMerge_TwoItemsEnumOneDescription_ReturnsTrue(string name, string type, string description, string value)
+    => CanMerge_True([
+      MakeField(name, type) with { EnumValue = value },
+      MakeField(name, type, description) with { EnumValue = value }]);
+
+  [Theory, RepeatData(Repeats)]
+  public void CanMerge_TwoItemsEnumSameDescription_ReturnsTrue(string name, string type, string description, string value)
+    => CanMerge_True([
+      MakeField(name, type, description) with { EnumValue = value },
+      MakeField(name, type, description) with { EnumValue = value }]);
+
+  [Theory, RepeatData(Repeats)]
+  public void CanMerge_TwoItemsEnumDiffDescription_ReturnsFalse(string name, string type, string description1, string description2, string value)
+    => CanMerge_False([
+      MakeField(name, type, description1) with { EnumValue = value },
+      MakeField(name, type, description2) with { EnumValue = value }],
+      description1 == description2);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsDifferentEnums_ReturnsFalse(string name, string type, string value1, string value2)
@@ -34,7 +53,41 @@ public class MergeOutputFieldsTests
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneEnum_ReturnsFalse(string name, string type, string value)
-    => CanMerge_False([MakeField(name, type) with { EnumValue = value }, MakeField(name, type)]);
+    => CanMerge_False([MakeField(name, type), MakeField(name, type) with { EnumValue = value }]);
+
+  [Theory, RepeatData(Repeats)]
+  public void Merge_TwoItemsWithParameters_CallsParametersMerge(string name, string type, string[] parameters)
+  {
+    _parameters.Merge([]).ReturnsForAnyArgs(parameters.Parameters());
+
+    Merge_Expected([
+      MakeField(name, type) with { Parameters = parameters.Parameters() },
+      MakeField(name, type) with { Parameters = parameters.Parameters() }],
+      MakeField(name, type) with { Parameters = parameters.Parameters() });
+
+    _parameters.ReceivedWithAnyArgs(1).Merge([]);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Merge_TwoItemsEnum_ReturnsExpected(string name, string type, string value)
+    => Merge_Expected([
+      MakeField(name, type) with { EnumValue = value },
+      MakeField(name, type) with { EnumValue = value }],
+      MakeField(name, type) with { EnumValue = value });
+
+  [Theory, RepeatData(Repeats)]
+  public void Merge_TwoItemsEnumOneDescription_ReturnsExpected(string name, string type, string description, string value)
+    => Merge_Expected([
+      MakeField(name, type) with { EnumValue = value },
+      MakeField(name, type, description) with { EnumValue = value }],
+      MakeField(name, type, description) with { EnumValue = value });
+
+  [Theory, RepeatData(Repeats)]
+  public void Merge_TwoItemsEnumSameDescription_ReturnsExpected(string name, string type, string description, string value)
+    => Merge_Expected([
+      MakeField(name, type, description) with { EnumValue = value },
+      MakeField(name, type, description) with { EnumValue = value }],
+      MakeField(name, type, description) with { EnumValue = value });
 
   private readonly MergeOutputFields _merger;
   private readonly IMerge<ParameterAst> _parameters;

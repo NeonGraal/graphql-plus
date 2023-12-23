@@ -20,14 +20,10 @@ public abstract class TestGroups<TItem>
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoItemsDifferentName_ReturnsItems(string name1, string name2)
   {
-    if (name1 == name2) {
-      return;
-    }
-
     var item1 = MakeDistinct(name1);
     var item2 = MakeDistinct(name2);
 
-    Merge_Expected([item1, item2], item2, item1);
+    Merge_Expected([item1, item2], name1 == name2, item2, item1);
   }
 
   protected abstract GroupsMerger<TItem> MergerGroups { get; }

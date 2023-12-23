@@ -7,28 +7,17 @@ internal class MergeAllTypes(
   IMerge<InputDeclAst> inputs,
   IMerge<OutputDeclAst> outputs,
   IMerge<ScalarDeclAst> scalars
-) : NamedMerger<AstType>
+) : IMerge<AstType>
 {
-  public override bool CanMerge(AstType[] items)
+  public bool CanMerge(AstType[] items)
   {
-    if (items is null || items.Length == 0) {
-      return false;
-    }
-
     FixupEnums(items.OfType<EnumDeclAst>(), items.OfType<OutputDeclAst>());
 
     return items.Select(i => i.GetType()).Distinct().Count() == 1;
   }
 
-  protected override string ItemMatchKey(AstType item)
-    => item.GetType().Name;
-
-  public override AstType[] Merge(AstType[] items)
+  public AstType[] Merge(AstType[] items)
   {
-    if (items is null || items.Length < 2) {
-      return items ?? [];
-    }
-
     var enumTypes = items.OfType<EnumDeclAst>().ToArray();
     var inputTypes = items.OfType<InputDeclAst>().ToArray();
     var outputTypes = items.OfType<OutputDeclAst>().ToArray();
@@ -76,6 +65,4 @@ internal class MergeAllTypes(
       FixupType(argument, enumValues);
     }
   }
-
-  protected override AstType MergeGroup(AstType[] group) => throw new NotImplementedException();
 }

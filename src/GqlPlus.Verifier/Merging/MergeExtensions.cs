@@ -97,4 +97,10 @@ public static class MergeExtensions
     TGroup[] items1 = [.. items.SelectMany(many)];
     return merger.Merge(items1);
   }
+
+  private record struct Indexed<TItem>(TItem Item, int Index)
+  {
+    public static Indexed<TItem> To(TItem item, int n)
+      => new(item, n);
+  }
 }

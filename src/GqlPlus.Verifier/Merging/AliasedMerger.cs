@@ -3,9 +3,11 @@
 namespace GqlPlus.Verifier.Merging;
 
 public abstract class AliasedMerger<TItem>
-  : NamedMerger<TItem>
+  : DistinctMerger<TItem>
   where TItem : AstAliased
 {
+  protected override string ItemGroupKey(TItem item) => item.Name;
+
   protected override bool CanMergeGroup(IGrouping<string, TItem> group)
     => base.CanMergeGroup(group)
       && group.CanMerge(item => item.Description);
@@ -14,6 +16,7 @@ public abstract class AliasedMerger<TItem>
   {
     var description = group.MergeDescriptions();
     var aliases = group.MergeAliases();
+
     return group.First() with {
       Description = description,
       Aliases = aliases,

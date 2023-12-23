@@ -12,8 +12,7 @@ public class MergeDirectivesTests
 
   public MergeDirectivesTests()
   {
-    _parameters = Substitute.For<IMerge<ParameterAst>>();
-    _parameters.CanMerge([]).ReturnsForAnyArgs(true);
+    _parameters = Merger<ParameterAst>();
 
     _merger = new(_parameters);
   }
@@ -41,6 +40,26 @@ public class MergeDirectivesTests
       new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
       new DirectiveDeclAst(AstNulls.At, name)],
       parameters.Length < 2);
+  }
+
+  [Theory, RepeatData(Repeats)]
+  public void Merge_TwoItemsWithLocation_ReturnsExpected(string name, DirectiveLocation locations1, DirectiveLocation locations2)
+    => Merge_Expected([
+      new DirectiveDeclAst(AstNulls.At, name) with { Locations = locations1 },
+      new DirectiveDeclAst(AstNulls.At, name) with { Locations = locations2 }],
+      new DirectiveDeclAst(AstNulls.At, name) with { Locations = locations1 | locations2 });
+
+  [Theory, RepeatData(Repeats)]
+  public void Merge_TwoItemsWithParameters_CallsParametersMerge(string name, string[] parameters)
+  {
+    _parameters.Merge([]).ReturnsForAnyArgs(parameters.Parameters());
+
+    Merge_Expected([
+      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
+      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() }],
+      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() });
+
+    _parameters.ReceivedWithAnyArgs(1).Merge([]);
   }
 
   protected override DirectiveDeclAst MakeDescribed(string name, string description = "")

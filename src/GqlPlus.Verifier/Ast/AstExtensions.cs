@@ -52,9 +52,7 @@ public static class AstExtensions
     => items.Joined(s => prefix + s);
 
   internal static IEnumerable<string?> Bracket(this AstBase? item, string before, string after)
-    => item is null
-    ? Array.Empty<string?>()
-    : item.GetFields().Prepend(before).Append(after);
+    => item?.GetFields().Prepend(before).Append(after) ?? [];
 
   [return: NotNullIfNotNull(nameof(text))]
   public static string? Capitalize(this string? text)
@@ -70,6 +68,9 @@ public static class AstExtensions
 
   public static string Prefixed(this string? text, string prefix)
     => text?.Length > 0 ? prefix + text : "";
+
+  public static string Prefixed(this AstBase? ast, string prefix)
+    => ast is null ? "" : $"{prefix}{ast}";
 
   public static string Suffixed(this string? text, string suffix)
     => text?.Length > 0 ? text + suffix : "";

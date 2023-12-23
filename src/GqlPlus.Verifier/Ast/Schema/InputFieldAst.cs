@@ -23,5 +23,5 @@ public sealed record class InputFieldAst(TokenAt At, string Name, string Descrip
       .Append(":")
       .Concat(Type.GetFields())
       .Concat(Modifiers.AsString())
-      .Append(Default is null ? "" : "=" + Default.ToString());
+      .Append(Default.Prefixed("="));
 }

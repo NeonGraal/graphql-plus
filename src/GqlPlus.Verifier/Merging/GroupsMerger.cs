@@ -13,13 +13,7 @@ public abstract class GroupsMerger<TItem>
     => base.CanMerge(items) && items.GroupBy(ItemGroupKey).All(CanMergeGroup);
 
   public override TItem[] Merge(TItem[] items)
-  {
-    if (items is null) {
-      return [];
-    }
-
-    return items.GroupMerger(ItemGroupKey, MergeGroup);
-  }
+    => items?.GroupMerger(ItemGroupKey, MergeGroup) ?? [];
 }
 
 internal record struct Indexed<TItem>(TItem Item, int Index)

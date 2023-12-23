@@ -22,5 +22,5 @@ public sealed record class ParameterAst(TokenAt At, InputReferenceAst Input)
     => new[] { "!" + Abbr }
       .Concat(Type.GetFields())
       .Concat(Modifiers.AsString())
-      .Append(Default is null ? "" : "=" + Default.ToString());
+      .Append(Default.Prefixed("="));
 }

@@ -23,5 +23,5 @@ public sealed record class VariableAst(TokenAt At, string Name)
     => base.GetFields()
       .Append(Type.Prefixed(":"))
       .Concat(Modifers.AsString())
-      .Append(Default is null ? "" : "=" + Default.ToString());
+      .Append(Default.Prefixed("="));
 }

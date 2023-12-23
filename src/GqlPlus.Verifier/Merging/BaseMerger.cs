@@ -7,5 +7,5 @@ public class BaseMerger<TItem>
     => items.Length > 0;
 
   public virtual TItem[] Merge(TItem[] items)
-    => items is null ? [] : items;
+    => items ?? [];
 }

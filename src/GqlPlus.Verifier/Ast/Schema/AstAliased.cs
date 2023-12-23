@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Ast.Schema;
 public abstract record class AstAliased(TokenAt At, string Name, string Description)
   : AstDescribed(At, Name, Description), IEquatable<AstAliased>
 {
-  public string[] Aliases { get; set; } = Array.Empty<string>();
+  public string[] Aliases { get; set; } = [];
 
   public virtual bool Equals(AstAliased? other)
     => base.Equals(other)

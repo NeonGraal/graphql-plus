@@ -5,31 +5,22 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, TResult>
-  : Parser<TResult>.I
+internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, TResult>(
+  TName name,
+  Parser<TParam>.DA param,
+  Parser<string>.DA aliases,
+  Parser<TOption>.D option,
+  Parser<TDefinition>.D definition
+) : Parser<TResult>.I
   where TName : INameParser
   where TResult : AstAliased
 {
-  private readonly TName _name;
-  private readonly Parser<TParam>.LA _param;
-  private readonly Parser<TOption>.L _option;
-  private readonly Parser<TDefinition>.L _definition;
+  private readonly TName _name = name.ThrowIfNull();
+  private readonly Parser<TParam>.LA _param = param;
+  private readonly Parser<TOption>.L _option = option;
+  private readonly Parser<TDefinition>.L _definition = definition;
 
-  protected readonly Parser<string>.LA Aliases;
-
-  public DeclarationParser(
-    TName name,
-    Parser<TParam>.DA param,
-    Parser<string>.DA aliases,
-    Parser<TOption>.D option,
-    Parser<TDefinition>.D definition)
-  {
-    _name = name.ThrowIfNull();
-    _param = param;
-    Aliases = aliases;
-    _option = option;
-    _definition = definition;
-  }
+  protected readonly Parser<string>.LA Aliases = aliases;
 
   public IResult<TResult> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

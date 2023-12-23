@@ -10,6 +10,6 @@ internal class MergeTypeParameters
   protected override bool CanMergeGroup(IGrouping<string, TypeParameterAst> group)
     => group.CanMerge(item => item.Description);
 
-  protected override TypeParameterAst MergeGroup(TypeParameterAst[] items)
-    => items.First() with { Description = items.MergeDescriptions() };
+  protected override TypeParameterAst MergeGroup(IEnumerable<TypeParameterAst> group)
+    => group.First() with { Description = group.MergeDescriptions() };
 }

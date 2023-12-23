@@ -68,16 +68,16 @@ public static class MergeExtensions
     return groups.Length < 2 || merger.CanMerge(groups);
   }
 
-  public static string MergeDescriptions<TItem>(this TItem[] items)
+  public static string MergeDescriptions<TItem>(this IEnumerable<TItem> items)
     where TItem : IAstDescribed
     => items
       .Select(item => item.Description)
       .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr))
       ?? "";
 
-  public static string[] MergeAliases<TItem>(this TItem[] items)
+  public static string[] MergeAliases<TItem>(this IEnumerable<TItem> items)
     where TItem : AstAliased
-    => items.SelectMany(item => item.Aliases).Distinct().ToArray();
+    => [.. items.SelectMany(item => item.Aliases).Distinct()];
 
   public static TItem[] GroupMerger<TItem>(this IEnumerable<TItem> items, Func<TItem, string> key, Func<TItem[], TItem> merger)
   {
@@ -92,7 +92,7 @@ public static class MergeExtensions
     return [.. result.OrderBy(i => i.Index).Select(i => i.Item)];
   }
 
-  public static TGroup[] ManyMerge<TItem, TGroup>(this TItem[] items, Func<TItem, IEnumerable<TGroup>> many, IMerge<TGroup> merger)
+  public static TGroup[] ManyMerge<TItem, TGroup>(this IEnumerable<TItem> items, Func<TItem, IEnumerable<TGroup>> many, IMerge<TGroup> merger)
   {
     TGroup[] items1 = [.. items.SelectMany(many)];
     return merger.Merge(items1);

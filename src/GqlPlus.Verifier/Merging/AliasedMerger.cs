@@ -12,7 +12,7 @@ public abstract class AliasedMerger<TItem>
     => base.CanMergeGroup(group)
       && group.CanMerge(item => item.Description);
 
-  protected override TItem MergeGroup(TItem[] group)
+  protected override TItem MergeGroup(IEnumerable<TItem> group)
   {
     var description = group.MergeDescriptions();
     var aliases = group.MergeAliases();

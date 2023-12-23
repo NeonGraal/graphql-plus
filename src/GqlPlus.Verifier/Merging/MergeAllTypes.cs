@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -18,10 +19,10 @@ internal class MergeAllTypes(
 
   public AstType[] Merge(AstType[] items)
   {
-    var enumTypes = items.OfType<EnumDeclAst>().ToArray();
-    var inputTypes = items.OfType<InputDeclAst>().ToArray();
-    var outputTypes = items.OfType<OutputDeclAst>().ToArray();
-    var scalarTypes = items.OfType<ScalarDeclAst>().ToArray();
+    var enumTypes = items.ArrayOf<EnumDeclAst>();
+    var inputTypes = items.ArrayOf<InputDeclAst>();
+    var outputTypes = items.ArrayOf<OutputDeclAst>();
+    var scalarTypes = items.ArrayOf<ScalarDeclAst>();
 
     FixupEnums(enumTypes, outputTypes);
 

@@ -13,6 +13,9 @@ public static class AstExtensions
   public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
     => left.Order(comparer).SequenceEqual(right.Order(comparer));
 
+  public static TResult[] ArrayOf<TResult>(this object[] items)
+    => items.OfType<TResult>().ToArray();
+
   public static IEnumerable<string> AsString<T>(this IEnumerable<T>? items)
     => items?.Any() == true
       ? items.Where(i => i is not null).Select(i => $"{i}")

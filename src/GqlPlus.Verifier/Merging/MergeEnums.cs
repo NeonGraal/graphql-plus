@@ -13,7 +13,7 @@ internal class MergeEnums(
     => base.CanMerge(items)
       && items.ManyCanMerge(e => e.Values, enumValues);
 
-  protected override EnumDeclAst MergeGroup(EnumDeclAst[] group)
+  protected override EnumDeclAst MergeGroup(IEnumerable<EnumDeclAst> group)
     => base.MergeGroup(group) with {
       Values = group.ManyMerge(item => item.Values, enumValues),
     };

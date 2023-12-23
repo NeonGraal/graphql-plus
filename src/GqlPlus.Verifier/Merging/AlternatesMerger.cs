@@ -8,7 +8,7 @@ public class AlternatesMerger<TAlternate, TReference>
   where TAlternate : AlternateAst<TReference>
   where TReference : AstReference<TReference>, IEquatable<TReference>
 {
-  protected override TAlternate MergeGroup(TAlternate[] group)
+  protected override TAlternate MergeGroup(IEnumerable<TAlternate> group)
   {
     var first = group.First();
     return first with { Type = first.Type with { Description = group.MergeDescriptions() } };

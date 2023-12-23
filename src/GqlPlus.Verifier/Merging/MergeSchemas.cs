@@ -13,9 +13,9 @@ internal class MergeSchemas(
 
   protected override bool CanMergeGroup(IGrouping<string, SchemaAst> group)
   {
-    var categories = group.SelectMany(item => item.Declarations.OfType<CategoryDeclAst>()).ToArray();
-    var directives = group.SelectMany(item => item.Declarations.OfType<DirectiveDeclAst>()).ToArray();
-    var astTypes = group.SelectMany(item => item.Declarations.OfType<AstType>()).ToArray();
+    var categories = Just<CategoryDeclAst>(group);
+    var directives = Just<DirectiveDeclAst>(group);
+    var astTypes = Just<AstType>(group);
 
     var categoriesCanMerge = categories.Length == 0 || categoryMerger.CanMerge(categories);
     var directivesCanMerge = directives.Length == 0 || directiveMerger.CanMerge(directives);
@@ -26,11 +26,14 @@ internal class MergeSchemas(
      && (astTypesCanMerge || true);
   }
 
-  protected override SchemaAst MergeGroup(SchemaAst[] group)
+  private static TItem[] Just<TItem>(IEnumerable<SchemaAst> group)
+    => group.SelectMany(item => item.Declarations.OfType<TItem>()).ToArray();
+
+  protected override SchemaAst MergeGroup(IEnumerable<SchemaAst> group)
   {
-    var categories = group.SelectMany(item => item.Declarations.OfType<CategoryDeclAst>()).ToArray();
-    var directives = group.SelectMany(item => item.Declarations.OfType<DirectiveDeclAst>()).ToArray();
-    var astTypes = group.SelectMany(item => item.Declarations.OfType<AstType>()).ToArray();
+    var categories = Just<CategoryDeclAst>(group);
+    var directives = Just<DirectiveDeclAst>(group);
+    var astTypes = Just<AstType>(group);
 
     var declarations = categoryMerger.Merge(categories).Cast<AstDeclaration>()
       .Concat(directiveMerger.Merge(directives))

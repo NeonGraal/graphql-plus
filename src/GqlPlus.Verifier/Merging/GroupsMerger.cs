@@ -1,10 +1,11 @@
-﻿namespace GqlPlus.Verifier.Merging;
+﻿
+namespace GqlPlus.Verifier.Merging;
 
 public abstract class GroupsMerger<TItem>
   : BaseMerger<TItem>
 {
   protected abstract string ItemGroupKey(TItem item);
-  protected abstract TItem MergeGroup(TItem[] group);
+  protected abstract TItem MergeGroup(IEnumerable<TItem> group);
 
   protected abstract bool CanMergeGroup(IGrouping<string, TItem> group);
 

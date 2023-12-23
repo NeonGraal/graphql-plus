@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
@@ -12,9 +13,9 @@ internal class VerifySchema(
 {
   public void Verify(SchemaAst item, ITokenMessages errors)
   {
-    var categories = item.Declarations.OfType<CategoryDeclAst>().ToArray();
-    var directives = item.Declarations.OfType<DirectiveDeclAst>().ToArray();
-    var astTypes = item.Declarations.OfType<AstType>().ToArray();
+    var categories = item.Declarations.ArrayOf<CategoryDeclAst>();
+    var directives = item.Declarations.ArrayOf<DirectiveDeclAst>();
+    var astTypes = item.Declarations.ArrayOf<AstType>();
     var allTypes = astTypes.Concat(BuiltIn.Basic).Concat(BuiltIn.Internal);
 
     categoryOutputs.Verify(new(categories, [.. allTypes.OfType<OutputDeclAst>()]), errors);

@@ -10,6 +10,6 @@ internal class MergeScalarRegexes
   protected override string ItemMatchKey(ScalarRegexAst item)
     => item.Excludes.ToString();
 
-  protected override ScalarRegexAst MergeGroup(ScalarRegexAst[] items)
-    => items.First();
+  protected override ScalarRegexAst MergeGroup(IEnumerable<ScalarRegexAst> group)
+    => group.First();
 }

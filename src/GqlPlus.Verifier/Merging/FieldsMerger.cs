@@ -14,10 +14,10 @@ public class FieldsMerger<TField, TReference>
     => base.CanMergeGroup(group)
       && group.CanMerge(item => item.Type.Description);
 
-  protected override TField MergeGroup(TField[] group)
+  protected override TField MergeGroup(IEnumerable<TField> group)
   {
     var result = base.MergeGroup(group);
-    var typeDescription = group.Select(item => item.Type).ToArray().MergeDescriptions();
+    var typeDescription = group.Select(item => item.Type).MergeDescriptions();
     return result with { Type = result.Type with { Description = typeDescription } };
   }
 }

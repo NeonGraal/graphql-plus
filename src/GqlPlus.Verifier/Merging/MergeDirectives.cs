@@ -13,7 +13,7 @@ internal class MergeDirectives(
     => base.CanMerge(items)
       && items.ManyCanMerge(d => d.Parameters, parameters);
 
-  protected override DirectiveDeclAst MergeGroup(DirectiveDeclAst[] group)
+  protected override DirectiveDeclAst MergeGroup(IEnumerable<DirectiveDeclAst> group)
     => base.MergeGroup(group) with {
       Parameters = group.ManyMerge(item => item.Parameters, parameters),
       Locations = group.Aggregate(DirectiveLocation.None, (l, d) => d.Locations | l),

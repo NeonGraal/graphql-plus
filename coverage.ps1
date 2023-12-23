@@ -1,3 +1,4 @@
+prettier -w .
 dotnet tool restore
 dotnet build
 dotnet coverage collect --settings coverage.runsettings --output-format cobertura dotnet test --no-build

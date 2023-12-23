@@ -165,7 +165,7 @@ public class VerifySchemaTests(
     ["output-field-params"] = "output FieldParams { field(FieldParam): FieldParams } output FieldParams { field: FieldParams } input FieldParam { }",
     ["output-field-enums"] = "output FieldEnums { field = Boolean.true } output FieldEnums { field = true }",
     ["output-field-enum-alias"] = "output FieldEnumAlias { field [field1] = Boolean.true } output FieldEnumAlias { field [field2] = true }",
-    ["scalar-alias"] = "scalar NumAlias [Num1] { number } scalar NumAlias [num2] { number }",
+    ["scalar-alias"] = "scalar NumAlias [Num1] { number } scalar NumAlias [Num2] { number }",
     ["scalar-number"] = "scalar Num { number } scalar Num { number }",
     ["scalar-number-same"] = "scalar NumSame { number 1:9 } scalar NumSame { number 1:9 }",
     ["scalar-number-diff"] = "scalar NumDiff { number 1:9 } scalar NumDiff { number }",

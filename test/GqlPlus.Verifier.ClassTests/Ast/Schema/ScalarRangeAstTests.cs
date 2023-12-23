@@ -39,7 +39,7 @@ public record struct RangeInput(decimal? Min, decimal? Max)
   internal readonly decimal? Lower => Max < Min ? Max : Min;
   internal readonly decimal? Upper => Max < Min ? Min : Max;
 
-  internal string StringExcluded(bool minEx, bool maxEx)
+  internal readonly string StringExcluded(bool minEx, bool maxEx)
   {
     var upExc = maxEx ? "< " : "";
     var lowExc = minEx ? " >" : "";
@@ -48,6 +48,6 @@ public record struct RangeInput(decimal? Min, decimal? Max)
       : $"{Lower}{lowExc} : {upExc}{Upper}";
   }
 
-  public ScalarRangeAst[] ScalarRanges()
+  public readonly ScalarRangeAst[] ScalarRanges()
     => new ScalarRangeAst[] { new(AstNulls.At, Lower, Upper) };
 }

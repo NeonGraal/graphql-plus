@@ -3,6 +3,10 @@
 Success
 {
   !O I@8/1
-  Out
+  OutAlias
+  [
+    Out1
+    Out2
+  ]
 }
 ]

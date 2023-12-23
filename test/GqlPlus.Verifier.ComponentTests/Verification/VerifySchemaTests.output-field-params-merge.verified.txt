@@ -2,6 +2,10 @@
 !G I@1/1
 Success
 {
+  !I I@103/1
+  FieldParam
+}
+{
   !O I@8/1
   FieldParams
   {
@@ -16,20 +20,5 @@ Success
     I@41/1
     FieldParams
   }
-}
-{
-  !O I@62/1
-  FieldParams
-  {
-    !OF I@76/1
-    field
-    :
-    I@83/1
-    FieldParams
-  }
-}
-{
-  !I I@103/1
-  FieldParam
 }
 ]

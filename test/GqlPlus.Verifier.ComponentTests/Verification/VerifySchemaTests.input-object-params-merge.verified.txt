@@ -16,19 +16,4 @@ Success
     $test
   }
 }
-{
-  !I I@45/1
-  InParams
-  <
-    I@55/1
-    $type
-  >
-  {
-    !IF I@63/1
-    type
-    :
-    I@70/1
-    $type
-  }
-}
 ]

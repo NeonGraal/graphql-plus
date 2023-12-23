@@ -12,15 +12,4 @@ Success
     OutFields
   }
 }
-{
-  !O I@46/1
-  OutFields
-  {
-    !OF I@58/1
-    field
-    :
-    I@65/1
-    OutFields
-  }
-}
 ]

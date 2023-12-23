@@ -6,9 +6,4 @@ Success
   Str
   String
 }
-{
-  !S I@30/1
-  Str
-  String
-}
 ]

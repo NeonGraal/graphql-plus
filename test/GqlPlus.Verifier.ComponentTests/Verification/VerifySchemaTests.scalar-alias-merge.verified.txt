@@ -3,11 +3,11 @@
 Success
 {
   !S I@8/1
-  NumDiff
+  NumAlias
+  [
+    Num1
+    Num2
+  ]
   Number
-  !SR N@25/1
-  1
-  :
-  9
 }
 ]

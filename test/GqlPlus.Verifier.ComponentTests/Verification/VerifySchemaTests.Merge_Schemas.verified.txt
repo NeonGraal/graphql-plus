@@ -12,6 +12,7 @@ Success
   catAlias
   [
     Cat1
+    Cat2
   ]
   (Parallel)
   CatAlias
@@ -33,6 +34,7 @@ Success
   DirAlias
   [
     Dir1
+    Dir2
   ]
   (Unique)
   Variable, Field
@@ -60,6 +62,71 @@ Success
   All
 }
 {
+  !E I@60/1
+  InFieldEnum
+  !EV I@74/1
+  value
+}
+{
+  !E I@64/1
+  OutFieldEnum
+  !EV I@79/1
+  value
+}
+{
+  !E I@51/1
+  EnumField
+  !EV I@63/1
+  value
+}
+{
+  !E I@6/1
+  EnAlias
+  [
+    En1
+    En2
+  ]
+  !EV I@22/1
+  alias
+}
+{
+  !E I@6/1
+  EnDiff
+  !EV I@15/1
+  one
+  !EV I@35/1
+  two
+}
+{
+  !E I@6/1
+  EnSame
+  !EV I@15/1
+  same
+}
+{
+  !E I@6/1
+  EnValAlias
+  !EV I@19/1
+  value
+  [
+    val1
+    val2
+  ]
+}
+{
+  !E I@6/1
+  EnExt
+  :EnExtBase
+  !EV I@25/1
+  valExt
+}
+{
+  !E I@39/1
+  EnExtBase
+  !EV I@51/1
+  valBase
+}
+{
   !I I@7/1
   InAltMods
   |
@@ -73,19 +140,6 @@ Success
   InModsAlt
 }
 {
-  !O I@8/1
-  OutAltMods
-  |
-  !AO
-  I@23/1
-  OutModsAlt
-  [~]
-}
-{
-  !O I@46/1
-  OutModsAlt
-}
-{
   !I I@7/1
   InTestBase
   :
@@ -95,17 +149,6 @@ Success
 {
   !I I@41/1
   InBaseTest
-}
-{
-  !O I@8/1
-  OutTestBase
-  :
-  I@24/1
-  OutBaseTest
-}
-{
-  !O I@45/1
-  OutBaseTest
 }
 {
   !I I@7/1
@@ -120,30 +163,6 @@ Success
   }
 }
 {
-  !E I@60/1
-  InFieldEnum
-  !EV I@74/1
-  value
-}
-{
-  !O I@8/1
-  OutFieldMods
-  {
-    !OF I@23/1
-    field
-    :
-    I@30/1
-    OutFieldMods
-    [OutFieldEnum]
-  }
-}
-{
-  !E I@64/1
-  OutFieldEnum
-  !EV I@79/1
-  value
-}
-{
   !I I@7/1
   InGenAlt
   <
@@ -153,18 +172,6 @@ Success
   |
   !AI
   I@28/1
-  $type
-}
-{
-  !O I@8/1
-  OutGenAlt
-  <
-    I@19/1
-    $type
-  >
-  |
-  !AO
-  I@30/1
   $type
 }
 {
@@ -179,17 +186,6 @@ Success
   $type
 }
 {
-  !O I@8/1
-  OutGenBase
-  <
-    I@20/1
-    $type
-  >
-  :
-  I@31/1
-  $type
-}
-{
   !I I@7/1
   InGenField
   <
@@ -201,21 +197,6 @@ Success
     field
     :
     I@35/1
-    $type
-  }
-}
-{
-  !O I@8/1
-  OutGenField
-  <
-    I@21/1
-    $type
-  >
-  {
-    !OF I@29/1
-    field
-    :
-    I@37/1
     $type
   }
 }
@@ -248,34 +229,6 @@ Success
   $ref
 }
 {
-  !O I@8/1
-  OutGenAltArg
-  <
-    I@22/1
-    $type
-  >
-  |
-  !AO
-  I@32/1
-  OutGenAltRef
-  <
-    I@46/1
-    $type
-  >
-}
-{
-  !O I@61/1
-  OutGenAltRef
-  <
-    I@75/1
-    $ref
-  >
-  |
-  !AO
-  I@85/1
-  $ref
-}
-{
   !I I@7/1
   InGenBaseArg
   <
@@ -300,33 +253,6 @@ Success
   |
   !AI
   I@83/1
-  $ref
-}
-{
-  !O I@8/1
-  OutGenBaseArg
-  <
-    I@23/1
-    $type
-  >
-  :
-  I@33/1
-  OutGenBaseRef
-  <
-    I@48/1
-    $type
-  >
-}
-{
-  !O I@63/1
-  OutGenBaseRef
-  <
-    I@78/1
-    $ref
-  >
-  |
-  !AO
-  I@88/1
   $ref
 }
 {
@@ -361,37 +287,6 @@ Success
   $ref
 }
 {
-  !O I@8/1
-  OutGenFieldArg
-  <
-    I@24/1
-    $type
-  >
-  {
-    !OF I@32/1
-    field
-    :
-    I@39/1
-    OutGenFieldRef
-    <
-      I@55/1
-      $type
-    >
-  }
-}
-{
-  !O I@70/1
-  OutGenFieldRef
-  <
-    I@86/1
-    $ref
-  >
-  |
-  !AO
-  I@96/1
-  $ref
-}
-{
   !I I@7/1
   InGenParam
   {
@@ -421,37 +316,6 @@ Success
 {
   !I I@101/1
   InGenParamAlt
-}
-{
-  !O I@8/1
-  OutGenParam
-  {
-    !OF I@22/1
-    field
-    :
-    I@29/1
-    OutGenParamRef
-    <
-      I@44/1
-      OutGenParamAlt
-    >
-  }
-}
-{
-  !O I@69/1
-  OutGenParamRef
-  <
-    I@85/1
-    $ref
-  >
-  |
-  !AO
-  I@95/1
-  $ref
-}
-{
-  !O I@108/1
-  OutGenParamAlt
 }
 {
   !I I@7/1
@@ -490,12 +354,6 @@ Success
   }
 }
 {
-  !E I@51/1
-  EnumField
-  !EV I@63/1
-  value
-}
-{
   !I I@7/1
   FieldNull
   {
@@ -507,6 +365,217 @@ Success
     ?
     =( !k I@39/1 Null.null )
   }
+}
+{
+  !I I@46/1
+  Param
+}
+{
+  !I I@77/1
+  ParamScalar
+}
+{
+  !I I@89/1
+  DirParamsIn
+}
+{
+  !I I@103/1
+  FieldParam
+}
+{
+  !I I@47/1
+  DirParamIn
+}
+{
+  !O I@8/1
+  OutAltMods
+  |
+  !AO
+  I@23/1
+  OutModsAlt
+  [~]
+}
+{
+  !O I@46/1
+  OutModsAlt
+}
+{
+  !O I@8/1
+  OutTestBase
+  :
+  I@24/1
+  OutBaseTest
+}
+{
+  !O I@45/1
+  OutBaseTest
+}
+{
+  !O I@8/1
+  OutFieldMods
+  {
+    !OF I@23/1
+    field
+    :
+    I@30/1
+    OutFieldMods
+    [OutFieldEnum]
+  }
+}
+{
+  !O I@8/1
+  OutGenAlt
+  <
+    I@19/1
+    $type
+  >
+  |
+  !AO
+  I@30/1
+  $type
+}
+{
+  !O I@8/1
+  OutGenBase
+  <
+    I@20/1
+    $type
+  >
+  :
+  I@31/1
+  $type
+}
+{
+  !O I@8/1
+  OutGenField
+  <
+    I@21/1
+    $type
+  >
+  {
+    !OF I@29/1
+    field
+    :
+    I@37/1
+    $type
+  }
+}
+{
+  !O I@8/1
+  OutGenAltArg
+  <
+    I@22/1
+    $type
+  >
+  |
+  !AO
+  I@32/1
+  OutGenAltRef
+  <
+    I@46/1
+    $type
+  >
+}
+{
+  !O I@61/1
+  OutGenAltRef
+  <
+    I@75/1
+    $ref
+  >
+  |
+  !AO
+  I@85/1
+  $ref
+}
+{
+  !O I@8/1
+  OutGenBaseArg
+  <
+    I@23/1
+    $type
+  >
+  :
+  I@33/1
+  OutGenBaseRef
+  <
+    I@48/1
+    $type
+  >
+}
+{
+  !O I@63/1
+  OutGenBaseRef
+  <
+    I@78/1
+    $ref
+  >
+  |
+  !AO
+  I@88/1
+  $ref
+}
+{
+  !O I@8/1
+  OutGenFieldArg
+  <
+    I@24/1
+    $type
+  >
+  {
+    !OF I@32/1
+    field
+    :
+    I@39/1
+    OutGenFieldRef
+    <
+      I@55/1
+      $type
+    >
+  }
+}
+{
+  !O I@70/1
+  OutGenFieldRef
+  <
+    I@86/1
+    $ref
+  >
+  |
+  !AO
+  I@96/1
+  $ref
+}
+{
+  !O I@8/1
+  OutGenParam
+  {
+    !OF I@22/1
+    field
+    :
+    I@29/1
+    OutGenParamRef
+    <
+      I@44/1
+      OutGenParamAlt
+    >
+  }
+}
+{
+  !O I@69/1
+  OutGenParamRef
+  <
+    I@85/1
+    $ref
+  >
+  |
+  !AO
+  I@95/1
+  $ref
+}
+{
+  !O I@108/1
+  OutGenParamAlt
 }
 {
   !O I@8/1
@@ -579,10 +648,6 @@ Success
   }
 }
 {
-  !I I@46/1
-  Param
-}
-{
   !O I@8/1
   ParamsScalar
   {
@@ -600,59 +665,12 @@ Success
   }
 }
 {
-  !I I@77/1
-  ParamScalar
-}
-{
-  !S I@100/1
-  ScalarParam
-  Number
-  !SR N@121/1
-  1
-  :
-  10
-}
-{
   !O I@30/1
   Category
 }
 {
   !O I@66/1
   CatAlias
-}
-{
-  !I I@89/1
-  DirParamsIn
-}
-{
-  !E I@6/1
-  EnAlias
-  [
-    En1
-  ]
-  !EV I@22/1
-  alias
-}
-{
-  !E I@6/1
-  EnDiff
-  !EV I@15/1
-  one
-}
-{
-  !E I@6/1
-  EnSame
-  !EV I@15/1
-  same
-}
-{
-  !E I@6/1
-  EnValAlias
-  !EV I@19/1
-  value
-  [
-    val1
-  ]
 }
 {
   !O I@8/1
@@ -669,10 +687,6 @@ Success
     I@41/1
     FieldParams
   }
-}
-{
-  !I I@103/1
-  FieldParam
 }
 {
   !O I@8/1
@@ -695,10 +709,24 @@ Success
   }
 }
 {
+  !O I@25/1
+  Cat
+}
+{
+  !S I@100/1
+  ScalarParam
+  Number
+  !SR N@121/1
+  1
+  :
+  10
+}
+{
   !S I@8/1
   NumAlias
   [
     Num1
+    Num2
   ]
   Number
 }
@@ -757,27 +785,6 @@ Success
   Union
   !ST P@23/1
   Boolean
-}
-{
-  !O I@25/1
-  Cat
-}
-{
-  !I I@47/1
-  DirParamIn
-}
-{
-  !E I@6/1
-  EnExt
-  :EnExtBase
-  !EV I@25/1
-  valExt
-}
-{
-  !E I@39/1
-  EnExtBase
-  !EV I@51/1
-  valBase
 }
 
 ]

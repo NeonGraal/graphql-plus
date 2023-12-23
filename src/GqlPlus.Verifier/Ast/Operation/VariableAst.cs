@@ -6,7 +6,7 @@ public sealed record class VariableAst(TokenAt At, string Name)
   : AstDirectives(At, Name), IEquatable<VariableAst>
 {
   public string? Type { get; set; }
-  public ModifierAst[] Modifers { get; set; } = Array.Empty<ModifierAst>();
+  public ModifierAst[] Modifers { get; set; } = [];
   public ConstantAst? Default { get; set; }
 
   internal override string Abbr => "v";

@@ -8,9 +8,4 @@ Success
   !SX R@25/1
   /a+/
 }
-{
-  !S I@39/1
-  StrDiff
-  String
-}
 ]

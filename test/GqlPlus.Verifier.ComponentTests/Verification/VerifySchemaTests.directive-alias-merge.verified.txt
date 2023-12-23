@@ -1,0 +1,14 @@
+﻿[  
+!G I@1/1
+Success
+{
+  !D I@12/1
+  DirAlias
+  [
+    Dir1
+    Dir2
+  ]
+  (Unique)
+  Variable, Field
+}
+]

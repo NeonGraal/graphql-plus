@@ -1,0 +1,18 @@
+﻿[  
+!G I@1/1
+Success
+{
+  !C P@10/1
+  catAlias
+  [
+    Cat1
+    Cat2
+  ]
+  (Parallel)
+  CatAlias
+}
+{
+  !O I@66/1
+  CatAlias
+}
+]

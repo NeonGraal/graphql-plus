@@ -10,13 +10,4 @@ Success
   :
   9
 }
-{
-  !S I@38/1
-  NumSame
-  Number
-  !SR N@55/1
-  1
-  :
-  9
-}
 ]

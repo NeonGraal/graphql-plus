@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -73,6 +74,23 @@ public static class MergeExtensions
       .Select(item => item.Description)
       .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr))
       ?? "";
+
+  public static string[] MergeAliases<TItem>(this TItem[] items)
+    where TItem : AstAliased
+    => items.SelectMany(item => item.Aliases).Distinct().ToArray();
+
+  public static TItem[] GroupMerger<TItem>(this IEnumerable<TItem> items, Func<TItem, string> key, Func<TItem[], TItem> merger)
+  {
+    List<Indexed<TItem>> result = [];
+    var groups = items.Select(Indexed<TItem>.To).GroupBy(i => key(i.Item));
+
+    foreach (var group in groups) {
+      var item = merger([.. group.Select(i => i.Item)]);
+      result.Add(new(item, group.Min(i => i.Index)));
+    }
+
+    return [.. result.OrderBy(i => i.Index).Select(i => i.Item)];
+  }
 
   public static TGroup[] ManyMerge<TItem, TGroup>(this TItem[] items, Func<TItem, IEnumerable<TGroup>> many, IMerge<TGroup> merger)
   {

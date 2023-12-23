@@ -11,14 +11,4 @@ Success
     Boolean.true
   }
 }
-{
-  !O I@51/1
-  FieldEnums
-  {
-    !OF I@64/1
-    field
-    =
-    .true
-  }
-}
 ]

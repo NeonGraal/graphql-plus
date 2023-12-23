@@ -12,15 +12,4 @@ Success
     InFields
   }
 }
-{
-  !I I@42/1
-  InFields
-  {
-    !IF I@53/1
-    field
-    :
-    I@60/1
-    InFields
-  }
-}
 ]

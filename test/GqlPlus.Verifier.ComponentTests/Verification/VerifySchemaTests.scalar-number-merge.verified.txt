@@ -6,9 +6,4 @@ Success
   Num
   Number
 }
-{
-  !S I@30/1
-  Num
-  Number
-}
 ]

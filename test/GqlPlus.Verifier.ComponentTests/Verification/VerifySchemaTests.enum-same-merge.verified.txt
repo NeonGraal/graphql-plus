@@ -7,10 +7,4 @@ Success
   !EV I@15/1
   same
 }
-{
-  !E I@27/1
-  EnSame
-  !EV I@36/1
-  same
-}
 ]

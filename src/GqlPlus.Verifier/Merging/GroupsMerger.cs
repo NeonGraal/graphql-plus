@@ -18,23 +18,15 @@ public abstract class GroupsMerger<TItem>
       return [];
     }
 
-    List<Indexed<TItem>> result = [];
-    var groups = items.Select(ToIndex).GroupBy(i => ItemGroupKey(i.Item));
-
-    foreach (var group in groups) {
-      var item = MergeGroup([.. group.Select(i => i.Item)]);
-      result.Add(new(item, group.Min(i => i.Index)));
-    }
-
-    return [.. result.OrderBy(i => i.Index).Select(i => i.Item)];
+    return items.GroupMerger(ItemGroupKey, MergeGroup);
   }
-
-  internal Indexed<TItem> ToIndex(TItem item, int n)
-    => new(item, n);
 }
 
 internal record struct Indexed<TItem>(TItem Item, int Index)
 {
+  public static Indexed<TItem> To(TItem item, int n)
+    => new(item, n);
+
   internal readonly Indexed<TResult> Select<TResult>(Func<TItem, TResult> selector)
     where TResult : IComparable<TResult>
     => new(selector(Item), Index);

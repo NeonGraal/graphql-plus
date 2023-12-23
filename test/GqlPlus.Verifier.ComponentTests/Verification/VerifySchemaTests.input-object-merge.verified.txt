@@ -5,8 +5,4 @@ Success
   !I I@7/1
   In
 }
-{
-  !I I@20/1
-  In
-}
 ]

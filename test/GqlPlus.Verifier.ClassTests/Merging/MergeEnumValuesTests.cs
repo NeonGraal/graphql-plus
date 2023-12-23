@@ -4,12 +4,12 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeEnumValuesTests
-  : TestDescriptions<EnumValueAst>
+  : TestAliased<EnumValueAst>
 {
   private readonly MergeEnumValues _merger = new();
 
   protected override GroupsMerger<EnumValueAst> MergerGroups => _merger;
 
-  protected override EnumValueAst MakeDescribed(string name, string description = "")
-    => new(AstNulls.At, name, description);
+  protected override EnumValueAst MakeAliased(string name, string[] aliases, string description = "")
+    => new(AstNulls.At, name, description) { Aliases = aliases };
 }

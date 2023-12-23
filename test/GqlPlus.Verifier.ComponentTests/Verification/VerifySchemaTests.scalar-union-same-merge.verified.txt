@@ -8,11 +8,4 @@ Success
   !ST P@23/1
   Boolean
 }
-{
-  !S I@42/1
-  UnSame
-  Union
-  !ST P@57/1
-  Boolean
-}
 ]

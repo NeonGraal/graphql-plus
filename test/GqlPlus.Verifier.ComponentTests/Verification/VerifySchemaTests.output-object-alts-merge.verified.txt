@@ -10,14 +10,6 @@ Success
   OutAltsType
 }
 {
-  !O I@41/1
-  OutAlts
-  |
-  !AO
-  I@53/1
-  OutAltsType
-}
-{
   !O I@74/1
   OutAltsType
 }

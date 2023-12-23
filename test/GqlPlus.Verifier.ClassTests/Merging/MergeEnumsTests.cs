@@ -5,7 +5,7 @@ using NSubstitute;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeEnumsTests
-  : TestDescriptions<EnumDeclAst>
+  : TestAliased<EnumDeclAst>
 {
   private readonly IMerge<EnumValueAst> _enumValues;
   private readonly MergeEnums _merger;
@@ -38,6 +38,19 @@ public class MergeEnumsTests
       values.Length < 2);
   }
 
-  protected override EnumDeclAst MakeDescribed(string name, string description = "")
-    => new(AstNulls.At, name, description);
+  [Theory, RepeatData(Repeats)]
+  public void Merge_TwoItemsValues_ReturnsExpected(string name, string[] values1, string[] values2)
+  {
+    var combined = values1.EnumValues().Concat(values2.EnumValues()).ToArray();
+
+    _enumValues.Merge([]).ReturnsForAnyArgs(combined);
+
+    Merge_Expected([
+      new EnumDeclAst(AstNulls.At, name) with { Values = values1.EnumValues() },
+      new EnumDeclAst(AstNulls.At, name) with { Values = values2.EnumValues() }],
+      new EnumDeclAst(AstNulls.At, name) with { Values = combined });
+  }
+
+  protected override EnumDeclAst MakeAliased(string name, string[] aliases, string description = "")
+    => new(AstNulls.At, name, description) { Aliases = aliases };
 }

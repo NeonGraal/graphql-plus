@@ -5,12 +5,6 @@ Success
   !D I@12/1
   Dir
   (Unique)
-  All
-}
-{
-  !D I@35/1
-  Dir
-  (Unique)
-  All
+  Inline, Spread
 }
 ]

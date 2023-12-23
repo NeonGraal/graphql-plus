@@ -2,6 +2,64 @@
 !G I@1/1
 Success
 {
+  !C P@10/1
+  category
+  (Parallel)
+  Category
+}
+{
+  !C P@10/1
+  catAlias
+  [
+    Cat1
+  ]
+  (Parallel)
+  CatAlias
+}
+{
+  !C P@10/1
+  cat
+  (Parallel)
+  Cat
+}
+{
+  !D I@12/1
+  Dir
+  (Unique)
+  Inline, Spread
+}
+{
+  !D I@12/1
+  DirAlias
+  [
+    Dir1
+  ]
+  (Unique)
+  Variable, Field
+}
+{
+  !D I@12/1
+  DirParams
+  (
+    !P
+    I@22/1
+    DirParamsIn
+  )
+  (Unique)
+  Operation, Fragment
+}
+{
+  !D I@12/1
+  DirParam
+  (
+    !P
+    I@21/1
+    DirParamIn
+  )
+  (Unique)
+  All
+}
+{
   !I I@7/1
   InAltMods
   |
@@ -13,6 +71,713 @@ Success
 {
   !I I@42/1
   InModsAlt
+}
+{
+  !O I@8/1
+  OutAltMods
+  |
+  !AO
+  I@23/1
+  OutModsAlt
+  [~]
+}
+{
+  !O I@46/1
+  OutModsAlt
+}
+{
+  !I I@7/1
+  InTestBase
+  :
+  I@22/1
+  InBaseTest
+}
+{
+  !I I@41/1
+  InBaseTest
+}
+{
+  !O I@8/1
+  OutTestBase
+  :
+  I@24/1
+  OutBaseTest
+}
+{
+  !O I@45/1
+  OutBaseTest
+}
+{
+  !I I@7/1
+  InFieldMods
+  {
+    !IF I@21/1
+    field
+    :
+    I@28/1
+    InFieldMods
+    [InFieldEnum]
+  }
+}
+{
+  !E I@60/1
+  InFieldEnum
+  !EV I@74/1
+  value
+}
+{
+  !O I@8/1
+  OutFieldMods
+  {
+    !OF I@23/1
+    field
+    :
+    I@30/1
+    OutFieldMods
+    [OutFieldEnum]
+  }
+}
+{
+  !E I@64/1
+  OutFieldEnum
+  !EV I@79/1
+  value
+}
+{
+  !I I@7/1
+  InGenAlt
+  <
+    I@17/1
+    $type
+  >
+  |
+  !AI
+  I@28/1
+  $type
+}
+{
+  !O I@8/1
+  OutGenAlt
+  <
+    I@19/1
+    $type
+  >
+  |
+  !AO
+  I@30/1
+  $type
+}
+{
+  !I I@7/1
+  InGenBase
+  <
+    I@18/1
+    $type
+  >
+  :
+  I@29/1
+  $type
+}
+{
+  !O I@8/1
+  OutGenBase
+  <
+    I@20/1
+    $type
+  >
+  :
+  I@31/1
+  $type
+}
+{
+  !I I@7/1
+  InGenField
+  <
+    I@19/1
+    $type
+  >
+  {
+    !IF I@27/1
+    field
+    :
+    I@35/1
+    $type
+  }
+}
+{
+  !O I@8/1
+  OutGenField
+  <
+    I@21/1
+    $type
+  >
+  {
+    !OF I@29/1
+    field
+    :
+    I@37/1
+    $type
+  }
+}
+{
+  !I I@7/1
+  InGenAltArg
+  <
+    I@20/1
+    $type
+  >
+  |
+  !AI
+  I@30/1
+  InGenAltRef
+  <
+    I@43/1
+    $type
+  >
+}
+{
+  !I I@57/1
+  InGenAltRef
+  <
+    I@70/1
+    $ref
+  >
+  |
+  !AI
+  I@80/1
+  $ref
+}
+{
+  !O I@8/1
+  OutGenAltArg
+  <
+    I@22/1
+    $type
+  >
+  |
+  !AO
+  I@32/1
+  OutGenAltRef
+  <
+    I@46/1
+    $type
+  >
+}
+{
+  !O I@61/1
+  OutGenAltRef
+  <
+    I@75/1
+    $ref
+  >
+  |
+  !AO
+  I@85/1
+  $ref
+}
+{
+  !I I@7/1
+  InGenBaseArg
+  <
+    I@21/1
+    $type
+  >
+  :
+  I@31/1
+  InGenBaseRef
+  <
+    I@45/1
+    $type
+  >
+}
+{
+  !I I@59/1
+  InGenBaseRef
+  <
+    I@73/1
+    $ref
+  >
+  |
+  !AI
+  I@83/1
+  $ref
+}
+{
+  !O I@8/1
+  OutGenBaseArg
+  <
+    I@23/1
+    $type
+  >
+  :
+  I@33/1
+  OutGenBaseRef
+  <
+    I@48/1
+    $type
+  >
+}
+{
+  !O I@63/1
+  OutGenBaseRef
+  <
+    I@78/1
+    $ref
+  >
+  |
+  !AO
+  I@88/1
+  $ref
+}
+{
+  !I I@7/1
+  InGenFieldArg
+  <
+    I@22/1
+    $type
+  >
+  {
+    !IF I@30/1
+    field
+    :
+    I@37/1
+    InGenFieldRef
+    <
+      I@52/1
+      $type
+    >
+  }
+}
+{
+  !I I@66/1
+  InGenFieldRef
+  <
+    I@81/1
+    $ref
+  >
+  |
+  !AI
+  I@91/1
+  $ref
+}
+{
+  !O I@8/1
+  OutGenFieldArg
+  <
+    I@24/1
+    $type
+  >
+  {
+    !OF I@32/1
+    field
+    :
+    I@39/1
+    OutGenFieldRef
+    <
+      I@55/1
+      $type
+    >
+  }
+}
+{
+  !O I@70/1
+  OutGenFieldRef
+  <
+    I@86/1
+    $ref
+  >
+  |
+  !AO
+  I@96/1
+  $ref
+}
+{
+  !I I@7/1
+  InGenParam
+  {
+    !IF I@20/1
+    field
+    :
+    I@27/1
+    InGenParamRef
+    <
+      I@41/1
+      InGenParamAlt
+    >
+  }
+}
+{
+  !I I@64/1
+  InGenParamRef
+  <
+    I@79/1
+    $ref
+  >
+  |
+  !AI
+  I@89/1
+  $ref
+}
+{
+  !I I@101/1
+  InGenParamAlt
+}
+{
+  !O I@8/1
+  OutGenParam
+  {
+    !OF I@22/1
+    field
+    :
+    I@29/1
+    OutGenParamRef
+    <
+      I@44/1
+      OutGenParamAlt
+    >
+  }
+}
+{
+  !O I@69/1
+  OutGenParamRef
+  <
+    I@85/1
+    $ref
+  >
+  |
+  !AO
+  I@95/1
+  $ref
+}
+{
+  !O I@108/1
+  OutGenParamAlt
+}
+{
+  !I I@7/1
+  FieldNum
+  {
+    !IF I@18/1
+    field
+    :
+    I@25/1
+    Number
+    =( !k N@34/1 0 )
+  }
+}
+{
+  !I I@7/1
+  FieldStr
+  {
+    !IF I@18/1
+    field
+    :
+    I@25/1
+    String
+    =( !k S@34/1 '' )
+  }
+}
+{
+  !I I@7/1
+  FieldEnum
+  {
+    !IF I@19/1
+    field
+    :
+    I@26/1
+    EnumField
+    =( !k I@38/1 value )
+  }
+}
+{
+  !E I@51/1
+  EnumField
+  !EV I@63/1
+  value
+}
+{
+  !I I@7/1
+  FieldNull
+  {
+    !IF I@19/1
+    field
+    :
+    I@26/1
+    FieldNull
+    ?
+    =( !k I@39/1 Null.null )
+  }
+}
+{
+  !O I@8/1
+  GenEnum
+  |
+  !AO
+  I@20/1
+  GenEnumRef
+  <
+    I@31/1
+    Boolean.false
+  >
+}
+{
+  !O I@55/1
+  GenEnumRef
+  <
+    I@67/1
+    $type
+  >
+  {
+    !OF I@75/1
+    field
+    :
+    I@83/1
+    $type
+  }
+}
+{
+  !O I@8/1
+  GenValue
+  |
+  !AO
+  I@21/1
+  GenValueRef
+  <
+    I@33/1
+    false
+  >
+}
+{
+  !O I@49/1
+  GenValueRef
+  <
+    I@62/1
+    $type
+  >
+  {
+    !OF I@70/1
+    field
+    :
+    I@78/1
+    $type
+  }
+}
+{
+  !O I@8/1
+  Params
+  {
+    !OF I@17/1
+    field
+    (
+      !P
+      I@23/1
+      Param
+    )
+    :
+    I@31/1
+    Params
+  }
+}
+{
+  !I I@46/1
+  Param
+}
+{
+  !O I@8/1
+  ParamsScalar
+  {
+    !OF I@23/1
+    field
+    (
+      !P
+      I@29/1
+      ParamScalar
+      [ScalarParam]
+    )
+    :
+    I@56/1
+    ParamsScalar
+  }
+}
+{
+  !I I@77/1
+  ParamScalar
+}
+{
+  !S I@100/1
+  ScalarParam
+  Number
+  !SR N@121/1
+  1
+  :
+  10
+}
+{
+  !O I@30/1
+  Category
+}
+{
+  !O I@66/1
+  CatAlias
+}
+{
+  !I I@89/1
+  DirParamsIn
+}
+{
+  !E I@6/1
+  EnAlias
+  [
+    En1
+  ]
+  !EV I@22/1
+  alias
+}
+{
+  !E I@6/1
+  EnDiff
+  !EV I@15/1
+  one
+}
+{
+  !E I@6/1
+  EnSame
+  !EV I@15/1
+  same
+}
+{
+  !E I@6/1
+  EnValAlias
+  !EV I@19/1
+  value
+  [
+    val1
+  ]
+}
+{
+  !O I@8/1
+  FieldParams
+  {
+    !OF I@22/1
+    field
+    (
+      !P
+      I@28/1
+      FieldParam
+    )
+    :
+    I@41/1
+    FieldParams
+  }
+}
+{
+  !I I@103/1
+  FieldParam
+}
+{
+  !O I@8/1
+  FieldEnums
+  {
+    !OF I@21/1
+    field
+    =
+    Boolean.true
+  }
+}
+{
+  !O I@8/1
+  FieldEnumAlias
+  {
+    !OF I@25/1
+    field
+    =
+    Boolean.true
+  }
+}
+{
+  !S I@8/1
+  NumAlias
+  [
+    Num1
+  ]
+  Number
+}
+{
+  !S I@8/1
+  Num
+  Number
+}
+{
+  !S I@8/1
+  NumSame
+  Number
+  !SR N@25/1
+  1
+  :
+  9
+}
+{
+  !S I@8/1
+  NumDiff
+  Number
+  !SR N@25/1
+  1
+  :
+  9
+}
+{
+  !S I@8/1
+  Str
+  String
+}
+{
+  !S I@8/1
+  StrSame
+  String
+  !SX R@25/1
+  /a+/
+}
+{
+  !S I@8/1
+  StrDiff
+  String
+  !SX R@25/1
+  /a+/
+}
+{
+  !S I@8/1
+  UnSame
+  Union
+  !ST P@23/1
+  Boolean
+}
+{
+  !S I@8/1
+  UnDiff
+  Union
+  !ST P@23/1
+  Boolean
+}
+{
+  !O I@25/1
+  Cat
+}
+{
+  !I I@47/1
+  DirParamIn
+}
+{
+  !E I@6/1
+  EnExt
+  :EnExtBase
+  !EV I@25/1
+  valExt
+}
+{
+  !E I@39/1
+  EnExtBase
+  !EV I@51/1
+  valBase
 }
 
 ]

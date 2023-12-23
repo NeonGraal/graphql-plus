@@ -26,6 +26,6 @@ public class ObjectsMerger<TObject, TField, TReference>(
     return baseCanMerge && descriptionsCanMerge && typeParametersCanMerge && fieldsCanMerge && alternatesCanMerge;
   }
 
-  protected override TObject MergeGroup(TObject[] items)
-    => items.First() with { Description = items.MergeDescriptions() };
+  protected override TObject MergeGroup(TObject[] group)
+    => group.First() with { Description = group.MergeDescriptions() };
 }

@@ -10,14 +10,6 @@ Success
   InAltsType
 }
 {
-  !I I@37/1
-  InAlts
-  |
-  !AI
-  I@48/1
-  InAltsType
-}
-{
   !I I@67/1
   InAltsType
 }

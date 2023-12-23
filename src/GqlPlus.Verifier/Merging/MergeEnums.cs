@@ -15,5 +15,9 @@ internal class MergeEnums(
       && items.ManyCanMerge(e => e.Values, enumValues);
 
   protected override EnumDeclAst MergeGroup(EnumDeclAst[] items)
-    => items.First() with { Description = items.MergeDescriptions() };
+    => items.First() with {
+      Description = items.MergeDescriptions(),
+      Aliases = items.MergeAliases(),
+      Values = items.ManyMerge(item => item.Values, enumValues),
+    };
 }

@@ -14,6 +14,6 @@ public class FieldsMerger<TField, TReference>
     => base.CanMerge(items)
       && items.CanMerge(item => item.Type.Description);
 
-  protected override TField MergeGroup(TField[] items)
-    => items.First() with { Description = items.MergeDescriptions() };
+  protected override TField MergeGroup(TField[] group)
+    => group.First() with { Description = group.MergeDescriptions() };
 }

@@ -4,7 +4,7 @@ public abstract class GroupsMerger<TItem>
   : BaseMerger<TItem>
 {
   protected abstract string ItemGroupKey(TItem item);
-  protected abstract TItem MergeGroup(TItem[] items);
+  protected abstract TItem MergeGroup(TItem[] group);
 
   protected virtual bool CanMergeGroup(IGrouping<string, TItem> group)
       => group.Distinct().Count() == 1;
@@ -14,7 +14,9 @@ public abstract class GroupsMerger<TItem>
 
   public override TItem[] Merge(TItem[] items)
   {
-    base.Merge(items);
+    if (items is null) {
+      return [];
+    }
 
     List<Indexed<TItem>> result = [];
     var groups = items.Select(ToIndex).GroupBy(i => ItemGroupKey(i.Item));

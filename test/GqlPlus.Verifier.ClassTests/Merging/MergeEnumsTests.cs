@@ -12,8 +12,7 @@ public class MergeEnumsTests
 
   public MergeEnumsTests()
   {
-    _enumValues = Substitute.For<IMerge<EnumValueAst>>();
-    _enumValues.CanMerge([]).ReturnsForAnyArgs(true);
+    _enumValues = Merger<EnumValueAst>();
 
     _merger = new(_enumValues);
   }

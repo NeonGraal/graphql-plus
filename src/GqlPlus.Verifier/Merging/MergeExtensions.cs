@@ -74,4 +74,9 @@ public static class MergeExtensions
       .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr))
       ?? "";
 
+  public static TGroup[] ManyMerge<TItem, TGroup>(this TItem[] items, Func<TItem, IEnumerable<TGroup>> many, IMerge<TGroup> merger)
+  {
+    TGroup[] items1 = [.. items.SelectMany(many)];
+    return merger.Merge(items1);
+  }
 }

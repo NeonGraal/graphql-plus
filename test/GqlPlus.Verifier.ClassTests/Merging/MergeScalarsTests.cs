@@ -13,10 +13,8 @@ public class MergeScalarsTests
 
   public MergeScalarsTests()
   {
-    _ranges = Substitute.For<IMerge<ScalarRangeAst>>();
-    _ranges.CanMerge([]).ReturnsForAnyArgs(true);
-    _regexes = Substitute.For<IMerge<ScalarRegexAst>>();
-    _regexes.CanMerge([]).ReturnsForAnyArgs(true);
+    _ranges = Merger<ScalarRangeAst>();
+    _regexes = Merger<ScalarRegexAst>();
 
     _merger = new(_ranges, _regexes);
   }

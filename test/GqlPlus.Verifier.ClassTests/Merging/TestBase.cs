@@ -18,11 +18,19 @@ public abstract class TestBase<TItem>
     => CanMerge_True([MakeDistinct(name)]);
 
   [Fact]
-  public void Merge_NoItems_ThrowsException()
+  public void Merge_NullItems_ReturnsEmpty()
   {
-    Func<TItem[]> action = () => MergerBase.Merge([]);
+    var result = MergerBase.Merge(null!);
 
-    action.Should().Throw<InvalidOperationException>();
+    result.Should().BeEmpty();
+  }
+
+  [Fact]
+  public void Merge_NoItems_ReturnsEmpty()
+  {
+    var result = MergerBase.Merge([]);
+
+    result.Should().BeEmpty();
   }
 
   [Theory, RepeatData(Repeats)]

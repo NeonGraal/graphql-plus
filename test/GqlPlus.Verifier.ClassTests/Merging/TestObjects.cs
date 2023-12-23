@@ -60,14 +60,9 @@ public abstract class TestObjects<TObject, TField, TReference>
 
   protected TestObjects()
   {
-    TypeParameters = Substitute.For<IMerge<TypeParameterAst>>();
-    TypeParameters.CanMerge([]).ReturnsForAnyArgs(true);
-
-    Alternates = Substitute.For<IMerge<AlternateAst<TReference>>>();
-    Alternates.CanMerge([]).ReturnsForAnyArgs(true);
-
-    Fields = Substitute.For<IMerge<TField>>();
-    Fields.CanMerge([]).ReturnsForAnyArgs(true);
+    TypeParameters = Merger<TypeParameterAst>();
+    Alternates = Merger<AlternateAst<TReference>>();
+    Fields = Merger<TField>();
   }
 
   protected abstract ObjectsMerger<TObject, TField, TReference> MergerObject { get; }

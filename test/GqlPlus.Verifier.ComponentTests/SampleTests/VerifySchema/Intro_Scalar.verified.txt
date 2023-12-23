@@ -1,0 +1,5 @@
+﻿[
+  !!! I@7/10 : Invalid Output. '_BaseType' not defined. - '_BaseType' !!!,
+  !!! I@17/10 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@21/38 : Invalid Output. '_TypeSimple' not defined. - '_TypeSimple' !!!
+]

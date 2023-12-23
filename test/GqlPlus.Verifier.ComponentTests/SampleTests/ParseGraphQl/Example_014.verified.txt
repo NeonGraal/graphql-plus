@@ -1,0 +1,37 @@
+﻿!g P@1/1
+query
+Success
+{
+  !f I@3/2
+  user
+  (
+    !a I@8/2
+    {
+      ( !k I@8/2 id ):( !k N@12/2 4 )
+    }
+  )
+  {
+    !f I@5/3
+    id
+    !f I@5/4
+    name
+    !f I@15/5
+    smallPic:
+    profilePic
+    (
+      !a I@26/5
+      {
+        ( !k I@26/5 size ):( !k N@32/5 64 )
+      }
+    )
+    !f I@13/6
+    bigPic:
+    profilePic
+    (
+      !a I@24/6
+      {
+        ( !k I@24/6 size ):( !k N@30/6 1024 )
+      }
+    )
+  }
+}

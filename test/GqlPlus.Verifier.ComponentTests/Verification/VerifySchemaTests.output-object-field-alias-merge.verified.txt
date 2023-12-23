@@ -1,0 +1,19 @@
+﻿[  
+!G I@1/1
+Success
+{
+  !O I@8/1
+  FieldAlias
+  {
+    !OF I@21/1
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@37/1
+    FieldAlias
+  }
+}
+]

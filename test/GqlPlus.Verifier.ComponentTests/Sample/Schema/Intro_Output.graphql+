@@ -1,0 +1,23 @@
+output _OutputBase {
+        output: String
+        arguments: _OutputArgument[]
+    | "TypeParameter" String
+    }
+
+output _OutputField {
+    : _Field<_OutputBase>
+        parameter: _Parameter[]
+    | _OutputEnum
+    }
+
+output _OutputArgument {
+    : _BaseType<_TypeKind.Enum>
+        value: String
+    | _Ref<_OutputBase>
+    }
+
+output _OutputEnum {
+    : _BaseType<_TypeKind.Enum>
+        field: String
+        value: String
+    }

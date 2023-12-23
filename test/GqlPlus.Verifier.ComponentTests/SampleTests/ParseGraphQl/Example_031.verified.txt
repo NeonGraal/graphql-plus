@@ -1,0 +1,13 @@
+﻿!g P@1/1
+query
+Success
+{
+  !f I@3/2
+  nearestThing
+  (
+    !a I@16/2
+    {
+      ( !k I@16/2 location ):( !a P@26/2 { ( !k I@28/2 lat ):( !k N@33/2 -53.211 ) ( !k I@42/2 lon ):( !k N@47/2 12.43 ) } )
+    }
+  )
+}

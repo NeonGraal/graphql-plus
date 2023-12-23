@@ -1,0 +1,9 @@
+output _Directive {
+    : _Aliased
+        parameters: _Parameter[]
+        repeatable: Boolean
+        locations: _[_Location]
+    }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
+

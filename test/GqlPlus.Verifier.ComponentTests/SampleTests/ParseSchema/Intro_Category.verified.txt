@@ -1,0 +1,32 @@
+﻿!G I@1/1
+Success
+{
+  !O I@8/1
+  _Category
+  :
+  I@7/2
+  _Aliased
+  {
+    !OF I@9/3
+    resolution
+    :
+    I@21/3
+    _Resolution
+    !OF I@9/4
+    type
+    :
+    I@15/4
+    _Type
+    [String]
+  }
+}
+{
+  !E I@6/7
+  _Resolution
+  !EV I@20/7
+  Parallel
+  !EV I@29/7
+  Sequential
+  !EV I@40/7
+  Single
+}

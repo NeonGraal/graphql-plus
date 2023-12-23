@@ -1,0 +1,51 @@
+name: Dotnet Build and Test
+
+on: [push]
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: ["6.0.x", "7.0.x", "8.0.x"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install tools
+        run: |
+          dotnet tool update dotnet-coverage
+          dotnet tool update dotnet-reportgenerator-globaltool
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build
+      - name: Test with Coverage
+        run: >
+          dotnet coverage collect -o ${{ github.workspace }}/Tests/Coverage.xml -f cobertura
+          dotnet test --no-build --logger "trx;LogFileName=TestResults-${{ matrix.dotnet-version }}.trx"
+          || true
+      - name: Generate Coverage Report
+        run: >
+          dotnet reportgenerator
+          -reports:${{ github.workspace }}/Tests/Coverage.xml
+          -targetdir:"${{ github.workspace }}/Tests/"
+          -reporttypes:MarkdownSummaryGithub
+      - name: Coverage Report
+        run: cat Tests/SummaryGithub.md > $GITHUB_STEP_SUMMARY
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: DotNET Tests (${{ matrix.dotnet-version }})
+          path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
+          reporter: dotnet-trx
+          fail-on-error: true

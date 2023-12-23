@@ -1,0 +1,63 @@
+﻿!g I@1/1
+query
+Success
+{
+  !f I@3/2
+  user
+  (
+    !a I@8/2
+    {
+      ( !k I@8/2 id ):( !k N@12/2 4 )
+    }
+  )
+  {
+    !f I@5/3
+    friends
+    (
+      !a I@13/3
+      {
+        ( !k I@13/3 first ):( !k N@20/3 10 )
+      }
+    )
+    {
+      !s I@10/4
+      friendFields
+    }
+    !f I@5/6
+    mutualFriends
+    (
+      !a I@19/6
+      {
+        ( !k I@19/6 first ):( !k N@26/6 10 )
+      }
+    )
+    {
+      !s I@10/7
+      friendFields
+    }
+  }
+}
+!t I@10/12
+friendFields
+:User
+{
+  !f I@3/13
+  id
+  !f I@3/14
+  name
+  !s I@6/15
+  standardProfilePic
+}
+!t I@10/18
+standardProfilePic
+:User
+{
+  !f I@3/19
+  profilePic
+  (
+    !a I@14/19
+    {
+      ( !k I@14/19 size ):( !k N@20/19 50 )
+    }
+  )
+}

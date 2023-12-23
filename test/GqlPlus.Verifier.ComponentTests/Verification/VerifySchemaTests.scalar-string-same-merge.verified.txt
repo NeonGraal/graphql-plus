@@ -1,0 +1,11 @@
+﻿[  
+!G I@1/1
+Success
+{
+  !S I@8/1
+  StrSame
+  String
+  !SX R@25/1
+  /a+/
+}
+]

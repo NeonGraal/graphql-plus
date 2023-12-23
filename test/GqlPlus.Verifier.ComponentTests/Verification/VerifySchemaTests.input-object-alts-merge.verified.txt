@@ -1,0 +1,16 @@
+﻿[  
+!G I@1/1
+Success
+{
+  !I I@7/1
+  InAlts
+  |
+  !AI
+  I@18/1
+  InAltsType
+}
+{
+  !I I@67/1
+  InAltsType
+}
+]

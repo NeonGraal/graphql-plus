@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B834B2ED-0D27-4281-8523-B706B42DCC15}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier", "src\GqlPlus.Verifier\GqlPlus.Verifier.csproj", "{DDB8D682-23EA-48C4-A1AD-65F114533202}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3B90AC37-1A6B-41AF-8490-E9D48E429ACD}"
+	ProjectSection(SolutionItems) = preProject
+		test\Directory.Build.props = test\Directory.Build.props
+		test\Directory.Build.targets = test\Directory.Build.targets
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier.ClassTests", "test\GqlPlus.Verifier.ClassTests\GqlPlus.Verifier.ClassTests.csproj", "{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E1645F9-6194-4B1F-B93D-5B2CDDE5E6DE}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		.prettierrc.yml = .prettierrc.yml
+		collect-all.ps1 = collect-all.ps1
+		coverage.ps1 = coverage.ps1
+		coverage.runsettings = coverage.runsettings
+		Directory.Build.props = Directory.Build.props
+		.github\workflows\dotnet-test.yml = .github\workflows\dotnet-test.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphql-plus", "graphql-plus", "{74C0DC37-FD8F-419A-A5CE-A0F27946F3B0}"
+	ProjectSection(SolutionItems) = preProject
+		graphql-plus\Definition.md = graphql-plus\Definition.md
+		graphql-plus\Introspection.md = graphql-plus\Introspection.md
+		graphql-plus\Operation.md = graphql-plus\Operation.md
+		graphql-plus\Schema.md = graphql-plus\Schema.md
+		graphql-plus\toc.yml = graphql-plus\toc.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier.ComponentTests", "test\GqlPlus.Verifier.ComponentTests\GqlPlus.Verifier.ComponentTests.csproj", "{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier.TestBase", "test\GqlPlus.Verifier.TestBase\GqlPlus.Verifier.TestBase.csproj", "{B73CDEC7-3F67-444E-8A06-16C20DF56DFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDB8D682-23EA-48C4-A1AD-65F114533202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDB8D682-23EA-48C4-A1AD-65F114533202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDB8D682-23EA-48C4-A1AD-65F114533202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDB8D682-23EA-48C4-A1AD-65F114533202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B73CDEC7-3F67-444E-8A06-16C20DF56DFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B73CDEC7-3F67-444E-8A06-16C20DF56DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B73CDEC7-3F67-444E-8A06-16C20DF56DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B73CDEC7-3F67-444E-8A06-16C20DF56DFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DDB8D682-23EA-48C4-A1AD-65F114533202} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
+		{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{B73CDEC7-3F67-444E-8A06-16C20DF56DFB} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}
+	EndGlobalSection
+EndGlobal

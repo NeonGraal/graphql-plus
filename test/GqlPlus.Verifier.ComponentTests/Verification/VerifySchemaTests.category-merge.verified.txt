@@ -1,0 +1,14 @@
+﻿[  
+!G I@1/1
+Success
+{
+  !C P@10/1
+  category
+  (Parallel)
+  Category
+}
+{
+  !O I@30/1
+  Category
+}
+]

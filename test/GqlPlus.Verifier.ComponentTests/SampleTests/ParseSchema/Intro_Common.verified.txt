@@ -1,0 +1,118 @@
+﻿!G I@1/1
+Success
+{
+  !O I@8/1
+  _Constant
+  {
+    !OF I@9/2
+    enum
+    :
+    I@15/2
+    _BaseType
+    <
+      I@25/2
+      _TypeKind.Enum
+    >
+    !OF I@9/3
+    value
+    :
+    I@16/3
+    String
+  }
+  |
+  !AO
+  I@7/4
+  Internal
+  !AO
+  I@7/5
+  Simple
+  !AO
+  I@7/6
+  _ConstantList
+  !AO
+  I@7/7
+  _ConstantMap
+}
+{
+  !O I@8/10
+  _ConstantList
+  |
+  !AO
+  I@7/11
+  _Constant
+  []
+}
+{
+  !O I@8/14
+  _ConstantMap
+  |
+  !AO
+  I@7/15
+  _Constant
+  [Simple]
+}
+{
+  !O I@8/18
+  _Modifier
+  |
+  !AO
+  I@7/19
+  _BaseModifier
+  <
+    I@21/19
+    _ModifierKind.Optional
+  >
+  !AO
+  I@7/20
+  _BaseModifier
+  <
+    I@21/20
+    _ModifierKind.List
+  >
+  !AO
+  I@7/21
+  _ModifierDictionary
+}
+{
+  !E I@6/24
+  _ModifierKind
+  !EV I@22/24
+  Optional
+  !EV I@31/24
+  List
+  !EV I@36/24
+  Dictionary
+}
+{
+  !O I@8/26
+  _BaseModifier
+  <
+    I@23/26
+    $kind
+  >
+  {
+    !OF I@9/27
+    kind
+    :
+    I@16/27
+    $kind
+  }
+}
+{
+  !O I@8/30
+  _ModifierDictionary
+  :
+  I@7/31
+  _BaseModifier
+  <
+    I@21/31
+    _ModifierKind.Dictionary
+  >
+  {
+    !OF I@9/32
+    by
+    :
+    I@13/32
+    _TypeSimple
+  }
+}

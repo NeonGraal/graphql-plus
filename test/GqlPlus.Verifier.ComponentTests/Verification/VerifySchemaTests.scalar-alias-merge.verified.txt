@@ -1,0 +1,13 @@
+﻿[  
+!G I@1/1
+Success
+{
+  !S I@8/1
+  NumAlias
+  [
+    Num1
+    Num2
+  ]
+  Number
+}
+]

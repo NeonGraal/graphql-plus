@@ -1,0 +1,30 @@
+output _TypeObject<$kind $base $field> {
+    : _BaseType<$kind>
+        typeParameters: _Named[]
+        base: $base?
+        fields: $field[]
+        alternates: _Alternate<$base>[]
+    }
+
+output _Ref<$base> {
+    | _BaseType<_TypeKind.Internal>
+    | _TypeSimple
+    | $base
+    }
+
+output _Alternate<$base> {
+      type: _Ref<$base>
+      modifiers: _Modifier[]
+    }
+
+output _Field<$base> {
+    : _Aliased
+      type: _Ref<$base>
+      modifiers: _Modifier[]
+    }
+
+output _Parameter {
+    : _Ref<_InputBase>
+        modifiers: _Modifier[]
+        default: _Constant?
+    }

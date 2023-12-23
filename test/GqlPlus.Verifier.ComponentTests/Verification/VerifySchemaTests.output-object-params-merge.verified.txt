@@ -1,0 +1,26 @@
+﻿[  
+!G I@1/1
+Success
+{
+  !O I@8/1
+  OutParams
+  <
+    I@19/1
+    $test
+    I@59/1
+    $type
+  >
+  {
+    !OF I@27/1
+    test
+    :
+    I@34/1
+    $test
+    !OF I@67/1
+    type
+    :
+    I@74/1
+    $type
+  }
+}
+]

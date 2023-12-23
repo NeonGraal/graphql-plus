@@ -1,0 +1,21 @@
+output _Type {
+    | _BaseType<_TypeKind.Basic>
+    | _BaseType<_TypeKind.Internal>
+    | _TypeEnum
+    | _TypeObject<_TypeKind.Input _InputBase _InputField>
+    | _TypeObject<_TypeKind.Output _OutputBase _OutputField>
+    | _TypeScalar
+    }
+
+output _BaseType<$kind> {
+    : _Aliased
+        kind: $kind
+    }
+
+enum _TypeKind { Basic Enum Internal Input Output Scalar }
+
+output _TypeSimple {
+    | _BaseType<_TypeKind.Basic>
+    | _BaseType<_TypeKind.Scalar>
+    | _BaseType<_TypeKind.Enum>
+    }

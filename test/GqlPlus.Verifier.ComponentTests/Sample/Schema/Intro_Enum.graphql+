@@ -1,0 +1,5 @@
+output _TypeEnum {
+    : _BaseType<_TypeKind.Enum>
+        base: String?
+        values: _Aliased[]
+    }

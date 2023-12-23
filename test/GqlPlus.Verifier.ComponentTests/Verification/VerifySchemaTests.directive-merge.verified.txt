@@ -1,0 +1,10 @@
+﻿[  
+!G I@1/1
+Success
+{
+  !D I@12/1
+  Dir
+  (Unique)
+  Inline, Spread
+}
+]

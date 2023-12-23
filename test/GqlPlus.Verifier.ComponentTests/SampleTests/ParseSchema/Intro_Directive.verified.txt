@@ -1,0 +1,44 @@
+﻿!G I@1/1
+Success
+{
+  !O I@8/1
+  _Directive
+  :
+  I@7/2
+  _Aliased
+  {
+    !OF I@9/3
+    parameters
+    :
+    I@21/3
+    _Parameter
+    []
+    !OF I@9/4
+    repeatable
+    :
+    I@21/4
+    Boolean
+    !OF I@9/5
+    locations
+    :
+    I@20/5
+    _
+    [_Location]
+  }
+}
+{
+  !E I@6/8
+  _Location
+  !EV I@18/8
+  Operation
+  !EV I@28/8
+  Variable
+  !EV I@37/8
+  Field
+  !EV I@43/8
+  Inline
+  !EV I@50/8
+  Spread
+  !EV I@57/8
+  Fragment
+}

@@ -1,0 +1,16 @@
+﻿[  
+!G I@1/1
+Success
+{
+  !O I@8/1
+  OutAlts
+  |
+  !AO
+  I@20/1
+  OutAltsType
+}
+{
+  !O I@74/1
+  OutAltsType
+}
+]

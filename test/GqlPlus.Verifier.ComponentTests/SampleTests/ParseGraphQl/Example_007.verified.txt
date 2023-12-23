@@ -1,0 +1,11 @@
+﻿!g P@1/1
+query
+Success
+{
+  !f I@3/2
+  id
+  !f I@3/3
+  firstName
+  !f I@3/4
+  lastName
+}

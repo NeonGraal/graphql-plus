@@ -1,0 +1,3 @@
+﻿[
+  Multiple Categories with name 'test' can't be merged.
+]

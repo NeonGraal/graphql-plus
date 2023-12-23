@@ -1,0 +1,37 @@
+﻿!g I@1/1
+query
+Success
+{
+  !f I@3/2
+  profiles
+  (
+    !a I@12/2
+    {
+      ( !k I@12/2 handles ):( !a P@21/2 [ !k S@22/2 'zuck' !k S@30/2 'coca-cola' ] )
+    }
+  )
+  {
+    !f I@5/3
+    handle
+    !i I@9/4
+    :User
+    {
+      !f I@7/5
+      friends
+      {
+        !f I@9/6
+        count
+      }
+    }
+    !i I@9/9
+    :Page
+    {
+      !f I@7/10
+      likers
+      {
+        !f I@9/11
+        count
+      }
+    }
+  }
+}

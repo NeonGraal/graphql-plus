@@ -1,0 +1,10 @@
+output _InputBase {
+        input: String
+        arguments: _Ref<_InputBase>[]
+    | "TypeParameter" String
+    }
+
+output _InputField {
+    : _Field<_InputBase>
+        default: _Constant?
+    }

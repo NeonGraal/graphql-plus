@@ -1,0 +1,14 @@
+﻿{
+  me {
+    id
+    firstName
+    lastName
+    birthday {
+      month
+      day
+    }
+    friends {
+      name
+    }
+  }
+}

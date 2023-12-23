@@ -154,6 +154,10 @@ coverage*.info
 *.coverage
 *.coveragexml
 
+output.cobertura.xml
+coverage/
+
+
 # NCrunch
 _NCrunch_*
 .*crunch*.local.xml
@@ -480,5 +484,4 @@ $RECYCLE.BIN/
 _site/
 .jekyll-cache/
 _exported_templates/
-coverage/
-output.cobertura.xml
+test/**/*.received.*

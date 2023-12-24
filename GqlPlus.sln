@@ -20,20 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		.prettierrc.yml = .prettierrc.yml
-		collect-all.ps1 = collect-all.ps1
 		coverage.ps1 = coverage.ps1
 		coverage.runsettings = coverage.runsettings
 		Directory.Build.props = Directory.Build.props
 		.github\workflows\dotnet-test.yml = .github\workflows\dotnet-test.yml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphql-plus", "graphql-plus", "{74C0DC37-FD8F-419A-A5CE-A0F27946F3B0}"
-	ProjectSection(SolutionItems) = preProject
-		graphql-plus\Definition.md = graphql-plus\Definition.md
-		graphql-plus\Introspection.md = graphql-plus\Introspection.md
-		graphql-plus\Operation.md = graphql-plus\Operation.md
-		graphql-plus\Schema.md = graphql-plus\Schema.md
-		graphql-plus\toc.yml = graphql-plus\toc.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier.ComponentTests", "test\GqlPlus.Verifier.ComponentTests\GqlPlus.Verifier.ComponentTests.csproj", "{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2}"

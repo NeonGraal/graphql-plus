@@ -75,7 +75,7 @@ public abstract class TestBase<TItem>
 
     using var scope = new AssertionScope();
 
-    result.Should().BeOfType<TItem[]>();
+    result.Should().BeAssignableTo<IEnumerable<TItem>>();
     result.Should().BeEquivalentTo(expected);
   }
 }

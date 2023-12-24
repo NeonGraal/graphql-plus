@@ -2,6 +2,6 @@
 
 public interface IMerge<TItem>
 {
-  bool CanMerge(TItem[] items);
-  TItem[] Merge(TItem[] items);
+  bool CanMerge(IEnumerable<TItem> items);
+  IEnumerable<TItem> Merge(IEnumerable<TItem> items);
 }

@@ -1,5 +1,4 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -10,19 +9,19 @@ internal class MergeAllTypes(
   IMerge<ScalarDeclAst> scalars
 ) : IMerge<AstType>
 {
-  public bool CanMerge(AstType[] items)
+  public bool CanMerge(IEnumerable<AstType> items)
   {
     FixupEnums(items.OfType<EnumDeclAst>(), items.OfType<OutputDeclAst>());
 
     return items.Select(i => i.GetType()).Distinct().Count() == 1;
   }
 
-  public AstType[] Merge(AstType[] items)
+  public IEnumerable<AstType> Merge(IEnumerable<AstType> items)
   {
-    var enumTypes = items.ArrayOf<EnumDeclAst>();
-    var inputTypes = items.ArrayOf<InputDeclAst>();
-    var outputTypes = items.ArrayOf<OutputDeclAst>();
-    var scalarTypes = items.ArrayOf<ScalarDeclAst>();
+    var enumTypes = items.OfType<EnumDeclAst>();
+    var inputTypes = items.OfType<InputDeclAst>();
+    var outputTypes = items.OfType<OutputDeclAst>();
+    var scalarTypes = items.OfType<ScalarDeclAst>();
 
     FixupEnums(enumTypes, outputTypes);
 

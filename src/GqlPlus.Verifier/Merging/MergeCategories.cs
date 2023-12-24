@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Merging;
 internal class MergeCategories
   : AliasedMerger<CategoryDeclAst>
 {
-  public override bool CanMerge(CategoryDeclAst[] items)
+  public override bool CanMerge(IEnumerable<CategoryDeclAst> items)
     => base.CanMerge(items)
       && items.CanMerge(item => item.Option);
 

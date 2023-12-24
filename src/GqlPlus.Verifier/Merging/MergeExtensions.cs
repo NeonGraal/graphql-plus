@@ -79,7 +79,7 @@ public static class MergeExtensions
     where TItem : AstAliased
     => [.. items.SelectMany(item => item.Aliases).Distinct()];
 
-  public static TItem[] GroupMerger<TItem>(this IEnumerable<TItem> items, Func<TItem, string> key, Func<TItem[], TItem> merger)
+  public static IEnumerable<TItem> GroupMerger<TItem>(this IEnumerable<TItem> items, Func<TItem, string> key, Func<TItem[], TItem> merger)
   {
     List<Indexed<TItem>> result = [];
     var groups = items.Select(Indexed<TItem>.To).GroupBy(i => key(i.Item));
@@ -89,14 +89,11 @@ public static class MergeExtensions
       result.Add(new(item, group.Min(i => i.Index)));
     }
 
-    return [.. result.OrderBy(i => i.Index).Select(i => i.Item)];
+    return result.OrderBy(i => i.Index).Select(i => i.Item);
   }
 
-  public static TGroup[] ManyMerge<TItem, TGroup>(this IEnumerable<TItem> items, Func<TItem, IEnumerable<TGroup>> many, IMerge<TGroup> merger)
-  {
-    TGroup[] items1 = [.. items.SelectMany(many)];
-    return merger.Merge(items1);
-  }
+  public static IEnumerable<TGroup> ManyMerge<TItem, TGroup>(this IEnumerable<TItem> items, Func<TItem, IEnumerable<TGroup>> many, IMerge<TGroup> merger)
+    => merger.Merge(items.SelectMany(many));
 
   private record struct Indexed<TItem>(TItem Item, int Index)
   {

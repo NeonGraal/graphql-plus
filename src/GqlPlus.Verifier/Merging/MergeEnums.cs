@@ -9,12 +9,12 @@ internal class MergeEnums(
   protected override string ItemMatchKey(EnumDeclAst item)
     => item.Extends ?? "";
 
-  public override bool CanMerge(EnumDeclAst[] items)
+  public override bool CanMerge(IEnumerable<EnumDeclAst> items)
     => base.CanMerge(items)
       && items.ManyCanMerge(e => e.Values, enumValues);
 
   protected override EnumDeclAst MergeGroup(IEnumerable<EnumDeclAst> group)
     => base.MergeGroup(group) with {
-      Values = group.ManyMerge(item => item.Values, enumValues),
+      Values = [.. group.ManyMerge(item => item.Values, enumValues)],
     };
 }

@@ -17,17 +17,17 @@ internal class MergeSchemas(
     var directives = Just<DirectiveDeclAst>(group);
     var astTypes = Just<AstType>(group);
 
-    var categoriesCanMerge = categories.Length == 0 || categoryMerger.CanMerge(categories);
-    var directivesCanMerge = directives.Length == 0 || directiveMerger.CanMerge(directives);
-    var astTypesCanMerge = astTypes.Length == 0 || astTypeMerger.CanMerge(astTypes);
+    var categoriesCanMerge = categories.Any() || categoryMerger.CanMerge(categories);
+    var directivesCanMerge = directives.Any() || directiveMerger.CanMerge(directives);
+    var astTypesCanMerge = astTypes.Any() || astTypeMerger.CanMerge(astTypes);
 
     return categoriesCanMerge
      && directivesCanMerge
      && (astTypesCanMerge || true);
   }
 
-  private static TItem[] Just<TItem>(IEnumerable<SchemaAst> group)
-    => group.SelectMany(item => item.Declarations.OfType<TItem>()).ToArray();
+  private static IEnumerable<TItem> Just<TItem>(IEnumerable<SchemaAst> group)
+    => group.SelectMany(item => item.Declarations.OfType<TItem>());
 
   protected override SchemaAst MergeGroup(IEnumerable<SchemaAst> group)
   {

@@ -15,7 +15,7 @@ public class MergeTypeParametersTests
 
     using var scope = new AssertionScope();
 
-    result.Should().BeOfType<TypeParameterAst[]>();
+    result.Should().BeAssignableTo<IEnumerable<TypeParameterAst>>();
   }
 
   private readonly MergeTypeParameters _merger = new();

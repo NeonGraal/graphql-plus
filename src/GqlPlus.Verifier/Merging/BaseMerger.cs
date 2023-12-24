@@ -3,9 +3,9 @@
 public class BaseMerger<TItem>
   : IMerge<TItem>
 {
-  public virtual bool CanMerge(TItem[] items)
-    => items.Length > 0;
+  public virtual bool CanMerge(IEnumerable<TItem> items)
+    => items.Any();
 
-  public virtual TItem[] Merge(TItem[] items)
-    => items ?? [];
+  public virtual IEnumerable<TItem> Merge(IEnumerable<TItem> items)
+    => items ?? Enumerable.Empty<TItem>();
 }

@@ -10,7 +10,7 @@ internal class MergeScalars(
   protected override string ItemMatchKey(ScalarDeclAst item)
     => item.Kind.ToString();
 
-  public override bool CanMerge(ScalarDeclAst[] items)
+  public override bool CanMerge(IEnumerable<ScalarDeclAst> items)
     => base.CanMerge(items)
       && items.ManyCanMerge(i => i.Ranges, ranges)
       && items.ManyGroupCanMerge(i => i.Regexes, r => r.Regex, regexes);

@@ -12,6 +12,6 @@ internal class MergeOutputFields(
 
   protected override OutputFieldAst MergeGroup(IEnumerable<OutputFieldAst> group)
     => base.MergeGroup(group) with {
-      Parameters = group.ManyMerge(item => item.Parameters, parameters),
+      Parameters = [.. group.ManyMerge(item => item.Parameters, parameters)],
     };
 }

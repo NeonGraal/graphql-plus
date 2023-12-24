@@ -9,9 +9,9 @@ public abstract class GroupsMerger<TItem>
 
   protected abstract bool CanMergeGroup(IGrouping<string, TItem> group);
 
-  public override bool CanMerge(TItem[] items)
+  public override bool CanMerge(IEnumerable<TItem> items)
     => base.CanMerge(items) && items.GroupBy(ItemGroupKey).All(CanMergeGroup);
 
-  public override TItem[] Merge(TItem[] items)
+  public override IEnumerable<TItem> Merge(IEnumerable<TItem> items)
     => items?.GroupMerger(ItemGroupKey, MergeGroup) ?? [];
 }

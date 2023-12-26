@@ -96,10 +96,11 @@ public class SampleTests(
       Add("Intro_Schema");
       Add("Intro_Category");
       Add("Intro_Directive");
+      Add("Intro_Setting");
       Add("Intro_Types");
+      Add("Intro_Common");
       Add("Intro_Enum");
       Add("Intro_Object");
-      Add("Intro_Common");
       Add("Intro_Input");
       Add("Intro_Output");
       Add("Intro_Scalar");

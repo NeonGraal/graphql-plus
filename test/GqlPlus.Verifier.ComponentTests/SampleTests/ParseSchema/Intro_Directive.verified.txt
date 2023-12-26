@@ -2,43 +2,54 @@
 Success
 {
   !O I@8/1
+  _Directives
+  |
+  !AO
+  I@7/2
+  _Directive
+  !AO
+  I@7/3
+  _Type
+}
+{
+  !O I@8/6
   _Directive
   :
-  I@7/2
+  I@7/7
   _Aliased
   {
-    !OF I@9/3
+    !OF I@9/8
     parameters
     :
-    I@21/3
+    I@21/8
     _Parameter
     []
-    !OF I@9/4
+    !OF I@9/9
     repeatable
     :
-    I@21/4
+    I@21/9
     Boolean
-    !OF I@9/5
+    !OF I@9/10
     locations
     :
-    I@20/5
+    I@20/10
     _
     [_Location]
   }
 }
 {
-  !E I@6/8
+  !E I@6/13
   _Location
-  !EV I@18/8
+  !EV I@18/13
   Operation
-  !EV I@28/8
+  !EV I@28/13
   Variable
-  !EV I@37/8
+  !EV I@37/13
   Field
-  !EV I@43/8
+  !EV I@43/13
   Inline
-  !EV I@50/8
+  !EV I@50/13
   Spread
-  !EV I@57/8
+  !EV I@57/13
   Fragment
 }

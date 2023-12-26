@@ -2,31 +2,41 @@
 Success
 {
   !O I@8/1
+  _Categories
+  |
+  !AO
+  I@7/2
+  _Category
+  !AO
+  I@7/3
+  _Type
+}
+{
+  !O I@8/6
   _Category
   :
-  I@7/2
+  I@7/7
   _Aliased
   {
-    !OF I@9/3
+    !OF I@9/8
     resolution
     :
-    I@21/3
+    I@21/8
     _Resolution
-    !OF I@9/4
-    type
+    !OF I@9/9
+    output
     :
-    I@15/4
-    _Type
-    [String]
+    I@17/9
+    String
   }
 }
 {
-  !E I@6/7
+  !E I@6/12
   _Resolution
-  !EV I@20/7
+  !EV I@20/12
   Parallel
-  !EV I@29/7
+  !EV I@29/12
   Sequential
-  !EV I@40/7
+  !EV I@40/12
   Single
 }

@@ -7,7 +7,6 @@
   !!! I@18/17 : Invalid Output. '_Modifier' not defined. - '_Modifier' !!!,
   !!! I@7/21 : Invalid Output. '_Aliased' not defined. - '_Aliased' !!!,
   !!! I@18/23 : Invalid Output. '_Modifier' not defined. - '_Modifier' !!!,
-  !!! I@12/27 : Invalid Output. '_InputBase' not defined. - '_InputBase' !!!,
-  !!! I@20/28 : Invalid Output. '_Modifier' not defined. - '_Modifier' !!!,
-  !!! I@18/29 : Invalid Output. '_Constant' not defined. - '_Constant' !!!
+  !!! I@18/27 : Invalid Output. '_InputBase' not defined. - '_InputBase' !!!,
+  !!! I@18/28 : Invalid Output. '_Constant' not defined. - '_Constant' !!!
 ]

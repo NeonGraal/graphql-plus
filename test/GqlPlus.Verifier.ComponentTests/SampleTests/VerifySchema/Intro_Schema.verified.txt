@@ -1,7 +1,8 @@
 ﻿[
-  !!! I@22/15 : Invalid Input. '_Resolution' not defined. - '_Resolution' !!!,
-  !!! I@16/20 : Invalid Input. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@36/2 : Invalid Output. '_Category' not defined. - '_Category' !!!,
-  !!! I@29/3 : Invalid Output. '_Directive' not defined. - '_Directive' !!!,
-  !!! I@28/4 : Invalid Output. '_Type' not defined. - '_Type' !!!
+  !!! I@22/17 : Invalid Input. '_Resolution' not defined. - '_Resolution' !!!,
+  !!! I@16/22 : Invalid Input. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@38/3 : Invalid Output. '_Categories' not defined. - '_Categories' !!!,
+  !!! I@30/4 : Invalid Output. '_Directives' not defined. - '_Directives' !!!,
+  !!! I@29/5 : Invalid Output. '_Type' not defined. - '_Type' !!!,
+  !!! I@28/6 : Invalid Output. '_Setting' not defined. - '_Setting' !!!
 ]

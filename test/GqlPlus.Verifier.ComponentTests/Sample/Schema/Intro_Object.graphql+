@@ -24,7 +24,6 @@ output _Field<$base> {
     }
 
 output _Parameter {
-    : _Ref<_InputBase>
-        modifiers: _Modifier[]
+    : _Alternate<_InputBase>
         default: _Constant?
     }

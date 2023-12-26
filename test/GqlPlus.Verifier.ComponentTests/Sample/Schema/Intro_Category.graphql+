@@ -1,7 +1,12 @@
+output _Categories {
+    | _Category
+    | _Type
+}
+
 output _Category {
     : _Aliased
         resolution: _Resolution
-        type: _Type[String]
+        output: String
     }
 
 enum _Resolution { Parallel Sequential Single }

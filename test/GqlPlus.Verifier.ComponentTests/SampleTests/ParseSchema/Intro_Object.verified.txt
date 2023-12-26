@@ -129,22 +129,16 @@ Success
   _Parameter
   :
   I@7/27
-  _Ref
+  _Alternate
   <
-    I@12/27
+    I@18/27
     _InputBase
   >
   {
     !OF I@9/28
-    modifiers
-    :
-    I@20/28
-    _Modifier
-    []
-    !OF I@9/29
     default
     :
-    I@18/29
+    I@18/28
     _Constant
     ?
   }

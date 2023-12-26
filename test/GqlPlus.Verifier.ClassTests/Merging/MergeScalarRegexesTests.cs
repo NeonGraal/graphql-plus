@@ -6,8 +6,6 @@ namespace GqlPlus.Verifier.Merging;
 public class MergeScalarRegexesTests
   : TestGroups<ScalarRegexAst>
 {
-  private readonly MergeScalarRegexes _merger = new();
-
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameExcludes_ReturnsTrue(string name)
     => CanMerge_True([
@@ -19,6 +17,8 @@ public class MergeScalarRegexesTests
     => CanMerge_False([
       new ScalarRegexAst(AstNulls.At, name, true),
       new ScalarRegexAst(AstNulls.At, name, false)]);
+
+  private readonly MergeScalarRegexes _merger = new();
 
   protected override GroupsMerger<ScalarRegexAst> MergerGroups => _merger;
 

@@ -6,10 +6,6 @@ namespace GqlPlus.Verifier.Merging;
 public class MergeCategoriesTests
   : TestAliased<CategoryDeclAst>
 {
-  private readonly MergeCategories _merger = new();
-
-  protected override GroupsMerger<CategoryDeclAst> MergerGroups => _merger;
-
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameOutput_ReturnsTrue(string category)
     => CanMerge_True([new CategoryDeclAst(AstNulls.At, category), new CategoryDeclAst(AstNulls.At, category)]);
@@ -32,6 +28,10 @@ public class MergeCategoriesTests
     => Merge_Expected(
       [new CategoryDeclAst(AstNulls.At, category), new CategoryDeclAst(AstNulls.At, category)],
       new CategoryDeclAst(AstNulls.At, category));
+
+  private readonly MergeCategories _merger = new();
+
+  protected override GroupsMerger<CategoryDeclAst> MergerGroups => _merger;
 
   protected override CategoryDeclAst MakeAliased(string name, string[] aliases, string description = "")
     => new(AstNulls.At, name, description, name) { Aliases = aliases };

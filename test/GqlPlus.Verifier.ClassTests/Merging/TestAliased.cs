@@ -6,10 +6,6 @@ public abstract class TestAliased<TItem>
   : TestDescriptions<TItem>
   where TItem : AstAliased
 {
-  protected abstract TItem MakeAliased(string name, string[] aliases, string description = "");
-  protected override TItem MakeDescribed(string name, string description = "")
-    => MakeAliased(name, [], description);
-
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneAlias_ReturnsTrue(string name, string alias)
     => CanMerge_True([MakeAliased(name, []), MakeAliased(name, [alias])]);
@@ -34,4 +30,8 @@ public abstract class TestAliased<TItem>
   public void Merge_TwoItemsTwoAlias_ReturnsExpected(string name, string alias1, string alias2)
   => Merge_Expected([MakeAliased(name, [alias1]), MakeAliased(name, [alias2])],
     alias1 == alias2, MakeAliased(name, [alias1, alias2]));
+
+  protected abstract TItem MakeAliased(string name, string[] aliases, string description = "");
+  protected override TItem MakeDescribed(string name, string description = "")
+    => MakeAliased(name, [], description);
 }

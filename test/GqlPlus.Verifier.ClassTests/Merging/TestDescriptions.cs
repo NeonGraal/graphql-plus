@@ -6,10 +6,6 @@ public abstract class TestDescriptions<TItem>
   : TestGroups<TItem>
   where TItem : AstBase, IAstDescribed
 {
-  protected abstract TItem MakeDescribed(string name, string description = "");
-  protected override TItem MakeDistinct(string name)
-    => MakeDescribed(name);
-
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneDescription_ReturnsTrue(string name, string description)
     => CanMerge_True([MakeDescribed(name), MakeDescribed(name, description)]);
@@ -29,4 +25,8 @@ public abstract class TestDescriptions<TItem>
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoItemsSameDescription_ReturnsExpected(string name, string description)
   => Merge_Expected([MakeDescribed(name, description), MakeDescribed(name, description)], MakeDescribed(name, description));
+
+  protected abstract TItem MakeDescribed(string name, string description = "");
+  protected override TItem MakeDistinct(string name)
+    => MakeDescribed(name);
 }

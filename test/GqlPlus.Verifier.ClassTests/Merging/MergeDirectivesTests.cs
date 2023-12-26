@@ -7,18 +7,6 @@ namespace GqlPlus.Verifier.Merging;
 public class MergeDirectivesTests
   : TestAliased<DirectiveDeclAst>
 {
-  private readonly MergeDirectives _merger;
-  private readonly IMerge<ParameterAst> _parameters;
-
-  public MergeDirectivesTests()
-  {
-    _parameters = Merger<ParameterAst>();
-
-    _merger = new(_parameters);
-  }
-
-  protected override GroupsMerger<DirectiveDeclAst> MergerGroups => _merger;
-
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameOption_ReturnsTrue(string name)
     => CanMerge_True([
@@ -61,6 +49,18 @@ public class MergeDirectivesTests
 
     _parameters.ReceivedWithAnyArgs(1).Merge([]);
   }
+
+  private readonly MergeDirectives _merger;
+  private readonly IMerge<ParameterAst> _parameters;
+
+  public MergeDirectivesTests()
+  {
+    _parameters = Merger<ParameterAst>();
+
+    _merger = new(_parameters);
+  }
+
+  protected override GroupsMerger<DirectiveDeclAst> MergerGroups => _merger;
 
   protected override DirectiveDeclAst MakeAliased(string name, string[] aliases, string description = "")
     => new(AstNulls.At, name, description) { Aliases = aliases };

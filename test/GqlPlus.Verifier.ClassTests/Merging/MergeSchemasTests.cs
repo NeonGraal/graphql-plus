@@ -7,20 +7,6 @@ namespace GqlPlus.Verifier.Merging;
 public class MergeSchemasTests
   : TestGroups<SchemaAst>
 {
-  private readonly MergeSchemas _merger;
-  private readonly IMerge<CategoryDeclAst> _categories;
-  private readonly IMerge<DirectiveDeclAst> _directives;
-  private readonly IMerge<AstType> _astTypes;
-
-  public MergeSchemasTests()
-  {
-    _categories = Merger<CategoryDeclAst>();
-    _directives = Merger<DirectiveDeclAst>();
-    _astTypes = Merger<AstType>();
-
-    _merger = new(_categories, _directives, _astTypes);
-  }
-
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsDifferentDeclarations_ReturnsTrue(string name, string category, string directive)
     => CanMerge_True([
@@ -46,6 +32,20 @@ public class MergeSchemasTests
     _categories.ReceivedWithAnyArgs(1).Merge([]);
     _directives.ReceivedWithAnyArgs(1).Merge([]);
     _astTypes.ReceivedWithAnyArgs(1).Merge([]);
+  }
+
+  private readonly MergeSchemas _merger;
+  private readonly IMerge<CategoryDeclAst> _categories;
+  private readonly IMerge<DirectiveDeclAst> _directives;
+  private readonly IMerge<AstType> _astTypes;
+
+  public MergeSchemasTests()
+  {
+    _categories = Merger<CategoryDeclAst>();
+    _directives = Merger<DirectiveDeclAst>();
+    _astTypes = Merger<AstType>();
+
+    _merger = new(_categories, _directives, _astTypes);
   }
 
   protected override GroupsMerger<SchemaAst> MergerGroups => _merger;

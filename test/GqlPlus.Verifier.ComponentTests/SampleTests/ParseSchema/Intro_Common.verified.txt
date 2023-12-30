@@ -53,66 +53,74 @@ Success
 }
 {
   !O I@8/18
-  _Modifier
+  _Collection
   |
   !AO
   I@7/19
   _BaseModifier
   <
     I@21/19
-    _ModifierKind.Optional
-  >
-  !AO
-  I@7/20
-  _BaseModifier
-  <
-    I@21/20
     _ModifierKind.List
   >
   !AO
-  I@7/21
+  I@7/20
   _ModifierDictionary
 }
 {
-  !E I@6/24
+  !O I@8/23
+  _Modifier
+  |
+  !AO
+  I@7/24
+  _BaseModifier
+  <
+    I@21/24
+    _ModifierKind.Optional
+  >
+  !AO
+  I@7/25
+  _Collection
+}
+{
+  !E I@6/28
   _ModifierKind
-  !EV I@22/24
+  !EV I@22/28
   Optional
-  !EV I@31/24
+  !EV I@31/28
   List
-  !EV I@36/24
+  !EV I@36/28
   Dictionary
 }
 {
-  !O I@8/26
+  !O I@8/30
   _BaseModifier
   <
-    I@23/26
+    I@23/30
     $kind
   >
   {
-    !OF I@9/27
+    !OF I@9/31
     kind
     :
-    I@16/27
+    I@16/31
     $kind
   }
 }
 {
-  !O I@8/30
+  !O I@8/34
   _ModifierDictionary
   :
-  I@7/31
+  I@7/35
   _BaseModifier
   <
-    I@21/31
+    I@21/35
     _ModifierKind.Dictionary
   >
   {
-    !OF I@9/32
+    !OF I@9/36
     by
     :
-    I@13/32
+    I@13/36
     _TypeSimple
   }
 }

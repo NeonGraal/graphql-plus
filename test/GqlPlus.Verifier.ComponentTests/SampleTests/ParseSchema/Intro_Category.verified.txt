@@ -28,15 +28,21 @@ Success
     :
     I@17/9
     String
+    !OF I@9/10
+    modifiers
+    :
+    I@20/10
+    _Modifier
+    []
   }
 }
 {
-  !E I@6/12
+  !E I@6/13
   _Resolution
-  !EV I@20/12
+  !EV I@20/13
   Parallel
-  !EV I@29/12
+  !EV I@29/13
   Sequential
-  !EV I@40/12
+  !EV I@40/13
   Single
 }

@@ -9,6 +9,8 @@ public sealed record class CategoryDeclAst(
   string Output
 ) : AstDeclaration(At, Name, Description), IEquatable<CategoryDeclAst>
 {
+  public ModifierAst[] Modifiers { get; set; } = [];
+
   internal override string Abbr => "C";
 
   public string Output { get; set; } = Output;
@@ -24,14 +26,16 @@ public sealed record class CategoryDeclAst(
   public bool Equals(CategoryDeclAst? other)
     => base.Equals(other)
     && Option == other.Option
-    && Output == other.Output;
+    && Output == other.Output
+    && Modifiers.SequenceEqual(other.Modifiers);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Option);
+    => HashCode.Combine(base.GetHashCode(), Option, Modifiers.Length);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append($"({Option})")
-      .Append(Output);
+      .Append(Output)
+      .Concat(Modifiers.AsString());
 }
 
 public enum CategoryOption

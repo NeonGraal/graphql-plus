@@ -15,10 +15,14 @@ output _ConstantMap {
     | _Constant[Simple]
     }
 
-output _Modifier {
-    | _BaseModifier<_ModifierKind.Optional>
+output _Collection {
     | _BaseModifier<_ModifierKind.List>
     | _ModifierDictionary
+    }
+
+output _Modifier {
+    | _BaseModifier<_ModifierKind.Optional>
+    | _Collection
     }
 
 enum _ModifierKind { Optional List Dictionary }

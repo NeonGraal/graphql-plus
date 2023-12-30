@@ -47,5 +47,5 @@ internal enum ModifierKind
 
 public interface IAstModified
 {
-  ModifierAst[] Modifiers { get; set; }
+  ModifierAst[] Modifiers { get; }
 }

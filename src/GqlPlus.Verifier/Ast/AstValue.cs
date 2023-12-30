@@ -6,8 +6,8 @@ public abstract record class AstValue<T>(TokenAt At)
   : AstBase(At), IEquatable<AstValue<T>>
   where T : AstValue<T>
 {
-  public T[] Values { get; protected init; } = [];
-  public AstObject<T> Fields { get; protected init; } = [];
+  public T[] Values { get; init; } = [];
+  public AstObject<T> Fields { get; init; } = [];
 
   internal AstValue(TokenAt at, T[] values)
     : this(at)

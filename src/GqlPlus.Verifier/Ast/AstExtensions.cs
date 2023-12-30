@@ -82,7 +82,12 @@ public static class AstExtensions
     => text?.Length > 0
     ? quote + text.Replace("\\", "\\\\").Replace(quote, "\\" + quote) + quote
     : "";
+
   public static void AddError<TAst>(this ITokenMessages errors, TAst item, string message)
     where TAst : AstBase
     => errors.Add(item.Error(message));
+
+  public static AstObject<TValue> ToObject<TItem, TValue>(this IEnumerable<TItem> items, Func<TItem, FieldKeyAst> key, Func<TItem, TValue> value)
+    where TValue : AstValue<TValue>
+    => new(items.Distinct().ToDictionary(key, value));
 }

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -10,6 +11,7 @@ public static class AllMergers
     => services
       .AddMerge<AstType, MergeAllTypes>()
       .AddMerge<CategoryDeclAst, MergeCategories>()
+      .AddMerge<ConstantAst, MergeConstants>()
       .AddMerge<DirectiveDeclAst, MergeDirectives>()
       .AddMerge<ParameterAst, MergeParameters>()
       .AddMerge<EnumDeclAst, MergeEnums>()

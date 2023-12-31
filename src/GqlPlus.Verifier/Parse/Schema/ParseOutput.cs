@@ -30,9 +30,9 @@ internal class ParseOutput(
 
 internal class ParseOutputDefinition(
   Parser<OutputFieldAst>.D field,
-  Parser<ModifierAst>.DA modifiers,
+  ParserArray<IParserCollections, ModifierAst>.DA collections,
   Parser<OutputReferenceAst>.D reference
-) : ParseObjectDefinition<OutputFieldAst, OutputReferenceAst>(field, modifiers, reference)
+) : ParseObjectDefinition<OutputFieldAst, OutputReferenceAst>(field, collections, reference)
 {
   protected override string Label => "Output";
 }

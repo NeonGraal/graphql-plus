@@ -63,4 +63,7 @@ public static class TestHelpers
 
   public static ModifierAst[] TestMods()
     => new[] { ModifierAst.List(AstNulls.At), ModifierAst.Optional(AstNulls.At) };
+
+  public static ModifierAst[] TestCollections()
+    => new[] { ModifierAst.List(AstNulls.At), new(AstNulls.At, "String", false) };
 }

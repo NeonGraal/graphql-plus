@@ -33,16 +33,16 @@ public abstract class ParseObjectDefinition<F, R> : Parser<ObjectDefinition<F, R
   where F : AstField<R> where R : AstReference<R>
 {
   private readonly Parser<F>.L _field;
-  private readonly Parser<ModifierAst>.LA _modifiers;
+  private readonly ParserArray<IParserCollections, ModifierAst>.LA _collections;
   private readonly Parser<R>.L _reference;
 
   protected ParseObjectDefinition(
     Parser<F>.D field,
-    Parser<ModifierAst>.DA modifiers,
+    ParserArray<IParserCollections, ModifierAst>.DA collections,
     Parser<R>.D reference)
   {
     _field = field;
-    _modifiers = modifiers;
+    _collections = collections;
     _reference = reference;
   }
 
@@ -94,9 +94,9 @@ public abstract class ParseObjectDefinition<F, R> : Parser<ObjectDefinition<F, R
 
       AlternateAst<R> alternate = new(reference.Required());
       result.Add(alternate);
-      var modifiers = _modifiers.Value.Parse(tokens, Label);
-      if (!modifiers.Optional(value => alternate.Modifiers = value)) {
-        return modifiers.AsPartialArray(result);
+      var collections = _collections.Value.Parse(tokens, Label);
+      if (!collections.Optional(value => alternate.Modifiers = value)) {
+        return collections.AsPartialArray(result);
       }
     }
 

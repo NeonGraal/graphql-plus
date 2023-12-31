@@ -7,12 +7,12 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseEnum(
-  TypeName name,
+  SimpleName name,
   Parser<NullAst>.DA param,
   Parser<string>.DA aliases,
   Parser<NullAst>.D option,
   Parser<EnumDefinition>.D definition
-  ) : DeclarationParser<TypeName, NullAst, NullAst, EnumDefinition, EnumDeclAst>(name, param, aliases, option, definition)
+  ) : DeclarationParser<SimpleName, NullAst, NullAst, EnumDefinition, EnumDeclAst>(name, param, aliases, option, definition)
 {
   protected override void ApplyDefinition(EnumDeclAst result, EnumDefinition value)
   {
@@ -65,14 +65,5 @@ internal class ParseEnumDefinition(Parser<EnumValueAst>.D enumValue)
     return values.Count != 0
       ? result.Ok()
       : tokens.Partial(label, "at least one value", () => result);
-  }
-}
-
-internal class TypeName : INameParser
-{
-  public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
-  {
-    at = tokens.At;
-    return tokens.Identifier(out name);
   }
 }

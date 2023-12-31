@@ -7,12 +7,12 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseScalar(
-  TypeName name,
+  SimpleName name,
   Parser<NullAst>.DA param,
   Parser<string>.DA aliases,
   Parser<NullAst>.D option,
   Parser<ScalarDefinition>.D definition
-) : DeclarationParser<TypeName, NullAst, NullAst, ScalarDefinition, ScalarDeclAst>(name, param, aliases, option, definition)
+) : DeclarationParser<SimpleName, NullAst, NullAst, ScalarDefinition, ScalarDeclAst>(name, param, aliases, option, definition)
 {
   protected override void ApplyDefinition(ScalarDeclAst result, ScalarDefinition value)
   {

@@ -23,7 +23,7 @@ public static class SchemaParsers
       .AddParser<DirectiveLocation, ParseDirectiveDefinition>()
       .AddParser<DirectiveDeclAst, ParseDirective>()
       // Types
-      .AddSingleton<TypeName>()
+      .AddSingleton<SimpleName>()
       // Enum
       .AddParser<EnumDefinition, ParseEnumDefinition>()
       .AddParser<EnumValueAst, ParseEnumValue>()

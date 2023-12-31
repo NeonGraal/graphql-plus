@@ -7,7 +7,7 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseOutput(
-  TypeName name,
+  SimpleName name,
   Parser<TypeParameterAst>.DA param,
   Parser<string>.DA aliases,
   Parser<NullAst>.D option,

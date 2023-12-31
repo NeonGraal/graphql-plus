@@ -3,26 +3,26 @@
 public class OptionAstTests : AstAliasedTests
 {
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithSettings(string name, string setting, string value)
+  public void HashCode_WithSettings(string name, string[] settings)
       => _checks.HashCode(
-        () => new OptionDeclAst(AstNulls.At, name) { Settings = setting.OptionSettings(value) });
+        () => new OptionDeclAst(AstNulls.At, name) { Settings = settings.OptionSettings() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithSettings(string name, string setting, string value)
+  public void String_WithSettings(string name, string[] settings)
     => _checks.String(
-      () => new OptionDeclAst(AstNulls.At, name) { Settings = setting.OptionSettings(value) },
-      $"( !O {name} {{ {setting}=( !k '{value}' ) }} )");
+      () => new OptionDeclAst(AstNulls.At, name) { Settings = settings.OptionSettings() },
+      $"( !O {name} {{ {settings.Joined(s => $"{s}=( !k '{s}' )")} }} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithSettings(string name, string setting, string value)
+  public void Equality_WithSettings(string name, string[] settings)
     => _checks.Equality(
-      () => new OptionDeclAst(AstNulls.At, name) { Settings = setting.OptionSettings(value) });
+      () => new OptionDeclAst(AstNulls.At, name) { Settings = settings.OptionSettings() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenSettings(string name, string setting1, string setting2, string value)
-    => _checks.InequalityBetween(setting1, setting2,
-      setting => new OptionDeclAst(AstNulls.At, name) { Settings = setting.OptionSettings(value) },
-      setting1 == setting2);
+  public void Inequality_BetweenSettings(string name, string[] settings1, string[] settings2)
+    => _checks.InequalityBetween(settings1, settings2,
+      settings => new OptionDeclAst(AstNulls.At, name) { Settings = settings.OptionSettings() },
+      settings1.SequenceEqual(settings2));
 
   protected override string InputString(string input)
     => $"( !O {input} )";

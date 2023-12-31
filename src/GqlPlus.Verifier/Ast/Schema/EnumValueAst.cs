@@ -9,5 +9,4 @@ public sealed record class EnumValueAst(TokenAt At, string Name, string Descript
     : this(at, name, "") { }
 
   internal override string Abbr => "EV";
-
 }

@@ -8,7 +8,7 @@ public sealed record class OptionDeclAst(
   string Description
 ) : AstDeclaration(At, Name, Description), IEquatable<OptionDeclAst>
 {
-  public IMap<ConstantAst> Settings { get; set; } = Map<ConstantAst>.Empty();
+  public OptionSettingAst[] Settings { get; set; } = [];
 
   internal override string Abbr => "O";
 
@@ -19,9 +19,9 @@ public sealed record class OptionDeclAst(
     => base.Equals(other)
     && Settings.SequenceEqual(other.Settings);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Settings.Count);
+    => HashCode.Combine(base.GetHashCode(), Settings.Length);
 
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()
-      .Concat(Settings.Bracket("{", "}", kv => $"{kv.Key}={kv.Value}"));
+      .Concat(Settings.Bracket("{", "}"));
 }

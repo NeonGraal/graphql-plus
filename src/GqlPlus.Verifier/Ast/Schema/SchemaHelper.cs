@@ -8,6 +8,6 @@ internal static class SchemaHelper
   internal static ScalarReferenceAst[] ScalarReferences(this string reference, params string[] references)
     => [.. references.Select(r => new ScalarReferenceAst(AstNulls.At, r)).Prepend(new(AstNulls.At, reference))];
 
-  internal static Map<ConstantAst> OptionSettings(this IEnumerable<string> settings)
-    => settings.ToMap(k => k, v => (ConstantAst)new FieldKeyAst(AstNulls.At, v));
+  internal static OptionSettingAst[] OptionSettings(this IEnumerable<string> settings)
+    => [.. settings.Select(s => new OptionSettingAst(AstNulls.At, s, new FieldKeyAst(AstNulls.At, s)))];
 }

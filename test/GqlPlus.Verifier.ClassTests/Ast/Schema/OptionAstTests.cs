@@ -11,7 +11,7 @@ public class OptionAstTests : AstAliasedTests
   public void String_WithSettings(string name, string[] settings)
     => _checks.String(
       () => new OptionDeclAst(AstNulls.At, name) { Settings = settings.OptionSettings() },
-      $"( !O {name} {{ {settings.Joined(s => $"{s}=( !k '{s}' )")} }} )");
+      $"( !O {name} {{ {settings.Joined(s => $"!OS {s} =( !k '{s}' )")} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithSettings(string name, string[] settings)

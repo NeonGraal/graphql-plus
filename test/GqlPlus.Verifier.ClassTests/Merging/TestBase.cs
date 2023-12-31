@@ -5,10 +5,6 @@ namespace GqlPlus.Verifier.Merging;
 public abstract class TestBase<TItem>
   where TItem : AstBase
 {
-  protected abstract IMerge<TItem> MergerBase { get; }
-
-  protected abstract TItem MakeDistinct(string name);
-
   [Fact]
   public void CanMerge_NoItems_ReturnsFalse()
    => CanMerge_False([]);
@@ -40,6 +36,10 @@ public abstract class TestBase<TItem>
 
     Merge_Expected([item], item);
   }
+
+  protected abstract IMerge<TItem> MergerBase { get; }
+
+  protected abstract TItem MakeDistinct(string name);
 
   protected void CanMerge_False(TItem[] items, bool skipIf = false)
   {

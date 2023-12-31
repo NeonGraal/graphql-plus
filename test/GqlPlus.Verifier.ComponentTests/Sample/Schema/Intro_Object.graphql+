@@ -14,7 +14,7 @@ output _Ref<$base> {
 
 output _Alternate<$base> {
       type: _Ref<$base>
-      modifiers: _Modifier[]
+      collections: _Collection[]
     }
 
 output _Field<$base> {

@@ -7,20 +7,6 @@ namespace GqlPlus.Verifier.Merging;
 public class MergeScalarsTests
   : TestDescriptions<ScalarDeclAst>
 {
-  private readonly IMerge<ScalarRangeAst> _ranges;
-  private readonly IMerge<ScalarRegexAst> _regexes;
-  private readonly MergeScalars _merger;
-
-  public MergeScalarsTests()
-  {
-    _ranges = Merger<ScalarRangeAst>();
-    _regexes = Merger<ScalarRegexAst>();
-
-    _merger = new(_ranges, _regexes);
-  }
-
-  protected override GroupsMerger<ScalarDeclAst> MergerGroups => _merger;
-
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameKinds_ReturnsTrue(string name)
   {
@@ -68,6 +54,20 @@ public class MergeScalarsTests
 
     result.Should().BeFalse();
   }
+
+  private readonly IMerge<ScalarRangeAst> _ranges;
+  private readonly IMerge<ScalarRegexAst> _regexes;
+  private readonly MergeScalars _merger;
+
+  public MergeScalarsTests()
+  {
+    _ranges = Merger<ScalarRangeAst>();
+    _regexes = Merger<ScalarRegexAst>();
+
+    _merger = new(_ranges, _regexes);
+  }
+
+  protected override GroupsMerger<ScalarDeclAst> MergerGroups => _merger;
 
   protected override ScalarDeclAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description);

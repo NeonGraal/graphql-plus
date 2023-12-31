@@ -6,16 +6,14 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseInput : ObjectParser<InputDeclAst, InputFieldAst, InputReferenceAst>
+internal class ParseInput(
+  TypeName name,
+  Parser<TypeParameterAst>.DA param,
+  Parser<string>.DA aliases,
+  Parser<NullAst>.D option,
+  Parser<ObjectDefinition<InputFieldAst, InputReferenceAst>>.D definition
+) : ObjectParser<InputDeclAst, InputFieldAst, InputReferenceAst>(name, param, aliases, option, definition)
 {
-  public ParseInput(
-    TypeName name,
-    Parser<TypeParameterAst>.DA param,
-    Parser<string>.DA aliases,
-    Parser<NullAst>.D option,
-    Parser<ObjectDefinition<InputFieldAst, InputReferenceAst>>.D definition
-  ) : base(name, param, aliases, option, definition) { }
-
   protected override void ApplyDefinition(InputDeclAst result, ObjectDefinition<InputFieldAst, InputReferenceAst> value)
   {
     result.Extends = value.Extends;
@@ -30,13 +28,11 @@ internal class ParseInput : ObjectParser<InputDeclAst, InputFieldAst, InputRefer
     => new(at, name!, description);
 }
 
-internal class ParseInputDefinition : ParseObjectDefinition<InputFieldAst, InputReferenceAst>
+internal class ParseInputDefinition(
+  Parser<InputFieldAst>.D field,
+  ParserArray<IParserCollections, ModifierAst>.DA collections,
+  Parser<InputReferenceAst>.D reference
+) : ParseObjectDefinition<InputFieldAst, InputReferenceAst>(field, collections, reference)
 {
-  public ParseInputDefinition(
-    Parser<InputFieldAst>.D field,
-    Parser<ModifierAst>.DA modifiers,
-    Parser<InputReferenceAst>.D reference
-  ) : base(field, modifiers, reference) { }
-
   protected override string Label => "Input";
 }

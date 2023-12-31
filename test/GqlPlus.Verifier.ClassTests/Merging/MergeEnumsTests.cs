@@ -7,18 +7,6 @@ namespace GqlPlus.Verifier.Merging;
 public class MergeEnumsTests
   : TestAliased<EnumDeclAst>
 {
-  private readonly IMerge<EnumValueAst> _enumValues;
-  private readonly MergeEnums _merger;
-
-  public MergeEnumsTests()
-  {
-    _enumValues = Merger<EnumValueAst>();
-
-    _merger = new(_enumValues);
-  }
-
-  protected override GroupsMerger<EnumDeclAst> MergerGroups => _merger;
-
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameExtends_ReturnsTrue(string name)
     => CanMerge_True([new EnumDeclAst(AstNulls.At, name), new EnumDeclAst(AstNulls.At, name)]);
@@ -50,6 +38,18 @@ public class MergeEnumsTests
       new EnumDeclAst(AstNulls.At, name) with { Values = values2.EnumValues() }],
       new EnumDeclAst(AstNulls.At, name) with { Values = combined });
   }
+
+  private readonly IMerge<EnumValueAst> _enumValues;
+  private readonly MergeEnums _merger;
+
+  public MergeEnumsTests()
+  {
+    _enumValues = Merger<EnumValueAst>();
+
+    _merger = new(_enumValues);
+  }
+
+  protected override GroupsMerger<EnumDeclAst> MergerGroups => _merger;
 
   protected override EnumDeclAst MakeAliased(string name, string[] aliases, string description = "")
     => new(AstNulls.At, name, description) { Aliases = aliases };

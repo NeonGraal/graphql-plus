@@ -6,10 +6,6 @@ namespace GqlPlus.Verifier.Merging;
 public class MergeParametersTests
   : TestAlternates<ParameterAst, InputReferenceAst>
 {
-  private readonly MergeParameters _merger = new();
-
-  protected override AlternatesMerger<ParameterAst, InputReferenceAst> MergerAlternate => _merger;
-
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneDefault_ReturnsTrue(string input, string value)
     => CanMerge_True([MakeAlternate(input), MakeAlternate(input) with { Default = value.FieldKey() }]);
@@ -26,6 +22,10 @@ public class MergeParametersTests
       MakeAlternate(input) with { Default = value1.FieldKey() },
       MakeAlternate(input) with { Default = value2.FieldKey() }],
       value1 == value2);
+
+  private readonly MergeParameters _merger = new();
+
+  protected override AlternatesMerger<ParameterAst, InputReferenceAst> MergerAlternate => _merger;
 
   protected override ParameterAst MakeAlternate(string name, string description = "")
     => new(AstNulls.At, new InputReferenceAst(AstNulls.At, name, description));

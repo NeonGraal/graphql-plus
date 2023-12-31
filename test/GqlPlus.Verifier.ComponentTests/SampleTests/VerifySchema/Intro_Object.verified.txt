@@ -4,7 +4,7 @@
   !!! I@7/10 : Invalid Output. '_BaseType' not defined. - '_BaseType' !!!,
   !!! I@17/10 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
   !!! I@7/11 : Invalid Output. '_TypeSimple' not defined. - '_TypeSimple' !!!,
-  !!! I@18/17 : Invalid Output. '_Modifier' not defined. - '_Modifier' !!!,
+  !!! I@20/17 : Invalid Output. '_Collection' not defined. - '_Collection' !!!,
   !!! I@7/21 : Invalid Output. '_Aliased' not defined. - '_Aliased' !!!,
   !!! I@18/23 : Invalid Output. '_Modifier' not defined. - '_Modifier' !!!,
   !!! I@18/27 : Invalid Output. '_InputBase' not defined. - '_InputBase' !!!,

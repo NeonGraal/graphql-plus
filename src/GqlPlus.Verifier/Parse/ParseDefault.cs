@@ -4,12 +4,11 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse;
 
-internal class ParseDefault : IParserDefault
+internal class ParseDefault(
+  Parser<ConstantAst>.D constant
+) : IParserDefault
 {
-  private readonly Parser<ConstantAst>.L _constant;
-
-  public ParseDefault(Parser<ConstantAst>.D constant)
-    => _constant = constant;
+  private readonly Parser<ConstantAst>.L _constant = constant;
 
   public IResult<ConstantAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

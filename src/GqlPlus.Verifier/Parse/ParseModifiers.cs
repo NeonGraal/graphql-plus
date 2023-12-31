@@ -4,33 +4,23 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse;
 
-internal class ParseModifiers : Parser<ModifierAst>.IA
+internal class ParseModifiers(
+    ParserArray<IParserCollections, ModifierAst>.DA collections
+) : Parser<ModifierAst>.IA
 {
+  private readonly ParserArray<IParserCollections, ModifierAst>.LA _collections = collections;
+
   public IResultArray<ModifierAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var list = new List<ModifierAst>();
+    var collections = _collections.I.Parse(tokens, label);
 
-    var at = tokens.At;
-    while (tokens.Take('[')) {
-      var modifier = ModifierAst.List(at);
-      if (tokens.Identifier(out var key)) {
-        modifier = new(at, key, tokens.Take('?'));
-      } else {
-        if (tokens.TakeAny(out var charType, '~', '0', '*')) {
-          modifier = new(at, charType.ToString(), tokens.Take('?'));
-        }
-      }
-
-      if (tokens.Take(']')) {
-        list.Add(modifier);
-      } else {
-        return tokens.PartialArray(label, "']' at end of list or dictionary modifier.", () => list);
-      }
-
-      at = tokens.At;
+    if (!collections.Optional(list.AddRange)) {
+      return collections.AsResultArray<ModifierAst>();
     }
 
+    var at = tokens.At;
     if (tokens.Take('?')) {
       list.Add(ModifierAst.Optional(at));
     }

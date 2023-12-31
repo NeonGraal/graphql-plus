@@ -45,9 +45,9 @@ internal sealed class BaseObjectParserChecks<O, F, R>
 
   public void WithAlternateModifiers(string name, string[] others)
     => TrueExpected(
-      name + "{" + others.Joined(a => $"|{a}[]?") + "}",
+      name + "{" + others.Joined(a => $"|{a}[][String]") + "}",
        Object(name) with {
-         Alternates = [.. others.Select(a => Alternate(a) with { Modifiers = TestMods() })],
+         Alternates = [.. others.Select(a => Alternate(a) with { Modifiers = TestCollections() })],
        });
 
   public void WithAlternateModifiersBad(string name, string[] others)

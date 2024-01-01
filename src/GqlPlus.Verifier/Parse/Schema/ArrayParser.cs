@@ -3,12 +3,11 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ArrayParser<TItem> : Parser<TItem>.IA
+internal class ArrayParser<TItem>(
+  Parser<TItem>.D regex
+) : Parser<TItem>.IA
 {
-  private readonly Parser<TItem>.L _regex;
-
-  public ArrayParser(Parser<TItem>.D regex)
-    => _regex = regex;
+  private readonly Parser<TItem>.L _regex = regex;
 
   public IResultArray<TItem> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

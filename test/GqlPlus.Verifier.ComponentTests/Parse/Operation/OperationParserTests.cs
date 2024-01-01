@@ -3,13 +3,8 @@ using GqlPlus.Verifier.Result;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-public class OperationParserTests
+public class OperationParserTests(Parser<OperationAst>.D parser)
 {
-  private readonly Parser<OperationAst>.L _parser;
-
-  public OperationParserTests(Parser<OperationAst>.D parser)
-    => _parser = parser;
-
   [Theory]
   [InlineData(":Boolean")]
   [InlineData("query:Boolean?")]
@@ -78,4 +73,6 @@ public class OperationParserTests
       .Subject.Result.Should().Be(ParseResultKind.Failure);
     ast!.Errors.Should().NotBeEmpty();
   }
+
+  private readonly Parser<OperationAst>.L _parser = parser;
 }

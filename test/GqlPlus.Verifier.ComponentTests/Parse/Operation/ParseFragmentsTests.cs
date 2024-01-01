@@ -2,32 +2,34 @@
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-public class ParseFragmentsTests
+public class ParseFragmentsTests(
+  ParserArray<IParserStartFragments, FragmentAst>.DA startParser,
+  ParserArray<IParserEndFragments, FragmentAst>.DA endParser)
 {
   [Theory, RepeatData(Repeats)]
   public void Start_WithMinimum_ReturnsCorrectAst(string fragment, string onType, string[] fields)
-    => TestStart.TrueExpected(
+    => _startChecks.TrueExpected(
       '&' + fragment + ':' + onType + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()));
 
   [Theory, RepeatData(Repeats)]
   public void Start_WithNoName_ReturnsFalse(string onType, string[] fields)
-    => TestStart.False(
+    => _startChecks.False(
       "&:" + onType + "{" + fields.Joined() + "}");
 
   [Theory, RepeatData(Repeats)]
   public void Start_WithNoTypePrefix_ReturnsFalse(string fragment, string onType, string[] fields)
-    => TestStart.False(
+    => _startChecks.False(
       "&" + fragment + onType + "{" + fields.Joined() + "}");
 
   [Theory, RepeatData(Repeats)]
   public void Start_WithNoType_ReturnsFalse(string fragment, string[] fields)
-    => TestStart.False(
+    => _startChecks.False(
       "&" + fragment + ":{" + fields.Joined() + "}");
 
   [Theory, RepeatData(Repeats)]
   public void Start_WithNoFields_ReturnsFalse(string fragment, string onType)
-    => TestStart.False('&' + fragment + ':' + onType + "{}");
+    => _startChecks.False('&' + fragment + ':' + onType + "{}");
 
   [Theory]
   [RepeatInlineData(Repeats, "fragment ", " on ")]
@@ -35,19 +37,19 @@ public class ParseFragmentsTests
   [RepeatInlineData(Repeats, "fragment ", ":")]
   [RepeatInlineData(Repeats, "&", ":")]
   public void End_WithMinimum_ReturnsCorrectAst(string fragmentPrefix, string typePrefix, string fragment, string onType, string[] fields)
-    => TestEnd.TrueExpected(
+    => _endChecks.TrueExpected(
       fragmentPrefix + fragment + typePrefix + onType + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()));
 
   [Theory, RepeatData(Repeats)]
   public void Start_WithDirective_ReturnsCorrectAst(string fragment, string onType, string[] fields, string[] directives)
-    => TestStart.TrueExpected(
+    => _startChecks.TrueExpected(
       "&" + fragment + ":" + onType + directives.Joined("@") + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()) { Directives = directives.Directives() });
 
   [Theory, RepeatData(Repeats)]
   public void Start_WithDirectiveBad_ReturnsFalse(string fragment, string onType, string[] fields)
-    => TestStart.False("&" + fragment + ":" + onType + "@{" + fields.Joined() + "}");
+    => _startChecks.False("&" + fragment + ":" + onType + "@{" + fields.Joined() + "}");
 
   [Theory]
   [RepeatInlineData(Repeats, "fragment ", " on ")]
@@ -55,18 +57,10 @@ public class ParseFragmentsTests
   [RepeatInlineData(Repeats, "fragment ", ":")]
   [RepeatInlineData(Repeats, "&", ":")]
   public void End_WithDirective_ReturnsCorrectAst(string fragmentPrefix, string typePrefix, string fragment, string onType, string[] fields, string[] directives)
-    => TestEnd.TrueExpected(
+    => _endChecks.TrueExpected(
       fragmentPrefix + fragment + typePrefix + onType + directives.Joined("@") + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()) { Directives = directives.Directives() });
 
-  private readonly ManyChecksParser<IParserStartFragments, FragmentAst> TestStart;
-  private readonly ManyChecksParser<IParserEndFragments, FragmentAst> TestEnd;
-
-  public ParseFragmentsTests(
-    ParserArray<IParserStartFragments, FragmentAst>.DA startParser,
-    ParserArray<IParserEndFragments, FragmentAst>.DA endParser)
-  {
-    TestStart = new(startParser);
-    TestEnd = new(endParser);
-  }
+  private readonly ManyChecksParser<IParserStartFragments, FragmentAst> _startChecks = new(startParser);
+  private readonly ManyChecksParser<IParserEndFragments, FragmentAst> _endChecks = new(endParser);
 }

@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class InputFactories
+internal sealed class InputFactories
   : IObjectFactories<InputDeclAst, InputFieldAst, InputReferenceAst>
 {
   public InputFieldAst Field(TokenAt at, string name, InputReferenceAst typeReference, string description)

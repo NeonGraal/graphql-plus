@@ -5,18 +5,13 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal class ParseObject : Parser<IAstSelection>.IA
+internal class ParseObject(
+  Parser<FieldAst>.D field,
+  Parser<IAstSelection>.D selection
+) : Parser<IAstSelection>.IA
 {
-  private readonly Parser<FieldAst>.L _field;
-  private readonly Parser<IAstSelection>.L _selection;
-
-  public ParseObject(
-    Parser<FieldAst>.D field,
-    Parser<IAstSelection>.D selection)
-  {
-    _field = field;
-    _selection = selection;
-  }
+  private readonly Parser<FieldAst>.L _field = field;
+  private readonly Parser<IAstSelection>.L _selection = selection;
 
   public IResultArray<IAstSelection> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

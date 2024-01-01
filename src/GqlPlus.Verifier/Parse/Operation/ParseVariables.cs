@@ -4,12 +4,11 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal class ParseVariables : Parser<VariableAst>.IA
+internal class ParseVariables(
+  Parser<VariableAst>.D variable
+) : Parser<VariableAst>.IA
 {
-  private readonly Parser<VariableAst>.L _variable;
-
-  public ParseVariables(Parser<VariableAst>.D variable)
-    => _variable = variable;
+  private readonly Parser<VariableAst>.L _variable = variable;
 
   public IResultArray<VariableAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

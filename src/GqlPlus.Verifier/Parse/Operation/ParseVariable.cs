@@ -5,24 +5,17 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal class ParseVariable : Parser<VariableAst>.I
+internal class ParseVariable(
+  Parser<ModifierAst>.DA modifiers,
+  Parser<DirectiveAst>.DA directives,
+  Parser<IParserDefault, ConstantAst>.D defaultParser,
+  Parser<IParserVarType, string>.D varTypeParser
+) : Parser<VariableAst>.I
 {
-  private readonly Parser<ModifierAst>.LA _modifiers;
-  private readonly Parser<DirectiveAst>.LA _directives;
-  private readonly Parser<IParserDefault, ConstantAst>.L _default;
-  private readonly Parser<IParserVarType, string>.L _varTypeParser;
-
-  public ParseVariable(
-    Parser<ModifierAst>.DA modifiers,
-    Parser<DirectiveAst>.DA directives,
-    Parser<IParserDefault, ConstantAst>.D defaultParser,
-    Parser<IParserVarType, string>.D varTypeParser)
-  {
-    _modifiers = modifiers;
-    _default = defaultParser;
-    _directives = directives;
-    _varTypeParser = varTypeParser;
-  }
+  private readonly Parser<ModifierAst>.LA _modifiers = modifiers;
+  private readonly Parser<DirectiveAst>.LA _directives = directives;
+  private readonly Parser<IParserDefault, ConstantAst>.L _default = defaultParser;
+  private readonly Parser<IParserVarType, string>.L _varTypeParser = varTypeParser;
 
   public IResult<VariableAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

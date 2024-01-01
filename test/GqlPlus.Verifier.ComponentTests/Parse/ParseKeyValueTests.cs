@@ -1,6 +1,8 @@
 ﻿namespace GqlPlus.Verifier.Parse;
 
-public class ParseKeyValueTests(Parser<AstKeyValue<ConstantAst>>.D parser)
+public class ParseKeyValueTests(
+  Parser<AstKeyValue<ConstantAst>>.D parser
+)
 {
   [Theory, RepeatData(Repeats)]
   public void WithKeyValueValid_ReturnsCorrectAst(string key, string value)

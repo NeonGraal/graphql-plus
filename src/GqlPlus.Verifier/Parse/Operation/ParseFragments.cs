@@ -5,18 +5,13 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal abstract class ParseFragments : Parser<FragmentAst>.IA
+internal abstract class ParseFragments(
+  Parser<DirectiveAst>.DA directives,
+  Parser<IAstSelection>.DA objectParser
+) : Parser<FragmentAst>.IA
 {
-  private readonly Parser<DirectiveAst>.LA _directives;
-  private readonly Parser<IAstSelection>.LA _object;
-
-  public ParseFragments(
-    Parser<DirectiveAst>.DA directives,
-    Parser<IAstSelection>.DA objectParser)
-  {
-    _directives = directives;
-    _object = objectParser;
-  }
+  private readonly Parser<DirectiveAst>.LA _directives = directives;
+  private readonly Parser<IAstSelection>.LA _object = objectParser;
 
   protected abstract bool FragmentPrefix<TContext>(ref TContext tokens)
     where TContext : Tokenizer;

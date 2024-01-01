@@ -1,33 +1,30 @@
 ﻿namespace GqlPlus.Verifier.Parse.Operation;
 
-public class ParseVarTypeTests
+public class ParseVarTypeTests(Parser<IParserVarType, string>.D parser)
 {
   [Theory, RepeatData(Repeats)]
   public void WithMinimal_ReturnsCorrect(string varType)
-    => _test.TrueExpected(varType, varType);
+    => _checks.TrueExpected(varType, varType);
 
   [Theory, RepeatData(Repeats)]
   public void WithGraphQlNotNull_ReturnsCorrect(string varType)
-    => _test.TrueExpected(varType + "!", varType + "!");
+    => _checks.TrueExpected(varType + "!", varType + "!");
 
   [Theory, RepeatData(Repeats)]
   public void WithGraphQlList_ReturnsCorrect(string varType)
-    => _test.TrueExpected($"[{varType}]", "[" + varType + "]");
+    => _checks.TrueExpected($"[{varType}]", "[" + varType + "]");
 
   [Theory, RepeatData(Repeats)]
   public void WithGraphQlComplex_ReturnsCorrect(string varType)
-    => _test.TrueExpected($"[[{varType}]!]!", "[[" + varType + "]!]!");
+    => _checks.TrueExpected($"[[{varType}]!]!", "[[" + varType + "]!]!");
 
   [Fact]
   public void WithNoType_ReturnsFalse()
-    => _test.False("[]");
+    => _checks.False("[]");
 
   [Fact]
   public void WithNoEnd_ReturnsFalse()
-    => _test.False("[test");
+    => _checks.False("[test");
 
-  private readonly OneChecksParser<IParserVarType, string> _test;
-
-  public ParseVarTypeTests(Parser<IParserVarType, string>.D parser)
-    => _test = new(parser);
+  private readonly OneChecksParser<IParserVarType, string> _checks = new(parser);
 }

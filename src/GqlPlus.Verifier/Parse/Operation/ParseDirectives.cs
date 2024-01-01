@@ -4,12 +4,11 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-internal class ParseDirectives : Parser<DirectiveAst>.IA
+internal class ParseDirectives(
+  Parser<IParserArgument, ArgumentAst>.D argument
+) : Parser<DirectiveAst>.IA
 {
-  private readonly Parser<IParserArgument, ArgumentAst>.L _argument;
-
-  public ParseDirectives(Parser<IParserArgument, ArgumentAst>.D argument)
-    => _argument = argument;
+  private readonly Parser<IParserArgument, ArgumentAst>.L _argument = argument;
 
   public IResultArray<DirectiveAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

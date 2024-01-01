@@ -15,7 +15,7 @@ public class ParseInputFieldTests
 
   internal override IBaseFieldChecks Checks => _test;
 
-  private readonly BaseFieldParserChecks<InputFieldAst, InputReferenceAst> _test;
+  private readonly BaseFieldChecks<InputFieldAst, InputReferenceAst> _test;
 
   public ParseInputFieldTests(Parser<InputFieldAst>.D parser)
     => _test = new(new InputFactories(), parser);

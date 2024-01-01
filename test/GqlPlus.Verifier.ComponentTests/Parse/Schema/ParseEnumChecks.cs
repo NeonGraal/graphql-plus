@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal sealed class ParseEnumChecks
-  : BaseAliasedParserChecks<EnumInput, EnumDeclAst>
+  : BaseAliasedChecks<EnumInput, EnumDeclAst>
 {
   public ParseEnumChecks(Parser<EnumDeclAst>.D parser)
     : base(parser) { }

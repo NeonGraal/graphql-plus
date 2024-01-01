@@ -2,13 +2,13 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal sealed class BaseObjectParserChecks<O, F, R>
-  : BaseAliasedParserChecks<ObjectInput, O>, IBaseObjectChecks
+internal sealed class BaseObjectChecks<O, F, R>
+  : BaseAliasedChecks<ObjectInput, O>, IBaseObjectChecks
   where O : AstObject<F, R> where F : AstField<R> where R : AstReference<R>
 {
   private readonly IObjectFactories<O, F, R> _factories;
 
-  internal BaseObjectParserChecks(IObjectFactories<O, F, R> factories, Parser<O>.D parser)
+  internal BaseObjectChecks(IObjectFactories<O, F, R> factories, Parser<O>.D parser)
     : base(parser)
     => _factories = factories;
 

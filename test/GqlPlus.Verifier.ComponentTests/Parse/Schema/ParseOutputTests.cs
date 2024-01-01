@@ -7,6 +7,6 @@ public class ParseOutputTests(Parser<OutputDeclAst>.D parser)
 {
   internal override IBaseObjectChecks Checks => _test;
 
-  private readonly BaseObjectParserChecks<OutputDeclAst, OutputFieldAst, OutputReferenceAst> _test
+  private readonly BaseObjectChecks<OutputDeclAst, OutputFieldAst, OutputReferenceAst> _test
     = new(new OutputFactories(), parser);
 }

@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal sealed class ParseCategoryChecks
-  : BaseAliasedParserChecks<string, CategoryDeclAst>
+  : BaseAliasedChecks<string, CategoryDeclAst>
 {
   public ParseCategoryChecks(Parser<CategoryDeclAst>.D parser)
     : base(parser) { }

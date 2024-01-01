@@ -15,7 +15,7 @@ public abstract class AliasedMerger<TItem>
   protected override TItem MergeGroup(IEnumerable<TItem> group)
   {
     var description = group.MergeDescriptions();
-    var aliases = group.MergeAliases();
+    var aliases = group.SelectMany(item => item.Aliases).Distinct().ToArray();
 
     return group.First() with {
       Description = description,

@@ -14,7 +14,7 @@ public class MergeOptionsTests
       return;
     }
 
-    _defaults.CanMerge([]).ReturnsForAnyArgs(false);
+    _settings.CanMerge([]).ReturnsForAnyArgs(false);
 
     CanMerge_False([
       new OptionDeclAst(AstNulls.At, name) with { Settings = settings.OptionSettings() },
@@ -24,24 +24,22 @@ public class MergeOptionsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoItemsWithSettings_CallsSettingsMerge(string name, string[] settings1, string[] settings2)
   {
-    _defaults.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<ConstantAst>>());
-
     Merge_Expected([
       new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.OptionSettings() },
       new OptionDeclAst(AstNulls.At, name) with { Settings = settings2.OptionSettings() }],
       new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.Concat(settings2).Distinct().OptionSettings() });
 
-    _defaults.ReceivedWithAnyArgs().Merge([]);
+    _settings.ReceivedWithAnyArgs().Merge([]);
   }
 
   private readonly MergeOptions _merger;
-  private readonly IMerge<ConstantAst> _defaults;
+  private readonly IMerge<OptionSettingAst> _settings;
 
   public MergeOptionsTests()
   {
-    _defaults = Merger<ConstantAst>();
+    _settings = Merger<OptionSettingAst>();
 
-    _merger = new(_defaults);
+    _merger = new(_settings);
   }
 
   protected override GroupsMerger<OptionDeclAst> MergerGroups => _merger;

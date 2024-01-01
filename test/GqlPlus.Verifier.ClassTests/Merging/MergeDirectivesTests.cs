@@ -40,12 +40,10 @@ public class MergeDirectivesTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoItemsWithParameters_CallsParametersMerge(string name, string[] parameters)
   {
-    _parameters.Merge([]).ReturnsForAnyArgs(parameters.Parameters());
-
     Merge_Expected([
       new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
       new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() }],
-      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() });
+      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Concat(parameters).Parameters() });
 
     _parameters.ReceivedWithAnyArgs(1).Merge([]);
   }

@@ -31,8 +31,6 @@ public class MergeEnumsTests
   {
     var combined = values1.EnumValues().Concat(values2.EnumValues()).ToArray();
 
-    _enumValues.Merge([]).ReturnsForAnyArgs(combined);
-
     Merge_Expected([
       new EnumDeclAst(AstNulls.At, name) with { Values = values1.EnumValues() },
       new EnumDeclAst(AstNulls.At, name) with { Values = values2.EnumValues() }],

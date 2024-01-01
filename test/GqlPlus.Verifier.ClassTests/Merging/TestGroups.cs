@@ -34,6 +34,7 @@ public abstract class TestGroups<TItem>
   {
     var result = Substitute.For<IMerge<TResult>>();
     result.CanMerge([]).ReturnsForAnyArgs(true);
+    result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<TResult>>());
     return result;
   }
 }

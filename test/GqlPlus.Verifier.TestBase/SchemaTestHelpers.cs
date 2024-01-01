@@ -23,7 +23,7 @@ public static class SchemaTestHelpers
   public static OutputReferenceAst[] OutputReferences(this string argument)
     => new OutputReferenceAst[] { new(AstNulls.At, argument) };
 
-  public static ParameterAst[] Parameters(this string[] parameters)
+  public static ParameterAst[] Parameters(this IEnumerable<string> parameters)
     => [.. parameters.Select(parameter => new ParameterAst(AstNulls.At, parameter))];
 
   public static ParameterAst[] Parameters(this string[] parameters, Func<ParameterAst, ParameterAst> mapping)

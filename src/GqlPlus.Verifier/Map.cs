@@ -6,9 +6,6 @@ internal class Map<T> : Dictionary<string, T>, IMap<T>
 {
   public Map() { }
   public Map(IDictionary<string, T> dictionary) : base(dictionary) { }
-
-  public static Map<T> Empty()
-    => new();
 }
 
 public interface IMap<T> : IDictionary<string, T>;

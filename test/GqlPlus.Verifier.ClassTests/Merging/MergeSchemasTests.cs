@@ -20,10 +20,6 @@ public class MergeSchemasTests
     var outputDecl = new OutputDeclAst(AstNulls.At, category);
     var directiveDecl = new DirectiveDeclAst(AstNulls.At, directive);
 
-    _categories.Merge([]).ReturnsForAnyArgs([categoryDecl]);
-    _directives.Merge([]).ReturnsForAnyArgs([directiveDecl]);
-    _astTypes.Merge([]).ReturnsForAnyArgs([outputDecl]);
-
     Merge_Expected([
       new SchemaAst(AstNulls.At, name) with { Declarations = [categoryDecl, outputDecl] },
       new SchemaAst(AstNulls.At, name) with { Declarations = [directiveDecl] }],

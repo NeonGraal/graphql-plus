@@ -1,11 +1,12 @@
 ﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
 public static class MergeExtensions
 {
-  public static bool CanMerge<TItem, TField>(this IEnumerable<TItem> items, Func<TItem, TField?> field)
+  public static bool CanMerge<TItem, TField>(
+      this IEnumerable<TItem> items,
+      Func<TItem, TField?> field)
   {
     TField? result = default;
 
@@ -28,7 +29,15 @@ public static class MergeExtensions
     return true;
   }
 
-  public static bool CanMerge<TItem>(this IEnumerable<TItem> items, Func<TItem, string?> field)
+  public static bool CanMerge<TItem, TField>(
+      this IEnumerable<TItem> items,
+      Func<TItem, TField> field,
+      IMerge<TField> merger)
+    => merger.CanMerge(items.Select(field));
+
+  public static bool CanMerge<TItem>(
+      this IEnumerable<TItem> items,
+      Func<TItem, string?> field)
   {
     var result = "";
 
@@ -51,14 +60,6 @@ public static class MergeExtensions
     return true;
   }
 
-  public static bool ManyGroupCanMerge<TItem, TGroup>(
-      this IEnumerable<TItem> items,
-      Func<TItem, IEnumerable<TGroup>> many,
-      Func<TGroup, string> groupKey,
-      IMerge<TGroup> merger)
-    => items.SelectMany(many).GroupBy(groupKey)
-      .All(p => merger.CanMerge([.. p]));
-
   public static bool ManyCanMerge<TItem, TGroup>(
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
@@ -68,16 +69,36 @@ public static class MergeExtensions
     return groups.Length < 2 || merger.CanMerge(groups);
   }
 
-  public static string MergeDescriptions<TItem>(this IEnumerable<TItem> items)
-    where TItem : IAstDescribed
-    => items
-      .Select(item => item.Description)
-      .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr))
-      ?? "";
+  public static IEnumerable<TGroup> ManyMerge<TItem, TGroup>(
+      this IEnumerable<TItem> items,
+      Func<TItem, IEnumerable<TGroup>> many,
+      IMerge<TGroup> merger)
+    => merger.Merge(items.SelectMany(many));
 
-  public static string[] MergeAliases<TItem>(this IEnumerable<TItem> items)
-    where TItem : AstAliased
-    => [.. items.SelectMany(item => item.Aliases).Distinct()];
+  public static bool ManyGroupCanMerge<TItem, TGroup>(
+      this IEnumerable<TItem> items,
+      Func<TItem, IEnumerable<TGroup>> many,
+      Func<TGroup, string> key,
+      IMerge<TGroup> merger)
+    => items.SelectMany(many).GroupBy(key)
+      .All(p => merger.CanMerge([.. p]));
+
+  public static IEnumerable<TGroup> ManyGroupMerger<TItem, TGroup>(
+      this IEnumerable<TItem> items,
+      Func<TItem, IEnumerable<TGroup>> many,
+      Func<TGroup, string> key,
+      IMerge<TGroup> merger)
+  {
+    List<Indexed<TGroup>> result = [];
+    var groups = items.SelectMany(many).Select(Indexed<TGroup>.To).GroupBy(i => key(i.Item));
+
+    foreach (var group in groups) {
+      var item = group.Combine(i => i.Item, merger);
+      result.Add(new(item, group.Min(i => i.Index)));
+    }
+
+    return result.OrderBy(i => i.Index).Select(i => i.Item);
+  }
 
   public static IEnumerable<TItem> GroupMerger<TItem>(this IEnumerable<TItem> items, Func<TItem, string> key, Func<TItem[], TItem> merger)
   {
@@ -92,8 +113,15 @@ public static class MergeExtensions
     return result.OrderBy(i => i.Index).Select(i => i.Item);
   }
 
-  public static IEnumerable<TGroup> ManyMerge<TItem, TGroup>(this IEnumerable<TItem> items, Func<TItem, IEnumerable<TGroup>> many, IMerge<TGroup> merger)
-    => merger.Merge(items.SelectMany(many));
+  public static string MergeDescriptions<TItem>(this IEnumerable<TItem> items)
+    where TItem : IAstDescribed
+    => items
+      .Select(item => item.Description)
+      .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr))
+      ?? "";
+
+  public static TField Combine<TItem, TField>(this IEnumerable<TItem> items, Func<TItem, TField> field, IMerge<TField> merger)
+    => merger.Merge(items.Select(field)).First();
 
   private record struct Indexed<TItem>(TItem Item, int Index)
   {

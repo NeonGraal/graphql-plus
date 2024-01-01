@@ -2,12 +2,10 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal sealed class ParseDirectiveChecks
-  : BaseAliasedParserChecks<string, DirectiveDeclAst>
+internal sealed class ParseDirectiveChecks(
+  Parser<DirectiveDeclAst>.D parser
+) : BaseAliasedParserChecks<string, DirectiveDeclAst>(parser)
 {
-  public ParseDirectiveChecks(Parser<DirectiveDeclAst>.D parser)
-    : base(parser) { }
-
   protected internal override DirectiveDeclAst AliasedFactory(string input)
     => new(AstNulls.At, input) { Locations = DirectiveLocation.Operation };
 

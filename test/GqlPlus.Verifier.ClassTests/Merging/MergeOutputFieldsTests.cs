@@ -58,12 +58,10 @@ public class MergeOutputFieldsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoItemsWithParameters_CallsParametersMerge(string name, string type, string[] parameters)
   {
-    _parameters.Merge([]).ReturnsForAnyArgs(parameters.Parameters());
-
     Merge_Expected([
       MakeField(name, type) with { Parameters = parameters.Parameters() },
       MakeField(name, type) with { Parameters = parameters.Parameters() }],
-      MakeField(name, type) with { Parameters = parameters.Parameters() });
+      MakeField(name, type) with { Parameters = parameters.Concat(parameters).Parameters() });
 
     _parameters.ReceivedWithAnyArgs(1).Merge([]);
   }
@@ -109,9 +107,7 @@ public class MergeOutputFieldsTests
 
   public MergeOutputFieldsTests()
   {
-    _parameters = Substitute.For<IMerge<ParameterAst>>();
-    _parameters.CanMerge([]).ReturnsForAnyArgs(true);
-
+    _parameters = Merger<ParameterAst>();
     _merger = new(_parameters);
   }
 

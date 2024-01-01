@@ -10,9 +10,9 @@ public sealed record class OptionSettingAst(TokenAt At, string Name, string Desc
   public OptionSettingAst(TokenAt at, string name, ConstantAst value)
     : this(at, name, "", value) { }
 
-  public bool Equals(InputFieldAst? other)
+  public bool Equals(OptionSettingAst? other)
     => base.Equals(other)
-    && Value.NullEqual(other.Default);
+    && Value.Equals(other.Value);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Value);
 

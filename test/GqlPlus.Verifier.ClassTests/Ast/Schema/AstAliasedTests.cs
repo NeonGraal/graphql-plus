@@ -43,7 +43,7 @@ public abstract class AstAliasedTests<I> : AstBaseTests<I>
     => AliasedChecks.Inequality_ByAliased(input, aliased1, aliased2);
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_ByNames(I input1, I input2, string aliased)
+  public void Inequality_ByInputs(I input1, I input2, string aliased)
     => AliasedChecks.Inequality_ByInputs(input1, input2, aliased);
 
   protected virtual string AliasesString(I input, params string[] aliases)

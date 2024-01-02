@@ -1,10 +1,12 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Verifier.Merging;
 
+[ExcludeFromCodeCoverage]
 public static class AllMergers
 {
   public static IServiceCollection AddMergers(this IServiceCollection services)

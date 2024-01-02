@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using GqlPlus.Verifier.Ast.Operation;
-
-namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Ast;
 
 public abstract class AstDirectivesTests
   : AstDirectivesTests<string>

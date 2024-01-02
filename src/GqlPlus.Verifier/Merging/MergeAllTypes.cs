@@ -18,6 +18,10 @@ internal class MergeAllTypes(
 
   public IEnumerable<AstType> Merge(IEnumerable<AstType> items)
   {
+    if (items == null) {
+      return [];
+    }
+
     var enumTypes = items.OfType<EnumDeclAst>();
     var inputTypes = items.OfType<InputDeclAst>();
     var outputTypes = items.OfType<OutputDeclAst>();

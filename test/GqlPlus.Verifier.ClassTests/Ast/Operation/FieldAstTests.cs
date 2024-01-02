@@ -86,7 +86,7 @@ public class FieldAstTests : AstDirectivesTests
     => _checks.InequalityWith(name,
       () => Field(name) with { Selections = fields.Fields() });
 
-  private readonly AstDirectivesChecks<FieldAst> _checks = new(name => Field(name));
+  private readonly AstDirectivesChecks<FieldAst> _checks = new(Field);
 
   internal override IAstDirectivesChecks DirectivesChecks => _checks;
 

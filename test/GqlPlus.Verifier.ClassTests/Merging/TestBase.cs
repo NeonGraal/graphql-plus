@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using NSubstitute;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -77,5 +78,13 @@ public abstract class TestBase<TItem>
 
     result.Should().BeAssignableTo<IEnumerable<TItem>>();
     result.Should().BeEquivalentTo(expected);
+  }
+
+  protected IMerge<TResult> Merger<TResult>()
+  {
+    var result = Substitute.For<IMerge<TResult>>();
+    result.CanMerge([]).ReturnsForAnyArgs(true);
+    result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<TResult>>());
+    return result;
   }
 }

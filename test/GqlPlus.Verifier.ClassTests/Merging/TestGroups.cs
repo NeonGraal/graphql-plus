@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Verifier.Ast;
-using NSubstitute;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -29,12 +28,4 @@ public abstract class TestGroups<TItem>
   protected abstract GroupsMerger<TItem> MergerGroups { get; }
 
   protected override IMerge<TItem> MergerBase => MergerGroups;
-
-  protected IMerge<TResult> Merger<TResult>()
-  {
-    var result = Substitute.For<IMerge<TResult>>();
-    result.CanMerge([]).ReturnsForAnyArgs(true);
-    result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<TResult>>());
-    return result;
-  }
 }

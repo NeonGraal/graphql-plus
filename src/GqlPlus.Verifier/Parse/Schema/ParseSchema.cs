@@ -7,29 +7,14 @@ namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseSchema : Parser<SchemaAst>.I
 {
-
   private delegate IResult<AstDeclaration> Parser(Tokenizer tokens, string label);
   private readonly Dictionary<string, Parser> _parsers = [];
 
-  private static Parser MakeParser<T>(Parser<T>.L parser)
-    => (tokens, label) => parser.Parse(tokens, label).AsResult<AstDeclaration>();
-
-  public ParseSchema(
-    Parser<CategoryDeclAst>.D category,
-    Parser<DirectiveDeclAst>.D directive,
-    Parser<OptionDeclAst>.D optionParser,
-    Parser<EnumDeclAst>.D enumParser,
-    Parser<InputDeclAst>.D input,
-    Parser<OutputDeclAst>.D output,
-    Parser<ScalarDeclAst>.D scalar)
+  public ParseSchema(IEnumerable<IParseDeclaration> declarations)
   {
-    _parsers.Add("category", MakeParser<CategoryDeclAst>(category));
-    _parsers.Add("directive", MakeParser<DirectiveDeclAst>(directive));
-    _parsers.Add("option", MakeParser<OptionDeclAst>(optionParser));
-    _parsers.Add("enum", MakeParser<EnumDeclAst>(enumParser));
-    _parsers.Add("input", MakeParser<InputDeclAst>(input));
-    _parsers.Add("output", MakeParser<OutputDeclAst>(output));
-    _parsers.Add("scalar", MakeParser<ScalarDeclAst>(scalar));
+    foreach (IParseDeclaration declaration in declarations) {
+      _parsers.Add(declaration.Selector, declaration.Parser);
+    }
   }
 
   public IResult<SchemaAst> Parse<TContext>(TContext tokens, string label)

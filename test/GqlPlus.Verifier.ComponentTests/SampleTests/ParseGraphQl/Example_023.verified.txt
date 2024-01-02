@@ -1,5 +1,6 @@
 ﻿!g I@1/1
 query
+inlineFragmentTyping
 Success
 {
   !f I@3/2

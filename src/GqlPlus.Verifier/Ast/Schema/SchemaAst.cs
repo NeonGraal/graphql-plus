@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public record class SchemaAst(TokenAt At, string Name)
-  : AstNamed(At, Name)
+public sealed record class SchemaAst(TokenAt At, string Name)
+  : AstNamed(At, Name), IEquatable<SchemaAst>
 {
   public ParseResultKind Result { get; set; }
   public TokenMessages Errors { get; set; } = [];
@@ -49,9 +49,16 @@ public record class SchemaAst(TokenAt At, string Name)
     }
   }
 
+  public bool Equals(SchemaAst? other)
+    => base.Equals(other)
+      && Result == other.Result
+      && Errors.SequenceEqual(other.Errors);
+  public override int GetHashCode()
+    => HashCode.Combine(base.GetHashCode(), Result, Errors.Count);
+
   internal override IEnumerable<string?> GetFields()
     => // base.GetFields()
-      new[] { AbbrAt, $"{Result}" }
+      new[] { AbbrAt, Name, $"{Result}" }
       .Concat(Errors.Bracket("<", ">"))
       .Concat(Declarations.SelectMany(d => d.Bracket("{", "}")));
 }

@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Ast.Operation;
 
-public record class OperationAst(TokenAt At, string Name)
-  : AstDirectives(At, Name), IAstModified
+public sealed record class OperationAst(TokenAt At, string Name)
+  : AstDirectives(At, Name), IEquatable<OperationAst>, IAstModified
 {
   public ParseResultKind Result { get; set; }
   public TokenMessages Errors { get; set; } = [];
@@ -60,9 +60,15 @@ public record class OperationAst(TokenAt At, string Name)
     }
   }
 
+  public bool Equals(OperationAst? other)
+    => base.Equals(other)
+    && Result == other.Result;
+  public override int GetHashCode()
+    => HashCode.Combine(base.GetHashCode(), Result);
+
   internal override IEnumerable<string?> GetFields()
     => // base.GetFields()
-      new[] { AbbrAt, Category, $"{Result}" }
+      new[] { AbbrAt, Category, Name, $"{Result}" }
       .Concat(Errors.Bracket("<", ">"))
       .Concat(Variables.Bracket("[", "]"))
       .Concat(Directives.AsString())

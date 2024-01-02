@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Ast.Schema;
-public record class SpecialTypeAst : AstType, IEquatable<SpecialTypeAst>
+public record class SpecialTypeAst : AstType
 {
   internal override string Abbr => "Z";
   public override string Label { get; }

@@ -13,6 +13,7 @@ public sealed record class ScalarRegexAst(TokenAt At, string Regex, bool Exclude
       && Excludes == other.Excludes;
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Regex, Excludes);
+
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()
       .Append(Regex.Quoted("/").Prefixed(Excludes ? "~" : ""));

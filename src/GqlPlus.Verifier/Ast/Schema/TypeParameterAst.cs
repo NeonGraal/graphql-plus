@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class TypeParameterAst(TokenAt At, string Name, string Description)
-  : AstDescribed(At, Name, Description), IEquatable<TypeParameterAst>
+  : AstDescribed(At, Name, Description)
 {
   internal override string Abbr => "T";
 

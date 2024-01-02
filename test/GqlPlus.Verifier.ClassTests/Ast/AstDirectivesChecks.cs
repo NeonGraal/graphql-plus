@@ -46,9 +46,6 @@ internal class AstDirectivesChecks<TInput, TAst>
       () => CreateDirective(input, directives), expected,
       factoryExpression: _createExpression);
 
-  public string DirectiveString(TInput input, string[] directives)
-    => $"( !{Abbr} {input} {directives.Joined(d => $"( !d {d} )")} )";
-
   private TAst CreateDirective(TInput input, string[] directives)
     => CreateInput(input) with { Directives = directives.Directives() };
 }
@@ -65,5 +62,4 @@ internal interface IAstDirectivesChecks<I> : IAstBaseChecks<I>
   void Inequality_WithDirective(I input, string[] directives);
   void Inequality_ByInputs(I input1, I input2, string[] directives);
   void Inequality_ByDirectives(I input, string[] directives1, string[] directives2);
-  string DirectiveString(I input, string[] directives);
 }

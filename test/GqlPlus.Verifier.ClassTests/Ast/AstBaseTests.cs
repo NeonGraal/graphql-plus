@@ -27,7 +27,7 @@ public abstract class AstBaseTests<I>
     => NamedChecks.Inequality(input1, input2);
 
   protected virtual string InputString(I input)
-    => NamedChecks.InputString(input);
+    => $"( !{NamedChecks.Abbr} {input} )";
 
   internal abstract IAstBaseChecks<I> NamedChecks { get; }
 }

@@ -7,7 +7,7 @@ public class ParseConstant : ValueParser<ConstantAst>
 {
   public ParseConstant(
     Parser<FieldKeyAst>.D fieldKey,
-    Parser<AstKeyValue<ConstantAst>>.D keyValueParser,
+    Parser<KeyValue<ConstantAst>>.D keyValueParser,
     Parser<ConstantAst>.DA listParser,
     Parser<AstObject<ConstantAst>>.D objectParser
   ) : base(fieldKey, keyValueParser, listParser, objectParser) { }

@@ -29,11 +29,8 @@ public class FragmentAstTests : AstDirectivesTests<FragmentInput>
 
   internal override IAstDirectivesChecks<FragmentInput> DirectivesChecks => _checks;
 
-  protected override string InputString(FragmentInput input)
-    => $"( !t {input.Name} :{input.OnType} {{ !f {input.Field} }} )";
-
-  protected override string DirectiveString(FragmentInput input, string[] directives)
-    => $"( !t {input.Name} {directives.Joined(d => $"( !d {d} )")} :{input.OnType} {{ !f {input.Field} }} )";
+  protected override string DirectiveString(FragmentInput input, string directives)
+    => $"( !t {input.Name}{directives} :{input.OnType} {{ !f {input.Field} }} )";
 }
 
 public record struct FragmentInput(string Name, string OnType, string Field);

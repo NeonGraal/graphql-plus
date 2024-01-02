@@ -16,11 +16,11 @@ public abstract class AstAliasedTests<I> : AstBaseTests<I>
 
   [Theory, RepeatData(Repeats)]
   public void String_WithAlias(I input, string aliased)
-    => AliasedChecks.String(input, AliasesString(input, aliased), aliased);
+    => AliasedChecks.String(input, AliasesString(input, Aliases(aliased)), aliased);
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithAliases(I input, string alias1, string alias2)
-    => AliasedChecks.String(input, AliasesString(input, alias1, alias2), alias1, alias2);
+  public void String_WithAliases(I input, string[] aliases)
+    => AliasedChecks.String(input, AliasesString(input, Aliases(aliases)), aliases);
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlias(I input, string aliased)
@@ -46,8 +46,13 @@ public abstract class AstAliasedTests<I> : AstBaseTests<I>
   public void Inequality_ByInputs(I input1, I input2, string aliased)
     => AliasedChecks.Inequality_ByInputs(input1, input2, aliased);
 
-  protected virtual string AliasesString(I input, params string[] aliases)
-    => AliasedChecks.AliasesString(input, aliases);
+  protected virtual string AliasesString(I input, string aliases)
+    => $"( !{AliasedChecks.Abbr} {input}{aliases} )";
+
+  protected override string InputString(I input) => AliasesString(input, "");
+
+  private static string Aliases(params string[] aliases)
+    => aliases.Bracket(" [", "]").Joined();
 
   internal override IAstBaseChecks<I> NamedChecks => AliasedChecks;
 

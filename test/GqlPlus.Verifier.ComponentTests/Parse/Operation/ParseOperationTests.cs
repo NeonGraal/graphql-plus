@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Result;
 
 namespace GqlPlus.Verifier.Parse.Operation;
 
-public class OperationParserTests(Parser<OperationAst>.D parser)
+public class ParseOperationTests(Parser<OperationAst>.D parser)
 {
   [Theory]
   [InlineData(":Boolean")]

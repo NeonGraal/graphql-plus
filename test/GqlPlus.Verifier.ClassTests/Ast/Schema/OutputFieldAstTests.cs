@@ -46,11 +46,8 @@ public class OutputFieldAstTests : AstFieldTests<OutputFieldAst, OutputReference
       enumValue => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type) { EnumValue = enumValue }),
       enumValue1 == enumValue2);
 
-  protected override string InputString(FieldInput input)
-    => $"( !OF {input.Name} : {input.Type} )";
-
-  protected override string AliasesString(FieldInput input, params string[] aliases)
-    => $"( !OF {input.Name} [ {aliases.Joined()} ] : {input.Type} )";
+  protected override string AliasesString(FieldInput input, string aliases)
+    => $"( !OF {input.Name}{aliases} : {input.Type} )";
 
   private readonly AstFieldChecks<OutputFieldAst, OutputReferenceAst> _checks = new(
           (input, reference) => new(AstNulls.At, input.Name, reference),

@@ -1,14 +1,14 @@
 ﻿namespace GqlPlus.Verifier.Parse;
 
 public class ParseKeyValueTests(
-  Parser<AstKeyValue<ConstantAst>>.D parser
+  Parser<KeyValue<ConstantAst>>.D parser
 )
 {
   [Theory, RepeatData(Repeats)]
   public void WithKeyValueValid_ReturnsCorrectAst(string key, string value)
     => _test.TrueExpected(
       key + ':' + value,
-      new AstKeyValue<ConstantAst>(key.FieldKey(), value.FieldKey()));
+      new KeyValue<ConstantAst>(key.FieldKey(), value.FieldKey()));
 
   [Theory, RepeatData(Repeats)]
   public void WithKeyValueKeyNoEnumValue_ReturnsFalse(string key, string value)
@@ -32,8 +32,8 @@ public class ParseKeyValueTests(
   public void WithKeyValueNoValue_ReturnsFalse(string key)
     => _test.False(key + ' ', CheckNull);
 
-  private void CheckNull(AstKeyValue<ConstantAst> result)
-    => result.Should().Be((AstKeyValue<ConstantAst>)default);
+  private void CheckNull(KeyValue<ConstantAst> result)
+    => result.Should().Be((KeyValue<ConstantAst>)default);
 
-  private readonly OneChecksParser<AstKeyValue<ConstantAst>> _test = new(parser);
+  private readonly OneChecksParser<KeyValue<ConstantAst>> _test = new(parser);
 }

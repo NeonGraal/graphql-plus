@@ -19,7 +19,7 @@ public static class CommonParsers
     where P : class, Parser<T>.I, IValueParser<T>
     => services
       .AddParser<IValueParser<T>, T, P>()
-      .AddParser<AstKeyValue<T>, ValueKeyValueParser<T>>()
+      .AddParser<KeyValue<T>, ValueKeyValueParser<T>>()
       .AddParserArray<T, ValueListParser<T>>()
       .AddParser<AstObject<T>, ValueObjectParser<T>>();
 

@@ -6,7 +6,7 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Parse;
 
 [ExcludeFromCodeCoverage]
-public class ValueKeyValueParser<T> : Parser<AstKeyValue<T>>.I
+public class ValueKeyValueParser<T> : Parser<KeyValue<T>>.I
   where T : AstValue<T>
 {
   private readonly Parser<FieldKeyAst>.L _key;
@@ -20,23 +20,26 @@ public class ValueKeyValueParser<T> : Parser<AstKeyValue<T>>.I
     _value = value;
   }
 
-  public IResult<AstKeyValue<T>> Parse<TContext>(TContext tokens, string label)
+  public IResult<KeyValue<T>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var fieldKey = _key.Parse(tokens, label);
     if (fieldKey.IsError()) {
-      return fieldKey.AsResult<AstKeyValue<T>>();
+      return fieldKey.AsResult<KeyValue<T>>();
     }
 
     if (!tokens.Take(':')) {
-      return tokens.Error<AstKeyValue<T>>(label, "':' after key");
+      return tokens.Error<KeyValue<T>>(label, "':' after key");
     } else if (!fieldKey.IsOk()) {
-      return tokens.Error<AstKeyValue<T>>(label, "key before ':'");
+      return tokens.Error<KeyValue<T>>(label, "key before ':'");
     }
 
     var fieldValue = _value.Parse(tokens, label);
     return fieldValue.SelectOk(
-      value => new AstKeyValue<T>(fieldKey.Required(), value),
-      () => fieldValue.AsResult<AstKeyValue<T>>()); // Not Covered
+      value => new KeyValue<T>(fieldKey.Required(), value),
+      () => fieldValue.AsResult<KeyValue<T>>()); // Not Covered
   }
 }
+
+public record struct KeyValue<T>(FieldKeyAst Key, T Value)
+  where T : AstValue<T>;

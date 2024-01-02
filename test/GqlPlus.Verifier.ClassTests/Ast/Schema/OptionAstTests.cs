@@ -24,11 +24,8 @@ public class OptionAstTests : AstAliasedTests
       settings => new OptionDeclAst(AstNulls.At, name) { Settings = settings.OptionSettings() },
       settings1.SequenceEqual(settings2));
 
-  protected override string InputString(string input)
-    => $"( !O {input} )";
-
-  protected override string AliasesString(string input, params string[] aliases)
-    => $"( !O {input} [ {aliases.Joined()} ] )";
+  protected override string AliasesString(string input, string aliases)
+    => $"( !O {input}{aliases} )";
 
   private readonly AstAliasedChecks<OptionDeclAst> _checks
     = new(name => new OptionDeclAst(AstNulls.At, name)) {

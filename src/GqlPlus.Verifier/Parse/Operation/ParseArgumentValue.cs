@@ -7,7 +7,7 @@ namespace GqlPlus.Verifier.Parse.Operation;
 
 internal class ParseArgumentValue(
   Parser<FieldKeyAst>.D fieldKey,
-  Parser<AstKeyValue<ArgumentAst>>.D keyValueParser,
+  Parser<KeyValue<ArgumentAst>>.D keyValueParser,
   Parser<ArgumentAst>.DA listParser,
   Parser<AstObject<ArgumentAst>>.D objectParser,
   Parser<ConstantAst>.D constant

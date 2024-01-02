@@ -19,12 +19,13 @@ internal class AstBaseChecks<TInput, TAst>
     = (TInput input1, TInput input2) => input1!.Equals(input2);
 
   protected readonly CreateBy<TInput> CreateInput;
-  protected readonly string Abbr;
   protected readonly string _createExpression;
 
   public AstBaseChecks(CreateBy<TInput> createInput,
     [CallerArgumentExpression(nameof(createInput))] string createExpression = "")
     => (CreateInput, Abbr, _createExpression) = (createInput, createInput(default!).Abbr, createExpression);
+
+  public string Abbr { get; }
 
   public void HashCode(TInput input)
     => HashCode(
@@ -49,9 +50,6 @@ internal class AstBaseChecks<TInput, TAst>
     => Inequality(factory,
       () => CreateInput(input),
       factoryExpression: factoryExpression);
-
-  public string InputString(TInput input)
-    => $"( !{Abbr} {input} )";
 }
 
 internal interface IAstBaseChecks
@@ -60,9 +58,9 @@ internal interface IAstBaseChecks
 
 internal interface IAstBaseChecks<TInput>
 {
+  string Abbr { get; }
   void HashCode(TInput input);
   void String(TInput input, string expected);
   void Equality(TInput input);
   void Inequality(TInput input1, TInput input2);
-  string InputString(TInput input);
 }

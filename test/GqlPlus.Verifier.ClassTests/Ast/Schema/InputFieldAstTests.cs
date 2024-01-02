@@ -24,11 +24,8 @@ public class InputFieldAstTests : AstFieldTests<InputFieldAst, InputReferenceAst
       def => new InputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Default = new FieldKeyAst(AstNulls.At, def) },
       def1 == def2);
 
-  protected override string InputString(FieldInput input)
-    => $"( !IF {input.Name} : {input.Type} )";
-
-  protected override string AliasesString(FieldInput input, params string[] aliases)
-    => $"( !IF {input.Name} [ {aliases.Joined()} ] : {input.Type} )";
+  protected override string AliasesString(FieldInput input, string aliases)
+    => $"( !IF {input.Name}{aliases} : {input.Type} )";
 
   private readonly AstFieldChecks<InputFieldAst, InputReferenceAst> _checks = new(
       (input, reference) => new(AstNulls.At, input.Name, reference),

@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Parse;
 
 public abstract class ValueParser<T>(
   Parser<FieldKeyAst>.D fieldKey,
-  Parser<AstKeyValue<T>>.D keyValueParser,
+  Parser<KeyValue<T>>.D keyValueParser,
   Parser<T>.DA listParser,
   Parser<AstObject<T>>.D objectParser
 ) : IValueParser<T>, Parser<T>.I
@@ -16,7 +16,7 @@ public abstract class ValueParser<T>(
   protected readonly Parser<T>.LA ListParser = listParser;
   protected readonly Parser<AstObject<T>>.L ObjectParser = objectParser;
 
-  public Parser<AstKeyValue<T>>.L KeyValueParser { get; } = keyValueParser;
+  public Parser<KeyValue<T>>.L KeyValueParser { get; } = keyValueParser;
 
   public abstract IResult<T> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer;
@@ -41,7 +41,7 @@ public abstract class ValueParser<T>(
 public interface IValueParser<T> : Parser<T>.I
   where T : AstValue<T>
 {
-  Parser<AstKeyValue<T>>.L KeyValueParser { get; }
+  Parser<KeyValue<T>>.L KeyValueParser { get; }
 
   IResult<AstObject<T>> ParseFieldValues(Tokenizer tokens, string label, char last, AstObject<T> fields);
 }

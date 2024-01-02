@@ -91,11 +91,8 @@ public class ScalarAstTests : AstAliasedTests
       type => new ScalarDeclAst(AstNulls.At, name, type.ScalarReferences()),
       type1 == type2);
 
-  protected override string InputString(string input)
-   => $"( !S {input} Number )";
-
-  protected override string AliasesString(string input, params string[] aliases)
-    => $"( !S {input} [ {aliases.Joined()} ] Number )";
+  protected override string AliasesString(string input, string aliases)
+    => $"( !S {input}{aliases} Number )";
 
   private readonly AstAliasedChecks<ScalarDeclAst> _checks
     = new(name => new ScalarDeclAst(AstNulls.At, name));

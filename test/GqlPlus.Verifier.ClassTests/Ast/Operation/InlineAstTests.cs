@@ -27,9 +27,6 @@ public class InlineAstTests : AstDirectivesTests<string[]>
 
   internal override IAstDirectivesChecks<string[]> DirectivesChecks => _checks;
 
-  protected override string InputString(string[] input)
-    => $"( !i {{ {input.Joined("!f ")} }} )";
-
-  protected override string DirectiveString(string[] input, string[] directives)
-    => $"( !i {directives.Joined(d => $"( !d {d} )")} {{ {input.Joined("!f ")} }} )";
+  protected override string DirectiveString(string[] input, string directives)
+    => $"( !i{directives} {{ {input.Joined("!f ")} }} )";
 }

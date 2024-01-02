@@ -52,11 +52,8 @@ public class CategoryAstTests : AstAliasedTests
       option => new CategoryDeclAst(AstNulls.At, name) { Option = option },
       option1 == option2);
 
-  protected override string InputString(string input)
-    => $"( !C {input.Camelize()} (Parallel) {input} )";
-
-  protected override string AliasesString(string input, params string[] aliases)
-    => $"( !C {input.Camelize()} [ {aliases.Joined()} ] (Parallel) {input} )";
+  protected override string AliasesString(string input, string aliases)
+    => $"( !C {input.Camelize()}{aliases} (Parallel) {input} )";
 
   private readonly AstAliasedChecks<CategoryDeclAst> _checks
     = new(name => new CategoryDeclAst(AstNulls.At, name)) {

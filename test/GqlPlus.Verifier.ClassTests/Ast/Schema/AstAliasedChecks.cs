@@ -46,9 +46,6 @@ internal class AstAliasedChecks<TInput, TAliased>
       () => CreateAliases(input, aliases), expected,
       factoryExpression: _createExpression);
 
-  public string AliasesString(TInput input, params string[] aliases)
-    => $"( !{Abbr} {input} [ {aliases.Joined()} ] )";
-
   private TAliased CreateAliases(TInput input, params string[] aliases)
     => CreateInput(input) with { Aliases = aliases };
 }
@@ -65,5 +62,4 @@ internal interface IAstAliasedChecks<TInput> : IAstBaseChecks<TInput>
   void Inequality_WithAliases(TInput input, params string[] aliases);
   void Inequality_ByInputs(TInput input1, TInput input2, string aliased);
   void Inequality_ByAliased(TInput input, string aliased1, string aliased2);
-  string AliasesString(TInput input, params string[] aliases);
 }

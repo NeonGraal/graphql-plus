@@ -17,6 +17,7 @@ internal class ParseSchema : Parser<SchemaAst>.I
   public ParseSchema(
     Parser<CategoryDeclAst>.D category,
     Parser<DirectiveDeclAst>.D directive,
+    Parser<OptionDeclAst>.D optionParser,
     Parser<EnumDeclAst>.D enumParser,
     Parser<InputDeclAst>.D input,
     Parser<OutputDeclAst>.D output,
@@ -24,6 +25,7 @@ internal class ParseSchema : Parser<SchemaAst>.I
   {
     _parsers.Add("category", MakeParser<CategoryDeclAst>(category));
     _parsers.Add("directive", MakeParser<DirectiveDeclAst>(directive));
+    _parsers.Add("option", MakeParser<OptionDeclAst>(optionParser));
     _parsers.Add("enum", MakeParser<EnumDeclAst>(enumParser));
     _parsers.Add("input", MakeParser<InputDeclAst>(input));
     _parsers.Add("output", MakeParser<OutputDeclAst>(output));

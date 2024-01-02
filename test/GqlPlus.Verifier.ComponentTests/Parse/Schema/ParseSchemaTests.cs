@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public class SchemaParserTests(Parser<SchemaAst>.D parser)
+public class ParseSchemaTests(Parser<SchemaAst>.D parser)
 {
   private readonly Parser<SchemaAst>.L _parser = parser;
 

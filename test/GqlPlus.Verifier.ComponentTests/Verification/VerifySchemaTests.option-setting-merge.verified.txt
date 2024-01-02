@@ -1,0 +1,13 @@
+﻿[  
+!G I@1/1
+Success
+{
+  !O I@8/1
+  OptSetting
+  {
+    !OS I@21/1
+    setting
+    =( !c P@64/1 [ !k I@29/1 Boolean.true !k N@65/1 0 ] )
+  }
+}
+]

@@ -62,6 +62,27 @@ Success
   All
 }
 {
+  !O I@8/1
+  Option
+}
+{
+  !O I@8/1
+  OptAlias
+  [
+    Opt1
+    Opt2
+  ]
+}
+{
+  !O I@8/1
+  OptSetting
+  {
+    !OS I@21/1
+    setting
+    =( !c P@64/1 [ !k I@29/1 Boolean.true !k N@65/1 0 ] )
+  }
+}
+{
   !E I@60/1
   InFieldEnum
   !EV I@74/1

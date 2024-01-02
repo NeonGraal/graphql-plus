@@ -23,5 +23,25 @@ Success
     I@17/4
     _Aliased
     []
+    !OF I@9/5
+    allValues
+    :
+    I@20/5
+    _EnumValue
+    []
+  }
+}
+{
+  !O I@8/8
+  _EnumValue
+  :
+  I@7/9
+  _Aliased
+  {
+    !OF I@9/10
+    enum
+    :
+    I@15/10
+    String
   }
 }

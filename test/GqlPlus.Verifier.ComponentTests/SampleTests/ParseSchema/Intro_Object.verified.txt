@@ -20,17 +20,17 @@ Success
   >
   {
     !OF I@9/3
-    typeParameters
-    :
-    I@25/3
-    _Named
-    []
-    !OF I@9/4
     base
     :
-    I@16/4
+    I@16/3
     $base
     ?
+    !OF I@9/4
+    typeParameters
+    :
+    I@25/4
+    _Named
+    []
     !OF I@9/5
     fields
     :
@@ -47,98 +47,150 @@ Success
       $base
     >
     []
+    !OF I@9/7
+    allTypeParameters
+    :
+    I@28/7
+    _Object
+    <
+      I@36/7
+      _Named
+    >
+    []
+    !OF I@9/8
+    allFields
+    :
+    I@20/8
+    _Object
+    <
+      I@29/8
+      $field
+    >
+    []
+    !OF I@9/9
+    allAlternates
+    :
+    I@24/9
+    _Object
+    <
+      I@32/9
+      _Alternate
+      <
+        I@44/9
+        $base
+      >
+    >
+    []
   }
 }
 {
-  !O I@8/9
+  !O I@8/12
   _Ref
   <
-    I@14/9
+    I@14/12
     $base
   >
   |
   !AO
-  I@7/10
+  I@7/13
   _BaseType
   <
-    I@17/10
+    I@17/13
     _TypeKind.Internal
   >
   !AO
-  I@7/11
+  I@7/14
   _TypeSimple
   !AO
-  I@8/12
+  I@8/15
   $base
 }
 {
-  !O I@8/15
+  !O I@8/18
   _Alternate
   <
-    I@20/15
+    I@20/18
     $base
   >
   {
-    !OF I@7/16
+    !OF I@7/19
     type
     :
-    I@13/16
+    I@13/19
     _Ref
     <
-      I@19/16
+      I@19/19
       $base
     >
-    !OF I@7/17
+    !OF I@7/20
     collections
     :
-    I@20/17
+    I@20/20
     _Collection
     []
   }
 }
 {
-  !O I@8/20
+  !O I@8/23
+  _Object
+  <
+    I@17/23
+    $for
+  >
+  :
+  I@8/24
+  $for
+  {
+    !OF I@9/25
+    object
+    :
+    I@17/25
+    String
+  }
+}
+{
+  !O I@8/28
   _Field
   <
-    I@16/20
+    I@16/28
     $base
   >
   :
-  I@7/21
+  I@7/29
   _Aliased
   {
-    !OF I@7/22
+    !OF I@7/30
     type
     :
-    I@13/22
+    I@13/30
     _Ref
     <
-      I@19/22
+      I@19/30
       $base
     >
-    !OF I@7/23
+    !OF I@7/31
     modifiers
     :
-    I@18/23
+    I@18/31
     _Modifier
     []
   }
 }
 {
-  !O I@8/26
+  !O I@8/34
   _Parameter
   :
-  I@7/27
+  I@7/35
   _Alternate
   <
-    I@18/27
+    I@18/35
     _InputBase
   >
   {
-    !OF I@9/28
+    !OF I@9/36
     default
     :
-    I@18/28
+    I@18/36
     _Constant
     ?
   }

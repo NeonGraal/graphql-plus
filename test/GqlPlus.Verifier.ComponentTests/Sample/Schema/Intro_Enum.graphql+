@@ -2,4 +2,10 @@ output _TypeEnum {
     : _BaseType<_TypeKind.Enum>
         base: String?
         values: _Aliased[]
+        allValues: _EnumValue[]
+    }
+
+output _EnumValue {
+    : _Aliased
+        enum: String
     }

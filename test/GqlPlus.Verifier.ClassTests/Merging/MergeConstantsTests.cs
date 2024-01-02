@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using Newtonsoft.Json.Linq;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -20,7 +21,7 @@ public class MergeConstantsTests
     var itemA = MakeValue(valueA);
     var itemB = MakeList(listB);
 
-    Merge_Expected([itemA, itemB], MakeList([valueA, .. listB]));
+    Merge_Expected([itemA, itemB], listB.Contains(valueA), MakeList([valueA, .. listB]));
   }
 
   [Theory, RepeatData(Repeats)]
@@ -38,7 +39,7 @@ public class MergeConstantsTests
     var itemA = MakeList(listA);
     var itemB = MakeValue(valueB);
 
-    Merge_Expected([itemA, itemB], MakeList([.. listA, valueB]));
+    Merge_Expected([itemA, itemB], listA.Contains(valueB), MakeList([.. listA, valueB]));
   }
 
   [Theory, RepeatData(Repeats)]

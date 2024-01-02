@@ -6,12 +6,12 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseDirective(
-  DirectiveName name,
+  IDirectiveName name,
   Parser<ParameterAst>.DA param,
   Parser<string>.DA aliases,
   Parser<DirectiveOption>.D option,
   Parser<DirectiveLocation>.D definition
-) : DeclarationParser<DirectiveName, ParameterAst, DirectiveOption, DirectiveLocation, DirectiveDeclAst>(name, param, aliases, option, definition)
+) : DeclarationParser<IDirectiveName, ParameterAst, DirectiveOption, DirectiveLocation, DirectiveDeclAst>(name, param, aliases, option, definition)
 {
   protected override void ApplyDefinition(DirectiveDeclAst result, DirectiveLocation value)
     => result.Locations = value;
@@ -27,11 +27,13 @@ internal class ParseDirective(
     => new(at, name!, description);
 }
 
-internal class DirectiveName : INameParser
+internal class DirectiveName : IDirectiveName
 {
   public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
     => tokens.Prefix('@', out name, out at);
 }
+
+internal interface IDirectiveName : INameParser { }
 
 internal class ParseDirectiveDefinition : Parser<DirectiveLocation>.I
 {

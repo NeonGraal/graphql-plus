@@ -7,12 +7,12 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseOption(
-  SimpleName name,
+  ISimpleName name,
   Parser<NullAst>.DA param,
   Parser<string>.DA aliases,
   Parser<NullAst>.D option,
   Parser<OptionDefinition>.D definition
-  ) : DeclarationParser<SimpleName, NullAst, NullAst, OptionDefinition, OptionDeclAst>(name, param, aliases, option, definition)
+  ) : DeclarationParser<ISimpleName, NullAst, NullAst, OptionDefinition, OptionDeclAst>(name, param, aliases, option, definition)
 {
   protected override void ApplyDefinition(OptionDeclAst result, OptionDefinition value)
     => result.Settings = value.Settings;

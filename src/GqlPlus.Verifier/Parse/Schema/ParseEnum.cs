@@ -7,12 +7,12 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseEnum(
-  SimpleName name,
+  ISimpleName name,
   Parser<NullAst>.DA param,
   Parser<string>.DA aliases,
   Parser<NullAst>.D option,
   Parser<EnumDefinition>.D definition
-  ) : DeclarationParser<SimpleName, NullAst, NullAst, EnumDefinition, EnumDeclAst>(name, param, aliases, option, definition)
+  ) : DeclarationParser<ISimpleName, NullAst, NullAst, EnumDefinition, EnumDeclAst>(name, param, aliases, option, definition)
 {
   protected override void ApplyDefinition(EnumDeclAst result, EnumDefinition value)
   {

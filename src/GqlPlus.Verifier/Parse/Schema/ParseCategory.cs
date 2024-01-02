@@ -7,12 +7,12 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseCategory(
-  CategoryName name,
+  ICategoryName name,
   Parser<NullAst>.DA param,
   Parser<string>.DA aliases,
   Parser<CategoryOption>.D option,
   Parser<CategoryOutput>.D definition
-) : DeclarationParser<CategoryName, NullAst, CategoryOption, CategoryOutput, CategoryDeclAst>(name, param, aliases, option, definition)
+) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, CategoryDeclAst>(name, param, aliases, option, definition)
 {
   protected override void ApplyDefinition(CategoryDeclAst result, CategoryOutput value)
   {
@@ -35,7 +35,7 @@ internal class ParseCategory(
 
 internal record CategoryOutput(string Output);
 
-internal class CategoryName : INameParser
+internal class CategoryName : ICategoryName
 {
   public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
   {
@@ -44,6 +44,8 @@ internal class CategoryName : INameParser
     return true;
   }
 }
+
+internal interface ICategoryName : INameParser { }
 
 internal class ParseCategoryDefinition : Parser<CategoryOutput>.I
 {

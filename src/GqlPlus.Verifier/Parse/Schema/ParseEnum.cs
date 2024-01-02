@@ -34,8 +34,9 @@ internal class EnumDefinition
   internal EnumValueAst[] Values { get; set; } = [];
 }
 
-internal class ParseEnumDefinition(Parser<EnumValueAst>.D enumValue)
-  : Parser<EnumDefinition>.I
+internal class ParseEnumDefinition(
+  Parser<EnumValueAst>.D enumValue
+) : Parser<EnumDefinition>.I
 {
   private readonly Parser<EnumValueAst>.L _enumValue = enumValue;
 

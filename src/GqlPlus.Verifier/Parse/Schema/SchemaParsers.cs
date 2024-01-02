@@ -23,7 +23,9 @@ public static class SchemaParsers
       .AddParser<DirectiveLocation, ParseDirectiveDefinition>()
       .AddParser<DirectiveDeclAst, ParseDirective>()
       // Option
+      .AddParser<OptionDefinition, ParseOptionDefinition>()
       .AddParser<OptionSettingAst, ParseOptionSetting>()
+      .AddParser<OptionDeclAst, ParseOption>()
       // Types
       .AddSingleton<SimpleName>()
       // Enum

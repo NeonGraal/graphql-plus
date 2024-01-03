@@ -10,7 +10,7 @@ internal class ParseCategory(
   ICategoryName name,
   Parser<NullAst>.DA param,
   Parser<string>.DA aliases,
-  Parser<CategoryOption>.D option,
+  Parser<IOptionParser<CategoryOption>, CategoryOption>.D option,
   Parser<CategoryOutput>.D definition
 ) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, CategoryDeclAst>(name, param, aliases, option, definition)
 {

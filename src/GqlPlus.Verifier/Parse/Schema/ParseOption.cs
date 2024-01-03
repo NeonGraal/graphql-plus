@@ -10,14 +10,14 @@ internal class ParseOption(
   ISimpleName name,
   Parser<NullAst>.DA param,
   Parser<string>.DA aliases,
-  Parser<NullAst>.D option,
+  Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<OptionDefinition>.D definition
-  ) : DeclarationParser<ISimpleName, NullAst, NullAst, OptionDefinition, OptionDeclAst>(name, param, aliases, option, definition)
+  ) : DeclarationParser<ISimpleName, NullAst, NullOption, OptionDefinition, OptionDeclAst>(name, param, aliases, option, definition)
 {
   protected override void ApplyDefinition(OptionDeclAst result, OptionDefinition value)
     => result.Settings = value.Settings;
 
-  protected override bool ApplyOption(OptionDeclAst result, IResult<NullAst> option) => true;
+  protected override bool ApplyOption(OptionDeclAst result, IResult<NullOption> option) => true;
   protected override bool ApplyParameters(OptionDeclAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]

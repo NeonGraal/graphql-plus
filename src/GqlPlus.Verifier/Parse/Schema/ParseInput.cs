@@ -10,7 +10,7 @@ internal class ParseInput(
   ISimpleName name,
   Parser<TypeParameterAst>.DA param,
   Parser<string>.DA aliases,
-  Parser<NullAst>.D option,
+  Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<ObjectDefinition<InputFieldAst, InputReferenceAst>>.D definition
 ) : ObjectParser<InputDeclAst, InputFieldAst, InputReferenceAst>(name, param, aliases, option, definition)
 {
@@ -21,7 +21,7 @@ internal class ParseInput(
     result.Alternates = value.Alternates;
   }
 
-  protected override bool ApplyOption(InputDeclAst result, IResult<NullAst> option) => true;
+  protected override bool ApplyOption(InputDeclAst result, IResult<NullOption> option) => true;
 
   [return: NotNull]
   protected override InputDeclAst MakeResult(TokenAt at, string? name, string description)

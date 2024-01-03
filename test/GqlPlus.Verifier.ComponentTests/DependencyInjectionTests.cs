@@ -56,9 +56,14 @@ public class DependencyInjectionTests(IServiceCollection services, ITestOutputHe
 
   private static bool MatchType(HashSet<string> hashset, Type parameterType)
   {
+    var genericType = parameterType;
+    if (parameterType.IsGenericType) {
+      genericType = parameterType.GetGenericTypeDefinition();
+    }
+
     return hashset.Contains(parameterType.FullTypeName())
       || s_optionalTypes.Contains(parameterType.Name)
       || parameterType.Name == "IEnumerable`1"
-      || parameterType.IsGenericType && MatchType(hashset, parameterType.GetGenericTypeDefinition());
+      || parameterType.IsGenericType && genericType != parameterType && MatchType(hashset, genericType);
   }
 }

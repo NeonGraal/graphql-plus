@@ -9,7 +9,7 @@ internal class ParseDirective(
   IDirectiveName name,
   Parser<ParameterAst>.DA param,
   Parser<string>.DA aliases,
-  Parser<DirectiveOption>.D option,
+  Parser<IOptionParser<DirectiveOption>, DirectiveOption>.D option,
   Parser<DirectiveLocation>.D definition
 ) : DeclarationParser<IDirectiveName, ParameterAst, DirectiveOption, DirectiveLocation, DirectiveDeclAst>(name, param, aliases, option, definition)
 {
@@ -35,16 +35,20 @@ internal class DirectiveName : IDirectiveName
 
 internal interface IDirectiveName : INameParser { }
 
-internal class ParseDirectiveDefinition : Parser<DirectiveLocation>.I
+internal class ParseDirectiveDefinition(
+  Parser<IEnumParser<DirectiveLocation>, DirectiveLocation>.D location
+) : Parser<DirectiveLocation>.I
 {
+  private readonly Parser<IEnumParser<DirectiveLocation>, DirectiveLocation>.L _location = location;
+
   public IResult<DirectiveLocation> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var locations = DirectiveLocation.None;
 
     while (!tokens.Take("}")) {
-      var directiveLocation = tokens.ParseEnumValue<DirectiveLocation>(label);
-      if (!directiveLocation.Required(location => locations |= location)) {
+      var directiveLocation = _location.I.Parse(tokens, label);
+      if (!directiveLocation.Required(value => locations |= value)) {
         return tokens.Partial(label, "location", () => locations);
       }
     }

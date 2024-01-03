@@ -10,9 +10,9 @@ internal class ParseEnum(
   ISimpleName name,
   Parser<NullAst>.DA param,
   Parser<string>.DA aliases,
-  Parser<NullAst>.D option,
+  Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<EnumDefinition>.D definition
-  ) : DeclarationParser<ISimpleName, NullAst, NullAst, EnumDefinition, EnumDeclAst>(name, param, aliases, option, definition)
+  ) : DeclarationParser<ISimpleName, NullAst, NullOption, EnumDefinition, EnumDeclAst>(name, param, aliases, option, definition)
 {
   protected override void ApplyDefinition(EnumDeclAst result, EnumDefinition value)
   {
@@ -20,7 +20,7 @@ internal class ParseEnum(
     result.Values = value.Values;
   }
 
-  protected override bool ApplyOption(EnumDeclAst result, IResult<NullAst> option) => true;
+  protected override bool ApplyOption(EnumDeclAst result, IResult<NullOption> option) => true;
   protected override bool ApplyParameters(EnumDeclAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]

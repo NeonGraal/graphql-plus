@@ -10,9 +10,9 @@ internal class ParseScalar(
   ISimpleName name,
   Parser<NullAst>.DA param,
   Parser<string>.DA aliases,
-  Parser<NullAst>.D option,
+  Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<ScalarDefinition>.D definition
-) : DeclarationParser<ISimpleName, NullAst, NullAst, ScalarDefinition, ScalarDeclAst>(name, param, aliases, option, definition)
+) : DeclarationParser<ISimpleName, NullAst, NullOption, ScalarDefinition, ScalarDeclAst>(name, param, aliases, option, definition)
 {
   protected override void ApplyDefinition(ScalarDeclAst result, ScalarDefinition value)
   {
@@ -35,7 +35,7 @@ internal class ParseScalar(
     }
   }
 
-  protected override bool ApplyOption(ScalarDeclAst result, IResult<NullAst> option) => true;
+  protected override bool ApplyOption(ScalarDeclAst result, IResult<NullOption> option) => true;
   protected override bool ApplyParameters(ScalarDeclAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
@@ -52,11 +52,13 @@ internal class ScalarDefinition
 }
 
 internal class ParseScalarDefinition(
+  Parser<IEnumParser<ScalarKind>, ScalarKind>.D kind,
   Parser<ScalarRangeAst>.DA ranges,
   Parser<ScalarReferenceAst>.DA references,
   Parser<ScalarRegexAst>.DA regexes
 ) : Parser<ScalarDefinition>.I
 {
+  private readonly Parser<IEnumParser<ScalarKind>, ScalarKind>.L _kind = kind;
   private readonly Parser<ScalarRangeAst>.LA _ranges = ranges;
   private readonly Parser<ScalarReferenceAst>.LA _references = references;
   private readonly Parser<ScalarRegexAst>.LA _regexes = regexes;
@@ -66,7 +68,7 @@ internal class ParseScalarDefinition(
   {
     ScalarDefinition result = new();
 
-    var scalarKind = tokens.ParseEnumValue<ScalarKind>(label);
+    var scalarKind = _kind.I.Parse(tokens, label);
     if (!scalarKind.Required(kind => result.Kind = kind)) {
       return scalarKind.AsResult(result);
     }

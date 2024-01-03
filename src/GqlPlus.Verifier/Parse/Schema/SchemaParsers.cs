@@ -8,8 +8,7 @@ public static class SchemaParsers
 {
   public static IServiceCollection AddSchemaParsers(this IServiceCollection services)
     => services
-      .AddParser<NullAst, ParseNull>()
-      .AddParserArray<NullAst, ParseNulls>()
+      .AddNullParsers()
       .AddParserArray<ParameterAst, ParseParameters>()
       .AddParserArray<string, ParseAliases>()
       // Category
@@ -20,6 +19,7 @@ public static class SchemaParsers
       // Directive
       .AddSingleton<IDirectiveName, DirectiveName>()
       .AddOption<DirectiveOption>()
+      .AddEnum<DirectiveLocation>()
       .AddParser<DirectiveLocation, ParseDirectiveDefinition>()
       .AddDeclarationParser<DirectiveDeclAst, ParseDirective>("directive")
       // Option
@@ -34,6 +34,7 @@ public static class SchemaParsers
       .AddDeclarationParser<EnumDeclAst, ParseEnum>("enum")
       // Scalar
       .AddParser<ScalarDefinition, ParseScalarDefinition>()
+      .AddEnum<ScalarKind>()
       .AddArrayParser<ScalarRangeAst, ParseScalarRange>()
       .AddArrayParser<ScalarRegexAst, ParseScalarRegex>()
       .AddArrayParser<ScalarReferenceAst, ParseScalarReference>()
@@ -54,9 +55,16 @@ public static class SchemaParsers
       .AddParser<SchemaAst, ParseSchema>()
       ;
 
+  public static IServiceCollection AddEnum<E>(this IServiceCollection services)
+    where E : struct
+    => services.AddParser<IEnumParser<E>, E, EnumParser<E>>();
+
   public static IServiceCollection AddOption<O>(this IServiceCollection services)
     where O : struct
-    => services.AddParser<O, OptionParser<O>>();
+    => services
+      .AddParser<IOptionParser<O>, O, OptionParser<O>>()
+      .AddParser<IEnumParser<O>, O, EnumParser<O>>()
+    ;
 
   public static IServiceCollection AddObjectParser<D, F, R>(this IServiceCollection services)
     where D : ParseObjectDefinition<F, R>
@@ -70,5 +78,13 @@ public static class SchemaParsers
     => services
       .AddParser<D, P>()
       .AddSingleton<IParseDeclaration>(c => new ParseDeclaration<D>(selector, c.GetRequiredService<Parser<D>.D>()))
+    ;
+
+  public static IServiceCollection AddNullParsers(this IServiceCollection services)
+    => services
+      .AddParser<NullAst, ParseNull>()
+      .AddParserArray<NullAst, ParseNulls>()
+      .AddParser<IOptionParser<NullOption>, NullOption, ParseNullOption>()
+      .AddParser<IEnumParser<NullOption>, NullOption, ParseNullOption>()
     ;
 }

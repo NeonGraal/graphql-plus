@@ -17,3 +17,12 @@ internal class ParseNulls : Parser<NullAst>.IA
     where TContext : Tokenizer
     => 0.EmptyArray<NullAst>();
 }
+
+internal enum NullOption { }
+
+internal class ParseNullOption : IEnumParser<NullOption>, IOptionParser<NullOption>
+{
+  public IResult<NullOption> Parse<TContext>(TContext tokens, string label)
+    where TContext : Tokenizer
+    => 0.Empty<NullOption>();
+}

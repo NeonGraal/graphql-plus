@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Verifier.Ast;
-using Newtonsoft.Json.Linq;
 
 namespace GqlPlus.Verifier.Merging;
 

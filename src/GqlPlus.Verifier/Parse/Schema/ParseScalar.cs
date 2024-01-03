@@ -87,16 +87,16 @@ internal class ParseScalarDefinition(
           return tokens.End(label, () => result);
         }
 
-        return scalarRegexes.AsResult(result); // not covered
+        return scalarRegexes.AsResult(result);
       case ScalarKind.Union:
         var scalarReferences = _references.Parse(tokens, label);
         if (scalarReferences.Required(references => result.References = references)) {
           return tokens.End(label, () => result);
         }
 
-        return scalarReferences.AsResult(result); // not covered
+        return scalarReferences.AsResult(result);
       default:
-        return tokens.Partial(label, "valid kind", () => result); // not covered
+        return tokens.Partial(label, "valid kind", () => result);
     }
   }
 }

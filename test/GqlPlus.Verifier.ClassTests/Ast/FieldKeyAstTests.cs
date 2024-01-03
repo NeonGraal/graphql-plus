@@ -4,7 +4,7 @@ public class FieldKeyAstTests
 {
   [Fact]
   public void HashCode_WithNull()
-    => _checks.HashCode(() => new FieldKeyAst(AstNulls.At));
+    => _checks.HashCode(() => new FieldKeyAst(AstNulls.At) with { At = AstNulls.At });
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithNumber(decimal number)

@@ -2,7 +2,8 @@
 
 namespace GqlPlus.Verifier;
 
-public class TokenizerTests
+[TracePerTest]
+public class TokenizerTests : BaseTestWithOpenTelemetry
 {
   private static Tokenizer PrepareTokens(string input)
   {

@@ -52,6 +52,8 @@ public class DependencyInjectionTests(IServiceCollection services, ITestOutputHe
 
   private static readonly HashSet<string> s_optionalTypes = [
     "LoggerFilterOptions",
+    "IExternalScopeProvider",
+    "IServiceProvider",
   ];
 
   private static bool MatchType(HashSet<string> hashset, Type parameterType)

@@ -487,4 +487,6 @@ _site/
 _exported_templates/
 
 test/**/*.received.*
-test/**/activities.yml
+activities.yml
+per-class
+runs-*.yml

@@ -3,6 +3,8 @@ using NSubstitute;
 
 namespace GqlPlus.Verifier.Merging;
 
+[TracePerTest]
+
 public abstract class TestBase<TItem>
   where TItem : AstBase
 {

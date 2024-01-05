@@ -4,6 +4,7 @@ public abstract class AstBaseTests
   : AstBaseTests<string>
 { }
 
+[TracePerTest]
 public abstract class AstBaseTests<I>
 {
   [Fact]

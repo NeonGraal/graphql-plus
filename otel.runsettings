@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- File name extension must be .runsettings -->
+<RunSettings>
+  <RunConfiguration>
+    <TargetPlatform>x64</TargetPlatform>
+    <EnvironmentVariables>
+      <!-- Settings for .NET -->
+      <CORECLR_ENABLE_PROFILING>1</CORECLR_ENABLE_PROFILING>
+      <CORECLR_PROFILER>{918728DD-259F-4A6A-AC2B-B85E1B658318}</CORECLR_PROFILER>
+      <CORECLR_PROFILER_PATH>C:\Dev\graphql-plus\publish\OpenTelemetry.AutoInstrumentation.Native.dll</CORECLR_PROFILER_PATH>
+
+      <DOTNET_STARTUP_HOOKS>C:\Dev\graphql-plus\publish\OpenTelemetry.AutoInstrumentation.StartupHook.dll</DOTNET_STARTUP_HOOKS>
+      <ASPNETCORE_HOSTINGSTARTUPASSEMBLIES>OpenTelemetry.AutoInstrumentation.AspNetCoreBootstrapper</ASPNETCORE_HOSTINGSTARTUPASSEMBLIES>
+
+      <!-- Settings for OpenTelemetry -->
+      <OTEL_DOTNET_AUTO_HOME>C:\Dev\graphql-plus\publish\</OTEL_DOTNET_AUTO_HOME>
+      <OTEL_DOTNET_AUTO_RULE_ENGINE_ENABLED>false</OTEL_DOTNET_AUTO_RULE_ENGINE_ENABLED>
+      <OTEL_DOTNET_AUTO_TRACES_ADDITIONAL_SOURCES>Xunit.*</OTEL_DOTNET_AUTO_TRACES_ADDITIONAL_SOURCES>
+      <OTEL_DOTNET_AUTO_TRACES_CONSOLE_EXPORTER_ENABLED>true</OTEL_DOTNET_AUTO_TRACES_CONSOLE_EXPORTER_ENABLED>
+      <OTEL_TRACES_SAMPLER>always_on</OTEL_TRACES_SAMPLER>
+      <OTEL_BSP_SCHEDULE_DELAY>1500</OTEL_BSP_SCHEDULE_DELAY>
+      <OTEL_METRIC_EXPORT_INTERVAL>2500</OTEL_METRIC_EXPORT_INTERVAL>
+
+      <OTEL_DOTNET_AUTO_LOG_DIRECTORY>..\auto-logs</OTEL_DOTNET_AUTO_LOG_DIRECTORY>
+      <!--
+      <OTEL_LOG_LEVEL>debug</OTEL_LOG_LEVEL>
+      -->
+    </EnvironmentVariables>
+    <xUnit>
+      <DiagnosticMessages>true</DiagnosticMessages>
+      <InternalDiagnosticMessages>true</InternalDiagnosticMessages>
+    </xUnit>
+  </RunConfiguration>
+</RunSettings>

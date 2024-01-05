@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoFixture.Xunit2" Version="4.18.1" />
+    <PackageReference Include="FluentAssertions" Version="6.12.0" />
+    <PackageReference Include="OpenTelemetry.AutoInstrumentation" Version="1.2.0" />
     <PackageReference Include="OpenTelemetry.Exporter.InMemory" Version="1.7.0" />
+    <PackageReference Include="xunit" Version="2.6.5" />
     <PackageReference Include="YamlDotNet" Version="13.7.1" />
   </ItemGroup>
 

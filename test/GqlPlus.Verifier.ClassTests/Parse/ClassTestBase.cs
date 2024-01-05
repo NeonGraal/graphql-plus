@@ -5,6 +5,8 @@ using NSubstitute;
 
 namespace GqlPlus.Verifier.Parse;
 
+[TracePerTest]
+
 public class ClassTestBase
 {
   protected static Tokenizer Tokens(string input)

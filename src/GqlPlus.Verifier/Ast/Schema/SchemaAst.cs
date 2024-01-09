@@ -6,7 +6,7 @@ public sealed record class SchemaAst(TokenAt At, string Name)
   : AstNamed(At, Name), IEquatable<SchemaAst>
 {
   public ParseResultKind Result { get; set; }
-  public TokenMessages Errors { get; set; } = [];
+  internal TokenMessages Errors { get; set; } = [];
 
   public AstDeclaration[] Declarations { get; set; } = [];
 

@@ -12,7 +12,7 @@ public record class TokenMessage(TokenKind Kind, int Column, int Line, string Ne
     => $"!!! {base.ToString()} : {Message} - '{Regex.Escape(Next)}' !!!";
 }
 
-public class TokenMessages
+internal class TokenMessages
   : List<TokenMessage>, ITokenMessages
 {
   public void Add(ITokenMessages messages)

@@ -6,7 +6,7 @@ public sealed record class OperationAst(TokenAt At, string Name)
   : AstDirectives(At, Name), IEquatable<OperationAst>, IAstModified
 {
   public ParseResultKind Result { get; set; }
-  public TokenMessages Errors { get; set; } = [];
+  internal TokenMessages Errors { get; set; } = [];
 
   public string Category { get; set; } = "query";
 

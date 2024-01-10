@@ -10,10 +10,13 @@ public static class RenderYaml
       .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull | DefaultValuesHandling.OmitEmptyCollections)
       .WithTypeInspector(x => new SortedTypeInspector(x))
       .WithTypeConverter(EnumerationTypeConverter.Instance)
-      .WithTypeConverter(ModelTypeConverter.Instance)
+      .WithTypeConverter(RenderTypeConverter.Instance)
       .EnsureRoundtrip()
       .Build();
 
   public static RenderValue Render(this IEnumerable<string> strings, bool flow = true)
     => new("", strings.Select(a => new RenderValue("", a)), flow);
+
+  public static string TrueFalse(this bool value)
+    => value ? "true" : "false";
 }

@@ -1,37 +1,26 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Ast;
 
 namespace GqlPlus.Verifier.Model;
 
-public class DirectiveModelTests
+public class DirectiveModelTests : ModelAliasedTests
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_Default(string name)
+  public void Model_Repeatable(string name, DirectiveOption option)
     => _checks.Directive_Expected(
-      new(AstNulls.At, name),
+      new(AstNulls.At, name) { Option = option },
       $@"!!_Directive
 name: {name}
-repeatable: false
+repeatable: {(option == DirectiveOption.Repeatable).TrueFalse()}
 ");
 
-  [Theory, RepeatData(Repeats)]
-  public void Model_Description(string name, string contents)
-    => _checks.Directive_Expected(
-      new(AstNulls.At, name) { Description = contents },
-      $@"!!_Directive
-description: {_checks.YamlQuoted(contents)}
-name: {name}
+  protected override string ExpectedDescriptionAliases(string input, string description, string aliases)
+    => $@"!!_Directive{aliases}{description}
+name: {input}
 repeatable: false
-");
+";
 
-  [Theory, RepeatData(Repeats)]
-  public void Model_Aliases(string name, string[] aliases)
-    => _checks.Directive_Expected(
-      new(AstNulls.At, name) { Aliases = aliases },
-      $@"!!_Directive
-aliases: [{string.Join(", ", aliases)}]
-name: {name}
-repeatable: false
-");
+  internal override IModelAliasedChecks AliasedChecks => _checks;
 
   private readonly DirectiveModelChecks _checks = new();
 }

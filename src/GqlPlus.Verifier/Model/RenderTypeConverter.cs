@@ -4,9 +4,9 @@ using YamlDotNet.Serialization;
 
 namespace GqlPlus.Verifier.Model;
 
-internal class ModelTypeConverter : IYamlTypeConverter
+internal class RenderTypeConverter : IYamlTypeConverter
 {
-  public static readonly IYamlTypeConverter Instance = new ModelTypeConverter();
+  public static readonly IYamlTypeConverter Instance = new RenderTypeConverter();
 
   public bool Accepts(Type type) => type == typeof(RenderValue);
   public object? ReadYaml(IParser parser, Type type) => throw new NotImplementedException();
@@ -39,9 +39,16 @@ internal class ModelTypeConverter : IYamlTypeConverter
         return;
       }
 
-      var text = model switch { { Boolean: not null } => model.Boolean == true ? "true" : "false", { Decimal: not null } => $"{model.Decimal}", { String: not null } => model.String, { Identifier: not null } => model.Identifier,
-        _ => ""
-      };
+      var text = "";
+      if (model.Identifier is not null) {
+        text = model.Identifier;
+      } else if (model.Boolean is not null) {
+        text = model.Boolean?.TrueFalse()!;
+      } else if (model.Decimal is not null) {
+        text = $"{model.Decimal}";
+      } else if (model.String is not null) {
+        text = model.String;
+      }
 
       emitter.Emit(new Scalar(default, tag, text, ScalarStyle.Any, plainImplicit, isString));
     }

@@ -3,46 +3,14 @@ using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Model;
 
-public class CategoryModelTests
+public class CategoryModelTests : ModelAliasedTests
 {
-  [Theory, RepeatData(Repeats)]
-  public void Model_Default(string output)
-    => _checks.Category_Expected(
-      new(AstNulls.At, output),
-      $@"!!_Category
-name: {output.Camelize()}
-output: {output}
-resolution: !!_Resolution Parallel
-");
-
   [Theory, RepeatData(Repeats)]
   public void Model_Name(string output, string name)
     => _checks.Category_Expected(
       new(AstNulls.At, name, output),
       $@"!!_Category
 name: {name}
-output: {output}
-resolution: !!_Resolution Parallel
-");
-
-  [Theory, RepeatData(Repeats)]
-  public void Model_Description(string output, string contents)
-    => _checks.Category_Expected(
-      new(AstNulls.At, output) { Description = contents },
-      $@"!!_Category
-description: {_checks.YamlQuoted(contents)}
-name: {output.Camelize()}
-output: {output}
-resolution: !!_Resolution Parallel
-");
-
-  [Theory, RepeatData(Repeats)]
-  public void Model_Aliases(string output, string[] aliases)
-    => _checks.Category_Expected(
-      new(AstNulls.At, output) { Aliases = aliases },
-      $@"!!_Category
-aliases: [{string.Join(", ", aliases)}]
-name: {output.Camelize()}
 output: {output}
 resolution: !!_Resolution Parallel
 ");
@@ -79,12 +47,21 @@ resolution: !!_Resolution Parallel
       },
       $@"!!_Category
 aliases: [{string.Join(", ", aliases)}]
-description: {_checks.YamlQuoted(contents)}
+description: {ModelBaseChecks.YamlQuoted(contents)}
 modifiers: [!!_Modifier List, !!_Modifier Optional]
 name: {name}
 output: {output}
 resolution: !!_Resolution {option}
 ");
+
+  protected override string ExpectedDescriptionAliases(string input, string description, string aliases)
+    => $@"!!_Category{aliases}{description}
+name: {input.Camelize()}
+output: {input}
+resolution: !!_Resolution Parallel
+";
+
+  internal override ModelAliasedChecks<CategoryDeclAst> AliasedChecks => _checks;
 
   private readonly CategoryModelChecks _checks = new();
 }

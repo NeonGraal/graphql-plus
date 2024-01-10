@@ -8,8 +8,6 @@ public static class RenderYaml
   public static ISerializer Serializer { get; } = new SerializerBuilder()
       .WithNamingConvention(CamelCaseNamingConvention.Instance)
       .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull | DefaultValuesHandling.OmitEmptyCollections)
-      .WithTypeInspector(x => new SortedTypeInspector(x))
-      .WithTypeConverter(EnumerationTypeConverter.Instance)
       .WithTypeConverter(RenderTypeConverter.Instance)
       .EnsureRoundtrip()
       .Build();

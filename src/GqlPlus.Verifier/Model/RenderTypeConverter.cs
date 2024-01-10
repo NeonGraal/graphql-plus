@@ -16,7 +16,7 @@ internal class RenderTypeConverter : IYamlTypeConverter
     if (value is RenderValue model) {
       var isString = !string.IsNullOrWhiteSpace(model.String);
       var plainImplicit = string.IsNullOrWhiteSpace(model.Tag) && !isString;
-      var tag = isString || plainImplicit ? new TagName() : new TagName("!!" + model.Tag);
+      var tag = isString || plainImplicit ? new TagName() : new TagName("!" + model.Tag);
       if (model.List.Count > 0) {
         var flow = model.Flow ? SequenceStyle.Flow : SequenceStyle.Any;
         emitter.Emit(new SequenceStart(default, default, plainImplicit, flow));
@@ -29,7 +29,8 @@ internal class RenderTypeConverter : IYamlTypeConverter
       }
 
       if (model.Map.Count > 0) {
-        emitter.Emit(new MappingStart(default, tag, plainImplicit, MappingStyle.Any));
+        var flow = model.Flow ? MappingStyle.Flow : MappingStyle.Any;
+        emitter.Emit(new MappingStart(default, tag, plainImplicit, flow));
         foreach (var kv in model.Map.OrderBy(kv => kv.Key)) {
           emitter.Emit(new Scalar(kv.Key));
           WriteYaml(emitter, kv.Value, type);

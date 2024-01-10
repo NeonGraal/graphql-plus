@@ -11,6 +11,6 @@ internal sealed class DirectiveModelChecks : ModelAliasedChecks<DirectiveDeclAst
   protected override DirectiveDeclAst NewAliasedAst(string input)
     => new(AstNulls.At, input);
 
-  internal void Directive_Expected(DirectiveDeclAst directive, string expected)
+  internal static void Directive_Expected(DirectiveDeclAst directive, string[] expected)
     => Model_Expected(directive.ToModel(), expected);
 }

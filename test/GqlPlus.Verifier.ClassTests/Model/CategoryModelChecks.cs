@@ -11,6 +11,6 @@ internal sealed class CategoryModelChecks : ModelAliasedChecks<CategoryDeclAst>
   protected override IRendering AstToModel(CategoryDeclAst aliased)
     => aliased.ToModel();
 
-  internal void Category_Expected(CategoryDeclAst category, string expected)
+  internal static void Category_Expected(CategoryDeclAst category, string[] expected)
     => Model_Expected(category.ToModel(), expected);
 }

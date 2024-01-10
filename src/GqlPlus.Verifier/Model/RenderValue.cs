@@ -1,34 +1,34 @@
 ﻿namespace GqlPlus.Verifier.Model;
 
-public record class ModelValue(string Tag)
+public record class RenderValue(string Tag)
 {
-  private readonly List<ModelValue> _list = [];
-  private readonly Map<ModelValue> _map = [];
+  private readonly List<RenderValue> _list = [];
+  private readonly Map<RenderValue> _map = [];
 
   public bool IsEmpty => _list.Count == 0 && _map.Count == 0 && Boolean is null && string.IsNullOrEmpty(Identifier) && string.IsNullOrEmpty(String) && Decimal is null;
   public bool? Boolean { get; set; }
   public string? Identifier { get; set; }
   public string? String { get; set; }
   public decimal? Decimal { get; set; }
-  public IReadOnlyList<ModelValue> List => _list;
+  public IReadOnlyList<RenderValue> List => _list;
   public bool Flow { get; }
-  public IReadOnlyMap<ModelValue> Map => _map;
+  public IReadOnlyMap<RenderValue> Map => _map;
 
-  public ModelValue(string tag, bool? value)
+  public RenderValue(string tag, bool? value)
     : this(tag) => Boolean = value;
-  public ModelValue(string tag, string? value)
+  public RenderValue(string tag, string? value)
     : this(tag) => Identifier = value;
-  public ModelValue(string tag, decimal? value)
+  public RenderValue(string tag, decimal? value)
     : this(tag) => Decimal = value;
-  public ModelValue(string tag, IEnumerable<ModelValue> list, bool flow = false)
+  public RenderValue(string tag, IEnumerable<RenderValue> list, bool flow = false)
     : this(tag) => (_list, Flow) = (list.ToList(), flow);
-  public ModelValue(string tag, IReadOnlyMap<ModelValue> map)
+  public RenderValue(string tag, IReadOnlyMap<RenderValue> map)
     : this(tag) => _map = new(map);
 
-  public static ModelValue Str(string value)
-    => new ModelValue("") with { String = value };
+  public static RenderValue Str(string? value)
+    => new RenderValue("") with { String = value };
 
-  public ModelValue Add(ModelValue value)
+  public RenderValue Add(RenderValue value)
   {
     if (value.IsEmpty) {
       return this;
@@ -38,7 +38,7 @@ public record class ModelValue(string Tag)
     return this;
   }
 
-  public ModelValue Add(string key, ModelValue value)
+  public RenderValue Add(string key, RenderValue value)
   {
     if (value.IsEmpty) {
       return this;
@@ -47,5 +47,7 @@ public record class ModelValue(string Tag)
     _map.Add(key, value);
     return this;
   }
-}
 
+  public string ToYaml()
+    => RenderYaml.Serializer.Serialize(this);
+}

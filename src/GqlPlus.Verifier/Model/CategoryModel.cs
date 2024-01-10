@@ -2,19 +2,28 @@
 
 namespace GqlPlus.Verifier.Model;
 
-public enum ResolutionModel { Parallel, Sequential, Single }
-
-public static class CategoryHelper
+internal record class CategoryModel(string Name, string Output)
+  : ModelAliased(Name)
 {
-  public static ModelValue ToModel(this CategoryDeclAst category)
-    => new ModelValue("_Category")
-      .Add("name", new("", category.Name))
-      .Add("description", ModelValue.Str(category.Description))
-      .Add("aliases", new("", category.Aliases.Select(a => new ModelValue("", a)), true))
-      .Add("resolution", new("_Resolution", category.Option.ToString()))
-      .Add("output", new("", category.Output))
-      .Add("modifiers", new("", category.Modifiers.Select(m => m.ToModel()), true));
+  public CategoryOption Resolution { get; set; } = CategoryOption.Parallel;
+  public ModifierModel[] Modifiers { get; set; } = [];
 
-  public static string ToYaml(this ModelValue model)
-    => ModelYaml.Serializer.Serialize(model);
+  protected override string Tag => "Category";
+
+  public override RenderValue Render()
+    => base.Render()
+      .Add("resolution", new("_Resolution", Resolution.ToString()))
+      .Add("output", new("", Output))
+      .Add("modifiers", new("", Modifiers.Select(m => m.Render()), true));
+}
+
+internal static class CategoryHelper
+{
+  internal static CategoryModel ToModel(this CategoryDeclAst category)
+    => new(category.Name, category.Output) {
+      Aliases = category.Aliases,
+      Description = category.Description,
+      Resolution = category.Option,
+      Modifiers = [.. category.Modifiers.Select(m => m.ToModel())]
+    };
 }

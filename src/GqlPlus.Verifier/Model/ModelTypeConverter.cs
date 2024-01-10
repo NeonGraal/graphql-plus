@@ -8,12 +8,12 @@ internal class ModelTypeConverter : IYamlTypeConverter
 {
   public static readonly IYamlTypeConverter Instance = new ModelTypeConverter();
 
-  public bool Accepts(Type type) => type == typeof(ModelValue);
+  public bool Accepts(Type type) => type == typeof(RenderValue);
   public object? ReadYaml(IParser parser, Type type) => throw new NotImplementedException();
 
   public void WriteYaml(IEmitter emitter, object? value, Type type)
   {
-    if (value is ModelValue model) {
+    if (value is RenderValue model) {
       var isString = !string.IsNullOrWhiteSpace(model.String);
       var plainImplicit = string.IsNullOrWhiteSpace(model.Tag) && !isString;
       var tag = isString || plainImplicit ? new TagName() : new TagName("!!" + model.Tag);
@@ -39,7 +39,7 @@ internal class ModelTypeConverter : IYamlTypeConverter
         return;
       }
 
-      var text = model switch { { Boolean: not null } => $"{model.Boolean}", { Decimal: not null } => $"{model.Decimal}", { String: not null } => model.String, { Identifier: not null } => model.Identifier,
+      var text = model switch { { Boolean: not null } => model.Boolean == true ? "true" : "false", { Decimal: not null } => $"{model.Decimal}", { String: not null } => model.String, { Identifier: not null } => model.Identifier,
         _ => ""
       };
 

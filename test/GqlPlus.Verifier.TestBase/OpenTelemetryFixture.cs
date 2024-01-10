@@ -1,9 +1,9 @@
-﻿using OpenTelemetry.Resources;
-using OpenTelemetry.Trace;
-using OpenTelemetry;
-using System.Diagnostics;
-using Xunit;
+﻿using System.Diagnostics;
 using GqlPlus.Verifier.TestBase;
+using OpenTelemetry;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
+using Xunit;
 using YamlDotNet.Serialization;
 
 namespace GqlPlus.Verifier;

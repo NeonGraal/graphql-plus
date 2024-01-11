@@ -8,6 +8,6 @@ internal sealed class ParameterModelChecks : ModelDescribedChecks<string, Parame
   protected override IRendering AstToModel(ParameterAst ast)
     => ast.ToModel();
 
-  protected override ParameterAst NewAst(string input, string description)
+  protected override ParameterAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);
 }

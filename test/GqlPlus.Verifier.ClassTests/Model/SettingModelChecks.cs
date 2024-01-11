@@ -8,7 +8,7 @@ internal sealed class SettingModelChecks : ModelDescribedChecks<SettingInput, Op
   protected override IRendering AstToModel(OptionSettingAst ast)
     => ast.ToModel();
 
-  protected override OptionSettingAst NewAst(SettingInput input, string description)
+  protected override OptionSettingAst NewDescribedAst(SettingInput input, string description)
     => input.ToAst(description);
 }
 

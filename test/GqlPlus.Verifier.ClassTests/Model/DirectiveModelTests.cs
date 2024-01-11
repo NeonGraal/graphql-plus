@@ -44,7 +44,7 @@ public class DirectiveModelTests : ModelAliasedTests<string>
       },
       ["!_Directive",
         $"aliases: [{string.Join(", ", aliases)}]",
-        "description: " + ModelBaseChecks.YamlQuoted(contents),
+        "description: " + _checks.YamlQuoted(contents),
         "locations: !_Set(_Location) " + ExpectedLocations(locations),
         "name: " + name,
         "parameters:",

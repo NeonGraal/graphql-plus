@@ -8,6 +8,6 @@ internal sealed class DirectiveModelChecks : ModelAliasedChecks<string, Directiv
   protected override IRendering AstToModel(DirectiveDeclAst aliased)
     => aliased.ToModel();
 
-  protected override DirectiveDeclAst NewAst(string input, string description)
+  protected override DirectiveDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);
 }

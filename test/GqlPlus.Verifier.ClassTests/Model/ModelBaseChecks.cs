@@ -1,6 +1,10 @@
-﻿namespace GqlPlus.Verifier.Model;
+﻿using System.Threading.Tasks;
+using GqlPlus.Verifier.Ast;
 
-internal abstract class ModelBaseChecks : IModelBaseChecks
+namespace GqlPlus.Verifier.Model;
+
+internal abstract class ModelBaseChecks<TInput, TAst> : IModelBaseChecks<TInput>
+  where TAst : AstBase
 {
   internal static void Model_Expected(IRendering model, string[] expected)
   {
@@ -9,15 +13,22 @@ internal abstract class ModelBaseChecks : IModelBaseChecks
     render.ToLines().Should().BeEquivalentTo(expected);
   }
 
-  internal static string YamlQuoted(string input)
+  public string YamlQuoted(string input)
     => $"'{input.Replace("'", "''")}'";
 
-  void IModelBaseChecks.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
-  string IModelBaseChecks.YamlQuoted(string input) => YamlQuoted(input);
+  protected abstract TAst NewBaseAst(TInput input);
+  protected abstract IRendering AstToModel(TAst ast);
+
+  void IModelBaseChecks<TInput>.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
+  AstBase IModelBaseChecks<TInput>.BaseAst(TInput input) => NewBaseAst(input);
+  IRendering IModelBaseChecks<TInput>.ToModel(AstBase ast) => AstToModel((TAst)ast);
 }
 
-internal interface IModelBaseChecks
+internal interface IModelBaseChecks<TInput>
 {
+  AstBase BaseAst(TInput input);
+  IRendering ToModel(AstBase ast);
+
   void Model_Expected(IRendering model, string[] expected);
   string YamlQuoted(string input);
 }

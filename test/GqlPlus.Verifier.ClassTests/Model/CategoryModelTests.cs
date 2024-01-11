@@ -44,7 +44,7 @@ public class CategoryModelTests : ModelAliasedTests<string>
       },
       ["!_Category",
         $"aliases: [{string.Join(", ", aliases)}]",
-        "description: " + ModelBaseChecks.YamlQuoted(contents),
+        "description: " + _checks.YamlQuoted(contents),
         "modifiers: [!_Modifier List, !_Modifier Optional]",
         "name: " + name,
         "output: " + output,

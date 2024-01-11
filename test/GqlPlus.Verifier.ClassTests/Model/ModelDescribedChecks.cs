@@ -1,24 +1,22 @@
-﻿using AutoFixture;
-using GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Verifier.Ast;
 
 namespace GqlPlus.Verifier.Model;
 
 internal abstract class ModelDescribedChecks<TInput, TAst>
-  : ModelBaseChecks, IModelDescribedChecks<TInput>
-  where TAst : IAstDescribed
+  : ModelBaseChecks<TInput, TAst>, IModelDescribedChecks<TInput>
+  where TAst : AstBase, IAstDescribed
 {
   internal void AstExpected(TAst ast, string[] expected)
     => Model_Expected(AstToModel(ast), expected);
 
-  protected abstract TAst NewAst(TInput input, string description);
-  protected abstract IRendering AstToModel(TAst ast);
+  protected abstract TAst NewDescribedAst(TInput input, string description);
 
-  IAstDescribed IModelDescribedChecks<TInput>.DescribedAst(TInput input, string description) => NewAst(input, description);
-  IRendering IModelDescribedChecks<TInput>.ToModel(IAstDescribed ast) => AstToModel((TAst)ast);
+  protected override TAst NewBaseAst(TInput input) => NewDescribedAst(input, "");
+
+  AstBase IModelDescribedChecks<TInput>.DescribedAst(TInput input, string description) => NewDescribedAst(input, description);
 }
 
-internal interface IModelDescribedChecks<TInput> : IModelBaseChecks
+internal interface IModelDescribedChecks<TInput> : IModelBaseChecks<TInput>
 {
-  IAstDescribed DescribedAst(TInput input, string description);
-  IRendering ToModel(IAstDescribed ast);
+  AstBase DescribedAst(TInput input, string description);
 }

@@ -3,11 +3,11 @@ using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Model;
 
-public class CategoryModelTests : ModelAliasedTests
+public class CategoryModelTests : ModelAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Name(string output, string name)
-    => CategoryModelChecks.Category_Expected(
+    => _checks.AstExpected(
       new(AstNulls.At, name, output),
       ["!_Category",
         "name: " + name,
@@ -16,7 +16,7 @@ public class CategoryModelTests : ModelAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void Model_Resolution(string output, CategoryOption option)
-    => CategoryModelChecks.Category_Expected(
+    => _checks.AstExpected(
       new(AstNulls.At, output) { Option = option },
       ["!_Category",
         "name: " + output.Camelize(),
@@ -25,7 +25,7 @@ public class CategoryModelTests : ModelAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void Model_Modifiers(string output)
-    => CategoryModelChecks.Category_Expected(
+    => _checks.AstExpected(
       new(AstNulls.At, output) { Modifiers = TestMods() },
       ["!_Category",
         "modifiers: [!_Modifier List, !_Modifier Optional]",
@@ -35,7 +35,7 @@ public class CategoryModelTests : ModelAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(string output, string name, string contents, string[] aliases, CategoryOption option)
-    => CategoryModelChecks.Category_Expected(
+    => _checks.AstExpected(
       new(AstNulls.At, name, output) {
         Aliases = aliases,
         Description = contents,
@@ -58,7 +58,7 @@ public class CategoryModelTests : ModelAliasedTests
       "output: " + input,
       "resolution: !_Resolution Parallel"];
 
-  internal override ModelAliasedChecks<CategoryDeclAst> AliasedChecks => _checks;
+  internal override ModelAliasedChecks<string, CategoryDeclAst> AliasedChecks => _checks;
 
   private readonly CategoryModelChecks _checks = new();
 }

@@ -1,17 +1,17 @@
 ﻿namespace GqlPlus.Verifier.Model;
 
-public abstract class ModelAliasedTests : ModelDescribedTests
+public abstract class ModelAliasedTests<TInput> : ModelDescribedTests<TInput>
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_Aliases(string input, string[] aliases)
+  public void Model_Aliases(TInput input, string[] aliases)
     => AliasedChecks.Model_Expected(
       AliasedChecks.ToModel(AliasedChecks.AliasedAst(input) with { Aliases = aliases }),
       ExpectedDescriptionAliases(input, "", "aliases: [" + string.Join(", ", aliases) + "]").Tidy());
 
-  internal override IModelDescribedChecks DescribedChecks => AliasedChecks;
-  protected override string[] ExpectedDescription(string input, string description)
+  internal override IModelDescribedChecks<TInput> DescribedChecks => AliasedChecks;
+  protected override string[] ExpectedDescription(TInput input, string description)
     => ExpectedDescriptionAliases(input, description, "");
 
-  protected abstract string[] ExpectedDescriptionAliases(string input, string description, string aliases);
-  internal abstract IModelAliasedChecks AliasedChecks { get; }
+  internal abstract IModelAliasedChecks<TInput> AliasedChecks { get; }
+  protected abstract string[] ExpectedDescriptionAliases(TInput input, string description, string aliases);
 }

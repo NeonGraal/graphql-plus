@@ -2,19 +2,22 @@
 
 namespace GqlPlus.Verifier.Model;
 
-internal abstract class ModelDescribedChecks<TAst>
-  : ModelBaseChecks, IModelDescribedChecks
+internal abstract class ModelDescribedChecks<TInput, TAst>
+  : ModelBaseChecks, IModelDescribedChecks<TInput>
   where TAst : AstDescribed
 {
-  protected abstract TAst NewAst(string input);
-  protected abstract IRendering AstToModel(TAst aliased);
+  internal void AstExpected(TAst ast, string[] expected)
+    => Model_Expected(AstToModel(ast), expected);
 
-  AstDescribed IModelDescribedChecks.DescribedAst(string input) => NewAst(input);
-  IRendering IModelDescribedChecks.ToModel(AstDescribed aliased) => AstToModel((TAst)aliased);
+  protected abstract TAst NewAst(TInput input);
+  protected abstract IRendering AstToModel(TAst ast);
+
+  AstDescribed IModelDescribedChecks<TInput>.DescribedAst(TInput input) => NewAst(input);
+  IRendering IModelDescribedChecks<TInput>.ToModel(AstDescribed ast) => AstToModel((TAst)ast);
 }
 
-internal interface IModelDescribedChecks : IModelBaseChecks
+internal interface IModelDescribedChecks<TInput> : IModelBaseChecks
 {
-  AstDescribed DescribedAst(string input);
-  IRendering ToModel(AstDescribed aliased);
+  AstDescribed DescribedAst(TInput input);
+  IRendering ToModel(AstDescribed ast);
 }

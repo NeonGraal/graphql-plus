@@ -3,11 +3,11 @@ using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Model;
 
-public class DirectiveModelTests : ModelAliasedTests
+public class DirectiveModelTests : ModelAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Repeatable(string name, DirectiveOption option)
-    => DirectiveModelChecks.Directive_Expected(
+    => _checks.AstExpected(
       new(AstNulls.At, name) { Option = option },
       ["!_Directive",
         "name: " + name,
@@ -15,7 +15,7 @@ public class DirectiveModelTests : ModelAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void Model_Parameters(string name, string[] parameters)
-    => DirectiveModelChecks.Directive_Expected(
+    => _checks.AstExpected(
       new(AstNulls.At, name) { Parameters = parameters.Parameters() },
       ["!_Directive",
         "name: " + name,
@@ -25,7 +25,7 @@ public class DirectiveModelTests : ModelAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void Model_Locations(string name, DirectiveLocation[] locations)
-    => DirectiveModelChecks.Directive_Expected(
+    => _checks.AstExpected(
       new(AstNulls.At, name) { Locations = locations.Combine() },
       ["!_Directive",
         "locations: !_Set(_Location) " + ExpectedLocations(locations),
@@ -34,7 +34,7 @@ public class DirectiveModelTests : ModelAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(string name, string contents, string[] parameters, string[] aliases, DirectiveOption option, DirectiveLocation[] locations)
-    => DirectiveModelChecks.Directive_Expected(
+    => _checks.AstExpected(
       new(AstNulls.At, name) {
         Aliases = aliases,
         Description = contents,
@@ -68,7 +68,7 @@ public class DirectiveModelTests : ModelAliasedTests
       "name: " + input,
       "repeatable: false"];
 
-  internal override IModelAliasedChecks AliasedChecks => _checks;
+  internal override IModelAliasedChecks<string> AliasedChecks => _checks;
 
   private readonly DirectiveModelChecks _checks = new();
 }

@@ -15,6 +15,10 @@ public static class RenderYaml
   public static RenderValue Render(this IEnumerable<string> strings, bool flow = true)
     => new("", strings.Select(a => new RenderValue("", a)), flow);
 
+  public static IEnumerable<RenderValue> Render<T>(this IEnumerable<T> values)
+    where T : IRendering
+    => values.Select(v => v.Render());
+
   public static string TrueFalse(this bool value)
     => value ? "true" : "false";
 }

@@ -14,7 +14,7 @@ internal record class CategoryModel(string Name, string Output)
     => base.Render()
       .Add("resolution", new("_Resolution", Resolution.ToString()))
       .Add("output", new("", Output))
-      .Add("modifiers", new("", Modifiers.Select(m => m.Render()), true));
+      .Add("modifiers", new("", Modifiers.Render(), true));
 }
 
 internal static class CategoryHelper

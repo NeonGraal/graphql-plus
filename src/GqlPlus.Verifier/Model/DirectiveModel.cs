@@ -14,7 +14,7 @@ internal record class DirectiveModel(string Name)
   public override RenderValue Render()
     => base.Render()
       .Add("locations", new("_Set(_Location)", Locations.ToSet(), true))
-      .Add("parameters", new("", Parameters.Select(p => p.Render())))
+      .Add("parameters", new("", Parameters.Render()))
       .Add("repeatable", new("", Repeatable));
 }
 

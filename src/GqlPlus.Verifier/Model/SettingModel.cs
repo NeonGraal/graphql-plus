@@ -4,9 +4,14 @@ namespace GqlPlus.Verifier.Model;
 internal record class SettingModel(string Name)
   : ModelNamed(Name)
 {
-  // public ConstantModel Value { get; set; }
+  // TODO: public ConstantModel Value { get; set; }
 
   protected override string Tag => "Setting";
+
+  public override RenderValue Render()
+    => base.Render()
+      // .Add("value", Value.Render())
+      ;
 }
 
 internal static class SettingHelper

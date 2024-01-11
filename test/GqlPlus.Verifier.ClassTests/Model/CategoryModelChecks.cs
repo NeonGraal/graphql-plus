@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Model;
 
 internal sealed class CategoryModelChecks : ModelAliasedChecks<CategoryDeclAst>
 {
-  protected override CategoryDeclAst NewAliasedAst(string input)
+  protected override CategoryDeclAst NewAst(string input)
     => new(AstNulls.At, input);
 
   protected override IRendering AstToModel(CategoryDeclAst aliased)

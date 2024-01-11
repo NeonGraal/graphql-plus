@@ -8,12 +8,12 @@ internal sealed class SettingModelChecks : ModelDescribedChecks<SettingInput, Op
   protected override IRendering AstToModel(OptionSettingAst ast)
     => ast.ToModel();
 
-  protected override OptionSettingAst NewAst(SettingInput input)
-    => input.ToAst;
+  protected override OptionSettingAst NewAst(SettingInput input, string description)
+    => input.ToAst(description);
 }
 
 public record struct SettingInput(string Name, string Value)
 {
-  internal readonly OptionSettingAst ToAst
-    => new(AstNulls.At, Name, new FieldKeyAst(AstNulls.At, Value));
+  internal readonly OptionSettingAst ToAst(string description)
+    => new(AstNulls.At, Name, description, new FieldKeyAst(AstNulls.At, Value));
 }

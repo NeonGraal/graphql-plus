@@ -5,13 +5,13 @@ public abstract class ModelDescribedTests<TInput>
   [Theory, RepeatData(Repeats)]
   public void Model_Default(TInput input)
     => DescribedChecks.Model_Expected(
-      DescribedChecks.ToModel(DescribedChecks.DescribedAst(input)),
+      DescribedChecks.ToModel(DescribedChecks.DescribedAst(input, "")),
       ExpectedDescription(input, "").Tidy());
 
   [Theory, RepeatData(Repeats)]
   public void Model_Description(TInput input, string contents)
     => DescribedChecks.Model_Expected(
-      DescribedChecks.ToModel(DescribedChecks.DescribedAst(input) with { Description = contents }),
+      DescribedChecks.ToModel(DescribedChecks.DescribedAst(input, contents)),
       ExpectedDescription(input, "description: " + DescribedChecks.YamlQuoted(contents)).Tidy());
 
   protected abstract string[] ExpectedDescription(TInput input, string description);

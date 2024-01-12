@@ -6,9 +6,6 @@ internal abstract class ModelDescribedChecks<TInput, TAst>
   : ModelBaseChecks<TInput, TAst>, IModelDescribedChecks<TInput>
   where TAst : AstBase, IAstDescribed
 {
-  internal void AstExpected(TAst ast, string[] expected)
-    => Model_Expected(AstToModel(ast), expected);
-
   protected abstract TAst NewDescribedAst(TInput input, string description);
 
   protected override TAst NewBaseAst(TInput input) => NewDescribedAst(input, "");

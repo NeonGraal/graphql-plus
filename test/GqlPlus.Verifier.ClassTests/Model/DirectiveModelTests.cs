@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Model;
 
@@ -19,8 +20,8 @@ public class DirectiveModelTests : ModelAliasedTests<string>
       new(AstNulls.At, name) { Parameters = parameters.Parameters() },
       ["!_Directive",
         "name: " + name,
-        "parameters:",
-        .. parameters.Select(p => "- !_Parameter ''"),
+        "parameters: []",
+        //.. parameters.Select(p => "- !_Parameter ''"),
         "repeatable: false"]);
 
   [Theory, RepeatData(Repeats)]
@@ -47,8 +48,8 @@ public class DirectiveModelTests : ModelAliasedTests<string>
         "description: " + _checks.YamlQuoted(contents),
         "locations: !_Set(_Location) " + ExpectedLocations(locations),
         "name: " + name,
-        "parameters:",
-        .. parameters.Select(p => "- !_Parameter ''"),
+        "parameters: []",
+        //.. parameters.Select(p => "- !_Parameter ''"),
         "repeatable: " + (option == DirectiveOption.Repeatable).TrueFalse()]);
 
   private static string ExpectedLocations(DirectiveLocation[] locations)

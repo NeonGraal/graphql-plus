@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Model;
 internal record class SettingModel(string Name)
@@ -8,7 +9,7 @@ internal record class SettingModel(string Name)
 
   protected override string Tag => "Setting";
 
-  public override RenderValue Render()
+  internal override RenderStructure Render()
     => base.Render()
       // .Add("value", Value.Render())
       ;

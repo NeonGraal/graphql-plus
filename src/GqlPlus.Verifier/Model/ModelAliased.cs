@@ -1,11 +1,13 @@
-﻿namespace GqlPlus.Verifier.Model;
+﻿using GqlPlus.Verifier.Rendering;
+
+namespace GqlPlus.Verifier.Model;
 
 public abstract record class ModelAliased(string Name)
   : ModelNamed(Name)
 {
   public string[] Aliases { get; set; } = [];
 
-  public override RenderValue Render()
+  internal override RenderStructure Render()
     => base.Render()
       .Add("aliases", Aliases.Render());
 }

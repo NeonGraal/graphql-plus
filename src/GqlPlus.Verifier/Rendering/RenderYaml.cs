@@ -1,24 +1,24 @@
 ﻿using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace GqlPlus.Verifier.Model;
+namespace GqlPlus.Verifier.Rendering;
 
-public static class RenderYaml
+internal static class RenderYaml
 {
-  public static ISerializer Serializer { get; } = new SerializerBuilder()
+  internal static ISerializer Serializer { get; } = new SerializerBuilder()
       .WithNamingConvention(CamelCaseNamingConvention.Instance)
       .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull | DefaultValuesHandling.OmitEmptyCollections)
       .WithTypeConverter(RenderTypeConverter.Instance)
       .EnsureRoundtrip()
       .Build();
 
-  public static RenderValue Render(this IEnumerable<string> strings, bool flow = true)
-    => new("", strings.Select(a => new RenderValue("", a)), flow);
+  internal static RenderStructure Render(this IEnumerable<string> strings, bool flow = true)
+    => new("", strings.Select(a => new RenderStructure("", new RenderValue(a))), flow);
 
-  public static IEnumerable<RenderValue> Render<T>(this IEnumerable<T> values)
+  internal static IEnumerable<RenderStructure> Render<T>(this IEnumerable<T> values)
     where T : IRendering
     => values.Select(v => v.Render());
 
-  public static string TrueFalse(this bool value)
+  internal static string TrueFalse(this bool value)
     => value ? "true" : "false";
 }

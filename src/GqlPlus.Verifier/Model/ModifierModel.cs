@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Model;
 
@@ -7,12 +8,12 @@ internal record class ModifierModel(ModifierKind Kind) : IRendering
   public string Key { get; set; } = "";
   public bool KeyOptional { get; set; }
 
-  public RenderValue Render()
+  public RenderStructure Render()
     => Kind == ModifierKind.Dict
-      ? new RenderValue("_Modifier")
+      ? new RenderStructure("_Modifier")
        .Add("key", new("", Key))
        .Add("opt", KeyOptional ? new("", true) : new(""))
-      : new RenderValue("_Modifier", $"{Kind}");
+      : new RenderStructure("_Modifier", $"{Kind}");
 
 }
 

@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Model;
 
@@ -11,7 +12,7 @@ internal record class DirectiveModel(string Name)
 
   protected override string Tag => "Directive";
 
-  public override RenderValue Render()
+  internal override RenderStructure Render()
     => base.Render()
       .Add("locations", new("_Set(_Location)", Locations.ToSet(), true))
       .Add("parameters", new("", Parameters.Render()))
@@ -29,13 +30,13 @@ internal static class DirectiveHelper
     Parameters = [.. category.Parameters.Select(p => p.ToModel())],
   };
 
-  internal static IReadOnlyMap<RenderValue> ToSet(this DirectiveLocation locations)
+  internal static RenderStructure.Dict ToSet(this DirectiveLocation locations)
   {
-    var result = new Map<RenderValue>();
+    var result = new RenderStructure.Dict();
 
     foreach (var location in Enum.GetValues<DirectiveLocation>()) {
       if (location.ActualFlag() && locations.HasFlag(location)) {
-        result.Add($"{location}", new("", "_"));
+        result.Add(new($"{location}"), new("", "_"));
       }
     }
 

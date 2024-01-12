@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Model;
 
@@ -9,8 +10,8 @@ internal record class ParameterModel
   public ModifierModel[] Collections { get; set; } = [];
   // TODO: public ConstantModel? Default { get; set; }
 
-  public RenderValue Render()
-    => new RenderValue("_Parameter")
+  public RenderStructure Render()
+    => new RenderStructure("_Parameter")
       // .Add("type", Type.Render())
       .Add("collections", new("", Collections.Render(), true))
       .Add("description", RenderValue.Str(""))

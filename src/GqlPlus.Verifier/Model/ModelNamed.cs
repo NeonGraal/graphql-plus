@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Model;
+﻿using GqlPlus.Verifier.Rendering;
+
+namespace GqlPlus.Verifier.Model;
 
 public abstract record class ModelNamed(string Name)
   : IRendering
@@ -7,8 +9,9 @@ public abstract record class ModelNamed(string Name)
 
   protected abstract string Tag { get; }
 
-  public virtual RenderValue Render()
-    => new RenderValue("_" + Tag)
+  internal virtual RenderStructure Render()
+    => new RenderStructure("_" + Tag)
       .Add("name", new("", Name))
       .Add("description", RenderValue.Str(Description));
+  RenderStructure IRendering.Render() => Render();
 }

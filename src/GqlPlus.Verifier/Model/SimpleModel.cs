@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Model;
 
@@ -23,7 +24,7 @@ internal record class SimpleModel
     => (EnumType, Value) = (type, value);
   internal SimpleModel() { }
 
-  public RenderValue Render()
+  public RenderStructure Render()
     => Boolean is not null ? new("", Boolean)
       : Number is not null ? new("", Number)
       : String is not null ? new("", String)

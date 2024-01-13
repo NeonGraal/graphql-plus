@@ -1,4 +1,5 @@
-﻿using YamlDotNet.Core;
+﻿using System.Diagnostics.CodeAnalysis;
+using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
 
@@ -8,16 +9,13 @@ internal class RenderTypeConverter : IYamlTypeConverter
 {
   public static readonly IYamlTypeConverter Instance = new RenderTypeConverter();
 
-  public bool Accepts(Type type) => type == typeof(RenderStructure) || type == typeof(RenderValue);
+  public bool Accepts(Type type) => type == typeof(RenderStructure);
+
+  [ExcludeFromCodeCoverage]
   public object? ReadYaml(IParser parser, Type type) => throw new NotImplementedException();
 
   public void WriteYaml(IEmitter emitter, object? yaml, Type type)
   {
-    if (yaml is RenderValue value) {
-      WriteValue(emitter, value, "");
-      return;
-    }
-
     if (yaml is RenderStructure model) {
       var plainImplicit = string.IsNullOrWhiteSpace(model.Tag);
       var tag = plainImplicit ? new TagName() : new TagName("!" + model.Tag);
@@ -50,7 +48,7 @@ internal class RenderTypeConverter : IYamlTypeConverter
     }
   }
 
-  private void WriteValue(IEmitter emitter, RenderValue value, string tag)
+  private static void WriteValue(IEmitter emitter, RenderValue value, string tag)
   {
     var isString = !string.IsNullOrWhiteSpace(value.String);
     var plainImplicit = string.IsNullOrWhiteSpace(tag) && !isString;

@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Rendering;
 
-namespace GqlPlus.Verifier.Model;
+namespace GqlPlus.Verifier.Modelling;
 
 internal record class SimpleModel
   : IRendering
@@ -32,12 +32,13 @@ internal record class SimpleModel
       : new("Basic", "null");
 }
 
-internal static class SimpleHelper
+internal class SimpleModeller
+  : ModellerBase<FieldKeyAst, SimpleModel>, IModeller<FieldKeyAst>
 {
-  internal static SimpleModel ToModel(this FieldKeyAst fieldKey)
-    => fieldKey.Number.HasValue ? new(fieldKey.Number.Value)
-    : fieldKey.String is not null ? new(fieldKey.String)
-    : "Boolean".Equals(fieldKey.Type, StringComparison.OrdinalIgnoreCase) ? new("true".Equals(fieldKey.Value, StringComparison.OrdinalIgnoreCase))
-    : fieldKey.Type is not null ? new(fieldKey.Type, fieldKey.Value ?? "")
+  internal override SimpleModel ToModel(FieldKeyAst ast)
+    => ast.Number.HasValue ? new(ast.Number.Value)
+    : ast.String is not null ? new(ast.String)
+    : "Boolean".Equals(ast.Type, StringComparison.OrdinalIgnoreCase) ? new("true".Equals(ast.Value, StringComparison.OrdinalIgnoreCase))
+    : ast.Type is not null ? new(ast.Type, ast.Value ?? "")
     : new();
 }

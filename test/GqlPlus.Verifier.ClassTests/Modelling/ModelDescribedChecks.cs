@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 
-namespace GqlPlus.Verifier.Model;
+namespace GqlPlus.Verifier.Modelling;
 
 internal abstract class ModelDescribedChecks<TInput, TAst>
   : ModelBaseChecks<TInput, TAst>, IModelDescribedChecks<TInput>

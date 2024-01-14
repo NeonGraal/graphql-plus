@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
-namespace GqlPlus.Verifier.Model;
+namespace GqlPlus.Verifier.Modelling;
 
 internal record class DirectiveModel(string Name)
   : ModelAliased(Name)

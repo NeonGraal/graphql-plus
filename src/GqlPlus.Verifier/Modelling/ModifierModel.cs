@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Rendering;
 
-namespace GqlPlus.Verifier.Model;
+namespace GqlPlus.Verifier.Modelling;
 
 internal record class ModifierModel(ModifierKind Kind) : IRendering
 {

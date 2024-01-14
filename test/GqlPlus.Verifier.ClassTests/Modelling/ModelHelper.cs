@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Model;
+﻿namespace GqlPlus.Verifier.Modelling;
 
 internal static class ModelHelper
 {

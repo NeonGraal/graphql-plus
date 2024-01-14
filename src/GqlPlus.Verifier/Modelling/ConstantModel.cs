@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Rendering;
 
-namespace GqlPlus.Verifier.Model;
+namespace GqlPlus.Verifier.Modelling;
 
 internal class ConstantModel : Structured<SimpleModel, ConstantModel>, IRendering
 {
@@ -23,16 +23,17 @@ internal class ConstantModel : Structured<SimpleModel, ConstantModel>, IRenderin
     : new("");
 }
 
-internal static class ConstantHelper
+internal class ConstantModeller(IModeller<FieldKeyAst> value)
+  : ModellerBase<ConstantAst, ConstantModel>
 {
-  internal static ConstantModel ToModel(this ConstantAst constant)
-    => constant.Fields.Count > 0 ? new(constant.Fields.ToModel())
-    : constant.Values.Length > 0 ? new(constant.Values.Select(v => v.ToModel()))
-    : constant.Value is not null ? new(constant.Value.ToModel())
+  internal override ConstantModel ToModel(ConstantAst ast)
+    => ast.Fields.Count > 0 ? new(ToModel(ast.Fields))
+    : ast.Values.Length > 0 ? new(ast.Values.Select(ToModel))
+    : ast.Value is not null ? new(value.ToModel<SimpleModel>(ast.Value)!)
     : new(new SimpleModel());
 
-  internal static Dictionary<SimpleModel, ConstantModel> ToModel(this AstObject<ConstantAst> constant)
+  private Dictionary<SimpleModel, ConstantModel> ToModel(AstObject<ConstantAst> constant)
     => constant.ToDictionary(
-      p => p.Key.ToModel(),
-      p => p.Value.ToModel());
+      p => value.ToModel<SimpleModel>(p.Key)!,
+      p => ToModel(p.Value));
 }

@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Rendering;
 
-namespace GqlPlus.Verifier.Model;
+namespace GqlPlus.Verifier.Modelling;
 
 internal abstract class ModelBaseChecks<TInput, TAst> : IModelBaseChecks<TInput>
   where TAst : AstBase

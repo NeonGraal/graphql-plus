@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Model;
+﻿namespace GqlPlus.Verifier.Modelling;
 
 public abstract class ModelAliasedTests<TInput> : ModelDescribedTests<TInput>
 {

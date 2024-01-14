@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Rendering;
 
-namespace GqlPlus.Verifier.Model;
+namespace GqlPlus.Verifier.Modelling;
 
 public abstract record class ModelNamed(string Name)
   : IRendering

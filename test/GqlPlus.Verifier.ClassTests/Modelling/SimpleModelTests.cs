@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Rendering;
 
-namespace GqlPlus.Verifier.Model;
+namespace GqlPlus.Verifier.Modelling;
 
 public class SimpleModelTests : ModelBaseTests<string>
 {
@@ -25,5 +25,5 @@ public class SimpleModelTests : ModelBaseTests<string>
   protected override string[] ExpectedBase(string input)
     => [input];
 
-  private readonly SimpleModelChecks _checks = new();
+  private readonly SimpleModelChecks _checks = new(new SimpleModeller());
 }

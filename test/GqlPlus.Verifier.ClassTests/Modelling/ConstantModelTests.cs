@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 
-namespace GqlPlus.Verifier.Model;
+namespace GqlPlus.Verifier.Modelling;
 
 public class ConstantModelTests : ModelBaseTests<string>
 {
@@ -39,5 +39,5 @@ public class ConstantModelTests : ModelBaseTests<string>
   protected override string[] ExpectedBase(string input)
     => [input];
 
-  private readonly ConstantModelChecks _checks = new();
+  private readonly ConstantModelChecks _checks = new(new ConstantModeller(new SimpleModeller()));
 }

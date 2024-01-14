@@ -6,9 +6,14 @@ output _TypeScalar {
     | _ScalarUnion
     }
 
+output _ScalarRef<$base> {
+    : _TypeRef<_TypeKind.Scalar>
+        scalar: $base
+    }
+
 output _BaseScalar<$base> {
     : _BaseType<_TypeKind.Scalar>
-        base: $base
+        base: _ScalarRef<$base>
     }
 
 output _ScalarNumber {
@@ -37,3 +42,8 @@ output _ScalarUnion {
     : _BaseScalar<_Scalar.Union>
         references: _TypeSimple[]
     }
+
+output _ScalarValue<$base $value> {
+    : _ScalarRef<$base>
+        value: $value
+}

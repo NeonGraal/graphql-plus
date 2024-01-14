@@ -1,11 +1,15 @@
 output _Constant {
-        enum: _BaseType<_TypeKind.Enum>
-        value: String
-    | Internal
-    | Simple
+    | _Simple
     | _ConstantList
     | _ConstantMap
     }
+
+output _Simple {
+    | Boolean
+    | _ScalarValue<_Scalar.Number Number>
+    | _ScalarValue<_Scalar.String String>
+    | _EnumValue
+}
 
 output _ConstantList {
     | _Constant[]

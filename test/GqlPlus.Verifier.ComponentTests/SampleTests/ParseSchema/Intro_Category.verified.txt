@@ -27,7 +27,11 @@ Success
     output
     :
     I@17/9
-    String
+    _TypeRef
+    <
+      I@26/9
+      _TypeKind.Output
+    >
     !OF I@9/10
     modifiers
     :

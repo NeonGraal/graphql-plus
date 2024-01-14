@@ -6,7 +6,7 @@ output _Categories {
 output _Category {
     : _Aliased
         resolution: _Resolution
-        output: String
+        output: _TypeRef<_TypeKind.Output>
         modifiers: _Modifier[]
     }
 

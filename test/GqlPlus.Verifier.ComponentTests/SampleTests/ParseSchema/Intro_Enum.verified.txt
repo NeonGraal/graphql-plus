@@ -15,25 +15,29 @@ Success
     base
     :
     I@15/3
-    String
+    _TypeRef
+    <
+      I@24/3
+      _TypeKind.Enum
+    >
     ?
     !OF I@9/4
-    values
+    members
     :
-    I@17/4
+    I@18/4
     _Aliased
     []
     !OF I@9/5
-    allValues
+    allMembers
     :
-    I@20/5
-    _EnumValue
+    I@21/5
+    _EnumMember
     []
   }
 }
 {
   !O I@8/8
-  _EnumValue
+  _EnumMember
   :
   I@7/9
   _Aliased
@@ -42,6 +46,24 @@ Success
     enum
     :
     I@15/10
+    String
+  }
+}
+{
+  !O I@8/13
+  _EnumValue
+  :
+  I@7/14
+  _TypeRef
+  <
+    I@16/14
+    _TypeKind.Enum
+  >
+  {
+    !OF I@9/15
+    value
+    :
+    I@16/15
     String
   }
 }

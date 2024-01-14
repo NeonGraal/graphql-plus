@@ -26,124 +26,174 @@ Success
 }
 {
   !O I@8/9
-  _BaseScalar
+  _ScalarRef
   <
-    I@21/9
+    I@20/9
     $base
   >
   :
   I@7/10
-  _BaseType
+  _TypeRef
   <
-    I@17/10
+    I@16/10
     _TypeKind.Scalar
   >
   {
     !OF I@9/11
-    base
+    scalar
     :
-    I@16/11
+    I@18/11
     $base
   }
 }
 {
   !O I@8/14
-  _ScalarNumber
-  :
-  I@7/15
   _BaseScalar
   <
-    I@19/15
-    _Scalar.Number
+    I@21/14
+    $base
+  >
+  :
+  I@7/15
+  _BaseType
+  <
+    I@17/15
+    _TypeKind.Scalar
   >
   {
     !OF I@9/16
+    base
+    :
+    I@15/16
+    _ScalarRef
+    <
+      I@27/16
+      $base
+    >
+  }
+}
+{
+  !O I@8/19
+  _ScalarNumber
+  :
+  I@7/20
+  _BaseScalar
+  <
+    I@19/20
+    _Scalar.Number
+  >
+  {
+    !OF I@9/21
     ranges
     :
-    I@17/16
+    I@17/21
     _ScalarRange
     []
   }
 }
 {
-  !O I@8/19
+  !O I@8/24
   _ScalarRange
   {
-    !OF I@9/20
+    !OF I@9/25
     from
     :
-    I@15/20
+    I@15/25
     Number
     ?
-    !OF I@9/21
+    !OF I@9/26
     fromInclusive
     :
-    I@24/21
+    I@24/26
     Boolean
-    !OF I@9/22
+    !OF I@9/27
     to
     :
-    I@13/22
+    I@13/27
     Number
     ?
-    !OF I@9/23
+    !OF I@9/28
     toInclusive
     :
-    I@22/23
+    I@22/28
     Boolean
   }
 }
 {
-  !O I@8/26
+  !O I@8/31
   _ScalarString
   :
-  I@7/27
+  I@7/32
   _BaseScalar
   <
-    I@19/27
+    I@19/32
     _Scalar.String
   >
   {
-    !OF I@9/28
+    !OF I@9/33
     regexes
     :
-    I@18/28
+    I@18/33
     _ScalarRegex
     []
   }
 }
 {
-  !O I@8/31
+  !O I@8/36
   _ScalarRegex
   {
-    !OF I@9/32
+    !OF I@9/37
     regex
     :
-    I@16/32
+    I@16/37
     String
-    !OF I@9/33
+    !OF I@9/38
     exclude
     :
-    I@18/33
+    I@18/38
     Boolean
   }
 }
 {
-  !O I@8/36
+  !O I@8/41
   _ScalarUnion
   :
-  I@7/37
+  I@7/42
   _BaseScalar
   <
-    I@19/37
+    I@19/42
     _Scalar.Union
   >
   {
-    !OF I@9/38
+    !OF I@9/43
     references
     :
-    I@21/38
+    I@21/43
     _TypeSimple
     []
+  }
+}
+{
+  !O I@8/46
+  _ScalarValue
+  <
+    I@22/46
+    $base
+    I@28/46
+    $value
+  >
+  :
+  I@7/47
+  _ScalarRef
+  <
+    I@19/47
+    $base
+  >
+  {
+    !OF I@9/48
+    value
+    :
+    I@17/48
+    $value
   }
 }

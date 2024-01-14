@@ -7,7 +7,7 @@ namespace GqlPlus.Verifier.Verification.Schema;
 internal record class OutputContext(IMap<AstDescribed> Types, ITokenMessages Errors, IMap<string> EnumValues)
   : UsageContext(Types, Errors)
 {
-  public bool GetEnumValue(string value, out string? type)
+  internal bool GetEnumValue(string value, out string? type)
     => EnumValues.TryGetValue(value, out type);
 
   internal override void CheckArgumentType<TReference>(TReference type)
@@ -18,20 +18,34 @@ internal record class OutputContext(IMap<AstDescribed> Types, ITokenMessages Err
         type.Name = enumType!;
       }
 
-      if (!string.IsNullOrWhiteSpace(output.EnumValue)
-        && GetType(type.TypeName, out var theType)) {
-        if (theType is EnumDeclAst enumDecl) {
-          if (!enumDecl.HasValue(output.EnumValue!)) {
-            AddError(type, "Output Argument Enum Value", $"'{output.EnumValue}' is not a Value of '{type.Name}'");
-          }
-        } else {
-          AddError(type, "Output Argument Enum", $"'{type.Name}' is not an Enum type");
-        }
-
-        return;
+      if (!(string.IsNullOrWhiteSpace(output.EnumValue) || CheckEnumValue(output))) {
+        AddError(type, "Output Argument Enum Value", $"'{output.EnumValue}' is not a Value of '{type.Name}'");
       }
     }
 
     base.CheckArgumentType(type);
+  }
+
+  internal bool CheckEnumValue(OutputReferenceAst output)
+  {
+    var enumType = output.Name!;
+    while (GetType(enumType, out var theType)) {
+      if (theType is EnumDeclAst enumDecl) {
+        if (enumDecl.HasValue(output.EnumValue!)) {
+          return true;
+        }
+
+        if (string.IsNullOrWhiteSpace(enumDecl.Extends)) {
+          break;
+        }
+
+        enumType = enumDecl.Extends;
+      } else {
+        AddError(output, "Output Argument Enum", $"'{enumType}' is not an Enum type");
+        break;
+      }
+    }
+
+    return false;
   }
 }

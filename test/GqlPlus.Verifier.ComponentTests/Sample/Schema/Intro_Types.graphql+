@@ -12,10 +12,17 @@ output _BaseType<$kind> {
         kind: $kind
     }
 
-enum _TypeKind { Basic Enum Internal Input Output Scalar }
+enum _SimpleKind { Basic Enum Internal Scalar }
+
+enum _TypeKind { : _SimpleKind Input Output }
+
+output _TypeRef<$kind> {
+        kind: $kind
+        name: String
+}
 
 output _TypeSimple {
-    | _BaseType<_TypeKind.Basic>
-    | _BaseType<_TypeKind.Scalar>
-    | _BaseType<_TypeKind.Enum>
+    | _TypeRef<_TypeKind.Basic>
+    | _TypeRef<_TypeKind.Scalar>
+    | _TypeRef<_TypeKind.Enum>
     }

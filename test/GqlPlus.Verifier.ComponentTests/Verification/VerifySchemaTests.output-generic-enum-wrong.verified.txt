@@ -1,3 +1,4 @@
 ﻿[
-  Invalid Output Argument Enum. 'Wrong' is not an Enum type.
+  Invalid Output Argument Enum. 'Wrong' is not an Enum type.,
+  Invalid Output Argument Enum Value. 'unknown' is not a Value of 'Wrong'.
 ]

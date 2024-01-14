@@ -1,11 +1,16 @@
 output _TypeEnum {
     : _BaseType<_TypeKind.Enum>
-        base: String?
-        values: _Aliased[]
-        allValues: _EnumValue[]
+        base: _TypeRef<_TypeKind.Enum>?
+        members: _Aliased[]
+        allMembers: _EnumMember[]
+    }
+
+output _EnumMember {
+    : _Aliased
+        enum: String
     }
 
 output _EnumValue {
-    : _Aliased
-        enum: String
+    : _TypeRef<_TypeKind.Enum>
+        value: String
     }

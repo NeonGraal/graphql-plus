@@ -95,10 +95,60 @@ Success
   value
 }
 {
-  !E I@51/1
-  EnumField
-  !EV I@63/1
+  !E I@55/1
+  InEnumField
+  !EV I@69/1
   value
+}
+{
+  !E I@64/1
+  OutEnumField
+  !EV I@79/1
+  outEnumField
+}
+{
+  !E I@71/1
+  OutEnumExtends
+  :OutEnumExtended
+  !EV I@106/1
+  outExtended
+}
+{
+  !E I@125/1
+  OutEnumExtended
+  !EV I@143/1
+  outEnumExtends
+}
+{
+  !E I@52/1
+  OutEnumValue
+  !EV I@67/1
+  outEnumValue
+}
+{
+  !E I@112/1
+  OutEnumGen
+  !EV I@125/1
+  outEnumGen
+}
+{
+  !E I@127/1
+  OutExtendsGen
+  :OutExtendedGen
+  !EV I@160/1
+  outGenExtended
+}
+{
+  !E I@182/1
+  OutExtendedGen
+  !EV I@199/1
+  outGenExtends
+}
+{
+  !E I@105/1
+  OutValueGen
+  !EV I@119/1
+  outValueGen
 }
 {
   !E I@6/1
@@ -340,60 +390,60 @@ Success
 }
 {
   !I I@7/1
-  FieldNum
+  InFieldNum
   {
-    !IF I@18/1
+    !IF I@20/1
     field
     :
-    I@25/1
+    I@27/1
     Number
-    =( !k N@34/1 0 )
+    =( !k N@36/1 0 )
   }
 }
 {
   !I I@7/1
-  FieldStr
+  InFieldStr
   {
-    !IF I@18/1
+    !IF I@20/1
     field
     :
-    I@25/1
+    I@27/1
     String
-    =( !k S@34/1 '' )
+    =( !k S@36/1 '' )
   }
 }
 {
   !I I@7/1
-  FieldEnum
+  InFieldEnum
   {
-    !IF I@19/1
+    !IF I@21/1
     field
     :
-    I@26/1
-    EnumField
-    =( !k I@38/1 value )
+    I@28/1
+    InEnumField
+    =( !k I@42/1 value )
   }
 }
 {
   !I I@7/1
-  FieldNull
+  InFieldNull
   {
-    !IF I@19/1
+    !IF I@21/1
     field
     :
-    I@26/1
-    FieldNull
+    I@28/1
+    InFieldNull
     ?
-    =( !k I@39/1 Null.null )
+    =( !k I@43/1 Null.null )
   }
 }
 {
-  !I I@46/1
-  Param
+  !I I@55/1
+  OutParam
 }
 {
-  !I I@77/1
-  ParamScalar
+  !I I@89/1
+  OutParamScalar
 }
 {
   !I I@89/1
@@ -600,89 +650,149 @@ Success
 }
 {
   !O I@8/1
-  GenEnum
-  |
-  !AO
-  I@20/1
-  GenEnumRef
-  <
-    I@31/1
-    Boolean.false
-  >
-}
-{
-  !O I@55/1
-  GenEnumRef
-  <
-    I@67/1
-    $type
-  >
-  {
-    !OF I@75/1
-    field
-    :
-    I@83/1
-    $type
-  }
-}
-{
-  !O I@8/1
-  GenValue
-  |
-  !AO
-  I@21/1
-  GenValueRef
-  <
-    I@33/1
-    false
-  >
-}
-{
-  !O I@49/1
-  GenValueRef
-  <
-    I@62/1
-    $type
-  >
-  {
-    !OF I@70/1
-    field
-    :
-    I@78/1
-    $type
-  }
-}
-{
-  !O I@8/1
-  Params
-  {
-    !OF I@17/1
-    field
-    (
-      !P
-      I@23/1
-      Param
-    )
-    :
-    I@31/1
-    Params
-  }
-}
-{
-  !O I@8/1
-  ParamsScalar
+  OutFieldEnum
   {
     !OF I@23/1
     field
+    =
+    I@31/1
+    OutEnumField.outEnumField
+  }
+}
+{
+  !O I@8/1
+  OutFieldExtends
+  {
+    !OF I@26/1
+    field
+    =
+    I@34/1
+    OutEnumExtends.outEnumExtends
+  }
+}
+{
+  !O I@8/1
+  OutFieldValue
+  {
+    !OF I@24/1
+    field
+    =
+    I@32/1
+    .outEnumValue
+  }
+}
+{
+  !O I@8/1
+  OutGenEnum
+  |
+  !AO
+  I@23/1
+  OutGenEnumRef
+  <
+    I@37/1
+    OutEnumGen.outEnumGen
+  >
+}
+{
+  !O I@69/1
+  OutGenEnumRef
+  <
+    I@84/1
+    $type
+  >
+  {
+    !OF I@92/1
+    field
+    :
+    I@100/1
+    $type
+  }
+}
+{
+  !O I@8/1
+  OutGenExtends
+  |
+  !AO
+  I@26/1
+  OutGenExtendsRef
+  <
+    I@43/1
+    OutExtendsGen.outGenExtends
+  >
+}
+{
+  !O I@81/1
+  OutGenExtendsRef
+  <
+    I@99/1
+    $type
+  >
+  {
+    !OF I@107/1
+    field
+    :
+    I@115/1
+    $type
+  }
+}
+{
+  !O I@8/1
+  OutGenValue
+  |
+  !AO
+  I@24/1
+  OutGenValueRef
+  <
+    I@39/1
+    outValueGen
+  >
+}
+{
+  !O I@61/1
+  OutGenValueRef
+  <
+    I@77/1
+    $type
+  >
+  {
+    !OF I@85/1
+    field
+    :
+    I@93/1
+    $type
+  }
+}
+{
+  !O I@8/1
+  OutParams
+  {
+    !OF I@20/1
+    field
     (
       !P
-      I@29/1
-      ParamScalar
-      [ScalarParam]
+      I@26/1
+      OutParam
     )
     :
-    I@56/1
-    ParamsScalar
+    I@37/1
+    OutParams
+  }
+}
+{
+  !O I@8/1
+  OutParamsScalar
+  {
+    !OF I@26/1
+    field
+    (
+      !P
+      I@32/1
+      OutParamScalar
+      [OutScalarParam]
+    )
+    :
+    I@65/1
+    OutParamsScalar
   }
 }
 {
@@ -740,10 +850,10 @@ Success
   Cat
 }
 {
-  !S I@100/1
-  ScalarParam
+  !S I@115/1
+  OutScalarParam
   Number
-  !SR N@121/1
+  !SR N@139/1
   1
   :
   10

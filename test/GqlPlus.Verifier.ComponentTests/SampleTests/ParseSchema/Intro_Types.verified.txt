@@ -67,43 +67,68 @@ Success
 }
 {
   !E I@6/15
-  _TypeKind
-  !EV I@18/15
+  _SimpleKind
+  !EV I@20/15
   Basic
-  !EV I@24/15
+  !EV I@26/15
   Enum
-  !EV I@29/15
+  !EV I@31/15
   Internal
-  !EV I@38/15
-  Input
-  !EV I@44/15
-  Output
-  !EV I@51/15
+  !EV I@40/15
   Scalar
 }
 {
-  !O I@8/17
+  !E I@6/17
+  _TypeKind
+  :_SimpleKind
+  !EV I@32/17
+  Input
+  !EV I@38/17
+  Output
+}
+{
+  !O I@8/19
+  _TypeRef
+  <
+    I@18/19
+    $kind
+  >
+  {
+    !OF I@9/20
+    kind
+    :
+    I@16/20
+    $kind
+    !OF I@9/21
+    name
+    :
+    I@15/21
+    String
+  }
+}
+{
+  !O I@8/24
   _TypeSimple
   |
   !AO
-  I@7/18
-  _BaseType
+  I@7/25
+  _TypeRef
   <
-    I@17/18
+    I@16/25
     _TypeKind.Basic
   >
   !AO
-  I@7/19
-  _BaseType
+  I@7/26
+  _TypeRef
   <
-    I@17/19
+    I@16/26
     _TypeKind.Scalar
   >
   !AO
-  I@7/20
-  _BaseType
+  I@7/27
+  _TypeRef
   <
-    I@17/20
+    I@16/27
     _TypeKind.Enum
   >
 }

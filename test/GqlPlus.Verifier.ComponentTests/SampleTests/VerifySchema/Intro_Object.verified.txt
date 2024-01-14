@@ -3,6 +3,7 @@
   !!! I@25/4 : Invalid Output. '_Named' not defined. - '_Named' !!!,
   !!! I@36/7 : Invalid Output. '_Named' not defined. - '_Named' !!!,
   !!! I@7/13 : Invalid Output. '_BaseType' not defined. - '_BaseType' !!!,
+  !!! I@17/13 : Invalid Output Argument Enum Value. 'Internal' is not a Value of '_TypeKind'. - '_TypeKind' !!!,
   !!! I@17/13 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
   !!! I@7/14 : Invalid Output. '_TypeSimple' not defined. - '_TypeSimple' !!!,
   !!! I@20/20 : Invalid Output. '_Collection' not defined. - '_Collection' !!!,

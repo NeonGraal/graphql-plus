@@ -3,124 +3,134 @@ Success
 {
   !O I@8/1
   _Constant
-  {
-    !OF I@9/2
-    enum
-    :
-    I@15/2
-    _BaseType
-    <
-      I@25/2
-      _TypeKind.Enum
-    >
-    !OF I@9/3
-    value
-    :
-    I@16/3
-    String
-  }
   |
   !AO
-  I@7/4
-  Internal
+  I@7/2
+  _Simple
   !AO
-  I@7/5
-  Simple
-  !AO
-  I@7/6
+  I@7/3
   _ConstantList
   !AO
-  I@7/7
+  I@7/4
   _ConstantMap
 }
 {
-  !O I@8/10
-  _ConstantList
+  !O I@8/7
+  _Simple
   |
   !AO
+  I@7/8
+  Boolean
+  !AO
+  I@7/9
+  _ScalarValue
+  <
+    I@20/9
+    _Scalar.Number
+    I@35/9
+    Number
+  >
+  !AO
+  I@7/10
+  _ScalarValue
+  <
+    I@20/10
+    _Scalar.String
+    I@35/10
+    String
+  >
+  !AO
   I@7/11
-  _Constant
-  []
+  _EnumValue
 }
 {
   !O I@8/14
-  _ConstantMap
+  _ConstantList
   |
   !AO
   I@7/15
   _Constant
-  [Simple]
+  []
 }
 {
   !O I@8/18
-  _Collection
+  _ConstantMap
   |
   !AO
   I@7/19
+  _Constant
+  [Simple]
+}
+{
+  !O I@8/22
+  _Collection
+  |
+  !AO
+  I@7/23
   _BaseModifier
   <
-    I@21/19
+    I@21/23
     _ModifierKind.List
   >
   !AO
-  I@7/20
+  I@7/24
   _ModifierDictionary
 }
 {
-  !O I@8/23
+  !O I@8/27
   _Modifier
   |
   !AO
-  I@7/24
+  I@7/28
   _BaseModifier
   <
-    I@21/24
+    I@21/28
     _ModifierKind.Optional
   >
   !AO
-  I@7/25
+  I@7/29
   _Collection
 }
 {
-  !E I@6/28
+  !E I@6/32
   _ModifierKind
-  !EV I@22/28
+  !EV I@22/32
   Optional
-  !EV I@31/28
+  !EV I@31/32
   List
-  !EV I@36/28
+  !EV I@36/32
   Dictionary
 }
 {
-  !O I@8/30
+  !O I@8/34
   _BaseModifier
   <
-    I@23/30
+    I@23/34
     $kind
   >
   {
-    !OF I@9/31
+    !OF I@9/35
     kind
     :
-    I@16/31
+    I@16/35
     $kind
   }
 }
 {
-  !O I@8/34
+  !O I@8/38
   _ModifierDictionary
   :
-  I@7/35
+  I@7/39
   _BaseModifier
   <
-    I@21/35
+    I@21/39
     _ModifierKind.Dictionary
   >
   {
-    !OF I@9/36
+    !OF I@9/40
     by
     :
-    I@13/36
+    I@13/40
     _TypeSimple
   }
 }

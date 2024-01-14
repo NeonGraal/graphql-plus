@@ -1,4 +1,5 @@
 ﻿[
-  Invalid Output Field Enum Value. 'Wrong' is not an Enum type.,
+  Invalid Output Argument Enum. 'Wrong' is not an Enum type.,
+  Invalid Output Field Enum Value. 'unknown' is not a Value of 'Wrong'.,
   Invalid Output. Type kind mismatch for Wrong. Found Input.
 ]

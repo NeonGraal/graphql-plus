@@ -1,5 +1,9 @@
 ﻿[
-  !!! I@7/10 : Invalid Output. '_BaseType' not defined. - '_BaseType' !!!,
-  !!! I@17/10 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@21/38 : Invalid Output. '_TypeSimple' not defined. - '_TypeSimple' !!!
+  !!! I@7/10 : Invalid Output. '_TypeRef' not defined. - '_TypeRef' !!!,
+  !!! I@16/10 : Invalid Output Argument Enum Value. 'Scalar' is not a Value of '_TypeKind'. - '_TypeKind' !!!,
+  !!! I@16/10 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@7/15 : Invalid Output. '_BaseType' not defined. - '_BaseType' !!!,
+  !!! I@17/15 : Invalid Output Argument Enum Value. 'Scalar' is not a Value of '_TypeKind'. - '_TypeKind' !!!,
+  !!! I@17/15 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@21/43 : Invalid Output. '_TypeSimple' not defined. - '_TypeSimple' !!!
 ]

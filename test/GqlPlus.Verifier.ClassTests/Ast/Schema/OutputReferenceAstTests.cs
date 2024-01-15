@@ -24,7 +24,7 @@ public class OutputReferenceAstTests : AstReferenceTests<OutputReferenceAst>
       enumValue => new OutputReferenceAst(AstNulls.At, name) { EnumValue = enumValue },
       enumValue1 == enumValue2);
 
-  protected override string InputString(string input)
+  protected override string AbbreviatedString(string input)
     => $"( {input} )";
 
   private readonly AstReferenceChecks<OutputReferenceAst> _checks

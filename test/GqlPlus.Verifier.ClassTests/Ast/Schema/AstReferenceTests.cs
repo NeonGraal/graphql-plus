@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 public abstract class AstReferenceTests<TReference>
-  : AstBaseTests<string>
+  : AstAbbreviatedTests<string>
   where TReference : AstReference<TReference>
 {
   [Theory, RepeatData(Repeats)]
@@ -52,7 +52,7 @@ public abstract class AstReferenceTests<TReference>
   public void FullType_WithIsTypeParameterAndArguments(string input, string argument)
     => ReferenceChecks.FullType_WithIsTypeParameterAndArguments(input, argument);
 
-  internal override IAstBaseChecks<string> NamedChecks => ReferenceChecks;
+  internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ReferenceChecks;
 
   internal abstract IAstReferenceChecks<TReference> ReferenceChecks { get; }
 }

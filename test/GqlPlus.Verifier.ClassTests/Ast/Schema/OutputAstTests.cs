@@ -93,7 +93,7 @@ public class OutputAstTests : AstAliasedTests
   private static OutputReferenceAst Reference(string argument)
     => new(AstNulls.At, argument);
 
-  protected override string InputString(string input)
+  protected override string AbbreviatedString(string input)
     => $"( !O {input} )";
 
   private readonly AstAliasedChecks<OutputDeclAst> _checks

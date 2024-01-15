@@ -2,7 +2,7 @@
 
 public class InputReferenceAstTests : AstReferenceTests<InputReferenceAst>
 {
-  protected override string InputString(string input)
+  protected override string AbbreviatedString(string input)
     => $"( {input} )";
 
   private readonly AstReferenceChecks<InputReferenceAst> _checks

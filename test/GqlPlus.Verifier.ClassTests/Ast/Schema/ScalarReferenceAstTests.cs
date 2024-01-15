@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class ScalarReferenceAstTests : AstBaseTests
+public class ScalarReferenceAstTests : AstAbbreviatedTests
 {
-  protected override string InputString(string input)
-    => $"( !ST {input} )";
+  //protected override string AbbreviatedString(string input)
+  //  => $"( !ST {input} )";
 
-  private readonly AstBaseChecks<ScalarReferenceAst> _checks
+  private readonly AstAbbreviatedChecks<ScalarReferenceAst> _checks
     = new(name => new ScalarReferenceAst(AstNulls.At, name));
 
-  internal override IAstBaseChecks NamedChecks => _checks;
+  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

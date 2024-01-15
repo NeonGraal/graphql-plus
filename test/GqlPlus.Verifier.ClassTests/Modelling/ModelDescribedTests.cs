@@ -9,9 +9,9 @@ public abstract class ModelDescribedTests<TInput>
       DescribedChecks.ToModel(DescribedChecks.DescribedAst(input, contents)),
       ExpectedDescription(input, "description: " + DescribedChecks.YamlQuoted(contents)).Tidy());
 
-  protected override string[] ExpectedBase(TInput input) => ExpectedDescription(input, "");
-  internal override IModelBaseChecks<TInput> BaseChecks => DescribedChecks;
+  internal sealed override IModelBaseChecks<TInput> BaseChecks => DescribedChecks;
+  protected sealed override string[] ExpectedBase(TInput input) => ExpectedDescription(input, "");
 
-  protected abstract string[] ExpectedDescription(TInput input, string description);
   internal abstract IModelDescribedChecks<TInput> DescribedChecks { get; }
+  protected abstract string[] ExpectedDescription(TInput input, string description);
 }

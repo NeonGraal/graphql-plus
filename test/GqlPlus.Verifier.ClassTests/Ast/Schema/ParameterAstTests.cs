@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class ParameterAstTests : AstBaseTests
+public class ParameterAstTests : AstAbbreviatedTests
 {
 
   [Theory, RepeatData(Repeats)]
@@ -46,11 +46,8 @@ public class ParameterAstTests : AstBaseTests
       def => new ParameterAst(AstNulls.At, name) { Default = new FieldKeyAst(AstNulls.At, def) },
       def1 == def2);
 
-  protected override string InputString(string input)
-    => $"( !P {input} )";
-
-  private readonly AstBaseChecks<ParameterAst> _checks
+  private readonly AstAbbreviatedChecks<ParameterAst> _checks
     = new(name => new ParameterAst(AstNulls.At, name));
 
-  internal override IAstBaseChecks NamedChecks => _checks;
+  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Modelling;
 
 internal abstract class ModelBaseChecks<TInput, TAst>
   : IModelBaseChecks<TInput>
-  where TAst : IAstBase
+  where TAst : AstBase
 {
   private readonly IRendering Rendering;
 
@@ -38,7 +38,7 @@ internal abstract class ModelBaseChecks<TInput, TAst>
     => $"'{input.Replace("'", "''")}'";
 
   protected IModeller<TA> ForModeller<TA>()
-    where TA : IAstBase
+    where TA : AstBase
   {
     var modeller = Substitute.For<IModeller<TA>>();
     modeller.ToRenderer(default!)
@@ -48,7 +48,7 @@ internal abstract class ModelBaseChecks<TInput, TAst>
   }
 
   protected IModeller<TA> ForModeller<TA, TM>(Func<TA, TM> factory)
-    where TA : IAstBase
+    where TA : AstBase
     where TM : IRendering
   {
     var modeller = Substitute.For<IModeller<TA>>();
@@ -64,15 +64,15 @@ internal abstract class ModelBaseChecks<TInput, TAst>
   protected abstract IRendering AstToModel(TAst ast);
 
   void IModelBaseChecks<TInput>.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
-  IAstBase IModelBaseChecks<TInput>.BaseAst(TInput input) => NewBaseAst(input);
-  IRendering IModelBaseChecks<TInput>.ToModel(IAstBase ast) => AstToModel((TAst)ast);
+  AstBase IModelBaseChecks<TInput>.BaseAst(TInput input) => NewBaseAst(input);
+  IRendering IModelBaseChecks<TInput>.ToModel(AstBase ast) => AstToModel((TAst)ast);
   string IModelBaseChecks<TInput>.YamlQuoted(string input) => YamlQuoted(input);
 }
 
 internal interface IModelBaseChecks<TInput>
 {
-  IAstBase BaseAst(TInput input);
-  IRendering ToModel(IAstBase ast);
+  AstBase BaseAst(TInput input);
+  IRendering ToModel(AstBase ast);
 
   void Model_Expected(IRendering model, string[] expected);
   string YamlQuoted(string input);

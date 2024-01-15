@@ -8,8 +8,8 @@ public abstract class ModelAliasedTests<TInput> : ModelDescribedTests<TInput>
       AliasedChecks.ToModel(AliasedChecks.AliasedAst(input) with { Aliases = aliases }),
       ExpectedDescriptionAliases(input, "", "aliases: [" + string.Join(", ", aliases) + "]").Tidy());
 
-  internal override IModelDescribedChecks<TInput> DescribedChecks => AliasedChecks;
-  protected override string[] ExpectedDescription(TInput input, string description)
+  internal sealed override IModelDescribedChecks<TInput> DescribedChecks => AliasedChecks;
+  protected sealed override string[] ExpectedDescription(TInput input, string description)
     => ExpectedDescriptionAliases(input, description, "");
 
   internal abstract IModelAliasedChecks<TInput> AliasedChecks { get; }

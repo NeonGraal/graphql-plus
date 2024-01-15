@@ -8,17 +8,17 @@ public class ParseOutputReferenceTests(
 {
   [Theory, RepeatData(Repeats)]
   public void WithArgumentEnumValues_ReturnsCorrectAst(string name, string enumType, string[] enumValues)
-    => _test.TrueExpected(
+    => _checks.TrueExpected(
       name + "<" + enumValues.Joined(enumType + ".") + ">",
-      _test.Reference(name) with {
-        Arguments = [.. enumValues.Select(enumValue => _test.Reference(enumType) with { EnumValue = enumValue })]
+      _checks.Reference(name) with {
+        Arguments = [.. enumValues.Select(enumValue => _checks.Reference(enumType) with { EnumValue = enumValue })]
       });
 
   [Theory, RepeatData(Repeats)]
   public void WithArgumentEnumValueBad_ReturnsFalse(string name, string enumType)
-    => _test.False(name + "<" + enumType + ".>");
+    => _checks.False(name + "<" + enumType + ".>");
 
-  internal override IBaseReferenceChecks Checks => _test;
+  internal override IBaseReferenceChecks ReferenceChecks => _checks;
 
-  private readonly BaseReferenceParsedChecks<OutputReferenceAst> _test = new(new OutputFactories(), parser);
+  private readonly BaseReferenceParsedChecks<OutputReferenceAst> _checks = new(new OutputFactories(), parser);
 }

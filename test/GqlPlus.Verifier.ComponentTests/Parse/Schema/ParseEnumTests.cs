@@ -7,22 +7,22 @@ public sealed class ParseEnumTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithNameBad_ReturnsFalse(decimal id, string value)
-    => _test.False($"{id}{{{value}}}");
+    => _checks.False($"{id}{{{value}}}");
 
   [Theory, RepeatData(Repeats)]
   public void WithExtends_ReturnsCorrectAst(EnumInput input, string extends)
-    => _test.TrueExpected(input.Type + "{:" + extends + " " + input.Value + "}",
-      _test.AliasedFactory(input) with {
+    => _checks.TrueExpected(input.Type + "{:" + extends + " " + input.Value + "}",
+      _checks.AliasedFactory(input) with {
         Extends = extends,
       });
 
   [Theory, RepeatData(Repeats)]
   public void WithExtendsBad_ReturnsFalse(string name)
-    => _test.False(name + "{:}");
+    => _checks.False(name + "{:}");
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumValues_ReturnsCorrectAst(string name, string[] values)
-    => _test.TrueExpected(
+    => _checks.TrueExpected(
       name + values.Bracket("{", "}").Joined(),
       new EnumDeclAst(AstNulls.At, name) {
         Values = values.EnumValues(),
@@ -30,17 +30,17 @@ public sealed class ParseEnumTests
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumValuesBad_ReturnsFalse(string name, string[] values)
-    => _test.False(name + "{" + string.Join("|", values) + "}",
+    => _checks.False(name + "{" + string.Join("|", values) + "}",
       skipIf: values.Length < 2);
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumValuesNone_ReturnsFalse(string name)
-    => _test.False(name + "{}");
+    => _checks.False(name + "{}");
 
-  internal override IBaseAliasedChecks<EnumInput> AliasChecks => _test;
+  internal override IBaseAliasedChecks<EnumInput> AliasChecks => _checks;
 
-  private readonly ParseEnumChecks _test;
+  private readonly ParseEnumChecks _checks;
 
   public ParseEnumTests(Parser<EnumDeclAst>.D parser)
-    => _test = new(parser);
+    => _checks = new(parser);
 }

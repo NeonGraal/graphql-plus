@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class TypeParameterAstTests : AstBaseTests
+public class TypeParameterAstTests : AstAbbreviatedTests
 {
-  protected override string InputString(string input)
+  protected override string AbbreviatedString(string input)
     => $"( ${input} )";
 
-  private readonly AstBaseChecks<TypeParameterAst> _checks
+  private readonly AstAbbreviatedChecks<TypeParameterAst> _checks
     = new(name => new TypeParameterAst(AstNulls.At, name));
 
-  internal override IAstBaseChecks NamedChecks => _checks;
+  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

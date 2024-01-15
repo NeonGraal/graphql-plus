@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class SchemaAstTests : AstBaseTests
+public class SchemaAstTests : AstAbbreviatedTests
 {
-  internal override IAstBaseChecks<string> NamedChecks { get; }
-    = new AstBaseChecks<SchemaAst>(name => new SchemaAst(AstNulls.At, name));
+  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks { get; }
+    = new AstAbbreviatedChecks<SchemaAst>(name => new SchemaAst(AstNulls.At, name));
 
-  protected override string InputString(string input)
+  protected override string AbbreviatedString(string input)
     => $"( !G {input} Failure )";
 }

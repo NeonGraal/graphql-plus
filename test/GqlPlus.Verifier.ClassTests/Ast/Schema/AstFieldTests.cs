@@ -32,7 +32,7 @@ public abstract class AstFieldTests<TField, TReference>
   public void ModifiedType_WithModifiersAndArguments(FieldInput input, string argument)
     => FieldChecks.ModifiedType_WithModifiersAndArguments(input, argument);
 
-  internal override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
+  internal sealed override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 
   internal abstract IAstFieldChecks<TField, TReference> FieldChecks { get; }
 }

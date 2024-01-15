@@ -4,10 +4,10 @@ namespace GqlPlus.Verifier.Parse.Schema;
 
 public class ParseInputReferenceTests : BaseReferenceTests
 {
-  internal override IBaseReferenceChecks Checks => _test;
+  internal override IBaseReferenceChecks ReferenceChecks => _checks;
 
-  private readonly BaseReferenceParsedChecks<InputReferenceAst> _test;
+  private readonly BaseReferenceParsedChecks<InputReferenceAst> _checks;
 
   public ParseInputReferenceTests(Parser<InputReferenceAst>.D parser)
-    => _test = new(new InputFactories(), parser);
+    => _checks = new(new InputFactories(), parser);
 }

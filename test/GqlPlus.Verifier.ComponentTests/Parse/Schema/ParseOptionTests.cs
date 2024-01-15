@@ -8,11 +8,11 @@ public sealed class ParseOptionTests(
 {
   [Theory, RepeatData(Repeats)]
   public void WithNameBad_ReturnsFalse(decimal id)
-    => _test.False($"{id}{{}}");
+    => _checks.False($"{id}{{}}");
 
   [Theory, RepeatData(Repeats)]
   public void WithSettings_ReturnsCorrectAst(string name)
-    => _test.TrueExpected(
+    => _checks.TrueExpected(
       name + "{setting='setting'}",
       new OptionDeclAst(AstNulls.At, name) {
         Settings = s_settings.OptionSettings(),
@@ -20,14 +20,14 @@ public sealed class ParseOptionTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithSettingsBad_ReturnsFalse(string name)
-    => _test.False(name + "{random}");
+    => _checks.False(name + "{random}");
 
   [Theory, RepeatData(Repeats)]
   public void WithSettingsNone_ReturnsTrue(string name)
-    => _test.TrueExpected(name + "{}", new OptionDeclAst(AstNulls.At, name));
+    => _checks.TrueExpected(name + "{}", new OptionDeclAst(AstNulls.At, name));
 
-  internal override IBaseAliasedChecks<string> AliasChecks => _test;
+  internal override IBaseAliasedChecks<string> AliasChecks => _checks;
 
-  private readonly ParseOptionChecks _test = new(parser);
+  private readonly ParseOptionChecks _checks = new(parser);
   private static readonly string[] s_settings = ["setting"];
 }

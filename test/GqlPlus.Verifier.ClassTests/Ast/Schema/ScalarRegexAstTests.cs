@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class ScalarRegexAstTests : AstBaseTests
+public class ScalarRegexAstTests : AstAbbreviatedTests
 {
-  protected override string InputString(string input)
+  protected override string AbbreviatedString(string input)
     => $"( !SX /{input}/ )";
 
-  private readonly AstBaseChecks<ScalarRegexAst> _checks
+  private readonly AstAbbreviatedChecks<ScalarRegexAst> _checks
     = new(regex => new ScalarRegexAst(AstNulls.At, regex, false));
 
-  internal override IAstBaseChecks NamedChecks => _checks;
+  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

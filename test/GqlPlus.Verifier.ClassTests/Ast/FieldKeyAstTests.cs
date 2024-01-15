@@ -1,11 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast;
 
-public class FieldKeyAstTests
+public class FieldKeyAstTests : AstAbbreviatedTests
 {
-  [Fact]
-  public void HashCode_WithNull()
-    => _checks.HashCode(() => new FieldKeyAst(AstNulls.At) with { At = AstNulls.At });
-
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithNumber(decimal number)
     => _checks.HashCode(() => FieldKey(number));
@@ -17,10 +13,6 @@ public class FieldKeyAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.HashCode(() => FieldKey(enumType, enumValue));
-
-  [Theory, RepeatData(Repeats)]
-  public void HashCode_WithEnumValue(string enumValue)
-    => _checks.HashCode(enumValue.FieldKey);
 
   [Theory, RepeatData(Repeats)]
   public void String_WithNumber(decimal number)
@@ -38,12 +30,6 @@ public class FieldKeyAstTests
   public void String_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.String(() => FieldKey(enumType, enumValue),
       $"( !k {enumType}.{enumValue} )");
-
-  [Theory, RepeatData(Repeats)]
-  public void String_WithEnumValue(string enumValue)
-    => _checks.String(
-      enumValue.FieldKey,
-      $"( !k {enumValue} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithNumber(decimal number)
@@ -177,7 +163,9 @@ public class FieldKeyAstTests
     (left != right).Should().BeTrue();
   }
 
-  internal BaseAstChecks<FieldKeyAst> _checks = new();
+  internal AstAbbreviatedChecks<string, FieldKeyAst> _checks = new(value => value.FieldKey());
+
+  internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 
   private static FieldKeyAst FieldKey(string enumType, string enumValue)
     => new(AstNulls.At, enumType, enumValue);

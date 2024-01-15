@@ -4,27 +4,27 @@ public abstract class BaseReferenceTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string name)
-  => Checks.WithMinimum(name);
+  => ReferenceChecks.WithMinimum(name);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeParameter_ReturnsCorrectAst(string name)
-  => Checks.WithTypeParameter(name);
+  => ReferenceChecks.WithTypeParameter(name);
 
   [Fact]
   public void WithTypeParameterBad_ReturnsFalse()
-  => Checks.WithTypeParameterBad();
+  => ReferenceChecks.WithTypeParameterBad();
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeArguments_ReturnsCorrectAst(string name, string[] references)
-  => Checks.WithTypeArguments(name, references);
+  => ReferenceChecks.WithTypeArguments(name, references);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeArgumentsBad_ReturnsCorrectAst(string name, string[] references)
-  => Checks.WithTypeArgumentsBad(name, references);
+  => ReferenceChecks.WithTypeArgumentsBad(name, references);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeArgumentsNone_ReturnsFalse(string name)
-  => Checks.WithTypeArgumentsNone(name);
+  => ReferenceChecks.WithTypeArgumentsNone(name);
 
-  internal abstract IBaseReferenceChecks Checks { get; }
+  internal abstract IBaseReferenceChecks ReferenceChecks { get; }
 }

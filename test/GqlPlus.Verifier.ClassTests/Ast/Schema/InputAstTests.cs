@@ -93,7 +93,7 @@ public class InputAstTests : AstAliasedTests
   private static InputReferenceAst Reference(string argument)
     => new(AstNulls.At, argument);
 
-  protected override string InputString(string input)
+  protected override string AbbreviatedString(string input)
     => $"( !I {input} )";
 
   private readonly AstAliasedChecks<InputDeclAst> _checks

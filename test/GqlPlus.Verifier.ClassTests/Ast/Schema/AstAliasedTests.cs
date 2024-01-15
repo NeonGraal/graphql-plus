@@ -4,7 +4,7 @@ public abstract class AstAliasedTests
   : AstAliasedTests<string>
 { }
 
-public abstract class AstAliasedTests<I> : AstBaseTests<I>
+public abstract class AstAliasedTests<I> : AstAbbreviatedTests<I>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithAlias(I input, string aliased)
@@ -49,12 +49,12 @@ public abstract class AstAliasedTests<I> : AstBaseTests<I>
   protected virtual string AliasesString(I input, string aliases)
     => $"( !{AliasedChecks.Abbr} {input}{aliases} )";
 
-  protected override string InputString(I input) => AliasesString(input, "");
+  protected override string AbbreviatedString(I input) => AliasesString(input, "");
 
   private static string Aliases(params string[] aliases)
     => aliases.Bracket(" [", "]").Joined();
 
-  internal override IAstBaseChecks<I> NamedChecks => AliasedChecks;
+  internal sealed override IAstAbbreviatedChecks<I> AbbreviatedChecks => AliasedChecks;
 
   internal abstract IAstAliasedChecks<I> AliasedChecks { get; }
 }

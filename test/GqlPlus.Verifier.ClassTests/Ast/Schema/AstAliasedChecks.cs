@@ -9,7 +9,7 @@ internal sealed class AstAliasedChecks<TAliased>
 }
 
 internal class AstAliasedChecks<TInput, TAliased>
-  : AstBaseChecks<TInput, TAliased>, IAstAliasedChecks<TInput>
+  : AstAbbreviatedChecks<TInput, TAliased>, IAstAliasedChecks<TInput>
   where TAliased : AstAliased
 {
   public AstAliasedChecks(CreateBy<TInput> create)
@@ -54,7 +54,7 @@ internal interface IAstAliasedChecks
   : IAstAliasedChecks<string>, IAstBaseChecks
 { }
 
-internal interface IAstAliasedChecks<TInput> : IAstBaseChecks<TInput>
+internal interface IAstAliasedChecks<TInput> : IAstAbbreviatedChecks<TInput>
 {
   void HashCode(TInput input, params string[] aliases);
   void String(TInput input, string expected, params string[] aliases);

@@ -126,9 +126,9 @@ internal sealed class BaseObjectChecks<O, F, R>
   public AlternateAst<R> Alternate(string type, string description)
     => new(Reference(type, description));
 
-  protected internal override string AliasesString(ObjectInput input, string aliases)
+  protected internal sealed override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";
-  protected internal override O AliasedFactory(ObjectInput input)
+  protected internal sealed override O AliasedFactory(ObjectInput input)
     => Object(input.Name) with { Alternates = [Alternate(input.Other)] };
 }
 

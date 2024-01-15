@@ -8,9 +8,9 @@ public sealed class ParseEnumValueTests(
 {
   [Theory, RepeatData(Repeats)]
   public void WithNameBad_ReturnsFalse(decimal id, string value)
-    => _test.False($"{id}{{{value}}}");
+    => _checks.False($"{id}{{{value}}}");
 
-  internal override IBaseAliasedChecks<string> AliasChecks => _test;
+  internal override IBaseAliasedChecks<string> AliasChecks => _checks;
 
-  private readonly ParseEnumValueChecks _test = new(parser);
+  private readonly ParseEnumValueChecks _checks = new(parser);
 }

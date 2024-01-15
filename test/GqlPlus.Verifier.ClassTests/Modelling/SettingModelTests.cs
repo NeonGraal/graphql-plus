@@ -1,6 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Modelling;
 
-public class SettingModelTests : ModelDescribedTests<SettingInput>
+public class SettingModelTests
+  : ModelDescribedTests<SettingInput>
 {
   //[Theory, RepeatData(Repeats)]
   //public void Model_All(string name, string contents, string[] parameters, string[] aliases, SettingOption option, SettingLocation[] locations)
@@ -24,7 +25,8 @@ public class SettingModelTests : ModelDescribedTests<SettingInput>
   protected override string[] ExpectedDescription(SettingInput input, string description)
     => ["!_Setting",
       description,
-      "name: " + input.Name];
+      "name: " + input.Name,
+      "value: " + input.Value];
 
   internal override IModelDescribedChecks<SettingInput> DescribedChecks => _checks;
 

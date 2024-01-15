@@ -14,28 +14,29 @@ internal record class DirectiveModel(string Name)
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("locations", new("_Set(_Location)", Locations.ToSet(), true))
+      .Add("locations", new("_Set(_Location)", DirectiveModeller.ToSet(Locations), true))
       .Add("parameters", new("", Parameters.Render()))
       .Add("repeatable", new("", Repeatable));
 }
 
-internal static class DirectiveHelper
+internal class DirectiveModeller
+  : ModellerBase<DirectiveDeclAst, DirectiveModel>
 {
-  internal static DirectiveModel ToModel(this DirectiveDeclAst category)
-  => new(category.Name) {
-    Aliases = category.Aliases,
-    Description = category.Description,
-    Repeatable = category.Option == DirectiveOption.Repeatable,
-    Locations = category.Locations,
-    Parameters = [.. category.Parameters.Select(p => p.ToModel())],
-  };
+  internal override DirectiveModel ToModel(DirectiveDeclAst ast)
+    => new(ast.Name) {
+      Aliases = ast.Aliases,
+      Description = ast.Description,
+      Repeatable = ast.Option == DirectiveOption.Repeatable,
+      Locations = ast.Locations,
+      //Parameters = [.. category.Parameters.Select(p => p.ToModel())],
+    };
 
-  internal static RenderStructure.Dict ToSet(this DirectiveLocation locations)
+  internal static RenderStructure.Dict ToSet(DirectiveLocation locations)
   {
     var result = new RenderStructure.Dict();
 
     foreach (var location in Enum.GetValues<DirectiveLocation>()) {
-      if (location.ActualFlag() && locations.HasFlag(location)) {
+      if (ActualFlag(location) && locations.HasFlag(location)) {
         result.Add(new($"{location}"), new("", "_"));
       }
     }
@@ -43,9 +44,9 @@ internal static class DirectiveHelper
     return result;
   }
 
-  internal static bool ActualFlag(this DirectiveLocation location)
+  internal static bool ActualFlag(DirectiveLocation location)
     => location is not DirectiveLocation.None and not DirectiveLocation.None;
 
-  internal static DirectiveLocation Combine(this DirectiveLocation[] values)
+  internal static DirectiveLocation Combine(DirectiveLocation[] values)
     => values.Aggregate((a, b) => a | b);
 }

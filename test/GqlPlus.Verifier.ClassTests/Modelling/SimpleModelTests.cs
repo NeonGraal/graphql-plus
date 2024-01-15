@@ -25,5 +25,5 @@ public class SimpleModelTests : ModelBaseTests<string>
   protected override string[] ExpectedBase(string input)
     => [input];
 
-  private readonly SimpleModelChecks _checks = new(new SimpleModeller());
+  private readonly SimpleModelChecks _checks = new();
 }

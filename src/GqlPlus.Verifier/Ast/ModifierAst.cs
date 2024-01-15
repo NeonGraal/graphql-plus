@@ -2,7 +2,8 @@
 
 namespace GqlPlus.Verifier.Ast;
 
-public sealed record class ModifierAst(TokenAt At) : IEquatable<ModifierAst>
+public sealed record class ModifierAst(TokenAt At)
+  : IEquatable<ModifierAst>, IAstBase
 {
   internal static ModifierAst Optional(TokenAt at)
     => new(at, ModifierKind.Optional, "?");

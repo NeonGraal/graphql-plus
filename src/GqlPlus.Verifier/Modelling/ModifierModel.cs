@@ -17,11 +17,12 @@ internal record class ModifierModel(ModifierKind Kind) : IRendering
 
 }
 
-internal static class ModifierHelper
+internal class ModifierModeller
+  : ModellerBase<ModifierAst, ModifierModel>
 {
-  internal static ModifierModel ToModel(this ModifierAst modifier)
-    => new(modifier.Kind) {
-      Key = modifier.Key ?? "",
-      KeyOptional = modifier.KeyOptional,
+  internal override ModifierModel ToModel(ModifierAst ast)
+    => new(ast.Kind) {
+      Key = ast.Key ?? "",
+      KeyOptional = ast.KeyOptional,
     };
 }

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
@@ -19,12 +20,14 @@ internal record class ParameterModel
       ;
 }
 
-internal static class ParameterHelper
+internal class ParameterModeller(
+  IModeller<ModifierAst> modifier
+) : ModellerBase<ParameterAst, ParameterModel>
 {
-  internal static ParameterModel ToModel(this ParameterAst parameter)
+  internal override ParameterModel ToModel(ParameterAst ast)
     => new() {
       // Type = parameter.Type.ToModel(),
-      Collections = [.. parameter.Modifiers.Select(m => m.ToModel())]
+      Collections = [.. ast.Modifiers.Select(modifier.ToModel<ModifierModel>)]
       // Default = parameter.Default.ToModel(),
     };
 }

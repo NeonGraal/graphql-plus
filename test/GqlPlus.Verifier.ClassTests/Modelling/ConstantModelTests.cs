@@ -6,13 +6,17 @@ public class ConstantModelTests : ModelBaseTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_List(string value)
-    => _checks.AstExpected(
+    => _checks
+    .RenderReturn("Constant")
+    .AstExpected(
       new(AstNulls.At, value.ConstantList()),
       ["- " + value, "- " + value]);
 
   [Theory, RepeatData(Repeats)]
   public void Model_Object(string key, string value)
-    => _checks.AstExpected(
+    => _checks
+    .RenderReturn("Constant")
+    .AstExpected(
       new(AstNulls.At, value.ConstantObject(key)),
       ["!_ConstantMap", key + ": " + value, value + ": " + key]);
 
@@ -39,5 +43,5 @@ public class ConstantModelTests : ModelBaseTests<string>
   protected override string[] ExpectedBase(string input)
     => [input];
 
-  private readonly ConstantModelChecks _checks = new(new ConstantModeller(new SimpleModeller()));
+  private readonly ConstantModelChecks _checks = new();
 }

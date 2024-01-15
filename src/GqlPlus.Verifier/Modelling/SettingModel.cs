@@ -1,24 +1,25 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
-internal record class SettingModel(string Name)
+internal record class SettingModel(string Name, ConstantModel Value)
   : ModelNamed(Name)
 {
-  // TODO: public ConstantModel Value { get; set; }
-
   protected override string Tag => "Setting";
 
   internal override RenderStructure Render()
     => base.Render()
-      // .Add("value", Value.Render())
-      ;
+      .Add("value", Value.Render())
+    ;
 }
 
-internal static class SettingHelper
+internal class SettingModeller(
+  IModeller<ConstantAst> constant
+) : ModellerBase<OptionSettingAst, SettingModel>
 {
-  internal static SettingModel ToModel(this OptionSettingAst setting)
-    => new(setting.Name) {
-      Description = setting.Description,
+  internal override SettingModel ToModel(OptionSettingAst ast)
+    => new(ast.Name, constant.ToModel<ConstantModel>(ast.Value)!) {
+      Description = ast.Description,
     };
 }

@@ -1,6 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Modelling;
 
-public abstract class ModelDescribedTests<TInput> : ModelBaseTests<TInput>
+public abstract class ModelDescribedTests<TInput>
+  : ModelBaseTests<TInput>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Description(TInput input, string contents)

@@ -16,18 +16,19 @@ public class DirectiveModelTests : ModelAliasedTests<string>
 
   [Theory, RepeatData(Repeats)]
   public void Model_Parameters(string name, string[] parameters)
-    => _checks.AstExpected(
+    => _checks
+    .RenderReturn("Parameters")
+    .AstExpected(
       new(AstNulls.At, name) { Parameters = parameters.Parameters() },
       ["!_Directive",
         "name: " + name,
-        "parameters: []",
         //.. parameters.Select(p => "- !_Parameter ''"),
         "repeatable: false"]);
 
   [Theory, RepeatData(Repeats)]
   public void Model_Locations(string name, DirectiveLocation[] locations)
     => _checks.AstExpected(
-      new(AstNulls.At, name) { Locations = locations.Combine() },
+      new(AstNulls.At, name) { Locations = DirectiveModeller.Combine(locations) },
       ["!_Directive",
         "locations: !_Set(_Location) " + ExpectedLocations(locations),
         "name: " + name,
@@ -35,11 +36,13 @@ public class DirectiveModelTests : ModelAliasedTests<string>
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(string name, string contents, string[] parameters, string[] aliases, DirectiveOption option, DirectiveLocation[] locations)
-    => _checks.AstExpected(
+    => _checks
+    .RenderReturn("Parameters")
+    .AstExpected(
       new(AstNulls.At, name) {
         Aliases = aliases,
         Description = contents,
-        Locations = locations.Combine(),
+        Locations = DirectiveModeller.Combine(locations),
         Option = option,
         Parameters = parameters.Parameters(),
       },
@@ -48,15 +51,14 @@ public class DirectiveModelTests : ModelAliasedTests<string>
         "description: " + _checks.YamlQuoted(contents),
         "locations: !_Set(_Location) " + ExpectedLocations(locations),
         "name: " + name,
-        "parameters: []",
         //.. parameters.Select(p => "- !_Parameter ''"),
         "repeatable: " + (option == DirectiveOption.Repeatable).TrueFalse()]);
 
   private static string ExpectedLocations(DirectiveLocation[] locations)
   {
-    var location = locations.Combine();
+    var location = DirectiveModeller.Combine(locations);
     var labels = Enum.GetValues<DirectiveLocation>()
-      .Where(l => l.ActualFlag())
+      .Where(DirectiveModeller.ActualFlag)
       .Where(l => location.HasFlag(l))
       .Select(l => $"{l}: _").Order();
     return "{" + string.Join(", ", labels) + "}";

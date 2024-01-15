@@ -25,7 +25,9 @@ public class CategoryModelTests : ModelAliasedTests<string>
 
   [Theory, RepeatData(Repeats)]
   public void Model_Modifiers(string output)
-    => _checks.AstExpected(
+    => _checks
+    .RenderReturn("Modifiers")
+    .AstExpected(
       new(AstNulls.At, output) { Modifiers = TestMods() },
       ["!_Category",
         "modifiers: [!_Modifier List, !_Modifier Optional]",
@@ -35,7 +37,9 @@ public class CategoryModelTests : ModelAliasedTests<string>
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(string output, string name, string contents, string[] aliases, CategoryOption option)
-    => _checks.AstExpected(
+    => _checks
+    .RenderReturn("Modifiers")
+    .AstExpected(
       new(AstNulls.At, name, output) {
         Aliases = aliases,
         Description = contents,

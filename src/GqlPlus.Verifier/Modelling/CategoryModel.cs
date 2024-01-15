@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
@@ -18,13 +19,15 @@ internal record class CategoryModel(string Name, string Output)
       .Add("modifiers", new("", Modifiers.Render(), true));
 }
 
-internal static class CategoryHelper
+internal class CategoryModeller(
+  IModeller<ModifierAst> modifier
+) : ModellerBase<CategoryDeclAst, CategoryModel>
 {
-  internal static CategoryModel ToModel(this CategoryDeclAst category)
-    => new(category.Name, category.Output) {
-      Aliases = category.Aliases,
-      Description = category.Description,
-      Resolution = category.Option,
-      Modifiers = [.. category.Modifiers.Select(m => m.ToModel())]
+  internal override CategoryModel ToModel(CategoryDeclAst ast)
+    => new(ast.Name, ast.Output) {
+      Aliases = ast.Aliases,
+      Description = ast.Description,
+      Resolution = ast.Option,
+      Modifiers = [.. ast.Modifiers.Select(modifier.ToModel<ModifierModel>)]
     };
 }

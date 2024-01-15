@@ -2,7 +2,8 @@
 
 namespace GqlPlus.Verifier.Ast;
 
-public abstract record class AstBase(TokenAt At) : IEquatable<AstBase>
+public abstract record class AstBase(TokenAt At)
+  : IEquatable<AstBase>, IAstBase
 {
   internal abstract string Abbr { get; }
 
@@ -26,3 +27,5 @@ public abstract record class AstBase(TokenAt At) : IEquatable<AstBase>
   // override object.GetHashCode
   public override int GetHashCode() => 0;
 }
+
+internal interface IAstBase { }

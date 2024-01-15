@@ -4,10 +4,19 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal sealed class SettingModelChecks : ModelDescribedChecks<SettingInput, OptionSettingAst>
+internal sealed class SettingModelChecks
+  : ModelDescribedChecks<SettingInput, OptionSettingAst>
 {
+  internal readonly IModeller<OptionSettingAst> Setting;
+  internal readonly IModeller<ConstantAst> Constant;
+
+  public SettingModelChecks()
+    => Setting = new SettingModeller(
+      Constant = ForModeller<ConstantAst, ConstantModel>(
+        a => new(new SimpleModel(a.Value?.Value ?? a.Value?.String ?? ""))));
+
   protected override IRendering AstToModel(OptionSettingAst ast)
-    => ast.ToModel();
+    => Setting.ToRenderer(ast);
 
   protected override OptionSettingAst NewDescribedAst(SettingInput input, string description)
     => input.ToAst(description);

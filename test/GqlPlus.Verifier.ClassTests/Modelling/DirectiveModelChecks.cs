@@ -4,10 +4,16 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal sealed class DirectiveModelChecks : ModelAliasedChecks<string, DirectiveDeclAst>
+internal sealed class DirectiveModelChecks
+  : ModelAliasedChecks<string, DirectiveDeclAst>
 {
+  internal readonly IModeller<DirectiveDeclAst> Directive;
+
+  public DirectiveModelChecks()
+    => Directive = new DirectiveModeller();
+
   protected override IRendering AstToModel(DirectiveDeclAst aliased)
-    => aliased.ToModel();
+    => Directive.ToRenderer(aliased);
 
   protected override DirectiveDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);

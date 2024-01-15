@@ -9,7 +9,7 @@ internal record class UsageContext(IMap<AstDescribed> Types, ITokenMessages Erro
   internal readonly HashSet<string> Used = [];
 
   internal void AddError<TAst>(TAst item, string label, string message)
-      where TAst : AstBase
+      where TAst : AstAbbreviated
       => Errors.AddError(item, $"Invalid {label}. {message}.");
 
   internal bool GetType(string type, out AstDescribed? value)
@@ -37,10 +37,10 @@ internal static class UsageHelpers
       if (modifier.Kind == ModifierKind.Dict) {
         if (context.GetType(modifier.Key!, out var key)) {
           if (key is not EnumDeclAst and not ScalarDeclAst) {
-            context.AddError((AstBase)modified, "Modifier", $"'{modifier.Key}' invalid type");
+            context.AddError((AstAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");
           }
         } else {
-          context.AddError((AstBase)modified, "Modifier", $"'{modifier.Key}' not defined");
+          context.AddError((AstAbbreviated)modified, "Modifier", $"'{modifier.Key}' not defined");
         }
       }
     }

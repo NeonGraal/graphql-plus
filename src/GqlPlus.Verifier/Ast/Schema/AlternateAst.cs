@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Ast.Schema;
 
 public record class AlternateAst<R>(TokenAt At, R Type)
-  : AstBase(At), IEquatable<AlternateAst<R>>, IAstDescribed, IAstModified
+  : AstAbbreviated(At), IEquatable<AlternateAst<R>>, IAstDescribed, IAstModified
   where R : AstReference<R>, IEquatable<R>
 {
   public ModifierAst[] Modifiers { get; set; } = [];

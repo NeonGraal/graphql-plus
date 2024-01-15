@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestDescriptions<TItem>
   : TestGroups<TItem>
-  where TItem : AstBase, IAstDescribed
+  where TItem : AstAbbreviated, IAstDescribed
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsOneDescription_ReturnsTrue(string name, string description)

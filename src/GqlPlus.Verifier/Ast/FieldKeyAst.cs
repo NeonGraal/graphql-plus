@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Ast;
 
 [SuppressMessage("Design", "CA1036:Override methods on comparable types")]
 public record class FieldKeyAst(TokenAt At)
-  : AstBase(At), IComparable<FieldKeyAst>
+  : AstAbbreviated(At), IComparable<FieldKeyAst>
 {
   internal string? Type { get; }
   internal string? Value { get; }

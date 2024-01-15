@@ -33,8 +33,8 @@ internal abstract class UsageVerifier<TUsage, TAliased, TContext>(
 }
 
 public record class UsageAliased<TUsage, TAliased>(TUsage[] Usages, TAliased[] Definitions)
-  where TUsage : AstBase where TAliased : AstAliased;
+  where TUsage : AstAbbreviated where TAliased : AstAliased;
 
 public interface IVerifyUsage<TUsage, TAliased> : IVerify<UsageAliased<TUsage, TAliased>>
-    where TUsage : AstBase where TAliased : AstAliased
+    where TUsage : AstAbbreviated where TAliased : AstAliased
 { }

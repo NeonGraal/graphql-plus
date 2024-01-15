@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class ScalarRegexAst(TokenAt At, string Regex, bool Excludes)
-  : AstBase(At), IEquatable<ScalarRegexAst>
+  : AstAbbreviated(At), IEquatable<ScalarRegexAst>
 {
   internal override string Abbr => "SX";
 

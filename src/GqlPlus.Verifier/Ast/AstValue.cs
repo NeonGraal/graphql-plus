@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Ast;
 
 public abstract record class AstValue<T>(TokenAt At)
-  : AstBase(At), IEquatable<AstValue<T>>
+  : AstAbbreviated(At), IEquatable<AstValue<T>>
   where T : AstValue<T>
 {
   public T[] Values { get; init; } = [];

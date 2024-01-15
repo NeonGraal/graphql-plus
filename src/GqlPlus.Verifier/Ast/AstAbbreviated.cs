@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Ast;
 
-public abstract record class AstBase(TokenAt At)
-  : IEquatable<AstBase>, IAstBase
+public abstract record class AstAbbreviated(TokenAt At)
+  : IEquatable<AstAbbreviated>, IAstBase
 {
   internal abstract string Abbr { get; }
 
@@ -21,7 +21,7 @@ public abstract record class AstBase(TokenAt At)
   internal TokenMessage Error(string message)
     => new(At, message);
   // override object.Equals
-  public virtual bool Equals(AstBase? other)
+  public virtual bool Equals(AstAbbreviated? other)
     => other is not null;
 
   // override object.GetHashCode

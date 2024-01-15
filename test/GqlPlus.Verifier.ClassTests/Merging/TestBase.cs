@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Merging;
 [TracePerTest]
 
 public abstract class TestBase<TItem>
-  where TItem : AstBase
+  where TItem : AstAbbreviated
 {
   [Fact]
   public void CanMerge_NoItems_ReturnsFalse()

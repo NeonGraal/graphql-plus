@@ -7,7 +7,7 @@ internal abstract class NamedVerifier<TUsage, TNamed>(
     IVerify<TUsage> usage,
     IVerify<TNamed> definition
 ) : IVerifyNamed<TUsage, TNamed>
-  where TUsage : AstBase where TNamed : AstNamed
+  where TUsage : AstAbbreviated where TNamed : AstNamed
 {
   public abstract string Label { get; }
   public abstract string UsageKey(TUsage item);
@@ -37,8 +37,8 @@ internal abstract class NamedVerifier<TUsage, TNamed>(
 }
 
 public record class UsageNamed<TUsage, TNamed>(TUsage[] Usages, TNamed[] Definitions)
-  where TUsage : AstBase where TNamed : AstNamed;
+  where TUsage : AstAbbreviated where TNamed : AstNamed;
 
 public interface IVerifyNamed<TUsage, TNamed> : IVerify<UsageNamed<TUsage, TNamed>>
-    where TUsage : AstBase where TNamed : AstNamed
+    where TUsage : AstAbbreviated where TNamed : AstNamed
 { }

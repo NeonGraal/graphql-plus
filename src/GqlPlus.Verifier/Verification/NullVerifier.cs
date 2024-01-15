@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Verification;
 internal class NullVerifier<TAst>(ILoggerFactory logger)
   : IVerify<TAst>
-  where TAst : AstBase
+  where TAst : AstAbbreviated
 {
   private readonly ILogger _logger = logger.CreateLogger(nameof(NullVerifier<TAst>));
 

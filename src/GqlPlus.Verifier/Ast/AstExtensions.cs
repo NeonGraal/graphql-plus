@@ -34,8 +34,8 @@ public static class AstExtensions
     this IEnumerable<T>? items,
     string before = "",
     string after = "")
-   => items?.Any(i => i is AstBase) == true
-      ? items.OfType<AstBase>()
+   => items?.Any(i => i is AstAbbreviated) == true
+      ? items.OfType<AstAbbreviated>()
         .SelectMany(i => i.GetFields())
         .Prepend(before)
         .Append(after)
@@ -54,7 +54,7 @@ public static class AstExtensions
   public static string Joined(this IEnumerable<string?>? items, string prefix)
     => items.Joined(s => prefix + s);
 
-  internal static IEnumerable<string?> Bracket(this AstBase? item, string before, string after)
+  internal static IEnumerable<string?> Bracket(this AstAbbreviated? item, string before, string after)
     => item?.GetFields().Prepend(before).Append(after) ?? [];
 
   [return: NotNullIfNotNull(nameof(text))]
@@ -72,7 +72,7 @@ public static class AstExtensions
   public static string Prefixed(this string? text, string prefix)
     => text?.Length > 0 ? prefix + text : "";
 
-  public static string Prefixed(this AstBase? ast, string prefix)
+  public static string Prefixed(this AstAbbreviated? ast, string prefix)
     => ast is null ? "" : $"{prefix}{ast}";
 
   public static string Suffixed(this string? text, string suffix)
@@ -84,7 +84,7 @@ public static class AstExtensions
     : "";
 
   public static void AddError<TAst>(this ITokenMessages errors, TAst item, string message)
-    where TAst : AstBase
+    where TAst : AstAbbreviated
     => errors.Add(item.Error(message));
 
   public static AstObject<TValue> ToObject<TItem, TValue>(this IEnumerable<TItem> items, Func<TItem, FieldKeyAst> key, Func<TItem, TValue> value)

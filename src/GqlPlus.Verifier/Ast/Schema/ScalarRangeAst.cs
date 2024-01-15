@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class ScalarRangeAst(TokenAt At)
-  : AstBase(At), IEquatable<ScalarRangeAst>
+  : AstAbbreviated(At), IEquatable<ScalarRangeAst>
 {
   public decimal? Lower { get; set; }
   public bool LowerExcluded { get; set; }

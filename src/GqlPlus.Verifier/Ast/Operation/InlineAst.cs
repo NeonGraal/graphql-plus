@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Ast.Operation;
 
 internal sealed record class InlineAst(TokenAt At, params IAstSelection[] Selections)
-  : AstBase(At), IAstDirectives, IAstSelection, IEquatable<InlineAst>
+  : AstAbbreviated(At), IAstDirectives, IAstSelection, IEquatable<InlineAst>
 {
   public string? OnType { get; set; }
 

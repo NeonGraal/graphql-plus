@@ -66,3 +66,14 @@ public sealed class ParseDirectiveTests
   public ParseDirectiveTests(Parser<DirectiveDeclAst>.D parser)
     => _checks = new(parser);
 }
+
+internal sealed class ParseDirectiveChecks(
+  Parser<DirectiveDeclAst>.D parser
+) : BaseAliasedChecks<string, DirectiveDeclAst>(parser)
+{
+  protected internal override DirectiveDeclAst AliasedFactory(string input)
+    => new(AstNulls.At, input) { Locations = DirectiveLocation.Operation };
+
+  protected internal override string AliasesString(string input, string aliases)
+    => "@" + input + aliases + "{operation}";
+}

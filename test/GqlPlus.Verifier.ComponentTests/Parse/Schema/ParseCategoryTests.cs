@@ -40,3 +40,15 @@ public sealed class ParseCategoryTests(Parser<CategoryDeclAst>.D parser)
 
   private readonly ParseCategoryChecks _checks = new(parser);
 }
+
+internal sealed class ParseCategoryChecks
+  : BaseAliasedChecks<string, CategoryDeclAst>
+{
+  public ParseCategoryChecks(Parser<CategoryDeclAst>.D parser)
+    : base(parser) { }
+
+  protected internal override CategoryDeclAst AliasedFactory(string input)
+    => new(AstNulls.At, input);
+  protected internal override string AliasesString(string input, string aliases)
+    => aliases + "{" + input + "}";
+}

@@ -103,3 +103,22 @@ public sealed class ParseScalarTests(Parser<ScalarDeclAst>.D parser)
 
   private readonly ParseScalarChecks _checks = new(parser);
 }
+
+internal sealed class ParseScalarChecks
+  : BaseAliasedChecks<ScalarInput, ScalarDeclAst>
+{
+  public ParseScalarChecks(Parser<ScalarDeclAst>.D parser)
+    : base(parser)
+  { }
+
+  protected internal override ScalarDeclAst AliasedFactory(ScalarInput input)
+    => new(AstNulls.At, input.Name) {
+      Kind = ScalarKind.String,
+      Regexes = input.Regex.ScalarRegexes(),
+    };
+
+  protected internal override string AliasesString(ScalarInput input, string aliases)
+    => input.Name + aliases + "{string/" + input.Regex + "/!}";
+}
+
+public record struct ScalarInput(string Name, string Regex);

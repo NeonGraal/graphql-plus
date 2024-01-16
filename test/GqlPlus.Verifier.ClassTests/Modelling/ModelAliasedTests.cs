@@ -1,4 +1,7 @@
-﻿namespace GqlPlus.Verifier.Modelling;
+﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Rendering;
+
+namespace GqlPlus.Verifier.Modelling;
 
 public abstract class ModelAliasedTests<TInput> : ModelDescribedTests<TInput>
 {
@@ -14,4 +17,18 @@ public abstract class ModelAliasedTests<TInput> : ModelDescribedTests<TInput>
 
   internal abstract IModelAliasedChecks<TInput> AliasedChecks { get; }
   protected abstract string[] ExpectedDescriptionAliases(TInput input, string description, string aliases);
+}
+
+internal abstract class ModelAliasedChecks<TInput, TAst>
+  : ModelDescribedChecks<TInput, TAst>, IModelAliasedChecks<TInput>
+  where TAst : AstAliased
+{
+  AstAliased IModelAliasedChecks<TInput>.AliasedAst(TInput input) => NewDescribedAst(input, "");
+  IRendering IModelAliasedChecks<TInput>.ToModel(AstAliased aliased) => AstToModel((TAst)aliased);
+}
+
+internal interface IModelAliasedChecks<TInput> : IModelDescribedChecks<TInput>
+{
+  AstAliased AliasedAst(TInput input);
+  IRendering ToModel(AstAliased aliased);
 }

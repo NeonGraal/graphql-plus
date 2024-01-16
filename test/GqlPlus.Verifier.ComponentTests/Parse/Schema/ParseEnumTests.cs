@@ -6,12 +6,12 @@ public sealed class ParseEnumTests
   : BaseAliasedTests<EnumInput>
 {
   [Theory, RepeatData(Repeats)]
-  public void WithNameBad_ReturnsFalse(decimal id, string value)
-    => _checks.False($"{id}{{{value}}}");
+  public void WithNameBad_ReturnsFalse(decimal id, string member)
+    => _checks.False($"{id}{{{member}}}");
 
   [Theory, RepeatData(Repeats)]
   public void WithExtends_ReturnsCorrectAst(EnumInput input, string extends)
-    => _checks.TrueExpected(input.Type + "{:" + extends + " " + input.Value + "}",
+    => _checks.TrueExpected(input.Type + "{:" + extends + " " + input.Member + "}",
       _checks.AliasedFactory(input) with {
         Extends = extends,
       });
@@ -21,20 +21,20 @@ public sealed class ParseEnumTests
     => _checks.False(name + "{:}");
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumValues_ReturnsCorrectAst(string name, string[] values)
+  public void WithEnumMembers_ReturnsCorrectAst(string name, string[] members)
     => _checks.TrueExpected(
-      name + values.Bracket("{", "}").Joined(),
+      name + members.Bracket("{", "}").Joined(),
       new EnumDeclAst(AstNulls.At, name) {
-        Values = values.EnumValues(),
+        Members = members.EnumMembers(),
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumValuesBad_ReturnsFalse(string name, string[] values)
-    => _checks.False(name + "{" + string.Join("|", values) + "}",
-      skipIf: values.Length < 2);
+  public void WithEnumMembersBad_ReturnsFalse(string name, string[] members)
+    => _checks.False(name + "{" + string.Join("|", members) + "}",
+      skipIf: members.Length < 2);
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumValuesNone_ReturnsFalse(string name)
+  public void WithEnumMembersNone_ReturnsFalse(string name)
     => _checks.False(name + "{}");
 
   internal override IBaseAliasedChecks<EnumInput> AliasChecks => _checks;
@@ -52,10 +52,10 @@ internal sealed class ParseEnumChecks
     : base(parser) { }
 
   protected internal override EnumDeclAst AliasedFactory(EnumInput input)
-    => new(AstNulls.At, input.Type) { Values = new[] { input.Value }.EnumValues(), };
+    => new(AstNulls.At, input.Type) { Members = new[] { input.Member }.EnumMembers(), };
 
   protected internal override string AliasesString(EnumInput input, string aliases)
-    => input.Type + aliases + "{" + input.Value + "}";
+    => input.Type + aliases + "{" + input.Member + "}";
 }
 
-public record struct EnumInput(string Type, string Value);
+public record struct EnumInput(string Type, string Member);

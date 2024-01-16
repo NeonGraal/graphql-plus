@@ -18,10 +18,10 @@ public class MergeEnumsTests
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsValuesCantMerge_ReturnsFalse(string name, string[] values)
   {
-    _enumValues.CanMerge([]).ReturnsForAnyArgs(false);
+    _enumMembers.CanMerge([]).ReturnsForAnyArgs(false);
 
     CanMerge_False([
-      new EnumDeclAst(AstNulls.At, name) with { Values = values.EnumValues() },
+      new EnumDeclAst(AstNulls.At, name) with { Members = values.EnumMembers() },
       new EnumDeclAst(AstNulls.At, name)],
       values.Length < 2);
   }
@@ -29,22 +29,22 @@ public class MergeEnumsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoItemsValues_ReturnsExpected(string name, string[] values1, string[] values2)
   {
-    var combined = values1.EnumValues().Concat(values2.EnumValues()).ToArray();
+    var combined = values1.EnumMembers().Concat(values2.EnumMembers()).ToArray();
 
     Merge_Expected([
-      new EnumDeclAst(AstNulls.At, name) with { Values = values1.EnumValues() },
-      new EnumDeclAst(AstNulls.At, name) with { Values = values2.EnumValues() }],
-      new EnumDeclAst(AstNulls.At, name) with { Values = combined });
+      new EnumDeclAst(AstNulls.At, name) with { Members = values1.EnumMembers() },
+      new EnumDeclAst(AstNulls.At, name) with { Members = values2.EnumMembers() }],
+      new EnumDeclAst(AstNulls.At, name) with { Members = combined });
   }
 
-  private readonly IMerge<EnumValueAst> _enumValues;
+  private readonly IMerge<EnumMemberAst> _enumMembers;
   private readonly MergeEnums _merger;
 
   public MergeEnumsTests()
   {
-    _enumValues = Merger<EnumValueAst>();
+    _enumMembers = Merger<EnumMemberAst>();
 
-    _merger = new(_enumValues);
+    _merger = new(_enumMembers);
   }
 
   protected override GroupsMerger<EnumDeclAst> MergerGroups => _merger;

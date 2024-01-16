@@ -20,7 +20,7 @@ public static class AllMergers
       // Types
       .AddMerge<AstType, MergeAllTypes>()
       .AddMerge<EnumDeclAst, MergeEnums>()
-      .AddMerge<EnumValueAst, MergeEnumValues>()
+      .AddMerge<EnumMemberAst, MergeEnumMembers>()
       .AddMerge<ScalarDeclAst, MergeScalars>()
       .AddMerge<ScalarRangeAst, MergeScalarRanges>()
       .AddMerge<ScalarRegexAst, MergeScalarRegexes>()

@@ -30,7 +30,7 @@ public static class SchemaParsers
       .AddSingleton<ISimpleName, SimpleName>()
       // Enum
       .AddParser<EnumDefinition, ParseEnumDefinition>()
-      .AddParser<EnumValueAst, ParseEnumValue>()
+      .AddParser<EnumMemberAst, ParseEnumMember>()
       .AddDeclarationParser<EnumDeclAst, ParseEnum>("enum")
       // Scalar
       .AddParser<ScalarDefinition, ParseScalarDefinition>()

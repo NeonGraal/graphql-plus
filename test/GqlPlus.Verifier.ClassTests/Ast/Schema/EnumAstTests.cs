@@ -25,26 +25,26 @@ public class EnumAstTests : AstAliasedTests
       extends1 == extends2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithEnumValues(string name, string[] enumValues)
+  public void HashCode_WithMembers(string name, string[] enumMembers)
       => _checks.HashCode(
-        () => new EnumDeclAst(AstNulls.At, name) { Values = enumValues.EnumValues() });
+        () => new EnumDeclAst(AstNulls.At, name) { Members = enumMembers.EnumMembers() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithEnumValues(string name, string[] enumValues)
+  public void String_WithMembers(string name, string[] enumMembers)
     => _checks.String(
-      () => new EnumDeclAst(AstNulls.At, name) { Values = enumValues.EnumValues() },
-      $"( !E {name} {enumValues.Joined("!EV ")} )");
+      () => new EnumDeclAst(AstNulls.At, name) { Members = enumMembers.EnumMembers() },
+      $"( !E {name} {enumMembers.Joined("!EV ")} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithEnumValues(string name, string[] enumValues)
+  public void Equality_WithMembers(string name, string[] enumMembers)
     => _checks.Equality(
-      () => new EnumDeclAst(AstNulls.At, name) { Values = enumValues.EnumValues() });
+      () => new EnumDeclAst(AstNulls.At, name) { Members = enumMembers.EnumMembers() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenEnumValues(string name, string[] enumValues1, string[] enumValues2)
-    => _checks.InequalityBetween(enumValues1, enumValues2,
-      enumValue => new EnumDeclAst(AstNulls.At, name) { Values = enumValue.EnumValues() },
-      enumValues1.SequenceEqual(enumValues2));
+  public void Inequality_BetweenEnumMembers(string name, string[] enumMembers1, string[] enumMembers2)
+    => _checks.InequalityBetween(enumMembers1, enumMembers2,
+      enumMember => new EnumDeclAst(AstNulls.At, name) { Members = enumMember.EnumMembers() },
+      enumMembers1.SequenceEqual(enumMembers2));
 
   private readonly AstAliasedChecks<EnumDeclAst> _checks
     = new(name => new EnumDeclAst(AstNulls.At, name)) {

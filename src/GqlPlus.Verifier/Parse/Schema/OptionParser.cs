@@ -14,11 +14,11 @@ internal class OptionParser<O>(
     where TContext : Tokenizer
   {
     if (tokens.Take('(')) {
-      var enumValue = _parser.I.Parse(tokens, label);
+      var enumResult = _parser.I.Parse(tokens, label);
 
-      return enumValue.Map(result =>
+      return enumResult.Map(result =>
         tokens.Take(')')
-          ? enumValue
+          ? enumResult
           : tokens.Partial(label, "')' after option", () => result));
     }
 

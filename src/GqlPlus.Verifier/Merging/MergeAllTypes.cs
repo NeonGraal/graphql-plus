@@ -42,7 +42,7 @@ internal class MergeAllTypes(
     var enumValues = BuiltIn.Basic.OfType<EnumDeclAst>()
       .Concat(BuiltIn.Internal.OfType<EnumDeclAst>())
       .Concat(enumTypes)
-      .SelectMany(e => e.Values.Select(v => (Value: v.Name, Type: e.Name)))
+      .SelectMany(e => e.Members.Select(v => (Value: v.Name, Type: e.Name)))
       .ToLookup(p => p.Value, p => p.Type)
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());

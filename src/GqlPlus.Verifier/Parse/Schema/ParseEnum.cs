@@ -17,7 +17,7 @@ internal class ParseEnum(
   protected override void ApplyDefinition(EnumDeclAst result, EnumDefinition value)
   {
     result.Extends = value.Extends;
-    result.Values = value.Values;
+    result.Members = value.Values;
   }
 
   protected override bool ApplyOption(EnumDeclAst result, IResult<NullOption> option) => true;
@@ -31,14 +31,14 @@ internal class ParseEnum(
 internal class EnumDefinition
 {
   internal string? Extends { get; set; }
-  internal EnumValueAst[] Values { get; set; } = [];
+  internal EnumMemberAst[] Values { get; set; } = [];
 }
 
 internal class ParseEnumDefinition(
-  Parser<EnumValueAst>.D enumValue
+  Parser<EnumMemberAst>.D enumMember
 ) : Parser<EnumDefinition>.I
 {
-  private readonly Parser<EnumValueAst>.L _enumValue = enumValue;
+  private readonly Parser<EnumMemberAst>.L _enumMember = enumMember;
 
   public IResult<EnumDefinition> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -53,18 +53,18 @@ internal class ParseEnumDefinition(
       }
     }
 
-    List<EnumValueAst> values = [];
+    List<EnumMemberAst> members = [];
     while (!tokens.Take("}")) {
-      var enumValue = _enumValue.Parse(tokens, "Enum Value");
-      if (!enumValue.Required(values.Add)) {
-        result.Values = [.. values];
-        return enumValue.AsResult(result);
+      var enumMember = _enumMember.Parse(tokens, "Enum Member");
+      if (!enumMember.Required(members.Add)) {
+        result.Values = [.. members];
+        return enumMember.AsResult(result);
       }
     }
 
-    result.Values = [.. values];
-    return values.Count != 0
+    result.Values = [.. members];
+    return members.Count != 0
       ? result.Ok()
-      : tokens.Partial(label, "at least one value", () => result);
+      : tokens.Partial(label, "at least one member", () => result);
   }
 }

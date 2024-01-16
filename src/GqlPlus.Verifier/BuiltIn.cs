@@ -6,8 +6,8 @@ namespace GqlPlus.Verifier;
 internal static class BuiltIn
 {
   internal static AstType[] Basic = [
-    new EnumDeclAst(AstNulls.At, "Boolean") { Aliases = ["~"], Values = [new(AstNulls.At, "false"), new(AstNulls.At, "true")] },
-    new EnumDeclAst(AstNulls.At, "Unit") { Aliases = ["_"], Values = [new(AstNulls.At, "_")] },
+    new EnumDeclAst(AstNulls.At, "Boolean") { Aliases = ["~"], Members = [new(AstNulls.At, "false"), new(AstNulls.At, "true")] },
+    new EnumDeclAst(AstNulls.At, "Unit") { Aliases = ["_"], Members = [new(AstNulls.At, "_")] },
 
     new ScalarDeclAst(AstNulls.At, "Number", Array.Empty<ScalarRangeAst>()) { Aliases = ["0"] },
     new ScalarDeclAst(AstNulls.At, "String", Array.Empty<ScalarRegexAst>()) { Aliases = ["*"] },
@@ -15,7 +15,7 @@ internal static class BuiltIn
 
   internal static AstType[] Internal = [
     new EnumDeclAst(AstNulls.At, "Void"),
-    new EnumDeclAst(AstNulls.At, "Null") { Aliases = ["null"], Values = [new(AstNulls.At, "null")] },
+    new EnumDeclAst(AstNulls.At, "Null") { Aliases = ["null"], Members = [new(AstNulls.At, "null")] },
 
     new ScalarDeclAst(AstNulls.At, "Simple", "~".ScalarReferences("0", "*", "_", "_Scalar", "_Enum")),
     new ScalarDeclAst(AstNulls.At, "Internal", "Void".ScalarReferences("Null")),

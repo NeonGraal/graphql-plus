@@ -9,7 +9,7 @@ public sealed record class EnumDeclAst(
 ) : AstType(At, Name, Description), IEquatable<EnumDeclAst>
 {
   public string? Extends { get; set; }
-  public EnumValueAst[] Values { get; set; } = [];
+  public EnumMemberAst[] Members { get; set; } = [];
 
   internal override string Abbr => "E";
   public override string Label => "Enum";
@@ -20,14 +20,14 @@ public sealed record class EnumDeclAst(
   public bool Equals(EnumDeclAst? other)
     => base.Equals(other)
       && Extends.NullEqual(other.Extends)
-      && Values.SequenceEqual(other.Values);
+      && Members.SequenceEqual(other.Members);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Extends, Values.Length);
+    => HashCode.Combine(base.GetHashCode(), Extends, Members.Length);
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(Extends.Prefixed(":"))
-      .Concat(Values.Bracket());
+      .Concat(Members.Bracket());
 
   internal bool HasValue(string value)
-    => Values.Any(v => v.Name == value || v.Aliases.Contains(value));
+    => Members.Any(v => v.Name == value || v.Aliases.Contains(value));
 }

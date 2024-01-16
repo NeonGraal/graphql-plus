@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeEnums(
-  IMerge<EnumValueAst> enumValues
+  IMerge<EnumMemberAst> enumMembers
 ) : AliasedMerger<EnumDeclAst>
 {
   protected override string ItemMatchKey(EnumDeclAst item)
@@ -11,10 +11,10 @@ internal class MergeEnums(
 
   public override bool CanMerge(IEnumerable<EnumDeclAst> items)
     => base.CanMerge(items)
-      && items.ManyCanMerge(e => e.Values, enumValues);
+      && items.ManyCanMerge(e => e.Members, enumMembers);
 
   protected override EnumDeclAst MergeGroup(IEnumerable<EnumDeclAst> group)
     => base.MergeGroup(group) with {
-      Values = [.. group.ManyMerge(item => item.Values, enumValues)],
+      Members = [.. group.ManyMerge(item => item.Members, enumMembers)],
     };
 }

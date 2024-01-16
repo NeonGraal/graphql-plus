@@ -45,7 +45,7 @@ internal class VerifyOutputTypes(
       .SelectMany(v => v.OfType<EnumDeclAst>())
       .Distinct();
 
-    var enumValues = enumTypes.SelectMany(e => e.Values.Select(v => (Value: v.Name, Type: e.Name)))
+    var enumValues = enumTypes.SelectMany(e => e.Members.Select(v => (Value: v.Name, Type: e.Name)))
       .Distinct().ToMap(e => e.Value, e => e.Type);
 
     var validTypes = byId

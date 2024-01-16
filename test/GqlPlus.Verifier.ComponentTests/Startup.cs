@@ -1,5 +1,6 @@
 ﻿using DiffEngine;
 using GqlPlus.Verifier.Merging;
+using GqlPlus.Verifier.Modelling;
 using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
 using GqlPlus.Verifier.Parse.Schema;
@@ -21,6 +22,7 @@ public class Startup
       .AddSchemaParsers()
       .AddVerifiers()
       .AddMergers()
+      .AddModellers()
       .AddSingleton(_ => services)
       .AddLogging(lb =>
         lb.AddXunitOutput(options =>

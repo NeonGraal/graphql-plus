@@ -10,6 +10,7 @@ internal static class AllModellers
     => services
       .AddSingleton<IModeller<CategoryDeclAst>, CategoryModeller>()
       .AddSingleton<IModeller<ConstantAst>, ConstantModeller>()
+      .AddSingleton<IModeller<EnumDeclAst>, EnumModeller>()
       .AddSingleton<IModeller<FieldKeyAst>, SimpleModeller>()
       .AddSingleton<IModeller<ModifierAst>, ModifierModeller>()
       .AddSingleton<IModeller<OptionSettingAst>, SettingModeller>()

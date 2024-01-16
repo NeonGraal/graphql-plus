@@ -62,12 +62,12 @@ Success
   >
   {
     !OF I@9/16
-    base
+    extends
     :
-    I@15/16
+    I@18/16
     _ScalarRef
     <
-      I@27/16
+      I@30/16
       $base
     >
   }

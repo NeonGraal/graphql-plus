@@ -537,12 +537,12 @@ Success
   >
   {
     !OF I@9/136
-    base
+    extends
     :
-    I@15/136
+    I@18/136
     _TypeRef
     <
-      I@24/136
+      I@27/136
       _TypeKind.Enum
     >
     ?
@@ -654,12 +654,12 @@ Success
   >
   {
     !OF I@9/165
-    base
+    extends
     :
-    I@15/165
+    I@18/165
     _ScalarRef
     <
-      I@27/165
+      I@30/165
       $base
     >
   }
@@ -809,9 +809,9 @@ Success
   >
   {
     !OF I@9/201
-    base
+    extends
     :
-    I@16/201
+    I@19/201
     $base
     ?
     !OF I@9/202

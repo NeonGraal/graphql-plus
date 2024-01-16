@@ -1,6 +1,6 @@
 output _TypeObject<$kind $base $field> {
     : _BaseType<$kind>
-        base: $base?
+        extends: $base?
         typeParameters: _Named[]
         fields: $field[]
         alternates: _Alternate<$base>[]

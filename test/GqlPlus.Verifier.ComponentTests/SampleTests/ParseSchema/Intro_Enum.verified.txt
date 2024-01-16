@@ -12,12 +12,12 @@ Success
   >
   {
     !OF I@9/3
-    base
+    extends
     :
-    I@15/3
+    I@18/3
     _TypeRef
     <
-      I@24/3
+      I@27/3
       _TypeKind.Enum
     >
     ?

@@ -13,7 +13,7 @@ output _ScalarRef<$base> {
 
 output _BaseScalar<$base> {
     : _BaseType<_TypeKind.Scalar>
-        base: _ScalarRef<$base>
+        extends: _ScalarRef<$base>
     }
 
 output _ScalarNumber {

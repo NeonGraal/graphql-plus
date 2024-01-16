@@ -4,7 +4,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class ParameterModelTests // : ModelDescribedTests<string>
+public class ParameterModelTests
+// Todo: : ModelDescribedTests<string>
 {
   //[Theory, RepeatData(Repeats)]
   //public void Model_All(string name, string contents, string[] parameters, string[] aliases, ParameterOption option, ParameterLocation[] locations)
@@ -33,6 +34,10 @@ public class ParameterModelTests // : ModelDescribedTests<string>
   //internal override IModelDescribedChecks<string> DescribedChecks => _checks;
 
   private readonly ParameterModelChecks _checks = new();
+
+  //internal override IModelDescribedChecks<string> DescribedChecks => _checks;
+  //protected override string[] ExpectedDescription(string input, string description)
+  //  => [];
 }
 
 internal sealed class ParameterModelChecks
@@ -40,9 +45,11 @@ internal sealed class ParameterModelChecks
 {
   internal readonly IModeller<ParameterAst> Parameter;
   internal readonly IModeller<ModifierAst> Modifier;
+  internal readonly IModeller<ConstantAst> Constant;
 
   public ParameterModelChecks()
     => Parameter = new ParameterModeller(
+      Constant = ForModeller<ConstantAst>(),
       Modifier = ForModeller<ModifierAst, ModifierModel>(
         m => new(m.Kind)));
 

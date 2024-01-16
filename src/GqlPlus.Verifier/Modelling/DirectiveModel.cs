@@ -28,7 +28,7 @@ internal class DirectiveModeller
       Description = ast.Description,
       Repeatable = ast.Option == DirectiveOption.Repeatable,
       Locations = ast.Locations,
-      //Parameters = [.. category.Parameters.Select(p => p.ToModel())],
+      // Todo: Parameters = [.. category.Parameters.Select(p => p.ToModel())],
     };
 
   internal static RenderStructure.Dict ToSet(DirectiveLocation locations)

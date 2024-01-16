@@ -28,9 +28,9 @@ internal class RenderStructure : Structured<RenderValue, RenderStructure>
   public static implicit operator RenderStructure(RenderValue value)
     => new("", value);
 
-  public RenderStructure Add(string key, RenderStructure value)
+  public RenderStructure Add(string key, RenderStructure? value)
   {
-    if (value.IsEmpty) {
+    if (value is null || value.IsEmpty) {
       return this;
     }
 

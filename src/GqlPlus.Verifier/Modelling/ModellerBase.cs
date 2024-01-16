@@ -7,8 +7,8 @@ internal abstract class ModellerBase<TAst, TModel> : IModeller<TAst>
   where TAst : AstBase
   where TModel : IRendering
 {
-  public T? ToModel<T>(TAst ast)
-    => typeof(T).IsAssignableFrom(typeof(TModel))
+  public T? ToModel<T>(TAst? ast)
+    => ast is not null && typeof(T).IsAssignableFrom(typeof(TModel))
       ? (T)(object)ToModel(ast)
       : default;
 

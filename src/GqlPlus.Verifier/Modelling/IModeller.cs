@@ -7,5 +7,5 @@ internal interface IModeller<TAst>
   where TAst : AstBase
 {
   IRendering ToRenderer(TAst ast);
-  T? ToModel<T>(TAst ast);
+  T? ToModel<T>(TAst? ast);
 }

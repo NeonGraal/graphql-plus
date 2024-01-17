@@ -12,7 +12,7 @@ public class CategoryModelTests : ModelAliasedTests<string>
       new(AstNulls.At, name, output),
       ["!_Category",
         "name: " + name,
-        "output: " + output,
+        .. output.TypeRefFor(TypeKindModel.Output),
         "resolution: !_Resolution Parallel"]);
 
   [Theory, RepeatData(Repeats)]
@@ -21,7 +21,7 @@ public class CategoryModelTests : ModelAliasedTests<string>
       new(AstNulls.At, output) { Option = option },
       ["!_Category",
         "name: " + output.Camelize(),
-        "output: " + output,
+        .. output.TypeRefFor(TypeKindModel.Output),
         $"resolution: !_Resolution {option}"]);
 
   [Theory, RepeatData(Repeats)]
@@ -33,7 +33,7 @@ public class CategoryModelTests : ModelAliasedTests<string>
       ["!_Category",
         "modifiers: [!_Modifier List, !_Modifier Optional]",
         "name: " + output.Camelize(),
-        "output: " + output,
+        .. output.TypeRefFor(TypeKindModel.Output),
         "resolution: !_Resolution Parallel"]);
 
   [Theory, RepeatData(Repeats)]
@@ -52,7 +52,7 @@ public class CategoryModelTests : ModelAliasedTests<string>
         "description: " + _checks.YamlQuoted(contents),
         "modifiers: [!_Modifier List, !_Modifier Optional]",
         "name: " + name,
-        "output: " + output,
+        .. output.TypeRefFor(TypeKindModel.Output),
         $"resolution: !_Resolution {option}"]);
 
   protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
@@ -60,7 +60,7 @@ public class CategoryModelTests : ModelAliasedTests<string>
       aliases,
       description,
       "name: " + input.Camelize(),
-      "output: " + input,
+      .. input.TypeRefFor(TypeKindModel.Output, "output"),
       "resolution: !_Resolution Parallel"];
 
   internal override ModelAliasedChecks<string, CategoryDeclAst> AliasedChecks => _checks;

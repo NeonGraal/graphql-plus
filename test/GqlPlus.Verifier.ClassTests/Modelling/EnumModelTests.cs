@@ -1,5 +1,4 @@
-﻿using System.Xml.Linq;
-using GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
@@ -12,7 +11,7 @@ public class EnumModelTests : ModelAliasedTests<string>
     => _checks.AstExpected(
       new(AstNulls.At, name) { Extends = extends },
       ["!_Enum",
-        "extends: !_TypeRef(_TypeKind.Enum) " + extends,
+        .. extends.TypeRefFor(SimpleKindModel.Enum),
         "name: " + name]);
 
   [Theory, RepeatData(Repeats)]
@@ -40,7 +39,7 @@ public class EnumModelTests : ModelAliasedTests<string>
       ["!_Enum",
         $"aliases: [{string.Join(", ", aliases)}]",
         "description: " + _checks.YamlQuoted(contents),
-        "extends: !_TypeRef(_TypeKind.Enum) " + extends,
+        .. extends.TypeRefFor(SimpleKindModel.Enum),
         "members:",
         .. members.SelectMany(m => ExpectedMember(m, name)),
         "name: " + name]);

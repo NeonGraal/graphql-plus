@@ -6,14 +6,14 @@ namespace GqlPlus.Verifier.Modelling;
 internal record class EnumModel(string Name)
   : ModelAliased(Name)
 {
-  public string? Extends { get; set; }
+  public TypeRefModel<SimpleKindModel>? Extends { get; set; }
   public EnumMemberModel[] Members { get; set; } = [];
 
   protected override string Tag => "Enum";
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("extends", new("_TypeRef(_TypeKind.Enum)", Extends))
+      .Add("extends", Extends?.Render())
       .Add("members", new("", Members.Render()));
 }
 
@@ -34,7 +34,7 @@ internal class EnumModeller
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
-      Extends = ast.Extends,
+      Extends = ast.Extends.TypeRef(SimpleKindModel.Enum),
       Members = [.. ast.Members.Select(m => ToMember(m, ast.Name))],
     };
 

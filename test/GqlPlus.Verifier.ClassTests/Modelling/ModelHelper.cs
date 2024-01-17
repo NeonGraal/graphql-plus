@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Modelling;
+﻿using System.Runtime.CompilerServices;
+
+namespace GqlPlus.Verifier.Modelling;
 
 internal static class ModelHelper
 {
@@ -9,4 +11,12 @@ internal static class ModelHelper
 
   internal static string[] Tidy(this string[] value)
     => [.. value.Where(s => !string.IsNullOrWhiteSpace(s))];
+
+  internal static string[] TypeRefFor<TKind>(this string name, TKind Kind, [CallerArgumentExpression(nameof(name))] string? label = null)
+  {
+    var kindTag = typeof(TKind).TypeTag();
+    return [$"{label}: !_TypeRef({kindTag})",
+      $"  kind: !{kindTag} {Kind}",
+      "  name: " + name];
+  }
 }

@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal record class CategoryModel(string Name, string Output)
+internal record class CategoryModel(string Name, TypeRefModel<TypeKindModel> Output)
   : ModelAliased(Name)
 {
   public CategoryOption Resolution { get; set; } = CategoryOption.Parallel;
@@ -15,7 +15,7 @@ internal record class CategoryModel(string Name, string Output)
   internal override RenderStructure Render()
     => base.Render()
       .Add("resolution", new("_Resolution", Resolution.ToString()))
-      .Add("output", new("", Output))
+      .Add("output", Output.Render())
       .Add("modifiers", new("", Modifiers.Render(), true));
 }
 
@@ -24,7 +24,7 @@ internal class CategoryModeller(
 ) : ModellerBase<CategoryDeclAst, CategoryModel>
 {
   internal override CategoryModel ToModel(CategoryDeclAst ast)
-    => new(ast.Name, ast.Output) {
+    => new(ast.Name, ast.Output.TypeRef(TypeKindModel.Output)) {
       Aliases = ast.Aliases,
       Description = ast.Description,
       Resolution = ast.Option,

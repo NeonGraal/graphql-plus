@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeScalars(
-  IMerge<ScalarRangeAst> ranges,
+  IMerge<ScalarRangeNumberAst> ranges,
   IMerge<ScalarRegexAst> regexes
 ) : AliasedMerger<ScalarDeclAst>
 {
@@ -12,6 +12,6 @@ internal class MergeScalars(
 
   public override bool CanMerge(IEnumerable<ScalarDeclAst> items)
     => base.CanMerge(items)
-      && items.ManyCanMerge(i => i.Ranges, ranges)
+      && items.ManyCanMerge(i => i.Numbers, ranges)
       && items.ManyGroupCanMerge(i => i.Regexes, r => r.Regex, regexes);
 }

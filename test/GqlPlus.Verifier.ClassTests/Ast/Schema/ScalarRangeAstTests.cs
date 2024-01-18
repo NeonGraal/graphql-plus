@@ -3,10 +3,10 @@
 public class ScalarRangeAstTests : AstAbbreviatedTests<RangeInput>
 {
   protected override string AbbreviatedString(RangeInput input)
-    => $"( !SR {input.StringExcluded(false, false)} )";
+    => $"( !SR {input} )";
 
-  private readonly AstAbbreviatedChecks<RangeInput, ScalarRangeAst> _checks
-    = new(input => new ScalarRangeAst(AstNulls.At, input.Lower, input.Upper));
+  private readonly AstAbbreviatedChecks<RangeInput, ScalarRangeNumberAst> _checks
+    = new(input => new ScalarRangeNumberAst(AstNulls.At, input.Lower, input.Upper));
 
   internal override IAstAbbreviatedChecks<RangeInput> AbbreviatedChecks => _checks;
 }
@@ -16,15 +16,27 @@ public record struct RangeInput(decimal? Min, decimal? Max)
   internal readonly decimal? Lower => Max < Min ? Max : Min;
   internal readonly decimal? Upper => Max < Min ? Min : Max;
 
-  internal readonly string StringExcluded(bool minEx, bool maxEx)
+  public override readonly string ToString()
   {
-    var upExc = maxEx ? "< " : "";
-    var lowExc = minEx ? " >" : "";
-    return Lower is null ? $": {upExc}{Upper}"
-      : Upper is null ? $"{Lower}{lowExc} :"
-      : $"{Lower}{lowExc} : {upExc}{Upper}";
+    if (Lower is null) {
+      return $"~ {Upper}";
+    }
+
+    var result = $"{Lower}";
+
+    if (Upper == Lower) {
+      return result;
+    }
+
+    result += " ~";
+
+    if (Upper is not null) {
+      result += $" {Upper}";
+    }
+
+    return result;
   }
 
-  public readonly ScalarRangeAst[] ScalarRanges()
-    => new ScalarRangeAst[] { new(AstNulls.At, Lower, Upper) };
+  public readonly ScalarRangeNumberAst[] ScalarRanges()
+    => new ScalarRangeNumberAst[] { new(AstNulls.At, Lower, Upper) };
 }

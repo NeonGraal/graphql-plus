@@ -4,13 +4,13 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseScalarRange : Parser<ScalarRangeAst>.I
+internal class ParseScalarRange : Parser<ScalarRangeNumberAst>.I
 {
-  public IResult<ScalarRangeAst> Parse<TContext>(TContext tokens, string label)
+  public IResult<ScalarRangeNumberAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var at = tokens.At;
-    var range = new ScalarRangeAst(at);
+    var range = new ScalarRangeNumberAst(at);
     var hasLower = tokens.Number(out var min);
     var hasRange = tokens.Take('~');
     if (hasLower && !hasRange) {

@@ -4,12 +4,12 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeScalarRangesTests
-  : TestBase<ScalarRangeAst>
+  : TestBase<ScalarRangeNumberAst>
 {
   private readonly MergeScalarRanges _merger = new();
 
-  protected override IMerge<ScalarRangeAst> MergerBase => _merger;
+  protected override IMerge<ScalarRangeNumberAst> MergerBase => _merger;
 
-  protected override ScalarRangeAst MakeDistinct(string name)
+  protected override ScalarRangeNumberAst MakeDistinct(string name)
     => new(AstNulls.At);
 }

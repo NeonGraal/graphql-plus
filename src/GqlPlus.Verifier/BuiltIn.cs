@@ -9,8 +9,9 @@ internal static class BuiltIn
     new EnumDeclAst(AstNulls.At, "Boolean") { Aliases = ["^"], Members = [new(AstNulls.At, "false"), new(AstNulls.At, "true")] },
     new EnumDeclAst(AstNulls.At, "Unit") { Aliases = ["_"], Members = [new(AstNulls.At, "_")] },
 
-    new ScalarDeclAst(AstNulls.At, "Number", Array.Empty<ScalarRangeAst>()) { Aliases = ["0"] },
-    new ScalarDeclAst(AstNulls.At, "String", Array.Empty<ScalarRegexAst>()) { Aliases = ["*"] },
+    new ScalarDeclAst(AstNulls.At, "Enum", "", []),
+    new ScalarDeclAst(AstNulls.At, "Number", numbers: []) { Aliases = ["0"] },
+    new ScalarDeclAst(AstNulls.At, "String", regexes: []) { Aliases = ["*"] },
   ];
 
   internal static AstType[] Internal = [

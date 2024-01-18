@@ -31,8 +31,8 @@ public class MergeScalarsTests
   public void CanMerge_TwoItemsRangesCantMerge_ReturnsFalse(string name, RangeInput range)
   {
     var items = new[] {
-      new ScalarDeclAst(AstNulls.At, name) with { Ranges = range.ScalarRanges() },
-      new ScalarDeclAst(AstNulls.At, name) with { Ranges = range.ScalarRanges() },
+      new ScalarDeclAst(AstNulls.At, name) with { Numbers = range.ScalarRanges() },
+      new ScalarDeclAst(AstNulls.At, name) with { Numbers = range.ScalarRanges() },
     };
     _ranges.CanMerge([]).ReturnsForAnyArgs(false);
 
@@ -55,13 +55,13 @@ public class MergeScalarsTests
     result.Should().BeFalse();
   }
 
-  private readonly IMerge<ScalarRangeAst> _ranges;
+  private readonly IMerge<ScalarRangeNumberAst> _ranges;
   private readonly IMerge<ScalarRegexAst> _regexes;
   private readonly MergeScalars _merger;
 
   public MergeScalarsTests()
   {
-    _ranges = Merger<ScalarRangeAst>();
+    _ranges = Merger<ScalarRangeNumberAst>();
     _regexes = Merger<ScalarRegexAst>();
 
     _merger = new(_ranges, _regexes);

@@ -63,7 +63,7 @@ public sealed class ParseScalarTests(Parser<ScalarDeclAst>.D parser)
       name + $"{{number {min}~}}",
       new ScalarDeclAst(AstNulls.At, name) {
         Kind = ScalarKind.Number,
-        Ranges = [new(AstNulls.At, min, null)],
+        Numbers = [new(AstNulls.At, min, null)],
       });
 
   [Theory, RepeatData(Repeats)]
@@ -77,7 +77,7 @@ public sealed class ParseScalarTests(Parser<ScalarDeclAst>.D parser)
       new ScalarDeclAst(AstNulls.At, name) {
         Kind = ScalarKind.Number
         ,
-        Ranges = [new(AstNulls.At, null, max)],
+        Numbers = [new(AstNulls.At, null, max)],
       });
 
   [Theory, RepeatData(Repeats)]
@@ -86,7 +86,7 @@ public sealed class ParseScalarTests(Parser<ScalarDeclAst>.D parser)
       name + $"{{number {min}~{max}}}",
       new ScalarDeclAst(AstNulls.At, name) {
         Kind = ScalarKind.Number,
-        Ranges = [new(AstNulls.At, min, max)],
+        Numbers = [new(AstNulls.At, min, max)],
       },
       max <= min);
 

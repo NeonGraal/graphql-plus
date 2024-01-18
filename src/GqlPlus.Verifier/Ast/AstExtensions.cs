@@ -10,6 +10,10 @@ public static class AstExtensions
     => left is null && right is null
     || left is not null && left.Equals(right);
 
+  public static bool NullEqual(this decimal? left, decimal? right)
+    => left is null && right is null
+    || left is not null && left == right;
+
   public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
     => left.Order(comparer).SequenceEqual(right.Order(comparer));
 

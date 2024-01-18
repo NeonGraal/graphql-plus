@@ -22,7 +22,7 @@ public static class AllMergers
       .AddMerge<EnumDeclAst, MergeEnums>()
       .AddMerge<EnumMemberAst, MergeEnumMembers>()
       .AddMerge<ScalarDeclAst, MergeScalars>()
-      .AddMerge<ScalarRangeAst, MergeScalarRanges>()
+      .AddMerge<ScalarRangeNumberAst, MergeScalarRanges>()
       .AddMerge<ScalarRegexAst, MergeScalarRegexes>()
       // Object types
       .AddMerge<ParameterAst, MergeParameters>()

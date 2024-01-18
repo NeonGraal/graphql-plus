@@ -2,29 +2,30 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class ScalarRangeAst(TokenAt At)
-  : AstAbbreviated(At), IEquatable<ScalarRangeAst>
+public sealed record class ScalarRangeNumberAst(TokenAt At)
+  : AstAbbreviated(At), IEquatable<ScalarRangeNumberAst>
 {
   public decimal? Lower { get; set; }
   public decimal? Upper { get; set; }
 
   internal override string Abbr => "SR";
 
-  public ScalarRangeAst(TokenAt at, decimal? lower, decimal? upper)
+  public ScalarRangeNumberAst(TokenAt at, decimal? lower, decimal? upper)
     : this(at)
     => (Lower, Upper) = (lower, upper);
 
-  public bool Equals(ScalarRangeAst? other)
+  public bool Equals(ScalarRangeNumberAst? other)
     => base.Equals(other)
-      && (Lower == other.Lower || Lower is null && other.Lower is null)
-      && (Upper == other.Upper || Upper is null && other.Upper is null);
+      && Lower.NullEqual(other.Lower)
+      && Upper.NullEqual(other.Upper);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Lower, Upper);
   internal override IEnumerable<string?> GetFields()
-  => Lower == Upper
-    ? base.GetFields().Append(Lower?.ToString())
+  => Lower.NullEqual(Upper)
+    ? base.GetFields()
+      .Append(Lower?.ToString())
     : base.GetFields()
       .Append(Lower?.ToString())
-      .Append(":")
+      .Append("~")
       .Append(Upper?.ToString());
 }

@@ -855,7 +855,7 @@ Success
   Number
   !SR N@139/1
   1
-  :
+  ~
   10
 }
 {
@@ -878,7 +878,7 @@ Success
   Number
   !SR N@25/1
   1
-  :
+  ~
   9
 }
 {
@@ -887,7 +887,7 @@ Success
   Number
   !SR N@25/1
   1
-  :
+  ~
   9
 }
 {

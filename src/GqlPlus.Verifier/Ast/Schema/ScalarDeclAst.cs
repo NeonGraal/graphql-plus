@@ -9,7 +9,12 @@ public sealed record class ScalarDeclAst(
 ) : AstType(At, Name, Description), IEquatable<ScalarDeclAst>
 {
   public ScalarKind Kind { get; set; } = ScalarKind.Number;
-  public ScalarRangeAst[] Ranges { get; set; } = [];
+  public string? Extends { get; set; }
+
+  public string? EnumType { get; set; }
+  public ScalarRangeEnumAst[] Enums { get; set; } = [];
+
+  public ScalarRangeNumberAst[] Numbers { get; set; } = [];
   public ScalarRegexAst[] Regexes { get; set; } = [];
   public ScalarReferenceAst[] References { get; set; } = [];
 
@@ -19,9 +24,12 @@ public sealed record class ScalarDeclAst(
   public ScalarDeclAst(TokenAt at, string name)
     : this(at, name, "") { }
 
-  public ScalarDeclAst(TokenAt at, string name, ScalarRangeAst[] ranges)
+  public ScalarDeclAst(TokenAt at, string name, ScalarRangeNumberAst[] numbers)
     : this(at, name, "")
-    => Ranges = ranges;
+    => Numbers = numbers;
+  public ScalarDeclAst(TokenAt at, string name, string enumType, ScalarRangeEnumAst[] enums)
+    : this(at, name, "")
+    => (EnumType, Enums) = (enumType, enums);
   public ScalarDeclAst(TokenAt at, string name, ScalarRegexAst[] regexes)
     : this(at, name, "")
     => (Kind, Regexes) = (ScalarKind.String, regexes);
@@ -32,21 +40,29 @@ public sealed record class ScalarDeclAst(
   public bool Equals(ScalarDeclAst? other)
     => base.Equals(other)
       && Kind == other.Kind
-      && Ranges.SequenceEqual(other.Ranges)
+      && Extends.NullEqual(other.Extends)
+      && EnumType.NullEqual(other.EnumType)
+      && Enums.SequenceEqual(other.Enums)
+      && Numbers.SequenceEqual(other.Numbers)
       && References.SequenceEqual(other.References)
       && Regexes.SequenceEqual(other.Regexes);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Kind, Ranges.Length, References.Length, Regexes.Length);
+    => HashCode.Combine(base.GetHashCode(), Kind, Extends, EnumType, Numbers.Length, Enums.Length, References.Length, Regexes.Length);
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(Kind.ToString())
-      .Concat(Ranges.Bracket())
+      .Append(Extends.Prefixed(":"))
+      .Append(EnumType)
+      .Concat(Numbers.Bracket())
+      .Concat(Enums.Bracket())
       .Concat(References.Bracket())
       .Concat(Regexes.Bracket());
 }
 
 public enum ScalarKind
 {
+  Boolean,
+  Enum,
   Number,
   String,
   Union,

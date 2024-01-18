@@ -19,7 +19,7 @@ internal class ParseScalar(
     result.Kind = value.Kind;
     switch (result.Kind) {
       case ScalarKind.Number:
-        result.Ranges = value.Ranges;
+        result.Numbers = value.Numbers;
         break;
 
       case ScalarKind.String:
@@ -46,20 +46,20 @@ internal class ParseScalar(
 internal class ScalarDefinition
 {
   public ScalarKind Kind { get; set; } = ScalarKind.Number;
-  public ScalarRangeAst[] Ranges { get; set; } = [];
+  public ScalarRangeNumberAst[] Numbers { get; set; } = [];
   public ScalarRegexAst[] Regexes { get; set; } = [];
   public ScalarReferenceAst[] References { get; set; } = [];
 }
 
 internal class ParseScalarDefinition(
   Parser<IEnumParser<ScalarKind>, ScalarKind>.D kind,
-  Parser<ScalarRangeAst>.DA ranges,
+  Parser<ScalarRangeNumberAst>.DA numbers,
   Parser<ScalarReferenceAst>.DA references,
   Parser<ScalarRegexAst>.DA regexes
 ) : Parser<ScalarDefinition>.I
 {
   private readonly Parser<IEnumParser<ScalarKind>, ScalarKind>.L _kind = kind;
-  private readonly Parser<ScalarRangeAst>.LA _ranges = ranges;
+  private readonly Parser<ScalarRangeNumberAst>.LA _numbers = numbers;
   private readonly Parser<ScalarReferenceAst>.LA _references = references;
   private readonly Parser<ScalarRegexAst>.LA _regexes = regexes;
 
@@ -75,8 +75,8 @@ internal class ParseScalarDefinition(
 
     switch (result.Kind) {
       case ScalarKind.Number:
-        var scalarRanges = _ranges.Parse(tokens, label);
-        if (scalarRanges.Required(ranges => result.Ranges = ranges)) {
+        var scalarRanges = _numbers.Parse(tokens, label);
+        if (scalarRanges.Required(ranges => result.Numbers = ranges)) {
           return tokens.End(label, () => result);
         }
 

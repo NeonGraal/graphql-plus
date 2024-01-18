@@ -1,6 +1,7 @@
 ﻿[
   ( !E Boolean [ ^ ] !EV false !EV true ),
   ( !E Unit [ _ ] !EV _ ),
+  ( !S Enum Number ),
   ( !S Number [ 0 ] Number ),
   ( !S String [ * ] String )
 ]

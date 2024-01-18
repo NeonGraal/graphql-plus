@@ -213,7 +213,7 @@ public class VerifySchemaTests(
     ["base-undef"] = "object Test { : Base }",
     ["fields-diff-type"] = "object Test { field: Test } object Test { field: Test1 } object Test1 { }",
     ["fields-diff-mods"] = "object Test { field: Test } object Test { field: Test[] }",
-    ["fields-mods-undef"] = "object Test { field: Test[Enum] }",
+    ["fields-mods-undef"] = "object Test { field: Test[Random] }",
     ["fields-mods-wrong"] = "object Test { field: Test[Test] }",
     ["generic-alt-undef"] = "object Test { | $type }",
     ["generic-base-undef"] = "object Test { : $type }",

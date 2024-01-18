@@ -34,7 +34,7 @@ public class ScalarAstTests : AstAliasedTests
   public void String_WithRanges(string name, RangeInput input)
     => _checks.String(
       () => new ScalarDeclAst(AstNulls.At, name, input.ScalarRanges()),
-      $"( !S {name} Number !SR {input.StringExcluded(false, false)} )");
+      $"( !S {name} Number !SR {input} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithRanges(string name, RangeInput input)

@@ -9,8 +9,6 @@ internal record class EnumModel(string Name)
   public TypeRefModel<SimpleKindModel>? Extends { get; set; }
   public EnumMemberModel[] Members { get; set; } = [];
 
-  protected override string Tag => "Enum";
-
   internal override RenderStructure Render()
     => base.Render()
       .Add("extends", Extends?.Render())
@@ -20,8 +18,6 @@ internal record class EnumModel(string Name)
 internal record class EnumMemberModel(string Name, string OfEnum)
   : ModelAliased(Name)
 {
-  protected override string Tag => "EnumMember";
-
   internal override RenderStructure Render()
     => base.Render()
       .Add("enum", new("", OfEnum));

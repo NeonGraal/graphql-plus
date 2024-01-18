@@ -7,5 +7,5 @@ internal abstract record class ModelBaseType(TypeKindModel Kind, string Name)
 {
   internal override RenderStructure Render()
     => base.Render()
-    .Add("kind", new(Kind.GetType().TypeTag(), Kind.ToString()));
+    .Add("kind", Kind.RenderEnum());
 }

@@ -10,8 +10,6 @@ internal record class DirectiveModel(string Name)
   public bool Repeatable { get; set; }
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 
-  protected override string Tag => "Directive";
-
   internal override RenderStructure Render()
     => base.Render()
       .Add("locations", new("_Set(_Location)", DirectiveModeller.ToSet(Locations), true))

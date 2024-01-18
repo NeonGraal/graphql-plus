@@ -7,7 +7,7 @@ internal record class TypeRefModel<TKind>(TKind Kind, string Name)
   : ModelNamed(Name)
 {
   private static readonly string s_kindTag = typeof(TKind).TypeTag();
-  protected override string Tag => "TypeRef(" + s_kindTag + ")";
+  protected override string Tag => "_TypeRef(" + s_kindTag + ")";
 
   internal override RenderStructure Render()
     => base.Render()
@@ -28,9 +28,6 @@ internal enum TypeKindModel
 
 internal static class ModelHelper
 {
-  internal static string TypeTag(this Type type)
-    => "_" + type.Name.Replace("Model", "");
-
   [return: NotNullIfNotNull(nameof(input))]
   internal static TypeRefModel<TKind>? TypeRef<TKind>(this string? input, TKind kind)
     => input is null ? null : new(kind, input);

@@ -10,8 +10,6 @@ internal record class CategoryModel(string Name, TypeRefModel<TypeKindModel> Out
   public CategoryOption Resolution { get; set; } = CategoryOption.Parallel;
   public ModifierModel[] Modifiers { get; set; } = [];
 
-  protected override string Tag => "Category";
-
   internal override RenderStructure Render()
     => base.Render()
       .Add("resolution", new("_Resolution", Resolution.ToString()))

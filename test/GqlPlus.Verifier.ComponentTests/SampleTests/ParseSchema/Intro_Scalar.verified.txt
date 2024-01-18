@@ -4,10 +4,14 @@ Success
   !E I@6/1
   _Scalar
   !EV I@16/1
+  Boolean
+  !EV I@24/1
+  Enum
+  !EV I@29/1
   Number
-  !EV I@23/1
+  !EV I@36/1
   String
-  !EV I@30/1
+  !EV I@43/1
   Union
 }
 {
@@ -16,184 +20,273 @@ Success
   |
   !AO
   I@7/4
-  _ScalarNumber
+  _ScalarBoolean
   !AO
   I@7/5
-  _ScalarString
+  _ScalarEnum
   !AO
   I@7/6
+  _ScalarNumber
+  !AO
+  I@7/7
+  _ScalarString
+  !AO
+  I@7/8
   _ScalarUnion
 }
 {
-  !O I@8/9
+  !O I@8/11
   _ScalarRef
   <
-    I@20/9
+    I@20/11
     $base
   >
   :
-  I@7/10
+  I@7/12
   _TypeRef
   <
-    I@16/10
+    I@16/12
     _TypeKind.Scalar
   >
   {
-    !OF I@9/11
+    !OF I@9/13
     scalar
     :
-    I@18/11
+    I@18/13
     $base
   }
 }
 {
-  !O I@8/14
+  !O I@8/16
   _BaseScalar
   <
-    I@21/14
+    I@21/16
     $base
   >
   :
-  I@7/15
+  I@7/17
   _BaseType
   <
-    I@17/15
+    I@17/17
     _TypeKind.Scalar
   >
   {
-    !OF I@9/16
+    !OF I@9/18
     extends
     :
-    I@18/16
+    I@18/18
     _ScalarRef
     <
-      I@30/16
+      I@30/18
       $base
     >
+    ?
   }
 }
 {
-  !O I@8/19
-  _ScalarNumber
+  !O I@8/21
+  _BaseScalarItem
+  {
+    !OF I@9/22
+    exclude
+    :
+    I@18/22
+    Boolean
+  }
+}
+{
+  !O I@8/25
+  _ScalarBoolean
   :
-  I@7/20
+  I@7/26
   _BaseScalar
   <
-    I@19/20
-    _Scalar.Number
+    I@19/26
+    _Scalar.Boolean
+  >
+}
+{
+  !O I@8/29
+  _ScalarEnum
+  :
+  I@7/30
+  _BaseScalar
+  <
+    I@19/30
+    _Scalar.Enum
   >
   {
-    !OF I@9/21
+    !OF I@9/31
+    enum
+    :
+    I@15/31
+    _TypeRef
+    <
+      I@24/31
+      _TypeKind.Enum
+    >
+    !OF I@9/32
     ranges
     :
-    I@17/21
-    _ScalarRange
+    I@17/32
+    _ScalarEnumRange
     []
   }
 }
 {
-  !O I@8/24
-  _ScalarRange
+  !O I@8/35
+  _ScalarEnumRange
+  :
+  I@7/36
+  _BaseScalarItem
   {
-    !OF I@9/25
+    !OF I@9/37
     from
     :
-    I@15/25
-    Number
+    I@15/37
+    _EnumValue
     ?
-    !OF I@9/26
+    !OF I@9/38
     fromInclusive
     :
-    I@24/26
+    I@24/38
     Boolean
-    !OF I@9/27
+    !OF I@9/39
     to
     :
-    I@13/27
-    Number
+    I@13/39
+    _EnumValue
     ?
-    !OF I@9/28
+    !OF I@9/40
     toInclusive
     :
-    I@22/28
+    I@22/40
     Boolean
   }
 }
 {
-  !O I@8/31
-  _ScalarString
+  !O I@8/43
+  _ScalarNumber
   :
-  I@7/32
+  I@7/44
   _BaseScalar
   <
-    I@19/32
+    I@19/44
+    _Scalar.Number
+  >
+  {
+    !OF I@9/45
+    ranges
+    :
+    I@17/45
+    _ScalarNumRange
+    []
+  }
+}
+{
+  !O I@8/48
+  _ScalarNumRange
+  :
+  I@7/49
+  _BaseScalarItem
+  {
+    !OF I@9/50
+    from
+    :
+    I@15/50
+    Number
+    ?
+    !OF I@9/51
+    fromInclusive
+    :
+    I@24/51
+    Boolean
+    !OF I@9/52
+    to
+    :
+    I@13/52
+    Number
+    ?
+    !OF I@9/53
+    toInclusive
+    :
+    I@22/53
+    Boolean
+  }
+}
+{
+  !O I@8/56
+  _ScalarString
+  :
+  I@7/57
+  _BaseScalar
+  <
+    I@19/57
     _Scalar.String
   >
   {
-    !OF I@9/33
+    !OF I@9/58
     regexes
     :
-    I@18/33
+    I@18/58
     _ScalarRegex
     []
   }
 }
 {
-  !O I@8/36
+  !O I@8/61
   _ScalarRegex
+  :
+  I@7/62
+  _BaseScalarItem
   {
-    !OF I@9/37
+    !OF I@9/63
     regex
     :
-    I@16/37
+    I@16/63
     String
-    !OF I@9/38
-    exclude
-    :
-    I@18/38
-    Boolean
   }
 }
 {
-  !O I@8/41
+  !O I@8/66
   _ScalarUnion
   :
-  I@7/42
+  I@7/67
   _BaseScalar
   <
-    I@19/42
+    I@19/67
     _Scalar.Union
   >
   {
-    !OF I@9/43
+    !OF I@9/68
     references
     :
-    I@21/43
+    I@21/68
     _TypeSimple
     []
   }
 }
 {
-  !O I@8/46
+  !O I@8/71
   _ScalarValue
   <
-    I@22/46
+    I@22/71
     $base
-    I@28/46
+    I@28/71
     $value
   >
   :
-  I@7/47
+  I@7/72
   _ScalarRef
   <
-    I@19/47
+    I@19/72
     $base
   >
   {
-    !OF I@9/48
+    !OF I@9/73
     value
     :
-    I@17/48
+    I@17/73
     $value
   }
 }

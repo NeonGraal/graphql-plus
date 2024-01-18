@@ -6,8 +6,6 @@ namespace GqlPlus.Verifier.Modelling;
 internal record class SettingModel(string Name, ConstantModel Value)
   : ModelNamed(Name)
 {
-  protected override string Tag => "Setting";
-
   internal override RenderStructure Render()
     => base.Render()
       .Add("value", Value.Render())

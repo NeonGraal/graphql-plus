@@ -3,15 +3,12 @@
 namespace GqlPlus.Verifier.Modelling;
 
 public abstract record class ModelNamed(string Name)
-  : IRendering
+  : ModelBase
 {
   public string? Description { get; set; }
 
-  protected abstract string Tag { get; }
-
-  internal virtual RenderStructure Render()
-    => new RenderStructure("_" + Tag)
+  internal override RenderStructure Render()
+    => base.Render()
       .Add("name", new("", Name))
       .Add("description", RenderValue.Str(Description));
-  RenderStructure IRendering.Render() => Render();
 }

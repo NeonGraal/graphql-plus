@@ -56,7 +56,7 @@ internal sealed class ConstantModelChecks
   public ConstantModelChecks()
     => Constant = new ConstantModeller(
       Simple = ForModeller<FieldKeyAst, SimpleModel>(
-        k => new(k.Value ?? k.String!)));
+        k => SimpleModel.Str("", k.Value ?? k.String!)));
 
   protected override IRendering AstToModel(ConstantAst ast)
     => Constant.ToRenderer(ast);

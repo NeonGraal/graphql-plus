@@ -12,6 +12,7 @@ public class EnumModelTests : ModelAliasedTests<string>
       new(AstNulls.At, name) { Extends = extends },
       ["!_Enum",
         .. extends.TypeRefFor(SimpleKindModel.Enum),
+        "kind: !_TypeKind Enum",
         "name: " + name]);
 
   [Theory, RepeatData(Repeats)]
@@ -21,6 +22,7 @@ public class EnumModelTests : ModelAliasedTests<string>
     .AstExpected(
       new(AstNulls.At, name) { Members = members.EnumMembers() },
       ["!_Enum",
+        "kind: !_TypeKind Enum",
         "members:",
         .. members.SelectMany(m => ExpectedMember(m, name)),
         "name: " + name]);
@@ -40,6 +42,7 @@ public class EnumModelTests : ModelAliasedTests<string>
         $"aliases: [{string.Join(", ", aliases)}]",
         "description: " + _checks.YamlQuoted(contents),
         .. extends.TypeRefFor(SimpleKindModel.Enum),
+        "kind: !_TypeKind Enum",
         "members:",
         .. members.SelectMany(m => ExpectedMember(m, name)),
         "name: " + name]);
@@ -48,6 +51,7 @@ public class EnumModelTests : ModelAliasedTests<string>
     => ["!_Enum",
       aliases,
       description,
+      "kind: !_TypeKind Enum",
       "name: " + input];
 
   private string[] ExpectedMember(string member, string ofEnum)

@@ -46,7 +46,7 @@ internal sealed class SettingModelChecks
   public SettingModelChecks()
     => Setting = new SettingModeller(
       Constant = ForModeller<ConstantAst, ConstantModel>(
-        a => new(new SimpleModel(a.Value?.Value ?? a.Value?.String ?? ""))));
+        a => new(SimpleModel.Str("", a.Value?.Value ?? a.Value?.String ?? ""))));
 
   protected override IRendering AstToModel(OptionSettingAst ast)
     => Setting.ToRenderer(ast);

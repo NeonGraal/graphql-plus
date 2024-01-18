@@ -16,5 +16,5 @@ public sealed record class ScalarRegexAst(TokenAt At, string Regex, bool Exclude
 
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()
-      .Append(Regex.Quoted("/").Prefixed(Excludes ? "~" : ""));
+      .Append(Regex.Quoted("/").Prefixed(Excludes ? "!" : ""));
 }

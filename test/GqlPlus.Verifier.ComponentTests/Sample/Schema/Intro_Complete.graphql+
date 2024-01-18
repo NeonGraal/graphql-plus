@@ -175,31 +175,21 @@ output _ScalarBoolean {
     : _BaseScalar<_Scalar.Boolean>
     }
 
+output _ScalarRange<$of> {
+    : _BaseScalarItem
+        from: $of?
+        to: $of?
+    }
+
 output _ScalarEnum {
     : _BaseScalar<_Scalar.Enum>
         enum: _TypeRef<_TypeKind.Enum>
-        ranges: _ScalarEnumRange[]
-    }
-
-output _ScalarEnumRange {
-    : _BaseScalarItem
-        from: _EnumValue?
-        fromInclusive: Boolean
-        to: _EnumValue?
-        toInclusive: Boolean
+        ranges: _ScalarRange<_EnumValue>[]
     }
 
 output _ScalarNumber {
     : _BaseScalar<_Scalar.Number>
-        ranges: _ScalarNumRange[]
-    }
-
-output _ScalarNumRange {
-    : _BaseScalarItem
-        from: Number?
-        fromInclusive: Boolean
-        to: Number?
-        toInclusive: Boolean
+        ranges: _ScalarRange<Number>[]
     }
 
 output _ScalarString {

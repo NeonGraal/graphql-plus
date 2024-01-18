@@ -204,7 +204,7 @@ Success
   !AI
   I@21/1
   InModsAlt
-  [~]
+  [^]
 }
 {
   !I I@42/1
@@ -464,7 +464,7 @@ Success
   !AO
   I@23/1
   OutModsAlt
-  [~]
+  [^]
 }
 {
   !O I@46/1

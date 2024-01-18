@@ -170,8 +170,8 @@ public class VerifySchemaTests(
     ["output-field-enum-alias"] = "output FieldEnumAlias { field [field1] = Boolean.true } output FieldEnumAlias { field [field2] = true }",
     ["scalar-alias"] = "scalar NumAlias [Num1] { number } scalar NumAlias [Num2] { number }",
     ["scalar-number"] = "scalar Num { number } scalar Num { number }",
-    ["scalar-number-same"] = "scalar NumSame { number 1:9 } scalar NumSame { number 1:9 }",
-    ["scalar-number-diff"] = "scalar NumDiff { number 1:9 } scalar NumDiff { number }",
+    ["scalar-number-same"] = "scalar NumSame { number 1~9 } scalar NumSame { number 1~9 }",
+    ["scalar-number-diff"] = "scalar NumDiff { number 1~9 } scalar NumDiff { number }",
     ["scalar-string"] = "scalar Str { string } scalar Str { string }",
     ["scalar-string-same"] = "scalar StrSame { string /a+/ } scalar StrSame { string /a+/ }",
     ["scalar-string-diff"] = "scalar StrDiff { string /a+/ } scalar StrDiff { string }",
@@ -181,7 +181,7 @@ public class VerifySchemaTests(
   public static IEnumerable<object[]> ValidMerges => SchemaKeys(s_validMerges);
 
   private static readonly Map<string> s_validObjects = new() {
-    ["alts-mods-Boolean"] = "object ObjAltMods { | ObjModsAlt[~] } object ObjModsAlt { }",
+    ["alts-mods-Boolean"] = "object ObjAltMods { | ObjModsAlt[^] } object ObjModsAlt { }",
     ["base"] = "object ObjTestBase { : ObjBaseTest } object ObjBaseTest { }",
     ["fields-mods-Enum"] = "object ObjFieldMods { field: ObjFieldMods[ObjFieldEnum] } enum ObjFieldEnum { value } ",
     ["generic-alt"] = "object ObjGenAlt<$type> { | $type }",
@@ -202,7 +202,7 @@ public class VerifySchemaTests(
     ["output-generic-extends"] = "output OutGenExtends { | OutGenExtendsRef<OutExtendsGen.outGenExtends> } output OutGenExtendsRef<$type> { field: $type } enum OutExtendsGen { : OutExtendedGen outGenExtended } enum OutExtendedGen { outGenExtends }",
     ["output-generic-value"] = "output OutGenValue { | OutGenValueRef<outValueGen> } output OutGenValueRef<$type> { field: $type } enum OutValueGen { outValueGen }",
     ["output-params"] = "output OutParams { field(OutParam): OutParams } input OutParam { }",
-    ["output-params-mods-Scalar"] = "output OutParamsScalar { field(OutParamScalar[OutScalarParam]): OutParamsScalar } input OutParamScalar { } scalar OutScalarParam { number 1 : 10 }",
+    ["output-params-mods-Scalar"] = "output OutParamsScalar { field(OutParamScalar[OutScalarParam]): OutParamsScalar } input OutParamScalar { } scalar OutScalarParam { number 1 ~ 10 }",
   };
   public static IEnumerable<object[]> ValidObjects => SchemaKeys(s_validObjects);
 

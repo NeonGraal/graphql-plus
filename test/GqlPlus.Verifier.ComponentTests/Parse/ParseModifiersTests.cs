@@ -7,7 +7,7 @@ public class ParseModifiersTests(Parser<ModifierAst>.DA parser)
   [InlineData("?", 1)]
   [InlineData("[]", 1)]
   [InlineData("[String]", 1)]
-  [InlineData("[~?]", 1)]
+  [InlineData("[^?]", 1)]
   [InlineData("[]?", 2)]
   [InlineData("[_?][]?", 3)]
   public void WithInput_ReturnsGivenNumber(string input, int count)
@@ -15,8 +15,8 @@ public class ParseModifiersTests(Parser<ModifierAst>.DA parser)
 
   [Fact]
   public void WithFour_ReturnsSpecific()
-    => _test.TrueExpected("[~][_?][]?", [
-      new(AstNulls.At, "~", false),
+    => _test.TrueExpected("[^][_?][]?", [
+      new(AstNulls.At, "^", false),
       new(AstNulls.At, "_", true),
       ModifierAst.List(AstNulls.At),
       ModifierAst.Optional(AstNulls.At),

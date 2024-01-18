@@ -12,23 +12,19 @@ internal class ParseScalarRange : Parser<ScalarRangeAst>.I
     var at = tokens.At;
     var range = new ScalarRangeAst(at);
     var hasLower = tokens.Number(out var min);
-    var excludesLower = tokens.Take('>');
-    var hasRange = tokens.Take(':');
+    var hasRange = tokens.Take('~');
     if (hasLower && !hasRange) {
-      return tokens.Error(label, "range operator (':')", range);
+      return tokens.Error(label, "range operator ('~')", range);
     }
 
-    var excludesUpper = tokens.Take('<');
     var hasUpper = tokens.Number(out var max);
 
     if (hasLower) {
       range.Lower = min;
-      range.LowerExcluded = excludesLower;
     }
 
     if (hasUpper) {
       range.Upper = max;
-      range.UpperExcluded = excludesUpper;
     }
 
     return hasLower || hasUpper

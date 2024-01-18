@@ -1,5 +1,5 @@
 ﻿[
-  ( !E Boolean [ ~ ] !EV false !EV true ),
+  ( !E Boolean [ ^ ] !EV false !EV true ),
   ( !E Unit [ _ ] !EV _ ),
   ( !S Number [ 0 ] Number ),
   ( !S String [ * ] String )

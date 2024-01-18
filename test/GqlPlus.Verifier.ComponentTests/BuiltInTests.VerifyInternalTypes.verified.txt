@@ -1,7 +1,7 @@
 ﻿[
   ( !E Void ),
   ( !E Null [ null ] !EV null ),
-  ( !S Simple Union !ST ~ !ST 0 !ST * !ST _ !ST _Scalar !ST _Enum ),
+  ( !S Simple Union !ST ^ !ST 0 !ST * !ST _ !ST _Scalar !ST _Enum ),
   ( !S Internal Union !ST Void !ST Null ),
   ( !D _Opt < $T > | !AD $T !AD Null ),
   ( !D _List < $T > | !AD $T [] ),

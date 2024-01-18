@@ -56,7 +56,7 @@ public class ScalarAstTests : AstAliasedTests
   public void String_WithRegexes(string name, string regex)
     => _checks.String(
       () => new ScalarDeclAst(AstNulls.At, name, regex.ScalarRegexes()),
-      $"( !S {name} String !SX ~/{regex}/ )");
+      $"( !S {name} String !SX !/{regex}/ )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithRegexes(string name, string regex)

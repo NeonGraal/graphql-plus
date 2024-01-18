@@ -17,7 +17,7 @@ internal class ParseCollections : IParserCollections
       if (tokens.Identifier(out var key)) {
         modifier = new(at, key, tokens.Take('?'));
       } else {
-        if (tokens.TakeAny(out var charType, '~', '0', '*')) {
+        if (tokens.TakeAny(out var charType, '^', '0', '*')) {
           modifier = new(at, charType.ToString(), tokens.Take('?'));
         }
       }

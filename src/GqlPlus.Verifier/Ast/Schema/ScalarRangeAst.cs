@@ -6,9 +6,7 @@ public sealed record class ScalarRangeAst(TokenAt At)
   : AstAbbreviated(At), IEquatable<ScalarRangeAst>
 {
   public decimal? Lower { get; set; }
-  public bool LowerExcluded { get; set; }
   public decimal? Upper { get; set; }
-  public bool UpperExcluded { get; set; }
 
   internal override string Abbr => "SR";
 
@@ -19,14 +17,14 @@ public sealed record class ScalarRangeAst(TokenAt At)
   public bool Equals(ScalarRangeAst? other)
     => base.Equals(other)
       && (Lower == other.Lower || Lower is null && other.Lower is null)
-      && LowerExcluded == other.LowerExcluded
-      && (Upper == other.Upper || Upper is null && other.Upper is null)
-      && UpperExcluded == other.UpperExcluded;
+      && (Upper == other.Upper || Upper is null && other.Upper is null);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Lower, LowerExcluded, Upper, UpperExcluded);
+    => HashCode.Combine(base.GetHashCode(), Lower, Upper);
   internal override IEnumerable<string?> GetFields()
-  => base.GetFields()
-      .Append(Lower?.ToString().Suffixed(LowerExcluded ? " >" : ""))
+  => Lower == Upper
+    ? base.GetFields().Append(Lower?.ToString())
+    : base.GetFields()
+      .Append(Lower?.ToString())
       .Append(":")
-      .Append(Upper?.ToString().Prefixed(UpperExcluded ? "< " : ""));
+      .Append(Upper?.ToString());
 }

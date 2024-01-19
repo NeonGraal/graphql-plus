@@ -28,7 +28,7 @@ public class MergeScalarsTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsRangesCantMerge_ReturnsFalse(string name, RangeInput range)
+  public void CanMerge_TwoItemsRangesCantMerge_ReturnsFalse(string name, RangeNumberInput range)
   {
     var items = new[] {
       new ScalarDeclAst(AstNulls.At, name) with { Numbers = range.ScalarRanges() },

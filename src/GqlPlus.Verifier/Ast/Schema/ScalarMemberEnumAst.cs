@@ -2,19 +2,19 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class ScalarRangeEnumAst(TokenAt At)
-  : AstAbbreviated(At), IEquatable<ScalarRangeEnumAst>
+public sealed record class ScalarMemberEnumAst(TokenAt At)
+  : AstAbbreviated(At), IEquatable<ScalarMemberEnumAst>
 {
   public string? Lower { get; set; }
   public string? Upper { get; set; }
 
   internal override string Abbr => "SR";
 
-  public ScalarRangeEnumAst(TokenAt at, string? lower, string? upper)
+  public ScalarMemberEnumAst(TokenAt at, string? lower, string? upper)
     : this(at)
     => (Lower, Upper) = (lower, upper);
 
-  public bool Equals(ScalarRangeEnumAst? other)
+  public bool Equals(ScalarMemberEnumAst? other)
     => base.Equals(other)
       && Lower.NullEqual(other.Lower)
       && Upper.NullEqual(other.Upper);

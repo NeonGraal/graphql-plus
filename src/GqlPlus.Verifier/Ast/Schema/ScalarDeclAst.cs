@@ -12,7 +12,7 @@ public sealed record class ScalarDeclAst(
   public string? Extends { get; set; }
 
   public string? EnumType { get; set; }
-  public ScalarRangeEnumAst[] Enums { get; set; } = [];
+  public ScalarMemberEnumAst[] Enums { get; set; } = [];
 
   public ScalarRangeNumberAst[] Numbers { get; set; } = [];
   public ScalarRegexAst[] Regexes { get; set; } = [];
@@ -27,7 +27,7 @@ public sealed record class ScalarDeclAst(
   public ScalarDeclAst(TokenAt at, string name, ScalarRangeNumberAst[] numbers)
     : this(at, name, "")
     => Numbers = numbers;
-  public ScalarDeclAst(TokenAt at, string name, string enumType, ScalarRangeEnumAst[] enums)
+  public ScalarDeclAst(TokenAt at, string name, string enumType, ScalarMemberEnumAst[] enums)
     : this(at, name, "")
     => (EnumType, Enums) = (enumType, enums);
   public ScalarDeclAst(TokenAt at, string name, ScalarRegexAst[] regexes)
@@ -57,13 +57,4 @@ public sealed record class ScalarDeclAst(
       .Concat(Enums.Bracket())
       .Concat(References.Bracket())
       .Concat(Regexes.Bracket());
-}
-
-public enum ScalarKind
-{
-  Boolean,
-  Enum,
-  Number,
-  String,
-  Union,
 }

@@ -26,28 +26,6 @@ public class ScalarAstTests : AstAliasedTests
       kind1 == kind2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithRanges(string name, RangeInput input)
-      => _checks.HashCode(
-        () => new ScalarDeclAst(AstNulls.At, name, input.ScalarRanges()));
-
-  [Theory, RepeatData(Repeats)]
-  public void String_WithRanges(string name, RangeInput input)
-    => _checks.String(
-      () => new ScalarDeclAst(AstNulls.At, name, input.ScalarRanges()),
-      $"( !S {name} Number !SR {input} )");
-
-  [Theory, RepeatData(Repeats)]
-  public void Equality_WithRanges(string name, RangeInput input)
-    => _checks.Equality(
-      () => new ScalarDeclAst(AstNulls.At, name, input.ScalarRanges()));
-
-  [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenRanges(string name, RangeInput input1, RangeInput input2)
-    => _checks.InequalityBetween(input1, input2,
-      input => new ScalarDeclAst(AstNulls.At, name, input.ScalarRanges()),
-      input1 == input2);
-
-  [Theory, RepeatData(Repeats)]
   public void HashCode_WithRegexes(string name, string regex)
       => _checks.HashCode(
         () => new ScalarDeclAst(AstNulls.At, name, regex.ScalarRegexes()));

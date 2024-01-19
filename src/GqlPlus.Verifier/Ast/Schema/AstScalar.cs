@@ -8,6 +8,7 @@ public record class AstScalar<TMember>(
   string Description,
   ScalarKind Kind
 ) : AstType(At, Name, Description), IEquatable<AstScalar<TMember>>
+  where TMember : AstScalarMember
 {
   public string? Extends { get; set; }
   public TMember[] Members { get; set; } = [];

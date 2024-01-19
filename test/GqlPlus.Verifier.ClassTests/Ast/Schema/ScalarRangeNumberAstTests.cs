@@ -7,7 +7,7 @@ public class ScalarRangeNumberAstTests
     => $"( !SR {input} )";
 
   private readonly AstAbbreviatedChecks<RangeNumberInput, ScalarRangeNumberAst> _checks
-    = new(input => new ScalarRangeNumberAst(AstNulls.At, input.Lower, input.Upper));
+    = new(input => new ScalarRangeNumberAst(AstNulls.At, false, input.Lower, input.Upper));
 
   internal override IAstAbbreviatedChecks<RangeNumberInput> AbbreviatedChecks => _checks;
 }
@@ -20,24 +20,20 @@ public record struct RangeNumberInput(decimal? Min, decimal? Max)
   public override readonly string ToString()
   {
     if (Lower is null) {
-      return $"~ {Upper}";
+      return $"< {Upper}";
     }
 
     var result = $"{Lower}";
 
-    if (Upper == Lower) {
-      return result;
-    }
-
-    result += " ~";
-
-    if (Upper is not null) {
-      result += $" {Upper}";
+    if (Upper is null) {
+      result += " >";
+    } else if (Upper != Lower) {
+      result += $" ~ {Upper}";
     }
 
     return result;
   }
 
   public readonly ScalarRangeNumberAst[] ScalarRanges()
-    => new ScalarRangeNumberAst[] { new(AstNulls.At, Lower, Upper) };
+    => new ScalarRangeNumberAst[] { new(AstNulls.At, false, Lower, Upper) };
 }

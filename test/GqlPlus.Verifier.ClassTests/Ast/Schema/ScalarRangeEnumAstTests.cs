@@ -7,7 +7,7 @@ public class ScalarRangeEnumAstTests
     => $"( !SR {input} )";
 
   private readonly AstAbbreviatedChecks<MemberInput<string>, ScalarMemberEnumAst> _checks
-    = new(input => new ScalarMemberEnumAst(AstNulls.At, input.Lower, input.Upper));
+    = new(input => new ScalarMemberEnumAst(AstNulls.At, false, input.Lower, input.Upper));
 
   internal override IAstAbbreviatedChecks<MemberInput<string>> AbbreviatedChecks => _checks;
 }

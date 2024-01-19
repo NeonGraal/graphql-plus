@@ -3,6 +3,7 @@
 public abstract class AstScalarTests<TScalar, TMember, TOf>
   : AstAliasedTests
   where TScalar : AstScalar<TMember>
+  where TMember : AstScalarMember
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithMembers(string name, MemberInput<TOf> input)
@@ -13,7 +14,7 @@ public abstract class AstScalarTests<TScalar, TMember, TOf>
   public void String_WithMembers(string name, MemberInput<TOf> input)
     => Checks.String(
       () => NewScalar(name, "", input.ScalarMembers(NewScalarMember)),
-      $"( !S {name} {Kind} !SR {input} )");
+      $"( !S {name} {Kind} !SR < {input.Lower} !SR ! {input.Lower} ~ {input.Upper} !SR {input.Upper} > )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithMembers(string name, MemberInput<TOf> input)
@@ -34,7 +35,7 @@ public abstract class AstScalarTests<TScalar, TMember, TOf>
 
   internal override IAstAliasedChecks<string> AliasedChecks => Checks;
 
-  protected abstract TMember NewScalarMember(TOf? lower, TOf? upper);
+  protected abstract TMember NewScalarMember(TOf? lower, TOf? upper, bool? rightNull);
 
   protected abstract TScalar NewScalar(string name, string input, TMember[] list);
 
@@ -46,32 +47,15 @@ public abstract class AstScalarTests<TScalar, TMember, TOf>
   }
 }
 
-public record struct MemberInput<TOf>(TOf? Min, TOf? Max, int minCompareMax)
+public record struct MemberInput<TOf>(TOf Min, TOf Max, int minCompareMax)
 {
-  internal readonly TOf? Lower => minCompareMax > 0 ? Max : Min;
-  internal readonly TOf? Upper => minCompareMax > 0 ? Min : Max;
+  internal readonly TOf Lower => minCompareMax > 0 ? Max : Min;
+  internal readonly TOf Upper => minCompareMax > 0 ? Min : Max;
 
-  public override readonly string ToString()
-  {
-    if (Lower is null) {
-      return $"~ {Upper}";
-    }
+  public override string ToString()
+    => $"{Lower} ~ {Upper}";
 
-    var result = $"{Lower}";
-
-    if (minCompareMax == 0) {
-      return result;
-    }
-
-    result += " ~";
-
-    if (Upper is not null) {
-      result += $" {Upper}";
-    }
-
-    return result;
-  }
-
-  public readonly TAst[] ScalarMembers<TAst>(Func<TOf?, TOf?, TAst> factory)
-    => new TAst[] { factory(Lower, Upper) };
+  public readonly TMember[] ScalarMembers<TMember>(Func<TOf?, TOf?, bool?, TMember> factory)
+    where TMember : AstScalarMember
+    => new TMember[] { factory(default, Lower, false), factory(Lower, Upper, null) with { Excludes = true }, factory(Upper, default, true) };
 }

@@ -17,8 +17,12 @@ public class ScalarAstEnumTests
   public void Equality_WithEnum(string name, string input)
     => Checks.Equality(() => NewScalar(name, input, []));
 
-  protected override ScalarMemberEnumAst NewScalarMember(string? lower, string? upper)
-    => new(AstNulls.At, lower, upper);
+  protected override ScalarMemberEnumAst NewScalarMember(string? lower, string? upper, bool? rightNull)
+    => rightNull switch {
+      false => new(AstNulls.At, false, null, upper),
+      true => new(AstNulls.At, false, lower, null),
+      _ => new(AstNulls.At, false, lower, upper),
+    };
 
   protected override ScalarDeclEnumAst NewScalar(string name, string input, ScalarMemberEnumAst[] list)
     => new(AstNulls.At, name, input, list);

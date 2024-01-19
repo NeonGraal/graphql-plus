@@ -10,7 +10,9 @@ internal class ParseScalarRange : Parser<ScalarRangeNumberAst>.I
     where TContext : Tokenizer
   {
     var at = tokens.At;
-    var range = new ScalarRangeNumberAst(at);
+    var excludes = tokens.Take('!');
+
+    var range = new ScalarRangeNumberAst(at, excludes);
     var hasLower = tokens.Number(out var min);
     var hasRange = tokens.Take('~');
     if (hasLower && !hasRange) {

@@ -12,33 +12,27 @@ internal class ParseScalar(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<ScalarDefinition>.D definition
-) : DeclarationParser<ScalarDefinition, ScalarDeclAst>(name, param, aliases, option, definition)
+) : DeclarationParser<ISimpleName, NullAst, NullOption, ScalarDefinition, AstScalar<AstScalarMember>>(name, param, aliases, option, definition)
 {
   protected override ScalarDeclAst MakeResult(ScalarDeclAst result, ScalarDefinition value)
   {
-    result.Kind = value.Kind;
-    switch (result.Kind) {
-      case ScalarKind.Number:
-        result.Numbers = value.Numbers;
-        break;
+    //result.Kind = value.Kind;
+    //switch (result.Kind) {
+    //  case ScalarKind.Number:
+    //    result.Numbers = value.Numbers;
+    //    break;
 
-      case ScalarKind.String:
-        result.Regexes = value.Regexes;
-        break;
+    //  case ScalarKind.String:
+    //    result.Regexes = value.Regexes;
+    //    break;
 
-      case ScalarKind.Union:
-        result.References = value.References;
-        break;
-
-      default:
-        break; // Not covered
-    }
-
-    return result;
+    //  case ScalarKind.Union:
+    //    result.References = value.References;
+    //    break;
   }
 
-  protected override bool ApplyOption(ScalarDeclAst result, IResult<NullOption> option) => true;
-  protected override bool ApplyParameters(ScalarDeclAst result, IResultArray<NullAst> parameter) => true;
+  protected override bool ApplyOption(AstScalar<AstScalarMember> result, IResult<NullOption> option) => true;
+  protected override bool ApplyParameters(AstScalar<AstScalarMember> result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
   protected override ScalarDeclAst MakePartial(TokenAt at, string? name, string description)

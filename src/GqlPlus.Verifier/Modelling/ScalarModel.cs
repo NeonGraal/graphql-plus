@@ -48,10 +48,10 @@ internal record class ScalarRegexModel(string Regex, bool Exclude)
       .Add("exclude", new("", Exclude));
 }
 
-internal class ScalarNumberModeller
-  : ModellerBase<ScalarDeclAst, ModelBaseScalar>
+internal class ScalarModeller
+  : ModellerBase<AstScalar<ScalarRangeNumberAst>, ModelBaseScalar>
 {
-  internal override ModelBaseScalar ToModel(ScalarDeclAst ast)
+  internal override ModelBaseScalar ToModel(AstScalar<ScalarRangeNumberAst> ast)
     => new ScalarNumberModel(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,

@@ -4,10 +4,10 @@ using GqlPlus.Verifier.Merging;
 namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyScalarsAliased(
-  IVerify<ScalarDeclAst> definition,
-  IMerge<ScalarDeclAst> merger,
+  IVerify<AstScalar> definition,
+  IMerge<AstScalar> merger,
   ILoggerFactory logger
-) : AliasedVerifier<ScalarDeclAst>(definition, merger, logger)
+) : AliasedVerifier<AstScalar>(definition, merger, logger)
 {
   public override string Label => "Scalars";
 }

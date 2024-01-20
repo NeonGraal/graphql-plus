@@ -28,7 +28,7 @@ public class ScalarAstNumberTests
   protected override string AliasesString(string input, string aliases)
     => $"( !S {input}{aliases} Number )";
 
-  private readonly AstAliasedChecks<ScalarDeclAst> _checks
+  private readonly AstAliasedChecks<AstScalar<ScalarRangeNumberAst>> _checks
     = new(name => ScalarNumber(name, []));
 
   internal override IAstAliasedChecks<string> AliasedChecks => _checks;
@@ -40,6 +40,6 @@ public class ScalarAstNumberTests
       _ => new(AstNulls.At, false, lower, upper),
     };
 
-  private static ScalarDeclAst ScalarNumber(string name, ScalarRangeNumberAst[] list)
-    => new(AstNulls.At, name, list) { Kind = ScalarKind.Number };
+  private static AstScalar<ScalarRangeNumberAst> ScalarNumber(string name, ScalarRangeNumberAst[] list)
+    => new(AstNulls.At, name, ScalarKind.Number, list);
 }

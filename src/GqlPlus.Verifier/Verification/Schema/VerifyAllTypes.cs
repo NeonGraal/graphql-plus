@@ -8,7 +8,7 @@ internal class VerifyAllTypes(
   IVerifyUsage<EnumDeclAst, AstType> enumAllTypes,
   IVerifyUsage<InputDeclAst, AstType> inputAllTypes,
   IVerifyUsage<OutputDeclAst, AstType> outputAllTypes,
-  IVerifyUsage<ScalarDeclAst, AstType> scalarAllTypes
+  IVerifyUsage<AstScalar, AstType> scalarAllTypes
 ) : IVerify<AstType[]>
 {
   public void Verify(AstType[] item, ITokenMessages errors)
@@ -18,7 +18,7 @@ internal class VerifyAllTypes(
     var enumTypes = allTypes.ArrayOf<EnumDeclAst>();
     var inputTypes = allTypes.ArrayOf<InputDeclAst>();
     var outputTypes = allTypes.ArrayOf<OutputDeclAst>();
-    var scalarTypes = allTypes.ArrayOf<ScalarDeclAst>();
+    var scalarTypes = allTypes.ArrayOf<AstScalar>();
 
     enumAllTypes.Verify(new(enumTypes, allTypes), errors);
     inputAllTypes.Verify(new(inputTypes, allTypes), errors);

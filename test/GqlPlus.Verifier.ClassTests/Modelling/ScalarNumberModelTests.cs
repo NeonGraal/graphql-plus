@@ -9,7 +9,7 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
   [Theory, RepeatData(Repeats)]
   public void Model_Extends(string name, string extends)
     => _checks.AstExpected(
-      new(AstNulls.At, name) { Extends = extends },
+      new(AstNulls.At, name, ScalarKind.Number, []) { Extends = extends },
       ["!_ScalarNumber",
         .. extends.TypeRefFor(SimpleKindModel.Scalar),
         "kind: !_TypeKind Scalar",
@@ -21,7 +21,7 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
     => _checks
     .RenderReturn("Parameters")
     .AstExpected(
-      new(AstNulls.At, name), // { Members = members.ScalarMembers() },
+      new(AstNulls.At, name, ScalarKind.Number, [] /* members.ScalarMembers() */),
       ["!_ScalarNumber",
         "kind: !_TypeKind Scalar",
         //"members:",
@@ -34,11 +34,10 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
     => _checks
     .RenderReturn("Parameters")
     .AstExpected(
-      new(AstNulls.At, name) {
+      new(AstNulls.At, name, ScalarKind.Number, [] /* members.ScalarMembers() */) {
         Aliases = aliases,
         Description = contents,
         Extends = extends,
-        //Members = members.ScalarMembers(),
       },
       ["!_ScalarNumber",
         $"aliases: [{string.Join(", ", aliases)}]",
@@ -67,16 +66,16 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
 }
 
 internal sealed class ScalarNumberModelChecks
-  : ModelAliasedChecks<string, ScalarDeclAst>
+  : ModelAliasedChecks<string, AstScalar<ScalarRangeNumberAst>>
 {
-  internal readonly IModeller<ScalarDeclAst> Scalar;
+  internal readonly IModeller<AstScalar<ScalarRangeNumberAst>> Scalar;
 
   public ScalarNumberModelChecks()
     => Scalar = new ScalarNumberModeller();
 
-  protected override IRendering AstToModel(ScalarDeclAst aliased)
+  protected override IRendering AstToModel(AstScalar<ScalarRangeNumberAst> aliased)
     => Scalar.ToRenderer(aliased);
 
-  protected override ScalarDeclAst NewDescribedAst(string input, string description)
-    => new(AstNulls.At, input, description);
+  protected override AstScalar<ScalarRangeNumberAst> NewDescribedAst(string input, string description)
+    => new(AstNulls.At, input, description, ScalarKind.Number);
 }

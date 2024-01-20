@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Ast.Schema;
 
 public abstract record class AstScalarMember(TokenAt At, bool Excludes)
-  : AstAbbreviated(At), IEquatable<AstScalarMember>
+  : AstAbbreviated(At), IEquatable<AstScalarMember>, IAstScalarMember
 {
   public virtual bool Equals(AstScalarMember? other)
   => base.Equals(other)
@@ -14,3 +14,5 @@ public abstract record class AstScalarMember(TokenAt At, bool Excludes)
   => base.GetFields()
       .Append(Excludes ? "!" : "");
 }
+
+public interface IAstScalarMember { }

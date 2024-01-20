@@ -24,6 +24,6 @@ public class ParseScalarClassTests : ClassTestBase
 
     var result = scalar.Parse(tokens, "test");
 
-    result.Should().BeAssignableTo<IResultOk<ScalarDeclAst>>();
+    result.Should().BeAssignableTo<IResultOk<AstScalar>>();
   }
 }

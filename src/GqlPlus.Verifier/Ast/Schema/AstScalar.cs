@@ -7,8 +7,8 @@ public record class AstScalar<TMember>(
   string Name,
   string Description,
   ScalarKind Kind
-) : AstType(At, Name, Description), IEquatable<AstScalar<TMember>>
-  where TMember : AstScalarMember
+) : AstScalar(At, Name, Description, Kind), IEquatable<AstScalar<TMember>>
+  where TMember : IAstScalarMember
 {
   public string? Extends { get; set; }
   public TMember[] Members { get; set; } = [];
@@ -32,6 +32,16 @@ public record class AstScalar<TMember>(
       .Append(Kind.ToString())
       .Append(Extends.Prefixed(":"))
       .Concat(Members.Bracket());
+}
+
+public abstract record class AstScalar(
+  TokenAt At,
+  string Name,
+  string Description,
+  ScalarKind Kind
+) : AstType(At, Name, Description)
+{
+
 }
 
 public enum ScalarKind

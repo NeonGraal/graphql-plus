@@ -14,7 +14,7 @@ public sealed record class ScalarDeclEnumAst(
     : this(at, name, "")
     => (EnumType, Members) = (enumType, members);
 
-  public bool Equals(ScalarDeclAst? other)
+  public bool Equals(ScalarDeclEnumAst? other)
     => base.Equals(other)
       && EnumType.NullEqual(other.EnumType);
   public override int GetHashCode()

@@ -2,11 +2,11 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class ScalarDeclAst(
+public sealed record class ScalarDeclAstOld(
   TokenAt At,
   string Name,
   string Description
-) : AstType(At, Name, Description), IEquatable<ScalarDeclAst>
+) : AstType(At, Name, Description), IEquatable<ScalarDeclAstOld>
 {
   public ScalarKind Kind { get; set; } = ScalarKind.Number;
   public string? Extends { get; set; }
@@ -21,23 +21,23 @@ public sealed record class ScalarDeclAst(
   internal override string Abbr => "S";
   public override string Label => "Scalar";
 
-  public ScalarDeclAst(TokenAt at, string name)
+  public ScalarDeclAstOld(TokenAt at, string name)
     : this(at, name, "") { }
 
-  public ScalarDeclAst(TokenAt at, string name, ScalarRangeNumberAst[] numbers)
+  public ScalarDeclAstOld(TokenAt at, string name, ScalarRangeNumberAst[] numbers)
     : this(at, name, "")
     => Numbers = numbers;
-  public ScalarDeclAst(TokenAt at, string name, string enumType, ScalarMemberEnumAst[] enums)
+  public ScalarDeclAstOld(TokenAt at, string name, string enumType, ScalarMemberEnumAst[] enums)
     : this(at, name, "")
     => (EnumType, Enums) = (enumType, enums);
-  public ScalarDeclAst(TokenAt at, string name, ScalarRegexAst[] regexes)
+  public ScalarDeclAstOld(TokenAt at, string name, ScalarRegexAst[] regexes)
     : this(at, name, "")
     => (Kind, Regexes) = (ScalarKind.String, regexes);
-  public ScalarDeclAst(TokenAt at, string name, ScalarReferenceAst[] references)
+  public ScalarDeclAstOld(TokenAt at, string name, ScalarReferenceAst[] references)
     : this(at, name, "")
     => (Kind, References) = (ScalarKind.Union, references);
 
-  public bool Equals(ScalarDeclAst? other)
+  public bool Equals(ScalarDeclAstOld? other)
     => base.Equals(other)
       && Kind == other.Kind
       && Extends.NullEqual(other.Extends)

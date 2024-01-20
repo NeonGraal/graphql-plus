@@ -6,7 +6,7 @@ internal class MergeAllTypes(
   IMerge<EnumDeclAst> enums,
   IMerge<InputDeclAst> inputs,
   IMerge<OutputDeclAst> outputs,
-  IMerge<ScalarDeclAst> scalars
+  IMerge<AstScalar> scalars
 ) : IMerge<AstType>
 {
   public bool CanMerge(IEnumerable<AstType> items)
@@ -25,7 +25,7 @@ internal class MergeAllTypes(
     var enumTypes = items.OfType<EnumDeclAst>();
     var inputTypes = items.OfType<InputDeclAst>();
     var outputTypes = items.OfType<OutputDeclAst>();
-    var scalarTypes = items.OfType<ScalarDeclAst>();
+    var scalarTypes = items.OfType<AstScalar>();
 
     FixupEnums(enumTypes, outputTypes);
 

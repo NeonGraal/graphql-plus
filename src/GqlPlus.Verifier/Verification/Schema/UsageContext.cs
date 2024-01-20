@@ -36,7 +36,7 @@ internal static class UsageHelpers
     foreach (var modifier in modified.Modifiers) {
       if (modifier.Kind == ModifierKind.Dict) {
         if (context.GetType(modifier.Key!, out var key)) {
-          if (key is not EnumDeclAst and not ScalarDeclAst) {
+          if (key is not EnumDeclAst and not AstScalar) {
             context.AddError((AstAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");
           }
         } else {

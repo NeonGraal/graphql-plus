@@ -10,14 +10,14 @@ public class MergeAllTypesTests
   private readonly IMerge<EnumDeclAst> _enums;
   private readonly IMerge<InputDeclAst> _inputs;
   private readonly IMerge<OutputDeclAst> _outputs;
-  private readonly IMerge<ScalarDeclAst> _scalars;
+  private readonly IMerge<AstScalar> _scalars;
 
   public MergeAllTypesTests()
   {
     _enums = Merger<EnumDeclAst>();
     _inputs = Merger<InputDeclAst>();
     _outputs = Merger<OutputDeclAst>();
-    _scalars = Merger<ScalarDeclAst>();
+    _scalars = Merger<AstScalar>();
 
     _merger = new(_enums, _inputs, _outputs, _scalars);
   }

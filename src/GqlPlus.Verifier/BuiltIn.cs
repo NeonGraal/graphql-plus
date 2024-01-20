@@ -9,17 +9,17 @@ internal static class BuiltIn
     new EnumDeclAst(AstNulls.At, "Boolean") { Aliases = ["^"], Members = [new(AstNulls.At, "false"), new(AstNulls.At, "true")] },
     new EnumDeclAst(AstNulls.At, "Unit") { Aliases = ["_"], Members = [new(AstNulls.At, "_")] },
 
-    new ScalarDeclAst(AstNulls.At, "Enum", "", []),
-    new ScalarDeclAst(AstNulls.At, "Number", numbers: []) { Aliases = ["0"] },
-    new ScalarDeclAst(AstNulls.At, "String", regexes: []) { Aliases = ["*"] },
+    new ScalarDeclEnumAst(AstNulls.At, "Enum", "", []),
+    new AstScalar<ScalarRangeNumberAst>(AstNulls.At, "Number", ScalarKind.Number, []) { Aliases = ["0"] },
+    new AstScalar<ScalarRegexAst>(AstNulls.At, "String", ScalarKind.String, []) { Aliases = ["*"] },
   ];
 
   internal static AstType[] Internal = [
     new EnumDeclAst(AstNulls.At, "Void"),
     new EnumDeclAst(AstNulls.At, "Null") { Aliases = ["null"], Members = [new(AstNulls.At, "null")] },
 
-    new ScalarDeclAst(AstNulls.At, "Simple", "^".ScalarReferences("0", "*", "_", "_Scalar", "_Enum")),
-    new ScalarDeclAst(AstNulls.At, "Internal", "Void".ScalarReferences("Null")),
+    new AstScalar<ScalarReferenceAst>(AstNulls.At, "Simple", ScalarKind.Union, "^".ScalarReferences("0", "*", "_", "_Scalar", "_Enum")),
+    new AstScalar<ScalarReferenceAst>(AstNulls.At, "Internal", ScalarKind.Union, "Void".ScalarReferences("Null")),
 
     DualObj("Opt", TypeParameters("T"), DualAlt(null), DualType("Null")),
     DualObj("List", TypeParameters("T"), DualAlt("")),

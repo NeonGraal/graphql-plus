@@ -14,7 +14,6 @@ internal record class SimpleModel
 
   internal string EnumValue => $"{TypeRef?.Name}.{Value}";
 
-
   internal static TypeRefModel<SimpleKindModel>? TypeFor(string? type)
     => string.IsNullOrWhiteSpace(type) ? null : new(SimpleKindModel.Scalar, type);
 

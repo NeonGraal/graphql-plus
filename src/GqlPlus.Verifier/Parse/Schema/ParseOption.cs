@@ -12,16 +12,20 @@ internal class ParseOption(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<OptionDefinition>.D definition
-  ) : DeclarationParser<ISimpleName, NullAst, NullOption, OptionDefinition, OptionDeclAst>(name, param, aliases, option, definition)
+  ) : DeclarationParser<OptionDefinition, OptionDeclAst>(name, param, aliases, option, definition)
 {
-  protected override void ApplyDefinition(OptionDeclAst result, OptionDefinition value)
-    => result.Settings = value.Settings;
+  protected override OptionDeclAst MakeResult(OptionDeclAst result, OptionDefinition value)
+  {
+    result.Settings = value.Settings;
+
+    return result;
+  }
 
   protected override bool ApplyOption(OptionDeclAst result, IResult<NullOption> option) => true;
   protected override bool ApplyParameters(OptionDeclAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
-  protected override OptionDeclAst MakeResult(TokenAt at, string? name, string description)
+  protected override OptionDeclAst MakePartial(TokenAt at, string? name, string description)
     => new(at, name!, description);
 }
 

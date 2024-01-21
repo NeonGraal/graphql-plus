@@ -14,13 +14,14 @@ internal class ParseCategory(
   Parser<CategoryOutput>.D definition
 ) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, CategoryDeclAst>(name, param, aliases, option, definition)
 {
-  protected override void ApplyDefinition(CategoryDeclAst result, CategoryOutput value)
+  protected override CategoryDeclAst MakeResult(CategoryDeclAst result, CategoryOutput value)
   {
     if (string.IsNullOrWhiteSpace(result.Name)) {
       result.Name = value.Output.Camelize();
     }
 
     result.Output = value.Output;
+    return result;
   }
 
   protected override bool ApplyOption(CategoryDeclAst result, IResult<CategoryOption> option)
@@ -29,7 +30,7 @@ internal class ParseCategory(
   protected override bool ApplyParameters(CategoryDeclAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
-  protected override CategoryDeclAst MakeResult(TokenAt at, string? name, string description)
+  protected override CategoryDeclAst MakePartial(TokenAt at, string? name, string description)
     => new(at, name ?? "", description, "");
 }
 

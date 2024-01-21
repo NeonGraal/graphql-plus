@@ -17,7 +17,7 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
         "scalar: !_ScalarKind Number"]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_Members(string name, string[] members)
+  public void Model_Members(string name)
     => _checks
     .RenderReturn("Parameters")
     .AstExpected(
@@ -30,7 +30,7 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
         "scalar: !_ScalarKind Number"]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_All(string name, string contents, string[] aliases, string extends, string[] members)
+  public void Model_All(string name, string contents, string[] aliases, string extends)
     => _checks
     .RenderReturn("Parameters")
     .AstExpected(

@@ -6,7 +6,7 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal abstract class ObjectParser<TObject, TField, TReference>
-  : DeclarationParser<ISimpleName, TypeParameterAst, NullOption, ObjectDefinition<TField, TReference>, TObject>, Parser<TObject>.I
+  : DeclarationParser<TypeParameterAst, ObjectDefinition<TField, TReference>, TObject>, Parser<TObject>.I
   where TObject : AstObject<TField, TReference> where TField : AstField<TReference> where TReference : AstReference<TReference>
 {
   protected ObjectParser(

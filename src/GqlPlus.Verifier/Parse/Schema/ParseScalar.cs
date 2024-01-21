@@ -12,9 +12,9 @@ internal class ParseScalar(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<ScalarDefinition>.D definition
-) : DeclarationParser<ISimpleName, NullAst, NullOption, ScalarDefinition, ScalarDeclAst>(name, param, aliases, option, definition)
+) : DeclarationParser<ScalarDefinition, ScalarDeclAst>(name, param, aliases, option, definition)
 {
-  protected override void ApplyDefinition(ScalarDeclAst result, ScalarDefinition value)
+  protected override ScalarDeclAst MakeResult(ScalarDeclAst result, ScalarDefinition value)
   {
     result.Kind = value.Kind;
     switch (result.Kind) {
@@ -33,13 +33,15 @@ internal class ParseScalar(
       default:
         break; // Not covered
     }
+
+    return result;
   }
 
   protected override bool ApplyOption(ScalarDeclAst result, IResult<NullOption> option) => true;
   protected override bool ApplyParameters(ScalarDeclAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
-  protected override ScalarDeclAst MakeResult(TokenAt at, string? name, string description)
+  protected override ScalarDeclAst MakePartial(TokenAt at, string? name, string description)
     => new(at, name!, description);
 }
 

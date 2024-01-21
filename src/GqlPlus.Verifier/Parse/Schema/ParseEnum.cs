@@ -12,19 +12,21 @@ internal class ParseEnum(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<EnumDefinition>.D definition
-  ) : DeclarationParser<ISimpleName, NullAst, NullOption, EnumDefinition, EnumDeclAst>(name, param, aliases, option, definition)
+  ) : DeclarationParser<EnumDefinition, EnumDeclAst>(name, param, aliases, option, definition)
 {
-  protected override void ApplyDefinition(EnumDeclAst result, EnumDefinition value)
+  protected override EnumDeclAst MakeResult(EnumDeclAst result, EnumDefinition value)
   {
     result.Extends = value.Extends;
     result.Members = value.Values;
+
+    return result;
   }
 
   protected override bool ApplyOption(EnumDeclAst result, IResult<NullOption> option) => true;
   protected override bool ApplyParameters(EnumDeclAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
-  protected override EnumDeclAst MakeResult(TokenAt at, string? name, string description)
+  protected override EnumDeclAst MakePartial(TokenAt at, string? name, string description)
     => new(at, name!, description);
 }
 

@@ -13,8 +13,12 @@ internal class ParseDirective(
   Parser<DirectiveLocation>.D definition
 ) : DeclarationParser<IDirectiveName, ParameterAst, DirectiveOption, DirectiveLocation, DirectiveDeclAst>(name, param, aliases, option, definition)
 {
-  protected override void ApplyDefinition(DirectiveDeclAst result, DirectiveLocation value)
-    => result.Locations = value;
+  protected override DirectiveDeclAst MakeResult(DirectiveDeclAst result, DirectiveLocation value)
+  {
+    result.Locations = value;
+
+    return result;
+  }
 
   protected override bool ApplyOption(DirectiveDeclAst result, IResult<DirectiveOption> option)
     => option.Optional(value => result.Option = value);
@@ -23,7 +27,7 @@ internal class ParseDirective(
     => parameter.Optional(value => result.Parameters = value);
 
   [return: NotNull]
-  protected override DirectiveDeclAst MakeResult(TokenAt at, string? name, string description)
+  protected override DirectiveDeclAst MakePartial(TokenAt at, string? name, string description)
     => new(at, name!, description);
 }
 

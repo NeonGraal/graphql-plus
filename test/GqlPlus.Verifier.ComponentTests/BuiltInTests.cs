@@ -1,6 +1,5 @@
 ﻿namespace GqlPlus.Verifier;
 
-[UsesVerify]
 public class BuiltInTests
 {
   [Fact]

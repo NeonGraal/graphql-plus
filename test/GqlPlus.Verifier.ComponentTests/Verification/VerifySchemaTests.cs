@@ -6,7 +6,6 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-[UsesVerify]
 public class VerifySchemaTests(
     Parser<SchemaAst>.D parser,
     IVerify<SchemaAst> verifier,

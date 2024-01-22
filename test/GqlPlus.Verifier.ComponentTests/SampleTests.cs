@@ -8,7 +8,6 @@ using GqlPlus.Verifier.Verification;
 
 namespace GqlPlus.Verifier;
 
-[UsesVerify]
 public class SampleTests(
     Parser<OperationAst>.D operation,
     Parser<SchemaAst>.D schemaParser,

@@ -150,11 +150,11 @@ output _EnumValue {
 enum _Scalar { Boolean Enum Number String Union }
 
 output _TypeScalar {
-    | _ScalarBoolean
-    | _ScalarEnum
-    | _ScalarNumber
-    | _ScalarString
-    | _ScalarUnion
+    | _BaseScalar<_Scalar.Boolean _ScalarBoolean>
+    | _BaseScalar<_Scalar.Enum _ScalarEnum>
+    | _BaseScalar<_Scalar.Number _ScalarRange>
+    | _BaseScalar<_Scalar.String _ScalarRegex>
+    | _BaseScalar<_Scalar.Union _TypeSimple>
     }
 
 output _ScalarRef<$base> {
@@ -162,9 +162,11 @@ output _ScalarRef<$base> {
         scalar: $base
     }
 
-output _BaseScalar<$base> {
+output _BaseScalar<$base $item> {
     : _BaseType<_TypeKind.Scalar>
         extends: _ScalarRef<$base>?
+        items: $item[]
+        allItems: _ScalarItem<$item>[]
     }
 
 output _BaseScalarItem {
@@ -172,29 +174,17 @@ output _BaseScalarItem {
     }
 
 output _ScalarBoolean {
-    : _BaseScalar<_Scalar.Boolean>
-    }
-
-output _ScalarRange<$of> {
-    : _BaseScalarItem
-        from: $of?
-        to: $of?
     }
 
 output _ScalarEnum {
-    : _BaseScalar<_Scalar.Enum>
-        enum: _TypeRef<_TypeKind.Enum>
-        ranges: _ScalarRange<_EnumValue>[]
+    : _BaseScalarItem
+        member: _EnumValue
     }
 
-output _ScalarNumber {
-    : _BaseScalar<_Scalar.Number>
-        ranges: _ScalarRange<Number>[]
-    }
-
-output _ScalarString {
-    : _BaseScalar<_Scalar.String>
-        regexes: _ScalarRegex[]
+output _ScalarRange {
+    : _BaseScalarItem
+        from: Number?
+        to: Number?
     }
 
 output _ScalarRegex {
@@ -202,15 +192,15 @@ output _ScalarRegex {
         regex: String
     }
 
-output _ScalarUnion {
-    : _BaseScalar<_Scalar.Union>
-        references: _TypeSimple[]
+output _ScalarItem<$item> {
+    : $item
+        scalar: String
     }
 
 output _ScalarValue<$base $value> {
     : _ScalarRef<$base>
         value: $value
-}
+    }
 output _TypeObject<$kind $base $field> {
     : _BaseType<$kind>
         extends: $base?

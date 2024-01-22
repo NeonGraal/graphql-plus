@@ -20,7 +20,7 @@ internal record class ScalarNumberModel(string Name)
   public ScalarRangeModel[] Ranges { get; set; } = [];
 }
 
-internal record class ScalarRangeModel(bool FromInclusive, bool ToInclusive)
+internal record class ScalarRangeModel(bool Exclude)
   : ModelBase
 {
   public decimal? From { get; set; }
@@ -29,9 +29,8 @@ internal record class ScalarRangeModel(bool FromInclusive, bool ToInclusive)
   internal override RenderStructure Render()
     => base.Render()
       .Add("from", new("", From))
-      .Add("fromInclusive", new("", FromInclusive))
       .Add("to", new("", To))
-      .Add("toInclusive", new("", ToInclusive));
+      .Add("exclude", new("", Exclude));
 }
 
 internal record class ScalarStringModel(string Name)
@@ -49,13 +48,25 @@ internal record class ScalarRegexModel(string Regex, bool Exclude)
       .Add("exclude", new("", Exclude));
 }
 
-internal class ScalarModeller
+internal class ScalarNumberModeller
   : ModellerBase<ScalarDeclAst, ModelBaseScalar>
 {
   internal override ModelBaseScalar ToModel(ScalarDeclAst ast)
     => new ScalarNumberModel(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
+      Extends = ast.Extends.TypeRef(SimpleKindModel.Scalar),
+    };
+}
+
+internal class ScalarStringModeller
+  : ModellerBase<ScalarDeclAst, ModelBaseScalar>
+{
+  internal override ModelBaseScalar ToModel(ScalarDeclAst ast)
+    => new ScalarStringModel(ast.Name) {
+      Aliases = ast.Aliases,
+      Description = ast.Description,
+      Extends = ast.Extends.TypeRef(SimpleKindModel.Scalar),
     };
 }
 

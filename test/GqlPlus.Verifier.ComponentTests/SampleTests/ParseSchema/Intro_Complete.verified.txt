@@ -612,19 +612,49 @@ Success
   |
   !AO
   I@7/153
-  _ScalarBoolean
+  _BaseScalar
+  <
+    I@19/153
+    _Scalar.Boolean
+    I@35/153
+    _ScalarBoolean
+  >
   !AO
   I@7/154
-  _ScalarEnum
+  _BaseScalar
+  <
+    I@19/154
+    _Scalar.Enum
+    I@32/154
+    _ScalarEnum
+  >
   !AO
   I@7/155
-  _ScalarNumber
+  _BaseScalar
+  <
+    I@19/155
+    _Scalar.Number
+    I@34/155
+    _ScalarRange
+  >
   !AO
   I@7/156
-  _ScalarString
+  _BaseScalar
+  <
+    I@19/156
+    _Scalar.String
+    I@34/156
+    _ScalarRegex
+  >
   !AO
   I@7/157
-  _ScalarUnion
+  _BaseScalar
+  <
+    I@19/157
+    _Scalar.Union
+    I@33/157
+    _TypeSimple
+  >
 }
 {
   !O I@8/160
@@ -654,6 +684,8 @@ Success
   <
     I@21/165
     $base
+    I@27/165
+    $item
   >
   :
   I@7/166
@@ -673,263 +705,207 @@ Success
       $base
     >
     ?
+    !OF I@9/168
+    items
+    :
+    I@17/168
+    $item
+    []
+    !OF I@9/169
+    allItems
+    :
+    I@19/169
+    _ScalarItem
+    <
+      I@32/169
+      $item
+    >
+    []
   }
 }
 {
-  !O I@8/170
+  !O I@8/172
   _BaseScalarItem
   {
-    !OF I@9/171
+    !OF I@9/173
     exclude
     :
-    I@18/171
+    I@18/173
     Boolean
   }
 }
 {
-  !O I@8/174
+  !O I@8/176
   _ScalarBoolean
-  :
-  I@7/175
-  _BaseScalar
-  <
-    I@19/175
-    _Scalar.Boolean
-  >
 }
 {
-  !O I@8/178
-  _ScalarRange
-  <
-    I@22/178
-    $of
-  >
+  !O I@8/179
+  _ScalarEnum
   :
-  I@7/179
+  I@7/180
   _BaseScalarItem
   {
-    !OF I@9/180
-    from
-    :
-    I@16/180
-    $of
-    ?
     !OF I@9/181
-    to
+    member
     :
-    I@14/181
-    $of
-    ?
+    I@17/181
+    _EnumValue
   }
 }
 {
   !O I@8/184
-  _ScalarEnum
+  _ScalarRange
   :
   I@7/185
-  _BaseScalar
-  <
-    I@19/185
-    _Scalar.Enum
-  >
+  _BaseScalarItem
   {
     !OF I@9/186
-    enum
+    from
     :
     I@15/186
-    _TypeRef
-    <
-      I@24/186
-      _TypeKind.Enum
-    >
+    Number
+    ?
     !OF I@9/187
-    ranges
+    to
     :
-    I@17/187
-    _ScalarRange
-    <
-      I@30/187
-      _EnumValue
-    >
-    []
+    I@13/187
+    Number
+    ?
   }
 }
 {
   !O I@8/190
-  _ScalarNumber
-  :
-  I@7/191
-  _BaseScalar
-  <
-    I@19/191
-    _Scalar.Number
-  >
-  {
-    !OF I@9/192
-    ranges
-    :
-    I@17/192
-    _ScalarRange
-    <
-      I@30/192
-      Number
-    >
-    []
-  }
-}
-{
-  !O I@8/195
-  _ScalarString
-  :
-  I@7/196
-  _BaseScalar
-  <
-    I@19/196
-    _Scalar.String
-  >
-  {
-    !OF I@9/197
-    regexes
-    :
-    I@18/197
-    _ScalarRegex
-    []
-  }
-}
-{
-  !O I@8/200
   _ScalarRegex
   :
-  I@7/201
+  I@7/191
   _BaseScalarItem
   {
-    !OF I@9/202
+    !OF I@9/192
     regex
     :
-    I@16/202
+    I@16/192
     String
   }
 }
 {
-  !O I@8/205
-  _ScalarUnion
-  :
-  I@7/206
-  _BaseScalar
+  !O I@8/195
+  _ScalarItem
   <
-    I@19/206
-    _Scalar.Union
+    I@21/195
+    $item
   >
+  :
+  I@8/196
+  $item
   {
-    !OF I@9/207
-    references
+    !OF I@9/197
+    scalar
     :
-    I@21/207
-    _TypeSimple
-    []
+    I@17/197
+    String
   }
 }
 {
-  !O I@8/210
+  !O I@8/200
   _ScalarValue
   <
-    I@22/210
+    I@22/200
     $base
-    I@28/210
+    I@28/200
     $value
   >
   :
-  I@7/211
+  I@7/201
   _ScalarRef
   <
-    I@19/211
+    I@19/201
     $base
   >
   {
-    !OF I@9/212
+    !OF I@9/202
     value
     :
-    I@17/212
+    I@17/202
     $value
   }
 }
 {
-  !O I@8/214
+  !O I@8/204
   _TypeObject
   <
-    I@21/214
+    I@21/204
     $kind
-    I@27/214
+    I@27/204
     $base
-    I@33/214
+    I@33/204
     $field
   >
   :
-  I@7/215
+  I@7/205
   _BaseType
   <
-    I@18/215
+    I@18/205
     $kind
   >
   {
-    !OF I@9/216
+    !OF I@9/206
     extends
     :
-    I@19/216
+    I@19/206
     $base
     ?
-    !OF I@9/217
+    !OF I@9/207
     typeParameters
     :
-    I@25/217
+    I@25/207
     _Named
     []
-    !OF I@9/218
+    !OF I@9/208
     fields
     :
-    I@18/218
+    I@18/208
     $field
     []
-    !OF I@9/219
+    !OF I@9/209
     alternates
     :
-    I@21/219
+    I@21/209
     _Alternate
     <
-      I@33/219
+      I@33/209
       $base
     >
     []
-    !OF I@9/220
+    !OF I@9/210
     allTypeParameters
     :
-    I@28/220
+    I@28/210
     _Object
     <
-      I@36/220
+      I@36/210
       _Named
     >
     []
-    !OF I@9/221
+    !OF I@9/211
     allFields
     :
-    I@20/221
+    I@20/211
     _Object
     <
-      I@29/221
+      I@29/211
       $field
     >
     []
-    !OF I@9/222
+    !OF I@9/212
     allAlternates
     :
-    I@24/222
+    I@24/212
     _Object
     <
-      I@32/222
+      I@32/212
       _Alternate
       <
-        I@44/222
+        I@44/212
         $base
       >
     >
@@ -937,106 +913,150 @@ Success
   }
 }
 {
-  !O I@8/225
+  !O I@8/215
   _Ref
   <
-    I@14/225
+    I@14/215
     $base
   >
   |
   !AO
-  I@7/226
+  I@7/216
   _BaseType
   <
-    I@17/226
+    I@17/216
     _TypeKind.Internal
   >
   !AO
-  I@7/227
+  I@7/217
   _TypeSimple
   !AO
-  I@8/228
+  I@8/218
   $base
 }
 {
-  !O I@8/231
+  !O I@8/221
   _Alternate
   <
-    I@20/231
+    I@20/221
     $base
   >
   {
-    !OF I@7/232
+    !OF I@7/222
     type
     :
-    I@13/232
+    I@13/222
     _Ref
     <
-      I@19/232
+      I@19/222
       $base
     >
-    !OF I@7/233
+    !OF I@7/223
     collections
     :
-    I@20/233
+    I@20/223
     _Collection
     []
   }
 }
 {
-  !O I@8/236
+  !O I@8/226
   _Object
   <
-    I@17/236
+    I@17/226
     $for
   >
   :
-  I@8/237
+  I@8/227
   $for
   {
-    !OF I@9/238
+    !OF I@9/228
     object
     :
-    I@17/238
+    I@17/228
     String
   }
 }
 {
-  !O I@8/241
+  !O I@8/231
   _Field
   <
-    I@16/241
+    I@16/231
     $base
   >
   :
-  I@7/242
+  I@7/232
   _Aliased
   {
-    !OF I@7/243
+    !OF I@7/233
     type
     :
-    I@13/243
+    I@13/233
     _Ref
     <
-      I@19/243
+      I@19/233
       $base
     >
-    !OF I@7/244
+    !OF I@7/234
     modifiers
     :
-    I@18/244
+    I@18/234
     _Modifier
     []
   }
 }
 {
-  !O I@8/247
+  !O I@8/237
   _Parameter
   :
-  I@7/248
+  I@7/238
   _Alternate
   <
-    I@18/248
+    I@18/238
+    _InputBase
+  >
+  {
+    !OF I@9/239
+    default
+    :
+    I@18/239
+    _Constant
+    ?
+  }
+}
+{
+  !O I@8/241
+  _InputBase
+  {
+    !OF I@9/242
+    input
+    :
+    I@16/242
+    String
+    !OF I@9/243
+    arguments
+    :
+    I@20/243
+    _Ref
+    <
+      I@25/243
+      _InputBase
+    >
+    []
+  }
+  |
+  !AO
+  I@23/244
+  String
+}
+{
+  !O I@8/247
+  _InputField
+  :
+  I@7/248
+  _Field
+  <
+    I@14/248
     _InputBase
   >
   {
@@ -1050,22 +1070,18 @@ Success
 }
 {
   !O I@8/251
-  _InputBase
+  _OutputBase
   {
     !OF I@9/252
-    input
+    output
     :
-    I@16/252
+    I@17/252
     String
     !OF I@9/253
     arguments
     :
     I@20/253
-    _Ref
-    <
-      I@25/253
-      _InputBase
-    >
+    _OutputArgument
     []
   }
   |
@@ -1075,113 +1091,73 @@ Success
 }
 {
   !O I@8/257
-  _InputField
+  _OutputField
   :
   I@7/258
   _Field
   <
     I@14/258
-    _InputBase
-  >
-  {
-    !OF I@9/259
-    default
-    :
-    I@18/259
-    _Constant
-    ?
-  }
-}
-{
-  !O I@8/261
-  _OutputBase
-  {
-    !OF I@9/262
-    output
-    :
-    I@17/262
-    String
-    !OF I@9/263
-    arguments
-    :
-    I@20/263
-    _OutputArgument
-    []
-  }
-  |
-  !AO
-  I@23/264
-  String
-}
-{
-  !O I@8/267
-  _OutputField
-  :
-  I@7/268
-  _Field
-  <
-    I@14/268
     _OutputBase
   >
   {
-    !OF I@9/269
+    !OF I@9/259
     parameter
     :
-    I@20/269
+    I@20/259
     _Parameter
     []
   }
   |
   !AO
-  I@7/270
+  I@7/260
   _OutputEnum
 }
 {
-  !O I@8/273
+  !O I@8/263
   _OutputArgument
   :
-  I@7/274
+  I@7/264
   _BaseType
   <
-    I@17/274
+    I@17/264
     _TypeKind.Enum
   >
   {
-    !OF I@9/275
+    !OF I@9/265
     value
     :
-    I@16/275
+    I@16/265
     String
   }
   |
   !AO
-  I@7/276
+  I@7/266
   _Ref
   <
-    I@12/276
+    I@12/266
     _OutputBase
   >
 }
 {
-  !O I@8/279
+  !O I@8/269
   _OutputEnum
   :
-  I@7/280
+  I@7/270
   _BaseType
   <
-    I@17/280
+    I@17/270
     _TypeKind.Enum
   >
   {
-    !OF I@9/281
+    !OF I@9/271
     field
     :
-    I@16/281
+    I@16/271
     String
-    !OF I@9/282
+    !OF I@9/272
     value
     :
-    I@16/282
+    I@16/272
     String
   }
 }

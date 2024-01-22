@@ -11,7 +11,7 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
     => _checks.AstExpected(
       new(AstNulls.At, name) { Extends = extends },
       ["!_ScalarNumber",
-        //.. extends.TypeRefFor(SimpleKindModel.Scalar),
+        .. extends.TypeRefFor(SimpleKindModel.Scalar),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind Number"]);
@@ -43,7 +43,7 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
       ["!_ScalarNumber",
         $"aliases: [{string.Join(", ", aliases)}]",
         "description: " + _checks.YamlQuoted(contents),
-        //.. extends.TypeRefFor(SimpleKindModel.Scalar),
+        .. extends.TypeRefFor(SimpleKindModel.Scalar),
         "kind: !_TypeKind Scalar",
         //"members:",
         //.. members.SelectMany(m => ExpectedMember(m, name)),
@@ -72,7 +72,7 @@ internal sealed class ScalarNumberModelChecks
   internal readonly IModeller<ScalarDeclAst> Scalar;
 
   public ScalarNumberModelChecks()
-    => Scalar = new ScalarModeller();
+    => Scalar = new ScalarNumberModeller();
 
   protected override IRendering AstToModel(ScalarDeclAst aliased)
     => Scalar.ToRenderer(aliased);

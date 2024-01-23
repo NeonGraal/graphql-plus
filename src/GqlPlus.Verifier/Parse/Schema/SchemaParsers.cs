@@ -38,7 +38,7 @@ public static class SchemaParsers
       .AddArrayParser<ScalarRangeNumberAst, ParseScalarRange>()
       .AddArrayParser<ScalarRegexAst, ParseScalarRegex>()
       .AddArrayParser<ScalarReferenceAst, ParseScalarReference>()
-      .AddDeclarationParser<AstScalar<AstScalarMember>, ParseScalar>("scalar")
+      .AddDeclarationParser<AstScalar, ParseScalar>("scalar")
       // Objects
       .AddParserArray<TypeParameterAst, ParseTypeParameters>()
       // Input

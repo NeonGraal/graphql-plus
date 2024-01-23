@@ -12,36 +12,40 @@ internal class ParseScalar(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<ScalarDefinition>.D definition
-) : DeclarationParser<ISimpleName, NullAst, NullOption, ScalarDefinition, AstScalar<AstScalarMember>>(name, param, aliases, option, definition)
+) : DeclarationParser<ScalarDefinition, AstScalar>(name, param, aliases, option, definition)
 {
-  protected override ScalarDeclAst MakeResult(ScalarDeclAst result, ScalarDefinition value)
-  {
-    //result.Kind = value.Kind;
-    //switch (result.Kind) {
-    //  case ScalarKind.Number:
-    //    result.Numbers = value.Numbers;
-    //    break;
+  protected override AstScalar MakeResult(AstScalar partial, ScalarDefinition value)
+    => value.Kind switch {
+      ScalarKind.Number => new AstScalar<ScalarRangeNumberAst>(partial.At, partial.Name, value.Kind, value.Numbers) {
+        Aliases = partial.Aliases,
+        Description = partial.Description,
+        Extends = value.Extends
+      },
+      ScalarKind.String => new AstScalar<ScalarRegexAst>(partial.At, partial.Name, value.Kind, value.Regexes) {
+        Aliases = partial.Aliases,
+        Description = partial.Description,
+        Extends = value.Extends
+      },
+      ScalarKind.Union => new AstScalar<ScalarReferenceAst>(partial.At, partial.Name, value.Kind, value.References) {
+        Aliases = partial.Aliases,
+        Description = partial.Description,
+        Extends = value.Extends
+      },
+      _ => partial,
+    };
 
-    //  case ScalarKind.String:
-    //    result.Regexes = value.Regexes;
-    //    break;
-
-    //  case ScalarKind.Union:
-    //    result.References = value.References;
-    //    break;
-  }
-
-  protected override bool ApplyOption(AstScalar<AstScalarMember> result, IResult<NullOption> option) => true;
-  protected override bool ApplyParameters(AstScalar<AstScalarMember> result, IResultArray<NullAst> parameter) => true;
+  protected override bool ApplyOption(AstScalar result, IResult<NullOption> option) => true;
+  protected override bool ApplyParameters(AstScalar result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
-  protected override ScalarDeclAst MakePartial(TokenAt at, string? name, string description)
-    => new(at, name!, description);
+  protected override AstScalar<AstScalarMember> MakePartial(TokenAt at, string? name, string description)
+    => new(at, name!, description, ScalarKind.Enum);
 }
 
 internal class ScalarDefinition
 {
   public ScalarKind Kind { get; set; } = ScalarKind.Number;
+  public string? Extends { get; set; }
   public ScalarRangeNumberAst[] Numbers { get; set; } = [];
   public ScalarRegexAst[] Regexes { get; set; } = [];
   public ScalarReferenceAst[] References { get; set; } = [];

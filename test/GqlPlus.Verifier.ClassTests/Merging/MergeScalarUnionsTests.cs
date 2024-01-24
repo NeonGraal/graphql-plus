@@ -1,11 +1,10 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using NSubstitute;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class MergeScalarsTests
-  : TestDescriptions<AstScalar>
+public class MergeScalarUnionsTests
+  : TestDescriptions<AstScalar<ScalarReferenceAst>>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameKinds_ReturnsTrue(string name)
@@ -28,7 +27,7 @@ public class MergeScalarsTests
   }
 
   //[Theory, RepeatData(Repeats)]
-  //public void CanMerge_TwoItemsRangesCantMerge_ReturnsFalse(string name, RangeNumberInput range)
+  //public void CanMerge_TwoItemsRangesCantMerge_ReturnsFalse(string name, RangeUnionInput range)
   //{
   //  var items = new[] {
   //    MakeDescribed(name) with { Members = range.ScalarRanges() },
@@ -55,19 +54,18 @@ public class MergeScalarsTests
   //  result.Should().BeFalse();
   //}
 
-  private readonly IMerge<ScalarRangeNumberAst> _ranges;
-  // private readonly IMerge<ScalarRegexAst> _regexes;
-  private readonly MergeScalars _merger;
+  private readonly IMerge<ScalarReferenceAst> _references;
+  private readonly MergeScalars<ScalarReferenceAst> _merger;
 
-  public MergeScalarsTests()
+  public MergeScalarUnionsTests()
   {
-    _ranges = Merger<ScalarRangeNumberAst>();
+    _references = Merger<ScalarReferenceAst>();
 
-    _merger = new(_ranges);
+    _merger = new(_references);
   }
 
-  protected override GroupsMerger<AstScalar> MergerGroups => _merger;
+  protected override GroupsMerger<AstScalar<ScalarReferenceAst>> MergerGroups => _merger;
 
-  protected override AstScalar<ScalarRangeNumberAst> MakeDescribed(string name, string description = "")
-    => new(AstNulls.At, name, description, ScalarKind.Number);
+  protected override AstScalar<ScalarReferenceAst> MakeDescribed(string name, string description = "")
+    => new(AstNulls.At, name, description, ScalarKind.Union);
 }

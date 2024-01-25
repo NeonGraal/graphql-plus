@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Merging;
 
 internal class MergeScalars<TMember>(
   IMerge<TMember> members
-) : AliasedMerger<AstScalar<TMember>>
+) : AliasedAllMerger<AstScalar, AstScalar<TMember>>
   where TMember : IAstScalarMember
 {
   protected override string ItemMatchKey(AstScalar<TMember> item)

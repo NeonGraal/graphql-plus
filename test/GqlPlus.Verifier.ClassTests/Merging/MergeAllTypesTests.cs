@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using NSubstitute;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -7,19 +8,14 @@ public class MergeAllTypesTests
   : TestBase<AstType>
 {
   private readonly MergeAllTypes _merger;
-  private readonly IMerge<EnumDeclAst> _enums;
-  private readonly IMerge<InputDeclAst> _inputs;
-  private readonly IMerge<OutputDeclAst> _outputs;
-  private readonly IMerge<AstScalar> _scalars;
 
   public MergeAllTypesTests()
   {
-    _enums = Merger<EnumDeclAst>();
-    _inputs = Merger<InputDeclAst>();
-    _outputs = Merger<OutputDeclAst>();
-    _scalars = Merger<AstScalar>();
+    var result = Substitute.For<IMergeAll<AstType>>();
+    result.CanMerge([]).ReturnsForAnyArgs(true);
+    result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<AstType>>());
 
-    _merger = new(_enums, _inputs, _outputs, _scalars);
+    _merger = new([result]);
   }
 
   protected override IMerge<AstType> MergerBase => _merger;

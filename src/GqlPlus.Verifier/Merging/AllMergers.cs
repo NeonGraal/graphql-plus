@@ -19,12 +19,12 @@ public static class AllMergers
       .AddMerge<OptionSettingAst, MergeOptionSettings>()
       // Types
       .AddMerge<AstType, MergeAllTypes>()
-      .AddMerge<EnumDeclAst, MergeEnums>()
+      .AddMergeAll<AstType, EnumDeclAst, MergeEnums>()
       .AddMerge<EnumMemberAst, MergeEnumMembers>()
-      .AddMerge<AstScalar, MergeAllScalars>()
-      .AddMerge<AstScalar<ScalarRangeNumberAst>, MergeScalars<ScalarRangeNumberAst>>()
-      .AddMerge<AstScalar<ScalarRegexAst>, MergeScalars<ScalarRegexAst>>()
-      .AddMerge<AstScalar<ScalarReferenceAst>, MergeScalars<ScalarReferenceAst>>()
+      .AddMergeAll<AstType, AstScalar, MergeAllScalars>()
+      .AddMergeScalar<ScalarRangeNumberAst>()
+      .AddMergeScalar<ScalarRegexAst>()
+      .AddMergeScalar<ScalarReferenceAst>()
       .AddMerge<ScalarRangeNumberAst, MergeScalarRanges>()
       .AddMerge<ScalarRegexAst, MergeScalarRegexes>()
       .AddMerge<ScalarReferenceAst, MergeScalarReferences>()
@@ -33,10 +33,10 @@ public static class AllMergers
       .AddMerge<TypeParameterAst, MergeTypeParameters>()
       .AddMerge<AlternateAst<InputReferenceAst>, AlternatesMerger<InputReferenceAst>>()
       .AddMerge<InputFieldAst, MergeInputFields>()
-      .AddMerge<InputDeclAst, MergeInputObjects>()
+      .AddMergeAll<AstType, InputDeclAst, MergeInputObjects>()
       .AddMerge<AlternateAst<OutputReferenceAst>, AlternatesMerger<OutputReferenceAst>>()
       .AddMerge<OutputFieldAst, MergeOutputFields>()
-      .AddMerge<OutputDeclAst, MergeOutputObjects>()
+      .AddMergeAll<AstType, OutputDeclAst, MergeOutputObjects>()
     ;
 
   public static IServiceCollection AddMerge<T, S>(this IServiceCollection services)
@@ -44,4 +44,17 @@ public static class AllMergers
     => services
       .RemoveAll<IMerge<T>>()
       .AddSingleton<IMerge<T>, S>();
+
+  public static IServiceCollection AddMergeAll<B, T, S>(this IServiceCollection services)
+    where S : class, IMergeAll<B>, IMerge<T>
+    => services
+      .RemoveAll<IMerge<T>>()
+      .AddSingleton<S>()
+      .AddSingleton<IMerge<T>>(x => x.GetRequiredService<S>())
+      .AddSingleton<IMergeAll<B>>(x => x.GetRequiredService<S>());
+
+  public static IServiceCollection AddMergeScalar<TMember>(this IServiceCollection services)
+    where TMember : IAstScalarMember
+    => services
+      .AddMergeAll<AstScalar, AstScalar<TMember>, MergeScalars<TMember>>();
 }

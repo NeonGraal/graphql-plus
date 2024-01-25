@@ -2,17 +2,14 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public sealed class ParseScalarUnionTests(Parser<ScalarDeclAst>.D parser)
+public sealed class ParseScalarUnionTests(Parser<AstScalar>.D parser)
     : BaseAliasedTests<ScalarUnionInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithReferences_ReturnsCorrectAst(ScalarUnionInput input, string reference)
     => _checks.TrueExpected(
       input.Name + "{union|" + input.Reference + "|" + reference + "}",
-      new ScalarDeclAst(AstNulls.At, input.Name) {
-        Kind = ScalarKind.Union,
-        References = input.Reference.ScalarReferences(reference),
-      });
+      new AstScalar<ScalarReferenceAst>(AstNulls.At, input.Name, ScalarKind.Union, input.Reference.ScalarReferences(reference)));
 
   [Theory, RepeatData(Repeats)]
   public void WithReferencesBad_ReturnsFalse(string name)
@@ -31,18 +28,12 @@ public sealed class ParseScalarUnionTests(Parser<ScalarDeclAst>.D parser)
   private readonly ParseScalarUnionChecks _checks = new(parser);
 }
 
-internal sealed class ParseScalarUnionChecks
-  : BaseAliasedChecks<ScalarUnionInput, ScalarDeclAst>
+internal sealed class ParseScalarUnionChecks(
+  Parser<AstScalar>.D parser
+) : BaseAliasedChecks<ScalarUnionInput, AstScalar>(parser)
 {
-  public ParseScalarUnionChecks(Parser<ScalarDeclAst>.D parser)
-    : base(parser)
-  { }
-
-  protected internal override ScalarDeclAst AliasedFactory(ScalarUnionInput input)
-    => new(AstNulls.At, input.Name) {
-      Kind = ScalarKind.Union,
-      References = input.Reference.ScalarReferences(),
-    };
+  protected internal override AstScalar<ScalarReferenceAst> AliasedFactory(ScalarUnionInput input)
+    => new(AstNulls.At, input.Name, ScalarKind.Union, input.Reference.ScalarReferences());
 
   protected internal override string AliasesString(ScalarUnionInput input, string aliases)
     => input.Name + aliases + "{union|" + input.Reference + "}";

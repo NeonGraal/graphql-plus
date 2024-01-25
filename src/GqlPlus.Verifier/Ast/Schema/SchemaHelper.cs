@@ -3,7 +3,7 @@
 internal static class SchemaHelper
 {
   internal static ScalarRegexAst[] ScalarRegexes(this string regex, params string[] regexes)
-    => [.. regexes.Select(r => new ScalarRegexAst(AstNulls.At, r, false)).Prepend(new(AstNulls.At, regex, true))];
+    => [.. regexes.Select(r => new ScalarRegexAst(AstNulls.At, false, r)).Prepend(new(AstNulls.At, true, regex))];
 
   internal static ScalarReferenceAst[] ScalarReferences(this string reference, params string[] references)
     => [.. references.Select(r => new ScalarReferenceAst(AstNulls.At, r)).Prepend(new(AstNulls.At, reference))];

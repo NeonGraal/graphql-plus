@@ -198,6 +198,80 @@ Success
   valBase
 }
 {
+  !S I@115/1
+  OutScalarParam
+  Number
+  !SR N@139/1
+  1
+  ~
+  10
+}
+{
+  !S I@8/1
+  NumAlias
+  [
+    Num1
+    Num2
+  ]
+  Number
+}
+{
+  !S I@8/1
+  Num
+  Number
+}
+{
+  !S I@8/1
+  NumSame
+  Number
+  !SR N@25/1
+  1
+  ~
+  9
+}
+{
+  !S I@8/1
+  NumDiff
+  Number
+  !SR N@25/1
+  1
+  ~
+  9
+}
+{
+  !S I@8/1
+  Str
+  String
+}
+{
+  !S I@8/1
+  StrSame
+  String
+  !SX R@25/1
+  /a+/
+}
+{
+  !S I@8/1
+  StrDiff
+  String
+  !SX R@25/1
+  /a+/
+}
+{
+  !S I@8/1
+  UnSame
+  Union
+  !ST P@23/1
+  Boolean
+}
+{
+  !S I@8/1
+  UnDiff
+  Union
+  !ST P@23/1
+  Boolean
+}
+{
   !I I@7/1
   InAltMods
   |
@@ -848,80 +922,6 @@ Success
 {
   !O I@25/1
   Cat
-}
-{
-  !S I@115/1
-  OutScalarParam
-  Number
-  !SR N@139/1
-  1
-  ~
-  10
-}
-{
-  !S I@8/1
-  NumAlias
-  [
-    Num1
-    Num2
-  ]
-  Number
-}
-{
-  !S I@8/1
-  Num
-  Number
-}
-{
-  !S I@8/1
-  NumSame
-  Number
-  !SR N@25/1
-  1
-  ~
-  9
-}
-{
-  !S I@8/1
-  NumDiff
-  Number
-  !SR N@25/1
-  1
-  ~
-  9
-}
-{
-  !S I@8/1
-  Str
-  String
-}
-{
-  !S I@8/1
-  StrSame
-  String
-  !SX R@25/1
-  /a+/
-}
-{
-  !S I@8/1
-  StrDiff
-  String
-  !SX R@25/1
-  /a+/
-}
-{
-  !S I@8/1
-  UnSame
-  Union
-  !ST P@23/1
-  Boolean
-}
-{
-  !S I@8/1
-  UnDiff
-  Union
-  !ST P@23/1
-  Boolean
 }
 
 ]

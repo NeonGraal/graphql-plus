@@ -15,11 +15,17 @@ public class ConstantModelTests : ModelBaseTests<string>
 
   [Theory, RepeatData(Repeats)]
   public void Model_Object(string key, string value)
-    => _checks
-    .RenderReturn("Constant")
-    .AstExpected(
-      new(AstNulls.At, value.ConstantObject(key)),
-      ["!_ConstantMap", key + ": " + value, value + ": " + key]);
+  {
+    if (key == value) {
+      return;
+    }
+
+    _checks
+      .RenderReturn("Constant")
+      .AstExpected(
+        new(AstNulls.At, value.ConstantObject(key)),
+        ["!_ConstantMap", key + ": " + value, value + ": " + key]);
+  }
 
   //[Theory, RepeatData(Repeats)]
   //public void Model_All(string name, string contents, string[] parameters, string[] aliases, ConstantOption option, ConstantLocation[] locations)

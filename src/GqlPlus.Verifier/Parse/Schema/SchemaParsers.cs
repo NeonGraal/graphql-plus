@@ -35,10 +35,10 @@ public static class SchemaParsers
       // Scalar
       .AddParser<ScalarDefinition, ParseScalarDefinition>()
       .AddEnum<ScalarKind>()
-      .AddArrayParser<ScalarRangeNumberAst, ParseScalarRange>()
+      .AddArrayParser<ScalarRangeAst, ParseScalarRange>()
       .AddArrayParser<ScalarRegexAst, ParseScalarRegex>()
       .AddArrayParser<ScalarReferenceAst, ParseScalarReference>()
-      .AddDeclarationParser<ScalarDeclAst, ParseScalar>("scalar")
+      .AddDeclarationParser<AstScalar, ParseScalar>("scalar")
       // Objects
       .AddParserArray<TypeParameterAst, ParseTypeParameters>()
       // Input

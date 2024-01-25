@@ -4,33 +4,47 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseScalarRange : Parser<ScalarRangeNumberAst>.I
+internal class ParseScalarRange : Parser<ScalarRangeAst>.I
 {
-  public IResult<ScalarRangeNumberAst> Parse<TContext>(TContext tokens, string label)
+  public IResult<ScalarRangeAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var at = tokens.At;
-    var range = new ScalarRangeNumberAst(at);
+    var excludes = tokens.Take('!');
+
+    var range = new ScalarRangeAst(at, excludes);
+    var isUpper = tokens.Take('<');
     var hasLower = tokens.Number(out var min);
-    var hasRange = tokens.Take('~');
-    if (hasLower && !hasRange) {
-      return tokens.Error(label, "range operator ('~')", range);
+
+    if (isUpper) {
+      range.Upper = min;
+      return hasLower
+        ? range.Ok()
+        : tokens.Error(label, "upper bound after '<'", range);
+    }
+
+    range.Lower = min;
+    if (tokens.Take('>')) {
+      return hasLower
+        ? range.Ok()
+        : tokens.Error(label, "lower bound before '>'", range);
+    }
+
+    if (!tokens.Take('~')) {
+      range.Upper = min;
+      return hasLower
+        ? range.Ok()
+        : range.Empty();
+    }
+
+    if (!hasLower) {
+      return tokens.Error(label, "lower bound before '~'", range);
     }
 
     var hasUpper = tokens.Number(out var max);
-
-    if (hasLower) {
-      range.Lower = min;
-    }
-
-    if (hasUpper) {
-      range.Upper = max;
-    }
-
-    return hasLower || hasUpper
+    range.Upper = max;
+    return hasUpper
       ? range.Ok()
-      : hasRange
-        ? tokens.Error(label, "min or max bounds", range)
-        : range.Empty();
+      : tokens.Error(label, "upper bound after '~'", range);
   }
 }

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public sealed class ParseScalarStringTests(Parser<ScalarDeclAst>.D parser)
+public sealed class ParseScalarStringTests(Parser<AstScalar>.D parser)
     : BaseAliasedTests<ScalarStringInput>
 {
   [Theory, RepeatData(Repeats)]
@@ -19,10 +19,7 @@ public sealed class ParseScalarStringTests(Parser<ScalarDeclAst>.D parser)
   public void WithRegexes_ReturnsCorrectAst(ScalarStringInput input, string regex)
     => _checks.TrueExpected(
       input.Name + "{string/" + input.Regex + "/!/" + regex + "/}",
-      new ScalarDeclAst(AstNulls.At, input.Name) {
-        Kind = ScalarKind.String,
-        Regexes = input.Regex.ScalarRegexes(regex),
-      });
+      new AstScalar<ScalarRegexAst>(AstNulls.At, input.Name, ScalarKind.String, input.Regex.ScalarRegexes(regex)));
 
   [Theory, RepeatData(Repeats)]
   public void WithRegexesFirstBad_ReturnsFalse(string name)
@@ -37,18 +34,12 @@ public sealed class ParseScalarStringTests(Parser<ScalarDeclAst>.D parser)
   private readonly ParseScalarStringChecks _checks = new(parser);
 }
 
-internal sealed class ParseScalarStringChecks
-  : BaseAliasedChecks<ScalarStringInput, ScalarDeclAst>
+internal sealed class ParseScalarStringChecks(
+  Parser<AstScalar>.D parser
+) : BaseAliasedChecks<ScalarStringInput, AstScalar>(parser)
 {
-  public ParseScalarStringChecks(Parser<ScalarDeclAst>.D parser)
-    : base(parser)
-  { }
-
-  protected internal override ScalarDeclAst AliasedFactory(ScalarStringInput input)
-    => new(AstNulls.At, input.Name) {
-      Kind = ScalarKind.String,
-      Regexes = input.Regex.ScalarRegexes(),
-    };
+  protected internal override AstScalar<ScalarRegexAst> AliasedFactory(ScalarStringInput input)
+    => new(AstNulls.At, input.Name, ScalarKind.String, input.Regex.ScalarRegexes());
 
   protected internal override string AliasesString(ScalarStringInput input, string aliases)
     => input.Name + aliases + "{string/" + input.Regex + "/!}";

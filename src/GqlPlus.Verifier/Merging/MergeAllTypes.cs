@@ -3,42 +3,32 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeAllTypes(
-  IMerge<EnumDeclAst> enums,
-  IMerge<InputDeclAst> inputs,
-  IMerge<OutputDeclAst> outputs,
-  IMerge<ScalarDeclAst> scalars
-) : IMerge<AstType>
+  IEnumerable<IMergeAll<AstType>> types
+) : AllMerger<AstType>(types)
 {
-  public bool CanMerge(IEnumerable<AstType> items)
+  public override bool CanMerge(IEnumerable<AstType> items)
   {
-    FixupEnums(items.OfType<EnumDeclAst>(), items.OfType<OutputDeclAst>());
+    FixupEnums(items);
 
-    return items.Select(i => i.GetType()).Distinct().Count() == 1;
+    return base.CanMerge(items);
   }
 
-  public IEnumerable<AstType> Merge(IEnumerable<AstType> items)
+  public override IEnumerable<AstType> Merge(IEnumerable<AstType> items)
   {
-    if (items == null) {
+    if (items is null) {
       return [];
     }
 
-    var enumTypes = items.OfType<EnumDeclAst>();
-    var inputTypes = items.OfType<InputDeclAst>();
-    var outputTypes = items.OfType<OutputDeclAst>();
-    var scalarTypes = items.OfType<ScalarDeclAst>();
+    FixupEnums(items);
 
-    FixupEnums(enumTypes, outputTypes);
-
-    var enumsMerged = enums.Merge(enumTypes);
-    var inputsMerged = inputs.Merge(inputTypes);
-    var outputsMerged = outputs.Merge(outputTypes);
-    var scalarsMerged = scalars.Merge(scalarTypes);
-
-    return [.. enumsMerged, .. inputsMerged, .. outputsMerged, .. scalarsMerged];
+    return base.Merge(items);
   }
 
-  private static void FixupEnums(IEnumerable<EnumDeclAst> enumTypes, IEnumerable<OutputDeclAst> outputTypes)
+  private static void FixupEnums(IEnumerable<AstType> items)
   {
+    var enumTypes = items.OfType<EnumDeclAst>();
+    var outputTypes = items.OfType<OutputDeclAst>();
+
     var enumValues = BuiltIn.Basic.OfType<EnumDeclAst>()
       .Concat(BuiltIn.Internal.OfType<EnumDeclAst>())
       .Concat(enumTypes)

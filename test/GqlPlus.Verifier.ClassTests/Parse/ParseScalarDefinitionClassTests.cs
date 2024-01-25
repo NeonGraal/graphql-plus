@@ -15,7 +15,7 @@ public class ParseScalarDefinitionClassTests : ClassTestBase
     kindParser.Parse(tokens, default!)
       .ReturnsForAnyArgs(((ScalarKind)99).Ok());
 
-    var ranges = ArrayParserFor<ScalarRangeNumberAst>();
+    var ranges = ArrayParserFor<ScalarRangeAst>();
     var references = ArrayParserFor<ScalarReferenceAst>();
     var regexes = ArrayParserFor<ScalarRegexAst>();
 

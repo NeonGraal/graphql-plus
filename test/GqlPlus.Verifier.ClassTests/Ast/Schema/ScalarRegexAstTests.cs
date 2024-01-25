@@ -6,7 +6,7 @@ public class ScalarRegexAstTests : AstAbbreviatedTests
     => $"( !SX /{input}/ )";
 
   private readonly AstAbbreviatedChecks<ScalarRegexAst> _checks
-    = new(regex => new ScalarRegexAst(AstNulls.At, regex, false));
+    = new(regex => new ScalarRegexAst(AstNulls.At, false, regex));
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

@@ -22,10 +22,10 @@ public static class AllMergers
       .AddMergeAll<AstType, EnumDeclAst, MergeEnums>()
       .AddMerge<EnumMemberAst, MergeEnumMembers>()
       .AddMergeAll<AstType, AstScalar, MergeAllScalars>()
-      .AddMergeScalar<ScalarRangeNumberAst>()
+      .AddMergeScalar<ScalarRangeAst>()
       .AddMergeScalar<ScalarRegexAst>()
       .AddMergeScalar<ScalarReferenceAst>()
-      .AddMerge<ScalarRangeNumberAst, MergeScalarRanges>()
+      .AddMerge<ScalarRangeAst, MergeScalarRanges>()
       .AddMerge<ScalarRegexAst, MergeScalarRegexes>()
       .AddMerge<ScalarReferenceAst, MergeScalarReferences>()
       // Object types

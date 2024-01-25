@@ -71,8 +71,8 @@ public class ScalarAstTests : AstAliasedTests
   protected override string AliasesString(string input, string aliases)
     => $"( !S {input}{aliases} Number )";
 
-  private readonly AstAliasedChecks<AstScalar<ScalarRangeNumberAst>> _checks
-    = new(name => new AstScalar<ScalarRangeNumberAst>(AstNulls.At, name, ScalarKind.Number, []));
+  private readonly AstAliasedChecks<AstScalar<ScalarRangeAst>> _checks
+    = new(name => new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarKind.Number, []));
 
   internal override IAstAliasedChecks<string> AliasedChecks => _checks;
 }

@@ -1,18 +1,18 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class ScalarRangeNumberAstTests
-  : AstAbbreviatedTests<RangeNumberInput>
+public class ScalarRangeAstTests
+  : AstAbbreviatedTests<RangeInput>
 {
-  protected override string AbbreviatedString(RangeNumberInput input)
+  protected override string AbbreviatedString(RangeInput input)
     => $"( !SR {input} )";
 
-  private readonly AstAbbreviatedChecks<RangeNumberInput, ScalarRangeNumberAst> _checks
-    = new(input => new ScalarRangeNumberAst(AstNulls.At, false, input.Lower, input.Upper));
+  private readonly AstAbbreviatedChecks<RangeInput, ScalarRangeAst> _checks
+    = new(input => new ScalarRangeAst(AstNulls.At, false, input.Lower, input.Upper));
 
-  internal override IAstAbbreviatedChecks<RangeNumberInput> AbbreviatedChecks => _checks;
+  internal override IAstAbbreviatedChecks<RangeInput> AbbreviatedChecks => _checks;
 }
 
-public record struct RangeNumberInput(decimal? Min, decimal? Max)
+public record struct RangeInput(decimal? Min, decimal? Max)
 {
   internal readonly decimal? Lower => Max < Min ? Max : Min;
   internal readonly decimal? Upper => Max < Min ? Min : Max;
@@ -34,6 +34,6 @@ public record struct RangeNumberInput(decimal? Min, decimal? Max)
     return result;
   }
 
-  public readonly ScalarRangeNumberAst[] ScalarRanges()
-    => new ScalarRangeNumberAst[] { new(AstNulls.At, false, Lower, Upper) };
+  public readonly ScalarRangeAst[] ScalarRanges()
+    => new ScalarRangeAst[] { new(AstNulls.At, false, Lower, Upper) };
 }

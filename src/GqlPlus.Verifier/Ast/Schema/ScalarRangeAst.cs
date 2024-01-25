@@ -2,19 +2,19 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class ScalarRangeNumberAst(TokenAt At, bool Excludes)
-  : AstScalarMember(At, Excludes), IEquatable<ScalarRangeNumberAst>
+public sealed record class ScalarRangeAst(TokenAt At, bool Excludes)
+  : AstScalarMember(At, Excludes), IEquatable<ScalarRangeAst>
 {
   public decimal? Lower { get; set; }
   public decimal? Upper { get; set; }
 
   internal override string Abbr => "SR";
 
-  public ScalarRangeNumberAst(TokenAt at, bool excludes, decimal? lower, decimal? upper)
+  public ScalarRangeAst(TokenAt at, bool excludes, decimal? lower, decimal? upper)
     : this(at, excludes)
     => (Lower, Upper) = (lower, upper);
 
-  public bool Equals(ScalarRangeNumberAst? other)
+  public bool Equals(ScalarRangeAst? other)
     => base.Equals(other)
       && Lower.NullEqual(other.Lower)
       && Upper.NullEqual(other.Upper);

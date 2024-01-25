@@ -14,7 +14,7 @@ public sealed record class ScalarDeclAstOld(
   public string? EnumType { get; set; }
   public ScalarMemberEnumAst[] Enums { get; set; } = [];
 
-  public ScalarRangeNumberAst[] Numbers { get; set; } = [];
+  public ScalarRangeAst[] Numbers { get; set; } = [];
   public ScalarRegexAst[] Regexes { get; set; } = [];
   public ScalarReferenceAst[] References { get; set; } = [];
 
@@ -24,7 +24,7 @@ public sealed record class ScalarDeclAstOld(
   public ScalarDeclAstOld(TokenAt at, string name)
     : this(at, name, "") { }
 
-  public ScalarDeclAstOld(TokenAt at, string name, ScalarRangeNumberAst[] numbers)
+  public ScalarDeclAstOld(TokenAt at, string name, ScalarRangeAst[] numbers)
     : this(at, name, "")
     => Numbers = numbers;
   public ScalarDeclAstOld(TokenAt at, string name, string enumType, ScalarMemberEnumAst[] enums)

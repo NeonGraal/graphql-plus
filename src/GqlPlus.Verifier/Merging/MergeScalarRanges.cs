@@ -3,6 +3,6 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeScalarRanges
-  : BaseMerger<ScalarRangeNumberAst>
+  : BaseMerger<ScalarRangeAst>
 {
 }

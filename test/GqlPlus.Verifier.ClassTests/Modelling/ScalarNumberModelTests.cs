@@ -66,16 +66,16 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
 }
 
 internal sealed class ScalarNumberModelChecks
-  : ModelAliasedChecks<string, AstScalar<ScalarRangeNumberAst>>
+  : ModelAliasedChecks<string, AstScalar<ScalarRangeAst>>
 {
-  internal readonly IModeller<AstScalar<ScalarRangeNumberAst>> Scalar;
+  internal readonly IModeller<AstScalar<ScalarRangeAst>> Scalar;
 
   public ScalarNumberModelChecks()
     => Scalar = new ScalarNumberModeller();
 
-  protected override IRendering AstToModel(AstScalar<ScalarRangeNumberAst> aliased)
+  protected override IRendering AstToModel(AstScalar<ScalarRangeAst> aliased)
     => Scalar.ToRenderer(aliased);
 
-  protected override AstScalar<ScalarRangeNumberAst> NewDescribedAst(string input, string description)
+  protected override AstScalar<ScalarRangeAst> NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description, ScalarKind.Number);
 }

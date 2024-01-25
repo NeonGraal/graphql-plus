@@ -49,9 +49,9 @@ internal record class ScalarRegexModel(string Regex, bool Exclude)
 }
 
 internal class ScalarNumberModeller
-  : ModellerBase<AstScalar<ScalarRangeNumberAst>, ModelBaseScalar>
+  : ModellerBase<AstScalar<ScalarRangeAst>, ModelBaseScalar>
 {
-  internal override ModelBaseScalar ToModel(AstScalar<ScalarRangeNumberAst> ast)
+  internal override ModelBaseScalar ToModel(AstScalar<ScalarRangeAst> ast)
     => new ScalarNumberModel(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,

@@ -35,7 +35,11 @@ public sealed class TestsCustomizations : CompositeCustomization
     private static object ResolveType(Type type, string name, ISpecimenContext context)
     {
       if (type == typeof(string[])) {
-        return context.Resolve(new RangedSequenceRequest(new RegularExpressionRequest(IdentifierPattern), 1, 5)); ;
+        var resolution = context.Resolve(new RangedSequenceRequest(new RegularExpressionRequest(IdentifierPattern), 1, 5));
+        if (resolution is IEnumerable<object> list) {
+          return list.Select(item => item.ToString()).ToArray();
+        }
+        return resolution;
       }
 
       return type == typeof(string)

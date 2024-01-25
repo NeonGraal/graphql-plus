@@ -1,15 +1,15 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 public class ScalarRangeAstTests
-  : AstAbbreviatedTests<RangeInput>
+  : AstAbbreviatedTests<ScalarRangeInput>
 {
-  protected override string AbbreviatedString(RangeInput input)
+  protected override string AbbreviatedString(ScalarRangeInput input)
     => $"( !SR {input} )";
 
-  private readonly AstAbbreviatedChecks<RangeInput, ScalarRangeAst> _checks
+  private readonly AstAbbreviatedChecks<ScalarRangeInput, ScalarRangeAst> _checks
     = new(input => new ScalarRangeAst(AstNulls.At, false, input.Lower, input.Upper));
 
-  internal override IAstAbbreviatedChecks<RangeInput> AbbreviatedChecks => _checks;
+  internal override IAstAbbreviatedChecks<ScalarRangeInput> AbbreviatedChecks => _checks;
 }
 
 public record struct RangeInput(decimal? Min, decimal? Max)

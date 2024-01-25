@@ -3,7 +3,7 @@
 public abstract class AstScalarTests<TInput, TMember>
   : AstAliasedTests
   where TInput : IEquatable<TInput>
-  where TMember : AstScalarMember
+  where TMember : IAstScalarMember
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithMembers(string name, TInput input)

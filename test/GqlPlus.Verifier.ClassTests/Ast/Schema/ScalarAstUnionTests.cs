@@ -1,14 +1,12 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 public class ScalarAstUnionTests
-  : AstScalarTests<ScalarReferenceInput, ScalarReferenceAst>
+  : AstScalarTests<string, ScalarReferenceAst>
 {
-  protected override string MembersString(string name, ScalarReferenceInput input)
-    => $"( !S {name} Union {input.Types.Joined("!ST ")} )";
+  protected override string MembersString(string name, string input)
+    => $"( !S {name} Union !ST {input} )";
   protected override AstScalar<ScalarReferenceAst> NewScalar(string name, ScalarReferenceAst[] list)
     => new(AstNulls.At, name, ScalarKind.Union, list);
-  protected override ScalarReferenceAst[] ScalarMembers(ScalarReferenceInput input)
-    => [.. input.Types.Select(t => new ScalarReferenceAst(AstNulls.At, t))];
+  protected override ScalarReferenceAst[] ScalarMembers(string input)
+    => [new(AstNulls.At, input)];
 }
-
-public record struct ScalarReferenceInput(string[] Types);

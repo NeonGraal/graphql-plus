@@ -9,7 +9,7 @@ internal static class BuiltIn
     new EnumDeclAst(AstNulls.At, "Boolean") { Aliases = ["^"], Members = [new(AstNulls.At, "false"), new(AstNulls.At, "true")] },
     new EnumDeclAst(AstNulls.At, "Unit") { Aliases = ["_"], Members = [new(AstNulls.At, "_")] },
 
-    new ScalarDeclEnumAst(AstNulls.At, "Enum", "", []),
+    new AstScalar<ScalarMemberAst>(AstNulls.At, "Enum", ScalarKind.Enum, []),
     new AstScalar<ScalarRangeAst>(AstNulls.At, "Number", ScalarKind.Number, []) { Aliases = ["0"] },
     new AstScalar<ScalarRegexAst>(AstNulls.At, "String", ScalarKind.String, []) { Aliases = ["*"] },
   ];

@@ -43,3 +43,16 @@ public class ScalarAstNumberTests
   private static AstScalar<ScalarRangeAst> ScalarNumber(string name, ScalarRangeAst[] list)
     => new(AstNulls.At, name, ScalarKind.Number, list);
 }
+
+public record struct MemberInput<TOf>(TOf Min, TOf Max, int MinCompareMax)
+{
+  internal readonly TOf Lower => MinCompareMax > 0 ? Max : Min;
+  internal readonly TOf Upper => MinCompareMax > 0 ? Min : Max;
+
+  public override readonly string ToString()
+    => $"{Lower} ~ {Upper}";
+
+  public readonly TMember[] ScalarMembers<TMember>(Func<TOf?, TOf?, bool?, TMember> factory)
+    where TMember : AstScalarMember
+    => new TMember[] { factory(default, Lower, false), factory(Lower, Upper, null) with { Excludes = true }, factory(Upper, default, true) };
+}

@@ -33,7 +33,7 @@ public class EnumAstTests : AstAliasedTests
   public void String_WithMembers(string name, string[] enumMembers)
     => _checks.String(
       () => new EnumDeclAst(AstNulls.At, name) { Members = enumMembers.EnumMembers() },
-      $"( !E {name} {enumMembers.Joined("!EV ")} )");
+      $"( !E {name} {enumMembers.Joined("!EM ")} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithMembers(string name, string[] enumMembers)

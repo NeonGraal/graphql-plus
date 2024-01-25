@@ -1,61 +1,49 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public abstract class AstScalarTests<TScalar, TMember, TOf>
+public abstract class AstScalarTests<TInput, TMember>
   : AstAliasedTests
-  where TScalar : AstScalar<TMember>
+  where TInput : IEquatable<TInput>
   where TMember : AstScalarMember
 {
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithMembers(string name, MemberInput<TOf> input)
+  public void HashCode_WithMembers(string name, TInput input)
       => Checks.HashCode(
-        () => NewScalar(name, "", input.ScalarMembers(NewScalarMember)));
+        () => NewScalar(name, ScalarMembers(input)));
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithMembers(string name, MemberInput<TOf> input)
+  public void String_WithMembers(string name, TInput input)
     => Checks.String(
-      () => NewScalar(name, "", input.ScalarMembers(NewScalarMember)),
-      $"( !S {name} {Kind} !SR < {input.Lower} !SR ! {input.Lower} ~ {input.Upper} !SR {input.Upper} > )");
+      () => NewScalar(name, ScalarMembers(input)),
+      MembersString(name, input));
+  //$"( !S {name} {Kind} !SR {input} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithMembers(string name, MemberInput<TOf> input)
+  public void Equality_WithMembers(string name, TInput input)
     => Checks.Equality(
-      () => NewScalar(name, "", input.ScalarMembers(NewScalarMember)));
+      () => NewScalar(name, ScalarMembers(input)));
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenMembers(string name, MemberInput<TOf> input1, MemberInput<TOf> input2)
+  public void Inequality_BetweenMembers(string name, TInput input1, TInput input2)
     => Checks.InequalityBetween(input1, input2,
-      input => NewScalar(name, "", input.ScalarMembers(NewScalarMember)),
-      input1 == input2);
+      input => NewScalar(name, ScalarMembers(input)),
+      input1.NullEqual(input2));
 
   protected override string AliasesString(string input, string aliases)
     => $"( !S {input}{aliases} {Kind} )";
 
-  internal readonly AstAliasedChecks<TScalar> Checks;
+  internal readonly AstAliasedChecks<AstScalar<TMember>> Checks;
   internal readonly string Kind;
 
   internal override IAstAliasedChecks<string> AliasedChecks => Checks;
 
-  protected abstract TMember NewScalarMember(TOf? lower, TOf? upper, bool? rightNull);
-
-  protected abstract TScalar NewScalar(string name, string input, TMember[] list);
+  protected abstract string MembersString(string name, TInput input);
+  protected abstract TMember[] ScalarMembers(TInput input);
+  protected abstract AstScalar<TMember> NewScalar(string name, TMember[] list);
 
   protected AstScalarTests()
   {
-    Checks = new(name => NewScalar(name, "", []));
-    var scalar = NewScalar("scalar", "", []);
+    Checks = new(name => NewScalar(name, []));
+    var scalar = NewScalar("scalar", []);
     Kind = scalar.Kind.ToString();
   }
-}
-
-public record struct MemberInput<TOf>(TOf Min, TOf Max, int minCompareMax)
-{
-  internal readonly TOf Lower => minCompareMax > 0 ? Max : Min;
-  internal readonly TOf Upper => minCompareMax > 0 ? Min : Max;
-
-  public override string ToString()
-    => $"{Lower} ~ {Upper}";
-
-  public readonly TMember[] ScalarMembers<TMember>(Func<TOf?, TOf?, bool?, TMember> factory)
-    where TMember : AstScalarMember
-    => new TMember[] { factory(default, Lower, false), factory(Lower, Upper, null) with { Excludes = true }, factory(Upper, default, true) };
 }

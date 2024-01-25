@@ -1,29 +1,18 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 public class ScalarAstEnumTests
-  : AstScalarTests<ScalarDeclEnumAst, ScalarMemberEnumAst, string>
+  : AstScalarTests<ScalarMemberInput, ScalarMemberAst>
 {
-  [Theory, RepeatData(Repeats)]
-  public void HashCode_WithEnum(string name, string input)
-      => Checks.HashCode(() => NewScalar(name, input, []));
+  protected override string MembersString(string name, ScalarMemberInput input)
+    => $"( !S {name} Enum !SM {input} )";
+  protected override AstScalar<ScalarMemberAst> NewScalar(string name, ScalarMemberAst[] list)
+    => new(AstNulls.At, name, ScalarKind.Enum, list);
+  protected override ScalarMemberAst[] ScalarMembers(ScalarMemberInput input)
+    => [new ScalarMemberAst(AstNulls.At, false, input.EnumMember) { EnumType = input.EnumType }];
+}
 
-  [Theory, RepeatData(Repeats)]
-  public void String_WithEnum(string name, string input)
-    => Checks.String(
-      () => NewScalar(name, input, []),
-      $"( !S {name} Enum {input} )");
-
-  [Theory, RepeatData(Repeats)]
-  public void Equality_WithEnum(string name, string input)
-    => Checks.Equality(() => NewScalar(name, input, []));
-
-  protected override ScalarMemberEnumAst NewScalarMember(string? lower, string? upper, bool? rightNull)
-    => rightNull switch {
-      false => new(AstNulls.At, false, null, upper),
-      true => new(AstNulls.At, false, lower, null),
-      _ => new(AstNulls.At, false, lower, upper),
-    };
-
-  protected override ScalarDeclEnumAst NewScalar(string name, string input, ScalarMemberEnumAst[] list)
-    => new(AstNulls.At, name, input, list);
+public record struct ScalarMemberInput(string EnumType, string EnumMember)
+{
+  public override readonly string? ToString()
+    => $"{EnumType} {EnumMember}";
 }

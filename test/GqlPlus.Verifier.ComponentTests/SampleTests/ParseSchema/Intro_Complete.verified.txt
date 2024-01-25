@@ -185,11 +185,11 @@ Success
 {
   !E I@6/46
   _Resolution
-  !EV I@20/46
+  !EM I@20/46
   Parallel
-  !EV I@29/46
+  !EM I@29/46
   Sequential
-  !EV I@40/46
+  !EM I@40/46
   Single
 }
 {
@@ -232,17 +232,17 @@ Success
 {
   !E I@6/59
   _Location
-  !EV I@18/59
+  !EM I@18/59
   Operation
-  !EV I@28/59
+  !EM I@28/59
   Variable
-  !EV I@37/59
+  !EM I@37/59
   Field
-  !EV I@43/59
+  !EM I@43/59
   Inline
-  !EV I@50/59
+  !EM I@50/59
   Spread
-  !EV I@57/59
+  !EM I@57/59
   Fragment
 }
 {
@@ -327,22 +327,22 @@ Success
 {
   !E I@6/79
   _SimpleKind
-  !EV I@20/79
+  !EM I@20/79
   Basic
-  !EV I@26/79
+  !EM I@26/79
   Enum
-  !EV I@31/79
+  !EM I@31/79
   Internal
-  !EV I@40/79
+  !EM I@40/79
   Scalar
 }
 {
   !E I@6/81
   _TypeKind
   :_SimpleKind
-  !EV I@32/81
+  !EM I@32/81
   Input
-  !EV I@38/81
+  !EM I@38/81
   Output
 }
 {
@@ -485,11 +485,11 @@ Success
 {
   !E I@6/124
   _ModifierKind
-  !EV I@22/124
+  !EM I@22/124
   Optional
-  !EV I@31/124
+  !EM I@31/124
   List
-  !EV I@36/124
+  !EM I@36/124
   Dictionary
 }
 {
@@ -595,15 +595,15 @@ Success
 {
   !E I@6/150
   _Scalar
-  !EV I@16/150
+  !EM I@16/150
   Boolean
-  !EV I@24/150
+  !EM I@24/150
   Enum
-  !EV I@29/150
+  !EM I@29/150
   Number
-  !EV I@36/150
+  !EM I@36/150
   String
-  !EV I@43/150
+  !EM I@43/150
   Union
 }
 {

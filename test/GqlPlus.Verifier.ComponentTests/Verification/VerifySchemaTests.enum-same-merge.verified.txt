@@ -4,7 +4,7 @@ Success
 {
   !E I@6/1
   EnSame
-  !EV I@15/1
+  !EM I@15/1
   same
 }
 ]

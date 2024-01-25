@@ -85,69 +85,69 @@ Success
 {
   !E I@60/1
   InFieldEnum
-  !EV I@74/1
+  !EM I@74/1
   value
 }
 {
   !E I@64/1
   OutFieldEnum
-  !EV I@79/1
+  !EM I@79/1
   value
 }
 {
   !E I@55/1
   InEnumField
-  !EV I@69/1
+  !EM I@69/1
   value
 }
 {
   !E I@64/1
   OutEnumField
-  !EV I@79/1
+  !EM I@79/1
   outEnumField
 }
 {
   !E I@71/1
   OutEnumExtends
   :OutEnumExtended
-  !EV I@106/1
+  !EM I@106/1
   outExtended
 }
 {
   !E I@125/1
   OutEnumExtended
-  !EV I@143/1
+  !EM I@143/1
   outEnumExtends
 }
 {
   !E I@52/1
   OutEnumValue
-  !EV I@67/1
+  !EM I@67/1
   outEnumValue
 }
 {
   !E I@112/1
   OutEnumGen
-  !EV I@125/1
+  !EM I@125/1
   outEnumGen
 }
 {
   !E I@127/1
   OutExtendsGen
   :OutExtendedGen
-  !EV I@160/1
+  !EM I@160/1
   outGenExtended
 }
 {
   !E I@182/1
   OutExtendedGen
-  !EV I@199/1
+  !EM I@199/1
   outGenExtends
 }
 {
   !E I@105/1
   OutValueGen
-  !EV I@119/1
+  !EM I@119/1
   outValueGen
 }
 {
@@ -157,27 +157,27 @@ Success
     En1
     En2
   ]
-  !EV I@22/1
+  !EM I@22/1
   alias
 }
 {
   !E I@6/1
   EnDiff
-  !EV I@15/1
+  !EM I@15/1
   one
-  !EV I@35/1
+  !EM I@35/1
   two
 }
 {
   !E I@6/1
   EnSame
-  !EV I@15/1
+  !EM I@15/1
   same
 }
 {
   !E I@6/1
   EnValAlias
-  !EV I@19/1
+  !EM I@19/1
   value
   [
     val1
@@ -188,13 +188,13 @@ Success
   !E I@6/1
   EnExt
   :EnExtBase
-  !EV I@25/1
+  !EM I@25/1
   valExt
 }
 {
   !E I@39/1
   EnExtBase
-  !EV I@51/1
+  !EM I@51/1
   valBase
 }
 {

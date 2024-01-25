@@ -3,15 +3,15 @@ Success
 {
   !E I@6/1
   _Scalar
-  !EV I@16/1
+  !EM I@16/1
   Boolean
-  !EV I@24/1
+  !EM I@24/1
   Enum
-  !EV I@29/1
+  !EM I@29/1
   Number
-  !EV I@36/1
+  !EM I@36/1
   String
-  !EV I@43/1
+  !EM I@43/1
   Union
 }
 {

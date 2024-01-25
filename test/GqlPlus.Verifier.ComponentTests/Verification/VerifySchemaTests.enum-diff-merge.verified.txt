@@ -4,9 +4,9 @@ Success
 {
   !E I@6/1
   EnDiff
-  !EV I@15/1
+  !EM I@15/1
   one
-  !EV I@35/1
+  !EM I@35/1
   two
 }
 ]

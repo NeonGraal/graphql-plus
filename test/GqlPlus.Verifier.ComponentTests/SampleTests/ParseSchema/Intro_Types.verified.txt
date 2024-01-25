@@ -68,22 +68,22 @@ Success
 {
   !E I@6/15
   _SimpleKind
-  !EV I@20/15
+  !EM I@20/15
   Basic
-  !EV I@26/15
+  !EM I@26/15
   Enum
-  !EV I@31/15
+  !EM I@31/15
   Internal
-  !EV I@40/15
+  !EM I@40/15
   Scalar
 }
 {
   !E I@6/17
   _TypeKind
   :_SimpleKind
-  !EV I@32/17
+  !EM I@32/17
   Input
-  !EV I@38/17
+  !EM I@38/17
   Output
 }
 {

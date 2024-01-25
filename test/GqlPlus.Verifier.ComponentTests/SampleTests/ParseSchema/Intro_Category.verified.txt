@@ -43,10 +43,10 @@ Success
 {
   !E I@6/13
   _Resolution
-  !EV I@20/13
+  !EM I@20/13
   Parallel
-  !EV I@29/13
+  !EM I@29/13
   Sequential
-  !EV I@40/13
+  !EM I@40/13
   Single
 }

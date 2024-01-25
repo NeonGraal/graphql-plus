@@ -8,5 +8,5 @@ public sealed record class EnumMemberAst(TokenAt At, string Name, string Descrip
   public EnumMemberAst(TokenAt at, string name)
     : this(at, name, "") { }
 
-  internal override string Abbr => "EV";
+  internal override string Abbr => "EM";
 }

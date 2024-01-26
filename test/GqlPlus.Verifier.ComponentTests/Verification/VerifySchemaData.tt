@@ -1,0 +1,46 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Runtime" #>
+<#@ assembly name="YamlDotNet" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="YamlDotNet.Serialization" #>
+<#@ import namespace="YamlDotNet.Serialization.NamingConventions" #>
+<#@ output extension=".cs" #>
+<#
+var fileName = this.Host.ResolvePath("VerifySchemaData.yml");
+var relative = fileName.Replace(Environment.CurrentDirectory, ".");
+#>
+// Generated from <#= relative #>
+
+namespace GqlPlus.Verifier.Verification;
+
+public partial class VerifySchemaTests
+{
+<#
+var input = new StreamReader(fileName);
+var deserializer = new DeserializerBuilder()
+  .WithNamingConvention(CamelCaseNamingConvention.Instance)
+  .Build();
+
+var sections = deserializer.Deserialize<Sections>(input);
+
+foreach (var section in sections.Keys) {
+#>
+  private static readonly Map<string> s_<#= section #> = new() {
+<# 
+  foreach (var test in sections[section]) {
+#>
+    ["<#= test.Key #>"] = "<#= test.Value.Trim() #>",
+<# } #>
+  };
+<# } #>
+}
+<#+
+public class Tests : Dictionary<string, string> {}
+
+public class Sections : Dictionary<string, Tests> {}
+#>

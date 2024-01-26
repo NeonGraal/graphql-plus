@@ -1,3 +1,0 @@
-﻿[
-  Invalid Enum Base. Type kind mismatch for Base. Found Output.
-]

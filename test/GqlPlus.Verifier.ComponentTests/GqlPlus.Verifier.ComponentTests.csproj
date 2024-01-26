@@ -18,4 +18,22 @@
     <None Update="Sample\**" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Verification\VerifySchemaData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VerifySchemaData.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Verification\VerifySchemaData.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VerifySchemaData.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

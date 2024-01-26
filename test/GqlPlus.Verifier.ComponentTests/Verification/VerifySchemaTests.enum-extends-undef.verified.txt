@@ -1,0 +1,3 @@
+﻿[
+  Invalid Enum Base. 'Extends' not defined.
+]

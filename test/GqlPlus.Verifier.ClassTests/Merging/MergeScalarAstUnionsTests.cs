@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class MergeScalarUnionsTests
+public class MergeScalarAstUnionsTests
   : TestDescriptions<AstScalar<ScalarReferenceAst>>
 {
   [Theory, RepeatData(Repeats)]
@@ -57,7 +57,7 @@ public class MergeScalarUnionsTests
   private readonly IMerge<ScalarReferenceAst> _references;
   private readonly MergeScalars<ScalarReferenceAst> _merger;
 
-  public MergeScalarUnionsTests()
+  public MergeScalarAstUnionsTests()
   {
     _references = Merger<ScalarReferenceAst>();
 

@@ -4,7 +4,7 @@ using NSubstitute;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class MergeScalarNumbersTests
+public class MergeScalarAstNumbersTests
   : TestDescriptions<AstScalar<ScalarRangeAst>>
 {
   [Theory, RepeatData(Repeats)]
@@ -44,7 +44,7 @@ public class MergeScalarNumbersTests
   private readonly IMerge<ScalarRangeAst> _ranges;
   private readonly MergeScalars<ScalarRangeAst> _merger;
 
-  public MergeScalarNumbersTests()
+  public MergeScalarAstNumbersTests()
   {
     _ranges = Merger<ScalarRangeAst>();
 

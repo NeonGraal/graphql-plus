@@ -91,6 +91,7 @@ internal class OneChecksParser<T>(Parser<T>.D parser)
     if (result.IsEmpty()) {
       return;
     }
+
     result.IsError(message => message.Message.Contains("Expected")).Should().BeTrue(_type + " -> " + input);
     result.Optional(result => check?.Invoke(result));
   }

@@ -28,11 +28,11 @@ public class MergeScalarAstNumbersTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsRangesCantMerge_ReturnsFalse(string name, RangeInput range)
+  public void CanMerge_TwoItemsRangesCantMerge_ReturnsFalse(string name, ScalarRangeInput range)
   {
     var items = new[] {
-      MakeDescribed(name) with { Members = range.ScalarRanges() },
-      MakeDescribed(name) with { Members = range.ScalarRanges() },
+      MakeDescribed(name) with { Members = range.ScalarRange() },
+      MakeDescribed(name) with { Members = range.ScalarRange() },
     };
     _ranges.CanMerge([]).ReturnsForAnyArgs(false);
 

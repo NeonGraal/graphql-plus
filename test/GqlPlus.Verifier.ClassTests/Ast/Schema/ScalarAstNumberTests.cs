@@ -49,4 +49,7 @@ public record struct ScalarRangeInput(decimal? Min, decimal? Max)
 
     return result;
   }
+
+  public ScalarRangeAst[] ScalarRange()
+    => new ScalarRangeAst[] { new(AstNulls.At, false, Lower, Upper) };
 }

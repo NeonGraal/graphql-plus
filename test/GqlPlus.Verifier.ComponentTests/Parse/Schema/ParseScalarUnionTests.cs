@@ -31,15 +31,15 @@ public sealed class ParseScalarUnionTests(
 
 internal sealed class ParseScalarUnionChecks(
   Parser<AstScalar>.D parser
-) : BaseScalarChecks<ScalarUnionInput, AstScalar>(parser)
+) : BaseScalarChecks<ScalarUnionInput, AstScalar>(parser, ScalarKind.Union)
 {
   protected internal override AstScalar<ScalarReferenceAst> AliasedFactory(ScalarUnionInput input)
     => new(AstNulls.At, input.Name, ScalarKind.Union, input.Reference.ScalarReferences());
 
   protected internal override string AliasesString(ScalarUnionInput input, string aliases)
     => input.Name + aliases + "{union|" + input.Reference + "}";
-  protected internal override string KindString(ScalarUnionInput input, string kind)
-    => input.Name + "{" + kind + "}";
+  protected internal override string KindString(ScalarUnionInput input, string kind, string extends)
+    => input.Name + "{" + kind + extends + "|" + input.Reference + "}";
 }
 
 public record struct ScalarUnionInput(string Name, string Reference);

@@ -9,7 +9,7 @@ public sealed class ParseScalarStringTests(
   [Theory, RepeatData(Repeats)]
   public void WithRegexes_ReturnsCorrectAst(ScalarStringInput input, string regex)
     => _checks.TrueExpected(
-      input.Name + "{string/" + input.Regex + "/!/" + regex + "/}",
+      input.Name + "{string!/" + input.Regex + "//" + regex + "/}",
       new AstScalar<ScalarRegexAst>(AstNulls.At, input.Name, ScalarKind.String, input.Regex.ScalarRegexes(regex)));
 
   [Theory, RepeatData(Repeats)]
@@ -27,15 +27,15 @@ public sealed class ParseScalarStringTests(
 
 internal sealed class ParseScalarStringChecks(
   Parser<AstScalar>.D parser
-) : BaseScalarChecks<ScalarStringInput, AstScalar>(parser)
+) : BaseScalarChecks<ScalarStringInput, AstScalar>(parser, ScalarKind.String)
 {
   protected internal override AstScalar<ScalarRegexAst> AliasedFactory(ScalarStringInput input)
     => new(AstNulls.At, input.Name, ScalarKind.String, input.Regex.ScalarRegexes());
 
   protected internal override string AliasesString(ScalarStringInput input, string aliases)
-    => input.Name + aliases + "{string/" + input.Regex + "/!}";
-  protected internal override string KindString(ScalarStringInput input, string kind)
-    => input.Name + "{" + kind + "}";
+    => input.Name + aliases + "{string!/" + input.Regex + "/}";
+  protected internal override string KindString(ScalarStringInput input, string kind, string extends)
+    => input.Name + "{" + kind + extends + "!/" + input.Regex + "/}";
 }
 
 public record struct ScalarStringInput(string Name, string Regex);

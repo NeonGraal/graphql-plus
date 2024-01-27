@@ -54,13 +54,13 @@ public sealed class ParseScalarNumberTests(
 
 internal sealed class ParseScalarNumberChecks(
   Parser<AstScalar>.D parser
-) : BaseScalarChecks<string, AstScalar>(parser)
+) : BaseScalarChecks<string, AstScalar>(parser, ScalarKind.Number)
 {
   protected internal override AstScalar<ScalarRangeAst> AliasedFactory(string input)
     => new(AstNulls.At, input, ScalarKind.Number, []);
 
   protected internal override string AliasesString(string input, string aliases)
     => input + aliases + "{number }";
-  protected internal override string KindString(string input, string kind)
-    => input + "{" + kind + "}";
+  protected internal override string KindString(string input, string kind, string extends)
+    => input + "{" + kind + extends + "}";
 }

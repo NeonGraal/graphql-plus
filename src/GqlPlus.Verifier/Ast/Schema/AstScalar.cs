@@ -10,7 +10,6 @@ public record class AstScalar<TMember>(
 ) : AstScalar(At, Name, Description, Kind), IEquatable<AstScalar<TMember>>
   where TMember : IAstScalarMember
 {
-  public string? Extends { get; set; }
   public TMember[] Members { get; set; } = [];
 
   internal override string Abbr => "S";
@@ -41,7 +40,7 @@ public abstract record class AstScalar(
   ScalarKind Kind
 ) : AstType(At, Name, Description)
 {
-
+  public string? Extends { get; set; }
 }
 
 public enum ScalarKind

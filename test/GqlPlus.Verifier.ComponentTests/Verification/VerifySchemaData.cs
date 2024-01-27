@@ -22,7 +22,7 @@ public partial class VerifySchemaTests
     ["enum-extends-undef"] = "enum Test { : Extends test }",
     ["enum-extends-wrong"] = "enum Test { : Extends test } output Extends { }",
     ["scalar-diff-kind"] = "scalar Test { string } scalar Test { number }",
-    ["scalar-string-diff"] = "scalar Test { string /a+/} scalar Test { string /a+/! }",
+    ["scalar-string-diff"] = "scalar Test { string /a+/} scalar Test { string !/a+/ }",
     ["scalar-union-recurse"] = "scalar Test { union | Bad } scalar Bad { union | Test }",
     ["scalar-union-more"] = "scalar Test { union | Recurse } scalar Recurse { union | Bad } scalar Bad { union | Test }",
     ["scalar-union-self"] = "scalar Test { union | Test }",

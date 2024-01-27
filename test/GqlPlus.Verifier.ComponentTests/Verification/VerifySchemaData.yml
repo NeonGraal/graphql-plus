@@ -44,7 +44,7 @@ invalidSchemas:
     scalar Test { number }
   scalar-string-diff: >
     scalar Test { string /a+/}
-    scalar Test { string /a+/! }
+    scalar Test { string !/a+/ }
   scalar-union-recurse: >
     scalar Test { union | Bad }
     scalar Bad { union | Test }

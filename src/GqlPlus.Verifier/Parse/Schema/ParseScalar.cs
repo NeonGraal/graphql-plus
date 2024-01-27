@@ -17,6 +17,16 @@ internal class ParseScalar(
 {
   protected override AstScalar MakeResult(AstScalar partial, ScalarDefinition value)
     => value.Kind switch {
+      ScalarKind.Boolean => new AstScalar<ScalarFalseAst>(partial.At, partial.Name, value.Kind, []) {
+        Aliases = partial.Aliases,
+        Description = partial.Description,
+        Extends = value.Extends
+      },
+      ScalarKind.Enum => new AstScalar<ScalarMemberAst>(partial.At, partial.Name, value.Kind, value.Members) {
+        Aliases = partial.Aliases,
+        Description = partial.Description,
+        Extends = value.Extends
+      },
       ScalarKind.Number => new AstScalar<ScalarRangeAst>(partial.At, partial.Name, value.Kind, value.Numbers) {
         Aliases = partial.Aliases,
         Description = partial.Description,
@@ -47,6 +57,7 @@ internal class ScalarDefinition
 {
   public ScalarKind Kind { get; set; } = ScalarKind.Number;
   public string? Extends { get; set; }
+  public ScalarMemberAst[] Members { get; set; } = [];
   public ScalarRangeAst[] Numbers { get; set; } = [];
   public ScalarRegexAst[] Regexes { get; set; } = [];
   public ScalarReferenceAst[] References { get; set; } = [];
@@ -54,12 +65,14 @@ internal class ScalarDefinition
 
 internal class ParseScalarDefinition(
   Parser<IEnumParser<ScalarKind>, ScalarKind>.D kind,
+  Parser<ScalarMemberAst>.DA members,
   Parser<ScalarRangeAst>.DA numbers,
   Parser<ScalarReferenceAst>.DA references,
   Parser<ScalarRegexAst>.DA regexes
 ) : Parser<ScalarDefinition>.I
 {
   private readonly Parser<IEnumParser<ScalarKind>, ScalarKind>.L _kind = kind;
+  private readonly Parser<ScalarMemberAst>.LA _members = members;
   private readonly Parser<ScalarRangeAst>.LA _numbers = numbers;
   private readonly Parser<ScalarReferenceAst>.LA _references = references;
   private readonly Parser<ScalarRegexAst>.LA _regexes = regexes;
@@ -83,6 +96,16 @@ internal class ParseScalarDefinition(
     }
 
     switch (result.Kind) {
+      case ScalarKind.Boolean:
+        return tokens.End(label, () => result);
+
+      case ScalarKind.Enum:
+        var scalarMembers = _members.Parse(tokens, label);
+        if (scalarMembers.Required(members => result.Members = members)) {
+          return tokens.End(label, () => result);
+        }
+
+        return scalarMembers.AsResult(result);
       case ScalarKind.Number:
         var scalarRanges = _numbers.Parse(tokens, label);
         if (scalarRanges.Required(ranges => result.Numbers = ranges)) {

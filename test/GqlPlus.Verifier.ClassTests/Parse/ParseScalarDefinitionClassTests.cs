@@ -15,11 +15,12 @@ public class ParseScalarDefinitionClassTests : ClassTestBase
     kindParser.Parse(tokens, default!)
       .ReturnsForAnyArgs(((ScalarKind)99).Ok());
 
+    var members = ArrayParserFor<ScalarMemberAst>();
     var ranges = ArrayParserFor<ScalarRangeAst>();
     var references = ArrayParserFor<ScalarReferenceAst>();
     var regexes = ArrayParserFor<ScalarRegexAst>();
 
-    var scalar = new ParseScalarDefinition(kind, ranges, references, regexes);
+    var scalar = new ParseScalarDefinition(kind, members, ranges, references, regexes);
 
     var result = scalar.Parse(tokens, "test");
 

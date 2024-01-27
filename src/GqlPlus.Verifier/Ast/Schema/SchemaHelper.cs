@@ -2,6 +2,9 @@
 
 internal static class SchemaHelper
 {
+  internal static ScalarMemberAst[] ScalarMembers(this string member, params string[] members)
+    => [.. members.Select(r => new ScalarMemberAst(AstNulls.At, false, r)).Prepend(new(AstNulls.At, true, member))];
+
   internal static ScalarRegexAst[] ScalarRegexes(this string regex, params string[] regexes)
     => [.. regexes.Select(r => new ScalarRegexAst(AstNulls.At, false, r)).Prepend(new(AstNulls.At, true, regex))];
 

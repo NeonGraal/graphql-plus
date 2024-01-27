@@ -6,10 +6,6 @@ public sealed class ParseEnumTests
   : BaseAliasedTests<EnumInput>
 {
   [Theory, RepeatData(Repeats)]
-  public void WithNameBad_ReturnsFalse(decimal id, string member)
-    => _checks.False($"{id}{{{member}}}");
-
-  [Theory, RepeatData(Repeats)]
   public void WithExtends_ReturnsCorrectAst(EnumInput input, string extends)
     => _checks.TrueExpected(input.Type + "{:" + extends + " " + input.Member + "}",
       _checks.AliasedFactory(input) with {

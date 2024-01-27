@@ -6,10 +6,6 @@ public sealed class ParseScalarNumberTests(Parser<AstScalar>.D parser)
     : BaseAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
-  public void WithNameBad_ReturnsFalse(decimal id)
-    => _checks.False($"{id}{{String}}");
-
-  [Theory, RepeatData(Repeats)]
   public void WithKindBad_ReturnsFalse(string name, string kind)
     => _checks.False(
       $"{name}{{{kind}}}",

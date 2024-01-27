@@ -6,10 +6,6 @@ public abstract class BaseObjectTests
   : BaseAliasedTests<ObjectInput>
 {
   [Theory, RepeatData(Repeats)]
-  public void WithNameBad_ReturnsFalse(decimal id, string[] others)
-    => ObjectChecks.WithNameBad(id, others);
-
-  [Theory, RepeatData(Repeats)]
   public void WithAlternates_ReturnsCorrectAst(string name, string[] others)
     => ObjectChecks.WithAlternates(name, others);
 

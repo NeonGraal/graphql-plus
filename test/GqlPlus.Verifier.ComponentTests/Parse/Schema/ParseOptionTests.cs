@@ -7,10 +7,6 @@ public sealed class ParseOptionTests(
 ) : BaseAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
-  public void WithNameBad_ReturnsFalse(decimal id)
-    => _checks.False($"{id}{{}}");
-
-  [Theory, RepeatData(Repeats)]
   public void WithSettings_ReturnsCorrectAst(string name)
     => _checks.TrueExpected(
       name + "{setting='setting'}",

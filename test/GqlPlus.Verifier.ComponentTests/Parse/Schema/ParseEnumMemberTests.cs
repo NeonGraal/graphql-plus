@@ -6,10 +6,6 @@ public sealed class ParseEnumMemberTests(
   Parser<EnumMemberAst>.D parser
 ) : BaseAliasedTests<string>
 {
-  [Theory, RepeatData(Repeats)]
-  public void WithNameBad_ReturnsFalse(decimal id, string member)
-    => _checks.False($"{id}{{{member}}}");
-
   internal override IBaseAliasedChecks<string> AliasChecks => _checks;
 
   private readonly ParseEnumMemberChecks _checks = new(parser);

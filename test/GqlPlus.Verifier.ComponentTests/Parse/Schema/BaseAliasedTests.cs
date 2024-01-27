@@ -2,55 +2,63 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public abstract class BaseAliasedTests<I>
+public abstract class BaseAliasedTests<TInput>
 {
   [Theory, RepeatData(Repeats)]
-  public void WithMinimum_ReturnsCorrectAst(I input)
-  => AliasChecks.WithMinimum(input);
+  public void WithMinimum_ReturnsCorrectAst(TInput input)
+    => AliasChecks.WithMinimum(input);
 
   [Theory, RepeatData(Repeats)]
-  public void WithAliases_ReturnsCorrectAst(I input, string[] aliases)
-  => AliasChecks.WithAliases(input, aliases);
+  public void WithNameBad_ReturnsFalse(decimal id)
+    => AliasChecks.WithNameBad(id);
 
   [Theory, RepeatData(Repeats)]
-  public void WithAliasesBad_ReturnsFalse(I input, string[] aliases)
-  => AliasChecks.WithAliasesBad(input, aliases);
+  public void WithAliases_ReturnsCorrectAst(TInput input, string[] aliases)
+    => AliasChecks.WithAliases(input, aliases);
 
   [Theory, RepeatData(Repeats)]
-  public void WithAliasesNone_ReturnsFalse(I input)
-  => AliasChecks.WithAliasesNone(input);
+  public void WithAliasesBad_ReturnsFalse(TInput input, string[] aliases)
+    => AliasChecks.WithAliasesBad(input, aliases);
 
-  internal abstract IBaseAliasedChecks<I> AliasChecks { get; }
+  [Theory, RepeatData(Repeats)]
+  public void WithAliasesNone_ReturnsFalse(TInput input)
+    => AliasChecks.WithAliasesNone(input);
+
+  internal abstract IBaseAliasedChecks<TInput> AliasChecks { get; }
 }
 
-internal abstract class BaseAliasedChecks<I, A>
-  : OneChecksParser<A>, IBaseAliasedChecks<I>
-  where A : AstAliased
+internal abstract class BaseAliasedChecks<TInput, TAliased>
+  : OneChecksParser<TAliased>, IBaseAliasedChecks<TInput>
+  where TAliased : AstAliased
 {
-  protected BaseAliasedChecks(Parser<A>.D parser)
+  protected BaseAliasedChecks(Parser<TAliased>.D parser)
     : base(parser) { }
 
-  public void WithMinimum(I input)
+  public void WithMinimum(TInput input)
   => TrueExpected(AliasesString(input, ""), AliasedFactory(input));
 
-  public void WithAliases(I input, string[] aliases)
+  public void WithNameBad(decimal id)
+  => False($"{id}{{}}");
+
+  public void WithAliases(TInput input, string[] aliases)
   => TrueExpected(AliasesString(input, "[" + aliases.Joined() + "]"),
       AliasedFactory(input) with { Aliases = aliases });
 
-  public void WithAliasesBad(I input, string[] aliases)
+  public void WithAliasesBad(TInput input, string[] aliases)
     => False(AliasesString(input, "[" + aliases.Joined()));
 
-  public void WithAliasesNone(I input)
+  public void WithAliasesNone(TInput input)
     => False(AliasesString(input, "[]"));
 
-  protected internal abstract string AliasesString(I input, string aliases);
-  protected internal abstract A AliasedFactory(I input);
+  protected internal abstract string AliasesString(TInput input, string aliases);
+  protected internal abstract TAliased AliasedFactory(TInput input);
 }
 
-internal interface IBaseAliasedChecks<I>
+internal interface IBaseAliasedChecks<TInput>
 {
-  void WithMinimum(I input);
-  void WithAliases(I input, string[] aliases);
-  void WithAliasesBad(I input, string[] aliases);
-  void WithAliasesNone(I input);
+  void WithMinimum(TInput input);
+  void WithNameBad(decimal id);
+  void WithAliases(TInput input, string[] aliases);
+  void WithAliasesBad(TInput input, string[] aliases);
+  void WithAliasesNone(TInput input);
 }

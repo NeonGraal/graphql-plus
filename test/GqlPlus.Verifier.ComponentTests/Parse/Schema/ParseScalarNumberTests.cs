@@ -2,15 +2,10 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public sealed class ParseScalarNumberTests(Parser<AstScalar>.D parser)
-    : BaseAliasedTests<string>
+public sealed class ParseScalarNumberTests(
+  Parser<AstScalar>.D parser
+) : BaseScalarTests<string>
 {
-  [Theory, RepeatData(Repeats)]
-  public void WithKindBad_ReturnsFalse(string name, string kind)
-    => _checks.False(
-      $"{name}{{{kind}}}",
-      skipIf: Enum.TryParse<ScalarKind>(kind, out var _));
-
   [Theory, RepeatData(Repeats)]
   public void WithRangeNoBounds_ReturnsFalse(string name)
     => _checks.False(name + "{number ~}");
@@ -52,18 +47,20 @@ public sealed class ParseScalarNumberTests(Parser<AstScalar>.D parser)
       name + $"{{number ~{max} {min}!}}",
       skipIf: max > min);
 
-  internal override IBaseAliasedChecks<string> AliasChecks => _checks;
+  internal override IBaseScalarChecks<string> ScalarChecks => _checks;
 
   private readonly ParseScalarNumberChecks _checks = new(parser);
 }
 
 internal sealed class ParseScalarNumberChecks(
   Parser<AstScalar>.D parser
-) : BaseAliasedChecks<string, AstScalar>(parser)
+) : BaseScalarChecks<string, AstScalar>(parser)
 {
   protected internal override AstScalar<ScalarRangeAst> AliasedFactory(string input)
     => new(AstNulls.At, input, ScalarKind.Number, []);
 
   protected internal override string AliasesString(string input, string aliases)
     => input + aliases + "{number }";
+  protected internal override string KindString(string input, string kind)
+    => input + "{" + kind + "}";
 }

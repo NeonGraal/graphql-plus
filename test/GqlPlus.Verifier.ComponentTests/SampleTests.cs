@@ -8,7 +8,7 @@ using GqlPlus.Verifier.Verification;
 
 namespace GqlPlus.Verifier;
 
-public class SampleTests(
+public partial class SampleTests(
     Parser<OperationAst>.D operation,
     Parser<SchemaAst>.D schemaParser,
     IVerify<SchemaAst> schemaVerifier)
@@ -54,17 +54,17 @@ public class SampleTests(
   }
 
   [Theory]
-  [InlineData("error")]
+  [ClassData(typeof(SampleOperationData))]
   public async Task ParseSampleOperation(string sample)
   {
-    var operation = File.ReadAllText("Sample/Operation_" + sample + ".gql+");
+    var operation = File.ReadAllText("Sample/Operation/" + sample + ".gql+");
     OperationContext tokens = new(operation);
     var ast = _operation.Parse(tokens, "Operation").Optional();
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(SampleTests));
-    settings.UseFileName("Operation_" + sample);
+    settings.UseDirectory(nameof(SampleTests) + "/ParseOperation");
+    settings.UseFileName(sample);
 
     await Verify(ast?.Render(), settings);
   }
@@ -73,49 +73,15 @@ public class SampleTests(
   [ClassData(typeof(SampleGraphQlData))]
   public async Task ParseSampleGraphQl(string example)
   {
-    var operation = File.ReadAllText("Sample/GraphQl/Example_" + example + ".gql");
+    var operation = File.ReadAllText("Sample/GraphQl/" + example + ".gql");
     OperationContext tokens = new(operation);
     var ast = _operation.Parse(tokens, "Operation").Required();
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
     settings.UseDirectory(nameof(SampleTests) + "/ParseGraphQl");
-    settings.UseFileName("Example_" + example);
+    settings.UseFileName(example);
 
     await Verify(ast.Render(), settings);
-  }
-
-  public class SampleSchemaData : TheoryData<string>
-  {
-    public SampleSchemaData()
-    {
-      Add("all");
-      Add("default");
-      Add("errors");
-      Add("Intro_Schema");
-      Add("Intro_Category");
-      Add("Intro_Directive");
-      Add("Intro_Setting");
-      Add("Intro_Types");
-      Add("Intro_Common");
-      Add("Intro_Enum");
-      Add("Intro_Object");
-      Add("Intro_Input");
-      Add("Intro_Output");
-      Add("Intro_Scalar");
-      Add("Intro_Complete");
-    }
-  }
-
-  public class SampleGraphQlData : TheoryData<string>
-  {
-    private const string Examples = "003 005 006 007 008 009a 009b 010 012 013 014 016 018 019"
-      + " 020 021 023 024 025 026 029 030 031 032";
-    public SampleGraphQlData()
-    {
-      foreach (var example in Examples.Split()) {
-        Add(example);
-      }
-    }
   }
 }

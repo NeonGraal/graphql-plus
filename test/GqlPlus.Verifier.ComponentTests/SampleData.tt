@@ -1,0 +1,23 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Runtime" #>
+<#@ import namespace="System.IO" #>
+<#@ output extension=".cs" #>
+<#  var sampleDir = new DirectoryInfo(this.Host.ResolvePath("Sample"));
+    var relative = sampleDir.FullName.Replace(Environment.CurrentDirectory, ".");
+#>
+// Generated from <#= relative #>
+
+namespace GqlPlus.Verifier;
+
+public partial class SampleTests {
+<#  foreach (var dir in sampleDir.EnumerateDirectories()) { #>
+  public class Sample<#= dir.Name #>Data : TheoryData<string> {
+    public Sample<#= dir.Name #>Data() {
+<#    foreach (var file in dir.EnumerateFiles()) { #>
+      Add("<#= Path.ChangeExtension(file.Name, null) #>");
+<#    } #>
+    }
+  }
+<#  } #>
+}

@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="SampleData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SampleData.cs</LastGenOutput>
+    </None>
     <None Update="Verification\VerifySchemaData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>VerifySchemaData.cs</LastGenOutput>

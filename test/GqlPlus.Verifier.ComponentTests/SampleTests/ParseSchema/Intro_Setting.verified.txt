@@ -5,7 +5,11 @@ Success
   _Setting
   :
   I@7/2
-  _Named
+  _Described
+  <
+    I@18/2
+    _Named
+  >
   {
     !OF I@9/3
     value

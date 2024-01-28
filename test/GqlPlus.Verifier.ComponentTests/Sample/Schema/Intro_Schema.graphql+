@@ -23,11 +23,15 @@ input _TypeFilter {
     }
 
 output _Aliased {
-    : _Named
+    : _Described<_Named>
         aliases: String[]
+    }
+
+output _Described<$base> {
+    : $base
+        description: String?
     }
 
 output _Named {
         name: String
-        description: String?
     }

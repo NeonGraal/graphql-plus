@@ -66,69 +66,93 @@ Success
   }
 }
 {
-  !E I@6/15
-  _SimpleKind
-  !EM I@20/15
-  Basic
-  !EM I@26/15
-  Enum
-  !EM I@31/15
-  Internal
-  !EM I@40/15
-  Scalar
-}
-{
-  !E I@6/17
-  _TypeKind
-  :_SimpleKind
-  !EM I@32/17
-  Input
-  !EM I@38/17
-  Output
-}
-{
-  !O I@8/19
-  _TypeRef
+  !O I@8/15
+  _ChildType
   <
-    I@18/19
+    I@20/15
+    $kind
+    I@26/15
+    $parent
+  >
+  :
+  I@7/16
+  _BaseType
+  <
+    I@18/16
     $kind
   >
   {
-    !OF I@9/20
+    !OF I@9/17
+    parent
+    :
+    I@18/17
+    $parent
+  }
+}
+{
+  !E I@6/20
+  _SimpleKind
+  !EM I@20/20
+  Basic
+  !EM I@26/20
+  Enum
+  !EM I@31/20
+  Internal
+  !EM I@40/20
+  Scalar
+}
+{
+  !E I@6/22
+  _TypeKind
+  :_SimpleKind
+  !EM I@32/22
+  Input
+  !EM I@38/22
+  Output
+}
+{
+  !O I@8/24
+  _TypeRef
+  <
+    I@18/24
+    $kind
+  >
+  {
+    !OF I@9/25
     kind
     :
-    I@16/20
+    I@16/25
     $kind
-    !OF I@9/21
+    !OF I@9/26
     name
     :
-    I@15/21
+    I@15/26
     String
   }
 }
 {
-  !O I@8/24
+  !O I@8/29
   _TypeSimple
   |
   !AO
-  I@7/25
+  I@7/30
   _TypeRef
   <
-    I@16/25
+    I@16/30
     _TypeKind.Basic
   >
   !AO
-  I@7/26
+  I@7/31
   _TypeRef
   <
-    I@16/26
+    I@16/31
     _TypeKind.Scalar
   >
   !AO
-  I@7/27
+  I@7/32
   _TypeRef
   <
-    I@16/27
+    I@16/32
     _TypeKind.Enum
   >
 }

@@ -1,6 +1,5 @@
 output _TypeEnum {
-    : _BaseType<_TypeKind.Enum>
-        extends: _TypeRef<_TypeKind.Enum>?
+    : _ChildType<_TypeKind.Enum String>
         members: _Aliased[]
         allMembers: _EnumMember[]
     }

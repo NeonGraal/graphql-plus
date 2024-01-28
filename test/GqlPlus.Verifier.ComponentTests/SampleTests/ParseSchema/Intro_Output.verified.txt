@@ -49,9 +49,9 @@ Success
   _OutputArgument
   :
   I@7/14
-  _BaseType
+  _TypeRef
   <
-    I@17/14
+    I@16/14
     _TypeKind.Enum
   >
   {
@@ -75,9 +75,9 @@ Success
   _OutputEnum
   :
   I@7/20
-  _BaseType
+  _TypeRef
   <
-    I@17/20
+    I@16/20
     _TypeKind.Enum
   >
   {

@@ -5,65 +5,57 @@ Success
   _TypeEnum
   :
   I@7/2
-  _BaseType
+  _ChildType
   <
-    I@17/2
+    I@18/2
     _TypeKind.Enum
+    I@33/2
+    String
   >
   {
     !OF I@9/3
-    extends
-    :
-    I@18/3
-    _TypeRef
-    <
-      I@27/3
-      _TypeKind.Enum
-    >
-    ?
-    !OF I@9/4
     members
     :
-    I@18/4
+    I@18/3
     _Aliased
     []
-    !OF I@9/5
+    !OF I@9/4
     allMembers
     :
-    I@21/5
+    I@21/4
     _EnumMember
     []
   }
 }
 {
-  !O I@8/8
+  !O I@8/7
   _EnumMember
   :
-  I@7/9
+  I@7/8
   _Aliased
   {
-    !OF I@9/10
+    !OF I@9/9
     enum
     :
-    I@15/10
+    I@15/9
     String
   }
 }
 {
-  !O I@8/13
+  !O I@8/12
   _EnumValue
   :
-  I@7/14
+  I@7/13
   _TypeRef
   <
-    I@16/14
+    I@16/13
     _TypeKind.Enum
   >
   {
-    !OF I@9/15
+    !OF I@9/14
     value
     :
-    I@16/15
+    I@16/14
     String
   }
 }

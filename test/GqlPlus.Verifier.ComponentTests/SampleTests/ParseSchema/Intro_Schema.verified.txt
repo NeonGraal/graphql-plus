@@ -115,7 +115,11 @@ Success
   _Aliased
   :
   I@7/26
-  _Named
+  _Described
+  <
+    I@18/26
+    _Named
+  >
   {
     !OF I@9/27
     aliases
@@ -127,18 +131,31 @@ Success
 }
 {
   !O I@8/30
-  _Named
+  _Described
+  <
+    I@20/30
+    $base
+  >
+  :
+  I@8/31
+  $base
   {
-    !OF I@9/31
-    name
-    :
-    I@15/31
-    String
     !OF I@9/32
     description
     :
     I@22/32
     String
     ?
+  }
+}
+{
+  !O I@8/35
+  _Named
+  {
+    !OF I@9/36
+    name
+    :
+    I@15/36
+    String
   }
 }

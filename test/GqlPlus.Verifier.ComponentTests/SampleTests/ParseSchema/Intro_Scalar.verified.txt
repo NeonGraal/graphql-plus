@@ -69,7 +69,7 @@ Success
   _ScalarRef
   <
     I@20/11
-    $base
+    $kind
   >
   :
   I@7/12
@@ -83,7 +83,7 @@ Success
     scalar
     :
     I@18/13
-    $base
+    $kind
   }
 }
 {
@@ -91,28 +91,25 @@ Success
   _BaseScalar
   <
     I@21/16
-    $base
+    $kind
     I@27/16
     $item
   >
   :
   I@7/17
-  _BaseType
+  _ChildType
   <
-    I@17/17
+    I@18/17
     _TypeKind.Scalar
+    I@35/17
+    String
   >
   {
     !OF I@9/18
-    extends
+    scalar
     :
     I@18/18
-    _ScalarRef
-    <
-      I@30/18
-      $base
-    >
-    ?
+    $kind
     !OF I@9/19
     items
     :
@@ -218,7 +215,7 @@ Success
   _ScalarValue
   <
     I@22/51
-    $base
+    $kind
     I@28/51
     $value
   >
@@ -227,7 +224,7 @@ Success
   _ScalarRef
   <
     I@19/52
-    $base
+    $kind
   >
   {
     !OF I@9/53

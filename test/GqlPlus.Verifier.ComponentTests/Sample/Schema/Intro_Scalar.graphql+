@@ -8,14 +8,14 @@ output _TypeScalar {
     | _BaseScalar<_Scalar.Union _TypeSimple>
     }
 
-output _ScalarRef<$base> {
+output _ScalarRef<$kind> {
     : _TypeRef<_TypeKind.Scalar>
-        scalar: $base
+        scalar: $kind
     }
 
-output _BaseScalar<$base $item> {
-    : _BaseType<_TypeKind.Scalar>
-        extends: _ScalarRef<$base>?
+output _BaseScalar<$kind $item> {
+    : _ChildType<_TypeKind.Scalar String>
+        scalar: $kind
         items: $item[]
         allItems: _ScalarItem<$item>[]
     }
@@ -48,7 +48,7 @@ output _ScalarItem<$item> {
         scalar: String
     }
 
-output _ScalarValue<$base $value> {
-    : _ScalarRef<$base>
+output _ScalarValue<$kind $value> {
+    : _ScalarRef<$kind>
         value: $value
     }

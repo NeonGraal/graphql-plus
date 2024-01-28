@@ -1,10 +1,9 @@
 output _TypeObject<$kind $base $field> {
-    : _BaseType<$kind>
-        extends: $base?
-        typeParameters: _Named[]
+    : _ChildType<$kind _Described<$base>>
+        typeParameters: _Described<_Named>[]
         fields: $field[]
         alternates: _Alternate<$base>[]
-        allTypeParameters: _Object<_Named>[]
+        allTypeParameters: _Object<_Described<_Named>>[]
         allFields: _Object<$field>[]
         allAlternates: _Object<_Alternate<$base>>[]
     }

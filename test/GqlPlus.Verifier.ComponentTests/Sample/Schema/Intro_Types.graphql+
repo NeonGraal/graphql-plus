@@ -12,6 +12,11 @@ output _BaseType<$kind> {
         kind: $kind
     }
 
+output _ChildType<$kind $parent> {
+    : _BaseType<$kind>
+        parent: $parent
+    }
+
 enum _SimpleKind { Basic Enum Internal Scalar }
 
 enum _TypeKind { : _SimpleKind Input Output }

@@ -11,13 +11,13 @@ output _OutputField {
     }
 
 output _OutputArgument {
-    : _BaseType<_TypeKind.Enum>
+    : _TypeRef<_TypeKind.Enum>
         value: String
     | _Ref<_OutputBase>
     }
 
 output _OutputEnum {
-    : _BaseType<_TypeKind.Enum>
+    : _TypeRef<_TypeKind.Enum>
         field: String
         value: String
     }

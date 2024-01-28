@@ -4,7 +4,10 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
-internal record class UsageContext(IMap<AstDescribed> Types, ITokenMessages Errors)
+public record class UsageContext(
+  IMap<AstDescribed> Types,
+  ITokenMessages Errors
+)
 {
   internal readonly HashSet<string> Used = [];
 

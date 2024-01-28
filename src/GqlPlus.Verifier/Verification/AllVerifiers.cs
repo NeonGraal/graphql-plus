@@ -23,7 +23,7 @@ public static class AllVerifiers
       .AddVerifyUsageAliased<CategoryDeclAst, OutputDeclAst, VerifyCategoryOutput>()
       .AddVerifyAliased<DirectiveDeclAst, VerifyDirectiveAliased>()
       .AddVerifyUsageAliased<DirectiveDeclAst, InputDeclAst, VerifyDirectiveInput>()
-      // Schmea Types
+      // Schema Types
       .AddVerify<AstType[], VerifyAllTypes>()
       .AddVerifyAliased<AstType, VerifyAllTypesAliased>()
       .AddVerifyAliased<EnumDeclAst, VerifyEnumsAliased>()
@@ -34,6 +34,11 @@ public static class AllVerifiers
       .AddVerifyUsageAliased<OutputDeclAst, AstType, VerifyOutputTypes>()
       .AddVerifyAliased<AstScalar, VerifyScalarsAliased>()
       .AddVerifyUsageAliased<AstScalar, AstType, VerifyScalarTypes>()
+      .AddVerifyScalarContext<AstScalarVerifier<ScalarFalseAst>>()
+      .AddVerifyScalarContext<AstScalarVerifier<ScalarMemberAst>>()
+      .AddVerifyScalarContext<AstScalarVerifier<ScalarRangeAst>>()
+      .AddVerifyScalarContext<AstScalarVerifier<ScalarRegexAst>>()
+      .AddVerifyScalarContext<VerifyScalarUnion>()
     ;
 
   public static IServiceCollection AddVerify<T, S>(this IServiceCollection services)
@@ -69,4 +74,8 @@ public static class AllVerifiers
       .AddSingleton<IVerifyUsage<U, A>, S>()
       .TryAddVerify<U, NullVerifier<U>>()
       .TryAddVerify<A, NullVerifier<A>>();
+
+  public static IServiceCollection AddVerifyScalarContext<S>(this IServiceCollection services)
+    where S : class, IVerifyContext<AstScalar>
+    => services.AddSingleton<IVerifyContext<AstScalar>, S>();
 }

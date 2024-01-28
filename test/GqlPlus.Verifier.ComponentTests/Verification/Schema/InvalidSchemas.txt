@@ -39,6 +39,17 @@ enum Test { : Extends test }
 enum Test { : Extends test }
 output Extends { }
 
+// scalar-extends-undef
+scalar Test { Boolean : Extends }
+
+// scalar-extends-wrong-type
+scalar Test { Boolean : Extends }
+output Extends { }
+
+// scalar-extends-wrong-kind
+scalar Test { Boolean : Extends }
+scalar Extends { String }
+
 // scalar-diff-kind
 scalar Test { string }
 scalar Test { number }

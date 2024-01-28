@@ -4,8 +4,11 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
-internal record class OutputContext(IMap<AstDescribed> Types, ITokenMessages Errors, IMap<string> EnumValues)
-  : UsageContext(Types, Errors)
+internal record class OutputContext(
+  IMap<AstDescribed> Types,
+  ITokenMessages Errors,
+  IMap<string> EnumValues
+) : UsageContext(Types, Errors)
 {
   internal bool GetEnumValue(string value, out string? type)
     => EnumValues.TryGetValue(value, out type);

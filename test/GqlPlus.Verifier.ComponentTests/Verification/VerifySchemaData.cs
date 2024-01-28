@@ -80,6 +80,9 @@ public partial class VerifySchemaTests {
         ["enum-extends-diff"] = "enum Test { : Extends test } enum Test { test } enum Extends { extends }",
         ["enum-extends-undef"] = "enum Test { : Extends test }",
         ["enum-extends-wrong"] = "enum Test { : Extends test } output Extends { }",
+        ["scalar-extends-undef"] = "scalar Test { Boolean : Extends }",
+        ["scalar-extends-wrong-type"] = "scalar Test { Boolean : Extends } output Extends { }",
+        ["scalar-extends-wrong-kind"] = "scalar Test { Boolean : Extends } scalar Extends { String }",
         ["scalar-diff-kind"] = "scalar Test { string } scalar Test { number }",
         ["scalar-string-diff"] = "scalar Test { string /a+/} scalar Test { string !/a+/ }",
         ["scalar-union-recurse"] = "scalar Test { union | Bad } scalar Bad { union | Test }",
@@ -101,6 +104,9 @@ public partial class VerifySchemaTests {
         Add("enum-extends-diff");
         Add("enum-extends-undef");
         Add("enum-extends-wrong");
+        Add("scalar-extends-undef");
+        Add("scalar-extends-wrong-type");
+        Add("scalar-extends-wrong-kind");
         Add("scalar-diff-kind");
         Add("scalar-string-diff");
         Add("scalar-union-recurse");
@@ -232,12 +238,14 @@ public partial class VerifySchemaTests {
         ["category-output"] = "category { Cat } output Cat { }",
         ["directive-param"] = "directive @DirParam(DirParamIn) { all } input DirParamIn { }",
         ["enum-extends"] = "enum EnExt { :EnExtBase valExt } enum EnExtBase { valBase }",
+        ["scalar-extends"] = "scalar ScalExt { Boolean :ScalExtBase } scalar ScalExtBase { Boolean }",
     };
   public class SchemaValidSchemas : TheoryData<string> {
     public SchemaValidSchemas() {
         Add("category-output");
         Add("directive-param");
         Add("enum-extends");
+        Add("scalar-extends");
     }
   }
 }

@@ -1,6 +1,4 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
-<#@ assembly name="System.Core" #>
-<#@ assembly name="System.Runtime" #>
 <#@ import namespace="System.IO" #>
 <#@ output extension=".cs" #>
 <#  var sampleDir = new DirectoryInfo(this.Host.ResolvePath("Sample"));

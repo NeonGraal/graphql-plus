@@ -1,0 +1,11 @@
+﻿// var
+($var):Boolean($var)
+
+// var-null
+($var:Id?=null):Boolean($var)
+
+// frag-first
+&named:Named{name}{|named}
+
+// frag-end
+{...named}fragment named on Named{name}

@@ -1,0 +1,121 @@
+﻿// category
+category { Category }
+output Category { }
+
+// category-alias
+category [Cat1] { CatAlias } category [Cat2] { CatAlias }
+output CatAlias { }
+
+// directive
+directive @Dir { inline } directive @Dir { spread }
+
+// directive-alias
+directive @DirAlias [Dir1] { variable } directive @DirAlias [Dir2] { field }
+
+// directive-params
+directive @DirParams(DirParamsIn) { operation } directive @DirParams { fragment }
+input DirParamsIn { }
+
+// option
+option Option { } option Option { }
+
+// option-alias
+option OptAlias [Opt1] { } option OptAlias [Opt2] { }
+
+// option-setting
+option OptSetting { setting=true } option OptSetting { setting=[0] }
+
+// enum-alias
+enum EnAlias [En1] { alias }
+enum EnAlias [En2] { alias }
+
+// enum-diff
+enum EnDiff { one }
+enum EnDiff { two }
+
+// enum-same
+enum EnSame { same }
+enum EnSame { same }
+
+// enum-value-alias
+enum EnValAlias { value [val1] }
+enum EnValAlias { value [val2] }
+
+// object
+object Obj { }
+object Obj { }
+
+// object-alias
+object ObjAlias [Obj1] { }
+object ObjAlias [Obj2] { }
+
+// object-extends
+object ObjBase { : BaseObj }
+object ObjBase { : BaseObj }
+object BaseObj { }
+
+// object-params
+object ObjParams<$test> { test: $test }
+object ObjParams<$type> { type: $type }
+
+// object-alts
+object ObjAlts { | ObjAltsType }
+object ObjAlts { | ObjAltsType }
+object ObjAltsType { }
+
+// object-fields
+object ObjFields { field: ObjFields }
+object ObjFields { field: ObjFields }
+
+// object-field-alias
+object FieldAlias { field [field1]: FieldAlias }
+object FieldAlias { field [field2]: FieldAlias }
+
+// output-field-params
+output FieldParams { field(FieldParam): FieldParams }
+output FieldParams { field: FieldParams }
+input FieldParam { }
+
+// output-field-enums
+output FieldEnums { field = Boolean.true }
+output FieldEnums { field = true }
+
+// output-field-enum-alias
+output FieldEnumAlias { field [field1] = Boolean.true }
+output FieldEnumAlias { field [field2] = true }
+
+// scalar-alias
+scalar NumAlias [Num1] { number }
+scalar NumAlias [Num2] { number }
+
+// scalar-number
+scalar Num { number }
+scalar Num { number }
+
+// scalar-number-same
+scalar NumSame { number 1~9 }
+scalar NumSame { number 1~9 }
+
+// scalar-number-diff
+scalar NumDiff { number 1~9 }
+scalar NumDiff { number }
+
+// scalar-string
+scalar Str { string }
+scalar Str { string }
+
+// scalar-string-same
+scalar StrSame { string /a+/ }
+scalar StrSame { string /a+/ }
+
+// scalar-string-diff
+scalar StrDiff { string /a+/ }
+scalar StrDiff { string }
+
+// scalar-union-same
+scalar UnSame { union | Boolean }
+scalar UnSame { union | Boolean }
+
+// scalar-union-diff
+scalar UnDiff { union | Boolean }
+scalar UnDiff { union | Number }

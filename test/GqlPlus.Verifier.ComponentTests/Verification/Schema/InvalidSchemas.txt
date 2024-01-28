@@ -1,0 +1,67 @@
+﻿// bad-parse
+
+// unique-types
+enum Test { Value }
+output Test { }
+
+// category-no-output
+category { Test }
+
+// category-duplicate
+category { Test } category test { Output }
+output Test { }
+output Output { }
+
+// category-dup-alias
+category [a] { Test } category [a] { Output }
+output Test { }
+output Output { }
+
+// directive-diff-option
+directive @Test { all } directive @Test { ( repeatable ) all }
+
+// directive-no-param
+directive @Test(Test) { all }
+
+// directive-diff-parameter
+directive @Test(Test) { all } directive @Test(Test?) { all }
+input Test { }
+
+// enum-extends-diff
+enum Test { : Extends test }
+enum Test { test }
+enum Extends { extends }
+
+// enum-extends-undef
+enum Test { : Extends test }
+
+// enum-extends-wrong
+enum Test { : Extends test }
+output Extends { }
+
+// scalar-diff-kind
+scalar Test { string }
+scalar Test { number }
+
+// scalar-string-diff
+scalar Test { string /a+/}
+scalar Test { string !/a+/ }
+
+// scalar-union-recurse
+scalar Test { union | Bad }
+scalar Bad { union | Test }
+
+// scalar-union-more
+scalar Test { union | Recurse }
+scalar Recurse { union | Bad }
+scalar Bad { union | Test }
+
+// scalar-union-self
+scalar Test { union | Test }
+
+// scalar-union-undef
+scalar Test { union | Bad }
+
+// scalar-union-wrong
+scalar Test { union | Bad }
+input Bad { }

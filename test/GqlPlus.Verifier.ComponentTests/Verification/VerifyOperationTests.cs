@@ -6,17 +6,17 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-public class VerifyOperationTests(
+public partial class VerifyOperationTests(
     Parser<OperationAst>.D parser,
     IVerify<OperationAst> verifier)
 {
   private readonly Parser<OperationAst>.L _parser = parser;
 
   [Theory]
-  [ClassData(typeof(ValidGraphQlPlusOperations))]
+  [ClassData(typeof(OperationValid))]
   public void Verify_ValidOperations_ReturnsValid(string operation)
   {
-    var parse = Parse(operation);
+    var parse = Parse(s_operationValid[operation]);
     if (parse is IResultError<OperationAst> error) {
       error.Message.Should().BeNull();
     }
@@ -29,10 +29,10 @@ public class VerifyOperationTests(
   }
 
   [Theory]
-  [ClassData(typeof(InvalidGraphQlPlusOperations))]
+  [ClassData(typeof(OperationInvalid))]
   public void Verify_InvalidOperations_ReturnsInvalid(string operation)
   {
-    var parse = Parse(operation);
+    var parse = Parse(s_operationInvalid[operation]);
 
     var result = new TokenMessages();
     if (parse.IsOk()) {
@@ -48,33 +48,5 @@ public class VerifyOperationTests(
   {
     OperationContext tokens = new(operation);
     return _parser.Parse(tokens, "Operation");
-  }
-
-  public class ValidGraphQlPlusOperations : TheoryData<string>
-  {
-    public ValidGraphQlPlusOperations()
-    {
-      Add("($var):Boolean($var)");
-      Add("($var:Id?=null):Boolean($var)");
-      Add("&named:Named{name}{|named}");
-      Add("{...named}fragment named on Named{name}");
-    }
-  }
-
-  public class InvalidGraphQlPlusOperations : TheoryData<string>
-  {
-    public InvalidGraphQlPlusOperations()
-    {
-      Add(""); // Bad parse
-      Add("($var):Boolean"); // Defined variables must be used at least once
-      Add(":Boolean($var)"); // Used variables must be defined
-      Add("($var:Id=null):Boolean($var)"); // Not nullable type can't have a null default value
-      Add("($var:Id[]={a:b}):Boolean($var)"); // List type can't have a map default value
-      Add("($var:Id[*]=[a]):Boolean($var)"); // Map type can't have a list default value
-      Add("($var:Id[]?={a:b}):Boolean($var)"); // Nullable List type can't have a map default value
-      Add("($var:Id[*]?=[a]):Boolean($var)"); // Nullable Map type can't have a list default value
-      Add("&named:Named{name}{name}"); // Defined fragment must be used
-      Add("{...named}"); // Used fragment must be defined
-    }
   }
 }

@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Verification\VerifyOperationData.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VerifyOperationData.tt</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Verify.Xunit" Version="23.0.0" />
     <PackageReference Include="Xunit.DependencyInjection" Version="8.9.1" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" Version="8.1.0" />
@@ -22,10 +30,17 @@
     <None Update="SampleData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SampleData.cs</LastGenOutput>
+      <DependentUpon>SampleTests.cs</DependentUpon>
+    </None>
+    <None Update="Verification\VerifyOperationData.tt">
+      <LastGenOutput>VerifyOperationData.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VerifyOperationTests.cs</DependentUpon>
     </None>
     <None Update="Verification\VerifySchemaData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>VerifySchemaData.cs</LastGenOutput>
+      <DependentUpon>VerifySchemaTests.cs</DependentUpon>
     </None>
   </ItemGroup>
 
@@ -34,10 +49,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Verification\VerifyOperationData.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VerifyOperationData.tt</DependentUpon>
+    </Compile>
     <Compile Update="Verification\VerifySchemaData.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>VerifySchemaData.tt</DependentUpon>
+    </Compile>
+    <Compile Update="SampleData.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SampleData.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

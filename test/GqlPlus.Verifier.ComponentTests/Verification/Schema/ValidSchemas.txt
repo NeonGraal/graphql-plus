@@ -1,0 +1,10 @@
+﻿// category-output
+category { Cat } output Cat { }
+
+// directive-param
+directive @DirParam(DirParamIn) { all }
+input DirParamIn { }
+
+// enum-extends
+enum EnExt { :EnExtBase valExt }
+enum EnExtBase { valBase }

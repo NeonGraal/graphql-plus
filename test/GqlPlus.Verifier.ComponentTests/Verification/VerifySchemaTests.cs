@@ -12,20 +12,20 @@ public partial class VerifySchemaTests(
     IMerge<SchemaAst> merger)
 {
   [Theory]
-  [MemberData(nameof(ValidSchemas))]
+  [ClassData(typeof(SchemaValidSchemas))]
   public void Verify_ValidSchemas(string schema)
-    => Verify_Valid(s_validSchemas[schema]);
+    => Verify_Valid(s_schemaValidSchemas[schema]);
 
   [Theory]
-  [MemberData(nameof(InvalidSchemas))]
+  [ClassData(typeof(SchemaInvalidSchemas))]
   public async Task Verify_InvalidSchemas(string schema)
-    => await Verify_Invalid(s_invalidSchemas[schema], schema);
+    => await Verify_Invalid(s_schemaInvalidSchemas[schema], schema);
 
   [Theory]
-  [MemberData(nameof(ValidMerges))]
+  [ClassData(typeof(SchemaValidMerges))]
   public void Verify_ValidMerges(string schema)
   {
-    var input = s_validMerges[schema];
+    var input = s_schemaValidMerges[schema];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       using var scope = new AssertionScope();
 
@@ -37,10 +37,10 @@ public partial class VerifySchemaTests(
   }
 
   [Theory]
-  [MemberData(nameof(ValidObjects))]
+  [ClassData(typeof(SchemaValidObjects))]
   public void Verify_ValidObjects(string schema)
   {
-    var input = s_validObjects[schema];
+    var input = s_schemaValidObjects[schema];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       using var scope = new AssertionScope();
 
@@ -52,10 +52,10 @@ public partial class VerifySchemaTests(
   }
 
   [Theory]
-  [MemberData(nameof(InvalidObjects))]
+  [ClassData(typeof(SchemaInvalidObjects))]
   public async Task Verify_InvalidObjects(string schema)
   {
-    var input = s_invalidObjects[schema];
+    var input = s_schemaInvalidObjects[schema];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       await WhenAll(
         Verify_Invalid(ReplaceObject(input, "input", "In"), "input-" + schema),
@@ -68,13 +68,13 @@ public partial class VerifySchemaTests(
   [Fact]
   public void CanMerge_Schemas()
   {
-    var schemas = s_validObjects.Values
+    var schemas = s_schemaValidObjects.Values
       .SelectMany(input => new[] {
         ReplaceObject(input, "input", "In"),
         ReplaceObject(input, "output", "Out"),
       })
-      .Concat(s_validMerges.Values)
-      .Concat(s_validSchemas.Values)
+      .Concat(s_schemaValidMerges.Values)
+      .Concat(s_schemaValidSchemas.Values)
       .Select(input => Parse(input).Required())
       .ToArray();
 
@@ -86,13 +86,13 @@ public partial class VerifySchemaTests(
   [Fact]
   public async Task Merge_Schemas()
   {
-    var schemas = s_validObjects.Values
+    var schemas = s_schemaValidObjects.Values
       .SelectMany(input => new[] {
         ReplaceObject(input, "input", "In"),
         ReplaceObject(input, "output", "Out"),
       })
-      .Concat(s_validMerges.Values)
-      .Concat(s_validSchemas.Values)
+      .Concat(s_schemaValidMerges.Values)
+      .Concat(s_schemaValidSchemas.Values)
       .Select(input => Parse(input).Required())
       .ToArray();
 
@@ -102,10 +102,10 @@ public partial class VerifySchemaTests(
   }
 
   [Theory]
-  [MemberData(nameof(ValidMerges))]
+  [ClassData(typeof(SchemaValidMerges))]
   public async Task Merge_Valid(string schema)
   {
-    var input = s_validMerges[schema];
+    var input = s_schemaValidMerges[schema];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       await WhenAll(
         Verify_Merge(ReplaceObject(input, "input", "In"), "input-" + schema),
@@ -114,12 +114,6 @@ public partial class VerifySchemaTests(
       await Verify_Merge(input, schema);
     }
   }
-
-  public static IEnumerable<object[]> ValidSchemas => SchemaKeys(s_validSchemas);
-  public static IEnumerable<object[]> InvalidSchemas => SchemaKeys(s_invalidSchemas);
-  public static IEnumerable<object[]> ValidMerges => SchemaKeys(s_validMerges);
-  public static IEnumerable<object[]> ValidObjects => SchemaKeys(s_validObjects);
-  public static IEnumerable<object[]> InvalidObjects => SchemaKeys(s_invalidObjects);
 
   private static IEnumerable<object[]> SchemaKeys(Map<string> schemas)
     => schemas.Keys.Select(k => new object[] { k });

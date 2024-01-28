@@ -1,0 +1,22 @@
+﻿<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#+
+private static IDictionary<string,string> TestData(FileInfo file) {
+  var result = new Dictionary<string, string>();
+  var test = "";
+  var line = "";
+
+  using var tests = file.OpenText();
+
+  while ((line = tests.ReadLine()) != null) {
+    if (line.StartsWith("// ")) {
+      test = line.Substring(3);
+      result[test] = "";
+    } else {
+      result[test] = (result[test] + " " + line).Trim();
+    }
+  }
+
+  return result;
+}
+#>

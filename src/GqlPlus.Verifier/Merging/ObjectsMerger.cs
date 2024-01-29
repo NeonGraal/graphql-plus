@@ -13,7 +13,7 @@ public class ObjectsMerger<TObject, TField, TReference>(
   where TReference : AstReference<TReference>
 {
   protected override string ItemMatchKey(TObject item)
-    => item.Extends?.Name ?? "";
+    => item.Parent?.Name ?? "";
 
   public override bool CanMerge(IEnumerable<TObject> items)
   {

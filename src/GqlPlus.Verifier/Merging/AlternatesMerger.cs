@@ -15,7 +15,7 @@ public class AlternatesMerger<TAlternate, TReference>
   }
 
   protected override string ItemGroupKey(TAlternate item)
-    => item.Type.TypeName;
+    => item.Type.FullName;
 
   protected override string ItemMatchKey(TAlternate item)
     => item.Modifiers.AsString().Joined();

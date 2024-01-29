@@ -53,8 +53,8 @@ internal static class BuiltIn
   private static DualObjectAst DualObj(string label, TypeParameterAst[] typeParameters, params AlternateAst<DualReferenceAst>[] alternates)
     => new(AstNulls.At, label) { TypeParameters = typeParameters, Alternates = alternates };
 
-  private static DualObjectAst DualObj(string label, TypeParameterAst[] typeParameters, DualReferenceAst extends)
-    => new(AstNulls.At, label) { TypeParameters = typeParameters, Extends = extends };
+  private static DualObjectAst DualObj(string label, TypeParameterAst[] typeParameters, DualReferenceAst parent)
+    => new(AstNulls.At, label) { TypeParameters = typeParameters, Parent = parent };
 
   private static AlternateAst<DualReferenceAst> DualType(string type)
     => new(AstNulls.At, DualRef(type));

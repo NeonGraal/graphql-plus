@@ -3,25 +3,25 @@
 public class EnumAstTests : AstAliasedTests
 {
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithExtends(string name, string extends)
+  public void HashCode_WithExtends(string name, string parent)
       => _checks.HashCode(
-        () => new EnumDeclAst(AstNulls.At, name) { Extends = extends });
+        () => new EnumDeclAst(AstNulls.At, name) { Parent = parent });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithExtends(string name, string extends)
+  public void String_WithExtends(string name, string parent)
     => _checks.String(
-      () => new EnumDeclAst(AstNulls.At, name) { Extends = extends },
-      $"( !E {name} :{extends} )");
+      () => new EnumDeclAst(AstNulls.At, name) { Parent = parent },
+      $"( !E {name} :{parent} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithExtends(string name, string extends)
+  public void Equality_WithExtends(string name, string parent)
     => _checks.Equality(
-      () => new EnumDeclAst(AstNulls.At, name) { Extends = extends });
+      () => new EnumDeclAst(AstNulls.At, name) { Parent = parent });
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_BetweenExtends(string name, string extends1, string extends2)
     => _checks.InequalityBetween(extends1, extends2,
-      extends => new EnumDeclAst(AstNulls.At, name) { Extends = extends },
+      parent => new EnumDeclAst(AstNulls.At, name) { Parent = parent },
       extends1 == extends2);
 
   [Theory, RepeatData(Repeats)]

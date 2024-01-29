@@ -51,15 +51,15 @@ internal static class UsageHelpers
     return context;
   }
 
-  internal static TContext CheckType<TContext, TReference>(this TContext context, TReference type)
+  internal static TContext CheckType<TContext, TReference>(this TContext context, TReference type, bool check = true)
     where TContext : UsageContext
     where TReference : AstReference<TReference>
   {
-    if (context.GetType(type.TypeName, out AstDescribed? value)) {
+    if (context.GetType(type.FullName, out AstDescribed? value)) {
       var numArgs = type.Arguments.Length;
       if (value is IAstObject definition) {
-        if (type.Name != "Any" && definition.Label != type.Label) {
-          context.AddError(type, type.Label, $"Type kind mismatch for {type.TypeName}. Found {definition.Label}");
+        if (check && type.Name != "Any" && definition.Label != type.Label) {
+          context.AddError(type, type.Label, $"Type kind mismatch for {type.FullName}. Found {definition.Label}");
         }
 
         var numParams = definition.TypeParameters.Length;
@@ -67,8 +67,8 @@ internal static class UsageHelpers
           context.AddError(type, type.Label, $"Arguments mismatch, expected {numParams} given {numArgs}");
         }
       }
-    } else {
-      context.AddError(type, type.Label, $"'{type.TypeName}' not defined");
+    } else if (check) {
+      context.AddError(type, type.Label, $"'{type.FullName}' not defined");
     }
 
     foreach (var arg in type.Arguments) {

@@ -12,8 +12,8 @@ public class MergeEnumsTests
     => CanMerge_True([new EnumDeclAst(AstNulls.At, name), new EnumDeclAst(AstNulls.At, name)]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsDifferentExtends_ReturnsFalse(string name, string extends)
-    => CanMerge_False([new EnumDeclAst(AstNulls.At, name) { Extends = extends }, new EnumDeclAst(AstNulls.At, name)]);
+  public void CanMerge_TwoItemsDifferentExtends_ReturnsFalse(string name, string parent)
+    => CanMerge_False([new EnumDeclAst(AstNulls.At, name) { Parent = parent }, new EnumDeclAst(AstNulls.At, name)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsValuesCantMerge_ReturnsFalse(string name, string[] values)

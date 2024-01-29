@@ -7,11 +7,11 @@ namespace GqlPlus.Verifier.Modelling;
 public class EnumModelTests : ModelAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_Extends(string name, string extends)
+  public void Model_Extends(string name, string parent)
     => _checks.AstExpected(
-      new(AstNulls.At, name) { Extends = extends },
+      new(AstNulls.At, name) { Parent = parent },
       ["!_Enum",
-        .. extends.TypeRefFor(SimpleKindModel.Enum),
+        .. parent.TypeRefFor(SimpleKindModel.Enum),
         "kind: !_TypeKind Enum",
         "name: " + name]);
 
@@ -28,20 +28,20 @@ public class EnumModelTests : ModelAliasedTests<string>
         "name: " + name]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_All(string name, string contents, string[] aliases, string extends, string[] members)
+  public void Model_All(string name, string contents, string[] aliases, string parent, string[] members)
     => _checks
     .RenderReturn("Parameters")
     .AstExpected(
       new(AstNulls.At, name) {
         Aliases = aliases,
         Description = contents,
-        Extends = extends,
+        Parent = parent,
         Members = members.EnumMembers(),
       },
       ["!_Enum",
         $"aliases: [{string.Join(", ", aliases)}]",
         "description: " + _checks.YamlQuoted(contents),
-        .. extends.TypeRefFor(SimpleKindModel.Enum),
+        .. parent.TypeRefFor(SimpleKindModel.Enum),
         "kind: !_TypeKind Enum",
         "members:",
         .. members.SelectMany(m => ExpectedMember(m, name)),

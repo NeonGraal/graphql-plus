@@ -1,3 +1,3 @@
 ﻿[
-  Invalid Enum Base. Type kind mismatch for Extends. Found Output.
+  Invalid Enum Parent. 'Extends' invalid type. Found 'Output'.
 ]

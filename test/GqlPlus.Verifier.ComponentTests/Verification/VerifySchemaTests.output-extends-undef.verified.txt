@@ -1,3 +1,3 @@
 ﻿[
-  Invalid Output. 'Extends' not defined.
+  Invalid Output Parent. 'Extends' not defined.
 ]

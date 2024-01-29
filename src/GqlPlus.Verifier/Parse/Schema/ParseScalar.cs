@@ -20,27 +20,27 @@ internal class ParseScalar(
       ScalarKind.Boolean => new AstScalar<ScalarFalseAst>(partial.At, partial.Name, value.Kind, []) {
         Aliases = partial.Aliases,
         Description = partial.Description,
-        Extends = value.Extends
+        Parent = value.Parent
       },
       ScalarKind.Enum => new AstScalar<ScalarMemberAst>(partial.At, partial.Name, value.Kind, value.Members) {
         Aliases = partial.Aliases,
         Description = partial.Description,
-        Extends = value.Extends
+        Parent = value.Parent
       },
       ScalarKind.Number => new AstScalar<ScalarRangeAst>(partial.At, partial.Name, value.Kind, value.Numbers) {
         Aliases = partial.Aliases,
         Description = partial.Description,
-        Extends = value.Extends
+        Parent = value.Parent
       },
       ScalarKind.String => new AstScalar<ScalarRegexAst>(partial.At, partial.Name, value.Kind, value.Regexes) {
         Aliases = partial.Aliases,
         Description = partial.Description,
-        Extends = value.Extends
+        Parent = value.Parent
       },
       ScalarKind.Union => new AstScalar<ScalarReferenceAst>(partial.At, partial.Name, value.Kind, value.References) {
         Aliases = partial.Aliases,
         Description = partial.Description,
-        Extends = value.Extends
+        Parent = value.Parent
       },
       _ => partial,
     };
@@ -56,7 +56,7 @@ internal class ParseScalar(
 internal class ScalarDefinition
 {
   public ScalarKind Kind { get; set; } = ScalarKind.Number;
-  public string? Extends { get; set; }
+  public string? Parent { get; set; }
   public ScalarMemberAst[] Members { get; set; } = [];
   public ScalarRangeAst[] Numbers { get; set; } = [];
   public ScalarRegexAst[] Regexes { get; set; } = [];
@@ -88,8 +88,8 @@ internal class ParseScalarDefinition(
     }
 
     if (tokens.Take(':')) {
-      if (tokens.Identifier(out var extends)) {
-        result.Extends = extends;
+      if (tokens.Identifier(out var parent)) {
+        result.Parent = parent;
       } else {
         return tokens.Error(label, "type after ':'", result);
       }

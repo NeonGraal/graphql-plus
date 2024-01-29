@@ -16,7 +16,7 @@ internal class ParseEnum(
 {
   protected override EnumDeclAst MakeResult(EnumDeclAst result, EnumDefinition value)
   {
-    result.Extends = value.Extends;
+    result.Parent = value.Parent;
     result.Members = value.Values;
 
     return result;
@@ -32,7 +32,7 @@ internal class ParseEnum(
 
 internal class EnumDefinition
 {
-  internal string? Extends { get; set; }
+  internal string? Parent { get; set; }
   internal EnumMemberAst[] Values { get; set; } = [];
 }
 
@@ -48,8 +48,8 @@ internal class ParseEnumDefinition(
     EnumDefinition result = new();
 
     if (tokens.Take(':')) {
-      if (tokens.Identifier(out var extends)) {
-        result.Extends = extends;
+      if (tokens.Identifier(out var parent)) {
+        result.Parent = parent;
       } else {
         return tokens.Error(label, "type after ':'", result);
       }

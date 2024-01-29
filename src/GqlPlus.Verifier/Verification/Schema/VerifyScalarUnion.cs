@@ -7,8 +7,6 @@ internal class VerifyScalarUnion
 {
   protected override void VerifyScalar(AstScalar<ScalarReferenceAst> scalar, UsageContext context)
   {
-    base.VerifyScalar(scalar, context);
-
     foreach (var reference in scalar.Members) {
       if (reference.Name == scalar.Name) {
         context.AddError(scalar, "Scalar Reference", $"'{scalar.Name}' cannot refer to self");

@@ -1,10 +1,11 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
 internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>(
   IVerifyAliased<TObject> aliased
-) : AstTypeVerifier<TObject, TContext>(aliased)
+) : AstParentVerifier<TObject, TReference, TContext>(aliased)
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>
   where TReference : AstReference<TReference>
@@ -12,8 +13,10 @@ internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>
 {
   protected override void UsageValue(TObject usage, TContext context)
   {
-    if (usage.Extends is not null) {
-      context.CheckType(usage.Extends);
+    base.UsageValue(usage, context);
+
+    if (usage.Parent is not null) {
+      context.CheckType(usage.Parent, false);
     }
 
     foreach (var field in usage.Fields) {
@@ -40,4 +43,22 @@ internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>
     => context
       .CheckType(field.Type)
       .CheckModifiers(field);
+
+  protected override string GetParent(AstType<TReference> usage)
+    => usage.Parent?.FullName ?? "";
+
+  protected override bool GetParentType(TObject usage, string parent, TContext context, [NotNullWhen(true)] out AstType<TReference>? type)
+  {
+    if (parent.StartsWith("$", StringComparison.Ordinal)) {
+      var parameter = parent.Substring(1);
+      if (usage.TypeParameters.All(p => p.Name != parameter)) {
+        context.AddError(usage, usage.Label + " Parent", $"'{parent}' not defined");
+      }
+
+      type = null;
+      return false;
+    }
+
+    return base.GetParentType(usage, parent, context, out type);
+  }
 }

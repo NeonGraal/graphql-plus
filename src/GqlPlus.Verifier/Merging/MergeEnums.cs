@@ -7,7 +7,7 @@ internal class MergeEnums(
 ) : AliasedAllMerger<AstType, EnumDeclAst>, IMergeAll<AstType>
 {
   protected override string ItemMatchKey(EnumDeclAst item)
-    => item.Extends ?? "";
+    => item.Parent ?? "";
 
   public override bool CanMerge(IEnumerable<EnumDeclAst> items)
     => base.CanMerge(items)

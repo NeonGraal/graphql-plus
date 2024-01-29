@@ -13,14 +13,14 @@ public abstract class TestObjects<TObject, TField, TReference>
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsSameBaseType_ReturnsTrue(string name, string type)
     => CanMerge_True([
-      MakeObject(name) with { Extends = MakeReference(type) },
-      MakeObject(name) with { Extends = MakeReference(type) }]);
+      MakeObject(name) with { Parent = MakeReference(type) },
+      MakeObject(name) with { Parent = MakeReference(type) }]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsDifferentTypes_ReturnsFalse(string name, string type1, string type2)
     => CanMerge_False([
-      MakeObject(name) with { Extends = MakeReference(type1) },
-      MakeObject(name) with { Extends = MakeReference(type2) }],
+      MakeObject(name) with { Parent = MakeReference(type1) },
+      MakeObject(name) with { Parent = MakeReference(type2) }],
       type1 == type2);
 
   [Theory, RepeatData(Repeats)]

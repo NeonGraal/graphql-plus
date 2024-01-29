@@ -50,16 +50,16 @@ public abstract class BaseObjectTests
     => ObjectChecks.WithFieldsBad(name, fields);
 
   [Theory, RepeatData(Repeats)]
-  public void WithExtendsField_ReturnsCorrectAst(string name, string extends, string field, string fieldType)
-    => ObjectChecks.WithExtendsField(name, extends, field, fieldType);
+  public void WithExtendsField_ReturnsCorrectAst(string name, string parent, string field, string fieldType)
+    => ObjectChecks.WithExtendsField(name, parent, field, fieldType);
 
   [Theory, RepeatData(Repeats)]
-  public void WithExtendsFieldBad_ReturnsFalse(string name, string extends, string field, string fieldType)
-    => ObjectChecks.WithExtendsFieldBad(name, extends, field, fieldType);
+  public void WithExtendsFieldBad_ReturnsFalse(string name, string parent, string field, string fieldType)
+    => ObjectChecks.WithExtendsFieldBad(name, parent, field, fieldType);
 
   [Theory, RepeatData(Repeats)]
-  public void WithExtendsGenericFieldBad_ReturnsFalse(string name, string extends, string subType, string field, string fieldType)
-    => ObjectChecks.WithExtendsGenericFieldBad(name, extends, subType, field, fieldType);
+  public void WithExtendsGenericFieldBad_ReturnsFalse(string name, string parent, string subType, string field, string fieldType)
+    => ObjectChecks.WithExtendsGenericFieldBad(name, parent, subType, field, fieldType);
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldsAndAlternates_ReturnsCorrectAst(string name, FieldInput[] fields, string[] others)
@@ -161,27 +161,27 @@ internal sealed class BaseObjectChecks<O, F, R>
   public void WithFieldsBad(string name, FieldInput[] fields)
     => False(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined());
 
-  public void WithExtendsField(string name, string extends, string field, string fieldType)
+  public void WithExtendsField(string name, string parent, string field, string fieldType)
     => TrueExpected(
-      name + "{:" + extends + " " + field + ":" + fieldType + "}",
+      name + "{:" + parent + " " + field + ":" + fieldType + "}",
        Object(name) with {
          Fields = [Field(field, fieldType)],
-         Extends = Reference(extends),
+         Parent = Reference(parent),
        });
 
-  public void WithExtendsFieldBad(string name, string extends, string field, string fieldType)
-    => False(name + "{:" + extends + " " + field + ":" + fieldType);
+  public void WithExtendsFieldBad(string name, string parent, string field, string fieldType)
+    => False(name + "{:" + parent + " " + field + ":" + fieldType);
 
-  public void WithExtendsGenericField(string name, string extends, string subType, string field, string fieldType)
+  public void WithExtendsGenericField(string name, string parent, string subType, string field, string fieldType)
     => TrueExpected(
-      name + "{:" + extends + "<" + subType + ">" + field + ":" + fieldType + "}",
+      name + "{:" + parent + "<" + subType + ">" + field + ":" + fieldType + "}",
        Object(name) with {
          Fields = [Field(field, fieldType)],
-         Extends = ReferenceWithArgs(extends, subType),
+         Parent = ReferenceWithArgs(parent, subType),
        });
 
-  public void WithExtendsGenericFieldBad(string name, string extends, string subType, string field, string fieldType)
-    => False(name + "{:" + extends + "<" + subType + " " + field + ":" + fieldType + "}");
+  public void WithExtendsGenericFieldBad(string name, string parent, string subType, string field, string fieldType)
+    => False(name + "{:" + parent + "<" + subType + " " + field + ":" + fieldType + "}");
 
   public O Object(string name)
     => _factories.Object(AstNulls.At, name);
@@ -220,10 +220,10 @@ internal interface IBaseObjectChecks
   void WithTypeParameterBad(string name, string other);
   void WithTypeParametersBad(string name, string other, string[] typeParameters);
   void WithTypeParametersNone(string name, string other);
-  void WithExtendsField(string name, string extends, string field, string fieldType);
-  void WithExtendsFieldBad(string name, string extends, string field, string fieldType);
-  void WithExtendsGenericField(string name, string extends, string subType, string field, string fieldType);
-  void WithExtendsGenericFieldBad(string name, string extends, string subType, string field, string fieldType);
+  void WithExtendsField(string name, string parent, string field, string fieldType);
+  void WithExtendsFieldBad(string name, string parent, string field, string fieldType);
+  void WithExtendsGenericField(string name, string parent, string subType, string field, string fieldType);
+  void WithExtendsGenericFieldBad(string name, string parent, string subType, string field, string fieldType);
   void WithAlternates(string name, string[] others);
   void WithAlternateComments(string name, AlternateComment[] others);
   void WithAlternateModifiers(string name, string[] others);

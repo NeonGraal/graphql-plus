@@ -11,11 +11,13 @@ public abstract record class AstReference<TReference>(TokenAt At, string Name, s
 
   public abstract string Label { get; }
 
-  public string TypeName => IsTypeParameter ? Name.Prefixed("$") : Name;
+  public string FullName => IsTypeParameter ? Name.Prefixed("$") : Name;
+
+  public string TypeName => IsTypeParameter ? "" : Name;
 
   public string FullType => Arguments
     .Bracket("<", ">")
-    .Prepend(TypeName)
+    .Prepend(FullName)
     .Joined();
 
   public virtual bool Equals(TReference? other)
@@ -28,6 +30,6 @@ public abstract record class AstReference<TReference>(TokenAt At, string Name, s
   internal override IEnumerable<string?> GetFields()
     => new[] {
       At.ToString(),
-      TypeName
+      FullName
     }.Concat(Arguments.Bracket("<", ">"));
 }

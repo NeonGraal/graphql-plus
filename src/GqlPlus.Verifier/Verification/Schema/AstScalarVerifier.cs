@@ -15,21 +15,7 @@ internal class AstScalarVerifier<TMember>
   }
 
   protected virtual void VerifyScalar(AstScalar<TMember> scalar, UsageContext context)
-  {
-    if (!string.IsNullOrWhiteSpace(scalar.Extends)) {
-      if (context.GetType(scalar.Extends, out var extends)) {
-        if (extends is AstScalar extendsScalar) {
-          if (extendsScalar.Kind != scalar.Kind) {
-            context.AddError(scalar, "Scalar", $" Extends '{scalar.Extends}' invalid kind");
-          }
-        } else {
-          context.AddError(scalar, "Scalar", $" Extends '{scalar.Extends}' invalid type");
-        }
-      } else {
-        context.AddError(scalar, "Scalar", $" Extends '{scalar.Extends}' not defined");
-      }
-    }
-  }
+  { }
 }
 
 public interface IVerifyContext<TUsage>

@@ -7,11 +7,11 @@ namespace GqlPlus.Verifier.Modelling;
 public class ScalarNumberModelTests : ModelAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_Extends(string name, string extends)
+  public void Model_Extends(string name, string parent)
     => _checks.AstExpected(
-      new(AstNulls.At, name, ScalarKind.Number, []) { Extends = extends },
+      new(AstNulls.At, name, ScalarKind.Number, []) { Parent = parent },
       ["!_ScalarNumber",
-        .. extends.TypeRefFor(SimpleKindModel.Scalar),
+        .. parent.TypeRefFor(SimpleKindModel.Scalar),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind Number"]);
@@ -30,19 +30,19 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
         "scalar: !_ScalarKind Number"]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_All(string name, string contents, string[] aliases, string extends)
+  public void Model_All(string name, string contents, string[] aliases, string parent)
     => _checks
     .RenderReturn("Parameters")
     .AstExpected(
       new(AstNulls.At, name, ScalarKind.Number, [] /* members.ScalarMembers() */) {
         Aliases = aliases,
         Description = contents,
-        Extends = extends,
+        Parent = parent,
       },
       ["!_ScalarNumber",
         $"aliases: [{string.Join(", ", aliases)}]",
         "description: " + _checks.YamlQuoted(contents),
-        .. extends.TypeRefFor(SimpleKindModel.Scalar),
+        .. parent.TypeRefFor(SimpleKindModel.Scalar),
         "kind: !_TypeKind Scalar",
         //"members:",
         //.. members.SelectMany(m => ExpectedMember(m, name)),

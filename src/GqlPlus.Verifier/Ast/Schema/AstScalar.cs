@@ -22,14 +22,13 @@ public record class AstScalar<TMember>(
   public virtual bool Equals(AstScalar<TMember>? other)
     => base.Equals(other)
       && Kind == other.Kind
-      && Extends.NullEqual(other.Extends)
       && Members.SequenceEqual(other.Members);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Kind, Extends, Members.Length);
+    => HashCode.Combine(base.GetHashCode(), Kind, Members.Length);
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(Kind.ToString())
-      .Append(Extends.Prefixed(":"))
+      .Append(Parent.Prefixed(":"))
       .Concat(Members.Bracket());
 }
 
@@ -38,9 +37,8 @@ public abstract record class AstScalar(
   string Name,
   string Description,
   ScalarKind Kind
-) : AstType(At, Name, Description)
+) : AstType<string>(At, Name, Description)
 {
-  public string? Extends { get; set; }
 }
 
 public enum ScalarKind

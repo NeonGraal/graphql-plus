@@ -6,10 +6,10 @@ public sealed class ParseEnumTests
   : BaseAliasedTests<EnumInput>
 {
   [Theory, RepeatData(Repeats)]
-  public void WithExtends_ReturnsCorrectAst(EnumInput input, string extends)
-    => _checks.TrueExpected(input.Type + "{:" + extends + " " + input.Member + "}",
+  public void WithExtends_ReturnsCorrectAst(EnumInput input, string parent)
+    => _checks.TrueExpected(input.Type + "{:" + parent + " " + input.Member + "}",
       _checks.AliasedFactory(input) with {
-        Extends = extends,
+        Parent = parent,
       });
 
   [Theory, RepeatData(Repeats)]

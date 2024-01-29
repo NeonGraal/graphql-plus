@@ -25,25 +25,25 @@ public class InputAstTests : AstAliasedTests
       alternate1 == alternate2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithExtends(string name, string extends)
+  public void HashCode_WithExtends(string name, string parent)
       => _checks.HashCode(
-        () => new InputDeclAst(AstNulls.At, name) { Extends = new(AstNulls.At, extends) });
+        () => new InputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithExtends(string name, string extends)
+  public void String_WithExtends(string name, string parent)
     => _checks.String(
-      () => new InputDeclAst(AstNulls.At, name) { Extends = new(AstNulls.At, extends) },
-      $"( !I {name} : {extends} )");
+      () => new InputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
+      $"( !I {name} : {parent} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithExtends(string name, string extends)
+  public void Equality_WithExtends(string name, string parent)
     => _checks.Equality(
-      () => new InputDeclAst(AstNulls.At, name) { Extends = new(AstNulls.At, extends) });
+      () => new InputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) });
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_BetweenExtends(string name, string extends1, string extends2)
     => _checks.InequalityBetween(extends1, extends2,
-      extends => new InputDeclAst(AstNulls.At, name) { Extends = new(AstNulls.At, extends) },
+      parent => new InputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
       extends1 == extends2);
 
   [Theory, RepeatData(Repeats)]

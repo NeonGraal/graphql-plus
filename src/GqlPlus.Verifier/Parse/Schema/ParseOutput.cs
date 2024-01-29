@@ -16,7 +16,7 @@ internal class ParseOutput(
 {
   protected override OutputDeclAst MakeResult(OutputDeclAst result, ObjectDefinition<OutputFieldAst, OutputReferenceAst> value)
   {
-    result.Extends = value.Extends;
+    result.Parent = value.Parent;
     result.Fields = value.Fields;
     result.Alternates = value.Alternates;
 

@@ -6,11 +6,11 @@ namespace GqlPlus.Verifier.Modelling;
 internal abstract record class ModelBaseScalar(ScalarKindModel Scalar, string Name)
   : ModelBaseType(TypeKindModel.Scalar, Name)
 {
-  public TypeRefModel<SimpleKindModel>? Extends { get; set; }
+  public TypeRefModel<SimpleKindModel>? Parent { get; set; }
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("extends", Extends?.Render())
+      .Add("parent", Parent?.Render())
       .Add("scalar", Scalar.RenderEnum());
 }
 
@@ -55,7 +55,7 @@ internal class ScalarNumberModeller
     => new ScalarNumberModel(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
-      Extends = ast.Extends.TypeRef(SimpleKindModel.Scalar),
+      Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
     };
 }
 
@@ -66,7 +66,7 @@ internal class ScalarStringModeller
     => new ScalarStringModel(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
-      Extends = ast.Extends.TypeRef(SimpleKindModel.Scalar),
+      Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
     };
 }
 

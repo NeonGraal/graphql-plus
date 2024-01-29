@@ -13,7 +13,7 @@ internal class VerifyDirectiveInput(
   protected override void UsageValue(DirectiveDeclAst usage, UsageContext context)
   {
     foreach (var parameter in usage.Parameters) {
-      if (!context.GetType(parameter.Type.TypeName, out var _)) {
+      if (!context.GetType(parameter.Type.FullName, out var _)) {
         context.AddError(parameter, "Directive Parameter", $"'{parameter.Type}' not defined");
       }
     }

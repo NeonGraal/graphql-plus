@@ -16,7 +16,7 @@ internal class ParseInput(
 {
   protected override InputDeclAst MakeResult(InputDeclAst result, ObjectDefinition<InputFieldAst, InputReferenceAst> value)
   {
-    result.Extends = value.Extends;
+    result.Parent = value.Parent;
     result.Fields = value.Fields;
     result.Alternates = value.Alternates;
 

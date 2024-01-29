@@ -38,11 +38,11 @@ internal record class OutputContext(
           return true;
         }
 
-        if (string.IsNullOrWhiteSpace(enumDecl.Extends)) {
+        if (string.IsNullOrWhiteSpace(enumDecl.Parent)) {
           break;
         }
 
-        enumType = enumDecl.Extends;
+        enumType = enumDecl.Parent;
       } else {
         AddError(output, "Output Argument Enum", $"'{enumType}' is not an Enum type");
         break;

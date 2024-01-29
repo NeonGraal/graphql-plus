@@ -24,7 +24,7 @@ internal abstract class ObjectParser<TObject, TField, TReference>
 public class ObjectDefinition<F, R>
   where F : AstField<R> where R : AstReference<R>
 {
-  public R? Extends { get; set; }
+  public R? Parent { get; set; }
   public F[] Fields { get; set; } = [];
   public AlternateAst<R>[] Alternates { get; set; } = [];
 }
@@ -58,7 +58,7 @@ public abstract class ParseObjectDefinition<F, R> : Parser<ObjectDefinition<F, R
         return baseReference.AsResult(result);
       }
 
-      baseReference.WithResult(reference => result.Extends = reference);
+      baseReference.WithResult(reference => result.Parent = reference);
     }
 
     var fields = new List<F>();

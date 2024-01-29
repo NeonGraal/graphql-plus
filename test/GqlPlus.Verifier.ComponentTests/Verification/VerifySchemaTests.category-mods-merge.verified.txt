@@ -3,16 +3,17 @@
 Success
 {
   !C P@10/1
-  catAlias
+  catMods
   [
-    CatA1
-    CatA2
+    CatM1
+    CatM2
   ]
   (Parallel)
-  CatAlias
+  CatMods
+  ?
 }
 {
   !O I@68/1
-  CatAlias
+  CatMods
 }
 ]

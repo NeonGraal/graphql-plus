@@ -5,8 +5,8 @@ Success
   !D I@12/1
   DirAlias
   [
-    Dir1
-    Dir2
+    DirA1
+    DirA2
   ]
   (Unique)
   Variable, Field

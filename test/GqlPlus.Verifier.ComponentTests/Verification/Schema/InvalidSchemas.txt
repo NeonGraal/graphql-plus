@@ -8,23 +8,32 @@ output Test { }
 category { Test }
 
 // category-duplicate
-category { Test } category test { Output }
+category { Test }
+category test { Output }
 output Test { }
 output Output { }
 
 // category-dup-alias
-category [a] { Test } category [a] { Output }
+category [a] { Test }
+category [a] { Output }
 output Test { }
 output Output { }
 
+// category-diff-mods
+category { Test }
+category { Test? }
+output Test { }
+
 // directive-diff-option
-directive @Test { all } directive @Test { ( repeatable ) all }
+directive @Test { all }
+directive @Test { ( repeatable ) all }
 
 // directive-no-param
 directive @Test(Test) { all }
 
 // directive-diff-parameter
-directive @Test(Test) { all } directive @Test(Test?) { all }
+directive @Test(Test) { all }
+directive @Test(Test?) { all }
 input Test { }
 
 // enum-extends-diff
@@ -45,6 +54,22 @@ scalar Test { Boolean : Extends }
 // scalar-extends-wrong-type
 scalar Test { Boolean : Extends }
 output Extends { }
+
+// scalar-extends-wrong-kind
+scalar Test { Boolean : Extends }
+scalar Extends { String }
+
+// scalar-extends-self
+scalar Test { Boolean : Test }
+
+// scalar-extends-self-parent
+scalar Test { Boolean : Extends }
+scalar Extends { Boolean : Test }
+
+// scalar-extends-self-recurse
+scalar Test { Boolean : Extends }
+scalar Extends { Boolean : Recurse }
+scalar Recurse { Boolean : Test}
 
 // scalar-extends-wrong-kind
 scalar Test { Boolean : Extends }

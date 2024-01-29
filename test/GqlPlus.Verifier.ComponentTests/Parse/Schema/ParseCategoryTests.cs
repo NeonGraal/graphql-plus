@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public sealed class ParseCategoryTests(Parser<CategoryDeclAst>.D parser)
-  : BaseAliasedTests<string>
+public sealed class ParseCategoryTests(
+  Parser<CategoryDeclAst>.D parser
+) : BaseAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void WithOption_ReturnsCorrectAst(string output, CategoryOption option)
@@ -28,12 +29,19 @@ public sealed class ParseCategoryTests(Parser<CategoryDeclAst>.D parser)
       new CategoryDeclAst(AstNulls.At, name, output));
 
   [Theory, RepeatData(Repeats)]
+  public void WithModifers_ReturnsCorrectAst(string output)
+    => _checks.Ok(
+    "{" + output + "[]?}",
+      new CategoryDeclAst(AstNulls.At, output) { Modifiers = TestMods() });
+
+  [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string name, string output, CategoryOption option, string[] aliases)
     => _checks.Ok(
-      name + aliases.Bracket("[", "]{(").Joined() + option.ToString().ToLowerInvariant() + ")" + output + "}",
+      name + aliases.Bracket("[", "]{(").Joined() + option.ToString().ToLowerInvariant() + ")" + output + "[]?}",
       new CategoryDeclAst(AstNulls.At, name, output) {
-        Option = option,
         Aliases = aliases,
+        Option = option,
+        Modifiers = TestMods()
       });
 
   internal override IBaseAliasedChecks<string> AliasChecks => _checks;
@@ -41,12 +49,10 @@ public sealed class ParseCategoryTests(Parser<CategoryDeclAst>.D parser)
   private readonly ParseCategoryChecks _checks = new(parser);
 }
 
-internal sealed class ParseCategoryChecks
-  : BaseAliasedChecks<string, CategoryDeclAst>
+internal sealed class ParseCategoryChecks(
+  Parser<CategoryDeclAst>.D parser
+) : BaseAliasedChecks<string, CategoryDeclAst>(parser)
 {
-  public ParseCategoryChecks(Parser<CategoryDeclAst>.D parser)
-    : base(parser) { }
-
   protected internal override CategoryDeclAst AliasedFactory(string input)
     => new(AstNulls.At, input);
   protected internal override string AliasesString(string input, string aliases)

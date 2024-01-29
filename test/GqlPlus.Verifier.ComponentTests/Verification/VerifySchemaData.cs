@@ -78,6 +78,7 @@ public partial class VerifySchemaTests
     ["category-no-output"] = "category { Test }",
     ["category-duplicate"] = "category { Test } category test { Output } output Test { } output Output { }",
     ["category-dup-alias"] = "category [a] { Test } category [a] { Output } output Test { } output Output { }",
+    ["category-diff-mods"] = "category { Test } category { Test? } output Test { }",
     ["directive-diff-option"] = "directive @Test { all } directive @Test { ( repeatable ) all }",
     ["directive-no-param"] = "directive @Test(Test) { all }",
     ["directive-diff-parameter"] = "directive @Test(Test) { all } directive @Test(Test?) { all } input Test { }",
@@ -87,6 +88,9 @@ public partial class VerifySchemaTests
     ["scalar-extends-undef"] = "scalar Test { Boolean : Extends }",
     ["scalar-extends-wrong-type"] = "scalar Test { Boolean : Extends } output Extends { }",
     ["scalar-extends-wrong-kind"] = "scalar Test { Boolean : Extends } scalar Extends { String }",
+    ["scalar-extends-self"] = "scalar Test { Boolean : Test }",
+    ["scalar-extends-self-parent"] = "scalar Test { Boolean : Extends } scalar Extends { Boolean : Test }",
+    ["scalar-extends-self-recurse"] = "scalar Test { Boolean : Extends } scalar Extends { Boolean : Recurse } scalar Recurse { Boolean : Test}",
     ["scalar-diff-kind"] = "scalar Test { string } scalar Test { number }",
     ["scalar-string-diff"] = "scalar Test { string /a+/} scalar Test { string !/a+/ }",
     ["scalar-union-recurse"] = "scalar Test { union | Bad } scalar Bad { union | Test }",
@@ -105,6 +109,7 @@ public partial class VerifySchemaTests
       Add("category-no-output");
       Add("category-duplicate");
       Add("category-dup-alias");
+      Add("category-diff-mods");
       Add("directive-diff-option");
       Add("directive-no-param");
       Add("directive-diff-parameter");
@@ -114,6 +119,9 @@ public partial class VerifySchemaTests
       Add("scalar-extends-undef");
       Add("scalar-extends-wrong-type");
       Add("scalar-extends-wrong-kind");
+      Add("scalar-extends-self");
+      Add("scalar-extends-self-parent");
+      Add("scalar-extends-self-recurse");
       Add("scalar-diff-kind");
       Add("scalar-string-diff");
       Add("scalar-union-recurse");
@@ -124,10 +132,11 @@ public partial class VerifySchemaTests
     }
   }
   private static readonly Dictionary<string, string> s_schemaValidMerges = new() {
-    ["category"] = "category { Category } output Category { }",
-    ["category-alias"] = "category [Cat1] { CatAlias } category [Cat2] { CatAlias } output CatAlias { }",
+    ["category"] = "category { Category } category category { Category } output Category { }",
+    ["category-alias"] = "category [CatA1] { CatAlias } category [CatA2] { CatAlias } output CatAlias { }",
+    ["category-mods"] = "category [CatM1] { CatMods? } category [CatM2] { CatMods? } output CatMods { }",
     ["directive"] = "directive @Dir { inline } directive @Dir { spread }",
-    ["directive-alias"] = "directive @DirAlias [Dir1] { variable } directive @DirAlias [Dir2] { field }",
+    ["directive-alias"] = "directive @DirAlias [DirA1] { variable } directive @DirAlias [DirA2] { field }",
     ["directive-params"] = "directive @DirParams(DirParamsIn) { operation } directive @DirParams { fragment } input DirParamsIn { }",
     ["option"] = "option Option { } option Option { }",
     ["option-alias"] = "option OptAlias [Opt1] { } option OptAlias [Opt2] { }",
@@ -163,6 +172,7 @@ public partial class VerifySchemaTests
     {
       Add("category");
       Add("category-alias");
+      Add("category-mods");
       Add("directive");
       Add("directive-alias");
       Add("directive-params");

@@ -21,6 +21,7 @@ internal class ParseCategory(
     }
 
     result.Output = value.Output;
+    result.Modifiers = value.Modifiers;
     return result;
   }
 
@@ -34,7 +35,10 @@ internal class ParseCategory(
     => new(at, name ?? "", description, "");
 }
 
-internal record CategoryOutput(string Output);
+internal record CategoryOutput(string Output)
+{
+  public ModifierAst[] Modifiers { get; set; } = [];
+}
 
 internal class CategoryName : ICategoryName
 {
@@ -48,8 +52,12 @@ internal class CategoryName : ICategoryName
 
 internal interface ICategoryName : INameParser { }
 
-internal class ParseCategoryDefinition : Parser<CategoryOutput>.I
+internal class ParseCategoryDefinition(
+  Parser<ModifierAst>.DA modifiers
+) : Parser<CategoryOutput>.I
 {
+  private readonly Parser<ModifierAst>.LA _modifiers = modifiers;
+
   public IResult<CategoryOutput> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
@@ -58,6 +66,12 @@ internal class ParseCategoryDefinition : Parser<CategoryOutput>.I
     }
 
     var result = new CategoryOutput(output);
+    var modifiers = _modifiers.Parse(tokens, "Parameter");
+    if (modifiers.IsError()) {
+      return modifiers.AsResult(result);
+    }
+
+    modifiers.Optional(value => result.Modifiers = value);
     return tokens.End(label, () => result);
   }
 }

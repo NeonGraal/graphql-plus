@@ -1,29 +1,42 @@
 ﻿// category
 category { Category }
+category category { Category }
 output Category { }
 
 // category-alias
-category [Cat1] { CatAlias } category [Cat2] { CatAlias }
+category [CatA1] { CatAlias }
+category [CatA2] { CatAlias }
 output CatAlias { }
 
+// category-mods
+category [CatM1] { CatMods? }
+category [CatM2] { CatMods? }
+output CatMods { }
+
 // directive
-directive @Dir { inline } directive @Dir { spread }
+directive @Dir { inline }
+directive @Dir { spread }
 
 // directive-alias
-directive @DirAlias [Dir1] { variable } directive @DirAlias [Dir2] { field }
+directive @DirAlias [DirA1] { variable }
+directive @DirAlias [DirA2] { field }
 
 // directive-params
-directive @DirParams(DirParamsIn) { operation } directive @DirParams { fragment }
+directive @DirParams(DirParamsIn) { operation }
+directive @DirParams { fragment }
 input DirParamsIn { }
 
 // option
-option Option { } option Option { }
+option Option { }
+option Option { }
 
 // option-alias
-option OptAlias [Opt1] { } option OptAlias [Opt2] { }
+option OptAlias [Opt1] { }
+option OptAlias [Opt2] { }
 
 // option-setting
-option OptSetting { setting=true } option OptSetting { setting=[0] }
+option OptSetting { setting=true }
+option OptSetting { setting=[0] }
 
 // enum-alias
 enum EnAlias [En1] { alias }

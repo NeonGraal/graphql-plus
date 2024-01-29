@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -10,5 +11,5 @@ internal class MergeCategories
       && items.CanMerge(item => item.Option);
 
   protected override string ItemMatchKey(CategoryDeclAst item)
-    => $"{item.Output}-{item.Option}";
+    => $"{item.Output}{item.Modifiers.AsString()}-{item.Option}";
 }

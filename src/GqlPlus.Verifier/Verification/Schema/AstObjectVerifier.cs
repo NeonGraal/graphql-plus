@@ -50,7 +50,7 @@ internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>
   protected override bool GetParentType(TObject usage, string parent, TContext context, [NotNullWhen(true)] out AstType<TReference>? type)
   {
     if (parent.StartsWith("$", StringComparison.Ordinal)) {
-      var parameter = parent.Substring(1);
+      var parameter = parent[1..];
       if (usage.TypeParameters.All(p => p.Name != parameter)) {
         context.AddError(usage, usage.Label + " Parent", $"'{parent}' not defined");
       }

@@ -8,10 +8,13 @@
 
 namespace GqlPlus.Verifier;
 
-public partial class SampleTests {
+public partial class SampleTests
+{
 <#  foreach (var dir in sampleDir.EnumerateDirectories()) { #>
-  public class Sample<#= dir.Name #>Data : TheoryData<string> {
-    public Sample<#= dir.Name #>Data() {
+  public class Sample<#= dir.Name #>Data : TheoryData<string>
+  {
+    public Sample<#= dir.Name #>Data()
+    {
 <#    foreach (var file in dir.EnumerateFiles()) { #>
       Add("<#= Path.ChangeExtension(file.Name, null) #>");
 <#    } #>

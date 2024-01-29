@@ -1,5 +1,4 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
@@ -16,7 +15,6 @@ public interface IAstType
 {
   string Name { get; }
   string Label { get; }
-
 }
 
 public abstract record class AstType<TParent>(

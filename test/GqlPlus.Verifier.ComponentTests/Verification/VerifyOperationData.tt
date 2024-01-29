@@ -8,7 +8,8 @@
 
 namespace GqlPlus.Verifier.Verification;
 
-public partial class VerifyOperationTests {
+public partial class VerifyOperationTests
+{
 <#  foreach (var file in sampleDir.EnumerateFiles()) {
       var fileName = Path.ChangeExtension(file.Name, null);
       var testData = TestData(file);
@@ -16,15 +17,18 @@ public partial class VerifyOperationTests {
   private static Dictionary<string, string> s_operation<#= fileName #> = new() {
 <#    foreach (var test in testData.Keys) {
 #>
-        ["<#= test #>"] = "<#= testData[test] #>",
+    ["<#= test #>"] = "<#= testData[test] #>",
 <#    } // foreach test
 #>
-    };
-  public class Operation<#= fileName #> : TheoryData<string> {
-    public Operation<#= fileName #>() {
+  };
+
+  public class Operation<#= fileName #> : TheoryData<string>
+  {
+    public Operation<#= fileName #>()
+    {
 <#    foreach (var test in testData.Keys) {
 #>
-        Add("<#= test #>");
+      Add("<#= test #>");
 <#    } // foreach test
 #>
     }

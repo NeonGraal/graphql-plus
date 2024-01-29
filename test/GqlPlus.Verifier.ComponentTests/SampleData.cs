@@ -2,9 +2,12 @@
 
 namespace GqlPlus.Verifier;
 
-public partial class SampleTests {
-  public class SampleGraphQlData : TheoryData<string> {
-    public SampleGraphQlData() {
+public partial class SampleTests
+{
+  public class SampleGraphQlData : TheoryData<string>
+  {
+    public SampleGraphQlData()
+    {
       Add("Example_003");
       Add("Example_005");
       Add("Example_006");
@@ -32,13 +35,17 @@ public partial class SampleTests {
       Add("Example_032");
     }
   }
-  public class SampleOperationData : TheoryData<string> {
-    public SampleOperationData() {
+  public class SampleOperationData : TheoryData<string>
+  {
+    public SampleOperationData()
+    {
       Add("error");
     }
   }
-  public class SampleSchemaData : TheoryData<string> {
-    public SampleSchemaData() {
+  public class SampleSchemaData : TheoryData<string>
+  {
+    public SampleSchemaData()
+    {
       Add("all");
       Add("default");
       Add("errors");

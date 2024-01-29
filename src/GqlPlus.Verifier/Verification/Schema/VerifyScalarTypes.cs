@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;

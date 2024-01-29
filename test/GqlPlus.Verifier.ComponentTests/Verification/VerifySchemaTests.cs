@@ -133,9 +133,6 @@ public partial class VerifySchemaTests(
 
   private void Verify_Valid(string input)
   {
-    var fileName = "VerifySchemaData.yml";
-    var relative = Path.GetRelativePath(Environment.CurrentDirectory, fileName);
-
     var parse = Parse(input);
 
     if (parse is IResultError<SchemaAst> error) {

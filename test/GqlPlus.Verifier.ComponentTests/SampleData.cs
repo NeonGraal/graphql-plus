@@ -40,6 +40,7 @@ public partial class SampleTests
     public SampleOperationData()
     {
       Add("error");
+      Add("simple");
     }
   }
   public class SampleSchemaData : TheoryData<string>

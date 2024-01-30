@@ -1,1 +1,3 @@
-﻿[]
+﻿[
+  Multiple Categories with alias 'a' found. Names 'test' 'output'
+]

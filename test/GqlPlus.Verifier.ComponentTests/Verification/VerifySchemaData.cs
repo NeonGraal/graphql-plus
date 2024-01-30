@@ -6,6 +6,7 @@ namespace GqlPlus.Verifier.Verification;
 public partial class VerifySchemaTests
 {
   private static readonly Dictionary<string, string> s_schemaInvalidObjects = new() {
+    ["unique-alias"] = "object Test [a] { } object Dup [a] { }",
     ["alts-mods-undef"] = "object Test { | Test[Scalar] }",
     ["alts-mods-wrong"] = "object Test { | Test[Test] }",
     ["alts-diff-mods"] = "object Test { | Test1 } object Test { | Test1[] } object Test1 { }",
@@ -41,6 +42,7 @@ public partial class VerifySchemaTests
   {
     public SchemaInvalidObjects()
     {
+      Add("unique-alias");
       Add("alts-mods-undef");
       Add("alts-mods-wrong");
       Add("alts-diff-mods");
@@ -75,6 +77,7 @@ public partial class VerifySchemaTests
   private static readonly Dictionary<string, string> s_schemaInvalidSchemas = new() {
     ["bad-parse"] = "",
     ["unique-types"] = "enum Test { Value } output Test { }",
+    ["unique-type-alias"] = "enum Test [a] { Value } output Dup [a] { }",
     ["category-no-output"] = "category { Test }",
     ["category-duplicate"] = "category { Test } category test { Output } output Test { } output Output { }",
     ["category-dup-alias"] = "category [a] { Test } category [a] { Output } output Test { } output Output { }",
@@ -82,9 +85,11 @@ public partial class VerifySchemaTests
     ["directive-diff-option"] = "directive @Test { all } directive @Test { ( repeatable ) all }",
     ["directive-no-param"] = "directive @Test(Test) { all }",
     ["directive-diff-parameter"] = "directive @Test(Test) { all } directive @Test(Test?) { all } input Test { }",
+    ["enum-dup-alias"] = "enum Test [a] { test } enum Dup [a] { dup }",
     ["enum-extends-diff"] = "enum Test { : Extends test } enum Test { test } enum Extends { extends }",
     ["enum-extends-undef"] = "enum Test { : Extends test }",
     ["enum-extends-wrong"] = "enum Test { : Extends test } output Extends { }",
+    ["scalar-dup-alias"] = "scalar Test [a] { Boolean } scalar Dup [a] { Boolean }",
     ["scalar-extends-undef"] = "scalar Test { Boolean : Extends }",
     ["scalar-extends-wrong-type"] = "scalar Test { Boolean : Extends } output Extends { }",
     ["scalar-extends-wrong-kind"] = "scalar Test { Boolean : Extends } scalar Extends { String }",
@@ -106,6 +111,7 @@ public partial class VerifySchemaTests
     {
       Add("bad-parse");
       Add("unique-types");
+      Add("unique-type-alias");
       Add("category-no-output");
       Add("category-duplicate");
       Add("category-dup-alias");
@@ -113,9 +119,11 @@ public partial class VerifySchemaTests
       Add("directive-diff-option");
       Add("directive-no-param");
       Add("directive-diff-parameter");
+      Add("enum-dup-alias");
       Add("enum-extends-diff");
       Add("enum-extends-undef");
       Add("enum-extends-wrong");
+      Add("scalar-dup-alias");
       Add("scalar-extends-undef");
       Add("scalar-extends-wrong-type");
       Add("scalar-extends-wrong-kind");

@@ -33,6 +33,15 @@ public sealed class ParseEnumTests
   public void WithEnumMembersNone_ReturnsFalse(string name)
     => _checks.False(name + "{}");
 
+  [Theory, RepeatData(Repeats)]
+  public void WithAll_ReturnsCorrectAst(string name, string parent, string[] members)
+    => _checks.TrueExpected(
+      name + members.Prepend(parent.Prefixed(":")).Bracket("{", "}").Joined(),
+      new EnumDeclAst(AstNulls.At, name) {
+        Parent = parent,
+        Members = members.EnumMembers(),
+      });
+
   internal override IBaseAliasedChecks<EnumInput> AliasChecks => _checks;
 
   private readonly ParseEnumChecks _checks;

@@ -1,4 +1,8 @@
-﻿// alts-mods-undef
+﻿// unique-alias
+object Test [a] { }
+object Dup [a] { }
+
+// alts-mods-undef
 object Test { | Test[Scalar] }
 
 // alts-mods-wrong

@@ -4,6 +4,10 @@
 enum Test { Value }
 output Test { }
 
+// unique-type-alias
+enum Test [a] { Value }
+output Dup [a] { }
+
 // category-no-output
 category { Test }
 
@@ -36,6 +40,10 @@ directive @Test(Test) { all }
 directive @Test(Test?) { all }
 input Test { }
 
+// enum-dup-alias
+enum Test [a] { test }
+enum Dup [a] { dup }
+
 // enum-extends-diff
 enum Test { : Extends test }
 enum Test { test }
@@ -47,6 +55,10 @@ enum Test { : Extends test }
 // enum-extends-wrong
 enum Test { : Extends test }
 output Extends { }
+
+// scalar-dup-alias
+scalar Test [a] { Boolean }
+scalar Dup [a] { Boolean }
 
 // scalar-extends-undef
 scalar Test { Boolean : Extends }

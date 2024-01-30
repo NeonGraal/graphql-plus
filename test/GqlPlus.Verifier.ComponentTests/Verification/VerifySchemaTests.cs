@@ -157,6 +157,8 @@ public partial class VerifySchemaTests(
       parse.IsError(result.Add);
     }
 
+    result.Should().NotBeEmpty();
+
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
     settings.UseMethodName(test);

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Token;
 
@@ -24,6 +25,17 @@ internal abstract class GroupedVerifier<TAliased>(
 
     var byName = item.GroupBy(t => t.Name)
       .ToMap(g => g.Key, g => g.ToArray());
+
+    var byAlias = item.SelectMany(t => t.Aliases.Select(a => (Alias: a, Item: t)))
+      .Where(a => !byName.ContainsKey(a.Alias))
+      .GroupBy(a => a.Alias, a => a.Item);
+
+    foreach (var alias in byAlias) {
+      var names = alias.Select(a => a.Name).Distinct().ToArray();
+      if (names.Length > 1) {
+        errors.Add(alias.Last().Error($"Multiple {Label} with alias '{alias.Key}' found. Names {names.Joined(n => $"'{n}'")}"));
+      }
+    }
 
     foreach (var (name, definitions) in byName) {
       _logger.LogInformation("Verifying {Name} with {Count} definitions", name, definitions.Length);

@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Result;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
@@ -33,6 +34,10 @@ public sealed class ParseCategoryTests(
     => _checks.Ok(
     "{" + output + "[]?}",
       new CategoryDeclAst(AstNulls.At, output) { Modifiers = TestMods() });
+
+  [Theory, RepeatData(Repeats)]
+  public void WithModifiersBad_ReturnsFalse(string output)
+    => _checks.False("{" + output + "[?]");
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string name, string output, CategoryOption option, string[] aliases)

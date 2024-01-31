@@ -19,6 +19,10 @@ public sealed class ParseScalarEnumTests(
       new AstScalar<ScalarMemberAst>(AstNulls.At, input.Name, ScalarKind.Enum, input.ScalarMembers(member)));
 
   [Theory, RepeatData(Repeats)]
+  public void WithMembersExcludeBad_ReturnsFalse(string name)
+    => _checks.False(name + "{enum !}");
+
+  [Theory, RepeatData(Repeats)]
   public void WithMembersFirstBad_ReturnsFalse(ScalarEnumInput input)
     => _checks.False(input.Name + "{enum " + input.Member + ".}");
 

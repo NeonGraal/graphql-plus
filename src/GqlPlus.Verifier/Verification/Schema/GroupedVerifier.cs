@@ -38,6 +38,10 @@ internal abstract class GroupedVerifier<TAliased>(
     }
 
     foreach (var (name, definitions) in byName) {
+      if (definitions.Length == 1) {
+        continue;
+      }
+
       _logger.LogInformation("Verifying {Name} with {Count} definitions", name, definitions.Length);
 
       if (!merger.CanMerge(definitions)) {

@@ -40,6 +40,10 @@ directive @Test(Test) { all }
 directive @Test(Test?) { all }
 input Test { }
 
+// option-diff-name
+option Test { }
+option Schema { }
+
 // enum-dup-alias
 enum Test [a] { test }
 enum Dup [a] { dup }

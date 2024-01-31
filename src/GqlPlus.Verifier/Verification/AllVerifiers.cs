@@ -23,6 +23,7 @@ public static class AllVerifiers
       .AddVerifyUsageAliased<CategoryDeclAst, OutputDeclAst, VerifyCategoryOutput>()
       .AddVerifyAliased<DirectiveDeclAst, VerifyDirectiveAliased>()
       .AddVerifyUsageAliased<DirectiveDeclAst, InputDeclAst, VerifyDirectiveInput>()
+      .AddVerifyAliased<OptionDeclAst, VerifyOptionAliased>()
       // Schema Types
       .AddVerify<AstType[], VerifyAllTypes>()
       .AddVerifyAliased<AstType, VerifyAllTypesAliased>()

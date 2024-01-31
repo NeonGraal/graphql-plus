@@ -187,6 +187,19 @@ Success
 }
 {
   !E I@6/1
+  EnSameParent
+  :EnParent
+  !EM I@31/1
+  sameP
+}
+{
+  !E I@82/1
+  EnParent
+  !EM I@93/1
+  parent
+}
+{
+  !E I@6/1
   EnValAlias
   !EM I@19/1
   value

@@ -85,6 +85,7 @@ public partial class VerifySchemaTests
     ["directive-diff-option"] = "directive @Test { all } directive @Test { ( repeatable ) all }",
     ["directive-no-param"] = "directive @Test(Test) { all }",
     ["directive-diff-parameter"] = "directive @Test(Test) { all } directive @Test(Test?) { all } input Test { }",
+    ["option-diff-name"] = "option Test { } option Schema { }",
     ["enum-dup-alias"] = "enum Test [a] { test } enum Dup [a] { dup }",
     ["enum-extends-diff"] = "enum Test { : Extends test } enum Test { test } enum Extends { extends }",
     ["enum-extends-undef"] = "enum Test { : Extends test }",
@@ -119,6 +120,7 @@ public partial class VerifySchemaTests
       Add("directive-diff-option");
       Add("directive-no-param");
       Add("directive-diff-parameter");
+      Add("option-diff-name");
       Add("enum-dup-alias");
       Add("enum-extends-diff");
       Add("enum-extends-undef");
@@ -152,6 +154,7 @@ public partial class VerifySchemaTests
     ["enum-alias"] = "enum EnAlias [En1] { alias } enum EnAlias [En2] { alias }",
     ["enum-diff"] = "enum EnDiff { one } enum EnDiff { two }",
     ["enum-same"] = "enum EnSame { same } enum EnSame { same }",
+    ["enum-same-parent"] = "enum EnSameParent { :EnParent sameP } enum EnSameParent { :EnParent sameP } enum EnParent { parent }",
     ["enum-value-alias"] = "enum EnValAlias { value [val1] } enum EnValAlias { value [val2] }",
     ["object"] = "object Obj { } object Obj { }",
     ["object-alias"] = "object ObjAlias [Obj1] { } object ObjAlias [Obj2] { }",
@@ -190,6 +193,7 @@ public partial class VerifySchemaTests
       Add("enum-alias");
       Add("enum-diff");
       Add("enum-same");
+      Add("enum-same-parent");
       Add("enum-value-alias");
       Add("object");
       Add("object-alias");

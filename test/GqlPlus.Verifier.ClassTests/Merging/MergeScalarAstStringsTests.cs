@@ -31,8 +31,8 @@ public class MergeScalarAstStringsTests
   public void CanMerge_TwoItemsRegexesCantMerge_ReturnsFalse(string name, string regex)
   {
     var items = new[] {
-      MakeDescribed(name) with { Members = regex.ScalarRegexes() },
-      MakeDescribed(name) with { Members = regex.ScalarRegexes() },
+      MakeDescribed(name) with { Items = regex.ScalarRegexes() },
+      MakeDescribed(name) with { Items = regex.ScalarRegexes() },
     };
     _regexes.CanMerge([]).ReturnsForAnyArgs(false);
 

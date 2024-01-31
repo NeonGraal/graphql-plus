@@ -12,5 +12,5 @@ internal class MergeScalars<TMember>(
 
   public override bool CanMerge(IEnumerable<AstScalar<TMember>> items)
     => base.CanMerge(items)
-      && items.ManyCanMerge(i => i.Members, members);
+      && items.ManyCanMerge(i => i.Items, members);
 }

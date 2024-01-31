@@ -10,26 +10,26 @@ public record class AstScalar<TMember>(
 ) : AstScalar(At, Name, Description, Kind), IEquatable<AstScalar<TMember>>
   where TMember : IAstScalarMember
 {
-  public TMember[] Members { get; set; } = [];
+  public TMember[] Items { get; set; } = [];
 
   internal override string Abbr => "S";
   public override string Label => "Scalar";
 
   public AstScalar(TokenAt at, string name, ScalarKind kind, TMember[] members)
     : this(at, name, "", kind)
-    => Members = members;
+    => Items = members;
 
   public virtual bool Equals(AstScalar<TMember>? other)
     => base.Equals(other)
       && Kind == other.Kind
-      && Members.SequenceEqual(other.Members);
+      && Items.SequenceEqual(other.Items);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Kind, Members.Length);
+    => HashCode.Combine(base.GetHashCode(), Kind, Items.Length);
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(Kind.ToString())
       .Append(Parent.Prefixed(":"))
-      .Concat(Members.Bracket());
+      .Concat(Items.Bracket());
 }
 
 public abstract record class AstScalar(

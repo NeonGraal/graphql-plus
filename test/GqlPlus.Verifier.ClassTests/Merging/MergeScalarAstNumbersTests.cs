@@ -31,8 +31,8 @@ public class MergeScalarAstNumbersTests
   public void CanMerge_TwoItemsRangesCantMerge_ReturnsFalse(string name, ScalarRangeInput range)
   {
     var items = new[] {
-      MakeDescribed(name) with { Members = range.ScalarRange() },
-      MakeDescribed(name) with { Members = range.ScalarRange() },
+      MakeDescribed(name) with { Items = range.ScalarRange() },
+      MakeDescribed(name) with { Items = range.ScalarRange() },
     };
     _ranges.CanMerge([]).ReturnsForAnyArgs(false);
 

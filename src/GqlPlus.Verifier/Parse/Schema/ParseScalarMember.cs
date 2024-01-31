@@ -23,8 +23,10 @@ internal class ParseScalarMember : Parser<ScalarMemberAst>.I
     if (tokens.Take('.')) {
       if (tokens.Identifier(out var member)) {
         result = new(at, excluded, member) { EnumType = type };
+      } else if (tokens.Take("*")) {
+        result = new(at, excluded, "*") { EnumType = type };
       } else {
-        return tokens.Partial(label, "identifier after '.'", () => result);
+        return tokens.Partial(label, "identifier or '*' after '.'", () => result);
       }
     }
 

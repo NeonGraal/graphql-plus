@@ -7,7 +7,7 @@ internal class VerifyScalarUnion
 {
   protected override void VerifyScalar(AstScalar<ScalarReferenceAst> scalar, UsageContext context)
   {
-    foreach (var reference in scalar.Members) {
+    foreach (var reference in scalar.Items) {
       if (reference.Name == scalar.Name) {
         context.AddError(scalar, "Scalar Reference", $"'{scalar.Name}' cannot refer to self");
       } else if (context.GetType(reference.Name, out var alternate) && alternate is AstType type) {
@@ -24,7 +24,7 @@ internal class VerifyScalarUnion
 
   private static void CheckSelfReference(string name, AstScalar<ScalarReferenceAst> usage, UsageContext context)
   {
-    foreach (var reference in usage.Members) {
+    foreach (var reference in usage.Items) {
       if (reference.Name == name) {
         context.AddError(usage, "Scalar Reference", $"'{name}' cannot refer to self, even recursively via {usage.Name}");
       } else if (context.GetType(reference.Name, out var alternate) && alternate is AstScalar<ScalarReferenceAst> scalar) {

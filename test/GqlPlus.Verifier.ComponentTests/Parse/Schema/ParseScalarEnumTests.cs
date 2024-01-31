@@ -13,6 +13,12 @@ public sealed class ParseScalarEnumTests(
       new AstScalar<ScalarMemberAst>(AstNulls.At, input.Name, ScalarKind.Enum, input.ScalarMember(enumType)));
 
   [Theory, RepeatData(Repeats)]
+  public void WithEnumAllMembers_ReturnsCorrectAst(ScalarEnumInput input)
+    => _checks.TrueExpected(
+      input.Name + "{enum " + input.Member + ".* }",
+      new AstScalar<ScalarMemberAst>(AstNulls.At, input.Name, ScalarKind.Enum, input.ScalarAllMembers()));
+
+  [Theory, RepeatData(Repeats)]
   public void WithMembers_ReturnsCorrectAst(ScalarEnumInput input, string member)
     => _checks.TrueExpected(
       input.Name + "{enum!" + input.Member + " " + member + "}",
@@ -52,6 +58,8 @@ public record struct ScalarEnumInput(string Name, string Member)
 {
   internal readonly ScalarMemberAst[] ScalarMember(string enumType)
       => [new(AstNulls.At, true, Member) { EnumType = enumType }];
+  internal readonly ScalarMemberAst[] ScalarAllMembers()
+      => [new(AstNulls.At, false, "*") { EnumType = Member }];
 
   internal readonly ScalarMemberAst[] ScalarMembers(params string[] members)
       => [.. members.Select(r => new ScalarMemberAst(AstNulls.At, false, r)).Prepend(new(AstNulls.At, true, Member))];

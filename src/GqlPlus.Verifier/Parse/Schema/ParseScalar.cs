@@ -17,39 +17,23 @@ internal class ParseScalar(
 {
   protected override AstScalar MakeResult(AstScalar partial, ScalarDefinition value)
     => value.Kind switch {
-      ScalarKind.Boolean => new AstScalar<ScalarFalseAst>(partial.At, partial.Name, value.Kind, []) {
-        Aliases = partial.Aliases,
-        Description = partial.Description,
-        Parent = value.Parent
-      },
-      ScalarKind.Enum => new AstScalar<ScalarMemberAst>(partial.At, partial.Name, value.Kind, value.Members) {
-        Aliases = partial.Aliases,
-        Description = partial.Description,
-        Parent = value.Parent
-      },
-      ScalarKind.Number => new AstScalar<ScalarRangeAst>(partial.At, partial.Name, value.Kind, value.Numbers) {
-        Aliases = partial.Aliases,
-        Description = partial.Description,
-        Parent = value.Parent
-      },
-      ScalarKind.String => new AstScalar<ScalarRegexAst>(partial.At, partial.Name, value.Kind, value.Regexes) {
-        Aliases = partial.Aliases,
-        Description = partial.Description,
-        Parent = value.Parent
-      },
-      ScalarKind.Union => new AstScalar<ScalarReferenceAst>(partial.At, partial.Name, value.Kind, value.References) {
-        Aliases = partial.Aliases,
-        Description = partial.Description,
-        Parent = value.Parent
-      },
+      ScalarKind.Boolean => new AstScalar<ScalarFalseAst>(partial.At, partial.Name, value.Kind, []),
+      ScalarKind.Enum => new AstScalar<ScalarMemberAst>(partial.At, partial.Name, value.Kind, value.Members),
+      ScalarKind.Number => new AstScalar<ScalarRangeAst>(partial.At, partial.Name, value.Kind, value.Numbers),
+      ScalarKind.String => new AstScalar<ScalarRegexAst>(partial.At, partial.Name, value.Kind, value.Regexes),
+      ScalarKind.Union => new AstScalar<ScalarReferenceAst>(partial.At, partial.Name, value.Kind, value.References),
       _ => partial,
+    } with {
+      Aliases = partial.Aliases,
+      Description = partial.Description,
+      Parent = value.Parent
     };
 
   protected override bool ApplyOption(AstScalar result, IResult<NullOption> option) => true;
   protected override bool ApplyParameters(AstScalar result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
-  protected override AstScalar<AstScalarMember> MakePartial(TokenAt at, string? name, string description)
+  protected override AstScalar<AstScalarItem> MakePartial(TokenAt at, string? name, string description)
     => new(at, name!, description, ScalarKind.Enum);
 }
 

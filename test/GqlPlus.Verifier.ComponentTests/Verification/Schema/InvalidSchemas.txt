@@ -99,6 +99,24 @@ scalar Test { number }
 scalar Test { string /a+/}
 scalar Test { string !/a+/ }
 
+// scalar-enum-wrong
+scalar Test { enum Bad.value }
+output Bad { }
+
+// scalar-enum-undef-value
+scalar Test { enum Undef.value }
+
+// scalar-enum-undef-member
+scalar Test { enum Enum.undef }
+enum Enum { value }
+
+// scalar-enum-undef
+scalar Test { enum undef }
+
+// scalar-enum-undef-all
+scalar Test { enum Undef.* }
+
+
 // scalar-union-recurse
 scalar Test { union | Bad }
 scalar Bad { union | Test }

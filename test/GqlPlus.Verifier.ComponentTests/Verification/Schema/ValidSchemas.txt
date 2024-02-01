@@ -12,3 +12,36 @@ enum EnExtBase { valBase }
 // scalar-extends
 scalar ScalExt { Boolean :ScalExtBase }
 scalar ScalExtBase { Boolean }
+
+// scalar-enum-value
+scalar ScalEnum { Enum EnumScal.scal_enum }
+enum EnumScal { scal_enum }
+
+// scalar-enum-value-extends
+scalar ScalEnumExtends { Enum EnumScalExtends.scal_enum }
+enum EnumScalExtends { : EnumExtendsScal scal_extends } 
+enum EnumExtendsScal { scal_enum }
+
+// scalar-enum-member
+scalar ScalMember { enum scal_member }
+enum MemberScal { scal_member }
+
+// scalar-enum-all
+scalar ScalEnumAll { enum EnumScalAll.* }
+enum EnumScalAll { scal_all scal_enum_all }
+
+// scalar-enum-all-extends
+scalar ScalEnumAllExtends { enum EnumScalAllExtends.* }
+enum EnumScalAllExtends { : EnumScalExtendsAll scal_all }
+enum EnumScalExtendsAll { scal_enum_all }
+
+// scalar-enum-unique
+scalar ScalEnumUnique { enum EnumScalUnique.* !EnumScalUnique.dup EnumScalDup.dup }
+enum EnumScalUnique { value dup }
+enum EnumScalDup { dup }
+
+// scalar-enum-unique-extends
+scalar ScalEnumUniqueExtends { enum EnumScalUniqueExtends.* !EnumScalUniqueExtends.dup EnumScalDupExtends.dup }
+enum EnumScalUniqueExtends { : EnumScalExtendsUnique value }
+enum EnumScalExtendsUnique { dup }
+enum EnumScalDupExtends { dup }

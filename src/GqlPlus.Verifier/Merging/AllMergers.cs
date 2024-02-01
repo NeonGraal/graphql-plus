@@ -56,7 +56,7 @@ public static class AllMergers
       .AddSingleton<IMergeAll<B>>(x => x.GetRequiredService<S>());
 
   public static IServiceCollection AddMergeScalar<TMember>(this IServiceCollection services)
-    where TMember : IAstScalarMember
+    where TMember : IAstScalarItem
     => services
       .AddMergeAll<AstScalar, AstScalar<TMember>, MergeScalars<TMember>>();
 }

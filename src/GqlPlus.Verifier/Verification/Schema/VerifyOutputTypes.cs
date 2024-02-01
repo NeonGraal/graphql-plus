@@ -20,8 +20,8 @@ internal class VerifyOutputTypes(
         } else {
           context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.Type.EnumValue}' not defined");
         }
-      } else if (!context.CheckEnumValue(enumField.Type)) {
-        context.AddError(enumField, "Output Field Enum Value", $"'{enumField.Type.EnumValue}' is not a Value of '{enumField.Type.Name}'");
+      } else {
+        context.CheckEnumValue("Field", enumField.Type);
       }
     }
 
@@ -39,22 +39,13 @@ internal class VerifyOutputTypes(
     base.UsageField(field, context);
   }
 
-  protected override OutputContext MakeContext(OutputDeclAst usage, IMap<AstType[]> byId, ITokenMessages errors)
+  protected override OutputContext MakeContext(OutputDeclAst usage, AstType[] aliased, ITokenMessages errors)
   {
-    var enumTypes = byId.Values
-      .SelectMany(v => v.OfType<EnumDeclAst>())
-      .Distinct();
-
-    var enumValues = enumTypes.SelectMany(e => e.Members.Select(v => (Member: v.Name, Type: e.Name)))
-      .GroupBy(e => e.Member, e => e.Type)
-      .Where(g => g.Count() == 1)
-      .ToMap(e => e.Key, e => e.First());
-
-    var validTypes = byId
-      .Select(p => (Id: p.Key, Type: (AstDescribed)p.Value.First()))
+    var validTypes = aliased.AliasedGroup()
+      .Select(p => (Id: p.Key, Type: (AstDescribed)p.First()))
       .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (AstDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);
 
-    return new(validTypes, errors, enumValues);
+    return new(validTypes, errors, aliased.MakeEnumValues());
   }
 }

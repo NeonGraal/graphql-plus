@@ -7,8 +7,8 @@ internal class VerifyCategoryOutput(
   IVerifyAliased<CategoryDeclAst> aliased
 ) : UsageVerifier<CategoryDeclAst, OutputDeclAst, UsageContext>(aliased)
 {
-  protected override UsageContext MakeContext(CategoryDeclAst usage, IMap<OutputDeclAst[]> byId, ITokenMessages errors)
-    => MakeUsageContext(byId, errors);
+  protected override UsageContext MakeContext(CategoryDeclAst usage, OutputDeclAst[] aliased, ITokenMessages errors)
+    => MakeUsageContext(aliased, errors);
 
   protected override void UsageValue(CategoryDeclAst usage, UsageContext context)
   {

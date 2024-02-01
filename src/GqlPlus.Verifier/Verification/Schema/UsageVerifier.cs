@@ -10,25 +10,23 @@ internal abstract class UsageVerifier<TUsage, TAliased, TContext>(
  where TUsage : AstAliased where TAliased : AstAliased where TContext : UsageContext
 {
   protected abstract void UsageValue(TUsage usage, TContext context);
-  protected abstract TContext MakeContext(TUsage usage, IMap<TAliased[]> byId, ITokenMessages errors);
+  protected abstract TContext MakeContext(TUsage usage, TAliased[] aliased, ITokenMessages errors);
 
   public virtual void Verify(UsageAliased<TUsage, TAliased> item, ITokenMessages errors)
   {
-    var byId = item.Definitions.AliasedMap();
-
     foreach (var usage in item.Usages) {
-      var context = MakeContext(usage, byId, errors);
+      var context = MakeContext(usage, item.Definitions, errors);
       UsageValue(usage, context);
     }
 
     aliased.Verify(item.Usages, errors);
   }
 
-  protected static UsageContext MakeUsageContext(IMap<TAliased[]> byId, ITokenMessages errors)
+  protected static UsageContext MakeUsageContext(TAliased[] aliased, ITokenMessages errors)
     => new(
-      byId.ToMap(
+      aliased.AliasedGroup().ToMap(
         p => p.Key,
-        p => (AstDescribed)p.Value.First())
+        p => (AstDescribed)p.First())
       , errors);
 }
 

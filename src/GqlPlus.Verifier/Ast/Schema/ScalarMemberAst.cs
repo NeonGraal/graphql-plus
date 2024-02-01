@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Ast.Schema;
 
 public sealed record class ScalarMemberAst(TokenAt At, bool Excludes, string Member)
-  : AstScalarMember(At, Excludes), IEquatable<ScalarMemberAst>
+  : AstScalarItem(At, Excludes), IEquatable<ScalarMemberAst>
 {
   public string? EnumType { get; set; }
 

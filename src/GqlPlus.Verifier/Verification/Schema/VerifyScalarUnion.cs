@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Verification.Schema;
 internal class VerifyScalarUnion
   : AstScalarVerifier<ScalarReferenceAst>
 {
-  protected override void VerifyScalar(AstScalar<ScalarReferenceAst> scalar, UsageContext context)
+  protected override void VerifyScalar(AstScalar<ScalarReferenceAst> scalar, EnumContext context)
   {
     foreach (var reference in scalar.Items) {
       if (reference.Name == scalar.Name) {

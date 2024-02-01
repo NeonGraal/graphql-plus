@@ -222,6 +222,156 @@ Success
   valBase
 }
 {
+  !E I@50/1
+  EnumScal
+  !EM I@61/1
+  scal_enum
+}
+{
+  !E I@64/1
+  EnumScalExtends
+  :EnumExtendsScal
+  !EM I@100/1
+  scal_extends
+}
+{
+  !E I@120/1
+  EnumExtendsScal
+  !EM I@138/1
+  scal_enum
+}
+{
+  !E I@45/1
+  MemberScal
+  !EM I@58/1
+  scal_member
+}
+{
+  !E I@48/1
+  EnumScalAll
+  !EM I@62/1
+  scal_all
+  !EM I@71/1
+  scal_enum_all
+}
+{
+  !E I@62/1
+  EnumScalAllExtends
+  :EnumScalExtendsAll
+  !EM I@104/1
+  scal_all
+}
+{
+  !E I@120/1
+  EnumScalExtendsAll
+  !EM I@141/1
+  scal_enum_all
+}
+{
+  !E I@90/1
+  EnumScalUnique
+  !EM I@107/1
+  value
+  !EM I@113/1
+  dup
+}
+{
+  !E I@124/1
+  EnumScalDup
+  !EM I@138/1
+  dup
+}
+{
+  !E I@118/1
+  EnumScalUniqueExtends
+  :EnumScalExtendsUnique
+  !EM I@166/1
+  value
+}
+{
+  !E I@179/1
+  EnumScalExtendsUnique
+  !EM I@203/1
+  dup
+}
+{
+  !E I@214/1
+  EnumScalDupExtends
+  !EM I@235/1
+  dup
+}
+{
+  !S I@8/1
+  ScalEnum
+  Enum
+  !SM I@24/1
+  EnumScal
+  scal_enum
+}
+{
+  !S I@8/1
+  ScalEnumExtends
+  Enum
+  !SM I@31/1
+  EnumScalExtends
+  scal_enum
+}
+{
+  !S I@8/1
+  ScalMember
+  Enum
+  !SM I@26/1
+  scal_member
+}
+{
+  !S I@8/1
+  ScalEnumAll
+  Enum
+  !SM I@27/1
+  EnumScalAll
+  *
+}
+{
+  !S I@8/1
+  ScalEnumAllExtends
+  Enum
+  !SM I@34/1
+  EnumScalAllExtends
+  *
+}
+{
+  !S I@8/1
+  ScalEnumUnique
+  Enum
+  !SM I@30/1
+  EnumScalUnique
+  *
+  !SM P@47/1
+  !
+  !
+  EnumScalUnique
+  dup
+  !SM I@67/1
+  EnumScalDup
+  dup
+}
+{
+  !S I@8/1
+  ScalEnumUniqueExtends
+  Enum
+  !SM I@37/1
+  EnumScalUniqueExtends
+  *
+  !SM P@61/1
+  !
+  !
+  EnumScalUniqueExtends
+  dup
+  !SM I@88/1
+  EnumScalDupExtends
+  dup
+}
+{
   !S I@115/1
   OutScalarParam
   Number

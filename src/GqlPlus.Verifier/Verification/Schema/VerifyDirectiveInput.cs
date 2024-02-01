@@ -7,8 +7,8 @@ internal class VerifyDirectiveInput(
   IVerifyAliased<DirectiveDeclAst> aliased
 ) : UsageVerifier<DirectiveDeclAst, InputDeclAst, UsageContext>(aliased)
 {
-  protected override UsageContext MakeContext(DirectiveDeclAst usage, IMap<InputDeclAst[]> byId, ITokenMessages errors)
-    => MakeUsageContext(byId, errors);
+  protected override UsageContext MakeContext(DirectiveDeclAst usage, InputDeclAst[] aliased, ITokenMessages errors)
+    => MakeUsageContext(aliased, errors);
 
   protected override void UsageValue(DirectiveDeclAst usage, UsageContext context)
   {

@@ -8,10 +8,10 @@ internal class VerifyInputTypes(
   IVerifyAliased<InputDeclAst> aliased
 ) : AstObjectVerifier<InputDeclAst, InputFieldAst, InputReferenceAst, UsageContext>(aliased)
 {
-  protected override UsageContext MakeContext(InputDeclAst usage, IMap<AstType[]> byId, ITokenMessages errors)
+  protected override UsageContext MakeContext(InputDeclAst usage, AstType[] aliased, ITokenMessages errors)
   {
-    var validTypes = byId
-      .Select(p => (Id: p.Key, Type: (AstDescribed)p.Value.First()))
+    var validTypes = aliased.AliasedGroup()
+      .Select(p => (Id: p.Key, Type: (AstDescribed)p.First()))
       .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (AstDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);
 

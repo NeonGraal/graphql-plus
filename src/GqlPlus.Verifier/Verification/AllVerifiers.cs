@@ -36,7 +36,7 @@ public static class AllVerifiers
       .AddVerifyAliased<AstScalar, VerifyScalarsAliased>()
       .AddVerifyUsageAliased<AstScalar, AstType, VerifyScalarTypes>()
       .AddVerifyScalarContext<AstScalarVerifier<ScalarFalseAst>>()
-      .AddVerifyScalarContext<AstScalarVerifier<ScalarMemberAst>>()
+      .AddVerifyScalarContext<VerifyScalarEnum>()
       .AddVerifyScalarContext<AstScalarVerifier<ScalarRangeAst>>()
       .AddVerifyScalarContext<AstScalarVerifier<ScalarRegexAst>>()
       .AddVerifyScalarContext<VerifyScalarUnion>()
@@ -77,6 +77,6 @@ public static class AllVerifiers
       .TryAddVerify<A, NullVerifier<A>>();
 
   public static IServiceCollection AddVerifyScalarContext<S>(this IServiceCollection services)
-    where S : class, IVerifyContext<AstScalar>
-    => services.AddSingleton<IVerifyContext<AstScalar>, S>();
+    where S : class, IVerifyScalar
+    => services.AddSingleton<IVerifyScalar, S>();
 }

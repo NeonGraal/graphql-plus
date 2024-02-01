@@ -8,7 +8,7 @@ public record class AstScalar<TMember>(
   string Description,
   ScalarKind Kind
 ) : AstScalar(At, Name, Description, Kind), IEquatable<AstScalar<TMember>>
-  where TMember : IAstScalarMember
+  where TMember : IAstScalarItem
 {
   public TMember[] Items { get; set; } = [];
 

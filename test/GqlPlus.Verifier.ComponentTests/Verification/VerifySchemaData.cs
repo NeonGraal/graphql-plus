@@ -99,6 +99,11 @@ public partial class VerifySchemaTests
     ["scalar-extends-self-recurse"] = "scalar Test { Boolean : Extends } scalar Extends { Boolean : Recurse } scalar Recurse { Boolean : Test}",
     ["scalar-diff-kind"] = "scalar Test { string } scalar Test { number }",
     ["scalar-string-diff"] = "scalar Test { string /a+/} scalar Test { string !/a+/ }",
+    ["scalar-enum-wrong"] = "scalar Test { enum Bad.value } output Bad { }",
+    ["scalar-enum-undef-value"] = "scalar Test { enum Undef.value }",
+    ["scalar-enum-undef-member"] = "scalar Test { enum Enum.undef } enum Enum { value }",
+    ["scalar-enum-undef"] = "scalar Test { enum undef }",
+    ["scalar-enum-undef-all"] = "scalar Test { enum Undef.* }",
     ["scalar-union-recurse"] = "scalar Test { union | Bad } scalar Bad { union | Test }",
     ["scalar-union-more"] = "scalar Test { union | Recurse } scalar Recurse { union | Bad } scalar Bad { union | Test }",
     ["scalar-union-self"] = "scalar Test { union | Test }",
@@ -134,6 +139,11 @@ public partial class VerifySchemaTests
       Add("scalar-extends-self-recurse");
       Add("scalar-diff-kind");
       Add("scalar-string-diff");
+      Add("scalar-enum-wrong");
+      Add("scalar-enum-undef-value");
+      Add("scalar-enum-undef-member");
+      Add("scalar-enum-undef");
+      Add("scalar-enum-undef-all");
       Add("scalar-union-recurse");
       Add("scalar-union-more");
       Add("scalar-union-self");
@@ -274,6 +284,13 @@ public partial class VerifySchemaTests
     ["directive-param"] = "directive @DirParam(DirParamIn) { all } input DirParamIn { }",
     ["enum-extends"] = "enum EnExt { :EnExtBase valExt } enum EnExtBase { valBase }",
     ["scalar-extends"] = "scalar ScalExt { Boolean :ScalExtBase } scalar ScalExtBase { Boolean }",
+    ["scalar-enum-value"] = "scalar ScalEnum { Enum EnumScal.scal_enum } enum EnumScal { scal_enum }",
+    ["scalar-enum-value-extends"] = "scalar ScalEnumExtends { Enum EnumScalExtends.scal_enum } enum EnumScalExtends { : EnumExtendsScal scal_extends } enum EnumExtendsScal { scal_enum }",
+    ["scalar-enum-member"] = "scalar ScalMember { enum scal_member } enum MemberScal { scal_member }",
+    ["scalar-enum-all"] = "scalar ScalEnumAll { enum EnumScalAll.* } enum EnumScalAll { scal_all scal_enum_all }",
+    ["scalar-enum-all-extends"] = "scalar ScalEnumAllExtends { enum EnumScalAllExtends.* } enum EnumScalAllExtends { : EnumScalExtendsAll scal_all } enum EnumScalExtendsAll { scal_enum_all }",
+    ["scalar-enum-unique"] = "scalar ScalEnumUnique { enum EnumScalUnique.* !EnumScalUnique.dup EnumScalDup.dup } enum EnumScalUnique { value dup } enum EnumScalDup { dup }",
+    ["scalar-enum-unique-extends"] = "scalar ScalEnumUniqueExtends { enum EnumScalUniqueExtends.* !EnumScalUniqueExtends.dup EnumScalDupExtends.dup } enum EnumScalUniqueExtends { : EnumScalExtendsUnique value } enum EnumScalExtendsUnique { dup } enum EnumScalDupExtends { dup }",
   };
 
   public class SchemaValidSchemas : TheoryData<string>
@@ -284,6 +301,13 @@ public partial class VerifySchemaTests
       Add("directive-param");
       Add("enum-extends");
       Add("scalar-extends");
+      Add("scalar-enum-value");
+      Add("scalar-enum-value-extends");
+      Add("scalar-enum-member");
+      Add("scalar-enum-all");
+      Add("scalar-enum-all-extends");
+      Add("scalar-enum-unique");
+      Add("scalar-enum-unique-extends");
     }
   }
 }

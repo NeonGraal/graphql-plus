@@ -10,6 +10,6 @@ internal class VerifyEnumTypes(
   protected override string GetParent(AstType<string> usage)
     => usage.Parent ?? "";
 
-  protected override UsageContext MakeContext(EnumDeclAst usage, IMap<AstType[]> byId, ITokenMessages errors)
-    => MakeUsageContext(byId, errors);
+  protected override UsageContext MakeContext(EnumDeclAst usage, AstType[] aliased, ITokenMessages errors)
+    => MakeUsageContext(aliased, errors);
 }

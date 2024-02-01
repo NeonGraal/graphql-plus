@@ -3,23 +3,21 @@
 namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class AstScalarVerifier<TMember>
-  : IVerifyContext<AstScalar>
-  where TMember : IAstScalarMember
+  : IVerifyScalar
+  where TMember : IAstScalarItem
 {
-  public void Verify<TContext>(AstScalar usage, TContext context)
-    where TContext : UsageContext
+  public void Verify(AstScalar usage, EnumContext context)
   {
     if (usage is AstScalar<TMember> scalar) {
       VerifyScalar(scalar, context);
     }
   }
 
-  protected virtual void VerifyScalar(AstScalar<TMember> scalar, UsageContext context)
+  protected virtual void VerifyScalar(AstScalar<TMember> scalar, EnumContext context)
   { }
 }
 
-public interface IVerifyContext<TUsage>
+public interface IVerifyScalar
 {
-  void Verify<TContext>(TUsage usage, TContext context)
-    where TContext : UsageContext;
+  void Verify(AstScalar usage, EnumContext context);
 }

@@ -17,7 +17,7 @@ internal static class MapExtensions
   internal static Map<TMap> ToMap<TInput, TMap>(this IEnumerable<TInput> items, Func<TInput, string> key, Func<TInput, TMap> map)
     => new(items.ToDictionary(key, map));
 
-  internal static Map<TAliased[]> AliasedMap<TAliased>(this TAliased[] items)
+  internal static IEnumerable<IGrouping<string, TAliased>> AliasedGroup<TAliased>(this TAliased[] items)
     where TAliased : AstAliased
   {
     var names = items.Select(d => d.Name).Distinct().ToHashSet();
@@ -25,7 +25,11 @@ internal static class MapExtensions
     return items.SelectMany(t => t.Aliases.Select(a => (Id: a, Item: t)))
       .Where(p => !names.Contains(p.Id))
       .GroupBy(p => p.Id, p => p.Item)
-      .Union(items.GroupBy(t => t.Name))
-      .ToMap(g => g.Key, g => g.ToArray());
+      .Union(items.GroupBy(t => t.Name));
   }
+
+  internal static Map<TAliased[]> AliasedMap<TAliased>(this TAliased[] items)
+    where TAliased : AstAliased
+    => AliasedGroup(items)
+      .ToMap(g => g.Key, g => g.ToArray());
 }

@@ -2,10 +2,10 @@
   !!! I@8/7 : Invalid Output Parent. '_Field' not defined. - '_OutputField' !!!,
   !!! I@20/9 : Invalid Output. '_Parameter' not defined. - '_Parameter' !!!,
   !!! I@8/13 : Invalid Output Parent. '_TypeRef' not defined. - '_OutputArgument' !!!,
-  !!! I@16/14 : Invalid Output Argument Enum Value. 'Enum' is not a Value of '_TypeKind'. - '_TypeKind' !!!,
+  !!! I@16/14 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@16/14 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
   !!! I@7/16 : Invalid Output. '_Ref' not defined. - '_Ref' !!!,
   !!! I@8/19 : Invalid Output Parent. '_TypeRef' not defined. - '_OutputEnum' !!!,
-  !!! I@16/20 : Invalid Output Argument Enum Value. 'Enum' is not a Value of '_TypeKind'. - '_TypeKind' !!!,
+  !!! I@16/20 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@16/20 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!
 ]

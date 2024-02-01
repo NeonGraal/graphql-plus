@@ -2,10 +2,10 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public abstract record class AstScalarMember(TokenAt At, bool Excludes)
-  : AstAbbreviated(At), IEquatable<AstScalarMember>, IAstScalarMember
+public abstract record class AstScalarItem(TokenAt At, bool Excludes)
+  : AstAbbreviated(At), IEquatable<AstScalarItem>, IAstScalarItem
 {
-  public virtual bool Equals(AstScalarMember? other)
+  public virtual bool Equals(AstScalarItem? other)
   => base.Equals(other)
       && Excludes.NullEqual(other.Excludes);
   public override int GetHashCode()
@@ -15,4 +15,4 @@ public abstract record class AstScalarMember(TokenAt At, bool Excludes)
       .Append(Excludes ? "!" : "");
 }
 
-public interface IAstScalarMember { }
+public interface IAstScalarItem { }

@@ -116,6 +116,20 @@ scalar Test { enum undef }
 // scalar-enum-undef-all
 scalar Test { enum Undef.* }
 
+// scalar-enum-unique
+scalar Test { enum Enum.value Dup.value }
+enum Enum { value }
+enum Dup { value }
+
+// scalar-enum-unique-member
+scalar Test { enum Enum.value Dup.* }
+enum Enum { value }
+enum Dup { value }
+
+// scalar-enum-unique-all
+scalar Test { enum Enum.* Dup.* }
+enum Enum { value }
+enum Dup { value }
 
 // scalar-union-recurse
 scalar Test { union | Bad }

@@ -1,9 +1,8 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Token;
-using GqlPlus.Verifier.Verification.Schema;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyOptionAliased(
   IVerify<OptionDeclAst> definition,

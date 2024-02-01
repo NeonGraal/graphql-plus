@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Verification.Schema;
@@ -22,9 +22,7 @@ internal class VerifyScalarEnum
         }
       } else if (context.GetEnumType(member.EnumType, out var theType)) {
         if (member.Member == "*") {
-          foreach (var enumMember in theType.Members) {
-            members.Add(member.Excludes, theType, enumMember.Name);
-          }
+          AddAllMembers(members, context, member.Excludes, theType);
         } else if (context.GetEnumValueType(theType, member.Member, out var memberType)) {
           members.Add(member.Excludes, memberType, member.Member);
         } else {
@@ -33,6 +31,23 @@ internal class VerifyScalarEnum
       } else {
         context.AddError(member, "Scalar Enum", $"'{member.EnumType}' not an Enum type");
       }
+    }
+
+    foreach (var duplicate in members.DuplicateMembers()) {
+      var member = duplicate[0].Member;
+      var enums = duplicate.Select(x => x.Enum.Name).Joined();
+      context.AddError(scalar, "Scalar Enum", $"'{member}' duplicated from these Enums: {enums}");
+    }
+  }
+
+  private static void AddAllMembers(EnumMembers members, EnumContext context, bool excludes, EnumDeclAst enumType)
+  {
+    foreach (var enumMember in enumType.Members) {
+      members.Add(excludes, enumType, enumMember.Name);
+    }
+
+    if (context.GetEnumType(enumType.Parent, out var parentType)) {
+      AddAllMembers(members, context, excludes, parentType);
     }
   }
 }
@@ -52,5 +67,17 @@ internal class EnumMembers
     } else {
       _includes.Add(new(theEnum, enumMember.Name));
     }
+  }
+
+  internal EnumMember[][] DuplicateMembers()
+  {
+    var allMembers = _includes
+      .Except(_excludes)
+      .GroupBy(m => m.Member);
+
+    return allMembers
+      .Where(g => g.Count() != 1)
+      .Select(g => g.ToArray())
+      .ToArray();
   }
 }

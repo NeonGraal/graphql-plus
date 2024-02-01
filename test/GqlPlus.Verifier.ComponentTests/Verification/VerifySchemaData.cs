@@ -104,6 +104,9 @@ public partial class VerifySchemaTests
     ["scalar-enum-undef-member"] = "scalar Test { enum Enum.undef } enum Enum { value }",
     ["scalar-enum-undef"] = "scalar Test { enum undef }",
     ["scalar-enum-undef-all"] = "scalar Test { enum Undef.* }",
+    ["scalar-enum-unique"] = "scalar Test { enum Enum.value Dup.value } enum Enum { value } enum Dup { value }",
+    ["scalar-enum-unique-member"] = "scalar Test { enum Enum.value Dup.* } enum Enum { value } enum Dup { value }",
+    ["scalar-enum-unique-all"] = "scalar Test { enum Enum.* Dup.* } enum Enum { value } enum Dup { value }",
     ["scalar-union-recurse"] = "scalar Test { union | Bad } scalar Bad { union | Test }",
     ["scalar-union-more"] = "scalar Test { union | Recurse } scalar Recurse { union | Bad } scalar Bad { union | Test }",
     ["scalar-union-self"] = "scalar Test { union | Test }",
@@ -144,6 +147,9 @@ public partial class VerifySchemaTests
       Add("scalar-enum-undef-member");
       Add("scalar-enum-undef");
       Add("scalar-enum-undef-all");
+      Add("scalar-enum-unique");
+      Add("scalar-enum-unique-member");
+      Add("scalar-enum-unique-all");
       Add("scalar-union-recurse");
       Add("scalar-union-more");
       Add("scalar-union-self");

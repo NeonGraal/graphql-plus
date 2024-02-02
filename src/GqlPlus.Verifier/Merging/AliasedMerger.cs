@@ -8,6 +8,16 @@ internal abstract class AliasedMerger<TItem>
 {
   protected override string ItemGroupKey(TItem item) => item.Name;
 
+  public override bool CanMerge(IEnumerable<TItem> items)
+    => base.CanMerge(items) && items
+      .SelectMany(item => item.Aliases.Select(alias => (alias, item)))
+      .GroupBy(pair => pair.alias)
+      .All(CanMergeAliases);
+
+  private bool CanMergeAliases(IGrouping<string, (string alias, TItem item)> group)
+    => group.Select(pair => ItemGroupKey(pair.item))
+      .Distinct().Count() == 1;
+
   protected override bool CanMergeGroup(IGrouping<string, TItem> group)
     => base.CanMergeGroup(group)
       && group.CanMerge(item => item.Description);

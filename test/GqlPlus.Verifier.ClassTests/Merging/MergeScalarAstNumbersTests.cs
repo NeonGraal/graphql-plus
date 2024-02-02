@@ -51,7 +51,7 @@ public class MergeScalarAstNumbersTests
     _merger = new(_ranges);
   }
 
-  protected override GroupsMerger<AstScalar<ScalarRangeAst>> MergerGroups => _merger;
+  internal override GroupsMerger<AstScalar<ScalarRangeAst>> MergerGroups => _merger;
 
   protected override AstScalar<ScalarRangeAst> MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description, ScalarKind.Number);

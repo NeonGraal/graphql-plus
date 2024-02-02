@@ -46,7 +46,7 @@ public class MergeSchemasTests
     _merger = new(_categories, _directives, _options, _astTypes);
   }
 
-  protected override GroupsMerger<SchemaAst> MergerGroups => _merger;
+  internal override GroupsMerger<SchemaAst> MergerGroups => _merger;
 
   protected override SchemaAst MakeDistinct(string name)
     => new(AstNulls.At, name);

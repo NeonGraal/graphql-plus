@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Merging;
 
-public class BaseMerger<TItem>
+internal class BaseMerger<TItem>
   : IMerge<TItem>
 {
   public virtual bool CanMerge(IEnumerable<TItem> items)

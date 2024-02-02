@@ -42,7 +42,7 @@ public class MergeOptionsTests
     _merger = new(_settings);
   }
 
-  protected override GroupsMerger<OptionDeclAst> MergerGroups => _merger;
+  internal override GroupsMerger<OptionDeclAst> MergerGroups => _merger;
 
   protected override OptionDeclAst MakeAliased(string name, string[] aliases, string description = "")
     => new(AstNulls.At, name, description) { Aliases = aliases };

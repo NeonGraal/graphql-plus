@@ -47,7 +47,7 @@ public class MergeEnumsTests
     _merger = new(_enumMembers);
   }
 
-  protected override GroupsMerger<EnumDeclAst> MergerGroups => _merger;
+  internal override GroupsMerger<EnumDeclAst> MergerGroups => _merger;
 
   protected override EnumDeclAst MakeAliased(string name, string[] aliases, string description = "")
     => new(AstNulls.At, name, description) { Aliases = aliases };

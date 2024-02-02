@@ -58,7 +58,7 @@ public class MergeDirectivesTests
     _merger = new(_parameters);
   }
 
-  protected override GroupsMerger<DirectiveDeclAst> MergerGroups => _merger;
+  internal override GroupsMerger<DirectiveDeclAst> MergerGroups => _merger;
 
   protected override DirectiveDeclAst MakeAliased(string name, string[] aliases, string description = "")
     => new(AstNulls.At, name, description) { Aliases = aliases };

@@ -1,7 +1,7 @@
 ﻿
 namespace GqlPlus.Verifier.Merging;
 
-public abstract class GroupsMerger<TItem>
+internal abstract class GroupsMerger<TItem>
   : BaseMerger<TItem>
 {
   protected abstract string ItemGroupKey(TItem item);

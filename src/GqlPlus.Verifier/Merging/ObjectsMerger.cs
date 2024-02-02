@@ -3,11 +3,11 @@ using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class ObjectsMerger<TObject, TField, TReference>(
+internal class ObjectsMerger<TObject, TField, TReference>(
   IMerge<TypeParameterAst> typeParameters,
   IMerge<AlternateAst<TReference>> alternates,
   IMerge<TField> fields
-) : AliasedMerger<TObject>, IMergeAll<AstType>
+) : AliasedAllMerger<AstType, TObject>
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>, IAstDescribed
   where TReference : AstReference<TReference>
@@ -37,14 +37,4 @@ public class ObjectsMerger<TObject, TField, TReference>(
       Alternates = [.. alternateAsts],
     };
   }
-
-  bool IMerge<AstType>.CanMerge(IEnumerable<AstType> items)
-  {
-    var objects = items.OfType<TObject>();
-
-    return !objects.Any() || CanMerge(objects);
-  }
-
-  IEnumerable<AstType> IMerge<AstType>.Merge(IEnumerable<AstType> items)
-      => Merge(items.OfType<TObject>());
 }

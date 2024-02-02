@@ -65,8 +65,8 @@ public abstract class TestObjects<TObject, TField, TReference>
     Fields = Merger<TField>();
   }
 
-  protected abstract ObjectsMerger<TObject, TField, TReference> MergerObject { get; }
-  protected override GroupsMerger<TObject> MergerGroups => MergerObject;
+  internal abstract ObjectsMerger<TObject, TField, TReference> MergerObject { get; }
+  internal override GroupsMerger<TObject> MergerGroups => MergerObject;
 
   protected abstract TObject MakeObject(string name, string description = "");
   protected abstract TField[] MakeFields(string field, string type);

@@ -25,7 +25,7 @@ public abstract class TestGroups<TItem>
     Merge_Expected([item1, item2], name1 == name2, item2, item1);
   }
 
-  protected abstract GroupsMerger<TItem> MergerGroups { get; }
+  internal abstract GroupsMerger<TItem> MergerGroups { get; }
 
   protected override IMerge<TItem> MergerBase => MergerGroups;
 }

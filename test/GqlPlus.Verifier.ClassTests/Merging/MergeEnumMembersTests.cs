@@ -8,7 +8,7 @@ public class MergeEnumMembersTests
 {
   private readonly MergeEnumMembers _merger = new();
 
-  protected override GroupsMerger<EnumMemberAst> MergerGroups => _merger;
+  internal override GroupsMerger<EnumMemberAst> MergerGroups => _merger;
 
   protected override EnumMemberAst MakeAliased(string name, string[] aliases, string description = "")
     => new(AstNulls.At, name, description) { Aliases = aliases };

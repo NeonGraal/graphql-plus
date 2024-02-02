@@ -8,7 +8,7 @@ public class AlternatesMergerTests
 {
   private readonly AlternatesMerger<OutputReferenceAst> _merger = new();
 
-  protected override AlternatesMerger<AlternateAst<OutputReferenceAst>, OutputReferenceAst> MergerAlternate => _merger;
+  internal override AlternatesMerger<AlternateAst<OutputReferenceAst>, OutputReferenceAst> MergerAlternate => _merger;
 
   protected override AlternateAst<OutputReferenceAst> MakeAlternate(string name, string description = "")
     => new(AstNulls.At, new OutputReferenceAst(AstNulls.At, name, description));

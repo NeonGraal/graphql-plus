@@ -51,7 +51,7 @@ public class MergeScalarAstStringsTests
     _merger = new(_regexes);
   }
 
-  protected override GroupsMerger<AstScalar<ScalarRegexAst>> MergerGroups => _merger;
+  internal override GroupsMerger<AstScalar<ScalarRegexAst>> MergerGroups => _merger;
 
   protected override AstScalar<ScalarRegexAst> MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description, ScalarKind.String);

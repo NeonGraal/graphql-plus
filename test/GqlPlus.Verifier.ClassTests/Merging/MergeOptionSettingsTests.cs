@@ -32,7 +32,7 @@ public class MergeOptionSettingsTests
     _merger = new(_values);
   }
 
-  protected override GroupsMerger<OptionSettingAst> MergerGroups => _merger;
+  internal override GroupsMerger<OptionSettingAst> MergerGroups => _merger;
 
   protected override OptionSettingAst MakeDistinct(string name)
     => new(AstNulls.At, name, new FieldKeyAst(AstNulls.At, name));

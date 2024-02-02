@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Merging;
 
-public abstract class DistinctMerger<TItem>
+internal abstract class DistinctMerger<TItem>
   : GroupsMerger<TItem>
 {
   protected override bool CanMergeGroup(IGrouping<string, TItem> group)

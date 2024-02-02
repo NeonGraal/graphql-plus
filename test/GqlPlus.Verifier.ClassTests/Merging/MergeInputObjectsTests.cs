@@ -11,7 +11,7 @@ public class MergeInputObjectsTests
   public MergeInputObjectsTests()
     => _merger = new(TypeParameters, Alternates, Fields);
 
-  protected override ObjectsMerger<InputDeclAst, InputFieldAst, InputReferenceAst> MergerObject => _merger;
+  internal override ObjectsMerger<InputDeclAst, InputFieldAst, InputReferenceAst> MergerObject => _merger;
 
   protected override InputDeclAst MakeObject(string name, string description = "")
     => new(AstNulls.At, name, description);

@@ -63,8 +63,8 @@ public abstract class TestFields<TField, TReference>
       [MakeField(name, type, typeDescription: description), MakeField(name, type, typeDescription: description)],
       MakeField(name, type, typeDescription: description));
 
-  protected abstract FieldsMerger<TField, TReference> MergerField { get; }
-  protected override GroupsMerger<TField> MergerGroups => MergerField;
+  internal abstract FieldsMerger<TField, TReference> MergerField { get; }
+  internal override GroupsMerger<TField> MergerGroups => MergerField;
 
   protected abstract TField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "");
   protected override TField MakeAliased(string name, string[] aliases, string description = "")

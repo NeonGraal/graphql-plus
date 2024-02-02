@@ -64,7 +64,7 @@ public class MergeScalarAstUnionsTests
     _merger = new(_references);
   }
 
-  protected override GroupsMerger<AstScalar<ScalarReferenceAst>> MergerGroups => _merger;
+  internal override GroupsMerger<AstScalar<ScalarReferenceAst>> MergerGroups => _merger;
 
   protected override AstScalar<ScalarReferenceAst> MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description, ScalarKind.Union);

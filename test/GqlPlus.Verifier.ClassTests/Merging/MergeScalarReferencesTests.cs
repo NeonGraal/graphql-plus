@@ -8,7 +8,7 @@ public class MergeScalarReferencesTests
 {
   private readonly MergeScalarReferences _merger = new();
 
-  protected override GroupsMerger<ScalarReferenceAst> MergerGroups => _merger;
+  internal override GroupsMerger<ScalarReferenceAst> MergerGroups => _merger;
 
   protected override ScalarReferenceAst MakeDistinct(string name)
     => new(AstNulls.At, name);

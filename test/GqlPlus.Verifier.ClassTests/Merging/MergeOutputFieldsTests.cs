@@ -111,7 +111,7 @@ public class MergeOutputFieldsTests
     _merger = new(_parameters);
   }
 
-  protected override FieldsMerger<OutputFieldAst, OutputReferenceAst> MergerField => _merger;
+  internal override FieldsMerger<OutputFieldAst, OutputReferenceAst> MergerField => _merger;
 
   protected override OutputFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
     => new(AstNulls.At, name, fieldDescription, new(AstNulls.At, type, typeDescription));

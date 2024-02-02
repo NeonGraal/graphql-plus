@@ -21,8 +21,8 @@ public abstract class TestAlternates<TAlternate, TReference>
       [MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() }],
       MakeDescribed(input) with { Modifiers = TestMods() });
 
-  protected abstract AlternatesMerger<TAlternate, TReference> MergerAlternate { get; }
-  protected override GroupsMerger<TAlternate> MergerGroups => MergerAlternate;
+  internal abstract AlternatesMerger<TAlternate, TReference> MergerAlternate { get; }
+  internal override GroupsMerger<TAlternate> MergerGroups => MergerAlternate;
 
   protected abstract TAlternate MakeAlternate(string name, string description = "");
   protected override TAlternate MakeDescribed(string name, string description = "")

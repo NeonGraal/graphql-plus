@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-public class FieldsMerger<TField, TReference>
+internal class FieldsMerger<TField, TReference>
   : AliasedMerger<TField>
   where TField : AstField<TReference>
   where TReference : AstReference<TReference>

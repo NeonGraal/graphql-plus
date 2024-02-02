@@ -20,7 +20,7 @@ public class MergeScalarRegexesTests
 
   private readonly MergeScalarRegexes _merger = new();
 
-  protected override GroupsMerger<ScalarRegexAst> MergerGroups => _merger;
+  internal override GroupsMerger<ScalarRegexAst> MergerGroups => _merger;
 
   protected override ScalarRegexAst MakeDistinct(string name)
     => new(AstNulls.At, false, name);

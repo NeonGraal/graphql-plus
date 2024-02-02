@@ -20,7 +20,7 @@ public class MergeTypeParametersTests
 
   private readonly MergeTypeParameters _merger = new();
 
-  protected override GroupsMerger<TypeParameterAst> MergerGroups => _merger;
+  internal override GroupsMerger<TypeParameterAst> MergerGroups => _merger;
 
   protected override TypeParameterAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, name, description);

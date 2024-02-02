@@ -31,7 +31,7 @@ public class MergeCategoriesTests
 
   private readonly MergeCategories _merger = new();
 
-  protected override GroupsMerger<CategoryDeclAst> MergerGroups => _merger;
+  internal override GroupsMerger<CategoryDeclAst> MergerGroups => _merger;
 
   protected override CategoryDeclAst MakeAliased(string name, string[] aliases, string description = "")
     => new(AstNulls.At, name, description, name) { Aliases = aliases };

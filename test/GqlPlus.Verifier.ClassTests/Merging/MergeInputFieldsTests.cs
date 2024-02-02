@@ -25,7 +25,7 @@ public class MergeInputFieldsTests
 
   private readonly MergeInputFields _merger = new();
 
-  protected override FieldsMerger<InputFieldAst, InputReferenceAst> MergerField => _merger;
+  internal override FieldsMerger<InputFieldAst, InputReferenceAst> MergerField => _merger;
 
   protected override InputFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
     => new(AstNulls.At, name, fieldDescription, new(AstNulls.At, type, typeDescription));

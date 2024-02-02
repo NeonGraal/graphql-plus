@@ -20,7 +20,7 @@ public class MergeScalarMembersTests
 
   private readonly MergeScalarMembers _merger = new();
 
-  protected override GroupsMerger<ScalarMemberAst> MergerGroups => _merger;
+  internal override GroupsMerger<ScalarMemberAst> MergerGroups => _merger;
 
   protected override ScalarMemberAst MakeDistinct(string name)
     => new(AstNulls.At, false, name);

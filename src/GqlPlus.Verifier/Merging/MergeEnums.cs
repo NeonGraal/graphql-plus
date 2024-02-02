@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Merging;
 
 internal class MergeEnums(
   IMerge<EnumMemberAst> enumMembers
-) : AliasedAllMerger<AstType, EnumDeclAst>, IMergeAll<AstType>
+) : TypedMerger<AstType, EnumDeclAst, string>, IMergeAll<AstType>
 {
   protected override string ItemMatchKey(EnumDeclAst item)
     => item.Parent ?? "";

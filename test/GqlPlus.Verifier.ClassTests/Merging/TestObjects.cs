@@ -5,24 +5,11 @@ using NSubstitute;
 namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestObjects<TObject, TField, TReference>
-  : TestAliased<TObject>
+  : TestTyped<AstType, TObject, TReference>
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>, IAstDescribed
   where TReference : AstReference<TReference>
 {
-  [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsSameBaseType_ReturnsTrue(string name, string type)
-    => CanMerge_True([
-      MakeObject(name) with { Parent = MakeReference(type) },
-      MakeObject(name) with { Parent = MakeReference(type) }]);
-
-  [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsDifferentTypes_ReturnsFalse(string name, string type1, string type2)
-    => CanMerge_False([
-      MakeObject(name) with { Parent = MakeReference(type1) },
-      MakeObject(name) with { Parent = MakeReference(type2) }],
-      type1 == type2);
-
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsTypeParametersCantMerge_ReturnsFalse(string name, string[] typeParameters)
   {
@@ -66,12 +53,14 @@ public abstract class TestObjects<TObject, TField, TReference>
   }
 
   internal abstract ObjectsMerger<TObject, TField, TReference> MergerObject { get; }
-  internal override GroupsMerger<TObject> MergerGroups => MergerObject;
+  internal override TypedMerger<AstType, TObject, TReference> MergerTyped => MergerObject;
 
   protected abstract TObject MakeObject(string name, string description = "");
   protected abstract TField[] MakeFields(string field, string type);
   protected abstract TReference MakeReference(string type);
-  protected override TObject MakeAliased(string name, string[] aliases, string description = "")
-    => MakeObject(name, description) with { Aliases = aliases };
 
+  protected override TObject MakeTyped(string name, string description = "")
+    => MakeObject(name, description);
+  protected override TReference MakeParent(string parent)
+    => MakeReference(parent);
 }

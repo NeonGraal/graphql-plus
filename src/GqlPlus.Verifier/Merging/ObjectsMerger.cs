@@ -7,7 +7,7 @@ internal class ObjectsMerger<TObject, TField, TReference>(
   IMerge<TypeParameterAst> typeParameters,
   IMerge<AlternateAst<TReference>> alternates,
   IMerge<TField> fields
-) : AliasedAllMerger<AstType, TObject>
+) : TypedMerger<AstType, TObject, TReference>
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>, IAstDescribed
   where TReference : AstReference<TReference>

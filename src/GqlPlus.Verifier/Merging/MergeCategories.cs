@@ -11,5 +11,5 @@ internal class MergeCategories
       && items.CanMerge(item => item.Option);
 
   protected override string ItemMatchKey(CategoryDeclAst item)
-    => $"{item.Output}{item.Modifiers.AsString()}-{item.Option}";
+    => $"{item.Output}{item.Modifiers.AsString()}~{item.Option}";
 }

@@ -5,16 +5,8 @@ using NSubstitute;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeEnumsTests
-  : TestAliased<EnumDeclAst>
+  : TestTyped<AstType, EnumDeclAst, string>
 {
-  [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsSameExtends_ReturnsTrue(string name)
-    => CanMerge_True([new EnumDeclAst(AstNulls.At, name), new EnumDeclAst(AstNulls.At, name)]);
-
-  [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsDifferentExtends_ReturnsFalse(string name, string parent)
-    => CanMerge_False([new EnumDeclAst(AstNulls.At, name) { Parent = parent }, new EnumDeclAst(AstNulls.At, name)]);
-
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoItemsValuesCantMerge_ReturnsFalse(string name, string[] values)
   {
@@ -47,8 +39,10 @@ public class MergeEnumsTests
     _merger = new(_enumMembers);
   }
 
-  internal override GroupsMerger<EnumDeclAst> MergerGroups => _merger;
+  internal override TypedMerger<AstType, EnumDeclAst, string> MergerTyped => _merger;
 
-  protected override EnumDeclAst MakeAliased(string name, string[] aliases, string description = "")
-    => new(AstNulls.At, name, description) { Aliases = aliases };
+  protected override EnumDeclAst MakeTyped(string name, string description = "")
+    => new(AstNulls.At, name, description);
+  protected override string MakeParent(string parent)
+    => parent;
 }

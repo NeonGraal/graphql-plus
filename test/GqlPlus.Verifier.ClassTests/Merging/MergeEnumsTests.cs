@@ -5,7 +5,7 @@ using NSubstitute;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeEnumsTests
-  : TestTyped<AstType, EnumDeclAst, string>
+  : TestTyped<AstType, EnumDeclAst, string, EnumMemberAst>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsFalse(string name, string[] values)
@@ -39,7 +39,7 @@ public class MergeEnumsTests
     _merger = new(_enumMembers);
   }
 
-  internal override TypedMerger<AstType, EnumDeclAst, string> MergerTyped => _merger;
+  internal override TypedMerger<AstType, EnumDeclAst, string, EnumMemberAst> MergerTyped => _merger;
 
   protected override EnumDeclAst MakeTyped(string name, string description = "")
     => new(AstNulls.At, name, description);

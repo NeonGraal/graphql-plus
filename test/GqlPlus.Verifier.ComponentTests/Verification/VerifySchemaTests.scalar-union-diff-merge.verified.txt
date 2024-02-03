@@ -7,5 +7,7 @@ Success
   Union
   !ST P@23/1
   Boolean
+  !ST P@57/1
+  Number
 }
 ]

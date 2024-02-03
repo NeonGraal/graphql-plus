@@ -4,17 +4,14 @@ namespace GqlPlus.Verifier.Merging;
 
 internal class MergeEnums(
   IMerge<EnumMemberAst> enumMembers
-) : TypedMerger<AstType, EnumDeclAst, string>, IMergeAll<AstType>
+) : TypedMerger<AstType, EnumDeclAst, string, EnumMemberAst>(enumMembers), IMergeAll<AstType>
 {
   protected override string ItemMatchKey(EnumDeclAst item)
     => item.Parent ?? "";
 
-  public override bool CanMerge(IEnumerable<EnumDeclAst> items)
-    => base.CanMerge(items)
-      && items.ManyCanMerge(e => e.Members, enumMembers);
+  internal override IEnumerable<EnumMemberAst> GetItems(EnumDeclAst type)
+    => type.Members;
 
-  protected override EnumDeclAst MergeGroup(IEnumerable<EnumDeclAst> group)
-    => base.MergeGroup(group) with {
-      Members = [.. group.ManyMerge(item => item.Members, enumMembers)],
-    };
+  internal override EnumDeclAst SetItems(EnumDeclAst input, IEnumerable<EnumMemberAst> items)
+    => input with { Members = [.. items] };
 }

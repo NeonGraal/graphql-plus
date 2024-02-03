@@ -4,7 +4,7 @@ using NSubstitute;
 namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestScalarAsts<TItem, TItemInput>
-  : TestTyped<AstScalar, AstScalar<TItem>, string>
+  : TestTyped<AstScalar, AstScalar<TItem>, string, TItem>
   where TItem : IAstScalarItem
 {
   [Theory, RepeatData(Repeats)]
@@ -54,7 +54,7 @@ public abstract class TestScalarAsts<TItem, TItemInput>
     Merger = new(MergeItems);
   }
 
-  internal override TypedMerger<AstScalar, AstScalar<TItem>, string> MergerTyped => Merger;
+  internal override TypedMerger<AstScalar, AstScalar<TItem>, string, TItem> MergerTyped => Merger;
 
   protected abstract TItem[] MakeItems(TItemInput input);
 

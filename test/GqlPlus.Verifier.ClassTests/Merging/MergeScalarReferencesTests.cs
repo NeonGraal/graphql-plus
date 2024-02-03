@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeScalarReferencesTests
-  : TestGroups<ScalarReferenceAst>
+  : TestScalarItems<ScalarReferenceAst>
 {
   private readonly MergeScalarReferences _merger = new();
 

@@ -5,7 +5,7 @@ using NSubstitute;
 namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestObjects<TObject, TField, TReference>
-  : TestTyped<AstType, TObject, TReference>
+  : TestTyped<AstType, TObject, TReference, TypeParameterAst>
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>, IAstDescribed
   where TReference : AstReference<TReference>
@@ -53,7 +53,7 @@ public abstract class TestObjects<TObject, TField, TReference>
   }
 
   internal abstract ObjectsMerger<TObject, TField, TReference> MergerObject { get; }
-  internal override TypedMerger<AstType, TObject, TReference> MergerTyped => MergerObject;
+  internal override TypedMerger<AstType, TObject, TReference, TypeParameterAst> MergerTyped => MergerObject;
 
   protected abstract TObject MakeObject(string name, string description = "");
   protected abstract TField[] MakeFields(string field, string type);

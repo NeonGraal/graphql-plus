@@ -351,9 +351,6 @@ Success
   !
   EnumScalUnique
   dup
-  !SM I@67/1
-  EnumScalDup
-  dup
 }
 {
   !S I@8/1
@@ -366,9 +363,6 @@ Success
   !
   !
   EnumScalUniqueExtends
-  dup
-  !SM I@88/1
-  EnumScalDupExtends
   dup
 }
 {
@@ -444,6 +438,8 @@ Success
   Union
   !ST P@23/1
   Boolean
+  !ST P@57/1
+  Number
 }
 {
   !I I@7/1

@@ -4,19 +4,11 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeScalarRegexesTests
-  : TestGroups<ScalarRegexAst>
+  : TestScalarItems<ScalarRegexAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSameExcludes_ReturnsTrue(string name)
-    => CanMerge_True([
-      new ScalarRegexAst(AstNulls.At, false, name),
-      new ScalarRegexAst(AstNulls.At, false, name)]);
-
-  [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsFalse(string name)
-    => CanMerge_False([
-      new ScalarRegexAst(AstNulls.At, true, name),
-      new ScalarRegexAst(AstNulls.At, false, name)]);
+    => CanMerge_False([MakeAst(name) with { Excludes = true }, MakeAst(name)]);
 
   private readonly MergeScalarRegexes _merger = new();
 

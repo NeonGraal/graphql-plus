@@ -7,7 +7,7 @@ internal class ObjectsMerger<TObject, TField, TReference>(
   IMerge<TypeParameterAst> typeParameters,
   IMerge<AlternateAst<TReference>> alternates,
   IMerge<TField> fields
-) : TypedMerger<AstType, TObject, TReference>
+) : TypedMerger<AstType, TObject, TReference, TypeParameterAst>(typeParameters)
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>, IAstDescribed
   where TReference : AstReference<TReference>
@@ -15,26 +15,28 @@ internal class ObjectsMerger<TObject, TField, TReference>(
   protected override string ItemMatchKey(TObject item)
     => item.Parent?.Name ?? "";
 
-  public override bool CanMerge(IEnumerable<TObject> items)
+  protected override bool CanMergeGroup(IGrouping<string, TObject> group)
   {
-    var baseCanMerge = base.CanMerge(items);
-    var typeParametersCanMerge = items.ManyCanMerge(item => item.TypeParameters, typeParameters);
-    var fieldsCanMerge = items.ManyGroupCanMerge(item => item.Fields, f => f.Name, fields);
-    var alternatesCanMerge = items.ManyGroupCanMerge(item => item.Alternates, a => a.Type.FullType, alternates);
+    var baseCanMerge = base.CanMergeGroup(group);
+    var fieldsCanMerge = group.ManyGroupCanMerge(item => item.Fields, f => f.Name, fields);
+    var alternatesCanMerge = group.ManyGroupCanMerge(item => item.Alternates, a => a.Type.FullType, alternates);
 
-    return baseCanMerge && typeParametersCanMerge && fieldsCanMerge && alternatesCanMerge;
+    return baseCanMerge && fieldsCanMerge && alternatesCanMerge;
   }
 
   protected override TObject MergeGroup(IEnumerable<TObject> group)
   {
-    var typeParameterAsts = group.ManyMerge(item => item.TypeParameters, typeParameters);
     var fieldAsts = group.ManyMerge(item => item.Fields, fields);
     var alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
 
     return base.MergeGroup(group) with {
-      TypeParameters = [.. typeParameterAsts],
       Fields = [.. fieldAsts],
       Alternates = [.. alternateAsts],
     };
   }
+
+  internal override IEnumerable<TypeParameterAst> GetItems(TObject type)
+    => type.TypeParameters;
+  internal override TObject SetItems(TObject input, IEnumerable<TypeParameterAst> items)
+    => input with { TypeParameters = [.. items] };
 }

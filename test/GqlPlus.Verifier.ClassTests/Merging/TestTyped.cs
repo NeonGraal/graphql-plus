@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-public abstract class TestTyped<TBase, TType, TParent>
+public abstract class TestTyped<TBase, TType, TParent, TItem>
   : TestAliased<TType>
   where TBase : AstAliased
   where TType : AstType<TParent>, TBase
@@ -21,7 +21,7 @@ public abstract class TestTyped<TBase, TType, TParent>
       MakeTyped(name) with { Parent = MakeParent(type2) }],
       type1 == type2);
 
-  internal abstract TypedMerger<TBase, TType, TParent> MergerTyped { get; }
+  internal abstract TypedMerger<TBase, TType, TParent, TItem> MergerTyped { get; }
   internal override GroupsMerger<TType> MergerGroups => MergerTyped;
 
   protected abstract TType MakeTyped(string name, string description = "");

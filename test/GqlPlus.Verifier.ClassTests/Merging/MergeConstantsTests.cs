@@ -92,8 +92,8 @@ public class MergeConstantsTests
 
   protected override IMerge<ConstantAst> MergerBase => _merger;
 
-  protected override ConstantAst MakeDistinct(string name)
-    => new FieldKeyAst(AstNulls.At, name);
+  protected override ConstantAst MakeAst(string input)
+    => new FieldKeyAst(AstNulls.At, input);
 
   private ConstantAst MakeValue(string value)
     => new FieldKeyAst(AstNulls.At, value);

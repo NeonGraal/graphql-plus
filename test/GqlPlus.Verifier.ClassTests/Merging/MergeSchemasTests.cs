@@ -48,8 +48,8 @@ public class MergeSchemasTests
 
   internal override GroupsMerger<SchemaAst> MergerGroups => _merger;
 
-  protected override SchemaAst MakeDistinct(string name)
-    => new(AstNulls.At, name);
+  protected override SchemaAst MakeAst(string input)
+    => new(AstNulls.At, input);
 
   private static AstDeclaration[] CategoryDeclarations(string category)
     => [new CategoryDeclAst(AstNulls.At, category), new OutputDeclAst(AstNulls.At, category)];

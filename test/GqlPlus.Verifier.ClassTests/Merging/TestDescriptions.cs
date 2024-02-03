@@ -27,6 +27,6 @@ public abstract class TestDescriptions<TAst>
   => Merge_Expected([MakeDescribed(name, description), MakeDescribed(name, description)], MakeDescribed(name, description));
 
   protected abstract TAst MakeDescribed(string name, string description = "");
-  protected override TAst MakeDistinct(string name)
+  protected override TAst MakeAst(string name)
     => MakeDescribed(name);
 }

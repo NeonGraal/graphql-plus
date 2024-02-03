@@ -22,6 +22,6 @@ public class MergeScalarRegexesTests
 
   internal override GroupsMerger<ScalarRegexAst> MergerGroups => _merger;
 
-  protected override ScalarRegexAst MakeDistinct(string name)
-    => new(AstNulls.At, false, name);
+  protected override ScalarRegexAst MakeAst(string input)
+    => new(AstNulls.At, false, input);
 }

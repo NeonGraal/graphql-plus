@@ -11,6 +11,6 @@ public class MergeScalarRangesTests
 
   protected override IMerge<ScalarRangeAst> MergerBase => _merger;
 
-  protected override ScalarRangeAst MakeDistinct(string name)
-    => new(AstNulls.At, false);
+  protected override ScalarRangeAst MakeDistinct(ScalarRangeInput input)
+    => new(AstNulls.At, false, input.Lower, input.Upper);
 }

@@ -13,14 +13,14 @@ public abstract class TestGroups<TAst>
       return;
     }
 
-    CanMerge_True([MakeDistinct(name1), MakeDistinct(name2)]);
+    CanMerge_True([MakeAst(name1), MakeAst(name2)]);
   }
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsDifferentName_ReturnsAsts(string name1, string name2)
   {
-    var ast1 = MakeDistinct(name1);
-    var ast2 = MakeDistinct(name2);
+    var ast1 = MakeAst(name1);
+    var ast2 = MakeAst(name2);
 
     Merge_Expected([ast1, ast2], name1 == name2, ast2, ast1);
   }

@@ -12,13 +12,13 @@ public class MergeOptionSettingsTests
   {
     _values.CanMerge([]).ReturnsForAnyArgs(false);
 
-    CanMerge_False([MakeDistinct(name), MakeDistinct(name)]);
+    CanMerge_False([MakeAst(name), MakeAst(name)]);
   }
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAsts_CallsValuesMerge(string name)
   {
-    Merge_Expected([MakeDistinct(name), MakeDistinct(name)], MakeDistinct(name));
+    Merge_Expected([MakeAst(name), MakeAst(name)], MakeAst(name));
 
     _values.ReceivedWithAnyArgs().Merge([]);
   }
@@ -34,6 +34,6 @@ public class MergeOptionSettingsTests
 
   internal override GroupsMerger<OptionSettingAst> MergerGroups => _merger;
 
-  protected override OptionSettingAst MakeDistinct(string name)
-    => new(AstNulls.At, name, new FieldKeyAst(AstNulls.At, name));
+  protected override OptionSettingAst MakeAst(string input)
+    => new(AstNulls.At, input, new FieldKeyAst(AstNulls.At, input));
 }

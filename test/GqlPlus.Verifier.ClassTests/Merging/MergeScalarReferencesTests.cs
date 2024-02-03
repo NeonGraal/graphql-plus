@@ -10,6 +10,6 @@ public class MergeScalarReferencesTests
 
   internal override GroupsMerger<ScalarReferenceAst> MergerGroups => _merger;
 
-  protected override ScalarReferenceAst MakeDistinct(string name)
-    => new(AstNulls.At, name);
+  protected override ScalarReferenceAst MakeAst(string input)
+    => new(AstNulls.At, input);
 }

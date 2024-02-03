@@ -3,18 +3,24 @@ using NSubstitute;
 
 namespace GqlPlus.Verifier.Merging;
 
+public abstract class TestAbbreviated<TAst>
+  : TestAbbreviated<TAst, string>
+  where TAst : AstAbbreviated
+{
+}
+
 [TracePerTest]
 
-public abstract class TestAbbreviated<TAst>
-  where TAst : AstAbbreviated
+public abstract class TestAbbreviated<TAst, TInput>
+where TAst : AstAbbreviated
 {
   [Fact]
   public void CanMerge_NoAsts_ReturnsFalse()
    => CanMerge_False([]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_OneAst_ReturnsTrue(string name)
-    => CanMerge_True([MakeDistinct(name)]);
+  public void CanMerge_OneAst_ReturnsTrue(TInput input)
+    => CanMerge_True([MakeAst(input)]);
 
   [Fact]
   public void Merge_NullAsts_ReturnsEmpty()
@@ -33,16 +39,16 @@ public abstract class TestAbbreviated<TAst>
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_OneAst_ReturnsAst(string name)
+  public void Merge_OneAst_ReturnsAst(TInput input)
   {
-    var ast = MakeDistinct(name);
+    var ast = MakeAst(input);
 
     Merge_Expected([ast], ast);
   }
 
   protected abstract IMerge<TAst> MergerBase { get; }
 
-  protected abstract TAst MakeDistinct(string name);
+  protected abstract TAst MakeAst(TInput input);
 
   protected void CanMerge_False(TAst[] asts, bool skipIf = false)
   {

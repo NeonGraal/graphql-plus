@@ -8,13 +8,13 @@ public class MergeSchemasTests
   : TestGroups<SchemaAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsDifferentDeclarations_ReturnsTrue(string name, string category, string directive, string option)
+  public void CanMerge_TwoAstsDifferentDeclarations_ReturnsTrue(string name, string category, string directive, string option)
     => CanMerge_True([
       new SchemaAst(AstNulls.At, name) with { Declarations = CategoryDeclarations(category) },
       new SchemaAst(AstNulls.At, name) with { Declarations = OtherDeclarations(directive, option) }]);
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsDifferentDeclarations_ReturnsExpected(string name, string category, string directive, string option)
+  public void Merge_TwoAstsDifferentDeclarations_ReturnsExpected(string name, string category, string directive, string option)
   {
     var categoryDecls = CategoryDeclarations(category);
     var otherDecls = OtherDeclarations(directive, option);

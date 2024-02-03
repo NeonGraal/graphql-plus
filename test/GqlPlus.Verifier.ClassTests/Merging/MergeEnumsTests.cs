@@ -8,7 +8,7 @@ public class MergeEnumsTests
   : TestTyped<AstType, EnumDeclAst, string>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsValuesCantMerge_ReturnsFalse(string name, string[] values)
+  public void CanMerge_TwoAstsValuesCantMerge_ReturnsFalse(string name, string[] values)
   {
     _enumMembers.CanMerge([]).ReturnsForAnyArgs(false);
 
@@ -19,7 +19,7 @@ public class MergeEnumsTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsValues_ReturnsExpected(string name, string[] values1, string[] values2)
+  public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] values1, string[] values2)
   {
     var combined = values1.EnumMembers().Concat(values2.EnumMembers()).ToArray();
 

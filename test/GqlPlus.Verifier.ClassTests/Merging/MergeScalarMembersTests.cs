@@ -7,13 +7,13 @@ public class MergeScalarMembersTests
   : TestGroups<ScalarMemberAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsSameExcludes_ReturnsTrue(string name)
+  public void CanMerge_TwoAstsSameExcludes_ReturnsTrue(string name)
     => CanMerge_True([
       new ScalarMemberAst(AstNulls.At, false, name),
       new ScalarMemberAst(AstNulls.At, false, name)]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsDifferentExcludes_ReturnsFalse(string name)
+  public void CanMerge_TwoAstsDifferentExcludes_ReturnsFalse(string name)
     => CanMerge_False([
       new ScalarMemberAst(AstNulls.At, true, name),
       new ScalarMemberAst(AstNulls.At, false, name)]);

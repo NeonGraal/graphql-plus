@@ -7,17 +7,17 @@ public class MergeParametersTests
   : TestAlternates<ParameterAst, InputReferenceAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsOneDefault_ReturnsTrue(string input, string value)
+  public void CanMerge_TwoAstsOneDefault_ReturnsTrue(string input, string value)
     => CanMerge_True([MakeAlternate(input), MakeAlternate(input) with { Default = value.FieldKey() }]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsSameDefault_ReturnsTrue(string input, string value)
+  public void CanMerge_TwoAstsSameDefault_ReturnsTrue(string input, string value)
     => CanMerge_True([
       MakeAlternate(input) with { Default = value.FieldKey() },
       MakeAlternate(input) with { Default = value.FieldKey() }]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsDifferentDefault_ReturnsFalse(string input, string value1, string value2)
+  public void CanMerge_TwoAstsDifferentDefault_ReturnsFalse(string input, string value1, string value2)
     => CanMerge_False([
       MakeAlternate(input) with { Default = value1.FieldKey() },
       MakeAlternate(input) with { Default = value2.FieldKey() }],

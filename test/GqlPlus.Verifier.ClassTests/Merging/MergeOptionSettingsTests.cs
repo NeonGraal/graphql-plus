@@ -8,7 +8,7 @@ public class MergeOptionSettingsTests
   : TestGroups<OptionSettingAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsValuesCantMerge_ReturnsFalse(string name)
+  public void CanMerge_TwoAstsValuesCantMerge_ReturnsFalse(string name)
   {
     _values.CanMerge([]).ReturnsForAnyArgs(false);
 
@@ -16,7 +16,7 @@ public class MergeOptionSettingsTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItems_CallsValuesMerge(string name)
+  public void Merge_TwoAsts_CallsValuesMerge(string name)
   {
     Merge_Expected([MakeDistinct(name), MakeDistinct(name)], MakeDistinct(name));
 

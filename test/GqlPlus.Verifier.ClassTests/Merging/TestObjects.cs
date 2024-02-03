@@ -11,7 +11,7 @@ public abstract class TestObjects<TObject, TField, TReference>
   where TReference : AstReference<TReference>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsTypeParametersCantMerge_ReturnsFalse(string name, string[] typeParameters)
+  public void CanMerge_TwoAstsTypeParametersCantMerge_ReturnsFalse(string name, string[] typeParameters)
   {
     TypeParameters.CanMerge([]).ReturnsForAnyArgs(false);
 
@@ -22,7 +22,7 @@ public abstract class TestObjects<TObject, TField, TReference>
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsAlternatesCantMerge_ReturnsFalse(string name, string alternate)
+  public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsFalse(string name, string alternate)
   {
     Alternates.CanMerge([]).ReturnsForAnyArgs(false);
 
@@ -32,7 +32,7 @@ public abstract class TestObjects<TObject, TField, TReference>
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsFieldsCantMerge_ReturnsFalse(string name, string field, string type)
+  public void CanMerge_TwoAstsFieldsCantMerge_ReturnsFalse(string name, string field, string type)
   {
     Fields.CanMerge([]).ReturnsForAnyArgs(false);
 

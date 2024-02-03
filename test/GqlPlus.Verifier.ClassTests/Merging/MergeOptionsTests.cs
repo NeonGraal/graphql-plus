@@ -8,7 +8,7 @@ public class MergeOptionsTests
   : TestAliased<OptionDeclAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsSettingsCantMerge_ReturnsFalse(string name, string[] settings)
+  public void CanMerge_TwoAstsSettingsCantMerge_ReturnsFalse(string name, string[] settings)
   {
     if (settings.Length < 2) {
       return;
@@ -22,7 +22,7 @@ public class MergeOptionsTests
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsWithSettings_CallsSettingsMerge(string name, string[] settings1, string[] settings2)
+  public void Merge_TwoAstsWithSettings_CallsSettingsMerge(string name, string[] settings1, string[] settings2)
   {
     Merge_Expected([
       new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.OptionSettings() },

@@ -5,7 +5,7 @@ using NSubstitute;
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeAllTypesTests
-  : TestBase<AstType>
+  : TestAbbreviated<AstType>
 {
   private readonly MergeAllTypes _merger;
 

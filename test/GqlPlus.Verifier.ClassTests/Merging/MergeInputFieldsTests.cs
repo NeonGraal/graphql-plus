@@ -7,17 +7,17 @@ public class MergeInputFieldsTests
   : TestFields<InputFieldAst, InputReferenceAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsOneDefault_ReturnsTrue(string name, string type, string value)
+  public void CanMerge_TwoAstsOneDefault_ReturnsTrue(string name, string type, string value)
     => CanMerge_True([MakeField(name, type), MakeField(name, type) with { Default = value.FieldKey() }]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsSameDefault_ReturnsTrue(string name, string type, string value)
+  public void CanMerge_TwoAstsSameDefault_ReturnsTrue(string name, string type, string value)
     => CanMerge_True([
       MakeField(name, type) with { Default = value.FieldKey() },
       MakeField(name, type) with { Default = value.FieldKey() }]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsDifferentDefaults_ReturnsFalse(string name, string type, string value1, string value2)
+  public void CanMerge_TwoAstsDifferentDefaults_ReturnsFalse(string name, string type, string value1, string value2)
     => CanMerge_False([
       MakeField(name, type) with { Default = value1.FieldKey() },
       MakeField(name, type) with { Default = value2.FieldKey() }],

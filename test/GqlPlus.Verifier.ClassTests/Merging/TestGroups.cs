@@ -2,12 +2,12 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-public abstract class TestGroups<TItem>
-  : TestBase<TItem>
-  where TItem : AstAbbreviated
+public abstract class TestGroups<TAst>
+  : TestAbbreviated<TAst>
+  where TAst : AstAbbreviated
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoItemsDifferentNames_ReturnsTrue(string name1, string name2)
+  public void CanMerge_TwoAstsDifferentNames_ReturnsTrue(string name1, string name2)
   {
     if (name1 == name2) {
       return;
@@ -17,15 +17,15 @@ public abstract class TestGroups<TItem>
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsDifferentName_ReturnsItems(string name1, string name2)
+  public void Merge_TwoAstsDifferentName_ReturnsAsts(string name1, string name2)
   {
-    var item1 = MakeDistinct(name1);
-    var item2 = MakeDistinct(name2);
+    var ast1 = MakeDistinct(name1);
+    var ast2 = MakeDistinct(name2);
 
-    Merge_Expected([item1, item2], name1 == name2, item2, item1);
+    Merge_Expected([ast1, ast2], name1 == name2, ast2, ast1);
   }
 
-  internal abstract GroupsMerger<TItem> MergerGroups { get; }
+  internal abstract GroupsMerger<TAst> MergerGroups { get; }
 
-  protected override IMerge<TItem> MergerBase => MergerGroups;
+  protected override IMerge<TAst> MergerBase => MergerGroups;
 }

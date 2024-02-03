@@ -3,89 +3,89 @@
 namespace GqlPlus.Verifier.Merging;
 
 public class MergeConstantsTests
-  : TestBase<ConstantAst>
+  : TestAbbreviated<ConstantAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsBothValues_ReturnsExpected(string valueA, string valueB)
+  public void Merge_TwoAstsBothValues_ReturnsExpected(string valueA, string valueB)
   {
-    var itemA = MakeValue(valueA);
-    var itemB = MakeValue(valueB);
+    var astA = MakeValue(valueA);
+    var astB = MakeValue(valueB);
 
-    Merge_Expected([itemA, itemB], itemB);
+    Merge_Expected([astA, astB], astB);
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsValueAndList_ReturnsExpected(string valueA, string[] listB)
+  public void Merge_TwoAstsValueAndList_ReturnsExpected(string valueA, string[] listB)
   {
-    var itemA = MakeValue(valueA);
-    var itemB = MakeList(listB);
+    var astA = MakeValue(valueA);
+    var astB = MakeList(listB);
 
-    Merge_Expected([itemA, itemB], listB.Contains(valueA), MakeList([valueA, .. listB]));
+    Merge_Expected([astA, astB], listB.Contains(valueA), MakeList([valueA, .. listB]));
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsValueAndObject_ReturnsExpected(string valueA, string[] fieldsB)
+  public void Merge_TwoAstsValueAndObject_ReturnsExpected(string valueA, string[] fieldsB)
   {
-    var itemA = MakeValue(valueA);
-    var itemB = MakeObject(fieldsB);
+    var astA = MakeValue(valueA);
+    var astB = MakeObject(fieldsB);
 
-    Merge_Expected([itemA, itemB], MakeObject(fieldsB));
+    Merge_Expected([astA, astB], MakeObject(fieldsB));
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsListAndValue_ReturnsExpected(string[] listA, string valueB)
+  public void Merge_TwoAstsListAndValue_ReturnsExpected(string[] listA, string valueB)
   {
-    var itemA = MakeList(listA);
-    var itemB = MakeValue(valueB);
+    var astA = MakeList(listA);
+    var astB = MakeValue(valueB);
 
-    Merge_Expected([itemA, itemB], listA.Contains(valueB), MakeList([.. listA, valueB]));
+    Merge_Expected([astA, astB], listA.Contains(valueB), MakeList([.. listA, valueB]));
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsBothLists_ReturnsExpected(string[] listA, string[] listB)
+  public void Merge_TwoAstsBothLists_ReturnsExpected(string[] listA, string[] listB)
   {
-    var itemA = MakeList(listA);
-    var itemB = MakeList(listB);
+    var astA = MakeList(listA);
+    var astB = MakeList(listB);
 
-    Merge_Expected([itemA, itemB], MakeList([.. listA, .. listB]));
+    Merge_Expected([astA, astB], MakeList([.. listA, .. listB]));
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsListAndObject_ReturnsExpected(string[] listA, string[] fieldsB)
+  public void Merge_TwoAstsListAndObject_ReturnsExpected(string[] listA, string[] fieldsB)
   {
-    var itemA = MakeList(listA);
-    var itemB = MakeObject(fieldsB);
-    var expected = itemA with { Values = [.. itemA.Values, itemB] };
+    var astA = MakeList(listA);
+    var astB = MakeObject(fieldsB);
+    var expected = astA with { Values = [.. astA.Values, astB] };
 
-    Merge_Expected([itemA, itemB], expected);
+    Merge_Expected([astA, astB], expected);
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsObjectAndValue_ReturnsExpected(string[] fieldsA, string valueB)
+  public void Merge_TwoAstsObjectAndValue_ReturnsExpected(string[] fieldsA, string valueB)
   {
-    var itemA = MakeObject(fieldsA);
-    var itemB = MakeValue(valueB);
+    var astA = MakeObject(fieldsA);
+    var astB = MakeValue(valueB);
 
-    Merge_Expected([itemA, itemB], MakeValue(valueB));
+    Merge_Expected([astA, astB], MakeValue(valueB));
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsObjectAndList_ReturnsExpected(string[] fieldsA, string[] listB)
+  public void Merge_TwoAstsObjectAndList_ReturnsExpected(string[] fieldsA, string[] listB)
   {
-    var itemA = MakeObject(fieldsA);
-    var itemB = MakeList(listB);
-    var expected = itemB with { Values = [itemA, .. itemB.Values] };
+    var astA = MakeObject(fieldsA);
+    var astB = MakeList(listB);
+    var expected = astB with { Values = [astA, .. astB.Values] };
 
-    Merge_Expected([itemA, itemB], expected);
+    Merge_Expected([astA, astB], expected);
   }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoItemsBothObjects_ReturnsExpected(string[] fieldsA, string[] fieldsB)
+  public void Merge_TwoAstsBothObjects_ReturnsExpected(string[] fieldsA, string[] fieldsB)
   {
-    var itemA = MakeObject(fieldsA);
-    var itemB = MakeObject(fieldsB);
+    var astA = MakeObject(fieldsA);
+    var astB = MakeObject(fieldsB);
 
-    Merge_Expected([itemA, itemB], MakeObject(fieldsA.Concat(fieldsB).Distinct()));
+    Merge_Expected([astA, astB], MakeObject(fieldsA.Concat(fieldsB).Distinct()));
   }
 
   private readonly MergeConstants _merger = new();

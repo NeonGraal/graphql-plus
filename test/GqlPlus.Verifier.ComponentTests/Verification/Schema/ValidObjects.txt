@@ -2,8 +2,8 @@
 object ObjAltMods { | ObjModsAlt[^] }
 object ObjModsAlt { }
 
-// extends
-object ObjTestBase { : ObjBaseTest }
+// parent
+object ObjTestBase { :ObjBaseTest }
 object ObjBaseTest { }
 
 // fields-mods-Enum
@@ -13,8 +13,8 @@ enum ObjFieldEnum { value }
 // generic-alt
 object ObjGenAlt<$type> { | $type }
 
-// generic-extends
-object ObjGenBase<$type> { : $type }
+// generic-parent
+object ObjGenBase<$type> { :$type }
 
 // generic-field
 object ObjGenField<$type> { field: $type }
@@ -23,8 +23,8 @@ object ObjGenField<$type> { field: $type }
 object ObjGenAltArg<$type> { | ObjGenAltRef<$type> }
 object ObjGenAltRef<$ref> { | $ref }
 
-// generic-extends-arg
-object ObjGenBaseArg<$type> { : ObjGenBaseRef<$type> }
+// generic-parent-arg
+object ObjGenBaseArg<$type> { :ObjGenBaseRef<$type> }
 object ObjGenBaseRef<$ref> { | $ref }
 
 // generic-field-arg
@@ -53,10 +53,10 @@ input InFieldNull { field: InFieldNull? = null }
 output OutFieldEnum { field = OutEnumField.outEnumField }
 enum OutEnumField { outEnumField }
 
-// output-field-enum-extends
-output OutFieldExtends { field = OutEnumExtends.outEnumExtends }
-enum OutEnumExtends { : OutEnumExtended outExtended }
-enum OutEnumExtended { outEnumExtends }
+// output-field-enum-parent
+output OutFieldParent { field = OutEnumParent.outEnumParent }
+enum OutEnumParent { :OutEnumExtended outExtended }
+enum OutEnumExtended { outEnumParent }
 
 // output-field-value
 output OutFieldValue { field = outEnumValue }
@@ -67,11 +67,11 @@ output OutGenEnum { | OutGenEnumRef<OutEnumGen.outEnumGen> }
 output OutGenEnumRef<$type> { field: $type }
 enum OutEnumGen { outEnumGen }
 
-// output-generic-extends
-output OutGenExtends { | OutGenExtendsRef<OutExtendsGen.outGenExtends> }
-output OutGenExtendsRef<$type> { field: $type }
-enum OutExtendsGen { : OutExtendedGen outGenExtended }
-enum OutExtendedGen { outGenExtends }
+// output-generic-parent
+output OutGenParent { | OutGenParentRef<OutParentGen.outGenParent> }
+output OutGenParentRef<$type> { field: $type }
+enum OutParentGen { :OutExtendedGen outGenExtended }
+enum OutExtendedGen { outGenParent }
 
 // output-generic-value
 output OutGenValue { | OutGenValueRef<outValueGen> }

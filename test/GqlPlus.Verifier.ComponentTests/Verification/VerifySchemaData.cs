@@ -10,13 +10,13 @@ public partial class VerifySchemaTests
     ["alts-mods-undef"] = "object Test { | Test[Scalar] }",
     ["alts-mods-wrong"] = "object Test { | Test[Test] }",
     ["alts-diff-mods"] = "object Test { | Test1 } object Test { | Test1[] } object Test1 { }",
-    ["extends-undef"] = "object Test { : Extends }",
+    ["parent-undef"] = "object Test { :Parent }",
     ["fields-diff-type"] = "object Test { field: Test } object Test { field: Test1 } object Test1 { }",
     ["fields-diff-mods"] = "object Test { field: Test } object Test { field: Test[] }",
     ["fields-mods-undef"] = "object Test { field: Test[Random] }",
     ["fields-mods-wrong"] = "object Test { field: Test[Test] }",
     ["generic-alt-undef"] = "object Test { | $type }",
-    ["generic-extends-undef"] = "object Test { : $type }",
+    ["generic-parent-undef"] = "object Test { :$type }",
     ["generic-field-undef"] = "object Test { field: $type }",
     ["generic-arg-undef"] = "object Test { field: Ref<$type> } object Ref<$ref> { | $ref }",
     ["generic-arg-more"] = "object Test<$type> { field: Ref<$type> } object Ref { }",
@@ -24,8 +24,8 @@ public partial class VerifySchemaTests
     ["generic-param-undef"] = "object Test { field: Ref<Test1> } object Ref<$ref> { | $ref }",
     ["generic-unused"] = "object Test<$type> { }",
     ["input-field-null"] = "input Test { field: Test = null }",
-    ["input-extends-output"] = "input Test { : Bad } output Bad { }",
-    ["output-extends-input"] = "output Test { : Bad } input Bad { }",
+    ["input-parent-output"] = "input Test { :Bad } output Bad { }",
+    ["output-parent-input"] = "output Test { :Bad } input Bad { }",
     ["output-enum-bad"] = "output Test { field = unknown }",
     ["output-enums-diff"] = "output Test { field = true } output Test { field = false }",
     ["output-enumValue-bad"] = "output Test { field = Boolean.unknown }",
@@ -46,13 +46,13 @@ public partial class VerifySchemaTests
       Add("alts-mods-undef");
       Add("alts-mods-wrong");
       Add("alts-diff-mods");
-      Add("extends-undef");
+      Add("parent-undef");
       Add("fields-diff-type");
       Add("fields-diff-mods");
       Add("fields-mods-undef");
       Add("fields-mods-wrong");
       Add("generic-alt-undef");
-      Add("generic-extends-undef");
+      Add("generic-parent-undef");
       Add("generic-field-undef");
       Add("generic-arg-undef");
       Add("generic-arg-more");
@@ -60,8 +60,8 @@ public partial class VerifySchemaTests
       Add("generic-param-undef");
       Add("generic-unused");
       Add("input-field-null");
-      Add("input-extends-output");
-      Add("output-extends-input");
+      Add("input-parent-output");
+      Add("output-parent-input");
       Add("output-enum-bad");
       Add("output-enums-diff");
       Add("output-enumValue-bad");
@@ -87,17 +87,17 @@ public partial class VerifySchemaTests
     ["directive-diff-parameter"] = "directive @Test(Test) { all } directive @Test(Test?) { all } input Test { }",
     ["option-diff-name"] = "option Test { } option Schema { }",
     ["enum-dup-alias"] = "enum Test [a] { test } enum Dup [a] { dup }",
-    ["enum-extends-diff"] = "enum Test { : Extends test } enum Test { test } enum Extends { extends }",
-    ["enum-extends-undef"] = "enum Test { : Extends test }",
-    ["enum-extends-wrong"] = "enum Test { : Extends test } output Extends { }",
-    ["enum-extends-alias-dup"] = "enum Test { : Extends test[alias] } enum Extends { extends[alias] }",
+    ["enum-parent-diff"] = "enum Test { :Parent test } enum Test { test } enum Parent { parent }",
+    ["enum-parent-undef"] = "enum Test { :Parent test }",
+    ["enum-parent-wrong"] = "enum Test { :Parent test } output Parent { }",
+    ["enum-parent-alias-dup"] = "enum Test { :Parent test[alias] } enum Parent { parent[alias] }",
     ["scalar-dup-alias"] = "scalar Test [a] { Boolean } scalar Dup [a] { Boolean }",
-    ["scalar-extends-undef"] = "scalar Test { Boolean : Extends }",
-    ["scalar-extends-wrong-type"] = "scalar Test { Boolean : Extends } output Extends { }",
-    ["scalar-extends-wrong-kind"] = "scalar Test { Boolean : Extends } scalar Extends { String }",
-    ["scalar-extends-self"] = "scalar Test { Boolean : Test }",
-    ["scalar-extends-self-parent"] = "scalar Test { Boolean : Extends } scalar Extends { Boolean : Test }",
-    ["scalar-extends-self-recurse"] = "scalar Test { Boolean : Extends } scalar Extends { Boolean : Recurse } scalar Recurse { Boolean : Test}",
+    ["scalar-parent-undef"] = "scalar Test { :Parent Boolean }",
+    ["scalar-parent-wrong-type"] = "scalar Test { :Parent Boolean } output Parent { }",
+    ["scalar-parent-wrong-kind"] = "scalar Test { :Parent Boolean } scalar Parent { String }",
+    ["scalar-parent-self"] = "scalar Test { :Test Boolean }",
+    ["scalar-parent-self-parent"] = "scalar Test { :Parent Boolean } scalar Parent { :Test Boolean }",
+    ["scalar-parent-self-recurse"] = "scalar Test { :Parent Boolean } scalar Parent { :Recurse Boolean } scalar Recurse { :Test Boolean }",
     ["scalar-diff-kind"] = "scalar Test { string } scalar Test { number }",
     ["scalar-string-diff"] = "scalar Test { string /a+/} scalar Test { string !/a+/ }",
     ["scalar-enum-wrong"] = "scalar Test { enum Bad.value } output Bad { }",
@@ -131,17 +131,17 @@ public partial class VerifySchemaTests
       Add("directive-diff-parameter");
       Add("option-diff-name");
       Add("enum-dup-alias");
-      Add("enum-extends-diff");
-      Add("enum-extends-undef");
-      Add("enum-extends-wrong");
-      Add("enum-extends-alias-dup");
+      Add("enum-parent-diff");
+      Add("enum-parent-undef");
+      Add("enum-parent-wrong");
+      Add("enum-parent-alias-dup");
       Add("scalar-dup-alias");
-      Add("scalar-extends-undef");
-      Add("scalar-extends-wrong-type");
-      Add("scalar-extends-wrong-kind");
-      Add("scalar-extends-self");
-      Add("scalar-extends-self-parent");
-      Add("scalar-extends-self-recurse");
+      Add("scalar-parent-undef");
+      Add("scalar-parent-wrong-type");
+      Add("scalar-parent-wrong-kind");
+      Add("scalar-parent-self");
+      Add("scalar-parent-self-parent");
+      Add("scalar-parent-self-recurse");
       Add("scalar-diff-kind");
       Add("scalar-string-diff");
       Add("scalar-enum-wrong");
@@ -176,7 +176,7 @@ public partial class VerifySchemaTests
     ["enum-value-alias"] = "enum EnValAlias { value [val1] } enum EnValAlias { value [val2] }",
     ["object"] = "object Obj { } object Obj { }",
     ["object-alias"] = "object ObjAlias [Obj1] { } object ObjAlias [Obj2] { }",
-    ["object-extends"] = "object ObjBase { : BaseObj } object ObjBase { : BaseObj } object BaseObj { }",
+    ["object-parent"] = "object ObjBase { :BaseObj } object ObjBase { :BaseObj } object BaseObj { }",
     ["object-params"] = "object ObjParams<$test> { test: $test } object ObjParams<$type> { type: $type }",
     ["object-alts"] = "object ObjAlts { | ObjAltsType } object ObjAlts { | ObjAltsType } object ObjAltsType { }",
     ["object-fields"] = "object ObjFields { field: ObjFields } object ObjFields { field: ObjFields }",
@@ -215,7 +215,7 @@ public partial class VerifySchemaTests
       Add("enum-value-alias");
       Add("object");
       Add("object-alias");
-      Add("object-extends");
+      Add("object-parent");
       Add("object-params");
       Add("object-alts");
       Add("object-fields");
@@ -236,13 +236,13 @@ public partial class VerifySchemaTests
   }
   private static readonly Dictionary<string, string> s_schemaValidObjects = new() {
     ["alts-mods-Boolean"] = "object ObjAltMods { | ObjModsAlt[^] } object ObjModsAlt { }",
-    ["extends"] = "object ObjTestBase { : ObjBaseTest } object ObjBaseTest { }",
+    ["parent"] = "object ObjTestBase { :ObjBaseTest } object ObjBaseTest { }",
     ["fields-mods-Enum"] = "object ObjFieldMods { field: ObjFieldMods[ObjFieldEnum] } enum ObjFieldEnum { value }",
     ["generic-alt"] = "object ObjGenAlt<$type> { | $type }",
-    ["generic-extends"] = "object ObjGenBase<$type> { : $type }",
+    ["generic-parent"] = "object ObjGenBase<$type> { :$type }",
     ["generic-field"] = "object ObjGenField<$type> { field: $type }",
     ["generic-alt-arg"] = "object ObjGenAltArg<$type> { | ObjGenAltRef<$type> } object ObjGenAltRef<$ref> { | $ref }",
-    ["generic-extends-arg"] = "object ObjGenBaseArg<$type> { : ObjGenBaseRef<$type> } object ObjGenBaseRef<$ref> { | $ref }",
+    ["generic-parent-arg"] = "object ObjGenBaseArg<$type> { :ObjGenBaseRef<$type> } object ObjGenBaseRef<$ref> { | $ref }",
     ["generic-field-arg"] = "object ObjGenFieldArg<$type> { field: ObjGenFieldRef<$type> } object ObjGenFieldRef<$ref> { | $ref }",
     ["generic-param"] = "object ObjGenParam { field: ObjGenParamRef<ObjGenParamAlt> } object ObjGenParamRef<$ref> { | $ref } object ObjGenParamAlt { }",
     ["input-field-Number"] = "input InFieldNum { field: Number = 0 }",
@@ -250,10 +250,10 @@ public partial class VerifySchemaTests
     ["input-field-Enum"] = "input InFieldEnum { field: InEnumField = value } enum InEnumField { value }",
     ["input-field-null"] = "input InFieldNull { field: InFieldNull? = null }",
     ["output-field-enum"] = "output OutFieldEnum { field = OutEnumField.outEnumField } enum OutEnumField { outEnumField }",
-    ["output-field-enum-extends"] = "output OutFieldExtends { field = OutEnumExtends.outEnumExtends } enum OutEnumExtends { : OutEnumExtended outExtended } enum OutEnumExtended { outEnumExtends }",
+    ["output-field-enum-parent"] = "output OutFieldParent { field = OutEnumParent.outEnumParent } enum OutEnumParent { :OutEnumExtended outExtended } enum OutEnumExtended { outEnumParent }",
     ["output-field-value"] = "output OutFieldValue { field = outEnumValue } enum OutEnumValue { outEnumValue }",
     ["output-generic-enum"] = "output OutGenEnum { | OutGenEnumRef<OutEnumGen.outEnumGen> } output OutGenEnumRef<$type> { field: $type } enum OutEnumGen { outEnumGen }",
-    ["output-generic-extends"] = "output OutGenExtends { | OutGenExtendsRef<OutExtendsGen.outGenExtends> } output OutGenExtendsRef<$type> { field: $type } enum OutExtendsGen { : OutExtendedGen outGenExtended } enum OutExtendedGen { outGenExtends }",
+    ["output-generic-parent"] = "output OutGenParent { | OutGenParentRef<OutParentGen.outGenParent> } output OutGenParentRef<$type> { field: $type } enum OutParentGen { :OutExtendedGen outGenExtended } enum OutExtendedGen { outGenParent }",
     ["output-generic-value"] = "output OutGenValue { | OutGenValueRef<outValueGen> } output OutGenValueRef<$type> { field: $type } enum OutValueGen { outValueGen }",
     ["output-params"] = "output OutParams { field(OutParam): OutParams } input OutParam { }",
     ["output-params-mods-Scalar"] = "output OutParamsScalar { field(OutParamScalar[OutScalarParam]): OutParamsScalar } input OutParamScalar { } scalar OutScalarParam { number 1 ~ 10 }",
@@ -264,13 +264,13 @@ public partial class VerifySchemaTests
     public SchemaValidObjects()
     {
       Add("alts-mods-Boolean");
-      Add("extends");
+      Add("parent");
       Add("fields-mods-Enum");
       Add("generic-alt");
-      Add("generic-extends");
+      Add("generic-parent");
       Add("generic-field");
       Add("generic-alt-arg");
-      Add("generic-extends-arg");
+      Add("generic-parent-arg");
       Add("generic-field-arg");
       Add("generic-param");
       Add("input-field-Number");
@@ -278,10 +278,10 @@ public partial class VerifySchemaTests
       Add("input-field-Enum");
       Add("input-field-null");
       Add("output-field-enum");
-      Add("output-field-enum-extends");
+      Add("output-field-enum-parent");
       Add("output-field-value");
       Add("output-generic-enum");
-      Add("output-generic-extends");
+      Add("output-generic-parent");
       Add("output-generic-value");
       Add("output-params");
       Add("output-params-mods-Scalar");
@@ -290,17 +290,17 @@ public partial class VerifySchemaTests
   private static readonly Dictionary<string, string> s_schemaValidSchemas = new() {
     ["category-output"] = "category { Cat } output Cat { }",
     ["directive-param"] = "directive @DirParam(DirParamIn) { all } input DirParamIn { }",
-    ["enum-extends"] = "enum EnExt { :EnExtBase valExt } enum EnExtBase { valBase }",
-    ["enum-extends-alias"] = "enum EnExtAlias { :EnExtAliasBase valExt valBase[base] } enum EnExtAliasBase { valBase }",
-    ["enum-extends-dup"] = "enum EnExtDup { :EnExtDupBase valExt  } enum EnExtDupBase { valBase[valExt] }",
-    ["scalar-extends"] = "scalar ScalExt { Boolean :ScalExtBase } scalar ScalExtBase { Boolean }",
+    ["enum-parent"] = "enum EnExt { :EnExtBase valExt } enum EnExtBase { valBase }",
+    ["enum-parent-alias"] = "enum EnExtAlias { :EnExtAliasBase valExt valBase[base] } enum EnExtAliasBase { valBase }",
+    ["enum-parent-dup"] = "enum EnExtDup { :EnExtDupBase valExt  } enum EnExtDupBase { valBase[valExt] }",
+    ["scalar-parent"] = "scalar ScalExt { :ScalExtBase Boolean } scalar ScalExtBase { Boolean }",
     ["scalar-enum-value"] = "scalar ScalEnum { Enum EnumScal.scal_enum } enum EnumScal { scal_enum }",
-    ["scalar-enum-value-extends"] = "scalar ScalEnumExtends { Enum EnumScalExtends.scal_enum } enum EnumScalExtends { : EnumExtendsScal scal_extends } enum EnumExtendsScal { scal_enum }",
+    ["scalar-enum-value-parent"] = "scalar ScalEnumParent { Enum EnumScalParent.scal_enum } enum EnumScalParent { :EnumParentScal scal_parent } enum EnumParentScal { scal_enum }",
     ["scalar-enum-member"] = "scalar ScalMember { enum scal_member } enum MemberScal { scal_member }",
     ["scalar-enum-all"] = "scalar ScalEnumAll { enum EnumScalAll.* } enum EnumScalAll { scal_all scal_enum_all }",
-    ["scalar-enum-all-extends"] = "scalar ScalEnumAllExtends { enum EnumScalAllExtends.* } enum EnumScalAllExtends { : EnumScalExtendsAll scal_all } enum EnumScalExtendsAll { scal_enum_all }",
+    ["scalar-enum-all-parent"] = "scalar ScalEnumAllParent { enum EnumScalAllParent.* } enum EnumScalAllParent { :EnumScalParentAll scal_all } enum EnumScalParentAll { scal_enum_all }",
     ["scalar-enum-unique"] = "scalar ScalEnumUnique { enum EnumScalUnique.* !EnumScalUnique.dup EnumScalDup.dup } enum EnumScalUnique { value dup } enum EnumScalDup { dup }",
-    ["scalar-enum-unique-extends"] = "scalar ScalEnumUniqueExtends { enum EnumScalUniqueExtends.* !EnumScalUniqueExtends.dup EnumScalDupExtends.dup } enum EnumScalUniqueExtends { : EnumScalExtendsUnique value } enum EnumScalExtendsUnique { dup } enum EnumScalDupExtends { dup }",
+    ["scalar-enum-unique-parent"] = "scalar ScalEnumUniqueParent { enum EnumScalUniqueParent.* !EnumScalUniqueParent.dup EnumScalDupParent.dup } enum EnumScalUniqueParent { :EnumScalParentUnique value } enum EnumScalParentUnique { dup } enum EnumScalDupParent { dup }",
   };
 
   public class SchemaValidSchemas : TheoryData<string>
@@ -309,17 +309,17 @@ public partial class VerifySchemaTests
     {
       Add("category-output");
       Add("directive-param");
-      Add("enum-extends");
-      Add("enum-extends-alias");
-      Add("enum-extends-dup");
-      Add("scalar-extends");
+      Add("enum-parent");
+      Add("enum-parent-alias");
+      Add("enum-parent-dup");
+      Add("scalar-parent");
       Add("scalar-enum-value");
-      Add("scalar-enum-value-extends");
+      Add("scalar-enum-value-parent");
       Add("scalar-enum-member");
       Add("scalar-enum-all");
-      Add("scalar-enum-all-extends");
+      Add("scalar-enum-all-parent");
       Add("scalar-enum-unique");
-      Add("scalar-enum-unique-extends");
+      Add("scalar-enum-unique-parent");
     }
   }
 }

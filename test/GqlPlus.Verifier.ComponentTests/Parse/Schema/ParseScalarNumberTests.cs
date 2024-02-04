@@ -61,6 +61,6 @@ internal sealed class ParseScalarNumberChecks(
 
   protected internal override string AliasesString(string input, string aliases)
     => input + aliases + "{number }";
-  protected internal override string KindString(string input, string kind, string extends)
-    => input + "{" + kind + extends + "}";
+  protected internal override string KindString(string input, string kind, string parent)
+    => input + "{" + parent + kind + "}";
 }

@@ -13,8 +13,8 @@ object Test { | Test1 }
 object Test { | Test1[] }
 object Test1 { }
 
-// extends-undef
-object Test { : Extends }
+// parent-undef
+object Test { :Parent }
 
 // fields-diff-type
 object Test { field: Test }
@@ -34,8 +34,8 @@ object Test { field: Test[Test] }
 // generic-alt-undef
 object Test { | $type }
 
-// generic-extends-undef
-object Test { : $type }
+// generic-parent-undef
+object Test { :$type }
 
 // generic-field-undef
 object Test { field: $type }
@@ -62,12 +62,12 @@ object Test<$type> { }
 // input-field-null
 input Test { field: Test = null }
 
-// input-extends-output
-input Test { : Bad }
+// input-parent-output
+input Test { :Bad }
 output Bad { }
 
-// output-extends-input
-output Test { : Bad }
+// output-parent-input
+output Test { :Bad }
 input Bad { }
 
 // output-enum-bad

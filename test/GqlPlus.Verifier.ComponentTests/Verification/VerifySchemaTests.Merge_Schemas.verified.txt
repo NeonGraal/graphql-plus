@@ -118,17 +118,17 @@ Success
   outEnumField
 }
 {
-  !E I@071/0001
-  OutEnumExtends
+  !E I@068/0001
+  OutEnumParent
   :OutEnumExtended
-  !EM I@106/0001
+  !EM I@101/0001
   outExtended
 }
 {
-  !E I@125/0001
+  !E I@120/0001
   OutEnumExtended
-  !EM I@143/0001
-  outEnumExtends
+  !EM I@138/0001
+  outEnumParent
 }
 {
   !E I@052/0001
@@ -143,17 +143,17 @@ Success
   outEnumGen
 }
 {
-  !E I@127/0001
-  OutExtendsGen
+  !E I@122/0001
+  OutParentGen
   :OutExtendedGen
-  !EM I@160/0001
+  !EM I@153/0001
   outGenExtended
 }
 {
-  !E I@182/0001
+  !E I@175/0001
   OutExtendedGen
-  !EM I@199/0001
-  outGenExtends
+  !EM I@192/0001
+  outGenParent
 }
 {
   !E I@105/0001
@@ -262,16 +262,16 @@ Success
   scal_enum
 }
 {
-  !E I@064/0001
-  EnumScalExtends
-  :EnumExtendsScal
-  !EM I@100/0001
-  scal_extends
+  !E I@062/0001
+  EnumScalParent
+  :EnumParentScal
+  !EM I@095/0001
+  scal_parent
 }
 {
-  !E I@120/0001
-  EnumExtendsScal
-  !EM I@138/0001
+  !E I@114/0001
+  EnumParentScal
+  !EM I@131/0001
   scal_enum
 }
 {
@@ -289,16 +289,16 @@ Success
   scal_enum_all
 }
 {
-  !E I@062/0001
-  EnumScalAllExtends
-  :EnumScalExtendsAll
-  !EM I@104/0001
+  !E I@060/0001
+  EnumScalAllParent
+  :EnumScalParentAll
+  !EM I@099/0001
   scal_all
 }
 {
-  !E I@120/0001
-  EnumScalExtendsAll
-  !EM I@141/0001
+  !E I@115/0001
+  EnumScalParentAll
+  !EM I@135/0001
   scal_enum_all
 }
 {
@@ -316,22 +316,22 @@ Success
   dup
 }
 {
-  !E I@118/0001
-  EnumScalUniqueExtends
-  :EnumScalExtendsUnique
-  !EM I@166/0001
+  !E I@114/0001
+  EnumScalUniqueParent
+  :EnumScalParentUnique
+  !EM I@159/0001
   value
 }
 {
-  !E I@179/0001
-  EnumScalExtendsUnique
-  !EM I@203/0001
+  !E I@172/0001
+  EnumScalParentUnique
+  !EM I@195/0001
   dup
 }
 {
-  !E I@214/0001
-  EnumScalDupExtends
-  !EM I@235/0001
+  !E I@206/0001
+  EnumScalDupParent
+  !EM I@226/0001
   dup
 }
 {
@@ -344,10 +344,10 @@ Success
 }
 {
   !S I@008/0001
-  ScalEnumExtends
+  ScalEnumParent
   Enum
-  !SM I@031/0001
-  EnumScalExtends
+  !SM I@030/0001
+  EnumScalParent
   scal_enum
 }
 {
@@ -367,10 +367,10 @@ Success
 }
 {
   !S I@008/0001
-  ScalEnumAllExtends
+  ScalEnumAllParent
   Enum
-  !SM I@034/0001
-  EnumScalAllExtends
+  !SM I@033/0001
+  EnumScalAllParent
   *
 }
 {
@@ -388,15 +388,15 @@ Success
 }
 {
   !S I@008/0001
-  ScalEnumUniqueExtends
+  ScalEnumUniqueParent
   Enum
-  !SM I@037/0001
-  EnumScalUniqueExtends
+  !SM I@036/0001
+  EnumScalUniqueParent
   *
-  !SM P@061/0001
+  !SM P@059/0001
   !
   !
-  EnumScalUniqueExtends
+  EnumScalUniqueParent
   dup
 }
 {
@@ -492,11 +492,11 @@ Success
   !I I@007/0001
   InTestBase
   :
-  I@022/0001
+  I@021/0001
   InBaseTest
 }
 {
-  !I I@041/0001
+  !I I@040/0001
   InBaseTest
 }
 {
@@ -531,7 +531,7 @@ Success
     $type
   >
   :
-  I@029/0001
+  I@028/0001
   $type
 }
 {
@@ -585,23 +585,23 @@ Success
     $type
   >
   :
-  I@031/0001
+  I@030/0001
   InGenBaseRef
   <
-    I@045/0001
+    I@044/0001
     $type
   >
 }
 {
-  !I I@059/0001
+  !I I@058/0001
   InGenBaseRef
   <
-    I@073/0001
+    I@072/0001
     $ref
   >
   |
   !AI
-  I@083/0001
+  I@082/0001
   $ref
 }
 {
@@ -752,11 +752,11 @@ Success
   !O I@008/0001
   OutTestBase
   :
-  I@024/0001
+  I@023/0001
   OutBaseTest
 }
 {
-  !O I@045/0001
+  !O I@044/0001
   OutBaseTest
 }
 {
@@ -791,7 +791,7 @@ Success
     $type
   >
   :
-  I@031/0001
+  I@030/0001
   $type
 }
 {
@@ -845,23 +845,23 @@ Success
     $type
   >
   :
-  I@033/0001
+  I@032/0001
   OutGenBaseRef
   <
-    I@048/0001
+    I@047/0001
     $type
   >
 }
 {
-  !O I@063/0001
+  !O I@062/0001
   OutGenBaseRef
   <
-    I@078/0001
+    I@077/0001
     $ref
   >
   |
   !AO
-  I@088/0001
+  I@087/0001
   $ref
 }
 {
@@ -939,13 +939,13 @@ Success
 }
 {
   !O I@008/0001
-  OutFieldExtends
+  OutFieldParent
   {
-    !OF I@026/0001
+    !OF I@025/0001
     field
     =
-    I@034/0001
-    OutEnumExtends.outEnumExtends
+    I@033/0001
+    OutEnumParent.outEnumParent
   }
 }
 {
@@ -988,28 +988,28 @@ Success
 }
 {
   !O I@008/0001
-  OutGenExtends
+  OutGenParent
   |
   !AO
-  I@026/0001
-  OutGenExtendsRef
+  I@025/0001
+  OutGenParentRef
   <
-    I@043/0001
-    OutExtendsGen.outGenExtends
+    I@041/0001
+    OutParentGen.outGenParent
   >
 }
 {
-  !O I@081/0001
-  OutGenExtendsRef
+  !O I@077/0001
+  OutGenParentRef
   <
-    I@099/0001
+    I@094/0001
     $type
   >
   {
-    !OF I@107/0001
+    !OF I@102/0001
     field
     :
-    I@115/0001
+    I@110/0001
     $type
   }
 }

@@ -67,9 +67,9 @@ object Obj { }
 object ObjAlias [Obj1] { }
 object ObjAlias [Obj2] { }
 
-// object-extends
-object ObjBase { : BaseObj }
-object ObjBase { : BaseObj }
+// object-parent
+object ObjBase { :BaseObj }
+object ObjBase { :BaseObj }
 object BaseObj { }
 
 // object-params

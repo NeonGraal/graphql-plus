@@ -1,3 +1,0 @@
-﻿[
-  Invalid Input Parent. 'Extends' not defined.
-]

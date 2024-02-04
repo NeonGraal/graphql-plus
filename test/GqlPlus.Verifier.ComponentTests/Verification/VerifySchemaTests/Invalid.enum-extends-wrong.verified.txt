@@ -1,3 +1,0 @@
-﻿[
-  Invalid Enum Parent. 'Extends' invalid type. Found 'Output'.
-]

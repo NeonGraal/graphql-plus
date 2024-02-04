@@ -48,52 +48,52 @@ option Schema { }
 enum Test [a] { test }
 enum Dup [a] { dup }
 
-// enum-extends-diff
-enum Test { : Extends test }
+// enum-parent-diff
+enum Test { :Parent test }
 enum Test { test }
-enum Extends { extends }
+enum Parent { parent }
 
-// enum-extends-undef
-enum Test { : Extends test }
+// enum-parent-undef
+enum Test { :Parent test }
 
-// enum-extends-wrong
-enum Test { : Extends test }
-output Extends { }
+// enum-parent-wrong
+enum Test { :Parent test }
+output Parent { }
 
-// enum-extends-alias-dup
-enum Test { : Extends test[alias] }
-enum Extends { extends[alias] }
+// enum-parent-alias-dup
+enum Test { :Parent test[alias] }
+enum Parent { parent[alias] }
 
 // scalar-dup-alias
 scalar Test [a] { Boolean }
 scalar Dup [a] { Boolean }
 
-// scalar-extends-undef
-scalar Test { Boolean : Extends }
+// scalar-parent-undef
+scalar Test { :Parent Boolean }
 
-// scalar-extends-wrong-type
-scalar Test { Boolean : Extends }
-output Extends { }
+// scalar-parent-wrong-type
+scalar Test { :Parent Boolean }
+output Parent { }
 
-// scalar-extends-wrong-kind
-scalar Test { Boolean : Extends }
-scalar Extends { String }
+// scalar-parent-wrong-kind
+scalar Test { :Parent Boolean }
+scalar Parent { String }
 
-// scalar-extends-self
-scalar Test { Boolean : Test }
+// scalar-parent-self
+scalar Test { :Test Boolean }
 
-// scalar-extends-self-parent
-scalar Test { Boolean : Extends }
-scalar Extends { Boolean : Test }
+// scalar-parent-self-parent
+scalar Test { :Parent Boolean }
+scalar Parent { :Test Boolean }
 
-// scalar-extends-self-recurse
-scalar Test { Boolean : Extends }
-scalar Extends { Boolean : Recurse }
-scalar Recurse { Boolean : Test}
+// scalar-parent-self-recurse
+scalar Test { :Parent Boolean }
+scalar Parent { :Recurse Boolean }
+scalar Recurse { :Test Boolean }
 
-// scalar-extends-wrong-kind
-scalar Test { Boolean : Extends }
-scalar Extends { String }
+// scalar-parent-wrong-kind
+scalar Test { :Parent Boolean }
+scalar Parent { String }
 
 // scalar-diff-kind
 scalar Test { string }

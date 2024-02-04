@@ -25,26 +25,26 @@ public class OutputAstTests : AstAliasedTests
       alternate1 == alternate2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithExtends(string name, string parent)
+  public void HashCode_WithParent(string name, string parent)
       => _checks.HashCode(
         () => new OutputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithExtends(string name, string parent)
+  public void String_WithParent(string name, string parent)
     => _checks.String(
       () => new OutputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
       $"( !O {name} : {parent} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithExtends(string name, string parent)
+  public void Equality_WithParent(string name, string parent)
     => _checks.Equality(
       () => new OutputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenExtends(string name, string extends1, string extends2)
-    => _checks.InequalityBetween(extends1, extends2,
+  public void Inequality_BetweenParent(string name, string parent1, string parent2)
+    => _checks.InequalityBetween(parent1, parent2,
       parent => new OutputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
-      extends1 == extends2);
+      parent1 == parent2);
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithFields(string name, string field)

@@ -1,3 +1,0 @@
-﻿[
-  Invalid Scalar Parent. 'Extends' invalid kind. Found 'String'.
-]

@@ -34,8 +34,8 @@ internal sealed class ParseScalarStringChecks(
 
   protected internal override string AliasesString(ScalarStringInput input, string aliases)
     => input.Name + aliases + "{string!/" + input.Regex + "/}";
-  protected internal override string KindString(ScalarStringInput input, string kind, string extends)
-    => input.Name + "{" + kind + extends + "!/" + input.Regex + "/}";
+  protected internal override string KindString(ScalarStringInput input, string kind, string parent)
+    => input.Name + "{" + parent + kind + "!/" + input.Regex + "/}";
 }
 
 public record struct ScalarStringInput(string Name, string Regex);

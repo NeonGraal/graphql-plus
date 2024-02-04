@@ -38,8 +38,8 @@ internal sealed class ParseScalarUnionChecks(
 
   protected internal override string AliasesString(ScalarUnionInput input, string aliases)
     => input.Name + aliases + "{union|" + input.Reference + "}";
-  protected internal override string KindString(ScalarUnionInput input, string kind, string extends)
-    => input.Name + "{" + kind + extends + "|" + input.Reference + "}";
+  protected internal override string KindString(ScalarUnionInput input, string kind, string parent)
+    => input.Name + "{" + parent + kind + "|" + input.Reference + "}";
 }
 
 public record struct ScalarUnionInput(string Name, string Reference);

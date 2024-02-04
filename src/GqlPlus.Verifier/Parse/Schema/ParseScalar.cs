@@ -66,17 +66,17 @@ internal class ParseScalarDefinition(
   {
     ScalarDefinition result = new();
 
-    var scalarKind = _kind.I.Parse(tokens, label);
-    if (!scalarKind.Required(kind => result.Kind = kind)) {
-      return scalarKind.AsResult(result);
-    }
-
     if (tokens.Take(':')) {
       if (tokens.Identifier(out var parent)) {
         result.Parent = parent;
       } else {
         return tokens.Error(label, "type after ':'", result);
       }
+    }
+
+    var scalarKind = _kind.I.Parse(tokens, label);
+    if (!scalarKind.Required(kind => result.Kind = kind)) {
+      return scalarKind.AsResult(result);
     }
 
     switch (result.Kind) {

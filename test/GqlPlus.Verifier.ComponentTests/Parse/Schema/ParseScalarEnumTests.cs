@@ -50,8 +50,8 @@ internal sealed class ParseScalarEnumChecks(
 
   protected internal override string AliasesString(ScalarEnumInput input, string aliases)
     => input.Name + aliases + "{enum !" + input.Member + "}";
-  protected internal override string KindString(ScalarEnumInput input, string kind, string extends)
-    => input.Name + "{" + kind + extends + "!" + input.Member + "}";
+  protected internal override string KindString(ScalarEnumInput input, string kind, string parent)
+    => input.Name + "{" + parent + kind + "!" + input.Member + "}";
 }
 
 public record struct ScalarEnumInput(string Name, string Member)

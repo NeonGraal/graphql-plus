@@ -7,7 +7,7 @@ namespace GqlPlus.Verifier.Modelling;
 public class ScalarStringModelTests : ModelAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_Extends(string name, string parent)
+  public void Model_Parent(string name, string parent)
     => _checks.AstExpected(
       new(AstNulls.At, name, ScalarKind.String, []) { Parent = parent },
       ["!_ScalarString",

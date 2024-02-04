@@ -1,4 +1,0 @@
-﻿[
-  Invalid Scalar Reference. 'Test' cannot be a child of itself, even recursively via Extends.,
-  Invalid Scalar Reference. 'Extends' cannot be a child of itself, even recursively via Test.
-]

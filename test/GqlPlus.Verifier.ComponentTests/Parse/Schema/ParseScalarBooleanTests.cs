@@ -20,6 +20,6 @@ internal sealed class ParseScalarBooleanChecks(
 
   protected internal override string AliasesString(string input, string aliases)
     => input + aliases + "{boolean}";
-  protected internal override string KindString(string input, string kind, string extends)
-    => input + "{" + kind + extends + "}";
+  protected internal override string KindString(string input, string kind, string parent)
+    => input + "{" + parent + kind + "}";
 }

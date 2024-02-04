@@ -69,7 +69,7 @@ public sealed record class OperationAst(TokenAt At, string Name)
   internal override IEnumerable<string?> GetFields()
     => // base.GetFields()
       new[] { AbbrAt, Category, Name, $"{Result}" }
-      .Concat(Errors.Bracket("<", ">"))
+      .Concat(Errors.Bracket("<", ">", true))
       .Concat(Variables.Bracket("[", "]"))
       .Concat(Directives.AsString())
       .Append(ResultType)

@@ -50,16 +50,16 @@ internal static class BuiltIn
   private static TypeParameterAst[] TypeParameters(params string[] parameters)
     => [.. parameters.Select(r => new TypeParameterAst(AstNulls.At, r))];
 
-  private static DualObjectAst DualObj(string label, TypeParameterAst[] typeParameters, params AlternateAst<DualReferenceAst>[] alternates)
+  private static DualObjectAst DualObj(string label, TypeParameterAst[] typeParameters, params AstAlternate<DualReferenceAst>[] alternates)
     => new(AstNulls.At, label) { TypeParameters = typeParameters, Alternates = alternates };
 
   private static DualObjectAst DualObj(string label, TypeParameterAst[] typeParameters, DualReferenceAst parent)
     => new(AstNulls.At, label) { TypeParameters = typeParameters, Parent = parent };
 
-  private static AlternateAst<DualReferenceAst> DualType(string type)
+  private static AstAlternate<DualReferenceAst> DualType(string type)
     => new(AstNulls.At, DualRef(type));
 
-  private static AlternateAst<DualReferenceAst> DualAlt(string? key)
+  private static AstAlternate<DualReferenceAst> DualAlt(string? key)
     => new(AstNulls.At, DualParam("T")) {
       Modifiers = key switch {
         null => [],
@@ -68,7 +68,7 @@ internal static class BuiltIn
       }
     };
 
-  private static AlternateAst<DualReferenceAst> DualMost(string key, bool optional = false)
+  private static AstAlternate<DualReferenceAst> DualMost(string key, bool optional = false)
     => new(AstNulls.At, DualRef("_Most") with { Arguments = [DualParam("T")] }) {
       Modifiers = key switch {
         "" => [optional ? ModifierAst.Optional(AstNulls.At) : ModifierAst.List(AstNulls.At)],

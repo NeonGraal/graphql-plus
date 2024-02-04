@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Merging;
 
 internal class MergeDirectives(
   IMerge<ParameterAst> parameters
-) : AliasedMerger<DirectiveDeclAst>
+) : AstAliasedMerger<DirectiveDeclAst>
 {
   protected override string ItemMatchKey(DirectiveDeclAst item)
     => item.Option.ToString();

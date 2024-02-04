@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeScalarMembers
-  : ScalarItemMerger<ScalarMemberAst>
+  : AstScalarItemMerger<ScalarMemberAst>
 {
   protected override string ItemGroupKey(ScalarMemberAst item)
     => item.Member;

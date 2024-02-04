@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeScalarRegexes
-  : ScalarItemMerger<ScalarRegexAst>
+  : AstScalarItemMerger<ScalarRegexAst>
 {
   protected override string ItemGroupKey(ScalarRegexAst item)
     => item.Regex;

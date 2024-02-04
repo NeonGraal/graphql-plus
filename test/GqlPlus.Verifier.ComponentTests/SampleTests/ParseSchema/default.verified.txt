@@ -1,36 +1,36 @@
-﻿!G I@1/1
+﻿!G I@01/001
 Success
 {
-  !C P@10/1
+  !C P@10/001
   query
   (Parallel)
   Query
 }
 {
-  !O I@8/2
+  !O I@08/002
   Query
 }
 {
-  !C P@10/4
+  !C P@10/004
   mutation
   (Sequential)
   Mutation
 }
 {
-  !O I@8/5
+  !O I@08/005
   Mutation
 }
 {
-  !C P@10/7
+  !C P@10/007
   subscription
   (Single)
   Subscription
 }
 {
-  !O I@8/8
+  !O I@08/008
   Subscription
 }
 {
-  !O I@8/10
+  !O I@08/010
   _Schema
 }

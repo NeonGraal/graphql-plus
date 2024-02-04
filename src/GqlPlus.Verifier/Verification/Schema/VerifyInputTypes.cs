@@ -1,12 +1,14 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyInputTypes(
-  IVerifyAliased<InputDeclAst> aliased
-) : AstObjectVerifier<InputDeclAst, InputFieldAst, InputReferenceAst, UsageContext>(aliased)
+  IVerifyAliased<InputDeclAst> aliased,
+  IMerge<TypeParameterAst> mergeTypeParameters
+) : AstObjectVerifier<InputDeclAst, InputFieldAst, InputReferenceAst, UsageContext>(aliased, mergeTypeParameters)
 {
   protected override UsageContext MakeContext(InputDeclAst usage, AstType[] aliased, ITokenMessages errors)
   {

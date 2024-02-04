@@ -1,58 +1,58 @@
-﻿!g I@1/1
+﻿!g I@01/001
 query
 noFragments
 Success
 {
-  !f I@3/2
+  !f I@03/002
   user
   (
-    !a I@8/2
+    !a I@08/002
     {
-      ( !k I@8/2 id ):( !k N@12/2 4 )
+      ( !k I@08/002 id ):( !k N@12/002 4 )
     }
   )
   {
-    !f I@5/3
+    !f I@05/003
     friends
     (
-      !a I@13/3
+      !a I@13/003
       {
-        ( !k I@13/3 first ):( !k N@20/3 10 )
+        ( !k I@13/003 first ):( !k N@20/003 10 )
       }
     )
     {
-      !f I@7/4
+      !f I@07/004
       id
-      !f I@7/5
+      !f I@07/005
       name
-      !f I@7/6
+      !f I@07/006
       profilePic
       (
-        !a I@18/6
+        !a I@18/006
         {
-          ( !k I@18/6 size ):( !k N@24/6 50 )
+          ( !k I@18/006 size ):( !k N@24/006 50 )
         }
       )
     }
-    !f I@5/8
+    !f I@05/008
     mutualFriends
     (
-      !a I@19/8
+      !a I@19/008
       {
-        ( !k I@19/8 first ):( !k N@26/8 10 )
+        ( !k I@19/008 first ):( !k N@26/008 10 )
       }
     )
     {
-      !f I@7/9
+      !f I@07/009
       id
-      !f I@7/10
+      !f I@07/010
       name
-      !f I@7/11
+      !f I@07/011
       profilePic
       (
-        !a I@18/11
+        !a I@18/011
         {
-          ( !k I@18/11 size ):( !k N@24/11 50 )
+          ( !k I@18/011 size ):( !k N@24/011 50 )
         }
       )
     }

@@ -11,7 +11,7 @@ public class MergeOutputObjectsTests
   public MergeOutputObjectsTests()
     => _merger = new(TypeParameters, Alternates, Fields);
 
-  internal override ObjectsMerger<OutputDeclAst, OutputFieldAst, OutputReferenceAst> MergerObject => _merger;
+  internal override AstObjectsMerger<OutputDeclAst, OutputFieldAst, OutputReferenceAst> MergerObject => _merger;
 
   protected override OutputDeclAst MakeObject(string name, string description = "")
     => new(AstNulls.At, name, description);

@@ -1,11 +1,13 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Merging;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
 internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>(
-  IVerifyAliased<TObject> aliased
-) : AstParentVerifier<TObject, TReference, TContext>(aliased)
+  IVerifyAliased<TObject> aliased,
+  IMerge<TypeParameterAst> mergeTypeParameters
+) : AstParentItemVerifier<TObject, TReference, TContext, TypeParameterAst>(aliased, mergeTypeParameters)
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>
   where TReference : AstReference<TReference>
@@ -34,7 +36,7 @@ internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>
     }
   }
 
-  protected virtual void UsageAlternate(AlternateAst<TReference> alternate, TContext context)
+  protected virtual void UsageAlternate(AstAlternate<TReference> alternate, TContext context)
     => context
       .CheckType(alternate.Type)
       .CheckModifiers(alternate);
@@ -49,7 +51,7 @@ internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>
 
   protected override bool GetParentType(TObject usage, string parent, TContext context, [NotNullWhen(true)] out AstType<TReference>? type)
   {
-    if (parent.StartsWith("$", StringComparison.Ordinal)) {
+    if (parent.StartsWith('$')) {
       var parameter = parent[1..];
       if (usage.TypeParameters.All(p => p.Name != parameter)) {
         context.AddError(usage, usage.Label + " Parent", $"'{parent}' not defined");
@@ -61,4 +63,7 @@ internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>
 
     return base.GetParentType(usage, parent, context, out type);
   }
+
+  protected override IEnumerable<TypeParameterAst> GetItems(TObject usage)
+    => usage.TypeParameters;
 }

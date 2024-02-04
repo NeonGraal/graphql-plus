@@ -42,18 +42,18 @@ public abstract class TestObjects<TObject, TField, TReference>
   }
 
   protected readonly IMerge<TypeParameterAst> TypeParameters;
-  protected readonly IMerge<AlternateAst<TReference>> Alternates;
+  protected readonly IMerge<AstAlternate<TReference>> Alternates;
   protected readonly IMerge<TField> Fields;
 
   protected TestObjects()
   {
     TypeParameters = Merger<TypeParameterAst>();
-    Alternates = Merger<AlternateAst<TReference>>();
+    Alternates = Merger<AstAlternate<TReference>>();
     Fields = Merger<TField>();
   }
 
-  internal abstract ObjectsMerger<TObject, TField, TReference> MergerObject { get; }
-  internal override TypedMerger<AstType, TObject, TReference, TypeParameterAst> MergerTyped => MergerObject;
+  internal abstract AstObjectsMerger<TObject, TField, TReference> MergerObject { get; }
+  internal override AstTypeMerger<AstType, TObject, TReference, TypeParameterAst> MergerTyped => MergerObject;
 
   protected abstract TObject MakeObject(string name, string description = "");
   protected abstract TField[] MakeFields(string field, string type);

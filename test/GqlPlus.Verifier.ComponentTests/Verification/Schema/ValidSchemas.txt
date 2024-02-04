@@ -9,6 +9,14 @@ input DirParamIn { }
 enum EnExt { :EnExtBase valExt }
 enum EnExtBase { valBase }
 
+// enum-extends-alias
+enum EnExtAlias { :EnExtAliasBase valExt valBase[base] }
+enum EnExtAliasBase { valBase }
+
+// enum-extends-dup
+enum EnExtDup { :EnExtDupBase valExt  }
+enum EnExtDupBase { valBase[valExt] }
+
 // scalar-extends
 scalar ScalExt { Boolean :ScalExtBase }
 scalar ScalExtBase { Boolean }

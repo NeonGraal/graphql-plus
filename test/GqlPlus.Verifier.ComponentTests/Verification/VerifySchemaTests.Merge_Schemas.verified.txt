@@ -1,14 +1,14 @@
 ﻿[  
-!G I@1/1
+!G I@01/001
 Success
 {
-  !C P@10/1
+  !C P@10/001
   category
   (Parallel)
   Category
 }
 {
-  !C P@10/1
+  !C P@10/001
   catAlias
   [
     CatA1
@@ -18,7 +18,7 @@ Success
   CatAlias
 }
 {
-  !C P@10/1
+  !C P@10/001
   catMods
   [
     CatM1
@@ -29,19 +29,19 @@ Success
   ?
 }
 {
-  !C P@10/1
+  !C P@10/001
   cat
   (Parallel)
   Cat
 }
 {
-  !D I@12/1
+  !D I@12/001
   Dir
   (Unique)
   Inline, Spread
 }
 {
-  !D I@12/1
+  !D I@12/001
   DirAlias
   [
     DirA1
@@ -51,33 +51,33 @@ Success
   Variable, Field
 }
 {
-  !D I@12/1
+  !D I@12/001
   DirParams
   (
     !P
-    I@22/1
+    I@22/001
     DirParamsIn
   )
   (Unique)
   Operation, Fragment
 }
 {
-  !D I@12/1
+  !D I@12/001
   DirParam
   (
     !P
-    I@21/1
+    I@21/001
     DirParamIn
   )
   (Unique)
   All
 }
 {
-  !O I@8/1
+  !O I@08/001
   Option
 }
 {
-  !O I@8/1
+  !O I@08/001
   OptAlias
   [
     Opt1
@@ -85,123 +85,123 @@ Success
   ]
 }
 {
-  !O I@8/1
+  !O I@08/001
   OptSetting
   {
-    !OS I@21/1
+    !OS I@21/001
     setting
-    =( !c P@64/1 [ !k I@29/1 Boolean.true !k N@65/1 0 ] )
+    =( !c P@64/001 [ !k I@29/001 Boolean.true !k N@65/001 0 ] )
   }
 }
 {
-  !E I@60/1
+  !E I@60/001
   InFieldEnum
-  !EM I@74/1
+  !EM I@74/001
   value
 }
 {
-  !E I@64/1
+  !E I@64/001
   OutFieldEnum
-  !EM I@79/1
+  !EM I@79/001
   value
 }
 {
-  !E I@55/1
+  !E I@55/001
   InEnumField
-  !EM I@69/1
+  !EM I@69/001
   value
 }
 {
-  !E I@64/1
+  !E I@64/001
   OutEnumField
-  !EM I@79/1
+  !EM I@79/001
   outEnumField
 }
 {
-  !E I@71/1
+  !E I@71/001
   OutEnumExtends
   :OutEnumExtended
-  !EM I@106/1
+  !EM I@106/001
   outExtended
 }
 {
-  !E I@125/1
+  !E I@125/001
   OutEnumExtended
-  !EM I@143/1
+  !EM I@143/001
   outEnumExtends
 }
 {
-  !E I@52/1
+  !E I@52/001
   OutEnumValue
-  !EM I@67/1
+  !EM I@67/001
   outEnumValue
 }
 {
-  !E I@112/1
+  !E I@112/001
   OutEnumGen
-  !EM I@125/1
+  !EM I@125/001
   outEnumGen
 }
 {
-  !E I@127/1
+  !E I@127/001
   OutExtendsGen
   :OutExtendedGen
-  !EM I@160/1
+  !EM I@160/001
   outGenExtended
 }
 {
-  !E I@182/1
+  !E I@182/001
   OutExtendedGen
-  !EM I@199/1
+  !EM I@199/001
   outGenExtends
 }
 {
-  !E I@105/1
+  !E I@105/001
   OutValueGen
-  !EM I@119/1
+  !EM I@119/001
   outValueGen
 }
 {
-  !E I@6/1
+  !E I@06/001
   EnAlias
   [
     En1
     En2
   ]
-  !EM I@22/1
+  !EM I@22/001
   alias
 }
 {
-  !E I@6/1
+  !E I@06/001
   EnDiff
-  !EM I@15/1
+  !EM I@15/001
   one
-  !EM I@35/1
+  !EM I@35/001
   two
 }
 {
-  !E I@6/1
+  !E I@06/001
   EnSame
-  !EM I@15/1
+  !EM I@15/001
   same
 }
 {
-  !E I@6/1
+  !E I@06/001
   EnSameParent
   :EnParent
-  !EM I@31/1
+  !EM I@31/001
   sameP
 }
 {
-  !E I@82/1
+  !E I@82/001
   EnParent
-  !EM I@93/1
+  !EM I@93/001
   parent
 }
 {
-  !E I@6/1
+  !E I@06/001
   EnValAlias
-  !EM I@19/1
+  !EM I@19/001
   value
   [
     val1
@@ -209,173 +209,207 @@ Success
   ]
 }
 {
-  !E I@6/1
+  !E I@06/001
   EnExt
   :EnExtBase
-  !EM I@25/1
+  !EM I@25/001
   valExt
 }
 {
-  !E I@39/1
+  !E I@39/001
   EnExtBase
-  !EM I@51/1
+  !EM I@51/001
   valBase
 }
 {
-  !E I@50/1
+  !E I@06/001
+  EnExtAlias
+  :EnExtAliasBase
+  !EM I@35/001
+  valExt
+  !EM I@42/001
+  valBase
+  [
+    base
+  ]
+}
+{
+  !E I@63/001
+  EnExtAliasBase
+  !EM I@80/001
+  valBase
+}
+{
+  !E I@06/001
+  EnExtDup
+  :EnExtDupBase
+  !EM I@31/001
+  valExt
+}
+{
+  !E I@46/001
+  EnExtDupBase
+  !EM I@61/001
+  valBase
+  [
+    valExt
+  ]
+}
+{
+  !E I@50/001
   EnumScal
-  !EM I@61/1
+  !EM I@61/001
   scal_enum
 }
 {
-  !E I@64/1
+  !E I@64/001
   EnumScalExtends
   :EnumExtendsScal
-  !EM I@100/1
+  !EM I@100/001
   scal_extends
 }
 {
-  !E I@120/1
+  !E I@120/001
   EnumExtendsScal
-  !EM I@138/1
+  !EM I@138/001
   scal_enum
 }
 {
-  !E I@45/1
+  !E I@45/001
   MemberScal
-  !EM I@58/1
+  !EM I@58/001
   scal_member
 }
 {
-  !E I@48/1
+  !E I@48/001
   EnumScalAll
-  !EM I@62/1
+  !EM I@62/001
   scal_all
-  !EM I@71/1
+  !EM I@71/001
   scal_enum_all
 }
 {
-  !E I@62/1
+  !E I@62/001
   EnumScalAllExtends
   :EnumScalExtendsAll
-  !EM I@104/1
+  !EM I@104/001
   scal_all
 }
 {
-  !E I@120/1
+  !E I@120/001
   EnumScalExtendsAll
-  !EM I@141/1
+  !EM I@141/001
   scal_enum_all
 }
 {
-  !E I@90/1
+  !E I@90/001
   EnumScalUnique
-  !EM I@107/1
+  !EM I@107/001
   value
-  !EM I@113/1
+  !EM I@113/001
   dup
 }
 {
-  !E I@124/1
+  !E I@124/001
   EnumScalDup
-  !EM I@138/1
+  !EM I@138/001
   dup
 }
 {
-  !E I@118/1
+  !E I@118/001
   EnumScalUniqueExtends
   :EnumScalExtendsUnique
-  !EM I@166/1
+  !EM I@166/001
   value
 }
 {
-  !E I@179/1
+  !E I@179/001
   EnumScalExtendsUnique
-  !EM I@203/1
+  !EM I@203/001
   dup
 }
 {
-  !E I@214/1
+  !E I@214/001
   EnumScalDupExtends
-  !EM I@235/1
+  !EM I@235/001
   dup
 }
 {
-  !S I@8/1
+  !S I@08/001
   ScalEnum
   Enum
-  !SM I@24/1
+  !SM I@24/001
   EnumScal
   scal_enum
 }
 {
-  !S I@8/1
+  !S I@08/001
   ScalEnumExtends
   Enum
-  !SM I@31/1
+  !SM I@31/001
   EnumScalExtends
   scal_enum
 }
 {
-  !S I@8/1
+  !S I@08/001
   ScalMember
   Enum
-  !SM I@26/1
+  !SM I@26/001
   scal_member
 }
 {
-  !S I@8/1
+  !S I@08/001
   ScalEnumAll
   Enum
-  !SM I@27/1
+  !SM I@27/001
   EnumScalAll
   *
 }
 {
-  !S I@8/1
+  !S I@08/001
   ScalEnumAllExtends
   Enum
-  !SM I@34/1
+  !SM I@34/001
   EnumScalAllExtends
   *
 }
 {
-  !S I@8/1
+  !S I@08/001
   ScalEnumUnique
   Enum
-  !SM I@30/1
+  !SM I@30/001
   EnumScalUnique
   *
-  !SM P@47/1
+  !SM P@47/001
   !
   !
   EnumScalUnique
   dup
 }
 {
-  !S I@8/1
+  !S I@08/001
   ScalEnumUniqueExtends
   Enum
-  !SM I@37/1
+  !SM I@37/001
   EnumScalUniqueExtends
   *
-  !SM P@61/1
+  !SM P@61/001
   !
   !
   EnumScalUniqueExtends
   dup
 }
 {
-  !S I@115/1
+  !S I@115/001
   OutScalarParam
   Number
-  !SR N@139/1
+  !SR N@139/001
   1
   ~
   10
 }
 {
-  !S I@8/1
+  !S I@08/001
   NumAlias
   [
     Num1
@@ -384,717 +418,717 @@ Success
   Number
 }
 {
-  !S I@8/1
+  !S I@08/001
   Num
   Number
 }
 {
-  !S I@8/1
+  !S I@08/001
   NumSame
   Number
-  !SR N@25/1
+  !SR N@25/001
   1
   ~
   9
 }
 {
-  !S I@8/1
+  !S I@08/001
   NumDiff
   Number
-  !SR N@25/1
+  !SR N@25/001
   1
   ~
   9
 }
 {
-  !S I@8/1
+  !S I@08/001
   Str
   String
 }
 {
-  !S I@8/1
+  !S I@08/001
   StrSame
   String
-  !SX R@25/1
+  !SX R@25/001
   /a+/
 }
 {
-  !S I@8/1
+  !S I@08/001
   StrDiff
   String
-  !SX R@25/1
+  !SX R@25/001
   /a+/
 }
 {
-  !S I@8/1
+  !S I@08/001
   UnSame
   Union
-  !ST P@23/1
+  !ST P@23/001
   Boolean
 }
 {
-  !S I@8/1
+  !S I@08/001
   UnDiff
   Union
-  !ST P@23/1
+  !ST P@23/001
   Boolean
-  !ST P@57/1
+  !ST P@57/001
   Number
 }
 {
-  !I I@7/1
+  !I I@07/001
   InAltMods
   |
   !AI
-  I@21/1
+  I@21/001
   InModsAlt
   [^]
 }
 {
-  !I I@42/1
+  !I I@42/001
   InModsAlt
 }
 {
-  !I I@7/1
+  !I I@07/001
   InTestBase
   :
-  I@22/1
+  I@22/001
   InBaseTest
 }
 {
-  !I I@41/1
+  !I I@41/001
   InBaseTest
 }
 {
-  !I I@7/1
+  !I I@07/001
   InFieldMods
   {
-    !IF I@21/1
+    !IF I@21/001
     field
     :
-    I@28/1
+    I@28/001
     InFieldMods
     [InFieldEnum]
   }
 }
 {
-  !I I@7/1
+  !I I@07/001
   InGenAlt
   <
-    I@17/1
+    I@17/001
     $type
   >
   |
   !AI
-  I@28/1
+  I@28/001
   $type
 }
 {
-  !I I@7/1
+  !I I@07/001
   InGenBase
   <
-    I@18/1
+    I@18/001
     $type
   >
   :
-  I@29/1
+  I@29/001
   $type
 }
 {
-  !I I@7/1
+  !I I@07/001
   InGenField
   <
-    I@19/1
+    I@19/001
     $type
   >
   {
-    !IF I@27/1
+    !IF I@27/001
     field
     :
-    I@35/1
+    I@35/001
     $type
   }
 }
 {
-  !I I@7/1
+  !I I@07/001
   InGenAltArg
   <
-    I@20/1
+    I@20/001
     $type
   >
   |
   !AI
-  I@30/1
+  I@30/001
   InGenAltRef
   <
-    I@43/1
+    I@43/001
     $type
   >
 }
 {
-  !I I@57/1
+  !I I@57/001
   InGenAltRef
   <
-    I@70/1
+    I@70/001
     $ref
   >
   |
   !AI
-  I@80/1
+  I@80/001
   $ref
 }
 {
-  !I I@7/1
+  !I I@07/001
   InGenBaseArg
   <
-    I@21/1
+    I@21/001
     $type
   >
   :
-  I@31/1
+  I@31/001
   InGenBaseRef
   <
-    I@45/1
+    I@45/001
     $type
   >
 }
 {
-  !I I@59/1
+  !I I@59/001
   InGenBaseRef
   <
-    I@73/1
+    I@73/001
     $ref
   >
   |
   !AI
-  I@83/1
+  I@83/001
   $ref
 }
 {
-  !I I@7/1
+  !I I@07/001
   InGenFieldArg
   <
-    I@22/1
+    I@22/001
     $type
   >
   {
-    !IF I@30/1
+    !IF I@30/001
     field
     :
-    I@37/1
+    I@37/001
     InGenFieldRef
     <
-      I@52/1
+      I@52/001
       $type
     >
   }
 }
 {
-  !I I@66/1
+  !I I@66/001
   InGenFieldRef
   <
-    I@81/1
+    I@81/001
     $ref
   >
   |
   !AI
-  I@91/1
+  I@91/001
   $ref
 }
 {
-  !I I@7/1
+  !I I@07/001
   InGenParam
   {
-    !IF I@20/1
+    !IF I@20/001
     field
     :
-    I@27/1
+    I@27/001
     InGenParamRef
     <
-      I@41/1
+      I@41/001
       InGenParamAlt
     >
   }
 }
 {
-  !I I@64/1
+  !I I@64/001
   InGenParamRef
   <
-    I@79/1
+    I@79/001
     $ref
   >
   |
   !AI
-  I@89/1
+  I@89/001
   $ref
 }
 {
-  !I I@101/1
+  !I I@101/001
   InGenParamAlt
 }
 {
-  !I I@7/1
+  !I I@07/001
   InFieldNum
   {
-    !IF I@20/1
+    !IF I@20/001
     field
     :
-    I@27/1
+    I@27/001
     Number
-    =( !k N@36/1 0 )
+    =( !k N@36/001 0 )
   }
 }
 {
-  !I I@7/1
+  !I I@07/001
   InFieldStr
   {
-    !IF I@20/1
+    !IF I@20/001
     field
     :
-    I@27/1
+    I@27/001
     String
-    =( !k S@36/1 '' )
+    =( !k S@36/001 '' )
   }
 }
 {
-  !I I@7/1
+  !I I@07/001
   InFieldEnum
   {
-    !IF I@21/1
+    !IF I@21/001
     field
     :
-    I@28/1
+    I@28/001
     InEnumField
-    =( !k I@42/1 value )
+    =( !k I@42/001 value )
   }
 }
 {
-  !I I@7/1
+  !I I@07/001
   InFieldNull
   {
-    !IF I@21/1
+    !IF I@21/001
     field
     :
-    I@28/1
+    I@28/001
     InFieldNull
     ?
-    =( !k I@43/1 Null.null )
+    =( !k I@43/001 Null.null )
   }
 }
 {
-  !I I@55/1
+  !I I@55/001
   OutParam
 }
 {
-  !I I@89/1
+  !I I@89/001
   OutParamScalar
 }
 {
-  !I I@89/1
+  !I I@89/001
   DirParamsIn
 }
 {
-  !I I@103/1
+  !I I@103/001
   FieldParam
 }
 {
-  !I I@47/1
+  !I I@47/001
   DirParamIn
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutAltMods
   |
   !AO
-  I@23/1
+  I@23/001
   OutModsAlt
   [^]
 }
 {
-  !O I@46/1
+  !O I@46/001
   OutModsAlt
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutTestBase
   :
-  I@24/1
+  I@24/001
   OutBaseTest
 }
 {
-  !O I@45/1
+  !O I@45/001
   OutBaseTest
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutFieldMods
   {
-    !OF I@23/1
+    !OF I@23/001
     field
     :
-    I@30/1
+    I@30/001
     OutFieldMods
     [OutFieldEnum]
   }
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutGenAlt
   <
-    I@19/1
+    I@19/001
     $type
   >
   |
   !AO
-  I@30/1
+  I@30/001
   $type
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutGenBase
   <
-    I@20/1
+    I@20/001
     $type
   >
   :
-  I@31/1
+  I@31/001
   $type
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutGenField
   <
-    I@21/1
+    I@21/001
     $type
   >
   {
-    !OF I@29/1
+    !OF I@29/001
     field
     :
-    I@37/1
+    I@37/001
     $type
   }
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutGenAltArg
   <
-    I@22/1
+    I@22/001
     $type
   >
   |
   !AO
-  I@32/1
+  I@32/001
   OutGenAltRef
   <
-    I@46/1
+    I@46/001
     $type
   >
 }
 {
-  !O I@61/1
+  !O I@61/001
   OutGenAltRef
   <
-    I@75/1
+    I@75/001
     $ref
   >
   |
   !AO
-  I@85/1
+  I@85/001
   $ref
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutGenBaseArg
   <
-    I@23/1
+    I@23/001
     $type
   >
   :
-  I@33/1
+  I@33/001
   OutGenBaseRef
   <
-    I@48/1
+    I@48/001
     $type
   >
 }
 {
-  !O I@63/1
+  !O I@63/001
   OutGenBaseRef
   <
-    I@78/1
+    I@78/001
     $ref
   >
   |
   !AO
-  I@88/1
+  I@88/001
   $ref
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutGenFieldArg
   <
-    I@24/1
+    I@24/001
     $type
   >
   {
-    !OF I@32/1
+    !OF I@32/001
     field
     :
-    I@39/1
+    I@39/001
     OutGenFieldRef
     <
-      I@55/1
+      I@55/001
       $type
     >
   }
 }
 {
-  !O I@70/1
+  !O I@70/001
   OutGenFieldRef
   <
-    I@86/1
+    I@86/001
     $ref
   >
   |
   !AO
-  I@96/1
+  I@96/001
   $ref
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutGenParam
   {
-    !OF I@22/1
+    !OF I@22/001
     field
     :
-    I@29/1
+    I@29/001
     OutGenParamRef
     <
-      I@44/1
+      I@44/001
       OutGenParamAlt
     >
   }
 }
 {
-  !O I@69/1
+  !O I@69/001
   OutGenParamRef
   <
-    I@85/1
+    I@85/001
     $ref
   >
   |
   !AO
-  I@95/1
+  I@95/001
   $ref
 }
 {
-  !O I@108/1
+  !O I@108/001
   OutGenParamAlt
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutFieldEnum
   {
-    !OF I@23/1
+    !OF I@23/001
     field
     =
-    I@31/1
+    I@31/001
     OutEnumField.outEnumField
   }
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutFieldExtends
   {
-    !OF I@26/1
+    !OF I@26/001
     field
     =
-    I@34/1
+    I@34/001
     OutEnumExtends.outEnumExtends
   }
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutFieldValue
   {
-    !OF I@24/1
+    !OF I@24/001
     field
     =
-    I@32/1
+    I@32/001
     .outEnumValue
   }
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutGenEnum
   |
   !AO
-  I@23/1
+  I@23/001
   OutGenEnumRef
   <
-    I@37/1
+    I@37/001
     OutEnumGen.outEnumGen
   >
 }
 {
-  !O I@69/1
+  !O I@69/001
   OutGenEnumRef
   <
-    I@84/1
+    I@84/001
     $type
   >
   {
-    !OF I@92/1
+    !OF I@92/001
     field
     :
-    I@100/1
+    I@100/001
     $type
   }
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutGenExtends
   |
   !AO
-  I@26/1
+  I@26/001
   OutGenExtendsRef
   <
-    I@43/1
+    I@43/001
     OutExtendsGen.outGenExtends
   >
 }
 {
-  !O I@81/1
+  !O I@81/001
   OutGenExtendsRef
   <
-    I@99/1
+    I@99/001
     $type
   >
   {
-    !OF I@107/1
+    !OF I@107/001
     field
     :
-    I@115/1
+    I@115/001
     $type
   }
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutGenValue
   |
   !AO
-  I@24/1
+  I@24/001
   OutGenValueRef
   <
-    I@39/1
+    I@39/001
     outValueGen
   >
 }
 {
-  !O I@61/1
+  !O I@61/001
   OutGenValueRef
   <
-    I@77/1
+    I@77/001
     $type
   >
   {
-    !OF I@85/1
+    !OF I@85/001
     field
     :
-    I@93/1
+    I@93/001
     $type
   }
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutParams
   {
-    !OF I@20/1
+    !OF I@20/001
     field
     (
       !P
-      I@26/1
+      I@26/001
       OutParam
     )
     :
-    I@37/1
+    I@37/001
     OutParams
   }
 }
 {
-  !O I@8/1
+  !O I@08/001
   OutParamsScalar
   {
-    !OF I@26/1
+    !OF I@26/001
     field
     (
       !P
-      I@32/1
+      I@32/001
       OutParamScalar
       [OutScalarParam]
     )
     :
-    I@65/1
+    I@65/001
     OutParamsScalar
   }
 }
 {
-  !O I@61/1
+  !O I@61/001
   Category
 }
 {
-  !O I@68/1
+  !O I@68/001
   CatAlias
 }
 {
-  !O I@68/1
+  !O I@68/001
   CatMods
 }
 {
-  !O I@8/1
+  !O I@08/001
   FieldParams
   {
-    !OF I@22/1
+    !OF I@22/001
     field
     (
       !P
-      I@28/1
+      I@28/001
       FieldParam
     )
     :
-    I@41/1
+    I@41/001
     FieldParams
   }
 }
 {
-  !O I@8/1
+  !O I@08/001
   FieldEnums
   {
-    !OF I@21/1
+    !OF I@21/001
     field
     =
-    I@29/1
+    I@29/001
     Boolean.true
   }
 }
 {
-  !O I@8/1
+  !O I@08/001
   FieldEnumAlias
   {
-    !OF I@25/1
+    !OF I@25/001
     field
     [
       field1
       field2
     ]
     =
-    I@42/1
+    I@42/001
     Boolean.true
   }
 }
 {
-  !O I@25/1
+  !O I@25/001
   Cat
 }
 

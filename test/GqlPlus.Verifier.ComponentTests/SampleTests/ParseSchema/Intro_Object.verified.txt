@@ -1,90 +1,90 @@
-﻿!G I@1/1
+﻿!G I@01/001
 Success
 {
-  !O I@8/1
+  !O I@08/001
   _TypeObject
   <
-    I@21/1
+    I@21/001
     $kind
-    I@27/1
+    I@27/001
     $base
-    I@33/1
+    I@33/001
     $field
   >
   :
-  I@7/2
+  I@07/002
   _ChildType
   <
-    I@19/2
+    I@19/002
     $kind
-    I@24/2
+    I@24/002
     _Described
     <
-      I@36/2
+      I@36/002
       $base
     >
   >
   {
-    !OF I@9/3
+    !OF I@09/003
     typeParameters
     :
-    I@25/3
+    I@25/003
     _Described
     <
-      I@36/3
+      I@36/003
       _Named
     >
     []
-    !OF I@9/4
+    !OF I@09/004
     fields
     :
-    I@18/4
+    I@18/004
     $field
     []
-    !OF I@9/5
+    !OF I@09/005
     alternates
     :
-    I@21/5
+    I@21/005
     _Alternate
     <
-      I@33/5
+      I@33/005
       $base
     >
     []
-    !OF I@9/6
+    !OF I@09/006
     allTypeParameters
     :
-    I@28/6
+    I@28/006
     _Object
     <
-      I@36/6
+      I@36/006
       _Described
       <
-        I@47/6
+        I@47/006
         _Named
       >
     >
     []
-    !OF I@9/7
+    !OF I@09/007
     allFields
     :
-    I@20/7
+    I@20/007
     _Object
     <
-      I@29/7
+      I@29/007
       $field
     >
     []
-    !OF I@9/8
+    !OF I@09/008
     allAlternates
     :
-    I@24/8
+    I@24/008
     _Object
     <
-      I@32/8
+      I@32/008
       _Alternate
       <
-        I@44/8
+        I@44/008
         $base
       >
     >
@@ -92,113 +92,113 @@ Success
   }
 }
 {
-  !O I@8/11
+  !O I@08/011
   _Ref
   <
-    I@14/11
+    I@14/011
     $base
   >
   |
   !AO
-  I@7/12
+  I@07/012
   _BaseType
   <
-    I@17/12
+    I@17/012
     _TypeKind.Internal
   >
   !AO
-  I@7/13
+  I@07/013
   _TypeSimple
   !AO
-  I@8/14
+  I@08/014
   $base
 }
 {
-  !O I@8/17
+  !O I@08/017
   _Alternate
   <
-    I@20/17
+    I@20/017
     $base
   >
   {
-    !OF I@7/18
+    !OF I@07/018
     type
     :
-    I@13/18
+    I@13/018
     _Ref
     <
-      I@19/18
+      I@19/018
       $base
     >
-    !OF I@7/19
+    !OF I@07/019
     collections
     :
-    I@20/19
+    I@20/019
     _Collection
     []
   }
 }
 {
-  !O I@8/22
+  !O I@08/022
   _Object
   <
-    I@17/22
+    I@17/022
     $for
   >
   :
-  I@8/23
+  I@08/023
   $for
   {
-    !OF I@9/24
+    !OF I@09/024
     object
     :
-    I@17/24
+    I@17/024
     String
   }
 }
 {
-  !O I@8/27
+  !O I@08/027
   _Field
   <
-    I@16/27
+    I@16/027
     $base
   >
   :
-  I@7/28
+  I@07/028
   _Aliased
   {
-    !OF I@7/29
+    !OF I@07/029
     type
     :
-    I@13/29
+    I@13/029
     _Ref
     <
-      I@19/29
+      I@19/029
       $base
     >
-    !OF I@7/30
+    !OF I@07/030
     modifiers
     :
-    I@18/30
+    I@18/030
     _Modifier
     []
   }
 }
 {
-  !O I@8/33
+  !O I@08/033
   _Parameter
   :
-  I@7/34
+  I@07/034
   _Alternate
   <
-    I@18/34
+    I@18/034
     _InputBase
   >
   {
-    !OF I@9/35
+    !OF I@09/035
     default
     :
-    I@18/35
+    I@18/035
     _Constant
     ?
   }

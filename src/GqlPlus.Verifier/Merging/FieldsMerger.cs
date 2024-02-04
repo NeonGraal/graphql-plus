@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class FieldsMerger<TField, TReference>
-  : AliasedMerger<TField>
+  : AstAliasedMerger<TField>
   where TField : AstField<TReference>
   where TReference : AstReference<TReference>
 {

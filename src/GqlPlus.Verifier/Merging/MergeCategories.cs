@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeCategories
-  : AliasedMerger<CategoryDeclAst>
+  : AstAliasedMerger<CategoryDeclAst>
 {
   public override bool CanMerge(IEnumerable<CategoryDeclAst> items)
     => base.CanMerge(items)

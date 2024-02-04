@@ -33,10 +33,10 @@ public static class AllMergers
       // Object types
       .AddMerge<ParameterAst, MergeParameters>()
       .AddMerge<TypeParameterAst, MergeTypeParameters>()
-      .AddMerge<AlternateAst<InputReferenceAst>, AlternatesMerger<InputReferenceAst>>()
+      .AddMerge<AstAlternate<InputReferenceAst>, AlternatesMerger<InputReferenceAst>>()
       .AddMerge<InputFieldAst, MergeInputFields>()
       .AddMergeAll<AstType, InputDeclAst, MergeInputObjects>()
-      .AddMerge<AlternateAst<OutputReferenceAst>, AlternatesMerger<OutputReferenceAst>>()
+      .AddMerge<AstAlternate<OutputReferenceAst>, AlternatesMerger<OutputReferenceAst>>()
       .AddMerge<OutputFieldAst, MergeOutputFields>()
       .AddMergeAll<AstType, OutputDeclAst, MergeOutputObjects>()
     ;

@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeEnumMembers
-  : AliasedMerger<EnumMemberAst>
+  : AstAliasedMerger<EnumMemberAst>
 {
   protected override string ItemMatchKey(EnumMemberAst item)
     => item.Name;

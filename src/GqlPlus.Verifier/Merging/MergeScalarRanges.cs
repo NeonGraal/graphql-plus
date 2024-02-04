@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeScalarRanges
-  : ScalarItemMerger<ScalarRangeAst>
+  : AstScalarItemMerger<ScalarRangeAst>
 {
   protected override string ItemGroupKey(ScalarRangeAst item)
     => item.GetFields().Skip(2).Joined();

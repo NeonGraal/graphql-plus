@@ -1,12 +1,14 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyOutputTypes(
-  IVerifyAliased<OutputDeclAst> aliased
-) : AstObjectVerifier<OutputDeclAst, OutputFieldAst, OutputReferenceAst, OutputContext>(aliased)
+  IVerifyAliased<OutputDeclAst> aliased,
+  IMerge<TypeParameterAst> mergeTypeParameters
+) : AstObjectVerifier<OutputDeclAst, OutputFieldAst, OutputReferenceAst, OutputContext>(aliased, mergeTypeParameters)
 {
   protected override void UsageValue(OutputDeclAst usage, OutputContext context)
   {

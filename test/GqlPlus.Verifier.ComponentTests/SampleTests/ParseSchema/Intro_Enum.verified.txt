@@ -1,61 +1,61 @@
-﻿!G I@1/1
+﻿!G I@01/001
 Success
 {
-  !O I@8/1
+  !O I@08/001
   _TypeEnum
   :
-  I@7/2
+  I@07/002
   _ChildType
   <
-    I@18/2
+    I@18/002
     _TypeKind.Enum
-    I@33/2
+    I@33/002
     String
   >
   {
-    !OF I@9/3
+    !OF I@09/003
     members
     :
-    I@18/3
+    I@18/003
     _Aliased
     []
-    !OF I@9/4
+    !OF I@09/004
     allMembers
     :
-    I@21/4
+    I@21/004
     _EnumMember
     []
   }
 }
 {
-  !O I@8/7
+  !O I@08/007
   _EnumMember
   :
-  I@7/8
+  I@07/008
   _Aliased
   {
-    !OF I@9/9
+    !OF I@09/009
     enum
     :
-    I@15/9
+    I@15/009
     String
   }
 }
 {
-  !O I@8/12
+  !O I@08/012
   _EnumValue
   :
-  I@7/13
+  I@07/013
   _TypeRef
   <
-    I@16/13
+    I@16/013
     _TypeKind.Enum
   >
   {
-    !OF I@9/14
+    !OF I@09/014
     value
     :
-    I@16/14
+    I@16/014
     String
   }
 }

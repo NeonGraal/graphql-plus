@@ -2,9 +2,9 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal abstract class TypedMerger<TBase, TType, TParent, TItem>(
+internal abstract class AstTypeMerger<TBase, TType, TParent, TItem>(
   IMerge<TItem> mergeItems
-) : AliasedAllMerger<TBase, TType>
+) : AstAliasedAllMerger<TBase, TType>
   where TBase : AstAliased
   where TType : AstType<TParent>, TBase
   where TParent : IEquatable<TParent>

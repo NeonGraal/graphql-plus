@@ -59,6 +59,6 @@ public sealed record class SchemaAst(TokenAt At, string Name)
   internal override IEnumerable<string?> GetFields()
     => // base.GetFields()
       new[] { AbbrAt, Name, $"{Result}" }
-      .Concat(Errors.Bracket("<", ">"))
+      .Concat(Errors.Bracket("<", ">", true))
       .Concat(Declarations.SelectMany(d => d.Bracket("{", "}")));
 }

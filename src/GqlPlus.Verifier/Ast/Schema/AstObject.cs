@@ -8,7 +8,7 @@ public abstract record class AstObject<TField, TReference>(TokenAt At, string Na
 {
   public TypeParameterAst[] TypeParameters { get; set; } = [];
   public TField[] Fields { get; set; } = [];
-  public AlternateAst<TReference>[] Alternates { get; set; } = [];
+  public AstAlternate<TReference>[] Alternates { get; set; } = [];
 
   public virtual bool Equals(AstObject<TField, TReference>? other)
     => base.Equals(other)

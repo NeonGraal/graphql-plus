@@ -39,7 +39,7 @@ public class MergeEnumsTests
     _merger = new(_enumMembers);
   }
 
-  internal override TypedMerger<AstType, EnumDeclAst, string, EnumMemberAst> MergerTyped => _merger;
+  internal override AstTypeMerger<AstType, EnumDeclAst, string, EnumMemberAst> MergerTyped => _merger;
 
   protected override EnumDeclAst MakeTyped(string name, string description = "")
     => new(AstNulls.At, name, description);

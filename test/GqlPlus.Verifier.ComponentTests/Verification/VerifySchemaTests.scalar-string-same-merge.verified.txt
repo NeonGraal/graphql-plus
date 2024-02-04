@@ -1,11 +1,11 @@
 ﻿[  
-!G I@1/1
+!G I@01/001
 Success
 {
-  !S I@8/1
+  !S I@08/001
   StrSame
   String
-  !SX R@25/1
+  !SX R@25/001
   /a+/
 }
 ]

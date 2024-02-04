@@ -50,7 +50,7 @@ public partial class SampleTests(
     settings.UseDirectory(nameof(SampleTests) + "/VerifySchema");
     settings.UseFileName(sample);
 
-    await Verify(errors.Select(e => $"{e}"), settings);
+    await Verify(errors.Select(e => $"{e}").Order().Distinct(), settings);
   }
 
   [Theory]

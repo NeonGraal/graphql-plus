@@ -1,18 +1,18 @@
 ﻿[  
-!G I@1/1
+!G I@01/001
 Success
 {
-  !O I@8/1
+  !O I@08/001
   FieldEnumAlias
   {
-    !OF I@25/1
+    !OF I@25/001
     field
     [
       field1
       field2
     ]
     =
-    I@42/1
+    I@42/001
     Boolean.true
   }
 }

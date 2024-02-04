@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal abstract class AliasedMerger<TItem>
+internal abstract class AstAliasedMerger<TItem>
   : DistinctMerger<TItem>
   where TItem : AstAliased
 {

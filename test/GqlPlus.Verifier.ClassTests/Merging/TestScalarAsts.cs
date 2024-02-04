@@ -54,7 +54,7 @@ public abstract class TestScalarAsts<TItem, TItemInput>
     Merger = new(MergeItems);
   }
 
-  internal override TypedMerger<AstScalar, AstScalar<TItem>, string, TItem> MergerTyped => Merger;
+  internal override AstTypeMerger<AstScalar, AstScalar<TItem>, string, TItem> MergerTyped => Merger;
 
   protected abstract TItem[] MakeItems(TItemInput input);
 

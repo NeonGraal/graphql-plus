@@ -90,6 +90,7 @@ public partial class VerifySchemaTests
     ["enum-extends-diff"] = "enum Test { : Extends test } enum Test { test } enum Extends { extends }",
     ["enum-extends-undef"] = "enum Test { : Extends test }",
     ["enum-extends-wrong"] = "enum Test { : Extends test } output Extends { }",
+    ["enum-extends-alias-dup"] = "enum Test { : Extends test[alias] } enum Extends { extends[alias] }",
     ["scalar-dup-alias"] = "scalar Test [a] { Boolean } scalar Dup [a] { Boolean }",
     ["scalar-extends-undef"] = "scalar Test { Boolean : Extends }",
     ["scalar-extends-wrong-type"] = "scalar Test { Boolean : Extends } output Extends { }",
@@ -133,6 +134,7 @@ public partial class VerifySchemaTests
       Add("enum-extends-diff");
       Add("enum-extends-undef");
       Add("enum-extends-wrong");
+      Add("enum-extends-alias-dup");
       Add("scalar-dup-alias");
       Add("scalar-extends-undef");
       Add("scalar-extends-wrong-type");
@@ -289,6 +291,8 @@ public partial class VerifySchemaTests
     ["category-output"] = "category { Cat } output Cat { }",
     ["directive-param"] = "directive @DirParam(DirParamIn) { all } input DirParamIn { }",
     ["enum-extends"] = "enum EnExt { :EnExtBase valExt } enum EnExtBase { valBase }",
+    ["enum-extends-alias"] = "enum EnExtAlias { :EnExtAliasBase valExt valBase[base] } enum EnExtAliasBase { valBase }",
+    ["enum-extends-dup"] = "enum EnExtDup { :EnExtDupBase valExt  } enum EnExtDupBase { valBase[valExt] }",
     ["scalar-extends"] = "scalar ScalExt { Boolean :ScalExtBase } scalar ScalExtBase { Boolean }",
     ["scalar-enum-value"] = "scalar ScalEnum { Enum EnumScal.scal_enum } enum EnumScal { scal_enum }",
     ["scalar-enum-value-extends"] = "scalar ScalEnumExtends { Enum EnumScalExtends.scal_enum } enum EnumScalExtends { : EnumExtendsScal scal_extends } enum EnumExtendsScal { scal_enum }",
@@ -306,6 +310,8 @@ public partial class VerifySchemaTests
       Add("category-output");
       Add("directive-param");
       Add("enum-extends");
+      Add("enum-extends-alias");
+      Add("enum-extends-dup");
       Add("scalar-extends");
       Add("scalar-enum-value");
       Add("scalar-enum-value-extends");

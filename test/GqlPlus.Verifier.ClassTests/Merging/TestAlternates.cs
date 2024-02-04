@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestAlternates<TAlternate, TReference>
   : TestDescriptions<TAlternate>
-  where TAlternate : AlternateAst<TReference>
+  where TAlternate : AstAlternate<TReference>
   where TReference : AstReference<TReference>, IEquatable<TReference>
 {
   [Theory, RepeatData(Repeats)]
@@ -21,7 +21,7 @@ public abstract class TestAlternates<TAlternate, TReference>
       [MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() }],
       MakeDescribed(input) with { Modifiers = TestMods() });
 
-  internal abstract AlternatesMerger<TAlternate, TReference> MergerAlternate { get; }
+  internal abstract AstAlternatesMerger<TAlternate, TReference> MergerAlternate { get; }
   internal override GroupsMerger<TAlternate> MergerGroups => MergerAlternate;
 
   protected abstract TAlternate MakeAlternate(string name, string description = "");
@@ -30,6 +30,6 @@ public abstract class TestAlternates<TAlternate, TReference>
 }
 
 public abstract class TestAlternates<TReference>
-  : TestAlternates<AlternateAst<TReference>, TReference>
+  : TestAlternates<AstAlternate<TReference>, TReference>
   where TReference : AstReference<TReference>, IEquatable<TReference>
 { }

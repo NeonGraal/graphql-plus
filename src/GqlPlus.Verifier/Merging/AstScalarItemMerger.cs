@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal abstract class ScalarItemMerger<TItem>
+internal abstract class AstScalarItemMerger<TItem>
   : DistinctMerger<TItem>
   where TItem : AstScalarItem
 {

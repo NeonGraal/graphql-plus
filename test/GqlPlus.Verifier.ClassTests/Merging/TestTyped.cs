@@ -21,7 +21,7 @@ public abstract class TestTyped<TBase, TType, TParent, TItem>
       MakeTyped(name) with { Parent = MakeParent(type2) }],
       type1 == type2);
 
-  internal abstract TypedMerger<TBase, TType, TParent, TItem> MergerTyped { get; }
+  internal abstract AstTypeMerger<TBase, TType, TParent, TItem> MergerTyped { get; }
   internal override GroupsMerger<TType> MergerGroups => MergerTyped;
 
   protected abstract TType MakeTyped(string name, string description = "");

@@ -198,10 +198,10 @@ internal sealed class BaseObjectChecks<O, F, R>
   public R ReferenceWithArgs(string type, string subType)
     => Reference(type) with { Arguments = [Reference(subType)] };
 
-  public AlternateAst<R> Alternate(string type)
+  public AstAlternate<R> Alternate(string type)
     => new(Reference(type));
 
-  public AlternateAst<R> Alternate(string type, string description)
+  public AstAlternate<R> Alternate(string type, string description)
     => new(Reference(type, description));
 
   protected internal sealed override string AliasesString(ObjectInput input, string aliases)

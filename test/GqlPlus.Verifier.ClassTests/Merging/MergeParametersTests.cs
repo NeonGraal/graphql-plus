@@ -25,7 +25,7 @@ public class MergeParametersTests
 
   private readonly MergeParameters _merger = new();
 
-  internal override AlternatesMerger<ParameterAst, InputReferenceAst> MergerAlternate => _merger;
+  internal override AstAlternatesMerger<ParameterAst, InputReferenceAst> MergerAlternate => _merger;
 
   protected override ParameterAst MakeAlternate(string name, string description = "")
     => new(AstNulls.At, new InputReferenceAst(AstNulls.At, name, description));

@@ -37,15 +37,28 @@ public static class AstExtensions
   public static IEnumerable<string?> Bracket<T>(
     this IEnumerable<T>? items,
     string before = "",
-    string after = "")
-   => items?.Any(i => i is AstAbbreviated) == true
-      ? items.OfType<AstAbbreviated>()
-        .SelectMany(i => i.GetFields())
+    string after = "",
+    bool distinct = false)
+  {
+    IEnumerable<string?> result = Enumerable.Empty<string?>();
+
+    if (items?.Any(i => i is AstAbbreviated) == true) {
+      result = items.OfType<AstAbbreviated>()
+          .SelectMany(i => i.GetFields());
+    } else if (items?.Any() == true) {
+      result = items.Select(i => $"{i}");
+    } else {
+      return result;
+    }
+
+    if (distinct) {
+      result = result.Order().Distinct();
+    }
+
+    return result
         .Prepend(before)
-        .Append(after)
-      : items?.Any() == true
-      ? items.Select(i => $"{i}").Prepend(before).Append(after)
-      : Enumerable.Empty<string>();
+        .Append(after);
+  }
 
   public static string Joined(this IEnumerable<string?>? items)
     => string.Join(" ",

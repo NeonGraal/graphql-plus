@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal abstract class AliasedAllMerger<TBase, TAlias>
-  : AliasedMerger<TAlias>, IMergeAll<TBase>
+internal abstract class AstAliasedAllMerger<TBase, TAlias>
+  : AstAliasedMerger<TAlias>, IMergeAll<TBase>
   where TAlias : TBase
   where TBase : AstAliased
 {

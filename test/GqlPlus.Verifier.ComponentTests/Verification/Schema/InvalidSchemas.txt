@@ -60,6 +60,10 @@ enum Test { : Extends test }
 enum Test { : Extends test }
 output Extends { }
 
+// enum-extends-alias-dup
+enum Test { : Extends test[alias] }
+enum Extends { extends[alias] }
+
 // scalar-dup-alias
 scalar Test [a] { Boolean }
 scalar Dup [a] { Boolean }

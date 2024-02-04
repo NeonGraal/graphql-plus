@@ -1,36 +1,36 @@
-﻿!g I@1/1
+﻿!g I@01/001
 query
 inlineFragmentTyping
 Success
 {
-  !f I@3/2
+  !f I@03/002
   profiles
   (
-    !a I@12/2
+    !a I@12/002
     {
-      ( !k I@12/2 handles ):( !a P@21/2 [ !k S@22/2 'zuck' !k S@30/2 'coca-cola' ] )
+      ( !k I@12/002 handles ):( !a P@21/002 [ !k S@22/002 'zuck' !k S@30/002 'coca-cola' ] )
     }
   )
   {
-    !f I@5/3
+    !f I@05/003
     handle
-    !i I@9/4
+    !i I@09/004
     :User
     {
-      !f I@7/5
+      !f I@07/005
       friends
       {
-        !f I@9/6
+        !f I@09/006
         count
       }
     }
-    !i I@9/9
+    !i I@09/009
     :Page
     {
-      !f I@7/10
+      !f I@07/010
       likers
       {
-        !f I@9/11
+        !f I@09/011
         count
       }
     }

@@ -26,7 +26,7 @@ public class ObjectDefinition<F, R>
 {
   public R? Parent { get; set; }
   public F[] Fields { get; set; } = [];
-  public AlternateAst<R>[] Alternates { get; set; } = [];
+  public AstAlternate<R>[] Alternates { get; set; } = [];
 }
 
 public abstract class ParseObjectDefinition<F, R> : Parser<ObjectDefinition<F, R>>.I
@@ -82,17 +82,17 @@ public abstract class ParseObjectDefinition<F, R> : Parser<ObjectDefinition<F, R
       : tokens.End(Label, () => result);
   }
 
-  private IResultArray<AlternateAst<R>> ParseAlternates<TContext>(TContext tokens, string label)
+  private IResultArray<AstAlternate<R>> ParseAlternates<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var result = new List<AlternateAst<R>>();
+    var result = new List<AstAlternate<R>>();
     while (tokens.Take('|')) {
       var reference = _reference.Parse(tokens, label);
       if (!reference.IsOk()) {
         return reference.AsPartialArray(result);
       }
 
-      AlternateAst<R> alternate = new(reference.Required());
+      AstAlternate<R> alternate = new(reference.Required());
       result.Add(alternate);
       var collections = _collections.Value.Parse(tokens, Label);
       if (!collections.Optional(value => alternate.Modifiers = value)) {

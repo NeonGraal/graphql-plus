@@ -1,10 +1,10 @@
 ﻿[
-  !!! I@8/1 : Invalid Output Parent. '_ChildType' not defined. - '_TypeEnum' !!!,
-  !!! I@18/2 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
-  !!! I@18/2 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@18/3 : Invalid Output. '_Aliased' not defined. - '_Aliased' !!!,
-  !!! I@8/7 : Invalid Output Parent. '_Aliased' not defined. - '_EnumMember' !!!,
-  !!! I@8/12 : Invalid Output Parent. '_TypeRef' not defined. - '_EnumValue' !!!,
-  !!! I@16/13 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
-  !!! I@16/13 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!
+  !!! I@08/001 : Invalid Output Parent. '_ChildType' not defined. - '_TypeEnum' !!!,
+  !!! I@08/007 : Invalid Output Parent. '_Aliased' not defined. - '_EnumMember' !!!,
+  !!! I@08/012 : Invalid Output Parent. '_TypeRef' not defined. - '_EnumValue' !!!,
+  !!! I@16/013 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
+  !!! I@16/013 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@18/002 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
+  !!! I@18/002 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@18/003 : Invalid Output. '_Aliased' not defined. - '_Aliased' !!!
 ]

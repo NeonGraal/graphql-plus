@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Merging;
 
 internal class MergeOptions(
   IMerge<OptionSettingAst> settings
-) : AliasedMerger<OptionDeclAst>
+) : AstAliasedMerger<OptionDeclAst>
 {
   protected override string ItemMatchKey(OptionDeclAst item)
     => item.Name;

@@ -1,236 +1,236 @@
-﻿!G I@1/1
+﻿!G I@01/001
 Success
 {
-  !E I@6/1
+  !E I@06/001
   _Scalar
-  !EM I@16/1
+  !EM I@16/001
   Boolean
-  !EM I@24/1
+  !EM I@24/001
   Enum
-  !EM I@29/1
+  !EM I@29/001
   Number
-  !EM I@36/1
+  !EM I@36/001
   String
-  !EM I@43/1
+  !EM I@43/001
   Union
 }
 {
-  !O I@8/3
+  !O I@08/003
   _TypeScalar
   |
   !AO
-  I@7/4
+  I@07/004
   _BaseScalar
   <
-    I@19/4
+    I@19/004
     _Scalar.Boolean
-    I@35/4
+    I@35/004
     _ScalarBoolean
   >
   !AO
-  I@7/5
+  I@07/005
   _BaseScalar
   <
-    I@19/5
+    I@19/005
     _Scalar.Enum
-    I@32/5
+    I@32/005
     _ScalarEnum
   >
   !AO
-  I@7/6
+  I@07/006
   _BaseScalar
   <
-    I@19/6
+    I@19/006
     _Scalar.Number
-    I@34/6
+    I@34/006
     _ScalarRange
   >
   !AO
-  I@7/7
+  I@07/007
   _BaseScalar
   <
-    I@19/7
+    I@19/007
     _Scalar.String
-    I@34/7
+    I@34/007
     _ScalarRegex
   >
   !AO
-  I@7/8
+  I@07/008
   _BaseScalar
   <
-    I@19/8
+    I@19/008
     _Scalar.Union
-    I@33/8
+    I@33/008
     _TypeSimple
   >
 }
 {
-  !O I@8/11
+  !O I@08/011
   _ScalarRef
   <
-    I@20/11
+    I@20/011
     $kind
   >
   :
-  I@7/12
+  I@07/012
   _TypeRef
   <
-    I@16/12
+    I@16/012
     _TypeKind.Scalar
   >
   {
-    !OF I@9/13
+    !OF I@09/013
     scalar
     :
-    I@18/13
+    I@18/013
     $kind
   }
 }
 {
-  !O I@8/16
+  !O I@08/016
   _BaseScalar
   <
-    I@21/16
+    I@21/016
     $kind
-    I@27/16
+    I@27/016
     $item
   >
   :
-  I@7/17
+  I@07/017
   _ChildType
   <
-    I@18/17
+    I@18/017
     _TypeKind.Scalar
-    I@35/17
+    I@35/017
     String
   >
   {
-    !OF I@9/18
+    !OF I@09/018
     scalar
     :
-    I@18/18
+    I@18/018
     $kind
-    !OF I@9/19
+    !OF I@09/019
     items
     :
-    I@17/19
+    I@17/019
     $item
     []
-    !OF I@9/20
+    !OF I@09/020
     allItems
     :
-    I@19/20
+    I@19/020
     _ScalarItem
     <
-      I@32/20
+      I@32/020
       $item
     >
     []
   }
 }
 {
-  !O I@8/23
+  !O I@08/023
   _BaseScalarItem
   {
-    !OF I@9/24
+    !OF I@09/024
     exclude
     :
-    I@18/24
+    I@18/024
     Boolean
   }
 }
 {
-  !O I@8/27
+  !O I@08/027
   _ScalarBoolean
 }
 {
-  !O I@8/30
+  !O I@08/030
   _ScalarEnum
   :
-  I@7/31
+  I@07/031
   _BaseScalarItem
   {
-    !OF I@9/32
+    !OF I@09/032
     member
     :
-    I@17/32
+    I@17/032
     _EnumValue
   }
 }
 {
-  !O I@8/35
+  !O I@08/035
   _ScalarRange
   :
-  I@7/36
+  I@07/036
   _BaseScalarItem
   {
-    !OF I@9/37
+    !OF I@09/037
     from
     :
-    I@15/37
+    I@15/037
     Number
     ?
-    !OF I@9/38
+    !OF I@09/038
     to
     :
-    I@13/38
+    I@13/038
     Number
     ?
   }
 }
 {
-  !O I@8/41
+  !O I@08/041
   _ScalarRegex
   :
-  I@7/42
+  I@07/042
   _BaseScalarItem
   {
-    !OF I@9/43
+    !OF I@09/043
     regex
     :
-    I@16/43
+    I@16/043
     String
   }
 }
 {
-  !O I@8/46
+  !O I@08/046
   _ScalarItem
   <
-    I@21/46
+    I@21/046
     $item
   >
   :
-  I@8/47
+  I@08/047
   $item
   {
-    !OF I@9/48
+    !OF I@09/048
     scalar
     :
-    I@17/48
+    I@17/048
     String
   }
 }
 {
-  !O I@8/51
+  !O I@08/051
   _ScalarValue
   <
-    I@22/51
+    I@22/051
     $kind
-    I@28/51
+    I@28/051
     $value
   >
   :
-  I@7/52
+  I@07/052
   _ScalarRef
   <
-    I@19/52
+    I@19/052
     $kind
   >
   {
-    !OF I@9/53
+    !OF I@09/053
     value
     :
-    I@17/53
+    I@17/053
     $value
   }
 }

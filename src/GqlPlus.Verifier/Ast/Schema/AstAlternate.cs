@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public record class AlternateAst<R>(TokenAt At, R Type)
-  : AstAbbreviated(At), IEquatable<AlternateAst<R>>, IAstDescribed, IAstModified
+public record class AstAlternate<R>(TokenAt At, R Type)
+  : AstAbbreviated(At), IEquatable<AstAlternate<R>>, IAstDescribed, IAstModified
   where R : AstReference<R>, IEquatable<R>
 {
   public ModifierAst[] Modifiers { get; set; } = [];
@@ -12,10 +12,10 @@ public record class AlternateAst<R>(TokenAt At, R Type)
 
   public string Description => Type.Description;
 
-  internal AlternateAst(R @type)
+  internal AstAlternate(R @type)
     : this(type.At, type) { }
 
-  public virtual bool Equals(AlternateAst<R>? other)
+  public virtual bool Equals(AstAlternate<R>? other)
     => base.Equals(other)
     && (Type?.Equals(other.Type) ?? other.Type is null)
     && Modifiers.SequenceEqual(other.Modifiers);

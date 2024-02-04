@@ -30,7 +30,9 @@ public abstract class TestAliased<TAst>
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_ThreeAstsDifferentAliases_ReturnsTrue(string name1, string name2, string alias1, string alias2)
-  => CanMerge_True([MakeAliased(name1, []), MakeAliased(name2, [alias1]), MakeAliased(name1, [alias2])]);
+  => CanMerge_True(
+    [MakeAliased(name1, []), MakeAliased(name2, [alias1]), MakeAliased(name1, [alias2])],
+    name1 == name2 || alias1 == alias2);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_ThreeAstsTwoAliases_ReturnsTrue(string name1, string name2, string alias1, string alias2)

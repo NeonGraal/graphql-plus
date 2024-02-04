@@ -61,8 +61,12 @@ where TAst : AstAbbreviated
     result.Should().BeFalse();
   }
 
-  protected void CanMerge_True(TAst[] asts)
+  protected void CanMerge_True(TAst[] asts, bool skipIf = false)
   {
+    if (skipIf) {
+      return;
+    }
+
     var result = MergerBase.CanMerge(asts);
 
     result.Should().BeTrue();

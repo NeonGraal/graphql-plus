@@ -1,11 +1,11 @@
 ﻿[
-  !!! I@07/004 : Invalid Output. '_TypeEnum' not defined. - '_TypeEnum' !!!,
-  !!! I@07/005 : Invalid Output. '_TypeObject' not defined. - '_TypeObject' !!!,
-  !!! I@07/006 : Invalid Output. '_TypeObject' not defined. - '_TypeObject' !!!,
-  !!! I@07/007 : Invalid Output. '_TypeScalar' not defined. - '_TypeScalar' !!!,
-  !!! I@08/010 : Invalid Output Parent. '_Aliased' not defined. - '_BaseType' !!!,
-  !!! I@35/005 : Invalid Output. '_InputBase' not defined. - '_InputBase' !!!,
-  !!! I@36/006 : Invalid Output. '_OutputBase' not defined. - '_OutputBase' !!!,
-  !!! I@46/005 : Invalid Output. '_InputField' not defined. - '_InputField' !!!,
-  !!! I@48/006 : Invalid Output. '_OutputField' not defined. - '_OutputField' !!!
+  !!! I@007/0004 : Invalid Output. '_TypeEnum' not defined. - '_TypeEnum' !!!,
+  !!! I@007/0005 : Invalid Output. '_TypeObject' not defined. - '_TypeObject' !!!,
+  !!! I@007/0006 : Invalid Output. '_TypeObject' not defined. - '_TypeObject' !!!,
+  !!! I@007/0007 : Invalid Output. '_TypeScalar' not defined. - '_TypeScalar' !!!,
+  !!! I@008/0010 : Invalid Output Parent. '_Aliased' not defined. - '_BaseType' !!!,
+  !!! I@035/0005 : Invalid Output. '_InputBase' not defined. - '_InputBase' !!!,
+  !!! I@036/0006 : Invalid Output. '_OutputBase' not defined. - '_OutputBase' !!!,
+  !!! I@046/0005 : Invalid Output. '_InputField' not defined. - '_InputField' !!!,
+  !!! I@048/0006 : Invalid Output. '_OutputField' not defined. - '_OutputField' !!!
 ]

@@ -1,0 +1,17 @@
+﻿[  
+!G I@001/0001
+Success
+{
+  !E I@006/0001
+  EnSameParent
+  :EnParent
+  !EM I@031/0001
+  sameP
+}
+{
+  !E I@082/0001
+  EnParent
+  !EM I@093/0001
+  parent
+}
+]

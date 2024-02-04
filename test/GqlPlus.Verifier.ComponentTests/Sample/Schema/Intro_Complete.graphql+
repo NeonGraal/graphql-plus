@@ -87,7 +87,7 @@ output _ChildType<$kind $parent> {
 
 enum _SimpleKind { Basic Enum Internal Scalar }
 
-enum _TypeKind { : _SimpleKind Input Output }
+enum _TypeKind { :_SimpleKind Input Output }
 
 output _TypeRef<$kind> {
         kind: $kind

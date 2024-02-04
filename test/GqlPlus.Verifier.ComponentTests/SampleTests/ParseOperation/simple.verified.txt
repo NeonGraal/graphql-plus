@@ -1,7 +1,7 @@
-﻿!g P@01/001
+﻿!g P@001/0001
 query
 Success
 {
-  !f I@02/001
+  !f I@002/0001
   simple
 }

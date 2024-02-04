@@ -1,61 +1,61 @@
-﻿!G I@01/001
+﻿!G I@001/0001
 Success
 {
-  !O I@08/001
+  !O I@008/0001
   _TypeEnum
   :
-  I@07/002
+  I@007/0002
   _ChildType
   <
-    I@18/002
+    I@018/0002
     _TypeKind.Enum
-    I@33/002
+    I@033/0002
     String
   >
   {
-    !OF I@09/003
+    !OF I@009/0003
     members
     :
-    I@18/003
+    I@018/0003
     _Aliased
     []
-    !OF I@09/004
+    !OF I@009/0004
     allMembers
     :
-    I@21/004
+    I@021/0004
     _EnumMember
     []
   }
 }
 {
-  !O I@08/007
+  !O I@008/0007
   _EnumMember
   :
-  I@07/008
+  I@007/0008
   _Aliased
   {
-    !OF I@09/009
+    !OF I@009/0009
     enum
     :
-    I@15/009
+    I@015/0009
     String
   }
 }
 {
-  !O I@08/012
+  !O I@008/0012
   _EnumValue
   :
-  I@07/013
+  I@007/0013
   _TypeRef
   <
-    I@16/013
+    I@016/0013
     _TypeKind.Enum
   >
   {
-    !OF I@09/014
+    !OF I@009/0014
     value
     :
-    I@16/014
+    I@016/0014
     String
   }
 }

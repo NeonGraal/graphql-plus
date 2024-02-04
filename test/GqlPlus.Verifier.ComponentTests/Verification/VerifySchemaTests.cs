@@ -161,6 +161,8 @@ public partial class VerifySchemaTests(
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
+    settings.UseDirectory(nameof(VerifySchemaTests));
+    settings.UseTypeName("Invalid");
     settings.UseMethodName(test);
 
     await Verify(result.Select(m => m.Message), settings);
@@ -174,7 +176,9 @@ public partial class VerifySchemaTests(
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
-    settings.UseMethodName(test + "-merge");
+    settings.UseDirectory(nameof(VerifySchemaTests));
+    settings.UseTypeName("Merge");
+    settings.UseMethodName(test);
 
     await Verify(result.Select(s => s.Render()), settings);
   }

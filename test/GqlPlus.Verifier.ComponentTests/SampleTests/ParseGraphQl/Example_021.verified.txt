@@ -1,44 +1,44 @@
-﻿!g I@01/001
+﻿!g I@001/0001
 query
 FragmentTyping
 Success
 {
-  !f I@03/002
+  !f I@003/0002
   profiles
   (
-    !a I@12/002
+    !a I@012/0002
     {
-      ( !k I@12/002 handles ):( !a P@21/002 [ !k S@22/002 'zuck' !k S@30/002 'coca-cola' ] )
+      ( !k I@012/0002 handles ):( !a P@021/0002 [ !k S@022/0002 'zuck' !k S@030/0002 'coca-cola' ] )
     }
   )
   {
-    !f I@05/003
+    !f I@005/0003
     handle
-    !s I@08/004
+    !s I@008/0004
     userFragment
-    !s I@08/005
+    !s I@008/0005
     pageFragment
   }
 }
-!t I@10/009
+!t I@010/0009
 userFragment
 :User
 {
-  !f I@03/010
+  !f I@003/0010
   friends
   {
-    !f I@05/011
+    !f I@005/0011
     count
   }
 }
-!t I@10/015
+!t I@010/0015
 pageFragment
 :Page
 {
-  !f I@03/016
+  !f I@003/0016
   likers
   {
-    !f I@05/017
+    !f I@005/0017
     count
   }
 }

@@ -34,7 +34,6 @@ internal class ParseSchema : Parser<SchemaAst>.I
     while (tokens.Identifier(out var selector)) {
       if (_parsers.TryGetValue(selector, out var parser)) {
         var declaration = parser(tokens, selector.Capitalize());
-        declaration.WithMessage(tokens.Errors.Add);
         declaration.WithResult(declarations.Add);
       } else {
         tokens.Error(label, $"declaration selector. '{selector}' unknown");

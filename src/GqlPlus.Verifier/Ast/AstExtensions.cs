@@ -38,7 +38,7 @@ public static class AstExtensions
     this IEnumerable<T>? items,
     string before = "",
     string after = "",
-    bool distinct = false)
+    bool sort = false)
   {
     IEnumerable<string?> result = Enumerable.Empty<string?>();
 
@@ -51,8 +51,8 @@ public static class AstExtensions
       return result;
     }
 
-    if (distinct) {
-      result = result.Order().Distinct();
+    if (sort) {
+      result = result.Order();
     }
 
     return result

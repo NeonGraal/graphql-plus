@@ -1,64 +1,64 @@
-﻿!g I@01/001
+﻿!g I@001/0001
 query
 withNestedFragments
 Success
 {
-  !f I@03/002
+  !f I@003/0002
   user
   (
-    !a I@08/002
+    !a I@008/0002
     {
-      ( !k I@08/002 id ):( !k N@12/002 4 )
+      ( !k I@008/0002 id ):( !k N@012/0002 4 )
     }
   )
   {
-    !f I@05/003
+    !f I@005/0003
     friends
     (
-      !a I@13/003
+      !a I@013/0003
       {
-        ( !k I@13/003 first ):( !k N@20/003 10 )
+        ( !k I@013/0003 first ):( !k N@020/0003 10 )
       }
     )
     {
-      !s I@10/004
+      !s I@010/0004
       friendFields
     }
-    !f I@05/006
+    !f I@005/0006
     mutualFriends
     (
-      !a I@19/006
+      !a I@019/0006
       {
-        ( !k I@19/006 first ):( !k N@26/006 10 )
+        ( !k I@019/0006 first ):( !k N@026/0006 10 )
       }
     )
     {
-      !s I@10/007
+      !s I@010/0007
       friendFields
     }
   }
 }
-!t I@10/012
+!t I@010/0012
 friendFields
 :User
 {
-  !f I@03/013
+  !f I@003/0013
   id
-  !f I@03/014
+  !f I@003/0014
   name
-  !s I@06/015
+  !s I@006/0015
   standardProfilePic
 }
-!t I@10/018
+!t I@010/0018
 standardProfilePic
 :User
 {
-  !f I@03/019
+  !f I@003/0019
   profilePic
   (
-    !a I@14/019
+    !a I@014/0019
     {
-      ( !k I@14/019 size ):( !k N@20/019 50 )
+      ( !k I@014/0019 size ):( !k N@020/0019 50 )
     }
   )
 }

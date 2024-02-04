@@ -1,5 +1,5 @@
 ﻿[
-  !!! I@10/001 : Invalid Category Output. '' not defined. - 'query' !!!,
-  !!! P@17/001 : Invalid Category. Expected output type. - '}\ndirectiv' !!!,
-  !!! P@17/001 : Invalid Schema. Expected no more text. - '}\ndirectiv' !!!
+  !!! I@010/0001 : Invalid Category Output. '' not defined. - 'query' !!!,
+  !!! P@017/0001 : Invalid Category. Expected output type. - '}\ndirectiv' !!!,
+  !!! P@017/0001 : Invalid Schema. Expected no more text. - '}\ndirectiv' !!!
 ]

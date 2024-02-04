@@ -1,32 +1,32 @@
-﻿!g I@01/001
+﻿!g I@001/0001
 query
 getZuckProfile
 Success
 [
-  !v I@23/001
+  !v I@023/0001
   devicePicSize
   :Int
 ]
 {
-  !f I@03/002
+  !f I@003/0002
   user
   (
-    !a I@08/002
+    !a I@008/0002
     {
-      ( !k I@08/002 id ):( !k N@12/002 4 )
+      ( !k I@008/0002 id ):( !k N@012/0002 4 )
     }
   )
   {
-    !f I@05/003
+    !f I@005/0003
     id
-    !f I@05/004
+    !f I@005/0004
     name
-    !f I@05/005
+    !f I@005/0005
     profilePic
     (
-      !a I@16/005
+      !a I@016/0005
       {
-        ( !k I@16/005 size ):( !a I@23/005 $devicePicSize )
+        ( !k I@016/0005 size ):( !a I@023/0005 $devicePicSize )
       }
     )
   }

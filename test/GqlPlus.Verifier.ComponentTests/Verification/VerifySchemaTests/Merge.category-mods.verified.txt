@@ -1,0 +1,19 @@
+﻿[  
+!G I@001/0001
+Success
+{
+  !C P@010/0001
+  catMods
+  [
+    CatM1
+    CatM2
+  ]
+  (Parallel)
+  CatMods
+  ?
+}
+{
+  !O I@068/0001
+  CatMods
+}
+]

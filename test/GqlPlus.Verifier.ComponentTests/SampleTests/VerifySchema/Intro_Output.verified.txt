@@ -1,11 +1,11 @@
 ﻿[
-  !!! I@07/016 : Invalid Output. '_Ref' not defined. - '_Ref' !!!,
-  !!! I@08/007 : Invalid Output Parent. '_Field' not defined. - '_OutputField' !!!,
-  !!! I@08/013 : Invalid Output Parent. '_TypeRef' not defined. - '_OutputArgument' !!!,
-  !!! I@08/019 : Invalid Output Parent. '_TypeRef' not defined. - '_OutputEnum' !!!,
-  !!! I@16/014 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
-  !!! I@16/014 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@16/020 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
-  !!! I@16/020 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@20/009 : Invalid Output. '_Parameter' not defined. - '_Parameter' !!!
+  !!! I@007/0016 : Invalid Output. '_Ref' not defined. - '_Ref' !!!,
+  !!! I@008/0007 : Invalid Output Parent. '_Field' not defined. - '_OutputField' !!!,
+  !!! I@008/0013 : Invalid Output Parent. '_TypeRef' not defined. - '_OutputArgument' !!!,
+  !!! I@008/0019 : Invalid Output Parent. '_TypeRef' not defined. - '_OutputEnum' !!!,
+  !!! I@016/0014 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
+  !!! I@016/0014 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@016/0020 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
+  !!! I@016/0020 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@020/0009 : Invalid Output. '_Parameter' not defined. - '_Parameter' !!!
 ]

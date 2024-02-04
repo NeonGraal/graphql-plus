@@ -1,0 +1,12 @@
+﻿[  
+!G I@001/0001
+Success
+{
+  !O I@008/0001
+  OutAlias
+  [
+    Out1
+    Out2
+  ]
+}
+]

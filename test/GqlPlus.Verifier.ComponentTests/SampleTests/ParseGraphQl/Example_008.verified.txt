@@ -1,28 +1,28 @@
-﻿!g P@01/001
+﻿!g P@001/0001
 query
 Success
 {
-  !f I@03/002
+  !f I@003/0002
   me
   {
-    !f I@05/003
+    !f I@005/0003
     id
-    !f I@05/004
+    !f I@005/0004
     firstName
-    !f I@05/005
+    !f I@005/0005
     lastName
-    !f I@05/006
+    !f I@005/0006
     birthday
     {
-      !f I@07/007
+      !f I@007/0007
       month
-      !f I@07/008
+      !f I@007/0008
       day
     }
-    !f I@05/010
+    !f I@005/0010
     friends
     {
-      !f I@07/011
+      !f I@007/0011
       name
     }
   }

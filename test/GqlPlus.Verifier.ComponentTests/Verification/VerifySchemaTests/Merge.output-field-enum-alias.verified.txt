@@ -1,0 +1,19 @@
+﻿[  
+!G I@001/0001
+Success
+{
+  !O I@008/0001
+  FieldEnumAlias
+  {
+    !OF I@025/0001
+    field
+    [
+      field1
+      field2
+    ]
+    =
+    I@042/0001
+    Boolean.true
+  }
+}
+]

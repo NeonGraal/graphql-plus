@@ -1,20 +1,20 @@
-﻿!g I@01/001
+﻿!g I@001/0001
 mutation
 Success
 {
-  !f I@03/002
+  !f I@003/0002
   likeStory
   (
-    !a I@13/002
+    !a I@013/0002
     {
-      ( !k I@13/002 storyID ):( !k N@22/002 12345 )
+      ( !k I@013/0002 storyID ):( !k N@022/0002 12345 )
     }
   )
   {
-    !f I@05/003
+    !f I@005/0003
     story
     {
-      !f I@07/004
+      !f I@007/0004
       likeCount
     }
   }

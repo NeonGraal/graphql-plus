@@ -1,0 +1,18 @@
+﻿[  
+!G I@001/0001
+Success
+{
+  !C P@010/0001
+  catAlias
+  [
+    CatA1
+    CatA2
+  ]
+  (Parallel)
+  CatAlias
+}
+{
+  !O I@068/0001
+  CatAlias
+}
+]

@@ -1,13 +1,15 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Result;
-using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseScalarMember : Parser<ScalarMemberAst>.I
+internal class ParseScalarMember(
+  Parser<ScalarMemberAst>.DA items
+) : ParseScalarItem<ScalarMemberAst>(items)
 {
-  public IResult<ScalarMemberAst> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public override ScalarKind Kind => ScalarKind.Enum;
+
+  public override IResult<ScalarMemberAst> Parse<TContext>(TContext tokens, string label)
   {
     var at = tokens.At;
     ScalarMemberAst? result;
@@ -32,4 +34,7 @@ internal class ParseScalarMember : Parser<ScalarMemberAst>.I
 
     return result.Ok();
   }
+
+  protected override void ApplyItems(ScalarDefinition result, ScalarMemberAst[] items)
+    => result.Members = items;
 }

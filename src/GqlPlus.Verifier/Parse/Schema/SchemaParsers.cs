@@ -35,10 +35,11 @@ public static class SchemaParsers
       // Scalar
       .AddParser<ScalarDefinition, ParseScalarDefinition>()
       .AddEnum<ScalarKind>()
-      .AddArrayParser<ScalarMemberAst, ParseScalarMember>()
-      .AddArrayParser<ScalarRangeAst, ParseScalarRange>()
-      .AddArrayParser<ScalarRegexAst, ParseScalarRegex>()
-      .AddArrayParser<ScalarReferenceAst, ParseScalarReference>()
+      .AddScalarParser<ScalarFalseAst, ParseScalarFalse>()
+      .AddScalarParser<ScalarMemberAst, ParseScalarMember>()
+      .AddScalarParser<ScalarRangeAst, ParseScalarRange>()
+      .AddScalarParser<ScalarRegexAst, ParseScalarRegex>()
+      .AddScalarParser<ScalarReferenceAst, ParseScalarReference>()
       .AddDeclarationParser<AstScalar, ParseScalar>("scalar")
       // Objects
       .AddParserArray<TypeParameterAst, ParseTypeParameters>()
@@ -64,8 +65,7 @@ public static class SchemaParsers
     where O : struct
     => services
       .AddParser<IOptionParser<O>, O, OptionParser<O>>()
-      .AddParser<IEnumParser<O>, O, EnumParser<O>>()
-    ;
+      .AddParser<IEnumParser<O>, O, EnumParser<O>>();
 
   public static IServiceCollection AddObjectParser<D, F, R>(this IServiceCollection services)
     where D : ParseObjectDefinition<F, R>
@@ -78,14 +78,18 @@ public static class SchemaParsers
     where P : class, Parser<D>.I
     => services
       .AddParser<D, P>()
-      .AddSingleton<IParseDeclaration>(c => new ParseDeclaration<D>(selector, c.GetRequiredService<Parser<D>.D>()))
-    ;
+      .AddSingleton<IParseDeclaration>(c => new ParseDeclaration<D>(selector, c.GetRequiredService<Parser<D>.D>()));
+
+  public static IServiceCollection AddScalarParser<S, P>(this IServiceCollection services)
+    where P : class, Parser<S>.I, IParseScalar
+    => services
+      .AddArrayParser<S, P>()
+      .AddSingleton<IParseScalar>(c => c.GetRequiredService<P>());
 
   public static IServiceCollection AddNullParsers(this IServiceCollection services)
     => services
       .AddParser<NullAst, ParseNull>()
       .AddParserArray<NullAst, ParseNulls>()
       .AddParser<IOptionParser<NullOption>, NullOption, ParseNullOption>()
-      .AddParser<IEnumParser<NullOption>, NullOption, ParseNullOption>()
-    ;
+      .AddParser<IEnumParser<NullOption>, NullOption, ParseNullOption>();
 }

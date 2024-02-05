@@ -4,10 +4,13 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseScalarReference : Parser<ScalarReferenceAst>.I
+internal class ParseScalarReference(
+  Parser<ScalarReferenceAst>.DA items
+) : ParseScalarItem<ScalarReferenceAst>(items)
 {
-  public IResult<ScalarReferenceAst> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public override ScalarKind Kind => ScalarKind.Union;
+
+  public override IResult<ScalarReferenceAst> Parse<TContext>(TContext tokens, string label)
   {
     ScalarReferenceAst? result = null;
     var at = tokens.At;
@@ -22,4 +25,7 @@ internal class ParseScalarReference : Parser<ScalarReferenceAst>.I
 
     return result.Empty();
   }
+
+  protected override void ApplyItems(ScalarDefinition result, ScalarReferenceAst[] items)
+    => result.References = items;
 }

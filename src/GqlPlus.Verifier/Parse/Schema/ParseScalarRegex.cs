@@ -4,10 +4,13 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseScalarRegex : Parser<ScalarRegexAst>.I
+internal class ParseScalarRegex(
+  Parser<ScalarRegexAst>.DA items
+) : ParseScalarItem<ScalarRegexAst>(items)
 {
-  public IResult<ScalarRegexAst> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public override ScalarKind Kind => ScalarKind.String;
+
+  public override IResult<ScalarRegexAst> Parse<TContext>(TContext tokens, string label)
   {
     var at = tokens.At;
     ScalarRegexAst? result;
@@ -24,4 +27,7 @@ internal class ParseScalarRegex : Parser<ScalarRegexAst>.I
         : result.Empty()
       : tokens.Error(label, "Closing '/'", result);
   }
+
+  protected override void ApplyItems(ScalarDefinition result, ScalarRegexAst[] items)
+    => result.Regexes = items;
 }

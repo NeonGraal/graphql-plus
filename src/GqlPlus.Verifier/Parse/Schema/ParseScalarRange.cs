@@ -4,10 +4,13 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseScalarRange : Parser<ScalarRangeAst>.I
+internal class ParseScalarRange(
+  Parser<ScalarRangeAst>.DA items
+) : ParseScalarItem<ScalarRangeAst>(items)
 {
-  public IResult<ScalarRangeAst> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public override ScalarKind Kind => ScalarKind.Number;
+
+  public override IResult<ScalarRangeAst> Parse<TContext>(TContext tokens, string label)
   {
     var at = tokens.At;
     var excludes = tokens.Take('!');
@@ -47,4 +50,7 @@ internal class ParseScalarRange : Parser<ScalarRangeAst>.I
       ? range.Ok()
       : tokens.Error(label, "upper bound after '~'", range);
   }
+
+  protected override void ApplyItems(ScalarDefinition result, ScalarRangeAst[] items)
+    => result.Numbers = items;
 }

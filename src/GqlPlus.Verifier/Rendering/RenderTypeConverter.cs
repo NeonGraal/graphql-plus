@@ -20,32 +20,36 @@ internal class RenderTypeConverter : IYamlTypeConverter
       var plainImplicit = string.IsNullOrWhiteSpace(model.Tag);
       var tag = plainImplicit ? new TagName() : new TagName("!" + model.Tag);
       if (model.List.Count > 0) {
-        var flow = model.Flow ? SequenceStyle.Flow : SequenceStyle.Any;
-        emitter.Emit(new SequenceStart(default, default, plainImplicit, flow));
-        foreach (var item in model.List) {
-          WriteYaml(emitter, item, type);
-        }
-
-        emitter.Emit(new SequenceEnd());
-        return;
-      }
-
-      if (model.Map.Count > 0) {
-        var flow = model.Flow ? MappingStyle.Flow : MappingStyle.Any;
-        emitter.Emit(new MappingStart(default, tag, plainImplicit, flow));
-        foreach (var kv in model.Map.OrderBy(kv => kv.Key)) {
-          WriteValue(emitter, kv.Key, "");
-          WriteYaml(emitter, kv.Value, kv.Value.GetType());
-        }
-
-        emitter.Emit(new MappingEnd());
-        return;
-      }
-
-      if (model.Value is not null) {
+        WriteList(emitter, type, model, plainImplicit);
+      } else if (model.Map.Count > 0) {
+        WriteMap(emitter, model, plainImplicit, tag);
+      } else if (model.Value is not null) {
         WriteValue(emitter, model.Value, model.Tag);
       }
     }
+  }
+
+  private void WriteMap(IEmitter emitter, RenderStructure model, bool plainImplicit, TagName tag)
+  {
+    var flow = model.Flow ? MappingStyle.Flow : MappingStyle.Any;
+    emitter.Emit(new MappingStart(default, tag, plainImplicit, flow));
+    foreach (var kv in model.Map.OrderBy(kv => kv.Key)) {
+      WriteValue(emitter, kv.Key, "");
+      WriteYaml(emitter, kv.Value, kv.Value.GetType());
+    }
+
+    emitter.Emit(new MappingEnd());
+  }
+
+  private void WriteList(IEmitter emitter, Type type, RenderStructure model, bool plainImplicit)
+  {
+    var flow = model.Flow ? SequenceStyle.Flow : SequenceStyle.Any;
+    emitter.Emit(new SequenceStart(default, default, plainImplicit, flow));
+    foreach (var item in model.List) {
+      WriteYaml(emitter, item, type);
+    }
+
+    emitter.Emit(new SequenceEnd());
   }
 
   private static void WriteValue(IEmitter emitter, RenderValue value, string tag)

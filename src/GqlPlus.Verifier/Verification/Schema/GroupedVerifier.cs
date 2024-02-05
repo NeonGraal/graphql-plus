@@ -2,6 +2,7 @@
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Token;
+using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
@@ -26,17 +27,13 @@ internal abstract class GroupedVerifier<TAliased>(
     var byName = item.GroupBy(t => t.Name)
       .ToMap(g => g.Key, g => g.ToArray());
 
-    var byAlias = item.SelectMany(t => t.Aliases.Select(a => (Alias: a, Item: t)))
-      .Where(a => !byName.ContainsKey(a.Alias))
-      .GroupBy(a => a.Alias, a => a.Item);
+    VerifyAliases(item, byName.Keys, errors);
 
-    foreach (var alias in byAlias) {
-      var names = alias.Select(a => a.Name).Distinct().ToArray();
-      if (names.Length > 1) {
-        errors.Add(alias.Last().Error($"Multiple {Label} with alias '{alias.Key}' found. Names {names.Joined(n => $"'{n}'")}"));
-      }
-    }
+    VerifyDefinitions(byName, errors);
+  }
 
+  private void VerifyDefinitions(Map<TAliased[]> byName, ITokenMessages errors)
+  {
     foreach (var (name, definitions) in byName) {
       if (definitions.Length == 1) {
         continue;
@@ -46,6 +43,20 @@ internal abstract class GroupedVerifier<TAliased>(
 
       if (!merger.CanMerge(definitions)) {
         errors.Add(definitions.Last().Error($"Multiple {Label} with name '{name}' can't be merged."));
+      }
+    }
+  }
+
+  private void VerifyAliases(TAliased[] item, IReadOnlyCollection<string> names, ITokenMessages errors)
+  {
+    var byAlias = item.SelectMany(t => t.Aliases.Select(a => (Alias: a, Item: t)))
+          .Where(a => !names.Contains(a.Alias))
+          .GroupBy(a => a.Alias, a => a.Item);
+
+    foreach (var alias in byAlias) {
+      var aliases = alias.Select(a => a.Name).Distinct().ToArray();
+      if (aliases.Length > 1) {
+        errors.Add(alias.Last().Error($"Multiple {Label} with alias '{alias.Key}' found. Names {aliases.Joined(n => $"'{n}'")}"));
       }
     }
   }

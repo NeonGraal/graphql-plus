@@ -1,17 +1,20 @@
 [CmdletBinding()]
 param (
-    $Section = ""
+    $Section = "",
+    [int]$Threshold = 20
 )
 
-$params = "test","--no-build"
+$coverage = "test","--no-build"
 
 if ($Section) {
-  $params = $params + @("--filter", "FullyQualifiedName~.$Section.")
+  $coverage = $coverage + @("--filter", "FullyQualifiedName~.$Section.")
 }
+
+$report = "riskHotspotsAnalysisThresholds:metricThresholdForCyclomaticComplexity=$Threshold","riskHotspotsAnalysisThresholds:metricThresholdForCrapScore=$Threshold"
 
 prettier -w .
 dotnet tool restore
 dotnet build
-dotnet coverage collect --settings coverage.runsettings -- dotnet @params
-dotnet reportgenerator -reports:output.cobertura.xml -targetdir:.\coverage riskHotspotsAnalysisThresholds:metricThresholdForCyclomaticComplexity=20
+dotnet coverage collect --settings coverage.runsettings -- dotnet @coverage
+dotnet reportgenerator -reports:output.cobertura.xml -targetdir:.\coverage @report
 dotnet livereloadserver coverage

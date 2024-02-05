@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Rendering;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Verifier.Rendering;
 
 public record class RenderValue : IComparable<RenderValue>
 {
@@ -26,9 +28,12 @@ public record class RenderValue : IComparable<RenderValue>
     => new() { String = value };
 
   public int CompareTo(RenderValue? other)
-    => other?.Boolean is not null && Boolean.HasValue ? Boolean.Value.CompareTo(other.Boolean)
-    : other?.Decimal is not null && Decimal.HasValue ? Decimal.Value.CompareTo(other.Decimal)
-    : other?.Identifier is not null && Identifier is not null ? string.Compare(Identifier, other.Identifier, StringComparison.Ordinal)
-    : other?.String is not null && String is not null ? string.Compare(String, other.String, StringComparison.Ordinal)
+    => BothValued(other?.Boolean, Boolean) ? Boolean.Value.CompareTo(other.Boolean)
+    : BothValued(other?.Decimal, Decimal) ? Decimal.Value.CompareTo(other.Decimal)
+    : BothValued(other?.Identifier, Identifier) ? string.Compare(Identifier, other.Identifier, StringComparison.Ordinal)
+    : BothValued(other?.String, String) ? string.Compare(String, other.String, StringComparison.Ordinal)
     : -1;
+
+  private bool BothValued<T>([NotNullWhen(true)] T? left, [NotNullWhen(true)] T? right)
+    => left is not null && right is not null;
 }

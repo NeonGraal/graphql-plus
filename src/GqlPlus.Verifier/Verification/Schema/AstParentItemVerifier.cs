@@ -22,15 +22,10 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   {
     var items = GetItems(usage);
 
-    var parent = GetParent(usage);
-    if (!string.IsNullOrWhiteSpace(parent)) {
-      if (GetParentType(usage, parent, context, out var parentType)
-        && parentType is TAst ast) {
-        return items.Concat(GetItems(ast));
-      }
-    }
-
-    return items;
+    return GetParentType(usage, GetParent(usage), context, out var parentType)
+      && parentType is TAst ast
+      ? items.Concat(GetItems(ast))
+      : items;
   }
 
   protected abstract IEnumerable<TItem> GetItems(TAst usage);

@@ -54,9 +54,9 @@ output OutFieldEnum { field = OutEnumField.outEnumField }
 enum OutEnumField { outEnumField }
 
 // output-field-enum-parent
-output OutFieldParent { field = OutEnumParent.outEnumParent }
-enum OutEnumParent { :OutEnumExtended outExtended }
-enum OutEnumExtended { outEnumParent }
+output OutFieldParent { field = OutEnumParented.outEnumParent }
+enum OutEnumParented { :OutEnumParent outParent ed }
+enum OutEnumParent { outEnumParent }
 
 // output-field-value
 output OutFieldValue { field = outEnumValue }
@@ -70,8 +70,8 @@ enum OutEnumGen { outEnumGen }
 // output-generic-parent
 output OutGenParent { | OutGenParentRef<OutParentGen.outGenParent> }
 output OutGenParentRef<$type> { field: $type }
-enum OutParentGen { :OutExtendedGen outGenExtended }
-enum OutExtendedGen { outGenParent }
+enum OutParentGen { :OutPrntendedGen outGenPrntended }
+enum OutPrntendedGen { outGenParent }
 
 // output-generic-value
 output OutGenValue { | OutGenValueRef<outValueGen> }

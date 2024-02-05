@@ -1,10 +1,12 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Merging;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
-internal class VerifyScalarEnum
-  : AstScalarVerifier<ScalarMemberAst>
+internal class VerifyScalarEnum(
+  IMerge<ScalarMemberAst> members
+) : AstScalarVerifier<ScalarMemberAst>(members)
 {
   protected override void VerifyScalar(AstScalar<ScalarMemberAst> scalar, EnumContext context)
   {

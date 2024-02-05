@@ -1,9 +1,11 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Merging;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
-internal class AstScalarVerifier<TMember>
-  : IVerifyScalar
+internal class AstScalarVerifier<TMember>(
+  IMerge<TMember> members
+) : IVerifyScalar
   where TMember : IAstScalarItem
 {
   public bool CanMergeItems(AstScalar usage, AstScalar parent, EnumContext context)
@@ -22,7 +24,7 @@ internal class AstScalarVerifier<TMember>
   { }
 
   protected virtual bool CanMergeScalar(AstScalar<TMember> scalar, AstScalar<TMember> scalarParent, EnumContext context)
-    => true; // Todo: Complete CanMergeScalar
+    => members.CanMerge(scalarParent.Items.Concat(scalar.Items));
 }
 
 public interface IVerifyScalar

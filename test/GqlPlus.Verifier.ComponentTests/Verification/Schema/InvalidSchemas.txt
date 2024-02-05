@@ -91,17 +91,15 @@ scalar Test { :Parent Boolean }
 scalar Parent { :Recurse Boolean }
 scalar Recurse { :Test Boolean }
 
-// scalar-parent-wrong-kind
-scalar Test { :Parent Boolean }
-scalar Parent { String }
-
 // scalar-diff-kind
 scalar Test { string }
 scalar Test { number }
 
-// scalar-string-diff
-scalar Test { string /a+/}
-scalar Test { string !/a+/ }
+// scalar-enum-parent-unique
+scalar Test { :Parent Enum Enum.value }
+scalar Parent { Enum Dup.value }
+enum Enum { value }
+enum Dup { value }
 
 // scalar-enum-wrong
 scalar Test { enum Bad.value }
@@ -135,13 +133,47 @@ scalar Test { enum Enum.* Dup.* }
 enum Enum { value }
 enum Dup { value }
 
+// scalar-number-parent
+scalar Test { :Parent number 1> }
+scalar Parent { number !1> }
+
+// scalar-string-diff
+scalar Test { string /a+/}
+scalar Test { string !/a+/ }
+
+// scalar-string-parent
+scalar Test { :Parent string /a+/}
+scalar Parent { string !/a+/ }
+
+// scalar-union-parent
+scalar Test { :Parent union }
+scalar Parent { union | Test }
+
+// scalar-union-parent-recurse
+scalar Test { :Parent union }
+scalar Parent { union | Bad }
+scalar Bad { union | Test }
+
+// scalar-union-parent-more
+scalar Test { :Parent union }
+scalar Parent { union | More }
+scalar More { :Bad union }
+scalar Bad { union | Test }
+
 // scalar-union-recurse
 scalar Test { union | Bad }
 scalar Bad { union | Test }
 
-// scalar-union-more
+// scalar-union-recurse-parent
+scalar Test { union | Bad }
+scalar Bad { :Parent union }
+scalar Parent { union | Test }
+
+// scalar-union-more-parent
 scalar Test { union | Recurse }
-scalar Recurse { union | Bad }
+scalar Recurse { :Parent union }
+scalar Parent { union | More }
+scalar More { :Bad union }
 scalar Bad { union | Test }
 
 // scalar-union-self

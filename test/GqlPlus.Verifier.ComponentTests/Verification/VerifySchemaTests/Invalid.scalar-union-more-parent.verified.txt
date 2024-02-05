@@ -1,0 +1,5 @@
+﻿[
+  Invalid Scalar Reference. 'Test' cannot refer to self, even recursively via Bad.,
+  Invalid Scalar Reference. 'Recurse' cannot refer to self, even recursively via Test.,
+  Invalid Scalar Reference. 'More' cannot refer to self, even recursively via Parent.
+]

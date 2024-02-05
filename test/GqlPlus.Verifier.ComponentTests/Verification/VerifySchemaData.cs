@@ -99,7 +99,7 @@ public partial class VerifySchemaTests
     ["scalar-parent-self-parent"] = "scalar Test { :Parent Boolean } scalar Parent { :Test Boolean }",
     ["scalar-parent-self-recurse"] = "scalar Test { :Parent Boolean } scalar Parent { :Recurse Boolean } scalar Recurse { :Test Boolean }",
     ["scalar-diff-kind"] = "scalar Test { string } scalar Test { number }",
-    ["scalar-string-diff"] = "scalar Test { string /a+/} scalar Test { string !/a+/ }",
+    ["scalar-enum-parent-unique"] = "scalar Test { :Parent Enum Enum.value } scalar Parent { Enum Dup.value } enum Enum { value } enum Dup { value }",
     ["scalar-enum-wrong"] = "scalar Test { enum Bad.value } output Bad { }",
     ["scalar-enum-undef-value"] = "scalar Test { enum Undef.value }",
     ["scalar-enum-undef-member"] = "scalar Test { enum Enum.undef } enum Enum { value }",
@@ -108,8 +108,15 @@ public partial class VerifySchemaTests
     ["scalar-enum-unique"] = "scalar Test { enum Enum.value Dup.value } enum Enum { value } enum Dup { value }",
     ["scalar-enum-unique-member"] = "scalar Test { enum Enum.value Dup.* } enum Enum { value } enum Dup { value }",
     ["scalar-enum-unique-all"] = "scalar Test { enum Enum.* Dup.* } enum Enum { value } enum Dup { value }",
+    ["scalar-number-parent"] = "scalar Test { :Parent number 1> } scalar Parent { number !1> }",
+    ["scalar-string-diff"] = "scalar Test { string /a+/} scalar Test { string !/a+/ }",
+    ["scalar-string-parent"] = "scalar Test { :Parent string /a+/} scalar Parent { string !/a+/ }",
+    ["scalar-union-parent"] = "scalar Test { :Parent union } scalar Parent { union | Test }",
+    ["scalar-union-parent-recurse"] = "scalar Test { :Parent union } scalar Parent { union | Bad } scalar Bad { union | Test }",
+    ["scalar-union-parent-more"] = "scalar Test { :Parent union } scalar Parent { union | More } scalar More { :Bad union } scalar Bad { union | Test }",
     ["scalar-union-recurse"] = "scalar Test { union | Bad } scalar Bad { union | Test }",
-    ["scalar-union-more"] = "scalar Test { union | Recurse } scalar Recurse { union | Bad } scalar Bad { union | Test }",
+    ["scalar-union-recurse-parent"] = "scalar Test { union | Bad } scalar Bad { :Parent union } scalar Parent { union | Test }",
+    ["scalar-union-more-parent"] = "scalar Test { union | Recurse } scalar Recurse { :Parent union } scalar Parent { union | More } scalar More { :Bad union } scalar Bad { union | Test }",
     ["scalar-union-self"] = "scalar Test { union | Test }",
     ["scalar-union-undef"] = "scalar Test { union | Bad }",
     ["scalar-union-wrong"] = "scalar Test { union | Bad } input Bad { }",
@@ -143,7 +150,7 @@ public partial class VerifySchemaTests
       Add("scalar-parent-self-parent");
       Add("scalar-parent-self-recurse");
       Add("scalar-diff-kind");
-      Add("scalar-string-diff");
+      Add("scalar-enum-parent-unique");
       Add("scalar-enum-wrong");
       Add("scalar-enum-undef-value");
       Add("scalar-enum-undef-member");
@@ -152,8 +159,15 @@ public partial class VerifySchemaTests
       Add("scalar-enum-unique");
       Add("scalar-enum-unique-member");
       Add("scalar-enum-unique-all");
+      Add("scalar-number-parent");
+      Add("scalar-string-diff");
+      Add("scalar-string-parent");
+      Add("scalar-union-parent");
+      Add("scalar-union-parent-recurse");
+      Add("scalar-union-parent-more");
       Add("scalar-union-recurse");
-      Add("scalar-union-more");
+      Add("scalar-union-recurse-parent");
+      Add("scalar-union-more-parent");
       Add("scalar-union-self");
       Add("scalar-union-undef");
       Add("scalar-union-wrong");
@@ -250,10 +264,10 @@ public partial class VerifySchemaTests
     ["input-field-Enum"] = "input InFieldEnum { field: InEnumField = value } enum InEnumField { value }",
     ["input-field-null"] = "input InFieldNull { field: InFieldNull? = null }",
     ["output-field-enum"] = "output OutFieldEnum { field = OutEnumField.outEnumField } enum OutEnumField { outEnumField }",
-    ["output-field-enum-parent"] = "output OutFieldParent { field = OutEnumParent.outEnumParent } enum OutEnumParent { :OutEnumExtended outExtended } enum OutEnumExtended { outEnumParent }",
+    ["output-field-enum-parent"] = "output OutFieldParent { field = OutEnumParented.outEnumParent } enum OutEnumParented { :OutEnumParent outParent ed } enum OutEnumParent { outEnumParent }",
     ["output-field-value"] = "output OutFieldValue { field = outEnumValue } enum OutEnumValue { outEnumValue }",
     ["output-generic-enum"] = "output OutGenEnum { | OutGenEnumRef<OutEnumGen.outEnumGen> } output OutGenEnumRef<$type> { field: $type } enum OutEnumGen { outEnumGen }",
-    ["output-generic-parent"] = "output OutGenParent { | OutGenParentRef<OutParentGen.outGenParent> } output OutGenParentRef<$type> { field: $type } enum OutParentGen { :OutExtendedGen outGenExtended } enum OutExtendedGen { outGenParent }",
+    ["output-generic-parent"] = "output OutGenParent { | OutGenParentRef<OutParentGen.outGenParent> } output OutGenParentRef<$type> { field: $type } enum OutParentGen { :OutPrntendedGen outGenPrntended } enum OutPrntendedGen { outGenParent }",
     ["output-generic-value"] = "output OutGenValue { | OutGenValueRef<outValueGen> } output OutGenValueRef<$type> { field: $type } enum OutValueGen { outValueGen }",
     ["output-params"] = "output OutParams { field(OutParam): OutParams } input OutParam { }",
     ["output-params-mods-Scalar"] = "output OutParamsScalar { field(OutParamScalar[OutScalarParam]): OutParamsScalar } input OutParamScalar { } scalar OutScalarParam { number 1 ~ 10 }",
@@ -290,10 +304,14 @@ public partial class VerifySchemaTests
   private static readonly Dictionary<string, string> s_schemaValidSchemas = new() {
     ["category-output"] = "category { Cat } output Cat { }",
     ["directive-param"] = "directive @DirParam(DirParamIn) { all } input DirParamIn { }",
-    ["enum-parent"] = "enum EnExt { :EnExtBase valExt } enum EnExtBase { valBase }",
-    ["enum-parent-alias"] = "enum EnExtAlias { :EnExtAliasBase valExt valBase[base] } enum EnExtAliasBase { valBase }",
-    ["enum-parent-dup"] = "enum EnExtDup { :EnExtDupBase valExt  } enum EnExtDupBase { valBase[valExt] }",
-    ["scalar-parent"] = "scalar ScalExt { :ScalExtBase Boolean } scalar ScalExtBase { Boolean }",
+    ["enum-parent"] = "enum EnPrnt { :EnPrntBase valPrnt } enum EnPrntBase { valBase }",
+    ["enum-parent-alias"] = "enum EnPrntAlias { :EnPrntAliasBase valPrnt valBase[base] } enum EnPrntAliasBase { valBase }",
+    ["enum-parent-dup"] = "enum EnPrntDup { :EnPrntDupBase valPrnt  } enum EnPrntDupBase { valBase[valPrnt] }",
+    ["scalar-parent"] = "scalar ScalPrnt { :ScalPrntBase Boolean } scalar ScalPrntBase { Boolean }",
+    ["scalar-enum-parent"] = "scalar ScalEnumPrnt { :ScalEnumPrntBase Enum scal_enum } scalar ScalEnumPrntBase { Enum scal_parent } enum EnumScalPrnt { scal_enum scal_parent }",
+    ["scalar-number-parent"] = "scalar ScalNumPrnt { :ScalNumPrntBase Number 2>} scalar ScalNumPrntBase { Number <2 }",
+    ["scalar-string-parent"] = "scalar ScalStrPrnt { :ScalStrPrntBase String /a+/ } scalar ScalStrPrntBase { String /b+/ }",
+    ["scalar-union-parent"] = "scalar ScalUnionPrnt { :ScalUnionPrntBase Union | String } scalar ScalUnionPrntBase { Union | Number }",
     ["scalar-enum-value"] = "scalar ScalEnum { Enum EnumScal.scal_enum } enum EnumScal { scal_enum }",
     ["scalar-enum-value-parent"] = "scalar ScalEnumParent { Enum EnumScalParent.scal_enum } enum EnumScalParent { :EnumParentScal scal_parent } enum EnumParentScal { scal_enum }",
     ["scalar-enum-member"] = "scalar ScalMember { enum scal_member } enum MemberScal { scal_member }",
@@ -313,6 +331,10 @@ public partial class VerifySchemaTests
       Add("enum-parent-alias");
       Add("enum-parent-dup");
       Add("scalar-parent");
+      Add("scalar-enum-parent");
+      Add("scalar-number-parent");
+      Add("scalar-string-parent");
+      Add("scalar-union-parent");
       Add("scalar-enum-value");
       Add("scalar-enum-value-parent");
       Add("scalar-enum-member");

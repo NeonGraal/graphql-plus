@@ -6,20 +6,37 @@ directive @DirParam(DirParamIn) { all }
 input DirParamIn { }
 
 // enum-parent
-enum EnExt { :EnExtBase valExt }
-enum EnExtBase { valBase }
+enum EnPrnt { :EnPrntBase valPrnt }
+enum EnPrntBase { valBase }
 
 // enum-parent-alias
-enum EnExtAlias { :EnExtAliasBase valExt valBase[base] }
-enum EnExtAliasBase { valBase }
+enum EnPrntAlias { :EnPrntAliasBase valPrnt valBase[base] }
+enum EnPrntAliasBase { valBase }
 
 // enum-parent-dup
-enum EnExtDup { :EnExtDupBase valExt  }
-enum EnExtDupBase { valBase[valExt] }
+enum EnPrntDup { :EnPrntDupBase valPrnt  }
+enum EnPrntDupBase { valBase[valPrnt] }
 
 // scalar-parent
-scalar ScalExt { :ScalExtBase Boolean }
-scalar ScalExtBase { Boolean }
+scalar ScalPrnt { :ScalPrntBase Boolean }
+scalar ScalPrntBase { Boolean }
+
+// scalar-enum-parent
+scalar ScalEnumPrnt { :ScalEnumPrntBase Enum scal_enum }
+scalar ScalEnumPrntBase { Enum scal_parent }
+enum EnumScalPrnt { scal_enum scal_parent }
+
+// scalar-number-parent
+scalar ScalNumPrnt { :ScalNumPrntBase Number 2>}
+scalar ScalNumPrntBase { Number <2 }
+
+// scalar-string-parent
+scalar ScalStrPrnt { :ScalStrPrntBase String /a+/ }
+scalar ScalStrPrntBase { String /b+/ }
+
+// scalar-union-parent
+scalar ScalUnionPrnt { :ScalUnionPrntBase Union | String }
+scalar ScalUnionPrntBase { Union | Number }
 
 // scalar-enum-value
 scalar ScalEnum { Enum EnumScal.scal_enum }

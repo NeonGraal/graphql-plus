@@ -17,7 +17,7 @@ public record class EnumContext(
   internal bool GetEnumType(string? name, [NotNullWhen(true)] out EnumDeclAst? enumType)
   {
     enumType = null;
-    if (GetType(name ?? "", out var theType)) {
+    if (GetType(name, out var theType)) {
       enumType = theType as EnumDeclAst;
     }
 

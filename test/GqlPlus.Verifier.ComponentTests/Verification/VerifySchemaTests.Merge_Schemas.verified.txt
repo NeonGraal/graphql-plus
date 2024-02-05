@@ -118,16 +118,18 @@ Success
   outEnumField
 }
 {
-  !E I@068/0001
-  OutEnumParent
-  :OutEnumExtended
-  !EM I@101/0001
-  outExtended
+  !E I@070/0001
+  OutEnumParented
+  :OutEnumParent
+  !EM I@103/0001
+  outParent
+  !EM I@113/0001
+  ed
 }
 {
-  !E I@120/0001
-  OutEnumExtended
-  !EM I@138/0001
+  !E I@123/0001
+  OutEnumParent
+  !EM I@139/0001
   outEnumParent
 }
 {
@@ -145,14 +147,14 @@ Success
 {
   !E I@122/0001
   OutParentGen
-  :OutExtendedGen
-  !EM I@153/0001
-  outGenExtended
+  :OutPrntendedGen
+  !EM I@154/0001
+  outGenPrntended
 }
 {
-  !E I@175/0001
-  OutExtendedGen
-  !EM I@192/0001
+  !E I@177/0001
+  OutPrntendedGen
+  !EM I@195/0001
   outGenParent
 }
 {
@@ -210,50 +212,58 @@ Success
 }
 {
   !E I@006/0001
-  EnExt
-  :EnExtBase
-  !EM I@025/0001
-  valExt
+  EnPrnt
+  :EnPrntBase
+  !EM I@027/0001
+  valPrnt
 }
 {
-  !E I@039/0001
-  EnExtBase
-  !EM I@051/0001
+  !E I@042/0001
+  EnPrntBase
+  !EM I@055/0001
   valBase
 }
 {
   !E I@006/0001
-  EnExtAlias
-  :EnExtAliasBase
-  !EM I@035/0001
-  valExt
-  !EM I@042/0001
+  EnPrntAlias
+  :EnPrntAliasBase
+  !EM I@037/0001
+  valPrnt
+  !EM I@045/0001
   valBase
   [
     base
   ]
 }
 {
-  !E I@063/0001
-  EnExtAliasBase
-  !EM I@080/0001
+  !E I@066/0001
+  EnPrntAliasBase
+  !EM I@084/0001
   valBase
 }
 {
   !E I@006/0001
-  EnExtDup
-  :EnExtDupBase
-  !EM I@031/0001
-  valExt
+  EnPrntDup
+  :EnPrntDupBase
+  !EM I@033/0001
+  valPrnt
 }
 {
-  !E I@046/0001
-  EnExtDupBase
-  !EM I@061/0001
+  !E I@049/0001
+  EnPrntDupBase
+  !EM I@065/0001
   valBase
   [
-    valExt
+    valPrnt
   ]
+}
+{
+  !E I@108/0001
+  EnumScalPrnt
+  !EM I@123/0001
+  scal_enum
+  !EM I@133/0001
+  scal_parent
 }
 {
   !E I@050/0001
@@ -333,6 +343,32 @@ Success
   EnumScalDupParent
   !EM I@226/0001
   dup
+}
+{
+  !S I@008/0001
+  ScalPrnt
+  Boolean
+  :ScalPrntBase
+}
+{
+  !S I@050/0001
+  ScalPrntBase
+  Boolean
+}
+{
+  !S I@008/0001
+  ScalEnumPrnt
+  Enum
+  :ScalEnumPrntBase
+  !SM I@046/0001
+  scal_enum
+}
+{
+  !S I@065/0001
+  ScalEnumPrntBase
+  Enum
+  !SM I@089/0001
+  scal_parent
 }
 {
   !S I@008/0001
@@ -442,6 +478,23 @@ Success
 }
 {
   !S I@008/0001
+  ScalNumPrnt
+  Number
+  :ScalNumPrntBase
+  !SR N@046/0001
+  2
+>
+}
+{
+!S I@057/0001
+ScalNumPrntBase
+Number
+!SR P@082/0001
+<
+  2
+}
+{
+  !S I@008/0001
   Str
   String
 }
@@ -461,6 +514,21 @@ Success
 }
 {
   !S I@008/0001
+  ScalStrPrnt
+  String
+  :ScalStrPrntBase
+  !SX R@046/0001
+  /a+/
+}
+{
+  !S I@060/0001
+  ScalStrPrntBase
+  String
+  !SX R@085/0001
+  /b+/
+}
+{
+  !S I@008/0001
   UnSame
   Union
   !ST P@023/0001
@@ -473,6 +541,21 @@ Success
   !ST P@023/0001
   Boolean
   !ST P@057/0001
+  Number
+}
+{
+  !S I@008/0001
+  ScalUnionPrnt
+  Union
+  :ScalUnionPrntBase
+  !ST P@049/0001
+  String
+}
+{
+  !S I@067/0001
+  ScalUnionPrntBase
+  Union
+  !ST P@093/0001
   Number
 }
 {
@@ -945,7 +1028,7 @@ Success
     field
     =
     I@033/0001
-    OutEnumParent.outEnumParent
+    OutEnumParented.outEnumParent
   }
 }
 {

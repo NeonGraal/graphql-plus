@@ -15,10 +15,10 @@ public record class UsageContext(
       where TAst : AstAbbreviated
       => Errors.AddError(item, $"Invalid {label}. {message}.");
 
-  internal bool GetType(string type, out AstDescribed? value)
+  internal bool GetType(string? type, out AstDescribed? value)
   {
-    if (Types.TryGetValue(type, out value)) {
-      Used.Add(type);
+    if (Types.TryGetValue(type ?? "", out value)) {
+      Used.Add(type!);
       return true;
     }
 
@@ -38,7 +38,7 @@ internal static class UsageHelpers
   {
     foreach (var modifier in modified.Modifiers) {
       if (modifier.Kind == ModifierKind.Dict) {
-        if (context.GetType(modifier.Key!, out var key)) {
+        if (context.GetType(modifier.Key, out var key)) {
           if (key is not EnumDeclAst and not AstScalar) {
             context.AddError((AstAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");
           }

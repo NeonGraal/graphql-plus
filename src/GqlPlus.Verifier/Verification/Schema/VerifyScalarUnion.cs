@@ -1,9 +1,12 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Merging;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
-internal class VerifyScalarUnion
-  : AstScalarVerifier<ScalarReferenceAst>
+internal class VerifyScalarUnion(
+  IMerge<ScalarReferenceAst> members
+) : AstScalarVerifier<ScalarReferenceAst>(members)
 {
   protected override void VerifyScalar(AstScalar<ScalarReferenceAst> scalar, EnumContext context)
   {
@@ -20,6 +23,10 @@ internal class VerifyScalarUnion
         context.AddError(scalar, "Scalar Reference", $"'{reference.Name}' not defined");
       }
     }
+
+    if (GetParentType(scalar.Name, scalar, context, out var parentType)) {
+      CheckSelfReference(scalar.Name, parentType, context);
+    }
   }
 
   private static void CheckSelfReference(string name, AstScalar<ScalarReferenceAst> usage, UsageContext context)
@@ -31,5 +38,20 @@ internal class VerifyScalarUnion
         CheckSelfReference(name, scalar, context);
       }
     }
+
+    if (GetParentType(name, usage, context, out var parentType)) {
+      CheckSelfReference(name, parentType, context);
+    }
+  }
+
+  private static bool GetParentType(string name, AstScalar<ScalarReferenceAst> usage, UsageContext context, [NotNullWhen(true)] out AstScalar<ScalarReferenceAst>? parent)
+  {
+    parent = null;
+
+    if (usage.Parent != name && context.GetType(usage.Parent, out var parentType) && parentType is AstScalar<ScalarReferenceAst> usageParent) {
+      parent = usageParent;
+    }
+
+    return parent is not null;
   }
 }

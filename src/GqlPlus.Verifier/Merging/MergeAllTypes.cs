@@ -26,18 +26,12 @@ internal class MergeAllTypes(
 
   private static void FixupEnums(IEnumerable<AstType> items)
   {
-    var enumTypes = items.OfType<EnumDeclAst>();
-    var outputTypes = items.OfType<OutputDeclAst>();
-
-    var enumValues = BuiltIn.Basic.OfType<EnumDeclAst>()
+    var enumValues = GetEnumValues(
+      BuiltIn.Basic.OfType<EnumDeclAst>()
       .Concat(BuiltIn.Internal.OfType<EnumDeclAst>())
-      .Concat(enumTypes)
-      .SelectMany(e => e.Members.Select(v => (Value: v.Name, Type: e.Name)))
-      .ToLookup(p => p.Value, p => p.Type)
-      .Where(g => g.Count() == 1)
-      .ToMap(e => e.Key, e => e.First());
+      .Concat(items.OfType<EnumDeclAst>()));
 
-    foreach (var output in outputTypes) {
+    foreach (var output in items.OfType<OutputDeclAst>()) {
       foreach (var alternate in output.Alternates) {
         FixupType(alternate.Type, enumValues);
       }
@@ -47,6 +41,12 @@ internal class MergeAllTypes(
       }
     }
   }
+
+  private static Map<string> GetEnumValues(IEnumerable<EnumDeclAst> enums)
+    => enums.SelectMany(e => e.Members.Select(v => (Value: v.Name, Type: e.Name)))
+      .ToLookup(p => p.Value, p => p.Type)
+      .Where(g => g.Count() == 1)
+      .ToMap(e => e.Key, e => e.First());
 
   private static void FixupType(OutputReferenceAst type, Map<string> enumValues)
   {

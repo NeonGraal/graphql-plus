@@ -28,8 +28,8 @@ internal static class MapExtensions
       .Union(items.GroupBy(t => t.Name));
   }
 
-  internal static Map<TAliased[]> AliasedMap<TAliased>(this TAliased[] items)
+  internal static Map<TResult> AliasedMap<TAliased, TResult>(this TAliased[] items, Func<IEnumerable<TAliased>, TResult> element)
     where TAliased : AstAliased
     => AliasedGroup(items)
-      .ToMap(g => g.Key, g => g.ToArray());
+      .ToMap(g => g.Key, g => element(g));
 }

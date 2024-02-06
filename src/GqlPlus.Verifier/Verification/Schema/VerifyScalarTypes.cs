@@ -14,8 +14,7 @@ internal class VerifyScalarTypes(
 
   protected override EnumContext MakeContext(AstScalar usage, AstType[] aliased, ITokenMessages errors)
   {
-    var validTypes = aliased.AliasedGroup()
-      .ToMap(p => p.Key, p => (AstDescribed)p.First());
+    var validTypes = aliased.AliasedMap(p => (AstDescribed)p.First());
 
     return new(validTypes, errors, aliased.MakeEnumValues());
   }

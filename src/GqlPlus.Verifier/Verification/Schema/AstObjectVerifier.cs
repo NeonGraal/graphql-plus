@@ -49,7 +49,7 @@ internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>
   protected override string GetParent(AstType<TReference> usage)
     => usage.Parent?.FullName ?? "";
 
-  protected override bool GetParentType(TObject usage, string parent, TContext context, [NotNullWhen(true)] out AstType<TReference>? type)
+  protected override bool GetParentType(TObject usage, string parent, TContext context, [NotNullWhen(true)] out AstType? type)
   {
     if (parent.StartsWith('$')) {
       var parameter = parent[1..];

@@ -26,16 +26,16 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     }
   }
 
-  protected virtual bool GetParentType(TAst usage, string parent, TContext context, [NotNullWhen(true)] out AstType<TParent>? type)
+  protected virtual bool GetParentType(TAst usage, string parent, TContext context, [NotNullWhen(true)] out AstType? type)
   {
     type = null;
     if (context.GetType(parent, out var defined)) {
       if (defined is AstType parentType) {
         if (parentType.Label == usage.Label) {
-          type = (AstType<TParent>)parentType;
+          type = parentType;
 
           if (CheckAstParent(usage, parentType as TAst, context)) {
-            CheckRecursiveParent(usage, type, context);
+            CheckRecursiveParent(usage, (AstType<TParent>)type, context);
             return true;
           }
         } else {

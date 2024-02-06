@@ -15,7 +15,7 @@ internal class VerifyOptionAliased(
   public override void Verify(OptionDeclAst[] item, ITokenMessages errors)
   {
     if (item.Select(i => i.Name).Distinct().Count() > 1) {
-      errors.Add(item.Last().Error($"Multiple Schema names found."));
+      errors.Add(item.Last().Error($"Multiple Schema names ({Label}) found."));
     }
 
     base.Verify(item, errors);

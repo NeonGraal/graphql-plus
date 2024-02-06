@@ -15,7 +15,6 @@ public abstract class AstScalarTests<TInput, TMember>
     => Checks.String(
       () => NewScalar(name, ScalarMembers(input)),
       MembersString(name, input));
-  //$"( !S {name} {Kind} !SR {input} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithMembers(string name, TInput input)

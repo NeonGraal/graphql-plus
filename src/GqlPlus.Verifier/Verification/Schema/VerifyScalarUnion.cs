@@ -11,15 +11,7 @@ internal class VerifyScalarUnion(
   protected override void VerifyScalar(AstScalar<ScalarReferenceAst> scalar, EnumContext context)
   {
     foreach (var reference in scalar.Items) {
-      if (reference.Name == scalar.Name) {
-        context.AddError(scalar, "Scalar Reference", $"'{scalar.Name}' cannot refer to self");
-      } else if (context.GetType(reference.Name, out var alternate) && alternate is AstType type) {
-        if (type is AstScalar<ScalarReferenceAst> typeScalar) {
-          CheckSelfReference(scalar.Name, typeScalar, context);
-        } else if (type.Label is not "Enum" and not "Scalar" and not "All") {
-          context.AddError(scalar, "Scalar Reference", $"Type kind mismatch for {reference.Name}. Found {type?.Label}");
-        }
-      } else {
+      if (CheckReference(scalar.Name, reference, context, CheckTypeLabel)) {
         context.AddError(scalar, "Scalar Reference", $"'{reference.Name}' not defined");
       }
     }
@@ -27,16 +19,37 @@ internal class VerifyScalarUnion(
     if (GetParentType(scalar.Name, scalar, context, out var parentType)) {
       CheckSelfReference(scalar.Name, parentType, context);
     }
+
+    void CheckTypeLabel(string name, AstType type)
+    {
+      if (type.Label is not "Enum" and not "Scalar" and not "All") {
+        context.AddError(scalar, "Scalar Reference", $"Type kind mismatch for {name}. Found {type?.Label}");
+      }
+    }
   }
 
-  private static void CheckSelfReference(string name, AstScalar<ScalarReferenceAst> usage, UsageContext context)
+  private static bool CheckReference(string name, ScalarReferenceAst reference, EnumContext context, Action<string, AstType>? checkType = null)
+  {
+    if (reference.Name == name) {
+      context.AddError(reference, "Scalar Reference", $"'{name}' cannot refer to " + (checkType is null ? "self, even recursively" : "self"));
+      return false;
+    } else if (context.GetType(reference.Name, out var alternate) && alternate is AstType type) {
+      if (type is AstScalar<ScalarReferenceAst> typeScalar) {
+        CheckSelfReference(name, typeScalar, context);
+      } else {
+        checkType?.Invoke(reference.Name, type);
+      }
+
+      return false;
+    }
+
+    return true;
+  }
+
+  private static void CheckSelfReference(string name, AstScalar<ScalarReferenceAst> usage, EnumContext context)
   {
     foreach (var reference in usage.Items) {
-      if (reference.Name == name) {
-        context.AddError(usage, "Scalar Reference", $"'{name}' cannot refer to self, even recursively via {usage.Name}");
-      } else if (context.GetType(reference.Name, out var alternate) && alternate is AstScalar<ScalarReferenceAst> scalar) {
-        CheckSelfReference(name, scalar, context);
-      }
+      CheckReference(name, reference, context);
     }
 
     if (GetParentType(name, usage, context, out var parentType)) {
@@ -44,7 +57,7 @@ internal class VerifyScalarUnion(
     }
   }
 
-  private static bool GetParentType(string name, AstScalar<ScalarReferenceAst> usage, UsageContext context, [NotNullWhen(true)] out AstScalar<ScalarReferenceAst>? parent)
+  private static bool GetParentType(string name, AstScalar<ScalarReferenceAst> usage, EnumContext context, [NotNullWhen(true)] out AstScalar<ScalarReferenceAst>? parent)
   {
     parent = null;
 

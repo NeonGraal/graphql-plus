@@ -13,7 +13,7 @@ internal abstract class ParseScalarItem<TItem>(
   public abstract ScalarKind Kind { get; }
   public ParseItems Parser => ParseMembers;
 
-  protected virtual IResult<ScalarDefinition> ParseMembers(Tokenizer tokens, string label, ScalarDefinition result)
+  protected IResult<ScalarDefinition> ParseMembers(Tokenizer tokens, string label, ScalarDefinition result)
   {
     var items = _items.Parse(tokens, label);
     return items.Required(values => ApplyItems(result, values))

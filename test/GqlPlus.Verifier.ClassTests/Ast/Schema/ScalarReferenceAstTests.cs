@@ -2,9 +2,6 @@
 
 public class ScalarReferenceAstTests : AstAbbreviatedTests
 {
-  //protected override string AbbreviatedString(string input)
-  //  => $"( !ST {input} )";
-
   private readonly AstAbbreviatedChecks<ScalarReferenceAst> _checks
     = new(name => new ScalarReferenceAst(AstNulls.At, name));
 

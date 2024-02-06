@@ -24,9 +24,7 @@ internal abstract class UsageVerifier<TUsage, TAliased, TContext>(
 
   protected static UsageContext MakeUsageContext(TAliased[] aliased, ITokenMessages errors)
     => new(
-      aliased.AliasedGroup().ToMap(
-        p => p.Key,
-        p => (AstDescribed)p.First())
+      aliased.AliasedMap(p => (AstDescribed)p.First())
       , errors);
 }
 

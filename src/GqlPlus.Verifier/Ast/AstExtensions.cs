@@ -40,25 +40,24 @@ public static class AstExtensions
     string after = "",
     bool sort = false)
   {
-    IEnumerable<string?> result = Enumerable.Empty<string?>();
-
-    if (items?.Any(i => i is AstAbbreviated) == true) {
-      result = items.OfType<AstAbbreviated>()
-          .SelectMany(i => i.GetFields());
-    } else if (items?.Any() == true) {
-      result = items.Select(i => $"{i}");
-    } else {
-      return result;
-    }
+    var result = AsFields(items);
 
     if (sort) {
-      result = result.Order();
+      result = result?.Order();
     }
 
     return result
-        .Prepend(before)
-        .Append(after);
+        ?.Prepend(before)
+        ?.Append(after)
+        ?? Enumerable.Empty<string>();
   }
+
+  private static IEnumerable<string?>? AsFields<T>(IEnumerable<T>? items)
+    => items?.Any(i => i is AstAbbreviated) == true
+    ? items.OfType<AstAbbreviated>().SelectMany(i => i.GetFields())
+    : items?.Any() == true
+      ? items.Select(i => $"{i}")
+      : null;
 
   public static string Joined(this IEnumerable<string?>? items)
     => string.Join(" ",

@@ -13,27 +13,31 @@ internal class MergeConstants
       : [];
 
   private ConstantAst CombineConstants(ConstantAst a, ConstantAst b)
+    => a.Values.Length > 0 || b.Values.Length > 0
+      ? MergeValues(a, b)
+      : a.Fields.Any() && b.Fields.Any()
+        ? MergeFields(a, b)
+        : b;
+
+  private static ConstantAst MergeValues(ConstantAst a, ConstantAst b)
   {
-    if (a.Values.Length > 0 || b.Values.Length > 0) {
-      var values = a.Values.Append(b);
+    var values = a.Values.Append(b);
 
-      if (b.Values.Length > 0) {
-        values = a.Values.Length == 0
-          ? b.Values.Prepend(a)
-          : a.Values.Concat(b.Values).Distinct();
-      }
-
-      return b with { Value = null, Fields = [], Values = [.. values] };
+    if (b.Values.Length > 0) {
+      values = a.Values.Length == 0
+        ? b.Values.Prepend(a)
+        : a.Values.Concat(b.Values).Distinct();
     }
 
-    if (a.Fields.Any() && b.Fields.Any()) {
-      var fields = a.Fields.Concat(b.Fields)
-        .ToLookup(p => p.Key, p => p.Value)
-        .ToDictionary(g => g.Key, g => Merge(g).First());
+    return b with { Value = null, Fields = [], Values = [.. values] };
+  }
 
-      return b with { Fields = new(fields) };
-    }
+  private ConstantAst MergeFields(ConstantAst a, ConstantAst b)
+  {
+    var fields = a.Fields.Concat(b.Fields)
+      .ToLookup(p => p.Key, p => p.Value)
+      .ToDictionary(g => g.Key, g => Merge(g).First());
 
-    return b;
+    return b with { Fields = new(fields) };
   }
 }

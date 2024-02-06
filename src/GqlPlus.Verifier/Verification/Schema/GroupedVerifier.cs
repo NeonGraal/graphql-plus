@@ -2,7 +2,6 @@
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Token;
-using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 

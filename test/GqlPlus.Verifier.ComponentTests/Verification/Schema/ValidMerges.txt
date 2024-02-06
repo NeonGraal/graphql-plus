@@ -68,9 +68,9 @@ object ObjAlias [Obj1] { }
 object ObjAlias [Obj2] { }
 
 // object-parent
-object ObjBase { :BaseObj }
-object ObjBase { :BaseObj }
-object BaseObj { }
+object ObjPrnt { :PrntObj }
+object ObjPrnt { :PrntObj }
+object PrntObj { }
 
 // object-params
 object ObjParams<$test> { test: $test }
@@ -90,9 +90,10 @@ object FieldAlias { field [field1]: FieldAlias }
 object FieldAlias { field [field2]: FieldAlias }
 
 // output-field-params
-output FieldParams { field(FieldParam): FieldParams }
-output FieldParams { field: FieldParams }
-input FieldParam { }
+output FieldParams { field(FieldParam1): FieldParams }
+output FieldParams { field(FieldParam2): FieldParams }
+input FieldParam1 { }
+input FieldParam2 { }
 
 // output-field-enums
 output FieldEnums { field = Boolean.true }

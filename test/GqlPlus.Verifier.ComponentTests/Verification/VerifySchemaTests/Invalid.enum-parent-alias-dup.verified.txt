@@ -1,3 +1,3 @@
 ﻿[
-  Invalid Enum Items. Can't merge Items for Test into Parent Items.
+  Invalid Enum Child. Can't merge Test into Parent Parent.
 ]

@@ -3,8 +3,8 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeInputObjects(
+  IMerge<InputFieldAst> fields,
   IMerge<TypeParameterAst> typeParameters,
-  IMerge<AstAlternate<InputReferenceAst>> alternates,
-  IMerge<InputFieldAst> fields
-) : AstObjectsMerger<InputDeclAst, InputFieldAst, InputReferenceAst>(typeParameters, alternates, fields)
+  IMerge<AstAlternate<InputReferenceAst>> alternates
+) : AstObjectsMerger<InputDeclAst, InputFieldAst, InputReferenceAst>(fields, typeParameters, alternates)
 { }

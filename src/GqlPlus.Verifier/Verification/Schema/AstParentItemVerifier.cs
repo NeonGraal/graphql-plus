@@ -11,7 +11,7 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   where TParent : IEquatable<TParent>
   where TContext : UsageContext
 {
-  protected override bool CanMergeItems(TAst usage, TAst parent, TContext context)
+  protected override bool CanMergeParent(TAst usage, TAst parent, TContext context)
   {
     var items = GetParentItems(parent, context).Concat(GetItems(usage)).ToArray();
 

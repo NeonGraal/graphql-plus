@@ -190,12 +190,12 @@ public partial class VerifySchemaTests
     ["enum-value-alias"] = "enum EnValAlias { value [val1] } enum EnValAlias { value [val2] }",
     ["object"] = "object Obj { } object Obj { }",
     ["object-alias"] = "object ObjAlias [Obj1] { } object ObjAlias [Obj2] { }",
-    ["object-parent"] = "object ObjBase { :BaseObj } object ObjBase { :BaseObj } object BaseObj { }",
+    ["object-parent"] = "object ObjPrnt { :PrntObj } object ObjPrnt { :PrntObj } object PrntObj { }",
     ["object-params"] = "object ObjParams<$test> { test: $test } object ObjParams<$type> { type: $type }",
     ["object-alts"] = "object ObjAlts { | ObjAltsType } object ObjAlts { | ObjAltsType } object ObjAltsType { }",
     ["object-fields"] = "object ObjFields { field: ObjFields } object ObjFields { field: ObjFields }",
     ["object-field-alias"] = "object FieldAlias { field [field1]: FieldAlias } object FieldAlias { field [field2]: FieldAlias }",
-    ["output-field-params"] = "output FieldParams { field(FieldParam): FieldParams } output FieldParams { field: FieldParams } input FieldParam { }",
+    ["output-field-params"] = "output FieldParams { field(FieldParam1): FieldParams } output FieldParams { field(FieldParam2): FieldParams } input FieldParam1 { } input FieldParam2 { }",
     ["output-field-enums"] = "output FieldEnums { field = Boolean.true } output FieldEnums { field = true }",
     ["output-field-enum-alias"] = "output FieldEnumAlias { field [field1] = Boolean.true } output FieldEnumAlias { field [field2] = true }",
     ["scalar-alias"] = "scalar NumAlias [Num1] { number } scalar NumAlias [Num2] { number }",
@@ -250,13 +250,17 @@ public partial class VerifySchemaTests
   }
   private static readonly Dictionary<string, string> s_schemaValidObjects = new() {
     ["alts-mods-Boolean"] = "object ObjAltMods { | ObjModsAlt[^] } object ObjModsAlt { }",
-    ["parent"] = "object ObjTestBase { :ObjBaseTest } object ObjBaseTest { }",
+    ["parent"] = "object ObjTestParent { :ObjParentTest } object ObjParentTest { }",
+    ["parent-alts"] = "object ObjPrntAlt { :ObjAltPrnt | Number } object ObjAltPrnt { | String }",
+    ["parent-params-diff"] = "object ObjPrntPrmsDiff<$a> { :ObjPrmsPrntDiff<$a> field: $a } object ObjPrmsPrntDiff<$b> { | $b }",
+    ["parent-params-same"] = "object ObjPrntPrmsSame<$a> { :ObjPrmsPrntSame<$a> field: $a } object ObjPrmsPrntSame<$a> { | $a }",
+    ["parent-fields"] = "object ObjPrntFields { :ObjFieldsParent field: Number } object ObjFieldsParent { parent: String }",
     ["fields-mods-Enum"] = "object ObjFieldMods { field: ObjFieldMods[ObjFieldEnum] } enum ObjFieldEnum { value }",
     ["generic-alt"] = "object ObjGenAlt<$type> { | $type }",
-    ["generic-parent"] = "object ObjGenBase<$type> { :$type }",
+    ["generic-parent"] = "object ObjGenPrnt<$type> { :$type }",
     ["generic-field"] = "object ObjGenField<$type> { field: $type }",
     ["generic-alt-arg"] = "object ObjGenAltArg<$type> { | ObjGenAltRef<$type> } object ObjGenAltRef<$ref> { | $ref }",
-    ["generic-parent-arg"] = "object ObjGenBaseArg<$type> { :ObjGenBaseRef<$type> } object ObjGenBaseRef<$ref> { | $ref }",
+    ["generic-parent-arg"] = "object ObjGenPrntArg<$type> { :ObjGenPrntRef<$type> } object ObjGenPrntRef<$ref> { | $ref }",
     ["generic-field-arg"] = "object ObjGenFieldArg<$type> { field: ObjGenFieldRef<$type> } object ObjGenFieldRef<$ref> { | $ref }",
     ["generic-param"] = "object ObjGenParam { field: ObjGenParamRef<ObjGenParamAlt> } object ObjGenParamRef<$ref> { | $ref } object ObjGenParamAlt { }",
     ["input-field-Number"] = "input InFieldNum { field: Number = 0 }",
@@ -270,6 +274,7 @@ public partial class VerifySchemaTests
     ["output-generic-parent"] = "output OutGenParent { | OutGenParentRef<OutParentGen.outGenParent> } output OutGenParentRef<$type> { field: $type } enum OutParentGen { :OutPrntendedGen outGenPrntended } enum OutPrntendedGen { outGenParent }",
     ["output-generic-value"] = "output OutGenValue { | OutGenValueRef<outValueGen> } output OutGenValueRef<$type> { field: $type } enum OutValueGen { outValueGen }",
     ["output-params"] = "output OutParams { field(OutParam): OutParams } input OutParam { }",
+    ["output-parent-params"] = "output OutPrntParams { :OutParamsParent field(OutPrntParam): OutPrntParams } output OutParamsParent { field(OutParamParent): OutPrntParams } input OutPrntParam { } input OutParamParent { }",
     ["output-params-mods-Scalar"] = "output OutParamsScalar { field(OutParamScalar[OutScalarParam]): OutParamsScalar } input OutParamScalar { } scalar OutScalarParam { number 1 ~ 10 }",
   };
 
@@ -279,6 +284,10 @@ public partial class VerifySchemaTests
     {
       Add("alts-mods-Boolean");
       Add("parent");
+      Add("parent-alts");
+      Add("parent-params-diff");
+      Add("parent-params-same");
+      Add("parent-fields");
       Add("fields-mods-Enum");
       Add("generic-alt");
       Add("generic-parent");
@@ -298,20 +307,21 @@ public partial class VerifySchemaTests
       Add("output-generic-parent");
       Add("output-generic-value");
       Add("output-params");
+      Add("output-parent-params");
       Add("output-params-mods-Scalar");
     }
   }
   private static readonly Dictionary<string, string> s_schemaValidSchemas = new() {
     ["category-output"] = "category { Cat } output Cat { }",
     ["directive-param"] = "directive @DirParam(DirParamIn) { all } input DirParamIn { }",
-    ["enum-parent"] = "enum EnPrnt { :EnPrntBase valPrnt } enum EnPrntBase { valBase }",
-    ["enum-parent-alias"] = "enum EnPrntAlias { :EnPrntAliasBase valPrnt valBase[base] } enum EnPrntAliasBase { valBase }",
-    ["enum-parent-dup"] = "enum EnPrntDup { :EnPrntDupBase valPrnt  } enum EnPrntDupBase { valBase[valPrnt] }",
-    ["scalar-parent"] = "scalar ScalPrnt { :ScalPrntBase Boolean } scalar ScalPrntBase { Boolean }",
-    ["scalar-enum-parent"] = "scalar ScalEnumPrnt { :ScalEnumPrntBase Enum scal_enum } scalar ScalEnumPrntBase { Enum scal_parent } enum EnumScalPrnt { scal_enum scal_parent }",
-    ["scalar-number-parent"] = "scalar ScalNumPrnt { :ScalNumPrntBase Number 2>} scalar ScalNumPrntBase { Number <2 }",
-    ["scalar-string-parent"] = "scalar ScalStrPrnt { :ScalStrPrntBase String /a+/ } scalar ScalStrPrntBase { String /b+/ }",
-    ["scalar-union-parent"] = "scalar ScalUnionPrnt { :ScalUnionPrntBase Union | String } scalar ScalUnionPrntBase { Union | Number }",
+    ["enum-parent"] = "enum EnTestPrnt { :EnPrntTest valPrnt } enum EnPrntTest { valTest }",
+    ["enum-parent-alias"] = "enum EnPrntAlias { :EnAliasPrnt valPrnt valAlias[alias] } enum EnAliasPrnt { valAlias }",
+    ["enum-parent-dup"] = "enum EnPrntDup { :EnDupPrnt valPrnt  } enum EnDupPrnt { valDup[valPrnt] }",
+    ["scalar-parent"] = "scalar ScalPrntTest { :ScalTestPrnt Boolean } scalar ScalTestPrnt { Boolean }",
+    ["scalar-enum-parent"] = "scalar ScalEnumPrnt { :ScalPrntEnum Enum scal_enum } scalar ScalPrntEnum { Enum scal_parent } enum EnumScalPrnt { scal_enum scal_parent }",
+    ["scalar-number-parent"] = "scalar ScalNumPrnt { :ScalPrntNum Number 2>} scalar ScalPrntNum { Number <2 }",
+    ["scalar-string-parent"] = "scalar ScalStrPrnt { :ScalPrntStr String /a+/ } scalar ScalPrntStr { String /b+/ }",
+    ["scalar-union-parent"] = "scalar ScalUnionPrnt { :ScalPrntUnion Union | String } scalar ScalPrntUnion { Union | Number }",
     ["scalar-enum-value"] = "scalar ScalEnum { Enum EnumScal.scal_enum } enum EnumScal { scal_enum }",
     ["scalar-enum-value-parent"] = "scalar ScalEnumParent { Enum EnumScalParent.scal_enum } enum EnumScalParent { :EnumParentScal scal_parent } enum EnumParentScal { scal_enum }",
     ["scalar-enum-member"] = "scalar ScalMember { enum scal_member } enum MemberScal { scal_member }",

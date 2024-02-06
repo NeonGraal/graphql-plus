@@ -20,8 +20,8 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
         context.AddError(usage, usage.Label + " Parent", $"Type kind mismatch for {parent}. Found {parentType.Label}");
       }
 
-      if (parentType is TAst ast && !CanMergeItems(usage, ast, context)) {
-        context.AddError(usage, usage.Label + " Items", $"Can't merge Items for {usage.Name} into {parent} Items");
+      if (parentType is TAst ast && !CanMergeParent(usage, ast, context)) {
+        context.AddError(usage, usage.Label + " Child", $"Can't merge {usage.Name} into Parent {parent}");
       }
     }
   }
@@ -67,5 +67,5 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   }
 
   protected abstract string GetParent(AstType<TParent> usage);
-  protected abstract bool CanMergeItems(TAst usage, TAst parent, TContext context);
+  protected abstract bool CanMergeParent(TAst usage, TAst parent, TContext context);
 }

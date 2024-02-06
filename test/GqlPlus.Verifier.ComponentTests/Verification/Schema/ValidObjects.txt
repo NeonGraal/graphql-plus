@@ -3,8 +3,24 @@ object ObjAltMods { | ObjModsAlt[^] }
 object ObjModsAlt { }
 
 // parent
-object ObjTestBase { :ObjBaseTest }
-object ObjBaseTest { }
+object ObjTestParent { :ObjParentTest }
+object ObjParentTest { }
+
+// parent-alts
+object ObjPrntAlt { :ObjAltPrnt | Number }
+object ObjAltPrnt { | String }
+
+// parent-params-diff
+object ObjPrntPrmsDiff<$a> { :ObjPrmsPrntDiff<$a> field: $a }
+object ObjPrmsPrntDiff<$b> { | $b }
+
+// parent-params-same
+object ObjPrntPrmsSame<$a> { :ObjPrmsPrntSame<$a> field: $a }
+object ObjPrmsPrntSame<$a> { | $a }
+
+// parent-fields
+object ObjPrntFields { :ObjFieldsParent field: Number }
+object ObjFieldsParent { parent: String }
 
 // fields-mods-Enum
 object ObjFieldMods { field: ObjFieldMods[ObjFieldEnum] }
@@ -14,7 +30,7 @@ enum ObjFieldEnum { value }
 object ObjGenAlt<$type> { | $type }
 
 // generic-parent
-object ObjGenBase<$type> { :$type }
+object ObjGenPrnt<$type> { :$type }
 
 // generic-field
 object ObjGenField<$type> { field: $type }
@@ -24,8 +40,8 @@ object ObjGenAltArg<$type> { | ObjGenAltRef<$type> }
 object ObjGenAltRef<$ref> { | $ref }
 
 // generic-parent-arg
-object ObjGenBaseArg<$type> { :ObjGenBaseRef<$type> }
-object ObjGenBaseRef<$ref> { | $ref }
+object ObjGenPrntArg<$type> { :ObjGenPrntRef<$type> }
+object ObjGenPrntRef<$ref> { | $ref }
 
 // generic-field-arg
 object ObjGenFieldArg<$type> { field: ObjGenFieldRef<$type> }
@@ -81,6 +97,12 @@ enum OutValueGen { outValueGen }
 // output-params
 output OutParams { field(OutParam): OutParams }
 input OutParam { }
+
+// output-parent-params
+output OutPrntParams { :OutParamsParent field(OutPrntParam): OutPrntParams }
+output OutParamsParent { field(OutParamParent): OutPrntParams }
+input OutPrntParam { }
+input OutParamParent { }
 
 // output-params-mods-Scalar
 output OutParamsScalar { field(OutParamScalar[OutScalarParam]): OutParamsScalar }

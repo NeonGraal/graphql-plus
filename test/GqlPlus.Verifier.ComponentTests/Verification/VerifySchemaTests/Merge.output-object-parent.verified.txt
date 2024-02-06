@@ -3,13 +3,13 @@
 Success
 {
   !O I@008/0001
-  OutBase
+  OutPrnt
   :
   I@019/0001
-  BaseOut
+  PrntOut
 }
 {
   !O I@064/0001
-  BaseOut
+  PrntOut
 }
 ]

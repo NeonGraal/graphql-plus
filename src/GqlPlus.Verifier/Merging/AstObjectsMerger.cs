@@ -4,10 +4,10 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 internal class AstObjectsMerger<TObject, TField, TReference>(
+  IMerge<TField> fields,
   IMerge<TypeParameterAst> typeParameters,
-  IMerge<AstAlternate<TReference>> alternates,
-  IMerge<TField> fields
-) : AstTypeMerger<AstType, TObject, TReference, TypeParameterAst>(typeParameters)
+  IMerge<AstAlternate<TReference>> alternates
+) : AstTypeMerger<AstType, TObject, TReference, TField>(fields)
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>, IAstDescribed
   where TReference : AstReference<TReference>
@@ -18,25 +18,25 @@ internal class AstObjectsMerger<TObject, TField, TReference>(
   protected override bool CanMergeGroup(IGrouping<string, TObject> group)
   {
     var baseCanMerge = base.CanMergeGroup(group);
-    var fieldsCanMerge = group.ManyGroupCanMerge(item => item.Fields, f => f.Name, fields);
+    var typeParametersCanMerge = group.ManyCanMerge(item => item.TypeParameters, typeParameters);
     var alternatesCanMerge = group.ManyGroupCanMerge(item => item.Alternates, a => a.Type.FullType, alternates);
 
-    return baseCanMerge && fieldsCanMerge && alternatesCanMerge;
+    return baseCanMerge && typeParametersCanMerge && alternatesCanMerge;
   }
 
   protected override TObject MergeGroup(IEnumerable<TObject> group)
   {
-    var fieldAsts = group.ManyMerge(item => item.Fields, fields);
+    var typeParametersAsts = group.ManyMerge(item => item.TypeParameters, typeParameters);
     var alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
 
     return base.MergeGroup(group) with {
-      Fields = [.. fieldAsts],
+      TypeParameters = [.. typeParametersAsts],
       Alternates = [.. alternateAsts],
     };
   }
 
-  internal override IEnumerable<TypeParameterAst> GetItems(TObject type)
-    => type.TypeParameters;
-  internal override TObject SetItems(TObject input, IEnumerable<TypeParameterAst> items)
-    => input with { TypeParameters = [.. items] };
+  internal override IEnumerable<TField> GetItems(TObject type)
+    => type.Fields;
+  internal override TObject SetItems(TObject input, IEnumerable<TField> items)
+    => input with { Fields = [.. items] };
 }

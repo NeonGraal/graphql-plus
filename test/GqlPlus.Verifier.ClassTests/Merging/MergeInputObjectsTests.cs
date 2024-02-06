@@ -9,7 +9,7 @@ public class MergeInputObjectsTests
   private readonly MergeInputObjects _merger;
 
   public MergeInputObjectsTests()
-    => _merger = new(TypeParameters, Alternates, Fields);
+    => _merger = new(Fields, TypeParameters, Alternates);
 
   internal override AstObjectsMerger<InputDeclAst, InputFieldAst, InputReferenceAst> MergerObject => _merger;
 

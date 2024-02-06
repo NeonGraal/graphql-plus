@@ -9,7 +9,7 @@ public class MergeOutputObjectsTests
   private readonly MergeOutputObjects _merger;
 
   public MergeOutputObjectsTests()
-    => _merger = new(TypeParameters, Alternates, Fields);
+    => _merger = new(Fields, TypeParameters, Alternates);
 
   internal override AstObjectsMerger<OutputDeclAst, OutputFieldAst, OutputReferenceAst> MergerObject => _merger;
 

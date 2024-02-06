@@ -5,7 +5,7 @@ using NSubstitute;
 namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestObjects<TObject, TField, TReference>
-  : TestTyped<AstType, TObject, TReference, TypeParameterAst>
+  : TestTyped<AstType, TObject, TReference, TField>
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>, IAstDescribed
   where TReference : AstReference<TReference>
@@ -17,7 +17,7 @@ public abstract class TestObjects<TObject, TField, TReference>
 
     CanMerge_False([
       MakeObject(name) with { TypeParameters = typeParameters.TypeParameters() },
-      MakeObject(name)],
+      MakeObject(name) with { TypeParameters = typeParameters.TypeParameters() }],
       typeParameters.Length < 2);
   }
 
@@ -28,7 +28,7 @@ public abstract class TestObjects<TObject, TField, TReference>
 
     CanMerge_False([
       MakeObject(name) with { Alternates = alternate.Alternates(MakeReference) },
-      MakeObject(name)]);
+      MakeObject(name) with { Alternates = alternate.Alternates(MakeReference) }]);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -38,7 +38,7 @@ public abstract class TestObjects<TObject, TField, TReference>
 
     CanMerge_False([
       MakeObject(name) with { Fields = MakeFields(field, type) },
-      MakeObject(name)]);
+      MakeObject(name) with { Fields = MakeFields(field, type) }]);
   }
 
   protected readonly IMerge<TypeParameterAst> TypeParameters;
@@ -53,7 +53,7 @@ public abstract class TestObjects<TObject, TField, TReference>
   }
 
   internal abstract AstObjectsMerger<TObject, TField, TReference> MergerObject { get; }
-  internal override AstTypeMerger<AstType, TObject, TReference, TypeParameterAst> MergerTyped => MergerObject;
+  internal override AstTypeMerger<AstType, TObject, TReference, TField> MergerTyped => MergerObject;
 
   protected abstract TObject MakeObject(string name, string description = "");
   protected abstract TField[] MakeFields(string field, string type);

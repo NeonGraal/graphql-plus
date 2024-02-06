@@ -8,8 +8,16 @@ output Test { }
 enum Test [a] { Value }
 output Dup [a] { }
 
-// category-no-output
+// category-output-undef
 category { Test }
+
+// category-output-wrong
+category { Test }
+input Test { }
+
+// category-output-generic
+category { Test }
+output Test<$a> { | $a }
 
 // category-duplicate
 category { Test }

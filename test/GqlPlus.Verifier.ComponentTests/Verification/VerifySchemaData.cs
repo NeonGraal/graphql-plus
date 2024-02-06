@@ -78,7 +78,9 @@ public partial class VerifySchemaTests
     ["bad-parse"] = "",
     ["unique-types"] = "enum Test { Value } output Test { }",
     ["unique-type-alias"] = "enum Test [a] { Value } output Dup [a] { }",
-    ["category-no-output"] = "category { Test }",
+    ["category-output-undef"] = "category { Test }",
+    ["category-output-wrong"] = "category { Test } input Test { }",
+    ["category-output-generic"] = "category { Test } output Test<$a> { | $a }",
     ["category-duplicate"] = "category { Test } category test { Output } output Test { } output Output { }",
     ["category-dup-alias"] = "category [a] { Test } category [a] { Output } output Test { } output Output { }",
     ["category-diff-mods"] = "category { Test } category { Test? } output Test { }",
@@ -129,7 +131,9 @@ public partial class VerifySchemaTests
       Add("bad-parse");
       Add("unique-types");
       Add("unique-type-alias");
-      Add("category-no-output");
+      Add("category-output-undef");
+      Add("category-output-wrong");
+      Add("category-output-generic");
       Add("category-duplicate");
       Add("category-dup-alias");
       Add("category-diff-mods");

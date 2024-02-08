@@ -5,9 +5,9 @@ namespace GqlPlus.Verifier.Verification.Schema;
 
 internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>(
   IVerifyAliased<TObject> aliased,
-  IMerge<TypeParameterAst> mergeTypeParameters,
+  IMerge<TField> fields,
    ILoggerFactory logger
-) : AstParentItemVerifier<TObject, TReference, TContext, TypeParameterAst>(aliased, mergeTypeParameters)
+) : AstParentItemVerifier<TObject, TReference, TContext, TField>(aliased, fields)
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>
   where TReference : AstReference<TReference>
@@ -74,8 +74,8 @@ internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>
     base.CheckParentType(input, context, top, onParent);
   }
 
-  protected override IEnumerable<TypeParameterAst> GetItems(TObject usage)
-    => usage.TypeParameters;
+  protected override IEnumerable<TField> GetItems(TObject usage)
+    => usage.Fields;
 
   protected override void OnParentType(ParentUsage<TObject> input, TContext context, TObject parentType, bool top)
   {

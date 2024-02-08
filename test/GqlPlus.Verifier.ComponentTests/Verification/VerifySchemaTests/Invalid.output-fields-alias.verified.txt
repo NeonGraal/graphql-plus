@@ -1,0 +1,4 @@
+﻿[
+  Multiple Outputs with name 'Test' can't be merged.,
+  Multiple Types with name 'Test' can't be merged.
+]

@@ -1,6 +1,7 @@
-﻿// unique-alias
-object Test [a] { }
-object Dup [a] { }
+﻿// alts-diff-mods
+object Test { | Test1 }
+object Test { | Test1[] }
+object Test1 { }
 
 // alts-mods-undef
 object Test { | Alt[Scalar] }
@@ -10,64 +11,30 @@ object Alt { }
 object Test { | Alt[Test] }
 object Alt { }
 
-// alts-diff-mods
-object Test { | Test1 }
-object Test { | Test1[] }
-object Test1 { }
-
-// alts-self
-object Test { | Test }
-
-// alts-recurse
-object Test { | Recurse }
-object Recurse { | Test }
-
 // alts-more
 object Test { | Recurse }
 object Recurse { | More }
 object More { | Test }
 
-// parent-undef
-object Test { :Parent }
-
-// parent-self
-object Test { :Test }
-
-// parent-recurse
-object Test { :Recurse }
-object Recurse { :Test }
-
-// parent-more
-object Test { :Recurse }
-object Recurse { :More }
-object More { :Test }
-
-// parent-alt-self
-object Test { :Alt }
-object Alt { | Test }
-
-// parent-self-alt
-object Test { | Alt }
-object Alt { :Test }
-
-// parent-alt-self-recurse
-object Test { :Alt }
-object Alt { | Recurse }
-object Recurse { :Test }
-
-// parent-self-alt-recurse
-object Test { | Alt }
-object Alt { :Recurse }
+// alts-recurse
+object Test { | Recurse }
 object Recurse { | Test }
+
+// alts-self
+object Test { | Test }
+
+// fields-alias
+object Test { field1[alias]: Test }
+object Test { field2[alias]: Test[] }
+
+// fields-diff-mods
+object Test { field: Test }
+object Test { field: Test[] }
 
 // fields-diff-type
 object Test { field: Test }
 object Test { field: Test1 }
 object Test1 { }
-
-// fields-diff-mods
-object Test { field: Test }
-object Test { field: Test[] }
 
 // fields-mods-undef
 object Test { field: Test[Random] }
@@ -78,35 +45,35 @@ object Test { field: Test[Test] }
 // generic-alt-undef
 object Test { | $type }
 
-// generic-parent-undef
-object Test { :$type }
-
-// generic-field-undef
-object Test { field: $type }
-
-// generic-arg-undef
-object Test { field: Ref<$type> }
+// generic-arg-less
+object Test { field: Ref }
 object Ref<$ref> { | $ref }
 
 // generic-arg-more
 object Test<$type> { field: Ref<$type> }
 object Ref { }
 
-// generic-arg-less
-object Test { field: Ref }
+// generic-arg-undef
+object Test { field: Ref<$type> }
 object Ref<$ref> { | $ref }
+
+// generic-field-undef
+object Test { field: $type }
 
 // generic-param-undef
 object Test { field: Ref<Test1> }
+object Ref<$ref> { | $ref }
+
+// generic-parent-less
+object Test { :Ref }
 object Ref<$ref> { | $ref }
 
 // generic-parent-more
 object Test { :Ref<Number> }
 object Ref { }
 
-// generic-parent-less
-object Test { :Ref }
-object Ref<$ref> { | $ref }
+// generic-parent-undef
+object Test { :$type }
 
 // generic-unused
 object Test<$type> { }
@@ -117,10 +84,6 @@ input Test { field: Test = null }
 // input-parent-output
 input Test { :Bad }
 output Bad { }
-
-// output-parent-input
-output Test { :Bad }
-input Bad { }
 
 // output-enum-bad
 output Test { field = unknown }
@@ -150,9 +113,6 @@ output Test { field(Param): Test }
 output Test { field(Param?): Test }
 input Param { }
 
-// output-params-undef
-output Test { field(Param): Test }
-
 // output-params-mods-undef
 output Test { field(Param[Scalar]): Test }
 input Param { }
@@ -160,3 +120,55 @@ input Param { }
 // output-params-mods-wrong
 output Test { field(Param[Test]): Test }
 input Param { }
+
+// output-params-undef
+output Test { field(Param): Test }
+
+// output-parent-input
+output Test { :Bad }
+input Bad { }
+
+// parent-alt-self
+object Test { :Alt }
+object Alt { | Test }
+
+// parent-alt-self-recurse
+object Test { :Alt }
+object Alt { | Recurse }
+object Recurse { :Test }
+
+// parent-fields-alias
+object Test { :Parent field1[alias]: Test }
+object Parent { field2[alias]: Parent }
+
+// parent-fields-mods
+object Test { :Parent field: Test }
+object Parent { field: Test[] }
+
+// parent-more
+object Test { :Recurse }
+object Recurse { :More }
+object More { :Test }
+
+// parent-recurse
+object Test { :Recurse }
+object Recurse { :Test }
+
+// parent-self
+object Test { :Test }
+
+// parent-self-alt
+object Test { | Alt }
+object Alt { :Test }
+
+// parent-self-alt-recurse
+object Test { | Alt }
+object Alt { :Recurse }
+object Recurse { | Test }
+
+// parent-undef
+object Test { :Parent }
+
+// unique-alias
+object Test [a] { }
+object Dup [a] { }

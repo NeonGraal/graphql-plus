@@ -1,23 +1,9 @@
 ﻿// bad-parse
 
-// unique-types
-enum Test { Value }
+// category-diff-mods
+category { Test }
+category { Test? }
 output Test { }
-
-// unique-type-alias
-enum Test [a] { Value }
-output Dup [a] { }
-
-// category-output-undef
-category { Test }
-
-// category-output-wrong
-category { Test }
-input Test { }
-
-// category-output-generic
-category { Test }
-output Test<$a> { | $a }
 
 // category-duplicate
 category { Test }
@@ -31,30 +17,36 @@ category [a] { Output }
 output Test { }
 output Output { }
 
-// category-diff-mods
+// category-output-generic
 category { Test }
-category { Test? }
-output Test { }
+output Test<$a> { | $a }
+
+// category-output-undef
+category { Test }
+
+// category-output-wrong
+category { Test }
+input Test { }
 
 // directive-diff-option
 directive @Test { all }
 directive @Test { ( repeatable ) all }
-
-// directive-no-param
-directive @Test(Test) { all }
 
 // directive-diff-parameter
 directive @Test(Test) { all }
 directive @Test(Test?) { all }
 input Test { }
 
-// option-diff-name
-option Test { }
-option Schema { }
+// directive-no-param
+directive @Test(Test) { all }
 
 // enum-dup-alias
 enum Test [a] { test }
 enum Dup [a] { dup }
+
+// enum-parent-alias-dup
+enum Test { :Parent test[alias] }
+enum Parent { parent[alias] }
 
 // enum-parent-diff
 enum Test { :Parent test }
@@ -68,24 +60,17 @@ enum Test { :Parent test }
 enum Test { :Parent test }
 output Parent { }
 
-// enum-parent-alias-dup
-enum Test { :Parent test[alias] }
-enum Parent { parent[alias] }
+// option-diff-name
+option Test { }
+option Schema { }
+
+// scalar-diff-kind
+scalar Test { string }
+scalar Test { number }
 
 // scalar-dup-alias
 scalar Test [a] { Boolean }
 scalar Dup [a] { Boolean }
-
-// scalar-parent-undef
-scalar Test { :Parent Boolean }
-
-// scalar-parent-wrong-type
-scalar Test { :Parent Boolean }
-output Parent { }
-
-// scalar-parent-wrong-kind
-scalar Test { :Parent Boolean }
-scalar Parent { String }
 
 // scalar-parent-self
 scalar Test { :Test Boolean }
@@ -99,9 +84,16 @@ scalar Test { :Parent Boolean }
 scalar Parent { :Recurse Boolean }
 scalar Recurse { :Test Boolean }
 
-// scalar-diff-kind
-scalar Test { string }
-scalar Test { number }
+// scalar-parent-undef
+scalar Test { :Parent Boolean }
+
+// scalar-parent-wrong-kind
+scalar Test { :Parent Boolean }
+scalar Parent { String }
+
+// scalar-parent-wrong-type
+scalar Test { :Parent Boolean }
+output Parent { }
 
 // scalar-enum-parent-unique
 scalar Test { :Parent Enum Enum.value }
@@ -109,25 +101,26 @@ scalar Parent { Enum Dup.value }
 enum Enum { value }
 enum Dup { value }
 
-// scalar-enum-wrong
-scalar Test { enum Bad.value }
-output Bad { }
-
-// scalar-enum-undef-value
-scalar Test { enum Undef.value }
-
-// scalar-enum-undef-member
-scalar Test { enum Enum.undef }
-enum Enum { value }
-
 // scalar-enum-undef
 scalar Test { enum undef }
 
 // scalar-enum-undef-all
 scalar Test { enum Undef.* }
 
+// scalar-enum-undef-member
+scalar Test { enum Enum.undef }
+enum Enum { value }
+
+// scalar-enum-undef-value
+scalar Test { enum Undef.value }
+
 // scalar-enum-unique
 scalar Test { enum Enum.value Dup.value }
+enum Enum { value }
+enum Dup { value }
+
+// scalar-enum-unique-all
+scalar Test { enum Enum.* Dup.* }
 enum Enum { value }
 enum Dup { value }
 
@@ -136,10 +129,9 @@ scalar Test { enum Enum.value Dup.* }
 enum Enum { value }
 enum Dup { value }
 
-// scalar-enum-unique-all
-scalar Test { enum Enum.* Dup.* }
-enum Enum { value }
-enum Dup { value }
+// scalar-enum-wrong
+scalar Test { enum Bad.value }
+output Bad { }
 
 // scalar-number-parent
 scalar Test { :Parent number 1> }
@@ -157,25 +149,20 @@ scalar Parent { string !/a+/ }
 scalar Test { :Parent union }
 scalar Parent { union | Test }
 
-// scalar-union-parent-recurse
-scalar Test { :Parent union }
-scalar Parent { union | Bad }
-scalar Bad { union | Test }
-
 // scalar-union-parent-more
 scalar Test { :Parent union }
 scalar Parent { union | More }
 scalar More { :Bad union }
 scalar Bad { union | Test }
 
+// scalar-union-parent-recurse
+scalar Test { :Parent union }
+scalar Parent { union | Bad }
+scalar Bad { union | Test }
+
 // scalar-union-recurse
 scalar Test { union | Bad }
 scalar Bad { union | Test }
-
-// scalar-union-recurse-parent
-scalar Test { union | Bad }
-scalar Bad { :Parent union }
-scalar Parent { union | Test }
 
 // scalar-union-more-parent
 scalar Test { union | Recurse }
@@ -183,6 +170,11 @@ scalar Recurse { :Parent union }
 scalar Parent { union | More }
 scalar More { :Bad union }
 scalar Bad { union | Test }
+
+// scalar-union-recurse-parent
+scalar Test { union | Bad }
+scalar Bad { :Parent union }
+scalar Parent { union | Test }
 
 // scalar-union-self
 scalar Test { union | Test }
@@ -193,3 +185,11 @@ scalar Test { union | Bad }
 // scalar-union-wrong
 scalar Test { union | Bad }
 input Bad { }
+
+// unique-type-alias
+enum Test [a] { Value }
+output Dup [a] { }
+
+// unique-types
+enum Test { Value }
+output Test { }

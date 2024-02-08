@@ -7,9 +7,9 @@ namespace GqlPlus.Verifier.Verification.Schema;
 
 internal class VerifyOutputTypes(
   IVerifyAliased<OutputDeclAst> aliased,
-  IMerge<TypeParameterAst> mergeTypeParameters,
+  IMerge<OutputFieldAst> fields,
    ILoggerFactory logger
-) : AstObjectVerifier<OutputDeclAst, OutputFieldAst, OutputReferenceAst, OutputContext>(aliased, mergeTypeParameters, logger)
+) : AstObjectVerifier<OutputDeclAst, OutputFieldAst, OutputReferenceAst, OutputContext>(aliased, fields, logger)
 {
   protected override void UsageValue(OutputDeclAst usage, OutputContext context)
   {

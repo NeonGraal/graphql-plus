@@ -67,15 +67,6 @@ object Obj { }
 object ObjAlias [Obj1] { }
 object ObjAlias [Obj2] { }
 
-// object-parent
-object ObjPrnt { :PrntObj }
-object ObjPrnt { :PrntObj }
-object PrntObj { }
-
-// object-params
-object ObjParams<$test> { test: $test }
-object ObjParams<$type> { type: $type }
-
 // object-alts
 object ObjAlts { | ObjAltsType }
 object ObjAlts { | ObjAltsType }
@@ -85,23 +76,32 @@ object ObjAltsType { }
 object ObjFields { field: ObjFields }
 object ObjFields { field: ObjFields }
 
-// object-field-alias
+// object-fields-alias
 object FieldAlias { field [field1]: FieldAlias }
 object FieldAlias { field [field2]: FieldAlias }
 
-// output-field-params
+// output-fields-enums
+output FieldEnums { field = Boolean.true }
+output FieldEnums { field = true }
+
+// output-fields-enum-alias
+output FieldEnumAlias { field [field1] = Boolean.true }
+output FieldEnumAlias { field [field2] = true }
+
+// output-fields-params
 output FieldParams { field(FieldParam1): FieldParams }
 output FieldParams { field(FieldParam2): FieldParams }
 input FieldParam1 { }
 input FieldParam2 { }
 
-// output-field-enums
-output FieldEnums { field = Boolean.true }
-output FieldEnums { field = true }
+// object-params
+object ObjParams<$test> { test: $test }
+object ObjParams<$type> { type: $type }
 
-// output-field-enum-alias
-output FieldEnumAlias { field [field1] = Boolean.true }
-output FieldEnumAlias { field [field2] = true }
+// object-parent
+object ObjPrnt { :PrntObj }
+object ObjPrnt { :PrntObj }
+object PrntObj { }
 
 // scalar-alias
 scalar NumAlias [Num1] { number }
@@ -111,30 +111,30 @@ scalar NumAlias [Num2] { number }
 scalar Num { number }
 scalar Num { number }
 
-// scalar-number-same
-scalar NumSame { number 1~9 }
-scalar NumSame { number 1~9 }
-
 // scalar-number-diff
 scalar NumDiff { number 1~9 }
 scalar NumDiff { number }
+
+// scalar-number-same
+scalar NumSame { number 1~9 }
+scalar NumSame { number 1~9 }
 
 // scalar-string
 scalar Str { string }
 scalar Str { string }
 
-// scalar-string-same
-scalar StrSame { string /a+/ }
-scalar StrSame { string /a+/ }
-
 // scalar-string-diff
 scalar StrDiff { string /a+/ }
 scalar StrDiff { string }
 
-// scalar-union-same
-scalar UnSame { union | Boolean }
-scalar UnSame { union | Boolean }
+// scalar-string-same
+scalar StrSame { string /a+/ }
+scalar StrSame { string /a+/ }
 
 // scalar-union-diff
 scalar UnDiff { union | Boolean }
 scalar UnDiff { union | Number }
+
+// scalar-union-same
+scalar UnSame { union | Boolean }
+scalar UnSame { union | Boolean }

@@ -1,18 +1,20 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Merging;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
 internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>(
   IVerifyAliased<TObject> aliased,
-  IMerge<TypeParameterAst> mergeTypeParameters
+  IMerge<TypeParameterAst> mergeTypeParameters,
+   ILoggerFactory logger
 ) : AstParentItemVerifier<TObject, TReference, TContext, TypeParameterAst>(aliased, mergeTypeParameters)
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>
   where TReference : AstReference<TReference>
   where TContext : UsageContext
 {
+  private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, TReference, TContext, TypeParameterAst>));
+
   protected override void UsageValue(TObject usage, TContext context)
   {
     base.UsageValue(usage, context);
@@ -25,8 +27,13 @@ internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>
       UsageField(field, context);
     }
 
+    var input = new ParentUsage<TObject>([], usage, "an alternative");
+    _logger.LogInformation("Checking Alternates with {Input}", input);
     foreach (var alternate in usage.Alternates) {
       UsageAlternate(alternate, context);
+      if (alternate.Modifiers.Length == 0) {
+        CheckAlternate(new([alternate.Type.FullName], usage, "an alternate"), usage.Name, context, true);
+      }
     }
 
     foreach (var typeParameter in usage.TypeParameters) {
@@ -49,21 +56,53 @@ internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>
   protected override string GetParent(AstType<TReference> usage)
     => usage.Parent?.FullName ?? "";
 
-  protected override bool GetParentType(TObject usage, string parent, TContext context, [NotNullWhen(true)] out AstType? type)
+  protected override void CheckParentType(
+    ParentUsage<TObject> input,
+    TContext context,
+    bool top,
+    Action<TObject>? onParent = null)
   {
-    if (parent.StartsWith('$')) {
-      var parameter = parent[1..];
-      if (usage.TypeParameters.All(p => p.Name != parameter)) {
-        context.AddError(usage, usage.Label + " Parent", $"'{parent}' not defined");
+    if (input.Parent?.StartsWith('$') == true) {
+      var parameter = input.Parent[1..];
+      if (top && input.Usage.TypeParameters.All(p => p.Name != parameter)) {
+        context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' not defined");
       }
 
-      type = null;
-      return false;
+      return;
     }
 
-    return base.GetParentType(usage, parent, context, out type);
+    base.CheckParentType(input, context, top, onParent);
   }
 
   protected override IEnumerable<TypeParameterAst> GetItems(TObject usage)
     => usage.TypeParameters;
+
+  protected override void OnParentType(ParentUsage<TObject> input, TContext context, TObject parentType, bool top)
+  {
+    base.OnParentType(input, context, parentType, top);
+
+    _logger.LogInformation("Checking Alternates with {Input}, {Top} of {ParentType}", input, top, parentType.Name);
+    input = input with { Label = "an alternate" };
+    foreach (var alternate in parentType.Alternates) {
+      if (alternate.Modifiers.Length == 0) {
+        CheckAlternate(input.AddParent(alternate.Type.FullName), parentType.Name, context, false);
+      }
+    }
+  }
+
+  private void CheckAlternate(ParentUsage<TObject> input, string current, TContext context, bool top)
+  {
+    if (context.DifferentName(input, top ? null : current)
+      && context.GetType(input.Parent, out var type)
+      && type is TObject alternateType) {
+      CheckParent(input, alternateType, context, false);
+
+      _logger.LogInformation("Checking Alternates with {Input}, {Top} of {AlternateType}, {Current}", input, top, alternateType.Name, current);
+      foreach (var alternate in alternateType.Alternates) {
+        if (alternate.Modifiers.Length == 0) {
+          CheckAlternate(input.AddParent(alternate.Type.FullName), alternateType.Name, context, false);
+        }
+      }
+    }
+  }
 }

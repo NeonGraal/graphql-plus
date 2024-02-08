@@ -29,6 +29,37 @@ public record class UsageContext(
   internal virtual void CheckArgumentType<TReference>(TReference type)
     where TReference : AstReference<TReference>
     => this.CheckType(type);
+
+  internal bool DifferentName<TAst>(ParentUsage<TAst> input, string? current)
+    where TAst : AstType
+  {
+    if (input.DifferentName) {
+      return true;
+    }
+
+    var message = $"'{input.UsageName}' cannot be {input.Label} of itself";
+    if (current is not null) {
+      message += $", even recursively via {current}";
+    }
+
+    AddError(input.Usage, input.UsageLabel, message);
+    return false;
+  }
+}
+
+internal record struct ParentUsage<TAst>(List<string> Parents, TAst Usage, string Label)
+  where TAst : AstType
+{
+  internal readonly string? Parent => Parents?.FirstOrDefault();
+  internal readonly bool DifferentName => !Parents.Contains(Usage.Name);
+  internal readonly string UsageName => Usage.Name;
+  internal readonly string UsageLabel => Usage.Label;
+
+  internal readonly ParentUsage<TAst> AddParent(string parent)
+    => new([parent, .. Parents], Usage, Label);
+
+  public override readonly string? ToString()
+    => $"{UsageLabel}: {UsageName} - [{Parents.Joined()}] ({Label})";
 }
 
 internal static class UsageHelpers

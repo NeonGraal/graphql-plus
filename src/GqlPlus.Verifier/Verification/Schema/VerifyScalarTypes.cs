@@ -41,6 +41,6 @@ internal class VerifyScalarTypes(
     return false;
   }
 
-  protected override bool CanMergeParent(AstScalar usage, AstScalar parent, EnumContext context)
-    => scalars.All(scalar => scalar.CanMergeItems(usage, parent, context));
+  protected override bool CanMergeParent(ParentUsage<AstScalar> input, AstScalar parent, EnumContext context)
+    => scalars.All(scalar => scalar.CanMergeItems(input.Usage, parent, context));
 }

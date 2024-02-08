@@ -11,8 +11,6 @@ internal abstract class AliasedVerifier<TAliased>(
 ) : GroupedVerifier<TAliased>(merger, logger)
  where TAliased : AstAliased
 {
-  private readonly ILogger _logger = logger.CreateLogger(nameof(AliasedVerifier<TAliased>));
-
   public override void Verify(TAliased[] item, ITokenMessages errors)
   {
     base.Verify(item, errors);

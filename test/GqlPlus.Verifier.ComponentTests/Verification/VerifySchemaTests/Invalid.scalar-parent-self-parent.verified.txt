@@ -1,4 +1,4 @@
 ﻿[
-  Invalid Scalar Reference. 'Test' cannot be a child of itself, even recursively via Parent.,
-  Invalid Scalar Reference. 'Parent' cannot be a child of itself, even recursively via Test.
+  Invalid Scalar. 'Test' cannot be a child of itself, even recursively via Parent.,
+  Invalid Scalar. 'Parent' cannot be a child of itself, even recursively via Test.
 ]

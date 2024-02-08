@@ -1,0 +1,4 @@
+﻿[
+  Invalid Output. 'Test' cannot be an alternate of itself, even recursively via Alt.,
+  Invalid Output. 'Alt' cannot be an alternate of itself, even recursively via Test.
+]

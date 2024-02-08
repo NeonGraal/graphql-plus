@@ -11,21 +11,21 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   where TParent : IEquatable<TParent>
   where TContext : UsageContext
 {
-  protected override bool CanMergeParent(TAst usage, TAst parent, TContext context)
+  protected override bool CanMergeParent(ParentUsage<TAst> input, TAst parent, TContext context)
   {
-    var items = GetParentItems(parent, context).Concat(GetItems(usage)).ToArray();
+    var usageItems = GetItems(input.Usage);
+    input = input.AddParent(GetParent(parent)) with { Usage = parent };
+    var items = GetParentItems(input, context).Concat(usageItems).ToArray();
 
     return items.Length == 0 || mergeItems.CanMerge(items);
   }
 
-  private IEnumerable<TItem> GetParentItems(TAst usage, TContext context)
+  private IEnumerable<TItem> GetParentItems(ParentUsage<TAst> input, TContext context)
   {
-    var items = GetItems(usage);
-
-    return GetParentType(usage, GetParent(usage), context, out var parentType)
-      && parentType is TAst ast
-      ? items.Concat(GetItems(ast))
-      : items;
+    var items = GetItems(input.Usage);
+    CheckParentType(input, context, true,
+      parentType => items = items.Concat(GetItems(parentType)));
+    return items;
   }
 
   protected abstract IEnumerable<TItem> GetItems(TAst usage);

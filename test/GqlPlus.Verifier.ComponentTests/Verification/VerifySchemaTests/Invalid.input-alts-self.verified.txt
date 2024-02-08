@@ -1,0 +1,3 @@
+﻿[
+  Invalid Input. 'Test' cannot be an alternate of itself.
+]

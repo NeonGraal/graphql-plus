@@ -1,0 +1,4 @@
+﻿[
+  Invalid Output. 'Test' cannot be a child of itself, even recursively via Recurse.,
+  Invalid Output. 'Recurse' cannot be a child of itself, even recursively via Test.
+]

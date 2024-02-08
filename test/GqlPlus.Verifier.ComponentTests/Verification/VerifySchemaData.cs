@@ -7,10 +7,20 @@ public partial class VerifySchemaTests
 {
   private static readonly Dictionary<string, string> s_schemaInvalidObjects = new() {
     ["unique-alias"] = "object Test [a] { } object Dup [a] { }",
-    ["alts-mods-undef"] = "object Test { | Test[Scalar] }",
-    ["alts-mods-wrong"] = "object Test { | Test[Test] }",
+    ["alts-mods-undef"] = "object Test { | Alt[Scalar] } object Alt { }",
+    ["alts-mods-wrong"] = "object Test { | Alt[Test] } object Alt { }",
     ["alts-diff-mods"] = "object Test { | Test1 } object Test { | Test1[] } object Test1 { }",
+    ["alts-self"] = "object Test { | Test }",
+    ["alts-recurse"] = "object Test { | Recurse } object Recurse { | Test }",
+    ["alts-more"] = "object Test { | Recurse } object Recurse { | More } object More { | Test }",
     ["parent-undef"] = "object Test { :Parent }",
+    ["parent-self"] = "object Test { :Test }",
+    ["parent-recurse"] = "object Test { :Recurse } object Recurse { :Test }",
+    ["parent-more"] = "object Test { :Recurse } object Recurse { :More } object More { :Test }",
+    ["parent-alt-self"] = "object Test { :Alt } object Alt { | Test }",
+    ["parent-self-alt"] = "object Test { | Alt } object Alt { :Test }",
+    ["parent-alt-self-recurse"] = "object Test { :Alt } object Alt { | Recurse } object Recurse { :Test }",
+    ["parent-self-alt-recurse"] = "object Test { | Alt } object Alt { :Recurse } object Recurse { | Test }",
     ["fields-diff-type"] = "object Test { field: Test } object Test { field: Test1 } object Test1 { }",
     ["fields-diff-mods"] = "object Test { field: Test } object Test { field: Test[] }",
     ["fields-mods-undef"] = "object Test { field: Test[Random] }",
@@ -22,6 +32,8 @@ public partial class VerifySchemaTests
     ["generic-arg-more"] = "object Test<$type> { field: Ref<$type> } object Ref { }",
     ["generic-arg-less"] = "object Test { field: Ref } object Ref<$ref> { | $ref }",
     ["generic-param-undef"] = "object Test { field: Ref<Test1> } object Ref<$ref> { | $ref }",
+    ["generic-parent-more"] = "object Test { :Ref<Number> } object Ref { }",
+    ["generic-parent-less"] = "object Test { :Ref } object Ref<$ref> { | $ref }",
     ["generic-unused"] = "object Test<$type> { }",
     ["input-field-null"] = "input Test { field: Test = null }",
     ["input-parent-output"] = "input Test { :Bad } output Bad { }",
@@ -46,7 +58,17 @@ public partial class VerifySchemaTests
       Add("alts-mods-undef");
       Add("alts-mods-wrong");
       Add("alts-diff-mods");
+      Add("alts-self");
+      Add("alts-recurse");
+      Add("alts-more");
       Add("parent-undef");
+      Add("parent-self");
+      Add("parent-recurse");
+      Add("parent-more");
+      Add("parent-alt-self");
+      Add("parent-self-alt");
+      Add("parent-alt-self-recurse");
+      Add("parent-self-alt-recurse");
       Add("fields-diff-type");
       Add("fields-diff-mods");
       Add("fields-mods-undef");
@@ -58,6 +80,8 @@ public partial class VerifySchemaTests
       Add("generic-arg-more");
       Add("generic-arg-less");
       Add("generic-param-undef");
+      Add("generic-parent-more");
+      Add("generic-parent-less");
       Add("generic-unused");
       Add("input-field-null");
       Add("input-parent-output");

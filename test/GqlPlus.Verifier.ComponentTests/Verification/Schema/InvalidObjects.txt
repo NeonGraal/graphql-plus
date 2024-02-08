@@ -3,18 +3,62 @@ object Test [a] { }
 object Dup [a] { }
 
 // alts-mods-undef
-object Test { | Test[Scalar] }
+object Test { | Alt[Scalar] }
+object Alt { }
 
 // alts-mods-wrong
-object Test { | Test[Test] }
+object Test { | Alt[Test] }
+object Alt { }
 
 // alts-diff-mods
 object Test { | Test1 }
 object Test { | Test1[] }
 object Test1 { }
 
+// alts-self
+object Test { | Test }
+
+// alts-recurse
+object Test { | Recurse }
+object Recurse { | Test }
+
+// alts-more
+object Test { | Recurse }
+object Recurse { | More }
+object More { | Test }
+
 // parent-undef
 object Test { :Parent }
+
+// parent-self
+object Test { :Test }
+
+// parent-recurse
+object Test { :Recurse }
+object Recurse { :Test }
+
+// parent-more
+object Test { :Recurse }
+object Recurse { :More }
+object More { :Test }
+
+// parent-alt-self
+object Test { :Alt }
+object Alt { | Test }
+
+// parent-self-alt
+object Test { | Alt }
+object Alt { :Test }
+
+// parent-alt-self-recurse
+object Test { :Alt }
+object Alt { | Recurse }
+object Recurse { :Test }
+
+// parent-self-alt-recurse
+object Test { | Alt }
+object Alt { :Recurse }
+object Recurse { | Test }
 
 // fields-diff-type
 object Test { field: Test }
@@ -54,6 +98,14 @@ object Ref<$ref> { | $ref }
 
 // generic-param-undef
 object Test { field: Ref<Test1> }
+object Ref<$ref> { | $ref }
+
+// generic-parent-more
+object Test { :Ref<Number> }
+object Ref { }
+
+// generic-parent-less
+object Test { :Ref }
 object Ref<$ref> { | $ref }
 
 // generic-unused

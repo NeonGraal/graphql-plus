@@ -1,3 +1,4 @@
 ﻿[
-  Invalid Output Child. Can't merge Test into Parent Parent.
+  Multiple Outputs with name 'Test' can't be merged.,
+  Multiple Types with name 'Test' can't be merged.
 ]

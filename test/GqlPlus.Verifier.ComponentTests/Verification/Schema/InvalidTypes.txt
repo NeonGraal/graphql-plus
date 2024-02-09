@@ -1,0 +1,160 @@
+﻿// enum-dup-alias
+enum Test [a] { test }
+enum Dup [a] { dup }
+
+// enum-parent-alias-dup
+enum Test { :Parent test[alias] }
+enum Parent { parent[alias] }
+
+// enum-parent-diff
+enum Test { :Parent test }
+enum Test { test }
+enum Parent { parent }
+
+// enum-parent-undef
+enum Test { :Parent test }
+
+// enum-parent-wrong
+enum Test { :Parent test }
+output Parent { }
+
+// scalar-diff-kind
+scalar Test { string }
+scalar Test { number }
+
+// scalar-dup-alias
+scalar Test [a] { Boolean }
+scalar Dup [a] { Boolean }
+
+// scalar-parent-self
+scalar Test { :Test Boolean }
+
+// scalar-parent-self-parent
+scalar Test { :Parent Boolean }
+scalar Parent { :Test Boolean }
+
+// scalar-parent-self-more
+scalar Test { :Parent Boolean }
+scalar Parent { :Recurse Boolean }
+scalar Recurse { :More Boolean }
+scalar More { :Test Boolean }
+
+// scalar-parent-self-recurse
+scalar Test { :Parent Boolean }
+scalar Parent { :Recurse Boolean }
+scalar Recurse { :Test Boolean }
+
+// scalar-parent-undef
+scalar Test { :Parent Boolean }
+
+// scalar-parent-wrong-kind
+scalar Test { :Parent Boolean }
+scalar Parent { String }
+
+// scalar-parent-wrong-type
+scalar Test { :Parent Boolean }
+output Parent { }
+
+// scalar-enum-parent-unique
+scalar Test { :Parent Enum Enum.value }
+scalar Parent { Enum Dup.value }
+enum Enum { value }
+enum Dup { value }
+
+// scalar-enum-undef
+scalar Test { enum undef }
+
+// scalar-enum-undef-all
+scalar Test { enum Undef.* }
+
+// scalar-enum-undef-member
+scalar Test { enum Enum.undef }
+enum Enum { value }
+
+// scalar-enum-undef-value
+scalar Test { enum Undef.value }
+
+// scalar-enum-unique
+scalar Test { enum Enum.value Dup.value }
+enum Enum { value }
+enum Dup { value }
+
+// scalar-enum-unique-all
+scalar Test { enum Enum.* Dup.* }
+enum Enum { value }
+enum Dup { value }
+
+// scalar-enum-unique-member
+scalar Test { enum Enum.value Dup.* }
+enum Enum { value }
+enum Dup { value }
+
+// scalar-enum-wrong
+scalar Test { enum Bad.value }
+output Bad { }
+
+// scalar-number-parent
+scalar Test { :Parent number 1> }
+scalar Parent { number !1> }
+
+// scalar-string-diff
+scalar Test { string /a+/}
+scalar Test { string !/a+/ }
+
+// scalar-string-parent
+scalar Test { :Parent string /a+/}
+scalar Parent { string !/a+/ }
+
+// scalar-union-more
+scalar Test { union | Bad }
+scalar Bad { union | More }
+scalar More { union | Test }
+
+// scalar-union-parent
+scalar Test { :Parent union }
+scalar Parent { union | Test }
+
+// scalar-union-parent-more
+scalar Test { :Parent union }
+scalar Parent { union | More }
+scalar More { :Bad union }
+scalar Bad { union | Test }
+
+// scalar-union-parent-recurse
+scalar Test { :Parent union }
+scalar Parent { union | Bad }
+scalar Bad { union | Test }
+
+// scalar-union-recurse
+scalar Test { union | Bad }
+scalar Bad { union | Test }
+
+// scalar-union-more-parent
+scalar Test { union | Recurse }
+scalar Recurse { :Parent union }
+scalar Parent { union | More }
+scalar More { :Bad union }
+scalar Bad { union | Test }
+
+// scalar-union-recurse-parent
+scalar Test { union | Bad }
+scalar Bad { :Parent union }
+scalar Parent { union | Test }
+
+// scalar-union-self
+scalar Test { union | Test }
+
+// scalar-union-undef
+scalar Test { union | Bad }
+
+// scalar-union-wrong
+scalar Test { union | Bad }
+input Bad { }
+
+// unique-type-alias
+enum Test [a] { Value }
+output Dup [a] { }
+
+// unique-types
+enum Test { Value }
+output Test { }

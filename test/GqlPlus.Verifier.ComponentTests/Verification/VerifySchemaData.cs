@@ -40,16 +40,16 @@ public partial class VerifySchemaTests
     ["output-params-mods-wrong"] = "output Test { field(Param[Test]): Test } input Param { }",
     ["output-params-undef"] = "output Test { field(Param): Test }",
     ["output-parent-input"] = "output Test { :Bad } input Bad { }",
-    ["parent-alt-mods"] = "object Test { :Parent | Alt } object Parent { | Alt[] } object Alt { }",
+    ["parent-alt-mods"] = "object Test { :Parent } object Test { | Alt } object Parent { | Alt[] } object Alt { }",
     ["parent-alt-more"] = "object Test { :Recurse | Alt } object Recurse { :More } object More { :Parent } object Parent { | Alt[] } object Alt { }",
     ["parent-alt-recurse"] = "object Test { :Recurse | Alt } object Recurse { :Parent } object Parent { | Alt[] } object Alt { }",
     ["parent-alt-self"] = "object Test { :Alt } object Alt { | Test }",
     ["parent-alt-self-more"] = "object Test { :Alt } object Alt { | More } object More { :Recurse } object Recurse { | Test }",
     ["parent-alt-self-recurse"] = "object Test { :Alt } object Alt { | Recurse } object Recurse { :Test }",
-    ["parent-fields-alias"] = "object Test { :Parent field1[alias]: Test } object Parent { field2[alias]: Parent }",
+    ["parent-fields-alias"] = "object Test { :Parent } object Test { field1[alias]: Test } object Parent { field2[alias]: Parent }",
     ["parent-fields-alias-more"] = "object Test { :Recurse field1[alias]: Test } object Recurse { :More } object More { :Parent } object Parent { field2[alias]: Parent }",
     ["parent-fields-alias-recurse"] = "object Test { :Recurse field1[alias]: Test } object Recurse { :Parent } object Parent { field2[alias]: Parent }",
-    ["parent-fields-mods"] = "object Test { :Parent field: Test } object Parent { field: Test[] }",
+    ["parent-fields-mods"] = "object Test { :Parent } object Test { field: Test } object Parent { field: Test[] }",
     ["parent-fields-mods-more"] = "object Test { :Recurse field: Test } object Recurse { :More } object More { :Parent } object Parent { field: Test[] }",
     ["parent-fields-mods-recurse"] = "object Test { :Recurse field: Test } object Recurse { :Parent } object Parent { field: Test[] }",
     ["parent-more"] = "object Test { :Recurse } object Recurse { :More } object More { :Test }",
@@ -133,12 +133,32 @@ public partial class VerifySchemaTests
     ["directive-diff-option"] = "directive @Test { all } directive @Test { ( repeatable ) all }",
     ["directive-diff-parameter"] = "directive @Test(Test) { all } directive @Test(Test?) { all } input Test { }",
     ["directive-no-param"] = "directive @Test(Test) { all }",
+    ["option-diff-name"] = "option Test { } option Schema { }",
+  };
+
+  public class SchemaInvalidSchemas : TheoryData<string>
+  {
+    public SchemaInvalidSchemas()
+    {
+      Add("bad-parse");
+      Add("category-diff-mods");
+      Add("category-duplicate");
+      Add("category-dup-alias");
+      Add("category-output-generic");
+      Add("category-output-undef");
+      Add("category-output-wrong");
+      Add("directive-diff-option");
+      Add("directive-diff-parameter");
+      Add("directive-no-param");
+      Add("option-diff-name");
+    }
+  }
+  private static readonly Dictionary<string, string> s_schemaInvalidTypes = new() {
     ["enum-dup-alias"] = "enum Test [a] { test } enum Dup [a] { dup }",
     ["enum-parent-alias-dup"] = "enum Test { :Parent test[alias] } enum Parent { parent[alias] }",
     ["enum-parent-diff"] = "enum Test { :Parent test } enum Test { test } enum Parent { parent }",
     ["enum-parent-undef"] = "enum Test { :Parent test }",
     ["enum-parent-wrong"] = "enum Test { :Parent test } output Parent { }",
-    ["option-diff-name"] = "option Test { } option Schema { }",
     ["scalar-diff-kind"] = "scalar Test { string } scalar Test { number }",
     ["scalar-dup-alias"] = "scalar Test [a] { Boolean } scalar Dup [a] { Boolean }",
     ["scalar-parent-self"] = "scalar Test { :Test Boolean }",
@@ -174,26 +194,15 @@ public partial class VerifySchemaTests
     ["unique-types"] = "enum Test { Value } output Test { }",
   };
 
-  public class SchemaInvalidSchemas : TheoryData<string>
+  public class SchemaInvalidTypes : TheoryData<string>
   {
-    public SchemaInvalidSchemas()
+    public SchemaInvalidTypes()
     {
-      Add("bad-parse");
-      Add("category-diff-mods");
-      Add("category-duplicate");
-      Add("category-dup-alias");
-      Add("category-output-generic");
-      Add("category-output-undef");
-      Add("category-output-wrong");
-      Add("directive-diff-option");
-      Add("directive-diff-parameter");
-      Add("directive-no-param");
       Add("enum-dup-alias");
       Add("enum-parent-alias-dup");
       Add("enum-parent-diff");
       Add("enum-parent-undef");
       Add("enum-parent-wrong");
-      Add("option-diff-name");
       Add("scalar-diff-kind");
       Add("scalar-dup-alias");
       Add("scalar-parent-self");
@@ -370,6 +379,19 @@ public partial class VerifySchemaTests
   private static readonly Dictionary<string, string> s_schemaValidSchemas = new() {
     ["category-output"] = "category { Cat } output Cat { }",
     ["directive-param"] = "directive @DirParam(DirParamIn) { all } input DirParamIn { }",
+    ["option-setting"] = "option Schema { setting = true }",
+  };
+
+  public class SchemaValidSchemas : TheoryData<string>
+  {
+    public SchemaValidSchemas()
+    {
+      Add("category-output");
+      Add("directive-param");
+      Add("option-setting");
+    }
+  }
+  private static readonly Dictionary<string, string> s_schemaValidTypes = new() {
     ["enum-parent"] = "enum EnTestPrnt { :EnPrntTest valPrnt } enum EnPrntTest { valTest }",
     ["enum-parent-alias"] = "enum EnPrntAlias { :EnAliasPrnt valPrnt valAlias[alias] } enum EnAliasPrnt { valAlias }",
     ["enum-parent-dup"] = "enum EnPrntDup { :EnDupPrnt valPrnt  } enum EnDupPrnt { valDup[valPrnt] }",
@@ -387,12 +409,10 @@ public partial class VerifySchemaTests
     ["scalar-union-parent"] = "scalar ScalUnionPrnt { :ScalPrntUnion Union | String } scalar ScalPrntUnion { Union | Number }",
   };
 
-  public class SchemaValidSchemas : TheoryData<string>
+  public class SchemaValidTypes : TheoryData<string>
   {
-    public SchemaValidSchemas()
+    public SchemaValidTypes()
     {
-      Add("category-output");
-      Add("directive-param");
       Add("enum-parent");
       Add("enum-parent-alias");
       Add("enum-parent-dup");

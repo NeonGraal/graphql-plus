@@ -37,10 +37,20 @@ public partial class VerifySchemaTests(
   }
 
   [Theory]
+  [ClassData(typeof(SchemaValidTypes))]
+  public void Verify_ValidTypes(string type)
+    => Verify_Valid(s_schemaValidTypes[type]);
+
+  [Theory]
+  [ClassData(typeof(SchemaInvalidTypes))]
+  public async Task Verify_InvalidTypes(string type)
+    => await Verify_Invalid(s_schemaInvalidTypes[type], type);
+
+  [Theory]
   [ClassData(typeof(SchemaValidObjects))]
-  public void Verify_ValidObjects(string schema)
+  public void Verify_ValidObjects(string obj)
   {
-    var input = s_schemaValidObjects[schema];
+    var input = s_schemaValidObjects[obj];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       using var scope = new AssertionScope();
 
@@ -53,28 +63,32 @@ public partial class VerifySchemaTests(
 
   [Theory]
   [ClassData(typeof(SchemaInvalidObjects))]
-  public async Task Verify_InvalidObjects(string schema)
+  public async Task Verify_InvalidObjects(string obj)
   {
-    var input = s_schemaInvalidObjects[schema];
+    var input = s_schemaInvalidObjects[obj];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       await WhenAll(
-        Verify_Invalid(ReplaceObject(input, "input", "In"), "input-" + schema),
-        Verify_Invalid(ReplaceObject(input, "output", "Out"), "output-" + schema));
+        Verify_Invalid(ReplaceObject(input, "input", "In"), "input-" + obj),
+        Verify_Invalid(ReplaceObject(input, "output", "Out"), "output-" + obj));
     } else {
-      await Verify_Invalid(input, schema);
+      await Verify_Invalid(input, obj);
     }
   }
 
-  [Fact]
-  public void CanMerge_Schemas()
-  {
-    var schemas = s_schemaValidObjects.Values
+  private static IEnumerable<string> AllValid
+    => s_schemaValidObjects.Values
       .SelectMany(input => new[] {
         ReplaceObject(input, "input", "In"),
         ReplaceObject(input, "output", "Out"),
       })
       .Concat(s_schemaValidMerges.Values)
       .Concat(s_schemaValidSchemas.Values)
+      .Concat(s_schemaValidTypes.Values);
+
+  [Fact]
+  public void CanMerge_Schemas()
+  {
+    var schemas = AllValid
       .Select(input => Parse(input).Required())
       .ToArray();
 
@@ -86,13 +100,7 @@ public partial class VerifySchemaTests(
   [Fact]
   public async Task Merge_Schemas()
   {
-    var schemas = s_schemaValidObjects.Values
-      .SelectMany(input => new[] {
-        ReplaceObject(input, "input", "In"),
-        ReplaceObject(input, "output", "Out"),
-      })
-      .Concat(s_schemaValidMerges.Values)
-      .Concat(s_schemaValidSchemas.Values)
+    var schemas = AllValid
       .Select(input => Parse(input).Required())
       .ToArray();
 
@@ -103,20 +111,17 @@ public partial class VerifySchemaTests(
 
   [Theory]
   [ClassData(typeof(SchemaValidMerges))]
-  public async Task Merge_Valid(string schema)
+  public async Task Merge_Valid(string merge)
   {
-    var input = s_schemaValidMerges[schema];
+    var input = s_schemaValidMerges[merge];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       await WhenAll(
-        Verify_Merge(ReplaceObject(input, "input", "In"), "input-" + schema),
-        Verify_Merge(ReplaceObject(input, "output", "Out"), "output-" + schema));
+        Verify_Merge(ReplaceObject(input, "input", "In"), "input-" + merge),
+        Verify_Merge(ReplaceObject(input, "output", "Out"), "output-" + merge));
     } else {
-      await Verify_Merge(input, schema);
+      await Verify_Merge(input, merge);
     }
   }
-
-  private static IEnumerable<object[]> SchemaKeys(Map<string> schemas)
-    => schemas.Keys.Select(k => new object[] { k });
 
   private readonly Parser<SchemaAst>.L _parser = parser;
 

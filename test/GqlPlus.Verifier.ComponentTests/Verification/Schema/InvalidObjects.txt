@@ -129,7 +129,8 @@ output Test { :Bad }
 input Bad { }
 
 // parent-alt-mods
-object Test { :Parent | Alt }
+object Test { :Parent }
+object Test { | Alt }
 object Parent { | Alt[] }
 object Alt { }
 
@@ -162,7 +163,8 @@ object Alt { | Recurse }
 object Recurse { :Test }
 
 // parent-fields-alias
-object Test { :Parent field1[alias]: Test }
+object Test { :Parent }
+object Test { field1[alias]: Test }
 object Parent { field2[alias]: Parent }
 
 // parent-fields-alias-more
@@ -177,7 +179,8 @@ object Recurse { :Parent }
 object Parent { field2[alias]: Parent }
 
 // parent-fields-mods
-object Test { :Parent field: Test }
+object Test { :Parent }
+object Test { field: Test }
 object Parent { field: Test[] }
 
 // parent-fields-mods-more

@@ -1,72 +1,10 @@
 ﻿// category-output
-category { Cat } output Cat { }
+category { Cat }
+output Cat { }
 
 // directive-param
 directive @DirParam(DirParamIn) { all }
 input DirParamIn { }
 
-// enum-parent
-enum EnTestPrnt { :EnPrntTest valPrnt }
-enum EnPrntTest { valTest }
-
-// enum-parent-alias
-enum EnPrntAlias { :EnAliasPrnt valPrnt valAlias[alias] }
-enum EnAliasPrnt { valAlias }
-
-// enum-parent-dup
-enum EnPrntDup { :EnDupPrnt valPrnt  }
-enum EnDupPrnt { valDup[valPrnt] }
-
-// scalar-enum-all
-scalar ScalEnumAll { enum EnumScalAll.* }
-enum EnumScalAll { scal_all scal_enum_all }
-
-// scalar-enum-all-parent
-scalar ScalEnumAllParent { enum EnumScalAllParent.* }
-enum EnumScalAllParent { :EnumScalParentAll scal_all }
-enum EnumScalParentAll { scal_enum_all }
-
-// scalar-enum-member
-scalar ScalMember { enum scal_member }
-enum MemberScal { scal_member }
-
-// scalar-enum-parent
-scalar ScalEnumPrnt { :ScalPrntEnum Enum scal_enum }
-scalar ScalPrntEnum { Enum scal_parent }
-enum EnumScalPrnt { scal_enum scal_parent }
-
-// scalar-enum-unique
-scalar ScalEnumUnique { enum EnumScalUnique.* !EnumScalUnique.dup EnumScalDup.dup }
-enum EnumScalUnique { value dup }
-enum EnumScalDup { dup }
-
-// scalar-enum-unique-parent
-scalar ScalEnumUniqueParent { enum EnumScalUniqueParent.* !EnumScalUniqueParent.dup EnumScalDupParent.dup }
-enum EnumScalUniqueParent { :EnumScalParentUnique value }
-enum EnumScalParentUnique { dup }
-enum EnumScalDupParent { dup }
-
-// scalar-enum-value
-scalar ScalEnum { Enum EnumScal.scal_enum }
-enum EnumScal { scal_enum }
-
-// scalar-enum-value-parent
-scalar ScalEnumParent { Enum EnumScalParent.scal_enum }
-enum EnumScalParent { :EnumParentScal scal_parent } 
-enum EnumParentScal { scal_enum }
-
-// scalar-number-parent
-scalar ScalNumPrnt { :ScalPrntNum Number 2>}
-scalar ScalPrntNum { Number <2 }
-
-// scalar-parent
-scalar ScalPrntTest { :ScalTestPrnt Boolean }
-scalar ScalTestPrnt { Boolean }
-
-// scalar-string-parent
-scalar ScalStrPrnt { :ScalPrntStr String /a+/ }
-scalar ScalPrntStr { String /b+/ }
-
-// scalar-union-parent
-scalar ScalUnionPrnt { :ScalPrntUnion Union | String }
-scalar ScalPrntUnion { Union | Number }
+// option-setting
+option Schema { setting = true }

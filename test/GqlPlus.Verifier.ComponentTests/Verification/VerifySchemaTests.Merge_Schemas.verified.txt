@@ -94,6 +94,15 @@ Success
   }
 }
 {
+  !O I@008/0001
+  Schema
+  {
+    !OS I@017/0001
+    setting
+    =( !k I@027/0001 Boolean.true )
+  }
+}
+{
   !E I@060/0001
   InFieldEnum
   !EM I@074/0001

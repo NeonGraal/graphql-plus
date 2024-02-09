@@ -43,7 +43,11 @@ public partial class VerifySchemaTests
     ["parent-alt-self"] = "object Test { :Alt } object Alt { | Test }",
     ["parent-alt-self-recurse"] = "object Test { :Alt } object Alt { | Recurse } object Recurse { :Test }",
     ["parent-fields-alias"] = "object Test { :Parent field1[alias]: Test } object Parent { field2[alias]: Parent }",
+    ["parent-fields-alias-more"] = "object Test { :Recurse field1[alias]: Test } object Recurse { :More } object More { :Parent } object Parent { field2[alias]: Parent }",
+    ["parent-fields-alias-recurse"] = "object Test { :Recurse field1[alias]: Test } object Recurse { :Parent } object Parent { field2[alias]: Parent }",
     ["parent-fields-mods"] = "object Test { :Parent field: Test } object Parent { field: Test[] }",
+    ["parent-fields-mods-more"] = "object Test { :Recurse field: Test } object Recurse { :More } object More { :Parent } object Parent { field: Test[] }",
+    ["parent-fields-mods-recurse"] = "object Test { :Recurse field: Test } object Recurse { :Parent } object Parent { field: Test[] }",
     ["parent-more"] = "object Test { :Recurse } object Recurse { :More } object More { :Test }",
     ["parent-recurse"] = "object Test { :Recurse } object Recurse { :Test }",
     ["parent-self"] = "object Test { :Test }",
@@ -94,7 +98,11 @@ public partial class VerifySchemaTests
       Add("parent-alt-self");
       Add("parent-alt-self-recurse");
       Add("parent-fields-alias");
+      Add("parent-fields-alias-more");
+      Add("parent-fields-alias-recurse");
       Add("parent-fields-mods");
+      Add("parent-fields-mods-more");
+      Add("parent-fields-mods-recurse");
       Add("parent-more");
       Add("parent-recurse");
       Add("parent-self");
@@ -125,6 +133,7 @@ public partial class VerifySchemaTests
     ["scalar-dup-alias"] = "scalar Test [a] { Boolean } scalar Dup [a] { Boolean }",
     ["scalar-parent-self"] = "scalar Test { :Test Boolean }",
     ["scalar-parent-self-parent"] = "scalar Test { :Parent Boolean } scalar Parent { :Test Boolean }",
+    ["scalar-parent-self-more"] = "scalar Test { :Parent Boolean } scalar Parent { :Recurse Boolean } scalar Recurse { :More Boolean } scalar More { :Test Boolean }",
     ["scalar-parent-self-recurse"] = "scalar Test { :Parent Boolean } scalar Parent { :Recurse Boolean } scalar Recurse { :Test Boolean }",
     ["scalar-parent-undef"] = "scalar Test { :Parent Boolean }",
     ["scalar-parent-wrong-kind"] = "scalar Test { :Parent Boolean } scalar Parent { String }",
@@ -141,6 +150,7 @@ public partial class VerifySchemaTests
     ["scalar-number-parent"] = "scalar Test { :Parent number 1> } scalar Parent { number !1> }",
     ["scalar-string-diff"] = "scalar Test { string /a+/} scalar Test { string !/a+/ }",
     ["scalar-string-parent"] = "scalar Test { :Parent string /a+/} scalar Parent { string !/a+/ }",
+    ["scalar-union-more"] = "scalar Test { union | Bad } scalar Bad { union | More } scalar More { union | Test }",
     ["scalar-union-parent"] = "scalar Test { :Parent union } scalar Parent { union | Test }",
     ["scalar-union-parent-more"] = "scalar Test { :Parent union } scalar Parent { union | More } scalar More { :Bad union } scalar Bad { union | Test }",
     ["scalar-union-parent-recurse"] = "scalar Test { :Parent union } scalar Parent { union | Bad } scalar Bad { union | Test }",
@@ -178,6 +188,7 @@ public partial class VerifySchemaTests
       Add("scalar-dup-alias");
       Add("scalar-parent-self");
       Add("scalar-parent-self-parent");
+      Add("scalar-parent-self-more");
       Add("scalar-parent-self-recurse");
       Add("scalar-parent-undef");
       Add("scalar-parent-wrong-kind");
@@ -194,6 +205,7 @@ public partial class VerifySchemaTests
       Add("scalar-number-parent");
       Add("scalar-string-diff");
       Add("scalar-string-parent");
+      Add("scalar-union-more");
       Add("scalar-union-parent");
       Add("scalar-union-parent-more");
       Add("scalar-union-parent-recurse");

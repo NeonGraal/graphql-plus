@@ -11,7 +11,15 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   where TContext : UsageContext
 {
   protected override void UsageValue(TAst usage, TContext context)
-    => CheckParent(new([], usage, "a child"), usage, context, true);
+  {
+    ParentUsage<TAst> input = new([], usage, "a child");
+    CheckParent(input, usage, context, true);
+
+    input = input.AddParent(GetParent(usage));
+    if (!CanMergeParent(input, context)) {
+      context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} into Parent {input.Parent}");
+    }
+  }
 
   protected virtual void CheckParentType(
     ParentUsage<TAst> input,
@@ -57,13 +65,9 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
       if (parentType.Label != input.UsageLabel) {
         context.AddError(input.Usage, input.UsageLabel + " Parent", $"Type kind mismatch for {input.Parent}. Found {parentType.Label}");
       }
-
-      if (!CanMergeParent(input, parentType, context)) {
-        context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} into Parent {input.Parent}");
-      }
     }
   }
 
   protected abstract string GetParent(AstType<TParent> usage);
-  protected abstract bool CanMergeParent(ParentUsage<TAst> input, TAst parent, TContext context);
+  protected abstract bool CanMergeParent(ParentUsage<TAst> input, TContext context);
 }

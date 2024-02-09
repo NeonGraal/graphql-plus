@@ -141,8 +141,30 @@ object Recurse { :Test }
 object Test { :Parent field1[alias]: Test }
 object Parent { field2[alias]: Parent }
 
+// parent-fields-alias-more
+object Test { :Recurse field1[alias]: Test }
+object Recurse { :More }
+object More { :Parent }
+object Parent { field2[alias]: Parent }
+
+// parent-fields-alias-recurse
+object Test { :Recurse field1[alias]: Test }
+object Recurse { :Parent }
+object Parent { field2[alias]: Parent }
+
 // parent-fields-mods
 object Test { :Parent field: Test }
+object Parent { field: Test[] }
+
+// parent-fields-mods-more
+object Test { :Recurse field: Test }
+object Recurse { :More }
+object More { :Parent }
+object Parent { field: Test[] }
+
+// parent-fields-mods-recurse
+object Test { :Recurse field: Test }
+object Recurse { :Parent }
 object Parent { field: Test[] }
 
 // parent-more

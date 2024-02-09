@@ -79,6 +79,12 @@ scalar Test { :Test Boolean }
 scalar Test { :Parent Boolean }
 scalar Parent { :Test Boolean }
 
+// scalar-parent-self-more
+scalar Test { :Parent Boolean }
+scalar Parent { :Recurse Boolean }
+scalar Recurse { :More Boolean }
+scalar More { :Test Boolean }
+
 // scalar-parent-self-recurse
 scalar Test { :Parent Boolean }
 scalar Parent { :Recurse Boolean }
@@ -144,6 +150,11 @@ scalar Test { string !/a+/ }
 // scalar-string-parent
 scalar Test { :Parent string /a+/}
 scalar Parent { string !/a+/ }
+
+// scalar-union-more
+scalar Test { union | Bad }
+scalar Bad { union | More }
+scalar More { union | Test }
 
 // scalar-union-parent
 scalar Test { :Parent union }

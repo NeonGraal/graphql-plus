@@ -8,10 +8,13 @@ internal class AstScalarVerifier<TMember>(
 ) : IVerifyScalar
   where TMember : IAstScalarItem
 {
-  public bool CanMergeItems(AstScalar usage, AstScalar parent, EnumContext context)
-    => !(usage is AstScalar<TMember> scalar
-    && parent is AstScalar<TMember> scalarParent)
-    || CanMergeScalar(scalar, scalarParent, context);
+  public bool CanMergeItems(AstScalar usage, EnumContext context)
+  {
+    return usage is not AstScalar<TMember> scalar
+|| !context.GetType(scalar.Parent, out var type)
+      || type is not AstScalar<TMember> scalarParent
+|| CanMergeScalar(scalar, scalarParent, context);
+  }
 
   public void Verify(AstScalar usage, EnumContext context)
   {
@@ -30,5 +33,5 @@ internal class AstScalarVerifier<TMember>(
 public interface IVerifyScalar
 {
   void Verify(AstScalar usage, EnumContext context);
-  bool CanMergeItems(AstScalar usage, AstScalar parent, EnumContext context);
+  bool CanMergeItems(AstScalar usage, EnumContext context);
 }

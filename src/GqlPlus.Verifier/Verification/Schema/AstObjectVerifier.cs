@@ -5,9 +5,10 @@ namespace GqlPlus.Verifier.Verification.Schema;
 
 internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>(
   IVerifyAliased<TObject> aliased,
-  IMerge<TField> fields,
-   ILoggerFactory logger
-) : AstParentItemVerifier<TObject, TReference, TContext, TField>(aliased, fields)
+  IMerge<TField> mergeFields,
+  IMerge<AstAlternate<TReference>> mergeAlternates,
+  ILoggerFactory logger
+) : AstParentItemVerifier<TObject, TReference, TContext, TField>(aliased, mergeFields)
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>
   where TReference : AstReference<TReference>
@@ -104,5 +105,13 @@ internal abstract class AstObjectVerifier<TObject, TField, TReference, TContext>
         }
       }
     }
+  }
+
+  protected override bool CanMergeParent(ParentUsage<TObject> input, TContext context)
+  {
+    var alternates = GetParentItems(input, input.Usage, context, ast => ast.Alternates).ToArray();
+
+    return base.CanMergeParent(input, context)
+      && (alternates.Length == 0 || mergeAlternates.CanMerge(alternates));
   }
 }

@@ -40,7 +40,11 @@ public partial class VerifySchemaTests
     ["output-params-mods-wrong"] = "output Test { field(Param[Test]): Test } input Param { }",
     ["output-params-undef"] = "output Test { field(Param): Test }",
     ["output-parent-input"] = "output Test { :Bad } input Bad { }",
+    ["parent-alt-mods"] = "object Test { :Parent | Alt } object Parent { | Alt[] } object Alt { }",
+    ["parent-alt-more"] = "object Test { :Recurse | Alt } object Recurse { :More } object More { :Parent } object Parent { | Alt[] } object Alt { }",
+    ["parent-alt-recurse"] = "object Test { :Recurse | Alt } object Recurse { :Parent } object Parent { | Alt[] } object Alt { }",
     ["parent-alt-self"] = "object Test { :Alt } object Alt { | Test }",
+    ["parent-alt-self-more"] = "object Test { :Alt } object Alt { | More } object More { :Recurse } object Recurse { | Test }",
     ["parent-alt-self-recurse"] = "object Test { :Alt } object Alt { | Recurse } object Recurse { :Test }",
     ["parent-fields-alias"] = "object Test { :Parent field1[alias]: Test } object Parent { field2[alias]: Parent }",
     ["parent-fields-alias-more"] = "object Test { :Recurse field1[alias]: Test } object Recurse { :More } object More { :Parent } object Parent { field2[alias]: Parent }",
@@ -52,6 +56,7 @@ public partial class VerifySchemaTests
     ["parent-recurse"] = "object Test { :Recurse } object Recurse { :Test }",
     ["parent-self"] = "object Test { :Test }",
     ["parent-self-alt"] = "object Test { | Alt } object Alt { :Test }",
+    ["parent-self-alt-more"] = "object Test { | Alt } object Alt { :More } object More { | Recurse } object Recurse { :Test }",
     ["parent-self-alt-recurse"] = "object Test { | Alt } object Alt { :Recurse } object Recurse { | Test }",
     ["parent-undef"] = "object Test { :Parent }",
     ["unique-alias"] = "object Test [a] { } object Dup [a] { }",
@@ -95,7 +100,11 @@ public partial class VerifySchemaTests
       Add("output-params-mods-wrong");
       Add("output-params-undef");
       Add("output-parent-input");
+      Add("parent-alt-mods");
+      Add("parent-alt-more");
+      Add("parent-alt-recurse");
       Add("parent-alt-self");
+      Add("parent-alt-self-more");
       Add("parent-alt-self-recurse");
       Add("parent-fields-alias");
       Add("parent-fields-alias-more");
@@ -107,6 +116,7 @@ public partial class VerifySchemaTests
       Add("parent-recurse");
       Add("parent-self");
       Add("parent-self-alt");
+      Add("parent-self-alt-more");
       Add("parent-self-alt-recurse");
       Add("parent-undef");
       Add("unique-alias");

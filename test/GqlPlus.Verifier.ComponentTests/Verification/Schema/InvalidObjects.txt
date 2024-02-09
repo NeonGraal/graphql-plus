@@ -128,9 +128,33 @@ output Test { field(Param): Test }
 output Test { :Bad }
 input Bad { }
 
+// parent-alt-mods
+object Test { :Parent | Alt }
+object Parent { | Alt[] }
+object Alt { }
+
+// parent-alt-more
+object Test { :Recurse | Alt }
+object Recurse { :More }
+object More { :Parent }
+object Parent { | Alt[] }
+object Alt { }
+
+// parent-alt-recurse
+object Test { :Recurse | Alt }
+object Recurse { :Parent }
+object Parent { | Alt[] }
+object Alt { }
+
 // parent-alt-self
 object Test { :Alt }
 object Alt { | Test }
+
+// parent-alt-self-more
+object Test { :Alt }
+object Alt { | More }
+object More { :Recurse }
+object Recurse { | Test }
 
 // parent-alt-self-recurse
 object Test { :Alt }
@@ -182,6 +206,12 @@ object Test { :Test }
 // parent-self-alt
 object Test { | Alt }
 object Alt { :Test }
+
+// parent-self-alt-more
+object Test { | Alt }
+object Alt { :More }
+object More { | Recurse }
+object Recurse { :Test }
 
 // parent-self-alt-recurse
 object Test { | Alt }

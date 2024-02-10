@@ -4,20 +4,20 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
-public record class UsageContext(
-  IMap<AstDescribed> Types,
-  ITokenMessages Errors
+public class UsageContext(
+  IMap<AstDescribed> types,
+  ITokenMessages errors
 )
 {
   internal readonly HashSet<string> Used = [];
 
   internal void AddError<TAst>(TAst item, string label, string message)
       where TAst : AstAbbreviated
-      => Errors.AddError(item, $"Invalid {label}. {message}.");
+      => errors.AddError(item, $"Invalid {label}. {message}.");
 
   internal bool GetType(string? type, out AstDescribed? value)
   {
-    if (Types.TryGetValue(type ?? "", out value)) {
+    if (types.TryGetValue(type ?? "", out value)) {
       Used.Add(type!);
       return true;
     }

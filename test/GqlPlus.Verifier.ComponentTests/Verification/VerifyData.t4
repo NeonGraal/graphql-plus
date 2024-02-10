@@ -1,7 +1,9 @@
-﻿<#@ import namespace="System.Collections.Generic" #>
+﻿<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
 <#+
-private static IDictionary<string,string> TestData(FileInfo file) {
+private IDictionary<string,string> TestData(FileInfo file) {
   var result = new Dictionary<string, string>();
   var test = "";
   var line = "";
@@ -18,5 +20,46 @@ private static IDictionary<string,string> TestData(FileInfo file) {
   }
 
   return result;
+}
+#>
+
+<#+
+private void SampleData(string directory) {
+  var sampleDir = new DirectoryInfo(this.Host.ResolvePath(directory));
+  var relative = sampleDir.FullName.Replace(Environment.CurrentDirectory, ".");
+#>
+// Generated from <#= relative #>
+
+namespace GqlPlus.Verifier.Verification;
+
+public partial class Verify<#= directory #>Tests
+{
+<#+  foreach (var file in sampleDir.EnumerateFiles().OrderBy(f => f.Name)) {
+      var fileName = Path.ChangeExtension(file.Name, null);
+      var testData = TestData(file);
+#>
+  private static readonly Dictionary<string, string> s_<#= directory.ToLower() + fileName #> = new() {
+<#+    foreach (var test in testData.Keys.OrderBy(k => k)) {
+#>
+    ["<#= test #>"] = "<#= testData[test] #>",
+<#+    } // foreach test
+#>
+  };
+
+  public class <#= directory + fileName #> : TheoryData<string>
+  {
+    public <#= directory + fileName #>()
+    {
+<#+    foreach (var test in testData.Keys.OrderBy(k => k)) {
+#>
+      Add("<#= test #>");
+<#+    } // foreach test
+#>
+    }
+  }
+<#+  } // foreach file
+#>
+}
+<#+
 }
 #>

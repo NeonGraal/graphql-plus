@@ -5,17 +5,17 @@ namespace GqlPlus.Verifier.Verification;
 
 public partial class VerifyOperationTests
 {
-  private static Dictionary<string, string> s_operationInvalid = new() {
+  private static readonly Dictionary<string, string> s_operationInvalid = new() {
     ["empty"] = "",
-    ["var-unused"] = "($var):Boolean",
-    ["var-undef"] = ":Boolean($var)",
-    ["null-def-invalid"] = "($var:Id=null):Boolean($var)",
-    ["list-map-def"] = "($var:Id[]={a:b}):Boolean($var)",
-    ["map-list-def"] = "($var:Id[*]=[a]):Boolean($var)",
-    ["list-null-map-def"] = "($var:Id[]?={a:b}):Boolean($var)",
-    ["map-null-list-def"] = "($var:Id[*]?=[a]):Boolean($var)",
-    ["frag-unused"] = "&named:Named{name}{name}",
     ["frag-undef"] = "{...named}",
+    ["frag-unused"] = "&named:Named{name}{name}",
+    ["list-map-def"] = "($var:Id[]={a:b}):Boolean($var)",
+    ["list-null-map-def"] = "($var:Id[]?={a:b}):Boolean($var)",
+    ["map-list-def"] = "($var:Id[*]=[a]):Boolean($var)",
+    ["map-null-list-def"] = "($var:Id[*]?=[a]):Boolean($var)",
+    ["null-def-invalid"] = "($var:Id=null):Boolean($var)",
+    ["var-undef"] = ":Boolean($var)",
+    ["var-unused"] = "($var):Boolean",
   };
 
   public class OperationInvalid : TheoryData<string>
@@ -23,32 +23,32 @@ public partial class VerifyOperationTests
     public OperationInvalid()
     {
       Add("empty");
-      Add("var-unused");
-      Add("var-undef");
-      Add("null-def-invalid");
-      Add("list-map-def");
-      Add("map-list-def");
-      Add("list-null-map-def");
-      Add("map-null-list-def");
-      Add("frag-unused");
       Add("frag-undef");
+      Add("frag-unused");
+      Add("list-map-def");
+      Add("list-null-map-def");
+      Add("map-list-def");
+      Add("map-null-list-def");
+      Add("null-def-invalid");
+      Add("var-undef");
+      Add("var-unused");
     }
   }
-  private static Dictionary<string, string> s_operationValid = new() {
+  private static readonly Dictionary<string, string> s_operationValid = new() {
+    ["frag-end"] = "{...named}fragment named on Named{name}",
+    ["frag-first"] = "&named:Named{name}{|named}",
     ["var"] = "($var):Boolean($var)",
     ["var-null"] = "($var:Id?=null):Boolean($var)",
-    ["frag-first"] = "&named:Named{name}{|named}",
-    ["frag-end"] = "{...named}fragment named on Named{name}",
   };
 
   public class OperationValid : TheoryData<string>
   {
     public OperationValid()
     {
+      Add("frag-end");
+      Add("frag-first");
       Add("var");
       Add("var-null");
-      Add("frag-first");
-      Add("frag-end");
     }
   }
 }

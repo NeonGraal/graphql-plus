@@ -4,11 +4,11 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
-internal record class OutputContext(
-  IMap<AstDescribed> Types,
-  ITokenMessages Errors,
-  IMap<string> EnumValues
-) : EnumContext(Types, Errors, EnumValues)
+internal class OutputContext(
+  IMap<AstDescribed> types,
+  ITokenMessages errors,
+  IMap<string> enumValues
+) : EnumContext(types, errors, enumValues)
 {
 
   internal override void CheckArgumentType<TReference>(TReference type)

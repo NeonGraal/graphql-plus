@@ -5,14 +5,14 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
-public record class EnumContext(
-  IMap<AstDescribed> Types,
-  ITokenMessages Errors,
-  IMap<string> EnumValues
-) : UsageContext(Types, Errors)
+public class EnumContext(
+  IMap<AstDescribed> types,
+  ITokenMessages errors,
+  IMap<string> enumValues
+) : UsageContext(types, errors)
 {
   internal bool GetEnumValue(string value, out string? type)
-    => EnumValues.TryGetValue(value, out type);
+    => enumValues.TryGetValue(value, out type);
 
   internal bool GetEnumType(string? name, [NotNullWhen(true)] out EnumDeclAst? enumType)
   {

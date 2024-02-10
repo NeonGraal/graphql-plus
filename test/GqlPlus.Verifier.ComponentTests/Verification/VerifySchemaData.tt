@@ -1,38 +1,4 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ include file="VerifyData.t4"#>
 <#@ output extension=".cs" #>
-<#  var sampleDir = new DirectoryInfo(this.Host.ResolvePath("Schema"));
-    var relative = sampleDir.FullName.Replace(Environment.CurrentDirectory, ".");
-#>
-// Generated from <#= relative #>
-
-namespace GqlPlus.Verifier.Verification;
-
-public partial class VerifySchemaTests
-{
-<#  foreach (var file in sampleDir.EnumerateFiles()) {
-      var fileName = Path.ChangeExtension(file.Name, null);
-      var testData = TestData(file);
-#>
-  private static readonly Dictionary<string, string> s_schema<#= fileName #> = new() {
-<#    foreach (var test in testData.Keys) {
-#>
-    ["<#= test #>"] = "<#= testData[test] #>",
-<#    } // foreach test
-#>
-  };
-
-  public class Schema<#= fileName #> : TheoryData<string>
-  {
-    public Schema<#= fileName #>()
-    {
-<#    foreach (var test in testData.Keys) {
-#>
-      Add("<#= test #>");
-<#    } // foreach test
-#>
-    }
-  }
-<#  } // foreach file
-#>
-}
+<#  SampleData("Schema"); #>

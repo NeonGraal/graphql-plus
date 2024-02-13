@@ -634,6 +634,21 @@ Number
 }
 {
   !I I@007/0001
+  InGenField
+  <
+    I@019/0001
+    $type
+  >
+  {
+    !IF I@027/0001
+    field
+    :
+    I@035/0001
+    $type
+  }
+}
+{
+  !I I@007/0001
   InGenFieldArg
   <
     I@022/0001
@@ -661,48 +676,6 @@ Number
   |
   !AI
   I@091/0001
-  $ref
-}
-{
-  !I I@007/0001
-  InGenField
-  <
-    I@019/0001
-    $type
-  >
-  {
-    !IF I@027/0001
-    field
-    :
-    I@035/0001
-    $type
-  }
-}
-{
-  !I I@007/0001
-  InGenPrntArg
-  <
-    I@021/0001
-    $type
-  >
-  :
-  I@030/0001
-  InGenPrntRef
-  <
-    I@044/0001
-    $type
-  >
-}
-{
-  !I I@058/0001
-  InGenPrntRef
-  <
-    I@072/0001
-    $ref
-  >
-  |
-  !AI
-  I@082/0001
   $ref
 }
 {
@@ -749,6 +722,33 @@ Number
 }
 {
   !I I@007/0001
+  InGenPrntArg
+  <
+    I@021/0001
+    $type
+  >
+  :
+  I@030/0001
+  InGenPrntRef
+  <
+    I@044/0001
+    $type
+  >
+}
+{
+  !I I@058/0001
+  InGenPrntRef
+  <
+    I@072/0001
+    $ref
+  >
+  |
+  !AI
+  I@082/0001
+  $ref
+}
+{
+  !I I@007/0001
   InFieldEnum
   {
     !IF I@021/0001
@@ -757,6 +757,19 @@ Number
     I@028/0001
     InEnumField
     =( !k I@042/0001 value )
+  }
+}
+{
+  !I I@007/0001
+  InFieldNull
+  {
+    !IF I@021/0001
+    field
+    :
+    I@028/0001
+    InFieldNull
+    ?
+    =( !k I@043/0001 Null.null )
   }
 }
 {
@@ -781,19 +794,6 @@ Number
     I@027/0001
     String
     =( !k S@036/0001 '' )
-  }
-}
-{
-  !I I@007/0001
-  InFieldNull
-  {
-    !IF I@021/0001
-    field
-    :
-    I@028/0001
-    InFieldNull
-    ?
-    =( !k I@043/0001 Null.null )
   }
 }
 {
@@ -1018,6 +1018,21 @@ Number
 }
 {
   !O I@008/0001
+  OutGenField
+  <
+    I@021/0001
+    $type
+  >
+  {
+    !OF I@029/0001
+    field
+    :
+    I@037/0001
+    $type
+  }
+}
+{
+  !O I@008/0001
   OutGenFieldArg
   <
     I@024/0001
@@ -1045,48 +1060,6 @@ Number
   |
   !AO
   I@096/0001
-  $ref
-}
-{
-  !O I@008/0001
-  OutGenField
-  <
-    I@021/0001
-    $type
-  >
-  {
-    !OF I@029/0001
-    field
-    :
-    I@037/0001
-    $type
-  }
-}
-{
-  !O I@008/0001
-  OutGenPrntArg
-  <
-    I@023/0001
-    $type
-  >
-  :
-  I@032/0001
-  OutGenPrntRef
-  <
-    I@047/0001
-    $type
-  >
-}
-{
-  !O I@062/0001
-  OutGenPrntRef
-  <
-    I@077/0001
-    $ref
-  >
-  |
-  !AO
-  I@087/0001
   $ref
 }
 {
@@ -1130,6 +1103,33 @@ Number
   :
   I@030/0001
   $type
+}
+{
+  !O I@008/0001
+  OutGenPrntArg
+  <
+    I@023/0001
+    $type
+  >
+  :
+  I@032/0001
+  OutGenPrntRef
+  <
+    I@047/0001
+    $type
+  >
+}
+{
+  !O I@062/0001
+  OutGenPrntRef
+  <
+    I@077/0001
+    $ref
+  >
+  |
+  !AO
+  I@087/0001
+  $ref
 }
 {
   !O I@008/0001
@@ -1450,17 +1450,6 @@ Number
 }
 {
   !O I@008/0001
-  FieldEnums
-  {
-    !OF I@021/0001
-    field
-    =
-    I@029/0001
-    Boolean.true
-  }
-}
-{
-  !O I@008/0001
   FieldEnumAlias
   {
     !OF I@025/0001
@@ -1471,6 +1460,17 @@ Number
     ]
     =
     I@042/0001
+    Boolean.true
+  }
+}
+{
+  !O I@008/0001
+  FieldEnums
+  {
+    !OF I@021/0001
+    field
+    =
+    I@029/0001
     Boolean.true
   }
 }

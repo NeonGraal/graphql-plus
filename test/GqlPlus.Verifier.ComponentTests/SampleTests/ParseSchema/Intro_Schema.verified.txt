@@ -18,7 +18,7 @@ Success
     :
     I@039/0003
     _Categories
-    [String]
+    [Identifier]
     !OF I@009/0004
     directives
     (
@@ -30,7 +30,7 @@ Success
     :
     I@031/0004
     _Directives
-    [String]
+    [Identifier]
     !OF I@009/0005
     types
     (
@@ -42,7 +42,7 @@ Success
     :
     I@030/0005
     _Type
-    [String]
+    [Identifier]
     !OF I@009/0006
     settings
     (
@@ -54,108 +54,115 @@ Success
     :
     I@029/0006
     _Setting
-    [String]
+    [Identifier]
   }
 }
 {
-  !I I@007/0009
+  !S I@008/0009
+  Identifier
+  String
+  !SX R@028/0009
+  /[A-Za-z_]+/
+}
+{
+  !I I@007/0011
   _Filter
   {
-    !IF I@009/0010
+    !IF I@009/0012
     names
     :
-    I@016/0010
+    I@016/0012
     String
     []
-    !IF I@009/0011
+    !IF I@009/0013
     includeReferencedTypes
     :
-    I@033/0011
+    I@033/0013
     Boolean
-    =( !k I@043/0011 Boolean.false )
+    =( !k I@043/0013 Boolean.false )
   }
   |
   !AI
-  I@015/0012
+  I@015/0014
   String
   []
 }
 {
-  !I I@007/0015
+  !I I@007/0017
   _CategoryFilter
   :
-  I@007/0016
+  I@007/0018
   _Filter
   {
-    !IF I@009/0017
+    !IF I@009/0019
     resolutions
     :
-    I@022/0017
+    I@022/0019
     _Resolution
     []
   }
 }
 {
-  !I I@007/0020
+  !I I@007/0022
   _TypeFilter
   :
-  I@007/0021
+  I@007/0023
   _Filter
   {
-    !IF I@009/0022
+    !IF I@009/0024
     kinds
     :
-    I@016/0022
+    I@016/0024
     _TypeKind
     []
   }
 }
 {
-  !O I@008/0025
+  !O I@008/0027
   _Aliased
   :
-  I@007/0026
+  I@007/0028
   _Described
   <
-    I@018/0026
+    I@018/0028
     _Named
   >
   {
-    !OF I@009/0027
+    !OF I@009/0029
     aliases
     :
-    I@018/0027
-    String
+    I@018/0029
+    Identifier
     []
   }
 }
 {
-  !O I@008/0030
+  !O I@008/0032
   _Described
   <
-    I@020/0030
+    I@020/0032
     $base
   >
   :
-  I@008/0031
+  I@008/0033
   $base
   {
-    !OF I@009/0032
+    !OF I@009/0034
     description
     :
-    I@022/0032
+    I@022/0034
     String
     ?
   }
 }
 {
-  !O I@008/0035
+  !O I@008/0037
   _Named
   {
-    !OF I@009/0036
+    !OF I@009/0038
     name
     :
-    I@015/0036
-    String
+    I@015/0038
+    Identifier
   }
 }

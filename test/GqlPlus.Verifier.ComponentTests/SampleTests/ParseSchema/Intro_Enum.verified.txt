@@ -10,7 +10,7 @@ Success
     I@018/0002
     _TypeKind.Enum
     I@033/0002
-    String
+    Identifier
   >
   {
     !OF I@009/0003
@@ -38,7 +38,7 @@ Success
     enum
     :
     I@015/0009
-    String
+    Identifier
   }
 }
 {
@@ -56,6 +56,6 @@ Success
     value
     :
     I@016/0014
-    String
+    Identifier
   }
 }

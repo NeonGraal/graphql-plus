@@ -1,6 +1,6 @@
 ﻿[
-  !!! I@016/0022 : Invalid Input. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@022/0017 : Invalid Input. '_Resolution' not defined. - '_Resolution' !!!,
+  !!! I@016/0024 : Invalid Input. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@022/0019 : Invalid Input. '_Resolution' not defined. - '_Resolution' !!!,
   !!! I@029/0006 : Invalid Output. '_Setting' not defined. - '_Setting' !!!,
   !!! I@030/0005 : Invalid Output. '_Type' not defined. - '_Type' !!!,
   !!! I@031/0004 : Invalid Output. '_Directives' not defined. - '_Directives' !!!,

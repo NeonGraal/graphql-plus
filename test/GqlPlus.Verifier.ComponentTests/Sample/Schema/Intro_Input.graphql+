@@ -1,7 +1,6 @@
 output _InputBase {
-        input: String
-        arguments: _Ref<_InputBase>[]
-    | "TypeParameter" String
+    : _TypeBase<_Ref<_InputBase>>
+        input: Identifier
     }
 
 output _InputField {

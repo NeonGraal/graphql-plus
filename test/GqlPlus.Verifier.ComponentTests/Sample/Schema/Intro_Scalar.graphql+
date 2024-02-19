@@ -14,7 +14,7 @@ output _ScalarRef<$kind> {
     }
 
 output _BaseScalar<$kind $item> {
-    : _ChildType<_TypeKind.Scalar String>
+    : _ChildType<_TypeKind.Scalar Identifier>
         scalar: $kind
         items: $item[]
         allItems: _ScalarItem<$item>[]
@@ -45,7 +45,7 @@ output _ScalarRegex {
 
 output _ScalarItem<$item> {
     : $item
-        scalar: String
+        scalar: Identifier
     }
 
 output _ScalarValue<$kind $value> {

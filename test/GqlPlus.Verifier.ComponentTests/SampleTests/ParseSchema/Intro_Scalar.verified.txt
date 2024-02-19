@@ -102,7 +102,7 @@ Success
     I@018/0017
     _TypeKind.Scalar
     I@035/0017
-    String
+    Identifier
   >
   {
     !OF I@009/0018
@@ -207,7 +207,7 @@ Success
     scalar
     :
     I@017/0048
-    String
+    Identifier
   }
 }
 {

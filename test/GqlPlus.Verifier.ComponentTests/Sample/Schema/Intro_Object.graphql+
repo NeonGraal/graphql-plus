@@ -14,6 +14,11 @@ output _Ref<$base> {
     | $base
     }
 
+output _TypeBase<$arg> {
+        arguments: $arg[]
+    | "TypeParameter" Identifier
+    }
+
 output _Alternate<$base> {
       type: _Ref<$base>
       collections: _Collection[]
@@ -21,7 +26,7 @@ output _Alternate<$base> {
 
 output _Object<$for> {
     : $for
-        object: String
+        object: Identifier
     }
 
 output _Field<$base> {

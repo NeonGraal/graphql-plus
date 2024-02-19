@@ -1,15 +1,15 @@
 output _TypeEnum {
-    : _ChildType<_TypeKind.Enum String>
+    : _ChildType<_TypeKind.Enum Identifier>
         members: _Aliased[]
         allMembers: _EnumMember[]
     }
 
 output _EnumMember {
     : _Aliased
-        enum: String
+        enum: Identifier
     }
 
 output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
-        value: String
+        value: Identifier
     }

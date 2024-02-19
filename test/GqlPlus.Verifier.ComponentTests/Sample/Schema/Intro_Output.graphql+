@@ -1,7 +1,6 @@
 output _OutputBase {
-        output: String
-        arguments: _OutputArgument[]
-    | "TypeParameter" String
+    : _TypeBase<_OutputArgument>
+        output: Identifier
     }
 
 output _OutputField {
@@ -12,12 +11,12 @@ output _OutputField {
 
 output _OutputArgument {
     : _TypeRef<_TypeKind.Enum>
-        value: String
+        value: Identifier
     | _Ref<_OutputBase>
     }
 
 output _OutputEnum {
     : _TypeRef<_TypeKind.Enum>
-        field: String
-        value: String
+        field: Identifier
+        value: Identifier
     }

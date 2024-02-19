@@ -127,7 +127,7 @@ Success
     name
     :
     I@015/0026
-    String
+    Identifier
   }
 }
 {

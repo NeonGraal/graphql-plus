@@ -115,90 +115,110 @@ Success
 }
 {
   !O I@008/0017
+  _TypeBase
+  <
+    I@019/0017
+    $arg
+  >
+  {
+    !OF I@009/0018
+    arguments
+    :
+    I@021/0018
+    $arg
+    []
+  }
+  |
+  !AO
+  I@023/0019
+  Identifier
+}
+{
+  !O I@008/0022
   _Alternate
   <
-    I@020/0017
+    I@020/0022
     $base
   >
   {
-    !OF I@007/0018
+    !OF I@007/0023
     type
     :
-    I@013/0018
+    I@013/0023
     _Ref
     <
-      I@019/0018
+      I@019/0023
       $base
     >
-    !OF I@007/0019
+    !OF I@007/0024
     collections
     :
-    I@020/0019
+    I@020/0024
     _Collection
     []
   }
 }
 {
-  !O I@008/0022
+  !O I@008/0027
   _Object
   <
-    I@017/0022
+    I@017/0027
     $for
   >
   :
-  I@008/0023
+  I@008/0028
   $for
   {
-    !OF I@009/0024
+    !OF I@009/0029
     object
     :
-    I@017/0024
-    String
+    I@017/0029
+    Identifier
   }
 }
 {
-  !O I@008/0027
+  !O I@008/0032
   _Field
   <
-    I@016/0027
+    I@016/0032
     $base
   >
   :
-  I@007/0028
+  I@007/0033
   _Aliased
   {
-    !OF I@007/0029
+    !OF I@007/0034
     type
     :
-    I@013/0029
+    I@013/0034
     _Ref
     <
-      I@019/0029
+      I@019/0034
       $base
     >
-    !OF I@007/0030
+    !OF I@007/0035
     modifiers
     :
-    I@018/0030
+    I@018/0035
     _Modifier
     []
   }
 }
 {
-  !O I@008/0033
+  !O I@008/0038
   _Parameter
   :
-  I@007/0034
+  I@007/0039
   _Alternate
   <
-    I@018/0034
+    I@018/0039
     _InputBase
   >
   {
-    !OF I@009/0035
+    !OF I@009/0040
     default
     :
-    I@018/0035
+    I@018/0040
     _Constant
     ?
   }

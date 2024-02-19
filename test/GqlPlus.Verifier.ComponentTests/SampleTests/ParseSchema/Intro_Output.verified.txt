@@ -3,93 +3,90 @@ Success
 {
   !O I@008/0001
   _OutputBase
+  :
+  I@007/0002
+  _TypeBase
+  <
+    I@017/0002
+    _OutputArgument
+  >
   {
-    !OF I@009/0002
+    !OF I@009/0003
     output
     :
-    I@017/0002
-    String
-    !OF I@009/0003
-    arguments
-    :
-    I@020/0003
-    _OutputArgument
-    []
+    I@017/0003
+    Identifier
   }
-  |
-  !AO
-  I@023/0004
-  String
 }
 {
-  !O I@008/0007
+  !O I@008/0006
   _OutputField
   :
-  I@007/0008
+  I@007/0007
   _Field
   <
-    I@014/0008
+    I@014/0007
     _OutputBase
   >
   {
-    !OF I@009/0009
+    !OF I@009/0008
     parameter
     :
-    I@020/0009
+    I@020/0008
     _Parameter
     []
   }
   |
   !AO
-  I@007/0010
+  I@007/0009
   _OutputEnum
 }
 {
-  !O I@008/0013
+  !O I@008/0012
   _OutputArgument
   :
-  I@007/0014
+  I@007/0013
   _TypeRef
   <
-    I@016/0014
+    I@016/0013
     _TypeKind.Enum
   >
   {
-    !OF I@009/0015
+    !OF I@009/0014
     value
     :
-    I@016/0015
-    String
+    I@016/0014
+    Identifier
   }
   |
   !AO
-  I@007/0016
+  I@007/0015
   _Ref
   <
-    I@012/0016
+    I@012/0015
     _OutputBase
   >
 }
 {
-  !O I@008/0019
+  !O I@008/0018
   _OutputEnum
   :
-  I@007/0020
+  I@007/0019
   _TypeRef
   <
-    I@016/0020
+    I@016/0019
     _TypeKind.Enum
   >
   {
-    !OF I@009/0021
+    !OF I@009/0020
     field
     :
-    I@016/0021
-    String
-    !OF I@009/0022
+    I@016/0020
+    Identifier
+    !OF I@009/0021
     value
     :
-    I@016/0022
-    String
+    I@016/0021
+    Identifier
   }
 }

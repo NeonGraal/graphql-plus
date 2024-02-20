@@ -4,15 +4,14 @@ using GqlPlus.Verifier.Rendering;
 namespace GqlPlus.Verifier.Modelling;
 
 internal record class EnumModel(string Name)
-  : ModelBaseType(TypeKindModel.Enum, Name)
+  : ModelChildType<TypeRefModel<SimpleKindModel>>(TypeKindModel.Enum, Name)
 {
-  public TypeRefModel<SimpleKindModel>? Parent { get; set; }
   public EnumMemberModel[] Members { get; set; } = [];
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("parent", Parent?.Render())
-      .Add("members", new("", Members.Render()));
+      .Add("members", new("", Members.Render()))
+      .Add("allMembers", new("", Members.Render()));
 }
 
 internal record class EnumMemberModel(string Name, string OfEnum)
@@ -32,6 +31,7 @@ internal class EnumModeller
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Enum),
       Members = [.. ast.Members.Select(m => ToMember(m, ast.Name))],
+      // Todo: AllMembers from Enum Parent
     };
 
   internal EnumMemberModel ToMember(EnumMemberAst ast, string ofEnum)

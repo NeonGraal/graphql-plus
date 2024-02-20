@@ -3,7 +3,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract class ModelAliasedTests<TInput> : ModelDescribedTests<TInput>
+public abstract class ModelAliasedTests<TInput>
+  : ModelDescribedTests<TInput>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Aliases(TInput input, string[] aliases)

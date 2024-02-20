@@ -4,7 +4,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class EnumModelTests : ModelAliasedTests<string>
+public class EnumModelTests
+  : ModelAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Parent(string name, string parent)
@@ -22,24 +23,32 @@ public class EnumModelTests : ModelAliasedTests<string>
     .AstExpected(
       new(AstNulls.At, name) { Members = members.EnumMembers() },
       ["!_Enum",
+        "allMembers:",
+        .. members.SelectMany(m => ExpectedMember(m, name)),
         "kind: !_TypeKind Enum",
         "members:",
         .. members.SelectMany(m => ExpectedMember(m, name)),
         "name: " + name]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_All(string name, string contents, string[] aliases, string parent, string[] members)
-    => _checks
-    .RenderReturn("Parameters")
+  public void Model_All(
+    string name,
+    string contents,
+    string[] aliases,
+    string parent,
+    string[] members
+  ) => _checks
     .AstExpected(
       new(AstNulls.At, name) {
         Aliases = aliases,
         Description = contents,
         Parent = parent,
-        Members = members.EnumMembers(),
+        Members = members.EnumMembers()
       },
       ["!_Enum",
         $"aliases: [{string.Join(", ", aliases)}]",
+        "allMembers:",
+        .. members.SelectMany(m => ExpectedMember(m, name)),
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Enum),
         "kind: !_TypeKind Enum",

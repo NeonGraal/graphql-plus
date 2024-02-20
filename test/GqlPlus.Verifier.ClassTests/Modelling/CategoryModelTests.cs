@@ -4,7 +4,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class CategoryModelTests : ModelAliasedTests<string>
+public class CategoryModelTests
+  : ModelAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Name(string output, string name)
@@ -37,8 +38,13 @@ public class CategoryModelTests : ModelAliasedTests<string>
         "resolution: !_Resolution Parallel"]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_All(string output, string name, string contents, string[] aliases, CategoryOption option)
-    => _checks
+  public void Model_All(
+    string output,
+    string name,
+    string contents,
+    string[] aliases,
+    CategoryOption option
+  ) => _checks
     .RenderReturn("Modifiers")
     .AstExpected(
       new(AstNulls.At, name, output) {

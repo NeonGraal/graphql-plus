@@ -3,7 +3,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal abstract class ModellerBase<TAst, TModel> : IModeller<TAst>
+internal abstract class ModellerBase<TAst, TModel>
+  : IModeller<TAst>
   where TAst : AstBase
   where TModel : IRendering
 {

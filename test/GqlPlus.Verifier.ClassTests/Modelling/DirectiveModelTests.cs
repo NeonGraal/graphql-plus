@@ -4,7 +4,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class DirectiveModelTests : ModelAliasedTests<string>
+public class DirectiveModelTests
+  : ModelAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Repeatable(string name, DirectiveOption option)
@@ -35,8 +36,14 @@ public class DirectiveModelTests : ModelAliasedTests<string>
         "repeatable: false"]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_All(string name, string contents, string[] parameters, string[] aliases, DirectiveOption option, DirectiveLocation[] locations)
-    => _checks
+  public void Model_All(
+    string name,
+    string contents,
+    string[] parameters,
+    string[] aliases,
+    DirectiveOption option,
+    DirectiveLocation[] locations
+  ) => _checks
     .RenderReturn("Parameters")
     .AstExpected(
       new(AstNulls.At, name) {

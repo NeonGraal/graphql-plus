@@ -3,22 +3,23 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal abstract record class ModelBaseScalar(ScalarKindModel Scalar, string Name)
-  : ModelBaseType(TypeKindModel.Scalar, Name)
+internal abstract record class ModelBaseScalar<TItem>(
+  ScalarKindModel Scalar,
+  string Name
+) : ModelChildType<TypeRefModel<SimpleKindModel>>(TypeKindModel.Scalar, Name)
+  where TItem : ModelBase
 {
-  public TypeRefModel<SimpleKindModel>? Parent { get; set; }
+  public TItem[] Items { get; set; } = [];
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("parent", Parent?.Render())
+      .Add("items", new("", Items.Render()))
       .Add("scalar", Scalar.RenderEnum());
 }
 
 internal record class ScalarNumberModel(string Name)
-  : ModelBaseScalar(ScalarKindModel.Number, Name)
-{
-  public ScalarRangeModel[] Ranges { get; set; } = [];
-}
+  : ModelBaseScalar<ScalarRangeModel>(ScalarKindModel.Number, Name)
+{ }
 
 internal record class ScalarRangeModel(bool Exclude)
   : ModelBase
@@ -34,10 +35,8 @@ internal record class ScalarRangeModel(bool Exclude)
 }
 
 internal record class ScalarStringModel(string Name)
-  : ModelBaseScalar(ScalarKindModel.String, Name)
-{
-  public ScalarRegexModel[] Regexes { get; set; } = [];
-}
+  : ModelBaseScalar<ScalarRegexModel>(ScalarKindModel.String, Name)
+{ }
 
 internal record class ScalarRegexModel(string Regex, bool Exclude)
   : ModelBase
@@ -49,10 +48,10 @@ internal record class ScalarRegexModel(string Regex, bool Exclude)
 }
 
 internal class ScalarNumberModeller
-  : ModellerBase<AstScalar<ScalarRangeAst>, ModelBaseScalar>
+  : ModellerBase<AstScalar<ScalarRangeAst>, ScalarNumberModel>
 {
-  internal override ModelBaseScalar ToModel(AstScalar<ScalarRangeAst> ast)
-    => new ScalarNumberModel(ast.Name) {
+  internal override ScalarNumberModel ToModel(AstScalar<ScalarRangeAst> ast)
+    => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
@@ -60,14 +59,14 @@ internal class ScalarNumberModeller
 }
 
 internal class ScalarStringModeller
-  : ModellerBase<AstScalar<ScalarRegexAst>, ModelBaseScalar>
+  : ModellerBase<AstScalar<ScalarRegexAst>, ScalarStringModel>
 {
-  internal override ModelBaseScalar ToModel(AstScalar<ScalarRegexAst> ast)
-    => new ScalarStringModel(ast.Name) {
+  internal override ScalarStringModel ToModel(AstScalar<ScalarRegexAst> ast)
+    => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
     };
 }
 
-internal enum ScalarKindModel { Number, String, Union }
+internal enum ScalarKindModel { Boolean, Enum, Number, String, Union }

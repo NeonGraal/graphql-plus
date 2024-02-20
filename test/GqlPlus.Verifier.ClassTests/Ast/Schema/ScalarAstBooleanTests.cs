@@ -2,12 +2,12 @@
 namespace GqlPlus.Verifier.Ast.Schema;
 
 public class ScalarAstBooleanTests
-  : AstScalarTests<bool, ScalarFalseAst>
+  : AstScalarTests<bool, ScalarTrueFalseAst>
 {
   protected override string MembersString(string name, bool input)
-    => $"( !S {name} Boolean !SF {input} )";
-  protected override AstScalar<ScalarFalseAst> NewScalar(string name, ScalarFalseAst[] list)
+    => $"( !S {name} Boolean !STF {input} )";
+  protected override AstScalar<ScalarTrueFalseAst> NewScalar(string name, ScalarTrueFalseAst[] list)
     => new(AstNulls.At, name, ScalarKind.Boolean, list);
-  protected override ScalarFalseAst[] ScalarMembers(bool input)
-    => [new(AstNulls.At, input)];
+  protected override ScalarTrueFalseAst[] ScalarMembers(bool input)
+    => [new(AstNulls.At, false, input)];
 }

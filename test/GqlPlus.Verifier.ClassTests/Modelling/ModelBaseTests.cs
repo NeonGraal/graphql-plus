@@ -20,17 +20,17 @@ internal abstract class ModelBaseChecks<TInput, TAst>
   : IModelBaseChecks<TInput>
   where TAst : AstBase
 {
-  private readonly IRendering Rendering;
+  private readonly IRendering _rendering;
 
   protected ModelBaseChecks()
   {
-    Rendering = Substitute.For<IRendering>();
+    _rendering = Substitute.For<IRendering>();
     RenderReturn("");
   }
 
   internal ModelBaseChecks<TInput, TAst> RenderReturn(string tagAndValue)
   {
-    Rendering.Render()
+    _rendering.Render()
         .Returns(new RenderStructure(tagAndValue, tagAndValue));
 
     return this;
@@ -54,7 +54,7 @@ internal abstract class ModelBaseChecks<TInput, TAst>
   {
     var modeller = Substitute.For<IModeller<TA>>();
     modeller.ToRenderer(default!)
-      .ReturnsForAnyArgs(Rendering);
+      .ReturnsForAnyArgs(_rendering);
 
     return modeller;
   }

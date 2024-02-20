@@ -16,7 +16,7 @@ internal class ParseScalar(
 {
   protected override AstScalar MakeResult(AstScalar partial, ScalarDefinition value)
     => value.Kind switch {
-      ScalarKind.Boolean => new AstScalar<ScalarFalseAst>(partial.At, partial.Name, value.Kind, []),
+      ScalarKind.Boolean => new AstScalar<ScalarTrueFalseAst>(partial.At, partial.Name, value.Kind, value.Values),
       ScalarKind.Enum => new AstScalar<ScalarMemberAst>(partial.At, partial.Name, value.Kind, value.Members),
       ScalarKind.Number => new AstScalar<ScalarRangeAst>(partial.At, partial.Name, value.Kind, value.Numbers),
       ScalarKind.String => new AstScalar<ScalarRegexAst>(partial.At, partial.Name, value.Kind, value.Regexes),
@@ -40,6 +40,7 @@ public class ScalarDefinition
 {
   public ScalarKind Kind { get; set; } = ScalarKind.Number;
   public string? Parent { get; set; }
+  public ScalarTrueFalseAst[] Values { get; set; } = [];
   public ScalarMemberAst[] Members { get; set; } = [];
   public ScalarRangeAst[] Numbers { get; set; } = [];
   public ScalarRegexAst[] Regexes { get; set; } = [];

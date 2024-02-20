@@ -2,10 +2,10 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class ScalarFalseAst(TokenAt At, bool Value)
-  : AstAbbreviated(At), IAstScalarItem
+public sealed record class ScalarTrueFalseAst(TokenAt At, bool Excludes, bool Value)
+  : AstScalarItem(At, Excludes), IAstScalarItem
 {
-  internal override string Abbr => "SF";
+  internal override string Abbr => "STF";
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

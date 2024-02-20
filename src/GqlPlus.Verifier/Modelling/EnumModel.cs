@@ -35,8 +35,10 @@ internal class EnumModeller
     };
 
   internal EnumMemberModel ToMember(EnumMemberAst ast, string ofEnum)
-    => new(ast.Name, ofEnum) {
+  {
+    return new(ast.Name, ofEnum) {
       Aliases = ast.Aliases,
       Description = ast.Description,
     };
+  }
 }

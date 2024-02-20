@@ -35,7 +35,7 @@ public static class AllVerifiers
       .AddVerifyUsageAliased<OutputDeclAst, AstType, VerifyOutputTypes>()
       .AddVerifyAliased<AstScalar, VerifyScalarsAliased>()
       .AddVerifyUsageAliased<AstScalar, AstType, VerifyScalarTypes>()
-      .AddVerifyScalarContext<AstScalarVerifier<ScalarFalseAst>>()
+      .AddVerifyScalarContext<AstScalarVerifier<ScalarTrueFalseAst>>()
       .AddVerifyScalarContext<VerifyScalarEnum>()
       .AddVerifyScalarContext<AstScalarVerifier<ScalarRangeAst>>()
       .AddVerifyScalarContext<AstScalarVerifier<ScalarRegexAst>>()

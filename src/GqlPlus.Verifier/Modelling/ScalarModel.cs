@@ -21,6 +21,21 @@ internal record class ScalarNumberModel(string Name)
   : ModelBaseScalar<ScalarRangeModel>(ScalarKindModel.Number, Name)
 { }
 
+internal record class ScalarTrueFalseModel(bool Exclude)
+  : ModelBase
+{
+  public bool Value { get; set; }
+
+  internal override RenderStructure Render()
+    => base.Render()
+      .Add("value", new("", Value))
+      .Add("exclude", new("", Exclude));
+}
+
+internal record class ScalarBooleanModel(string Name)
+  : ModelBaseScalar<ScalarTrueFalseModel>(ScalarKindModel.Boolean, Name)
+{ }
+
 internal record class ScalarRangeModel(bool Exclude)
   : ModelBase
 {
@@ -45,6 +60,17 @@ internal record class ScalarRegexModel(string Regex, bool Exclude)
     => base.Render()
       .Add("regex", new("", Regex))
       .Add("exclude", new("", Exclude));
+}
+
+internal class ScalarBooleanModeller
+  : ModellerBase<AstScalar<ScalarTrueFalseAst>, ScalarBooleanModel>
+{
+  internal override ScalarBooleanModel ToModel(AstScalar<ScalarTrueFalseAst> ast)
+    => new(ast.Name) {
+      Aliases = ast.Aliases,
+      Description = ast.Description,
+      Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
+    };
 }
 
 internal class ScalarNumberModeller

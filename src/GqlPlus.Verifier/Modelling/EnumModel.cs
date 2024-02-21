@@ -30,15 +30,21 @@ internal class EnumModeller
       Aliases = ast.Aliases,
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Enum),
-      Members = [.. ast.Members.Select(m => ToMember(m, ast.Name))],
+      Members = [.. ast.Members.Select(ToMember(ast.Name))],
       // Todo: AllMembers from Enum Parent
     };
 
-  internal EnumMemberModel ToMember(EnumMemberAst ast, string ofEnum)
-  {
-    return new(ast.Name, ofEnum) {
+  internal static Func<EnumMemberAst, EnumMemberModel> ToMember(string ofEnum)
+    => ast => new(ast.Name, ofEnum) {
       Aliases = ast.Aliases,
       Description = ast.Description,
     };
-  }
+}
+
+internal record class EnumValueModel(string Name, string Value)
+  : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name)
+{
+  internal override RenderStructure Render()
+    => base.Render()
+      .Add("value", new("", Value));
 }

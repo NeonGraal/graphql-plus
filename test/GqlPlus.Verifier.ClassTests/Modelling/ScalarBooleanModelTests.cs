@@ -17,24 +17,22 @@ public class ScalarBooleanModelTests : ModelAliasedTests<string>
         "scalar: !_ScalarKind Boolean"]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_Members(string name)
+  public void Model_Members(string name, bool[] members)
     => _checks
-    .RenderReturn("Parameters")
     .AstExpected(
-      new(AstNulls.At, name, ScalarKind.Boolean, [] /* Members = members.ScalarMembers() */),
+      new(AstNulls.At, name, ScalarKind.Boolean, members.ScalarTrueFalses()),
       ["!_ScalarBoolean",
+        "items:",
+        .. members.SelectMany(m => ExpectedItem(m, name)),
         "kind: !_TypeKind Scalar",
-        //"members:",
-        //.. members.SelectMany(m => ExpectedMember(m, name)),
         "name: " + name,
         "scalar: !_ScalarKind Boolean"]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_All(string name, string contents, string[] aliases, string parent)
+  public void Model_All(string name, string contents, string[] aliases, string parent, bool[] members)
     => _checks
-    .RenderReturn("Parameters")
     .AstExpected(
-      new(AstNulls.At, name, ScalarKind.Boolean, [] /* Members = members.ScalarMembers() */) {
+      new(AstNulls.At, name, ScalarKind.Boolean, members.ScalarTrueFalses()) {
         Aliases = aliases,
         Description = contents,
         Parent = parent,
@@ -43,9 +41,9 @@ public class ScalarBooleanModelTests : ModelAliasedTests<string>
         $"aliases: [{string.Join(", ", aliases)}]",
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Scalar),
+        "items:",
+        .. members.SelectMany(m => ExpectedItem(m, name)),
         "kind: !_TypeKind Scalar",
-        //"members:",
-        //.. members.SelectMany(m => ExpectedMember(m, name)),
         "name: " + name,
         "scalar: !_ScalarKind Boolean"]);
 
@@ -57,8 +55,8 @@ public class ScalarBooleanModelTests : ModelAliasedTests<string>
       "name: " + input,
       "scalar: !_ScalarKind Boolean"];
 
-  private string[] ExpectedMember(string member, string ofScalar)
-    => ["- !_ScalarMember", "  scalar: " + ofScalar, "  name: " + member];
+  private string[] ExpectedItem(bool value, string ofScalar)
+    => ["- !_ScalarTrueFalse", "  exclude: false", "  scalar: " + ofScalar, "  value: " + value.TrueFalse()];
 
   internal override IModelAliasedChecks<string> AliasedChecks => _checks;
 

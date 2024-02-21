@@ -7,7 +7,6 @@ internal record class TypeRefModel<TKind>(TKind Kind, string Name)
   : ModelNamed(Name)
 {
   private static readonly string s_kindTag = typeof(TKind).TypeTag();
-  protected override string Tag => "_TypeRef(" + s_kindTag + ")";
 
   internal override RenderStructure Render()
     => base.Render()

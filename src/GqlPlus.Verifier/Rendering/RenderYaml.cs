@@ -21,8 +21,20 @@ internal static class RenderYaml
 
   internal static string TrueFalse(this bool value)
     => value ? "true" : "false";
+
   internal static string TypeTag(this Type type)
-    => "_" + type.Name.Replace("Model", "");
+  {
+    var result = "_" + type.Name.Replace("Model", "");
+
+    if (type.IsGenericType) {
+      var typeParams = type.GetGenericArguments().Select(TypeTag);
+
+      result = result.Split('`')[0] + "(" + string.Concat(typeParams) + ")";
+    }
+
+    return result;
+  }
+
   internal static RenderStructure RenderEnum<TEnum>(this TEnum value)
     where TEnum : struct
     => new(value.GetType().TypeTag(), value.ToString());

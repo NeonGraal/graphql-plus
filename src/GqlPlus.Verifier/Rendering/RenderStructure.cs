@@ -38,6 +38,16 @@ internal class RenderStructure : Structured<RenderValue, RenderStructure>
     return this;
   }
 
+  public RenderStructure Add<T>(T value)
+    where T : IRendering
+  {
+    foreach (var (key, item) in value.Render().Map) {
+      Map.Add(key, item);
+    }
+
+    return this;
+  }
+
   public string ToYaml()
     => RenderYaml.Serializer.Serialize(this);
 }

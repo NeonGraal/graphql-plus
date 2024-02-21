@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Modelling;
 
 public abstract record class ModelAliased(string Name)
-  : ModelNamed(Name)
+  : ModelDescribed(new ModelNamed(Name))
 {
   public string[] Aliases { get; set; } = [];
 

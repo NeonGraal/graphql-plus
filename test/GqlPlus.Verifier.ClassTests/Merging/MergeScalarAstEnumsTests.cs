@@ -7,7 +7,7 @@ public class MergeScalarAstEnumsTests
   : TestScalarAsts<ScalarMemberAst, string>
 {
   protected override ScalarMemberAst[] MakeItems(string input)
-    => input.ScalarMembers();
+    => new[] { input }.ScalarMembers();
 
   protected override AstScalar<ScalarMemberAst> MakeTyped(string name, string description = "")
     => new(AstNulls.At, name, description, ScalarKind.Enum);

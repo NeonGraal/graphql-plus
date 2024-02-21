@@ -1,5 +1,4 @@
-﻿using System;
-using GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
@@ -20,7 +19,6 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, ScalarRangeInput[] ranges)
     => _checks
-    .RenderReturn("Parameters")
     .AstExpected(
       new(AstNulls.At, name, ScalarKind.Number, [.. ranges.SelectMany(r => r.ScalarRange())]),
       ["!_ScalarNumber",
@@ -35,7 +33,6 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
   [Theory, RepeatData(Repeats)]
   public void Model_All(string name, string contents, string[] aliases, string parent, ScalarRangeInput[] ranges)
     => _checks
-    .RenderReturn("Parameters")
     .AstExpected(
       new(AstNulls.At, name, ScalarKind.Number, [.. ranges.SelectMany(r => r.ScalarRange())]) {
         Aliases = aliases,

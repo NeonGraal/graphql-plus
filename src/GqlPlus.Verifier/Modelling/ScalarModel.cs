@@ -143,4 +143,21 @@ internal class ScalarStringModeller
     => new(ast.Regex, ast.Excludes);
 }
 
+internal class ScalarUnionModeller
+  : ModellerScalar<ScalarReferenceAst, TypeRefModel<SimpleKindModel>>
+{
+  internal override ModelBaseScalar<TypeRefModel<SimpleKindModel>> ToModel(AstScalar<ScalarReferenceAst> ast)
+    => new(ScalarKindModel.Union, ast.Name) {
+      Aliases = ast.Aliases,
+      Description = ast.Description,
+      Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
+      Items = ToItems(ast),
+      AllItems = ToAllItems(ast),
+    };
+
+  // Todo: Determine whether Name is Basic, Scalar or Enum
+  protected override TypeRefModel<SimpleKindModel> ToItem(ScalarReferenceAst ast)
+    => new(SimpleKindModel.Basic, ast.Name);
+}
+
 internal enum ScalarKindModel { Boolean, Enum, Number, String, Union }

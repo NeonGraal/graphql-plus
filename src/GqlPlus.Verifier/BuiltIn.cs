@@ -18,8 +18,8 @@ internal static class BuiltIn
     new EnumDeclAst(AstNulls.At, "Void"),
     new EnumDeclAst(AstNulls.At, "Null") { Aliases = ["null"], Members = [new(AstNulls.At, "null")] },
 
-    new AstScalar<ScalarReferenceAst>(AstNulls.At, "Simple", ScalarKind.Union, "^".ScalarReferences("0", "*", "_", "_Scalar", "_Enum")),
-    new AstScalar<ScalarReferenceAst>(AstNulls.At, "Internal", ScalarKind.Union, "Void".ScalarReferences("Null")),
+    new AstScalar<ScalarReferenceAst>(AstNulls.At, "Simple", ScalarKind.Union, new [] {"^", "0", "*", "_", "_Scalar", "_Enum" }.ScalarReferences()),
+    new AstScalar<ScalarReferenceAst>(AstNulls.At, "Internal", ScalarKind.Union, new [] {"Void", "Null" }.ScalarReferences()),
 
     DualObj("Opt", TypeParameters("T"), DualAlt(null), DualType("Null")),
     DualObj("List", TypeParameters("T"), DualAlt("")),

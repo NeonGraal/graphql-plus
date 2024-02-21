@@ -10,7 +10,7 @@ public sealed class ParseScalarUnionTests(
   public void WithReferences_ReturnsCorrectAst(ScalarUnionInput input, string reference)
     => _checks.TrueExpected(
       input.Name + "{union|" + input.Reference + "|" + reference + "}",
-      new AstScalar<ScalarReferenceAst>(AstNulls.At, input.Name, ScalarKind.Union, input.Reference.ScalarReferences(reference)));
+      new AstScalar<ScalarReferenceAst>(AstNulls.At, input.Name, ScalarKind.Union, new[] { input.Reference, reference }.ScalarReferences()));
 
   [Theory, RepeatData(Repeats)]
   public void WithReferencesBad_ReturnsFalse(string name)
@@ -34,7 +34,7 @@ internal sealed class ParseScalarUnionChecks(
 ) : BaseScalarChecks<ScalarUnionInput, AstScalar>(parser, ScalarKind.Union)
 {
   protected internal override AstScalar<ScalarReferenceAst> AliasedFactory(ScalarUnionInput input)
-    => new(AstNulls.At, input.Name, ScalarKind.Union, input.Reference.ScalarReferences());
+    => new(AstNulls.At, input.Name, ScalarKind.Union, new[] { input.Reference }.ScalarReferences());
 
   protected internal override string AliasesString(ScalarUnionInput input, string aliases)
     => input.Name + aliases + "{union|" + input.Reference + "}";

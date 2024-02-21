@@ -19,7 +19,6 @@ public class ScalarStringModelTests : ModelAliasedTests<string>
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, string[] regexes)
     => _checks
-    .RenderReturn("Parameters")
     .AstExpected(
       new(AstNulls.At, name, ScalarKind.String, regexes.ScalarRegexes()),
       ["!_ScalarString",
@@ -32,22 +31,23 @@ public class ScalarStringModelTests : ModelAliasedTests<string>
         "scalar: !_ScalarKind String"]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_All(string name, string contents, string[] aliases, string parent)
+  public void Model_All(string name, string contents, string[] aliases, string parent, string[] regexes)
     => _checks
-    .RenderReturn("Parameters")
     .AstExpected(
-      new(AstNulls.At, name, ScalarKind.String, [] /* Members = members.ScalarMembers() */) {
+      new(AstNulls.At, name, ScalarKind.String, regexes.ScalarRegexes()) {
         Aliases = aliases,
         Description = contents,
         Parent = parent,
       },
       ["!_ScalarString",
         $"aliases: [{string.Join(", ", aliases)}]",
+        "allItems:",
+        .. regexes.SelectMany(ExpectedAllItem(name)),
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Scalar),
+        "items:",
+        .. regexes.SelectMany(ExpectedItem),
         "kind: !_TypeKind Scalar",
-        //"members:",
-        //.. members.SelectMany(m => ExpectedMember(m, name)),
         "name: " + name,
         "scalar: !_ScalarKind String"]);
 

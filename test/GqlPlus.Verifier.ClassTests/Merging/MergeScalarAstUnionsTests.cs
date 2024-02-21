@@ -7,7 +7,7 @@ public class MergeScalarAstUnionsTests
   : TestScalarAsts<ScalarReferenceAst, string>
 {
   protected override ScalarReferenceAst[] MakeItems(string input)
-    => input.ScalarReferences();
+    => new[] { input }.ScalarReferences();
   protected override AstScalar<ScalarReferenceAst> MakeTyped(string name, string description = "")
     => new(AstNulls.At, name, description, ScalarKind.Union);
 }

@@ -9,12 +9,14 @@ internal sealed record class ModelBaseScalar<TItem>(
 ) : ModelChildType<TypeRefModel<SimpleKindModel>>(TypeKindModel.Scalar, Name)
   where TItem : ModelBase
 {
-  public ModelScalarItem<TItem>[] Items { get; set; } = [];
+  public TItem[] Items { get; set; } = [];
+  public ModelScalarItem<TItem>[] AllItems { get; set; } = [];
 
   protected override string Tag => $"_Scalar{Scalar}";
 
   internal override RenderStructure Render()
     => base.Render()
+      .Add("allItems", new("", AllItems.Render()))
       .Add("items", new("", Items.Render()))
       .Add("scalar", Scalar.RenderEnum());
 }
@@ -68,7 +70,10 @@ internal abstract class ModellerScalar<TItemAst, TItemModel>
   where TItemAst : IAstScalarItem
   where TItemModel : ModelBase
 {
-  internal ModelScalarItem<TItemModel>[] ToItems(AstScalar<TItemAst> ast)
+  internal TItemModel[] ToItems(AstScalar<TItemAst> ast)
+    => [.. ast.Items.Select(ToItem)];
+
+  internal ModelScalarItem<TItemModel>[] ToAllItems(AstScalar<TItemAst> ast)
     => [.. ast.Items.Select(item => new ModelScalarItem<TItemModel>(ToItem(item), ast.Name))];
 
   protected abstract TItemModel ToItem(TItemAst ast);
@@ -83,6 +88,7 @@ internal class ScalarBooleanModeller
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
       Items = ToItems(ast),
+      AllItems = ToAllItems(ast),
     };
 
   protected override ScalarTrueFalseModel ToItem(ScalarTrueFalseAst ast)
@@ -98,6 +104,7 @@ internal class ScalarEnumModeller
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
       Items = ToItems(ast),
+      AllItems = ToAllItems(ast),
     };
 
   protected override ScalarMemberModel ToItem(ScalarMemberAst ast)
@@ -113,6 +120,7 @@ internal class ScalarNumberModeller
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
       Items = ToItems(ast),
+      AllItems = ToAllItems(ast),
     };
 
   protected override ScalarRangeModel ToItem(ScalarRangeAst ast)
@@ -128,6 +136,7 @@ internal class ScalarStringModeller
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
       Items = ToItems(ast),
+      AllItems = ToAllItems(ast),
     };
 
   protected override ScalarRegexModel ToItem(ScalarRegexAst ast)

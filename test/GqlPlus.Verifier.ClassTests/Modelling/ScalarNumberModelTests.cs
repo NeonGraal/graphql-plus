@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using System;
+using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
@@ -17,35 +18,39 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
         "scalar: !_ScalarKind Number"]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_Members(string name)
+  public void Model_Members(string name, ScalarRangeInput[] ranges)
     => _checks
     .RenderReturn("Parameters")
     .AstExpected(
-      new(AstNulls.At, name, ScalarKind.Number, [] /* members.ScalarMembers() */),
+      new(AstNulls.At, name, ScalarKind.Number, [.. ranges.SelectMany(r => r.ScalarRange())]),
       ["!_ScalarNumber",
+        "allItems:",
+        .. ranges.SelectMany(ExpectedAllRange(name)),
+        "items:",
+        .. ranges.SelectMany(ExpectedRange),
         "kind: !_TypeKind Scalar",
-        //"members:",
-        //.. members.SelectMany(m => ExpectedMember(m, name)),
         "name: " + name,
         "scalar: !_ScalarKind Number"]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_All(string name, string contents, string[] aliases, string parent)
+  public void Model_All(string name, string contents, string[] aliases, string parent, ScalarRangeInput[] ranges)
     => _checks
     .RenderReturn("Parameters")
     .AstExpected(
-      new(AstNulls.At, name, ScalarKind.Number, [] /* members.ScalarMembers() */) {
+      new(AstNulls.At, name, ScalarKind.Number, [.. ranges.SelectMany(r => r.ScalarRange())]) {
         Aliases = aliases,
         Description = contents,
         Parent = parent,
       },
       ["!_ScalarNumber",
         $"aliases: [{string.Join(", ", aliases)}]",
+        "allItems:",
+        .. ranges.SelectMany(ExpectedAllRange(name)),
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Scalar),
+        "items:",
+        .. ranges.SelectMany(ExpectedRange),
         "kind: !_TypeKind Scalar",
-        //"members:",
-        //.. members.SelectMany(m => ExpectedMember(m, name)),
         "name: " + name,
         "scalar: !_ScalarKind Number"]);
 
@@ -57,8 +62,11 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
       "name: " + input,
       "scalar: !_ScalarKind Number"];
 
-  private string[] ExpectedMember(string member, string ofScalar)
-    => ["- !_ScalarMember", "  scalar: " + ofScalar, "  name: " + member];
+  private string[] ExpectedRange(ScalarRangeInput range)
+    => ["- !_ScalarRange", "  exclude: false", "  from: " + range.Lower, "  to: " + range.Upper];
+
+  private Func<ScalarRangeInput, string[]> ExpectedAllRange(string ofScalar)
+    => range => ["- !_ScalarItem(_ScalarRange)", "  exclude: false", "  from: " + range.Lower, "  scalar: " + ofScalar, "  to: " + range.Upper];
 
   internal override IModelAliasedChecks<string> AliasedChecks => _checks;
 

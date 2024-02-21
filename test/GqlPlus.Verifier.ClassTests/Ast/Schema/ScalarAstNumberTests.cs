@@ -51,5 +51,5 @@ public record struct ScalarRangeInput(decimal? Min, decimal? Max)
   }
 
   public ScalarRangeAst[] ScalarRange()
-    => new ScalarRangeAst[] { new(AstNulls.At, false, Lower, Upper) };
+    => [new(AstNulls.At, false, Lower, Upper)];
 }

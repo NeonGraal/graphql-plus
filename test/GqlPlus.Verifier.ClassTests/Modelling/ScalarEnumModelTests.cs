@@ -22,8 +22,10 @@ public class ScalarEnumModelTests : ModelAliasedTests<string>
     .AstExpected(
       new(AstNulls.At, name, ScalarKind.Enum, members.ScalarMembers()),
       ["!_ScalarEnum",
+        "allItems:",
+        .. members.SelectMany(ExpectedAllItem(name)),
         "items:",
-        .. members.SelectMany(m => ExpectedItem(m, name)),
+        .. members.SelectMany(ExpectedItem),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind Enum"]);
@@ -39,10 +41,12 @@ public class ScalarEnumModelTests : ModelAliasedTests<string>
       },
       ["!_ScalarEnum",
         $"aliases: [{string.Join(", ", aliases)}]",
+        "allItems:",
+        .. members.SelectMany(ExpectedAllItem(name)),
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Scalar),
         "items:",
-        .. members.SelectMany(m => ExpectedItem(m, name)),
+        .. members.SelectMany(ExpectedItem),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind Enum"]);
@@ -55,8 +59,11 @@ public class ScalarEnumModelTests : ModelAliasedTests<string>
       "name: " + input,
       "scalar: !_ScalarKind Enum"];
 
-  private string[] ExpectedItem(string member, string ofScalar)
-    => ["- !_ScalarMember", "  exclude: false", "  kind: !_SimpleKind Enum", "  scalar: " + ofScalar, "  value: " + member];
+  private Func<string, string[]> ExpectedAllItem(string ofScalar)
+    => member => ["- !_ScalarItem(_ScalarMember)", "  exclude: false", "  kind: !_SimpleKind Enum", "  scalar: " + ofScalar, "  value: " + member];
+
+  private string[] ExpectedItem(string member)
+    => ["- !_ScalarMember", "  exclude: false", "  kind: !_SimpleKind Enum", "  value: " + member];
 
   internal override IModelAliasedChecks<string> AliasedChecks => _checks;
 

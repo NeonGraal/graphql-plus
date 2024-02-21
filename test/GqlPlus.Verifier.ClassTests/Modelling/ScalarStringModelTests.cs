@@ -17,15 +17,17 @@ public class ScalarStringModelTests : ModelAliasedTests<string>
         "scalar: !_ScalarKind String"]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_Members(string name)
+  public void Model_Members(string name, string[] regexes)
     => _checks
     .RenderReturn("Parameters")
     .AstExpected(
-      new(AstNulls.At, name, ScalarKind.String, [] /* Members = members.ScalarMembers() */),
+      new(AstNulls.At, name, ScalarKind.String, regexes.ScalarRegexes()),
       ["!_ScalarString",
+        "allItems:",
+        .. regexes.SelectMany(ExpectedAllItem(name)),
+        "items:",
+        .. regexes.SelectMany(ExpectedItem),
         "kind: !_TypeKind Scalar",
-        //"members:",
-        //.. members.SelectMany(m => ExpectedMember(m, name)),
         "name: " + name,
         "scalar: !_ScalarKind String"]);
 
@@ -57,8 +59,11 @@ public class ScalarStringModelTests : ModelAliasedTests<string>
       "name: " + input,
       "scalar: !_ScalarKind String"];
 
-  private string[] ExpectedMember(string member, string ofScalar)
-    => ["- !_ScalarMember", "  scalar: " + ofScalar, "  name: " + member];
+  private Func<string, string[]> ExpectedAllItem(string ofScalar)
+    => regex => ["- !_ScalarItem(_ScalarRegex)", "  exclude: false", "  regex: " + regex, "  scalar: " + ofScalar];
+
+  private string[] ExpectedItem(string regex)
+    => ["- !_ScalarRegex", "  exclude: false", "  regex: " + regex];
 
   internal override IModelAliasedChecks<string> AliasedChecks => _checks;
 

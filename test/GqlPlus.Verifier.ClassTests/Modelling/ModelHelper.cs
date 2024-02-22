@@ -13,11 +13,15 @@ internal static class ModelHelper
   internal static string[] Tidy(this string[] value)
     => [.. value.Where(s => !string.IsNullOrWhiteSpace(s))];
 
-  internal static string[] TypeRefFor<TKind>(this string name, TKind Kind, [CallerArgumentExpression(nameof(name))] string? label = null)
+  internal static string[] TypeRefFor<TKind>(this string? name, TKind kind, [CallerArgumentExpression(nameof(name))] string? label = null)
   {
+    if (string.IsNullOrWhiteSpace(name)) {
+      return [];
+    }
+
     var kindTag = typeof(TKind).TypeTag();
     return [$"{label}: !_TypeRef({kindTag})",
-      $"  kind: !{kindTag} {Kind}",
+      $"  kind: !{kindTag} {kind}",
       "  name: " + name];
   }
 }

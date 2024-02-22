@@ -23,7 +23,7 @@ public static class AstExtensions
   public static IEnumerable<string> AsString<T>(this IEnumerable<T>? items)
     => items?.Any() == true
       ? items.Where(i => i is not null).Select(i => $"{i}")
-      : Enumerable.Empty<string>();
+      : [];
 
   public static IEnumerable<string> Bracket<T>(
     this IEnumerable<T>? items,
@@ -32,7 +32,7 @@ public static class AstExtensions
     Func<T, string> formatter)
    => items?.Any() == true
       ? items.Select(formatter).Prepend(before).Append(after)
-      : Enumerable.Empty<string>();
+      : [];
 
   public static IEnumerable<string?> Bracket<T>(
     this IEnumerable<T>? items,
@@ -49,7 +49,7 @@ public static class AstExtensions
     return result
         ?.Prepend(before)
         ?.Append(after)
-        ?? Enumerable.Empty<string>();
+        ?? [];
   }
 
   private static IEnumerable<string?>? AsFields<T>(IEnumerable<T>? items)
@@ -62,7 +62,7 @@ public static class AstExtensions
   public static string Joined(this IEnumerable<string?>? items)
     => string.Join(" ",
       items?.Where(i => !string.IsNullOrWhiteSpace(i))
-      ?? Array.Empty<string>());
+      ?? []);
 
   public static string Joined(this IEnumerable<string?>? items, Func<string?, string> mapping)
     => (items?.Select(mapping)).Joined();

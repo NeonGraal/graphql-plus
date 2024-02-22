@@ -4,7 +4,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class ScalarEnumModelTests : ModelAliasedTests<string>
+public class ScalarEnumModelTests
+  : ModelScalarTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Parent(string name, string parent)
@@ -22,10 +23,8 @@ public class ScalarEnumModelTests : ModelAliasedTests<string>
     .AstExpected(
       new(AstNulls.At, name, ScalarKind.Enum, members.ScalarMembers()),
       ["!_ScalarEnum",
-        "allItems:",
-        .. members.SelectMany(ExpectedAllItem(name)),
-        "items:",
-        .. members.SelectMany(ExpectedItem),
+        .. AllItems(members, name),
+        .. Items(members),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind Enum"]);
@@ -41,12 +40,10 @@ public class ScalarEnumModelTests : ModelAliasedTests<string>
       },
       ["!_ScalarEnum",
         $"aliases: [{string.Join(", ", aliases)}]",
-        "allItems:",
-        .. members.SelectMany(ExpectedAllItem(name)),
+        .. AllItems(members, name),
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Scalar),
-        "items:",
-        .. members.SelectMany(ExpectedItem),
+        .. Items(members),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind Enum"]);
@@ -59,11 +56,8 @@ public class ScalarEnumModelTests : ModelAliasedTests<string>
       "name: " + input,
       "scalar: !_ScalarKind Enum"];
 
-  private Func<string, string[]> ExpectedAllItem(string ofScalar)
-    => member => ["- !_ScalarItem(_ScalarMember)", "  exclude: false", "  kind: !_SimpleKind Enum", "  scalar: " + ofScalar, "  value: " + member];
-
-  private string[] ExpectedItem(string member)
-    => ["- !_ScalarMember", "  exclude: false", "  kind: !_SimpleKind Enum", "  value: " + member];
+  protected override string[] ExpectedItem(string input, string exclude, string[] scalar)
+    => ["- !_ScalarMember", exclude, "  kind: !_SimpleKind Enum", .. scalar, "  value: " + input];
 
   internal override IModelAliasedChecks<string> AliasedChecks => _checks;
 

@@ -4,7 +4,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class ScalarNumberModelTests : ModelAliasedTests<string>
+public class ScalarNumberModelTests
+  : ModelScalarTests<ScalarRangeInput>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Parent(string name, string parent)
@@ -20,12 +21,10 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
   public void Model_Members(string name, ScalarRangeInput[] ranges)
     => _checks
     .AstExpected(
-      new(AstNulls.At, name, ScalarKind.Number, [.. ranges.SelectMany(r => r.ScalarRange())]),
+      new(AstNulls.At, name, ScalarKind.Number, ranges.ScalarRanges()),
       ["!_ScalarNumber",
-        "allItems:",
-        .. ranges.SelectMany(ExpectedAllRange(name)),
-        "items:",
-        .. ranges.SelectMany(ExpectedRange),
+        .. AllItems(ranges, name),
+        .. Items(ranges),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind Number"]);
@@ -34,19 +33,17 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
   public void Model_All(string name, string contents, string[] aliases, string parent, ScalarRangeInput[] ranges)
     => _checks
     .AstExpected(
-      new(AstNulls.At, name, ScalarKind.Number, [.. ranges.SelectMany(r => r.ScalarRange())]) {
+      new(AstNulls.At, name, ScalarKind.Number, ranges.ScalarRanges()) {
         Aliases = aliases,
         Description = contents,
         Parent = parent,
       },
       ["!_ScalarNumber",
         $"aliases: [{string.Join(", ", aliases)}]",
-        "allItems:",
-        .. ranges.SelectMany(ExpectedAllRange(name)),
+        .. AllItems(ranges, name),
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Scalar),
-        "items:",
-        .. ranges.SelectMany(ExpectedRange),
+        .. Items(ranges),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind Number"]);
@@ -59,11 +56,8 @@ public class ScalarNumberModelTests : ModelAliasedTests<string>
       "name: " + input,
       "scalar: !_ScalarKind Number"];
 
-  private string[] ExpectedRange(ScalarRangeInput range)
-    => ["- !_ScalarRange", "  exclude: false", "  from: " + range.Lower, "  to: " + range.Upper];
-
-  private Func<ScalarRangeInput, string[]> ExpectedAllRange(string ofScalar)
-    => range => ["- !_ScalarItem(_ScalarRange)", "  exclude: false", "  from: " + range.Lower, "  scalar: " + ofScalar, "  to: " + range.Upper];
+  protected override string[] ExpectedItem(ScalarRangeInput input, string exclude, string[] scalar)
+    => ["- !_ScalarRange", exclude, "  from: " + input.Lower, .. scalar, "  to: " + input.Upper];
 
   internal override IModelAliasedChecks<string> AliasedChecks => _checks;
 

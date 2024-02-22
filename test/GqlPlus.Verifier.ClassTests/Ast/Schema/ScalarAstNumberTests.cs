@@ -18,38 +18,3 @@ public class ScalarAstNumberTests
   protected override AstScalar<ScalarRangeAst> NewScalar(string name, ScalarRangeAst[] list)
   => new(AstNulls.At, name, ScalarKind.Number, list);
 }
-
-public record struct ScalarRangeInput(decimal? Min, decimal? Max)
-{
-  private bool? _minLtMax;
-  private bool MinLtMax
-  {
-    get {
-      _minLtMax ??= Min is null || Max is null || Min <= Max;
-      return _minLtMax.Value;
-    }
-  }
-
-  internal decimal? Lower => MinLtMax ? Min : Max;
-  internal decimal? Upper => MinLtMax ? Max : Min;
-
-  public override string ToString()
-  {
-    if (Lower is null) {
-      return $"< {Upper}";
-    }
-
-    var result = $"{Lower}";
-
-    if (Upper is null) {
-      result += " >";
-    } else if (Upper != Lower) {
-      result += $" ~ {Upper}";
-    }
-
-    return result;
-  }
-
-  public ScalarRangeAst[] ScalarRange()
-    => [new(AstNulls.At, false, Lower, Upper)];
-}

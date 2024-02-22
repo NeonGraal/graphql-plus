@@ -2,15 +2,6 @@
 
 internal static class SchemaHelper
 {
-  internal static ScalarTrueFalseAst[] ScalarTrueFalses(this bool[] members)
-    => [.. members.Select(r => new ScalarTrueFalseAst(AstNulls.At, false, r))];
-
-  internal static ScalarMemberAst[] ScalarMembers(this string[] members)
-    => [.. members.Select(r => new ScalarMemberAst(AstNulls.At, false, r))];
-
-  internal static ScalarRegexAst[] ScalarRegexes(this string[] regexes)
-    => [.. regexes.Select(r => new ScalarRegexAst(AstNulls.At, false, r))];
-
   internal static ScalarReferenceAst[] ScalarReferences(this string[] references)
     => [.. references.Select(r => new ScalarReferenceAst(AstNulls.At, r))];
 

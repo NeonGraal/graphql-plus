@@ -4,7 +4,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class ScalarUnionModelTests : ModelAliasedTests<string>
+public class ScalarUnionModelTests
+    : ModelScalarTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Parent(string name, string parent)
@@ -22,10 +23,8 @@ public class ScalarUnionModelTests : ModelAliasedTests<string>
     .AstExpected(
       new(AstNulls.At, name, ScalarKind.Union, references.ScalarReferences()),
       ["!_ScalarUnion",
-        "allItems:",
-        .. references.SelectMany(ExpectedAllItem(name)),
-        "items:",
-        .. references.SelectMany(ExpectedItem),
+        .. AllItems(references, name),
+        .. Items(references),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind Union"]);
@@ -41,12 +40,10 @@ public class ScalarUnionModelTests : ModelAliasedTests<string>
       },
       ["!_ScalarUnion",
         $"aliases: [{string.Join(", ", aliases)}]",
-        "allItems:",
-        .. references.SelectMany(ExpectedAllItem(name)),
+        .. AllItems(references, name),
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Scalar),
-        "items:",
-        .. references.SelectMany(ExpectedItem),
+        .. Items(references),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind Union"]);
@@ -59,11 +56,8 @@ public class ScalarUnionModelTests : ModelAliasedTests<string>
       "name: " + input,
       "scalar: !_ScalarKind Union"];
 
-  private Func<string, string[]> ExpectedAllItem(string ofScalar)
-    => regex => ["- !_ScalarItem(_TypeRef(_SimpleKind))", "  kind: !_SimpleKind Basic", "  name: " + regex, "  scalar: " + ofScalar];
-
-  private string[] ExpectedItem(string regex)
-    => ["- !_TypeRef(_SimpleKind)", "  kind: !_SimpleKind Basic", "  name: " + regex];
+  protected override string[] ExpectedItem(string input, string exclude, string[] scalar)
+    => ["- !_TypeRef(_SimpleKind)", "  kind: !_SimpleKind Basic", "  name: " + input, .. scalar];
 
   internal override IModelAliasedChecks<string> AliasedChecks => _checks;
 

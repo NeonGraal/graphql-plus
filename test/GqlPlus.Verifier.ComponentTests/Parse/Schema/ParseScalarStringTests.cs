@@ -9,7 +9,7 @@ public sealed class ParseScalarStringTests(
   [Theory, RepeatData(Repeats)]
   public void WithRegexes_ReturnsCorrectAst(ScalarStringInput input, string regex)
     => _checks.TrueExpected(
-      input.Name + "{string/" + input.Regex + "//" + regex + "/}",
+      input.Name + "{string/" + input.Regex + "/!/" + regex + "/}",
       new AstScalar<ScalarRegexAst>(AstNulls.At, input.Name, ScalarKind.String, new[] { input.Regex, regex }.ScalarRegexes()));
 
   [Theory, RepeatData(Repeats)]

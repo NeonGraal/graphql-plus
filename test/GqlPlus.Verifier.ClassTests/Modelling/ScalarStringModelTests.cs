@@ -4,7 +4,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class ScalarStringModelTests : ModelAliasedTests<string>
+public class ScalarStringModelTests
+  : ModelScalarTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Parent(string name, string parent)
@@ -22,10 +23,8 @@ public class ScalarStringModelTests : ModelAliasedTests<string>
     .AstExpected(
       new(AstNulls.At, name, ScalarKind.String, regexes.ScalarRegexes()),
       ["!_ScalarString",
-        "allItems:",
-        .. regexes.SelectMany(ExpectedAllItem(name)),
-        "items:",
-        .. regexes.SelectMany(ExpectedItem),
+        .. AllItems(regexes, name),
+        .. Items(regexes),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind String"]);
@@ -41,12 +40,10 @@ public class ScalarStringModelTests : ModelAliasedTests<string>
       },
       ["!_ScalarString",
         $"aliases: [{string.Join(", ", aliases)}]",
-        "allItems:",
-        .. regexes.SelectMany(ExpectedAllItem(name)),
+        .. AllItems(regexes, name),
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Scalar),
-        "items:",
-        .. regexes.SelectMany(ExpectedItem),
+        .. Items(regexes),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind String"]);
@@ -59,11 +56,8 @@ public class ScalarStringModelTests : ModelAliasedTests<string>
       "name: " + input,
       "scalar: !_ScalarKind String"];
 
-  private Func<string, string[]> ExpectedAllItem(string ofScalar)
-    => regex => ["- !_ScalarItem(_ScalarRegex)", "  exclude: false", "  regex: " + regex, "  scalar: " + ofScalar];
-
-  private string[] ExpectedItem(string regex)
-    => ["- !_ScalarRegex", "  exclude: false", "  regex: " + regex];
+  protected override string[] ExpectedItem(string input, string exclude, string[] scalar)
+    => ["- !_ScalarRegex", exclude, "  regex: " + input, .. scalar];
 
   internal override IModelAliasedChecks<string> AliasedChecks => _checks;
 

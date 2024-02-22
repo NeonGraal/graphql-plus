@@ -4,7 +4,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class ScalarBooleanModelTests : ModelAliasedTests<string>
+public class ScalarBooleanModelTests
+  : ModelScalarTests<bool>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Parent(string name, string parent)
@@ -22,10 +23,8 @@ public class ScalarBooleanModelTests : ModelAliasedTests<string>
     .AstExpected(
       new(AstNulls.At, name, ScalarKind.Boolean, members.ScalarTrueFalses()),
       ["!_ScalarBoolean",
-        "allItems:",
-        .. members.SelectMany(ExpectedAllItem(name)),
-        "items:",
-        .. members.SelectMany(ExpectedItem),
+        .. AllItems(members, name),
+        .. Items(members),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind Boolean"]);
@@ -41,12 +40,10 @@ public class ScalarBooleanModelTests : ModelAliasedTests<string>
       },
       ["!_ScalarBoolean",
         $"aliases: [{string.Join(", ", aliases)}]",
-        "allItems:",
-        .. members.SelectMany(ExpectedAllItem(name)),
+        .. AllItems(members, name),
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Scalar),
-        "items:",
-        .. members.SelectMany(ExpectedItem),
+        .. Items(members),
         "kind: !_TypeKind Scalar",
         "name: " + name,
         "scalar: !_ScalarKind Boolean"]);
@@ -59,11 +56,8 @@ public class ScalarBooleanModelTests : ModelAliasedTests<string>
       "name: " + input,
       "scalar: !_ScalarKind Boolean"];
 
-  private string[] ExpectedItem(bool value)
-    => ["- !_ScalarTrueFalse", "  exclude: false", "  value: " + value.TrueFalse()];
-
-  private Func<bool, string[]> ExpectedAllItem(string ofScalar)
-    => value => ["- !_ScalarItem(_ScalarTrueFalse)", "  exclude: false", "  scalar: " + ofScalar, "  value: " + value.TrueFalse()];
+  protected override string[] ExpectedItem(bool input, string exclude, string[] scalar)
+    => ["- !_ScalarTrueFalse", exclude, .. scalar, "  value: " + input.TrueFalse()];
 
   internal override IModelAliasedChecks<string> AliasedChecks => _checks;
 

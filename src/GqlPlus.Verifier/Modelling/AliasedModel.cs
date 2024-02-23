@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract record class ModelAliased(string Name)
-  : ModelDescribed(new ModelNamed(Name))
+public abstract record class AliasedModel(string Name)
+  : DescribedModel(new NamedModel(Name))
 {
   public string[] Aliases { get; set; } = [];
 

@@ -3,8 +3,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract class ModelAliasedTests<TInput>
-  : ModelDescribedTests<TInput>
+public abstract class AliasedModelTests<TInput>
+  : DescribedModelTests<TInput>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Aliases(TInput input, string[] aliases)
@@ -12,23 +12,23 @@ public abstract class ModelAliasedTests<TInput>
       AliasedChecks.ToModel(AliasedChecks.AliasedAst(input) with { Aliases = aliases }),
       ExpectedDescriptionAliases(input, "", "aliases: [" + string.Join(", ", aliases) + "]").Tidy());
 
-  internal sealed override IModelDescribedChecks<TInput> DescribedChecks => AliasedChecks;
+  internal sealed override IDescribedModelChecks<TInput> DescribedChecks => AliasedChecks;
   protected sealed override string[] ExpectedDescription(TInput input, string description)
     => ExpectedDescriptionAliases(input, description, "");
 
-  internal abstract IModelAliasedChecks<TInput> AliasedChecks { get; }
+  internal abstract IAliasedModelChecks<TInput> AliasedChecks { get; }
   protected abstract string[] ExpectedDescriptionAliases(TInput input, string description, string aliases);
 }
 
-internal abstract class ModelAliasedChecks<TInput, TAst>
-  : ModelDescribedChecks<TInput, TAst>, IModelAliasedChecks<TInput>
+internal abstract class AliasedModelChecks<TInput, TAst>
+  : DescribedModelChecks<TInput, TAst>, IAliasedModelChecks<TInput>
   where TAst : AstAliased
 {
-  AstAliased IModelAliasedChecks<TInput>.AliasedAst(TInput input) => NewDescribedAst(input, "");
-  IRendering IModelAliasedChecks<TInput>.ToModel(AstAliased aliased) => AstToModel((TAst)aliased);
+  AstAliased IAliasedModelChecks<TInput>.AliasedAst(TInput input) => NewDescribedAst(input, "");
+  IRendering IAliasedModelChecks<TInput>.ToModel(AstAliased aliased) => AstToModel((TAst)aliased);
 }
 
-internal interface IModelAliasedChecks<TInput> : IModelDescribedChecks<TInput>
+internal interface IAliasedModelChecks<TInput> : IDescribedModelChecks<TInput>
 {
   AstAliased AliasedAst(TInput input);
   IRendering ToModel(AstAliased aliased);

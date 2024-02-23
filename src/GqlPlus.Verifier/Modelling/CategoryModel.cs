@@ -5,7 +5,7 @@ using GqlPlus.Verifier.Rendering;
 namespace GqlPlus.Verifier.Modelling;
 
 internal record class CategoryModel(string Name, TypeRefModel<TypeKindModel> Output)
-  : ModelAliased(Name)
+  : AliasedModel(Name)
 {
   public CategoryOption Resolution { get; set; } = CategoryOption.Parallel;
   public ModifierModel[] Modifiers { get; set; } = [];

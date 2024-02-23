@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Modelling;
 internal sealed record class ModelBaseScalar<TItem>(
   ScalarKindModel Scalar,
   string Name
-) : ModelChildType<TypeRefModel<SimpleKindModel>>(TypeKindModel.Scalar, Name)
+) : ChildTypeModel<TypeRefModel<SimpleKindModel>>(TypeKindModel.Scalar, Name)
   where TItem : ModelBase
 {
   public TItem[] Items { get; set; } = [];

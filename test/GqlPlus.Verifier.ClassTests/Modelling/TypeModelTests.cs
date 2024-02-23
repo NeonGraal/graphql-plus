@@ -3,8 +3,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract class ModelTypeTests<TParent>
-  : ModelAliasedTests<string>
+public abstract class TypeModelTests<TParent>
+  : AliasedModelTests<string>
   where TParent : IEquatable<TParent>
 {
   [Theory, RepeatData(Repeats)]
@@ -16,20 +16,20 @@ public abstract class ModelTypeTests<TParent>
   protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
     => TypeChecks.ExpectedType(input, default, [aliases], [description]);
 
-  internal override IModelAliasedChecks<string> AliasedChecks => TypeChecks;
+  internal override IAliasedModelChecks<string> AliasedChecks => TypeChecks;
 
-  internal abstract IModelTypeChecks<TParent> TypeChecks { get; }
+  internal abstract ITypeModelChecks<TParent> TypeChecks { get; }
 }
 
-internal abstract class ModelTypeChecks<TParent, TAst, TTypeKind>
-  : ModelAliasedChecks<string, TAst>, IModelTypeChecks<TParent>
+internal abstract class TypeModelChecks<TParent, TAst, TTypeKind>
+  : AliasedModelChecks<string, TAst>, ITypeModelChecks<TParent>
   where TParent : IEquatable<TParent>
   where TAst : AstType<TParent>
 {
   protected readonly TTypeKind TypeKind;
   protected readonly IModeller<AstType<TParent>> Type;
 
-  protected ModelTypeChecks(TTypeKind kind, IModeller<AstType<TParent>> type)
+  protected TypeModelChecks(TTypeKind kind, IModeller<AstType<TParent>> type)
     => (TypeKind, Type) = (kind, type);
 
   protected virtual string[] ExpectedType(
@@ -48,17 +48,17 @@ internal abstract class ModelTypeChecks<TParent, TAst, TTypeKind>
 
   protected abstract string[] TypeParent(TParent? parent);
 
-  string[] IModelTypeChecks<TParent>.ExpectedType(
+  string[] ITypeModelChecks<TParent>.ExpectedType(
     string name,
     TParent? parent,
     IEnumerable<string>? aliases,
     IEnumerable<string>? description
   ) => ExpectedType(name, parent, aliases, description);
 
-  AstType<TParent> IModelTypeChecks<TParent>.TypeAst(string name, TParent parent)
+  AstType<TParent> ITypeModelChecks<TParent>.TypeAst(string name, TParent parent)
     => NewTypeAst(name, parent, "");
 
-  void IModelTypeChecks<TParent>.TypeExpected(AstType<TParent> type, string[] expected)
+  void ITypeModelChecks<TParent>.TypeExpected(AstType<TParent> type, string[] expected)
     => AstExpected((TAst)type, expected);
 
   protected override IRendering AstToModel(TAst aliased)
@@ -68,8 +68,8 @@ internal abstract class ModelTypeChecks<TParent, TAst, TTypeKind>
     => NewTypeAst(input, default, description);
 }
 
-internal interface IModelTypeChecks<TParent>
-  : IModelAliasedChecks<string>
+internal interface ITypeModelChecks<TParent>
+  : IAliasedModelChecks<string>
   where TParent : IEquatable<TParent>
 {
   void TypeExpected(AstType<TParent> type, string[] expected);

@@ -2,10 +2,10 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public record class ModelNamed(string Name)
-  : ModelBase
+internal abstract record class BaseTypeModel(TypeKindModel Kind, string Name)
+  : AliasedModel(Name)
 {
   internal override RenderStructure Render()
     => base.Render()
-      .Add("name", new("", Name));
+    .Add("kind", Kind.RenderEnum());
 }

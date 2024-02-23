@@ -41,7 +41,7 @@ public class ParameterModelTests
 }
 
 internal sealed class ParameterModelChecks
-  : ModelDescribedChecks<string, ParameterAst>
+  : DescribedModelChecks<string, ParameterAst>
 {
   internal readonly IModeller<ParameterAst> Parameter;
   internal readonly IModeller<ModifierAst> Modifier;

@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Rendering;
 namespace GqlPlus.Verifier.Modelling;
 
 internal record class DirectiveModel(string Name)
-  : ModelAliased(Name)
+  : AliasedModel(Name)
 {
   public ParameterModel[] Parameters { get; set; } = [];
   public bool Repeatable { get; set; }

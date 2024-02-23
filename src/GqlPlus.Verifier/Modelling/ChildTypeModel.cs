@@ -2,8 +2,10 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal abstract record class ModelChildType<TParent>(TypeKindModel Kind, string Name)
-  : ModelBaseType(Kind, Name)
+internal abstract record class ChildTypeModel<TParent>(
+  TypeKindModel Kind,
+  string Name
+) : BaseTypeModel(Kind, Name)
   where TParent : ModelBase
 {
   public TParent? Parent { get; set; }

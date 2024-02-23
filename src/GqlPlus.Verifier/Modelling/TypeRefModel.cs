@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Rendering;
 namespace GqlPlus.Verifier.Modelling;
 
 internal record class TypeRefModel<TKind>(TKind Kind, string Name)
-  : ModelNamed(Name)
+  : NamedModel(Name)
 {
   private static readonly string s_kindTag = typeof(TKind).TypeTag();
 

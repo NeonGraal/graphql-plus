@@ -5,7 +5,7 @@ using GqlPlus.Verifier.Rendering;
 namespace GqlPlus.Verifier.Modelling;
 
 public class DirectiveModelTests
-  : ModelAliasedTests<string>
+  : AliasedModelTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Repeatable(string name, DirectiveOption option)
@@ -78,13 +78,13 @@ public class DirectiveModelTests
       "name: " + input,
       "repeatable: false"];
 
-  internal override IModelAliasedChecks<string> AliasedChecks => _checks;
+  internal override IAliasedModelChecks<string> AliasedChecks => _checks;
 
   private readonly DirectiveModelChecks _checks = new();
 }
 
 internal sealed class DirectiveModelChecks
-  : ModelAliasedChecks<string, DirectiveDeclAst>
+  : AliasedModelChecks<string, DirectiveDeclAst>
 {
   internal readonly IModeller<DirectiveDeclAst> Directive;
 

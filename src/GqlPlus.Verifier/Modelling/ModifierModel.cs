@@ -3,7 +3,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal record class ModifierModel(ModifierKind Kind) : IRendering
+internal record class ModifierModel(ModifierKind Kind)
+  : IRendering
 {
   public string Key { get; set; } = "";
   public bool KeyOptional { get; set; }

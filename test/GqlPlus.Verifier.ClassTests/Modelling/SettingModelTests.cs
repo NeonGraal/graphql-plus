@@ -5,7 +5,7 @@ using GqlPlus.Verifier.Rendering;
 namespace GqlPlus.Verifier.Modelling;
 
 public class SettingModelTests
-  : ModelDescribedTests<SettingInput>
+  : DescribedModelTests<SettingInput>
 {
   protected override string[] ExpectedDescription(SettingInput input, string description)
     => ["!_Setting",
@@ -13,13 +13,13 @@ public class SettingModelTests
       "name: " + input.Name,
       "value: " + input.Value];
 
-  internal override IModelDescribedChecks<SettingInput> DescribedChecks => _checks;
+  internal override IDescribedModelChecks<SettingInput> DescribedChecks => _checks;
 
   private readonly SettingModelChecks _checks = new();
 }
 
 internal sealed class SettingModelChecks
-  : ModelDescribedChecks<SettingInput, OptionSettingAst>
+  : DescribedModelChecks<SettingInput, OptionSettingAst>
 {
   internal readonly IModeller<OptionSettingAst> Setting;
   internal readonly IModeller<ConstantAst> Constant;

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract record class ModelDescribed(ModelBase BaseModel)
+public abstract record class DescribedModel(ModelBase BaseModel)
   : ModelBase
 {
   public string? Description { get; set; }

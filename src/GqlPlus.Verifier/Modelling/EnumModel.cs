@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Rendering;
 namespace GqlPlus.Verifier.Modelling;
 
 internal record class EnumModel(string Name)
-  : ModelChildType<TypeRefModel<SimpleKindModel>>(TypeKindModel.Enum, Name)
+  : ChildTypeModel<TypeRefModel<SimpleKindModel>>(TypeKindModel.Enum, Name)
 {
   public EnumMemberModel[] Members { get; set; } = [];
 
@@ -15,7 +15,7 @@ internal record class EnumModel(string Name)
 }
 
 internal record class EnumMemberModel(string Name, string OfEnum)
-  : ModelAliased(Name)
+  : AliasedModel(Name)
 {
   internal override RenderStructure Render()
     => base.Render()

@@ -3,15 +3,15 @@
 namespace GqlPlus.Verifier.Modelling;
 
 public class ScalarUnionModelTests
-    : ModelScalarTests<string, ScalarReferenceAst>
+    : ScalarModelTests<string, ScalarReferenceAst>
 {
-  internal override IModelScalarChecks<string, ScalarReferenceAst> ScalarChecks => _checks;
+  internal override IScalarModelChecks<string, ScalarReferenceAst> ScalarChecks => _checks;
 
   private readonly ScalarUnionModelChecks _checks = new();
 }
 
 internal sealed class ScalarUnionModelChecks
-  : ModelScalarChecks<string, ScalarReferenceAst>
+  : ScalarModelChecks<string, ScalarReferenceAst>
 {
   public ScalarUnionModelChecks()
     : base(ScalarKind.Union, new ScalarUnionModeller())

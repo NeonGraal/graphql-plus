@@ -3,15 +3,15 @@
 namespace GqlPlus.Verifier.Modelling;
 
 public class ScalarEnumModelTests
-  : ModelScalarTests<string, ScalarMemberAst>
+  : ScalarModelTests<string, ScalarMemberAst>
 {
-  internal override IModelScalarChecks<string, ScalarMemberAst> ScalarChecks => _checks;
+  internal override IScalarModelChecks<string, ScalarMemberAst> ScalarChecks => _checks;
 
   private readonly ScalarEnumModelChecks _checks = new();
 }
 
 internal sealed class ScalarEnumModelChecks
-  : ModelScalarChecks<string, ScalarMemberAst>
+  : ScalarModelChecks<string, ScalarMemberAst>
 {
   public ScalarEnumModelChecks()
     : base(ScalarKind.Enum, new ScalarEnumModeller())

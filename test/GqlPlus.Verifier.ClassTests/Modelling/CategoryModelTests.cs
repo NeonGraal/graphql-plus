@@ -5,7 +5,7 @@ using GqlPlus.Verifier.Rendering;
 namespace GqlPlus.Verifier.Modelling;
 
 public class CategoryModelTests
-  : ModelAliasedTests<string>
+  : AliasedModelTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Name(string output, string name)
@@ -69,13 +69,13 @@ public class CategoryModelTests
       .. input.TypeRefFor(TypeKindModel.Output, "output"),
       "resolution: !_Resolution Parallel"];
 
-  internal override ModelAliasedChecks<string, CategoryDeclAst> AliasedChecks => _checks;
+  internal override AliasedModelChecks<string, CategoryDeclAst> AliasedChecks => _checks;
 
   private readonly CategoryModelChecks _checks = new();
 }
 
 internal sealed class CategoryModelChecks
-  : ModelAliasedChecks<string, CategoryDeclAst>
+  : AliasedModelChecks<string, CategoryDeclAst>
 {
   internal readonly IModeller<CategoryDeclAst> Category;
   internal readonly IModeller<ModifierAst> Modifier;

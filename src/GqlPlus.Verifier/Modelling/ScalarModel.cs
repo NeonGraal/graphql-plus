@@ -66,7 +66,7 @@ internal record class ScalarRegexModel(string Regex, bool Exclude)
 }
 
 internal abstract class ModellerScalar<TItemAst, TItemModel>
-  : ModellerBase<AstScalar<TItemAst>, ModelBaseScalar<TItemModel>>
+  : ModellerType<AstScalar<TItemAst>, ModelBaseScalar<TItemModel>>
   where TItemAst : IAstScalarItem
   where TItemModel : ModelBase
 {

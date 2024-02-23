@@ -5,17 +5,8 @@ using GqlPlus.Verifier.Rendering;
 namespace GqlPlus.Verifier.Modelling;
 
 public class EnumModelTests
-  : ModelAliasedTests<string>
+  : ModelTypeTests<string>
 {
-  [Theory, RepeatData(Repeats)]
-  public void Model_Parent(string name, string parent)
-    => _checks.AstExpected(
-      new(AstNulls.At, name) { Parent = parent },
-      ["!_Enum",
-        .. parent.TypeRefFor(SimpleKindModel.Enum),
-        "kind: !_TypeKind Enum",
-        "name: " + name]);
-
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, string[] members)
     => _checks
@@ -56,32 +47,30 @@ public class EnumModelTests
         .. members.SelectMany(m => ExpectedMember(m, name)),
         "name: " + name]);
 
-  protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
-    => ["!_Enum",
-      aliases,
-      description,
-      "kind: !_TypeKind Enum",
-      "name: " + input];
-
   private string[] ExpectedMember(string member, string ofEnum)
     => ["- !_EnumMember", "  enum: " + ofEnum, "  name: " + member];
 
-  internal override IModelAliasedChecks<string> AliasedChecks => _checks;
+  internal override IModelTypeChecks<string> TypeChecks => _checks;
 
   private readonly EnumModelChecks _checks = new();
 }
 
 internal sealed class EnumModelChecks
-  : ModelAliasedChecks<string, EnumDeclAst>
+  : ModelTypeChecks<string, EnumDeclAst, SimpleKindModel>
 {
-  internal readonly IModeller<EnumDeclAst> Enum;
-
   public EnumModelChecks()
-    => Enum = new EnumModeller();
+    : base(SimpleKindModel.Enum, new EnumModeller())
+  { }
 
   protected override IRendering AstToModel(EnumDeclAst aliased)
-    => Enum.ToRenderer(aliased);
+    => Type.ToRenderer(aliased);
 
   protected override EnumDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);
+
+  protected override string[] TypeParent(string? parent)
+    => parent.TypeRefFor(TypeKind);
+
+  internal override EnumDeclAst NewTypeAst(string name, string? parent, string description)
+    => new(AstNulls.At, name, description) { Parent = parent };
 }

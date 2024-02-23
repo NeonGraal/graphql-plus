@@ -23,7 +23,7 @@ internal record class EnumMemberModel(string Name, string OfEnum)
 }
 
 internal class EnumModeller
-  : ModellerBase<EnumDeclAst, EnumModel>
+  : ModellerType<EnumDeclAst, EnumModel>
 {
   internal override EnumModel ToModel(EnumDeclAst ast)
     => new(ast.Name) {

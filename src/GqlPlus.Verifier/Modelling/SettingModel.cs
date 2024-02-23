@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 internal record class SettingModel(string Name, ConstantModel Value)
-  : DescribedModel(new NamedModel(Name))
+  : DescribedModel<NamedModel>(new NamedModel(Name))
 {
   internal override RenderStructure Render()
     => base.Render()

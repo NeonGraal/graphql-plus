@@ -12,8 +12,10 @@ internal static class AllModellers
       .AddSingleton<IModeller<ConstantAst>, ConstantModeller>()
       .AddSingleton<IModeller<EnumDeclAst>, EnumModeller>()
       .AddSingleton<IModeller<FieldKeyAst>, SimpleModeller>()
+      .AddSingleton<IModeller<InputDeclAst>, InputModeller>()
       .AddSingleton<IModeller<ModifierAst>, ModifierModeller>()
       .AddSingleton<IModeller<OptionSettingAst>, SettingModeller>()
+      .AddSingleton<IModeller<OutputDeclAst>, OutputModeller>()
       .AddSingleton<IModeller<ParameterAst>, ParameterModeller>()
     ;
 }

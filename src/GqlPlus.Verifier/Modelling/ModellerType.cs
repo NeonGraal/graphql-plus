@@ -3,15 +3,16 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal abstract class ModellerType<TAst, TModel>
-  : ModellerBase<TAst, TModel>, IModeller<AstType<string>>
-  where TAst : AstType<string>
+internal abstract class ModellerType<TAst, TParent, TModel>
+  : ModellerBase<TAst, TModel>, IModeller<AstType<TParent>>
+  where TAst : AstType<TParent>
+  where TParent : IEquatable<TParent>
   where TModel : IRendering
 {
-  T? IModeller<AstType<string>>.ToModel<T>(AstType<string>? ast)
+  T? IModeller<AstType<TParent>>.ToModel<T>(AstType<TParent>? ast)
     where T : default
     => ToModel<T>((TAst?)ast);
 
-  IRendering IModeller<AstType<string>>.ToRenderer(AstType<string> ast)
+  IRendering IModeller<AstType<TParent>>.ToRenderer(AstType<TParent> ast)
     => ToRenderer((TAst)ast);
 }

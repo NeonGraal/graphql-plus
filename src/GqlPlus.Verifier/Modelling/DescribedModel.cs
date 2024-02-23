@@ -2,13 +2,14 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract record class DescribedModel(ModelBase BaseModel)
+public abstract record class DescribedModel<TBase>(TBase Base)
   : ModelBase
+  where TBase : ModelBase
 {
   public string? Description { get; set; }
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add(BaseModel)
+      .Add(Base)
       .Add("description", RenderValue.Str(Description));
 }

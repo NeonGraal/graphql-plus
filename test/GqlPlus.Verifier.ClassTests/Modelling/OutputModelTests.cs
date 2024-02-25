@@ -18,6 +18,10 @@ internal sealed class OutputModelChecks
     : base(TypeKindModel.Output, new OutputModeller())
   { }
 
+  protected override string[] ExpectedParent(string? parent)
+    => parent is null ? []
+    : ["parent: !_Described(_OutputBase)", "  output: " + parent];
+
   protected override OutputDeclAst NewObjectAst(
     string name,
     OutputReferenceAst? parent,

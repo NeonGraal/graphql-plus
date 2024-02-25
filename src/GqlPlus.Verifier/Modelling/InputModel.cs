@@ -4,18 +4,36 @@ using GqlPlus.Verifier.Rendering;
 namespace GqlPlus.Verifier.Modelling;
 
 internal record class InputModel(string Name)
-  : ChildTypeModel<TypeRefModel<TypeKindModel>>(TypeKindModel.Input, Name)
+  : TypeObjectModel<InputBaseModel, InputFieldModel>(TypeKindModel.Input, Name)
 {
   internal override RenderStructure Render()
     => base.Render();
 }
 
 internal class InputModeller
-  : ModellerType<InputDeclAst, InputReferenceAst, InputModel>
+  : ModellerObjectType<InputDeclAst, InputReferenceAst, InputModel, InputBaseModel>
 {
+  protected override InputBaseModel BaseModel(InputReferenceAst reference)
+    => new(reference.Name);
+
   internal override InputModel ToModel(InputDeclAst ast)
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
+      Parent = ParentModel(ast.Parent),
     };
+}
+
+internal record class InputBaseModel(string Input)
+  : TypeBaseModel<RefModel<InputBaseModel>>
+{
+  internal override RenderStructure Render()
+    => base.Render()
+      .Add("input", Input);
+}
+
+internal record class InputFieldModel(string Name, RefModel<InputBaseModel> Type)
+  : FieldModel<InputBaseModel>(Name, Type)
+{
+  internal ConstantModel? Default { get; set; }
 }

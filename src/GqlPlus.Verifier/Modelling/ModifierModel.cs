@@ -12,7 +12,7 @@ internal record class ModifierModel(ModifierKind Kind)
   public RenderStructure Render()
     => Kind == ModifierKind.Dict
       ? new RenderStructure("_Modifier")
-       .Add("key", new("", Key))
+       .Add("key", Key)
        .Add("opt", KeyOptional ? new("", true) : new(""))
       : new RenderStructure("_Modifier", $"{Kind}");
 

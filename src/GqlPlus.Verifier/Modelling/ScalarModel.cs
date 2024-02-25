@@ -39,8 +39,8 @@ internal record class ScalarTrueFalseModel(bool Exclude)
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("value", new("", Value))
-      .Add("exclude", new("", Exclude));
+      .Add("value", Value)
+      .Add("exclude", Exclude);
 }
 
 internal record class ScalarRangeModel(bool Exclude)
@@ -51,9 +51,9 @@ internal record class ScalarRangeModel(bool Exclude)
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("from", new("", From))
-      .Add("to", new("", To))
-      .Add("exclude", new("", Exclude));
+      .Add("from", From)
+      .Add("to", To)
+      .Add("exclude", Exclude);
 }
 
 internal record class ScalarRegexModel(string Regex, bool Exclude)
@@ -61,8 +61,8 @@ internal record class ScalarRegexModel(string Regex, bool Exclude)
 {
   internal override RenderStructure Render()
     => base.Render()
-      .Add("regex", new("", Regex))
-      .Add("exclude", new("", Exclude));
+      .Add("regex", Regex)
+      .Add("exclude", Exclude);
 }
 
 internal abstract class ModellerScalar<TItemAst, TItemModel>

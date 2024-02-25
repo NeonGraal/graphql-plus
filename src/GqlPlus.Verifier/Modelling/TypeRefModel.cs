@@ -13,9 +13,9 @@ internal record class TypeRefModel<TKind>(TKind Kind, string Name)
       .Add("kind", new(s_kindTag, Kind?.ToString()));
 }
 
-internal enum SimpleKindModel { Basic, Enum, Internal, Scalar }
+public enum SimpleKindModel { Basic, Enum, Internal, Scalar }
 
-internal enum TypeKindModel
+public enum TypeKindModel
 {
   Basic = SimpleKindModel.Basic,
   Enum = SimpleKindModel.Enum,

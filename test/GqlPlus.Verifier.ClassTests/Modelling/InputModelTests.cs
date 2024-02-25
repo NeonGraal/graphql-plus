@@ -18,6 +18,10 @@ internal sealed class InputModelChecks
     : base(TypeKindModel.Input, new InputModeller())
   { }
 
+  protected override string[] ExpectedParent(string? parent)
+    => parent is null ? []
+    : ["parent: !_Described(_InputBase)", "  input: " + parent];
+
   protected override InputDeclAst NewObjectAst(
     string name,
     InputReferenceAst? parent,

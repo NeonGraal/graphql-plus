@@ -9,5 +9,5 @@ internal record class ModelScalarItem<TItem>(TItem Item, string Scalar)
   internal override RenderStructure Render()
     => base.Render()
       .Add(Item)
-      .Add("scalar", new("", Scalar));
+      .Add("scalar", Scalar);
 }

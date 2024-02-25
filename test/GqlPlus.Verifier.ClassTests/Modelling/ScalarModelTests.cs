@@ -5,7 +5,7 @@ using GqlPlus.Verifier.Rendering;
 namespace GqlPlus.Verifier.Modelling;
 
 public abstract class ScalarModelTests<TInput, TItem>
-  : TypeModelTests
+  : TypeModelTests<SimpleKindModel>
   where TItem : IAstScalarItem
 {
   [Theory, RepeatData(Repeats)]
@@ -32,7 +32,7 @@ public abstract class ScalarModelTests<TInput, TItem>
   protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
     => ScalarChecks.ExpectedScalar(input, null, null, [aliases], [description]);
 
-  internal override ITypeModelChecks TypeChecks => ScalarChecks;
+  internal override ITypeModelChecks<SimpleKindModel> TypeChecks => ScalarChecks;
 
   internal abstract IScalarModelChecks<TInput, TItem> ScalarChecks { get; }
 }
@@ -122,7 +122,7 @@ internal abstract class ScalarModelChecks<TInput, TItem>
 }
 
 internal interface IScalarModelChecks<TInput, TItem>
-  : ITypeModelChecks
+  : ITypeModelChecks<SimpleKindModel>
   where TItem : IAstScalarItem
 {
   void ScalarExpected(AstScalar<TItem> scalar, string[] expected);

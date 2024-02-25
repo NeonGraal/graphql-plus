@@ -7,5 +7,5 @@ public record class NamedModel(string Name)
 {
   internal override RenderStructure Render()
     => base.Render()
-      .Add("name", new("", Name));
+      .Add("name", Name);
 }

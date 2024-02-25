@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract record class DescribedModel<TBase>(TBase Base)
+public record class DescribedModel<TBase>(TBase Base)
   : ModelBase
   where TBase : ModelBase
 {

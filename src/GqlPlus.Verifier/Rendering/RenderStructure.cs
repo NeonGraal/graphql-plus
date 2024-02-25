@@ -27,6 +27,12 @@ internal class RenderStructure : Structured<RenderValue, RenderStructure>
 
   public static implicit operator RenderStructure(RenderValue value)
     => new("", value);
+  public static implicit operator RenderStructure(bool value)
+    => new("", value);
+  public static implicit operator RenderStructure(string value)
+    => new("", value);
+  public static implicit operator RenderStructure(decimal value)
+    => new("", value);
 
   public RenderStructure Add(string key, RenderStructure? value)
   {

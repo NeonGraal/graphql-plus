@@ -14,7 +14,7 @@ internal record class DirectiveModel(string Name)
     => base.Render()
       .Add("locations", new("_Set(_Location)", DirectiveModeller.ToSet(Locations), true))
       .Add("parameters", new("", Parameters.Render()))
-      .Add("repeatable", new("", Repeatable));
+      .Add("repeatable", Repeatable);
 }
 
 internal class DirectiveModeller

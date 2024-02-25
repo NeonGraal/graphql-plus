@@ -19,7 +19,7 @@ internal record class EnumMemberModel(string Name, string OfEnum)
 {
   internal override RenderStructure Render()
     => base.Render()
-      .Add("enum", new("", OfEnum));
+      .Add("enum", OfEnum);
 }
 
 internal class EnumModeller
@@ -46,5 +46,5 @@ internal record class EnumValueModel(string Name, string Value)
 {
   internal override RenderStructure Render()
     => base.Render()
-      .Add("value", new("", Value));
+      .Add("value", Value);
 }

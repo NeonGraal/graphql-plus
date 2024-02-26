@@ -21,20 +21,20 @@ public abstract class AstReferenceTests<TReference>
     => ReferenceChecks.Inequality_BetweenIsTypeParameters(input, isTypeParam1);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithArguments(string input, string argument)
-    => ReferenceChecks.HashCode_WithArguments(input, argument);
+  public void HashCode_WithArguments(string input, string[] arguments)
+    => ReferenceChecks.HashCode_WithArguments(input, arguments);
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithArguments(string input, string argument)
-    => ReferenceChecks.String_WithArguments(input, argument);
+  public void String_WithArguments(string input, string[] arguments)
+    => ReferenceChecks.String_WithArguments(input, arguments);
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithArguments(string input, string argument)
-    => ReferenceChecks.Equality_WithArguments(input, argument);
+  public void Equality_WithArguments(string input, string[] arguments)
+    => ReferenceChecks.Equality_WithArguments(input, arguments);
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenArguments(string input, string argument1, string argument2)
-    => ReferenceChecks.Inequality_BetweenArguments(input, argument1, argument2);
+  public void Inequality_BetweenArguments(string input, string[] arguments1, string[] arguments2)
+    => ReferenceChecks.Inequality_BetweenArguments(input, arguments1, arguments2);
 
   [Theory, RepeatData(Repeats)]
   public void FullType_WithDefault(string input)
@@ -45,12 +45,12 @@ public abstract class AstReferenceTests<TReference>
     => ReferenceChecks.FullType_WithIsTypeParameter(input);
 
   [Theory, RepeatData(Repeats)]
-  public void FullType_WithArguments(string input, string argument)
-    => ReferenceChecks.FullType_WithArguments(input, argument);
+  public void FullType_WithArguments(string input, string[] arguments)
+    => ReferenceChecks.FullType_WithArguments(input, arguments);
 
   [Theory, RepeatData(Repeats)]
-  public void FullType_WithIsTypeParameterAndArguments(string input, string argument)
-    => ReferenceChecks.FullType_WithIsTypeParameterAndArguments(input, argument);
+  public void FullType_WithIsTypeParameterAndArguments(string input, string[] arguments)
+    => ReferenceChecks.FullType_WithIsTypeParameterAndArguments(input, arguments);
 
   internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ReferenceChecks;
 
@@ -65,7 +65,7 @@ internal sealed class AstReferenceChecks<TReference>
   private readonly ArgumentsBy _createArguments;
 
   internal delegate TReference ReferenceBy(string input);
-  internal delegate TReference[] ArgumentsBy(string argument);
+  internal delegate TReference[] ArgumentsBy(string[] argument);
 
   public AstReferenceChecks(ReferenceBy createReference, AstReferenceChecks<TReference>.ArgumentsBy createArguments)
     : base(input => createReference(input))
@@ -90,21 +90,21 @@ internal sealed class AstReferenceChecks<TReference>
       isTypeParam => _createReference(input) with { IsTypeParameter = isTypeParam },
       false);
 
-  public void HashCode_WithArguments(string input, string argument)
-    => HashCode(() => _createReference(input) with { Arguments = _createArguments(argument) });
+  public void HashCode_WithArguments(string input, string[] arguments)
+    => HashCode(() => _createReference(input) with { Arguments = _createArguments(arguments) });
 
-  public void String_WithArguments(string input, string argument)
+  public void String_WithArguments(string input, string[] arguments)
     => String(
-      () => _createReference(input) with { Arguments = _createArguments(argument) },
-      $"( {input} < {argument} > )");
+      () => _createReference(input) with { Arguments = _createArguments(arguments) },
+      $"( {input} < {arguments.Joined()} > )");
 
-  public void Equality_WithArguments(string input, string argument)
-    => Equality(() => _createReference(input) with { Arguments = _createArguments(argument) });
+  public void Equality_WithArguments(string input, string[] arguments)
+    => Equality(() => _createReference(input) with { Arguments = _createArguments(arguments) });
 
-  public void Inequality_BetweenArguments(string input, string argument1, string argument2)
-  => InequalityBetween(argument1, argument2,
-    argument => _createReference(input) with { Arguments = _createArguments(argument) },
-    argument1 == argument2);
+  public void Inequality_BetweenArguments(string input, string[] arguments1, string[] arguments2)
+  => InequalityBetween(arguments1, arguments2,
+    arguments => _createReference(input) with { Arguments = _createArguments(arguments) },
+    arguments1.OrderedEqual(arguments2));
 
   public void FullType_WithDefault(string input)
   {
@@ -120,21 +120,21 @@ internal sealed class AstReferenceChecks<TReference>
     reference.FullType.Should().Be("$" + input);
   }
 
-  public void FullType_WithArguments(string input, string argument)
+  public void FullType_WithArguments(string input, string[] arguments)
   {
-    var reference = _createReference(input) with { Arguments = _createArguments(argument) };
+    var reference = _createReference(input) with { Arguments = _createArguments(arguments) };
 
-    reference.FullType.Should().Be(input + $" < {argument} >");
+    reference.FullType.Should().Be(input + $" < {arguments.Joined()} >");
   }
 
-  public void FullType_WithIsTypeParameterAndArguments(string input, string argument)
+  public void FullType_WithIsTypeParameterAndArguments(string input, string[] arguments)
   {
     var reference = _createReference(input) with {
       IsTypeParameter = true,
-      Arguments = _createArguments(argument)
+      Arguments = _createArguments(arguments)
     };
 
-    reference.FullType.Should().Be($"${input} < {argument} >");
+    reference.FullType.Should().Be($"${input} < {arguments.Joined()} >");
   }
 }
 
@@ -146,12 +146,12 @@ internal interface IAstReferenceChecks<TReference>
   void String_WithIsTypeParameter(string input);
   void Equality_WithIsTypeParameter(string input);
   void Inequality_BetweenIsTypeParameters(string input, bool isTypeParam1);
-  void HashCode_WithArguments(string input, string argument);
-  void String_WithArguments(string input, string argument);
-  void Equality_WithArguments(string input, string argument);
-  void Inequality_BetweenArguments(string input, string argument1, string argument2);
+  void HashCode_WithArguments(string input, string[] arguments);
+  void String_WithArguments(string input, string[] arguments);
+  void Equality_WithArguments(string input, string[] arguments);
+  void Inequality_BetweenArguments(string input, string[] arguments1, string[] arguments2);
   void FullType_WithDefault(string input);
   void FullType_WithIsTypeParameter(string input);
-  void FullType_WithArguments(string input, string argument);
-  void FullType_WithIsTypeParameterAndArguments(string input, string argument);
+  void FullType_WithArguments(string input, string[] arguments);
+  void FullType_WithIsTypeParameterAndArguments(string input, string[] arguments);
 }

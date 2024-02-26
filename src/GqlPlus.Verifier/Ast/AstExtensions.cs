@@ -64,7 +64,7 @@ public static class AstExtensions
       items?.Where(i => !string.IsNullOrWhiteSpace(i))
       ?? []);
 
-  public static string Joined(this IEnumerable<string?>? items, Func<string?, string> mapping)
+  public static string Joined<T>(this IEnumerable<T?>? items, Func<T?, string> mapping)
     => (items?.Select(mapping)).Joined();
 
   public static string Joined(this IEnumerable<string?>? items, string prefix)

@@ -3,26 +3,26 @@
 public class OutputAstTests : AstAliasedTests
 {
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithAlternates(string name, string alternate)
+  public void HashCode_WithAlternates(string name, string[] alternates)
       => _checks.HashCode(
-        () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternate.Alternates<OutputReferenceAst>(Reference) });
+        () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithAlternates(string name, string alternate)
+  public void String_WithAlternates(string name, string[] alternates)
     => _checks.String(
-      () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternate.Alternates<OutputReferenceAst>(Reference) },
-      $"( !O {name} | !AO {alternate} [] ? )");
+      () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
+      $"( !O {name} | {alternates.Joined(a => $"!AO {a} [] ?")} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithAlternates(string name, string alternate)
+  public void Equality_WithAlternates(string name, string[] alternates)
     => _checks.Equality(
-      () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternate.Alternates<OutputReferenceAst>(Reference) });
+      () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenAlternates(string name, string alternate1, string alternate2)
-    => _checks.InequalityBetween(alternate1, alternate2,
-      alternate => new OutputDeclAst(AstNulls.At, name) { Alternates = alternate.Alternates<OutputReferenceAst>(Reference) },
-      alternate1 == alternate2);
+  public void Inequality_BetweenAlternates(string name, string[] alternates1, string[] alternates2)
+    => _checks.InequalityBetween(alternates1, alternates2,
+      alternates => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
+      alternates1.OrderedEqual(alternates2));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithParent(string name, string parent)
@@ -47,26 +47,26 @@ public class OutputAstTests : AstAliasedTests
       parent1 == parent2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithFields(string name, string field)
+  public void HashCode_WithFields(string name, FieldInput[] fields)
       => _checks.HashCode(
-        () => new OutputDeclAst(AstNulls.At, name) { Fields = field.OutputFields("String") });
+        () => new OutputDeclAst(AstNulls.At, name) { Fields = fields.OutputFields() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithFields(string name, string field)
+  public void String_WithFields(string name, FieldInput[] fields)
     => _checks.String(
-      () => new OutputDeclAst(AstNulls.At, name) { Fields = field.OutputFields("String") },
-      $"( !O {name} {{ !OF {field} : String }} )");
+      () => new OutputDeclAst(AstNulls.At, name) { Fields = fields.OutputFields() },
+      $"( !O {name} {{ {fields.Joined(fi => $"!OF {fi.Name} : {fi.Type}")} }} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithFields(string name, string field)
+  public void Equality_WithFields(string name, FieldInput[] fields)
     => _checks.Equality(
-      () => new OutputDeclAst(AstNulls.At, name) { Fields = field.OutputFields("String") });
+      () => new OutputDeclAst(AstNulls.At, name) { Fields = fields.OutputFields() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenFields(string name, string field1, string field2)
-    => _checks.InequalityBetween(field1, field2,
-      field => new OutputDeclAst(AstNulls.At, name) { Fields = field.OutputFields("String") },
-      field1 == field2);
+  public void Inequality_BetweenFields(string name, FieldInput[] fields1, FieldInput[] fields2)
+    => _checks.InequalityBetween(fields1, fields2,
+      fields => new OutputDeclAst(AstNulls.At, name) { Fields = fields.OutputFields() },
+      fields1.OrderedEqual(fields2));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithTypeParameters(string name, string[] typeParameters)

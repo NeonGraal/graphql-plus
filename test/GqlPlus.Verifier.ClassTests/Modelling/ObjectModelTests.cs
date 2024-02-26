@@ -53,6 +53,12 @@ internal abstract class ObjectModelChecks<TObject, TField, TReference>(
   internal string[] ExpectedObject(ExpectedObjectInput input)
     => input.Expected(TypeKind, ExpectedParent, f => [], a => []);
 
+  internal IEnumerable<string> ExpectedField(FieldInput field)
+    => ["- name: " + field.Name, "  type: " + field.Type];
+
+  internal IEnumerable<string> ExpectedAlternate(string alternate)
+    => ["- name: " + alternate];
+
   protected override string[] ExpectedType(
     string name,
     string? parent,
@@ -64,7 +70,9 @@ internal abstract class ObjectModelChecks<TObject, TField, TReference>(
     => NewObjectAst(name, parent, description, [], []);
 
   void IObjectModelChecks<TObject, TField, TReference>.ObjectExpected(AstObject<TField, TReference> ast, ExpectedObjectInput input)
-    => AstExpected(ast, input.Expected(TypeKind, ExpectedParent, f => [], a => []));
+    => AstExpected(ast, input.Expected(TypeKind, ExpectedParent,
+      fields => ItemsExpected("fields:", fields, ExpectedField),
+      alternates => ItemsExpected("alternates:", alternates, ExpectedAlternate)));
 
   AstObject<TField, TReference> IObjectModelChecks<TObject, TField, TReference>.ObjectAst(string name, FieldInput[] fields, string[] alternates)
     => NewObjectAst(name, default, "", fields, alternates);
@@ -92,9 +100,9 @@ internal record struct ExpectedObjectInput(
 {
   internal string[] Expected(
     TypeKindModel typeKind,
-    Func<string?, string[]> parent,
-    Func<FieldInput[]?, string[]> fields,
-    Func<string[]?, string[]> alternates)
+    Func<string?, IEnumerable<string>> parent,
+    Func<FieldInput[]?, IEnumerable<string>> fields,
+    Func<string[]?, IEnumerable<string>> alternates)
     => [$"!_{typeKind}",
       .. Aliases ?? [],
       .. alternates(Alternates),

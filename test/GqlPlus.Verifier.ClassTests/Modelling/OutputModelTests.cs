@@ -30,6 +30,6 @@ internal sealed class OutputModelChecks
     string[] alternates)
     => new(AstNulls.At, name, description) { Parent = parent };
 
-  internal override OutputReferenceAst NewParentAst(string input)
+  internal override OutputReferenceAst NewReferenceAst(string input)
     => new(AstNulls.At, input);
 }

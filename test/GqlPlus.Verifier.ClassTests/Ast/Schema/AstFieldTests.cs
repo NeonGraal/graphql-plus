@@ -21,16 +21,16 @@ public abstract class AstFieldTests<TField, TReference>
     => FieldChecks.Inequality_WithModifiers(input);
 
   [Theory, RepeatData(Repeats)]
-  public void ModifiedType_WithArguments(FieldInput input, string argument)
-    => FieldChecks.ModifiedType_WithArguments(input, argument);
+  public void ModifiedType_WithArguments(FieldInput input, string[] arguments)
+    => FieldChecks.ModifiedType_WithArguments(input, arguments);
 
   [Theory, RepeatData(Repeats)]
   public void ModifiedType_WithModifiers(FieldInput input)
     => FieldChecks.ModifiedType_WithModifiers(input);
 
   [Theory, RepeatData(Repeats)]
-  public void ModifiedType_WithModifiersAndArguments(FieldInput input, string argument)
-    => FieldChecks.ModifiedType_WithModifiersAndArguments(input, argument);
+  public void ModifiedType_WithModifiersAndArguments(FieldInput input, string[] arguments)
+    => FieldChecks.ModifiedType_WithModifiersAndArguments(input, arguments);
 
   internal sealed override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 
@@ -47,7 +47,7 @@ internal sealed class AstFieldChecks<TField, TReference>
 
   internal delegate TReference ReferenceBy(FieldInput input);
   internal delegate TField FieldBy(FieldInput input, TReference reference);
-  internal delegate TReference[] ArgumentsBy(string argument);
+  internal delegate TReference[] ArgumentsBy(string[] arguments);
 
   public AstFieldChecks(FieldBy createField, ReferenceBy createReference, AstFieldChecks<TField, TReference>.ArgumentsBy createArguments)
     : base(input => createField(input, createReference(input)))
@@ -71,10 +71,10 @@ internal sealed class AstFieldChecks<TField, TReference>
   public void Inequality_WithModifiers(FieldInput input)
     => InequalityWith(input, () => CreateModifiers(input));
 
-  public void ModifiedType_WithArguments(FieldInput input, string argument)
+  public void ModifiedType_WithArguments(FieldInput input, string[] arguments)
   {
-    var field = _createField(input, _createReference(input) with { Arguments = _createArguments(argument) });
-    var expected = $"{input.Type} < {argument} >";
+    var field = _createField(input, _createReference(input) with { Arguments = _createArguments(arguments) });
+    var expected = $"{input.Type} < {arguments.Joined()} >";
 
     field.ModifiedType.Should().Be(expected);
   }
@@ -87,13 +87,13 @@ internal sealed class AstFieldChecks<TField, TReference>
     field.ModifiedType.Should().Be(expected);
   }
 
-  public void ModifiedType_WithModifiersAndArguments(FieldInput input, string argument)
+  public void ModifiedType_WithModifiersAndArguments(FieldInput input, string[] arguments)
   {
     var field = _createField(
         input,
-        _createReference(input) with { Arguments = _createArguments(argument) }
+        _createReference(input) with { Arguments = _createArguments(arguments) }
       ) with { Modifiers = TestMods() };
-    var expected = $"{input.Type} < {argument} > [] ?";
+    var expected = $"{input.Type} < {arguments.Joined()} > [] ?";
 
     field.ModifiedType.Should().Be(expected);
   }
@@ -110,7 +110,7 @@ internal interface IAstFieldChecks<TField, TReference>
   void String_WithModifiers(FieldInput input);
   void Equality_WithModifiers(FieldInput input);
   void Inequality_WithModifiers(FieldInput input);
-  void ModifiedType_WithArguments(FieldInput input, string argument);
+  void ModifiedType_WithArguments(FieldInput input, string[] arguments);
   void ModifiedType_WithModifiers(FieldInput input);
-  void ModifiedType_WithModifiersAndArguments(FieldInput input, string argument);
+  void ModifiedType_WithModifiersAndArguments(FieldInput input, string[] arguments);
 }

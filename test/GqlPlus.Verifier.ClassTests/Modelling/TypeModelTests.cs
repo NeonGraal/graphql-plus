@@ -32,11 +32,13 @@ internal abstract class TypeModelChecks<TAstParent, TParent, TAst, TTypeKind>
 {
   protected readonly TTypeKind TypeKind;
   protected readonly IModeller<AstType<TAstParent>> Type;
+  protected readonly string TypeKindLower;
 
   TTypeKind ITypeModelChecks<TAstParent, TParent, TTypeKind>.TypeKind => TypeKind;
+  string ITypeModelChecks<TAstParent, TParent, TTypeKind>.TypeKindLower => TypeKindLower;
 
   protected TypeModelChecks(TTypeKind kind, IModeller<AstType<TAstParent>> type)
-    => (TypeKind, Type) = (kind, type);
+    => (TypeKind, TypeKindLower, Type) = (kind, $"{kind}".ToLowerInvariant(), type);
 
   protected virtual string[] ExpectedType(
     string name,
@@ -97,6 +99,7 @@ internal interface ITypeModelChecks<TAstParent, TParent, TTypeKind>
   where TAstParent : IEquatable<TAstParent>
 {
   TTypeKind TypeKind { get; }
+  string TypeKindLower { get; }
   void TypeExpected(AstType<TAstParent> type, string[] expected);
   AstType<TAstParent> TypeAst(string name, TParent parent);
   TAstParent ParentAst(TParent parent);

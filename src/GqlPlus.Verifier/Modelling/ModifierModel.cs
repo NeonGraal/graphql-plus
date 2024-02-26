@@ -11,10 +11,10 @@ internal record class ModifierModel(ModifierKind Kind)
 
   public RenderStructure Render()
     => Kind == ModifierKind.Dict
-      ? new RenderStructure("_Modifier")
+      ? RenderStructure.New("_Modifier")
        .Add("key", Key)
-       .Add("opt", KeyOptional ? new("", true) : new(""))
-      : new RenderStructure("_Modifier", $"{Kind}");
+       .Add("opt", KeyOptional ? new(true) : new(""))
+      : new RenderStructure($"{Kind}", "_Modifier");
 
 }
 

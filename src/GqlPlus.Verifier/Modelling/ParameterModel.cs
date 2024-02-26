@@ -12,9 +12,9 @@ internal record class ParameterModel
   public ConstantModel? Default { get; set; }
 
   public RenderStructure Render()
-    => new RenderStructure("_Parameter")
+    => RenderStructure.New("_Parameter")
       // .Add("type", Type.Render())
-      .Add("collections", new("", Collections.Render(), true))
+      .Add("collections", Collections.Render(true))
       .Add("description", RenderValue.Str(""))
       .Add("default", Default?.Render())
       ;

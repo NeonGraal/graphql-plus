@@ -12,8 +12,8 @@ internal record class DirectiveModel(string Name)
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("locations", new("_Set(_Location)", DirectiveModeller.ToSet(Locations), true))
-      .Add("parameters", new("", Parameters.Render()))
+      .Add("locations", new(DirectiveModeller.ToSet(Locations), "_Set(_Location)", true))
+      .Add("parameters", Parameters.Render())
       .Add("repeatable", Repeatable);
 }
 
@@ -35,7 +35,7 @@ internal class DirectiveModeller
 
     foreach (var location in Enum.GetValues<DirectiveLocation>()) {
       if (ActualFlag(location) && locations.HasFlag(location)) {
-        result.Add(new($"{location}"), new("", "_"));
+        result.Add(new($"{location}"), new("_"));
       }
     }
 

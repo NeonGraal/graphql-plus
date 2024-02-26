@@ -13,11 +13,11 @@ internal static class RenderYaml
       .Build();
 
   internal static RenderStructure Render(this IEnumerable<string> strings, bool flow = true)
-    => new("", strings.Select(a => new RenderStructure("", new RenderValue(a))), flow);
+    => new(strings.Select(a => new RenderStructure(new RenderValue(a))), flow);
 
-  internal static IEnumerable<RenderStructure> Render<T>(this IEnumerable<T> values)
+  internal static RenderStructure Render<T>(this IEnumerable<T> values, bool flow = false)
     where T : IRendering
-    => values.Select(v => v.Render());
+    => new(values.Select(v => v.Render()), flow);
 
   internal static string TrueFalse(this bool value)
     => value ? "true" : "false";
@@ -37,5 +37,5 @@ internal static class RenderYaml
 
   internal static RenderStructure RenderEnum<TEnum>(this TEnum value)
     where TEnum : struct
-    => new(value.GetType().TypeTag(), value.ToString());
+    => new(value.ToString(), value.GetType().TypeTag());
 }

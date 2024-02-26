@@ -10,8 +10,8 @@ internal record class EnumModel(string Name)
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("members", new("", Members.Render()))
-      .Add("allMembers", new("", Members.Render()));
+      .Add("members", Members.Render())
+      .Add("allMembers", Members.Render());
 }
 
 internal record class EnumMemberModel(string Name, string OfEnum)

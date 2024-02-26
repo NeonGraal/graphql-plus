@@ -6,7 +6,7 @@ internal abstract record class ChildTypeModel<TParent>(
   TypeKindModel Kind,
   string Name
 ) : BaseTypeModel(Kind, Name)
-  where TParent : ModelBase
+  where TParent : IRendering
 {
   public TParent? Parent { get; set; }
 

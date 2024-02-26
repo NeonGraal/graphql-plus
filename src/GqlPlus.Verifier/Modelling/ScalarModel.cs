@@ -16,8 +16,8 @@ internal sealed record class ModelBaseScalar<TItem>(
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("allItems", new("", AllItems.Render()))
-      .Add("items", new("", Items.Render()))
+      .Add("allItems", AllItems.Render())
+      .Add("items", Items.Render())
       .Add("scalar", Scalar.RenderEnum());
 }
 
@@ -29,7 +29,7 @@ internal record class ScalarMemberModel(
 {
   internal override RenderStructure Render()
     => base.Render()
-      .Add("exclude", new("", Exclude));
+      .Add("exclude", new(Exclude));
 }
 
 internal record class ScalarTrueFalseModel(bool Exclude)

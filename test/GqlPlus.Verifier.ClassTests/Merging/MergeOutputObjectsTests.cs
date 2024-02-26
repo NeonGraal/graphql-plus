@@ -15,8 +15,8 @@ public class MergeOutputObjectsTests
 
   protected override OutputDeclAst MakeObject(string name, string description = "")
     => new(AstNulls.At, name, description);
-  protected override OutputFieldAst[] MakeFields(string field, string type)
-    => field.OutputFields(type);
+  protected override OutputFieldAst[] MakeFields(FieldInput[] fields)
+    => fields.OutputFields();
   protected override OutputReferenceAst MakeReference(string type)
     => new(AstNulls.At, type);
 }

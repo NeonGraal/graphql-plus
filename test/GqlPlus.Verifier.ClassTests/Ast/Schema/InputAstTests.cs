@@ -3,26 +3,26 @@
 public class InputAstTests : AstAliasedTests
 {
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithAlternates(string name, string alternate)
+  public void HashCode_WithAlternates(string name, string[] alternates)
       => _checks.HashCode(
-        () => new InputDeclAst(AstNulls.At, name) { Alternates = alternate.Alternates(Reference) });
+        () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithAlternates(string name, string alternate)
+  public void String_WithAlternates(string name, string[] alternates)
     => _checks.String(
-      () => new InputDeclAst(AstNulls.At, name) { Alternates = alternate.Alternates(Reference) },
-      $"( !I {name} | !AI {alternate} [] ? )");
+      () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
+      $"( !I {name} | {alternates.Joined(a => $"!AI {a} [] ?")} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithAlternates(string name, string alternate)
+  public void Equality_WithAlternates(string name, string[] alternates)
     => _checks.Equality(
-      () => new InputDeclAst(AstNulls.At, name) { Alternates = alternate.Alternates(Reference) });
+      () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenAlternates(string name, string alternate1, string alternate2)
-    => _checks.InequalityBetween(alternate1, alternate2,
-      alternate => new InputDeclAst(AstNulls.At, name) { Alternates = alternate.Alternates(Reference) },
-      alternate1 == alternate2);
+  public void Inequality_BetweenAlternates(string name, string[] alternates1, string[] alternates2)
+    => _checks.InequalityBetween(alternates1, alternates2,
+      alternates => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
+      alternates1.OrderedEqual(alternates2));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithParent(string name, string parent)
@@ -47,26 +47,26 @@ public class InputAstTests : AstAliasedTests
       parent1 == parent2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithFields(string name, string field)
+  public void HashCode_WithFields(string name, FieldInput[] fields)
       => _checks.HashCode(
-        () => new InputDeclAst(AstNulls.At, name) { Fields = field.InputFields("String") });
+        () => new InputDeclAst(AstNulls.At, name) { Fields = fields.InputFields() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithFields(string name, string field)
+  public void String_WithFields(string name, FieldInput[] fields)
     => _checks.String(
-      () => new InputDeclAst(AstNulls.At, name) { Fields = field.InputFields("String") },
-      $"( !I {name} {{ !IF {field} : String }} )");
+      () => new InputDeclAst(AstNulls.At, name) { Fields = fields.InputFields() },
+      $"( !I {name} {{ {fields.Joined(fi => $"!IF {fi.Name} : {fi.Type}")} }} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithFields(string name, string field)
+  public void Equality_WithFields(string name, FieldInput[] fields)
     => _checks.Equality(
-      () => new InputDeclAst(AstNulls.At, name) { Fields = field.InputFields("String") });
+      () => new InputDeclAst(AstNulls.At, name) { Fields = fields.InputFields() });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_BetweenFields(string name, string field1, string field2)
-    => _checks.InequalityBetween(field1, field2,
-      field => new InputDeclAst(AstNulls.At, name) { Fields = field.InputFields("String") },
-      field1 == field2);
+  public void Inequality_BetweenFields(string name, FieldInput[] fields1, FieldInput[] fields2)
+    => _checks.InequalityBetween(fields1, fields2,
+      fields => new InputDeclAst(AstNulls.At, name) { Fields = fields.InputFields() },
+      fields1.OrderedEqual(fields2));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithTypeParameters(string name, string[] typeParameters)

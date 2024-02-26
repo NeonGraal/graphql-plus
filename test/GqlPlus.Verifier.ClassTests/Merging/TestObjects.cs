@@ -22,23 +22,23 @@ public abstract class TestObjects<TObject, TField, TReference>
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsFalse(string name, string alternate)
+  public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsFalse(string name, string[] alternates)
   {
     Alternates.CanMerge([]).ReturnsForAnyArgs(false);
 
     CanMerge_False([
-      MakeObject(name) with { Alternates = alternate.Alternates(MakeReference) },
-      MakeObject(name) with { Alternates = alternate.Alternates(MakeReference) }]);
+      MakeObject(name) with { Alternates = alternates.Alternates(MakeReference) },
+      MakeObject(name) with { Alternates = alternates.Alternates(MakeReference) }]);
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsFieldsCantMerge_ReturnsFalse(string name, string field, string type)
+  public void CanMerge_TwoAstsFieldsCantMerge_ReturnsFalse(string name, FieldInput[] fields)
   {
     Fields.CanMerge([]).ReturnsForAnyArgs(false);
 
     CanMerge_False([
-      MakeObject(name) with { Fields = MakeFields(field, type) },
-      MakeObject(name) with { Fields = MakeFields(field, type) }]);
+      MakeObject(name) with { Fields = MakeFields(fields) },
+      MakeObject(name) with { Fields = MakeFields(fields) }]);
   }
 
   protected readonly IMerge<TypeParameterAst> TypeParameters;
@@ -56,7 +56,7 @@ public abstract class TestObjects<TObject, TField, TReference>
   internal override AstTypeMerger<AstType, TObject, TReference, TField> MergerTyped => MergerObject;
 
   protected abstract TObject MakeObject(string name, string description = "");
-  protected abstract TField[] MakeFields(string field, string type);
+  protected abstract TField[] MakeFields(FieldInput[] fields);
   protected abstract TReference MakeReference(string type);
 
   protected override TObject MakeTyped(string name, string description = "")

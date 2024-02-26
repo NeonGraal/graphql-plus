@@ -1,6 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Rendering;
 
-internal class RenderStructure : Structured<RenderValue, RenderStructure>
+internal class RenderStructure
+  : Structured<RenderValue, RenderStructure>
 {
   public bool IsEmpty
     => List.Count == 0
@@ -8,31 +9,36 @@ internal class RenderStructure : Structured<RenderValue, RenderStructure>
     && (Value?.IsEmpty ?? true);
 
   public bool Flow { get; }
-  public string Tag { get; } = string.Empty;
+  public string Tag { get; private init; } = string.Empty;
 
-  public RenderStructure(string tag)
-    : base() => Tag = tag;
-  public RenderStructure(string tag, bool? value)
+  public static RenderStructure New(string tag)
+    => new() { Tag = tag };
+
+  private RenderStructure()
+    : base() { }
+  public RenderStructure(bool? value, string tag = "")
     : base(new RenderValue(value)) => Tag = tag;
-  public RenderStructure(string tag, string? value)
+  public RenderStructure(string? value, string tag = "")
     : base(new RenderValue(value)) => Tag = tag;
-  public RenderStructure(string tag, decimal? value)
+  public RenderStructure(decimal? value, string tag = "")
     : base(new RenderValue(value)) => Tag = tag;
-  public RenderStructure(string tag, RenderValue value)
+  public RenderStructure(RenderValue value, string tag = "")
     : base(value) => Tag = tag;
-  public RenderStructure(string tag, IEnumerable<RenderStructure> list, bool flow = false)
-    : base(list) => (Tag, Flow) = (tag, flow);
-  public RenderStructure(string tag, Dictionary<RenderValue, RenderStructure> map, bool flow = false)
+  public RenderStructure(IEnumerable<RenderStructure> list, bool flow = false)
+    : base(list) => (Tag, Flow) = ("", flow);
+  public RenderStructure(IEnumerable<RenderStructure> list, string tag)
+    : base(list) => (Tag, Flow) = (tag, false);
+  public RenderStructure(Dictionary<RenderValue, RenderStructure> map, string tag, bool flow = false)
     : base(map) => (Tag, Flow) = (tag, flow);
 
   public static implicit operator RenderStructure(RenderValue value)
-    => new("", value);
+    => new(value);
   public static implicit operator RenderStructure(bool value)
-    => new("", value);
+    => new(value);
   public static implicit operator RenderStructure(string value)
-    => new("", value);
+    => new(value);
   public static implicit operator RenderStructure(decimal value)
-    => new("", value);
+    => new(value);
 
   public RenderStructure Add(string key, RenderStructure? value)
   {

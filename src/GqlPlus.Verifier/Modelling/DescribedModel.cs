@@ -2,9 +2,9 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public record class DescribedModel<TBase>(TBase Base)
+internal record class DescribedModel<TBase>(TBase Base)
   : ModelBase
-  where TBase : ModelBase
+  where TBase : IRendering
 {
   public string? Description { get; set; }
 

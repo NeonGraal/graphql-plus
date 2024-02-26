@@ -58,5 +58,3 @@ internal interface IBaseFieldChecks
   void WithModifiers(string name, string fieldType);
   void WithModifiersBad(string name, string fieldType);
 }
-
-public record struct FieldInput(string Name, string Type);

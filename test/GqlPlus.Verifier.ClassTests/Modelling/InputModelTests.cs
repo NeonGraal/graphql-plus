@@ -15,12 +15,8 @@ internal sealed class InputModelChecks
   : ObjectModelChecks<InputDeclAst, InputFieldAst, InputReferenceAst>
 {
   public InputModelChecks()
-    : base(TypeKindModel.Input, new InputModeller())
+    : base(TypeKindModel.Input, new InputModeller(new ModifierModeller()))
   { }
-
-  protected override string[] ExpectedParent(string? parent)
-    => parent is null ? []
-    : ["parent: !_Described(_InputBase)", "  input: " + parent];
 
   protected override InputDeclAst NewObjectAst(
     string name,
@@ -28,8 +24,12 @@ internal sealed class InputModelChecks
     string description,
     FieldInput[] fields,
     string[] alternates)
-    => new(AstNulls.At, name, description) { Parent = parent };
+    => new(AstNulls.At, name, description) {
+      Parent = parent,
+      Fields = fields.InputFields(),
+      Alternates = alternates.Alternates(NewReferenceAst),
+    };
 
-  internal override InputReferenceAst NewParentAst(string input)
+  internal override InputReferenceAst NewReferenceAst(string input)
     => new(AstNulls.At, input);
 }

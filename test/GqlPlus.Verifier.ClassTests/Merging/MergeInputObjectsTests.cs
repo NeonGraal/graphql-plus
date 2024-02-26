@@ -15,8 +15,8 @@ public class MergeInputObjectsTests
 
   protected override InputDeclAst MakeObject(string name, string description = "")
     => new(AstNulls.At, name, description);
-  protected override InputFieldAst[] MakeFields(string field, string type)
-    => field.InputFields(type);
+  protected override InputFieldAst[] MakeFields(FieldInput[] fields)
+    => fields.InputFields();
   protected override InputReferenceAst MakeReference(string type)
     => new(AstNulls.At, type);
 }

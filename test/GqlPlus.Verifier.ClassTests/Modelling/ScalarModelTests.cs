@@ -102,13 +102,9 @@ internal abstract class ScalarModelChecks<TInput, TItem>
 
   private IEnumerable<string> Items(string field, TInput[]? inputs, Func<TInput, bool, IEnumerable<string>> mapping)
   {
-    if (inputs == null || inputs.Length == 0) {
-      return [];
-    }
-
     var exclude = true;
 
-    return inputs.SelectMany(i => mapping(i, exclude = !exclude)).Prepend(field);
+    return ItemsExpected(field, inputs, i => mapping(i, exclude = !exclude));
   }
 
   private Func<TInput, bool, IEnumerable<string>> ExpectedItem()

@@ -15,10 +15,10 @@ internal class ConstantModel : Structured<SimpleModel, ConstantModel>, IRenderin
     : base(values) { }
 
   public RenderStructure Render()
-    => Map.Count > 0 ? new RenderStructure("_ConstantMap", Map.ToDictionary(
+    => Map.Count > 0 ? new RenderStructure(Map.ToDictionary(
         p => p.Key.Render().Value!,
-        p => p.Value.Render()))
-    : List.Count > 0 ? new RenderStructure("_ConstantList", List.Select(c => c.Render()))
+        p => p.Value.Render()), "_ConstantMap")
+    : List.Count > 0 ? new RenderStructure(List.Select(c => c.Render()), "_ConstantList")
     : Value is not null ? Value.Render()
     : new("");
 }

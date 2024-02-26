@@ -12,9 +12,9 @@ internal record class CategoryModel(string Name, TypeRefModel<TypeKindModel> Out
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("resolution", new("_Resolution", Resolution.ToString()))
+      .Add("resolution", new(Resolution.ToString(), "_Resolution"))
       .Add("output", Output.Render())
-      .Add("modifiers", new("", Modifiers.Render(), true));
+      .Add("modifiers", Modifiers.Render(true));
 }
 
 internal class CategoryModeller(

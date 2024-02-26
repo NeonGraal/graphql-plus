@@ -41,19 +41,27 @@ public abstract class ObjectModelTests<TObject, TField, TReference>
   internal abstract IObjectModelChecks<TObject, TField, TReference> ObjectChecks { get; }
 }
 
-internal abstract class ObjectModelChecks<TObject, TField, TReference>
-  : TypeModelChecks<TReference, string, AstObject<TField, TReference>, TypeKindModel>,
+internal abstract class ObjectModelChecks<TObject, TField, TReference>(
+  TypeKindModel kind,
+  IModeller<AstType<TReference>> type
+) : TypeModelChecks<TReference, string, AstObject<TField, TReference>, TypeKindModel>(kind, type),
     IObjectModelChecks<TObject, TField, TReference>
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>
   where TReference : AstReference<TReference>
 {
-  protected ObjectModelChecks(TypeKindModel kind, IModeller<AstType<TReference>> type)
-    : base(kind, type)
-  { }
-
   internal string[] ExpectedObject(ExpectedObjectInput input)
     => input.Expected(TypeKind, ExpectedParent, f => [], a => []);
+
+  internal IEnumerable<string> ExpectedField(FieldInput field)
+    => [$"- !_{TypeKind}Field", "  name: " + field.Name, $"  type: !_{TypeKind}Base", $"    {TypeKindLower}: {field.Type}"];
+
+  internal IEnumerable<string> ExpectedAlternate(string alternate)
+    => [$"- !_Alternate(_{TypeKind}Base)", "  collections:", "  - !_Modifier List", "  - !_Modifier Optional", $"  type: !_{TypeKind}Base", $"    {TypeKindLower}: {alternate}"];
+
+  protected override string[] ExpectedParent(string? parent)
+    => parent is null ? []
+    : [$"parent: !_Described(_{TypeKind}Base)", $"  {TypeKindLower}: {parent}"];
 
   protected override string[] ExpectedType(
     string name,
@@ -66,7 +74,9 @@ internal abstract class ObjectModelChecks<TObject, TField, TReference>
     => NewObjectAst(name, parent, description, [], []);
 
   void IObjectModelChecks<TObject, TField, TReference>.ObjectExpected(AstObject<TField, TReference> ast, ExpectedObjectInput input)
-    => AstExpected(ast, input.Expected(TypeKind, ExpectedParent, f => [], a => []));
+    => AstExpected(ast, input.Expected(TypeKind, ExpectedParent,
+      fields => ItemsExpected("fields:", fields, ExpectedField),
+      alternates => ItemsExpected("alternates:", alternates, ExpectedAlternate)));
 
   AstObject<TField, TReference> IObjectModelChecks<TObject, TField, TReference>.ObjectAst(string name, FieldInput[] fields, string[] alternates)
     => NewObjectAst(name, default, "", fields, alternates);
@@ -92,7 +102,11 @@ internal record struct ExpectedObjectInput(
   IEnumerable<string>? Aliases = null,
   IEnumerable<string>? Description = null)
 {
-  internal string[] Expected(TypeKindModel typeKind, Func<string?, string[]> parent, Func<FieldInput[]?, string[]> fields, Func<string[]?, string[]> alternates)
+  internal string[] Expected(
+    TypeKindModel typeKind,
+    Func<string?, IEnumerable<string>> parent,
+    Func<FieldInput[]?, IEnumerable<string>> fields,
+    Func<string[]?, IEnumerable<string>> alternates)
     => [$"!_{typeKind}",
       .. Aliases ?? [],
       .. alternates(Alternates),

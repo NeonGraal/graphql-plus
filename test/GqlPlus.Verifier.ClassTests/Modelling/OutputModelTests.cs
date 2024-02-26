@@ -15,12 +15,8 @@ internal sealed class OutputModelChecks
   : ObjectModelChecks<OutputDeclAst, OutputFieldAst, OutputReferenceAst>
 {
   public OutputModelChecks()
-    : base(TypeKindModel.Output, new OutputModeller())
+    : base(TypeKindModel.Output, new OutputModeller(new ModifierModeller()))
   { }
-
-  protected override string[] ExpectedParent(string? parent)
-    => parent is null ? []
-    : ["parent: !_Described(_OutputBase)", "  output: " + parent];
 
   protected override OutputDeclAst NewObjectAst(
     string name,
@@ -28,8 +24,12 @@ internal sealed class OutputModelChecks
     string description,
     FieldInput[] fields,
     string[] alternates)
-    => new(AstNulls.At, name, description) { Parent = parent };
+    => new(AstNulls.At, name, description) {
+      Parent = parent,
+      Fields = fields.OutputFields(),
+      Alternates = alternates.Alternates(NewReferenceAst),
+    };
 
-  internal override OutputReferenceAst NewParentAst(string input)
+  internal override OutputReferenceAst NewReferenceAst(string input)
     => new(AstNulls.At, input);
 }

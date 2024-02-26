@@ -10,7 +10,7 @@ internal record class TypeRefModel<TKind>(TKind Kind, string Name)
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("kind", new(s_kindTag, Kind?.ToString()));
+      .Add("kind", new(Kind?.ToString(), s_kindTag));
 }
 
 public enum SimpleKindModel { Basic, Enum, Internal, Scalar }

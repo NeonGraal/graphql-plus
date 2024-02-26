@@ -10,7 +10,7 @@ public abstract record class ModelBase
   protected virtual string Tag => _tag ??= GetType().TypeTag();
 
   internal virtual RenderStructure Render()
-    => new(Tag);
+    => RenderStructure.New(Tag);
 
   RenderStructure IRendering.Render() => Render();
 }

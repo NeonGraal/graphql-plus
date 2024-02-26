@@ -27,11 +27,11 @@ internal record class SimpleModel
     => new() { TypeRef = TypeFor(type), Value = value };
 
   public RenderStructure Render()
-    => Boolean is not null ? new("", Boolean)
-      : Number is not null ? new(TypeRef?.Name ?? "", Number)
-      : String is not null ? new(TypeRef?.Name ?? "", String)
-      : Value is not null ? new(TypeRef?.Name ?? "", Value)
-      : new("Basic", "null");
+    => Boolean is not null ? new(Boolean)
+      : Number is not null ? new(Number, TypeRef?.Name ?? "")
+      : String is not null ? new(String, TypeRef?.Name ?? "")
+      : Value is not null ? new(Value, TypeRef?.Name ?? "")
+      : new("null", "Basic");
 }
 
 internal class SimpleModeller

@@ -41,17 +41,15 @@ public abstract class ObjectModelTests<TObject, TField, TReference>
   internal abstract IObjectModelChecks<TObject, TField, TReference> ObjectChecks { get; }
 }
 
-internal abstract class ObjectModelChecks<TObject, TField, TReference>
-  : TypeModelChecks<TReference, string, AstObject<TField, TReference>, TypeKindModel>,
+internal abstract class ObjectModelChecks<TObject, TField, TReference>(
+  TypeKindModel kind,
+  IModeller<AstType<TReference>> type
+) : TypeModelChecks<TReference, string, AstObject<TField, TReference>, TypeKindModel>(kind, type),
     IObjectModelChecks<TObject, TField, TReference>
   where TObject : AstObject<TField, TReference>
   where TField : AstField<TReference>
   where TReference : AstReference<TReference>
 {
-  protected ObjectModelChecks(TypeKindModel kind, IModeller<AstType<TReference>> type)
-    : base(kind, type)
-  { }
-
   internal string[] ExpectedObject(ExpectedObjectInput input)
     => input.Expected(TypeKind, ExpectedParent, f => [], a => []);
 
@@ -92,7 +90,11 @@ internal record struct ExpectedObjectInput(
   IEnumerable<string>? Aliases = null,
   IEnumerable<string>? Description = null)
 {
-  internal string[] Expected(TypeKindModel typeKind, Func<string?, string[]> parent, Func<FieldInput[]?, string[]> fields, Func<string[]?, string[]> alternates)
+  internal string[] Expected(
+    TypeKindModel typeKind,
+    Func<string?, string[]> parent,
+    Func<FieldInput[]?, string[]> fields,
+    Func<string[]?, string[]> alternates)
     => [$"!_{typeKind}",
       .. Aliases ?? [],
       .. alternates(Alternates),

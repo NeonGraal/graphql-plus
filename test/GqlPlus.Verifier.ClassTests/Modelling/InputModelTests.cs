@@ -28,7 +28,10 @@ internal sealed class InputModelChecks
     string description,
     FieldInput[] fields,
     string[] alternates)
-    => new(AstNulls.At, name, description) { Parent = parent };
+    => new(AstNulls.At, name, description) {
+      Parent = parent,
+      Fields = fields.InputFields()
+    };
 
   internal override InputReferenceAst NewParentAst(string input)
     => new(AstNulls.At, input);

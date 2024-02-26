@@ -102,8 +102,6 @@ internal sealed class AstFieldChecks<TField, TReference>
     => CreateInput(input) with { Modifiers = TestMods() };
 }
 
-public record struct FieldInput(string Name, string Type);
-
 internal interface IAstFieldChecks<TField, TReference>
   : IAstAliasedChecks<FieldInput>
   where TField : AstField<TReference> where TReference : AstReference<TReference>

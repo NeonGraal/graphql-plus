@@ -36,3 +36,5 @@ public record struct ScalarRangeInput(decimal? Min, decimal? Max)
   public ScalarRangeAst[] ScalarRange()
     => [new(AstNulls.At, false, Lower, Upper)];
 }
+
+public record struct FieldInput(string Name, string Type);

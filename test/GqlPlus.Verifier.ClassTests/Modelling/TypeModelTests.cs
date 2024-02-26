@@ -86,6 +86,10 @@ internal abstract class TypeModelChecks<TAst, TTypeKind>(
 {
   internal override string NewParentAst(string input)
     => input;
+
+  protected static IEnumerable<string> ItemsExpected<TInput>(string field, TInput[]? items, Func<TInput, IEnumerable<string>> mapping)
+    => items == null || items.Length == 0 ? []
+      : items.SelectMany(mapping).Prepend(field);
 }
 
 internal interface ITypeModelChecks<TAstParent, TParent, TTypeKind>

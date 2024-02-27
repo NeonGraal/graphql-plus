@@ -10,12 +10,11 @@ internal record class InputModel(string Name)
 }
 
 internal class InputModeller(
-  IModeller<ModifierAst> modifier
-) : ModellerObjectType<InputDeclAst, InputReferenceAst, InputFieldAst, InputModel, InputBaseModel, InputFieldModel>(modifier)
+  IModeller<AstAlternate<InputReferenceAst>> alternate,
+  IModeller<ModifierAst> modifier,
+  IModeller<InputReferenceAst> reference
+) : ModellerObjectType<InputDeclAst, InputReferenceAst, InputFieldAst, InputModel, InputBaseModel, InputFieldModel>(alternate, modifier, reference)
 {
-  protected override InputBaseModel BaseModel(InputReferenceAst reference)
-    => new(reference.Name);
-
   protected override InputFieldModel FieldModel(InputFieldAst field)
     => new(field.Name, new(BaseModel(field.Type))) {
       Modifiers = ModifiersModels(field.Modifiers),
@@ -37,6 +36,13 @@ internal record class InputBaseModel(string Input)
   internal override RenderStructure Render()
     => base.Render()
       .Add("input", Input);
+}
+
+internal class InputReferenceModeller
+  : ModellerBase<InputReferenceAst, InputBaseModel>
+{
+  internal override InputBaseModel ToModel(InputReferenceAst ast)
+    => new(ast.Name);
 }
 
 internal record class InputFieldModel(string Name, RefModel<InputBaseModel> Type)

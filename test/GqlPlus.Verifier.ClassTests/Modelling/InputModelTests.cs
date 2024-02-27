@@ -8,16 +8,23 @@ public class InputModelTests
 {
   internal override IObjectModelChecks<InputDeclAst, InputFieldAst, InputReferenceAst> ObjectChecks => _checks;
 
-  private readonly InputModelChecks _checks = new();
+  private readonly InputModelChecks _checks;
+
+  public InputModelTests()
+  {
+    InputReferenceModeller reference = new();
+    ModifierModeller modifier = new();
+    AlternateModeller<InputReferenceAst, InputBaseModel> alternate = new(reference, modifier);
+    InputModeller input = new(alternate, modifier, reference);
+
+    _checks = new(input);
+  }
 }
 
-internal sealed class InputModelChecks
-  : ObjectModelChecks<InputDeclAst, InputFieldAst, InputReferenceAst>
+internal sealed class InputModelChecks(
+  IModeller<AstType<InputReferenceAst>> type
+) : ObjectModelChecks<InputDeclAst, InputFieldAst, InputReferenceAst>(TypeKindModel.Input, type)
 {
-  public InputModelChecks()
-    : base(TypeKindModel.Input, new InputModeller(new ModifierModeller()))
-  { }
-
   protected override InputDeclAst NewObjectAst(
     string name,
     InputReferenceAst? parent,

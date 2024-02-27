@@ -8,16 +8,23 @@ public class OutputModelTests
 {
   internal override IObjectModelChecks<OutputDeclAst, OutputFieldAst, OutputReferenceAst> ObjectChecks => _checks;
 
-  private readonly OutputModelChecks _checks = new();
+  private readonly OutputModelChecks _checks;
+
+  public OutputModelTests()
+  {
+    OutputReferenceModeller reference = new();
+    ModifierModeller modifier = new();
+    AlternateModeller<OutputReferenceAst, OutputBaseModel> alternate = new(reference, modifier);
+    OutputModeller output = new(alternate, modifier, reference);
+
+    _checks = new(output);
+  }
 }
 
-internal sealed class OutputModelChecks
-  : ObjectModelChecks<OutputDeclAst, OutputFieldAst, OutputReferenceAst>
+internal sealed class OutputModelChecks(
+  IModeller<AstType<OutputReferenceAst>> type
+) : ObjectModelChecks<OutputDeclAst, OutputFieldAst, OutputReferenceAst>(TypeKindModel.Output, type)
 {
-  public OutputModelChecks()
-    : base(TypeKindModel.Output, new OutputModeller(new ModifierModeller()))
-  { }
-
   protected override OutputDeclAst NewObjectAst(
     string name,
     OutputReferenceAst? parent,

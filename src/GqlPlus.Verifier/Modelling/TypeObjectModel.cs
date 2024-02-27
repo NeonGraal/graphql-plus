@@ -20,18 +20,6 @@ internal record class TypeObjectModel<TBase, TField>(TypeKindModel Kind, string 
       .Add("alternates", Alternates.Render());
 }
 
-internal record class AlternateModel<TBase>(RefModel<TBase> Type)
-  : ModelBase
-  where TBase : ITypeBaseModel
-{
-  internal ModifierModel[] Collections { get; set; } = [];
-
-  internal override RenderStructure Render()
-    => base.Render()
-      .Add("type", Type.Render())
-      .Add("collections", Collections.Render());
-}
-
 internal record class TypeBaseModel<TArg>
   : ModelBase, ITypeBaseModel
 {
@@ -74,7 +62,9 @@ internal record class FieldModel<TBase>(string Name, RefModel<TBase> Type)
 }
 
 internal abstract class ModellerObjectType<TAst, TRefAst, TFieldAst, TModel, TBase, TField>(
-  IModeller<ModifierAst> modifier
+  IModeller<AstAlternate<TRefAst>> alternate,
+  IModeller<ModifierAst> modifier,
+  IModeller<TRefAst> reference
 ) : ModellerType<TAst, TRefAst, TModel>
   where TAst : AstType<TRefAst>
   where TRefAst : AstReference<TRefAst>
@@ -86,18 +76,17 @@ internal abstract class ModellerObjectType<TAst, TRefAst, TFieldAst, TModel, TBa
   internal DescribedModel<TBase>? ParentModel(TRefAst? parent)
     => parent is null ? null : new DescribedModel<TBase>(BaseModel(parent));
 
-  internal AlternateModel<TBase> AlternateModel(AstAlternate<TRefAst> alternate)
-    => new(new(BaseModel(alternate.Type))) { Collections = ModifiersModels(alternate.Modifiers) };
-
   internal AlternateModel<TBase>[] AlternatesModels(AstAlternate<TRefAst>[] alternates)
-    => [.. alternates.Select(AlternateModel)];
+    => alternate.ToModels<AlternateModel<TBase>>(alternates);
 
   internal TField[] FieldsModels(TFieldAst[] fields)
     => [.. fields.Select(FieldModel)];
 
   internal ModifierModel[] ModifiersModels(ModifierAst[] modifiers)
-    => [.. modifiers.Select(modifier.ToModel<ModifierModel>).Where(m => m is not null)];
+    => modifier.ToModels<ModifierModel>(modifiers);
 
-  protected abstract TBase BaseModel(TRefAst reference);
+  protected TBase BaseModel(TRefAst ast)
+    => reference.ToModel<TBase>(ast);
+
   protected abstract TField FieldModel(TFieldAst field);
 }

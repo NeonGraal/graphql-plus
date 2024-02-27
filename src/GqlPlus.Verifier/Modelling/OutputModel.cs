@@ -10,12 +10,11 @@ internal record class OutputModel(string Name)
 }
 
 internal class OutputModeller(
-  IModeller<ModifierAst> modifier
-) : ModellerObjectType<OutputDeclAst, OutputReferenceAst, OutputFieldAst, OutputModel, OutputBaseModel, OutputFieldModel>(modifier)
+  IModeller<AstAlternate<OutputReferenceAst>> alternate,
+  IModeller<ModifierAst> modifier,
+  IModeller<OutputReferenceAst> reference
+) : ModellerObjectType<OutputDeclAst, OutputReferenceAst, OutputFieldAst, OutputModel, OutputBaseModel, OutputFieldModel>(alternate, modifier, reference)
 {
-  protected override OutputBaseModel BaseModel(OutputReferenceAst reference)
-    => new(reference.Name);
-
   protected override OutputFieldModel FieldModel(OutputFieldAst field)
     => new(field.Name, new(BaseModel(field.Type))) {
       Modifiers = ModifiersModels(field.Modifiers),
@@ -37,6 +36,13 @@ internal record class OutputBaseModel(string Output)
   internal override RenderStructure Render()
     => base.Render()
       .Add("output", Output);
+}
+
+internal class OutputReferenceModeller
+  : ModellerBase<OutputReferenceAst, OutputBaseModel>
+{
+  internal override OutputBaseModel ToModel(OutputReferenceAst ast)
+    => new(ast.Name);
 }
 
 internal record class OutputFieldModel(string Name, RefModel<OutputBaseModel> Type)

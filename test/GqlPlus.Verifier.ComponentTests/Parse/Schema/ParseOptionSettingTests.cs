@@ -29,6 +29,6 @@ public class ParseOptionSettingTests(
 
   private readonly OneChecksParser<OptionSettingAst> _test = new(parser);
 
-  private OptionSettingAst Setting(string name, string value)
+  private static OptionSettingAst Setting(string name, string value)
     => new(AstNulls.At, name, new FieldKeyAst(AstNulls.At, value));
 }

@@ -34,6 +34,6 @@ public record class RenderValue : IComparable<RenderValue>
     : BothValued(other?.String, String) ? string.Compare(String, other.String, StringComparison.Ordinal)
     : -1;
 
-  private bool BothValued<T>([NotNullWhen(true)] T? left, [NotNullWhen(true)] T? right)
+  private static bool BothValued<T>([NotNullWhen(true)] T? left, [NotNullWhen(true)] T? right)
     => left is not null && right is not null;
 }

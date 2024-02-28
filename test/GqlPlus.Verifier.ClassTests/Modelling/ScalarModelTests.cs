@@ -100,6 +100,7 @@ internal abstract class ScalarModelChecks<TInput, TItem>
 
   protected abstract TItem[]? ScalarItems(TInput[]? inputs);
 
+  [SuppressMessage("Performance", "CA1822:Mark members as static")]
   private IEnumerable<string> Items(string field, TInput[]? inputs, Func<TInput, bool, IEnumerable<string>> mapping)
   {
     var exclude = true;

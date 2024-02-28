@@ -37,8 +37,8 @@ internal class ParseObject(
       field.WithResult(fields.Add);
     }
 
-    return fields.Any()
-      ? fields.OkArray()
-      : tokens.PartialArray(label, "at least one field or selection", () => fields);
+    return fields.Count == 0
+      ? tokens.PartialArray(label, "at least one field or selection", () => fields)
+      : fields.OkArray();
   }
 }

@@ -46,6 +46,7 @@ internal abstract class ModelBaseChecks<TInput, TAst>
     render.ToLines().Should().BeEquivalentTo(expected);
   }
 
+  [SuppressMessage("Performance", "CA1822:Mark members as static")]
   internal string YamlQuoted(string input)
     => $"'{input.Replace("'", "''")}'";
 
@@ -59,6 +60,7 @@ internal abstract class ModelBaseChecks<TInput, TAst>
     return modeller;
   }
 
+  [SuppressMessage("Performance", "CA1822:Mark members as static")]
   protected IModeller<TA> ForModeller<TA, TM>(Func<TA, TM> factory)
     where TA : AstBase
     where TM : IRendering

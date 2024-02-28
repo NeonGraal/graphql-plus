@@ -11,8 +11,8 @@ namespace GqlPlus.Verifier;
 public class OpenTelemetryFixture : IDisposable, IAsyncLifetime
 {
   public static readonly ActivitySource ActivitySource = new(TracerName);
-  public static Activity? TestRun;
-  public static Guid TestRunId = Guid.NewGuid();
+  public static Activity? TestRun { get; private set; }
+  public static Guid TestRunId { get; } = Guid.NewGuid();
 
   private const string TracerName = "Xunit.Tests";
   private readonly TracerProvider? _tracerProvider;
@@ -31,7 +31,10 @@ public class OpenTelemetryFixture : IDisposable, IAsyncLifetime
   }
 
   public void Dispose()
-    => _tracerProvider?.Dispose();
+  {
+    _tracerProvider?.Dispose();
+    GC.SuppressFinalize(this);
+  }
 
   public Task InitializeAsync() => Task.CompletedTask;
 

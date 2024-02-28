@@ -2,6 +2,7 @@
 
 namespace GqlPlus.Verifier.Ast;
 
+[SuppressMessage("Performance", "CA1822:Mark members as static")]
 internal class BaseAstChecks<TAst>
 {
   internal delegate TAst Creator();

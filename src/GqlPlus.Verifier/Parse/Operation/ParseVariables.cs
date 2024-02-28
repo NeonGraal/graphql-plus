@@ -31,10 +31,10 @@ internal class ParseVariables(
       }
     }
 
-    return list.Any()
-      ? tokens.Take(')')
+    return list.Count == 0
+      ? tokens.ErrorArray(label, "at least one variable", list)
+      : tokens.Take(')')
         ? list.OkArray()
-        : tokens.PartialArray(label, "')'.", () => list)
-      : tokens.ErrorArray(label, "at least one variable", list);
+        : tokens.PartialArray(label, "')'.", () => list);
   }
 }

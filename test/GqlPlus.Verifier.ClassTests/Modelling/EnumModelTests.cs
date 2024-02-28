@@ -47,6 +47,7 @@ public class EnumModelTests
         .. members.SelectMany(m => ExpectedMember(m, name)),
         "name: " + name]);
 
+  [SuppressMessage("Performance", "CA1822:Mark members as static")]
   private string[] ExpectedMember(string member, string ofEnum)
     => ["- !_EnumMember", "  enum: " + ofEnum, "  name: " + member];
 

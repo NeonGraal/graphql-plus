@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
+﻿using System.Globalization;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Ast;
@@ -97,12 +96,23 @@ public static class AstExtensions
 
   public static string Quoted(this string? text, string quote)
     => text?.Length > 0
-    ? quote + text.Replace("\\", "\\\\").Replace(quote, "\\" + quote) + quote
+    ? string.Concat(
+      quote,
+      text
+        .Replace("\\", "\\\\", StringComparison.InvariantCulture)
+        .Replace(quote, "\\" + quote, StringComparison.InvariantCulture),
+      quote)
     : "";
 
   public static void AddError<TAst>(this ITokenMessages errors, TAst item, string message)
     where TAst : AstAbbreviated
-    => errors.Add(item.Error(message));
+  {
+    if (errors is null || item is null) {
+      return;
+    }
+
+    errors.Add(item.Error(message));
+  }
 
   public static AstObject<TValue> ToObject<TItem, TValue>(this IEnumerable<TItem> items, Func<TItem, FieldKeyAst> key, Func<TItem, TValue> value)
     where TValue : AstValue<TValue>

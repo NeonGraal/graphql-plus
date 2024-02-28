@@ -67,8 +67,8 @@ public class TokenizerTests
     var input = string.Join("_",
         expected.ToString(CultureInfo.InvariantCulture)
         .Select(c => c.ToString()))
-      .Replace("_._", ".")
-      .Replace("-_", "-");
+      .Replace("_._", ".", StringComparison.Ordinal)
+      .Replace("-_", "-", StringComparison.Ordinal);
     Tokenizer tokens = PrepareTokens(input);
 
     TrueAndExpected(tokens.Number, expected);
@@ -243,7 +243,7 @@ public class TokenizerTests
     [RegularExpression(PunctuationPattern)] string prefix, string message)
   {
     var tokens = PrepareTokens(prefix);
-    var expected = prefix.ToString() + " <END>";
+    var expected = $"{prefix} <END>";
 
     var result = tokens.Error(message);
 

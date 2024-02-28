@@ -4,10 +4,14 @@ namespace GqlPlus.Verifier.Merging;
 
 public static class MergeExtensions
 {
+  [SuppressMessage("Maintainability", "CA1508:Avoid dead conditional code")]
   public static bool CanMerge<TItem, TField>(
       this IEnumerable<TItem> items,
       Func<TItem, TField?> field)
   {
+    ArgumentNullException.ThrowIfNull(items);
+    ArgumentNullException.ThrowIfNull(field);
+
     TField? result = default;
 
     foreach (var item in items) {
@@ -33,12 +37,19 @@ public static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, TField> field,
       IMerge<TField> merger)
-    => merger.CanMerge(items.Select(field));
+  {
+    ArgumentNullException.ThrowIfNull(merger);
+
+    return merger.CanMerge(items.Select(field));
+  }
 
   public static bool CanMerge<TItem>(
       this IEnumerable<TItem> items,
       Func<TItem, string?> field)
   {
+    ArgumentNullException.ThrowIfNull(items);
+    ArgumentNullException.ThrowIfNull(field);
+
     var result = "";
 
     foreach (var item in items) {
@@ -65,6 +76,8 @@ public static class MergeExtensions
       Func<TItem, IEnumerable<TGroup>> many,
       IMerge<TGroup> merger)
   {
+    ArgumentNullException.ThrowIfNull(merger);
+
     TGroup[] groups = [.. items.SelectMany(many)];
     return groups.Length < 2 || merger.CanMerge(groups);
   }
@@ -73,7 +86,11 @@ public static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       IMerge<TGroup> merger)
-    => merger.Merge(items.SelectMany(many));
+  {
+    ArgumentNullException.ThrowIfNull(merger);
+
+    return merger.Merge(items.SelectMany(many));
+  }
 
   public static bool ManyGroupCanMerge<TItem, TGroup>(
       this IEnumerable<TItem> items,
@@ -102,6 +119,8 @@ public static class MergeExtensions
 
   public static IEnumerable<TItem> GroupMerger<TItem>(this IEnumerable<TItem> items, Func<TItem, string> key, Func<TItem[], TItem> merger)
   {
+    ArgumentNullException.ThrowIfNull(merger);
+
     List<Indexed<TItem>> result = [];
     var groups = items.Select(Indexed<TItem>.To).GroupBy(i => key(i.Item));
 
@@ -121,7 +140,11 @@ public static class MergeExtensions
       ?? "";
 
   public static TField Combine<TItem, TField>(this IEnumerable<TItem> items, Func<TItem, TField> field, IMerge<TField> merger)
-    => merger.Merge(items.Select(field)).First();
+  {
+    ArgumentNullException.ThrowIfNull(merger);
+
+    return merger.Merge(items.Select(field)).First();
+  }
 
   private record struct Indexed<TItem>(TItem Item, int Index)
   {

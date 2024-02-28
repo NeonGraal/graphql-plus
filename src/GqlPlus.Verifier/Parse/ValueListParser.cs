@@ -13,6 +13,8 @@ public sealed class ValueListParser<T> : Parser<T>.IA
   public IResultArray<T> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
+    ArgumentNullException.ThrowIfNull(tokens);
+
     var list = new List<T>();
 
     if (!tokens.Take('[')) {

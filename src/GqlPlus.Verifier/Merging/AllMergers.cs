@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;

@@ -165,7 +165,7 @@ public class Tokenizer
     }
 
     var end = Decimal(_pos);
-    number = decimal.Parse(GetString(end).Replace("_", ""), CultureInfo.InvariantCulture);
+    number = decimal.Parse(GetString(end).Replace("_", "", StringComparison.Ordinal), CultureInfo.InvariantCulture);
 
     _pos = end;
     Read();
@@ -231,8 +231,8 @@ public class Tokenizer
 
     _pos += 3;
     contents = GetString(end)
-      .Replace("\\\"", "\"")
-      .Replace(@"\\", @"\");
+      .Replace("\\\"", "\"", StringComparison.Ordinal)
+      .Replace(@"\\", @"\", StringComparison.Ordinal);
 
     _pos = next;
     Read();
@@ -264,7 +264,9 @@ public class Tokenizer
     } while (end < _len && span[end] != delimiter);
 
     _pos++;
-    contents = GetString(end).Replace(@"\" + delimiter, delimiter.ToString()).Replace(@"\\", @"\");
+    contents = GetString(end)
+      .Replace(@"\" + delimiter, delimiter.ToString(), StringComparison.Ordinal)
+      .Replace(@"\\", @"\", StringComparison.Ordinal);
 
     _pos = end + 1;
     Read();
@@ -346,11 +348,11 @@ public class Tokenizer
     TokenKind.End => new(_kind, _pos - _lineStart, _line, "<END>"),
     TokenKind.Number => new(_kind, _pos - _lineStart, _line, GetString(Decimal(_pos))),
     TokenKind.Identifer => new(_kind, _pos - _lineStart, _line, GetString(Letters(_pos))),
-    _ => new(_kind, _pos - _lineStart, _line, ErrorContext(_operation[_pos..].ToString().Replace("\r", ""))),
+    _ => new(_kind, _pos - _lineStart, _line, ErrorContext(_operation[_pos..].ToString().Replace("\r", "", StringComparison.Ordinal))),
   };
 
   public static string ErrorContext(string context)
-    => context.Length < ErrorContextLen ? context + "<END>" : context[..ErrorContextLen];
+    => context is null ? "" : context.Length < ErrorContextLen ? context + "<END>" : context[..ErrorContextLen];
 
   internal readonly TokenMessages Errors = [];
 

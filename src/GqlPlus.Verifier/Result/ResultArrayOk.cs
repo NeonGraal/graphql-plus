@@ -1,5 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Result;
 
+[SuppressMessage("Performance", "CA1815:Override equals and operator equals on value types")]
 public readonly struct ResultArrayOk<TValue>
   : IResultArray<TValue>, IResultOk<TValue[]>
 {
@@ -31,5 +32,9 @@ public readonly struct ResultArrayOk<TValue>
       : _.EmptyArray();
 
   public IResult<TResult> Map<TResult>(SelectResult<TValue[], TResult> onValue, OnResult<TResult>? otherwise = null)
-    => onValue(Result);
+  {
+    ArgumentNullException.ThrowIfNull(onValue);
+
+    return onValue(Result);
+  }
 }

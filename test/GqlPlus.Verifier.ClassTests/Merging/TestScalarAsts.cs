@@ -47,7 +47,7 @@ public abstract class TestScalarAsts<TItem, TItemInput>
   internal readonly IMerge<TItem> MergeItems;
   internal readonly MergeScalars<TItem> Merger;
 
-  public TestScalarAsts()
+  protected TestScalarAsts()
   {
     MergeItems = Merger<TItem>();
 

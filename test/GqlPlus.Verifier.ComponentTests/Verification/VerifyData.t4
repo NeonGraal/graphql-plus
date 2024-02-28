@@ -32,6 +32,7 @@ private void SampleData(string directory) {
 
 namespace GqlPlus.Verifier.Verification;
 
+[SuppressMessage("Design", "CA1034:Nested types should not be visible")]
 public partial class Verify<#= directory #>Tests
 {
 <#+  foreach (var file in sampleDir.EnumerateFiles().OrderBy(f => f.Name)) {

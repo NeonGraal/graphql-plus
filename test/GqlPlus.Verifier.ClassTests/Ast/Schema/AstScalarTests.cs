@@ -28,10 +28,10 @@ public abstract class AstScalarTests<TInput, TMember>
       input1.NullEqual(input2));
 
   protected override string AliasesString(string input, string aliases)
-    => $"( !S {input}{aliases} {Kind} )";
+    => $"( !S {input}{aliases} {Kind.Value} )";
 
   internal readonly AstAliasedChecks<AstScalar<TMember>> Checks;
-  internal readonly string Kind;
+  internal readonly Lazy<string> Kind;
 
   internal override IAstAliasedChecks<string> AliasedChecks => Checks;
 
@@ -42,7 +42,6 @@ public abstract class AstScalarTests<TInput, TMember>
   protected AstScalarTests()
   {
     Checks = new(name => NewScalar(name, []));
-    var scalar = NewScalar("scalar", []);
-    Kind = scalar.Kind.ToString();
+    Kind = new(() => NewScalar("scalar", []).Kind.ToString());
   }
 }

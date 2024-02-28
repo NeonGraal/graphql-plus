@@ -5,6 +5,7 @@ namespace GqlPlus.Verifier.Token;
 public record class TokenMessage(TokenKind Kind, int Column, int Line, string Next, string Message)
   : TokenAt(Kind, Column, Line, Next)
 {
+  [SuppressMessage("Design", "CA1062:Validate arguments of public methods")]
   public TokenMessage(TokenAt at, string message)
     : this(at.Kind, at.Column, at.Line, at.Next, message) { }
 

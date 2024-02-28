@@ -61,7 +61,7 @@ internal class OneChecksParser<T>(Parser<T>.D parser)
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
-    result.IsError(message => message.Message.Contains(error)).Should().BeTrue(_type + " -> " + input);
+    result.IsError(message => message.Message.Contains(error, StringComparison.InvariantCulture)).Should().BeTrue(_type + " -> " + input);
     result.Optional().Should().Be(expected);
   }
 
@@ -75,7 +75,7 @@ internal class OneChecksParser<T>(Parser<T>.D parser)
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
-    result.IsError(message => message.Message.Contains(error)).Should().BeTrue(_type + " -> " + input);
+    result.IsError(message => message.Message.Contains(error, StringComparison.InvariantCulture)).Should().BeTrue(_type + " -> " + input);
   }
 
   internal void False(string input, Action<T?>? check = null, bool skipIf = false)
@@ -92,7 +92,7 @@ internal class OneChecksParser<T>(Parser<T>.D parser)
       return;
     }
 
-    result.IsError(message => message.Message.Contains("Expected")).Should().BeTrue(_type + " -> " + input);
+    result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).Should().BeTrue(_type + " -> " + input);
     result.Optional(result => check?.Invoke(result));
   }
 }
@@ -157,7 +157,7 @@ internal sealed class OneChecksParser<I, T>(Parser<I, T>.D parser)
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
-    result.IsError(message => message.Message.Contains(error)).Should().BeTrue(_type + " -> " + input);
+    result.IsError(message => message.Message.Contains(error, StringComparison.InvariantCulture)).Should().BeTrue(_type + " -> " + input);
     result.Optional().Should().Be(expected);
   }
 
@@ -171,7 +171,7 @@ internal sealed class OneChecksParser<I, T>(Parser<I, T>.D parser)
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
-    result.IsError(message => message.Message.Contains(error)).Should().BeTrue(_type + " -> " + input);
+    result.IsError(message => message.Message.Contains(error, StringComparison.InvariantCulture)).Should().BeTrue(_type + " -> " + input);
   }
 
   internal void False(string input, Action<T?>? check = null, bool skipIf = false)
@@ -184,7 +184,7 @@ internal sealed class OneChecksParser<I, T>(Parser<I, T>.D parser)
 
     using var scope = new AssertionScope();
     scope.FormattingOptions.MaxDepth = 10;
-    result.IsError(message => message.Message.Contains("Expected")).Should().BeTrue(_type + " -> " + input);
+    result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).Should().BeTrue(_type + " -> " + input);
     result.Optional(result => check?.Invoke(result));
   }
 }

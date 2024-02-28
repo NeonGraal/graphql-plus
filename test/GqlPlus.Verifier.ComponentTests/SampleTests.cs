@@ -20,7 +20,7 @@ public partial class SampleTests(
   [ClassData(typeof(SampleSchemaData))]
   public async Task ParseSampleSchema(string sample)
   {
-    var schema = File.ReadAllText("Sample/Schema/" + sample + ".graphql+");
+    var schema = await File.ReadAllTextAsync("Sample/Schema/" + sample + ".graphql+");
     Tokenizer tokens = new(schema);
 
     var ast = _schemaParser.Parse(tokens, "Schema").Required();
@@ -37,7 +37,7 @@ public partial class SampleTests(
   [ClassData(typeof(SampleSchemaData))]
   public async Task VerifySampleSchema(string sample)
   {
-    var schema = File.ReadAllText("Sample/Schema/" + sample + ".graphql+");
+    var schema = await File.ReadAllTextAsync("Sample/Schema/" + sample + ".graphql+");
     Tokenizer tokens = new(schema);
 
     var ast = _schemaParser.Parse(tokens, "Schema").Required();
@@ -57,7 +57,7 @@ public partial class SampleTests(
   [ClassData(typeof(SampleOperationData))]
   public async Task ParseSampleOperation(string sample)
   {
-    var operation = File.ReadAllText("Sample/Operation/" + sample + ".gql+");
+    var operation = await File.ReadAllTextAsync("Sample/Operation/" + sample + ".gql+");
     OperationContext tokens = new(operation);
     var ast = _operation.Parse(tokens, "Operation").Optional();
 
@@ -73,7 +73,7 @@ public partial class SampleTests(
   [ClassData(typeof(SampleGraphQlData))]
   public async Task ParseSampleGraphQl(string example)
   {
-    var operation = File.ReadAllText("Sample/GraphQl/" + example + ".gql");
+    var operation = await File.ReadAllTextAsync("Sample/GraphQl/" + example + ".gql");
     OperationContext tokens = new(operation);
     var ast = _operation.Parse(tokens, "Operation").Required();
 

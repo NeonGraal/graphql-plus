@@ -6,11 +6,16 @@ internal class MergeConstants
   : BaseMerger<ConstantAst>
 {
   public override IEnumerable<ConstantAst> Merge(IEnumerable<ConstantAst> items)
-    => items is not null
-      ? items.Count() > 1
-        ? [items.Aggregate(CombineConstants)]
-        : items
-      : [];
+  {
+    if (items is null) {
+      return [];
+    }
+
+    var list = items.ToArray();
+    return list.Length > 1
+      ? [list.Aggregate(CombineConstants)]
+      : list;
+  }
 
   private ConstantAst CombineConstants(ConstantAst a, ConstantAst b)
     => a.Values.Length > 0 || b.Values.Length > 0

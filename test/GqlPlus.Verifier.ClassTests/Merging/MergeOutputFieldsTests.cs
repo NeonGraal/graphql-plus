@@ -10,7 +10,7 @@ public class MergeOutputFieldsTests
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsParametersCantMerge_ReturnsFalse(string name, string type, string[] parameters)
   {
-    if (parameters.Length < 2) {
+    if (parameters is null || parameters.Length < 2) {
       return;
     }
 

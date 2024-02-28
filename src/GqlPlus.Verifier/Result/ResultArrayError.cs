@@ -2,6 +2,7 @@
 
 namespace GqlPlus.Verifier.Result;
 
+[SuppressMessage("Performance", "CA1815:Override equals and operator equals on value types")]
 public readonly struct ResultArrayError<TValue>
   : IResultArray<TValue>, IResultError<TValue[]>
 {

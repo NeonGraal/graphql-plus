@@ -15,7 +15,7 @@ public class MergeEnumsTests
     CanMerge_False([
       new EnumDeclAst(AstNulls.At, name) with { Members = values.EnumMembers() },
       new EnumDeclAst(AstNulls.At, name)],
-      values.Length < 2);
+      values is null || values.Length < 2);
   }
 
   [Theory, RepeatData(Repeats)]

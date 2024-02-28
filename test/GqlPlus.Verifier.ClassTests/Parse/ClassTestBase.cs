@@ -6,7 +6,7 @@ using NSubstitute;
 namespace GqlPlus.Verifier.Parse;
 
 [TracePerTest]
-
+[SuppressMessage("Design", "CA1052:Static holder types should be Static or NotInheritable")]
 public class ClassTestBase
 {
   protected static Tokenizer Tokens(string input)

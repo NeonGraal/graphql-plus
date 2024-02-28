@@ -3,6 +3,7 @@
 
 namespace GqlPlus.Verifier.Verification;
 
+[SuppressMessage("Design", "CA1034:Nested types should not be visible")]
 public partial class VerifyOperationTests
 {
   private static readonly Dictionary<string, string> s_operationInvalid = new() {

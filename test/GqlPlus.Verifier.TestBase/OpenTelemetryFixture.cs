@@ -8,7 +8,7 @@ using YamlDotNet.Serialization;
 
 namespace GqlPlus.Verifier;
 
-public class OpenTelemetryFixture : IDisposable, IAsyncLifetime
+public sealed class OpenTelemetryFixture : IDisposable, IAsyncLifetime
 {
   public static readonly ActivitySource ActivitySource = new(TracerName);
   public static Activity? TestRun { get; private set; }
@@ -17,13 +17,14 @@ public class OpenTelemetryFixture : IDisposable, IAsyncLifetime
   private const string TracerName = "Xunit.Tests";
   private readonly TracerProvider? _tracerProvider;
   private readonly List<Activity> _activities = [];
+  private readonly TestRunSpanProcessor _spanPrcessor;
 
   public OpenTelemetryFixture()
   {
     _tracerProvider = Sdk.CreateTracerProviderBuilder()
         .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(TracerName))
         .AddSource(TracerName)
-        .AddProcessor(new TestRunSpanProcessor(TestRunId.ToString()))
+        .AddProcessor(_spanPrcessor = new TestRunSpanProcessor(TestRunId.ToString()))
         .AddInMemoryExporter(_activities)
         .Build();
 
@@ -32,6 +33,7 @@ public class OpenTelemetryFixture : IDisposable, IAsyncLifetime
 
   public void Dispose()
   {
+    _spanPrcessor.Dispose();
     _tracerProvider?.Dispose();
     GC.SuppressFinalize(this);
   }

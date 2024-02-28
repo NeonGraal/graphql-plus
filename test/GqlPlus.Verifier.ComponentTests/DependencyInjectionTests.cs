@@ -10,8 +10,9 @@ public class DependencyInjectionTests(IServiceCollection services, ITestOutputHe
   public void CheckDependencyInjectionContainer()
   {
     StringBuilder sb = new();
-    var sds = new List<ServiceDescriptor>(services)
-        .OrderBy(o => o.ServiceType.ExpandTypeName());
+    var sds = services
+        .OrderBy(o => o.ServiceType.ExpandTypeName())
+        .ToArray();
 
     var hashset = sds.Select(o => o.ServiceType.FullTypeName()).ToHashSet();
 

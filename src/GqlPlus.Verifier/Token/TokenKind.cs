@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Verifier.Token;
+﻿namespace GqlPlus.Verifier.Token;
 
 [SuppressMessage("Naming", "CA1720:Identifier contains type name")]
 public enum TokenKind

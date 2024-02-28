@@ -2,31 +2,35 @@
 
 public static class TypeHelpers
 {
-  public static string FullTypeName(this Type t, string? ns = null)
-      => t.Namespace is null || t.Namespace == ns
-        ? ExpandTypeName(t)
-        : t.Namespace + "::" + ExpandTypeName(t);
+  public static string FullTypeName(this Type type, string? ns = null)
+      => type is null ? "null"
+        : type.Namespace is null || type.Namespace == ns
+          ? ExpandTypeName(type)
+          : type.Namespace + "::" + ExpandTypeName(type);
 
-  public static string ExpandTypeName(this Type t)
+  public static string ExpandTypeName(this Type type)
   {
-    if (t.IsGenericTypeParameter) {
+    ArgumentNullException.ThrowIfNull(type);
+
+    if (type.IsGenericTypeParameter) {
       return "";
     }
 
-    if (t.IsGenericType || t.IsGenericTypeDefinition) {
-      var baseType = NestedTypeName(t.GetGenericTypeDefinition());
-      var args = t.GetGenericArguments();
+    if (type.IsGenericType || type.IsGenericTypeDefinition) {
+      var baseType = NestedTypeName(type.GetGenericTypeDefinition());
+      var args = type.GetGenericArguments();
       var placeholder = $"`{args.Length}";
       var arguments = "<" + string.Join(",", args.Select(ExpandTypeName)) + ">";
 
-      return baseType.Replace(placeholder, arguments);
+      return baseType.Replace(placeholder, arguments, StringComparison.InvariantCulture);
     }
 
-    return NestedTypeName(t);
+    return NestedTypeName(type);
   }
 
-  private static string NestedTypeName(Type t)
-    => t.IsNested && !t.IsGenericTypeParameter && t.DeclaringType is not null
-      ? NestedTypeName(t.DeclaringType) + "+" + t.Name
-      : t.Name;
+  private static string NestedTypeName(Type type)
+    => type is null ? "null"
+      : type.IsNested && !type.IsGenericTypeParameter && type.DeclaringType is not null
+        ? NestedTypeName(type.DeclaringType) + "+" + type.Name
+        : type.Name;
 }

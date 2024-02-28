@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
 
@@ -23,6 +22,8 @@ public class ValueKeyValueParser<T> : Parser<KeyValue<T>>.I
   public IResult<KeyValue<T>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
+    ArgumentNullException.ThrowIfNull(tokens);
+
     var fieldKey = _key.Parse(tokens, label);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<KeyValue<T>>();

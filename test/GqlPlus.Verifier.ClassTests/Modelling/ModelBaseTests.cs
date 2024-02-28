@@ -47,8 +47,9 @@ internal abstract class ModelBaseChecks<TInput, TAst>
   }
 
   [SuppressMessage("Performance", "CA1822:Mark members as static")]
-  internal string YamlQuoted(string input)
-    => $"'{input.Replace("'", "''")}'";
+  internal string YamlQuoted(string? input)
+    => input is null ? ""
+    : $"'{input.Replace("'", "''", StringComparison.Ordinal)}'";
 
   protected IModeller<TA> ForModeller<TA>()
     where TA : AstBase

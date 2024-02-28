@@ -22,7 +22,11 @@ public sealed record class ConstantAst(TokenAt At)
     => Fields = fields;
 
   public static implicit operator ConstantAst(FieldKeyAst field)
-    => new(field);
+  {
+    ArgumentNullException.ThrowIfNull(field);
+
+    return new(field);
+  }
 
   public bool Equals(ConstantAst? other)
     => base.Equals(other)

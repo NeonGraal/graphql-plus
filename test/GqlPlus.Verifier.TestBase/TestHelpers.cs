@@ -34,23 +34,31 @@ public static class TestHelpers
 
   public static string Quote(this string contents)
   {
-    contents = contents.Replace(@"\", @"\\");
-    return contents.Contains('"')
-      ? contents.Contains('\'')
-        ? "'" + contents.Replace("'", @"\'") + "'"
+    if (contents is null) {
+      return "";
+    }
+
+    contents = contents.Replace(@"\", @"\\", StringComparison.Ordinal);
+    return contents.Contains('"', StringComparison.Ordinal)
+      ? contents.Contains('\'', StringComparison.Ordinal)
+        ? "'" + contents.Replace("'", @"\'", StringComparison.Ordinal) + "'"
         : $"'{contents}'"
       : '"' + contents + '"';
   }
 
   public static string BlockQuote(this string contents)
   {
+    if (contents is null) {
+      return "";
+    }
+
     const string TripleQuote = "\"\"\"";
-    contents = contents.Replace(@"\", @"\\");
+    contents = contents.Replace(@"\", @"\\", StringComparison.Ordinal);
     if (contents.Last() == '"') {
       contents = contents[..^1] + "\\\"";
     }
 
-    contents = contents.Replace(TripleQuote, '\\' + TripleQuote);
+    contents = contents.Replace(TripleQuote, '\\' + TripleQuote, StringComparison.Ordinal);
     return TripleQuote + contents + TripleQuote;
   }
 

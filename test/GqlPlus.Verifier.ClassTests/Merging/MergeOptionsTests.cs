@@ -10,7 +10,7 @@ public class MergeOptionsTests
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSettingsCantMerge_ReturnsFalse(string name, string[] settings)
   {
-    if (settings.Length < 2) {
+    if (settings is null || settings.Length < 2) {
       return;
     }
 

@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <AnalysisLevel>8.0-recommended</AnalysisLevel>
+    <AnalysisLevel>8.0-all</AnalysisLevel>
   </PropertyGroup>
 
 </Project>

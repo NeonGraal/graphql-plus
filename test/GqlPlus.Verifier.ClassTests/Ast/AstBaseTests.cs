@@ -31,15 +31,6 @@ public abstract class AstBaseTests<TInput>
   internal abstract IAstBaseChecks<TInput> BaseChecks { get; }
 }
 
-internal sealed class AstBaseChecks<TAst>
-  : AstBaseChecks<string, TAst>, IAstBaseChecks
-  where TAst : AstBase
-{
-  public AstBaseChecks(CreateBy<string> createInput,
-    [CallerArgumentExpression(nameof(createInput))] string createExpression = "")
-    : base(createInput, createExpression) { }
-}
-
 internal class AstBaseChecks<TInput, TAst>
   : BaseAstChecks<TAst>, IAstBaseChecks<TInput>
   where TAst : AstBase

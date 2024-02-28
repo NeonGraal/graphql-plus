@@ -6,13 +6,13 @@ public class OptionSettingAstTests : AstAliasedTests<SettingInput>
   public void Inequality_ByNames(string name1, string name2, string value)
     => _checks.InequalityBetween(name1, name2,
       name => Setting(name, value),
-      name1!.Equals(name2, StringComparison.Ordinal));
+      name1.NullEqual(name2));
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_ByValues(string name, string value1, string value2)
     => _checks.InequalityBetween(value1, value2,
       value => Setting(name, value),
-      value1!.Equals(value2, StringComparison.Ordinal));
+      value1.NullEqual(value2));
 
   protected override string AliasesString(SettingInput input, string aliases)
     => $"( !OS {input.Name}{aliases} =( !k '{input.Value}' ) )";

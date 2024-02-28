@@ -21,16 +21,16 @@ public class ParseObjectTests(Parser<IAstSelection>.DA parser)
   [Theory, RepeatData(Repeats)]
   public void WithJustSpread_ReturnsCorrectAst(string spread)
     => _checks.TrueExpected("{|" + spread + "}",
-      spread.StartsWith("on", StringComparison.OrdinalIgnoreCase),
-      new SpreadAst(AstNulls.At, spread));
+      spread is null || spread.StartsWith("on", StringComparison.OrdinalIgnoreCase),
+      new SpreadAst(AstNulls.At, spread ?? ""));
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string field, string inline, string spread)
     => _checks.TrueExpected("{" + field + "|{" + inline + "}|" + spread + "}",
-          spread.StartsWith("on", StringComparison.OrdinalIgnoreCase),
+          spread is null || spread.StartsWith("on", StringComparison.OrdinalIgnoreCase),
           new FieldAst(AstNulls.At, field),
           new InlineAst(AstNulls.At, new FieldAst(AstNulls.At, inline)),
-          new SpreadAst(AstNulls.At, spread));
+          new SpreadAst(AstNulls.At, spread ?? ""));
 
   [Fact]
   public void WithNoFields_ReturnsFalse()

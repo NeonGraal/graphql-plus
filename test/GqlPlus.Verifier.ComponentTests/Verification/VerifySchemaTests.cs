@@ -133,8 +133,8 @@ public partial class VerifySchemaTests(
 
   private static string ReplaceObject(string input, string objectReplace, string objReplace)
     => input
-    .Replace("object", objectReplace)
-    .Replace("Obj", objReplace);
+    .Replace("object", objectReplace, StringComparison.InvariantCulture)
+    .Replace("Obj", objReplace, StringComparison.InvariantCulture);
 
   private void Verify_Valid(string input)
   {

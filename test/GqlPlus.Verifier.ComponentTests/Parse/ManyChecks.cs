@@ -31,7 +31,7 @@ internal sealed class ManyChecksParser<T>
     var result = _parser.Parse(Tokens(input), _type);
 
     using var scope = new AssertionScope();
-    result.IsError(message => message.Message.Contains("Expected")).Should().BeTrue(_type);
+    result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).Should().BeTrue(_type);
   }
 
   internal void Count(string input, int count)
@@ -74,7 +74,7 @@ where I : Parser<T>.IA
     var result = _parser.I.Parse(Tokens(input), _type);
 
     using var scope = new AssertionScope();
-    result.IsError(message => message.Message.Contains("Expected")).Should().BeTrue(_type);
+    result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).Should().BeTrue(_type);
   }
 
   internal void Count(string input, int count)

@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
+﻿using System.Globalization;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Ast;
@@ -29,7 +28,7 @@ public record class FieldKeyAst(TokenAt At)
     => (Type, Value) = (enumType, enumValue);
 
   public int CompareTo(FieldKeyAst? other)
-    => Number is not null ? Number?.CompareTo(other?.Number) ?? -1
+    => Number is not null ? decimal.Compare(Number.Value, other?.Number ?? 0)
       : Text is not null ? string.Compare(Text, other?.Text, StringComparison.Ordinal)
       : EnumValue is not null ? string.Compare(EnumValue, other?.EnumValue, StringComparison.Ordinal)
       : -1;

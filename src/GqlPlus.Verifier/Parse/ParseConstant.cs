@@ -14,6 +14,7 @@ public class ParseConstant : ValueParser<ConstantAst>
 
   public override IResult<ConstantAst> Parse<TContext>(TContext tokens, string label)
   {
+    ArgumentNullException.ThrowIfNull(tokens);
     var at = tokens.At;
 
     var fieldKey = FieldKey.Parse(tokens, label);

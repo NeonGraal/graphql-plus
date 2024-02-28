@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using YamlDotNet.Core;
+﻿using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
 
@@ -62,7 +61,7 @@ internal class RenderTypeConverter : IYamlTypeConverter
     if (value.Identifier is not null) {
       text = value.Identifier;
     } else if (value.Boolean is not null) {
-      text = value.Boolean?.TrueFalse();
+      text = value.Boolean.Value.TrueFalse();
     } else if (value.Number is not null) {
       text = $"{value.Number}";
     } else if (value.Text is not null) {

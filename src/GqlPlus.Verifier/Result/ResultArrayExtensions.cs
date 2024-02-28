@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Result;
 
-public static class ResultArrayExtenstions
+public static class ResultArrayExtensions
 {
   public static bool IsError<T>(this IResultArray<T> result, Action<TokenMessage>? action = null)
   {
@@ -16,6 +16,8 @@ public static class ResultArrayExtenstions
 
   public static bool Optional<T>(this IResultArray<T> result, Action<T[]> action)
   {
+    ArgumentNullException.ThrowIfNull(action);
+
     if (result is ResultArrayOk<T> ok) {
       action(ok.Result);
       return true;
@@ -42,6 +44,8 @@ public static class ResultArrayExtenstions
 
   public static bool Required<T>(this IResultArray<T> result, Action<T[]> action)
   {
+    ArgumentNullException.ThrowIfNull(action);
+
     if (result is ResultArrayOk<T> ok) {
       action(ok.Result!);
       return true;
@@ -52,6 +56,8 @@ public static class ResultArrayExtenstions
 
   public static void WithResult<T>(this IResultArray<T> result, Action<T[]> action)
   {
+    ArgumentNullException.ThrowIfNull(action);
+
     if (result is IResultValue<T[]> ok) {
       action.Invoke(ok.Result);
     }

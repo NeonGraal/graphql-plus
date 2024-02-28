@@ -4,10 +4,9 @@ using AutoFixture.Xunit2;
 
 namespace GqlPlus.Verifier;
 
-public class RepeatDataAttribute : AutoDataAttribute
+public sealed class RepeatDataAttribute
+  : AutoDataAttribute
 {
-  private readonly int _repeat = 1;
-
   public RepeatDataAttribute(int repeat)
     : base(() => new Fixture().Customize(new TestsCustomizations()))
   {
@@ -19,13 +18,15 @@ public class RepeatDataAttribute : AutoDataAttribute
       repeat = CiRepeats;
     }
 
-    _repeat = repeat;
+    Repeat = repeat;
   }
 
   public override IEnumerable<object[]> GetData(MethodInfo testMethod)
   {
-    for (var i = 0; i < _repeat; ++i) {
+    for (var i = 0; i < Repeat; ++i) {
       yield return base.GetData(testMethod).First();
     }
   }
+
+  public int Repeat { get; } = 1;
 }

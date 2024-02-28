@@ -51,6 +51,7 @@ public abstract class ParseObjectDefinition<TField, TRef> : Parser<ObjectDefinit
   public IResult<ObjectDefinition<TField, TRef>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
+    ArgumentNullException.ThrowIfNull(tokens);
     ObjectDefinition<TField, TRef> result = new();
     if (tokens.Take(':')) {
       var baseReference = _reference.Parse(tokens, label);

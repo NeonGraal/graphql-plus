@@ -5,12 +5,15 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
+[SuppressMessage("Performance", "CA1823:Avoid unused private fields")]
+[SuppressMessage("Performance", "CA1822:Mark members as static")]
 internal abstract partial class GroupedVerifier<TAliased>(
    IMerge<TAliased> merger,
    ILoggerFactory logger
 ) : IVerifyAliased<TAliased>
  where TAliased : AstAliased
 {
+  [SuppressMessage("Performance", "CA1823:Avoid unused private fields")]
   private readonly ILogger _logger = logger.CreateLogger(nameof(GroupedVerifier<TAliased>));
 
   public abstract string Label { get; }

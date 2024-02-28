@@ -18,7 +18,7 @@ public abstract class TestObjects<TObject, TField, TRef>
     CanMerge_False([
       MakeObject(name) with { TypeParameters = typeParameters.TypeParameters() },
       MakeObject(name) with { TypeParameters = typeParameters.TypeParameters() }],
-      typeParameters.Length < 2);
+      typeParameters is null || typeParameters.Length < 2);
   }
 
   [Theory, RepeatData(Repeats)]

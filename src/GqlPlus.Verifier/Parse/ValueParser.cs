@@ -23,6 +23,8 @@ public abstract class ValueParser<T>(
 
   public IResult<AstObject<T>> ParseFieldValues(Tokenizer tokens, string label, char last, AstObject<T> fields)
   {
+    ArgumentNullException.ThrowIfNull(tokens);
+
     var result = new AstObject<T>(fields);
 
     while (!tokens.Take(last)) {

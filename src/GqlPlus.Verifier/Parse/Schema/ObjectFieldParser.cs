@@ -25,6 +25,7 @@ public abstract class ObjectFieldParser<TField, TRef> : Parser<TField>.I
   public IResult<TField> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
+    ArgumentNullException.ThrowIfNull(tokens);
     var at = tokens.At;
     tokens.String(out var description);
     if (!tokens.Identifier(out var name)) {

@@ -14,6 +14,8 @@ public class ValueObjectParser<T>(
   public IResult<AstObject<T>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
+    ArgumentNullException.ThrowIfNull(tokens);
+
     var result = new AstObject<T>();
 
     if (!tokens.Take('{')) {

@@ -11,7 +11,7 @@ using Xunit.DependencyInjection.Logging;
 
 namespace GqlPlus.Verifier;
 
-public class Startup
+public static class Startup
 {
   static Startup()
     => DiffRunner.MaxInstancesToLaunch(20);

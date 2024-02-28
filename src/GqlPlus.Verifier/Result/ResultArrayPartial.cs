@@ -2,6 +2,7 @@
 
 namespace GqlPlus.Verifier.Result;
 
+[SuppressMessage("Performance", "CA1815:Override equals and operator equals on value types")]
 public readonly struct ResultArrayPartial<TValue>
   : IResultArray<TValue>, IResultPartial<TValue[]>
 {
@@ -35,5 +36,5 @@ public readonly struct ResultArrayPartial<TValue>
           : _.ErrorArray(Message);
 
   public IResult<TResult> Map<TResult>(SelectResult<TValue[], TResult> onValue, OnResult<TResult>? otherwise = null)
-    => onValue(Result);
+    => onValue?.Invoke(Result) ?? 0.Empty<TResult>();
 }

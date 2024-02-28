@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Verifier.Rendering;
+﻿namespace GqlPlus.Verifier.Rendering;
 
 [SuppressMessage("Design", "CA1036:Override methods on comparable types")]
 public record class RenderValue

@@ -24,10 +24,11 @@ internal abstract class AstAliasedMerger<TItem>
 
   protected override TItem MergeGroup(IEnumerable<TItem> group)
   {
-    var description = group.MergeDescriptions();
-    var aliases = group.SelectMany(item => item.Aliases).Distinct().ToArray();
+    var list = group.ToArray();
+    var description = list.MergeDescriptions();
+    var aliases = list.SelectMany(item => item.Aliases).Distinct().ToArray();
 
-    return group.First() with {
+    return list.First() with {
       Description = description,
       Aliases = aliases,
     };

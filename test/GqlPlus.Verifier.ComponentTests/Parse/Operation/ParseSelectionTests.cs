@@ -40,14 +40,14 @@ public class ParseSelectionTests(Parser<IAstSelection>.D parser)
     => _checks.TrueExpected(
       prefix + fragment,
       new SpreadAst(AstNulls.At, fragment),
-      fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase));
+      fragment is null || fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase));
 
   [Theory, RepeatData(Repeats)]
   public void WithSpreadDirective_ReturnsCorrectAst(string fragment, string[] directives)
     => _checks.TrueExpected(
       $"|" + fragment + directives.Joined("@"),
       new SpreadAst(AstNulls.At, fragment) { Directives = directives.Directives() },
-      fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase));
+      fragment is null || fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase));
 
   [Fact]
   public void WithInvalidSelection_ReturnsFalse()

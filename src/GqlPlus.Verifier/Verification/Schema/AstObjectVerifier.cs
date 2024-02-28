@@ -3,6 +3,8 @@ using GqlPlus.Verifier.Merging;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
+[SuppressMessage("Performance", "CA1823:Avoid unused private fields")]
+[SuppressMessage("Performance", "CA1822:Mark members as static")]
 internal abstract partial class AstObjectVerifier<TObject, TField, TRef, TContext>(
   IVerifyAliased<TObject> aliased,
   IMerge<TField> mergeFields,

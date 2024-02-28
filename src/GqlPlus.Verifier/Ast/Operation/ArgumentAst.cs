@@ -24,7 +24,10 @@ public sealed record class ArgumentAst
   public static implicit operator ArgumentAst(FieldKeyAst field)
     => new(field);
   public static implicit operator ArgumentAst(ConstantAst constant)
-    => new(constant);
+  {
+    ArgumentNullException.ThrowIfNull(constant);
+    return new(constant);
+  }
 
   public bool Equals(ArgumentAst? other)
     => base.Equals(other)

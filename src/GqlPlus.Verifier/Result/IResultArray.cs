@@ -1,10 +1,11 @@
 ﻿namespace GqlPlus.Verifier.Result;
 
-public interface IResultArray<T> : IResult<T[]>
+public interface IResultArray<TValue>
+  : IResult<TValue[]>
 {
-  IResultArray<R> AsPartialArray<R>(IEnumerable<R> result, Action<T[]>? withValue = null);
-  IResultArray<R> AsResultArray<R>(R[]? _ = default);
+  IResultArray<TResult> AsPartialArray<TResult>(IEnumerable<TResult> result, Action<TValue[]>? withValue = null);
+  IResultArray<TResult> AsResultArray<TResult>(TResult[]? _ = default);
 }
 
 public delegate IResultArray<T> OnResultArray<T>();
-public delegate IResultArray<R> SelectResultArray<T, R>(T[] value);
+public delegate IResultArray<TResult> SelectResultArray<T, TResult>(T[] value);

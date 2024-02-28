@@ -8,8 +8,10 @@ internal class Map<T> : Dictionary<string, T>, IMap<T>, IReadOnlyMap<T>
   public Map(IReadOnlyDictionary<string, T> dictionary) : base(dictionary) { }
 }
 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix")]
 public interface IMap<T> : IDictionary<string, T>;
 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix")]
 public interface IReadOnlyMap<T> : IReadOnlyDictionary<string, T>;
 
 internal static class MapExtensions

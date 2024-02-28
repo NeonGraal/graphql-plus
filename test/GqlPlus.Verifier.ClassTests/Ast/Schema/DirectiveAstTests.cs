@@ -9,7 +9,7 @@ public class DirectiveAstTests : AstAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithOption(string name, DirectiveOption option)
-    => _checks.String(
+    => _checks.Text(
       () => new DirectiveDeclAst(AstNulls.At, name) { Option = option },
       $"( !D {name} ({option}) None )");
 
@@ -31,7 +31,7 @@ public class DirectiveAstTests : AstAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithParameters(string name, string[] parameters)
-    => _checks.String(
+    => _checks.Text(
       () => new DirectiveDeclAst(AstNulls.At, name) { Parameters = parameters.Parameters() },
       $"( !D {name} ( {parameters.Joined("!P ")} ) (Unique) None )");
 
@@ -53,7 +53,7 @@ public class DirectiveAstTests : AstAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithLocations(string name, DirectiveLocation location)
-    => _checks.String(
+    => _checks.Text(
       () => new DirectiveDeclAst(AstNulls.At, name) { Locations = location },
       $"( !D {name} (Unique) {location} )");
 

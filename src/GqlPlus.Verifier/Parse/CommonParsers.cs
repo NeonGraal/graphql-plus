@@ -14,45 +14,45 @@ public static class CommonParsers
       .AddParser<IParserDefault, ConstantAst, ParseDefault>()
       .AddValueParsers<ConstantAst, ParseConstant>();
 
-  public static IServiceCollection AddValueParsers<T, P>(this IServiceCollection services)
-    where T : AstValue<T>
-    where P : class, Parser<T>.I, IValueParser<T>
+  public static IServiceCollection AddValueParsers<TValue, TParser>(this IServiceCollection services)
+    where TValue : AstValue<TValue>
+    where TParser : class, Parser<TValue>.I, IValueParser<TValue>
     => services
-      .AddParser<IValueParser<T>, T, P>()
-      .AddParser<KeyValue<T>, ValueKeyValueParser<T>>()
-      .AddParserArray<T, ValueListParser<T>>()
-      .AddParser<AstObject<T>, ValueObjectParser<T>>();
+      .AddParser<IValueParser<TValue>, TValue, TParser>()
+      .AddParser<KeyValue<TValue>, ValueKeyValueParser<TValue>>()
+      .AddParserArray<TValue, ValueListParser<TValue>>()
+      .AddParser<AstObject<TValue>, ValueObjectParser<TValue>>();
 
-  public static IServiceCollection AddParser<T, S>(this IServiceCollection services)
-    where S : class, Parser<T>.I
+  public static IServiceCollection AddParser<TValue, TService>(this IServiceCollection services)
+    where TService : class, Parser<TValue>.I
     => services
-      .AddSingleton<S>()
-      .AddSingleton<Parser<T>.D>(x => () => x.GetRequiredService<S>());
+      .AddSingleton<TService>()
+      .AddSingleton<Parser<TValue>.D>(x => () => x.GetRequiredService<TService>());
 
-  public static IServiceCollection AddParser<I, T, S>(this IServiceCollection services)
-    where S : class, I
-    where I : class, Parser<T>.I
+  public static IServiceCollection AddParser<TInterface, TValue, TService>(this IServiceCollection services)
+    where TService : class, TInterface
+    where TInterface : class, Parser<TValue>.I
     => services
-      .AddSingleton<S>()
-      .AddSingleton<Parser<T>.D>(x => () => x.GetRequiredService<S>())
-      .AddSingleton<Parser<I, T>.D>(x => () => x.GetRequiredService<S>());
+      .AddSingleton<TService>()
+      .AddSingleton<Parser<TValue>.D>(x => () => x.GetRequiredService<TService>())
+      .AddSingleton<Parser<TInterface, TValue>.D>(x => () => x.GetRequiredService<TService>());
 
-  public static IServiceCollection AddParserArray<T, S>(this IServiceCollection services)
-    where S : class, Parser<T>.IA
+  public static IServiceCollection AddParserArray<TValue, TService>(this IServiceCollection services)
+    where TService : class, Parser<TValue>.IA
     => services
-      .AddSingleton<S>()
-      .AddSingleton<Parser<T>.DA>(x => () => x.GetRequiredService<S>());
+      .AddSingleton<TService>()
+      .AddSingleton<Parser<TValue>.DA>(x => () => x.GetRequiredService<TService>());
 
-  public static IServiceCollection AddArrayParser<T, S>(this IServiceCollection services)
-    where S : class, Parser<T>.I
+  public static IServiceCollection AddArrayParser<TValue, TService>(this IServiceCollection services)
+    where TService : class, Parser<TValue>.I
     => services
-      .AddParser<T, S>()
-      .AddParserArray<T, ArrayParser<T>>();
+      .AddParser<TValue, TService>()
+      .AddParserArray<TValue, ArrayParser<TValue>>();
 
-  public static IServiceCollection AddParserArray<I, T, S>(this IServiceCollection services)
-    where S : class, I
-    where I : class, Parser<T>.IA
+  public static IServiceCollection AddParserArray<TInterface, TValue, TService>(this IServiceCollection services)
+    where TService : class, TInterface
+    where TInterface : class, Parser<TValue>.IA
     => services
-      .AddSingleton<S>()
-      .AddSingleton<ParserArray<I, T>.DA>(x => () => x.GetRequiredService<S>());
+      .AddSingleton<TService>()
+      .AddSingleton<ParserArray<TInterface, TValue>.DA>(x => () => x.GetRequiredService<TService>());
 }

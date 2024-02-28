@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Result;
+﻿using System.Globalization;
+using GqlPlus.Verifier.Result;
 
 namespace GqlPlus.Verifier.Token;
 
@@ -164,7 +165,7 @@ public class Tokenizer
     }
 
     var end = Decimal(_pos);
-    number = decimal.Parse(GetString(end).Replace("_", ""));
+    number = decimal.Parse(GetString(end).Replace("_", ""), CultureInfo.InvariantCulture);
 
     _pos = end;
     Read();
@@ -210,7 +211,7 @@ public class Tokenizer
 
   private bool IsTripleQuote(int end)
     => end < _len
-      && _operation[_pos..end].ToString().Equals(TripleQuote, StringComparison.InvariantCulture);
+      && _operation[_pos..end].ToString().Equals(TripleQuote, StringComparison.Ordinal);
 
   private bool BlockString(out string contents)
   {
@@ -241,7 +242,7 @@ public class Tokenizer
 
   private bool IsNotTripleQuote(int start, int end)
     => end < _len
-      && !_operation[start..end].ToString().Equals(TripleQuote, StringComparison.InvariantCulture);
+      && !_operation[start..end].ToString().Equals(TripleQuote, StringComparison.Ordinal);
 
   internal bool Regex(out string regex)
   {
@@ -299,7 +300,7 @@ public class Tokenizer
   internal bool Take(string text)
   {
     if (_pos + text.Length > _len
-      || !_operation.Slice(_pos, text.Length).ToString().Equals(text, StringComparison.InvariantCulture)
+      || !_operation.Slice(_pos, text.Length).ToString().Equals(text, StringComparison.Ordinal)
     ) {
       return false;
     }

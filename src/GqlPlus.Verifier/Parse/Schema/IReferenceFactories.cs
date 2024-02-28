@@ -3,8 +3,8 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public interface IReferenceFactories<R>
-  where R : AstReference<R>
+public interface IReferenceFactories<TRef>
+  where TRef : AstReference<TRef>
 {
-  R Reference(TokenAt at, string name, string description = "");
+  TRef Reference(TokenAt at, string name, string description = "");
 }

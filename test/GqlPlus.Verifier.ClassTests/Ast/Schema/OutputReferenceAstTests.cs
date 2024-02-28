@@ -9,7 +9,7 @@ public class OutputReferenceAstTests : AstReferenceTests<OutputReferenceAst>
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumValue(string name, string enumValue)
-    => _checks.String(
+    => _checks.Text(
       () => new OutputReferenceAst(AstNulls.At, name) { EnumValue = enumValue },
       $"( {name}.{enumValue} )");
 

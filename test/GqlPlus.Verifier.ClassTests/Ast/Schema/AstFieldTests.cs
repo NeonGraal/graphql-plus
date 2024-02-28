@@ -1,8 +1,8 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public abstract class AstFieldTests<TField, TReference>
+public abstract class AstFieldTests<TField, TRef>
   : AstAliasedTests<FieldInput>
-  where TField : AstField<TReference> where TReference : AstReference<TReference>
+  where TField : AstField<TRef> where TRef : AstReference<TRef>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithModifiers(FieldInput input)
@@ -34,22 +34,22 @@ public abstract class AstFieldTests<TField, TReference>
 
   internal sealed override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 
-  internal abstract IAstFieldChecks<TField, TReference> FieldChecks { get; }
+  internal abstract IAstFieldChecks<TField, TRef> FieldChecks { get; }
 }
 
-internal sealed class AstFieldChecks<TField, TReference>
-  : AstAliasedChecks<FieldInput, TField>, IAstFieldChecks<TField, TReference>
-  where TField : AstField<TReference> where TReference : AstReference<TReference>
+internal sealed class AstFieldChecks<TField, TRef>
+  : AstAliasedChecks<FieldInput, TField>, IAstFieldChecks<TField, TRef>
+  where TField : AstField<TRef> where TRef : AstReference<TRef>
 {
   private readonly FieldBy _createField;
   private readonly ReferenceBy _createReference;
   private readonly ArgumentsBy _createArguments;
 
-  internal delegate TReference ReferenceBy(FieldInput input);
-  internal delegate TField FieldBy(FieldInput input, TReference reference);
-  internal delegate TReference[] ArgumentsBy(string[] arguments);
+  internal delegate TRef ReferenceBy(FieldInput input);
+  internal delegate TField FieldBy(FieldInput input, TRef reference);
+  internal delegate TRef[] ArgumentsBy(string[] arguments);
 
-  public AstFieldChecks(FieldBy createField, ReferenceBy createReference, AstFieldChecks<TField, TReference>.ArgumentsBy createArguments)
+  public AstFieldChecks(FieldBy createField, ReferenceBy createReference, AstFieldChecks<TField, TRef>.ArgumentsBy createArguments)
     : base(input => createField(input, createReference(input)))
   {
     _createField = createField;
@@ -61,7 +61,7 @@ internal sealed class AstFieldChecks<TField, TReference>
       => HashCode(() => CreateModifiers(input));
 
   public void String_WithModifiers(FieldInput input)
-    => String(
+    => Text(
       () => CreateModifiers(input),
       $"( !{Abbr} {input.Name} : {input.Type} [] ? )");
 
@@ -102,9 +102,9 @@ internal sealed class AstFieldChecks<TField, TReference>
     => CreateInput(input) with { Modifiers = TestMods() };
 }
 
-internal interface IAstFieldChecks<TField, TReference>
+internal interface IAstFieldChecks<TField, TRef>
   : IAstAliasedChecks<FieldInput>
-  where TField : AstField<TReference> where TReference : AstReference<TReference>
+  where TField : AstField<TRef> where TRef : AstReference<TRef>
 {
   void HashCode_WithModifiers(FieldInput input);
   void String_WithModifiers(FieldInput input);

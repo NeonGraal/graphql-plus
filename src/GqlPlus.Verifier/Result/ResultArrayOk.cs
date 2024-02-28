@@ -1,34 +1,35 @@
 ﻿namespace GqlPlus.Verifier.Result;
 
-public readonly struct ResultArrayOk<T> : IResultArray<T>, IResultOk<T[]>
+public readonly struct ResultArrayOk<TValue>
+  : IResultArray<TValue>, IResultOk<TValue[]>
 {
-  public T[] Result { get; }
+  public TValue[] Result { get; }
 
-  public ResultArrayOk(T[] result) => Result = result;
+  public ResultArrayOk(TValue[] result) => Result = result;
 
-  public IResult<R> AsPartial<R>(R result, Action<T[]>? withValue = null, Action? action = null)
+  public IResult<TResult> AsPartial<TResult>(TResult result, Action<TValue[]>? withValue = null, Action? action = null)
   {
     withValue?.Invoke(Result);
     action?.Invoke();
     return result.Ok();
   }
 
-  public IResultArray<R> AsPartialArray<R>(IEnumerable<R> result, Action<T[]>? withValue = null)
+  public IResultArray<TResult> AsPartialArray<TResult>(IEnumerable<TResult> result, Action<TValue[]>? withValue = null)
   {
     withValue?.Invoke(Result);
     return result.OkArray();
   }
 
-  public IResult<R> AsResult<R>(R? _ = default)
-    => Result is R newResult
+  public IResult<TResult> AsResult<TResult>(TResult? _ = default)
+    => Result is TResult newResult
       ? newResult.Ok()
       : _.Empty();
 
-  public IResultArray<R> AsResultArray<R>(R[]? _ = default)
-    => Result is R[] newResult
+  public IResultArray<TResult> AsResultArray<TResult>(TResult[]? _ = default)
+    => Result is TResult[] newResult
       ? newResult.OkArray()
       : _.EmptyArray();
 
-  public IResult<R> Map<R>(SelectResult<T[], R> onValue, OnResult<R>? otherwise = null)
+  public IResult<TResult> Map<TResult>(SelectResult<TValue[], TResult> onValue, OnResult<TResult>? otherwise = null)
     => onValue(Result);
 }

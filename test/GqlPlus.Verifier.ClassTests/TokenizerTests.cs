@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using System.Globalization;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier;
 
@@ -47,7 +48,7 @@ public class TokenizerTests
   [Theory, RepeatData(Repeats)]
   public void Number_AfterReadTrue_IsTrue(decimal expected)
   {
-    Tokenizer tokens = PrepareTokens(expected.ToString());
+    Tokenizer tokens = PrepareTokens(expected.ToString(CultureInfo.InvariantCulture));
 
     TrueAndExpected(tokens.Number, expected);
   }
@@ -55,7 +56,7 @@ public class TokenizerTests
   [Theory, RepeatData(Repeats)]
   public void Number_WithDecimal_AfterReadTrue_IsTrue(decimal expected)
   {
-    Tokenizer tokens = PrepareTokens(expected.ToString());
+    Tokenizer tokens = PrepareTokens(expected.ToString(CultureInfo.InvariantCulture));
 
     TrueAndExpected(tokens.Number, expected);
   }
@@ -64,7 +65,7 @@ public class TokenizerTests
   public void Number_WithSeparator_AfterReadTrue_IsTrue(decimal expected)
   {
     var input = string.Join("_",
-        expected.ToString()
+        expected.ToString(CultureInfo.InvariantCulture)
         .Select(c => c.ToString()))
       .Replace("_._", ".")
       .Replace("-_", "-");
@@ -163,10 +164,10 @@ public class TokenizerTests
 
   [Theory, RepeatData(Repeats)]
   public void Take_WithSingle_AfterRead_ReturnsTrue(
-    [RegularExpression(PunctuationPattern)] string single)
+    [RegularExpression(PunctuationPattern)] string one)
   {
-    Tokenizer tokens = PrepareTokens(single);
-    var expected = single.First();
+    Tokenizer tokens = PrepareTokens(one);
+    var expected = one.First();
 
     tokens.Take(expected).Should().BeTrue();
   }
@@ -274,7 +275,7 @@ public class TokenizerTests
   [Theory, RepeatData(Repeats)]
   public void Error_BeforeNumber_ReturnsAtNumber(decimal number, string message)
   {
-    var expected = number.ToString();
+    var expected = number.ToString(CultureInfo.InvariantCulture);
     var tokens = PrepareTokens(expected);
 
     var result = tokens.Error(message);

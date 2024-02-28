@@ -2,10 +2,10 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-public abstract class TestAlternates<TAlternate, TReference>
+public abstract class TestAlternates<TAlternate, TRef>
   : TestDescriptions<TAlternate>
-  where TAlternate : AstAlternate<TReference>
-  where TReference : AstReference<TReference>, IEquatable<TReference>
+  where TAlternate : AstAlternate<TRef>
+  where TRef : AstReference<TRef>, IEquatable<TRef>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameModifers_ReturnsTrue(string input)
@@ -21,7 +21,7 @@ public abstract class TestAlternates<TAlternate, TReference>
       [MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() }],
       MakeDescribed(input) with { Modifiers = TestMods() });
 
-  internal abstract AstAlternatesMerger<TAlternate, TReference> MergerAlternate { get; }
+  internal abstract AstAlternatesMerger<TAlternate, TRef> MergerAlternate { get; }
   internal override GroupsMerger<TAlternate> MergerGroups => MergerAlternate;
 
   protected abstract TAlternate MakeAlternate(string name, string description = "");
@@ -29,7 +29,7 @@ public abstract class TestAlternates<TAlternate, TReference>
     => MakeAlternate(name, description);
 }
 
-public abstract class TestAlternates<TReference>
-  : TestAlternates<AstAlternate<TReference>, TReference>
-  where TReference : AstReference<TReference>, IEquatable<TReference>
+public abstract class TestAlternates<TRef>
+  : TestAlternates<AstAlternate<TRef>, TRef>
+  where TRef : AstReference<TRef>, IEquatable<TRef>
 { }

@@ -15,7 +15,7 @@ public sealed record class OperationAst(TokenAt At, string Name)
 
   public string? ResultType { get; set; }
   public ArgumentAst? Argument { get; set; }
-  public IAstSelection[]? Object { get; set; }
+  public IAstSelection[]? ResultObject { get; set; }
   public ModifierAst[] Modifiers { get; set; } = [];
 
   public FragmentAst[] Fragments { get; set; } = [];
@@ -74,7 +74,7 @@ public sealed record class OperationAst(TokenAt At, string Name)
       .Concat(Directives.AsString())
       .Append(ResultType)
       .Concat(Argument.Bracket("(", ")"))
-      .Concat(Object.Bracket("{", "}"))
+      .Concat(ResultObject.Bracket("{", "}"))
       .Append(Modifiers.AsString().Joined(""))
       .Concat(Fragments.Bracket());
 }

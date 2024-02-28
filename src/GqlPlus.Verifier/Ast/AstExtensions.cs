@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Ast;
@@ -76,13 +77,13 @@ public static class AstExtensions
   [return: NotNullIfNotNull(nameof(text))]
   public static string? Capitalize(this string? text)
     => text?.Length > 0
-      ? char.ToUpper(text[0]) + text[1..]
+      ? char.ToUpper(text[0], CultureInfo.InvariantCulture) + text[1..]
       : text;
 
   [return: NotNullIfNotNull(nameof(text))]
   public static string? Camelize(this string? text)
     => text?.Length > 0
-      ? char.ToLower(text[0]) + text[1..]
+      ? char.ToLower(text[0], CultureInfo.InvariantCulture) + text[1..]
       : text;
 
   public static string Prefixed(this string? text, string prefix)

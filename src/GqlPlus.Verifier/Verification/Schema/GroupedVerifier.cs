@@ -5,7 +5,7 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification.Schema;
 
-internal abstract class GroupedVerifier<TAliased>(
+internal abstract partial class GroupedVerifier<TAliased>(
    IMerge<TAliased> merger,
    ILoggerFactory logger
 ) : IVerifyAliased<TAliased>
@@ -21,7 +21,7 @@ internal abstract class GroupedVerifier<TAliased>(
       return;
     }
 
-    _logger.LogInformation("Group verifying of {Type}", item.GetType().GetElementType()?.ExpandTypeName());
+    GroupVerifying(item.GetType());
 
     var byName = item.GroupBy(t => t.Name)
       .ToMap(g => g.Key, g => g.ToArray());
@@ -31,6 +31,12 @@ internal abstract class GroupedVerifier<TAliased>(
     VerifyDefinitions(byName, errors);
   }
 
+  private void GroupVerifying(Type type)
+    => GroupVerifying(type.GetElementType()?.ExpandTypeName());
+
+  [LoggerMessage(Level = LogLevel.Information, Message = "Group verifying of {Type}")]
+  private partial void GroupVerifying(string? type);
+
   private void VerifyDefinitions(Map<TAliased[]> byName, ITokenMessages errors)
   {
     foreach (var (name, definitions) in byName) {
@@ -38,13 +44,16 @@ internal abstract class GroupedVerifier<TAliased>(
         continue;
       }
 
-      _logger.LogInformation("Verifying {Name} with {Count} definitions", name, definitions.Length);
+      VerifyingWithDefinitions(name, definitions.Length);
 
       if (!merger.CanMerge(definitions)) {
         errors.Add(definitions.Last().Error($"Multiple {Label} with name '{name}' can't be merged."));
       }
     }
   }
+
+  [LoggerMessage(Level = LogLevel.Information, Message = "Verifying {Name} with {Count} definitions")]
+  private partial void VerifyingWithDefinitions(string name, int count);
 
   private void VerifyAliases(TAliased[] item, IReadOnlyCollection<string> names, ITokenMessages errors)
   {

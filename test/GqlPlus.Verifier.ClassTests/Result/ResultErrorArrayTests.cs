@@ -26,7 +26,7 @@ public class ResultErrorArrayTests : BaseResultTests
   {
     var withValue = false;
 
-    var result = _errorArray.AsPartialArray(_sample, v => withValue = true);
+    var result = _errorArray.AsPartialArray(SampleArray, v => withValue = true);
 
     result.Should().BeOfType<ResultArrayPartial<string>>()
       .Subject.Message.Message.Should().Contain(Error);
@@ -38,7 +38,7 @@ public class ResultErrorArrayTests : BaseResultTests
   [Fact]
   public void AsResultArray_ReturnsResultArrayError()
   {
-    var result = _errorArray.AsResultArray(_sample);
+    var result = _errorArray.AsResultArray(SampleArray);
 
     result.Should().BeOfType<ResultArrayError<string>>()
       .Subject.Message.Message.Should().Be(Error);
@@ -65,10 +65,10 @@ public class ResultErrorArrayTests : BaseResultTests
   [Fact]
   public void Map_ReturnsOtherwise()
   {
-    var result = _errorArray.Map(a => a.Ok(), () => _sample.Ok());
+    var result = _errorArray.Map(a => a.Ok(), () => SampleArray.Ok());
 
     result.Should().BeOfType<ResultOk<string[]>>()
-      .Subject.Required().Should().Equal(_sample);
+      .Subject.Required().Should().Equal(SampleArray);
   }
 
   [Fact]

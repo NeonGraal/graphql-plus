@@ -24,25 +24,25 @@ public class FieldAstTests : AstDirectivesTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithAlias(string name, string alias)
-    => _checks.String(
+    => _checks.Text(
       () => Field(name) with { Alias = alias },
       $"( !f {alias}: {name} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithArgument(string variable, string name)
-    => _checks.String(
+    => _checks.Text(
       () => Field(name) with { Argument = new ArgumentAst(AstNulls.At, variable) },
       $"( !f {name} ( !a ${variable} ) )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithModifiers(string name)
-    => _checks.String(
+    => _checks.Text(
       () => Field(name) with { Modifiers = TestMods() },
       $"( !f {name} []? )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithSelection(string name, string[] fields)
-  => _checks.String(
+  => _checks.Text(
       () => Field(name) with { Selections = fields.Fields() },
       $"( !f {name} {{ {fields.Joined("!f ")} }} )");
 

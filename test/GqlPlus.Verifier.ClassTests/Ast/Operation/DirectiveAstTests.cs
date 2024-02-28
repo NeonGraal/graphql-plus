@@ -9,7 +9,7 @@ public class DirectiveAstTests : AstAbbreviatedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithArgument(string variable, string name)
-    => _checks.String(
+    => _checks.Text(
       () => new DirectiveAst(AstNulls.At, name) { Argument = new ArgumentAst(AstNulls.At, variable) },
       $"( !d {name} ( !a ${variable} ) )");
 

@@ -9,7 +9,7 @@ public class CategoryAstTests : AstAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithOutputAndName(string name, string output)
-    => _checks.String(
+    => _checks.Text(
       () => new CategoryDeclAst(AstNulls.At, name, output),
       $"( !C {name} (Parallel) {output} )");
 
@@ -37,7 +37,7 @@ public class CategoryAstTests : AstAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithOption(string name, CategoryOption option)
-    => _checks.String(
+    => _checks.Text(
       () => new CategoryDeclAst(AstNulls.At, name) { Option = option },
       $"( !C {name.Camelize()} ({option}) {name} )");
 

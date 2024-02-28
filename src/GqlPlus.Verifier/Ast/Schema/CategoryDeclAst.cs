@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
@@ -38,6 +39,7 @@ public sealed record class CategoryDeclAst(
       .Concat(Modifiers.AsString());
 }
 
+[SuppressMessage("Naming", "CA1720:Identifier contains type name")]
 public enum CategoryOption
 {
   Parallel,

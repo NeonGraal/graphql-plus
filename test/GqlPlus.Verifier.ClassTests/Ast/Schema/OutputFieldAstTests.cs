@@ -9,7 +9,7 @@ public class OutputFieldAstTests : AstFieldTests<OutputFieldAst, OutputReference
 
   [Theory, RepeatData(Repeats)]
   public void String_WithParameters(FieldInput input, string[] parameters)
-    => _checks.String(
+    => _checks.Text(
       () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() },
       $"( !OF {input.Name} ( {parameters.Joined("!P ")} ) : {input.Type} )");
 
@@ -31,7 +31,7 @@ public class OutputFieldAstTests : AstFieldTests<OutputFieldAst, OutputReference
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumValue(FieldInput input, string enumValue)
-    => _checks.String(
+    => _checks.Text(
       () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type) { EnumValue = enumValue }),
       $"( !OF {input.Name} = {input.Type}.{enumValue} )");
 

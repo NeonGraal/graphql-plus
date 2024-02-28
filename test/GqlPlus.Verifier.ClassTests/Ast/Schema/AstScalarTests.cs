@@ -12,7 +12,7 @@ public abstract class AstScalarTests<TInput, TMember>
 
   [Theory, RepeatData(Repeats)]
   public void String_WithMembers(string name, TInput input)
-    => Checks.String(
+    => Checks.Text(
       () => NewScalar(name, ScalarMembers(input)),
       MembersString(name, input));
 

@@ -2,21 +2,22 @@
 
 namespace GqlPlus.Verifier.Result;
 
-public readonly struct ResultError<T> : IResultError<T>
+public readonly struct ResultError<TValue>
+  : IResultError<TValue>
 {
   public TokenMessage Message { get; }
 
   public ResultError(TokenMessage message) => Message = message;
 
-  public IResult<R> AsPartial<R>(R result, Action<T>? withValue = null, Action? action = null)
+  public IResult<TResult> AsPartial<TResult>(TResult result, Action<TValue>? withValue = null, Action? action = null)
   {
     action?.Invoke();
     return result.Partial(Message);
   }
 
-  public IResult<R> AsResult<R>(R? _ = default)
+  public IResult<TResult> AsResult<TResult>(TResult? _ = default)
     => _.Error(Message);
 
-  public IResult<R> Map<R>(SelectResult<T, R> onValue, OnResult<R>? otherwise = null)
-    => otherwise?.Invoke() ?? AsResult<R>();
+  public IResult<TResult> Map<TResult>(SelectResult<TValue, TResult> onValue, OnResult<TResult>? otherwise = null)
+    => otherwise?.Invoke() ?? AsResult<TResult>();
 }

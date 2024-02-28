@@ -8,17 +8,17 @@ public class ResultPartialArrayTests : BaseResultTests
   [Fact]
   public void AsPartialArray_ReturnsResultArrayPartial()
   {
-    var result = _partialArray.AsPartialArray(_sample);
+    var result = _partialArray.AsPartialArray(SampleArray);
 
     result.Should().BeOfType<ResultArrayPartial<string>>()
       .Subject.Message.Message.Should().Be(Partial);
-    result.Optional().Should().BeEquivalentTo(_sample);
+    result.Optional().Should().BeEquivalentTo(SampleArray);
   }
 
   [Fact]
   public void AsResultArray_ReturnsResultArrayPartial()
   {
-    var result = _partialArray.AsResultArray(_sample);
+    var result = _partialArray.AsResultArray(SampleArray);
 
     result.Should().BeOfType<ResultArrayPartial<string>>()
       .Subject.Message.Message.Should().Be(Partial);

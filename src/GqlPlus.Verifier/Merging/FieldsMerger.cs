@@ -2,10 +2,10 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal class FieldsMerger<TField, TReference>
+internal class FieldsMerger<TField, TRef>
   : AstAliasedMerger<TField>
-  where TField : AstField<TReference>
-  where TReference : AstReference<TReference>
+  where TField : AstField<TRef>
+  where TRef : AstReference<TRef>
 {
   protected override string ItemMatchKey(TField item)
     => item.ModifiedType;

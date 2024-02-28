@@ -7,7 +7,7 @@ public abstract record class AstDescribed(TokenAt At, string Name, string Descri
 {
   public virtual bool Equals(AstDescribed? other)
     => base.Equals(other)
-    && Description.Equals(other.Description);
+    && Description.Equals(other.Description, StringComparison.Ordinal);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Description);
 

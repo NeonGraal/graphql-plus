@@ -1,11 +1,13 @@
-﻿namespace GqlPlus.Verifier.Parse;
+﻿using System.Globalization;
+
+namespace GqlPlus.Verifier.Parse;
 
 public class ParseConstantTests(Parser<ConstantAst>.D parser)
 {
   [Theory, RepeatData(Repeats)]
   public void WithNumber_ReturnsCorrectAst(decimal number)
     => _test.TrueExpected(
-      number.ToString(),
+      number.ToString(CultureInfo.InvariantCulture),
       new FieldKeyAst(AstNulls.At, number));
 
   [Theory, RepeatData(Repeats)]

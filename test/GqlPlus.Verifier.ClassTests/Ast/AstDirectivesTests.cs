@@ -4,42 +4,42 @@ public abstract class AstDirectivesTests
   : AstDirectivesTests<string>
 { }
 
-public abstract class AstDirectivesTests<I>
-  : AstAbbreviatedTests<I>
+public abstract class AstDirectivesTests<TInput>
+  : AstAbbreviatedTests<TInput>
 {
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithDirective(I input, string[] directives)
+  public void HashCode_WithDirective(TInput input, string[] directives)
   => DirectivesChecks.HashCode(input, directives);
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithDirective(I input, string[] directives)
+  public void String_WithDirective(TInput input, string[] directives)
     => DirectivesChecks.String(input, directives, DirectiveString(input, Directives(directives)));
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithDirective(I input, string[] directives)
+  public void Equality_WithDirective(TInput input, string[] directives)
     => DirectivesChecks.Equality(input, directives);
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithDirective(I input, string[] directives)
+  public void Inequality_WithDirective(TInput input, string[] directives)
     => DirectivesChecks.Inequality_WithDirective(input, directives);
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_ByDirectives(I input, string[] directives1, string[] directives2)
+  public void Inequality_ByDirectives(TInput input, string[] directives1, string[] directives2)
     => DirectivesChecks.Inequality_ByDirectives(input, directives1, directives2);
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_ByNames(I input1, I input2, string[] directives)
+  public void Inequality_ByNames(TInput input1, TInput input2, string[] directives)
     => DirectivesChecks.Inequality_ByInputs(input1, input2, directives);
 
-  protected virtual string DirectiveString(I input, string directives)
+  protected virtual string DirectiveString(TInput input, string directives)
     => $"( !{AbbreviatedChecks.Abbr} {input}{directives} )";
 
-  protected override string AbbreviatedString(I input)
+  protected override string AbbreviatedString(TInput input)
     => DirectiveString(input, "");
 
-  internal sealed override IAstAbbreviatedChecks<I> AbbreviatedChecks => DirectivesChecks;
+  internal sealed override IAstAbbreviatedChecks<TInput> AbbreviatedChecks => DirectivesChecks;
 
-  internal abstract IAstDirectivesChecks<I> DirectivesChecks { get; }
+  internal abstract IAstDirectivesChecks<TInput> DirectivesChecks { get; }
 
   private static string Directives(string[] directives)
     => " " + directives.Joined(d => $"( !d {d} )");
@@ -87,7 +87,7 @@ internal class AstDirectivesChecks<TInput, TAst>
       input1!.Equals(input2), _createExpression);
 
   public void String(TInput input, string[] directives, string expected)
-    => String(
+    => Text(
       () => CreateDirective(input, directives), expected,
       factoryExpression: _createExpression);
 

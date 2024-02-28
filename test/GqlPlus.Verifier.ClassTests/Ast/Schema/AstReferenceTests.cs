@@ -1,8 +1,8 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public abstract class AstReferenceTests<TReference>
+public abstract class AstReferenceTests<TRef>
   : AstAbbreviatedTests<string>
-  where TReference : AstReference<TReference>
+  where TRef : AstReference<TRef>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithIsTypeParameter(string input)
@@ -54,20 +54,20 @@ public abstract class AstReferenceTests<TReference>
 
   internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ReferenceChecks;
 
-  internal abstract IAstReferenceChecks<TReference> ReferenceChecks { get; }
+  internal abstract IAstReferenceChecks<TRef> ReferenceChecks { get; }
 }
 
-internal sealed class AstReferenceChecks<TReference>
-  : AstAbbreviatedChecks<string, TReference>, IAstReferenceChecks<TReference>
-  where TReference : AstReference<TReference>
+internal sealed class AstReferenceChecks<TRef>
+  : AstAbbreviatedChecks<string, TRef>, IAstReferenceChecks<TRef>
+  where TRef : AstReference<TRef>
 {
   private readonly ReferenceBy _createReference;
   private readonly ArgumentsBy _createArguments;
 
-  internal delegate TReference ReferenceBy(string input);
-  internal delegate TReference[] ArgumentsBy(string[] argument);
+  internal delegate TRef ReferenceBy(string input);
+  internal delegate TRef[] ArgumentsBy(string[] argument);
 
-  public AstReferenceChecks(ReferenceBy createReference, AstReferenceChecks<TReference>.ArgumentsBy createArguments)
+  public AstReferenceChecks(ReferenceBy createReference, AstReferenceChecks<TRef>.ArgumentsBy createArguments)
     : base(input => createReference(input))
   {
     _createReference = createReference;
@@ -78,7 +78,7 @@ internal sealed class AstReferenceChecks<TReference>
       => HashCode(() => _createReference(input) with { IsTypeParameter = true });
 
   public void String_WithIsTypeParameter(string input)
-    => String(
+    => Text(
       () => _createReference(input) with { IsTypeParameter = true },
       $"( ${input} )");
 
@@ -94,7 +94,7 @@ internal sealed class AstReferenceChecks<TReference>
     => HashCode(() => _createReference(input) with { Arguments = _createArguments(arguments) });
 
   public void String_WithArguments(string input, string[] arguments)
-    => String(
+    => Text(
       () => _createReference(input) with { Arguments = _createArguments(arguments) },
       $"( {input} < {arguments.Joined()} > )");
 
@@ -138,9 +138,9 @@ internal sealed class AstReferenceChecks<TReference>
   }
 }
 
-internal interface IAstReferenceChecks<TReference>
+internal interface IAstReferenceChecks<TRef>
   : IAstAbbreviatedChecks<string>
-  where TReference : AstReference<TReference>
+  where TRef : AstReference<TRef>
 {
   void HashCode_WithIsTypeParameter(string input);
   void String_WithIsTypeParameter(string input);

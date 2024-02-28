@@ -11,7 +11,7 @@ public class ResultOkTests : BaseResultTests
   [Fact]
   public void AsResultArray_ReturnsResultArrayOk()
   {
-    var result = _ok.AsResultArray(_sample);
+    var result = _ok.AsResultArray(SampleArray);
 
     result.Should().BeOfType<ResultArrayEmpty<string>>();
   }
@@ -19,7 +19,7 @@ public class ResultOkTests : BaseResultTests
   [Fact]
   public void Array_AsResultArray_ReturnsResultArrayOk()
   {
-    var result = _okArray.AsResultArray(_sample);
+    var result = _okArray.AsResultArray(SampleArray);
 
     result.Should().BeOfType<ResultArrayOk<string>>();
     result.Optional().Should().Equal(Ok);

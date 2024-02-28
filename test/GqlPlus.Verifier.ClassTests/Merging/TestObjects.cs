@@ -4,11 +4,11 @@ using NSubstitute;
 
 namespace GqlPlus.Verifier.Merging;
 
-public abstract class TestObjects<TObject, TField, TReference>
-  : TestTyped<AstType, TObject, TReference, TField>
-  where TObject : AstObject<TField, TReference>
-  where TField : AstField<TReference>, IAstDescribed
-  where TReference : AstReference<TReference>
+public abstract class TestObjects<TObject, TField, TRef>
+  : TestTyped<AstType, TObject, TRef, TField>
+  where TObject : AstObject<TField, TRef>
+  where TField : AstField<TRef>, IAstDescribed
+  where TRef : AstReference<TRef>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsTypeParametersCantMerge_ReturnsFalse(string name, string[] typeParameters)
@@ -41,26 +41,26 @@ public abstract class TestObjects<TObject, TField, TReference>
       MakeObject(name) with { Fields = MakeFields(fields) }]);
   }
 
-  protected readonly IMerge<TypeParameterAst> TypeParameters;
-  protected readonly IMerge<AstAlternate<TReference>> Alternates;
-  protected readonly IMerge<TField> Fields;
+  protected IMerge<TypeParameterAst> TypeParameters { get; }
+  protected IMerge<AstAlternate<TRef>> Alternates { get; }
+  protected IMerge<TField> Fields { get; }
 
   protected TestObjects()
   {
     TypeParameters = Merger<TypeParameterAst>();
-    Alternates = Merger<AstAlternate<TReference>>();
+    Alternates = Merger<AstAlternate<TRef>>();
     Fields = Merger<TField>();
   }
 
-  internal abstract AstObjectsMerger<TObject, TField, TReference> MergerObject { get; }
-  internal override AstTypeMerger<AstType, TObject, TReference, TField> MergerTyped => MergerObject;
+  internal abstract AstObjectsMerger<TObject, TField, TRef> MergerObject { get; }
+  internal override AstTypeMerger<AstType, TObject, TRef, TField> MergerTyped => MergerObject;
 
   protected abstract TObject MakeObject(string name, string description = "");
   protected abstract TField[] MakeFields(FieldInput[] fields);
-  protected abstract TReference MakeReference(string type);
+  protected abstract TRef MakeReference(string type);
 
   protected override TObject MakeTyped(string name, string description = "")
     => MakeObject(name, description);
-  protected override TReference MakeParent(string parent)
+  protected override TRef MakeParent(string parent)
     => MakeReference(parent);
 }

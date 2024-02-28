@@ -16,19 +16,19 @@ public class VariableAstTests : AstDirectivesTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithType(string name, string varType)
-    => _checks.String(
+    => _checks.Text(
       () => new(AstNulls.At, name) { Type = varType },
       $"( !v {name} :{varType} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithModifiers(string name)
-    => _checks.String(
+    => _checks.Text(
       () => new(AstNulls.At, name) { Modifers = TestMods() },
       $"( !v {name} [] ? )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithDefault(string name, string value)
-    => _checks.String(
+    => _checks.Text(
       () => new(AstNulls.At, name) { Default = new FieldKeyAst(AstNulls.At, value) },
       $"( !v {name} =( !k '{value}' ) )");
 

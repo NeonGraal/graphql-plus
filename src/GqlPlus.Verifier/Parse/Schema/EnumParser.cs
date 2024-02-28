@@ -3,20 +3,20 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class EnumParser<E>
-  : IEnumParser<E>
-  where E : struct
+internal class EnumParser<TEnum>
+  : IEnumParser<TEnum>
+  where TEnum : struct
 {
-  public IResult<E> Parse<TContext>(TContext tokens, string label)
+  public IResult<TEnum> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
       => tokens.Identifier(out var option)
-        ? Enum.TryParse<E>(option, true, out var result)
+        ? Enum.TryParse<TEnum>(option, true, out var result)
           ? result.Ok()
           : tokens.Error(label, "valid enum value", result)
-        : 0.Empty<E>();
+        : 0.Empty<TEnum>();
 }
 
-public interface IEnumParser<E>
-  : Parser<E>.I
-  where E : struct
+public interface IEnumParser<TEnum>
+  : Parser<TEnum>.I
+  where TEnum : struct
 { }

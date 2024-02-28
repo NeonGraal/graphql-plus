@@ -2,15 +2,15 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public abstract record class AstObject<TField, TReference>(TokenAt At, string Name, string Description)
-  : AstType<TReference>(At, Name, Description), IEquatable<AstObject<TField, TReference>>, IAstObject
-  where TField : AstField<TReference> where TReference : AstReference<TReference>, IEquatable<TReference>
+public abstract record class AstObject<TField, TRef>(TokenAt At, string Name, string Description)
+  : AstType<TRef>(At, Name, Description), IEquatable<AstObject<TField, TRef>>, IAstObject
+  where TField : AstField<TRef> where TRef : AstReference<TRef>, IEquatable<TRef>
 {
   public TypeParameterAst[] TypeParameters { get; set; } = [];
   public TField[] Fields { get; set; } = [];
-  public AstAlternate<TReference>[] Alternates { get; set; } = [];
+  public AstAlternate<TRef>[] Alternates { get; set; } = [];
 
-  public virtual bool Equals(AstObject<TField, TReference>? other)
+  public virtual bool Equals(AstObject<TField, TRef>? other)
     => base.Equals(other)
       && TypeParameters.SequenceEqual(other.TypeParameters)
       && Fields.SequenceEqual(other.Fields)

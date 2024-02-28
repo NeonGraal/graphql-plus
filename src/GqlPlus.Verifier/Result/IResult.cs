@@ -1,11 +1,11 @@
 ﻿namespace GqlPlus.Verifier.Result;
 
-public interface IResult<T>
+public interface IResult<TValue>
 {
-  IResult<R> AsResult<R>(R? _ = default);
-  IResult<R> AsPartial<R>(R result, Action<T>? withValue = null, Action? action = null);
-  IResult<R> Map<R>(SelectResult<T, R> onValue, OnResult<R>? otherwise = null);
+  IResult<TResult> AsResult<TResult>(TResult? _ = default);
+  IResult<TResult> AsPartial<TResult>(TResult result, Action<TValue>? withValue = null, Action? action = null);
+  IResult<TResult> Map<TResult>(SelectResult<TValue, TResult> onValue, OnResult<TResult>? otherwise = null);
 }
 
 public delegate IResult<T> OnResult<T>();
-public delegate IResult<R> SelectResult<T, R>(T value);
+public delegate IResult<TResult> SelectResult<TValue, TResult>(TValue value);

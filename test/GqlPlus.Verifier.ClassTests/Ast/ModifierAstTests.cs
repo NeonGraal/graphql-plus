@@ -11,17 +11,17 @@ public class ModifierAstTests
     => _checks.HashCode(() => new ModifierAst(AstNulls.At, key, optional));
 
   [Fact]
-  public void String()
+  public void Text()
   {
-    _checks.String(() => ModifierAst.Optional(AstNulls.At), "?");
-    _checks.String(() => ModifierAst.List(AstNulls.At), "[]");
+    _checks.Text(() => ModifierAst.Optional(AstNulls.At), "?");
+    _checks.Text(() => ModifierAst.List(AstNulls.At), "[]");
   }
 
   [Theory, RepeatData(Repeats)]
   public void String_WithKey(string key, bool optional)
   {
     var optString = optional ? "?" : "";
-    _checks.String(() => new ModifierAst(AstNulls.At, key, optional), $"[{key}{optString}]");
+    _checks.Text(() => new ModifierAst(AstNulls.At, key, optional), $"[{key}{optString}]");
   }
 
   [Fact]

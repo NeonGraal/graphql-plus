@@ -9,7 +9,7 @@ public class EnumAstTests : AstAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithParent(string name, string parent)
-    => _checks.String(
+    => _checks.Text(
       () => new EnumDeclAst(AstNulls.At, name) { Parent = parent },
       $"( !E {name} :{parent} )");
 
@@ -31,7 +31,7 @@ public class EnumAstTests : AstAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithMembers(string name, string[] enumMembers)
-    => _checks.String(
+    => _checks.Text(
       () => new EnumDeclAst(AstNulls.At, name) { Members = enumMembers.EnumMembers() },
       $"( !E {name} {enumMembers.Joined("!EM ")} )");
 

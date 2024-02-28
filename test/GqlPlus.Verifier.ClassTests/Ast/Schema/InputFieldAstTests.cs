@@ -9,7 +9,7 @@ public class InputFieldAstTests : AstFieldTests<InputFieldAst, InputReferenceAst
 
   [Theory, RepeatData(Repeats)]
   public void String_WithDefault(FieldInput input, string def)
-    => _checks.String(
+    => _checks.Text(
       () => new InputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Default = new FieldKeyAst(AstNulls.At, def) },
       $"( !IF {input.Name} : {input.Type} =( !k '{def}' ) )");
 

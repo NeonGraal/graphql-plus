@@ -12,9 +12,9 @@ public abstract class ValueParser<T>(
 ) : IValueParser<T>, Parser<T>.I
   where T : AstValue<T>
 {
-  protected readonly Parser<FieldKeyAst>.L FieldKey = fieldKey;
-  protected readonly Parser<T>.LA ListParser = listParser;
-  protected readonly Parser<AstObject<T>>.L ObjectParser = objectParser;
+  protected Parser<FieldKeyAst>.L FieldKey { get; } = fieldKey;
+  protected Parser<T>.LA ListParser { get; } = listParser;
+  protected Parser<AstObject<T>>.L ObjectParser { get; } = objectParser;
 
   public Parser<KeyValue<T>>.L KeyValueParser { get; } = keyValueParser;
 

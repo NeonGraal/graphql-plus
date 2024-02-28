@@ -39,7 +39,7 @@ internal class SimpleModeller
 {
   internal override SimpleModel ToModel(FieldKeyAst ast)
     => ast.Number.HasValue ? SimpleModel.Num("", ast.Number.Value)
-    : ast.String is not null ? SimpleModel.Str("", ast.String)
+    : ast.Text is not null ? SimpleModel.Str("", ast.Text)
     : "Boolean".Equals(ast.Type, StringComparison.OrdinalIgnoreCase) ? SimpleModel.Bool("true".Equals(ast.Value, StringComparison.OrdinalIgnoreCase))
     : ast.Type is not null ? SimpleModel.Enum(ast.Type, ast.Value ?? "")
     : new();

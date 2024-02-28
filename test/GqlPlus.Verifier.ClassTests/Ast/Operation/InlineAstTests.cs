@@ -8,7 +8,7 @@ public class InlineAstTests : AstDirectivesTests<string[]>
 
   [Theory, RepeatData(Repeats)]
   public void String_WithOnType(string onType, string[] fields)
-    => _checks.String(
+    => _checks.Text(
       () => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType },
       $"( !i :{onType} {{ {fields.Joined("!f ")} }} )");
 

@@ -43,19 +43,19 @@ public static class AllMergers
       .AddMergeAll<AstType, OutputDeclAst, MergeOutputObjects>()
     ;
 
-  public static IServiceCollection AddMerge<T, S>(this IServiceCollection services)
-    where S : class, IMerge<T>
+  public static IServiceCollection AddMerge<TValue, TService>(this IServiceCollection services)
+    where TService : class, IMerge<TValue>
     => services
-      .RemoveAll<IMerge<T>>()
-      .AddSingleton<IMerge<T>, S>();
+      .RemoveAll<IMerge<TValue>>()
+      .AddSingleton<IMerge<TValue>, TService>();
 
-  public static IServiceCollection AddMergeAll<B, T, S>(this IServiceCollection services)
-    where S : class, IMergeAll<B>, IMerge<T>
+  public static IServiceCollection AddMergeAll<TBase, TValue, TService>(this IServiceCollection services)
+    where TService : class, IMergeAll<TBase>, IMerge<TValue>
     => services
-      .RemoveAll<IMerge<T>>()
-      .AddSingleton<S>()
-      .AddSingleton<IMerge<T>>(x => x.GetRequiredService<S>())
-      .AddSingleton<IMergeAll<B>>(x => x.GetRequiredService<S>());
+      .RemoveAll<IMerge<TValue>>()
+      .AddSingleton<TService>()
+      .AddSingleton<IMerge<TValue>>(x => x.GetRequiredService<TService>())
+      .AddSingleton<IMergeAll<TBase>>(x => x.GetRequiredService<TService>());
 
   public static IServiceCollection AddMergeScalar<TMember>(this IServiceCollection services)
     where TMember : IAstScalarItem

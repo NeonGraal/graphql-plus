@@ -34,31 +34,31 @@ public class ConstantAstTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumValue(string enumValue)
-    => _checks.String(
+    => _checks.Text(
       () => new ConstantAst(enumValue.FieldKey()),
       $"( !k {enumValue} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumTypeAndValue(string enumType, string enumValue)
-    => _checks.String(
+    => _checks.Text(
       () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, enumValue)),
       $"( !k {enumType}.{enumValue} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumType(string enumType)
-    => _checks.String(
+    => _checks.Text(
       () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, "enumValue")),
       $"( !k {enumType}.enumValue )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithValues(string enumValue)
-    => _checks.String(
+    => _checks.Text(
       () => new ConstantAst(AstNulls.At, enumValue.ConstantList()),
       $"( !c [ !k {enumValue} !k {enumValue} ] )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithFields(string key, string enumValue)
-    => _checks.String(
+    => _checks.Text(
       () => new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)),
       $"( !c {{ ( !k {key} ):( !k {enumValue} ) ( !k {enumValue} ):( !k {key} ) }} )",
       key == enumValue);

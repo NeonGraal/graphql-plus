@@ -26,8 +26,8 @@ public class UsageContext(
     return false;
   }
 
-  internal virtual void CheckArgumentType<TReference>(TReference type)
-    where TReference : AstReference<TReference>
+  internal virtual void CheckArgumentType<TRef>(TRef type)
+    where TRef : AstReference<TRef>
     => this.CheckType(type);
 
   internal bool DifferentName<TAst>(ParentUsage<TAst> input, string? current)
@@ -82,9 +82,9 @@ internal static class UsageHelpers
     return context;
   }
 
-  internal static TContext CheckType<TContext, TReference>(this TContext context, TReference type, bool check = true)
+  internal static TContext CheckType<TContext, TRef>(this TContext context, TRef type, bool check = true)
     where TContext : UsageContext
-    where TReference : AstReference<TReference>
+    where TRef : AstReference<TRef>
   {
     if (context.GetType(type.FullName, out AstDescribed? value)) {
       var numArgs = type.Arguments.Length;

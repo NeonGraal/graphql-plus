@@ -9,7 +9,7 @@ public class InputAstTests : AstAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithAlternates(string name, string[] alternates)
-    => _checks.String(
+    => _checks.Text(
       () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
       $"( !I {name} | {alternates.Joined(a => $"!AI {a} [] ?")} )");
 
@@ -31,7 +31,7 @@ public class InputAstTests : AstAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithParent(string name, string parent)
-    => _checks.String(
+    => _checks.Text(
       () => new InputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
       $"( !I {name} : {parent} )");
 
@@ -53,7 +53,7 @@ public class InputAstTests : AstAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithFields(string name, FieldInput[] fields)
-    => _checks.String(
+    => _checks.Text(
       () => new InputDeclAst(AstNulls.At, name) { Fields = fields.InputFields() },
       $"( !I {name} {{ {fields.Joined(fi => $"!IF {fi.Name} : {fi.Type}")} }} )");
 
@@ -75,7 +75,7 @@ public class InputAstTests : AstAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithTypeParameters(string name, string[] typeParameters)
-    => _checks.String(
+    => _checks.Text(
       () => new InputDeclAst(AstNulls.At, name) { TypeParameters = typeParameters.TypeParameters() },
       $"( !I {name} < {typeParameters.Joined("$")} > )");
 

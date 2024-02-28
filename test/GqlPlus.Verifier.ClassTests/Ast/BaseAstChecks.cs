@@ -52,7 +52,7 @@ internal class BaseAstChecks<TAst>
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
     => Inequality(() => factory(input1), () => factory(input2), skipIf, factoryExpression);
 
-  public void String(Creator factory, string expected, bool skipIf = false,
+  public void Text(Creator factory, string expected, bool skipIf = false,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
   {
     if (skipIf) {

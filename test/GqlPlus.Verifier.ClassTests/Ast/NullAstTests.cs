@@ -7,8 +7,8 @@ public class NullAstTests
     => _checks.HashCode(() => new NullAst(AstNulls.At));
 
   [Fact]
-  public void String()
-    => _checks.String(() => new NullAst(AstNulls.At), "NULL");
+  public void Text()
+    => _checks.Text(() => new NullAst(AstNulls.At), "NULL");
 
   internal BaseAstChecks<NullAst> _checks = new();
 }

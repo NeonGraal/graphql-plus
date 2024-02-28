@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using System.Globalization;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
@@ -24,16 +25,16 @@ public sealed record class ScalarRangeAst(TokenAt At, bool Excludes)
   => Lower is null
     ? base.GetFields()
       .Append("<")
-      .Append(Upper?.ToString())
+      .Append(Upper?.ToString(CultureInfo.InvariantCulture))
     : Upper is null
     ? base.GetFields()
-      .Append(Lower?.ToString())
+      .Append(Lower?.ToString(CultureInfo.InvariantCulture))
       .Append(">")
     : Lower.Equals(Upper)
     ? base.GetFields()
-      .Append(Lower?.ToString())
+      .Append(Lower?.ToString(CultureInfo.InvariantCulture))
     : base.GetFields()
-      .Append(Lower?.ToString())
+      .Append(Lower?.ToString(CultureInfo.InvariantCulture))
       .Append("~")
-      .Append(Upper?.ToString());
+      .Append(Upper?.ToString(CultureInfo.InvariantCulture));
 }

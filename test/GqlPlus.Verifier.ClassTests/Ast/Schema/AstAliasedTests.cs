@@ -4,59 +4,60 @@ public abstract class AstAliasedTests
   : AstAliasedTests<string>
 { }
 
-public abstract class AstAliasedTests<I> : AstAbbreviatedTests<I>
+public abstract class AstAliasedTests<TInput>
+  : AstAbbreviatedTests<TInput>
 {
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithAlias(I input, string aliased)
+  public void HashCode_WithAlias(TInput input, string aliased)
   => AliasedChecks.HashCode(input, aliased);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithAliases(I input, string alias1, string alias2)
+  public void HashCode_WithAliases(TInput input, string alias1, string alias2)
   => AliasedChecks.HashCode(input, alias1, alias2);
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithAlias(I input, string aliased)
+  public void String_WithAlias(TInput input, string aliased)
     => AliasedChecks.String(input, AliasesString(input, Aliases(aliased)), aliased);
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithAliases(I input, string[] aliases)
+  public void String_WithAliases(TInput input, string[] aliases)
     => AliasedChecks.String(input, AliasesString(input, Aliases(aliases)), aliases);
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithAlias(I input, string aliased)
+  public void Equality_WithAlias(TInput input, string aliased)
     => AliasedChecks.Equality(input, aliased);
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithAliases(I input, string alias1, string alias2)
+  public void Equality_WithAliases(TInput input, string alias1, string alias2)
     => AliasedChecks.Equality(input, alias1, alias2);
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithAlias(I input, string aliased)
+  public void Inequality_WithAlias(TInput input, string aliased)
     => AliasedChecks.Inequality_WithAliases(input, aliased);
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithAliases(I input, string alias1, string alias2)
+  public void Inequality_WithAliases(TInput input, string alias1, string alias2)
     => AliasedChecks.Inequality_WithAliases(input, alias1, alias2);
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_ByAliased(I input, string aliased1, string aliased2)
+  public void Inequality_ByAliased(TInput input, string aliased1, string aliased2)
     => AliasedChecks.Inequality_ByAliased(input, aliased1, aliased2);
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_ByInputs(I input1, I input2, string aliased)
+  public void Inequality_ByInputs(TInput input1, TInput input2, string aliased)
     => AliasedChecks.Inequality_ByInputs(input1, input2, aliased);
 
-  protected virtual string AliasesString(I input, string aliases)
+  protected virtual string AliasesString(TInput input, string aliases)
     => $"( !{AliasedChecks.Abbr} {input}{aliases} )";
 
-  protected override string AbbreviatedString(I input) => AliasesString(input, "");
+  protected override string AbbreviatedString(TInput input) => AliasesString(input, "");
 
   private static string Aliases(params string[] aliases)
     => aliases.Bracket(" [", "]").Joined();
 
-  internal sealed override IAstAbbreviatedChecks<I> AbbreviatedChecks => AliasedChecks;
+  internal sealed override IAstAbbreviatedChecks<TInput> AbbreviatedChecks => AliasedChecks;
 
-  internal abstract IAstAliasedChecks<I> AliasedChecks { get; }
+  internal abstract IAstAliasedChecks<TInput> AliasedChecks { get; }
 }
 
 internal sealed class AstAliasedChecks<TAliased>
@@ -101,7 +102,7 @@ internal class AstAliasedChecks<TInput, TAliased>
       input1!.Equals(input2), _createExpression);
 
   public void String(TInput input, string expected, params string[] aliases)
-    => String(
+    => Text(
       () => CreateAliases(input, aliases), expected,
       factoryExpression: _createExpression);
 

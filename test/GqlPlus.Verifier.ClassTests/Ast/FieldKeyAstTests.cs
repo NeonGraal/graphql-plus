@@ -16,19 +16,19 @@ public class FieldKeyAstTests : AstAbbreviatedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithNumber(decimal number)
-    => _checks.String(
+    => _checks.Text(
       () => FieldKey(number),
       $"( !k {number} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithString(string contents)
-    => _checks.String(
+    => _checks.Text(
       () => FieldKey(contents),
       $"( !k '{contents}' )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumTypeAndValue(string enumType, string enumValue)
-    => _checks.String(() => FieldKey(enumType, enumValue),
+    => _checks.Text(() => FieldKey(enumType, enumValue),
       $"( !k {enumType}.{enumValue} )");
 
   [Theory, RepeatData(Repeats)]

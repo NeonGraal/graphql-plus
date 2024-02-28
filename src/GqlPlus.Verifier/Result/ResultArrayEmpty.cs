@@ -1,22 +1,23 @@
 ﻿namespace GqlPlus.Verifier.Result;
 
-public readonly struct ResultArrayEmpty<T> : IResultArray<T>, IResultEmpty<T[]>
+public readonly struct ResultArrayEmpty<TValue>
+  : IResultArray<TValue>, IResultEmpty<TValue[]>
 {
-  public IResult<R> AsPartial<R>(R result, Action<T[]>? withValue = null, Action? action = null)
+  public IResult<TResult> AsPartial<TResult>(TResult result, Action<TValue[]>? withValue = null, Action? action = null)
   {
     action?.Invoke();
     return result.Ok();
   }
 
-  public IResultArray<R> AsPartialArray<R>(IEnumerable<R> result, Action<T[]>? withValue = null)
+  public IResultArray<TResult> AsPartialArray<TResult>(IEnumerable<TResult> result, Action<TValue[]>? withValue = null)
     => result.OkArray();
 
-  public IResult<R> AsResult<R>(R? _ = default)
+  public IResult<TResult> AsResult<TResult>(TResult? _ = default)
     => _.Empty();
 
-  public IResultArray<R> AsResultArray<R>(R[]? _ = default)
+  public IResultArray<TResult> AsResultArray<TResult>(TResult[]? _ = default)
     => _.EmptyArray();
 
-  public IResult<R> Map<R>(SelectResult<T[], R> onValue, OnResult<R>? otherwise = null)
-    => otherwise?.Invoke() ?? AsResult<R>();
+  public IResult<TResult> Map<TResult>(SelectResult<TValue[], TResult> onValue, OnResult<TResult>? otherwise = null)
+    => otherwise?.Invoke() ?? AsResult<TResult>();
 }

@@ -1,8 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿namespace GqlPlus.Verifier.Result;
 
-namespace GqlPlus.Verifier.Result;
-
-public class ResultTests : BaseResultTests
+public class ResultTests
+  : BaseResultTests
 {
   [Fact]
   public void Optional_ThrowsInvalidOperation()
@@ -27,20 +26,20 @@ public class ResultTests : BaseResultTests
   }
 
   [ExcludeFromCodeCoverage]
-  public class TestResult<T> : IResult<T>
+  public class TestResult<TValue> : IResult<TValue>
   {
-    public IResult<R> AsPartial<R>(R result, Action<T>? withValue = null, Action? action = null) => throw new NotImplementedException();
-    public IResult<R> AsResult<R>(R? _ = default) => throw new NotImplementedException();
-    public IResult<R> Map<R>(SelectResult<T, R> onValue, OnResult<R>? otherwise = null) => throw new NotImplementedException();
+    public IResult<TResult> AsPartial<TResult>(TResult result, Action<TValue>? withValue = null, Action? action = null) => throw new NotImplementedException();
+    public IResult<TResult> AsResult<TResult>(TResult? _ = default) => throw new NotImplementedException();
+    public IResult<TResult> Map<TResult>(SelectResult<TValue, TResult> onValue, OnResult<TResult>? otherwise = null) => throw new NotImplementedException();
   }
 
   [ExcludeFromCodeCoverage]
   public class TestResultArray<T> : IResultArray<T>
   {
-    public IResult<R> AsPartial<R>(R result, Action<T[]>? withValue = null, Action? action = null) => throw new NotImplementedException();
-    public IResultArray<R> AsPartialArray<R>(IEnumerable<R> result, Action<T[]>? withValue = null) => throw new NotImplementedException();
-    public IResult<R> AsResult<R>(R? _ = default) => throw new NotImplementedException();
-    public IResultArray<R> AsResultArray<R>(R[]? _ = null) => throw new NotImplementedException();
-    public IResult<R> Map<R>(SelectResult<T[], R> onValue, OnResult<R>? otherwise = null) => throw new NotImplementedException();
+    public IResult<TResult> AsPartial<TResult>(TResult result, Action<T[]>? withValue = null, Action? action = null) => throw new NotImplementedException();
+    public IResultArray<TResult> AsPartialArray<TResult>(IEnumerable<TResult> result, Action<T[]>? withValue = null) => throw new NotImplementedException();
+    public IResult<TResult> AsResult<TResult>(TResult? _ = default) => throw new NotImplementedException();
+    public IResultArray<TResult> AsResultArray<TResult>(TResult[]? _ = null) => throw new NotImplementedException();
+    public IResult<TResult> Map<TResult>(SelectResult<T[], TResult> onValue, OnResult<TResult>? otherwise = null) => throw new NotImplementedException();
   }
 }

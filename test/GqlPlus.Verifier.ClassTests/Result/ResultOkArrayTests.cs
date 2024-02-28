@@ -23,10 +23,10 @@ public class ResultOkArrayTests : BaseResultTests
   [Fact]
   public void AsPartialArray_ReturnsResultOk()
   {
-    var result = _okArray.AsPartialArray(_sample);
+    var result = _okArray.AsPartialArray(SampleArray);
 
     result.Should().BeOfType<ResultArrayOk<string>>();
-    result.Optional().Should().BeEquivalentTo(_sample);
+    result.Optional().Should().BeEquivalentTo(SampleArray);
   }
 
   [Fact]
@@ -66,7 +66,7 @@ public class ResultOkArrayTests : BaseResultTests
   [Fact]
   public void AsResultArray_ReturnsResultArrayOk()
   {
-    var result = _okArray.AsResultArray(_sample);
+    var result = _okArray.AsResultArray(SampleArray);
 
     result.Should().BeOfType<ResultArrayOk<string>>();
     result.Optional().Should().BeEquivalentTo(new object[] { Ok });

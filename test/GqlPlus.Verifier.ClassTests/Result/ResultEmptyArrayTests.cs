@@ -25,7 +25,7 @@ public class ResultEmptyArrayTests : BaseResultTests
   {
     var withValue = false;
 
-    var result = _emptyArray.AsPartialArray(_sample, v => withValue = true);
+    var result = _emptyArray.AsPartialArray(SampleArray, v => withValue = true);
 
     result.Should().BeOfType<ResultArrayOk<string>>();
     using var scope = new AssertionScope();
@@ -36,7 +36,7 @@ public class ResultEmptyArrayTests : BaseResultTests
   [Fact]
   public void AsResultArray_ReturnsResultArrayEmpty()
   {
-    var result = _emptyArray.AsResultArray(_sample);
+    var result = _emptyArray.AsResultArray(SampleArray);
 
     result.Should().BeOfType<ResultArrayEmpty<string>>();
   }

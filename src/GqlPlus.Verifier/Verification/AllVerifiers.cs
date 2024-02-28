@@ -42,41 +42,41 @@ public static class AllVerifiers
       .AddVerifyScalarContext<VerifyScalarUnion>()
     ;
 
-  public static IServiceCollection AddVerify<T, S>(this IServiceCollection services)
-    where S : class, IVerify<T>
-    => services.AddSingleton<IVerify<T>, S>();
+  public static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)
+    where TService : class, IVerify<TValue>
+    => services.AddSingleton<IVerify<TValue>, TService>();
 
-  public static IServiceCollection TryAddVerify<T, S>(this IServiceCollection services)
-    where S : class, IVerify<T>
+  public static IServiceCollection TryAddVerify<TValue, TService>(this IServiceCollection services)
+    where TService : class, IVerify<TValue>
   {
-    services.TryAddSingleton<IVerify<T>, S>();
+    services.TryAddSingleton<IVerify<TValue>, TService>();
     return services;
   }
 
-  public static IServiceCollection AddVerifyUsageNamed<U, D, S>(this IServiceCollection services)
-    where S : class, IVerifyNamed<U, D>
-    where U : AstAbbreviated where D : AstNamed
+  public static IServiceCollection AddVerifyUsageNamed<TUsage, TNamed, TService>(this IServiceCollection services)
+    where TService : class, IVerifyNamed<TUsage, TNamed>
+    where TUsage : AstAbbreviated where TNamed : AstNamed
   => services
-      .AddSingleton<IVerifyNamed<U, D>, S>()
-      .TryAddVerify<U, NullVerifier<U>>()
-      .TryAddVerify<D, NullVerifier<D>>();
+      .AddSingleton<IVerifyNamed<TUsage, TNamed>, TService>()
+      .TryAddVerify<TUsage, NullVerifier<TUsage>>()
+      .TryAddVerify<TNamed, NullVerifier<TNamed>>();
 
-  public static IServiceCollection AddVerifyAliased<A, S>(this IServiceCollection services)
-    where S : class, IVerifyAliased<A>
-    where A : AstAliased
+  public static IServiceCollection AddVerifyAliased<TAliased, TService>(this IServiceCollection services)
+    where TService : class, IVerifyAliased<TAliased>
+    where TAliased : AstAliased
     => services
-      .AddSingleton<IVerifyAliased<A>, S>()
-      .TryAddVerify<A, NullVerifier<A>>();
+      .AddSingleton<IVerifyAliased<TAliased>, TService>()
+      .TryAddVerify<TAliased, NullVerifier<TAliased>>();
 
-  public static IServiceCollection AddVerifyUsageAliased<U, A, S>(this IServiceCollection services)
-    where S : class, IVerifyUsage<U, A>
-    where U : AstAbbreviated where A : AstAliased
+  public static IServiceCollection AddVerifyUsageAliased<TUsage, TAliased, TService>(this IServiceCollection services)
+    where TService : class, IVerifyUsage<TUsage, TAliased>
+    where TUsage : AstAbbreviated where TAliased : AstAliased
     => services
-      .AddSingleton<IVerifyUsage<U, A>, S>()
-      .TryAddVerify<U, NullVerifier<U>>()
-      .TryAddVerify<A, NullVerifier<A>>();
+      .AddSingleton<IVerifyUsage<TUsage, TAliased>, TService>()
+      .TryAddVerify<TUsage, NullVerifier<TUsage>>()
+      .TryAddVerify<TAliased, NullVerifier<TAliased>>();
 
-  public static IServiceCollection AddVerifyScalarContext<S>(this IServiceCollection services)
-    where S : class, IVerifyScalar
-    => services.AddSingleton<IVerifyScalar, S>();
+  public static IServiceCollection AddVerifyScalarContext<TService>(this IServiceCollection services)
+    where TService : class, IVerifyScalar
+    => services.AddSingleton<IVerifyScalar, TService>();
 }

@@ -7,8 +7,8 @@ public class AlternateAstTests
     => _checks.HashCode(() => Alternate(argument));
 
   [Theory, RepeatData(Repeats)]
-  public void String(string argument)
-    => _checks.String(
+  public void Text(string argument)
+    => _checks.Text(
       () => Alternate(argument),
       $"( !AI {argument} )");
 

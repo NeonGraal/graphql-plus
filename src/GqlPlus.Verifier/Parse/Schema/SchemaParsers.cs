@@ -57,34 +57,34 @@ public static class SchemaParsers
       .AddParser<SchemaAst, ParseSchema>()
       ;
 
-  public static IServiceCollection AddEnum<E>(this IServiceCollection services)
-    where E : struct
-    => services.AddParser<IEnumParser<E>, E, EnumParser<E>>();
+  public static IServiceCollection AddEnum<TEnum>(this IServiceCollection services)
+    where TEnum : struct
+    => services.AddParser<IEnumParser<TEnum>, TEnum, EnumParser<TEnum>>();
 
-  public static IServiceCollection AddOption<O>(this IServiceCollection services)
-    where O : struct
+  public static IServiceCollection AddOption<TOption>(this IServiceCollection services)
+    where TOption : struct
     => services
-      .AddParser<IOptionParser<O>, O, OptionParser<O>>()
-      .AddParser<IEnumParser<O>, O, EnumParser<O>>();
+      .AddParser<IOptionParser<TOption>, TOption, OptionParser<TOption>>()
+      .AddParser<IEnumParser<TOption>, TOption, EnumParser<TOption>>();
 
-  public static IServiceCollection AddObjectParser<D, F, R>(this IServiceCollection services)
-    where D : ParseObjectDefinition<F, R>
-    where F : AstField<R>
-    where R : AstReference<R>
-    => services.AddParser<ObjectDefinition<F, R>, D>();
+  public static IServiceCollection AddObjectParser<TObject, TField, TRef>(this IServiceCollection services)
+    where TObject : ParseObjectDefinition<TField, TRef>
+    where TField : AstField<TRef>
+    where TRef : AstReference<TRef>
+    => services.AddParser<ObjectDefinition<TField, TRef>, TObject>();
 
-  public static IServiceCollection AddDeclarationParser<D, P>(this IServiceCollection services, string selector)
-    where D : AstDeclaration
-    where P : class, Parser<D>.I
+  public static IServiceCollection AddDeclarationParser<TObject, TParser>(this IServiceCollection services, string selector)
+    where TObject : AstDeclaration
+    where TParser : class, Parser<TObject>.I
     => services
-      .AddParser<D, P>()
-      .AddSingleton<IParseDeclaration>(c => new ParseDeclaration<D>(selector, c.GetRequiredService<Parser<D>.D>()));
+      .AddParser<TObject, TParser>()
+      .AddSingleton<IParseDeclaration>(c => new ParseDeclaration<TObject>(selector, c.GetRequiredService<Parser<TObject>.D>()));
 
-  public static IServiceCollection AddScalarParser<S, P>(this IServiceCollection services)
-    where P : class, Parser<S>.I, IParseScalar
+  public static IServiceCollection AddScalarParser<TScalar, TParser>(this IServiceCollection services)
+    where TParser : class, Parser<TScalar>.I, IParseScalar
     => services
-      .AddArrayParser<S, P>()
-      .AddSingleton<IParseScalar>(c => c.GetRequiredService<P>());
+      .AddArrayParser<TScalar, TParser>()
+      .AddSingleton<IParseScalar>(c => c.GetRequiredService<TParser>());
 
   public static IServiceCollection AddNullParsers(this IServiceCollection services)
     => services

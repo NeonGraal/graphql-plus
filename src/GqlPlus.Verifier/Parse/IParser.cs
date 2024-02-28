@@ -51,28 +51,28 @@ public class Parser<T>
   }
 }
 
-public class Parser<I, T>
-  where I : Parser<T>.I
+public class Parser<TInterface, T>
+  where TInterface : Parser<T>.I
 {
-  public delegate I D();
+  public delegate TInterface D();
 
-  public class L(D factory) : Lazy<I>(() => factory())
+  public class L(D factory) : Lazy<TInterface>(() => factory())
   {
     public static implicit operator L(D factory) => new(factory.ThrowIfNull());
 
-    public I I => Value;
+    public TInterface I => Value;
   }
 }
 
-public class ParserArray<I, T>
-  where I : Parser<T>.IA
+public class ParserArray<TInterface, T>
+  where TInterface : Parser<T>.IA
 {
-  public delegate I DA();
+  public delegate TInterface DA();
 
-  public class LA(DA factory) : Lazy<I>(() => factory())
+  public class LA(DA factory) : Lazy<TInterface>(() => factory())
   {
     public static implicit operator LA(DA factory) => new(factory.ThrowIfNull());
 
-    public I I => Value;
+    public TInterface I => Value;
   }
 }

@@ -29,25 +29,25 @@ public class ArgumentAstTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithVariable(string variable)
-    => _checks.String(
+    => _checks.Text(
       () => new ArgumentAst(AstNulls.At, variable),
       $"( !a ${variable} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithConstant(string enumValue)
-    => _checks.String(
+    => _checks.Text(
       () => new ConstantAst(enumValue.FieldKey()),
       $"( !k {enumValue} )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithValues(string enumValue)
-    => _checks.String(
+    => _checks.Text(
       () => new ArgumentAst(AstNulls.At, enumValue.ArgumentList()),
       $"( !a [ !a ${enumValue} !k {enumValue} ] )");
 
   [Theory, RepeatData(Repeats)]
   public void String_WithFields(string key, string enumValue)
-    => _checks.String(
+    => _checks.Text(
       () => new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),
       $"( !a {{ ( !k {key} ):( !a ${enumValue} ) ( !k {enumValue} ):( !k {key} ) }} )",
       key == enumValue);

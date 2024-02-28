@@ -54,7 +54,7 @@ internal class RenderTypeConverter : IYamlTypeConverter
 
   private static void WriteValue(IEmitter emitter, RenderValue value, string tag)
   {
-    var isString = !string.IsNullOrWhiteSpace(value.String);
+    var isString = !string.IsNullOrWhiteSpace(value.Text);
     var plainImplicit = string.IsNullOrWhiteSpace(tag) && !isString;
     var tagName = isString || plainImplicit ? new TagName() : new TagName("!" + tag);
 
@@ -63,10 +63,10 @@ internal class RenderTypeConverter : IYamlTypeConverter
       text = value.Identifier;
     } else if (value.Boolean is not null) {
       text = value.Boolean?.TrueFalse();
-    } else if (value.Decimal is not null) {
-      text = $"{value.Decimal}";
-    } else if (value.String is not null) {
-      text = value.String;
+    } else if (value.Number is not null) {
+      text = $"{value.Number}";
+    } else if (value.Text is not null) {
+      text = value.Text;
     }
 
     emitter.Emit(new Scalar(default, tagName, text!, ScalarStyle.Any, plainImplicit, isString));

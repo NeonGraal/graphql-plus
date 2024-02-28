@@ -1,27 +1,28 @@
 ﻿namespace GqlPlus.Verifier.Result;
 
-public readonly struct ResultOk<T> : IResultOk<T>
+public readonly struct ResultOk<TValue>
+  : IResultOk<TValue>
 {
-  public T Result { get; }
+  public TValue Result { get; }
 
-  public ResultOk(T result)
+  public ResultOk(TValue result)
   {
     ArgumentNullException.ThrowIfNull(result);
     Result = result;
   }
 
-  public IResult<R> AsPartial<R>(R result, Action<T>? withValue = null, Action? action = null)
+  public IResult<TResult> AsPartial<TResult>(TResult result, Action<TValue>? withValue = null, Action? action = null)
   {
     withValue?.Invoke(Result);
     action?.Invoke();
     return result.Ok();
   }
 
-  public IResult<R> AsResult<R>(R? _ = default)
-    => Result is R newResult
+  public IResult<TResult> AsResult<TResult>(TResult? _ = default)
+    => Result is TResult newResult
       ? newResult.Ok()
       : _.Empty();
 
-  public IResult<R> Map<R>(SelectResult<T, R> onValue, OnResult<R>? otherwise = null)
+  public IResult<TResult> Map<TResult>(SelectResult<TValue, TResult> onValue, OnResult<TResult>? otherwise = null)
     => onValue(Result);
 }

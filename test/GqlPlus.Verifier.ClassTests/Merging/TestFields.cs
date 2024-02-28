@@ -3,10 +3,10 @@ using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
-public abstract class TestFields<TField, TReference>
+public abstract class TestFields<TField, TRef>
   : TestAliased<TField>
-  where TField : AstField<TReference>, IAstDescribed
-  where TReference : AstReference<TReference>
+  where TField : AstField<TRef>, IAstDescribed
+  where TRef : AstReference<TRef>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameModifers_ReturnsTrue(string input)
@@ -63,7 +63,7 @@ public abstract class TestFields<TField, TReference>
       [MakeField(name, type, typeDescription: description), MakeField(name, type, typeDescription: description)],
       MakeField(name, type, typeDescription: description));
 
-  internal abstract FieldsMerger<TField, TReference> MergerField { get; }
+  internal abstract FieldsMerger<TField, TRef> MergerField { get; }
   internal override GroupsMerger<TField> MergerGroups => MergerField;
 
   protected abstract TField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "");

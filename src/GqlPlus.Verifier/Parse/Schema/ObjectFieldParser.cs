@@ -5,40 +5,40 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public abstract class ObjectFieldParser<F, R> : Parser<F>.I
-  where F : AstField<R> where R : AstReference<R>
+public abstract class ObjectFieldParser<TField, TRef> : Parser<TField>.I
+  where TField : AstField<TRef> where TRef : AstReference<TRef>
 {
   private readonly Parser<string>.LA _aliases;
   private readonly Parser<ModifierAst>.LA _modifiers;
-  private readonly Parser<R>.L _reference;
+  private readonly Parser<TRef>.L _reference;
 
   protected ObjectFieldParser(
     Parser<string>.DA aliases,
     Parser<ModifierAst>.DA modifiers,
-    Parser<R>.D reference)
+    Parser<TRef>.D reference)
   {
     _aliases = aliases;
     _reference = reference;
     _modifiers = modifiers;
   }
 
-  public IResult<F> Parse<TContext>(TContext tokens, string label)
+  public IResult<TField> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     var at = tokens.At;
     tokens.String(out var description);
     if (!tokens.Identifier(out var name)) {
-      return 0.Empty<F>();
+      return 0.Empty<TField>();
     }
 
     var hasParameter = FieldParameter(tokens);
     if (hasParameter.IsError()) {
-      return hasParameter.AsResult<F>();
+      return hasParameter.AsResult<TField>();
     }
 
     var hasAliases = _aliases.Parse(tokens, label);
     if (hasAliases.IsError()) {
-      return hasAliases.AsResult<F>();
+      return hasAliases.AsResult<TField>();
     }
 
     var field = Field(at, name, description, Reference(at, ""));
@@ -51,7 +51,7 @@ public abstract class ObjectFieldParser<F, R> : Parser<F>.I
         hasParameter.WithResult(parameter => ApplyFieldParameters(field, parameter));
         var modifiers = _modifiers.Parse(tokens, label);
         if (modifiers.IsError()) {
-          return modifiers.AsResult<F>();
+          return modifiers.AsResult<TField>();
         }
 
         modifiers.WithResult(modifiers => field.Modifiers = modifiers);
@@ -66,13 +66,13 @@ public abstract class ObjectFieldParser<F, R> : Parser<F>.I
     return FieldEnumValue(tokens, field);
   }
 
-  protected abstract void ApplyFieldParameters(F field, ParameterAst[] parameters);
-  protected abstract F Field(TokenAt at, string name, string description, R typeReference);
-  protected abstract IResult<F> FieldDefault<TContext>(TContext tokens, F field)
+  protected abstract void ApplyFieldParameters(TField field, ParameterAst[] parameters);
+  protected abstract TField Field(TokenAt at, string name, string description, TRef typeReference);
+  protected abstract IResult<TField> FieldDefault<TContext>(TContext tokens, TField field)
       where TContext : Tokenizer;
-  protected abstract IResult<F> FieldEnumValue<TContext>(TContext tokens, F field)
+  protected abstract IResult<TField> FieldEnumValue<TContext>(TContext tokens, TField field)
       where TContext : Tokenizer;
   protected abstract IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
       where TContext : Tokenizer;
-  protected abstract R Reference(TokenAt at, string param, string description = "");
+  protected abstract TRef Reference(TokenAt at, string param, string description = "");
 }

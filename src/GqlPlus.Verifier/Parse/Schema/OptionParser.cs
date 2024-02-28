@@ -3,14 +3,14 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class OptionParser<O>(
-  Parser<IEnumParser<O>, O>.D parser
-) : IOptionParser<O>
-  where O : struct
+internal class OptionParser<TOption>(
+  Parser<IEnumParser<TOption>, TOption>.D parser
+) : IOptionParser<TOption>
+  where TOption : struct
 {
-  private readonly Parser<IEnumParser<O>, O>.L _parser = parser;
+  private readonly Parser<IEnumParser<TOption>, TOption>.L _parser = parser;
 
-  public IResult<O> Parse<TContext>(TContext tokens, string label)
+  public IResult<TOption> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     if (tokens.Take('(')) {
@@ -22,11 +22,11 @@ internal class OptionParser<O>(
           : tokens.Partial(label, "')' after option", () => result));
     }
 
-    return 0.Empty<O>();
+    return 0.Empty<TOption>();
   }
 }
 
-public interface IOptionParser<O>
-  : Parser<O>.I
-  where O : struct
+public interface IOptionParser<TOption>
+  : Parser<TOption>.I
+  where TOption : struct
 { }

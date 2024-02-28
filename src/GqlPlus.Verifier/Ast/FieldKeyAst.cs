@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Ast;
@@ -11,7 +12,7 @@ public record class FieldKeyAst(TokenAt At)
   internal string? Value { get; }
 
   public decimal? Number { get; }
-  public string? String { get; }
+  public string? Text { get; }
   public string? EnumValue
     => Type.Suffixed(".") + Value;
 
@@ -22,20 +23,20 @@ public record class FieldKeyAst(TokenAt At)
     => Number = number;
   internal FieldKeyAst(TokenAt at, string content)
     : this(at)
-    => String = content;
+    => Text = content;
   internal FieldKeyAst(TokenAt at, string enumType, string enumValue)
     : this(at)
     => (Type, Value) = (enumType, enumValue);
 
   public int CompareTo(FieldKeyAst? other)
     => Number is not null ? Number?.CompareTo(other?.Number) ?? -1
-      : String is not null ? string.Compare(String, other?.String, StringComparison.Ordinal)
+      : Text is not null ? string.Compare(Text, other?.Text, StringComparison.Ordinal)
       : EnumValue is not null ? string.Compare(EnumValue, other?.EnumValue, StringComparison.Ordinal)
       : -1;
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Append(Number?.ToString())
+      .Append(Number?.ToString(CultureInfo.InvariantCulture))
       .Append(EnumValue?.ToString())
-      .Append(String is not null ? $"'{String}'" : null);
+      .Append(Text is not null ? $"'{Text}'" : null);
 }

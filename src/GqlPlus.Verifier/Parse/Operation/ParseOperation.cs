@@ -52,7 +52,7 @@ internal class ParseOperation(
       if (!argument.Optional(value => ast.Argument = value)) {
         return argument.AsPartial(Final());
       }
-    } else if (!_object.Parse(tokens, label).Required(selections => ast.Object = selections)) {
+    } else if (!_object.Parse(tokens, label).Required(selections => ast.ResultObject = selections)) {
       return tokens.Partial(label, "Object or Type", Final);
     }
 

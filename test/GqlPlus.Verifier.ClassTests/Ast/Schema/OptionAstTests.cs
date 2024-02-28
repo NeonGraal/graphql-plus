@@ -9,7 +9,7 @@ public class OptionAstTests : AstAliasedTests
 
   [Theory, RepeatData(Repeats)]
   public void String_WithSettings(string name, string[] settings)
-    => _checks.String(
+    => _checks.Text(
       () => new OptionDeclAst(AstNulls.At, name) { Settings = settings.OptionSettings() },
       $"( !O {name} {{ {settings.Joined(s => $"!OS {s} =( !k '{s}' )")} }} )");
 

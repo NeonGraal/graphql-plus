@@ -14,8 +14,8 @@ public abstract class AstBaseTests<TInput>
   => BaseChecks.HashCode(input);
 
   [Theory, RepeatData(Repeats)]
-  public void String(TInput input)
-  => BaseChecks.String(input, InputString(input));
+  public void Text(TInput input)
+  => BaseChecks.Text(input, InputString(input));
 
   [Theory, RepeatData(Repeats)]
   public void Equality(TInput input)
@@ -59,8 +59,8 @@ internal class AstBaseChecks<TInput, TAst>
       () => CreateInput(input) with { At = AstNulls.At },
       _createExpression);
 
-  public void String(TInput input, string expected)
-    => String(
+  public void Text(TInput input, string expected)
+    => Text(
       () => CreateInput(input), expected,
       factoryExpression: _createExpression);
 
@@ -86,7 +86,7 @@ internal interface IAstBaseChecks
 internal interface IAstBaseChecks<TInput>
 {
   void HashCode(TInput input);
-  void String(TInput input, string expected);
+  void Text(TInput input, string expected);
   void Equality(TInput input);
   void Inequality(TInput input1, TInput input2);
 }

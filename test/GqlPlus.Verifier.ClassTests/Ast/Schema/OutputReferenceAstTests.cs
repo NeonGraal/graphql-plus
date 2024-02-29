@@ -18,7 +18,7 @@ public class OutputReferenceAstTests : AstReferenceTests<OutputReferenceAst>
     => _checks.Equality(
       () => new OutputReferenceAst(AstNulls.At, name) { EnumValue = enumValue });
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenEnumValues(string name, string enumValue1, string enumValue2)
     => _checks.InequalityBetween(enumValue1, enumValue2,
       enumValue => new OutputReferenceAst(AstNulls.At, name) { EnumValue = enumValue },

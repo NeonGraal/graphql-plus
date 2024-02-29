@@ -94,7 +94,7 @@ public class MergeOutputFieldsTests
       MakeFieldEnum(name, type, value) with { Aliases = [alias] }],
       MakeFieldEnum(name, type, value) with { Aliases = [alias] });
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsEnumTwoAlias_ReturnsExpected(string name, string type, string alias1, string alias2, string value)
     => Merge_Expected([
       MakeFieldEnum(name, type, value) with { Aliases = [alias1] },

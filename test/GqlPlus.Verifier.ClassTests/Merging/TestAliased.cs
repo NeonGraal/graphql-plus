@@ -58,22 +58,22 @@ public abstract class TestAliased<TAst>
   public void Merge_TwoAstsSameAlias_ReturnsExpected(string name, string alias)
   => Merge_Expected([MakeAliased(name, [alias]), MakeAliased(name, [alias])], MakeAliased(name, [alias]));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsTwoAlias_ReturnsExpected(string name, string alias1, string alias2)
   => Merge_Expected([MakeAliased(name, [alias1]), MakeAliased(name, [alias2])],
     alias1 == alias2, MakeAliased(name, [alias1, alias2]));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Merge_ThreeAstsOneAlias_ReturnsExpected(string name1, string name2, string alias)
     => Merge_Expected([MakeAliased(name1, []), MakeAliased(name2, []), MakeAliased(name1, [alias])],
       name1 == name2, MakeAliased(name1, [alias]), MakeAliased(name2, []));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Merge_ThreeAstsDifferentAliases_ReturnsExpected(string name1, string name2, string alias1, string alias2)
   => Merge_Expected([MakeAliased(name1, []), MakeAliased(name2, [alias1]), MakeAliased(name1, [alias2])],
     name1 == name2 || alias1 == alias2, MakeAliased(name1, [alias2]), MakeAliased(name2, [alias1]));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Merge_ThreeAstsTwoAliases_ReturnsExpected(string name1, string name2, string alias1, string alias2)
   => Merge_Expected([MakeAliased(name1, [alias1]), MakeAliased(name2, []), MakeAliased(name1, [alias2])],
     name1 == name2 || alias1 == alias2, MakeAliased(name1, [alias1, alias2]), MakeAliased(name2, []));

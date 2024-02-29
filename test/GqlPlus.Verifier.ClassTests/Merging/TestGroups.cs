@@ -16,7 +16,7 @@ public abstract class TestGroups<TAst>
     CanMerge_True([MakeAst(name1), MakeAst(name2)]);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsDifferentName_ReturnsAsts(string name1, string name2)
   {
     var ast1 = MakeAst(name1);

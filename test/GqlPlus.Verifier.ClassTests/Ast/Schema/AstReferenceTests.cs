@@ -16,7 +16,7 @@ public abstract class AstReferenceTests<TRef>
   public void Equality_WithIsTypeParameter(string input)
     => ReferenceChecks.Equality_WithIsTypeParameter(input);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenIsTypeParameters(string input, bool isTypeParam1)
     => ReferenceChecks.Inequality_BetweenIsTypeParameters(input, isTypeParam1);
 
@@ -32,7 +32,7 @@ public abstract class AstReferenceTests<TRef>
   public void Equality_WithArguments(string input, string[] arguments)
     => ReferenceChecks.Equality_WithArguments(input, arguments);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenArguments(string input, string[] arguments1, string[] arguments2)
     => ReferenceChecks.Inequality_BetweenArguments(input, arguments1, arguments2);
 

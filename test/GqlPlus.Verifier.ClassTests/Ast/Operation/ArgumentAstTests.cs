@@ -60,14 +60,14 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithVariable(string variable)
     => _checks.InequalityBetween(variable, variable + "a",
-      v => new ArgumentAst(AstNulls.At, v), false);
+      v => new ArgumentAst(AstNulls.At, v));
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithConstant(string enumType, string enumValue)
     => _checks.Equality(
       () => new FieldKeyAst(AstNulls.At, enumType, enumValue));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_WithConstant(string enumType, string enumValue)
     => _checks.Inequality(
       () => new FieldKeyAst(AstNulls.At, enumType, enumValue),

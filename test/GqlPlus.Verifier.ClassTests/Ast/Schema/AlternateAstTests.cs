@@ -16,7 +16,7 @@ public class AlternateAstTests
   public void Equality_WithKey(string argument)
     => _checks.Equality(() => Alternate(argument));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality(string argument1, string argument2)
     => _checks.InequalityBetween(argument1, argument2, Alternate, argument1 == argument2);
 

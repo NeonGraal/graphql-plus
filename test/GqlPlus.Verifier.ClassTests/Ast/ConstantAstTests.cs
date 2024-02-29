@@ -81,10 +81,9 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithEnumValue(string enumValue)
     => _checks.InequalityBetween(enumValue, enumValue + "a",
-      l => l.FieldKey(),
-      false);
+      l => l.FieldKey());
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.Inequality(
       () => new FieldKeyAst(AstNulls.At, enumType, enumValue),
@@ -94,7 +93,7 @@ public class ConstantAstTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithEnumType(string enumType)
     => _checks.InequalityBetween(enumType, enumType + "a",
-      e => new FieldKeyAst(AstNulls.At, e, "enumValue"), false);
+      e => new FieldKeyAst(AstNulls.At, e, "enumValue"));
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithValues(string enumValue)

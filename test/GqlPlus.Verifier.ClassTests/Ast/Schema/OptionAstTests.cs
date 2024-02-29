@@ -18,7 +18,7 @@ public class OptionAstTests : AstAliasedTests
     => _checks.Equality(
       () => new OptionDeclAst(AstNulls.At, name) { Settings = settings.OptionSettings() });
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenSettings(string name, string[] settings1, string[] settings2)
     => _checks.InequalityBetween(settings1, settings2,
       settings => new OptionDeclAst(AstNulls.At, name) { Settings = settings.OptionSettings() },

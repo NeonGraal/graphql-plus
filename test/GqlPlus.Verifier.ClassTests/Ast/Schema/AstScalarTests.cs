@@ -21,7 +21,7 @@ public abstract class AstScalarTests<TInput, TMember>
     => Checks.Equality(
       () => NewScalar(name, ScalarMembers(input)));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenMembers(string name, TInput input1, TInput input2)
     => Checks.InequalityBetween(input1, input2,
       input => NewScalar(name, ScalarMembers(input)),

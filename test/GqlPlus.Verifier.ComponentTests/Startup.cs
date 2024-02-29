@@ -7,6 +7,7 @@ using GqlPlus.Verifier.Parse.Schema;
 using GqlPlus.Verifier.Verification;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Xunit.DependencyInjection;
 using Xunit.DependencyInjection.Logging;
 
 namespace GqlPlus.Verifier;
@@ -22,6 +23,7 @@ public static class Startup
         .AddXunitOutput(options => options.TimestampFormat = "HH:mm:ss.fff")
         .AddFilter("NullVerifier", LogLevel.Warning)
       )
+      .AddSkippableFactSupport()
       .AddCommonParsers()
       .AddOperationParsers()
       .AddSchemaParsers()

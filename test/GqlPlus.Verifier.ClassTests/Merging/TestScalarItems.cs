@@ -17,7 +17,7 @@ public abstract class TestScalarItems<TItem>
       [MakeAst(name), MakeAst(name)],
       MakeAst(name));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsDifferent_ReturnsExpected(string name1, string name2)
     => Merge_Expected(
       [MakeAst(name1), MakeAst(name2)],

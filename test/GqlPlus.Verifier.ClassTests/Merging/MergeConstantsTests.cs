@@ -14,7 +14,7 @@ public class MergeConstantsTests
     Merge_Expected([astA, astB], astB);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsValueAndList_ReturnsExpected(string valueA, string[] listB)
   {
     var astA = MakeValue(valueA);
@@ -32,7 +32,7 @@ public class MergeConstantsTests
     Merge_Expected([astA, astB], MakeObject(fieldsB));
   }
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsListAndValue_ReturnsExpected(string[] listA, string valueB)
   {
     var astA = MakeList(listA);

@@ -18,7 +18,7 @@ public class InputFieldAstTests : AstFieldTests<InputFieldAst, InputReferenceAst
     => _checks.Equality(
       () => new InputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Default = new FieldKeyAst(AstNulls.At, def) });
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenDefaults(FieldInput input, string def1, string def2)
     => _checks.InequalityBetween(def1, def2,
       def => new InputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Default = new FieldKeyAst(AstNulls.At, def) },

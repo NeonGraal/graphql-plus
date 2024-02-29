@@ -18,7 +18,7 @@ public class EnumAstTests : AstAliasedTests
     => _checks.Equality(
       () => new EnumDeclAst(AstNulls.At, name) { Parent = parent });
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenParent(string name, string parent1, string parent2)
     => _checks.InequalityBetween(parent1, parent2,
       parent => new EnumDeclAst(AstNulls.At, name) { Parent = parent },
@@ -40,7 +40,7 @@ public class EnumAstTests : AstAliasedTests
     => _checks.Equality(
       () => new EnumDeclAst(AstNulls.At, name) { Members = enumMembers.EnumMembers() });
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenEnumMembers(string name, string[] enumMembers1, string[] enumMembers2)
     => _checks.InequalityBetween(enumMembers1, enumMembers2,
       enumMember => new EnumDeclAst(AstNulls.At, name) { Members = enumMember.EnumMembers() },

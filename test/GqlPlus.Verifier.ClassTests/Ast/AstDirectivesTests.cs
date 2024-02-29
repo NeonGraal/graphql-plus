@@ -23,11 +23,11 @@ public abstract class AstDirectivesTests<TInput>
   public void Inequality_WithDirective(TInput input, string[] directives)
     => DirectivesChecks.Inequality_WithDirective(input, directives);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_ByDirectives(TInput input, string[] directives1, string[] directives2)
     => DirectivesChecks.Inequality_ByDirectives(input, directives1, directives2);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_ByNames(TInput input1, TInput input2, string[] directives)
     => DirectivesChecks.Inequality_ByInputs(input1, input2, directives);
 

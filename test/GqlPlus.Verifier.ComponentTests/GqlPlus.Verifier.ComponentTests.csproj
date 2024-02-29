@@ -13,9 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Verify.Xunit" Version="23.2.1" />
+    <PackageReference Include="Verify.Xunit" Version="23.2.2" />
     <PackageReference Include="Xunit.DependencyInjection" Version="8.9.1" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" Version="8.1.0" />
+    <PackageReference Include="Xunit.DependencyInjection.SkippableFact" Version="8.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -64,5 +65,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>SampleData.tt</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="xunit.runner.visualstudio" Version="2.5.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>

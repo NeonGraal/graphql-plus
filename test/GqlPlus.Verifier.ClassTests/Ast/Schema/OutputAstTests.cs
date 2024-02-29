@@ -18,7 +18,7 @@ public class OutputAstTests : AstAliasedTests
     => _checks.Equality(
       () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) });
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenAlternates(string name, string[] alternates1, string[] alternates2)
     => _checks.InequalityBetween(alternates1, alternates2,
       alternates => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
@@ -40,7 +40,7 @@ public class OutputAstTests : AstAliasedTests
     => _checks.Equality(
       () => new OutputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) });
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenParent(string name, string parent1, string parent2)
     => _checks.InequalityBetween(parent1, parent2,
       parent => new OutputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
@@ -62,7 +62,7 @@ public class OutputAstTests : AstAliasedTests
     => _checks.Equality(
       () => new OutputDeclAst(AstNulls.At, name) { Fields = fields.OutputFields() });
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenFields(string name, FieldInput[] fields1, FieldInput[] fields2)
     => _checks.InequalityBetween(fields1, fields2,
       fields => new OutputDeclAst(AstNulls.At, name) { Fields = fields.OutputFields() },
@@ -84,7 +84,7 @@ public class OutputAstTests : AstAliasedTests
     => _checks.Equality(
       () => new OutputDeclAst(AstNulls.At, name) { TypeParameters = typeParameters.TypeParameters() });
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenTypeParameterss(string name, string[] typeParameters1, string[] typeParameters2)
     => _checks.InequalityBetween(typeParameters1, typeParameters2,
       parameters => new OutputDeclAst(AstNulls.At, name) { TypeParameters = parameters.TypeParameters() },

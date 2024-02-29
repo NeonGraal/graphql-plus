@@ -10,20 +10,26 @@ internal static class AllModellers
     => services
       .AddAlternateModeller<InputReferenceAst, InputBaseModel>()
       .AddAlternateModeller<OutputReferenceAst, OutputBaseModel>()
-      .AddSingleton<IModeller<CategoryDeclAst>, CategoryModeller>()
-      .AddSingleton<IModeller<ConstantAst>, ConstantModeller>()
-      .AddSingleton<IModeller<EnumDeclAst>, EnumModeller>()
-      .AddSingleton<IModeller<FieldKeyAst>, SimpleModeller>()
-      .AddSingleton<IModeller<InputDeclAst>, InputModeller>()
-      .AddSingleton<IModeller<InputReferenceAst>, InputReferenceModeller>()
-      .AddSingleton<IModeller<ModifierAst>, ModifierModeller>()
-      .AddSingleton<IModeller<OptionSettingAst>, SettingModeller>()
-      .AddSingleton<IModeller<OutputDeclAst>, OutputModeller>()
-      .AddSingleton<IModeller<OutputReferenceAst>, OutputReferenceModeller>()
-      .AddSingleton<IModeller<ParameterAst>, ParameterModeller>()
+      .AddModeller<CategoryDeclAst, CategoryModeller>()
+      .AddModeller<ConstantAst, ConstantModeller>()
+      .AddModeller<EnumDeclAst, EnumModeller>()
+      .AddModeller<FieldKeyAst, SimpleModeller>()
+      .AddModeller<InputDeclAst, InputModeller>()
+      .AddModeller<InputReferenceAst, InputReferenceModeller>()
+      .AddModeller<ModifierAst, ModifierModeller>()
+      .AddModeller<OptionSettingAst, SettingModeller>()
+      .AddModeller<OutputDeclAst, OutputModeller>()
+      .AddModeller<OutputReferenceAst, OutputReferenceModeller>()
+      .AddModeller<ParameterAst, ParameterModeller>()
     ;
+
+  public static IServiceCollection AddModeller<TAst, TModeller>(this IServiceCollection services)
+    where TAst : AstBase
+    where TModeller : class, IModeller<TAst>
+    => services.AddSingleton<IModeller<TAst>, TModeller>();
+
   public static IServiceCollection AddAlternateModeller<TRefAst, TBase>(this IServiceCollection services)
     where TRefAst : AstReference<TRefAst>
     where TBase : ITypeBaseModel
-    => services.AddSingleton<IModeller<AstAlternate<TRefAst>>, AlternateModeller<TRefAst, TBase>>();
+    => services.AddModeller<AstAlternate<TRefAst>, AlternateModeller<TRefAst, TBase>>();
 }

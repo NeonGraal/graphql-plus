@@ -37,23 +37,21 @@ public abstract class ScalarModelTests<TInput, TItem>
   internal abstract IScalarModelChecks<TInput, TItem> ScalarChecks { get; }
 }
 
-internal abstract class ScalarModelChecks<TInput, TItem>
-  : TypeModelChecks<AstScalar<TItem>, SimpleKindModel>, IScalarModelChecks<TInput, TItem>
+internal abstract class ScalarModelChecks<TInput, TItem, TItemModel>(
+  ScalarKind kind,
+  IModeller<AstScalar<TItem>> modeller
+) : TypeModelChecks<AstScalar<TItem>, SimpleKindModel, ModelBaseScalar<TItemModel>>(modeller, SimpleKindModel.Scalar)
+  , IScalarModelChecks<TInput, TItem>
   where TItem : IAstScalarItem
+  where TItemModel : ModelBase
 {
-  private readonly ScalarKind _scalarKind;
-
-  protected ScalarModelChecks(ScalarKind kind, IModeller<AstType<string>> type)
-    : base(SimpleKindModel.Scalar, type)
-    => _scalarKind = kind;
-
   internal string[] ExpectedScalar(
     string name,
     string? parent,
     TInput[]? items,
     IEnumerable<string>? aliases,
     IEnumerable<string>? description
-  ) => [$"!_Scalar{_scalarKind}",
+  ) => [$"!_Scalar{kind}",
         .. aliases ?? [],
         .. AllItems(items, name),
         .. description ?? [],
@@ -61,7 +59,7 @@ internal abstract class ScalarModelChecks<TInput, TItem>
         "kind: !_TypeKind Scalar",
         "name: " + name,
         .. parent.TypeRefFor(SimpleKindModel.Scalar),
-        $"scalar: !_ScalarKind {_scalarKind}"];
+        $"scalar: !_ScalarKind {kind}"];
 
   string[] IScalarModelChecks<TInput, TItem>.ExpectedScalar(
     string name,
@@ -72,7 +70,7 @@ internal abstract class ScalarModelChecks<TInput, TItem>
   ) => ExpectedScalar(name, parent, items, aliases, description);
 
   AstScalar<TItem> IScalarModelChecks<TInput, TItem>.ScalarAst(string name, TInput[] items)
-    => new(AstNulls.At, name, _scalarKind, ScalarItems(items) ?? []);
+    => new(AstNulls.At, name, kind, ScalarItems(items) ?? []);
 
   void IScalarModelChecks<TInput, TItem>.ScalarExpected(AstScalar<TItem> scalar, string[] expected)
     => AstExpected(scalar, expected);
@@ -91,7 +89,7 @@ internal abstract class ScalarModelChecks<TInput, TItem>
     => ExpectedScalar(name, parent, [], aliases, description);
 
   internal override AstScalar<TItem> NewTypeAst(string name, string? parent, string description)
-    => new(AstNulls.At, name, description, _scalarKind) { Parent = parent };
+    => new(AstNulls.At, name, description, kind) { Parent = parent };
 
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);

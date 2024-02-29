@@ -50,33 +50,37 @@ where TAst : AstAbbreviated
 
   protected abstract TAst MakeAst(TInput input);
 
-  protected void CanMerge_False(TAst[] asts, bool skipIf = false)
+  protected void CanMerge_False(TAst[] asts)
   {
-    if (skipIf) {
-      return;
-    }
-
     var result = MergerBase.CanMerge(asts);
 
     result.Should().BeFalse();
   }
 
-  protected void CanMerge_True(TAst[] asts, bool skipIf = false)
+  protected void CanMerge_False(TAst[] asts, bool skipIf)
   {
-    if (skipIf) {
-      return;
-    }
+    Skip.If(skipIf);
 
+    CanMerge_False(asts);
+  }
+
+  protected void CanMerge_True(TAst[] asts)
+  {
     var result = MergerBase.CanMerge(asts);
 
     result.Should().BeTrue();
   }
 
+  protected void CanMerge_True(TAst[] asts, bool skipIf)
+  {
+    Skip.If(skipIf);
+
+    CanMerge_True(asts);
+  }
+
   protected void Merge_Expected(TAst[] asts, bool skipIf, params TAst[] expected)
   {
-    if (skipIf) {
-      return;
-    }
+    Skip.If(skipIf);
 
     Merge_Expected(asts, expected);
   }

@@ -11,7 +11,7 @@ public class ScalarStringModelTests
 }
 
 internal sealed class ScalarStringModelChecks
-  : ScalarModelChecks<string, ScalarRegexAst>
+  : ScalarModelChecks<string, ScalarRegexAst, ScalarRegexModel>
 {
   public ScalarStringModelChecks()
     : base(ScalarKind.String, new ScalarStringModeller())

@@ -19,7 +19,7 @@ public class MergeDirectivesTests
       new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable },
       new DirectiveDeclAst(AstNulls.At, name)]);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsParametersCantMerge_ReturnsFalse(string name, string[] parameters)
   {
     _parameters.CanMerge([]).ReturnsForAnyArgs(false);

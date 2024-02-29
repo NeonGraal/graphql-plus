@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
@@ -19,18 +18,14 @@ public class SettingModelTests
 }
 
 internal sealed class SettingModelChecks
-  : DescribedModelChecks<SettingInput, OptionSettingAst>
+  : DescribedModelChecks<SettingInput, OptionSettingAst, SettingModel>
 {
-  internal readonly IModeller<OptionSettingAst> Setting;
-  internal readonly IModeller<ConstantAst> Constant;
 
   public SettingModelChecks()
-    => Setting = new SettingModeller(
-      Constant = ForModeller<ConstantAst, ConstantModel>(
-        a => new(SimpleModel.Str("", a.Value?.Value ?? a.Value?.Text ?? ""))));
-
-  protected override IRendering AstToModel(OptionSettingAst ast)
-    => Setting.ToRenderer(ast);
+    : base(new SettingModeller(
+      TestModeller<ConstantAst>.For<ConstantModel>(
+        a => new(SimpleModel.Str("", a.Value?.Value ?? a.Value?.Text ?? "")))))
+  { }
 
   protected override OptionSettingAst NewDescribedAst(SettingInput input, string description)
     => input.ToAst(description);

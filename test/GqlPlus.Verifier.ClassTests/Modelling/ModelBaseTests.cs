@@ -6,34 +6,35 @@ namespace GqlPlus.Verifier.Modelling;
 
 public abstract class ModelBaseTests<TInput>
 {
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Model_Default(TInput input)
-    => BaseChecks.Model_Expected(
-      BaseChecks.ToModel(BaseChecks.BaseAst(input)),
-      ExpectedBase(input).Tidy());
+  {
+    Skip.If(SkipIf(input));
+
+    BaseChecks.Model_Expected(
+        BaseChecks.ToModel(BaseChecks.BaseAst(input)),
+        ExpectedBase(input).Tidy());
+  }
+
+  protected virtual bool SkipIf(TInput input)
+    => false;
 
   protected abstract string[] ExpectedBase(TInput input);
   internal abstract IModelBaseChecks<TInput> BaseChecks { get; }
 }
 
-internal abstract class ModelBaseChecks<TInput, TAst>
+internal abstract class ModelBaseChecks<TInput, TAst, TModel>
   : IModelBaseChecks<TInput>
   where TAst : AstBase
+  where TModel : IRendering
 {
-  private readonly IRendering _rendering;
+  protected IModeller<TAst> _modeller;
 
-  protected ModelBaseChecks()
+  protected ModelBaseChecks(IModeller<TAst> modeller)
   {
-    _rendering = Substitute.For<IRendering>();
-    RenderReturn("");
-  }
+    ArgumentNullException.ThrowIfNull(modeller);
 
-  internal ModelBaseChecks<TInput, TAst> RenderReturn(string tagAndValue)
-  {
-    _rendering.Render()
-        .Returns(new RenderStructure(tagAndValue, tagAndValue));
-
-    return this;
+    _modeller = modeller;
   }
 
   internal void AstExpected(TAst ast, string[] expected)
@@ -51,32 +52,9 @@ internal abstract class ModelBaseChecks<TInput, TAst>
     => input is null ? ""
     : $"'{input.Replace("'", "''", StringComparison.Ordinal)}'";
 
-  protected IModeller<TA> ForModeller<TA>()
-    where TA : AstBase
-  {
-    var modeller = Substitute.For<IModeller<TA>>();
-    modeller.ToRenderer(default!)
-      .ReturnsForAnyArgs(_rendering);
-
-    return modeller;
-  }
-
-  [SuppressMessage("Performance", "CA1822:Mark members as static")]
-  protected IModeller<TA> ForModeller<TA, TM>(Func<TA, TM> factory)
-    where TA : AstBase
-    where TM : IRendering
-  {
-    var modeller = Substitute.For<IModeller<TA>>();
-    modeller.ToRenderer(default!)
-      .ReturnsForAnyArgs(c => factory(c.Arg<TA>()));
-    modeller.ToModel<TM>(default!)
-      .ReturnsForAnyArgs(c => factory(c.Arg<TA>()));
-
-    return modeller;
-  }
-
   protected abstract TAst NewBaseAst(TInput input);
-  protected abstract IRendering AstToModel(TAst ast);
+  protected TModel AstToModel(TAst ast)
+    => _modeller.ToModel<TModel>(ast);
 
   void IModelBaseChecks<TInput>.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
   AstBase IModelBaseChecks<TInput>.BaseAst(TInput input) => NewBaseAst(input);
@@ -91,4 +69,33 @@ internal interface IModelBaseChecks<TInput>
 
   void Model_Expected(IRendering model, string[] expected);
   string YamlQuoted(string input);
+}
+
+internal static class TestModeller<TAst>
+  where TAst : AstBase
+{
+  internal static IModeller<TAst> For()
+  {
+    var rendering = Substitute.For<IRendering>();
+    rendering.Render()
+        .Returns(new RenderStructure("", ""));
+
+    var modeller = Substitute.For<IModeller<TAst>>();
+    modeller.ToRenderer(default!)
+      .ReturnsForAnyArgs(rendering);
+
+    return modeller;
+  }
+
+  internal static IModeller<TAst> For<TModel>(Func<TAst, TModel> factory)
+    where TModel : IRendering
+  {
+    var modeller = Substitute.For<IModeller<TAst>>();
+    modeller.ToRenderer(default!)
+      .ReturnsForAnyArgs(c => factory(c.Arg<TAst>()));
+    modeller.ToModel<TModel>(default)
+      .ReturnsForAnyArgs(c => factory(c.Arg<TAst>()));
+
+    return modeller;
+  }
 }

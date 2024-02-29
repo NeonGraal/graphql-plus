@@ -29,11 +29,11 @@ internal class ConstantModeller(IModeller<FieldKeyAst> value)
   internal override ConstantModel ToModel(ConstantAst ast)
     => ast.Fields.Count > 0 ? new(ToModel(ast.Fields))
     : ast.Values.Length > 0 ? new(ast.Values.Select(ToModel))
-    : ast.Value is not null ? new(value.ToModel<SimpleModel>(ast.Value)!)
+    : ast.Value is not null ? new(value.ToModel<SimpleModel>(ast.Value))
     : new(new SimpleModel());
 
   private Dictionary<SimpleModel, ConstantModel> ToModel(AstObject<ConstantAst> constant)
     => constant.ToDictionary(
-      p => value.ToModel<SimpleModel>(p.Key)!,
+      p => value.ToModel<SimpleModel>(p.Key),
       p => ToModel(p.Value));
 }

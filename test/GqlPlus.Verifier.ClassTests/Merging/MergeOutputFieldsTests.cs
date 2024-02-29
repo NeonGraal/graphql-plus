@@ -37,18 +37,18 @@ public class MergeOutputFieldsTests
       MakeFieldEnum(name, type, value, description),
       MakeFieldEnum(name, type, value, description)]);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsEnumDiffDescription_ReturnsFalse(string name, string type, string description1, string description2, string value)
     => CanMerge_False([
       MakeFieldEnum(name, type, value, description1),
       MakeFieldEnum(name, type, value, description2)],
       description1 == description2);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentEnums_ReturnsFalse(string name, string type, string value1, string value2)
   => CanMerge_False([
       MakeFieldEnum(name, type, value1),
-    MakeFieldEnum(name, type, value2)],
+      MakeFieldEnum(name, type, value2)],
       value1 == value2);
 
   [Theory, RepeatData(Repeats)]

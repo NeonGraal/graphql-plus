@@ -45,7 +45,7 @@ public class ArgumentAstTests
       () => new ArgumentAst(AstNulls.At, enumValue.ArgumentList()),
       $"( !a [ !a ${enumValue} !k {enumValue} ] )");
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void String_WithFields(string key, string enumValue)
     => _checks.Text(
       () => new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),

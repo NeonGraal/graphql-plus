@@ -22,8 +22,8 @@ public class InputModelTests
 }
 
 internal sealed class InputModelChecks(
-  IModeller<AstType<InputReferenceAst>> type
-) : ObjectModelChecks<InputDeclAst, InputFieldAst, InputReferenceAst>(TypeKindModel.Input, type)
+  IModeller<InputDeclAst> modeller
+) : ObjectModelChecks<InputDeclAst, InputFieldAst, InputReferenceAst, InputModel>(modeller, TypeKindModel.Input)
 {
   protected override InputDeclAst NewObjectAst(
     string name,

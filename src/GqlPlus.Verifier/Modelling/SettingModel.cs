@@ -17,7 +17,7 @@ internal class SettingModeller(
 ) : ModellerBase<OptionSettingAst, SettingModel>
 {
   internal override SettingModel ToModel(OptionSettingAst ast)
-    => new(ast.Name, constant.ToModel<ConstantModel>(ast.Value)!) {
+    => new(ast.Name, constant.ToModel<ConstantModel>(ast.Value)) {
       Description = ast.Description,
     };
 }

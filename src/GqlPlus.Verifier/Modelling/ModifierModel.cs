@@ -1,22 +1,10 @@
 ﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
 internal record class ModifierModel(ModifierKind Kind)
-  : IRendering
-{
-  public string Key { get; set; } = "";
-  public bool KeyOptional { get; set; }
-
-  public RenderStructure Render()
-    => Kind == ModifierKind.Dict
-      ? RenderStructure.New("_Modifier")
-       .Add("key", Key)
-       .Add("opt", KeyOptional ? new(true) : new(""))
-      : new RenderStructure($"{Kind}", "_Modifier");
-
-}
+  : CollectionModel(Kind)
+{ }
 
 internal class ModifierModeller
   : ModellerBase<ModifierAst, ModifierModel>
@@ -26,4 +14,18 @@ internal class ModifierModeller
       Key = ast.Key ?? "",
       KeyOptional = ast.KeyOptional,
     };
+
+  public override T? TryModel<T>(ModifierAst? ast)
+    where T : default
+  {
+    if (typeof(T).Equals(typeof(CollectionModel))) {
+      if (ast is not null && ast.Kind != ModifierKind.Optional) {
+        return (T?)(object)ToModel(ast);
+      }
+
+      return default;
+    } else {
+      return base.TryModel<T>(ast);
+    }
+  }
 }

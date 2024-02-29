@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
@@ -10,7 +9,6 @@ public class EnumModelTests
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, string[] members)
     => _checks
-    .RenderReturn("Parameters")
     .AstExpected(
       new(AstNulls.At, name) { Members = members.EnumMembers() },
       ["!_Enum",
@@ -57,14 +55,11 @@ public class EnumModelTests
 }
 
 internal sealed class EnumModelChecks
-  : TypeModelChecks<EnumDeclAst, SimpleKindModel>
+  : TypeModelChecks<EnumDeclAst, SimpleKindModel, EnumModel>
 {
   public EnumModelChecks()
-    : base(SimpleKindModel.Enum, new EnumModeller())
+    : base(new EnumModeller(), SimpleKindModel.Enum)
   { }
-
-  protected override IRendering AstToModel(EnumDeclAst aliased)
-    => Type.ToRenderer(aliased);
 
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);

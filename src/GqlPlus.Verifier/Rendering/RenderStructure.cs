@@ -50,6 +50,11 @@ internal class RenderStructure
     return this;
   }
 
+  public RenderStructure Add(string key, bool value, bool blankIfDefault)
+    => value || !blankIfDefault
+    ? Add(key, value)
+    : this;
+
   public RenderStructure Add<T>(T value)
     where T : IRendering
   {
@@ -59,6 +64,9 @@ internal class RenderStructure
 
     return this;
   }
+
+  public RenderStructure Add(bool optional, Func<RenderStructure, RenderStructure> add)
+    => optional ? add(this) : this;
 
   public string ToYaml()
     => RenderYaml.Serializer.Serialize(this);

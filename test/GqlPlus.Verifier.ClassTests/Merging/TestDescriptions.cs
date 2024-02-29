@@ -14,7 +14,7 @@ public abstract class TestDescriptions<TAst>
   public void CanMerge_TwoAstsSameDescription_ReturnsTrue(string name, string description)
   => CanMerge_True([MakeDescribed(name, description), MakeDescribed(name, description)]);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentDescription_ReturnsFalse(string name, string description1, string description2)
   => CanMerge_False([MakeDescribed(name, description1), MakeDescribed(name, description2)], description1 == description2);
 

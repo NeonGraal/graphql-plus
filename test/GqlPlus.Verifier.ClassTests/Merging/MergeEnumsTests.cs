@@ -7,7 +7,7 @@ namespace GqlPlus.Verifier.Merging;
 public class MergeEnumsTests
   : TestTyped<AstType, EnumDeclAst, string, EnumMemberAst>
 {
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsFalse(string name, string[] values)
   {
     _enumMembers.CanMerge([]).ReturnsForAnyArgs(false);

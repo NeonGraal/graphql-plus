@@ -11,7 +11,7 @@ public class ScalarEnumModelTests
 }
 
 internal sealed class ScalarEnumModelChecks
-  : ScalarModelChecks<string, ScalarMemberAst>
+  : ScalarModelChecks<string, ScalarMemberAst, ScalarMemberModel>
 {
   public ScalarEnumModelChecks()
     : base(ScalarKind.Enum, new ScalarEnumModeller())

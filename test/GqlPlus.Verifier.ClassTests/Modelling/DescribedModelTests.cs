@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
@@ -7,9 +8,15 @@ public abstract class DescribedModelTests<TInput>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Description(TInput input, string contents)
-    => DescribedChecks.Model_Expected(
-      DescribedChecks.ToModel(DescribedChecks.DescribedAst(input, contents)),
-      ExpectedDescription(input, "description: " + DescribedChecks.YamlQuoted(contents)).Tidy());
+  {
+    if (SkipIf(input)) {
+      return;
+    }
+
+    DescribedChecks.Model_Expected(
+        DescribedChecks.ToModel(DescribedChecks.DescribedAst(input, contents)),
+        ExpectedDescription(input, "description: " + DescribedChecks.YamlQuoted(contents)).Tidy());
+  }
 
   internal sealed override IModelBaseChecks<TInput> BaseChecks => DescribedChecks;
   protected sealed override string[] ExpectedBase(TInput input) => ExpectedDescription(input, "");
@@ -18,9 +25,12 @@ public abstract class DescribedModelTests<TInput>
   protected abstract string[] ExpectedDescription(TInput input, string description);
 }
 
-internal abstract class DescribedModelChecks<TInput, TAst>
-  : ModelBaseChecks<TInput, TAst>, IDescribedModelChecks<TInput>
+internal abstract class DescribedModelChecks<TInput, TAst, TModel>(
+  IModeller<TAst> modeller
+) : ModelBaseChecks<TInput, TAst, TModel>(modeller)
+  , IDescribedModelChecks<TInput>
   where TAst : AstAbbreviated, IAstDescribed
+  where TModel : IRendering
 {
   protected abstract TAst NewDescribedAst(TInput input, string description);
 

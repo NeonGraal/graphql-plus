@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
@@ -28,7 +27,6 @@ public class CategoryModelTests
   [Theory, RepeatData(Repeats)]
   public void Model_Modifiers(string output)
     => _checks
-    .RenderReturn("Modifiers")
     .AstExpected(
       new(AstNulls.At, output) { Modifiers = TestMods() },
       ["!_Category",
@@ -45,7 +43,6 @@ public class CategoryModelTests
     string[] aliases,
     CategoryOption option
   ) => _checks
-    .RenderReturn("Modifiers")
     .AstExpected(
       new(AstNulls.At, name, output) {
         Aliases = aliases,
@@ -69,25 +66,21 @@ public class CategoryModelTests
       .. input.TypeRefFor(TypeKindModel.Output, "output"),
       "resolution: !_Resolution Parallel"];
 
-  internal override AliasedModelChecks<string, CategoryDeclAst> AliasedChecks => _checks;
+  internal override IAliasedModelChecks<string> AliasedChecks => _checks;
 
   private readonly CategoryModelChecks _checks = new();
 }
 
 internal sealed class CategoryModelChecks
-  : AliasedModelChecks<string, CategoryDeclAst>
+  : AliasedModelChecks<string, CategoryDeclAst, CategoryModel>
 {
-  internal readonly IModeller<CategoryDeclAst> Category;
-  internal readonly IModeller<ModifierAst> Modifier;
-
   public CategoryModelChecks()
-    => Category = new CategoryModeller(
-      Modifier = ForModeller<ModifierAst, ModifierModel>(
-        m => new(m.Kind)));
+    : base(new CategoryModeller(
+      TestModeller<ModifierAst>.For<ModifierModel>(
+        m => new(m.Kind)))
+       )
+  { }
 
   protected override CategoryDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input) { Description = description };
-
-  protected override IRendering AstToModel(CategoryDeclAst aliased)
-    => Category.ToRenderer(aliased);
 }

@@ -12,7 +12,7 @@ public class ScalarBooleanModelTests
 }
 
 internal sealed class ScalarBooleanModelChecks
-  : ScalarModelChecks<bool, ScalarTrueFalseAst>
+  : ScalarModelChecks<bool, ScalarTrueFalseAst, ScalarTrueFalseModel>
 {
   public ScalarBooleanModelChecks()
     : base(ScalarKind.Boolean, new ScalarBooleanModeller())

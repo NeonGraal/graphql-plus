@@ -3,7 +3,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class SimpleModelTests : ModelBaseTests<string>
+public class SimpleModelTests
+  : ModelBaseTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Boolean(bool value)
@@ -29,15 +30,12 @@ public class SimpleModelTests : ModelBaseTests<string>
 }
 
 internal sealed class SimpleModelChecks
-  : ModelBaseChecks<string, FieldKeyAst>
+  : ModelBaseChecks<string, FieldKeyAst, SimpleModel>
 {
-  internal readonly IModeller<FieldKeyAst> Simple;
-
   public SimpleModelChecks()
-    => Simple = new SimpleModeller();
+    : base(new SimpleModeller())
+  { }
 
-  protected override IRendering AstToModel(FieldKeyAst ast)
-    => Simple.ToRenderer(ast);
   protected override FieldKeyAst NewBaseAst(string input)
     => new(AstNulls.At, input);
 }

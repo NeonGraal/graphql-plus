@@ -22,13 +22,13 @@ public abstract class TestAliased<TAst>
   public void CanMerge_ThreeAstsOneAlias_ReturnsTrue(string name1, string name2, string alias)
     => CanMerge_True([MakeAliased(name1, []), MakeAliased(name2, []), MakeAliased(name1, [alias])]);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_ThreeAstsSameAlias_ReturnsFalse(string name1, string name2, string alias)
   => CanMerge_False(
     [MakeAliased(name1, []), MakeAliased(name2, [alias]), MakeAliased(name1, [alias])],
     name1 == name2);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_ThreeAstsDifferentAliases_ReturnsTrue(string name1, string name2, string alias1, string alias2)
   => CanMerge_True(
     [MakeAliased(name1, []), MakeAliased(name2, [alias1]), MakeAliased(name1, [alias2])],
@@ -38,13 +38,13 @@ public abstract class TestAliased<TAst>
   public void CanMerge_ThreeAstsTwoAliases_ReturnsTrue(string name1, string name2, string alias1, string alias2)
   => CanMerge_True([MakeAliased(name1, [alias1]), MakeAliased(name2, []), MakeAliased(name1, [alias2])]);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_ThreeAstsMixedAliases_ReturnsFalse(string name1, string name2, string alias1, string alias2)
   => CanMerge_False(
     [MakeAliased(name1, [alias1]), MakeAliased(name2, [alias2]), MakeAliased(name1, [alias1, alias2])],
     name1 == name2);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_ThreeAstsManyAliases_ReturnsFalse(string name1, string name2, string alias1, string alias2)
   => CanMerge_False(
     [MakeAliased(name1, [alias1]), MakeAliased(name2, [alias1, alias2]), MakeAliased(name1, [alias2])],

@@ -21,7 +21,12 @@ internal class RenderTypeConverter : IYamlTypeConverter
       if (model.List.Count > 0) {
         WriteList(emitter, type, model, plainImplicit);
       } else if (model.Map.Count > 0) {
-        WriteMap(emitter, model, plainImplicit, tag);
+        var (_, first) = model.Map.First();
+        if (model.Map.Count == 1 && !plainImplicit && string.IsNullOrWhiteSpace(first.Tag) && first.Value is not null) {
+          WriteValue(emitter, first.Value, model.Tag);
+        } else {
+          WriteMap(emitter, model, plainImplicit, tag);
+        }
       } else if (model.Value is not null) {
         WriteValue(emitter, model.Value, model.Tag);
       }

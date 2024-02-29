@@ -39,7 +39,7 @@ public sealed record class ModifierAst(TokenAt At)
     => HashCode.Combine(Kind, Key, KeyOptional);
 }
 
-internal enum ModifierKind
+public enum ModifierKind
 {
   Optional,
   List,

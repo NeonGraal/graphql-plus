@@ -10,7 +10,7 @@ public class MergeCategoriesTests
   public void CanMerge_TwoAstsSameOutput_ReturnsTrue(string category)
     => CanMerge_True([new CategoryDeclAst(AstNulls.At, category), new CategoryDeclAst(AstNulls.At, category)]);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentOutput_ReturnsFalse(string name, string category1, string category2)
     => CanMerge_False([
       new CategoryDeclAst(AstNulls.At, name, category1),

@@ -56,7 +56,7 @@ public class ConstantAstTests
       () => new ConstantAst(AstNulls.At, enumValue.ConstantList()),
       $"( !c [ !k {enumValue} !k {enumValue} ] )");
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void String_WithFields(string key, string enumValue)
     => _checks.Text(
       () => new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)),

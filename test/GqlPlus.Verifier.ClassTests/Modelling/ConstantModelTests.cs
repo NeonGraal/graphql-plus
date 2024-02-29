@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
@@ -8,7 +7,6 @@ public class ConstantModelTests : ModelBaseTests<string>
   [Theory, RepeatData(Repeats)]
   public void Model_List(string value)
     => _checks
-    .RenderReturn("Constant")
     .AstExpected(
       new(AstNulls.At, value.ConstantList()),
       ["- " + value, "- " + value]);
@@ -21,7 +19,6 @@ public class ConstantModelTests : ModelBaseTests<string>
     }
 
     _checks
-      .RenderReturn("Constant")
       .AstExpected(
         new(AstNulls.At, value.ConstantObject(key)),
         ["!_ConstantMap", key + ": " + value, value + ": " + key]);
@@ -54,18 +51,14 @@ public class ConstantModelTests : ModelBaseTests<string>
 }
 
 internal sealed class ConstantModelChecks
-  : ModelBaseChecks<string, ConstantAst>
+  : ModelBaseChecks<string, ConstantAst, ConstantModel>
 {
-  internal readonly IModeller<ConstantAst> Constant;
-  internal readonly IModeller<FieldKeyAst> Simple;
-
   public ConstantModelChecks()
-    => Constant = new ConstantModeller(
-      Simple = ForModeller<FieldKeyAst, SimpleModel>(
-        k => SimpleModel.Str("", k.Value ?? k.Text!)));
+    : base(new ConstantModeller(
+      TestModeller<FieldKeyAst>.For(
+        k => SimpleModel.Str("", k.Value ?? k.Text!))))
+  { }
 
-  protected override IRendering AstToModel(ConstantAst ast)
-    => Constant.ToRenderer(ast);
   protected override ConstantAst NewBaseAst(string input)
     => new FieldKeyAst(AstNulls.At, input);
 }

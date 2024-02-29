@@ -10,7 +10,7 @@ public abstract class TestObjects<TObject, TField, TRef>
   where TField : AstField<TRef>, IAstDescribed
   where TRef : AstReference<TRef>
 {
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsTypeParametersCantMerge_ReturnsFalse(string name, string[] typeParameters)
   {
     TypeParameters.CanMerge([]).ReturnsForAnyArgs(false);

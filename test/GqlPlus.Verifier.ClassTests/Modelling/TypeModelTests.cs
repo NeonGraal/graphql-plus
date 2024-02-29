@@ -25,20 +25,22 @@ public abstract class TypeModelTests<TTypeKind>
   : TypeModelTests<string, string, TTypeKind>
 { }
 
-internal abstract class TypeModelChecks<TAstParent, TParent, TAst, TTypeKind>
-  : AliasedModelChecks<string, TAst>, ITypeModelChecks<TAstParent, TParent, TTypeKind>
+internal abstract class TypeModelChecks<TAstParent, TParent, TAst, TTypeKind, TModel>
+  : AliasedModelChecks<string, TAst, TModel>
+  , ITypeModelChecks<TAstParent, TParent, TTypeKind>
   where TAstParent : IEquatable<TAstParent>
   where TAst : AstType<TAstParent>
+  where TModel : IRendering
 {
   protected readonly TTypeKind TypeKind;
-  protected readonly IModeller<AstType<TAstParent>> Type;
   protected readonly string TypeKindLower;
 
   TTypeKind ITypeModelChecks<TAstParent, TParent, TTypeKind>.TypeKind => TypeKind;
   string ITypeModelChecks<TAstParent, TParent, TTypeKind>.TypeKindLower => TypeKindLower;
 
-  protected TypeModelChecks(TTypeKind kind, IModeller<AstType<TAstParent>> type)
-    => (TypeKind, TypeKindLower, Type) = (kind, $"{kind}".ToLowerInvariant(), type);
+  protected TypeModelChecks(IModeller<TAst> modeller, TTypeKind kind)
+    : base(modeller)
+    => (TypeKind, TypeKindLower) = (kind, $"{kind}".ToLowerInvariant());
 
   protected virtual string[] ExpectedType(
     string name,
@@ -77,18 +79,17 @@ internal abstract class TypeModelChecks<TAstParent, TParent, TAst, TTypeKind>
   void ITypeModelChecks<TAstParent, TParent, TTypeKind>.TypeExpected(AstType<TAstParent> type, string[] expected)
     => AstExpected((TAst)type, expected);
 
-  protected override IRendering AstToModel(TAst aliased)
-    => Type.ToRenderer(aliased);
-
   protected override TAst NewDescribedAst(string input, string description)
     => NewTypeAst(input, default, description);
 }
 
-internal abstract class TypeModelChecks<TAst, TTypeKind>(
-  TTypeKind kind,
-  IModeller<AstType<string>> type
-) : TypeModelChecks<string, string, TAst, TTypeKind>(kind, type), ITypeModelChecks<TTypeKind>
+internal abstract class TypeModelChecks<TAst, TTypeKind, TModel>(
+  IModeller<TAst> modeller,
+  TTypeKind kind
+) : TypeModelChecks<string, string, TAst, TTypeKind, TModel>(modeller, kind)
+  , ITypeModelChecks<TTypeKind>
   where TAst : AstType<string>
+  where TModel : IRendering
 {
   internal override string NewReferenceAst(string input)
     => input;

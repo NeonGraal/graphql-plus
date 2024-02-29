@@ -13,7 +13,6 @@ internal abstract partial class GroupedVerifier<TAliased>(
 ) : IVerifyAliased<TAliased>
  where TAliased : AstAliased
 {
-  [SuppressMessage("Performance", "CA1823:Avoid unused private fields")]
   private readonly ILogger _logger = logger.CreateLogger(nameof(GroupedVerifier<TAliased>));
 
   public abstract string Label { get; }

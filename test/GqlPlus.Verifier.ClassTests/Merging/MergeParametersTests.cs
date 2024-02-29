@@ -16,7 +16,7 @@ public class MergeParametersTests
       MakeAlternate(input) with { Default = value.FieldKey() },
       MakeAlternate(input) with { Default = value.FieldKey() }]);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentDefault_ReturnsFalse(string input, string value1, string value2)
     => CanMerge_False([
       MakeAlternate(input) with { Default = value1.FieldKey() },

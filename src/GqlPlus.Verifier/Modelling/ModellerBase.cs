@@ -17,7 +17,7 @@ internal abstract class ModellerBase<TAst, TModel>
   public IRendering ToRenderer(TAst ast)
     => ToModel(ast);
 
-  public T? TryModel<T>(TAst? ast)
+  public virtual T? TryModel<T>(TAst? ast)
     => ast is not null && typeof(T).IsAssignableFrom(typeof(TModel))
       ? (T)(object)ToModel(ast)
       : default;

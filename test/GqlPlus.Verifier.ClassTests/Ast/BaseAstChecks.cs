@@ -31,13 +31,9 @@ internal class BaseAstChecks<TAst>
     left.Should().NotBeSameAs(right);
   }
 
-  public void Inequality(Creator factory1, Creator factory2, bool skipIf = false,
+  public void Inequality(Creator factory1, Creator factory2,
     [CallerArgumentExpression(nameof(factory1))] string factoryExpression = "")
   {
-    if (skipIf) {
-      return;
-    }
-
     var left = factory1();
     var right = factory2();
 
@@ -48,19 +44,31 @@ internal class BaseAstChecks<TAst>
     left.Should().NotBeSameAs(right);
   }
 
+  public void Inequality(Creator factory1, Creator factory2, bool skipIf,
+    [CallerArgumentExpression(nameof(factory1))] string factoryExpression = "")
+  {
+    Skip.If(skipIf);
+
+    Inequality(factory1, factory2, factoryExpression);
+  }
+
   public void InequalityBetween<TBy>(TBy input1, TBy input2, CreateBy<TBy> factory, bool skipIf,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
     => Inequality(() => factory(input1), () => factory(input2), skipIf, factoryExpression);
 
-  public void Text(Creator factory, string expected, bool skipIf = false,
+  public void Text(Creator factory, string expected,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
   {
-    if (skipIf) {
-      return;
-    }
-
     var result = $"{factory()}";
 
     result.Should().Be(expected, factoryExpression);
+  }
+
+  public void Text(Creator factory, string expected, bool skipIf,
+    [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
+  {
+    Skip.If(skipIf);
+
+    Text(factory, expected, factoryExpression);
   }
 }

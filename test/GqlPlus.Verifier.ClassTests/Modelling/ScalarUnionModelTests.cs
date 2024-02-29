@@ -11,7 +11,7 @@ public class ScalarUnionModelTests
 }
 
 internal sealed class ScalarUnionModelChecks
-  : ScalarModelChecks<string, ScalarReferenceAst>
+  : ScalarModelChecks<string, ScalarReferenceAst, TypeRefModel<SimpleKindModel>>
 {
   public ScalarUnionModelChecks()
     : base(ScalarKind.Union, new ScalarUnionModeller())

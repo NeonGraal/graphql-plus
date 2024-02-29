@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
@@ -41,27 +42,28 @@ public abstract class ObjectModelTests<TObject, TField, TRef>
   internal abstract IObjectModelChecks<TObject, TField, TRef> ObjectChecks { get; }
 }
 
-internal abstract class ObjectModelChecks<TObject, TField, TRef>(
-  TypeKindModel kind,
-  IModeller<AstType<TRef>> type
-) : TypeModelChecks<TRef, string, AstObject<TField, TRef>, TypeKindModel>(kind, type),
+internal abstract class ObjectModelChecks<TObject, TField, TRef, TModel>(
+  IModeller<TObject> modeller,
+  TypeKindModel kind
+) : TypeModelChecks<TRef, string, TObject, TypeKindModel, TModel>(modeller, kind),
     IObjectModelChecks<TObject, TField, TRef>
   where TObject : AstObject<TField, TRef>
   where TField : AstField<TRef>
   where TRef : AstReference<TRef>
+  where TModel : IRendering
 {
   internal string[] ExpectedObject(ExpectedObjectInput input)
     => input.Expected(TypeKind, ExpectedParent, f => [], a => []);
 
   internal IEnumerable<string> ExpectedField(FieldInput field)
-    => [$"- !_{TypeKind}Field", "  name: " + field.Name, $"  type: !_{TypeKind}Base", $"    {TypeKindLower}: {field.Type}"];
+    => [$"- !_{TypeKind}Field", "  name: " + field.Name, $"  type: !_{TypeKind}Base {field.Type}"];
 
   internal IEnumerable<string> ExpectedAlternate(string alternate)
-    => [$"- !_Alternate(_{TypeKind}Base)", "  collections:", "  - !_Modifier List", "  - !_Modifier Optional", $"  type: !_{TypeKind}Base", $"    {TypeKindLower}: {alternate}"];
+    => [$"- !_Alternate(_{TypeKind}Base)", "  collections:", "  - !_Modifier List", "  - !_Modifier Optional", $"  type: !_{TypeKind}Base {alternate}"];
 
   protected override string[] ExpectedParent(string? parent)
     => parent is null ? []
-    : [$"parent: !_Described(_{TypeKind}Base)", $"  {TypeKindLower}: {parent}"];
+    : [$"parent: !_Described(_{TypeKind}Base) {parent}"];
 
   protected override string[] ExpectedType(
     string name,
@@ -70,15 +72,15 @@ internal abstract class ObjectModelChecks<TObject, TField, TRef>(
     IEnumerable<string>? description = null)
     => ExpectedObject(new(name, parent, [], [], aliases, description));
 
-  internal override AstObject<TField, TRef> NewTypeAst(string name, TRef? parent, string description)
+  internal override TObject NewTypeAst(string name, TRef? parent, string description)
     => NewObjectAst(name, parent, description, [], []);
 
-  void IObjectModelChecks<TObject, TField, TRef>.ObjectExpected(AstObject<TField, TRef> ast, ExpectedObjectInput input)
+  void IObjectModelChecks<TObject, TField, TRef>.ObjectExpected(TObject ast, ExpectedObjectInput input)
     => AstExpected(ast, input.Expected(TypeKind, ExpectedParent,
       fields => ItemsExpected("fields:", fields, ExpectedField),
       alternates => ItemsExpected("alternates:", alternates, ExpectedAlternate)));
 
-  AstObject<TField, TRef> IObjectModelChecks<TObject, TField, TRef>.ObjectAst(string name, FieldInput[] fields, string[] alternates)
+  TObject IObjectModelChecks<TObject, TField, TRef>.ObjectAst(string name, FieldInput[] fields, string[] alternates)
     => NewObjectAst(name, default, "", fields, alternates);
 
   protected abstract TObject NewObjectAst(string name, TRef? parent, string description, FieldInput[] fields, string[] alternates);
@@ -90,8 +92,8 @@ internal interface IObjectModelChecks<TObject, TField, TRef>
   where TField : AstField<TRef>
   where TRef : AstReference<TRef>
 {
-  void ObjectExpected(AstObject<TField, TRef> ast, ExpectedObjectInput input);
-  AstObject<TField, TRef> ObjectAst(string name, FieldInput[] fields, string[] alternates);
+  void ObjectExpected(TObject ast, ExpectedObjectInput input);
+  TObject ObjectAst(string name, FieldInput[] fields, string[] alternates);
 }
 
 internal record struct ExpectedObjectInput(

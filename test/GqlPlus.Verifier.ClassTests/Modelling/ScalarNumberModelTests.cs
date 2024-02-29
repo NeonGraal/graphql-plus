@@ -11,7 +11,7 @@ public class ScalarNumberModelTests
 }
 
 internal sealed class ScalarNumberModelChecks
-  : ScalarModelChecks<ScalarRangeInput, ScalarRangeAst>
+  : ScalarModelChecks<ScalarRangeInput, ScalarRangeAst, ScalarRangeModel>
 {
   public ScalarNumberModelChecks()
     : base(ScalarKind.Number, new ScalarNumberModeller())

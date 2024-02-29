@@ -22,8 +22,8 @@ public class OutputModelTests
 }
 
 internal sealed class OutputModelChecks(
-  IModeller<AstType<OutputReferenceAst>> type
-) : ObjectModelChecks<OutputDeclAst, OutputFieldAst, OutputReferenceAst>(TypeKindModel.Output, type)
+  IModeller<OutputDeclAst> modeller
+) : ObjectModelChecks<OutputDeclAst, OutputFieldAst, OutputReferenceAst, OutputModel>(modeller, TypeKindModel.Output)
 {
   protected override OutputDeclAst NewObjectAst(
     string name,

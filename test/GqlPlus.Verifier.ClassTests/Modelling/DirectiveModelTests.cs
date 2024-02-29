@@ -18,7 +18,6 @@ public class DirectiveModelTests
   [Theory, RepeatData(Repeats)]
   public void Model_Parameters(string name, string[] parameters)
     => _checks
-    .RenderReturn("Parameters")
     .AstExpected(
       new(AstNulls.At, name) { Parameters = parameters.Parameters() },
       ["!_Directive",
@@ -44,7 +43,6 @@ public class DirectiveModelTests
     DirectiveOption option,
     DirectiveLocation[] locations
   ) => _checks
-    .RenderReturn("Parameters")
     .AstExpected(
       new(AstNulls.At, name) {
         Aliases = aliases,
@@ -84,15 +82,11 @@ public class DirectiveModelTests
 }
 
 internal sealed class DirectiveModelChecks
-  : AliasedModelChecks<string, DirectiveDeclAst>
+  : AliasedModelChecks<string, DirectiveDeclAst, DirectiveModel>
 {
-  internal readonly IModeller<DirectiveDeclAst> Directive;
-
   public DirectiveModelChecks()
-    => Directive = new DirectiveModeller();
-
-  protected override IRendering AstToModel(DirectiveDeclAst aliased)
-    => Directive.ToRenderer(aliased);
+    : base(new DirectiveModeller())
+  { }
 
   protected override DirectiveDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);

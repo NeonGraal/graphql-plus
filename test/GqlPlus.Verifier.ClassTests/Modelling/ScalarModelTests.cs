@@ -40,10 +40,10 @@ public abstract class ScalarModelTests<TInput, TItem>
 internal abstract class ScalarModelChecks<TInput, TItem, TItemModel>(
   ScalarKind kind,
   IModeller<AstScalar<TItem>> modeller
-) : TypeModelChecks<AstScalar<TItem>, SimpleKindModel, ModelBaseScalar<TItemModel>>(modeller, SimpleKindModel.Scalar)
+) : TypeModelChecks<AstScalar<TItem>, SimpleKindModel, BaseScalarModel<TItemModel>>(modeller, SimpleKindModel.Scalar)
   , IScalarModelChecks<TInput, TItem>
   where TItem : IAstScalarItem
-  where TItemModel : ModelBase
+  where TItemModel : IBaseScalarItemModel
 {
   internal string[] ExpectedScalar(
     string name,

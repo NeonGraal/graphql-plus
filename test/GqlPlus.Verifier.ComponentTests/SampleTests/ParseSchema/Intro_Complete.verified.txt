@@ -469,8 +469,8 @@ Success
   _ScalarValue
   <
     I@020/0112
-    _Scalar.Number
-    I@035/0112
+    _ScalarKind.Number
+    I@039/0112
     Number
   >
   !AO
@@ -478,8 +478,8 @@ Success
   _ScalarValue
   <
     I@020/0113
-    _Scalar.String
-    I@035/0113
+    _ScalarKind.String
+    I@039/0113
     String
   >
   !AO
@@ -638,16 +638,16 @@ Success
 }
 {
   !E I@006/0160
-  _Scalar
-  !EM I@016/0160
+  _ScalarKind
+  !EM I@020/0160
   Boolean
-  !EM I@024/0160
+  !EM I@028/0160
   Enum
-  !EM I@029/0160
+  !EM I@033/0160
   Number
-  !EM I@036/0160
+  !EM I@040/0160
   String
-  !EM I@043/0160
+  !EM I@047/0160
   Union
 }
 {
@@ -659,8 +659,8 @@ Success
   _BaseScalar
   <
     I@019/0163
-    _Scalar.Boolean
-    I@035/0163
+    _ScalarKind.Boolean
+    I@039/0163
     _ScalarTrueFalse
   >
   !AO
@@ -668,8 +668,8 @@ Success
   _BaseScalar
   <
     I@019/0164
-    _Scalar.Enum
-    I@032/0164
+    _ScalarKind.Enum
+    I@036/0164
     _ScalarMember
   >
   !AO
@@ -677,8 +677,8 @@ Success
   _BaseScalar
   <
     I@019/0165
-    _Scalar.Number
-    I@034/0165
+    _ScalarKind.Number
+    I@038/0165
     _ScalarRange
   >
   !AO
@@ -686,8 +686,8 @@ Success
   _BaseScalar
   <
     I@019/0166
-    _Scalar.String
-    I@034/0166
+    _ScalarKind.String
+    I@038/0166
     _ScalarRegex
   >
   !AO
@@ -695,8 +695,8 @@ Success
   _BaseScalar
   <
     I@019/0167
-    _Scalar.Union
-    I@033/0167
+    _ScalarKind.Union
+    I@037/0167
     _TypeSimple
   >
 }

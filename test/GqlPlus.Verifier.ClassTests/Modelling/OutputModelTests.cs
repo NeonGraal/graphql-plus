@@ -23,7 +23,7 @@ public class OutputModelTests
 
 internal sealed class OutputModelChecks(
   IModeller<OutputDeclAst> modeller
-) : ObjectModelChecks<OutputDeclAst, OutputFieldAst, OutputReferenceAst, OutputModel>(modeller, TypeKindModel.Output)
+) : ObjectModelChecks<OutputDeclAst, OutputFieldAst, OutputReferenceAst, TypeOutputModel>(modeller, TypeKindModel.Output)
 {
   protected override OutputDeclAst NewObjectAst(
     string name,

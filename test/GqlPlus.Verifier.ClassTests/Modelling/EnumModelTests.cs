@@ -11,7 +11,7 @@ public class EnumModelTests
     => _checks
     .AstExpected(
       new(AstNulls.At, name) { Members = members.EnumMembers() },
-      ["!_Enum",
+      ["!_TypeEnum",
         "allMembers:",
         .. members.SelectMany(m => ExpectedMember(m, name)),
         "kind: !_TypeKind Enum",
@@ -34,7 +34,7 @@ public class EnumModelTests
         Parent = parent,
         Members = members.EnumMembers()
       },
-      ["!_Enum",
+      ["!_TypeEnum",
         $"aliases: [{string.Join(", ", aliases)}]",
         "allMembers:",
         .. members.SelectMany(m => ExpectedMember(m, name)),
@@ -55,7 +55,7 @@ public class EnumModelTests
 }
 
 internal sealed class EnumModelChecks
-  : TypeModelChecks<EnumDeclAst, SimpleKindModel, EnumModel>
+  : TypeModelChecks<EnumDeclAst, SimpleKindModel, TypeEnumModel>
 {
   public EnumModelChecks()
     : base(new EnumModeller(), SimpleKindModel.Enum)
@@ -63,6 +63,14 @@ internal sealed class EnumModelChecks
 
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);
+
+  protected override string[] ExpectedType(string name, string? parent, IEnumerable<string>? aliases = null, IEnumerable<string>? description = null)
+    => [$"!_TypeEnum",
+        .. aliases ?? [],
+        .. description ?? [],
+        $"kind: !_TypeKind {TypeKind}",
+        "name: " + name,
+        .. ExpectedParent(parent)];
 
   protected override EnumDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);

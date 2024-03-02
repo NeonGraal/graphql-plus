@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal record class EnumModel(string Name)
+internal record class TypeEnumModel(string Name)
   : ChildTypeModel<TypeRefModel<SimpleKindModel>>(TypeKindModel.Enum, Name)
 {
   public EnumMemberModel[] Members { get; set; } = [];
@@ -22,10 +22,18 @@ internal record class EnumMemberModel(string Name, string OfEnum)
       .Add("enum", OfEnum);
 }
 
-internal class EnumModeller
-  : ModellerType<EnumDeclAst, string, EnumModel>
+internal record class EnumValueModel(string Name, string Value)
+  : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name)
 {
-  internal override EnumModel ToModel(EnumDeclAst ast)
+  internal override RenderStructure Render()
+    => base.Render()
+      .Add("value", Value);
+}
+
+internal class EnumModeller
+  : ModellerType<EnumDeclAst, string, TypeEnumModel>
+{
+  internal override TypeEnumModel ToModel(EnumDeclAst ast)
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
@@ -39,12 +47,4 @@ internal class EnumModeller
       Aliases = ast.Aliases,
       Description = ast.Description,
     };
-}
-
-internal record class EnumValueModel(string Name, string Value)
-  : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name)
-{
-  internal override RenderStructure Render()
-    => base.Render()
-      .Add("value", Value);
 }

@@ -109,7 +109,7 @@ internal record struct ExpectedObjectInput(
     Func<string?, IEnumerable<string>> parent,
     Func<FieldInput[]?, IEnumerable<string>> fields,
     Func<string[]?, IEnumerable<string>> alternates)
-    => [$"!_{typeKind}",
+    => [$"!_Type{typeKind}",
       .. Aliases ?? [],
       .. alternates(Alternates),
       .. Description ?? [],

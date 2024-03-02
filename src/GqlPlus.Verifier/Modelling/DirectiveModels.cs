@@ -3,6 +3,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
+// Todo : DirectivesModel
+
 internal record class DirectiveModel(string Name)
   : AliasedModel(Name)
 {
@@ -12,7 +14,7 @@ internal record class DirectiveModel(string Name)
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("locations", new(DirectiveModeller.ToSet(Locations), "_Set(_Location)", true))
+      .AddSet("locations", Locations, "_Location")
       .Add("parameters", Parameters.Render())
       .Add("repeatable", Repeatable);
 }
@@ -28,22 +30,6 @@ internal class DirectiveModeller
       Locations = ast.Locations,
       // Todo: Parameters = [.. category.Parameters.Select(p => p.ToModel())],
     };
-
-  internal static RenderStructure.Dict ToSet(DirectiveLocation locations)
-  {
-    var result = new RenderStructure.Dict();
-
-    foreach (var location in Enum.GetValues<DirectiveLocation>()) {
-      if (ActualFlag(location) && locations.HasFlag(location)) {
-        result.Add(new($"{location}"), new("_"));
-      }
-    }
-
-    return result;
-  }
-
-  internal static bool ActualFlag(DirectiveLocation location)
-    => location is not DirectiveLocation.None and not DirectiveLocation.None;
 
   internal static DirectiveLocation Combine(DirectiveLocation[] values)
     => values.Aggregate((a, b) => a | b);

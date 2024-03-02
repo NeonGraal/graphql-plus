@@ -43,7 +43,7 @@ public abstract class AstAliasedTests<TInput>
   public void Inequality_ByAliased(TInput input, string aliased1, string aliased2)
     => AliasedChecks.Inequality_ByAliased(input, aliased1, aliased2);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_ByInputs(TInput input1, TInput input2, string aliased)
     => AliasedChecks.Inequality_ByInputs(input1, input2, aliased);
 

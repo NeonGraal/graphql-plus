@@ -20,17 +20,6 @@ internal record class TypeObjectModel<TBase, TField>(TypeKindModel Kind, string 
       .Add("alternates", Alternates.Render());
 }
 
-internal record class TypeBaseModel<TArg>
-  : ModelBase, ITypeBaseModel
-{
-  internal TArg[] Arguments { get; set; } = [];
-  internal string? TypeParameter { get; set; }
-}
-
-internal interface ITypeBaseModel : IRendering
-{
-}
-
 internal record class RefModel<TBase>
   : ModelBase
   where TBase : ITypeBaseModel
@@ -50,6 +39,28 @@ internal record class RefModel<TBase>
       : new("");
 }
 
+internal record class TypeBaseModel<TArg>
+  : ModelBase, ITypeBaseModel
+{
+  internal TArg[] Arguments { get; set; } = [];
+  internal string? TypeParameter { get; set; }
+}
+
+internal interface ITypeBaseModel : IRendering
+{ }
+
+internal record class AlternateModel<TBase>(RefModel<TBase> Type)
+  : ModelBase
+  where TBase : ITypeBaseModel
+{
+  internal ModifierModel[] Collections { get; set; } = [];
+
+  internal override RenderStructure Render()
+    => base.Render()
+      .Add("type", Type.Render())
+      .Add("collections", Collections.Render());
+}
+
 internal record class FieldModel<TBase>(string Name, RefModel<TBase> Type)
   : AliasedModel(Name)
   where TBase : ITypeBaseModel
@@ -61,7 +72,23 @@ internal record class FieldModel<TBase>(string Name, RefModel<TBase> Type)
       .Add("type", Type.Render());
 }
 
-internal abstract class ModellerObjectType<TAst, TRefAst, TFieldAst, TModel, TBase, TField>(
+internal record class ParameterModel
+// Todo: (RefModel<InputBaseModel> Type)
+  : IRendering
+{
+  public ModifierModel[] Collections { get; set; } = [];
+  public ConstantModel? Default { get; set; }
+
+  public RenderStructure Render()
+    => RenderStructure.New("_Parameter")
+      // .Add("type", Type.Render())
+      .Add("collections", Collections.Render(true))
+      .Add("description", RenderValue.Str(""))
+      .Add("default", Default?.Render())
+      ;
+}
+
+internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, TField>(
   IModeller<AstAlternate<TRefAst>> alternate,
   IModeller<ModifierAst> modifier,
   IModeller<TRefAst> reference
@@ -89,4 +116,34 @@ internal abstract class ModellerObjectType<TAst, TRefAst, TFieldAst, TModel, TBa
     => reference.ToModel<TBase>(ast);
 
   protected abstract TField FieldModel(TFieldAst field);
+}
+
+internal class AlternateModeller<TRefAst, TBase>(
+  IModeller<TRefAst> refBase,
+  IModeller<ModifierAst> modifier
+) : ModellerBase<AstAlternate<TRefAst>, AlternateModel<TBase>>
+  where TRefAst : AstReference<TRefAst>
+  where TBase : ITypeBaseModel
+{
+  internal override AlternateModel<TBase> ToModel(AstAlternate<TRefAst> ast)
+    => new(new(BaseModel(ast.Type))) { Collections = ModifiersModels(ast.Modifiers) };
+
+  private TBase BaseModel(TRefAst ast)
+    => refBase.ToModel<TBase>(ast) ?? throw new ModelTypeException<TBase>(ast);
+
+  internal ModifierModel[] ModifiersModels(ModifierAst[] modifiers)
+    => [.. modifiers.Select(modifier.ToModel<ModifierModel>).Where(m => m is not null)];
+}
+
+internal class ParameterModeller(
+  IModeller<ConstantAst> constant,
+  IModeller<ModifierAst> modifier
+) : ModellerBase<ParameterAst, ParameterModel>
+{
+  internal override ParameterModel ToModel(ParameterAst ast)
+    => new() {
+      // Type = parameter.Type.ToModel(),
+      Collections = [.. ast.Modifiers.Select(modifier.ToModel<ModifierModel>)],
+      Default = constant.ToModel<ConstantModel>(ast.Default),
+    };
 }

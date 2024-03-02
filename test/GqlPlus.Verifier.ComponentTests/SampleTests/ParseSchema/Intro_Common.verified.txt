@@ -26,8 +26,8 @@ Success
   _ScalarValue
   <
     I@020/0009
-    _Scalar.Number
-    I@035/0009
+    _ScalarKind.Number
+    I@039/0009
     Number
   >
   !AO
@@ -35,8 +35,8 @@ Success
   _ScalarValue
   <
     I@020/0010
-    _Scalar.String
-    I@035/0010
+    _ScalarKind.String
+    I@039/0010
     String
   >
   !AO

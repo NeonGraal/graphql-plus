@@ -63,7 +63,7 @@ public class DirectiveModelTests
   {
     var location = DirectiveModeller.Combine(locations);
     var labels = Enum.GetValues<DirectiveLocation>()
-      .Where(DirectiveModeller.ActualFlag)
+      .Where(v => int.PopCount((int)v) == 1)
       .Where(l => location.HasFlag(l))
       .Select(l => $"{l}: _").Order();
     return "{" + string.Join(", ", labels) + "}";

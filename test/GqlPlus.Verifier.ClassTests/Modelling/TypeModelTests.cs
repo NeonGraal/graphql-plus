@@ -42,17 +42,12 @@ internal abstract class TypeModelChecks<TAstParent, TParent, TAst, TTypeKind, TM
     : base(modeller)
     => (TypeKind, TypeKindLower) = (kind, $"{kind}".ToLowerInvariant());
 
-  protected virtual string[] ExpectedType(
+  protected abstract string[] ExpectedType(
     string name,
     TParent? parent,
     IEnumerable<string>? aliases = null,
     IEnumerable<string>? description = null
-  ) => [$"!_{TypeKind}",
-        .. aliases ?? [],
-        .. description ?? [],
-        $"kind: !_TypeKind {TypeKind}",
-        "name: " + name,
-        .. ExpectedParent(parent)];
+  );
 
   protected abstract string[] ExpectedParent(TParent? parent);
 

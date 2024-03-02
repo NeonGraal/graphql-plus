@@ -4,6 +4,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
+// Todo : CatagoriesModel
+
 internal record class CategoryModel(string Name, TypeRefModel<TypeKindModel> Output)
   : AliasedModel(Name)
 {
@@ -12,10 +14,12 @@ internal record class CategoryModel(string Name, TypeRefModel<TypeKindModel> Out
 
   internal override RenderStructure Render()
     => base.Render()
-      .Add("resolution", new(Resolution.ToString(), "_Resolution"))
+      .Add("resolution", Resolution, "_Resolution")
       .Add("output", Output.Render())
       .Add("modifiers", Modifiers.Render(true));
 }
+
+// ResolutionModel => CategoryOption
 
 internal class CategoryModeller(
   IModeller<ModifierAst> modifier

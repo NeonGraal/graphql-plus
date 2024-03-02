@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Verifier.Rendering;
+﻿using System.Reflection;
+
+namespace GqlPlus.Verifier.Rendering;
 
 internal class RenderStructure
   : Structured<RenderValue, RenderStructure>
@@ -13,6 +15,12 @@ internal class RenderStructure
 
   public static RenderStructure New(string tag)
     => new() { Tag = tag };
+  public static RenderStructure For<T>(T value, string? tag = null)
+    where T : struct
+  {
+    Type type = typeof(T);
+    return type.IsEnum ? new(value.ToString(), tag ?? type.TypeTag()) : new();
+  }
 
   private RenderStructure()
     : base() { }
@@ -65,8 +73,34 @@ internal class RenderStructure
     return this;
   }
 
+  public RenderStructure Add<T>(string key, T value, string? tag = null)
+    where T : Enum
+    => Add(key, new(value.ToString(), tag ?? typeof(T).TypeTag()));
+
   public RenderStructure Add(bool optional, Func<RenderStructure, RenderStructure> add)
     => optional ? add(this) : this;
+
+  public RenderStructure AddSet<TEnum>(string key, TEnum set, string? tag = null, bool flow = true)
+    where TEnum : Enum
+  {
+    var type = typeof(TEnum);
+
+    if (type.GetCustomAttributes(typeof(FlagsAttribute)).Any()) {
+      var flags = (int)(object)set;
+      var result = new Dict();
+
+      foreach (var value in Enum.GetValues(type)) {
+        var flag = (int)value;
+        if (int.PopCount(flag) == 1 && (flags & flag) == flag) {
+          result.Add(new(Enum.GetName(type, value)), new("_"));
+        }
+      }
+
+      return Add(key, new(result, $"_Set({tag ?? type.TypeTag()})", flow));
+    }
+
+    return this;
+  }
 
   public string ToYaml()
     => RenderYaml.Serializer.Serialize(this);

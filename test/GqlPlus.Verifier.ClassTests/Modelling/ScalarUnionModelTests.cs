@@ -11,14 +11,14 @@ public class ScalarUnionModelTests
 }
 
 internal sealed class ScalarUnionModelChecks
-  : ScalarModelChecks<string, ScalarReferenceAst, TypeRefModel<SimpleKindModel>>
+  : ScalarModelChecks<string, ScalarReferenceAst, TypeSimpleModel>
 {
   public ScalarUnionModelChecks()
     : base(ScalarKind.Union, new ScalarUnionModeller())
   { }
 
   protected override string[] ExpectedItem(string input, string exclude, string[] scalar)
-    => ["- !_TypeRef(_SimpleKind)", "  kind: !_SimpleKind Basic", "  name: " + input, .. scalar];
+    => ["- !_TypeSimple", "  kind: !_SimpleKind Basic", "  name: " + input, .. scalar];
 
   protected override ScalarReferenceAst[]? ScalarItems(string[]? inputs)
     => inputs?.ScalarReferences();

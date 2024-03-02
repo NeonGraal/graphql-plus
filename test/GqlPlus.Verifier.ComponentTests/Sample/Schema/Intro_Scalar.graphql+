@@ -1,11 +1,11 @@
-enum _Scalar { Boolean Enum Number String Union }
+enum _ScalarKind { Boolean Enum Number String Union }
 
 output _TypeScalar {
-    | _BaseScalar<_Scalar.Boolean _ScalarTrueFalse>
-    | _BaseScalar<_Scalar.Enum _ScalarMember>
-    | _BaseScalar<_Scalar.Number _ScalarRange>
-    | _BaseScalar<_Scalar.String _ScalarRegex>
-    | _BaseScalar<_Scalar.Union _TypeSimple>
+    | _BaseScalar<_ScalarKind.Boolean _ScalarTrueFalse>
+    | _BaseScalar<_ScalarKind.Enum _ScalarMember>
+    | _BaseScalar<_ScalarKind.Number _ScalarRange>
+    | _BaseScalar<_ScalarKind.String _ScalarRegex>
+    | _BaseScalar<_ScalarKind.Union _TypeSimple>
     }
 
 output _ScalarRef<$kind> {

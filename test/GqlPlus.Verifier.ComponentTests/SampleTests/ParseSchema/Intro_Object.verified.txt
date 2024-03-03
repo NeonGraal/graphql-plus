@@ -93,9 +93,9 @@ Success
 }
 {
   !O I@008/0011
-  _Ref
+  _ObjRef
   <
-    I@014/0011
+    I@017/0011
     $base
   >
   |
@@ -115,9 +115,9 @@ Success
 }
 {
   !O I@008/0017
-  _TypeBase
+  _ObjBase
   <
-    I@019/0017
+    I@018/0017
     $arg
   >
   {
@@ -145,10 +145,14 @@ Success
     type
     :
     I@013/0023
-    _Ref
+    _Described
     <
-      I@019/0023
-      $base
+      I@024/0023
+      _ObjRef
+      <
+        I@033/0023
+        $base
+      >
     >
     !OF I@007/0024
     collections
@@ -191,10 +195,14 @@ Success
     type
     :
     I@013/0034
-    _Ref
+    _Described
     <
-      I@019/0034
-      $base
+      I@024/0034
+      _ObjRef
+      <
+        I@033/0034
+        $base
+      >
     >
     !OF I@007/0035
     modifiers

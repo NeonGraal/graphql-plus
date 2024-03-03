@@ -5,9 +5,9 @@ Success
   _OutputBase
   :
   I@007/0002
-  _TypeBase
+  _ObjBase
   <
-    I@017/0002
+    I@016/0002
     _OutputArgument
   >
   {
@@ -61,9 +61,9 @@ Success
   |
   !AO
   I@007/0015
-  _Ref
+  _ObjRef
   <
-    I@012/0015
+    I@015/0015
     _OutputBase
   >
 }

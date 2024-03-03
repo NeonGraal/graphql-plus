@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Modelling;
 
 internal record class TypeObjectModel<TBase, TField>(TypeKindModel Kind, string Name)
   : ChildTypeModel<DescribedModel<TBase>>(Kind, Name)
-  where TBase : ITypeBaseModel
+  where TBase : IObjBaseModel
   where TField : ModelBase
 {
   internal DescribedModel<NamedModel>[] TypeParameters { get; set; } = [];
@@ -20,17 +20,17 @@ internal record class TypeObjectModel<TBase, TField>(TypeKindModel Kind, string 
       .Add("alternates", Alternates.Render());
 }
 
-internal record class RefModel<TBase>
+internal record class ObjRefModel<TBase>
   : ModelBase
-  where TBase : ITypeBaseModel
+  where TBase : IObjBaseModel
 {
   internal TypeRefModel<SimpleKindModel>? TypeRef { get; private init; }
 
   internal TBase? BaseRef { get; private init; }
 
-  public RefModel(TypeRefModel<SimpleKindModel> typeRef)
+  public ObjRefModel(TypeRefModel<SimpleKindModel> typeRef)
     => TypeRef = typeRef;
-  public RefModel(TBase baseRef)
+  public ObjRefModel(TBase baseRef)
     => BaseRef = baseRef;
 
   internal override RenderStructure Render()
@@ -39,21 +39,21 @@ internal record class RefModel<TBase>
       : new("");
 }
 
-internal record class TypeBaseModel<TArg>
-  : ModelBase, ITypeBaseModel
+internal record class ObjBaseModel<TArg>
+  : ModelBase, IObjBaseModel
 {
   internal TArg[] Arguments { get; set; } = [];
   internal string? TypeParameter { get; set; }
 }
 
-internal interface ITypeBaseModel : IRendering
+internal interface IObjBaseModel : IRendering
 { }
 
-internal record class AlternateModel<TBase>(RefModel<TBase> Type)
+internal record class AlternateModel<TBase>(DescribedModel<ObjRefModel<TBase>> Type)
   : ModelBase
-  where TBase : ITypeBaseModel
+  where TBase : IObjBaseModel
 {
-  internal ModifierModel[] Collections { get; set; } = [];
+  internal CollectionModel[] Collections { get; set; } = [];
 
   internal override RenderStructure Render()
     => base.Render()
@@ -61,9 +61,9 @@ internal record class AlternateModel<TBase>(RefModel<TBase> Type)
       .Add("collections", Collections.Render());
 }
 
-internal record class FieldModel<TBase>(string Name, RefModel<TBase> Type)
+internal record class FieldModel<TBase>(string Name, ObjRefModel<TBase> Type)
   : AliasedModel(Name)
-  where TBase : ITypeBaseModel
+  where TBase : IObjBaseModel
 {
   internal ModifierModel[] Modifiers { get; set; } = [];
 
@@ -72,20 +72,14 @@ internal record class FieldModel<TBase>(string Name, RefModel<TBase> Type)
       .Add("type", Type.Render());
 }
 
-internal record class ParameterModel
-// Todo: (RefModel<InputBaseModel> Type)
-  : IRendering
+internal record class ParameterModel(DescribedModel<ObjRefModel<InputBaseModel>> Type)
+  : AlternateModel<InputBaseModel>(Type)
 {
-  public ModifierModel[] Collections { get; set; } = [];
   public ConstantModel? Default { get; set; }
 
-  public RenderStructure Render()
-    => RenderStructure.New("_Parameter")
-      // .Add("type", Type.Render())
-      .Add("collections", Collections.Render(true))
-      .Add("description", RenderValue.Str(""))
-      .Add("default", Default?.Render())
-      ;
+  internal override RenderStructure Render()
+    => base.Render()
+      .Add("default", Default?.Render());
 }
 
 internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, TField>(
@@ -97,7 +91,7 @@ internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, 
   where TRefAst : AstReference<TRefAst>
   where TFieldAst : AstField<TRefAst>
   where TModel : IRendering
-  where TBase : ITypeBaseModel
+  where TBase : IObjBaseModel
   where TField : IRendering
 {
   internal DescribedModel<TBase>? ParentModel(TRefAst? parent)
@@ -123,27 +117,26 @@ internal class AlternateModeller<TRefAst, TBase>(
   IModeller<ModifierAst> modifier
 ) : ModellerBase<AstAlternate<TRefAst>, AlternateModel<TBase>>
   where TRefAst : AstReference<TRefAst>
-  where TBase : ITypeBaseModel
+  where TBase : IObjBaseModel
 {
   internal override AlternateModel<TBase> ToModel(AstAlternate<TRefAst> ast)
-    => new(new(BaseModel(ast.Type))) { Collections = ModifiersModels(ast.Modifiers) };
+    => new(new(new(BaseModel(ast.Type))) { Description = ast.Description }) { Collections = modifier.ToModels<CollectionModel>(ast.Modifiers) };
 
   private TBase BaseModel(TRefAst ast)
-    => refBase.ToModel<TBase>(ast) ?? throw new ModelTypeException<TBase>(ast);
-
-  internal ModifierModel[] ModifiersModels(ModifierAst[] modifiers)
-    => [.. modifiers.Select(modifier.ToModel<ModifierModel>).Where(m => m is not null)];
+    => refBase.ToModel<TBase>(ast);
 }
 
 internal class ParameterModeller(
-  IModeller<ConstantAst> constant,
-  IModeller<ModifierAst> modifier
+  IModeller<AstAlternate<InputReferenceAst>> alternate,
+  IModeller<ConstantAst> constant
 ) : ModellerBase<ParameterAst, ParameterModel>
 {
   internal override ParameterModel ToModel(ParameterAst ast)
-    => new() {
-      // Type = parameter.Type.ToModel(),
-      Collections = [.. ast.Modifiers.Select(modifier.ToModel<ModifierModel>)],
-      Default = constant.ToModel<ConstantModel>(ast.Default),
+  {
+    var altModel = alternate.ToModel<AlternateModel<InputBaseModel>>(ast);
+    return new(altModel.Type) {
+      Collections = altModel.Collections,
+      Default = constant.TryModel<ConstantModel>(ast.Default),
     };
+  }
 }

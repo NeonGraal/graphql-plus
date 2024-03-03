@@ -59,7 +59,7 @@ internal abstract class ObjectModelChecks<TObject, TField, TRef, TModel>(
     => [$"- !_{TypeKind}Field", "  name: " + field.Name, $"  type: !_{TypeKind}Base {field.Type}"];
 
   internal IEnumerable<string> ExpectedAlternate(string alternate)
-    => [$"- !_Alternate(_{TypeKind}Base)", "  collections:", "  - !_Modifier List", "  - !_Modifier Optional", $"  type: !_{TypeKind}Base {alternate}"];
+    => [$"- !_Alternate(_{TypeKind}Base)", "  collections:", "  - !_Modifier List", $"  type: !_Described(_ObjRef(_{TypeKind}Base)) {alternate}"];
 
   protected override string[] ExpectedParent(string? parent)
     => parent is null ? []

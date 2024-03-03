@@ -9,14 +9,14 @@ internal record class TypeOutputModel(string Name)
 { }
 
 internal record class OutputBaseModel(string Output)
-  : TypeBaseModel<RefModel<OutputArgumentModel>>
+  : ObjBaseModel<ObjRefModel<OutputArgumentModel>>
 {
   internal override RenderStructure Render()
     => base.Render()
       .Add("output", Output);
 }
 
-internal record class OutputFieldModel(string Name, RefModel<OutputBaseModel> Type)
+internal record class OutputFieldModel(string Name, ObjRefModel<OutputBaseModel> Type)
   : FieldModel<OutputBaseModel>(Name, Type)
 {
   internal ParameterModel[] Parameters { get; set; } = [];
@@ -24,10 +24,10 @@ internal record class OutputFieldModel(string Name, RefModel<OutputBaseModel> Ty
 }
 
 internal record class OutputArgumentModel(string Name)
-  : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name), ITypeBaseModel
+  : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name), IObjBaseModel
 {
   internal string? EnumValue { get; set; }
-  internal RefModel<OutputBaseModel>? Ref { get; set; }
+  internal ObjRefModel<OutputBaseModel>? Ref { get; set; }
 }
 
 internal record class OutputEnumModel(string Name, string Field, string Value)

@@ -1,5 +1,5 @@
 output _InputBase {
-    : _TypeBase<_Ref<_InputBase>>
+    : _ObjBase<_ObjRef<_InputBase>>
         input: Identifier
     }
 

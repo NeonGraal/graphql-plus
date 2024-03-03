@@ -9,14 +9,14 @@ internal record class TypeInputModel(string Name)
 { }
 
 internal record class InputBaseModel(string Input)
-  : TypeBaseModel<RefModel<InputBaseModel>>
+  : ObjBaseModel<ObjRefModel<InputBaseModel>>
 {
   internal override RenderStructure Render()
     => base.Render()
       .Add("input", Input);
 }
 
-internal record class InputFieldModel(string Name, RefModel<InputBaseModel> Type)
+internal record class InputFieldModel(string Name, ObjRefModel<InputBaseModel> Type)
   : FieldModel<InputBaseModel>(Name, Type)
 {
   internal ConstantModel? Default { get; set; }

@@ -30,6 +30,6 @@ internal static class AllModellers
 
   public static IServiceCollection AddAlternateModeller<TRefAst, TBase>(this IServiceCollection services)
     where TRefAst : AstReference<TRefAst>
-    where TBase : ITypeBaseModel
+    where TBase : IObjBaseModel
     => services.AddModeller<AstAlternate<TRefAst>, AlternateModeller<TRefAst, TBase>>();
 }

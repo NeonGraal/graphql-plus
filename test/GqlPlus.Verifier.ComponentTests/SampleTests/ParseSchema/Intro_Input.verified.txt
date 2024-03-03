@@ -5,12 +5,12 @@ Success
   _InputBase
   :
   I@007/0002
-  _TypeBase
+  _ObjBase
   <
-    I@017/0002
-    _Ref
+    I@016/0002
+    _ObjRef
     <
-      I@022/0002
+      I@024/0002
       _InputBase
     >
   >

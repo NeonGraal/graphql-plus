@@ -42,9 +42,11 @@ internal abstract class ModelBaseChecks<TInput, TAst, TModel>
 
   internal static void Model_Expected(IRendering model, string[] expected)
   {
-    var render = model.Render().ToYaml();
+    var render = model.Render();
 
-    render.ToLines().Should().BeEquivalentTo(expected);
+    var yaml = render.ToYaml();
+
+    yaml.ToLines().Should().BeEquivalentTo(expected);
   }
 
   [SuppressMessage("Performance", "CA1822:Mark members as static")]

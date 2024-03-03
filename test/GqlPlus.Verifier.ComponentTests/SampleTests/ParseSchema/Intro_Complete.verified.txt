@@ -973,9 +973,9 @@ Success
 }
 {
   !O I@008/0226
-  _Ref
+  _ObjRef
   <
-    I@014/0226
+    I@017/0226
     $base
   >
   |
@@ -995,9 +995,9 @@ Success
 }
 {
   !O I@008/0232
-  _TypeBase
+  _ObjBase
   <
-    I@019/0232
+    I@018/0232
     $arg
   >
   {
@@ -1025,10 +1025,14 @@ Success
     type
     :
     I@013/0238
-    _Ref
+    _Described
     <
-      I@019/0238
-      $base
+      I@024/0238
+      _ObjRef
+      <
+        I@033/0238
+        $base
+      >
     >
     !OF I@007/0239
     collections
@@ -1071,10 +1075,14 @@ Success
     type
     :
     I@013/0249
-    _Ref
+    _Described
     <
-      I@019/0249
-      $base
+      I@024/0249
+      _ObjRef
+      <
+        I@033/0249
+        $base
+      >
     >
     !OF I@007/0250
     modifiers
@@ -1108,12 +1116,12 @@ Success
   _InputBase
   :
   I@007/0258
-  _TypeBase
+  _ObjBase
   <
-    I@017/0258
-    _Ref
+    I@016/0258
+    _ObjRef
     <
-      I@022/0258
+      I@024/0258
       _InputBase
     >
   >
@@ -1149,9 +1157,9 @@ Success
   _OutputBase
   :
   I@007/0267
-  _TypeBase
+  _ObjBase
   <
-    I@017/0267
+    I@016/0267
     _OutputArgument
   >
   {
@@ -1205,9 +1213,9 @@ Success
   |
   !AO
   I@007/0280
-  _Ref
+  _ObjRef
   <
-    I@012/0280
+    I@015/0280
     _OutputBase
   >
 }

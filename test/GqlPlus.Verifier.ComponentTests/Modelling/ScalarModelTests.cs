@@ -1,5 +1,4 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
@@ -39,7 +38,7 @@ public abstract class ScalarModelTests<TInput, TItem>
 
 internal abstract class ScalarModelChecks<TInput, TItem, TItemModel>(
   ScalarKind kind,
-  IModeller<AstScalar<TItem>> modeller
+  IModeller<AstScalar<TItem>, BaseScalarModel<TItemModel>> modeller
 ) : TypeModelChecks<AstScalar<TItem>, SimpleKindModel, BaseScalarModel<TItemModel>>(modeller, SimpleKindModel.Scalar)
   , IScalarModelChecks<TInput, TItem>
   where TItem : IAstScalarItem

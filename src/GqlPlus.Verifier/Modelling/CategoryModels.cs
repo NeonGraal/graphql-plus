@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Modelling;
 
 // Todo : CatagoriesModel
 
-internal record class CategoryModel(string Name, TypeRefModel<TypeKindModel> Output)
+public record class CategoryModel(string Name, TypeRefModel<TypeKindModel> Output)
   : AliasedModel(Name)
 {
   public CategoryOption Resolution { get; set; } = CategoryOption.Parallel;
@@ -22,7 +22,7 @@ internal record class CategoryModel(string Name, TypeRefModel<TypeKindModel> Out
 // ResolutionModel => CategoryOption
 
 internal class CategoryModeller(
-  IModeller<ModifierAst> modifier
+  IModeller<ModifierAst, ModifierModel> modifier
 ) : ModellerBase<CategoryDeclAst, CategoryModel>
 {
   internal override CategoryModel ToModel(CategoryDeclAst ast)
@@ -30,6 +30,6 @@ internal class CategoryModeller(
       Aliases = ast.Aliases,
       Description = ast.Description,
       Resolution = ast.Option,
-      Modifiers = [.. ast.Modifiers.Select(modifier.ToModel<ModifierModel>)]
+      Modifiers = modifier.ToModels(ast.Modifiers),
     };
 }

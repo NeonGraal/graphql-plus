@@ -1,10 +1,10 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class SettingModelTests
-  : DescribedModelTests<SettingInput>
+public class SettingModelTests(
+  IModeller<OptionSettingAst, SettingModel> modeller
+) : DescribedModelTests<SettingInput>
 {
   protected override string[] ExpectedDescription(SettingInput input, string description)
     => ["!_Setting",
@@ -14,19 +14,13 @@ public class SettingModelTests
 
   internal override IDescribedModelChecks<SettingInput> DescribedChecks => _checks;
 
-  private readonly SettingModelChecks _checks = new();
+  private readonly SettingModelChecks _checks = new(modeller);
 }
 
-internal sealed class SettingModelChecks
-  : DescribedModelChecks<SettingInput, OptionSettingAst, SettingModel>
+internal sealed class SettingModelChecks(
+  IModeller<OptionSettingAst, SettingModel> modeller
+) : DescribedModelChecks<SettingInput, OptionSettingAst, SettingModel>(modeller)
 {
-
-  public SettingModelChecks()
-    : base(new SettingModeller(
-      TestModeller<ConstantAst>.For<ConstantModel>(
-        a => new(SimpleModel.Str("", a.Value?.Value ?? a.Value?.Text ?? "")))))
-  { }
-
   protected override OptionSettingAst NewDescribedAst(SettingInput input, string description)
     => input.ToAst(description);
 }

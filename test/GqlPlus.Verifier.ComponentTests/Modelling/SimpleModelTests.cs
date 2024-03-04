@@ -1,5 +1,4 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 

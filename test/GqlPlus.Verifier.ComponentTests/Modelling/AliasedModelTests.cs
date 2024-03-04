@@ -25,7 +25,7 @@ public abstract class AliasedModelTests<TInput>
 }
 
 internal abstract class AliasedModelChecks<TInput, TAst, TModel>(
-  IModeller<TAst> modeller
+  IModeller<TAst, TModel> modeller
 ) : DescribedModelChecks<TInput, TAst, TModel>(modeller)
   , IAliasedModelChecks<TInput>
   where TAst : AstAliased

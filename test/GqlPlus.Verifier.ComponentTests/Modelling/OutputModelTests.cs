@@ -1,28 +1,18 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class OutputModelTests
-  : ObjectModelTests<OutputDeclAst, OutputFieldAst, OutputReferenceAst>
+public class OutputModelTests(
+  IModeller<OutputDeclAst, TypeOutputModel> modeller
+) : ObjectModelTests<OutputDeclAst, OutputFieldAst, OutputReferenceAst>
 {
   internal override IObjectModelChecks<OutputDeclAst, OutputFieldAst, OutputReferenceAst> ObjectChecks => _checks;
 
-  private readonly OutputModelChecks _checks;
-
-  public OutputModelTests()
-  {
-    OutputReferenceModeller reference = new();
-    ModifierModeller modifier = new();
-    AlternateModeller<OutputReferenceAst, OutputBaseModel> alternate = new(reference, modifier);
-    OutputModeller output = new(alternate, modifier, reference);
-
-    _checks = new(output);
-  }
+  private readonly OutputModelChecks _checks = new(modeller);
 }
 
 internal sealed class OutputModelChecks(
-  IModeller<OutputDeclAst> modeller
+  IModeller<OutputDeclAst, TypeOutputModel> modeller
 ) : ObjectModelChecks<OutputDeclAst, OutputFieldAst, OutputReferenceAst, TypeOutputModel>(modeller, TypeKindModel.Output)
 {
   protected override OutputDeclAst NewObjectAst(

@@ -43,7 +43,7 @@ public abstract class ObjectModelTests<TObject, TField, TRef>
 }
 
 internal abstract class ObjectModelChecks<TObject, TField, TRef, TModel>(
-  IModeller<TObject> modeller,
+  IModeller<TObject, TModel> modeller,
   TypeKindModel kind
 ) : TypeModelChecks<TRef, string, TObject, TypeKindModel, TModel>(modeller, kind),
     IObjectModelChecks<TObject, TField, TRef>

@@ -1,11 +1,11 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class DirectiveModelTests
-  : AliasedModelTests<string>
+public class DirectiveModelTests(
+  IModeller<DirectiveDeclAst, DirectiveModel> modeller
+) : AliasedModelTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Repeatable(string name, DirectiveOption option)
@@ -22,7 +22,7 @@ public class DirectiveModelTests
       new(AstNulls.At, name) { Parameters = parameters.Parameters() },
       ["!_Directive",
         "name: " + name,
-        //.. parameters.Select(p => "- !_Parameter ''"),
+        .. DirectiveModelChecks.ExpectedParameters(parameters),
         "repeatable: false"]);
 
   [Theory, RepeatData(Repeats)]
@@ -56,7 +56,7 @@ public class DirectiveModelTests
         "description: " + _checks.YamlQuoted(contents),
         "locations: !_Set(_Location) " + ExpectedLocations(locations),
         "name: " + name,
-        //.. parameters.Select(p => "- !_Parameter ''"),
+        .. DirectiveModelChecks.ExpectedParameters(parameters),
         "repeatable: " + (option == DirectiveOption.Repeatable).TrueFalse()]);
 
   private static string ExpectedLocations(DirectiveLocation[] locations)
@@ -78,16 +78,16 @@ public class DirectiveModelTests
 
   internal override IAliasedModelChecks<string> AliasedChecks => _checks;
 
-  private readonly DirectiveModelChecks _checks = new();
+  private readonly DirectiveModelChecks _checks = new(modeller);
 }
 
-internal sealed class DirectiveModelChecks
-  : AliasedModelChecks<string, DirectiveDeclAst, DirectiveModel>
+internal sealed class DirectiveModelChecks(
+  IModeller<DirectiveDeclAst, DirectiveModel> modeller
+) : AliasedModelChecks<string, DirectiveDeclAst, DirectiveModel>(modeller)
 {
-  public DirectiveModelChecks()
-    : base(new DirectiveModeller())
-  { }
-
   protected override DirectiveDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);
+
+  internal static IEnumerable<string> ExpectedParameters(string[] parameters)
+    => ItemsExpected("parameters:", parameters, p => ["- !_Parameter", "  type: !_Described(_ObjRef(_InputBase)) " + p]);
 }

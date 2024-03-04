@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Modelling;
 
 // Todo : DirectivesModel
 
-internal record class DirectiveModel(string Name)
+public record class DirectiveModel(string Name)
   : AliasedModel(Name)
 {
   public ParameterModel[] Parameters { get; set; } = [];
@@ -19,8 +19,9 @@ internal record class DirectiveModel(string Name)
       .Add("repeatable", Repeatable);
 }
 
-internal class DirectiveModeller
-  : ModellerBase<DirectiveDeclAst, DirectiveModel>
+internal class DirectiveModeller(
+  IModeller<ParameterAst, ParameterModel> parameter
+) : ModellerBase<DirectiveDeclAst, DirectiveModel>
 {
   internal override DirectiveModel ToModel(DirectiveDeclAst ast)
     => new(ast.Name) {
@@ -28,7 +29,7 @@ internal class DirectiveModeller
       Description = ast.Description,
       Repeatable = ast.Option == DirectiveOption.Repeatable,
       Locations = ast.Locations,
-      // Todo: Parameters = [.. category.Parameters.Select(p => p.ToModel())],
+      Parameters = parameter.ToModels(ast.Parameters),
     };
 
   internal static DirectiveLocation Combine(DirectiveLocation[] values)

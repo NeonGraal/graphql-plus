@@ -1,28 +1,18 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class InputModelTests
-  : ObjectModelTests<InputDeclAst, InputFieldAst, InputReferenceAst>
+public class InputModelTests(
+  IModeller<InputDeclAst, TypeInputModel> modeller
+) : ObjectModelTests<InputDeclAst, InputFieldAst, InputReferenceAst>
 {
   internal override IObjectModelChecks<InputDeclAst, InputFieldAst, InputReferenceAst> ObjectChecks => _checks;
 
-  private readonly InputModelChecks _checks;
-
-  public InputModelTests()
-  {
-    InputReferenceModeller reference = new();
-    ModifierModeller modifier = new();
-    AlternateModeller<InputReferenceAst, InputBaseModel> alternate = new(reference, modifier);
-    InputModeller input = new(alternate, modifier, reference);
-
-    _checks = new(input);
-  }
+  private readonly InputModelChecks _checks = new(modeller);
 }
 
 internal sealed class InputModelChecks(
-  IModeller<InputDeclAst> modeller
+  IModeller<InputDeclAst, TypeInputModel> modeller
 ) : ObjectModelChecks<InputDeclAst, InputFieldAst, InputReferenceAst, TypeInputModel>(modeller, TypeKindModel.Input)
 {
   protected override InputDeclAst NewObjectAst(

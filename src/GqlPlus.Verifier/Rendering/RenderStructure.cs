@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Rendering;
 
-internal class RenderStructure
+public class RenderStructure
   : Structured<RenderValue, RenderStructure>
 {
   public bool IsEmpty
@@ -78,7 +78,7 @@ internal class RenderStructure
     => Add(key, new(value.ToString(), tag ?? typeof(T).TypeTag()));
 
   public RenderStructure Add(bool optional, Func<RenderStructure, RenderStructure> add)
-    => optional ? add(this) : this;
+    => optional && add is not null ? add(this) : this;
 
   public RenderStructure AddSet<TEnum>(string key, TEnum set, string? tag = null, bool flow = true)
     where TEnum : Enum

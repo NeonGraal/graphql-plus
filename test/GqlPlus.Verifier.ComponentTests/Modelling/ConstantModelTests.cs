@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Verifier.Modelling;
 
-namespace GqlPlus.Verifier.Modelling;
-
-public class ConstantModelTests : ModelBaseTests<string>
+public class ConstantModelTests(
+  IModeller<ConstantAst, ConstantModel> modeller
+) : ModelBaseTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_List(string value)
@@ -47,18 +47,13 @@ public class ConstantModelTests : ModelBaseTests<string>
   protected override string[] ExpectedBase(string input)
     => [input];
 
-  private readonly ConstantModelChecks _checks = new();
+  private readonly ConstantModelChecks _checks = new(modeller);
 }
 
-internal sealed class ConstantModelChecks
-  : ModelBaseChecks<string, ConstantAst, ConstantModel>
+internal sealed class ConstantModelChecks(
+  IModeller<ConstantAst, ConstantModel> modeller
+) : ModelBaseChecks<string, ConstantAst, ConstantModel>(modeller)
 {
-  public ConstantModelChecks()
-    : base(new ConstantModeller(
-      TestModeller<FieldKeyAst>.For(
-        k => SimpleModel.Str("", k.Value ?? k.Text!))))
-  { }
-
   protected override ConstantAst NewBaseAst(string input)
     => new FieldKeyAst(AstNulls.At, input);
 }

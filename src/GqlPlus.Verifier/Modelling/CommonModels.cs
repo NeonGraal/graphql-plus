@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal class ConstantModel
+public class ConstantModel
   : Structured<SimpleModel, ConstantModel>, IRendering
 {
   internal ConstantModel(SimpleModel value)
@@ -24,7 +24,7 @@ internal class ConstantModel
     : new("");
 }
 
-internal record class SimpleModel
+public record class SimpleModel
   : IRendering
 {
   internal bool? Boolean { get; private init; }
@@ -55,7 +55,7 @@ internal record class SimpleModel
       : new("null", "Basic");
 }
 
-internal record class CollectionModel(ModifierKind Kind)
+public record class CollectionModel(ModifierKind Kind)
   : ModelBase
 {
   public string Key { get; set; } = "";
@@ -70,27 +70,27 @@ internal record class CollectionModel(ModifierKind Kind)
         );
 }
 
-internal record class ModifierModel(ModifierKind Kind)
+public record class ModifierModel(ModifierKind Kind)
   : CollectionModel(Kind)
 { }
 
-internal class ConstantModeller(IModeller<FieldKeyAst> value)
+internal class ConstantModeller(IModeller<FieldKeyAst, SimpleModel> value)
   : ModellerBase<ConstantAst, ConstantModel>
 {
   internal override ConstantModel ToModel(ConstantAst ast)
     => ast.Fields.Count > 0 ? new(ToModel(ast.Fields))
     : ast.Values.Length > 0 ? new(ast.Values.Select(ToModel))
-    : ast.Value is not null ? new(value.ToModel<SimpleModel>(ast.Value))
+    : ast.Value is not null ? new(value.ToModel(ast.Value))
     : new(new SimpleModel());
 
   private Dictionary<SimpleModel, ConstantModel> ToModel(AstObject<ConstantAst> constant)
     => constant.ToDictionary(
-      p => value.ToModel<SimpleModel>(p.Key),
+      p => value.ToModel(p.Key),
       p => ToModel(p.Value));
 }
 
 internal class SimpleModeller
-  : ModellerBase<FieldKeyAst, SimpleModel>, IModeller<FieldKeyAst>
+  : ModellerBase<FieldKeyAst, SimpleModel>
 {
   internal override SimpleModel ToModel(FieldKeyAst ast)
     => ast.Number.HasValue ? SimpleModel.Num("", ast.Number.Value)
@@ -101,7 +101,7 @@ internal class SimpleModeller
 }
 
 internal class ModifierModeller
-  : ModellerBase<ModifierAst, ModifierModel>
+  : ModellerBase<ModifierAst, ModifierModel>, IModeller<ModifierAst, CollectionModel>
 {
   internal override ModifierModel ToModel(ModifierAst ast)
     => new(ast.Kind) {
@@ -109,7 +109,7 @@ internal class ModifierModeller
       KeyOptional = ast.KeyOptional,
     };
 
-  public override T? TryModel<T>(ModifierAst? ast)
+  protected override T? TryModel<T>(ModifierAst? ast)
     where T : default
   {
     if (typeof(T).Equals(typeof(CollectionModel))) {
@@ -122,4 +122,13 @@ internal class ModifierModeller
       return base.TryModel<T>(ast);
     }
   }
+
+  CollectionModel? IModeller<ModifierAst, CollectionModel>.TryModel(ModifierAst? ast)
+    => TryModel<CollectionModel>(ast);
+  CollectionModel IModeller<ModifierAst, CollectionModel>.ToModel(ModifierAst? ast)
+    => ToModel<CollectionModel>(ast);
+  IEnumerable<CollectionModel?> IModeller<ModifierAst, CollectionModel>.TryModels(IEnumerable<ModifierAst>? asts)
+    => TryModels<CollectionModel>(asts);
+  CollectionModel[] IModeller<ModifierAst, CollectionModel>.ToModels(IEnumerable<ModifierAst>? asts)
+    => ToModels<CollectionModel>(asts);
 }

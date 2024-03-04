@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifier.Ast;
-
-namespace GqlPlus.Verifier.Modelling;
+﻿namespace GqlPlus.Verifier.Modelling;
 
 public class CollectionModelTests
   : ModelBaseTests<ModifierInput>

@@ -1,10 +1,10 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class CategoryModelTests
-  : AliasedModelTests<string>
+public class CategoryModelTests(
+  IModeller<CategoryDeclAst, CategoryModel> modeller
+) : AliasedModelTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Name(string output, string name)
@@ -68,19 +68,13 @@ public class CategoryModelTests
 
   internal override IAliasedModelChecks<string> AliasedChecks => _checks;
 
-  private readonly CategoryModelChecks _checks = new();
+  private readonly CategoryModelChecks _checks = new(modeller);
 }
 
-internal sealed class CategoryModelChecks
-  : AliasedModelChecks<string, CategoryDeclAst, CategoryModel>
+internal sealed class CategoryModelChecks(
+  IModeller<CategoryDeclAst, CategoryModel> modeller
+) : AliasedModelChecks<string, CategoryDeclAst, CategoryModel>(modeller)
 {
-  public CategoryModelChecks()
-    : base(new CategoryModeller(
-      TestModeller<ModifierAst>.For<ModifierModel>(
-        m => new(m.Kind)))
-       )
-  { }
-
   protected override CategoryDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input) { Description = description };
 }

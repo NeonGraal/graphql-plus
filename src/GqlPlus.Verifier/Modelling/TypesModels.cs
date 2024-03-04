@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Modelling;
 
 // Todo: TypeModel
 
-internal abstract record class BaseTypeModel(TypeKindModel Kind, string Name)
+public abstract record class BaseTypeModel(TypeKindModel Kind, string Name)
   : AliasedModel(Name)
 {
   internal override RenderStructure Render()
@@ -12,7 +12,7 @@ internal abstract record class BaseTypeModel(TypeKindModel Kind, string Name)
     .Add("kind", Kind.RenderEnum());
 }
 
-internal abstract record class ChildTypeModel<TParent>(
+public abstract record class ChildTypeModel<TParent>(
   TypeKindModel Kind,
   string Name
 ) : BaseTypeModel(Kind, Name)
@@ -37,7 +37,7 @@ public enum TypeKindModel
   Output,
 }
 
-internal record class TypeRefModel<TKind>(TKind Kind, string Name)
+public record class TypeRefModel<TKind>(TKind Kind, string Name)
   : NamedModel(Name)
 {
   private static readonly string s_kindTag = typeof(TKind).TypeTag();
@@ -47,7 +47,7 @@ internal record class TypeRefModel<TKind>(TKind Kind, string Name)
       .Add("kind", new(Kind?.ToString(), s_kindTag));
 }
 
-internal record class TypeSimpleModel(SimpleKindModel Kind, string Name)
+public record class TypeSimpleModel(SimpleKindModel Kind, string Name)
   : TypeRefModel<SimpleKindModel>(Kind, Name), IBaseScalarItemModel
 { }
 

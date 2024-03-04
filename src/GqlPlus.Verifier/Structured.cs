@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier;
 
-internal class Structured<TValue, TStruct>
+public class Structured<TValue, TStruct>
   where TValue : notnull
   where TStruct : Structured<TValue, TStruct>
 {

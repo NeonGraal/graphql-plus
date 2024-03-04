@@ -10,7 +10,7 @@ namespace GqlPlus.Verifier.Modelling;
 
 // Todo: TypeFilterParameter
 
-internal abstract record class AliasedModel(string Name)
+public abstract record class AliasedModel(string Name)
   : DescribedModel<NamedModel>(new NamedModel(Name))
 {
   public string[] Aliases { get; set; } = [];
@@ -20,7 +20,7 @@ internal abstract record class AliasedModel(string Name)
       .Add("aliases", Aliases.Render());
 }
 
-internal record class DescribedModel<TBase>(TBase Base)
+public record class DescribedModel<TBase>(TBase Base)
   : ModelBase
   where TBase : IRendering
 {

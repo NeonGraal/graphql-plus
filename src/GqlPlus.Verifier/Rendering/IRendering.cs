@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Rendering;
 
-internal interface IRendering
+public interface IRendering
 {
   RenderStructure Render();
 }

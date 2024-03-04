@@ -38,7 +38,7 @@ internal abstract class TypeModelChecks<TAstParent, TParent, TAst, TTypeKind, TM
   TTypeKind ITypeModelChecks<TAstParent, TParent, TTypeKind>.TypeKind => TypeKind;
   string ITypeModelChecks<TAstParent, TParent, TTypeKind>.TypeKindLower => TypeKindLower;
 
-  protected TypeModelChecks(IModeller<TAst> modeller, TTypeKind kind)
+  protected TypeModelChecks(IModeller<TAst, TModel> modeller, TTypeKind kind)
     : base(modeller)
     => (TypeKind, TypeKindLower) = (kind, $"{kind}".ToLowerInvariant());
 
@@ -62,10 +62,6 @@ internal abstract class TypeModelChecks<TAstParent, TParent, TAst, TTypeKind, TM
     IEnumerable<string>? description
   ) => ExpectedType(name, parent, aliases, description);
 
-  protected static IEnumerable<string> ItemsExpected<TInput>(string field, TInput[]? items, Func<TInput, IEnumerable<string>> mapping)
-    => items == null || items.Length == 0 ? []
-      : items.SelectMany(mapping).Prepend(field);
-
   TAstParent ITypeModelChecks<TAstParent, TParent, TTypeKind>.ParentAst(TParent parent)
     => NewReferenceAst(parent);
   AstType<TAstParent> ITypeModelChecks<TAstParent, TParent, TTypeKind>.TypeAst(string name, TParent parent)
@@ -79,7 +75,7 @@ internal abstract class TypeModelChecks<TAstParent, TParent, TAst, TTypeKind, TM
 }
 
 internal abstract class TypeModelChecks<TAst, TTypeKind, TModel>(
-  IModeller<TAst> modeller,
+  IModeller<TAst, TModel> modeller,
   TTypeKind kind
 ) : TypeModelChecks<string, string, TAst, TTypeKind, TModel>(modeller, kind)
   , ITypeModelChecks<TTypeKind>

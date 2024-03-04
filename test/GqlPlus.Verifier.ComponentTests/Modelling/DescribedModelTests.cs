@@ -1,5 +1,4 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
@@ -26,7 +25,7 @@ public abstract class DescribedModelTests<TInput>
 }
 
 internal abstract class DescribedModelChecks<TInput, TAst, TModel>(
-  IModeller<TAst> modeller
+  IModeller<TAst, TModel> modeller
 ) : ModelBaseChecks<TInput, TAst, TModel>(modeller)
   , IDescribedModelChecks<TInput>
   where TAst : AstAbbreviated, IAstDescribed

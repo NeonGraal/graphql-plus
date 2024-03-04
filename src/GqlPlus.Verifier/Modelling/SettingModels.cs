@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
-internal record class SettingModel(string Name, ConstantModel Value)
+public record class SettingModel(string Name, ConstantModel Value)
   : DescribedModel<NamedModel>(new NamedModel(Name))
 {
   internal override RenderStructure Render()
@@ -13,11 +13,11 @@ internal record class SettingModel(string Name, ConstantModel Value)
 }
 
 internal class SettingModeller(
-  IModeller<ConstantAst> constant
+  IModeller<ConstantAst, ConstantModel> constant
 ) : ModellerBase<OptionSettingAst, SettingModel>
 {
   internal override SettingModel ToModel(OptionSettingAst ast)
-    => new(ast.Name, constant.ToModel<ConstantModel>(ast.Value)) {
+    => new(ast.Name, constant.ToModel(ast.Value)) {
       Description = ast.Description,
     };
 }

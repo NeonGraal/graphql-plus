@@ -5,8 +5,10 @@ namespace GqlPlus.Verifier.Modelling;
 
 internal enum ScalarKindModel { Boolean, Enum, Number, String, Union }
 
-internal record class ScalarRefModel(string Name, ScalarKind Scalar)
-  : TypeRefModel<SimpleKindModel>(SimpleKindModel.Scalar, Name)
+internal record class ScalarRefModel(
+  string Name,
+  ScalarKind Scalar
+) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Scalar, Name)
 {
   internal override RenderStructure Render()
     => base.Render()
@@ -31,8 +33,9 @@ internal sealed record class BaseScalarModel<TItem>(
       .Add("scalar", Scalar.RenderEnum());
 }
 
-internal record class BaseScalarItemModel(bool Exclude)
-  : ModelBase, IBaseScalarItemModel
+internal record class BaseScalarItemModel(
+  bool Exclude
+) : ModelBase, IBaseScalarItemModel
 {
   internal override RenderStructure Render()
     => base.Render()
@@ -55,38 +58,42 @@ internal record class ScalarMemberModel(
       .Add(EnumValue);
 }
 
-internal record class ScalarTrueFalseModel(bool Exclude)
-  : BaseScalarItemModel(Exclude)
+internal record class ScalarTrueFalseModel(
+  bool Value,
+  bool Exclude
+) : BaseScalarItemModel(Exclude)
 {
-  public bool Value { get; set; }
-
   internal override RenderStructure Render()
     => base.Render()
       .Add("value", Value);
 }
 
-internal record class ScalarRangeModel(bool Exclude)
-  : BaseScalarItemModel(Exclude)
+internal record class ScalarRangeModel(
+  decimal? From,
+  decimal? To,
+  bool Exclude
+) : BaseScalarItemModel(Exclude)
 {
-  public decimal? From { get; set; }
-  public decimal? To { get; set; }
-
   internal override RenderStructure Render()
     => base.Render()
       .Add("from", From)
       .Add("to", To);
 }
 
-internal record class ScalarRegexModel(string Regex, bool Exclude)
-  : BaseScalarItemModel(Exclude)
+internal record class ScalarRegexModel(
+  string Regex,
+  bool Exclude
+) : BaseScalarItemModel(Exclude)
 {
   internal override RenderStructure Render()
     => base.Render()
       .Add("regex", Regex);
 }
 
-internal record class ScalarItemModel<TItem>(TItem Item, string Scalar)
-  : ModelBase
+internal record class ScalarItemModel<TItem>(
+  TItem Item,
+  string Scalar
+) : ModelBase
   where TItem : IBaseScalarItemModel
 {
   internal override RenderStructure Render()
@@ -122,7 +129,7 @@ internal class ScalarBooleanModeller
     };
 
   protected override ScalarTrueFalseModel ToItem(ScalarTrueFalseAst ast)
-    => new(ast.Excludes) { Value = ast.Value, };
+    => new(ast.Value, ast.Excludes);
 }
 
 internal class ScalarEnumModeller
@@ -154,7 +161,7 @@ internal class ScalarNumberModeller
     };
 
   protected override ScalarRangeModel ToItem(ScalarRangeAst ast)
-    => new(ast.Excludes) { From = ast.Lower, To = ast.Upper };
+    => new(ast.Lower, ast.Upper, ast.Excludes);
 }
 
 internal class ScalarStringModeller

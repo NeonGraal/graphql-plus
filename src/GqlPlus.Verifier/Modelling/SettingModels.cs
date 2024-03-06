@@ -3,8 +3,10 @@ using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
-public record class SettingModel(string Name, ConstantModel Value)
-  : DescribedModel<NamedModel>(new NamedModel(Name))
+public record class SettingModel(
+  string Name,
+  ConstantModel Value
+) : DescribedModel<NamedModel>(new NamedModel(Name))
 {
   internal override RenderStructure Render()
     => base.Render()

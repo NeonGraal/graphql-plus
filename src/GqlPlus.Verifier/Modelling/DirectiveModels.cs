@@ -5,8 +5,9 @@ namespace GqlPlus.Verifier.Modelling;
 
 // Todo : DirectivesModel
 
-public record class DirectiveModel(string Name)
-  : AliasedModel(Name)
+public record class DirectiveModel(
+  string Name
+) : AliasedModel(Name)
 {
   public ParameterModel[] Parameters { get; set; } = [];
   public bool Repeatable { get; set; }

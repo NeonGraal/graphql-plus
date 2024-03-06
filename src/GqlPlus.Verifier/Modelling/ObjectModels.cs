@@ -4,8 +4,10 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public record class TypeObjectModel<TBase, TField>(TypeKindModel Kind, string Name)
-  : ChildTypeModel<DescribedModel<TBase>>(Kind, Name)
+public record class TypeObjectModel<TBase, TField>(
+  TypeKindModel Kind,
+  string Name
+) : ChildTypeModel<DescribedModel<TBase>>(Kind, Name)
   where TBase : IObjBaseModel
   where TField : ModelBase
 {
@@ -49,8 +51,9 @@ public record class ObjBaseModel<TArg>
 public interface IObjBaseModel : IRendering
 { }
 
-public record class AlternateModel<TBase>(DescribedModel<ObjRefModel<TBase>> Type)
-  : ModelBase
+public record class AlternateModel<TBase>(
+  DescribedModel<ObjRefModel<TBase>> Type
+) : ModelBase
   where TBase : IObjBaseModel
 {
   internal CollectionModel[] Collections { get; set; } = [];
@@ -61,8 +64,10 @@ public record class AlternateModel<TBase>(DescribedModel<ObjRefModel<TBase>> Typ
       .Add("collections", Collections.Render());
 }
 
-public record class FieldModel<TBase>(string Name, ObjRefModel<TBase> Type)
-  : AliasedModel(Name)
+public record class FieldModel<TBase>(
+  string Name,
+  ObjRefModel<TBase> Type
+) : AliasedModel(Name)
   where TBase : IObjBaseModel
 {
   internal ModifierModel[] Modifiers { get; set; } = [];
@@ -72,8 +77,9 @@ public record class FieldModel<TBase>(string Name, ObjRefModel<TBase> Type)
       .Add("type", Type.Render());
 }
 
-public record class ParameterModel(DescribedModel<ObjRefModel<InputBaseModel>> Type)
-  : AlternateModel<InputBaseModel>(Type)
+public record class ParameterModel(
+  DescribedModel<ObjRefModel<InputBaseModel>> Type
+) : AlternateModel<InputBaseModel>(Type)
 {
   public ConstantModel? Default { get; set; }
 
@@ -83,8 +89,7 @@ public record class ParameterModel(DescribedModel<ObjRefModel<InputBaseModel>> T
 }
 
 internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, TField>(
-  IModeller<AstAlternate<TRefAst>, AlternateModel<TBase>> alternate,
-  IModeller<ModifierAst, ModifierModel> modifier,
+  IModifierModeller modifier,
   IModeller<TRefAst, TBase> reference
 ) : ModellerType<TAst, TRefAst, TModel>
   where TAst : AstType<TRefAst>
@@ -94,17 +99,20 @@ internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, 
   where TBase : IObjBaseModel
   where TField : IRendering
 {
+  private IModeller<AstAlternate<TRefAst>, AlternateModel<TBase>> Alternate { get; }
+    = new AlternateModeller<TRefAst, TBase>(reference, modifier);
+
   internal DescribedModel<TBase>? ParentModel(TRefAst? parent)
     => parent is null ? null : new DescribedModel<TBase>(BaseModel(parent));
 
   internal AlternateModel<TBase>[] AlternatesModels(AstAlternate<TRefAst>[] alternates)
-    => alternate.ToModels(alternates);
+    => Alternate.ToModels(alternates);
 
   internal TField[] FieldsModels(TFieldAst[] fields)
     => [.. fields.Select(FieldModel)];
 
   internal ModifierModel[] ModifiersModels(ModifierAst[] modifiers)
-    => modifier.ToModels(modifiers);
+    => modifier.ToModels<ModifierModel>(modifiers);
 
   protected TBase BaseModel(TRefAst ast)
     => reference.ToModel<TBase>(ast);

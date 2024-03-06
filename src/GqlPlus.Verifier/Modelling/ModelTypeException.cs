@@ -1,5 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Modelling;
 
+[ExcludeFromCodeCoverage]
 public class ModelTypeException<TModel>
   : Exception
 {

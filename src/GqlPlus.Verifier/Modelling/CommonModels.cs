@@ -55,8 +55,9 @@ public record class SimpleModel
       : new("null", "Basic");
 }
 
-public record class CollectionModel(ModifierKind Kind)
-  : ModelBase
+public record class CollectionModel(
+  ModifierKind Kind
+) : ModelBase
 {
   public string Key { get; set; } = "";
   public bool KeyOptional { get; set; }
@@ -74,8 +75,9 @@ public record class ModifierModel(ModifierKind Kind)
   : CollectionModel(Kind)
 { }
 
-internal class ConstantModeller(IModeller<FieldKeyAst, SimpleModel> value)
-  : ModellerBase<ConstantAst, ConstantModel>
+internal class ConstantModeller(
+  IModeller<FieldKeyAst, SimpleModel> value
+) : ModellerBase<ConstantAst, ConstantModel>
 {
   internal override ConstantModel ToModel(ConstantAst ast)
     => ast.Fields.Count > 0 ? new(ToModel(ast.Fields))
@@ -100,8 +102,12 @@ internal class SimpleModeller
     : new();
 }
 
+public interface IModifierModeller
+  : IModeller<ModifierAst, ModifierModel>, IModeller<ModifierAst, CollectionModel>
+{ }
+
 internal class ModifierModeller
-  : ModellerBase<ModifierAst, ModifierModel>, IModeller<ModifierAst, CollectionModel>
+  : ModellerBase<ModifierAst, ModifierModel>, IModifierModeller
 {
   internal override ModifierModel ToModel(ModifierAst ast)
     => new(ast.Kind) {

@@ -17,18 +17,23 @@ internal static class AllModellers
       .AddModeller<FieldKeyAst, SimpleModel, SimpleModeller>()
       .AddModeller<InputDeclAst, TypeInputModel, InputModeller>()
       .AddModeller<InputReferenceAst, InputBaseModel, InputReferenceModeller>()
-      .AddModeller<ModifierAst, ModifierModel, ModifierModeller>()
-      .AddModeller<ModifierAst, CollectionModel, ModifierModeller>()
       .AddModeller<OptionSettingAst, SettingModel, SettingModeller>()
       .AddModeller<OutputDeclAst, TypeOutputModel, OutputModeller>()
       .AddModeller<OutputReferenceAst, OutputBaseModel, OutputReferenceModeller>()
       .AddModeller<ParameterAst, ParameterModel, ParameterModeller>()
+      .AddModifierModeller()
     ;
 
   public static IServiceCollection AddModeller<TAst, TModel, TModeller>(this IServiceCollection services)
     where TAst : AstBase
     where TModeller : class, IModeller<TAst, TModel>
     => services.AddSingleton<IModeller<TAst, TModel>, TModeller>();
+
+  public static IServiceCollection AddModifierModeller(this IServiceCollection services)
+    => services
+      .AddSingleton<IModifierModeller, ModifierModeller>()
+      .AddSingleton<IModeller<ModifierAst, ModifierModel>>(c => c.GetRequiredService<IModifierModeller>())
+      .AddSingleton<IModeller<ModifierAst, CollectionModel>>(c => c.GetRequiredService<IModifierModeller>());
 
   public static IServiceCollection AddAlternateModeller<TRefAst, TBase>(this IServiceCollection services)
     where TRefAst : AstReference<TRefAst>

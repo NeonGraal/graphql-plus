@@ -1,11 +1,14 @@
-﻿using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
 // Todo: TypeModel
 
-public abstract record class BaseTypeModel(TypeKindModel Kind, string Name)
-  : AliasedModel(Name)
+public abstract record class BaseTypeModel(
+  TypeKindModel Kind,
+  string Name
+) : AliasedModel(Name)
 {
   internal override RenderStructure Render()
     => base.Render()
@@ -37,8 +40,10 @@ public enum TypeKindModel
   Output,
 }
 
-public record class TypeRefModel<TKind>(TKind Kind, string Name)
-  : NamedModel(Name)
+public record class TypeRefModel<TKind>(
+  TKind Kind,
+  string Name
+) : NamedModel(Name)
 {
   private static readonly string s_kindTag = typeof(TKind).TypeTag();
 
@@ -47,8 +52,17 @@ public record class TypeRefModel<TKind>(TKind Kind, string Name)
       .Add("kind", new(Kind?.ToString(), s_kindTag));
 }
 
-public record class TypeSimpleModel(SimpleKindModel Kind, string Name)
-  : TypeRefModel<SimpleKindModel>(Kind, Name), IBaseScalarItemModel
+public record class TypeSimpleModel(
+  SimpleKindModel Kind,
+  string Name
+) : TypeRefModel<SimpleKindModel>(Kind, Name), IBaseScalarItemModel
+{ }
+
+internal abstract class ModellerType<TAst, TParent, TModel>
+  : ModellerBase<TAst, TModel>
+  where TAst : AstType<TParent>
+  where TParent : IEquatable<TParent>
+  where TModel : IRendering
 { }
 
 internal static class ModelHelper

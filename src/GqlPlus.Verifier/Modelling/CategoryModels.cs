@@ -6,8 +6,9 @@ namespace GqlPlus.Verifier.Modelling;
 
 // Todo : CatagoriesModel
 
-public record class CategoryModel(string Name, TypeRefModel<TypeKindModel> Output)
-  : AliasedModel(Name)
+public record class CategoryModel(
+  string Name, TypeRefModel<TypeKindModel> Output
+) : AliasedModel(Name)
 {
   public CategoryOption Resolution { get; set; } = CategoryOption.Parallel;
   public ModifierModel[] Modifiers { get; set; } = [];

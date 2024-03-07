@@ -3,8 +3,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract class ObjectModelTests<TObject, TField, TRef>
-  : TypeModelTests<TRef, string, TypeKindModel>
+public abstract class TestObjectModel<TObject, TField, TRef>
+  : TestTypeModel<TRef, string, TypeKindModel>
   where TObject : AstObject<TField, TRef>
   where TField : AstField<TRef>
   where TRef : AstReference<TRef>
@@ -37,16 +37,16 @@ public abstract class ObjectModelTests<TObject, TField, TRef>
     => new ExpectedObjectInput(input, null, null, null, [aliases], [description])
       .Expected(ObjectChecks.TypeKind, p => [], f => [], a => []);
 
-  internal override ITypeModelChecks<TRef, string, TypeKindModel> TypeChecks => ObjectChecks;
+  internal override ICheckTypeModel<TRef, string, TypeKindModel> TypeChecks => ObjectChecks;
 
-  internal abstract IObjectModelChecks<TObject, TField, TRef> ObjectChecks { get; }
+  internal abstract ICheckObjectModel<TObject, TField, TRef> ObjectChecks { get; }
 }
 
-internal abstract class ObjectModelChecks<TObject, TField, TRef, TModel>(
+internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
   IModeller<TObject, TModel> modeller,
   TypeKindModel kind
-) : TypeModelChecks<TRef, string, TObject, TypeKindModel, TModel>(modeller, kind),
-    IObjectModelChecks<TObject, TField, TRef>
+) : CheckTypeModel<TRef, string, TObject, TypeKindModel, TModel>(modeller, kind),
+    ICheckObjectModel<TObject, TField, TRef>
   where TObject : AstObject<TField, TRef>
   where TField : AstField<TRef>
   where TRef : AstReference<TRef>
@@ -75,19 +75,19 @@ internal abstract class ObjectModelChecks<TObject, TField, TRef, TModel>(
   internal override TObject NewTypeAst(string name, TRef? parent, string description)
     => NewObjectAst(name, parent, description, [], []);
 
-  void IObjectModelChecks<TObject, TField, TRef>.ObjectExpected(TObject ast, ExpectedObjectInput input)
+  void ICheckObjectModel<TObject, TField, TRef>.ObjectExpected(TObject ast, ExpectedObjectInput input)
     => AstExpected(ast, input.Expected(TypeKind, ExpectedParent,
       fields => ItemsExpected("fields:", fields, ExpectedField),
       alternates => ItemsExpected("alternates:", alternates, ExpectedAlternate)));
 
-  TObject IObjectModelChecks<TObject, TField, TRef>.ObjectAst(string name, FieldInput[] fields, string[] alternates)
+  TObject ICheckObjectModel<TObject, TField, TRef>.ObjectAst(string name, FieldInput[] fields, string[] alternates)
     => NewObjectAst(name, default, "", fields, alternates);
 
   protected abstract TObject NewObjectAst(string name, TRef? parent, string description, FieldInput[] fields, string[] alternates);
 }
 
-internal interface IObjectModelChecks<TObject, TField, TRef>
-  : ITypeModelChecks<TRef, string, TypeKindModel>
+internal interface ICheckObjectModel<TObject, TField, TRef>
+  : ICheckTypeModel<TRef, string, TypeKindModel>
   where TObject : AstObject<TField, TRef>
   where TField : AstField<TRef>
   where TRef : AstReference<TRef>

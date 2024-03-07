@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Modelling;
 
 public class DirectiveModelTests(
   IModeller<DirectiveDeclAst, DirectiveModel> modeller
-) : AliasedModelTests<string>
+) : TestAliasedModel<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Repeatable(string name, DirectiveOption option)
@@ -22,7 +22,7 @@ public class DirectiveModelTests(
       new(AstNulls.At, name) { Parameters = parameters.Parameters() },
       ["!_Directive",
         "name: " + name,
-        .. DirectiveModelChecks.ExpectedParameters(parameters),
+        .. _checks.ExpectedParameters(parameters),
         "repeatable: false"]);
 
   [Theory, RepeatData(Repeats)]
@@ -56,7 +56,7 @@ public class DirectiveModelTests(
         "description: " + _checks.YamlQuoted(contents),
         "locations: !_Set(_Location) " + ExpectedLocations(locations),
         "name: " + name,
-        .. DirectiveModelChecks.ExpectedParameters(parameters),
+        .. _checks.ExpectedParameters(parameters),
         "repeatable: " + (option == DirectiveOption.Repeatable).TrueFalse()]);
 
   private static string ExpectedLocations(DirectiveLocation[] locations)
@@ -76,18 +76,18 @@ public class DirectiveModelTests(
       "name: " + input,
       "repeatable: false"];
 
-  internal override IAliasedModelChecks<string> AliasedChecks => _checks;
+  internal override ICheckAliasedModel<string> AliasedChecks => _checks;
 
   private readonly DirectiveModelChecks _checks = new(modeller);
 }
 
 internal sealed class DirectiveModelChecks(
   IModeller<DirectiveDeclAst, DirectiveModel> modeller
-) : AliasedModelChecks<string, DirectiveDeclAst, DirectiveModel>(modeller)
+) : CheckAliasedModel<string, DirectiveDeclAst, DirectiveModel>(modeller)
 {
   protected override DirectiveDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);
 
-  internal static IEnumerable<string> ExpectedParameters(string[] parameters)
+  internal IEnumerable<string> ExpectedParameters(string[] parameters)
     => ItemsExpected("parameters:", parameters, p => ["- !_Parameter", "  type: !_Described(_ObjRef(_InputBase)) " + p]);
 }

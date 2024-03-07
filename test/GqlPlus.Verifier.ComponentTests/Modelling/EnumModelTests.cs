@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Modelling;
 
 public class EnumModelTests
-  : TypeModelTests<SimpleKindModel>
+  : TestTypeModel<SimpleKindModel>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, string[] members)
@@ -11,11 +11,9 @@ public class EnumModelTests
     .AstExpected(
       new(AstNulls.At, name) { Members = members.EnumMembers() },
       ["!_TypeEnum",
-        "allMembers:",
-        .. members.SelectMany(m => ExpectedMember(m, name)),
+        .. _checks.ExpectedMembers("allMembers:", members, name),
         "kind: !_TypeKind Enum",
-        "members:",
-        .. members.SelectMany(m => ExpectedMember(m, name)),
+        .. _checks.ExpectedMembers("members:", members, ""),
         "name: " + name]);
 
   [Theory, RepeatData(Repeats)]
@@ -35,26 +33,20 @@ public class EnumModelTests
       },
       ["!_TypeEnum",
         $"aliases: [{string.Join(", ", aliases)}]",
-        "allMembers:",
-        .. members.SelectMany(m => ExpectedMember(m, name)),
+        .. _checks.ExpectedMembers("allMembers:", members, name),
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Enum),
         "kind: !_TypeKind Enum",
-        "members:",
-        .. members.SelectMany(m => ExpectedMember(m, name)),
+        .. _checks.ExpectedMembers("members:", members, ""),
         "name: " + name]);
 
-  [SuppressMessage("Performance", "CA1822:Mark members as static")]
-  private string[] ExpectedMember(string member, string ofEnum)
-    => ["- !_EnumMember", "  enum: " + ofEnum, "  name: " + member];
-
-  internal override ITypeModelChecks<SimpleKindModel> TypeChecks => _checks;
+  internal override ICheckTypeModel<SimpleKindModel> TypeChecks => _checks;
 
   private readonly EnumModelChecks _checks = new();
 }
 
 internal sealed class EnumModelChecks
-  : TypeModelChecks<EnumDeclAst, SimpleKindModel, TypeEnumModel>
+  : CheckTypeModel<EnumDeclAst, SimpleKindModel, TypeEnumModel>
 {
   public EnumModelChecks()
     : base(new EnumModeller(), SimpleKindModel.Enum)
@@ -62,6 +54,11 @@ internal sealed class EnumModelChecks
 
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);
+
+  internal IEnumerable<string> ExpectedMembers(string field, string[] members, string ofEnum)
+    => ItemsExpected(field, members, m => string.IsNullOrWhiteSpace(ofEnum)
+      ? ["- !_Aliased " + m]
+      : ["- !_EnumMember", "  enum: " + ofEnum, "  name: " + m]);
 
   protected override string[] ExpectedType(string name, string? parent, IEnumerable<string>? aliases = null, IEnumerable<string>? description = null)
     => [$"!_TypeEnum",

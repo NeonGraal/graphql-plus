@@ -2,7 +2,7 @@
 
 public class ConstantModelTests(
   IModeller<ConstantAst, ConstantModel> modeller
-) : ModelBaseTests<string>
+) : TestModelBase<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_List(string value)
@@ -43,7 +43,7 @@ public class ConstantModelTests(
   //      .. parameters.Select(p => "- !_Constant ''"),
   //      "repeatable: " + (option == ConstantOption.Repeatable).TrueFalse()]);
 
-  internal override IModelBaseChecks<string> BaseChecks => _checks;
+  internal override ICheckModelBase<string> BaseChecks => _checks;
   protected override string[] ExpectedBase(string input)
     => [input];
 
@@ -52,7 +52,7 @@ public class ConstantModelTests(
 
 internal sealed class ConstantModelChecks(
   IModeller<ConstantAst, ConstantModel> modeller
-) : ModelBaseChecks<string, ConstantAst, ConstantModel>(modeller)
+) : CheckModelBase<string, ConstantAst, ConstantModel>(modeller)
 {
   protected override ConstantAst NewBaseAst(string input)
     => new FieldKeyAst(AstNulls.At, input);

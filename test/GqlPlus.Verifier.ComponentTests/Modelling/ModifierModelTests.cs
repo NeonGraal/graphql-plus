@@ -1,13 +1,13 @@
 ﻿namespace GqlPlus.Verifier.Modelling;
 
 public class ModifierModelTests
-  : ModelBaseTests<ModifierInput>
+  : TestModelBase<ModifierInput>
 {
   [Fact]
   public void Model_Nothing()
     => _checks.AstExpected(new(AstNulls.At), ["!_Modifier Optional"]);
 
-  internal override IModelBaseChecks<ModifierInput> BaseChecks => _checks;
+  internal override ICheckModelBase<ModifierInput> BaseChecks => _checks;
   protected override string[] ExpectedBase(ModifierInput input)
     => input.Kind switch {
       ModifierKind.Optional => ["!_Modifier Optional"],
@@ -20,7 +20,7 @@ public class ModifierModelTests
 }
 
 internal sealed class ModifierModelChecks
-  : ModelBaseChecks<ModifierInput, ModifierAst, ModifierModel>
+  : CheckModelBase<ModifierInput, ModifierAst, ModifierModel>
 {
   public ModifierModelChecks()
     : base(new ModifierModeller())

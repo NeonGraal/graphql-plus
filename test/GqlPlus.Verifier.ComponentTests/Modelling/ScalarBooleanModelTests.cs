@@ -4,15 +4,15 @@ using GqlPlus.Verifier.Rendering;
 namespace GqlPlus.Verifier.Modelling;
 
 public class ScalarBooleanModelTests
-  : ScalarModelTests<bool, ScalarTrueFalseAst>
+  : TestScalarModel<bool, ScalarTrueFalseAst>
 {
-  internal override IScalarModelChecks<bool, ScalarTrueFalseAst> ScalarChecks => _checks;
+  internal override ICheckScalarModel<bool, ScalarTrueFalseAst> ScalarChecks => _checks;
 
   private readonly ScalarBooleanModelChecks _checks = new();
 }
 
 internal sealed class ScalarBooleanModelChecks
-  : ScalarModelChecks<bool, ScalarTrueFalseAst, ScalarTrueFalseModel>
+  : CheckScalarModel<bool, ScalarTrueFalseAst, ScalarTrueFalseModel>
 {
   public ScalarBooleanModelChecks()
     : base(ScalarKind.Boolean, new ScalarBooleanModeller())

@@ -3,15 +3,15 @@
 namespace GqlPlus.Verifier.Modelling;
 
 public class ScalarStringModelTests
-  : ScalarModelTests<string, ScalarRegexAst>
+  : TestScalarModel<string, ScalarRegexAst>
 {
-  internal override IScalarModelChecks<string, ScalarRegexAst> ScalarChecks => _checks;
+  internal override ICheckScalarModel<string, ScalarRegexAst> ScalarChecks => _checks;
 
   private readonly ScalarStringModelChecks _checks = new();
 }
 
 internal sealed class ScalarStringModelChecks
-  : ScalarModelChecks<string, ScalarRegexAst, ScalarRegexModel>
+  : CheckScalarModel<string, ScalarRegexAst, ScalarRegexModel>
 {
   public ScalarStringModelChecks()
     : base(ScalarKind.String, new ScalarStringModeller())

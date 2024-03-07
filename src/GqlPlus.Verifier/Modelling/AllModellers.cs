@@ -16,9 +16,11 @@ internal static class AllModellers
       .AddModeller<EnumDeclAst, TypeEnumModel, EnumModeller>()
       .AddModeller<FieldKeyAst, SimpleModel, SimpleModeller>()
       .AddModeller<InputDeclAst, TypeInputModel, InputModeller>()
+      .AddModeller<InputFieldAst, InputFieldModel, InputFieldModeller>()
       .AddModeller<InputReferenceAst, InputBaseModel, InputReferenceModeller>()
       .AddModeller<OptionSettingAst, SettingModel, SettingModeller>()
       .AddModeller<OutputDeclAst, TypeOutputModel, OutputModeller>()
+      .AddModeller<OutputFieldAst, OutputFieldModel, OutputFieldModeller>()
       .AddModeller<OutputReferenceAst, OutputBaseModel, OutputReferenceModeller>()
       .AddModeller<ParameterAst, ParameterModel, ParameterModeller>()
       .AddModifierModeller()
@@ -38,5 +40,5 @@ internal static class AllModellers
   public static IServiceCollection AddAlternateModeller<TRefAst, TBase>(this IServiceCollection services)
     where TRefAst : AstReference<TRefAst>
     where TBase : IObjBaseModel
-    => services.AddModeller<AstAlternate<TRefAst>, AlternateModel<TBase>, AlternateModeller<TRefAst, TBase>>();
+    => services.AddSingleton<IAlternateModeller<TRefAst, TBase>, AlternateModeller<TRefAst, TBase>>();
 }

@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Modelling;
 
 public class SimpleModelTests
-  : ModelBaseTests<string>
+  : TestModelBase<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Boolean(bool value)
@@ -21,7 +21,7 @@ public class SimpleModelTests
   public void Model_Number(decimal number)
     => _checks.AstExpected(new(AstNulls.At, number), [$"{number}"]);
 
-  internal override IModelBaseChecks<string> BaseChecks => _checks;
+  internal override ICheckModelBase<string> BaseChecks => _checks;
   protected override string[] ExpectedBase(string input)
     => [input];
 
@@ -29,7 +29,7 @@ public class SimpleModelTests
 }
 
 internal sealed class SimpleModelChecks
-  : ModelBaseChecks<string, FieldKeyAst, SimpleModel>
+  : CheckModelBase<string, FieldKeyAst, SimpleModel>
 {
   public SimpleModelChecks()
     : base(new SimpleModeller())

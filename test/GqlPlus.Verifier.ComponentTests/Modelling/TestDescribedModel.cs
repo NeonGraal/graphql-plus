@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract class DescribedModelTests<TInput>
-  : ModelBaseTests<TInput>
+public abstract class TestDescribedModel<TInput>
+  : TestModelBase<TInput>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Description(TInput input, string contents)
@@ -17,17 +17,17 @@ public abstract class DescribedModelTests<TInput>
         ExpectedDescription(input, "description: " + DescribedChecks.YamlQuoted(contents)).Tidy());
   }
 
-  internal sealed override IModelBaseChecks<TInput> BaseChecks => DescribedChecks;
+  internal sealed override ICheckModelBase<TInput> BaseChecks => DescribedChecks;
   protected sealed override string[] ExpectedBase(TInput input) => ExpectedDescription(input, "");
 
-  internal abstract IDescribedModelChecks<TInput> DescribedChecks { get; }
+  internal abstract ICheckDescribedModel<TInput> DescribedChecks { get; }
   protected abstract string[] ExpectedDescription(TInput input, string description);
 }
 
-internal abstract class DescribedModelChecks<TInput, TAst, TModel>(
+internal abstract class CheckDescribedModel<TInput, TAst, TModel>(
   IModeller<TAst, TModel> modeller
-) : ModelBaseChecks<TInput, TAst, TModel>(modeller)
-  , IDescribedModelChecks<TInput>
+) : CheckModelBase<TInput, TAst, TModel>(modeller)
+  , ICheckDescribedModel<TInput>
   where TAst : AstAbbreviated, IAstDescribed
   where TModel : IRendering
 {
@@ -35,10 +35,10 @@ internal abstract class DescribedModelChecks<TInput, TAst, TModel>(
 
   protected override TAst NewBaseAst(TInput input) => NewDescribedAst(input, "");
 
-  AstAbbreviated IDescribedModelChecks<TInput>.DescribedAst(TInput input, string description) => NewDescribedAst(input, description);
+  AstAbbreviated ICheckDescribedModel<TInput>.DescribedAst(TInput input, string description) => NewDescribedAst(input, description);
 }
 
-internal interface IDescribedModelChecks<TInput> : IModelBaseChecks<TInput>
+internal interface ICheckDescribedModel<TInput> : ICheckModelBase<TInput>
 {
   AstAbbreviated DescribedAst(TInput input, string description);
 }

@@ -3,8 +3,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract class TypeModelTests<TAstParent, TParent, TTypeKind>
-  : AliasedModelTests<string>
+public abstract class TestTypeModel<TAstParent, TParent, TTypeKind>
+  : TestAliasedModel<string>
   where TAstParent : IEquatable<TAstParent>
 {
   [Theory, RepeatData(Repeats)]
@@ -16,18 +16,18 @@ public abstract class TypeModelTests<TAstParent, TParent, TTypeKind>
   protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
     => TypeChecks.ExpectedType(input, default, [aliases], [description]);
 
-  internal override IAliasedModelChecks<string> AliasedChecks => TypeChecks;
+  internal override ICheckAliasedModel<string> AliasedChecks => TypeChecks;
 
-  internal abstract ITypeModelChecks<TAstParent, TParent, TTypeKind> TypeChecks { get; }
+  internal abstract ICheckTypeModel<TAstParent, TParent, TTypeKind> TypeChecks { get; }
 }
 
-public abstract class TypeModelTests<TTypeKind>
-  : TypeModelTests<string, string, TTypeKind>
+public abstract class TestTypeModel<TTypeKind>
+  : TestTypeModel<string, string, TTypeKind>
 { }
 
-internal abstract class TypeModelChecks<TAstParent, TParent, TAst, TTypeKind, TModel>
-  : AliasedModelChecks<string, TAst, TModel>
-  , ITypeModelChecks<TAstParent, TParent, TTypeKind>
+internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TModel>
+  : CheckAliasedModel<string, TAst, TModel>
+  , ICheckTypeModel<TAstParent, TParent, TTypeKind>
   where TAstParent : IEquatable<TAstParent>
   where TAst : AstType<TAstParent>
   where TModel : IRendering
@@ -35,10 +35,10 @@ internal abstract class TypeModelChecks<TAstParent, TParent, TAst, TTypeKind, TM
   protected readonly TTypeKind TypeKind;
   protected readonly string TypeKindLower;
 
-  TTypeKind ITypeModelChecks<TAstParent, TParent, TTypeKind>.TypeKind => TypeKind;
-  string ITypeModelChecks<TAstParent, TParent, TTypeKind>.TypeKindLower => TypeKindLower;
+  TTypeKind ICheckTypeModel<TAstParent, TParent, TTypeKind>.TypeKind => TypeKind;
+  string ICheckTypeModel<TAstParent, TParent, TTypeKind>.TypeKindLower => TypeKindLower;
 
-  protected TypeModelChecks(IModeller<TAst, TModel> modeller, TTypeKind kind)
+  protected CheckTypeModel(IModeller<TAst, TModel> modeller, TTypeKind kind)
     : base(modeller)
     => (TypeKind, TypeKindLower) = (kind, $"{kind}".ToLowerInvariant());
 
@@ -55,30 +55,30 @@ internal abstract class TypeModelChecks<TAstParent, TParent, TAst, TTypeKind, TM
 
   internal abstract TAstParent NewReferenceAst(TParent input);
 
-  string[] ITypeModelChecks<TAstParent, TParent, TTypeKind>.ExpectedType(
+  string[] ICheckTypeModel<TAstParent, TParent, TTypeKind>.ExpectedType(
     string name,
     TParent? parent,
     IEnumerable<string>? aliases,
     IEnumerable<string>? description
   ) => ExpectedType(name, parent, aliases, description);
 
-  TAstParent ITypeModelChecks<TAstParent, TParent, TTypeKind>.ParentAst(TParent parent)
+  TAstParent ICheckTypeModel<TAstParent, TParent, TTypeKind>.ParentAst(TParent parent)
     => NewReferenceAst(parent);
-  AstType<TAstParent> ITypeModelChecks<TAstParent, TParent, TTypeKind>.TypeAst(string name, TParent parent)
+  AstType<TAstParent> ICheckTypeModel<TAstParent, TParent, TTypeKind>.TypeAst(string name, TParent parent)
     => NewTypeAst(name, NewReferenceAst(parent), "");
 
-  void ITypeModelChecks<TAstParent, TParent, TTypeKind>.TypeExpected(AstType<TAstParent> type, string[] expected)
+  void ICheckTypeModel<TAstParent, TParent, TTypeKind>.TypeExpected(AstType<TAstParent> type, string[] expected)
     => AstExpected((TAst)type, expected);
 
   protected override TAst NewDescribedAst(string input, string description)
     => NewTypeAst(input, default, description);
 }
 
-internal abstract class TypeModelChecks<TAst, TTypeKind, TModel>(
+internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
   IModeller<TAst, TModel> modeller,
   TTypeKind kind
-) : TypeModelChecks<string, string, TAst, TTypeKind, TModel>(modeller, kind)
-  , ITypeModelChecks<TTypeKind>
+) : CheckTypeModel<string, string, TAst, TTypeKind, TModel>(modeller, kind)
+  , ICheckTypeModel<TTypeKind>
   where TAst : AstType<string>
   where TModel : IRendering
 {
@@ -86,8 +86,8 @@ internal abstract class TypeModelChecks<TAst, TTypeKind, TModel>(
     => input;
 }
 
-internal interface ITypeModelChecks<TAstParent, TParent, TTypeKind>
-  : IAliasedModelChecks<string>
+internal interface ICheckTypeModel<TAstParent, TParent, TTypeKind>
+  : ICheckAliasedModel<string>
   where TAstParent : IEquatable<TAstParent>
 {
   TTypeKind TypeKind { get; }
@@ -98,6 +98,6 @@ internal interface ITypeModelChecks<TAstParent, TParent, TTypeKind>
   string[] ExpectedType(string name, TParent? parent, IEnumerable<string>? aliases = null, IEnumerable<string>? description = null);
 }
 
-internal interface ITypeModelChecks<TTypeKind>
-  : ITypeModelChecks<string, string, TTypeKind>
+internal interface ICheckTypeModel<TTypeKind>
+  : ICheckTypeModel<string, string, TTypeKind>
 { }

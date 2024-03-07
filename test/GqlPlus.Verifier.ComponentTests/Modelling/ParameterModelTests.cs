@@ -4,9 +4,9 @@ namespace GqlPlus.Verifier.Modelling;
 
 public class ParameterModelTests(
   IModeller<ParameterAst, ParameterModel> modeller
-) : DescribedModelTests<string>
+) : TestDescribedModel<string>
 {
-  internal override IDescribedModelChecks<string> DescribedChecks => _checks;
+  internal override ICheckDescribedModel<string> DescribedChecks => _checks;
 
   protected override string[] ExpectedDescription(string input, string description)
     => string.IsNullOrWhiteSpace(description)
@@ -18,7 +18,7 @@ public class ParameterModelTests(
 
 internal sealed class ParameterModelChecks(
   IModeller<ParameterAst, ParameterModel> modeller
-) : DescribedModelChecks<string, ParameterAst, ParameterModel>(modeller)
+) : CheckDescribedModel<string, ParameterAst, ParameterModel>(modeller)
 {
   protected override ParameterAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);

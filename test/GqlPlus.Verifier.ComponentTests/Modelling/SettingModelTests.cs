@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Modelling;
 
 public class SettingModelTests(
   IModeller<OptionSettingAst, SettingModel> modeller
-) : DescribedModelTests<SettingInput>
+) : TestDescribedModel<SettingInput>
 {
   protected override string[] ExpectedDescription(SettingInput input, string description)
     => ["!_Setting",
@@ -12,14 +12,14 @@ public class SettingModelTests(
       "name: " + input.Name,
       "value: " + input.Value];
 
-  internal override IDescribedModelChecks<SettingInput> DescribedChecks => _checks;
+  internal override ICheckDescribedModel<SettingInput> DescribedChecks => _checks;
 
   private readonly SettingModelChecks _checks = new(modeller);
 }
 
 internal sealed class SettingModelChecks(
   IModeller<OptionSettingAst, SettingModel> modeller
-) : DescribedModelChecks<SettingInput, OptionSettingAst, SettingModel>(modeller)
+) : CheckDescribedModel<SettingInput, OptionSettingAst, SettingModel>(modeller)
 {
   protected override OptionSettingAst NewDescribedAst(SettingInput input, string description)
     => input.ToAst(description);

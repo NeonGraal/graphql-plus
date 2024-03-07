@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal static class ModelHelper
+internal static class TestModelHelper
 {
   private static readonly string[] s_separator = ["\r\n", "\r", "\n"];
 

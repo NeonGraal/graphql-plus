@@ -42,15 +42,11 @@ public record class OutputEnumModel(
 { }
 
 internal class OutputModeller(
-  IModifierModeller modifier,
+  IAlternateModeller<OutputReferenceAst, OutputBaseModel> alternate,
+  IModeller<OutputFieldAst, OutputFieldModel> field,
   IModeller<OutputReferenceAst, OutputBaseModel> reference
-) : ModellerObject<OutputDeclAst, OutputReferenceAst, OutputFieldAst, TypeOutputModel, OutputBaseModel, OutputFieldModel>(modifier, reference)
+) : ModellerObject<OutputDeclAst, OutputReferenceAst, OutputFieldAst, TypeOutputModel, OutputBaseModel, OutputFieldModel>(alternate, field, reference)
 {
-  protected override OutputFieldModel FieldModel(OutputFieldAst field)
-    => new(field.Name, new(BaseModel(field.Type))) {
-      Modifiers = ModifiersModels(field.Modifiers),
-    };
-
   internal override TypeOutputModel ToModel(OutputDeclAst ast)
     => new(ast.Name) {
       Aliases = ast.Aliases,
@@ -66,4 +62,15 @@ internal class OutputReferenceModeller
 {
   internal override OutputBaseModel ToModel(OutputReferenceAst ast)
     => new(ast.Name);
+}
+
+internal class OutputFieldModeller(
+  IModifierModeller modifier,
+  IModeller<OutputReferenceAst, OutputBaseModel> reference
+) : ModellerBase<OutputFieldAst, OutputFieldModel>
+{
+  internal override OutputFieldModel ToModel(OutputFieldAst field)
+    => new(field.Name, new(reference.ToModel(field.Type))) {
+      Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers),
+    };
 }

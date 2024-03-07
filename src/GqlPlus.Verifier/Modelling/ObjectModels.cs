@@ -89,7 +89,8 @@ public record class ParameterModel(
 }
 
 internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, TField>(
-  IModifierModeller modifier,
+  IAlternateModeller<TRefAst, TBase> alternate,
+  IModeller<TFieldAst, TField> field,
   IModeller<TRefAst, TBase> reference
 ) : ModellerType<TAst, TRefAst, TModel>
   where TAst : AstType<TRefAst>
@@ -99,31 +100,23 @@ internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, 
   where TBase : IObjBaseModel
   where TField : IRendering
 {
-  private IModeller<AstAlternate<TRefAst>, AlternateModel<TBase>> Alternate { get; }
-    = new AlternateModeller<TRefAst, TBase>(reference, modifier);
-
   internal DescribedModel<TBase>? ParentModel(TRefAst? parent)
     => parent is null ? null : new DescribedModel<TBase>(BaseModel(parent));
 
   internal AlternateModel<TBase>[] AlternatesModels(AstAlternate<TRefAst>[] alternates)
-    => Alternate.ToModels(alternates);
+    => alternate.ToModels(alternates);
 
   internal TField[] FieldsModels(TFieldAst[] fields)
-    => [.. fields.Select(FieldModel)];
-
-  internal ModifierModel[] ModifiersModels(ModifierAst[] modifiers)
-    => modifier.ToModels<ModifierModel>(modifiers);
+    => field.ToModels(fields);
 
   protected TBase BaseModel(TRefAst ast)
     => reference.ToModel<TBase>(ast);
-
-  protected abstract TField FieldModel(TFieldAst field);
 }
 
 internal class AlternateModeller<TRefAst, TBase>(
   IModeller<TRefAst, TBase> refBase,
   IModeller<ModifierAst, CollectionModel> modifier
-) : ModellerBase<AstAlternate<TRefAst>, AlternateModel<TBase>>
+) : ModellerBase<AstAlternate<TRefAst>, AlternateModel<TBase>>, IAlternateModeller<TRefAst, TBase>
   where TRefAst : AstReference<TRefAst>
   where TBase : IObjBaseModel
 {
@@ -134,8 +127,14 @@ internal class AlternateModeller<TRefAst, TBase>(
     => refBase.ToModel(ast);
 }
 
+public interface IAlternateModeller<TRefAst, TBase>
+  : IModeller<AstAlternate<TRefAst>, AlternateModel<TBase>>
+  where TRefAst : AstReference<TRefAst>
+  where TBase : IObjBaseModel
+{ }
+
 internal class ParameterModeller(
-  IModeller<AstAlternate<InputReferenceAst>, AlternateModel<InputBaseModel>> alternate,
+  IAlternateModeller<InputReferenceAst, InputBaseModel> alternate,
   IModeller<ConstantAst, ConstantModel> constant
 ) : ModellerBase<ParameterAst, ParameterModel>
 {

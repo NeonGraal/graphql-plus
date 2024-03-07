@@ -27,17 +27,11 @@ public record class InputFieldModel(
 }
 
 internal class InputModeller(
-  IModifierModeller modifier,
-  IModeller<InputReferenceAst, InputBaseModel> reference,
-  IModeller<ConstantAst, ConstantModel> constant
-) : ModellerObject<InputDeclAst, InputReferenceAst, InputFieldAst, TypeInputModel, InputBaseModel, InputFieldModel>(modifier, reference)
+  IAlternateModeller<InputReferenceAst, InputBaseModel> alternate,
+  IModeller<InputFieldAst, InputFieldModel> field,
+  IModeller<InputReferenceAst, InputBaseModel> reference
+) : ModellerObject<InputDeclAst, InputReferenceAst, InputFieldAst, TypeInputModel, InputBaseModel, InputFieldModel>(alternate, field, reference)
 {
-  protected override InputFieldModel FieldModel(InputFieldAst field)
-    => new(field.Name, new(BaseModel(field.Type))) {
-      Modifiers = ModifiersModels(field.Modifiers),
-      Default = constant.TryModel(field.Default),
-    };
-
   internal override TypeInputModel ToModel(InputDeclAst ast)
     => new(ast.Name) {
       Aliases = ast.Aliases,
@@ -53,4 +47,17 @@ internal class InputReferenceModeller
 {
   internal override InputBaseModel ToModel(InputReferenceAst ast)
     => new(ast.Name);
+}
+
+internal class InputFieldModeller(
+  IModifierModeller modifier,
+  IModeller<InputReferenceAst, InputBaseModel> reference,
+  IModeller<ConstantAst, ConstantModel> constant
+) : ModellerBase<InputFieldAst, InputFieldModel>
+{
+  internal override InputFieldModel ToModel(InputFieldAst field)
+    => new(field.Name, new(reference.ToModel(field.Type))) {
+      Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers),
+      Default = constant.TryModel(field.Default),
+    };
 }

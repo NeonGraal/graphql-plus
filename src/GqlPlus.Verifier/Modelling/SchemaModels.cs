@@ -10,7 +10,7 @@ namespace GqlPlus.Verifier.Modelling;
 
 // Todo: TypeFilterParameter
 
-public abstract record class AliasedModel(
+public record class AliasedModel(
   string Name
 ) : DescribedModel<NamedModel>(new NamedModel(Name))
 {

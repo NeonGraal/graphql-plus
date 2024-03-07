@@ -10,4 +10,5 @@
 [assembly: SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores")]
 [assembly: SuppressMessage("Design", "CA1034:Nested types should not be visible")]
 [assembly: SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase")]
+[assembly: SuppressMessage("Performance", "CA1822:Mark members as static")]
 [assembly: SuppressMessage("Reliability", "CA2007:Consider calling ConfigureAwait on the awaited task")]

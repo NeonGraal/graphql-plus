@@ -3,8 +3,8 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract class AliasedModelTests<TInput>
-  : DescribedModelTests<TInput>
+public abstract class TestAliasedModel<TInput>
+  : TestDescribedModel<TInput>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Aliases(TInput input, string[] aliases)
@@ -16,26 +16,26 @@ public abstract class AliasedModelTests<TInput>
         ExpectedDescriptionAliases(input, "", "aliases: [" + string.Join(", ", aliases) + "]").Tidy());
   }
 
-  internal sealed override IDescribedModelChecks<TInput> DescribedChecks => AliasedChecks;
+  internal sealed override ICheckDescribedModel<TInput> DescribedChecks => AliasedChecks;
   protected sealed override string[] ExpectedDescription(TInput input, string description)
     => ExpectedDescriptionAliases(input, description, "");
 
-  internal abstract IAliasedModelChecks<TInput> AliasedChecks { get; }
+  internal abstract ICheckAliasedModel<TInput> AliasedChecks { get; }
   protected abstract string[] ExpectedDescriptionAliases(TInput input, string description, string aliases);
 }
 
-internal abstract class AliasedModelChecks<TInput, TAst, TModel>(
+internal abstract class CheckAliasedModel<TInput, TAst, TModel>(
   IModeller<TAst, TModel> modeller
-) : DescribedModelChecks<TInput, TAst, TModel>(modeller)
-  , IAliasedModelChecks<TInput>
+) : CheckDescribedModel<TInput, TAst, TModel>(modeller)
+  , ICheckAliasedModel<TInput>
   where TAst : AstAliased
   where TModel : IRendering
 {
-  AstAliased IAliasedModelChecks<TInput>.AliasedAst(TInput input) => NewDescribedAst(input, "");
-  IRendering IAliasedModelChecks<TInput>.ToModel(AstAliased aliased) => AstToModel((TAst)aliased);
+  AstAliased ICheckAliasedModel<TInput>.AliasedAst(TInput input) => NewDescribedAst(input, "");
+  IRendering ICheckAliasedModel<TInput>.ToModel(AstAliased aliased) => AstToModel((TAst)aliased);
 }
 
-internal interface IAliasedModelChecks<TInput> : IDescribedModelChecks<TInput>
+internal interface ICheckAliasedModel<TInput> : ICheckDescribedModel<TInput>
 {
   AstAliased AliasedAst(TInput input);
   IRendering ToModel(AstAliased aliased);

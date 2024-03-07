@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract class ModelBaseTests<TInput>
+public abstract class TestModelBase<TInput>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_Default(TInput input)
@@ -18,17 +18,17 @@ public abstract class ModelBaseTests<TInput>
     => false;
 
   protected abstract string[] ExpectedBase(TInput input);
-  internal abstract IModelBaseChecks<TInput> BaseChecks { get; }
+  internal abstract ICheckModelBase<TInput> BaseChecks { get; }
 }
 
-internal abstract class ModelBaseChecks<TInput, TAst, TModel>
-  : IModelBaseChecks<TInput>
+internal abstract class CheckModelBase<TInput, TAst, TModel>
+  : ICheckModelBase<TInput>
   where TAst : AstBase
   where TModel : IRendering
 {
   protected IModeller<TAst, TModel> _modeller;
 
-  protected ModelBaseChecks(IModeller<TAst, TModel> modeller)
+  protected CheckModelBase(IModeller<TAst, TModel> modeller)
   {
     ArgumentNullException.ThrowIfNull(modeller);
 
@@ -47,7 +47,6 @@ internal abstract class ModelBaseChecks<TInput, TAst, TModel>
     yaml.ToLines().Should().BeEquivalentTo(expected);
   }
 
-  [SuppressMessage("Performance", "CA1822:Mark members as static")]
   internal string YamlQuoted(string? input)
     => input is null ? ""
     : $"'{input.Replace("'", "''", StringComparison.Ordinal)}'";
@@ -60,13 +59,13 @@ internal abstract class ModelBaseChecks<TInput, TAst, TModel>
     => items == null || items.Length == 0 ? []
       : items.SelectMany(mapping).Prepend(field);
 
-  void IModelBaseChecks<TInput>.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
-  AstBase IModelBaseChecks<TInput>.BaseAst(TInput input) => NewBaseAst(input);
-  IRendering IModelBaseChecks<TInput>.ToModel(AstBase ast) => AstToModel((TAst)ast);
-  string IModelBaseChecks<TInput>.YamlQuoted(string input) => YamlQuoted(input);
+  void ICheckModelBase<TInput>.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
+  AstBase ICheckModelBase<TInput>.BaseAst(TInput input) => NewBaseAst(input);
+  IRendering ICheckModelBase<TInput>.ToModel(AstBase ast) => AstToModel((TAst)ast);
+  string ICheckModelBase<TInput>.YamlQuoted(string input) => YamlQuoted(input);
 }
 
-internal interface IModelBaseChecks<TInput>
+internal interface ICheckModelBase<TInput>
 {
   AstBase BaseAst(TInput input);
   IRendering ToModel(AstBase ast);

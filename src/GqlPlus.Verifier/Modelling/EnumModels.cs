@@ -7,12 +7,13 @@ internal record class TypeEnumModel(
   string Name
 ) : ChildTypeModel<TypeRefModel<SimpleKindModel>>(TypeKindModel.Enum, Name)
 {
-  public EnumMemberModel[] Members { get; set; } = [];
+  public AliasedModel[] Members { get; set; } = [];
+  public EnumMemberModel[] AllMembers { get; set; } = [];
 
   internal override RenderStructure Render()
     => base.Render()
       .Add("members", Members.Render())
-      .Add("allMembers", Members.Render());
+      .Add("allMembers", AllMembers.Render());
 }
 
 internal record class EnumMemberModel(
@@ -43,11 +44,17 @@ internal class EnumModeller
       Aliases = ast.Aliases,
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Enum),
-      Members = [.. ast.Members.Select(ToMember(ast.Name))],
-      // Todo: AllMembers from Enum Parent
+      Members = [.. ast.Members.Select(ToMember)],
+      AllMembers = [.. ast.Members.Select(ToEnumMember(ast.Name))],
     };
 
-  internal static Func<EnumMemberAst, EnumMemberModel> ToMember(string ofEnum)
+  internal static AliasedModel ToMember(EnumMemberAst ast)
+    => new(ast.Name) {
+      Aliases = ast.Aliases,
+      Description = ast.Description,
+    };
+
+  internal static Func<EnumMemberAst, EnumMemberModel> ToEnumMember(string ofEnum)
     => ast => new(ast.Name, ofEnum) {
       Aliases = ast.Aliases,
       Description = ast.Description,

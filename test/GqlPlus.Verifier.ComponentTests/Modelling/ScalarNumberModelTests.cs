@@ -3,15 +3,15 @@
 namespace GqlPlus.Verifier.Modelling;
 
 public class ScalarNumberModelTests
-  : ScalarModelTests<ScalarRangeInput, ScalarRangeAst>
+  : TestScalarModel<ScalarRangeInput, ScalarRangeAst>
 {
-  internal override IScalarModelChecks<ScalarRangeInput, ScalarRangeAst> ScalarChecks => _checks;
+  internal override ICheckScalarModel<ScalarRangeInput, ScalarRangeAst> ScalarChecks => _checks;
 
   private readonly ScalarNumberModelChecks _checks = new();
 }
 
 internal sealed class ScalarNumberModelChecks
-  : ScalarModelChecks<ScalarRangeInput, ScalarRangeAst, ScalarRangeModel>
+  : CheckScalarModel<ScalarRangeInput, ScalarRangeAst, ScalarRangeModel>
 {
   public ScalarNumberModelChecks()
     : base(ScalarKind.Number, new ScalarNumberModeller())

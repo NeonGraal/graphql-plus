@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Modelling;
 
 public class CategoryModelTests(
   IModeller<CategoryDeclAst, CategoryModel> modeller
-) : AliasedModelTests<string>
+) : TestAliasedModel<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Name(string output, string name)
@@ -66,14 +66,14 @@ public class CategoryModelTests(
       .. input.TypeRefFor(TypeKindModel.Output, "output"),
       "resolution: !_Resolution Parallel"];
 
-  internal override IAliasedModelChecks<string> AliasedChecks => _checks;
+  internal override ICheckAliasedModel<string> AliasedChecks => _checks;
 
   private readonly CategoryModelChecks _checks = new(modeller);
 }
 
 internal sealed class CategoryModelChecks(
   IModeller<CategoryDeclAst, CategoryModel> modeller
-) : AliasedModelChecks<string, CategoryDeclAst, CategoryModel>(modeller)
+) : CheckAliasedModel<string, CategoryDeclAst, CategoryModel>(modeller)
 {
   protected override CategoryDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input) { Description = description };

@@ -1,9 +1,3 @@
-output _TypeEnum {
-    : _ChildType<_TypeKind.Enum Identifier>
-        members: _Aliased[]
-        allMembers: _EnumMember[]
-    }
-
 output _EnumMember {
     : _Aliased
         enum: Identifier

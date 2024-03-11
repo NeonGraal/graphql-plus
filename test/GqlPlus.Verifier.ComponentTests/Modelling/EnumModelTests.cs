@@ -11,9 +11,9 @@ public class EnumModelTests
     .AstExpected(
       new(AstNulls.At, name) { Members = members.EnumMembers() },
       ["!_TypeEnum",
-        .. _checks.ExpectedAllMembers("allMembers:", members, name),
+        .. _checks.ExpectedAllMembers("allItems:", members, name),
         "kind: !_TypeKind Enum",
-        .. _checks.ExpectedMembers("members:", members),
+        .. _checks.ExpectedMembers("items:", members),
         "name: " + name]);
 
   [Theory, RepeatData(Repeats)]
@@ -23,7 +23,21 @@ public class EnumModelTests
     .AstExpected(
       new(AstNulls.At, name) { Parent = parent, },
       ["!_TypeEnum",
-        .. _checks.ExpectedAllMembers("allMembers:", parentMembers, parent),
+        .. _checks.ExpectedAllMembers("allItems:", parentMembers, parent),
+        "kind: !_TypeKind Enum",
+        .. parent.TypeRefFor(SimpleKindModel.Enum),
+        "name: " + name]);
+
+  [Theory, RepeatData(Repeats)]
+  public void Model_GrandParentMembers(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
+    => _checks
+    .AddParent(_checks.NewParent(parent, parentMembers) with { Parent = grandParent.TypeRef(SimpleKindModel.Enum) })
+    .AddParent(_checks.NewParent(grandParent, grandParentMembers))
+    .AstExpected(
+      new(AstNulls.At, name) { Parent = parent, },
+      ["!_TypeEnum",
+        .. _checks.ExpectedAllMembers("allItems:", parentMembers, parent),
+        .. _checks.ExpectedAllMembers("", grandParentMembers, grandParent),
         "kind: !_TypeKind Enum",
         .. parent.TypeRefFor(SimpleKindModel.Enum),
         "name: " + name]);
@@ -47,12 +61,12 @@ public class EnumModelTests
       },
       ["!_TypeEnum",
         $"aliases: [{string.Join(", ", aliases)}]",
-        .. _checks.ExpectedAllMembers("allMembers:", members, name),
+        .. _checks.ExpectedAllMembers("allItems:", members, name),
         .. _checks.ExpectedAllMembers("", parentMembers, parent),
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Enum),
         "kind: !_TypeKind Enum",
-        .. _checks.ExpectedMembers("members:", members),
+        .. _checks.ExpectedMembers("items:", members),
         "name: " + name]);
 
   internal override ICheckTypeModel<SimpleKindModel> TypeChecks => _checks;
@@ -69,7 +83,7 @@ internal sealed class EnumModelChecks
 
   internal TypeEnumModel NewParent(string name, string[] members)
     => new(name) {
-      Members = [.. members.Select(m => new AliasedModel(m))]
+      Items = [.. members.Select(m => new AliasedModel(m))]
     };
 
   internal IEnumerable<string> ExpectedMembers(string field, string[] members)

@@ -26,6 +26,39 @@ public abstract record class ChildTypeModel<TParent>(
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
       .Add("parent", Parent?.Render(context));
+
+  internal void ForParent<TModel>(IRenderContext context, Func<TParent?, string?> parent, Action<TModel> action)
+    where TModel : ChildTypeModel<TParent>
+  {
+    if (context.TryGetType<TModel>(parent(Parent), out var parentModel)) {
+      parentModel.ForParent(context, parent, action);
+      action(parentModel);
+    }
+  }
+}
+public abstract record class ParentTypeModel<TItem, TAll>(
+  TypeKindModel Kind,
+  string Name
+) : ChildTypeModel<TypeRefModel<SimpleKindModel>>(Kind, Name)
+  where TItem : IRendering
+  where TAll : IRendering
+{
+  public TItem[] Items { get; set; } = [];
+
+  protected abstract Func<TItem, TAll> NewItem(string parent);
+  internal override RenderStructure Render(IRenderContext context)
+  {
+    List<TAll> all = [];
+    void AddMembers(ParentTypeModel<TItem, TAll> model)
+      => all.AddRange(model.Items.Select(NewItem(model.Name)));
+
+    ForParent<ParentTypeModel<TItem, TAll>>(context, parent => parent?.Name, AddMembers);
+    AddMembers(this);
+
+    return base.Render(context)
+        .Add("items", Items.Render(context))
+        .Add("allItems", all.Render(context));
+  }
 }
 
 public enum SimpleKindModel { Basic, Enum, Internal, Scalar }

@@ -1,12 +1,14 @@
 ﻿[
-  !!! I@007/0004 : Invalid Output. '_TypeEnum' not defined. - '_TypeEnum' !!!,
   !!! I@007/0005 : Invalid Output. '_TypeObject' not defined. - '_TypeObject' !!!,
   !!! I@007/0006 : Invalid Output. '_TypeObject' not defined. - '_TypeObject' !!!,
   !!! I@007/0007 : Invalid Output. '_TypeScalar' not defined. - '_TypeScalar' !!!,
   !!! I@008/0010 : Invalid Output Parent. '_Aliased' not defined. - '_BaseType' !!!,
-  !!! I@015/0026 : Invalid Output. 'Identifier' not defined. - 'Identifier' !!!,
+  !!! I@015/0032 : Invalid Output. 'Identifier' not defined. - 'Identifier' !!!,
+  !!! I@024/0021 : Invalid Output. 'Identifier' not defined. - 'Identifier' !!!,
+  !!! I@034/0004 : Invalid Output. '_Aliased' not defined. - '_Aliased' !!!,
   !!! I@035/0005 : Invalid Output. '_InputBase' not defined. - '_InputBase' !!!,
   !!! I@036/0006 : Invalid Output. '_OutputBase' not defined. - '_OutputBase' !!!,
+  !!! I@043/0004 : Invalid Output. '_EnumMember' not defined. - '_EnumMember' !!!,
   !!! I@046/0005 : Invalid Output. '_InputField' not defined. - '_InputField' !!!,
   !!! I@048/0006 : Invalid Output. '_OutputField' not defined. - '_OutputField' !!!
 ]

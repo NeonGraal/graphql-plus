@@ -5,9 +5,15 @@ namespace GqlPlus.Verifier.Modelling;
 internal sealed class TestRenderContext
   : Dictionary<string, BaseTypeModel>, IRenderContext
 {
-  public bool TryGetType(string? name, [NotNullWhen(true)] out BaseTypeModel? type)
+  public bool TryGetType<TModel>(string? name, [NotNullWhen(true)] out TModel? model)
+    where TModel : BaseTypeModel
   {
-    type = null;
-    return name is not null && TryGetValue(name, out type);
+    if (name is not null && TryGetValue(name, out var type) && type is TModel modelType) {
+      model = modelType;
+      return true;
+    }
+
+    model = null;
+    return false;
   }
 }

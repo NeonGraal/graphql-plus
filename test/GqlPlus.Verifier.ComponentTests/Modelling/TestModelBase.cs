@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
@@ -38,11 +37,13 @@ internal abstract class CheckModelBase<TInput, TAst, TModel>
     _modeller = modeller;
   }
 
-  internal void AstExpected(TAst ast, string[] expected)
-    => Model_Expected(AstToModel(ast), expected);
+  internal void AstExpected(TAst ast, string[] expected, bool skipIf = false)
+    => Model_Expected(AstToModel(ast), expected, skipIf);
 
-  internal void Model_Expected(IRendering model, string[] expected)
+  internal void Model_Expected(IRendering model, string[] expected, bool skipIf)
   {
+    Skip.If(skipIf);
+
     var render = model.Render(Context);
 
     var yaml = render.ToYaml();
@@ -64,7 +65,7 @@ internal abstract class CheckModelBase<TInput, TAst, TModel>
         ? items.SelectMany(mapping)
         : items.SelectMany(mapping).Prepend(field);
 
-  void ICheckModelBase.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
+  void ICheckModelBase.Model_Expected(IRendering model, string[] expected, bool skipIf) => Model_Expected(model, expected, skipIf);
   AstBase ICheckModelBase<TInput>.BaseAst(TInput input) => NewBaseAst(input);
   IRendering ICheckModelBase.ToModel(AstBase ast) => AstToModel((TAst)ast);
   string ICheckModelBase.YamlQuoted(string input) => YamlQuoted(input);
@@ -81,7 +82,7 @@ internal interface ICheckModelBase
   IRenderContext Context { get; }
   IRendering ToModel(AstBase ast);
 
-  void Model_Expected(IRendering model, string[] expected);
+  void Model_Expected(IRendering model, string[] expected, bool skipIf = false);
   string YamlQuoted(string input);
 }
 

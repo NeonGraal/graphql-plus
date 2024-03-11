@@ -14,10 +14,8 @@ output _ScalarRef<$kind> {
     }
 
 output _BaseScalar<$kind $item> {
-    : _ChildType<_TypeKind.Scalar Identifier>
+    : _ParentType<_TypeKind.Scalar $item _ScalarItem<$item>>    
         scalar: $kind
-        items: $item[]
-        allItems: _ScalarItem<$item>[]
     }
 
 output _BaseScalarItem {

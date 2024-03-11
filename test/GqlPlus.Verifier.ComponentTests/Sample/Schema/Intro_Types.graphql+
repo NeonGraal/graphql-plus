@@ -1,7 +1,7 @@
 output _Type {
     | _BaseType<_TypeKind.Basic>
     | _BaseType<_TypeKind.Internal>
-    | _TypeEnum
+    | _ParentType<_TypeKind.Enum _Aliased _EnumMember>
     | _TypeObject<_TypeKind.Input _InputBase _InputField>
     | _TypeObject<_TypeKind.Output _OutputBase _OutputField>
     | _TypeScalar
@@ -15,6 +15,12 @@ output _BaseType<$kind> {
 output _ChildType<$kind $parent> {
     : _BaseType<$kind>
         parent: $parent
+    }
+
+output _ParentType<$kind, $item, $allItem> {
+    : _ChildType<$kind Identifier>
+        items: $item[]
+        allItems: $allItem[]
     }
 
 enum _SimpleKind { Basic Enum Internal Scalar }

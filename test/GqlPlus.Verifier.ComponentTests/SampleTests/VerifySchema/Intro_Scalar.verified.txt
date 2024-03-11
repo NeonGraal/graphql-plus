@@ -1,12 +1,11 @@
 ﻿[
   !!! I@008/0011 : Invalid Output Parent. '_TypeRef' not defined. - '_ScalarRef' !!!,
-  !!! I@008/0016 : Invalid Output Parent. '_ChildType' not defined. - '_BaseScalar' !!!,
+  !!! I@008/0016 : Invalid Output Parent. '_ParentType' not defined. - '_BaseScalar' !!!,
   !!! I@016/0012 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@016/0012 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@017/0034 : Invalid Output. '_EnumValue' not defined. - '_EnumValue' !!!,
-  !!! I@017/0050 : Invalid Output. 'Identifier' not defined. - 'Identifier' !!!,
-  !!! I@018/0017 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
-  !!! I@018/0017 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@035/0017 : Invalid Output. 'Identifier' not defined. - 'Identifier' !!!,
+  !!! I@017/0032 : Invalid Output. '_EnumValue' not defined. - '_EnumValue' !!!,
+  !!! I@017/0048 : Invalid Output. 'Identifier' not defined. - 'Identifier' !!!,
+  !!! I@019/0017 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
+  !!! I@019/0017 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
   !!! I@037/0008 : Invalid Output. '_TypeSimple' not defined. - '_TypeSimple' !!!
 ]

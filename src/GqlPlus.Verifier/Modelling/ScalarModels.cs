@@ -18,18 +18,16 @@ internal record class ScalarRefModel(
 internal sealed record class BaseScalarModel<TItem>(
   ScalarKindModel Scalar,
   string Name
-) : ChildTypeModel<TypeRefModel<SimpleKindModel>>(TypeKindModel.Scalar, Name)
+) : ParentTypeModel<TItem, ScalarItemModel<TItem>>(TypeKindModel.Scalar, Name)
   where TItem : IBaseScalarItemModel
 {
-  public TItem[] Items { get; set; } = [];
-  public ScalarItemModel<TItem>[] AllItems { get; set; } = [];
-
   protected override string Tag => $"_Scalar{Scalar}";
+
+  protected override Func<TItem, ScalarItemModel<TItem>> NewItem(string parent)
+    => item => new(item, parent);
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("allItems", AllItems.Render(context))
-      .Add("items", Items.Render(context))
       .Add("scalar", Scalar.RenderEnum());
 }
 
@@ -125,7 +123,6 @@ internal class ScalarBooleanModeller
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
       Items = ToItems(ast),
-      AllItems = ToAllItems(ast),
     };
 
   protected override ScalarTrueFalseModel ToItem(ScalarTrueFalseAst ast)
@@ -141,7 +138,6 @@ internal class ScalarEnumModeller
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
       Items = ToItems(ast),
-      AllItems = ToAllItems(ast),
     };
 
   protected override ScalarMemberModel ToItem(ScalarMemberAst ast)
@@ -157,7 +153,6 @@ internal class ScalarNumberModeller
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
       Items = ToItems(ast),
-      AllItems = ToAllItems(ast),
     };
 
   protected override ScalarRangeModel ToItem(ScalarRangeAst ast)
@@ -173,7 +168,6 @@ internal class ScalarStringModeller
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
       Items = ToItems(ast),
-      AllItems = ToAllItems(ast),
     };
 
   protected override ScalarRegexModel ToItem(ScalarRegexAst ast)
@@ -189,7 +183,6 @@ internal class ScalarUnionModeller
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
       Items = ToItems(ast),
-      AllItems = ToAllItems(ast),
     };
 
   // Todo: Determine whether Name is Basic, Scalar or Enum

@@ -20,7 +20,15 @@ Success
   >
   !AO
   I@007/0004
-  _TypeEnum
+  _ParentType
+  <
+    I@019/0004
+    _TypeKind.Enum
+    I@034/0004
+    _Aliased
+    I@043/0004
+    _EnumMember
+  >
   !AO
   I@007/0005
   _TypeObject
@@ -90,69 +98,104 @@ Success
   }
 }
 {
-  !E I@006/0020
+  !O I@008/0020
+  _ParentType
+  <
+    I@021/0020
+    $kind
+    I@028/0020
+    $item
+    I@035/0020
+    $allItem
+  >
+  :
+  I@007/0021
+  _ChildType
+  <
+    I@019/0021
+    $kind
+    I@024/0021
+    Identifier
+  >
+  {
+    !OF I@009/0022
+    items
+    :
+    I@017/0022
+    $item
+    []
+    !OF I@009/0023
+    allItems
+    :
+    I@020/0023
+    $allItem
+    []
+  }
+}
+{
+  !E I@006/0026
   _SimpleKind
-  !EM I@020/0020
+  !EM I@020/0026
   Basic
-  !EM I@026/0020
+  !EM I@026/0026
   Enum
-  !EM I@031/0020
+  !EM I@031/0026
   Internal
-  !EM I@040/0020
+  !EM I@040/0026
   Scalar
 }
 {
-  !E I@006/0022
+  !E I@006/0028
   _TypeKind
   :_SimpleKind
-  !EM I@031/0022
+  !EM I@031/0028
   Input
-  !EM I@037/0022
+  !EM I@037/0028
   Output
 }
 {
-  !O I@008/0024
+  !O I@008/0030
   _TypeRef
   <
-    I@018/0024
+    I@018/0030
     $kind
   >
   {
-    !OF I@009/0025
+    !OF I@009/0031
     kind
     :
-    I@016/0025
+    I@016/0031
     $kind
-    !OF I@009/0026
+    !OF I@009/0032
     name
     :
-    I@015/0026
+    I@015/0032
     Identifier
   }
 }
 {
-  !O I@008/0029
+  !O I@008/0035
   _TypeSimple
   |
   !AO
-  I@007/0030
+  I@007/0036
   _TypeRef
   <
-    I@016/0030
+    I@016/0036
     _TypeKind.Basic
   >
   !AO
-  I@007/0031
+  I@007/0037
   _TypeRef
   <
-    I@016/0031
+    I@016/0037
     _TypeKind.Scalar
   >
   !AO
-  I@007/0032
+  I@007/0038
   _TypeRef
   <
-    I@016/0032
+    I@016/0038
     _TypeKind.Enum
   >
 }

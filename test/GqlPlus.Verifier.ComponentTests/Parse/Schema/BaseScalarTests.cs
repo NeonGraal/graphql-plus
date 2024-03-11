@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Parse.Schema;
 public abstract class BaseScalarTests<TInput>
   : BaseAliasedTests<TInput>
 {
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void WithKindBad_ReturnsFalse(TInput input, string kind)
     => ScalarChecks.WithKindBad(input, kind);
 

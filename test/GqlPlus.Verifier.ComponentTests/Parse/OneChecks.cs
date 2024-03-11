@@ -9,9 +9,7 @@ internal class OneChecksParser<T>(Parser<T>.D parser)
 
   internal void TrueExpected(string input, T expected, bool skipIf = false)
   {
-    if (skipIf) {
-      return;
-    }
+    Skip.If(skipIf);
 
     var tokens = Tokens(input);
     var result = _parser.Parse(tokens, "Test");
@@ -26,9 +24,7 @@ internal class OneChecksParser<T>(Parser<T>.D parser)
 
   internal void Ok(string input, T expected, bool skipIf = false)
   {
-    if (skipIf) {
-      return;
-    }
+    Skip.If(skipIf);
 
     var tokens = Tokens(input);
     var result = _parser.Parse(tokens, "Test");
@@ -53,9 +49,7 @@ internal class OneChecksParser<T>(Parser<T>.D parser)
 
   internal void Partial(string input, string error, T expected, bool skipIf = false)
   {
-    if (skipIf) {
-      return;
-    }
+    Skip.If(skipIf);
 
     var result = _parser.Parse(Tokens(input), "Test");
 
@@ -67,9 +61,7 @@ internal class OneChecksParser<T>(Parser<T>.D parser)
 
   internal void Error(string input, string error, bool skipIf = false)
   {
-    if (skipIf) {
-      return;
-    }
+    Skip.If(skipIf);
 
     var result = _parser.Parse(Tokens(input), "Test");
 
@@ -80,9 +72,7 @@ internal class OneChecksParser<T>(Parser<T>.D parser)
 
   internal void False(string input, Action<T?>? check = null, bool skipIf = false)
   {
-    if (skipIf) {
-      return;
-    }
+    Skip.If(skipIf);
 
     var result = _parser.Parse(Tokens(input), "Test");
 
@@ -105,9 +95,7 @@ internal sealed class OneChecksParser<I, T>(Parser<I, T>.D parser)
 
   internal void TrueExpected(string input, T expected, bool skipIf = false)
   {
-    if (skipIf) {
-      return;
-    }
+    Skip.If(skipIf);
 
     var tokens = Tokens(input);
     var result = _parser.I.Parse(tokens, "Test");
@@ -122,9 +110,7 @@ internal sealed class OneChecksParser<I, T>(Parser<I, T>.D parser)
 
   internal void Ok(string input, T expected, bool skipIf = false)
   {
-    if (skipIf) {
-      return;
-    }
+    Skip.If(skipIf);
 
     var tokens = Tokens(input);
     var result = _parser.I.Parse(tokens, "Test");
@@ -149,9 +135,7 @@ internal sealed class OneChecksParser<I, T>(Parser<I, T>.D parser)
 
   internal void Partial(string input, string error, T expected, bool skipIf = false)
   {
-    if (skipIf) {
-      return;
-    }
+    Skip.If(skipIf);
 
     var result = _parser.I.Parse(Tokens(input), "Test");
 
@@ -163,9 +147,7 @@ internal sealed class OneChecksParser<I, T>(Parser<I, T>.D parser)
 
   internal void Error(string input, string error, bool skipIf = false)
   {
-    if (skipIf) {
-      return;
-    }
+    Skip.If(skipIf);
 
     var result = _parser.I.Parse(Tokens(input), "Test");
 
@@ -176,9 +158,7 @@ internal sealed class OneChecksParser<I, T>(Parser<I, T>.D parser)
 
   internal void False(string input, Action<T?>? check = null, bool skipIf = false)
   {
-    if (skipIf) {
-      return;
-    }
+    Skip.If(skipIf);
 
     var result = _parser.I.Parse(Tokens(input), "Test");
 

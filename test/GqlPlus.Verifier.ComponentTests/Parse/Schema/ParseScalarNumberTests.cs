@@ -34,14 +34,14 @@ public sealed class ParseScalarNumberTests(
       name + $"{{number <{max}}}",
       new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarKind.Number, [new(AstNulls.At, false, null, max)]));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void WithRangeBounds_ReturnsCorrectAst(string name, decimal min, decimal max)
     => _checks.TrueExpected(
       name + $"{{number {min}~{max}}}",
       new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarKind.Number, [new(AstNulls.At, false, min, max)]),
-      max <= min);
+      skipIf: max <= min);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void WithRangeBoundsBad_ReturnsCorrectAst(string name, decimal min, decimal max)
     => _checks.False(
       name + $"{{number ~{max} {min}!}}",

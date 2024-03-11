@@ -12,9 +12,9 @@ internal sealed class ManyChecksParser<T>
 
   internal void TrueExpected(string input, bool skipIf, params T[] expected)
   {
-    if (!skipIf) {
-      TrueExpected(input, expected);
-    }
+    Skip.If(skipIf);
+
+    TrueExpected(input, expected);
   }
 
   internal void TrueExpected(string input, params T[] expected)
@@ -55,9 +55,9 @@ where I : Parser<T>.IA
 
   internal void TrueExpected(string input, bool skipIf, params T[] expected)
   {
-    if (!skipIf) {
-      TrueExpected(input, expected);
-    }
+    Skip.If(skipIf);
+
+    TrueExpected(input, expected);
   }
 
   internal void TrueExpected(string input, params T[] expected)

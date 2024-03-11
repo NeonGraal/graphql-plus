@@ -24,7 +24,7 @@ public sealed class ParseEnumTests
         Members = members.EnumMembers(),
       });
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void WithEnumMembersBad_ReturnsFalse(string name, string[] members)
     => _checks.False(name + "{" + string.Join("|", members) + "}",
       skipIf: members is null || members.Length < 2);

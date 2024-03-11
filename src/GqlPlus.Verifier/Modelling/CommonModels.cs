@@ -15,12 +15,12 @@ public class ConstantModel
   internal ConstantModel(Dictionary<SimpleModel, ConstantModel> values)
     : base(values) { }
 
-  public RenderStructure Render()
+  public RenderStructure Render(IRenderContext context)
     => Map.Count > 0 ? new RenderStructure(Map.ToDictionary(
-        p => p.Key.Render().Value!,
-        p => p.Value.Render()), "_ConstantMap")
-    : List.Count > 0 ? new RenderStructure(List.Select(c => c.Render()), "_ConstantList")
-    : Value is not null ? Value.Render()
+        p => p.Key.Render(context).Value!,
+        p => p.Value.Render(context)), "_ConstantMap")
+    : List.Count > 0 ? new RenderStructure(List.Select(c => c.Render(context)), "_ConstantList")
+    : Value is not null ? Value.Render(context)
     : new("");
 }
 
@@ -47,7 +47,7 @@ public record class SimpleModel
   internal static SimpleModel Enum(string type, string value)
     => new() { TypeRef = TypeFor(type), Value = value };
 
-  public RenderStructure Render()
+  public RenderStructure Render(IRenderContext context)
     => Boolean is not null ? new(Boolean)
       : Number is not null ? new(Number, TypeRef?.Name ?? "")
       : String is not null ? new(String, TypeRef?.Name ?? "")
@@ -62,8 +62,8 @@ public record class CollectionModel(
   public string Key { get; set; } = "";
   public bool KeyOptional { get; set; }
 
-  internal override RenderStructure Render()
-    => base.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
         .Add("kind", $"{Kind}")
         .Add(Kind == ModifierKind.Dict, s => s
           .Add("key", Key)

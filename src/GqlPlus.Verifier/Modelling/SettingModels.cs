@@ -8,9 +8,9 @@ public record class SettingModel(
   ConstantModel Value
 ) : DescribedModel<NamedModel>(new NamedModel(Name))
 {
-  internal override RenderStructure Render()
-    => base.Render()
-      .Add("value", Value.Render())
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("value", Value.Render(context))
     ;
 }
 

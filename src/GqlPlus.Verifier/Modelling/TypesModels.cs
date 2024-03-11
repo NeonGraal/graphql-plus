@@ -10,8 +10,8 @@ public abstract record class BaseTypeModel(
   string Name
 ) : AliasedModel(Name)
 {
-  internal override RenderStructure Render()
-    => base.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
     .Add("kind", Kind.RenderEnum());
 }
 
@@ -23,9 +23,9 @@ public abstract record class ChildTypeModel<TParent>(
 {
   public TParent? Parent { get; set; }
 
-  internal override RenderStructure Render()
-    => base.Render()
-      .Add("parent", Parent?.Render());
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("parent", Parent?.Render(context));
 }
 
 public enum SimpleKindModel { Basic, Enum, Internal, Scalar }
@@ -47,8 +47,8 @@ public record class TypeRefModel<TKind>(
 {
   private static readonly string s_kindTag = typeof(TKind).TypeTag();
 
-  internal override RenderStructure Render()
-    => base.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
       .Add("kind", new(Kind?.ToString(), s_kindTag));
 }
 

@@ -63,10 +63,10 @@ public class RenderStructure
     ? Add(key, value)
     : this;
 
-  public RenderStructure Add<T>(T value)
+  public RenderStructure Add<T>(T value, IRenderContext context)
     where T : IRendering
   {
-    foreach (var (key, item) in value.Render().Map) {
+    foreach (var (key, item) in value.Render(context).Map) {
       Map.Add(key, item);
     }
 

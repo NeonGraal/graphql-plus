@@ -13,8 +13,8 @@ public record class InputBaseModel(
   string Input
 ) : ObjBaseModel<ObjRefModel<InputBaseModel>>
 {
-  internal override RenderStructure Render()
-    => base.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
       .Add("input", Input);
 }
 

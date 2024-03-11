@@ -11,9 +11,21 @@ public class EnumModelTests
     .AstExpected(
       new(AstNulls.At, name) { Members = members.EnumMembers() },
       ["!_TypeEnum",
-        .. _checks.ExpectedMembers("allMembers:", members, name),
+        .. _checks.ExpectedAllMembers("allMembers:", members, name),
         "kind: !_TypeKind Enum",
-        .. _checks.ExpectedMembers("members:", members, ""),
+        .. _checks.ExpectedMembers("members:", members),
+        "name: " + name]);
+
+  [Theory, RepeatData(Repeats)]
+  public void Model_ParentMembers(string name, string parent, string[] parentMembers)
+    => _checks
+    .AddParent(_checks.NewParent(parent, parentMembers))
+    .AstExpected(
+      new(AstNulls.At, name) { Parent = parent, },
+      ["!_TypeEnum",
+        .. _checks.ExpectedAllMembers("allMembers:", parentMembers, parent),
+        "kind: !_TypeKind Enum",
+        .. parent.TypeRefFor(SimpleKindModel.Enum),
         "name: " + name]);
 
   [Theory, RepeatData(Repeats)]
@@ -22,8 +34,10 @@ public class EnumModelTests
     string contents,
     string[] aliases,
     string parent,
-    string[] members
+    string[] members,
+    string[] parentMembers
   ) => _checks
+    .AddParent(_checks.NewParent(parent, parentMembers))
     .AstExpected(
       new(AstNulls.At, name) {
         Aliases = aliases,
@@ -33,11 +47,12 @@ public class EnumModelTests
       },
       ["!_TypeEnum",
         $"aliases: [{string.Join(", ", aliases)}]",
-        .. _checks.ExpectedMembers("allMembers:", members, name),
+        .. _checks.ExpectedAllMembers("allMembers:", members, name),
+        .. _checks.ExpectedAllMembers("", parentMembers, parent),
         "description: " + _checks.YamlQuoted(contents),
         .. parent.TypeRefFor(SimpleKindModel.Enum),
         "kind: !_TypeKind Enum",
-        .. _checks.ExpectedMembers("members:", members, ""),
+        .. _checks.ExpectedMembers("members:", members),
         "name: " + name]);
 
   internal override ICheckTypeModel<SimpleKindModel> TypeChecks => _checks;
@@ -52,13 +67,19 @@ internal sealed class EnumModelChecks
     : base(new EnumModeller(), SimpleKindModel.Enum)
   { }
 
+  internal TypeEnumModel NewParent(string name, string[] members)
+    => new(name) {
+      Members = [.. members.Select(m => new AliasedModel(m))]
+    };
+
+  internal IEnumerable<string> ExpectedMembers(string field, string[] members)
+    => ItemsExpected(field, members, m => ["- !_Aliased " + m]);
+
+  internal IEnumerable<string> ExpectedAllMembers(string field, string[] members, string ofEnum)
+    => ItemsExpected(field, members, m => ["- !_EnumMember", "  enum: " + ofEnum, "  name: " + m]);
+
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);
-
-  internal IEnumerable<string> ExpectedMembers(string field, string[] members, string ofEnum)
-    => ItemsExpected(field, members, m => string.IsNullOrWhiteSpace(ofEnum)
-      ? ["- !_Aliased " + m]
-      : ["- !_EnumMember", "  enum: " + ofEnum, "  name: " + m]);
 
   protected override string[] ExpectedType(string name, string? parent, IEnumerable<string>? aliases = null, IEnumerable<string>? description = null)
     => [$"!_TypeEnum",

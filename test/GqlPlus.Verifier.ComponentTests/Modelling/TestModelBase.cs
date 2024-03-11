@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Rendering;
+﻿using System.Runtime.CompilerServices;
+using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
@@ -28,6 +29,8 @@ internal abstract class CheckModelBase<TInput, TAst, TModel>
 {
   protected IModeller<TAst, TModel> _modeller;
 
+  public IRenderContext Context { get; } = new TestRenderContext();
+
   protected CheckModelBase(IModeller<TAst, TModel> modeller)
   {
     ArgumentNullException.ThrowIfNull(modeller);
@@ -38,9 +41,9 @@ internal abstract class CheckModelBase<TInput, TAst, TModel>
   internal void AstExpected(TAst ast, string[] expected)
     => Model_Expected(AstToModel(ast), expected);
 
-  internal static void Model_Expected(IRendering model, string[] expected)
+  internal void Model_Expected(IRendering model, string[] expected)
   {
-    var render = model.Render();
+    var render = model.Render(Context);
 
     var yaml = render.ToYaml();
 
@@ -57,19 +60,40 @@ internal abstract class CheckModelBase<TInput, TAst, TModel>
 
   protected static IEnumerable<string> ItemsExpected<TItem>(string field, TItem[]? items, Func<TItem, IEnumerable<string>> mapping)
     => items == null || items.Length == 0 ? []
-      : items.SelectMany(mapping).Prepend(field);
+      : string.IsNullOrWhiteSpace(field)
+        ? items.SelectMany(mapping)
+        : items.SelectMany(mapping).Prepend(field);
 
-  void ICheckModelBase<TInput>.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
+  void ICheckModelBase.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
   AstBase ICheckModelBase<TInput>.BaseAst(TInput input) => NewBaseAst(input);
-  IRendering ICheckModelBase<TInput>.ToModel(AstBase ast) => AstToModel((TAst)ast);
-  string ICheckModelBase<TInput>.YamlQuoted(string input) => YamlQuoted(input);
+  IRendering ICheckModelBase.ToModel(AstBase ast) => AstToModel((TAst)ast);
+  string ICheckModelBase.YamlQuoted(string input) => YamlQuoted(input);
 }
 
 internal interface ICheckModelBase<TInput>
+  : ICheckModelBase
 {
   AstBase BaseAst(TInput input);
+}
+
+internal interface ICheckModelBase
+{
+  IRenderContext Context { get; }
   IRendering ToModel(AstBase ast);
 
   void Model_Expected(IRendering model, string[] expected);
   string YamlQuoted(string input);
+}
+
+internal static class CheckModelBaseHelper
+{
+  internal static TCheck AddParent<TCheck>(this TCheck check, BaseTypeModel type)
+    where TCheck : ICheckModelBase
+  {
+    if (check.Context is IDictionary<string, BaseTypeModel> dict) {
+      dict.Add(type.Name, type);
+    }
+
+    return check;
+  }
 }

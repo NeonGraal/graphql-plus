@@ -10,8 +10,8 @@ internal record class ScalarRefModel(
   ScalarKind Scalar
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Scalar, Name)
 {
-  internal override RenderStructure Render()
-    => base.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
       .Add("scalar", Scalar);
 }
 
@@ -26,10 +26,10 @@ internal sealed record class BaseScalarModel<TItem>(
 
   protected override string Tag => $"_Scalar{Scalar}";
 
-  internal override RenderStructure Render()
-    => base.Render()
-      .Add("allItems", AllItems.Render())
-      .Add("items", Items.Render())
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("allItems", AllItems.Render(context))
+      .Add("items", Items.Render(context))
       .Add("scalar", Scalar.RenderEnum());
 }
 
@@ -37,8 +37,8 @@ internal record class BaseScalarItemModel(
   bool Exclude
 ) : ModelBase, IBaseScalarItemModel
 {
-  internal override RenderStructure Render()
-    => base.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
       .Add("exclude", Exclude);
 }
 
@@ -53,9 +53,9 @@ internal record class ScalarMemberModel(
     : this(new(name, value), exclude)
   { }
 
-  internal override RenderStructure Render()
-    => base.Render()
-      .Add(EnumValue);
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add(EnumValue, context);
 }
 
 internal record class ScalarTrueFalseModel(
@@ -63,8 +63,8 @@ internal record class ScalarTrueFalseModel(
   bool Exclude
 ) : BaseScalarItemModel(Exclude)
 {
-  internal override RenderStructure Render()
-    => base.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
       .Add("value", Value);
 }
 
@@ -74,8 +74,8 @@ internal record class ScalarRangeModel(
   bool Exclude
 ) : BaseScalarItemModel(Exclude)
 {
-  internal override RenderStructure Render()
-    => base.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
       .Add("from", From)
       .Add("to", To);
 }
@@ -85,8 +85,8 @@ internal record class ScalarRegexModel(
   bool Exclude
 ) : BaseScalarItemModel(Exclude)
 {
-  internal override RenderStructure Render()
-    => base.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
       .Add("regex", Regex);
 }
 
@@ -96,9 +96,9 @@ internal record class ScalarItemModel<TItem>(
 ) : ModelBase
   where TItem : IBaseScalarItemModel
 {
-  internal override RenderStructure Render()
-    => base.Render()
-      .Add(Item)
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add(Item, context)
       .Add("scalar", Scalar);
 }
 

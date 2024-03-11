@@ -13,11 +13,11 @@ public record class CategoryModel(
   public CategoryOption Resolution { get; set; } = CategoryOption.Parallel;
   public ModifierModel[] Modifiers { get; set; } = [];
 
-  internal override RenderStructure Render()
-    => base.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
       .Add("resolution", Resolution, "_Resolution")
-      .Add("output", Output.Render())
-      .Add("modifiers", Modifiers.Render(true));
+      .Add("output", Output.Render(context))
+      .Add("modifiers", Modifiers.Render(context, true));
 }
 
 // ResolutionModel => CategoryOption

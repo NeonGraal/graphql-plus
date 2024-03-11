@@ -15,11 +15,11 @@ public record class TypeObjectModel<TBase, TField>(
   internal TField[] Fields { get; set; } = [];
   internal AlternateModel<TBase>[] Alternates { get; set; } = [];
 
-  internal override RenderStructure Render()
-    => base.Render()
-      .Add("parameters", TypeParameters.Render())
-      .Add("fields", Fields.Render())
-      .Add("alternates", Alternates.Render());
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("parameters", TypeParameters.Render(context))
+      .Add("fields", Fields.Render(context))
+      .Add("alternates", Alternates.Render(context));
 }
 
 public record class ObjRefModel<TBase>
@@ -35,9 +35,9 @@ public record class ObjRefModel<TBase>
   public ObjRefModel(TBase baseRef)
     => BaseRef = baseRef;
 
-  internal override RenderStructure Render()
-    => TypeRef is not null ? TypeRef.Render()
-      : BaseRef is not null ? BaseRef.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => TypeRef is not null ? TypeRef.Render(context)
+      : BaseRef is not null ? BaseRef.Render(context)
       : new("");
 }
 
@@ -58,10 +58,10 @@ public record class AlternateModel<TBase>(
 {
   internal CollectionModel[] Collections { get; set; } = [];
 
-  internal override RenderStructure Render()
-    => base.Render()
-      .Add("type", Type.Render())
-      .Add("collections", Collections.Render());
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("type", Type.Render(context))
+      .Add("collections", Collections.Render(context));
 }
 
 public record class FieldModel<TBase>(
@@ -72,9 +72,9 @@ public record class FieldModel<TBase>(
 {
   internal ModifierModel[] Modifiers { get; set; } = [];
 
-  internal override RenderStructure Render()
-    => base.Render()
-      .Add("type", Type.Render());
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("type", Type.Render(context));
 }
 
 public record class ParameterModel(
@@ -83,9 +83,9 @@ public record class ParameterModel(
 {
   public ConstantModel? Default { get; set; }
 
-  internal override RenderStructure Render()
-    => base.Render()
-      .Add("default", Default?.Render());
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("default", Default?.Render(context));
 }
 
 internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, TField>(

@@ -13,10 +13,10 @@ public record class DirectiveModel(
   public bool Repeatable { get; set; }
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 
-  internal override RenderStructure Render()
-    => base.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
       .AddSet("locations", Locations, "_Location")
-      .Add("parameters", Parameters.Render())
+      .Add("parameters", Parameters.Render(context))
       .Add("repeatable", Repeatable);
 }
 

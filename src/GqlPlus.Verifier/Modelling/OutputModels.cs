@@ -12,8 +12,8 @@ public record class OutputBaseModel(
   string Output
 ) : ObjBaseModel<ObjRefModel<OutputArgumentModel>>
 {
-  internal override RenderStructure Render()
-    => base.Render()
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
       .Add("output", Output);
 }
 

@@ -15,9 +15,9 @@ internal static class RenderYaml
   internal static RenderStructure Render(this IEnumerable<string> strings, bool flow = true)
     => new(strings.Select(a => new RenderStructure(new RenderValue(a))), flow);
 
-  internal static RenderStructure Render<T>(this IEnumerable<T> values, bool flow = false)
+  internal static RenderStructure Render<T>(this IEnumerable<T> values, IRenderContext context, bool flow = false)
     where T : IRendering
-    => new(values.Select(v => v.Render()), flow);
+    => new(values.Select(v => v.Render(context)), flow);
 
   internal static string TrueFalse(this bool value)
     => value ? "true" : "false";

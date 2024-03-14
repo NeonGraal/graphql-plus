@@ -12,7 +12,6 @@ if ($Section) {
 
 $report = "riskHotspotsAnalysisThresholds:metricThresholdForCyclomaticComplexity=$Threshold","riskHotspotsAnalysisThresholds:metricThresholdForCrapScore=$Threshold"
 
-prettier -w .
 dotnet tool restore
 dotnet build
 dotnet coverage collect --settings coverage.runsettings -- dotnet @coverage

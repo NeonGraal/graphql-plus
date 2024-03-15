@@ -18,13 +18,13 @@ public class CategoryAstTests : AstAliasedTests
     => _checks.Equality(
       () => new CategoryDeclAst(AstNulls.At, name, output));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenNames(string output, string name1, string name2)
     => _checks.InequalityBetween(name1, name2,
       name => new CategoryDeclAst(AstNulls.At, name, output),
       name1 == name2);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenOutput(string output1, string output2, string name)
     => _checks.InequalityBetween(output1, output2,
       output => new CategoryDeclAst(AstNulls.At, name, output),
@@ -46,7 +46,7 @@ public class CategoryAstTests : AstAliasedTests
     => _checks.Equality(
       () => new CategoryDeclAst(AstNulls.At, name) { Option = option });
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenOptions(string name, CategoryOption option1, CategoryOption option2)
     => _checks.InequalityBetween(option1, option2,
       option => new CategoryDeclAst(AstNulls.At, name) { Option = option },

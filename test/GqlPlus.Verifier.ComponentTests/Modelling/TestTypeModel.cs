@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Modelling;
 using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
@@ -86,6 +87,19 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
     => input;
 }
 
+internal abstract class CheckTypeModel<TAst, TTypeKind, TModel, TItem>(
+  IModeller<TAst, TModel> modeller,
+  TTypeKind kind
+) : CheckTypeModel<TAst, TTypeKind, TModel>(modeller, kind)
+  , ICheckTypeModel<TTypeKind, TItem>
+  where TAst : AstType<string>
+  where TModel : IRendering
+{
+  internal abstract BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
+  BaseTypeModel ICheckTypeModel<TTypeKind, TItem>.NewParent(string name, TItem[] members, string? parent)
+    => NewParent(name, members, parent);
+}
+
 internal interface ICheckTypeModel<TAstParent, TParent, TTypeKind>
   : ICheckAliasedModel<string>
   where TAstParent : IEquatable<TAstParent>
@@ -101,3 +115,9 @@ internal interface ICheckTypeModel<TAstParent, TParent, TTypeKind>
 internal interface ICheckTypeModel<TTypeKind>
   : ICheckTypeModel<string, string, TTypeKind>
 { }
+
+internal interface ICheckTypeModel<TTypeKind, TItem>
+  : ICheckTypeModel<string, string, TTypeKind>
+{
+  BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
+}

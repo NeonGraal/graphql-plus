@@ -16,7 +16,7 @@ public class MergeInputFieldsTests
       MakeField(name, type) with { Default = value.FieldKey() },
       MakeField(name, type) with { Default = value.FieldKey() }]);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentDefaults_ReturnsFalse(string name, string type, string value1, string value2)
     => CanMerge_False([
       MakeField(name, type) with { Default = value1.FieldKey() },

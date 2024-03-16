@@ -17,7 +17,7 @@ public class EnumModelTests
         "name: " + name]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_ParentMembers(string name, string parent, string[] parentMembers)
+  public void Model_MembersParent(string name, string parent, string[] parentMembers)
     => _checks
     .AddParent(_checks.NewParent(parent, parentMembers))
     .AstExpected(
@@ -29,9 +29,9 @@ public class EnumModelTests
         "name: " + name]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_GrandParentMembers(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
+  public void Model_MembersGrandParent(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
     => _checks
-    .AddParent(_checks.NewParent(parent, parentMembers) with { Parent = grandParent.TypeRef(SimpleKindModel.Enum) })
+    .AddParent(_checks.NewParent(parent, parentMembers, grandParent))
     .AddParent(_checks.NewParent(grandParent, grandParentMembers))
     .AstExpected(
       new(AstNulls.At, name) { Parent = parent, },
@@ -75,14 +75,15 @@ public class EnumModelTests
 }
 
 internal sealed class EnumModelChecks
-  : CheckTypeModel<EnumDeclAst, SimpleKindModel, TypeEnumModel>
+  : CheckTypeModel<EnumDeclAst, SimpleKindModel, TypeEnumModel, string>
 {
   public EnumModelChecks()
     : base(new EnumModeller(), SimpleKindModel.Enum)
   { }
 
-  internal TypeEnumModel NewParent(string name, string[] members)
+  internal override TypeEnumModel NewParent(string name, string[] members, string? parent = null)
     => new(name) {
+      Parent = parent?.TypeRef(SimpleKindModel.Enum),
       Items = [.. members.Select(m => new AliasedModel(m))]
     };
 

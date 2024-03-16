@@ -37,7 +37,10 @@ internal abstract class CheckModelBase<TInput, TAst, TModel>
     _modeller = modeller;
   }
 
-  internal void AstExpected(TAst ast, string[] expected, bool skipIf = false)
+  internal void AstExpected(TAst ast, string[] expected)
+    => Model_Expected(AstToModel(ast), expected, false);
+
+  internal void AstExpected(TAst ast, string[] expected, bool skipIf)
     => Model_Expected(AstToModel(ast), expected, skipIf);
 
   internal void Model_Expected(IRendering model, string[] expected, bool skipIf)
@@ -65,7 +68,7 @@ internal abstract class CheckModelBase<TInput, TAst, TModel>
         ? items.SelectMany(mapping)
         : items.SelectMany(mapping).Prepend(field);
 
-  void ICheckModelBase.Model_Expected(IRendering model, string[] expected, bool skipIf) => Model_Expected(model, expected, skipIf);
+  void ICheckModelBase.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected, false);
   AstBase ICheckModelBase<TInput>.BaseAst(TInput input) => NewBaseAst(input);
   IRendering ICheckModelBase.ToModel(AstBase ast) => AstToModel((TAst)ast);
   string ICheckModelBase.YamlQuoted(string input) => YamlQuoted(input);
@@ -82,7 +85,7 @@ internal interface ICheckModelBase
   IRenderContext Context { get; }
   IRendering ToModel(AstBase ast);
 
-  void Model_Expected(IRendering model, string[] expected, bool skipIf = false);
+  void Model_Expected(IRendering model, string[] expected);
   string YamlQuoted(string input);
 }
 

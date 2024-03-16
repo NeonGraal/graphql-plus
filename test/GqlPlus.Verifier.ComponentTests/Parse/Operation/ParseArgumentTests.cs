@@ -40,35 +40,35 @@ public class ParseArgumentTests(Parser<IParserArgument, ArgumentAst>.D parser)
       '(' + enumValue + ":$" + enumValue + ')',
       new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(enumValue)));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string enumValue)
     => _checks.TrueExpected(
       '(' + key + ":$" + enumValue + ' ' + enumValue + ':' + key + ')',
       new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),
       key == enumValue);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string enumValue)
     => _checks.TrueExpected(
       '(' + key + ":$" + enumValue + ',' + enumValue + ':' + key + ')',
       new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),
       key == enumValue);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectSemiEnumValue_ReturnsFalse(string key, string enumValue)
     => _checks.False(
       '(' + key + ":$" + enumValue + ',' + enumValue + ')',
       CheckNull,
       key == enumValue);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectFieldBad_ReturnsFalse(string key, string enumValue)
     => _checks.False(
       '(' + key + ":)",
       CheckNull,
       key == enumValue);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
     => _checks.False(
       '(' + key + ':' + enumValue + ';' + enumValue + ':' + key + ')',

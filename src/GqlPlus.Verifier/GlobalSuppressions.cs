@@ -8,3 +8,4 @@
 [assembly: SuppressMessage("Style", "IDE2001:Embedded statements must be on their own line")]
 [assembly: SuppressMessage("Usage", "CA2225:Operator overloads have named alternates")]
 [assembly: SuppressMessage("Performance", "CA1819:Properties should not return arrays")]
+[assembly: SuppressMessage("Performance", "CA1822:Mark members as static")]

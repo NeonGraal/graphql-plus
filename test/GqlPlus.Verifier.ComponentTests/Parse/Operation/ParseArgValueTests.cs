@@ -44,21 +44,21 @@ public class ParseArgValueTests(Parser<ArgumentAst>.D parser)
       '[' + enumValue + ",," + enumValue + ']',
       CheckNull);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string enumValue)
     => _checks.TrueExpected(
       '{' + key + ":$" + enumValue + ' ' + enumValue + ':' + key + '}',
       new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),
       key == enumValue);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string enumValue)
     => _checks.TrueExpected(
       '{' + key + ":$" + enumValue + ',' + enumValue + ':' + key + '}',
       new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),
       key == enumValue);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
     => _checks.False(
       '{' + key + ':' + enumValue + ':' + enumValue + ':' + key + '}',

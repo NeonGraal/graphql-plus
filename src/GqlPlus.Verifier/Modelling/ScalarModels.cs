@@ -105,87 +105,87 @@ internal abstract class ModellerScalar<TItemAst, TItemModel>
   where TItemAst : IAstScalarItem
   where TItemModel : IBaseScalarItemModel
 {
-  internal TItemModel[] ToItems(AstScalar<TItemAst> ast)
-    => [.. ast.Items.Select(ToItem)];
+  internal TItemModel[] ToItems(AstScalar<TItemAst> ast, IMap<TypeKindModel> typeKinds)
+    => [.. ast.Items.Select(ast => ToItem(ast, typeKinds))];
 
-  internal ScalarItemModel<TItemModel>[] ToAllItems(AstScalar<TItemAst> ast)
-    => [.. ast.Items.Select(item => new ScalarItemModel<TItemModel>(ToItem(item), ast.Name))];
+  internal ScalarItemModel<TItemModel>[] ToAllItems(AstScalar<TItemAst> ast, IMap<TypeKindModel> typeKinds)
+    => [.. ast.Items.Select(item => new ScalarItemModel<TItemModel>(ToItem(item, typeKinds), ast.Name))];
 
-  protected abstract TItemModel ToItem(TItemAst ast);
+  protected abstract TItemModel ToItem(TItemAst ast, IMap<TypeKindModel> typeKinds);
 }
 
 internal class ScalarBooleanModeller
   : ModellerScalar<ScalarTrueFalseAst, ScalarTrueFalseModel>
 {
-  internal override BaseScalarModel<ScalarTrueFalseModel> ToModel(AstScalar<ScalarTrueFalseAst> ast)
+  internal override BaseScalarModel<ScalarTrueFalseModel> ToModel(AstScalar<ScalarTrueFalseAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.Boolean, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
-      Items = ToItems(ast),
+      Items = ToItems(ast, typeKinds),
     };
 
-  protected override ScalarTrueFalseModel ToItem(ScalarTrueFalseAst ast)
+  protected override ScalarTrueFalseModel ToItem(ScalarTrueFalseAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Value, ast.Excludes);
 }
 
 internal class ScalarEnumModeller
   : ModellerScalar<ScalarMemberAst, ScalarMemberModel>
 {
-  internal override BaseScalarModel<ScalarMemberModel> ToModel(AstScalar<ScalarMemberAst> ast)
+  internal override BaseScalarModel<ScalarMemberModel> ToModel(AstScalar<ScalarMemberAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.Enum, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
-      Items = ToItems(ast),
+      Items = ToItems(ast, typeKinds),
     };
 
-  protected override ScalarMemberModel ToItem(ScalarMemberAst ast)
+  protected override ScalarMemberModel ToItem(ScalarMemberAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.EnumType ?? "", ast.Member, ast.Excludes);
 }
 
 internal class ScalarNumberModeller
   : ModellerScalar<ScalarRangeAst, ScalarRangeModel>
 {
-  internal override BaseScalarModel<ScalarRangeModel> ToModel(AstScalar<ScalarRangeAst> ast)
+  internal override BaseScalarModel<ScalarRangeModel> ToModel(AstScalar<ScalarRangeAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.Number, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
-      Items = ToItems(ast),
+      Items = ToItems(ast, typeKinds),
     };
 
-  protected override ScalarRangeModel ToItem(ScalarRangeAst ast)
+  protected override ScalarRangeModel ToItem(ScalarRangeAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Lower, ast.Upper, ast.Excludes);
 }
 
 internal class ScalarStringModeller
   : ModellerScalar<ScalarRegexAst, ScalarRegexModel>
 {
-  internal override BaseScalarModel<ScalarRegexModel> ToModel(AstScalar<ScalarRegexAst> ast)
+  internal override BaseScalarModel<ScalarRegexModel> ToModel(AstScalar<ScalarRegexAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.String, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
-      Items = ToItems(ast),
+      Items = ToItems(ast, typeKinds),
     };
 
-  protected override ScalarRegexModel ToItem(ScalarRegexAst ast)
+  protected override ScalarRegexModel ToItem(ScalarRegexAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Regex, ast.Excludes);
 }
 
 internal class ScalarUnionModeller
   : ModellerScalar<ScalarReferenceAst, TypeSimpleModel>
 {
-  internal override BaseScalarModel<TypeSimpleModel> ToModel(AstScalar<ScalarReferenceAst> ast)
+  internal override BaseScalarModel<TypeSimpleModel> ToModel(AstScalar<ScalarReferenceAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.Union, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
-      Items = ToItems(ast),
+      Items = ToItems(ast, typeKinds),
     };
 
   // Todo: Determine whether Name is Basic, Scalar or Enum
-  protected override TypeSimpleModel ToItem(ScalarReferenceAst ast)
-    => new(SimpleKindModel.Basic, ast.Name);
+  protected override TypeSimpleModel ToItem(ScalarReferenceAst ast, IMap<TypeKindModel> typeKinds)
+    => new((SimpleKindModel)typeKinds[ast.Name], ast.Name);
 }

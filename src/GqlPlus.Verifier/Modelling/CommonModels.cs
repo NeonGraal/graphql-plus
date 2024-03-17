@@ -79,22 +79,22 @@ internal class ConstantModeller(
   IModeller<FieldKeyAst, SimpleModel> value
 ) : ModellerBase<ConstantAst, ConstantModel>
 {
-  internal override ConstantModel ToModel(ConstantAst ast)
-    => ast.Fields.Count > 0 ? new(ToModel(ast.Fields))
-    : ast.Values.Length > 0 ? new(ast.Values.Select(ToModel))
-    : ast.Value is not null ? new(value.ToModel(ast.Value))
+  internal override ConstantModel ToModel(ConstantAst ast, IMap<TypeKindModel> typeKinds)
+    => ast.Fields.Count > 0 ? new(ToModel(ast.Fields, typeKinds))
+    : ast.Values.Length > 0 ? new(ast.Values.Select(v => ToModel(v, typeKinds)))
+    : ast.Value is not null ? new(value.ToModel(ast.Value, typeKinds))
     : new(new SimpleModel());
 
-  private Dictionary<SimpleModel, ConstantModel> ToModel(AstObject<ConstantAst> constant)
+  private Dictionary<SimpleModel, ConstantModel> ToModel(AstObject<ConstantAst> constant, IMap<TypeKindModel> typeKinds)
     => constant.ToDictionary(
-      p => value.ToModel(p.Key),
-      p => ToModel(p.Value));
+      p => value.ToModel(p.Key, typeKinds),
+      p => ToModel(p.Value, typeKinds));
 }
 
 internal class SimpleModeller
   : ModellerBase<FieldKeyAst, SimpleModel>
 {
-  internal override SimpleModel ToModel(FieldKeyAst ast)
+  internal override SimpleModel ToModel(FieldKeyAst ast, IMap<TypeKindModel> typeKinds)
     => ast.Number.HasValue ? SimpleModel.Num("", ast.Number.Value)
     : ast.Text is not null ? SimpleModel.Str("", ast.Text)
     : "Boolean".Equals(ast.Type, StringComparison.OrdinalIgnoreCase) ? SimpleModel.Bool("true".Equals(ast.Value, StringComparison.OrdinalIgnoreCase))
@@ -109,32 +109,32 @@ public interface IModifierModeller
 internal class ModifierModeller
   : ModellerBase<ModifierAst, ModifierModel>, IModifierModeller
 {
-  internal override ModifierModel ToModel(ModifierAst ast)
+  internal override ModifierModel ToModel(ModifierAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Kind) {
       Key = ast.Key ?? "",
       KeyOptional = ast.KeyOptional,
     };
 
-  protected override T? TryModel<T>(ModifierAst? ast)
+  protected override T? TryModel<T>(ModifierAst? ast, IMap<TypeKindModel> typeKinds)
     where T : default
   {
     if (typeof(T).Equals(typeof(CollectionModel))) {
       if (ast is not null && ast.Kind != ModifierKind.Optional) {
-        return (T?)(object)ToModel(ast);
+        return (T?)(object)ToModel(ast, typeKinds);
       }
 
       return default;
     } else {
-      return base.TryModel<T>(ast);
+      return base.TryModel<T>(ast, typeKinds);
     }
   }
 
-  CollectionModel? IModeller<ModifierAst, CollectionModel>.TryModel(ModifierAst? ast)
-    => TryModel<CollectionModel>(ast);
-  CollectionModel IModeller<ModifierAst, CollectionModel>.ToModel(ModifierAst? ast)
-    => ToModel<CollectionModel>(ast);
-  IEnumerable<CollectionModel?> IModeller<ModifierAst, CollectionModel>.TryModels(IEnumerable<ModifierAst>? asts)
-    => TryModels<CollectionModel>(asts);
-  CollectionModel[] IModeller<ModifierAst, CollectionModel>.ToModels(IEnumerable<ModifierAst>? asts)
-    => ToModels<CollectionModel>(asts);
+  CollectionModel? IModeller<ModifierAst, CollectionModel>.TryModel(ModifierAst? ast, IMap<TypeKindModel> typeKinds)
+    => TryModel<CollectionModel>(ast, typeKinds);
+  CollectionModel IModeller<ModifierAst, CollectionModel>.ToModel(ModifierAst? ast, IMap<TypeKindModel> typeKinds)
+    => ToModel<CollectionModel>(ast, typeKinds);
+  IEnumerable<CollectionModel?> IModeller<ModifierAst, CollectionModel>.TryModels(IEnumerable<ModifierAst>? asts, IMap<TypeKindModel> typeKinds)
+    => TryModels<CollectionModel>(asts, typeKinds);
+  CollectionModel[] IModeller<ModifierAst, CollectionModel>.ToModels(IEnumerable<ModifierAst>? asts, IMap<TypeKindModel> typeKinds)
+    => ToModels<CollectionModel>(asts, typeKinds);
 }

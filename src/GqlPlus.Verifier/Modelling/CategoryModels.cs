@@ -26,11 +26,11 @@ internal class CategoryModeller(
   IModeller<ModifierAst, ModifierModel> modifier
 ) : ModellerBase<CategoryDeclAst, CategoryModel>
 {
-  internal override CategoryModel ToModel(CategoryDeclAst ast)
+  internal override CategoryModel ToModel(CategoryDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Output.TypeRef(TypeKindModel.Output)) {
       Aliases = ast.Aliases,
       Description = ast.Description,
       Resolution = ast.Option,
-      Modifiers = modifier.ToModels(ast.Modifiers),
+      Modifiers = modifier.ToModels(ast.Modifiers, typeKinds),
     };
 }

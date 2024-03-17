@@ -32,20 +32,20 @@ internal class InputModeller(
   IModeller<InputReferenceAst, InputBaseModel> reference
 ) : ModellerObject<InputDeclAst, InputReferenceAst, InputFieldAst, TypeInputModel, InputBaseModel, InputFieldModel>(alternate, field, reference)
 {
-  internal override TypeInputModel ToModel(InputDeclAst ast)
+  internal override TypeInputModel ToModel(InputDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
-      Parent = ParentModel(ast.Parent),
-      Fields = FieldsModels(ast.Fields),
-      Alternates = AlternatesModels(ast.Alternates),
+      Parent = ParentModel(ast.Parent, typeKinds),
+      Fields = FieldsModels(ast.Fields, typeKinds),
+      Alternates = AlternatesModels(ast.Alternates, typeKinds),
     };
 }
 
 internal class InputReferenceModeller
   : ModellerBase<InputReferenceAst, InputBaseModel>
 {
-  internal override InputBaseModel ToModel(InputReferenceAst ast)
+  internal override InputBaseModel ToModel(InputReferenceAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name);
 }
 
@@ -55,9 +55,9 @@ internal class InputFieldModeller(
   IModeller<ConstantAst, ConstantModel> constant
 ) : ModellerBase<InputFieldAst, InputFieldModel>
 {
-  internal override InputFieldModel ToModel(InputFieldAst field)
-    => new(field.Name, new(reference.ToModel(field.Type))) {
-      Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers),
-      Default = constant.TryModel(field.Default),
+  internal override InputFieldModel ToModel(InputFieldAst field, IMap<TypeKindModel> typeKinds)
+    => new(field.Name, new(reference.ToModel(field.Type, typeKinds))) {
+      Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
+      Default = constant.TryModel(field.Default, typeKinds),
     };
 }

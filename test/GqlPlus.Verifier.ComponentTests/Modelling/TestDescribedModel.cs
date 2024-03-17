@@ -38,7 +38,8 @@ internal abstract class CheckDescribedModel<TInput, TAst, TModel>(
   AstAbbreviated ICheckDescribedModel<TInput>.DescribedAst(TInput input, string description) => NewDescribedAst(input, description);
 }
 
-internal interface ICheckDescribedModel<TInput> : ICheckModelBase<TInput>
+internal interface ICheckDescribedModel<TInput>
+  : ICheckModelBase<TInput>
 {
   AstAbbreviated DescribedAst(TInput input, string description);
 }

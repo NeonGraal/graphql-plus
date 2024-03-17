@@ -9,30 +9,38 @@ public abstract class TestScalarModel<TItem, TAstItem>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, TItem[] members)
-    => ScalarChecks.ScalarExpected(
+    => ScalarChecks
+    .AddTypeKinds(members, TypeKindModel.Basic)
+    .ScalarExpected(
       ScalarChecks.ScalarAst(name, members),
-      ScalarChecks.ExpectedScalar(new(name, null, members)));
+      ScalarChecks.ExpectedScalar(new(name, Items: members)));
 
-  [Theory(Skip = "WIP"), RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersParent(string name, string parent, TItem[] parentMembers)
     => ScalarChecks
+    .SkipIf(string.Equals(name, parent, StringComparison.Ordinal))
+    .AddTypeKinds(parentMembers, TypeKindModel.Basic)
     .AddParent(ScalarChecks.NewParent(parent, parentMembers))
     .ScalarExpected(
       ScalarChecks.ScalarAst(name, []) with { Parent = parent },
-      ScalarChecks.ExpectedScalar(new(name, parent)));
+      ScalarChecks.ExpectedScalar(new(name, parent, OtherItems: parentMembers.ParentItems(parent))));
 
-  [Theory(Skip = "WIP"), RepeatData(Repeats)]
-  public void Model_MembersGrandParent(string name, string parent, TItem[] parentMembers, string grandParent, TItem[] grandParentMembers)
+  [SkippableTheory, RepeatData(Repeats)]
+  public void Model_MembersGrandParent(string name, string parent, string grandParent, TItem[] grandParentMembers)
     => ScalarChecks
-    .AddParent(ScalarChecks.NewParent(parent, parentMembers, grandParent))
+    .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
+    .AddTypeKinds(grandParentMembers, TypeKindModel.Basic)
+    .AddParent(ScalarChecks.NewParent(parent, [], grandParent))
     .AddParent(ScalarChecks.NewParent(grandParent, grandParentMembers))
     .ScalarExpected(
       ScalarChecks.ScalarAst(name, []) with { Parent = parent },
-      ScalarChecks.ExpectedScalar(new(name, parent)));
+      ScalarChecks.ExpectedScalar(new(name, parent, OtherItems: grandParentMembers.ParentItems(grandParent))));
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(string name, string contents, string[] aliases, string parent, TItem[] members)
-    => ScalarChecks.ScalarExpected(
+    => ScalarChecks
+    .AddTypeKinds(members, TypeKindModel.Basic)
+    .ScalarExpected(
       ScalarChecks.ScalarAst(name, members) with {
         Aliases = aliases,
         Description = contents,
@@ -62,7 +70,7 @@ internal abstract class CheckScalarModel<TItem, TAstItem, TItemModel>(
   internal string[] ExpectedScalar(ExpectedScalarInput<TItem> input)
     => [$"!_Scalar{kind}",
         .. input.Aliases ?? [],
-        .. AllItems(input.Items, input.Name),
+        .. AllItems(input.AllItems),
         .. input.Description ?? [],
         .. Items(input.Items),
         "kind: !_TypeKind Scalar",
@@ -79,13 +87,13 @@ internal abstract class CheckScalarModel<TItem, TAstItem, TItemModel>(
     => AstExpected(scalar, expected);
 
   BaseTypeModel ICheckTypeModel<SimpleKindModel, TItem>.NewParent(string name, TItem[] members, string? parent)
-    => _modeller.ToModel(NewScalarAst(name, members) with { Parent = parent });
+    => _modeller.ToModel(NewScalarAst(name, members) with { Parent = parent }, TypeKinds);
 
   protected IEnumerable<string> Items(TItem[]? inputs)
     => Items("items:", inputs, ExpectedItem());
 
-  protected IEnumerable<string> AllItems(TItem[]? inputs, string ofScalar)
-    => Items("allItems:", inputs, ExpectedAllItem(ofScalar));
+  protected IEnumerable<string> AllItems((string Scalar, TItem Item)[]? inputs)
+    => Items("allItems:", inputs, ExpectedAllItem());
 
   protected override string[] ExpectedType(
     string name,
@@ -107,7 +115,7 @@ internal abstract class CheckScalarModel<TItem, TAstItem, TItemModel>(
   private AstScalar<TAstItem> NewScalarAst(string name, TItem[] items)
     => new(AstNulls.At, name, kind, ScalarItems(items) ?? []);
 
-  private IEnumerable<string> Items(string field, TItem[]? inputs, Func<TItem, bool, IEnumerable<string>> mapping)
+  private IEnumerable<string> Items<TInput>(string field, TInput[]? inputs, Func<TInput, bool, IEnumerable<string>> mapping)
   {
     var exclude = true;
 
@@ -117,9 +125,9 @@ internal abstract class CheckScalarModel<TItem, TAstItem, TItemModel>(
   private Func<TItem, bool, IEnumerable<string>> ExpectedItem()
     => (input, exclude) => ExpectedItem(input, "  exclude: " + exclude.TrueFalse(), []);
 
-  private Func<TItem, bool, IEnumerable<string>> ExpectedAllItem(string ofScalar)
+  private Func<(string Scalar, TItem Item), bool, IEnumerable<string>> ExpectedAllItem()
         => (input, exclude) => {
-          var result = ExpectedItem(input, "  exclude: " + exclude.TrueFalse(), ["  scalar: " + ofScalar]);
+          var result = ExpectedItem(input.Item, "  exclude: " + exclude.TrueFalse(), ["  scalar: " + input.Scalar]);
           return ["- !_ScalarItem(" + result[0][3..] + ")", .. result[1..]];
         };
 }
@@ -137,6 +145,10 @@ internal record struct ExpectedScalarInput<TItem>(
   string Name,
   string? Parent = null,
   TItem[]? Items = null,
-  (string, TItem)[]? AllItems = null,
+  (string, TItem)[]? OtherItems = null,
   IEnumerable<string>? Aliases = null,
-  IEnumerable<string>? Description = null);
+  IEnumerable<string>? Description = null)
+{
+  public readonly (string, TItem)[]? AllItems
+    => [.. OtherItems ?? [], .. Items?.ParentItems(Name) ?? []];
+}

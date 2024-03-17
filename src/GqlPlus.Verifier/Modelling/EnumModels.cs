@@ -38,7 +38,7 @@ internal record class EnumValueModel(
 internal class EnumModeller
   : ModellerType<EnumDeclAst, string, TypeEnumModel>
 {
-  internal override TypeEnumModel ToModel(EnumDeclAst ast)
+  internal override TypeEnumModel ToModel(EnumDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,

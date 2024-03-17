@@ -47,20 +47,20 @@ internal class OutputModeller(
   IModeller<OutputReferenceAst, OutputBaseModel> reference
 ) : ModellerObject<OutputDeclAst, OutputReferenceAst, OutputFieldAst, TypeOutputModel, OutputBaseModel, OutputFieldModel>(alternate, field, reference)
 {
-  internal override TypeOutputModel ToModel(OutputDeclAst ast)
+  internal override TypeOutputModel ToModel(OutputDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
-      Parent = ParentModel(ast.Parent),
-      Fields = FieldsModels(ast.Fields),
-      Alternates = AlternatesModels(ast.Alternates),
+      Parent = ParentModel(ast.Parent, typeKinds),
+      Fields = FieldsModels(ast.Fields, typeKinds),
+      Alternates = AlternatesModels(ast.Alternates, typeKinds),
     };
 }
 
 internal class OutputReferenceModeller
   : ModellerBase<OutputReferenceAst, OutputBaseModel>
 {
-  internal override OutputBaseModel ToModel(OutputReferenceAst ast)
+  internal override OutputBaseModel ToModel(OutputReferenceAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name);
 }
 
@@ -69,8 +69,8 @@ internal class OutputFieldModeller(
   IModeller<OutputReferenceAst, OutputBaseModel> reference
 ) : ModellerBase<OutputFieldAst, OutputFieldModel>
 {
-  internal override OutputFieldModel ToModel(OutputFieldAst field)
-    => new(field.Name, new(reference.ToModel(field.Type))) {
-      Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers),
+  internal override OutputFieldModel ToModel(OutputFieldAst field, IMap<TypeKindModel> typeKinds)
+    => new(field.Name, new(reference.ToModel(field.Type, typeKinds))) {
+      Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
     };
 }

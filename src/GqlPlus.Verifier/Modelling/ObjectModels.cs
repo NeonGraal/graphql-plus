@@ -100,17 +100,17 @@ internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, 
   where TBase : IObjBaseModel
   where TField : IRendering
 {
-  internal DescribedModel<TBase>? ParentModel(TRefAst? parent)
-    => parent is null ? null : new DescribedModel<TBase>(BaseModel(parent));
+  internal DescribedModel<TBase>? ParentModel(TRefAst? parent, IMap<TypeKindModel> typeKinds)
+    => parent is null ? null : new DescribedModel<TBase>(BaseModel(parent, typeKinds));
 
-  internal AlternateModel<TBase>[] AlternatesModels(AstAlternate<TRefAst>[] alternates)
-    => alternate.ToModels(alternates);
+  internal AlternateModel<TBase>[] AlternatesModels(AstAlternate<TRefAst>[] alternates, IMap<TypeKindModel> typeKinds)
+    => alternate.ToModels(alternates, typeKinds);
 
-  internal TField[] FieldsModels(TFieldAst[] fields)
-    => field.ToModels(fields);
+  internal TField[] FieldsModels(TFieldAst[] fields, IMap<TypeKindModel> typeKinds)
+    => field.ToModels(fields, typeKinds);
 
-  protected TBase BaseModel(TRefAst ast)
-    => reference.ToModel<TBase>(ast);
+  protected TBase BaseModel(TRefAst ast, IMap<TypeKindModel> typeKinds)
+    => reference.ToModel<TBase>(ast, typeKinds);
 }
 
 internal class AlternateModeller<TRefAst, TBase>(
@@ -120,11 +120,15 @@ internal class AlternateModeller<TRefAst, TBase>(
   where TRefAst : AstReference<TRefAst>
   where TBase : IObjBaseModel
 {
-  internal override AlternateModel<TBase> ToModel(AstAlternate<TRefAst> ast)
-    => new(new(new(BaseModel(ast.Type))) { Description = ast.Description }) { Collections = modifier.ToModels(ast.Modifiers) };
+  internal override AlternateModel<TBase> ToModel(AstAlternate<TRefAst> ast, IMap<TypeKindModel> typeKinds)
+    => new(new(new(BaseModel(ast.Type, typeKinds))) {
+      Description = ast.Description
+    }) {
+      Collections = modifier.ToModels(ast.Modifiers, typeKinds)
+    };
 
-  private TBase BaseModel(TRefAst ast)
-    => refBase.ToModel(ast);
+  private TBase BaseModel(TRefAst ast, IMap<TypeKindModel> typeKinds)
+    => refBase.ToModel(ast, typeKinds);
 }
 
 public interface IAlternateModeller<TRefAst, TBase>
@@ -138,12 +142,12 @@ internal class ParameterModeller(
   IModeller<ConstantAst, ConstantModel> constant
 ) : ModellerBase<ParameterAst, ParameterModel>
 {
-  internal override ParameterModel ToModel(ParameterAst ast)
+  internal override ParameterModel ToModel(ParameterAst ast, IMap<TypeKindModel> typeKinds)
   {
-    var altModel = alternate.ToModel(ast);
+    var altModel = alternate.ToModel(ast, typeKinds);
     return new(altModel.Type) {
       Collections = altModel.Collections,
-      Default = constant.TryModel(ast.Default),
+      Default = constant.TryModel(ast.Default, typeKinds),
     };
   }
 }

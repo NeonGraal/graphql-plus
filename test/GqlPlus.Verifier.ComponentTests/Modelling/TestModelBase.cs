@@ -6,13 +6,11 @@ public abstract class TestModelBase<TInput>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_Default(TInput input)
-  {
-    Skip.If(SkipIf(input));
-
-    BaseChecks.Model_Expected(
+    => BaseChecks
+      .SkipIf(SkipIf(input))
+      .Model_Expected(
         BaseChecks.ToModel(BaseChecks.BaseAst(input)),
         ExpectedBase(input).Tidy());
-  }
 
   protected virtual bool SkipIf(TInput input)
     => false;
@@ -29,6 +27,7 @@ internal abstract class CheckModelBase<TInput, TAst, TModel>
   protected IModeller<TAst, TModel> _modeller;
 
   public IRenderContext Context { get; } = new TestRenderContext();
+  public IMap<TypeKindModel> TypeKinds { get; } = new Map<TypeKindModel>();
 
   protected CheckModelBase(IModeller<TAst, TModel> modeller)
   {
@@ -59,7 +58,7 @@ internal abstract class CheckModelBase<TInput, TAst, TModel>
     : $"'{input.Replace("'", "''", StringComparison.Ordinal)}'";
 
   protected TModel AstToModel(TAst ast)
-    => _modeller.ToModel<TModel>(ast);
+    => _modeller.ToModel<TModel>(ast, TypeKinds);
   protected abstract TAst NewBaseAst(TInput input);
 
   protected static IEnumerable<string> ItemsExpected<TItem>(string field, TItem[]? items, Func<TItem, IEnumerable<string>> mapping)
@@ -83,6 +82,7 @@ internal interface ICheckModelBase<TInput>
 internal interface ICheckModelBase
 {
   IRenderContext Context { get; }
+  IMap<TypeKindModel> TypeKinds { get; }
   IRendering ToModel(AstBase ast);
 
   void Model_Expected(IRendering model, string[] expected);
@@ -97,6 +97,27 @@ internal static class CheckModelBaseHelper
     if (check.Context is IDictionary<string, BaseTypeModel> dict) {
       dict.Add(type.Name, type);
     }
+
+    return check;
+  }
+
+  internal static TCheck AddTypeKinds<TCheck, TItem>(this TCheck check, TItem[]? types, TypeKindModel kind)
+    where TCheck : ICheckModelBase
+  {
+    foreach (var type in types ?? []) {
+      var key = $"{type}";
+      if (!string.IsNullOrWhiteSpace(key)) {
+        check.TypeKinds[key] = kind;
+      }
+    }
+
+    return check;
+  }
+
+  internal static TCheck SkipIf<TCheck>(this TCheck check, bool skipIf)
+    where TCheck : ICheckModelBase
+  {
+    Skip.If(skipIf);
 
     return check;
   }

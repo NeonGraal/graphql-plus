@@ -6,19 +6,19 @@ namespace GqlPlus.Verifier.Modelling;
 public interface IModeller<TAst>
   where TAst : AstBase
 {
-  IRendering ToRenderer(TAst ast);
-  T? TryModel<T>(TAst? ast);
-  T ToModel<T>(TAst? ast);
-  IEnumerable<T?> TryModels<T>(IEnumerable<TAst>? asts);
-  T[] ToModels<T>(IEnumerable<TAst>? asts);
+  IRendering ToRenderer(TAst ast, IMap<TypeKindModel> typeKinds);
+  T? TryModel<T>(TAst? ast, IMap<TypeKindModel> typeKinds);
+  T ToModel<T>(TAst? ast, IMap<TypeKindModel> typeKinds);
+  IEnumerable<T?> TryModels<T>(IEnumerable<TAst>? asts, IMap<TypeKindModel> typeKinds);
+  T[] ToModels<T>(IEnumerable<TAst>? asts, IMap<TypeKindModel> typeKinds);
 }
 
 public interface IModeller<TAst, TModel>
   : IModeller<TAst>
   where TAst : AstBase
 {
-  TModel? TryModel(TAst? ast);
-  TModel ToModel(TAst? ast);
-  IEnumerable<TModel?> TryModels(IEnumerable<TAst>? asts);
-  TModel[] ToModels(IEnumerable<TAst>? asts);
+  TModel? TryModel(TAst? ast, IMap<TypeKindModel> typeKinds);
+  TModel ToModel(TAst? ast, IMap<TypeKindModel> typeKinds);
+  IEnumerable<TModel?> TryModels(IEnumerable<TAst>? asts, IMap<TypeKindModel> typeKinds);
+  TModel[] ToModels(IEnumerable<TAst>? asts, IMap<TypeKindModel> typeKinds);
 }

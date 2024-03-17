@@ -26,4 +26,7 @@ internal static class TestModelHelper
       $"  kind: !{kindTag} {kind}",
       "  name: " + name];
   }
+
+  internal static (string, TItem)[] ParentItems<TItem>(this IEnumerable<TItem> items, string parent)
+    => [.. items.Select(i => (parent, i))];
 }

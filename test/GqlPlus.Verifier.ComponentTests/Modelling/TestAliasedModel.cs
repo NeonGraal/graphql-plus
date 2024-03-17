@@ -35,7 +35,8 @@ internal abstract class CheckAliasedModel<TInput, TAst, TModel>(
   IRendering ICheckAliasedModel<TInput>.ToModel(AstAliased aliased) => AstToModel((TAst)aliased);
 }
 
-internal interface ICheckAliasedModel<TInput> : ICheckDescribedModel<TInput>
+internal interface ICheckAliasedModel<TInput>
+  : ICheckDescribedModel<TInput>
 {
   AstAliased AliasedAst(TInput input);
   IRendering ToModel(AstAliased aliased);

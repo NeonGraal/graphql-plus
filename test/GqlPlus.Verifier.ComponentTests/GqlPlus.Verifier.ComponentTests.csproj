@@ -16,7 +16,7 @@
     <PackageReference Include="Verify.Xunit" Version="23.5.0" />
     <PackageReference Include="Xunit.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
-    <PackageReference Include="Xunit.DependencyInjection.SkippableFact" Version="8.1.0" />
+    <PackageReference Include="Xunit.DependencyInjection.SkippableFact" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>

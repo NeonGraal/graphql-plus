@@ -69,13 +69,6 @@ internal class OneChecksParser<T>(Parser<T>.D parser)
     result.IsError(message => message.Message.Contains(error, StringComparison.InvariantCulture)).Should().BeTrue(_type + " -> " + input);
   }
 
-  internal void Error(string input, string error, bool skipIf)
-  {
-    Skip.If(skipIf);
-
-    Error(input, error);
-  }
-
   internal void False(string input, Action<T?>? check = null)
   {
     var result = _parser.Parse(Tokens(input), "Test");

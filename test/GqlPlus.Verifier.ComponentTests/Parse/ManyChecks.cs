@@ -53,13 +53,6 @@ where I : Parser<T>.IA
   public ManyChecksParser(ParserArray<I, T>.DA parser)
     => _parser = parser;
 
-  internal void TrueExpected(string input, bool skipIf, params T[] expected)
-  {
-    Skip.If(skipIf);
-
-    TrueExpected(input, expected);
-  }
-
   internal void TrueExpected(string input, params T[] expected)
   {
     var result = _parser.I.Parse(Tokens(input), _type);

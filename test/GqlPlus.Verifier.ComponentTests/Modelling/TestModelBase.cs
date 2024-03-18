@@ -39,9 +39,6 @@ internal abstract class CheckModelBase<TInput, TAst, TModel>
   internal void AstExpected(TAst ast, string[] expected)
     => Model_Expected(AstToModel(ast), expected, false);
 
-  internal void AstExpected(TAst ast, string[] expected, bool skipIf)
-    => Model_Expected(AstToModel(ast), expected, skipIf);
-
   internal void Model_Expected(IRendering model, string[] expected, bool skipIf)
   {
     Skip.If(skipIf);

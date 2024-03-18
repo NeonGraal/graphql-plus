@@ -40,7 +40,7 @@ public class ModifierAstTests
       () => new ModifierAst(AstNulls.At, key, optional),
       () => ModifierAst.List(AstNulls.At));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenKeys(string key1, string key2)
     => _checks.InequalityBetween(key1, key2,
       k => new ModifierAst(AstNulls.At, k, false),

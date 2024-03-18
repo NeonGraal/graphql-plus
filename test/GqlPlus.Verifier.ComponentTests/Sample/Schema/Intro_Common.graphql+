@@ -19,23 +19,24 @@ output _ConstantMap {
     | _Constant[Simple]
     }
 
-output _Collection {
-    | _BaseModifier<_ModifierKind.List>
+output _Collections {
+    | _Modifier<_ModifierKind.List>
     | _ModifierDictionary
     }
 
-output _Modifier {
-    | _BaseModifier<_ModifierKind.Optional>
-    | _Collection
+output _ModifierDictionary {
+    : _Modifier<_ModifierKind.Dictionary>
+        by: _TypeSimple
+        optional: Boolean
+    }
+
+output _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
     }
 
 enum _ModifierKind { Optional List Dictionary }
 
-output _BaseModifier<$kind> {
+output _Modifier<$kind> {
         kind: $kind
-    }
-
-output _ModifierDictionary {
-    : _BaseModifier<_ModifierKind.Dictionary>
-        by: _TypeSimple
     }

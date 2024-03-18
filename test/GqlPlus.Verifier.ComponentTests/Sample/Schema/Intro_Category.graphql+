@@ -7,7 +7,7 @@ output _Category {
     : _Aliased
         resolution: _Resolution
         output: _TypeRef<_TypeKind.Output>
-        modifiers: _Modifier[]
+        modifiers: _Modifiers[]
     }
 
 enum _Resolution { Parallel Sequential Single }

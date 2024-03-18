@@ -62,12 +62,16 @@ public record class CollectionModel(
   public string Key { get; set; } = "";
   public bool KeyOptional { get; set; }
 
+  protected override string Tag => Kind == ModifierKind.Dict
+    ? "_ModifierDictionary"
+    : base.Tag;
+
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
         .Add("kind", $"{Kind}")
         .Add(Kind == ModifierKind.Dict, s => s
-          .Add("key", Key)
-          .Add("opt", KeyOptional, true)
+          .Add("by", Key)
+          .Add("optional", KeyOptional, true)
         );
 }
 

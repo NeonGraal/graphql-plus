@@ -9,7 +9,7 @@ internal abstract class ModellerBase<TAst, TModel>
   where TModel : IRendering
 {
   public IRendering ToRenderer(TAst ast, IMap<TypeKindModel> typeKinds)
-    => ToModel(ast, typeKinds); // Todo: Check parameter
+    => ToModel(ast, typeKinds);
 
   public T ToModel<T>(TAst? ast, IMap<TypeKindModel> typeKinds)
     => TryModel<T>(ast, typeKinds) ?? throw new ModelTypeException<T>(ast);

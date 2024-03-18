@@ -12,7 +12,7 @@ public class ModifierModelTests
     => input.Kind switch {
       ModifierKind.Optional => ["!_Modifier Optional"],
       ModifierKind.List => ["!_Modifier List"],
-      ModifierKind.Dict => ["!_Modifier", "key: " + input.Key, "kind: Dict", input.Optional ? "optional: true" : ""],
+      ModifierKind.Dict => ["!_ModifierDictionary", "by: " + input.Key, "kind: Dict", input.Optional ? "optional: true" : ""],
       _ => [],
     };
 

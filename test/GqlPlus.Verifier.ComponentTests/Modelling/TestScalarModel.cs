@@ -14,7 +14,6 @@ public abstract class TestScalarModel<TItem, TAstItem>
     .ScalarExpected(
       ScalarChecks.ScalarAst(name, members),
       ScalarChecks.ExpectedScalar(new(name, Items: members)));
-
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersParent(string name, string parent, TItem[] parentMembers)
     => ScalarChecks

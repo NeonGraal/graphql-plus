@@ -185,7 +185,6 @@ internal class ScalarUnionModeller
       Items = ToItems(ast, typeKinds),
     };
 
-  // Todo: Determine whether Name is Basic, Scalar or Enum
   protected override TypeSimpleModel ToItem(ScalarReferenceAst ast, IMap<TypeKindModel> typeKinds)
     => new((SimpleKindModel)typeKinds[ast.Name], ast.Name);
 }

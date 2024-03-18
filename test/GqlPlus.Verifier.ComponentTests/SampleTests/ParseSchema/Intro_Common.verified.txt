@@ -63,13 +63,13 @@ Success
 }
 {
   !O I@008/0022
-  _Collection
+  _Collections
   |
   !AO
   I@007/0023
-  _BaseModifier
+  _Modifier
   <
-    I@021/0023
+    I@017/0023
     _ModifierKind.List
   >
   !AO
@@ -78,59 +78,64 @@ Success
 }
 {
   !O I@008/0027
-  _Modifier
-  |
-  !AO
-  I@007/0028
-  _BaseModifier
-  <
-    I@021/0028
-    _ModifierKind.Optional
-  >
-  !AO
-  I@007/0029
-  _Collection
-}
-{
-  !E I@006/0032
-  _ModifierKind
-  !EM I@022/0032
-  Optional
-  !EM I@031/0032
-  List
-  !EM I@036/0032
-  Dictionary
-}
-{
-  !O I@008/0034
-  _BaseModifier
-  <
-    I@023/0034
-    $kind
-  >
-  {
-    !OF I@009/0035
-    kind
-    :
-    I@016/0035
-    $kind
-  }
-}
-{
-  !O I@008/0038
   _ModifierDictionary
   :
-  I@007/0039
-  _BaseModifier
+  I@007/0028
+  _Modifier
   <
-    I@021/0039
+    I@017/0028
     _ModifierKind.Dictionary
   >
   {
-    !OF I@009/0040
+    !OF I@009/0029
     by
     :
-    I@013/0040
+    I@013/0029
     _TypeSimple
+    !OF I@009/0030
+    optional
+    :
+    I@019/0030
+    Boolean
+  }
+}
+{
+  !O I@008/0033
+  _Modifiers
+  |
+  !AO
+  I@007/0034
+  _Modifier
+  <
+    I@017/0034
+    _ModifierKind.Optional
+  >
+  !AO
+  I@007/0035
+  _Collections
+}
+{
+  !E I@006/0038
+  _ModifierKind
+  !EM I@022/0038
+  Optional
+  !EM I@031/0038
+  List
+  !EM I@036/0038
+  Dictionary
+}
+{
+  !O I@008/0040
+  _Modifier
+  <
+    I@019/0040
+    $kind
+  >
+  {
+    !OF I@009/0041
+    kind
+    :
+    I@016/0041
+    $kind
   }
 }

@@ -25,9 +25,6 @@ public abstract class TestReferenceModel<TRef>
   //      [$"aliases: [{string.Join(", ", aliases)}]"],
   //      ["description: " + ObjectChecks.YamlQuoted(contents)]));
 
-  protected override string[] ExpectedBase(string input)
-    => ReferenceChecks.ExpectedReference(input);
-
   internal override ICheckModelBase<string> BaseChecks => ReferenceChecks;
 
   internal abstract ICheckReferenceModel<TRef> ReferenceChecks { get; }
@@ -43,6 +40,8 @@ internal abstract class CheckReferenceModel<TRef, TModel>(
 {
   protected override TRef NewBaseAst(string input)
     => NewReferenceAst(input);
+  protected override string[] ExpectedBase(string input)
+    => [$"!_{kind}Base {input}"];
 
   protected abstract TRef NewReferenceAst(string name);
 
@@ -53,7 +52,7 @@ internal abstract class CheckReferenceModel<TRef, TModel>(
   TRef ICheckReferenceModel<TRef>.ReferenceAst(string name)
     => NewReferenceAst(name);
   string[] ICheckReferenceModel<TRef>.ExpectedReference(string input)
-    => [$"!_{kind}Base {input}"];
+    => ExpectedBase(input);
 }
 
 internal interface ICheckReferenceModel<TRef>

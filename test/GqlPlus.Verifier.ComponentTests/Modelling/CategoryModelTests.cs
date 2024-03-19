@@ -58,14 +58,6 @@ public class CategoryModelTests(
         .. output.TypeRefFor(TypeKindModel.Output),
         $"resolution: !_Resolution {option}"]);
 
-  protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
-    => ["!_Category",
-      aliases,
-      description,
-      "name: " + input.Camelize(),
-      .. input.TypeRefFor(TypeKindModel.Output, "output"),
-      "resolution: !_Resolution Parallel"];
-
   internal override ICheckAliasedModel<string> AliasedChecks => _checks;
 
   private readonly CategoryModelChecks _checks = new(modeller);
@@ -75,6 +67,14 @@ internal sealed class CategoryModelChecks(
   IModeller<CategoryDeclAst, CategoryModel> modeller
 ) : CheckAliasedModel<string, CategoryDeclAst, CategoryModel>(modeller)
 {
+  protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)
+    => ["!_Category",
+      .. input.Aliases ?? [],
+      .. input.Description ?? [],
+      "name: " + input.Name.Camelize(),
+      .. input.Name.TypeRefFor(TypeKindModel.Output, "output"),
+      "resolution: !_Resolution Parallel"];
+
   protected override CategoryDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input) { Description = description };
 }

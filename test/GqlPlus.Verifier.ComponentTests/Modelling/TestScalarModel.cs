@@ -50,8 +50,8 @@ public abstract class TestScalarModel<TItem, TAstItem>
         Description = ["description: " + ScalarChecks.YamlQuoted(contents)],
       }));
 
-  protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
-    => ScalarChecks.ExpectedScalar(new ExpectedScalarInput<TItem>(input) with { Aliases = [aliases], Description = [description] });
+  //protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
+  //  => ScalarChecks.ExpectedScalar(new ExpectedScalarInput<TItem>(input) with { Aliases = [aliases], Description = [description] });
 
   internal override ICheckTypeModel<SimpleKindModel, TItem> TypeChecks => ScalarChecks;
 
@@ -94,12 +94,8 @@ internal abstract class CheckScalarModel<TItem, TAstItem, TItemModel>(
   protected IEnumerable<string> AllItems((string Scalar, TItem Item)[]? inputs)
     => Items("allItems:", inputs, ExpectedAllItem());
 
-  protected override string[] ExpectedType(
-    string name,
-    string? parent,
-    IEnumerable<string>? aliases = null,
-    IEnumerable<string>? description = null)
-    => ExpectedScalar(new ExpectedScalarInput<TItem>(name, parent) with { Aliases = aliases, Description = description });
+  protected override string[] ExpectedType(ExpectedTypeInput<string> input)
+    => ExpectedScalar(new ExpectedScalarInput<TItem>(input));
 
   internal override AstScalar<TAstItem> NewTypeAst(string name, string? parent, string description)
     => new(AstNulls.At, name, description, kind) { Parent = parent };
@@ -148,6 +144,10 @@ internal record struct ExpectedScalarInput<TItem>(
   IEnumerable<string>? Aliases = null,
   IEnumerable<string>? Description = null)
 {
+  public ExpectedScalarInput(ExpectedTypeInput<string> input)
+    : this(input.Name, input.Parent, Aliases: input.Aliases, Description: input.Description)
+  { }
+
   public readonly (string, TItem)[]? AllItems
     => [.. OtherItems ?? [], .. Items?.ParentItems(Name) ?? []];
 }

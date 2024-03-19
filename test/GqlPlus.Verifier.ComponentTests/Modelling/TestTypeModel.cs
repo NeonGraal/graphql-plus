@@ -11,10 +11,7 @@ public abstract class TestTypeModel<TAstParent, TParent, TTypeKind>
   public void Model_Parent(string name, TParent parent)
     => TypeChecks.TypeExpected(
       TypeChecks.TypeAst(name, parent),
-      TypeChecks.ExpectedType(name, parent));
-
-  protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
-    => TypeChecks.ExpectedType(input, default, [aliases], [description]);
+      TypeChecks.ExpectedType(new(name, parent)));
 
   internal override ICheckAliasedModel<string> AliasedChecks => TypeChecks;
 
@@ -42,12 +39,7 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
     : base(modeller)
     => (TypeKind, TypeKindLower) = (kind, $"{kind}".ToLowerInvariant());
 
-  protected abstract string[] ExpectedType(
-    string name,
-    TParent? parent,
-    IEnumerable<string>? aliases = null,
-    IEnumerable<string>? description = null
-  );
+  protected abstract string[] ExpectedType(ExpectedTypeInput<TParent> input);
 
   protected abstract string[] ExpectedParent(TParent? parent);
 
@@ -55,12 +47,8 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
 
   internal abstract TAstParent NewReferenceAst(TParent input);
 
-  string[] ICheckTypeModel<TAstParent, TParent, TTypeKind>.ExpectedType(
-    string name,
-    TParent? parent,
-    IEnumerable<string>? aliases,
-    IEnumerable<string>? description
-  ) => ExpectedType(name, parent, aliases, description);
+  string[] ICheckTypeModel<TAstParent, TParent, TTypeKind>.ExpectedType(ExpectedTypeInput<TParent> input)
+    => ExpectedType(input);
 
   TAstParent ICheckTypeModel<TAstParent, TParent, TTypeKind>.ParentAst(TParent parent)
     => NewReferenceAst(parent);
@@ -72,6 +60,8 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
 
   protected override TAst NewDescribedAst(string input, string description)
     => NewTypeAst(input, default, description);
+  protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)
+    => ExpectedType(new(input));
 }
 
 internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
@@ -108,7 +98,7 @@ internal interface ICheckTypeModel<TAstParent, TParent, TTypeKind>
   void TypeExpected(AstType<TAstParent> type, string[] expected);
   AstType<TAstParent> TypeAst(string name, TParent parent);
   TAstParent ParentAst(TParent parent);
-  string[] ExpectedType(string name, TParent? parent, IEnumerable<string>? aliases = null, IEnumerable<string>? description = null);
+  string[] ExpectedType(ExpectedTypeInput<TParent> input);
 }
 
 internal interface ICheckTypeModel<TTypeKind>
@@ -119,4 +109,15 @@ internal interface ICheckTypeModel<TTypeKind, TItem>
   : ICheckTypeModel<string, string, TTypeKind>
 {
   BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
+}
+
+internal record struct ExpectedTypeInput<TParent>(
+  string Name,
+  TParent? Parent = default,
+  IEnumerable<string>? Aliases = null,
+  IEnumerable<string>? Description = null)
+{
+  public ExpectedTypeInput(ExpectedDescriptionAliasesInput<string> input)
+    : this(input.Name, Aliases: input.Aliases, Description: input.Description)
+  { }
 }

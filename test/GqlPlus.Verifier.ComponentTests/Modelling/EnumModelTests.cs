@@ -96,13 +96,13 @@ internal sealed class EnumModelChecks
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);
 
-  protected override string[] ExpectedType(string name, string? parent, IEnumerable<string>? aliases = null, IEnumerable<string>? description = null)
+  protected override string[] ExpectedType(ExpectedTypeInput<string> input)
     => [$"!_TypeEnum",
-        .. aliases ?? [],
-        .. description ?? [],
+        .. input.Aliases ?? [],
+        .. input.Description ?? [],
         $"kind: !_TypeKind {TypeKind}",
-        "name: " + name,
-        .. ExpectedParent(parent)];
+        "name: " + input.Name,
+        .. ExpectedParent(input.Parent)];
 
   protected override EnumDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);

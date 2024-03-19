@@ -2,25 +2,24 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract class TestModelBase<TInput>
+public abstract class TestModelBase<TName>
 {
   [SkippableTheory, RepeatData(Repeats)]
-  public void Model_Default(TInput input)
+  public void Model_Default(TName name)
     => BaseChecks
-      .SkipIf(SkipIf(input))
+      .SkipIf(SkipIf(name))
       .Model_Expected(
-        BaseChecks.ToModel(BaseChecks.BaseAst(input)),
-        ExpectedBase(input).Tidy());
+        BaseChecks.ToModel(BaseChecks.BaseAst(name)),
+        BaseChecks.ExpectedBase(name).Tidy());
 
-  protected virtual bool SkipIf(TInput input)
+  protected virtual bool SkipIf(TName name)
     => false;
 
-  protected abstract string[] ExpectedBase(TInput input);
-  internal abstract ICheckModelBase<TInput> BaseChecks { get; }
+  internal abstract ICheckModelBase<TName> BaseChecks { get; }
 }
 
-internal abstract class CheckModelBase<TInput, TAst, TModel>
-  : ICheckModelBase<TInput>
+internal abstract class CheckModelBase<TName, TAst, TModel>
+  : ICheckModelBase<TName>
   where TAst : AstBase
   where TModel : IRendering
 {
@@ -56,7 +55,9 @@ internal abstract class CheckModelBase<TInput, TAst, TModel>
 
   protected TModel AstToModel(TAst ast)
     => _modeller.ToModel<TModel>(ast, TypeKinds);
-  protected abstract TAst NewBaseAst(TInput input);
+
+  protected abstract TAst NewBaseAst(TName name);
+  protected abstract string[] ExpectedBase(TName name);
 
   protected static IEnumerable<string> ItemsExpected<TItem>(string field, TItem[]? items, Func<TItem, IEnumerable<string>> mapping)
     => items == null || items.Length == 0 ? []
@@ -65,15 +66,17 @@ internal abstract class CheckModelBase<TInput, TAst, TModel>
         : items.SelectMany(mapping).Prepend(field);
 
   void ICheckModelBase.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected, false);
-  AstBase ICheckModelBase<TInput>.BaseAst(TInput input) => NewBaseAst(input);
+  AstBase ICheckModelBase<TName>.BaseAst(TName name) => NewBaseAst(name);
   IRendering ICheckModelBase.ToModel(AstBase ast) => AstToModel((TAst)ast);
   string ICheckModelBase.YamlQuoted(string input) => YamlQuoted(input);
+  string[] ICheckModelBase<TName>.ExpectedBase(TName name) => ExpectedBase(name);
 }
 
-internal interface ICheckModelBase<TInput>
+internal interface ICheckModelBase<TName>
   : ICheckModelBase
 {
-  AstBase BaseAst(TInput input);
+  AstBase BaseAst(TName name);
+  string[] ExpectedBase(TName name);
 }
 
 internal interface ICheckModelBase

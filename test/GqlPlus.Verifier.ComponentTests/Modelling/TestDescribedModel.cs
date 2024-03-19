@@ -2,44 +2,50 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public abstract class TestDescribedModel<TInput>
-  : TestModelBase<TInput>
+public abstract class TestDescribedModel<TName>
+  : TestModelBase<TName>
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_Description(TInput input, string contents)
+  public void Model_Description(TName name, string contents)
   {
-    if (SkipIf(input)) {
+    if (SkipIf(name)) {
       return;
     }
 
     DescribedChecks.Model_Expected(
-        DescribedChecks.ToModel(DescribedChecks.DescribedAst(input, contents)),
-        ExpectedDescription(input, "description: " + DescribedChecks.YamlQuoted(contents)).Tidy());
+        DescribedChecks.ToModel(DescribedChecks.DescribedAst(name, contents)),
+        DescribedChecks.ExpectedDescription(new(name, ["description: " + DescribedChecks.YamlQuoted(contents)])).Tidy());
   }
 
-  internal sealed override ICheckModelBase<TInput> BaseChecks => DescribedChecks;
-  protected sealed override string[] ExpectedBase(TInput input) => ExpectedDescription(input, "");
+  internal sealed override ICheckModelBase<TName> BaseChecks => DescribedChecks;
 
-  internal abstract ICheckDescribedModel<TInput> DescribedChecks { get; }
-  protected abstract string[] ExpectedDescription(TInput input, string description);
+  internal abstract ICheckDescribedModel<TName> DescribedChecks { get; }
 }
 
-internal abstract class CheckDescribedModel<TInput, TAst, TModel>(
+internal abstract class CheckDescribedModel<TName, TAst, TModel>(
   IModeller<TAst, TModel> modeller
-) : CheckModelBase<TInput, TAst, TModel>(modeller)
-  , ICheckDescribedModel<TInput>
+) : CheckModelBase<TName, TAst, TModel>(modeller)
+  , ICheckDescribedModel<TName>
   where TAst : AstAbbreviated, IAstDescribed
   where TModel : IRendering
 {
-  protected abstract TAst NewDescribedAst(TInput input, string description);
+  protected abstract TAst NewDescribedAst(TName name, string description);
+  protected abstract string[] ExpectedDescription(ExpectedDescriptionInput<TName> input);
 
-  protected override TAst NewBaseAst(TInput input) => NewDescribedAst(input, "");
+  protected override TAst NewBaseAst(TName name) => NewDescribedAst(name, "");
+  protected sealed override string[] ExpectedBase(TName name) => ExpectedDescription(new(name));
 
-  AstAbbreviated ICheckDescribedModel<TInput>.DescribedAst(TInput input, string description) => NewDescribedAst(input, description);
+  AstAbbreviated ICheckDescribedModel<TName>.DescribedAst(TName name, string description) => NewDescribedAst(name, description);
+  string[] ICheckDescribedModel<TName>.ExpectedDescription(ExpectedDescriptionInput<TName> input) => ExpectedDescription(input);
 }
 
-internal interface ICheckDescribedModel<TInput>
-  : ICheckModelBase<TInput>
+internal interface ICheckDescribedModel<TName>
+  : ICheckModelBase<TName>
 {
-  AstAbbreviated DescribedAst(TInput input, string description);
+  AstAbbreviated DescribedAst(TName name, string description);
+  string[] ExpectedDescription(ExpectedDescriptionInput<TName> input);
 }
+
+internal record struct ExpectedDescriptionInput<TName>(
+  TName Name,
+  IEnumerable<string>? Description = null);

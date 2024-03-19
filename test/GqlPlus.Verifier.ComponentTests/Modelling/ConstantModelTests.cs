@@ -24,28 +24,7 @@ public class ConstantModelTests(
         ["!_ConstantMap", key + ": " + value, value + ": " + key]);
   }
 
-  //[Theory, RepeatData(Repeats)]
-  //public void Model_All(string name, string contents, string[] parameters, string[] aliases, ConstantOption option, ConstantLocation[] locations)
-  //  => _checks.AstExpected(
-  //    new(AstNulls.At, name) {
-  //      Aliases = aliases,
-  //      Description = contents,
-  //      Locations = locations.Combine(),
-  //      Option = option,
-  //      Constants = parameters.Constants(),
-  //    },
-  //    ["!_Constant",
-  //      $"aliases: [{string.Join(", ", aliases)}]",
-  //      "description: " + ModelBaseChecks.YamlQuoted(contents),
-  //      "locations: !_Set(_Location) " + ExpectedLocations(locations),
-  //      "name: " + name,
-  //      "parameters:",
-  //      .. parameters.Select(p => "- !_Constant ''"),
-  //      "repeatable: " + (option == ConstantOption.Repeatable).TrueFalse()]);
-
   internal override ICheckModelBase<string> BaseChecks => _checks;
-  protected override string[] ExpectedBase(string input)
-    => [input];
 
   private readonly ConstantModelChecks _checks = new(modeller);
 }
@@ -54,6 +33,9 @@ internal sealed class ConstantModelChecks(
   IModeller<ConstantAst, ConstantModel> modeller
 ) : CheckModelBase<string, ConstantAst, ConstantModel>(modeller)
 {
+  protected override string[] ExpectedBase(string name)
+    => [name];
+
   protected override ConstantAst NewBaseAst(string input)
     => new FieldKeyAst(AstNulls.At, input);
 }

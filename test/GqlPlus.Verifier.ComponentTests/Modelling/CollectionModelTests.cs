@@ -4,18 +4,10 @@ public class CollectionModelTests
   : TestModelBase<ModifierInput>
 {
   internal override ICheckModelBase<ModifierInput> BaseChecks => _checks;
-  protected override string[] ExpectedBase(ModifierInput input)
-    => input.Kind switch {
-      ModifierKind.Optional => ["!_Modifier Optional"],
-      ModifierKind.List => ["!_Modifier List"],
-      ModifierKind.Dict => ["!_ModifierDictionary", "by: " + input.Key, "kind: Dict", input.Optional ? "optional: true" : ""],
-      _ => [],
-    };
-
   private readonly CollectionModelChecks _checks = new();
 
-  protected override bool SkipIf(ModifierInput input)
-    => input.Kind == ModifierKind.Optional;
+  protected override bool SkipIf(ModifierInput name)
+    => name.Kind == ModifierKind.Optional;
 }
 
 internal sealed class CollectionModelChecks
@@ -24,6 +16,14 @@ internal sealed class CollectionModelChecks
   public CollectionModelChecks()
     : base(new ModifierModeller())
   { }
+
+  protected override string[] ExpectedBase(ModifierInput name)
+    => name.Kind switch {
+      ModifierKind.Optional => ["!_Modifier Optional"],
+      ModifierKind.List => ["!_Modifier List"],
+      ModifierKind.Dict => ["!_ModifierDictionary", "by: " + name.Key, "kind: Dict", name.Optional ? "optional: true" : ""],
+      _ => [],
+    };
 
   protected override ModifierAst NewBaseAst(ModifierInput input)
     => input.Kind switch {

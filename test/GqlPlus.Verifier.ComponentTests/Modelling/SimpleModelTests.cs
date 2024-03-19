@@ -22,8 +22,6 @@ public class SimpleModelTests
     => _checks.AstExpected(new(AstNulls.At, number), [$"{number}"]);
 
   internal override ICheckModelBase<string> BaseChecks => _checks;
-  protected override string[] ExpectedBase(string input)
-    => [input];
 
   private readonly SimpleModelChecks _checks = new();
 }
@@ -34,6 +32,9 @@ internal sealed class SimpleModelChecks
   public SimpleModelChecks()
     : base(new SimpleModeller())
   { }
+
+  protected override string[] ExpectedBase(string name)
+    => [name];
 
   protected override FieldKeyAst NewBaseAst(string input)
     => new(AstNulls.At, input);

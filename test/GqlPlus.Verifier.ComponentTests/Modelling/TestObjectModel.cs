@@ -33,9 +33,9 @@ public abstract class TestObjectModel<TObject, TField, TRef>
         [$"aliases: [{string.Join(", ", aliases)}]"],
         ["description: " + ObjectChecks.YamlQuoted(contents)]));
 
-  protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
-    => new ExpectedObjectInput(input, null, null, null, [aliases], [description])
-      .Expected(ObjectChecks.TypeKind, p => [], f => [], a => []);
+  //protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
+  //  => new ExpectedObjectInput(input, null, null, null, [aliases], [description])
+  //    .Expected(ObjectChecks.TypeKind, p => [], f => [], a => []);
 
   internal override ICheckTypeModel<TRef, string, TypeKindModel> TypeChecks => ObjectChecks;
 
@@ -65,12 +65,8 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
     => parent is null ? []
     : [$"parent: !_Described(_{TypeKind}Base) {parent}"];
 
-  protected override string[] ExpectedType(
-    string name,
-    string? parent,
-    IEnumerable<string>? aliases = null,
-    IEnumerable<string>? description = null)
-    => ExpectedObject(new(name, parent, [], [], aliases, description));
+  protected override string[] ExpectedType(ExpectedTypeInput<string> input)
+    => ExpectedObject(new(input));
 
   internal override TObject NewTypeAst(string name, TRef? parent, string description)
     => NewObjectAst(name, parent, description, [], []);
@@ -104,6 +100,10 @@ internal record struct ExpectedObjectInput(
   IEnumerable<string>? Aliases = null,
   IEnumerable<string>? Description = null)
 {
+  public ExpectedObjectInput(ExpectedTypeInput<string> input)
+    : this(input.Name, input.Parent, Aliases: input.Aliases, Description: input.Description)
+  { }
+
   internal string[] Expected(
     TypeKindModel typeKind,
     Func<string?, IEnumerable<string>> parent,

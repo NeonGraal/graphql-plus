@@ -13,31 +13,45 @@ public abstract class TestAliasedModel<TInput>
 
     AliasedChecks.Model_Expected(
         AliasedChecks.ToModel(AliasedChecks.AliasedAst(input) with { Aliases = aliases }),
-        ExpectedDescriptionAliases(input, "", "aliases: [" + string.Join(", ", aliases) + "]").Tidy());
+        AliasedChecks.ExpectedDescriptionAliases(new(input, ["aliases: [" + string.Join(", ", aliases) + "]"])).Tidy());
   }
 
   internal sealed override ICheckDescribedModel<TInput> DescribedChecks => AliasedChecks;
-  protected sealed override string[] ExpectedDescription(TInput input, string description)
-    => ExpectedDescriptionAliases(input, description, "");
 
   internal abstract ICheckAliasedModel<TInput> AliasedChecks { get; }
-  protected abstract string[] ExpectedDescriptionAliases(TInput input, string description, string aliases);
 }
 
-internal abstract class CheckAliasedModel<TInput, TAst, TModel>(
+internal abstract class CheckAliasedModel<TName, TAst, TModel>(
   IModeller<TAst, TModel> modeller
-) : CheckDescribedModel<TInput, TAst, TModel>(modeller)
-  , ICheckAliasedModel<TInput>
+) : CheckDescribedModel<TName, TAst, TModel>(modeller)
+  , ICheckAliasedModel<TName>
   where TAst : AstAliased
   where TModel : IRendering
 {
-  AstAliased ICheckAliasedModel<TInput>.AliasedAst(TInput input) => NewDescribedAst(input, "");
-  IRendering ICheckAliasedModel<TInput>.ToModel(AstAliased aliased) => AstToModel((TAst)aliased);
+  protected abstract string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input);
+
+  protected override string[] ExpectedDescription(ExpectedDescriptionInput<TName> input)
+    => ExpectedDescriptionAliases(new(input));
+
+  AstAliased ICheckAliasedModel<TName>.AliasedAst(TName name) => NewDescribedAst(name, "");
+  string[] ICheckAliasedModel<TName>.ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input) => ExpectedDescriptionAliases(input);
+  IRendering ICheckAliasedModel<TName>.ToModel(AstAliased aliased) => AstToModel((TAst)aliased);
 }
 
-internal interface ICheckAliasedModel<TInput>
-  : ICheckDescribedModel<TInput>
+internal interface ICheckAliasedModel<TName>
+  : ICheckDescribedModel<TName>
 {
-  AstAliased AliasedAst(TInput input);
+  AstAliased AliasedAst(TName name);
   IRendering ToModel(AstAliased aliased);
+  string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input);
+}
+
+internal record struct ExpectedDescriptionAliasesInput<TName>(
+  TName Name,
+  IEnumerable<string>? Aliases = null,
+  IEnumerable<string>? Description = null)
+{
+  public ExpectedDescriptionAliasesInput(ExpectedDescriptionInput<TName> input)
+    : this(input.Name, Description: input.Description)
+  { }
 }

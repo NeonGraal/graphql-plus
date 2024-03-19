@@ -69,13 +69,6 @@ public class DirectiveModelTests(
     return "{" + string.Join(", ", labels) + "}";
   }
 
-  protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
-    => ["!_Directive",
-      aliases,
-      description,
-      "name: " + input,
-      "repeatable: false"];
-
   internal override ICheckAliasedModel<string> AliasedChecks => _checks;
 
   private readonly DirectiveModelChecks _checks = new(modeller);
@@ -85,6 +78,13 @@ internal sealed class DirectiveModelChecks(
   IModeller<DirectiveDeclAst, DirectiveModel> modeller
 ) : CheckAliasedModel<string, DirectiveDeclAst, DirectiveModel>(modeller)
 {
+  protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)
+    => ["!_Directive",
+      .. input.Aliases ?? [],
+      .. input.Description ?? [],
+      "name: " + input.Name,
+      "repeatable: false"];
+
   protected override DirectiveDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);
 

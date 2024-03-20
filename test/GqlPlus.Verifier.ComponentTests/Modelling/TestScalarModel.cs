@@ -130,7 +130,7 @@ internal interface ICheckScalarModel<TItem, TAstItem>
   string[] ExpectedScalar(ExpectedScalarInput<TItem> input);
 }
 
-internal class ExpectedScalarInput<TItem>(
+internal sealed class ExpectedScalarInput<TItem>(
   string name,
   string? parent = null,
   TItem[]? items = null,

@@ -86,7 +86,7 @@ internal interface ICheckObjectModel<TObject, TField, TRef>
   TObject ObjectAst(string name, FieldInput[] fields, string[] alternates);
 }
 
-internal class ExpectedObjectInput(
+internal sealed class ExpectedObjectInput(
   string name,
   string? parent,
   FieldInput[]? fields = null,

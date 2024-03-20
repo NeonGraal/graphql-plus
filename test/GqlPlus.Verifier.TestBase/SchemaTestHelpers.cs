@@ -11,6 +11,12 @@ public static class SchemaTestHelpers
   public static EnumMemberAst[] EnumMembers(this IEnumerable<string> enumMembers)
     => [.. enumMembers.Select(l => new EnumMemberAst(AstNulls.At, l))];
 
+  public static DualFieldAst[] DualFields(this IEnumerable<FieldInput> fields)
+    => [.. fields.Select(f => new DualFieldAst(AstNulls.At, f.Name, new(AstNulls.At, f.Type)))];
+
+  public static DualReferenceAst[] DualReferences(this string[] arguments)
+    => [.. arguments.Select(a => new DualReferenceAst(AstNulls.At, a))];
+
   public static InputFieldAst[] InputFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new InputFieldAst(AstNulls.At, f.Name, new(AstNulls.At, f.Type)))];
 

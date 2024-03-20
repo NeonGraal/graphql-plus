@@ -50,11 +50,11 @@ internal static class BuiltIn
   private static TypeParameterAst[] TypeParameters(params string[] parameters)
     => [.. parameters.Select(r => new TypeParameterAst(AstNulls.At, r))];
 
-  private static DualObjectAst DualObj(string label, TypeParameterAst[] typeParameters, params AstAlternate<DualReferenceAst>[] alternates)
-    => new(AstNulls.At, label) { TypeParameters = typeParameters, Alternates = alternates };
+  private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, params AstAlternate<DualReferenceAst>[] alternates)
+    => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Alternates = alternates };
 
-  private static DualObjectAst DualObj(string label, TypeParameterAst[] typeParameters, DualReferenceAst parent)
-    => new(AstNulls.At, label) { TypeParameters = typeParameters, Parent = parent };
+  private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, DualReferenceAst parent)
+    => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Parent = parent };
 
   private static AstAlternate<DualReferenceAst> DualType(string type)
     => new(AstNulls.At, DualRef(type));

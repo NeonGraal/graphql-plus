@@ -13,7 +13,7 @@ public abstract class TestScalarModel<TItem, TAstItem>
     .AddTypeKinds(members, TypeKindModel.Basic)
     .ScalarExpected(
       ScalarChecks.ScalarAst(name, members),
-      ScalarChecks.ExpectedScalar(new(name, Items: members)));
+      ScalarChecks.ExpectedScalar(new(name, items: members)));
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersParent(string name, string parent, TItem[] parentMembers)
     => ScalarChecks
@@ -22,7 +22,7 @@ public abstract class TestScalarModel<TItem, TAstItem>
     .AddParent(ScalarChecks.NewParent(parent, parentMembers))
     .ScalarExpected(
       ScalarChecks.ScalarAst(name, []) with { Parent = parent },
-      ScalarChecks.ExpectedScalar(new(name, parent, OtherItems: parentMembers.ParentItems(parent))));
+      ScalarChecks.ExpectedScalar(new(name, parent, otherItems: parentMembers.ParentItems(parent))));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersGrandParent(string name, string parent, string grandParent, TItem[] grandParentMembers)
@@ -33,7 +33,7 @@ public abstract class TestScalarModel<TItem, TAstItem>
     .AddParent(ScalarChecks.NewParent(grandParent, grandParentMembers))
     .ScalarExpected(
       ScalarChecks.ScalarAst(name, []) with { Parent = parent },
-      ScalarChecks.ExpectedScalar(new(name, parent, OtherItems: grandParentMembers.ParentItems(grandParent))));
+      ScalarChecks.ExpectedScalar(new(name, parent, otherItems: grandParentMembers.ParentItems(grandParent))));
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(string name, string contents, string[] aliases, string parent, TItem[] members)
@@ -45,13 +45,7 @@ public abstract class TestScalarModel<TItem, TAstItem>
         Description = contents,
         Parent = parent,
       },
-      ScalarChecks.ExpectedScalar(new ExpectedScalarInput<TItem>(name, parent, members) with {
-        Aliases = [$"aliases: [{string.Join(", ", aliases)}]"],
-        Description = ["description: " + ScalarChecks.YamlQuoted(contents)],
-      }));
-
-  //protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
-  //  => ScalarChecks.ExpectedScalar(new ExpectedScalarInput<TItem>(input) with { Aliases = [aliases], Description = [description] });
+      ScalarChecks.ExpectedScalar(new(name, parent, members, aliases: aliases, description: contents)));
 
   internal override ICheckTypeModel<SimpleKindModel, TItem> TypeChecks => ScalarChecks;
 
@@ -136,18 +130,23 @@ internal interface ICheckScalarModel<TItem, TAstItem>
   string[] ExpectedScalar(ExpectedScalarInput<TItem> input);
 }
 
-internal record struct ExpectedScalarInput<TItem>(
-  string Name,
-  string? Parent = null,
-  TItem[]? Items = null,
-  (string, TItem)[]? OtherItems = null,
-  IEnumerable<string>? Aliases = null,
-  IEnumerable<string>? Description = null)
+internal class ExpectedScalarInput<TItem>(
+  string name,
+  string? parent = null,
+  TItem[]? items = null,
+  (string, TItem)[]? otherItems = null,
+  IEnumerable<string>? aliases = null,
+  string? description = null
+) : ExpectedTypeInput<string>(name, parent, aliases, description)
 {
-  public ExpectedScalarInput(ExpectedTypeInput<string> input)
-    : this(input.Name, input.Parent, Aliases: input.Aliases, Description: input.Description)
-  { }
+  internal TItem[] Items { get; } = items ?? [];
+  internal (string, TItem)[]? AllItems { get; }
+    = [.. otherItems ?? [], .. items?.ParentItems(name) ?? []];
 
-  public readonly (string, TItem)[]? AllItems
-    => [.. OtherItems ?? [], .. Items?.ParentItems(Name) ?? []];
+  internal ExpectedScalarInput(ExpectedTypeInput<string> input)
+    : this(input.Name, input.Parent)
+  {
+    Aliases = input.Aliases;
+    Description = input.Description;
+  }
 }

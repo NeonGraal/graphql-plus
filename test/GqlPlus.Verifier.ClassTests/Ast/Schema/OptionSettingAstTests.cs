@@ -1,6 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema;
 
-public class OptionSettingAstTests : AstAliasedTests<SettingInput>
+public class OptionSettingAstTests
+  : AstAliasedTests<SettingInput>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_ByNames(string name1, string name2, string value)

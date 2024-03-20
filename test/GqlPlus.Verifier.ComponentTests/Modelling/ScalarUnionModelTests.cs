@@ -12,7 +12,7 @@ public class ScalarUnionModelTests
     .AddTypeKinds(members, TypeKindModel.Enum)
     .ScalarExpected(
       ScalarChecks.ScalarAst(name, members),
-      ScalarChecks.ExpectedScalar(new(name, Items: members)));
+      ScalarChecks.ExpectedScalar(new(name, items: members)));
 
   [Theory, RepeatData(Repeats)]
   public void Model_MembersScalar(string name, string[] members)
@@ -21,7 +21,7 @@ public class ScalarUnionModelTests
     .AddTypeKinds(members, TypeKindModel.Scalar)
     .ScalarExpected(
       ScalarChecks.ScalarAst(name, members),
-      ScalarChecks.ExpectedScalar(new(name, Items: members)));
+      ScalarChecks.ExpectedScalar(new(name, items: members)));
 
   internal override ICheckScalarModel<string, ScalarReferenceAst> ScalarChecks => _checks;
 

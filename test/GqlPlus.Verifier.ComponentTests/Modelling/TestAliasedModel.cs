@@ -13,7 +13,7 @@ public abstract class TestAliasedModel<TInput>
 
     AliasedChecks.Model_Expected(
         AliasedChecks.ToModel(AliasedChecks.AliasedAst(input) with { Aliases = aliases }),
-        AliasedChecks.ExpectedDescriptionAliases(new(input, ["aliases: [" + string.Join(", ", aliases) + "]"])).Tidy());
+        AliasedChecks.ExpectedDescriptionAliases(new(input, aliases)).Tidy());
   }
 
   internal sealed override ICheckDescribedModel<TInput> DescribedChecks => AliasedChecks;
@@ -46,12 +46,16 @@ internal interface ICheckAliasedModel<TName>
   string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input);
 }
 
-internal record struct ExpectedDescriptionAliasesInput<TName>(
-  TName Name,
-  IEnumerable<string>? Aliases = null,
-  IEnumerable<string>? Description = null)
+internal class ExpectedDescriptionAliasesInput<TName>(
+  TName name,
+  IEnumerable<string>? aliases = null,
+  string? description = null
+) : ExpectedDescriptionInput<TName>(name, description)
 {
-  public ExpectedDescriptionAliasesInput(ExpectedDescriptionInput<TName> input)
-    : this(input.Name, Description: input.Description)
-  { }
+  public string[] Aliases { get; protected set; }
+    = aliases.ExpectedAliases();
+
+  internal ExpectedDescriptionAliasesInput(ExpectedDescriptionInput<TName> input)
+    : this(input.Name)
+    => Description = input.Description;
 }

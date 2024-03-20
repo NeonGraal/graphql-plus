@@ -14,7 +14,7 @@ public abstract class TestDescribedModel<TName>
 
     DescribedChecks.Model_Expected(
         DescribedChecks.ToModel(DescribedChecks.DescribedAst(name, contents)),
-        DescribedChecks.ExpectedDescription(new(name, ["description: " + DescribedChecks.YamlQuoted(contents)])).Tidy());
+        DescribedChecks.ExpectedDescription(new(name, contents)).Tidy());
   }
 
   internal sealed override ICheckModelBase<TName> BaseChecks => DescribedChecks;
@@ -46,6 +46,11 @@ internal interface ICheckDescribedModel<TName>
   string[] ExpectedDescription(ExpectedDescriptionInput<TName> input);
 }
 
-internal record struct ExpectedDescriptionInput<TName>(
-  TName Name,
-  IEnumerable<string>? Description = null);
+internal class ExpectedDescriptionInput<TName>(
+  TName name,
+  string? description = null)
+{
+  internal TName Name { get; } = name;
+  public string[] Description { get; protected set; }
+    = description.ExpectedDescription();
+}

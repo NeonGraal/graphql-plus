@@ -29,4 +29,14 @@ internal static class TestModelHelper
 
   internal static (string, TItem)[] ParentItems<TItem>(this IEnumerable<TItem> items, string parent)
     => [.. items.Select(i => (parent, i))];
+
+  internal static string[] ExpectedAliases(this IEnumerable<string>? aliases)
+    => aliases is null ? [] : [$"aliases: [{string.Join(", ", aliases)}]"];
+
+  internal static string[] ExpectedDescription(this string? description)
+    => string.IsNullOrWhiteSpace(description) ? [] : ["description: " + description.YamlQuoted()];
+
+  internal static string YamlQuoted(this string? input)
+    => input is null ? ""
+    : $"'{input.Replace("'", "''", StringComparison.Ordinal)}'";
 }

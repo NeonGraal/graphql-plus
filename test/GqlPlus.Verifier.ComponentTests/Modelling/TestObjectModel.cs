@@ -29,13 +29,7 @@ public abstract class TestObjectModel<TObject, TField, TRef>
         Description = contents,
         Parent = ObjectChecks.ParentAst(parent),
       },
-      new(name, parent, fields, alternates,
-        [$"aliases: [{string.Join(", ", aliases)}]"],
-        ["description: " + ObjectChecks.YamlQuoted(contents)]));
-
-  //protected override string[] ExpectedDescriptionAliases(string input, string description, string aliases)
-  //  => new ExpectedObjectInput(input, null, null, null, [aliases], [description])
-  //    .Expected(ObjectChecks.TypeKind, p => [], f => [], a => []);
+      new(name, parent, fields, alternates, aliases, contents));
 
   internal override ICheckTypeModel<TRef, string, TypeKindModel> TypeChecks => ObjectChecks;
 
@@ -92,27 +86,34 @@ internal interface ICheckObjectModel<TObject, TField, TRef>
   TObject ObjectAst(string name, FieldInput[] fields, string[] alternates);
 }
 
-internal record struct ExpectedObjectInput(
-  string Name,
-  string? Parent,
-  FieldInput[]? Fields = null,
-  string[]? Alternates = null,
-  IEnumerable<string>? Aliases = null,
-  IEnumerable<string>? Description = null)
+internal class ExpectedObjectInput(
+  string name,
+  string? parent,
+  FieldInput[]? fields = null,
+  string[]? alternates = null,
+  IEnumerable<string>? aliases = null,
+  string? description = null
+) : ExpectedTypeInput<string>(name, parent, aliases, description)
 {
-  public ExpectedObjectInput(ExpectedTypeInput<string> input)
-    : this(input.Name, input.Parent, Aliases: input.Aliases, Description: input.Description)
-  { }
+  internal FieldInput[] Fields { get; } = fields ?? [];
+  internal string[] Alternates { get; } = alternates ?? [];
+
+  internal ExpectedObjectInput(ExpectedTypeInput<string> input)
+    : this(input.Name, input.Parent)
+  {
+    Aliases = input.Aliases;
+    Description = input.Description;
+  }
 
   internal string[] Expected(
     TypeKindModel typeKind,
     Func<string?, IEnumerable<string>> parent,
-    Func<FieldInput[]?, IEnumerable<string>> fields,
-    Func<string[]?, IEnumerable<string>> alternates)
+    Func<FieldInput[], IEnumerable<string>> fields,
+    Func<string[], IEnumerable<string>> alternates)
     => [$"!_Type{typeKind}",
-      .. Aliases ?? [],
+      .. Aliases,
       .. alternates(Alternates),
-      .. Description ?? [],
+      .. Description ,
       .. fields(Fields),
       $"kind: !_TypeKind {typeKind}",
       "name: " + Name,

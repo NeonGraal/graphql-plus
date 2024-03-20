@@ -111,13 +111,19 @@ internal interface ICheckTypeModel<TTypeKind, TItem>
   BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
 }
 
-internal record struct ExpectedTypeInput<TParent>(
-  string Name,
-  TParent? Parent = default,
-  IEnumerable<string>? Aliases = null,
-  IEnumerable<string>? Description = null)
+internal class ExpectedTypeInput<TParent>(
+  string name,
+  TParent? parent = default,
+  IEnumerable<string>? aliases = null,
+  string? description = null)
+  : ExpectedDescriptionAliasesInput<string>(name, aliases, description)
 {
-  public ExpectedTypeInput(ExpectedDescriptionAliasesInput<string> input)
-    : this(input.Name, Aliases: input.Aliases, Description: input.Description)
-  { }
+  internal TParent? Parent { get; } = parent;
+
+  internal ExpectedTypeInput(ExpectedDescriptionAliasesInput<string> input)
+    : this(input.Name)
+  {
+    Aliases = input.Aliases;
+    Description = input.Description;
+  }
 }

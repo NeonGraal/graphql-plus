@@ -1,0 +1,4 @@
+dual _UnionMember {
+    : _Named
+        union: Identifier
+    }

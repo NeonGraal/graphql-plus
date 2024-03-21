@@ -1,13 +1,13 @@
 ﻿!G I@001/0001
 Success
 {
-  !O I@008/0001
+  !D I@006/0001
   _EnumMember
   :
   I@007/0002
   _Aliased
   {
-    !OF I@009/0003
+    !DF I@009/0003
     enum
     :
     I@015/0003

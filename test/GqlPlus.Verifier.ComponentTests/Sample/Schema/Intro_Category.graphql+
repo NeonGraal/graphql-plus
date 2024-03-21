@@ -1,4 +1,4 @@
-output _Categories {
+dual _Categories {
     | _Category
     | _Type
 }

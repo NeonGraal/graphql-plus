@@ -1,8 +1,8 @@
 ﻿[
   ( !E Void ),
   ( !E Null [ null ] !EM null ),
-  ( !S Simple Union !ST ^ !ST 0 !ST * !ST _ !ST _Scalar !ST _Enum ),
-  ( !S Internal Union !ST Void !ST Null ),
+  ( !U Simple ^ 0 * _ _Union _Scalar _Enum ),
+  ( !U Internal Void Null ),
   ( !D _Opt < $T > | !AD $T !AD Null ),
   ( !D _List < $T > | !AD $T [] ),
   ( !D _Dict < $K $T > | !AD $T [$K] ),
@@ -14,8 +14,10 @@
   ( !D _Object [ % _Object ] : _Map < Any > ),
   ( !D _Most < $T > | !AD $T !AD Object !AD _Most < $T > [] !AD _Most < $T > ? !AD _Most < $T > [Single] !AD _Most < $T > [Single?] ),
   ( !Z _Any [ Any ] ),
+  ( !Z _Dual ),
   ( !Z _Enum ),
   ( !Z _Input ),
   ( !Z _Output ),
-  ( !Z _Scalar )
+  ( !Z _Scalar ),
+  ( !Z _Union )
 ]

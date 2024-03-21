@@ -1,4 +1,4 @@
-output _Constant {
+dual _Constant {
     | _Simple
     | _ConstantList
     | _ConstantMap
@@ -6,16 +6,16 @@ output _Constant {
 
 output _Simple {
     | Boolean
-    | _ScalarValue<_ScalarKind.Number Number>
-    | _ScalarValue<_ScalarKind.String String>
+    | _ScalarValue<_ScalarDomain.Number Number>
+    | _ScalarValue<_ScalarDomain.String String>
     | _EnumValue
 }
 
-output _ConstantList {
+dual _ConstantList {
     | _Constant[]
     }
 
-output _ConstantMap {
+dual _ConstantMap {
     | _Constant[Simple]
     }
 

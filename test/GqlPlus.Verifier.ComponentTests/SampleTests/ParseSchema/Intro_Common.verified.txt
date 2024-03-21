@@ -1,16 +1,16 @@
 ﻿!G I@001/0001
 Success
 {
-  !O I@008/0001
+  !D I@006/0001
   _Constant
   |
-  !AO
+  !AD
   I@007/0002
   _Simple
-  !AO
+  !AD
   I@007/0003
   _ConstantList
-  !AO
+  !AD
   I@007/0004
   _ConstantMap
 }
@@ -26,8 +26,8 @@ Success
   _ScalarValue
   <
     I@020/0009
-    _ScalarKind.Number
-    I@039/0009
+    _ScalarDomain.Number
+    I@041/0009
     Number
   >
   !AO
@@ -35,8 +35,8 @@ Success
   _ScalarValue
   <
     I@020/0010
-    _ScalarKind.String
-    I@039/0010
+    _ScalarDomain.String
+    I@041/0010
     String
   >
   !AO
@@ -44,19 +44,19 @@ Success
   _EnumValue
 }
 {
-  !O I@008/0014
+  !D I@006/0014
   _ConstantList
   |
-  !AO
+  !AD
   I@007/0015
   _Constant
   []
 }
 {
-  !O I@008/0018
+  !D I@006/0018
   _ConstantMap
   |
-  !AO
+  !AD
   I@007/0019
   _Constant
   [Simple]

@@ -1,10 +1,12 @@
-output _Type {
+output  _Type {
     | _BaseType<_TypeKind.Basic>
     | _BaseType<_TypeKind.Internal>
+    | _ParentType<_TypeKind.Dual _DualBase _Field<_DualBase>>
     | _ParentType<_TypeKind.Enum _Aliased _EnumMember>
     | _TypeObject<_TypeKind.Input _InputBase _InputField>
     | _TypeObject<_TypeKind.Output _OutputBase _OutputField>
     | _TypeScalar
+    | _ParentType<_TypeKind.Union _Named _UnionMember>
     }
 
 output _BaseType<$kind> {
@@ -17,15 +19,15 @@ output _ChildType<$kind $parent> {
         parent: $parent
     }
 
-output _ParentType<$kind, $item, $allItem> {
+output _ParentType<$kind $item $allItem> {
     : _ChildType<$kind Identifier>
         items: $item[]
         allItems: $allItem[]
     }
 
-enum _SimpleKind { Basic Enum Internal Scalar }
+enum _SimpleKind { Basic Enum Internal Scalar Union }
 
-enum _TypeKind { :_SimpleKind Input Output }
+enum _TypeKind { :_SimpleKind Dual Input Output }
 
 output _TypeRef<$kind> {
         kind: $kind
@@ -34,6 +36,7 @@ output _TypeRef<$kind> {
 
 output _TypeSimple {
     | _TypeRef<_TypeKind.Basic>
-    | _TypeRef<_TypeKind.Scalar>
     | _TypeRef<_TypeKind.Enum>
+    | _TypeRef<_TypeKind.Scalar>
+    | _TypeRef<_TypeKind.Union>
     }

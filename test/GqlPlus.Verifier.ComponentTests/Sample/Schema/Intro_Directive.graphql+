@@ -1,9 +1,9 @@
-output _Directives {
+dual _Directives {
     | _Directive
     | _Type
 }
 
-output _Directive {
+dual _Directive {
     : _Aliased
         parameters: _Parameter[]
         repeatable: Boolean

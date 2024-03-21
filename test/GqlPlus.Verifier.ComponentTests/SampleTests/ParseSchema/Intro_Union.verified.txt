@@ -2,19 +2,15 @@
 Success
 {
   !D I@006/0001
-  _Setting
+  _UnionMember
   :
   I@007/0002
-  _Described
-  <
-    I@018/0002
-    _Named
-  >
+  _Named
   {
     !DF I@009/0003
-    value
+    union
     :
     I@016/0003
-    _Constant
+    Identifier
   }
 }

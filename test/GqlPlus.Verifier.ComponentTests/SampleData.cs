@@ -54,6 +54,7 @@ public partial class SampleTests
       Add("Intro_Common");
       Add("Intro_Complete");
       Add("Intro_Directive");
+      Add("Intro_Dual");
       Add("Intro_Enum");
       Add("Intro_Input");
       Add("Intro_Object");
@@ -62,6 +63,7 @@ public partial class SampleTests
       Add("Intro_Schema");
       Add("Intro_Setting");
       Add("Intro_Types");
+      Add("Intro_Union");
     }
   }
 }

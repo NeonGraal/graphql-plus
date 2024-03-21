@@ -40,8 +40,16 @@ public static class SchemaParsers
       .AddScalarParser<ScalarRangeAst, ParseScalarRange>()
       .AddScalarParser<ScalarRegexAst, ParseScalarRegex>()
       .AddDeclarationParser<AstScalar, ParseScalar>("scalar")
+      // Union
+      .AddParser<UnionDefinition, ParseUnionDefinition>()
+      .AddDeclarationParser<UnionDeclAst, ParseUnion>("union")
       // Objects
       .AddParserArray<TypeParameterAst, ParseTypeParameters>()
+      // Dual
+      .AddParser<DualReferenceAst, ParseDualReference>()
+      .AddParser<DualFieldAst, ParseDualField>()
+      .AddDeclarationParser<DualDeclAst, ParseDual>("dual")
+      .AddObjectParser<ParseDualDefinition, DualFieldAst, DualReferenceAst>()
       // Input
       .AddParser<InputReferenceAst, ParseInputReference>()
       .AddParser<InputFieldAst, ParseInputField>()

@@ -1,4 +1,4 @@
-output _EnumMember {
+dual _EnumMember {
     : _Aliased
         enum: Identifier
     }

@@ -2,16 +2,16 @@
 Success
 {
   !E I@006/0001
-  _ScalarKind
-  !EM I@020/0001
+  _ScalarDomain
+  !EM I@022/0001
   Boolean
-  !EM I@028/0001
+  !EM I@030/0001
   Enum
-  !EM I@033/0001
+  !EM I@035/0001
   Number
-  !EM I@040/0001
+  !EM I@042/0001
   String
-  !EM I@047/0001
+  !EM I@049/0001
   Union
 }
 {
@@ -23,8 +23,8 @@ Success
   _BaseScalar
   <
     I@019/0004
-    _ScalarKind.Boolean
-    I@039/0004
+    _ScalarDomain.Boolean
+    I@041/0004
     _ScalarTrueFalse
   >
   !AO
@@ -32,8 +32,8 @@ Success
   _BaseScalar
   <
     I@019/0005
-    _ScalarKind.Enum
-    I@036/0005
+    _ScalarDomain.Enum
+    I@038/0005
     _ScalarMember
   >
   !AO
@@ -41,8 +41,8 @@ Success
   _BaseScalar
   <
     I@019/0006
-    _ScalarKind.Number
-    I@038/0006
+    _ScalarDomain.Number
+    I@040/0006
     _ScalarRange
   >
   !AO
@@ -50,187 +50,178 @@ Success
   _BaseScalar
   <
     I@019/0007
-    _ScalarKind.String
-    I@038/0007
+    _ScalarDomain.String
+    I@040/0007
     _ScalarRegex
-  >
-  !AO
-  I@007/0008
-  _BaseScalar
-  <
-    I@019/0008
-    _ScalarKind.Union
-    I@037/0008
-    _TypeSimple
   >
 }
 {
-  !O I@008/0011
+  !O I@008/0010
   _ScalarRef
   <
-    I@020/0011
+    I@020/0010
     $kind
   >
   :
-  I@007/0012
+  I@007/0011
   _TypeRef
   <
-    I@016/0012
+    I@016/0011
     _TypeKind.Scalar
   >
   {
-    !OF I@009/0013
+    !OF I@009/0012
     scalar
     :
-    I@018/0013
+    I@018/0012
     $kind
   }
 }
 {
-  !O I@008/0016
+  !O I@008/0015
   _BaseScalar
   <
-    I@021/0016
-    $kind
-    I@027/0016
+    I@021/0015
+    $domain
+    I@029/0015
     $item
   >
   :
-  I@007/0017
+  I@007/0016
   _ParentType
   <
-    I@019/0017
+    I@019/0016
     _TypeKind.Scalar
-    I@037/0017
+    I@037/0016
     $item
-    I@042/0017
+    I@042/0016
     _ScalarItem
     <
-      I@055/0017
+      I@055/0016
       $item
     >
   >
   {
-    !OF I@009/0018
+    !OF I@009/0017
     scalar
     :
-    I@018/0018
-    $kind
+    I@018/0017
+    $domain
   }
 }
 {
-  !O I@008/0021
+  !D I@006/0020
   _BaseScalarItem
   {
-    !OF I@009/0022
+    !DF I@009/0021
     exclude
     :
-    I@018/0022
+    I@018/0021
     Boolean
   }
 }
 {
-  !O I@008/0025
+  !D I@006/0024
   _ScalarTrueFalse
   :
-  I@007/0026
+  I@007/0025
   _BaseScalarItem
   {
-    !OF I@009/0027
+    !DF I@009/0026
     value
     :
-    I@016/0027
+    I@016/0026
     Boolean
   }
 }
 {
-  !O I@008/0030
+  !D I@006/0029
   _ScalarMember
   :
-  I@007/0031
+  I@007/0030
   _BaseScalarItem
   {
-    !OF I@009/0032
+    !DF I@009/0031
     member
     :
-    I@017/0032
+    I@017/0031
     _EnumValue
   }
 }
 {
-  !O I@008/0035
+  !D I@006/0034
   _ScalarRange
   :
-  I@007/0036
+  I@007/0035
   _BaseScalarItem
   {
-    !OF I@009/0037
+    !DF I@009/0036
     from
     :
-    I@015/0037
+    I@015/0036
     Number
     ?
-    !OF I@009/0038
+    !DF I@009/0037
     to
     :
-    I@013/0038
+    I@013/0037
     Number
     ?
   }
 }
 {
-  !O I@008/0041
+  !D I@006/0040
   _ScalarRegex
   :
-  I@007/0042
+  I@007/0041
   _BaseScalarItem
   {
-    !OF I@009/0043
+    !DF I@009/0042
     regex
     :
-    I@016/0043
+    I@016/0042
     String
   }
 }
 {
-  !O I@008/0046
+  !D I@006/0045
   _ScalarItem
   <
-    I@021/0046
+    I@019/0045
     $item
   >
   :
-  I@008/0047
+  I@008/0046
   $item
   {
-    !OF I@009/0048
+    !DF I@009/0047
     scalar
     :
-    I@017/0048
+    I@017/0047
     Identifier
   }
 }
 {
-  !O I@008/0051
+  !O I@008/0050
   _ScalarValue
   <
-    I@022/0051
+    I@022/0050
     $kind
-    I@028/0051
+    I@028/0050
     $value
   >
   :
-  I@007/0052
+  I@007/0051
   _ScalarRef
   <
-    I@019/0052
+    I@019/0051
     $kind
   >
   {
-    !OF I@009/0053
+    !OF I@009/0052
     value
     :
-    I@017/0053
+    I@017/0052
     $value
   }
 }

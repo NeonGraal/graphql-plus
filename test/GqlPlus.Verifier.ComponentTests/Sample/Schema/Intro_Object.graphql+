@@ -7,34 +7,34 @@ output _TypeObject<$kind $base $field> {
         allAlternates: _Object<_Alternate<$base>>[]
     }
 
-output _ObjRef<$base> {
+output  _ObjRef<$base> {
     | _BaseType<_TypeKind.Internal>
     | _TypeSimple
     | $base
     }
 
-output _ObjBase<$arg> {
+dual _ObjBase<$arg> {
         arguments: $arg[]
     | "TypeParameter" Identifier
     }
 
-output _Alternate<$base> {
+dual _Alternate<$base> {
       type: _Described<_ObjRef<$base>>
       collections: _Collections[]
     }
 
-output _Object<$for> {
+dual _Object<$for> {
     : $for
         object: Identifier
     }
 
-output _Field<$base> {
+dual _Field<$base> {
     : _Aliased
       type: _Described<_ObjRef<$base>>
       modifiers: _Modifiers[]
     }
 
-output _Parameter {
+dual _Parameter {
     : _Alternate<_InputBase>
         default: _Constant?
     }

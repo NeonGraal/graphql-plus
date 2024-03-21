@@ -1,35 +1,35 @@
 ﻿!G I@001/0001
 Success
 {
-  !O I@008/0001
+  !D I@006/0001
   _Directives
   |
-  !AO
+  !AD
   I@007/0002
   _Directive
-  !AO
+  !AD
   I@007/0003
   _Type
 }
 {
-  !O I@008/0006
+  !D I@006/0006
   _Directive
   :
   I@007/0007
   _Aliased
   {
-    !OF I@009/0008
+    !DF I@009/0008
     parameters
     :
     I@021/0008
     _Parameter
     []
-    !OF I@009/0009
+    !DF I@009/0009
     repeatable
     :
     I@021/0009
     Boolean
-    !OF I@009/0010
+    !DF I@009/0010
     locations
     :
     I@020/0010

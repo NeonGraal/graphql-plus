@@ -1,0 +1,24 @@
+﻿!G I@001/0001
+Success
+{
+  !D I@006/0001
+  _DualBase
+  :
+  I@007/0002
+  _ObjBase
+  <
+    I@016/0002
+    _ObjRef
+    <
+      I@024/0002
+      _DualBase
+    >
+  >
+  {
+    !DF I@009/0003
+    dual
+    :
+    I@015/0003
+    Identifier
+  }
+}

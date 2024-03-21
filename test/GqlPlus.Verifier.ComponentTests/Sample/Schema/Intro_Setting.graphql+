@@ -1,4 +1,4 @@
-output _Setting {
+dual _Setting {
     : _Described<_Named>
         value: _Constant
 }

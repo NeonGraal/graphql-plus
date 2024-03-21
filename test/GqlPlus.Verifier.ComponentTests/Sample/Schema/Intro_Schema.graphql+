@@ -24,16 +24,16 @@ input _TypeFilter {
         kinds: _TypeKind[]
     }
 
-output _Aliased {
+dual _Aliased {
     : _Described<_Named>
         aliases: Identifier[]
     }
 
-output _Described<$base> {
+dual _Described<$base> {
     : $base
         description: String?
     }
 
-output _Named {
+dual _Named {
         name: Identifier
     }

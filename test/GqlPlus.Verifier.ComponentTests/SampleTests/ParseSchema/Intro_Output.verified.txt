@@ -1,7 +1,7 @@
 ﻿!G I@001/0001
 Success
 {
-  !O I@008/0001
+  !D I@006/0001
   _OutputBase
   :
   I@007/0002
@@ -11,7 +11,7 @@ Success
     _OutputArgument
   >
   {
-    !OF I@009/0003
+    !DF I@009/0003
     output
     :
     I@017/0003
@@ -19,7 +19,7 @@ Success
   }
 }
 {
-  !O I@008/0006
+  !D I@006/0006
   _OutputField
   :
   I@007/0007
@@ -29,7 +29,7 @@ Success
     _OutputBase
   >
   {
-    !OF I@009/0008
+    !DF I@009/0008
     parameter
     :
     I@020/0008
@@ -37,7 +37,7 @@ Success
     []
   }
   |
-  !AO
+  !AD
   I@007/0009
   _OutputEnum
 }

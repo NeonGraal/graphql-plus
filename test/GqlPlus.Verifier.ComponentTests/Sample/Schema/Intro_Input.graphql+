@@ -1,9 +1,9 @@
-output _InputBase {
+dual _InputBase {
     : _ObjBase<_ObjRef<_InputBase>>
         input: Identifier
     }
 
-output _InputField {
+dual _InputField {
     : _Field<_InputBase>
         default: _Constant?
     }

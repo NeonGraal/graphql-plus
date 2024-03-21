@@ -6,13 +6,13 @@ public sealed record class UnionDeclAst(
   TokenAt At,
   string Name,
   string Description,
-  string[] Members
+  UnionMemberAst[] Members
 ) : AstType<string>(At, Name, Description), IEquatable<UnionDeclAst>
 {
   internal override string Abbr => "U";
   public override string Label => "Union";
 
-  public UnionDeclAst(TokenAt at, string name, string[] members)
+  public UnionDeclAst(TokenAt at, string name, UnionMemberAst[] members)
     : this(at, name, "", members) { }
 
   public bool Equals(UnionDeclAst? other)
@@ -26,5 +26,5 @@ public sealed record class UnionDeclAst(
       .Concat(Members.Bracket());
 
   internal bool HasValue(string value)
-    => Members.Contains(value);
+    => Members.Select(a => a.Name).Contains(value);
 }

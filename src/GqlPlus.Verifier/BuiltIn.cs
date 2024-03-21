@@ -18,8 +18,8 @@ internal static class BuiltIn
     new EnumDeclAst(AstNulls.At, "Void"),
     new EnumDeclAst(AstNulls.At, "Null") { Aliases = ["null"], Members = [new(AstNulls.At, "null")] },
 
-    new UnionDeclAst(AstNulls.At, "Simple", ["^", "0", "*", "_", "_Union", "_Scalar", "_Enum"]),
-    new UnionDeclAst(AstNulls.At, "Internal", ["Void", "Null"]),
+    new UnionDeclAst(AstNulls.At, "Simple", new[] {"^", "0", "*", "_", "_Union", "_Scalar", "_Enum" }.UnionMembers()),
+    new UnionDeclAst(AstNulls.At, "Internal", new[] {"Void", "Null" }.UnionMembers()),
 
     DualObj("Opt", TypeParameters("T"), DualAlt(null), DualType("Null")),
     DualObj("List", TypeParameters("T"), DualAlt("")),

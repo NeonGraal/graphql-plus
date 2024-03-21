@@ -2,6 +2,7 @@
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
+using GqlPlus.Verifier.Verification.Schema;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
@@ -27,12 +28,15 @@ internal class ParseUnion(
 internal class UnionDefinition
 {
   internal string? Parent { get; set; }
-  internal string[] Values { get; set; } = [];
+  internal UnionMemberAst[] Values { get; set; } = [];
 }
 
-internal class ParseUnionDefinition
-  : Parser<UnionDefinition>.I
+internal class ParseUnionDefinition(
+  Parser<UnionMemberAst>.D unionMember
+) : Parser<UnionDefinition>.I
 {
+  private readonly Parser<UnionMemberAst>.L _unionMember = unionMember;
+
   public IResult<UnionDefinition> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
@@ -46,16 +50,18 @@ internal class ParseUnionDefinition
       }
     }
 
-    List<string> members = [];
-    while (tokens.Identifier(out var unionMember)) {
-      members.Add(unionMember);
+    List<UnionMemberAst> members = [];
+    while (!tokens.Take("}")) {
+      var unionMember = _unionMember.Parse(tokens, "Union Member");
+      if (!unionMember.Required(members.Add)) {
+        result.Values = [.. members];
+        return unionMember.AsResult(result);
+      }
     }
 
     result.Values = [.. members];
-    return !tokens.Take("}")
-      ? tokens.Partial(label, "'}' after members", () => result)
-      : members.Count != 0
-        ? result.Ok()
-        : tokens.Partial(label, "at least one member", () => result);
+    return members.Count != 0
+      ? result.Ok()
+      : tokens.Partial(label, "at least one member", () => result);
   }
 }

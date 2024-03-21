@@ -29,7 +29,7 @@ internal sealed class ParseScalarStringChecks(
   Parser<AstScalar>.D parser
 ) : BaseScalarChecks<ScalarStringInput, AstScalar>(parser, ScalarDomain.String)
 {
-  protected internal override AstScalar<ScalarRegexAst> AliasedFactory(ScalarStringInput input)
+  protected internal override AstScalar<ScalarRegexAst> NamedFactory(ScalarStringInput input)
     => new(AstNulls.At, input.Name, ScalarDomain.String, new[] { input.Regex }.ScalarRegexes());
 
   protected internal override string AliasesString(ScalarStringInput input, string aliases)

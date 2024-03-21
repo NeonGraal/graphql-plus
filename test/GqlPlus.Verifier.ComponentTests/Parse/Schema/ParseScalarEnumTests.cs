@@ -45,7 +45,7 @@ internal sealed class ParseScalarEnumChecks(
   Parser<AstScalar>.D parser
 ) : BaseScalarChecks<ScalarEnumInput, AstScalar>(parser, ScalarDomain.Enum)
 {
-  protected internal override AstScalar<ScalarMemberAst> AliasedFactory(ScalarEnumInput input)
+  protected internal override AstScalar<ScalarMemberAst> NamedFactory(ScalarEnumInput input)
     => new(AstNulls.At, input.Name, ScalarDomain.Enum, input.ScalarMembers());
 
   protected internal override string AliasesString(ScalarEnumInput input, string aliases)

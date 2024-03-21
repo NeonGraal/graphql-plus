@@ -56,7 +56,7 @@ internal sealed class ParseScalarNumberChecks(
   Parser<AstScalar>.D parser
 ) : BaseScalarChecks<string, AstScalar>(parser, ScalarDomain.Number)
 {
-  protected internal override AstScalar<ScalarRangeAst> AliasedFactory(string input)
+  protected internal override AstScalar<ScalarRangeAst> NamedFactory(string input)
     => new(AstNulls.At, input, ScalarDomain.Number, []);
 
   protected internal override string AliasesString(string input, string aliases)

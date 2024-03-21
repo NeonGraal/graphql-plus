@@ -206,7 +206,7 @@ internal sealed class BaseObjectChecks<O, F, R>
 
   protected internal sealed override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";
-  protected internal sealed override O AliasedFactory(ObjectInput input)
+  protected internal sealed override O NamedFactory(ObjectInput input)
     => Object(input.Name) with { Alternates = [Alternate(input.Other)] };
 }
 

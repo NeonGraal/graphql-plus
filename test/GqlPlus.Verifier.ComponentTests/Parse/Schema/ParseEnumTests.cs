@@ -8,7 +8,7 @@ public sealed class ParseEnumTests
   [Theory, RepeatData(Repeats)]
   public void WithParent_ReturnsCorrectAst(EnumInput input, string parent)
     => _checks.TrueExpected(input.Type + "{:" + parent + " " + input.Member + "}",
-      _checks.AliasedFactory(input) with {
+      _checks.NamedFactory(input) with {
         Parent = parent,
       });
 
@@ -56,7 +56,7 @@ internal sealed class ParseEnumChecks
   public ParseEnumChecks(Parser<EnumDeclAst>.D parser)
     : base(parser) { }
 
-  protected internal override EnumDeclAst AliasedFactory(EnumInput input)
+  protected internal override EnumDeclAst NamedFactory(EnumInput input)
     => new(AstNulls.At, input.Type) { Members = new[] { input.Member }.EnumMembers(), };
 
   protected internal override string AliasesString(EnumInput input, string aliases)

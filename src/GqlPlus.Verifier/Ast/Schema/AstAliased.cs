@@ -2,8 +2,11 @@
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public abstract record class AstAliased(TokenAt At, string Name, string Description)
-  : AstDescribed(At, Name, Description), IEquatable<AstAliased>
+public abstract record class AstAliased(
+  TokenAt At,
+  string Name,
+  string Description
+) : AstDescribed(At, Name, Description), IEquatable<AstAliased>
 {
   public string[] Aliases { get; set; } = [];
 

@@ -3,15 +3,8 @@
 namespace GqlPlus.Verifier.Parse.Schema;
 
 public abstract class BaseAliasedTests<TInput>
+  : BaseNamedTests<TInput>
 {
-  [Theory, RepeatData(Repeats)]
-  public void WithMinimum_ReturnsCorrectAst(TInput input)
-    => AliasChecks.WithMinimum(input);
-
-  [Theory, RepeatData(Repeats)]
-  public void WithNameBad_ReturnsFalse(decimal id)
-    => AliasChecks.WithNameBad(id);
-
   [Theory, RepeatData(Repeats)]
   public void WithAliases_ReturnsCorrectAst(TInput input, string[] aliases)
     => AliasChecks.WithAliases(input, aliases);
@@ -25,24 +18,18 @@ public abstract class BaseAliasedTests<TInput>
     => AliasChecks.WithAliasesNone(input);
 
   internal abstract IBaseAliasedChecks<TInput> AliasChecks { get; }
+
+  internal override IBaseNamedChecks<TInput> NameChecks => AliasChecks;
 }
 
-internal abstract class BaseAliasedChecks<TInput, TAliased>
-  : OneChecksParser<TAliased>, IBaseAliasedChecks<TInput>
+internal abstract class BaseAliasedChecks<TInput, TAliased>(
+  Parser<TAliased>.D parser
+) : BaseNamedChecks<TInput, TAliased>(parser), IBaseAliasedChecks<TInput>
   where TAliased : AstAliased
 {
-  protected BaseAliasedChecks(Parser<TAliased>.D parser)
-    : base(parser) { }
-
-  public void WithMinimum(TInput input)
-  => TrueExpected(AliasesString(input, ""), AliasedFactory(input));
-
-  public void WithNameBad(decimal id)
-  => False($"{id}{{}}");
-
   public void WithAliases(TInput input, string[] aliases)
   => TrueExpected(AliasesString(input, "[" + aliases.Joined() + "]"),
-      AliasedFactory(input) with { Aliases = aliases });
+      NamedFactory(input) with { Aliases = aliases });
 
   public void WithAliasesBad(TInput input, string[] aliases)
     => False(AliasesString(input, "[" + aliases.Joined()));
@@ -51,13 +38,14 @@ internal abstract class BaseAliasedChecks<TInput, TAliased>
     => False(AliasesString(input, "[]"));
 
   protected internal abstract string AliasesString(TInput input, string aliases);
-  protected internal abstract TAliased AliasedFactory(TInput input);
+
+  protected internal override string NameString(TInput input)
+    => AliasesString(input, "");
 }
 
 internal interface IBaseAliasedChecks<TInput>
+  : IBaseNamedChecks<TInput>
 {
-  void WithMinimum(TInput input);
-  void WithNameBad(decimal id);
   void WithAliases(TInput input, string[] aliases);
   void WithAliasesBad(TInput input, string[] aliases);
   void WithAliasesNone(TInput input);

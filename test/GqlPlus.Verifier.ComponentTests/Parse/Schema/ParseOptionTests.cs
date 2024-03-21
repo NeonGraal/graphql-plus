@@ -36,7 +36,7 @@ internal sealed class ParseOptionChecks
 
   internal static readonly string[] Settings = ["setting"];
 
-  protected internal override OptionDeclAst AliasedFactory(string input)
+  protected internal override OptionDeclAst NamedFactory(string input)
     => new(AstNulls.At, input) { Settings = Settings.OptionSettings() };
 
   protected internal override string AliasesString(string input, string aliases)

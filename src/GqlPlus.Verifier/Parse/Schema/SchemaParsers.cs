@@ -42,6 +42,7 @@ public static class SchemaParsers
       .AddDeclarationParser<AstScalar, ParseScalar>("scalar")
       // Union
       .AddParser<UnionDefinition, ParseUnionDefinition>()
+      .AddParser<UnionMemberAst, ParseUnionMember>()
       .AddDeclarationParser<UnionDeclAst, ParseUnion>("union")
       // Objects
       .AddParserArray<TypeParameterAst, ParseTypeParameters>()

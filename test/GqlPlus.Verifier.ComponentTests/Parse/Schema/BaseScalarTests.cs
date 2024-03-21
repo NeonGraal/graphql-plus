@@ -38,7 +38,7 @@ internal abstract class BaseScalarChecks<TInput, TScalar>
 
   public void WithParent(TInput input, string parent)
     => TrueExpected(KindString(input, _kind.ToString(), ":" + parent + " "),
-      AliasedFactory(input) with { Parent = parent });
+      NamedFactory(input) with { Parent = parent });
 
   public void WithParentBad(TInput input)
     => False(

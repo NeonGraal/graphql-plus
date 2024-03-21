@@ -67,7 +67,7 @@ internal sealed class ParseDirectiveChecks(
   Parser<DirectiveDeclAst>.D parser
 ) : BaseAliasedChecks<string, DirectiveDeclAst>(parser)
 {
-  protected internal override DirectiveDeclAst AliasedFactory(string input)
+  protected internal override DirectiveDeclAst NamedFactory(string input)
     => new(AstNulls.At, input) { Locations = DirectiveLocation.Operation };
 
   protected internal override string AliasesString(string input, string aliases)

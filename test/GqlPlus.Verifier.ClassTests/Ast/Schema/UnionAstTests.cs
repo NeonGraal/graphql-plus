@@ -28,23 +28,23 @@ public class UnionAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithMembers(string name, string[] unionMembers)
       => _checks.HashCode(
-        () => new UnionDeclAst(AstNulls.At, name, unionMembers));
+        () => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()));
 
   [Theory, RepeatData(Repeats)]
   public void String_WithMembers(string name, string[] unionMembers)
     => _checks.Text(
-      () => new UnionDeclAst(AstNulls.At, name, unionMembers),
-      $"( !U {name} {unionMembers.Joined()} )");
+      () => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()),
+      $"( !U {name} {unionMembers.Joined("!UM ")} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithMembers(string name, string[] unionMembers)
     => _checks.Equality(
-      () => new UnionDeclAst(AstNulls.At, name, unionMembers));
+      () => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenUnionMembers(string name, string[] unionMembers1, string[] unionMembers2)
     => _checks.InequalityBetween(unionMembers1, unionMembers2,
-      unionMembers => new UnionDeclAst(AstNulls.At, name, unionMembers),
+      unionMembers => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()),
       unionMembers1.SequenceEqual(unionMembers2));
 
   private readonly AstAliasedChecks<UnionDeclAst> _checks

@@ -2,8 +2,10 @@
 
 namespace GqlPlus.Verifier.Ast;
 
-public abstract record class AstNamed(TokenAt At, string Name)
-  : AstAbbreviated(At), IEquatable<AstNamed>
+public abstract record class AstNamed(
+  TokenAt At,
+  string Name
+) : AstAbbreviated(At), IEquatable<AstNamed>
 {
   public string Name { get; set; } = Name;
 

@@ -45,7 +45,7 @@ internal sealed class BaseFieldChecks<F, R>
   internal R Reference(string type)
     => _factories.Reference(AstNulls.At, type);
 
-  protected internal sealed override F AliasedFactory(FieldInput input)
+  protected internal sealed override F NamedFactory(FieldInput input)
     => Field(input.Name, input.Type);
   protected internal override string AliasesString(FieldInput input, string aliases)
     => $"{input.Name}{aliases}:{input.Type}";

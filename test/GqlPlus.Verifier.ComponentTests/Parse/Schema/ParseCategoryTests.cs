@@ -57,7 +57,7 @@ internal sealed class ParseCategoryChecks(
   Parser<CategoryDeclAst>.D parser
 ) : BaseAliasedChecks<string, CategoryDeclAst>(parser)
 {
-  protected internal override CategoryDeclAst AliasedFactory(string input)
+  protected internal override CategoryDeclAst NamedFactory(string input)
     => new(AstNulls.At, input);
   protected internal override string AliasesString(string input, string aliases)
     => aliases + "{" + input + "}";

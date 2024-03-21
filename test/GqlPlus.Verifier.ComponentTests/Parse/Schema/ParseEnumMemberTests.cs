@@ -17,7 +17,7 @@ internal sealed class ParseEnumMemberChecks
   public ParseEnumMemberChecks(Parser<EnumMemberAst>.D parser)
     : base(parser) { }
 
-  protected internal override EnumMemberAst AliasedFactory(string input)
+  protected internal override EnumMemberAst NamedFactory(string input)
     => new(AstNulls.At, input);
   protected internal override string AliasesString(string input, string aliases)
     => input + aliases;

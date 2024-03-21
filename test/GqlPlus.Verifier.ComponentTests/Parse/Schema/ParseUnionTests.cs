@@ -8,7 +8,7 @@ public sealed class ParseUnionTests
   [Theory, RepeatData(Repeats)]
   public void WithParent_ReturnsCorrectAst(UnionInput input, string parent)
     => _checks.TrueExpected(input.Type + "{:" + parent + " " + input.Member + "}",
-      _checks.AliasedFactory(input) with {
+      _checks.NamedFactory(input) with {
         Parent = parent,
       });
 
@@ -20,12 +20,11 @@ public sealed class ParseUnionTests
   public void WithUnionMembers_ReturnsCorrectAst(string name, string[] members)
     => _checks.TrueExpected(
       name + members.Bracket("{", "}").Joined(),
-      new UnionDeclAst(AstNulls.At, name, members));
+      new UnionDeclAst(AstNulls.At, name, members.UnionMembers()));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithUnionMembersBad_ReturnsFalse(string name, string[] members)
-    => _checks.False(name + "{" + members.Joined() + "|}",
-      skipIf: members is null || members.Length < 2);
+    => _checks.False(name + "{" + members.Joined() + "|}");
 
   [Theory, RepeatData(Repeats)]
   public void WithUnionMembersNone_ReturnsFalse(string name)
@@ -35,7 +34,7 @@ public sealed class ParseUnionTests
   public void WithAll_ReturnsCorrectAst(string name, string parent, string[] members)
     => _checks.TrueExpected(
       name + members.Prepend(parent.Prefixed(":")).Bracket("{", "}").Joined(),
-      new UnionDeclAst(AstNulls.At, name, members) {
+      new UnionDeclAst(AstNulls.At, name, members.UnionMembers()) {
         Parent = parent,
       });
 
@@ -53,8 +52,8 @@ internal sealed class ParseUnionChecks
   public ParseUnionChecks(Parser<UnionDeclAst>.D parser)
     : base(parser) { }
 
-  protected internal override UnionDeclAst AliasedFactory(UnionInput input)
-    => new(AstNulls.At, input.Type, [input.Member]);
+  protected internal override UnionDeclAst NamedFactory(UnionInput input)
+    => new(AstNulls.At, input.Type, new[] { input.Member }.UnionMembers());
 
   protected internal override string AliasesString(UnionInput input, string aliases)
     => input.Type + aliases + "{" + input.Member + "}";

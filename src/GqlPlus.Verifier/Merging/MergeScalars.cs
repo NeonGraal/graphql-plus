@@ -9,7 +9,7 @@ internal class MergeScalars<TMember>(
   where TMember : IAstScalarItem
 {
   protected override string ItemMatchKey(AstScalar<TMember> item)
-    => item.Kind.ToString() + item.Parent.Prefixed("~");
+    => item.Domain.ToString() + item.Parent.Prefixed("~");
 
   internal override IEnumerable<TMember> GetItems(AstScalar<TMember> type)
     => type.Items;

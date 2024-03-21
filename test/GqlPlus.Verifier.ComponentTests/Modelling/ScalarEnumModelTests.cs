@@ -14,7 +14,7 @@ internal sealed class ScalarEnumModelChecks
   : CheckScalarModel<string, ScalarMemberAst, ScalarMemberModel>
 {
   public ScalarEnumModelChecks()
-    : base(ScalarKind.Enum, new ScalarEnumModeller())
+    : base(ScalarDomain.Enum, new ScalarEnumModeller())
   { }
 
   protected override string[] ExpectedItem(string input, string exclude, string[] scalar)

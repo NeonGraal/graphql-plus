@@ -2,7 +2,9 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public class ParseOutputFieldTests(Parser<OutputFieldAst>.D parser) : BaseFieldTests
+public class ParseOutputFieldTests(
+  Parser<OutputFieldAst>.D parser
+) : BaseFieldTests
 {
   [Theory, RepeatData(Repeats)]
   public void WithParameters_ReturnsCorrectAst(string name, string fieldType, string[] parameters)

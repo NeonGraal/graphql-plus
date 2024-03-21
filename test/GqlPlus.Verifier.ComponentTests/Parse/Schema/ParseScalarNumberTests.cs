@@ -14,31 +14,31 @@ public sealed class ParseScalarNumberTests(
   public void WithRangeLowerBound_ReturnsCorrectAst(string name, decimal min)
     => _checks.TrueExpected(
       name + $"{{number {min}>}}",
-      new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarKind.Number, [new(AstNulls.At, false, min, null)]));
+      new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarDomain.Number, [new(AstNulls.At, false, min, null)]));
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeSingle_ReturnsCorrectAst(string name, decimal min)
     => _checks.TrueExpected(
       name + $"{{number {min}}}",
-      new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarKind.Number, [new(AstNulls.At, false, min, min)]));
+      new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarDomain.Number, [new(AstNulls.At, false, min, min)]));
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeExcludes_ReturnsCorrectAst(string name, decimal min)
     => _checks.TrueExpected(
       name + $"{{number !{min}}}",
-      new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarKind.Number, [new(AstNulls.At, true, min, min)]));
+      new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarDomain.Number, [new(AstNulls.At, true, min, min)]));
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeUpperBound_ReturnsCorrectAst(string name, decimal max)
     => _checks.TrueExpected(
       name + $"{{number <{max}}}",
-      new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarKind.Number, [new(AstNulls.At, false, null, max)]));
+      new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarDomain.Number, [new(AstNulls.At, false, null, max)]));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithRangeBounds_ReturnsCorrectAst(string name, decimal min, decimal max)
     => _checks.TrueExpected(
       name + $"{{number {min}~{max}}}",
-      new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarKind.Number, [new(AstNulls.At, false, min, max)]),
+      new AstScalar<ScalarRangeAst>(AstNulls.At, name, ScalarDomain.Number, [new(AstNulls.At, false, min, max)]),
       skipIf: max <= min);
 
   [SkippableTheory, RepeatData(Repeats)]
@@ -54,10 +54,10 @@ public sealed class ParseScalarNumberTests(
 
 internal sealed class ParseScalarNumberChecks(
   Parser<AstScalar>.D parser
-) : BaseScalarChecks<string, AstScalar>(parser, ScalarKind.Number)
+) : BaseScalarChecks<string, AstScalar>(parser, ScalarDomain.Number)
 {
   protected internal override AstScalar<ScalarRangeAst> AliasedFactory(string input)
-    => new(AstNulls.At, input, ScalarKind.Number, []);
+    => new(AstNulls.At, input, ScalarDomain.Number, []);
 
   protected internal override string AliasesString(string input, string aliases)
     => input + aliases + "{number }";

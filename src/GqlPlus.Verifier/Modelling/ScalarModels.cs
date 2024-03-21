@@ -7,7 +7,7 @@ internal enum ScalarKindModel { Boolean, Enum, Number, String, Union }
 
 internal record class ScalarRefModel(
   string Name,
-  ScalarKind Scalar
+  ScalarDomain Scalar
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Scalar, Name)
 {
   internal override RenderStructure Render(IRenderContext context)
@@ -172,19 +172,4 @@ internal class ScalarStringModeller
 
   protected override ScalarRegexModel ToItem(ScalarRegexAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Regex, ast.Excludes);
-}
-
-internal class ScalarUnionModeller
-  : ModellerScalar<ScalarReferenceAst, TypeSimpleModel>
-{
-  internal override BaseScalarModel<TypeSimpleModel> ToModel(AstScalar<ScalarReferenceAst> ast, IMap<TypeKindModel> typeKinds)
-    => new(ScalarKindModel.Union, ast.Name) {
-      Aliases = ast.Aliases,
-      Description = ast.Description,
-      Parent = ast.Parent.TypeRef(SimpleKindModel.Scalar),
-      Items = ToItems(ast, typeKinds),
-    };
-
-  protected override TypeSimpleModel ToItem(ScalarReferenceAst ast, IMap<TypeKindModel> typeKinds)
-    => new((SimpleKindModel)typeKinds[ast.Name], ast.Name);
 }

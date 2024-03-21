@@ -10,5 +10,5 @@ public class MergeScalarAstEnumsTests
     => new[] { input }.ScalarMembers();
 
   protected override AstScalar<ScalarMemberAst> MakeTyped(string name, string description = "")
-    => new(AstNulls.At, name, description, ScalarKind.Enum);
+    => new(AstNulls.At, name, description, ScalarDomain.Enum);
 }

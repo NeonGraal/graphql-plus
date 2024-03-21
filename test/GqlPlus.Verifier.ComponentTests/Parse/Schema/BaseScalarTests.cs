@@ -26,15 +26,15 @@ internal abstract class BaseScalarChecks<TInput, TScalar>
   : BaseAliasedChecks<TInput, TScalar>, IBaseScalarChecks<TInput>
   where TScalar : AstScalar
 {
-  private readonly ScalarKind _kind;
+  private readonly ScalarDomain _kind;
 
-  protected BaseScalarChecks(Parser<TScalar>.D parser, ScalarKind kind)
+  protected BaseScalarChecks(Parser<TScalar>.D parser, ScalarDomain kind)
     : base(parser) => _kind = kind;
 
   public void WithKindBad(TInput input, string kind)
     => False(
       KindString(input, kind, ""),
-      skipIf: Enum.TryParse<ScalarKind>(kind, out var _));
+      skipIf: Enum.TryParse<ScalarDomain>(kind, out var _));
 
   public void WithParent(TInput input, string parent)
     => TrueExpected(KindString(input, _kind.ToString(), ":" + parent + " "),

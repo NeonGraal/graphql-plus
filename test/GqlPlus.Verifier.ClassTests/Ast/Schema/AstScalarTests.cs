@@ -42,6 +42,6 @@ public abstract class AstScalarTests<TInput, TMember>
   protected AstScalarTests()
   {
     Checks = new(name => NewScalar(name, []));
-    Kind = new(() => NewScalar("scalar", []).Kind.ToString());
+    Kind = new(() => NewScalar("scalar", []).Domain.ToString());
   }
 }

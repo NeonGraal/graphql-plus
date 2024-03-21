@@ -15,7 +15,7 @@ internal sealed class ScalarBooleanModelChecks
   : CheckScalarModel<bool, ScalarTrueFalseAst, ScalarTrueFalseModel>
 {
   public ScalarBooleanModelChecks()
-    : base(ScalarKind.Boolean, new ScalarBooleanModeller())
+    : base(ScalarDomain.Boolean, new ScalarBooleanModeller())
   { }
 
   protected override string[] ExpectedItem(bool input, string exclude, string[] scalar)

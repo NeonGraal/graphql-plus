@@ -10,19 +10,19 @@ public sealed class ParseScalarEnumTests(
   public void WithEnumType_ReturnsCorrectAst(ScalarEnumInput input, string enumType)
     => _checks.TrueExpected(
       input.Name + "{enum!" + enumType + "." + input.Member + "}",
-      new AstScalar<ScalarMemberAst>(AstNulls.At, input.Name, ScalarKind.Enum, input.ScalarMember(enumType)));
+      new AstScalar<ScalarMemberAst>(AstNulls.At, input.Name, ScalarDomain.Enum, input.ScalarMember(enumType)));
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumAllMembers_ReturnsCorrectAst(ScalarEnumInput input)
     => _checks.TrueExpected(
       input.Name + "{enum " + input.Member + ".* }",
-      new AstScalar<ScalarMemberAst>(AstNulls.At, input.Name, ScalarKind.Enum, input.ScalarAllMembers()));
+      new AstScalar<ScalarMemberAst>(AstNulls.At, input.Name, ScalarDomain.Enum, input.ScalarAllMembers()));
 
   [Theory, RepeatData(Repeats)]
   public void WithMembers_ReturnsCorrectAst(ScalarEnumInput input, string member)
     => _checks.TrueExpected(
       input.Name + "{enum!" + input.Member + " " + member + "}",
-      new AstScalar<ScalarMemberAst>(AstNulls.At, input.Name, ScalarKind.Enum, input.ScalarMembers(member)));
+      new AstScalar<ScalarMemberAst>(AstNulls.At, input.Name, ScalarDomain.Enum, input.ScalarMembers(member)));
 
   [Theory, RepeatData(Repeats)]
   public void WithMembersExcludeBad_ReturnsFalse(string name)
@@ -43,10 +43,10 @@ public sealed class ParseScalarEnumTests(
 
 internal sealed class ParseScalarEnumChecks(
   Parser<AstScalar>.D parser
-) : BaseScalarChecks<ScalarEnumInput, AstScalar>(parser, ScalarKind.Enum)
+) : BaseScalarChecks<ScalarEnumInput, AstScalar>(parser, ScalarDomain.Enum)
 {
   protected internal override AstScalar<ScalarMemberAst> AliasedFactory(ScalarEnumInput input)
-    => new(AstNulls.At, input.Name, ScalarKind.Enum, input.ScalarMembers());
+    => new(AstNulls.At, input.Name, ScalarDomain.Enum, input.ScalarMembers());
 
   protected internal override string AliasesString(ScalarEnumInput input, string aliases)
     => input.Name + aliases + "{enum !" + input.Member + "}";

@@ -18,7 +18,7 @@ public class ParseScalarClassTests : ClassTestBase
     var option = OptionParserFor<NullOption>();
     var definition = ParserFor<ScalarDefinition>(out var definitionParser);
     definitionParser.Parse(tokens, default!)
-      .ReturnsForAnyArgs(new ScalarDefinition() { Kind = (ScalarKind)99 }.Ok());
+      .ReturnsForAnyArgs(new ScalarDefinition() { Kind = (ScalarDomain)99 }.Ok());
 
     var scalar = new ParseScalar(simpleName, param, aliases, option, definition);
 

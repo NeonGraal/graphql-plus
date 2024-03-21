@@ -14,7 +14,7 @@ internal sealed class ScalarStringModelChecks
   : CheckScalarModel<string, ScalarRegexAst, ScalarRegexModel>
 {
   public ScalarStringModelChecks()
-    : base(ScalarKind.String, new ScalarStringModeller())
+    : base(ScalarDomain.String, new ScalarStringModeller())
   { }
 
   protected override string[] ExpectedItem(string input, string exclude, string[] scalar)

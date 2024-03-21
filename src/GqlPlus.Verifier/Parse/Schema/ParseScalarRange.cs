@@ -7,7 +7,7 @@ internal class ParseScalarRange(
   Parser<ScalarRangeAst>.DA items
 ) : ParseScalarItem<ScalarRangeAst>(items)
 {
-  public override ScalarKind Kind => ScalarKind.Number;
+  public override ScalarDomain Kind => ScalarDomain.Number;
 
   public override IResult<ScalarRangeAst> Parse<TContext>(TContext tokens, string label)
   {

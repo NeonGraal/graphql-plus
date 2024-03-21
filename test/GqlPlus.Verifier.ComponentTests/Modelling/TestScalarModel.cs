@@ -53,7 +53,7 @@ public abstract class TestScalarModel<TItem, TAstItem>
 }
 
 internal abstract class CheckScalarModel<TItem, TAstItem, TItemModel>(
-  ScalarKind kind,
+  ScalarDomain kind,
   IModeller<AstScalar<TAstItem>, BaseScalarModel<TItemModel>> modeller
 ) : CheckTypeModel<AstScalar<TAstItem>, SimpleKindModel, BaseScalarModel<TItemModel>>(modeller, SimpleKindModel.Scalar)
   , ICheckScalarModel<TItem, TAstItem>

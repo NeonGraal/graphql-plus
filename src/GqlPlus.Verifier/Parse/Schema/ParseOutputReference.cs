@@ -4,7 +4,8 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseOutputReference : ObjectReferenceParser<OutputReferenceAst>
+internal class ParseOutputReference
+  : ObjectReferenceParser<OutputReferenceAst>
 {
   protected override OutputReferenceAst Reference(TokenAt at, string param, string description)
     => new(at, param, description);

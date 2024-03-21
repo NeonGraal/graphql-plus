@@ -10,5 +10,5 @@ public class MergeScalarAstNumbersTests
     => input.ScalarRange();
 
   protected override AstScalar<ScalarRangeAst> MakeTyped(string name, string description = "")
-    => new(AstNulls.At, name, description, ScalarKind.Number);
+    => new(AstNulls.At, name, description, ScalarDomain.Number);
 }

@@ -31,10 +31,10 @@ internal class VerifyScalarTypes(
   protected override bool CheckAstParent(AstScalar usage, AstScalar? parent, EnumContext context)
   {
     if (base.CheckAstParent(usage, parent, context)) {
-      if (usage.Kind == parent.Kind) {
+      if (usage.Domain == parent.Domain) {
         return true;
       } else {
-        context.AddError(usage, usage.Label + " Parent", $"'{parent.Name}' invalid kind. Found '{parent.Kind}'");
+        context.AddError(usage, usage.Label + " Parent", $"'{parent.Name}' invalid domain. Found '{parent.Domain}'");
       }
     }
 

@@ -39,7 +39,6 @@ public static class AllVerifiers
       .AddVerifyScalarContext<VerifyScalarEnum>()
       .AddVerifyScalarContext<AstScalarVerifier<ScalarRangeAst>>()
       .AddVerifyScalarContext<AstScalarVerifier<ScalarRegexAst>>()
-      .AddVerifyScalarContext<VerifyScalarUnion>()
     ;
 
   public static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)

@@ -34,12 +34,11 @@ public static class SchemaParsers
       .AddDeclarationParser<EnumDeclAst, ParseEnum>("enum")
       // Scalar
       .AddParser<ScalarDefinition, ParseScalarDefinition>()
-      .AddEnum<ScalarKind>()
+      .AddEnum<ScalarDomain>()
       .AddScalarParser<ScalarTrueFalseAst, ParseScalarTrueFalse>()
       .AddScalarParser<ScalarMemberAst, ParseScalarMember>()
       .AddScalarParser<ScalarRangeAst, ParseScalarRange>()
       .AddScalarParser<ScalarRegexAst, ParseScalarRegex>()
-      .AddScalarParser<ScalarReferenceAst, ParseScalarReference>()
       .AddDeclarationParser<AstScalar, ParseScalar>("scalar")
       // Objects
       .AddParserArray<TypeParameterAst, ParseTypeParameters>()

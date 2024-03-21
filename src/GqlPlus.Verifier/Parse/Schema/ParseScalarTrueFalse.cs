@@ -7,7 +7,7 @@ internal class ParseScalarTrueFalse(
   Parser<ScalarTrueFalseAst>.DA items
 ) : ParseScalarItem<ScalarTrueFalseAst>(items)
 {
-  public override ScalarKind Kind => ScalarKind.Boolean;
+  public override ScalarDomain Kind => ScalarDomain.Boolean;
 
   public override IResult<ScalarTrueFalseAst> Parse<TContext>(TContext tokens, string label)
   {

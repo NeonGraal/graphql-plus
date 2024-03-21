@@ -10,7 +10,7 @@ public sealed class ParseScalarStringTests(
   public void WithRegexes_ReturnsCorrectAst(ScalarStringInput input, string regex)
     => _checks.TrueExpected(
       input.Name + "{string/" + input.Regex + "/!/" + regex + "/}",
-      new AstScalar<ScalarRegexAst>(AstNulls.At, input.Name, ScalarKind.String, new[] { input.Regex, regex }.ScalarRegexes()));
+      new AstScalar<ScalarRegexAst>(AstNulls.At, input.Name, ScalarDomain.String, new[] { input.Regex, regex }.ScalarRegexes()));
 
   [Theory, RepeatData(Repeats)]
   public void WithRegexesFirstBad_ReturnsFalse(string name)
@@ -27,10 +27,10 @@ public sealed class ParseScalarStringTests(
 
 internal sealed class ParseScalarStringChecks(
   Parser<AstScalar>.D parser
-) : BaseScalarChecks<ScalarStringInput, AstScalar>(parser, ScalarKind.String)
+) : BaseScalarChecks<ScalarStringInput, AstScalar>(parser, ScalarDomain.String)
 {
   protected internal override AstScalar<ScalarRegexAst> AliasedFactory(ScalarStringInput input)
-    => new(AstNulls.At, input.Name, ScalarKind.String, new[] { input.Regex }.ScalarRegexes());
+    => new(AstNulls.At, input.Name, ScalarDomain.String, new[] { input.Regex }.ScalarRegexes());
 
   protected internal override string AliasesString(ScalarStringInput input, string aliases)
     => input.Name + aliases + "{string/" + input.Regex + "/}";

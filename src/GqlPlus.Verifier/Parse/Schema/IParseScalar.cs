@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Parse.Schema;
 
 public interface IParseScalar
 {
-  ScalarKind Kind { get; }
+  ScalarDomain Kind { get; }
   ParseItems Parser { get; }
 }
 

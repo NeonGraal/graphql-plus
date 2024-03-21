@@ -10,5 +10,5 @@ public class MergeScalarAstStringsTests
     => new[] { input }.ScalarRegexes();
 
   protected override AstScalar<ScalarRegexAst> MakeTyped(string name, string description = "")
-    => new(AstNulls.At, name, description, ScalarKind.String);
+    => new(AstNulls.At, name, description, ScalarDomain.String);
 }

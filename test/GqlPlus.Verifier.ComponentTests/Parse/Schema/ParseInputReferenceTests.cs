@@ -2,7 +2,8 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public class ParseInputReferenceTests : BaseReferenceTests
+public class ParseInputReferenceTests
+  : BaseReferenceTests
 {
   internal override IBaseReferenceChecks ReferenceChecks => _checks;
 

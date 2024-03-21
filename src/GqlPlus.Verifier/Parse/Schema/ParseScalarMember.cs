@@ -7,7 +7,7 @@ internal class ParseScalarMember(
   Parser<ScalarMemberAst>.DA items
 ) : ParseScalarItem<ScalarMemberAst>(items)
 {
-  public override ScalarKind Kind => ScalarKind.Enum;
+  public override ScalarDomain Kind => ScalarDomain.Enum;
 
   public override IResult<ScalarMemberAst> Parse<TContext>(TContext tokens, string label)
   {

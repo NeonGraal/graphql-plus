@@ -13,10 +13,10 @@ public sealed class ParseScalarBooleanTests(
 
 internal sealed class ParseScalarBooleanChecks(
   Parser<AstScalar>.D parser
-) : BaseScalarChecks<string, AstScalar>(parser, ScalarKind.Boolean)
+) : BaseScalarChecks<string, AstScalar>(parser, ScalarDomain.Boolean)
 {
   protected internal override AstScalar<ScalarTrueFalseAst> AliasedFactory(string input)
-    => new(AstNulls.At, input, ScalarKind.Boolean, []);
+    => new(AstNulls.At, input, ScalarDomain.Boolean, []);
 
   protected internal override string AliasesString(string input, string aliases)
     => input + aliases + "{boolean}";

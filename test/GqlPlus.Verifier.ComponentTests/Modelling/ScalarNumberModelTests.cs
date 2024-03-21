@@ -14,7 +14,7 @@ internal sealed class ScalarNumberModelChecks
   : CheckScalarModel<ScalarRangeInput, ScalarRangeAst, ScalarRangeModel>
 {
   public ScalarNumberModelChecks()
-    : base(ScalarKind.Number, new ScalarNumberModeller())
+    : base(ScalarDomain.Number, new ScalarNumberModeller())
   { }
 
   protected override string[] ExpectedItem(ScalarRangeInput input, string exclude, string[] scalar)

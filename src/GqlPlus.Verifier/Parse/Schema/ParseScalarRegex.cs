@@ -7,7 +7,7 @@ internal class ParseScalarRegex(
   Parser<ScalarRegexAst>.DA items
 ) : ParseScalarItem<ScalarRegexAst>(items)
 {
-  public override ScalarKind Kind => ScalarKind.String;
+  public override ScalarDomain Kind => ScalarDomain.String;
 
   public override IResult<ScalarRegexAst> Parse<TContext>(TContext tokens, string label)
   {

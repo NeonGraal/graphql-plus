@@ -5,16 +5,15 @@ namespace GqlPlus.Verifier.Ast.Schema;
 public sealed record class UnionDeclAst(
   TokenAt At,
   string Name,
-  string Description
+  string Description,
+  string[] Members
 ) : AstType<string>(At, Name, Description), IEquatable<UnionDeclAst>
 {
-  public string[] Members { get; set; } = [];
-
   internal override string Abbr => "U";
   public override string Label => "Union";
 
-  public UnionDeclAst(TokenAt at, string name)
-    : this(at, name, "") { }
+  public UnionDeclAst(TokenAt at, string name, string[] members)
+    : this(at, name, "", members) { }
 
   public bool Equals(UnionDeclAst? other)
     => base.Equals(other)

@@ -20,10 +20,10 @@ public abstract class TestScalarAsts<TItem, TItemInput>
   [Theory, RepeatData(Repeats)]
   public void CanMerge_DifferentKinds_ReturnsFalse(string name)
   {
-    var kind = MakeDescribed(name).Kind == ScalarKind.String
-      ? ScalarKind.Number
-      : ScalarKind.String;
-    var items = new[] { MakeDescribed(name) with { Kind = kind }, MakeDescribed(name) };
+    var domain = MakeDescribed(name).Domain == ScalarDomain.String
+      ? ScalarDomain.Number
+      : ScalarDomain.String;
+    var items = new[] { MakeDescribed(name) with { Domain = domain }, MakeDescribed(name) };
 
     var result = Merger.CanMerge(items);
 

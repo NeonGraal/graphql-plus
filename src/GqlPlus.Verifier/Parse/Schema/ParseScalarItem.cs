@@ -10,7 +10,7 @@ internal abstract class ParseScalarItem<TItem>(
 {
   private readonly Parser<TItem>.LA _items = items;
 
-  public abstract ScalarKind Kind { get; }
+  public abstract ScalarDomain Kind { get; }
   public ParseItems Parser => ParseMembers;
 
   protected IResult<ScalarDefinition> ParseMembers(Tokenizer tokens, string label, ScalarDefinition result)

@@ -6,7 +6,7 @@ public class ScalarAstEnumTests
   protected override string MembersString(string name, ScalarMemberInput input)
     => $"( !S {name} Enum !SM {input.EnumType} {input.EnumMember} )";
   protected override AstScalar<ScalarMemberAst> NewScalar(string name, ScalarMemberAst[] list)
-    => new(AstNulls.At, name, ScalarKind.Enum, list);
+    => new(AstNulls.At, name, ScalarDomain.Enum, list);
   protected override ScalarMemberAst[] ScalarMembers(ScalarMemberInput input)
     => [new ScalarMemberAst(AstNulls.At, false, input.EnumMember) { EnumType = input.EnumType }];
 }

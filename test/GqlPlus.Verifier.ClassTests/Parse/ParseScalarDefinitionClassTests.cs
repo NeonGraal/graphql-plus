@@ -11,9 +11,9 @@ public class ParseScalarDefinitionClassTests : ClassTestBase
   {
     var tokens = Tokens("{ ");
 
-    var kind = EnumParserFor<ScalarKind>(out var kindParser);
+    var kind = EnumParserFor<ScalarDomain>(out var kindParser);
     kindParser.Parse(tokens, default!)
-      .ReturnsForAnyArgs(((ScalarKind)99).Ok());
+      .ReturnsForAnyArgs(((ScalarDomain)99).Ok());
 
     var scalar = new ParseScalarDefinition(kind, []);
 

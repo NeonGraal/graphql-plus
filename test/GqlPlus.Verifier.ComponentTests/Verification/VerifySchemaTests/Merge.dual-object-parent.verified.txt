@@ -1,0 +1,15 @@
+﻿[  
+!G I@001/0001
+Success
+{
+  !D I@006/0001
+  DualPrnt
+  :
+  I@018/0001
+  PrntDual
+}
+{
+  !D I@062/0001
+  PrntDual
+}
+]

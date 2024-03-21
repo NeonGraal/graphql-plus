@@ -105,52 +105,6 @@ scalar Test { string !/a+/ }
 scalar Test { :Parent string /a+/}
 scalar Parent { string !/a+/ }
 
-// scalar-union-more
-scalar Test { union | Bad }
-scalar Bad { union | More }
-scalar More { union | Test }
-
-// scalar-union-parent
-scalar Test { :Parent union }
-scalar Parent { union | Test }
-
-// scalar-union-parent-more
-scalar Test { :Parent union }
-scalar Parent { union | More }
-scalar More { :Bad union }
-scalar Bad { union | Test }
-
-// scalar-union-parent-recurse
-scalar Test { :Parent union }
-scalar Parent { union | Bad }
-scalar Bad { union | Test }
-
-// scalar-union-recurse
-scalar Test { union | Bad }
-scalar Bad { union | Test }
-
-// scalar-union-more-parent
-scalar Test { union | Recurse }
-scalar Recurse { :Parent union }
-scalar Parent { union | More }
-scalar More { :Bad union }
-scalar Bad { union | Test }
-
-// scalar-union-recurse-parent
-scalar Test { union | Bad }
-scalar Bad { :Parent union }
-scalar Parent { union | Test }
-
-// scalar-union-self
-scalar Test { union | Test }
-
-// scalar-union-undef
-scalar Test { union | Bad }
-
-// scalar-union-wrong
-scalar Test { union | Bad }
-input Bad { }
-
 // unique-type-alias
 enum Test [a] { Value }
 output Dup [a] { }
@@ -158,3 +112,49 @@ output Dup [a] { }
 // unique-types
 enum Test { Value }
 output Test { }
+
+// union-more
+union Test { Bad }
+union Bad { More }
+union More { Test }
+
+// union-parent
+union Test { :Parent }
+union Parent { Test }
+
+// union-parent-more
+union Test { :Parent }
+union Parent { More }
+union More { :Bad }
+union Bad { Test }
+
+// union-parent-recurse
+union Test { :Parent }
+union Parent { Bad }
+union Bad { Test }
+
+// union-recurse
+union Test { Bad }
+union Bad { Test }
+
+// union-more-parent
+union Test { Recurse }
+union Recurse { :Parent }
+union Parent { More }
+union More { :Bad }
+union Bad { Test }
+
+// union-recurse-parent
+union Test { Bad }
+union Bad { :Parent }
+union Parent { Test }
+
+// union-self
+union Test { Test }
+
+// union-undef
+union Test { Bad }
+
+// union-wrong
+union Test { Bad }
+input Bad { }

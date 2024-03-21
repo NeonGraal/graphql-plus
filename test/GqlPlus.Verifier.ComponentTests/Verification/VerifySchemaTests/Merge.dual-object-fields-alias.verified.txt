@@ -1,0 +1,19 @@
+﻿[  
+!G I@001/0001
+Success
+{
+  !D I@006/0001
+  FieldAlias
+  {
+    !DF I@019/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@035/0001
+    FieldAlias
+  }
+}
+]

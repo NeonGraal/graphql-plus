@@ -1,8 +1,8 @@
 ﻿[
   ( !E Void ),
   ( !E Null [ null ] !EM null ),
-  ( !U Simple ^ 0 * _ _Union _Scalar _Enum ),
-  ( !U Internal Void Null ),
+  ( !U Simple !UM ^ !UM 0 !UM * !UM _ !UM _Union !UM _Scalar !UM _Enum ),
+  ( !U Internal !UM Void !UM Null ),
   ( !D _Opt < $T > | !AD $T !AD Null ),
   ( !D _List < $T > | !AD $T [] ),
   ( !D _Dict < $K $T > | !AD $T [$K] ),

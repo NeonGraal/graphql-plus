@@ -131,10 +131,10 @@ scalar StrDiff { string }
 scalar StrSame { string /a+/ }
 scalar StrSame { string /a+/ }
 
-// scalar-union-diff
-scalar UnDiff { union | Boolean }
-scalar UnDiff { union | Number }
+// union-diff
+union UnDiff { Boolean }
+union UnDiff { Number }
 
-// scalar-union-same
-scalar UnSame { union | Boolean }
-scalar UnSame { union | Boolean }
+// union-same
+union UnSame { Boolean }
+union UnSame { Boolean }

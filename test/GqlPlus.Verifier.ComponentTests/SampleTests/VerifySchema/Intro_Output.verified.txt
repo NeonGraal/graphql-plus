@@ -1,16 +1,13 @@
 ﻿[
   !!! I@007/0015 : Invalid Output. '_ObjRef' not defined. - '_ObjRef' !!!,
-  !!! I@008/0001 : Invalid Output Parent. '_ObjBase' not defined. - '_OutputBase' !!!,
-  !!! I@008/0006 : Invalid Output Parent. '_Field' not defined. - '_OutputField' !!!,
   !!! I@008/0012 : Invalid Output Parent. '_TypeRef' not defined. - '_OutputArgument' !!!,
   !!! I@008/0018 : Invalid Output Parent. '_TypeRef' not defined. - '_OutputEnum' !!!,
+  !!! I@015/0015 : Invalid Output. Type kind mismatch for _OutputBase. Found Dual. - '_OutputBase' !!!,
   !!! I@016/0013 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@016/0013 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
   !!! I@016/0014 : Invalid Output. 'Identifier' not defined. - 'Identifier' !!!,
   !!! I@016/0019 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@016/0019 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
   !!! I@016/0020 : Invalid Output. 'Identifier' not defined. - 'Identifier' !!!,
-  !!! I@016/0021 : Invalid Output. 'Identifier' not defined. - 'Identifier' !!!,
-  !!! I@017/0003 : Invalid Output. 'Identifier' not defined. - 'Identifier' !!!,
-  !!! I@020/0008 : Invalid Output. '_Parameter' not defined. - '_Parameter' !!!
+  !!! I@016/0021 : Invalid Output. 'Identifier' not defined. - 'Identifier' !!!
 ]

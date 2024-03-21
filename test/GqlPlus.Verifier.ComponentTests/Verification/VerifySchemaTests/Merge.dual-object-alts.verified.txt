@@ -1,0 +1,16 @@
+﻿[  
+!G I@001/0001
+Success
+{
+  !D I@006/0001
+  DualAlts
+  |
+  !AD
+  I@019/0001
+  DualAltsType
+}
+{
+  !D I@072/0001
+  DualAltsType
+}
+]

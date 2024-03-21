@@ -60,6 +60,6 @@ scalar ScalTestPrnt { Boolean }
 scalar ScalStrPrnt { :ScalPrntStr String /a+/ }
 scalar ScalPrntStr { String /b+/ }
 
-// scalar-union-parent
-scalar ScalUnionPrnt { :ScalPrntUnion Union | String }
-scalar ScalPrntUnion { Union | Number }
+// union-parent
+union UnionPrnt { :PrntUnion String }
+union PrntUnion { Number }

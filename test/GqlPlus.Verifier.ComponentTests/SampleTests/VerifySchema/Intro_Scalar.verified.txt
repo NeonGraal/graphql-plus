@@ -1,11 +1,13 @@
 ﻿[
-  !!! I@008/0011 : Invalid Output Parent. '_TypeRef' not defined. - '_ScalarRef' !!!,
-  !!! I@008/0016 : Invalid Output Parent. '_ParentType' not defined. - '_BaseScalar' !!!,
-  !!! I@016/0012 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
-  !!! I@016/0012 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@017/0032 : Invalid Output. '_EnumValue' not defined. - '_EnumValue' !!!,
-  !!! I@017/0048 : Invalid Output. 'Identifier' not defined. - 'Identifier' !!!,
-  !!! I@019/0017 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
-  !!! I@019/0017 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@037/0008 : Invalid Output. '_TypeSimple' not defined. - '_TypeSimple' !!!
+  !!! I@008/0010 : Invalid Output Parent. '_TypeRef' not defined. - '_ScalarRef' !!!,
+  !!! I@008/0015 : Invalid Output Parent. '_ParentType' not defined. - '_BaseScalar' !!!,
+  !!! I@016/0011 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
+  !!! I@016/0011 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@019/0016 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
+  !!! I@019/0016 : Invalid Output. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@038/0005 : Invalid Output. Type kind mismatch for _ScalarMember. Found Dual. - '_ScalarMember' !!!,
+  !!! I@040/0006 : Invalid Output. Type kind mismatch for _ScalarRange. Found Dual. - '_ScalarRange' !!!,
+  !!! I@040/0007 : Invalid Output. Type kind mismatch for _ScalarRegex. Found Dual. - '_ScalarRegex' !!!,
+  !!! I@041/0004 : Invalid Output. Type kind mismatch for _ScalarTrueFalse. Found Dual. - '_ScalarTrueFalse' !!!,
+  !!! I@042/0016 : Invalid Output. Type kind mismatch for _ScalarItem. Found Dual. - '_ScalarItem' !!!
 ]

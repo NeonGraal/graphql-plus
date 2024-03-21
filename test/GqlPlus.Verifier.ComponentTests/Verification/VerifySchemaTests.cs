@@ -54,6 +54,7 @@ public partial class VerifySchemaTests(
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       using var scope = new AssertionScope();
 
+      Verify_Valid(ReplaceObject(input, "dual", "Dual"));
       Verify_Valid(ReplaceObject(input, "input", "In"));
       Verify_Valid(ReplaceObject(input, "output", "Out"));
     } else {
@@ -68,6 +69,7 @@ public partial class VerifySchemaTests(
     var input = s_schemaInvalidObjects[obj];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       await WhenAll(
+        Verify_Invalid(ReplaceObject(input, "dual", "Dual"), "dual-" + obj),
         Verify_Invalid(ReplaceObject(input, "input", "In"), "input-" + obj),
         Verify_Invalid(ReplaceObject(input, "output", "Out"), "output-" + obj));
     } else {
@@ -78,6 +80,7 @@ public partial class VerifySchemaTests(
   private static IEnumerable<string> AllValid
     => s_schemaValidObjects.Values
       .SelectMany(input => new[] {
+        ReplaceObject(input, "dual", "Dual"),
         ReplaceObject(input, "input", "In"),
         ReplaceObject(input, "output", "Out"),
       })
@@ -116,6 +119,7 @@ public partial class VerifySchemaTests(
     var input = s_schemaValidMerges[merge];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       await WhenAll(
+        Verify_Merge(ReplaceObject(input, "dual", "Dual"), "dual-" + merge),
         Verify_Merge(ReplaceObject(input, "input", "In"), "input-" + merge),
         Verify_Merge(ReplaceObject(input, "output", "Out"), "output-" + merge));
     } else {

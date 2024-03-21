@@ -181,16 +181,16 @@ public partial class VerifySchemaTests
     ["scalar-parent-wrong-type"] = "scalar Test { :Parent Boolean } output Parent { }",
     ["scalar-string-diff"] = "scalar Test { string /a+/} scalar Test { string !/a+/ }",
     ["scalar-string-parent"] = "scalar Test { :Parent string /a+/} scalar Parent { string !/a+/ }",
-    ["scalar-union-more"] = "scalar Test { union | Bad } scalar Bad { union | More } scalar More { union | Test }",
-    ["scalar-union-more-parent"] = "scalar Test { union | Recurse } scalar Recurse { :Parent union } scalar Parent { union | More } scalar More { :Bad union } scalar Bad { union | Test }",
-    ["scalar-union-parent"] = "scalar Test { :Parent union } scalar Parent { union | Test }",
-    ["scalar-union-parent-more"] = "scalar Test { :Parent union } scalar Parent { union | More } scalar More { :Bad union } scalar Bad { union | Test }",
-    ["scalar-union-parent-recurse"] = "scalar Test { :Parent union } scalar Parent { union | Bad } scalar Bad { union | Test }",
-    ["scalar-union-recurse"] = "scalar Test { union | Bad } scalar Bad { union | Test }",
-    ["scalar-union-recurse-parent"] = "scalar Test { union | Bad } scalar Bad { :Parent union } scalar Parent { union | Test }",
-    ["scalar-union-self"] = "scalar Test { union | Test }",
-    ["scalar-union-undef"] = "scalar Test { union | Bad }",
-    ["scalar-union-wrong"] = "scalar Test { union | Bad } input Bad { }",
+    ["union-more"] = "union Test { Bad } union Bad { More } union More { Test }",
+    ["union-more-parent"] = "union Test { Recurse } union Recurse { :Parent } union Parent { More } union More { :Bad } union Bad { Test }",
+    ["union-parent"] = "union Test { :Parent } union Parent { Test }",
+    ["union-parent-more"] = "union Test { :Parent } union Parent { More } union More { :Bad } union Bad { Test }",
+    ["union-parent-recurse"] = "union Test { :Parent } union Parent { Bad } union Bad { Test }",
+    ["union-recurse"] = "union Test { Bad } union Bad { Test }",
+    ["union-recurse-parent"] = "union Test { Bad } union Bad { :Parent } union Parent { Test }",
+    ["union-self"] = "union Test { Test }",
+    ["union-undef"] = "union Test { Bad }",
+    ["union-wrong"] = "union Test { Bad } input Bad { }",
     ["unique-type-alias"] = "enum Test [a] { Value } output Dup [a] { }",
     ["unique-types"] = "enum Test { Value } output Test { }",
   };
@@ -225,16 +225,16 @@ public partial class VerifySchemaTests
       Add("scalar-parent-wrong-type");
       Add("scalar-string-diff");
       Add("scalar-string-parent");
-      Add("scalar-union-more");
-      Add("scalar-union-more-parent");
-      Add("scalar-union-parent");
-      Add("scalar-union-parent-more");
-      Add("scalar-union-parent-recurse");
-      Add("scalar-union-recurse");
-      Add("scalar-union-recurse-parent");
-      Add("scalar-union-self");
-      Add("scalar-union-undef");
-      Add("scalar-union-wrong");
+      Add("union-more");
+      Add("union-more-parent");
+      Add("union-parent");
+      Add("union-parent-more");
+      Add("union-parent-recurse");
+      Add("union-recurse");
+      Add("union-recurse-parent");
+      Add("union-self");
+      Add("union-undef");
+      Add("union-wrong");
       Add("unique-type-alias");
       Add("unique-types");
     }
@@ -271,8 +271,8 @@ public partial class VerifySchemaTests
     ["scalar-string"] = "scalar Str { string } scalar Str { string }",
     ["scalar-string-diff"] = "scalar StrDiff { string /a+/ } scalar StrDiff { string }",
     ["scalar-string-same"] = "scalar StrSame { string /a+/ } scalar StrSame { string /a+/ }",
-    ["scalar-union-diff"] = "scalar UnDiff { union | Boolean } scalar UnDiff { union | Number }",
-    ["scalar-union-same"] = "scalar UnSame { union | Boolean } scalar UnSame { union | Boolean }",
+    ["union-diff"] = "union UnDiff { Boolean } union UnDiff { Number }",
+    ["union-same"] = "union UnSame { Boolean } union UnSame { Boolean }",
   };
 
   public class SchemaValidMerges : TheoryData<string>
@@ -310,8 +310,8 @@ public partial class VerifySchemaTests
       Add("scalar-string");
       Add("scalar-string-diff");
       Add("scalar-string-same");
-      Add("scalar-union-diff");
-      Add("scalar-union-same");
+      Add("union-diff");
+      Add("union-same");
     }
   }
   private static readonly Dictionary<string, string> s_schemaValidObjects = new() {
@@ -407,7 +407,7 @@ public partial class VerifySchemaTests
     ["scalar-number-parent"] = "scalar ScalNumPrnt { :ScalPrntNum Number 2>} scalar ScalPrntNum { Number <2 }",
     ["scalar-parent"] = "scalar ScalPrntTest { :ScalTestPrnt Boolean } scalar ScalTestPrnt { Boolean }",
     ["scalar-string-parent"] = "scalar ScalStrPrnt { :ScalPrntStr String /a+/ } scalar ScalPrntStr { String /b+/ }",
-    ["scalar-union-parent"] = "scalar ScalUnionPrnt { :ScalPrntUnion Union | String } scalar ScalPrntUnion { Union | Number }",
+    ["union-parent"] = "union UnionPrnt { :PrntUnion String } union PrntUnion { Number }",
   };
 
   public class SchemaValidTypes : TheoryData<string>
@@ -428,7 +428,7 @@ public partial class VerifySchemaTests
       Add("scalar-number-parent");
       Add("scalar-parent");
       Add("scalar-string-parent");
-      Add("scalar-union-parent");
+      Add("union-parent");
     }
   }
 }

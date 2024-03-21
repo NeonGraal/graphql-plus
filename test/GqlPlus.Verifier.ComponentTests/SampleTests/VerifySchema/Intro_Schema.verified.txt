@@ -1,4 +1,5 @@
 ﻿[
+  !!! I@008/0001 : Invalid Output Parent. '_Named' invalid type. Found 'Dual'. - '_Schema' !!!,
   !!! I@016/0024 : Invalid Input. '_TypeKind' not defined. - '_TypeKind' !!!,
   !!! I@022/0019 : Invalid Input. '_Resolution' not defined. - '_Resolution' !!!,
   !!! I@029/0006 : Invalid Output. '_Setting' not defined. - '_Setting' !!!,

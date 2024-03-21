@@ -1,0 +1,3 @@
+﻿[
+  Multiple Types with alias 'a' found. Names 'Test' 'Dup'
+]

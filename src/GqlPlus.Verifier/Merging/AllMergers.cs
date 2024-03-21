@@ -21,8 +21,8 @@ public static class AllMergers
       .AddMergeAll<AstType, EnumDeclAst, MergeEnums>()
       .AddMerge<EnumMemberAst, MergeEnumMembers>()
       .AddMergeAll<AstType, AstScalar, MergeAllScalars>()
-      // Todo: Merge Union
-      // .AddMergeAll<AstType, UnionDeclAst, MergeUnions>()
+      .AddMerge<UnionMemberAst, MergeUnionMembers>()
+      .AddMergeAll<AstType, UnionDeclAst, MergeUnions>()
       .AddMergeScalar<ScalarTrueFalseAst>()
       .AddMergeScalar<ScalarMemberAst>()
       .AddMergeScalar<ScalarRangeAst>()
@@ -34,6 +34,9 @@ public static class AllMergers
       // Object types
       .AddMerge<ParameterAst, MergeParameters>()
       .AddMerge<TypeParameterAst, MergeTypeParameters>()
+      .AddMerge<AstAlternate<DualReferenceAst>, AlternatesMerger<DualReferenceAst>>()
+      .AddMerge<DualFieldAst, MergeDualFields>()
+      .AddMergeAll<AstType, DualDeclAst, MergeDualObjects>()
       .AddMerge<AstAlternate<InputReferenceAst>, AlternatesMerger<InputReferenceAst>>()
       .AddMerge<InputFieldAst, MergeInputFields>()
       .AddMergeAll<AstType, InputDeclAst, MergeInputObjects>()

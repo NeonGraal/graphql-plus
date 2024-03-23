@@ -1,1 +1,4 @@
-﻿
+﻿[
+  Invalid Dual. 'Test' cannot be a child of itself, even recursively via Recurse.,
+  Invalid Dual. 'Recurse' cannot be a child of itself, even recursively via Test.
+]

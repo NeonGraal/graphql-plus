@@ -7,7 +7,7 @@ public sealed record class UnionDeclAst(
   string Name,
   string Description,
   UnionMemberAst[] Members
-) : AstType<string>(At, Name, Description), IEquatable<UnionDeclAst>
+) : AstSimple(At, Name, Description), IEquatable<UnionDeclAst>
 {
   internal override string Abbr => "U";
   public override string Label => "Union";

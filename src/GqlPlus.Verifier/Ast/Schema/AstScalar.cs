@@ -37,9 +37,8 @@ public abstract record class AstScalar(
   string Name,
   string Description,
   ScalarDomain Domain
-) : AstType<string>(At, Name, Description)
-{
-}
+) : AstSimple(At, Name, Description)
+{ }
 
 [SuppressMessage("Naming", "CA1720:Identifier contains type name")]
 public enum ScalarDomain

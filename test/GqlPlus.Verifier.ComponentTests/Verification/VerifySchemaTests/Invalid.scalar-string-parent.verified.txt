@@ -1,3 +1,3 @@
 ﻿[
-  Invalid Scalar Child. Can't merge Test into Parent Parent.
+  Invalid Scalar Child. Can't merge Test items into Parent Parent items.
 ]

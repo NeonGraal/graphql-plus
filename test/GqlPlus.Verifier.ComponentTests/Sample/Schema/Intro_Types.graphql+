@@ -1,4 +1,4 @@
-output  _Type {
+output _Type {
     | _BaseType<_TypeKind.Basic>
     | _BaseType<_TypeKind.Internal>
     | _ParentType<_TypeKind.Dual _DualBase _Field<_DualBase>>

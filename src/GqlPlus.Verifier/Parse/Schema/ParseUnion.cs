@@ -2,7 +2,6 @@
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
-using GqlPlus.Verifier.Verification.Schema;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 

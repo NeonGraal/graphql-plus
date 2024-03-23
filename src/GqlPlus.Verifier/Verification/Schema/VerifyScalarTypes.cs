@@ -41,6 +41,10 @@ internal class VerifyScalarTypes(
     return false;
   }
 
-  protected override bool CanMergeParent(ParentUsage<AstScalar> input, EnumContext context)
-    => scalars.All(scalar => scalar.CanMergeItems(input.Usage, context));
+  protected override void CheckMergeParent(ParentUsage<AstScalar> input, EnumContext context)
+  {
+    if (!scalars.All(scalar => scalar.CanMergeItems(input.Usage, context))) {
+      context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} items into Parent {input.Parent} items");
+    }
+  }
 }

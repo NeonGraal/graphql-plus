@@ -29,6 +29,8 @@ public static class AllVerifiers
       .AddVerifyAliased<AstType, VerifyAllTypesAliased>()
       .AddVerifyAliased<EnumDeclAst, VerifyEnumsAliased>()
       .AddVerifyUsageAliased<EnumDeclAst, AstType, VerifyEnumTypes>()
+      .AddVerifyAliased<DualDeclAst, VerifyDualsAliased>()
+      .AddVerifyUsageAliased<DualDeclAst, AstType, VerifyDualTypes>()
       .AddVerifyAliased<InputDeclAst, VerifyInputsAliased>()
       .AddVerifyUsageAliased<InputDeclAst, AstType, VerifyInputTypes>()
       .AddVerifyAliased<OutputDeclAst, VerifyOutputsAliased>()
@@ -39,6 +41,8 @@ public static class AllVerifiers
       .AddVerifyScalarContext<VerifyScalarEnum>()
       .AddVerifyScalarContext<AstScalarVerifier<ScalarRangeAst>>()
       .AddVerifyScalarContext<AstScalarVerifier<ScalarRegexAst>>()
+      .AddVerifyAliased<UnionDeclAst, VerifyUnionsAliased>()
+      .AddVerifyUsageAliased<UnionDeclAst, AstType, VerifyUnionTypes>()
     ;
 
   public static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)

@@ -37,7 +37,7 @@ dual _Described<$base> {
 dual _Named {
         name: Identifier
     }
-dual _Categories {
+output _Categories {
     | _Category
     | _Type
 }
@@ -50,7 +50,7 @@ output _Category {
     }
 
 enum _Resolution { Parallel Sequential Single }
-dual _Directives {
+output _Directives {
     | _Directive
     | _Type
 }
@@ -64,11 +64,11 @@ dual _Directive {
 
 enum _Location { Operation Variable Field Inline Spread Fragment }
 
-dual _Setting {
+output _Setting {
     : _Described<_Named>
         value: _Constant
 }
-output  _Type {
+output _Type {
     | _BaseType<_TypeKind.Basic>
     | _BaseType<_TypeKind.Internal>
     | _ParentType<_TypeKind.Dual _DualBase _Field<_DualBase>>
@@ -110,7 +110,7 @@ output _TypeSimple {
     | _TypeRef<_TypeKind.Scalar>
     | _TypeRef<_TypeKind.Union>
     }
-dual _Constant {
+output _Constant {
     | _Simple
     | _ConstantList
     | _ConstantMap
@@ -123,11 +123,11 @@ output _Simple {
     | _EnumValue
 }
 
-dual _ConstantList {
+output _ConstantList {
     | _Constant[]
     }
 
-dual _ConstantMap {
+output _ConstantMap {
     | _Constant[Simple]
     }
 
@@ -227,7 +227,7 @@ output _TypeObject<$kind $base $field> {
         allAlternates: _Object<_Alternate<$base>>[]
     }
 
-output  _ObjRef<$base> {
+output _ObjRef<$base> {
     | _BaseType<_TypeKind.Internal>
     | _TypeSimple
     | $base
@@ -238,45 +238,45 @@ dual _ObjBase<$arg> {
     | "TypeParameter" Identifier
     }
 
-dual _Alternate<$base> {
+output _Alternate<$base> {
       type: _Described<_ObjRef<$base>>
       collections: _Collections[]
     }
 
-dual _Object<$for> {
+output _Object<$for> {
     : $for
         object: Identifier
     }
 
-dual _Field<$base> {
+output _Field<$base> {
     : _Aliased
       type: _Described<_ObjRef<$base>>
       modifiers: _Modifiers[]
     }
 
-dual _Parameter {
+output _Parameter {
     : _Alternate<_InputBase>
         default: _Constant?
     }
-dual _DualBase {
+output _DualBase {
     : _ObjBase<_ObjRef<_DualBase>>
         dual: Identifier
     }
-dual _InputBase {
+output _InputBase {
     : _ObjBase<_ObjRef<_InputBase>>
         input: Identifier
     }
 
-dual _InputField {
+output _InputField {
     : _Field<_InputBase>
         default: _Constant?
     }
-dual _OutputBase {
+output _OutputBase {
     : _ObjBase<_OutputArgument>
         output: Identifier
     }
 
-dual _OutputField {
+output _OutputField {
     : _Field<_OutputBase>
         parameter: _Parameter[]
     | _OutputEnum

@@ -6,7 +6,7 @@ public sealed record class EnumDeclAst(
   TokenAt At,
   string Name,
   string Description
-) : AstType<string>(At, Name, Description), IEquatable<EnumDeclAst>
+) : AstSimple(At, Name, Description), IEquatable<EnumDeclAst>
 {
   public EnumMemberAst[] Members { get; set; } = [];
 

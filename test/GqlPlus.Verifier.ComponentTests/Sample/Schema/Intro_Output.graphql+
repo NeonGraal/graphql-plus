@@ -1,9 +1,9 @@
-dual _OutputBase {
+output _OutputBase {
     : _ObjBase<_OutputArgument>
         output: Identifier
     }
 
-dual _OutputField {
+output _OutputField {
     : _Field<_OutputBase>
         parameter: _Parameter[]
     | _OutputEnum

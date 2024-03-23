@@ -1,4 +1,4 @@
-dual _Constant {
+output _Constant {
     | _Simple
     | _ConstantList
     | _ConstantMap
@@ -11,11 +11,11 @@ output _Simple {
     | _EnumValue
 }
 
-dual _ConstantList {
+output _ConstantList {
     | _Constant[]
     }
 
-dual _ConstantMap {
+output _ConstantMap {
     | _Constant[Simple]
     }
 

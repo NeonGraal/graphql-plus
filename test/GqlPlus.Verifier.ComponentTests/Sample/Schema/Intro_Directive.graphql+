@@ -1,4 +1,4 @@
-dual _Directives {
+output _Directives {
     | _Directive
     | _Type
 }

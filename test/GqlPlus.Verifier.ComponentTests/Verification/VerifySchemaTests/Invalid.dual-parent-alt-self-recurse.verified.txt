@@ -1,1 +1,5 @@
-﻿
+﻿[
+  Invalid Dual. 'Test' cannot be an alternate of itself, even recursively via Recurse.,
+  Invalid Dual. 'Alt' cannot be an alternate of itself, even recursively via Test.,
+  Invalid Dual. 'Recurse' cannot be an alternate of itself, even recursively via Alt.
+]

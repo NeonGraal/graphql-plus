@@ -1,16 +1,16 @@
 ﻿!G I@001/0001
 Success
 {
-  !D I@006/0001
+  !O I@008/0001
   _Constant
   |
-  !AD
+  !AO
   I@007/0002
   _Simple
-  !AD
+  !AO
   I@007/0003
   _ConstantList
-  !AD
+  !AO
   I@007/0004
   _ConstantMap
 }
@@ -44,19 +44,19 @@ Success
   _EnumValue
 }
 {
-  !D I@006/0014
+  !O I@008/0014
   _ConstantList
   |
-  !AD
+  !AO
   I@007/0015
   _Constant
   []
 }
 {
-  !D I@006/0018
+  !O I@008/0018
   _ConstantMap
   |
-  !AD
+  !AO
   I@007/0019
   _Constant
   [Simple]

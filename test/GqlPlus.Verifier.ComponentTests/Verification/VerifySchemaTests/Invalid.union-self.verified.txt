@@ -1,0 +1,3 @@
+﻿[
+  Invalid Union Member. 'Test' cannot refer to self.
+]

@@ -14,6 +14,9 @@ internal static class BuiltIn
     new AstScalar<ScalarRegexAst>(AstNulls.At, "String", ScalarDomain.String, []) { Aliases = ["*"] },
   ];
 
+  public static IEnumerable<object[]> AllBasic()
+    => Basic.Select(b => new object[] { b });
+
   internal static AstType[] Internal = [
     new EnumDeclAst(AstNulls.At, "Void"),
     new EnumDeclAst(AstNulls.At, "Null") { Aliases = ["null"], Members = [new(AstNulls.At, "null")] },
@@ -28,10 +31,12 @@ internal static class BuiltIn
     DualObj("Array", TypeParameters("T"), DualDict("Number")),
     DualObj("IfElse", TypeParameters("T"), DualDict("Boolean")),
     DualObj("Set", TypeParameters("K"), DualDict("Unit", true)),
-    DualObj("Mask", TypeParameters("K"), DualDict("Boolean, true")),
-    DualObj("Object", [], DualRef("_Map") with { Arguments = [DualRef("Any")] }) with { Aliases = ["%", "_Object"] },
+    DualObj("Mask", TypeParameters("K"), DualDict("Boolean", true)),
+    DualObj("Object", [], DualRef("_Map", DualRef("Any"))) with { Aliases = ["%", "Object"] },
     DualObj("Most", TypeParameters("T"),
-      DualAlt(null), DualType("Object"), DualMost(""), DualMost("", true), DualMost("Single"), DualMost("Single", true)),
+      DualAlt(null), DualType("Object"), DualMost("", true), DualType("_MostList", DualParam("T")), DualType("_MostDictionary", DualParam("T"))),
+    DualObj("MostList", TypeParameters("T"), DualMost("")),
+    DualObj("MostDictionary", TypeParameters("T"), DualMost("Simple", true)),
 
     new SpecialTypeAst(AstNulls.At, "Any") { Aliases = ["Any"] },
     new SpecialTypeAst(AstNulls.At, "Dual"),
@@ -41,6 +46,9 @@ internal static class BuiltIn
     new SpecialTypeAst(AstNulls.At, "Scalar"),
     new SpecialTypeAst(AstNulls.At, "Union"),
   ];
+
+  public static IEnumerable<object[]> AllInternal()
+    => Internal.Select(b => new object[] { b });
 
   internal static Map<string> EnumValues = new() {
     ["_"] = "Unit",
@@ -58,8 +66,8 @@ internal static class BuiltIn
   private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, DualReferenceAst parent)
     => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Parent = parent };
 
-  private static AstAlternate<DualReferenceAst> DualType(string type)
-    => new(AstNulls.At, DualRef(type));
+  private static AstAlternate<DualReferenceAst> DualType(string type, params DualReferenceAst[] args)
+    => new(AstNulls.At, DualRef(type, args));
 
   private static AstAlternate<DualReferenceAst> DualAlt(string? key)
     => new(AstNulls.At, DualParam("T")) {
@@ -71,15 +79,15 @@ internal static class BuiltIn
     };
 
   private static AstAlternate<DualReferenceAst> DualMost(string key, bool optional = false)
-    => new(AstNulls.At, DualRef("_Most") with { Arguments = [DualParam("T")] }) {
+    => new(AstNulls.At, DualRef("_Most", DualParam("T"))) {
       Modifiers = key switch {
         "" => [optional ? ModifierAst.Optional(AstNulls.At) : ModifierAst.List(AstNulls.At)],
         _ => [new(AstNulls.At, key, optional)]
       }
     };
 
-  private static DualReferenceAst DualRef(string name)
-    => new(AstNulls.At, name, "");
+  private static DualReferenceAst DualRef(string name, params DualReferenceAst[] args)
+    => new DualReferenceAst(AstNulls.At, name, "") with { Arguments = args };
 
   private static DualReferenceAst DualParam(string name)
     => DualRef(name) with { IsTypeParameter = true };

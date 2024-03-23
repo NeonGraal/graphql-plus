@@ -1,1 +1,3 @@
-﻿
+﻿[
+  Invalid Dual Child. Can't merge Test alternates into Parent Recurse alternates.
+]

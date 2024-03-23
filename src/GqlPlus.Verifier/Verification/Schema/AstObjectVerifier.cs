@@ -82,7 +82,9 @@ internal abstract partial class AstObjectVerifier<TObject, TField, TRef, TContex
 
   protected override void OnParentType(ParentUsage<TObject> input, TContext context, TObject parentType, bool top)
   {
-    base.OnParentType(input, context, parentType, top);
+    if (top && parentType.Label != "Dual") {
+      base.OnParentType(input, context, parentType, top);
+    }
 
     CheckingAlternates(input, top, parentType.Name);
     input = input with { Label = "an alternate" };
@@ -118,11 +120,13 @@ internal abstract partial class AstObjectVerifier<TObject, TField, TRef, TContex
   [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}, {Top} of {Alternate}, {Current}")]
   private partial void CheckingAlternates(ParentUsage<TObject> input, bool top, string alternate, string current);
 
-  protected override bool CanMergeParent(ParentUsage<TObject> input, TContext context)
+  protected override void CheckMergeParent(ParentUsage<TObject> input, TContext context)
   {
-    var alternates = GetParentItems(input, input.Usage, context, ast => ast.Alternates).ToArray();
+    base.CheckMergeParent(input, context);
 
-    return base.CanMergeParent(input, context)
-      && (alternates.Length == 0 || mergeAlternates.CanMerge(alternates));
+    var alternates = GetParentItems(input, input.Usage, context, ast => ast.Alternates).ToArray();
+    if (alternates.Length > 0 && !mergeAlternates.CanMerge(alternates)) {
+      context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Parent} alternates");
+    }
   }
 }

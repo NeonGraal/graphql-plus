@@ -8,11 +8,15 @@ internal static class AllModellers
 {
   public static IServiceCollection AddModellers(this IServiceCollection services)
     => services
+      .AddAlternateModeller<DualReferenceAst, DualBaseModel>()
       .AddAlternateModeller<InputReferenceAst, InputBaseModel>()
       .AddAlternateModeller<OutputReferenceAst, OutputBaseModel>()
       .AddModeller<CategoryDeclAst, CategoryModel, CategoryModeller>()
       .AddModeller<ConstantAst, ConstantModel, ConstantModeller>()
       .AddModeller<DirectiveDeclAst, DirectiveModel, DirectiveModeller>()
+      .AddModeller<DualDeclAst, TypeDualModel, DualModeller>()
+      .AddModeller<DualFieldAst, DualFieldModel, DualFieldModeller>()
+      .AddModeller<DualReferenceAst, DualBaseModel, DualReferenceModeller>()
       .AddModeller<EnumDeclAst, TypeEnumModel, EnumModeller>()
       .AddModeller<FieldKeyAst, SimpleModel, SimpleModeller>()
       .AddModeller<InputDeclAst, TypeInputModel, InputModeller>()
@@ -23,6 +27,7 @@ internal static class AllModellers
       .AddModeller<OutputFieldAst, OutputFieldModel, OutputFieldModeller>()
       .AddModeller<OutputReferenceAst, OutputBaseModel, OutputReferenceModeller>()
       .AddModeller<ParameterAst, ParameterModel, ParameterModeller>()
+      .AddModeller<UnionDeclAst, TypeUnionModel, UnionModeller>()
       .AddModifierModeller()
     ;
 

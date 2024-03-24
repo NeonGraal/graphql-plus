@@ -61,7 +61,7 @@ public abstract record class ParentTypeModel<TItem, TAll>(
   }
 }
 
-public enum SimpleKindModel { Basic, Enum, Internal, Scalar }
+public enum SimpleKindModel { Basic, Enum, Internal, Scalar, Union }
 
 public enum TypeKindModel
 {
@@ -69,6 +69,8 @@ public enum TypeKindModel
   Enum = SimpleKindModel.Enum,
   Internal = SimpleKindModel.Internal,
   Scalar = SimpleKindModel.Scalar,
+  Union = SimpleKindModel.Union,
+  Dual,
   Input,
   Output,
 }

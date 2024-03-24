@@ -17,76 +17,80 @@ Success
     I@017/0003
     Identifier
   }
+  |
+  !AO
+  I@007/0004
+  _DualBase
 }
 {
-  !O I@008/0006
+  !O I@008/0007
   _OutputField
   :
-  I@007/0007
+  I@007/0008
   _Field
   <
-    I@014/0007
+    I@014/0008
     _OutputBase
   >
   {
-    !OF I@009/0008
+    !OF I@009/0009
     parameter
     :
-    I@020/0008
+    I@020/0009
     _Parameter
     []
   }
   |
   !AO
-  I@007/0009
+  I@007/0010
   _OutputEnum
 }
 {
-  !O I@008/0012
+  !O I@008/0013
   _OutputArgument
   :
-  I@007/0013
+  I@007/0014
   _TypeRef
   <
-    I@016/0013
+    I@016/0014
     _TypeKind.Enum
   >
   {
-    !OF I@009/0014
+    !OF I@009/0015
     value
     :
-    I@016/0014
+    I@016/0015
     Identifier
   }
   |
   !AO
-  I@007/0015
+  I@007/0016
   _ObjRef
   <
-    I@015/0015
+    I@015/0016
     _OutputBase
   >
 }
 {
-  !O I@008/0018
+  !O I@008/0019
   _OutputEnum
   :
-  I@007/0019
+  I@007/0020
   _TypeRef
   <
-    I@016/0019
+    I@016/0020
     _TypeKind.Enum
   >
   {
-    !OF I@009/0020
+    !OF I@009/0021
     field
     :
-    I@016/0020
+    I@016/0021
     Identifier
-    !OF I@009/0021
+    !OF I@009/0022
     value
     :
-    I@016/0021
+    I@016/0022
     Identifier
   }
 }

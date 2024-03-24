@@ -228,24 +228,24 @@ Success
   _Type
 }
 {
-  !D I@006/0058
+  !O I@008/0058
   _Directive
   :
   I@007/0059
   _Aliased
   {
-    !DF I@009/0060
+    !OF I@009/0060
     parameters
     :
     I@021/0060
     _Parameter
     []
-    !DF I@009/0061
+    !OF I@009/0061
     repeatable
     :
     I@021/0061
     Boolean
-    !DF I@009/0062
+    !OF I@009/0062
     locations
     :
     I@020/0062
@@ -829,13 +829,13 @@ Success
   }
 }
 {
-  !D I@006/0192
+  !O I@008/0192
   _ScalarMember
   :
   I@007/0193
   _BaseScalarItem
   {
-    !DF I@009/0194
+    !OF I@009/0194
     member
     :
     I@017/0194
@@ -1193,113 +1193,121 @@ Success
     I@016/0267
     Identifier
   }
+  |
+  !AO
+  I@007/0268
+  _DualBase
 }
 {
-  !O I@008/0270
+  !O I@008/0271
   _InputField
   :
-  I@007/0271
+  I@007/0272
   _Field
   <
-    I@014/0271
+    I@014/0272
     _InputBase
   >
   {
-    !OF I@009/0272
+    !OF I@009/0273
     default
     :
-    I@018/0272
+    I@018/0273
     _Constant
     ?
   }
 }
 {
-  !O I@008/0274
+  !O I@008/0275
   _OutputBase
   :
-  I@007/0275
+  I@007/0276
   _ObjBase
   <
-    I@016/0275
+    I@016/0276
     _OutputArgument
   >
   {
-    !OF I@009/0276
+    !OF I@009/0277
     output
     :
-    I@017/0276
+    I@017/0277
     Identifier
   }
+  |
+  !AO
+  I@007/0278
+  _DualBase
 }
 {
-  !O I@008/0279
+  !O I@008/0281
   _OutputField
   :
-  I@007/0280
+  I@007/0282
   _Field
   <
-    I@014/0280
+    I@014/0282
     _OutputBase
   >
   {
-    !OF I@009/0281
+    !OF I@009/0283
     parameter
     :
-    I@020/0281
+    I@020/0283
     _Parameter
     []
   }
   |
   !AO
-  I@007/0282
+  I@007/0284
   _OutputEnum
 }
 {
-  !O I@008/0285
+  !O I@008/0287
   _OutputArgument
   :
-  I@007/0286
+  I@007/0288
   _TypeRef
   <
-    I@016/0286
+    I@016/0288
     _TypeKind.Enum
   >
   {
-    !OF I@009/0287
+    !OF I@009/0289
     value
     :
-    I@016/0287
+    I@016/0289
     Identifier
   }
   |
   !AO
-  I@007/0288
+  I@007/0290
   _ObjRef
   <
-    I@015/0288
+    I@015/0290
     _OutputBase
   >
 }
 {
-  !O I@008/0291
+  !O I@008/0293
   _OutputEnum
   :
-  I@007/0292
+  I@007/0294
   _TypeRef
   <
-    I@016/0292
+    I@016/0294
     _TypeKind.Enum
   >
   {
-    !OF I@009/0293
+    !OF I@009/0295
     field
     :
-    I@016/0293
+    I@016/0295
     Identifier
-    !OF I@009/0294
+    !OF I@009/0296
     value
     :
-    I@016/0294
+    I@016/0296
     Identifier
   }
 }

@@ -1,0 +1,3 @@
+﻿[
+  Invalid Dual Field. Type kind mismatch for Bad. Found Input.
+]

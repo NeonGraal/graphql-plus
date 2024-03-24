@@ -26,9 +26,9 @@ public class UsageContext(
     return false;
   }
 
-  internal virtual void CheckArgumentType<TRef>(TRef type)
+  internal virtual void CheckArgumentType<TRef>(TRef type, string labelSuffix)
     where TRef : AstReference<TRef>
-    => this.CheckType(type);
+    => this.CheckType(type, labelSuffix);
 
   internal bool DifferentName<TAst>(ParentUsage<TAst> input, string? current)
     where TAst : AstType
@@ -83,7 +83,7 @@ internal static class UsageHelpers
     return context;
   }
 
-  internal static TContext CheckType<TContext, TRef>(this TContext context, TRef type, bool check = true)
+  internal static TContext CheckType<TContext, TRef>(this TContext context, TRef type, string labelSuffix, bool check = true)
     where TContext : UsageContext
     where TRef : AstReference<TRef>
   {
@@ -91,20 +91,20 @@ internal static class UsageHelpers
       var numArgs = type.Arguments.Length;
       if (value is IAstObject definition) {
         if (check && definition.Label != "Dual" && definition.Label != type.Label) {
-          context.AddError(type, type.Label, $"Type kind mismatch for {type.FullName}. Found {definition.Label}");
+          context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.FullName}. Found {definition.Label}");
         }
 
         var numParams = definition.TypeParameters.Length;
         if (numParams != numArgs) {
-          context.AddError(type, type.Label, $"Arguments mismatch, expected {numParams} given {numArgs}");
+          context.AddError(type, type.Label + labelSuffix, $"Arguments mismatch, expected {numParams} given {numArgs}");
         }
       }
     } else if (check) {
-      context.AddError(type, type.Label, $"'{type.FullName}' not defined");
+      context.AddError(type, type.Label + labelSuffix, $"'{type.FullName}' not defined");
     }
 
     foreach (var arg in type.Arguments) {
-      context.CheckArgumentType(arg);
+      context.CheckArgumentType(arg, labelSuffix);
     }
 
     return context;

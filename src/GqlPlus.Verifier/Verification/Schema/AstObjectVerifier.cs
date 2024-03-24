@@ -23,7 +23,7 @@ internal abstract partial class AstObjectVerifier<TObject, TField, TRef, TContex
     base.UsageValue(usage, context);
 
     if (usage.Parent is not null) {
-      context.CheckType(usage.Parent, false);
+      context.CheckType(usage.Parent, " Parent", false);
     }
 
     foreach (var field in usage.Fields) {
@@ -48,12 +48,12 @@ internal abstract partial class AstObjectVerifier<TObject, TField, TRef, TContex
 
   protected virtual void UsageAlternate(AstAlternate<TRef> alternate, TContext context)
     => context
-      .CheckType(alternate.Type)
+      .CheckType(alternate.Type, " Alternate")
       .CheckModifiers(alternate);
 
   protected virtual void UsageField(TField field, TContext context)
     => context
-      .CheckType(field.Type)
+      .CheckType(field.Type, " Field")
       .CheckModifiers(field);
 
   protected override string GetParent(AstType<TRef> usage)
@@ -76,6 +76,10 @@ internal abstract partial class AstObjectVerifier<TObject, TField, TRef, TContex
 
     base.CheckParentType(input, context, top, onParent);
   }
+
+  protected override bool CheckAstParentType(ParentUsage<TObject> input, AstType astType)
+    => base.CheckAstParentType(input, astType)
+      || astType.Label == "Dual";
 
   protected override IEnumerable<TField> GetItems(TObject usage)
     => usage.Fields;

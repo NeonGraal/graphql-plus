@@ -30,7 +30,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   {
     if (context.GetType(input.Parent, out var defined)) {
       if (defined is AstType astType) {
-        if (astType.Label == input.UsageLabel) {
+        if (CheckAstParentType(input, astType)) {
           var parentType = astType as TAst;
           if (CheckAstParent(input.Usage, parentType, context)) {
             onParent?.Invoke(parentType);
@@ -45,6 +45,9 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
       context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' not defined");
     }
   }
+
+  protected virtual bool CheckAstParentType(ParentUsage<TAst> input, AstType astType)
+    => astType.Label == input.UsageLabel;
 
   protected virtual bool CheckAstParent(TAst usage, [NotNullWhen(true)] TAst? parent, TContext context)
     => parent is not null;

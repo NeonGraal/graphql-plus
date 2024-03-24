@@ -1,6 +1,7 @@
 output _OutputBase {
     : _ObjBase<_OutputArgument>
         output: Identifier
+    | _DualBase
     }
 
 output _OutputField {

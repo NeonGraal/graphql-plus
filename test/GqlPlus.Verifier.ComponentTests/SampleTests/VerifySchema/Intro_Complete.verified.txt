@@ -1,12 +1,1 @@
-﻿[
-  !!! I@008/0001 : Invalid Output Parent. '_Named' invalid type. Found 'Dual'. - '_Schema' !!!,
-  !!! I@008/0045 : Invalid Output Parent. '_Aliased' invalid type. Found 'Dual'. - '_Category' !!!,
-  !!! I@008/0067 : Invalid Output Parent. '_Described' invalid type. Found 'Dual'. - '_Setting' !!!,
-  !!! I@008/0082 : Invalid Output Parent. '_Aliased' invalid type. Found 'Dual'. - '_BaseType' !!!,
-  !!! I@008/0251 : Invalid Output Parent. '_Aliased' invalid type. Found 'Dual'. - '_Field' !!!,
-  !!! I@008/0261 : Invalid Output Parent. '_ObjBase' invalid type. Found 'Dual'. - '_DualBase' !!!,
-  !!! I@008/0265 : Invalid Output Parent. '_ObjBase' invalid type. Found 'Dual'. - '_InputBase' !!!,
-  !!! I@008/0274 : Invalid Output Parent. '_ObjBase' invalid type. Found 'Dual'. - '_OutputBase' !!!,
-  !!! I@017/0194 : Invalid Dual. Type kind mismatch for _EnumValue. Found Output. - '_EnumValue' !!!,
-  !!! I@021/0060 : Invalid Dual. Type kind mismatch for _Parameter. Found Output. - '_Parameter' !!!
-]
+﻿[]

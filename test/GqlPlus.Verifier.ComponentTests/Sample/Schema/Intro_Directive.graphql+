@@ -3,7 +3,7 @@ output _Directives {
     | _Type
 }
 
-dual _Directive {
+output _Directive {
     : _Aliased
         parameters: _Parameter[]
         repeatable: Boolean

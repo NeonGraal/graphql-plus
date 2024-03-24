@@ -21,22 +21,26 @@ Success
     I@016/0003
     Identifier
   }
+  |
+  !AO
+  I@007/0004
+  _DualBase
 }
 {
-  !O I@008/0006
+  !O I@008/0007
   _InputField
   :
-  I@007/0007
+  I@007/0008
   _Field
   <
-    I@014/0007
+    I@014/0008
     _InputBase
   >
   {
-    !OF I@009/0008
+    !OF I@009/0009
     default
     :
-    I@018/0008
+    I@018/0009
     _Constant
     ?
   }

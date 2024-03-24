@@ -571,6 +571,38 @@ Number
 }
 {
   !D I@006/0001
+  DualAlts
+  |
+  !AD
+  I@019/0001
+  DualAlt
+}
+{
+  !D I@034/0001
+  DualAlt
+}
+{
+  !D I@006/0001
+  DualAltsDual
+  |
+  !AD
+  I@023/0001
+  DualAltDual
+}
+{
+  !D I@042/0001
+  DualAltDual
+}
+{
+  !D I@039/0001
+  InAltDual
+}
+{
+  !D I@042/0001
+  OutAltDual
+}
+{
+  !D I@006/0001
   DualAltMods
   |
   !AD
@@ -581,6 +613,44 @@ Number
 {
   !D I@044/0001
   DualModsAlt
+}
+{
+  !D I@006/0001
+  DualFields
+  {
+    !DF I@019/0001
+    field
+    :
+    I@026/0001
+    DualField
+  }
+}
+{
+  !D I@043/0001
+  DualField
+}
+{
+  !D I@006/0001
+  DualFieldsDual
+  {
+    !DF I@023/0001
+    field
+    :
+    I@030/0001
+    DualFieldDual
+  }
+}
+{
+  !D I@051/0001
+  DualFieldDual
+}
+{
+  !D I@048/0001
+  InFieldDual
+}
+{
+  !D I@051/0001
+  OutFieldDual
 }
 {
   !D I@006/0001
@@ -633,6 +703,45 @@ Number
   !AD
   I@084/0001
   $ref
+}
+{
+  !D I@006/0001
+  DualGenDual
+  {
+    !DF I@020/0001
+    field
+    :
+    I@027/0001
+    DualGenDualRef
+    <
+      I@042/0001
+      DualGenDualAlt
+    >
+  }
+}
+{
+  !D I@065/0001
+  DualGenDualRef
+  <
+    I@081/0001
+    $ref
+  >
+  |
+  !AD
+  I@091/0001
+  $ref
+}
+{
+  !D I@102/0001
+  DualGenDualAlt
+}
+{
+  !D I@096/0001
+  InGenDualAlt
+}
+{
+  !D I@102/0001
+  OutGenDualAlt
 }
 {
   !D I@006/0001
@@ -781,6 +890,25 @@ Number
 }
 {
   !D I@006/0001
+  DualTestPrntDual
+  :
+  I@026/0001
+  DualPrntDualTest
+}
+{
+  !D I@050/0001
+  DualPrntDualTest
+}
+{
+  !D I@047/0001
+  InPrntDualTest
+}
+{
+  !D I@050/0001
+  OutPrntDualTest
+}
+{
+  !D I@006/0001
   DualPrntFields
   :
   I@024/0001
@@ -874,6 +1002,26 @@ Number
 }
 {
   !I I@007/0001
+  InAlts
+  |
+  !AI
+  I@018/0001
+  InAlt
+}
+{
+  !I I@032/0001
+  InAlt
+}
+{
+  !I I@007/0001
+  InAltsDual
+  |
+  !AI
+  I@022/0001
+  InAltDual
+}
+{
+  !I I@007/0001
   InAltMods
   |
   !AI
@@ -884,6 +1032,32 @@ Number
 {
   !I I@042/0001
   InModsAlt
+}
+{
+  !I I@007/0001
+  InFields
+  {
+    !IF I@018/0001
+    field
+    :
+    I@025/0001
+    InField
+  }
+}
+{
+  !I I@041/0001
+  InField
+}
+{
+  !I I@007/0001
+  InFieldsDual
+  {
+    !IF I@022/0001
+    field
+    :
+    I@029/0001
+    InFieldDual
+  }
 }
 {
   !I I@007/0001
@@ -935,6 +1109,33 @@ Number
   |
   !AI
   I@080/0001
+  $ref
+}
+{
+  !I I@007/0001
+  InGenDual
+  {
+    !IF I@019/0001
+    field
+    :
+    I@026/0001
+    InGenDualRef
+    <
+      I@039/0001
+      InGenDualAlt
+    >
+  }
+}
+{
+  !I I@061/0001
+  InGenDualRef
+  <
+    I@075/0001
+    $ref
+  >
+  |
+  !AI
+  I@085/0001
   $ref
 }
 {
@@ -1149,6 +1350,13 @@ Number
 }
 {
   !I I@007/0001
+  InTestPrntDual
+  :
+  I@025/0001
+  InPrntDualTest
+}
+{
+  !I I@007/0001
   InPrntFields
   :
   I@023/0001
@@ -1258,6 +1466,26 @@ Number
 }
 {
   !O I@008/0001
+  OutAlts
+  |
+  !AO
+  I@020/0001
+  OutAlt
+}
+{
+  !O I@036/0001
+  OutAlt
+}
+{
+  !O I@008/0001
+  OutAltsDual
+  |
+  !AO
+  I@024/0001
+  OutAltDual
+}
+{
+  !O I@008/0001
   OutAltMods
   |
   !AO
@@ -1268,6 +1496,32 @@ Number
 {
   !O I@046/0001
   OutModsAlt
+}
+{
+  !O I@008/0001
+  OutFields
+  {
+    !OF I@020/0001
+    field
+    :
+    I@027/0001
+    OutField
+  }
+}
+{
+  !O I@045/0001
+  OutField
+}
+{
+  !O I@008/0001
+  OutFieldsDual
+  {
+    !OF I@024/0001
+    field
+    :
+    I@031/0001
+    OutFieldDual
+  }
 }
 {
   !O I@008/0001
@@ -1319,6 +1573,33 @@ Number
   |
   !AO
   I@085/0001
+  $ref
+}
+{
+  !O I@008/0001
+  OutGenDual
+  {
+    !OF I@021/0001
+    field
+    :
+    I@028/0001
+    OutGenDualRef
+    <
+      I@042/0001
+      OutGenDualAlt
+    >
+  }
+}
+{
+  !O I@066/0001
+  OutGenDualRef
+  <
+    I@081/0001
+    $ref
+  >
+  |
+  !AO
+  I@091/0001
   $ref
 }
 {
@@ -1647,6 +1928,13 @@ Number
   !AO
   I@066/0001
   String
+}
+{
+  !O I@008/0001
+  OutTestPrntDual
+  :
+  I@027/0001
+  OutPrntDualTest
 }
 {
   !O I@008/0001

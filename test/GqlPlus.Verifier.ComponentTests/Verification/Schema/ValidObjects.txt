@@ -1,6 +1,22 @@
-﻿// alts-mods-Boolean
+﻿// alts
+object ObjAlts { | ObjAlt }
+object ObjAlt { }
+
+// alts-dual
+object ObjAltsDual { | ObjAltDual }
+dual ObjAltDual { }
+
+// alts-mods-Boolean
 object ObjAltMods { | ObjModsAlt[^] }
 object ObjModsAlt { }
+
+// fields
+object ObjFields { field: ObjField }
+object ObjField { }
+
+// fields-dual
+object ObjFieldsDual { field: ObjFieldDual }
+dual ObjFieldDual { }
 
 // fields-mods-Enum
 object ObjFieldMods { field: ObjFieldMods[ObjFieldEnum] }
@@ -28,6 +44,11 @@ object ObjGenPrntRef<$ref> { | $ref }
 object ObjGenParam { field: ObjGenParamRef<ObjGenParamAlt> }
 object ObjGenParamRef<$ref> { | $ref }
 object ObjGenParamAlt { }
+
+// generic-dual
+object ObjGenDual { field: ObjGenDualRef<ObjGenDualAlt> }
+object ObjGenDualRef<$ref> { | $ref }
+dual ObjGenDualAlt { }
 
 // generic-parent
 object ObjGenPrnt<$type> { :$type }
@@ -92,6 +113,10 @@ input OutParamParent { }
 // parent
 object ObjTestParent { :ObjParentTest }
 object ObjParentTest { }
+
+// parent-dual
+object ObjTestPrntDual { :ObjPrntDualTest }
+dual ObjPrntDualTest { }
 
 // parent-alts
 object ObjPrntAlt { :ObjAltPrnt | Number }

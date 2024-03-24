@@ -35,7 +35,7 @@ internal class VerifyOutputTypes(
   protected override void UsageField(OutputFieldAst field, OutputContext context)
   {
     foreach (var parameter in field.Parameters) {
-      context.CheckType(parameter.Type);
+      context.CheckType(parameter.Type, " Parameter");
 
       context.CheckModifiers(parameter);
     }

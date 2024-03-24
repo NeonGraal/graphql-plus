@@ -23,6 +23,30 @@ object Recurse { | Test }
 // alts-self
 object Test { | Test }
 
+// dual-alt-input
+dual Test { | Bad }
+input Bad { }
+
+// dual-alt-output
+dual Test { | Bad }
+output Bad { }
+
+// dual-field-input
+dual Test { field: Bad }
+input Bad { }
+
+// dual-field-output
+dual Test { field: Bad }
+output Bad { }
+
+// dual-parent-input
+dual Test { :Bad }
+input Bad { }
+
+// dual-parent-output
+dual Test { :Bad }
+output Bad { }
+
 // fields-alias
 object Test { field1[alias]: Test }
 object Test { field2[alias]: Test[] }
@@ -81,9 +105,21 @@ object Test<$type> { }
 // input-field-null
 input Test { field: Test = null }
 
+// input-alt-output
+input Test { | Bad }
+output Bad { }
+
+// input-field-output
+input Test { field: Bad }
+output Bad { }
+
 // input-parent-output
 input Test { :Bad }
 output Bad { }
+
+// output-alt-input
+output Test { | Bad }
+input Bad { }
 
 // output-enum-bad
 output Test { field = unknown }
@@ -98,6 +134,10 @@ output Test { field = Boolean.unknown }
 // output-enumValue-wrong
 output Test { field = Wrong.unknown }
 input Wrong { }
+
+// output-field-input
+output Test { field: Bad }
+input Bad { }
 
 // output-generic-enum-bad
 output Test { | Ref<Boolean.unknown> }

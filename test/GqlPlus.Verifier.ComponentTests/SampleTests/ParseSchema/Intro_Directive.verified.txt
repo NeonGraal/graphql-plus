@@ -12,24 +12,24 @@ Success
   _Type
 }
 {
-  !D I@006/0006
+  !O I@008/0006
   _Directive
   :
   I@007/0007
   _Aliased
   {
-    !DF I@009/0008
+    !OF I@009/0008
     parameters
     :
     I@021/0008
     _Parameter
     []
-    !DF I@009/0009
+    !OF I@009/0009
     repeatable
     :
     I@021/0009
     Boolean
-    !DF I@009/0010
+    !OF I@009/0010
     locations
     :
     I@020/0010

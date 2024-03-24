@@ -1,4 +1,4 @@
 ﻿[
   !!! I@006/0001 : Invalid Dual Parent. '_Named' not defined. - '_UnionMember' !!!,
-  !!! I@016/0003 : Invalid Dual. 'Identifier' not defined. - 'Identifier' !!!
+  !!! I@016/0003 : Invalid Dual Field. 'Identifier' not defined. - 'Identifier' !!!
 ]

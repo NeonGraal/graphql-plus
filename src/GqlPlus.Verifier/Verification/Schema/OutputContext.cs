@@ -11,7 +11,7 @@ internal class OutputContext(
 ) : EnumContext(types, errors, enumValues)
 {
 
-  internal override void CheckArgumentType<TRef>(TRef type)
+  internal override void CheckArgumentType<TRef>(TRef type, string labelSuffix)
   {
     if (type is OutputReferenceAst output) {
       if (string.IsNullOrWhiteSpace(output.EnumValue) && GetEnumValue(type.Name, out var enumType)) {
@@ -23,7 +23,7 @@ internal class OutputContext(
         CheckEnumValue("Argument", output);
       }
 
-      base.CheckArgumentType(type);
+      base.CheckArgumentType(type, labelSuffix);
     }
   }
 

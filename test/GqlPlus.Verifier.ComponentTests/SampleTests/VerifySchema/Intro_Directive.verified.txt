@@ -1,5 +1,5 @@
 ﻿[
-  !!! I@006/0006 : Invalid Dual Parent. '_Aliased' not defined. - '_Directive' !!!,
-  !!! I@007/0003 : Invalid Output. '_Type' not defined. - '_Type' !!!,
-  !!! I@021/0008 : Invalid Dual. '_Parameter' not defined. - '_Parameter' !!!
+  !!! I@007/0003 : Invalid Output Alternate. '_Type' not defined. - '_Type' !!!,
+  !!! I@008/0006 : Invalid Output Parent. '_Aliased' not defined. - '_Directive' !!!,
+  !!! I@021/0008 : Invalid Output Field. '_Parameter' not defined. - '_Parameter' !!!
 ]

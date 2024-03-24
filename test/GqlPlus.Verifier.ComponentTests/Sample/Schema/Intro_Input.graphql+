@@ -1,6 +1,7 @@
 output _InputBase {
     : _ObjBase<_ObjRef<_InputBase>>
         input: Identifier
+    | _DualBase
     }
 
 output _InputField {

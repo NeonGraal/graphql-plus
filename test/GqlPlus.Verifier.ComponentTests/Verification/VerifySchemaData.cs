@@ -13,6 +13,12 @@ public partial class VerifySchemaTests
     ["alts-more"] = "object Test { | Recurse } object Recurse { | More } object More { | Test }",
     ["alts-recurse"] = "object Test { | Recurse } object Recurse { | Test }",
     ["alts-self"] = "object Test { | Test }",
+    ["dual-alt-input"] = "dual Test { | Bad } input Bad { }",
+    ["dual-alt-output"] = "dual Test { | Bad } output Bad { }",
+    ["dual-field-input"] = "dual Test { field: Bad } input Bad { }",
+    ["dual-field-output"] = "dual Test { field: Bad } output Bad { }",
+    ["dual-parent-input"] = "dual Test { :Bad } input Bad { }",
+    ["dual-parent-output"] = "dual Test { :Bad } output Bad { }",
     ["fields-alias"] = "object Test { field1[alias]: Test } object Test { field2[alias]: Test[] }",
     ["fields-diff-mods"] = "object Test { field: Test } object Test { field: Test[] }",
     ["fields-diff-type"] = "object Test { field: Test } object Test { field: Test1 } object Test1 { }",
@@ -28,12 +34,16 @@ public partial class VerifySchemaTests
     ["generic-parent-more"] = "object Test { :Ref<Number> } object Ref { }",
     ["generic-parent-undef"] = "object Test { :$type }",
     ["generic-unused"] = "object Test<$type> { }",
+    ["input-alt-output"] = "input Test { | Bad } output Bad { }",
     ["input-field-null"] = "input Test { field: Test = null }",
+    ["input-field-output"] = "input Test { field: Bad } output Bad { }",
     ["input-parent-output"] = "input Test { :Bad } output Bad { }",
+    ["output-alt-input"] = "output Test { | Bad } input Bad { }",
     ["output-enum-bad"] = "output Test { field = unknown }",
     ["output-enums-diff"] = "output Test { field = true } output Test { field = false }",
     ["output-enumValue-bad"] = "output Test { field = Boolean.unknown }",
     ["output-enumValue-wrong"] = "output Test { field = Wrong.unknown } input Wrong { }",
+    ["output-field-input"] = "output Test { field: Bad } input Bad { }",
     ["output-generic-enum-bad"] = "output Test { | Ref<Boolean.unknown> } output Ref<$type> { field: $type }",
     ["output-generic-enum-wrong"] = "output Test { | Ref<Wrong.unknown> } output Ref<$type> { field: $type } output Wrong { }",
     ["output-params-diff"] = "output Test { field(Param): Test } output Test { field(Param?): Test } input Param { }",
@@ -73,6 +83,12 @@ public partial class VerifySchemaTests
       Add("alts-more");
       Add("alts-recurse");
       Add("alts-self");
+      Add("dual-alt-input");
+      Add("dual-alt-output");
+      Add("dual-field-input");
+      Add("dual-field-output");
+      Add("dual-parent-input");
+      Add("dual-parent-output");
       Add("fields-alias");
       Add("fields-diff-mods");
       Add("fields-diff-type");
@@ -88,12 +104,16 @@ public partial class VerifySchemaTests
       Add("generic-parent-more");
       Add("generic-parent-undef");
       Add("generic-unused");
+      Add("input-alt-output");
       Add("input-field-null");
+      Add("input-field-output");
       Add("input-parent-output");
+      Add("output-alt-input");
       Add("output-enum-bad");
       Add("output-enums-diff");
       Add("output-enumValue-bad");
       Add("output-enumValue-wrong");
+      Add("output-field-input");
       Add("output-generic-enum-bad");
       Add("output-generic-enum-wrong");
       Add("output-params-diff");
@@ -315,10 +335,15 @@ public partial class VerifySchemaTests
     }
   }
   private static readonly Dictionary<string, string> s_schemaValidObjects = new() {
+    ["alts"] = "object ObjAlts { | ObjAlt } object ObjAlt { }",
+    ["alts-dual"] = "object ObjAltsDual { | ObjAltDual } dual ObjAltDual { }",
     ["alts-mods-Boolean"] = "object ObjAltMods { | ObjModsAlt[^] } object ObjModsAlt { }",
+    ["fields"] = "object ObjFields { field: ObjField } object ObjField { }",
+    ["fields-dual"] = "object ObjFieldsDual { field: ObjFieldDual } dual ObjFieldDual { }",
     ["fields-mods-Enum"] = "object ObjFieldMods { field: ObjFieldMods[ObjFieldEnum] } enum ObjFieldEnum { value }",
     ["generic-alt"] = "object ObjGenAlt<$type> { | $type }",
     ["generic-alt-arg"] = "object ObjGenAltArg<$type> { | ObjGenAltRef<$type> } object ObjGenAltRef<$ref> { | $ref }",
+    ["generic-dual"] = "object ObjGenDual { field: ObjGenDualRef<ObjGenDualAlt> } object ObjGenDualRef<$ref> { | $ref } dual ObjGenDualAlt { }",
     ["generic-field"] = "object ObjGenField<$type> { field: $type }",
     ["generic-field-arg"] = "object ObjGenFieldArg<$type> { field: ObjGenFieldRef<$type> } object ObjGenFieldRef<$ref> { | $ref }",
     ["generic-param"] = "object ObjGenParam { field: ObjGenParamRef<ObjGenParamAlt> } object ObjGenParamRef<$ref> { | $ref } object ObjGenParamAlt { }",
@@ -339,6 +364,7 @@ public partial class VerifySchemaTests
     ["output-parent-params"] = "output OutPrntParams { :OutParamsParent field(OutPrntParam): OutPrntParams } output OutParamsParent { field(OutParamParent): OutPrntParams } input OutPrntParam { } input OutParamParent { }",
     ["parent"] = "object ObjTestParent { :ObjParentTest } object ObjParentTest { }",
     ["parent-alts"] = "object ObjPrntAlt { :ObjAltPrnt | Number } object ObjAltPrnt { | String }",
+    ["parent-dual"] = "object ObjTestPrntDual { :ObjPrntDualTest } dual ObjPrntDualTest { }",
     ["parent-fields"] = "object ObjPrntFields { :ObjFieldsParent field: Number } object ObjFieldsParent { parent: String }",
     ["parent-params-diff"] = "object ObjPrntPrmsDiff<$a> { :ObjPrmsPrntDiff<$a> field: $a } object ObjPrmsPrntDiff<$b> { | $b }",
     ["parent-params-same"] = "object ObjPrntPrmsSame<$a> { :ObjPrmsPrntSame<$a> field: $a } object ObjPrmsPrntSame<$a> { | $a }",
@@ -348,10 +374,15 @@ public partial class VerifySchemaTests
   {
     public SchemaValidObjects()
     {
+      Add("alts");
+      Add("alts-dual");
       Add("alts-mods-Boolean");
+      Add("fields");
+      Add("fields-dual");
       Add("fields-mods-Enum");
       Add("generic-alt");
       Add("generic-alt-arg");
+      Add("generic-dual");
       Add("generic-field");
       Add("generic-field-arg");
       Add("generic-param");
@@ -372,6 +403,7 @@ public partial class VerifySchemaTests
       Add("output-parent-params");
       Add("parent");
       Add("parent-alts");
+      Add("parent-dual");
       Add("parent-fields");
       Add("parent-params-diff");
       Add("parent-params-same");

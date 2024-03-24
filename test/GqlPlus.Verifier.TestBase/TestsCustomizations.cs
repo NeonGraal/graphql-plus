@@ -37,7 +37,7 @@ public sealed class TestsCustomizations : CompositeCustomization
       if (type == typeof(string[])) {
         var resolution = context.Resolve(new RangedSequenceRequest(new RegularExpressionRequest(IdentifierPattern), 1, 5));
         return resolution is IEnumerable<object> list
-          ? list.Select(item => item.ToString()).ToArray()
+          ? list.Select(item => item.ToString()).Distinct().ToArray()
           : resolution;
       }
 

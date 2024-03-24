@@ -1,0 +1,3 @@
+﻿[
+  Invalid Dual Parent. Type kind mismatch for Bad. Found Output.
+]

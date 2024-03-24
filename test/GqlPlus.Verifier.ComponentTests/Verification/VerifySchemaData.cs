@@ -15,10 +15,16 @@ public partial class VerifySchemaTests
     ["alts-self"] = "object Test { | Test }",
     ["dual-alt-input"] = "dual Test { | Bad } input Bad { }",
     ["dual-alt-output"] = "dual Test { | Bad } output Bad { }",
+    ["dual-alt-param-input"] = "dual Test { | Param<Bad> } dual Param<$T> { | $T } input Bad { }",
+    ["dual-alt-param-output"] = "dual Test { | Param<Bad> } dual Param<$T> { | $T } output Bad { }",
     ["dual-field-input"] = "dual Test { field: Bad } input Bad { }",
     ["dual-field-output"] = "dual Test { field: Bad } output Bad { }",
+    ["dual-field-param-input"] = "dual Test { field: Param<Bad> } dual Param<$T> { | $T } input Bad { }",
+    ["dual-field-param-output"] = "dual Test { field: Param<Bad> } dual Param<$T> { | $T } output Bad { }",
     ["dual-parent-input"] = "dual Test { :Bad } input Bad { }",
     ["dual-parent-output"] = "dual Test { :Bad } output Bad { }",
+    ["dual-parent-param-input"] = "dual Test { :Param<Bad> } dual Param<$T> { | $T } input Bad { }",
+    ["dual-parent-param-output"] = "dual Test { :Param<Bad> } dual Param<$T> { | $T } output Bad { }",
     ["fields-alias"] = "object Test { field1[alias]: Test } object Test { field2[alias]: Test[] }",
     ["fields-diff-mods"] = "object Test { field: Test } object Test { field: Test[] }",
     ["fields-diff-type"] = "object Test { field: Test } object Test { field: Test1 } object Test1 { }",
@@ -85,10 +91,16 @@ public partial class VerifySchemaTests
       Add("alts-self");
       Add("dual-alt-input");
       Add("dual-alt-output");
+      Add("dual-alt-param-input");
+      Add("dual-alt-param-output");
       Add("dual-field-input");
       Add("dual-field-output");
+      Add("dual-field-param-input");
+      Add("dual-field-param-output");
       Add("dual-parent-input");
       Add("dual-parent-output");
+      Add("dual-parent-param-input");
+      Add("dual-parent-param-output");
       Add("fields-alias");
       Add("fields-diff-mods");
       Add("fields-diff-type");
@@ -343,12 +355,18 @@ public partial class VerifySchemaTests
     ["fields-mods-Enum"] = "object ObjFieldMods { field: ObjFieldMods[ObjFieldEnum] } enum ObjFieldEnum { value }",
     ["generic-alt"] = "object ObjGenAlt<$type> { | $type }",
     ["generic-alt-arg"] = "object ObjGenAltArg<$type> { | ObjGenAltRef<$type> } object ObjGenAltRef<$ref> { | $ref }",
+    ["generic-alt-dual"] = "object ObjGenAltDual { | ObjGenAltDualRef<ObjGenAltDualAlt> } object ObjGenAltDualRef<$ref> { | $ref } dual ObjGenAltDualAlt { }",
+    ["generic-alt-param"] = "object ObjGenAltParam { | ObjGenAltParamRef<ObjGenAltParamAlt> } object ObjGenAltParamRef<$ref> { | $ref } object ObjGenAltParamAlt { }",
     ["generic-dual"] = "object ObjGenDual { field: ObjGenDualRef<ObjGenDualAlt> } object ObjGenDualRef<$ref> { | $ref } dual ObjGenDualAlt { }",
     ["generic-field"] = "object ObjGenField<$type> { field: $type }",
     ["generic-field-arg"] = "object ObjGenFieldArg<$type> { field: ObjGenFieldRef<$type> } object ObjGenFieldRef<$ref> { | $ref }",
+    ["generic-field-dual"] = "object ObjGenFieldDual { field: ObjGenFieldDualRef<ObjGenFieldDualAlt> } object ObjGenFieldDualRef<$ref> { | $ref } dual ObjGenFieldDualAlt { }",
+    ["generic-field-param"] = "object ObjGenFieldParam { field: ObjGenFieldParamRef<ObjGenFieldParamAlt> } object ObjGenFieldParamRef<$ref> { | $ref } object ObjGenFieldParamAlt { }",
     ["generic-param"] = "object ObjGenParam { field: ObjGenParamRef<ObjGenParamAlt> } object ObjGenParamRef<$ref> { | $ref } object ObjGenParamAlt { }",
     ["generic-parent"] = "object ObjGenPrnt<$type> { :$type }",
     ["generic-parent-arg"] = "object ObjGenPrntArg<$type> { :ObjGenPrntRef<$type> } object ObjGenPrntRef<$ref> { | $ref }",
+    ["generic-parent-dual"] = "object ObjGenParentDual { :ObjGenParentDualRef<ObjGenParentDualAlt> } object ObjGenParentDualRef<$ref> { | $ref } dual ObjGenParentDualAlt { }",
+    ["generic-parent-param"] = "object ObjGenParentParam { :ObjGenParentParamRef<ObjGenParentParamAlt> } object ObjGenParentParamRef<$ref> { | $ref } object ObjGenParentParamAlt { }",
     ["input-field-Enum"] = "input InFieldEnum { field: InEnumField = value } enum InEnumField { value }",
     ["input-field-null"] = "input InFieldNull { field: InFieldNull? = null }",
     ["input-field-Number"] = "input InFieldNum { field: Number = 0 }",
@@ -382,12 +400,18 @@ public partial class VerifySchemaTests
       Add("fields-mods-Enum");
       Add("generic-alt");
       Add("generic-alt-arg");
+      Add("generic-alt-dual");
+      Add("generic-alt-param");
       Add("generic-dual");
       Add("generic-field");
       Add("generic-field-arg");
+      Add("generic-field-dual");
+      Add("generic-field-param");
       Add("generic-param");
       Add("generic-parent");
       Add("generic-parent-arg");
+      Add("generic-parent-dual");
+      Add("generic-parent-param");
       Add("input-field-Enum");
       Add("input-field-null");
       Add("input-field-Number");

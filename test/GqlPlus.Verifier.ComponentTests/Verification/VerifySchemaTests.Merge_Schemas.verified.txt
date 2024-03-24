@@ -706,6 +706,70 @@ Number
 }
 {
   !D I@006/0001
+  DualGenAltDual
+  |
+  !AD
+  I@025/0001
+  DualGenAltDualRef
+  <
+    I@043/0001
+    DualGenAltDualAlt
+  >
+}
+{
+  !D I@069/0001
+  DualGenAltDualRef
+  <
+    I@088/0001
+    $ref
+  >
+  |
+  !AD
+  I@098/0001
+  $ref
+}
+{
+  !D I@109/0001
+  DualGenAltDualAlt
+}
+{
+  !D I@103/0001
+  InGenAltDualAlt
+}
+{
+  !D I@109/0001
+  OutGenAltDualAlt
+}
+{
+  !D I@006/0001
+  DualGenAltParam
+  |
+  !AD
+  I@026/0001
+  DualGenAltParamRef
+  <
+    I@045/0001
+    DualGenAltParamAlt
+  >
+}
+{
+  !D I@072/0001
+  DualGenAltParamRef
+  <
+    I@092/0001
+    $ref
+  >
+  |
+  !AD
+  I@102/0001
+  $ref
+}
+{
+  !D I@113/0001
+  DualGenAltParamAlt
+}
+{
+  !D I@006/0001
   DualGenDual
   {
     !DF I@020/0001
@@ -791,6 +855,76 @@ Number
 }
 {
   !D I@006/0001
+  DualGenFieldDual
+  {
+    !DF I@025/0001
+    field
+    :
+    I@032/0001
+    DualGenFieldDualRef
+    <
+      I@052/0001
+      DualGenFieldDualAlt
+    >
+  }
+}
+{
+  !D I@080/0001
+  DualGenFieldDualRef
+  <
+    I@101/0001
+    $ref
+  >
+  |
+  !AD
+  I@111/0001
+  $ref
+}
+{
+  !D I@122/0001
+  DualGenFieldDualAlt
+}
+{
+  !D I@116/0001
+  InGenFieldDualAlt
+}
+{
+  !D I@122/0001
+  OutGenFieldDualAlt
+}
+{
+  !D I@006/0001
+  DualGenFieldParam
+  {
+    !DF I@026/0001
+    field
+    :
+    I@033/0001
+    DualGenFieldParamRef
+    <
+      I@054/0001
+      DualGenFieldParamAlt
+    >
+  }
+}
+{
+  !D I@083/0001
+  DualGenFieldParamRef
+  <
+    I@105/0001
+    $ref
+  >
+  |
+  !AD
+  I@115/0001
+  $ref
+}
+{
+  !D I@126/0001
+  DualGenFieldParamAlt
+}
+{
+  !D I@006/0001
   DualGenParam
   {
     !DF I@021/0001
@@ -857,6 +991,68 @@ Number
   !AD
   I@086/0001
   $ref
+}
+{
+  !D I@006/0001
+  DualGenParentDual
+  :
+  I@027/0001
+  DualGenParentDualRef
+  <
+    I@048/0001
+    DualGenParentDualAlt
+  >
+}
+{
+  !D I@077/0001
+  DualGenParentDualRef
+  <
+    I@099/0001
+    $ref
+  >
+  |
+  !AD
+  I@109/0001
+  $ref
+}
+{
+  !D I@120/0001
+  DualGenParentDualAlt
+}
+{
+  !D I@114/0001
+  InGenParentDualAlt
+}
+{
+  !D I@120/0001
+  OutGenParentDualAlt
+}
+{
+  !D I@006/0001
+  DualGenParentParam
+  :
+  I@028/0001
+  DualGenParentParamRef
+  <
+    I@050/0001
+    DualGenParentParamAlt
+  >
+}
+{
+  !D I@080/0001
+  DualGenParentParamRef
+  <
+    I@103/0001
+    $ref
+  >
+  |
+  !AD
+  I@113/0001
+  $ref
+}
+{
+  !D I@124/0001
+  DualGenParentParamAlt
 }
 {
   !D I@006/0001
@@ -1113,6 +1309,58 @@ Number
 }
 {
   !I I@007/0001
+  InGenAltDual
+  |
+  !AI
+  I@024/0001
+  InGenAltDualRef
+  <
+    I@040/0001
+    InGenAltDualAlt
+  >
+}
+{
+  !I I@065/0001
+  InGenAltDualRef
+  <
+    I@082/0001
+    $ref
+  >
+  |
+  !AI
+  I@092/0001
+  $ref
+}
+{
+  !I I@007/0001
+  InGenAltParam
+  |
+  !AI
+  I@025/0001
+  InGenAltParamRef
+  <
+    I@042/0001
+    InGenAltParamAlt
+  >
+}
+{
+  !I I@068/0001
+  InGenAltParamRef
+  <
+    I@086/0001
+    $ref
+  >
+  |
+  !AI
+  I@096/0001
+  $ref
+}
+{
+  !I I@108/0001
+  InGenAltParamAlt
+}
+{
+  !I I@007/0001
   InGenDual
   {
     !IF I@019/0001
@@ -1186,6 +1434,64 @@ Number
 }
 {
   !I I@007/0001
+  InGenFieldDual
+  {
+    !IF I@024/0001
+    field
+    :
+    I@031/0001
+    InGenFieldDualRef
+    <
+      I@049/0001
+      InGenFieldDualAlt
+    >
+  }
+}
+{
+  !I I@076/0001
+  InGenFieldDualRef
+  <
+    I@095/0001
+    $ref
+  >
+  |
+  !AI
+  I@105/0001
+  $ref
+}
+{
+  !I I@007/0001
+  InGenFieldParam
+  {
+    !IF I@025/0001
+    field
+    :
+    I@032/0001
+    InGenFieldParamRef
+    <
+      I@051/0001
+      InGenFieldParamAlt
+    >
+  }
+}
+{
+  !I I@079/0001
+  InGenFieldParamRef
+  <
+    I@099/0001
+    $ref
+  >
+  |
+  !AI
+  I@109/0001
+  $ref
+}
+{
+  !I I@121/0001
+  InGenFieldParamAlt
+}
+{
+  !I I@007/0001
   InGenParam
   {
     !IF I@020/0001
@@ -1252,6 +1558,56 @@ Number
   !AI
   I@082/0001
   $ref
+}
+{
+  !I I@007/0001
+  InGenParentDual
+  :
+  I@026/0001
+  InGenParentDualRef
+  <
+    I@045/0001
+    InGenParentDualAlt
+  >
+}
+{
+  !I I@073/0001
+  InGenParentDualRef
+  <
+    I@093/0001
+    $ref
+  >
+  |
+  !AI
+  I@103/0001
+  $ref
+}
+{
+  !I I@007/0001
+  InGenParentParam
+  :
+  I@027/0001
+  InGenParentParamRef
+  <
+    I@047/0001
+    InGenParentParamAlt
+  >
+}
+{
+  !I I@076/0001
+  InGenParentParamRef
+  <
+    I@097/0001
+    $ref
+  >
+  |
+  !AI
+  I@107/0001
+  $ref
+}
+{
+  !I I@119/0001
+  InGenParentParamAlt
 }
 {
   !I I@007/0001
@@ -1577,6 +1933,58 @@ Number
 }
 {
   !O I@008/0001
+  OutGenAltDual
+  |
+  !AO
+  I@026/0001
+  OutGenAltDualRef
+  <
+    I@043/0001
+    OutGenAltDualAlt
+  >
+}
+{
+  !O I@070/0001
+  OutGenAltDualRef
+  <
+    I@088/0001
+    $ref
+  >
+  |
+  !AO
+  I@098/0001
+  $ref
+}
+{
+  !O I@008/0001
+  OutGenAltParam
+  |
+  !AO
+  I@027/0001
+  OutGenAltParamRef
+  <
+    I@045/0001
+    OutGenAltParamAlt
+  >
+}
+{
+  !O I@073/0001
+  OutGenAltParamRef
+  <
+    I@092/0001
+    $ref
+  >
+  |
+  !AO
+  I@102/0001
+  $ref
+}
+{
+  !O I@115/0001
+  OutGenAltParamAlt
+}
+{
+  !O I@008/0001
   OutGenDual
   {
     !OF I@021/0001
@@ -1650,6 +2058,64 @@ Number
 }
 {
   !O I@008/0001
+  OutGenFieldDual
+  {
+    !OF I@026/0001
+    field
+    :
+    I@033/0001
+    OutGenFieldDualRef
+    <
+      I@052/0001
+      OutGenFieldDualAlt
+    >
+  }
+}
+{
+  !O I@081/0001
+  OutGenFieldDualRef
+  <
+    I@101/0001
+    $ref
+  >
+  |
+  !AO
+  I@111/0001
+  $ref
+}
+{
+  !O I@008/0001
+  OutGenFieldParam
+  {
+    !OF I@027/0001
+    field
+    :
+    I@034/0001
+    OutGenFieldParamRef
+    <
+      I@054/0001
+      OutGenFieldParamAlt
+    >
+  }
+}
+{
+  !O I@084/0001
+  OutGenFieldParamRef
+  <
+    I@105/0001
+    $ref
+  >
+  |
+  !AO
+  I@115/0001
+  $ref
+}
+{
+  !O I@128/0001
+  OutGenFieldParamAlt
+}
+{
+  !O I@008/0001
   OutGenParam
   {
     !OF I@022/0001
@@ -1716,6 +2182,56 @@ Number
   !AO
   I@087/0001
   $ref
+}
+{
+  !O I@008/0001
+  OutGenParentDual
+  :
+  I@028/0001
+  OutGenParentDualRef
+  <
+    I@048/0001
+    OutGenParentDualAlt
+  >
+}
+{
+  !O I@078/0001
+  OutGenParentDualRef
+  <
+    I@099/0001
+    $ref
+  >
+  |
+  !AO
+  I@109/0001
+  $ref
+}
+{
+  !O I@008/0001
+  OutGenParentParam
+  :
+  I@029/0001
+  OutGenParentParamRef
+  <
+    I@050/0001
+    OutGenParentParamAlt
+  >
+}
+{
+  !O I@081/0001
+  OutGenParentParamRef
+  <
+    I@103/0001
+    $ref
+  >
+  |
+  !AO
+  I@113/0001
+  $ref
+}
+{
+  !O I@126/0001
+  OutGenParentParamAlt
 }
 {
   !O I@008/0001

@@ -29,16 +29,46 @@ object ObjGenAlt<$type> { | $type }
 object ObjGenAltArg<$type> { | ObjGenAltRef<$type> }
 object ObjGenAltRef<$ref> { | $ref }
 
-// generic-field-arg
-object ObjGenFieldArg<$type> { field: ObjGenFieldRef<$type> }
-object ObjGenFieldRef<$ref> { | $ref }
+// generic-alt-dual
+object ObjGenAltDual { | ObjGenAltDualRef<ObjGenAltDualAlt> }
+object ObjGenAltDualRef<$ref> { | $ref }
+dual ObjGenAltDualAlt { }
+
+// generic-alt-param
+object ObjGenAltParam { | ObjGenAltParamRef<ObjGenAltParamAlt> }
+object ObjGenAltParamRef<$ref> { | $ref }
+object ObjGenAltParamAlt { }
 
 // generic-field
 object ObjGenField<$type> { field: $type }
 
+// generic-field-arg
+object ObjGenFieldArg<$type> { field: ObjGenFieldRef<$type> }
+object ObjGenFieldRef<$ref> { | $ref }
+
+// generic-field-dual
+object ObjGenFieldDual { field: ObjGenFieldDualRef<ObjGenFieldDualAlt> }
+object ObjGenFieldDualRef<$ref> { | $ref }
+dual ObjGenFieldDualAlt { }
+
+// generic-field-param
+object ObjGenFieldParam { field: ObjGenFieldParamRef<ObjGenFieldParamAlt> }
+object ObjGenFieldParamRef<$ref> { | $ref }
+object ObjGenFieldParamAlt { }
+
 // generic-parent-arg
 object ObjGenPrntArg<$type> { :ObjGenPrntRef<$type> }
 object ObjGenPrntRef<$ref> { | $ref }
+
+// generic-parent-dual
+object ObjGenParentDual { :ObjGenParentDualRef<ObjGenParentDualAlt> }
+object ObjGenParentDualRef<$ref> { | $ref }
+dual ObjGenParentDualAlt { }
+
+// generic-parent-param
+object ObjGenParentParam { :ObjGenParentParamRef<ObjGenParentParamAlt> }
+object ObjGenParentParamRef<$ref> { | $ref }
+object ObjGenParentParamAlt { }
 
 // generic-param
 object ObjGenParam { field: ObjGenParamRef<ObjGenParamAlt> }

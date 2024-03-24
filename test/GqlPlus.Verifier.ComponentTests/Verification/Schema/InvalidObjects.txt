@@ -31,6 +31,16 @@ input Bad { }
 dual Test { | Bad }
 output Bad { }
 
+// dual-alt-param-input
+dual Test { | Param<Bad> }
+dual Param<$T> { | $T }
+input Bad { }
+
+// dual-alt-param-output
+dual Test { | Param<Bad> }
+dual Param<$T> { | $T }
+output Bad { }
+
 // dual-field-input
 dual Test { field: Bad }
 input Bad { }
@@ -39,12 +49,32 @@ input Bad { }
 dual Test { field: Bad }
 output Bad { }
 
+// dual-field-param-input
+dual Test { field: Param<Bad> }
+dual Param<$T> { | $T }
+input Bad { }
+
+// dual-field-param-output
+dual Test { field: Param<Bad> }
+dual Param<$T> { | $T }
+output Bad { }
+
 // dual-parent-input
 dual Test { :Bad }
 input Bad { }
 
 // dual-parent-output
 dual Test { :Bad }
+output Bad { }
+
+// dual-parent-param-input
+dual Test { :Param<Bad> }
+dual Param<$T> { | $T }
+input Bad { }
+
+// dual-parent-param-output
+dual Test { :Param<Bad> }
+dual Param<$T> { | $T }
 output Bad { }
 
 // fields-alias

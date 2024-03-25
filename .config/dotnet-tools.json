@@ -4,15 +4,21 @@
   "tools": {
     "dotnet-coverage": {
       "version": "17.10.3",
-      "commands": ["dotnet-coverage"]
+      "commands": [
+        "dotnet-coverage"
+      ]
     },
     "dotnet-reportgenerator-globaltool": {
-      "version": "5.2.3",
-      "commands": ["reportgenerator"]
-    },
+      "version": "5.2.4",
+      "commands": [
+        "reportgenerator"
+      ]
+    }
     "livereloadserver": {
-      "version": "1.3.1",
-      "commands": ["LiveReloadServer"]
+      "version": "1.3.1"
+      "commands": [
+        "LiveReloadServer"
+      ]
     }
   }
 }

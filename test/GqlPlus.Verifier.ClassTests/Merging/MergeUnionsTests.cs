@@ -7,17 +7,6 @@ namespace GqlPlus.Verifier.Merging;
 public class MergeUnionsTests
   : TestTyped<AstType, UnionDeclAst, string, UnionMemberAst>
 {
-  [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsValuesCantMerge_ReturnsFalse(string name, string[] members)
-  {
-    _unionMembers.CanMerge([]).ReturnsForAnyArgs(false);
-
-    CanMerge_False([
-        new UnionDeclAst(AstNulls.At, name, members.UnionMembers()),
-      new UnionDeclAst(AstNulls.At, name, [])],
-        members is null || members.Length < 2);
-  }
-
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] members1, string[] members2)
   {
@@ -31,24 +20,12 @@ public class MergeUnionsTests
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsSameValues_ReturnsExpected(string name, string[] members)
-  {
-    _unionMembers.Merge([]).ReturnsForAnyArgs(members.UnionMembers());
-
-    Merge_Expected([
+    => Merge_Expected([
         new UnionDeclAst(AstNulls.At, name, members.UnionMembers()),
       new UnionDeclAst(AstNulls.At, name, members.UnionMembers())],
         new UnionDeclAst(AstNulls.At, name, members.UnionMembers()));
-  }
 
-  private readonly IMerge<UnionMemberAst> _unionMembers;
-  private readonly MergeUnions _merger;
-
-  public MergeUnionsTests()
-  {
-    _unionMembers = Merger<UnionMemberAst>();
-
-    _merger = new(_unionMembers);
-  }
+  private readonly MergeUnions _merger = new(new MergeUnionMembers());
 
   internal override AstTypeMerger<AstType, UnionDeclAst, string, UnionMemberAst> MergerTyped => _merger;
 

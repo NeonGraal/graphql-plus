@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\dependabot.yml = .github\dependabot.yml
 		Directory.Build.props = Directory.Build.props
 		.github\workflows\dotnet-test.yml = .github\workflows\dotnet-test.yml
+		.config\dotnet-tools.json = .config\dotnet-tools.json
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier.ComponentTests", "test\GqlPlus.Verifier.ComponentTests\GqlPlus.Verifier.ComponentTests.csproj", "{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2}"

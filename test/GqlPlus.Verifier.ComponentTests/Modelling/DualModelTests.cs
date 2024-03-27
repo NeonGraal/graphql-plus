@@ -27,6 +27,6 @@ internal sealed class DualModelChecks(
       Alternates = alternates.Alternates(NewReferenceAst),
     };
 
-  internal override DualReferenceAst NewReferenceAst(string dual)
-    => new(AstNulls.At, dual);
+  internal override DualReferenceAst NewReferenceAst(string input)
+    => new(AstNulls.At, input);
 }

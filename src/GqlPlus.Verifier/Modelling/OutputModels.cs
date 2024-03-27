@@ -10,10 +10,12 @@ public record class TypeOutputModel(
 
 public record class OutputBaseModel(
   string Output
-) : ObjBaseModel<ObjRefModel<OutputArgumentModel>>
+) : ObjBaseModel<OutputArgumentModel>
 {
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
+    => IsTypeParameter
+    ? new(Output)
+    : base.Render(context)
       .Add("output", Output);
 }
 
@@ -32,6 +34,12 @@ public record class OutputArgumentModel(
 {
   internal string? EnumValue { get; set; }
   internal ObjRefModel<OutputBaseModel>? Ref { get; set; }
+
+  internal override RenderStructure Render(IRenderContext context)
+    => string.IsNullOrWhiteSpace(EnumValue)
+    ? Ref!.Render(context)
+    : base.Render(context)
+      .Add("value", EnumValue);
 }
 
 public record class OutputEnumModel(
@@ -58,10 +66,18 @@ internal class OutputModeller(
 }
 
 internal class OutputReferenceModeller
-  : ModellerBase<OutputReferenceAst, OutputBaseModel>
+  : ModellerReference<OutputReferenceAst, OutputBaseModel, OutputArgumentModel>
 {
+  internal override OutputArgumentModel NewArgument(OutputReferenceAst ast, IMap<TypeKindModel> typeKinds)
+    => string.IsNullOrWhiteSpace(ast.EnumValue)
+      ? new(ast.Name) { Ref = new(ToModel(ast, typeKinds)) }
+      : new(ast.Name) { EnumValue = ast.EnumValue };
+
   internal override OutputBaseModel ToModel(OutputReferenceAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name);
+    => new(ast.Name) {
+      IsTypeParameter = ast.IsTypeParameter,
+      Arguments = ModelArguments(ast, typeKinds),
+    };
 }
 
 internal class OutputFieldModeller(

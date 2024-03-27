@@ -77,8 +77,10 @@ public class RenderStructure
     where T : Enum
     => Add(key, new(value.ToString(), tag ?? typeof(T).TypeTag()));
 
-  public RenderStructure Add(bool optional, Func<RenderStructure, RenderStructure> add)
-    => optional && add is not null ? add(this) : this;
+  public RenderStructure Add(bool optional, Func<RenderStructure, RenderStructure> onTrue, Func<RenderStructure, RenderStructure>? onFalse = null)
+    => optional
+      ? (onTrue is not null ? onTrue(this) : this)
+      : (onFalse is not null ? onFalse(this) : this);
 
   public RenderStructure AddSet<TEnum>(string key, TEnum set, string? tag = null, bool flow = true)
     where TEnum : Enum

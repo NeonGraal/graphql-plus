@@ -14,7 +14,9 @@ public record class InputBaseModel(
 ) : ObjBaseModel<ObjRefModel<InputBaseModel>>
 {
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
+    => IsTypeParameter
+    ? new(Input)
+    : base.Render(context)
       .Add("input", Input);
 }
 
@@ -43,10 +45,13 @@ internal class InputModeller(
 }
 
 internal class InputReferenceModeller
-  : ModellerBase<InputReferenceAst, InputBaseModel>
+  : ModellerReference<InputReferenceAst, InputBaseModel>
 {
   internal override InputBaseModel ToModel(InputReferenceAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name);
+    => new(ast.Name) {
+      IsTypeParameter = ast.IsTypeParameter,
+      Arguments = ModelArguments(ast, typeKinds),
+    };
 }
 
 internal class InputFieldModeller(

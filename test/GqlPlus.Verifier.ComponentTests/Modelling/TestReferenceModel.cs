@@ -7,23 +7,19 @@ public abstract class TestReferenceModel<TRef>
   : TestModelBase<string>
   where TRef : AstReference<TRef>
 {
-  //[Theory, RepeatData(Repeats)]
-  //public void Model_Fields(string name, FieldInput[] fields)
-  //  => ObjectChecks.ObjectExpected(
-  //    ObjectChecks.ObjectAst(name, fields, []),
-  //    new(name, null, fields));
+  [Theory, RepeatData(Repeats)]
+  public void Model_Arguments(string name, string[] arguments)
+    => ReferenceChecks.Reference_Expected(
+      ReferenceChecks.ReferenceAst(name) with { Arguments = [.. arguments.Select(ReferenceChecks.ReferenceAst)] },
+      ReferenceChecks.ExpectedReference(name, false, ReferenceChecks.ExpectedArguments(arguments))
+      );
 
-  //[Theory, RepeatData(Repeats)]
-  //public void Model_All(string name, string contents, string parent, string[] aliases, FieldInput[] fields, string[] alternates)
-  //  => ObjectChecks.ObjectExpected(
-  //    ObjectChecks.ObjectAst(name, fields, alternates) with {
-  //      Aliases = aliases,
-  //      Description = contents,
-  //      Parent = ObjectChecks.ParentAst(parent),
-  //    },
-  //    new(name, parent, fields, alternates,
-  //      [$"aliases: [{string.Join(", ", aliases)}]"],
-  //      ["description: " + ObjectChecks.YamlQuoted(contents)]));
+  [Theory, RepeatData(Repeats)]
+  public void Model_TypeParam(string name)
+    => ReferenceChecks.Reference_Expected(
+      ReferenceChecks.ReferenceAst(name) with { IsTypeParameter = true },
+      ReferenceChecks.ExpectedReference(name, true, [])
+      );
 
   internal override ICheckModelBase<string> BaseChecks => ReferenceChecks;
 
@@ -38,10 +34,20 @@ internal abstract class CheckReferenceModel<TRef, TModel>(
   where TRef : AstReference<TRef>
   where TModel : IRendering
 {
+  protected readonly TypeKindModel TypeKind = kind;
+  protected readonly string TypeKindLower = $"{kind}".ToLowerInvariant();
+
   protected override TRef NewBaseAst(string input)
     => NewReferenceAst(input);
   protected override string[] ExpectedBase(string input)
-    => [$"!_{kind}Base {input}"];
+    => ExpectedReference(input, false, []);
+
+  protected string[] ExpectedReference(string input, bool isTypeParam, string[] args)
+    => isTypeParam
+    ? [input]
+    : args.Length == 0
+      ? [$"!_{TypeKind}Base {input}"]
+      : [$"!_{TypeKind}Base", .. args, TypeKindLower + ": " + input];
 
   protected abstract TRef NewReferenceAst(string name);
 
@@ -51,15 +57,18 @@ internal abstract class CheckReferenceModel<TRef, TModel>(
     => Model_Expected(AstToModel(ast), expected, skipIf);
   TRef ICheckReferenceModel<TRef>.ReferenceAst(string name)
     => NewReferenceAst(name);
-  string[] ICheckReferenceModel<TRef>.ExpectedReference(string input)
-    => ExpectedBase(input);
+  string[] ICheckReferenceModel<TRef>.ExpectedReference(string input, bool isTypeParam, string[] args)
+    => ExpectedReference(input, isTypeParam, args);
+  string[] ICheckReferenceModel<TRef>.ExpectedArguments(string[] args)
+    => [.. ItemsExpected("arguments:", args, a => [$"- !_{TypeKind}Base {a}"])];
 }
 
 internal interface ICheckReferenceModel<TRef>
   : ICheckModelBase<string>
   where TRef : AstReference<TRef>
 {
-  string[] ExpectedReference(string input);
+  string[] ExpectedReference(string input, bool isTypeParam, string[] args);
+  string[] ExpectedArguments(string[] args);
   void Reference_Expected(TRef ast, string[] expected);
   void Reference_Expected(TRef ast, string[] expected, bool skipIf);
   TRef ReferenceAst(string name);

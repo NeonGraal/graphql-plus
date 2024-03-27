@@ -25,6 +25,15 @@ public abstract class TestGroups<TAst>
     Merge_Expected([ast1, ast2], name1 == name2, ast2, ast1);
   }
 
+  [SkippableTheory, RepeatData(Repeats)]
+  public void Merge_TwoAstSameName_ReturnsFirst(string name)
+  {
+    var ast1 = MakeAst(name);
+    var ast2 = MakeAst(name);
+
+    Merge_Expected([ast1, ast2], ast1);
+  }
+
   internal abstract GroupsMerger<TAst> MergerGroups { get; }
 
   protected override IMerge<TAst> MergerBase => MergerGroups;

@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
+using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Verifier.Modelling;
 
@@ -43,9 +44,14 @@ public record class ObjRefModel<TBase>
 
 public record class ObjBaseModel<TArg>
   : ModelBase, IObjBaseModel
+  where TArg : IRendering
 {
   internal TArg[] Arguments { get; set; } = [];
-  internal string? TypeParameter { get; set; }
+  public bool IsTypeParameter { get; set; }
+
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("arguments", Arguments.Render(context));
 }
 
 public interface IObjBaseModel : IRendering
@@ -111,6 +117,27 @@ internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, 
 
   protected TBase BaseModel(TRefAst ast, IMap<TypeKindModel> typeKinds)
     => reference.ToModel<TBase>(ast, typeKinds);
+}
+
+internal abstract class ModellerReference<TRefAst, TBase, TArg>
+  : ModellerBase<TRefAst, TBase>
+  where TRefAst : AstReference<TRefAst>
+  where TBase : IObjBaseModel
+  where TArg : IRendering
+{
+  internal TArg[] ModelArguments(TRefAst ast, IMap<TypeKindModel> typeKinds)
+    => [.. ast.Arguments.Select(a => NewArgument(a, typeKinds))];
+
+  internal abstract TArg NewArgument(TRefAst ast, IMap<TypeKindModel> typeKinds);
+}
+
+internal abstract class ModellerReference<TRefAst, TBase>
+  : ModellerReference<TRefAst, TBase, ObjRefModel<TBase>>
+  where TRefAst : AstReference<TRefAst>
+  where TBase : IObjBaseModel
+{
+  internal override ObjRefModel<TBase> NewArgument(TRefAst ast, IMap<TypeKindModel> typeKinds)
+    => new(ToModel(ast, typeKinds));
 }
 
 internal class AlternateModeller<TRefAst, TBase>(

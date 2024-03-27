@@ -29,6 +29,17 @@ public class MergeUnionsTests
       new UnionDeclAst(AstNulls.At, name, combined.UnionMembers()));
   }
 
+  [Theory, RepeatData(Repeats)]
+  public void Merge_TwoAstsSameValues_ReturnsExpected(string name, string[] members)
+  {
+    _unionMembers.Merge([]).ReturnsForAnyArgs(members.UnionMembers());
+
+    Merge_Expected([
+        new UnionDeclAst(AstNulls.At, name, members.UnionMembers()),
+      new UnionDeclAst(AstNulls.At, name, members.UnionMembers())],
+        new UnionDeclAst(AstNulls.At, name, members.UnionMembers()));
+  }
+
   private readonly IMerge<UnionMemberAst> _unionMembers;
   private readonly MergeUnions _merger;
 

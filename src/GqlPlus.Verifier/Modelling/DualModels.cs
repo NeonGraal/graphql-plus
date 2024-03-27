@@ -13,7 +13,9 @@ public record class DualBaseModel(
 ) : ObjBaseModel<ObjRefModel<DualBaseModel>>
 {
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
+    => IsTypeParameter
+    ? new(Dual)
+    : base.Render(context)
       .Add("dual", Dual);
 }
 
@@ -40,10 +42,13 @@ internal class DualModeller(
 }
 
 internal class DualReferenceModeller
-  : ModellerBase<DualReferenceAst, DualBaseModel>
+  : ModellerReference<DualReferenceAst, DualBaseModel>
 {
   internal override DualBaseModel ToModel(DualReferenceAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name);
+    => new(ast.Name) {
+      IsTypeParameter = ast.IsTypeParameter,
+      Arguments = ModelArguments(ast, typeKinds),
+    };
 }
 
 internal class DualFieldModeller(

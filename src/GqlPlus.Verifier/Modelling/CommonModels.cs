@@ -50,7 +50,7 @@ public record class SimpleModel
   public RenderStructure Render(IRenderContext context)
     => Boolean is not null ? new(Boolean)
       : Number is not null ? new(Number, TypeRef?.Name ?? "")
-      : String is not null ? new(String, TypeRef?.Name ?? "")
+      : String is not null ? new(RenderValue.Str(String), TypeRef?.Name ?? "")
       : Value is not null ? new(Value, TypeRef?.Name ?? "")
       : new("null", "Basic");
 }

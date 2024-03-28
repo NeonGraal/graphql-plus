@@ -89,5 +89,8 @@ internal sealed class DirectiveModelChecks(
     => new(AstNulls.At, input, description);
 
   internal IEnumerable<string> ExpectedParameters(string[] parameters)
-    => ItemsExpected("parameters:", parameters, p => ["- !_Parameter", "  type: !_Described(_ObjRef(_InputBase)) " + p]);
+    => ItemsExpected(
+       "parameters:",
+        parameters,
+        p => ["- !_Parameter", "  type: !_Described(_ObjRef(_InputBase)) " + p]);
 }

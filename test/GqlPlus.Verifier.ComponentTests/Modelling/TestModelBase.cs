@@ -10,7 +10,7 @@ public abstract class TestModelBase<TName>
       .SkipIf(SkipIf(name))
       .Model_Expected(
         BaseChecks.ToModel(BaseChecks.BaseAst(name)),
-        BaseChecks.ExpectedBase(name).Tidy());
+        BaseChecks.ExpectedBase(name));
 
   protected virtual bool SkipIf(TName name)
     => false;
@@ -46,7 +46,7 @@ internal abstract class CheckModelBase<TName, TAst, TModel>
 
     var yaml = render.ToYaml();
 
-    yaml.ToLines().Should().BeEquivalentTo(expected);
+    yaml.ToLines().Should().BeEquivalentTo(expected.Tidy());
   }
 
   internal string YamlQuoted(string? input)

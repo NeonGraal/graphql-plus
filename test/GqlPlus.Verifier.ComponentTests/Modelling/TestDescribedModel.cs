@@ -14,7 +14,7 @@ public abstract class TestDescribedModel<TName>
 
     DescribedChecks.Model_Expected(
         DescribedChecks.ToModel(DescribedChecks.DescribedAst(name, contents)),
-        DescribedChecks.ExpectedDescription(new(name, contents)).Tidy());
+        DescribedChecks.ExpectedDescription(new(name, contents)));
   }
 
   internal sealed override ICheckModelBase<TName> BaseChecks => DescribedChecks;

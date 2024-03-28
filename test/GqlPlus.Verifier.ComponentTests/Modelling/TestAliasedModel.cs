@@ -13,7 +13,7 @@ public abstract class TestAliasedModel<TInput>
 
     AliasedChecks.Model_Expected(
         AliasedChecks.ToModel(AliasedChecks.AliasedAst(input) with { Aliases = aliases }),
-        AliasedChecks.ExpectedDescriptionAliases(new(input, aliases)).Tidy());
+        AliasedChecks.ExpectedDescriptionAliases(new(input, aliases)));
   }
 
   internal sealed override ICheckDescribedModel<TInput> DescribedChecks => AliasedChecks;

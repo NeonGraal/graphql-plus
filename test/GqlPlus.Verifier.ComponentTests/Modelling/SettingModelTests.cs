@@ -19,7 +19,7 @@ internal sealed class SettingModelChecks(
     => ["!_Setting",
       .. input.Description ?? [],
       "name: " + input.Name.Name,
-      "value: " + input.Name.Value];
+      "value: " + YamlQuoted(input.Name.Value)];
 
   protected override OptionSettingAst NewDescribedAst(SettingInput input, string description)
     => input.ToAst(description);

@@ -28,9 +28,10 @@ public class EnumModelTests
         .. parent.TypeRefFor(SimpleKindModel.Enum),
         "name: " + name]);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersGrandParent(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
     => _checks
+    .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
     .AddParent(_checks.NewParent(parent, parentMembers, grandParent))
     .AddParent(_checks.NewParent(grandParent, grandParentMembers))
     .AstExpected(

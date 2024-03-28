@@ -73,6 +73,6 @@ internal class RenderTypeConverter : IYamlTypeConverter
       text = value.Text;
     }
 
-    emitter.Emit(new Scalar(default, tagName, text!, ScalarStyle.Any, plainImplicit, isString));
+    emitter.Emit(new Scalar(default, tagName, text!, isString ? ScalarStyle.SingleQuoted : ScalarStyle.Any, plainImplicit, isString));
   }
 }

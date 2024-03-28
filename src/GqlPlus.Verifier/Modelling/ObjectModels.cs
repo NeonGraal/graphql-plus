@@ -72,7 +72,7 @@ public record class AlternateModel<TBase>(
 
 public record class FieldModel<TBase>(
   string Name,
-  ObjRefModel<TBase> Type
+  ObjRefModel<TBase>? Type
 ) : AliasedModel(Name)
   where TBase : IObjBaseModel
 {
@@ -80,7 +80,8 @@ public record class FieldModel<TBase>(
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("type", Type.Render(context));
+      .Add("modifiers", Modifiers.Render(context, true))
+      .Add("type", Type?.Render(context));
 }
 
 public record class ParameterModel(

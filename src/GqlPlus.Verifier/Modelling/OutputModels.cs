@@ -21,11 +21,17 @@ public record class OutputBaseModel(
 
 public record class OutputFieldModel(
   string Name,
-  ObjRefModel<OutputBaseModel> Type
+  ObjRefModel<OutputBaseModel>? Type
 ) : FieldModel<OutputBaseModel>(Name, Type)
 {
   internal ParameterModel[] Parameters { get; set; } = [];
   internal OutputEnumModel? Enum { get; set; }
+
+  internal override RenderStructure Render(IRenderContext context)
+    => Enum is null
+      ? base.Render(context)
+        .Add("parameters", Parameters.Render(context))
+      : Enum.Render(context);
 }
 
 public record class OutputArgumentModel(
@@ -43,11 +49,16 @@ public record class OutputArgumentModel(
 }
 
 public record class OutputEnumModel(
-  string Name,
   string Field,
+  string Type,
   string Value
-) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name)
-{ }
+) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Type)
+{
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("field", Field)
+      .Add("value", Value);
+}
 
 internal class OutputModeller(
   IAlternateModeller<OutputReferenceAst, OutputBaseModel> alternate,
@@ -82,11 +93,17 @@ internal class OutputReferenceModeller
 
 internal class OutputFieldModeller(
   IModifierModeller modifier,
+  IModeller<ParameterAst, ParameterModel> parameter,
   IModeller<OutputReferenceAst, OutputBaseModel> reference
 ) : ModellerBase<OutputFieldAst, OutputFieldModel>
 {
   internal override OutputFieldModel ToModel(OutputFieldAst field, IMap<TypeKindModel> typeKinds)
-    => new(field.Name, new(reference.ToModel(field.Type, typeKinds))) {
-      Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
-    };
+    => string.IsNullOrWhiteSpace(field.Type.EnumValue)
+      ? new(field.Name, new(reference.ToModel(field.Type, typeKinds))) {
+        Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
+        Parameters = parameter.ToModels(field.Parameters, typeKinds),
+      }
+      : new(field.Name, null) {
+        Enum = new(field.Name, field.Type.Name, field.Type.EnumValue)
+      };
 }

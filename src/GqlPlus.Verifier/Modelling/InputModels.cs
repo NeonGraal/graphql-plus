@@ -26,6 +26,10 @@ public record class InputFieldModel(
 ) : FieldModel<InputBaseModel>(Name, Type)
 {
   internal ConstantModel? Default { get; set; }
+
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("default", Default?.Render(context));
 }
 
 internal class InputModeller(

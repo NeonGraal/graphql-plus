@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
-using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Verifier.Modelling;
 

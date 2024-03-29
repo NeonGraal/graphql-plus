@@ -21,9 +21,9 @@ internal sealed class ParameterModelChecks(
     return description.Length == 0
       ? ["!_Parameter", "type: !_InputBase " + input.Name]
       : ["!_Parameter",
-        "type: !_InputBase",
-        .. description,
-        "  input: " + input.Name];
+        "type: !_BaseDescribed(_ObjRef(_InputBase))",
+        "  base: !_InputBase " + input.Name,
+        .. description];
   }
 
   protected override ParameterAst NewDescribedAst(string input, string description)

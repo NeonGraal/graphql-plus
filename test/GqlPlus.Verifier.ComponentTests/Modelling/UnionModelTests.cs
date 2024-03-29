@@ -12,8 +12,8 @@ public class UnionModelTests
       new(AstNulls.At, name, members.UnionMembers()),
       ["!_TypeUnion",
         .. _checks.ExpectedAllMembers("allItems:", members, name),
-        "kind: !_TypeKind Union",
         .. _checks.ExpectedMembers("items:", members),
+        "kind: !_TypeKind Union",
         "name: " + name]);
 
   [Theory, RepeatData(Repeats)]
@@ -25,8 +25,8 @@ public class UnionModelTests
       ["!_TypeUnion",
         .. _checks.ExpectedAllMembers("allItems:", parentMembers, parent),
         "kind: !_TypeKind Union",
-        .. parent.TypeRefFor(SimpleKindModel.Union),
-        "name: " + name]);
+        "name: " + name,
+        .. parent.TypeRefFor(SimpleKindModel.Union)]);
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersGrandParent(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
@@ -37,11 +37,11 @@ public class UnionModelTests
     .AstExpected(
       new(AstNulls.At, name, []) { Parent = parent, },
       ["!_TypeUnion",
-        .. _checks.ExpectedAllMembers("allItems:", parentMembers, parent),
-        .. _checks.ExpectedAllMembers("", grandParentMembers, grandParent),
+        .. _checks.ExpectedAllMembers("allItems:", grandParentMembers, grandParent),
+        .. _checks.ExpectedAllMembers("", parentMembers, parent),
         "kind: !_TypeKind Union",
-        .. parent.TypeRefFor(SimpleKindModel.Union),
-        "name: " + name]);
+        "name: " + name,
+        .. parent.TypeRefFor(SimpleKindModel.Union)]);
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(
@@ -61,13 +61,13 @@ public class UnionModelTests
       },
       ["!_TypeUnion",
         $"aliases: [{string.Join(", ", aliases)}]",
-        .. _checks.ExpectedAllMembers("allItems:", members, name),
-        .. _checks.ExpectedAllMembers("", parentMembers, parent),
+        .. _checks.ExpectedAllMembers("allItems:", parentMembers, parent),
+        .. _checks.ExpectedAllMembers("", members, name),
         "description: " + _checks.YamlQuoted(contents),
-        .. parent.TypeRefFor(SimpleKindModel.Union),
-        "kind: !_TypeKind Union",
         .. _checks.ExpectedMembers("items:", members),
-        "name: " + name]);
+        "kind: !_TypeKind Union",
+        "name: " + name,
+        .. parent.TypeRefFor(SimpleKindModel.Union)]);
 
   internal override ICheckTypeModel<SimpleKindModel> TypeChecks => _checks;
 
@@ -91,7 +91,7 @@ internal sealed class UnionModelChecks
     => ItemsExpected(field, members, m => ["- !_Aliased " + m]);
 
   internal IEnumerable<string> ExpectedAllMembers(string field, string[] members, string ofUnion)
-    => ItemsExpected(field, members, m => ["- !_UnionMember", "  union: " + ofUnion, "  name: " + m]);
+    => ItemsExpected(field, members, m => ["- !_UnionMember", "  name: " + m, "  union: " + ofUnion]);
 
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);

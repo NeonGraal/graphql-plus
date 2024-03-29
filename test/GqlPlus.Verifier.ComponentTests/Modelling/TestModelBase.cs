@@ -46,7 +46,7 @@ internal abstract class CheckModelBase<TName, TAst, TModel>
 
     var yaml = render.ToYaml();
 
-    yaml.ToLines().Should().BeEquivalentTo(expected.Tidy());
+    yaml.ToLines().Should().Equal(expected.Tidy());
   }
 
   internal string YamlQuoted(string? input)

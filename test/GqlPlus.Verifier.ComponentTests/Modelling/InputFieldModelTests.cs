@@ -10,7 +10,7 @@ public class InputFieldModelTests(
   public void Model_DefaultString(FieldInput input, string contents)
     => FieldChecks.Field_Expected(
       FieldChecks.FieldAst(input) with { Default = new FieldKeyAst(AstNulls.At, contents) },
-      FieldChecks.ExpectedField(input, ["default: " + _checks.YamlQuoted(contents)])
+      FieldChecks.ExpectedField(input, ["default: " + _checks.YamlQuoted(contents)], [])
       );
 
   internal override ICheckFieldModel<InputFieldAst, InputReferenceAst> FieldChecks => _checks;

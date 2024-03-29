@@ -14,14 +14,21 @@ public class ConstantModelTests(
   [Theory, RepeatData(Repeats)]
   public void Model_Object(string key, string value)
   {
-    if (key == value) {
-      return;
+    string[] expected = ["!_ConstantMap", key + ": " + value, value + ": " + key];
+
+    switch (string.Compare(key, value, StringComparison.Ordinal)) {
+      case 0:
+        return;
+      case > 0:
+        expected = ["!_ConstantMap", value + ": " + key, key + ": " + value];
+        break;
+      default:
+        break;
+
     }
 
-    _checks
-      .AstExpected(
-        new(AstNulls.At, value.ConstantObject(key)),
-        ["!_ConstantMap", key + ": " + value, value + ": " + key]);
+    ConstantAst ast = new(AstNulls.At, value.ConstantObject(key));
+    _checks.AstExpected(ast, expected);
   }
 
   internal override ICheckModelBase<string> BaseChecks => _checks;

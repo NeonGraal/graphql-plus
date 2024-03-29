@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Modelling;
 public abstract class TestDescribedModel<TName>
   : TestModelBase<TName>
 {
-  [Theory(Skip = "WIP"), RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void Model_Description(TName name, string contents)
   {
     if (SkipIf(name)) {

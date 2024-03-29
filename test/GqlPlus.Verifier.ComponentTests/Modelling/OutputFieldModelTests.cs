@@ -19,7 +19,7 @@ public class OutputFieldModelTests(
   public void Model_Parameter(FieldInput input, string[] parameters)
     => FieldChecks.Field_Expected(
       FieldChecks.FieldAst(input) with { Parameters = parameters.Parameters() },
-      FieldChecks.ExpectedField(input, _checks.ExpectedParameters(parameters))
+      FieldChecks.ExpectedField(input, [], _checks.ExpectedParameters(parameters))
       );
 
   internal override ICheckFieldModel<OutputFieldAst, OutputReferenceAst> FieldChecks => _checks;

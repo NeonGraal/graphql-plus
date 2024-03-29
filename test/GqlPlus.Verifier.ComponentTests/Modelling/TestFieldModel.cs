@@ -12,7 +12,7 @@ public abstract class TestFieldModel<TField, TRef>
   public void Model_Modifiers(FieldInput input)
     => FieldChecks.Field_Expected(
         FieldChecks.FieldAst(input) with { Modifiers = TestMods() },
-        FieldChecks.ExpectedField(input, ["modifiers: [!_Modifier List, !_Modifier Optional]"])
+        FieldChecks.ExpectedField(input, ["modifiers: [!_Modifier List, !_Modifier Optional]"], [])
       );
 
   [Theory, RepeatData(Repeats)]
@@ -44,10 +44,10 @@ internal abstract class CheckFieldModel<TField, TRef, TModel>(
   protected override TField NewBaseAst(FieldInput input)
     => NewFieldAst(input);
   protected override string[] ExpectedBase(FieldInput input)
-    => ExpectedField(input, []);
+    => ExpectedField(input, [], []);
 
-  protected string[] ExpectedField(FieldInput input, string[] extras)
-    => [$"!_{TypeKind}Field", .. extras, "name: " + input.Name, $"type: !_{TypeKind}Base " + input.Type];
+  protected string[] ExpectedField(FieldInput input, string[] extras, string[] parameters)
+    => [$"!_{TypeKind}Field", .. extras, "name: " + input.Name, .. parameters, $"type: !_{TypeKind}Base " + input.Type];
   protected string[] ExpectedDual(FieldInput input)
     => [$"!_{TypeKind}Field", "name: " + input.Name, $"type: !_DualBase " + input.Type];
 
@@ -59,8 +59,8 @@ internal abstract class CheckFieldModel<TField, TRef, TModel>(
     => Model_Expected(AstToModel(ast), expected, skipIf);
   TField ICheckFieldModel<TField, TRef>.FieldAst(FieldInput input)
     => NewFieldAst(input);
-  string[] ICheckFieldModel<TField, TRef>.ExpectedField(FieldInput input, string[] extras)
-    => ExpectedField(input, extras);
+  string[] ICheckFieldModel<TField, TRef>.ExpectedField(FieldInput input, string[] extras, string[] parameters)
+    => ExpectedField(input, extras, parameters);
   string[] ICheckFieldModel<TField, TRef>.ExpectedDual(FieldInput input)
     => ExpectedDual(input);
 }
@@ -71,7 +71,7 @@ internal interface ICheckFieldModel<TField, TRef>
   where TRef : AstReference<TRef>
 {
   TField FieldAst(FieldInput input);
-  string[] ExpectedField(FieldInput input, string[] extras);
+  string[] ExpectedField(FieldInput input, string[] extras, string[] parameters);
   string[] ExpectedDual(FieldInput input);
   void Field_Expected(TField ast, string[] expected);
   void Field_Expected(TField ast, string[] expected, bool skipIf);

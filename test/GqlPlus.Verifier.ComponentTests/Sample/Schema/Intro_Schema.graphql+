@@ -25,13 +25,19 @@ input _TypeFilter {
     }
 
 dual _Aliased {
-    : _Described<_Named>
+    : _Described
         aliases: Identifier[]
     }
 
-dual _Described<$base> {
-    : $base
-        description: String?
+dual _Described {
+    : _Named
+        description: String
+    }
+
+dual _BaseDescribed<$base> {
+        base: $base
+        description: String
+    | $base
     }
 
 dual _Named {

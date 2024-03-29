@@ -101,10 +101,14 @@ internal static class CheckModelBaseHelper
     return check;
   }
 
-  internal static TCheck AddTypeKinds<TCheck, TItem>(this TCheck check, TItem[]? types, TypeKindModel kind)
+  internal static TCheck AddTypeKinds<TCheck, TItem>(this TCheck check, TypeKindModel kind, params TItem[] types)
+    where TCheck : ICheckModelBase
+    => check.AddTypeKinds(types, kind);
+
+  internal static TCheck AddTypeKinds<TCheck, TItem>(this TCheck check, IEnumerable<TItem> types, TypeKindModel kind)
     where TCheck : ICheckModelBase
   {
-    foreach (var type in types ?? []) {
+    foreach (var type in types) {
       var key = $"{type}";
       if (!string.IsNullOrWhiteSpace(key)) {
         check.TypeKinds[key] = kind;

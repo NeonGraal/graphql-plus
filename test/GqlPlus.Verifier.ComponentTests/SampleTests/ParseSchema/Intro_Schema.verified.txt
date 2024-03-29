@@ -123,10 +123,6 @@ Success
   :
   I@007/0028
   _Described
-  <
-    I@018/0028
-    _Named
-  >
   {
     !DF I@009/0029
     aliases
@@ -139,30 +135,49 @@ Success
 {
   !D I@006/0032
   _Described
-  <
-    I@018/0032
-    $base
-  >
   :
-  I@008/0033
-  $base
+  I@007/0033
+  _Named
   {
     !DF I@009/0034
     description
     :
     I@022/0034
     String
-    ?
   }
 }
 {
   !D I@006/0037
-  _Named
+  _BaseDescribed
+  <
+    I@022/0037
+    $base
+  >
   {
     !DF I@009/0038
+    base
+    :
+    I@016/0038
+    $base
+    !DF I@009/0039
+    description
+    :
+    I@022/0039
+    String
+  }
+  |
+  !AD
+  I@008/0040
+  $base
+}
+{
+  !D I@006/0043
+  _Named
+  {
+    !DF I@009/0044
     name
     :
-    I@015/0038
+    I@015/0044
     Identifier
   }
 }

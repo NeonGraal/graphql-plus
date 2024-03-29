@@ -18,9 +18,9 @@ Success
     I@019/0002
     $kind
     I@024/0002
-    _Described
+    _BaseDescribed
     <
-      I@036/0002
+      I@040/0002
       $base
     >
   >
@@ -30,10 +30,6 @@ Success
     :
     I@025/0003
     _Described
-    <
-      I@036/0003
-      _Named
-    >
     []
     !OF I@009/0004
     fields
@@ -131,12 +127,12 @@ Success
     type
     :
     I@013/0022
-    _Described
+    _BaseDescribed
     <
-      I@024/0022
+      I@028/0022
       _ObjRef
       <
-        I@033/0022
+        I@037/0022
         $base
       >
     >
@@ -181,12 +177,12 @@ Success
     type
     :
     I@013/0033
-    _Described
+    _BaseDescribed
     <
-      I@024/0033
+      I@028/0033
       _ObjRef
       <
-        I@033/0033
+        I@037/0033
         $base
       >
     >

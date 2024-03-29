@@ -10,7 +10,7 @@ public abstract class TestScalarModel<TItem, TAstItem>
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, TItem[] members)
     => ScalarChecks
-    .AddTypeKinds(members, TypeKindModel.Basic)
+    .AddTypeKinds(TypeKindModel.Basic, members)
     .ScalarExpected(
       ScalarChecks.ScalarAst(name, members),
       ScalarChecks.ExpectedScalar(new(name, items: members)));
@@ -18,7 +18,7 @@ public abstract class TestScalarModel<TItem, TAstItem>
   public void Model_MembersParent(string name, string parent, TItem[] parentMembers)
     => ScalarChecks
     .SkipIf(string.Equals(name, parent, StringComparison.Ordinal))
-    .AddTypeKinds(parentMembers, TypeKindModel.Basic)
+    .AddTypeKinds(TypeKindModel.Basic, parentMembers)
     .AddParent(ScalarChecks.NewParent(parent, parentMembers))
     .ScalarExpected(
       ScalarChecks.ScalarAst(name, []) with { Parent = parent },
@@ -28,7 +28,7 @@ public abstract class TestScalarModel<TItem, TAstItem>
   public void Model_MembersGrandParent(string name, string parent, string grandParent, TItem[] grandParentMembers)
     => ScalarChecks
     .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
-    .AddTypeKinds(grandParentMembers, TypeKindModel.Basic)
+    .AddTypeKinds(TypeKindModel.Basic, grandParentMembers)
     .AddParent(ScalarChecks.NewParent(parent, [], grandParent))
     .AddParent(ScalarChecks.NewParent(grandParent, grandParentMembers))
     .ScalarExpected(
@@ -38,7 +38,7 @@ public abstract class TestScalarModel<TItem, TAstItem>
   [Theory, RepeatData(Repeats)]
   public void Model_All(string name, string contents, string[] aliases, string parent, TItem[] members)
     => ScalarChecks
-    .AddTypeKinds(members, TypeKindModel.Basic)
+    .AddTypeKinds(TypeKindModel.Basic, members)
     .ScalarExpected(
       ScalarChecks.ScalarAst(name, members) with {
         Aliases = aliases,

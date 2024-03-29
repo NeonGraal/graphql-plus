@@ -6,10 +6,6 @@ Success
   :
   I@007/0002
   _Described
-  <
-    I@018/0002
-    _Named
-  >
   {
     !OF I@009/0003
     value

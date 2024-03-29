@@ -1,6 +1,6 @@
 output _TypeObject<$kind $base $field> {
-    : _ChildType<$kind _Described<$base>>
-        typeParameters: _Described<_Named>[]
+    : _ChildType<$kind _BaseDescribed<$base>>
+        typeParameters: _Described[]
         fields: $field[]
         alternates: _Alternate<$base>[]
         allFields: _Object<$field>[]
@@ -19,7 +19,7 @@ dual _ObjBase<$arg> {
     }
 
 output _Alternate<$base> {
-      type: _Described<_ObjRef<$base>>
+      type: _BaseDescribed<_ObjRef<$base>>
       collections: _Collections[]
     }
 
@@ -30,7 +30,7 @@ output _Object<$for> {
 
 output _Field<$base> {
     : _Aliased
-      type: _Described<_ObjRef<$base>>
+      type: _BaseDescribed<_ObjRef<$base>>
       modifiers: _Modifiers[]
     }
 

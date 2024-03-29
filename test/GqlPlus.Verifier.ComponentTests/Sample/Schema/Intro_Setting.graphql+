@@ -1,4 +1,4 @@
 output _Setting {
-    : _Described<_Named>
+    : _Described
         value: _Constant
 }

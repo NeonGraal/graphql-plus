@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Modelling;
 public record class SettingModel(
   string Name,
   ConstantModel Value
-) : DescribedModel<NamedModel>(new NamedModel(Name))
+) : DescribedModel(Name)
 {
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)

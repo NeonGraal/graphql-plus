@@ -41,7 +41,7 @@ internal sealed class OutputFieldModelChecks(
     => [.. ItemsExpected(
        "parameters:",
         parameters,
-        p => ["- !_Parameter", "  type: !_Described(_ObjRef(_InputBase)) " + p])];
+        p => ["- !_Parameter", "  type: !_InputBase " + p])];
   internal string[] ExpectedEnum(FieldInput input, string enumValue)
     => [$"!_OutputEnum", "field: " + input.Name, $"kind: !_SimpleKind Enum", "name: " + input.Type, "value: " + enumValue];
 }

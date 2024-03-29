@@ -13,11 +13,15 @@ public record class InputBaseModel(
   string Input
 ) : ObjBaseModel<ObjRefModel<InputBaseModel>>
 {
+  internal DualBaseModel? Dual { get; init; }
+
   internal override RenderStructure Render(IRenderContext context)
-    => IsTypeParameter
-    ? new(Input)
-    : base.Render(context)
-      .Add("input", Input);
+    => Dual is null
+    ? IsTypeParameter
+      ? new(Input)
+      : base.Render(context)
+        .Add("input", Input)
+    : Dual.Render(context);
 }
 
 public record class InputFieldModel(
@@ -25,7 +29,7 @@ public record class InputFieldModel(
   ObjRefModel<InputBaseModel> Type
 ) : FieldModel<InputBaseModel>(Name, Type)
 {
-  internal ConstantModel? Default { get; set; }
+  internal ConstantModel? Default { get; init; }
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
@@ -48,11 +52,16 @@ internal class InputModeller(
     };
 }
 
-internal class InputReferenceModeller
-  : ModellerReference<InputReferenceAst, InputBaseModel>
+internal class InputReferenceModeller(
+  IModeller<DualReferenceAst, DualBaseModel> dual
+) : ModellerReference<InputReferenceAst, InputBaseModel>
 {
   internal override InputBaseModel ToModel(InputReferenceAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
+    => typeKinds.TryGetValue(ast.Name, out var typeKind) && typeKind == TypeKindModel.Dual
+    ? new(ast.Name) {
+      Dual = dual.ToModel(ast.ToDual(), typeKinds)
+    }
+    : new(ast.Name) {
       IsTypeParameter = ast.IsTypeParameter,
       Arguments = ModelArguments(ast, typeKinds),
     };

@@ -12,16 +12,29 @@ namespace GqlPlus.Verifier.Modelling;
 
 public record class AliasedModel(
   string Name
-) : DescribedModel<NamedModel>(new NamedModel(Name))
+) : NamedModel(new NamedModel(Name))
 {
+  public string? Description { get; set; }
   public string[] Aliases { get; set; } = [];
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("aliases", Aliases.Render());
+      .Add("aliases", Aliases.Render())
+      .Add("description", RenderValue.Str(Description));
 }
 
-public record class DescribedModel<TBase>(
+public record class DescribedModel(
+  string Name
+) : NamedModel(Name)
+{
+  public string? Description { get; set; }
+
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("description", RenderValue.Str(Description));
+}
+
+public record class BaseDescribedModel<TBase>(
   TBase Base
 ) : ModelBase
   where TBase : IRendering
@@ -29,9 +42,11 @@ public record class DescribedModel<TBase>(
   public string? Description { get; set; }
 
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add(Base, context)
-      .Add("description", RenderValue.Str(Description));
+    => string.IsNullOrEmpty(Description)
+      ? Base.Render(context)
+      : base.Render(context)
+        .Add("base", Base.Render(context))
+        .Add("description", RenderValue.Str(Description));
 }
 
 public record class NamedModel(

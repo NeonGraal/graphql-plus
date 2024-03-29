@@ -92,5 +92,5 @@ internal sealed class DirectiveModelChecks(
     => ItemsExpected(
        "parameters:",
         parameters,
-        p => ["- !_Parameter", "  type: !_Described(_ObjRef(_InputBase)) " + p]);
+        p => ["- !_Parameter", "  type: !_InputBase " + p]);
 }

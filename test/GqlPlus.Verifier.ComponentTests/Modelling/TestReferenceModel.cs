@@ -15,6 +15,15 @@ public abstract class TestReferenceModel<TRef>
       );
 
   [Theory, RepeatData(Repeats)]
+  public void Model_Dual(string name)
+    => ReferenceChecks
+      .AddTypeKinds(TypeKindModel.Dual, name)
+      .Reference_Expected(
+      ReferenceChecks.ReferenceAst(name),
+      ReferenceChecks.ExpectedDual(name)
+      );
+
+  [Theory, RepeatData(Repeats)]
   public void Model_TypeParam(string name)
     => ReferenceChecks.Reference_Expected(
       ReferenceChecks.ReferenceAst(name) with { IsTypeParameter = true },
@@ -48,6 +57,8 @@ internal abstract class CheckReferenceModel<TRef, TModel>(
     : args.Length == 0
       ? [$"!_{TypeKind}Base {input}"]
       : [$"!_{TypeKind}Base", .. args, TypeKindLower + ": " + input];
+  protected string[] ExpectedDual(string input)
+    => ["!_DualBase " + input];
 
   protected abstract TRef NewReferenceAst(string name);
 
@@ -59,6 +70,8 @@ internal abstract class CheckReferenceModel<TRef, TModel>(
     => NewReferenceAst(name);
   string[] ICheckReferenceModel<TRef>.ExpectedReference(string input, bool isTypeParam, string[] args)
     => ExpectedReference(input, isTypeParam, args);
+  string[] ICheckReferenceModel<TRef>.ExpectedDual(string input)
+    => ExpectedDual(input);
   string[] ICheckReferenceModel<TRef>.ExpectedArguments(string[] args)
     => [.. ItemsExpected("arguments:", args, a => [$"- !_{TypeKind}Base {a}"])];
 }
@@ -68,6 +81,7 @@ internal interface ICheckReferenceModel<TRef>
   where TRef : AstReference<TRef>
 {
   string[] ExpectedReference(string input, bool isTypeParam, string[] args);
+  string[] ExpectedDual(string input);
   string[] ExpectedArguments(string[] args);
   void Reference_Expected(TRef ast, string[] expected);
   void Reference_Expected(TRef ast, string[] expected, bool skipIf);

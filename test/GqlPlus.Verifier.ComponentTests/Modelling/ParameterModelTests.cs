@@ -19,9 +19,9 @@ internal sealed class ParameterModelChecks(
   {
     string[] description = [.. input.Description?.Select(d => "  " + d) ?? []];
     return description.Length == 0
-      ? ["!_Parameter", "type: !_Described(_ObjRef(_InputBase)) " + input.Name]
+      ? ["!_Parameter", "type: !_InputBase " + input.Name]
       : ["!_Parameter",
-        "type: !_Described(_ObjRef(_InputBase))",
+        "type: !_InputBase",
         .. description,
         "  input: " + input.Name];
   }

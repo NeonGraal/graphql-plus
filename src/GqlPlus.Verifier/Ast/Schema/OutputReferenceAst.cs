@@ -26,4 +26,10 @@ public sealed record class OutputReferenceAst(TokenAt At, string Name, string De
         ? IsTypeParameter ? Name.Prefixed("$") : Name
         : $"{Name}.{EnumValue}"
     }.Concat(Arguments.Bracket("<", ">"));
+
+  internal DualReferenceAst ToDual()
+    => new(At, Name, Description) {
+      IsTypeParameter = IsTypeParameter,
+      Arguments = [.. Arguments.Select(a => a.ToDual())],
+    };
 }

@@ -11,8 +11,17 @@ public abstract class TestFieldModel<TField, TRef>
   [Theory, RepeatData(Repeats)]
   public void Model_Modifiers(FieldInput input)
     => FieldChecks.Field_Expected(
-      FieldChecks.FieldAst(input) with { Modifiers = TestMods() },
-      FieldChecks.ExpectedField(input, ["modifiers: [!_Modifier List, !_Modifier Optional]"])
+        FieldChecks.FieldAst(input) with { Modifiers = TestMods() },
+        FieldChecks.ExpectedField(input, ["modifiers: [!_Modifier List, !_Modifier Optional]"])
+      );
+
+  [Theory, RepeatData(Repeats)]
+  public void Model_DualTyped(FieldInput input)
+    => FieldChecks
+      .AddTypeKinds(TypeKindModel.Dual, input.Type)
+      .Field_Expected(
+        FieldChecks.FieldAst(input),
+        FieldChecks.ExpectedDual(input)
       );
 
   internal override ICheckModelBase<FieldInput> BaseChecks => FieldChecks;
@@ -39,6 +48,8 @@ internal abstract class CheckFieldModel<TField, TRef, TModel>(
 
   protected string[] ExpectedField(FieldInput input, string[] extras)
     => [$"!_{TypeKind}Field", .. extras, "name: " + input.Name, $"type: !_{TypeKind}Base " + input.Type];
+  protected string[] ExpectedDual(FieldInput input)
+    => [$"!_{TypeKind}Field", "name: " + input.Name, $"type: !_DualBase " + input.Type];
 
   protected abstract TField NewFieldAst(FieldInput name);
 
@@ -50,6 +61,8 @@ internal abstract class CheckFieldModel<TField, TRef, TModel>(
     => NewFieldAst(input);
   string[] ICheckFieldModel<TField, TRef>.ExpectedField(FieldInput input, string[] extras)
     => ExpectedField(input, extras);
+  string[] ICheckFieldModel<TField, TRef>.ExpectedDual(FieldInput input)
+    => ExpectedDual(input);
 }
 
 internal interface ICheckFieldModel<TField, TRef>
@@ -59,6 +72,7 @@ internal interface ICheckFieldModel<TField, TRef>
 {
   TField FieldAst(FieldInput input);
   string[] ExpectedField(FieldInput input, string[] extras);
+  string[] ExpectedDual(FieldInput input);
   void Field_Expected(TField ast, string[] expected);
   void Field_Expected(TField ast, string[] expected, bool skipIf);
 }

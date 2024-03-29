@@ -12,11 +12,15 @@ public record class OutputBaseModel(
   string Output
 ) : ObjBaseModel<OutputArgumentModel>
 {
+  internal DualBaseModel? Dual { get; init; }
+
   internal override RenderStructure Render(IRenderContext context)
-    => IsTypeParameter
-    ? new(Output)
-    : base.Render(context)
-      .Add("output", Output);
+    => Dual is null
+    ? IsTypeParameter
+      ? new(Output)
+      : base.Render(context)
+        .Add("output", Output)
+    : Dual.Render(context);
 }
 
 public record class OutputFieldModel(
@@ -76,8 +80,9 @@ internal class OutputModeller(
     };
 }
 
-internal class OutputReferenceModeller
-  : ModellerReference<OutputReferenceAst, OutputBaseModel, OutputArgumentModel>
+internal class OutputReferenceModeller(
+  IModeller<DualReferenceAst, DualBaseModel> dual
+) : ModellerReference<OutputReferenceAst, OutputBaseModel, OutputArgumentModel>
 {
   internal override OutputArgumentModel NewArgument(OutputReferenceAst ast, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(ast.EnumValue)
@@ -85,7 +90,11 @@ internal class OutputReferenceModeller
       : new(ast.Name) { EnumValue = ast.EnumValue };
 
   internal override OutputBaseModel ToModel(OutputReferenceAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
+    => typeKinds.TryGetValue(ast.Name, out var typeKind) && typeKind == TypeKindModel.Dual
+    ? new(ast.Name) {
+      Dual = dual.ToModel(ast.ToDual(), typeKinds)
+    }
+    : new(ast.Name) {
       IsTypeParameter = ast.IsTypeParameter,
       Arguments = ModelArguments(ast, typeKinds),
     };

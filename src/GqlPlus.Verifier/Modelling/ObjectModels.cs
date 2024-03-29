@@ -8,11 +8,11 @@ namespace GqlPlus.Verifier.Modelling;
 public record class TypeObjectModel<TBase, TField>(
   TypeKindModel Kind,
   string Name
-) : ChildTypeModel<DescribedModel<TBase>>(Kind, Name)
+) : ChildTypeModel<BaseDescribedModel<TBase>>(Kind, Name)
   where TBase : IObjBaseModel
   where TField : ModelBase
 {
-  internal DescribedModel<NamedModel>[] TypeParameters { get; set; } = [];
+  internal DescribedModel[] TypeParameters { get; set; } = [];
   internal TField[] Fields { get; set; } = [];
   internal AlternateModel<TBase>[] Alternates { get; set; } = [];
 
@@ -58,7 +58,7 @@ public interface IObjBaseModel : IRendering
 { }
 
 public record class AlternateModel<TBase>(
-  DescribedModel<ObjRefModel<TBase>> Type
+  BaseDescribedModel<ObjRefModel<TBase>> Type
 ) : ModelBase
   where TBase : IObjBaseModel
 {
@@ -85,7 +85,7 @@ public record class FieldModel<TBase>(
 }
 
 public record class ParameterModel(
-  DescribedModel<ObjRefModel<InputBaseModel>> Type
+  BaseDescribedModel<ObjRefModel<InputBaseModel>> Type
 ) : AlternateModel<InputBaseModel>(Type)
 {
   public ConstantModel? Default { get; set; }
@@ -107,8 +107,8 @@ internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, 
   where TBase : IObjBaseModel
   where TField : IRendering
 {
-  internal DescribedModel<TBase>? ParentModel(TRefAst? parent, IMap<TypeKindModel> typeKinds)
-    => parent is null ? null : new DescribedModel<TBase>(BaseModel(parent, typeKinds));
+  internal BaseDescribedModel<TBase>? ParentModel(TRefAst? parent, IMap<TypeKindModel> typeKinds)
+    => parent is null ? null : new BaseDescribedModel<TBase>(BaseModel(parent, typeKinds));
 
   internal AlternateModel<TBase>[] AlternatesModels(AstAlternate<TRefAst>[] alternates, IMap<TypeKindModel> typeKinds)
     => alternate.ToModels(alternates, typeKinds);

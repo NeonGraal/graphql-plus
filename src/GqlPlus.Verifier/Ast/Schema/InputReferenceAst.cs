@@ -15,4 +15,10 @@ public sealed record class InputReferenceAst(TokenAt At, string Name, string Des
     => base.Equals(other);
   public override int GetHashCode()
     => base.GetHashCode();
+
+  internal DualReferenceAst ToDual()
+    => new(At, Name, Description) {
+      IsTypeParameter = IsTypeParameter,
+      Arguments = [.. Arguments.Select(a => a.ToDual())],
+    };
 }

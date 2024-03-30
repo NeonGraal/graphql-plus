@@ -2,45 +2,60 @@
 Success
 {
   !O I@008/0001
-  _InputBase
+  _TypeInput
   :
   I@007/0002
+  _TypeObject
+  <
+    I@019/0002
+    _TypeKind.Input
+    I@035/0002
+    _InputBase
+    I@046/0002
+    _InputField
+  >
+}
+{
+  !O I@008/0005
+  _InputBase
+  :
+  I@007/0006
   _ObjBase
   <
-    I@016/0002
+    I@016/0006
     _ObjRef
     <
-      I@024/0002
+      I@024/0006
       _InputBase
     >
   >
   {
-    !OF I@009/0003
+    !OF I@009/0007
     input
     :
-    I@016/0003
+    I@016/0007
     Identifier
   }
   |
   !AO
-  I@007/0004
+  I@007/0008
   _DualBase
 }
 {
-  !O I@008/0007
+  !O I@008/0011
   _InputField
   :
-  I@007/0008
+  I@007/0012
   _Field
   <
-    I@014/0008
+    I@014/0012
     _InputBase
   >
   {
-    !OF I@009/0009
+    !OF I@009/0013
     default
     :
-    I@018/0009
+    I@018/0013
     _Constant
     ?
   }

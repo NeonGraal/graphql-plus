@@ -1,3 +1,7 @@
+output _TypeEnum {
+    : _ParentType<_TypeKind.Enum _Aliased _EnumMember>
+    }
+
 dual _EnumMember {
     : _Aliased
         enum: Identifier

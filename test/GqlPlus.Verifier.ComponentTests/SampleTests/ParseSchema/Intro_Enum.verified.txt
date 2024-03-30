@@ -1,34 +1,49 @@
 ﻿!G I@001/0001
 Success
 {
-  !D I@006/0001
-  _EnumMember
+  !O I@008/0001
+  _TypeEnum
   :
   I@007/0002
+  _ParentType
+  <
+    I@019/0002
+    _TypeKind.Enum
+    I@034/0002
+    _Aliased
+    I@043/0002
+    _EnumMember
+  >
+}
+{
+  !D I@006/0005
+  _EnumMember
+  :
+  I@007/0006
   _Aliased
   {
-    !DF I@009/0003
+    !DF I@009/0007
     enum
     :
-    I@015/0003
+    I@015/0007
     Identifier
   }
 }
 {
-  !O I@008/0006
+  !O I@008/0010
   _EnumValue
   :
-  I@007/0007
+  I@007/0011
   _TypeRef
   <
-    I@016/0007
+    I@016/0011
     _TypeKind.Enum
   >
   {
-    !OF I@009/0008
+    !OF I@009/0012
     value
     :
-    I@016/0008
+    I@016/0012
     Identifier
   }
 }

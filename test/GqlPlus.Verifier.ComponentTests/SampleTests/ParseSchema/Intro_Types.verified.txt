@@ -20,66 +20,22 @@ Success
   >
   !AO
   I@007/0004
-  _ParentType
-  <
-    I@019/0004
-    _TypeKind.Dual
-    I@034/0004
-    _DualBase
-    I@044/0004
-    _Field
-    <
-      I@051/0004
-      _DualBase
-    >
-  >
+  _TypeDual
   !AO
   I@007/0005
-  _ParentType
-  <
-    I@019/0005
-    _TypeKind.Enum
-    I@034/0005
-    _Aliased
-    I@043/0005
-    _EnumMember
-  >
+  _TypeEnum
   !AO
   I@007/0006
-  _TypeObject
-  <
-    I@019/0006
-    _TypeKind.Input
-    I@035/0006
-    _InputBase
-    I@046/0006
-    _InputField
-  >
+  _TypeInput
   !AO
   I@007/0007
-  _TypeObject
-  <
-    I@019/0007
-    _TypeKind.Output
-    I@036/0007
-    _OutputBase
-    I@048/0007
-    _OutputField
-  >
+  _TypeOutput
   !AO
   I@007/0008
   _TypeScalar
   !AO
   I@007/0009
-  _ParentType
-  <
-    I@019/0009
-    _TypeKind.Union
-    I@035/0009
-    _Named
-    I@042/0009
-    _UnionMember
-  >
+  _TypeUnion
 }
 {
   !O I@008/0012

@@ -2,23 +2,42 @@
 Success
 {
   !O I@008/0001
-  _DualBase
+  _TypeDual
   :
   I@007/0002
+  _TypeObject
+  <
+    I@019/0002
+    _TypeKind.Dual
+    I@034/0002
+    _DualBase
+    I@044/0002
+    _Field
+    <
+      I@051/0002
+      _DualBase
+    >
+  >
+}
+{
+  !O I@008/0005
+  _DualBase
+  :
+  I@007/0006
   _ObjBase
   <
-    I@016/0002
+    I@016/0006
     _ObjRef
     <
-      I@024/0002
+      I@024/0006
       _DualBase
     >
   >
   {
-    !OF I@009/0003
+    !OF I@009/0007
     dual
     :
-    I@015/0003
+    I@015/0007
     Identifier
   }
 }

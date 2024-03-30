@@ -1,4 +1,6 @@
 output _Directives {
+        directive: _Directive
+        type: _Type
     | _Directive
     | _Type
 }

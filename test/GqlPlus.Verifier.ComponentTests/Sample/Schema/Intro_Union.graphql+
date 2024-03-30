@@ -1,3 +1,7 @@
+output _TypeUnion {
+    : _ParentType<_TypeKind.Union _Named _UnionMember>
+    }
+
 dual _UnionMember {
     : _Named
         union: Identifier

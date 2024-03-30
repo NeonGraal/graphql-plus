@@ -1,3 +1,7 @@
+output _TypeDual {
+    : _TypeObject<_TypeKind.Dual _DualBase _Field<_DualBase>>
+    }
+
 output _DualBase {
     : _ObjBase<_ObjRef<_DualBase>>
         dual: Identifier

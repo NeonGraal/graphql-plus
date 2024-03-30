@@ -1,3 +1,7 @@
+output _TypeInput {
+    : _TypeObject<_TypeKind.Input _InputBase _InputField>
+    }
+
 output _InputBase {
     : _ObjBase<_ObjRef<_InputBase>>
         input: Identifier

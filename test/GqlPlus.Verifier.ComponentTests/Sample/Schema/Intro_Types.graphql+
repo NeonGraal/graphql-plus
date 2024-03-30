@@ -1,12 +1,12 @@
 output _Type {
     | _BaseType<_TypeKind.Basic>
     | _BaseType<_TypeKind.Internal>
-    | _ParentType<_TypeKind.Dual _DualBase _Field<_DualBase>>
-    | _ParentType<_TypeKind.Enum _Aliased _EnumMember>
-    | _TypeObject<_TypeKind.Input _InputBase _InputField>
-    | _TypeObject<_TypeKind.Output _OutputBase _OutputField>
+    | _TypeDual
+    | _TypeEnum
+    | _TypeInput
+    | _TypeOutput
     | _TypeScalar
-    | _ParentType<_TypeKind.Union _Named _UnionMember>
+    | _TypeUnion
     }
 
 output _BaseType<$kind> {

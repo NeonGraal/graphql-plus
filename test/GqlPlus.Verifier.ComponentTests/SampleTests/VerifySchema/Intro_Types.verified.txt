@@ -1,19 +1,11 @@
 ﻿[
-  !!! I@007/0006 : Invalid Output Alternate. '_TypeObject' not defined. - '_TypeObject' !!!,
-  !!! I@007/0007 : Invalid Output Alternate. '_TypeObject' not defined. - '_TypeObject' !!!,
+  !!! I@007/0004 : Invalid Output Alternate. '_TypeDual' not defined. - '_TypeDual' !!!,
+  !!! I@007/0005 : Invalid Output Alternate. '_TypeEnum' not defined. - '_TypeEnum' !!!,
+  !!! I@007/0006 : Invalid Output Alternate. '_TypeInput' not defined. - '_TypeInput' !!!,
+  !!! I@007/0007 : Invalid Output Alternate. '_TypeOutput' not defined. - '_TypeOutput' !!!,
   !!! I@007/0008 : Invalid Output Alternate. '_TypeScalar' not defined. - '_TypeScalar' !!!,
+  !!! I@007/0009 : Invalid Output Alternate. '_TypeUnion' not defined. - '_TypeUnion' !!!,
   !!! I@008/0012 : Invalid Output Parent. '_Aliased' not defined. - '_BaseType' !!!,
   !!! I@015/0034 : Invalid Output Field. 'Identifier' not defined. - 'Identifier' !!!,
-  !!! I@024/0023 : Invalid Output Parent. 'Identifier' not defined. - 'Identifier' !!!,
-  !!! I@034/0004 : Invalid Output Alternate. '_DualBase' not defined. - '_DualBase' !!!,
-  !!! I@034/0005 : Invalid Output Alternate. '_Aliased' not defined. - '_Aliased' !!!,
-  !!! I@035/0006 : Invalid Output Alternate. '_InputBase' not defined. - '_InputBase' !!!,
-  !!! I@035/0009 : Invalid Output Alternate. '_Named' not defined. - '_Named' !!!,
-  !!! I@036/0007 : Invalid Output Alternate. '_OutputBase' not defined. - '_OutputBase' !!!,
-  !!! I@042/0009 : Invalid Output Alternate. '_UnionMember' not defined. - '_UnionMember' !!!,
-  !!! I@043/0005 : Invalid Output Alternate. '_EnumMember' not defined. - '_EnumMember' !!!,
-  !!! I@044/0004 : Invalid Output Alternate. '_Field' not defined. - '_Field' !!!,
-  !!! I@046/0006 : Invalid Output Alternate. '_InputField' not defined. - '_InputField' !!!,
-  !!! I@048/0007 : Invalid Output Alternate. '_OutputField' not defined. - '_OutputField' !!!,
-  !!! I@051/0004 : Invalid Output Alternate. '_DualBase' not defined. - '_DualBase' !!!
+  !!! I@024/0023 : Invalid Output Parent. 'Identifier' not defined. - 'Identifier' !!!
 ]

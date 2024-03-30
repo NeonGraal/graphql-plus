@@ -1,4 +1,6 @@
 output _Categories {
+        category: _Category
+        type: _Type
     | _Category
     | _Type
 }

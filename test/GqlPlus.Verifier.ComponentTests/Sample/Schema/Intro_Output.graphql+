@@ -1,3 +1,7 @@
+output _TypeOutput {
+    : _TypeObject<_TypeKind.Output _OutputBase _OutputField>
+    }
+
 output _OutputBase {
     : _ObjBase<_OutputArgument>
         output: Identifier

@@ -1,8 +1,9 @@
 ﻿[
-  !!! I@007/0003 : Invalid Output Alternate. '_Type' not defined. - '_Type' !!!,
-  !!! I@008/0006 : Invalid Output Parent. '_Aliased' not defined. - '_Category' !!!,
-  !!! I@017/0009 : Invalid Output Field. '_TypeRef' not defined. - '_TypeRef' !!!,
-  !!! I@020/0010 : Invalid Output Field. '_Modifiers' not defined. - '_Modifiers' !!!,
-  !!! I@026/0009 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
-  !!! I@026/0009 : Invalid Output Field. '_TypeKind' not defined. - '_TypeKind' !!!
+  !!! I@007/0005 : Invalid Output Alternate. '_Type' not defined. - '_Type' !!!,
+  !!! I@008/0008 : Invalid Output Parent. '_Aliased' not defined. - '_Category' !!!,
+  !!! I@015/0003 : Invalid Output Field. '_Type' not defined. - '_Type' !!!,
+  !!! I@017/0011 : Invalid Output Field. '_TypeRef' not defined. - '_TypeRef' !!!,
+  !!! I@020/0012 : Invalid Output Field. '_Modifiers' not defined. - '_Modifiers' !!!,
+  !!! I@026/0011 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
+  !!! I@026/0011 : Invalid Output Field. '_TypeKind' not defined. - '_TypeKind' !!!
 ]

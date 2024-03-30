@@ -69,7 +69,6 @@ internal static class UsageHelpers
   {
     foreach (var modifier in modified.Modifiers) {
       if (modifier.Kind == ModifierKind.Dict) {
-        // Todo: Key is allowed to be a Type Parameter
         if (context.GetType(modifier.Key, out var key)) {
           if (key is not AstSimple and not TypeParameterAst) {
             context.AddError((AstAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");

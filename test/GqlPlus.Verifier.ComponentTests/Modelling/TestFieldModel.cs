@@ -54,9 +54,7 @@ internal abstract class CheckFieldModel<TField, TRef, TModel>(
   protected abstract TField NewFieldAst(FieldInput name);
 
   void ICheckFieldModel<TField, TRef>.Field_Expected(TField ast, string[] expected)
-    => Model_Expected(AstToModel(ast), expected, false);
-  void ICheckFieldModel<TField, TRef>.Field_Expected(TField ast, string[] expected, bool skipIf)
-    => Model_Expected(AstToModel(ast), expected, skipIf);
+    => Model_Expected(AstToModel(ast), expected);
   TField ICheckFieldModel<TField, TRef>.FieldAst(FieldInput input)
     => NewFieldAst(input);
   string[] ICheckFieldModel<TField, TRef>.ExpectedField(FieldInput input, string[] extras, string[] parameters)
@@ -74,5 +72,4 @@ internal interface ICheckFieldModel<TField, TRef>
   string[] ExpectedField(FieldInput input, string[] extras, string[] parameters);
   string[] ExpectedDual(FieldInput input);
   void Field_Expected(TField ast, string[] expected);
-  void Field_Expected(TField ast, string[] expected, bool skipIf);
 }

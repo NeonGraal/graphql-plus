@@ -3,7 +3,24 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-// Todo : DirectivesModel
+public record class DirectivesModel
+  : ModelBase
+{
+  public DirectiveModel? Directive { get; init; }
+  public BaseTypeModel? Type { get; init; }
+
+  internal override RenderStructure Render(IRenderContext context)
+    => Type is null
+      ? Directive is null
+        ? new("")
+        : Directive.Render(context)
+      : Directive is null
+        ? Type.Render(context)
+        : base.Render(context)
+          .Add("directive", Directive.Render(context))
+          .Add("type", Type.Render(context));
+}
+
 
 public record class DirectiveModel(
   string Name

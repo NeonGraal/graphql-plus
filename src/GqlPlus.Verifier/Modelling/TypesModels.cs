@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-// Todo: TypeModel
+// TypeModel => BaseTypeModel
 
 public abstract record class BaseTypeModel(
   TypeKindModel Kind,

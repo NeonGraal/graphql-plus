@@ -17,7 +17,7 @@ internal sealed class ParameterModelChecks(
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<string> input)
   {
-    string[] description = [.. input.Description?.Select(d => "  " + d) ?? []];
+    var description = input.Description?.Indent() ?? [];
     return description.Length == 0
       ? ["!_Parameter", "type: !_InputBase " + input.Name]
       : ["!_Parameter",

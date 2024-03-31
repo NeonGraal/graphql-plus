@@ -36,12 +36,10 @@ internal abstract class CheckModelBase<TName, TAst, TModel>
   }
 
   internal void AstExpected(TAst ast, string[] expected)
-    => Model_Expected(AstToModel(ast), expected, false);
+    => Model_Expected(AstToModel(ast), expected);
 
-  internal void Model_Expected(IRendering model, string[] expected, bool skipIf)
+  internal void Model_Expected(IRendering model, string[] expected)
   {
-    Skip.If(skipIf);
-
     var render = model.Render(Context);
 
     var yaml = render.ToYaml();
@@ -53,7 +51,7 @@ internal abstract class CheckModelBase<TName, TAst, TModel>
     => input is null ? ""
     : $"'{input.Replace("'", "''", StringComparison.Ordinal)}'";
 
-  protected TModel AstToModel(TAst ast)
+  protected virtual TModel AstToModel(TAst ast)
     => _modeller.ToModel<TModel>(ast, TypeKinds);
 
   protected abstract TAst NewBaseAst(TName name);
@@ -65,7 +63,7 @@ internal abstract class CheckModelBase<TName, TAst, TModel>
         ? items.SelectMany(mapping)
         : items.SelectMany(mapping).Prepend(field);
 
-  void ICheckModelBase.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected, false);
+  void ICheckModelBase.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
   AstBase ICheckModelBase<TName>.BaseAst(TName name) => NewBaseAst(name);
   IRendering ICheckModelBase.ToModel(AstBase ast) => AstToModel((TAst)ast);
   string ICheckModelBase.YamlQuoted(string input) => YamlQuoted(input);

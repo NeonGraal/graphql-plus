@@ -63,9 +63,7 @@ internal abstract class CheckReferenceModel<TRef, TModel>(
   protected abstract TRef NewReferenceAst(string name);
 
   void ICheckReferenceModel<TRef>.Reference_Expected(TRef ast, string[] expected)
-    => Model_Expected(AstToModel(ast), expected, false);
-  void ICheckReferenceModel<TRef>.Reference_Expected(TRef ast, string[] expected, bool skipIf)
-    => Model_Expected(AstToModel(ast), expected, skipIf);
+    => Model_Expected(AstToModel(ast), expected);
   TRef ICheckReferenceModel<TRef>.ReferenceAst(string name)
     => NewReferenceAst(name);
   string[] ICheckReferenceModel<TRef>.ExpectedReference(string input, bool isTypeParam, string[] args)
@@ -84,6 +82,5 @@ internal interface ICheckReferenceModel<TRef>
   string[] ExpectedDual(string input);
   string[] ExpectedArguments(string[] args);
   void Reference_Expected(TRef ast, string[] expected);
-  void Reference_Expected(TRef ast, string[] expected, bool skipIf);
   TRef ReferenceAst(string name);
 }

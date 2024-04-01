@@ -19,11 +19,11 @@ internal static class RenderYaml
     where T : IRendering
     => new(values.Select(v => v.Render(context)), tag, flow);
 
-  internal static RenderStructure Render<T>(this IMap<T> values, IRenderContext context, string keyTag = "", string valueTag = "", bool flow = false)
+  internal static RenderStructure Render<T>(this IMap<T> values, IRenderContext context, string keyTag = "", string dictTag = "", bool flow = false)
     where T : IRendering
     => new(values.ToDictionary(
         p => new RenderValue(p.Key, keyTag),
-        p => p.Value.Render(context)), valueTag, flow);
+        p => p.Value.Render(context)), "_Map" + dictTag, flow);
 
   internal static string TrueFalse(this bool value)
     => value ? "true" : "false";

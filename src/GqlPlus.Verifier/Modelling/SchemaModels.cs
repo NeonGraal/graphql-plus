@@ -1,14 +1,48 @@
-﻿using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-// Todo: SchemaModel
+public record class SchemaModel(
+  string Name
+) : NamedModel(Name)
+{
+  internal SettingModel[] Settings { get; init; } = [];
 
-// Todo: FilterParameter
+  public IMap<CategoriesModel> GetCategories(CategoryFilterParameter? filter) => new Map<CategoriesModel>();
+  public IMap<DirectivesModel> GetDirectives(FilterParameter? filter) => new Map<DirectivesModel>();
+  public IMap<BaseTypeModel> GetTypes(TypeFilterParameter? filter) => new Map<BaseTypeModel>();
+  public IMap<SettingModel> GetSettings(FilterParameter? filter)
+    => Settings.ToMap(s => s.Name);
 
-// Todo: CategoryFilterParameter
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("categories", GetCategories(default).Render(context, keyTag: "_Identifier"))
+      .Add("directives", GetDirectives(default).Render(context, keyTag: "_Identifier"))
+      .Add("types", GetTypes(default).Render(context, keyTag: "_Identifier"))
+      .Add("settings", GetSettings(default).Render(context, keyTag: "_Identifier", "_Setting"));
+}
 
-// Todo: TypeFilterParameter
+public record class FilterParameter(
+  string[] Names
+)
+{
+  public bool IncludeReferencedTypes { get; set; }
+}
+
+public record class CategoryFilterParameter(
+  string[] Names
+) : FilterParameter(Names)
+{
+  public CategoryOption[] Resolutions { get; set; } = [];
+}
+
+public record class TypeFilterParameter(
+  string[] Names
+) : FilterParameter(Names)
+{
+  public TypeKindModel[] Kinds { get; set; } = [];
+}
 
 public record class AliasedModel(
   string Name
@@ -56,4 +90,17 @@ public record class NamedModel(
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
       .Add("name", Name);
+}
+
+internal class SchemaModeller(
+  IModeller<OptionSettingAst, SettingModel> setting
+) : ModellerBase<SchemaAst, SchemaModel>
+{
+  internal override SchemaModel ToModel(SchemaAst ast, IMap<TypeKindModel> typeKinds)
+    => new(ast.Name) {
+      Settings = DeclarationModels<OptionDeclAst, SettingModel>(ast, o => setting.ToModels(o.Settings, typeKinds)),
+    };
+
+  private TResult[] DeclarationModels<TAst, TResult>(SchemaAst ast, Func<TAst, IEnumerable<TResult>> many)
+    => [.. ast.Declarations.OfType<TAst>().SelectMany(many)];
 }

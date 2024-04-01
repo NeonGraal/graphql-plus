@@ -16,10 +16,7 @@ internal sealed class SettingModelChecks(
 ) : CheckDescribedModel<SettingInput, OptionSettingAst, SettingModel>(modeller)
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<SettingInput> input)
-    => ["!_Setting",
-      .. input.Description ?? [],
-      "name: " + input.Name.Name,
-      "value: " + input.Name.Value.YamlQuoted()];
+    => input.Name.Expected(input.Description ?? []);
 
   protected override OptionSettingAst NewDescribedAst(SettingInput input, string description)
     => input.ToAst(description);
@@ -29,4 +26,10 @@ public record struct SettingInput(string Name, string Value)
 {
   internal readonly OptionSettingAst ToAst(string description)
     => new(AstNulls.At, Name, description, new FieldKeyAst(AstNulls.At, Value));
+
+  internal readonly string[] Expected(string[] description, string prefix = "", string indent = "")
+    => [prefix + "!_Setting",
+      .. description.Select(d => indent + d),
+      indent + "name: " + Name,
+      indent + "value: " + Value.YamlQuoted()];
 }

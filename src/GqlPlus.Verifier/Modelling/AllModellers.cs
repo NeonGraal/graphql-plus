@@ -27,6 +27,7 @@ internal static class AllModellers
       .AddModeller<OutputFieldAst, OutputFieldModel, OutputFieldModeller>()
       .AddModeller<OutputReferenceAst, OutputBaseModel, OutputReferenceModeller>()
       .AddModeller<ParameterAst, ParameterModel, ParameterModeller>()
+      .AddModeller<SchemaAst, SchemaModel, SchemaModeller>()
       .AddModeller<UnionDeclAst, TypeUnionModel, UnionModeller>()
       .AddModifierModeller()
     ;

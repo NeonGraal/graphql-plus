@@ -41,7 +41,7 @@ internal sealed class ConstantModelChecks(
 ) : CheckModelBase<string, ConstantAst, ConstantModel>(modeller)
 {
   protected override string[] ExpectedBase(string input)
-    => [YamlQuoted(input)];
+    => [input.YamlQuoted()];
 
   protected override ConstantAst NewBaseAst(string input)
     => new FieldKeyAst(AstNulls.At, input);

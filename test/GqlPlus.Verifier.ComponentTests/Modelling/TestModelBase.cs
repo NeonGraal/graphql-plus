@@ -47,10 +47,6 @@ internal abstract class CheckModelBase<TName, TAst, TModel>
     yaml.ToLines().Should().Equal(expected.Tidy());
   }
 
-  internal string YamlQuoted(string? input)
-    => input is null ? ""
-    : $"'{input.Replace("'", "''", StringComparison.Ordinal)}'";
-
   protected virtual TModel AstToModel(TAst ast)
     => _modeller.ToModel<TModel>(ast, TypeKinds);
 
@@ -66,7 +62,6 @@ internal abstract class CheckModelBase<TName, TAst, TModel>
   void ICheckModelBase.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
   AstBase ICheckModelBase<TName>.BaseAst(TName name) => NewBaseAst(name);
   IRendering ICheckModelBase.ToModel(AstBase ast) => AstToModel((TAst)ast);
-  string ICheckModelBase.YamlQuoted(string input) => YamlQuoted(input);
   string[] ICheckModelBase<TName>.ExpectedBase(TName name) => ExpectedBase(name);
 }
 
@@ -84,7 +79,6 @@ internal interface ICheckModelBase
   IRendering ToModel(AstBase ast);
 
   void Model_Expected(IRendering model, string[] expected);
-  string YamlQuoted(string input);
 }
 
 internal static class CheckModelBaseHelper

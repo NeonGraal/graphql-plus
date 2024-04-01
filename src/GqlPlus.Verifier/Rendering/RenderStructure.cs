@@ -32,10 +32,8 @@ public class RenderStructure
     : base(new RenderValue(value)) => Tag = tag;
   public RenderStructure(RenderValue value, string tag = "")
     : base(value) => Tag = tag;
-  public RenderStructure(IEnumerable<RenderStructure> list, bool flow = false)
-    : base(list) => (Tag, Flow) = ("", flow);
-  public RenderStructure(IEnumerable<RenderStructure> list, string tag)
-    : base(list) => (Tag, Flow) = (tag, false);
+  public RenderStructure(IEnumerable<RenderStructure> list, string tag = "", bool flow = false)
+    : base(list) => (Tag, Flow) = (tag, flow);
   public RenderStructure(Dictionary<RenderValue, RenderStructure> map, string tag, bool flow = false)
     : base(map) => (Tag, Flow) = (tag, flow);
 

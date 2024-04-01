@@ -21,7 +21,6 @@ public record class DirectivesModel
           .Add("type", Type.Render(context));
 }
 
-
 public record class DirectiveModel(
   string Name
 ) : AliasedModel(Name)

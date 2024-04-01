@@ -19,7 +19,7 @@ public class ConstantModel
     => Map.Count > 0 ? new RenderStructure(Map.ToDictionary(
         p => p.Key.Render(context).Value!,
         p => p.Value.Render(context)), "_ConstantMap")
-    : List.Count > 0 ? new RenderStructure(List.Select(c => c.Render(context)), "_ConstantList")
+    : List.Count > 0 ? List.Render(context, "_ConstantList")
     : Value is not null ? Value.Render(context)
     : new("");
 }

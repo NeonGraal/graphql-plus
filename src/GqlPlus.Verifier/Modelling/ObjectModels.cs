@@ -79,7 +79,7 @@ public record class FieldModel<TBase>(
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("modifiers", Modifiers.Render(context, true))
+      .Add("modifiers", Modifiers.Render(context, flow: true))
       .Add("type", Type?.Render(context));
 }
 

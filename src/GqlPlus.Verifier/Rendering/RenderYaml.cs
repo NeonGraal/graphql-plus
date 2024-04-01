@@ -12,12 +12,18 @@ internal static class RenderYaml
       .EnsureRoundtrip()
       .Build();
 
-  internal static RenderStructure Render(this IEnumerable<string> strings, bool flow = true)
-    => new(strings.Select(a => new RenderStructure(new RenderValue(a))), flow);
+  internal static RenderStructure Render(this IEnumerable<string> strings, string tag = "", bool flow = true)
+    => new(strings.Select(a => new RenderStructure(new RenderValue(a))), tag, flow);
 
-  internal static RenderStructure Render<T>(this IEnumerable<T> values, IRenderContext context, bool flow = false)
+  internal static RenderStructure Render<T>(this IEnumerable<T> values, IRenderContext context, string tag = "", bool flow = false)
     where T : IRendering
-    => new(values.Select(v => v.Render(context)), flow);
+    => new(values.Select(v => v.Render(context)), tag, flow);
+
+  internal static RenderStructure Render<T>(this IMap<T> values, IRenderContext context, string keyTag = "", string valueTag = "", bool flow = false)
+    where T : IRendering
+    => new(values.ToDictionary(
+        p => new RenderValue(p.Key, keyTag),
+        p => p.Value.Render(context)), valueTag, flow);
 
   internal static string TrueFalse(this bool value)
     => value ? "true" : "false";

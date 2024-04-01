@@ -38,7 +38,7 @@ internal class RenderTypeConverter : IYamlTypeConverter
     var flow = model.Flow ? MappingStyle.Flow : MappingStyle.Any;
     emitter.Emit(new MappingStart(default, tag, plainImplicit, flow));
     foreach (var kv in model.Map.OrderBy(kv => kv.Key)) {
-      WriteValue(emitter, kv.Key, "");
+      WriteValue(emitter, kv.Key, kv.Key.Tag);
       WriteYaml(emitter, kv.Value, kv.Value.GetType());
     }
 

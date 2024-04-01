@@ -52,5 +52,5 @@ internal class ExpectedDescriptionInput<TName>(
 {
   internal TName Name { get; } = name;
   public string[] Description { get; protected set; }
-    = description.ExpectedDescription();
+    = string.IsNullOrWhiteSpace(description) ? [] : ["description: " + description.YamlQuoted()];
 }

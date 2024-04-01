@@ -33,7 +33,7 @@ public record class CategoryModel(
     => base.Render(context)
       .Add("resolution", Resolution, "_Resolution")
       .Add("output", Output.Render(context))
-      .Add("modifiers", Modifiers.Render(context, true));
+      .Add("modifiers", Modifiers.Render(context, flow: true));
 }
 
 // ResolutionModel => CategoryOption

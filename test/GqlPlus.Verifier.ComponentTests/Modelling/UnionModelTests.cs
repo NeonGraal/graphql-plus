@@ -63,7 +63,7 @@ public class UnionModelTests
         $"aliases: [{string.Join(", ", aliases)}]",
         .. _checks.ExpectedAllMembers("allItems:", parentMembers, parent),
         .. _checks.ExpectedAllMembers("", members, name),
-        "description: " + _checks.YamlQuoted(contents),
+        "description: " + contents.YamlQuoted(),
         .. _checks.ExpectedMembers("items:", members),
         "kind: !_TypeKind Union",
         "name: " + name,

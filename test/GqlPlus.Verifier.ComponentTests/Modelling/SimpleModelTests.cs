@@ -34,7 +34,7 @@ internal sealed class SimpleModelChecks
   { }
 
   protected override string[] ExpectedBase(string name)
-    => [YamlQuoted(name)];
+    => [name.YamlQuoted()];
 
   protected override FieldKeyAst NewBaseAst(string input)
     => new(AstNulls.At, input);

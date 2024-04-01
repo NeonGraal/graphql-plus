@@ -1,8 +1,8 @@
 ﻿namespace GqlPlus.Verifier.Rendering;
 
 [SuppressMessage("Design", "CA1036:Override methods on comparable types")]
-public record class RenderValue
-  : IComparable<RenderValue>
+public sealed record class RenderValue
+  : IComparable<RenderValue>, IEquatable<RenderValue>
 {
   public bool IsEmpty
     => string.IsNullOrEmpty(Identifier)
@@ -15,24 +15,36 @@ public record class RenderValue
   public string? Text { get; private init; }
   public decimal? Number { get; }
 
-  public RenderValue(bool? value)
-    => Boolean = value;
-  public RenderValue(string? value)
-    => Identifier = value;
-  public RenderValue(decimal? value)
-    => Number = value;
+  public string Tag { get; private init; } = "";
+
+  public RenderValue(bool? value, string tag = "")
+    => (Boolean, Tag) = (value, tag);
+  public RenderValue(string? value, string tag = "")
+    => (Identifier, Tag) = (value, tag);
+  public RenderValue(decimal? value, string tag = "")
+    => (Number, Tag) = (value, tag);
 
   private RenderValue() { }
 
-  public static RenderValue Str(string? value)
-    => new() { Text = value };
+  public static RenderValue Str(string? value, string tag = "")
+    => new() { Text = value, Tag = tag };
 
   public int CompareTo(RenderValue? other)
-    => BothValued(other?.Boolean, Boolean) ? Boolean.Value.CompareTo(other.Boolean)
-    : BothValued(other?.Number, Number) ? Number.Value.CompareTo(other.Number)
-    : BothValued(other?.Identifier, Identifier) ? string.Compare(Identifier, other.Identifier, StringComparison.Ordinal)
-    : BothValued(other?.Text, Text) ? string.Compare(Text, other.Text, StringComparison.Ordinal)
+    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
+    ? BothValued(other?.Boolean, Boolean) ? Boolean.Value.CompareTo(other.Boolean)
+      : BothValued(other?.Number, Number) ? Number.Value.CompareTo(other.Number)
+      : BothValued(other?.Identifier, Identifier) ? string.Compare(Identifier, other.Identifier, StringComparison.Ordinal)
+      : BothValued(other?.Text, Text) ? string.Compare(Text, other.Text, StringComparison.Ordinal)
+      : -1
     : -1;
+  public bool Equals(RenderValue? other)
+    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
+    && (BothValued(other?.Boolean, Boolean) ? Boolean.Value == other.Boolean
+      : BothValued(other?.Number, Number) ? Number.Value == other.Number
+      : BothValued(other?.Identifier, Identifier) ? string.Equals(Identifier, other.Identifier, StringComparison.Ordinal)
+      : BothValued(other?.Text, Text) && string.Equals(Text, other.Text, StringComparison.Ordinal));
+  public override int GetHashCode()
+    => HashCode.Combine(Tag, Boolean, Number, Identifier, Text);
 
   private static bool BothValued<T>([NotNullWhen(true)] T? left, [NotNullWhen(true)] T? right)
     => left is not null && right is not null;

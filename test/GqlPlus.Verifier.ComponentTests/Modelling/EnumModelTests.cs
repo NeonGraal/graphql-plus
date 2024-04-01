@@ -86,7 +86,7 @@ internal sealed class EnumModelChecks
         .. input.Aliases,
         .. input.AllItems,
         .. input.Description,
-        .. input.Members,
+        .. input.Items,
         "kind: !_TypeKind Enum",
         "name: " + input.Name,
         .. input.Parent.TypeRefFor(SimpleKindModel.Enum)];
@@ -113,7 +113,7 @@ internal sealed class ExpectedEnumInput(
   IEnumerable<string>? allMembers = null
 ) : ExpectedTypeInput<string>(name, parent, aliases, description)
 {
-  public string[] Members { get; } = [.. members ?? []];
+  public string[] Items { get; } = [.. members ?? []];
   public string[] AllItems { get; } = [.. allMembers ?? []];
 
   internal ExpectedEnumInput(ExpectedTypeInput<string> input)

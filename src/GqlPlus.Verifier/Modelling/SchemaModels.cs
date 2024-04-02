@@ -7,10 +7,12 @@ public record class SchemaModel(
   string Name
 ) : NamedModel(Name)
 {
+  internal DirectiveModel[] Directives { get; init; } = [];
   internal SettingModel[] Settings { get; init; } = [];
 
   public IMap<CategoriesModel> GetCategories(CategoryFilterParameter? filter) => new Map<CategoriesModel>();
-  public IMap<DirectivesModel> GetDirectives(FilterParameter? filter) => new Map<DirectivesModel>();
+  public IMap<DirectivesModel> GetDirectives(FilterParameter? filter)
+    => Directives.ToMap(d => d.Name, d => new DirectivesModel() { Directive = d });
   public IMap<BaseTypeModel> GetTypes(TypeFilterParameter? filter) => new Map<BaseTypeModel>();
   public IMap<SettingModel> GetSettings(FilterParameter? filter)
     => Settings.ToMap(s => s.Name);
@@ -18,7 +20,7 @@ public record class SchemaModel(
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
       .Add("categories", GetCategories(default).Render(context, keyTag: "_Identifier"))
-      .Add("directives", GetDirectives(default).Render(context, keyTag: "_Identifier"))
+      .Add("directives", GetDirectives(default).Render(context, keyTag: "_Identifier", "_Directives"))
       .Add("types", GetTypes(default).Render(context, keyTag: "_Identifier"))
       .Add("settings", GetSettings(default).Render(context, keyTag: "_Identifier", "_Setting"));
 }
@@ -93,11 +95,13 @@ public record class NamedModel(
 }
 
 internal class SchemaModeller(
+  IModeller<DirectiveDeclAst, DirectiveModel> directive,
   IModeller<OptionSettingAst, SettingModel> setting
 ) : ModellerBase<SchemaAst, SchemaModel>
 {
   internal override SchemaModel ToModel(SchemaAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
+      Directives = DeclarationModels<DirectiveDeclAst, DirectiveModel>(ast, d => [directive.ToModel(d, typeKinds)]),
       Settings = DeclarationModels<OptionDeclAst, SettingModel>(ast, o => setting.ToModels(o.Settings, typeKinds)),
     };
 

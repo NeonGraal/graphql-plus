@@ -38,6 +38,10 @@ internal record class EnumValueModel(
 internal class EnumModeller
   : ModellerType<EnumDeclAst, string, TypeEnumModel>
 {
+  public EnumModeller()
+    : base(TypeKindModel.Enum)
+  { }
+
   internal override TypeEnumModel ToModel(EnumDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = ast.Aliases,

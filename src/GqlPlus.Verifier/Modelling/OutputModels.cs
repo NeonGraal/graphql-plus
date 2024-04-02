@@ -68,7 +68,7 @@ internal class OutputModeller(
   IAlternateModeller<OutputReferenceAst, OutputBaseModel> alternate,
   IModeller<OutputFieldAst, OutputFieldModel> field,
   IModeller<OutputReferenceAst, OutputBaseModel> reference
-) : ModellerObject<OutputDeclAst, OutputReferenceAst, OutputFieldAst, TypeOutputModel, OutputBaseModel, OutputFieldModel>(alternate, field, reference)
+) : ModellerObject<OutputDeclAst, OutputReferenceAst, OutputFieldAst, TypeOutputModel, OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, alternate, field, reference)
 {
   internal override TypeOutputModel ToModel(OutputDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {

@@ -40,7 +40,7 @@ internal class InputModeller(
   IAlternateModeller<InputReferenceAst, InputBaseModel> alternate,
   IModeller<InputFieldAst, InputFieldModel> field,
   IModeller<InputReferenceAst, InputBaseModel> reference
-) : ModellerObject<InputDeclAst, InputReferenceAst, InputFieldAst, TypeInputModel, InputBaseModel, InputFieldModel>(alternate, field, reference)
+) : ModellerObject<InputDeclAst, InputReferenceAst, InputFieldAst, TypeInputModel, InputBaseModel, InputFieldModel>(TypeKindModel.Input, alternate, field, reference)
 {
   internal override TypeInputModel ToModel(InputDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {

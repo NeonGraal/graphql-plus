@@ -93,16 +93,53 @@ public record class TypeSimpleModel(
 ) : TypeRefModel<SimpleKindModel>(Kind, Name), IBaseScalarItemModel
 { }
 
-internal abstract class ModellerType<TAst, TParent, TModel>
-  : ModellerBase<TAst, TModel>
+internal abstract class ModellerType<TAst, TParent, TModel>(
+  TypeKindModel kind
+) : ModellerBase<TAst, TModel>, ITypeModeller
   where TAst : AstType<TParent>
   where TParent : IEquatable<TParent>
-  where TModel : IRendering
-{ }
+  where TModel : BaseTypeModel
+{
+  TypeKindModel ITypeModeller.Kind => kind;
+
+  bool ITypeModeller.ForType(AstType ast)
+    => ast is TAst;
+
+  BaseTypeModel ITypeModeller.ToTypeModel(AstType ast, IMap<TypeKindModel> typeKinds)
+    => ToModel((TAst)ast, typeKinds);
+}
+
+internal interface ITypeModeller
+{
+  bool ForType(AstType ast);
+  TypeKindModel Kind { get; }
+  BaseTypeModel ToTypeModel(AstType ast, IMap<TypeKindModel> typeKinds);
+}
 
 internal static class ModelHelper
 {
   [return: NotNullIfNotNull(nameof(input))]
   internal static TypeRefModel<TKind>? TypeRef<TKind>(this string? input, TKind kind)
     => input is null ? null : new(kind, input);
+}
+
+internal class TypeModeller(
+  IEnumerable<ITypeModeller> types
+) : ModellerBase<AstType, BaseTypeModel>, ITypesModeller
+{
+  public void AddTypeKinds(IEnumerable<AstType> asts, IMap<TypeKindModel> typeKinds)
+  {
+    foreach (var ast in asts) {
+      typeKinds.Add(ast.Name, types.Single(t => t.ForType(ast)).Kind);
+    }
+  }
+
+  internal override BaseTypeModel ToModel(AstType ast, IMap<TypeKindModel> typeKinds)
+    => types.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
+}
+
+internal interface ITypesModeller
+  : IModeller<AstType, BaseTypeModel>
+{
+  void AddTypeKinds(IEnumerable<AstType> asts, IMap<TypeKindModel> typeKinds);
 }

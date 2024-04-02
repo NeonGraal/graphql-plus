@@ -95,14 +95,15 @@ public record class ParameterModel(
 }
 
 internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, TField>(
+  TypeKindModel kind,
   IAlternateModeller<TRefAst, TBase> alternate,
   IModeller<TFieldAst, TField> field,
   IModeller<TRefAst, TBase> reference
-) : ModellerType<TAst, TRefAst, TModel>
+) : ModellerType<TAst, TRefAst, TModel>(kind)
   where TAst : AstType<TRefAst>
   where TRefAst : AstReference<TRefAst>
   where TFieldAst : AstField<TRefAst>
-  where TModel : IRendering
+  where TModel : BaseTypeModel
   where TBase : IObjBaseModel
   where TField : IRendering
 {

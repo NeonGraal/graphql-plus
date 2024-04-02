@@ -1,28 +1,88 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Modelling;
 
 public record class SchemaModel(
   string Name
-) : NamedModel(Name)
+) : NamedModel(Name), IRenderContext
 {
-  internal DirectiveModel[] Directives { get; init; } = [];
-  internal SettingModel[] Settings { get; init; } = [];
+  public SchemaModel(
+    string name,
+    IEnumerable<CategoryModel> categories,
+    IEnumerable<DirectiveModel> directives,
+    IEnumerable<SettingModel> settings,
+    IEnumerable<BaseTypeModel> types,
+    ITokenMessages errors)
+    : this(name)
+  {
+    Categories = categories.ToMap(c => c.Name);
+    Directives = directives.ToMap(d => d.Name);
+    Types = types.ToMap(t => t.Name);
+    Settings = settings.ToMap(s => s.Name);
+    Errors = errors;
+  }
 
-  public IMap<CategoriesModel> GetCategories(CategoryFilterParameter? filter) => new Map<CategoriesModel>();
+  internal IMap<CategoryModel> Categories { get; } = new Map<CategoryModel>();
+  internal IMap<DirectiveModel> Directives { get; } = new Map<DirectiveModel>();
+  internal IMap<BaseTypeModel> Types { get; } = new Map<BaseTypeModel>();
+  internal IMap<SettingModel> Settings { get; init; } = new Map<SettingModel>();
+  public ITokenMessages Errors { get; } = new TokenMessages();
+
+  public IMap<CategoriesModel> GetCategories(CategoryFilterParameter? filter)
+    => Categories.ToMap(c => c.Key,
+      c => new CategoriesModel() {
+        Category = c.Value,
+        Type = Types.TryGetValue(c.Key, out var type) ? type : null,
+      });
+
   public IMap<DirectivesModel> GetDirectives(FilterParameter? filter)
-    => Directives.ToMap(d => d.Name, d => new DirectivesModel() { Directive = d });
-  public IMap<BaseTypeModel> GetTypes(TypeFilterParameter? filter) => new Map<BaseTypeModel>();
-  public IMap<SettingModel> GetSettings(FilterParameter? filter)
-    => Settings.ToMap(s => s.Name);
+    => Directives.ToMap(d => d.Key,
+      d => new DirectivesModel() {
+        Directive = d.Value,
+        Type = Types.TryGetValue(d.Key, out var type) ? type : null,
+      });
+
+  public IMap<BaseTypeModel> GetTypes(TypeFilterParameter? filter) => Types;
+  public IMap<SettingModel> GetSettings(FilterParameter? filter) => Settings;
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("categories", GetCategories(default).Render(context, keyTag: "_Identifier"))
+      .Add("_errors", new(Errors.Select(RenderError), "_Errors"))
+      .Add("categories", GetCategories(default).Render(context, keyTag: "_Identifier", "_Categories"))
       .Add("directives", GetDirectives(default).Render(context, keyTag: "_Identifier", "_Directives"))
-      .Add("types", GetTypes(default).Render(context, keyTag: "_Identifier"))
+      .Add("types", GetTypes(default).Render(context, keyTag: "_Identifier", "_Type"))
       .Add("settings", GetSettings(default).Render(context, keyTag: "_Identifier", "_Setting"));
+
+  private RenderStructure RenderError(TokenMessage error)
+    => RenderStructure.New("_Error")
+      .Add(error.Kind is TokenKind.Start or TokenKind.End, r => r,
+        r => r.Add("_at", RenderAt(error)))
+      .Add("_kind", error.Kind)
+      .Add("_message", error.Message);
+
+  private RenderStructure RenderAt(TokenAt at)
+    => RenderStructure.New("_At", true)
+      .Add("_col", at.Column)
+      .Add("_line", at.Line);
+
+  public bool TryGetType<TModel>(string? name, [NotNullWhen(true)] out TModel? model)
+    where TModel : BaseTypeModel
+  {
+    if (name is not null) {
+      if (Types.TryGetValue(name, out var type) && type is TModel modelType) {
+        model = modelType;
+        return true;
+      }
+
+      Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"Unable to get model for type '{name}'"));
+    }
+
+    model = null;
+    return false;
+  }
 }
 
 public record class FilterParameter(
@@ -95,16 +155,50 @@ public record class NamedModel(
 }
 
 internal class SchemaModeller(
+  IModeller<CategoryDeclAst, CategoryModel> category,
   IModeller<DirectiveDeclAst, DirectiveModel> directive,
-  IModeller<OptionSettingAst, SettingModel> setting
+  IModeller<OptionSettingAst, SettingModel> setting,
+  ITypesModeller type
 ) : ModellerBase<SchemaAst, SchemaModel>
 {
   internal override SchemaModel ToModel(SchemaAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
-      Directives = DeclarationModels<DirectiveDeclAst, DirectiveModel>(ast, d => [directive.ToModel(d, typeKinds)]),
-      Settings = DeclarationModels<OptionDeclAst, SettingModel>(ast, o => setting.ToModels(o.Settings, typeKinds)),
-    };
+  {
+    AddBuiltIns(typeKinds);
+    type.AddTypeKinds(ast.Declarations.OfType<AstType>(), typeKinds);
+    AddBuiltInAliases(typeKinds);
 
-  private TResult[] DeclarationModels<TAst, TResult>(SchemaAst ast, Func<TAst, IEnumerable<TResult>> many)
-    => [.. ast.Declarations.OfType<TAst>().SelectMany(many)];
+    return new(ast.Name,
+        DeclarationModel(ast, category, typeKinds),
+        DeclarationModel(ast, directive, typeKinds),
+        ast.Declarations.OfType<OptionDeclAst>().SelectMany(o => setting.ToModels(o.Settings, typeKinds)),
+        DeclarationModel(ast, type, typeKinds),
+        ast.Errors
+        );
+  }
+
+  private static void AddBuiltIns(IMap<TypeKindModel> typeKinds)
+  {
+    foreach (var builtIn in BuiltIn.Basic) {
+      typeKinds.Add(builtIn.Name, TypeKindModel.Basic);
+    }
+
+    foreach (var builtIn in BuiltIn.Internal) {
+      typeKinds.Add(builtIn.Name, TypeKindModel.Internal);
+    }
+  }
+
+  private static void AddBuiltInAliases(IMap<TypeKindModel> typeKinds)
+  {
+    foreach (var builtIn in BuiltIn.Basic.SelectMany(b => b.Aliases)) {
+      typeKinds.TryAdd(builtIn, TypeKindModel.Basic);
+    }
+
+    foreach (var builtIn in BuiltIn.Internal.SelectMany(b => b.Aliases)) {
+      typeKinds.TryAdd(builtIn, TypeKindModel.Internal);
+    }
+  }
+
+  private IEnumerable<TResult> DeclarationModel<TAst, TResult>(SchemaAst ast, IModeller<TAst, TResult> modeller, IMap<TypeKindModel> typeKinds)
+    where TAst : AstBase
+    => ast.Declarations.OfType<TAst>().Select(m => modeller.ToModel(m, typeKinds));
 }

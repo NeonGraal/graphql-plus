@@ -105,6 +105,10 @@ internal abstract class ModellerScalar<TItemAst, TItemModel>
   where TItemAst : IAstScalarItem
   where TItemModel : IBaseScalarItemModel
 {
+  protected ModellerScalar()
+    : base(TypeKindModel.Scalar)
+  { }
+
   internal TItemModel[] ToItems(AstScalar<TItemAst> ast, IMap<TypeKindModel> typeKinds)
     => [.. ast.Items.Select(ast => ToItem(ast, typeKinds))];
 

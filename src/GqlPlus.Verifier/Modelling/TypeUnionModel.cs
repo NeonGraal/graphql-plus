@@ -28,6 +28,10 @@ internal record class UnionMemberModel(
 internal class UnionModeller
   : ModellerType<UnionDeclAst, string, TypeUnionModel>
 {
+  public UnionModeller()
+    : base(TypeKindModel.Union)
+  { }
+
   internal override TypeUnionModel ToModel(UnionDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = ast.Aliases,

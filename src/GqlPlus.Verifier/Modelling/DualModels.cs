@@ -29,7 +29,7 @@ internal class DualModeller(
   IAlternateModeller<DualReferenceAst, DualBaseModel> alternate,
   IModeller<DualFieldAst, DualFieldModel> field,
   IModeller<DualReferenceAst, DualBaseModel> reference
-) : ModellerObject<DualDeclAst, DualReferenceAst, DualFieldAst, TypeDualModel, DualBaseModel, DualFieldModel>(alternate, field, reference)
+) : ModellerObject<DualDeclAst, DualReferenceAst, DualFieldAst, TypeDualModel, DualBaseModel, DualFieldModel>(TypeKindModel.Dual, alternate, field, reference)
 {
   internal override TypeDualModel ToModel(DualDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {

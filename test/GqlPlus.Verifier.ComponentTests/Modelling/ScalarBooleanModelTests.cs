@@ -3,21 +3,19 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class ScalarBooleanModelTests
-  : TestScalarModel<bool, ScalarTrueFalseAst>
+public class ScalarBooleanModelTests(
+  IScalarModeller<ScalarTrueFalseAst, ScalarTrueFalseModel> modeller
+) : TestScalarModel<bool, ScalarTrueFalseAst>
 {
   internal override ICheckScalarModel<bool, ScalarTrueFalseAst> ScalarChecks => _checks;
 
-  private readonly ScalarBooleanModelChecks _checks = new();
+  private readonly ScalarBooleanModelChecks _checks = new(modeller);
 }
 
-internal sealed class ScalarBooleanModelChecks
-  : CheckScalarModel<bool, ScalarTrueFalseAst, ScalarTrueFalseModel>
+internal sealed class ScalarBooleanModelChecks(
+  IScalarModeller<ScalarTrueFalseAst, ScalarTrueFalseModel> modeller
+) : CheckScalarModel<bool, ScalarTrueFalseAst, ScalarTrueFalseModel>(ScalarDomain.Boolean, modeller)
 {
-  public ScalarBooleanModelChecks()
-    : base(ScalarDomain.Boolean, new ScalarBooleanModeller())
-  { }
-
   protected override string[] ExpectedItem(bool input, string exclude, string[] scalar)
     => ["- !_ScalarTrueFalse", exclude, .. scalar, "  value: " + input.TrueFalse()];
 

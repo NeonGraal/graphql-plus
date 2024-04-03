@@ -7,7 +7,9 @@ namespace GqlPlus.Verifier.Modelling;
 public record class TypeInputModel(
   string Name
 ) : TypeObjectModel<InputBaseModel, InputFieldModel>(TypeKindModel.Input, Name)
-{ }
+{
+  internal override string? ParentName => Parent?.Base.Input;
+}
 
 public record class InputBaseModel(
   string Input

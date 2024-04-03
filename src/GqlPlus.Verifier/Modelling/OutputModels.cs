@@ -6,7 +6,9 @@ namespace GqlPlus.Verifier.Modelling;
 public record class TypeOutputModel(
   string Name
 ) : TypeObjectModel<OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, Name)
-{ }
+{
+  internal override string? ParentName => Parent?.Base.Output;
+}
 
 public record class OutputBaseModel(
   string Output

@@ -47,14 +47,14 @@ public abstract class TestScalarModel<TItem, TAstItem>
       },
       ScalarChecks.ExpectedScalar(new(name, parent, members, aliases: aliases, description: contents)));
 
-  internal override ICheckTypeModel<SimpleKindModel, TItem> TypeChecks => ScalarChecks;
+  internal override ICheckTypeModel<SimpleKindModel> TypeChecks => ScalarChecks;
 
   internal abstract ICheckScalarModel<TItem, TAstItem> ScalarChecks { get; }
 }
 
 internal abstract class CheckScalarModel<TItem, TAstItem, TItemModel>(
   ScalarDomain kind,
-  IModeller<AstScalar<TAstItem>, BaseScalarModel<TItemModel>> modeller
+  IScalarModeller<TAstItem, TItemModel> modeller
 ) : CheckTypeModel<AstScalar<TAstItem>, SimpleKindModel, BaseScalarModel<TItemModel>>(modeller, SimpleKindModel.Scalar)
   , ICheckScalarModel<TItem, TAstItem>
   where TAstItem : IAstScalarItem
@@ -79,7 +79,7 @@ internal abstract class CheckScalarModel<TItem, TAstItem, TItemModel>(
   void ICheckScalarModel<TItem, TAstItem>.ScalarExpected(AstScalar<TAstItem> scalar, string[] expected)
     => AstExpected(scalar, expected);
 
-  BaseTypeModel ICheckTypeModel<SimpleKindModel, TItem>.NewParent(string name, TItem[] members, string? parent)
+  BaseTypeModel IParentModel<TItem>.NewParent(string name, TItem[] members, string? parent)
     => _modeller.ToModel(NewScalarAst(name, members) with { Parent = parent }, TypeKinds);
 
   protected IEnumerable<string> Items(TItem[]? inputs)
@@ -122,7 +122,7 @@ internal abstract class CheckScalarModel<TItem, TAstItem, TItemModel>(
 }
 
 internal interface ICheckScalarModel<TItem, TAstItem>
-  : ICheckTypeModel<SimpleKindModel, TItem>
+  : ICheckTypeModel<SimpleKindModel>, IParentModel<TItem>
   where TAstItem : IAstScalarItem
 {
   void ScalarExpected(AstScalar<TAstItem> scalar, string[] expected);

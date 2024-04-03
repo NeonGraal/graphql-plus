@@ -1,22 +1,21 @@
 ﻿namespace GqlPlus.Verifier.Modelling;
 
-public class CollectionModelTests
-  : TestModelBase<ModifierInput>
+public class CollectionModelTests(
+  IModeller<ModifierAst, CollectionModel> modeller
+) : TestModelBase<ModifierInput>
 {
   internal override ICheckModelBase<ModifierInput> BaseChecks => _checks;
-  private readonly CollectionModelChecks _checks = new();
+
+  private readonly CollectionModelChecks _checks = new(modeller);
 
   protected override bool SkipIf(ModifierInput name)
     => name.Kind == ModifierKind.Optional;
 }
 
-internal sealed class CollectionModelChecks
-  : CheckModelBase<ModifierInput, ModifierAst, CollectionModel>
+internal sealed class CollectionModelChecks(
+  IModeller<ModifierAst, CollectionModel> modeller
+) : CheckModelBase<ModifierInput, ModifierAst, CollectionModel>(modeller)
 {
-  public CollectionModelChecks()
-    : base(new ModifierModeller())
-  { }
-
   protected override string[] ExpectedBase(ModifierInput name)
     => name.Kind switch {
       ModifierKind.Optional => ["!_Modifier Optional"],

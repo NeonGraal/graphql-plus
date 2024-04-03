@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class UnionModelTests
-  : TestTypeModel<SimpleKindModel>
+public class UnionModelTests(
+  IModeller<UnionDeclAst, TypeUnionModel> modeller
+) : TestTypeModel<SimpleKindModel>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, string[] members)
@@ -55,24 +56,18 @@ public class UnionModelTests
 
   internal override ICheckTypeModel<SimpleKindModel> TypeChecks => _checks;
 
-  private readonly UnionModelChecks _checks = new();
+  private readonly UnionModelChecks _checks = new(modeller);
 }
 
-internal sealed class UnionModelChecks
-  : CheckTypeModel<UnionDeclAst, SimpleKindModel, TypeUnionModel, string>
+internal sealed class UnionModelChecks(
+  IModeller<UnionDeclAst, TypeUnionModel> modeller
+) : CheckTypeModel<UnionDeclAst, SimpleKindModel, TypeUnionModel, string>(modeller, SimpleKindModel.Union)
 {
-  public UnionModelChecks()
-    : base(new UnionModeller(), SimpleKindModel.Union)
-  { }
-
   internal void UnionExpected(UnionDeclAst ast, ExpectedUnionInput input)
   => AstExpected(ast, ExpectedUnion(input));
 
-  internal IEnumerable<string> ExpectedMembers(string field, string[] members)
-    => ItemsExpected(field, members, m => ["- !_Aliased " + m]);
-
-  internal IEnumerable<string> ExpectedAllMembers(string field, string[] members, string ofUnion)
-    => ItemsExpected(field, members, m => ["- !_UnionMember", "  name: " + m, "  union: " + ofUnion]);
+  protected override Func<string, IEnumerable<string>> ExpectedAllMember(string type)
+    => member => ["- !_UnionMember", "  name: " + member, "  union: " + type];
 
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);

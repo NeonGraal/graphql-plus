@@ -58,10 +58,10 @@ internal static class AllModellers
   public static IServiceCollection AddScalarModeller<TItemAst, TItemModel, TModeller>(this IServiceCollection services)
     where TItemAst : IAstScalarItem
     where TItemModel : IBaseScalarItemModel
-    where TModeller : class, IModeller<AstScalar<TItemAst>, BaseScalarModel<TItemModel>>, ITypeModeller
+    where TModeller : class, IScalarModeller<TItemAst, TItemModel>, ITypeModeller
     => services
       .AddSingleton<TModeller>()
-      .AddSingleton<IModeller<AstScalar<TItemAst>, BaseScalarModel<TItemModel>>, TModeller>(c => c.GetRequiredService<TModeller>())
+      .AddSingleton<IScalarModeller<TItemAst, TItemModel>, TModeller>(c => c.GetRequiredService<TModeller>())
       .AddSingleton<ITypeModeller, TModeller>(c => c.GetRequiredService<TModeller>());
 
   public static IServiceCollection AddModifierModeller(this IServiceCollection services)

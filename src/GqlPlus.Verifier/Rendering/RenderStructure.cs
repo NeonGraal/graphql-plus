@@ -75,7 +75,7 @@ public class RenderStructure
     where T : Enum
     => Add(key, new(value.ToString(), tag ?? typeof(T).TypeTag()));
 
-  public RenderStructure Add(bool optional, Func<RenderStructure, RenderStructure> onTrue, Func<RenderStructure, RenderStructure>? onFalse = null)
+  public RenderStructure Add(bool optional, Func<RenderStructure, RenderStructure>? onTrue = null, Func<RenderStructure, RenderStructure>? onFalse = null)
     => optional
       ? (onTrue is not null ? onTrue(this) : this)
       : (onFalse is not null ? onFalse(this) : this);

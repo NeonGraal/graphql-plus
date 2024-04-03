@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class EnumModelTests
-  : TestTypeModel<SimpleKindModel>
+public class EnumModelTests(
+  IModeller<EnumDeclAst, TypeEnumModel> modeller
+) : TestTypeModel<SimpleKindModel>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, string[] members)
@@ -56,24 +57,18 @@ public class EnumModelTests
 
   internal override ICheckTypeModel<SimpleKindModel> TypeChecks => _checks;
 
-  private readonly EnumModelChecks _checks = new();
+  private readonly EnumModelChecks _checks = new(modeller);
 }
 
-internal sealed class EnumModelChecks
-  : CheckTypeModel<EnumDeclAst, SimpleKindModel, TypeEnumModel, string>
+internal sealed class EnumModelChecks(
+  IModeller<EnumDeclAst, TypeEnumModel> modeller
+) : CheckTypeModel<EnumDeclAst, SimpleKindModel, TypeEnumModel, string>(modeller, SimpleKindModel.Enum)
 {
-  public EnumModelChecks()
-    : base(new EnumModeller(), SimpleKindModel.Enum)
-  { }
-
   internal void EnumExpected(EnumDeclAst ast, ExpectedEnumInput input)
     => AstExpected(ast, ExpectedEnum(input));
 
-  internal IEnumerable<string> ExpectedMembers(string field, string[] members)
-    => ItemsExpected(field, members, m => ["- !_Aliased " + m]);
-
-  internal IEnumerable<string> ExpectedAllMembers(string field, string[] members, string ofEnum)
-    => ItemsExpected(field, members, m => ["- !_EnumMember", "  enum: " + ofEnum, "  name: " + m]);
+  protected override Func<string, IEnumerable<string>> ExpectedAllMember(string type)
+    => member => ["- !_EnumMember", "  enum: " + type, "  name: " + member];
 
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);

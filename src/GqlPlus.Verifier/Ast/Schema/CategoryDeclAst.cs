@@ -38,7 +38,6 @@ public sealed record class CategoryDeclAst(
       .Concat(Modifiers.AsString());
 }
 
-[SuppressMessage("Naming", "CA1720:Identifier contains type name")]
 public enum CategoryOption
 {
   Parallel,

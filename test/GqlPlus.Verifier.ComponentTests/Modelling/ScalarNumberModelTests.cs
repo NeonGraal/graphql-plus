@@ -2,21 +2,19 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class ScalarNumberModelTests
-  : TestScalarModel<ScalarRangeInput, ScalarRangeAst>
+public class ScalarNumberModelTests(
+  IScalarModeller<ScalarRangeAst, ScalarRangeModel> modeller
+) : TestScalarModel<ScalarRangeInput, ScalarRangeAst>
 {
   internal override ICheckScalarModel<ScalarRangeInput, ScalarRangeAst> ScalarChecks => _checks;
 
-  private readonly ScalarNumberModelChecks _checks = new();
+  private readonly ScalarNumberModelChecks _checks = new(modeller);
 }
 
-internal sealed class ScalarNumberModelChecks
-  : CheckScalarModel<ScalarRangeInput, ScalarRangeAst, ScalarRangeModel>
+internal sealed class ScalarNumberModelChecks(
+  IScalarModeller<ScalarRangeAst, ScalarRangeModel> modeller
+) : CheckScalarModel<ScalarRangeInput, ScalarRangeAst, ScalarRangeModel>(ScalarDomain.Number, modeller)
 {
-  public ScalarNumberModelChecks()
-    : base(ScalarDomain.Number, new ScalarNumberModeller())
-  { }
-
   protected override string[] ExpectedItem(ScalarRangeInput input, string exclude, string[] scalar)
     => ["- !_ScalarRange", exclude, "  from: " + input.Lower, .. scalar, "  to: " + input.Upper];
 

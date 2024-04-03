@@ -40,7 +40,6 @@ public abstract record class AstScalar(
 ) : AstSimple(At, Name, Description)
 { }
 
-[SuppressMessage("Naming", "CA1720:Identifier contains type name")]
 public enum ScalarDomain
 {
   Boolean,

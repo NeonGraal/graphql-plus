@@ -58,8 +58,8 @@ public record class SchemaModel(
 
   private RenderStructure RenderError(TokenMessage error)
     => RenderStructure.New("_Error")
-      .Add(error.Kind is TokenKind.Start or TokenKind.End, r => r,
-        r => r.Add("_at", RenderAt(error)))
+      .Add(error.Kind is TokenKind.Start or TokenKind.End,
+        onFalse: r => r.Add("_at", RenderAt(error)))
       .Add("_kind", error.Kind)
       .Add("_message", error.Message);
 

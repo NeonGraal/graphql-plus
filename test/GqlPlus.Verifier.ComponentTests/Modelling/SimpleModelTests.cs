@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class SimpleModelTests
-  : TestModelBase<string>
+public class SimpleModelTests(
+  IModeller<FieldKeyAst, SimpleModel> modeller
+) : TestModelBase<string>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Boolean(bool value)
@@ -23,16 +24,13 @@ public class SimpleModelTests
 
   internal override ICheckModelBase<string> BaseChecks => _checks;
 
-  private readonly SimpleModelChecks _checks = new();
+  private readonly SimpleModelChecks _checks = new(modeller);
 }
 
-internal sealed class SimpleModelChecks
-  : CheckModelBase<string, FieldKeyAst, SimpleModel>
+internal sealed class SimpleModelChecks(
+  IModeller<FieldKeyAst, SimpleModel> modeller
+) : CheckModelBase<string, FieldKeyAst, SimpleModel>(modeller)
 {
-  public SimpleModelChecks()
-    : base(new SimpleModeller())
-  { }
-
   protected override string[] ExpectedBase(string name)
     => [name.YamlQuoted()];
 

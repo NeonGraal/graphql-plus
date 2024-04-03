@@ -14,12 +14,33 @@ public record class TypeObjectModel<TBase, TField>(
   internal DescribedModel[] TypeParameters { get; set; } = [];
   internal TField[] Fields { get; set; } = [];
   internal AlternateModel<TBase>[] Alternates { get; set; } = [];
+  internal virtual string? ParentName => null;
+
+  private IEnumerable<ObjectModel<AlternateModel<TBase>>> AllAlternates(IRenderContext context)
+  {
+    var alternates = Alternates.Select(a => new ObjectModel<AlternateModel<TBase>>(a, Name));
+
+    var parent = context.TryGetType<TypeObjectModel<TBase, TField>>(ParentName, out var parentModel) ? parentModel.AllAlternates(context) : [];
+
+    return parent.Concat(alternates);
+  }
+
+  private IEnumerable<ObjectModel<TField>> AllFields(IRenderContext context)
+  {
+    var fields = Fields.Select(f => new ObjectModel<TField>(f, Name));
+
+    var parent = context.TryGetType<TypeObjectModel<TBase, TField>>(ParentName, out var parentModel) ? parentModel.AllFields(context) : [];
+
+    return parent.Concat(fields);
+  }
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
       .Add("parameters", TypeParameters.Render(context))
       .Add("fields", Fields.Render(context))
-      .Add("alternates", Alternates.Render(context));
+      .Add("allFields", AllFields(context).Render(context))
+      .Add("alternates", Alternates.Render(context))
+      .Add("allAlternates", AllAlternates(context).Render(context));
 }
 
 public record class ObjRefModel<TBase>
@@ -67,6 +88,20 @@ public record class AlternateModel<TBase>(
     => base.Render(context)
       .Add("type", Type.Render(context))
       .Add("collections", Collections.Render(context));
+}
+
+#pragma warning disable CA1724 // Type names should not match namespaces
+public record class ObjectModel<TFor>(
+#pragma warning restore CA1724 // Type names should not match namespaces
+  TFor For,
+  string Obj
+) : ModelBase
+  where TFor : IRendering
+{
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add(For, context)
+      .Add("object", Obj);
 }
 
 public record class FieldModel<TBase>(

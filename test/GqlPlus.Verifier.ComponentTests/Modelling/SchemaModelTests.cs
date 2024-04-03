@@ -34,7 +34,7 @@ public class SchemaModelTests(
     => _checks.AstExpected(
       new SchemaAst(AstNulls.At, name) {
         Declarations = [new OptionDeclAst(AstNulls.At, name) {
-          Settings = [.. settings.Select(s => s.ToAst(""))]
+          Settings = [.. settings.Distinct(SettingInput.CompareNames).Select(s => s.ToAst(""))]
         }]
       },
       ["!_Schema",

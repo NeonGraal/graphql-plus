@@ -6,17 +6,17 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-public partial class VerifyOperationTests(
+public class VerifyOperationTests(
     Parser<OperationAst>.D parser,
     IVerify<OperationAst> verifier)
 {
   private readonly Parser<OperationAst>.L _parser = parser;
 
   [Theory]
-  [ClassData(typeof(OperationValid))]
+  [ClassData(typeof(VerifyOperationValidData))]
   public void Verify_ValidOperations_ReturnsValid(string operation)
   {
-    var parse = Parse(s_operationValid[operation]);
+    var parse = Parse(VerifyOperationValidData.Source[operation]);
     if (parse is IResultError<OperationAst> error) {
       error.Message.Should().BeNull();
     }
@@ -29,10 +29,10 @@ public partial class VerifyOperationTests(
   }
 
   [Theory]
-  [ClassData(typeof(OperationInvalid))]
+  [ClassData(typeof(VerifyOperationInvalidData))]
   public void Verify_InvalidOperations_ReturnsInvalid(string operation)
   {
-    var parse = Parse(s_operationInvalid[operation]);
+    var parse = Parse(VerifyOperationInvalidData.Source[operation]);
 
     var result = new TokenMessages();
     if (parse.IsOk()) {

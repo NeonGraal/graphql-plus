@@ -24,6 +24,16 @@ internal sealed class SettingModelChecks(
 
 public record struct SettingInput(string Name, string Value)
 {
+  public static IEqualityComparer<SettingInput> CompareNames { get; } = new CompareByName();
+
+  private sealed class CompareByName
+    : IEqualityComparer<SettingInput>
+  {
+    public bool Equals(SettingInput x, SettingInput y)
+      => string.Equals(x.Name, y.Name, StringComparison.Ordinal);
+    public int GetHashCode([DisallowNull] SettingInput obj)
+      => obj.Name.GetHashCode(StringComparison.Ordinal);
+  }
   internal readonly OptionSettingAst ToAst(string description)
     => new(AstNulls.At, Name, description, new FieldKeyAst(AstNulls.At, Value));
 

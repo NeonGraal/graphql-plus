@@ -3,10 +3,10 @@
 
 namespace GqlPlus.Verifier.Verification;
 
-[SuppressMessage("Design", "CA1034:Nested types should not be visible")]
-public partial class VerifyOperationTests
+public class VerifyOperationInvalidData
+  : TheoryData<string>
 {
-  private static readonly Dictionary<string, string> s_operationInvalid = new() {
+  public static readonly Dictionary<string, string> Source = new() {
     ["empty"] = "",
     ["frag-undef"] = "{...named}",
     ["frag-unused"] = "&named:Named{name}{name}",
@@ -19,37 +19,35 @@ public partial class VerifyOperationTests
     ["var-unused"] = "($var):Boolean",
   };
 
-  public class OperationInvalid : TheoryData<string>
+  public VerifyOperationInvalidData()
   {
-    public OperationInvalid()
-    {
-      Add("empty");
-      Add("frag-undef");
-      Add("frag-unused");
-      Add("list-map-def");
-      Add("list-null-map-def");
-      Add("map-list-def");
-      Add("map-null-list-def");
-      Add("null-def-invalid");
-      Add("var-undef");
-      Add("var-unused");
-    }
+    Add("empty");
+    Add("frag-undef");
+    Add("frag-unused");
+    Add("list-map-def");
+    Add("list-null-map-def");
+    Add("map-list-def");
+    Add("map-null-list-def");
+    Add("null-def-invalid");
+    Add("var-undef");
+    Add("var-unused");
   }
-  private static readonly Dictionary<string, string> s_operationValid = new() {
+}
+public class VerifyOperationValidData
+  : TheoryData<string>
+{
+  public static readonly Dictionary<string, string> Source = new() {
     ["frag-end"] = "{...named}fragment named on Named{name}",
     ["frag-first"] = "&named:Named{name}{|named}",
     ["var"] = "($var):Boolean($var)",
     ["var-null"] = "($var:Id?=null):Boolean($var)",
   };
 
-  public class OperationValid : TheoryData<string>
+  public VerifyOperationValidData()
   {
-    public OperationValid()
-    {
-      Add("frag-end");
-      Add("frag-first");
-      Add("var");
-      Add("var-null");
-    }
+    Add("frag-end");
+    Add("frag-first");
+    Add("var");
+    Add("var-null");
   }
 }

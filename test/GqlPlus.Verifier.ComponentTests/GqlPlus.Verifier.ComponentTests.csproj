@@ -31,17 +31,14 @@
     <None Update="SampleData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SampleData.cs</LastGenOutput>
-      <DependentUpon>SampleTests.cs</DependentUpon>
     </None>
     <None Update="Verification\VerifyOperationData.tt">
       <LastGenOutput>VerifyOperationData.cs</LastGenOutput>
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VerifyOperationTests.cs</DependentUpon>
     </None>
     <None Update="Verification\VerifySchemaData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>VerifySchemaData.cs</LastGenOutput>
-      <DependentUpon>VerifySchemaTests.cs</DependentUpon>
     </None>
   </ItemGroup>
 

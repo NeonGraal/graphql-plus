@@ -3,10 +3,10 @@
 
 namespace GqlPlus.Verifier.Verification;
 
-[SuppressMessage("Design", "CA1034:Nested types should not be visible")]
-public partial class VerifySchemaTests
+public class VerifySchemaInvalidObjectsData
+  : TheoryData<string>
 {
-  private static readonly Dictionary<string, string> s_schemaInvalidObjects = new() {
+  public static readonly Dictionary<string, string> Source = new() {
     ["alts-diff-mods"] = "object Test { | Test1 } object Test { | Test1[] } object Test1 { }",
     ["alts-mods-undef"] = "object Test { | Alt[Scalar] } object Alt { }",
     ["alts-mods-wrong"] = "object Test { | Alt[Test] } object Alt { }",
@@ -79,83 +79,84 @@ public partial class VerifySchemaTests
     ["unique-alias"] = "object Test [a] { } object Dup [a] { }",
   };
 
-  public class SchemaInvalidObjects : TheoryData<string>
+  public VerifySchemaInvalidObjectsData()
   {
-    public SchemaInvalidObjects()
-    {
-      Add("alts-diff-mods");
-      Add("alts-mods-undef");
-      Add("alts-mods-wrong");
-      Add("alts-more");
-      Add("alts-recurse");
-      Add("alts-self");
-      Add("dual-alt-input");
-      Add("dual-alt-output");
-      Add("dual-alt-param-input");
-      Add("dual-alt-param-output");
-      Add("dual-field-input");
-      Add("dual-field-output");
-      Add("dual-field-param-input");
-      Add("dual-field-param-output");
-      Add("dual-parent-input");
-      Add("dual-parent-output");
-      Add("dual-parent-param-input");
-      Add("dual-parent-param-output");
-      Add("fields-alias");
-      Add("fields-diff-mods");
-      Add("fields-diff-type");
-      Add("fields-mods-undef");
-      Add("fields-mods-wrong");
-      Add("generic-alt-undef");
-      Add("generic-arg-less");
-      Add("generic-arg-more");
-      Add("generic-arg-undef");
-      Add("generic-field-undef");
-      Add("generic-param-undef");
-      Add("generic-parent-less");
-      Add("generic-parent-more");
-      Add("generic-parent-undef");
-      Add("generic-unused");
-      Add("input-alt-output");
-      Add("input-field-null");
-      Add("input-field-output");
-      Add("input-parent-output");
-      Add("output-alt-input");
-      Add("output-enum-bad");
-      Add("output-enums-diff");
-      Add("output-enumValue-bad");
-      Add("output-enumValue-wrong");
-      Add("output-field-input");
-      Add("output-generic-enum-bad");
-      Add("output-generic-enum-wrong");
-      Add("output-params-diff");
-      Add("output-params-mods-undef");
-      Add("output-params-mods-wrong");
-      Add("output-params-undef");
-      Add("output-parent-input");
-      Add("parent-alt-mods");
-      Add("parent-alt-more");
-      Add("parent-alt-recurse");
-      Add("parent-alt-self");
-      Add("parent-alt-self-more");
-      Add("parent-alt-self-recurse");
-      Add("parent-fields-alias");
-      Add("parent-fields-alias-more");
-      Add("parent-fields-alias-recurse");
-      Add("parent-fields-mods");
-      Add("parent-fields-mods-more");
-      Add("parent-fields-mods-recurse");
-      Add("parent-more");
-      Add("parent-recurse");
-      Add("parent-self");
-      Add("parent-self-alt");
-      Add("parent-self-alt-more");
-      Add("parent-self-alt-recurse");
-      Add("parent-undef");
-      Add("unique-alias");
-    }
+    Add("alts-diff-mods");
+    Add("alts-mods-undef");
+    Add("alts-mods-wrong");
+    Add("alts-more");
+    Add("alts-recurse");
+    Add("alts-self");
+    Add("dual-alt-input");
+    Add("dual-alt-output");
+    Add("dual-alt-param-input");
+    Add("dual-alt-param-output");
+    Add("dual-field-input");
+    Add("dual-field-output");
+    Add("dual-field-param-input");
+    Add("dual-field-param-output");
+    Add("dual-parent-input");
+    Add("dual-parent-output");
+    Add("dual-parent-param-input");
+    Add("dual-parent-param-output");
+    Add("fields-alias");
+    Add("fields-diff-mods");
+    Add("fields-diff-type");
+    Add("fields-mods-undef");
+    Add("fields-mods-wrong");
+    Add("generic-alt-undef");
+    Add("generic-arg-less");
+    Add("generic-arg-more");
+    Add("generic-arg-undef");
+    Add("generic-field-undef");
+    Add("generic-param-undef");
+    Add("generic-parent-less");
+    Add("generic-parent-more");
+    Add("generic-parent-undef");
+    Add("generic-unused");
+    Add("input-alt-output");
+    Add("input-field-null");
+    Add("input-field-output");
+    Add("input-parent-output");
+    Add("output-alt-input");
+    Add("output-enum-bad");
+    Add("output-enums-diff");
+    Add("output-enumValue-bad");
+    Add("output-enumValue-wrong");
+    Add("output-field-input");
+    Add("output-generic-enum-bad");
+    Add("output-generic-enum-wrong");
+    Add("output-params-diff");
+    Add("output-params-mods-undef");
+    Add("output-params-mods-wrong");
+    Add("output-params-undef");
+    Add("output-parent-input");
+    Add("parent-alt-mods");
+    Add("parent-alt-more");
+    Add("parent-alt-recurse");
+    Add("parent-alt-self");
+    Add("parent-alt-self-more");
+    Add("parent-alt-self-recurse");
+    Add("parent-fields-alias");
+    Add("parent-fields-alias-more");
+    Add("parent-fields-alias-recurse");
+    Add("parent-fields-mods");
+    Add("parent-fields-mods-more");
+    Add("parent-fields-mods-recurse");
+    Add("parent-more");
+    Add("parent-recurse");
+    Add("parent-self");
+    Add("parent-self-alt");
+    Add("parent-self-alt-more");
+    Add("parent-self-alt-recurse");
+    Add("parent-undef");
+    Add("unique-alias");
   }
-  private static readonly Dictionary<string, string> s_schemaInvalidSchemas = new() {
+}
+public class VerifySchemaInvalidSchemasData
+  : TheoryData<string>
+{
+  public static readonly Dictionary<string, string> Source = new() {
     ["bad-parse"] = "",
     ["category-diff-mods"] = "category { Test } category { Test? } output Test { }",
     ["category-dup-alias"] = "category [a] { Test } category [a] { Output } output Test { } output Output { }",
@@ -169,24 +170,25 @@ public partial class VerifySchemaTests
     ["option-diff-name"] = "option Test { } option Schema { }",
   };
 
-  public class SchemaInvalidSchemas : TheoryData<string>
+  public VerifySchemaInvalidSchemasData()
   {
-    public SchemaInvalidSchemas()
-    {
-      Add("bad-parse");
-      Add("category-diff-mods");
-      Add("category-dup-alias");
-      Add("category-duplicate");
-      Add("category-output-generic");
-      Add("category-output-undef");
-      Add("category-output-wrong");
-      Add("directive-diff-option");
-      Add("directive-diff-parameter");
-      Add("directive-no-param");
-      Add("option-diff-name");
-    }
+    Add("bad-parse");
+    Add("category-diff-mods");
+    Add("category-dup-alias");
+    Add("category-duplicate");
+    Add("category-output-generic");
+    Add("category-output-undef");
+    Add("category-output-wrong");
+    Add("directive-diff-option");
+    Add("directive-diff-parameter");
+    Add("directive-no-param");
+    Add("option-diff-name");
   }
-  private static readonly Dictionary<string, string> s_schemaInvalidTypes = new() {
+}
+public class VerifySchemaInvalidTypesData
+  : TheoryData<string>
+{
+  public static readonly Dictionary<string, string> Source = new() {
     ["enum-dup-alias"] = "enum Test [a] { test } enum Dup [a] { dup }",
     ["enum-parent-alias-dup"] = "enum Test { :Parent test[alias] } enum Parent { parent[alias] }",
     ["enum-parent-diff"] = "enum Test { :Parent test } enum Test { test } enum Parent { parent }",
@@ -227,51 +229,52 @@ public partial class VerifySchemaTests
     ["unique-types"] = "enum Test { Value } output Test { }",
   };
 
-  public class SchemaInvalidTypes : TheoryData<string>
+  public VerifySchemaInvalidTypesData()
   {
-    public SchemaInvalidTypes()
-    {
-      Add("enum-dup-alias");
-      Add("enum-parent-alias-dup");
-      Add("enum-parent-diff");
-      Add("enum-parent-undef");
-      Add("enum-parent-wrong");
-      Add("scalar-diff-kind");
-      Add("scalar-dup-alias");
-      Add("scalar-enum-parent-unique");
-      Add("scalar-enum-undef");
-      Add("scalar-enum-undef-all");
-      Add("scalar-enum-undef-member");
-      Add("scalar-enum-undef-value");
-      Add("scalar-enum-unique");
-      Add("scalar-enum-unique-all");
-      Add("scalar-enum-unique-member");
-      Add("scalar-enum-wrong");
-      Add("scalar-number-parent");
-      Add("scalar-parent-self");
-      Add("scalar-parent-self-more");
-      Add("scalar-parent-self-parent");
-      Add("scalar-parent-self-recurse");
-      Add("scalar-parent-undef");
-      Add("scalar-parent-wrong-kind");
-      Add("scalar-parent-wrong-type");
-      Add("scalar-string-diff");
-      Add("scalar-string-parent");
-      Add("union-more");
-      Add("union-more-parent");
-      Add("union-parent");
-      Add("union-parent-more");
-      Add("union-parent-recurse");
-      Add("union-recurse");
-      Add("union-recurse-parent");
-      Add("union-self");
-      Add("union-undef");
-      Add("union-wrong");
-      Add("unique-type-alias");
-      Add("unique-types");
-    }
+    Add("enum-dup-alias");
+    Add("enum-parent-alias-dup");
+    Add("enum-parent-diff");
+    Add("enum-parent-undef");
+    Add("enum-parent-wrong");
+    Add("scalar-diff-kind");
+    Add("scalar-dup-alias");
+    Add("scalar-enum-parent-unique");
+    Add("scalar-enum-undef");
+    Add("scalar-enum-undef-all");
+    Add("scalar-enum-undef-member");
+    Add("scalar-enum-undef-value");
+    Add("scalar-enum-unique");
+    Add("scalar-enum-unique-all");
+    Add("scalar-enum-unique-member");
+    Add("scalar-enum-wrong");
+    Add("scalar-number-parent");
+    Add("scalar-parent-self");
+    Add("scalar-parent-self-more");
+    Add("scalar-parent-self-parent");
+    Add("scalar-parent-self-recurse");
+    Add("scalar-parent-undef");
+    Add("scalar-parent-wrong-kind");
+    Add("scalar-parent-wrong-type");
+    Add("scalar-string-diff");
+    Add("scalar-string-parent");
+    Add("union-more");
+    Add("union-more-parent");
+    Add("union-parent");
+    Add("union-parent-more");
+    Add("union-parent-recurse");
+    Add("union-recurse");
+    Add("union-recurse-parent");
+    Add("union-self");
+    Add("union-undef");
+    Add("union-wrong");
+    Add("unique-type-alias");
+    Add("unique-types");
   }
-  private static readonly Dictionary<string, string> s_schemaValidMerges = new() {
+}
+public class VerifySchemaValidMergesData
+  : TheoryData<string>
+{
+  public static readonly Dictionary<string, string> Source = new() {
     ["category"] = "category { Category } category category { Category } output Category { }",
     ["category-alias"] = "category [CatA1] { CatAlias } category [CatA2] { CatAlias } output CatAlias { }",
     ["category-mods"] = "category [CatM1] { CatMods? } category [CatM2] { CatMods? } output CatMods { }",
@@ -307,46 +310,47 @@ public partial class VerifySchemaTests
     ["union-same"] = "union UnSame { Boolean } union UnSame { Boolean }",
   };
 
-  public class SchemaValidMerges : TheoryData<string>
+  public VerifySchemaValidMergesData()
   {
-    public SchemaValidMerges()
-    {
-      Add("category");
-      Add("category-alias");
-      Add("category-mods");
-      Add("directive");
-      Add("directive-alias");
-      Add("directive-params");
-      Add("enum-alias");
-      Add("enum-diff");
-      Add("enum-same");
-      Add("enum-same-parent");
-      Add("enum-value-alias");
-      Add("object");
-      Add("object-alias");
-      Add("object-alts");
-      Add("object-fields");
-      Add("object-fields-alias");
-      Add("object-params");
-      Add("object-parent");
-      Add("option");
-      Add("option-alias");
-      Add("option-setting");
-      Add("output-fields-enum-alias");
-      Add("output-fields-enums");
-      Add("output-fields-params");
-      Add("scalar-alias");
-      Add("scalar-number");
-      Add("scalar-number-diff");
-      Add("scalar-number-same");
-      Add("scalar-string");
-      Add("scalar-string-diff");
-      Add("scalar-string-same");
-      Add("union-diff");
-      Add("union-same");
-    }
+    Add("category");
+    Add("category-alias");
+    Add("category-mods");
+    Add("directive");
+    Add("directive-alias");
+    Add("directive-params");
+    Add("enum-alias");
+    Add("enum-diff");
+    Add("enum-same");
+    Add("enum-same-parent");
+    Add("enum-value-alias");
+    Add("object");
+    Add("object-alias");
+    Add("object-alts");
+    Add("object-fields");
+    Add("object-fields-alias");
+    Add("object-params");
+    Add("object-parent");
+    Add("option");
+    Add("option-alias");
+    Add("option-setting");
+    Add("output-fields-enum-alias");
+    Add("output-fields-enums");
+    Add("output-fields-params");
+    Add("scalar-alias");
+    Add("scalar-number");
+    Add("scalar-number-diff");
+    Add("scalar-number-same");
+    Add("scalar-string");
+    Add("scalar-string-diff");
+    Add("scalar-string-same");
+    Add("union-diff");
+    Add("union-same");
   }
-  private static readonly Dictionary<string, string> s_schemaValidObjects = new() {
+}
+public class VerifySchemaValidObjectsData
+  : TheoryData<string>
+{
+  public static readonly Dictionary<string, string> Source = new() {
     ["alts"] = "object ObjAlts { | ObjAlt } object ObjAlt { }",
     ["alts-dual"] = "object ObjAltsDual { | ObjAltDual } dual ObjAltDual { }",
     ["alts-mods-Boolean"] = "object ObjAltMods { | ObjModsAlt[^] } object ObjModsAlt { }",
@@ -388,67 +392,69 @@ public partial class VerifySchemaTests
     ["parent-params-same"] = "object ObjPrntPrmsSame<$a> { :ObjPrmsPrntSame<$a> field: $a } object ObjPrmsPrntSame<$a> { | $a }",
   };
 
-  public class SchemaValidObjects : TheoryData<string>
+  public VerifySchemaValidObjectsData()
   {
-    public SchemaValidObjects()
-    {
-      Add("alts");
-      Add("alts-dual");
-      Add("alts-mods-Boolean");
-      Add("fields");
-      Add("fields-dual");
-      Add("fields-mods-Enum");
-      Add("generic-alt");
-      Add("generic-alt-arg");
-      Add("generic-alt-dual");
-      Add("generic-alt-param");
-      Add("generic-dual");
-      Add("generic-field");
-      Add("generic-field-arg");
-      Add("generic-field-dual");
-      Add("generic-field-param");
-      Add("generic-param");
-      Add("generic-parent");
-      Add("generic-parent-arg");
-      Add("generic-parent-dual");
-      Add("generic-parent-param");
-      Add("input-field-Enum");
-      Add("input-field-null");
-      Add("input-field-Number");
-      Add("input-field-String");
-      Add("output-field-enum");
-      Add("output-field-enum-parent");
-      Add("output-field-value");
-      Add("output-generic-enum");
-      Add("output-generic-parent");
-      Add("output-generic-value");
-      Add("output-params");
-      Add("output-params-mods-Scalar");
-      Add("output-parent-params");
-      Add("parent");
-      Add("parent-alts");
-      Add("parent-dual");
-      Add("parent-fields");
-      Add("parent-params-diff");
-      Add("parent-params-same");
-    }
+    Add("alts");
+    Add("alts-dual");
+    Add("alts-mods-Boolean");
+    Add("fields");
+    Add("fields-dual");
+    Add("fields-mods-Enum");
+    Add("generic-alt");
+    Add("generic-alt-arg");
+    Add("generic-alt-dual");
+    Add("generic-alt-param");
+    Add("generic-dual");
+    Add("generic-field");
+    Add("generic-field-arg");
+    Add("generic-field-dual");
+    Add("generic-field-param");
+    Add("generic-param");
+    Add("generic-parent");
+    Add("generic-parent-arg");
+    Add("generic-parent-dual");
+    Add("generic-parent-param");
+    Add("input-field-Enum");
+    Add("input-field-null");
+    Add("input-field-Number");
+    Add("input-field-String");
+    Add("output-field-enum");
+    Add("output-field-enum-parent");
+    Add("output-field-value");
+    Add("output-generic-enum");
+    Add("output-generic-parent");
+    Add("output-generic-value");
+    Add("output-params");
+    Add("output-params-mods-Scalar");
+    Add("output-parent-params");
+    Add("parent");
+    Add("parent-alts");
+    Add("parent-dual");
+    Add("parent-fields");
+    Add("parent-params-diff");
+    Add("parent-params-same");
   }
-  private static readonly Dictionary<string, string> s_schemaValidSchemas = new() {
+}
+public class VerifySchemaValidSchemasData
+  : TheoryData<string>
+{
+  public static readonly Dictionary<string, string> Source = new() {
     ["category-output"] = "category { Cat } output Cat { }",
     ["directive-param"] = "directive @DirParam(DirParamIn) { all } input DirParamIn { }",
     ["option-setting"] = "option Schema { setting = true }",
   };
 
-  public class SchemaValidSchemas : TheoryData<string>
+  public VerifySchemaValidSchemasData()
   {
-    public SchemaValidSchemas()
-    {
-      Add("category-output");
-      Add("directive-param");
-      Add("option-setting");
-    }
+    Add("category-output");
+    Add("directive-param");
+    Add("option-setting");
   }
-  private static readonly Dictionary<string, string> s_schemaValidTypes = new() {
+}
+public class VerifySchemaValidTypesData
+  : TheoryData<string>
+{
+  public static readonly Dictionary<string, string> Source = new() {
     ["enum-parent"] = "enum EnTestPrnt { :EnPrntTest valPrnt } enum EnPrntTest { valTest }",
     ["enum-parent-alias"] = "enum EnPrntAlias { :EnAliasPrnt valPrnt valAlias[alias] } enum EnAliasPrnt { valAlias }",
     ["enum-parent-dup"] = "enum EnPrntDup { :EnDupPrnt valPrnt  } enum EnDupPrnt { valDup[valPrnt] }",
@@ -466,25 +472,22 @@ public partial class VerifySchemaTests
     ["union-parent"] = "union UnionPrnt { :PrntUnion String } union PrntUnion { Number }",
   };
 
-  public class SchemaValidTypes : TheoryData<string>
+  public VerifySchemaValidTypesData()
   {
-    public SchemaValidTypes()
-    {
-      Add("enum-parent");
-      Add("enum-parent-alias");
-      Add("enum-parent-dup");
-      Add("scalar-enum-all");
-      Add("scalar-enum-all-parent");
-      Add("scalar-enum-member");
-      Add("scalar-enum-parent");
-      Add("scalar-enum-unique");
-      Add("scalar-enum-unique-parent");
-      Add("scalar-enum-value");
-      Add("scalar-enum-value-parent");
-      Add("scalar-number-parent");
-      Add("scalar-parent");
-      Add("scalar-string-parent");
-      Add("union-parent");
-    }
+    Add("enum-parent");
+    Add("enum-parent-alias");
+    Add("enum-parent-dup");
+    Add("scalar-enum-all");
+    Add("scalar-enum-all-parent");
+    Add("scalar-enum-member");
+    Add("scalar-enum-parent");
+    Add("scalar-enum-unique");
+    Add("scalar-enum-unique-parent");
+    Add("scalar-enum-value");
+    Add("scalar-enum-value-parent");
+    Add("scalar-number-parent");
+    Add("scalar-parent");
+    Add("scalar-string-parent");
+    Add("union-parent");
   }
 }

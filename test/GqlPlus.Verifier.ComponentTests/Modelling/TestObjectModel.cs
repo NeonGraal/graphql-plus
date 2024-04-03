@@ -137,7 +137,7 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
     => f => {
       var field = expectedField(f).ToArray();
 
-      var first = "- !_Object(" + field[0][3..] + ")";
+      var first = "- !_ObjectFor(" + field[0][3..] + ")";
       var last = field.Last();
 
       return [first, .. field.Skip(1).SkipLast(1), "  object: " + name, last];

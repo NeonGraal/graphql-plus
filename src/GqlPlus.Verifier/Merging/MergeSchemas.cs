@@ -10,7 +10,7 @@ internal class MergeSchemas(
 ) : GroupsMerger<SchemaAst>
 {
   protected override string ItemGroupKey(SchemaAst item)
-    => item.Name;
+    => "Schema";
 
   protected override bool CanMergeGroup(IGrouping<string, SchemaAst> group)
   {

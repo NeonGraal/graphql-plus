@@ -8,31 +8,33 @@ public class SchemaModelTests(
 ) : TestModelBase<string>
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_Type(string name, string type)
+  public void Model_Type(string type)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) { Declarations = [new OutputDeclAst(AstNulls.At, type)] },
-      ["!_Schema", "name: " + name, .. _checks.ExpectedOutputs([type])]);
+      new SchemaAst(AstNulls.At) { Declarations = [new OutputDeclAst(AstNulls.At, type)] },
+      ["!_Schema", .. _checks.ExpectedOutputs([type])]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_Types(string name, string[] types)
+  public void Model_Types(string[] types)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) {
+      new SchemaAst(AstNulls.At) {
         Declarations = [.. types.Select(d => new OutputDeclAst(AstNulls.At, d))]
       },
-      ["!_Schema", "name: " + name, .. _checks.ExpectedOutputs(types)]);
+      ["!_Schema", .. _checks.ExpectedOutputs(types)]);
 
   [Theory, RepeatData(Repeats)]
   public void Model_Setting(string name, SettingInput setting)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) {
+      new SchemaAst(AstNulls.At) {
         Declarations = [new OptionDeclAst(AstNulls.At, name) { Settings = [setting.ToAst("")] }]
       },
-      ["!_Schema", "name: " + name, .. _checks.ExpectedSettings([setting])]);
+      ["!_Schema",
+        "name: " + name,
+        .. _checks.ExpectedSettings([setting])]);
 
   [Theory, RepeatData(Repeats)]
   public void Model_Settings(string name, SettingInput[] settings)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) {
+      new SchemaAst(AstNulls.At) {
         Declarations = [new OptionDeclAst(AstNulls.At, name) {
           Settings = [.. settings.Distinct(SettingInput.CompareNames).Select(s => s.ToAst(""))]
         }]
@@ -42,39 +44,37 @@ public class SchemaModelTests(
         .. _checks.ExpectedSettings(settings)]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_Directive(string name, string directive)
+  public void Model_Directive(string directive)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) { Declarations = [new DirectiveDeclAst(AstNulls.At, directive)] },
-      ["!_Schema", .. _checks.ExpectedDirectives([directive], false), "name: " + name]);
+      new SchemaAst(AstNulls.At) { Declarations = [new DirectiveDeclAst(AstNulls.At, directive)] },
+      ["!_Schema", .. _checks.ExpectedDirectives([directive], false)]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_Directives(string name, string[] directives)
+  public void Model_Directives(string[] directives)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) {
+      new SchemaAst(AstNulls.At) {
         Declarations = [.. directives.Select(d => new DirectiveDeclAst(AstNulls.At, d))]
       },
       ["!_Schema",
-        .. _checks.ExpectedDirectives(directives, false),
-        "name: " + name]);
+        .. _checks.ExpectedDirectives(directives, false)]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_DirectiveAndType(string name, string directive)
+  public void Model_DirectiveAndType(string directive)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) {
+      new SchemaAst(AstNulls.At) {
         Declarations = [
           new DirectiveDeclAst(AstNulls.At, directive),
           new OutputDeclAst(AstNulls.At, directive),]
       },
       ["!_Schema",
         .. _checks.ExpectedDirectives([directive], true),
-        "name: " + name,
         .. _checks.ExpectedOutputs([directive]),
       ]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_DirectivesAndTypes(string name, string[] directives)
+  public void Model_DirectivesAndTypes(string[] directives)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) {
+      new SchemaAst(AstNulls.At) {
         Declarations = [
           .. directives.Select(d => new DirectiveDeclAst(AstNulls.At, d)),
           .. directives.Select(d => new OutputDeclAst(AstNulls.At, d)),
@@ -82,28 +82,28 @@ public class SchemaModelTests(
       },
       ["!_Schema",
         .. _checks.ExpectedDirectives(directives, true),
-        "name: " + name,
+
         .. _checks.ExpectedOutputs(directives),
       ]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_Category(string name, string category)
+  public void Model_Category(string category)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) { Declarations = [new CategoryDeclAst(AstNulls.At, category, category)] },
-      ["!_Schema", .. _checks.ExpectedCategories([category], false), "name: " + name]);
+      new SchemaAst(AstNulls.At) { Declarations = [new CategoryDeclAst(AstNulls.At, category, category)] },
+      ["!_Schema", .. _checks.ExpectedCategories([category], false)]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_Categories(string name, string[] categories)
+  public void Model_Categories(string[] categories)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) {
+      new SchemaAst(AstNulls.At) {
         Declarations = [.. categories.Select(d => new CategoryDeclAst(AstNulls.At, d, d))]
       },
-      ["!_Schema", .. _checks.ExpectedCategories(categories, false), "name: " + name]);
+      ["!_Schema", .. _checks.ExpectedCategories(categories, false)]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_CategoryAndType(string name, string category)
+  public void Model_CategoryAndType(string category)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) {
+      new SchemaAst(AstNulls.At) {
         Declarations = [
           new CategoryDeclAst(AstNulls.At, category, category),
           new OutputDeclAst(AstNulls.At, category),
@@ -111,14 +111,14 @@ public class SchemaModelTests(
       },
       ["!_Schema",
         .. _checks.ExpectedCategories([category], true),
-        "name: " + name,
+
         .. _checks.ExpectedOutputs([category]),
       ]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_CategoriesAndTypes(string name, string[] categories)
+  public void Model_CategoriesAndTypes(string[] categories)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) {
+      new SchemaAst(AstNulls.At) {
         Declarations = [
           .. categories.Select(d => new CategoryDeclAst(AstNulls.At, d, d)),
           .. categories.Select(d => new OutputDeclAst(AstNulls.At, d)),
@@ -126,19 +126,19 @@ public class SchemaModelTests(
       },
       ["!_Schema",
         .. _checks.ExpectedCategories(categories, true),
-        "name: " + name,
+
         .. _checks.ExpectedOutputs(categories),
       ]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_Errors(string name, string[] contents)
+  public void Model_Errors(string[] contents)
     => _checks.AstExpected(
-      new SchemaAst(AstNulls.At, name) {
+      new SchemaAst(AstNulls.At) {
         Errors = [.. contents.Select(e => new TokenMessage(AstNulls.At, e))]
       },
       ["!_Schema",
         .. _checks.ExpectedErrors(contents),
-        "name: " + name,
+
       ]);
 
   internal override ICheckModelBase<string> BaseChecks => _checks;
@@ -154,7 +154,7 @@ internal sealed class SchemaModelChecks(
     => ["!_Schema " + name];
 
   protected override SchemaAst NewBaseAst(string name)
-    => new(AstNulls.At, name);
+    => new(AstNulls.At) { Declarations = [new OptionDeclAst(AstNulls.At, name)] };
 
   internal IEnumerable<string> ExpectedCategories(string[] categories, bool withType)
     => categories.Order(StringComparer.Ordinal)

@@ -130,7 +130,7 @@ public interface IScalarModeller<TItemAst, TItemModel>
 internal class ScalarBooleanModeller
   : ModellerScalar<ScalarTrueFalseAst, ScalarTrueFalseModel>
 {
-  internal override BaseScalarModel<ScalarTrueFalseModel> ToModel(AstScalar<ScalarTrueFalseAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseScalarModel<ScalarTrueFalseModel> ToModel(AstScalar<ScalarTrueFalseAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.Boolean, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
@@ -145,7 +145,7 @@ internal class ScalarBooleanModeller
 internal class ScalarEnumModeller
   : ModellerScalar<ScalarMemberAst, ScalarMemberModel>
 {
-  internal override BaseScalarModel<ScalarMemberModel> ToModel(AstScalar<ScalarMemberAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseScalarModel<ScalarMemberModel> ToModel(AstScalar<ScalarMemberAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.Enum, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
@@ -160,7 +160,7 @@ internal class ScalarEnumModeller
 internal class ScalarNumberModeller
   : ModellerScalar<ScalarRangeAst, ScalarRangeModel>
 {
-  internal override BaseScalarModel<ScalarRangeModel> ToModel(AstScalar<ScalarRangeAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseScalarModel<ScalarRangeModel> ToModel(AstScalar<ScalarRangeAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.Number, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
@@ -175,7 +175,7 @@ internal class ScalarNumberModeller
 internal class ScalarStringModeller
   : ModellerScalar<ScalarRegexAst, ScalarRegexModel>
 {
-  internal override BaseScalarModel<ScalarRegexModel> ToModel(AstScalar<ScalarRegexAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseScalarModel<ScalarRegexModel> ToModel(AstScalar<ScalarRegexAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.String, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,

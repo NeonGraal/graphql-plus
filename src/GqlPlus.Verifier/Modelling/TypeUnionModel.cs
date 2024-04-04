@@ -32,7 +32,7 @@ internal class UnionModeller
     : base(TypeKindModel.Union)
   { }
 
-  internal override TypeUnionModel ToModel(UnionDeclAst ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeUnionModel ToModel(UnionDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,

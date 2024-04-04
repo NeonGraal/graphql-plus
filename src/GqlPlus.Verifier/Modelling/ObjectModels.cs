@@ -181,7 +181,7 @@ internal class AlternateModeller<TRefAst, TBase>(
   where TRefAst : AstReference<TRefAst>
   where TBase : IObjBaseModel
 {
-  internal override AlternateModel<TBase> ToModel(AstAlternate<TRefAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override AlternateModel<TBase> ToModel(AstAlternate<TRefAst> ast, IMap<TypeKindModel> typeKinds)
     => new(new(new(BaseModel(ast.Type, typeKinds))) {
       Description = ast.Description
     }) {
@@ -203,7 +203,7 @@ internal class ParameterModeller(
   IModeller<ConstantAst, ConstantModel> constant
 ) : ModellerBase<ParameterAst, ParameterModel>
 {
-  internal override ParameterModel ToModel(ParameterAst ast, IMap<TypeKindModel> typeKinds)
+  protected override ParameterModel ToModel(ParameterAst ast, IMap<TypeKindModel> typeKinds)
   {
     var altModel = alternate.ToModel(ast, typeKinds);
     return new(altModel.Type) {

@@ -42,7 +42,7 @@ internal class CategoryModeller(
   IModeller<ModifierAst, ModifierModel> modifier
 ) : ModellerBase<CategoryDeclAst, CategoryModel>
 {
-  internal override CategoryModel ToModel(CategoryDeclAst ast, IMap<TypeKindModel> typeKinds)
+  protected override CategoryModel ToModel(CategoryDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Output.TypeRef(TypeKindModel.Output)) {
       Aliases = ast.Aliases,
       Description = ast.Description,

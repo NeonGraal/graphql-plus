@@ -83,7 +83,7 @@ internal class ConstantModeller(
   IModeller<FieldKeyAst, SimpleModel> value
 ) : ModellerBase<ConstantAst, ConstantModel>
 {
-  internal override ConstantModel ToModel(ConstantAst ast, IMap<TypeKindModel> typeKinds)
+  protected override ConstantModel ToModel(ConstantAst ast, IMap<TypeKindModel> typeKinds)
     => ast.Fields.Count > 0 ? new(ToModel(ast.Fields, typeKinds))
     : ast.Values.Length > 0 ? new(ast.Values.Select(v => ToModel(v, typeKinds)))
     : ast.Value is not null ? new(value.ToModel(ast.Value, typeKinds))
@@ -98,7 +98,7 @@ internal class ConstantModeller(
 internal class SimpleModeller
   : ModellerBase<FieldKeyAst, SimpleModel>
 {
-  internal override SimpleModel ToModel(FieldKeyAst ast, IMap<TypeKindModel> typeKinds)
+  protected override SimpleModel ToModel(FieldKeyAst ast, IMap<TypeKindModel> typeKinds)
     => ast.Number.HasValue ? SimpleModel.Num("", ast.Number.Value)
     : ast.Text is not null ? SimpleModel.Str("", ast.Text)
     : "Boolean".Equals(ast.Type, StringComparison.OrdinalIgnoreCase) ? SimpleModel.Bool("true".Equals(ast.Value, StringComparison.OrdinalIgnoreCase))
@@ -113,7 +113,7 @@ public interface IModifierModeller
 internal class ModifierModeller
   : ModellerBase<ModifierAst, ModifierModel>, IModifierModeller
 {
-  internal override ModifierModel ToModel(ModifierAst ast, IMap<TypeKindModel> typeKinds)
+  protected override ModifierModel ToModel(ModifierAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Kind) {
       Key = ast.Key ?? "",
       KeyOptional = ast.KeyOptional,

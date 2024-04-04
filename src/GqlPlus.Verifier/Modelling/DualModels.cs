@@ -33,7 +33,7 @@ internal class DualModeller(
   IModeller<DualReferenceAst, DualBaseModel> reference
 ) : ModellerObject<DualDeclAst, DualReferenceAst, DualFieldAst, TypeDualModel, DualBaseModel, DualFieldModel>(TypeKindModel.Dual, alternate, field, reference)
 {
-  internal override TypeDualModel ToModel(DualDeclAst ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeDualModel ToModel(DualDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
@@ -46,7 +46,7 @@ internal class DualModeller(
 internal class DualReferenceModeller
   : ModellerReference<DualReferenceAst, DualBaseModel>
 {
-  internal override DualBaseModel ToModel(DualReferenceAst ast, IMap<TypeKindModel> typeKinds)
+  protected override DualBaseModel ToModel(DualReferenceAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       IsTypeParameter = ast.IsTypeParameter,
       Arguments = ModelArguments(ast, typeKinds),
@@ -58,7 +58,7 @@ internal class DualFieldModeller(
   IModeller<DualReferenceAst, DualBaseModel> reference
 ) : ModellerBase<DualFieldAst, DualFieldModel>
 {
-  internal override DualFieldModel ToModel(DualFieldAst field, IMap<TypeKindModel> typeKinds)
+  protected override DualFieldModel ToModel(DualFieldAst field, IMap<TypeKindModel> typeKinds)
     => new(field.Name, new(reference.ToModel(field.Type, typeKinds))) {
       Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
     };

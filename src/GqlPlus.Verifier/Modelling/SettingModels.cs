@@ -18,7 +18,7 @@ internal class SettingModeller(
   IModeller<ConstantAst, ConstantModel> constant
 ) : ModellerBase<OptionSettingAst, SettingModel>
 {
-  internal override SettingModel ToModel(OptionSettingAst ast, IMap<TypeKindModel> typeKinds)
+  protected override SettingModel ToModel(OptionSettingAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, constant.ToModel(ast.Value, typeKinds)) {
       Description = ast.Description,
     };

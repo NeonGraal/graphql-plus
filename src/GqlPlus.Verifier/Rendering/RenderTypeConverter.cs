@@ -29,6 +29,8 @@ internal class RenderTypeConverter : IYamlTypeConverter
         }
       } else if (model.Value is not null) {
         WriteValue(emitter, model.Value, model.Tag);
+      } else {
+        emitter.Emit(new Scalar(default, model.Tag, string.Empty, ScalarStyle.Any, string.IsNullOrWhiteSpace(model.Tag), false));
       }
     }
   }

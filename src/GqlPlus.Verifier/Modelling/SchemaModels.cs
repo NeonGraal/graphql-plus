@@ -7,7 +7,7 @@ namespace GqlPlus.Verifier.Modelling;
 
 public record class SchemaModel(
   string Name
-) : NamedModel(Name), IRenderContext
+) : AliasedModel(Name)
 {
   public SchemaModel(
     string name,
@@ -67,22 +67,6 @@ public record class SchemaModel(
     => RenderStructure.New("_At", true)
       .Add("_col", at.Column)
       .Add("_line", at.Line);
-
-  public bool TryGetType<TModel>(string? name, [NotNullWhen(true)] out TModel? model)
-    where TModel : BaseTypeModel
-  {
-    if (name is not null) {
-      if (Types.TryGetValue(name, out var type) && type is TModel modelType) {
-        model = modelType;
-        return true;
-      }
-
-      Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"Unable to get model for type '{name}'"));
-    }
-
-    model = null;
-    return false;
-  }
 }
 
 public record class FilterParameter(
@@ -161,41 +145,24 @@ internal class SchemaModeller(
   ITypesModeller type
 ) : ModellerBase<SchemaAst, SchemaModel>
 {
-  internal override SchemaModel ToModel(SchemaAst ast, IMap<TypeKindModel> typeKinds)
+  protected override SchemaModel ToModel(SchemaAst ast, IMap<TypeKindModel> typeKinds)
   {
-    AddBuiltIns(typeKinds);
-    type.AddTypeKinds(ast.Declarations.OfType<AstType>(), typeKinds);
-    AddBuiltInAliases(typeKinds);
+    //    type.AddTypeKinds(ast.Declarations.OfType<AstType>(), typeKinds);
 
-    return new(ast.Name,
+
+
+    var options = ast.Declarations.OfType<OptionDeclAst>().ToArray();
+    var name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name ?? "";
+    var aliases = options.SelectMany(a => a.Aliases);
+    IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings, typeKinds));
+
+    return new(name,
         DeclarationModel(ast, category, typeKinds),
         DeclarationModel(ast, directive, typeKinds),
-        ast.Declarations.OfType<OptionDeclAst>().SelectMany(o => setting.ToModels(o.Settings, typeKinds)),
+        settings,
         DeclarationModel(ast, type, typeKinds),
         ast.Errors
-        );
-  }
-
-  private static void AddBuiltIns(IMap<TypeKindModel> typeKinds)
-  {
-    foreach (var builtIn in BuiltIn.Basic) {
-      typeKinds.Add(builtIn.Name, TypeKindModel.Basic);
-    }
-
-    foreach (var builtIn in BuiltIn.Internal) {
-      typeKinds.Add(builtIn.Name, TypeKindModel.Internal);
-    }
-  }
-
-  private static void AddBuiltInAliases(IMap<TypeKindModel> typeKinds)
-  {
-    foreach (var builtIn in BuiltIn.Basic.SelectMany(b => b.Aliases)) {
-      typeKinds.TryAdd(builtIn, TypeKindModel.Basic);
-    }
-
-    foreach (var builtIn in BuiltIn.Internal.SelectMany(b => b.Aliases)) {
-      typeKinds.TryAdd(builtIn, TypeKindModel.Internal);
-    }
+        ) { Aliases = [.. aliases] };
   }
 
   private IEnumerable<TResult> DeclarationModel<TAst, TResult>(SchemaAst ast, IModeller<TAst, TResult> modeller, IMap<TypeKindModel> typeKinds)

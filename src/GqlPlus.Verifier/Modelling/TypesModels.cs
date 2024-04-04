@@ -1,5 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using System.Collections;
+using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Modelling;
 
@@ -134,12 +136,106 @@ internal class TypeModeller(
     }
   }
 
-  internal override BaseTypeModel ToModel(AstType ast, IMap<TypeKindModel> typeKinds)
+  public TypeKindModel GetTypeKind(AstType ast)
+    => types.Single(t => t.ForType(ast)).Kind;
+
+  protected override BaseTypeModel ToModel(AstType ast, IMap<TypeKindModel> typeKinds)
     => types.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
 }
 
-internal interface ITypesModeller
+public interface ITypesModeller
   : IModeller<AstType, BaseTypeModel>
 {
   void AddTypeKinds(IEnumerable<AstType> asts, IMap<TypeKindModel> typeKinds);
+  TypeKindModel GetTypeKind(AstType ast);
+}
+
+internal class TypesCollection(
+  ITypesModeller types
+) : Map<TypeKindModel>, IRenderContext
+{
+  internal IMap<BaseTypeModel> Types { get; } = new Map<BaseTypeModel>();
+  internal ITokenMessages Errors { get; } = new TokenMessages();
+
+  internal static TypesCollection WithBuiltins(ITypesModeller types)
+  {
+    var typeKinds = new TypesCollection(types);
+
+    typeKinds.AddTypes(BuiltIn.Basic, TypeKindModel.Basic);
+    typeKinds.AddTypes(BuiltIn.Internal, TypeKindModel.Internal);
+
+    return typeKinds;
+  }
+
+  internal void AddTypes(AstType[] asts, TypeKindModel kind)
+  {
+    foreach (var ast in asts) {
+      this[ast.Name] = kind;
+
+      foreach (var alias in ast.Aliases) {
+        TryAdd(alias, kind);
+      }
+    }
+
+    foreach (var ast in asts) {
+      try {
+        var model = types.TryModel(ast, this);
+        if (model is not null) {
+          Types[model.Name] = model;
+          foreach (var alias in ast.Aliases) {
+            Types.TryAdd(alias, model);
+          }
+        }
+      } catch (InvalidOperationException) { }
+    }
+  }
+
+  internal void AddTypes(IEnumerable<AstType> toAdd)
+  {
+    var asts = toAdd.ToArray();
+
+    foreach (var ast in asts) {
+      if (Types.TryGetValue(ast.Name, out var existing) && existing.Name == ast.Name) {
+        continue;
+      }
+
+      var kind = types.GetTypeKind(ast);
+      this[ast.Name] = kind;
+
+      foreach (var alias in ast.Aliases) {
+        TryAdd(alias, kind);
+      }
+    }
+
+    foreach (var ast in asts) {
+      if (Types.TryGetValue(ast.Name, out var existing) && existing.Name == ast.Name) {
+        Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"Type {ast.Name} allready exists in collection"));
+        continue;
+      }
+
+      var model = types.TryModel(ast, this);
+      if (model is not null) {
+        Types[model.Name] = model;
+        foreach (var alias in ast.Aliases) {
+          Types.TryAdd(alias, model);
+        }
+      }
+    }
+  }
+
+  public bool TryGetType<TModel>(string? name, [NotNullWhen(true)] out TModel? model)
+    where TModel : BaseTypeModel
+  {
+    if (name is not null) {
+      if (Types.TryGetValue(name, out var type) && type is TModel modelType) {
+        model = modelType;
+        return true;
+      }
+
+      Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"Unable to get model for type '{name}'"));
+    }
+
+    model = null;
+    return false;
+  }
 }

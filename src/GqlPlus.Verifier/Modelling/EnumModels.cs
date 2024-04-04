@@ -42,7 +42,7 @@ internal class EnumModeller
     : base(TypeKindModel.Enum)
   { }
 
-  internal override TypeEnumModel ToModel(EnumDeclAst ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeEnumModel ToModel(EnumDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,

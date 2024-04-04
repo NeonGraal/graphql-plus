@@ -23,7 +23,8 @@ internal abstract class ModellerBase<TAst, TModel>
     => TryModels<T>(asts, typeKinds);
 
   TModel IModeller<TAst, TModel>.ToModel(TAst? ast, IMap<TypeKindModel> typeKinds)
-    => ToModel<TModel>(ast, typeKinds);
+    => ast is null ? throw new ModelTypeException<TAst>(ast)
+    : ToModel(ast, typeKinds);
   TModel[] IModeller<TAst, TModel>.ToModels(IEnumerable<TAst>? asts, IMap<TypeKindModel> typeKinds)
     => ToModels<TModel>(asts, typeKinds);
   TModel? IModeller<TAst, TModel>.TryModel(TAst? ast, IMap<TypeKindModel> typeKinds)
@@ -31,13 +32,13 @@ internal abstract class ModellerBase<TAst, TModel>
   IEnumerable<TModel?> IModeller<TAst, TModel>.TryModels(IEnumerable<TAst>? asts, IMap<TypeKindModel> typeKinds)
     => TryModels<TModel>(asts, typeKinds);
 
-  internal abstract TModel ToModel(TAst ast, IMap<TypeKindModel> typeKinds);
+  protected abstract TModel ToModel(TAst ast, IMap<TypeKindModel> typeKinds);
 
   protected virtual T? TryModel<T>(TAst? ast, IMap<TypeKindModel> typeKinds)
     => ast is not null && typeof(T).IsAssignableFrom(typeof(TModel))
       ? (T)(object)ToModel(ast, typeKinds)
       : default;
 
-  protected IEnumerable<T?> TryModels<T>(IEnumerable<TAst>? asts, IMap<TypeKindModel> typeKinds)
+  protected virtual IEnumerable<T?> TryModels<T>(IEnumerable<TAst>? asts, IMap<TypeKindModel> typeKinds)
     => asts?.Select(a => TryModel<T>(a, typeKinds)) ?? [];
 }

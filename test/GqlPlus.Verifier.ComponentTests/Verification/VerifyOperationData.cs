@@ -33,6 +33,7 @@ public class VerifyOperationInvalidData
     Add("var-unused");
   }
 }
+
 public class VerifyOperationValidData
   : TheoryData<string>
 {

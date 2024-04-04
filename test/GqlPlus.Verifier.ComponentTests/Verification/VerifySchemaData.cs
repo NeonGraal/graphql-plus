@@ -153,6 +153,7 @@ public class VerifySchemaInvalidObjectsData
     Add("unique-alias");
   }
 }
+
 public class VerifySchemaInvalidSchemasData
   : TheoryData<string>
 {
@@ -185,6 +186,7 @@ public class VerifySchemaInvalidSchemasData
     Add("option-diff-name");
   }
 }
+
 public class VerifySchemaInvalidTypesData
   : TheoryData<string>
 {
@@ -271,6 +273,7 @@ public class VerifySchemaInvalidTypesData
     Add("unique-types");
   }
 }
+
 public class VerifySchemaValidMergesData
   : TheoryData<string>
 {
@@ -347,6 +350,7 @@ public class VerifySchemaValidMergesData
     Add("union-same");
   }
 }
+
 public class VerifySchemaValidObjectsData
   : TheoryData<string>
 {
@@ -435,6 +439,7 @@ public class VerifySchemaValidObjectsData
     Add("parent-params-same");
   }
 }
+
 public class VerifySchemaValidSchemasData
   : TheoryData<string>
 {
@@ -451,6 +456,7 @@ public class VerifySchemaValidSchemasData
     Add("option-setting");
   }
 }
+
 public class VerifySchemaValidTypesData
   : TheoryData<string>
 {

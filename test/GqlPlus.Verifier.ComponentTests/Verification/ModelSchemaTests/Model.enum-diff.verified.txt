@@ -1,0 +1,15 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnDiff: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnDiff
+      name: one
+    - !_EnumMember
+      enum: EnDiff
+      name: two
+    items:
+    - !_Aliased one
+    - !_Aliased two
+    kind: !_TypeKind Enum
+    name: EnDiff

@@ -1,0 +1,15 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _Setting: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: value
+      object: _Setting
+      type: !_OutputBase _Constant
+    fields:
+    - !_OutputField
+      name: value
+      type: !_OutputBase _Constant
+    kind: !_TypeKind Output
+    name: _Setting
+    parent: !_OutputBase _Described

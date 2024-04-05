@@ -1,0 +1,36 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _DualBase: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: dual
+      object: _DualBase
+      type: !_OutputBase Identifier
+    fields:
+    - !_OutputField
+      name: dual
+      type: !_OutputBase Identifier
+    kind: !_TypeKind Output
+    name: _DualBase
+    parent: !_OutputBase
+      arguments:
+      - !_OutputBase
+        arguments:
+        - !_OutputBase _DualBase
+        output: _ObjRef
+      output: _ObjBase
+  !_Identifier _TypeDual: !_TypeOutput
+    kind: !_TypeKind Output
+    name: _TypeDual
+    parent: !_OutputBase
+      arguments:
+      - !_OutputArgument
+        kind: !_SimpleKind Enum
+        name: _TypeKind
+        value: Dual
+      - !_OutputBase _DualBase
+      - !_OutputBase
+        arguments:
+        - !_OutputBase _DualBase
+        output: _Field
+      output: _TypeObject

@@ -1,0 +1,95 @@
+﻿!_Schema
+categories: !_Map_Categories
+  !_Identifier all: !_Category
+    name: all
+    output: !_TypeRef(_TypeKind)
+      kind: !_TypeKind Output
+      name: All
+    resolution: !_Resolution Parallel
+directives: !_Map_Directives
+  !_Identifier all: !_Directive
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _, Operation: _, Spread: _, Variable: _}
+    name: all
+    repeatable: false
+types: !_Map_Type
+  !_Identifier All: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: All
+      type: !_OutputBase String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier List]
+      name: items
+      object: All
+      parameters:
+      - !_Parameter
+        type: !_InputBase Param
+      type: !_OutputBase String
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase String
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier List]
+      name: items
+      parameters:
+      - !_Parameter
+        type: !_InputBase Param
+      type: !_OutputBase String
+    kind: !_TypeKind Output
+    name: All
+  !_Identifier Guid: !_ScalarString
+    allItems:
+    - !_ScalarItem(_ScalarRegex)
+      exclude: false
+      regex: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
+      scalar: Guid
+    items:
+    - !_ScalarRegex
+      exclude: false
+      regex: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
+    kind: !_TypeKind Scalar
+    name: Guid
+    scalar: !_ScalarKind String
+  !_Identifier One: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: One
+      name: Two
+    - !_EnumMember
+      enum: One
+      name: Three
+    items:
+    - !_Aliased Two
+    - !_Aliased Three
+    kind: !_TypeKind Enum
+    name: One
+  !_Identifier Param: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: Param
+      type: !_InputBase String
+    allFields:
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier Optional]
+      name: afterId
+      object: Param
+      type: !_InputBase Guid
+    - !_ObjectFor(_InputField)
+      name: beforeId
+      object: Param
+      type: !_InputBase Guid
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase String
+    fields:
+    - !_InputField
+      modifiers: [!_Modifier Optional]
+      name: afterId
+      type: !_InputBase Guid
+    - !_InputField
+      name: beforeId
+      type: !_InputBase Guid
+    kind: !_TypeKind Input
+    name: Param

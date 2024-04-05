@@ -1,0 +1,17 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier NumSame: !_ScalarNumber
+    allItems:
+    - !_ScalarItem(_ScalarRange)
+      exclude: false
+      from: 1
+      scalar: NumSame
+      to: 9
+    items:
+    - !_ScalarRange
+      exclude: false
+      from: 1
+      to: 9
+    kind: !_TypeKind Scalar
+    name: NumSame
+    scalar: !_ScalarKind Number

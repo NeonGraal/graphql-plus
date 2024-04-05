@@ -27,16 +27,16 @@ directive @DirParams { fragment }
 input DirParamsIn { }
 
 // option
-option Option { }
-option Option { }
+option Schema { }
+option Schema { }
 
 // option-alias
-option OptAlias [Opt1] { }
-option OptAlias [Opt2] { }
+option Schema [Opt1] { }
+option Schema [Opt2] { }
 
 // option-setting
-option OptSetting { setting=true }
-option OptSetting { setting=[0] }
+option Schema { setting=true }
+option Schema { setting=[0] }
 
 // enum-alias
 enum EnAlias [En1] { alias }

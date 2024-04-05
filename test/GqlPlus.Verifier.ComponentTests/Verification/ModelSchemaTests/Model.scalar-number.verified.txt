@@ -1,0 +1,6 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier Num: !_ScalarNumber
+    kind: !_TypeKind Scalar
+    name: Num
+    scalar: !_ScalarKind Number

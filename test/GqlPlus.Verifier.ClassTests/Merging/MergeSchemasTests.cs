@@ -8,16 +8,27 @@ public class MergeSchemasTests
   : TestAbbreviated<SchemaAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentDeclarations_ReturnsTrue(string category, string directive, string option)
+  public void CanMerge_TwoAstsDifferentDeclarations_ReturnsTrue(string category, string option)
     => CanMerge_True([
       new SchemaAst(AstNulls.At) with { Declarations = CategoryDeclarations(category) },
-      new SchemaAst(AstNulls.At) with { Declarations = OtherDeclarations(directive, option) }]);
+      new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option) }]);
+
+  [SkippableTheory, RepeatData(Repeats)]
+  public void CanMerge_TwoAstsDifferentOptionNames_ReturnsFalse(string option1, string option2)
+  {
+    _options.CanMerge([]).ReturnsForAnyArgs(false);
+
+    CanMerge_False([
+        new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option1) },
+        new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option2) }]
+      , option1 == option2);
+  }
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoAstsDifferentDeclarations_ReturnsExpected(string category, string directive, string option)
+  public void Merge_TwoAstsDifferentDeclarations_ReturnsExpected(string category, string option)
   {
     var categoryDecls = CategoryDeclarations(category);
-    var otherDecls = OtherDeclarations(directive, option);
+    var otherDecls = OptionDeclarations(option);
 
     Merge_Expected([
       new SchemaAst(AstNulls.At) with { Declarations = categoryDecls },
@@ -54,6 +65,6 @@ public class MergeSchemasTests
   private static AstDeclaration[] CategoryDeclarations(string category)
     => [new CategoryDeclAst(AstNulls.At, category), new OutputDeclAst(AstNulls.At, category)];
 
-  private static AstDeclaration[] OtherDeclarations(string directive, string option)
-    => [new DirectiveDeclAst(AstNulls.At, directive), new OptionDeclAst(AstNulls.At, option)];
+  private static AstDeclaration[] OptionDeclarations(string option)
+    => [new OptionDeclAst(AstNulls.At, option)];
 }

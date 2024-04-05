@@ -1,0 +1,91 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _Categories: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Categories
+      type: !_OutputBase _Category
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Categories
+      type: !_OutputBase _Type
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: category
+      object: _Categories
+      type: !_OutputBase _Category
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _Categories
+      type: !_OutputBase _Type
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _Category
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _Type
+    fields:
+    - !_OutputField
+      name: category
+      type: !_OutputBase _Category
+    - !_OutputField
+      name: type
+      type: !_OutputBase _Type
+    kind: !_TypeKind Output
+    name: _Categories
+  !_Identifier _Category: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: resolution
+      object: _Category
+      type: !_OutputBase _Resolution
+    - !_ObjectFor(_OutputField)
+      name: output
+      object: _Category
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Output
+        output: _TypeRef
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier List]
+      name: modifiers
+      object: _Category
+      type: !_OutputBase _Modifiers
+    fields:
+    - !_OutputField
+      name: resolution
+      type: !_OutputBase _Resolution
+    - !_OutputField
+      name: output
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Output
+        output: _TypeRef
+    - !_OutputField
+      modifiers: [!_Modifier List]
+      name: modifiers
+      type: !_OutputBase _Modifiers
+    kind: !_TypeKind Output
+    name: _Category
+    parent: !_OutputBase _Aliased
+  !_Identifier _Resolution: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: _Resolution
+      name: Parallel
+    - !_EnumMember
+      enum: _Resolution
+      name: Sequential
+    - !_EnumMember
+      enum: _Resolution
+      name: Single
+    items:
+    - !_Aliased Parallel
+    - !_Aliased Sequential
+    - !_Aliased Single
+    kind: !_TypeKind Enum
+    name: _Resolution

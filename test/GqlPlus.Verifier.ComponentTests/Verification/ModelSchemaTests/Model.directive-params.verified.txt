@@ -1,0 +1,13 @@
+﻿!_Schema
+directives: !_Map_Directives
+  !_Identifier DirParams: !_Directive
+    locations: !_Set(_Location) {Fragment: _, Operation: _}
+    name: DirParams
+    parameters:
+    - !_Parameter
+      type: !_InputBase DirParamsIn
+    repeatable: false
+types: !_Map_Type
+  !_Identifier DirParamsIn: !_TypeInput
+    kind: !_TypeKind Input
+    name: DirParamsIn

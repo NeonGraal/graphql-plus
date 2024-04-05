@@ -1,0 +1,120 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _OutputArgument: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _OutputArgument
+      type: !_OutputBase
+        arguments:
+        - !_OutputBase _OutputBase
+        output: _ObjRef
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: value
+      object: _OutputArgument
+      type: !_OutputBase Identifier
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputBase _OutputBase
+        output: _ObjRef
+    fields:
+    - !_OutputField
+      name: value
+      type: !_OutputBase Identifier
+    kind: !_TypeKind Output
+    name: _OutputArgument
+    parent: !_OutputBase
+      arguments:
+      - !_OutputArgument
+        kind: !_SimpleKind Enum
+        name: _TypeKind
+        value: Enum
+      output: _TypeRef
+  !_Identifier _OutputBase: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _OutputBase
+      type: !_OutputBase _DualBase
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: output
+      object: _OutputBase
+      type: !_OutputBase Identifier
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _DualBase
+    fields:
+    - !_OutputField
+      name: output
+      type: !_OutputBase Identifier
+    kind: !_TypeKind Output
+    name: _OutputBase
+    parent: !_OutputBase
+      arguments:
+      - !_OutputBase _OutputArgument
+      output: _ObjBase
+  !_Identifier _OutputEnum: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: _OutputEnum
+      type: !_OutputBase Identifier
+    - !_ObjectFor(_OutputField)
+      name: value
+      object: _OutputEnum
+      type: !_OutputBase Identifier
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase Identifier
+    - !_OutputField
+      name: value
+      type: !_OutputBase Identifier
+    kind: !_TypeKind Output
+    name: _OutputEnum
+    parent: !_OutputBase
+      arguments:
+      - !_OutputArgument
+        kind: !_SimpleKind Enum
+        name: _TypeKind
+        value: Enum
+      output: _TypeRef
+  !_Identifier _OutputField: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _OutputField
+      type: !_OutputBase _OutputEnum
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier List]
+      name: parameter
+      object: _OutputField
+      type: !_OutputBase _Parameter
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _OutputEnum
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier List]
+      name: parameter
+      type: !_OutputBase _Parameter
+    kind: !_TypeKind Output
+    name: _OutputField
+    parent: !_OutputBase
+      arguments:
+      - !_OutputBase _OutputBase
+      output: _Field
+  !_Identifier _TypeOutput: !_TypeOutput
+    kind: !_TypeKind Output
+    name: _TypeOutput
+    parent: !_OutputBase
+      arguments:
+      - !_OutputArgument
+        kind: !_SimpleKind Enum
+        name: _TypeKind
+        value: Output
+      - !_OutputBase _OutputBase
+      - !_OutputBase _OutputField
+      output: _TypeObject

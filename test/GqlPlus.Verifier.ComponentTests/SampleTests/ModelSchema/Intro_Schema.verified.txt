@@ -1,0 +1,214 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier Identifier: !_ScalarString
+    allItems:
+    - !_ScalarItem(_ScalarRegex)
+      exclude: false
+      regex: '[A-Za-z_]+'
+      scalar: Identifier
+    items:
+    - !_ScalarRegex
+      exclude: false
+      regex: '[A-Za-z_]+'
+    kind: !_TypeKind Scalar
+    name: Identifier
+    scalar: !_ScalarKind String
+  !_Identifier _Aliased: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase Identifier
+    fields:
+    - !_DualField
+      modifiers: [!_Modifier List]
+      name: aliases
+      type: !_DualBase Identifier
+    kind: !_TypeKind Dual
+    name: _Aliased
+    parent: !_DualBase _Described
+  !_Identifier _BaseDescribed: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: _BaseDescribed
+      type: base
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: base
+      object: _BaseDescribed
+      type: base
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _BaseDescribed
+      type: !_DualBase String
+    alternates:
+    - !_Alternate(_DualBase) base
+    fields:
+    - !_DualField
+      name: base
+      type: base
+    - !_DualField
+      name: description
+      type: !_DualBase String
+    kind: !_TypeKind Dual
+    name: _BaseDescribed
+  !_Identifier _CategoryFilter: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier List]
+      name: resolutions
+      object: _CategoryFilter
+      type: !_InputBase _Resolution
+    fields:
+    - !_InputField
+      modifiers: [!_Modifier List]
+      name: resolutions
+      type: !_InputBase _Resolution
+    kind: !_TypeKind Input
+    name: _CategoryFilter
+    parent: !_InputBase _Filter
+  !_Identifier _Described: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    fields:
+    - !_DualField
+      name: description
+      type: !_DualBase String
+    kind: !_TypeKind Dual
+    name: _Described
+    parent: !_DualBase _Named
+  !_Identifier _Filter: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      collections:
+      - !_Modifier List
+      object: _Filter
+      type: !_BaseDescribed(_ObjRef(_InputBase))
+        base: !_InputBase String
+        description: 'Names'
+    allFields:
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier List]
+      name: names
+      object: _Filter
+      type: !_InputBase String
+    - !_ObjectFor(_InputField)
+      default: false
+      name: includeReferencedTypes
+      object: _Filter
+      type: !_InputBase Boolean
+    alternates:
+    - !_Alternate(_InputBase)
+      collections:
+      - !_Modifier List
+      type: !_BaseDescribed(_ObjRef(_InputBase))
+        base: !_InputBase String
+        description: 'Names'
+    fields:
+    - !_InputField
+      modifiers: [!_Modifier List]
+      name: names
+      type: !_InputBase String
+    - !_InputField
+      default: false
+      name: includeReferencedTypes
+      type: !_InputBase Boolean
+    kind: !_TypeKind Input
+    name: _Filter
+  !_Identifier _Named: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase Identifier
+    fields:
+    - !_DualField
+      name: name
+      type: !_DualBase Identifier
+    kind: !_TypeKind Dual
+    name: _Named
+  !_Identifier _Schema: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierDictionary {by: Identifier, kind: Dict}]
+      name: categories
+      object: _Schema
+      parameters:
+      - !_Parameter
+        type: !_InputBase _CategoryFilter
+      type: !_OutputBase _Categories
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierDictionary {by: Identifier, kind: Dict}]
+      name: directives
+      object: _Schema
+      parameters:
+      - !_Parameter
+        type: !_InputBase _Filter
+      type: !_OutputBase _Directives
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierDictionary {by: Identifier, kind: Dict}]
+      name: types
+      object: _Schema
+      parameters:
+      - !_Parameter
+        type: !_InputBase _TypeFilter
+      type: !_OutputBase _Type
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierDictionary {by: Identifier, kind: Dict}]
+      name: settings
+      object: _Schema
+      parameters:
+      - !_Parameter
+        type: !_InputBase _Filter
+      type: !_OutputBase _Setting
+    fields:
+    - !_OutputField
+      modifiers: [!_ModifierDictionary {by: Identifier, kind: Dict}]
+      name: categories
+      parameters:
+      - !_Parameter
+        type: !_InputBase _CategoryFilter
+      type: !_OutputBase _Categories
+    - !_OutputField
+      modifiers: [!_ModifierDictionary {by: Identifier, kind: Dict}]
+      name: directives
+      parameters:
+      - !_Parameter
+        type: !_InputBase _Filter
+      type: !_OutputBase _Directives
+    - !_OutputField
+      modifiers: [!_ModifierDictionary {by: Identifier, kind: Dict}]
+      name: types
+      parameters:
+      - !_Parameter
+        type: !_InputBase _TypeFilter
+      type: !_OutputBase _Type
+    - !_OutputField
+      modifiers: [!_ModifierDictionary {by: Identifier, kind: Dict}]
+      name: settings
+      parameters:
+      - !_Parameter
+        type: !_InputBase _Filter
+      type: !_OutputBase _Setting
+    kind: !_TypeKind Output
+    name: _Schema
+    parent: !_DualBase _Named
+  !_Identifier _TypeFilter: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier List]
+      name: kinds
+      object: _TypeFilter
+      type: !_InputBase _TypeKind
+    fields:
+    - !_InputField
+      modifiers: [!_Modifier List]
+      name: kinds
+      type: !_InputBase _TypeKind
+    kind: !_TypeKind Input
+    name: _TypeFilter
+    parent: !_InputBase _Filter

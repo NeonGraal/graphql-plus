@@ -8,9 +8,9 @@ internal class MergeOptions(
   IMerge<OptionSettingAst> settings
 ) : AstAliasedMerger<OptionDeclAst>(logger)
 {
-  protected override string ItemMatchName => "Name";
-  protected override string ItemMatchKey(OptionDeclAst item)
-    => item.Name;
+  protected override string ItemGroupKey(OptionDeclAst item) => "Option";
+
+  protected override string ItemMatchKey(OptionDeclAst item) => item.Name;
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, OptionDeclAst> group)
     => base.CanMergeGroup(group)

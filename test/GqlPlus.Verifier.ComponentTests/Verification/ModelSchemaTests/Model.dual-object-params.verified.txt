@@ -1,0 +1,21 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualParams: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: test
+      object: DualParams
+      type: test
+    - !_ObjectFor(_DualField)
+      name: type
+      object: DualParams
+      type: type
+    fields:
+    - !_DualField
+      name: test
+      type: test
+    - !_DualField
+      name: type
+      type: type
+    kind: !_TypeKind Dual
+    name: DualParams

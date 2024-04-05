@@ -1,0 +1,21 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpParams: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: test
+      object: InpParams
+      type: test
+    - !_ObjectFor(_InputField)
+      name: type
+      object: InpParams
+      type: type
+    fields:
+    - !_InputField
+      name: test
+      type: test
+    - !_InputField
+      name: type
+      type: type
+    kind: !_TypeKind Input
+    name: InpParams

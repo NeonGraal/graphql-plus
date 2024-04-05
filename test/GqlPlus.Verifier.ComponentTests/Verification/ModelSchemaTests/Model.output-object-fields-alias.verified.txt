@@ -1,0 +1,14 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FieldAlias: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: FieldAlias
+      type: !_OutputBase FieldAlias
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase FieldAlias
+    kind: !_TypeKind Output
+    name: FieldAlias

@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using NSubstitute;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -32,11 +33,11 @@ public class MergeEnumsTests
   private readonly IMerge<EnumMemberAst> _enumMembers;
   private readonly MergeEnums _merger;
 
-  public MergeEnumsTests()
+  public MergeEnumsTests(ITestOutputHelper outputHelper)
   {
     _enumMembers = Merger<EnumMemberAst>();
 
-    _merger = new(_enumMembers);
+    _merger = new(outputHelper.ToLoggerFactory(), _enumMembers);
   }
 
   internal override AstTypeMerger<AstType, EnumDeclAst, string, EnumMemberAst> MergerTyped => _merger;

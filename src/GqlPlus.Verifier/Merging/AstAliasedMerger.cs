@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal abstract class AstAliasedMerger<TItem>
-  : DistinctMerger<TItem>
+internal abstract class AstAliasedMerger<TItem>(
+  ILoggerFactory logger
+) : DistinctMerger<TItem>(logger)
   where TItem : AstAliased
 {
   protected override string ItemGroupKey(TItem item) => item.Name;

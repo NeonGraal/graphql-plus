@@ -1,12 +1,14 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class AlternatesMergerTests
-  : TestAlternates<OutputReferenceAst>
+public class AlternatesMergerTests(
+  ITestOutputHelper outputHelper
+) : TestAlternates<OutputReferenceAst>
 {
-  private readonly AlternatesMerger<OutputReferenceAst> _merger = new();
+  private readonly AlternatesMerger<OutputReferenceAst> _merger = new(outputHelper.ToLoggerFactory());
 
   internal override AstAlternatesMerger<AstAlternate<OutputReferenceAst>, OutputReferenceAst> MergerAlternate => _merger;
 

@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using NSubstitute;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -35,11 +36,11 @@ public class MergeOptionsTests
   private readonly MergeOptions _merger;
   private readonly IMerge<OptionSettingAst> _settings;
 
-  public MergeOptionsTests()
+  public MergeOptionsTests(ITestOutputHelper outputHelper)
   {
     _settings = Merger<OptionSettingAst>();
 
-    _merger = new(_settings);
+    _merger = new(outputHelper.ToLoggerFactory(), _settings);
   }
 
   internal override GroupsMerger<OptionDeclAst> MergerGroups => _merger;

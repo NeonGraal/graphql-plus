@@ -3,8 +3,9 @@ using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
-internal class MergeCategories
-  : AstAliasedMerger<CategoryDeclAst>
+internal class MergeCategories(
+  ILoggerFactory logger
+) : AstAliasedMerger<CategoryDeclAst>(logger)
 {
   public override bool CanMerge(IEnumerable<CategoryDeclAst> items)
     => base.CanMerge(items)

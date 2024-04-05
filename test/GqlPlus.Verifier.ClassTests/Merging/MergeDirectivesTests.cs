@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 using NSubstitute;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -51,11 +52,11 @@ public class MergeDirectivesTests
   private readonly MergeDirectives _merger;
   private readonly IMerge<ParameterAst> _parameters;
 
-  public MergeDirectivesTests()
+  public MergeDirectivesTests(ITestOutputHelper outputHelper)
   {
     _parameters = Merger<ParameterAst>();
 
-    _merger = new(_parameters);
+    _merger = new(outputHelper.ToLoggerFactory(), _parameters);
   }
 
   internal override GroupsMerger<DirectiveDeclAst> MergerGroups => _merger;

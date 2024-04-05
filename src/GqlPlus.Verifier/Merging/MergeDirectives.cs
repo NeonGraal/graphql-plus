@@ -3,8 +3,9 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeDirectives(
+  ILoggerFactory logger,
   IMerge<ParameterAst> parameters
-) : AstAliasedMerger<DirectiveDeclAst>
+) : AstAliasedMerger<DirectiveDeclAst>(logger)
 {
   protected override string ItemMatchKey(DirectiveDeclAst item)
     => item.Option.ToString();

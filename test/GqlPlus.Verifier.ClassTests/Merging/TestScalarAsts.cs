@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 using NSubstitute;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -47,11 +48,11 @@ public abstract class TestScalarAsts<TItem, TItemInput>
   internal readonly IMerge<TItem> MergeItems;
   internal readonly MergeScalars<TItem> Merger;
 
-  protected TestScalarAsts()
+  protected TestScalarAsts(ITestOutputHelper outputHelper)
   {
     MergeItems = Merger<TItem>();
 
-    Merger = new(MergeItems);
+    Merger = new(outputHelper.ToLoggerFactory(), MergeItems);
   }
 
   internal override AstTypeMerger<AstScalar, AstScalar<TItem>, string, TItem> MergerTyped => Merger;

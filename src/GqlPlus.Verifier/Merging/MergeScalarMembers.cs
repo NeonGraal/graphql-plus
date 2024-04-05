@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal class MergeScalarMembers
-  : AstScalarItemMerger<ScalarMemberAst>
+internal class MergeScalarMembers(
+  ILoggerFactory logger
+) : AstScalarItemMerger<ScalarMemberAst>(logger)
 {
   protected override string ItemGroupKey(ScalarMemberAst item)
     => item.Member;

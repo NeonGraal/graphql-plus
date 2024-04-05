@@ -2,6 +2,7 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal class MergeDualFields
-  : FieldsMerger<DualFieldAst, DualReferenceAst>
+internal class MergeDualFields(
+  ILoggerFactory logger
+) : FieldsMerger<DualFieldAst, DualReferenceAst>(logger)
 { }

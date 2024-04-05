@@ -1,10 +1,12 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class MergeScalarAstNumbersTests
-  : TestScalarAsts<ScalarRangeAst, ScalarRangeInput>
+public class MergeScalarAstNumbersTests(
+  ITestOutputHelper outputHelper
+) : TestScalarAsts<ScalarRangeAst, ScalarRangeInput>(outputHelper)
 {
   protected override ScalarRangeAst[] MakeItems(ScalarRangeInput input)
     => input.ScalarRange();

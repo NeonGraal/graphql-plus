@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -8,8 +9,8 @@ public class MergeDualObjectsTests
 {
   private readonly MergeDualObjects _merger;
 
-  public MergeDualObjectsTests()
-    => _merger = new(Fields, TypeParameters, Alternates);
+  public MergeDualObjectsTests(ITestOutputHelper outputHelper)
+    => _merger = new(outputHelper.ToLoggerFactory(), Fields, TypeParameters, Alternates);
 
   internal override AstObjectsMerger<DualDeclAst, DualFieldAst, DualReferenceAst> MergerObject => _merger;
 

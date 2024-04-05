@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal class FieldsMerger<TField, TRef>
-  : AstAliasedMerger<TField>
+internal class FieldsMerger<TField, TRef>(
+  ILoggerFactory logger
+) : AstAliasedMerger<TField>(logger)
   where TField : AstField<TRef>
   where TRef : AstReference<TRef>
 {

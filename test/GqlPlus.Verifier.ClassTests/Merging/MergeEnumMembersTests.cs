@@ -1,12 +1,14 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class MergeEnumMembersTests
-  : TestAliased<EnumMemberAst>
+public class MergeEnumMembersTests(
+  ITestOutputHelper outputHelper
+) : TestAliased<EnumMemberAst>
 {
-  private readonly MergeEnumMembers _merger = new();
+  private readonly MergeEnumMembers _merger = new(outputHelper.ToLoggerFactory());
 
   internal override GroupsMerger<EnumMemberAst> MergerGroups => _merger;
 

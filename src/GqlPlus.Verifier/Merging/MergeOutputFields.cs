@@ -3,8 +3,9 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeOutputFields(
+  ILoggerFactory logger,
   IMerge<ParameterAst> parameters
-) : FieldsMerger<OutputFieldAst, OutputReferenceAst>
+) : FieldsMerger<OutputFieldAst, OutputReferenceAst>(logger)
 {
   protected override bool CanMergeGroup(IGrouping<string, OutputFieldAst> group)
     => base.CanMergeGroup(group)

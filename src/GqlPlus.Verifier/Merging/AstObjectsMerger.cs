@@ -4,10 +4,11 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 internal class AstObjectsMerger<TObject, TField, TRef>(
+  ILoggerFactory logger,
   IMerge<TField> fields,
   IMerge<TypeParameterAst> typeParameters,
   IMerge<AstAlternate<TRef>> alternates
-) : AstTypeMerger<AstType, TObject, TRef, TField>(fields)
+) : AstTypeMerger<AstType, TObject, TRef, TField>(logger, fields)
   where TObject : AstObject<TField, TRef>
   where TField : AstField<TRef>, IAstDescribed
   where TRef : AstReference<TRef>

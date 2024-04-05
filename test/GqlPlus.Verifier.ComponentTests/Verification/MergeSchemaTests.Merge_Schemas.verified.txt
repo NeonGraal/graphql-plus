@@ -89,8 +89,8 @@ Success
   OptSetting
   {
     !OS I@021/0001
-    optSetting
-    =( !c P@070/0001 [ !k I@032/0001 Boolean.true !k N@071/0001 0 ] )
+    setting
+    =( !c P@064/0001 [ !k I@029/0001 Boolean.true !k N@065/0001 0 ] )
   }
 }
 {
@@ -99,7 +99,7 @@ Success
   {
     !OS I@017/0001
     setting
-    =( !k I@025/0001 Boolean.true )
+    =( !k I@027/0001 Boolean.true )
   }
 }
 {

@@ -1,10 +1,12 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class MergeCategoriesTests
-  : TestAliased<CategoryDeclAst>
+public class MergeCategoriesTests(
+  ITestOutputHelper outputHelper
+) : TestAliased<CategoryDeclAst>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameOutput_ReturnsTrue(string category)
@@ -29,7 +31,7 @@ public class MergeCategoriesTests
       [new CategoryDeclAst(AstNulls.At, category), new CategoryDeclAst(AstNulls.At, category)],
       new CategoryDeclAst(AstNulls.At, category));
 
-  private readonly MergeCategories _merger = new();
+  private readonly MergeCategories _merger = new(outputHelper.ToLoggerFactory());
 
   internal override GroupsMerger<CategoryDeclAst> MergerGroups => _merger;
 

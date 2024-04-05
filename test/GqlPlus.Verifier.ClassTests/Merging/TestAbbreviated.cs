@@ -6,8 +6,7 @@ namespace GqlPlus.Verifier.Merging;
 public abstract class TestAbbreviated<TAst>
   : TestAbbreviated<TAst, string>
   where TAst : AstAbbreviated
-{
-}
+{ }
 
 [TracePerTest]
 

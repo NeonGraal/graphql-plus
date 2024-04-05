@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal class MergeParameters
-  : AstAlternatesMerger<ParameterAst, InputReferenceAst>
+internal class MergeParameters(
+  ILoggerFactory logger
+) : AstAlternatesMerger<ParameterAst, InputReferenceAst>(logger)
 {
   protected override bool CanMergeGroup(IGrouping<string, ParameterAst> group)
     => base.CanMergeGroup(group)

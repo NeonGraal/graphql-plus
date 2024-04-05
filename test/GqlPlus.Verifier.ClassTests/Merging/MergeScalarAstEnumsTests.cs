@@ -1,10 +1,12 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class MergeScalarAstEnumsTests
-  : TestScalarAsts<ScalarMemberAst, string>
+public class MergeScalarAstEnumsTests(
+  ITestOutputHelper outputHelper
+) : TestScalarAsts<ScalarMemberAst, string>(outputHelper)
 {
   protected override ScalarMemberAst[] MakeItems(string input)
     => new[] { input }.ScalarMembers();

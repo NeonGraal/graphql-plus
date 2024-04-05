@@ -3,8 +3,9 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal abstract class AstTypeMerger<TBase, TType, TParent, TItem>(
+  ILoggerFactory logger,
   IMerge<TItem> mergeItems
-) : AstAliasedAllMerger<TBase, TType>
+) : AstAliasedAllMerger<TBase, TType>(logger)
   where TBase : AstAliased
   where TType : AstType<TParent>, TBase
   where TParent : IEquatable<TParent>

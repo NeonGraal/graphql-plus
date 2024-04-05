@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal abstract class AstDescribedMerger<TItem>
-  : DistinctMerger<TItem>
+internal abstract class AstDescribedMerger<TItem>(
+  ILoggerFactory logger
+) : DistinctMerger<TItem>(logger)
   where TItem : IAstDescribed
 {
   protected override bool CanMergeGroup(IGrouping<string, TItem> group)

@@ -3,8 +3,9 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeOptions(
+  ILoggerFactory logger,
   IMerge<OptionSettingAst> settings
-) : AstAliasedMerger<OptionDeclAst>
+) : AstAliasedMerger<OptionDeclAst>(logger)
 {
   protected override string ItemMatchKey(OptionDeclAst item)
     => item.Name;

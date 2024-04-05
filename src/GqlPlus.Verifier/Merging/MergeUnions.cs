@@ -3,8 +3,10 @@
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeUnions(
+  ILoggerFactory logger,
   IMerge<UnionMemberAst> unionMembers
-) : AstTypeMerger<AstType, UnionDeclAst, string, UnionMemberAst>(unionMembers), IMergeAll<AstType>
+) : AstTypeMerger<AstType, UnionDeclAst, string, UnionMemberAst>(logger, unionMembers)
+  , IMergeAll<AstType>
 {
   protected override string ItemMatchKey(UnionDeclAst item)
     => item.Parent ?? "";

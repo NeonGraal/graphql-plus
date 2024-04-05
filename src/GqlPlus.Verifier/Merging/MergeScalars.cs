@@ -4,8 +4,9 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeScalars<TMember>(
+  ILoggerFactory logger,
   IMerge<TMember> members
-) : AstTypeMerger<AstScalar, AstScalar<TMember>, string, TMember>(members)
+) : AstTypeMerger<AstScalar, AstScalar<TMember>, string, TMember>(logger, members)
   where TMember : IAstScalarItem
 {
   protected override string ItemMatchKey(AstScalar<TMember> item)

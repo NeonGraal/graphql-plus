@@ -79,6 +79,13 @@ types: !_Map_Type
   !_Identifier DirParamsIn: !_TypeInput
     kind: !_TypeKind Input
     name: DirParamsIn
+  !_Identifier Dual: !_TypeDual
+    kind: !_TypeKind Dual
+    name: Dual
+  !_Identifier DualAlias: !_TypeDual
+    aliases: [Dual1, Dual2]
+    kind: !_TypeKind Dual
+    name: DualAlias
   !_Identifier DualAlt: !_TypeDual
     kind: !_TypeKind Dual
     name: DualAlt
@@ -118,9 +125,14 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_DualBase))
       object: DualAlts
       type: !_DualBase DualAlt
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualAlts
+      type: !_DualBase DualAltsType
     alternates:
     - !_Alternate(_DualBase)
       type: !_DualBase DualAlt
+    - !_Alternate(_DualBase)
+      type: !_DualBase DualAltsType
     kind: !_TypeKind Dual
     name: DualAlts
   !_Identifier DualAltsDual: !_TypeDual
@@ -133,9 +145,21 @@ types: !_Map_Type
       type: !_DualBase DualAltDual
     kind: !_TypeKind Dual
     name: DualAltsDual
-  !_Identifier DualField: !_TypeDual
+  !_Identifier DualAltsType: !_TypeDual
     kind: !_TypeKind Dual
-    name: DualField
+    name: DualAltsType
+  !_Identifier DualFieldAlias: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualFieldAlias
+      type: !_DualBase DualFieldAlias
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase DualFieldAlias
+    kind: !_TypeKind Dual
+    name: DualFieldAlias
   !_Identifier DualFieldDual: !_TypeDual
     kind: !_TypeKind Dual
     name: DualFieldDual
@@ -167,11 +191,11 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: field
       object: DualFields
-      type: !_DualBase DualField
+      type: !_DualBase DualFields
     fields:
     - !_DualField
       name: field
-      type: !_DualBase DualField
+      type: !_DualBase DualFields
     kind: !_TypeKind Dual
     name: DualFields
   !_Identifier DualFieldsDual: !_TypeDual
@@ -508,6 +532,25 @@ types: !_Map_Type
   !_Identifier DualModsAlt: !_TypeDual
     kind: !_TypeKind Dual
     name: DualModsAlt
+  !_Identifier DualParams: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: test
+      object: DualParams
+      type: test
+    - !_ObjectFor(_DualField)
+      name: type
+      object: DualParams
+      type: type
+    fields:
+    - !_DualField
+      name: test
+      type: test
+    - !_DualField
+      name: type
+      type: type
+    kind: !_TypeKind Dual
+    name: DualParams
   !_Identifier DualParentTest: !_TypeDual
     kind: !_TypeKind Dual
     name: DualParentTest
@@ -529,6 +572,10 @@ types: !_Map_Type
     - !_Alternate(_DualBase) a
     kind: !_TypeKind Dual
     name: DualPrmsPrntSame
+  !_Identifier DualPrnt: !_TypeDual
+    kind: !_TypeKind Dual
+    name: DualPrnt
+    parent: !_DualBase PrntDual
   !_Identifier DualPrntAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -923,6 +970,78 @@ types: !_Map_Type
       type: !_OutputBase FieldParams
     kind: !_TypeKind Output
     name: FieldParams
+  !_Identifier InEnumField: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: InEnumField
+      name: value
+    items:
+    - !_Aliased value
+    kind: !_TypeKind Enum
+    name: InEnumField
+  !_Identifier InFieldEnum: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      default: value
+      name: field
+      object: InFieldEnum
+      type: !_InputBase InEnumField
+    fields:
+    - !_InputField
+      default: value
+      name: field
+      type: !_InputBase InEnumField
+    kind: !_TypeKind Input
+    name: InFieldEnum
+  !_Identifier InFieldNull: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier Optional]
+      name: field
+      object: InFieldNull
+      type: !_InputBase InFieldNull
+    fields:
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier Optional]
+      name: field
+      type: !_InputBase InFieldNull
+    kind: !_TypeKind Input
+    name: InFieldNull
+  !_Identifier InFieldNum: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      default: 0
+      name: field
+      object: InFieldNum
+      type: !_InputBase Number
+    fields:
+    - !_InputField
+      default: 0
+      name: field
+      type: !_InputBase Number
+    kind: !_TypeKind Input
+    name: InFieldNum
+  !_Identifier InFieldStr: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InFieldStr
+      type: !_InputBase String
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase String
+    kind: !_TypeKind Input
+    name: InFieldStr
+  !_Identifier InP: !_TypeInput
+    kind: !_TypeKind Input
+    name: InP
+  !_Identifier InPAlias: !_TypeInput
+    aliases: [InP1, InP2]
+    kind: !_TypeKind Input
+    name: InPAlias
   !_Identifier InPAlt: !_TypeInput
     kind: !_TypeKind Input
     name: InPAlt
@@ -962,9 +1081,14 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_InputBase))
       object: InPAlts
       type: !_InputBase InPAlt
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InPAlts
+      type: !_InputBase InPAltsType
     alternates:
     - !_Alternate(_InputBase)
       type: !_InputBase InPAlt
+    - !_Alternate(_InputBase)
+      type: !_InputBase InPAltsType
     kind: !_TypeKind Input
     name: InPAlts
   !_Identifier InPAltsDual: !_TypeInput
@@ -977,9 +1101,21 @@ types: !_Map_Type
       type: !_DualBase InPAltDual
     kind: !_TypeKind Input
     name: InPAltsDual
-  !_Identifier InPField: !_TypeInput
+  !_Identifier InPAltsType: !_TypeInput
     kind: !_TypeKind Input
-    name: InPField
+    name: InPAltsType
+  !_Identifier InPFieldAlias: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InPFieldAlias
+      type: !_InputBase InPFieldAlias
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase InPFieldAlias
+    kind: !_TypeKind Input
+    name: InPFieldAlias
   !_Identifier InPFieldDual: !_TypeDual
     kind: !_TypeKind Dual
     name: InPFieldDual
@@ -1011,11 +1147,11 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: field
       object: InPFields
-      type: !_InputBase InPField
+      type: !_InputBase InPFields
     fields:
     - !_InputField
       name: field
-      type: !_InputBase InPField
+      type: !_InputBase InPFields
     kind: !_TypeKind Input
     name: InPFields
   !_Identifier InPFieldsDual: !_TypeInput
@@ -1352,6 +1488,25 @@ types: !_Map_Type
   !_Identifier InPModsAlt: !_TypeInput
     kind: !_TypeKind Input
     name: InPModsAlt
+  !_Identifier InPParams: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: test
+      object: InPParams
+      type: test
+    - !_ObjectFor(_InputField)
+      name: type
+      object: InPParams
+      type: type
+    fields:
+    - !_InputField
+      name: test
+      type: test
+    - !_InputField
+      name: type
+      type: type
+    kind: !_TypeKind Input
+    name: InPParams
   !_Identifier InPParentTest: !_TypeInput
     kind: !_TypeKind Input
     name: InPParentTest
@@ -1373,6 +1528,10 @@ types: !_Map_Type
     - !_Alternate(_InputBase) a
     kind: !_TypeKind Input
     name: InPPrmsPrntSame
+  !_Identifier InPPrnt: !_TypeInput
+    kind: !_TypeKind Input
+    name: InPPrnt
+    parent: !_InputBase PrntInP
   !_Identifier InPPrntAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -1488,6 +1647,209 @@ types: !_Map_Type
     kind: !_TypeKind Scalar
     name: NumSame
     scalar: !_ScalarKind Number
+  !_Identifier OutEnumField: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutEnumField
+      name: outEnumField
+    items:
+    - !_Aliased outEnumField
+    kind: !_TypeKind Enum
+    name: OutEnumField
+  !_Identifier OutEnumGen: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutEnumGen
+      name: outEnumGen
+    items:
+    - !_Aliased outEnumGen
+    kind: !_TypeKind Enum
+    name: OutEnumGen
+  !_Identifier OutEnumParent: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutEnumParent
+      name: outEnumParent
+    items:
+    - !_Aliased outEnumParent
+    kind: !_TypeKind Enum
+    name: OutEnumParent
+  !_Identifier OutEnumParented: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutEnumParented
+      name: outParent
+    - !_EnumMember
+      enum: OutEnumParented
+      name: ed
+    items:
+    - !_Aliased outParent
+    - !_Aliased ed
+    kind: !_TypeKind Enum
+    name: OutEnumParented
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Enum
+      name: OutEnumParent
+  !_Identifier OutEnumValue: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutEnumValue
+      name: outEnumValue
+    items:
+    - !_Aliased outEnumValue
+    kind: !_TypeKind Enum
+    name: OutEnumValue
+  !_Identifier OutFieldEnum: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      field: field
+      kind: !_SimpleKind Enum
+      name: OutEnumField
+      object: OutFieldEnum
+      value: outEnumField
+    fields:
+    - !_OutputEnum
+      field: field
+      kind: !_SimpleKind Enum
+      name: OutEnumField
+      value: outEnumField
+    kind: !_TypeKind Output
+    name: OutFieldEnum
+  !_Identifier OutFieldParent: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      field: field
+      kind: !_SimpleKind Enum
+      name: OutEnumParented
+      object: OutFieldParent
+      value: outEnumParent
+    fields:
+    - !_OutputEnum
+      field: field
+      kind: !_SimpleKind Enum
+      name: OutEnumParented
+      value: outEnumParent
+    kind: !_TypeKind Output
+    name: OutFieldParent
+  !_Identifier OutFieldValue: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      field: field
+      kind: !_SimpleKind Enum
+      name: OutEnumValue
+      object: OutFieldValue
+      value: outEnumValue
+    fields:
+    - !_OutputEnum
+      field: field
+      kind: !_SimpleKind Enum
+      name: OutEnumValue
+      value: outEnumValue
+    kind: !_TypeKind Output
+    name: OutFieldValue
+  !_Identifier OutGenEnum: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutGenEnum
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: OutEnumGen
+          value: outEnumGen
+        output: OutGenEnumRef
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: OutEnumGen
+          value: outEnumGen
+        output: OutGenEnumRef
+    kind: !_TypeKind Output
+    name: OutGenEnum
+  !_Identifier OutGenEnumRef: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutGenEnumRef
+      type: type
+    fields:
+    - !_OutputField
+      name: field
+      type: type
+    kind: !_TypeKind Output
+    name: OutGenEnumRef
+  !_Identifier OutGenParent: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutGenParent
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: OutParentGen
+          value: outGenParent
+        output: OutGenParentRef
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: OutParentGen
+          value: outGenParent
+        output: OutGenParentRef
+    kind: !_TypeKind Output
+    name: OutGenParent
+  !_Identifier OutGenParentRef: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutGenParentRef
+      type: type
+    fields:
+    - !_OutputField
+      name: field
+      type: type
+    kind: !_TypeKind Output
+    name: OutGenParentRef
+  !_Identifier OutGenValue: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutGenValue
+      type: !_OutputBase
+        arguments:
+        - !_OutputBase outValueGen
+        output: OutGenValueRef
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputBase outValueGen
+        output: OutGenValueRef
+    kind: !_TypeKind Output
+    name: OutGenValue
+  !_Identifier OutGenValueRef: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutGenValueRef
+      type: type
+    fields:
+    - !_OutputField
+      name: field
+      type: type
+    kind: !_TypeKind Output
+    name: OutGenValueRef
+  !_Identifier OutP: !_TypeOutput
+    kind: !_TypeKind Output
+    name: OutP
+  !_Identifier OutPAlias: !_TypeOutput
+    aliases: [OutP1, OutP2]
+    kind: !_TypeKind Output
+    name: OutPAlias
   !_Identifier OutPAlt: !_TypeOutput
     kind: !_TypeKind Output
     name: OutPAlt
@@ -1527,9 +1889,14 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: OutPAlts
       type: !_OutputBase OutPAlt
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutPAlts
+      type: !_OutputBase OutPAltsType
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase OutPAlt
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase OutPAltsType
     kind: !_TypeKind Output
     name: OutPAlts
   !_Identifier OutPAltsDual: !_TypeOutput
@@ -1542,9 +1909,21 @@ types: !_Map_Type
       type: !_DualBase OutPAltDual
     kind: !_TypeKind Output
     name: OutPAltsDual
-  !_Identifier OutPField: !_TypeOutput
+  !_Identifier OutPAltsType: !_TypeOutput
     kind: !_TypeKind Output
-    name: OutPField
+    name: OutPAltsType
+  !_Identifier OutPFieldAlias: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutPFieldAlias
+      type: !_OutputBase OutPFieldAlias
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase OutPFieldAlias
+    kind: !_TypeKind Output
+    name: OutPFieldAlias
   !_Identifier OutPFieldDual: !_TypeDual
     kind: !_TypeKind Dual
     name: OutPFieldDual
@@ -1576,11 +1955,11 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: OutPFields
-      type: !_OutputBase OutPField
+      type: !_OutputBase OutPFields
     fields:
     - !_OutputField
       name: field
-      type: !_OutputBase OutPField
+      type: !_OutputBase OutPFields
     kind: !_TypeKind Output
     name: OutPFields
   !_Identifier OutPFieldsDual: !_TypeOutput
@@ -1917,6 +2296,25 @@ types: !_Map_Type
   !_Identifier OutPModsAlt: !_TypeOutput
     kind: !_TypeKind Output
     name: OutPModsAlt
+  !_Identifier OutPParams: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: test
+      object: OutPParams
+      type: test
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: OutPParams
+      type: type
+    fields:
+    - !_OutputField
+      name: test
+      type: test
+    - !_OutputField
+      name: type
+      type: type
+    kind: !_TypeKind Output
+    name: OutPParams
   !_Identifier OutPParentTest: !_TypeOutput
     kind: !_TypeKind Output
     name: OutPParentTest
@@ -1938,6 +2336,10 @@ types: !_Map_Type
     - !_Alternate(_OutputBase) a
     kind: !_TypeKind Output
     name: OutPPrmsPrntSame
+  !_Identifier OutPPrnt: !_TypeOutput
+    kind: !_TypeKind Output
+    name: OutPPrnt
+    parent: !_OutputBase PrntOutP
   !_Identifier OutPPrntAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -2005,6 +2407,153 @@ types: !_Map_Type
     kind: !_TypeKind Output
     name: OutPTestPrntDual
     parent: !_DualBase OutPPrntDualTest
+  !_Identifier OutParam: !_TypeInput
+    kind: !_TypeKind Input
+    name: OutParam
+  !_Identifier OutParamParent: !_TypeInput
+    kind: !_TypeKind Input
+    name: OutParamParent
+  !_Identifier OutParamScalar: !_TypeInput
+    kind: !_TypeKind Input
+    name: OutParamScalar
+  !_Identifier OutParams: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParams
+      parameters:
+      - !_Parameter
+        type: !_InputBase OutParam
+      type: !_OutputBase OutParams
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_Parameter
+        type: !_InputBase OutParam
+      type: !_OutputBase OutParams
+    kind: !_TypeKind Output
+    name: OutParams
+  !_Identifier OutParamsParent: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParamsParent
+      parameters:
+      - !_Parameter
+        type: !_InputBase OutParamParent
+      type: !_OutputBase OutPrntParams
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_Parameter
+        type: !_InputBase OutParamParent
+      type: !_OutputBase OutPrntParams
+    kind: !_TypeKind Output
+    name: OutParamsParent
+  !_Identifier OutParamsScalar: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParamsScalar
+      parameters:
+      - !_Parameter
+        collections:
+        - !_ModifierDictionary
+          by: OutScalarParam
+          kind: Dict
+        type: !_InputBase OutParamScalar
+      type: !_OutputBase OutParamsScalar
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_Parameter
+        collections:
+        - !_ModifierDictionary
+          by: OutScalarParam
+          kind: Dict
+        type: !_InputBase OutParamScalar
+      type: !_OutputBase OutParamsScalar
+    kind: !_TypeKind Output
+    name: OutParamsScalar
+  !_Identifier OutParentGen: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutParentGen
+      name: outGenPrntended
+    items:
+    - !_Aliased outGenPrntended
+    kind: !_TypeKind Enum
+    name: OutParentGen
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Enum
+      name: OutPrntendedGen
+  !_Identifier OutPrntParam: !_TypeInput
+    kind: !_TypeKind Input
+    name: OutPrntParam
+  !_Identifier OutPrntParams: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutPrntParams
+      parameters:
+      - !_Parameter
+        type: !_InputBase OutPrntParam
+      type: !_OutputBase OutPrntParams
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_Parameter
+        type: !_InputBase OutPrntParam
+      type: !_OutputBase OutPrntParams
+    kind: !_TypeKind Output
+    name: OutPrntParams
+    parent: !_OutputBase OutParamsParent
+  !_Identifier OutPrntendedGen: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutPrntendedGen
+      name: outGenParent
+    items:
+    - !_Aliased outGenParent
+    kind: !_TypeKind Enum
+    name: OutPrntendedGen
+  !_Identifier OutScalarParam: !_ScalarNumber
+    allItems:
+    - !_ScalarItem(_ScalarRange)
+      exclude: false
+      from: 1
+      scalar: OutScalarParam
+      to: 10
+    items:
+    - !_ScalarRange
+      exclude: false
+      from: 1
+      to: 10
+    kind: !_TypeKind Scalar
+    name: OutScalarParam
+    scalar: !_ScalarKind Number
+  !_Identifier OutValueGen: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutValueGen
+      name: outValueGen
+    items:
+    - !_Aliased outValueGen
+    kind: !_TypeKind Enum
+    name: OutValueGen
+  !_Identifier PrntDual: !_TypeDual
+    kind: !_TypeKind Dual
+    name: PrntDual
+  !_Identifier PrntInP: !_TypeInput
+    kind: !_TypeKind Input
+    name: PrntInP
+  !_Identifier PrntOutP: !_TypeOutput
+    kind: !_TypeKind Output
+    name: PrntOutP
   !_Identifier PrntUnion: !_TypeUnion
     allItems:
     - !_UnionMember

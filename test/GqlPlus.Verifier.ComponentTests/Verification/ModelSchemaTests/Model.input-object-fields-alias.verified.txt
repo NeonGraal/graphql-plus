@@ -1,14 +1,14 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier FieldAlias: !_TypeInput
+  !_Identifier InpFieldAlias: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: FieldAlias
-      type: !_InputBase FieldAlias
+      object: InpFieldAlias
+      type: !_InputBase InpFieldAlias
     fields:
     - !_InputField
       name: field
-      type: !_InputBase FieldAlias
+      type: !_InputBase InpFieldAlias
     kind: !_TypeKind Input
-    name: FieldAlias
+    name: InpFieldAlias

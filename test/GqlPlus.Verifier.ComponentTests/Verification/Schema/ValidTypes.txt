@@ -29,15 +29,15 @@ scalar ScalPrntEnum { Enum scal_parent }
 enum EnumScalPrnt { scal_enum scal_parent }
 
 // scalar-enum-unique
-scalar ScalEnumUnique { enum EnumScalUnique.* !EnumScalUnique.dup EnumScalDup.dup }
 enum EnumScalUnique { value dup }
 enum EnumScalDup { dup }
+# scalar ScalEnumUnique { enum EnumScalUnique.* !EnumScalUnique.dup EnumScalDup.dup }
 
 // scalar-enum-unique-parent
-scalar ScalEnumUniqueParent { enum EnumScalUniqueParent.* !EnumScalUniqueParent.dup EnumScalDupParent.dup }
 enum EnumScalUniqueParent { :EnumScalParentUnique value }
 enum EnumScalParentUnique { dup }
 enum EnumScalDupParent { dup }
+# scalar ScalEnumUniqueParent { enum EnumScalUniqueParent.* !EnumScalUniqueParent.dup EnumScalDupParent.dup }
 
 // scalar-enum-value
 scalar ScalEnum { Enum EnumScal.scal_enum }

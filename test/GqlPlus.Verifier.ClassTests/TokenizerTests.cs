@@ -37,10 +37,44 @@ public class TokenizerTests
     tokens.AtEnd.Should().BeTrue();
   }
 
+  [Theory]
+  [InlineData(" ")]
+  [InlineData("\t")]
+  [InlineData("\n")]
+  [InlineData("\r")]
+  [InlineData("\r\n")]
+  [InlineData("# ")]
+  [InlineData("# \n")]
+  [InlineData("# \r")]
+  [InlineData("# \r\n")]
+  public void AtEnd_AfterWhitespace_AfterReadFalse_IsTrue(string input)
+  {
+    var tokens = new Tokenizer(input);
+
+    var result = tokens.Read();
+
+    using var scope = new AssertionScope();
+
+    result.Should().BeFalse();
+
+    tokens.AtEnd.Should().BeTrue();
+  }
+
   [Theory, RepeatData(Repeats)]
   public void Identifier_AfterRead_ReturnsIdentifier(string expected)
   {
     Tokenizer tokens = PrepareTokens(expected);
+
+    TrueAndExpected(tokens.Identifier, expected);
+  }
+
+  [Theory]
+  [RepeatInlineData(Repeats, "# \n")]
+  [RepeatInlineData(Repeats, "# \r")]
+  [RepeatInlineData(Repeats, "# \r\n")]
+  public void Identifier_AfterComment_ReturnsIdentifier(string comment, string expected)
+  {
+    Tokenizer tokens = PrepareTokens(comment + expected);
 
     TrueAndExpected(tokens.Identifier, expected);
   }
@@ -235,7 +269,7 @@ public class TokenizerTests
 
     var result = tokens.Error(message);
 
-    CheckParseError(result, TokenKind.Start, "<END>", message, 0);
+    CheckParseError(result, TokenKind.Start, "<END>", message, 0, 0);
   }
 
   [Theory, RepeatData(Repeats)]
@@ -294,13 +328,51 @@ public class TokenizerTests
     CheckParseError(result, TokenKind.String, expected, message);
   }
 
-  private static void CheckParseError(TokenMessage result, TokenKind kind, string expected, string message, int pos = 1)
+  [Theory]
+  [RepeatInlineData(Repeats, " ")]
+  [RepeatInlineData(Repeats, "\t")]
+  public void Error_AfterWhitespace_ReturnsAtIdentifier(string space, string value, string message)
+  {
+    var tokens = PrepareTokens(space + value);
+
+    var result = tokens.Error(message);
+
+    CheckParseError(result, TokenKind.Identifer, value, message, col: 2);
+  }
+
+  [Theory]
+  [RepeatInlineData(Repeats, "\r")]
+  [RepeatInlineData(Repeats, "\n")]
+  [RepeatInlineData(Repeats, "\r\n")]
+  public void Error_AfterLine_ReturnsAtIdentifier(string line, string value, string message)
+  {
+    var tokens = PrepareTokens(line + value);
+
+    var result = tokens.Error(message);
+
+    CheckParseError(result, TokenKind.Identifer, value, message, 2);
+  }
+
+  [Theory]
+  [RepeatInlineData(Repeats, "# \r")]
+  [RepeatInlineData(Repeats, "# \n")]
+  [RepeatInlineData(Repeats, "# \r\n")]
+  public void Error_AfterComment_ReturnsAtIdentifier(string comment, string value, string message)
+  {
+    var tokens = PrepareTokens(comment + value);
+
+    var result = tokens.Error(message);
+
+    CheckParseError(result, TokenKind.Identifer, value, message, 2);
+  }
+
+  private static void CheckParseError(TokenMessage result, TokenKind kind, string expected, string message, int line = 1, int col = 1)
   {
     using var scope = new AssertionScope();
 
     result.Kind.Should().Be(kind);
-    result.Line.Should().Be(pos);
-    result.Column.Should().Be(pos);
+    result.Line.Should().Be(line);
+    result.Column.Should().Be(col);
     result.Next.Should().Be(expected);
     result.Message.Should().Be(message);
   }

@@ -8,7 +8,7 @@ public static class TestHelpers
   public const int CiRepeats = 25;
 
   public const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
-  public const string PunctuationPattern = @"[!#-&(-*.:<-@[-^`{-~]";
+  public const string PunctuationPattern = @"[!$-&(-*.:<-@[-^`{-~]";
 
   public static FieldKeyAst FieldKey(this string value)
     => new(AstNulls.At, "", value);

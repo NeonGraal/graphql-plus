@@ -18,6 +18,7 @@ internal class AstAlternatesMerger<TAlternate, TRef>(
   protected override string ItemGroupKey(TAlternate item)
     => item.Type.FullName;
 
+  protected override string ItemMatchName => "Modifiers";
   protected override string ItemMatchKey(TAlternate item)
     => item.Modifiers.AsString().Joined();
 }

@@ -13,7 +13,7 @@ public abstract class TestObjects<TObject, TField, TRef>
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsTypeParametersCantMerge_ReturnsFalse(string name, string[] typeParameters)
   {
-    TypeParameters.CanMerge([]).ReturnsForAnyArgs(false);
+    TypeParameters.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
     CanMerge_False([
       MakeObject(name) with { TypeParameters = typeParameters.TypeParameters() },
@@ -24,7 +24,7 @@ public abstract class TestObjects<TObject, TField, TRef>
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsFalse(string name, string[] alternates)
   {
-    Alternates.CanMerge([]).ReturnsForAnyArgs(false);
+    Alternates.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
     CanMerge_False([
       MakeObject(name) with { Alternates = alternates.Alternates(MakeReference) },
@@ -34,7 +34,7 @@ public abstract class TestObjects<TObject, TField, TRef>
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsFieldsCantMerge_ReturnsFalse(string name, FieldInput[] fields)
   {
-    Fields.CanMerge([]).ReturnsForAnyArgs(false);
+    Fields.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
     CanMerge_False([
       MakeObject(name) with { Fields = MakeFields(fields) },

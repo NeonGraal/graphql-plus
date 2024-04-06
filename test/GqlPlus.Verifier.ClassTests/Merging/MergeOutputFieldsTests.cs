@@ -15,7 +15,7 @@ public class MergeOutputFieldsTests
       return;
     }
 
-    _parameters.CanMerge([]).ReturnsForAnyArgs(false);
+    _parameters.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
     CanMerge_False([MakeField(name, type) with { Parameters = parameters.Parameters() }, MakeField(name, type)]);
   }

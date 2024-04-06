@@ -7,8 +7,9 @@ internal class MergeScalars<TMember>(
   ILoggerFactory logger,
   IMerge<TMember> members
 ) : AstTypeMerger<AstScalar, AstScalar<TMember>, string, TMember>(logger, members)
-  where TMember : IAstScalarItem
+  where TMember : AstBase, IAstScalarItem
 {
+  protected override string ItemMatchName => "Domain~Parent";
   protected override string ItemMatchKey(AstScalar<TMember> item)
     => item.Domain.ToString() + item.Parent.Prefixed("~");
 

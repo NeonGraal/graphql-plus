@@ -81,76 +81,9 @@ public class VerifySchemaInvalidObjectsData
 
   public VerifySchemaInvalidObjectsData()
   {
-    Add("alts-diff-mods");
-    Add("alts-mods-undef");
-    Add("alts-mods-wrong");
-    Add("alts-more");
-    Add("alts-recurse");
-    Add("alts-self");
-    Add("dual-alt-input");
-    Add("dual-alt-output");
-    Add("dual-alt-param-input");
-    Add("dual-alt-param-output");
-    Add("dual-field-input");
-    Add("dual-field-output");
-    Add("dual-field-param-input");
-    Add("dual-field-param-output");
-    Add("dual-parent-input");
-    Add("dual-parent-output");
-    Add("dual-parent-param-input");
-    Add("dual-parent-param-output");
-    Add("fields-alias");
-    Add("fields-diff-mods");
-    Add("fields-diff-type");
-    Add("fields-mods-undef");
-    Add("fields-mods-wrong");
-    Add("generic-alt-undef");
-    Add("generic-arg-less");
-    Add("generic-arg-more");
-    Add("generic-arg-undef");
-    Add("generic-field-undef");
-    Add("generic-param-undef");
-    Add("generic-parent-less");
-    Add("generic-parent-more");
-    Add("generic-parent-undef");
-    Add("generic-unused");
-    Add("input-alt-output");
-    Add("input-field-null");
-    Add("input-field-output");
-    Add("input-parent-output");
-    Add("output-alt-input");
-    Add("output-enum-bad");
-    Add("output-enums-diff");
-    Add("output-enumValue-bad");
-    Add("output-enumValue-wrong");
-    Add("output-field-input");
-    Add("output-generic-enum-bad");
-    Add("output-generic-enum-wrong");
-    Add("output-params-diff");
-    Add("output-params-mods-undef");
-    Add("output-params-mods-wrong");
-    Add("output-params-undef");
-    Add("output-parent-input");
-    Add("parent-alt-mods");
-    Add("parent-alt-more");
-    Add("parent-alt-recurse");
-    Add("parent-alt-self");
-    Add("parent-alt-self-more");
-    Add("parent-alt-self-recurse");
-    Add("parent-fields-alias");
-    Add("parent-fields-alias-more");
-    Add("parent-fields-alias-recurse");
-    Add("parent-fields-mods");
-    Add("parent-fields-mods-more");
-    Add("parent-fields-mods-recurse");
-    Add("parent-more");
-    Add("parent-recurse");
-    Add("parent-self");
-    Add("parent-self-alt");
-    Add("parent-self-alt-more");
-    Add("parent-self-alt-recurse");
-    Add("parent-undef");
-    Add("unique-alias");
+    foreach (var key in Source.Keys) {
+      Add(key);
+    }
   }
 }
 
@@ -173,17 +106,9 @@ public class VerifySchemaInvalidSchemasData
 
   public VerifySchemaInvalidSchemasData()
   {
-    Add("bad-parse");
-    Add("category-diff-mods");
-    Add("category-dup-alias");
-    Add("category-duplicate");
-    Add("category-output-generic");
-    Add("category-output-undef");
-    Add("category-output-wrong");
-    Add("directive-diff-option");
-    Add("directive-diff-parameter");
-    Add("directive-no-param");
-    Add("option-diff-name");
+    foreach (var key in Source.Keys) {
+      Add(key);
+    }
   }
 }
 
@@ -233,44 +158,9 @@ public class VerifySchemaInvalidTypesData
 
   public VerifySchemaInvalidTypesData()
   {
-    Add("enum-dup-alias");
-    Add("enum-parent-alias-dup");
-    Add("enum-parent-diff");
-    Add("enum-parent-undef");
-    Add("enum-parent-wrong");
-    Add("scalar-diff-kind");
-    Add("scalar-dup-alias");
-    Add("scalar-enum-parent-unique");
-    Add("scalar-enum-undef");
-    Add("scalar-enum-undef-all");
-    Add("scalar-enum-undef-member");
-    Add("scalar-enum-undef-value");
-    Add("scalar-enum-unique");
-    Add("scalar-enum-unique-all");
-    Add("scalar-enum-unique-member");
-    Add("scalar-enum-wrong");
-    Add("scalar-number-parent");
-    Add("scalar-parent-self");
-    Add("scalar-parent-self-more");
-    Add("scalar-parent-self-parent");
-    Add("scalar-parent-self-recurse");
-    Add("scalar-parent-undef");
-    Add("scalar-parent-wrong-kind");
-    Add("scalar-parent-wrong-type");
-    Add("scalar-string-diff");
-    Add("scalar-string-parent");
-    Add("union-more");
-    Add("union-more-parent");
-    Add("union-parent");
-    Add("union-parent-more");
-    Add("union-parent-recurse");
-    Add("union-recurse");
-    Add("union-recurse-parent");
-    Add("union-self");
-    Add("union-undef");
-    Add("union-wrong");
-    Add("unique-type-alias");
-    Add("unique-types");
+    foreach (var key in Source.Keys) {
+      Add(key);
+    }
   }
 }
 
@@ -315,39 +205,9 @@ public class VerifySchemaValidMergesData
 
   public VerifySchemaValidMergesData()
   {
-    Add("category");
-    Add("category-alias");
-    Add("category-mods");
-    Add("directive");
-    Add("directive-alias");
-    Add("directive-params");
-    Add("enum-alias");
-    Add("enum-diff");
-    Add("enum-same");
-    Add("enum-same-parent");
-    Add("enum-value-alias");
-    Add("object");
-    Add("object-alias");
-    Add("object-alts");
-    Add("object-fields");
-    Add("object-fields-alias");
-    Add("object-params");
-    Add("object-parent");
-    Add("option");
-    Add("option-alias");
-    Add("option-setting");
-    Add("output-fields-enum-alias");
-    Add("output-fields-enums");
-    Add("output-fields-params");
-    Add("scalar-alias");
-    Add("scalar-number");
-    Add("scalar-number-diff");
-    Add("scalar-number-same");
-    Add("scalar-string");
-    Add("scalar-string-diff");
-    Add("scalar-string-same");
-    Add("union-diff");
-    Add("union-same");
+    foreach (var key in Source.Keys) {
+      Add(key);
+    }
   }
 }
 
@@ -398,45 +258,9 @@ public class VerifySchemaValidObjectsData
 
   public VerifySchemaValidObjectsData()
   {
-    Add("alts");
-    Add("alts-dual");
-    Add("alts-mods-Boolean");
-    Add("fields");
-    Add("fields-dual");
-    Add("fields-mods-Enum");
-    Add("generic-alt");
-    Add("generic-alt-arg");
-    Add("generic-alt-dual");
-    Add("generic-alt-param");
-    Add("generic-dual");
-    Add("generic-field");
-    Add("generic-field-arg");
-    Add("generic-field-dual");
-    Add("generic-field-param");
-    Add("generic-param");
-    Add("generic-parent");
-    Add("generic-parent-arg");
-    Add("generic-parent-dual");
-    Add("generic-parent-param");
-    Add("input-field-Enum");
-    Add("input-field-null");
-    Add("input-field-Number");
-    Add("input-field-String");
-    Add("output-field-enum");
-    Add("output-field-enum-parent");
-    Add("output-field-value");
-    Add("output-generic-enum");
-    Add("output-generic-parent");
-    Add("output-generic-value");
-    Add("output-params");
-    Add("output-params-mods-Scalar");
-    Add("output-parent-params");
-    Add("parent");
-    Add("parent-alts");
-    Add("parent-dual");
-    Add("parent-fields");
-    Add("parent-params-diff");
-    Add("parent-params-same");
+    foreach (var key in Source.Keys) {
+      Add(key);
+    }
   }
 }
 
@@ -451,9 +275,9 @@ public class VerifySchemaValidSchemasData
 
   public VerifySchemaValidSchemasData()
   {
-    Add("category-output");
-    Add("directive-param");
-    Add("option-setting");
+    foreach (var key in Source.Keys) {
+      Add(key);
+    }
   }
 }
 
@@ -480,20 +304,8 @@ public class VerifySchemaValidTypesData
 
   public VerifySchemaValidTypesData()
   {
-    Add("enum-parent");
-    Add("enum-parent-alias");
-    Add("enum-parent-dup");
-    Add("scalar-enum-all");
-    Add("scalar-enum-all-parent");
-    Add("scalar-enum-member");
-    Add("scalar-enum-parent");
-    Add("scalar-enum-unique");
-    Add("scalar-enum-unique-parent");
-    Add("scalar-enum-value");
-    Add("scalar-enum-value-parent");
-    Add("scalar-number-parent");
-    Add("scalar-parent");
-    Add("scalar-string-parent");
-    Add("union-parent");
+    foreach (var key in Source.Keys) {
+      Add(key);
+    }
   }
 }

@@ -46,12 +46,15 @@ public static class AllMergers
     ;
 
   public static IServiceCollection AddMerge<TValue, TService>(this IServiceCollection services)
+    where TValue : AstBase
     where TService : class, IMerge<TValue>
     => services
       .RemoveAll<IMerge<TValue>>()
       .AddSingleton<IMerge<TValue>, TService>();
 
   public static IServiceCollection AddMergeAll<TValue, TBase, TService>(this IServiceCollection services)
+    where TValue : AstBase
+    where TBase : AstBase
     where TService : class, IMergeAll<TBase>, IMerge<TValue>
     => services
       .RemoveAll<IMerge<TValue>>()
@@ -60,7 +63,7 @@ public static class AllMergers
       .AddSingleton<IMergeAll<TBase>>(x => x.GetRequiredService<TService>());
 
   public static IServiceCollection AddMergeScalar<TMember>(this IServiceCollection services)
-    where TMember : IAstScalarItem
+    where TMember : AstBase, IAstScalarItem
     => services
       .AddMergeAll<AstScalar<TMember>, AstScalar, MergeScalars<TMember>>();
 }

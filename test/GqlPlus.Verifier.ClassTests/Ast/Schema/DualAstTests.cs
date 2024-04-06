@@ -78,7 +78,7 @@ public class DualAstTests
   public void String_WithTypeParameters(string name, string[] typeParameters)
     => _checks.Text(
       () => new DualDeclAst(AstNulls.At, name) { TypeParameters = typeParameters.TypeParameters() },
-      $"( !D {name} < {typeParameters.Joined("$")} > )");
+      $"( !D {name} < {typeParameters.Joined(s => "$" + s)} > )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithTypeParameters(string name, string[] typeParameters)

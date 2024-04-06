@@ -1,0 +1,509 @@
+﻿[  
+!G I@001/0001
+Success
+{
+  !C P@010/0001
+  category
+  (Parallel)
+  Category
+}
+{
+  !C P@010/0001
+  catAlias
+  [
+    CatA1
+    CatA2
+  ]
+  (Parallel)
+  CatAlias
+}
+{
+  !C P@010/0001
+  catMods
+  [
+    CatM1
+    CatM2
+  ]
+  (Parallel)
+  CatMods
+  ?
+}
+{
+  !D I@012/0001
+  Dir
+  (Unique)
+  Inline, Spread
+}
+{
+  !D I@012/0001
+  DirAlias
+  [
+    DirA1
+    DirA2
+  ]
+  (Unique)
+  Variable, Field
+}
+{
+  !D I@012/0001
+  DirParams
+  (
+    !P
+    I@022/0001
+    DirParamsIn
+  )
+  (Unique)
+  Operation, Fragment
+}
+{
+  !O I@008/0001
+  Option
+}
+{
+  !O I@008/0001
+  OptAlias
+  [
+    Opt1
+    Opt2
+  ]
+}
+{
+  !O I@008/0001
+  OptSetting
+  {
+    !OS I@021/0001
+    setting
+    =( !c P@064/0001 [ !k I@029/0001 Boolean.true !k N@065/0001 0 ] )
+  }
+}
+{
+  !E I@006/0001
+  EnAlias
+  [
+    En1
+    En2
+  ]
+  !EM I@022/0001
+  alias
+}
+{
+  !E I@006/0001
+  EnDiff
+  !EM I@015/0001
+  one
+  !EM I@035/0001
+  two
+}
+{
+  !E I@006/0001
+  EnSame
+  !EM I@015/0001
+  same
+}
+{
+  !E I@006/0001
+  EnSameParent
+  :EnParent
+  !EM I@031/0001
+  sameP
+}
+{
+  !E I@082/0001
+  EnParent
+  !EM I@093/0001
+  parent
+}
+{
+  !E I@006/0001
+  EnValAlias
+  !EM I@019/0001
+  value
+  [
+    val1
+    val2
+  ]
+}
+{
+  !S I@008/0001
+  NumAlias
+  [
+    Num1
+    Num2
+  ]
+  Number
+}
+{
+  !S I@008/0001
+  Num
+  Number
+}
+{
+  !S I@008/0001
+  NumDiff
+  Number
+  !SR N@025/0001
+  1
+  ~
+  9
+}
+{
+  !S I@008/0001
+  NumSame
+  Number
+  !SR N@025/0001
+  1
+  ~
+  9
+}
+{
+  !S I@008/0001
+  Str
+  String
+}
+{
+  !S I@008/0001
+  StrDiff
+  String
+  !SX R@025/0001
+  /a+/
+}
+{
+  !S I@008/0001
+  StrSame
+  String
+  !SX R@025/0001
+  /a+/
+}
+{
+  !U I@007/0001
+  UnDiff
+  !UM I@016/0001
+  Boolean
+  !UM I@041/0001
+  Number
+}
+{
+  !U I@007/0001
+  UnSame
+  !UM I@016/0001
+  Boolean
+}
+{
+  !D I@006/0001
+  Dual
+}
+{
+  !D I@006/0001
+  DualAlias
+  [
+    Dual1
+    Dual2
+  ]
+}
+{
+  !D I@006/0001
+  DualAlts
+  |
+  !AD
+  I@019/0001
+  DualAltsType
+}
+{
+  !D I@072/0001
+  DualAltsType
+}
+{
+  !D I@006/0001
+  DualFields
+  {
+    !DF I@019/0001
+    field
+    :
+    I@026/0001
+    DualFields
+  }
+}
+{
+  !D I@006/0001
+  FieldAlias
+  {
+    !DF I@019/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@035/0001
+    FieldAlias
+  }
+}
+{
+  !D I@006/0001
+  DualParams
+  <
+    I@018/0001
+    $test
+    I@057/0001
+    $type
+  >
+  {
+    !DF I@026/0001
+    test
+    :
+    I@033/0001
+    $test
+    !DF I@065/0001
+    type
+    :
+    I@072/0001
+    $type
+  }
+}
+{
+  !D I@006/0001
+  DualPrnt
+  :
+  I@018/0001
+  PrntDual
+}
+{
+  !D I@062/0001
+  PrntDual
+}
+{
+  !I I@089/0001
+  DirParamsIn
+}
+{
+  !I I@007/0001
+  InP
+}
+{
+  !I I@007/0001
+  InPAlias
+  [
+    InP1
+    InP2
+  ]
+}
+{
+  !I I@007/0001
+  InPAlts
+  |
+  !AI
+  I@019/0001
+  InPAltsType
+}
+{
+  !I I@071/0001
+  InPAltsType
+}
+{
+  !I I@007/0001
+  InPFields
+  {
+    !IF I@019/0001
+    field
+    :
+    I@026/0001
+    InPFields
+  }
+}
+{
+  !I I@007/0001
+  FieldAlias
+  {
+    !IF I@020/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@036/0001
+    FieldAlias
+  }
+}
+{
+  !I I@007/0001
+  InPParams
+  <
+    I@018/0001
+    $test
+    I@057/0001
+    $type
+  >
+  {
+    !IF I@026/0001
+    test
+    :
+    I@033/0001
+    $test
+    !IF I@065/0001
+    type
+    :
+    I@072/0001
+    $type
+  }
+}
+{
+  !I I@007/0001
+  InPPrnt
+  :
+  I@018/0001
+  PrntInP
+}
+{
+  !I I@061/0001
+  PrntInP
+}
+{
+  !I I@117/0001
+  FieldParam1
+}
+{
+  !I I@139/0001
+  FieldParam2
+}
+{
+  !O I@061/0001
+  Category
+}
+{
+  !O I@068/0001
+  CatAlias
+}
+{
+  !O I@068/0001
+  CatMods
+}
+{
+  !O I@008/0001
+  OutP
+}
+{
+  !O I@008/0001
+  OutPAlias
+  [
+    OutP1
+    OutP2
+  ]
+}
+{
+  !O I@008/0001
+  OutPAlts
+  |
+  !AO
+  I@021/0001
+  OutPAltsType
+}
+{
+  !O I@078/0001
+  OutPAltsType
+}
+{
+  !O I@008/0001
+  OutPFields
+  {
+    !OF I@021/0001
+    field
+    :
+    I@028/0001
+    OutPFields
+  }
+}
+{
+  !O I@008/0001
+  FieldAlias
+  {
+    !OF I@021/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@037/0001
+    FieldAlias
+  }
+}
+{
+  !O I@008/0001
+  OutPParams
+  <
+    I@020/0001
+    $test
+    I@061/0001
+    $type
+  >
+  {
+    !OF I@028/0001
+    test
+    :
+    I@035/0001
+    $test
+    !OF I@069/0001
+    type
+    :
+    I@076/0001
+    $type
+  }
+}
+{
+  !O I@008/0001
+  OutPPrnt
+  :
+  I@020/0001
+  PrntOutP
+}
+{
+  !O I@068/0001
+  PrntOutP
+}
+{
+  !O I@008/0001
+  FieldEnumAlias
+  {
+    !OF I@025/0001
+    field
+    [
+      field1
+      field2
+    ]
+    =
+    I@042/0001
+    Boolean.true
+  }
+}
+{
+  !O I@008/0001
+  FieldEnums
+  {
+    !OF I@021/0001
+    field
+    =
+    I@029/0001
+    Boolean.true
+  }
+}
+{
+  !O I@008/0001
+  FieldParams
+  {
+    !OF I@022/0001
+    field
+    (
+      !P
+      I@028/0001
+      FieldParam1
+      !P
+      I@083/0001
+      FieldParam2
+    )
+    :
+    I@042/0001
+    FieldParams
+  }
+}
+]

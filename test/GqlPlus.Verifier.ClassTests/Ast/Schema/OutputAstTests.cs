@@ -77,7 +77,7 @@ public class OutputAstTests : AstAliasedTests
   public void String_WithTypeParameters(string name, string[] typeParameters)
     => _checks.Text(
       () => new OutputDeclAst(AstNulls.At, name) { TypeParameters = typeParameters.TypeParameters() },
-      $"( !O {name} < {typeParameters.Joined("$")} > )");
+      $"( !O {name} < {typeParameters.Joined(s => "$" + s)} > )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithTypeParameters(string name, string[] typeParameters)

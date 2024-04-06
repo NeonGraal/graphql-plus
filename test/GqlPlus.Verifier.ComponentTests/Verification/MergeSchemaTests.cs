@@ -11,27 +11,61 @@ public class MergeSchemaTests(
     IMerge<SchemaAst> merger)
 {
   [Fact]
-  public void CanMerge_Schemas()
+  public void CanMerge_AllSchemas()
   {
-    var schemas = AllValid
+    var schemas = SchemaValidData.Values
+      .SelectMany(kv => kv.Value)
       .Select(input => Parse(input).Required())
       .ToArray();
 
     var result = merger.CanMerge(schemas);
 
-    result.Should().BeTrue();
+    result.Should().BeEmpty();
+  }
+
+  [Theory]
+  [ClassData(typeof(SchemaValidData))]
+  public void CanMerge_Schemas(string group)
+  {
+    var schemas = SchemaValidData.Values[group]
+      .Select(input => Parse(input).Required())
+      .ToArray();
+
+    var result = merger.CanMerge(schemas);
+
+    result.Should().BeEmpty();
   }
 
   [Fact]
-  public async Task Merge_Schemas()
+  public async Task Merge_AllSchemas()
   {
-    var schemas = AllValid
+    var schemas = SchemaValidData.Values
+      .SelectMany(kv => kv.Value)
       .Select(input => Parse(input).Required())
       .ToArray();
 
     var result = merger.Merge(schemas);
 
-    await Verify(result.Select(s => s.Render()));
+    var settings = new VerifySettings();
+    settings.ScrubEmptyLines();
+    await Verify(result.Select(s => s.Render()), settings);
+  }
+
+  [Theory]
+  [ClassData(typeof(SchemaValidData))]
+  public async Task Merge_Schemas(string group)
+  {
+    var schemas = SchemaValidData.Values[group]
+      .Select(input => Parse(input).Required())
+      .ToArray();
+
+    var result = merger.Merge(schemas);
+
+    var settings = new VerifySettings();
+    settings.ScrubEmptyLines();
+    settings.UseTextForParameters(group);
+
+    await Verify(result.Select(s => s.Render()), settings);
   }
 
   [Theory]
@@ -40,33 +74,52 @@ public class MergeSchemaTests(
   {
     var input = VerifySchemaValidMergesData.Source[merge];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
-      await WhenAll(
-        Verify_Merge(ReplaceObject(input, "dual", "Dual"), "dual-" + merge),
-        Verify_Merge(ReplaceObject(input, "input", "In"), "input-" + merge),
-        Verify_Merge(ReplaceObject(input, "output", "Out"), "output-" + merge));
+      await WhenAll(s_replacements
+        .Select(r => Verify_Merge(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + merge))
+        .ToArray());
     } else {
       await Verify_Merge(input, merge);
     }
   }
 
   private readonly Parser<SchemaAst>.L _parser = parser;
-  private static IEnumerable<string> AllValid
-    => VerifySchemaValidObjectsData.Source.Values
-      .SelectMany(input => new[] {
-        ReplaceObject(input, "dual", "Dual"),
-        ReplaceObject(input, "input", "In"),
-        ReplaceObject(input, "output", "Out"),
-      })
-      .Concat(VerifySchemaValidMergesData.Source.Values)
-      .Concat(VerifySchemaValidSchemasData.Source.Values)
-      .Concat(VerifySchemaValidTypesData.Source.Values);
 
+  private static IEnumerable<string> ValidObjects
+    => VerifySchemaValidObjectsData.Source.Values
+      .SelectMany(input => input.Contains("object ", StringComparison.Ordinal)
+        ? s_replacements.Select(r => ReplaceObject(input, r.Item1, r.Item2))
+        : [input]);
+
+  private static IEnumerable<string> ValidMerges
+    => VerifySchemaValidMergesData.Source.Values
+      .SelectMany(input => input.Contains("object ", StringComparison.Ordinal)
+        ? s_replacements.Select(r => ReplaceObject(input, r.Item1, r.Item2))
+        : [input]);
+
+  public class SchemaValidData
+    : TheoryData<string>
+  {
+    public static readonly Dictionary<string, IEnumerable<string>> Values = new() {
+      ["Objects"] = ValidObjects,
+      ["Merges"] = ValidMerges,
+      ["Schemas"] = VerifySchemaValidSchemasData.Source.Values,
+      ["Types"] = VerifySchemaValidTypesData.Source.Values,
+    };
+    public SchemaValidData()
+    {
+      foreach (var item in Values.Keys) {
+        Add(item);
+      }
+    }
+  }
 
   private IResult<SchemaAst> Parse(string schema)
   {
     Tokenizer tokens = new(schema);
     return _parser.Parse(tokens, "Schema");
   }
+
+  private static readonly (string, string)[] s_replacements = [("dual", "Dual"), ("input", "InP"), ("output", "OutP")];
 
   private static string ReplaceObject(string input, string objectReplace, string objReplace)
     => input

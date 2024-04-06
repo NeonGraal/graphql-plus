@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Token;
 using NSubstitute;
 using Xunit.Abstractions;
 
@@ -23,7 +24,7 @@ public class MergeDirectivesTests
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsParametersCantMerge_ReturnsFalse(string name, string[] parameters)
   {
-    _parameters.CanMerge([]).ReturnsForAnyArgs(false);
+    _parameters.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
     CanMerge_False([
       new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },

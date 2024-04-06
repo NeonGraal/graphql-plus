@@ -11,7 +11,7 @@ public class OutputFieldAstTests : AstFieldTests<OutputFieldAst, OutputReference
   public void String_WithParameters(FieldInput input, string[] parameters)
     => _checks.Text(
       () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() },
-      $"( !OF {input.Name} ( {parameters.Joined("!P ")} ) : {input.Type} )");
+      $"( !OF {input.Name} ( {parameters.Joined(s => "!P " + s)} ) : {input.Type} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithParameter(FieldInput input, string[] parameters)

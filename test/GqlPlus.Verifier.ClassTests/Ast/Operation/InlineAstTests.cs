@@ -10,7 +10,7 @@ public class InlineAstTests : AstDirectivesTests<string[]>
   public void String_WithOnType(string onType, string[] fields)
     => _checks.Text(
       () => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType },
-      $"( !i :{onType} {{ {fields.Joined("!f ")} }} )");
+      $"( !i :{onType} {{ {fields.Joined(s => "!f " + s)} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithOnType(string onType, string[] fields)
@@ -28,5 +28,5 @@ public class InlineAstTests : AstDirectivesTests<string[]>
   internal override IAstDirectivesChecks<string[]> DirectivesChecks => _checks;
 
   protected override string DirectiveString(string[] input, string directives)
-    => $"( !i{directives} {{ {input.Joined("!f ")} }} )";
+    => $"( !i{directives} {{ {input.Joined(s => "!f " + s)} }} )";
 }

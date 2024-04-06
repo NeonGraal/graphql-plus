@@ -11,7 +11,7 @@ public class MergeEnumsTests
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsFalse(string name, string[] values)
   {
-    _enumMembers.CanMerge([]).ReturnsForAnyArgs(false);
+    _enumMembers.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
     CanMerge_False([
       new EnumDeclAst(AstNulls.At, name) with { Members = values.EnumMembers() },

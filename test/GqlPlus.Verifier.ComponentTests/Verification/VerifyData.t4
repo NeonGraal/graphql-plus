@@ -49,11 +49,9 @@ public class Verify<#= directory + fileName #>Data
 
   public Verify<#= directory + fileName #>Data()
   {
-<#+    foreach (var test in testData.Keys.OrderBy(k => k)) {
-#>
-    Add("<#= test #>");
-<#+    } // foreach test
-#>
+    foreach (var key in Source.Keys) {
+      Add(key);
+    }
   }
 }
 <#+  } // foreach file

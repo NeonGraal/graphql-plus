@@ -23,13 +23,13 @@ public class ParseSelectionTests(Parser<IAstSelection>.D parser)
   [Theory, RepeatData(Repeats)]
   public void WithInlineDirective_ReturnsCorrectAst(string[] directives, string[] fields)
     => _checks.TrueExpected(
-      "|" + directives.Joined("@") + "{" + fields.Joined() + "}",
+      "|" + directives.Joined(s => "@" + s) + "{" + fields.Joined() + "}",
       new InlineAst(AstNulls.At, fields.Fields()) { Directives = directives.Directives() });
 
   [Theory, RepeatData(Repeats)]
   public void WithInlineAll_ReturnsCorrectAst(string inlineType, string[] directives, string[] fields)
     => _checks.TrueExpected(
-      $"|:" + inlineType + directives.Joined("@") + "{" + fields.Joined() + "}",
+      $"|:" + inlineType + directives.Joined(s => "@" + s) + "{" + fields.Joined() + "}",
       new InlineAst(AstNulls.At, fields.Fields()) {
         OnType = inlineType,
         Directives = directives.Directives(),
@@ -45,7 +45,7 @@ public class ParseSelectionTests(Parser<IAstSelection>.D parser)
   [SkippableTheory, RepeatData(Repeats)]
   public void WithSpreadDirective_ReturnsCorrectAst(string fragment, string[] directives)
     => _checks.TrueExpected(
-      $"|" + fragment + directives.Joined("@"),
+      $"|" + fragment + directives.Joined(s => "@" + s),
       new SpreadAst(AstNulls.At, fragment) { Directives = directives.Directives() },
       fragment is null || fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase));
 

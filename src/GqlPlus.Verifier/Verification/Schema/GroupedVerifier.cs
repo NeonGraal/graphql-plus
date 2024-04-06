@@ -48,8 +48,10 @@ internal abstract partial class GroupedVerifier<TAliased>(
 
       VerifyingWithDefinitions(name, definitions.Length);
 
-      if (!merger.CanMerge(definitions)) {
+      var failures = merger.CanMerge(definitions);
+      if (failures.Any()) {
         errors.Add(definitions.Last().Error($"Multiple {Label} with name '{name}' can't be merged."));
+        errors.Add(failures);
       }
     }
   }

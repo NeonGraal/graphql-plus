@@ -15,7 +15,7 @@ public class MergeOptionsTests
       return;
     }
 
-    _settings.CanMerge([]).ReturnsForAnyArgs(false);
+    _settings.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
     CanMerge_False([
       new OptionDeclAst(AstNulls.At, name) with { Settings = settings.OptionSettings() },

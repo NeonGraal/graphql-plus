@@ -3,10 +3,10 @@
 Success
 {
   !O I@008/0001
-  OutAlias
+  OutPAlias
   [
-    Out1
-    Out2
+    OutP1
+    OutP2
   ]
 }
 ]

@@ -9,6 +9,7 @@ internal class MergeScalarMembers(
   protected override string ItemGroupKey(ScalarMemberAst item)
     => item.Member;
 
+  protected override string ItemMatchName => "Excludes~EnumType";
   protected override string ItemMatchKey(ScalarMemberAst item)
     => $"{item.Excludes}~{item.EnumType}";
 }

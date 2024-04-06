@@ -77,7 +77,7 @@ public class InputAstTests : AstAliasedTests
   public void String_WithTypeParameters(string name, string[] typeParameters)
     => _checks.Text(
       () => new InputDeclAst(AstNulls.At, name) { TypeParameters = typeParameters.TypeParameters() },
-      $"( !I {name} < {typeParameters.Joined("$")} > )");
+      $"( !I {name} < {typeParameters.Joined(s => "$" + s)} > )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithTypeParameters(string name, string[] typeParameters)

@@ -44,7 +44,7 @@ public class FieldAstTests : AstDirectivesTests
   public void String_WithSelection(string name, string[] fields)
   => _checks.Text(
       () => Field(name) with { Selections = fields.Fields() },
-      $"( !f {name} {{ {fields.Joined("!f ")} }} )");
+      $"( !f {name} {{ {fields.Joined(s => "!f " + s)} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlias(string name, string alias)

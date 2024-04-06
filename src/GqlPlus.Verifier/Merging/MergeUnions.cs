@@ -8,6 +8,7 @@ internal class MergeUnions(
 ) : AstTypeMerger<AstType, UnionDeclAst, string, UnionMemberAst>(logger, unionMembers)
   , IMergeAll<AstType>
 {
+  protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(UnionDeclAst item)
     => item.Parent ?? "";
 

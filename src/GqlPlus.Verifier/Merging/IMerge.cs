@@ -1,9 +1,16 @@
-﻿namespace GqlPlus.Verifier.Merging;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Token;
+
+namespace GqlPlus.Verifier.Merging;
 
 public interface IMerge<TItem>
+  where TItem : AstBase
 {
-  bool CanMerge(IEnumerable<TItem> items);
+  ITokenMessages CanMerge(IEnumerable<TItem> items);
   IEnumerable<TItem> Merge(IEnumerable<TItem> items);
 }
 
-public interface IMergeAll<T> : IMerge<T> { }
+public interface IMergeAll<TItem>
+  : IMerge<TItem>
+  where TItem : AstBase
+{ }

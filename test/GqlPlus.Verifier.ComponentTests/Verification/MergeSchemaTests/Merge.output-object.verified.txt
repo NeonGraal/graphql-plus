@@ -3,6 +3,6 @@
 Success
 {
   !O I@008/0001
-  Out
+  OutP
 }
 ]

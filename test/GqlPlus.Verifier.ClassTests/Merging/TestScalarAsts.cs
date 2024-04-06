@@ -1,4 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Token;
 using NSubstitute;
 using Xunit.Abstractions;
 
@@ -6,7 +8,7 @@ namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestScalarAsts<TItem, TItemInput>
   : TestTyped<AstScalar, AstScalar<TItem>, string, TItem>
-  where TItem : IAstScalarItem
+  where TItem : AstBase, IAstScalarItem
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_SameKinds_ReturnsTrue(string name)
@@ -15,7 +17,7 @@ public abstract class TestScalarAsts<TItem, TItemInput>
 
     var result = Merger.CanMerge(items);
 
-    result.Should().BeTrue();
+    result.Should().BeEmpty();
   }
 
   [Theory, RepeatData(Repeats)]
@@ -28,7 +30,7 @@ public abstract class TestScalarAsts<TItem, TItemInput>
 
     var result = Merger.CanMerge(items);
 
-    result.Should().BeFalse();
+    result.Should().NotBeEmpty();
   }
 
   [Theory, RepeatData(Repeats)]
@@ -38,11 +40,11 @@ public abstract class TestScalarAsts<TItem, TItemInput>
       MakeDescribed(name) with { Items = MakeItems(input) },
       MakeDescribed(name) with { Items = MakeItems(input) },
     };
-    MergeItems.CanMerge([]).ReturnsForAnyArgs(false);
+    MergeItems.CanMerge([]).ReturnsForAnyArgs(new TokenMessages(new TokenMessage(AstNulls.At, "Error!")));
 
     var result = Merger.CanMerge(items);
 
-    result.Should().BeFalse();
+    result.Should().NotBeEmpty();
   }
 
   internal readonly IMerge<TItem> MergeItems;

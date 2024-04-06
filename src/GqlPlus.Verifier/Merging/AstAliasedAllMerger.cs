@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -8,11 +9,11 @@ internal abstract class AstAliasedAllMerger<TBase, TAlias>(
   where TAlias : TBase
   where TBase : AstAliased
 {
-  bool IMerge<TBase>.CanMerge(IEnumerable<TBase> items)
+  ITokenMessages IMerge<TBase>.CanMerge(IEnumerable<TBase> items)
   {
     var aliases = items.OfType<TAlias>();
 
-    return !aliases.Any() || CanMerge(aliases);
+    return aliases.Any() ? CanMerge(aliases) : new TokenMessages();
   }
 
   IEnumerable<TBase> IMerge<TBase>.Merge(IEnumerable<TBase> items)

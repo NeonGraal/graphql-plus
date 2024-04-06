@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -6,7 +7,7 @@ internal class MergeAllTypes(
   IEnumerable<IMergeAll<AstType>> types
 ) : AllMerger<AstType>(types)
 {
-  public override bool CanMerge(IEnumerable<AstType> items)
+  public override ITokenMessages CanMerge(IEnumerable<AstType> items)
   {
     FixupEnums(items);
 

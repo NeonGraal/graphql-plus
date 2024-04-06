@@ -8,6 +8,7 @@ internal class MergeEnums(
 ) : AstTypeMerger<AstType, EnumDeclAst, string, EnumMemberAst>(logger, enumMembers)
   , IMergeAll<AstType>
 {
+  protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(EnumDeclAst item)
     => item.Parent ?? "";
 

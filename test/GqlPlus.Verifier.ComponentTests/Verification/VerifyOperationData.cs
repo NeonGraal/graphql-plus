@@ -21,16 +21,9 @@ public class VerifyOperationInvalidData
 
   public VerifyOperationInvalidData()
   {
-    Add("empty");
-    Add("frag-undef");
-    Add("frag-unused");
-    Add("list-map-def");
-    Add("list-null-map-def");
-    Add("map-list-def");
-    Add("map-null-list-def");
-    Add("null-def-invalid");
-    Add("var-undef");
-    Add("var-unused");
+    foreach (var key in Source.Keys) {
+      Add(key);
+    }
   }
 }
 
@@ -46,9 +39,8 @@ public class VerifyOperationValidData
 
   public VerifyOperationValidData()
   {
-    Add("frag-end");
-    Add("frag-first");
-    Add("var");
-    Add("var-null");
+    foreach (var key in Source.Keys) {
+      Add(key);
+    }
   }
 }

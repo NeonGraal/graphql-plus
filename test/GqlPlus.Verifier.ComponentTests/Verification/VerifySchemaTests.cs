@@ -115,7 +115,7 @@ public class VerifySchemaTests(
       parse.IsError(result.Add);
     }
 
-    result.Should().NotBeEmpty();
+    result.Should().NotBeEmpty(input);
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();

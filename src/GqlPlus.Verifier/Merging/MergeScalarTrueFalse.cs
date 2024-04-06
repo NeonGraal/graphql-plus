@@ -1,10 +1,11 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeScalarTrueFalse
   : BaseMerger<ScalarTrueFalseAst>
 {
-  public override bool CanMerge(IEnumerable<ScalarTrueFalseAst> items)
-    => true;
+  public override ITokenMessages CanMerge(IEnumerable<ScalarTrueFalseAst> items)
+    => new TokenMessages();
 }

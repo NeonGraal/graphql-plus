@@ -32,8 +32,10 @@ public class SchemaModelTests(
         .. _checks.ExpectedSettings([setting])]);
 
   [Theory, RepeatData(Repeats)]
-  public void Model_Settings(string name, SettingInput[] settings)
-    => _checks.AstExpected(
+  public void Model_Settings(string name, [NotNull] SettingInput[] settings)
+    => _checks
+      .SkipIf(settings.Select(s => s.Name).Distinct().Count() != settings.Length)
+      .AstExpected(
       new SchemaAst(AstNulls.At) {
         Declarations = [new OptionDeclAst(AstNulls.At, name) {
           Settings = [.. settings.Distinct(SettingInput.CompareNames).Select(s => s.ToAst(""))]

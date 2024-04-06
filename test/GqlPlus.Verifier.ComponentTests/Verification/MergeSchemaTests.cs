@@ -8,7 +8,8 @@ namespace GqlPlus.Verifier.Verification;
 
 public class MergeSchemaTests(
     Parser<SchemaAst>.D parser,
-    IMerge<SchemaAst> merger)
+    IMerge<SchemaAst> merger
+) : MergeSchemaBase(parser)
 {
   [Fact]
   public void CanMerge_AllSchemas()
@@ -54,8 +55,7 @@ public class MergeSchemaTests(
   {
     var schemas = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
-      .Select(input => Parse(input).Required())
-      .ToArray();
+      .Select(input => Parse(input).Required());
 
     var result = merger.Merge(schemas);
 
@@ -95,49 +95,6 @@ public class MergeSchemaTests(
     }
   }
 
-  private readonly Parser<SchemaAst>.L _parser = parser;
-
-  private static IEnumerable<string> ValidObjects
-    => ReplaceObjects(VerifySchemaValidObjectsData.Source.Values);
-
-  private static IEnumerable<string> ValidMerges
-    => ReplaceObjects(VerifySchemaValidMergesData.Source.Values);
-
-  public class SchemaValidData
-    : TheoryData<string>
-  {
-    public static readonly Dictionary<string, IEnumerable<string>> Values = new() {
-      ["Objects"] = ValidObjects,
-      ["Merges"] = ValidMerges,
-      ["Schemas"] = VerifySchemaValidSchemasData.Source.Values,
-      ["Types"] = VerifySchemaValidTypesData.Source.Values,
-    };
-    public SchemaValidData()
-    {
-      foreach (var item in Values.Keys) {
-        Add(item);
-      }
-    }
-  }
-
-  private IResult<SchemaAst> Parse(string schema)
-  {
-    Tokenizer tokens = new(schema);
-    return _parser.Parse(tokens, "Schema");
-  }
-
-  private static readonly (string, string)[] s_replacements = [("dual", "Dual"), ("input", "InP"), ("output", "OutP")];
-
-  private static IEnumerable<string> ReplaceObjects(IEnumerable<string> inputs)
-    => inputs.SelectMany(input => input.Contains("object ", StringComparison.Ordinal)
-        ? s_replacements.Select(r => ReplaceObject(input, r.Item1, r.Item2))
-        : [input]);
-
-  private static string ReplaceObject(string input, string objectReplace, string objReplace)
-    => input
-    .Replace("object", objectReplace, StringComparison.InvariantCulture)
-    .Replace("Obj", objReplace, StringComparison.InvariantCulture);
-
   private async Task Verify_Merge(string input, string test)
   {
     var parse = Parse(input);
@@ -151,22 +108,5 @@ public class MergeSchemaTests(
     settings.UseMethodName(test);
 
     await Verify(result.Select(s => s.Render()), settings);
-  }
-
-  private static async Task WhenAll(params Task[] tasks)
-  {
-    using var scope = new AssertionScope();
-
-    var all = Task.WhenAll(tasks);
-
-    try {
-      await all;
-    } catch (Exception) {
-      if (all.Exception is not null) {
-        throw all.Exception;
-      }
-
-      throw;
-    }
   }
 }

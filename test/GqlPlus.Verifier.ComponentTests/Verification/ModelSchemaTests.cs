@@ -14,15 +14,38 @@ public class ModelSchemaTests(
 ) : MergeSchemaBase(parser)
 {
   [Fact]
-  public async Task Model_Schemas()
+  public async Task Model_AllSchemas()
   {
-    var asts = AllValid.Select(input => Parse(input).Required());
+    var asts = SchemaValidData.Values
+      .SelectMany(kv => kv.Value)
+      .Select(input => Parse(input).Required());
     var schemas = merger.Merge(asts);
 
     var context = TypesCollection.WithBuiltins(types);
     var result = modeller.ToModel(schemas.FirstOrDefault(), context);
 
-    await Verify(result.Render(context).ToYaml());
+    var settings = new VerifySettings();
+    settings.ScrubEmptyLines();
+
+    await Verify(result.Render(context).ToYaml(), settings);
+  }
+
+  [Theory]
+  [ClassData(typeof(SchemaValidData))]
+  public async Task Model_Schemas(string group)
+  {
+    var asts = SchemaValidData.Values[group]
+      .Select(input => Parse(input).Required());
+    var schemas = merger.Merge(asts);
+
+    var context = TypesCollection.WithBuiltins(types);
+    var result = modeller.ToModel(schemas.FirstOrDefault(), context);
+
+    var settings = new VerifySettings();
+    settings.ScrubEmptyLines();
+    settings.UseTextForParameters(group);
+
+    await Verify(result.Render(context).ToYaml(), settings);
   }
 
   [Theory]

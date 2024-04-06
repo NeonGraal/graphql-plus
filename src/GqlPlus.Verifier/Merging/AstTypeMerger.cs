@@ -7,7 +7,7 @@ namespace GqlPlus.Verifier.Merging;
 internal abstract class AstTypeMerger<TBase, TType, TParent, TItem>(
   ILoggerFactory logger,
   IMerge<TItem> mergeItems
-) : AstAliasedAllMerger<TBase, TType>(logger)
+) : AstAliasedMerger<TType>(logger), IMergeAll<TBase>
   where TBase : AstType
   where TType : AstType<TParent>, TBase
   where TParent : IEquatable<TParent>
@@ -27,4 +27,14 @@ internal abstract class AstTypeMerger<TBase, TType, TParent, TItem>(
 
     return SetItems(base.MergeGroup(group), items);
   }
+
+  ITokenMessages IMerge<TBase>.CanMerge(IEnumerable<TBase> items)
+  {
+    var aliases = items.OfType<TType>();
+
+    return aliases.Any() ? CanMerge(aliases) : new TokenMessages();
+  }
+
+  IEnumerable<TBase> IMerge<TBase>.Merge(IEnumerable<TBase> items)
+    => Merge(items.OfType<TType>());
 }

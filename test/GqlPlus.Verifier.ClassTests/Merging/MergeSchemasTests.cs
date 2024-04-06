@@ -16,7 +16,7 @@ public class MergeSchemasTests
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentOptionNames_ReturnsFalse(string option1, string option2)
   {
-    _options.CanMerge([]).ReturnsForAnyArgs(false);
+    _options.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
     CanMerge_False([
         new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option1) },

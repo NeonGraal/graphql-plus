@@ -1,0 +1,28 @@
+﻿!_Schema
+categories: !_Map_Categories
+  !_Identifier cat: !_Category
+    name: cat
+    output: !_TypeRef(_TypeKind)
+      kind: !_TypeKind Output
+      name: Cat
+    resolution: !_Resolution Parallel
+directives: !_Map_Directives
+  !_Identifier DirParam: !_Directive
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _, Operation: _, Spread: _, Variable: _}
+    name: DirParam
+    parameters:
+    - !_Parameter
+      type: !_InputBase DirParamIn
+    repeatable: false
+name: Schema
+settings: !_Map_Setting
+  !_Identifier setting: !_Setting
+    name: setting
+    value: true
+types: !_Map_Type
+  !_Identifier Cat: !_TypeOutput
+    kind: !_TypeKind Output
+    name: Cat
+  !_Identifier DirParamIn: !_TypeInput
+    kind: !_TypeKind Input
+    name: DirParamIn

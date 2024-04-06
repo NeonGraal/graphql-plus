@@ -6,7 +6,8 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Verification;
 
 public class MergeSchemaBase(
-    Parser<SchemaAst>.D parser)
+    Parser<SchemaAst>.D parser
+)
 {
   private readonly Parser<SchemaAst>.L _parser = parser;
 
@@ -14,34 +15,40 @@ public class MergeSchemaBase(
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
 
   protected static IEnumerable<string> ValidObjects
-    => VerifySchemaValidObjectsData.Source.Values
-      .SelectMany(input => IsObjectInput(input)
-        ? new[] {
-          ReplaceObject(input, "dual", "Dual"),
-          ReplaceObject(input, "input", "InP"),
-          ReplaceObject(input, "output", "OutP"),
-        } : [input]);
+    => ReplaceObjects(VerifySchemaValidObjectsData.Source.Values);
 
   protected static IEnumerable<string> ValidMerges
-    => VerifySchemaValidMergesData.Source.Values
-      .SelectMany(input => IsObjectInput(input)
-        ? new[] {
-          ReplaceObject(input, "dual", "Dual"),
-          ReplaceObject(input, "input", "InP"),
-          ReplaceObject(input, "output", "OutP"),
-        } : [input]);
+    => ReplaceObjects(VerifySchemaValidMergesData.Source.Values);
 
-  protected static IEnumerable<string> AllValid
-    => ValidObjects
-      .Concat(ValidMerges)
-      .Concat(VerifySchemaValidSchemasData.Source.Values)
-      .Concat(VerifySchemaValidTypesData.Source.Values);
+  public class SchemaValidData
+    : TheoryData<string>
+  {
+    public static readonly Dictionary<string, IEnumerable<string>> Values = new() {
+      ["Objects"] = ValidObjects,
+      ["Merges"] = ValidMerges,
+      ["Schemas"] = VerifySchemaValidSchemasData.Source.Values,
+      ["Types"] = VerifySchemaValidTypesData.Source.Values,
+    };
+    public SchemaValidData()
+    {
+      foreach (var item in Values.Keys) {
+        Add(item);
+      }
+    }
+  }
 
   protected IResult<SchemaAst> Parse(string schema)
   {
     Tokenizer tokens = new(schema);
     return _parser.Parse(tokens, "Schema");
   }
+
+  protected static readonly (string, string)[] s_replacements = [("dual", "Dual"), ("input", "InP"), ("output", "OutP")];
+
+  protected static IEnumerable<string> ReplaceObjects(IEnumerable<string> inputs)
+    => inputs.SelectMany(input => input.Contains("object ", StringComparison.Ordinal)
+        ? s_replacements.Select(r => ReplaceObject(input, r.Item1, r.Item2))
+        : [input]);
 
   protected static string ReplaceObject(string input, string objectReplace, string objReplace)
     => input is null ? ""

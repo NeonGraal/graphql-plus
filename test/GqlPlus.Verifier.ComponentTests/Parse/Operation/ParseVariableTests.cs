@@ -52,7 +52,7 @@ public class ParseVariableTests(Parser<VariableAst>.D parser)
 
   [Theory, RepeatData(Repeats)]
   public void WithDirective_ReturnsCorrectAst(string variable, string[] directives)
-    => _checks.TrueExpected($"${variable}{directives.Joined("@")}",
+    => _checks.TrueExpected($"${variable}{directives.Joined(s => "@" + s)}",
       TestVar(variable) with { Directives = directives.Directives() });
 
   [Theory, RepeatData(Repeats)]
@@ -61,7 +61,7 @@ public class ParseVariableTests(Parser<VariableAst>.D parser)
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string variable, string varType, decimal number, string[] directives)
-    => _checks.TrueExpected($"${variable}:{varType}[]?={number}{directives.Joined("@")}",
+    => _checks.TrueExpected($"${variable}:{varType}[]?={number}{directives.Joined(s => "@" + s)}",
       TestVar(variable) with {
         Type = varType,
         Modifers = TestMods(),

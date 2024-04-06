@@ -77,8 +77,8 @@ object ObjFields { field: ObjFields }
 object ObjFields { field: ObjFields }
 
 // object-fields-alias
-object FieldAlias { field [field1]: FieldAlias }
-object FieldAlias { field [field2]: FieldAlias }
+object ObjFieldAlias { field [field1]: ObjFieldAlias }
+object ObjFieldAlias { field [field2]: ObjFieldAlias }
 
 // output-fields-enums
 output FieldEnums { field = Boolean.true }

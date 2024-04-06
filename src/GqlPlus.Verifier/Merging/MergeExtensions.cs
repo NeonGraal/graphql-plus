@@ -1,13 +1,18 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using System.Runtime.CompilerServices;
+using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Result;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
 
 public static class MergeExtensions
 {
   [SuppressMessage("Maintainability", "CA1508:Avoid dead conditional code")]
-  public static bool CanMerge<TItem, TField>(
+  public static ITokenMessages CanMerge<TItem, TField>(
       this IEnumerable<TItem> items,
-      Func<TItem, TField?> field)
+      Func<TItem, TField?> field,
+      [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
+    where TItem : AstBase
   {
     ArgumentNullException.ThrowIfNull(items);
     ArgumentNullException.ThrowIfNull(field);
@@ -26,26 +31,30 @@ public static class MergeExtensions
       }
 
       if (!result.Equals(value)) {
-        return false;
+        return new TokenMessages(item.Error($"Different values merging {fieldExpr}: {result} != {value}"));
       }
     }
 
-    return true;
+    return new TokenMessages();
   }
 
-  public static bool CanMerge<TItem, TField>(
+  public static ITokenMessages CanMerge<TItem, TField>(
       this IEnumerable<TItem> items,
       Func<TItem, TField> field,
       IMerge<TField> merger)
+    where TItem : AstBase
+    where TField : AstBase
   {
     ArgumentNullException.ThrowIfNull(merger);
 
     return merger.CanMerge(items.Select(field));
   }
 
-  public static bool CanMerge<TItem>(
+  public static ITokenMessages CanMerge<TItem>(
       this IEnumerable<TItem> items,
-      Func<TItem, string?> field)
+      Func<TItem, string?> field,
+      [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
+    where TItem : AstBase
   {
     ArgumentNullException.ThrowIfNull(items);
     ArgumentNullException.ThrowIfNull(field);
@@ -64,47 +73,54 @@ public static class MergeExtensions
       }
 
       if (result != value) {
-        return false;
+        return new TokenMessages(item.Error($"Different values merging {fieldExpr}: {result} != {value}"));
       }
     }
 
-    return true;
+    return new TokenMessages();
   }
 
-  public static bool ManyCanMerge<TItem, TGroup>(
+  public static ITokenMessages ManyCanMerge<TItem, TGroup>(
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       IMerge<TGroup> merger)
+    where TGroup : AstBase
   {
     ArgumentNullException.ThrowIfNull(merger);
 
     TGroup[] groups = [.. items.SelectMany(many)];
-    return groups.Length < 2 || merger.CanMerge(groups);
+    return groups.Length < 2 ? new TokenMessages()
+      : merger.CanMerge(groups);
   }
 
   public static IEnumerable<TGroup> ManyMerge<TItem, TGroup>(
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       IMerge<TGroup> merger)
+    where TGroup : AstBase
   {
     ArgumentNullException.ThrowIfNull(merger);
 
     return merger.Merge(items.SelectMany(many));
   }
 
-  public static bool ManyGroupCanMerge<TItem, TGroup>(
+  public static ITokenMessages ManyGroupCanMerge<TItem, TGroup>(
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       Func<TGroup, string> key,
       IMerge<TGroup> merger)
-    => items.SelectMany(many).GroupBy(key)
-      .All(p => merger.CanMerge([.. p]));
+    where TGroup : AstBase
+    => new TokenMessages()
+      .Add(items
+        .SelectMany(many).GroupBy(key)
+        .SelectMany(p => merger.CanMerge([.. p])));
 
   public static IEnumerable<TGroup> ManyGroupMerger<TItem, TGroup>(
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       Func<TGroup, string> key,
       IMerge<TGroup> merger)
+    where TGroup : AstBase
   {
     List<Indexed<TGroup>> result = [];
     var groups = items.SelectMany(many).Select(Indexed<TGroup>.To).GroupBy(i => key(i.Item));
@@ -133,13 +149,14 @@ public static class MergeExtensions
   }
 
   public static string MergeDescriptions<TItem>(this IEnumerable<TItem> items)
-    where TItem : IAstDescribed
+    where TItem : AstBase, IAstDescribed
     => items
       .Select(item => item.Description)
       .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr))
       ?? "";
 
   public static TField Combine<TItem, TField>(this IEnumerable<TItem> items, Func<TItem, TField> field, IMerge<TField> merger)
+    where TField : AstBase
   {
     ArgumentNullException.ThrowIfNull(merger);
 

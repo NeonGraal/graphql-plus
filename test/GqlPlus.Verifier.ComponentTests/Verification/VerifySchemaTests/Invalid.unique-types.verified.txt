@@ -1,3 +1,4 @@
 ﻿[
-  Multiple Types with name 'Test' can't be merged.
+  Multiple Types with name 'Test' can't be merged.,
+  Group of AstType for Test is not singular Type['Enum', 'Output']
 ]

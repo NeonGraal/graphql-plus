@@ -1,17 +1,20 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeDirectives(
+  ILoggerFactory logger,
   IMerge<ParameterAst> parameters
-) : AstAliasedMerger<DirectiveDeclAst>
+) : AstAliasedMerger<DirectiveDeclAst>(logger)
 {
+  protected override string ItemMatchName => "Option";
   protected override string ItemMatchKey(DirectiveDeclAst item)
     => item.Option.ToString();
 
-  public override bool CanMerge(IEnumerable<DirectiveDeclAst> items)
+  public override ITokenMessages CanMerge(IEnumerable<DirectiveDeclAst> items)
     => base.CanMerge(items)
-      && items.ManyCanMerge(d => d.Parameters, parameters);
+      .Add(items.ManyCanMerge(d => d.Parameters, parameters));
 
   protected override DirectiveDeclAst MergeGroup(IEnumerable<DirectiveDeclAst> group)
     => base.MergeGroup(group) with {

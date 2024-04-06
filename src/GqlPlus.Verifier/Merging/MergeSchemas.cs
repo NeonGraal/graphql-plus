@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -10,24 +11,24 @@ internal class MergeSchemas(
 ) : GroupsMerger<SchemaAst>
 {
   protected override string ItemGroupKey(SchemaAst item)
-    => item.Name;
+    => "Schema";
 
-  protected override bool CanMergeGroup(IGrouping<string, SchemaAst> group)
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, SchemaAst> group)
   {
     var categories = Just<CategoryDeclAst>(group);
     var directives = Just<DirectiveDeclAst>(group);
     var options = Just<OptionDeclAst>(group);
     var astTypes = Just<AstType>(group);
 
-    var categoriesCanMerge = categories.Any() || categoryMerger.CanMerge(categories);
-    var directivesCanMerge = directives.Any() || directiveMerger.CanMerge(directives);
-    var optionsCanMerge = options.Any() || optionMerger.CanMerge(options);
-    var astTypesCanMerge = astTypes.Any() || astTypeMerger.CanMerge(astTypes);
+    var categoriesCanMerge = categories.Any() ? categoryMerger.CanMerge(categories) : new TokenMessages();
+    var directivesCanMerge = directives.Any() ? directiveMerger.CanMerge(directives) : new TokenMessages();
+    var optionsCanMerge = options.Any() ? optionMerger.CanMerge(options) : new TokenMessages();
+    var astTypesCanMerge = astTypes.Any() ? astTypeMerger.CanMerge(astTypes) : new TokenMessages();
 
     return categoriesCanMerge
-     && directivesCanMerge
-     && optionsCanMerge
-     && (astTypesCanMerge || true);
+      .Add(directivesCanMerge)
+      .Add(optionsCanMerge)
+      .Add(astTypesCanMerge);
   }
 
   private static IEnumerable<TItem> Just<TItem>(IEnumerable<SchemaAst> group)

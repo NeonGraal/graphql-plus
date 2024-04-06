@@ -11,7 +11,7 @@ object ObjAltMods { | ObjModsAlt[^] }
 object ObjModsAlt { }
 
 // fields
-object ObjFields { field: ObjField }
+object FieldsObj { field: ObjField }
 object ObjField { }
 
 // fields-dual

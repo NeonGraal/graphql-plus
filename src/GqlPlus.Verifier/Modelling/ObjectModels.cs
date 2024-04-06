@@ -14,12 +14,33 @@ public record class TypeObjectModel<TBase, TField>(
   internal DescribedModel[] TypeParameters { get; set; } = [];
   internal TField[] Fields { get; set; } = [];
   internal AlternateModel<TBase>[] Alternates { get; set; } = [];
+  internal virtual string? ParentName => null;
+
+  private IEnumerable<ObjectForModel<AlternateModel<TBase>>> AllAlternates(IRenderContext context)
+  {
+    var alternates = Alternates.Select(a => new ObjectForModel<AlternateModel<TBase>>(a, Name));
+
+    var parent = context.TryGetType<TypeObjectModel<TBase, TField>>(ParentName, out var parentModel) ? parentModel.AllAlternates(context) : [];
+
+    return parent.Concat(alternates);
+  }
+
+  private IEnumerable<ObjectForModel<TField>> AllFields(IRenderContext context)
+  {
+    var fields = Fields.Select(f => new ObjectForModel<TField>(f, Name));
+
+    var parent = context.TryGetType<TypeObjectModel<TBase, TField>>(ParentName, out var parentModel) ? parentModel.AllFields(context) : [];
+
+    return parent.Concat(fields);
+  }
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
       .Add("parameters", TypeParameters.Render(context))
       .Add("fields", Fields.Render(context))
-      .Add("alternates", Alternates.Render(context));
+      .Add("allFields", AllFields(context).Render(context))
+      .Add("alternates", Alternates.Render(context))
+      .Add("allAlternates", AllAlternates(context).Render(context));
 }
 
 public record class ObjRefModel<TBase>
@@ -69,6 +90,18 @@ public record class AlternateModel<TBase>(
       .Add("collections", Collections.Render(context));
 }
 
+public record class ObjectForModel<TFor>(
+  TFor For,
+  string Obj
+) : ModelBase
+  where TFor : IRendering
+{
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add(For, context)
+      .Add("object", Obj);
+}
+
 public record class FieldModel<TBase>(
   string Name,
   ObjRefModel<TBase>? Type
@@ -95,14 +128,15 @@ public record class ParameterModel(
 }
 
 internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, TField>(
+  TypeKindModel kind,
   IAlternateModeller<TRefAst, TBase> alternate,
   IModeller<TFieldAst, TField> field,
   IModeller<TRefAst, TBase> reference
-) : ModellerType<TAst, TRefAst, TModel>
+) : ModellerType<TAst, TRefAst, TModel>(kind)
   where TAst : AstType<TRefAst>
   where TRefAst : AstReference<TRefAst>
   where TFieldAst : AstField<TRefAst>
-  where TModel : IRendering
+  where TModel : BaseTypeModel
   where TBase : IObjBaseModel
   where TField : IRendering
 {
@@ -147,7 +181,7 @@ internal class AlternateModeller<TRefAst, TBase>(
   where TRefAst : AstReference<TRefAst>
   where TBase : IObjBaseModel
 {
-  internal override AlternateModel<TBase> ToModel(AstAlternate<TRefAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override AlternateModel<TBase> ToModel(AstAlternate<TRefAst> ast, IMap<TypeKindModel> typeKinds)
     => new(new(new(BaseModel(ast.Type, typeKinds))) {
       Description = ast.Description
     }) {
@@ -169,7 +203,7 @@ internal class ParameterModeller(
   IModeller<ConstantAst, ConstantModel> constant
 ) : ModellerBase<ParameterAst, ParameterModel>
 {
-  internal override ParameterModel ToModel(ParameterAst ast, IMap<TypeKindModel> typeKinds)
+  protected override ParameterModel ToModel(ParameterAst ast, IMap<TypeKindModel> typeKinds)
   {
     var altModel = alternate.ToModel(ast, typeKinds);
     return new(altModel.Type) {

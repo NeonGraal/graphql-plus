@@ -80,13 +80,25 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel, TItem>(
   IModeller<TAst, TModel> modeller,
   TTypeKind kind
 ) : CheckTypeModel<TAst, TTypeKind, TModel>(modeller, kind)
-  , ICheckTypeModel<TTypeKind, TItem>
+  , IParentModel<TItem>
   where TAst : AstType<string>
   where TModel : IRendering
 {
   internal abstract BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
-  BaseTypeModel ICheckTypeModel<TTypeKind, TItem>.NewParent(string name, TItem[] members, string? parent)
+
+  BaseTypeModel IParentModel<TItem>.NewParent(string name, TItem[] members, string? parent)
     => NewParent(name, members, parent);
+
+  internal IEnumerable<string> ExpectedMembers(string field, string[] members)
+    => ItemsExpected(field, members, ExpectedMember);
+
+  private IEnumerable<string> ExpectedMember(string member)
+        => ["- !_Aliased " + member];
+
+  internal IEnumerable<string> ExpectedAllMembers(string field, string[] members, string type)
+    => ItemsExpected(field, members, ExpectedAllMember(type));
+
+  protected abstract Func<string, IEnumerable<string>> ExpectedAllMember(string type);
 }
 
 internal interface ICheckTypeModel<TAstParent, TParent, TTypeKind>
@@ -105,8 +117,7 @@ internal interface ICheckTypeModel<TTypeKind>
   : ICheckTypeModel<string, string, TTypeKind>
 { }
 
-internal interface ICheckTypeModel<TTypeKind, TItem>
-  : ICheckTypeModel<string, string, TTypeKind>
+internal interface IParentModel<TItem>
 {
   BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
 }

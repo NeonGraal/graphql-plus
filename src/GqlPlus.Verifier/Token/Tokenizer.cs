@@ -100,9 +100,30 @@ public class Tokenizer
     while (_pos < _len) {
       var code = span[_pos];
 
+      if (code == '#') {
+        while (_pos < _len && span[_pos] is not '\r' and not '\n') {
+          ++_pos;
+        }
+
+        if (_pos >= _len) {
+          return;
+        }
+
+        code = span[_pos];
+      }
+
       if (code <= ' ' || code > '~'
         || IgnoreSeparators && code == ','
       ) {
+        if (code == '\r') {
+          if (_pos + 1 < _len && span[_pos + 1] == '\n') {
+            code = span[++_pos];
+          } else {
+            _lineStart = _pos;
+            _line++;
+          }
+        }
+
         if (code == '\n') {
           _lineStart = _pos;
           _line++;

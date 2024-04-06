@@ -3,8 +3,9 @@ using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
-internal class AstAlternatesMerger<TAlternate, TRef>
-  : AstDescribedMerger<TAlternate>
+internal class AstAlternatesMerger<TAlternate, TRef>(
+  ILoggerFactory logger
+) : AstDescribedMerger<TAlternate>(logger)
   where TAlternate : AstAlternate<TRef>
   where TRef : AstReference<TRef>, IEquatable<TRef>
 {
@@ -17,11 +18,13 @@ internal class AstAlternatesMerger<TAlternate, TRef>
   protected override string ItemGroupKey(TAlternate item)
     => item.Type.FullName;
 
+  protected override string ItemMatchName => "Modifiers";
   protected override string ItemMatchKey(TAlternate item)
     => item.Modifiers.AsString().Joined();
 }
 
-internal class AlternatesMerger<TRef>
-  : AstAlternatesMerger<AstAlternate<TRef>, TRef>
+internal class AlternatesMerger<TRef>(
+  ILoggerFactory logger
+) : AstAlternatesMerger<AstAlternate<TRef>, TRef>(logger)
   where TRef : AstReference<TRef>, IEquatable<TRef>
 { }

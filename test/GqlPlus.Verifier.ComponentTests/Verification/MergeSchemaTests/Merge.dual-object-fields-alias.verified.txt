@@ -3,17 +3,17 @@
 Success
 {
   !D I@006/0001
-  FieldAlias
+  DualFieldAlias
   {
-    !DF I@019/0001
+    !DF I@023/0001
     field
     [
       field1
       field2
     ]
     :
-    I@035/0001
-    FieldAlias
+    I@039/0001
+    DualFieldAlias
   }
 }
 ]

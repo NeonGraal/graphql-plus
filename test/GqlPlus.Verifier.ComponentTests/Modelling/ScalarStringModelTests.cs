@@ -2,21 +2,19 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class ScalarStringModelTests
-  : TestScalarModel<string, ScalarRegexAst>
+public class ScalarStringModelTests(
+  IScalarModeller<ScalarRegexAst, ScalarRegexModel> modeller
+) : TestScalarModel<string, ScalarRegexAst>
 {
   internal override ICheckScalarModel<string, ScalarRegexAst> ScalarChecks => _checks;
 
-  private readonly ScalarStringModelChecks _checks = new();
+  private readonly ScalarStringModelChecks _checks = new(modeller);
 }
 
-internal sealed class ScalarStringModelChecks
-  : CheckScalarModel<string, ScalarRegexAst, ScalarRegexModel>
+internal sealed class ScalarStringModelChecks(
+  IScalarModeller<ScalarRegexAst, ScalarRegexModel> modeller
+) : CheckScalarModel<string, ScalarRegexAst, ScalarRegexModel>(ScalarDomain.String, modeller)
 {
-  public ScalarStringModelChecks()
-    : base(ScalarDomain.String, new ScalarStringModeller())
-  { }
-
   protected override string[] ExpectedItem(string input, string exclude, string[] scalar)
     => ["- !_ScalarRegex", exclude, "  regex: " + input, .. scalar];
 

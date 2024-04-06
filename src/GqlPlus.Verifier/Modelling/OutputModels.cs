@@ -6,7 +6,9 @@ namespace GqlPlus.Verifier.Modelling;
 public record class TypeOutputModel(
   string Name
 ) : TypeObjectModel<OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, Name)
-{ }
+{
+  internal override string? ParentName => Parent?.Base.Output;
+}
 
 public record class OutputBaseModel(
   string Output
@@ -68,9 +70,9 @@ internal class OutputModeller(
   IAlternateModeller<OutputReferenceAst, OutputBaseModel> alternate,
   IModeller<OutputFieldAst, OutputFieldModel> field,
   IModeller<OutputReferenceAst, OutputBaseModel> reference
-) : ModellerObject<OutputDeclAst, OutputReferenceAst, OutputFieldAst, TypeOutputModel, OutputBaseModel, OutputFieldModel>(alternate, field, reference)
+) : ModellerObject<OutputDeclAst, OutputReferenceAst, OutputFieldAst, TypeOutputModel, OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, alternate, field, reference)
 {
-  internal override TypeOutputModel ToModel(OutputDeclAst ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeOutputModel ToModel(OutputDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
@@ -89,7 +91,7 @@ internal class OutputReferenceModeller(
       ? new(ast.Name) { Ref = new(ToModel(ast, typeKinds)) }
       : new(ast.Name) { EnumValue = ast.EnumValue };
 
-  internal override OutputBaseModel ToModel(OutputReferenceAst ast, IMap<TypeKindModel> typeKinds)
+  protected override OutputBaseModel ToModel(OutputReferenceAst ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Name, out var typeKind) && typeKind == TypeKindModel.Dual
     ? new(ast.Name) {
       Dual = dual.ToModel(ast.ToDual(), typeKinds)
@@ -106,7 +108,7 @@ internal class OutputFieldModeller(
   IModeller<OutputReferenceAst, OutputBaseModel> reference
 ) : ModellerBase<OutputFieldAst, OutputFieldModel>
 {
-  internal override OutputFieldModel ToModel(OutputFieldAst field, IMap<TypeKindModel> typeKinds)
+  protected override OutputFieldModel ToModel(OutputFieldAst field, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(field.Type.EnumValue)
       ? new(field.Name, new(reference.ToModel(field.Type, typeKinds))) {
         Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),

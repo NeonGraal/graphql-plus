@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Verify.Xunit" Version="23.6.0" />
-    <PackageReference Include="Xunit.DependencyInjection" Version="9.0.1" />
+    <PackageReference Include="Verify.Xunit" Version="23.7.1" />
+    <PackageReference Include="Xunit.DependencyInjection" Version="9.1.0" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
     <PackageReference Include="Xunit.DependencyInjection.SkippableFact" Version="9.0.0" />
   </ItemGroup>
@@ -31,17 +31,14 @@
     <None Update="SampleData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SampleData.cs</LastGenOutput>
-      <DependentUpon>SampleTests.cs</DependentUpon>
     </None>
     <None Update="Verification\VerifyOperationData.tt">
       <LastGenOutput>VerifyOperationData.cs</LastGenOutput>
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VerifyOperationTests.cs</DependentUpon>
     </None>
     <None Update="Verification\VerifySchemaData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>VerifySchemaData.cs</LastGenOutput>
-      <DependentUpon>VerifySchemaTests.cs</DependentUpon>
     </None>
   </ItemGroup>
 

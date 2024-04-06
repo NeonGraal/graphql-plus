@@ -1,10 +1,12 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class MergeInputFieldsTests
-  : TestFields<InputFieldAst, InputReferenceAst>
+public class MergeInputFieldsTests(
+  ITestOutputHelper outputHelper
+) : TestFields<InputFieldAst, InputReferenceAst>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneDefault_ReturnsTrue(string name, string type, string value)
@@ -23,7 +25,7 @@ public class MergeInputFieldsTests
       MakeField(name, type) with { Default = value2.FieldKey() }],
       value1 == value2);
 
-  private readonly MergeInputFields _merger = new();
+  private readonly MergeInputFields _merger = new(outputHelper.ToLoggerFactory());
 
   internal override FieldsMerger<InputFieldAst, InputReferenceAst> MergerField => _merger;
 

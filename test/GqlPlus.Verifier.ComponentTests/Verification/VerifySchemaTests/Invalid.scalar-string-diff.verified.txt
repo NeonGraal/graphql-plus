@@ -1,4 +1,6 @@
 ﻿[
   Multiple Scalars with name 'Test' can't be merged.,
-  Multiple Types with name 'Test' can't be merged.
+  Group of ScalarRegexAst for a+ is not singular Regex['False', 'True'],
+  Multiple Types with name 'Test' can't be merged.,
+  Group of ScalarRegexAst for a+ is not singular Regex['False', 'True']
 ]

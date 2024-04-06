@@ -1,3 +1,4 @@
 ﻿[
-  Multiple Directives with name 'Test' can't be merged.
+  Multiple Directives with name 'Test' can't be merged.,
+  Group of DirectiveDeclAst for Test is not singular Option['Repeatable', 'Unique']
 ]

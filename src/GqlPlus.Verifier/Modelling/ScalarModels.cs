@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal enum ScalarKindModel { Boolean, Enum, Number, String, Union }
+public enum ScalarKindModel { Boolean, Enum, Number, String, Union }
 
 internal record class ScalarRefModel(
   string Name,
@@ -15,7 +15,7 @@ internal record class ScalarRefModel(
       .Add("scalar", Scalar);
 }
 
-internal sealed record class BaseScalarModel<TItem>(
+public sealed record class BaseScalarModel<TItem>(
   ScalarKindModel Scalar,
   string Name
 ) : ParentTypeModel<TItem, ScalarItemModel<TItem>>(TypeKindModel.Scalar, Name)
@@ -31,7 +31,7 @@ internal sealed record class BaseScalarModel<TItem>(
       .Add("scalar", Scalar.RenderEnum());
 }
 
-internal record class BaseScalarItemModel(
+public record class BaseScalarItemModel(
   bool Exclude
 ) : ModelBase, IBaseScalarItemModel
 {
@@ -40,9 +40,11 @@ internal record class BaseScalarItemModel(
       .Add("exclude", Exclude);
 }
 
-internal interface IBaseScalarItemModel : IRendering { }
+public interface IBaseScalarItemModel
+  : IRendering
+{ }
 
-internal record class ScalarMemberModel(
+public record class ScalarMemberModel(
   EnumValueModel EnumValue,
   bool Exclude
 ) : BaseScalarItemModel(Exclude)
@@ -56,7 +58,7 @@ internal record class ScalarMemberModel(
       .Add(EnumValue, context);
 }
 
-internal record class ScalarTrueFalseModel(
+public record class ScalarTrueFalseModel(
   bool Value,
   bool Exclude
 ) : BaseScalarItemModel(Exclude)
@@ -66,7 +68,7 @@ internal record class ScalarTrueFalseModel(
       .Add("value", Value);
 }
 
-internal record class ScalarRangeModel(
+public record class ScalarRangeModel(
   decimal? From,
   decimal? To,
   bool Exclude
@@ -78,7 +80,7 @@ internal record class ScalarRangeModel(
       .Add("to", To);
 }
 
-internal record class ScalarRegexModel(
+public record class ScalarRegexModel(
   string Regex,
   bool Exclude
 ) : BaseScalarItemModel(Exclude)
@@ -88,7 +90,7 @@ internal record class ScalarRegexModel(
       .Add("regex", Regex);
 }
 
-internal record class ScalarItemModel<TItem>(
+public record class ScalarItemModel<TItem>(
   TItem Item,
   string Scalar
 ) : ModelBase
@@ -102,9 +104,14 @@ internal record class ScalarItemModel<TItem>(
 
 internal abstract class ModellerScalar<TItemAst, TItemModel>
   : ModellerType<AstScalar<TItemAst>, string, BaseScalarModel<TItemModel>>
+  , IScalarModeller<TItemAst, TItemModel>
   where TItemAst : IAstScalarItem
   where TItemModel : IBaseScalarItemModel
 {
+  protected ModellerScalar()
+    : base(TypeKindModel.Scalar)
+  { }
+
   internal TItemModel[] ToItems(AstScalar<TItemAst> ast, IMap<TypeKindModel> typeKinds)
     => [.. ast.Items.Select(ast => ToItem(ast, typeKinds))];
 
@@ -114,10 +121,16 @@ internal abstract class ModellerScalar<TItemAst, TItemModel>
   protected abstract TItemModel ToItem(TItemAst ast, IMap<TypeKindModel> typeKinds);
 }
 
+public interface IScalarModeller<TItemAst, TItemModel>
+  : IModeller<AstScalar<TItemAst>, BaseScalarModel<TItemModel>>
+  where TItemAst : IAstScalarItem
+  where TItemModel : IBaseScalarItemModel
+{ }
+
 internal class ScalarBooleanModeller
   : ModellerScalar<ScalarTrueFalseAst, ScalarTrueFalseModel>
 {
-  internal override BaseScalarModel<ScalarTrueFalseModel> ToModel(AstScalar<ScalarTrueFalseAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseScalarModel<ScalarTrueFalseModel> ToModel(AstScalar<ScalarTrueFalseAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.Boolean, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
@@ -132,7 +145,7 @@ internal class ScalarBooleanModeller
 internal class ScalarEnumModeller
   : ModellerScalar<ScalarMemberAst, ScalarMemberModel>
 {
-  internal override BaseScalarModel<ScalarMemberModel> ToModel(AstScalar<ScalarMemberAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseScalarModel<ScalarMemberModel> ToModel(AstScalar<ScalarMemberAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.Enum, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
@@ -147,7 +160,7 @@ internal class ScalarEnumModeller
 internal class ScalarNumberModeller
   : ModellerScalar<ScalarRangeAst, ScalarRangeModel>
 {
-  internal override BaseScalarModel<ScalarRangeModel> ToModel(AstScalar<ScalarRangeAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseScalarModel<ScalarRangeModel> ToModel(AstScalar<ScalarRangeAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.Number, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
@@ -162,7 +175,7 @@ internal class ScalarNumberModeller
 internal class ScalarStringModeller
   : ModellerScalar<ScalarRegexAst, ScalarRegexModel>
 {
-  internal override BaseScalarModel<ScalarRegexModel> ToModel(AstScalar<ScalarRegexAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseScalarModel<ScalarRegexModel> ToModel(AstScalar<ScalarRegexAst> ast, IMap<TypeKindModel> typeKinds)
     => new(ScalarKindModel.String, ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,

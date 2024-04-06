@@ -59,16 +59,19 @@ public static class AstExtensions
       ? items.Select(i => $"{i}")
       : null;
 
-  public static string Joined(this IEnumerable<string?>? items)
-    => string.Join(" ",
+  public static string Debug(this IEnumerable<string?>? items)
+    => string.Join(", ", items?.Order(StringComparer.Ordinal).Select(i => $"'{i}'") ?? []);
+
+  public static string Debug<T>(this IEnumerable<T?>? items, Func<T?, string> mapping)
+    => (items?.Select(mapping)).Debug();
+
+  public static string Joined(this IEnumerable<string?>? items, string by = " ")
+    => string.Join(by,
       items?.Where(i => !string.IsNullOrWhiteSpace(i))
       ?? []);
 
   public static string Joined<T>(this IEnumerable<T?>? items, Func<T?, string> mapping)
     => (items?.Select(mapping)).Joined();
-
-  public static string Joined(this IEnumerable<string?>? items, string prefix)
-    => items.Joined(s => prefix + s);
 
   internal static IEnumerable<string?> Bracket(this AstAbbreviated? item, string before, string after)
     => item?.GetFields().Prepend(before).Append(after) ?? [];

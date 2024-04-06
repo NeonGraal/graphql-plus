@@ -1,3 +1,4 @@
 ﻿[
-  Multiple Categories with name 'test' can't be merged.
+  Multiple Categories with name 'test' can't be merged.,
+  Group of CategoryDeclAst for test is not singular Output~Modifiers~Option['Output~System.String[]~Parallel', 'Test~System.String[]~Parallel']
 ]

@@ -2,21 +2,19 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class ScalarEnumModelTests
-  : TestScalarModel<string, ScalarMemberAst>
+public class ScalarEnumModelTests(
+  IScalarModeller<ScalarMemberAst, ScalarMemberModel> modeller
+) : TestScalarModel<string, ScalarMemberAst>
 {
   internal override ICheckScalarModel<string, ScalarMemberAst> ScalarChecks => _checks;
 
-  private readonly ScalarEnumModelChecks _checks = new();
+  private readonly ScalarEnumModelChecks _checks = new(modeller);
 }
 
-internal sealed class ScalarEnumModelChecks
-  : CheckScalarModel<string, ScalarMemberAst, ScalarMemberModel>
+internal sealed class ScalarEnumModelChecks(
+  IScalarModeller<ScalarMemberAst, ScalarMemberModel> modeller
+) : CheckScalarModel<string, ScalarMemberAst, ScalarMemberModel>(ScalarDomain.Enum, modeller)
 {
-  public ScalarEnumModelChecks()
-    : base(ScalarDomain.Enum, new ScalarEnumModeller())
-  { }
-
   protected override string[] ExpectedItem(string input, string exclude, string[] scalar)
     => ["- !_ScalarMember", exclude, "  kind: !_SimpleKind Enum", .. scalar, "  value: " + input];
 

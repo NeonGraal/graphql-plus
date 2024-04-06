@@ -1,18 +1,21 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
 
-internal class FieldsMerger<TField, TRef>
-  : AstAliasedMerger<TField>
+internal class FieldsMerger<TField, TRef>(
+  ILoggerFactory logger
+) : AstAliasedMerger<TField>(logger)
   where TField : AstField<TRef>
   where TRef : AstReference<TRef>
 {
+  protected override string ItemMatchName => "ModifiedType";
   protected override string ItemMatchKey(TField item)
     => item.ModifiedType;
 
-  protected override bool CanMergeGroup(IGrouping<string, TField> group)
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, TField> group)
     => base.CanMergeGroup(group)
-      && group.CanMerge(item => item.Type.Description);
+      .Add(group.CanMerge(item => item.Type.Description));
 
   protected override TField MergeGroup(IEnumerable<TField> group)
   {

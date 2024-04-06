@@ -6,26 +6,25 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-public partial class VerifySchemaTests(
+public class VerifySchemaTests(
     Parser<SchemaAst>.D parser,
-    IVerify<SchemaAst> verifier,
-    IMerge<SchemaAst> merger)
+    IVerify<SchemaAst> verifier)
 {
   [Theory]
-  [ClassData(typeof(SchemaValidSchemas))]
+  [ClassData(typeof(VerifySchemaValidSchemasData))]
   public void Verify_ValidSchemas(string schema)
-    => Verify_Valid(s_schemaValidSchemas[schema]);
+    => Verify_Valid(VerifySchemaValidSchemasData.Source[schema]);
 
   [Theory]
-  [ClassData(typeof(SchemaInvalidSchemas))]
+  [ClassData(typeof(VerifySchemaInvalidSchemasData))]
   public async Task Verify_InvalidSchemas(string schema)
-    => await Verify_Invalid(s_schemaInvalidSchemas[schema], schema);
+    => await Verify_Invalid(VerifySchemaInvalidSchemasData.Source[schema], schema);
 
   [Theory]
-  [ClassData(typeof(SchemaValidMerges))]
+  [ClassData(typeof(VerifySchemaValidMergesData))]
   public void Verify_ValidMerges(string schema)
   {
-    var input = s_schemaValidMerges[schema];
+    var input = VerifySchemaValidMergesData.Source[schema];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       using var scope = new AssertionScope();
 
@@ -37,20 +36,20 @@ public partial class VerifySchemaTests(
   }
 
   [Theory]
-  [ClassData(typeof(SchemaValidTypes))]
+  [ClassData(typeof(VerifySchemaValidTypesData))]
   public void Verify_ValidTypes(string type)
-    => Verify_Valid(s_schemaValidTypes[type]);
+    => Verify_Valid(VerifySchemaValidTypesData.Source[type]);
 
   [Theory]
-  [ClassData(typeof(SchemaInvalidTypes))]
+  [ClassData(typeof(VerifySchemaInvalidTypesData))]
   public async Task Verify_InvalidTypes(string type)
-    => await Verify_Invalid(s_schemaInvalidTypes[type], type);
+    => await Verify_Invalid(VerifySchemaInvalidTypesData.Source[type], type);
 
   [Theory]
-  [ClassData(typeof(SchemaValidObjects))]
+  [ClassData(typeof(VerifySchemaValidObjectsData))]
   public void Verify_ValidObjects(string obj)
   {
-    var input = s_schemaValidObjects[obj];
+    var input = VerifySchemaValidObjectsData.Source[obj];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       using var scope = new AssertionScope();
 
@@ -63,10 +62,10 @@ public partial class VerifySchemaTests(
   }
 
   [Theory]
-  [ClassData(typeof(SchemaInvalidObjects))]
+  [ClassData(typeof(VerifySchemaInvalidObjectsData))]
   public async Task Verify_InvalidObjects(string obj)
   {
-    var input = s_schemaInvalidObjects[obj];
+    var input = VerifySchemaInvalidObjectsData.Source[obj];
     if (input.StartsWith("object", StringComparison.Ordinal)) {
       await WhenAll(
         Verify_Invalid(ReplaceObject(input, "dual", "Dual"), "dual-" + obj),
@@ -74,56 +73,6 @@ public partial class VerifySchemaTests(
         Verify_Invalid(ReplaceObject(input, "output", "Out"), "output-" + obj));
     } else {
       await Verify_Invalid(input, obj);
-    }
-  }
-
-  private static IEnumerable<string> AllValid
-    => s_schemaValidObjects.Values
-      .SelectMany(input => new[] {
-        ReplaceObject(input, "dual", "Dual"),
-        ReplaceObject(input, "input", "In"),
-        ReplaceObject(input, "output", "Out"),
-      })
-      .Concat(s_schemaValidMerges.Values)
-      .Concat(s_schemaValidSchemas.Values)
-      .Concat(s_schemaValidTypes.Values);
-
-  [Fact]
-  public void CanMerge_Schemas()
-  {
-    var schemas = AllValid
-      .Select(input => Parse(input).Required())
-      .ToArray();
-
-    var result = merger.CanMerge(schemas);
-
-    result.Should().BeTrue();
-  }
-
-  [Fact]
-  public async Task Merge_Schemas()
-  {
-    var schemas = AllValid
-      .Select(input => Parse(input).Required())
-      .ToArray();
-
-    var result = merger.Merge(schemas);
-
-    await Verify(result.Select(s => s.Render()));
-  }
-
-  [Theory]
-  [ClassData(typeof(SchemaValidMerges))]
-  public async Task Merge_Valid(string merge)
-  {
-    var input = s_schemaValidMerges[merge];
-    if (input.StartsWith("object", StringComparison.Ordinal)) {
-      await WhenAll(
-        Verify_Merge(ReplaceObject(input, "dual", "Dual"), "dual-" + merge),
-        Verify_Merge(ReplaceObject(input, "input", "In"), "input-" + merge),
-        Verify_Merge(ReplaceObject(input, "output", "Out"), "output-" + merge));
-    } else {
-      await Verify_Merge(input, merge);
     }
   }
 
@@ -166,7 +115,7 @@ public partial class VerifySchemaTests(
       parse.IsError(result.Add);
     }
 
-    result.Should().NotBeEmpty();
+    result.Should().NotBeEmpty(input);
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
@@ -175,21 +124,6 @@ public partial class VerifySchemaTests(
     settings.UseMethodName(test);
 
     await Verify(result.Select(m => m.Message), settings);
-  }
-
-  private async Task Verify_Merge(string input, string test)
-  {
-    var parse = Parse(input);
-
-    var result = merger.Merge([parse.Required()]);
-
-    var settings = new VerifySettings();
-    settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(VerifySchemaTests));
-    settings.UseTypeName("Merge");
-    settings.UseMethodName(test);
-
-    await Verify(result.Select(s => s.Render()), settings);
   }
 
   private static async Task WhenAll(params Task[] tasks)

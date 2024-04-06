@@ -4,10 +4,12 @@ using GqlPlus.Verifier.Ast.Schema;
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeScalars<TMember>(
+  ILoggerFactory logger,
   IMerge<TMember> members
-) : AstTypeMerger<AstScalar, AstScalar<TMember>, string, TMember>(members)
-  where TMember : IAstScalarItem
+) : AstTypeMerger<AstScalar, AstScalar<TMember>, string, TMember>(logger, members)
+  where TMember : AstBase, IAstScalarItem
 {
+  protected override string ItemMatchName => "Domain~Parent";
   protected override string ItemMatchKey(AstScalar<TMember> item)
     => item.Domain.ToString() + item.Parent.Prefixed("~");
 

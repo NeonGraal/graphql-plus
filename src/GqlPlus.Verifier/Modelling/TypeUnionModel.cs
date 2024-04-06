@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-internal record class TypeUnionModel(
+public record class TypeUnionModel(
   string Name
 ) : ParentTypeModel<AliasedModel, UnionMemberModel>(TypeKindModel.Union, Name)
 {
@@ -15,7 +15,7 @@ internal record class TypeUnionModel(
         };
 }
 
-internal record class UnionMemberModel(
+public record class UnionMemberModel(
   string Name,
   string OfUnion
 ) : AliasedModel(Name)
@@ -28,7 +28,11 @@ internal record class UnionMemberModel(
 internal class UnionModeller
   : ModellerType<UnionDeclAst, string, TypeUnionModel>
 {
-  internal override TypeUnionModel ToModel(UnionDeclAst ast, IMap<TypeKindModel> typeKinds)
+  public UnionModeller()
+    : base(TypeKindModel.Union)
+  { }
+
+  protected override TypeUnionModel ToModel(UnionDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,

@@ -7,7 +7,9 @@ namespace GqlPlus.Verifier.Modelling;
 public record class TypeInputModel(
   string Name
 ) : TypeObjectModel<InputBaseModel, InputFieldModel>(TypeKindModel.Input, Name)
-{ }
+{
+  internal override string? ParentName => Parent?.Base.Input;
+}
 
 public record class InputBaseModel(
   string Input
@@ -40,9 +42,9 @@ internal class InputModeller(
   IAlternateModeller<InputReferenceAst, InputBaseModel> alternate,
   IModeller<InputFieldAst, InputFieldModel> field,
   IModeller<InputReferenceAst, InputBaseModel> reference
-) : ModellerObject<InputDeclAst, InputReferenceAst, InputFieldAst, TypeInputModel, InputBaseModel, InputFieldModel>(alternate, field, reference)
+) : ModellerObject<InputDeclAst, InputReferenceAst, InputFieldAst, TypeInputModel, InputBaseModel, InputFieldModel>(TypeKindModel.Input, alternate, field, reference)
 {
-  internal override TypeInputModel ToModel(InputDeclAst ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeInputModel ToModel(InputDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,
@@ -56,7 +58,7 @@ internal class InputReferenceModeller(
   IModeller<DualReferenceAst, DualBaseModel> dual
 ) : ModellerReference<InputReferenceAst, InputBaseModel>
 {
-  internal override InputBaseModel ToModel(InputReferenceAst ast, IMap<TypeKindModel> typeKinds)
+  protected override InputBaseModel ToModel(InputReferenceAst ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Name, out var typeKind) && typeKind == TypeKindModel.Dual
     ? new(ast.Name) {
       Dual = dual.ToModel(ast.ToDual(), typeKinds)
@@ -73,7 +75,7 @@ internal class InputFieldModeller(
   IModeller<ConstantAst, ConstantModel> constant
 ) : ModellerBase<InputFieldAst, InputFieldModel>
 {
-  internal override InputFieldModel ToModel(InputFieldAst field, IMap<TypeKindModel> typeKinds)
+  protected override InputFieldModel ToModel(InputFieldAst field, IMap<TypeKindModel> typeKinds)
     => new(field.Name, new(reference.ToModel(field.Type, typeKinds))) {
       Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
       Default = constant.TryModel(field.Default, typeKinds),

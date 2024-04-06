@@ -40,7 +40,7 @@ internal class DirectiveModeller(
   IModeller<ParameterAst, ParameterModel> parameter
 ) : ModellerBase<DirectiveDeclAst, DirectiveModel>
 {
-  internal override DirectiveModel ToModel(DirectiveDeclAst ast, IMap<TypeKindModel> typeKinds)
+  protected override DirectiveModel ToModel(DirectiveDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = ast.Aliases,
       Description = ast.Description,

@@ -2,31 +2,25 @@
 
 namespace GqlPlus.Verifier.Modelling;
 
-public class UnionModelTests
-  : TestTypeModel<SimpleKindModel>
+public class UnionModelTests(
+  IModeller<UnionDeclAst, TypeUnionModel> modeller
+) : TestTypeModel<SimpleKindModel>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, string[] members)
-    => _checks
-    .AstExpected(
+    => _checks.UnionExpected(
       new(AstNulls.At, name, members.UnionMembers()),
-      ["!_TypeUnion",
-        .. _checks.ExpectedAllMembers("allItems:", members, name),
-        .. _checks.ExpectedMembers("items:", members),
-        "kind: !_TypeKind Union",
-        "name: " + name]);
+      new(name,
+        members: _checks.ExpectedMembers("items:", members),
+        allMembers: _checks.ExpectedAllMembers("allItems:", members, name)));
 
   [Theory, RepeatData(Repeats)]
   public void Model_MembersParent(string name, string parent, string[] parentMembers)
     => _checks
     .AddParent(_checks.NewParent(parent, parentMembers))
-    .AstExpected(
+    .UnionExpected(
       new(AstNulls.At, name, []) { Parent = parent, },
-      ["!_TypeUnion",
-        .. _checks.ExpectedAllMembers("allItems:", parentMembers, parent),
-        "kind: !_TypeKind Union",
-        "name: " + name,
-        .. parent.TypeRefFor(SimpleKindModel.Union)]);
+      new(name, parent, allMembers: _checks.ExpectedAllMembers("allItems:", parentMembers, parent)));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersGrandParent(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
@@ -34,14 +28,11 @@ public class UnionModelTests
     .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
     .AddParent(_checks.NewParent(parent, parentMembers, grandParent))
     .AddParent(_checks.NewParent(grandParent, grandParentMembers))
-    .AstExpected(
+    .UnionExpected(
       new(AstNulls.At, name, []) { Parent = parent, },
-      ["!_TypeUnion",
-        .. _checks.ExpectedAllMembers("allItems:", grandParentMembers, grandParent),
-        .. _checks.ExpectedAllMembers("", parentMembers, parent),
-        "kind: !_TypeKind Union",
-        "name: " + name,
-        .. parent.TypeRefFor(SimpleKindModel.Union)]);
+      new(name, parent, allMembers: _checks
+        .ExpectedAllMembers("allItems:", grandParentMembers, grandParent)
+        .Concat(_checks.ExpectedAllMembers("", parentMembers, parent))));
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(
@@ -53,33 +44,49 @@ public class UnionModelTests
     string[] parentMembers
   ) => _checks
     .AddParent(_checks.NewParent(parent, parentMembers))
-    .AstExpected(
+    .UnionExpected(
       new(AstNulls.At, name, members.UnionMembers()) {
         Aliases = aliases,
         Description = contents,
         Parent = parent,
       },
-      ["!_TypeUnion",
-        $"aliases: [{string.Join(", ", aliases)}]",
-        .. _checks.ExpectedAllMembers("allItems:", parentMembers, parent),
-        .. _checks.ExpectedAllMembers("", members, name),
-        "description: " + contents.YamlQuoted(),
-        .. _checks.ExpectedMembers("items:", members),
-        "kind: !_TypeKind Union",
-        "name: " + name,
-        .. parent.TypeRefFor(SimpleKindModel.Union)]);
+      new(name, parent, aliases, contents, _checks.ExpectedMembers("items:", members),
+        _checks.ExpectedAllMembers("allItems:", parentMembers, parent)
+        .Concat(_checks.ExpectedAllMembers("", members, name))));
 
   internal override ICheckTypeModel<SimpleKindModel> TypeChecks => _checks;
 
-  private readonly UnionModelChecks _checks = new();
+  private readonly UnionModelChecks _checks = new(modeller);
 }
 
-internal sealed class UnionModelChecks
-  : CheckTypeModel<UnionDeclAst, SimpleKindModel, TypeUnionModel, string>
+internal sealed class UnionModelChecks(
+  IModeller<UnionDeclAst, TypeUnionModel> modeller
+) : CheckTypeModel<UnionDeclAst, SimpleKindModel, TypeUnionModel, string>(modeller, SimpleKindModel.Union)
 {
-  public UnionModelChecks()
-    : base(new UnionModeller(), SimpleKindModel.Union)
-  { }
+  internal void UnionExpected(UnionDeclAst ast, ExpectedUnionInput input)
+  => AstExpected(ast, ExpectedUnion(input));
+
+  protected override Func<string, IEnumerable<string>> ExpectedAllMember(string type)
+    => member => ["- !_UnionMember", "  name: " + member, "  union: " + type];
+
+  protected override string[] ExpectedParent(string? parent)
+    => parent.TypeRefFor(TypeKind);
+
+  protected override string[] ExpectedType(ExpectedTypeInput<string> input)
+    => ExpectedUnion(new(input));
+
+  private string[] ExpectedUnion(ExpectedUnionInput input)
+    => ["!_TypeUnion",
+        .. input.Aliases,
+        .. input.AllItems,
+        .. input.Description,
+        .. input.Items,
+        "kind: !_TypeKind Union",
+        "name: " + input.Name,
+        .. input.Parent.TypeRefFor(SimpleKindModel.Union)];
+
+  protected override UnionDeclAst NewDescribedAst(string input, string description)
+    => new(AstNulls.At, input, description, []);
 
   internal override TypeUnionModel NewParent(string name, string[] members, string? parent = null)
     => new(name) {
@@ -87,26 +94,26 @@ internal sealed class UnionModelChecks
       Items = [.. members.Select(m => new AliasedModel(m))]
     };
 
-  internal IEnumerable<string> ExpectedMembers(string field, string[] members)
-    => ItemsExpected(field, members, m => ["- !_Aliased " + m]);
-
-  internal IEnumerable<string> ExpectedAllMembers(string field, string[] members, string ofUnion)
-    => ItemsExpected(field, members, m => ["- !_UnionMember", "  name: " + m, "  union: " + ofUnion]);
-
-  protected override string[] ExpectedParent(string? parent)
-    => parent.TypeRefFor(TypeKind);
-
-  protected override string[] ExpectedType(ExpectedTypeInput<string> input)
-    => [$"!_TypeUnion",
-        .. input.Aliases ?? [],
-        .. input.Description ?? [],
-        $"kind: !_TypeKind {TypeKind}",
-        "name: " + input.Name,
-        .. ExpectedParent(input.Parent)];
-
-  protected override UnionDeclAst NewDescribedAst(string input, string description)
-    => new(AstNulls.At, input, description, []);
-
   internal override UnionDeclAst NewTypeAst(string name, string? parent, string description)
     => new(AstNulls.At, name, description, []) { Parent = parent };
+}
+
+internal sealed class ExpectedUnionInput(
+  string name,
+  string? parent = null,
+  IEnumerable<string>? aliases = null,
+  string? description = null,
+  IEnumerable<string>? members = null,
+  IEnumerable<string>? allMembers = null
+) : ExpectedTypeInput<string>(name, parent, aliases, description)
+{
+  public string[] Items { get; } = [.. members ?? []];
+  public string[] AllItems { get; } = [.. allMembers ?? []];
+
+  internal ExpectedUnionInput(ExpectedTypeInput<string> input)
+    : this(input.Name, input.Parent)
+  {
+    Aliases = input.Aliases;
+    Description = input.Description;
+  }
 }

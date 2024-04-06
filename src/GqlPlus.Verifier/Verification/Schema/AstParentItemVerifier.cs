@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Merging;
 
 namespace GqlPlus.Verifier.Verification.Schema;
@@ -10,13 +11,18 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   where TAst : AstType<TParent>
   where TParent : IEquatable<TParent>
   where TContext : UsageContext
+  where TItem : AstBase
 {
   protected override void CheckMergeParent(ParentUsage<TAst> input, TContext context)
   {
     var items = GetParentItems(input, input.Usage, context, GetItems).ToArray();
 
-    if (items.Length > 0 && !mergeItems.CanMerge(items)) {
-      context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} into Parent {input.Parent}");
+    if (items.Length > 0) {
+      var failures = mergeItems.CanMerge(items);
+      if (failures.Any()) {
+        context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} into Parent {input.Parent}");
+        context.Add(failures);
+      }
     }
   }
 

@@ -44,7 +44,7 @@ public class ParseFragmentsTests(
   [Theory, RepeatData(Repeats)]
   public void Start_WithDirective_ReturnsCorrectAst(string fragment, string onType, string[] fields, string[] directives)
     => _startChecks.TrueExpected(
-      "&" + fragment + ":" + onType + directives.Joined("@") + "{" + fields.Joined() + "}",
+      "&" + fragment + ":" + onType + directives.Joined(s => "@" + s) + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()) { Directives = directives.Directives() });
 
   [Theory, RepeatData(Repeats)]
@@ -58,7 +58,7 @@ public class ParseFragmentsTests(
   [RepeatInlineData(Repeats, "&", ":")]
   public void End_WithDirective_ReturnsCorrectAst(string fragmentPrefix, string typePrefix, string fragment, string onType, string[] fields, string[] directives)
     => _endChecks.TrueExpected(
-      fragmentPrefix + fragment + typePrefix + onType + directives.Joined("@") + "{" + fields.Joined() + "}",
+      fragmentPrefix + fragment + typePrefix + onType + directives.Joined(s => "@" + s) + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()) { Directives = directives.Directives() });
 
   private readonly ManyChecksParser<IParserStartFragments, FragmentAst> _startChecks = new(startParser);

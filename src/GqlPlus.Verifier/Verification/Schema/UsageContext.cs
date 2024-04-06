@@ -11,9 +11,12 @@ public class UsageContext(
 {
   internal readonly HashSet<string> Used = [];
 
+  internal void Add(IEnumerable<TokenMessage> messages)
+    => errors.Add(messages);
+
   internal void AddError<TAst>(TAst item, string label, string message)
       where TAst : AstAbbreviated
-      => errors.AddError(item, $"Invalid {label}. {message}.");
+    => errors.AddError(item, $"Invalid {label}. {message}.");
 
   internal bool GetType(string? type, out AstDescribed? value)
   {

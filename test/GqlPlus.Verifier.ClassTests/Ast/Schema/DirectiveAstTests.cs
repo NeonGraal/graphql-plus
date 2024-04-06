@@ -33,7 +33,7 @@ public class DirectiveAstTests : AstAliasedTests
   public void String_WithParameters(string name, string[] parameters)
     => _checks.Text(
       () => new DirectiveDeclAst(AstNulls.At, name) { Parameters = parameters.Parameters() },
-      $"( !D {name} ( {parameters.Joined("!P ")} ) (Unique) None )");
+      $"( !D {name} ( {parameters.Joined(s => "!P " + s)} ) (Unique) None )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithParameter(string name, string[] parameters)

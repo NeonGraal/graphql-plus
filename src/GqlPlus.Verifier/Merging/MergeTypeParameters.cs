@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -7,7 +8,7 @@ internal class MergeTypeParameters
 {
   protected override string ItemGroupKey(TypeParameterAst item) => item.Name;
 
-  protected override bool CanMergeGroup(IGrouping<string, TypeParameterAst> group)
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, TypeParameterAst> group)
     => group.CanMerge(item => item.Description);
 
   protected override TypeParameterAst MergeGroup(IEnumerable<TypeParameterAst> group)

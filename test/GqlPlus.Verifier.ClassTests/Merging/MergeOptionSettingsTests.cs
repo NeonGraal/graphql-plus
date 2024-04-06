@@ -10,7 +10,7 @@ public class MergeOptionSettingsTests
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsFalse(string name)
   {
-    _values.CanMerge([]).ReturnsForAnyArgs(false);
+    _values.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
     CanMerge_False([MakeAst(name), MakeAst(name)]);
   }

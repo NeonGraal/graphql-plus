@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
@@ -18,6 +17,20 @@ public abstract class TestObjectModel<TObject, TField, TRef>
         new(name, parent));
 
   [Theory, RepeatData(Repeats)]
+  public void Model_Alternate(string name, string alternate)
+    => ObjectChecks.ObjectExpected(
+      ObjectChecks.ObjectAst(name, [], [alternate]),
+      new(name, null, null, [alternate]));
+
+  [Theory, RepeatData(Repeats)]
+  public void Model_AlternateParent(string name, string parent, string alternate)
+    => ObjectChecks
+      .AddParent(ObjectChecks.NewParent(parent, [alternate]))
+      .ParentExpected(
+        (TObject)TypeChecks.TypeAst(name, parent),
+      new(name, parent, null, [alternate]));
+
+  [Theory, RepeatData(Repeats)]
   public void Model_Alternates(string name, string[] alternates)
     => ObjectChecks.ObjectExpected(
       ObjectChecks.ObjectAst(name, [], alternates),
@@ -32,10 +45,24 @@ public abstract class TestObjectModel<TObject, TField, TRef>
         new(name, null, null, alternates));
 
   [Theory, RepeatData(Repeats)]
+  public void Model_Field(string name, FieldInput field)
+    => ObjectChecks.ObjectExpected(
+      ObjectChecks.ObjectAst(name, [field], []),
+      new(name, null, [field]));
+
+  [Theory, RepeatData(Repeats)]
   public void Model_Fields(string name, FieldInput[] fields)
     => ObjectChecks.ObjectExpected(
       ObjectChecks.ObjectAst(name, fields, []),
       new(name, null, fields));
+
+  [Theory, RepeatData(Repeats)]
+  public void Model_FieldParent(string name, string parent, FieldInput field)
+    => ObjectChecks
+      .AddParent(ObjectChecks.NewParent(parent, [field]))
+      .ParentExpected(
+        (TObject)TypeChecks.TypeAst(name, parent),
+        new(name, parent, [field]));
 
   [Theory, RepeatData(Repeats)]
   public void Model_FieldsDual(string name, FieldInput[] fields)
@@ -68,10 +95,10 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
   where TObject : AstObject<TField, TRef>
   where TField : AstField<TRef>
   where TRef : AstReference<TRef>
-  where TModel : IRendering
+  where TModel : BaseTypeModel
 {
   internal string[] ExpectedObject(ExpectedObjectInput input)
-    => input.Expected(TypeKind, ExpectedParent, f => [], a => []);
+    => input.Expected(TypeKind, ExpectedParent);
 
   internal IEnumerable<string> DualField(FieldInput field)
     => [$"- !_{TypeKind}Field", "  name: " + field.Name, "  type: !_DualBase " + field.Type];
@@ -101,28 +128,57 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
 
   void ICheckObjectModel<TObject, TField, TRef>.ObjectExpected(TObject ast, ExpectedObjectInput input)
     => AstExpected(ast, input.Expected(TypeKind, ExpectedParent,
-      fields => ItemsExpected("fields:", fields, ExpectedField),
-      alternates => ItemsExpected("alternates:", alternates, ExpectedAlternate)));
+      ItemsExpected("fields:", input.Fields, ExpectedField),
+      ItemsExpected("allFields:", input.Fields, ExpectedObject<FieldInput>(input.Name, ExpectedField)),
+      ItemsExpected("alternates:", input.Alternates, ExpectedAlternate),
+      ItemsExpected("allAlternates:", input.Alternates, ExpectedObject<string>(input.Name, ExpectedAlternate))));
+
+  private Func<TInput, IEnumerable<string>> ExpectedObject<TInput>(string name, Func<TInput, IEnumerable<string>> expectedField)
+    => f => {
+      var field = expectedField(f).ToArray();
+
+      var first = "- !_ObjectFor(" + field[0][3..] + ")";
+      var last = field.Last();
+
+      return [first, .. field.Skip(1).SkipLast(1), "  object: " + name, last];
+    };
 
   void ICheckObjectModel<TObject, TField, TRef>.DualExpected(TObject ast, ExpectedObjectInput input)
     => AstExpected(ast, input.Expected(TypeKind, DualParent,
-      fields => ItemsExpected("fields:", fields, DualField),
-      alternates => ItemsExpected("alternates:", alternates, DualAlternate)));
+      ItemsExpected("fields:", input.Fields, DualField),
+      ItemsExpected("allFields:", input.Fields, ExpectedObject<FieldInput>(input.Name, DualField)),
+      ItemsExpected("alternates:", input.Alternates, DualAlternate),
+      ItemsExpected("allAlternates:", input.Alternates, ExpectedObject<string>(input.Name, DualAlternate))));
+
+  void ICheckObjectModel<TObject, TField, TRef>.ParentExpected(TObject ast, ExpectedObjectInput input)
+    => AstExpected(ast, input.Expected(TypeKind, ExpectedParent,
+      [], ItemsExpected("allFields:", input.Fields, ExpectedObject<FieldInput>(input.Parent!, ExpectedField)),
+      [], ItemsExpected("allAlternates:", input.Alternates, ExpectedObject<string>(input.Parent!, ExpectedAlternate))));
 
   TObject ICheckObjectModel<TObject, TField, TRef>.ObjectAst(string name, FieldInput[] fields, string[] alternates)
     => NewObjectAst(name, default, "", fields, alternates);
+
+  BaseTypeModel IParentModel<FieldInput>.NewParent(string name, FieldInput[] members, string? parent)
+    => NewParentModel(name, parent, members, []);
+  BaseTypeModel IParentModel<string>.NewParent(string name, string[] members, string? parent)
+    => NewParentModel(name, parent, [], members);
+
+  private BaseTypeModel NewParentModel(string name, string? parent, FieldInput[] fields, string[] alternates)
+    => _modeller.ToModel<TModel>(NewObjectAst(name, parent is null ? null : NewReferenceAst(parent), "", fields, alternates), TypeKinds);
 
   protected abstract TObject NewObjectAst(string name, TRef? parent, string description, FieldInput[] fields, string[] alternates);
 }
 
 internal interface ICheckObjectModel<TObject, TField, TRef>
   : ICheckTypeModel<TRef, string, TypeKindModel>
+  , IParentModel<FieldInput>, IParentModel<string>
   where TObject : AstObject<TField, TRef>
   where TField : AstField<TRef>
   where TRef : AstReference<TRef>
 {
   void ObjectExpected(TObject ast, ExpectedObjectInput input);
   void DualExpected(TObject ast, ExpectedObjectInput input);
+  void ParentExpected(TObject ast, ExpectedObjectInput input);
   TObject ObjectAst(string name, FieldInput[] fields, string[] alternates);
 }
 
@@ -148,13 +204,17 @@ internal sealed class ExpectedObjectInput(
   internal string[] Expected(
     TypeKindModel typeKind,
     Func<string?, IEnumerable<string>> parent,
-    Func<FieldInput[], IEnumerable<string>> fields,
-    Func<string[], IEnumerable<string>> alternates)
+    IEnumerable<string>? fields = null,
+    IEnumerable<string>? allFields = null,
+    IEnumerable<string>? alternates = null,
+    IEnumerable<string>? allAlternates = null)
     => [$"!_Type{typeKind}",
       .. Aliases,
-      .. alternates(Alternates),
+      .. allAlternates ?? [],
+      .. allFields ?? [],
+      .. alternates ?? [],
       .. Description ,
-      .. fields(Fields),
+      .. fields ?? [],
       $"kind: !_TypeKind {typeKind}",
       "name: " + Name,
       .. parent(Parent)];

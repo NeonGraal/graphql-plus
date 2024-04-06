@@ -1,10 +1,12 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema;
+﻿using System.Xml.Linq;
+
+namespace GqlPlus.Verifier.Ast.Schema;
 
 public class SchemaAstTests : AstAbbreviatedTests
 {
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks { get; }
-    = new AstAbbreviatedChecks<SchemaAst>(name => new SchemaAst(AstNulls.At, name));
+    = new AstAbbreviatedChecks<SchemaAst>(name => new SchemaAst(AstNulls.At) { Declarations = [new OptionDeclAst(AstNulls.At, name)] });
 
   protected override string AbbreviatedString(string input)
-    => $"( !G {input} Failure )";
+    => $"( !G Failure {{ !O {input} }} )";
 }

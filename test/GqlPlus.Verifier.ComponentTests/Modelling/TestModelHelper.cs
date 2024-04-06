@@ -10,8 +10,8 @@ internal static class TestModelHelper
   internal static string[] ToLines(this string value)
     => value.Split(s_separator, StringSplitOptions.RemoveEmptyEntries);
 
-  internal static string[] Indent(this string[] value)
-    => [.. value.Select(s => "  " + s)];
+  internal static IEnumerable<string> Indent(this IEnumerable<string>? value)
+    => value?.Select(s => "  " + s) ?? [];
 
   internal static string[] Tidy(this string[] value)
     => [.. value.Where(s => !string.IsNullOrWhiteSpace(s))];

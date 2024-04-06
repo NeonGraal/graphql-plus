@@ -11,19 +11,19 @@ public class RenderStructure
     && (Value?.IsEmpty ?? true);
 
   public bool Flow { get; }
-  public string Tag { get; private init; } = string.Empty;
+  public string Tag { get; } = string.Empty;
 
-  public static RenderStructure New(string tag)
-    => new() { Tag = tag };
+  public static RenderStructure New(string tag, bool flow = false)
+    => new(tag, flow);
   public static RenderStructure For<T>(T value, string? tag = null)
     where T : struct
   {
     Type type = typeof(T);
-    return type.IsEnum ? new(value.ToString(), tag ?? type.TypeTag()) : new();
+    return type.IsEnum ? new(value.ToString(), tag ?? type.TypeTag()) : new("", false);
   }
 
-  private RenderStructure()
-    : base() { }
+  private RenderStructure(string tag, bool flow)
+    : base() => (Tag, Flow) = (tag, flow);
   public RenderStructure(bool? value, string tag = "")
     : base(new RenderValue(value)) => Tag = tag;
   public RenderStructure(string? value, string tag = "")
@@ -75,7 +75,7 @@ public class RenderStructure
     where T : Enum
     => Add(key, new(value.ToString(), tag ?? typeof(T).TypeTag()));
 
-  public RenderStructure Add(bool optional, Func<RenderStructure, RenderStructure> onTrue, Func<RenderStructure, RenderStructure>? onFalse = null)
+  public RenderStructure Add(bool optional, Func<RenderStructure, RenderStructure>? onTrue = null, Func<RenderStructure, RenderStructure>? onFalse = null)
     => optional
       ? (onTrue is not null ? onTrue(this) : this)
       : (onFalse is not null ? onFalse(this) : this);

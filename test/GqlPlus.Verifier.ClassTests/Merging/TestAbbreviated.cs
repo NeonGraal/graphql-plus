@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Token;
 using NSubstitute;
 
 namespace GqlPlus.Verifier.Merging;
@@ -6,13 +7,12 @@ namespace GqlPlus.Verifier.Merging;
 public abstract class TestAbbreviated<TAst>
   : TestAbbreviated<TAst, string>
   where TAst : AstAbbreviated
-{
-}
+{ }
 
 [TracePerTest]
 
 public abstract class TestAbbreviated<TAst, TInput>
-where TAst : AstAbbreviated
+  where TAst : AstAbbreviated
 {
   [Fact]
   public void CanMerge_NoAsts_ReturnsFalse()
@@ -50,11 +50,14 @@ where TAst : AstAbbreviated
 
   protected abstract TAst MakeAst(TInput input);
 
+  protected static ITokenMessages EmptyMessages => new TokenMessages();
+  protected static ITokenMessages ErrorMessages => new TokenMessages(new TokenMessage(AstNulls.At, "Error!"));
+
   protected void CanMerge_False(TAst[] asts)
   {
     var result = MergerBase.CanMerge(asts);
 
-    result.Should().BeFalse();
+    result.Should().NotBeEmpty();
   }
 
   protected void CanMerge_False(TAst[] asts, bool skipIf)
@@ -68,7 +71,7 @@ where TAst : AstAbbreviated
   {
     var result = MergerBase.CanMerge(asts);
 
-    result.Should().BeTrue();
+    result.Should().BeEmpty();
   }
 
   protected void CanMerge_True(TAst[] asts, bool skipIf)
@@ -97,9 +100,10 @@ where TAst : AstAbbreviated
   }
 
   protected IMerge<TResult> Merger<TResult>()
+    where TResult : AstBase
   {
     var result = Substitute.For<IMerge<TResult>>();
-    result.CanMerge([]).ReturnsForAnyArgs(true);
+    result.CanMerge([]).ReturnsForAnyArgs(EmptyMessages);
     result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<TResult>>());
     return result;
   }

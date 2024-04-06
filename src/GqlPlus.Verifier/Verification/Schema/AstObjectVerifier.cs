@@ -129,8 +129,12 @@ internal abstract partial class AstObjectVerifier<TObject, TField, TRef, TContex
     base.CheckMergeParent(input, context);
 
     var alternates = GetParentItems(input, input.Usage, context, ast => ast.Alternates).ToArray();
-    if (alternates.Length > 0 && !mergeAlternates.CanMerge(alternates)) {
-      context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Parent} alternates");
+    if (alternates.Length > 0) {
+      var failures = mergeAlternates.CanMerge(alternates);
+      if (failures.Any()) {
+        context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Parent} alternates");
+        context.Add(failures);
+      }
     }
   }
 }

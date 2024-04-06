@@ -1,10 +1,12 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class MergeUnionsTests
-  : TestTyped<AstType, UnionDeclAst, string, UnionMemberAst>
+public class MergeUnionsTests(
+  ITestOutputHelper outputHelper
+) : TestTyped<AstType, UnionDeclAst, string, UnionMemberAst>
 {
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] members1, string[] members2)
@@ -24,7 +26,7 @@ public class MergeUnionsTests
       new UnionDeclAst(AstNulls.At, name, members.UnionMembers())],
         new UnionDeclAst(AstNulls.At, name, members.UnionMembers()));
 
-  private readonly MergeUnions _merger = new(new MergeUnionMembers());
+  private readonly MergeUnions _merger = new(outputHelper.ToLoggerFactory(), new MergeUnionMembers());
 
   internal override AstTypeMerger<AstType, UnionDeclAst, string, UnionMemberAst> MergerTyped => _merger;
 

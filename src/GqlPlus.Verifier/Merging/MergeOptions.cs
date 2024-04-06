@@ -1,17 +1,20 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeOptions(
+  ILoggerFactory logger,
   IMerge<OptionSettingAst> settings
-) : AstAliasedMerger<OptionDeclAst>
+) : AstAliasedMerger<OptionDeclAst>(logger)
 {
+  protected override string ItemMatchName => "Name";
   protected override string ItemMatchKey(OptionDeclAst item)
     => item.Name;
 
-  protected override bool CanMergeGroup(IGrouping<string, OptionDeclAst> group)
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, OptionDeclAst> group)
     => base.CanMergeGroup(group)
-      && group.ManyGroupCanMerge(d => d.Settings, s => s.Name, settings);
+      .Add(group.ManyGroupCanMerge(d => d.Settings, s => s.Name, settings));
 
   protected override OptionDeclAst MergeGroup(IEnumerable<OptionDeclAst> group)
     => base.MergeGroup(group) with {

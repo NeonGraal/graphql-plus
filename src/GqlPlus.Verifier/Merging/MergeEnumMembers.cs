@@ -2,9 +2,11 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal class MergeEnumMembers
-  : AstAliasedMerger<EnumMemberAst>
+internal class MergeEnumMembers(
+  ILoggerFactory logger
+) : AstAliasedMerger<EnumMemberAst>(logger)
 {
+  protected override string ItemMatchName => "Name";
   protected override string ItemMatchKey(EnumMemberAst item)
     => item.Name;
 }

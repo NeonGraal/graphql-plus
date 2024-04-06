@@ -34,7 +34,7 @@ public class UnionAstTests
   public void String_WithMembers(string name, string[] unionMembers)
     => _checks.Text(
       () => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()),
-      $"( !U {name} {unionMembers.Joined("!UM ")} )");
+      $"( !U {name} {unionMembers.Joined(s => "!UM " + s)} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithMembers(string name, string[] unionMembers)

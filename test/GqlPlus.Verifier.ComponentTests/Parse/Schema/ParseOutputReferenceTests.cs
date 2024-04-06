@@ -9,7 +9,7 @@ public class ParseOutputReferenceTests(
   [Theory, RepeatData(Repeats)]
   public void WithArgumentEnumValues_ReturnsCorrectAst(string name, string enumType, string[] enumValues)
     => _checks.TrueExpected(
-      name + "<" + enumValues.Joined(enumType + ".") + ">",
+      name + "<" + enumValues.Joined(s => enumType + "." + s) + ">",
       _checks.Reference(name) with {
         Arguments = [.. enumValues.Select(enumValue => _checks.Reference(enumType) with { EnumValue = enumValue })]
       });

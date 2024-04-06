@@ -3,17 +3,13 @@
 Success
 {
   !O I@008/0001
-  FieldAlias
+  OutPFields
   {
     !OF I@021/0001
     field
-    [
-      field1
-      field2
-    ]
     :
-    I@037/0001
-    FieldAlias
+    I@028/0001
+    OutPFields
   }
 }
 ]

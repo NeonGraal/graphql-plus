@@ -1,10 +1,12 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class MergeScalarMembersTests
-  : TestScalarItems<ScalarMemberAst>
+public class MergeScalarMembersTests(
+  ITestOutputHelper outputHelper
+) : TestScalarItems<ScalarMemberAst>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsFalse(string name)
@@ -12,7 +14,7 @@ public class MergeScalarMembersTests
       MakeAst(name) with { Excludes = true },
       MakeAst(name)]);
 
-  private readonly MergeScalarMembers _merger = new();
+  private readonly MergeScalarMembers _merger = new(outputHelper.ToLoggerFactory());
 
   internal override GroupsMerger<ScalarMemberAst> MergerGroups => _merger;
 

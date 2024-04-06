@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Verifier.Merging;
 
-internal abstract class AstScalarItemMerger<TItem>
-  : DistinctMerger<TItem>
+internal abstract class AstScalarItemMerger<TItem>(
+  ILoggerFactory logger
+) : DistinctMerger<TItem>(logger)
   where TItem : AstScalarItem
 {
   protected override string ItemMatchKey(TItem item)

@@ -31,15 +31,15 @@ private void SampleData(string directory) {
 // Generated from <#= relative #>
 
 namespace GqlPlus.Verifier.Verification;
-
-[SuppressMessage("Design", "CA1034:Nested types should not be visible")]
-public partial class Verify<#= directory #>Tests
-{
 <#+  foreach (var file in sampleDir.EnumerateFiles().OrderBy(f => f.Name)) {
       var fileName = Path.ChangeExtension(file.Name, null);
       var testData = TestData(file);
 #>
-  private static readonly Dictionary<string, string> s_<#= directory.ToLower() + fileName #> = new() {
+
+public class Verify<#= directory + fileName #>Data
+  : TheoryData<string>
+{
+  public static readonly Dictionary<string, string> Source = new() {
 <#+    foreach (var test in testData.Keys.OrderBy(k => k)) {
 #>
     ["<#= test #>"] = "<#= testData[test] #>",
@@ -47,20 +47,13 @@ public partial class Verify<#= directory #>Tests
 #>
   };
 
-  public class <#= directory + fileName #> : TheoryData<string>
+  public Verify<#= directory + fileName #>Data()
   {
-    public <#= directory + fileName #>()
-    {
-<#+    foreach (var test in testData.Keys.OrderBy(k => k)) {
-#>
-      Add("<#= test #>");
-<#+    } // foreach test
-#>
+    foreach (var key in Source.Keys) {
+      Add(key);
     }
   }
-<#+  } // foreach file
-#>
 }
-<#+
+<#+  } // foreach file
 }
 #>

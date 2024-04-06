@@ -35,7 +35,7 @@ public class ParseFieldTests(Parser<FieldAst>.D parser)
   [Theory, RepeatData(Repeats)]
   public void WithDirectives_ReturnsCorrectAst(string field, string[] directives)
     => _checks.TrueExpected(
-      field + directives.Joined("@"),
+      field + directives.Joined(s => "@" + s),
       new FieldAst(AstNulls.At, field) { Directives = directives.Directives() });
 
   [Theory, RepeatData(Repeats)]
@@ -51,7 +51,7 @@ public class ParseFieldTests(Parser<FieldAst>.D parser)
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string field, string alias, string argument, string[] directives, string[] selections)
     => _checks.TrueExpected(
-      alias + ":" + field + "($" + argument + ")[]?" + directives.Joined("@") + selections.Bracket("{", "}").Joined(),
+      alias + ":" + field + "($" + argument + ")[]?" + directives.Joined(s => "@" + s) + selections.Bracket("{", "}").Joined(),
       new FieldAst(AstNulls.At, field) {
         Alias = alias,
         Argument = new(AstNulls.At, argument),

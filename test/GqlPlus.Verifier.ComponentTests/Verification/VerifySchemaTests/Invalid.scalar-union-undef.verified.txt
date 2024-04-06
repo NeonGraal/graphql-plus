@@ -1,3 +1,0 @@
-﻿[
-  Invalid Scalar Reference. 'Bad' not defined.
-]

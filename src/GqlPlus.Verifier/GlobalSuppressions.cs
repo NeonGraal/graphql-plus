@@ -10,3 +10,4 @@
 [assembly: SuppressMessage("Performance", "CA1819:Properties should not return arrays")]
 [assembly: SuppressMessage("Performance", "CA1822:Mark members as static")]
 [assembly: SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase")]
+[assembly: SuppressMessage("Naming", "CA1720:Identifier contains type name")]

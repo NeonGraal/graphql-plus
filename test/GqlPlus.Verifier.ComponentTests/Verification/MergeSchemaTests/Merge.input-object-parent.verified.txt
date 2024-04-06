@@ -3,14 +3,13 @@
 Success
 {
   !I I@007/0001
-  InAlts
-  |
-  !AI
+  InPPrnt
+  :
   I@018/0001
-  InAltsType
+  PrntInP
 }
 {
-  !I I@067/0001
-  InAltsType
+  !I I@061/0001
+  PrntInP
 }
 ]

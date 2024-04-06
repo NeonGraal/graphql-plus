@@ -2,18 +2,18 @@
 !G I@001/0001
 Success
 {
-  !I I@007/0001
-  FieldAlias
+  !O I@008/0001
+  OutPFieldAlias
   {
-    !IF I@020/0001
+    !OF I@025/0001
     field
     [
       field1
       field2
     ]
     :
-    I@036/0001
-    FieldAlias
+    I@041/0001
+    OutPFieldAlias
   }
 }
 ]

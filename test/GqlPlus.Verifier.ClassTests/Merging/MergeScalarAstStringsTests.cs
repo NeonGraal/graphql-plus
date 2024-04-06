@@ -1,10 +1,12 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging;
 
-public class MergeScalarAstStringsTests
-  : TestScalarAsts<ScalarRegexAst, string>
+public class MergeScalarAstStringsTests(
+  ITestOutputHelper outputHelper
+) : TestScalarAsts<ScalarRegexAst, string>(outputHelper)
 {
   protected override ScalarRegexAst[] MakeItems(string input)
     => new[] { input }.ScalarRegexes();

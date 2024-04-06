@@ -1,0 +1,38 @@
+﻿[  
+!G I@001/0001
+Success
+{
+  !C P@010/0001
+  cat
+  (Parallel)
+  Cat
+}
+{
+  !D I@012/0001
+  DirParam
+  (
+    !P
+    I@021/0001
+    DirParamIn
+  )
+  (Unique)
+  All
+}
+{
+  !O I@008/0001
+  Schema
+  {
+    !OS I@017/0001
+    setting
+    =( !k I@027/0001 Boolean.true )
+  }
+}
+{
+  !O I@025/0001
+  Cat
+}
+{
+  !I I@047/0001
+  DirParamIn
+}
+]

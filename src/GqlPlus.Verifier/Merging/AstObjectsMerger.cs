@@ -1,27 +1,30 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
 
 internal class AstObjectsMerger<TObject, TField, TRef>(
+  ILoggerFactory logger,
   IMerge<TField> fields,
   IMerge<TypeParameterAst> typeParameters,
   IMerge<AstAlternate<TRef>> alternates
-) : AstTypeMerger<AstType, TObject, TRef, TField>(fields)
+) : AstTypeMerger<AstType, TObject, TRef, TField>(logger, fields)
   where TObject : AstObject<TField, TRef>
   where TField : AstField<TRef>, IAstDescribed
   where TRef : AstReference<TRef>
 {
+  protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(TObject item)
     => item.Parent?.Name ?? "";
 
-  protected override bool CanMergeGroup(IGrouping<string, TObject> group)
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, TObject> group)
   {
     var baseCanMerge = base.CanMergeGroup(group);
     var typeParametersCanMerge = group.ManyCanMerge(item => item.TypeParameters, typeParameters);
     var alternatesCanMerge = group.ManyGroupCanMerge(item => item.Alternates, a => a.Type.FullType, alternates);
 
-    return baseCanMerge && typeParametersCanMerge && alternatesCanMerge;
+    return baseCanMerge.Add(typeParametersCanMerge).Add(alternatesCanMerge);
   }
 
   protected override TObject MergeGroup(IEnumerable<TObject> group)

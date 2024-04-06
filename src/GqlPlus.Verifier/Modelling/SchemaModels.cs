@@ -1,14 +1,94 @@
-﻿using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Rendering;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Modelling;
 
-// Todo: SchemaModel
+public record class SchemaModel(
+  string Name
+) : AliasedModel(Name)
+{
+  public SchemaModel(
+    string name,
+    IEnumerable<CategoryModel> categories,
+    IEnumerable<DirectiveModel> directives,
+    IEnumerable<SettingModel> settings,
+    IEnumerable<BaseTypeModel> types,
+    ITokenMessages errors)
+    : this(name)
+  {
+    Categories = categories.ToMap(c => c.Name);
+    Directives = directives.ToMap(d => d.Name);
+    Types = types.ToMap(t => t.Name);
+    Settings = settings.ToMap(s => s.Name);
+    Errors = errors;
+  }
 
-// Todo: FilterParameter
+  internal IMap<CategoryModel> Categories { get; } = new Map<CategoryModel>();
+  internal IMap<DirectiveModel> Directives { get; } = new Map<DirectiveModel>();
+  internal IMap<BaseTypeModel> Types { get; } = new Map<BaseTypeModel>();
+  internal IMap<SettingModel> Settings { get; init; } = new Map<SettingModel>();
+  public ITokenMessages Errors { get; } = new TokenMessages();
 
-// Todo: CategoryFilterParameter
+  public IMap<CategoriesModel> GetCategories(CategoryFilterParameter? filter)
+    => Categories.ToMap(c => c.Key,
+      c => new CategoriesModel() {
+        Category = c.Value,
+        Type = Types.TryGetValue(c.Key, out var type) ? type : null,
+      });
 
-// Todo: TypeFilterParameter
+  public IMap<DirectivesModel> GetDirectives(FilterParameter? filter)
+    => Directives.ToMap(d => d.Key,
+      d => new DirectivesModel() {
+        Directive = d.Value,
+        Type = Types.TryGetValue(d.Key, out var type) ? type : null,
+      });
+
+  public IMap<BaseTypeModel> GetTypes(TypeFilterParameter? filter) => Types;
+  public IMap<SettingModel> GetSettings(FilterParameter? filter) => Settings;
+
+  internal override RenderStructure Render(IRenderContext context)
+    => base.Render(context)
+      .Add("_errors", new(Errors.Select(RenderError), "_Errors"))
+      .Add("categories", GetCategories(default).Render(context, keyTag: "_Identifier", "_Categories"))
+      .Add("directives", GetDirectives(default).Render(context, keyTag: "_Identifier", "_Directives"))
+      .Add("types", GetTypes(default).Render(context, keyTag: "_Identifier", "_Type"))
+      .Add("settings", GetSettings(default).Render(context, keyTag: "_Identifier", "_Setting"));
+
+  private RenderStructure RenderError(TokenMessage error)
+    => RenderStructure.New("_Error")
+      .Add(error.Kind is TokenKind.Start or TokenKind.End,
+        onFalse: r => r.Add("_at", RenderAt(error)))
+      .Add("_kind", error.Kind)
+      .Add("_message", error.Message);
+
+  private RenderStructure RenderAt(TokenAt at)
+    => RenderStructure.New("_At", true)
+      .Add("_col", at.Column)
+      .Add("_line", at.Line);
+}
+
+public record class FilterParameter(
+  string[] Names
+)
+{
+  public bool IncludeReferencedTypes { get; set; }
+}
+
+public record class CategoryFilterParameter(
+  string[] Names
+) : FilterParameter(Names)
+{
+  public CategoryOption[] Resolutions { get; set; } = [];
+}
+
+public record class TypeFilterParameter(
+  string[] Names
+) : FilterParameter(Names)
+{
+  public TypeKindModel[] Kinds { get; set; } = [];
+}
 
 public record class AliasedModel(
   string Name
@@ -56,4 +136,36 @@ public record class NamedModel(
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
       .Add("name", Name);
+}
+
+internal class SchemaModeller(
+  IModeller<CategoryDeclAst, CategoryModel> category,
+  IModeller<DirectiveDeclAst, DirectiveModel> directive,
+  IModeller<OptionSettingAst, SettingModel> setting,
+  ITypesModeller type
+) : ModellerBase<SchemaAst, SchemaModel>
+{
+  protected override SchemaModel ToModel(SchemaAst ast, IMap<TypeKindModel> typeKinds)
+  {
+    //    type.AddTypeKinds(ast.Declarations.OfType<AstType>(), typeKinds);
+
+
+
+    var options = ast.Declarations.OfType<OptionDeclAst>().ToArray();
+    var name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name ?? "";
+    var aliases = options.SelectMany(a => a.Aliases);
+    IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings, typeKinds));
+
+    return new(name,
+        DeclarationModel(ast, category, typeKinds),
+        DeclarationModel(ast, directive, typeKinds),
+        settings,
+        DeclarationModel(ast, type, typeKinds),
+        ast.Errors
+        ) { Aliases = [.. aliases] };
+  }
+
+  private IEnumerable<TResult> DeclarationModel<TAst, TResult>(SchemaAst ast, IModeller<TAst, TResult> modeller, IMap<TypeKindModel> typeKinds)
+    where TAst : AstBase
+    => ast.Declarations.OfType<TAst>().Select(m => modeller.ToModel(m, typeKinds));
 }

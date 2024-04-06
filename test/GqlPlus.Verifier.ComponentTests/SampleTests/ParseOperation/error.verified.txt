@@ -2,6 +2,6 @@
 query
 Failure
 <
-  !!! E@001/0002 : Invalid Operation. Expected at least one field or selection. - '<END>' !!!
-  !!! E@001/0002 : Invalid Operation. Expected Object or Type. - '<END>' !!!
+  !!! END : Invalid Operation. Expected at least one field or selection. - '<END>' !!!
+  !!! END : Invalid Operation. Expected Object or Type. - '<END>' !!!
 >

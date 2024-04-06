@@ -91,28 +91,28 @@ internal sealed class BaseObjectChecks<O, F, R>
     => _factories = factories;
 
   public void WithNameBad(decimal id, string[] others)
-      => False($"{id}{{" + others.Joined("|") + "}");
+      => False($"{id}{{" + others.Joined(s => "|" + s) + "}");
 
   public void WithAlternates(string name, string[] others)
     => TrueExpected(
-      name + "{" + others.Joined("|") + "}",
+      name + "{" + others.Joined(s => "|" + s) + "}",
        Object(name) with {
          Alternates = [.. others.Select(Alternate)],
        });
 
   public void WithFieldsAndAlternates(string name, FieldInput[] fields, string[] others)
     => TrueExpected(
-      name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + others.Joined("|") + "}",
+      name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + others.Joined(s => "|" + s) + "}",
        Object(name) with {
          Fields = [.. fields.Select(f => Field(f.Name, f.Type))],
          Alternates = [.. others.Select(Alternate)],
        });
 
   public void WithFieldsBadAndAlternates(string name, FieldInput[] fields, string[] others)
-    => False(name + "{" + fields.Select(f => f.Name + " " + f.Type).Joined() + others.Joined("|") + "}");
+    => False(name + "{" + fields.Select(f => f.Name + " " + f.Type).Joined() + others.Joined(s => "|" + s) + "}");
 
   public void WithFieldsAndAlternatesBad(string name, FieldInput[] fields, string[] others)
-    => False(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "||" + others.Joined("|") + "}");
+    => False(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "||" + others.Joined(s => "|" + s) + "}");
 
   public void WithAlternateComments(string name, AlternateComment[] others)
     => TrueExpected(
@@ -133,7 +133,7 @@ internal sealed class BaseObjectChecks<O, F, R>
 
   public void WithTypeParameters(string name, string other, string[] parameters)
     => TrueExpected(
-      name + "<" + parameters.Joined("$") + ">{|" + other + "}",
+      name + "<" + parameters.Joined(s => "$" + s) + ">{|" + other + "}",
        Object(name) with {
          Alternates = [Alternate(other)],
          TypeParameters = parameters.TypeParameters(),
@@ -143,7 +143,7 @@ internal sealed class BaseObjectChecks<O, F, R>
     => False(name + "<$>{|" + other);
 
   public void WithTypeParametersBad(string name, string other, string[] parameters)
-    => False(name + "<" + parameters.Joined("$") + "{|" + other);
+    => False(name + "<" + parameters.Joined(s => "$" + s) + "{|" + other);
 
   public void WithTypeParametersNone(string name, string other)
     => False(name + "<>{|" + other);

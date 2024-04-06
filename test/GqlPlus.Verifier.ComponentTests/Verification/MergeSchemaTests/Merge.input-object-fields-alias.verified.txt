@@ -1,0 +1,19 @@
+﻿[  
+!G I@001/0001
+Success
+{
+  !I I@007/0001
+  InPFieldAlias
+  {
+    !IF I@023/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@039/0001
+    InPFieldAlias
+  }
+}
+]

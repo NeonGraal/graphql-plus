@@ -1,19 +1,23 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
 
 internal abstract class AstTypeMerger<TBase, TType, TParent, TItem>(
+  ILoggerFactory logger,
   IMerge<TItem> mergeItems
-) : AstAliasedAllMerger<TBase, TType>
-  where TBase : AstAliased
+) : AstAliasedAllMerger<TBase, TType>(logger)
+  where TBase : AstType
   where TType : AstType<TParent>, TBase
   where TParent : IEquatable<TParent>
+  where TItem : AstBase
 {
   internal abstract IEnumerable<TItem> GetItems(TType type);
 
-  protected override bool CanMergeGroup(IGrouping<string, TType> group)
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, TType> group)
     => base.CanMergeGroup(group)
-    && group.ManyCanMerge(GetItems, mergeItems);
+    .Add(group.ManyCanMerge(GetItems, mergeItems));
 
   internal abstract TType SetItems(TType input, IEnumerable<TItem> items);
 

@@ -1,12 +1,14 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 
 namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestTyped<TBase, TType, TParent, TItem>
   : TestAliased<TType>
-  where TBase : AstAliased
+  where TBase : AstType
   where TType : AstType<TParent>, TBase
   where TParent : IEquatable<TParent>
+  where TItem : AstBase
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameParent_ReturnsTrue(string name, string type)

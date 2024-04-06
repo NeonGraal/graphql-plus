@@ -4,9 +4,14 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeAllScalars(
+  ILoggerFactory logger,
   IEnumerable<IMergeAll<AstScalar>> scalars
-) : AllMerger<AstScalar>(scalars), IMergeAll<AstType>
+) : AllMerger<AstScalar>(logger, scalars)
+  , IMergeAll<AstType>
 {
+  protected override string ItemMatchName => "Domain";
+  protected override string ItemMatchKey(AstScalar item) => item.Domain.ToString();
+
   ITokenMessages IMerge<AstType>.CanMerge(IEnumerable<AstType> items)
   {
     var scalars = items.OfType<AstScalar>();

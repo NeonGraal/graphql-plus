@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Merging;
 
 public abstract class TestTyped<TBase, TType, TParent, TItem>
   : TestAliased<TType>
-  where TBase : AstAliased
+  where TBase : AstType
   where TType : AstType<TParent>, TBase
   where TParent : IEquatable<TParent>
   where TItem : AstBase

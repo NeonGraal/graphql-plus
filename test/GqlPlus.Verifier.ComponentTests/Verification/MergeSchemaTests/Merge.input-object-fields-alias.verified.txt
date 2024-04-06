@@ -3,17 +3,17 @@
 Success
 {
   !I I@007/0001
-  FieldAlias
+  InPFieldAlias
   {
-    !IF I@020/0001
+    !IF I@023/0001
     field
     [
       field1
       field2
     ]
     :
-    I@036/0001
-    FieldAlias
+    I@039/0001
+    InPFieldAlias
   }
 }
 ]

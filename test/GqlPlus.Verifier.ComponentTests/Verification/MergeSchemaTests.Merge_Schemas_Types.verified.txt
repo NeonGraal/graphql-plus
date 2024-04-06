@@ -49,12 +49,28 @@ Success
   ]
 }
 {
+  !S I@008/0001
+  ScalEnumAll
+  Enum
+  !SM I@027/0001
+  EnumScalAll
+  *
+}
+{
   !E I@048/0001
   EnumScalAll
   !EM I@062/0001
   scal_all
   !EM I@071/0001
   scal_enum_all
+}
+{
+  !S I@008/0001
+  ScalEnumAllParent
+  Enum
+  !SM I@033/0001
+  EnumScalAllParent
+  *
 }
 {
   !E I@060/0001
@@ -70,10 +86,32 @@ Success
   scal_enum_all
 }
 {
+  !S I@008/0001
+  ScalMember
+  Enum
+  !SM I@026/0001
+  scal_member
+}
+{
   !E I@045/0001
   MemberScal
   !EM I@058/0001
   scal_member
+}
+{
+  !S I@008/0001
+  ScalEnumPrnt
+  Enum
+  :ScalPrntEnum
+  !SM I@042/0001
+  scal_enum
+}
+{
+  !S I@061/0001
+  ScalPrntEnum
+  Enum
+  !SM I@081/0001
+  scal_parent
 }
 {
   !E I@100/0001
@@ -82,6 +120,19 @@ Success
   scal_enum
   !EM I@125/0001
   scal_parent
+}
+{
+  !S I@008/0001
+  ScalEnumUnique
+  Enum
+  !SM I@030/0001
+  EnumScalUnique
+  *
+  !SM P@047/0001
+  !
+  !
+  EnumScalUnique
+  dup
 }
 {
   !E I@090/0001
@@ -95,6 +146,19 @@ Success
   !E I@124/0001
   EnumScalDup
   !EM I@138/0001
+  dup
+}
+{
+  !S I@008/0001
+  ScalEnumUniqueParent
+  Enum
+  !SM I@036/0001
+  EnumScalUniqueParent
+  *
+  !SM P@059/0001
+  !
+  !
+  EnumScalUniqueParent
   dup
 }
 {
@@ -117,9 +181,25 @@ Success
   dup
 }
 {
+  !S I@008/0001
+  ScalEnum
+  Enum
+  !SM I@024/0001
+  EnumScal
+  scal_enum
+}
+{
   !E I@050/0001
   EnumScal
   !EM I@061/0001
+  scal_enum
+}
+{
+  !S I@008/0001
+  ScalEnumParent
+  Enum
+  !SM I@030/0001
+  EnumScalParent
   scal_enum
 }
 {
@@ -133,97 +213,6 @@ Success
   !E I@114/0001
   EnumParentScal
   !EM I@131/0001
-  scal_enum
-}
-{
-  !S I@008/0001
-  ScalPrntTest
-  Boolean
-  :ScalTestPrnt
-}
-{
-  !S I@054/0001
-  ScalTestPrnt
-  Boolean
-}
-{
-  !S I@008/0001
-  ScalEnumAll
-  Enum
-  !SM I@027/0001
-  EnumScalAll
-  *
-}
-{
-  !S I@008/0001
-  ScalEnumAllParent
-  Enum
-  !SM I@033/0001
-  EnumScalAllParent
-  *
-}
-{
-  !S I@008/0001
-  ScalMember
-  Enum
-  !SM I@026/0001
-  scal_member
-}
-{
-  !S I@008/0001
-  ScalEnumPrnt
-  Enum
-  :ScalPrntEnum
-  !SM I@042/0001
-  scal_enum
-}
-{
-  !S I@061/0001
-  ScalPrntEnum
-  Enum
-  !SM I@081/0001
-  scal_parent
-}
-{
-  !S I@008/0001
-  ScalEnumUnique
-  Enum
-  !SM I@030/0001
-  EnumScalUnique
-  *
-  !SM P@047/0001
-  !
-  !
-  EnumScalUnique
-  dup
-}
-{
-  !S I@008/0001
-  ScalEnumUniqueParent
-  Enum
-  !SM I@036/0001
-  EnumScalUniqueParent
-  *
-  !SM P@059/0001
-  !
-  !
-  EnumScalUniqueParent
-  dup
-}
-{
-  !S I@008/0001
-  ScalEnum
-  Enum
-  !SM I@024/0001
-  EnumScal
-  scal_enum
-}
-{
-  !S I@008/0001
-  ScalEnumParent
-  Enum
-  !SM I@030/0001
-  EnumScalParent
   scal_enum
 }
 {
@@ -242,6 +231,17 @@ Number
 !SR P@074/0001
 <
   2
+}
+{
+  !S I@008/0001
+  ScalPrntTest
+  Boolean
+  :ScalTestPrnt
+}
+{
+  !S I@054/0001
+  ScalTestPrnt
+  Boolean
 }
 {
   !S I@008/0001

@@ -183,7 +183,7 @@ public class VerifySchemaValidMergesData
     ["object-alias"] = "object ObjAlias [Obj1] { } object ObjAlias [Obj2] { }",
     ["object-alts"] = "object ObjAlts { | ObjAltsType } object ObjAlts { | ObjAltsType } object ObjAltsType { }",
     ["object-fields"] = "object ObjFields { field: ObjFields } object ObjFields { field: ObjFields }",
-    ["object-fields-alias"] = "object FieldAlias { field [field1]: FieldAlias } object FieldAlias { field [field2]: FieldAlias }",
+    ["object-fields-alias"] = "object ObjFieldAlias { field [field1]: ObjFieldAlias } object ObjFieldAlias { field [field2]: ObjFieldAlias }",
     ["object-params"] = "object ObjParams<$test> { test: $test } object ObjParams<$type> { type: $type }",
     ["object-parent"] = "object ObjPrnt { :PrntObj } object ObjPrnt { :PrntObj } object PrntObj { }",
     ["option"] = "option Option { } option Option { }",

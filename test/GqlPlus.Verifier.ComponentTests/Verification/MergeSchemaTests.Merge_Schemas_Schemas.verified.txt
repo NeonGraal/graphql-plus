@@ -28,11 +28,11 @@ Success
   }
 }
 {
-  !I I@047/0001
-  DirParamIn
-}
-{
   !O I@025/0001
   Cat
+}
+{
+  !I I@047/0001
+  DirParamIn
 }
 ]

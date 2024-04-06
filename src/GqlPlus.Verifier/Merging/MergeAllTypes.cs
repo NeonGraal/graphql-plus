@@ -4,9 +4,13 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Merging;
 
 internal class MergeAllTypes(
+  ILoggerFactory logger,
   IEnumerable<IMergeAll<AstType>> types
-) : AllMerger<AstType>(types)
+) : AllMerger<AstType>(logger, types)
 {
+  protected override string ItemMatchName => "Type";
+  protected override string ItemMatchKey(AstType item) => item.Label;
+
   public override ITokenMessages CanMerge(IEnumerable<AstType> items)
   {
     FixupEnums(items);

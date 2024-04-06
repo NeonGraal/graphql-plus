@@ -8,7 +8,7 @@ internal abstract class AstTypeMerger<TBase, TType, TParent, TItem>(
   ILoggerFactory logger,
   IMerge<TItem> mergeItems
 ) : AstAliasedAllMerger<TBase, TType>(logger)
-  where TBase : AstAliased
+  where TBase : AstType
   where TType : AstType<TParent>, TBase
   where TParent : IEquatable<TParent>
   where TItem : AstBase

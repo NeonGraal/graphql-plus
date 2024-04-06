@@ -7,7 +7,7 @@ internal abstract class AstAliasedAllMerger<TBase, TAlias>(
   ILoggerFactory logger
 ) : AstAliasedMerger<TAlias>(logger), IMergeAll<TBase>
   where TAlias : TBase
-  where TBase : AstAliased
+  where TBase : AstType
 {
   ITokenMessages IMerge<TBase>.CanMerge(IEnumerable<TBase> items)
   {

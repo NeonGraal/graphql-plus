@@ -177,6 +177,7 @@ dotnet_diagnostic.CA1725.severity = warning
 dotnet_diagnostic.CA1727.severity = warning
 dotnet_diagnostic.CA1805.severity = warning
 dotnet_diagnostic.CA1852.severity = warning
+dotnet_style_prefer_collection_expression = when_types_loosely_match:suggestion
 
 # CSharp code style settings:
 [*.cs]
@@ -200,13 +201,13 @@ csharp_indent_labels = flush_left
 # Whitespace options
 csharp_style_allow_embedded_statements_on_same_line_experimental = false:suggestion
 csharp_style_allow_blank_lines_between_consecutive_braces_experimental = false:suggestion
-csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = true:suggestion
+csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = false:suggestion
 csharp_style_allow_blank_line_after_token_in_conditional_expression_experimental = false:silent
 csharp_style_allow_blank_line_after_token_in_arrow_expression_clause_experimental = false:silent
 
 # Prefer "var" everywhere
-csharp_style_var_for_built_in_types = true:suggestion
-csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_for_built_in_types = false:suggestion
+csharp_style_var_when_type_is_apparent = false:suggestion
 csharp_style_var_elsewhere = false:suggestion
 
 # Prefer method-like constructs to have a block body

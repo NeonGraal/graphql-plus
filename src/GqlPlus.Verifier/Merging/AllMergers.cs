@@ -54,7 +54,7 @@ public static class AllMergers
 
   public static IServiceCollection AddMergeAll<TValue, TBase, TService>(this IServiceCollection services)
     where TValue : AstBase
-    where TBase : AstBase
+    where TBase : AstType
     where TService : class, IMergeAll<TBase>, IMerge<TValue>
     => services
       .RemoveAll<IMerge<TValue>>()

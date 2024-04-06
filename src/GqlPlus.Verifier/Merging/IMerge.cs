@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
@@ -12,5 +13,5 @@ public interface IMerge<TItem>
 
 public interface IMergeAll<TItem>
   : IMerge<TItem>
-  where TItem : AstBase
+  where TItem : AstType
 { }

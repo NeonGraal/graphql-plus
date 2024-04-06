@@ -36,6 +36,19 @@ public class MergeSchemaTests(
     result.Should().BeEmpty();
   }
 
+  [Theory]
+  [ClassData(typeof(VerifySchemaValidMergesData))]
+  public void CanMerge_Valid(string merge)
+  {
+    var input = VerifySchemaValidMergesData.Source[merge];
+    var schemas = ReplaceObjects([input])
+      .Select(input => Parse(input).Required());
+
+    var result = merger.CanMerge(schemas);
+
+    result.Should().BeEmpty();
+  }
+
   [Fact]
   public async Task Merge_AllSchemas()
   {
@@ -73,7 +86,7 @@ public class MergeSchemaTests(
   public async Task Merge_Valid(string merge)
   {
     var input = VerifySchemaValidMergesData.Source[merge];
-    if (input.StartsWith("object", StringComparison.Ordinal)) {
+    if (input.Contains("object", StringComparison.Ordinal)) {
       await WhenAll(s_replacements
         .Select(r => Verify_Merge(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + merge))
         .ToArray());
@@ -85,16 +98,10 @@ public class MergeSchemaTests(
   private readonly Parser<SchemaAst>.L _parser = parser;
 
   private static IEnumerable<string> ValidObjects
-    => VerifySchemaValidObjectsData.Source.Values
-      .SelectMany(input => input.Contains("object ", StringComparison.Ordinal)
-        ? s_replacements.Select(r => ReplaceObject(input, r.Item1, r.Item2))
-        : [input]);
+    => ReplaceObjects(VerifySchemaValidObjectsData.Source.Values);
 
   private static IEnumerable<string> ValidMerges
-    => VerifySchemaValidMergesData.Source.Values
-      .SelectMany(input => input.Contains("object ", StringComparison.Ordinal)
-        ? s_replacements.Select(r => ReplaceObject(input, r.Item1, r.Item2))
-        : [input]);
+    => ReplaceObjects(VerifySchemaValidMergesData.Source.Values);
 
   public class SchemaValidData
     : TheoryData<string>
@@ -120,6 +127,11 @@ public class MergeSchemaTests(
   }
 
   private static readonly (string, string)[] s_replacements = [("dual", "Dual"), ("input", "InP"), ("output", "OutP")];
+
+  private static IEnumerable<string> ReplaceObjects(IEnumerable<string> inputs)
+    => inputs.SelectMany(input => input.Contains("object ", StringComparison.Ordinal)
+        ? s_replacements.Select(r => ReplaceObject(input, r.Item1, r.Item2))
+        : [input]);
 
   private static string ReplaceObject(string input, string objectReplace, string objReplace)
     => input

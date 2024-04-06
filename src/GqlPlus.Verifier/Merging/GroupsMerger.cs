@@ -9,9 +9,8 @@ internal abstract class GroupsMerger<TItem>
   where TItem : AstBase
 {
   protected abstract string ItemGroupKey(TItem item);
-  protected abstract TItem MergeGroup(IEnumerable<TItem> group);
-
   protected abstract ITokenMessages CanMergeGroup(IGrouping<string, TItem> group);
+  protected abstract TItem MergeGroup(IEnumerable<TItem> group);
 
   public override ITokenMessages CanMerge(IEnumerable<TItem> items)
     => base.CanMerge(items).Add(items.GroupBy(ItemGroupKey).SelectMany(CanMergeGroup));

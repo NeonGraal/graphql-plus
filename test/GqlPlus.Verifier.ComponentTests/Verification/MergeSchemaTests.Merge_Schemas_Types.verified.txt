@@ -122,62 +122,36 @@ Success
   scal_parent
 }
 {
-  !S I@008/0001
-  ScalEnumUnique
-  Enum
-  !SM I@030/0001
+  !E I@006/0001
   EnumScalUnique
-  *
-  !SM P@047/0001
-  !
-  !
-  EnumScalUnique
-  dup
-}
-{
-  !E I@090/0001
-  EnumScalUnique
-  !EM I@107/0001
+  !EM I@023/0001
   value
-  !EM I@113/0001
+  !EM I@029/0001
   dup
 }
 {
-  !E I@124/0001
+  !E I@040/0001
   EnumScalDup
-  !EM I@138/0001
+  !EM I@054/0001
   dup
 }
 {
-  !S I@008/0001
-  ScalEnumUniqueParent
-  Enum
-  !SM I@036/0001
-  EnumScalUniqueParent
-  *
-  !SM P@059/0001
-  !
-  !
-  EnumScalUniqueParent
-  dup
-}
-{
-  !E I@114/0001
+  !E I@006/0001
   EnumScalUniqueParent
   :EnumScalParentUnique
-  !EM I@159/0001
+  !EM I@051/0001
   value
 }
 {
-  !E I@172/0001
+  !E I@064/0001
   EnumScalParentUnique
-  !EM I@195/0001
+  !EM I@087/0001
   dup
 }
 {
-  !E I@206/0001
+  !E I@098/0001
   EnumScalDupParent
-  !EM I@226/0001
+  !EM I@118/0001
   dup
 }
 {

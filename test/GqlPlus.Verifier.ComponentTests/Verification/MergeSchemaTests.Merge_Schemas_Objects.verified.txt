@@ -114,7 +114,7 @@ Success
 }
 {
   !D I@006/0001
-  DualFields
+  FieldsDual
   {
     !DF I@019/0001
     field
@@ -129,7 +129,7 @@ Success
 }
 {
   !I I@007/0001
-  InPFields
+  FieldsInP
   {
     !IF I@019/0001
     field
@@ -144,7 +144,7 @@ Success
 }
 {
   !O I@008/0001
-  OutPFields
+  FieldsOutP
   {
     !OF I@021/0001
     field

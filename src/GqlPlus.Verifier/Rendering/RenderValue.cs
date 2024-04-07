@@ -2,7 +2,7 @@
 
 [SuppressMessage("Design", "CA1036:Override methods on comparable types")]
 public sealed record class RenderValue
-  : IComparable<RenderValue>, IEquatable<RenderValue>
+  : IComparable<RenderValue> //, IEquatable<RenderValue>
 {
   public bool IsEmpty
     => string.IsNullOrEmpty(Identifier)
@@ -31,20 +31,12 @@ public sealed record class RenderValue
 
   public int CompareTo(RenderValue? other)
     => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
-    ? BothValued(other?.Boolean, Boolean) ? Boolean.Value.CompareTo(other.Boolean)
+      ? BothValued(other?.Boolean, Boolean) ? Boolean.Value.CompareTo(other.Boolean)
       : BothValued(other?.Number, Number) ? Number.Value.CompareTo(other.Number)
       : BothValued(other?.Identifier, Identifier) ? string.Compare(Identifier, other.Identifier, StringComparison.Ordinal)
       : BothValued(other?.Text, Text) ? string.Compare(Text, other.Text, StringComparison.Ordinal)
       : -1
     : -1;
-  public bool Equals(RenderValue? other)
-    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
-    && (BothValued(other?.Boolean, Boolean) ? Boolean.Value == other.Boolean
-      : BothValued(other?.Number, Number) ? Number.Value == other.Number
-      : BothValued(other?.Identifier, Identifier) ? string.Equals(Identifier, other.Identifier, StringComparison.Ordinal)
-      : BothValued(other?.Text, Text) && string.Equals(Text, other.Text, StringComparison.Ordinal));
-  public override int GetHashCode()
-    => HashCode.Combine(Tag, Boolean, Number, Identifier, Text);
 
   private static bool BothValued<T>([NotNullWhen(true)] T? left, [NotNullWhen(true)] T? right)
     => left is not null && right is not null;

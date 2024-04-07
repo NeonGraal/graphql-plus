@@ -94,36 +94,50 @@ public class Tokenizer
     return true;
   }
 
+  private bool SkipComment(ref ReadOnlySpan<char> span, ref char code)
+  {
+    if (code == '#') {
+      while (_pos < _len && span[_pos] is not '\r' and not '\n') {
+        ++_pos;
+      }
+
+      if (_pos >= _len) {
+        return true;
+      }
+
+      code = span[_pos];
+    }
+
+    return false;
+  }
+
+  private void SkipCarriageReturn(ref ReadOnlySpan<char> span, ref char code)
+  {
+    if (code == '\r') {
+      if (_pos + 1 < _len && span[_pos + 1] == '\n') {
+        code = span[++_pos];
+      } else {
+        _lineStart = _pos;
+        _line++;
+      }
+    }
+  }
+
+  private bool IgnoredCharacter(char code)
+    => code <= ' ' || code > '~' || IgnoreSeparators && code == ',';
+
   private void SkipWhitespace()
   {
     var span = _operation.Span;
     while (_pos < _len) {
       var code = span[_pos];
 
-      if (code == '#') {
-        while (_pos < _len && span[_pos] is not '\r' and not '\n') {
-          ++_pos;
-        }
-
-        if (_pos >= _len) {
-          return;
-        }
-
-        code = span[_pos];
+      if (SkipComment(ref span, ref code)) {
+        return;
       }
 
-      if (code <= ' ' || code > '~'
-        || IgnoreSeparators && code == ','
-      ) {
-        if (code == '\r') {
-          if (_pos + 1 < _len && span[_pos + 1] == '\n') {
-            code = span[++_pos];
-          } else {
-            _lineStart = _pos;
-            _line++;
-          }
-        }
-
+      SkipCarriageReturn(ref span, ref code);
+      if (IgnoredCharacter(code)) {
         if (code == '\n') {
           _lineStart = _pos;
           _line++;

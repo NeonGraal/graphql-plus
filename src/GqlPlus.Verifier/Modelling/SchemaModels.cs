@@ -157,6 +157,7 @@ internal class SchemaModeller(
       errors.Clear();
       errors.Add(ast.Errors);
     }
+
     type.AddTypeKinds(types, typeKinds);
 
     var options = ast.Declarations.OfType<OptionDeclAst>().ToArray();

@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Token;
 using NSubstitute;
 using Xunit.Abstractions;
 

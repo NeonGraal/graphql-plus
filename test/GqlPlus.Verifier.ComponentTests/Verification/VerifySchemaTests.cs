@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;

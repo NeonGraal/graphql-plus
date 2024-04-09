@@ -1,0 +1,93 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _Directive: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier List]
+      name: parameters
+      object: _Directive
+      type: !_OutputBase _Parameter
+    - !_ObjectFor(_OutputField)
+      name: repeatable
+      object: _Directive
+      type: !_OutputBase Boolean
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierDictionary {by: _Location, kind: Dict}]
+      name: locations
+      object: _Directive
+      type: !_OutputBase _
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier List]
+      name: parameters
+      type: !_OutputBase _Parameter
+    - !_OutputField
+      name: repeatable
+      type: !_OutputBase Boolean
+    - !_OutputField
+      modifiers: [!_ModifierDictionary {by: _Location, kind: Dict}]
+      name: locations
+      type: !_OutputBase _
+    kind: !_TypeKind Output
+    name: _Directive
+    parent: !_OutputBase _Aliased
+  !_Identifier _Directives: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Directives
+      type: !_OutputBase _Directive
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Directives
+      type: !_OutputBase _Type
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: directive
+      object: _Directives
+      type: !_OutputBase _Directive
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _Directives
+      type: !_OutputBase _Type
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _Directive
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _Type
+    fields:
+    - !_OutputField
+      name: directive
+      type: !_OutputBase _Directive
+    - !_OutputField
+      name: type
+      type: !_OutputBase _Type
+    kind: !_TypeKind Output
+    name: _Directives
+  !_Identifier _Location: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: _Location
+      name: Operation
+    - !_EnumMember
+      enum: _Location
+      name: Variable
+    - !_EnumMember
+      enum: _Location
+      name: Field
+    - !_EnumMember
+      enum: _Location
+      name: Inline
+    - !_EnumMember
+      enum: _Location
+      name: Spread
+    - !_EnumMember
+      enum: _Location
+      name: Fragment
+    items:
+    - !_Aliased Operation
+    - !_Aliased Variable
+    - !_Aliased Field
+    - !_Aliased Inline
+    - !_Aliased Spread
+    - !_Aliased Fragment
+    kind: !_TypeKind Enum
+    name: _Location

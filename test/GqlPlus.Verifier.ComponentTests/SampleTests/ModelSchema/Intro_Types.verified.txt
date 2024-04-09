@@ -1,0 +1,265 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _BaseType: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: kind
+      object: _BaseType
+      type: kind
+    fields:
+    - !_OutputField
+      name: kind
+      type: kind
+    kind: !_TypeKind Output
+    name: _BaseType
+    parent: !_OutputBase _Aliased
+  !_Identifier _ChildType: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: _ChildType
+      type: parent
+    fields:
+    - !_OutputField
+      name: parent
+      type: parent
+    kind: !_TypeKind Output
+    name: _ChildType
+    parent: !_OutputBase
+      arguments:
+      - kind
+      output: _BaseType
+  !_Identifier _ParentType: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier List]
+      name: items
+      object: _ParentType
+      type: item
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier List]
+      name: allItems
+      object: _ParentType
+      type: allItem
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier List]
+      name: items
+      type: item
+    - !_OutputField
+      modifiers: [!_Modifier List]
+      name: allItems
+      type: allItem
+    kind: !_TypeKind Output
+    name: _ParentType
+    parent: !_OutputBase
+      arguments:
+      - kind
+      - !_OutputBase Identifier
+      output: _ChildType
+  !_Identifier _SimpleKind: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: _SimpleKind
+      name: Basic
+    - !_EnumMember
+      enum: _SimpleKind
+      name: Enum
+    - !_EnumMember
+      enum: _SimpleKind
+      name: Internal
+    - !_EnumMember
+      enum: _SimpleKind
+      name: Scalar
+    - !_EnumMember
+      enum: _SimpleKind
+      name: Union
+    items:
+    - !_Aliased Basic
+    - !_Aliased Enum
+    - !_Aliased Internal
+    - !_Aliased Scalar
+    - !_Aliased Union
+    kind: !_TypeKind Enum
+    name: _SimpleKind
+  !_Identifier _Type: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Type
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Basic
+        output: _BaseType
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Type
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Internal
+        output: _BaseType
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Type
+      type: !_OutputBase _TypeDual
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Type
+      type: !_OutputBase _TypeEnum
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Type
+      type: !_OutputBase _TypeInput
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Type
+      type: !_OutputBase _TypeOutput
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Type
+      type: !_OutputBase _TypeScalar
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Type
+      type: !_OutputBase _TypeUnion
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Basic
+        output: _BaseType
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Internal
+        output: _BaseType
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _TypeDual
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _TypeEnum
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _TypeInput
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _TypeOutput
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _TypeScalar
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _TypeUnion
+    kind: !_TypeKind Output
+    name: _Type
+  !_Identifier _TypeKind: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: _TypeKind
+      name: Dual
+    - !_EnumMember
+      enum: _TypeKind
+      name: Input
+    - !_EnumMember
+      enum: _TypeKind
+      name: Output
+    items:
+    - !_Aliased Dual
+    - !_Aliased Input
+    - !_Aliased Output
+    kind: !_TypeKind Enum
+    name: _TypeKind
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Enum
+      name: _SimpleKind
+  !_Identifier _TypeRef: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: kind
+      object: _TypeRef
+      type: kind
+    - !_ObjectFor(_OutputField)
+      name: name
+      object: _TypeRef
+      type: !_OutputBase Identifier
+    fields:
+    - !_OutputField
+      name: kind
+      type: kind
+    - !_OutputField
+      name: name
+      type: !_OutputBase Identifier
+    kind: !_TypeKind Output
+    name: _TypeRef
+  !_Identifier _TypeSimple: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _TypeSimple
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Basic
+        output: _TypeRef
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _TypeSimple
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Enum
+        output: _TypeRef
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _TypeSimple
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Scalar
+        output: _TypeRef
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _TypeSimple
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Union
+        output: _TypeRef
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Basic
+        output: _TypeRef
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Enum
+        output: _TypeRef
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Scalar
+        output: _TypeRef
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _TypeKind
+          value: Union
+        output: _TypeRef
+    kind: !_TypeKind Output
+    name: _TypeSimple

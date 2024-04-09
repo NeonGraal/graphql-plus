@@ -1,0 +1,21 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpParams: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: test
+      object: OutpParams
+      type: test
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: OutpParams
+      type: type
+    fields:
+    - !_OutputField
+      name: test
+      type: test
+    - !_OutputField
+      name: type
+      type: type
+    kind: !_TypeKind Output
+    name: OutpParams

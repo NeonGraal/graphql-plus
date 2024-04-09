@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 using GqlPlus.Verifier.Token;
 
@@ -190,38 +189,47 @@ internal class TypesCollection(
     }
   }
 
-  internal void AddTypes(IEnumerable<AstType> toAdd)
-  {
-    var asts = toAdd.ToArray();
+  //internal void AddTypes(IEnumerable<AstType> toAdd)
+  //{
+  //  var asts = toAdd.ToArray();
 
-    foreach (var ast in asts) {
-      if (Types.TryGetValue(ast.Name, out var existing) && existing.Name == ast.Name) {
-        continue;
-      }
+  //  AddTypeAndAliasKinds(types, asts);
 
-      var kind = types.GetTypeKind(ast);
-      this[ast.Name] = kind;
+  //  foreach (var ast in asts) {
+  //    if (Types.TryGetValue(ast.Name, out var existing) && existing.Name == ast.Name) {
+  //      Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"Type {ast.Name} allready exists in collection"));
+  //      continue;
+  //    }
 
-      foreach (var alias in ast.Aliases) {
-        TryAdd(alias, kind);
-      }
-    }
+  //    var model = types.TryModel(ast, this);
+  //    if (model is not null) {
+  //      Types[model.Name] = model;
+  //      foreach (var alias in ast.Aliases) {
+  //        Types.TryAdd(alias, model);
+  //      }
+  //    }
+  //  }
+  //}
 
-    foreach (var ast in asts) {
-      if (Types.TryGetValue(ast.Name, out var existing) && existing.Name == ast.Name) {
-        Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"Type {ast.Name} allready exists in collection"));
-        continue;
-      }
+  //private void AddTypeAndAliasKinds(ITypesModeller types, AstType[] asts)
+  //{
+  //  foreach (var ast in asts) {
+  //    var kind = types.GetTypeKind(ast);
+  //    if (Types.TryGetValue(ast.Name, out var existing) && existing.Name == ast.Name) {
+  //      if (existing.Kind != kind) {
+  //        Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"Type {ast.Name}({kind} already exists with different kind ({existing.Kind}) in collection"));
+  //      }
 
-      var model = types.TryModel(ast, this);
-      if (model is not null) {
-        Types[model.Name] = model;
-        foreach (var alias in ast.Aliases) {
-          Types.TryAdd(alias, model);
-        }
-      }
-    }
-  }
+  //      continue;
+  //    }
+
+  //    this[ast.Name] = kind;
+
+  //    foreach (var alias in ast.Aliases) {
+  //      TryAdd(alias, kind);
+  //    }
+  //  }
+  //}
 
   public bool TryGetType<TModel>(string? name, [NotNullWhen(true)] out TModel? model)
     where TModel : BaseTypeModel

@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace GqlPlus.Verifier.Ast.Schema;
+﻿namespace GqlPlus.Verifier.Ast.Schema;
 
 public class SchemaAstTests : AstAbbreviatedTests
 {

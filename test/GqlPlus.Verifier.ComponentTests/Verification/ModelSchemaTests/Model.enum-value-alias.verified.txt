@@ -1,0 +1,14 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnValAlias: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      aliases: [val1, val2]
+      enum: EnValAlias
+      name: value
+    items:
+    - !_Aliased
+      aliases: [val1, val2]
+      name: value
+    kind: !_TypeKind Enum
+    name: EnValAlias

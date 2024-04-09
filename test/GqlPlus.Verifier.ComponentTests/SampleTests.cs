@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Operation;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Modelling;
 using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
 using GqlPlus.Verifier.Result;
@@ -11,7 +12,9 @@ namespace GqlPlus.Verifier;
 public class SampleTests(
     Parser<OperationAst>.D operation,
     Parser<SchemaAst>.D schemaParser,
-    IVerify<SchemaAst> schemaVerifier)
+    IVerify<SchemaAst> schemaVerifier,
+    IModeller<SchemaAst, SchemaModel> schemaModeller,
+    ITypesModeller types)
 {
   private readonly Parser<OperationAst>.L _operation = operation;
   private readonly Parser<SchemaAst>.L _schemaParser = schemaParser;
@@ -31,6 +34,26 @@ public class SampleTests(
     settings.UseFileName(sample);
 
     await Verify(ast.Render(), settings);
+  }
+
+  [Theory]
+  [ClassData(typeof(SampleSchemaData))]
+  public async Task ModelSampleSchema(string sample)
+  {
+    var schema = await File.ReadAllTextAsync("Sample/Schema/" + sample + ".graphql+");
+    Tokenizer tokens = new(schema);
+    var ast = _schemaParser.Parse(tokens, "Schema").Required();
+
+    var context = TypesCollection.WithBuiltins(types);
+
+    var model = schemaModeller.ToModel(ast, context);
+
+    var settings = new VerifySettings();
+    settings.ScrubEmptyLines();
+    settings.UseDirectory(nameof(SampleTests) + "/ModelSchema");
+    settings.UseFileName(sample);
+
+    await Verify(model.Render(context).ToYaml(), settings);
   }
 
   [Theory]

@@ -1,0 +1,58 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _InputBase: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _InputBase
+      type: !_OutputBase _DualBase
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: input
+      object: _InputBase
+      type: !_OutputBase Identifier
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _DualBase
+    fields:
+    - !_OutputField
+      name: input
+      type: !_OutputBase Identifier
+    kind: !_TypeKind Output
+    name: _InputBase
+    parent: !_OutputBase
+      arguments:
+      - !_OutputBase
+        arguments:
+        - !_OutputBase _InputBase
+        output: _ObjRef
+      output: _ObjBase
+  !_Identifier _InputField: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier Optional]
+      name: default
+      object: _InputField
+      type: !_OutputBase _Constant
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier Optional]
+      name: default
+      type: !_OutputBase _Constant
+    kind: !_TypeKind Output
+    name: _InputField
+    parent: !_OutputBase
+      arguments:
+      - !_OutputBase _InputBase
+      output: _Field
+  !_Identifier _TypeInput: !_TypeOutput
+    kind: !_TypeKind Output
+    name: _TypeInput
+    parent: !_OutputBase
+      arguments:
+      - !_OutputArgument
+        kind: !_SimpleKind Enum
+        name: _TypeKind
+        value: Input
+      - !_OutputBase _InputBase
+      - !_OutputBase _InputField
+      output: _TypeObject

@@ -1,0 +1,11 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnSame: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnSame
+      name: same
+    items:
+    - !_Aliased same
+    kind: !_TypeKind Enum
+    name: EnSame

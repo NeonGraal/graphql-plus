@@ -1,0 +1,6 @@
+﻿!_Schema
+directives: !_Map_Directives
+  !_Identifier Dir: !_Directive
+    locations: !_Set(_Location) {Inline: _, Spread: _}
+    name: Dir
+    repeatable: false

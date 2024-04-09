@@ -1,0 +1,33 @@
+﻿!_Schema
+categories: !_Map_Categories
+  !_Identifier mutation: !_Category
+    name: mutation
+    output: !_TypeRef(_TypeKind)
+      kind: !_TypeKind Output
+      name: Mutation
+    resolution: !_Resolution Sequential
+  !_Identifier query: !_Category
+    name: query
+    output: !_TypeRef(_TypeKind)
+      kind: !_TypeKind Output
+      name: Query
+    resolution: !_Resolution Parallel
+  !_Identifier subscription: !_Category
+    name: subscription
+    output: !_TypeRef(_TypeKind)
+      kind: !_TypeKind Output
+      name: Subscription
+    resolution: !_Resolution Single
+types: !_Map_Type
+  !_Identifier Mutation: !_TypeOutput
+    kind: !_TypeKind Output
+    name: Mutation
+  !_Identifier Query: !_TypeOutput
+    kind: !_TypeKind Output
+    name: Query
+  !_Identifier Subscription: !_TypeOutput
+    kind: !_TypeKind Output
+    name: Subscription
+  !_Identifier _Schema: !_TypeOutput
+    kind: !_TypeKind Output
+    name: _Schema

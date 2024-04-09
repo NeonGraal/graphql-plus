@@ -43,6 +43,8 @@ public class MergeOptionsTests
     _merger = new(outputHelper.ToLoggerFactory(), _settings);
   }
 
+  protected override bool SkipDifferentNames => true;
+
   internal override GroupsMerger<OptionDeclAst> MergerGroups => _merger;
 
   protected override OptionDeclAst MakeAliased(string name, string[] aliases, string description = "")

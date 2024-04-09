@@ -1,0 +1,17 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier NumDiff: !_ScalarNumber
+    allItems:
+    - !_ScalarItem(_ScalarRange)
+      exclude: false
+      from: 1
+      scalar: NumDiff
+      to: 9
+    items:
+    - !_ScalarRange
+      exclude: false
+      from: 1
+      to: 9
+    kind: !_TypeKind Scalar
+    name: NumDiff
+    scalar: !_ScalarKind Number

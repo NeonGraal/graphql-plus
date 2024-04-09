@@ -6,12 +6,10 @@ public abstract class TestGroups<TAst>
   : TestAbbreviated<TAst>
   where TAst : AstAbbreviated
 {
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentNames_ReturnsTrue(string name1, string name2)
   {
-    if (name1 == name2) {
-      return;
-    }
+    Skip.If(SkipDifferentNames || name1 == name2);
 
     CanMerge_True([MakeAst(name1), MakeAst(name2)]);
   }
@@ -19,10 +17,12 @@ public abstract class TestGroups<TAst>
   [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsDifferentName_ReturnsAsts(string name1, string name2)
   {
+    Skip.If(SkipDifferentNames || name1 == name2);
+
     var ast1 = MakeAst(name1);
     var ast2 = MakeAst(name2);
 
-    Merge_Expected([ast1, ast2], name1 == name2, ast2, ast1);
+    Merge_Expected([ast1, ast2], ast2, ast1);
   }
 
   [SkippableTheory, RepeatData(Repeats)]
@@ -33,6 +33,8 @@ public abstract class TestGroups<TAst>
 
     Merge_Expected([ast1, ast2], ast1);
   }
+
+  protected virtual bool SkipDifferentNames => false;
 
   internal abstract GroupsMerger<TAst> MergerGroups { get; }
 

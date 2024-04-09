@@ -22,7 +22,10 @@ public record class SchemaModel(
     Directives = directives.ToMap(d => d.Name);
     Types = types.ToMap(t => t.Name);
     Settings = settings.ToMap(s => s.Name);
-    Errors = errors;
+    Errors = new TokenMessages();
+    if (errors is not null) {
+      Errors.Add(errors);
+    }
   }
 
   internal IMap<CategoryModel> Categories { get; } = new Map<CategoryModel>();
@@ -50,11 +53,11 @@ public record class SchemaModel(
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("_errors", new(Errors.Select(RenderError), "_Errors"))
       .Add("categories", GetCategories(default).Render(context, keyTag: "_Identifier", "_Categories"))
       .Add("directives", GetDirectives(default).Render(context, keyTag: "_Identifier", "_Directives"))
       .Add("types", GetTypes(default).Render(context, keyTag: "_Identifier", "_Type"))
-      .Add("settings", GetSettings(default).Render(context, keyTag: "_Identifier", "_Setting"));
+      .Add("settings", GetSettings(default).Render(context, keyTag: "_Identifier", "_Setting"))
+      .Add("_errors", new(Errors.Select(RenderError), "_Errors"));
 
   private RenderStructure RenderError(TokenMessage error)
     => RenderStructure.New("_Error")
@@ -147,9 +150,15 @@ internal class SchemaModeller(
 {
   protected override SchemaModel ToModel(SchemaAst ast, IMap<TypeKindModel> typeKinds)
   {
-    //    type.AddTypeKinds(ast.Declarations.OfType<AstType>(), typeKinds);
+    AstType[] types = [.. ast.Declarations.OfType<AstType>()];
+    ITokenMessages errors = ast.Errors;
+    if (typeKinds is TypesCollection collection) {
+      errors = collection.Errors;
+      errors.Clear();
+      errors.Add(ast.Errors);
+    }
 
-
+    type.AddTypeKinds(types, typeKinds);
 
     var options = ast.Declarations.OfType<OptionDeclAst>().ToArray();
     var name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name ?? "";
@@ -160,8 +169,8 @@ internal class SchemaModeller(
         DeclarationModel(ast, category, typeKinds),
         DeclarationModel(ast, directive, typeKinds),
         settings,
-        DeclarationModel(ast, type, typeKinds),
-        ast.Errors
+        types.Select(t => type.ToModel(t, typeKinds)),
+        errors
         ) { Aliases = [.. aliases] };
   }
 

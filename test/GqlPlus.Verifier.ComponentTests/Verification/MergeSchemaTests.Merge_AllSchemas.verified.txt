@@ -74,32 +74,15 @@ Success
 }
 {
   !O I@008/0001
-  Option
-}
-{
-  !O I@008/0001
-  OptAlias
+  Schema
   [
     Opt1
     Opt2
   ]
-}
-{
-  !O I@008/0001
-  OptSetting
-  {
-    !OS I@021/0001
-    setting
-    =( !c P@064/0001 [ !k I@029/0001 Boolean.true !k N@065/0001 0 ] )
-  }
-}
-{
-  !O I@008/0001
-  Schema
   {
     !OS I@017/0001
     setting
-    =( !k I@027/0001 Boolean.true )
+    =( !c I@027/0001 [ !k I@025/0001 Boolean.true !k N@057/0001 0 !k I@027/0001 Boolean.true ] )
   }
 }
 {

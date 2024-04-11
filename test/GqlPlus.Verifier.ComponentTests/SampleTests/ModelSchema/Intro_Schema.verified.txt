@@ -1,8 +1,4 @@
 ﻿!_Schema
-_errors:
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _Schema can't get model for type '_Named'
 types: !_Map_Type
   !_Identifier _Aliased: !_TypeDual
     allFields:
@@ -167,6 +163,10 @@ types: !_Map_Type
     name: _Named
   !_Identifier _Schema: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       modifiers: [!_ModifierDictionary {by: _Identifier, kind: Dict}]
       name: categories

@@ -1,11 +1,4 @@
 ﻿!_Schema
-_errors:
-- !_Error
-  _kind: !_TokenKind End
-  _message: In InpTestPrntDual can't get model for type 'InpPrntDualTest'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In OutpTestPrntDual can't get model for type 'OutpPrntDualTest'
 types: !_Map_Type
   !_Identifier DualAlt: !_TypeDual
     kind: !_TypeKind Dual

@@ -1,11 +1,4 @@
 ﻿!_Schema
-_errors:
-- !_Error
-  _kind: !_TokenKind End
-  _message: In InpTestPrntDual can't get model for type 'InpPrntDualTest'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In OutpTestPrntDual can't get model for type 'OutpPrntDualTest'
 aliases: [Opt1, Opt2]
 categories: !_Map_Categories
   !_Identifier cat: !_Category

@@ -6,9 +6,6 @@ _errors:
 - !_Error
   _kind: !_TokenKind End
   _message: In _BaseScalar can't get model for type '_ParentType'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _ScalarMember can't get model for type '_BaseScalarItem'
 types: !_Map_Type
   !_Identifier _BaseScalar: !_TypeOutput
     allFields:
@@ -86,6 +83,10 @@ types: !_Map_Type
     parent: item
   !_Identifier _ScalarMember: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseScalarItem
+      type: !_DualBase Boolean
     - !_ObjectFor(_OutputField)
       name: member
       object: _ScalarMember

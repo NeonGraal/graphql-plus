@@ -1,35 +1,4 @@
 ﻿!_Schema
-_errors:
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _Schema can't get model for type '_Named'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _Category can't get model for type '_Aliased'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _Directive can't get model for type '_Aliased'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _Setting can't get model for type '_Described'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _BaseType can't get model for type '_Aliased'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _ScalarMember can't get model for type '_BaseScalarItem'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _Field can't get model for type '_Aliased'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _DualBase can't get model for type '_ObjBase'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _InputBase can't get model for type '_ObjBase'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _OutputBase can't get model for type '_ObjBase'
 types: !_Map_Type
   !_Identifier _Aliased: !_TypeDual
     allFields:
@@ -114,6 +83,19 @@ types: !_Map_Type
     name: _BaseDescribed
   !_Identifier _BaseScalar: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType
@@ -168,6 +150,19 @@ types: !_Map_Type
     name: _BaseScalarItem
   !_Identifier _BaseType: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType
@@ -212,6 +207,19 @@ types: !_Map_Type
     name: _Categories
   !_Identifier _Category: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: resolution
       object: _Category
@@ -286,6 +294,19 @@ types: !_Map_Type
     parent: !_InputBase _Filter
   !_Identifier _ChildType: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType
@@ -402,6 +423,19 @@ types: !_Map_Type
     parent: !_DualBase _Named
   !_Identifier _Directive: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: parameters
@@ -463,7 +497,18 @@ types: !_Map_Type
     kind: !_TypeKind Output
     name: _Directives
   !_Identifier _DualBase: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: _ObjBase
+      type: !_BaseDescribed(_ObjRef(_DualBase))
+        base: !_DualBase _Identifier
+        description: 'TypeParameter'
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: arguments
+      object: _ObjBase
+      type: arg
     - !_ObjectFor(_OutputField)
       name: dual
       object: _DualBase
@@ -536,6 +581,19 @@ types: !_Map_Type
       output: _TypeRef
   !_Identifier _Field: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: type
       object: _Field
@@ -621,10 +679,20 @@ types: !_Map_Type
     scalar: !_ScalarKind String
   !_Identifier _InputBase: !_TypeOutput
     allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: _ObjBase
+      type: !_BaseDescribed(_ObjRef(_DualBase))
+        base: !_DualBase _Identifier
+        description: 'TypeParameter'
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _InputBase
       type: !_OutputBase _DualBase
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: arguments
+      object: _ObjBase
+      type: arg
     - !_ObjectFor(_OutputField)
       name: input
       object: _InputBase
@@ -647,6 +715,19 @@ types: !_Map_Type
       dual: _ObjBase
   !_Identifier _InputField: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: type
       object: _Field
@@ -916,10 +997,20 @@ types: !_Map_Type
       output: _TypeRef
   !_Identifier _OutputBase: !_TypeOutput
     allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: _ObjBase
+      type: !_BaseDescribed(_ObjRef(_DualBase))
+        base: !_DualBase _Identifier
+        description: 'TypeParameter'
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _OutputBase
       type: !_OutputBase _DualBase
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: arguments
+      object: _ObjBase
+      type: arg
     - !_ObjectFor(_OutputField)
       name: output
       object: _OutputBase
@@ -977,6 +1068,19 @@ types: !_Map_Type
       object: _OutputField
       type: !_OutputBase _OutputEnum
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: type
       object: _Field
@@ -1046,6 +1150,19 @@ types: !_Map_Type
       output: _Alternate
   !_Identifier _ParentType: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType
@@ -1137,6 +1254,10 @@ types: !_Map_Type
     parent: item
   !_Identifier _ScalarMember: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseScalarItem
+      type: !_DualBase Boolean
     - !_ObjectFor(_OutputField)
       name: member
       object: _ScalarMember
@@ -1267,6 +1388,10 @@ types: !_Map_Type
       output: _ScalarRef
   !_Identifier _Schema: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       modifiers: [!_ModifierDictionary {by: _Identifier, kind: Dict}]
       name: categories
@@ -1333,6 +1458,14 @@ types: !_Map_Type
     parent: !_DualBase _Named
   !_Identifier _Setting: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
     - !_ObjectFor(_OutputField)
       name: value
       object: _Setting
@@ -1493,6 +1626,19 @@ types: !_Map_Type
     name: _Type
   !_Identifier _TypeDual: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType
@@ -1554,6 +1700,19 @@ types: !_Map_Type
       output: _TypeObject
   !_Identifier _TypeEnum: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType
@@ -1618,6 +1777,19 @@ types: !_Map_Type
     parent: !_InputBase _Filter
   !_Identifier _TypeInput: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType
@@ -1711,6 +1883,19 @@ types: !_Map_Type
       name: _SimpleKind
   !_Identifier _TypeObject: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType
@@ -1801,6 +1986,19 @@ types: !_Map_Type
       output: _ChildType
   !_Identifier _TypeOutput: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType
@@ -2032,6 +2230,19 @@ types: !_Map_Type
     name: _TypeSimple
   !_Identifier _TypeUnion: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType

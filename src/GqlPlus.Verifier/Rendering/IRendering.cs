@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifier.Modelling;
-
-namespace GqlPlus.Verifier.Rendering;
+﻿namespace GqlPlus.Verifier.Rendering;
 
 public interface IRendering
 {
@@ -10,5 +8,5 @@ public interface IRendering
 public interface IRenderContext
 {
   bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)
-    where TModel : BaseTypeModel;
+    where TModel : IRendering;
 }

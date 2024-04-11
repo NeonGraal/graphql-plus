@@ -24,17 +24,17 @@ public abstract record class ChildTypeModel<TParent>(
 {
   public TParent? Parent { get; set; }
 
-  private ChildTypeModel<TParent>? _parentModel;
+  private IRendering? _parentModel;
 
   protected abstract string? ParentName(TParent? parent);
 
   internal bool GetParentModel<TModel>(IRenderContext context, [NotNullWhen(true)] out TModel? model)
-    where TModel : ChildTypeModel<TParent>
+    where TModel : IRendering
   {
     if (_parentModel is null) {
-      _parentModel = model = context.TryGetType<TModel>(Name, ParentName(Parent), out var parentModel) ? parentModel : null;
+      _parentModel = model = context.TryGetType<TModel>(Name, ParentName(Parent), out var parentModel) ? parentModel : default;
     } else {
-      model = _parentModel as TModel;
+      model = (TModel?)_parentModel;
     }
 
     return model is not null;
@@ -53,6 +53,7 @@ public abstract record class ChildTypeModel<TParent>(
     }
   }
 }
+
 public abstract record class ParentTypeModel<TItem, TAll>(
   TypeKindModel Kind,
   string Name
@@ -170,7 +171,8 @@ public interface ITypesModeller
 
 internal class TypesCollection(
   ITypesModeller types
-) : Map<TypeKindModel>, IRenderContext
+) : Map<TypeKindModel>
+  , IRenderContext
 {
   internal IMap<BaseTypeModel> Types { get; } = new Map<BaseTypeModel>();
   internal ITokenMessages Errors { get; } = new TokenMessages();
@@ -262,7 +264,7 @@ internal class TypesCollection(
   }
 
   public bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)
-    where TModel : BaseTypeModel
+    where TModel : IRendering
   {
     if (name is not null) {
       if (Types.TryGetValue(name, out var type) && type is TModel modelType) {
@@ -273,7 +275,7 @@ internal class TypesCollection(
       Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"In {context} can't get model for type '{name}'"));
     }
 
-    model = null;
+    model = default;
     return false;
   }
 }

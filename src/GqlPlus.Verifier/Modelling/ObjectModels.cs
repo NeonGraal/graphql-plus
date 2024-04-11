@@ -8,6 +8,7 @@ public abstract record class TypeObjectModel<TBase, TField>(
   TypeKindModel Kind,
   string Name
 ) : ChildTypeModel<BaseDescribedModel<TBase>>(Kind, Name)
+  , ITypeObjectModel
   where TBase : IObjBaseModel
   where TField : ModelBase
 {
@@ -15,22 +16,22 @@ public abstract record class TypeObjectModel<TBase, TField>(
   internal TField[] Fields { get; set; } = [];
   internal AlternateModel<TBase>[] Alternates { get; set; } = [];
 
-  private IEnumerable<ObjectForModel<AlternateModel<TBase>>> AllAlternates(IRenderContext context)
+  internal IEnumerable<IRendering> AllAlternates(IRenderContext context)
   {
     var alternates = Alternates.Select(a => new ObjectForModel<AlternateModel<TBase>>(a, Name));
 
     return Parent?.Base.IsTypeParameter == false
-        && GetParentModel<TypeObjectModel<TBase, TField>>(context, out var parentModel)
+        && GetParentModel<ITypeObjectModel>(context, out var parentModel)
       ? parentModel.AllAlternates(context).Concat(alternates)
       : alternates;
   }
 
-  private IEnumerable<ObjectForModel<TField>> AllFields(IRenderContext context)
+  internal IEnumerable<IRendering> AllFields(IRenderContext context)
   {
     var fields = Fields.Select(f => new ObjectForModel<TField>(f, Name));
 
     return Parent?.Base.IsTypeParameter == false
-        && GetParentModel<TypeObjectModel<TBase, TField>>(context, out var parentModel)
+        && GetParentModel<ITypeObjectModel>(context, out var parentModel)
       ? parentModel.AllFields(context).Concat(fields)
       : fields;
   }
@@ -42,6 +43,15 @@ public abstract record class TypeObjectModel<TBase, TField>(
       .Add("allFields", AllFields(context).Render(context))
       .Add("alternates", Alternates.Render(context))
       .Add("allAlternates", AllAlternates(context).Render(context));
+  IEnumerable<IRendering> ITypeObjectModel.AllAlternates(IRenderContext context) => AllAlternates(context);
+  IEnumerable<IRendering> ITypeObjectModel.AllFields(IRenderContext context) => AllFields(context);
+}
+
+internal interface ITypeObjectModel
+  : IRendering
+{
+  IEnumerable<IRendering> AllAlternates(IRenderContext context);
+  IEnumerable<IRendering> AllFields(IRenderContext context);
 }
 
 public record class ObjRefModel<TBase>

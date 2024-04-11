@@ -17,18 +17,28 @@ internal class TokenMessages(
   params TokenMessage[] collection
 ) : List<TokenMessage>(collection), ITokenMessages
 {
-  public ITokenMessages Add(IEnumerable<TokenMessage> messages)
+  public static ITokenMessages New
+    => new TokenMessages();
+
+  ITokenMessages ITokenMessages.Add(IEnumerable<TokenMessage> messages)
+    => messages.Aggregate(this as ITokenMessages, (a, m) => a.Add(m));
+
+  ITokenMessages ITokenMessages.Add(TokenMessage message)
   {
-    foreach (var message in messages) {
+    if (!Contains(message)) {
       Add(message);
     }
 
     return this;
   }
+
+  void ITokenMessages.Clear() => Clear();
 }
 
 public interface ITokenMessages
-  : IList<TokenMessage>
+  : IReadOnlyList<TokenMessage>
 {
+  void Clear();
+  ITokenMessages Add(TokenMessage message);
   ITokenMessages Add(IEnumerable<TokenMessage> messages);
 }

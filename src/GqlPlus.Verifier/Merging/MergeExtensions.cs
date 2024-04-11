@@ -110,7 +110,7 @@ public static class MergeExtensions
       Func<TGroup, string> key,
       IMerge<TGroup> merger)
     where TGroup : AstBase
-    => new TokenMessages()
+    => TokenMessages.New
       .Add(items
         .SelectMany(many).GroupBy(key)
         .SelectMany(p => merger.CanMerge([.. p])));

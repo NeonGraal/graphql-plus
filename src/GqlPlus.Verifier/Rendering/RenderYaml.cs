@@ -1,4 +1,5 @@
-﻿using YamlDotNet.Serialization;
+﻿using GqlPlus.Verifier.Token;
+using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
 namespace GqlPlus.Verifier.Rendering;
@@ -14,6 +15,21 @@ internal static class RenderYaml
 
   internal static RenderStructure Render(this IEnumerable<string> strings, string tag = "", bool flow = true)
     => new(strings.Select(a => new RenderStructure(new RenderValue(a))), tag, flow);
+
+  internal static RenderStructure Render(this ITokenMessages errors)
+    => new(errors.Select(Render), "_Errors");
+
+  internal static RenderStructure Render(this TokenMessage error)
+    => RenderStructure.New("_Error")
+      .Add(error.Kind is TokenKind.Start or TokenKind.End,
+        onFalse: r => r.Add("_at", error.RenderAt()))
+      .Add("_kind", error.Kind)
+      .Add("_message", error.Message);
+
+  internal static RenderStructure RenderAt(this TokenAt at)
+    => RenderStructure.New("_At", true)
+      .Add("_col", at.Column)
+      .Add("_line", at.Line);
 
   internal static RenderStructure Render<T>(this IEnumerable<T> values, IRenderContext context, string tag = "", bool flow = false)
     where T : IRendering

@@ -4,10 +4,10 @@ output _TypeEnum {
 
 dual _EnumMember {
     : _Aliased
-        enum: Identifier
+        enum: _Identifier
     }
 
 output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
-        value: Identifier
+        value: _Identifier
     }

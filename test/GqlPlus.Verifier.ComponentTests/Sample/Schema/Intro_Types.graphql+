@@ -20,7 +20,7 @@ output _ChildType<$kind $parent> {
     }
 
 output _ParentType<$kind $item $allItem> {
-    : _ChildType<$kind Identifier>
+    : _ChildType<$kind _Identifier>
         items: $item[]
         allItems: $allItem[]
     }
@@ -31,7 +31,7 @@ enum _TypeKind { :_SimpleKind Dual Input Output }
 
 output _TypeRef<$kind> {
         kind: $kind
-        name: Identifier
+        name: _Identifier
 }
 
 output _TypeSimple {

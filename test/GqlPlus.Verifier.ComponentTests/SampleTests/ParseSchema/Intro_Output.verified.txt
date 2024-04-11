@@ -30,7 +30,7 @@ Success
     output
     :
     I@017/0007
-    Identifier
+    _Identifier
   }
   |
   !AO
@@ -75,7 +75,7 @@ Success
     value
     :
     I@016/0019
-    Identifier
+    _Identifier
   }
   |
   !AO
@@ -101,11 +101,11 @@ Success
     field
     :
     I@016/0025
-    Identifier
+    _Identifier
     !OF I@009/0026
     value
     :
     I@016/0026
-    Identifier
+    _Identifier
   }
 }

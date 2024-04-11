@@ -12,6 +12,9 @@ types: !_Map_Type
   !_Identifier EnSameParent: !_TypeEnum
     allItems:
     - !_EnumMember
+      enum: EnParent
+      name: parent
+    - !_EnumMember
       enum: EnSameParent
       name: sameP
     items:

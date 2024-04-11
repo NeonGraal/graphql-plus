@@ -9,6 +9,6 @@ public interface IRendering
 
 public interface IRenderContext
 {
-  bool TryGetType<TModel>(string? name, [NotNullWhen(true)] out TModel? model)
+  bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)
     where TModel : BaseTypeModel;
 }

@@ -1,6 +1,5 @@
 ﻿[
   Multiple Inputs with name 'Test' can't be merged.,
   Aliases of InputFieldAst for alias is not singular ['field1', 'field2'],
-  Multiple Types with name 'Test' can't be merged.,
-  Aliases of InputFieldAst for alias is not singular ['field1', 'field2']
+  Multiple Types with name 'Test' can't be merged.
 ]

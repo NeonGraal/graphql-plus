@@ -3,10 +3,10 @@
 Success
 {
   !I I@007/0001
-  InPAlias
+  InpAlias
   [
-    InP1
-    InP2
+    Inp1
+    Inp2
   ]
 }
 ]

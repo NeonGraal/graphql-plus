@@ -3,13 +3,13 @@
 Success
 {
   !I I@007/0001
-  InPFields
+  InpFields
   {
     !IF I@019/0001
     field
     :
     I@026/0001
-    InPFields
+    InpFields
   }
 }
 ]

@@ -5,7 +5,7 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Verification;
 
-public class MergeSchemaBase(
+public class SchemaBase(
     Parser<SchemaAst>.D parser
 )
 {
@@ -43,11 +43,11 @@ public class MergeSchemaBase(
     return _parser.Parse(tokens, "Schema");
   }
 
-  protected static readonly (string, string)[] s_replacements = [("dual", "Dual"), ("input", "InP"), ("output", "OutP")];
+  public static readonly (string, string)[] Replacements = [("dual", "Dual"), ("input", "Inp"), ("output", "Outp")];
 
   protected static IEnumerable<string> ReplaceObjects(IEnumerable<string> inputs)
     => inputs.SelectMany(input => input.Contains("object ", StringComparison.Ordinal)
-        ? s_replacements.Select(r => ReplaceObject(input, r.Item1, r.Item2))
+        ? Replacements.Select(r => ReplaceObject(input, r.Item1, r.Item2))
         : [input]);
 
   protected static string ReplaceObject(string input, string objectReplace, string objReplace)

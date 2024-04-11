@@ -34,7 +34,7 @@ Success
     input
     :
     I@016/0007
-    Identifier
+    _Identifier
   }
   |
   !AO

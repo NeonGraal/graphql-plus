@@ -1,4 +1,8 @@
 ﻿!_Schema
+_errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _BaseType can't get model for type '_Aliased'
 types: !_Map_Type
   !_Identifier _BaseType: !_TypeOutput
     allFields:
@@ -16,6 +20,10 @@ types: !_Map_Type
   !_Identifier _ChildType: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
+      name: kind
+      object: _BaseType
+      type: kind
+    - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
       type: parent
@@ -31,6 +39,14 @@ types: !_Map_Type
       output: _BaseType
   !_Identifier _ParentType: !_TypeOutput
     allFields:
+    - !_ObjectFor(_OutputField)
+      name: kind
+      object: _BaseType
+      type: kind
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: _ChildType
+      type: parent
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: items
@@ -55,7 +71,7 @@ types: !_Map_Type
     parent: !_OutputBase
       arguments:
       - kind
-      - !_OutputBase Identifier
+      - !_OutputBase _Identifier
       output: _ChildType
   !_Identifier _SimpleKind: !_TypeEnum
     allItems:
@@ -154,6 +170,21 @@ types: !_Map_Type
   !_Identifier _TypeKind: !_TypeEnum
     allItems:
     - !_EnumMember
+      enum: _SimpleKind
+      name: Basic
+    - !_EnumMember
+      enum: _SimpleKind
+      name: Enum
+    - !_EnumMember
+      enum: _SimpleKind
+      name: Internal
+    - !_EnumMember
+      enum: _SimpleKind
+      name: Scalar
+    - !_EnumMember
+      enum: _SimpleKind
+      name: Union
+    - !_EnumMember
       enum: _TypeKind
       name: Dual
     - !_EnumMember
@@ -180,14 +211,14 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: name
       object: _TypeRef
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     fields:
     - !_OutputField
       name: kind
       type: kind
     - !_OutputField
       name: name
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     kind: !_TypeKind Output
     name: _TypeRef
   !_Identifier _TypeSimple: !_TypeOutput

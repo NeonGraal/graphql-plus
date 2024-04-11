@@ -1,15 +1,25 @@
 ﻿!_Schema
+_errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _TypeEnum can't get model for type '_ParentType'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _EnumMember can't get model for type '_Aliased'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _EnumValue can't get model for type '_TypeRef'
 types: !_Map_Type
   !_Identifier _EnumMember: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: enum
       object: _EnumMember
-      type: !_DualBase Identifier
+      type: !_DualBase _Identifier
     fields:
     - !_DualField
       name: enum
-      type: !_DualBase Identifier
+      type: !_DualBase _Identifier
     kind: !_TypeKind Dual
     name: _EnumMember
     parent: !_DualBase _Aliased
@@ -18,11 +28,11 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: value
       object: _EnumValue
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     fields:
     - !_OutputField
       name: value
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     kind: !_TypeKind Output
     name: _EnumValue
     parent: !_OutputBase

@@ -4,7 +4,7 @@ output _TypeOutput {
 
 output _OutputBase {
     : _ObjBase<_OutputArgument>
-        output: Identifier
+        output: _Identifier
     | _DualBase
     }
 
@@ -16,12 +16,12 @@ output _OutputField {
 
 output _OutputArgument {
     : _TypeRef<_TypeKind.Enum>
-        value: Identifier
+        value: _Identifier
     | _ObjRef<_OutputBase>
     }
 
 output _OutputEnum {
     : _TypeRef<_TypeKind.Enum>
-        field: Identifier
-        value: Identifier
+        field: _Identifier
+        value: _Identifier
     }

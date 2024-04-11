@@ -44,7 +44,7 @@ dual _ScalarRegex {
 
 dual _ScalarItem<$item> {
     : $item
-        scalar: Identifier
+        scalar: _Identifier
     }
 
 output _ScalarValue<$kind $value> {

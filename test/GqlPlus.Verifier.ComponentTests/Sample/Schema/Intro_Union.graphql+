@@ -4,5 +4,5 @@ output _TypeUnion {
 
 dual _UnionMember {
     : _Named
-        union: Identifier
+        union: _Identifier
     }

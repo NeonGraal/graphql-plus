@@ -1,4 +1,8 @@
 ﻿!_Schema
+_errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _Setting can't get model for type '_Described'
 types: !_Map_Type
   !_Identifier _Setting: !_TypeOutput
     allFields:

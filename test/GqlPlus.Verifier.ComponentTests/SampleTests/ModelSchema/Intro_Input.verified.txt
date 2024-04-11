@@ -1,4 +1,14 @@
 ﻿!_Schema
+_errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _TypeInput can't get model for type '_TypeObject'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _InputBase can't get model for type '_ObjBase'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _InputField can't get model for type '_Field'
 types: !_Map_Type
   !_Identifier _InputBase: !_TypeOutput
     allAlternates:
@@ -9,14 +19,14 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: input
       object: _InputBase
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase _DualBase
     fields:
     - !_OutputField
       name: input
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     kind: !_TypeKind Output
     name: _InputBase
     parent: !_OutputBase

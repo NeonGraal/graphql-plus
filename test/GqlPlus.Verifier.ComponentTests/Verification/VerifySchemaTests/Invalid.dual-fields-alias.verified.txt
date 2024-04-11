@@ -1,6 +1,5 @@
 ﻿[
   Multiple Duals with name 'Test' can't be merged.,
   Aliases of DualFieldAst for alias is not singular ['field1', 'field2'],
-  Multiple Types with name 'Test' can't be merged.,
-  Aliases of DualFieldAst for alias is not singular ['field1', 'field2']
+  Multiple Types with name 'Test' can't be merged.
 ]

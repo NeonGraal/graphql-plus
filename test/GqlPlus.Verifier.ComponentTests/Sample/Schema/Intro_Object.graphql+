@@ -15,7 +15,7 @@ output _ObjRef<$base> {
 
 dual _ObjBase<$arg> {
         arguments: $arg[]
-    | "TypeParameter" Identifier
+    | "TypeParameter" _Identifier
     }
 
 output _Alternate<$base> {
@@ -25,7 +25,7 @@ output _Alternate<$base> {
 
 output _ObjectFor<$for> {
     : $for
-        object: Identifier
+        object: _Identifier
     }
 
 output _Field<$base> {

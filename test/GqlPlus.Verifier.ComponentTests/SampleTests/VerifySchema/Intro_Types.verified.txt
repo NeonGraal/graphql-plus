@@ -6,6 +6,6 @@
   !!! I@007/0008 : Invalid Output Alternate. '_TypeScalar' not defined. - '_TypeScalar' !!!,
   !!! I@007/0009 : Invalid Output Alternate. '_TypeUnion' not defined. - '_TypeUnion' !!!,
   !!! I@008/0012 : Invalid Output Parent. '_Aliased' not defined. - '_BaseType' !!!,
-  !!! I@015/0034 : Invalid Output Field. 'Identifier' not defined. - 'Identifier' !!!,
-  !!! I@024/0023 : Invalid Output Parent. 'Identifier' not defined. - 'Identifier' !!!
+  !!! I@015/0034 : Invalid Output Field. '_Identifier' not defined. - '_Identifier' !!!,
+  !!! I@024/0023 : Invalid Output Parent. '_Identifier' not defined. - '_Identifier' !!!
 ]

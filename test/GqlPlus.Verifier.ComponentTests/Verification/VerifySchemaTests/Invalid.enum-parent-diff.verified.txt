@@ -1,6 +1,5 @@
 ﻿[
   Multiple Enums with name 'Test' can't be merged.,
   Group of EnumDeclAst for Test is not singular Parent['', 'Parent'],
-  Multiple Types with name 'Test' can't be merged.,
-  Group of EnumDeclAst for Test is not singular Parent['', 'Parent']
+  Multiple Types with name 'Test' can't be merged.
 ]

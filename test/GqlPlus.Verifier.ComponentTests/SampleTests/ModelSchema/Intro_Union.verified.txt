@@ -1,4 +1,11 @@
 ﻿!_Schema
+_errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _TypeUnion can't get model for type '_ParentType'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _UnionMember can't get model for type '_Named'
 types: !_Map_Type
   !_Identifier _TypeUnion: !_TypeOutput
     kind: !_TypeKind Output
@@ -17,11 +24,11 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: union
       object: _UnionMember
-      type: !_DualBase Identifier
+      type: !_DualBase _Identifier
     fields:
     - !_DualField
       name: union
-      type: !_DualBase Identifier
+      type: !_DualBase _Identifier
     kind: !_TypeKind Dual
     name: _UnionMember
     parent: !_DualBase _Named

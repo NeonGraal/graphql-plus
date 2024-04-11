@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
 
-public record class TypeObjectModel<TBase, TField>(
+public abstract record class TypeObjectModel<TBase, TField>(
   TypeKindModel Kind,
   string Name
 ) : ChildTypeModel<BaseDescribedModel<TBase>>(Kind, Name)
@@ -14,24 +14,25 @@ public record class TypeObjectModel<TBase, TField>(
   internal DescribedModel[] TypeParameters { get; set; } = [];
   internal TField[] Fields { get; set; } = [];
   internal AlternateModel<TBase>[] Alternates { get; set; } = [];
-  internal virtual string? ParentName => null;
 
   private IEnumerable<ObjectForModel<AlternateModel<TBase>>> AllAlternates(IRenderContext context)
   {
     var alternates = Alternates.Select(a => new ObjectForModel<AlternateModel<TBase>>(a, Name));
 
-    var parent = context.TryGetType<TypeObjectModel<TBase, TField>>(ParentName, out var parentModel) ? parentModel.AllAlternates(context) : [];
-
-    return parent.Concat(alternates);
+    return Parent?.Base.IsTypeParameter == false
+        && GetParentModel<TypeObjectModel<TBase, TField>>(context, out var parentModel)
+      ? parentModel.AllAlternates(context).Concat(alternates)
+      : alternates;
   }
 
   private IEnumerable<ObjectForModel<TField>> AllFields(IRenderContext context)
   {
     var fields = Fields.Select(f => new ObjectForModel<TField>(f, Name));
 
-    var parent = context.TryGetType<TypeObjectModel<TBase, TField>>(ParentName, out var parentModel) ? parentModel.AllFields(context) : [];
-
-    return parent.Concat(fields);
+    return Parent?.Base.IsTypeParameter == false
+        && GetParentModel<TypeObjectModel<TBase, TField>>(context, out var parentModel)
+      ? parentModel.AllFields(context).Concat(fields)
+      : fields;
   }
 
   internal override RenderStructure Render(IRenderContext context)
@@ -74,8 +75,11 @@ public record class ObjBaseModel<TArg>
       .Add("arguments", Arguments.Render(context));
 }
 
-public interface IObjBaseModel : IRendering
-{ }
+public interface IObjBaseModel
+  : IRendering
+{
+  bool IsTypeParameter { get; }
+}
 
 public record class AlternateModel<TBase>(
   BaseDescribedModel<ObjRefModel<TBase>> Type

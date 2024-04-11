@@ -198,7 +198,7 @@ Success
     scalar
     :
     I@017/0047
-    Identifier
+    _Identifier
   }
 }
 {

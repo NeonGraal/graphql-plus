@@ -7,7 +7,8 @@ public record class TypeOutputModel(
   string Name
 ) : TypeObjectModel<OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, Name)
 {
-  internal override string? ParentName => Parent?.Base.Output;
+  protected override string? ParentName(BaseDescribedModel<OutputBaseModel>? parent)
+    => parent?.Base.Output;
 }
 
 public record class OutputBaseModel(
@@ -46,6 +47,8 @@ public record class OutputArgumentModel(
 {
   internal string? EnumValue { get; set; }
   internal ObjRefModel<OutputBaseModel>? Ref { get; set; }
+
+  public bool IsTypeParameter => string.IsNullOrEmpty(EnumValue) && Ref?.BaseRef?.IsTypeParameter == true;
 
   internal override RenderStructure Render(IRenderContext context)
     => string.IsNullOrWhiteSpace(EnumValue)

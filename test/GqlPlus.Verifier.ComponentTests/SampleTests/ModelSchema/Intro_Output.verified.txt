@@ -1,4 +1,20 @@
 ﻿!_Schema
+_errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _TypeOutput can't get model for type '_TypeObject'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _OutputBase can't get model for type '_ObjBase'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _OutputField can't get model for type '_Field'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _OutputArgument can't get model for type '_TypeRef'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _OutputEnum can't get model for type '_TypeRef'
 types: !_Map_Type
   !_Identifier _OutputArgument: !_TypeOutput
     allAlternates:
@@ -12,7 +28,7 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: value
       object: _OutputArgument
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
@@ -22,7 +38,7 @@ types: !_Map_Type
     fields:
     - !_OutputField
       name: value
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     kind: !_TypeKind Output
     name: _OutputArgument
     parent: !_OutputBase
@@ -41,14 +57,14 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: output
       object: _OutputBase
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase _DualBase
     fields:
     - !_OutputField
       name: output
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     kind: !_TypeKind Output
     name: _OutputBase
     parent: !_OutputBase
@@ -60,18 +76,18 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: _OutputEnum
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     - !_ObjectFor(_OutputField)
       name: value
       object: _OutputEnum
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     fields:
     - !_OutputField
       name: field
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     - !_OutputField
       name: value
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     kind: !_TypeKind Output
     name: _OutputEnum
     parent: !_OutputBase

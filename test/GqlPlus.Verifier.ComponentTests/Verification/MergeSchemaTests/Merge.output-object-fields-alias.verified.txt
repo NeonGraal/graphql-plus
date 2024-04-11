@@ -3,7 +3,7 @@
 Success
 {
   !O I@008/0001
-  OutPFieldAlias
+  OutpFieldAlias
   {
     !OF I@025/0001
     field
@@ -13,7 +13,7 @@ Success
     ]
     :
     I@041/0001
-    OutPFieldAlias
+    OutpFieldAlias
   }
 }
 ]

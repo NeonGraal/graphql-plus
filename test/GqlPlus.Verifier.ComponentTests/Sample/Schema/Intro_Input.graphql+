@@ -4,7 +4,7 @@ output _TypeInput {
 
 output _InputBase {
     : _ObjBase<_ObjRef<_InputBase>>
-        input: Identifier
+        input: _Identifier
     | _DualBase
     }
 

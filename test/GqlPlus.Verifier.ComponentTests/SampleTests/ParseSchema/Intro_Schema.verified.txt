@@ -18,7 +18,7 @@ Success
     :
     I@039/0003
     _Categories
-    [Identifier]
+    [_Identifier]
     !OF I@009/0004
     directives
     (
@@ -30,7 +30,7 @@ Success
     :
     I@031/0004
     _Directives
-    [Identifier]
+    [_Identifier]
     !OF I@009/0005
     types
     (
@@ -42,7 +42,7 @@ Success
     :
     I@030/0005
     _Type
-    [Identifier]
+    [_Identifier]
     !OF I@009/0006
     settings
     (
@@ -54,14 +54,14 @@ Success
     :
     I@029/0006
     _Setting
-    [Identifier]
+    [_Identifier]
   }
 }
 {
   !S I@008/0009
-  Identifier
+  _Identifier
   String
-  !SX R@028/0009
+  !SX R@029/0009
   /[A-Za-z_]+/
 }
 {
@@ -128,7 +128,7 @@ Success
     aliases
     :
     I@018/0029
-    Identifier
+    _Identifier
     []
   }
 }
@@ -178,6 +178,6 @@ Success
     name
     :
     I@015/0044
-    Identifier
+    _Identifier
   }
 }

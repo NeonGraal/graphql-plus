@@ -170,6 +170,9 @@ types: !_Map_Type
   !_Identifier EnSameParent: !_TypeEnum
     allItems:
     - !_EnumMember
+      enum: EnParent
+      name: parent
+    - !_EnumMember
       enum: EnSameParent
       name: sameP
     items:
@@ -251,59 +254,59 @@ types: !_Map_Type
       type: !_OutputBase FieldParams
     kind: !_TypeKind Output
     name: FieldParams
-  !_Identifier InP: !_TypeInput
+  !_Identifier Inp: !_TypeInput
     kind: !_TypeKind Input
-    name: InP
-  !_Identifier InPAlias: !_TypeInput
-    aliases: [InP1, InP2]
+    name: Inp
+  !_Identifier InpAlias: !_TypeInput
+    aliases: [Inp1, Inp2]
     kind: !_TypeKind Input
-    name: InPAlias
-  !_Identifier InPAlts: !_TypeInput
+    name: InpAlias
+  !_Identifier InpAlts: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
-      object: InPAlts
-      type: !_InputBase InPAltsType
+      object: InpAlts
+      type: !_InputBase InpAltsType
     alternates:
     - !_Alternate(_InputBase)
-      type: !_InputBase InPAltsType
+      type: !_InputBase InpAltsType
     kind: !_TypeKind Input
-    name: InPAlts
-  !_Identifier InPAltsType: !_TypeInput
+    name: InpAlts
+  !_Identifier InpAltsType: !_TypeInput
     kind: !_TypeKind Input
-    name: InPAltsType
-  !_Identifier InPFieldAlias: !_TypeInput
+    name: InpAltsType
+  !_Identifier InpFieldAlias: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InPFieldAlias
-      type: !_InputBase InPFieldAlias
+      object: InpFieldAlias
+      type: !_InputBase InpFieldAlias
     fields:
     - !_InputField
       name: field
-      type: !_InputBase InPFieldAlias
+      type: !_InputBase InpFieldAlias
     kind: !_TypeKind Input
-    name: InPFieldAlias
-  !_Identifier InPFields: !_TypeInput
+    name: InpFieldAlias
+  !_Identifier InpFields: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InPFields
-      type: !_InputBase InPFields
+      object: InpFields
+      type: !_InputBase InpFields
     fields:
     - !_InputField
       name: field
-      type: !_InputBase InPFields
+      type: !_InputBase InpFields
     kind: !_TypeKind Input
-    name: InPFields
-  !_Identifier InPParams: !_TypeInput
+    name: InpFields
+  !_Identifier InpParams: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: test
-      object: InPParams
+      object: InpParams
       type: test
     - !_ObjectFor(_InputField)
       name: type
-      object: InPParams
+      object: InpParams
       type: type
     fields:
     - !_InputField
@@ -313,11 +316,11 @@ types: !_Map_Type
       name: type
       type: type
     kind: !_TypeKind Input
-    name: InPParams
-  !_Identifier InPPrnt: !_TypeInput
+    name: InpParams
+  !_Identifier InpPrnt: !_TypeInput
     kind: !_TypeKind Input
-    name: InPPrnt
-    parent: !_InputBase PrntInP
+    name: InpPrnt
+    parent: !_InputBase PrntInp
   !_Identifier Num: !_ScalarNumber
     kind: !_TypeKind Scalar
     name: Num
@@ -357,59 +360,59 @@ types: !_Map_Type
     kind: !_TypeKind Scalar
     name: NumSame
     scalar: !_ScalarKind Number
-  !_Identifier OutP: !_TypeOutput
+  !_Identifier Outp: !_TypeOutput
     kind: !_TypeKind Output
-    name: OutP
-  !_Identifier OutPAlias: !_TypeOutput
-    aliases: [OutP1, OutP2]
+    name: Outp
+  !_Identifier OutpAlias: !_TypeOutput
+    aliases: [Outp1, Outp2]
     kind: !_TypeKind Output
-    name: OutPAlias
-  !_Identifier OutPAlts: !_TypeOutput
+    name: OutpAlias
+  !_Identifier OutpAlts: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
-      object: OutPAlts
-      type: !_OutputBase OutPAltsType
+      object: OutpAlts
+      type: !_OutputBase OutpAltsType
     alternates:
     - !_Alternate(_OutputBase)
-      type: !_OutputBase OutPAltsType
+      type: !_OutputBase OutpAltsType
     kind: !_TypeKind Output
-    name: OutPAlts
-  !_Identifier OutPAltsType: !_TypeOutput
+    name: OutpAlts
+  !_Identifier OutpAltsType: !_TypeOutput
     kind: !_TypeKind Output
-    name: OutPAltsType
-  !_Identifier OutPFieldAlias: !_TypeOutput
+    name: OutpAltsType
+  !_Identifier OutpFieldAlias: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutPFieldAlias
-      type: !_OutputBase OutPFieldAlias
+      object: OutpFieldAlias
+      type: !_OutputBase OutpFieldAlias
     fields:
     - !_OutputField
       name: field
-      type: !_OutputBase OutPFieldAlias
+      type: !_OutputBase OutpFieldAlias
     kind: !_TypeKind Output
-    name: OutPFieldAlias
-  !_Identifier OutPFields: !_TypeOutput
+    name: OutpFieldAlias
+  !_Identifier OutpFields: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutPFields
-      type: !_OutputBase OutPFields
+      object: OutpFields
+      type: !_OutputBase OutpFields
     fields:
     - !_OutputField
       name: field
-      type: !_OutputBase OutPFields
+      type: !_OutputBase OutpFields
     kind: !_TypeKind Output
-    name: OutPFields
-  !_Identifier OutPParams: !_TypeOutput
+    name: OutpFields
+  !_Identifier OutpParams: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: test
-      object: OutPParams
+      object: OutpParams
       type: test
     - !_ObjectFor(_OutputField)
       name: type
-      object: OutPParams
+      object: OutpParams
       type: type
     fields:
     - !_OutputField
@@ -419,20 +422,20 @@ types: !_Map_Type
       name: type
       type: type
     kind: !_TypeKind Output
-    name: OutPParams
-  !_Identifier OutPPrnt: !_TypeOutput
+    name: OutpParams
+  !_Identifier OutpPrnt: !_TypeOutput
     kind: !_TypeKind Output
-    name: OutPPrnt
-    parent: !_OutputBase PrntOutP
+    name: OutpPrnt
+    parent: !_OutputBase PrntOutp
   !_Identifier PrntDual: !_TypeDual
     kind: !_TypeKind Dual
     name: PrntDual
-  !_Identifier PrntInP: !_TypeInput
+  !_Identifier PrntInp: !_TypeInput
     kind: !_TypeKind Input
-    name: PrntInP
-  !_Identifier PrntOutP: !_TypeOutput
+    name: PrntInp
+  !_Identifier PrntOutp: !_TypeOutput
     kind: !_TypeKind Output
-    name: PrntOutP
+    name: PrntOutp
   !_Identifier Str: !_ScalarString
     kind: !_TypeKind Scalar
     name: Str

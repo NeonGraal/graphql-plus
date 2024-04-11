@@ -57,19 +57,7 @@ public record class SchemaModel(
       .Add("directives", GetDirectives(default).Render(context, keyTag: "_Identifier", "_Directives"))
       .Add("types", GetTypes(default).Render(context, keyTag: "_Identifier", "_Type"))
       .Add("settings", GetSettings(default).Render(context, keyTag: "_Identifier", "_Setting"))
-      .Add("_errors", new(Errors.Select(RenderError), "_Errors"));
-
-  private RenderStructure RenderError(TokenMessage error)
-    => RenderStructure.New("_Error")
-      .Add(error.Kind is TokenKind.Start or TokenKind.End,
-        onFalse: r => r.Add("_at", RenderAt(error)))
-      .Add("_kind", error.Kind)
-      .Add("_message", error.Message);
-
-  private RenderStructure RenderAt(TokenAt at)
-    => RenderStructure.New("_At", true)
-      .Add("_col", at.Column)
-      .Add("_line", at.Line);
+      .Add("_errors", Errors.Render());
 }
 
 public record class FilterParameter(
@@ -160,9 +148,9 @@ internal class SchemaModeller(
 
     type.AddTypeKinds(types, typeKinds);
 
-    var options = ast.Declarations.OfType<OptionDeclAst>().ToArray();
-    var name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name ?? "";
-    var aliases = options.SelectMany(a => a.Aliases);
+    OptionDeclAst[] options = [.. ast.Declarations.OfType<OptionDeclAst>()];
+    string name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name ?? "";
+    IEnumerable<string> aliases = options.SelectMany(a => a.Aliases);
     IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings, typeKinds));
 
     return new(name,

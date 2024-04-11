@@ -7,7 +7,8 @@ namespace GqlPlus.Verifier.Verification;
 
 public class VerifySchemaTests(
     Parser<SchemaAst>.D parser,
-    IVerify<SchemaAst> verifier)
+    IVerify<SchemaAst> verifier
+) : SchemaBase(parser)
 {
   [Theory]
   [ClassData(typeof(VerifySchemaValidSchemasData))]
@@ -24,11 +25,12 @@ public class VerifySchemaTests(
   public void Verify_ValidMerges(string schema)
   {
     var input = VerifySchemaValidMergesData.Source[schema];
-    if (input.StartsWith("object", StringComparison.Ordinal)) {
+    if (IsObjectInput(input)) {
       using var scope = new AssertionScope();
 
-      Verify_Valid(ReplaceObject(input, "input", "In"));
-      Verify_Valid(ReplaceObject(input, "output", "Out"));
+      foreach (var (objLabel, objAbbr) in Replacements) {
+        Verify_Valid(ReplaceObject(input, objLabel, objAbbr));
+      }
     } else {
       Verify_Valid(input);
     }
@@ -49,12 +51,12 @@ public class VerifySchemaTests(
   public void Verify_ValidObjects(string obj)
   {
     var input = VerifySchemaValidObjectsData.Source[obj];
-    if (input.StartsWith("object", StringComparison.Ordinal)) {
+    if (IsObjectInput(input)) {
       using var scope = new AssertionScope();
 
-      Verify_Valid(ReplaceObject(input, "dual", "Dual"));
-      Verify_Valid(ReplaceObject(input, "input", "In"));
-      Verify_Valid(ReplaceObject(input, "output", "Out"));
+      foreach (var (objLabel, objAbbr) in Replacements) {
+        Verify_Valid(ReplaceObject(input, objLabel, objAbbr));
+      }
     } else {
       Verify_Valid(input);
     }
@@ -65,28 +67,14 @@ public class VerifySchemaTests(
   public async Task Verify_InvalidObjects(string obj)
   {
     var input = VerifySchemaInvalidObjectsData.Source[obj];
-    if (input.StartsWith("object", StringComparison.Ordinal)) {
-      await WhenAll(
-        Verify_Invalid(ReplaceObject(input, "dual", "Dual"), "dual-" + obj),
-        Verify_Invalid(ReplaceObject(input, "input", "In"), "input-" + obj),
-        Verify_Invalid(ReplaceObject(input, "output", "Out"), "output-" + obj));
+    if (IsObjectInput(input)) {
+      await WhenAll(Replacements
+        .Select(r => Verify_Invalid(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + obj))
+        .ToArray());
     } else {
       await Verify_Invalid(input, obj);
     }
   }
-
-  private readonly Parser<SchemaAst>.L _parser = parser;
-
-  private IResult<SchemaAst> Parse(string schema)
-  {
-    Tokenizer tokens = new(schema);
-    return _parser.Parse(tokens, "Schema");
-  }
-
-  private static string ReplaceObject(string input, string objectReplace, string objReplace)
-    => input
-    .Replace("object", objectReplace, StringComparison.InvariantCulture)
-    .Replace("Obj", objReplace, StringComparison.InvariantCulture);
 
   private void Verify_Valid(string input)
   {
@@ -123,22 +111,5 @@ public class VerifySchemaTests(
     settings.UseMethodName(test);
 
     await Verify(result.Select(m => m.Message), settings);
-  }
-
-  private static async Task WhenAll(params Task[] tasks)
-  {
-    using var scope = new AssertionScope();
-
-    var all = Task.WhenAll(tasks);
-
-    try {
-      await all;
-    } catch (Exception) {
-      if (all.Exception is not null) {
-        throw all.Exception;
-      }
-
-      throw;
-    }
   }
 }

@@ -1,6 +1,5 @@
 ﻿[
   Multiple Outputs with name 'Test' can't be merged.,
   Group of AstAlternate<OutputReferenceAst> for Test1 is not singular Modifiers['', '[]'],
-  Multiple Types with name 'Test' can't be merged.,
-  Group of AstAlternate<OutputReferenceAst> for Test1 is not singular Modifiers['', '[]']
+  Multiple Types with name 'Test' can't be merged.
 ]

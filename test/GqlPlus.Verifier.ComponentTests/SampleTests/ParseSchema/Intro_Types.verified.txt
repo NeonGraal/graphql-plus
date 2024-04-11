@@ -97,7 +97,7 @@ Success
     I@019/0023
     $kind
     I@024/0023
-    Identifier
+    _Identifier
   >
   {
     !OF I@009/0024
@@ -156,7 +156,7 @@ Success
     name
     :
     I@015/0034
-    Identifier
+    _Identifier
   }
 }
 {

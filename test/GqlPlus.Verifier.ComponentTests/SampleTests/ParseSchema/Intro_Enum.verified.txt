@@ -26,7 +26,7 @@ Success
     enum
     :
     I@015/0007
-    Identifier
+    _Identifier
   }
 }
 {
@@ -44,6 +44,6 @@ Success
     value
     :
     I@016/0012
-    Identifier
+    _Identifier
   }
 }

@@ -18,7 +18,7 @@ Success
     :
     I@039/0003
     _Categories
-    [Identifier]
+    [_Identifier]
     !OF I@009/0004
     directives
     (
@@ -30,7 +30,7 @@ Success
     :
     I@031/0004
     _Directives
-    [Identifier]
+    [_Identifier]
     !OF I@009/0005
     types
     (
@@ -42,7 +42,7 @@ Success
     :
     I@030/0005
     _Type
-    [Identifier]
+    [_Identifier]
     !OF I@009/0006
     settings
     (
@@ -54,14 +54,14 @@ Success
     :
     I@029/0006
     _Setting
-    [Identifier]
+    [_Identifier]
   }
 }
 {
   !S I@008/0009
-  Identifier
+  _Identifier
   String
-  !SX R@028/0009
+  !SX R@029/0009
   /[A-Za-z_]+/
 }
 {
@@ -128,7 +128,7 @@ Success
     aliases
     :
     I@018/0029
-    Identifier
+    _Identifier
     []
   }
 }
@@ -178,7 +178,7 @@ Success
     name
     :
     I@015/0044
-    Identifier
+    _Identifier
   }
 }
 {
@@ -419,7 +419,7 @@ Success
     I@019/0103
     $kind
     I@024/0103
-    Identifier
+    _Identifier
   >
   {
     !OF I@009/0104
@@ -478,7 +478,7 @@ Success
     name
     :
     I@015/0114
-    Identifier
+    _Identifier
   }
 }
 {
@@ -679,7 +679,7 @@ Success
     enum
     :
     I@015/0171
-    Identifier
+    _Identifier
   }
 }
 {
@@ -697,7 +697,7 @@ Success
     value
     :
     I@016/0176
-    Identifier
+    _Identifier
   }
 }
 {
@@ -898,7 +898,7 @@ Success
     scalar
     :
     I@017/0224
-    Identifier
+    _Identifier
   }
 }
 {
@@ -951,7 +951,7 @@ Success
     union
     :
     I@016/0237
-    Identifier
+    _Identifier
   }
 }
 {
@@ -1067,7 +1067,7 @@ Success
   |
   !AD
   I@023/0256
-  Identifier
+  _Identifier
 }
 {
   !O I@008/0259
@@ -1113,7 +1113,7 @@ Success
     object
     :
     I@017/0266
-    Identifier
+    _Identifier
   }
 }
 {
@@ -1205,7 +1205,7 @@ Success
     dual
     :
     I@015/0285
-    Identifier
+    _Identifier
   }
 }
 {
@@ -1242,7 +1242,7 @@ Success
     input
     :
     I@016/0293
-    Identifier
+    _Identifier
   }
   |
   !AO
@@ -1298,7 +1298,7 @@ Success
     output
     :
     I@017/0307
-    Identifier
+    _Identifier
   }
   |
   !AO
@@ -1343,7 +1343,7 @@ Success
     value
     :
     I@016/0319
-    Identifier
+    _Identifier
   }
   |
   !AO
@@ -1369,11 +1369,11 @@ Success
     field
     :
     I@016/0325
-    Identifier
+    _Identifier
     !OF I@009/0326
     value
     :
     I@016/0326
-    Identifier
+    _Identifier
   }
 }

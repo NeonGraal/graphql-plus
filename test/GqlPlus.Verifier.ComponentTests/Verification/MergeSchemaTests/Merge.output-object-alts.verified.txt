@@ -3,14 +3,14 @@
 Success
 {
   !O I@008/0001
-  OutPAlts
+  OutpAlts
   |
   !AO
   I@021/0001
-  OutPAltsType
+  OutpAltsType
 }
 {
   !O I@078/0001
-  OutPAltsType
+  OutpAltsType
 }
 ]

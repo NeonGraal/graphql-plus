@@ -1,7 +1,7 @@
 ﻿[
   !!! I@006/0005 : Invalid Dual Parent. '_Named' not defined. - '_UnionMember' !!!,
   !!! I@008/0001 : Invalid Output Parent. '_ParentType' not defined. - '_TypeUnion' !!!,
-  !!! I@016/0007 : Invalid Dual Field. 'Identifier' not defined. - 'Identifier' !!!,
+  !!! I@016/0007 : Invalid Dual Field. '_Identifier' not defined. - '_Identifier' !!!,
   !!! I@019/0002 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@019/0002 : Invalid Output Parent. '_TypeKind' not defined. - '_TypeKind' !!!,
   !!! I@035/0002 : Invalid Output Parent. '_Named' not defined. - '_Named' !!!

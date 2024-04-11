@@ -24,15 +24,31 @@ public abstract record class ChildTypeModel<TParent>(
 {
   public TParent? Parent { get; set; }
 
+  private ChildTypeModel<TParent>? _parentModel;
+
+  protected abstract string? ParentName(TParent? parent);
+
+  internal bool GetParentModel<TModel>(IRenderContext context, [NotNullWhen(true)] out TModel? model)
+    where TModel : ChildTypeModel<TParent>
+  {
+    if (_parentModel is null) {
+      _parentModel = model = context.TryGetType<TModel>(Name, ParentName(Parent), out var parentModel) ? parentModel : null;
+    } else {
+      model = _parentModel as TModel;
+    }
+
+    return model is not null;
+  }
+
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
       .Add("parent", Parent?.Render(context));
 
-  internal void ForParent<TModel>(IRenderContext context, Func<TParent?, string?> parent, Action<TModel> action)
+  internal void ForParent<TModel>(IRenderContext context, Action<TModel> action)
     where TModel : ChildTypeModel<TParent>
   {
-    if (context.TryGetType<TModel>(parent(Parent), out var parentModel)) {
-      parentModel.ForParent(context, parent, action);
+    if (GetParentModel<TModel>(context, out var parentModel)) {
+      parentModel.ForParent(context, action);
       action(parentModel);
     }
   }
@@ -46,6 +62,9 @@ public abstract record class ParentTypeModel<TItem, TAll>(
 {
   public TItem[] Items { get; set; } = [];
 
+  protected override string? ParentName(TypeRefModel<SimpleKindModel>? parent)
+    => parent?.Name;
+
   protected abstract Func<TItem, TAll> NewItem(string parent);
   internal override RenderStructure Render(IRenderContext context)
   {
@@ -53,7 +72,7 @@ public abstract record class ParentTypeModel<TItem, TAll>(
     void AddMembers(ParentTypeModel<TItem, TAll> model)
       => all.AddRange(model.Items.Select(NewItem(model.Name)));
 
-    ForParent<ParentTypeModel<TItem, TAll>>(context, parent => parent?.Name, AddMembers);
+    ForParent<ParentTypeModel<TItem, TAll>>(context, AddMembers);
     AddMembers(this);
 
     return base.Render(context)
@@ -231,7 +250,18 @@ internal class TypesCollection(
   //  }
   //}
 
-  public bool TryGetType<TModel>(string? name, [NotNullWhen(true)] out TModel? model)
+  public void AddModels(IEnumerable<BaseTypeModel> models)
+  {
+    foreach (var model in models) {
+      Types.Add(model.Name, model);
+
+      foreach (var alias in model.Aliases) {
+        Types.TryAdd(alias, model);
+      }
+    }
+  }
+
+  public bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)
     where TModel : BaseTypeModel
   {
     if (name is not null) {
@@ -240,7 +270,7 @@ internal class TypesCollection(
         return true;
       }
 
-      Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"Unable to get model for type '{name}'"));
+      Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"In {context} can't get model for type '{name}'"));
     }
 
     model = null;

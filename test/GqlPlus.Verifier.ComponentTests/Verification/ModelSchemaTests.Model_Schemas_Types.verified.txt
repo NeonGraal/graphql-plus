@@ -24,6 +24,9 @@ types: !_Map_Type
   !_Identifier EnPrntAlias: !_TypeEnum
     allItems:
     - !_EnumMember
+      enum: EnAliasPrnt
+      name: valAlias
+    - !_EnumMember
       enum: EnPrntAlias
       name: valPrnt
     - !_EnumMember
@@ -42,6 +45,10 @@ types: !_Map_Type
       name: EnAliasPrnt
   !_Identifier EnPrntDup: !_TypeEnum
     allItems:
+    - !_EnumMember
+      aliases: [valPrnt]
+      enum: EnDupPrnt
+      name: valDup
     - !_EnumMember
       enum: EnPrntDup
       name: valPrnt
@@ -63,6 +70,9 @@ types: !_Map_Type
     name: EnPrntTest
   !_Identifier EnTestPrnt: !_TypeEnum
     allItems:
+    - !_EnumMember
+      enum: EnPrntTest
+      name: valTest
     - !_EnumMember
       enum: EnTestPrnt
       name: valPrnt
@@ -107,6 +117,9 @@ types: !_Map_Type
   !_Identifier EnumScalAllParent: !_TypeEnum
     allItems:
     - !_EnumMember
+      enum: EnumScalParentAll
+      name: scal_enum_all
+    - !_EnumMember
       enum: EnumScalAllParent
       name: scal_all
     items:
@@ -136,6 +149,9 @@ types: !_Map_Type
     name: EnumScalDupParent
   !_Identifier EnumScalParent: !_TypeEnum
     allItems:
+    - !_EnumMember
+      enum: EnumParentScal
+      name: scal_enum
     - !_EnumMember
       enum: EnumScalParent
       name: scal_parent
@@ -192,6 +208,9 @@ types: !_Map_Type
     name: EnumScalUnique
   !_Identifier EnumScalUniqueParent: !_TypeEnum
     allItems:
+    - !_EnumMember
+      enum: EnumScalParentUnique
+      name: dup
     - !_EnumMember
       enum: EnumScalUniqueParent
       name: value
@@ -293,6 +312,11 @@ types: !_Map_Type
     - !_ScalarItem(_ScalarMember)
       exclude: false
       kind: !_SimpleKind Enum
+      scalar: ScalPrntEnum
+      value: scal_parent
+    - !_ScalarItem(_ScalarMember)
+      exclude: false
+      kind: !_SimpleKind Enum
       scalar: ScalEnumPrnt
       value: scal_enum
     items:
@@ -323,6 +347,10 @@ types: !_Map_Type
     scalar: !_ScalarKind Enum
   !_Identifier ScalNumPrnt: !_ScalarNumber
     allItems:
+    - !_ScalarItem(_ScalarRange)
+      exclude: false
+      scalar: ScalPrntNum
+      to: 2
     - !_ScalarItem(_ScalarRange)
       exclude: false
       from: 2
@@ -389,6 +417,10 @@ types: !_Map_Type
     allItems:
     - !_ScalarItem(_ScalarRegex)
       exclude: false
+      regex: b+
+      scalar: ScalPrntStr
+    - !_ScalarItem(_ScalarRegex)
+      exclude: false
       regex: a+
       scalar: ScalStrPrnt
     items:
@@ -407,6 +439,9 @@ types: !_Map_Type
     scalar: !_ScalarKind Boolean
   !_Identifier UnionPrnt: !_TypeUnion
     allItems:
+    - !_UnionMember
+      name: Number
+      union: PrntUnion
     - !_UnionMember
       name: String
       union: UnionPrnt

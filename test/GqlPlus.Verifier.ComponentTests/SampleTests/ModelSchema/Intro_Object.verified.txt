@@ -1,4 +1,11 @@
 ﻿!_Schema
+_errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _TypeObject can't get model for type '_ChildType'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _Field can't get model for type '_Aliased'
 types: !_Map_Type
   !_Identifier _Alternate: !_TypeOutput
     allFields:
@@ -72,7 +79,7 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_DualBase))
       object: _ObjBase
       type: !_BaseDescribed(_ObjRef(_DualBase))
-        base: !_DualBase Identifier
+        base: !_DualBase _Identifier
         description: 'TypeParameter'
     allFields:
     - !_ObjectFor(_DualField)
@@ -83,7 +90,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_DualBase)
       type: !_BaseDescribed(_ObjRef(_DualBase))
-        base: !_DualBase Identifier
+        base: !_DualBase _Identifier
         description: 'TypeParameter'
     fields:
     - !_DualField
@@ -128,16 +135,31 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: object
       object: _ObjectFor
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     fields:
     - !_OutputField
       name: object
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     kind: !_TypeKind Output
     name: _ObjectFor
     parent: for
   !_Identifier _Parameter: !_TypeOutput
     allFields:
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _Alternate
+      type: !_OutputBase
+        arguments:
+        - !_OutputBase
+          arguments:
+          - base
+          output: _ObjRef
+        output: _BaseDescribed
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier List]
+      name: collections
+      object: _Alternate
+      type: !_OutputBase _Collections
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier Optional]
       name: default

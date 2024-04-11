@@ -137,11 +137,11 @@ Success
 }
 {
   !I I@007/0001
-  InP
+  Inp
 }
 {
   !O I@008/0001
-  OutP
+  Outp
 }
 {
   !D I@006/0001
@@ -153,18 +153,18 @@ Success
 }
 {
   !I I@007/0001
-  InPAlias
+  InpAlias
   [
-    InP1
-    InP2
+    Inp1
+    Inp2
   ]
 }
 {
   !O I@008/0001
-  OutPAlias
+  OutpAlias
   [
-    OutP1
-    OutP2
+    Outp1
+    Outp2
   ]
 }
 {
@@ -181,27 +181,27 @@ Success
 }
 {
   !I I@007/0001
-  InPAlts
+  InpAlts
   |
   !AI
   I@019/0001
-  InPAltsType
+  InpAltsType
 }
 {
   !I I@071/0001
-  InPAltsType
+  InpAltsType
 }
 {
   !O I@008/0001
-  OutPAlts
+  OutpAlts
   |
   !AO
   I@021/0001
-  OutPAltsType
+  OutpAltsType
 }
 {
   !O I@078/0001
-  OutPAltsType
+  OutpAltsType
 }
 {
   !D I@006/0001
@@ -216,24 +216,24 @@ Success
 }
 {
   !I I@007/0001
-  InPFields
+  InpFields
   {
     !IF I@019/0001
     field
     :
     I@026/0001
-    InPFields
+    InpFields
   }
 }
 {
   !O I@008/0001
-  OutPFields
+  OutpFields
   {
     !OF I@021/0001
     field
     :
     I@028/0001
-    OutPFields
+    OutpFields
   }
 }
 {
@@ -253,7 +253,7 @@ Success
 }
 {
   !I I@007/0001
-  InPFieldAlias
+  InpFieldAlias
   {
     !IF I@023/0001
     field
@@ -263,12 +263,12 @@ Success
     ]
     :
     I@039/0001
-    InPFieldAlias
+    InpFieldAlias
   }
 }
 {
   !O I@008/0001
-  OutPFieldAlias
+  OutpFieldAlias
   {
     !OF I@025/0001
     field
@@ -278,7 +278,7 @@ Success
     ]
     :
     I@041/0001
-    OutPFieldAlias
+    OutpFieldAlias
   }
 }
 {
@@ -305,7 +305,7 @@ Success
 }
 {
   !I I@007/0001
-  InPParams
+  InpParams
   <
     I@018/0001
     $test
@@ -327,7 +327,7 @@ Success
 }
 {
   !O I@008/0001
-  OutPParams
+  OutpParams
   <
     I@020/0001
     $test
@@ -360,25 +360,25 @@ Success
 }
 {
   !I I@007/0001
-  InPPrnt
+  InpPrnt
   :
   I@018/0001
-  PrntInP
+  PrntInp
 }
 {
   !I I@061/0001
-  PrntInP
+  PrntInp
 }
 {
   !O I@008/0001
-  OutPPrnt
+  OutpPrnt
   :
   I@020/0001
-  PrntOutP
+  PrntOutp
 }
 {
   !O I@068/0001
-  PrntOutP
+  PrntOutp
 }
 {
   !O I@008/0001

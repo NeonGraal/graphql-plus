@@ -1,4 +1,8 @@
 ﻿!_Schema
+_errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _Category can't get model for type '_Aliased'
 types: !_Map_Type
   !_Identifier _Categories: !_TypeOutput
     allAlternates:

@@ -7,7 +7,8 @@ public record class TypeDualModel(
   string Name
 ) : TypeObjectModel<DualBaseModel, DualFieldModel>(TypeKindModel.Dual, Name)
 {
-  internal override string? ParentName => Parent?.Base.Dual;
+  protected override string? ParentName(BaseDescribedModel<DualBaseModel>? parent)
+    => parent?.Base.Dual;
 }
 
 public record class DualBaseModel(

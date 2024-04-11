@@ -2,6 +2,7 @@
 using GqlPlus.Verifier.Merging;
 using GqlPlus.Verifier.Modelling;
 using GqlPlus.Verifier.Parse;
+using GqlPlus.Verifier.Rendering;
 using GqlPlus.Verifier.Result;
 
 namespace GqlPlus.Verifier.Verification;
@@ -11,7 +12,7 @@ public class ModelSchemaTests(
     IMerge<SchemaAst> merger,
     IModeller<SchemaAst, SchemaModel> modeller,
     ITypesModeller types
-) : MergeSchemaBase(parser)
+) : SchemaBase(parser)
 {
   [Fact]
   public async Task Model_AllSchemas()
@@ -19,15 +20,13 @@ public class ModelSchemaTests(
     var asts = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
       .Select(input => Parse(input).Required());
-    var schemas = merger.Merge(asts);
 
-    var context = TypesCollection.WithBuiltins(types);
-    var result = modeller.ToModel(schemas.FirstOrDefault(), context);
+    var result = ModelAsts(asts);
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
 
-    await Verify(result.Render(context).ToYaml(), settings);
+    await Verify(result.ToYaml(), settings);
   }
 
   [Theory]
@@ -36,16 +35,14 @@ public class ModelSchemaTests(
   {
     var asts = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required());
-    var schemas = merger.Merge(asts);
 
-    var context = TypesCollection.WithBuiltins(types);
-    var result = modeller.ToModel(schemas.FirstOrDefault(), context);
+    var result = ModelAsts(asts);
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
     settings.UseTextForParameters(group);
 
-    await Verify(result.Render(context).ToYaml(), settings);
+    await Verify(result.ToYaml(), settings);
   }
 
   [Theory]
@@ -54,10 +51,9 @@ public class ModelSchemaTests(
   {
     var input = VerifySchemaValidMergesData.Source[model];
     if (IsObjectInput(input)) {
-      await WhenAll(
-        Verify_Model(ReplaceObject(input, "dual", "Dual"), "dual-" + model),
-        Verify_Model(ReplaceObject(input, "input", "Inp"), "input-" + model),
-        Verify_Model(ReplaceObject(input, "output", "Outp"), "output-" + model));
+      await WhenAll(Replacements
+        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
+        .ToArray());
     } else {
       await Verify_Model(input, model);
     }
@@ -67,10 +63,8 @@ public class ModelSchemaTests(
   {
     var parse = Parse(input);
     var ast = parse.Required();
-    var schema = merger.Merge([ast]).First();
 
-    var context = TypesCollection.WithBuiltins(types);
-    var result = modeller.ToModel(schema, context);
+    var result = ModelAsts([ast]);
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
@@ -78,6 +72,23 @@ public class ModelSchemaTests(
     settings.UseTypeName("Model");
     settings.UseMethodName(test);
 
-    await Verify(result.Render(context).ToYaml(), settings);
+    await Verify(result.ToYaml(), settings);
+  }
+
+  private RenderStructure ModelAsts(IEnumerable<SchemaAst> asts)
+  {
+    var schema = merger.Merge(asts).First();
+
+    var context = TypesCollection.WithBuiltins(types);
+    var model = modeller.ToModel(schema, context);
+    context.AddModels(model.Types.Values);
+    context.Errors.Clear();
+
+    var result = model.Render(context);
+    if (context.Errors.Count > 0) {
+      result.Add("_errors", context.Errors.Render());
+    }
+
+    return result;
   }
 }

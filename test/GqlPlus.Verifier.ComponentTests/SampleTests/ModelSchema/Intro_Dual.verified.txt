@@ -1,15 +1,22 @@
 ﻿!_Schema
+_errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _TypeDual can't get model for type '_TypeObject'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _DualBase can't get model for type '_ObjBase'
 types: !_Map_Type
   !_Identifier _DualBase: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: dual
       object: _DualBase
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     fields:
     - !_OutputField
       name: dual
-      type: !_OutputBase Identifier
+      type: !_OutputBase _Identifier
     kind: !_TypeKind Output
     name: _DualBase
     parent: !_OutputBase

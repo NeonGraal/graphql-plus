@@ -8,7 +8,7 @@ namespace GqlPlus.Verifier.Verification;
 public class MergeSchemaTests(
     Parser<SchemaAst>.D parser,
     IMerge<SchemaAst> merger
-) : MergeSchemaBase(parser)
+) : SchemaBase(parser)
 {
   [Fact]
   public void CanMerge_AllSchemas()
@@ -85,8 +85,8 @@ public class MergeSchemaTests(
   public async Task Merge_Valid(string merge)
   {
     var input = VerifySchemaValidMergesData.Source[merge];
-    if (input.Contains("object", StringComparison.Ordinal)) {
-      await WhenAll(s_replacements
+    if (IsObjectInput(input)) {
+      await WhenAll(Replacements
         .Select(r => Verify_Merge(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + merge))
         .ToArray());
     } else {

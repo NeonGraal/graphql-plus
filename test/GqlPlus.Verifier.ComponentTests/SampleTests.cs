@@ -3,6 +3,7 @@ using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Modelling;
 using GqlPlus.Verifier.Parse;
 using GqlPlus.Verifier.Parse.Operation;
+using GqlPlus.Verifier.Rendering;
 using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
 using GqlPlus.Verifier.Verification;
@@ -47,13 +48,19 @@ public class SampleTests(
     var context = TypesCollection.WithBuiltins(types);
 
     var model = schemaModeller.ToModel(ast, context);
+    context.AddModels(model.Types.Values);
+    context.Errors.Clear();
+    var result = model.Render(context);
+    if (context.Errors.Count > 0) {
+      result.Add("_errors", context.Errors.Render());
+    }
 
     var settings = new VerifySettings();
     settings.ScrubEmptyLines();
     settings.UseDirectory(nameof(SampleTests) + "/ModelSchema");
     settings.UseFileName(sample);
 
-    await Verify(model.Render(context).ToYaml(), settings);
+    await Verify(result.ToYaml(), settings);
   }
 
   [Theory]

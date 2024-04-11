@@ -1,12 +1,12 @@
 output _Schema {
     : _Named
-        categories(_CategoryFilter?): _Categories[Identifier]
-        directives(_Filter?): _Directives[Identifier]
-        types(_TypeFilter?): _Type[Identifier]
-        settings(_Filter?): _Setting[Identifier]
+        categories(_CategoryFilter?): _Categories[_Identifier]
+        directives(_Filter?): _Directives[_Identifier]
+        types(_TypeFilter?): _Type[_Identifier]
+        settings(_Filter?): _Setting[_Identifier]
     }
 
-scalar Identifier { String /[A-Za-z_]+/ }
+scalar _Identifier { String /[A-Za-z_]+/ }
 
 input _Filter  {
         names: String[]
@@ -26,7 +26,7 @@ input _TypeFilter {
 
 dual _Aliased {
     : _Described
-        aliases: Identifier[]
+        aliases: _Identifier[]
     }
 
 dual _Described {
@@ -41,5 +41,5 @@ dual _BaseDescribed<$base> {
     }
 
 dual _Named {
-        name: Identifier
+        name: _Identifier
     }

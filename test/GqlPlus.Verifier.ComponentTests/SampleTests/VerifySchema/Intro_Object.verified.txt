@@ -7,12 +7,12 @@
   !!! I@013/0033 : Invalid Output Field. '_BaseDescribed' not defined. - '_BaseDescribed' !!!,
   !!! I@017/0011 : Invalid Output Alternate. '_TypeKind' not defined. - '_TypeKind' !!!,
   !!! I@017/0011 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
-  !!! I@017/0028 : Invalid Output Field. 'Identifier' not defined. - 'Identifier' !!!,
+  !!! I@017/0028 : Invalid Output Field. '_Identifier' not defined. - '_Identifier' !!!,
   !!! I@018/0034 : Invalid Output Field. '_Modifiers' not defined. - '_Modifiers' !!!,
   !!! I@018/0038 : Invalid Output Parent. '_InputBase' not defined. - '_InputBase' !!!,
   !!! I@018/0039 : Invalid Output Field. '_Constant' not defined. - '_Constant' !!!,
   !!! I@020/0023 : Invalid Output Field. '_Collections' not defined. - '_Collections' !!!,
-  !!! I@023/0018 : Invalid Dual Alternate. 'Identifier' not defined. - 'Identifier' !!!,
+  !!! I@023/0018 : Invalid Dual Alternate. '_Identifier' not defined. - '_Identifier' !!!,
   !!! I@024/0002 : Invalid Output Parent. '_BaseDescribed' not defined. - '_BaseDescribed' !!!,
   !!! I@025/0003 : Invalid Output Field. '_Described' not defined. - '_Described' !!!
 ]

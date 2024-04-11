@@ -1,4 +1,14 @@
 ﻿!_Schema
+_errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _ScalarRef can't get model for type '_TypeRef'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _BaseScalar can't get model for type '_ParentType'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _ScalarMember can't get model for type '_BaseScalarItem'
 types: !_Map_Type
   !_Identifier _BaseScalar: !_TypeOutput
     allFields:
@@ -66,11 +76,11 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: scalar
       object: _ScalarItem
-      type: !_DualBase Identifier
+      type: !_DualBase _Identifier
     fields:
     - !_DualField
       name: scalar
-      type: !_DualBase Identifier
+      type: !_DualBase _Identifier
     kind: !_TypeKind Dual
     name: _ScalarItem
     parent: item
@@ -89,6 +99,10 @@ types: !_Map_Type
     parent: !_DualBase _BaseScalarItem
   !_Identifier _ScalarRange: !_TypeDual
     allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseScalarItem
+      type: !_DualBase Boolean
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier Optional]
       name: from
@@ -133,6 +147,10 @@ types: !_Map_Type
   !_Identifier _ScalarRegex: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseScalarItem
+      type: !_DualBase Boolean
+    - !_ObjectFor(_DualField)
       name: regex
       object: _ScalarRegex
       type: !_DualBase String
@@ -146,6 +164,10 @@ types: !_Map_Type
   !_Identifier _ScalarTrueFalse: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseScalarItem
+      type: !_DualBase Boolean
+    - !_ObjectFor(_DualField)
       name: value
       object: _ScalarTrueFalse
       type: !_DualBase Boolean
@@ -158,6 +180,10 @@ types: !_Map_Type
     parent: !_DualBase _BaseScalarItem
   !_Identifier _ScalarValue: !_TypeOutput
     allFields:
+    - !_ObjectFor(_OutputField)
+      name: scalar
+      object: _ScalarRef
+      type: kind
     - !_ObjectFor(_OutputField)
       name: value
       object: _ScalarValue

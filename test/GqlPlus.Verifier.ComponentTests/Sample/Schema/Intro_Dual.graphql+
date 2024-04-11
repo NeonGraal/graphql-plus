@@ -4,5 +4,5 @@ output _TypeDual {
 
 output _DualBase {
     : _ObjBase<_ObjRef<_DualBase>>
-        dual: Identifier
+        dual: _Identifier
     }

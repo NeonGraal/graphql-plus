@@ -94,6 +94,10 @@ types: !_Map_Type
   !_Identifier _ModifierDictionary: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
+      name: kind
+      object: _Modifier
+      type: kind
+    - !_ObjectFor(_OutputField)
       name: by
       object: _ModifierDictionary
       type: !_OutputBase _TypeSimple

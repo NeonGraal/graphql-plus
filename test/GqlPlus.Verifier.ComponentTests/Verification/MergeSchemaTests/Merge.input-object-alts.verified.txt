@@ -3,14 +3,14 @@
 Success
 {
   !I I@007/0001
-  InPAlts
+  InpAlts
   |
   !AI
   I@019/0001
-  InPAltsType
+  InpAltsType
 }
 {
   !I I@071/0001
-  InPAltsType
+  InpAltsType
 }
 ]

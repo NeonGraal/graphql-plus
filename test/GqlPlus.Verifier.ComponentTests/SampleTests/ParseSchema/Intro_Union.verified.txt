@@ -26,6 +26,6 @@ Success
     union
     :
     I@016/0007
-    Identifier
+    _Identifier
   }
 }

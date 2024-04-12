@@ -8,17 +8,17 @@ public class MergeSchemasTests
   : TestAbbreviated<SchemaAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentDeclarations_ReturnsTrue(string category, string option)
-    => CanMerge_True([
+  public void CanMerge_TwoAstsDifferentDeclarations_ReturnsGood(string category, string option)
+    => CanMerge_Good([
       new SchemaAst(AstNulls.At) with { Declarations = CategoryDeclarations(category) },
       new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option) }]);
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentOptionNames_ReturnsFalse(string option1, string option2)
+  public void CanMerge_TwoAstsDifferentOptionNames_ReturnsErrors(string option1, string option2)
   {
     _options.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
-    CanMerge_False([
+    CanMerge_Errors([
         new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option1) },
         new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option2) }]
       , option1 == option2);

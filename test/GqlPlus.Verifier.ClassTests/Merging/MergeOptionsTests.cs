@@ -9,7 +9,7 @@ public class MergeOptionsTests
   : TestAliased<OptionDeclAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSettingsCantMerge_ReturnsFalse(string name, string[] settings)
+  public void CanMerge_TwoAstsSettingsCantMerge_ReturnsErrors(string name, string[] settings)
   {
     if (settings is null || settings.Length < 2) {
       return;
@@ -17,7 +17,7 @@ public class MergeOptionsTests
 
     _settings.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
-    CanMerge_False([
+    CanMerge_Errors([
       new OptionDeclAst(AstNulls.At, name) with { Settings = settings.OptionSettings() },
       new OptionDeclAst(AstNulls.At, name)]);
   }

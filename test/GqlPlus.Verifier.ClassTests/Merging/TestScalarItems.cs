@@ -8,8 +8,8 @@ public abstract class TestScalarItems<TItem>
   where TItem : AstAbbreviated, IAstScalarItem
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSame_ReturnsTrue(string name)
-    => CanMerge_True([MakeAst(name), MakeAst(name)]);
+  public void CanMerge_TwoAstsSame_ReturnsGood(string name)
+    => CanMerge_Good([MakeAst(name), MakeAst(name)]);
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsSame_ReturnsExpected(string name)

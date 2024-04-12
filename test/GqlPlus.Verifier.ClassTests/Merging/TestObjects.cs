@@ -11,32 +11,32 @@ public abstract class TestObjects<TObject, TField, TRef>
   where TRef : AstReference<TRef>
 {
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsTypeParametersCantMerge_ReturnsFalse(string name, string[] typeParameters)
+  public void CanMerge_TwoAstsTypeParametersCantMerge_ReturnsErrors(string name, string[] typeParameters)
   {
     TypeParameters.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
-    CanMerge_False([
+    CanMerge_Errors([
       MakeObject(name) with { TypeParameters = typeParameters.TypeParameters() },
       MakeObject(name) with { TypeParameters = typeParameters.TypeParameters() }],
       typeParameters is null || typeParameters.Length < 2);
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsFalse(string name, string[] alternates)
+  public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsErrors(string name, string[] alternates)
   {
     Alternates.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
-    CanMerge_False([
+    CanMerge_Errors([
       MakeObject(name) with { Alternates = alternates.Alternates(MakeReference) },
       MakeObject(name) with { Alternates = alternates.Alternates(MakeReference) }]);
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsFieldsCantMerge_ReturnsFalse(string name, FieldInput[] fields)
+  public void CanMerge_TwoAstsFieldsCantMerge_ReturnsErrors(string name, FieldInput[] fields)
   {
     Fields.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
-    CanMerge_False([
+    CanMerge_Errors([
       MakeObject(name) with { Fields = MakeFields(fields) },
       MakeObject(name) with { Fields = MakeFields(fields) }]);
   }

@@ -7,16 +7,16 @@ public abstract class TestDescriptions<TAst>
   where TAst : AstAbbreviated, IAstDescribed
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsOneDescription_ReturnsTrue(string name, string description)
-    => CanMerge_True([MakeDescribed(name), MakeDescribed(name, description)]);
+  public void CanMerge_TwoAstsOneDescription_ReturnsGood(string name, string description)
+    => CanMerge_Good([MakeDescribed(name), MakeDescribed(name, description)]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSameDescription_ReturnsTrue(string name, string description)
-  => CanMerge_True([MakeDescribed(name, description), MakeDescribed(name, description)]);
+  public void CanMerge_TwoAstsSameDescription_ReturnsGood(string name, string description)
+  => CanMerge_Good([MakeDescribed(name, description), MakeDescribed(name, description)]);
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentDescription_ReturnsFalse(string name, string description1, string description2)
-  => CanMerge_False([MakeDescribed(name, description1), MakeDescribed(name, description2)], description1 == description2);
+  public void CanMerge_TwoAstsDifferentDescription_ReturnsErrors(string name, string description1, string description2)
+  => CanMerge_Errors([MakeDescribed(name, description1), MakeDescribed(name, description2)], description1 == description2);
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsOneDescription_ReturnsExpected(string name, string description)

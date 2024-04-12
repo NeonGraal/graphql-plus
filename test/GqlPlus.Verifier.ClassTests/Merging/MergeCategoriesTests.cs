@@ -9,19 +9,19 @@ public class MergeCategoriesTests(
 ) : TestAliased<CategoryDeclAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSameOutput_ReturnsTrue(string category)
-    => CanMerge_True([new CategoryDeclAst(AstNulls.At, category), new CategoryDeclAst(AstNulls.At, category)]);
+  public void CanMerge_TwoAstsSameOutput_ReturnsGood(string category)
+    => CanMerge_Good([new CategoryDeclAst(AstNulls.At, category), new CategoryDeclAst(AstNulls.At, category)]);
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentOutput_ReturnsFalse(string name, string category1, string category2)
-    => CanMerge_False([
+  public void CanMerge_TwoAstsDifferentOutput_ReturnsErrors(string name, string category1, string category2)
+    => CanMerge_Errors([
       new CategoryDeclAst(AstNulls.At, name, category1),
       new CategoryDeclAst(AstNulls.At, name, category2)],
       category1 == category2);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentOption_ReturnsFalse(string category)
-    => CanMerge_False([
+  public void CanMerge_TwoAstsDifferentOption_ReturnsErrors(string category)
+    => CanMerge_Errors([
       new CategoryDeclAst(AstNulls.At, category) { Option = CategoryOption.Single },
       new CategoryDeclAst(AstNulls.At, category) { Option = CategoryOption.Sequential }]);
 

@@ -7,11 +7,11 @@ public abstract class TestGroups<TAst>
   where TAst : AstAbbreviated
 {
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentNames_ReturnsTrue(string name1, string name2)
+  public void CanMerge_TwoAstsDifferentNames_ReturnsGood(string name1, string name2)
   {
     Skip.If(SkipDifferentNames || name1 == name2);
 
-    CanMerge_True([MakeAst(name1), MakeAst(name2)]);
+    CanMerge_Good([MakeAst(name1), MakeAst(name2)]);
   }
 
   [SkippableTheory, RepeatData(Repeats)]

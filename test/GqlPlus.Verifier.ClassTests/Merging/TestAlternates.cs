@@ -8,12 +8,12 @@ public abstract class TestAlternates<TAlternate, TRef>
   where TRef : AstReference<TRef>, IEquatable<TRef>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSameModifers_ReturnsTrue(string input)
-    => CanMerge_True([MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() }]);
+  public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
+    => CanMerge_Good([MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() }]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentModifers_ReturnsFalse(string input)
-    => CanMerge_False([MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input)]);
+  public void CanMerge_TwoAstsDifferentModifers_ReturnsErrors(string input)
+    => CanMerge_Errors([MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input)]);
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsSameModifers_ReturnsExpected(string input)

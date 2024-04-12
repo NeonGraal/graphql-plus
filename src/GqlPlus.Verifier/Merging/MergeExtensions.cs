@@ -1,7 +1,9 @@
 ﻿using System.Runtime.CompilerServices;
 using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
+using Microsoft.VisualBasic.FileIO;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -40,14 +42,15 @@ public static class MergeExtensions
 
   public static ITokenMessages CanMerge<TItem, TField>(
       this IEnumerable<TItem> items,
-      Func<TItem, TField> field,
+      Func<TItem, TField?> field,
       IMerge<TField> merger)
-    where TItem : AstBase
     where TField : AstBase
   {
     ArgumentNullException.ThrowIfNull(merger);
 
-    return merger.CanMerge(items.Select(field));
+    var fields = items.Select(field).Where(f => f is not null).Cast<TField>().ToArray();
+
+    return fields.Length > 0 ? merger.CanMerge(fields) : TokenMessages.New;
   }
 
   public static ITokenMessages CanMerge<TItem>(
@@ -91,6 +94,19 @@ public static class MergeExtensions
     TGroup[] groups = [.. items.SelectMany(many)];
     return groups.Length < 2 ? new TokenMessages()
       : merger.CanMerge(groups);
+  }
+
+  public static IEnumerable<TField> Merge<TItem, TField>(
+      this IEnumerable<TItem> items,
+      Func<TItem, TField?> field,
+      IMerge<TField> merger)
+    where TField : AstBase
+  {
+    ArgumentNullException.ThrowIfNull(merger);
+
+    var fields = items.Select(field).Where(f => f is not null).Cast<TField>().ToArray();
+
+    return merger.Merge(fields);
   }
 
   public static IEnumerable<TGroup> ManyMerge<TItem, TGroup>(

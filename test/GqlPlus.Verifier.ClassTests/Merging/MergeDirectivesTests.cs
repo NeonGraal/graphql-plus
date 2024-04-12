@@ -9,23 +9,23 @@ public class MergeDirectivesTests
   : TestAliased<DirectiveDeclAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSameOption_ReturnsTrue(string name)
-    => CanMerge_True([
+  public void CanMerge_TwoAstsSameOption_ReturnsGood(string name)
+    => CanMerge_Good([
       new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable },
       new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable }]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentOption_ReturnsFalse(string name)
-    => CanMerge_False([
+  public void CanMerge_TwoAstsDifferentOption_ReturnsErrors(string name)
+    => CanMerge_Errors([
       new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable },
       new DirectiveDeclAst(AstNulls.At, name)]);
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsParametersCantMerge_ReturnsFalse(string name, string[] parameters)
+  public void CanMerge_TwoAstsParametersCantMerge_ReturnsErrors(string name, string[] parameters)
   {
     _parameters.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
-    CanMerge_False([
+    CanMerge_Errors([
       new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
       new DirectiveDeclAst(AstNulls.At, name)],
       parameters is null || parameters.Length < 2);

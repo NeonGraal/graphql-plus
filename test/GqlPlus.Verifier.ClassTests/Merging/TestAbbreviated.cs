@@ -15,12 +15,12 @@ public abstract class TestAbbreviated<TAst, TInput>
   where TAst : AstAbbreviated
 {
   [Fact]
-  public void CanMerge_NoAsts_ReturnsFalse()
-   => CanMerge_False([]);
+  public void CanMerge_NoAsts_ReturnsErrors()
+   => CanMerge_Errors([]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_OneAst_ReturnsTrue(TInput input)
-    => CanMerge_True([MakeAst(input)]);
+  public void CanMerge_OneAst_ReturnsGood(TInput input)
+    => CanMerge_Good([MakeAst(input)]);
 
   [Fact]
   public void Merge_NullAsts_ReturnsEmpty()
@@ -53,32 +53,32 @@ public abstract class TestAbbreviated<TAst, TInput>
   protected static ITokenMessages EmptyMessages => new TokenMessages();
   protected static ITokenMessages ErrorMessages => new TokenMessages(new TokenMessage(AstNulls.At, "Error!"));
 
-  protected void CanMerge_False(TAst[] asts)
+  protected void CanMerge_Errors(TAst[] asts)
   {
     var result = MergerBase.CanMerge(asts);
 
     result.Should().NotBeEmpty();
   }
 
-  protected void CanMerge_False(TAst[] asts, bool skipIf)
+  protected void CanMerge_Errors(TAst[] asts, bool skipIf)
   {
     Skip.If(skipIf);
 
-    CanMerge_False(asts);
+    CanMerge_Errors(asts);
   }
 
-  protected void CanMerge_True(TAst[] asts)
+  protected void CanMerge_Good(TAst[] asts)
   {
     var result = MergerBase.CanMerge(asts);
 
     result.Should().BeEmpty();
   }
 
-  protected void CanMerge_True(TAst[] asts, bool skipIf)
+  protected void CanMerge_Good(TAst[] asts, bool skipIf)
   {
     Skip.If(skipIf);
 
-    CanMerge_True(asts);
+    CanMerge_Good(asts);
   }
 
   protected void Merge_Expected(TAst[] asts, bool skipIf, params TAst[] expected)

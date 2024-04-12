@@ -11,14 +11,14 @@ public abstract class TestTyped<TBase, TType, TParent, TItem>
   where TItem : AstBase
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSameParent_ReturnsTrue(string name, string type)
-    => CanMerge_True([
+  public void CanMerge_TwoAstsSameParent_ReturnsGood(string name, string type)
+    => CanMerge_Good([
       MakeTyped(name) with { Parent = MakeParent(type) },
       MakeTyped(name) with { Parent = MakeParent(type) }]);
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentParents_ReturnsFalse(string name, string type1, string type2)
-    => CanMerge_False([
+  public void CanMerge_TwoAstsDifferentParents_ReturnsErrors(string name, string type1, string type2)
+    => CanMerge_Errors([
       MakeTyped(name) with { Parent = MakeParent(type1) },
       MakeTyped(name) with { Parent = MakeParent(type2) }],
       type1 == type2);

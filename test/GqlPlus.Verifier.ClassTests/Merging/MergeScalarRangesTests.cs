@@ -9,12 +9,12 @@ public class MergeScalarRangesTests(
 ) : TestAbbreviated<ScalarRangeAst, ScalarRangeInput>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSameExcludes_ReturnsTrue(ScalarRangeInput input)
-    => CanMerge_True([MakeAst(input), MakeAst(input)]);
+  public void CanMerge_TwoAstsSameExcludes_ReturnsGood(ScalarRangeInput input)
+    => CanMerge_Good([MakeAst(input), MakeAst(input)]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentExcludes_ReturnsFalse(ScalarRangeInput input)
-    => CanMerge_False([MakeAst(input) with { Excludes = true }, MakeAst(input)]);
+  public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(ScalarRangeInput input)
+    => CanMerge_Errors([MakeAst(input) with { Excludes = true }, MakeAst(input)]);
 
   private readonly MergeScalarRanges _merger = new(outputHelper.ToLoggerFactory());
 

@@ -9,8 +9,8 @@ public class MergeScalarRegexesTests(
 ) : TestScalarItems<ScalarRegexAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentExcludes_ReturnsFalse(string name)
-    => CanMerge_False([MakeAst(name) with { Excludes = true }, MakeAst(name)]);
+  public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(string name)
+    => CanMerge_Errors([MakeAst(name) with { Excludes = true }, MakeAst(name)]);
 
   private readonly MergeScalarRegexes _merger = new(outputHelper.ToLoggerFactory());
 

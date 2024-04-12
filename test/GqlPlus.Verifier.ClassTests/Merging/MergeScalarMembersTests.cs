@@ -9,8 +9,8 @@ public class MergeScalarMembersTests(
 ) : TestScalarItems<ScalarMemberAst>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentExcludes_ReturnsFalse(string name)
-    => CanMerge_False([
+  public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(string name)
+    => CanMerge_Errors([
       MakeAst(name) with { Excludes = true },
       MakeAst(name)]);
 

@@ -9,11 +9,11 @@ public class MergeEnumsTests
   : TestTyped<AstType, EnumDeclAst, string, EnumMemberAst>
 {
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsValuesCantMerge_ReturnsFalse(string name, string[] values)
+  public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name, string[] values)
   {
     _enumMembers.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 
-    CanMerge_False([
+    CanMerge_Errors([
       new EnumDeclAst(AstNulls.At, name) with { Members = values.EnumMembers() },
       new EnumDeclAst(AstNulls.At, name)],
       values is null || values.Length < 2);

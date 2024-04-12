@@ -11,7 +11,7 @@ public abstract class TestScalarAsts<TItem, TItemInput>
   where TItem : AstBase, IAstScalarItem
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_SameKinds_ReturnsTrue(string name)
+  public void CanMerge_SameKinds_ReturnsGood(string name)
   {
     var items = new[] { MakeDescribed(name), MakeDescribed(name) };
 
@@ -21,7 +21,7 @@ public abstract class TestScalarAsts<TItem, TItemInput>
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_DifferentKinds_ReturnsFalse(string name)
+  public void CanMerge_DifferentKinds_ReturnsErrors(string name)
   {
     var domain = MakeDescribed(name).Domain == ScalarDomain.String
       ? ScalarDomain.Number
@@ -34,7 +34,7 @@ public abstract class TestScalarAsts<TItem, TItemInput>
   }
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_ItemsCantMerge_ReturnsFalse(string name, TItemInput input)
+  public void CanMerge_ItemsCantMerge_ReturnsErrors(string name, TItemInput input)
   {
     var items = new[] {
       MakeDescribed(name) with { Items = MakeItems(input) },

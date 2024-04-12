@@ -9,12 +9,12 @@ public abstract class TestFields<TField, TRef>
   where TRef : AstReference<TRef>
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSameModifers_ReturnsTrue(string input)
-    => CanMerge_True([MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() }]);
+  public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
+    => CanMerge_Good([MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() }]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentModifers_ReturnsFalse(string input)
-    => CanMerge_False([MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input)]);
+  public void CanMerge_TwoAstsDifferentModifers_ReturnsErrors(string input)
+    => CanMerge_Errors([MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input)]);
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsSameModifers_ReturnsExpected(string input)
@@ -23,12 +23,12 @@ public abstract class TestFields<TField, TRef>
       MakeDescribed(input) with { Modifiers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSameType_ReturnsTrue(string name, string type)
-  => CanMerge_True([MakeField(name, type), MakeField(name, type)]);
+  public void CanMerge_TwoAstsSameType_ReturnsGood(string name, string type)
+  => CanMerge_Good([MakeField(name, type), MakeField(name, type)]);
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentTypes_ReturnsFalse(string name, string type1, string type2)
-    => CanMerge_False([MakeField(name, type1), MakeField(name, type2)], type1 == type2);
+  public void CanMerge_TwoAstsDifferentTypes_ReturnsErrors(string name, string type1, string type2)
+    => CanMerge_Errors([MakeField(name, type1), MakeField(name, type2)], type1 == type2);
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsSameType_ReturnsExpected(string name, string type)
@@ -37,16 +37,16 @@ public abstract class TestFields<TField, TRef>
       MakeField(name, type));
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsOneTypeDescription_ReturnsTrue(string name, string type, string description)
-  => CanMerge_True([MakeField(name, type), MakeField(name, type, typeDescription: description)]);
+  public void CanMerge_TwoAstsOneTypeDescription_ReturnsGood(string name, string type, string description)
+  => CanMerge_Good([MakeField(name, type), MakeField(name, type, typeDescription: description)]);
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSameTypeDescription_ReturnsTrue(string name, string type, string description)
-  => CanMerge_True([MakeField(name, type, typeDescription: description), MakeField(name, type, typeDescription: description)]);
+  public void CanMerge_TwoAstsSameTypeDescription_ReturnsGood(string name, string type, string description)
+  => CanMerge_Good([MakeField(name, type, typeDescription: description), MakeField(name, type, typeDescription: description)]);
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentTypeDescriptions_ReturnsFalse(string name, string type, string description1, string description2)
-  => CanMerge_False([
+  public void CanMerge_TwoAstsDifferentTypeDescriptions_ReturnsErrors(string name, string type, string description1, string description2)
+  => CanMerge_Errors([
     MakeField(name, type, typeDescription: description1),
     MakeField(name, type, typeDescription: description2)],
     description1 == description2);

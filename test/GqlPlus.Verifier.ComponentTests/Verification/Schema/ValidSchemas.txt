@@ -2,6 +2,31 @@
 category { Cat }
 output Cat { }
 
+// description
+"A simple description"
+output Descr { }
+
+// description-between
+category { DescrBetween }
+"A description between"
+output DescrBetween { }
+
+// description-double
+"A 'double-quoted' description"
+output DescrDouble { }
+
+// description-single
+'A "single-quoted" description'
+output DescrSingle { }
+
+// description-backslash
+'A backslash ("\\") description'
+output DescrBackslash { }
+
+// description-complex
+"A \"more\" 'Complicated' \\ description"
+output DescrComplex { }
+
 // directive-param
 directive @DirParam(DirParamIn) { all }
 input DirParamIn { }

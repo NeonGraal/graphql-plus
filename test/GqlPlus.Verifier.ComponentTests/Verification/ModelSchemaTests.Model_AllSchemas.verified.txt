@@ -28,6 +28,12 @@ categories: !_Map_Categories
       kind: !_TypeKind Output
       name: Category
     resolution: !_Resolution Parallel
+  !_Identifier descrBetween: !_Category
+    name: descrBetween
+    output: !_TypeRef(_TypeKind)
+      kind: !_TypeKind Output
+      name: DescrBetween
+    resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Dir: !_Directive
     locations: !_Set(_Location) {Inline: _, Spread: _}
@@ -73,6 +79,30 @@ types: !_Map_Type
   !_Identifier Category: !_TypeOutput
     kind: !_TypeKind Output
     name: Category
+  !_Identifier Descr: !_TypeOutput
+    description: 'A simple description'
+    kind: !_TypeKind Output
+    name: Descr
+  !_Identifier DescrBackslash: !_TypeOutput
+    description: 'A backslash ("\") description'
+    kind: !_TypeKind Output
+    name: DescrBackslash
+  !_Identifier DescrBetween: !_TypeOutput
+    description: 'A description between'
+    kind: !_TypeKind Output
+    name: DescrBetween
+  !_Identifier DescrComplex: !_TypeOutput
+    description: 'A "more" ''Complicated'' \ description'
+    kind: !_TypeKind Output
+    name: DescrComplex
+  !_Identifier DescrDouble: !_TypeOutput
+    description: 'A ''double-quoted'' description'
+    kind: !_TypeKind Output
+    name: DescrDouble
+  !_Identifier DescrSingle: !_TypeOutput
+    description: 'A "single-quoted" description'
+    kind: !_TypeKind Output
+    name: DescrSingle
   !_Identifier DirParamIn: !_TypeInput
     kind: !_TypeKind Input
     name: DirParamIn

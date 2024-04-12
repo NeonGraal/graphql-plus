@@ -35,6 +35,12 @@ Success
   Cat
 }
 {
+  !C P@010/0001
+  descrBetween
+  (Parallel)
+  DescrBetween
+}
+{
   !D I@012/0001
   Dir
   (Unique)
@@ -2548,6 +2554,36 @@ Success
 {
   !O I@025/0001
   Cat
+}
+{
+  "A simple description"
+  !O I@031/0001
+  Descr
+}
+{
+  "A backslash (\"\\\") description"
+  !O I@041/0001
+  DescrBackslash
+}
+{
+  "A description between"
+  !O I@058/0001
+  DescrBetween
+}
+{
+  "A \"more\" 'Complicated' \\ description"
+  !O I@050/0001
+  DescrComplex
+}
+{
+  "A 'double-quoted' description"
+  !O I@040/0001
+  DescrDouble
+}
+{
+  "A \"single-quoted\" description"
+  !O I@040/0001
+  DescrSingle
 }
 {
   !I I@047/0001

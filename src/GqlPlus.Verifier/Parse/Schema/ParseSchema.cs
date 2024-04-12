@@ -31,13 +31,15 @@ internal class ParseSchema : Parser<SchemaAst>.I
 
     var declarations = new List<AstDeclaration>();
 
+    tokens.String(out var description);
     while (tokens.Identifier(out var selector)) {
       if (_parsers.TryGetValue(selector, out var parser)) {
         var declaration = parser(tokens, selector.Capitalize());
-        declaration.WithResult(declarations.Add);
+        declaration.WithResult(d => declarations.Add(d with { Description = description }));
       } else {
         tokens.Error(label, $"declaration selector. '{selector}' unknown");
       }
+      tokens.String(out description);
     }
 
     if (!tokens.AtEnd) {

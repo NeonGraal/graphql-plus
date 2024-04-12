@@ -42,7 +42,7 @@ public class Verify<#= directory + fileName #>Data
   public static readonly Dictionary<string, string> Source = new() {
 <#+    foreach (var test in testData.Keys.OrderBy(k => k)) {
 #>
-    ["<#= test #>"] = "<#= testData[test] #>",
+    ["<#= test #>"] = "<#= testData[test].Replace("\\", "\\\\").Replace("\"", "\\\"") #>",
 <#+    } // foreach test
 #>
   };

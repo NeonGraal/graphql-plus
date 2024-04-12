@@ -11,6 +11,9 @@ public class ParseSchemaTests(Parser<SchemaAst>.D parser)
   [Theory]
   [InlineData("category { Query }")]
   [InlineData("enum Test { Value }")]
+  [InlineData("category { Query } enum Test { Value }")]
+  [InlineData("'Description' enum Test { Value }")]
+  [InlineData("category { Query } 'Description' enum Test { Value }")]
   public void Parse_ShouldSucceed(string input)
   {
     var tokens = new Tokenizer(input);

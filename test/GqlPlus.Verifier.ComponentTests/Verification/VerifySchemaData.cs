@@ -269,6 +269,12 @@ public class VerifySchemaValidSchemasData
 {
   public static readonly Dictionary<string, string> Source = new() {
     ["category-output"] = "category { Cat } output Cat { }",
+    ["description"] = "\"A simple description\" output Descr { }",
+    ["description-backslash"] = "'A backslash (\"\\\\\") description' output DescrBackslash { }",
+    ["description-between"] = "category { DescrBetween } \"A description between\" output DescrBetween { }",
+    ["description-complex"] = "\"A \\\"more\\\" 'Complicated' \\\\ description\" output DescrComplex { }",
+    ["description-double"] = "\"A 'double-quoted' description\" output DescrDouble { }",
+    ["description-single"] = "'A \"single-quoted\" description' output DescrSingle { }",
     ["directive-param"] = "directive @DirParam(DirParamIn) { all } input DirParamIn { }",
     ["option-setting"] = "option Schema { setting = true }",
   };

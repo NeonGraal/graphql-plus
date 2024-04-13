@@ -122,6 +122,9 @@ types: !_Map_Type
       type: !_TypeParameter type
     kind: !_TypeKind Dual
     name: DualParams
+    typeParameters:
+    - !_Described test
+    - !_Described type
   !_Identifier DualPrnt: !_TypeDual
     kind: !_TypeKind Dual
     name: DualPrnt
@@ -317,6 +320,9 @@ types: !_Map_Type
       type: !_TypeParameter type
     kind: !_TypeKind Input
     name: InpParams
+    typeParameters:
+    - !_Described test
+    - !_Described type
   !_Identifier InpPrnt: !_TypeInput
     kind: !_TypeKind Input
     name: InpPrnt
@@ -423,6 +429,9 @@ types: !_Map_Type
       type: !_TypeParameter type
     kind: !_TypeKind Output
     name: OutpParams
+    typeParameters:
+    - !_Described test
+    - !_Described type
   !_Identifier OutpPrnt: !_TypeOutput
     kind: !_TypeKind Output
     name: OutpPrnt

@@ -49,6 +49,8 @@ types: !_Map_Type
       type: !_DualBase String
     kind: !_TypeKind Dual
     name: _BaseDescribed
+    typeParameters:
+    - !_Described base
   !_Identifier _CategoryFilter: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))

@@ -56,6 +56,8 @@ types: !_Map_Type
       type: !_OutputBase _Collections
     kind: !_TypeKind Output
     name: _Alternate
+    typeParameters:
+    - !_Described base
   !_Identifier _BaseDescribed: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -82,6 +84,8 @@ types: !_Map_Type
       type: !_DualBase String
     kind: !_TypeKind Dual
     name: _BaseDescribed
+    typeParameters:
+    - !_Described base
   !_Identifier _BaseScalar: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
@@ -137,6 +141,9 @@ types: !_Map_Type
         - !_TypeParameter item
         dual: _ScalarItem
       output: _ParentType
+    typeParameters:
+    - !_Described domain
+    - !_Described item
   !_Identifier _BaseScalarItem: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -175,6 +182,8 @@ types: !_Map_Type
     kind: !_TypeKind Output
     name: _BaseType
     parent: !_DualBase _Aliased
+    typeParameters:
+    - !_Described kind
   !_Identifier _Categories: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -342,6 +351,9 @@ types: !_Map_Type
       arguments:
       - !_TypeParameter kind
       output: _BaseType
+    typeParameters:
+    - !_Described kind
+    - !_Described parent
   !_Identifier _Collections: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -641,6 +653,8 @@ types: !_Map_Type
     kind: !_TypeKind Output
     name: _Field
     parent: !_DualBase _Aliased
+    typeParameters:
+    - !_Described base
   !_Identifier _Filter: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -842,6 +856,8 @@ types: !_Map_Type
       type: !_TypeParameter kind
     kind: !_TypeKind Output
     name: _Modifier
+    typeParameters:
+    - !_Described kind
   !_Identifier _ModifierDictionary: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -963,6 +979,8 @@ types: !_Map_Type
       type: !_TypeParameter arg
     kind: !_TypeKind Dual
     name: _ObjBase
+    typeParameters:
+    - !_Described arg
   !_Identifier _ObjRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -995,6 +1013,8 @@ types: !_Map_Type
       type: !_TypeParameter base
     kind: !_TypeKind Output
     name: _ObjRef
+    typeParameters:
+    - !_Described base
   !_Identifier _ObjectFor: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -1008,6 +1028,8 @@ types: !_Map_Type
     kind: !_TypeKind Output
     name: _ObjectFor
     parent: !_TypeParameter for
+    typeParameters:
+    - !_Described for
   !_Identifier _OutputArgument: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -1248,6 +1270,10 @@ types: !_Map_Type
       - !_TypeParameter kind
       - !_OutputBase _Identifier
       output: _ChildType
+    typeParameters:
+    - !_Described kind
+    - !_Described item
+    - !_Described allItem
   !_Identifier _Resolution: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -1303,6 +1329,8 @@ types: !_Map_Type
     kind: !_TypeKind Dual
     name: _ScalarItem
     parent: !_TypeParameter item
+    typeParameters:
+    - !_Described item
   !_Identifier _ScalarMember: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
@@ -1375,6 +1403,8 @@ types: !_Map_Type
         name: _TypeKind
         value: Scalar
       output: _TypeRef
+    typeParameters:
+    - !_Described kind
   !_Identifier _ScalarRegex: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -1437,6 +1467,9 @@ types: !_Map_Type
       arguments:
       - !_TypeParameter kind
       output: _ScalarRef
+    typeParameters:
+    - !_Described kind
+    - !_Described value
   !_Identifier _Schema: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
@@ -2051,6 +2084,10 @@ types: !_Map_Type
         - !_TypeParameter base
         dual: _BaseDescribed
       output: _ChildType
+    typeParameters:
+    - !_Described kind
+    - !_Described base
+    - !_Described field
   !_Identifier _TypeOutput: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
@@ -2153,6 +2190,8 @@ types: !_Map_Type
       type: !_OutputBase _Identifier
     kind: !_TypeKind Output
     name: _TypeRef
+    typeParameters:
+    - !_Described kind
   !_Identifier _TypeScalar: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))

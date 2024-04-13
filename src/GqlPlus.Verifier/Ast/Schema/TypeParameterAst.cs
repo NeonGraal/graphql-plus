@@ -11,5 +11,5 @@ public sealed record class TypeParameterAst(TokenAt At, string Name, string Desc
     : this(at, name, "") { }
 
   internal override IEnumerable<string?> GetFields()
-    => new[] { At.ToString(), Description.Quoted("\""), Name.Prefixed("$") };
+    => [At.ToString(), Description.Quoted("\""), Name.Prefixed("$")];
 }

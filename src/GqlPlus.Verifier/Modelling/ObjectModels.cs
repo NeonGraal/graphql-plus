@@ -31,7 +31,7 @@ public abstract record class TypeObjectModel<TBase, TField>(
     AddMembers(this);
 
     return base.Render(context)
-        .Add("parameters", TypeParameters.Render(context))
+        .Add("typeParameters", TypeParameters.Render(context))
         .Add("fields", Fields.Render(context))
         .Add("allFields", allFields.Render(context))
         .Add("alternates", Alternates.Render(context))
@@ -170,6 +170,9 @@ internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, 
 
   internal TField[] FieldsModels(TFieldAst[] fields, IMap<TypeKindModel> typeKinds)
     => field.ToModels(fields, typeKinds);
+
+  internal DescribedModel[] TypeParametersModels(TypeParameterAst[] typeParameters)
+    => [.. typeParameters.Select(p => new DescribedModel(p.Name) { Description = p.Description })];
 
   protected TBase BaseModel(TRefAst ast, IMap<TypeKindModel> typeKinds)
     => reference.ToModel<TBase>(ast, typeKinds);

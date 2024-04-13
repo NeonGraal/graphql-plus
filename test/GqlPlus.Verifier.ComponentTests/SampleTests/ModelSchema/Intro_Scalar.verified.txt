@@ -31,6 +31,9 @@ types: !_Map_Type
         - !_TypeParameter item
         dual: _ScalarItem
       output: _ParentType
+    typeParameters:
+    - !_Described domain
+    - !_Described item
   !_Identifier _BaseScalarItem: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -81,6 +84,8 @@ types: !_Map_Type
     kind: !_TypeKind Dual
     name: _ScalarItem
     parent: !_TypeParameter item
+    typeParameters:
+    - !_Described item
   !_Identifier _ScalarMember: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
@@ -145,6 +150,8 @@ types: !_Map_Type
         name: _TypeKind
         value: Scalar
       output: _TypeRef
+    typeParameters:
+    - !_Described kind
   !_Identifier _ScalarRegex: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -199,6 +206,9 @@ types: !_Map_Type
       arguments:
       - !_TypeParameter kind
       output: _ScalarRef
+    typeParameters:
+    - !_Described kind
+    - !_Described value
   !_Identifier _TypeScalar: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))

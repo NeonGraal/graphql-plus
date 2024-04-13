@@ -39,6 +39,7 @@ internal class DualModeller(
       Aliases = ast.Aliases,
       Description = ast.Description,
       Parent = ParentModel(ast.Parent, typeKinds),
+      TypeParameters = TypeParametersModels(ast.TypeParameters),
       Fields = FieldsModels(ast.Fields, typeKinds),
       Alternates = AlternatesModels(ast.Alternates, typeKinds),
     };

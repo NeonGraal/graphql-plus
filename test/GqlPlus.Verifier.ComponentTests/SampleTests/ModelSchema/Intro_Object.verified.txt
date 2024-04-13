@@ -43,6 +43,8 @@ types: !_Map_Type
       type: !_OutputBase _Collections
     kind: !_TypeKind Output
     name: _Alternate
+    typeParameters:
+    - !_Described base
   !_Identifier _Field: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -77,6 +79,8 @@ types: !_Map_Type
     kind: !_TypeKind Output
     name: _Field
     parent: !_OutputBase _Aliased
+    typeParameters:
+    - !_Described base
   !_Identifier _ObjBase: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -98,6 +102,8 @@ types: !_Map_Type
       type: !_TypeParameter arg
     kind: !_TypeKind Dual
     name: _ObjBase
+    typeParameters:
+    - !_Described arg
   !_Identifier _ObjRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -130,6 +136,8 @@ types: !_Map_Type
       type: !_TypeParameter base
     kind: !_TypeKind Output
     name: _ObjRef
+    typeParameters:
+    - !_Described base
   !_Identifier _ObjectFor: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -143,6 +151,8 @@ types: !_Map_Type
     kind: !_TypeKind Output
     name: _ObjectFor
     parent: !_TypeParameter for
+    typeParameters:
+    - !_Described for
   !_Identifier _Parameter: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -258,6 +268,10 @@ types: !_Map_Type
         - !_TypeParameter base
         output: _BaseDescribed
       output: _ChildType
+    typeParameters:
+    - !_Described kind
+    - !_Described base
+    - !_Described field
   !_Identifier _TypeParameter: !_ScalarString
     kind: !_TypeKind Scalar
     name: _TypeParameter

@@ -17,6 +17,8 @@ types: !_Map_Type
     kind: !_TypeKind Output
     name: _BaseType
     parent: !_OutputBase _Aliased
+    typeParameters:
+    - !_Described kind
   !_Identifier _ChildType: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -37,6 +39,9 @@ types: !_Map_Type
       arguments:
       - !_TypeParameter kind
       output: _BaseType
+    typeParameters:
+    - !_Described kind
+    - !_Described parent
   !_Identifier _ParentType: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -73,6 +78,10 @@ types: !_Map_Type
       - !_TypeParameter kind
       - !_OutputBase _Identifier
       output: _ChildType
+    typeParameters:
+    - !_Described kind
+    - !_Described item
+    - !_Described allItem
   !_Identifier _SimpleKind: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -221,6 +230,8 @@ types: !_Map_Type
       type: !_OutputBase _Identifier
     kind: !_TypeKind Output
     name: _TypeRef
+    typeParameters:
+    - !_Described kind
   !_Identifier _TypeSimple: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))

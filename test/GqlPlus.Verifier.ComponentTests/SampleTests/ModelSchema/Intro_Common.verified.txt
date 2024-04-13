@@ -91,6 +91,8 @@ types: !_Map_Type
       type: !_TypeParameter kind
     kind: !_TypeKind Output
     name: _Modifier
+    typeParameters:
+    - !_Described kind
   !_Identifier _ModifierDictionary: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)

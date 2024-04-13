@@ -1,6 +1,6 @@
 ﻿[
-  !!! I@016/0024 : Invalid Input Field. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@022/0019 : Invalid Input Field. '_Resolution' not defined. - '_Resolution' !!!,
+  !!! I@016/0030 : Invalid Input Field. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@022/0025 : Invalid Input Field. '_Resolution' not defined. - '_Resolution' !!!,
   !!! I@029/0006 : Invalid Output Field. '_Setting' not defined. - '_Setting' !!!,
   !!! I@030/0005 : Invalid Output Field. '_Type' not defined. - '_Type' !!!,
   !!! I@031/0004 : Invalid Output Field. '_Directives' not defined. - '_Directives' !!!,

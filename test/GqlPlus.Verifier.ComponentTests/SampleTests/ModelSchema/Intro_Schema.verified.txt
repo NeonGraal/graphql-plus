@@ -27,22 +27,23 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
       object: _BaseDescribed
-      type: base
+      type: !_TypeParameter base
     allFields:
     - !_ObjectFor(_DualField)
       name: base
       object: _BaseDescribed
-      type: base
+      type: !_TypeParameter base
     - !_ObjectFor(_DualField)
       name: description
       object: _BaseDescribed
       type: !_DualBase String
     alternates:
-    - !_Alternate(_DualBase) base
+    - !_Alternate(_DualBase)
+      type: !_TypeParameter base
     fields:
     - !_DualField
       name: base
-      type: base
+      type: !_TypeParameter base
     - !_DualField
       name: description
       type: !_DualBase String
@@ -54,18 +55,34 @@ types: !_Map_Type
       collections:
       - !_Modifier List
       object: _Filter
-      type: !_BaseDescribed(_ObjRef(_InputBase))
-        base: !_InputBase String
-        description: 'Names'
+      type: !_InputBase _NameFilter
     allFields:
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier List]
       name: names
       object: _Filter
-      type: !_InputBase String
+      type: !_InputBase _NameFilter
+    - !_ObjectFor(_InputField)
+      default: true
+      modifiers: [!_Modifier Optional]
+      name: matchAliases
+      object: _Filter
+      type: !_InputBase Boolean
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Filter
+      type: !_InputBase _NameFilter
     - !_ObjectFor(_InputField)
       default: false
-      name: includeReferencedTypes
+      modifiers: [!_Modifier Optional]
+      name: returnByAlias
+      object: _Filter
+      type: !_InputBase Boolean
+    - !_ObjectFor(_InputField)
+      default: false
+      modifiers: [!_Modifier Optional]
+      name: returnReferencedTypes
       object: _Filter
       type: !_InputBase Boolean
     - !_ObjectFor(_InputField)
@@ -104,35 +121,64 @@ types: !_Map_Type
       collections:
       - !_Modifier List
       object: _Filter
-      type: !_BaseDescribed(_ObjRef(_InputBase))
-        base: !_InputBase String
-        description: 'Names'
+      type: !_InputBase _NameFilter
     allFields:
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier List]
       name: names
       object: _Filter
-      type: !_InputBase String
+      type: !_InputBase _NameFilter
+    - !_ObjectFor(_InputField)
+      default: true
+      modifiers: [!_Modifier Optional]
+      name: matchAliases
+      object: _Filter
+      type: !_InputBase Boolean
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Filter
+      type: !_InputBase _NameFilter
     - !_ObjectFor(_InputField)
       default: false
-      name: includeReferencedTypes
+      modifiers: [!_Modifier Optional]
+      name: returnByAlias
+      object: _Filter
+      type: !_InputBase Boolean
+    - !_ObjectFor(_InputField)
+      default: false
+      modifiers: [!_Modifier Optional]
+      name: returnReferencedTypes
       object: _Filter
       type: !_InputBase Boolean
     alternates:
     - !_Alternate(_InputBase)
       collections:
       - !_Modifier List
-      type: !_BaseDescribed(_ObjRef(_InputBase))
-        base: !_InputBase String
-        description: 'Names'
+      type: !_InputBase _NameFilter
     fields:
     - !_InputField
       modifiers: [!_Modifier List]
       name: names
-      type: !_InputBase String
+      type: !_InputBase _NameFilter
+    - !_InputField
+      default: true
+      modifiers: [!_Modifier Optional]
+      name: matchAliases
+      type: !_InputBase Boolean
+    - !_InputField
+      modifiers: [!_Modifier List]
+      name: aliases
+      type: !_InputBase _NameFilter
     - !_InputField
       default: false
-      name: includeReferencedTypes
+      modifiers: [!_Modifier Optional]
+      name: returnByAlias
+      type: !_InputBase Boolean
+    - !_InputField
+      default: false
+      modifiers: [!_Modifier Optional]
+      name: returnReferencedTypes
       type: !_InputBase Boolean
     kind: !_TypeKind Input
     name: _Filter
@@ -148,6 +194,20 @@ types: !_Map_Type
       regex: '[A-Za-z_]+'
     kind: !_TypeKind Scalar
     name: _Identifier
+    scalar: !_ScalarKind String
+  !_Identifier _NameFilter: !_ScalarString
+    allItems:
+    - !_ScalarItem(_ScalarRegex)
+      exclude: false
+      regex: '[A-Za-z_.*]+'
+      scalar: _NameFilter
+    description: '_NameFilter is a simple match expression against _Identifier  where ''.'' matches any single character and ''*'' matches zero or more of any character.'
+    items:
+    - !_ScalarRegex
+      exclude: false
+      regex: '[A-Za-z_.*]+'
+    kind: !_TypeKind Scalar
+    name: _NameFilter
     scalar: !_ScalarKind String
   !_Identifier _Named: !_TypeDual
     allFields:
@@ -237,18 +297,34 @@ types: !_Map_Type
       collections:
       - !_Modifier List
       object: _Filter
-      type: !_BaseDescribed(_ObjRef(_InputBase))
-        base: !_InputBase String
-        description: 'Names'
+      type: !_InputBase _NameFilter
     allFields:
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier List]
       name: names
       object: _Filter
-      type: !_InputBase String
+      type: !_InputBase _NameFilter
+    - !_ObjectFor(_InputField)
+      default: true
+      modifiers: [!_Modifier Optional]
+      name: matchAliases
+      object: _Filter
+      type: !_InputBase Boolean
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Filter
+      type: !_InputBase _NameFilter
     - !_ObjectFor(_InputField)
       default: false
-      name: includeReferencedTypes
+      modifiers: [!_Modifier Optional]
+      name: returnByAlias
+      object: _Filter
+      type: !_InputBase Boolean
+    - !_ObjectFor(_InputField)
+      default: false
+      modifiers: [!_Modifier Optional]
+      name: returnReferencedTypes
       object: _Filter
       type: !_InputBase Boolean
     - !_ObjectFor(_InputField)

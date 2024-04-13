@@ -9,11 +9,11 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType
-      type: kind
+      type: !_TypeParameter kind
     fields:
     - !_OutputField
       name: kind
-      type: kind
+      type: !_TypeParameter kind
     kind: !_TypeKind Output
     name: _BaseType
     parent: !_OutputBase _Aliased
@@ -22,55 +22,55 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType
-      type: kind
+      type: !_TypeParameter kind
     - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
-      type: parent
+      type: !_TypeParameter parent
     fields:
     - !_OutputField
       name: parent
-      type: parent
+      type: !_TypeParameter parent
     kind: !_TypeKind Output
     name: _ChildType
     parent: !_OutputBase
       arguments:
-      - kind
+      - !_TypeParameter kind
       output: _BaseType
   !_Identifier _ParentType: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: kind
       object: _BaseType
-      type: kind
+      type: !_TypeParameter kind
     - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
-      type: parent
+      type: !_TypeParameter parent
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: items
       object: _ParentType
-      type: item
+      type: !_TypeParameter item
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: allItems
       object: _ParentType
-      type: allItem
+      type: !_TypeParameter allItem
     fields:
     - !_OutputField
       modifiers: [!_Modifier List]
       name: items
-      type: item
+      type: !_TypeParameter item
     - !_OutputField
       modifiers: [!_Modifier List]
       name: allItems
-      type: allItem
+      type: !_TypeParameter allItem
     kind: !_TypeKind Output
     name: _ParentType
     parent: !_OutputBase
       arguments:
-      - kind
+      - !_TypeParameter kind
       - !_OutputBase _Identifier
       output: _ChildType
   !_Identifier _SimpleKind: !_TypeEnum
@@ -207,7 +207,7 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: kind
       object: _TypeRef
-      type: kind
+      type: !_TypeParameter kind
     - !_ObjectFor(_OutputField)
       name: name
       object: _TypeRef
@@ -215,7 +215,7 @@ types: !_Map_Type
     fields:
     - !_OutputField
       name: kind
-      type: kind
+      type: !_TypeParameter kind
     - !_OutputField
       name: name
       type: !_OutputBase _Identifier

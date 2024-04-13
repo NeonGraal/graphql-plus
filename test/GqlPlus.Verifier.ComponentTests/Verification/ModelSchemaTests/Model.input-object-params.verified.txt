@@ -5,17 +5,17 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: test
       object: InpParams
-      type: test
+      type: !_TypeParameter test
     - !_ObjectFor(_InputField)
       name: type
       object: InpParams
-      type: type
+      type: !_TypeParameter type
     fields:
     - !_InputField
       name: test
-      type: test
+      type: !_TypeParameter test
     - !_InputField
       name: type
-      type: type
+      type: !_TypeParameter type
     kind: !_TypeKind Input
     name: InpParams

@@ -17,7 +17,7 @@ public record class DualBaseModel(
 {
   internal override RenderStructure Render(IRenderContext context)
     => IsTypeParameter
-    ? new(Dual)
+    ? new(Dual, "_TypeParameter")
     : base.Render(context)
       .Add("dual", Dual);
 }

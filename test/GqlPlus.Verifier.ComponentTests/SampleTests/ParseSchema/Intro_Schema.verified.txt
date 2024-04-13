@@ -72,112 +72,141 @@ Success
     names
     :
     I@016/0012
-    String
+    _NameFilter
     []
     !IF I@009/0013
-    includeReferencedTypes
+    matchAliases
     :
-    I@033/0013
+    I@023/0013
     Boolean
-    =( !k I@043/0013 Boolean.false )
+    ?
+    =( !k I@034/0013 Boolean.true )
+    !IF I@009/0014
+    aliases
+    :
+    I@018/0014
+    _NameFilter
+    []
+    !IF I@009/0015
+    returnByAlias
+    :
+    I@024/0015
+    Boolean
+    ?
+    =( !k I@035/0015 Boolean.false )
+    !IF I@009/0016
+    returnReferencedTypes
+    :
+    I@032/0016
+    Boolean
+    ?
+    =( !k I@043/0016 Boolean.false )
   }
   |
   !AI
-  I@015/0014
-  String
+  I@007/0017
+  _NameFilter
   []
 }
 {
-  !I I@007/0017
+  "_NameFilter is a simple match expression against _Identifier  where '.' matches any single character and '*' matches zero or more of any character."
+  !S I@008/0021
+  _NameFilter
+  String
+  !SX R@029/0021
+  /[A-Za-z_.*]+/
+}
+{
+  !I I@007/0023
   _CategoryFilter
   :
-  I@007/0018
+  I@007/0024
   _Filter
   {
-    !IF I@009/0019
+    !IF I@009/0025
     resolutions
     :
-    I@022/0019
+    I@022/0025
     _Resolution
     []
   }
 }
 {
-  !I I@007/0022
+  !I I@007/0028
   _TypeFilter
   :
-  I@007/0023
+  I@007/0029
   _Filter
   {
-    !IF I@009/0024
+    !IF I@009/0030
     kinds
     :
-    I@016/0024
+    I@016/0030
     _TypeKind
     []
   }
 }
 {
-  !D I@006/0027
+  !D I@006/0033
   _Aliased
   :
-  I@007/0028
+  I@007/0034
   _Described
   {
-    !DF I@009/0029
+    !DF I@009/0035
     aliases
     :
-    I@018/0029
+    I@018/0035
     _Identifier
     []
   }
 }
 {
-  !D I@006/0032
+  !D I@006/0038
   _Described
   :
-  I@007/0033
+  I@007/0039
   _Named
   {
-    !DF I@009/0034
+    !DF I@009/0040
     description
     :
-    I@022/0034
+    I@022/0040
     String
   }
 }
 {
-  !D I@006/0037
+  !D I@006/0043
   _BaseDescribed
   <
-    I@022/0037
+    I@022/0043
     $base
   >
   {
-    !DF I@009/0038
+    !DF I@009/0044
     base
     :
-    I@016/0038
+    I@016/0044
     $base
-    !DF I@009/0039
+    !DF I@009/0045
     description
     :
-    I@022/0039
+    I@022/0045
     String
   }
   |
   !AD
-  I@008/0040
+  I@008/0046
   $base
 }
 {
-  !D I@006/0043
+  !D I@006/0049
   _Named
   {
-    !DF I@009/0044
+    !DF I@009/0050
     name
     :
-    I@015/0044
+    I@015/0050
     _Identifier
   }
 }

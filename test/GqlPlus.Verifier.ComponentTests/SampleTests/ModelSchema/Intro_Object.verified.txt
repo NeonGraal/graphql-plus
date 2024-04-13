@@ -5,6 +5,9 @@ _errors:
   _message: In _TypeObject can't get model for type '_ChildType'
 - !_Error
   _kind: !_TokenKind End
+  _message: In _TypeParameter can't get model for type '_Identifier'
+- !_Error
+  _kind: !_TokenKind End
   _message: In _Field can't get model for type '_Aliased'
 types: !_Map_Type
   !_Identifier _Alternate: !_TypeOutput
@@ -16,7 +19,7 @@ types: !_Map_Type
         arguments:
         - !_OutputBase
           arguments:
-          - base
+          - !_TypeParameter base
           output: _ObjRef
         output: _BaseDescribed
     - !_ObjectFor(_OutputField)
@@ -31,7 +34,7 @@ types: !_Map_Type
         arguments:
         - !_OutputBase
           arguments:
-          - base
+          - !_TypeParameter base
           output: _ObjRef
         output: _BaseDescribed
     - !_OutputField
@@ -49,7 +52,7 @@ types: !_Map_Type
         arguments:
         - !_OutputBase
           arguments:
-          - base
+          - !_TypeParameter base
           output: _ObjRef
         output: _BaseDescribed
     - !_ObjectFor(_OutputField)
@@ -64,7 +67,7 @@ types: !_Map_Type
         arguments:
         - !_OutputBase
           arguments:
-          - base
+          - !_TypeParameter base
           output: _ObjRef
         output: _BaseDescribed
     - !_OutputField
@@ -78,25 +81,21 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
       object: _ObjBase
-      type: !_BaseDescribed(_ObjRef(_DualBase))
-        base: !_DualBase _Identifier
-        description: 'TypeParameter'
+      type: !_DualBase _TypeParameter
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier List]
       name: arguments
       object: _ObjBase
-      type: arg
+      type: !_TypeParameter arg
     alternates:
     - !_Alternate(_DualBase)
-      type: !_BaseDescribed(_ObjRef(_DualBase))
-        base: !_DualBase _Identifier
-        description: 'TypeParameter'
+      type: !_DualBase _TypeParameter
     fields:
     - !_DualField
       modifiers: [!_Modifier List]
       name: arguments
-      type: arg
+      type: !_TypeParameter arg
     kind: !_TypeKind Dual
     name: _ObjBase
   !_Identifier _ObjRef: !_TypeOutput
@@ -115,7 +114,7 @@ types: !_Map_Type
       type: !_OutputBase _TypeSimple
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _ObjRef
-      type: base
+      type: !_TypeParameter base
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
@@ -127,7 +126,8 @@ types: !_Map_Type
         output: _BaseType
     - !_Alternate(_OutputBase)
       type: !_OutputBase _TypeSimple
-    - !_Alternate(_OutputBase) base
+    - !_Alternate(_OutputBase)
+      type: !_TypeParameter base
     kind: !_TypeKind Output
     name: _ObjRef
   !_Identifier _ObjectFor: !_TypeOutput
@@ -142,7 +142,7 @@ types: !_Map_Type
       type: !_OutputBase _Identifier
     kind: !_TypeKind Output
     name: _ObjectFor
-    parent: for
+    parent: !_TypeParameter for
   !_Identifier _Parameter: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -152,7 +152,7 @@ types: !_Map_Type
         arguments:
         - !_OutputBase
           arguments:
-          - base
+          - !_TypeParameter base
           output: _ObjRef
         output: _BaseDescribed
     - !_ObjectFor(_OutputField)
@@ -187,14 +187,14 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: fields
       object: _TypeObject
-      type: field
+      type: !_TypeParameter field
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: alternates
       object: _TypeObject
       type: !_OutputBase
         arguments:
-        - base
+        - !_TypeParameter base
         output: _Alternate
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
@@ -202,7 +202,7 @@ types: !_Map_Type
       object: _TypeObject
       type: !_OutputBase
         arguments:
-        - field
+        - !_TypeParameter field
         output: _ObjectFor
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
@@ -212,7 +212,7 @@ types: !_Map_Type
         arguments:
         - !_OutputBase
           arguments:
-          - base
+          - !_TypeParameter base
           output: _Alternate
         output: _ObjectFor
     fields:
@@ -223,20 +223,20 @@ types: !_Map_Type
     - !_OutputField
       modifiers: [!_Modifier List]
       name: fields
-      type: field
+      type: !_TypeParameter field
     - !_OutputField
       modifiers: [!_Modifier List]
       name: alternates
       type: !_OutputBase
         arguments:
-        - base
+        - !_TypeParameter base
         output: _Alternate
     - !_OutputField
       modifiers: [!_Modifier List]
       name: allFields
       type: !_OutputBase
         arguments:
-        - field
+        - !_TypeParameter field
         output: _ObjectFor
     - !_OutputField
       modifiers: [!_Modifier List]
@@ -245,16 +245,23 @@ types: !_Map_Type
         arguments:
         - !_OutputBase
           arguments:
-          - base
+          - !_TypeParameter base
           output: _Alternate
         output: _ObjectFor
     kind: !_TypeKind Output
     name: _TypeObject
     parent: !_OutputBase
       arguments:
-      - kind
+      - !_TypeParameter kind
       - !_OutputBase
         arguments:
-        - base
+        - !_TypeParameter base
         output: _BaseDescribed
       output: _ChildType
+  !_Identifier _TypeParameter: !_ScalarString
+    kind: !_TypeKind Scalar
+    name: _TypeParameter
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Scalar
+      name: _Identifier
+    scalar: !_ScalarKind String

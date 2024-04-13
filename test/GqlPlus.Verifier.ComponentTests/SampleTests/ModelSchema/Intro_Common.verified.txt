@@ -84,11 +84,11 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: kind
       object: _Modifier
-      type: kind
+      type: !_TypeParameter kind
     fields:
     - !_OutputField
       name: kind
-      type: kind
+      type: !_TypeParameter kind
     kind: !_TypeKind Output
     name: _Modifier
   !_Identifier _ModifierDictionary: !_TypeOutput
@@ -96,7 +96,7 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: kind
       object: _Modifier
-      type: kind
+      type: !_TypeParameter kind
     - !_ObjectFor(_OutputField)
       name: by
       object: _ModifierDictionary

@@ -12,11 +12,11 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: scalar
       object: _BaseScalar
-      type: domain
+      type: !_TypeParameter domain
     fields:
     - !_OutputField
       name: scalar
-      type: domain
+      type: !_TypeParameter domain
     kind: !_TypeKind Output
     name: _BaseScalar
     parent: !_OutputBase
@@ -25,10 +25,10 @@ types: !_Map_Type
         kind: !_SimpleKind Enum
         name: _TypeKind
         value: Scalar
-      - item
+      - !_TypeParameter item
       - !_DualBase
         arguments:
-        - item
+        - !_TypeParameter item
         dual: _ScalarItem
       output: _ParentType
   !_Identifier _BaseScalarItem: !_TypeDual
@@ -80,7 +80,7 @@ types: !_Map_Type
       type: !_DualBase _Identifier
     kind: !_TypeKind Dual
     name: _ScalarItem
-    parent: item
+    parent: !_TypeParameter item
   !_Identifier _ScalarMember: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
@@ -131,11 +131,11 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: scalar
       object: _ScalarRef
-      type: kind
+      type: !_TypeParameter kind
     fields:
     - !_OutputField
       name: scalar
-      type: kind
+      type: !_TypeParameter kind
     kind: !_TypeKind Output
     name: _ScalarRef
     parent: !_OutputBase
@@ -184,20 +184,20 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: scalar
       object: _ScalarRef
-      type: kind
+      type: !_TypeParameter kind
     - !_ObjectFor(_OutputField)
       name: value
       object: _ScalarValue
-      type: value
+      type: !_TypeParameter value
     fields:
     - !_OutputField
       name: value
-      type: value
+      type: !_TypeParameter value
     kind: !_TypeKind Output
     name: _ScalarValue
     parent: !_OutputBase
       arguments:
-      - kind
+      - !_TypeParameter kind
       output: _ScalarRef
   !_Identifier _TypeScalar: !_TypeOutput
     allAlternates:

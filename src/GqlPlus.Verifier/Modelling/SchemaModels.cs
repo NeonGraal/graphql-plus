@@ -64,7 +64,10 @@ public record class FilterParameter(
   string[] Names
 )
 {
-  public bool IncludeReferencedTypes { get; set; }
+  public bool MatchAliases { get; set; } = true;
+  public string[] Aliases { get; set; } = [];
+  public bool ReturnReferencedTypes { get; set; }
+  public bool ReturnByAlias { get; set; }
 }
 
 public record class CategoryFilterParameter(

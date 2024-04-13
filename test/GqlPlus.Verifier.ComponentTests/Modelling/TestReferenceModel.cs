@@ -53,7 +53,7 @@ internal abstract class CheckReferenceModel<TRef, TModel>(
 
   protected string[] ExpectedReference(string input, bool isTypeParam, string[] args)
     => isTypeParam
-    ? [input]
+    ? ["!_TypeParameter " + input]
     : args.Length == 0
       ? [$"!_{TypeKind}Base {input}"]
       : [$"!_{TypeKind}Base", .. args, TypeKindLower + ": " + input];

@@ -21,7 +21,7 @@ public record class InputBaseModel(
   internal override RenderStructure Render(IRenderContext context)
     => Dual is null
     ? IsTypeParameter
-      ? new(Input)
+      ? new(Input, "_TypeParameter")
       : base.Render(context)
         .Add("input", Input)
     : Dual.Render(context);

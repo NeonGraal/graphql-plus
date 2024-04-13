@@ -20,7 +20,7 @@ public record class OutputBaseModel(
   internal override RenderStructure Render(IRenderContext context)
     => Dual is null
     ? IsTypeParameter
-      ? new(Output)
+      ? new(Output, "_TypeParameter")
       : base.Render(context)
         .Add("output", Output)
     : Dual.Render(context);

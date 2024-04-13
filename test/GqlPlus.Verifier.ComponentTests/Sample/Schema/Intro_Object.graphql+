@@ -15,8 +15,10 @@ output _ObjRef<$base> {
 
 dual _ObjBase<$arg> {
         arguments: $arg[]
-    | "TypeParameter" _Identifier
+    | _TypeParameter
     }
+
+scalar _TypeParameter { :_Identifier String }
 
 output _Alternate<$base> {
       type: _BaseDescribed<_ObjRef<$base>>

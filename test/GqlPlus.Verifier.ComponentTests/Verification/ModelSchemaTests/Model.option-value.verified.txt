@@ -3,4 +3,6 @@ name: Schema
 settings: !_Map_Setting
   !_Identifier setting: !_Setting
     name: setting
-    value: true
+    value:
+    - true
+    - 0

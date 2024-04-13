@@ -1,0 +1,17 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpFieldDual: !_TypeDual
+    kind: !_TypeKind Dual
+    name: OutpFieldDual
+  !_Identifier OutpFieldsDual: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpFieldsDual
+      type: !_DualBase OutpFieldDual
+    fields:
+    - !_OutputField
+      name: field
+      type: !_DualBase OutpFieldDual
+    kind: !_TypeKind Output
+    name: OutpFieldsDual

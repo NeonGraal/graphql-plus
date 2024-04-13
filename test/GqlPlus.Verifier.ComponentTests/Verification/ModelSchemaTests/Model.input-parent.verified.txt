@@ -1,0 +1,9 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpParentTest: !_TypeInput
+    kind: !_TypeKind Input
+    name: InpParentTest
+  !_Identifier InpTestParent: !_TypeInput
+    kind: !_TypeKind Input
+    name: InpTestParent
+    parent: !_InputBase InpParentTest

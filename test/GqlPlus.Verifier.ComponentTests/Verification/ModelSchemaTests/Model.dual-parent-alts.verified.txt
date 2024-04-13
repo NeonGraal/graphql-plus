@@ -1,0 +1,26 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualAltPrnt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualAltPrnt
+      type: !_DualBase String
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase String
+    kind: !_TypeKind Dual
+    name: DualAltPrnt
+  !_Identifier DualPrntAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualAltPrnt
+      type: !_DualBase String
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualPrntAlt
+      type: !_DualBase Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase Number
+    kind: !_TypeKind Dual
+    name: DualPrntAlt
+    parent: !_DualBase DualAltPrnt

@@ -1,0 +1,33 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnAliasPrnt: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnAliasPrnt
+      name: valAlias
+    items:
+    - !_Aliased valAlias
+    kind: !_TypeKind Enum
+    name: EnAliasPrnt
+  !_Identifier EnPrntAlias: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnAliasPrnt
+      name: valAlias
+    - !_EnumMember
+      enum: EnPrntAlias
+      name: valPrnt
+    - !_EnumMember
+      aliases: [alias]
+      enum: EnPrntAlias
+      name: valAlias
+    items:
+    - !_Aliased valPrnt
+    - !_Aliased
+      aliases: [alias]
+      name: valAlias
+    kind: !_TypeKind Enum
+    name: EnPrntAlias
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Enum
+      name: EnAliasPrnt

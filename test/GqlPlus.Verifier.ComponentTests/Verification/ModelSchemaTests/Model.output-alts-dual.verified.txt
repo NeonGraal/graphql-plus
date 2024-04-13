@@ -1,0 +1,15 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpAltDual: !_TypeDual
+    kind: !_TypeKind Dual
+    name: OutpAltDual
+  !_Identifier OutpAltsDual: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpAltsDual
+      type: !_DualBase OutpAltDual
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_DualBase OutpAltDual
+    kind: !_TypeKind Output
+    name: OutpAltsDual

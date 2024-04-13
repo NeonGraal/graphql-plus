@@ -1,0 +1,16 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualGenField: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualGenField
+      type: !_TypeParameter type
+    fields:
+    - !_DualField
+      name: field
+      type: !_TypeParameter type
+    kind: !_TypeKind Dual
+    name: DualGenField
+    typeParameters:
+    - !_Described type

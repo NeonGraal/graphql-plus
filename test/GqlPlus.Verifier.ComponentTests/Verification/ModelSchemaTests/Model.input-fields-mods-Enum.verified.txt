@@ -1,0 +1,25 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpFieldEnum: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: InpFieldEnum
+      name: value
+    items:
+    - !_Aliased value
+    kind: !_TypeKind Enum
+    name: InpFieldEnum
+  !_Identifier InpFieldMods: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      modifiers: [!_ModifierDictionary {by: InpFieldEnum, kind: Dict}]
+      name: field
+      object: InpFieldMods
+      type: !_InputBase InpFieldMods
+    fields:
+    - !_InputField
+      modifiers: [!_ModifierDictionary {by: InpFieldEnum, kind: Dict}]
+      name: field
+      type: !_InputBase InpFieldMods
+    kind: !_TypeKind Input
+    name: InpFieldMods

@@ -1,0 +1,23 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualAltMods: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      collections:
+      - !_ModifierDictionary
+        by: ^
+        kind: Dict
+      object: DualAltMods
+      type: !_DualBase DualModsAlt
+    alternates:
+    - !_Alternate(_DualBase)
+      collections:
+      - !_ModifierDictionary
+        by: ^
+        kind: Dict
+      type: !_DualBase DualModsAlt
+    kind: !_TypeKind Dual
+    name: DualAltMods
+  !_Identifier DualModsAlt: !_TypeDual
+    kind: !_TypeKind Dual
+    name: DualModsAlt

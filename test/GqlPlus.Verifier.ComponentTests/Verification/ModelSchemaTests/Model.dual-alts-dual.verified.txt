@@ -1,0 +1,15 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualAltDual: !_TypeDual
+    kind: !_TypeKind Dual
+    name: DualAltDual
+  !_Identifier DualAltsDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualAltsDual
+      type: !_DualBase DualAltDual
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase DualAltDual
+    kind: !_TypeKind Dual
+    name: DualAltsDual

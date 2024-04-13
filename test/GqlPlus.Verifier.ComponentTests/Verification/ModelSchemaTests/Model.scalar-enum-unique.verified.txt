@@ -1,0 +1,24 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumScalDup: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumScalDup
+      name: dup
+    items:
+    - !_Aliased dup
+    kind: !_TypeKind Enum
+    name: EnumScalDup
+  !_Identifier EnumScalUnique: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumScalUnique
+      name: value
+    - !_EnumMember
+      enum: EnumScalUnique
+      name: dup
+    items:
+    - !_Aliased value
+    - !_Aliased dup
+    kind: !_TypeKind Enum
+    name: EnumScalUnique

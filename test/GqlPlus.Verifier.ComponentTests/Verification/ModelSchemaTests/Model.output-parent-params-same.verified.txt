@@ -1,0 +1,36 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpPrmsPrntSame: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpPrmsPrntSame
+      type: !_TypeParameter a
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_TypeParameter a
+    kind: !_TypeKind Output
+    name: OutpPrmsPrntSame
+    typeParameters:
+    - !_Described a
+  !_Identifier OutpPrntPrmsSame: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpPrmsPrntSame
+      type: !_TypeParameter a
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpPrntPrmsSame
+      type: !_TypeParameter a
+    fields:
+    - !_OutputField
+      name: field
+      type: !_TypeParameter a
+    kind: !_TypeKind Output
+    name: OutpPrntPrmsSame
+    parent: !_OutputBase
+      arguments:
+      - !_TypeParameter a
+      output: OutpPrmsPrntSame
+    typeParameters:
+    - !_Described a

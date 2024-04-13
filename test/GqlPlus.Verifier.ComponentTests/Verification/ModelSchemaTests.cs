@@ -15,7 +15,7 @@ public class ModelSchemaTests(
 ) : SchemaBase(parser)
 {
   [Fact]
-  public async Task Model_AllSchemas()
+  public async Task Model_All()
   {
     var asts = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
@@ -31,7 +31,7 @@ public class ModelSchemaTests(
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
-  public async Task Model_Schemas(string group)
+  public async Task Model_Groups(string group)
   {
     var asts = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required());
@@ -47,9 +47,51 @@ public class ModelSchemaTests(
 
   [Theory]
   [ClassData(typeof(VerifySchemaValidMergesData))]
-  public async Task Model_Valid(string model)
+  public async Task Model_Merges(string model)
   {
     var input = VerifySchemaValidMergesData.Source[model];
+    if (IsObjectInput(input)) {
+      await WhenAll(Replacements
+        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
+        .ToArray());
+    } else {
+      await Verify_Model(input, model);
+    }
+  }
+
+  [Theory]
+  [ClassData(typeof(VerifySchemaValidObjectsData))]
+  public async Task Model_Objects(string model)
+  {
+    var input = VerifySchemaValidObjectsData.Source[model];
+    if (IsObjectInput(input)) {
+      await WhenAll(Replacements
+        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
+        .ToArray());
+    } else {
+      await Verify_Model(input, model);
+    }
+  }
+
+  [Theory]
+  [ClassData(typeof(VerifySchemaValidSchemasData))]
+  public async Task Model_Schemas(string model)
+  {
+    var input = VerifySchemaValidSchemasData.Source[model];
+    if (IsObjectInput(input)) {
+      await WhenAll(Replacements
+        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
+        .ToArray());
+    } else {
+      await Verify_Model(input, model);
+    }
+  }
+
+  [Theory]
+  [ClassData(typeof(VerifySchemaValidTypesData))]
+  public async Task Model_Types(string model)
+  {
+    var input = VerifySchemaValidTypesData.Source[model];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))

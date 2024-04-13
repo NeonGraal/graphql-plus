@@ -1,0 +1,36 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpPrmsPrntDiff: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpPrmsPrntDiff
+      type: !_TypeParameter b
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_TypeParameter b
+    kind: !_TypeKind Output
+    name: OutpPrmsPrntDiff
+    typeParameters:
+    - !_Described b
+  !_Identifier OutpPrntPrmsDiff: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpPrmsPrntDiff
+      type: !_TypeParameter b
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpPrntPrmsDiff
+      type: !_TypeParameter a
+    fields:
+    - !_OutputField
+      name: field
+      type: !_TypeParameter a
+    kind: !_TypeKind Output
+    name: OutpPrntPrmsDiff
+    parent: !_OutputBase
+      arguments:
+      - !_TypeParameter a
+      output: OutpPrmsPrntDiff
+    typeParameters:
+    - !_Described a

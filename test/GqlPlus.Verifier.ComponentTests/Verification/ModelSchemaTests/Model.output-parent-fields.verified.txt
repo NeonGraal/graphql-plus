@@ -1,0 +1,31 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpFieldsParent: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: OutpFieldsParent
+      type: !_OutputBase String
+    fields:
+    - !_OutputField
+      name: parent
+      type: !_OutputBase String
+    kind: !_TypeKind Output
+    name: OutpFieldsParent
+  !_Identifier OutpPrntFields: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: OutpFieldsParent
+      type: !_OutputBase String
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpPrntFields
+      type: !_OutputBase Number
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase Number
+    kind: !_TypeKind Output
+    name: OutpPrntFields
+    parent: !_OutputBase OutpFieldsParent

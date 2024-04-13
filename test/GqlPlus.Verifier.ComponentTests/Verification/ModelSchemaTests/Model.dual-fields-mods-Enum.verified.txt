@@ -1,0 +1,25 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualFieldEnum: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: DualFieldEnum
+      name: value
+    items:
+    - !_Aliased value
+    kind: !_TypeKind Enum
+    name: DualFieldEnum
+  !_Identifier DualFieldMods: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_ModifierDictionary {by: DualFieldEnum, kind: Dict}]
+      name: field
+      object: DualFieldMods
+      type: !_DualBase DualFieldMods
+    fields:
+    - !_DualField
+      modifiers: [!_ModifierDictionary {by: DualFieldEnum, kind: Dict}]
+      name: field
+      type: !_DualBase DualFieldMods
+    kind: !_TypeKind Dual
+    name: DualFieldMods

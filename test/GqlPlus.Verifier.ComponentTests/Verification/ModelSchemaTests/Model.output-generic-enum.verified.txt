@@ -1,0 +1,47 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutEnumGen: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutEnumGen
+      name: outEnumGen
+    items:
+    - !_Aliased outEnumGen
+    kind: !_TypeKind Enum
+    name: OutEnumGen
+  !_Identifier OutGenEnum: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutGenEnum
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: OutEnumGen
+          value: outEnumGen
+        output: OutGenEnumRef
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: OutEnumGen
+          value: outEnumGen
+        output: OutGenEnumRef
+    kind: !_TypeKind Output
+    name: OutGenEnum
+  !_Identifier OutGenEnumRef: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutGenEnumRef
+      type: !_TypeParameter type
+    fields:
+    - !_OutputField
+      name: field
+      type: !_TypeParameter type
+    kind: !_TypeKind Output
+    name: OutGenEnumRef
+    typeParameters:
+    - !_Described type

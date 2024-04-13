@@ -1,0 +1,46 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutParamScalar: !_TypeInput
+    kind: !_TypeKind Input
+    name: OutParamScalar
+  !_Identifier OutParamsScalar: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParamsScalar
+      parameters:
+      - !_Parameter
+        collections:
+        - !_ModifierDictionary
+          by: OutScalarParam
+          kind: Dict
+        type: !_InputBase OutParamScalar
+      type: !_OutputBase OutParamsScalar
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_Parameter
+        collections:
+        - !_ModifierDictionary
+          by: OutScalarParam
+          kind: Dict
+        type: !_InputBase OutParamScalar
+      type: !_OutputBase OutParamsScalar
+    kind: !_TypeKind Output
+    name: OutParamsScalar
+  !_Identifier OutScalarParam: !_ScalarNumber
+    allItems:
+    - !_ScalarItem(_ScalarRange)
+      exclude: false
+      from: 1
+      scalar: OutScalarParam
+      to: 10
+    items:
+    - !_ScalarRange
+      exclude: false
+      from: 1
+      to: 10
+    kind: !_TypeKind Scalar
+    name: OutScalarParam
+    scalar: !_ScalarKind Number

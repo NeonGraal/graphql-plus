@@ -1,0 +1,26 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpAltPrnt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpAltPrnt
+      type: !_OutputBase String
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase String
+    kind: !_TypeKind Output
+    name: OutpAltPrnt
+  !_Identifier OutpPrntAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpAltPrnt
+      type: !_OutputBase String
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpPrntAlt
+      type: !_OutputBase Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase Number
+    kind: !_TypeKind Output
+    name: OutpPrntAlt
+    parent: !_OutputBase OutpAltPrnt

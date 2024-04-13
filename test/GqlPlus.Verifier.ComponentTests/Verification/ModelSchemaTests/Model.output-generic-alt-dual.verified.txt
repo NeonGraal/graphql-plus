@@ -1,0 +1,33 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpGenAltDual: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpGenAltDual
+      type: !_OutputBase
+        arguments:
+        - !_DualBase OutpGenAltDualAlt
+        output: OutpGenAltDualRef
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_DualBase OutpGenAltDualAlt
+        output: OutpGenAltDualRef
+    kind: !_TypeKind Output
+    name: OutpGenAltDual
+  !_Identifier OutpGenAltDualAlt: !_TypeDual
+    kind: !_TypeKind Dual
+    name: OutpGenAltDualAlt
+  !_Identifier OutpGenAltDualRef: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpGenAltDualRef
+      type: !_TypeParameter ref
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_TypeParameter ref
+    kind: !_TypeKind Output
+    name: OutpGenAltDualRef
+    typeParameters:
+    - !_Described ref

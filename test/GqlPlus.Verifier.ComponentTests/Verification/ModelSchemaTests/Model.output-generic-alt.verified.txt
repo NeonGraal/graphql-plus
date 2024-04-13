@@ -1,0 +1,14 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpGenAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpGenAlt
+      type: !_TypeParameter type
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_TypeParameter type
+    kind: !_TypeKind Output
+    name: OutpGenAlt
+    typeParameters:
+    - !_Described type

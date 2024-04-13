@@ -2,12 +2,105 @@
 !G I@001/0001
 Success
 {
+  !C P@010/0001
+  category
+  (Parallel)
+  Category
+}
+{
+  !C P@010/0001
+  catAlias
+  [
+    CatA1
+    CatA2
+  ]
+  (Parallel)
+  CatAlias
+}
+{
+  !C P@010/0001
+  catMods
+  [
+    CatM1
+    CatM2
+  ]
+  (Parallel)
+  CatMods
+  ?
+}
+{
+  !C P@010/0001
+  cat
+  (Parallel)
+  Cat
+}
+{
+  !C P@010/0001
+  descrBetween
+  (Parallel)
+  DescrBetween
+}
+{
+  !D I@012/0001
+  Dir
+  (Unique)
+  Inline, Spread
+}
+{
+  !D I@012/0001
+  DirAlias
+  [
+    DirA1
+    DirA2
+  ]
+  (Unique)
+  Variable, Field
+}
+{
+  !D I@012/0001
+  DirParams
+  (
+    !P
+    I@022/0001
+    DirParamsIn
+  )
+  (Unique)
+  Operation, Fragment
+}
+{
+  !D I@012/0001
+  DirParam
+  (
+    !P
+    I@021/0001
+    DirParamIn
+  )
+  (Unique)
+  All
+}
+{
+  !O I@008/0001
+  Schema
+  [
+    Opt1
+    Opt2
+  ]
+  {
+    !OS I@017/0001
+    setting
+    =( !c I@027/0001 [ !k I@025/0001 Boolean.true !k N@057/0001 0 !k I@027/0001 Boolean.true ] )
+  }
+}
+{
   !D I@006/0001
   DualAlts
   |
   !AD
   I@019/0001
   DualAlt
+  !AD
+  I@019/0001
+  DualAltsType
 }
 {
   !D I@034/0001
@@ -20,6 +113,9 @@ Success
   !AI
   I@019/0001
   InpAlt
+  !AI
+  I@019/0001
+  InpAltsType
 }
 {
   !I I@034/0001
@@ -32,6 +128,9 @@ Success
   !AO
   I@021/0001
   OutpAlt
+  !AO
+  I@021/0001
+  OutpAltsType
 }
 {
   !O I@038/0001
@@ -1480,46 +1579,6 @@ Success
 }
 {
   !O I@008/0001
-  OutGenParent
-  |
-  !AO
-  I@025/0001
-  OutGenParentRef
-  <
-    I@041/0001
-    OutParentGen.outGenParent
-  >
-}
-{
-  !O I@077/0001
-  OutGenParentRef
-  <
-    I@094/0001
-    $type
-  >
-  {
-    !OF I@102/0001
-    field
-    :
-    I@110/0001
-    $type
-  }
-}
-{
-  !E I@122/0001
-  OutParentGen
-  :OutPrntendedGen
-  !EM I@154/0001
-  outGenPrntended
-}
-{
-  !E I@177/0001
-  OutPrntendedGen
-  !EM I@195/0001
-  outGenParent
-}
-{
-  !O I@008/0001
   OutGenValue
   |
   !AO
@@ -1600,6 +1659,46 @@ Success
   1
   ~
   10
+}
+{
+  !O I@008/0001
+  OutGenParent
+  |
+  !AO
+  I@025/0001
+  OutGenParentRef
+  <
+    I@041/0001
+    OutParentGen.outGenParent
+  >
+}
+{
+  !O I@077/0001
+  OutGenParentRef
+  <
+    I@094/0001
+    $type
+  >
+  {
+    !OF I@102/0001
+    field
+    :
+    I@110/0001
+    $type
+  }
+}
+{
+  !E I@122/0001
+  OutParentGen
+  :OutPrntendedGen
+  !EM I@154/0001
+  outGenPrntended
+}
+{
+  !E I@177/0001
+  OutPrntendedGen
+  !EM I@195/0001
+  outGenParent
 }
 {
   !O I@008/0001
@@ -2045,5 +2144,693 @@ Success
   !AO
   I@098/0001
   $a
+}
+{
+  !O I@061/0001
+  Category
+}
+{
+  !O I@068/0001
+  CatAlias
+}
+{
+  !O I@068/0001
+  CatMods
+}
+{
+  !I I@089/0001
+  DirParamsIn
+}
+{
+  !E I@006/0001
+  EnAlias
+  [
+    En1
+    En2
+  ]
+  !EM I@022/0001
+  alias
+}
+{
+  !E I@006/0001
+  EnDiff
+  !EM I@015/0001
+  one
+  !EM I@035/0001
+  two
+}
+{
+  !E I@006/0001
+  EnSame
+  !EM I@015/0001
+  same
+}
+{
+  !E I@006/0001
+  EnSameParent
+  :EnParent
+  !EM I@031/0001
+  sameP
+}
+{
+  !E I@082/0001
+  EnParent
+  !EM I@093/0001
+  parent
+}
+{
+  !E I@006/0001
+  EnValAlias
+  !EM I@019/0001
+  value
+  [
+    val1
+    val2
+  ]
+}
+{
+  !D I@006/0001
+  Dual
+}
+{
+  !I I@007/0001
+  Inp
+}
+{
+  !O I@008/0001
+  Outp
+}
+{
+  !D I@006/0001
+  DualAlias
+  [
+    Dual1
+    Dual2
+  ]
+}
+{
+  !I I@007/0001
+  InpAlias
+  [
+    Inp1
+    Inp2
+  ]
+}
+{
+  !O I@008/0001
+  OutpAlias
+  [
+    Outp1
+    Outp2
+  ]
+}
+{
+  !D I@072/0001
+  DualAltsType
+}
+{
+  !I I@071/0001
+  InpAltsType
+}
+{
+  !O I@078/0001
+  OutpAltsType
+}
+{
+  !D I@006/0001
+  DualFields
+  {
+    !DF I@019/0001
+    field
+    :
+    I@026/0001
+    DualFields
+  }
+}
+{
+  !I I@007/0001
+  InpFields
+  {
+    !IF I@019/0001
+    field
+    :
+    I@026/0001
+    InpFields
+  }
+}
+{
+  !O I@008/0001
+  OutpFields
+  {
+    !OF I@021/0001
+    field
+    :
+    I@028/0001
+    OutpFields
+  }
+}
+{
+  !D I@006/0001
+  DualFieldAlias
+  {
+    !DF I@023/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@039/0001
+    DualFieldAlias
+  }
+}
+{
+  !I I@007/0001
+  InpFieldAlias
+  {
+    !IF I@023/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@039/0001
+    InpFieldAlias
+  }
+}
+{
+  !O I@008/0001
+  OutpFieldAlias
+  {
+    !OF I@025/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@041/0001
+    OutpFieldAlias
+  }
+}
+{
+  !D I@006/0001
+  DualParams
+  <
+    I@018/0001
+    $test
+    I@057/0001
+    $type
+  >
+  {
+    !DF I@026/0001
+    test
+    :
+    I@033/0001
+    $test
+    !DF I@065/0001
+    type
+    :
+    I@072/0001
+    $type
+  }
+}
+{
+  !I I@007/0001
+  InpParams
+  <
+    I@018/0001
+    $test
+    I@057/0001
+    $type
+  >
+  {
+    !IF I@026/0001
+    test
+    :
+    I@033/0001
+    $test
+    !IF I@065/0001
+    type
+    :
+    I@072/0001
+    $type
+  }
+}
+{
+  !O I@008/0001
+  OutpParams
+  <
+    I@020/0001
+    $test
+    I@061/0001
+    $type
+  >
+  {
+    !OF I@028/0001
+    test
+    :
+    I@035/0001
+    $test
+    !OF I@069/0001
+    type
+    :
+    I@076/0001
+    $type
+  }
+}
+{
+  !D I@006/0001
+  DualPrnt
+  :
+  I@018/0001
+  PrntDual
+}
+{
+  !D I@062/0001
+  PrntDual
+}
+{
+  !I I@007/0001
+  InpPrnt
+  :
+  I@018/0001
+  PrntInp
+}
+{
+  !I I@061/0001
+  PrntInp
+}
+{
+  !O I@008/0001
+  OutpPrnt
+  :
+  I@020/0001
+  PrntOutp
+}
+{
+  !O I@068/0001
+  PrntOutp
+}
+{
+  !O I@008/0001
+  FieldEnumAlias
+  {
+    !OF I@025/0001
+    field
+    [
+      field1
+      field2
+    ]
+    =
+    I@042/0001
+    Boolean.true
+  }
+}
+{
+  !O I@008/0001
+  FieldEnums
+  {
+    !OF I@021/0001
+    field
+    =
+    I@029/0001
+    Boolean.true
+  }
+}
+{
+  !O I@008/0001
+  FieldParams
+  {
+    !OF I@022/0001
+    field
+    (
+      !P
+      I@028/0001
+      FieldParam1
+      !P
+      I@083/0001
+      FieldParam2
+    )
+    :
+    I@042/0001
+    FieldParams
+  }
+}
+{
+  !I I@117/0001
+  FieldParam1
+}
+{
+  !I I@139/0001
+  FieldParam2
+}
+{
+  !S I@008/0001
+  NumAlias
+  [
+    Num1
+    Num2
+  ]
+  Number
+}
+{
+  !S I@008/0001
+  Num
+  Number
+}
+{
+  !S I@008/0001
+  NumDiff
+  Number
+  !SR N@025/0001
+  1
+  ~
+  9
+}
+{
+  !S I@008/0001
+  NumSame
+  Number
+  !SR N@025/0001
+  1
+  ~
+  9
+}
+{
+  !S I@008/0001
+  Str
+  String
+}
+{
+  !S I@008/0001
+  StrDiff
+  String
+  !SX R@025/0001
+  /a+/
+}
+{
+  !S I@008/0001
+  StrSame
+  String
+  !SX R@025/0001
+  /a+/
+}
+{
+  !U I@007/0001
+  UnDiff
+  !UM I@016/0001
+  Boolean
+  !UM I@041/0001
+  Number
+}
+{
+  !U I@007/0001
+  UnSame
+  !UM I@016/0001
+  Boolean
+}
+{
+  !O I@025/0001
+  Cat
+}
+{
+  "A simple description"
+  !O I@031/0001
+  Descr
+}
+{
+  "A backslash (\"\\\") description"
+  !O I@041/0001
+  DescrBackslash
+}
+{
+  "A description between"
+  !O I@058/0001
+  DescrBetween
+}
+{
+  "A \"more\" 'Complicated' \\ description"
+  !O I@050/0001
+  DescrComplex
+}
+{
+  "A 'double-quoted' description"
+  !O I@040/0001
+  DescrDouble
+}
+{
+  "A \"single-quoted\" description"
+  !O I@040/0001
+  DescrSingle
+}
+{
+  !I I@047/0001
+  DirParamIn
+}
+{
+  !E I@006/0001
+  EnTestPrnt
+  :EnPrntTest
+  !EM I@031/0001
+  valPrnt
+}
+{
+  !E I@046/0001
+  EnPrntTest
+  !EM I@059/0001
+  valTest
+}
+{
+  !E I@006/0001
+  EnPrntAlias
+  :EnAliasPrnt
+  !EM I@033/0001
+  valPrnt
+  !EM I@041/0001
+  valAlias
+  [
+    alias
+  ]
+}
+{
+  !E I@064/0001
+  EnAliasPrnt
+  !EM I@078/0001
+  valAlias
+}
+{
+  !E I@006/0001
+  EnPrntDup
+  :EnDupPrnt
+  !EM I@029/0001
+  valPrnt
+}
+{
+  !E I@045/0001
+  EnDupPrnt
+  !EM I@057/0001
+  valDup
+  [
+    valPrnt
+  ]
+}
+{
+  !S I@008/0001
+  ScalEnumAll
+  Enum
+  !SM I@027/0001
+  EnumScalAll
+  *
+}
+{
+  !E I@048/0001
+  EnumScalAll
+  !EM I@062/0001
+  scal_all
+  !EM I@071/0001
+  scal_enum_all
+}
+{
+  !S I@008/0001
+  ScalEnumAllParent
+  Enum
+  !SM I@033/0001
+  EnumScalAllParent
+  *
+}
+{
+  !E I@060/0001
+  EnumScalAllParent
+  :EnumScalParentAll
+  !EM I@099/0001
+  scal_all
+}
+{
+  !E I@115/0001
+  EnumScalParentAll
+  !EM I@135/0001
+  scal_enum_all
+}
+{
+  !S I@008/0001
+  ScalMember
+  Enum
+  !SM I@026/0001
+  scal_member
+}
+{
+  !E I@045/0001
+  MemberScal
+  !EM I@058/0001
+  scal_member
+}
+{
+  !S I@008/0001
+  ScalEnumPrnt
+  Enum
+  :ScalPrntEnum
+  !SM I@042/0001
+  scal_enum
+}
+{
+  !S I@061/0001
+  ScalPrntEnum
+  Enum
+  !SM I@081/0001
+  scal_parent
+}
+{
+  !E I@100/0001
+  EnumScalPrnt
+  !EM I@115/0001
+  scal_enum
+  !EM I@125/0001
+  scal_parent
+}
+{
+  !E I@006/0001
+  EnumScalUnique
+  !EM I@023/0001
+  value
+  !EM I@029/0001
+  dup
+}
+{
+  !E I@040/0001
+  EnumScalDup
+  !EM I@054/0001
+  dup
+}
+{
+  !E I@006/0001
+  EnumScalUniqueParent
+  :EnumScalParentUnique
+  !EM I@051/0001
+  value
+}
+{
+  !E I@064/0001
+  EnumScalParentUnique
+  !EM I@087/0001
+  dup
+}
+{
+  !E I@098/0001
+  EnumScalDupParent
+  !EM I@118/0001
+  dup
+}
+{
+  !S I@008/0001
+  ScalEnum
+  Enum
+  !SM I@024/0001
+  EnumScal
+  scal_enum
+}
+{
+  !E I@050/0001
+  EnumScal
+  !EM I@061/0001
+  scal_enum
+}
+{
+  !S I@008/0001
+  ScalEnumParent
+  Enum
+  !SM I@030/0001
+  EnumScalParent
+  scal_enum
+}
+{
+  !E I@062/0001
+  EnumScalParent
+  :EnumParentScal
+  !EM I@095/0001
+  scal_parent
+}
+{
+  !E I@114/0001
+  EnumParentScal
+  !EM I@131/0001
+  scal_enum
+}
+{
+  !S I@008/0001
+  ScalNumPrnt
+  Number
+  :ScalPrntNum
+  !SR N@042/0001
+  2
+>
+}
+{
+!S I@053/0001
+ScalPrntNum
+Number
+!SR P@074/0001
+<
+  2
+}
+{
+  !S I@008/0001
+  ScalPrntTest
+  Boolean
+  :ScalTestPrnt
+}
+{
+  !S I@054/0001
+  ScalTestPrnt
+  Boolean
+}
+{
+  !S I@008/0001
+  ScalStrPrnt
+  String
+  :ScalPrntStr
+  !SX R@042/0001
+  /a+/
+}
+{
+  !S I@056/0001
+  ScalPrntStr
+  String
+  !SX R@077/0001
+  /b+/
+}
+{
+  !U I@007/0001
+  UnionPrnt
+  :PrntUnion
+  !UM I@030/0001
+  String
+}
+{
+  !U I@045/0001
+  PrntUnion
+  !UM I@057/0001
+  Number
 }
 ]

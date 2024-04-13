@@ -1,0 +1,35 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpGenFieldDual: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpGenFieldDual
+      type: !_InputBase
+        arguments:
+        - !_DualBase InpGenFieldDualAlt
+        input: InpGenFieldDualRef
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        arguments:
+        - !_DualBase InpGenFieldDualAlt
+        input: InpGenFieldDualRef
+    kind: !_TypeKind Input
+    name: InpGenFieldDual
+  !_Identifier InpGenFieldDualAlt: !_TypeDual
+    kind: !_TypeKind Dual
+    name: InpGenFieldDualAlt
+  !_Identifier InpGenFieldDualRef: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpGenFieldDualRef
+      type: !_TypeParameter ref
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_TypeParameter ref
+    kind: !_TypeKind Input
+    name: InpGenFieldDualRef
+    typeParameters:
+    - !_Described ref

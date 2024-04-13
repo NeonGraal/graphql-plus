@@ -1,0 +1,46 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutEnumParent: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutEnumParent
+      name: outEnumParent
+    items:
+    - !_Aliased outEnumParent
+    kind: !_TypeKind Enum
+    name: OutEnumParent
+  !_Identifier OutEnumParented: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutEnumParent
+      name: outEnumParent
+    - !_EnumMember
+      enum: OutEnumParented
+      name: outParent
+    - !_EnumMember
+      enum: OutEnumParented
+      name: ed
+    items:
+    - !_Aliased outParent
+    - !_Aliased ed
+    kind: !_TypeKind Enum
+    name: OutEnumParented
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Enum
+      name: OutEnumParent
+  !_Identifier OutFieldParent: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      field: field
+      kind: !_SimpleKind Enum
+      name: OutEnumParented
+      object: OutFieldParent
+      value: outEnumParent
+    fields:
+    - !_OutputEnum
+      field: field
+      kind: !_SimpleKind Enum
+      name: OutEnumParented
+      value: outEnumParent
+    kind: !_TypeKind Output
+    name: OutFieldParent

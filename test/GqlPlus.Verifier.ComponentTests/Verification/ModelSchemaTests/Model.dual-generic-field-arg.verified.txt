@@ -1,0 +1,34 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualGenFieldArg: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualGenFieldArg
+      type: !_DualBase
+        arguments:
+        - !_TypeParameter type
+        dual: DualGenFieldRef
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        arguments:
+        - !_TypeParameter type
+        dual: DualGenFieldRef
+    kind: !_TypeKind Dual
+    name: DualGenFieldArg
+    typeParameters:
+    - !_Described type
+  !_Identifier DualGenFieldRef: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenFieldRef
+      type: !_TypeParameter ref
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_TypeParameter ref
+    kind: !_TypeKind Dual
+    name: DualGenFieldRef
+    typeParameters:
+    - !_Described ref

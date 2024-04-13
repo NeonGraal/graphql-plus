@@ -1,0 +1,32 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualGenAltArg: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenAltArg
+      type: !_DualBase
+        arguments:
+        - !_TypeParameter type
+        dual: DualGenAltRef
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        arguments:
+        - !_TypeParameter type
+        dual: DualGenAltRef
+    kind: !_TypeKind Dual
+    name: DualGenAltArg
+    typeParameters:
+    - !_Described type
+  !_Identifier DualGenAltRef: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenAltRef
+      type: !_TypeParameter ref
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_TypeParameter ref
+    kind: !_TypeKind Dual
+    name: DualGenAltRef
+    typeParameters:
+    - !_Described ref

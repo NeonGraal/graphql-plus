@@ -1,0 +1,9 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualPrntDualTest: !_TypeDual
+    kind: !_TypeKind Dual
+    name: DualPrntDualTest
+  !_Identifier DualTestPrntDual: !_TypeDual
+    kind: !_TypeKind Dual
+    name: DualTestPrntDual
+    parent: !_DualBase DualPrntDualTest

@@ -1,0 +1,35 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpGenDual: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpGenDual
+      type: !_InputBase
+        arguments:
+        - !_DualBase InpGenDualAlt
+        input: InpGenDualRef
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        arguments:
+        - !_DualBase InpGenDualAlt
+        input: InpGenDualRef
+    kind: !_TypeKind Input
+    name: InpGenDual
+  !_Identifier InpGenDualAlt: !_TypeDual
+    kind: !_TypeKind Dual
+    name: InpGenDualAlt
+  !_Identifier InpGenDualRef: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpGenDualRef
+      type: !_TypeParameter ref
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_TypeParameter ref
+    kind: !_TypeKind Input
+    name: InpGenDualRef
+    typeParameters:
+    - !_Described ref

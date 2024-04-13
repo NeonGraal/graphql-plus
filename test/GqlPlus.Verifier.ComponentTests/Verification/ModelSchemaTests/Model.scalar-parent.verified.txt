@@ -1,0 +1,13 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier ScalPrntTest: !_ScalarBoolean
+    kind: !_TypeKind Scalar
+    name: ScalPrntTest
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Scalar
+      name: ScalTestPrnt
+    scalar: !_ScalarKind Boolean
+  !_Identifier ScalTestPrnt: !_ScalarBoolean
+    kind: !_TypeKind Scalar
+    name: ScalTestPrnt
+    scalar: !_ScalarKind Boolean

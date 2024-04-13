@@ -1,0 +1,25 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InEnumField: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: InEnumField
+      name: value
+    items:
+    - !_Aliased value
+    kind: !_TypeKind Enum
+    name: InEnumField
+  !_Identifier InFieldEnum: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      default: value
+      name: field
+      object: InFieldEnum
+      type: !_InputBase InEnumField
+    fields:
+    - !_InputField
+      default: value
+      name: field
+      type: !_InputBase InEnumField
+    kind: !_TypeKind Input
+    name: InFieldEnum

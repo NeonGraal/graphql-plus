@@ -1,0 +1,31 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpFieldsParent: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: InpFieldsParent
+      type: !_InputBase String
+    fields:
+    - !_InputField
+      name: parent
+      type: !_InputBase String
+    kind: !_TypeKind Input
+    name: InpFieldsParent
+  !_Identifier InpPrntFields: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: InpFieldsParent
+      type: !_InputBase String
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpPrntFields
+      type: !_InputBase Number
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase Number
+    kind: !_TypeKind Input
+    name: InpPrntFields
+    parent: !_InputBase InpFieldsParent

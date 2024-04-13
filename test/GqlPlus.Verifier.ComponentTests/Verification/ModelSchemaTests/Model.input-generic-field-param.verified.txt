@@ -1,0 +1,35 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpGenFieldParam: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpGenFieldParam
+      type: !_InputBase
+        arguments:
+        - !_InputBase InpGenFieldParamAlt
+        input: InpGenFieldParamRef
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        arguments:
+        - !_InputBase InpGenFieldParamAlt
+        input: InpGenFieldParamRef
+    kind: !_TypeKind Input
+    name: InpGenFieldParam
+  !_Identifier InpGenFieldParamAlt: !_TypeInput
+    kind: !_TypeKind Input
+    name: InpGenFieldParamAlt
+  !_Identifier InpGenFieldParamRef: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpGenFieldParamRef
+      type: !_TypeParameter ref
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_TypeParameter ref
+    kind: !_TypeKind Input
+    name: InpGenFieldParamRef
+    typeParameters:
+    - !_Described ref

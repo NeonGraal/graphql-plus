@@ -1,0 +1,52 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutParamParent: !_TypeInput
+    kind: !_TypeKind Input
+    name: OutParamParent
+  !_Identifier OutParamsParent: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParamsParent
+      parameters:
+      - !_Parameter
+        type: !_InputBase OutParamParent
+      type: !_OutputBase OutPrntParams
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_Parameter
+        type: !_InputBase OutParamParent
+      type: !_OutputBase OutPrntParams
+    kind: !_TypeKind Output
+    name: OutParamsParent
+  !_Identifier OutPrntParam: !_TypeInput
+    kind: !_TypeKind Input
+    name: OutPrntParam
+  !_Identifier OutPrntParams: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParamsParent
+      parameters:
+      - !_Parameter
+        type: !_InputBase OutParamParent
+      type: !_OutputBase OutPrntParams
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutPrntParams
+      parameters:
+      - !_Parameter
+        type: !_InputBase OutPrntParam
+      type: !_OutputBase OutPrntParams
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_Parameter
+        type: !_InputBase OutPrntParam
+      type: !_OutputBase OutPrntParams
+    kind: !_TypeKind Output
+    name: OutPrntParams
+    parent: !_OutputBase OutParamsParent

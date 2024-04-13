@@ -1,0 +1,23 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpAltMods: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      collections:
+      - !_ModifierDictionary
+        by: ^
+        kind: Dict
+      object: OutpAltMods
+      type: !_OutputBase OutpModsAlt
+    alternates:
+    - !_Alternate(_OutputBase)
+      collections:
+      - !_ModifierDictionary
+        by: ^
+        kind: Dict
+      type: !_OutputBase OutpModsAlt
+    kind: !_TypeKind Output
+    name: OutpAltMods
+  !_Identifier OutpModsAlt: !_TypeOutput
+    kind: !_TypeKind Output
+    name: OutpModsAlt

@@ -1,0 +1,25 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpFieldEnum: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutpFieldEnum
+      name: value
+    items:
+    - !_Aliased value
+    kind: !_TypeKind Enum
+    name: OutpFieldEnum
+  !_Identifier OutpFieldMods: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, kind: Dict}]
+      name: field
+      object: OutpFieldMods
+      type: !_OutputBase OutpFieldMods
+    fields:
+    - !_OutputField
+      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, kind: Dict}]
+      name: field
+      type: !_OutputBase OutpFieldMods
+    kind: !_TypeKind Output
+    name: OutpFieldMods

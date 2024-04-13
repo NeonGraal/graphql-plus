@@ -11,7 +11,7 @@ public class MergeSchemaTests(
 ) : SchemaBase(parser)
 {
   [Fact]
-  public void CanMerge_AllSchemas()
+  public void CanMerge_All()
   {
     var schemas = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
@@ -25,7 +25,7 @@ public class MergeSchemaTests(
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
-  public void CanMerge_Schemas(string group)
+  public void CanMerge_Groups(string group)
   {
     var schemas = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required())
@@ -50,7 +50,7 @@ public class MergeSchemaTests(
   }
 
   [Fact]
-  public async Task Merge_AllSchemas()
+  public async Task Merge_All()
   {
     var schemas = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
@@ -65,7 +65,7 @@ public class MergeSchemaTests(
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
-  public async Task Merge_Schemas(string group)
+  public async Task Merge_Groups(string group)
   {
     var schemas = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required())

@@ -34,7 +34,7 @@ option Schema { }
 option Schema [Opt1] { }
 option Schema [Opt2] { }
 
-// option-setting
+// option-value
 option Schema { setting=true }
 option Schema { setting=[0] }
 

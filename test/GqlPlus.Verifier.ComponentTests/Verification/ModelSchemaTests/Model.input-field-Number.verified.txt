@@ -1,0 +1,16 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InFieldNum: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      default: 0
+      name: field
+      object: InFieldNum
+      type: !_InputBase Number
+    fields:
+    - !_InputField
+      default: 0
+      name: field
+      type: !_InputBase Number
+    kind: !_TypeKind Input
+    name: InFieldNum

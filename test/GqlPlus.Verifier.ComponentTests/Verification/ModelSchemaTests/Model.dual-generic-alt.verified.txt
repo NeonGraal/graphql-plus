@@ -1,0 +1,14 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualGenAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenAlt
+      type: !_TypeParameter type
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_TypeParameter type
+    kind: !_TypeKind Dual
+    name: DualGenAlt
+    typeParameters:
+    - !_Described type

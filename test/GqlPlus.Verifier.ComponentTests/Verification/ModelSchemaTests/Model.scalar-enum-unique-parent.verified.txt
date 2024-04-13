@@ -1,0 +1,35 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumScalDupParent: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumScalDupParent
+      name: dup
+    items:
+    - !_Aliased dup
+    kind: !_TypeKind Enum
+    name: EnumScalDupParent
+  !_Identifier EnumScalParentUnique: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumScalParentUnique
+      name: dup
+    items:
+    - !_Aliased dup
+    kind: !_TypeKind Enum
+    name: EnumScalParentUnique
+  !_Identifier EnumScalUniqueParent: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumScalParentUnique
+      name: dup
+    - !_EnumMember
+      enum: EnumScalUniqueParent
+      name: value
+    items:
+    - !_Aliased value
+    kind: !_TypeKind Enum
+    name: EnumScalUniqueParent
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Enum
+      name: EnumScalParentUnique

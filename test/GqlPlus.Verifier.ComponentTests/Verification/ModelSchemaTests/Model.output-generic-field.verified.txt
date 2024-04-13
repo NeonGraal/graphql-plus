@@ -1,0 +1,16 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpGenField: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpGenField
+      type: !_TypeParameter type
+    fields:
+    - !_OutputField
+      name: field
+      type: !_TypeParameter type
+    kind: !_TypeKind Output
+    name: OutpGenField
+    typeParameters:
+    - !_Described type

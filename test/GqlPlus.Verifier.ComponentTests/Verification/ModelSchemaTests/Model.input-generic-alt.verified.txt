@@ -1,0 +1,14 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpGenAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpGenAlt
+      type: !_TypeParameter type
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_TypeParameter type
+    kind: !_TypeKind Input
+    name: InpGenAlt
+    typeParameters:
+    - !_Described type

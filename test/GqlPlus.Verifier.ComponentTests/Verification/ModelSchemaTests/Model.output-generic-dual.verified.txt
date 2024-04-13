@@ -1,0 +1,35 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpGenDual: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpGenDual
+      type: !_OutputBase
+        arguments:
+        - !_DualBase OutpGenDualAlt
+        output: OutpGenDualRef
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        arguments:
+        - !_DualBase OutpGenDualAlt
+        output: OutpGenDualRef
+    kind: !_TypeKind Output
+    name: OutpGenDual
+  !_Identifier OutpGenDualAlt: !_TypeDual
+    kind: !_TypeKind Dual
+    name: OutpGenDualAlt
+  !_Identifier OutpGenDualRef: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpGenDualRef
+      type: !_TypeParameter ref
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_TypeParameter ref
+    kind: !_TypeKind Output
+    name: OutpGenDualRef
+    typeParameters:
+    - !_Described ref

@@ -1,0 +1,41 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutGenValue: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutGenValue
+      type: !_OutputBase
+        arguments:
+        - !_OutputBase outValueGen
+        output: OutGenValueRef
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputBase outValueGen
+        output: OutGenValueRef
+    kind: !_TypeKind Output
+    name: OutGenValue
+  !_Identifier OutGenValueRef: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutGenValueRef
+      type: !_TypeParameter type
+    fields:
+    - !_OutputField
+      name: field
+      type: !_TypeParameter type
+    kind: !_TypeKind Output
+    name: OutGenValueRef
+    typeParameters:
+    - !_Described type
+  !_Identifier OutValueGen: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutValueGen
+      name: outValueGen
+    items:
+    - !_Aliased outValueGen
+    kind: !_TypeKind Enum
+    name: OutValueGen

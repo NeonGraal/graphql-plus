@@ -1,0 +1,23 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpAltMods: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      collections:
+      - !_ModifierDictionary
+        by: ^
+        kind: Dict
+      object: InpAltMods
+      type: !_InputBase InpModsAlt
+    alternates:
+    - !_Alternate(_InputBase)
+      collections:
+      - !_ModifierDictionary
+        by: ^
+        kind: Dict
+      type: !_InputBase InpModsAlt
+    kind: !_TypeKind Input
+    name: InpAltMods
+  !_Identifier InpModsAlt: !_TypeInput
+    kind: !_TypeKind Input
+    name: InpModsAlt

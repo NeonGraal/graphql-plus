@@ -1,9 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
-using Microsoft.VisualBasic.FileIO;
 
 namespace GqlPlus.Verifier.Merging;
 

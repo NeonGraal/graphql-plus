@@ -20,6 +20,7 @@ public abstract record class ChildTypeModel<TParent>(
   TypeKindModel Kind,
   string Name
 ) : BaseTypeModel(Kind, Name)
+  , IChildTypeModel
   where TParent : IRendering
 {
   public TParent? Parent { get; set; }
@@ -28,7 +29,7 @@ public abstract record class ChildTypeModel<TParent>(
 
   protected abstract string? ParentName(TParent? parent);
 
-  internal bool GetParentModel<TModel>(IRenderContext context, [NotNullWhen(true)] out TModel? model)
+  internal virtual bool GetParentModel<TModel>(IRenderContext context, [NotNullWhen(true)] out TModel? model)
     where TModel : IRendering
   {
     if (_parentModel is null) {
@@ -45,13 +46,23 @@ public abstract record class ChildTypeModel<TParent>(
       .Add("parent", Parent?.Render(context));
 
   internal void ForParent<TModel>(IRenderContext context, Action<TModel> action)
-    where TModel : ChildTypeModel<TParent>
+    where TModel : IChildTypeModel
   {
     if (GetParentModel<TModel>(context, out var parentModel)) {
       parentModel.ForParent(context, action);
       action(parentModel);
     }
   }
+
+  void IChildTypeModel.ForParent<TModel>(IRenderContext context, Action<TModel> action)
+    => ForParent(context, action);
+}
+
+internal interface IChildTypeModel
+  : IRendering
+{
+  void ForParent<TModel>(IRenderContext context, Action<TModel> action)
+    where TModel : IChildTypeModel;
 }
 
 public abstract record class ParentTypeModel<TItem, TAll>(

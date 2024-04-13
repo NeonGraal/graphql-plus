@@ -16,42 +16,50 @@ public abstract record class TypeObjectModel<TBase, TField>(
   internal TField[] Fields { get; set; } = [];
   internal AlternateModel<TBase>[] Alternates { get; set; } = [];
 
-  internal IEnumerable<IRendering> AllAlternates(IRenderContext context)
-  {
-    var alternates = Alternates.Select(a => new ObjectForModel<AlternateModel<TBase>>(a, Name));
-
-    return Parent?.Base.IsTypeParameter == false
-        && GetParentModel<ITypeObjectModel>(context, out var parentModel)
-      ? parentModel.AllAlternates(context).Concat(alternates)
-      : alternates;
-  }
-
-  internal IEnumerable<IRendering> AllFields(IRenderContext context)
-  {
-    var fields = Fields.Select(f => new ObjectForModel<TField>(f, Name));
-
-    return Parent?.Base.IsTypeParameter == false
-        && GetParentModel<ITypeObjectModel>(context, out var parentModel)
-      ? parentModel.AllFields(context).Concat(fields)
-      : fields;
-  }
-
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("parameters", TypeParameters.Render(context))
-      .Add("fields", Fields.Render(context))
-      .Add("allFields", AllFields(context).Render(context))
-      .Add("alternates", Alternates.Render(context))
-      .Add("allAlternates", AllAlternates(context).Render(context));
-  IEnumerable<IRendering> ITypeObjectModel.AllAlternates(IRenderContext context) => AllAlternates(context);
-  IEnumerable<IRendering> ITypeObjectModel.AllFields(IRenderContext context) => AllFields(context);
+  {
+    List<ModelBase> allAlternates = [];
+    List<ModelBase> allFields = [];
+
+    void AddMembers(ITypeObjectModel model)
+    {
+      allAlternates.AddRange(model.AllAlternates);
+      allFields.AddRange(model.AllFields);
+    }
+
+    ForParent<ITypeObjectModel>(context, AddMembers);
+    AddMembers(this);
+
+    return base.Render(context)
+        .Add("parameters", TypeParameters.Render(context))
+        .Add("fields", Fields.Render(context))
+        .Add("allFields", allFields.Render(context))
+        .Add("alternates", Alternates.Render(context))
+        .Add("allAlternates", allAlternates.Render(context));
+  }
+
+  internal override bool GetParentModel<TModel>(IRenderContext context, [NotNullWhen(true)] out TModel? model)
+    where TModel : default
+  {
+    if (Parent?.Base.IsTypeParameter == false) {
+      return base.GetParentModel(context, out model);
+    }
+
+    model = default;
+    return false;
+  }
+
+  IEnumerable<ModelBase> ITypeObjectModel.AllAlternates
+    => Alternates.Select(a => new ObjectForModel<AlternateModel<TBase>>(a, Name));
+  IEnumerable<ModelBase> ITypeObjectModel.AllFields
+    => Fields.Select(f => new ObjectForModel<TField>(f, Name));
 }
 
 internal interface ITypeObjectModel
-  : IRendering
+  : IChildTypeModel
 {
-  IEnumerable<IRendering> AllAlternates(IRenderContext context);
-  IEnumerable<IRendering> AllFields(IRenderContext context);
+  IEnumerable<ModelBase> AllAlternates { get; }
+  IEnumerable<ModelBase> AllFields { get; }
 }
 
 public record class ObjRefModel<TBase>

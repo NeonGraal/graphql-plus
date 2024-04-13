@@ -39,6 +39,7 @@ internal class ParseSchema : Parser<SchemaAst>.I
       } else {
         tokens.Error(label, $"declaration selector. '{selector}' unknown");
       }
+
       tokens.String(out description);
     }
 

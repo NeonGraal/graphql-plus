@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Verify.Xunit" Version="23.7.1" />
+    <PackageReference Include="Verify.Xunit" Version="24.1.0" />
     <PackageReference Include="Xunit.DependencyInjection" Version="9.1.0" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
     <PackageReference Include="Xunit.DependencyInjection.SkippableFact" Version="9.0.0" />

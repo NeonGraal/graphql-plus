@@ -67,7 +67,7 @@ internal sealed class EnumModelChecks(
   internal void EnumExpected(EnumDeclAst ast, ExpectedEnumInput input)
     => AstExpected(ast, ExpectedEnum(input));
 
-  protected override Func<string, IEnumerable<string>> ExpectedAllMember(string type)
+  protected override ToExpected<string> ExpectedAllMember(string type)
     => member => ["- !_EnumMember", "  enum: " + type, "  name: " + member];
 
   protected override string[] ExpectedParent(string? parent)

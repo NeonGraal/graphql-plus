@@ -98,7 +98,7 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel, TItem>(
   internal IEnumerable<string> ExpectedAllMembers(string field, string[] members, string type)
     => ItemsExpected(field, members, ExpectedAllMember(type));
 
-  protected abstract Func<string, IEnumerable<string>> ExpectedAllMember(string type);
+  protected abstract ToExpected<string> ExpectedAllMember(string type);
 }
 
 internal interface ICheckTypeModel<TAstParent, TParent, TTypeKind>

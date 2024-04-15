@@ -40,6 +40,11 @@ public record struct ScalarRangeInput(decimal? Min, decimal? Max)
 public record struct FieldInput(string Name, string Type)
   : IComparable<FieldInput>
 {
+  public bool TypeParameter { get; private init; } = false;
+
+  public FieldInput MakeTypeParameter()
+    => this with { TypeParameter = true };
+
   public readonly int CompareTo(FieldInput other)
   {
     var comp = string.CompareOrdinal(Name, other.Name);

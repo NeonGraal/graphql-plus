@@ -66,7 +66,7 @@ internal sealed class UnionModelChecks(
   internal void UnionExpected(UnionDeclAst ast, ExpectedUnionInput input)
   => AstExpected(ast, ExpectedUnion(input));
 
-  protected override Func<string, IEnumerable<string>> ExpectedAllMember(string type)
+  protected override ToExpected<string> ExpectedAllMember(string type)
     => member => ["- !_UnionMember", "  name: " + member, "  union: " + type];
 
   protected override string[] ExpectedParent(string? parent)

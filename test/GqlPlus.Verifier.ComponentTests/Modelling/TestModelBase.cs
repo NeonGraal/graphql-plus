@@ -15,6 +15,8 @@ public abstract class TestModelBase<TName>
   protected virtual bool SkipIf(TName name)
     => false;
 
+  internal ToExpected<TItem> EmptyExpected<TItem>() => i => [];
+
   internal abstract ICheckModelBase<TName> BaseChecks { get; }
 }
 
@@ -53,17 +55,19 @@ internal abstract class CheckModelBase<TName, TAst, TModel>
   protected abstract TAst NewBaseAst(TName name);
   protected abstract string[] ExpectedBase(TName name);
 
-  protected static IEnumerable<string> ItemsExpected<TItem>(string field, TItem[]? items, Func<TItem, IEnumerable<string>> mapping)
+  protected static IEnumerable<string> ItemsExpected<TItem>(string field, TItem[]? items, ToExpected<TItem> mapping)
     => items == null || items.Length == 0 ? []
       : string.IsNullOrWhiteSpace(field)
-        ? items.SelectMany(mapping)
-        : items.SelectMany(mapping).Prepend(field);
+        ? items.SelectMany(i => mapping(i))
+        : items.SelectMany(i => mapping(i)).Prepend(field);
 
   void ICheckModelBase.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
   AstBase ICheckModelBase<TName>.BaseAst(TName name) => NewBaseAst(name);
   IRendering ICheckModelBase.ToModel(AstBase ast) => AstToModel((TAst)ast);
   string[] ICheckModelBase<TName>.ExpectedBase(TName name) => ExpectedBase(name);
 }
+
+internal delegate IEnumerable<string> ToExpected<TItem>(TItem input);
 
 internal interface ICheckModelBase<TName>
   : ICheckModelBase

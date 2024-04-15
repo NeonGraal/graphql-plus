@@ -9,3 +9,4 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Style", "IDE0058:Expression value is never used")]
 [assembly: SuppressMessage("Style", "IDE0130:Namespace does not match folder structure")]
 [assembly: SuppressMessage("Style", "IDE2001:Embedded statements must be on their own line")]
+[assembly: SuppressMessage("Design", "CA1036:Override methods on comparable types")]

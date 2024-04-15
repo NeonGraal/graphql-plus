@@ -12,9 +12,20 @@ public abstract class TestObjectModel<TObject, TField, TRef>
   public void Model_ParentDual(string name, string parent)
     => ObjectChecks
       .AddTypeKinds(TypeKindModel.Dual, parent)
-      .DualExpected(
+      .ObjectExpected(
         (TObject)TypeChecks.TypeAst(name, parent),
-        new(name, parent));
+        new(name, parent),
+        ObjectChecks.DualParent);
+
+  [Theory, RepeatData(Repeats)]
+  public void Model_ParentTypeParameter(string name, string parent)
+    => ObjectChecks
+      .AddTypeKinds(TypeKindModel.Dual, parent)
+      .ObjectExpected(
+        ObjectChecks.ObjectAst(name, [], []) with {
+          Parent = TypeChecks.ParentAst(parent) with { IsTypeParameter = true }
+        },
+        new(name, parent), ObjectChecks.TypeParameterParent);
 
   [Theory, RepeatData(Repeats)]
   public void Model_Alternate(string name, string alternate)
@@ -28,7 +39,16 @@ public abstract class TestObjectModel<TObject, TField, TRef>
       .AddParent(ObjectChecks.NewParent(parent, [alternate]))
       .ParentExpected(
         (TObject)TypeChecks.TypeAst(name, parent),
-      new(name, parent, alternates: [alternate]));
+        new(name, parent, alternates: [alternate]));
+
+  [Theory, RepeatData(Repeats)]
+  public void Model_AlternateTypeParameter(string name, string alternate)
+    => ObjectChecks.ObjectExpected(
+      ObjectChecks.ObjectAst(name, [], []) with {
+        Alternates = [new(TypeChecks.ParentAst(alternate) with { IsTypeParameter = true })]
+      },
+      new(name, alternates: [alternate]),
+      alternate: ObjectChecks.TypeParameterAlternate);
 
   [Theory, RepeatData(Repeats)]
   public void Model_Alternates(string name, string[] alternates)
@@ -43,6 +63,20 @@ public abstract class TestObjectModel<TObject, TField, TRef>
       new(name, fields: [field]));
 
   [Theory, RepeatData(Repeats)]
+  public void Model_FieldParent(string name, string parent, FieldInput field)
+    => ObjectChecks
+      .AddParent(ObjectChecks.NewParent(parent, [field]))
+      .ParentExpected(
+        (TObject)TypeChecks.TypeAst(name, parent),
+        new(name, parent, fields: [field]));
+
+  [Theory, RepeatData(Repeats)]
+  public void Model_FieldTypeParameter(string name, FieldInput field)
+    => ObjectChecks.ObjectExpected(
+      ObjectChecks.ObjectAst(name, [field.MakeTypeParameter()], []),
+      new(name, fields: [field]));
+
+  [Theory, RepeatData(Repeats)]
   public void Model_Fields(string name, FieldInput[] fields)
     => ObjectChecks.ObjectExpected(
       ObjectChecks.ObjectAst(name, fields, []),
@@ -52,21 +86,22 @@ public abstract class TestObjectModel<TObject, TField, TRef>
   public void Model_FieldsDual(string name, FieldInput[] fields)
     => ObjectChecks
       .AddTypeKinds(fields.Select(f => f.Type), TypeKindModel.Dual)
-      .DualExpected(
+      .ObjectExpected(
         ObjectChecks.ObjectAst(name, fields, []),
-        new(name, fields: fields));
+        new(name, fields: fields),
+        field: ObjectChecks.DualField);
 
   [Theory, RepeatData(Repeats)]
   public void Model_TypeParameter(string name, string typeParameter)
     => ObjectChecks
-      .DualExpected(
+      .ObjectExpected(
         ObjectChecks.ObjectAst(name, [], []) with { TypeParameters = [new TypeParameterAst(AstNulls.At, typeParameter)] },
         new(name, typeParameters: [typeParameter]));
 
   [Theory, RepeatData(Repeats)]
   public void Model_TypeParameters(string name, string[] typeParameters)
     => ObjectChecks
-      .DualExpected(
+      .ObjectExpected(
         ObjectChecks.ObjectAst(name, [], []) with { TypeParameters = typeParameters.TypeParameters() },
         new(name, typeParameters: typeParameters));
 
@@ -99,23 +134,16 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
   internal string[] ExpectedObject(ExpectedObjectInput input)
     => input.Expected(TypeKind, ExpectedParent);
 
-  internal IEnumerable<string> DualField(FieldInput field)
-    => [$"- !_{TypeKind}Field", "  name: " + field.Name, "  type: !_DualBase " + field.Type];
-
-  internal IEnumerable<string> DualAlternate(string alternate)
-    => [$"- !_Alternate(_{TypeKind}Base)", "  collections:", "  - !_Modifier List", "  type: !_DualBase " + alternate];
-
-  internal string[] DualParent(string? parent)
-    => parent is null ? []
-    : ["parent: !_DualBase " + parent];
-
   internal IEnumerable<string> ExpectedField(FieldInput field)
-    => [$"- !_{TypeKind}Field", "  name: " + field.Name, $"  type: !_{TypeKind}Base {field.Type}"];
+    => [$"- !_{TypeKind}Field", "  name: " + field.Name,
+      field.TypeParameter
+        ? "  type: !_TypeParameter " + field.Type
+        : $"  type: !_{TypeKind}Base {field.Type}"];
 
   internal IEnumerable<string> ExpectedAlternate(string alternate)
     => [$"- !_Alternate(_{TypeKind}Base)", "  collections:", "  - !_Modifier List", $"  type: !_{TypeKind}Base {alternate}"];
 
-  internal IEnumerable<string> ExpectedParameter(string typeParameter)
+  internal IEnumerable<string> ExpectedTypeParameter(string typeParameter)
     => ["- !_Described " + typeParameter];
 
   protected override string[] ExpectedParent(string? parent)
@@ -128,15 +156,31 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
   internal override TObject NewTypeAst(string name, TRef? parent, string description)
     => NewObjectAst(name, parent, description, [], []);
 
-  void ICheckObjectModel<TObject, TField, TRef>.ObjectExpected(TObject ast, ExpectedObjectInput input)
-    => AstExpected(ast, input.Expected(TypeKind, ExpectedParent,
-      ItemsExpected("typeParameters:", input.TypeParameters, ExpectedParameter),
-      ItemsExpected("fields:", input.Fields, ExpectedField),
-      ItemsExpected("allFields:", input.Fields, ExpectedObject<FieldInput>(input.Name, ExpectedField)),
-      ItemsExpected("alternates:", input.Alternates, ExpectedAlternate),
-      ItemsExpected("allAlternates:", input.Alternates, ExpectedObject<string>(input.Name, ExpectedAlternate))));
+  void ICheckObjectModel<TObject, TField, TRef>.ObjectExpected(TObject ast, ExpectedObjectInput input,
+      ToExpected<string?>? parent, ToExpected<FieldInput>? field, ToExpected<string>? alternate)
+    => AstExpected(ast, input.Expected(TypeKind, parent ?? ExpectedParent,
+      ItemsExpected("typeParameters:", input.TypeParameters, ExpectedTypeParameter),
+      ItemsExpected("fields:", input.Fields, field ?? ExpectedField),
+      ItemsExpected("allFields:", input.Fields, ExpectedObject(input.Name, field ?? ExpectedField)),
+      ItemsExpected("alternates:", input.Alternates, alternate ?? ExpectedAlternate),
+      ItemsExpected("allAlternates:", input.Alternates, ExpectedObject<string>(input.Name, alternate ?? ExpectedAlternate))));
+  string[] ICheckObjectModel<TObject, TField, TRef>.DualField(FieldInput field)
+    => [$"- !_{TypeKind}Field", "  name: " + field.Name,
+      field.TypeParameter
+        ? "  type: !_TypeParameter " + field.Type
+        : "  type: !_DualBase " + field.Type];
+  string[] ICheckObjectModel<TObject, TField, TRef>.DualAlternate(string alternate)
+    => [$"- !_Alternate(_{TypeKind}Base)", "  collections:", "  - !_Modifier List", "  type: !_DualBase " + alternate];
+  string[] ICheckObjectModel<TObject, TField, TRef>.DualParent(string? parent)
+    => parent is null ? []
+    : ["parent: !_DualBase " + parent];
+  string[] ICheckObjectModel<TObject, TField, TRef>.TypeParameterParent(string? parent)
+    => parent is null ? []
+    : ["parent: !_TypeParameter " + parent];
+  string[] ICheckObjectModel<TObject, TField, TRef>.TypeParameterAlternate(string alternate)
+    => [$"- !_Alternate(_{TypeKind}Base)", "  type: !_TypeParameter " + alternate];
 
-  private Func<TInput, IEnumerable<string>> ExpectedObject<TInput>(string name, Func<TInput, IEnumerable<string>> expectedField)
+  private ToExpected<TInput> ExpectedObject<TInput>(string name, ToExpected<TInput> expectedField)
     => f => {
       var field = expectedField(f).ToArray();
 
@@ -145,14 +189,6 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
 
       return [first, .. field.Skip(1).SkipLast(1), "  object: " + name, last];
     };
-
-  void ICheckObjectModel<TObject, TField, TRef>.DualExpected(TObject ast, ExpectedObjectInput input)
-    => AstExpected(ast, input.Expected(TypeKind, DualParent,
-      ItemsExpected("typeParameters:", input.TypeParameters, ExpectedParameter),
-      ItemsExpected("fields:", input.Fields, DualField),
-      ItemsExpected("allFields:", input.Fields, ExpectedObject<FieldInput>(input.Name, DualField)),
-      ItemsExpected("alternates:", input.Alternates, DualAlternate),
-      ItemsExpected("allAlternates:", input.Alternates, ExpectedObject<string>(input.Name, DualAlternate))));
 
   void ICheckObjectModel<TObject, TField, TRef>.ParentExpected(TObject ast, ExpectedObjectInput input)
     => AstExpected(ast, input.Expected(TypeKind, ExpectedParent, [],
@@ -180,8 +216,14 @@ internal interface ICheckObjectModel<TObject, TField, TRef>
   where TField : AstField<TRef>
   where TRef : AstReference<TRef>
 {
-  void ObjectExpected(TObject ast, ExpectedObjectInput input);
-  void DualExpected(TObject ast, ExpectedObjectInput input);
+  void ObjectExpected(TObject ast, ExpectedObjectInput input, ToExpected<string?>? parent = null,
+    ToExpected<FieldInput>? field = null, ToExpected<string>? alternate = null);
+  string[] DualParent(string? parent);
+  string[] DualField(FieldInput field);
+  string[] DualAlternate(string alternate);
+  string[] TypeParameterParent(string? parent);
+  string[] TypeParameterAlternate(string alternate);
+
   void ParentExpected(TObject ast, ExpectedObjectInput input);
   TObject ObjectAst(string name, FieldInput[] fields, string[] alternates);
 }
@@ -209,7 +251,7 @@ internal sealed class ExpectedObjectInput(
 
   internal string[] Expected(
     TypeKindModel typeKind,
-    Func<string?, IEnumerable<string>> parent,
+    ToExpected<string?> parent,
     IEnumerable<string>? typeParameters = null,
     IEnumerable<string>? fields = null,
     IEnumerable<string>? allFields = null,

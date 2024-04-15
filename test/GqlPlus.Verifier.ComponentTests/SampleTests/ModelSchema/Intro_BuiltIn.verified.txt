@@ -1,0 +1,222 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _Collections: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Collections
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _ModifierKind
+          value: List
+        output: _Modifier
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Collections
+      type: !_OutputBase _ModifierDictionary
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _ModifierKind
+          value: List
+        output: _Modifier
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _ModifierDictionary
+    kind: !_TypeKind Output
+    name: _Collections
+  !_Identifier _Constant: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Constant
+      type: !_OutputBase _Simple
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Constant
+      type: !_OutputBase _ConstantList
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Constant
+      type: !_OutputBase _ConstantMap
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _Simple
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _ConstantList
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _ConstantMap
+    kind: !_TypeKind Output
+    name: _Constant
+  !_Identifier _ConstantList: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      collections:
+      - !_Modifier List
+      object: _ConstantList
+      type: !_OutputBase _Constant
+    alternates:
+    - !_Alternate(_OutputBase)
+      collections:
+      - !_Modifier List
+      type: !_OutputBase _Constant
+    kind: !_TypeKind Output
+    name: _ConstantList
+  !_Identifier _ConstantMap: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      collections:
+      - !_ModifierDictionary
+        by: Simple
+        kind: Dict
+      object: _ConstantMap
+      type: !_OutputBase _Constant
+    alternates:
+    - !_Alternate(_OutputBase)
+      collections:
+      - !_ModifierDictionary
+        by: Simple
+        kind: Dict
+      type: !_OutputBase _Constant
+    kind: !_TypeKind Output
+    name: _ConstantMap
+  !_Identifier _Modifier: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: kind
+      object: _Modifier
+      type: !_TypeParameter kind
+    fields:
+    - !_OutputField
+      name: kind
+      type: !_TypeParameter kind
+    kind: !_TypeKind Output
+    name: _Modifier
+    typeParameters:
+    - !_Described kind
+  !_Identifier _ModifierDictionary: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: kind
+      object: _Modifier
+      type: !_TypeParameter kind
+    - !_ObjectFor(_OutputField)
+      name: by
+      object: _ModifierDictionary
+      type: !_OutputBase _TypeSimple
+    - !_ObjectFor(_OutputField)
+      name: optional
+      object: _ModifierDictionary
+      type: !_OutputBase Boolean
+    fields:
+    - !_OutputField
+      name: by
+      type: !_OutputBase _TypeSimple
+    - !_OutputField
+      name: optional
+      type: !_OutputBase Boolean
+    kind: !_TypeKind Output
+    name: _ModifierDictionary
+    parent: !_OutputBase
+      arguments:
+      - !_OutputArgument
+        kind: !_SimpleKind Enum
+        name: _ModifierKind
+        value: Dictionary
+      output: _Modifier
+  !_Identifier _ModifierKind: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: _ModifierKind
+      name: Optional
+    - !_EnumMember
+      enum: _ModifierKind
+      name: List
+    - !_EnumMember
+      enum: _ModifierKind
+      name: Dictionary
+    items:
+    - !_Aliased Optional
+    - !_Aliased List
+    - !_Aliased Dictionary
+    kind: !_TypeKind Enum
+    name: _ModifierKind
+  !_Identifier _Modifiers: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Modifiers
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _ModifierKind
+          value: Optional
+        output: _Modifier
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Modifiers
+      type: !_OutputBase _Collections
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _ModifierKind
+          value: Optional
+        output: _Modifier
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _Collections
+    kind: !_TypeKind Output
+    name: _Modifiers
+  !_Identifier _Simple: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Simple
+      type: !_OutputBase Boolean
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Simple
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _ScalarDomain
+          value: Number
+        - !_OutputBase Number
+        output: _ScalarValue
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Simple
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _ScalarDomain
+          value: String
+        - !_OutputBase String
+        output: _ScalarValue
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Simple
+      type: !_OutputBase _EnumValue
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase Boolean
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _ScalarDomain
+          value: Number
+        - !_OutputBase Number
+        output: _ScalarValue
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _ScalarDomain
+          value: String
+        - !_OutputBase String
+        output: _ScalarValue
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase _EnumValue
+    kind: !_TypeKind Output
+    name: _Simple

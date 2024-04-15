@@ -1,0 +1,82 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _Aliased: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase _Identifier
+    fields:
+    - !_DualField
+      modifiers: [!_Modifier List]
+      name: aliases
+      type: !_DualBase _Identifier
+    kind: !_TypeKind Dual
+    name: _Aliased
+    parent: !_DualBase _Described
+  !_Identifier _BaseDescribed: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: _BaseDescribed
+      type: !_TypeParameter base
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: base
+      object: _BaseDescribed
+      type: !_TypeParameter base
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _BaseDescribed
+      type: !_DualBase String
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_TypeParameter base
+    fields:
+    - !_DualField
+      name: base
+      type: !_TypeParameter base
+    - !_DualField
+      name: description
+      type: !_DualBase String
+    kind: !_TypeKind Dual
+    name: _BaseDescribed
+    typeParameters:
+    - !_Described base
+  !_Identifier _Described: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase String
+    fields:
+    - !_DualField
+      name: description
+      type: !_DualBase String
+    kind: !_TypeKind Dual
+    name: _Described
+    parent: !_DualBase _Named
+  !_Identifier _Named: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase _Identifier
+    fields:
+    - !_DualField
+      name: name
+      type: !_DualBase _Identifier
+    kind: !_TypeKind Dual
+    name: _Named

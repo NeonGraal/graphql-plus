@@ -1,0 +1,42 @@
+output _Constant {
+    | _Simple
+    | _ConstantList
+    | _ConstantMap
+    }
+
+output _Simple {
+    | Boolean
+    | _ScalarValue<_ScalarDomain.Number Number>
+    | _ScalarValue<_ScalarDomain.String String>
+    | _EnumValue
+}
+
+output _ConstantList {
+    | _Constant[]
+    }
+
+output _ConstantMap {
+    | _Constant[Simple]
+    }
+
+output _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierDictionary
+    }
+
+output _ModifierDictionary {
+    : _Modifier<_ModifierKind.Dictionary>
+        by: _TypeSimple
+        optional: Boolean
+    }
+
+output _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Optional List Dictionary }
+
+output _Modifier<$kind> {
+        kind: $kind
+    }

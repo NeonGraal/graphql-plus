@@ -29,7 +29,6 @@ input _TypeFilter {
     : _Filter
         kinds: _TypeKind[]
     }
-
 dual _Aliased {
     : _Described
         aliases: _Identifier[]

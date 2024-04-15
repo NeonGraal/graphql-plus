@@ -1,0 +1,66 @@
+﻿!G I@001/0001
+Success
+{
+  !D I@006/0001
+  _Aliased
+  :
+  I@007/0002
+  _Described
+  {
+    !DF I@009/0003
+    aliases
+    :
+    I@018/0003
+    _Identifier
+    []
+  }
+}
+{
+  !D I@006/0006
+  _Described
+  :
+  I@007/0007
+  _Named
+  {
+    !DF I@009/0008
+    description
+    :
+    I@022/0008
+    String
+  }
+}
+{
+  !D I@006/0011
+  _BaseDescribed
+  <
+    I@022/0011
+    $base
+  >
+  {
+    !DF I@009/0012
+    base
+    :
+    I@016/0012
+    $base
+    !DF I@009/0013
+    description
+    :
+    I@022/0013
+    String
+  }
+  |
+  !AD
+  I@008/0014
+  $base
+}
+{
+  !D I@006/0017
+  _Named
+  {
+    !DF I@009/0018
+    name
+    :
+    I@015/0018
+    _Identifier
+  }
+}

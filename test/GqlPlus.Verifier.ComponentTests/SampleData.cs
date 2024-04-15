@@ -51,19 +51,20 @@ public class SampleSchemaData
     Add("all");
     Add("default");
     Add("errors");
+    Add("Intro_BuiltIn");
     Add("Intro_Category");
     Add("Intro_Common");
     Add("Intro_Complete");
+    Add("Intro_Declarations");
     Add("Intro_Directive");
     Add("Intro_Dual");
     Add("Intro_Enum");
     Add("Intro_Input");
+    Add("Intro_Names");
     Add("Intro_Object");
     Add("Intro_Output");
     Add("Intro_Scalar");
-    Add("Intro_Schema");
     Add("Intro_Setting");
-    Add("Intro_Types");
     Add("Intro_Union");
   }
 }

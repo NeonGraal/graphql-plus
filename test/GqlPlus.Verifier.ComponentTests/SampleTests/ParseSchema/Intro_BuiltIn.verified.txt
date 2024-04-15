@@ -1,0 +1,141 @@
+﻿!G I@001/0001
+Success
+{
+  !O I@008/0001
+  _Constant
+  |
+  !AO
+  I@007/0002
+  _Simple
+  !AO
+  I@007/0003
+  _ConstantList
+  !AO
+  I@007/0004
+  _ConstantMap
+}
+{
+  !O I@008/0007
+  _Simple
+  |
+  !AO
+  I@007/0008
+  Boolean
+  !AO
+  I@007/0009
+  _ScalarValue
+  <
+    I@020/0009
+    _ScalarDomain.Number
+    I@041/0009
+    Number
+  >
+  !AO
+  I@007/0010
+  _ScalarValue
+  <
+    I@020/0010
+    _ScalarDomain.String
+    I@041/0010
+    String
+  >
+  !AO
+  I@007/0011
+  _EnumValue
+}
+{
+  !O I@008/0014
+  _ConstantList
+  |
+  !AO
+  I@007/0015
+  _Constant
+  []
+}
+{
+  !O I@008/0018
+  _ConstantMap
+  |
+  !AO
+  I@007/0019
+  _Constant
+  [Simple]
+}
+{
+  !O I@008/0022
+  _Collections
+  |
+  !AO
+  I@007/0023
+  _Modifier
+  <
+    I@017/0023
+    _ModifierKind.List
+  >
+  !AO
+  I@007/0024
+  _ModifierDictionary
+}
+{
+  !O I@008/0027
+  _ModifierDictionary
+  :
+  I@007/0028
+  _Modifier
+  <
+    I@017/0028
+    _ModifierKind.Dictionary
+  >
+  {
+    !OF I@009/0029
+    by
+    :
+    I@013/0029
+    _TypeSimple
+    !OF I@009/0030
+    optional
+    :
+    I@019/0030
+    Boolean
+  }
+}
+{
+  !O I@008/0033
+  _Modifiers
+  |
+  !AO
+  I@007/0034
+  _Modifier
+  <
+    I@017/0034
+    _ModifierKind.Optional
+  >
+  !AO
+  I@007/0035
+  _Collections
+}
+{
+  !E I@006/0038
+  _ModifierKind
+  !EM I@022/0038
+  Optional
+  !EM I@031/0038
+  List
+  !EM I@036/0038
+  Dictionary
+}
+{
+  !O I@008/0040
+  _Modifier
+  <
+    I@019/0040
+    $kind
+  >
+  {
+    !OF I@009/0041
+    kind
+    :
+    I@016/0041
+    $kind
+  }
+}

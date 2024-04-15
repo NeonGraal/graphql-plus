@@ -1,10 +1,11 @@
 ﻿[
-  !!! I@007/0009 : Invalid Output Alternate. '_ScalarValue' not defined. - '_ScalarValue' !!!,
-  !!! I@007/0010 : Invalid Output Alternate. '_ScalarValue' not defined. - '_ScalarValue' !!!,
-  !!! I@007/0011 : Invalid Output Alternate. '_EnumValue' not defined. - '_EnumValue' !!!,
-  !!! I@013/0029 : Invalid Output Field. '_TypeSimple' not defined. - '_TypeSimple' !!!,
-  !!! I@020/0009 : Invalid Output Alternate. '_ScalarDomain' not defined. - '_ScalarDomain' !!!,
-  !!! I@020/0009 : Invalid Output Argument Enum. '_ScalarDomain' is not an Enum type. - '_ScalarDomain' !!!,
-  !!! I@020/0010 : Invalid Output Alternate. '_ScalarDomain' not defined. - '_ScalarDomain' !!!,
-  !!! I@020/0010 : Invalid Output Argument Enum. '_ScalarDomain' is not an Enum type. - '_ScalarDomain' !!!
+  !!! I@007/0004 : Invalid Output Alternate. '_TypeDual' not defined. - '_TypeDual' !!!,
+  !!! I@007/0005 : Invalid Output Alternate. '_TypeEnum' not defined. - '_TypeEnum' !!!,
+  !!! I@007/0006 : Invalid Output Alternate. '_TypeInput' not defined. - '_TypeInput' !!!,
+  !!! I@007/0007 : Invalid Output Alternate. '_TypeOutput' not defined. - '_TypeOutput' !!!,
+  !!! I@007/0008 : Invalid Output Alternate. '_TypeScalar' not defined. - '_TypeScalar' !!!,
+  !!! I@007/0009 : Invalid Output Alternate. '_TypeUnion' not defined. - '_TypeUnion' !!!,
+  !!! I@008/0012 : Invalid Output Parent. '_Aliased' not defined. - '_BaseType' !!!,
+  !!! I@015/0034 : Invalid Output Field. '_Identifier' not defined. - '_Identifier' !!!,
+  !!! I@024/0023 : Invalid Output Parent. '_Identifier' not defined. - '_Identifier' !!!
 ]

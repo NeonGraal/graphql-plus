@@ -29,23 +29,3 @@ input _TypeFilter {
     : _Filter
         kinds: _TypeKind[]
     }
-
-dual _Aliased {
-    : _Described
-        aliases: _Identifier[]
-    }
-
-dual _Described {
-    : _Named
-        description: String
-    }
-
-dual _BaseDescribed<$base> {
-        base: $base
-        description: String
-    | $base
-    }
-
-dual _Named {
-        name: _Identifier
-    }

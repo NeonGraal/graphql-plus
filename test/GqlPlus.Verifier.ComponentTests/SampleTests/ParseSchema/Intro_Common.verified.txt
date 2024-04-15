@@ -2,140 +2,193 @@
 Success
 {
   !O I@008/0001
-  _Constant
+  _Type
   |
   !AO
   I@007/0002
-  _Simple
+  _BaseType
+  <
+    I@017/0002
+    _TypeKind.Basic
+  >
   !AO
   I@007/0003
-  _ConstantList
+  _BaseType
+  <
+    I@017/0003
+    _TypeKind.Internal
+  >
   !AO
   I@007/0004
-  _ConstantMap
-}
-{
-  !O I@008/0007
-  _Simple
-  |
+  _TypeDual
+  !AO
+  I@007/0005
+  _TypeEnum
+  !AO
+  I@007/0006
+  _TypeInput
+  !AO
+  I@007/0007
+  _TypeOutput
   !AO
   I@007/0008
-  Boolean
+  _TypeScalar
   !AO
   I@007/0009
-  _ScalarValue
-  <
-    I@020/0009
-    _ScalarDomain.Number
-    I@041/0009
-    Number
-  >
-  !AO
-  I@007/0010
-  _ScalarValue
-  <
-    I@020/0010
-    _ScalarDomain.String
-    I@041/0010
-    String
-  >
-  !AO
-  I@007/0011
-  _EnumValue
+  _TypeUnion
 }
 {
-  !O I@008/0014
-  _ConstantList
-  |
-  !AO
-  I@007/0015
-  _Constant
-  []
+  !O I@008/0012
+  _BaseType
+  <
+    I@019/0012
+    $kind
+  >
+  :
+  I@007/0013
+  _Aliased
+  {
+    !OF I@009/0014
+    kind
+    :
+    I@016/0014
+    $kind
+  }
 }
 {
-  !O I@008/0018
-  _ConstantMap
-  |
-  !AO
-  I@007/0019
-  _Constant
-  [Simple]
+  !O I@008/0017
+  _ChildType
+  <
+    I@020/0017
+    $kind
+    I@026/0017
+    $parent
+  >
+  :
+  I@007/0018
+  _BaseType
+  <
+    I@018/0018
+    $kind
+  >
+  {
+    !OF I@009/0019
+    parent
+    :
+    I@018/0019
+    $parent
+  }
 }
 {
   !O I@008/0022
-  _Collections
-  |
-  !AO
-  I@007/0023
-  _Modifier
+  _ParentType
   <
-    I@017/0023
-    _ModifierKind.List
+    I@021/0022
+    $kind
+    I@027/0022
+    $item
+    I@033/0022
+    $allItem
   >
-  !AO
-  I@007/0024
-  _ModifierDictionary
-}
-{
-  !O I@008/0027
-  _ModifierDictionary
   :
-  I@007/0028
-  _Modifier
+  I@007/0023
+  _ChildType
   <
-    I@017/0028
-    _ModifierKind.Dictionary
+    I@019/0023
+    $kind
+    I@024/0023
+    _Identifier
   >
   {
-    !OF I@009/0029
-    by
+    !OF I@009/0024
+    items
     :
-    I@013/0029
-    _TypeSimple
-    !OF I@009/0030
-    optional
+    I@017/0024
+    $item
+    []
+    !OF I@009/0025
+    allItems
     :
-    I@019/0030
-    Boolean
+    I@020/0025
+    $allItem
+    []
   }
 }
 {
-  !O I@008/0033
-  _Modifiers
-  |
-  !AO
-  I@007/0034
-  _Modifier
-  <
-    I@017/0034
-    _ModifierKind.Optional
-  >
-  !AO
-  I@007/0035
-  _Collections
+  !E I@006/0028
+  _SimpleKind
+  !EM I@020/0028
+  Basic
+  !EM I@026/0028
+  Enum
+  !EM I@031/0028
+  Internal
+  !EM I@040/0028
+  Scalar
+  !EM I@047/0028
+  Union
 }
 {
-  !E I@006/0038
-  _ModifierKind
-  !EM I@022/0038
-  Optional
-  !EM I@031/0038
-  List
-  !EM I@036/0038
-  Dictionary
+  !E I@006/0030
+  _TypeKind
+  :_SimpleKind
+  !EM I@031/0030
+  Dual
+  !EM I@036/0030
+  Input
+  !EM I@042/0030
+  Output
 }
 {
-  !O I@008/0040
-  _Modifier
+  !O I@008/0032
+  _TypeRef
   <
-    I@019/0040
+    I@018/0032
     $kind
   >
   {
-    !OF I@009/0041
+    !OF I@009/0033
     kind
     :
-    I@016/0041
+    I@016/0033
     $kind
+    !OF I@009/0034
+    name
+    :
+    I@015/0034
+    _Identifier
   }
+}
+{
+  !O I@008/0037
+  _TypeSimple
+  |
+  !AO
+  I@007/0038
+  _TypeRef
+  <
+    I@016/0038
+    _TypeKind.Basic
+  >
+  !AO
+  I@007/0039
+  _TypeRef
+  <
+    I@016/0039
+    _TypeKind.Enum
+  >
+  !AO
+  I@007/0040
+  _TypeRef
+  <
+    I@016/0040
+    _TypeKind.Scalar
+  >
+  !AO
+  I@007/0041
+  _TypeRef
+  <
+    I@016/0041
+    _TypeKind.Union
+  >
 }

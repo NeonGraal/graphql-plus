@@ -1,0 +1,10 @@
+﻿[
+  !!! I@007/0009 : Invalid Output Alternate. '_ScalarValue' not defined. - '_ScalarValue' !!!,
+  !!! I@007/0010 : Invalid Output Alternate. '_ScalarValue' not defined. - '_ScalarValue' !!!,
+  !!! I@007/0011 : Invalid Output Alternate. '_EnumValue' not defined. - '_EnumValue' !!!,
+  !!! I@013/0029 : Invalid Output Field. '_TypeSimple' not defined. - '_TypeSimple' !!!,
+  !!! I@020/0009 : Invalid Output Alternate. '_ScalarDomain' not defined. - '_ScalarDomain' !!!,
+  !!! I@020/0009 : Invalid Output Argument Enum. '_ScalarDomain' is not an Enum type. - '_ScalarDomain' !!!,
+  !!! I@020/0010 : Invalid Output Alternate. '_ScalarDomain' not defined. - '_ScalarDomain' !!!,
+  !!! I@020/0010 : Invalid Output Argument Enum. '_ScalarDomain' is not an Enum type. - '_ScalarDomain' !!!
+]

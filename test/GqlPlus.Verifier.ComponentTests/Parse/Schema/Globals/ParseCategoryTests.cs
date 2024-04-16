@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.Parse.Schema.Global;
+namespace GqlPlus.Verifier.Parse.Schema.Globals;
 
 public sealed class ParseCategoryTests(
   Parser<CategoryDeclAst>.D parser

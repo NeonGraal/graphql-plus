@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Ast.Schema;
 using NSubstitute;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging.Global;
+namespace GqlPlus.Verifier.Merging.Globals;
 
 public class MergeDirectivesTests
   : TestAliased<DirectiveDeclAst>

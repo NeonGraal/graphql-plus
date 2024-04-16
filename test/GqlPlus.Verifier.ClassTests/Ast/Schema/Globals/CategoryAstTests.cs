@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema.Global;
+﻿namespace GqlPlus.Verifier.Ast.Schema.Globals;
 
 public class CategoryAstTests : AstAliasedTests
 {

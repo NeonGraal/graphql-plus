@@ -2,7 +2,7 @@
 using GqlPlus.Verifier.Ast.Schema;
 using NSubstitute;
 
-namespace GqlPlus.Verifier.Merging.Global;
+namespace GqlPlus.Verifier.Merging.Globals;
 
 public class MergeOptionSettingsTests
   : TestGroups<OptionSettingAst>

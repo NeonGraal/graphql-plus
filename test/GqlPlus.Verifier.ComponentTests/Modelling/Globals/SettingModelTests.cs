@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.Modelling.Global;
+namespace GqlPlus.Verifier.Modelling.Globals;
 
 public class SettingModelTests(
   IModeller<OptionSettingAst, SettingModel> modeller

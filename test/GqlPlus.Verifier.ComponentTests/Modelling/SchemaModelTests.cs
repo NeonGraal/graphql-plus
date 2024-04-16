@@ -1,5 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Modelling.Global;
+using GqlPlus.Verifier.Modelling.Globals;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Modelling;

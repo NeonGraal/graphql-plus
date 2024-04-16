@@ -51,7 +51,7 @@ public class SampleSchemaData
     Add("all");
     Add("default");
     Add("errors");
-    Add("Intro_BuiltIn");
+    Add("Intro_Built-In");
     Add("Intro_Category");
     Add("Intro_Common");
     Add("Intro_Complete");
@@ -62,9 +62,9 @@ public class SampleSchemaData
     Add("Intro_Input");
     Add("Intro_Names");
     Add("Intro_Object");
+    Add("Intro_Option");
     Add("Intro_Output");
     Add("Intro_Scalar");
-    Add("Intro_Setting");
     Add("Intro_Union");
   }
 }

@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.Modelling;
+namespace GqlPlus.Verifier.Modelling.Types;
 
 public class ScalarNumberModelTests(
   IScalarModeller<ScalarRangeAst, ScalarRangeModel> modeller

@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.Modelling;
+namespace GqlPlus.Verifier.Modelling.Types;
 
 public class ScalarEnumModelTests(
   IScalarModeller<ScalarMemberAst, ScalarMemberModel> modeller

@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
-namespace GqlPlus.Verifier.Modelling;
+namespace GqlPlus.Verifier.Modelling.Global;
 
 public class DirectiveModelTests(
   IModeller<DirectiveDeclAst, DirectiveModel> modeller

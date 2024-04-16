@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Rendering;
 
-namespace GqlPlus.Verifier.Modelling;
+namespace GqlPlus.Verifier.Modelling.Objects;
 
 public abstract class TestFieldModel<TField, TRef>
   : TestModelBase<FieldInput>

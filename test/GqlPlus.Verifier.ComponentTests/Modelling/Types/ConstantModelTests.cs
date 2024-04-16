@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Modelling;
+﻿namespace GqlPlus.Verifier.Modelling.Types;
 
 public class ConstantModelTests(
   IModeller<ConstantAst, ConstantModel> modeller

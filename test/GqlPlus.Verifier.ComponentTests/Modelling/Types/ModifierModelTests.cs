@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Modelling;
+﻿namespace GqlPlus.Verifier.Modelling.Types;
 
 public class ModifierModelTests(
   IModeller<ModifierAst, ModifierModel> modeller

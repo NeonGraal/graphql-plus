@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.Modelling;
+namespace GqlPlus.Verifier.Modelling.Objects;
 
 public abstract class TestObjectModel<TObject, TField, TRef>
   : TestTypeModel<TRef, string, TypeKindModel>
@@ -163,7 +163,7 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
       ItemsExpected("fields:", input.Fields, field ?? ExpectedField),
       ItemsExpected("allFields:", input.Fields, ExpectedObject(input.Name, field ?? ExpectedField)),
       ItemsExpected("alternates:", input.Alternates, alternate ?? ExpectedAlternate),
-      ItemsExpected("allAlternates:", input.Alternates, ExpectedObject<string>(input.Name, alternate ?? ExpectedAlternate))));
+      ItemsExpected("allAlternates:", input.Alternates, ExpectedObject(input.Name, alternate ?? ExpectedAlternate))));
   string[] ICheckObjectModel<TObject, TField, TRef>.DualField(FieldInput field)
     => [$"- !_{TypeKind}Field", "  name: " + field.Name,
       field.TypeParameter

@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.Modelling;
+namespace GqlPlus.Verifier.Modelling.Objects;
 
 public class OutputModelTests(
   IModeller<OutputDeclAst, TypeOutputModel> modeller

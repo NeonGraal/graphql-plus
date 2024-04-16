@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Ast.Schema;
 using NSubstitute;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Verifier.Merging.Objects;
 
 public class MergeInputFieldsTests : TestFields<InputFieldAst, InputReferenceAst>
 {

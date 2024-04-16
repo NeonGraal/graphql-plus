@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Verifier.Merging.Objects;
 
 public class MergeTypeParametersTests
   : TestDescriptions<TypeParameterAst>

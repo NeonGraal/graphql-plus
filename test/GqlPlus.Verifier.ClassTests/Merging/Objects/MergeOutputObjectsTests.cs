@@ -2,7 +2,7 @@
 using GqlPlus.Verifier.Ast.Schema;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Verifier.Merging.Objects;
 
 public class MergeOutputObjectsTests
   : TestObjects<OutputDeclAst, OutputFieldAst, OutputReferenceAst>

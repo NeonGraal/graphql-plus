@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Token;
 using NSubstitute;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Verifier.Merging.Types;
 
 public abstract class TestScalarAsts<TItem, TItemInput>
   : TestTyped<AstScalar, AstScalar<TItem>, string, TItem>

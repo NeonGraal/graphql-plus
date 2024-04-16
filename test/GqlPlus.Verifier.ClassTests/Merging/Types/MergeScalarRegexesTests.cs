@@ -2,7 +2,7 @@
 using GqlPlus.Verifier.Ast.Schema;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Verifier.Merging.Types;
 
 public class MergeScalarRegexesTests(
   ITestOutputHelper outputHelper

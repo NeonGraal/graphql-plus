@@ -3,7 +3,7 @@ using GqlPlus.Verifier.Ast.Schema;
 using NSubstitute;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Verifier.Merging.Types;
 
 public class MergeEnumsTests
   : TestTyped<AstType, EnumDeclAst, string, EnumMemberAst>

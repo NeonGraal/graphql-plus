@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.Parse.Schema;
+namespace GqlPlus.Verifier.Parse.Schema.Types;
 
 public sealed class ParseScalarEnumTests(
   Parser<AstScalar>.D parser

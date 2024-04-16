@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.Parse.Schema;
+namespace GqlPlus.Verifier.Parse.Schema.Types;
 
 public abstract class BaseScalarTests<TInput>
   : BaseAliasedTests<TInput>

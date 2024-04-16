@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 
-namespace GqlPlus.Verifier.Parse.Schema;
+namespace GqlPlus.Verifier.Parse.Schema.Objects;
 
 public class ParseDualTests(
   Parser<DualDeclAst>.D parser

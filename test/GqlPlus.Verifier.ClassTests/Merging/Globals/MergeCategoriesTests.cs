@@ -14,10 +14,11 @@ public class MergeCategoriesTests(
 
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentOutput_ReturnsErrors(string name, string category1, string category2)
-    => CanMerge_Errors([
-      new CategoryDeclAst(AstNulls.At, name, category1),
-      new CategoryDeclAst(AstNulls.At, name, category2)],
-      category1 == category2);
+    => this
+      .SkipIf(category1 == category2)
+      .CanMerge_Errors(
+        new CategoryDeclAst(AstNulls.At, name, category1),
+        new CategoryDeclAst(AstNulls.At, name, category2));
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentOption_ReturnsErrors(string category)

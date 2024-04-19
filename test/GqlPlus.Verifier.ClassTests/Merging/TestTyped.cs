@@ -12,16 +12,17 @@ public abstract class TestTyped<TBase, TType, TParent, TItem>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameParent_ReturnsGood(string name, string type)
-    => CanMerge_Good([
+    => CanMerge_Good(
       MakeTyped(name) with { Parent = MakeParent(type) },
-      MakeTyped(name) with { Parent = MakeParent(type) }]);
+      MakeTyped(name) with { Parent = MakeParent(type) });
 
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentParents_ReturnsErrors(string name, string type1, string type2)
-    => CanMerge_Errors([
-      MakeTyped(name) with { Parent = MakeParent(type1) },
-      MakeTyped(name) with { Parent = MakeParent(type2) }],
-      type1 == type2);
+    => this
+      .SkipIf(type1 == type2)
+      .CanMerge_Errors(
+        MakeTyped(name) with { Parent = MakeParent(type1) },
+        MakeTyped(name) with { Parent = MakeParent(type2) });
 
   internal abstract AstTypeMerger<TBase, TType, TParent, TItem> MergerTyped { get; }
   internal override GroupsMerger<TType> MergerGroups => MergerTyped;

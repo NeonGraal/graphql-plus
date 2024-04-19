@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using NSubstitute;
 using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging.Globals;
@@ -22,14 +21,12 @@ public class MergeDirectivesTests
 
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsParametersCantMerge_ReturnsErrors(string name, string[] parameters)
-  {
-    _parameters.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
-
-    CanMerge_Errors([
-      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
-      new DirectiveDeclAst(AstNulls.At, name)],
-      parameters is null || parameters.Length < 2);
-  }
+    => this
+      .SkipUnless(parameters)
+      .CanMergeReturnsError(_parameters)
+      .CanMerge_Errors(
+        new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
+        new DirectiveDeclAst(AstNulls.At, name));
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsWithLocation_ReturnsExpected(string name, DirectiveLocation locations1, DirectiveLocation locations2)
@@ -44,9 +41,8 @@ public class MergeDirectivesTests
     Merge_Expected([
       new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
       new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() }],
-      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Concat(parameters).Parameters() });
-
-    _parameters.ReceivedWithAnyArgs(1).Merge([]);
+      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Concat(parameters).Parameters() })
+    .MergeCalled(_parameters);
   }
 
   private readonly MergeDirectives _merger;

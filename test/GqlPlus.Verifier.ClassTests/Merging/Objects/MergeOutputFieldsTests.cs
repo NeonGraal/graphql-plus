@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using NSubstitute;
 using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging.Objects;
@@ -8,64 +7,62 @@ namespace GqlPlus.Verifier.Merging.Objects;
 public class MergeOutputFieldsTests
   : TestFields<OutputFieldAst, OutputReferenceAst>
 {
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsParametersCantMerge_ReturnsErrors(string name, string type, string[] parameters)
-  {
-    if (parameters is null || parameters.Length < 2) {
-      return;
-    }
-
-    _parameters.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
-
-    CanMerge_Errors([MakeField(name, type) with { Parameters = parameters.Parameters() }, MakeField(name, type)]);
-  }
+    => this
+      .SkipUnless(parameters)
+      .CanMergeReturnsError(_parameters)
+      .CanMerge_Errors(
+        MakeField(name, type) with { Parameters = parameters!.Parameters() },
+        MakeField(name, type));
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsEnum_ReturnsGood(string name, string type, string value)
-    => CanMerge_Good([
+    => CanMerge_Good(
       MakeFieldEnum(name, type, value),
-      MakeFieldEnum(name, type, value)]);
+      MakeFieldEnum(name, type, value));
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsEnumOneDescription_ReturnsGood(string name, string type, string description, string value)
-    => CanMerge_Good([
+    => CanMerge_Good(
       MakeFieldEnum(name, type, value),
-      MakeFieldEnum(name, type, value, description)]);
+      MakeFieldEnum(name, type, value, description));
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsEnumSameDescription_ReturnsGood(string name, string type, string description, string value)
-    => CanMerge_Good([
+    => CanMerge_Good(
       MakeFieldEnum(name, type, value, description),
-      MakeFieldEnum(name, type, value, description)]);
+      MakeFieldEnum(name, type, value, description));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsEnumDiffDescription_ReturnsErrors(string name, string type, string description1, string description2, string value)
-    => CanMerge_Errors([
-      MakeFieldEnum(name, type, value, description1),
-      MakeFieldEnum(name, type, value, description2)],
-      description1 == description2);
+    => this
+      .SkipIf(description1 == description2)
+      .CanMerge_Errors(
+        MakeFieldEnum(name, type, value, description1),
+        MakeFieldEnum(name, type, value, description2));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentEnums_ReturnsErrors(string name, string type, string value1, string value2)
-  => CanMerge_Errors([
-      MakeFieldEnum(name, type, value1),
-      MakeFieldEnum(name, type, value2)],
-      value1 == value2);
+    => this
+      .SkipIf(value1 == value2)
+      .CanMerge_Errors(
+        MakeFieldEnum(name, type, value1),
+        MakeFieldEnum(name, type, value2));
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneEnum_ReturnsErrors(string name, string type, string value)
-    => CanMerge_Errors([MakeField(name, type), MakeFieldEnum(name, type, value)]);
+    => CanMerge_Errors(
+      MakeField(name, type),
+      MakeFieldEnum(name, type, value));
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsWithParameters_CallsParametersMerge(string name, string type, string[] parameters)
-  {
-    Merge_Expected([
-      MakeField(name, type) with { Parameters = parameters.Parameters() },
-      MakeField(name, type) with { Parameters = parameters.Parameters() }],
-      MakeField(name, type) with { Parameters = parameters.Concat(parameters).Parameters() });
-
-    _parameters.ReceivedWithAnyArgs(1).Merge([]);
-  }
+    => Merge_Expected(
+        [ MakeField(name, type) with { Parameters = parameters.Parameters() },
+          MakeField(name, type) with { Parameters = parameters.Parameters() }],
+        MakeField(name, type) with { Parameters = parameters.Concat(parameters).Parameters() })
+      .MergeCalled(_parameters);
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsEnum_ReturnsExpected(string name, string type, string value)
@@ -97,10 +94,11 @@ public class MergeOutputFieldsTests
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsEnumTwoAlias_ReturnsExpected(string name, string type, string alias1, string alias2, string value)
-    => Merge_Expected([
-      MakeFieldEnum(name, type, value) with { Aliases = [alias1] },
-      MakeFieldEnum(name, type, value) with { Aliases = [alias2] }],
-      alias1 == alias2,
+    => this
+    .SkipIf(alias1 == alias2)
+    .Merge_Expected(
+      [ MakeFieldEnum(name, type, value) with { Aliases = [alias1] },
+        MakeFieldEnum(name, type, value) with { Aliases = [alias2] }],
       MakeFieldEnum(name, type, value) with { Aliases = [alias1, alias2] });
 
   private readonly MergeOutputFields _merger;

@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using NSubstitute;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -15,14 +14,12 @@ public class MergeSchemasTests
 
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentOptionNames_ReturnsErrors(string option1, string option2)
-  {
-    _options.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
-
-    CanMerge_Errors([
+    => this
+      .SkipIf(option1 == option2)
+      .CanMergeReturnsError(_options)
+      .CanMerge_Errors([
         new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option1) },
-        new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option2) }]
-      , option1 == option2);
-  }
+        new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option2) }]);
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsDifferentDeclarations_ReturnsExpected(string category, string option)
@@ -30,15 +27,14 @@ public class MergeSchemasTests
     var categoryDecls = CategoryDeclarations(category);
     var otherDecls = OptionDeclarations(option);
 
-    Merge_Expected([
-      new SchemaAst(AstNulls.At) with { Declarations = categoryDecls },
-      new SchemaAst(AstNulls.At) with { Declarations = otherDecls }],
-      new SchemaAst(AstNulls.At) with { Declarations = [.. categoryDecls, .. otherDecls] });
-
-    _categories.ReceivedWithAnyArgs(1).Merge([]);
-    _directives.ReceivedWithAnyArgs(1).Merge([]);
-    _options.ReceivedWithAnyArgs(1).Merge([]);
-    _astTypes.ReceivedWithAnyArgs(1).Merge([]);
+    Merge_Expected(
+      [ new SchemaAst(AstNulls.At) with { Declarations = categoryDecls },
+        new SchemaAst(AstNulls.At) with { Declarations = otherDecls }],
+      new SchemaAst(AstNulls.At) with { Declarations = [.. categoryDecls, .. otherDecls] })
+    .MergeCalled(_categories)
+    .MergeCalled(_directives)
+    .MergeCalled(_options)
+    .MergeCalled(_astTypes);
   }
 
   private readonly MergeSchemas _merger;

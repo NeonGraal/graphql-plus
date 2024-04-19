@@ -19,7 +19,9 @@ public abstract class TestScalarItems<TItem>
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsDifferent_ReturnsExpected(string name1, string name2)
-    => Merge_Expected(
-      [MakeAst(name1), MakeAst(name2)],
-      name1 == name2, MakeAst(name1), MakeAst(name2));
+    => this
+      .SkipIf(name1 == name2)
+      .Merge_Expected(
+        [MakeAst(name1), MakeAst(name2)],
+        MakeAst(name1), MakeAst(name2));
 }

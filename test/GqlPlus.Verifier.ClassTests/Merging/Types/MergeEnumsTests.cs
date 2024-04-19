@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using NSubstitute;
 using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging.Types;
@@ -10,14 +9,12 @@ public class MergeEnumsTests
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name, string[] values)
-  {
-    _enumMembers.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
-
-    CanMerge_Errors([
+    => this
+      .SkipUnless(values)
+      .CanMergeReturnsError(_enumMembers)
+    .CanMerge_Errors(
       new EnumDeclAst(AstNulls.At, name) with { Members = values.EnumMembers() },
-      new EnumDeclAst(AstNulls.At, name)],
-      values is null || values.Length < 2);
-  }
+      new EnumDeclAst(AstNulls.At, name));
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] values1, string[] values2)

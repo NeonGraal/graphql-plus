@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using NSubstitute;
 
 namespace GqlPlus.Verifier.Merging;
 
@@ -12,34 +11,28 @@ public abstract class TestObjects<TObject, TField, TRef>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsTypeParametersCantMerge_ReturnsErrors(string name, string[] typeParameters)
-  {
-    TypeParameters.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
-
-    CanMerge_Errors([
-      MakeObject(name) with { TypeParameters = typeParameters.TypeParameters() },
-      MakeObject(name) with { TypeParameters = typeParameters.TypeParameters() }],
-      typeParameters is null || typeParameters.Length < 2);
-  }
+    => this
+      .SkipUnless(typeParameters)
+      .CanMergeReturnsError(TypeParameters)
+      .CanMerge_Errors(
+        MakeObject(name) with { TypeParameters = typeParameters!.TypeParameters() },
+        MakeObject(name) with { TypeParameters = typeParameters!.TypeParameters() });
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsErrors(string name, string[] alternates)
-  {
-    Alternates.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
-
-    CanMerge_Errors([
-      MakeObject(name) with { Alternates = alternates.Alternates(MakeReference) },
-      MakeObject(name) with { Alternates = alternates.Alternates(MakeReference) }]);
-  }
+    => this
+      .CanMergeReturnsError(Alternates)
+      .CanMerge_Errors(
+        MakeObject(name) with { Alternates = alternates.Alternates(MakeReference) },
+        MakeObject(name) with { Alternates = alternates.Alternates(MakeReference) });
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsFieldsCantMerge_ReturnsErrors(string name, FieldInput[] fields)
-  {
-    Fields.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
-
-    CanMerge_Errors([
-      MakeObject(name) with { Fields = MakeFields(fields) },
-      MakeObject(name) with { Fields = MakeFields(fields) }]);
-  }
+    => this
+      .CanMergeReturnsError(Fields)
+      .CanMerge_Errors(
+        MakeObject(name) with { Fields = MakeFields(fields) },
+        MakeObject(name) with { Fields = MakeFields(fields) });
 
   protected IMerge<TypeParameterAst> TypeParameters { get; }
   protected IMerge<AstAlternate<TRef>> Alternates { get; }

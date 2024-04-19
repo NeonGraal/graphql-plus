@@ -28,7 +28,11 @@ public abstract class TestFields<TField, TRef>
 
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentTypes_ReturnsErrors(string name, string type1, string type2)
-    => CanMerge_Errors([MakeField(name, type1), MakeField(name, type2)], type1 == type2);
+    => this
+      .SkipIf(type1 == type2)
+      .CanMerge_Errors(
+        MakeField(name, type1),
+        MakeField(name, type2));
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsSameType_ReturnsExpected(string name, string type)
@@ -42,14 +46,17 @@ public abstract class TestFields<TField, TRef>
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameTypeDescription_ReturnsGood(string name, string type, string description)
-  => CanMerge_Good([MakeField(name, type, typeDescription: description), MakeField(name, type, typeDescription: description)]);
+  => CanMerge_Good(
+      MakeField(name, type, typeDescription: description),
+      MakeField(name, type, typeDescription: description));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentTypeDescriptions_ReturnsErrors(string name, string type, string description1, string description2)
-  => CanMerge_Errors([
-    MakeField(name, type, typeDescription: description1),
-    MakeField(name, type, typeDescription: description2)],
-    description1 == description2);
+  => this
+      .SkipIf(description1 == description2)
+      .CanMerge_Errors(
+        MakeField(name, type, typeDescription: description1),
+        MakeField(name, type, typeDescription: description2));
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsOneTypeDescription_ReturnsExpected(string name, string type, string description)

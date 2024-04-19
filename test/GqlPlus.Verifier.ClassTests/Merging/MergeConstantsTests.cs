@@ -17,10 +17,12 @@ public class MergeConstantsTests
   [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsValueAndList_ReturnsExpected(string valueA, string[] listB)
   {
+    this.SkipIf(listB.Contains(valueA));
+
     var astA = MakeValue(valueA);
     var astB = MakeList(listB);
 
-    Merge_Expected([astA, astB], listB.Contains(valueA), MakeList([valueA, .. listB]));
+    Merge_Expected([astA, astB], MakeList([valueA, .. listB]));
   }
 
   [Theory, RepeatData(Repeats)]
@@ -35,10 +37,12 @@ public class MergeConstantsTests
   [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsListAndValue_ReturnsExpected(string[] listA, string valueB)
   {
+    this.SkipIf(listA.Contains(valueB));
+
     var astA = MakeList(listA);
     var astB = MakeValue(valueB);
 
-    Merge_Expected([astA, astB], listA.Contains(valueB), MakeList([.. listA, valueB]));
+    Merge_Expected([astA, astB], MakeList([.. listA, valueB]));
   }
 
   [Theory, RepeatData(Repeats)]

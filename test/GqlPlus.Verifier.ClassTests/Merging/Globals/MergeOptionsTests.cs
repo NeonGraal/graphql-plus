@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using NSubstitute;
 using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging.Globals;
@@ -8,30 +7,22 @@ namespace GqlPlus.Verifier.Merging.Globals;
 public class MergeOptionsTests
   : TestAliased<OptionDeclAst>
 {
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSettingsCantMerge_ReturnsErrors(string name, string[] settings)
-  {
-    if (settings is null || settings.Length < 2) {
-      return;
-    }
-
-    _settings.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
-
-    CanMerge_Errors([
-      new OptionDeclAst(AstNulls.At, name) with { Settings = settings.OptionSettings() },
-      new OptionDeclAst(AstNulls.At, name)]);
-  }
+    => this
+      .SkipUnless(settings)
+      .CanMergeReturnsError(_settings)
+      .CanMerge_Errors(
+        new OptionDeclAst(AstNulls.At, name) with { Settings = settings.OptionSettings() },
+        new OptionDeclAst(AstNulls.At, name));
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsWithSettings_CallsSettingsMerge(string name, string[] settings1, string[] settings2)
-  {
-    Merge_Expected([
-      new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.OptionSettings() },
-      new OptionDeclAst(AstNulls.At, name) with { Settings = settings2.OptionSettings() }],
-      new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.Concat(settings2).Distinct().OptionSettings() });
-
-    _settings.ReceivedWithAnyArgs().Merge([]);
-  }
+    => Merge_Expected([
+        new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.OptionSettings() },
+        new OptionDeclAst(AstNulls.At, name) with { Settings = settings2.OptionSettings() }],
+        new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.Concat(settings2).Distinct().OptionSettings() })
+      .MergeCalled(_settings, settings1.Length + settings2.Length);
 
   private readonly MergeOptions _merger;
   private readonly IMerge<OptionSettingAst> _settings;

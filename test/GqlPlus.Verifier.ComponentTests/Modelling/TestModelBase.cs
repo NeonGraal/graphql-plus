@@ -113,12 +113,4 @@ internal static class CheckModelBaseHelper
 
     return check;
   }
-
-  internal static TCheck SkipIf<TCheck>(this TCheck check, bool skipIf)
-    where TCheck : ICheckModelBase
-  {
-    Skip.If(skipIf);
-
-    return check;
-  }
 }

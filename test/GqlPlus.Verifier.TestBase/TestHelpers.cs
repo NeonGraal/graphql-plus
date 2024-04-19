@@ -1,4 +1,7 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
+using GqlPlus.Verifier.Token;
+using Xunit;
 
 namespace GqlPlus.Verifier;
 
@@ -74,4 +77,19 @@ public static class TestHelpers
 
   public static ModifierAst[] TestCollections()
     => new[] { ModifierAst.List(AstNulls.At), new(AstNulls.At, "String", false) };
+
+  public static TCheck SkipIf<TCheck>(this TCheck check, bool skipIf, [CallerArgumentExpression(nameof(skipIf))] string? skipExpression = null)
+  {
+    Skip.If(skipIf, skipExpression);
+
+    return check;
+  }
+
+  public static TCheck SkipUnless<TCheck>(this TCheck check, [NotNull] string[]? array, [CallerArgumentExpression(nameof(array))] string? arrayExpression = null)
+  {
+    Skip.If(array is null, arrayExpression + " is null");
+    Skip.If(array.Length < 2, arrayExpression + ".Length < 2");
+
+    return check;
+  }
 }

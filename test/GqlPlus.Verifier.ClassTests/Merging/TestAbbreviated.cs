@@ -50,54 +50,33 @@ public abstract class TestAbbreviated<TAst, TInput>
 
   protected abstract TAst MakeAst(TInput input);
 
-  protected static ITokenMessages EmptyMessages => new TokenMessages();
-  protected static ITokenMessages ErrorMessages => new TokenMessages(new TokenMessage(AstNulls.At, "Error!"));
-
-  protected void CanMerge_Errors(TAst[] asts)
+  protected void CanMerge_Errors(params TAst[] asts)
   {
     var result = MergerBase.CanMerge(asts);
 
     result.Should().NotBeEmpty();
   }
 
-  protected void CanMerge_Errors(TAst[] asts, bool skipIf)
-  {
-    Skip.If(skipIf);
-
-    CanMerge_Errors(asts);
-  }
-
-  protected void CanMerge_Good(TAst[] asts)
+  protected void CanMerge_Good(params TAst[] asts)
   {
     var result = MergerBase.CanMerge(asts);
 
     result.Should().BeEmpty();
   }
 
-  protected void CanMerge_Good(TAst[] asts, bool skipIf)
+  protected object Merge_Expected(TAst[] asts, params TAst[] expected)
   {
-    Skip.If(skipIf);
-
-    CanMerge_Good(asts);
-  }
-
-  protected void Merge_Expected(TAst[] asts, bool skipIf, params TAst[] expected)
-  {
-    Skip.If(skipIf);
-
-    Merge_Expected(asts, expected);
-  }
-
-  protected void Merge_Expected(TAst[] asts, params TAst[] expected)
-  {
-
     var result = MergerBase.Merge(asts);
 
     using var scope = new AssertionScope();
 
     result.Should().BeAssignableTo<IEnumerable<TAst>>();
     result.Should().BeEquivalentTo(expected);
+
+    return this;
   }
+
+  protected static ITokenMessages EmptyMessages => new TokenMessages();
 
   protected IMerge<TResult> Merger<TResult>()
     where TResult : AstBase
@@ -106,5 +85,26 @@ public abstract class TestAbbreviated<TAst, TInput>
     result.CanMerge([]).ReturnsForAnyArgs(EmptyMessages);
     result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<TResult>>());
     return result;
+  }
+}
+
+public static class TestMergeHelper
+{
+  private static ITokenMessages ErrorMessages => new TokenMessages(new TokenMessage(AstNulls.At, "Error!"));
+
+  public static TTests CanMergeReturnsError<TTests, TResult>(this TTests tests, IMerge<TResult> merger)
+    where TResult : AstBase
+  {
+    merger?.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
+
+    return tests;
+  }
+
+  public static TTests MergeCalled<TTests, TResult>(this TTests tests, IMerge<TResult> merger, int times = 1)
+    where TResult : AstBase
+  {
+    merger?.ReceivedWithAnyArgs(times).Merge([]);
+
+    return tests;
   }
 }

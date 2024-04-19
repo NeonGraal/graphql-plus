@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
-using NSubstitute;
 using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging.Objects;
@@ -19,13 +18,11 @@ public class MergeInputFieldsTests : TestFields<InputFieldAst, InputReferenceAst
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentDefaults_ReturnsErrors(string name, string type, string value)
-  {
-    _constant.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
-
-    CanMerge_Errors([
-      MakeField(name, type) with { Default = value.FieldKey() },
-      MakeField(name, type) with { Default = value.FieldKey() }]);
-  }
+    => this
+      .CanMergeReturnsError(_constant)
+      .CanMerge_Errors(
+        MakeField(name, type) with { Default = value.FieldKey() },
+        MakeField(name, type) with { Default = value.FieldKey() });
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsOneDefault_ReturnsExpected(string name, string type, string value)

@@ -1,0 +1,17 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier NumDiff: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: NumDiff
+      exclude: false
+      from: 1
+      to: 9
+    domain: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      from: 1
+      to: 9
+    kind: !_TypeKind Domain
+    name: NumDiff

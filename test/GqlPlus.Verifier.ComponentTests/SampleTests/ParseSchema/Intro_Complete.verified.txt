@@ -383,7 +383,7 @@ Success
   _TypeOutput
   !AO
   I@007/0093
-  _TypeScalar
+  _TypeDomain
   !AO
   I@007/0094
   _TypeUnion
@@ -475,7 +475,7 @@ Success
   !EM I@031/0113
   Internal
   !EM I@040/0113
-  Scalar
+  Domain
   !EM I@047/0113
   Union
 }
@@ -533,7 +533,7 @@ Success
   _TypeRef
   <
     I@016/0125
-    _TypeKind.Scalar
+    _TypeKind.Domain
   >
   !AO
   I@007/0126
@@ -566,19 +566,19 @@ Success
   Boolean
   !AO
   I@007/0136
-  _ScalarValue
+  _DomainValue
   <
     I@020/0136
-    _ScalarDomain.Number
+    _DomainDomain.Number
     I@041/0136
     Number
   >
   !AO
   I@007/0137
-  _ScalarValue
+  _DomainValue
   <
     I@020/0137
-    _ScalarDomain.String
+    _DomainDomain.String
     I@041/0137
     String
   >
@@ -731,7 +731,7 @@ Success
 }
 {
   !E I@006/0183
-  _ScalarDomain
+  _DomainDomain
   !EM I@022/0183
   Boolean
   !EM I@030/0183
@@ -745,48 +745,48 @@ Success
 }
 {
   !O I@008/0185
-  _TypeScalar
+  _TypeDomain
   |
   !AO
   I@007/0186
-  _BaseScalar
+  _BaseDomain
   <
     I@019/0186
-    _ScalarDomain.Boolean
+    _DomainDomain.Boolean
     I@041/0186
-    _ScalarTrueFalse
+    _DomainTrueFalse
   >
   !AO
   I@007/0187
-  _BaseScalar
+  _BaseDomain
   <
     I@019/0187
-    _ScalarDomain.Enum
+    _DomainDomain.Enum
     I@038/0187
-    _ScalarMember
+    _DomainMember
   >
   !AO
   I@007/0188
-  _BaseScalar
+  _BaseDomain
   <
     I@019/0188
-    _ScalarDomain.Number
+    _DomainDomain.Number
     I@040/0188
-    _ScalarRange
+    _DomainRange
   >
   !AO
   I@007/0189
-  _BaseScalar
+  _BaseDomain
   <
     I@019/0189
-    _ScalarDomain.String
+    _DomainDomain.String
     I@040/0189
-    _ScalarRegex
+    _DomainRegex
   >
 }
 {
   !O I@008/0192
-  _ScalarRef
+  _DomainRef
   <
     I@020/0192
     $kind
@@ -796,11 +796,11 @@ Success
   _TypeRef
   <
     I@016/0193
-    _TypeKind.Scalar
+    _TypeKind.Domain
   >
   {
     !OF I@009/0194
-    scalar
+    domain
     :
     I@018/0194
     $kind
@@ -808,7 +808,7 @@ Success
 }
 {
   !O I@008/0197
-  _BaseScalar
+  _BaseDomain
   <
     I@021/0197
     $domain
@@ -820,11 +820,11 @@ Success
   _ParentType
   <
     I@019/0198
-    _TypeKind.Scalar
+    _TypeKind.Domain
     I@037/0198
     $item
     I@042/0198
-    _ScalarItem
+    _DomainItem
     <
       I@055/0198
       $item
@@ -832,7 +832,7 @@ Success
   >
   {
     !OF I@009/0199
-    scalar
+    domain
     :
     I@018/0199
     $domain
@@ -840,7 +840,7 @@ Success
 }
 {
   !D I@006/0202
-  _BaseScalarItem
+  _BaseDomainItem
   {
     !DF I@009/0203
     exclude
@@ -851,10 +851,10 @@ Success
 }
 {
   !D I@006/0206
-  _ScalarTrueFalse
+  _DomainTrueFalse
   :
   I@007/0207
-  _BaseScalarItem
+  _BaseDomainItem
   {
     !DF I@009/0208
     value
@@ -865,10 +865,10 @@ Success
 }
 {
   !O I@008/0211
-  _ScalarMember
+  _DomainMember
   :
   I@007/0212
-  _BaseScalarItem
+  _BaseDomainItem
   {
     !OF I@009/0213
     member
@@ -879,10 +879,10 @@ Success
 }
 {
   !D I@006/0216
-  _ScalarRange
+  _DomainRange
   :
   I@007/0217
-  _BaseScalarItem
+  _BaseDomainItem
   {
     !DF I@009/0218
     from
@@ -900,10 +900,10 @@ Success
 }
 {
   !D I@006/0222
-  _ScalarRegex
+  _DomainRegex
   :
   I@007/0223
-  _BaseScalarItem
+  _BaseDomainItem
   {
     !DF I@009/0224
     regex
@@ -914,7 +914,7 @@ Success
 }
 {
   !D I@006/0227
-  _ScalarItem
+  _DomainItem
   <
     I@019/0227
     $item
@@ -924,7 +924,7 @@ Success
   $item
   {
     !DF I@009/0229
-    scalar
+    domain
     :
     I@017/0229
     _Identifier
@@ -932,7 +932,7 @@ Success
 }
 {
   !O I@008/0232
-  _ScalarValue
+  _DomainValue
   <
     I@022/0232
     $kind
@@ -941,7 +941,7 @@ Success
   >
   :
   I@007/0233
-  _ScalarRef
+  _DomainRef
   <
     I@019/0233
     $kind

@@ -95,7 +95,7 @@ types: !_Map_Type
       name: Internal
     - !_EnumMember
       enum: _SimpleKind
-      name: Scalar
+      name: Domain
     - !_EnumMember
       enum: _SimpleKind
       name: Union
@@ -103,7 +103,7 @@ types: !_Map_Type
     - !_Aliased Basic
     - !_Aliased Enum
     - !_Aliased Internal
-    - !_Aliased Scalar
+    - !_Aliased Domain
     - !_Aliased Union
     kind: !_TypeKind Enum
     name: _SimpleKind
@@ -141,7 +141,7 @@ types: !_Map_Type
       type: !_OutputBase _TypeOutput
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Type
-      type: !_OutputBase _TypeScalar
+      type: !_OutputBase _TypeDomain
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Type
       type: !_OutputBase _TypeUnion
@@ -171,7 +171,7 @@ types: !_Map_Type
     - !_Alternate(_OutputBase)
       type: !_OutputBase _TypeOutput
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _TypeScalar
+      type: !_OutputBase _TypeDomain
     - !_Alternate(_OutputBase)
       type: !_OutputBase _TypeUnion
     kind: !_TypeKind Output
@@ -189,7 +189,7 @@ types: !_Map_Type
       name: Internal
     - !_EnumMember
       enum: _SimpleKind
-      name: Scalar
+      name: Domain
     - !_EnumMember
       enum: _SimpleKind
       name: Union
@@ -259,7 +259,7 @@ types: !_Map_Type
         - !_OutputArgument
           kind: !_SimpleKind Enum
           name: _TypeKind
-          value: Scalar
+          value: Domain
         output: _TypeRef
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _TypeSimple
@@ -293,7 +293,7 @@ types: !_Map_Type
         - !_OutputArgument
           kind: !_SimpleKind Enum
           name: _TypeKind
-          value: Scalar
+          value: Domain
         output: _TypeRef
     - !_Alternate(_OutputBase)
       type: !_OutputBase

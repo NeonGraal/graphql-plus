@@ -1,4 +1,0 @@
-﻿[
-  Multiple Scalars with alias 'a' found. Names 'Test' 'Dup',
-  Multiple Types with alias 'a' found. Names 'Test' 'Dup'
-]

@@ -272,10 +272,10 @@ types: !_Map_Type
     - !_Described kind
     - !_Described base
     - !_Described field
-  !_Identifier _TypeParameter: !_ScalarString
-    kind: !_TypeKind Scalar
+  !_Identifier _TypeParameter: !_DomainString
+    domain: !_DomainKind String
+    kind: !_TypeKind Domain
     name: _TypeParameter
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Scalar
+      kind: !_SimpleKind Domain
       name: _Identifier
-    scalar: !_ScalarKind String

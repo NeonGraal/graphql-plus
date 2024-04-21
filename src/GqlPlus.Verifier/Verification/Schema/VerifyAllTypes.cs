@@ -9,7 +9,7 @@ internal class VerifyAllTypes(
   IVerifyUsage<EnumDeclAst, AstType> enumAllTypes,
   IVerifyUsage<InputDeclAst, AstType> inputAllTypes,
   IVerifyUsage<OutputDeclAst, AstType> outputAllTypes,
-  IVerifyUsage<AstScalar, AstType> scalarAllTypes,
+  IVerifyUsage<AstDomain, AstType> domainAllTypes,
   IVerifyUsage<UnionDeclAst, AstType> unionAllTypes
 ) : IVerify<AstType[]>
 {
@@ -21,14 +21,14 @@ internal class VerifyAllTypes(
     var enumTypes = allTypes.ArrayOf<EnumDeclAst>();
     var inputTypes = allTypes.ArrayOf<InputDeclAst>();
     var outputTypes = allTypes.ArrayOf<OutputDeclAst>();
-    var scalarTypes = allTypes.ArrayOf<AstScalar>();
+    var domainTypes = allTypes.ArrayOf<AstDomain>();
     var unionTypes = allTypes.ArrayOf<UnionDeclAst>();
 
     dualAllTypes.Verify(new(dualTypes, allTypes), errors);
     enumAllTypes.Verify(new(enumTypes, allTypes), errors);
     inputAllTypes.Verify(new(inputTypes, allTypes), errors);
     outputAllTypes.Verify(new(outputTypes, allTypes), errors);
-    scalarAllTypes.Verify(new(scalarTypes, allTypes), errors);
+    domainAllTypes.Verify(new(domainTypes, allTypes), errors);
     unionAllTypes.Verify(new(unionTypes, allTypes), errors);
   }
 }

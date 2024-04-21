@@ -1,7 +1,7 @@
 ﻿[
   ( !E Void ),
   ( !E Null [ null ] !EM null ),
-  ( !U Simple !UM ^ !UM 0 !UM * !UM _ !UM _Union !UM _Scalar !UM _Enum ),
+  ( !U Simple !UM ^ !UM 0 !UM * !UM _ !UM _Union !UM _Domain !UM _Enum ),
   ( !U Internal !UM Void !UM Null ),
   ( !D _Opt < $T > | !AD $T !AD Null ),
   ( !D _List < $T > | !AD $T [] ),
@@ -20,6 +20,6 @@
   ( !Z _Enum ),
   ( !Z _Input ),
   ( !Z _Output ),
-  ( !Z _Scalar ),
+  ( !Z _Domain ),
   ( !Z _Union )
 ]

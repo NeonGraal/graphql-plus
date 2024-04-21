@@ -18,92 +18,92 @@ enum Test { :Parent test }
 enum Test { :Parent test }
 output Parent { }
 
-// scalar-diff-kind
-scalar Test { string }
-scalar Test { number }
+// domain-diff-kind
+domain Test { string }
+domain Test { number }
 
-// scalar-dup-alias
-scalar Test [a] { Boolean }
-scalar Dup [a] { Boolean }
+// domain-dup-alias
+domain Test [a] { Boolean }
+domain Dup [a] { Boolean }
 
-// scalar-parent-self
-scalar Test { :Test Boolean }
+// domain-parent-self
+domain Test { :Test Boolean }
 
-// scalar-parent-self-parent
-scalar Test { :Parent Boolean }
-scalar Parent { :Test Boolean }
+// domain-parent-self-parent
+domain Test { :Parent Boolean }
+domain Parent { :Test Boolean }
 
-// scalar-parent-self-more
-scalar Test { :Parent Boolean }
-scalar Parent { :Recurse Boolean }
-scalar Recurse { :More Boolean }
-scalar More { :Test Boolean }
+// domain-parent-self-more
+domain Test { :Parent Boolean }
+domain Parent { :Recurse Boolean }
+domain Recurse { :More Boolean }
+domain More { :Test Boolean }
 
-// scalar-parent-self-recurse
-scalar Test { :Parent Boolean }
-scalar Parent { :Recurse Boolean }
-scalar Recurse { :Test Boolean }
+// domain-parent-self-recurse
+domain Test { :Parent Boolean }
+domain Parent { :Recurse Boolean }
+domain Recurse { :Test Boolean }
 
-// scalar-parent-undef
-scalar Test { :Parent Boolean }
+// domain-parent-undef
+domain Test { :Parent Boolean }
 
-// scalar-parent-wrong-kind
-scalar Test { :Parent Boolean }
-scalar Parent { String }
+// domain-parent-wrong-kind
+domain Test { :Parent Boolean }
+domain Parent { String }
 
-// scalar-parent-wrong-type
-scalar Test { :Parent Boolean }
+// domain-parent-wrong-type
+domain Test { :Parent Boolean }
 output Parent { }
 
-// scalar-enum-parent-unique
-scalar Test { :Parent Enum Enum.value }
-scalar Parent { Enum Dup.value }
+// domain-enum-parent-unique
+domain Test { :Parent Enum Enum.value }
+domain Parent { Enum Dup.value }
 enum Enum { value }
 enum Dup { value }
 
-// scalar-enum-undef
-scalar Test { enum undef }
+// domain-enum-undef
+domain Test { enum undef }
 
-// scalar-enum-undef-all
-scalar Test { enum Undef.* }
+// domain-enum-undef-all
+domain Test { enum Undef.* }
 
-// scalar-enum-undef-member
-scalar Test { enum Enum.undef }
+// domain-enum-undef-member
+domain Test { enum Enum.undef }
 enum Enum { value }
 
-// scalar-enum-undef-value
-scalar Test { enum Undef.value }
+// domain-enum-undef-value
+domain Test { enum Undef.value }
 
-// scalar-enum-unique
-scalar Test { enum Enum.value Dup.value }
-enum Enum { value }
-enum Dup { value }
-
-// scalar-enum-unique-all
-scalar Test { enum Enum.* Dup.* }
+// domain-enum-unique
+domain Test { enum Enum.value Dup.value }
 enum Enum { value }
 enum Dup { value }
 
-// scalar-enum-unique-member
-scalar Test { enum Enum.value Dup.* }
+// domain-enum-unique-all
+domain Test { enum Enum.* Dup.* }
 enum Enum { value }
 enum Dup { value }
 
-// scalar-enum-wrong
-scalar Test { enum Bad.value }
+// domain-enum-unique-member
+domain Test { enum Enum.value Dup.* }
+enum Enum { value }
+enum Dup { value }
+
+// domain-enum-wrong
+domain Test { enum Bad.value }
 output Bad { }
 
-// scalar-number-parent
-scalar Test { :Parent number 1> }
-scalar Parent { number !1> }
+// domain-number-parent
+domain Test { :Parent number 1> }
+domain Parent { number !1> }
 
-// scalar-string-diff
-scalar Test { string /a+/}
-scalar Test { string !/a+/ }
+// domain-string-diff
+domain Test { string /a+/}
+domain Test { string !/a+/ }
 
-// scalar-string-parent
-scalar Test { :Parent string /a+/}
-scalar Parent { string !/a+/ }
+// domain-string-parent
+domain Test { :Parent string /a+/}
+domain Parent { string !/a+/ }
 
 // unique-type-alias
 enum Test [a] { Value }

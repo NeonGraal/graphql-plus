@@ -6,7 +6,7 @@ output _Schema {
         settings(_Filter?): _Setting[_Identifier]
     }
 
-scalar _Identifier { String /[A-Za-z_]+/ }
+domain _Identifier { String /[A-Za-z_]+/ }
 
 input _Filter  {
         names: _NameFilter[]
@@ -18,7 +18,7 @@ input _Filter  {
     }
 
 "_NameFilter is a simple match expression against _Identifier  where '.' matches any single character and '*' matches zero or more of any character."
-scalar _NameFilter { String /[A-Za-z_.*]+/ }
+domain _NameFilter { String /[A-Za-z_.*]+/ }
 
 input _CategoryFilter {
     : _Filter
@@ -90,7 +90,7 @@ output _Type {
     | _TypeEnum
     | _TypeInput
     | _TypeOutput
-    | _TypeScalar
+    | _TypeDomain
     | _TypeUnion
     }
 
@@ -110,7 +110,7 @@ output _ParentType<$kind $item $allItem> {
         allItems: $allItem[]
     }
 
-enum _SimpleKind { Basic Enum Internal Scalar Union }
+enum _SimpleKind { Basic Enum Internal Domain Union }
 
 enum _TypeKind { :_SimpleKind Dual Input Output }
 
@@ -122,7 +122,7 @@ output _TypeRef<$kind> {
 output _TypeSimple {
     | _TypeRef<_TypeKind.Basic>
     | _TypeRef<_TypeKind.Enum>
-    | _TypeRef<_TypeKind.Scalar>
+    | _TypeRef<_TypeKind.Domain>
     | _TypeRef<_TypeKind.Union>
     }
 output _Constant {
@@ -133,8 +133,8 @@ output _Constant {
 
 output _Simple {
     | Boolean
-    | _ScalarValue<_ScalarDomain.Number Number>
-    | _ScalarValue<_ScalarDomain.String String>
+    | _DomainValue<_DomainDomain.Number Number>
+    | _DomainValue<_DomainDomain.String String>
     | _EnumValue
 }
 
@@ -180,57 +180,57 @@ output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
         value: _Identifier
     }
-enum _ScalarDomain { Boolean Enum Number String Union }
+enum _DomainDomain { Boolean Enum Number String Union }
 
-output _TypeScalar {
-    | _BaseScalar<_ScalarDomain.Boolean _ScalarTrueFalse>
-    | _BaseScalar<_ScalarDomain.Enum _ScalarMember>
-    | _BaseScalar<_ScalarDomain.Number _ScalarRange>
-    | _BaseScalar<_ScalarDomain.String _ScalarRegex>
+output _TypeDomain {
+    | _BaseDomain<_DomainDomain.Boolean _DomainTrueFalse>
+    | _BaseDomain<_DomainDomain.Enum _DomainMember>
+    | _BaseDomain<_DomainDomain.Number _DomainRange>
+    | _BaseDomain<_DomainDomain.String _DomainRegex>
     }
 
-output _ScalarRef<$kind> {
-    : _TypeRef<_TypeKind.Scalar>
-        scalar: $kind
+output _DomainRef<$kind> {
+    : _TypeRef<_TypeKind.Domain>
+        domain: $kind
     }
 
-output _BaseScalar<$domain $item> {
-    : _ParentType<_TypeKind.Scalar $item _ScalarItem<$item>>
-        scalar: $domain
+output _BaseDomain<$domain $item> {
+    : _ParentType<_TypeKind.Domain $item _DomainItem<$item>>
+        domain: $domain
     }
 
-dual _BaseScalarItem {
+dual _BaseDomainItem {
         exclude: Boolean
     }
 
-dual _ScalarTrueFalse {
-    : _BaseScalarItem
+dual _DomainTrueFalse {
+    : _BaseDomainItem
         value: Boolean
     }
 
-output _ScalarMember {
-    : _BaseScalarItem
+output _DomainMember {
+    : _BaseDomainItem
         member: _EnumValue
     }
 
-dual _ScalarRange {
-    : _BaseScalarItem
+dual _DomainRange {
+    : _BaseDomainItem
         from: Number?
         to: Number?
     }
 
-dual _ScalarRegex {
-    : _BaseScalarItem
+dual _DomainRegex {
+    : _BaseDomainItem
         regex: String
     }
 
-dual _ScalarItem<$item> {
+dual _DomainItem<$item> {
     : $item
-        scalar: _Identifier
+        domain: _Identifier
     }
 
-output _ScalarValue<$kind $value> {
-    : _ScalarRef<$kind>
+output _DomainValue<$kind $value> {
+    : _DomainRef<$kind>
         value: $value
     }
 output _TypeUnion {
@@ -261,7 +261,7 @@ dual _ObjBase<$arg> {
     | _TypeParameter
     }
 
-scalar _TypeParameter { :_Identifier String }
+domain _TypeParameter { :_Identifier String }
 
 output _Alternate<$base> {
       type: _BaseDescribed<_ObjRef<$base>>

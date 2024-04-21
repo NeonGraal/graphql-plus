@@ -85,6 +85,57 @@ Success
   DirParamsIn
 }
 {
+  !S I@008/0001
+  NumAlias
+  [
+    Num1
+    Num2
+  ]
+  Number
+}
+{
+  !S I@008/0001
+  Num
+  Number
+}
+{
+  !S I@008/0001
+  NumDiff
+  Number
+  !SR N@025/0001
+  1
+  ~
+  9
+}
+{
+  !S I@008/0001
+  NumSame
+  Number
+  !SR N@025/0001
+  1
+  ~
+  9
+}
+{
+  !S I@008/0001
+  Str
+  String
+}
+{
+  !S I@008/0001
+  StrDiff
+  String
+  !SX R@025/0001
+  /a+/
+}
+{
+  !S I@008/0001
+  StrSame
+  String
+  !SX R@025/0001
+  /a+/
+}
+{
   !E I@006/0001
   EnAlias
   [
@@ -432,57 +483,6 @@ Success
 {
   !I I@139/0001
   FieldParam2
-}
-{
-  !S I@008/0001
-  NumAlias
-  [
-    Num1
-    Num2
-  ]
-  Number
-}
-{
-  !S I@008/0001
-  Num
-  Number
-}
-{
-  !S I@008/0001
-  NumDiff
-  Number
-  !SR N@025/0001
-  1
-  ~
-  9
-}
-{
-  !S I@008/0001
-  NumSame
-  Number
-  !SR N@025/0001
-  1
-  ~
-  9
-}
-{
-  !S I@008/0001
-  Str
-  String
-}
-{
-  !S I@008/0001
-  StrDiff
-  String
-  !SX R@025/0001
-  /a+/
-}
-{
-  !S I@008/0001
-  StrSame
-  String
-  !SX R@025/0001
-  /a+/
 }
 {
   !U I@007/0001

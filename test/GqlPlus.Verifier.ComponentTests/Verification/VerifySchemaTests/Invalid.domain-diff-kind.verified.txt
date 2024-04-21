@@ -1,0 +1,5 @@
+﻿[
+  Multiple Domains with name 'Test' can't be merged.,
+  Group of AstDomain for Test is not singular Domain['Number', 'String'],
+  Multiple Types with name 'Test' can't be merged.
+]

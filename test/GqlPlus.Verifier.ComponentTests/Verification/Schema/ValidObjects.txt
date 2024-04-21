@@ -129,10 +129,10 @@ enum OutValueGen { outValueGen }
 output OutParams { field(OutParam): OutParams }
 input OutParam { }
 
-// output-params-mods-Scalar
-output OutParamsScalar { field(OutParamScalar[OutScalarParam]): OutParamsScalar }
-input OutParamScalar { }
-scalar OutScalarParam { number 1 ~ 10 }
+// output-params-mods-Domain
+output OutParamsDomain { field(OutParamDomain[OutDomainParam]): OutParamsDomain }
+input OutParamDomain { }
+domain OutDomainParam { number 1 ~ 10 }
 
 // output-parent-params
 output OutPrntParams { :OutParamsParent field(OutPrntParam): OutPrntParams }

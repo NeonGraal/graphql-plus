@@ -25,10 +25,10 @@ internal static class AllModellers
       .AddModeller<ParameterAst, ParameterModel, ParameterModeller>()
       .AddModeller<SchemaAst, SchemaModel, SchemaModeller>()
       .AddModifierModeller()
-      .AddScalarModeller<ScalarTrueFalseAst, ScalarTrueFalseModel, ScalarBooleanModeller>()
-      .AddScalarModeller<ScalarMemberAst, ScalarMemberModel, ScalarEnumModeller>()
-      .AddScalarModeller<ScalarRangeAst, ScalarRangeModel, ScalarNumberModeller>()
-      .AddScalarModeller<ScalarRegexAst, ScalarRegexModel, ScalarStringModeller>()
+      .AddDomainModeller<DomainTrueFalseAst, DomainTrueFalseModel, DomainBooleanModeller>()
+      .AddDomainModeller<DomainMemberAst, DomainMemberModel, DomainEnumModeller>()
+      .AddDomainModeller<DomainRangeAst, DomainRangeModel, DomainNumberModeller>()
+      .AddDomainModeller<DomainRegexAst, DomainRegexModel, DomainStringModeller>()
       .AddTypeModeller<DualDeclAst, TypeDualModel, DualModeller>()
       .AddTypeModeller<EnumDeclAst, TypeEnumModel, EnumModeller>()
       .AddTypeModeller<InputDeclAst, TypeInputModel, InputModeller>()
@@ -55,13 +55,13 @@ internal static class AllModellers
       .AddSingleton<IModeller<TAst, TModel>, TModeller>(c => c.GetRequiredService<TModeller>())
       .AddSingleton<ITypeModeller, TModeller>(c => c.GetRequiredService<TModeller>());
 
-  public static IServiceCollection AddScalarModeller<TItemAst, TItemModel, TModeller>(this IServiceCollection services)
-    where TItemAst : IAstScalarItem
-    where TItemModel : IBaseScalarItemModel
-    where TModeller : class, IScalarModeller<TItemAst, TItemModel>, ITypeModeller
+  public static IServiceCollection AddDomainModeller<TItemAst, TItemModel, TModeller>(this IServiceCollection services)
+    where TItemAst : IAstDomainItem
+    where TItemModel : IBaseDomainItemModel
+    where TModeller : class, IDomainModeller<TItemAst, TItemModel>, ITypeModeller
     => services
       .AddSingleton<TModeller>()
-      .AddSingleton<IScalarModeller<TItemAst, TItemModel>, TModeller>(c => c.GetRequiredService<TModeller>())
+      .AddSingleton<IDomainModeller<TItemAst, TItemModel>, TModeller>(c => c.GetRequiredService<TModeller>())
       .AddSingleton<ITypeModeller, TModeller>(c => c.GetRequiredService<TModeller>());
 
   public static IServiceCollection AddModifierModeller(this IServiceCollection services)

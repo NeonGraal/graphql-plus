@@ -93,14 +93,14 @@ public abstract record class ParentTypeModel<TItem, TAll>(
   }
 }
 
-public enum SimpleKindModel { Basic, Enum, Internal, Scalar, Union }
+public enum SimpleKindModel { Basic, Enum, Internal, Domain, Union }
 
 public enum TypeKindModel
 {
   Basic = SimpleKindModel.Basic,
   Enum = SimpleKindModel.Enum,
   Internal = SimpleKindModel.Internal,
-  Scalar = SimpleKindModel.Scalar,
+  Domain = SimpleKindModel.Domain,
   Union = SimpleKindModel.Union,
   Dual,
   Input,
@@ -122,7 +122,7 @@ public record class TypeRefModel<TKind>(
 public record class TypeSimpleModel(
   SimpleKindModel Kind,
   string Name
-) : TypeRefModel<SimpleKindModel>(Kind, Name), IBaseScalarItemModel
+) : TypeRefModel<SimpleKindModel>(Kind, Name), IBaseDomainItemModel
 { }
 
 internal abstract class ModellerType<TAst, TParent, TModel>(

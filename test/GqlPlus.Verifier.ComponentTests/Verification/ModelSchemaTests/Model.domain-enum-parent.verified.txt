@@ -1,0 +1,53 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DomEnumPrnt: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomPrntEnum
+      exclude: false
+      kind: !_SimpleKind Enum
+      value: scal_parent
+    - !_DomainItem(_DomainMember)
+      domain: DomEnumPrnt
+      exclude: false
+      kind: !_SimpleKind Enum
+      value: scal_enum
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      kind: !_SimpleKind Enum
+      value: scal_enum
+    kind: !_TypeKind Domain
+    name: DomEnumPrnt
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Domain
+      name: DomPrntEnum
+  !_Identifier DomPrntEnum: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomPrntEnum
+      exclude: false
+      kind: !_SimpleKind Enum
+      value: scal_parent
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      kind: !_SimpleKind Enum
+      value: scal_parent
+    kind: !_TypeKind Domain
+    name: DomPrntEnum
+  !_Identifier EnumDomPrnt: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumDomPrnt
+      name: scal_enum
+    - !_EnumMember
+      enum: EnumDomPrnt
+      name: scal_parent
+    items:
+    - !_Aliased scal_enum
+    - !_Aliased scal_parent
+    kind: !_TypeKind Enum
+    name: EnumDomPrnt

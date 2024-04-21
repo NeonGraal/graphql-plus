@@ -1,5 +1,203 @@
 ﻿!_Schema
 types: !_Map_Type
+  !_Identifier DomEnum: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomEnum
+      exclude: false
+      kind: !_SimpleKind Enum
+      name: EnumDom
+      value: scal_enum
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      kind: !_SimpleKind Enum
+      name: EnumDom
+      value: scal_enum
+    kind: !_TypeKind Domain
+    name: DomEnum
+  !_Identifier DomEnumAll: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomEnumAll
+      exclude: false
+      kind: !_SimpleKind Enum
+      name: EnumDomAll
+      value: '*'
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      kind: !_SimpleKind Enum
+      name: EnumDomAll
+      value: '*'
+    kind: !_TypeKind Domain
+    name: DomEnumAll
+  !_Identifier DomEnumAllParent: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomEnumAllParent
+      exclude: false
+      kind: !_SimpleKind Enum
+      name: EnumDomAllParent
+      value: '*'
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      kind: !_SimpleKind Enum
+      name: EnumDomAllParent
+      value: '*'
+    kind: !_TypeKind Domain
+    name: DomEnumAllParent
+  !_Identifier DomEnumParent: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomEnumParent
+      exclude: false
+      kind: !_SimpleKind Enum
+      name: EnumDomParent
+      value: scal_enum
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      kind: !_SimpleKind Enum
+      name: EnumDomParent
+      value: scal_enum
+    kind: !_TypeKind Domain
+    name: DomEnumParent
+  !_Identifier DomEnumPrnt: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomPrntEnum
+      exclude: false
+      kind: !_SimpleKind Enum
+      value: scal_parent
+    - !_DomainItem(_DomainMember)
+      domain: DomEnumPrnt
+      exclude: false
+      kind: !_SimpleKind Enum
+      value: scal_enum
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      kind: !_SimpleKind Enum
+      value: scal_enum
+    kind: !_TypeKind Domain
+    name: DomEnumPrnt
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Domain
+      name: DomPrntEnum
+  !_Identifier DomMember: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomMember
+      exclude: false
+      kind: !_SimpleKind Enum
+      value: scal_member
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      kind: !_SimpleKind Enum
+      value: scal_member
+    kind: !_TypeKind Domain
+    name: DomMember
+  !_Identifier DomNumPrnt: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: DomPrntNum
+      exclude: false
+      to: 2
+    - !_DomainItem(_DomainRange)
+      domain: DomNumPrnt
+      exclude: false
+      from: 2
+    domain: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      from: 2
+    kind: !_TypeKind Domain
+    name: DomNumPrnt
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Domain
+      name: DomPrntNum
+  !_Identifier DomPrntEnum: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomPrntEnum
+      exclude: false
+      kind: !_SimpleKind Enum
+      value: scal_parent
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      kind: !_SimpleKind Enum
+      value: scal_parent
+    kind: !_TypeKind Domain
+    name: DomPrntEnum
+  !_Identifier DomPrntNum: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: DomPrntNum
+      exclude: false
+      to: 2
+    domain: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      to: 2
+    kind: !_TypeKind Domain
+    name: DomPrntNum
+  !_Identifier DomPrntStr: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DomPrntStr
+      exclude: false
+      regex: b+
+    domain: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      regex: b+
+    kind: !_TypeKind Domain
+    name: DomPrntStr
+  !_Identifier DomPrntTest: !_DomainBoolean
+    domain: !_DomainKind Boolean
+    kind: !_TypeKind Domain
+    name: DomPrntTest
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Domain
+      name: DomTestPrnt
+  !_Identifier DomStrPrnt: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DomPrntStr
+      exclude: false
+      regex: b+
+    - !_DomainItem(_DomainRegex)
+      domain: DomStrPrnt
+      exclude: false
+      regex: a+
+    domain: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      regex: a+
+    kind: !_TypeKind Domain
+    name: DomStrPrnt
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Domain
+      name: DomPrntStr
+  !_Identifier DomTestPrnt: !_DomainBoolean
+    domain: !_DomainKind Boolean
+    kind: !_TypeKind Domain
+    name: DomTestPrnt
   !_Identifier EnAliasPrnt: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -83,153 +281,153 @@ types: !_Map_Type
     parent: !_TypeRef(_SimpleKind)
       kind: !_SimpleKind Enum
       name: EnPrntTest
-  !_Identifier EnumParentScal: !_TypeEnum
+  !_Identifier EnumDom: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: EnumParentScal
+      enum: EnumDom
       name: scal_enum
     items:
     - !_Aliased scal_enum
     kind: !_TypeKind Enum
-    name: EnumParentScal
-  !_Identifier EnumScal: !_TypeEnum
+    name: EnumDom
+  !_Identifier EnumDomAll: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: EnumScal
-      name: scal_enum
-    items:
-    - !_Aliased scal_enum
-    kind: !_TypeKind Enum
-    name: EnumScal
-  !_Identifier EnumScalAll: !_TypeEnum
-    allItems:
-    - !_EnumMember
-      enum: EnumScalAll
+      enum: EnumDomAll
       name: scal_all
     - !_EnumMember
-      enum: EnumScalAll
+      enum: EnumDomAll
       name: scal_enum_all
     items:
     - !_Aliased scal_all
     - !_Aliased scal_enum_all
     kind: !_TypeKind Enum
-    name: EnumScalAll
-  !_Identifier EnumScalAllParent: !_TypeEnum
+    name: EnumDomAll
+  !_Identifier EnumDomAllParent: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: EnumScalParentAll
+      enum: EnumDomParentAll
       name: scal_enum_all
     - !_EnumMember
-      enum: EnumScalAllParent
+      enum: EnumDomAllParent
       name: scal_all
     items:
     - !_Aliased scal_all
     kind: !_TypeKind Enum
-    name: EnumScalAllParent
+    name: EnumDomAllParent
     parent: !_TypeRef(_SimpleKind)
       kind: !_SimpleKind Enum
-      name: EnumScalParentAll
-  !_Identifier EnumScalDup: !_TypeEnum
+      name: EnumDomParentAll
+  !_Identifier EnumDomDup: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: EnumScalDup
+      enum: EnumDomDup
       name: dup
     items:
     - !_Aliased dup
     kind: !_TypeKind Enum
-    name: EnumScalDup
-  !_Identifier EnumScalDupParent: !_TypeEnum
+    name: EnumDomDup
+  !_Identifier EnumDomDupParent: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: EnumScalDupParent
+      enum: EnumDomDupParent
       name: dup
     items:
     - !_Aliased dup
     kind: !_TypeKind Enum
-    name: EnumScalDupParent
-  !_Identifier EnumScalParent: !_TypeEnum
+    name: EnumDomDupParent
+  !_Identifier EnumDomParent: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: EnumParentScal
+      enum: EnumParentDom
       name: scal_enum
     - !_EnumMember
-      enum: EnumScalParent
+      enum: EnumDomParent
       name: scal_parent
     items:
     - !_Aliased scal_parent
     kind: !_TypeKind Enum
-    name: EnumScalParent
+    name: EnumDomParent
     parent: !_TypeRef(_SimpleKind)
       kind: !_SimpleKind Enum
-      name: EnumParentScal
-  !_Identifier EnumScalParentAll: !_TypeEnum
+      name: EnumParentDom
+  !_Identifier EnumDomParentAll: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: EnumScalParentAll
+      enum: EnumDomParentAll
       name: scal_enum_all
     items:
     - !_Aliased scal_enum_all
     kind: !_TypeKind Enum
-    name: EnumScalParentAll
-  !_Identifier EnumScalParentUnique: !_TypeEnum
+    name: EnumDomParentAll
+  !_Identifier EnumDomParentUnique: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: EnumScalParentUnique
+      enum: EnumDomParentUnique
       name: dup
     items:
     - !_Aliased dup
     kind: !_TypeKind Enum
-    name: EnumScalParentUnique
-  !_Identifier EnumScalPrnt: !_TypeEnum
+    name: EnumDomParentUnique
+  !_Identifier EnumDomPrnt: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: EnumScalPrnt
+      enum: EnumDomPrnt
       name: scal_enum
     - !_EnumMember
-      enum: EnumScalPrnt
+      enum: EnumDomPrnt
       name: scal_parent
     items:
     - !_Aliased scal_enum
     - !_Aliased scal_parent
     kind: !_TypeKind Enum
-    name: EnumScalPrnt
-  !_Identifier EnumScalUnique: !_TypeEnum
+    name: EnumDomPrnt
+  !_Identifier EnumDomUnique: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: EnumScalUnique
+      enum: EnumDomUnique
       name: value
     - !_EnumMember
-      enum: EnumScalUnique
+      enum: EnumDomUnique
       name: dup
     items:
     - !_Aliased value
     - !_Aliased dup
     kind: !_TypeKind Enum
-    name: EnumScalUnique
-  !_Identifier EnumScalUniqueParent: !_TypeEnum
+    name: EnumDomUnique
+  !_Identifier EnumDomUniqueParent: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: EnumScalParentUnique
+      enum: EnumDomParentUnique
       name: dup
     - !_EnumMember
-      enum: EnumScalUniqueParent
+      enum: EnumDomUniqueParent
       name: value
     items:
     - !_Aliased value
     kind: !_TypeKind Enum
-    name: EnumScalUniqueParent
+    name: EnumDomUniqueParent
     parent: !_TypeRef(_SimpleKind)
       kind: !_SimpleKind Enum
-      name: EnumScalParentUnique
-  !_Identifier MemberScal: !_TypeEnum
+      name: EnumDomParentUnique
+  !_Identifier EnumParentDom: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: MemberScal
+      enum: EnumParentDom
+      name: scal_enum
+    items:
+    - !_Aliased scal_enum
+    kind: !_TypeKind Enum
+    name: EnumParentDom
+  !_Identifier MemberDom: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: MemberDom
       name: scal_member
     items:
     - !_Aliased scal_member
     kind: !_TypeKind Enum
-    name: MemberScal
+    name: MemberDom
   !_Identifier PrntUnion: !_TypeUnion
     allItems:
     - !_UnionMember
@@ -239,204 +437,6 @@ types: !_Map_Type
     - !_Aliased Number
     kind: !_TypeKind Union
     name: PrntUnion
-  !_Identifier ScalEnum: !_ScalarEnum
-    allItems:
-    - !_ScalarItem(_ScalarMember)
-      exclude: false
-      kind: !_SimpleKind Enum
-      name: EnumScal
-      scalar: ScalEnum
-      value: scal_enum
-    items:
-    - !_ScalarMember
-      exclude: false
-      kind: !_SimpleKind Enum
-      name: EnumScal
-      value: scal_enum
-    kind: !_TypeKind Scalar
-    name: ScalEnum
-    scalar: !_ScalarKind Enum
-  !_Identifier ScalEnumAll: !_ScalarEnum
-    allItems:
-    - !_ScalarItem(_ScalarMember)
-      exclude: false
-      kind: !_SimpleKind Enum
-      name: EnumScalAll
-      scalar: ScalEnumAll
-      value: '*'
-    items:
-    - !_ScalarMember
-      exclude: false
-      kind: !_SimpleKind Enum
-      name: EnumScalAll
-      value: '*'
-    kind: !_TypeKind Scalar
-    name: ScalEnumAll
-    scalar: !_ScalarKind Enum
-  !_Identifier ScalEnumAllParent: !_ScalarEnum
-    allItems:
-    - !_ScalarItem(_ScalarMember)
-      exclude: false
-      kind: !_SimpleKind Enum
-      name: EnumScalAllParent
-      scalar: ScalEnumAllParent
-      value: '*'
-    items:
-    - !_ScalarMember
-      exclude: false
-      kind: !_SimpleKind Enum
-      name: EnumScalAllParent
-      value: '*'
-    kind: !_TypeKind Scalar
-    name: ScalEnumAllParent
-    scalar: !_ScalarKind Enum
-  !_Identifier ScalEnumParent: !_ScalarEnum
-    allItems:
-    - !_ScalarItem(_ScalarMember)
-      exclude: false
-      kind: !_SimpleKind Enum
-      name: EnumScalParent
-      scalar: ScalEnumParent
-      value: scal_enum
-    items:
-    - !_ScalarMember
-      exclude: false
-      kind: !_SimpleKind Enum
-      name: EnumScalParent
-      value: scal_enum
-    kind: !_TypeKind Scalar
-    name: ScalEnumParent
-    scalar: !_ScalarKind Enum
-  !_Identifier ScalEnumPrnt: !_ScalarEnum
-    allItems:
-    - !_ScalarItem(_ScalarMember)
-      exclude: false
-      kind: !_SimpleKind Enum
-      scalar: ScalPrntEnum
-      value: scal_parent
-    - !_ScalarItem(_ScalarMember)
-      exclude: false
-      kind: !_SimpleKind Enum
-      scalar: ScalEnumPrnt
-      value: scal_enum
-    items:
-    - !_ScalarMember
-      exclude: false
-      kind: !_SimpleKind Enum
-      value: scal_enum
-    kind: !_TypeKind Scalar
-    name: ScalEnumPrnt
-    parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Scalar
-      name: ScalPrntEnum
-    scalar: !_ScalarKind Enum
-  !_Identifier ScalMember: !_ScalarEnum
-    allItems:
-    - !_ScalarItem(_ScalarMember)
-      exclude: false
-      kind: !_SimpleKind Enum
-      scalar: ScalMember
-      value: scal_member
-    items:
-    - !_ScalarMember
-      exclude: false
-      kind: !_SimpleKind Enum
-      value: scal_member
-    kind: !_TypeKind Scalar
-    name: ScalMember
-    scalar: !_ScalarKind Enum
-  !_Identifier ScalNumPrnt: !_ScalarNumber
-    allItems:
-    - !_ScalarItem(_ScalarRange)
-      exclude: false
-      scalar: ScalPrntNum
-      to: 2
-    - !_ScalarItem(_ScalarRange)
-      exclude: false
-      from: 2
-      scalar: ScalNumPrnt
-    items:
-    - !_ScalarRange
-      exclude: false
-      from: 2
-    kind: !_TypeKind Scalar
-    name: ScalNumPrnt
-    parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Scalar
-      name: ScalPrntNum
-    scalar: !_ScalarKind Number
-  !_Identifier ScalPrntEnum: !_ScalarEnum
-    allItems:
-    - !_ScalarItem(_ScalarMember)
-      exclude: false
-      kind: !_SimpleKind Enum
-      scalar: ScalPrntEnum
-      value: scal_parent
-    items:
-    - !_ScalarMember
-      exclude: false
-      kind: !_SimpleKind Enum
-      value: scal_parent
-    kind: !_TypeKind Scalar
-    name: ScalPrntEnum
-    scalar: !_ScalarKind Enum
-  !_Identifier ScalPrntNum: !_ScalarNumber
-    allItems:
-    - !_ScalarItem(_ScalarRange)
-      exclude: false
-      scalar: ScalPrntNum
-      to: 2
-    items:
-    - !_ScalarRange
-      exclude: false
-      to: 2
-    kind: !_TypeKind Scalar
-    name: ScalPrntNum
-    scalar: !_ScalarKind Number
-  !_Identifier ScalPrntStr: !_ScalarString
-    allItems:
-    - !_ScalarItem(_ScalarRegex)
-      exclude: false
-      regex: b+
-      scalar: ScalPrntStr
-    items:
-    - !_ScalarRegex
-      exclude: false
-      regex: b+
-    kind: !_TypeKind Scalar
-    name: ScalPrntStr
-    scalar: !_ScalarKind String
-  !_Identifier ScalPrntTest: !_ScalarBoolean
-    kind: !_TypeKind Scalar
-    name: ScalPrntTest
-    parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Scalar
-      name: ScalTestPrnt
-    scalar: !_ScalarKind Boolean
-  !_Identifier ScalStrPrnt: !_ScalarString
-    allItems:
-    - !_ScalarItem(_ScalarRegex)
-      exclude: false
-      regex: b+
-      scalar: ScalPrntStr
-    - !_ScalarItem(_ScalarRegex)
-      exclude: false
-      regex: a+
-      scalar: ScalStrPrnt
-    items:
-    - !_ScalarRegex
-      exclude: false
-      regex: a+
-    kind: !_TypeKind Scalar
-    name: ScalStrPrnt
-    parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Scalar
-      name: ScalPrntStr
-    scalar: !_ScalarKind String
-  !_Identifier ScalTestPrnt: !_ScalarBoolean
-    kind: !_TypeKind Scalar
-    name: ScalTestPrnt
-    scalar: !_ScalarKind Boolean
   !_Identifier UnionPrnt: !_TypeUnion
     allItems:
     - !_UnionMember

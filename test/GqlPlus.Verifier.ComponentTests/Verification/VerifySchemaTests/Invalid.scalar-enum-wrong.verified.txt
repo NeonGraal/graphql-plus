@@ -1,3 +1,0 @@
-﻿[
-  Invalid Scalar Enum. 'Bad' not an Enum type.
-]

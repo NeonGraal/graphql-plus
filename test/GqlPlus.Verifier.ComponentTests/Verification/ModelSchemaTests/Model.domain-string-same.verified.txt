@@ -1,0 +1,15 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier StrSame: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: StrSame
+      exclude: false
+      regex: a+
+    domain: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      regex: a+
+    kind: !_TypeKind Domain
+    name: StrSame

@@ -1,0 +1,35 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DomPrntStr: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DomPrntStr
+      exclude: false
+      regex: b+
+    domain: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      regex: b+
+    kind: !_TypeKind Domain
+    name: DomPrntStr
+  !_Identifier DomStrPrnt: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DomPrntStr
+      exclude: false
+      regex: b+
+    - !_DomainItem(_DomainRegex)
+      domain: DomStrPrnt
+      exclude: false
+      regex: a+
+    domain: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      regex: a+
+    kind: !_TypeKind Domain
+    name: DomStrPrnt
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Domain
+      name: DomPrntStr

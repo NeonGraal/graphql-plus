@@ -1,3 +1,0 @@
-﻿[
-  Invalid Scalar Enum. 'Undef' not an Enum type.
-]

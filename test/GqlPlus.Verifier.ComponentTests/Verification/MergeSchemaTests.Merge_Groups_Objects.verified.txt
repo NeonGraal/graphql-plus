@@ -1533,28 +1533,28 @@ Success
 }
 {
   !O I@008/0001
-  OutParamsScalar
+  OutParamsDomain
   {
     !OF I@026/0001
     field
     (
       !P
       I@032/0001
-      OutParamScalar
-      [OutScalarParam]
+      OutParamDomain
+      [OutDomainParam]
     )
     :
     I@065/0001
-    OutParamsScalar
+    OutParamsDomain
   }
 }
 {
   !I I@089/0001
-  OutParamScalar
+  OutParamDomain
 }
 {
   !S I@115/0001
-  OutScalarParam
+  OutDomainParam
   Number
   !SR N@139/0001
   1

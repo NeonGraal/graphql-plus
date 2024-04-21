@@ -57,6 +57,7 @@ public class SampleSchemaData
     Add("Intro_Complete");
     Add("Intro_Declarations");
     Add("Intro_Directive");
+    Add("Intro_Domain");
     Add("Intro_Dual");
     Add("Intro_Enum");
     Add("Intro_Input");
@@ -64,7 +65,6 @@ public class SampleSchemaData
     Add("Intro_Object");
     Add("Intro_Option");
     Add("Intro_Output");
-    Add("Intro_Scalar");
     Add("Intro_Union");
   }
 }

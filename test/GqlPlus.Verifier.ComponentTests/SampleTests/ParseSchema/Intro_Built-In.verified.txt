@@ -23,19 +23,19 @@ Success
   Boolean
   !AO
   I@007/0009
-  _ScalarValue
+  _DomainValue
   <
     I@020/0009
-    _ScalarDomain.Number
+    _DomainDomain.Number
     I@041/0009
     Number
   >
   !AO
   I@007/0010
-  _ScalarValue
+  _DomainValue
   <
     I@020/0010
-    _ScalarDomain.String
+    _DomainDomain.String
     I@041/0010
     String
   >

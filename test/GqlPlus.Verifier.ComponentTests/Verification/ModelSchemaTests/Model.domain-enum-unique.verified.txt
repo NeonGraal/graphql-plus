@@ -1,0 +1,24 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumDomDup: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumDomDup
+      name: dup
+    items:
+    - !_Aliased dup
+    kind: !_TypeKind Enum
+    name: EnumDomDup
+  !_Identifier EnumDomUnique: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumDomUnique
+      name: value
+    - !_EnumMember
+      enum: EnumDomUnique
+      name: dup
+    items:
+    - !_Aliased value
+    - !_Aliased dup
+    kind: !_TypeKind Enum
+    name: EnumDomUnique

@@ -13,7 +13,7 @@ internal abstract class AllMerger<TItem>(
   {
     var result = base.CanMergeGroup(group);
     if (!result.Any()) {
-      var each = all.Select(scalar => (scalar, scalar.CanMerge(group))).ToList();
+      var each = all.Select(domain => (domain, domain.CanMerge(group))).ToList();
       result.Add(each.SelectMany(item => item.Item2));
     }
 
@@ -23,5 +23,5 @@ internal abstract class AllMerger<TItem>(
   protected override string ItemGroupKey(TItem item) => item.Name;
 
   protected override TItem MergeGroup(IEnumerable<TItem> group)
-    => all.SelectMany(scalar => scalar.Merge(group)).First();
+    => all.SelectMany(domain => domain.Merge(group)).First();
 }

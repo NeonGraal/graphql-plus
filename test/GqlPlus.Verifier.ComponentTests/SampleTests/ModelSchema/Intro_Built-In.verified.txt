@@ -178,20 +178,20 @@ types: !_Map_Type
         arguments:
         - !_OutputArgument
           kind: !_SimpleKind Enum
-          name: _ScalarDomain
+          name: _DomainDomain
           value: Number
         - !_OutputBase Number
-        output: _ScalarValue
+        output: _DomainValue
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Simple
       type: !_OutputBase
         arguments:
         - !_OutputArgument
           kind: !_SimpleKind Enum
-          name: _ScalarDomain
+          name: _DomainDomain
           value: String
         - !_OutputBase String
-        output: _ScalarValue
+        output: _DomainValue
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Simple
       type: !_OutputBase _EnumValue
@@ -203,19 +203,19 @@ types: !_Map_Type
         arguments:
         - !_OutputArgument
           kind: !_SimpleKind Enum
-          name: _ScalarDomain
+          name: _DomainDomain
           value: Number
         - !_OutputBase Number
-        output: _ScalarValue
+        output: _DomainValue
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         arguments:
         - !_OutputArgument
           kind: !_SimpleKind Enum
-          name: _ScalarDomain
+          name: _DomainDomain
           value: String
         - !_OutputBase String
-        output: _ScalarValue
+        output: _DomainValue
     - !_Alternate(_OutputBase)
       type: !_OutputBase _EnumValue
     kind: !_TypeKind Output

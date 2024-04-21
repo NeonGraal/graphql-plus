@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier;
 
-public record struct ScalarRangeInput(decimal? Min, decimal? Max)
+public record struct DomainRangeInput(decimal? Min, decimal? Max)
 {
   private bool? _minLtMax;
   private bool MinLtMax
@@ -33,7 +33,7 @@ public record struct ScalarRangeInput(decimal? Min, decimal? Max)
     return result;
   }
 
-  public ScalarRangeAst[] ScalarRange()
+  public DomainRangeAst[] DomainRange()
     => [new(AstNulls.At, false, Lower, Upper)];
 }
 

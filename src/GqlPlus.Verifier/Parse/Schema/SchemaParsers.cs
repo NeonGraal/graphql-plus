@@ -32,14 +32,14 @@ public static class SchemaParsers
       .AddParser<EnumDefinition, ParseEnumDefinition>()
       .AddParser<EnumMemberAst, ParseEnumMember>()
       .AddDeclarationParser<EnumDeclAst, ParseEnum>("enum")
-      // Scalar
-      .AddParser<ScalarDefinition, ParseScalarDefinition>()
-      .AddEnum<ScalarDomain>()
-      .AddScalarParser<ScalarTrueFalseAst, ParseScalarTrueFalse>()
-      .AddScalarParser<ScalarMemberAst, ParseScalarMember>()
-      .AddScalarParser<ScalarRangeAst, ParseScalarRange>()
-      .AddScalarParser<ScalarRegexAst, ParseScalarRegex>()
-      .AddDeclarationParser<AstScalar, ParseScalar>("scalar")
+      // Domain
+      .AddParser<DomainDefinition, ParseDomainDefinition>()
+      .AddEnum<DomainDomain>()
+      .AddDomainParser<DomainTrueFalseAst, ParseDomainTrueFalse>()
+      .AddDomainParser<DomainMemberAst, ParseDomainMember>()
+      .AddDomainParser<DomainRangeAst, ParseDomainRange>()
+      .AddDomainParser<DomainRegexAst, ParseDomainRegex>()
+      .AddDeclarationParser<AstDomain, ParseDomain>("domain")
       // Union
       .AddParser<UnionDefinition, ParseUnionDefinition>()
       .AddParser<UnionMemberAst, ParseUnionMember>()
@@ -88,11 +88,11 @@ public static class SchemaParsers
       .AddParser<TObject, TParser>()
       .AddSingleton<IParseDeclaration>(c => new ParseDeclaration<TObject>(selector, c.GetRequiredService<Parser<TObject>.D>()));
 
-  public static IServiceCollection AddScalarParser<TScalar, TParser>(this IServiceCollection services)
-    where TParser : class, Parser<TScalar>.I, IParseScalar
+  public static IServiceCollection AddDomainParser<TDomain, TParser>(this IServiceCollection services)
+    where TParser : class, Parser<TDomain>.I, IParseDomain
     => services
-      .AddArrayParser<TScalar, TParser>()
-      .AddSingleton<IParseScalar>(c => c.GetRequiredService<TParser>());
+      .AddArrayParser<TDomain, TParser>()
+      .AddSingleton<IParseDomain>(c => c.GetRequiredService<TParser>());
 
   public static IServiceCollection AddNullParsers(this IServiceCollection services)
     => services

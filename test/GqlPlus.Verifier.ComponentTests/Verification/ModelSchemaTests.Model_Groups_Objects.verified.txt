@@ -1277,6 +1277,21 @@ types: !_Map_Type
     kind: !_TypeKind Input
     name: InpTestPrntDual
     parent: !_DualBase InpPrntDualTest
+  !_Identifier OutDomainParam: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: OutDomainParam
+      exclude: false
+      from: 1
+      to: 10
+    domain: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      from: 1
+      to: 10
+    kind: !_TypeKind Domain
+    name: OutDomainParam
   !_Identifier OutEnumField: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -1485,12 +1500,12 @@ types: !_Map_Type
   !_Identifier OutParam: !_TypeInput
     kind: !_TypeKind Input
     name: OutParam
+  !_Identifier OutParamDomain: !_TypeInput
+    kind: !_TypeKind Input
+    name: OutParamDomain
   !_Identifier OutParamParent: !_TypeInput
     kind: !_TypeKind Input
     name: OutParamParent
-  !_Identifier OutParamScalar: !_TypeInput
-    kind: !_TypeKind Input
-    name: OutParamScalar
   !_Identifier OutParams: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -1509,6 +1524,32 @@ types: !_Map_Type
       type: !_OutputBase OutParams
     kind: !_TypeKind Output
     name: OutParams
+  !_Identifier OutParamsDomain: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParamsDomain
+      parameters:
+      - !_Parameter
+        collections:
+        - !_ModifierDictionary
+          by: OutDomainParam
+          kind: Dict
+        type: !_InputBase OutParamDomain
+      type: !_OutputBase OutParamsDomain
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_Parameter
+        collections:
+        - !_ModifierDictionary
+          by: OutDomainParam
+          kind: Dict
+        type: !_InputBase OutParamDomain
+      type: !_OutputBase OutParamsDomain
+    kind: !_TypeKind Output
+    name: OutParamsDomain
   !_Identifier OutParamsParent: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -1527,32 +1568,6 @@ types: !_Map_Type
       type: !_OutputBase OutPrntParams
     kind: !_TypeKind Output
     name: OutParamsParent
-  !_Identifier OutParamsScalar: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutParamsScalar
-      parameters:
-      - !_Parameter
-        collections:
-        - !_ModifierDictionary
-          by: OutScalarParam
-          kind: Dict
-        type: !_InputBase OutParamScalar
-      type: !_OutputBase OutParamsScalar
-    fields:
-    - !_OutputField
-      name: field
-      parameters:
-      - !_Parameter
-        collections:
-        - !_ModifierDictionary
-          by: OutScalarParam
-          kind: Dict
-        type: !_InputBase OutParamScalar
-      type: !_OutputBase OutParamsScalar
-    kind: !_TypeKind Output
-    name: OutParamsScalar
   !_Identifier OutParentGen: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -1606,21 +1621,6 @@ types: !_Map_Type
     - !_Aliased outGenParent
     kind: !_TypeKind Enum
     name: OutPrntendedGen
-  !_Identifier OutScalarParam: !_ScalarNumber
-    allItems:
-    - !_ScalarItem(_ScalarRange)
-      exclude: false
-      from: 1
-      scalar: OutScalarParam
-      to: 10
-    items:
-    - !_ScalarRange
-      exclude: false
-      from: 1
-      to: 10
-    kind: !_TypeKind Scalar
-    name: OutScalarParam
-    scalar: !_ScalarKind Number
   !_Identifier OutValueGen: !_TypeEnum
     allItems:
     - !_EnumMember

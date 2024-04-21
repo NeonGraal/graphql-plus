@@ -6,7 +6,7 @@ output _Schema {
         settings(_Filter?): _Setting[_Identifier]
     }
 
-scalar _Identifier { String /[A-Za-z_]+/ }
+domain _Identifier { String /[A-Za-z_]+/ }
 
 input _Filter  {
         names: _NameFilter[]
@@ -18,7 +18,7 @@ input _Filter  {
     }
 
 "_NameFilter is a simple match expression against _Identifier  where '.' matches any single character and '*' matches zero or more of any character."
-scalar _NameFilter { String /[A-Za-z_.*]+/ }
+domain _NameFilter { String /[A-Za-z_.*]+/ }
 
 input _CategoryFilter {
     : _Filter

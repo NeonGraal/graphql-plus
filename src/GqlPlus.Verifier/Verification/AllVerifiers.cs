@@ -35,12 +35,12 @@ public static class AllVerifiers
       .AddVerifyUsageAliased<InputDeclAst, AstType, VerifyInputTypes>()
       .AddVerifyAliased<OutputDeclAst, VerifyOutputsAliased>()
       .AddVerifyUsageAliased<OutputDeclAst, AstType, VerifyOutputTypes>()
-      .AddVerifyAliased<AstScalar, VerifyScalarsAliased>()
-      .AddVerifyUsageAliased<AstScalar, AstType, VerifyScalarTypes>()
-      .AddVerifyScalarContext<AstScalarVerifier<ScalarTrueFalseAst>>()
-      .AddVerifyScalarContext<VerifyScalarEnum>()
-      .AddVerifyScalarContext<AstScalarVerifier<ScalarRangeAst>>()
-      .AddVerifyScalarContext<AstScalarVerifier<ScalarRegexAst>>()
+      .AddVerifyAliased<AstDomain, VerifyDomainsAliased>()
+      .AddVerifyUsageAliased<AstDomain, AstType, VerifyDomainTypes>()
+      .AddVerifyDomainContext<AstDomainVerifier<DomainTrueFalseAst>>()
+      .AddVerifyDomainContext<VerifyDomainEnum>()
+      .AddVerifyDomainContext<AstDomainVerifier<DomainRangeAst>>()
+      .AddVerifyDomainContext<AstDomainVerifier<DomainRegexAst>>()
       .AddVerifyAliased<UnionDeclAst, VerifyUnionsAliased>()
       .AddVerifyUsageAliased<UnionDeclAst, AstType, VerifyUnionTypes>()
     ;
@@ -79,7 +79,7 @@ public static class AllVerifiers
       .TryAddVerify<TUsage, NullVerifier<TUsage>>()
       .TryAddVerify<TAliased, NullVerifier<TAliased>>();
 
-  public static IServiceCollection AddVerifyScalarContext<TService>(this IServiceCollection services)
-    where TService : class, IVerifyScalar
-    => services.AddSingleton<IVerifyScalar, TService>();
+  public static IServiceCollection AddVerifyDomainContext<TService>(this IServiceCollection services)
+    where TService : class, IVerifyDomain
+    => services.AddSingleton<IVerifyDomain, TService>();
 }

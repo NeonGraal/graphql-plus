@@ -1,0 +1,15 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier StrDiff: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: StrDiff
+      exclude: false
+      regex: a+
+    domain: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      regex: a+
+    kind: !_TypeKind Domain
+    name: StrDiff

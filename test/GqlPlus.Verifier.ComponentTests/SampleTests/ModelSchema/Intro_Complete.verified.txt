@@ -86,7 +86,7 @@ types: !_Map_Type
     name: _BaseDescribed
     typeParameters:
     - !_Described base
-  !_Identifier _BaseScalar: !_TypeOutput
+  !_Identifier _BaseDomain: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
       name: name
@@ -120,42 +120,42 @@ types: !_Map_Type
       object: _ParentType
       type: !_TypeParameter allItem
     - !_ObjectFor(_OutputField)
-      name: scalar
-      object: _BaseScalar
+      name: domain
+      object: _BaseDomain
       type: !_TypeParameter domain
     fields:
     - !_OutputField
-      name: scalar
+      name: domain
       type: !_TypeParameter domain
     kind: !_TypeKind Output
-    name: _BaseScalar
+    name: _BaseDomain
     parent: !_OutputBase
       arguments:
       - !_OutputArgument
         kind: !_SimpleKind Enum
         name: _TypeKind
-        value: Scalar
+        value: Domain
       - !_TypeParameter item
       - !_DualBase
         arguments:
         - !_TypeParameter item
-        dual: _ScalarItem
+        dual: _DomainItem
       output: _ParentType
     typeParameters:
     - !_Described domain
     - !_Described item
-  !_Identifier _BaseScalarItem: !_TypeDual
+  !_Identifier _BaseDomainItem: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: exclude
-      object: _BaseScalarItem
+      object: _BaseDomainItem
       type: !_DualBase Boolean
     fields:
     - !_DualField
       name: exclude
       type: !_DualBase Boolean
     kind: !_TypeKind Dual
-    name: _BaseScalarItem
+    name: _BaseDomainItem
   !_Identifier _BaseType: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
@@ -525,6 +525,185 @@ types: !_Map_Type
       type: !_OutputBase _Type
     kind: !_TypeKind Output
     name: _Directives
+  !_Identifier _DomainDomain: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: _DomainDomain
+      name: Boolean
+    - !_EnumMember
+      enum: _DomainDomain
+      name: Enum
+    - !_EnumMember
+      enum: _DomainDomain
+      name: Number
+    - !_EnumMember
+      enum: _DomainDomain
+      name: String
+    - !_EnumMember
+      enum: _DomainDomain
+      name: Union
+    items:
+    - !_Aliased Boolean
+    - !_Aliased Enum
+    - !_Aliased Number
+    - !_Aliased String
+    - !_Aliased Union
+    kind: !_TypeKind Enum
+    name: _DomainDomain
+  !_Identifier _DomainItem: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: domain
+      object: _DomainItem
+      type: !_DualBase _Identifier
+    fields:
+    - !_DualField
+      name: domain
+      type: !_DualBase _Identifier
+    kind: !_TypeKind Dual
+    name: _DomainItem
+    parent: !_TypeParameter item
+    typeParameters:
+    - !_Described item
+  !_Identifier _DomainMember: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_DualBase Boolean
+    - !_ObjectFor(_OutputField)
+      name: member
+      object: _DomainMember
+      type: !_OutputBase _EnumValue
+    fields:
+    - !_OutputField
+      name: member
+      type: !_OutputBase _EnumValue
+    kind: !_TypeKind Output
+    name: _DomainMember
+    parent: !_DualBase _BaseDomainItem
+  !_Identifier _DomainRange: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_DualBase Boolean
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier Optional]
+      name: from
+      object: _DomainRange
+      type: !_DualBase Number
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier Optional]
+      name: to
+      object: _DomainRange
+      type: !_DualBase Number
+    fields:
+    - !_DualField
+      modifiers: [!_Modifier Optional]
+      name: from
+      type: !_DualBase Number
+    - !_DualField
+      modifiers: [!_Modifier Optional]
+      name: to
+      type: !_DualBase Number
+    kind: !_TypeKind Dual
+    name: _DomainRange
+    parent: !_DualBase _BaseDomainItem
+  !_Identifier _DomainRef: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: kind
+      object: _TypeRef
+      type: !_TypeParameter kind
+    - !_ObjectFor(_OutputField)
+      name: name
+      object: _TypeRef
+      type: !_OutputBase _Identifier
+    - !_ObjectFor(_OutputField)
+      name: domain
+      object: _DomainRef
+      type: !_TypeParameter kind
+    fields:
+    - !_OutputField
+      name: domain
+      type: !_TypeParameter kind
+    kind: !_TypeKind Output
+    name: _DomainRef
+    parent: !_OutputBase
+      arguments:
+      - !_OutputArgument
+        kind: !_SimpleKind Enum
+        name: _TypeKind
+        value: Domain
+      output: _TypeRef
+    typeParameters:
+    - !_Described kind
+  !_Identifier _DomainRegex: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_DualBase Boolean
+    - !_ObjectFor(_DualField)
+      name: regex
+      object: _DomainRegex
+      type: !_DualBase String
+    fields:
+    - !_DualField
+      name: regex
+      type: !_DualBase String
+    kind: !_TypeKind Dual
+    name: _DomainRegex
+    parent: !_DualBase _BaseDomainItem
+  !_Identifier _DomainTrueFalse: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_DualBase Boolean
+    - !_ObjectFor(_DualField)
+      name: value
+      object: _DomainTrueFalse
+      type: !_DualBase Boolean
+    fields:
+    - !_DualField
+      name: value
+      type: !_DualBase Boolean
+    kind: !_TypeKind Dual
+    name: _DomainTrueFalse
+    parent: !_DualBase _BaseDomainItem
+  !_Identifier _DomainValue: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: kind
+      object: _TypeRef
+      type: !_TypeParameter kind
+    - !_ObjectFor(_OutputField)
+      name: name
+      object: _TypeRef
+      type: !_OutputBase _Identifier
+    - !_ObjectFor(_OutputField)
+      name: domain
+      object: _DomainRef
+      type: !_TypeParameter kind
+    - !_ObjectFor(_OutputField)
+      name: value
+      object: _DomainValue
+      type: !_TypeParameter value
+    fields:
+    - !_OutputField
+      name: value
+      type: !_TypeParameter value
+    kind: !_TypeKind Output
+    name: _DomainValue
+    parent: !_OutputBase
+      arguments:
+      - !_TypeParameter kind
+      output: _DomainRef
+    typeParameters:
+    - !_Described kind
+    - !_Described value
   !_Identifier _DualBase: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -722,19 +901,19 @@ types: !_Map_Type
       type: !_InputBase Boolean
     kind: !_TypeKind Input
     name: _Filter
-  !_Identifier _Identifier: !_ScalarString
+  !_Identifier _Identifier: !_DomainString
     allItems:
-    - !_ScalarItem(_ScalarRegex)
+    - !_DomainItem(_DomainRegex)
+      domain: _Identifier
       exclude: false
       regex: '[A-Za-z_]+'
-      scalar: _Identifier
+    domain: !_DomainKind String
     items:
-    - !_ScalarRegex
+    - !_DomainRegex
       exclude: false
       regex: '[A-Za-z_]+'
-    kind: !_TypeKind Scalar
+    kind: !_TypeKind Domain
     name: _Identifier
-    scalar: !_ScalarKind String
   !_Identifier _InputBase: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -932,20 +1111,20 @@ types: !_Map_Type
       type: !_OutputBase _Collections
     kind: !_TypeKind Output
     name: _Modifiers
-  !_Identifier _NameFilter: !_ScalarString
+  !_Identifier _NameFilter: !_DomainString
     allItems:
-    - !_ScalarItem(_ScalarRegex)
+    - !_DomainItem(_DomainRegex)
+      domain: _NameFilter
       exclude: false
       regex: '[A-Za-z_.*]+'
-      scalar: _NameFilter
     description: '_NameFilter is a simple match expression against _Identifier  where ''.'' matches any single character and ''*'' matches zero or more of any character.'
+    domain: !_DomainKind String
     items:
-    - !_ScalarRegex
+    - !_DomainRegex
       exclude: false
       regex: '[A-Za-z_.*]+'
-    kind: !_TypeKind Scalar
+    kind: !_TypeKind Domain
     name: _NameFilter
-    scalar: !_ScalarKind String
   !_Identifier _Named: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -1291,185 +1470,6 @@ types: !_Map_Type
     - !_Aliased Single
     kind: !_TypeKind Enum
     name: _Resolution
-  !_Identifier _ScalarDomain: !_TypeEnum
-    allItems:
-    - !_EnumMember
-      enum: _ScalarDomain
-      name: Boolean
-    - !_EnumMember
-      enum: _ScalarDomain
-      name: Enum
-    - !_EnumMember
-      enum: _ScalarDomain
-      name: Number
-    - !_EnumMember
-      enum: _ScalarDomain
-      name: String
-    - !_EnumMember
-      enum: _ScalarDomain
-      name: Union
-    items:
-    - !_Aliased Boolean
-    - !_Aliased Enum
-    - !_Aliased Number
-    - !_Aliased String
-    - !_Aliased Union
-    kind: !_TypeKind Enum
-    name: _ScalarDomain
-  !_Identifier _ScalarItem: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: scalar
-      object: _ScalarItem
-      type: !_DualBase _Identifier
-    fields:
-    - !_DualField
-      name: scalar
-      type: !_DualBase _Identifier
-    kind: !_TypeKind Dual
-    name: _ScalarItem
-    parent: !_TypeParameter item
-    typeParameters:
-    - !_Described item
-  !_Identifier _ScalarMember: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: exclude
-      object: _BaseScalarItem
-      type: !_DualBase Boolean
-    - !_ObjectFor(_OutputField)
-      name: member
-      object: _ScalarMember
-      type: !_OutputBase _EnumValue
-    fields:
-    - !_OutputField
-      name: member
-      type: !_OutputBase _EnumValue
-    kind: !_TypeKind Output
-    name: _ScalarMember
-    parent: !_DualBase _BaseScalarItem
-  !_Identifier _ScalarRange: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: exclude
-      object: _BaseScalarItem
-      type: !_DualBase Boolean
-    - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier Optional]
-      name: from
-      object: _ScalarRange
-      type: !_DualBase Number
-    - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier Optional]
-      name: to
-      object: _ScalarRange
-      type: !_DualBase Number
-    fields:
-    - !_DualField
-      modifiers: [!_Modifier Optional]
-      name: from
-      type: !_DualBase Number
-    - !_DualField
-      modifiers: [!_Modifier Optional]
-      name: to
-      type: !_DualBase Number
-    kind: !_TypeKind Dual
-    name: _ScalarRange
-    parent: !_DualBase _BaseScalarItem
-  !_Identifier _ScalarRef: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: kind
-      object: _TypeRef
-      type: !_TypeParameter kind
-    - !_ObjectFor(_OutputField)
-      name: name
-      object: _TypeRef
-      type: !_OutputBase _Identifier
-    - !_ObjectFor(_OutputField)
-      name: scalar
-      object: _ScalarRef
-      type: !_TypeParameter kind
-    fields:
-    - !_OutputField
-      name: scalar
-      type: !_TypeParameter kind
-    kind: !_TypeKind Output
-    name: _ScalarRef
-    parent: !_OutputBase
-      arguments:
-      - !_OutputArgument
-        kind: !_SimpleKind Enum
-        name: _TypeKind
-        value: Scalar
-      output: _TypeRef
-    typeParameters:
-    - !_Described kind
-  !_Identifier _ScalarRegex: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: exclude
-      object: _BaseScalarItem
-      type: !_DualBase Boolean
-    - !_ObjectFor(_DualField)
-      name: regex
-      object: _ScalarRegex
-      type: !_DualBase String
-    fields:
-    - !_DualField
-      name: regex
-      type: !_DualBase String
-    kind: !_TypeKind Dual
-    name: _ScalarRegex
-    parent: !_DualBase _BaseScalarItem
-  !_Identifier _ScalarTrueFalse: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: exclude
-      object: _BaseScalarItem
-      type: !_DualBase Boolean
-    - !_ObjectFor(_DualField)
-      name: value
-      object: _ScalarTrueFalse
-      type: !_DualBase Boolean
-    fields:
-    - !_DualField
-      name: value
-      type: !_DualBase Boolean
-    kind: !_TypeKind Dual
-    name: _ScalarTrueFalse
-    parent: !_DualBase _BaseScalarItem
-  !_Identifier _ScalarValue: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: kind
-      object: _TypeRef
-      type: !_TypeParameter kind
-    - !_ObjectFor(_OutputField)
-      name: name
-      object: _TypeRef
-      type: !_OutputBase _Identifier
-    - !_ObjectFor(_OutputField)
-      name: scalar
-      object: _ScalarRef
-      type: !_TypeParameter kind
-    - !_ObjectFor(_OutputField)
-      name: value
-      object: _ScalarValue
-      type: !_TypeParameter value
-    fields:
-    - !_OutputField
-      name: value
-      type: !_TypeParameter value
-    kind: !_TypeKind Output
-    name: _ScalarValue
-    parent: !_OutputBase
-      arguments:
-      - !_TypeParameter kind
-      output: _ScalarRef
-    typeParameters:
-    - !_Described kind
-    - !_Described value
   !_Identifier _Schema: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
@@ -1572,20 +1572,20 @@ types: !_Map_Type
         arguments:
         - !_OutputArgument
           kind: !_SimpleKind Enum
-          name: _ScalarDomain
+          name: _DomainDomain
           value: Number
         - !_OutputBase Number
-        output: _ScalarValue
+        output: _DomainValue
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Simple
       type: !_OutputBase
         arguments:
         - !_OutputArgument
           kind: !_SimpleKind Enum
-          name: _ScalarDomain
+          name: _DomainDomain
           value: String
         - !_OutputBase String
-        output: _ScalarValue
+        output: _DomainValue
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Simple
       type: !_OutputBase _EnumValue
@@ -1597,19 +1597,19 @@ types: !_Map_Type
         arguments:
         - !_OutputArgument
           kind: !_SimpleKind Enum
-          name: _ScalarDomain
+          name: _DomainDomain
           value: Number
         - !_OutputBase Number
-        output: _ScalarValue
+        output: _DomainValue
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         arguments:
         - !_OutputArgument
           kind: !_SimpleKind Enum
-          name: _ScalarDomain
+          name: _DomainDomain
           value: String
         - !_OutputBase String
-        output: _ScalarValue
+        output: _DomainValue
     - !_Alternate(_OutputBase)
       type: !_OutputBase _EnumValue
     kind: !_TypeKind Output
@@ -1627,7 +1627,7 @@ types: !_Map_Type
       name: Internal
     - !_EnumMember
       enum: _SimpleKind
-      name: Scalar
+      name: Domain
     - !_EnumMember
       enum: _SimpleKind
       name: Union
@@ -1635,7 +1635,7 @@ types: !_Map_Type
     - !_Aliased Basic
     - !_Aliased Enum
     - !_Aliased Internal
-    - !_Aliased Scalar
+    - !_Aliased Domain
     - !_Aliased Union
     kind: !_TypeKind Enum
     name: _SimpleKind
@@ -1673,7 +1673,7 @@ types: !_Map_Type
       type: !_OutputBase _TypeOutput
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Type
-      type: !_OutputBase _TypeScalar
+      type: !_OutputBase _TypeDomain
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Type
       type: !_OutputBase _TypeUnion
@@ -1703,11 +1703,92 @@ types: !_Map_Type
     - !_Alternate(_OutputBase)
       type: !_OutputBase _TypeOutput
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _TypeScalar
+      type: !_OutputBase _TypeDomain
     - !_Alternate(_OutputBase)
       type: !_OutputBase _TypeUnion
     kind: !_TypeKind Output
     name: _Type
+  !_Identifier _TypeDomain: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _TypeDomain
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _DomainDomain
+          value: Boolean
+        - !_DualBase _DomainTrueFalse
+        output: _BaseDomain
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _TypeDomain
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _DomainDomain
+          value: Enum
+        - !_OutputBase _DomainMember
+        output: _BaseDomain
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _TypeDomain
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _DomainDomain
+          value: Number
+        - !_DualBase _DomainRange
+        output: _BaseDomain
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _TypeDomain
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _DomainDomain
+          value: String
+        - !_DualBase _DomainRegex
+        output: _BaseDomain
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _DomainDomain
+          value: Boolean
+        - !_DualBase _DomainTrueFalse
+        output: _BaseDomain
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _DomainDomain
+          value: Enum
+        - !_OutputBase _DomainMember
+        output: _BaseDomain
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _DomainDomain
+          value: Number
+        - !_DualBase _DomainRange
+        output: _BaseDomain
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        arguments:
+        - !_OutputArgument
+          kind: !_SimpleKind Enum
+          name: _DomainDomain
+          value: String
+        - !_DualBase _DomainRegex
+        output: _BaseDomain
+    kind: !_TypeKind Output
+    name: _TypeDomain
   !_Identifier _TypeDual: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
@@ -1959,7 +2040,7 @@ types: !_Map_Type
       name: Internal
     - !_EnumMember
       enum: _SimpleKind
-      name: Scalar
+      name: Domain
     - !_EnumMember
       enum: _SimpleKind
       name: Union
@@ -2159,18 +2240,18 @@ types: !_Map_Type
       - !_OutputBase _OutputBase
       - !_OutputBase _OutputField
       output: _TypeObject
-  !_Identifier _TypeParameter: !_ScalarString
+  !_Identifier _TypeParameter: !_DomainString
     allItems:
-    - !_ScalarItem(_ScalarRegex)
+    - !_DomainItem(_DomainRegex)
+      domain: _Identifier
       exclude: false
       regex: '[A-Za-z_]+'
-      scalar: _Identifier
-    kind: !_TypeKind Scalar
+    domain: !_DomainKind String
+    kind: !_TypeKind Domain
     name: _TypeParameter
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Scalar
+      kind: !_SimpleKind Domain
       name: _Identifier
-    scalar: !_ScalarKind String
   !_Identifier _TypeRef: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -2192,87 +2273,6 @@ types: !_Map_Type
     name: _TypeRef
     typeParameters:
     - !_Described kind
-  !_Identifier _TypeScalar: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
-      object: _TypeScalar
-      type: !_OutputBase
-        arguments:
-        - !_OutputArgument
-          kind: !_SimpleKind Enum
-          name: _ScalarDomain
-          value: Boolean
-        - !_DualBase _ScalarTrueFalse
-        output: _BaseScalar
-    - !_ObjectFor(_Alternate(_OutputBase))
-      object: _TypeScalar
-      type: !_OutputBase
-        arguments:
-        - !_OutputArgument
-          kind: !_SimpleKind Enum
-          name: _ScalarDomain
-          value: Enum
-        - !_OutputBase _ScalarMember
-        output: _BaseScalar
-    - !_ObjectFor(_Alternate(_OutputBase))
-      object: _TypeScalar
-      type: !_OutputBase
-        arguments:
-        - !_OutputArgument
-          kind: !_SimpleKind Enum
-          name: _ScalarDomain
-          value: Number
-        - !_DualBase _ScalarRange
-        output: _BaseScalar
-    - !_ObjectFor(_Alternate(_OutputBase))
-      object: _TypeScalar
-      type: !_OutputBase
-        arguments:
-        - !_OutputArgument
-          kind: !_SimpleKind Enum
-          name: _ScalarDomain
-          value: String
-        - !_DualBase _ScalarRegex
-        output: _BaseScalar
-    alternates:
-    - !_Alternate(_OutputBase)
-      type: !_OutputBase
-        arguments:
-        - !_OutputArgument
-          kind: !_SimpleKind Enum
-          name: _ScalarDomain
-          value: Boolean
-        - !_DualBase _ScalarTrueFalse
-        output: _BaseScalar
-    - !_Alternate(_OutputBase)
-      type: !_OutputBase
-        arguments:
-        - !_OutputArgument
-          kind: !_SimpleKind Enum
-          name: _ScalarDomain
-          value: Enum
-        - !_OutputBase _ScalarMember
-        output: _BaseScalar
-    - !_Alternate(_OutputBase)
-      type: !_OutputBase
-        arguments:
-        - !_OutputArgument
-          kind: !_SimpleKind Enum
-          name: _ScalarDomain
-          value: Number
-        - !_DualBase _ScalarRange
-        output: _BaseScalar
-    - !_Alternate(_OutputBase)
-      type: !_OutputBase
-        arguments:
-        - !_OutputArgument
-          kind: !_SimpleKind Enum
-          name: _ScalarDomain
-          value: String
-        - !_DualBase _ScalarRegex
-        output: _BaseScalar
-    kind: !_TypeKind Output
-    name: _TypeScalar
   !_Identifier _TypeSimple: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -2300,7 +2300,7 @@ types: !_Map_Type
         - !_OutputArgument
           kind: !_SimpleKind Enum
           name: _TypeKind
-          value: Scalar
+          value: Domain
         output: _TypeRef
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _TypeSimple
@@ -2334,7 +2334,7 @@ types: !_Map_Type
         - !_OutputArgument
           kind: !_SimpleKind Enum
           name: _TypeKind
-          value: Scalar
+          value: Domain
         output: _TypeRef
     - !_Alternate(_OutputBase)
       type: !_OutputBase

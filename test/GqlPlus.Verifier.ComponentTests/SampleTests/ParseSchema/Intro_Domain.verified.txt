@@ -1,0 +1,227 @@
+﻿!G I@001/0001
+Success
+{
+  !E I@006/0001
+  _DomainDomain
+  !EM I@022/0001
+  Boolean
+  !EM I@030/0001
+  Enum
+  !EM I@035/0001
+  Number
+  !EM I@042/0001
+  String
+  !EM I@049/0001
+  Union
+}
+{
+  !O I@008/0003
+  _TypeDomain
+  |
+  !AO
+  I@007/0004
+  _BaseDomain
+  <
+    I@019/0004
+    _DomainDomain.Boolean
+    I@041/0004
+    _DomainTrueFalse
+  >
+  !AO
+  I@007/0005
+  _BaseDomain
+  <
+    I@019/0005
+    _DomainDomain.Enum
+    I@038/0005
+    _DomainMember
+  >
+  !AO
+  I@007/0006
+  _BaseDomain
+  <
+    I@019/0006
+    _DomainDomain.Number
+    I@040/0006
+    _DomainRange
+  >
+  !AO
+  I@007/0007
+  _BaseDomain
+  <
+    I@019/0007
+    _DomainDomain.String
+    I@040/0007
+    _DomainRegex
+  >
+}
+{
+  !O I@008/0010
+  _DomainRef
+  <
+    I@020/0010
+    $kind
+  >
+  :
+  I@007/0011
+  _TypeRef
+  <
+    I@016/0011
+    _TypeKind.Domain
+  >
+  {
+    !OF I@009/0012
+    domain
+    :
+    I@018/0012
+    $kind
+  }
+}
+{
+  !O I@008/0015
+  _BaseDomain
+  <
+    I@021/0015
+    $domain
+    I@029/0015
+    $item
+  >
+  :
+  I@007/0016
+  _ParentType
+  <
+    I@019/0016
+    _TypeKind.Domain
+    I@037/0016
+    $item
+    I@042/0016
+    _DomainItem
+    <
+      I@055/0016
+      $item
+    >
+  >
+  {
+    !OF I@009/0017
+    domain
+    :
+    I@018/0017
+    $domain
+  }
+}
+{
+  !D I@006/0020
+  _BaseDomainItem
+  {
+    !DF I@009/0021
+    exclude
+    :
+    I@018/0021
+    Boolean
+  }
+}
+{
+  !D I@006/0024
+  _DomainTrueFalse
+  :
+  I@007/0025
+  _BaseDomainItem
+  {
+    !DF I@009/0026
+    value
+    :
+    I@016/0026
+    Boolean
+  }
+}
+{
+  !O I@008/0029
+  _DomainMember
+  :
+  I@007/0030
+  _BaseDomainItem
+  {
+    !OF I@009/0031
+    member
+    :
+    I@017/0031
+    _EnumValue
+  }
+}
+{
+  !D I@006/0034
+  _DomainRange
+  :
+  I@007/0035
+  _BaseDomainItem
+  {
+    !DF I@009/0036
+    from
+    :
+    I@015/0036
+    Number
+    ?
+    !DF I@009/0037
+    to
+    :
+    I@013/0037
+    Number
+    ?
+  }
+}
+{
+  !D I@006/0040
+  _DomainRegex
+  :
+  I@007/0041
+  _BaseDomainItem
+  {
+    !DF I@009/0042
+    regex
+    :
+    I@016/0042
+    String
+  }
+}
+{
+  !D I@006/0045
+  _DomainItem
+  <
+    I@019/0045
+    $item
+  >
+  :
+  I@008/0046
+  $item
+  {
+    !DF I@009/0047
+    domain
+    :
+    I@017/0047
+    _Identifier
+  }
+}
+{
+  !O I@008/0050
+  _DomainValue
+  <
+    I@022/0050
+    $kind
+    I@028/0050
+    $value
+  >
+  :
+  I@007/0051
+  _DomainRef
+  <
+    I@019/0051
+    $kind
+  >
+  {
+    !OF I@009/0052
+    value
+    :
+    I@017/0052
+    $value
+  }
+}

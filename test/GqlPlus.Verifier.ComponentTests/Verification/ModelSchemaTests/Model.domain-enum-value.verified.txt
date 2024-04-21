@@ -1,0 +1,28 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DomEnum: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomEnum
+      exclude: false
+      kind: !_SimpleKind Enum
+      name: EnumDom
+      value: scal_enum
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      kind: !_SimpleKind Enum
+      name: EnumDom
+      value: scal_enum
+    kind: !_TypeKind Domain
+    name: DomEnum
+  !_Identifier EnumDom: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumDom
+      name: scal_enum
+    items:
+    - !_Aliased scal_enum
+    kind: !_TypeKind Enum
+    name: EnumDom

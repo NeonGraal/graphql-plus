@@ -6,8 +6,8 @@ output _Constant {
 
 output _Simple {
     | Boolean
-    | _ScalarValue<_ScalarDomain.Number Number>
-    | _ScalarValue<_ScalarDomain.String String>
+    | _DomainValue<_DomainDomain.Number Number>
+    | _DomainValue<_DomainDomain.String String>
     | _EnumValue
 }
 

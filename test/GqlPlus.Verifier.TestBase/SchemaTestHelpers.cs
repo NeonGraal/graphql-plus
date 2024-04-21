@@ -36,24 +36,24 @@ public static class SchemaTestHelpers
     => [.. parameters.Select(parameter => mapping(new ParameterAst(AstNulls.At, parameter)))];
 
   private static TResult[] WithExcludes<TInput, TResult>(this TInput[] inputs, Func<TInput, TResult> mapping)
-    where TResult : AstScalarItem
+    where TResult : AstDomainItem
   {
     var exclude = true;
 
     return [.. inputs.Select(i => mapping(i) with { Excludes = exclude = !exclude })];
   }
 
-  public static ScalarTrueFalseAst[] ScalarTrueFalses(this bool[] members)
-    => [.. members.WithExcludes(r => new ScalarTrueFalseAst(AstNulls.At, false, r))];
+  public static DomainTrueFalseAst[] DomainTrueFalses(this bool[] members)
+    => [.. members.WithExcludes(r => new DomainTrueFalseAst(AstNulls.At, false, r))];
 
-  public static ScalarMemberAst[] ScalarMembers(this string[] members)
-    => [.. members.WithExcludes(r => new ScalarMemberAst(AstNulls.At, false, r))];
+  public static DomainMemberAst[] DomainMembers(this string[] members)
+    => [.. members.WithExcludes(r => new DomainMemberAst(AstNulls.At, false, r))];
 
-  public static ScalarRangeAst[] ScalarRanges(this ScalarRangeInput[] ranges)
-    => [.. ranges.WithExcludes(r => new ScalarRangeAst(AstNulls.At, false, r.Lower, r.Upper))];
+  public static DomainRangeAst[] DomainRanges(this DomainRangeInput[] ranges)
+    => [.. ranges.WithExcludes(r => new DomainRangeAst(AstNulls.At, false, r.Lower, r.Upper))];
 
-  public static ScalarRegexAst[] ScalarRegexes(this string[] regexes)
-    => [.. regexes.WithExcludes(r => new ScalarRegexAst(AstNulls.At, false, r))];
+  public static DomainRegexAst[] DomainRegexes(this string[] regexes)
+    => [.. regexes.WithExcludes(r => new DomainRegexAst(AstNulls.At, false, r))];
 
   public static TypeParameterAst[] TypeParameters(this string[] parameters)
     => [.. parameters.Select(parameter => new TypeParameterAst(AstNulls.At, parameter))];

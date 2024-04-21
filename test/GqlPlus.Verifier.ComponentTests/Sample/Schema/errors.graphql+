@@ -3,4 +3,4 @@ directive @ {}
 enum None [] {}
 input Empty {}
 output NoParams<> {}
-scalar Other { Enum }
+domain Other { Enum }

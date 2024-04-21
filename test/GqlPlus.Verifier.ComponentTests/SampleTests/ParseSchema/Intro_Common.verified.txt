@@ -32,7 +32,7 @@ Success
   _TypeOutput
   !AO
   I@007/0008
-  _TypeScalar
+  _TypeDomain
   !AO
   I@007/0009
   _TypeUnion
@@ -124,7 +124,7 @@ Success
   !EM I@031/0028
   Internal
   !EM I@040/0028
-  Scalar
+  Domain
   !EM I@047/0028
   Union
 }
@@ -182,7 +182,7 @@ Success
   _TypeRef
   <
     I@016/0040
-    _TypeKind.Scalar
+    _TypeKind.Domain
   >
   !AO
   I@007/0041

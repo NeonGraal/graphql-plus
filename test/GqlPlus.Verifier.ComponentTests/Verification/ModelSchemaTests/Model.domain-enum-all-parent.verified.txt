@@ -1,0 +1,43 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DomEnumAllParent: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomEnumAllParent
+      exclude: false
+      kind: !_SimpleKind Enum
+      name: EnumDomAllParent
+      value: '*'
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      kind: !_SimpleKind Enum
+      name: EnumDomAllParent
+      value: '*'
+    kind: !_TypeKind Domain
+    name: DomEnumAllParent
+  !_Identifier EnumDomAllParent: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumDomParentAll
+      name: scal_enum_all
+    - !_EnumMember
+      enum: EnumDomAllParent
+      name: scal_all
+    items:
+    - !_Aliased scal_all
+    kind: !_TypeKind Enum
+    name: EnumDomAllParent
+    parent: !_TypeRef(_SimpleKind)
+      kind: !_SimpleKind Enum
+      name: EnumDomParentAll
+  !_Identifier EnumDomParentAll: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumDomParentAll
+      name: scal_enum_all
+    items:
+    - !_Aliased scal_enum_all
+    kind: !_TypeKind Enum
+    name: EnumDomParentAll

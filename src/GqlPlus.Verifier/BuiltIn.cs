@@ -9,9 +9,9 @@ internal static class BuiltIn
     new EnumDeclAst(AstNulls.At, "Boolean") { Aliases = ["^"], Members = [new(AstNulls.At, "false"), new(AstNulls.At, "true")] },
     new EnumDeclAst(AstNulls.At, "Unit") { Aliases = ["_"], Members = [new(AstNulls.At, "_")] },
 
-    new AstScalar<ScalarMemberAst>(AstNulls.At, "Enum", ScalarDomain.Enum, []),
-    new AstScalar<ScalarRangeAst>(AstNulls.At, "Number", ScalarDomain.Number, []) { Aliases = ["0"] },
-    new AstScalar<ScalarRegexAst>(AstNulls.At, "String", ScalarDomain.String, []) { Aliases = ["*"] },
+    new AstDomain<DomainMemberAst>(AstNulls.At, "Enum", DomainDomain.Enum, []),
+    new AstDomain<DomainRangeAst>(AstNulls.At, "Number", DomainDomain.Number, []) { Aliases = ["0"] },
+    new AstDomain<DomainRegexAst>(AstNulls.At, "String", DomainDomain.String, []) { Aliases = ["*"] },
   ];
 
   public static IEnumerable<object[]> AllBasic()
@@ -21,7 +21,7 @@ internal static class BuiltIn
     new EnumDeclAst(AstNulls.At, "Void"),
     new EnumDeclAst(AstNulls.At, "Null") { Aliases = ["null"], Members = [new(AstNulls.At, "null")] },
 
-    new UnionDeclAst(AstNulls.At, "Simple", new[] {"^", "0", "*", "_", "_Union", "_Scalar", "_Enum" }.UnionMembers()),
+    new UnionDeclAst(AstNulls.At, "Simple", new[] {"^", "0", "*", "_", "_Union", "_Domain", "_Enum" }.UnionMembers()),
     new UnionDeclAst(AstNulls.At, "Internal", new[] {"Void", "Null" }.UnionMembers()),
 
     DualObj("Opt", TypeParameters("T"), DualAlt(null), DualType("Null")),
@@ -43,7 +43,7 @@ internal static class BuiltIn
     new SpecialTypeAst(AstNulls.At, "Enum"),
     new SpecialTypeAst(AstNulls.At, "Input"),
     new SpecialTypeAst(AstNulls.At, "Output"),
-    new SpecialTypeAst(AstNulls.At, "Scalar"),
+    new SpecialTypeAst(AstNulls.At, "Domain"),
     new SpecialTypeAst(AstNulls.At, "Union"),
   ];
 

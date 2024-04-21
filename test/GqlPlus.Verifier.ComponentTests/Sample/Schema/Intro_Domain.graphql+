@@ -1,0 +1,53 @@
+enum _DomainDomain { Boolean Enum Number String Union }
+
+output _TypeDomain {
+    | _BaseDomain<_DomainDomain.Boolean _DomainTrueFalse>
+    | _BaseDomain<_DomainDomain.Enum _DomainMember>
+    | _BaseDomain<_DomainDomain.Number _DomainRange>
+    | _BaseDomain<_DomainDomain.String _DomainRegex>
+    }
+
+output _DomainRef<$kind> {
+    : _TypeRef<_TypeKind.Domain>
+        domain: $kind
+    }
+
+output _BaseDomain<$domain $item> {
+    : _ParentType<_TypeKind.Domain $item _DomainItem<$item>>
+        domain: $domain
+    }
+
+dual _BaseDomainItem {
+        exclude: Boolean
+    }
+
+dual _DomainTrueFalse {
+    : _BaseDomainItem
+        value: Boolean
+    }
+
+output _DomainMember {
+    : _BaseDomainItem
+        member: _EnumValue
+    }
+
+dual _DomainRange {
+    : _BaseDomainItem
+        from: Number?
+        to: Number?
+    }
+
+dual _DomainRegex {
+    : _BaseDomainItem
+        regex: String
+    }
+
+dual _DomainItem<$item> {
+    : $item
+        domain: _Identifier
+    }
+
+output _DomainValue<$kind $value> {
+    : _DomainRef<$kind>
+        value: $value
+    }

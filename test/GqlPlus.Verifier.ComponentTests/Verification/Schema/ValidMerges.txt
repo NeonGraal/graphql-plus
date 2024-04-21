@@ -103,33 +103,33 @@ object ObjPrnt { :PrntObj }
 object ObjPrnt { :PrntObj }
 object PrntObj { }
 
-// scalar-alias
-scalar NumAlias [Num1] { number }
-scalar NumAlias [Num2] { number }
+// domain-alias
+domain NumAlias [Num1] { number }
+domain NumAlias [Num2] { number }
 
-// scalar-number
-scalar Num { number }
-scalar Num { number }
+// domain-number
+domain Num { number }
+domain Num { number }
 
-// scalar-number-diff
-scalar NumDiff { number 1~9 }
-scalar NumDiff { number }
+// domain-number-diff
+domain NumDiff { number 1~9 }
+domain NumDiff { number }
 
-// scalar-number-same
-scalar NumSame { number 1~9 }
-scalar NumSame { number 1~9 }
+// domain-number-same
+domain NumSame { number 1~9 }
+domain NumSame { number 1~9 }
 
-// scalar-string
-scalar Str { string }
-scalar Str { string }
+// domain-string
+domain Str { string }
+domain Str { string }
 
-// scalar-string-diff
-scalar StrDiff { string /a+/ }
-scalar StrDiff { string }
+// domain-string-diff
+domain StrDiff { string /a+/ }
+domain StrDiff { string }
 
-// scalar-string-same
-scalar StrSame { string /a+/ }
-scalar StrSame { string /a+/ }
+// domain-string-same
+domain StrSame { string /a+/ }
+domain StrSame { string /a+/ }
 
 // union-diff
 union UnDiff { Boolean }

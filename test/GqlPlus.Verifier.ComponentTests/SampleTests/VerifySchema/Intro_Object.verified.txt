@@ -2,7 +2,7 @@
   !!! I@007/0011 : Invalid Output Alternate. '_BaseType' not defined. - '_BaseType' !!!,
   !!! I@007/0012 : Invalid Output Alternate. '_TypeSimple' not defined. - '_TypeSimple' !!!,
   !!! I@008/0001 : Invalid Output Parent. '_ChildType' not defined. - '_TypeObject' !!!,
-  !!! I@008/0021 : Invalid Scalar Parent. '_Identifier' not defined. - '_TypeParameter' !!!,
+  !!! I@008/0021 : Invalid Domain Parent. '_Identifier' not defined. - '_TypeParameter' !!!,
   !!! I@008/0033 : Invalid Output Parent. '_Aliased' not defined. - '_Field' !!!,
   !!! I@013/0024 : Invalid Output Field. '_BaseDescribed' not defined. - '_BaseDescribed' !!!,
   !!! I@013/0035 : Invalid Output Field. '_BaseDescribed' not defined. - '_BaseDescribed' !!!,

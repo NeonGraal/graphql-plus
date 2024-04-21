@@ -1,7 +1,0 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier NumAlias: !_ScalarNumber
-    aliases: [Num1, Num2]
-    kind: !_TypeKind Scalar
-    name: NumAlias
-    scalar: !_ScalarKind Number

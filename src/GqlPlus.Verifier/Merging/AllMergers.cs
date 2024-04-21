@@ -20,17 +20,17 @@ public static class AllMergers
       .AddMerge<AstType, MergeAllTypes>()
       .AddMergeAll<EnumDeclAst, AstType, MergeEnums>()
       .AddMerge<EnumMemberAst, MergeEnumMembers>()
-      .AddMergeAll<AstScalar, AstType, MergeAllScalars>()
+      .AddMergeAll<AstDomain, AstType, MergeAllDomains>()
       .AddMerge<UnionMemberAst, MergeUnionMembers>()
       .AddMergeAll<UnionDeclAst, AstType, MergeUnions>()
-      .AddMergeScalar<ScalarTrueFalseAst>()
-      .AddMergeScalar<ScalarMemberAst>()
-      .AddMergeScalar<ScalarRangeAst>()
-      .AddMergeScalar<ScalarRegexAst>()
-      .AddMerge<ScalarTrueFalseAst, MergeScalarTrueFalse>()
-      .AddMerge<ScalarMemberAst, MergeScalarMembers>()
-      .AddMerge<ScalarRangeAst, MergeScalarRanges>()
-      .AddMerge<ScalarRegexAst, MergeScalarRegexes>()
+      .AddMergeDomain<DomainTrueFalseAst>()
+      .AddMergeDomain<DomainMemberAst>()
+      .AddMergeDomain<DomainRangeAst>()
+      .AddMergeDomain<DomainRegexAst>()
+      .AddMerge<DomainTrueFalseAst, MergeDomainTrueFalse>()
+      .AddMerge<DomainMemberAst, MergeDomainMembers>()
+      .AddMerge<DomainRangeAst, MergeDomainRanges>()
+      .AddMerge<DomainRegexAst, MergeDomainRegexes>()
       // Object types
       .AddMerge<ParameterAst, MergeParameters>()
       .AddMerge<TypeParameterAst, MergeTypeParameters>()
@@ -62,8 +62,8 @@ public static class AllMergers
       .AddSingleton<IMerge<TValue>>(x => x.GetRequiredService<TService>())
       .AddSingleton<IMergeAll<TBase>>(x => x.GetRequiredService<TService>());
 
-  public static IServiceCollection AddMergeScalar<TMember>(this IServiceCollection services)
-    where TMember : AstBase, IAstScalarItem
+  public static IServiceCollection AddMergeDomain<TMember>(this IServiceCollection services)
+    where TMember : AstBase, IAstDomainItem
     => services
-      .AddMergeAll<AstScalar<TMember>, AstScalar, MergeScalars<TMember>>();
+      .AddMergeAll<AstDomain<TMember>, AstDomain, MergeDomains<TMember>>();
 }

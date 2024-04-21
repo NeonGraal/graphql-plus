@@ -4,7 +4,7 @@ object Test { | Test1[] }
 object Test1 { }
 
 // alts-mods-undef
-object Test { | Alt[Scalar] }
+object Test { | Alt[Domain] }
 object Alt { }
 
 // alts-mods-wrong
@@ -184,7 +184,7 @@ output Test { field(Param?): Test }
 input Param { }
 
 // output-params-mods-undef
-output Test { field(Param[Scalar]): Test }
+output Test { field(Param[Domain]): Test }
 input Param { }
 
 // output-params-mods-wrong

@@ -1,3 +1,0 @@
-﻿[
-  Invalid Scalar. 'Test' cannot be a child of itself.
-]

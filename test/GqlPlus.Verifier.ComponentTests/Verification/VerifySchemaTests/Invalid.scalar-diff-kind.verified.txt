@@ -1,5 +1,0 @@
-﻿[
-  Multiple Scalars with name 'Test' can't be merged.,
-  Group of AstScalar for Test is not singular Domain['Number', 'String'],
-  Multiple Types with name 'Test' can't be merged.
-]

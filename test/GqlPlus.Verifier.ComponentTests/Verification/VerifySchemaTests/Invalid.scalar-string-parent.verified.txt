@@ -1,4 +1,0 @@
-﻿[
-  Invalid Scalar Child. Can't merge Test items into Parent Parent items.,
-  Group of ScalarRegexAst for a+ is not singular Regex['False', 'True']
-]

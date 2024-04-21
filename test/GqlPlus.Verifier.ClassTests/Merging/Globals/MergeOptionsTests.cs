@@ -18,7 +18,10 @@ public class MergeOptionsTests
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsWithSettings_CallsSettingsMerge(string name, string[] settings1, string[] settings2)
-    => Merge_Expected([
+    => this
+    .SkipNull(settings1)
+    .SkipNull(settings2)
+    .Merge_Expected([
         new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.OptionSettings() },
         new OptionDeclAst(AstNulls.At, name) with { Settings = settings2.OptionSettings() }],
         new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.Concat(settings2).Distinct().OptionSettings() })

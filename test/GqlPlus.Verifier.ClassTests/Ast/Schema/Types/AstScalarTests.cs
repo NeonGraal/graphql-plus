@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema.Types;
 
 public abstract class AstScalarTests<TInput, TMember>
-  : AstAliasedTests
+  : AstTypeTests
   where TInput : IEquatable<TInput>
   where TMember : IAstScalarItem
 {
@@ -30,10 +30,13 @@ public abstract class AstScalarTests<TInput, TMember>
   protected override string AliasesString(string input, string aliases)
     => $"( !S {input}{aliases} {Kind.Value} )";
 
-  internal readonly AstAliasedChecks<AstScalar<TMember>> Checks;
+  internal readonly AstTypeChecks<AstScalar<TMember>> Checks;
   internal readonly Lazy<string> Kind;
 
-  internal override IAstAliasedChecks<string> AliasedChecks => Checks;
+  internal override IAstTypeChecks TypeChecks => Checks;
+
+  protected override string ParentString(string name, string parent)
+    => $"( !{AliasedChecks.Abbr} {name} {Kind.Value} :{parent} )";
 
   protected abstract string MembersString(string name, TInput input);
   protected abstract TMember[] ScalarMembers(TInput input);

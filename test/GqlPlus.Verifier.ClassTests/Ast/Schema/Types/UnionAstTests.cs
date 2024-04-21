@@ -1,24 +1,8 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema.Types;
 
 public class UnionAstTests
-  : AstAliasedTests
+  : AstTypeTests
 {
-  [Theory, RepeatData(Repeats)]
-  public void HashCode_WithParent(string name, string parent)
-      => _checks.HashCode(
-        () => new UnionDeclAst(AstNulls.At, name, []) { Parent = parent });
-
-  [Theory, RepeatData(Repeats)]
-  public void String_WithParent(string name, string parent)
-    => _checks.Text(
-      () => new UnionDeclAst(AstNulls.At, name, []) { Parent = parent },
-      $"( !U {name} :{parent} )");
-
-  [Theory, RepeatData(Repeats)]
-  public void Equality_WithParent(string name, string parent)
-    => _checks.Equality(
-      () => new UnionDeclAst(AstNulls.At, name, []) { Parent = parent });
-
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenParent(string name, string parent1, string parent2)
     => _checks.InequalityBetween(parent1, parent2,
@@ -47,10 +31,8 @@ public class UnionAstTests
       unionMembers => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()),
       unionMembers1.SequenceEqual(unionMembers2));
 
-  private readonly AstAliasedChecks<UnionDeclAst> _checks
-    = new(name => new UnionDeclAst(AstNulls.At, name, [])) {
-      SameInput = (name1, name2) => name1.Camelize() == name2.Camelize()
-    };
+  private readonly AstTypeChecks<UnionDeclAst> _checks
+    = new(name => new UnionDeclAst(AstNulls.At, name, []));
 
-  internal override IAstAliasedChecks<string> AliasedChecks => _checks;
+  internal override IAstTypeChecks TypeChecks => _checks;
 }

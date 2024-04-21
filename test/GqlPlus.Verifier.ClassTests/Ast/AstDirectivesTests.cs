@@ -63,33 +63,33 @@ internal class AstDirectivesChecks<TInput, TAst>
   public void HashCode(TInput input, string[] directives)
     => HashCode(
       () => CreateDirective(input, directives),
-      _createExpression);
+      CreateExpression);
 
   public void Equality(TInput input, string[] directives)
     => Equality(
       () => CreateDirective(input, directives),
-      _createExpression);
+      CreateExpression);
 
   public void Inequality_WithDirective(TInput input, string[] directives)
     => Inequality(
       () => CreateDirective(input, directives),
       () => CreateInput(input),
-      factoryExpression: _createExpression);
+      factoryExpression: CreateExpression);
 
   public void Inequality_ByDirectives(TInput input, string[] directive1, string[] directive2)
     => InequalityBetween(directive1, directive2,
       directives => CreateDirective(input, directives),
-      directive1.SequenceEqual(directive2), _createExpression);
+      directive1.SequenceEqual(directive2), CreateExpression);
 
   public void Inequality_ByInputs(TInput input1, TInput input2, string[] directives)
     => InequalityBetween(input1, input2,
       input => CreateDirective(input, directives),
-      input1!.Equals(input2), _createExpression);
+      input1!.Equals(input2), CreateExpression);
 
   public void String(TInput input, string[] directives, string expected)
     => Text(
       () => CreateDirective(input, directives), expected,
-      factoryExpression: _createExpression);
+      factoryExpression: CreateExpression);
 
   private TAst CreateDirective(TInput input, string[] directives)
     => CreateInput(input) with { Directives = directives.Directives() };

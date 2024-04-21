@@ -5,10 +5,10 @@ namespace GqlPlus.Verifier.Ast;
 [SuppressMessage("Performance", "CA1822:Mark members as static")]
 internal class BaseAstChecks<TAst>
 {
-  internal delegate TAst Creator();
+  internal delegate TAst AstCreator();
   internal delegate TAst CreateBy<TBy>(TBy input);
 
-  public void HashCode(Creator factory,
+  public void HashCode(AstCreator factory,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
   {
     var expected = factory()!.GetHashCode();
@@ -18,7 +18,7 @@ internal class BaseAstChecks<TAst>
     result.Should().Be(expected, factoryExpression);
   }
 
-  public void Equality(Creator factory,
+  public void Equality(AstCreator factory,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
   {
     var left = factory();
@@ -31,7 +31,7 @@ internal class BaseAstChecks<TAst>
     left.Should().NotBeSameAs(right);
   }
 
-  public void Inequality(Creator factory1, Creator factory2,
+  public void Inequality(AstCreator factory1, AstCreator factory2,
     [CallerArgumentExpression(nameof(factory1))] string factoryExpression = "")
   {
     var left = factory1();
@@ -44,7 +44,7 @@ internal class BaseAstChecks<TAst>
     left.Should().NotBeSameAs(right);
   }
 
-  public void Inequality(Creator factory1, Creator factory2, bool skipIf,
+  public void Inequality(AstCreator factory1, AstCreator factory2, bool skipIf,
     [CallerArgumentExpression(nameof(factory1))] string factoryExpression = "")
   {
     Skip.If(skipIf);
@@ -60,7 +60,7 @@ internal class BaseAstChecks<TAst>
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
     => Inequality(() => factory(input1), () => factory(input2), skipIf, factoryExpression);
 
-  public void Text(Creator factory, string expected,
+  public void Text(AstCreator factory, string expected,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
   {
     var result = $"{factory()}";
@@ -68,7 +68,7 @@ internal class BaseAstChecks<TAst>
     result.Should().Be(expected, factoryExpression);
   }
 
-  public void Text(Creator factory, string expected, bool skipIf,
+  public void Text(AstCreator factory, string expected, bool skipIf,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
   {
     Skip.If(skipIf);

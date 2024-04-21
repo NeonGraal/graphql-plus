@@ -1,6 +1,7 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema.Types;
 
-public class ScalarRegexAstTests : AstAbbreviatedTests
+public class ScalarRegexAstTests
+  : AstAbbreviatedTests
 {
   protected override string AbbreviatedString(string input)
     => $"( !SX /{input}/ )";

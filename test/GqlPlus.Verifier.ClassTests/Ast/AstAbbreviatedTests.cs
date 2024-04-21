@@ -19,26 +19,22 @@ public abstract class AstAbbreviatedTests<TInput>
   internal sealed override IAstBaseChecks<TInput> BaseChecks => AbbreviatedChecks;
 }
 
-internal sealed class AstAbbreviatedChecks<TAst>
-  : AstAbbreviatedChecks<string, TAst>
+internal sealed class AstAbbreviatedChecks<TAst>(
+  BaseAstChecks<TAst>.CreateBy<string> createInput,
+  [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
+) : AstAbbreviatedChecks<string, TAst>(createInput, createExpression)
   where TAst : AstAbbreviated
 {
-  public AstAbbreviatedChecks(CreateBy<string> createInput,
-    [CallerArgumentExpression("createInput")] string createExpression = "")
-    : base(createInput, createExpression)
-  { }
 }
 
-internal class AstAbbreviatedChecks<TInput, TAst>
-  : AstBaseChecks<TInput, TAst>, IAstAbbreviatedChecks<TInput>
+internal class AstAbbreviatedChecks<TInput, TAst>(
+  BaseAstChecks<TAst>.CreateBy<TInput> createInput,
+  [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
+) : AstBaseChecks<TInput, TAst>(createInput, createExpression)
+  , IAstAbbreviatedChecks<TInput>
   where TAst : AstAbbreviated
 {
-  public AstAbbreviatedChecks(CreateBy<TInput> createInput,
-    [CallerArgumentExpression("createInput")] string createExpression = "")
-    : base(createInput, createExpression)
-    => Abbr = createInput(default!).Abbr;
-
-  public string Abbr { get; }
+  public string Abbr { get; } = createInput(default!).Abbr;
 }
 
 internal interface IAstAbbreviatedChecks<TInput>

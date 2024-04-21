@@ -1,6 +1,8 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema.Globals;
+﻿
+namespace GqlPlus.Verifier.Ast.Schema.Globals;
 
-public class CategoryAstTests : AstAliasedTests
+public class CategoryAstTests
+  : AstAliasedTests
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithOutputAndName(string name, string output)
@@ -56,9 +58,10 @@ public class CategoryAstTests : AstAliasedTests
     => $"( !C {input.Camelize()}{aliases} (Parallel) {input} )";
 
   private readonly AstAliasedChecks<CategoryDeclAst> _checks
-    = new(name => new CategoryDeclAst(AstNulls.At, name)) {
-      SameInput = (name1, name2) => name1.Camelize() == name2.Camelize()
-    };
+    = new(name => new CategoryDeclAst(AstNulls.At, name));
 
   internal override IAstAliasedChecks<string> AliasedChecks => _checks;
+
+  protected override Func<string, string, bool> SameInput
+    => (name1, name2) => name1.Camelize() == name2.Camelize();
 }

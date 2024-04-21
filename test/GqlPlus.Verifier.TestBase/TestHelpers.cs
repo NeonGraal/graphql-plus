@@ -85,6 +85,13 @@ public static class TestHelpers
     return check;
   }
 
+  public static TCheck SkipNull<TCheck>(this TCheck check, [NotNull] object? obj, [CallerArgumentExpression(nameof(obj))] string? objExpression = null)
+  {
+    Skip.If(obj is null, objExpression + " is null");
+
+    return check;
+  }
+
   public static TCheck SkipUnless<TCheck>(this TCheck check, [NotNull] string[]? array, [CallerArgumentExpression(nameof(array))] string? arrayExpression = null)
   {
     Skip.If(array is null, arrayExpression + " is null");

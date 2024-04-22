@@ -1,5 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Ast.Schema.Globals;
+using GqlPlus.Verifier.Ast.Schema.Objects;
 
 namespace GqlPlus.Verifier.Merging;
 

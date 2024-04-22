@@ -74,30 +74,30 @@ public class ModelSchemaTests(
   }
 
   [Theory]
-  [ClassData(typeof(VerifySchemaValidSchemasData))]
-  public async Task Model_Schemas(string model)
+  [ClassData(typeof(VerifySchemaValidGlobalsData))]
+  public async Task Model_Globals(string global)
   {
-    var input = VerifySchemaValidSchemasData.Source[model];
+    var input = VerifySchemaValidGlobalsData.Source[global];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
+        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + global))
         .ToArray());
     } else {
-      await Verify_Model(input, model);
+      await Verify_Model(input, global);
     }
   }
 
   [Theory]
-  [ClassData(typeof(VerifySchemaValidTypesData))]
-  public async Task Model_Types(string model)
+  [ClassData(typeof(VerifySchemaValidSimpleData))]
+  public async Task Model_Simple(string simple)
   {
-    var input = VerifySchemaValidTypesData.Source[model];
+    var input = VerifySchemaValidSimpleData.Source[simple];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
+        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + simple))
         .ToArray());
     } else {
-      await Verify_Model(input, model);
+      await Verify_Model(input, simple);
     }
   }
 

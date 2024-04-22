@@ -7,22 +7,22 @@ types: !_Map_Type
       exclude: false
       kind: !_SimpleKind Enum
       name: EnumDom
-      value: scal_enum
+      value: dom_enum
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
       kind: !_SimpleKind Enum
       name: EnumDom
-      value: scal_enum
+      value: dom_enum
     kind: !_TypeKind Domain
     name: DomEnum
   !_Identifier EnumDom: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumDom
-      name: scal_enum
+      name: dom_enum
     items:
-    - !_Aliased scal_enum
+    - !_Aliased dom_enum
     kind: !_TypeKind Enum
     name: EnumDom

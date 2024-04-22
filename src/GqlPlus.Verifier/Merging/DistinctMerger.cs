@@ -8,7 +8,6 @@ internal abstract partial class DistinctMerger<TItem>(
 ) : GroupsMerger<TItem>
   where TItem : AstBase
 {
-  [SuppressMessage("Performance", "CA1823:Avoid unused private fields", Justification = "Logging")]
   private readonly ILogger _logger = logger.CreateLogger(nameof(DistinctMerger<TItem>));
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)

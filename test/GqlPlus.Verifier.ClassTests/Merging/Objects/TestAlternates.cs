@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema.Objects;
+using GqlPlus.Verifier.Merging.Objects;
 
 namespace GqlPlus.Verifier.Merging;
 

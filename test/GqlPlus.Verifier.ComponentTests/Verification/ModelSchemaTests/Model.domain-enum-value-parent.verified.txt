@@ -7,26 +7,26 @@ types: !_Map_Type
       exclude: false
       kind: !_SimpleKind Enum
       name: EnumDomParent
-      value: scal_enum
+      value: dom_enum
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
       kind: !_SimpleKind Enum
       name: EnumDomParent
-      value: scal_enum
+      value: dom_enum
     kind: !_TypeKind Domain
     name: DomEnumParent
   !_Identifier EnumDomParent: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumParentDom
-      name: scal_enum
+      name: dom_enum
     - !_EnumMember
       enum: EnumDomParent
-      name: scal_parent
+      name: dom_parent
     items:
-    - !_Aliased scal_parent
+    - !_Aliased dom_parent
     kind: !_TypeKind Enum
     name: EnumDomParent
     parent: !_TypeRef(_SimpleKind)
@@ -36,8 +36,8 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumParentDom
-      name: scal_enum
+      name: dom_enum
     items:
-    - !_Aliased scal_enum
+    - !_Aliased dom_enum
     kind: !_TypeKind Enum
     name: EnumParentDom

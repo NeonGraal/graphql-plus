@@ -1,4 +1,4 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema.Simple;
 
 namespace GqlPlus.Verifier;
 

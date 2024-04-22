@@ -3,7 +3,8 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseAliases : Parser<string>.IA
+internal class ParseAliases
+  : Parser<string>.IA
 {
   public IResultArray<string> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Ast.Schema.Objects;
 using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
 
@@ -8,7 +9,8 @@ namespace GqlPlus.Verifier.Parse.Schema;
 internal class ParseParameters(
   Parser<InputReferenceAst>.D input,
   Parser<ModifierAst>.DA modifiers,
-  Parser<IParserDefault, ConstantAst>.D defaultParser) : Parser<ParameterAst>.IA
+  Parser<IParserDefault, ConstantAst>.D defaultParser
+) : Parser<ParameterAst>.IA
 {
   private readonly Parser<InputReferenceAst>.L _input = input;
   private readonly Parser<ModifierAst>.LA _modifiers = modifiers;

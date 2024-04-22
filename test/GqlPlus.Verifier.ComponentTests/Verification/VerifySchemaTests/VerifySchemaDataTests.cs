@@ -12,8 +12,8 @@ public class VerifySchemaDataTests(
   {
     var duplicateKeys = VerifySchemaValidMergesData.Source.Keys
       .Concat(VerifySchemaValidObjectsData.Source.Keys)
-      .Concat(VerifySchemaValidSchemasData.Source.Keys)
-      .Concat(VerifySchemaValidTypesData.Source.Keys)
+      .Concat(VerifySchemaValidGlobalsData.Source.Keys)
+      .Concat(VerifySchemaValidSimpleData.Source.Keys)
       .GroupBy(k => k)
       .Where(g => g.Count() > 1)
       .Select(g => g.Key);

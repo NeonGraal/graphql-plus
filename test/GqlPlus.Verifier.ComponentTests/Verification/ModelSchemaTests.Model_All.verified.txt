@@ -116,14 +116,14 @@ types: !_Map_Type
       exclude: false
       kind: !_SimpleKind Enum
       name: EnumDom
-      value: scal_enum
+      value: dom_enum
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
       kind: !_SimpleKind Enum
       name: EnumDom
-      value: scal_enum
+      value: dom_enum
     kind: !_TypeKind Domain
     name: DomEnum
   !_Identifier DomEnumAll: !_DomainEnum
@@ -167,14 +167,14 @@ types: !_Map_Type
       exclude: false
       kind: !_SimpleKind Enum
       name: EnumDomParent
-      value: scal_enum
+      value: dom_enum
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
       kind: !_SimpleKind Enum
       name: EnumDomParent
-      value: scal_enum
+      value: dom_enum
     kind: !_TypeKind Domain
     name: DomEnumParent
   !_Identifier DomEnumPrnt: !_DomainEnum
@@ -183,18 +183,18 @@ types: !_Map_Type
       domain: DomPrntEnum
       exclude: false
       kind: !_SimpleKind Enum
-      value: scal_parent
+      value: dom_parent
     - !_DomainItem(_DomainMember)
       domain: DomEnumPrnt
       exclude: false
       kind: !_SimpleKind Enum
-      value: scal_enum
+      value: dom_enum
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
       kind: !_SimpleKind Enum
-      value: scal_enum
+      value: dom_enum
     kind: !_TypeKind Domain
     name: DomEnumPrnt
     parent: !_TypeRef(_SimpleKind)
@@ -206,13 +206,13 @@ types: !_Map_Type
       domain: DomMember
       exclude: false
       kind: !_SimpleKind Enum
-      value: scal_member
+      value: dom_member
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
       kind: !_SimpleKind Enum
-      value: scal_member
+      value: dom_member
     kind: !_TypeKind Domain
     name: DomMember
   !_Identifier DomNumPrnt: !_DomainNumber
@@ -241,13 +241,13 @@ types: !_Map_Type
       domain: DomPrntEnum
       exclude: false
       kind: !_SimpleKind Enum
-      value: scal_parent
+      value: dom_parent
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
       kind: !_SimpleKind Enum
-      value: scal_parent
+      value: dom_parent
     kind: !_TypeKind Domain
     name: DomPrntEnum
   !_Identifier DomPrntNum: !_DomainNumber
@@ -1115,34 +1115,34 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumDom
-      name: scal_enum
+      name: dom_enum
     items:
-    - !_Aliased scal_enum
+    - !_Aliased dom_enum
     kind: !_TypeKind Enum
     name: EnumDom
   !_Identifier EnumDomAll: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumDomAll
-      name: scal_all
+      name: dom_all
     - !_EnumMember
       enum: EnumDomAll
-      name: scal_enum_all
+      name: dom_enum_all
     items:
-    - !_Aliased scal_all
-    - !_Aliased scal_enum_all
+    - !_Aliased dom_all
+    - !_Aliased dom_enum_all
     kind: !_TypeKind Enum
     name: EnumDomAll
   !_Identifier EnumDomAllParent: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumDomParentAll
-      name: scal_enum_all
+      name: dom_enum_all
     - !_EnumMember
       enum: EnumDomAllParent
-      name: scal_all
+      name: dom_all
     items:
-    - !_Aliased scal_all
+    - !_Aliased dom_all
     kind: !_TypeKind Enum
     name: EnumDomAllParent
     parent: !_TypeRef(_SimpleKind)
@@ -1170,12 +1170,12 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumParentDom
-      name: scal_enum
+      name: dom_enum
     - !_EnumMember
       enum: EnumDomParent
-      name: scal_parent
+      name: dom_parent
     items:
-    - !_Aliased scal_parent
+    - !_Aliased dom_parent
     kind: !_TypeKind Enum
     name: EnumDomParent
     parent: !_TypeRef(_SimpleKind)
@@ -1185,9 +1185,9 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumDomParentAll
-      name: scal_enum_all
+      name: dom_enum_all
     items:
-    - !_Aliased scal_enum_all
+    - !_Aliased dom_enum_all
     kind: !_TypeKind Enum
     name: EnumDomParentAll
   !_Identifier EnumDomParentUnique: !_TypeEnum
@@ -1203,13 +1203,13 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumDomPrnt
-      name: scal_enum
+      name: dom_enum
     - !_EnumMember
       enum: EnumDomPrnt
-      name: scal_parent
+      name: dom_parent
     items:
-    - !_Aliased scal_enum
-    - !_Aliased scal_parent
+    - !_Aliased dom_enum
+    - !_Aliased dom_parent
     kind: !_TypeKind Enum
     name: EnumDomPrnt
   !_Identifier EnumDomUnique: !_TypeEnum
@@ -1244,9 +1244,9 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumParentDom
-      name: scal_enum
+      name: dom_enum
     items:
-    - !_Aliased scal_enum
+    - !_Aliased dom_enum
     kind: !_TypeKind Enum
     name: EnumParentDom
   !_Identifier FieldEnumAlias: !_TypeOutput
@@ -2067,9 +2067,9 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: MemberDom
-      name: scal_member
+      name: dom_member
     items:
-    - !_Aliased scal_member
+    - !_Aliased dom_member
     kind: !_TypeKind Enum
     name: MemberDom
   !_Identifier Num: !_DomainNumber

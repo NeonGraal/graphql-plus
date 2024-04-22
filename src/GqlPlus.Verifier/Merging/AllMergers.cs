@@ -1,5 +1,11 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Ast.Schema.Globals;
+using GqlPlus.Verifier.Ast.Schema.Objects;
+using GqlPlus.Verifier.Ast.Schema.Simple;
+using GqlPlus.Verifier.Merging.Globals;
+using GqlPlus.Verifier.Merging.Objects;
+using GqlPlus.Verifier.Merging.Simple;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 

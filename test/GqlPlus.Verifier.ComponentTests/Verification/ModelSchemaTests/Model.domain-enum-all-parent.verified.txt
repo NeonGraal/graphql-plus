@@ -21,12 +21,12 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumDomParentAll
-      name: scal_enum_all
+      name: dom_enum_all
     - !_EnumMember
       enum: EnumDomAllParent
-      name: scal_all
+      name: dom_all
     items:
-    - !_Aliased scal_all
+    - !_Aliased dom_all
     kind: !_TypeKind Enum
     name: EnumDomAllParent
     parent: !_TypeRef(_SimpleKind)
@@ -36,8 +36,8 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumDomParentAll
-      name: scal_enum_all
+      name: dom_enum_all
     items:
-    - !_Aliased scal_enum_all
+    - !_Aliased dom_enum_all
     kind: !_TypeKind Enum
     name: EnumDomParentAll

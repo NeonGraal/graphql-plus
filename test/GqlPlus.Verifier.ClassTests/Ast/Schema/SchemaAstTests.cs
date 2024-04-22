@@ -1,6 +1,9 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema.Globals;
 
-public class SchemaAstTests : AstAbbreviatedTests
+namespace GqlPlus.Verifier.Ast.Schema;
+
+public class SchemaAstTests
+  : AstAbbreviatedTests
 {
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks { get; }
     = new AstAbbreviatedChecks<SchemaAst>(name => new SchemaAst(AstNulls.At) { Declarations = [new OptionDeclAst(AstNulls.At, name)] });

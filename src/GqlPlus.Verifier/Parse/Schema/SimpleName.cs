@@ -2,7 +2,8 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class SimpleName : ISimpleName
+internal class SimpleName
+  : ISimpleName
 {
   public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
   {

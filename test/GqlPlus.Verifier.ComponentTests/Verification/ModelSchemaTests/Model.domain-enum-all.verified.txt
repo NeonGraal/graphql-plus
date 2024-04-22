@@ -21,12 +21,12 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumDomAll
-      name: scal_all
+      name: dom_all
     - !_EnumMember
       enum: EnumDomAll
-      name: scal_enum_all
+      name: dom_enum_all
     items:
-    - !_Aliased scal_all
-    - !_Aliased scal_enum_all
+    - !_Aliased dom_all
+    - !_Aliased dom_enum_all
     kind: !_TypeKind Enum
     name: EnumDomAll

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Verifier.Ast.Schema.Objects;
+using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Ast.Schema;
 

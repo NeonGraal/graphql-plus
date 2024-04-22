@@ -1,4 +1,4 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Verifier.Ast.Schema.Globals;
 using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling.Globals;

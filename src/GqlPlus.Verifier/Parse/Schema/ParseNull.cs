@@ -1,10 +1,12 @@
 ﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Parse.Schema.Simple;
 using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-internal class ParseNull : Parser<NullAst>.I
+internal class ParseNull
+  : Parser<NullAst>.I
 {
   [ExcludeFromCodeCoverage]
   public IResult<NullAst> Parse<TContext>(TContext tokens, string label)

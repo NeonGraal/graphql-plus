@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
+using GqlPlus.Verifier.Ast.Schema.Simple;
+using GqlPlus.Verifier.Parse.Schema.Simple;
 using GqlPlus.Verifier.Result;
 using NSubstitute;
 

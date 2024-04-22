@@ -26,8 +26,8 @@ public class SchemaBase(
     public static readonly Dictionary<string, IEnumerable<string>> Values = new() {
       ["Objects"] = ValidObjects,
       ["Merges"] = ValidMerges,
-      ["Schemas"] = VerifySchemaValidSchemasData.Source.Values,
-      ["Types"] = VerifySchemaValidTypesData.Source.Values,
+      ["Globals"] = VerifySchemaValidGlobalsData.Source.Values,
+      ["Simple"] = VerifySchemaValidSimpleData.Source.Values,
     };
     public SchemaValidData()
     {

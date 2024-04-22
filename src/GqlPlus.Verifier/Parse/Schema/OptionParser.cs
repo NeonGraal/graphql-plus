@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Result;
+﻿using GqlPlus.Verifier.Parse.Schema.Simple;
+using GqlPlus.Verifier.Result;
 using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema;

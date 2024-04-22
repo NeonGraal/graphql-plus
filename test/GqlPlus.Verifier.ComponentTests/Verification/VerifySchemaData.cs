@@ -3,6 +3,31 @@
 
 namespace GqlPlus.Verifier.Verification;
 
+public class VerifySchemaInvalidGlobalsData
+  : TheoryData<string>
+{
+  public static readonly Dictionary<string, string> Source = new() {
+    ["bad-parse"] = "",
+    ["category-diff-mods"] = "category { Test } category { Test? } output Test { }",
+    ["category-dup-alias"] = "category [a] { Test } category [a] { Output } output Test { } output Output { }",
+    ["category-duplicate"] = "category { Test } category test { Output } output Test { } output Output { }",
+    ["category-output-generic"] = "category { Test } output Test<$a> { | $a }",
+    ["category-output-undef"] = "category { Test }",
+    ["category-output-wrong"] = "category { Test } input Test { }",
+    ["directive-diff-option"] = "directive @Test { all } directive @Test { ( repeatable ) all }",
+    ["directive-diff-parameter"] = "directive @Test(Test) { all } directive @Test(Test?) { all } input Test { }",
+    ["directive-no-param"] = "directive @Test(Test) { all }",
+    ["option-diff-name"] = "option Test { } option Schema { }",
+  };
+
+  public VerifySchemaInvalidGlobalsData()
+  {
+    foreach (var key in Source.Keys) {
+      Add(key);
+    }
+  }
+}
+
 public class VerifySchemaInvalidObjectsData
   : TheoryData<string>
 {
@@ -87,32 +112,7 @@ public class VerifySchemaInvalidObjectsData
   }
 }
 
-public class VerifySchemaInvalidSchemasData
-  : TheoryData<string>
-{
-  public static readonly Dictionary<string, string> Source = new() {
-    ["bad-parse"] = "",
-    ["category-diff-mods"] = "category { Test } category { Test? } output Test { }",
-    ["category-dup-alias"] = "category [a] { Test } category [a] { Output } output Test { } output Output { }",
-    ["category-duplicate"] = "category { Test } category test { Output } output Test { } output Output { }",
-    ["category-output-generic"] = "category { Test } output Test<$a> { | $a }",
-    ["category-output-undef"] = "category { Test }",
-    ["category-output-wrong"] = "category { Test } input Test { }",
-    ["directive-diff-option"] = "directive @Test { all } directive @Test { ( repeatable ) all }",
-    ["directive-diff-parameter"] = "directive @Test(Test) { all } directive @Test(Test?) { all } input Test { }",
-    ["directive-no-param"] = "directive @Test(Test) { all }",
-    ["option-diff-name"] = "option Test { } option Schema { }",
-  };
-
-  public VerifySchemaInvalidSchemasData()
-  {
-    foreach (var key in Source.Keys) {
-      Add(key);
-    }
-  }
-}
-
-public class VerifySchemaInvalidTypesData
+public class VerifySchemaInvalidSimpleData
   : TheoryData<string>
 {
   public static readonly Dictionary<string, string> Source = new() {
@@ -156,7 +156,30 @@ public class VerifySchemaInvalidTypesData
     ["unique-types"] = "enum Test { Value } output Test { }",
   };
 
-  public VerifySchemaInvalidTypesData()
+  public VerifySchemaInvalidSimpleData()
+  {
+    foreach (var key in Source.Keys) {
+      Add(key);
+    }
+  }
+}
+
+public class VerifySchemaValidGlobalsData
+  : TheoryData<string>
+{
+  public static readonly Dictionary<string, string> Source = new() {
+    ["category-output"] = "category { Cat } output Cat { }",
+    ["description"] = "\"A simple description\" output Descr { }",
+    ["description-backslash"] = "'A backslash (\"\\\\\") description' output DescrBackslash { }",
+    ["description-between"] = "category { DescrBetween } \"A description between\" output DescrBetween { }",
+    ["description-complex"] = "\"A \\\"more\\\" 'Complicated' \\\\ description\" output DescrComplex { }",
+    ["description-double"] = "\"A 'double-quoted' description\" output DescrDouble { }",
+    ["description-single"] = "'A \"single-quoted\" description' output DescrSingle { }",
+    ["directive-param"] = "directive @DirParam(DirParamIn) { all } input DirParamIn { }",
+    ["option-setting"] = "option Schema { setting = true }",
+  };
+
+  public VerifySchemaValidGlobalsData()
   {
     foreach (var key in Source.Keys) {
       Add(key);
@@ -264,41 +287,18 @@ public class VerifySchemaValidObjectsData
   }
 }
 
-public class VerifySchemaValidSchemasData
+public class VerifySchemaValidSimpleData
   : TheoryData<string>
 {
   public static readonly Dictionary<string, string> Source = new() {
-    ["category-output"] = "category { Cat } output Cat { }",
-    ["description"] = "\"A simple description\" output Descr { }",
-    ["description-backslash"] = "'A backslash (\"\\\\\") description' output DescrBackslash { }",
-    ["description-between"] = "category { DescrBetween } \"A description between\" output DescrBetween { }",
-    ["description-complex"] = "\"A \\\"more\\\" 'Complicated' \\\\ description\" output DescrComplex { }",
-    ["description-double"] = "\"A 'double-quoted' description\" output DescrDouble { }",
-    ["description-single"] = "'A \"single-quoted\" description' output DescrSingle { }",
-    ["directive-param"] = "directive @DirParam(DirParamIn) { all } input DirParamIn { }",
-    ["option-setting"] = "option Schema { setting = true }",
-  };
-
-  public VerifySchemaValidSchemasData()
-  {
-    foreach (var key in Source.Keys) {
-      Add(key);
-    }
-  }
-}
-
-public class VerifySchemaValidTypesData
-  : TheoryData<string>
-{
-  public static readonly Dictionary<string, string> Source = new() {
-    ["domain-enum-all"] = "domain DomEnumAll { enum EnumDomAll.* } enum EnumDomAll { scal_all scal_enum_all }",
-    ["domain-enum-all-parent"] = "domain DomEnumAllParent { enum EnumDomAllParent.* } enum EnumDomAllParent { :EnumDomParentAll scal_all } enum EnumDomParentAll { scal_enum_all }",
-    ["domain-enum-member"] = "domain DomMember { enum scal_member } enum MemberDom { scal_member }",
-    ["domain-enum-parent"] = "domain DomEnumPrnt { :DomPrntEnum Enum scal_enum } domain DomPrntEnum { Enum scal_parent } enum EnumDomPrnt { scal_enum scal_parent }",
+    ["domain-enum-all"] = "domain DomEnumAll { enum EnumDomAll.* } enum EnumDomAll { dom_all dom_enum_all }",
+    ["domain-enum-all-parent"] = "domain DomEnumAllParent { enum EnumDomAllParent.* } enum EnumDomAllParent { :EnumDomParentAll dom_all } enum EnumDomParentAll { dom_enum_all }",
+    ["domain-enum-member"] = "domain DomMember { enum dom_member } enum MemberDom { dom_member }",
+    ["domain-enum-parent"] = "domain DomEnumPrnt { :DomPrntEnum Enum dom_enum } domain DomPrntEnum { Enum dom_parent } enum EnumDomPrnt { dom_enum dom_parent }",
     ["domain-enum-unique"] = "enum EnumDomUnique { value dup } enum EnumDomDup { dup } # domain DomEnumUnique { enum EnumDomUnique.* !EnumDomUnique.dup EnumDomDup.dup }",
     ["domain-enum-unique-parent"] = "enum EnumDomUniqueParent { :EnumDomParentUnique value } enum EnumDomParentUnique { dup } enum EnumDomDupParent { dup } # domain DomEnumUniqueParent { enum EnumDomUniqueParent.* !EnumDomUniqueParent.dup EnumDomDupParent.dup }",
-    ["domain-enum-value"] = "domain DomEnum { Enum EnumDom.scal_enum } enum EnumDom { scal_enum }",
-    ["domain-enum-value-parent"] = "domain DomEnumParent { Enum EnumDomParent.scal_enum } enum EnumDomParent { :EnumParentDom scal_parent } enum EnumParentDom { scal_enum }",
+    ["domain-enum-value"] = "domain DomEnum { Enum EnumDom.dom_enum } enum EnumDom { dom_enum }",
+    ["domain-enum-value-parent"] = "domain DomEnumParent { Enum EnumDomParent.dom_enum } enum EnumDomParent { :EnumParentDom dom_parent } enum EnumParentDom { dom_enum }",
     ["domain-number-parent"] = "domain DomNumPrnt { :DomPrntNum Number 2>} domain DomPrntNum { Number <2 }",
     ["domain-parent"] = "domain DomPrntTest { :DomTestPrnt Boolean } domain DomTestPrnt { Boolean }",
     ["domain-string-parent"] = "domain DomStrPrnt { :DomPrntStr String /a+/ } domain DomPrntStr { String /b+/ }",
@@ -308,7 +308,7 @@ public class VerifySchemaValidTypesData
     ["union-parent"] = "union UnionPrnt { :PrntUnion String } union PrntUnion { Number }",
   };
 
-  public VerifySchemaValidTypesData()
+  public VerifySchemaValidSimpleData()
   {
     foreach (var key in Source.Keys) {
       Add(key);

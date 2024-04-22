@@ -11,14 +11,14 @@ public class VerifySchemaTests(
 ) : SchemaBase(parser)
 {
   [Theory]
-  [ClassData(typeof(VerifySchemaValidSchemasData))]
-  public void Verify_ValidSchemas(string schema)
-    => Verify_Valid(VerifySchemaValidSchemasData.Source[schema]);
+  [ClassData(typeof(VerifySchemaValidGlobalsData))]
+  public void Verify_ValidGlobals(string global)
+    => Verify_Valid(VerifySchemaValidGlobalsData.Source[global]);
 
   [Theory]
-  [ClassData(typeof(VerifySchemaInvalidSchemasData))]
-  public async Task Verify_InvalidSchemas(string schema)
-    => await Verify_Invalid(VerifySchemaInvalidSchemasData.Source[schema], schema);
+  [ClassData(typeof(VerifySchemaInvalidGlobalsData))]
+  public async Task Verify_InvalidGlobals(string global)
+    => await Verify_Invalid(VerifySchemaInvalidGlobalsData.Source[global], global);
 
   [Theory]
   [ClassData(typeof(VerifySchemaValidMergesData))]
@@ -37,14 +37,14 @@ public class VerifySchemaTests(
   }
 
   [Theory]
-  [ClassData(typeof(VerifySchemaValidTypesData))]
-  public void Verify_ValidTypes(string type)
-    => Verify_Valid(VerifySchemaValidTypesData.Source[type]);
+  [ClassData(typeof(VerifySchemaValidSimpleData))]
+  public void Verify_ValidSimple(string simple)
+    => Verify_Valid(VerifySchemaValidSimpleData.Source[simple]);
 
   [Theory]
-  [ClassData(typeof(VerifySchemaInvalidTypesData))]
-  public async Task Verify_InvalidTypes(string type)
-    => await Verify_Invalid(VerifySchemaInvalidTypesData.Source[type], type);
+  [ClassData(typeof(VerifySchemaInvalidSimpleData))]
+  public async Task Verify_InvalidSimple(string simple)
+    => await Verify_Invalid(VerifySchemaInvalidSimpleData.Source[simple], simple);
 
   [Theory]
   [ClassData(typeof(VerifySchemaValidObjectsData))]
@@ -99,7 +99,7 @@ public class VerifySchemaTests(
     if (parse.IsOk()) {
       verifier.Verify(parse.Required(), result);
     } else {
-      parse.IsError(result.Add);
+      parse.IsError(e => result.Add(e with { Message = "Parse Error: " + e.Message }));
     }
 
     result.Should().NotBeEmpty(input);

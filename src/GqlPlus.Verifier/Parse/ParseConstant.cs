@@ -9,7 +9,7 @@ public class ParseConstant : ValueParser<ConstantAst>
     Parser<FieldKeyAst>.D fieldKey,
     Parser<KeyValue<ConstantAst>>.D keyValueParser,
     Parser<ConstantAst>.DA listParser,
-    Parser<AstObject<ConstantAst>>.D objectParser
+    Parser<AstFields<ConstantAst>>.D objectParser
   ) : base(fieldKey, keyValueParser, listParser, objectParser) { }
 
   public override IResult<ConstantAst> Parse<TContext>(TContext tokens, string label)

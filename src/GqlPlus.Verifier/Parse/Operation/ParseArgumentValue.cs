@@ -9,7 +9,7 @@ internal class ParseArgumentValue(
   Parser<FieldKeyAst>.D fieldKey,
   Parser<KeyValue<ArgumentAst>>.D keyValueParser,
   Parser<ArgumentAst>.DA listParser,
-  Parser<AstObject<ArgumentAst>>.D objectParser,
+  Parser<AstFields<ArgumentAst>>.D objectParser,
   Parser<ConstantAst>.D constant
 ) : ValueParser<ArgumentAst>(fieldKey, keyValueParser, listParser, objectParser)
 {

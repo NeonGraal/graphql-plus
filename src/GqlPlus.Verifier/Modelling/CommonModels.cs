@@ -89,7 +89,7 @@ internal class ConstantModeller(
     : ast.Value is not null ? new(value.ToModel(ast.Value, typeKinds))
     : new(new SimpleModel());
 
-  private Dictionary<SimpleModel, ConstantModel> ToModel(AstObject<ConstantAst> constant, IMap<TypeKindModel> typeKinds)
+  private Dictionary<SimpleModel, ConstantModel> ToModel(AstFields<ConstantAst> constant, IMap<TypeKindModel> typeKinds)
     => constant.ToDictionary(
       p => value.ToModel(p.Key, typeKinds),
       p => ToModel(p.Value, typeKinds));

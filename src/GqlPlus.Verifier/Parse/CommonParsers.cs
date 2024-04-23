@@ -21,7 +21,7 @@ public static class CommonParsers
       .AddParser<IValueParser<TValue>, TValue, TParser>()
       .AddParser<KeyValue<TValue>, ValueKeyValueParser<TValue>>()
       .AddParserArray<TValue, ValueListParser<TValue>>()
-      .AddParser<AstObject<TValue>, ValueObjectParser<TValue>>();
+      .AddParser<AstFields<TValue>, ValueObjectParser<TValue>>();
 
   public static IServiceCollection AddParser<TValue, TService>(this IServiceCollection services)
     where TService : class, Parser<TValue>.I

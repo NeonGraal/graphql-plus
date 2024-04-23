@@ -7,12 +7,12 @@ public abstract record class AstValue<T>(TokenAt At)
   where T : AstValue<T>
 {
   public T[] Values { get; init; } = [];
-  public AstObject<T> Fields { get; init; } = [];
+  public AstFields<T> Fields { get; init; } = [];
 
   internal AstValue(TokenAt at, T[] values)
     : this(at)
     => Values = values;
-  internal AstValue(TokenAt at, AstObject<T> fields)
+  internal AstValue(TokenAt at, AstFields<T> fields)
     : this(at)
     => Fields = fields;
 

@@ -16,7 +16,7 @@ public static class OperationTestHelpers
   public static ArgumentAst[] ArgumentList(this string value)
     => new ArgumentAst[] { new(AstNulls.At, value), value.FieldKey() };
 
-  public static AstObject<ArgumentAst> ArgumentObject(this string value, string key)
+  public static AstFields<ArgumentAst> ArgumentObject(this string value, string key)
   {
     var keyAst = key.FieldKey();
     var valueAst = value.FieldKey();

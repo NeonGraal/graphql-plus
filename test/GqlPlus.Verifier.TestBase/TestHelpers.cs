@@ -22,7 +22,7 @@ public static class TestHelpers
       value.FieldKey()
     };
 
-  public static AstObject<ConstantAst> ConstantObject(this string value, string key)
+  public static AstFields<ConstantAst> ConstantObject(this string value, string key)
   {
     var keyAst = key.FieldKey();
     var valueAst = value.FieldKey();

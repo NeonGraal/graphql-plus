@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Token;
 
-namespace GqlPlus.Verifier.Ast;
+namespace GqlPlus.Verifier.Ast.Schema;
 
 public abstract record class AstDescribed(
   TokenAt At,

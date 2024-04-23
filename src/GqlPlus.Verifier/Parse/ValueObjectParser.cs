@@ -6,17 +6,17 @@ namespace GqlPlus.Verifier.Parse;
 
 public class ValueObjectParser<T>(
   Parser<KeyValue<T>>.D field
-) : Parser<AstObject<T>>.I
+) : Parser<AstFields<T>>.I
   where T : AstValue<T>
 {
   private readonly Parser<KeyValue<T>>.L _field = field;
 
-  public IResult<AstObject<T>> Parse<TContext>(TContext tokens, string label)
+  public IResult<AstFields<T>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     ArgumentNullException.ThrowIfNull(tokens);
 
-    var result = new AstObject<T>();
+    var result = new AstFields<T>();
 
     if (!tokens.Take('{')) {
       return result.Empty();

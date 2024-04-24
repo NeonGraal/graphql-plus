@@ -23,5 +23,5 @@ public class MergeAllTypesTests
   protected override IMerge<AstType> MergerBase => _merger;
 
   protected override AstType MakeAst(string input)
-    => new EnumDeclAst(AstNulls.At, input);
+    => new EnumDeclAst(AstNulls.At, input, []);
 }

@@ -8,7 +8,7 @@ namespace GqlPlus.Verifier.Verification.Schema.Simple;
 internal class AstDomainVerifier<TMember>(
   IMerge<TMember> members
 ) : IVerifyDomain
-  where TMember : AstBase, IAstDomainItem
+  where TMember : AstAbbreviated, IAstDomainItem
 {
   public ITokenMessages CanMergeItems(AstDomain usage, EnumContext context)
   {
@@ -30,7 +30,7 @@ internal class AstDomainVerifier<TMember>(
   { }
 
   protected virtual ITokenMessages CanMergeDomain(AstDomain<TMember> domain, AstDomain<TMember> domainParent, EnumContext context)
-    => members.CanMerge(domainParent.Items.Concat(domain.Items));
+    => members.CanMerge(domainParent.Members.Concat(domain.Members));
 }
 
 public interface IVerifyDomain

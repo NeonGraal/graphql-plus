@@ -3,7 +3,7 @@
 public abstract class AstDomainTests<TInput, TMember>
   : AstTypeTests
   where TInput : IEquatable<TInput>
-  where TMember : IAstDomainItem
+  where TMember : AstAbbreviated, IAstDomainItem
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithMembers(string name, TInput input)

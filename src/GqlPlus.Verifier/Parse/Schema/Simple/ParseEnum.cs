@@ -14,19 +14,17 @@ internal class ParseEnum(
 ) : DeclarationParser<EnumDefinition, EnumDeclAst>(name, param, aliases, option, definition)
 {
   protected override EnumDeclAst MakeResult(EnumDeclAst result, EnumDefinition value)
-  {
-    result.Parent = value.Parent;
-    result.Members = value.Values;
-
-    return result;
-  }
+    => result with {
+      Parent = value.Parent,
+      Members = value.Values
+    };
 
   protected override bool ApplyOption(EnumDeclAst result, IResult<NullOption> option) => true;
   protected override bool ApplyParameters(EnumDeclAst result, IResultArray<NullAst> parameter) => true;
 
   [return: NotNull]
   protected override EnumDeclAst MakePartial(TokenAt at, string? name, string description)
-    => new(at, name!, description);
+    => new(at, name!, description, []);
 }
 
 internal class EnumDefinition

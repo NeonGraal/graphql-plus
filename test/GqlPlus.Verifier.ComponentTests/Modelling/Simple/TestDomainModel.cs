@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Modelling.Simple;
 
 public abstract class TestDomainModel<TItem, TAstItem>
   : TestTypeModel<SimpleKindModel>
-  where TAstItem : IAstDomainItem
+  where TAstItem : AstAbbreviated, IAstDomainItem
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, TItem[] members)
@@ -57,7 +57,7 @@ internal abstract class CheckDomainModel<TItem, TAstItem, TItemModel>(
   IDomainModeller<TAstItem, TItemModel> modeller
 ) : CheckTypeModel<AstDomain<TAstItem>, SimpleKindModel, BaseDomainModel<TItemModel>>(modeller, SimpleKindModel.Domain)
   , ICheckDomainModel<TItem, TAstItem>
-  where TAstItem : IAstDomainItem
+  where TAstItem : AstAbbreviated, IAstDomainItem
   where TItemModel : IBaseDomainItemModel
 {
   internal string[] ExpectedDomain(ExpectedDomainInput<TItem> input)
@@ -123,7 +123,7 @@ internal abstract class CheckDomainModel<TItem, TAstItem, TItemModel>(
 
 internal interface ICheckDomainModel<TItem, TAstItem>
   : ICheckTypeModel<SimpleKindModel>, IParentModel<TItem>
-  where TAstItem : IAstDomainItem
+  where TAstItem : AstAbbreviated, IAstDomainItem
 {
   void DomainExpected(AstDomain<TAstItem> domain, string[] expected);
   AstDomain<TAstItem> DomainAst(string name, TItem[] items);

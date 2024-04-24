@@ -1,4 +1,5 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Simple;
+﻿using GqlPlus.Verifier.Ast;
+using GqlPlus.Verifier.Ast.Schema.Simple;
 using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling;
@@ -105,7 +106,7 @@ public record class DomainItemModel<TItem>(
 internal abstract class ModellerDomain<TItemAst, TItemModel>
   : ModellerType<AstDomain<TItemAst>, string, BaseDomainModel<TItemModel>>
   , IDomainModeller<TItemAst, TItemModel>
-  where TItemAst : IAstDomainItem
+  where TItemAst : AstAbbreviated, IAstDomainItem
   where TItemModel : IBaseDomainItemModel
 {
   protected ModellerDomain()
@@ -113,17 +114,17 @@ internal abstract class ModellerDomain<TItemAst, TItemModel>
   { }
 
   internal TItemModel[] ToItems(AstDomain<TItemAst> ast, IMap<TypeKindModel> typeKinds)
-    => [.. ast.Items.Select(ast => ToItem(ast, typeKinds))];
+    => [.. ast.Members.Select(ast => ToItem(ast, typeKinds))];
 
   internal DomainItemModel<TItemModel>[] ToAllItems(AstDomain<TItemAst> ast, IMap<TypeKindModel> typeKinds)
-    => [.. ast.Items.Select(item => new DomainItemModel<TItemModel>(ToItem(item, typeKinds), ast.Name))];
+    => [.. ast.Members.Select(item => new DomainItemModel<TItemModel>(ToItem(item, typeKinds), ast.Name))];
 
   protected abstract TItemModel ToItem(TItemAst ast, IMap<TypeKindModel> typeKinds);
 }
 
 public interface IDomainModeller<TItemAst, TItemModel>
   : IModeller<AstDomain<TItemAst>, BaseDomainModel<TItemModel>>
-  where TItemAst : IAstDomainItem
+  where TItemAst : AstAbbreviated, IAstDomainItem
   where TItemModel : IBaseDomainItemModel
 { }
 

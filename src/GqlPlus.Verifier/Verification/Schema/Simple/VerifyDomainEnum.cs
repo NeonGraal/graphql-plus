@@ -12,7 +12,7 @@ internal class VerifyDomainEnum(
   {
     EnumMembers members = new();
 
-    foreach (var member in domain.Items) {
+    foreach (var member in domain.Members) {
       if (string.IsNullOrWhiteSpace(member.EnumType)) {
         if (context.GetEnumValue(member.Member, out var enumType)) {
           member.EnumType = enumType;

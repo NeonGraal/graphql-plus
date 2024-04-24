@@ -59,7 +59,7 @@ internal static class AllModellers
       .AddSingleton<ITypeModeller, TModeller>(c => c.GetRequiredService<TModeller>());
 
   public static IServiceCollection AddDomainModeller<TItemAst, TItemModel, TModeller>(this IServiceCollection services)
-    where TItemAst : IAstDomainItem
+    where TItemAst : AstAbbreviated, IAstDomainItem
     where TItemModel : IBaseDomainItemModel
     where TModeller : class, IDomainModeller<TItemAst, TItemModel>, ITypeModeller
     => services

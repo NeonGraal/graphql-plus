@@ -5,26 +5,16 @@ namespace GqlPlus.Verifier.Ast.Schema.Simple;
 public sealed record class EnumDeclAst(
   TokenAt At,
   string Name,
-  string Description
-) : AstSimple(At, Name, Description), IEquatable<EnumDeclAst>
+  string Description,
+  EnumMemberAst[] Members
+) : AstSimple<EnumMemberAst>(At, Name, Description, Members)
+  , IEquatable<EnumDeclAst>
 {
-  public EnumMemberAst[] Members { get; set; } = [];
-
   internal override string Abbr => "En";
   public override string Label => "Enum";
 
-  public EnumDeclAst(TokenAt at, string name)
-    : this(at, name, "") { }
-
-  public bool Equals(EnumDeclAst? other)
-    => base.Equals(other)
-      && Members.SequenceEqual(other.Members);
-  public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Members.Length);
-  internal override IEnumerable<string?> GetFields()
-    => base.GetFields()
-      .Append(Parent.Prefixed(":"))
-      .Concat(Members.Bracket());
+  public EnumDeclAst(TokenAt at, string name, EnumMemberAst[] members)
+    : this(at, name, "", members) { }
 
   internal bool HasValue(string value)
     => Members.Any(v => v.Name == value || v.Aliases.Contains(value));

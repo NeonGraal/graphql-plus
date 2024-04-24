@@ -14,8 +14,8 @@ public class MergeEnumsTests
       .SkipUnless(values)
       .CanMergeReturnsError(_enumMembers)
     .CanMerge_Errors(
-      new EnumDeclAst(AstNulls.At, name) with { Members = values.EnumMembers() },
-      new EnumDeclAst(AstNulls.At, name));
+      new EnumDeclAst(AstNulls.At, name, values.EnumMembers()),
+      new EnumDeclAst(AstNulls.At, name, []));
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] values1, string[] values2)
@@ -23,9 +23,9 @@ public class MergeEnumsTests
     var combined = values1.EnumMembers().Concat(values2.EnumMembers()).ToArray();
 
     Merge_Expected([
-      new EnumDeclAst(AstNulls.At, name) with { Members = values1.EnumMembers() },
-      new EnumDeclAst(AstNulls.At, name) with { Members = values2.EnumMembers() }],
-      new EnumDeclAst(AstNulls.At, name) with { Members = combined });
+      new EnumDeclAst(AstNulls.At, name, values1.EnumMembers()),
+      new EnumDeclAst(AstNulls.At, name, values2.EnumMembers())],
+      new EnumDeclAst(AstNulls.At, name, combined));
   }
 
   private readonly IMerge<EnumMemberAst> _enumMembers;
@@ -41,7 +41,7 @@ public class MergeEnumsTests
   internal override AstTypeMerger<AstType, EnumDeclAst, string, EnumMemberAst> MergerTyped => _merger;
 
   protected override EnumDeclAst MakeTyped(string name, string description = "")
-    => new(AstNulls.At, name, description);
+    => new(AstNulls.At, name, description, []);
   protected override string MakeParent(string parent)
     => parent;
 }

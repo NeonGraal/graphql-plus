@@ -9,7 +9,7 @@ public class EnumModelTests(
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, string[] members)
     => _checks.EnumExpected(
-      new(AstNulls.At, name) { Members = members.EnumMembers() },
+      new(AstNulls.At, name, members.EnumMembers()),
       new(name,
         members: _checks.ExpectedMembers("items:", members),
         allMembers: _checks.ExpectedAllMembers("allItems:", members, name)));
@@ -19,7 +19,7 @@ public class EnumModelTests(
     => _checks
     .AddParent(_checks.NewParent(parent, parentMembers))
     .EnumExpected(
-      new(AstNulls.At, name) { Parent = parent, },
+      new(AstNulls.At, name, []) { Parent = parent, },
       new(name, parent, allMembers: _checks.ExpectedAllMembers("allItems:", parentMembers, parent)));
 
   [SkippableTheory, RepeatData(Repeats)]
@@ -29,7 +29,7 @@ public class EnumModelTests(
     .AddParent(_checks.NewParent(parent, parentMembers, grandParent))
     .AddParent(_checks.NewParent(grandParent, grandParentMembers))
     .EnumExpected(
-      new(AstNulls.At, name) { Parent = parent, },
+      new(AstNulls.At, name, []) { Parent = parent, },
       new(name, parent, allMembers: _checks
         .ExpectedAllMembers("allItems:", grandParentMembers, grandParent)
         .Concat(_checks.ExpectedAllMembers("", parentMembers, parent))));
@@ -45,11 +45,10 @@ public class EnumModelTests(
   ) => _checks
     .AddParent(_checks.NewParent(parent, parentMembers))
     .EnumExpected(
-      new(AstNulls.At, name) {
+      new(AstNulls.At, name, members.EnumMembers()) {
         Aliases = aliases,
         Description = contents,
         Parent = parent,
-        Members = members.EnumMembers()
       },
       new(name, parent, aliases, contents, _checks.ExpectedMembers("items:", members),
         _checks.ExpectedAllMembers("allItems:", parentMembers, parent)
@@ -87,7 +86,7 @@ internal sealed class EnumModelChecks(
         "typeKind: !_TypeKind Enum"];
 
   protected override EnumDeclAst NewDescribedAst(string input, string description)
-    => new(AstNulls.At, input, description);
+    => new(AstNulls.At, input, description, []);
 
   internal override TypeEnumModel NewParent(string name, string[] members, string? parent = null)
     => new(name) {
@@ -96,7 +95,7 @@ internal sealed class EnumModelChecks(
     };
 
   internal override EnumDeclAst NewTypeAst(string name, string? parent, string description)
-    => new(AstNulls.At, name, description) { Parent = parent };
+    => new(AstNulls.At, name, description, []) { Parent = parent };
 }
 
 internal sealed class ExpectedEnumInput(

@@ -20,7 +20,7 @@ public sealed class ParseEnumTests
   public void WithEnumMembers_ReturnsCorrectAst(string name, string[] members)
     => _checks.TrueExpected(
       name + members.Bracket("{", "}").Joined(),
-      new EnumDeclAst(AstNulls.At, name) {
+      new EnumDeclAst(AstNulls.At, name, []) {
         Members = members.EnumMembers(),
       });
 
@@ -37,10 +37,7 @@ public sealed class ParseEnumTests
   public void WithAll_ReturnsCorrectAst(string name, string parent, string[] members)
     => _checks.TrueExpected(
       name + members.Prepend(parent.Prefixed(":")).Bracket("{", "}").Joined(),
-      new EnumDeclAst(AstNulls.At, name) {
-        Parent = parent,
-        Members = members.EnumMembers(),
-      });
+      new EnumDeclAst(AstNulls.At, name, members.EnumMembers()) { Parent = parent });
 
   internal override IBaseAliasedChecks<EnumInput> AliasChecks => _checks;
 
@@ -57,7 +54,7 @@ internal sealed class ParseEnumChecks
     : base(parser) { }
 
   protected internal override EnumDeclAst NamedFactory(EnumInput input)
-    => new(AstNulls.At, input.Type) { Members = new[] { input.Member }.EnumMembers(), };
+    => new(AstNulls.At, input.Type, new[] { input.Member }.EnumMembers());
 
   protected internal override string AliasesString(EnumInput input, string aliases)
     => input.Type + aliases + "{" + input.Member + "}";

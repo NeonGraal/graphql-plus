@@ -69,7 +69,7 @@ public static class AllMergers
       .AddSingleton<IMergeAll<TBase>>(x => x.GetRequiredService<TService>());
 
   public static IServiceCollection AddMergeDomain<TMember>(this IServiceCollection services)
-    where TMember : AstBase, IAstDomainItem
+    where TMember : AstAbbreviated, IAstDomainItem
     => services
       .AddMergeAll<AstDomain<TMember>, AstDomain, MergeDomains<TMember>>();
 }

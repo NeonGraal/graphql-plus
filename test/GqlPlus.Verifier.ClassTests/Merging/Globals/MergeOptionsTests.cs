@@ -26,7 +26,7 @@ public class MergeOptionsTests
         new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.OptionSettings() },
         new OptionDeclAst(AstNulls.At, name) with { Settings = settings2.OptionSettings() }],
         new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.Concat(settings2).Distinct().OptionSettings() })
-      .MergeCalled(_settings, settings1.Length + settings2.Length);
+      .MergeCalled(_settings, settings1.Concat(settings2).Distinct().Count());
 
   private readonly MergeOptions _merger;
   private readonly IMerge<OptionSettingAst> _settings;

@@ -8,7 +8,7 @@ namespace GqlPlus.Verifier.Merging.Simple;
 
 public abstract class TestDomainAsts<TItem, TItemInput>
   : TestTyped<AstDomain, AstDomain<TItem>, string, TItem>
-  where TItem : AstBase, IAstDomainItem
+  where TItem : AstAbbreviated, IAstDomainItem
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_SameKinds_ReturnsGood(string name)
@@ -37,8 +37,8 @@ public abstract class TestDomainAsts<TItem, TItemInput>
   public void CanMerge_ItemsCantMerge_ReturnsErrors(string name, TItemInput input)
   {
     var items = new[] {
-      MakeDescribed(name) with { Items = MakeItems(input) },
-      MakeDescribed(name) with { Items = MakeItems(input) },
+      MakeDescribed(name) with { Members = MakeItems(input) },
+      MakeDescribed(name) with { Members = MakeItems(input) },
     };
     MergeItems.CanMerge([]).ReturnsForAnyArgs(new TokenMessages(new TokenMessage(AstNulls.At, "Error!")));
 

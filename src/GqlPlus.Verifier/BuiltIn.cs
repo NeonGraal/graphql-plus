@@ -8,8 +8,8 @@ namespace GqlPlus.Verifier;
 internal static class BuiltIn
 {
   internal static AstType[] Basic = [
-    new EnumDeclAst(AstNulls.At, "Boolean") { Aliases = ["^"], Members = [new(AstNulls.At, "false"), new(AstNulls.At, "true")] },
-    new EnumDeclAst(AstNulls.At, "Unit") { Aliases = ["_"], Members = [new(AstNulls.At, "_")] },
+    new EnumDeclAst(AstNulls.At, "Boolean", [new(AstNulls.At, "false"), new(AstNulls.At, "true")]) { Aliases = ["^"] },
+    new EnumDeclAst(AstNulls.At, "Unit", [new(AstNulls.At, "_")]) { Aliases = ["_"] },
 
     new AstDomain<DomainMemberAst>(AstNulls.At, "Enum", DomainKind.Enum, []),
     new AstDomain<DomainRangeAst>(AstNulls.At, "Number", DomainKind.Number, []) { Aliases = ["0"] },
@@ -20,8 +20,8 @@ internal static class BuiltIn
     => Basic.Select(b => new object[] { b });
 
   internal static AstType[] Internal = [
-    new EnumDeclAst(AstNulls.At, "Void"),
-    new EnumDeclAst(AstNulls.At, "Null") { Aliases = ["null"], Members = [new(AstNulls.At, "null")] },
+    new EnumDeclAst(AstNulls.At, "Void", []),
+    new EnumDeclAst(AstNulls.At, "Null", [new(AstNulls.At, "null")] ) { Aliases = ["null"] },
 
     new UnionDeclAst(AstNulls.At, "Simple", new[] {"^", "0", "*", "_", "_Union", "_Domain", "_Enum" }.UnionMembers()),
     new UnionDeclAst(AstNulls.At, "Internal", new[] {"Void", "Null" }.UnionMembers()),

@@ -7,15 +7,15 @@ internal class MergeDomains<TMember>(
   ILoggerFactory logger,
   IMerge<TMember> members
 ) : AstTypeMerger<AstDomain, AstDomain<TMember>, string, TMember>(logger, members)
-  where TMember : AstBase, IAstDomainItem
+  where TMember : AstAbbreviated, IAstDomainItem
 {
   protected override string ItemMatchName => "Domain~Parent";
   protected override string ItemMatchKey(AstDomain<TMember> item)
     => item.DomainKind.ToString() + item.Parent.Prefixed("~");
 
   internal override IEnumerable<TMember> GetItems(AstDomain<TMember> type)
-    => type.Items;
+    => type.Members;
 
   internal override AstDomain<TMember> SetItems(AstDomain<TMember> input, IEnumerable<TMember> items)
-    => input with { Items = [.. items] };
+    => input with { Members = [.. items] };
 }

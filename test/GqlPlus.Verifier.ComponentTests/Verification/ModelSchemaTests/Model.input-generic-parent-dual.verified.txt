@@ -5,15 +5,15 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpGenParentDualRef
       type: !_TypeParameter ref
-    kind: !_TypeKind Input
     name: InpGenParentDual
     parent: !_InputBase
       arguments:
       - !_DualBase InpGenParentDualAlt
       input: InpGenParentDualRef
+    typeKind: !_TypeKind Input
   !_Identifier InpGenParentDualAlt: !_TypeDual
-    kind: !_TypeKind Dual
     name: InpGenParentDualAlt
+    typeKind: !_TypeKind Dual
   !_Identifier InpGenParentDualRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -22,7 +22,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_InputBase)
       type: !_TypeParameter ref
-    kind: !_TypeKind Input
     name: InpGenParentDualRef
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described ref

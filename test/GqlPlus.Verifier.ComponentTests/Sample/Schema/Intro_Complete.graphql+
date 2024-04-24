@@ -96,7 +96,7 @@ output _Type {
 
 output _BaseType<$kind> {
     : _Aliased
-        kind: $kind
+        typeKind: $kind
     }
 
 output _ChildType<$kind $parent> {
@@ -115,7 +115,7 @@ enum _SimpleKind { Basic Enum Internal Domain Union }
 enum _TypeKind { :_SimpleKind Dual Input Output }
 
 output _TypeRef<$kind> {
-        kind: $kind
+        typeKind: $kind
         name: _Identifier
 }
 
@@ -133,8 +133,8 @@ output _Constant {
 
 output _Simple {
     | Boolean
-    | _DomainValue<_DomainDomain.Number Number>
-    | _DomainValue<_DomainDomain.String String>
+    | _DomainValue<_DomainKind.Number Number>
+    | _DomainValue<_DomainKind.String String>
     | _EnumValue
 }
 
@@ -165,7 +165,7 @@ output _Modifiers {
 enum _ModifierKind { Optional List Dictionary }
 
 output _Modifier<$kind> {
-        kind: $kind
+        modifierKind: $kind
     }
 output _TypeEnum {
     : _ParentType<_TypeKind.Enum _Aliased _EnumMember>
@@ -180,18 +180,18 @@ output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
         value: _Identifier
     }
-enum _DomainDomain { Boolean Enum Number String Union }
+enum _DomainKind { Boolean Enum Number String Union }
 
 output _TypeDomain {
-    | _BaseDomain<_DomainDomain.Boolean _DomainTrueFalse>
-    | _BaseDomain<_DomainDomain.Enum _DomainMember>
-    | _BaseDomain<_DomainDomain.Number _DomainRange>
-    | _BaseDomain<_DomainDomain.String _DomainRegex>
+    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse>
+    | _BaseDomain<_DomainKind.Enum _DomainMember>
+    | _BaseDomain<_DomainKind.Number _DomainRange>
+    | _BaseDomain<_DomainKind.String _DomainRegex>
     }
 
 output _DomainRef<$kind> {
     : _TypeRef<_TypeKind.Domain>
-        domain: $kind
+        domainKind: $kind
     }
 
 output _BaseDomain<$domain $item> {

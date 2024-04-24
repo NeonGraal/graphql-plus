@@ -1,5 +1,5 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier Outp: !_TypeOutput
-    kind: !_TypeKind Output
     name: Outp
+    typeKind: !_TypeKind Output

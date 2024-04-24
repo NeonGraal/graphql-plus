@@ -1,15 +1,15 @@
 ﻿[  
-!G I@001/0001
+!Sc I@001/0001
 Success
 {
-  !I I@007/0001
+  !In I@007/0001
   InpPrnt
   :
   I@018/0001
   PrntInp
 }
 {
-  !I I@061/0001
+  !In I@061/0001
   PrntInp
 }
 ]

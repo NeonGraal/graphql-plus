@@ -7,8 +7,8 @@ types: !_Map_Type
       name: outEnumParent
     items:
     - !_Aliased outEnumParent
-    kind: !_TypeKind Enum
     name: OutEnumParent
+    typeKind: !_TypeKind Enum
   !_Identifier OutEnumParented: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -23,24 +23,24 @@ types: !_Map_Type
     items:
     - !_Aliased outParent
     - !_Aliased ed
-    kind: !_TypeKind Enum
     name: OutEnumParented
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Enum
       name: OutEnumParent
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
   !_Identifier OutFieldParent: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
-      kind: !_SimpleKind Enum
       name: OutEnumParented
       object: OutFieldParent
+      typeKind: !_SimpleKind Enum
       value: outEnumParent
     fields:
     - !_OutputEnum
       field: field
-      kind: !_SimpleKind Enum
       name: OutEnumParented
+      typeKind: !_SimpleKind Enum
       value: outEnumParent
-    kind: !_TypeKind Output
     name: OutFieldParent
+    typeKind: !_TypeKind Output

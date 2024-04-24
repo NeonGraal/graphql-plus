@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Parse.Schema.Types;
+namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
 public sealed class ParseEnumMemberTests(
   Parser<EnumMemberAst>.D parser

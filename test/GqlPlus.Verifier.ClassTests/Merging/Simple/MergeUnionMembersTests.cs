@@ -1,8 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Merging.Simple;
 
-namespace GqlPlus.Verifier.Merging.Types;
+namespace GqlPlus.Verifier.Merging.Simple;
 
 public class MergeUnionMembersTests
   : TestGroups<UnionMemberAst>

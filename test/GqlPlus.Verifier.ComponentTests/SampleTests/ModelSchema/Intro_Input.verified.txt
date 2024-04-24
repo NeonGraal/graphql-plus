@@ -27,7 +27,6 @@ types: !_Map_Type
     - !_OutputField
       name: input
       type: !_OutputBase _Identifier
-    kind: !_TypeKind Output
     name: _InputBase
     parent: !_OutputBase
       arguments:
@@ -36,6 +35,7 @@ types: !_Map_Type
         - !_OutputBase _InputBase
         output: _ObjRef
       output: _ObjBase
+    typeKind: !_TypeKind Output
   !_Identifier _InputField: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -48,21 +48,21 @@ types: !_Map_Type
       modifiers: [!_Modifier Optional]
       name: default
       type: !_OutputBase _Constant
-    kind: !_TypeKind Output
     name: _InputField
     parent: !_OutputBase
       arguments:
       - !_OutputBase _InputBase
       output: _Field
+    typeKind: !_TypeKind Output
   !_Identifier _TypeInput: !_TypeOutput
-    kind: !_TypeKind Output
     name: _TypeInput
     parent: !_OutputBase
       arguments:
       - !_OutputArgument
-        kind: !_SimpleKind Enum
         name: _TypeKind
+        typeKind: !_SimpleKind Enum
         value: Input
       - !_OutputBase _InputBase
       - !_OutputBase _InputField
       output: _TypeObject
+    typeKind: !_TypeKind Output

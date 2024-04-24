@@ -7,8 +7,8 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: OutParentGen
+          typeKind: !_SimpleKind Enum
           value: outGenParent
         output: OutGenParentRef
     alternates:
@@ -16,12 +16,12 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: OutParentGen
+          typeKind: !_SimpleKind Enum
           value: outGenParent
         output: OutGenParentRef
-    kind: !_TypeKind Output
     name: OutGenParent
+    typeKind: !_TypeKind Output
   !_Identifier OutGenParentRef: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -32,8 +32,8 @@ types: !_Map_Type
     - !_OutputField
       name: field
       type: !_TypeParameter type
-    kind: !_TypeKind Output
     name: OutGenParentRef
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described type
   !_Identifier OutParentGen: !_TypeEnum
@@ -46,11 +46,11 @@ types: !_Map_Type
       name: outGenPrntended
     items:
     - !_Aliased outGenPrntended
-    kind: !_TypeKind Enum
     name: OutParentGen
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Enum
       name: OutPrntendedGen
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
   !_Identifier OutPrntendedGen: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -58,5 +58,5 @@ types: !_Map_Type
       name: outGenParent
     items:
     - !_Aliased outGenParent
-    kind: !_TypeKind Enum
     name: OutPrntendedGen
+    typeKind: !_TypeKind Enum

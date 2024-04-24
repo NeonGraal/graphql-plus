@@ -20,9 +20,9 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: aliases
       type: !_DualBase _Identifier
-    kind: !_TypeKind Dual
     name: _Aliased
     parent: !_DualBase _Described
+    typeKind: !_TypeKind Dual
   !_Identifier _BaseDescribed: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -47,8 +47,8 @@ types: !_Map_Type
     - !_DualField
       name: description
       type: !_DualBase String
-    kind: !_TypeKind Dual
     name: _BaseDescribed
+    typeKind: !_TypeKind Dual
     typeParameters:
     - !_Described base
   !_Identifier _Described: !_TypeDual
@@ -65,9 +65,9 @@ types: !_Map_Type
     - !_DualField
       name: description
       type: !_DualBase String
-    kind: !_TypeKind Dual
     name: _Described
     parent: !_DualBase _Named
+    typeKind: !_TypeKind Dual
   !_Identifier _Named: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -78,5 +78,5 @@ types: !_Map_Type
     - !_DualField
       name: name
       type: !_DualBase _Identifier
-    kind: !_TypeKind Dual
     name: _Named
+    typeKind: !_TypeKind Dual

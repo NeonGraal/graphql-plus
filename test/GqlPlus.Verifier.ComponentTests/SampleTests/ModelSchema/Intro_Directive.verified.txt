@@ -16,7 +16,7 @@ types: !_Map_Type
       object: _Directive
       type: !_OutputBase Boolean
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Location, kind: Dict}]
+      modifiers: [!_ModifierDictionary {by: _Location, modifierKind: Dict}]
       name: locations
       object: _Directive
       type: !_OutputBase _
@@ -29,12 +29,12 @@ types: !_Map_Type
       name: repeatable
       type: !_OutputBase Boolean
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Location, kind: Dict}]
+      modifiers: [!_ModifierDictionary {by: _Location, modifierKind: Dict}]
       name: locations
       type: !_OutputBase _
-    kind: !_TypeKind Output
     name: _Directive
     parent: !_OutputBase _Aliased
+    typeKind: !_TypeKind Output
   !_Identifier _Directives: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -64,8 +64,8 @@ types: !_Map_Type
     - !_OutputField
       name: type
       type: !_OutputBase _Type
-    kind: !_TypeKind Output
     name: _Directives
+    typeKind: !_TypeKind Output
   !_Identifier _Location: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -93,5 +93,5 @@ types: !_Map_Type
     - !_Aliased Inline
     - !_Aliased Spread
     - !_Aliased Fragment
-    kind: !_TypeKind Enum
     name: _Location
+    typeKind: !_TypeKind Enum

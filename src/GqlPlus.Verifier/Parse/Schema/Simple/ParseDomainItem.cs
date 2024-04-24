@@ -10,7 +10,7 @@ internal abstract class ParseDomainItem<TItem>(
 {
   private readonly Parser<TItem>.LA _items = items;
 
-  public abstract DomainDomain Kind { get; }
+  public abstract DomainKind Kind { get; }
   public ParseItems Parser => ParseMembers;
 
   protected IResult<DomainDefinition> ParseMembers(Tokenizer tokens, string label, DomainDefinition result)

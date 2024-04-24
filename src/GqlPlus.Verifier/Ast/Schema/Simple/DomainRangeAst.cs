@@ -9,7 +9,7 @@ public sealed record class DomainRangeAst(TokenAt At, bool Excludes)
   public decimal? Lower { get; set; }
   public decimal? Upper { get; set; }
 
-  internal override string Abbr => "SR";
+  internal override string Abbr => "DN";
 
   public DomainRangeAst(TokenAt at, bool excludes, decimal? lower, decimal? upper)
     : this(at, excludes)

@@ -1,7 +1,7 @@
-﻿!G I@001/0001
+﻿!Sc I@001/0001
 Success
 {
-  !O I@008/0001
+  !Ou I@008/0001
   _Schema
   :
   I@007/0002
@@ -10,7 +10,7 @@ Success
     !OF I@009/0003
     categories
     (
-      !P
+      !Pa
       I@020/0003
       _CategoryFilter
       ?
@@ -22,7 +22,7 @@ Success
     !OF I@009/0004
     directives
     (
-      !P
+      !Pa
       I@020/0004
       _Filter
       ?
@@ -34,7 +34,7 @@ Success
     !OF I@009/0005
     types
     (
-      !P
+      !Pa
       I@015/0005
       _TypeFilter
       ?
@@ -46,7 +46,7 @@ Success
     !OF I@009/0006
     settings
     (
-      !P
+      !Pa
       I@018/0006
       _Filter
       ?
@@ -58,14 +58,14 @@ Success
   }
 }
 {
-  !S I@008/0009
+  !Do I@008/0009
   _Identifier
   String
-  !SX R@029/0009
+  !DX R@029/0009
   /[A-Za-z_]+/
 }
 {
-  !I I@007/0011
+  !In I@007/0011
   _Filter
   {
     !IF I@009/0012
@@ -110,14 +110,14 @@ Success
 }
 {
   "_NameFilter is a simple match expression against _Identifier  where '.' matches any single character and '*' matches zero or more of any character."
-  !S I@008/0021
+  !Do I@008/0021
   _NameFilter
   String
-  !SX R@029/0021
+  !DX R@029/0021
   /[A-Za-z_.*]+/
 }
 {
-  !I I@007/0023
+  !In I@007/0023
   _CategoryFilter
   :
   I@007/0024
@@ -132,7 +132,7 @@ Success
   }
 }
 {
-  !I I@007/0028
+  !In I@007/0028
   _TypeFilter
   :
   I@007/0029

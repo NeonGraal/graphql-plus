@@ -6,8 +6,8 @@ output _Constant {
 
 output _Simple {
     | Boolean
-    | _DomainValue<_DomainDomain.Number Number>
-    | _DomainValue<_DomainDomain.String String>
+    | _DomainValue<_DomainKind.Number Number>
+    | _DomainValue<_DomainKind.String String>
     | _EnumValue
 }
 
@@ -38,5 +38,5 @@ output _Modifiers {
 enum _ModifierKind { Optional List Dictionary }
 
 output _Modifier<$kind> {
-        kind: $kind
+        modifierKind: $kind
     }

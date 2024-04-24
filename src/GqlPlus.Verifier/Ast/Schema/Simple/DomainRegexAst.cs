@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Ast.Schema.Simple;
 public sealed record class DomainRegexAst(TokenAt At, bool Excludes, string Regex)
   : AstDomainItem(At, Excludes), IEquatable<DomainRegexAst>
 {
-  internal override string Abbr => "SX";
+  internal override string Abbr => "DX";
 
   public bool Equals(DomainRegexAst? other)
     => base.Equals(other)

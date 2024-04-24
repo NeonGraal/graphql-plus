@@ -41,8 +41,8 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: collections
       type: !_OutputBase _Collections
-    kind: !_TypeKind Output
     name: _Alternate
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described base
   !_Identifier _Field: !_TypeOutput
@@ -76,9 +76,9 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: modifiers
       type: !_OutputBase _Modifiers
-    kind: !_TypeKind Output
     name: _Field
     parent: !_OutputBase _Aliased
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described base
   !_Identifier _ObjBase: !_TypeDual
@@ -100,8 +100,8 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: arguments
       type: !_TypeParameter arg
-    kind: !_TypeKind Dual
     name: _ObjBase
+    typeKind: !_TypeKind Dual
     typeParameters:
     - !_Described arg
   !_Identifier _ObjRef: !_TypeOutput
@@ -111,8 +111,8 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Internal
         output: _BaseType
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -126,16 +126,16 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Internal
         output: _BaseType
     - !_Alternate(_OutputBase)
       type: !_OutputBase _TypeSimple
     - !_Alternate(_OutputBase)
       type: !_TypeParameter base
-    kind: !_TypeKind Output
     name: _ObjRef
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described base
   !_Identifier _ObjectFor: !_TypeOutput
@@ -148,9 +148,9 @@ types: !_Map_Type
     - !_OutputField
       name: object
       type: !_OutputBase _Identifier
-    kind: !_TypeKind Output
     name: _ObjectFor
     parent: !_TypeParameter for
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described for
   !_Identifier _Parameter: !_TypeOutput
@@ -180,12 +180,12 @@ types: !_Map_Type
       modifiers: [!_Modifier Optional]
       name: default
       type: !_OutputBase _Constant
-    kind: !_TypeKind Output
     name: _Parameter
     parent: !_OutputBase
       arguments:
       - !_OutputBase _InputBase
       output: _Alternate
+    typeKind: !_TypeKind Output
   !_Identifier _TypeObject: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -258,7 +258,6 @@ types: !_Map_Type
           - !_TypeParameter base
           output: _Alternate
         output: _ObjectFor
-    kind: !_TypeKind Output
     name: _TypeObject
     parent: !_OutputBase
       arguments:
@@ -268,14 +267,15 @@ types: !_Map_Type
         - !_TypeParameter base
         output: _BaseDescribed
       output: _ChildType
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described kind
     - !_Described base
     - !_Described field
   !_Identifier _TypeParameter: !_DomainString
     domain: !_DomainKind String
-    kind: !_TypeKind Domain
     name: _TypeParameter
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Domain
       name: _Identifier
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain

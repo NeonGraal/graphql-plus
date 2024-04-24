@@ -1,8 +1,8 @@
 ﻿[  
-!G I@001/0001
+!Sc I@001/0001
 Success
 {
-  !D I@012/0001
+  !Di I@012/0001
   DirAlias
   [
     DirA1

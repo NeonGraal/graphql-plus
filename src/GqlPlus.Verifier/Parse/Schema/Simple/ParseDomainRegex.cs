@@ -7,7 +7,7 @@ internal class ParseDomainRegex(
   Parser<DomainRegexAst>.DA items
 ) : ParseDomainItem<DomainRegexAst>(items)
 {
-  public override DomainDomain Kind => DomainDomain.String;
+  public override DomainKind Kind => DomainKind.String;
 
   public override IResult<DomainRegexAst> Parse<TContext>(TContext tokens, string label)
   {

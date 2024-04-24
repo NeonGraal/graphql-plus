@@ -1,9 +1,9 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier OutpPrntDualTest: !_TypeDual
-    kind: !_TypeKind Dual
     name: OutpPrntDualTest
+    typeKind: !_TypeKind Dual
   !_Identifier OutpTestPrntDual: !_TypeOutput
-    kind: !_TypeKind Output
     name: OutpTestPrntDual
     parent: !_DualBase OutpPrntDualTest
+    typeKind: !_TypeKind Output

@@ -1,21 +1,21 @@
-﻿!G I@001/0001
+﻿!Sc I@001/0001
 Success
 {
-  !E I@006/0001
-  _DomainDomain
-  !EM I@022/0001
+  !En I@006/0001
+  _DomainKind
+  !EM I@020/0001
   Boolean
-  !EM I@030/0001
+  !EM I@028/0001
   Enum
-  !EM I@035/0001
+  !EM I@033/0001
   Number
-  !EM I@042/0001
+  !EM I@040/0001
   String
-  !EM I@049/0001
+  !EM I@047/0001
   Union
 }
 {
-  !O I@008/0003
+  !Ou I@008/0003
   _TypeDomain
   |
   !AO
@@ -23,8 +23,8 @@ Success
   _BaseDomain
   <
     I@019/0004
-    _DomainDomain.Boolean
-    I@041/0004
+    _DomainKind.Boolean
+    I@039/0004
     _DomainTrueFalse
   >
   !AO
@@ -32,8 +32,8 @@ Success
   _BaseDomain
   <
     I@019/0005
-    _DomainDomain.Enum
-    I@038/0005
+    _DomainKind.Enum
+    I@036/0005
     _DomainMember
   >
   !AO
@@ -41,8 +41,8 @@ Success
   _BaseDomain
   <
     I@019/0006
-    _DomainDomain.Number
-    I@040/0006
+    _DomainKind.Number
+    I@038/0006
     _DomainRange
   >
   !AO
@@ -50,13 +50,13 @@ Success
   _BaseDomain
   <
     I@019/0007
-    _DomainDomain.String
-    I@040/0007
+    _DomainKind.String
+    I@038/0007
     _DomainRegex
   >
 }
 {
-  !O I@008/0010
+  !Ou I@008/0010
   _DomainRef
   <
     I@020/0010
@@ -71,14 +71,14 @@ Success
   >
   {
     !OF I@009/0012
-    domain
+    domainKind
     :
-    I@018/0012
+    I@022/0012
     $kind
   }
 }
 {
-  !O I@008/0015
+  !Ou I@008/0015
   _BaseDomain
   <
     I@021/0015
@@ -110,7 +110,7 @@ Success
   }
 }
 {
-  !D I@006/0020
+  !Du I@006/0020
   _BaseDomainItem
   {
     !DF I@009/0021
@@ -121,7 +121,7 @@ Success
   }
 }
 {
-  !D I@006/0024
+  !Du I@006/0024
   _DomainTrueFalse
   :
   I@007/0025
@@ -135,7 +135,7 @@ Success
   }
 }
 {
-  !O I@008/0029
+  !Ou I@008/0029
   _DomainMember
   :
   I@007/0030
@@ -149,7 +149,7 @@ Success
   }
 }
 {
-  !D I@006/0034
+  !Du I@006/0034
   _DomainRange
   :
   I@007/0035
@@ -170,7 +170,7 @@ Success
   }
 }
 {
-  !D I@006/0040
+  !Du I@006/0040
   _DomainRegex
   :
   I@007/0041
@@ -184,7 +184,7 @@ Success
   }
 }
 {
-  !D I@006/0045
+  !Du I@006/0045
   _DomainItem
   <
     I@019/0045
@@ -202,7 +202,7 @@ Success
   }
 }
 {
-  !O I@008/0050
+  !Ou I@008/0050
   _DomainValue
   <
     I@022/0050

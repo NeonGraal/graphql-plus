@@ -8,8 +8,8 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_DualBase)
       type: !_TypeParameter a
-    kind: !_TypeKind Dual
     name: DualPrmsPrntSame
+    typeKind: !_TypeKind Dual
     typeParameters:
     - !_Described a
   !_Identifier DualPrntPrmsSame: !_TypeDual
@@ -26,11 +26,11 @@ types: !_Map_Type
     - !_DualField
       name: field
       type: !_TypeParameter a
-    kind: !_TypeKind Dual
     name: DualPrntPrmsSame
     parent: !_DualBase
       arguments:
       - !_TypeParameter a
       dual: DualPrmsPrntSame
+    typeKind: !_TypeKind Dual
     typeParameters:
     - !_Described a

@@ -175,8 +175,8 @@ internal sealed class SchemaModelChecks(
     => [ first,
         "    name: " + category,
         "    output: !_TypeRef(_TypeKind)",
-        "      kind: !_TypeKind Output",
         "      name: " + category,
+        "      typeKind: !_TypeKind Output",
         "    resolution: !_Resolution Parallel"];
 
   internal IEnumerable<string> ExpectedDirectives(string[] directives, bool withType)
@@ -206,7 +206,7 @@ internal sealed class SchemaModelChecks(
       .Prepend("types: !_Map_Type");
 
   private IEnumerable<string> ExpectedOutput(string output, string first)
-    => [first, "    kind: !_TypeKind Output", "    name: " + output];
+    => [first, "    name: " + output, "    typeKind: !_TypeKind Output"];
 
   internal IEnumerable<string> ExpectedSettings(SettingInput[] settings)
     => settings

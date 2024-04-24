@@ -6,7 +6,7 @@ namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
 public interface IParseDomain
 {
-  DomainDomain Kind { get; }
+  DomainKind Kind { get; }
   ParseItems Parser { get; }
 }
 

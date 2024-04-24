@@ -7,12 +7,12 @@ public enum DomainKindModel { Boolean, Enum, Number, String, Union }
 
 internal record class DomainRefModel(
   string Name,
-  DomainDomain Domain
+  DomainKind DomainKind
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Domain, Name)
 {
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("domain", Domain);
+      .Add("domainKind", DomainKind);
 }
 
 public sealed record class BaseDomainModel<TItem>(

@@ -17,8 +17,8 @@ types: !_Map_Type
     - !_InputField
       name: type
       type: !_TypeParameter type
-    kind: !_TypeKind Input
     name: InpParams
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described test
     - !_Described type

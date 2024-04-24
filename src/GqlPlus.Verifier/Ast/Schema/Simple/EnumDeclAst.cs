@@ -10,7 +10,7 @@ public sealed record class EnumDeclAst(
 {
   public EnumMemberAst[] Members { get; set; } = [];
 
-  internal override string Abbr => "E";
+  internal override string Abbr => "En";
   public override string Label => "Enum";
 
   public EnumDeclAst(TokenAt at, string name)

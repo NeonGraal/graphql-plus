@@ -7,7 +7,7 @@ internal class ParseDomainTrueFalse(
   Parser<DomainTrueFalseAst>.DA items
 ) : ParseDomainItem<DomainTrueFalseAst>(items)
 {
-  public override DomainDomain Kind => DomainDomain.Boolean;
+  public override DomainKind Kind => DomainKind.Boolean;
 
   public override IResult<DomainTrueFalseAst> Parse<TContext>(TContext tokens, string label)
   {

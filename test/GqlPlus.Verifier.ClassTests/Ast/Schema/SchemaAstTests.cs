@@ -9,5 +9,5 @@ public class SchemaAstTests
     = new AstAbbreviatedChecks<SchemaAst>(name => new SchemaAst(AstNulls.At) { Declarations = [new OptionDeclAst(AstNulls.At, name)] });
 
   protected override string AbbreviatedString(string input)
-    => $"( !G Failure {{ !O {input} }} )";
+    => $"( !Sc Failure {{ !Op {input} }} )";
 }

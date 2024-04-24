@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Ast.Schema;
 public record class SpecialTypeAst : AstType
 {
-  internal override string Abbr => "Z";
+  internal override string Abbr => "TZ";
   public override string Label { get; }
 
   public SpecialTypeAst(TokenAt at, string label)

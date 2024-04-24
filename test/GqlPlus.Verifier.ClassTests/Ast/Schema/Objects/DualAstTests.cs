@@ -12,7 +12,7 @@ public class DualAstTests
   public void String_WithAlternates(string name, string[] alternates)
     => _checks.Text(
       () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
-      $"( !D {name} | {alternates.Joined(a => $"!AD {a} [] ?")} )");
+      $"( !Du {name} | {alternates.Joined(a => $"!AD {a} [] ?")} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlternates(string name, string[] alternates)
@@ -34,7 +34,7 @@ public class DualAstTests
   public void String_WithParent(string name, string parent)
     => _checks.Text(
       () => new DualDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
-      $"( !D {name} : {parent} )");
+      $"( !Du {name} : {parent} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithParent(string name, string parent)
@@ -56,7 +56,7 @@ public class DualAstTests
   public void String_WithFields(string name, FieldInput[] fields)
     => _checks.Text(
       () => new DualDeclAst(AstNulls.At, name) { Fields = fields.DualFields() },
-      $"( !D {name} {{ {fields.Joined(fi => $"!DF {fi.Name} : {fi.Type}")} }} )");
+      $"( !Du {name} {{ {fields.Joined(fi => $"!DF {fi.Name} : {fi.Type}")} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithFields(string name, FieldInput[] fields)
@@ -78,7 +78,7 @@ public class DualAstTests
   public void String_WithTypeParameters(string name, string[] typeParameters)
     => _checks.Text(
       () => new DualDeclAst(AstNulls.At, name) { TypeParameters = typeParameters.TypeParameters() },
-      $"( !D {name} < {typeParameters.Joined(s => "$" + s)} > )");
+      $"( !Du {name} < {typeParameters.Joined(s => "$" + s)} > )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithTypeParameters(string name, string[] typeParameters)
@@ -95,7 +95,7 @@ public class DualAstTests
     => new(AstNulls.At, argument);
 
   protected override string AbbreviatedString(string input)
-    => $"( !D {input} )";
+    => $"( !Du {input} )";
 
   private readonly AstAliasedChecks<DualDeclAst> _checks
     = new(regex => new DualDeclAst(AstNulls.At, regex));

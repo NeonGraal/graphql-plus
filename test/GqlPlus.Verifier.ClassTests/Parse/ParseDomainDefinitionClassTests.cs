@@ -12,9 +12,9 @@ public class ParseDomainDefinitionClassTests : ClassTestBase
   {
     var tokens = Tokens("{ ");
 
-    var kind = EnumParserFor<DomainDomain>(out var kindParser);
+    var kind = EnumParserFor<DomainKind>(out var kindParser);
     kindParser.Parse(tokens, default!)
-      .ReturnsForAnyArgs(((DomainDomain)99).Ok());
+      .ReturnsForAnyArgs(((DomainKind)99).Ok());
 
     var domain = new ParseDomainDefinition(kind, []);
 

@@ -2,5 +2,5 @@
 types: !_Map_Type
   !_Identifier OutpAlias: !_TypeOutput
     aliases: [Outp1, Outp2]
-    kind: !_TypeKind Output
     name: OutpAlias
+    typeKind: !_TypeKind Output

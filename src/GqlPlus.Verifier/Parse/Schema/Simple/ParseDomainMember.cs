@@ -7,7 +7,7 @@ internal class ParseDomainMember(
   Parser<DomainMemberAst>.DA items
 ) : ParseDomainItem<DomainMemberAst>(items)
 {
-  public override DomainDomain Kind => DomainDomain.Enum;
+  public override DomainKind Kind => DomainKind.Enum;
 
   public override IResult<DomainMemberAst> Parse<TContext>(TContext tokens, string label)
   {

@@ -11,5 +11,5 @@ types: !_Map_Type
     items:
     - !_Aliased Boolean
     - !_Aliased Number
-    kind: !_TypeKind Union
     name: UnDiff
+    typeKind: !_TypeKind Union

@@ -1,9 +1,9 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier OutpPrnt: !_TypeOutput
-    kind: !_TypeKind Output
     name: OutpPrnt
     parent: !_OutputBase PrntOutp
+    typeKind: !_TypeKind Output
   !_Identifier PrntOutp: !_TypeOutput
-    kind: !_TypeKind Output
     name: PrntOutp
+    typeKind: !_TypeKind Output

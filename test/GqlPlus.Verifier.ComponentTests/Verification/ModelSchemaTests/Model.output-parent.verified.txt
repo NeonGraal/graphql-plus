@@ -1,9 +1,9 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier OutpParentTest: !_TypeOutput
-    kind: !_TypeKind Output
     name: OutpParentTest
+    typeKind: !_TypeKind Output
   !_Identifier OutpTestParent: !_TypeOutput
-    kind: !_TypeKind Output
     name: OutpTestParent
     parent: !_OutputBase OutpParentTest
+    typeKind: !_TypeKind Output

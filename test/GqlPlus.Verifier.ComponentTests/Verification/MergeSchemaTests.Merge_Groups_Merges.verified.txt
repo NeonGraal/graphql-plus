@@ -1,14 +1,14 @@
 ﻿[  
-!G I@001/0001
+!Sc I@001/0001
 Success
 {
-  !C P@010/0001
+  !Ca P@010/0001
   category
   (Parallel)
   Category
 }
 {
-  !C P@010/0001
+  !Ca P@010/0001
   catAlias
   [
     CatA1
@@ -18,7 +18,7 @@ Success
   CatAlias
 }
 {
-  !C P@010/0001
+  !Ca P@010/0001
   catMods
   [
     CatM1
@@ -29,13 +29,13 @@ Success
   ?
 }
 {
-  !D I@012/0001
+  !Di I@012/0001
   Dir
   (Unique)
   Inline, Spread
 }
 {
-  !D I@012/0001
+  !Di I@012/0001
   DirAlias
   [
     DirA1
@@ -45,10 +45,10 @@ Success
   Variable, Field
 }
 {
-  !D I@012/0001
+  !Di I@012/0001
   DirParams
   (
-    !P
+    !Pa
     I@022/0001
     DirParamsIn
   )
@@ -56,7 +56,7 @@ Success
   Operation, Fragment
 }
 {
-  !O I@008/0001
+  !Op I@008/0001
   Schema
   [
     Opt1
@@ -69,23 +69,23 @@ Success
   }
 }
 {
-  !O I@061/0001
+  !Ou I@061/0001
   Category
 }
 {
-  !O I@068/0001
+  !Ou I@068/0001
   CatAlias
 }
 {
-  !O I@068/0001
+  !Ou I@068/0001
   CatMods
 }
 {
-  !I I@089/0001
+  !In I@089/0001
   DirParamsIn
 }
 {
-  !S I@008/0001
+  !Do I@008/0001
   NumAlias
   [
     Num1
@@ -94,49 +94,49 @@ Success
   Number
 }
 {
-  !S I@008/0001
+  !Do I@008/0001
   Num
   Number
 }
 {
-  !S I@008/0001
+  !Do I@008/0001
   NumDiff
   Number
-  !SR N@025/0001
+  !DN N@025/0001
   1
   ~
   9
 }
 {
-  !S I@008/0001
+  !Do I@008/0001
   NumSame
   Number
-  !SR N@025/0001
+  !DN N@025/0001
   1
   ~
   9
 }
 {
-  !S I@008/0001
+  !Do I@008/0001
   Str
   String
 }
 {
-  !S I@008/0001
+  !Do I@008/0001
   StrDiff
   String
-  !SX R@025/0001
+  !DX R@025/0001
   /a+/
 }
 {
-  !S I@008/0001
+  !Do I@008/0001
   StrSame
   String
-  !SX R@025/0001
+  !DX R@025/0001
   /a+/
 }
 {
-  !E I@006/0001
+  !En I@006/0001
   EnAlias
   [
     En1
@@ -146,7 +146,7 @@ Success
   alias
 }
 {
-  !E I@006/0001
+  !En I@006/0001
   EnDiff
   !EM I@015/0001
   one
@@ -154,26 +154,26 @@ Success
   two
 }
 {
-  !E I@006/0001
+  !En I@006/0001
   EnSame
   !EM I@015/0001
   same
 }
 {
-  !E I@006/0001
+  !En I@006/0001
   EnSameParent
   :EnParent
   !EM I@031/0001
   sameP
 }
 {
-  !E I@082/0001
+  !En I@082/0001
   EnParent
   !EM I@093/0001
   parent
 }
 {
-  !E I@006/0001
+  !En I@006/0001
   EnValAlias
   !EM I@019/0001
   value
@@ -183,19 +183,19 @@ Success
   ]
 }
 {
-  !D I@006/0001
+  !Du I@006/0001
   Dual
 }
 {
-  !I I@007/0001
+  !In I@007/0001
   Inp
 }
 {
-  !O I@008/0001
+  !Ou I@008/0001
   Outp
 }
 {
-  !D I@006/0001
+  !Du I@006/0001
   DualAlias
   [
     Dual1
@@ -203,7 +203,7 @@ Success
   ]
 }
 {
-  !I I@007/0001
+  !In I@007/0001
   InpAlias
   [
     Inp1
@@ -211,7 +211,7 @@ Success
   ]
 }
 {
-  !O I@008/0001
+  !Ou I@008/0001
   OutpAlias
   [
     Outp1
@@ -219,7 +219,7 @@ Success
   ]
 }
 {
-  !D I@006/0001
+  !Du I@006/0001
   DualAlts
   |
   !AD
@@ -227,11 +227,11 @@ Success
   DualAltsType
 }
 {
-  !D I@072/0001
+  !Du I@072/0001
   DualAltsType
 }
 {
-  !I I@007/0001
+  !In I@007/0001
   InpAlts
   |
   !AI
@@ -239,11 +239,11 @@ Success
   InpAltsType
 }
 {
-  !I I@071/0001
+  !In I@071/0001
   InpAltsType
 }
 {
-  !O I@008/0001
+  !Ou I@008/0001
   OutpAlts
   |
   !AO
@@ -251,11 +251,11 @@ Success
   OutpAltsType
 }
 {
-  !O I@078/0001
+  !Ou I@078/0001
   OutpAltsType
 }
 {
-  !D I@006/0001
+  !Du I@006/0001
   DualFields
   {
     !DF I@019/0001
@@ -266,7 +266,7 @@ Success
   }
 }
 {
-  !I I@007/0001
+  !In I@007/0001
   InpFields
   {
     !IF I@019/0001
@@ -277,7 +277,7 @@ Success
   }
 }
 {
-  !O I@008/0001
+  !Ou I@008/0001
   OutpFields
   {
     !OF I@021/0001
@@ -288,7 +288,7 @@ Success
   }
 }
 {
-  !D I@006/0001
+  !Du I@006/0001
   DualFieldAlias
   {
     !DF I@023/0001
@@ -303,7 +303,7 @@ Success
   }
 }
 {
-  !I I@007/0001
+  !In I@007/0001
   InpFieldAlias
   {
     !IF I@023/0001
@@ -318,7 +318,7 @@ Success
   }
 }
 {
-  !O I@008/0001
+  !Ou I@008/0001
   OutpFieldAlias
   {
     !OF I@025/0001
@@ -333,7 +333,7 @@ Success
   }
 }
 {
-  !D I@006/0001
+  !Du I@006/0001
   DualParams
   <
     I@018/0001
@@ -355,7 +355,7 @@ Success
   }
 }
 {
-  !I I@007/0001
+  !In I@007/0001
   InpParams
   <
     I@018/0001
@@ -377,7 +377,7 @@ Success
   }
 }
 {
-  !O I@008/0001
+  !Ou I@008/0001
   OutpParams
   <
     I@020/0001
@@ -399,40 +399,40 @@ Success
   }
 }
 {
-  !D I@006/0001
+  !Du I@006/0001
   DualPrnt
   :
   I@018/0001
   PrntDual
 }
 {
-  !D I@062/0001
+  !Du I@062/0001
   PrntDual
 }
 {
-  !I I@007/0001
+  !In I@007/0001
   InpPrnt
   :
   I@018/0001
   PrntInp
 }
 {
-  !I I@061/0001
+  !In I@061/0001
   PrntInp
 }
 {
-  !O I@008/0001
+  !Ou I@008/0001
   OutpPrnt
   :
   I@020/0001
   PrntOutp
 }
 {
-  !O I@068/0001
+  !Ou I@068/0001
   PrntOutp
 }
 {
-  !O I@008/0001
+  !Ou I@008/0001
   FieldEnumAlias
   {
     !OF I@025/0001
@@ -447,7 +447,7 @@ Success
   }
 }
 {
-  !O I@008/0001
+  !Ou I@008/0001
   FieldEnums
   {
     !OF I@021/0001
@@ -458,16 +458,16 @@ Success
   }
 }
 {
-  !O I@008/0001
+  !Ou I@008/0001
   FieldParams
   {
     !OF I@022/0001
     field
     (
-      !P
+      !Pa
       I@028/0001
       FieldParam1
-      !P
+      !Pa
       I@083/0001
       FieldParam2
     )
@@ -477,15 +477,15 @@ Success
   }
 }
 {
-  !I I@117/0001
+  !In I@117/0001
   FieldParam1
 }
 {
-  !I I@139/0001
+  !In I@139/0001
   FieldParam2
 }
 {
-  !U I@007/0001
+  !Un I@007/0001
   UnDiff
   !UM I@016/0001
   Boolean
@@ -493,7 +493,7 @@ Success
   Number
 }
 {
-  !U I@007/0001
+  !Un I@007/0001
   UnSame
   !UM I@016/0001
   Boolean

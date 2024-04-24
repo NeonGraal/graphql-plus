@@ -11,7 +11,7 @@ public class InputAstTests : AstAliasedTests
   public void String_WithAlternates(string name, string[] alternates)
     => _checks.Text(
       () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
-      $"( !I {name} | {alternates.Joined(a => $"!AI {a} [] ?")} )");
+      $"( !In {name} | {alternates.Joined(a => $"!AI {a} [] ?")} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlternates(string name, string[] alternates)
@@ -33,7 +33,7 @@ public class InputAstTests : AstAliasedTests
   public void String_WithParent(string name, string parent)
     => _checks.Text(
       () => new InputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
-      $"( !I {name} : {parent} )");
+      $"( !In {name} : {parent} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithParent(string name, string parent)
@@ -55,7 +55,7 @@ public class InputAstTests : AstAliasedTests
   public void String_WithFields(string name, FieldInput[] fields)
     => _checks.Text(
       () => new InputDeclAst(AstNulls.At, name) { Fields = fields.InputFields() },
-      $"( !I {name} {{ {fields.Joined(fi => $"!IF {fi.Name} : {fi.Type}")} }} )");
+      $"( !In {name} {{ {fields.Joined(fi => $"!IF {fi.Name} : {fi.Type}")} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithFields(string name, FieldInput[] fields)
@@ -77,7 +77,7 @@ public class InputAstTests : AstAliasedTests
   public void String_WithTypeParameters(string name, string[] typeParameters)
     => _checks.Text(
       () => new InputDeclAst(AstNulls.At, name) { TypeParameters = typeParameters.TypeParameters() },
-      $"( !I {name} < {typeParameters.Joined(s => "$" + s)} > )");
+      $"( !In {name} < {typeParameters.Joined(s => "$" + s)} > )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithTypeParameters(string name, string[] typeParameters)
@@ -94,7 +94,7 @@ public class InputAstTests : AstAliasedTests
     => new(AstNulls.At, argument);
 
   protected override string AbbreviatedString(string input)
-    => $"( !I {input} )";
+    => $"( !In {input} )";
 
   private readonly AstAliasedChecks<InputDeclAst> _checks
     = new(regex => new InputDeclAst(AstNulls.At, regex));

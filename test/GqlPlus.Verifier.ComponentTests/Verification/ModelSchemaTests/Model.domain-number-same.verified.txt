@@ -13,5 +13,5 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 9
-    kind: !_TypeKind Domain
     name: NumSame
+    typeKind: !_TypeKind Domain

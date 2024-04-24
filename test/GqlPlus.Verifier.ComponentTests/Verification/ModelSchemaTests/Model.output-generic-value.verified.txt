@@ -14,8 +14,8 @@ types: !_Map_Type
         arguments:
         - !_OutputBase outValueGen
         output: OutGenValueRef
-    kind: !_TypeKind Output
     name: OutGenValue
+    typeKind: !_TypeKind Output
   !_Identifier OutGenValueRef: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -26,8 +26,8 @@ types: !_Map_Type
     - !_OutputField
       name: field
       type: !_TypeParameter type
-    kind: !_TypeKind Output
     name: OutGenValueRef
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described type
   !_Identifier OutValueGen: !_TypeEnum
@@ -37,5 +37,5 @@ types: !_Map_Type
       name: outValueGen
     items:
     - !_Aliased outValueGen
-    kind: !_TypeKind Enum
     name: OutValueGen
+    typeKind: !_TypeKind Enum

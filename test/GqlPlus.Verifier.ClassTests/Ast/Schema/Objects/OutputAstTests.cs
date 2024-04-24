@@ -11,7 +11,7 @@ public class OutputAstTests : AstAliasedTests
   public void String_WithAlternates(string name, string[] alternates)
     => _checks.Text(
       () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
-      $"( !O {name} | {alternates.Joined(a => $"!AO {a} [] ?")} )");
+      $"( !Ou {name} | {alternates.Joined(a => $"!AO {a} [] ?")} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlternates(string name, string[] alternates)
@@ -33,7 +33,7 @@ public class OutputAstTests : AstAliasedTests
   public void String_WithParent(string name, string parent)
     => _checks.Text(
       () => new OutputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
-      $"( !O {name} : {parent} )");
+      $"( !Ou {name} : {parent} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithParent(string name, string parent)
@@ -55,7 +55,7 @@ public class OutputAstTests : AstAliasedTests
   public void String_WithFields(string name, FieldInput[] fields)
     => _checks.Text(
       () => new OutputDeclAst(AstNulls.At, name) { Fields = fields.OutputFields() },
-      $"( !O {name} {{ {fields.Joined(fi => $"!OF {fi.Name} : {fi.Type}")} }} )");
+      $"( !Ou {name} {{ {fields.Joined(fi => $"!OF {fi.Name} : {fi.Type}")} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithFields(string name, FieldInput[] fields)
@@ -77,7 +77,7 @@ public class OutputAstTests : AstAliasedTests
   public void String_WithTypeParameters(string name, string[] typeParameters)
     => _checks.Text(
       () => new OutputDeclAst(AstNulls.At, name) { TypeParameters = typeParameters.TypeParameters() },
-      $"( !O {name} < {typeParameters.Joined(s => "$" + s)} > )");
+      $"( !Ou {name} < {typeParameters.Joined(s => "$" + s)} > )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithTypeParameters(string name, string[] typeParameters)
@@ -94,7 +94,7 @@ public class OutputAstTests : AstAliasedTests
     => new(AstNulls.At, argument);
 
   protected override string AbbreviatedString(string input)
-    => $"( !O {input} )";
+    => $"( !Ou {input} )";
 
   private readonly AstAliasedChecks<OutputDeclAst> _checks
     = new(regex => new OutputDeclAst(AstNulls.At, regex));

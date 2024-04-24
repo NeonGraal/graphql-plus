@@ -7,7 +7,7 @@ public sealed record class DomainMemberAst(TokenAt At, bool Excludes, string Mem
 {
   public string? EnumType { get; set; }
 
-  internal override string Abbr => "SM";
+  internal override string Abbr => "DE";
 
   public bool Equals(DomainMemberAst? other)
     => base.Equals(other)

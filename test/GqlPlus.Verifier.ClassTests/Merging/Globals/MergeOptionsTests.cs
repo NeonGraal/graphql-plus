@@ -17,7 +17,7 @@ public class MergeOptionsTests
         new OptionDeclAst(AstNulls.At, name) with { Settings = settings.OptionSettings() },
         new OptionDeclAst(AstNulls.At, name));
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsWithSettings_CallsSettingsMerge(string name, string[] settings1, string[] settings2)
     => this
     .SkipNull(settings1)

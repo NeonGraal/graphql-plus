@@ -10,8 +10,8 @@ types: !_Map_Type
     - !_OutputField
       name: parent
       type: !_OutputBase String
-    kind: !_TypeKind Output
     name: OutpFieldsParent
+    typeKind: !_TypeKind Output
   !_Identifier OutpPrntFields: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -26,6 +26,6 @@ types: !_Map_Type
     - !_OutputField
       name: field
       type: !_OutputBase Number
-    kind: !_TypeKind Output
     name: OutpPrntFields
     parent: !_OutputBase OutpFieldsParent
+    typeKind: !_TypeKind Output

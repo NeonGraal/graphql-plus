@@ -19,7 +19,7 @@ public class ParseDomainClassTests : ClassTestBase
     var option = OptionParserFor<NullOption>();
     var definition = ParserFor<DomainDefinition>(out var definitionParser);
     definitionParser.Parse(tokens, default!)
-      .ReturnsForAnyArgs(new DomainDefinition() { Kind = (DomainDomain)99 }.Ok());
+      .ReturnsForAnyArgs(new DomainDefinition() { Kind = (DomainKind)99 }.Ok());
 
     var domain = new ParseDomain(simpleName, param, aliases, option, definition);
 

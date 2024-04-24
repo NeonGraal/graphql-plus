@@ -12,7 +12,7 @@ public class ParameterAstTests : AstAbbreviatedTests
   public void String_WithModifiers(string name)
     => _checks.Text(
       () => new ParameterAst(AstNulls.At, name) { Modifiers = TestMods() },
-      $"( !P {name} [] ? )");
+      $"( !Pa {name} [] ? )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithModifiers(string name)
@@ -33,7 +33,7 @@ public class ParameterAstTests : AstAbbreviatedTests
   public void String_WithDefault(string name, string def)
     => _checks.Text(
       () => new ParameterAst(AstNulls.At, name) { Default = new FieldKeyAst(AstNulls.At, def) },
-      $"( !P {name} =( !k '{def}' ) )");
+      $"( !Pa {name} =( !k '{def}' ) )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithDefault(string name, string def)

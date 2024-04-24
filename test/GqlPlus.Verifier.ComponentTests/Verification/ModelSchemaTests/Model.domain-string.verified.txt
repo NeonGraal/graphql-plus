@@ -2,5 +2,5 @@
 types: !_Map_Type
   !_Identifier Str: !_DomainString
     domain: !_DomainKind String
-    kind: !_TypeKind Domain
     name: Str
+    typeKind: !_TypeKind Domain

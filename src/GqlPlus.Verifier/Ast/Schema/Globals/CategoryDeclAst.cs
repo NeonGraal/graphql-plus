@@ -11,7 +11,7 @@ public sealed record class CategoryDeclAst(
 {
   public ModifierAst[] Modifiers { get; set; } = [];
 
-  internal override string Abbr => "C";
+  internal override string Abbr => "Ca";
 
   public string Output { get; set; } = Output;
 

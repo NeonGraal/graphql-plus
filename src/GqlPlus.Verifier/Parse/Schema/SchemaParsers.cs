@@ -40,7 +40,7 @@ public static class SchemaParsers
       .AddDeclarationParser<EnumDeclAst, ParseEnum>("enum")
       // Domain
       .AddParser<DomainDefinition, ParseDomainDefinition>()
-      .AddEnum<DomainDomain>()
+      .AddEnum<DomainKind>()
       .AddDomainParser<DomainTrueFalseAst, ParseDomainTrueFalse>()
       .AddDomainParser<DomainMemberAst, ParseDomainMember>()
       .AddDomainParser<DomainRangeAst, ParseDomainRange>()

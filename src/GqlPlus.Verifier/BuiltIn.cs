@@ -11,9 +11,9 @@ internal static class BuiltIn
     new EnumDeclAst(AstNulls.At, "Boolean") { Aliases = ["^"], Members = [new(AstNulls.At, "false"), new(AstNulls.At, "true")] },
     new EnumDeclAst(AstNulls.At, "Unit") { Aliases = ["_"], Members = [new(AstNulls.At, "_")] },
 
-    new AstDomain<DomainMemberAst>(AstNulls.At, "Enum", DomainDomain.Enum, []),
-    new AstDomain<DomainRangeAst>(AstNulls.At, "Number", DomainDomain.Number, []) { Aliases = ["0"] },
-    new AstDomain<DomainRegexAst>(AstNulls.At, "String", DomainDomain.String, []) { Aliases = ["*"] },
+    new AstDomain<DomainMemberAst>(AstNulls.At, "Enum", DomainKind.Enum, []),
+    new AstDomain<DomainRangeAst>(AstNulls.At, "Number", DomainKind.Number, []) { Aliases = ["0"] },
+    new AstDomain<DomainRegexAst>(AstNulls.At, "String", DomainKind.String, []) { Aliases = ["*"] },
   ];
 
   public static IEnumerable<object[]> AllBasic()

@@ -11,5 +11,5 @@ types: !_Map_Type
     items:
     - !_Aliased one
     - !_Aliased two
-    kind: !_TypeKind Enum
     name: EnDiff
+    typeKind: !_TypeKind Enum

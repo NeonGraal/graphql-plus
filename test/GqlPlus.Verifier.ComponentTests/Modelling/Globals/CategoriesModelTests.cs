@@ -15,8 +15,8 @@ public class CategoriesModelTests(
     .Model_Expected(
       _checks.ToModel(null, output),
       ["!_TypeOutput",
-        "kind: !_TypeKind Output",
-        "name: " + output]);
+        "name: " + output,
+        "typeKind: !_TypeKind Output"]);
 
   [Theory, RepeatData(Repeats)]
   public void Model_Both(
@@ -31,8 +31,8 @@ public class CategoriesModelTests(
         .. output.TypeRefFor(TypeKindModel.Output).Indent(),
         "  resolution: !_Resolution Parallel",
         "type: !_TypeOutput",
-        "  kind: !_TypeKind Output",
-        "  name: " + output]);
+        "  name: " + output,
+        "  typeKind: !_TypeKind Output"]);
 
   internal override ICheckModelBase<string> BaseChecks => _checks;
 

@@ -8,8 +8,8 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_TypeParameter b
-    kind: !_TypeKind Output
     name: OutpPrmsPrntDiff
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described b
   !_Identifier OutpPrntPrmsDiff: !_TypeOutput
@@ -26,11 +26,11 @@ types: !_Map_Type
     - !_OutputField
       name: field
       type: !_TypeParameter a
-    kind: !_TypeKind Output
     name: OutpPrntPrmsDiff
     parent: !_OutputBase
       arguments:
       - !_TypeParameter a
       output: OutpPrmsPrntDiff
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described a

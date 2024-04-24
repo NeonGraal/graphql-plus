@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Simple;
-
-namespace GqlPlus.Verifier.Ast.Schema.Types;
+﻿namespace GqlPlus.Verifier.Ast.Schema.Simple;
 
 public abstract class AstDomainTests<TInput, TMember>
   : AstTypeTests
@@ -30,7 +28,7 @@ public abstract class AstDomainTests<TInput, TMember>
       input1.NullEqual(input2));
 
   protected override string AliasesString(string input, string aliases)
-    => $"( !S {input}{aliases} {Kind.Value} )";
+    => $"( !Do {input}{aliases} {Kind.Value} )";
 
   internal readonly AstTypeChecks<AstDomain<TMember>> Checks;
   internal readonly Lazy<string> Kind;
@@ -47,6 +45,6 @@ public abstract class AstDomainTests<TInput, TMember>
   protected AstDomainTests()
   {
     Checks = new(name => NewDomain(name, []));
-    Kind = new(() => NewDomain("domain", []).Domain.ToString());
+    Kind = new(() => NewDomain("domainKind", []).DomainKind.ToString());
   }
 }

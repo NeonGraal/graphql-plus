@@ -10,5 +10,5 @@ types: !_Map_Type
     - !_DualField
       name: field
       type: !_DualBase DualFields
-    kind: !_TypeKind Dual
     name: DualFields
+    typeKind: !_TypeKind Dual

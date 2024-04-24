@@ -7,8 +7,8 @@ types: !_Map_Type
       name: outEnumGen
     items:
     - !_Aliased outEnumGen
-    kind: !_TypeKind Enum
     name: OutEnumGen
+    typeKind: !_TypeKind Enum
   !_Identifier OutGenEnum: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -16,8 +16,8 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: OutEnumGen
+          typeKind: !_SimpleKind Enum
           value: outEnumGen
         output: OutGenEnumRef
     alternates:
@@ -25,12 +25,12 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: OutEnumGen
+          typeKind: !_SimpleKind Enum
           value: outEnumGen
         output: OutGenEnumRef
-    kind: !_TypeKind Output
     name: OutGenEnum
+    typeKind: !_TypeKind Output
   !_Identifier OutGenEnumRef: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -41,7 +41,7 @@ types: !_Map_Type
     - !_OutputField
       name: field
       type: !_TypeParameter type
-    kind: !_TypeKind Output
     name: OutGenEnumRef
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described type

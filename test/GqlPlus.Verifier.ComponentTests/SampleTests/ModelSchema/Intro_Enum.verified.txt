@@ -20,9 +20,9 @@ types: !_Map_Type
     - !_DualField
       name: enum
       type: !_DualBase _Identifier
-    kind: !_TypeKind Dual
     name: _EnumMember
     parent: !_DualBase _Aliased
+    typeKind: !_TypeKind Dual
   !_Identifier _EnumValue: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -33,24 +33,24 @@ types: !_Map_Type
     - !_OutputField
       name: value
       type: !_OutputBase _Identifier
-    kind: !_TypeKind Output
     name: _EnumValue
     parent: !_OutputBase
       arguments:
       - !_OutputArgument
-        kind: !_SimpleKind Enum
         name: _TypeKind
+        typeKind: !_SimpleKind Enum
         value: Enum
       output: _TypeRef
+    typeKind: !_TypeKind Output
   !_Identifier _TypeEnum: !_TypeOutput
-    kind: !_TypeKind Output
     name: _TypeEnum
     parent: !_OutputBase
       arguments:
       - !_OutputArgument
-        kind: !_SimpleKind Enum
         name: _TypeKind
+        typeKind: !_SimpleKind Enum
         value: Enum
       - !_OutputBase _Aliased
       - !_DualBase _EnumMember
       output: _ParentType
+    typeKind: !_TypeKind Output

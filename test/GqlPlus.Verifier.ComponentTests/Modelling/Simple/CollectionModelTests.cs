@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Modelling.Types;
+﻿namespace GqlPlus.Verifier.Modelling.Simple;
 
 public class CollectionModelTests(
   IModeller<ModifierAst, CollectionModel> modeller
@@ -20,7 +20,7 @@ internal sealed class CollectionModelChecks(
     => name.Kind switch {
       ModifierKind.Optional => ["!_Modifier Optional"],
       ModifierKind.List => ["!_Modifier List"],
-      ModifierKind.Dict => ["!_ModifierDictionary", "by: " + name.Key, "kind: Dict", name.Optional ? "optional: true" : ""],
+      ModifierKind.Dict => ["!_ModifierDictionary", "by: " + name.Key, "modifierKind: Dict", name.Optional ? "optional: true" : ""],
       _ => [],
     };
 

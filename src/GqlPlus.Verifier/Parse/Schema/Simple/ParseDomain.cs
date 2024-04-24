@@ -15,10 +15,10 @@ internal class ParseDomain(
 {
   protected override AstDomain MakeResult(AstDomain partial, DomainDefinition value)
     => value.Kind switch {
-      DomainDomain.Boolean => new AstDomain<DomainTrueFalseAst>(partial.At, partial.Name, value.Kind, value.Values),
-      DomainDomain.Enum => new AstDomain<DomainMemberAst>(partial.At, partial.Name, value.Kind, value.Members),
-      DomainDomain.Number => new AstDomain<DomainRangeAst>(partial.At, partial.Name, value.Kind, value.Numbers),
-      DomainDomain.String => new AstDomain<DomainRegexAst>(partial.At, partial.Name, value.Kind, value.Regexes),
+      DomainKind.Boolean => new AstDomain<DomainTrueFalseAst>(partial.At, partial.Name, value.Kind, value.Values),
+      DomainKind.Enum => new AstDomain<DomainMemberAst>(partial.At, partial.Name, value.Kind, value.Members),
+      DomainKind.Number => new AstDomain<DomainRangeAst>(partial.At, partial.Name, value.Kind, value.Numbers),
+      DomainKind.String => new AstDomain<DomainRegexAst>(partial.At, partial.Name, value.Kind, value.Regexes),
       _ => partial,
     } with {
       Aliases = partial.Aliases,
@@ -31,12 +31,12 @@ internal class ParseDomain(
 
   [return: NotNull]
   protected override AstDomain<AstDomainItem> MakePartial(TokenAt at, string? name, string description)
-    => new(at, name!, description, DomainDomain.Enum);
+    => new(at, name!, description, DomainKind.Enum);
 }
 
 public class DomainDefinition
 {
-  public DomainDomain Kind { get; set; } = DomainDomain.Number;
+  public DomainKind Kind { get; set; } = DomainKind.Number;
   public string? Parent { get; set; }
   public DomainTrueFalseAst[] Values { get; set; } = [];
   public DomainMemberAst[] Members { get; set; } = [];
@@ -47,12 +47,12 @@ public class DomainDefinition
 internal class ParseDomainDefinition
   : Parser<DomainDefinition>.I
 {
-  private readonly Parser<IEnumParser<DomainDomain>, DomainDomain>.L _kind;
+  private readonly Parser<IEnumParser<DomainKind>, DomainKind>.L _kind;
 
-  private readonly Dictionary<DomainDomain, ParseItems> _kindParsers = [];
+  private readonly Dictionary<DomainKind, ParseItems> _kindParsers = [];
 
   public ParseDomainDefinition(
-      Parser<IEnumParser<DomainDomain>, DomainDomain>.D kind,
+      Parser<IEnumParser<DomainKind>, DomainKind>.D kind,
       IEnumerable<IParseDomain> domains)
   {
     _kind = kind;

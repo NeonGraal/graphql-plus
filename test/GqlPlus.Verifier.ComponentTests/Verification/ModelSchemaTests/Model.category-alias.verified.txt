@@ -4,10 +4,10 @@ categories: !_Map_Categories
     aliases: [CatA1, CatA2]
     name: catAlias
     output: !_TypeRef(_TypeKind)
-      kind: !_TypeKind Output
       name: CatAlias
+      typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 types: !_Map_Type
   !_Identifier CatAlias: !_TypeOutput
-    kind: !_TypeKind Output
     name: CatAlias
+    typeKind: !_TypeKind Output

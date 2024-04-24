@@ -11,5 +11,5 @@ types: !_Map_Type
     - !_DomainRegex
       exclude: false
       regex: a+
-    kind: !_TypeKind Domain
     name: StrSame
+    typeKind: !_TypeKind Domain

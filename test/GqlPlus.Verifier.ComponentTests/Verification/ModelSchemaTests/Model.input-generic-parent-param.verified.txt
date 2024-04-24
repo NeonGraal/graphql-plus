@@ -5,15 +5,15 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpGenParentParamRef
       type: !_TypeParameter ref
-    kind: !_TypeKind Input
     name: InpGenParentParam
     parent: !_InputBase
       arguments:
       - !_InputBase InpGenParentParamAlt
       input: InpGenParentParamRef
+    typeKind: !_TypeKind Input
   !_Identifier InpGenParentParamAlt: !_TypeInput
-    kind: !_TypeKind Input
     name: InpGenParentParamAlt
+    typeKind: !_TypeKind Input
   !_Identifier InpGenParentParamRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -22,7 +22,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_InputBase)
       type: !_TypeParameter ref
-    kind: !_TypeKind Input
     name: InpGenParentParamRef
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described ref

@@ -8,8 +8,8 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_InputBase)
       type: !_TypeParameter a
-    kind: !_TypeKind Input
     name: InpPrmsPrntSame
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described a
   !_Identifier InpPrntPrmsSame: !_TypeInput
@@ -26,11 +26,11 @@ types: !_Map_Type
     - !_InputField
       name: field
       type: !_TypeParameter a
-    kind: !_TypeKind Input
     name: InpPrntPrmsSame
     parent: !_InputBase
       arguments:
       - !_TypeParameter a
       input: InpPrmsPrntSame
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described a

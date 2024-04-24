@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Modelling.Types;
+namespace GqlPlus.Verifier.Modelling.Simple;
 
 public class DomainStringModelTests(
   IDomainModeller<DomainRegexAst, DomainRegexModel> modeller
@@ -13,7 +13,7 @@ public class DomainStringModelTests(
 
 internal sealed class DomainStringModelChecks(
   IDomainModeller<DomainRegexAst, DomainRegexModel> modeller
-) : CheckDomainModel<string, DomainRegexAst, DomainRegexModel>(DomainDomain.String, modeller)
+) : CheckDomainModel<string, DomainRegexAst, DomainRegexModel>(DomainKind.String, modeller)
 {
   protected override string[] ExpectedItem(string input, string exclude, string[] domain)
     => ["- !_DomainRegex", .. domain, exclude, "  regex: " + input];

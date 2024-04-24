@@ -10,8 +10,8 @@ types: !_Map_Type
     - !_OutputField
       name: field
       type: !_OutputBase OutpField
-    kind: !_TypeKind Output
     name: FieldsOutp
+    typeKind: !_TypeKind Output
   !_Identifier OutpField: !_TypeOutput
-    kind: !_TypeKind Output
     name: OutpField
+    typeKind: !_TypeKind Output

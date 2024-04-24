@@ -1,7 +1,7 @@
-﻿!G I@001/0001
+﻿!Sc I@001/0001
 Success
 {
-  !O I@008/0001
+  !Ou I@008/0001
   _Categories
   {
     !OF I@009/0002
@@ -24,7 +24,7 @@ Success
   _Type
 }
 {
-  !O I@008/0008
+  !Ou I@008/0008
   _Category
   :
   I@007/0009
@@ -53,7 +53,7 @@ Success
   }
 }
 {
-  !E I@006/0015
+  !En I@006/0015
   _Resolution
   !EM I@020/0015
   Parallel

@@ -14,6 +14,6 @@ types: !_Map_Type
     - !_OutputField
       name: value
       type: !_OutputBase _Constant
-    kind: !_TypeKind Output
     name: _Setting
     parent: !_OutputBase _Described
+    typeKind: !_TypeKind Output

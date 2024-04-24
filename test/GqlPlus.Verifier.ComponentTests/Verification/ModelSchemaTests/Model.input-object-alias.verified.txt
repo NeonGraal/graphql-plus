@@ -2,5 +2,5 @@
 types: !_Map_Type
   !_Identifier InpAlias: !_TypeInput
     aliases: [Inp1, Inp2]
-    kind: !_TypeKind Input
     name: InpAlias
+    typeKind: !_TypeKind Input

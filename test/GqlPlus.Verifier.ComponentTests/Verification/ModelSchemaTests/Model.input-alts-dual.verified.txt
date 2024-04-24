@@ -1,8 +1,8 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier InpAltDual: !_TypeDual
-    kind: !_TypeKind Dual
     name: InpAltDual
+    typeKind: !_TypeKind Dual
   !_Identifier InpAltsDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -11,5 +11,5 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_InputBase)
       type: !_DualBase InpAltDual
-    kind: !_TypeKind Input
     name: InpAltsDual
+    typeKind: !_TypeKind Input

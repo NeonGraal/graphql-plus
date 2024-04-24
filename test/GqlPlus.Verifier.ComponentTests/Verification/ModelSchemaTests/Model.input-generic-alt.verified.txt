@@ -8,7 +8,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_InputBase)
       type: !_TypeParameter type
-    kind: !_TypeKind Input
     name: InpGenAlt
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described type

@@ -10,7 +10,7 @@ types: !_Map_Type
     - !_InputField
       name: field
       type: !_TypeParameter type
-    kind: !_TypeKind Input
     name: InpGenField
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described type

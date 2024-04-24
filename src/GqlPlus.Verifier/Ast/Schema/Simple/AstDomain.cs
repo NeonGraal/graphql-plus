@@ -6,28 +6,28 @@ public record class AstDomain<TMember>(
   TokenAt At,
   string Name,
   string Description,
-  DomainDomain Domain
-) : AstDomain(At, Name, Description, Domain), IEquatable<AstDomain<TMember>>
+  DomainKind DomainKind
+) : AstDomain(At, Name, Description, DomainKind), IEquatable<AstDomain<TMember>>
   where TMember : IAstDomainItem
 {
   public TMember[] Items { get; set; } = [];
 
-  internal override string Abbr => "S";
+  internal override string Abbr => "Do";
   public override string Label => "Domain";
 
-  public AstDomain(TokenAt at, string name, DomainDomain domain, TMember[] members)
-    : this(at, name, "", domain)
+  public AstDomain(TokenAt at, string name, DomainKind kind, TMember[] members)
+    : this(at, name, "", kind)
     => Items = members;
 
   public virtual bool Equals(AstDomain<TMember>? other)
     => base.Equals(other)
-      && Domain == other.Domain
+      && DomainKind == other.DomainKind
       && Items.SequenceEqual(other.Items);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Domain, Items.Length);
+    => HashCode.Combine(base.GetHashCode(), DomainKind, Items.Length);
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Append(Domain.ToString())
+      .Append(DomainKind.ToString())
       .Append(Parent.Prefixed(":"))
       .Concat(Items.Bracket());
 }
@@ -36,11 +36,11 @@ public abstract record class AstDomain(
   TokenAt At,
   string Name,
   string Description,
-  DomainDomain Domain
+  DomainKind DomainKind
 ) : AstSimple(At, Name, Description)
 { }
 
-public enum DomainDomain
+public enum DomainKind
 {
   Boolean,
   Enum,

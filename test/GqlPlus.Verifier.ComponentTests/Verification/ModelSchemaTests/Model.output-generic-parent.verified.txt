@@ -1,8 +1,8 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier OutpGenPrnt: !_TypeOutput
-    kind: !_TypeKind Output
     name: OutpGenPrnt
     parent: !_TypeParameter type
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described type

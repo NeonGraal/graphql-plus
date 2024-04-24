@@ -8,8 +8,8 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_InputBase)
       type: !_TypeParameter b
-    kind: !_TypeKind Input
     name: InpPrmsPrntDiff
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described b
   !_Identifier InpPrntPrmsDiff: !_TypeInput
@@ -26,11 +26,11 @@ types: !_Map_Type
     - !_InputField
       name: field
       type: !_TypeParameter a
-    kind: !_TypeKind Input
     name: InpPrntPrmsDiff
     parent: !_InputBase
       arguments:
       - !_TypeParameter a
       input: InpPrmsPrntDiff
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described a

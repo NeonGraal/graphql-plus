@@ -8,8 +8,8 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_DualBase)
       type: !_DualBase DualAltsType
-    kind: !_TypeKind Dual
     name: DualAlts
+    typeKind: !_TypeKind Dual
   !_Identifier DualAltsType: !_TypeDual
-    kind: !_TypeKind Dual
     name: DualAltsType
+    typeKind: !_TypeKind Dual

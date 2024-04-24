@@ -33,8 +33,8 @@ types: !_Map_Type
     - !_OutputField
       name: type
       type: !_OutputBase _Type
-    kind: !_TypeKind Output
     name: _Categories
+    typeKind: !_TypeKind Output
   !_Identifier _Category: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -47,8 +47,8 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Output
         output: _TypeRef
     - !_ObjectFor(_OutputField)
@@ -65,17 +65,17 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Output
         output: _TypeRef
     - !_OutputField
       modifiers: [!_Modifier List]
       name: modifiers
       type: !_OutputBase _Modifiers
-    kind: !_TypeKind Output
     name: _Category
     parent: !_OutputBase _Aliased
+    typeKind: !_TypeKind Output
   !_Identifier _Resolution: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -91,5 +91,5 @@ types: !_Map_Type
     - !_Aliased Parallel
     - !_Aliased Sequential
     - !_Aliased Single
-    kind: !_TypeKind Enum
     name: _Resolution
+    typeKind: !_TypeKind Enum

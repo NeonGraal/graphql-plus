@@ -10,5 +10,5 @@ types: !_Map_Type
     - !_OutputField
       name: field
       type: !_OutputBase OutpFieldAlias
-    kind: !_TypeKind Output
     name: OutpFieldAlias
+    typeKind: !_TypeKind Output

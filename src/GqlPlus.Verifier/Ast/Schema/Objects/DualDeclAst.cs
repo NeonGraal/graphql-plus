@@ -8,7 +8,7 @@ public sealed record class DualDeclAst(
   string Description
 ) : AstObject<DualFieldAst, DualReferenceAst>(At, Name, Description)
 {
-  internal override string Abbr => "D";
+  internal override string Abbr => "Du";
   public override string Label => "Dual";
 
   public DualDeclAst(TokenAt at, string name)

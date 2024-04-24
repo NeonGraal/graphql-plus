@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Parse.Schema.Types;
+namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
 public sealed class ParseDomainEnumTests(
   Parser<AstDomain>.D parser
@@ -10,19 +10,19 @@ public sealed class ParseDomainEnumTests(
   public void WithEnumType_ReturnsCorrectAst(DomainEnumInput input, string enumType)
     => _checks.TrueExpected(
       input.Name + "{enum!" + enumType + "." + input.Member + "}",
-      new AstDomain<DomainMemberAst>(AstNulls.At, input.Name, DomainDomain.Enum, input.DomainMember(enumType)));
+      new AstDomain<DomainMemberAst>(AstNulls.At, input.Name, DomainKind.Enum, input.DomainMember(enumType)));
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumAllMembers_ReturnsCorrectAst(DomainEnumInput input)
     => _checks.TrueExpected(
       input.Name + "{enum " + input.Member + ".* }",
-      new AstDomain<DomainMemberAst>(AstNulls.At, input.Name, DomainDomain.Enum, input.DomainAllMembers()));
+      new AstDomain<DomainMemberAst>(AstNulls.At, input.Name, DomainKind.Enum, input.DomainAllMembers()));
 
   [Theory, RepeatData(Repeats)]
   public void WithMembers_ReturnsCorrectAst(DomainEnumInput input, string member)
     => _checks.TrueExpected(
       input.Name + "{enum!" + input.Member + " " + member + "}",
-      new AstDomain<DomainMemberAst>(AstNulls.At, input.Name, DomainDomain.Enum, input.DomainMembers(member)));
+      new AstDomain<DomainMemberAst>(AstNulls.At, input.Name, DomainKind.Enum, input.DomainMembers(member)));
 
   [Theory, RepeatData(Repeats)]
   public void WithMembersExcludeBad_ReturnsFalse(string name)
@@ -43,10 +43,10 @@ public sealed class ParseDomainEnumTests(
 
 internal sealed class ParseDomainEnumChecks(
   Parser<AstDomain>.D parser
-) : BaseDomainChecks<DomainEnumInput, AstDomain>(parser, DomainDomain.Enum)
+) : BaseDomainChecks<DomainEnumInput, AstDomain>(parser, DomainKind.Enum)
 {
   protected internal override AstDomain<DomainMemberAst> NamedFactory(DomainEnumInput input)
-    => new(AstNulls.At, input.Name, DomainDomain.Enum, input.DomainMembers());
+    => new(AstNulls.At, input.Name, DomainKind.Enum, input.DomainMembers());
 
   protected internal override string AliasesString(DomainEnumInput input, string aliases)
     => input.Name + aliases + "{enum !" + input.Member + "}";

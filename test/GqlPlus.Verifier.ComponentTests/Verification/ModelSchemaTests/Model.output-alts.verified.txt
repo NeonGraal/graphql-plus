@@ -1,8 +1,8 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier OutpAlt: !_TypeOutput
-    kind: !_TypeKind Output
     name: OutpAlt
+    typeKind: !_TypeKind Output
   !_Identifier OutpAlts: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -11,5 +11,5 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase OutpAlt
-    kind: !_TypeKind Output
     name: OutpAlts
+    typeKind: !_TypeKind Output

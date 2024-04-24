@@ -11,7 +11,7 @@ output _Type {
 
 output _BaseType<$kind> {
     : _Aliased
-        kind: $kind
+        typeKind: $kind
     }
 
 output _ChildType<$kind $parent> {
@@ -30,7 +30,7 @@ enum _SimpleKind { Basic Enum Internal Domain Union }
 enum _TypeKind { :_SimpleKind Dual Input Output }
 
 output _TypeRef<$kind> {
-        kind: $kind
+        typeKind: $kind
         name: _Identifier
 }
 

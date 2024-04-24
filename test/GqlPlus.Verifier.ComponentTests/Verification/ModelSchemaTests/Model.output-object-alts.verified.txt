@@ -8,8 +8,8 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase OutpAltsType
-    kind: !_TypeKind Output
     name: OutpAlts
+    typeKind: !_TypeKind Output
   !_Identifier OutpAltsType: !_TypeOutput
-    kind: !_TypeKind Output
     name: OutpAltsType
+    typeKind: !_TypeKind Output

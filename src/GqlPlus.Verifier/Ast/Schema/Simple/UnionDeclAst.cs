@@ -9,7 +9,7 @@ public sealed record class UnionDeclAst(
   UnionMemberAst[] Members
 ) : AstSimple(At, Name, Description), IEquatable<UnionDeclAst>
 {
-  internal override string Abbr => "U";
+  internal override string Abbr => "Un";
   public override string Label => "Union";
 
   public UnionDeclAst(TokenAt at, string name, UnionMemberAst[] members)

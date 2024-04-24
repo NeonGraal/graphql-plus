@@ -13,11 +13,11 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 10
-    kind: !_TypeKind Domain
     name: OutDomainParam
+    typeKind: !_TypeKind Domain
   !_Identifier OutParamDomain: !_TypeInput
-    kind: !_TypeKind Input
     name: OutParamDomain
+    typeKind: !_TypeKind Input
   !_Identifier OutParamsDomain: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -28,7 +28,7 @@ types: !_Map_Type
         collections:
         - !_ModifierDictionary
           by: OutDomainParam
-          kind: Dict
+          modifierKind: Dict
         type: !_InputBase OutParamDomain
       type: !_OutputBase OutParamsDomain
     fields:
@@ -39,8 +39,8 @@ types: !_Map_Type
         collections:
         - !_ModifierDictionary
           by: OutDomainParam
-          kind: Dict
+          modifierKind: Dict
         type: !_InputBase OutParamDomain
       type: !_OutputBase OutParamsDomain
-    kind: !_TypeKind Output
     name: OutParamsDomain
+    typeKind: !_TypeKind Output

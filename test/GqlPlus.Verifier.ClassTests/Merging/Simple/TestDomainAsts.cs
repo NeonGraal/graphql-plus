@@ -1,11 +1,10 @@
 ﻿using GqlPlus.Verifier.Ast;
 using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Merging.Simple;
 using GqlPlus.Verifier.Token;
 using NSubstitute;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging.Types;
+namespace GqlPlus.Verifier.Merging.Simple;
 
 public abstract class TestDomainAsts<TItem, TItemInput>
   : TestTyped<AstDomain, AstDomain<TItem>, string, TItem>
@@ -24,10 +23,10 @@ public abstract class TestDomainAsts<TItem, TItemInput>
   [Theory, RepeatData(Repeats)]
   public void CanMerge_DifferentKinds_ReturnsErrors(string name)
   {
-    var domain = MakeDescribed(name).Domain == DomainDomain.String
-      ? DomainDomain.Number
-      : DomainDomain.String;
-    var items = new[] { MakeDescribed(name) with { Domain = domain }, MakeDescribed(name) };
+    var domainKind = MakeDescribed(name).DomainKind == DomainKind.String
+      ? DomainKind.Number
+      : DomainKind.String;
+    var items = new[] { MakeDescribed(name) with { DomainKind = domainKind }, MakeDescribed(name) };
 
     var result = Merger.CanMerge(items);
 

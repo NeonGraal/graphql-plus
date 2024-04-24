@@ -16,11 +16,11 @@ types: !_Map_Type
         arguments:
         - !_InputBase InpGenFieldParamAlt
         input: InpGenFieldParamRef
-    kind: !_TypeKind Input
     name: InpGenFieldParam
+    typeKind: !_TypeKind Input
   !_Identifier InpGenFieldParamAlt: !_TypeInput
-    kind: !_TypeKind Input
     name: InpGenFieldParamAlt
+    typeKind: !_TypeKind Input
   !_Identifier InpGenFieldParamRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -29,7 +29,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_InputBase)
       type: !_TypeParameter ref
-    kind: !_TypeKind Input
     name: InpGenFieldParamRef
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described ref

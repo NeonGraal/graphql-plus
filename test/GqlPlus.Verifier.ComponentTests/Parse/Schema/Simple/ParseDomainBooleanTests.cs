@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Parse.Schema.Types;
+namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
 public sealed class ParseDomainBooleanTests(
   Parser<AstDomain>.D parser
@@ -13,10 +13,10 @@ public sealed class ParseDomainBooleanTests(
 
 internal sealed class ParseDomainBooleanChecks(
   Parser<AstDomain>.D parser
-) : BaseDomainChecks<string, AstDomain>(parser, DomainDomain.Boolean)
+) : BaseDomainChecks<string, AstDomain>(parser, DomainKind.Boolean)
 {
   protected internal override AstDomain<DomainTrueFalseAst> NamedFactory(string input)
-    => new(AstNulls.At, input, DomainDomain.Boolean, []);
+    => new(AstNulls.At, input, DomainKind.Boolean, []);
 
   protected internal override string AliasesString(string input, string aliases)
     => input + aliases + "{boolean}";

@@ -11,7 +11,7 @@ public class DirectiveAstTests : AstAliasedTests
   public void String_WithOption(string name, DirectiveOption option)
     => _checks.Text(
       () => new DirectiveDeclAst(AstNulls.At, name) { Option = option },
-      $"( !D {name} ({option}) None )");
+      $"( !Di {name} ({option}) None )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithOption(string name, DirectiveOption option)
@@ -33,7 +33,7 @@ public class DirectiveAstTests : AstAliasedTests
   public void String_WithParameters(string name, string[] parameters)
     => _checks.Text(
       () => new DirectiveDeclAst(AstNulls.At, name) { Parameters = parameters.Parameters() },
-      $"( !D {name} ( {parameters.Joined(s => "!P " + s)} ) (Unique) None )");
+      $"( !Di {name} ( {parameters.Joined(s => "!Pa " + s)} ) (Unique) None )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithParameter(string name, string[] parameters)
@@ -55,7 +55,7 @@ public class DirectiveAstTests : AstAliasedTests
   public void String_WithLocations(string name, DirectiveLocation location)
     => _checks.Text(
       () => new DirectiveDeclAst(AstNulls.At, name) { Locations = location },
-      $"( !D {name} (Unique) {location} )");
+      $"( !Di {name} (Unique) {location} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithLocations(string name, DirectiveLocation location)
@@ -69,7 +69,7 @@ public class DirectiveAstTests : AstAliasedTests
       location1 == location2);
 
   protected override string AliasesString(string input, string aliases)
-    => $"( !D {input}{aliases} (Unique) None )";
+    => $"( !Di {input}{aliases} (Unique) None )";
 
   private readonly AstAliasedChecks<DirectiveDeclAst> _checks
     = new(name => new DirectiveDeclAst(AstNulls.At, name));

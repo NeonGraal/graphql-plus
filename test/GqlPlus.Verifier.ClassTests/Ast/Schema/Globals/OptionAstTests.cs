@@ -11,7 +11,7 @@ public class OptionAstTests : AstAliasedTests
   public void String_WithSettings(string name, string[] settings)
     => _checks.Text(
       () => new OptionDeclAst(AstNulls.At, name) { Settings = settings.OptionSettings() },
-      $"( !O {name} {{ {settings.Joined(s => $"!OS {s} =( !k '{s}' )")} }} )");
+      $"( !Op {name} {{ {settings.Joined(s => $"!OS {s} =( !k '{s}' )")} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithSettings(string name, string[] settings)
@@ -25,7 +25,7 @@ public class OptionAstTests : AstAliasedTests
       settings1.SequenceEqual(settings2));
 
   protected override string AliasesString(string input, string aliases)
-    => $"( !O {input}{aliases} )";
+    => $"( !Op {input}{aliases} )";
 
   private readonly AstAliasedChecks<OptionDeclAst> _checks
     = new(name => new OptionDeclAst(AstNulls.At, name));

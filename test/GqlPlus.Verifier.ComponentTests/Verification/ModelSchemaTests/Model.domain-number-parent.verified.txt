@@ -15,11 +15,11 @@ types: !_Map_Type
     - !_DomainRange
       exclude: false
       from: 2
-    kind: !_TypeKind Domain
     name: DomNumPrnt
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Domain
       name: DomPrntNum
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
   !_Identifier DomPrntNum: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
@@ -31,5 +31,5 @@ types: !_Map_Type
     - !_DomainRange
       exclude: false
       to: 2
-    kind: !_TypeKind Domain
     name: DomPrntNum
+    typeKind: !_TypeKind Domain

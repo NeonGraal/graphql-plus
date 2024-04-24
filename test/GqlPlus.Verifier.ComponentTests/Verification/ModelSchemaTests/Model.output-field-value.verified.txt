@@ -7,21 +7,21 @@ types: !_Map_Type
       name: outEnumValue
     items:
     - !_Aliased outEnumValue
-    kind: !_TypeKind Enum
     name: OutEnumValue
+    typeKind: !_TypeKind Enum
   !_Identifier OutFieldValue: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
-      kind: !_SimpleKind Enum
       name: OutEnumValue
       object: OutFieldValue
+      typeKind: !_SimpleKind Enum
       value: outEnumValue
     fields:
     - !_OutputEnum
       field: field
-      kind: !_SimpleKind Enum
       name: OutEnumValue
+      typeKind: !_SimpleKind Enum
       value: outEnumValue
-    kind: !_TypeKind Output
     name: OutFieldValue
+    typeKind: !_TypeKind Output

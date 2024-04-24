@@ -31,10 +31,10 @@ internal class VerifyDomainTypes(
   protected override bool CheckAstParent(AstDomain usage, AstDomain? parent, EnumContext context)
   {
     if (base.CheckAstParent(usage, parent, context)) {
-      if (usage.Domain == parent.Domain) {
+      if (usage.DomainKind == parent.DomainKind) {
         return true;
       } else {
-        context.AddError(usage, usage.Label + " Parent", $"'{parent.Name}' invalid domain. Found '{parent.Domain}'");
+        context.AddError(usage, usage.Label + " Parent", $"'{parent.Name}' invalid domain. Found '{parent.DomainKind}'");
       }
     }
 

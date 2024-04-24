@@ -1,7 +1,7 @@
-﻿!G I@001/0001
+﻿!Sc I@001/0001
 Success
 {
-  !O I@008/0001
+  !Ou I@008/0001
   _TypeOutput
   :
   I@007/0002
@@ -16,7 +16,7 @@ Success
   >
 }
 {
-  !O I@008/0005
+  !Ou I@008/0005
   _OutputBase
   :
   I@007/0006
@@ -38,7 +38,7 @@ Success
   _DualBase
 }
 {
-  !O I@008/0011
+  !Ou I@008/0011
   _OutputField
   :
   I@007/0012
@@ -61,7 +61,7 @@ Success
   _OutputEnum
 }
 {
-  !O I@008/0017
+  !Ou I@008/0017
   _OutputArgument
   :
   I@007/0018
@@ -87,7 +87,7 @@ Success
   >
 }
 {
-  !O I@008/0023
+  !Ou I@008/0023
   _OutputEnum
   :
   I@007/0024

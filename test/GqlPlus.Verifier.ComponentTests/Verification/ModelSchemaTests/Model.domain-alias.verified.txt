@@ -3,5 +3,5 @@ types: !_Map_Type
   !_Identifier NumAlias: !_DomainNumber
     aliases: [Num1, Num2]
     domain: !_DomainKind Number
-    kind: !_TypeKind Domain
     name: NumAlias
+    typeKind: !_TypeKind Domain

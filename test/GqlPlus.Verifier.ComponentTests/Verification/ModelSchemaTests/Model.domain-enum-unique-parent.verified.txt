@@ -7,8 +7,8 @@ types: !_Map_Type
       name: dup
     items:
     - !_Aliased dup
-    kind: !_TypeKind Enum
     name: EnumDomDupParent
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomParentUnique: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -16,8 +16,8 @@ types: !_Map_Type
       name: dup
     items:
     - !_Aliased dup
-    kind: !_TypeKind Enum
     name: EnumDomParentUnique
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomUniqueParent: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -28,8 +28,8 @@ types: !_Map_Type
       name: value
     items:
     - !_Aliased value
-    kind: !_TypeKind Enum
     name: EnumDomUniqueParent
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Enum
       name: EnumDomParentUnique
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum

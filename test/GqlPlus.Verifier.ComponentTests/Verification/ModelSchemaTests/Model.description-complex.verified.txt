@@ -2,5 +2,5 @@
 types: !_Map_Type
   !_Identifier DescrComplex: !_TypeOutput
     description: 'A "more" ''Complicated'' \ description'
-    kind: !_TypeKind Output
     name: DescrComplex
+    typeKind: !_TypeKind Output

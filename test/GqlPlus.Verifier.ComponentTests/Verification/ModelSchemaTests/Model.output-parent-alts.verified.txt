@@ -8,8 +8,8 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase String
-    kind: !_TypeKind Output
     name: OutpAltPrnt
+    typeKind: !_TypeKind Output
   !_Identifier OutpPrntAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -21,6 +21,6 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase Number
-    kind: !_TypeKind Output
     name: OutpPrntAlt
     parent: !_OutputBase OutpAltPrnt
+    typeKind: !_TypeKind Output

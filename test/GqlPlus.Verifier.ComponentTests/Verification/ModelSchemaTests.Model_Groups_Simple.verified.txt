@@ -5,107 +5,107 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomEnum
       exclude: false
-      kind: !_SimpleKind Enum
       name: EnumDom
+      typeKind: !_SimpleKind Enum
       value: dom_enum
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      kind: !_SimpleKind Enum
       name: EnumDom
+      typeKind: !_SimpleKind Enum
       value: dom_enum
-    kind: !_TypeKind Domain
     name: DomEnum
+    typeKind: !_TypeKind Domain
   !_Identifier DomEnumAll: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainMember)
       domain: DomEnumAll
       exclude: false
-      kind: !_SimpleKind Enum
       name: EnumDomAll
+      typeKind: !_SimpleKind Enum
       value: '*'
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      kind: !_SimpleKind Enum
       name: EnumDomAll
+      typeKind: !_SimpleKind Enum
       value: '*'
-    kind: !_TypeKind Domain
     name: DomEnumAll
+    typeKind: !_TypeKind Domain
   !_Identifier DomEnumAllParent: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainMember)
       domain: DomEnumAllParent
       exclude: false
-      kind: !_SimpleKind Enum
       name: EnumDomAllParent
+      typeKind: !_SimpleKind Enum
       value: '*'
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      kind: !_SimpleKind Enum
       name: EnumDomAllParent
+      typeKind: !_SimpleKind Enum
       value: '*'
-    kind: !_TypeKind Domain
     name: DomEnumAllParent
+    typeKind: !_TypeKind Domain
   !_Identifier DomEnumParent: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainMember)
       domain: DomEnumParent
       exclude: false
-      kind: !_SimpleKind Enum
       name: EnumDomParent
+      typeKind: !_SimpleKind Enum
       value: dom_enum
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      kind: !_SimpleKind Enum
       name: EnumDomParent
+      typeKind: !_SimpleKind Enum
       value: dom_enum
-    kind: !_TypeKind Domain
     name: DomEnumParent
+    typeKind: !_TypeKind Domain
   !_Identifier DomEnumPrnt: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainMember)
       domain: DomPrntEnum
       exclude: false
-      kind: !_SimpleKind Enum
+      typeKind: !_SimpleKind Enum
       value: dom_parent
     - !_DomainItem(_DomainMember)
       domain: DomEnumPrnt
       exclude: false
-      kind: !_SimpleKind Enum
+      typeKind: !_SimpleKind Enum
       value: dom_enum
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      kind: !_SimpleKind Enum
+      typeKind: !_SimpleKind Enum
       value: dom_enum
-    kind: !_TypeKind Domain
     name: DomEnumPrnt
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Domain
       name: DomPrntEnum
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
   !_Identifier DomMember: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainMember)
       domain: DomMember
       exclude: false
-      kind: !_SimpleKind Enum
+      typeKind: !_SimpleKind Enum
       value: dom_member
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      kind: !_SimpleKind Enum
+      typeKind: !_SimpleKind Enum
       value: dom_member
-    kind: !_TypeKind Domain
     name: DomMember
+    typeKind: !_TypeKind Domain
   !_Identifier DomNumPrnt: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
@@ -121,26 +121,26 @@ types: !_Map_Type
     - !_DomainRange
       exclude: false
       from: 2
-    kind: !_TypeKind Domain
     name: DomNumPrnt
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Domain
       name: DomPrntNum
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
   !_Identifier DomPrntEnum: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainMember)
       domain: DomPrntEnum
       exclude: false
-      kind: !_SimpleKind Enum
+      typeKind: !_SimpleKind Enum
       value: dom_parent
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      kind: !_SimpleKind Enum
+      typeKind: !_SimpleKind Enum
       value: dom_parent
-    kind: !_TypeKind Domain
     name: DomPrntEnum
+    typeKind: !_TypeKind Domain
   !_Identifier DomPrntNum: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
@@ -152,8 +152,8 @@ types: !_Map_Type
     - !_DomainRange
       exclude: false
       to: 2
-    kind: !_TypeKind Domain
     name: DomPrntNum
+    typeKind: !_TypeKind Domain
   !_Identifier DomPrntStr: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
@@ -165,15 +165,15 @@ types: !_Map_Type
     - !_DomainRegex
       exclude: false
       regex: b+
-    kind: !_TypeKind Domain
     name: DomPrntStr
+    typeKind: !_TypeKind Domain
   !_Identifier DomPrntTest: !_DomainBoolean
     domain: !_DomainKind Boolean
-    kind: !_TypeKind Domain
     name: DomPrntTest
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Domain
       name: DomTestPrnt
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
   !_Identifier DomStrPrnt: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
@@ -189,15 +189,15 @@ types: !_Map_Type
     - !_DomainRegex
       exclude: false
       regex: a+
-    kind: !_TypeKind Domain
     name: DomStrPrnt
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Domain
       name: DomPrntStr
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
   !_Identifier DomTestPrnt: !_DomainBoolean
     domain: !_DomainKind Boolean
-    kind: !_TypeKind Domain
     name: DomTestPrnt
+    typeKind: !_TypeKind Domain
   !_Identifier EnAliasPrnt: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -205,8 +205,8 @@ types: !_Map_Type
       name: valAlias
     items:
     - !_Aliased valAlias
-    kind: !_TypeKind Enum
     name: EnAliasPrnt
+    typeKind: !_TypeKind Enum
   !_Identifier EnDupPrnt: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -217,8 +217,8 @@ types: !_Map_Type
     - !_Aliased
       aliases: [valPrnt]
       name: valDup
-    kind: !_TypeKind Enum
     name: EnDupPrnt
+    typeKind: !_TypeKind Enum
   !_Identifier EnPrntAlias: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -236,11 +236,11 @@ types: !_Map_Type
     - !_Aliased
       aliases: [alias]
       name: valAlias
-    kind: !_TypeKind Enum
     name: EnPrntAlias
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Enum
       name: EnAliasPrnt
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
   !_Identifier EnPrntDup: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -252,11 +252,11 @@ types: !_Map_Type
       name: valPrnt
     items:
     - !_Aliased valPrnt
-    kind: !_TypeKind Enum
     name: EnPrntDup
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Enum
       name: EnDupPrnt
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
   !_Identifier EnPrntTest: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -264,8 +264,8 @@ types: !_Map_Type
       name: valTest
     items:
     - !_Aliased valTest
-    kind: !_TypeKind Enum
     name: EnPrntTest
+    typeKind: !_TypeKind Enum
   !_Identifier EnTestPrnt: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -276,11 +276,11 @@ types: !_Map_Type
       name: valPrnt
     items:
     - !_Aliased valPrnt
-    kind: !_TypeKind Enum
     name: EnTestPrnt
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Enum
       name: EnPrntTest
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDom: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -288,8 +288,8 @@ types: !_Map_Type
       name: dom_enum
     items:
     - !_Aliased dom_enum
-    kind: !_TypeKind Enum
     name: EnumDom
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomAll: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -301,8 +301,8 @@ types: !_Map_Type
     items:
     - !_Aliased dom_all
     - !_Aliased dom_enum_all
-    kind: !_TypeKind Enum
     name: EnumDomAll
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomAllParent: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -313,11 +313,11 @@ types: !_Map_Type
       name: dom_all
     items:
     - !_Aliased dom_all
-    kind: !_TypeKind Enum
     name: EnumDomAllParent
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Enum
       name: EnumDomParentAll
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomDup: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -325,8 +325,8 @@ types: !_Map_Type
       name: dup
     items:
     - !_Aliased dup
-    kind: !_TypeKind Enum
     name: EnumDomDup
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomDupParent: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -334,8 +334,8 @@ types: !_Map_Type
       name: dup
     items:
     - !_Aliased dup
-    kind: !_TypeKind Enum
     name: EnumDomDupParent
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomParent: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -346,11 +346,11 @@ types: !_Map_Type
       name: dom_parent
     items:
     - !_Aliased dom_parent
-    kind: !_TypeKind Enum
     name: EnumDomParent
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Enum
       name: EnumParentDom
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomParentAll: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -358,8 +358,8 @@ types: !_Map_Type
       name: dom_enum_all
     items:
     - !_Aliased dom_enum_all
-    kind: !_TypeKind Enum
     name: EnumDomParentAll
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomParentUnique: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -367,8 +367,8 @@ types: !_Map_Type
       name: dup
     items:
     - !_Aliased dup
-    kind: !_TypeKind Enum
     name: EnumDomParentUnique
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomPrnt: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -380,8 +380,8 @@ types: !_Map_Type
     items:
     - !_Aliased dom_enum
     - !_Aliased dom_parent
-    kind: !_TypeKind Enum
     name: EnumDomPrnt
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomUnique: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -393,8 +393,8 @@ types: !_Map_Type
     items:
     - !_Aliased value
     - !_Aliased dup
-    kind: !_TypeKind Enum
     name: EnumDomUnique
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomUniqueParent: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -405,11 +405,11 @@ types: !_Map_Type
       name: value
     items:
     - !_Aliased value
-    kind: !_TypeKind Enum
     name: EnumDomUniqueParent
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Enum
       name: EnumDomParentUnique
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
   !_Identifier EnumParentDom: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -417,8 +417,8 @@ types: !_Map_Type
       name: dom_enum
     items:
     - !_Aliased dom_enum
-    kind: !_TypeKind Enum
     name: EnumParentDom
+    typeKind: !_TypeKind Enum
   !_Identifier MemberDom: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -426,8 +426,8 @@ types: !_Map_Type
       name: dom_member
     items:
     - !_Aliased dom_member
-    kind: !_TypeKind Enum
     name: MemberDom
+    typeKind: !_TypeKind Enum
   !_Identifier PrntUnion: !_TypeUnion
     allItems:
     - !_UnionMember
@@ -435,8 +435,8 @@ types: !_Map_Type
       union: PrntUnion
     items:
     - !_Aliased Number
-    kind: !_TypeKind Union
     name: PrntUnion
+    typeKind: !_TypeKind Union
   !_Identifier UnionPrnt: !_TypeUnion
     allItems:
     - !_UnionMember
@@ -447,8 +447,8 @@ types: !_Map_Type
       union: UnionPrnt
     items:
     - !_Aliased String
-    kind: !_TypeKind Union
     name: UnionPrnt
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Union
       name: PrntUnion
+      typeKind: !_SimpleKind Union
+    typeKind: !_TypeKind Union

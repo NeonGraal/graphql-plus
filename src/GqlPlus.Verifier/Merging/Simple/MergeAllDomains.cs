@@ -11,7 +11,7 @@ internal class MergeAllDomains(
   , IMergeAll<AstType>
 {
   protected override string ItemMatchName => "Domain";
-  protected override string ItemMatchKey(AstDomain item) => item.Domain.ToString();
+  protected override string ItemMatchKey(AstDomain item) => item.DomainKind.ToString();
 
   ITokenMessages IMerge<AstType>.CanMerge(IEnumerable<AstType> items)
   {

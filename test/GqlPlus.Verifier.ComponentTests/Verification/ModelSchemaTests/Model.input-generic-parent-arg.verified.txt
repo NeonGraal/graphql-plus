@@ -5,12 +5,12 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpGenPrntRef
       type: !_TypeParameter ref
-    kind: !_TypeKind Input
     name: InpGenPrntArg
     parent: !_InputBase
       arguments:
       - !_TypeParameter type
       input: InpGenPrntRef
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described type
   !_Identifier InpGenPrntRef: !_TypeInput
@@ -21,7 +21,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_InputBase)
       type: !_TypeParameter ref
-    kind: !_TypeKind Input
     name: InpGenPrntRef
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described ref

@@ -1,15 +1,15 @@
-enum _DomainDomain { Boolean Enum Number String Union }
+enum _DomainKind { Boolean Enum Number String Union }
 
 output _TypeDomain {
-    | _BaseDomain<_DomainDomain.Boolean _DomainTrueFalse>
-    | _BaseDomain<_DomainDomain.Enum _DomainMember>
-    | _BaseDomain<_DomainDomain.Number _DomainRange>
-    | _BaseDomain<_DomainDomain.String _DomainRegex>
+    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse>
+    | _BaseDomain<_DomainKind.Enum _DomainMember>
+    | _BaseDomain<_DomainKind.Number _DomainRange>
+    | _BaseDomain<_DomainKind.String _DomainRegex>
     }
 
 output _DomainRef<$kind> {
     : _TypeRef<_TypeKind.Domain>
-        domain: $kind
+        domainKind: $kind
     }
 
 output _BaseDomain<$domain $item> {

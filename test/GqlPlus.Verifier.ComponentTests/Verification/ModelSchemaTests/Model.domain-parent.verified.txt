@@ -2,12 +2,12 @@
 types: !_Map_Type
   !_Identifier DomPrntTest: !_DomainBoolean
     domain: !_DomainKind Boolean
-    kind: !_TypeKind Domain
     name: DomPrntTest
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Domain
       name: DomTestPrnt
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
   !_Identifier DomTestPrnt: !_DomainBoolean
     domain: !_DomainKind Boolean
-    kind: !_TypeKind Domain
     name: DomTestPrnt
+    typeKind: !_TypeKind Domain

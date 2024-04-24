@@ -11,7 +11,7 @@ internal class MergeDomains<TMember>(
 {
   protected override string ItemMatchName => "Domain~Parent";
   protected override string ItemMatchKey(AstDomain<TMember> item)
-    => item.Domain.ToString() + item.Parent.Prefixed("~");
+    => item.DomainKind.ToString() + item.Parent.Prefixed("~");
 
   internal override IEnumerable<TMember> GetItems(AstDomain<TMember> type)
     => type.Items;

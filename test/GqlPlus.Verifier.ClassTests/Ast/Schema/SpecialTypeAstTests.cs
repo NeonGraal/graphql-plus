@@ -6,5 +6,5 @@ public class SpecialTypeAstTests : AstAliasedTests
     = new AstAliasedChecks<SpecialTypeAst>(name => new SpecialTypeAst(AstNulls.At, name));
 
   protected override string AliasesString(string input, string aliases)
-    => $"( !Z _{input}{aliases} )";
+    => $"( !TZ _{input}{aliases} )";
 }

@@ -10,8 +10,8 @@ types: !_Map_Type
     - !_InputField
       name: parent
       type: !_InputBase String
-    kind: !_TypeKind Input
     name: InpFieldsParent
+    typeKind: !_TypeKind Input
   !_Identifier InpPrntFields: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
@@ -26,6 +26,6 @@ types: !_Map_Type
     - !_InputField
       name: field
       type: !_InputBase Number
-    kind: !_TypeKind Input
     name: InpPrntFields
     parent: !_InputBase InpFieldsParent
+    typeKind: !_TypeKind Input

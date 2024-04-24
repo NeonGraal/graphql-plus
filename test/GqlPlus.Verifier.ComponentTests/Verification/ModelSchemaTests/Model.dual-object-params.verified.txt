@@ -17,8 +17,8 @@ types: !_Map_Type
     - !_DualField
       name: type
       type: !_TypeParameter type
-    kind: !_TypeKind Dual
     name: DualParams
+    typeKind: !_TypeKind Dual
     typeParameters:
     - !_Described test
     - !_Described type

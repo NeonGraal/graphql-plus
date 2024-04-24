@@ -1,8 +1,8 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier InpGenPrnt: !_TypeInput
-    kind: !_TypeKind Input
     name: InpGenPrnt
     parent: !_TypeParameter type
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described type

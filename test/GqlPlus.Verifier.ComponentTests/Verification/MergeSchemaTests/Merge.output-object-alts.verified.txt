@@ -1,8 +1,8 @@
 ﻿[  
-!G I@001/0001
+!Sc I@001/0001
 Success
 {
-  !O I@008/0001
+  !Ou I@008/0001
   OutpAlts
   |
   !AO
@@ -10,7 +10,7 @@ Success
   OutpAltsType
 }
 {
-  !O I@078/0001
+  !Ou I@078/0001
   OutpAltsType
 }
 ]

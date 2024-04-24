@@ -1,8 +1,8 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier DualGenPrnt: !_TypeDual
-    kind: !_TypeKind Dual
     name: DualGenPrnt
     parent: !_TypeParameter type
+    typeKind: !_TypeKind Dual
     typeParameters:
     - !_Described type

@@ -8,8 +8,8 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_DualBase)
       type: !_DualBase String
-    kind: !_TypeKind Dual
     name: DualAltPrnt
+    typeKind: !_TypeKind Dual
   !_Identifier DualPrntAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -21,6 +21,6 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_DualBase)
       type: !_DualBase Number
-    kind: !_TypeKind Dual
     name: DualPrntAlt
     parent: !_DualBase DualAltPrnt
+    typeKind: !_TypeKind Dual

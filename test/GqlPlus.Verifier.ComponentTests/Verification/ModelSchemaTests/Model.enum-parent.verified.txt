@@ -7,8 +7,8 @@ types: !_Map_Type
       name: valTest
     items:
     - !_Aliased valTest
-    kind: !_TypeKind Enum
     name: EnPrntTest
+    typeKind: !_TypeKind Enum
   !_Identifier EnTestPrnt: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -19,8 +19,8 @@ types: !_Map_Type
       name: valPrnt
     items:
     - !_Aliased valPrnt
-    kind: !_TypeKind Enum
     name: EnTestPrnt
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Enum
       name: EnPrntTest
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum

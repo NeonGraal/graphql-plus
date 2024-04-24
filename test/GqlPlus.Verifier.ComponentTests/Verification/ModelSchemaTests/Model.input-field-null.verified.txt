@@ -14,5 +14,5 @@ types: !_Map_Type
       modifiers: [!_Modifier Optional]
       name: field
       type: !_InputBase InFieldNull
-    kind: !_TypeKind Input
     name: InFieldNull
+    typeKind: !_TypeKind Input

@@ -8,8 +8,8 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_TypeParameter a
-    kind: !_TypeKind Output
     name: OutpPrmsPrntSame
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described a
   !_Identifier OutpPrntPrmsSame: !_TypeOutput
@@ -26,11 +26,11 @@ types: !_Map_Type
     - !_OutputField
       name: field
       type: !_TypeParameter a
-    kind: !_TypeKind Output
     name: OutpPrntPrmsSame
     parent: !_OutputBase
       arguments:
       - !_TypeParameter a
       output: OutpPrmsPrntSame
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described a

@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Parse.Schema.Types;
+namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
 public sealed class ParseDomainStringTests(
   Parser<AstDomain>.D parser
@@ -10,7 +10,7 @@ public sealed class ParseDomainStringTests(
   public void WithRegexes_ReturnsCorrectAst(DomainStringInput input, string regex)
     => _checks.TrueExpected(
       input.Name + "{string/" + input.Regex + "/!/" + regex + "/}",
-      new AstDomain<DomainRegexAst>(AstNulls.At, input.Name, DomainDomain.String, new[] { input.Regex, regex }.DomainRegexes()));
+      new AstDomain<DomainRegexAst>(AstNulls.At, input.Name, DomainKind.String, new[] { input.Regex, regex }.DomainRegexes()));
 
   [Theory, RepeatData(Repeats)]
   public void WithRegexesFirstBad_ReturnsFalse(string name)
@@ -27,10 +27,10 @@ public sealed class ParseDomainStringTests(
 
 internal sealed class ParseDomainStringChecks(
   Parser<AstDomain>.D parser
-) : BaseDomainChecks<DomainStringInput, AstDomain>(parser, DomainDomain.String)
+) : BaseDomainChecks<DomainStringInput, AstDomain>(parser, DomainKind.String)
 {
   protected internal override AstDomain<DomainRegexAst> NamedFactory(DomainStringInput input)
-    => new(AstNulls.At, input.Name, DomainDomain.String, new[] { input.Regex }.DomainRegexes());
+    => new(AstNulls.At, input.Name, DomainKind.String, new[] { input.Regex }.DomainRegexes());
 
   protected internal override string AliasesString(DomainStringInput input, string aliases)
     => input.Name + aliases + "{string/" + input.Regex + "/}";

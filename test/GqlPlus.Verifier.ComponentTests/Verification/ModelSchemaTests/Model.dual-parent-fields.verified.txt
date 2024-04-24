@@ -10,8 +10,8 @@ types: !_Map_Type
     - !_DualField
       name: parent
       type: !_DualBase String
-    kind: !_TypeKind Dual
     name: DualFieldsParent
+    typeKind: !_TypeKind Dual
   !_Identifier DualPrntFields: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -26,6 +26,6 @@ types: !_Map_Type
     - !_DualField
       name: field
       type: !_DualBase Number
-    kind: !_TypeKind Dual
     name: DualPrntFields
     parent: !_DualBase DualFieldsParent
+    typeKind: !_TypeKind Dual

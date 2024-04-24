@@ -10,7 +10,7 @@ public sealed record class SchemaAst(TokenAt At)
 
   public AstDeclaration[] Declarations { get; set; } = [];
 
-  internal override string Abbr => "G";
+  internal override string Abbr => "Sc";
 
   public string Render()
   {

@@ -9,5 +9,5 @@ directives: !_Map_Directives
     repeatable: false
 types: !_Map_Type
   !_Identifier DirParamIn: !_TypeInput
-    kind: !_TypeKind Input
     name: DirParamIn
+    typeKind: !_TypeKind Input

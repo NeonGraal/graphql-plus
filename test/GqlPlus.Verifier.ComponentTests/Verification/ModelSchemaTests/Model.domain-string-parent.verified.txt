@@ -11,8 +11,8 @@ types: !_Map_Type
     - !_DomainRegex
       exclude: false
       regex: b+
-    kind: !_TypeKind Domain
     name: DomPrntStr
+    typeKind: !_TypeKind Domain
   !_Identifier DomStrPrnt: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
@@ -28,8 +28,8 @@ types: !_Map_Type
     - !_DomainRegex
       exclude: false
       regex: a+
-    kind: !_TypeKind Domain
     name: DomStrPrnt
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Domain
       name: DomPrntStr
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain

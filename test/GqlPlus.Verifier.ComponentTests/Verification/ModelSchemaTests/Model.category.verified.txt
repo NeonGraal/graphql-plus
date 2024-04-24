@@ -3,10 +3,10 @@ categories: !_Map_Categories
   !_Identifier category: !_Category
     name: category
     output: !_TypeRef(_TypeKind)
-      kind: !_TypeKind Output
       name: Category
+      typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 types: !_Map_Type
   !_Identifier Category: !_TypeOutput
-    kind: !_TypeKind Output
     name: Category
+    typeKind: !_TypeKind Output

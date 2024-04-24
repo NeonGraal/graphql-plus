@@ -7,5 +7,5 @@ types: !_Map_Type
       union: UnSame
     items:
     - !_Aliased Boolean
-    kind: !_TypeKind Union
     name: UnSame
+    typeKind: !_TypeKind Union

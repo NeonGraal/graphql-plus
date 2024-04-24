@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Simple;
-
-namespace GqlPlus.Verifier.Ast.Schema.Types;
+﻿namespace GqlPlus.Verifier.Ast.Schema.Simple;
 
 public class UnionMemberAstTests
   : AstAbbreviatedTests

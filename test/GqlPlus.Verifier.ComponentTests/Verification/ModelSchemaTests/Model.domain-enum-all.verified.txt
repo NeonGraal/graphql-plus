@@ -5,18 +5,18 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomEnumAll
       exclude: false
-      kind: !_SimpleKind Enum
       name: EnumDomAll
+      typeKind: !_SimpleKind Enum
       value: '*'
     domain: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      kind: !_SimpleKind Enum
       name: EnumDomAll
+      typeKind: !_SimpleKind Enum
       value: '*'
-    kind: !_TypeKind Domain
     name: DomEnumAll
+    typeKind: !_TypeKind Domain
   !_Identifier EnumDomAll: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -28,5 +28,5 @@ types: !_Map_Type
     items:
     - !_Aliased dom_all
     - !_Aliased dom_enum_all
-    kind: !_TypeKind Enum
     name: EnumDomAll
+    typeKind: !_TypeKind Enum

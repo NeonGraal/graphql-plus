@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast.Schema.Simple;
 using GqlPlus.Verifier.Rendering;
 
-namespace GqlPlus.Verifier.Modelling.Types;
+namespace GqlPlus.Verifier.Modelling.Simple;
 
 public class DomainBooleanModelTests(
   IDomainModeller<DomainTrueFalseAst, DomainTrueFalseModel> modeller
@@ -14,7 +14,7 @@ public class DomainBooleanModelTests(
 
 internal sealed class DomainBooleanModelChecks(
   IDomainModeller<DomainTrueFalseAst, DomainTrueFalseModel> modeller
-) : CheckDomainModel<bool, DomainTrueFalseAst, DomainTrueFalseModel>(DomainDomain.Boolean, modeller)
+) : CheckDomainModel<bool, DomainTrueFalseAst, DomainTrueFalseModel>(DomainKind.Boolean, modeller)
 {
   protected override string[] ExpectedItem(bool input, string exclude, string[] domain)
     => ["- !_DomainTrueFalse", .. domain, exclude, "  value: " + input.TrueFalse()];

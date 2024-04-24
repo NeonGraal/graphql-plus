@@ -14,8 +14,8 @@ types: !_Map_Type
         arguments:
         - !_TypeParameter type
         output: OutpGenAltRef
-    kind: !_TypeKind Output
     name: OutpGenAltArg
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described type
   !_Identifier OutpGenAltRef: !_TypeOutput
@@ -26,7 +26,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_TypeParameter ref
-    kind: !_TypeKind Output
     name: OutpGenAltRef
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described ref

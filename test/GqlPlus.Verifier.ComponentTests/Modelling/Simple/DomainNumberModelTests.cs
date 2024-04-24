@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Modelling.Types;
+namespace GqlPlus.Verifier.Modelling.Simple;
 
 public class DomainNumberModelTests(
   IDomainModeller<DomainRangeAst, DomainRangeModel> modeller
@@ -13,7 +13,7 @@ public class DomainNumberModelTests(
 
 internal sealed class DomainNumberModelChecks(
   IDomainModeller<DomainRangeAst, DomainRangeModel> modeller
-) : CheckDomainModel<DomainRangeInput, DomainRangeAst, DomainRangeModel>(DomainDomain.Number, modeller)
+) : CheckDomainModel<DomainRangeInput, DomainRangeAst, DomainRangeModel>(DomainKind.Number, modeller)
 {
   protected override string[] ExpectedItem(DomainRangeInput input, string exclude, string[] domain)
     => ["- !_DomainRange", .. domain, exclude, "  from: " + input.Lower, "  to: " + input.Upper];

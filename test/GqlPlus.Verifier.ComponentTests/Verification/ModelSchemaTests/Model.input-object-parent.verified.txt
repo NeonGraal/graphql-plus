@@ -1,9 +1,9 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier InpPrnt: !_TypeInput
-    kind: !_TypeKind Input
     name: InpPrnt
     parent: !_InputBase PrntInp
+    typeKind: !_TypeKind Input
   !_Identifier PrntInp: !_TypeInput
-    kind: !_TypeKind Input
     name: PrntInp
+    typeKind: !_TypeKind Input

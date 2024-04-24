@@ -8,8 +8,8 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_InputBase)
       type: !_InputBase InpAltsType
-    kind: !_TypeKind Input
     name: InpAlts
+    typeKind: !_TypeKind Input
   !_Identifier InpAltsType: !_TypeInput
-    kind: !_TypeKind Input
     name: InpAltsType
+    typeKind: !_TypeKind Input

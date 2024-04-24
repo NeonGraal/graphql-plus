@@ -1,11 +1,11 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier FieldParam1: !_TypeInput
-    kind: !_TypeKind Input
     name: FieldParam1
+    typeKind: !_TypeKind Input
   !_Identifier FieldParam2: !_TypeInput
-    kind: !_TypeKind Input
     name: FieldParam2
+    typeKind: !_TypeKind Input
   !_Identifier FieldParams: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -26,5 +26,5 @@ types: !_Map_Type
       - !_Parameter
         type: !_InputBase FieldParam2
       type: !_OutputBase FieldParams
-    kind: !_TypeKind Output
     name: FieldParams
+    typeKind: !_TypeKind Output

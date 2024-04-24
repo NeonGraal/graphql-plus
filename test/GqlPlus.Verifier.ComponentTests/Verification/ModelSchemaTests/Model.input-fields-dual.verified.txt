@@ -1,8 +1,8 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier InpFieldDual: !_TypeDual
-    kind: !_TypeKind Dual
     name: InpFieldDual
+    typeKind: !_TypeKind Dual
   !_Identifier InpFieldsDual: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
@@ -13,5 +13,5 @@ types: !_Map_Type
     - !_InputField
       name: field
       type: !_DualBase InpFieldDual
-    kind: !_TypeKind Input
     name: InpFieldsDual
+    typeKind: !_TypeKind Input

@@ -264,8 +264,8 @@ internal sealed class ExpectedObjectInput(
       .. alternates ?? [],
       .. Description ,
       .. fields ?? [],
-      $"kind: !_TypeKind {typeKind}",
       "name: " + Name,
       .. parent(Parent),
+      $"typeKind: !_TypeKind {typeKind}",
       .. typeParameters ?? []];
 }

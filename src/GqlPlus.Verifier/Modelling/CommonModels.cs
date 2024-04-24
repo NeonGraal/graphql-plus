@@ -56,20 +56,20 @@ public record class SimpleModel
 }
 
 public record class CollectionModel(
-  ModifierKind Kind
+  ModifierKind ModifierKind
 ) : ModelBase
 {
   public string Key { get; set; } = "";
   public bool KeyOptional { get; set; }
 
-  protected override string Tag => Kind == ModifierKind.Dict
+  protected override string Tag => ModifierKind == ModifierKind.Dict
     ? "_ModifierDictionary"
     : base.Tag;
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-        .Add("kind", $"{Kind}")
-        .Add(Kind == ModifierKind.Dict, s => s
+        .Add("modifierKind", $"{ModifierKind}")
+        .Add(ModifierKind == ModifierKind.Dict, s => s
           .Add("by", Key)
           .Add("optional", KeyOptional, true)
         );

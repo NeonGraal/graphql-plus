@@ -10,7 +10,7 @@ types: !_Map_Type
     - !_OutputField
       name: field
       type: !_TypeParameter type
-    kind: !_TypeKind Output
     name: OutpGenField
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described type

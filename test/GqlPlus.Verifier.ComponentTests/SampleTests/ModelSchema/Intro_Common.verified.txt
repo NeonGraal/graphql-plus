@@ -7,22 +7,22 @@ types: !_Map_Type
   !_Identifier _BaseType: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: kind
+      name: typeKind
       object: _BaseType
       type: !_TypeParameter kind
     fields:
     - !_OutputField
-      name: kind
+      name: typeKind
       type: !_TypeParameter kind
-    kind: !_TypeKind Output
     name: _BaseType
     parent: !_OutputBase _Aliased
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described kind
   !_Identifier _ChildType: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: kind
+      name: typeKind
       object: _BaseType
       type: !_TypeParameter kind
     - !_ObjectFor(_OutputField)
@@ -33,19 +33,19 @@ types: !_Map_Type
     - !_OutputField
       name: parent
       type: !_TypeParameter parent
-    kind: !_TypeKind Output
     name: _ChildType
     parent: !_OutputBase
       arguments:
       - !_TypeParameter kind
       output: _BaseType
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described kind
     - !_Described parent
   !_Identifier _ParentType: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: kind
+      name: typeKind
       object: _BaseType
       type: !_TypeParameter kind
     - !_ObjectFor(_OutputField)
@@ -71,13 +71,13 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: allItems
       type: !_TypeParameter allItem
-    kind: !_TypeKind Output
     name: _ParentType
     parent: !_OutputBase
       arguments:
       - !_TypeParameter kind
       - !_OutputBase _Identifier
       output: _ChildType
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described kind
     - !_Described item
@@ -105,8 +105,8 @@ types: !_Map_Type
     - !_Aliased Internal
     - !_Aliased Domain
     - !_Aliased Union
-    kind: !_TypeKind Enum
     name: _SimpleKind
+    typeKind: !_TypeKind Enum
   !_Identifier _Type: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -114,8 +114,8 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Basic
         output: _BaseType
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -123,8 +123,8 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Internal
         output: _BaseType
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -150,16 +150,16 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Basic
         output: _BaseType
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Internal
         output: _BaseType
     - !_Alternate(_OutputBase)
@@ -174,8 +174,8 @@ types: !_Map_Type
       type: !_OutputBase _TypeDomain
     - !_Alternate(_OutputBase)
       type: !_OutputBase _TypeUnion
-    kind: !_TypeKind Output
     name: _Type
+    typeKind: !_TypeKind Output
   !_Identifier _TypeKind: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -206,15 +206,15 @@ types: !_Map_Type
     - !_Aliased Dual
     - !_Aliased Input
     - !_Aliased Output
-    kind: !_TypeKind Enum
     name: _TypeKind
     parent: !_TypeRef(_SimpleKind)
-      kind: !_SimpleKind Enum
       name: _SimpleKind
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
   !_Identifier _TypeRef: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: kind
+      name: typeKind
       object: _TypeRef
       type: !_TypeParameter kind
     - !_ObjectFor(_OutputField)
@@ -223,13 +223,13 @@ types: !_Map_Type
       type: !_OutputBase _Identifier
     fields:
     - !_OutputField
-      name: kind
+      name: typeKind
       type: !_TypeParameter kind
     - !_OutputField
       name: name
       type: !_OutputBase _Identifier
-    kind: !_TypeKind Output
     name: _TypeRef
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described kind
   !_Identifier _TypeSimple: !_TypeOutput
@@ -239,8 +239,8 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Basic
         output: _TypeRef
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -248,8 +248,8 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Enum
         output: _TypeRef
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -257,8 +257,8 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Domain
         output: _TypeRef
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -266,8 +266,8 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Union
         output: _TypeRef
     alternates:
@@ -275,33 +275,33 @@ types: !_Map_Type
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Basic
         output: _TypeRef
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Enum
         output: _TypeRef
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Domain
         output: _TypeRef
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         arguments:
         - !_OutputArgument
-          kind: !_SimpleKind Enum
           name: _TypeKind
+          typeKind: !_SimpleKind Enum
           value: Union
         output: _TypeRef
-    kind: !_TypeKind Output
     name: _TypeSimple
+    typeKind: !_TypeKind Output

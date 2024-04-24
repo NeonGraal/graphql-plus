@@ -2,7 +2,7 @@
 using GqlPlus.Verifier.Ast.Schema.Simple;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging.Types;
+namespace GqlPlus.Verifier.Merging.Simple;
 
 public class MergeDomainAstEnumsTests(
   ITestOutputHelper outputHelper
@@ -12,5 +12,5 @@ public class MergeDomainAstEnumsTests(
     => new[] { input }.DomainMembers();
 
   protected override AstDomain<DomainMemberAst> MakeTyped(string name, string description = "")
-    => new(AstNulls.At, name, description, DomainDomain.Enum);
+    => new(AstNulls.At, name, description, DomainKind.Enum);
 }

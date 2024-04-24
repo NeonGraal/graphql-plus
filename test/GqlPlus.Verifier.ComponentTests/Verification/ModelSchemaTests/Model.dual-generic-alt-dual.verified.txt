@@ -14,11 +14,11 @@ types: !_Map_Type
         arguments:
         - !_DualBase DualGenAltDualAlt
         dual: DualGenAltDualRef
-    kind: !_TypeKind Dual
     name: DualGenAltDual
+    typeKind: !_TypeKind Dual
   !_Identifier DualGenAltDualAlt: !_TypeDual
-    kind: !_TypeKind Dual
     name: DualGenAltDualAlt
+    typeKind: !_TypeKind Dual
   !_Identifier DualGenAltDualRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -27,7 +27,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_DualBase)
       type: !_TypeParameter ref
-    kind: !_TypeKind Dual
     name: DualGenAltDualRef
+    typeKind: !_TypeKind Dual
     typeParameters:
     - !_Described ref

@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Simple;
-
-namespace GqlPlus.Verifier.Ast.Schema.Types;
+﻿namespace GqlPlus.Verifier.Ast.Schema.Simple;
 
 public class EnumAstTests
   : AstTypeTests
@@ -14,7 +12,7 @@ public class EnumAstTests
   public void String_WithMembers(string name, string[] enumMembers)
     => _checks.Text(
       () => new EnumDeclAst(AstNulls.At, name) { Members = enumMembers.EnumMembers() },
-      $"( !E {name} {enumMembers.Joined(s => "!EM " + s)} )");
+      $"( !En {name} {enumMembers.Joined(s => "!EM " + s)} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithMembers(string name, string[] enumMembers)

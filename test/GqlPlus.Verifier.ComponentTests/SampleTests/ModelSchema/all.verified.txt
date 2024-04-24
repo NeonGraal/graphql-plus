@@ -3,8 +3,8 @@ categories: !_Map_Categories
   !_Identifier all: !_Category
     name: all
     output: !_TypeRef(_TypeKind)
-      kind: !_TypeKind Output
       name: All
+      typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier all: !_Directive
@@ -37,8 +37,8 @@ types: !_Map_Type
       - !_Parameter
         type: !_InputBase Param
       type: !_OutputBase String
-    kind: !_TypeKind Output
     name: All
+    typeKind: !_TypeKind Output
   !_Identifier Guid: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
@@ -50,8 +50,8 @@ types: !_Map_Type
     - !_DomainRegex
       exclude: false
       regex: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
-    kind: !_TypeKind Domain
     name: Guid
+    typeKind: !_TypeKind Domain
   !_Identifier One: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -63,8 +63,8 @@ types: !_Map_Type
     items:
     - !_Aliased Two
     - !_Aliased Three
-    kind: !_TypeKind Enum
     name: One
+    typeKind: !_TypeKind Enum
   !_Identifier Param: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -91,5 +91,5 @@ types: !_Map_Type
     - !_InputField
       name: beforeId
       type: !_InputBase Guid
-    kind: !_TypeKind Input
     name: Param
+    typeKind: !_TypeKind Input

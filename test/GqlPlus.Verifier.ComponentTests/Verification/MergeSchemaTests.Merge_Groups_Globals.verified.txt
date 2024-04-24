@@ -1,23 +1,23 @@
 ﻿[  
-!G I@001/0001
+!Sc I@001/0001
 Success
 {
-  !C P@010/0001
+  !Ca P@010/0001
   cat
   (Parallel)
   Cat
 }
 {
-  !C P@010/0001
+  !Ca P@010/0001
   descrBetween
   (Parallel)
   DescrBetween
 }
 {
-  !D I@012/0001
+  !Di I@012/0001
   DirParam
   (
-    !P
+    !Pa
     I@021/0001
     DirParamIn
   )
@@ -25,7 +25,7 @@ Success
   All
 }
 {
-  !O I@008/0001
+  !Op I@008/0001
   Schema
   {
     !OS I@017/0001
@@ -34,41 +34,41 @@ Success
   }
 }
 {
-  !O I@025/0001
+  !Ou I@025/0001
   Cat
 }
 {
   "A simple description"
-  !O I@031/0001
+  !Ou I@031/0001
   Descr
 }
 {
   "A backslash (\"\\\") description"
-  !O I@041/0001
+  !Ou I@041/0001
   DescrBackslash
 }
 {
   "A description between"
-  !O I@058/0001
+  !Ou I@058/0001
   DescrBetween
 }
 {
   "A \"more\" 'Complicated' \\ description"
-  !O I@050/0001
+  !Ou I@050/0001
   DescrComplex
 }
 {
   "A 'double-quoted' description"
-  !O I@040/0001
+  !Ou I@040/0001
   DescrDouble
 }
 {
   "A \"single-quoted\" description"
-  !O I@040/0001
+  !Ou I@040/0001
   DescrSingle
 }
 {
-  !I I@047/0001
+  !In I@047/0001
   DirParamIn
 }
 ]

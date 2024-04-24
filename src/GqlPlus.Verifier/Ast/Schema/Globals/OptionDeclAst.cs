@@ -10,7 +10,7 @@ public sealed record class OptionDeclAst(
 {
   public OptionSettingAst[] Settings { get; set; } = [];
 
-  internal override string Abbr => "O";
+  internal override string Abbr => "Op";
 
   public OptionDeclAst(TokenAt at, string name)
     : this(at, name, "") { }

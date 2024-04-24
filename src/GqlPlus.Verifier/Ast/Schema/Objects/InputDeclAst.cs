@@ -8,7 +8,7 @@ public sealed record class InputDeclAst(
   string Description
 ) : AstObject<InputFieldAst, InputReferenceAst>(At, Name, Description)
 {
-  internal override string Abbr => "I";
+  internal override string Abbr => "In";
   public override string Label => "Input";
 
   public InputDeclAst(TokenAt at, string name)

@@ -1,8 +1,8 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier OutParam: !_TypeInput
-    kind: !_TypeKind Input
     name: OutParam
+    typeKind: !_TypeKind Input
   !_Identifier OutParams: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -19,5 +19,5 @@ types: !_Map_Type
       - !_Parameter
         type: !_InputBase OutParam
       type: !_OutputBase OutParams
-    kind: !_TypeKind Output
     name: OutParams
+    typeKind: !_TypeKind Output

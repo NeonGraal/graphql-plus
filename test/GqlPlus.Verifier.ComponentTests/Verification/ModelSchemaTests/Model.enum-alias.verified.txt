@@ -8,5 +8,5 @@ types: !_Map_Type
       name: alias
     items:
     - !_Aliased alias
-    kind: !_TypeKind Enum
     name: EnAlias
+    typeKind: !_TypeKind Enum

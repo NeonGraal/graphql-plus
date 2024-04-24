@@ -1,7 +1,7 @@
-﻿!G I@001/0001
+﻿!Sc I@001/0001
 Success
 {
-  !O I@008/0001
+  !Ou I@008/0001
   _Constant
   |
   !AO
@@ -15,7 +15,7 @@ Success
   _ConstantMap
 }
 {
-  !O I@008/0007
+  !Ou I@008/0007
   _Simple
   |
   !AO
@@ -26,8 +26,8 @@ Success
   _DomainValue
   <
     I@020/0009
-    _DomainDomain.Number
-    I@041/0009
+    _DomainKind.Number
+    I@039/0009
     Number
   >
   !AO
@@ -35,8 +35,8 @@ Success
   _DomainValue
   <
     I@020/0010
-    _DomainDomain.String
-    I@041/0010
+    _DomainKind.String
+    I@039/0010
     String
   >
   !AO
@@ -44,7 +44,7 @@ Success
   _EnumValue
 }
 {
-  !O I@008/0014
+  !Ou I@008/0014
   _ConstantList
   |
   !AO
@@ -53,7 +53,7 @@ Success
   []
 }
 {
-  !O I@008/0018
+  !Ou I@008/0018
   _ConstantMap
   |
   !AO
@@ -62,7 +62,7 @@ Success
   [Simple]
 }
 {
-  !O I@008/0022
+  !Ou I@008/0022
   _Collections
   |
   !AO
@@ -77,7 +77,7 @@ Success
   _ModifierDictionary
 }
 {
-  !O I@008/0027
+  !Ou I@008/0027
   _ModifierDictionary
   :
   I@007/0028
@@ -100,7 +100,7 @@ Success
   }
 }
 {
-  !O I@008/0033
+  !Ou I@008/0033
   _Modifiers
   |
   !AO
@@ -115,7 +115,7 @@ Success
   _Collections
 }
 {
-  !E I@006/0038
+  !En I@006/0038
   _ModifierKind
   !EM I@022/0038
   Optional
@@ -125,7 +125,7 @@ Success
   Dictionary
 }
 {
-  !O I@008/0040
+  !Ou I@008/0040
   _Modifier
   <
     I@019/0040
@@ -133,9 +133,9 @@ Success
   >
   {
     !OF I@009/0041
-    kind
+    modifierKind
     :
-    I@016/0041
+    I@024/0041
     $kind
   }
 }

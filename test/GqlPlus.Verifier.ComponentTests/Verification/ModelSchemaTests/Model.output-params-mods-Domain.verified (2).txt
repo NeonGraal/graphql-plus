@@ -1,7 +1,7 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier OutParamDomain: !_TypeInput
-    kind: !_TypeKind Input
+    typeKind: !_TypeKind Input
     name: OutParamDomain
   !_Identifier OutParamsDomain: !_TypeOutput
     allFields:
@@ -13,7 +13,7 @@ types: !_Map_Type
         collections:
         - !_ModifierDictionary
           by: OutDomainParam
-          kind: Dict
+          modifierKind: Dict
         type: !_InputBase OutParamDomain
       type: !_OutputBase OutParamsDomain
     fields:
@@ -24,10 +24,10 @@ types: !_Map_Type
         collections:
         - !_ModifierDictionary
           by: OutDomainParam
-          kind: Dict
+          modifierKind: Dict
         type: !_InputBase OutParamDomain
       type: !_OutputBase OutParamsDomain
-    kind: !_TypeKind Output
+    typeKind: !_TypeKind Output
     name: OutParamsDomain
   !_Identifier OutDomainParam: !_DomainNumber
     allItems:
@@ -41,6 +41,6 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 10
-    kind: !_TypeKind Domain
+    typeKind: !_TypeKind Domain
     name: OutDomainParam
     domain: !_DomainKind Number

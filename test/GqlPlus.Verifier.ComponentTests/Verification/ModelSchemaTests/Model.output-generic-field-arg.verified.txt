@@ -16,8 +16,8 @@ types: !_Map_Type
         arguments:
         - !_TypeParameter type
         output: OutpGenFieldRef
-    kind: !_TypeKind Output
     name: OutpGenFieldArg
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described type
   !_Identifier OutpGenFieldRef: !_TypeOutput
@@ -28,7 +28,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_TypeParameter ref
-    kind: !_TypeKind Output
     name: OutpGenFieldRef
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described ref

@@ -2,5 +2,5 @@
 types: !_Map_Type
   !_Identifier DualAlias: !_TypeDual
     aliases: [Dual1, Dual2]
-    kind: !_TypeKind Dual
     name: DualAlias
+    typeKind: !_TypeKind Dual

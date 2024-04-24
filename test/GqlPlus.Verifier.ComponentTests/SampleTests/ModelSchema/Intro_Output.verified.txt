@@ -39,15 +39,15 @@ types: !_Map_Type
     - !_OutputField
       name: value
       type: !_OutputBase _Identifier
-    kind: !_TypeKind Output
     name: _OutputArgument
     parent: !_OutputBase
       arguments:
       - !_OutputArgument
-        kind: !_SimpleKind Enum
         name: _TypeKind
+        typeKind: !_SimpleKind Enum
         value: Enum
       output: _TypeRef
+    typeKind: !_TypeKind Output
   !_Identifier _OutputBase: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -65,12 +65,12 @@ types: !_Map_Type
     - !_OutputField
       name: output
       type: !_OutputBase _Identifier
-    kind: !_TypeKind Output
     name: _OutputBase
     parent: !_OutputBase
       arguments:
       - !_OutputBase _OutputArgument
       output: _ObjBase
+    typeKind: !_TypeKind Output
   !_Identifier _OutputEnum: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -88,15 +88,15 @@ types: !_Map_Type
     - !_OutputField
       name: value
       type: !_OutputBase _Identifier
-    kind: !_TypeKind Output
     name: _OutputEnum
     parent: !_OutputBase
       arguments:
       - !_OutputArgument
-        kind: !_SimpleKind Enum
         name: _TypeKind
+        typeKind: !_SimpleKind Enum
         value: Enum
       output: _TypeRef
+    typeKind: !_TypeKind Output
   !_Identifier _OutputField: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -116,21 +116,21 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: parameter
       type: !_OutputBase _Parameter
-    kind: !_TypeKind Output
     name: _OutputField
     parent: !_OutputBase
       arguments:
       - !_OutputBase _OutputBase
       output: _Field
+    typeKind: !_TypeKind Output
   !_Identifier _TypeOutput: !_TypeOutput
-    kind: !_TypeKind Output
     name: _TypeOutput
     parent: !_OutputBase
       arguments:
       - !_OutputArgument
-        kind: !_SimpleKind Enum
         name: _TypeKind
+        typeKind: !_SimpleKind Enum
         value: Output
       - !_OutputBase _OutputBase
       - !_OutputBase _OutputField
       output: _TypeObject
+    typeKind: !_TypeKind Output

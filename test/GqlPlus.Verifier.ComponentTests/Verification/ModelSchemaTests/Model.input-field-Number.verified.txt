@@ -12,5 +12,5 @@ types: !_Map_Type
       default: 0
       name: field
       type: !_InputBase Number
-    kind: !_TypeKind Input
     name: InFieldNum
+    typeKind: !_TypeKind Input

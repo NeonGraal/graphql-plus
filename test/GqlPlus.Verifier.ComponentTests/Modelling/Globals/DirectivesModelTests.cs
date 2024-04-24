@@ -13,8 +13,8 @@ public class DirectivesModelTests(
     .Model_Expected(
       _checks.ToModel(null, input),
       ["!_TypeInput",
-        "kind: !_TypeKind Input",
-        "name: " + input]);
+        "name: " + input,
+        "typeKind: !_TypeKind Input"]);
 
   [Theory, RepeatData(Repeats)]
   public void Model_Both(
@@ -28,8 +28,8 @@ public class DirectivesModelTests(
         "  name: " + name,
         "  repeatable: false",
         "type: !_TypeInput",
-          "  kind: !_TypeKind Input",
-          "  name: " + input]);
+          "  name: " + input,
+        "  typeKind: !_TypeKind Input"]);
 
   internal override ICheckModelBase<string> BaseChecks => _checks;
 

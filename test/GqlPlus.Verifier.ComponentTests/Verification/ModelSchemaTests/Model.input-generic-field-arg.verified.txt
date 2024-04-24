@@ -16,8 +16,8 @@ types: !_Map_Type
         arguments:
         - !_TypeParameter type
         input: InpGenFieldRef
-    kind: !_TypeKind Input
     name: InpGenFieldArg
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described type
   !_Identifier InpGenFieldRef: !_TypeInput
@@ -28,7 +28,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_InputBase)
       type: !_TypeParameter ref
-    kind: !_TypeKind Input
     name: InpGenFieldRef
+    typeKind: !_TypeKind Input
     typeParameters:
     - !_Described ref

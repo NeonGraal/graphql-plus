@@ -1,19 +1,19 @@
-﻿!G I@001/0001
+﻿!Sc I@001/0001
 Success
 {
-  !C P@010/0001
+  !Ca P@010/0001
   all
   (Parallel)
   All
 }
 {
-  !D I@012/0002
+  !Di I@012/0002
   all
   (Unique)
   All
 }
 {
-  !E I@006/0003
+  !En I@006/0003
   One
   !EM I@012/0003
   Two
@@ -21,7 +21,7 @@ Success
   Three
 }
 {
-  !I I@007/0004
+  !In I@007/0004
   Param
   {
     !IF I@015/0004
@@ -42,13 +42,13 @@ Success
   String
 }
 {
-  !O I@008/0005
+  !Ou I@008/0005
   All
   {
     !OF I@014/0005
     items
     (
-      !P
+      !Pa
       I@020/0005
       Param
       ?
@@ -64,9 +64,9 @@ Success
   String
 }
 {
-  !S I@008/0006
+  !Do I@008/0006
   Guid
   String
-  !SX R@022/0006
+  !DX R@022/0006
   /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/
 }

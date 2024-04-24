@@ -8,7 +8,7 @@ public sealed record class ParameterAst(TokenAt At, InputReferenceAst Type)
 {
   public ConstantAst? Default { get; set; }
 
-  internal override string Abbr => "P";
+  internal override string Abbr => "Pa";
 
   internal ParameterAst(TokenAt at, string input, string description = "")
     : this(at, new InputReferenceAst(at, input, description)) { }

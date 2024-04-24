@@ -1,5 +1,5 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier Inp: !_TypeInput
-    kind: !_TypeKind Input
     name: Inp
+    typeKind: !_TypeKind Input

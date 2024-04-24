@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Modelling.Types;
+namespace GqlPlus.Verifier.Modelling.Simple;
 
 public class EnumModelTests(
   IModeller<EnumDeclAst, TypeEnumModel> modeller
@@ -82,9 +82,9 @@ internal sealed class EnumModelChecks(
         .. input.AllItems,
         .. input.Description,
         .. input.Items,
-        "kind: !_TypeKind Enum",
         "name: " + input.Name,
-        .. input.Parent.TypeRefFor(SimpleKindModel.Enum)];
+        .. input.Parent.TypeRefFor(SimpleKindModel.Enum),
+        "typeKind: !_TypeKind Enum"];
 
   protected override EnumDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);

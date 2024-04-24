@@ -7,13 +7,13 @@ namespace GqlPlus.Verifier.Modelling;
 // TypeModel => BaseTypeModel
 
 public abstract record class BaseTypeModel(
-  TypeKindModel Kind,
+  TypeKindModel TypeKind,
   string Name
 ) : AliasedModel(Name)
 {
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-    .Add("kind", Kind.RenderEnum());
+    .Add("typeKind", TypeKind.RenderEnum());
 }
 
 public abstract record class ChildTypeModel<TParent>(
@@ -108,15 +108,15 @@ public enum TypeKindModel
 }
 
 public record class TypeRefModel<TKind>(
-  TKind Kind,
+  TKind TypeKind,
   string Name
 ) : NamedModel(Name)
 {
-  private static readonly string s_kindTag = typeof(TKind).TypeTag();
+  private static readonly string s_typeKindTag = typeof(TKind).TypeTag();
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("kind", new(Kind?.ToString(), s_kindTag));
+      .Add("typeKind", new(TypeKind?.ToString(), s_typeKindTag));
 }
 
 public record class TypeSimpleModel(

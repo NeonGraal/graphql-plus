@@ -17,8 +17,8 @@ types: !_Map_Type
     - !_OutputField
       name: type
       type: !_TypeParameter type
-    kind: !_TypeKind Output
     name: OutpParams
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described test
     - !_Described type

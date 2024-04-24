@@ -1,9 +1,9 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier DualPrnt: !_TypeDual
-    kind: !_TypeKind Dual
     name: DualPrnt
     parent: !_DualBase PrntDual
+    typeKind: !_TypeKind Dual
   !_Identifier PrntDual: !_TypeDual
-    kind: !_TypeKind Dual
     name: PrntDual
+    typeKind: !_TypeKind Dual

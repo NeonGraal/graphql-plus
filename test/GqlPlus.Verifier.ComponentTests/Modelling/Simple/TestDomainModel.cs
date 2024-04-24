@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast.Schema.Simple;
 using GqlPlus.Verifier.Rendering;
 
-namespace GqlPlus.Verifier.Modelling.Types;
+namespace GqlPlus.Verifier.Modelling.Simple;
 
 public abstract class TestDomainModel<TItem, TAstItem>
   : TestTypeModel<SimpleKindModel>
@@ -53,7 +53,7 @@ public abstract class TestDomainModel<TItem, TAstItem>
 }
 
 internal abstract class CheckDomainModel<TItem, TAstItem, TItemModel>(
-  DomainDomain kind,
+  DomainKind kind,
   IDomainModeller<TAstItem, TItemModel> modeller
 ) : CheckTypeModel<AstDomain<TAstItem>, SimpleKindModel, BaseDomainModel<TItemModel>>(modeller, SimpleKindModel.Domain)
   , ICheckDomainModel<TItem, TAstItem>
@@ -67,9 +67,9 @@ internal abstract class CheckDomainModel<TItem, TAstItem, TItemModel>(
         .. input.Description ?? [],
         $"domain: !_DomainKind {kind}",
         .. Items(input.Items),
-        "kind: !_TypeKind Domain",
         "name: " + input.Name,
-        .. input.Parent.TypeRefFor(SimpleKindModel.Domain)];
+        .. input.Parent.TypeRefFor(SimpleKindModel.Domain),
+        "typeKind: !_TypeKind Domain"];
 
   string[] ICheckDomainModel<TItem, TAstItem>.ExpectedDomain(ExpectedDomainInput<TItem> input) => ExpectedDomain(input);
 

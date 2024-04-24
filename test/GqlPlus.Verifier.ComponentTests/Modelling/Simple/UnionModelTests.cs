@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Verifier.Ast.Schema;
 using GqlPlus.Verifier.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Modelling.Types;
+namespace GqlPlus.Verifier.Modelling.Simple;
 
 public class UnionModelTests(
   IModeller<UnionDeclAst, TypeUnionModel> modeller
@@ -82,9 +82,9 @@ internal sealed class UnionModelChecks(
         .. input.AllItems,
         .. input.Description,
         .. input.Items,
-        "kind: !_TypeKind Union",
         "name: " + input.Name,
-        .. input.Parent.TypeRefFor(SimpleKindModel.Union)];
+        .. input.Parent.TypeRefFor(SimpleKindModel.Union),
+        "typeKind: !_TypeKind Union"];
 
   protected override UnionDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description, []);

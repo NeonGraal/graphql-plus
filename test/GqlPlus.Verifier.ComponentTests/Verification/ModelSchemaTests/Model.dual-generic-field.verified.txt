@@ -10,7 +10,7 @@ types: !_Map_Type
     - !_DualField
       name: field
       type: !_TypeParameter type
-    kind: !_TypeKind Dual
     name: DualGenField
+    typeKind: !_TypeKind Dual
     typeParameters:
     - !_Described type

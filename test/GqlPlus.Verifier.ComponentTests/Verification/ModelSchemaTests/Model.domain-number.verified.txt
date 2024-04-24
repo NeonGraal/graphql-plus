@@ -2,5 +2,5 @@
 types: !_Map_Type
   !_Identifier Num: !_DomainNumber
     domain: !_DomainKind Number
-    kind: !_TypeKind Domain
     name: Num
+    typeKind: !_TypeKind Domain

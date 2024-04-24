@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Parse.Schema.Types;
+namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
 public abstract class BaseDomainTests<TInput>
   : BaseAliasedTests<TInput>
@@ -26,15 +26,15 @@ internal abstract class BaseDomainChecks<TInput, TDomain>
   : BaseAliasedChecks<TInput, TDomain>, IBaseDomainChecks<TInput>
   where TDomain : AstDomain
 {
-  private readonly DomainDomain _kind;
+  private readonly DomainKind _kind;
 
-  protected BaseDomainChecks(Parser<TDomain>.D parser, DomainDomain kind)
+  protected BaseDomainChecks(Parser<TDomain>.D parser, DomainKind kind)
     : base(parser) => _kind = kind;
 
   public void WithKindBad(TInput input, string kind)
     => False(
       KindString(input, kind, ""),
-      skipIf: Enum.TryParse<DomainDomain>(kind, out var _));
+      skipIf: Enum.TryParse<DomainKind>(kind, out var _));
 
   public void WithParent(TInput input, string parent)
     => TrueExpected(KindString(input, _kind.ToString(), ":" + parent + " "),

@@ -8,7 +8,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_DualBase)
       type: !_TypeParameter type
-    kind: !_TypeKind Dual
     name: DualGenAlt
+    typeKind: !_TypeKind Dual
     typeParameters:
     - !_Described type

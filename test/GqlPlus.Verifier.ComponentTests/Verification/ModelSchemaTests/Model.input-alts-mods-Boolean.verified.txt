@@ -6,7 +6,7 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
-        kind: Dict
+        modifierKind: Dict
       object: InpAltMods
       type: !_InputBase InpModsAlt
     alternates:
@@ -14,10 +14,10 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
-        kind: Dict
+        modifierKind: Dict
       type: !_InputBase InpModsAlt
-    kind: !_TypeKind Input
     name: InpAltMods
+    typeKind: !_TypeKind Input
   !_Identifier InpModsAlt: !_TypeInput
-    kind: !_TypeKind Input
     name: InpModsAlt
+    typeKind: !_TypeKind Input

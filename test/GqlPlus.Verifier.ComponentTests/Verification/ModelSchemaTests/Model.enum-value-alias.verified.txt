@@ -10,5 +10,5 @@ types: !_Map_Type
     - !_Aliased
       aliases: [val1, val2]
       name: value
-    kind: !_TypeKind Enum
     name: EnValAlias
+    typeKind: !_TypeKind Enum

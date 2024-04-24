@@ -5,15 +5,15 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: OutpGenParentParamRef
       type: !_TypeParameter ref
-    kind: !_TypeKind Output
     name: OutpGenParentParam
     parent: !_OutputBase
       arguments:
       - !_OutputBase OutpGenParentParamAlt
       output: OutpGenParentParamRef
+    typeKind: !_TypeKind Output
   !_Identifier OutpGenParentParamAlt: !_TypeOutput
-    kind: !_TypeKind Output
     name: OutpGenParentParamAlt
+    typeKind: !_TypeKind Output
   !_Identifier OutpGenParentParamRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -22,7 +22,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_TypeParameter ref
-    kind: !_TypeKind Output
     name: OutpGenParentParamRef
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described ref

@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Verifier.Rendering;
 
-namespace GqlPlus.Verifier.Modelling.Types;
+namespace GqlPlus.Verifier.Modelling.Simple;
 
 public class SimpleModelTests(
   IModeller<FieldKeyAst, SimpleModel> modeller

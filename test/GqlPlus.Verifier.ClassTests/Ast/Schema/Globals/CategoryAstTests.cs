@@ -12,7 +12,7 @@ public class CategoryAstTests
   public void String_WithOutputAndName(string name, string output)
     => _checks.Text(
       () => new CategoryDeclAst(AstNulls.At, name, output),
-      $"( !C {name} (Parallel) {output} )");
+      $"( !Ca {name} (Parallel) {output} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithOutputAndName(string output, string name)
@@ -40,7 +40,7 @@ public class CategoryAstTests
   public void String_WithOption(string name, CategoryOption option)
     => _checks.Text(
       () => new CategoryDeclAst(AstNulls.At, name) { Option = option },
-      $"( !C {name.Camelize()} ({option}) {name} )");
+      $"( !Ca {name.Camelize()} ({option}) {name} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithOption(string name, CategoryOption option)
@@ -54,7 +54,7 @@ public class CategoryAstTests
       option1 == option2);
 
   protected override string AliasesString(string input, string aliases)
-    => $"( !C {input.Camelize()}{aliases} (Parallel) {input} )";
+    => $"( !Ca {input.Camelize()}{aliases} (Parallel) {input} )";
 
   private readonly AstAliasedChecks<CategoryDeclAst> _checks
     = new(name => new CategoryDeclAst(AstNulls.At, name));

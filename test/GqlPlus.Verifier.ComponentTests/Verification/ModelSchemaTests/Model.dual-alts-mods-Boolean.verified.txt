@@ -6,7 +6,7 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
-        kind: Dict
+        modifierKind: Dict
       object: DualAltMods
       type: !_DualBase DualModsAlt
     alternates:
@@ -14,10 +14,10 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
-        kind: Dict
+        modifierKind: Dict
       type: !_DualBase DualModsAlt
-    kind: !_TypeKind Dual
     name: DualAltMods
+    typeKind: !_TypeKind Dual
   !_Identifier DualModsAlt: !_TypeDual
-    kind: !_TypeKind Dual
     name: DualModsAlt
+    typeKind: !_TypeKind Dual

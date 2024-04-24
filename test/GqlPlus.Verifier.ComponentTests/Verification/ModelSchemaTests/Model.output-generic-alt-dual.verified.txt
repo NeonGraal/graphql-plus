@@ -14,11 +14,11 @@ types: !_Map_Type
         arguments:
         - !_DualBase OutpGenAltDualAlt
         output: OutpGenAltDualRef
-    kind: !_TypeKind Output
     name: OutpGenAltDual
+    typeKind: !_TypeKind Output
   !_Identifier OutpGenAltDualAlt: !_TypeDual
-    kind: !_TypeKind Dual
     name: OutpGenAltDualAlt
+    typeKind: !_TypeKind Dual
   !_Identifier OutpGenAltDualRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -27,7 +27,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_TypeParameter ref
-    kind: !_TypeKind Output
     name: OutpGenAltDualRef
+    typeKind: !_TypeKind Output
     typeParameters:
     - !_Described ref

@@ -1,7 +1,7 @@
-﻿!G I@001/0001
+﻿!Sc I@001/0001
 Success
 {
-  !D I@006/0001
+  !Du I@006/0001
   _Aliased
   :
   I@007/0002
@@ -16,7 +16,7 @@ Success
   }
 }
 {
-  !D I@006/0006
+  !Du I@006/0006
   _Described
   :
   I@007/0007
@@ -30,7 +30,7 @@ Success
   }
 }
 {
-  !D I@006/0011
+  !Du I@006/0011
   _BaseDescribed
   <
     I@022/0011
@@ -54,7 +54,7 @@ Success
   $base
 }
 {
-  !D I@006/0017
+  !Du I@006/0017
   _Named
   {
     !DF I@009/0018

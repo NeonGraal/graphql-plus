@@ -1,7 +1,7 @@
-﻿!G I@001/0001
+﻿!Sc I@001/0001
 Success
 {
-  !O I@008/0001
+  !Ou I@008/0001
   _Type
   |
   !AO
@@ -38,7 +38,7 @@ Success
   _TypeUnion
 }
 {
-  !O I@008/0012
+  !Ou I@008/0012
   _BaseType
   <
     I@019/0012
@@ -49,14 +49,14 @@ Success
   _Aliased
   {
     !OF I@009/0014
-    kind
+    typeKind
     :
-    I@016/0014
+    I@020/0014
     $kind
   }
 }
 {
-  !O I@008/0017
+  !Ou I@008/0017
   _ChildType
   <
     I@020/0017
@@ -80,7 +80,7 @@ Success
   }
 }
 {
-  !O I@008/0022
+  !Ou I@008/0022
   _ParentType
   <
     I@021/0022
@@ -115,7 +115,7 @@ Success
   }
 }
 {
-  !E I@006/0028
+  !En I@006/0028
   _SimpleKind
   !EM I@020/0028
   Basic
@@ -129,7 +129,7 @@ Success
   Union
 }
 {
-  !E I@006/0030
+  !En I@006/0030
   _TypeKind
   :_SimpleKind
   !EM I@031/0030
@@ -140,7 +140,7 @@ Success
   Output
 }
 {
-  !O I@008/0032
+  !Ou I@008/0032
   _TypeRef
   <
     I@018/0032
@@ -148,9 +148,9 @@ Success
   >
   {
     !OF I@009/0033
-    kind
+    typeKind
     :
-    I@016/0033
+    I@020/0033
     $kind
     !OF I@009/0034
     name
@@ -160,7 +160,7 @@ Success
   }
 }
 {
-  !O I@008/0037
+  !Ou I@008/0037
   _TypeSimple
   |
   !AO

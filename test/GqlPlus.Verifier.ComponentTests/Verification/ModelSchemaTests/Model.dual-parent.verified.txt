@@ -1,9 +1,9 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier DualParentTest: !_TypeDual
-    kind: !_TypeKind Dual
     name: DualParentTest
+    typeKind: !_TypeKind Dual
   !_Identifier DualTestParent: !_TypeDual
-    kind: !_TypeKind Dual
     name: DualTestParent
     parent: !_DualBase DualParentTest
+    typeKind: !_TypeKind Dual

@@ -7,7 +7,7 @@ internal class ParseDomainRange(
   Parser<DomainRangeAst>.DA items
 ) : ParseDomainItem<DomainRangeAst>(items)
 {
-  public override DomainDomain Kind => DomainDomain.Number;
+  public override DomainKind Kind => DomainKind.Number;
 
   public override IResult<DomainRangeAst> Parse<TContext>(TContext tokens, string label)
   {

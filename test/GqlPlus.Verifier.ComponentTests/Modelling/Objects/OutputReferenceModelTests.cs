@@ -24,7 +24,7 @@ internal sealed class OutputReferenceModelChecks(
 {
   internal string[] ExpectedEnumArguments(string[] arguments, string enumValue)
     => [.. ItemsExpected("arguments:", arguments,
-      a => ["- !_OutputArgument", "  kind: !_SimpleKind Enum", "  name: " + a, "  value: " + enumValue])];
+      a => ["- !_OutputArgument", "  name: " + a, "  typeKind: !_SimpleKind Enum", "  value: " + enumValue])];
 
   protected override OutputReferenceAst NewReferenceAst(string name)
     => new(AstNulls.At, name);

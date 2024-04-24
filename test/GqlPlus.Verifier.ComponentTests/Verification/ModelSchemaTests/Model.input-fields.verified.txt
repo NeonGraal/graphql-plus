@@ -10,8 +10,8 @@ types: !_Map_Type
     - !_InputField
       name: field
       type: !_InputBase InpField
-    kind: !_TypeKind Input
     name: FieldsInp
+    typeKind: !_TypeKind Input
   !_Identifier InpField: !_TypeInput
-    kind: !_TypeKind Input
     name: InpField
+    typeKind: !_TypeKind Input

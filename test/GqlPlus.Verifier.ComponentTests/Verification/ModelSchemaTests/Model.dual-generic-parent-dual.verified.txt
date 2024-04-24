@@ -5,15 +5,15 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_DualBase))
       object: DualGenParentDualRef
       type: !_TypeParameter ref
-    kind: !_TypeKind Dual
     name: DualGenParentDual
     parent: !_DualBase
       arguments:
       - !_DualBase DualGenParentDualAlt
       dual: DualGenParentDualRef
+    typeKind: !_TypeKind Dual
   !_Identifier DualGenParentDualAlt: !_TypeDual
-    kind: !_TypeKind Dual
     name: DualGenParentDualAlt
+    typeKind: !_TypeKind Dual
   !_Identifier DualGenParentDualRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -22,7 +22,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_DualBase)
       type: !_TypeParameter ref
-    kind: !_TypeKind Dual
     name: DualGenParentDualRef
+    typeKind: !_TypeKind Dual
     typeParameters:
     - !_Described ref

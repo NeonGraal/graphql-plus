@@ -2,7 +2,7 @@
 using GqlPlus.Verifier.Ast.Schema.Simple;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging.Types;
+namespace GqlPlus.Verifier.Merging.Simple;
 
 public class MergeDomainAstStringsTests(
   ITestOutputHelper outputHelper
@@ -12,5 +12,5 @@ public class MergeDomainAstStringsTests(
     => new[] { input }.DomainRegexes();
 
   protected override AstDomain<DomainRegexAst> MakeTyped(string name, string description = "")
-    => new(AstNulls.At, name, description, DomainDomain.String);
+    => new(AstNulls.At, name, description, DomainKind.String);
 }

@@ -2,8 +2,11 @@
 
 namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
-public abstract record class AstReference<TRef>(TokenAt At, string Name, string Description)
-  : AstDescribed(At, Name, Description), IEquatable<TRef>
+public abstract record class AstReference<TRef>(
+  TokenAt At,
+  string Name,
+  string Description
+) : AstDescribed(At, Name, Description), IEquatable<TRef>
   where TRef : AstReference<TRef>
 {
   public bool IsTypeParameter { get; set; }

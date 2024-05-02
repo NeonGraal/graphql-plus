@@ -3,9 +3,9 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling.Objects;
 
-public abstract class TestFieldModel<TField, TRef>
+public abstract class TestObjectFieldModel<TField, TRef>
   : TestModelBase<FieldInput>
-  where TField : AstField<TRef>
+  where TField : AstObjectField<TRef>
   where TRef : AstReference<TRef>
 {
   [Theory, RepeatData(Repeats)]
@@ -26,15 +26,15 @@ public abstract class TestFieldModel<TField, TRef>
 
   internal override ICheckModelBase<FieldInput> BaseChecks => FieldChecks;
 
-  internal abstract ICheckFieldModel<TField, TRef> FieldChecks { get; }
+  internal abstract ICheckObjectFieldModel<TField, TRef> FieldChecks { get; }
 }
 
-internal abstract class CheckFieldModel<TField, TRef, TModel>(
+internal abstract class CheckObjectFieldModel<TField, TRef, TModel>(
   IModeller<TField, TModel> field,
   TypeKindModel kind
 ) : CheckModelBase<FieldInput, TField, TModel>(field),
-    ICheckFieldModel<TField, TRef>
-  where TField : AstField<TRef>
+    ICheckObjectFieldModel<TField, TRef>
+  where TField : AstObjectField<TRef>
   where TRef : AstReference<TRef>
   where TModel : IRendering
 {
@@ -53,19 +53,19 @@ internal abstract class CheckFieldModel<TField, TRef, TModel>(
 
   protected abstract TField NewFieldAst(FieldInput name);
 
-  void ICheckFieldModel<TField, TRef>.Field_Expected(TField ast, string[] expected)
+  void ICheckObjectFieldModel<TField, TRef>.Field_Expected(TField ast, string[] expected)
     => Model_Expected(AstToModel(ast), expected);
-  TField ICheckFieldModel<TField, TRef>.FieldAst(FieldInput input)
+  TField ICheckObjectFieldModel<TField, TRef>.FieldAst(FieldInput input)
     => NewFieldAst(input);
-  string[] ICheckFieldModel<TField, TRef>.ExpectedField(FieldInput input, string[] extras, string[] parameters)
+  string[] ICheckObjectFieldModel<TField, TRef>.ExpectedField(FieldInput input, string[] extras, string[] parameters)
     => ExpectedField(input, extras, parameters);
-  string[] ICheckFieldModel<TField, TRef>.ExpectedDual(FieldInput input)
+  string[] ICheckObjectFieldModel<TField, TRef>.ExpectedDual(FieldInput input)
     => ExpectedDual(input);
 }
 
-internal interface ICheckFieldModel<TField, TRef>
+internal interface ICheckObjectFieldModel<TField, TRef>
   : ICheckModelBase<FieldInput>
-  where TField : AstField<TRef>
+  where TField : AstObjectField<TRef>
   where TRef : AstReference<TRef>
 {
   TField FieldAst(FieldInput input);

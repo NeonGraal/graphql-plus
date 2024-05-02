@@ -3,10 +3,10 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging.Objects;
 
-internal class FieldsMerger<TField, TRef>(
+internal class AstObjectFieldsMerger<TField, TRef>(
   ILoggerFactory logger
 ) : AstAliasedMerger<TField>(logger)
-  where TField : AstField<TRef>
+  where TField : AstObjectField<TRef>
   where TRef : AstReference<TRef>
 {
   protected override string ItemMatchName => "ModifiedType";

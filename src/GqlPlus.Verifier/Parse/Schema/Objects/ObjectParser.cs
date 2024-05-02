@@ -7,7 +7,7 @@ namespace GqlPlus.Verifier.Parse.Schema.Objects;
 
 internal abstract class ObjectParser<TObject, TField, TRef>
   : DeclarationParser<TypeParameterAst, ObjectDefinition<TField, TRef>, TObject>, Parser<TObject>.I
-  where TObject : AstObject<TField, TRef> where TField : AstField<TRef> where TRef : AstReference<TRef>
+  where TObject : AstObject<TField, TRef> where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
 {
   protected ObjectParser(
     ISimpleName name,
@@ -22,7 +22,7 @@ internal abstract class ObjectParser<TObject, TField, TRef>
 }
 
 public class ObjectDefinition<TField, TRef>
-  where TField : AstField<TRef> where TRef : AstReference<TRef>
+  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
 {
   public TRef? Parent { get; set; }
   public TField[] Fields { get; set; } = [];
@@ -30,7 +30,7 @@ public class ObjectDefinition<TField, TRef>
 }
 
 public abstract class ParseObjectDefinition<TField, TRef> : Parser<ObjectDefinition<TField, TRef>>.I
-  where TField : AstField<TRef> where TRef : AstReference<TRef>
+  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
 {
   private readonly Parser<TField>.L _field;
   private readonly ParserArray<IParserCollections, ModifierAst>.LA _collections;

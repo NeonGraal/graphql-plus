@@ -4,9 +4,9 @@ using GqlPlus.Verifier.Merging.Objects;
 
 namespace GqlPlus.Verifier.Merging;
 
-public abstract class TestFields<TField, TRef>
+public abstract class TestObjectFields<TField, TRef>
   : TestAliased<TField>
-  where TField : AstField<TRef>, IAstDescribed
+  where TField : AstObjectField<TRef>, IAstDescribed
   where TRef : AstReference<TRef>
 {
   [Theory, RepeatData(Repeats)]
@@ -71,7 +71,7 @@ public abstract class TestFields<TField, TRef>
       [MakeField(name, type, typeDescription: description), MakeField(name, type, typeDescription: description)],
       MakeField(name, type, typeDescription: description));
 
-  internal abstract FieldsMerger<TField, TRef> MergerField { get; }
+  internal abstract AstObjectFieldsMerger<TField, TRef> MergerField { get; }
   internal override GroupsMerger<TField> MergerGroups => MergerField;
 
   protected abstract TField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "");

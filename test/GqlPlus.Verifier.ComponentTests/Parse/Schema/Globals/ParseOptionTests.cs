@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Parse.Schema.Globals;
 
 public sealed class ParseOptionTests(
   Parser<OptionDeclAst>.D parser
-) : BaseAliasedTests<string>
+) : TestAliased<string>
 {
   [Theory, RepeatData(Repeats)]
   public void WithSettings_ReturnsCorrectAst(string name)
@@ -23,14 +23,14 @@ public sealed class ParseOptionTests(
   public void WithSettingsNone_ReturnsTrue(string name)
     => _checks.TrueExpected(name + "{}", new OptionDeclAst(AstNulls.At, name));
 
-  internal override IBaseAliasedChecks<string> AliasChecks => _checks;
+  internal override ICheckAliased<string> AliasChecks => _checks;
 
   private readonly ParseOptionChecks _checks = new(parser);
   private static readonly string[] s_settings = ["setting"];
 }
 
 internal sealed class ParseOptionChecks
-  : BaseAliasedChecks<string, OptionDeclAst>
+  : CheckAliased<string, OptionDeclAst>
 {
   public ParseOptionChecks(Parser<OptionDeclAst>.D parser)
     : base(parser) { }

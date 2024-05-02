@@ -4,7 +4,7 @@ using GqlPlus.Verifier.Ast.Schema.Simple;
 namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
 public sealed class ParseUnionTests
-  : BaseAliasedTests<UnionInput>
+  : TestAliased<UnionInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithParent_ReturnsCorrectAst(UnionInput input, string parent)
@@ -39,7 +39,7 @@ public sealed class ParseUnionTests
         Parent = parent,
       });
 
-  internal override IBaseAliasedChecks<UnionInput> AliasChecks => _checks;
+  internal override ICheckAliased<UnionInput> AliasChecks => _checks;
 
   private readonly ParseUnionChecks _checks;
 
@@ -48,7 +48,7 @@ public sealed class ParseUnionTests
 }
 
 internal sealed class ParseUnionChecks
-  : BaseAliasedChecks<UnionInput, UnionDeclAst>
+  : CheckAliased<UnionInput, UnionDeclAst>
 {
   public ParseUnionChecks(Parser<UnionDeclAst>.D parser)
     : base(parser) { }

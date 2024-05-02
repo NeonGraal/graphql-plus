@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Parse.Schema.Globals;
 
 public sealed class ParseCategoryTests(
   Parser<CategoryDeclAst>.D parser
-) : BaseAliasedTests<string>
+) : TestAliased<string>
 {
   [Theory, RepeatData(Repeats)]
   public void WithOption_ReturnsCorrectAst(string output, CategoryOption option)
@@ -48,14 +48,14 @@ public sealed class ParseCategoryTests(
         Modifiers = TestMods()
       });
 
-  internal override IBaseAliasedChecks<string> AliasChecks => _checks;
+  internal override ICheckAliased<string> AliasChecks => _checks;
 
   private readonly ParseCategoryChecks _checks = new(parser);
 }
 
 internal sealed class ParseCategoryChecks(
   Parser<CategoryDeclAst>.D parser
-) : BaseAliasedChecks<string, CategoryDeclAst>(parser)
+) : CheckAliased<string, CategoryDeclAst>(parser)
 {
   protected internal override CategoryDeclAst NamedFactory(string input)
     => new(AstNulls.At, input);

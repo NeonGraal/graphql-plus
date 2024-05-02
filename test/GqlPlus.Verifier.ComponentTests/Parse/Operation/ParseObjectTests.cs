@@ -44,5 +44,5 @@ public class ParseObjectTests(Parser<IAstSelection>.DA parser)
   public void WithBadSelection_ReturnsFalse()
     => _checks.False("{|}");
 
-  private readonly ManyChecksParser<IAstSelection> _checks = new(parser);
+  private readonly CheckMany<IAstSelection> _checks = new(parser);
 }

@@ -5,7 +5,7 @@ namespace GqlPlus.Verifier.Modelling.Objects;
 public abstract class TestObjectModel<TObject, TField, TRef>
   : TestTypeModel<TRef, string, TypeKindModel>
   where TObject : AstObject<TField, TRef>
-  where TField : AstField<TRef>
+  where TField : AstObjectField<TRef>
   where TRef : AstReference<TRef>
 {
   [Theory, RepeatData(Repeats)]
@@ -127,7 +127,7 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
 ) : CheckTypeModel<TRef, string, TObject, TypeKindModel, TModel>(modeller, kind),
     ICheckObjectModel<TObject, TField, TRef>
   where TObject : AstObject<TField, TRef>
-  where TField : AstField<TRef>
+  where TField : AstObjectField<TRef>
   where TRef : AstReference<TRef>
   where TModel : BaseTypeModel
 {
@@ -213,7 +213,7 @@ internal interface ICheckObjectModel<TObject, TField, TRef>
   : ICheckTypeModel<TRef, string, TypeKindModel>
   , IParentModel<FieldInput>, IParentModel<string>
   where TObject : AstObject<TField, TRef>
-  where TField : AstField<TRef>
+  where TField : AstObjectField<TRef>
   where TRef : AstReference<TRef>
 {
   void ObjectExpected(TObject ast, ExpectedObjectInput input, ToExpected<string?>? parent = null,

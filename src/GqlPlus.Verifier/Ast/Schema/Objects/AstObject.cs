@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
 public abstract record class AstObject<TField, TRef>(TokenAt At, string Name, string Description)
   : AstType<TRef>(At, Name, Description), IEquatable<AstObject<TField, TRef>>, IAstObject
-  where TField : AstField<TRef> where TRef : AstReference<TRef>, IEquatable<TRef>
+  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>, IEquatable<TRef>
 {
   public TypeParameterAst[] TypeParameters { get; set; } = [];
   public TField[] Fields { get; set; } = [];

@@ -2,8 +2,14 @@
 
 namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
-public abstract record class AstField<TRef>(TokenAt At, string Name, string Description, TRef Type)
-  : AstAliased(At, Name, Description), IEquatable<AstField<TRef>>, IAstModified
+public abstract record class AstObjectField<TRef>(
+  TokenAt At,
+  string Name,
+  string Description,
+  TRef Type)
+  : AstAliased(At, Name, Description)
+  , IEquatable<AstObjectField<TRef>>
+  , IAstModified
   where TRef : AstReference<TRef>, IEquatable<TRef>
 {
   public TRef Type { get; set; } = Type;
@@ -11,7 +17,7 @@ public abstract record class AstField<TRef>(TokenAt At, string Name, string Desc
 
   public string ModifiedType => Type.GetFields().Skip(1).Concat(Modifiers.AsString()).Joined();
 
-  public virtual bool Equals(AstField<TRef>? other)
+  public virtual bool Equals(AstObjectField<TRef>? other)
     => base.Equals(other)
     && (Type?.Equals(other.Type) ?? other.Type is null)
     && Modifiers.SequenceEqual(other.Modifiers);

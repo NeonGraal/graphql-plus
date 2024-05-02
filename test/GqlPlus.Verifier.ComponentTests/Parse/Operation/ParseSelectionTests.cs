@@ -60,5 +60,5 @@ public class ParseSelectionTests(Parser<IAstSelection>.D parser)
   private void CheckNull(IAstSelection? result)
     => result.Should().BeNull();
 
-  private readonly OneChecksParser<IAstSelection> _checks = new(parser);
+  private readonly CheckOne<IAstSelection> _checks = new(parser);
 }

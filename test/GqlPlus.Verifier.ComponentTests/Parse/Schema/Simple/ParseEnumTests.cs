@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
 public sealed class ParseEnumTests
-  : BaseAliasedTests<EnumInput>
+  : TestAliased<EnumInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithParent_ReturnsCorrectAst(EnumInput input, string parent)
@@ -39,7 +39,7 @@ public sealed class ParseEnumTests
       name + members.Prepend(parent.Prefixed(":")).Bracket("{", "}").Joined(),
       new EnumDeclAst(AstNulls.At, name, members.EnumMembers()) { Parent = parent });
 
-  internal override IBaseAliasedChecks<EnumInput> AliasChecks => _checks;
+  internal override ICheckAliased<EnumInput> AliasChecks => _checks;
 
   private readonly ParseEnumChecks _checks;
 
@@ -48,7 +48,7 @@ public sealed class ParseEnumTests
 }
 
 internal sealed class ParseEnumChecks
-  : BaseAliasedChecks<EnumInput, EnumDeclAst>
+  : CheckAliased<EnumInput, EnumDeclAst>
 {
   public ParseEnumChecks(Parser<EnumDeclAst>.D parser)
     : base(parser) { }

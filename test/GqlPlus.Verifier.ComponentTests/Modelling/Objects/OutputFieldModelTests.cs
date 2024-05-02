@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Modelling.Objects;
 
 public class OutputFieldModelTests(
   IModeller<OutputFieldAst, OutputFieldModel> modeller
-) : TestFieldModel<OutputFieldAst, OutputReferenceAst>
+) : TestObjectFieldModel<OutputFieldAst, OutputReferenceAst>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_EnumValue(FieldInput input, string enumValue)
@@ -22,14 +22,14 @@ public class OutputFieldModelTests(
       FieldChecks.ExpectedField(input, [], _checks.ExpectedParameters(parameters))
       );
 
-  internal override ICheckFieldModel<OutputFieldAst, OutputReferenceAst> FieldChecks => _checks;
+  internal override ICheckObjectFieldModel<OutputFieldAst, OutputReferenceAst> FieldChecks => _checks;
 
   private readonly OutputFieldModelChecks _checks = new(modeller);
 }
 
 internal sealed class OutputFieldModelChecks(
   IModeller<OutputFieldAst, OutputFieldModel> modeller
-) : CheckFieldModel<OutputFieldAst, OutputReferenceAst, OutputFieldModel>(modeller, TypeKindModel.Output)
+) : CheckObjectFieldModel<OutputFieldAst, OutputReferenceAst, OutputFieldModel>(modeller, TypeKindModel.Output)
 {
   protected override OutputFieldAst NewFieldAst(FieldInput input)
     => new(AstNulls.At, input.Name, NewReferenceAst(input.Type));

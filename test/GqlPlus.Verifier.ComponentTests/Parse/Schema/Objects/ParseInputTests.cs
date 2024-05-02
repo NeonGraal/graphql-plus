@@ -4,9 +4,9 @@ namespace GqlPlus.Verifier.Parse.Schema.Objects;
 
 public class ParseInputTests(
   Parser<InputDeclAst>.D parser
-) : BaseObjectTests
+) : TestObject
 {
-  internal override IBaseObjectChecks ObjectChecks => _checks;
+  internal override ICheckObject ObjectChecks => _checks;
 
-  private readonly BaseObjectChecks<InputDeclAst, InputFieldAst, InputReferenceAst> _checks = new(new InputFactories(), parser);
+  private readonly CheckObject<InputDeclAst, InputFieldAst, InputReferenceAst> _checks = new(new InputFactories(), parser);
 }

@@ -83,7 +83,7 @@ public static class SchemaParsers
 
   public static IServiceCollection AddObjectParser<TObject, TField, TRef>(this IServiceCollection services)
     where TObject : ParseObjectDefinition<TField, TRef>
-    where TField : AstField<TRef>
+    where TField : AstObjectField<TRef>
     where TRef : AstReference<TRef>
     => services.AddParser<ObjectDefinition<TField, TRef>, TObject>();
 

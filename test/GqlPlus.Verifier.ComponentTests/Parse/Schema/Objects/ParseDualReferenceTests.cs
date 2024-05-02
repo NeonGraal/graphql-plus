@@ -3,11 +3,11 @@
 namespace GqlPlus.Verifier.Parse.Schema.Objects;
 
 public class ParseDualReferenceTests
-  : BaseReferenceTests
+  : TestReference
 {
-  internal override IBaseReferenceChecks ReferenceChecks => _checks;
+  internal override ICheckReference ReferenceChecks => _checks;
 
-  private readonly BaseReferenceParsedChecks<DualReferenceAst> _checks;
+  private readonly CheckReference<DualReferenceAst> _checks;
 
   public ParseDualReferenceTests(Parser<DualReferenceAst>.D parser)
     => _checks = new(new DualFactories(), parser);

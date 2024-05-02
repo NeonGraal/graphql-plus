@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Parse.Schema.Objects;
 
 public class ParseOutputFieldTests(
   Parser<OutputFieldAst>.D parser
-) : BaseFieldTests
+) : TestObjectField
 {
   [Theory, RepeatData(Repeats)]
   public void WithParameters_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
@@ -76,9 +76,9 @@ public class ParseOutputFieldTests(
   public void WithFieldEnumTypeAndValueBad_ReturnsFalse(string name, string enumValue)
     => _checks.False(name + "=" + enumValue + ".");
 
-  internal override IBaseFieldChecks FieldChecks => _checks;
+  internal override ICheckObjectField FieldChecks => _checks;
 
-  private readonly BaseFieldChecks<OutputFieldAst, OutputReferenceAst> _checks = new(new OutputFactories(), parser);
+  private readonly CheckObjectField<OutputFieldAst, OutputReferenceAst> _checks = new(new OutputFactories(), parser);
 
   private static OutputFieldAst FieldEnum(string name, string enumType, string enumValue)
     => new(AstNulls.At, name, new(AstNulls.At, enumType) { EnumValue = enumValue });

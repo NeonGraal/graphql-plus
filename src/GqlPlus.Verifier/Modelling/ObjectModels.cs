@@ -158,7 +158,7 @@ internal abstract class ModellerObject<TAst, TRefAst, TFieldAst, TModel, TBase, 
 ) : ModellerType<TAst, TRefAst, TModel>(kind)
   where TAst : AstType<TRefAst>
   where TRefAst : AstReference<TRefAst>
-  where TFieldAst : AstField<TRefAst>
+  where TFieldAst : AstObjectField<TRefAst>
   where TModel : BaseTypeModel
   where TBase : IObjBaseModel
   where TField : IRendering

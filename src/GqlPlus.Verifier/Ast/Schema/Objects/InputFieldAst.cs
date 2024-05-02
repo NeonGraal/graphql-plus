@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
 public sealed record class InputFieldAst(TokenAt At, string Name, string Description, InputReferenceAst Type)
-  : AstField<InputReferenceAst>(At, Name, Description, Type), IEquatable<InputFieldAst>
+  : AstObjectField<InputReferenceAst>(At, Name, Description, Type), IEquatable<InputFieldAst>
 {
   public ConstantAst? Default { get; set; }
 

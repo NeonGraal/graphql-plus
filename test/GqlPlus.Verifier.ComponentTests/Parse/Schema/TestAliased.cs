@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Parse.Schema;
 
-public abstract class BaseAliasedTests<TInput>
-  : BaseNamedTests<TInput>
+public abstract class TestAliased<TInput>
+  : TestNamed<TInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithAliases_ReturnsCorrectAst(TInput input, string[] aliases)
@@ -17,14 +17,14 @@ public abstract class BaseAliasedTests<TInput>
   public void WithAliasesNone_ReturnsFalse(TInput input)
     => AliasChecks.WithAliasesNone(input);
 
-  internal abstract IBaseAliasedChecks<TInput> AliasChecks { get; }
+  internal abstract ICheckAliased<TInput> AliasChecks { get; }
 
-  internal override IBaseNamedChecks<TInput> NameChecks => AliasChecks;
+  internal override ICheckNamed<TInput> NameChecks => AliasChecks;
 }
 
-internal abstract class BaseAliasedChecks<TInput, TAliased>(
+internal abstract class CheckAliased<TInput, TAliased>(
   Parser<TAliased>.D parser
-) : BaseNamedChecks<TInput, TAliased>(parser), IBaseAliasedChecks<TInput>
+) : CheckNamed<TInput, TAliased>(parser), ICheckAliased<TInput>
   where TAliased : AstAliased
 {
   public void WithAliases(TInput input, string[] aliases)
@@ -43,8 +43,8 @@ internal abstract class BaseAliasedChecks<TInput, TAliased>(
     => AliasesString(input, "");
 }
 
-internal interface IBaseAliasedChecks<TInput>
-  : IBaseNamedChecks<TInput>
+internal interface ICheckAliased<TInput>
+  : ICheckNamed<TInput>
 {
   void WithAliases(TInput input, string[] aliases);
   void WithAliasesBad(TInput input, string[] aliases);

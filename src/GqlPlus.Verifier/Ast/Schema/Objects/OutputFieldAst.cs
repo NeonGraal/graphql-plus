@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
 public sealed record class OutputFieldAst(TokenAt At, string Name, string Description, OutputReferenceAst Type)
-  : AstField<OutputReferenceAst>(At, Name, Description, Type), IEquatable<OutputFieldAst>
+  : AstObjectField<OutputReferenceAst>(At, Name, Description, Type), IEquatable<OutputFieldAst>
 {
   public ParameterAst[] Parameters { get; set; } = [];
 

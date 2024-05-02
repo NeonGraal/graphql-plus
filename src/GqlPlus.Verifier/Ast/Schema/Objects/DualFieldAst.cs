@@ -7,7 +7,7 @@ public sealed record class DualFieldAst(
   string Name,
   string Description,
   DualReferenceAst Type
-) : AstField<DualReferenceAst>(At, Name, Description, Type), IEquatable<DualFieldAst>
+) : AstObjectField<DualReferenceAst>(At, Name, Description, Type), IEquatable<DualFieldAst>
 {
   public DualFieldAst(TokenAt at, string name, DualReferenceAst fieldType)
     : this(at, name, "", fieldType) { }

@@ -1,8 +1,8 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
-public abstract class AstFieldTests<TField, TRef>
+public abstract class AstObjectFieldTests<TField, TRef>
   : AstAliasedTests<FieldInput>
-  where TField : AstField<TRef> where TRef : AstReference<TRef>
+  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithModifiers(FieldInput input)
@@ -34,12 +34,12 @@ public abstract class AstFieldTests<TField, TRef>
 
   internal sealed override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 
-  internal abstract IAstFieldChecks<TField, TRef> FieldChecks { get; }
+  internal abstract IAstObjectFieldChecks<TField, TRef> FieldChecks { get; }
 }
 
-internal sealed class AstFieldChecks<TField, TRef>
-  : AstAliasedChecks<FieldInput, TField>, IAstFieldChecks<TField, TRef>
-  where TField : AstField<TRef> where TRef : AstReference<TRef>
+internal sealed class AstObjectFieldChecks<TField, TRef>
+  : AstAliasedChecks<FieldInput, TField>, IAstObjectFieldChecks<TField, TRef>
+  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
 {
   private readonly FieldBy _createField;
   private readonly ReferenceBy _createReference;
@@ -49,7 +49,7 @@ internal sealed class AstFieldChecks<TField, TRef>
   internal delegate TField FieldBy(FieldInput input, TRef reference);
   internal delegate TRef[] ArgumentsBy(string[] arguments);
 
-  public AstFieldChecks(FieldBy createField, ReferenceBy createReference, AstFieldChecks<TField, TRef>.ArgumentsBy createArguments)
+  public AstObjectFieldChecks(FieldBy createField, ReferenceBy createReference, AstObjectFieldChecks<TField, TRef>.ArgumentsBy createArguments)
     : base(input => createField(input, createReference(input)))
   {
     _createField = createField;
@@ -102,9 +102,9 @@ internal sealed class AstFieldChecks<TField, TRef>
     => CreateInput(input) with { Modifiers = TestMods() };
 }
 
-internal interface IAstFieldChecks<TField, TRef>
+internal interface IAstObjectFieldChecks<TField, TRef>
   : IAstAliasedChecks<FieldInput>
-  where TField : AstField<TRef> where TRef : AstReference<TRef>
+  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
 {
   void HashCode_WithModifiers(FieldInput input);
   void String_WithModifiers(FieldInput input);

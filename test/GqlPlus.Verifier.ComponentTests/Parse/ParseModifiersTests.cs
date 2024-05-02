@@ -22,5 +22,5 @@ public class ParseModifiersTests(Parser<ModifierAst>.DA parser)
       ModifierAst.Optional(AstNulls.At),
     ]);
 
-  private readonly ManyChecksParser<ModifierAst> _test = new(parser);
+  private readonly CheckMany<ModifierAst> _test = new(parser);
 }

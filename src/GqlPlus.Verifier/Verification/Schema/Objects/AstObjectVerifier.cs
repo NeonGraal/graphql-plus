@@ -13,7 +13,7 @@ internal abstract partial class AstObjectVerifier<TObject, TField, TRef, TContex
   ILoggerFactory logger
 ) : AstParentItemVerifier<TObject, TRef, TContext, TField>(aliased, mergeFields)
   where TObject : AstObject<TField, TRef>
-  where TField : AstField<TRef>
+  where TField : AstObjectField<TRef>
   where TRef : AstReference<TRef>
   where TContext : UsageContext
 {

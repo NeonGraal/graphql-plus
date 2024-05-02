@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Parse.Schema.Objects;
 
-public abstract class BaseFieldTests
-  : BaseAliasedTests<FieldInput>
+public abstract class TestObjectField
+  : TestAliased<FieldInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithModifiers_ReturnsCorrectAst(string name, string fieldType)
@@ -13,18 +13,18 @@ public abstract class BaseFieldTests
   public void WithModifiersBad_ReturnsFalse(string name, string fieldType)
   => FieldChecks.WithModifiersBad(name, fieldType);
 
-  internal abstract IBaseFieldChecks FieldChecks { get; }
+  internal abstract ICheckObjectField FieldChecks { get; }
 
-  internal sealed override IBaseAliasedChecks<FieldInput> AliasChecks => FieldChecks;
+  internal sealed override ICheckAliased<FieldInput> AliasChecks => FieldChecks;
 }
 
-internal sealed class BaseFieldChecks<F, R>
-  : BaseAliasedChecks<FieldInput, F>, IBaseFieldChecks
-  where F : AstField<R> where R : AstReference<R>
+internal sealed class CheckObjectField<TField, TRef>
+  : CheckAliased<FieldInput, TField>, ICheckObjectField
+  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
 {
-  private readonly IFieldFactories<F, R> _factories;
+  private readonly IObjectFieldFactories<TField, TRef> _factories;
 
-  internal BaseFieldChecks(IFieldFactories<F, R> factories, Parser<F>.D parser)
+  internal CheckObjectField(IObjectFieldFactories<TField, TRef> factories, Parser<TField>.D parser)
     : base(parser)
     => _factories = factories;
 
@@ -39,20 +39,20 @@ internal sealed class BaseFieldChecks<F, R>
   public void WithModifiersBad(string name, string fieldType)
     => False(name + ":" + fieldType + "[?");
 
-  internal F Field(string field, string fieldType)
+  internal TField Field(string field, string fieldType)
     => _factories.Field(AstNulls.At, field, Reference(fieldType));
 
-  internal R Reference(string type)
+  internal TRef Reference(string type)
     => _factories.Reference(AstNulls.At, type);
 
-  protected internal sealed override F NamedFactory(FieldInput input)
+  protected internal sealed override TField NamedFactory(FieldInput input)
     => Field(input.Name, input.Type);
   protected internal override string AliasesString(FieldInput input, string aliases)
     => $"{input.Name}{aliases}:{input.Type}";
 }
 
-internal interface IBaseFieldChecks
-  : IBaseAliasedChecks<FieldInput>
+internal interface ICheckObjectField
+  : ICheckAliased<FieldInput>
 {
   void WithMinimum(string name, string fieldType);
   void WithModifiers(string name, string fieldType);

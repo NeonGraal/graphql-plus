@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse;
 
-internal class OneChecksParser<T>(Parser<T>.D parser)
+internal class CheckOne<T>(Parser<T>.D parser)
 {
   private readonly Parser<T>.L _parser = parser;
   private readonly string _type = typeof(T).ToString();
@@ -98,7 +98,7 @@ internal class OneChecksParser<T>(Parser<T>.D parser)
   }
 }
 
-internal sealed class OneChecksParser<I, T>(Parser<I, T>.D parser)
+internal sealed class CheckOne<I, T>(Parser<I, T>.D parser)
   where I : Parser<T>.I
 {
   private readonly Parser<I, T>.L _parser = parser;

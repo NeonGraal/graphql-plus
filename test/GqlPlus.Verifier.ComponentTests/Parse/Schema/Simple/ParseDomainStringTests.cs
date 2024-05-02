@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
 public sealed class ParseDomainStringTests(
   Parser<AstDomain>.D parser
-) : BaseDomainTests<DomainStringInput>
+) : TestDomain<DomainStringInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithRegexes_ReturnsCorrectAst(DomainStringInput input, string regex)
@@ -20,14 +20,14 @@ public sealed class ParseDomainStringTests(
   public void WithRegexesSecondBad_ReturnsFalse(DomainStringInput input, string regex)
     => _checks.False(input.Name + "{string/" + input.Regex + "/!/" + regex + "}");
 
-  internal override IBaseDomainChecks<DomainStringInput> DomainChecks => _checks;
+  internal override ICheckDomain<DomainStringInput> DomainChecks => _checks;
 
   private readonly ParseDomainStringChecks _checks = new(parser);
 }
 
 internal sealed class ParseDomainStringChecks(
   Parser<AstDomain>.D parser
-) : BaseDomainChecks<DomainStringInput, AstDomain>(parser, DomainKind.String)
+) : CheckDomain<DomainStringInput, AstDomain>(parser, DomainKind.String)
 {
   protected internal override AstDomain<DomainRegexAst> NamedFactory(DomainStringInput input)
     => new(AstNulls.At, input.Name, DomainKind.String, new[] { input.Regex }.DomainRegexes());

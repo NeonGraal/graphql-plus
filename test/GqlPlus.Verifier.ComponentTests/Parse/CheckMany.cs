@@ -2,13 +2,10 @@
 
 namespace GqlPlus.Verifier.Parse;
 
-internal sealed class ManyChecksParser<T>
+internal sealed class CheckMany<T>(Parser<T>.DA parser)
 {
-  private readonly Parser<T>.LA _parser;
+  private readonly Parser<T>.LA _parser = parser;
   private readonly string _type = typeof(T).ToString();
-
-  public ManyChecksParser(Parser<T>.DA parser)
-    => _parser = parser;
 
   internal void TrueExpected(string input, bool skipIf, params T[] expected)
   {
@@ -44,13 +41,13 @@ internal sealed class ManyChecksParser<T>
   }
 }
 
-internal sealed class ManyChecksParser<I, T>
+internal sealed class CheckMany<I, T>
 where I : Parser<T>.IA
 {
   private readonly ParserArray<I, T>.LA _parser;
   private readonly string _type = typeof(I).ToString();
 
-  public ManyChecksParser(ParserArray<I, T>.DA parser)
+  public CheckMany(ParserArray<I, T>.DA parser)
     => _parser = parser;
 
   internal void TrueExpected(string input, params T[] expected)

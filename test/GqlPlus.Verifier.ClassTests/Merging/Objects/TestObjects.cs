@@ -7,7 +7,7 @@ namespace GqlPlus.Verifier.Merging;
 public abstract class TestObjects<TObject, TField, TRef>
   : TestTyped<AstType, TObject, TRef, TField>
   where TObject : AstObject<TField, TRef>
-  where TField : AstField<TRef>, IAstDescribed
+  where TField : AstObjectField<TRef>, IAstDescribed
   where TRef : AstReference<TRef>
 {
   [SkippableTheory, RepeatData(Repeats)]

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Verifier.Parse.Schema.Objects;
 
-public abstract class BaseReferenceTests
+public abstract class TestReference
 {
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string name)
@@ -28,12 +28,12 @@ public abstract class BaseReferenceTests
   public void WithTypeArgumentsNone_ReturnsFalse(string name)
   => ReferenceChecks.WithTypeArgumentsNone(name);
 
-  internal abstract IBaseReferenceChecks ReferenceChecks { get; }
+  internal abstract ICheckReference ReferenceChecks { get; }
 }
 
-internal sealed class BaseReferenceParsedChecks<R>(
+internal sealed class CheckReference<R>(
   IReferenceFactories<R> factories, Parser<R>.D parser
-) : OneChecksParser<R>(parser), IBaseReferenceChecks
+) : CheckOne<R>(parser), ICheckReference
   where R : AstReference<R>
 {
   private readonly IReferenceFactories<R> _factories = factories;
@@ -64,7 +64,7 @@ internal sealed class BaseReferenceParsedChecks<R>(
     => _factories.Reference(AstNulls.At, type);
 }
 
-public interface IBaseReferenceChecks
+public interface ICheckReference
 {
   void WithMinimum(string name);
   void WithTypeParameter(string name);

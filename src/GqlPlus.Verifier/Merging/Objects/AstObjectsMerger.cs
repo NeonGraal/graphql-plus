@@ -11,7 +11,7 @@ internal class AstObjectsMerger<TObject, TField, TRef>(
   IMerge<AstAlternate<TRef>> alternates
 ) : AstTypeMerger<AstType, TObject, TRef, TField>(logger, fields)
   where TObject : AstObject<TField, TRef>
-  where TField : AstField<TRef>, IAstDescribed
+  where TField : AstObjectField<TRef>, IAstDescribed
   where TRef : AstReference<TRef>
 {
   protected override string ItemMatchName => "Parent";

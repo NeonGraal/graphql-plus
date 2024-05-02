@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifier.Parse.Schema.Objects;
 
 public class ParseInputFieldTests
-  : BaseFieldTests
+  : TestObjectField
 {
   [Theory, RepeatData(Repeats)]
   public void WithDefault_ReturnsCorrectAst(string name, string fieldType, string content)
@@ -13,9 +13,9 @@ public class ParseInputFieldTests
         Default = new FieldKeyAst(AstNulls.At, content)
       });
 
-  internal override IBaseFieldChecks FieldChecks => _checks;
+  internal override ICheckObjectField FieldChecks => _checks;
 
-  private readonly BaseFieldChecks<InputFieldAst, InputReferenceAst> _checks;
+  private readonly CheckObjectField<InputFieldAst, InputReferenceAst> _checks;
 
   public ParseInputFieldTests(Parser<InputFieldAst>.D parser)
     => _checks = new(new InputFactories(), parser);

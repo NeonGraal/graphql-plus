@@ -7,7 +7,7 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Parse.Schema.Objects;
 
 public abstract class ObjectFieldParser<TField, TRef> : Parser<TField>.I
-  where TField : AstField<TRef> where TRef : AstReference<TRef>
+  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
 {
   private readonly Parser<string>.LA _aliases;
   private readonly Parser<ModifierAst>.LA _modifiers;

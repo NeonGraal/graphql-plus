@@ -21,5 +21,5 @@ public class ParseVariablesTests(Parser<VariableAst>.DA parser)
   public void WithNoEnd_ReturnsFalse(string variable)
     => _checks.False("($" + variable);
 
-  private readonly ManyChecksParser<VariableAst> _checks = new(parser);
+  private readonly CheckMany<VariableAst> _checks = new(parser);
 }

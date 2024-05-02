@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
-public class OutputFieldAstTests : AstFieldTests<OutputFieldAst, OutputReferenceAst>
+public class OutputFieldAstTests : AstObjectFieldTests<OutputFieldAst, OutputReferenceAst>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithParameter(FieldInput input, string[] parameters)
@@ -49,10 +49,10 @@ public class OutputFieldAstTests : AstFieldTests<OutputFieldAst, OutputReference
   protected override string AliasesString(FieldInput input, string aliases)
     => $"( !OF {input.Name}{aliases} : {input.Type} )";
 
-  private readonly AstFieldChecks<OutputFieldAst, OutputReferenceAst> _checks = new(
+  private readonly AstObjectFieldChecks<OutputFieldAst, OutputReferenceAst> _checks = new(
           (input, reference) => new(AstNulls.At, input.Name, reference),
       input => new(AstNulls.At, input.Type),
       arguments => arguments.OutputReferences());
 
-  internal override IAstFieldChecks<OutputFieldAst, OutputReferenceAst> FieldChecks => _checks;
+  internal override IAstObjectFieldChecks<OutputFieldAst, OutputReferenceAst> FieldChecks => _checks;
 }

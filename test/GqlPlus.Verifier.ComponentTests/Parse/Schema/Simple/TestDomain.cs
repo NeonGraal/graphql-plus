@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
-public abstract class BaseDomainTests<TInput>
-  : BaseAliasedTests<TInput>
+public abstract class TestDomain<TInput>
+  : TestAliased<TInput>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void WithKindBad_ReturnsFalse(TInput input, string kind)
@@ -17,18 +17,18 @@ public abstract class BaseDomainTests<TInput>
   public void WithParentBad_ReturnsFalse(TInput input)
     => DomainChecks.WithParentBad(input);
 
-  internal abstract IBaseDomainChecks<TInput> DomainChecks { get; }
+  internal abstract ICheckDomain<TInput> DomainChecks { get; }
 
-  internal override IBaseAliasedChecks<TInput> AliasChecks => DomainChecks;
+  internal override ICheckAliased<TInput> AliasChecks => DomainChecks;
 }
 
-internal abstract class BaseDomainChecks<TInput, TDomain>
-  : BaseAliasedChecks<TInput, TDomain>, IBaseDomainChecks<TInput>
+internal abstract class CheckDomain<TInput, TDomain>
+  : CheckAliased<TInput, TDomain>, ICheckDomain<TInput>
   where TDomain : AstDomain
 {
   private readonly DomainKind _kind;
 
-  protected BaseDomainChecks(Parser<TDomain>.D parser, DomainKind kind)
+  protected CheckDomain(Parser<TDomain>.D parser, DomainKind kind)
     : base(parser) => _kind = kind;
 
   public void WithKindBad(TInput input, string kind)
@@ -47,7 +47,7 @@ internal abstract class BaseDomainChecks<TInput, TDomain>
   protected internal abstract string KindString(TInput input, string kind, string parent);
 }
 
-internal interface IBaseDomainChecks<TInput> : IBaseAliasedChecks<TInput>
+internal interface ICheckDomain<TInput> : ICheckAliased<TInput>
 {
   void WithKindBad(TInput input, string kind);
   void WithParent(TInput input, string parent);

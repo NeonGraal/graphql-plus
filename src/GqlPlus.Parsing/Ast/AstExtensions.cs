@@ -1,7 +1,5 @@
 ﻿using System.Globalization;
-using GqlPlus.Abstractions;
 using GqlPlus.Ast.Schema;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast;
 

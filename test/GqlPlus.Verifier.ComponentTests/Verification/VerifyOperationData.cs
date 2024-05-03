@@ -1,5 +1,5 @@
 ﻿
-// Generated from .\test\GqlPlus.ComponentTests\Verification\Operation
+// Generated from .\test\GqlPlus.Verifier.ComponentTests\Verification\Operation
 
 namespace GqlPlus.Verification;
 

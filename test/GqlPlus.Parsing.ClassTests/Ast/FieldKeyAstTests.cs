@@ -39,8 +39,8 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData(Repeats)]
   public void Compare_WithNumber(decimal number1, decimal number2)
   {
-    var left = FieldKey(number1);
-    var right = FieldKey(number2);
+    FieldKeyAst left = FieldKey(number1);
+    FieldKeyAst right = FieldKey(number2);
 
     left.CompareTo(right).Should().Be(number1.CompareTo(number2));
   }
@@ -48,8 +48,8 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithNumberString(decimal number, string contents)
   {
-    var left = FieldKey(number);
-    var right = FieldKey(contents);
+    FieldKeyAst left = FieldKey(number);
+    FieldKeyAst right = FieldKey(contents);
 
     (left != right).Should().BeTrue();
   }
@@ -57,8 +57,8 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithNumberEnumValue(decimal number, string enumType, string enumValue)
   {
-    var left = FieldKey(number);
-    var right = FieldKey(enumType, enumValue);
+    FieldKeyAst left = FieldKey(number);
+    FieldKeyAst right = FieldKey(enumType, enumValue);
 
     (left != right).Should().BeTrue();
   }
@@ -71,9 +71,9 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData(Repeats)]
   public void Compare_WithString(string contents1, string contents2)
   {
-    var left = FieldKey(contents1);
-    var right = FieldKey(contents2);
-    var expected = string.Compare(contents1, contents2, StringComparison.Ordinal);
+    FieldKeyAst left = FieldKey(contents1);
+    FieldKeyAst right = FieldKey(contents2);
+    int expected = string.Compare(contents1, contents2, StringComparison.Ordinal);
 
     left.CompareTo(right).Should().Be(expected);
   }
@@ -81,8 +81,8 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithStringEnumValue(string contents, string enumType, string enumValue)
   {
-    var left = FieldKey(contents);
-    var right = FieldKey(enumType, enumValue);
+    FieldKeyAst left = FieldKey(contents);
+    FieldKeyAst right = FieldKey(enumType, enumValue);
 
     (left != right).Should().BeTrue();
   }
@@ -95,9 +95,9 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData(Repeats)]
   public void Compare_WithEnumTypeAndValue(string enumType, string enumValue1, string enumValue2)
   {
-    var left = FieldKey(enumType, enumValue1);
-    var right = FieldKey(enumType, enumValue2);
-    var expected = string.Compare(enumType + "." + enumValue1, enumType + "." + enumValue2, StringComparison.Ordinal);
+    FieldKeyAst left = FieldKey(enumType, enumValue1);
+    FieldKeyAst right = FieldKey(enumType, enumValue2);
+    int expected = string.Compare(enumType + "." + enumValue1, enumType + "." + enumValue2, StringComparison.Ordinal);
 
     left.CompareTo(right).Should().Be(expected);
   }
@@ -109,8 +109,8 @@ public class FieldKeyAstTests : AstAbbreviatedTests
       return;
     }
 
-    var left = FieldKey(enumType, enumValue);
-    var right = FieldKey(enumValue, enumType);
+    FieldKeyAst left = FieldKey(enumType, enumValue);
+    FieldKeyAst right = FieldKey(enumValue, enumType);
 
     (left != right).Should().BeTrue();
   }
@@ -123,9 +123,9 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData(Repeats)]
   public void Compare_WithEnumValue(string enumValue1, string enumValue2)
   {
-    var left = enumValue1.FieldKey();
-    var right = enumValue2.FieldKey();
-    var expected = string.Compare(enumValue1, enumValue2, StringComparison.Ordinal);
+    FieldKeyAst left = enumValue1.FieldKey();
+    FieldKeyAst right = enumValue2.FieldKey();
+    int expected = string.Compare(enumValue1, enumValue2, StringComparison.Ordinal);
 
     left.CompareTo(right).Should().Be(expected);
   }
@@ -133,8 +133,8 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithEnumValue(string enumValue)
   {
-    var left = enumValue.FieldKey();
-    var right = FieldKey(enumValue, enumValue);
+    FieldKeyAst left = enumValue.FieldKey();
+    FieldKeyAst right = FieldKey(enumValue, enumValue);
 
     (left != right).Should().BeTrue();
   }
@@ -147,9 +147,9 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData(Repeats)]
   public void Compare_WithEnumType(string enumType1, string enumType2)
   {
-    var left = FieldKey(enumType1, "enumValue");
-    var right = FieldKey(enumType2, "enumValue");
-    var expected = string.Compare(enumType1 + ".enumValue", enumType2 + ".enumValue", StringComparison.Ordinal);
+    FieldKeyAst left = FieldKey(enumType1, "enumValue");
+    FieldKeyAst right = FieldKey(enumType2, "enumValue");
+    int expected = string.Compare(enumType1 + ".enumValue", enumType2 + ".enumValue", StringComparison.Ordinal);
 
     left.CompareTo(right).Should().Be(expected);
   }
@@ -157,8 +157,8 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithEnumType(string enumType)
   {
-    var left = FieldKey(enumType, "enumValue");
-    var right = FieldKey(enumType, enumType + "enumValue");
+    FieldKeyAst left = FieldKey(enumType, "enumValue");
+    FieldKeyAst right = FieldKey(enumType, enumType + "enumValue");
 
     (left != right).Should().BeTrue();
   }

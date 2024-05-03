@@ -15,7 +15,7 @@ public interface IParserArray<TResult>
     where TContext : Tokenizer;
 }
 
-[SuppressMessage("Design", "CA1034:Nested types should not be visible")]
+#pragma warning disable CA1034 // Nested types should not be visible
 public static class Parser<T>
 {
   public interface I
@@ -52,7 +52,6 @@ public static class Parser<T>
   }
 }
 
-[SuppressMessage("Design", "CA1034:Nested types should not be visible")]
 public static class Parser<TInterface, T>
   where TInterface : Parser<T>.I
 {
@@ -66,7 +65,6 @@ public static class Parser<TInterface, T>
   }
 }
 
-[SuppressMessage("Design", "CA1034:Nested types should not be visible")]
 public static class ParserArray<TInterface, T>
   where TInterface : Parser<T>.IA
 {

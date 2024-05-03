@@ -3,22 +3,22 @@ using GqlPlus.Parse.Schema.Simple;
 using GqlPlus.Result;
 using NSubstitute;
 
-namespace GqlPlus.Parse.Schema;
+namespace GqlPlus.Parse;
 
 public class ParseDomainDefinitionClassTests : ClassTestBase
 {
   [Fact]
   public void Parse_UnknownKind_ReturnsExpected()
   {
-    var tokens = Tokens("{ ");
+    Token.Tokenizer tokens = Tokens("{ ");
 
-    var kind = EnumParserFor<DomainKind>(out var kindParser);
+    Parser<IEnumParser<DomainKind>, DomainKind>.D kind = EnumParserFor(out Parser<DomainKind>.I? kindParser);
     kindParser.Parse(tokens, default!)
       .ReturnsForAnyArgs(((DomainKind)99).Ok());
 
-    var domain = new ParseDomainDefinition(kind, []);
+    ParseDomainDefinition domain = new(kind, []);
 
-    var result = domain.Parse(tokens, "test");
+    IResult<DomainDefinition> result = domain.Parse(tokens, "test");
 
     result.Should().BeAssignableTo<IResultPartial<DomainDefinition>>();
   }

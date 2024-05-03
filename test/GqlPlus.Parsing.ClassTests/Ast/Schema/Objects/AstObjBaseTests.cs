@@ -109,28 +109,28 @@ internal sealed class AstObjBaseChecks<TObjBase>
 
   public void FullType_WithDefault(string input)
   {
-    var objBase = _createBase(input);
+    TObjBase objBase = _createBase(input);
 
     objBase.FullType.Should().Be(input);
   }
 
   public void FullType_WithIsTypeParameter(string input)
   {
-    var objBase = _createBase(input) with { IsTypeParameter = true };
+    TObjBase objBase = _createBase(input) with { IsTypeParameter = true };
 
     objBase.FullType.Should().Be("$" + input);
   }
 
   public void FullType_WithArguments(string input, string[] arguments)
   {
-    var objBase = _createBase(input) with { Arguments = _createArguments(arguments) };
+    TObjBase objBase = _createBase(input) with { Arguments = _createArguments(arguments) };
 
     objBase.FullType.Should().Be(input + $" < {arguments.Joined()} >");
   }
 
   public void FullType_WithIsTypeParameterAndArguments(string input, string[] arguments)
   {
-    var objBase = _createBase(input) with {
+    TObjBase objBase = _createBase(input) with {
       IsTypeParameter = true,
       Arguments = _createArguments(arguments)
     };

@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Merging;
-using GqlPlus.Token;
 
 namespace GqlPlus.Verification.Schema.Globals;
 

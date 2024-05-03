@@ -7,12 +7,12 @@ using NSubstitute;
 namespace GqlPlus.Parse;
 
 [TracePerTest]
-[SuppressMessage("Design", "CA1052:Static holder types should be Static or NotInheritable")]
+#pragma warning disable CA1052 // Static holder types should be Static or NotInheritable
 public class ClassTestBase
 {
   protected static Tokenizer Tokens(string input)
   {
-    var tokens = new Tokenizer(input);
+    Tokenizer tokens = new(input);
     tokens.Read();
     return tokens;
   }
@@ -20,8 +20,8 @@ public class ClassTestBase
   internal static T NameFor<T>(string name)
     where T : class, INameParser
   {
-    var nameParser = Substitute.For<T>();
-    nameParser.ParseName(default!, out var _, out var _)
+    T nameParser = Substitute.For<T>();
+    nameParser.ParseName(default!, out string? _, out TokenAt _)
       .ReturnsForAnyArgs(c => {
         c[1] = name;
         return true;
@@ -30,7 +30,7 @@ public class ClassTestBase
   }
 
   protected static Parser<T>.D ParserFor<T>()
-    => ParserFor<T>(out var _);
+    => ParserFor<T>(out Parser<T>.I _);
 
   protected static Parser<T>.D ParserFor<T>(out Parser<T>.I parser)
   {
@@ -38,7 +38,7 @@ public class ClassTestBase
     parser.Parse<Tokenizer>(default!, default!)
       .ReturnsForAnyArgs(0.Empty<T>());
 
-    var result = Substitute.For<Parser<T>.D>();
+    Parser<T>.D result = Substitute.For<Parser<T>.D>();
     result().Returns(parser);
 
     return result;
@@ -46,7 +46,7 @@ public class ClassTestBase
 
   protected static Parser<IOptionParser<T>, T>.D OptionParserFor<T>()
     where T : struct
-    => OptionParserFor<T>(out var _);
+    => OptionParserFor<T>(out Parser<T>.I _);
 
   protected static Parser<IOptionParser<T>, T>.D OptionParserFor<T>(out Parser<T>.I parser)
     where T : struct
@@ -55,7 +55,7 @@ public class ClassTestBase
     parser.Parse<Tokenizer>(default!, default!)
       .ReturnsForAnyArgs(0.Empty<T>());
 
-    var result = Substitute.For<Parser<IOptionParser<T>, T>.D>();
+    Parser<IOptionParser<T>, T>.D result = Substitute.For<Parser<IOptionParser<T>, T>.D>();
     result().Returns(parser);
 
     return result;
@@ -63,7 +63,7 @@ public class ClassTestBase
 
   protected static Parser<IEnumParser<T>, T>.D EnumParserFor<T>()
     where T : struct
-    => EnumParserFor<T>(out var _);
+    => EnumParserFor<T>(out Parser<T>.I _);
 
   protected static Parser<IEnumParser<T>, T>.D EnumParserFor<T>(out Parser<T>.I parser)
     where T : struct
@@ -72,14 +72,14 @@ public class ClassTestBase
     parser.Parse<Tokenizer>(default!, default!)
       .ReturnsForAnyArgs(0.Empty<T>());
 
-    var result = Substitute.For<Parser<IEnumParser<T>, T>.D>();
+    Parser<IEnumParser<T>, T>.D result = Substitute.For<Parser<IEnumParser<T>, T>.D>();
     result().Returns(parser);
 
     return result;
   }
 
   protected static Parser<T>.DA ArrayParserFor<T>()
-    => ArrayParserFor<T>(out var _);
+    => ArrayParserFor<T>(out Parser<T>.IA _);
 
   protected static Parser<T>.DA ArrayParserFor<T>(out Parser<T>.IA parser)
   {
@@ -87,7 +87,7 @@ public class ClassTestBase
     parser.Parse<Tokenizer>(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<T>());
 
-    var result = Substitute.For<Parser<T>.DA>();
+    Parser<T>.DA result = Substitute.For<Parser<T>.DA>();
     result().Returns(parser);
 
     return result;

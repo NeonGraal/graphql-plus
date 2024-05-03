@@ -1,6 +1,4 @@
-﻿using GqlPlus.Token;
-
-namespace GqlPlus.Verification;
+﻿namespace GqlPlus.Verification;
 
 public interface IVerify<TItem>
 {

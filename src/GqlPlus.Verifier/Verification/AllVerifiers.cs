@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Ast;
-using GqlPlus.Ast.Operation;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;

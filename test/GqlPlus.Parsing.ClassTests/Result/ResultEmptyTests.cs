@@ -8,7 +8,7 @@ public class ResultEmptyTests : BaseResultTests
   [Fact]
   public void Optional_ThrowsInvalidOperation()
   {
-    var result = _empty.Optional();
+    string? result = _empty.Optional();
 
     result.Should().Be(default);
   }
@@ -25,7 +25,7 @@ public class ResultEmptyTests : BaseResultTests
   [Fact]
   public void Select_WithOnReturnsResultOk()
   {
-    var result = _empty.Select(s => s.Length, () => 3.Ok());
+    IResult<int> result = _empty.Select(s => s.Length, () => 3.Ok());
 
     result.Should().BeOfType<ResultOk<int>>()
       .Subject.Optional().Should().Be(3);
@@ -34,7 +34,7 @@ public class ResultEmptyTests : BaseResultTests
   [Fact]
   public void SelectOk_ReturnsResultEmpty()
   {
-    var result = _empty.SelectOk(s => s.Length);
+    IResult<int> result = _empty.SelectOk(s => s.Length);
 
     result.Should().BeOfType<ResultEmpty<int>>();
   }
@@ -42,7 +42,7 @@ public class ResultEmptyTests : BaseResultTests
   [Fact]
   public void SelectOk_WithOnReturnsResultOk()
   {
-    var result = _empty.SelectOk(s => s.Length, () => 3.Ok());
+    IResult<int> result = _empty.SelectOk(s => s.Length, () => 3.Ok());
 
     result.Should().BeOfType<ResultOk<int>>()
       .Subject.Optional().Should().Be(3);

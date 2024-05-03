@@ -6,7 +6,7 @@ public class ResultTests
   [Fact]
   public void Optional_ThrowsInvalidOperation()
   {
-    var input = new TestResult<string>();
+    TestResult<string> input = new();
 
     Action action = () => input.Optional();
 
@@ -17,7 +17,7 @@ public class ResultTests
   [Fact]
   public void OptionalArray_ThrowsInvalidOperation()
   {
-    var input = new TestResultArray<string>();
+    TestResultArray<string> input = new();
 
     Action action = () => input.Optional();
 

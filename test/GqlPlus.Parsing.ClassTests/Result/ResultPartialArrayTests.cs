@@ -8,7 +8,7 @@ public class ResultPartialArrayTests : BaseResultTests
   [Fact]
   public void AsPartialArray_ReturnsResultArrayPartial()
   {
-    var result = _partialArray.AsPartialArray(SampleArray);
+    IResultArray<string> result = _partialArray.AsPartialArray(SampleArray);
 
     result.Should().BeOfType<ResultArrayPartial<string>>()
       .Subject.Message.Message.Should().Be(Partial);
@@ -18,7 +18,7 @@ public class ResultPartialArrayTests : BaseResultTests
   [Fact]
   public void AsResultArray_ReturnsResultArrayPartial()
   {
-    var result = _partialArray.AsResultArray(SampleArray);
+    IResultArray<string> result = _partialArray.AsResultArray(SampleArray);
 
     result.Should().BeOfType<ResultArrayPartial<string>>()
       .Subject.Message.Message.Should().Be(Partial);
@@ -28,7 +28,7 @@ public class ResultPartialArrayTests : BaseResultTests
   [Fact]
   public void AsResultArrayInt_ReturnsResultArrayErrorInt()
   {
-    var result = _partialArray.AsResultArray<int>();
+    IResultArray<int> result = _partialArray.AsResultArray<int>();
 
     result.Should().BeOfType<ResultArrayError<int>>()
       .Subject.Message.Message.Should().Be("Partial");
@@ -37,7 +37,7 @@ public class ResultPartialArrayTests : BaseResultTests
   [Fact]
   public void AsResultArrayObject_ReturnsResultArrayPartialObject()
   {
-    var result = _partialArray.AsResultArray<object>();
+    IResultArray<object> result = _partialArray.AsResultArray<object>();
 
     result.Should().BeOfType<ResultArrayPartial<object>>()
       .Subject.Message.Message.Should().Be("Partial");
@@ -46,7 +46,7 @@ public class ResultPartialArrayTests : BaseResultTests
   [Fact]
   public void AsResultInt_ReturnsResultErrorInt()
   {
-    var result = _partialArray.AsResult<int>();
+    IResult<int> result = _partialArray.AsResult<int>();
 
     result.Should().BeOfType<ResultError<int>>()
       .Subject.Message.Message.Should().Be("Partial");
@@ -55,7 +55,7 @@ public class ResultPartialArrayTests : BaseResultTests
   [Fact]
   public void AsResultObject_ReturnsResultPartialObject()
   {
-    var result = _partialArray.AsResult<object>();
+    IResult<object> result = _partialArray.AsResult<object>();
 
     result.Should().BeOfType<ResultPartial<object>>()
       .Subject.Message.Message.Should().Be("Partial");
@@ -64,7 +64,7 @@ public class ResultPartialArrayTests : BaseResultTests
   [Fact]
   public void Map_ReturnsOtherwise()
   {
-    var result = _partialArray.Map(a => Sample.Ok(), () => Sample.Ok());
+    IResult<string> result = _partialArray.Map(a => Sample.Ok(), () => Sample.Ok());
 
     result.Should().BeOfType<ResultOk<string>>()
       .Subject.Required().Should().Be(Sample);

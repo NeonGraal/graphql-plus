@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
-using GqlPlus.Token;
 
 namespace GqlPlus.Verification.Schema.Simple;
 

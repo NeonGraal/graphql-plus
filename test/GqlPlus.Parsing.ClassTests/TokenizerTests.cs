@@ -8,7 +8,7 @@ public class TokenizerTests
 {
   private static Tokenizer PrepareTokens(string input)
   {
-    var tokens = new Tokenizer(input + " ");
+    Tokenizer tokens = new(input + " ");
 
     tokens.Read().Should().BeTrue();
 
@@ -18,7 +18,7 @@ public class TokenizerTests
   [Fact]
   public void AtStart_WhenConstructed_IsTrue()
   {
-    var tokens = new Tokenizer("");
+    Tokenizer tokens = new("");
 
     tokens.AtStart.Should().BeTrue();
   }
@@ -26,11 +26,11 @@ public class TokenizerTests
   [Fact]
   public void AtEnd_AfterReadFalse_IsTrue()
   {
-    var tokens = new Tokenizer("");
+    Tokenizer tokens = new("");
 
-    var result = tokens.Read();
+    bool result = tokens.Read();
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     result.Should().BeFalse();
 
@@ -49,11 +49,11 @@ public class TokenizerTests
   [InlineData("# \r\n")]
   public void AtEnd_AfterWhitespace_AfterReadFalse_IsTrue(string input)
   {
-    var tokens = new Tokenizer(input);
+    Tokenizer tokens = new(input);
 
-    var result = tokens.Read();
+    bool result = tokens.Read();
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     result.Should().BeFalse();
 
@@ -98,7 +98,7 @@ public class TokenizerTests
   [Theory, RepeatData(Repeats)]
   public void Number_WithSeparator_AfterReadTrue_IsTrue(decimal expected)
   {
-    var input = string.Join("_",
+    string input = string.Join("_",
         expected.ToString(CultureInfo.InvariantCulture)
         .Select(c => c.ToString()))
       .Replace("_._", ".", StringComparison.Ordinal)
@@ -201,7 +201,7 @@ public class TokenizerTests
     [RegularExpression(PunctuationPattern)] string one)
   {
     Tokenizer tokens = PrepareTokens(one);
-    var expected = one.First();
+    char expected = one.First();
 
     tokens.Take(expected).Should().BeTrue();
   }
@@ -229,7 +229,7 @@ public class TokenizerTests
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
     Tokenizer tokens = PrepareTokens(many);
-    var expected = many.First();
+    char expected = many.First();
 
     TrueAndExpected(
       (out char result) => tokens.TakeAny(out result, many.ToCharArray()),
@@ -241,9 +241,9 @@ public class TokenizerTests
     [RegularExpression(PunctuationPattern)] string prefix)
   {
     Tokenizer tokens = PrepareTokens(prefix + "?");
-    var expected = prefix.First();
+    char expected = prefix.First();
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     tokens.Prefix(expected, out _, out _).Should().BeFalse();
     tokens.Take(expected).Should().BeTrue();
@@ -255,19 +255,19 @@ public class TokenizerTests
     [RegularExpression(PunctuationPattern)] string prefix, string identifier)
   {
     Tokenizer tokens = PrepareTokens(prefix + identifier);
-    var expected = prefix.First();
+    char expected = prefix.First();
 
     TrueAndExpected(
-      (out string? result) => tokens.Prefix(expected, out result, out var _),
+      (out string? result) => tokens.Prefix(expected, out result, out TokenAt _),
       identifier);
   }
 
   [Theory, RepeatData(Repeats)]
   public void Error_AtStart_ReturnsAtStart(string message)
   {
-    var tokens = new Tokenizer("");
+    Tokenizer tokens = new("");
 
-    var result = tokens.Error(message);
+    TokenMessage result = tokens.Error(message);
 
     CheckParseError(result, TokenKind.Start, "<END>", message, 0, 0);
   }
@@ -276,10 +276,10 @@ public class TokenizerTests
   public void Error_BeforePunctuationAtEnd_ReturnsAtPunctuation(
     [RegularExpression(PunctuationPattern)] string prefix, string message)
   {
-    var tokens = PrepareTokens(prefix);
-    var expected = $"{prefix} <END>";
+    Tokenizer tokens = PrepareTokens(prefix);
+    string expected = $"{prefix} <END>";
 
-    var result = tokens.Error(message);
+    TokenMessage result = tokens.Error(message);
 
     CheckParseError(result, TokenKind.Punctuation, expected, message);
   }
@@ -288,10 +288,10 @@ public class TokenizerTests
   public void Error_BeforePunctuation_ReturnsAtPunctuation(
     [RegularExpression(PunctuationPattern)] string prefix, string contents, string message)
   {
-    var tokens = PrepareTokens(prefix + contents);
-    var expected = Tokenizer.ErrorContext(prefix + contents);
+    Tokenizer tokens = PrepareTokens(prefix + contents);
+    string expected = Tokenizer.ErrorContext(prefix + contents);
 
-    var result = tokens.Error(message);
+    TokenMessage result = tokens.Error(message);
 
     CheckParseError(result, TokenKind.Punctuation, expected, message);
   }
@@ -299,9 +299,9 @@ public class TokenizerTests
   [Theory, RepeatData(Repeats)]
   public void Error_BeforeIdentifier_ReturnsAtIdentifier(string value, string message)
   {
-    var tokens = PrepareTokens(value);
+    Tokenizer tokens = PrepareTokens(value);
 
-    var result = tokens.Error(message);
+    TokenMessage result = tokens.Error(message);
 
     CheckParseError(result, TokenKind.Identifer, value, message);
   }
@@ -309,10 +309,10 @@ public class TokenizerTests
   [Theory, RepeatData(Repeats)]
   public void Error_BeforeNumber_ReturnsAtNumber(decimal number, string message)
   {
-    var expected = number.ToString(CultureInfo.InvariantCulture);
-    var tokens = PrepareTokens(expected);
+    string expected = number.ToString(CultureInfo.InvariantCulture);
+    Tokenizer tokens = PrepareTokens(expected);
 
-    var result = tokens.Error(message);
+    TokenMessage result = tokens.Error(message);
 
     CheckParseError(result, TokenKind.Number, expected, message);
   }
@@ -320,10 +320,10 @@ public class TokenizerTests
   [Theory, RepeatData(Repeats)]
   public void Error_BeforeString_ReturnsAtString(string contents, string message)
   {
-    var tokens = PrepareTokens(contents.Quote());
-    var expected = Tokenizer.ErrorContext(contents.Quote());
+    Tokenizer tokens = PrepareTokens(contents.Quote());
+    string expected = Tokenizer.ErrorContext(contents.Quote());
 
-    var result = tokens.Error(message);
+    TokenMessage result = tokens.Error(message);
 
     CheckParseError(result, TokenKind.String, expected, message);
   }
@@ -333,9 +333,9 @@ public class TokenizerTests
   [RepeatInlineData(Repeats, "\t")]
   public void Error_AfterWhitespace_ReturnsAtIdentifier(string space, string value, string message)
   {
-    var tokens = PrepareTokens(space + value);
+    Tokenizer tokens = PrepareTokens(space + value);
 
-    var result = tokens.Error(message);
+    TokenMessage result = tokens.Error(message);
 
     CheckParseError(result, TokenKind.Identifer, value, message, col: 2);
   }
@@ -346,9 +346,9 @@ public class TokenizerTests
   [RepeatInlineData(Repeats, "\r\n")]
   public void Error_AfterLine_ReturnsAtIdentifier(string line, string value, string message)
   {
-    var tokens = PrepareTokens(line + value);
+    Tokenizer tokens = PrepareTokens(line + value);
 
-    var result = tokens.Error(message);
+    TokenMessage result = tokens.Error(message);
 
     CheckParseError(result, TokenKind.Identifer, value, message, 2);
   }
@@ -359,16 +359,16 @@ public class TokenizerTests
   [RepeatInlineData(Repeats, "# \r\n")]
   public void Error_AfterComment_ReturnsAtIdentifier(string comment, string value, string message)
   {
-    var tokens = PrepareTokens(comment + value);
+    Tokenizer tokens = PrepareTokens(comment + value);
 
-    var result = tokens.Error(message);
+    TokenMessage result = tokens.Error(message);
 
     CheckParseError(result, TokenKind.Identifer, value, message, 2);
   }
 
   private static void CheckParseError(TokenMessage result, TokenKind kind, string expected, string message, int line = 1, int col = 1)
   {
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     result.Kind.Should().Be(kind);
     result.Line.Should().Be(line);
@@ -381,9 +381,9 @@ public class TokenizerTests
 
   private static void TrueAndExpected<T>(Call<T> call, T expected)
   {
-    var success = call(out var result);
+    bool success = call(out T? result);
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     success.Should().BeTrue();
     result.Should().Be(expected);
@@ -391,9 +391,9 @@ public class TokenizerTests
 
   private static void FalseAndExpected<T>(Call<T> call, T expected)
   {
-    var success = call(out var result);
+    bool success = call(out T? result);
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     success.Should().BeFalse();
     result.Should().Be(expected);
@@ -401,9 +401,9 @@ public class TokenizerTests
 
   private static void FalseAndExpected<T>(Call<T> call, T expected, Tokenizer tokens)
   {
-    var success = call(out var result);
+    bool success = call(out T? result);
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     success.Should().BeFalse();
     result.Should().Be(expected);

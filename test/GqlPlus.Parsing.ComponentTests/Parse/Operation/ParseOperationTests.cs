@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions;
-using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Result;
 

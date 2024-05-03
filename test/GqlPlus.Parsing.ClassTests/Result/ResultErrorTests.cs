@@ -8,14 +8,14 @@ public class ResultErrorTests : BaseResultTests
   [Fact]
   public void AsPartial_ReturnsResultOk()
   {
-    var withValue = false;
-    var action = false;
+    bool withValue = false;
+    bool action = false;
 
-    var result = _error.AsPartial(Sample, v => withValue = true, () => action = true);
+    IResult<string> result = _error.AsPartial(Sample, v => withValue = true, () => action = true);
 
     result.Should().BeOfType<ResultPartial<string>>()
       .Subject.Message.Message.Should().Contain(Error);
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     result.Optional().Should().Be(Sample);
     withValue.Should().BeFalse();
     action.Should().BeTrue();
@@ -24,13 +24,13 @@ public class ResultErrorTests : BaseResultTests
   [Fact]
   public void AsPartialArray_ReturnsResultArrayError()
   {
-    var withValue = false;
+    bool withValue = false;
 
-    var result = _error.AsPartialArray(SampleArray, v => withValue = true);
+    IResultArray<string> result = _error.AsPartialArray(SampleArray, v => withValue = true);
 
     result.Should().BeOfType<ResultArrayPartial<string>>()
       .Subject.Message.Message.Should().Contain(Error);
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     result.Optional().Should().BeEquivalentTo(SampleArray);
     withValue.Should().BeFalse();
   }
@@ -38,7 +38,7 @@ public class ResultErrorTests : BaseResultTests
   [Fact]
   public void Map_ReturnsOtherwise()
   {
-    var result = _error.Map(a => Error.Ok(), () => Sample.Ok());
+    IResult<string> result = _error.Map(a => Error.Ok(), () => Sample.Ok());
 
     result.Should().BeOfType<ResultOk<string>>()
       .Subject.Required().Should().Be(Sample);

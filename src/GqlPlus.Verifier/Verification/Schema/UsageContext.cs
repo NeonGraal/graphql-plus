@@ -2,7 +2,6 @@
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Ast.Schema.Simple;
-using GqlPlus.Token;
 
 namespace GqlPlus.Verification.Schema;
 

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast;
 
-[SuppressMessage("Performance", "CA1822:Mark members as static")]
+#pragma warning disable CA1822 // Mark members as static
 internal class BaseAstChecks<TAst>
 {
   internal delegate TAst AstCreator();
@@ -11,9 +11,9 @@ internal class BaseAstChecks<TAst>
   public void HashCode(AstCreator factory,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
   {
-    var expected = factory()!.GetHashCode();
+    int expected = factory()!.GetHashCode();
 
-    var result = factory()!.GetHashCode();
+    int result = factory()!.GetHashCode();
 
     result.Should().Be(expected, factoryExpression);
   }
@@ -21,10 +21,10 @@ internal class BaseAstChecks<TAst>
   public void Equality(AstCreator factory,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
   {
-    var left = factory();
-    var right = factory();
+    TAst? left = factory();
+    TAst? right = factory();
 
-    var result = left!.Equals(right);
+    bool result = left!.Equals(right);
 
     result.Should().BeTrue(factoryExpression);
 
@@ -34,10 +34,10 @@ internal class BaseAstChecks<TAst>
   public void Inequality(AstCreator factory1, AstCreator factory2,
     [CallerArgumentExpression(nameof(factory1))] string factoryExpression = "")
   {
-    var left = factory1();
-    var right = factory2();
+    TAst? left = factory1();
+    TAst? right = factory2();
 
-    var result = left!.Equals(right);
+    bool result = left!.Equals(right);
 
     result.Should().BeFalse(factoryExpression);
 
@@ -63,7 +63,7 @@ internal class BaseAstChecks<TAst>
   public void Text(AstCreator factory, string expected,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
   {
-    var result = $"{factory()}";
+    string result = $"{factory()}";
 
     result.Should().Be(expected, factoryExpression);
   }

@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast;
 
 [SuppressMessage("Design", "CA1036:Override methods on comparable types")]
-public record class FieldKeyAst(TokenAt At)
+public sealed record class FieldKeyAst(TokenAt At)
   : AstAbbreviated(At)
   , IComparable<FieldKeyAst>
   , IGqlpFieldKey

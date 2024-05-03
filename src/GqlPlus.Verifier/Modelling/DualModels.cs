@@ -25,14 +25,14 @@ public record class DualBaseModel(
 public record class DualFieldModel(
   string Name,
   ObjRefModel<DualBaseModel> Type
-) : FieldModel<DualBaseModel>(Name, Type)
+) : ObjFieldModel<DualBaseModel>(Name, Type)
 { }
 
 internal class DualModeller(
-  IAlternateModeller<DualReferenceAst, DualBaseModel> alternate,
-  IModeller<DualFieldAst, DualFieldModel> field,
-  IModeller<DualReferenceAst, DualBaseModel> reference
-) : ModellerObject<DualDeclAst, DualReferenceAst, DualFieldAst, TypeDualModel, DualBaseModel, DualFieldModel>(TypeKindModel.Dual, alternate, field, reference)
+  IAlternateModeller<DualBaseAst, DualBaseModel> alternate,
+  IModeller<DualFieldAst, DualFieldModel> objField,
+  IModeller<DualBaseAst, DualBaseModel> objBase
+) : ModellerObject<DualDeclAst, DualBaseAst, DualFieldAst, TypeDualModel, DualBaseModel, DualFieldModel>(TypeKindModel.Dual, alternate, objField, objBase)
 {
   protected override TypeDualModel ToModel(DualDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
@@ -45,10 +45,10 @@ internal class DualModeller(
     };
 }
 
-internal class DualReferenceModeller
-  : ModellerReference<DualReferenceAst, DualBaseModel>
+internal class DualBaseModeller
+  : ModellerObjBase<DualBaseAst, DualBaseModel>
 {
-  protected override DualBaseModel ToModel(DualReferenceAst ast, IMap<TypeKindModel> typeKinds)
+  protected override DualBaseModel ToModel(DualBaseAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       IsTypeParameter = ast.IsTypeParameter,
       Arguments = ModelArguments(ast, typeKinds),
@@ -57,11 +57,9 @@ internal class DualReferenceModeller
 
 internal class DualFieldModeller(
   IModifierModeller modifier,
-  IModeller<DualReferenceAst, DualBaseModel> reference
-) : ModellerBase<DualFieldAst, DualFieldModel>
+  IModeller<DualBaseAst, DualBaseModel> refBase
+) : ModellerObjField<DualBaseAst, DualFieldAst, DualBaseModel, DualFieldModel>(modifier, refBase)
 {
-  protected override DualFieldModel ToModel(DualFieldAst field, IMap<TypeKindModel> typeKinds)
-    => new(field.Name, new(reference.ToModel(field.Type, typeKinds))) {
-      Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
-    };
+  protected override DualFieldModel FieldModel(DualFieldAst ast, ObjRefModel<DualBaseModel> type, IMap<TypeKindModel> typeKinds)
+    => new(ast.Name, type);
 }

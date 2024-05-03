@@ -9,16 +9,16 @@ namespace GqlPlus.Verifier.Parse.Schema.Objects;
 internal class ParseDualField(
   Parser<string>.DA aliases,
   Parser<ModifierAst>.DA modifiers,
-  Parser<DualReferenceAst>.D reference
-) : ObjectFieldParser<DualFieldAst, DualReferenceAst>(aliases, modifiers, reference)
+  Parser<DualBaseAst>.D objBase
+) : ObjectFieldParser<DualFieldAst, DualBaseAst>(aliases, modifiers, objBase)
 {
 
   [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParameters(DualFieldAst field, ParameterAst[] parameters)
     => throw new InvalidOperationException();
 
-  protected override DualFieldAst Field(TokenAt at, string name, string description, DualReferenceAst typeReference)
-    => new(at, name, description, typeReference);
+  protected override DualFieldAst ObjField(TokenAt at, string name, string description, DualBaseAst typeBase)
+    => new(at, name, description, typeBase);
 
   protected override IResult<DualFieldAst> FieldDefault<TContext>(TContext tokens, DualFieldAst field)
     => field.Ok();
@@ -29,6 +29,6 @@ internal class ParseDualField(
   protected override IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
     => 0.EmptyArray<ParameterAst>();
 
-  protected override DualReferenceAst Reference(TokenAt at, string param, string description)
+  protected override DualBaseAst ObjBase(TokenAt at, string param, string description)
     => new(at, param, description);
 }

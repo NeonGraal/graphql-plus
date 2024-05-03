@@ -10,10 +10,10 @@ internal class ParseInput(
   Parser<TypeParameterAst>.DA param,
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<ObjectDefinition<InputFieldAst, InputReferenceAst>>.D definition
-) : ObjectParser<InputDeclAst, InputFieldAst, InputReferenceAst>(name, param, aliases, option, definition)
+  Parser<ObjectDefinition<InputFieldAst, InputBaseAst>>.D definition
+) : ObjectParser<InputDeclAst, InputFieldAst, InputBaseAst>(name, param, aliases, option, definition)
 {
-  protected override InputDeclAst MakeResult(InputDeclAst result, ObjectDefinition<InputFieldAst, InputReferenceAst> value)
+  protected override InputDeclAst MakeResult(InputDeclAst result, ObjectDefinition<InputFieldAst, InputBaseAst> value)
   {
     result.Parent = value.Parent;
     result.Fields = value.Fields;
@@ -32,8 +32,8 @@ internal class ParseInput(
 internal class ParseInputDefinition(
   Parser<InputFieldAst>.D field,
   ParserArray<IParserCollections, ModifierAst>.DA collections,
-  Parser<InputReferenceAst>.D reference
-) : ParseObjectDefinition<InputFieldAst, InputReferenceAst>(field, collections, reference)
+  Parser<InputBaseAst>.D objBase
+) : ParseObjectDefinition<InputFieldAst, InputBaseAst>(field, collections, objBase)
 {
   protected override string Label => "Input";
 }

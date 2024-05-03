@@ -4,10 +4,10 @@ using GqlPlus.Verifier.Merging.Objects;
 
 namespace GqlPlus.Verifier.Merging;
 
-public abstract class TestObjectFields<TField, TRef>
-  : TestAliased<TField>
-  where TField : AstObjectField<TRef>, IAstDescribed
-  where TRef : AstReference<TRef>
+public abstract class TestObjectFields<TObjField, TObjBase>
+  : TestAliased<TObjField>
+  where TObjField : AstObjectField<TObjBase>, IAstDescribed
+  where TObjBase : AstObjectBase<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
@@ -71,10 +71,10 @@ public abstract class TestObjectFields<TField, TRef>
       [MakeField(name, type, typeDescription: description), MakeField(name, type, typeDescription: description)],
       MakeField(name, type, typeDescription: description));
 
-  internal abstract AstObjectFieldsMerger<TField, TRef> MergerField { get; }
-  internal override GroupsMerger<TField> MergerGroups => MergerField;
+  internal abstract AstObjectFieldsMerger<TObjField, TObjBase> MergerField { get; }
+  internal override GroupsMerger<TObjField> MergerGroups => MergerField;
 
-  protected abstract TField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "");
-  protected override TField MakeAliased(string name, string[] aliases, string description = "")
+  protected abstract TObjField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "");
+  protected override TObjField MakeAliased(string name, string[] aliases, string description = "")
     => MakeField(name, name, description, description) with { Aliases = aliases };
 }

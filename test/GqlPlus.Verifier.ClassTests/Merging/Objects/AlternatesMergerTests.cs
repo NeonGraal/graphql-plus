@@ -6,12 +6,12 @@ namespace GqlPlus.Verifier.Merging.Objects;
 
 public class AlternatesMergerTests(
   ITestOutputHelper outputHelper
-) : TestAlternates<OutputReferenceAst>
+) : TestAlternates<OutputBaseAst>
 {
-  private readonly AlternatesMerger<OutputReferenceAst> _merger = new(outputHelper.ToLoggerFactory());
+  private readonly AlternatesMerger<OutputBaseAst> _merger = new(outputHelper.ToLoggerFactory());
 
-  internal override AstAlternatesMerger<AstAlternate<OutputReferenceAst>, OutputReferenceAst> MergerAlternate => _merger;
+  internal override AstAlternatesMerger<AstAlternate<OutputBaseAst>, OutputBaseAst> MergerAlternate => _merger;
 
-  protected override AstAlternate<OutputReferenceAst> MakeAlternate(string name, string description = "")
-    => new(AstNulls.At, new OutputReferenceAst(AstNulls.At, name, description));
+  protected override AstAlternate<OutputBaseAst> MakeAlternate(string name, string description = "")
+    => new(AstNulls.At, new OutputBaseAst(AstNulls.At, name, description));
 }

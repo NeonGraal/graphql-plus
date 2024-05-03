@@ -30,7 +30,7 @@ public record class OutputBaseModel(
 public record class OutputFieldModel(
   string Name,
   ObjRefModel<OutputBaseModel>? Type
-) : FieldModel<OutputBaseModel>(Name, Type)
+) : ObjFieldModel<OutputBaseModel>(Name, Type)
 {
   internal ParameterModel[] Parameters { get; set; } = [];
   internal OutputEnumModel? Enum { get; set; }
@@ -71,10 +71,10 @@ public record class OutputEnumModel(
 }
 
 internal class OutputModeller(
-  IAlternateModeller<OutputReferenceAst, OutputBaseModel> alternate,
-  IModeller<OutputFieldAst, OutputFieldModel> field,
-  IModeller<OutputReferenceAst, OutputBaseModel> reference
-) : ModellerObject<OutputDeclAst, OutputReferenceAst, OutputFieldAst, TypeOutputModel, OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, alternate, field, reference)
+  IAlternateModeller<OutputBaseAst, OutputBaseModel> alternate,
+  IModeller<OutputFieldAst, OutputFieldModel> objField,
+  IModeller<OutputBaseAst, OutputBaseModel> objBase
+) : ModellerObject<OutputDeclAst, OutputBaseAst, OutputFieldAst, TypeOutputModel, OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, alternate, objField, objBase)
 {
   protected override TypeOutputModel ToModel(OutputDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
@@ -87,16 +87,16 @@ internal class OutputModeller(
     };
 }
 
-internal class OutputReferenceModeller(
-  IModeller<DualReferenceAst, DualBaseModel> dual
-) : ModellerReference<OutputReferenceAst, OutputBaseModel, OutputArgumentModel>
+internal class OutputBaseModeller(
+  IModeller<DualBaseAst, DualBaseModel> dual
+) : ModellerObjBase<OutputBaseAst, OutputBaseModel, OutputArgumentModel>
 {
-  internal override OutputArgumentModel NewArgument(OutputReferenceAst ast, IMap<TypeKindModel> typeKinds)
+  internal override OutputArgumentModel NewArgument(OutputBaseAst ast, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(ast.EnumValue)
       ? new(ast.Name) { Ref = new(ToModel(ast, typeKinds)) }
       : new(ast.Name) { EnumValue = ast.EnumValue };
 
-  protected override OutputBaseModel ToModel(OutputReferenceAst ast, IMap<TypeKindModel> typeKinds)
+  protected override OutputBaseModel ToModel(OutputBaseAst ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Name, out var typeKind) && typeKind == TypeKindModel.Dual
     ? new(ast.Name) {
       Dual = dual.ToModel(ast.ToDual(), typeKinds)
@@ -110,16 +110,15 @@ internal class OutputReferenceModeller(
 internal class OutputFieldModeller(
   IModifierModeller modifier,
   IModeller<ParameterAst, ParameterModel> parameter,
-  IModeller<OutputReferenceAst, OutputBaseModel> reference
-) : ModellerBase<OutputFieldAst, OutputFieldModel>
+  IModeller<OutputBaseAst, OutputBaseModel> refBase
+) : ModellerObjField<OutputBaseAst, OutputFieldAst, OutputBaseModel, OutputFieldModel>(modifier, refBase)
 {
-  protected override OutputFieldModel ToModel(OutputFieldAst field, IMap<TypeKindModel> typeKinds)
+  protected override OutputFieldModel FieldModel(OutputFieldAst field, ObjRefModel<OutputBaseModel> type, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(field.Type.EnumValue)
-      ? new(field.Name, new(reference.ToModel(field.Type, typeKinds))) {
-        Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
+      ? new(field.Name, type) {
         Parameters = parameter.ToModels(field.Parameters, typeKinds),
       }
-      : new(field.Name, null) {
+      : new(field.Name, null) { // or should it be `type`
         Enum = new(field.Name, field.Type.Name, field.Type.EnumValue)
       };
 }

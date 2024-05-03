@@ -1,146 +1,147 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
-public abstract class AstReferenceTests<TRef>
+public abstract class AstObjBaseTests<TObjBase>
   : AstAbbreviatedTests<string>
-  where TRef : AstReference<TRef>
+  where TObjBase : AstObjectBase<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithIsTypeParameter(string input)
-      => ReferenceChecks.HashCode_WithIsTypeParameter(input);
+      => ObjBaseChecks.HashCode_WithIsTypeParameter(input);
 
   [Theory, RepeatData(Repeats)]
   public void String_WithIsTypeParameter(string input)
-    => ReferenceChecks.String_WithIsTypeParameter(input);
+    => ObjBaseChecks.String_WithIsTypeParameter(input);
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithIsTypeParameter(string input)
-    => ReferenceChecks.Equality_WithIsTypeParameter(input);
+    => ObjBaseChecks.Equality_WithIsTypeParameter(input);
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenIsTypeParameters(string input, bool isTypeParam1)
-    => ReferenceChecks.Inequality_BetweenIsTypeParameters(input, isTypeParam1);
+    => ObjBaseChecks.Inequality_BetweenIsTypeParameters(input, isTypeParam1);
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithArguments(string input, string[] arguments)
-    => ReferenceChecks.HashCode_WithArguments(input, arguments);
+    => ObjBaseChecks.HashCode_WithArguments(input, arguments);
 
   [Theory, RepeatData(Repeats)]
   public void String_WithArguments(string input, string[] arguments)
-    => ReferenceChecks.String_WithArguments(input, arguments);
+    => ObjBaseChecks.String_WithArguments(input, arguments);
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithArguments(string input, string[] arguments)
-    => ReferenceChecks.Equality_WithArguments(input, arguments);
+    => ObjBaseChecks.Equality_WithArguments(input, arguments);
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenArguments(string input, string[] arguments1, string[] arguments2)
-    => ReferenceChecks.Inequality_BetweenArguments(input, arguments1, arguments2);
+    => ObjBaseChecks.Inequality_BetweenArguments(input, arguments1, arguments2);
 
   [Theory, RepeatData(Repeats)]
   public void FullType_WithDefault(string input)
-    => ReferenceChecks.FullType_WithDefault(input);
+    => ObjBaseChecks.FullType_WithDefault(input);
 
   [Theory, RepeatData(Repeats)]
   public void FullType_WithIsTypeParameter(string input)
-    => ReferenceChecks.FullType_WithIsTypeParameter(input);
+    => ObjBaseChecks.FullType_WithIsTypeParameter(input);
 
   [Theory, RepeatData(Repeats)]
   public void FullType_WithArguments(string input, string[] arguments)
-    => ReferenceChecks.FullType_WithArguments(input, arguments);
+    => ObjBaseChecks.FullType_WithArguments(input, arguments);
 
   [Theory, RepeatData(Repeats)]
   public void FullType_WithIsTypeParameterAndArguments(string input, string[] arguments)
-    => ReferenceChecks.FullType_WithIsTypeParameterAndArguments(input, arguments);
+    => ObjBaseChecks.FullType_WithIsTypeParameterAndArguments(input, arguments);
 
-  internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ReferenceChecks;
+  internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ObjBaseChecks;
 
-  internal abstract IAstReferenceChecks<TRef> ReferenceChecks { get; }
+  internal abstract IAstObjBaseChecks<TObjBase> ObjBaseChecks { get; }
 }
 
-internal sealed class AstReferenceChecks<TRef>
-  : AstAbbreviatedChecks<string, TRef>, IAstReferenceChecks<TRef>
-  where TRef : AstReference<TRef>
+internal sealed class AstObjBaseChecks<TObjBase>
+  : AstAbbreviatedChecks<string, TObjBase>
+  , IAstObjBaseChecks<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
-  private readonly ReferenceBy _createReference;
+  private readonly BaseBy _createBase;
   private readonly ArgumentsBy _createArguments;
 
-  internal delegate TRef ReferenceBy(string input);
-  internal delegate TRef[] ArgumentsBy(string[] argument);
+  internal delegate TObjBase BaseBy(string input);
+  internal delegate TObjBase[] ArgumentsBy(string[] argument);
 
-  public AstReferenceChecks(ReferenceBy createReference, AstReferenceChecks<TRef>.ArgumentsBy createArguments)
-    : base(input => createReference(input))
+  public AstObjBaseChecks(BaseBy createBase, AstObjBaseChecks<TObjBase>.ArgumentsBy createArguments)
+    : base(input => createBase(input))
   {
-    _createReference = createReference;
+    _createBase = createBase;
     _createArguments = createArguments;
   }
 
   public void HashCode_WithIsTypeParameter(string input)
-      => HashCode(() => _createReference(input) with { IsTypeParameter = true });
+      => HashCode(() => _createBase(input) with { IsTypeParameter = true });
 
   public void String_WithIsTypeParameter(string input)
     => Text(
-      () => _createReference(input) with { IsTypeParameter = true },
+      () => _createBase(input) with { IsTypeParameter = true },
       $"( ${input} )");
 
   public void Equality_WithIsTypeParameter(string input)
-    => Equality(() => _createReference(input) with { IsTypeParameter = true });
+    => Equality(() => _createBase(input) with { IsTypeParameter = true });
 
   public void Inequality_BetweenIsTypeParameters(string input, bool isTypeParam1)
     => InequalityBetween(isTypeParam1, !isTypeParam1,
-      isTypeParam => _createReference(input) with { IsTypeParameter = isTypeParam },
+      isTypeParam => _createBase(input) with { IsTypeParameter = isTypeParam },
       false);
 
   public void HashCode_WithArguments(string input, string[] arguments)
-    => HashCode(() => _createReference(input) with { Arguments = _createArguments(arguments) });
+    => HashCode(() => _createBase(input) with { Arguments = _createArguments(arguments) });
 
   public void String_WithArguments(string input, string[] arguments)
     => Text(
-      () => _createReference(input) with { Arguments = _createArguments(arguments) },
+      () => _createBase(input) with { Arguments = _createArguments(arguments) },
       $"( {input} < {arguments.Joined()} > )");
 
   public void Equality_WithArguments(string input, string[] arguments)
-    => Equality(() => _createReference(input) with { Arguments = _createArguments(arguments) });
+    => Equality(() => _createBase(input) with { Arguments = _createArguments(arguments) });
 
   public void Inequality_BetweenArguments(string input, string[] arguments1, string[] arguments2)
   => InequalityBetween(arguments1, arguments2,
-    arguments => _createReference(input) with { Arguments = _createArguments(arguments) },
+    arguments => _createBase(input) with { Arguments = _createArguments(arguments) },
     arguments1.OrderedEqual(arguments2));
 
   public void FullType_WithDefault(string input)
   {
-    var reference = _createReference(input);
+    var objBase = _createBase(input);
 
-    reference.FullType.Should().Be(input);
+    objBase.FullType.Should().Be(input);
   }
 
   public void FullType_WithIsTypeParameter(string input)
   {
-    var reference = _createReference(input) with { IsTypeParameter = true };
+    var objBase = _createBase(input) with { IsTypeParameter = true };
 
-    reference.FullType.Should().Be("$" + input);
+    objBase.FullType.Should().Be("$" + input);
   }
 
   public void FullType_WithArguments(string input, string[] arguments)
   {
-    var reference = _createReference(input) with { Arguments = _createArguments(arguments) };
+    var objBase = _createBase(input) with { Arguments = _createArguments(arguments) };
 
-    reference.FullType.Should().Be(input + $" < {arguments.Joined()} >");
+    objBase.FullType.Should().Be(input + $" < {arguments.Joined()} >");
   }
 
   public void FullType_WithIsTypeParameterAndArguments(string input, string[] arguments)
   {
-    var reference = _createReference(input) with {
+    var objBase = _createBase(input) with {
       IsTypeParameter = true,
       Arguments = _createArguments(arguments)
     };
 
-    reference.FullType.Should().Be($"${input} < {arguments.Joined()} >");
+    objBase.FullType.Should().Be($"${input} < {arguments.Joined()} >");
   }
 }
 
-internal interface IAstReferenceChecks<TRef>
+internal interface IAstObjBaseChecks<TObjBase>
   : IAstAbbreviatedChecks<string>
-  where TRef : AstReference<TRef>
+  where TObjBase : AstObjectBase<TObjBase>
 {
   void HashCode_WithIsTypeParameter(string input);
   void String_WithIsTypeParameter(string input);

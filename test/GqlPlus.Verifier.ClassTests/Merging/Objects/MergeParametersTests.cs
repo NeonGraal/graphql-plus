@@ -5,7 +5,7 @@ using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging.Objects;
 
-public class MergeParametersTests : TestAlternates<ParameterAst, InputReferenceAst>
+public class MergeParametersTests : TestAlternates<ParameterAst, InputBaseAst>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string input, string value)
@@ -41,8 +41,8 @@ public class MergeParametersTests : TestAlternates<ParameterAst, InputReferenceA
     _merger = new(outputHelper.ToLoggerFactory(), _constant);
   }
 
-  internal override AstAlternatesMerger<ParameterAst, InputReferenceAst> MergerAlternate => _merger;
+  internal override AstAlternatesMerger<ParameterAst, InputBaseAst> MergerAlternate => _merger;
 
   protected override ParameterAst MakeAlternate(string name, string description = "")
-    => new(AstNulls.At, new InputReferenceAst(AstNulls.At, name, description));
+    => new(AstNulls.At, new InputBaseAst(AstNulls.At, name, description));
 }

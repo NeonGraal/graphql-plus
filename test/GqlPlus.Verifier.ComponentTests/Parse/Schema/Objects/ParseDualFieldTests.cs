@@ -7,7 +7,7 @@ public class ParseDualFieldTests
 {
   internal override ICheckObjectField FieldChecks => _checks;
 
-  private readonly CheckObjectField<DualFieldAst, DualReferenceAst> _checks;
+  private readonly CheckObjectField<DualFieldAst, DualBaseAst> _checks;
 
   public ParseDualFieldTests(Parser<DualFieldAst>.D parser)
     => _checks = new(new DualFactories(), parser);

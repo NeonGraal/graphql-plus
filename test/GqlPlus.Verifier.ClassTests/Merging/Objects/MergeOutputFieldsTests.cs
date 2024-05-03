@@ -6,7 +6,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Verifier.Merging.Objects;
 
 public class MergeOutputFieldsTests
-  : TestObjectFields<OutputFieldAst, OutputReferenceAst>
+  : TestObjectFields<OutputFieldAst, OutputBaseAst>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsParametersCantMerge_ReturnsErrors(string name, string type, string[] parameters)
@@ -111,7 +111,7 @@ public class MergeOutputFieldsTests
     _merger = new(outputHelper.ToLoggerFactory(), _parameters);
   }
 
-  internal override AstObjectFieldsMerger<OutputFieldAst, OutputReferenceAst> MergerField => _merger;
+  internal override AstObjectFieldsMerger<OutputFieldAst, OutputBaseAst> MergerField => _merger;
 
   protected override OutputFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
     => new(AstNulls.At, name, fieldDescription, new(AstNulls.At, type, typeDescription));

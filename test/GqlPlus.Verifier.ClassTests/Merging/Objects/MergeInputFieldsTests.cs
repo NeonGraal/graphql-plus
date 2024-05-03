@@ -4,7 +4,7 @@ using Xunit.Abstractions;
 
 namespace GqlPlus.Verifier.Merging.Objects;
 
-public class MergeInputFieldsTests : TestObjectFields<InputFieldAst, InputReferenceAst>
+public class MergeInputFieldsTests : TestObjectFields<InputFieldAst, InputBaseAst>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string name, string type, string value)
@@ -40,7 +40,7 @@ public class MergeInputFieldsTests : TestObjectFields<InputFieldAst, InputRefere
     _merger = new(outputHelper.ToLoggerFactory(), _constant);
   }
 
-  internal override AstObjectFieldsMerger<InputFieldAst, InputReferenceAst> MergerField => _merger;
+  internal override AstObjectFieldsMerger<InputFieldAst, InputBaseAst> MergerField => _merger;
 
   protected override InputFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
     => new(AstNulls.At, name, fieldDescription, new(AstNulls.At, type, typeDescription));

@@ -82,7 +82,7 @@ public record struct ObjectInput(string Name, string Other);
 
 internal sealed class CheckObject<O, F, R>
   : CheckAliased<ObjectInput, O>, ICheckObject
-  where O : AstObject<F, R> where F : AstObjectField<R> where R : AstReference<R>
+  where O : AstObject<F, R> where F : AstObjectField<R> where R : AstObjectBase<R>
 {
   private readonly IObjectFactories<O, F, R> _factories;
 
@@ -104,7 +104,7 @@ internal sealed class CheckObject<O, F, R>
     => TrueExpected(
       name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + others.Joined(s => "|" + s) + "}",
        Object(name) with {
-         Fields = [.. fields.Select(f => Field(f.Name, f.Type))],
+         Fields = [.. fields.Select(f => ObjField(f.Name, f.Type))],
          Alternates = [.. others.Select(Alternate)],
        });
 
@@ -155,7 +155,7 @@ internal sealed class CheckObject<O, F, R>
     => TrueExpected(
       name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}",
        Object(name) with {
-         Fields = [.. fields.Select(f => Field(f.Name, f.Type))],
+         Fields = [.. fields.Select(f => ObjField(f.Name, f.Type))],
        });
 
   public void WithFieldsBad(string name, FieldInput[] fields)
@@ -165,8 +165,8 @@ internal sealed class CheckObject<O, F, R>
     => TrueExpected(
       name + "{:" + parent + " " + field + ":" + fieldType + "}",
        Object(name) with {
-         Fields = [Field(field, fieldType)],
-         Parent = Reference(parent),
+         Fields = [ObjField(field, fieldType)],
+         Parent = ObjBase(parent),
        });
 
   public void WithParentFieldBad(string name, string parent, string field, string fieldType)
@@ -176,8 +176,8 @@ internal sealed class CheckObject<O, F, R>
     => TrueExpected(
       name + "{:" + parent + "<" + subType + ">" + field + ":" + fieldType + "}",
        Object(name) with {
-         Fields = [Field(field, fieldType)],
-         Parent = ReferenceWithArgs(parent, subType),
+         Fields = [ObjField(field, fieldType)],
+         Parent = ObjBaseWithArgs(parent, subType),
        });
 
   public void WithParentGenericFieldBad(string name, string parent, string subType, string field, string fieldType)
@@ -186,23 +186,23 @@ internal sealed class CheckObject<O, F, R>
   public O Object(string name)
     => _factories.Object(AstNulls.At, name);
 
-  public F Field(string field, string fieldType)
-    => _factories.Field(AstNulls.At, field, Reference(fieldType));
+  public F ObjField(string field, string fieldType)
+    => _factories.ObjField(AstNulls.At, field, ObjBase(fieldType));
 
-  public F Field(string field, R fieldType)
-    => _factories.Field(AstNulls.At, field, fieldType);
+  public F ObjField(string field, R fieldType)
+    => _factories.ObjField(AstNulls.At, field, fieldType);
 
-  public R Reference(string type, string description = "")
-    => _factories.Reference(AstNulls.At, type, description);
+  public R ObjBase(string type, string description = "")
+    => _factories.ObjBase(AstNulls.At, type, description);
 
-  public R ReferenceWithArgs(string type, string subType)
-    => Reference(type) with { Arguments = [Reference(subType)] };
+  public R ObjBaseWithArgs(string type, string subType)
+    => ObjBase(type) with { Arguments = [ObjBase(subType)] };
 
   public AstAlternate<R> Alternate(string type)
-    => new(Reference(type));
+    => new(ObjBase(type));
 
   public AstAlternate<R> Alternate(string type, string description)
-    => new(Reference(type, description));
+    => new(ObjBase(type, description));
 
   protected internal sealed override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";

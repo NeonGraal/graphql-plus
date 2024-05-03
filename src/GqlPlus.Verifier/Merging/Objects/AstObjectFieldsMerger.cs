@@ -3,21 +3,21 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging.Objects;
 
-internal class AstObjectFieldsMerger<TField, TRef>(
+internal class AstObjectFieldsMerger<TObjField, TObjBase>(
   ILoggerFactory logger
-) : AstAliasedMerger<TField>(logger)
-  where TField : AstObjectField<TRef>
-  where TRef : AstReference<TRef>
+) : AstAliasedMerger<TObjField>(logger)
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
   protected override string ItemMatchName => "ModifiedType";
-  protected override string ItemMatchKey(TField item)
+  protected override string ItemMatchKey(TObjField item)
     => item.ModifiedType;
 
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, TField> group)
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, TObjField> group)
     => base.CanMergeGroup(group)
       .Add(group.CanMerge(item => item.Type.Description));
 
-  protected override TField MergeGroup(IEnumerable<TField> group)
+  protected override TObjField MergeGroup(IEnumerable<TObjField> group)
   {
     var result = base.MergeGroup(group);
     var typeDescription = group.Select(item => item.Type).MergeDescriptions();

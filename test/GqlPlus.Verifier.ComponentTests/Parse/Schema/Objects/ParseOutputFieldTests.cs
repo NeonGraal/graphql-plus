@@ -78,7 +78,7 @@ public class ParseOutputFieldTests(
 
   internal override ICheckObjectField FieldChecks => _checks;
 
-  private readonly CheckObjectField<OutputFieldAst, OutputReferenceAst> _checks = new(new OutputFactories(), parser);
+  private readonly CheckObjectField<OutputFieldAst, OutputBaseAst> _checks = new(new OutputFactories(), parser);
 
   private static OutputFieldAst FieldEnum(string name, string enumType, string enumValue)
     => new(AstNulls.At, name, new(AstNulls.At, enumType) { EnumValue = enumValue });

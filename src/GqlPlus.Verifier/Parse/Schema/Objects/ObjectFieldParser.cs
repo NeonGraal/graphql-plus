@@ -6,54 +6,56 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema.Objects;
 
-public abstract class ObjectFieldParser<TField, TRef> : Parser<TField>.I
-  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
+public abstract class ObjectFieldParser<TObjField, TObjBase>
+  : Parser<TObjField>.I
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
   private readonly Parser<string>.LA _aliases;
   private readonly Parser<ModifierAst>.LA _modifiers;
-  private readonly Parser<TRef>.L _reference;
+  private readonly Parser<TObjBase>.L _objBase;
 
   protected ObjectFieldParser(
     Parser<string>.DA aliases,
     Parser<ModifierAst>.DA modifiers,
-    Parser<TRef>.D reference)
+    Parser<TObjBase>.D objBase)
   {
     _aliases = aliases;
-    _reference = reference;
+    _objBase = objBase;
     _modifiers = modifiers;
   }
 
-  public IResult<TField> Parse<TContext>(TContext tokens, string label)
+  public IResult<TObjField> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     ArgumentNullException.ThrowIfNull(tokens);
     var at = tokens.At;
     tokens.String(out var description);
     if (!tokens.Identifier(out var name)) {
-      return 0.Empty<TField>();
+      return 0.Empty<TObjField>();
     }
 
     var hasParameter = FieldParameter(tokens);
     if (hasParameter.IsError()) {
-      return hasParameter.AsResult<TField>();
+      return hasParameter.AsResult<TObjField>();
     }
 
     var hasAliases = _aliases.Parse(tokens, label);
     if (hasAliases.IsError()) {
-      return hasAliases.AsResult<TField>();
+      return hasAliases.AsResult<TObjField>();
     }
 
-    var field = Field(at, name, description, Reference(at, ""));
+    var field = ObjField(at, name, description, ObjBase(at, ""));
 
     if (tokens.Take(':')) {
-      if (_reference.Parse(tokens, label).Required(fieldType
-        => field = Field(at, name, description, fieldType))
+      if (_objBase.Parse(tokens, label).Required(fieldType
+        => field = ObjField(at, name, description, fieldType))
         ) {
         hasAliases.WithResult(aliases => field.Aliases = aliases);
         hasParameter.WithResult(parameter => ApplyFieldParameters(field, parameter));
         var modifiers = _modifiers.Parse(tokens, label);
         if (modifiers.IsError()) {
-          return modifiers.AsResult<TField>();
+          return modifiers.AsResult<TObjField>();
         }
 
         modifiers.WithResult(modifiers => field.Modifiers = modifiers);
@@ -68,13 +70,13 @@ public abstract class ObjectFieldParser<TField, TRef> : Parser<TField>.I
     return FieldEnumValue(tokens, field);
   }
 
-  protected abstract void ApplyFieldParameters(TField field, ParameterAst[] parameters);
-  protected abstract TField Field(TokenAt at, string name, string description, TRef typeReference);
-  protected abstract IResult<TField> FieldDefault<TContext>(TContext tokens, TField field)
+  protected abstract void ApplyFieldParameters(TObjField field, ParameterAst[] parameters);
+  protected abstract TObjField ObjField(TokenAt at, string name, string description, TObjBase typeBase);
+  protected abstract IResult<TObjField> FieldDefault<TContext>(TContext tokens, TObjField field)
       where TContext : Tokenizer;
-  protected abstract IResult<TField> FieldEnumValue<TContext>(TContext tokens, TField field)
+  protected abstract IResult<TObjField> FieldEnumValue<TContext>(TContext tokens, TObjField field)
       where TContext : Tokenizer;
   protected abstract IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
       where TContext : Tokenizer;
-  protected abstract TRef Reference(TokenAt at, string param, string description = "");
+  protected abstract TObjBase ObjBase(TokenAt at, string param, string description = "");
 }

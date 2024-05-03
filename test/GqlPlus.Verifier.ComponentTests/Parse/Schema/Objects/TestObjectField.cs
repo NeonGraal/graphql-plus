@@ -18,13 +18,15 @@ public abstract class TestObjectField
   internal sealed override ICheckAliased<FieldInput> AliasChecks => FieldChecks;
 }
 
-internal sealed class CheckObjectField<TField, TRef>
-  : CheckAliased<FieldInput, TField>, ICheckObjectField
-  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
+internal sealed class CheckObjectField<TObjField, TObjBase>
+  : CheckAliased<FieldInput, TObjField>
+  , ICheckObjectField
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
-  private readonly IObjectFieldFactories<TField, TRef> _factories;
+  private readonly IObjectFieldFactories<TObjField, TObjBase> _factories;
 
-  internal CheckObjectField(IObjectFieldFactories<TField, TRef> factories, Parser<TField>.D parser)
+  internal CheckObjectField(IObjectFieldFactories<TObjField, TObjBase> factories, Parser<TObjField>.D parser)
     : base(parser)
     => _factories = factories;
 
@@ -39,13 +41,13 @@ internal sealed class CheckObjectField<TField, TRef>
   public void WithModifiersBad(string name, string fieldType)
     => False(name + ":" + fieldType + "[?");
 
-  internal TField Field(string field, string fieldType)
-    => _factories.Field(AstNulls.At, field, Reference(fieldType));
+  internal TObjField Field(string field, string fieldType)
+    => _factories.ObjField(AstNulls.At, field, ObjBase(fieldType));
 
-  internal TRef Reference(string type)
-    => _factories.Reference(AstNulls.At, type);
+  internal TObjBase ObjBase(string type)
+    => _factories.ObjBase(AstNulls.At, type);
 
-  protected internal sealed override TField NamedFactory(FieldInput input)
+  protected internal sealed override TObjField NamedFactory(FieldInput input)
     => Field(input.Name, input.Type);
   protected internal override string AliasesString(FieldInput input, string aliases)
     => $"{input.Name}{aliases}:{input.Type}";

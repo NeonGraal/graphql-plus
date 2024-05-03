@@ -1,8 +1,9 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
-public abstract class AstObjectFieldTests<TField, TRef>
+public abstract class AstObjectFieldTests<TObjField, TObjBase>
   : AstAliasedTests<FieldInput>
-  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithModifiers(FieldInput input)
@@ -34,26 +35,28 @@ public abstract class AstObjectFieldTests<TField, TRef>
 
   internal sealed override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 
-  internal abstract IAstObjectFieldChecks<TField, TRef> FieldChecks { get; }
+  internal abstract IAstObjectFieldChecks<TObjField, TObjBase> FieldChecks { get; }
 }
 
-internal sealed class AstObjectFieldChecks<TField, TRef>
-  : AstAliasedChecks<FieldInput, TField>, IAstObjectFieldChecks<TField, TRef>
-  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
+internal sealed class AstObjectFieldChecks<TObjField, TObjBase>
+  : AstAliasedChecks<FieldInput, TObjField>
+  , IAstObjectFieldChecks<TObjField, TObjBase>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
   private readonly FieldBy _createField;
-  private readonly ReferenceBy _createReference;
+  private readonly BaseBy _createBase;
   private readonly ArgumentsBy _createArguments;
 
-  internal delegate TRef ReferenceBy(FieldInput input);
-  internal delegate TField FieldBy(FieldInput input, TRef reference);
-  internal delegate TRef[] ArgumentsBy(string[] arguments);
+  internal delegate TObjBase BaseBy(FieldInput input);
+  internal delegate TObjField FieldBy(FieldInput input, TObjBase refBase);
+  internal delegate TObjBase[] ArgumentsBy(string[] arguments);
 
-  public AstObjectFieldChecks(FieldBy createField, ReferenceBy createReference, AstObjectFieldChecks<TField, TRef>.ArgumentsBy createArguments)
-    : base(input => createField(input, createReference(input)))
+  public AstObjectFieldChecks(FieldBy createField, BaseBy createBase, AstObjectFieldChecks<TObjField, TObjBase>.ArgumentsBy createArguments)
+    : base(input => createField(input, createBase(input)))
   {
     _createField = createField;
-    _createReference = createReference;
+    _createBase = createBase;
     _createArguments = createArguments;
   }
 
@@ -73,7 +76,7 @@ internal sealed class AstObjectFieldChecks<TField, TRef>
 
   public void ModifiedType_WithArguments(FieldInput input, string[] arguments)
   {
-    var field = _createField(input, _createReference(input) with { Arguments = _createArguments(arguments) });
+    var field = _createField(input, _createBase(input) with { Arguments = _createArguments(arguments) });
     var expected = $"{input.Type} < {arguments.Joined()} >";
 
     field.ModifiedType.Should().Be(expected);
@@ -91,20 +94,21 @@ internal sealed class AstObjectFieldChecks<TField, TRef>
   {
     var field = _createField(
         input,
-        _createReference(input) with { Arguments = _createArguments(arguments) }
+        _createBase(input) with { Arguments = _createArguments(arguments) }
       ) with { Modifiers = TestMods() };
     var expected = $"{input.Type} < {arguments.Joined()} > [] ?";
 
     field.ModifiedType.Should().Be(expected);
   }
 
-  private TField CreateModifiers(FieldInput input)
+  private TObjField CreateModifiers(FieldInput input)
     => CreateInput(input) with { Modifiers = TestMods() };
 }
 
-internal interface IAstObjectFieldChecks<TField, TRef>
+internal interface IAstObjectFieldChecks<TObjField, TObjBase>
   : IAstAliasedChecks<FieldInput>
-  where TField : AstObjectField<TRef> where TRef : AstReference<TRef>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
   void HashCode_WithModifiers(FieldInput input);
   void String_WithModifiers(FieldInput input);

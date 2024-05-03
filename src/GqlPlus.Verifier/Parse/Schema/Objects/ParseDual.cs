@@ -10,10 +10,10 @@ internal class ParseDual(
   Parser<TypeParameterAst>.DA param,
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<ObjectDefinition<DualFieldAst, DualReferenceAst>>.D definition
-) : ObjectParser<DualDeclAst, DualFieldAst, DualReferenceAst>(name, param, aliases, option, definition)
+  Parser<ObjectDefinition<DualFieldAst, DualBaseAst>>.D definition
+) : ObjectParser<DualDeclAst, DualFieldAst, DualBaseAst>(name, param, aliases, option, definition)
 {
-  protected override DualDeclAst MakeResult(DualDeclAst result, ObjectDefinition<DualFieldAst, DualReferenceAst> value)
+  protected override DualDeclAst MakeResult(DualDeclAst result, ObjectDefinition<DualFieldAst, DualBaseAst> value)
     => result with {
       Parent = value.Parent,
       Fields = value.Fields,
@@ -30,8 +30,8 @@ internal class ParseDual(
 internal class ParseDualDefinition(
   Parser<DualFieldAst>.D field,
   ParserArray<IParserCollections, ModifierAst>.DA collections,
-  Parser<DualReferenceAst>.D reference
-) : ParseObjectDefinition<DualFieldAst, DualReferenceAst>(field, collections, reference)
+  Parser<DualBaseAst>.D objBase
+) : ParseObjectDefinition<DualFieldAst, DualBaseAst>(field, collections, objBase)
 {
   protected override string Label => "Dual";
 }

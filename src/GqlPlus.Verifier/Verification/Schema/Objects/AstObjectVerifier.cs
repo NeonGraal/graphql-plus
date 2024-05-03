@@ -6,18 +6,18 @@ namespace GqlPlus.Verifier.Verification.Schema;
 
 [SuppressMessage("Performance", "CA1823:Avoid unused private fields")]
 [SuppressMessage("Performance", "CA1822:Mark members as static")]
-internal abstract partial class AstObjectVerifier<TObject, TField, TRef, TContext>(
+internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, TContext>(
   IVerifyAliased<TObject> aliased,
-  IMerge<TField> mergeFields,
-  IMerge<AstAlternate<TRef>> mergeAlternates,
+  IMerge<TObjField> mergeFields,
+  IMerge<AstAlternate<TObjBase>> mergeAlternates,
   ILoggerFactory logger
-) : AstParentItemVerifier<TObject, TRef, TContext, TField>(aliased, mergeFields)
-  where TObject : AstObject<TField, TRef>
-  where TField : AstObjectField<TRef>
-  where TRef : AstReference<TRef>
+) : AstParentItemVerifier<TObject, TObjBase, TContext, TObjField>(aliased, mergeFields)
+  where TObject : AstObject<TObjField, TObjBase>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
   where TContext : UsageContext
 {
-  private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, TRef, TContext, TypeParameterAst>));
+  private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, TObjBase, TContext, TypeParameterAst>));
 
   protected override void UsageValue(TObject usage, TContext context)
   {
@@ -47,17 +47,17 @@ internal abstract partial class AstObjectVerifier<TObject, TField, TRef, TContex
     }
   }
 
-  protected virtual void UsageAlternate(AstAlternate<TRef> alternate, TContext context)
+  protected virtual void UsageAlternate(AstAlternate<TObjBase> alternate, TContext context)
     => context
       .CheckType(alternate.Type, " Alternate")
       .CheckModifiers(alternate);
 
-  protected virtual void UsageField(TField field, TContext context)
+  protected virtual void UsageField(TObjField field, TContext context)
     => context
       .CheckType(field.Type, " Field")
       .CheckModifiers(field);
 
-  protected override string GetParent(AstType<TRef> usage)
+  protected override string GetParent(AstType<TObjBase> usage)
     => usage.Parent?.FullName ?? "";
 
   protected override void CheckParentType(
@@ -82,7 +82,7 @@ internal abstract partial class AstObjectVerifier<TObject, TField, TRef, TContex
     => base.CheckAstParentType(input, astType)
       || astType.Label == "Dual";
 
-  protected override IEnumerable<TField> GetItems(TObject usage)
+  protected override IEnumerable<TObjField> GetItems(TObject usage)
     => usage.Fields;
 
   protected override void OnParentType(ParentUsage<TObject> input, TContext context, TObject parentType, bool top)

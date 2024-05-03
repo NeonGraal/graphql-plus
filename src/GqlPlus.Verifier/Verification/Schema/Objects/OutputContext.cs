@@ -11,9 +11,9 @@ internal class OutputContext(
 ) : EnumContext(types, errors, enumValues)
 {
 
-  internal override void CheckArgumentType<TRef>(TRef type, string labelSuffix)
+  internal override void CheckArgumentType<TObjBase>(TObjBase type, string labelSuffix)
   {
-    if (type is OutputReferenceAst output) {
+    if (type is OutputBaseAst output) {
       if (string.IsNullOrWhiteSpace(output.EnumValue) && GetEnumValue(type.Name, out var enumType)) {
         output.EnumValue = type.Name;
         type.Name = enumType!;
@@ -27,7 +27,7 @@ internal class OutputContext(
     }
   }
 
-  internal void CheckEnumValue(string label, OutputReferenceAst output)
+  internal void CheckEnumValue(string label, OutputBaseAst output)
   {
     if (GetEnumType(output.Name, out var theType)) {
       if (!GetEnumValueType(theType, output.EnumValue ?? "", out var _)) {

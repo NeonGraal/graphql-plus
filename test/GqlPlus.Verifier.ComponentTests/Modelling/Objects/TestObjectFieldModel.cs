@@ -3,10 +3,10 @@ using GqlPlus.Verifier.Rendering;
 
 namespace GqlPlus.Verifier.Modelling.Objects;
 
-public abstract class TestObjectFieldModel<TField, TRef>
+public abstract class TestObjectFieldModel<TObjField, TObjBase>
   : TestModelBase<FieldInput>
-  where TField : AstObjectField<TRef>
-  where TRef : AstReference<TRef>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Modifiers(FieldInput input)
@@ -26,22 +26,22 @@ public abstract class TestObjectFieldModel<TField, TRef>
 
   internal override ICheckModelBase<FieldInput> BaseChecks => FieldChecks;
 
-  internal abstract ICheckObjectFieldModel<TField, TRef> FieldChecks { get; }
+  internal abstract ICheckObjectFieldModel<TObjField, TObjBase> FieldChecks { get; }
 }
 
-internal abstract class CheckObjectFieldModel<TField, TRef, TModel>(
-  IModeller<TField, TModel> field,
+internal abstract class CheckObjectFieldModel<TObjField, TObjBase, TModel>(
+  IModeller<TObjField, TModel> field,
   TypeKindModel kind
-) : CheckModelBase<FieldInput, TField, TModel>(field),
-    ICheckObjectFieldModel<TField, TRef>
-  where TField : AstObjectField<TRef>
-  where TRef : AstReference<TRef>
+) : CheckModelBase<FieldInput, TObjField, TModel>(field),
+    ICheckObjectFieldModel<TObjField, TObjBase>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
   where TModel : IRendering
 {
   protected readonly TypeKindModel TypeKind = kind;
   protected readonly string TypeKindLower = $"{kind}".ToLowerInvariant();
 
-  protected override TField NewBaseAst(FieldInput input)
+  protected override TObjField NewBaseAst(FieldInput input)
     => NewFieldAst(input);
   protected override string[] ExpectedBase(FieldInput input)
     => ExpectedField(input, [], []);
@@ -51,25 +51,25 @@ internal abstract class CheckObjectFieldModel<TField, TRef, TModel>(
   protected string[] ExpectedDual(FieldInput input)
     => [$"!_{TypeKind}Field", "name: " + input.Name, $"type: !_DualBase " + input.Type];
 
-  protected abstract TField NewFieldAst(FieldInput name);
+  protected abstract TObjField NewFieldAst(FieldInput name);
 
-  void ICheckObjectFieldModel<TField, TRef>.Field_Expected(TField ast, string[] expected)
+  void ICheckObjectFieldModel<TObjField, TObjBase>.Field_Expected(TObjField ast, string[] expected)
     => Model_Expected(AstToModel(ast), expected);
-  TField ICheckObjectFieldModel<TField, TRef>.FieldAst(FieldInput input)
+  TObjField ICheckObjectFieldModel<TObjField, TObjBase>.FieldAst(FieldInput input)
     => NewFieldAst(input);
-  string[] ICheckObjectFieldModel<TField, TRef>.ExpectedField(FieldInput input, string[] extras, string[] parameters)
+  string[] ICheckObjectFieldModel<TObjField, TObjBase>.ExpectedField(FieldInput input, string[] extras, string[] parameters)
     => ExpectedField(input, extras, parameters);
-  string[] ICheckObjectFieldModel<TField, TRef>.ExpectedDual(FieldInput input)
+  string[] ICheckObjectFieldModel<TObjField, TObjBase>.ExpectedDual(FieldInput input)
     => ExpectedDual(input);
 }
 
-internal interface ICheckObjectFieldModel<TField, TRef>
+internal interface ICheckObjectFieldModel<TObjField, TObjBase>
   : ICheckModelBase<FieldInput>
-  where TField : AstObjectField<TRef>
-  where TRef : AstReference<TRef>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
-  TField FieldAst(FieldInput input);
+  TObjField FieldAst(FieldInput input);
   string[] ExpectedField(FieldInput input, string[] extras, string[] parameters);
   string[] ExpectedDual(FieldInput input);
-  void Field_Expected(TField ast, string[] expected);
+  void Field_Expected(TObjField ast, string[] expected);
 }

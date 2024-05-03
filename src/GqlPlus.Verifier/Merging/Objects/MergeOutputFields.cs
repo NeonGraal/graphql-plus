@@ -7,7 +7,7 @@ namespace GqlPlus.Verifier.Merging.Objects;
 internal class MergeOutputFields(
   ILoggerFactory logger,
   IMerge<ParameterAst> parameters
-) : AstObjectFieldsMerger<OutputFieldAst, OutputReferenceAst>(logger)
+) : AstObjectFieldsMerger<OutputFieldAst, OutputBaseAst>(logger)
 {
   protected override ITokenMessages CanMergeGroup(IGrouping<string, OutputFieldAst> group)
     => base.CanMergeGroup(group)

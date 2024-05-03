@@ -8,6 +8,6 @@ public class ParseOutputTests(
 {
   internal override ICheckObject ObjectChecks => _checks;
 
-  private readonly CheckObject<OutputDeclAst, OutputFieldAst, OutputReferenceAst> _checks
+  private readonly CheckObject<OutputDeclAst, OutputFieldAst, OutputBaseAst> _checks
     = new(new OutputFactories(), parser);
 }

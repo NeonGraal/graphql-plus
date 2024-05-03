@@ -6,11 +6,11 @@ public sealed record class DualFieldAst(
   TokenAt At,
   string Name,
   string Description,
-  DualReferenceAst Type
-) : AstObjectField<DualReferenceAst>(At, Name, Description, Type), IEquatable<DualFieldAst>
+  DualBaseAst Type
+) : AstObjectField<DualBaseAst>(At, Name, Description, Type), IEquatable<DualFieldAst>
 {
-  public DualFieldAst(TokenAt at, string name, DualReferenceAst fieldType)
-    : this(at, name, "", fieldType) { }
+  public DualFieldAst(TokenAt at, string name, DualBaseAst typeBase)
+    : this(at, name, "", typeBase) { }
 
   internal override string Abbr => "DF";
 

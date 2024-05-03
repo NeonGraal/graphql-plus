@@ -7,7 +7,7 @@ namespace GqlPlus.Verifier;
 public static class SchemaTestHelpers
 {
   public static AstAlternate<T>[] Alternates<T>(this string[] alternates, Func<string, T> factory)
-    where T : AstReference<T>
+    where T : AstObjectBase<T>
     => [.. alternates.Select(a => new AstAlternate<T>(factory(a)) { Modifiers = TestMods() })];
 
   public static EnumMemberAst[] EnumMembers(this IEnumerable<string> enumMembers)
@@ -16,20 +16,20 @@ public static class SchemaTestHelpers
   public static DualFieldAst[] DualFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new DualFieldAst(AstNulls.At, f.Name, new(AstNulls.At, f.Type)))];
 
-  public static DualReferenceAst[] DualReferences(this string[] arguments)
-    => [.. arguments.Select(a => new DualReferenceAst(AstNulls.At, a))];
+  public static DualBaseAst[] DualBases(this string[] arguments)
+    => [.. arguments.Select(a => new DualBaseAst(AstNulls.At, a))];
 
   public static InputFieldAst[] InputFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new InputFieldAst(AstNulls.At, f.Name, new(AstNulls.At, f.Type)))];
 
-  public static InputReferenceAst[] InputReferences(this string[] arguments)
-    => [.. arguments.Select(a => new InputReferenceAst(AstNulls.At, a))];
+  public static InputBaseAst[] InputBases(this string[] arguments)
+    => [.. arguments.Select(a => new InputBaseAst(AstNulls.At, a))];
 
   public static OutputFieldAst[] OutputFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new OutputFieldAst(AstNulls.At, f.Name, new(AstNulls.At, f.Type)))];
 
-  public static OutputReferenceAst[] OutputReferences(this string[] arguments)
-    => [.. arguments.Select(a => new OutputReferenceAst(AstNulls.At, a))];
+  public static OutputBaseAst[] OutputBases(this string[] arguments)
+    => [.. arguments.Select(a => new OutputBaseAst(AstNulls.At, a))];
 
   public static ParameterAst[] Parameters(this IEnumerable<string> parameters)
     => [.. parameters.Select(parameter => new ParameterAst(AstNulls.At, parameter))];

@@ -53,20 +53,20 @@ public static class SchemaParsers
       // Objects
       .AddParserArray<TypeParameterAst, ParseTypeParameters>()
       // Dual
-      .AddParser<DualReferenceAst, ParseDualReference>()
+      .AddParser<DualBaseAst, ParseDualBase>()
       .AddParser<DualFieldAst, ParseDualField>()
       .AddDeclarationParser<DualDeclAst, ParseDual>("dual")
-      .AddObjectParser<ParseDualDefinition, DualFieldAst, DualReferenceAst>()
+      .AddObjectParser<ParseDualDefinition, DualFieldAst, DualBaseAst>()
       // Input
-      .AddParser<InputReferenceAst, ParseInputReference>()
+      .AddParser<InputBaseAst, ParseInputBase>()
       .AddParser<InputFieldAst, ParseInputField>()
       .AddDeclarationParser<InputDeclAst, ParseInput>("input")
-      .AddObjectParser<ParseInputDefinition, InputFieldAst, InputReferenceAst>()
+      .AddObjectParser<ParseInputDefinition, InputFieldAst, InputBaseAst>()
       // Output
-      .AddParser<OutputReferenceAst, ParseOutputReference>()
+      .AddParser<OutputBaseAst, ParseOutputBase>()
       .AddParser<OutputFieldAst, ParseOutputField>()
       .AddDeclarationParser<OutputDeclAst, ParseOutput>("output")
-      .AddObjectParser<ParseOutputDefinition, OutputFieldAst, OutputReferenceAst>()
+      .AddObjectParser<ParseOutputDefinition, OutputFieldAst, OutputBaseAst>()
       // Schema
       .AddParser<SchemaAst, ParseSchema>()
       ;
@@ -81,11 +81,11 @@ public static class SchemaParsers
       .AddParser<IOptionParser<TOption>, TOption, OptionParser<TOption>>()
       .AddParser<IEnumParser<TOption>, TOption, EnumParser<TOption>>();
 
-  public static IServiceCollection AddObjectParser<TObject, TField, TRef>(this IServiceCollection services)
-    where TObject : ParseObjectDefinition<TField, TRef>
-    where TField : AstObjectField<TRef>
-    where TRef : AstReference<TRef>
-    => services.AddParser<ObjectDefinition<TField, TRef>, TObject>();
+  public static IServiceCollection AddObjectParser<TObject, TObjField, TObjBase>(this IServiceCollection services)
+    where TObject : ParseObjectDefinition<TObjField, TObjBase>
+    where TObjField : AstObjectField<TObjBase>
+    where TObjBase : AstObjectBase<TObjBase>
+    => services.AddParser<ObjectDefinition<TObjField, TObjBase>, TObject>();
 
   public static IServiceCollection AddDeclarationParser<TObject, TParser>(this IServiceCollection services, string selector)
     where TObject : AstDeclaration

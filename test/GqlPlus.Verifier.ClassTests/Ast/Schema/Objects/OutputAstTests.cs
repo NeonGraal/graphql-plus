@@ -5,23 +5,23 @@ public class OutputAstTests : AstAliasedTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithAlternates(string name, string[] alternates)
       => _checks.HashCode(
-        () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) });
+        () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(NewBase) });
 
   [Theory, RepeatData(Repeats)]
   public void String_WithAlternates(string name, string[] alternates)
     => _checks.Text(
-      () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
+      () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(NewBase) },
       $"( !Ou {name} | {alternates.Joined(a => $"!AO {a} [] ?")} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlternates(string name, string[] alternates)
     => _checks.Equality(
-      () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) });
+      () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(NewBase) });
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenAlternates(string name, string[] alternates1, string[] alternates2)
     => _checks.InequalityBetween(alternates1, alternates2,
-      alternates => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
+      alternates => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(NewBase) },
       alternates1.OrderedEqual(alternates2));
 
   [Theory, RepeatData(Repeats)]
@@ -90,7 +90,7 @@ public class OutputAstTests : AstAliasedTests
       parameters => new OutputDeclAst(AstNulls.At, name) { TypeParameters = parameters.TypeParameters() },
       typeParameters1.SequenceEqual(typeParameters2));
 
-  private static OutputReferenceAst Reference(string argument)
+  private static OutputBaseAst NewBase(string argument)
     => new(AstNulls.At, argument);
 
   protected override string AbbreviatedString(string input)

@@ -4,12 +4,12 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging;
 
-internal abstract class AstTypeMerger<TBase, TType, TParent, TItem>(
+internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
   ILoggerFactory logger,
   IMerge<TItem> mergeItems
-) : AstAliasedMerger<TType>(logger), IMergeAll<TBase>
-  where TBase : AstType
-  where TType : AstType<TParent>, TBase
+) : AstAliasedMerger<TType>(logger), IMergeAll<TAst>
+  where TAst : AstType
+  where TType : AstType<TParent>, TAst
   where TParent : IEquatable<TParent>
   where TItem : AstBase
 {
@@ -28,13 +28,13 @@ internal abstract class AstTypeMerger<TBase, TType, TParent, TItem>(
     return SetItems(base.MergeGroup(group), items);
   }
 
-  ITokenMessages IMerge<TBase>.CanMerge(IEnumerable<TBase> items)
+  ITokenMessages IMerge<TAst>.CanMerge(IEnumerable<TAst> items)
   {
     var aliases = items.OfType<TType>();
 
     return aliases.Any() ? CanMerge(aliases) : new TokenMessages();
   }
 
-  IEnumerable<TBase> IMerge<TBase>.Merge(IEnumerable<TBase> items)
+  IEnumerable<TAst> IMerge<TAst>.Merge(IEnumerable<TAst> items)
     => Merge(items.OfType<TType>());
 }

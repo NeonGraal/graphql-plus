@@ -2,15 +2,16 @@
 
 namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
-public abstract record class AstReference<TRef>(
+public abstract record class AstObjectBase<TObjBase>(
   TokenAt At,
   string Name,
   string Description
-) : AstDescribed(At, Name, Description), IEquatable<TRef>
-  where TRef : AstReference<TRef>
+) : AstDescribed(At, Name, Description)
+  , IEquatable<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
   public bool IsTypeParameter { get; set; }
-  public TRef[] Arguments { get; set; } = [];
+  public TObjBase[] Arguments { get; set; } = [];
 
   public abstract string Label { get; }
 
@@ -23,7 +24,7 @@ public abstract record class AstReference<TRef>(
     .Prepend(FullName)
     .Joined();
 
-  public virtual bool Equals(TRef? other)
+  public virtual bool Equals(TObjBase? other)
     => base.Equals(other)
     && IsTypeParameter == other.IsTypeParameter
     && Arguments.SequenceEqual(other.Arguments);

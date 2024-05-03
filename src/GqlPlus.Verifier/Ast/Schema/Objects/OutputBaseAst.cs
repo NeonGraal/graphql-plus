@@ -2,10 +2,14 @@
 
 namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
-public sealed record class OutputReferenceAst(TokenAt At, string Name, string Description)
-  : AstReference<OutputReferenceAst>(At, Name, Description), IEquatable<OutputReferenceAst>
+public sealed record class OutputBaseAst(
+  TokenAt At,
+  string Name,
+  string Description
+) : AstObjectBase<OutputBaseAst>(At, Name, Description)
+  , IEquatable<OutputBaseAst>
 {
-  public OutputReferenceAst(TokenAt at, string name)
+  public OutputBaseAst(TokenAt at, string name)
     : this(at, name, "") { }
 
   public string? EnumValue { get; set; }
@@ -13,7 +17,7 @@ public sealed record class OutputReferenceAst(TokenAt At, string Name, string De
   internal override string Abbr => "OR";
   public override string Label => "Output";
 
-  public override bool Equals(OutputReferenceAst? other)
+  public override bool Equals(OutputBaseAst? other)
     => base.Equals(other)
     && EnumValue.NullEqual(other.EnumValue);
   public override int GetHashCode()
@@ -27,7 +31,7 @@ public sealed record class OutputReferenceAst(TokenAt At, string Name, string De
         : $"{Name}.{EnumValue}"
     }.Concat(Arguments.Bracket("<", ">"));
 
-  internal DualReferenceAst ToDual()
+  internal DualBaseAst ToDual()
     => new(At, Name, Description) {
       IsTypeParameter = IsTypeParameter,
       Arguments = [.. Arguments.Select(a => a.ToDual())],

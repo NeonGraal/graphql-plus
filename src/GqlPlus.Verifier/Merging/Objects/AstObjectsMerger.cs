@@ -4,15 +4,15 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Merging.Objects;
 
-internal class AstObjectsMerger<TObject, TField, TRef>(
+internal class AstObjectsMerger<TObject, TObjField, TObjBase>(
   ILoggerFactory logger,
-  IMerge<TField> fields,
+  IMerge<TObjField> fields,
   IMerge<TypeParameterAst> typeParameters,
-  IMerge<AstAlternate<TRef>> alternates
-) : AstTypeMerger<AstType, TObject, TRef, TField>(logger, fields)
-  where TObject : AstObject<TField, TRef>
-  where TField : AstObjectField<TRef>, IAstDescribed
-  where TRef : AstReference<TRef>
+  IMerge<AstAlternate<TObjBase>> alternates
+) : AstTypeMerger<AstType, TObject, TObjBase, TObjField>(logger, fields)
+  where TObject : AstObject<TObjField, TObjBase>
+  where TObjField : AstObjectField<TObjBase>, IAstDescribed
+  where TObjBase : AstObjectBase<TObjBase>
 {
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(TObject item)
@@ -38,8 +38,8 @@ internal class AstObjectsMerger<TObject, TField, TRef>(
     };
   }
 
-  internal override IEnumerable<TField> GetItems(TObject type)
+  internal override IEnumerable<TObjField> GetItems(TObject type)
     => type.Fields;
-  internal override TObject SetItems(TObject input, IEnumerable<TField> items)
+  internal override TObject SetItems(TObject input, IEnumerable<TObjField> items)
     => input with { Fields = [.. items] };
 }

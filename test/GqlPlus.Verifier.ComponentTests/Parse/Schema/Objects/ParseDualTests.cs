@@ -8,5 +8,5 @@ public class ParseDualTests(
 {
   internal override ICheckObject ObjectChecks => _checks;
 
-  private readonly CheckObject<DualDeclAst, DualFieldAst, DualReferenceAst> _checks = new(new DualFactories(), parser);
+  private readonly CheckObject<DualDeclAst, DualFieldAst, DualBaseAst> _checks = new(new DualFactories(), parser);
 }

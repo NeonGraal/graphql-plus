@@ -4,14 +4,14 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Parse.Schema.Objects;
 
 internal sealed class InputFactories
-  : IObjectFactories<InputDeclAst, InputFieldAst, InputReferenceAst>
+  : IObjectFactories<InputDeclAst, InputFieldAst, InputBaseAst>
 {
-  public InputFieldAst Field(TokenAt at, string name, InputReferenceAst typeReference, string description)
-    => new(at, name, description, typeReference);
+  public InputFieldAst ObjField(TokenAt at, string name, InputBaseAst typeBase, string description)
+    => new(at, name, description, typeBase);
 
   public InputDeclAst Object(TokenAt at, string name, string description)
     => new(at, name, description);
 
-  public InputReferenceAst Reference(TokenAt at, string name, string description)
+  public InputBaseAst ObjBase(TokenAt at, string name, string description)
     => new(at, name, description);
 }

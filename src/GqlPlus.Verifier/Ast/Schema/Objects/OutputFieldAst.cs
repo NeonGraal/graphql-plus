@@ -2,15 +2,15 @@
 
 namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
-public sealed record class OutputFieldAst(TokenAt At, string Name, string Description, OutputReferenceAst Type)
-  : AstObjectField<OutputReferenceAst>(At, Name, Description, Type), IEquatable<OutputFieldAst>
+public sealed record class OutputFieldAst(TokenAt At, string Name, string Description, OutputBaseAst Type)
+  : AstObjectField<OutputBaseAst>(At, Name, Description, Type), IEquatable<OutputFieldAst>
 {
   public ParameterAst[] Parameters { get; set; } = [];
 
   internal override string Abbr => "OF";
 
-  public OutputFieldAst(TokenAt at, string name, OutputReferenceAst fieldType)
-    : this(at, name, "", fieldType) { }
+  public OutputFieldAst(TokenAt at, string name, OutputBaseAst typeBase)
+    : this(at, name, "", typeBase) { }
 
   public bool Equals(OutputFieldAst? other)
     => base.Equals(other)

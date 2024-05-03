@@ -16,7 +16,7 @@ categories: !_Map_Categories
     resolution: !_Resolution Parallel
   !_Identifier catMods: !_Category
     aliases: [CatM1, CatM2]
-    modifiers: [!_Modifier Optional]
+    modifiers: [!_Modifier Opt]
     name: catMods
     output: !_TypeRef(_TypeKind)
       name: CatMods
@@ -1372,14 +1372,14 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_InputField)
       default: !Null null
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: field
       object: InFieldNull
       type: !_InputBase InFieldNull
     fields:
     - !_InputField
       default: !Null null
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: field
       type: !_InputBase InFieldNull
     name: InFieldNull

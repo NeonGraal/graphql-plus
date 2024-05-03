@@ -14,6 +14,7 @@ public class Tokenizer
   private int _pos;
   private int _line;
   private int _lineStart;
+  private string _description = "";
 
 #pragma warning disable IDE1006 // Naming Styles
   private static readonly TokenKind[] _kinds = new TokenKind[96];
@@ -150,6 +151,22 @@ public class Tokenizer
     }
 
     _kind = TokenKind.End;
+  }
+
+  internal void TakeDescription()
+  {
+    if (!string.IsNullOrWhiteSpace(_description)) {
+      throw new InvalidOperationException("Unused description");
+    }
+
+    String(out _description);
+  }
+
+  internal string GetDescription()
+  {
+    string description = _description;
+    _description = "";
+    return description;
   }
 
   internal bool Identifier(out string identifier)

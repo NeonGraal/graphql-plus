@@ -4,14 +4,14 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_InputField)
       default: !Null null
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: field
       object: InFieldNull
       type: !_InputBase InFieldNull
     fields:
     - !_InputField
       default: !Null null
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: field
       type: !_InputBase InFieldNull
     name: InFieldNull

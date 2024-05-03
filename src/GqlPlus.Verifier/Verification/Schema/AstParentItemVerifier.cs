@@ -18,7 +18,7 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
     TItem[] items = GetParentItems(input, input.Usage, context, GetItems).ToArray();
 
     if (items.Length > 0) {
-      Token.ITokenMessages failures = mergeItems.CanMerge(items);
+      ITokenMessages failures = mergeItems.CanMerge(items);
       if (failures.Any()) {
         context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} into Parent {input.Parent}");
         context.Add(failures);

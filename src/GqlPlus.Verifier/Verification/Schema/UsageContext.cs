@@ -13,7 +13,7 @@ public class UsageContext(
 {
   internal readonly HashSet<string> Used = [];
 
-  internal void Add(IEnumerable<TokenMessage> messages)
+  internal void Add(IEnumerable<ITokenMessage> messages)
     => errors.Add(messages);
 
   internal void AddError<TAst>(TAst item, string label, string message)

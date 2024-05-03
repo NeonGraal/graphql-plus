@@ -19,7 +19,7 @@ types: !_Map_Type
       type: !_InputBase _NameFilter
     - !_ObjectFor(_InputField)
       default: true
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: matchAliases
       object: _Filter
       type: !_InputBase Boolean
@@ -30,13 +30,13 @@ types: !_Map_Type
       type: !_InputBase _NameFilter
     - !_ObjectFor(_InputField)
       default: false
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: returnByAlias
       object: _Filter
       type: !_InputBase Boolean
     - !_ObjectFor(_InputField)
       default: false
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: returnReferencedTypes
       object: _Filter
       type: !_InputBase Boolean
@@ -68,7 +68,7 @@ types: !_Map_Type
       type: !_InputBase _NameFilter
     - !_ObjectFor(_InputField)
       default: true
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: matchAliases
       object: _Filter
       type: !_InputBase Boolean
@@ -79,13 +79,13 @@ types: !_Map_Type
       type: !_InputBase _NameFilter
     - !_ObjectFor(_InputField)
       default: false
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: returnByAlias
       object: _Filter
       type: !_InputBase Boolean
     - !_ObjectFor(_InputField)
       default: false
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: returnReferencedTypes
       object: _Filter
       type: !_InputBase Boolean
@@ -101,7 +101,7 @@ types: !_Map_Type
       type: !_InputBase _NameFilter
     - !_InputField
       default: true
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: matchAliases
       type: !_InputBase Boolean
     - !_InputField
@@ -110,12 +110,12 @@ types: !_Map_Type
       type: !_InputBase _NameFilter
     - !_InputField
       default: false
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: returnByAlias
       type: !_InputBase Boolean
     - !_InputField
       default: false
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: returnReferencedTypes
       type: !_InputBase Boolean
     name: _Filter
@@ -228,7 +228,7 @@ types: !_Map_Type
       type: !_InputBase _NameFilter
     - !_ObjectFor(_InputField)
       default: true
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: matchAliases
       object: _Filter
       type: !_InputBase Boolean
@@ -239,13 +239,13 @@ types: !_Map_Type
       type: !_InputBase _NameFilter
     - !_ObjectFor(_InputField)
       default: false
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: returnByAlias
       object: _Filter
       type: !_InputBase Boolean
     - !_ObjectFor(_InputField)
       default: false
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: returnReferencedTypes
       object: _Filter
       type: !_InputBase Boolean

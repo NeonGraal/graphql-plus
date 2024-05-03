@@ -56,7 +56,7 @@ internal sealed class CategoryModelChecks(
     => ["!_Category",
         .. input.Aliases ?? [],
         .. input.Description ?? [],
-        input.Modifiers ? "modifiers: [!_Modifier List, !_Modifier Optional]" : "",
+        input.Modifiers ? "modifiers: [!_Modifier List, !_Modifier Opt]" : "",
         "name: " + input.Name,
         .. input.Output.TypeRefFor(TypeKindModel.Output),
         $"resolution: !_Resolution {input.Option}"];

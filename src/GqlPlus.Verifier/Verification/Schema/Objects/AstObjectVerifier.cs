@@ -131,7 +131,7 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
 
     AstAlternate<TObjBase>[] alternates = GetParentItems(input, input.Usage, context, ast => ast.Alternates).ToArray();
     if (alternates.Length > 0) {
-      Token.ITokenMessages failures = mergeAlternates.CanMerge(alternates);
+      ITokenMessages failures = mergeAlternates.CanMerge(alternates);
       if (failures.Any()) {
         context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Parent} alternates");
         context.Add(failures);

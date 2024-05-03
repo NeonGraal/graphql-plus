@@ -5,6 +5,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Verification;
 
+#pragma warning disable CA1034 // Nested types should not be visible
 public class SchemaBase(
     Parser<SchemaAst>.D parser
 )

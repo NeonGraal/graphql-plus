@@ -373,7 +373,7 @@ public class TokenizerTests
     result.Kind.Should().Be(kind);
     result.Line.Should().Be(line);
     result.Column.Should().Be(col);
-    result.Next.Should().Be(expected);
+    result.After.Should().Be(expected);
     result.Message.Should().Be(message);
   }
 

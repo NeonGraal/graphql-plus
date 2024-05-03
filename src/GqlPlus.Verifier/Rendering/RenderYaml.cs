@@ -19,14 +19,14 @@ internal static class RenderYaml
   internal static RenderStructure Render(this ITokenMessages errors)
     => new(errors.Select(Render), "_Errors");
 
-  internal static RenderStructure Render(this TokenMessage error)
+  internal static RenderStructure Render(this ITokenMessage error)
     => RenderStructure.New("_Error")
       .Add(error.Kind is TokenKind.Start or TokenKind.End,
         onFalse: r => r.Add("_at", error.RenderAt()))
       .Add("_kind", error.Kind)
       .Add("_message", error.Message);
 
-  internal static RenderStructure RenderAt(this TokenAt at)
+  internal static RenderStructure RenderAt(this ITokenAt at)
     => RenderStructure.New("_At", true)
       .Add("_col", at.Column)
       .Add("_line", at.Line);

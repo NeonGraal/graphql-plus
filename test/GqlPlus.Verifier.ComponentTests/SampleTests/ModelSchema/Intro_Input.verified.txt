@@ -39,13 +39,13 @@ types: !_Map_Type
   !_Identifier _InputField: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: default
       object: _InputField
       type: !_OutputBase _Constant
     fields:
     - !_OutputField
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: default
       type: !_OutputBase _Constant
     name: _InputField

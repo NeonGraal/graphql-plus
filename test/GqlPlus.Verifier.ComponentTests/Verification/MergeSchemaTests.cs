@@ -18,7 +18,7 @@ public class MergeSchemaTests(
       .Select(input => Parse(input).Required())
       .ToArray();
 
-    Token.ITokenMessages result = merger.CanMerge(schemas);
+    ITokenMessages result = merger.CanMerge(schemas);
 
     result.Should().BeEmpty();
   }
@@ -31,7 +31,7 @@ public class MergeSchemaTests(
       .Select(input => Parse(input).Required())
       .ToArray();
 
-    Token.ITokenMessages result = merger.CanMerge(schemas);
+    ITokenMessages result = merger.CanMerge(schemas);
 
     result.Should().BeEmpty();
   }
@@ -44,7 +44,7 @@ public class MergeSchemaTests(
     IEnumerable<SchemaAst> schemas = ReplaceObjects([input])
       .Select(input => Parse(input).Required());
 
-    Token.ITokenMessages result = merger.CanMerge(schemas);
+    ITokenMessages result = merger.CanMerge(schemas);
 
     result.Should().BeEmpty();
   }

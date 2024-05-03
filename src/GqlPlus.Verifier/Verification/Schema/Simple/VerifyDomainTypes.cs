@@ -44,7 +44,7 @@ internal class VerifyDomainTypes(
 
   protected override void CheckMergeParent(ParentUsage<AstDomain> input, EnumContext context)
   {
-    IEnumerable<TokenMessage> failures = domains.SelectMany(domain => domain.CanMergeItems(input.Usage, context));
+    IEnumerable<ITokenMessage> failures = domains.SelectMany(domain => domain.CanMergeItems(input.Usage, context));
     if (failures.Any()) {
       context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} items into Parent {input.Parent} items");
       context.Add(failures);

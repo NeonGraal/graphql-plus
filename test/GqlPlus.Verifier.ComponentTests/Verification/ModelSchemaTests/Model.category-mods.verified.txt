@@ -2,7 +2,7 @@
 categories: !_Map_Categories
   !_Identifier catMods: !_Category
     aliases: [CatM1, CatM2]
-    modifiers: [!_Modifier Optional]
+    modifiers: [!_Modifier Opt]
     name: catMods
     output: !_TypeRef(_TypeKind)
       name: CatMods

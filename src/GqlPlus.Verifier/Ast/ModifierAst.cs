@@ -39,13 +39,6 @@ public sealed record class ModifierAst(TokenAt At)
     => HashCode.Combine(Kind, Key, KeyOptional);
 }
 
-public enum ModifierKind
-{
-  Optional,
-  List,
-  Dict
-}
-
 public interface IAstModified
 {
   ModifierAst[] Modifiers { get; }

@@ -18,7 +18,7 @@ internal sealed class CollectionModelChecks(
 {
   protected override string[] ExpectedBase(ModifierInput name)
     => name.Kind switch {
-      ModifierKind.Optional => ["!_Modifier Optional"],
+      ModifierKind.Optional => ["!_Modifier Opt"],
       ModifierKind.List => ["!_Modifier List"],
       ModifierKind.Dict => ["!_ModifierDictionary", "by: " + name.Key, "modifierKind: Dict", name.Optional ? "optional: true" : ""],
       _ => [],

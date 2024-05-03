@@ -110,22 +110,22 @@ types: !_Map_Type
       object: _BaseDomainItem
       type: !_DualBase Boolean
     - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: from
       object: _DomainRange
       type: !_DualBase Number
     - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: to
       object: _DomainRange
       type: !_DualBase Number
     fields:
     - !_DualField
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: from
       type: !_DualBase Number
     - !_DualField
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: to
       type: !_DualBase Number
     name: _DomainRange

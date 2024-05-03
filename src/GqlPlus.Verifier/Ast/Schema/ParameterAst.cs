@@ -3,15 +3,15 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Ast.Schema;
 
-public sealed record class ParameterAst(TokenAt At, InputReferenceAst Type)
-  : AstAlternate<InputReferenceAst>(At, Type), IEquatable<ParameterAst>
+public sealed record class ParameterAst(TokenAt At, InputBaseAst Type)
+  : AstAlternate<InputBaseAst>(At, Type), IEquatable<ParameterAst>
 {
   public ConstantAst? Default { get; set; }
 
   internal override string Abbr => "Pa";
 
   internal ParameterAst(TokenAt at, string input, string description = "")
-    : this(at, new InputReferenceAst(at, input, description)) { }
+    : this(at, new InputBaseAst(at, input, description)) { }
 
   public bool Equals(ParameterAst? other)
     => base.Equals(other)

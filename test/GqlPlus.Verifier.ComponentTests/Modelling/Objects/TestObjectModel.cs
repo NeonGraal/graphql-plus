@@ -2,11 +2,11 @@
 
 namespace GqlPlus.Verifier.Modelling.Objects;
 
-public abstract class TestObjectModel<TObject, TField, TRef>
-  : TestTypeModel<TRef, string, TypeKindModel>
-  where TObject : AstObject<TField, TRef>
-  where TField : AstField<TRef>
-  where TRef : AstReference<TRef>
+public abstract class TestObjectModel<TObject, TObjField, TObjBase>
+  : TestTypeModel<TObjBase, string, TypeKindModel>
+  where TObject : AstObject<TObjField, TObjBase>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_ParentDual(string name, string parent)
@@ -116,19 +116,19 @@ public abstract class TestObjectModel<TObject, TField, TRef>
       },
       new(name, parent, typeParameters, fields, alternates, aliases, contents));
 
-  internal override ICheckTypeModel<TRef, string, TypeKindModel> TypeChecks => ObjectChecks;
+  internal override ICheckTypeModel<TObjBase, string, TypeKindModel> TypeChecks => ObjectChecks;
 
-  internal abstract ICheckObjectModel<TObject, TField, TRef> ObjectChecks { get; }
+  internal abstract ICheckObjectModel<TObject, TObjField, TObjBase> ObjectChecks { get; }
 }
 
-internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
+internal abstract class CheckObjectModel<TObject, TObjField, TObjBase, TModel>(
   IModeller<TObject, TModel> modeller,
   TypeKindModel kind
-) : CheckTypeModel<TRef, string, TObject, TypeKindModel, TModel>(modeller, kind),
-    ICheckObjectModel<TObject, TField, TRef>
-  where TObject : AstObject<TField, TRef>
-  where TField : AstField<TRef>
-  where TRef : AstReference<TRef>
+) : CheckTypeModel<TObjBase, string, TObject, TypeKindModel, TModel>(modeller, kind),
+    ICheckObjectModel<TObject, TObjField, TObjBase>
+  where TObject : AstObject<TObjField, TObjBase>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
   where TModel : BaseTypeModel
 {
   internal string[] ExpectedObject(ExpectedObjectInput input)
@@ -153,10 +153,10 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
   protected override string[] ExpectedType(ExpectedTypeInput<string> input)
     => ExpectedObject(new(input));
 
-  internal override TObject NewTypeAst(string name, TRef? parent, string description)
+  internal override TObject NewTypeAst(string name, TObjBase? parent, string description)
     => NewObjectAst(name, parent, description, [], []);
 
-  void ICheckObjectModel<TObject, TField, TRef>.ObjectExpected(TObject ast, ExpectedObjectInput input,
+  void ICheckObjectModel<TObject, TObjField, TObjBase>.ObjectExpected(TObject ast, ExpectedObjectInput input,
       ToExpected<string?>? parent, ToExpected<FieldInput>? field, ToExpected<string>? alternate)
     => AstExpected(ast, input.Expected(TypeKind, parent ?? ExpectedParent,
       ItemsExpected("typeParameters:", input.TypeParameters, ExpectedTypeParameter),
@@ -164,20 +164,20 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
       ItemsExpected("allFields:", input.Fields, ExpectedObject(input.Name, field ?? ExpectedField)),
       ItemsExpected("alternates:", input.Alternates, alternate ?? ExpectedAlternate),
       ItemsExpected("allAlternates:", input.Alternates, ExpectedObject(input.Name, alternate ?? ExpectedAlternate))));
-  string[] ICheckObjectModel<TObject, TField, TRef>.DualField(FieldInput field)
+  string[] ICheckObjectModel<TObject, TObjField, TObjBase>.DualField(FieldInput field)
     => [$"- !_{TypeKind}Field", "  name: " + field.Name,
       field.TypeParameter
         ? "  type: !_TypeParameter " + field.Type
         : "  type: !_DualBase " + field.Type];
-  string[] ICheckObjectModel<TObject, TField, TRef>.DualAlternate(string alternate)
+  string[] ICheckObjectModel<TObject, TObjField, TObjBase>.DualAlternate(string alternate)
     => [$"- !_Alternate(_{TypeKind}Base)", "  collections:", "  - !_Modifier List", "  type: !_DualBase " + alternate];
-  string[] ICheckObjectModel<TObject, TField, TRef>.DualParent(string? parent)
+  string[] ICheckObjectModel<TObject, TObjField, TObjBase>.DualParent(string? parent)
     => parent is null ? []
     : ["parent: !_DualBase " + parent];
-  string[] ICheckObjectModel<TObject, TField, TRef>.TypeParameterParent(string? parent)
+  string[] ICheckObjectModel<TObject, TObjField, TObjBase>.TypeParameterParent(string? parent)
     => parent is null ? []
     : ["parent: !_TypeParameter " + parent];
-  string[] ICheckObjectModel<TObject, TField, TRef>.TypeParameterAlternate(string alternate)
+  string[] ICheckObjectModel<TObject, TObjField, TObjBase>.TypeParameterAlternate(string alternate)
     => [$"- !_Alternate(_{TypeKind}Base)", "  type: !_TypeParameter " + alternate];
 
   private ToExpected<TInput> ExpectedObject<TInput>(string name, ToExpected<TInput> expectedField)
@@ -190,12 +190,12 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
       return [first, .. field.Skip(1).SkipLast(1), "  object: " + name, last];
     };
 
-  void ICheckObjectModel<TObject, TField, TRef>.ParentExpected(TObject ast, ExpectedObjectInput input)
+  void ICheckObjectModel<TObject, TObjField, TObjBase>.ParentExpected(TObject ast, ExpectedObjectInput input)
     => AstExpected(ast, input.Expected(TypeKind, ExpectedParent, [],
       [], ItemsExpected("allFields:", input.Fields, ExpectedObject<FieldInput>(input.Parent!, ExpectedField)),
       [], ItemsExpected("allAlternates:", input.Alternates, ExpectedObject<string>(input.Parent!, ExpectedAlternate))));
 
-  TObject ICheckObjectModel<TObject, TField, TRef>.ObjectAst(string name, FieldInput[] fields, string[] alternates)
+  TObject ICheckObjectModel<TObject, TObjField, TObjBase>.ObjectAst(string name, FieldInput[] fields, string[] alternates)
     => NewObjectAst(name, default, "", fields, alternates);
 
   BaseTypeModel IParentModel<FieldInput>.NewParent(string name, FieldInput[] members, string? parent)
@@ -204,17 +204,17 @@ internal abstract class CheckObjectModel<TObject, TField, TRef, TModel>(
     => NewParentModel(name, parent, [], members);
 
   private BaseTypeModel NewParentModel(string name, string? parent, FieldInput[] fields, string[] alternates)
-    => _modeller.ToModel<TModel>(NewObjectAst(name, parent is null ? null : NewReferenceAst(parent), "", fields, alternates), TypeKinds);
+    => _modeller.ToModel<TModel>(NewObjectAst(name, parent is null ? null : NewParentAst(parent), "", fields, alternates), TypeKinds);
 
-  protected abstract TObject NewObjectAst(string name, TRef? parent, string description, FieldInput[] fields, string[] alternates);
+  protected abstract TObject NewObjectAst(string name, TObjBase? parent, string description, FieldInput[] fields, string[] alternates);
 }
 
-internal interface ICheckObjectModel<TObject, TField, TRef>
-  : ICheckTypeModel<TRef, string, TypeKindModel>
+internal interface ICheckObjectModel<TObject, TObjField, TObjBase>
+  : ICheckTypeModel<TObjBase, string, TypeKindModel>
   , IParentModel<FieldInput>, IParentModel<string>
-  where TObject : AstObject<TField, TRef>
-  where TField : AstField<TRef>
-  where TRef : AstReference<TRef>
+  where TObject : AstObject<TObjField, TObjBase>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
   void ObjectExpected(TObject ast, ExpectedObjectInput input, ToExpected<string?>? parent = null,
     ToExpected<FieldInput>? field = null, ToExpected<string>? alternate = null);

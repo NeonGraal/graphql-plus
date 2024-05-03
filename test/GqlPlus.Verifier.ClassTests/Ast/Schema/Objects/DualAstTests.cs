@@ -6,23 +6,23 @@ public class DualAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithAlternates(string name, string[] alternates)
       => _checks.HashCode(
-        () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) });
+        () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Base) });
 
   [Theory, RepeatData(Repeats)]
   public void String_WithAlternates(string name, string[] alternates)
     => _checks.Text(
-      () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
+      () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Base) },
       $"( !Du {name} | {alternates.Joined(a => $"!AD {a} [] ?")} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlternates(string name, string[] alternates)
     => _checks.Equality(
-      () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) });
+      () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Base) });
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenAlternates(string name, string[] alternates1, string[] alternates2)
     => _checks.InequalityBetween(alternates1, alternates2,
-      alternates => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Reference) },
+      alternates => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Base) },
       alternates1.OrderedEqual(alternates2));
 
   [Theory, RepeatData(Repeats)]
@@ -91,7 +91,7 @@ public class DualAstTests
       parameters => new DualDeclAst(AstNulls.At, name) { TypeParameters = parameters.TypeParameters() },
       typeParameters1.SequenceEqual(typeParameters2));
 
-  private static DualReferenceAst Reference(string argument)
+  private static DualBaseAst Base(string argument)
     => new(AstNulls.At, argument);
 
   protected override string AbbreviatedString(string input)

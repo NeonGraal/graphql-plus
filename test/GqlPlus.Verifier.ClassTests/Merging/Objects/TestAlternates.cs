@@ -3,10 +3,10 @@ using GqlPlus.Verifier.Merging.Objects;
 
 namespace GqlPlus.Verifier.Merging;
 
-public abstract class TestAlternates<TAlternate, TRef>
+public abstract class TestAlternates<TAlternate, TObjBase>
   : TestDescriptions<TAlternate>
-  where TAlternate : AstAlternate<TRef>
-  where TRef : AstReference<TRef>, IEquatable<TRef>
+  where TAlternate : AstAlternate<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
@@ -22,7 +22,7 @@ public abstract class TestAlternates<TAlternate, TRef>
       [MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() }],
       MakeDescribed(input) with { Modifiers = TestMods() });
 
-  internal abstract AstAlternatesMerger<TAlternate, TRef> MergerAlternate { get; }
+  internal abstract AstAlternatesMerger<TAlternate, TObjBase> MergerAlternate { get; }
   internal override GroupsMerger<TAlternate> MergerGroups => MergerAlternate;
 
   protected abstract TAlternate MakeAlternate(string name, string description = "");
@@ -30,7 +30,7 @@ public abstract class TestAlternates<TAlternate, TRef>
     => MakeAlternate(name, description);
 }
 
-public abstract class TestAlternates<TRef>
-  : TestAlternates<AstAlternate<TRef>, TRef>
-  where TRef : AstReference<TRef>, IEquatable<TRef>
+public abstract class TestAlternates<TObjBase>
+  : TestAlternates<AstAlternate<TObjBase>, TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
 { }

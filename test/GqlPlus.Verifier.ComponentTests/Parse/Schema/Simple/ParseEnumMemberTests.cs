@@ -4,15 +4,15 @@ namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
 public sealed class ParseEnumMemberTests(
   Parser<EnumMemberAst>.D parser
-) : BaseAliasedTests<string>
+) : TestAliased<string>
 {
-  internal override IBaseAliasedChecks<string> AliasChecks => _checks;
+  internal override ICheckAliased<string> AliasChecks => _checks;
 
   private readonly ParseEnumMemberChecks _checks = new(parser);
 }
 
 internal sealed class ParseEnumMemberChecks
-  : BaseAliasedChecks<string, EnumMemberAst>
+  : CheckAliased<string, EnumMemberAst>
 {
   public ParseEnumMemberChecks(Parser<EnumMemberAst>.D parser)
     : base(parser) { }

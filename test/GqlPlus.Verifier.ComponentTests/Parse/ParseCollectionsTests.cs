@@ -18,5 +18,5 @@ public class ParseCollectionsTests(ParserArray<IParserCollections, ModifierAst>.
       ModifierAst.List(AstNulls.At),
     ]);
 
-  private readonly ManyChecksParser<IParserCollections, ModifierAst> _test = new(parser);
+  private readonly CheckMany<IParserCollections, ModifierAst> _test = new(parser);
 }

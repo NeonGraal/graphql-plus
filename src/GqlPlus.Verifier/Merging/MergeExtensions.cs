@@ -9,16 +9,16 @@ namespace GqlPlus.Verifier.Merging;
 public static class MergeExtensions
 {
   [SuppressMessage("Maintainability", "CA1508:Avoid dead conditional code")]
-  public static ITokenMessages CanMerge<TItem, TField>(
+  public static ITokenMessages CanMerge<TItem, TObjField>(
       this IEnumerable<TItem> items,
-      Func<TItem, TField?> field,
+      Func<TItem, TObjField?> field,
       [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
     where TItem : AstBase
   {
     ArgumentNullException.ThrowIfNull(items);
     ArgumentNullException.ThrowIfNull(field);
 
-    TField? result = default;
+    TObjField? result = default;
 
     foreach (var item in items) {
       var value = field(item);
@@ -39,15 +39,15 @@ public static class MergeExtensions
     return new TokenMessages();
   }
 
-  public static ITokenMessages CanMerge<TItem, TField>(
+  public static ITokenMessages CanMerge<TItem, TObjField>(
       this IEnumerable<TItem> items,
-      Func<TItem, TField?> field,
-      IMerge<TField> merger)
-    where TField : AstBase
+      Func<TItem, TObjField?> field,
+      IMerge<TObjField> merger)
+    where TObjField : AstBase
   {
     ArgumentNullException.ThrowIfNull(merger);
 
-    var fields = items.Select(field).Where(f => f is not null).Cast<TField>().ToArray();
+    var fields = items.Select(field).Where(f => f is not null).Cast<TObjField>().ToArray();
 
     return fields.Length > 0 ? merger.CanMerge(fields) : TokenMessages.New;
   }
@@ -95,15 +95,15 @@ public static class MergeExtensions
       : merger.CanMerge(groups);
   }
 
-  public static IEnumerable<TField> Merge<TItem, TField>(
+  public static IEnumerable<TObjField> Merge<TItem, TObjField>(
       this IEnumerable<TItem> items,
-      Func<TItem, TField?> field,
-      IMerge<TField> merger)
-    where TField : AstBase
+      Func<TItem, TObjField?> field,
+      IMerge<TObjField> merger)
+    where TObjField : AstBase
   {
     ArgumentNullException.ThrowIfNull(merger);
 
-    var fields = items.Select(field).Where(f => f is not null).Cast<TField>().ToArray();
+    var fields = items.Select(field).Where(f => f is not null).Cast<TObjField>().ToArray();
 
     return merger.Merge(fields);
   }
@@ -170,8 +170,8 @@ public static class MergeExtensions
       .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr))
       ?? "";
 
-  public static TField Combine<TItem, TField>(this IEnumerable<TItem> items, Func<TItem, TField> field, IMerge<TField> merger)
-    where TField : AstBase
+  public static TObjField Combine<TItem, TObjField>(this IEnumerable<TItem> items, Func<TItem, TObjField> field, IMerge<TObjField> merger)
+    where TObjField : AstBase
   {
     ArgumentNullException.ThrowIfNull(merger);
 

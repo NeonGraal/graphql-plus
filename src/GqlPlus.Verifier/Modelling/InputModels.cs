@@ -30,7 +30,7 @@ public record class InputBaseModel(
 public record class InputFieldModel(
   string Name,
   ObjRefModel<InputBaseModel> Type
-) : FieldModel<InputBaseModel>(Name, Type)
+) : ObjFieldModel<InputBaseModel>(Name, Type)
 {
   internal ConstantModel? Default { get; init; }
 
@@ -40,10 +40,10 @@ public record class InputFieldModel(
 }
 
 internal class InputModeller(
-  IAlternateModeller<InputReferenceAst, InputBaseModel> alternate,
-  IModeller<InputFieldAst, InputFieldModel> field,
-  IModeller<InputReferenceAst, InputBaseModel> reference
-) : ModellerObject<InputDeclAst, InputReferenceAst, InputFieldAst, TypeInputModel, InputBaseModel, InputFieldModel>(TypeKindModel.Input, alternate, field, reference)
+  IAlternateModeller<InputBaseAst, InputBaseModel> alternate,
+  IModeller<InputFieldAst, InputFieldModel> objField,
+  IModeller<InputBaseAst, InputBaseModel> objBase
+) : ModellerObject<InputDeclAst, InputBaseAst, InputFieldAst, TypeInputModel, InputBaseModel, InputFieldModel>(TypeKindModel.Input, alternate, objField, objBase)
 {
   protected override TypeInputModel ToModel(InputDeclAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
@@ -56,11 +56,11 @@ internal class InputModeller(
     };
 }
 
-internal class InputReferenceModeller(
-  IModeller<DualReferenceAst, DualBaseModel> dual
-) : ModellerReference<InputReferenceAst, InputBaseModel>
+internal class InputBaseModeller(
+  IModeller<DualBaseAst, DualBaseModel> dual
+) : ModellerObjBase<InputBaseAst, InputBaseModel>
 {
-  protected override InputBaseModel ToModel(InputReferenceAst ast, IMap<TypeKindModel> typeKinds)
+  protected override InputBaseModel ToModel(InputBaseAst ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Name, out var typeKind) && typeKind == TypeKindModel.Dual
     ? new(ast.Name) {
       Dual = dual.ToModel(ast.ToDual(), typeKinds)
@@ -73,13 +73,12 @@ internal class InputReferenceModeller(
 
 internal class InputFieldModeller(
   IModifierModeller modifier,
-  IModeller<InputReferenceAst, InputBaseModel> reference,
+  IModeller<InputBaseAst, InputBaseModel> refBase,
   IModeller<ConstantAst, ConstantModel> constant
-) : ModellerBase<InputFieldAst, InputFieldModel>
+) : ModellerObjField<InputBaseAst, InputFieldAst, InputBaseModel, InputFieldModel>(modifier, refBase)
 {
-  protected override InputFieldModel ToModel(InputFieldAst field, IMap<TypeKindModel> typeKinds)
-    => new(field.Name, new(reference.ToModel(field.Type, typeKinds))) {
-      Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
-      Default = constant.TryModel(field.Default, typeKinds),
+  protected override InputFieldModel FieldModel(InputFieldAst ast, ObjRefModel<InputBaseModel> type, IMap<TypeKindModel> typeKinds)
+    => new(ast.Name, type) {
+      Default = constant.TryModel(ast.Default, typeKinds),
     };
 }

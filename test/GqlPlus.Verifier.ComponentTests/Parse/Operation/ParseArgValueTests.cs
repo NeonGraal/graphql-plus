@@ -68,5 +68,5 @@ public class ParseArgValueTests(Parser<ArgumentAst>.D parser)
   private void CheckNull(ArgumentAst? result)
     => result.Should().BeNull();
 
-  private readonly OneChecksParser<ArgumentAst> _checks = new(parser);
+  private readonly CheckOne<ArgumentAst> _checks = new(parser);
 }

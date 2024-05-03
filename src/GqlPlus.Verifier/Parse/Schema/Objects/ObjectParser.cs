@@ -5,71 +5,67 @@ using GqlPlus.Verifier.Token;
 
 namespace GqlPlus.Verifier.Parse.Schema.Objects;
 
-internal abstract class ObjectParser<TObject, TField, TRef>
-  : DeclarationParser<TypeParameterAst, ObjectDefinition<TField, TRef>, TObject>, Parser<TObject>.I
-  where TObject : AstObject<TField, TRef> where TField : AstField<TRef> where TRef : AstReference<TRef>
+internal abstract class ObjectParser<TObject, TObjField, TObjBase>(
+  ISimpleName name,
+  Parser<TypeParameterAst>.DA param,
+  Parser<string>.DA aliases,
+  Parser<IOptionParser<NullOption>, NullOption>.D option,
+  Parser<ObjectDefinition<TObjField, TObjBase>>.D definition
+) : DeclarationParser<TypeParameterAst, ObjectDefinition<TObjField, TObjBase>, TObject>(name, param, aliases, option, definition)
+  , Parser<TObject>.I
+  where TObject : AstObject<TObjField, TObjBase>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
-  protected ObjectParser(
-    ISimpleName name,
-    Parser<TypeParameterAst>.DA param,
-    Parser<string>.DA aliases,
-    Parser<IOptionParser<NullOption>, NullOption>.D option,
-    Parser<ObjectDefinition<TField, TRef>>.D definition
-  ) : base(name, param, aliases, option, definition) { }
-
   protected override bool ApplyParameters(TObject result, IResultArray<TypeParameterAst> parameter)
     => parameter.Optional(value => result.TypeParameters = value ?? []);
 }
 
-public class ObjectDefinition<TField, TRef>
-  where TField : AstField<TRef> where TRef : AstReference<TRef>
+public class ObjectDefinition<TObjField, TObjBase>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
-  public TRef? Parent { get; set; }
-  public TField[] Fields { get; set; } = [];
-  public AstAlternate<TRef>[] Alternates { get; set; } = [];
+  public TObjBase? Parent { get; set; }
+  public TObjField[] Fields { get; set; } = [];
+  public AstAlternate<TObjBase>[] Alternates { get; set; } = [];
 }
 
-public abstract class ParseObjectDefinition<TField, TRef> : Parser<ObjectDefinition<TField, TRef>>.I
-  where TField : AstField<TRef> where TRef : AstReference<TRef>
+public abstract class ParseObjectDefinition<TObjField, TObjBase>(
+  Parser<TObjField>.D objField,
+  ParserArray<IParserCollections, ModifierAst>.DA collections,
+  Parser<TObjBase>.D objBase
+) : Parser<ObjectDefinition<TObjField, TObjBase>>.I
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>
 {
-  private readonly Parser<TField>.L _field;
-  private readonly ParserArray<IParserCollections, ModifierAst>.LA _collections;
-  private readonly Parser<TRef>.L _reference;
-
-  protected ParseObjectDefinition(
-    Parser<TField>.D field,
-    ParserArray<IParserCollections, ModifierAst>.DA collections,
-    Parser<TRef>.D reference)
-  {
-    _field = field;
-    _collections = collections;
-    _reference = reference;
-  }
+  private readonly Parser<TObjField>.L _objField = objField;
+  private readonly ParserArray<IParserCollections, ModifierAst>.LA _collections = collections;
+  private readonly Parser<TObjBase>.L _objBase = objBase;
 
   protected abstract string Label { get; }
 
-  public IResult<ObjectDefinition<TField, TRef>> Parse<TContext>(TContext tokens, string label)
+  public IResult<ObjectDefinition<TObjField, TObjBase>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     ArgumentNullException.ThrowIfNull(tokens);
-    ObjectDefinition<TField, TRef> result = new();
+    ObjectDefinition<TObjField, TObjBase> result = new();
     if (tokens.Take(':')) {
-      var baseReference = _reference.Parse(tokens, label);
-      if (baseReference.IsError()) {
-        return baseReference.AsResult(result);
+      var objBase = _objBase.Parse(tokens, label);
+      if (objBase.IsError()) {
+        return objBase.AsResult(result);
       }
 
-      baseReference.WithResult(reference => result.Parent = reference);
+      objBase.WithResult(parent => result.Parent = parent);
     }
 
-    var fields = new List<TField>();
-    var objectField = _field.Parse(tokens, label);
+    var fields = new List<TObjField>();
+    var objectField = _objField.Parse(tokens, label);
     if (objectField.IsError()) {
       return objectField.AsPartial(result);
     }
 
     while (objectField.Required(fields.Add)) {
-      objectField = _field.Parse(tokens, label);
+      objectField = _objField.Parse(tokens, label);
       if (objectField.IsError()) {
         return objectField.AsPartial(result, fields.Add, () =>
           result.Fields = [.. fields]);
@@ -83,17 +79,17 @@ public abstract class ParseObjectDefinition<TField, TRef> : Parser<ObjectDefinit
       : tokens.End(Label, () => result);
   }
 
-  private IResultArray<AstAlternate<TRef>> ParseAlternates<TContext>(TContext tokens, string label)
+  private IResultArray<AstAlternate<TObjBase>> ParseAlternates<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var result = new List<AstAlternate<TRef>>();
+    var result = new List<AstAlternate<TObjBase>>();
     while (tokens.Take('|')) {
-      var reference = _reference.Parse(tokens, label);
-      if (!reference.IsOk()) {
-        return reference.AsPartialArray(result);
+      var objBase = _objBase.Parse(tokens, label);
+      if (!objBase.IsOk()) {
+        return objBase.AsPartialArray(result);
       }
 
-      AstAlternate<TRef> alternate = new(reference.Required());
+      AstAlternate<TObjBase> alternate = new(objBase.Required());
       result.Add(alternate);
       var collections = _collections.Value.Parse(tokens, Label);
       if (!collections.Optional(value => alternate.Modifiers = value)) {

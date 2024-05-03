@@ -11,20 +11,20 @@ internal static class AllModellers
 {
   public static IServiceCollection AddModellers(this IServiceCollection services)
     => services
-      .AddAlternateModeller<DualReferenceAst, DualBaseModel>()
-      .AddAlternateModeller<InputReferenceAst, InputBaseModel>()
-      .AddAlternateModeller<OutputReferenceAst, OutputBaseModel>()
+      .AddAlternateModeller<DualBaseAst, DualBaseModel>()
+      .AddAlternateModeller<InputBaseAst, InputBaseModel>()
+      .AddAlternateModeller<OutputBaseAst, OutputBaseModel>()
       .AddModeller<CategoryDeclAst, CategoryModel, CategoryModeller>()
       .AddModeller<ConstantAst, ConstantModel, ConstantModeller>()
       .AddModeller<DirectiveDeclAst, DirectiveModel, DirectiveModeller>()
       .AddModeller<DualFieldAst, DualFieldModel, DualFieldModeller>()
-      .AddModeller<DualReferenceAst, DualBaseModel, DualReferenceModeller>()
+      .AddModeller<DualBaseAst, DualBaseModel, DualBaseModeller>()
       .AddModeller<FieldKeyAst, SimpleModel, SimpleModeller>()
       .AddModeller<InputFieldAst, InputFieldModel, InputFieldModeller>()
-      .AddModeller<InputReferenceAst, InputBaseModel, InputReferenceModeller>()
+      .AddModeller<InputBaseAst, InputBaseModel, InputBaseModeller>()
       .AddModeller<OptionSettingAst, SettingModel, SettingModeller>()
       .AddModeller<OutputFieldAst, OutputFieldModel, OutputFieldModeller>()
-      .AddModeller<OutputReferenceAst, OutputBaseModel, OutputReferenceModeller>()
+      .AddModeller<OutputBaseAst, OutputBaseModel, OutputBaseModeller>()
       .AddModeller<ParameterAst, ParameterModel, ParameterModeller>()
       .AddModeller<SchemaAst, SchemaModel, SchemaModeller>()
       .AddModifierModeller()
@@ -73,8 +73,8 @@ internal static class AllModellers
       .AddSingleton<IModeller<ModifierAst, ModifierModel>>(c => c.GetRequiredService<IModifierModeller>())
       .AddSingleton<IModeller<ModifierAst, CollectionModel>>(c => c.GetRequiredService<IModifierModeller>());
 
-  public static IServiceCollection AddAlternateModeller<TRefAst, TBase>(this IServiceCollection services)
-    where TRefAst : AstReference<TRefAst>
-    where TBase : IObjBaseModel
-    => services.AddSingleton<IAlternateModeller<TRefAst, TBase>, AlternateModeller<TRefAst, TBase>>();
+  public static IServiceCollection AddAlternateModeller<TObjBaseAst, TObjBase>(this IServiceCollection services)
+    where TObjBaseAst : AstObjectBase<TObjBaseAst>
+    where TObjBase : IObjBaseModel
+    => services.AddSingleton<IAlternateModeller<TObjBaseAst, TObjBase>, AlternateModeller<TObjBaseAst, TObjBase>>();
 }

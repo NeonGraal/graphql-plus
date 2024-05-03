@@ -10,10 +10,10 @@ internal class ParseOutput(
   Parser<TypeParameterAst>.DA param,
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<ObjectDefinition<OutputFieldAst, OutputReferenceAst>>.D definition
-) : ObjectParser<OutputDeclAst, OutputFieldAst, OutputReferenceAst>(name, param, aliases, option, definition)
+  Parser<ObjectDefinition<OutputFieldAst, OutputBaseAst>>.D definition
+) : ObjectParser<OutputDeclAst, OutputFieldAst, OutputBaseAst>(name, param, aliases, option, definition)
 {
-  protected override OutputDeclAst MakeResult(OutputDeclAst result, ObjectDefinition<OutputFieldAst, OutputReferenceAst> value)
+  protected override OutputDeclAst MakeResult(OutputDeclAst result, ObjectDefinition<OutputFieldAst, OutputBaseAst> value)
   {
     result.Parent = value.Parent;
     result.Fields = value.Fields;
@@ -30,10 +30,10 @@ internal class ParseOutput(
 }
 
 internal class ParseOutputDefinition(
-  Parser<OutputFieldAst>.D field,
+  Parser<OutputFieldAst>.D objField,
   ParserArray<IParserCollections, ModifierAst>.DA collections,
-  Parser<OutputReferenceAst>.D reference
-) : ParseObjectDefinition<OutputFieldAst, OutputReferenceAst>(field, collections, reference)
+  Parser<OutputBaseAst>.D objBase
+) : ParseObjectDefinition<OutputFieldAst, OutputBaseAst>(objField, collections, objBase)
 {
   protected override string Label => "Output";
 }

@@ -62,16 +62,16 @@ internal static class BuiltIn
   private static TypeParameterAst[] TypeParameters(params string[] parameters)
     => [.. parameters.Select(r => new TypeParameterAst(AstNulls.At, r))];
 
-  private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, params AstAlternate<DualReferenceAst>[] alternates)
+  private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, params AstAlternate<DualBaseAst>[] alternates)
     => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Alternates = alternates };
 
-  private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, DualReferenceAst parent)
+  private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, DualBaseAst parent)
     => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Parent = parent };
 
-  private static AstAlternate<DualReferenceAst> DualType(string type, params DualReferenceAst[] args)
+  private static AstAlternate<DualBaseAst> DualType(string type, params DualBaseAst[] args)
     => new(AstNulls.At, DualRef(type, args));
 
-  private static AstAlternate<DualReferenceAst> DualAlt(string? key)
+  private static AstAlternate<DualBaseAst> DualAlt(string? key)
     => new(AstNulls.At, DualParam("T")) {
       Modifiers = key switch {
         null => [],
@@ -80,7 +80,7 @@ internal static class BuiltIn
       }
     };
 
-  private static AstAlternate<DualReferenceAst> DualMost(string key, bool optional = false)
+  private static AstAlternate<DualBaseAst> DualMost(string key, bool optional = false)
     => new(AstNulls.At, DualRef("_Most", DualParam("T"))) {
       Modifiers = key switch {
         "" => [optional ? ModifierAst.Optional(AstNulls.At) : ModifierAst.List(AstNulls.At)],
@@ -88,13 +88,13 @@ internal static class BuiltIn
       }
     };
 
-  private static DualReferenceAst DualRef(string name, params DualReferenceAst[] args)
-    => new DualReferenceAst(AstNulls.At, name, "") with { Arguments = args };
+  private static DualBaseAst DualRef(string name, params DualBaseAst[] args)
+    => new DualBaseAst(AstNulls.At, name, "") with { Arguments = args };
 
-  private static DualReferenceAst DualParam(string name)
+  private static DualBaseAst DualParam(string name)
     => DualRef(name) with { IsTypeParameter = true };
 
-  private static DualReferenceAst DualDict(string type, bool paramSecond = false)
+  private static DualBaseAst DualDict(string type, bool paramSecond = false)
     => DualRef("_Dict") with {
       Arguments = [
         paramSecond ? DualParam("K") : DualRef(type),

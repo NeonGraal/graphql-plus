@@ -40,13 +40,13 @@ public static class AllMergers
       // Object types
       .AddMerge<ParameterAst, MergeParameters>()
       .AddMerge<TypeParameterAst, MergeTypeParameters>()
-      .AddMerge<AstAlternate<DualReferenceAst>, AlternatesMerger<DualReferenceAst>>()
+      .AddMerge<AstAlternate<DualBaseAst>, AlternatesMerger<DualBaseAst>>()
       .AddMerge<DualFieldAst, MergeDualFields>()
       .AddMergeAll<DualDeclAst, AstType, MergeDualObjects>()
-      .AddMerge<AstAlternate<InputReferenceAst>, AlternatesMerger<InputReferenceAst>>()
+      .AddMerge<AstAlternate<InputBaseAst>, AlternatesMerger<InputBaseAst>>()
       .AddMerge<InputFieldAst, MergeInputFields>()
       .AddMergeAll<InputDeclAst, AstType, MergeInputObjects>()
-      .AddMerge<AstAlternate<OutputReferenceAst>, AlternatesMerger<OutputReferenceAst>>()
+      .AddMerge<AstAlternate<OutputBaseAst>, AlternatesMerger<OutputBaseAst>>()
       .AddMerge<OutputFieldAst, MergeOutputFields>()
       .AddMergeAll<OutputDeclAst, AstType, MergeOutputObjects>()
     ;
@@ -58,15 +58,15 @@ public static class AllMergers
       .RemoveAll<IMerge<TValue>>()
       .AddSingleton<IMerge<TValue>, TService>();
 
-  public static IServiceCollection AddMergeAll<TValue, TBase, TService>(this IServiceCollection services)
-    where TValue : AstBase
-    where TBase : AstType
-    where TService : class, IMergeAll<TBase>, IMerge<TValue>
+  public static IServiceCollection AddMergeAll<TAst, TType, TService>(this IServiceCollection services)
+    where TAst : AstBase
+    where TType : AstType
+    where TService : class, IMergeAll<TType>, IMerge<TAst>
     => services
-      .RemoveAll<IMerge<TValue>>()
+      .RemoveAll<IMerge<TAst>>()
       .AddSingleton<TService>()
-      .AddSingleton<IMerge<TValue>>(x => x.GetRequiredService<TService>())
-      .AddSingleton<IMergeAll<TBase>>(x => x.GetRequiredService<TService>());
+      .AddSingleton<IMerge<TAst>>(x => x.GetRequiredService<TService>())
+      .AddSingleton<IMergeAll<TType>>(x => x.GetRequiredService<TService>());
 
   public static IServiceCollection AddMergeDomain<TMember>(this IServiceCollection services)
     where TMember : AstAbbreviated, IAstDomainItem

@@ -31,8 +31,8 @@ public class UsageContext(
     return false;
   }
 
-  internal virtual void CheckArgumentType<TRef>(TRef type, string labelSuffix)
-    where TRef : AstReference<TRef>
+  internal virtual void CheckArgumentType<TObjBase>(TObjBase type, string labelSuffix)
+    where TObjBase : AstObjectBase<TObjBase>
     => this.CheckType(type, labelSuffix);
 
   internal bool DifferentName<TAst>(ParentUsage<TAst> input, string? current)
@@ -87,9 +87,9 @@ internal static class UsageHelpers
     return context;
   }
 
-  internal static TContext CheckType<TContext, TRef>(this TContext context, TRef type, string labelSuffix, bool check = true)
+  internal static TContext CheckType<TContext, TObjBase>(this TContext context, TObjBase type, string labelSuffix, bool check = true)
     where TContext : UsageContext
-    where TRef : AstReference<TRef>
+    where TObjBase : AstObjectBase<TObjBase>
   {
     if (context.GetType(type.FullName, out AstDescribed? value)) {
       var numArgs = type.Arguments.Length;

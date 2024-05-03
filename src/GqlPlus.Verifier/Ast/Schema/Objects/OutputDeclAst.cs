@@ -6,7 +6,7 @@ public sealed record class OutputDeclAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObject<OutputFieldAst, OutputReferenceAst>(At, Name, Description)
+) : AstObject<OutputFieldAst, OutputBaseAst>(At, Name, Description)
 {
   internal override string Abbr => "Ou";
   public override string Label => "Output";

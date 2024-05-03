@@ -6,11 +6,11 @@ namespace GqlPlus.Verifier.Merging.Objects;
 
 public class MergeDualFieldsTests(
   ITestOutputHelper outputHelper
-) : TestFields<DualFieldAst, DualReferenceAst>
+) : TestObjectFields<DualFieldAst, DualBaseAst>
 {
   private readonly MergeDualFields _merger = new(outputHelper.ToLoggerFactory());
 
-  internal override FieldsMerger<DualFieldAst, DualReferenceAst> MergerField => _merger;
+  internal override AstObjectFieldsMerger<DualFieldAst, DualBaseAst> MergerField => _merger;
 
   protected override DualFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
     => new(AstNulls.At, name, fieldDescription, new(AstNulls.At, type, typeDescription));

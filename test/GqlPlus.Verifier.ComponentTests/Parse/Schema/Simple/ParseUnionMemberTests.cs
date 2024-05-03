@@ -4,16 +4,16 @@ namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
 public sealed class ParseUnionMemberTests(
   Parser<UnionMemberAst>.D parser
-) : BaseNamedTests<string>
+) : TestNamed<string>
 {
-  internal override IBaseNamedChecks<string> NameChecks => _checks;
+  internal override ICheckNamed<string> NameChecks => _checks;
 
   private readonly ParseUnionMemberChecks _checks = new(parser);
 }
 
 internal sealed class ParseUnionMemberChecks(
   Parser<UnionMemberAst>.D parser
-) : BaseNamedChecks<string, UnionMemberAst>(parser)
+) : CheckNamed<string, UnionMemberAst>(parser)
 {
   protected internal override UnionMemberAst NamedFactory(string input)
     => new(AstNulls.At, input);

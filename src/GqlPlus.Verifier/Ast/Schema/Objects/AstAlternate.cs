@@ -2,9 +2,13 @@
 
 namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
-public record class AstAlternate<TRef>(TokenAt At, TRef Type)
-  : AstAbbreviated(At), IEquatable<AstAlternate<TRef>>, IAstDescribed, IAstModified
-  where TRef : AstReference<TRef>, IEquatable<TRef>
+public record class AstAlternate<TObjBase>(
+  TokenAt At,
+  TObjBase Type
+) : AstAbbreviated(At), IEquatable<AstAlternate<TObjBase>>
+  , IAstDescribed
+  , IAstModified
+  where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   public ModifierAst[] Modifiers { get; set; } = [];
 
@@ -12,10 +16,10 @@ public record class AstAlternate<TRef>(TokenAt At, TRef Type)
 
   public string Description => Type.Description;
 
-  internal AstAlternate(TRef @type)
-    : this(type.At, type) { }
+  internal AstAlternate(TObjBase objBase)
+    : this(objBase.At, objBase) { }
 
-  public virtual bool Equals(AstAlternate<TRef>? other)
+  public virtual bool Equals(AstAlternate<TObjBase>? other)
     => base.Equals(other)
     && (Type?.Equals(other.Type) ?? other.Type is null)
     && Modifiers.SequenceEqual(other.Modifiers);

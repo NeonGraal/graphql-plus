@@ -73,5 +73,5 @@ public class ParseDefaultTests(Parser<IParserDefault, ConstantAst>.D parser)
   private void CheckNull(ConstantAst? result)
     => result.Should().BeNull();
 
-  private readonly OneChecksParser<IParserDefault, ConstantAst> _checks = new(parser);
+  private readonly CheckOne<IParserDefault, ConstantAst> _checks = new(parser);
 }

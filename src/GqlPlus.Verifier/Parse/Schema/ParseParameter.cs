@@ -7,12 +7,12 @@ using GqlPlus.Verifier.Token;
 namespace GqlPlus.Verifier.Parse.Schema;
 
 internal class ParseParameters(
-  Parser<InputReferenceAst>.D input,
+  Parser<InputBaseAst>.D input,
   Parser<ModifierAst>.DA modifiers,
   Parser<IParserDefault, ConstantAst>.D defaultParser
 ) : Parser<ParameterAst>.IA
 {
-  private readonly Parser<InputReferenceAst>.L _input = input;
+  private readonly Parser<InputBaseAst>.L _input = input;
   private readonly Parser<ModifierAst>.LA _modifiers = modifiers;
   private readonly Parser<IParserDefault, ConstantAst>.L _default = defaultParser;
 
@@ -29,7 +29,7 @@ internal class ParseParameters(
       var at = tokens.At;
       var input = _input.Parse(tokens, label);
       if (!input.IsOk()) {
-        return tokens.ErrorArray("Parameter", "input reference after '('", list);
+        return tokens.ErrorArray("Parameter", "input base after '('", list);
       }
 
       var parameter = new ParameterAst(at, input.Required());

@@ -8,7 +8,7 @@ namespace GqlPlus.Verifier.Merging.Objects;
 internal class MergeParameters(
   ILoggerFactory logger,
   IMerge<ConstantAst> constant
-) : AstAlternatesMerger<ParameterAst, InputReferenceAst>(logger)
+) : AstAlternatesMerger<ParameterAst, InputBaseAst>(logger)
 {
   protected override ITokenMessages CanMergeGroup(IGrouping<string, ParameterAst> group)
     => base.CanMergeGroup(group)

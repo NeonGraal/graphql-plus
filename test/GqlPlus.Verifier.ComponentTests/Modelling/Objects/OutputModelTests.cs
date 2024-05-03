@@ -4,29 +4,29 @@ namespace GqlPlus.Verifier.Modelling.Objects;
 
 public class OutputModelTests(
   IModeller<OutputDeclAst, TypeOutputModel> modeller
-) : TestObjectModel<OutputDeclAst, OutputFieldAst, OutputReferenceAst>
+) : TestObjectModel<OutputDeclAst, OutputFieldAst, OutputBaseAst>
 {
-  internal override ICheckObjectModel<OutputDeclAst, OutputFieldAst, OutputReferenceAst> ObjectChecks => _checks;
+  internal override ICheckObjectModel<OutputDeclAst, OutputFieldAst, OutputBaseAst> ObjectChecks => _checks;
 
   private readonly OutputModelChecks _checks = new(modeller);
 }
 
 internal sealed class OutputModelChecks(
   IModeller<OutputDeclAst, TypeOutputModel> modeller
-) : CheckObjectModel<OutputDeclAst, OutputFieldAst, OutputReferenceAst, TypeOutputModel>(modeller, TypeKindModel.Output)
+) : CheckObjectModel<OutputDeclAst, OutputFieldAst, OutputBaseAst, TypeOutputModel>(modeller, TypeKindModel.Output)
 {
   protected override OutputDeclAst NewObjectAst(
     string name,
-    OutputReferenceAst? parent,
+    OutputBaseAst? parent,
     string description,
     FieldInput[] fields,
     string[] alternates)
     => new(AstNulls.At, name, description) {
       Parent = parent,
       Fields = fields.OutputFields(),
-      Alternates = alternates.Alternates(NewReferenceAst),
+      Alternates = alternates.Alternates(NewParentAst),
     };
 
-  internal override OutputReferenceAst NewReferenceAst(string input)
+  internal override OutputBaseAst NewParentAst(string input)
     => new(AstNulls.At, input);
 }

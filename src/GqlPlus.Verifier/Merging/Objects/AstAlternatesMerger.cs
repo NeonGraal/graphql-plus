@@ -3,11 +3,11 @@ using GqlPlus.Verifier.Ast.Schema.Objects;
 
 namespace GqlPlus.Verifier.Merging.Objects;
 
-internal class AstAlternatesMerger<TAlternate, TRef>(
+internal class AstAlternatesMerger<TAlternate, TObjBase>(
   ILoggerFactory logger
 ) : AstDescribedMerger<TAlternate>(logger)
-  where TAlternate : AstAlternate<TRef>
-  where TRef : AstReference<TRef>, IEquatable<TRef>
+  where TAlternate : AstAlternate<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   protected override TAlternate MergeGroup(IEnumerable<TAlternate> group)
   {
@@ -23,8 +23,8 @@ internal class AstAlternatesMerger<TAlternate, TRef>(
     => item.Modifiers.AsString().Joined();
 }
 
-internal class AlternatesMerger<TRef>(
+internal class AlternatesMerger<TObjBase>(
   ILoggerFactory logger
-) : AstAlternatesMerger<AstAlternate<TRef>, TRef>(logger)
-  where TRef : AstReference<TRef>, IEquatable<TRef>
+) : AstAlternatesMerger<AstAlternate<TObjBase>, TObjBase>(logger)
+  where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
 { }

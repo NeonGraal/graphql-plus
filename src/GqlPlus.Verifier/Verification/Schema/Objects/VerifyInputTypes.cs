@@ -9,9 +9,9 @@ namespace GqlPlus.Verifier.Verification.Schema.Objects;
 internal class VerifyInputTypes(
   IVerifyAliased<InputDeclAst> aliased,
   IMerge<InputFieldAst> fields,
-  IMerge<AstAlternate<InputReferenceAst>> mergeAlternates,
+  IMerge<AstAlternate<InputBaseAst>> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<InputDeclAst, InputFieldAst, InputReferenceAst, UsageContext>(aliased, fields, mergeAlternates, logger)
+) : AstObjectVerifier<InputDeclAst, InputFieldAst, InputBaseAst, UsageContext>(aliased, fields, mergeAlternates, logger)
 {
   protected override UsageContext MakeContext(InputDeclAst usage, AstType[] aliased, ITokenMessages errors)
   {

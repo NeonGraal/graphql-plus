@@ -45,15 +45,15 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
 
   internal abstract TAst NewTypeAst(string name, TAstParent? parent, string description);
 
-  internal abstract TAstParent NewReferenceAst(TParent input);
+  internal abstract TAstParent NewParentAst(TParent input);
 
   string[] ICheckTypeModel<TAstParent, TParent, TTypeKind>.ExpectedType(ExpectedTypeInput<TParent> input)
     => ExpectedType(input);
 
   TAstParent ICheckTypeModel<TAstParent, TParent, TTypeKind>.ParentAst(TParent parent)
-    => NewReferenceAst(parent);
+    => NewParentAst(parent);
   AstType<TAstParent> ICheckTypeModel<TAstParent, TParent, TTypeKind>.TypeAst(string name, TParent parent)
-    => NewTypeAst(name, NewReferenceAst(parent), "");
+    => NewTypeAst(name, NewParentAst(parent), "");
 
   void ICheckTypeModel<TAstParent, TParent, TTypeKind>.TypeExpected(AstType<TAstParent> type, string[] expected)
     => AstExpected((TAst)type, expected);
@@ -72,7 +72,7 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
   where TAst : AstType<string>
   where TModel : IRendering
 {
-  internal override string NewReferenceAst(string input)
+  internal override string NewParentAst(string input)
     => input;
 }
 

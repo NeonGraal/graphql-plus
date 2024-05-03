@@ -1,15 +1,15 @@
 ﻿namespace GqlPlus.Verifier.Ast.Schema.Objects;
 
 public class DualFieldAstTests
-  : AstFieldTests<DualFieldAst, DualReferenceAst>
+  : AstObjectFieldTests<DualFieldAst, DualBaseAst>
 {
   protected override string AliasesString(FieldInput input, string aliases)
     => $"( !DF {input.Name}{aliases} : {input.Type} )";
 
-  private readonly AstFieldChecks<DualFieldAst, DualReferenceAst> _checks = new(
-      (dual, reference) => new(AstNulls.At, dual.Name, reference),
+  private readonly AstObjectFieldChecks<DualFieldAst, DualBaseAst> _checks = new(
+      (dual, objBase) => new(AstNulls.At, dual.Name, objBase),
       dual => new(AstNulls.At, dual.Type),
-      arguments => arguments.DualReferences());
+      arguments => arguments.DualBases());
 
-  internal override IAstFieldChecks<DualFieldAst, DualReferenceAst> FieldChecks => _checks;
+  internal override IAstObjectFieldChecks<DualFieldAst, DualBaseAst> FieldChecks => _checks;
 }

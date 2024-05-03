@@ -6,6 +6,6 @@ internal class MergeInputObjects(
   ILoggerFactory logger,
   IMerge<InputFieldAst> fields,
   IMerge<TypeParameterAst> typeParameters,
-  IMerge<AstAlternate<InputReferenceAst>> alternates
-) : AstObjectsMerger<InputDeclAst, InputFieldAst, InputReferenceAst>(logger, fields, typeParameters, alternates)
+  IMerge<AstAlternate<InputBaseAst>> alternates
+) : AstObjectsMerger<InputDeclAst, InputFieldAst, InputBaseAst>(logger, fields, typeParameters, alternates)
 { }

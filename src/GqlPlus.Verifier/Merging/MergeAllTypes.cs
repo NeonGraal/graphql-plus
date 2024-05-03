@@ -55,7 +55,7 @@ internal class MergeAllTypes(
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());
 
-  private static void FixupType(OutputReferenceAst type, Map<string> enumValues)
+  private static void FixupType(OutputBaseAst type, Map<string> enumValues)
   {
     if (string.IsNullOrWhiteSpace(type.Name)
       && enumValues.TryGetValue(type.EnumValue ?? "", out var enumType)) {

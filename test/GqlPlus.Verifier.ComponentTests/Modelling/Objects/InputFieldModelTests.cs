@@ -4,7 +4,7 @@ namespace GqlPlus.Verifier.Modelling.Objects;
 
 public class InputFieldModelTests(
   IModeller<InputFieldAst, InputFieldModel> modeller
-) : TestFieldModel<InputFieldAst, InputReferenceAst>
+) : TestObjectFieldModel<InputFieldAst, InputBaseAst>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_DefaultString(FieldInput input, string contents)
@@ -13,15 +13,15 @@ public class InputFieldModelTests(
       FieldChecks.ExpectedField(input, ["default: " + contents.YamlQuoted()], [])
       );
 
-  internal override ICheckFieldModel<InputFieldAst, InputReferenceAst> FieldChecks => _checks;
+  internal override ICheckObjectFieldModel<InputFieldAst, InputBaseAst> FieldChecks => _checks;
 
   private readonly InputFieldModelChecks _checks = new(modeller);
 }
 
 internal sealed class InputFieldModelChecks(
   IModeller<InputFieldAst, InputFieldModel> modeller
-) : CheckFieldModel<InputFieldAst, InputReferenceAst, InputFieldModel>(modeller, TypeKindModel.Input)
+) : CheckObjectFieldModel<InputFieldAst, InputBaseAst, InputFieldModel>(modeller, TypeKindModel.Input)
 {
   protected override InputFieldAst NewFieldAst(FieldInput input)
-    => new(AstNulls.At, input.Name, new InputReferenceAst(AstNulls.At, input.Type));
+    => new(AstNulls.At, input.Name, new InputBaseAst(AstNulls.At, input.Type));
 }

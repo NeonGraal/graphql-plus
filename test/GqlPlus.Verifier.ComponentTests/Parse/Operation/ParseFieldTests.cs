@@ -67,5 +67,5 @@ public class ParseFieldTests(Parser<FieldAst>.D parser)
   private void DefaultNull(IAstSelection? result)
     => result.Should().BeNull();
 
-  private readonly OneChecksParser<FieldAst> _checks = new(parser);
+  private readonly CheckOne<FieldAst> _checks = new(parser);
 }

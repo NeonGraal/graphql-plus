@@ -4,16 +4,16 @@ namespace GqlPlus.Verifier.Parse.Schema.Simple;
 
 public sealed class ParseDomainBooleanTests(
   Parser<AstDomain>.D parser
-) : BaseDomainTests<string>
+) : TestDomain<string>
 {
-  internal override IBaseDomainChecks<string> DomainChecks => _checks;
+  internal override ICheckDomain<string> DomainChecks => _checks;
 
   private readonly ParseDomainBooleanChecks _checks = new(parser);
 }
 
 internal sealed class ParseDomainBooleanChecks(
   Parser<AstDomain>.D parser
-) : BaseDomainChecks<string, AstDomain>(parser, DomainKind.Boolean)
+) : CheckDomain<string, AstDomain>(parser, DomainKind.Boolean)
 {
   protected internal override AstDomain<DomainTrueFalseAst> NamedFactory(string input)
     => new(AstNulls.At, input, DomainKind.Boolean, []);

@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Rendering;
 
-namespace GqlPlus.Verifier.Modelling;
+namespace GqlPlus.Modelling;
 
 public abstract class TestTypeModel<TAstParent, TParent, TTypeKind>
   : TestAliasedModel<string>

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Parse.Schema;
+﻿namespace GqlPlus.Parse.Schema;
 
 public abstract class TestNamed<TInput>
 {

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier;
+﻿namespace GqlPlus;
 
 public class Structured<TValue, TStruct>
   where TValue : notnull
@@ -20,6 +20,6 @@ public class Structured<TValue, TStruct>
     => Value = value;
   internal Structured(IEnumerable<TStruct> values)
     => List = [.. values];
-  internal Structured(Dictionary<TValue, TStruct> values)
+  internal Structured(IDictionary<TValue, TStruct> values)
     => Map = new(values);
 }

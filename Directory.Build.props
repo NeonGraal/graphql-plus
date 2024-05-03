@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <AnalysisLevel>8.0-all</AnalysisLevel>
+    <RootNamespace>GqlPlus</RootNamespace>
   </PropertyGroup>
 
 </Project>

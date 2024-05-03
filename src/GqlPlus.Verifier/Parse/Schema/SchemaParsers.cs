@@ -1,14 +1,14 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Globals;
-using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Parse.Schema.Globals;
-using GqlPlus.Verifier.Parse.Schema.Objects;
-using GqlPlus.Verifier.Parse.Schema.Simple;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Parse.Schema.Globals;
+using GqlPlus.Parse.Schema.Objects;
+using GqlPlus.Parse.Schema.Simple;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GqlPlus.Verifier.Parse.Schema;
+namespace GqlPlus.Parse.Schema;
 
 public static class SchemaParsers
 {

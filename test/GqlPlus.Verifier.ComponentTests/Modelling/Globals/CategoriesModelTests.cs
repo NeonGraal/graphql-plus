@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Globals;
-using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Rendering;
 
-namespace GqlPlus.Verifier.Modelling.Globals;
+namespace GqlPlus.Modelling.Globals;
 
 public class CategoriesModelTests(
   IModeller<CategoryDeclAst, CategoryModel> category,

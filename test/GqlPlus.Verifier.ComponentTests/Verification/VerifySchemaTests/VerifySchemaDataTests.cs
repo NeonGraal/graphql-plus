@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Parse;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Parse;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verification;
 
 public class VerifySchemaDataTests(
     Parser<SchemaAst>.D parser

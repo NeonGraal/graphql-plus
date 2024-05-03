@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema.Globals;
-using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Rendering;
 
-namespace GqlPlus.Verifier.Modelling;
+namespace GqlPlus.Modelling;
 
 public record class CategoriesModel
   : ModelBase

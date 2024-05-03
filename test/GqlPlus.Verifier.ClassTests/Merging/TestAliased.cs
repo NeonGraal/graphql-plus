@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Merging;
 
 public abstract class TestAliased<TAst>
   : TestDescriptions<TAst>

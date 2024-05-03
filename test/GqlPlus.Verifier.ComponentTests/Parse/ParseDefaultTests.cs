@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace GqlPlus.Verifier.Parse;
+namespace GqlPlus.Parse;
 
 public class ParseDefaultTests(Parser<IParserDefault, ConstantAst>.D parser)
 {

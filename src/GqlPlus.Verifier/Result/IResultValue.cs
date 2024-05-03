@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Result;
+﻿namespace GqlPlus.Result;
 
 public interface IResultValue<T> : IResult<T>
 {

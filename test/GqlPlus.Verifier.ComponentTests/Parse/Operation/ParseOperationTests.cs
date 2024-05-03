@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
-using GqlPlus.Verifier.Result;
+﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Result;
 
-namespace GqlPlus.Verifier.Parse.Operation;
+namespace GqlPlus.Parse.Operation;
 
 public class ParseOperationTests(Parser<OperationAst>.D parser)
 {

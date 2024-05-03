@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace GqlPlus.Verifier.Rendering;
+namespace GqlPlus.Rendering;
 
 public class RenderStructure
   : Structured<RenderValue, RenderStructure>
@@ -34,7 +34,7 @@ public class RenderStructure
     : base(value) => Tag = tag;
   public RenderStructure(IEnumerable<RenderStructure> list, string tag = "", bool flow = false)
     : base(list) => (Tag, Flow) = (tag, flow);
-  public RenderStructure(Dictionary<RenderValue, RenderStructure> map, string tag, bool flow = false)
+  public RenderStructure(IDictionary<RenderValue, RenderStructure> map, string tag, bool flow = false)
     : base(map) => (Tag, Flow) = (tag, flow);
 
   public static implicit operator RenderStructure(RenderValue value)
@@ -64,7 +64,7 @@ public class RenderStructure
   public RenderStructure Add<T>(T value, IRenderContext context)
     where T : IRendering
   {
-    foreach (var (key, item) in value.Render(context).Map) {
+    foreach ((RenderValue key, RenderStructure item) in value.Render(context).Map) {
       Map.Add(key, item);
     }
 
@@ -83,14 +83,14 @@ public class RenderStructure
   public RenderStructure AddSet<TEnum>(string key, TEnum set, string? tag = null, bool flow = true)
     where TEnum : Enum
   {
-    var type = typeof(TEnum);
+    Type type = typeof(TEnum);
 
     if (type.GetCustomAttributes(typeof(FlagsAttribute)).Any()) {
-      var flags = (int)(object)set;
-      var result = new Dict();
+      int flags = (int)(object)set;
+      Dict result = new Dict();
 
-      foreach (var value in Enum.GetValues(type)) {
-        var flag = (int)value;
+      foreach (object? value in Enum.GetValues(type)) {
+        int flag = (int)value;
         if (int.PopCount(flag) == 1 && (flags & flag) == flag) {
           result.Add(new(Enum.GetName(type, value)), new("_"));
         }

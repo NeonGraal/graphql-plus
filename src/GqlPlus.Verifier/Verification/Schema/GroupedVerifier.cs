@@ -1,9 +1,9 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Merging;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Merging;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Verification.Schema;
+namespace GqlPlus.Verification.Schema;
 
 [SuppressMessage("Performance", "CA1823:Avoid unused private fields")]
 [SuppressMessage("Performance", "CA1822:Mark members as static")]

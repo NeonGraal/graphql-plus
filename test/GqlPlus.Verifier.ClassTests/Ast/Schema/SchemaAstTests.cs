@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Globals;
+﻿using GqlPlus.Ast.Schema.Globals;
 
-namespace GqlPlus.Verifier.Ast.Schema;
+namespace GqlPlus.Ast.Schema;
 
 public class SchemaAstTests
   : AstAbbreviatedTests

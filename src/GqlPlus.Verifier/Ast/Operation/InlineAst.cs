@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
 
 internal sealed record class InlineAst(TokenAt At, params IAstSelection[] Selections)
   : AstAbbreviated(At), IAstDirectives, IAstSelection, IEquatable<InlineAst>

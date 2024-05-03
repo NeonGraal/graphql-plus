@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema.Globals;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema.Globals;
 
-namespace GqlPlus.Verifier.Merging.Globals;
+namespace GqlPlus.Merging.Globals;
 
 public class MergeOptionSettingsTests
   : TestGroups<OptionSettingAst>

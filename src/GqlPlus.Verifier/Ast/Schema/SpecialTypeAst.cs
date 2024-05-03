@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Schema;
+namespace GqlPlus.Ast.Schema;
 public record class SpecialTypeAst : AstType
 {
   internal override string Abbr => "TZ";

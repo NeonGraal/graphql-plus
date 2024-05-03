@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Merging.Objects;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Merging.Objects;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Merging;
 
 public abstract class TestObjectFields<TObjField, TObjBase>
   : TestAliased<TObjField>

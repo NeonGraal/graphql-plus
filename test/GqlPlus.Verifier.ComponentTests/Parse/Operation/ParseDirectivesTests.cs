@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 
-namespace GqlPlus.Verifier.Parse.Operation;
+namespace GqlPlus.Parse.Operation;
 
 public class ParseDirectivesTests(Parser<DirectiveAst>.DA parser)
 {

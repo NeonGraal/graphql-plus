@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Rendering;
 
-namespace GqlPlus.Verifier.Modelling.Simple;
+namespace GqlPlus.Modelling.Simple;
 
 public abstract class TestDomainModel<TItem, TAstItem>
   : TestTypeModel<SimpleKindModel>

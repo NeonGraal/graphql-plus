@@ -2,7 +2,7 @@
 using System.Reflection;
 using Xunit.Sdk;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 public sealed class TracePerTestAttribute
   : BeforeAfterTestAttribute

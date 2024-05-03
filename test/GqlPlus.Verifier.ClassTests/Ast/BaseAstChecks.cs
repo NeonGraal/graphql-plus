@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace GqlPlus.Verifier.Ast;
+namespace GqlPlus.Ast;
 
 [SuppressMessage("Performance", "CA1822:Mark members as static")]
 internal class BaseAstChecks<TAst>

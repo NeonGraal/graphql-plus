@@ -1,12 +1,11 @@
 ﻿using System.Diagnostics;
-using GqlPlus.Verifier.TestBase;
 using OpenTelemetry;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using Xunit;
 using YamlDotNet.Serialization;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 public sealed class OpenTelemetryFixture : IDisposable, IAsyncLifetime
 {

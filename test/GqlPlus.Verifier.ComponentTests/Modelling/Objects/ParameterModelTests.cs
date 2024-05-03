@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 
-namespace GqlPlus.Verifier.Modelling.Objects;
+namespace GqlPlus.Modelling.Objects;
 
 public class ParameterModelTests(
   IModeller<ParameterAst, ParameterModel> modeller

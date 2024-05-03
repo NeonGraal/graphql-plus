@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
 
 public sealed record class FragmentAst(TokenAt At, string Name, string OnType, params IAstSelection[] Selections)
   : AstDirectives(At, Name), IEquatable<FragmentAst>

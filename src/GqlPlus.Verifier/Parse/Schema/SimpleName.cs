@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Parse.Schema;
+namespace GqlPlus.Parse.Schema;
 
 internal class SimpleName
   : ISimpleName

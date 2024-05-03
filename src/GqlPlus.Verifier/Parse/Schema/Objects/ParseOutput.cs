@@ -1,9 +1,9 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Result;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Result;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Parse.Schema.Objects;
+namespace GqlPlus.Parse.Schema.Objects;
 
 internal class ParseOutput(
   ISimpleName name,

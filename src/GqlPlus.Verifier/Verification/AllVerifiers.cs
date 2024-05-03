@@ -1,18 +1,18 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Operation;
-using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Globals;
-using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Verification.Operation;
-using GqlPlus.Verifier.Verification.Schema;
-using GqlPlus.Verifier.Verification.Schema.Globals;
-using GqlPlus.Verifier.Verification.Schema.Objects;
-using GqlPlus.Verifier.Verification.Schema.Simple;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Verification.Operation;
+using GqlPlus.Verification.Schema;
+using GqlPlus.Verification.Schema.Globals;
+using GqlPlus.Verification.Schema.Objects;
+using GqlPlus.Verification.Schema.Simple;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verification;
 
 public static class AllVerifiers
 {

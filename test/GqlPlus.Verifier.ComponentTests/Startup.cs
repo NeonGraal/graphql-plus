@@ -1,16 +1,16 @@
 ﻿using DiffEngine;
-using GqlPlus.Verifier.Merging;
-using GqlPlus.Verifier.Modelling;
-using GqlPlus.Verifier.Parse;
-using GqlPlus.Verifier.Parse.Operation;
-using GqlPlus.Verifier.Parse.Schema;
-using GqlPlus.Verifier.Verification;
+using GqlPlus.Merging;
+using GqlPlus.Modelling;
+using GqlPlus.Parse;
+using GqlPlus.Parse.Operation;
+using GqlPlus.Parse.Schema;
+using GqlPlus.Verification;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Xunit.DependencyInjection;
 using Xunit.DependencyInjection.Logging;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 public static class Startup
 {

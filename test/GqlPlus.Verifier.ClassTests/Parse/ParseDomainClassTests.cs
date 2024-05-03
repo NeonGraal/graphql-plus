@@ -1,10 +1,10 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Parse.Schema.Simple;
-using GqlPlus.Verifier.Result;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Parse.Schema.Simple;
+using GqlPlus.Result;
 using NSubstitute;
 
-namespace GqlPlus.Verifier.Parse.Schema;
+namespace GqlPlus.Parse.Schema;
 
 public class ParseDomainClassTests : ClassTestBase
 {

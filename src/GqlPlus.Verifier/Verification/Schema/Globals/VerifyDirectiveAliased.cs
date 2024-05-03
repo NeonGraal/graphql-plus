@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Globals;
-using GqlPlus.Verifier.Merging;
+﻿using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Merging;
 
-namespace GqlPlus.Verifier.Verification.Schema.Globals;
+namespace GqlPlus.Verification.Schema.Globals;
 
 internal class VerifyDirectiveAliased(
   IVerify<DirectiveDeclAst> definition,

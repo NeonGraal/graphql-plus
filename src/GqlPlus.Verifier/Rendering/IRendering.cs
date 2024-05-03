@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Rendering;
+﻿namespace GqlPlus.Rendering;
 
 public interface IRendering
 {

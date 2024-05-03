@@ -1,14 +1,14 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
-using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Modelling;
-using GqlPlus.Verifier.Parse;
-using GqlPlus.Verifier.Parse.Operation;
-using GqlPlus.Verifier.Rendering;
-using GqlPlus.Verifier.Result;
-using GqlPlus.Verifier.Token;
-using GqlPlus.Verifier.Verification;
+﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Modelling;
+using GqlPlus.Parse;
+using GqlPlus.Parse.Operation;
+using GqlPlus.Rendering;
+using GqlPlus.Result;
+using GqlPlus.Token;
+using GqlPlus.Verification;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 public class SampleTests(
     Parser<OperationAst>.D operation,

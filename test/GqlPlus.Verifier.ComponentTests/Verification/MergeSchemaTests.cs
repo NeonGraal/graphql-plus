@@ -1,9 +1,9 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Merging;
-using GqlPlus.Verifier.Parse;
-using GqlPlus.Verifier.Result;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Merging;
+using GqlPlus.Parse;
+using GqlPlus.Result;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verification;
 
 public class MergeSchemaTests(
     Parser<SchemaAst>.D parser,

@@ -1,11 +1,11 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Merging;
-using GqlPlus.Verifier.Modelling;
-using GqlPlus.Verifier.Parse;
-using GqlPlus.Verifier.Rendering;
-using GqlPlus.Verifier.Result;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Merging;
+using GqlPlus.Modelling;
+using GqlPlus.Parse;
+using GqlPlus.Rendering;
+using GqlPlus.Result;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verification;
 
 public class ModelSchemaTests(
     Parser<SchemaAst>.D parser,

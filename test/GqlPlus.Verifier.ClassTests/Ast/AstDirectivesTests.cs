@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Ast;
 
 public abstract class AstDirectivesTests
   : AstDirectivesTests<string>

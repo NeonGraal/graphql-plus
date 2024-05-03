@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Result;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Result;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Parse.Schema.Simple;
+namespace GqlPlus.Parse.Schema.Simple;
 
 internal class ParseUnionMember
   : Parser<UnionMemberAst>.I

@@ -1,9 +1,9 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Result;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Result;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Parse.Schema;
+namespace GqlPlus.Parse.Schema;
 
 internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, TPartial, TResult>(
   TName name,

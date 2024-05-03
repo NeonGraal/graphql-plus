@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Operation;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Operation;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GqlPlus.Verifier.Parse.Operation;
+namespace GqlPlus.Parse.Operation;
 
 public static class OperationParsers
 {

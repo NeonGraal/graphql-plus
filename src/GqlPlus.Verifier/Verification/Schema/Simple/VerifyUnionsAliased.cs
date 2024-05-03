@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Merging;
+﻿using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Merging;
 
-namespace GqlPlus.Verifier.Verification.Schema.Simple;
+namespace GqlPlus.Verification.Schema.Simple;
 
 internal class VerifyUnionsAliased(
   IVerify<UnionDeclAst> definition,

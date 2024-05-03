@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Result;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Result;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Parse;
+namespace GqlPlus.Parse;
 
 internal class ParseFieldKey : Parser<FieldKeyAst>.I
 {

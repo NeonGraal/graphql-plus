@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Rendering;
+﻿namespace GqlPlus.Rendering;
 
 [SuppressMessage("Design", "CA1036:Override methods on comparable types")]
 public sealed record class RenderValue

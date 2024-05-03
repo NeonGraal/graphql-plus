@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Ast;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Merging;
 
 internal class MergeConstants
   : BaseMerger<ConstantAst>

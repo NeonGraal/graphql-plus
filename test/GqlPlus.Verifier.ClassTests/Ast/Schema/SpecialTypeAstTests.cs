@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema;
+﻿namespace GqlPlus.Ast.Schema;
 
 public class SpecialTypeAstTests : AstAliasedTests
 {

@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast;
+namespace GqlPlus.Ast;
 
 public sealed record class ModifierAst(TokenAt At)
   : AstBase(At), IEquatable<ModifierAst>

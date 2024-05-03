@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Result;
+﻿using GqlPlus.Ast;
+using GqlPlus.Result;
 
-namespace GqlPlus.Verifier.Parse;
+namespace GqlPlus.Parse;
 
 public class ParseConstant : ValueParser<ConstantAst>
 {

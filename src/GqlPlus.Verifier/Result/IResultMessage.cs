@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Result;
+namespace GqlPlus.Result;
 
 public interface IResultMessage<T> : IResult<T>
 {

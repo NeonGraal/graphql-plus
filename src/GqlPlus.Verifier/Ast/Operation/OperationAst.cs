@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
 
 public sealed record class OperationAst(TokenAt At, string Name)
   : AstDirectives(At, Name), IEquatable<OperationAst>, IAstModified

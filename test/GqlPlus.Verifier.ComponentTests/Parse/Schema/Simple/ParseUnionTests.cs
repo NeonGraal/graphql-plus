@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Simple;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Parse.Schema.Simple;
+namespace GqlPlus.Parse.Schema.Simple;
 
 public sealed class ParseUnionTests
   : TestAliased<UnionInput>

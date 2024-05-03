@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 
-namespace GqlPlus.Verifier.Verification.Schema;
+namespace GqlPlus.Verification.Schema;
 
 internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   IVerifyAliased<TAst> aliased

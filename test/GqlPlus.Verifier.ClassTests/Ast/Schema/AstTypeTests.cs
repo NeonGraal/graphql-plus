@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace GqlPlus.Verifier.Ast.Schema;
+namespace GqlPlus.Ast.Schema;
 
 public abstract class AstTypeTests
   : AstAliasedTests

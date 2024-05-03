@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Verification.Schema;
+namespace GqlPlus.Verification.Schema;
 
 internal abstract class UsageVerifier<TUsage, TAliased, TContext>(
   IVerifyAliased<TUsage> aliased

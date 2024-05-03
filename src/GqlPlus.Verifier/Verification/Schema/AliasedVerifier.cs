@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Merging;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Merging;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Verification.Schema;
+namespace GqlPlus.Verification.Schema;
 
 internal abstract class AliasedVerifier<TAliased>(
    IVerify<TAliased> verifier,

@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Merging;
 
 public abstract class TestDescriptions<TAst>
   : TestGroups<TAst>

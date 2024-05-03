@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Globals;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Merging.Globals;
+namespace GqlPlus.Merging.Globals;
 
 internal class MergeDirectives(
   ILoggerFactory logger,

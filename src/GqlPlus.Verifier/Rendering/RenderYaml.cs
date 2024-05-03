@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace GqlPlus.Verifier.Rendering;
+namespace GqlPlus.Rendering;
 
 internal static class RenderYaml
 {

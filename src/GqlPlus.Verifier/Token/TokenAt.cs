@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Token;
+﻿namespace GqlPlus.Token;
 
 public record class TokenAt(TokenKind Kind, int Column, int Line, string Next)
 {

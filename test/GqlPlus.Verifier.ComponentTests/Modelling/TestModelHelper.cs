@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
-using GqlPlus.Verifier.Rendering;
+using GqlPlus.Rendering;
 
-namespace GqlPlus.Verifier.Modelling;
+namespace GqlPlus.Modelling;
 
 internal static class TestModelHelper
 {

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public abstract class AstObjBaseTests<TObjBase>
   : AstAbbreviatedTests<string>

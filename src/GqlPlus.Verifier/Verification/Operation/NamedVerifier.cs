@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Verification.Operation;
+namespace GqlPlus.Verification.Operation;
 
 internal abstract class NamedVerifier<TUsage, TNamed>(
     IVerify<TUsage> usage,

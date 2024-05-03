@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast;
+﻿namespace GqlPlus.Ast;
 
 public class AstFields<T>
   : Dictionary<FieldKeyAst, T>

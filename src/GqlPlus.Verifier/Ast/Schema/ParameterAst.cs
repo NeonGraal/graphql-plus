@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Schema;
+namespace GqlPlus.Ast.Schema;
 
 public sealed record class ParameterAst(TokenAt At, InputBaseAst Type)
   : AstAlternate<InputBaseAst>(At, Type), IEquatable<ParameterAst>

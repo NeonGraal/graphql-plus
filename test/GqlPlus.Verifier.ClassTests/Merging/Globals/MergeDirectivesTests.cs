@@ -1,9 +1,9 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Globals;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Globals;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging.Globals;
+namespace GqlPlus.Merging.Globals;
 
 public class MergeDirectivesTests
   : TestAliased<DirectiveDeclAst>

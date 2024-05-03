@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Rendering;
 
-namespace GqlPlus.Verifier.Modelling.Objects;
+namespace GqlPlus.Modelling.Objects;
 
 public abstract class TestObjBaseModel<TObjBase>
   : TestModelBase<string>

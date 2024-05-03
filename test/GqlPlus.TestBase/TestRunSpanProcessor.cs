@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using OpenTelemetry;
 
-namespace GqlPlus.Verifier.TestBase;
+namespace GqlPlus;
 
 public class TestRunSpanProcessor(
   string testRunId

@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema.Objects;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema.Objects;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging.Objects;
+namespace GqlPlus.Merging.Objects;
 
 public class AlternatesMergerTests(
   ITestOutputHelper outputHelper

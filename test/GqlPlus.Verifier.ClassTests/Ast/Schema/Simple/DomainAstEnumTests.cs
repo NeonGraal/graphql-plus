@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast.Schema.Simple;
+﻿namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainAstEnumTests
   : AstDomainTests<DomainMemberInput, DomainMemberAst>

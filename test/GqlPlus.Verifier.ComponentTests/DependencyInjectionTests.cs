@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Xunit.DependencyInjection;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 public class DependencyInjectionTests(IServiceCollection services, ITestOutputHelperAccessor output)
 {

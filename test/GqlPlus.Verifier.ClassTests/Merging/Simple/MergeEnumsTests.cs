@@ -1,9 +1,9 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Simple;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Simple;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging.Simple;
+namespace GqlPlus.Merging.Simple;
 
 public class MergeEnumsTests
   : TestTyped<AstType, EnumDeclAst, string, EnumMemberAst>

@@ -1,10 +1,10 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
-using GqlPlus.Verifier.Parse;
-using GqlPlus.Verifier.Parse.Operation;
-using GqlPlus.Verifier.Result;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Parse;
+using GqlPlus.Parse.Operation;
+using GqlPlus.Result;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verification;
 
 public class VerifyOperationTests(
     Parser<OperationAst>.D parser,

@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Rendering;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Rendering;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Modelling;
+namespace GqlPlus.Modelling;
 
 // TypeModel => BaseTypeModel
 

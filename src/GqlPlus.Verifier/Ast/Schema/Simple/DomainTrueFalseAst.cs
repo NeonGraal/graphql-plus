@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Schema.Simple;
+namespace GqlPlus.Ast.Schema.Simple;
 
 public sealed record class DomainTrueFalseAst(TokenAt At, bool Excludes, bool Value)
   : AstDomainItem(At, Excludes), IAstDomainItem

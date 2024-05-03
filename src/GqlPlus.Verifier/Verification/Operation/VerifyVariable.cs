@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Operation;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Operation;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Verification.Operation;
+namespace GqlPlus.Verification.Operation;
 
 internal class VerifyVariable : IVerify<VariableAst>
 {

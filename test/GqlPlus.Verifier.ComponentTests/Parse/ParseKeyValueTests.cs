@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Parse;
+﻿namespace GqlPlus.Parse;
 
 public class ParseKeyValueTests(
   Parser<KeyValue<ConstantAst>>.D parser

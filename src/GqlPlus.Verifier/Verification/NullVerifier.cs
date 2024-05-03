@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verification;
 
 [SuppressMessage("Performance", "CA1823:Avoid unused private fields")]
 [SuppressMessage("Performance", "CA1822:Mark members as static")]

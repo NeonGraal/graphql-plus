@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Parse.Operation;
+namespace GqlPlus.Parse.Operation;
 
 internal class OperationContext : Tokenizer
 {

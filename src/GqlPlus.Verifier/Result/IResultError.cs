@@ -1,3 +1,3 @@
-﻿namespace GqlPlus.Verifier.Result;
+﻿namespace GqlPlus.Result;
 
 public interface IResultError<T> : IResultMessage<T> { }

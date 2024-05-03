@@ -1,10 +1,10 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Token;
 using NSubstitute;
 using Xunit.Abstractions;
 
-namespace GqlPlus.Verifier.Merging.Simple;
+namespace GqlPlus.Merging.Simple;
 
 public abstract class TestDomainAsts<TItem, TItemInput>
   : TestTyped<AstDomain, AstDomain<TItem>, string, TItem>

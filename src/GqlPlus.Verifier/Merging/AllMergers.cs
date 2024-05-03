@@ -1,15 +1,15 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Globals;
-using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Merging.Globals;
-using GqlPlus.Verifier.Merging.Objects;
-using GqlPlus.Verifier.Merging.Simple;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Merging.Globals;
+using GqlPlus.Merging.Objects;
+using GqlPlus.Merging.Simple;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Merging;
 
 [ExcludeFromCodeCoverage]
 public static class AllMergers

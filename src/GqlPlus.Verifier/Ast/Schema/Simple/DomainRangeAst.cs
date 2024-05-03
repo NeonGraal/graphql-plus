@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
-using GqlPlus.Verifier.Token;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Schema.Simple;
+namespace GqlPlus.Ast.Schema.Simple;
 
 public sealed record class DomainRangeAst(TokenAt At, bool Excludes)
   : AstDomainItem(At, Excludes), IEquatable<DomainRangeAst>

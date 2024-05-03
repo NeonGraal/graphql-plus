@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Result;
+﻿using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Result;
 
-namespace GqlPlus.Verifier.Parse.Schema.Simple;
+namespace GqlPlus.Parse.Schema.Simple;
 
 internal class ParseDomainRegex(
   Parser<DomainRegexAst>.DA items

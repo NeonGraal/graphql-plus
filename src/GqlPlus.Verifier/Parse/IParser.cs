@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Result;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Result;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Parse;
+namespace GqlPlus.Parse;
 
 public interface IParser<TResult>
 {

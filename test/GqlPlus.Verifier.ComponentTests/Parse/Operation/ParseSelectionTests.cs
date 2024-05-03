@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 
-namespace GqlPlus.Verifier.Parse.Operation;
+namespace GqlPlus.Parse.Operation;
 
 public class ParseSelectionTests(Parser<IAstSelection>.D parser)
 {

@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema.Globals;
-using GqlPlus.Verifier.Result;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Result;
 
-namespace GqlPlus.Verifier.Parse.Schema.Globals;
+namespace GqlPlus.Parse.Schema.Globals;
 
 internal class ParseOptionSetting(
   Parser<IParserDefault, ConstantAst>.D defaultParser

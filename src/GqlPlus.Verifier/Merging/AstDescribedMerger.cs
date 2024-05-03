@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Merging;
 
 internal abstract class AstDescribedMerger<TItem>(
   ILoggerFactory logger

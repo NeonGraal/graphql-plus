@@ -1,8 +1,9 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Verification.Schema.Simple;
+namespace GqlPlus.Verification.Schema.Simple;
 
 internal class VerifyDomainTypes(
   IVerifyAliased<AstDomain> aliased,

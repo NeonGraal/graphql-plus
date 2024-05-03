@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Rendering;
 
-namespace GqlPlus.Verifier.Modelling;
+namespace GqlPlus.Modelling;
 
 public enum DomainKindModel { Boolean, Enum, Number, String, Union }
 

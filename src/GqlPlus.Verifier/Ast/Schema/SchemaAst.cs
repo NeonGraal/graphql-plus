@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Schema;
+namespace GqlPlus.Ast.Schema;
 
 public sealed record class SchemaAst(TokenAt At)
   : AstAbbreviated(At), IEquatable<SchemaAst>

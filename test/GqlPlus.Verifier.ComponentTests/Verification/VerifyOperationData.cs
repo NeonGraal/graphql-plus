@@ -1,7 +1,7 @@
 ﻿
-// Generated from .\test\GqlPlus.Verifier.ComponentTests\Verification\Operation
+// Generated from .\test\GqlPlus.ComponentTests\Verification\Operation
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verification;
 
 public class VerifyOperationInvalidData
   : TheoryData<string>

@@ -1,9 +1,9 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Ast.Schema.Simple;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 internal static class BuiltIn
 {

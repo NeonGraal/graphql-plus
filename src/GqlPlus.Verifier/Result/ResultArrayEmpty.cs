@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Result;
+﻿namespace GqlPlus.Result;
 
 [SuppressMessage("Performance", "CA1815:Override equals and operator equals on value types")]
 public readonly struct ResultArrayEmpty<TValue>

@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Objects;
+﻿using GqlPlus.Ast.Schema.Objects;
 
-namespace GqlPlus.Verifier.Modelling.Objects;
+namespace GqlPlus.Modelling.Objects;
 
 public class InputBaseModelTests(
   IModeller<InputBaseAst, InputBaseModel> modeller

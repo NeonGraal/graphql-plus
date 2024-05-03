@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Globals;
-using GqlPlus.Verifier.Ast.Schema.Simple;
+﻿using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Ast.Schema;
+namespace GqlPlus.Ast.Schema;
 
 internal static class SchemaHelper
 {

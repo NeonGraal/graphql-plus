@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Simple;
+﻿using GqlPlus.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 public record struct DomainRangeInput(decimal? Min, decimal? Max)
 {

@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Result;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Result;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Parse.Schema.Simple;
+namespace GqlPlus.Parse.Schema.Simple;
 
 internal class EnumParser<TEnum>
   : IEnumParser<TEnum>

@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 
-namespace GqlPlus.Verifier.Parse.Schema;
+namespace GqlPlus.Parse.Schema;
 
 public abstract class TestAliased<TInput>
   : TestNamed<TInput>

@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Schema.Objects;
+namespace GqlPlus.Ast.Schema.Objects;
 
 public abstract record class AstObject<TObjField, TObjBase>(
   TokenAt At,

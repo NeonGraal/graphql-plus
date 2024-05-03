@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Schema.Globals;
+namespace GqlPlus.Ast.Schema.Globals;
 
 public sealed record class OptionSettingAst(TokenAt At, string Name, string Description, ConstantAst Value)
   : AstAliased(At, Name, Description), IEquatable<OptionSettingAst>

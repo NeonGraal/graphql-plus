@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Parse.Schema.Simple;
-using GqlPlus.Verifier.Result;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Parse.Schema.Simple;
+using GqlPlus.Result;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Parse.Schema;
+namespace GqlPlus.Parse.Schema;
 
 internal class OptionParser<TOption>(
   Parser<IEnumParser<TOption>, TOption>.D parser

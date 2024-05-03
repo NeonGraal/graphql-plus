@@ -1,10 +1,10 @@
-﻿using GqlPlus.Verifier.Parse.Schema;
-using GqlPlus.Verifier.Parse.Schema.Simple;
-using GqlPlus.Verifier.Result;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Parse.Schema;
+using GqlPlus.Parse.Schema.Simple;
+using GqlPlus.Result;
+using GqlPlus.Token;
 using NSubstitute;
 
-namespace GqlPlus.Verifier.Parse;
+namespace GqlPlus.Parse;
 
 [TracePerTest]
 [SuppressMessage("Design", "CA1052:Static holder types should be Static or NotInheritable")]

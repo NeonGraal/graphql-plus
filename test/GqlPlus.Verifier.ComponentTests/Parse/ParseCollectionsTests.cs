@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Parse;
+﻿namespace GqlPlus.Parse;
 
 public class ParseCollectionsTests(ParserArray<IParserCollections, ModifierAst>.DA parser)
 {

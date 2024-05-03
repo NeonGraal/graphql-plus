@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Simple;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Modelling.Simple;
+namespace GqlPlus.Modelling.Simple;
 
 public class UnionModelTests(
   IModeller<UnionDeclAst, TypeUnionModel> modeller

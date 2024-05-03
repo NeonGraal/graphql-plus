@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace GqlPlus.Verifier.Ast;
+namespace GqlPlus.Ast;
 
 public abstract class AstAbbreviatedTests
   : AstAbbreviatedTests<string>

@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 
-namespace GqlPlus.Verifier.Ast;
+namespace GqlPlus.Ast;
 
 internal interface IAstDirectives
 {

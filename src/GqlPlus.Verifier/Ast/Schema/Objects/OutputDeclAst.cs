@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Schema.Objects;
+namespace GqlPlus.Ast.Schema.Objects;
 
 public sealed record class OutputDeclAst(
   TokenAt At,

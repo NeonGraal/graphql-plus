@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Simple;
+﻿using GqlPlus.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Modelling.Simple;
+namespace GqlPlus.Modelling.Simple;
 
 public class DomainNumberModelTests(
   IDomainModeller<DomainRangeAst, DomainRangeModel> modeller

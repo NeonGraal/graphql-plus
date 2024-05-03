@@ -1,4 +1,4 @@
 ﻿[
   Multiple Categories with name 'test' can't be merged.,
-  Group of CategoryDeclAst for test is not singular Output~Modifiers~Option['Test~System.Linq.Enumerable+WhereSelectArrayIterator`2[GqlPlus.Verifier.Ast.ModifierAst,System.String]~Parallel', 'Test~System.String[]~Parallel']
+  Group of CategoryDeclAst for test is not singular Output~Modifiers~Option['Test~System.Linq.Enumerable+WhereSelectArrayIterator`2[GqlPlus.Ast.ModifierAst,System.String]~Parallel', 'Test~System.String[]~Parallel']
 ]

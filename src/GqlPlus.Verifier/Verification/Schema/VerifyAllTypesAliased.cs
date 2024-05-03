@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Merging;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Merging;
 
-namespace GqlPlus.Verifier.Verification.Schema;
+namespace GqlPlus.Verification.Schema;
 
 internal class VerifyAllTypesAliased(
   IMerge<AstType> merger,

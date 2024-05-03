@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Simple;
+﻿using GqlPlus.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Merging.Simple;
+namespace GqlPlus.Merging.Simple;
 
 internal abstract class AstDomainItemMerger<TItem>(
   ILoggerFactory logger

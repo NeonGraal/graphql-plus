@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier.Ast.Operation;
+﻿namespace GqlPlus.Ast.Operation;
 
 public class SpreadAstTests : AstDirectivesTests
 {

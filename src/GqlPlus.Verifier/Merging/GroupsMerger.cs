@@ -1,8 +1,8 @@
 ﻿
-using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Token;
+using GqlPlus.Ast;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Merging;
 
 internal abstract class GroupsMerger<TItem>
   : BaseMerger<TItem>

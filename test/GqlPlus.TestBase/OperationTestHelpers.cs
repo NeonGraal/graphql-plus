@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
+﻿using GqlPlus.Ast.Operation;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 public static class OperationTestHelpers
 {

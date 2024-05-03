@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Operation;
+namespace GqlPlus.Ast.Operation;
 
 public sealed record class SpreadAst(TokenAt At, string Name)
   : AstDirectives(At, Name), IAstSelection, IEquatable<SpreadAst>

@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Merging.Objects;
+namespace GqlPlus.Merging.Objects;
 
 internal class AstObjectsMerger<TObject, TObjField, TObjBase>(
   ILoggerFactory logger,

@@ -2,7 +2,7 @@
 using AutoFixture.AutoNSubstitute;
 using AutoFixture.Xunit2;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 internal sealed class AutoNSubstituteDataAttribute : AutoDataAttribute
 {

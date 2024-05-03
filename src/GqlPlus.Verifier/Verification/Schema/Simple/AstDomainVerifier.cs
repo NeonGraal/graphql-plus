@@ -1,9 +1,9 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Merging;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Merging;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Verification.Schema.Simple;
+namespace GqlPlus.Verification.Schema.Simple;
 
 internal class AstDomainVerifier<TMember>(
   IMerge<TMember> members

@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
-using GqlPlus.Verifier.Result;
+using GqlPlus.Result;
 
-namespace GqlPlus.Verifier.Token;
+namespace GqlPlus.Token;
 
 public class Tokenizer
 {

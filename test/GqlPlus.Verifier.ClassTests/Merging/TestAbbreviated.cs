@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast;
+using GqlPlus.Token;
 using NSubstitute;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Merging;
 
 public abstract class TestAbbreviated<TAst>
   : TestAbbreviated<TAst, string>

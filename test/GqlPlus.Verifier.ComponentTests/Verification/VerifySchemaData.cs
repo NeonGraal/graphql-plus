@@ -1,7 +1,7 @@
 ﻿
-// Generated from .\test\GqlPlus.Verifier.ComponentTests\Verification\Schema
+// Generated from .\test\GqlPlus.ComponentTests\Verification\Schema
 
-namespace GqlPlus.Verifier.Verification;
+namespace GqlPlus.Verification;
 
 public class VerifySchemaInvalidGlobalsData
   : TheoryData<string>

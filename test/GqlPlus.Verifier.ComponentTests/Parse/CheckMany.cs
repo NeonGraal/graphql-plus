@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Result;
+﻿using GqlPlus.Result;
 
-namespace GqlPlus.Verifier.Parse;
+namespace GqlPlus.Parse;
 
 internal sealed class CheckMany<T>(Parser<T>.DA parser)
 {

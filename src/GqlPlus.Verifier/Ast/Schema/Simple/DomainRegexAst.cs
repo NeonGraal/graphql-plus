@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Ast.Schema.Simple;
+namespace GqlPlus.Ast.Schema.Simple;
 
 public sealed record class DomainRegexAst(TokenAt At, bool Excludes, string Regex)
   : AstDomainItem(At, Excludes), IEquatable<DomainRegexAst>

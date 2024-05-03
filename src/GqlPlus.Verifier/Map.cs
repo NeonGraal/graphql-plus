@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 internal class Map<T> : Dictionary<string, T>, IMap<T>, IReadOnlyMap<T>
 {

@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Rendering;
+﻿using GqlPlus.Ast;
+using GqlPlus.Rendering;
 
-namespace GqlPlus.Verifier.Modelling;
+namespace GqlPlus.Modelling;
 
 internal abstract class ModellerBase<TAst, TModel>
   : IModeller<TAst, TModel>

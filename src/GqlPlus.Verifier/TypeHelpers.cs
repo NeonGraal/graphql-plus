@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Verifier;
+﻿namespace GqlPlus;
 
 public static class TypeHelpers
 {

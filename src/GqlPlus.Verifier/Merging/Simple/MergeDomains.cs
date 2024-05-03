@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema.Simple;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema.Simple;
 
-namespace GqlPlus.Verifier.Merging.Simple;
+namespace GqlPlus.Merging.Simple;
 
 internal class MergeDomains<TMember>(
   ILoggerFactory logger,

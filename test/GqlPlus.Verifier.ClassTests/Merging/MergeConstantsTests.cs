@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast;
+﻿using GqlPlus.Ast;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Merging;
 
 public class MergeConstantsTests
   : TestAbbreviated<ConstantAst>

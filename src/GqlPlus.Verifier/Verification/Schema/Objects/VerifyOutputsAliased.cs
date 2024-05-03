@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Merging;
+﻿using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Merging;
 
-namespace GqlPlus.Verifier.Verification.Schema.Objects;
+namespace GqlPlus.Verification.Schema.Objects;
 
 internal class VerifyOutputsAliased(
   IVerify<OutputDeclAst> definition,

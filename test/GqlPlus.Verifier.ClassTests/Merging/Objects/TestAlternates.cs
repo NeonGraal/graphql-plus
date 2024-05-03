@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Merging.Objects;
+﻿using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Merging.Objects;
 
-namespace GqlPlus.Verifier.Merging;
+namespace GqlPlus.Merging;
 
 public abstract class TestAlternates<TAlternate, TObjBase>
   : TestDescriptions<TAlternate>

@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
-using GqlPlus.Verifier.Token;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 [TracePerTest]
 public class TokenizerTests

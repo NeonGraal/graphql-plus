@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Ast.Schema.Objects;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Verification.Schema.Objects;
+namespace GqlPlus.Verification.Schema.Objects;
 
 internal class OutputContext(
   IMap<AstDescribed> types,

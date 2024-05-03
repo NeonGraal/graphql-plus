@@ -1,8 +1,8 @@
-﻿using GqlPlus.Verifier.Ast;
-using GqlPlus.Verifier.Ast.Schema.Simple;
-using GqlPlus.Verifier.Merging;
+﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Merging;
 
-namespace GqlPlus.Verifier.Verification.Schema.Simple;
+namespace GqlPlus.Verification.Schema.Simple;
 
 internal class VerifyDomainEnum(
   IMerge<DomainMemberAst> members

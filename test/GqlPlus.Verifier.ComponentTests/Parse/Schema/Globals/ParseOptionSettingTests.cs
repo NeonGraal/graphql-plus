@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Globals;
+﻿using GqlPlus.Ast.Schema.Globals;
 
-namespace GqlPlus.Verifier.Parse.Schema.Globals;
+namespace GqlPlus.Parse.Schema.Globals;
 
 public class ParseOptionSettingTests(
   Parser<OptionSettingAst>.D parser

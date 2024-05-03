@@ -1,7 +1,7 @@
-﻿using GqlPlus.Verifier.Ast.Operation;
-using GqlPlus.Verifier.Token;
+﻿using GqlPlus.Ast.Operation;
+using GqlPlus.Token;
 
-namespace GqlPlus.Verifier.Verification.Operation;
+namespace GqlPlus.Verification.Operation;
 
 internal class VerifyOperation(
   IVerifyNamed<ArgumentAst, VariableAst> usages,

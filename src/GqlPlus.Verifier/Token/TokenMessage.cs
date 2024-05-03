@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace GqlPlus.Verifier.Token;
+namespace GqlPlus.Token;
 
 public record class TokenMessage(TokenKind Kind, int Column, int Line, string Next, string Message)
   : TokenAt(Kind, Column, Line, Next)

@@ -1,6 +1,6 @@
-﻿using GqlPlus.Verifier.Ast.Schema.Objects;
+﻿using GqlPlus.Ast.Schema.Objects;
 
-namespace GqlPlus.Verifier.Parse.Schema.Objects;
+namespace GqlPlus.Parse.Schema.Objects;
 
 public class ParseDualFieldTests
   : TestObjectField

@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
-using GqlPlus.Verifier.Token;
+using GqlPlus.Token;
 using Xunit;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 public static class TestHelpers
 {

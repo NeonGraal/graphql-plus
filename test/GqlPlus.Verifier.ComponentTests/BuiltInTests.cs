@@ -1,9 +1,9 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Token;
-using GqlPlus.Verifier.Verification;
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Token;
+using GqlPlus.Verification;
 using Xunit.DependencyInjection;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 public class BuiltInTests(
   IVerify<SchemaAst> verifier

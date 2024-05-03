@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;

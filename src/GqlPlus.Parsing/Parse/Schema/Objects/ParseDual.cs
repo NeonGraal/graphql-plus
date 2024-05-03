@@ -1,7 +1,5 @@
 ﻿using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
-using GqlPlus.Result;
-using GqlPlus.Token;
 
 namespace GqlPlus.Parse.Schema.Objects;
 

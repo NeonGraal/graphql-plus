@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Parse;
 using GqlPlus.Result;

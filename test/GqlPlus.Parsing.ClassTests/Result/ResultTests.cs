@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Result;
+﻿namespace GqlPlus.Result;
 
 public class ResultTests
   : BaseResultTests
@@ -27,7 +25,6 @@ public class ResultTests
       .Which.Message.Should().Contain(nameof(String));
   }
 
-  [ExcludeFromCodeCoverage]
   private sealed class TestResult<TValue>
     : IResult<TValue>
   {
@@ -36,7 +33,6 @@ public class ResultTests
     public IResult<TResult> Map<TResult>(SelectResult<TValue, TResult> onValue, OnResult<TResult>? otherwise = null) => throw new NotImplementedException();
   }
 
-  [ExcludeFromCodeCoverage]
   private sealed class TestResultArray<T>
     : IResultArray<T>
   {

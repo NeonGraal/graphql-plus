@@ -8,7 +8,6 @@ namespace GqlPlus.Parse.Schema;
 internal class ParseNull
   : Parser<NullAst>.I
 {
-  [ExcludeFromCodeCoverage]
   public IResult<NullAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
     => 0.Empty<NullAst>();

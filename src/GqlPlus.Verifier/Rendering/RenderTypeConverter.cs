@@ -10,7 +10,6 @@ internal class RenderTypeConverter : IYamlTypeConverter
 
   public bool Accepts(Type type) => type == typeof(RenderStructure);
 
-  [ExcludeFromCodeCoverage]
   public object? ReadYaml(IParser parser, Type type) => throw new NotImplementedException();
 
   public void WriteYaml(IEmitter emitter, object? yaml, Type type)

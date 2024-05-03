@@ -3,6 +3,8 @@
 // Project-level suppressions either have no target or are given
 // a specific target and scoped to a namespace, type, member, etc.
 
+using System.Diagnostics.CodeAnalysis;
+
 [assembly: SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase")]
 [assembly: SuppressMessage("Naming", "CA1720:Identifier contains type name")]
 [assembly: SuppressMessage("Performance", "CA1819:Properties should not return arrays")]
@@ -10,3 +12,4 @@
 [assembly: SuppressMessage("Usage", "CA2225:Operator overloads have named alternates")]
 
 [assembly: SuppressMessage("Style", "IDE0058:Expression value is never used")]
+[assembly: SuppressMessage("Style", "IDE2001:Embedded statements must be on their own line")]

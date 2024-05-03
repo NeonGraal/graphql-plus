@@ -1,14 +1,13 @@
 ﻿using System.Runtime.CompilerServices;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 
 namespace GqlPlus.Merging;
 
+#pragma warning disable CA1508 // Avoid dead conditional code
 public static class MergeExtensions
 {
-  [SuppressMessage("Maintainability", "CA1508:Avoid dead conditional code")]
   public static ITokenMessages CanMerge<TItem, TObjField>(
       this IEnumerable<TItem> items,
       Func<TItem, TObjField?> field,

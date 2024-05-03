@@ -12,6 +12,7 @@ public abstract record class ModelBase
   internal virtual RenderStructure Render(IRenderContext context)
     => RenderStructure.New(Tag);
 
-  [SuppressMessage("Design", "CA1033:Interface methods should be callable by child types")]
-  RenderStructure IRendering.Render(IRenderContext context) => Render(context);
+#pragma warning disable CA1033 // Interface methods should be callable by child types
+  RenderStructure IRendering.Render(IRenderContext context)
+    => Render(context);
 }

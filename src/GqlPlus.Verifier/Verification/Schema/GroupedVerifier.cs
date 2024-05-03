@@ -4,8 +4,6 @@ using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema;
 
-[SuppressMessage("Performance", "CA1823:Avoid unused private fields")]
-[SuppressMessage("Performance", "CA1822:Mark members as static")]
 internal abstract partial class GroupedVerifier<TAliased>(
    IMerge<TAliased> merger,
    ILoggerFactory logger

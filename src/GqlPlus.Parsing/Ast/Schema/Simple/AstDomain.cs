@@ -18,7 +18,7 @@ public record class AstDomain<TMember>(
   internal override string Abbr => "Do";
   public override string Label => "Domain";
 
-  IEnumerable<TMember> IGqlpSimple<TMember>.Items => Members;
+  public IEnumerable<TMember> Items => Members;
 
   public AstDomain(TokenAt at, string name, DomainKind kind, TMember[] members)
     : this(at, name, "", kind)

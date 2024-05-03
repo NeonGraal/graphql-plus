@@ -1,4 +1,5 @@
-﻿using GqlPlus.Rendering;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
 

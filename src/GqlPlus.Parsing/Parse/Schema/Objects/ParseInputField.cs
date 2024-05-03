@@ -15,7 +15,6 @@ internal class ParseInputField(
 {
   private readonly Parser<IParserDefault, ConstantAst>.L _default = defaultParser;
 
-  [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParameters(InputFieldAst field, ParameterAst[] parameters)
     => throw new InvalidOperationException();
 

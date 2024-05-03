@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions;
-
-namespace GqlPlus.Parse.Schema;
+﻿namespace GqlPlus.Parse.Schema;
 
 public abstract class BaseNamedTests<TInput>
 {

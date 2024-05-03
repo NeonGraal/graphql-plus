@@ -4,20 +4,14 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parse;
 
-[ExcludeFromCodeCoverage]
-public class ValueKeyValueParser<T> : Parser<KeyValue<T>>.I
+public class ValueKeyValueParser<T>(
+  Parser<FieldKeyAst>.D key,
+  Parser<T>.D value
+) : Parser<KeyValue<T>>.I
   where T : AstValue<T>
 {
-  private readonly Parser<FieldKeyAst>.L _key;
-  private readonly Parser<T>.L _value;
-
-  public ValueKeyValueParser(
-    Parser<FieldKeyAst>.D key,
-    Parser<T>.D value)
-  {
-    _key = key;
-    _value = value;
-  }
+  private readonly Parser<FieldKeyAst>.L _key = key;
+  private readonly Parser<T>.L _value = value;
 
   public IResult<KeyValue<T>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Rendering;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Rendering;
 
 public interface IRendering
 {

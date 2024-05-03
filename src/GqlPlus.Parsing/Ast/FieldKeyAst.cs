@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast;
 
-[SuppressMessage("Design", "CA1036:Override methods on comparable types")]
+#pragma warning disable CA1036 // Override methods on comparable types
 public sealed record class FieldKeyAst(TokenAt At)
   : AstAbbreviated(At)
   , IComparable<FieldKeyAst>

@@ -1,6 +1,5 @@
 ﻿namespace GqlPlus.Modelling;
 
-[ExcludeFromCodeCoverage]
 public class ModelTypeException<TModel>
   : Exception
 {

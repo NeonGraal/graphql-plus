@@ -9,7 +9,6 @@ internal class MergeOptionSettings(
 {
   protected override string ItemGroupKey(OptionSettingAst item) => item.Name;
 
-  [ExcludeFromCodeCoverage]
   protected override ITokenMessages CanMergeGroup(IGrouping<string, OptionSettingAst> group)
     => group.CanMerge(item => item.Value, values);
 

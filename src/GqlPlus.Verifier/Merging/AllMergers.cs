@@ -12,7 +12,6 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace GqlPlus.Merging;
 
-[ExcludeFromCodeCoverage]
 public static class AllMergers
 {
   public static IServiceCollection AddMergers(this IServiceCollection services)

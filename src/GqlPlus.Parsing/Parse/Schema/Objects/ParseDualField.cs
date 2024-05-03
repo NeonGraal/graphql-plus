@@ -12,8 +12,6 @@ internal class ParseDualField(
   Parser<DualBaseAst>.D objBase
 ) : ObjectFieldParser<DualFieldAst, DualBaseAst>(aliases, modifiers, objBase)
 {
-
-  [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParameters(DualFieldAst field, ParameterAst[] parameters)
     => throw new InvalidOperationException();
 

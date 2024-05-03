@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Ast;

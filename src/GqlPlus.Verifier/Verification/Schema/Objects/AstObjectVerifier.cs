@@ -4,8 +4,6 @@ using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema;
 
-[SuppressMessage("Performance", "CA1823:Avoid unused private fields")]
-[SuppressMessage("Performance", "CA1822:Mark members as static")]
 internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, TContext>(
   IVerifyAliased<TObject> aliased,
   IMerge<TObjField> mergeFields,
@@ -17,6 +15,7 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
   where TObjBase : AstObjectBase<TObjBase>
   where TContext : UsageContext
 {
+#pragma warning disable CA1823 // Avoid unused private fields -- DO NOT DELETE
   private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, TObjBase, TContext, TypeParameterAst>));
 
   protected override void UsageValue(TObject usage, TContext context)

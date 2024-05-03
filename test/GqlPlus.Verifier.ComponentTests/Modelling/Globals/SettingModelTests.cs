@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Globals;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Modelling.Globals;
 

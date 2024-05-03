@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 

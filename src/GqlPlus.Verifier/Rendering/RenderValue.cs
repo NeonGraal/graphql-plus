@@ -1,6 +1,8 @@
-﻿namespace GqlPlus.Rendering;
+﻿using System.Diagnostics.CodeAnalysis;
 
-[SuppressMessage("Design", "CA1036:Override methods on comparable types")]
+namespace GqlPlus.Rendering;
+
+#pragma warning disable CA1036 // Override methods on comparable types
 public sealed record class RenderValue
   : IComparable<RenderValue> //, IEquatable<RenderValue>
 {

@@ -16,12 +16,12 @@ internal class RenderTypeConverter : IYamlTypeConverter
   public void WriteYaml(IEmitter emitter, object? yaml, Type type)
   {
     if (yaml is RenderStructure model) {
-      var plainImplicit = string.IsNullOrWhiteSpace(model.Tag);
-      var tag = plainImplicit ? new TagName() : new TagName("!" + model.Tag);
+      bool plainImplicit = string.IsNullOrWhiteSpace(model.Tag);
+      TagName tag = plainImplicit ? new TagName() : new TagName("!" + model.Tag);
       if (model.List.Count > 0) {
         WriteList(emitter, type, model, plainImplicit);
       } else if (model.Map.Count > 0) {
-        var (_, first) = model.Map.First();
+        (RenderValue _, RenderStructure first) = model.Map.First();
         if (model.Map.Count == 1 && !plainImplicit && string.IsNullOrWhiteSpace(first.Tag) && first.Value is not null) {
           WriteValue(emitter, first.Value, model.Tag);
         } else {
@@ -37,9 +37,9 @@ internal class RenderTypeConverter : IYamlTypeConverter
 
   private void WriteMap(IEmitter emitter, RenderStructure model, bool plainImplicit, TagName tag)
   {
-    var flow = model.Flow ? MappingStyle.Flow : MappingStyle.Any;
+    MappingStyle flow = model.Flow ? MappingStyle.Flow : MappingStyle.Any;
     emitter.Emit(new MappingStart(default, tag, plainImplicit, flow));
-    foreach (var kv in model.Map.OrderBy(kv => kv.Key)) {
+    foreach (KeyValuePair<RenderValue, RenderStructure> kv in model.Map.OrderBy(kv => kv.Key)) {
       WriteValue(emitter, kv.Key, kv.Key.Tag);
       WriteYaml(emitter, kv.Value, kv.Value.GetType());
     }
@@ -49,9 +49,9 @@ internal class RenderTypeConverter : IYamlTypeConverter
 
   private void WriteList(IEmitter emitter, Type type, RenderStructure model, bool plainImplicit)
   {
-    var flow = model.Flow ? SequenceStyle.Flow : SequenceStyle.Any;
+    SequenceStyle flow = model.Flow ? SequenceStyle.Flow : SequenceStyle.Any;
     emitter.Emit(new SequenceStart(default, default, plainImplicit, flow));
-    foreach (var item in model.List) {
+    foreach (RenderStructure item in model.List) {
       WriteYaml(emitter, item, type);
     }
 
@@ -60,11 +60,11 @@ internal class RenderTypeConverter : IYamlTypeConverter
 
   private static void WriteValue(IEmitter emitter, RenderValue value, string tag)
   {
-    var isString = !string.IsNullOrWhiteSpace(value.Text);
-    var plainImplicit = string.IsNullOrWhiteSpace(tag) && !isString;
-    var tagName = isString || plainImplicit ? new TagName() : new TagName("!" + tag);
+    bool isString = !string.IsNullOrWhiteSpace(value.Text);
+    bool plainImplicit = string.IsNullOrWhiteSpace(tag) && !isString;
+    TagName tagName = isString || plainImplicit ? new TagName() : new TagName("!" + tag);
 
-    var text = string.Empty;
+    string text = string.Empty;
     if (value.Identifier is not null) {
       text = value.Identifier;
     } else if (value.Boolean is not null) {

@@ -31,8 +31,8 @@ public class BuiltInTests(
   {
     Skip.If(type is null);
 
-    var result = new TokenMessages();
-    var schema = new SchemaAst(AstNulls.At) {
+    TokenMessages result = [];
+    SchemaAst schema = new(AstNulls.At) {
       Declarations = [type]
     };
 

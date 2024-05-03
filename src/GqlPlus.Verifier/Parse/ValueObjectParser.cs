@@ -16,14 +16,14 @@ public class ValueObjectParser<T>(
   {
     ArgumentNullException.ThrowIfNull(tokens);
 
-    var result = new AstFields<T>();
+    AstFields<T> result = [];
 
     if (!tokens.Take('{')) {
       return result.Empty();
     }
 
     while (!tokens.Take('}')) {
-      var field = _field.Parse(tokens, label);
+      IResult<KeyValue<T>> field = _field.Parse(tokens, label);
       if (!field.Required(value => result.Add(value.Key, value.Value))) {
         return tokens.Error(label, "a field in object", result);
       }

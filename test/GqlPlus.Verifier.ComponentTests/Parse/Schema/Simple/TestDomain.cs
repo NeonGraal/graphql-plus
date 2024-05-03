@@ -34,7 +34,7 @@ internal abstract class CheckDomain<TInput, TDomain>
   public void WithKindBad(TInput input, string kind)
     => False(
       KindString(input, kind, ""),
-      skipIf: Enum.TryParse<DomainKind>(kind, out var _));
+      skipIf: Enum.TryParse<DomainKind>(kind, out DomainKind _));
 
   public void WithParent(TInput input, string parent)
     => TrueExpected(KindString(input, _kind.ToString(), ":" + parent + " "),

@@ -15,7 +15,7 @@ public sealed class ValueListParser<T> : Parser<T>.IA
   {
     ArgumentNullException.ThrowIfNull(tokens);
 
-    var list = new List<T>();
+    List<T> list = [];
 
     if (!tokens.Take('[')) {
       return list.EmptyArray();

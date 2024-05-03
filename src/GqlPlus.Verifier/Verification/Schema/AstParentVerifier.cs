@@ -14,7 +14,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     ParentUsage<TAst> input = new([], usage, "a child");
     CheckParent(input, usage, context, true);
 
-    var parent = GetParent(usage);
+    string parent = GetParent(usage);
 
     if (!string.IsNullOrWhiteSpace(parent)) {
       input = input.AddParent(parent);
@@ -28,10 +28,10 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     bool top,
     Action<TAst>? onParent = null)
   {
-    if (context.GetType(input.Parent, out var defined)) {
+    if (context.GetType(input.Parent, out AstDescribed? defined)) {
       if (defined is AstType astType) {
         if (CheckAstParentType(input, astType)) {
-          var parentType = astType as TAst;
+          TAst? parentType = astType as TAst;
           if (CheckAstParent(input.Usage, parentType, context)) {
             onParent?.Invoke(parentType);
           }

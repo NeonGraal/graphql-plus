@@ -41,10 +41,10 @@ public sealed class OpenTelemetryFixture : IDisposable, IAsyncLifetime
 
   public Task DisposeAsync()
   {
-    var dir = Environment.CurrentDirectory;
-    var outDir = dir;
+    string dir = Environment.CurrentDirectory;
+    string? outDir = dir;
 
-    var parent = Path.GetDirectoryName(dir);
+    string? parent = Path.GetDirectoryName(dir);
     while (parent is not null && parent != dir) {
       dir = parent;
       parent = Path.GetDirectoryName(dir);
@@ -53,12 +53,12 @@ public sealed class OpenTelemetryFixture : IDisposable, IAsyncLifetime
       }
     }
 
-    var serializer = new SerializerBuilder()
+    ISerializer serializer = new SerializerBuilder()
       .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull | DefaultValuesHandling.OmitDefaults | DefaultValuesHandling.OmitEmptyCollections)
       .DisableAliases()
       .Build();
 
-    using var writer = File.CreateText(outDir + "/activities.yml");
+    using StreamWriter writer = File.CreateText(outDir + "/activities.yml");
     serializer.Serialize(writer, _activities);
 
     return Task.CompletedTask;

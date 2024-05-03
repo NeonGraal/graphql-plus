@@ -14,8 +14,8 @@ internal abstract class UsageVerifier<TUsage, TAliased, TContext>(
 
   public virtual void Verify(UsageAliased<TUsage, TAliased> item, ITokenMessages errors)
   {
-    foreach (var usage in item.Usages) {
-      var context = MakeContext(usage, item.Definitions, errors);
+    foreach (TUsage usage in item.Usages) {
+      TContext context = MakeContext(usage, item.Definitions, errors);
       UsageValue(usage, context);
     }
 

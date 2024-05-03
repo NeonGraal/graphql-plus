@@ -61,7 +61,7 @@ internal class InputBaseModeller(
 ) : ModellerObjBase<InputBaseAst, InputBaseModel>
 {
   protected override InputBaseModel ToModel(InputBaseAst ast, IMap<TypeKindModel> typeKinds)
-    => typeKinds.TryGetValue(ast.Name, out var typeKind) && typeKind == TypeKindModel.Dual
+    => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
     ? new(ast.Name) {
       Dual = dual.ToModel(ast.ToDual(), typeKinds)
     }

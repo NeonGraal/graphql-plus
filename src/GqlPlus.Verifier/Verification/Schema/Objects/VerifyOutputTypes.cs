@@ -15,12 +15,12 @@ internal class VerifyOutputTypes(
 {
   protected override void UsageValue(OutputDeclAst usage, OutputContext context)
   {
-    var enumFields = usage.Fields
+    IEnumerable<OutputFieldAst> enumFields = usage.Fields
       .Where(f => !string.IsNullOrWhiteSpace(f.Type.EnumValue));
 
-    foreach (var enumField in enumFields) {
+    foreach (OutputFieldAst? enumField in enumFields) {
       if (string.IsNullOrWhiteSpace(enumField.Type.Name)) {
-        if (context.GetEnumValue(enumField.Type.EnumValue!, out var enumType)) {
+        if (context.GetEnumValue(enumField.Type.EnumValue!, out string? enumType)) {
           enumField.Type.Name = enumType!;
         } else {
           context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.Type.EnumValue}' not defined");
@@ -35,7 +35,7 @@ internal class VerifyOutputTypes(
 
   protected override void UsageField(OutputFieldAst field, OutputContext context)
   {
-    foreach (var parameter in field.Parameters) {
+    foreach (ParameterAst parameter in field.Parameters) {
       context.CheckType(parameter.Type, " Parameter");
 
       context.CheckModifiers(parameter);
@@ -46,7 +46,7 @@ internal class VerifyOutputTypes(
 
   protected override OutputContext MakeContext(OutputDeclAst usage, AstType[] aliased, ITokenMessages errors)
   {
-    var validTypes = aliased.AliasedGroup()
+    Map<AstDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (AstDescribed)p.First()))
       .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (AstDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);

@@ -60,12 +60,12 @@ internal class ParseCategoryDefinition(
   public IResult<CategoryOutput> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    if (!tokens.Identifier(out var output)) {
+    if (!tokens.Identifier(out string? output)) {
       return tokens.Error<CategoryOutput>(label, "output type");
     }
 
-    var result = new CategoryOutput(output);
-    var modifiers = _modifiers.Parse(tokens, "Parameter");
+    CategoryOutput result = new(output);
+    IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, "Parameter");
     if (modifiers.IsError()) {
       return modifiers.AsResult(result);
     }

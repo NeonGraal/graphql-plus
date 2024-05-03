@@ -22,7 +22,7 @@ public record struct DomainRangeInput(decimal? Min, decimal? Max)
       return $"< {Upper}";
     }
 
-    var result = $"{Lower}";
+    string result = $"{Lower}";
 
     if (Upper is null) {
       result += " >";
@@ -47,7 +47,7 @@ public record struct FieldInput(string Name, string Type)
 
   public readonly int CompareTo(FieldInput other)
   {
-    var comp = string.CompareOrdinal(Name, other.Name);
+    int comp = string.CompareOrdinal(Name, other.Name);
 
     return comp == 0 ? string.CompareOrdinal(Type, other.Type) : comp;
   }

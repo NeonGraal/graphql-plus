@@ -24,8 +24,8 @@ public static class TestHelpers
 
   public static AstFields<ConstantAst> ConstantObject(this string value, string key)
   {
-    var keyAst = key.FieldKey();
-    var valueAst = value.FieldKey();
+    FieldKeyAst keyAst = key.FieldKey();
+    FieldKeyAst valueAst = value.FieldKey();
 
     return key == value
       ? new() { [keyAst] = valueAst }
@@ -67,7 +67,7 @@ public static class TestHelpers
 
   public static Tokenizer Tokens(string input)
   {
-    var tokens = new Tokenizer(input);
+    Tokenizer tokens = new(input);
     tokens.Read();
     return tokens;
   }

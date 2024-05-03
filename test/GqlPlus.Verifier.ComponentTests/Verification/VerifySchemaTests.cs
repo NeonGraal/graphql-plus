@@ -24,11 +24,11 @@ public class VerifySchemaTests(
   [ClassData(typeof(VerifySchemaValidMergesData))]
   public void Verify_ValidMerges(string schema)
   {
-    var input = VerifySchemaValidMergesData.Source[schema];
+    string input = VerifySchemaValidMergesData.Source[schema];
     if (IsObjectInput(input)) {
-      using var scope = new AssertionScope();
+      using AssertionScope scope = new();
 
-      foreach (var (objLabel, objAbbr) in Replacements) {
+      foreach ((string objLabel, string objAbbr) in Replacements) {
         Verify_Valid(ReplaceObject(input, objLabel, objAbbr));
       }
     } else {
@@ -50,11 +50,11 @@ public class VerifySchemaTests(
   [ClassData(typeof(VerifySchemaValidObjectsData))]
   public void Verify_ValidObjects(string obj)
   {
-    var input = VerifySchemaValidObjectsData.Source[obj];
+    string input = VerifySchemaValidObjectsData.Source[obj];
     if (IsObjectInput(input)) {
-      using var scope = new AssertionScope();
+      using AssertionScope scope = new();
 
-      foreach (var (objLabel, objAbbr) in Replacements) {
+      foreach ((string objLabel, string objAbbr) in Replacements) {
         Verify_Valid(ReplaceObject(input, objLabel, objAbbr));
       }
     } else {
@@ -66,7 +66,7 @@ public class VerifySchemaTests(
   [ClassData(typeof(VerifySchemaInvalidObjectsData))]
   public async Task Verify_InvalidObjects(string obj)
   {
-    var input = VerifySchemaInvalidObjectsData.Source[obj];
+    string input = VerifySchemaInvalidObjectsData.Source[obj];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Invalid(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + obj))
@@ -78,13 +78,13 @@ public class VerifySchemaTests(
 
   private void Verify_Valid(string input)
   {
-    var parse = Parse(input);
+    IResult<SchemaAst> parse = Parse(input);
 
     if (parse is IResultError<SchemaAst> error) {
       error.Message.Should().BeNull();
     }
 
-    var result = new TokenMessages();
+    TokenMessages result = [];
 
     verifier.Verify(parse.Required(), result);
 
@@ -93,9 +93,9 @@ public class VerifySchemaTests(
 
   private async Task Verify_Invalid(string input, string test)
   {
-    var parse = Parse(input);
+    IResult<SchemaAst> parse = Parse(input);
 
-    var result = new TokenMessages();
+    TokenMessages result = [];
     if (parse.IsOk()) {
       verifier.Verify(parse.Required(), result);
     } else {
@@ -104,7 +104,7 @@ public class VerifySchemaTests(
 
     result.Should().NotBeEmpty(input);
 
-    var settings = new VerifySettings();
+    VerifySettings settings = new();
     settings.ScrubEmptyLines();
     settings.UseDirectory(nameof(VerifySchemaTests));
     settings.UseTypeName("Invalid");

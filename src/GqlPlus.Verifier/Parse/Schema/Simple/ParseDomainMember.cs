@@ -11,10 +11,10 @@ internal class ParseDomainMember(
 
   public override IResult<DomainMemberAst> Parse<TContext>(TContext tokens, string label)
   {
-    var at = tokens.At;
+    Token.TokenAt at = tokens.At;
     DomainMemberAst? result;
-    var excluded = tokens.Take('!');
-    var hasType = tokens.Identifier(out var type);
+    bool excluded = tokens.Take('!');
+    bool hasType = tokens.Identifier(out string? type);
     result = new(at, excluded, type);
     if (!hasType) {
       return excluded
@@ -23,7 +23,7 @@ internal class ParseDomainMember(
     }
 
     if (tokens.Take('.')) {
-      if (tokens.Identifier(out var member)) {
+      if (tokens.Identifier(out string? member)) {
         result = new(at, excluded, member) { EnumType = type };
       } else if (tokens.Take("*")) {
         result = new(at, excluded, "*") { EnumType = type };

@@ -10,15 +10,15 @@ internal class ParseTypeParameters
   public IResultArray<TypeParameterAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var list = new List<TypeParameterAst>();
+    List<TypeParameterAst> list = [];
 
     if (!tokens.Take('<')) {
       return list.EmptyArray();
     }
 
     while (!tokens.Take('>')) {
-      tokens.String(out var description);
-      if (tokens.Prefix('$', out var name, out var at) && name is not null) {
+      tokens.String(out string? description);
+      if (tokens.Prefix('$', out string? name, out TokenAt? at) && name is not null) {
         list.Add(new(at, name, description));
       } else {
         return tokens.PartialArray(label, "type parameter", () => list);

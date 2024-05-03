@@ -16,27 +16,27 @@ internal sealed class CheckMany<T>(Parser<T>.DA parser)
 
   internal void TrueExpected(string input, params T[] expected)
   {
-    var result = _parser.Parse(Tokens(input), _type);
+    IResultArray<T> result = _parser.Parse(Tokens(input), _type);
 
     result.IsOk().Should().BeTrue(_type);
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     result.Required().Should().Equal(expected);
   }
 
   internal void False(string input)
   {
-    var result = _parser.Parse(Tokens(input), _type);
+    IResultArray<T> result = _parser.Parse(Tokens(input), _type);
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).Should().BeTrue(_type);
   }
 
   internal void Count(string input, int count)
   {
-    var result = _parser.Parse(Tokens(input), _type);
+    IResultArray<T> result = _parser.Parse(Tokens(input), _type);
 
     result.IsOk().Should().BeTrue(_type);
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     result.Required().Length.Should().Be(count);
   }
 }
@@ -52,27 +52,27 @@ where I : Parser<T>.IA
 
   internal void TrueExpected(string input, params T[] expected)
   {
-    var result = _parser.I.Parse(Tokens(input), _type);
+    IResultArray<T> result = _parser.I.Parse(Tokens(input), _type);
 
     result.IsOk().Should().BeTrue(_type);
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     result.Required().Should().Equal(expected);
   }
 
   internal void False(string input)
   {
-    var result = _parser.I.Parse(Tokens(input), _type);
+    IResultArray<T> result = _parser.I.Parse(Tokens(input), _type);
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).Should().BeTrue(_type);
   }
 
   internal void Count(string input, int count)
   {
-    var result = _parser.I.Parse(Tokens(input), _type);
+    IResultArray<T> result = _parser.I.Parse(Tokens(input), _type);
 
     result.IsOk().Should().BeTrue(_type);
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     result.Required().Length.Should().Be(count);
   }
 }

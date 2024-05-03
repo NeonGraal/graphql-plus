@@ -17,15 +17,15 @@ internal class ParseSelection(
     where TContext : Tokenizer
   {
     if (tokens.Take("...") || tokens.Take('|')) {
-      var at = tokens.At;
+      TokenAt at = tokens.At;
       string? onType = null;
       if (tokens.Take("on") || tokens.Take(':')) {
         if (!tokens.Identifier(out onType)) {
           return tokens.Error<IAstSelection>("Spread", "a type");
         }
       } else {
-        if (tokens.Identifier(out var name)) {
-          var selection = new SpreadAst(at, name);
+        if (tokens.Identifier(out string? name)) {
+          SpreadAst selection = new(at, name);
           _directives.Parse(tokens, "Spread").Optional(directives => selection.Directives = directives);
 
           if (tokens is OperationContext context) {
@@ -37,11 +37,11 @@ internal class ParseSelection(
       }
 
       {
-        var directives = _directives.Parse(tokens, "Inline");
-        var selections = _object.Parse(tokens, "Object");
+        IResultArray<DirectiveAst> directives = _directives.Parse(tokens, "Inline");
+        IResultArray<IAstSelection> selections = _object.Parse(tokens, "Object");
         if (selections.IsOk()) {
           return selections.Select(values => {
-            var selection = new InlineAst(at, values) {
+            InlineAst selection = new(at, values) {
               OnType = onType,
             };
             directives.Optional(directives => selection.Directives = directives);

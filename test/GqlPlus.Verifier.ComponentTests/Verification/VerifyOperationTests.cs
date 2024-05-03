@@ -16,12 +16,12 @@ public class VerifyOperationTests(
   [ClassData(typeof(VerifyOperationValidData))]
   public void Verify_ValidOperations_ReturnsValid(string operation)
   {
-    var parse = Parse(VerifyOperationValidData.Source[operation]);
+    IResult<OperationAst> parse = Parse(VerifyOperationValidData.Source[operation]);
     if (parse is IResultError<OperationAst> error) {
       error.Message.Should().BeNull();
     }
 
-    var result = new TokenMessages();
+    TokenMessages result = [];
 
     verifier.Verify(parse.Required(), result);
 
@@ -32,9 +32,9 @@ public class VerifyOperationTests(
   [ClassData(typeof(VerifyOperationInvalidData))]
   public void Verify_InvalidOperations_ReturnsInvalid(string operation)
   {
-    var parse = Parse(VerifyOperationInvalidData.Source[operation]);
+    IResult<OperationAst> parse = Parse(VerifyOperationInvalidData.Source[operation]);
 
-    var result = new TokenMessages();
+    TokenMessages result = [];
     if (parse.IsOk()) {
       verifier.Verify(parse.Required(), result);
     } else {

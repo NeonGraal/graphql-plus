@@ -16,11 +16,11 @@ public class ParseSchemaTests(Parser<SchemaAst>.D parser)
   [InlineData("category { Query } 'Description' enum Test { Value }")]
   public void Parse_ShouldSucceed(string input)
   {
-    var tokens = new Tokenizer(input);
+    Tokenizer tokens = new(input);
 
-    var ast = _parser.Parse(tokens, "Schema").Required();
+    SchemaAst ast = _parser.Parse(tokens, "Schema").Required();
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     ast.Should().BeOfType<SchemaAst>()
       .Subject.Result.Should().Be(ParseResultKind.Success);
@@ -31,11 +31,11 @@ public class ParseSchemaTests(Parser<SchemaAst>.D parser)
   [InlineData("")]
   public void Parse_ShouldFail(string input)
   {
-    var tokens = new Tokenizer(input);
+    Tokenizer tokens = new(input);
 
-    var result = _parser.Parse(tokens, "Schema");
+    IResult<SchemaAst> result = _parser.Parse(tokens, "Schema");
     result.Optional(ast => {
-      using var scope = new AssertionScope();
+      using AssertionScope scope = new();
 
       ast.Should().BeNull();
       result.IsError(err => err.Message.Should().NotBeNullOrWhiteSpace());
@@ -47,11 +47,11 @@ public class ParseSchemaTests(Parser<SchemaAst>.D parser)
   [InlineData("category { Query } extra")]
   public void Parse_ShouldPartiallySucceed(string input)
   {
-    var tokens = new Tokenizer(input);
+    Tokenizer tokens = new(input);
 
-    var ast = _parser.Parse(tokens, "Schema").Optional();
+    SchemaAst? ast = _parser.Parse(tokens, "Schema").Optional();
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     ast.Should().BeOfType<SchemaAst>()
       .Subject.Result.Should().Be(ParseResultKind.Failure);

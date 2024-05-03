@@ -18,8 +18,8 @@ public static class OperationTestHelpers
 
   public static AstFields<ArgumentAst> ArgumentObject(this string value, string key)
   {
-    var keyAst = key.FieldKey();
-    var valueAst = value.FieldKey();
+    FieldKeyAst keyAst = key.FieldKey();
+    FieldKeyAst valueAst = value.FieldKey();
 
     return key == value
       ? new() { [keyAst] = new(AstNulls.At, value) }

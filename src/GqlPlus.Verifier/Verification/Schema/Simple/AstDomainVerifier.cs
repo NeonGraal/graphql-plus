@@ -13,7 +13,7 @@ internal class AstDomainVerifier<TMember>(
   public ITokenMessages CanMergeItems(AstDomain usage, EnumContext context)
   {
     return usage is not AstDomain<TMember> domain
-|| !context.GetType(domain.Parent, out var type)
+|| !context.GetType(domain.Parent, out Ast.Schema.AstDescribed? type)
       || type is not AstDomain<TMember> domainParent
       ? new TokenMessages()
       : CanMergeDomain(domain, domainParent, context);

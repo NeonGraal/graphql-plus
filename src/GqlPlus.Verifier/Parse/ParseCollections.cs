@@ -9,15 +9,15 @@ internal class ParseCollections : IParserCollections
   public IResultArray<ModifierAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var list = new List<ModifierAst>();
+    List<ModifierAst> list = [];
 
-    var at = tokens.At;
+    TokenAt at = tokens.At;
     while (tokens.Take('[')) {
-      var modifier = ModifierAst.List(at);
-      if (tokens.Identifier(out var key)) {
+      ModifierAst modifier = ModifierAst.List(at);
+      if (tokens.Identifier(out string? key)) {
         modifier = new(at, key, tokens.Take('?'));
       } else {
-        if (tokens.TakeAny(out var charType, '^', '0', '*')) {
+        if (tokens.TakeAny(out char charType, '^', '0', '*')) {
           modifier = new(at, charType.ToString(), tokens.Take('?'));
         }
       }

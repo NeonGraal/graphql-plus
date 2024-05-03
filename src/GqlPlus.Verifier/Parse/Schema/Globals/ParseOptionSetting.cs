@@ -12,13 +12,13 @@ internal class ParseOptionSetting(
 
   IResult<OptionSettingAst> Parser<OptionSettingAst>.I.Parse<TContext>(TContext tokens, string label)
   {
-    var at = tokens.At;
-    tokens.String(out var description);
-    if (!tokens.Identifier(out var name)) {
+    Token.TokenAt at = tokens.At;
+    tokens.String(out string? description);
+    if (!tokens.Identifier(out string? name)) {
       return 0.Empty<OptionSettingAst>();
     }
 
-    var constant = _default.I.Parse(tokens, label);
+    IResult<ConstantAst> constant = _default.I.Parse(tokens, label);
     return constant.SelectOk(
       value => new OptionSettingAst(at, name, value),
       () => tokens.Error<OptionSettingAst>(label, "Value"));

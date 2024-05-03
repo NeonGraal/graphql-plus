@@ -34,7 +34,7 @@ internal class ParseOperation(
 
     OperationAst ast = ParseCategory(tokens);
 
-    var variables = _variables.Parse(tokens, label);
+    IResultArray<VariableAst> variables = _variables.Parse(tokens, label);
     if (!variables.Optional(value => ast.Variables = value)) {
       return variables.AsPartial(Final());
     }
@@ -42,13 +42,13 @@ internal class ParseOperation(
     _directives.Parse(tokens, label).Required(directives => ast.Directives = directives);
 
     _startFragments.I.Parse(tokens, label).WithResult(value => ast.Fragments = value);
-    if (!tokens.Prefix(':', out var result, out _)) {
+    if (!tokens.Prefix(':', out string? result, out _)) {
       return tokens.Partial(label, "identifier to follow ':'", Final);
     }
 
     if (result is not null) {
       ast.ResultType = result;
-      var argument = _argument.I.Parse(tokens, "Argument");
+      IResult<ArgumentAst> argument = _argument.I.Parse(tokens, "Argument");
       if (!argument.Optional(value => ast.Argument = value)) {
         return argument.AsPartial(Final());
       }
@@ -56,7 +56,7 @@ internal class ParseOperation(
       return tokens.Partial(label, "Object or Type", Final);
     }
 
-    var modifiers = _modifiers.Parse(tokens, label);
+    IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, label);
 
     if (modifiers.IsError()) {
       return modifiers.AsPartial(Final());
@@ -87,9 +87,9 @@ internal class ParseOperation(
   private static OperationAst ParseCategory<TContext>(TContext tokens)
     where TContext : Tokenizer
   {
-    var at = tokens.At;
-    return tokens.Identifier(out var category)
-      ? tokens.Identifier(out var name)
+    TokenAt at = tokens.At;
+    return tokens.Identifier(out string? category)
+      ? tokens.Identifier(out string? name)
         ? new(at, name) { Category = category }
         : new(at) { Category = category }
       : new(at);

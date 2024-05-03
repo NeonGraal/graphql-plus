@@ -12,20 +12,20 @@ internal class VerifyDomainEnum(
   {
     EnumMembers members = new();
 
-    foreach (var member in domain.Members) {
+    foreach (DomainMemberAst member in domain.Members) {
       if (string.IsNullOrWhiteSpace(member.EnumType)) {
-        if (context.GetEnumValue(member.Member, out var enumType)) {
+        if (context.GetEnumValue(member.Member, out string? enumType)) {
           member.EnumType = enumType;
-          if (context.GetEnumType(member.EnumType, out var theType)) {
+          if (context.GetEnumType(member.EnumType, out EnumDeclAst? theType)) {
             members.Add(member.Excludes, theType, member.Member);
           }
         } else {
           context.AddError(member, "Domain Enum Member", $"Enum Value '{member.Member}' not defined");
         }
-      } else if (context.GetEnumType(member.EnumType, out var theType)) {
+      } else if (context.GetEnumType(member.EnumType, out EnumDeclAst? theType)) {
         if (member.Member == "*") {
           AddAllMembers(members, context, member.Excludes, theType);
-        } else if (context.GetEnumValueType(theType, member.Member, out var memberType)) {
+        } else if (context.GetEnumValueType(theType, member.Member, out EnumDeclAst? memberType)) {
           members.Add(member.Excludes, memberType, member.Member);
         } else {
           context.AddError(member, "Domain Enum Value", $"'{member.Member}' not a Value of '{member.EnumType}'");
@@ -35,20 +35,20 @@ internal class VerifyDomainEnum(
       }
     }
 
-    foreach (var duplicate in members.DuplicateMembers()) {
-      var member = duplicate[0].Member;
-      var enums = duplicate.Select(x => x.Enum.Name).Joined();
+    foreach (EnumMember[] duplicate in members.DuplicateMembers()) {
+      string member = duplicate[0].Member;
+      string enums = duplicate.Select(x => x.Enum.Name).Joined();
       context.AddError(domain, "Domain Enum", $"'{member}' duplicated from these Enums: {enums}");
     }
   }
 
   private static void AddAllMembers(EnumMembers members, EnumContext context, bool excludes, EnumDeclAst enumType)
   {
-    foreach (var enumMember in enumType.Members) {
+    foreach (EnumMemberAst enumMember in enumType.Members) {
       members.Add(excludes, enumType, enumMember.Name);
     }
 
-    if (context.GetEnumType(enumType.Parent, out var parentType)) {
+    if (context.GetEnumType(enumType.Parent, out EnumDeclAst? parentType)) {
       AddAllMembers(members, context, excludes, parentType);
     }
   }
@@ -63,7 +63,7 @@ internal class EnumMembers
 
   internal void Add(bool excluded, EnumDeclAst theEnum, string theMember)
   {
-    var enumMember = theEnum.Members.First(m => m.Name == theMember || m.Aliases.Contains(theMember));
+    EnumMemberAst enumMember = theEnum.Members.First(m => m.Name == theMember || m.Aliases.Contains(theMember));
     if (excluded) {
       _excludes.Add(new(theEnum, enumMember.Name));
     } else {
@@ -73,7 +73,7 @@ internal class EnumMembers
 
   internal EnumMember[][] DuplicateMembers()
   {
-    var allMembers = _includes
+    IEnumerable<IGrouping<string, EnumMember>> allMembers = _includes
       .Except(_excludes)
       .GroupBy(m => m.Member);
 

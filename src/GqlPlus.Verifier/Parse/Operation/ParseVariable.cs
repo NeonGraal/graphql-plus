@@ -20,8 +20,8 @@ internal class ParseVariable(
   public IResult<VariableAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var prefix = tokens.Prefix('$', out var name, out var at);
-    var variable = new VariableAst(at, name ?? "");
+    bool prefix = tokens.Prefix('$', out string? name, out TokenAt? at);
+    VariableAst variable = new(at, name ?? "");
     if (!prefix) {
       return tokens.Partial(label, "identifier after '$'", () => variable);
     }
@@ -36,17 +36,17 @@ internal class ParseVariable(
       }
     }
 
-    var modifiers = _modifiers.Parse(tokens, label);
+    IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, label);
     if (!modifiers.Optional(value => variable.Modifers = value)) {
       return modifiers.AsResult(variable);
     }
 
-    var constant = _default.I.Parse(tokens, label);
+    IResult<ConstantAst> constant = _default.I.Parse(tokens, label);
     if (!constant.Optional(value => variable.Default = value)) {
       return constant.AsResult(variable);
     }
 
-    var directives = _directives.Parse(tokens, label);
+    IResultArray<DirectiveAst> directives = _directives.Parse(tokens, label);
     return directives.Optional(value => variable.Directives = value)
       ? variable.Ok()
       : directives.AsResult(variable);

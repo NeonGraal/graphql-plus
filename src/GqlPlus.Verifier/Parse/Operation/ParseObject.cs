@@ -16,20 +16,20 @@ internal class ParseObject(
   public IResultArray<IAstSelection> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var fields = new List<IAstSelection>();
+    List<IAstSelection> fields = [];
     if (!tokens.Take('{')) {
       return fields.EmptyArray();
     }
 
     while (!tokens.Take('}')) {
-      var selection = _selection.Parse(tokens, label);
+      IResult<IAstSelection> selection = _selection.Parse(tokens, label);
       if (selection.IsError()) {
         return selection.AsResultArray(fields);
       } else if (selection.Required(fields.Add)) {
         continue;
       }
 
-      var field = _field.Parse(tokens, label);
+      IResult<FieldAst> field = _field.Parse(tokens, label);
       if (field.IsError()) {
         return field.AsResultArray(fields);
       }

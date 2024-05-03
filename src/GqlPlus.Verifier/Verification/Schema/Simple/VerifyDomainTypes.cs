@@ -15,7 +15,7 @@ internal class VerifyDomainTypes(
 
   protected override EnumContext MakeContext(AstDomain usage, AstType[] aliased, ITokenMessages errors)
   {
-    var validTypes = aliased.AliasedMap(p => (AstDescribed)p.First());
+    IMap<AstDescribed> validTypes = aliased.AliasedMap(p => (AstDescribed)p.First());
 
     return new(validTypes, errors, aliased.MakeEnumValues());
   }
@@ -24,7 +24,7 @@ internal class VerifyDomainTypes(
   {
     base.UsageValue(usage, context);
 
-    foreach (var domain in domains) {
+    foreach (IVerifyDomain domain in domains) {
       domain.Verify(usage, context);
     }
   }
@@ -44,7 +44,7 @@ internal class VerifyDomainTypes(
 
   protected override void CheckMergeParent(ParentUsage<AstDomain> input, EnumContext context)
   {
-    var failures = domains.SelectMany(domain => domain.CanMergeItems(input.Usage, context));
+    IEnumerable<TokenMessage> failures = domains.SelectMany(domain => domain.CanMergeItems(input.Usage, context));
     if (failures.Any()) {
       context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} items into Parent {input.Parent} items");
       context.Add(failures);

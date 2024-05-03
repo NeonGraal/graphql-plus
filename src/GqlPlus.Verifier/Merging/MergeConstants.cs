@@ -11,7 +11,7 @@ internal class MergeConstants
       return [];
     }
 
-    var list = items.ToArray();
+    ConstantAst[] list = items.ToArray();
     return list.Length > 1
       ? [list.Aggregate(CombineConstants)]
       : list;
@@ -26,7 +26,7 @@ internal class MergeConstants
 
   private static ConstantAst MergeValues(ConstantAst a, ConstantAst b)
   {
-    var values = a.Values.Append(b);
+    IEnumerable<ConstantAst> values = a.Values.Append(b);
 
     if (b.Values.Length > 0) {
       values = a.Values.Length == 0
@@ -39,7 +39,7 @@ internal class MergeConstants
 
   private ConstantAst MergeFields(ConstantAst a, ConstantAst b)
   {
-    var fields = a.Fields.Concat(b.Fields)
+    Dictionary<FieldKeyAst, ConstantAst> fields = a.Fields.Concat(b.Fields)
       .ToLookup(p => p.Key, p => p.Value)
       .ToDictionary(g => g.Key, g => Merge(g).First());
 

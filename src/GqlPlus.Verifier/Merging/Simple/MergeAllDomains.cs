@@ -15,7 +15,7 @@ internal class MergeAllDomains(
 
   ITokenMessages IMerge<AstType>.CanMerge(IEnumerable<AstType> items)
   {
-    var domains = items.OfType<AstDomain>();
+    IEnumerable<AstDomain> domains = items.OfType<AstDomain>();
 
     return domains.Any() ? CanMerge(domains) : new TokenMessages();
   }

@@ -249,7 +249,7 @@ internal class ParameterModeller(
 {
   protected override ParameterModel ToModel(ParameterAst ast, IMap<TypeKindModel> typeKinds)
   {
-    var altModel = alternate.ToModel(ast, typeKinds);
+    AlternateModel<InputBaseModel> altModel = alternate.ToModel(ast, typeKinds);
     return new(altModel.Type) {
       Collections = altModel.Collections,
       Default = constant.TryModel(ast.Default, typeKinds),

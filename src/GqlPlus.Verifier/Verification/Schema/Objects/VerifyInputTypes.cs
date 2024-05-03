@@ -15,7 +15,7 @@ internal class VerifyInputTypes(
 {
   protected override UsageContext MakeContext(InputDeclAst usage, AstType[] aliased, ITokenMessages errors)
   {
-    var validTypes = aliased.AliasedGroup()
+    Map<AstDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (AstDescribed)p.First()))
       .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (AstDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);

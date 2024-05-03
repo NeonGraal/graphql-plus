@@ -13,15 +13,15 @@ internal class ParseEnumMember(
   public IResult<EnumMemberAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    tokens.String(out var description);
-    var at = tokens.At;
+    tokens.String(out string? description);
+    TokenAt at = tokens.At;
 
-    if (!tokens.Identifier(out var value)) {
+    if (!tokens.Identifier(out string? value)) {
       return tokens.Error<EnumMemberAst>(label, "member");
     }
 
-    var enumAliases = _aliases.Parse(tokens, "Enum Member");
-    var enumMember = enumAliases.IsOk()
+    IResultArray<string> enumAliases = _aliases.Parse(tokens, "Enum Member");
+    EnumMemberAst enumMember = enumAliases.IsOk()
       ? new EnumMemberAst(at, value, description) { Aliases = enumAliases.Required() }
       : new EnumMemberAst(at, value, description);
 

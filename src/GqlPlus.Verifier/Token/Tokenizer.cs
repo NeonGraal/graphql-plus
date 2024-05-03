@@ -22,20 +22,20 @@ public class Tokenizer
 
   static Tokenizer()
   {
-    for (var kind = 0; kind < 96; kind++) {
+    for (int kind = 0; kind < 96; kind++) {
       _kinds[kind] = TokenKind.Punctuation;
     }
 
-    for (var id = 0; id < 75; id++) {
+    for (int id = 0; id < 75; id++) {
       _identifier[id] = false;
     }
 
-    for (var kind = 'A'; kind <= 'Z'; kind++) {
+    for (char kind = 'A'; kind <= 'Z'; kind++) {
       _kinds[kind - ' '] = TokenKind.Identifer;
       _identifier[kind - '0'] = true;
     }
 
-    for (var kind = 'a'; kind <= 'z'; kind++) {
+    for (char kind = 'a'; kind <= 'z'; kind++) {
       _kinds[kind - ' '] = TokenKind.Identifer;
       _identifier[kind - '0'] = true;
     }
@@ -43,7 +43,7 @@ public class Tokenizer
     _kinds['_' - ' '] = TokenKind.Identifer;
     _identifier['_' - '0'] = true;
 
-    for (var kind = '0'; kind <= '9'; kind++) {
+    for (char kind = '0'; kind <= '9'; kind++) {
       _kinds[kind - ' '] = TokenKind.Number;
       _identifier[kind - '0'] = true;
     }
@@ -128,9 +128,9 @@ public class Tokenizer
 
   private void SkipWhitespace()
   {
-    var span = _operation.Span;
+    ReadOnlySpan<char> span = _operation.Span;
     while (_pos < _len) {
-      var code = span[_pos];
+      char code = span[_pos];
 
       if (SkipComment(ref span, ref code)) {
         return;
@@ -159,8 +159,9 @@ public class Tokenizer
       return false;
     }
 
-    var end = Letters(_pos);
-    identifier = GetString(end); ;
+    int end = Letters(_pos);
+    identifier = GetString(end);
+    ;
 
     _pos = end;
     Read();
@@ -170,7 +171,7 @@ public class Tokenizer
 
   private int Letters(int end)
   {
-    var span = _operation.Span;
+    ReadOnlySpan<char> span = _operation.Span;
     int code;
     do {
       if (++end >= _len) {
@@ -188,7 +189,7 @@ public class Tokenizer
 
   private string GetString(int end)
   {
-    var result = end < _len ? _operation[_pos..end] : _operation[_pos..];
+    ReadOnlyMemory<char> result = end < _len ? _operation[_pos..end] : _operation[_pos..];
     return result.ToString();
   }
 
@@ -199,7 +200,7 @@ public class Tokenizer
       return false;
     }
 
-    var end = Decimal(_pos);
+    int end = Decimal(_pos);
     number = decimal.Parse(GetString(end).Replace("_", "", StringComparison.Ordinal), CultureInfo.InvariantCulture);
 
     _pos = end;
@@ -210,7 +211,7 @@ public class Tokenizer
 
   private int Digits(int end)
   {
-    var span = _operation.Span;
+    ReadOnlySpan<char> span = _operation.Span;
 
     char code;
     do {
@@ -250,9 +251,9 @@ public class Tokenizer
 
   private bool BlockString(out string contents)
   {
-    var span = _operation.Span;
-    var next = _pos + 3;
-    var end = next;
+    ReadOnlySpan<char> span = _operation.Span;
+    int next = _pos + 3;
+    int end = next;
     do {
       if (span[end] == '\\') {
         ++next;
@@ -288,8 +289,8 @@ public class Tokenizer
 
   private bool Delimited(char delimiter, out string contents)
   {
-    var span = _operation.Span;
-    var end = _pos;
+    ReadOnlySpan<char> span = _operation.Span;
+    int end = _pos;
     do {
       if (span[end] == '\\') {
         ++end;
@@ -354,11 +355,11 @@ public class Tokenizer
     if (_kind == TokenKind.Punctuation
       && _operation.Span[_pos] == one
     ) {
-      var next = _pos + 1;
+      int next = _pos + 1;
 
       at = At;
       if (next < _len) {
-        var code = _operation.Span[next] - ' ';
+        int code = _operation.Span[next] - ' ';
         if (code > 0
           && code < 95
           && _kinds[code] == TokenKind.Identifer
@@ -412,13 +413,13 @@ public class Tokenizer
 
   internal IResult<T> Partial<T>(string label, string expected, Func<T> result)
   {
-    var error = Error(label, expected);
+    TokenMessage error = Error(label, expected);
     return result().Partial(error);
   }
 
   internal IResultArray<T> PartialArray<T>(string label, string expected, Func<IEnumerable<T>> result)
   {
-    var error = Error(label, expected);
+    TokenMessage error = Error(label, expected);
     return result().PartialArray(error);
   }
 }

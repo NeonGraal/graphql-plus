@@ -33,7 +33,7 @@ public abstract record class ChildTypeModel<TParent>(
     where TModel : IRendering
   {
     if (_parentModel is null) {
-      _parentModel = model = context.TryGetType<TModel>(Name, ParentName(Parent), out var parentModel) ? parentModel : default;
+      _parentModel = model = context.TryGetType<TModel>(Name, ParentName(Parent), out TModel? parentModel) ? parentModel : default;
     } else {
       model = (TModel?)_parentModel;
     }
@@ -48,7 +48,7 @@ public abstract record class ChildTypeModel<TParent>(
   internal void ForParent<TModel>(IRenderContext context, Action<TModel> action)
     where TModel : IChildTypeModel
   {
-    if (GetParentModel<TModel>(context, out var parentModel)) {
+    if (GetParentModel<TModel>(context, out TModel? parentModel)) {
       parentModel.ForParent(context, action);
       action(parentModel);
     }
@@ -161,7 +161,7 @@ internal class TypeModeller(
 {
   public void AddTypeKinds(IEnumerable<AstType> asts, IMap<TypeKindModel> typeKinds)
   {
-    foreach (var ast in asts) {
+    foreach (AstType ast in asts) {
       typeKinds.Add(ast.Name, types.Single(t => t.ForType(ast)).Kind);
     }
   }
@@ -190,7 +190,7 @@ internal class TypesCollection(
 
   internal static TypesCollection WithBuiltins(ITypesModeller types)
   {
-    var typeKinds = new TypesCollection(types);
+    TypesCollection typeKinds = new(types);
 
     typeKinds.AddTypes(BuiltIn.Basic, TypeKindModel.Basic);
     typeKinds.AddTypes(BuiltIn.Internal, TypeKindModel.Internal);
@@ -200,20 +200,20 @@ internal class TypesCollection(
 
   internal void AddTypes(AstType[] asts, TypeKindModel kind)
   {
-    foreach (var ast in asts) {
+    foreach (AstType ast in asts) {
       this[ast.Name] = kind;
 
-      foreach (var alias in ast.Aliases) {
+      foreach (string alias in ast.Aliases) {
         TryAdd(alias, kind);
       }
     }
 
-    foreach (var ast in asts) {
+    foreach (AstType ast in asts) {
       try {
-        var model = types.TryModel(ast, this);
+        BaseTypeModel? model = types.TryModel(ast, this);
         if (model is not null) {
           Types[model.Name] = model;
-          foreach (var alias in ast.Aliases) {
+          foreach (string alias in ast.Aliases) {
             Types.TryAdd(alias, model);
           }
         }
@@ -265,10 +265,10 @@ internal class TypesCollection(
 
   public void AddModels(IEnumerable<BaseTypeModel> models)
   {
-    foreach (var model in models) {
+    foreach (BaseTypeModel model in models) {
       Types.Add(model.Name, model);
 
-      foreach (var alias in model.Aliases) {
+      foreach (string alias in model.Aliases) {
         Types.TryAdd(alias, model);
       }
     }
@@ -278,7 +278,7 @@ internal class TypesCollection(
     where TModel : IRendering
   {
     if (name is not null) {
-      if (Types.TryGetValue(name, out var type) && type is TModel modelType) {
+      if (Types.TryGetValue(name, out BaseTypeModel? type) && type is TModel modelType) {
         model = modelType;
         return true;
       }

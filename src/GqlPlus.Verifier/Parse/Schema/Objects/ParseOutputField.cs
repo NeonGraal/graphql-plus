@@ -27,10 +27,10 @@ internal class ParseOutputField(
   protected override IResult<OutputFieldAst> FieldEnumValue<TContext>(TContext tokens, OutputFieldAst field)
   {
     if (tokens.Take('=')) {
-      tokens.String(out var description);
-      var at = tokens.At;
+      tokens.String(out string? description);
+      TokenAt at = tokens.At;
 
-      if (!tokens.Identifier(out var enumType)) {
+      if (!tokens.Identifier(out string? enumType)) {
         return tokens.Error("Output", "enum value after '='", field);
       }
 
@@ -39,7 +39,7 @@ internal class ParseOutputField(
         return field.Ok();
       }
 
-      if (tokens.Identifier(out var enumValue)) {
+      if (tokens.Identifier(out string? enumValue)) {
         field.Type = new OutputBaseAst(at, enumType, description) { EnumValue = enumValue };
         return field.Ok();
       }

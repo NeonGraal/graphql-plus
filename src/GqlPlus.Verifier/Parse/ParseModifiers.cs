@@ -13,14 +13,14 @@ internal class ParseModifiers(
   public IResultArray<ModifierAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var list = new List<ModifierAst>();
-    var collections = _collections.I.Parse(tokens, label);
+    List<ModifierAst> list = [];
+    IResultArray<ModifierAst> collections = _collections.I.Parse(tokens, label);
 
     if (!collections.Optional(list.AddRange)) {
       return collections.AsResultArray<ModifierAst>();
     }
 
-    var at = tokens.At;
+    TokenAt at = tokens.At;
     if (tokens.Take('?')) {
       list.Add(ModifierAst.Optional(at));
     }

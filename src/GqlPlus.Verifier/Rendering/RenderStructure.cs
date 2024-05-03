@@ -87,7 +87,7 @@ public class RenderStructure
 
     if (type.GetCustomAttributes(typeof(FlagsAttribute)).Any()) {
       int flags = (int)(object)set;
-      Dict result = new Dict();
+      IDict result = NewDict;
 
       foreach (object? value in Enum.GetValues(type)) {
         int flag = (int)value;

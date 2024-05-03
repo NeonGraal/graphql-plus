@@ -16,15 +16,15 @@ internal class MergeSchemas(
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, SchemaAst> group)
   {
-    var categories = Just<CategoryDeclAst>(group);
-    var directives = Just<DirectiveDeclAst>(group);
-    var options = Just<OptionDeclAst>(group);
-    var astTypes = Just<AstType>(group);
+    IEnumerable<CategoryDeclAst> categories = Just<CategoryDeclAst>(group);
+    IEnumerable<DirectiveDeclAst> directives = Just<DirectiveDeclAst>(group);
+    IEnumerable<OptionDeclAst> options = Just<OptionDeclAst>(group);
+    IEnumerable<AstType> astTypes = Just<AstType>(group);
 
-    var categoriesCanMerge = categories.Any() ? categoryMerger.CanMerge(categories) : new TokenMessages();
-    var directivesCanMerge = directives.Any() ? directiveMerger.CanMerge(directives) : new TokenMessages();
-    var optionsCanMerge = options.Any() ? optionMerger.CanMerge(options) : new TokenMessages();
-    var astTypesCanMerge = astTypes.Any() ? astTypeMerger.CanMerge(astTypes) : new TokenMessages();
+    ITokenMessages categoriesCanMerge = categories.Any() ? categoryMerger.CanMerge(categories) : new TokenMessages();
+    ITokenMessages directivesCanMerge = directives.Any() ? directiveMerger.CanMerge(directives) : new TokenMessages();
+    ITokenMessages optionsCanMerge = options.Any() ? optionMerger.CanMerge(options) : new TokenMessages();
+    ITokenMessages astTypesCanMerge = astTypes.Any() ? astTypeMerger.CanMerge(astTypes) : new TokenMessages();
 
     return categoriesCanMerge
       .Add(directivesCanMerge)
@@ -37,12 +37,12 @@ internal class MergeSchemas(
 
   protected override SchemaAst MergeGroup(IEnumerable<SchemaAst> group)
   {
-    var categories = Just<CategoryDeclAst>(group);
-    var directives = Just<DirectiveDeclAst>(group);
-    var options = Just<OptionDeclAst>(group);
-    var astTypes = Just<AstType>(group);
+    IEnumerable<CategoryDeclAst> categories = Just<CategoryDeclAst>(group);
+    IEnumerable<DirectiveDeclAst> directives = Just<DirectiveDeclAst>(group);
+    IEnumerable<OptionDeclAst> options = Just<OptionDeclAst>(group);
+    IEnumerable<AstType> astTypes = Just<AstType>(group);
 
-    var declarations = categoryMerger.Merge(categories).Cast<AstDeclaration>()
+    IEnumerable<AstDeclaration> declarations = categoryMerger.Merge(categories).Cast<AstDeclaration>()
       .Concat(directiveMerger.Merge(directives))
       .Concat(optionMerger.Merge(options))
       .Concat(astTypeMerger.Merge(astTypes));

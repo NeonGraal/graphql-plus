@@ -21,7 +21,7 @@ public class VerifyOperationInvalidData
 
   public VerifyOperationInvalidData()
   {
-    foreach (var key in Source.Keys) {
+    foreach (string key in Source.Keys) {
       Add(key);
     }
   }
@@ -39,7 +39,7 @@ public class VerifyOperationValidData
 
   public VerifyOperationValidData()
   {
-    foreach (var key in Source.Keys) {
+    foreach (string key in Source.Keys) {
       Add(key);
     }
   }

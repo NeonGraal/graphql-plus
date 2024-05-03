@@ -42,9 +42,9 @@ internal abstract class CheckModelBase<TName, TAst, TModel>
 
   internal void Model_Expected(IRendering model, string[] expected)
   {
-    var render = model.Render(Context);
+    RenderStructure render = model.Render(Context);
 
-    var yaml = render.ToYaml();
+    string yaml = render.ToYaml();
 
     yaml.ToLines().Should().Equal(expected.Tidy());
   }
@@ -104,8 +104,8 @@ internal static class CheckModelBaseHelper
   internal static TCheck AddTypeKinds<TCheck, TItem>(this TCheck check, IEnumerable<TItem> types, TypeKindModel kind)
     where TCheck : ICheckModelBase
   {
-    foreach (var type in types) {
-      var key = $"{type}";
+    foreach (TItem? type in types) {
+      string key = $"{type}";
       if (!string.IsNullOrWhiteSpace(key)) {
         check.TypeKinds[key] = kind;
       }

@@ -33,17 +33,17 @@ internal class MergeAllTypes(
 
   private static void FixupEnums(IEnumerable<AstType> items)
   {
-    var enumValues = GetEnumValues(
+    Map<string> enumValues = GetEnumValues(
       BuiltIn.Basic.OfType<EnumDeclAst>()
       .Concat(BuiltIn.Internal.OfType<EnumDeclAst>())
       .Concat(items.OfType<EnumDeclAst>()));
 
-    foreach (var output in items.OfType<OutputDeclAst>()) {
-      foreach (var alternate in output.Alternates) {
+    foreach (OutputDeclAst output in items.OfType<OutputDeclAst>()) {
+      foreach (AstAlternate<OutputBaseAst> alternate in output.Alternates) {
         FixupType(alternate.Type, enumValues);
       }
 
-      foreach (var field in output.Fields) {
+      foreach (OutputFieldAst field in output.Fields) {
         FixupType(field.Type, enumValues);
       }
     }
@@ -58,11 +58,11 @@ internal class MergeAllTypes(
   private static void FixupType(OutputBaseAst type, Map<string> enumValues)
   {
     if (string.IsNullOrWhiteSpace(type.Name)
-      && enumValues.TryGetValue(type.EnumValue ?? "", out var enumType)) {
+      && enumValues.TryGetValue(type.EnumValue ?? "", out string? enumType)) {
       type.Name = enumType;
     }
 
-    foreach (var argument in type.Arguments) {
+    foreach (OutputBaseAst argument in type.Arguments) {
       FixupType(argument, enumValues);
     }
   }

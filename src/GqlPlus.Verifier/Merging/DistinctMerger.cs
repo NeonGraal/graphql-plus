@@ -8,17 +8,19 @@ internal abstract partial class DistinctMerger<TItem>(
 ) : GroupsMerger<TItem>
   where TItem : AstBase
 {
+#pragma warning disable CA1823 // Avoid unused private fields - do not delete
   private readonly ILogger _logger = logger.CreateLogger(nameof(DistinctMerger<TItem>));
+#pragma warning restore CA1823 // Avoid unused private fields
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)
   {
-    var distinct = group.Select(ItemMatchKey).Distinct();
+    IEnumerable<string> distinct = group.Select(ItemMatchKey).Distinct();
     if (distinct.Count() == 1) {
       return new TokenMessages();
     }
 
-    var typeName = typeof(TItem).ExpandTypeName();
-    var values = distinct.Debug();
+    string typeName = typeof(TItem).ExpandTypeName();
+    string values = distinct.Debug();
     GroupNotSingular(typeName, group.Key, ItemMatchName, values);
 
     return new TokenMessages(group.Last()

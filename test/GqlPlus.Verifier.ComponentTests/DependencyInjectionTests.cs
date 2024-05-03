@@ -10,13 +10,13 @@ public class DependencyInjectionTests(IServiceCollection services, ITestOutputHe
   public void CheckDependencyInjectionContainer()
   {
     StringBuilder sb = new();
-    var sds = services
+    ServiceDescriptor[] sds = services
         .OrderBy(o => o.ServiceType.ExpandTypeName())
         .ToArray();
 
-    var hashset = sds.Select(o => o.ServiceType.FullTypeName()).ToHashSet();
+    HashSet<string> hashset = sds.Select(o => o.ServiceType.FullTypeName()).ToHashSet();
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     foreach (ServiceDescriptor sd in sds) {
       sb.Clear();
@@ -42,8 +42,8 @@ public class DependencyInjectionTests(IServiceCollection services, ITestOutputHe
 
   private static void CheckConstructor(Type implementationType, HashSet<string> hashset)
   {
-    foreach (var ctor in implementationType.GetConstructors()) {
-      var missing = ctor.GetParameters()
+    foreach (System.Reflection.ConstructorInfo ctor in implementationType.GetConstructors()) {
+      List<string> missing = ctor.GetParameters()
         .Where(p => !MatchType(hashset, p.ParameterType))
         .Select(p => p.Name + ":" + p.ParameterType.ExpandTypeName()).ToList();
 
@@ -59,7 +59,7 @@ public class DependencyInjectionTests(IServiceCollection services, ITestOutputHe
 
   private static bool MatchType(HashSet<string> hashset, Type parameterType)
   {
-    var genericType = parameterType;
+    Type genericType = parameterType;
     if (parameterType.IsGenericType) {
       genericType = parameterType.GetGenericTypeDefinition();
     }

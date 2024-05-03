@@ -24,7 +24,7 @@ internal static class TestModelHelper
 
     label = label?.Split('.').LastOrDefault()?.Camelize();
 
-    var kindTag = typeof(TKind).TypeTag();
+    string kindTag = typeof(TKind).TypeTag();
     return [$"{label}: !_TypeRef({kindTag})",
       "  name: " + name,
       $"  typeKind: !{kindTag} {kind}"];

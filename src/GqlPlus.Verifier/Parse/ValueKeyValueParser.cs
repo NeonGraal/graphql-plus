@@ -24,7 +24,7 @@ public class ValueKeyValueParser<T> : Parser<KeyValue<T>>.I
   {
     ArgumentNullException.ThrowIfNull(tokens);
 
-    var fieldKey = _key.Parse(tokens, label);
+    IResult<FieldKeyAst> fieldKey = _key.Parse(tokens, label);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<KeyValue<T>>();
     }
@@ -35,7 +35,7 @@ public class ValueKeyValueParser<T> : Parser<KeyValue<T>>.I
       return tokens.Error<KeyValue<T>>(label, "key before ':'");
     }
 
-    var fieldValue = _value.Parse(tokens, label);
+    IResult<T> fieldValue = _value.Parse(tokens, label);
     return fieldValue.SelectOk(
       value => new KeyValue<T>(fieldKey.Required(), value),
       () => fieldValue.AsResult<KeyValue<T>>()); // Not Covered

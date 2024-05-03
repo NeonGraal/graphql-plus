@@ -17,13 +17,13 @@ public class ModelSchemaTests(
   [Fact]
   public async Task Model_All()
   {
-    var asts = SchemaValidData.Values
+    IEnumerable<SchemaAst> asts = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
       .Select(input => Parse(input).Required());
 
-    var result = ModelAsts(asts);
+    RenderStructure result = ModelAsts(asts);
 
-    var settings = new VerifySettings();
+    VerifySettings settings = new();
     settings.ScrubEmptyLines();
 
     await Verify(result.ToYaml(), settings);
@@ -33,12 +33,12 @@ public class ModelSchemaTests(
   [ClassData(typeof(SchemaValidData))]
   public async Task Model_Groups(string group)
   {
-    var asts = SchemaValidData.Values[group]
+    IEnumerable<SchemaAst> asts = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required());
 
-    var result = ModelAsts(asts);
+    RenderStructure result = ModelAsts(asts);
 
-    var settings = new VerifySettings();
+    VerifySettings settings = new();
     settings.ScrubEmptyLines();
     settings.UseTextForParameters(group);
 
@@ -49,7 +49,7 @@ public class ModelSchemaTests(
   [ClassData(typeof(VerifySchemaValidMergesData))]
   public async Task Model_Merges(string model)
   {
-    var input = VerifySchemaValidMergesData.Source[model];
+    string input = VerifySchemaValidMergesData.Source[model];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
@@ -63,7 +63,7 @@ public class ModelSchemaTests(
   [ClassData(typeof(VerifySchemaValidObjectsData))]
   public async Task Model_Objects(string model)
   {
-    var input = VerifySchemaValidObjectsData.Source[model];
+    string input = VerifySchemaValidObjectsData.Source[model];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
@@ -77,7 +77,7 @@ public class ModelSchemaTests(
   [ClassData(typeof(VerifySchemaValidGlobalsData))]
   public async Task Model_Globals(string global)
   {
-    var input = VerifySchemaValidGlobalsData.Source[global];
+    string input = VerifySchemaValidGlobalsData.Source[global];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + global))
@@ -91,7 +91,7 @@ public class ModelSchemaTests(
   [ClassData(typeof(VerifySchemaValidSimpleData))]
   public async Task Model_Simple(string simple)
   {
-    var input = VerifySchemaValidSimpleData.Source[simple];
+    string input = VerifySchemaValidSimpleData.Source[simple];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + simple))
@@ -103,12 +103,12 @@ public class ModelSchemaTests(
 
   private async Task Verify_Model(string input, string test)
   {
-    var parse = Parse(input);
-    var ast = parse.Required();
+    IResult<SchemaAst> parse = Parse(input);
+    SchemaAst ast = parse.Required();
 
-    var result = ModelAsts([ast]);
+    RenderStructure result = ModelAsts([ast]);
 
-    var settings = new VerifySettings();
+    VerifySettings settings = new();
     settings.ScrubEmptyLines();
     settings.UseDirectory(nameof(ModelSchemaTests));
     settings.UseTypeName("Model");
@@ -119,14 +119,14 @@ public class ModelSchemaTests(
 
   private RenderStructure ModelAsts(IEnumerable<SchemaAst> asts)
   {
-    var schema = merger.Merge(asts).First();
+    SchemaAst schema = merger.Merge(asts).First();
 
-    var context = TypesCollection.WithBuiltins(types);
-    var model = modeller.ToModel(schema, context);
+    TypesCollection context = TypesCollection.WithBuiltins(types);
+    SchemaModel model = modeller.ToModel(schema, context);
     context.AddModels(model.Types.Values);
     context.Errors.Clear();
 
-    var result = model.Render(context);
+    RenderStructure result = model.Render(context);
     if (context.Errors.Count > 0) {
       result.Add("_errors", context.Errors.Render());
     }

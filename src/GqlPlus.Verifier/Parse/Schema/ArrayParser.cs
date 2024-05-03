@@ -12,8 +12,8 @@ internal class ArrayParser<TItem>(
   public IResultArray<TItem> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var result = new List<TItem>();
-    var regex = _regex.Parse(tokens, label);
+    List<TItem> result = [];
+    IResult<TItem> regex = _regex.Parse(tokens, label);
     if (regex.IsError()) {
       return regex.AsResultArray(result);
     }

@@ -22,7 +22,7 @@ public class VerifySchemaInvalidGlobalsData
 
   public VerifySchemaInvalidGlobalsData()
   {
-    foreach (var key in Source.Keys) {
+    foreach (string key in Source.Keys) {
       Add(key);
     }
   }
@@ -106,7 +106,7 @@ public class VerifySchemaInvalidObjectsData
 
   public VerifySchemaInvalidObjectsData()
   {
-    foreach (var key in Source.Keys) {
+    foreach (string key in Source.Keys) {
       Add(key);
     }
   }
@@ -158,7 +158,7 @@ public class VerifySchemaInvalidSimpleData
 
   public VerifySchemaInvalidSimpleData()
   {
-    foreach (var key in Source.Keys) {
+    foreach (string key in Source.Keys) {
       Add(key);
     }
   }
@@ -181,7 +181,7 @@ public class VerifySchemaValidGlobalsData
 
   public VerifySchemaValidGlobalsData()
   {
-    foreach (var key in Source.Keys) {
+    foreach (string key in Source.Keys) {
       Add(key);
     }
   }
@@ -228,7 +228,7 @@ public class VerifySchemaValidMergesData
 
   public VerifySchemaValidMergesData()
   {
-    foreach (var key in Source.Keys) {
+    foreach (string key in Source.Keys) {
       Add(key);
     }
   }
@@ -281,7 +281,7 @@ public class VerifySchemaValidObjectsData
 
   public VerifySchemaValidObjectsData()
   {
-    foreach (var key in Source.Keys) {
+    foreach (string key in Source.Keys) {
       Add(key);
     }
   }
@@ -310,7 +310,7 @@ public class VerifySchemaValidSimpleData
 
   public VerifySchemaValidSimpleData()
   {
-    foreach (var key in Source.Keys) {
+    foreach (string key in Source.Keys) {
       Add(key);
     }
   }

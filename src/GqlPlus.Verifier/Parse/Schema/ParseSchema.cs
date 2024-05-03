@@ -27,15 +27,15 @@ internal class ParseSchema
       }
     }
 
-    var at = tokens.At;
+    TokenAt at = tokens.At;
     SchemaAst ast = new(at);
 
-    var declarations = new List<AstDeclaration>();
+    List<AstDeclaration> declarations = [];
 
-    tokens.String(out var description);
-    while (tokens.Identifier(out var selector)) {
-      if (_parsers.TryGetValue(selector, out var parser)) {
-        var declaration = parser(tokens, selector.Capitalize());
+    tokens.String(out string? description);
+    while (tokens.Identifier(out string? selector)) {
+      if (_parsers.TryGetValue(selector, out Parser? parser)) {
+        IResult<AstDeclaration> declaration = parser(tokens, selector.Capitalize());
         declaration.WithResult(d => declarations.Add(d with { Description = description }));
       } else {
         tokens.Error(label, $"declaration selector. '{selector}' unknown");

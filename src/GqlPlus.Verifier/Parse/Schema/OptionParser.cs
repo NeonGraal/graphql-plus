@@ -15,7 +15,7 @@ internal class OptionParser<TOption>(
     where TContext : Tokenizer
   {
     if (tokens.Take('(')) {
-      var enumResult = _parser.I.Parse(tokens, label);
+      IResult<TOption> enumResult = _parser.I.Parse(tokens, label);
 
       return enumResult.Map(result =>
         tokens.Take(')')

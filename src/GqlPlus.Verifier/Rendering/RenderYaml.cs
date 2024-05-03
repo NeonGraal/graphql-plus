@@ -46,10 +46,10 @@ internal static class RenderYaml
 
   internal static string TypeTag(this Type type)
   {
-    var result = "_" + type.Name.Replace("Model", "", StringComparison.InvariantCulture);
+    string result = "_" + type.Name.Replace("Model", "", StringComparison.InvariantCulture);
 
     if (type.IsGenericType) {
-      var typeParams = type.GetGenericArguments().Select(TypeTag);
+      IEnumerable<string> typeParams = type.GetGenericArguments().Select(TypeTag);
 
       result = result.Split('`')[0] + "(" + string.Concat(typeParams) + ")";
     }

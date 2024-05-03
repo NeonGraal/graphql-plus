@@ -13,13 +13,13 @@ internal class ParseVariables(
   public IResultArray<VariableAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var list = new List<VariableAst>();
+    List<VariableAst> list = [];
 
     if (!tokens.Take('(')) {
       return list.EmptyArray();
     }
 
-    var variable = _variable.Parse(tokens, label);
+    IResult<VariableAst> variable = _variable.Parse(tokens, label);
     if (variable.IsError()) {
       return variable.AsResultArray(list);
     }

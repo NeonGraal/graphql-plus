@@ -42,7 +42,7 @@ public class UsageContext(
       return true;
     }
 
-    var message = $"'{input.UsageName}' cannot be {input.Label} of itself";
+    string message = $"'{input.UsageName}' cannot be {input.Label} of itself";
     if (current is not null) {
       message += $", even recursively via {current}";
     }
@@ -72,9 +72,9 @@ internal static class UsageHelpers
   internal static TContext CheckModifiers<TContext>(this TContext context, IAstModified modified)
     where TContext : UsageContext
   {
-    foreach (var modifier in modified.Modifiers) {
+    foreach (ModifierAst modifier in modified.Modifiers) {
       if (modifier.Kind == ModifierKind.Dict) {
-        if (context.GetType(modifier.Key, out var key)) {
+        if (context.GetType(modifier.Key, out AstDescribed? key)) {
           if (key is not AstSimple and not TypeParameterAst) {
             context.AddError((AstAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");
           }
@@ -92,13 +92,13 @@ internal static class UsageHelpers
     where TObjBase : AstObjectBase<TObjBase>
   {
     if (context.GetType(type.FullName, out AstDescribed? value)) {
-      var numArgs = type.Arguments.Length;
+      int numArgs = type.Arguments.Length;
       if (value is IAstObject definition) {
         if (check && definition.Label != "Dual" && definition.Label != type.Label) {
           context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.FullName}. Found {definition.Label}");
         }
 
-        var numParams = definition.TypeParameters.Length;
+        int numParams = definition.TypeParameters.Length;
         if (numParams != numArgs) {
           context.AddError(type, type.Label + labelSuffix, $"Arguments mismatch, expected {numParams} given {numArgs}");
         }
@@ -107,7 +107,7 @@ internal static class UsageHelpers
       context.AddError(type, type.Label + labelSuffix, $"'{type.FullName}' not defined");
     }
 
-    foreach (var arg in type.Arguments) {
+    foreach (TObjBase arg in type.Arguments) {
       context.CheckArgumentType(arg, labelSuffix);
     }
 

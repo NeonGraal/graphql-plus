@@ -57,7 +57,7 @@ internal class ParseDomainDefinition
   {
     _kind = kind;
 
-    foreach (var item in domains) {
+    foreach (IParseDomain item in domains) {
       _kindParsers[item.Kind] = item.Parser;
     }
   }
@@ -68,17 +68,17 @@ internal class ParseDomainDefinition
     DomainDefinition result = new();
 
     if (tokens.Take(':')) {
-      if (tokens.Identifier(out var parent)) {
+      if (tokens.Identifier(out string? parent)) {
         result.Parent = parent;
       } else {
         return tokens.Error(label, "type after ':'", result);
       }
     }
 
-    var domainKind = _kind.I.Parse(tokens, label);
+    IResult<DomainKind> domainKind = _kind.I.Parse(tokens, label);
     return !domainKind.Required(kind => result.Kind = kind)
       ? domainKind.AsResult(result)
-      : _kindParsers.TryGetValue(result.Kind, out var parser)
+      : _kindParsers.TryGetValue(result.Kind, out ParseItems? parser)
         ? parser(tokens, label, result)
         : tokens.Partial(label, "valid kind", () => result);
   }

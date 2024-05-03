@@ -41,7 +41,7 @@ public static class AstExtensions
     string after = "",
     bool sort = false)
   {
-    var result = AsFields(items);
+    IEnumerable<string?>? result = AsFields(items);
 
     if (sort) {
       result = result?.Order();

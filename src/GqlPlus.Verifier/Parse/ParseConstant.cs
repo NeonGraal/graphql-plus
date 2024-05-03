@@ -15,9 +15,9 @@ public class ParseConstant : ValueParser<ConstantAst>
   public override IResult<ConstantAst> Parse<TContext>(TContext tokens, string label)
   {
     ArgumentNullException.ThrowIfNull(tokens);
-    var at = tokens.At;
+    Token.TokenAt at = tokens.At;
 
-    var fieldKey = FieldKey.Parse(tokens, label);
+    IResult<FieldKeyAst> fieldKey = FieldKey.Parse(tokens, label);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<ConstantAst>();
     }
@@ -26,11 +26,11 @@ public class ParseConstant : ValueParser<ConstantAst>
       return fieldKey.Select(value => new ConstantAst(value));
     }
 
-    var oldSeparators = tokens.IgnoreSeparators;
+    bool oldSeparators = tokens.IgnoreSeparators;
     try {
       tokens.IgnoreSeparators = false;
 
-      var list = ListParser.Parse(tokens, label);
+      IResultArray<ConstantAst> list = ListParser.Parse(tokens, label);
       return list.MapOk(
         theList => new ConstantAst(at, theList).Ok(),
         () => list.IsError()

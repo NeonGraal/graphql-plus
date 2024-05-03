@@ -16,11 +16,11 @@ internal class VerifySchema(
 {
   public void Verify(SchemaAst item, ITokenMessages errors)
   {
-    var categories = item.Declarations.ArrayOf<CategoryDeclAst>();
-    var directives = item.Declarations.ArrayOf<DirectiveDeclAst>();
-    var options = item.Declarations.ArrayOf<OptionDeclAst>();
-    var astTypes = item.Declarations.ArrayOf<AstType>();
-    var allTypes = astTypes.Concat(BuiltIn.Basic).Concat(BuiltIn.Internal);
+    CategoryDeclAst[] categories = item.Declarations.ArrayOf<CategoryDeclAst>();
+    DirectiveDeclAst[] directives = item.Declarations.ArrayOf<DirectiveDeclAst>();
+    OptionDeclAst[] options = item.Declarations.ArrayOf<OptionDeclAst>();
+    AstType[] astTypes = item.Declarations.ArrayOf<AstType>();
+    IEnumerable<AstType> allTypes = astTypes.Concat(BuiltIn.Basic).Concat(BuiltIn.Internal);
 
     categoryOutputs.Verify(new(categories, [.. allTypes.OfType<OutputDeclAst>()]), errors);
 

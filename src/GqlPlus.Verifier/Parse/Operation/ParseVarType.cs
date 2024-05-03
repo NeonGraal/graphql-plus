@@ -18,7 +18,7 @@ internal class ParseVarType : IParserVarType
           ? $"[{varType}]".Ok()
           : tokens.Partial("Variable Type", "an inner variable type", () => varType),
         () => tokens.Error("Variable Type", "an inner variable type", ""));
-    } else if (tokens.Identifier(out var varNull)) {
+    } else if (tokens.Identifier(out string? varNull)) {
       return varNull.Ok();
     }
 

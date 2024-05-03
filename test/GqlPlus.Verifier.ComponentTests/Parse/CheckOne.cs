@@ -9,10 +9,10 @@ internal class CheckOne<T>(Parser<T>.D parser)
 
   internal void TrueExpected(string input, T expected)
   {
-    var tokens = Tokens(input);
-    var result = _parser.Parse(tokens, "Test");
+    Token.Tokenizer tokens = Tokens(input);
+    IResult<T> result = _parser.Parse(tokens, "Test");
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     scope.FormattingOptions.MaxDepth = 10;
     result.IsOk().Should().BeTrue(_type + " -> " + input);
     scope.FormattingOptions.MaxDepth = 10;
@@ -29,10 +29,10 @@ internal class CheckOne<T>(Parser<T>.D parser)
 
   internal void Ok(string input, T expected)
   {
-    var tokens = Tokens(input);
-    var result = _parser.Parse(tokens, "Test");
+    Token.Tokenizer tokens = Tokens(input);
+    IResult<T> result = _parser.Parse(tokens, "Test");
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     scope.FormattingOptions.MaxDepth = 10;
     result.IsOk().Should().BeTrue(_type + " -> " + input);
     tokens.Errors.Should().BeEmpty();
@@ -41,10 +41,10 @@ internal class CheckOne<T>(Parser<T>.D parser)
 
   internal void Empty(string input)
   {
-    var tokens = Tokens(input);
-    var result = _parser.Parse(tokens, "Test");
+    Token.Tokenizer tokens = Tokens(input);
+    IResult<T> result = _parser.Parse(tokens, "Test");
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     scope.FormattingOptions.MaxDepth = 10;
     result.IsEmpty().Should().BeTrue(_type + " -> " + input);
     tokens.Errors.Should().BeEmpty();
@@ -52,9 +52,9 @@ internal class CheckOne<T>(Parser<T>.D parser)
 
   internal void Partial(string input, string error, T expected)
   {
-    var result = _parser.Parse(Tokens(input), "Test");
+    IResult<T> result = _parser.Parse(Tokens(input), "Test");
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     scope.FormattingOptions.MaxDepth = 10;
     result.IsError(message => message.Message.Contains(error, StringComparison.InvariantCulture)).Should().BeTrue(_type + " -> " + input);
     result.Optional().Should().Be(expected);
@@ -62,18 +62,18 @@ internal class CheckOne<T>(Parser<T>.D parser)
 
   internal void Error(string input, string error)
   {
-    var result = _parser.Parse(Tokens(input), "Test");
+    IResult<T> result = _parser.Parse(Tokens(input), "Test");
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     scope.FormattingOptions.MaxDepth = 10;
     result.IsError(message => message.Message.Contains(error, StringComparison.InvariantCulture)).Should().BeTrue(_type + " -> " + input);
   }
 
   internal void False(string input, Action<T?>? check = null)
   {
-    var result = _parser.Parse(Tokens(input), "Test");
+    IResult<T> result = _parser.Parse(Tokens(input), "Test");
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     scope.FormattingOptions.MaxDepth = 10;
     if (result.IsEmpty()) {
       return;
@@ -106,10 +106,10 @@ internal sealed class CheckOne<I, T>(Parser<I, T>.D parser)
 
   internal void TrueExpected(string input, T expected)
   {
-    var tokens = Tokens(input);
-    var result = _parser.I.Parse(tokens, "Test");
+    Token.Tokenizer tokens = Tokens(input);
+    IResult<T> result = _parser.I.Parse(tokens, "Test");
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     scope.FormattingOptions.MaxDepth = 10;
     result.IsOk().Should().BeTrue(_type + " -> " + input);
     scope.FormattingOptions.MaxDepth = 10;
@@ -126,10 +126,10 @@ internal sealed class CheckOne<I, T>(Parser<I, T>.D parser)
 
   internal void Empty(string input)
   {
-    var tokens = Tokens(input);
-    var result = _parser.I.Parse(tokens, "Test");
+    Token.Tokenizer tokens = Tokens(input);
+    IResult<T> result = _parser.I.Parse(tokens, "Test");
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     scope.FormattingOptions.MaxDepth = 10;
     result.IsEmpty().Should().BeTrue(_type + " -> " + input);
     tokens.Errors.Should().BeEmpty();
@@ -137,9 +137,9 @@ internal sealed class CheckOne<I, T>(Parser<I, T>.D parser)
 
   internal void False(string input, Action<T?>? check = null)
   {
-    var result = _parser.I.Parse(Tokens(input), "Test");
+    IResult<T> result = _parser.I.Parse(Tokens(input), "Test");
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
     scope.FormattingOptions.MaxDepth = 10;
     result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).Should().BeTrue(_type + " -> " + input);
     result.Optional(result => check?.Invoke(result));

@@ -17,7 +17,7 @@ public sealed class TestsCustomizations : CompositeCustomization
   {
     public object Create(object request, ISpecimenContext context)
     {
-      var paramInfo = request as ParameterInfo;
+      ParameterInfo? paramInfo = request as ParameterInfo;
 
       if (paramInfo is not null
         && !paramInfo.GetCustomAttributes<RegularExpressionAttribute>().Any()
@@ -25,7 +25,7 @@ public sealed class TestsCustomizations : CompositeCustomization
         return ResolveType(paramInfo.ParameterType, paramInfo.Name!, context);
       }
 
-      var propInfo = request as PropertyInfo;
+      PropertyInfo? propInfo = request as PropertyInfo;
 
       return propInfo is not null
         ? ResolveType(propInfo.PropertyType, propInfo.Name, context)
@@ -35,7 +35,7 @@ public sealed class TestsCustomizations : CompositeCustomization
     private static object ResolveType(Type type, string name, ISpecimenContext context)
     {
       if (type == typeof(string[])) {
-        var resolution = context.Resolve(new RangedSequenceRequest(new RegularExpressionRequest(IdentifierPattern), 1, 5));
+        object resolution = context.Resolve(new RangedSequenceRequest(new RegularExpressionRequest(IdentifierPattern), 1, 5));
         return resolution is IEnumerable<object> list
           ? list.Select(item => item.ToString()).Distinct().ToArray()
           : resolution;

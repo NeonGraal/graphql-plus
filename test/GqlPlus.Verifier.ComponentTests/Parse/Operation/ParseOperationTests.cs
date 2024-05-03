@@ -17,11 +17,11 @@ public class ParseOperationTests(Parser<OperationAst>.D parser)
   [InlineData("{test}[]")]
   public void Parse_ShouldSucceed(string input)
   {
-    var context = new OperationContext(input);
+    OperationContext context = new(input);
 
-    var ast = _parser.Parse(context, "Operation").Required();
+    OperationAst ast = _parser.Parse(context, "Operation").Required();
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     ast.Should().BeOfType<OperationAst>()
       .Subject.Result.Should().Be(ParseResultKind.Success);
@@ -32,11 +32,11 @@ public class ParseOperationTests(Parser<OperationAst>.D parser)
   [InlineData("")]
   public void Parse_ShouldFail(string input)
   {
-    var context = new OperationContext(input);
+    OperationContext context = new(input);
 
-    var result = _parser.Parse(context, "Operation");
+    IResult<OperationAst> result = _parser.Parse(context, "Operation");
     result.Optional(ast => {
-      using var scope = new AssertionScope();
+      using AssertionScope scope = new();
 
       ast.Should().BeNull();
       result.IsError(err => err.Message.Should().NotBeNullOrWhiteSpace());
@@ -63,11 +63,11 @@ public class ParseOperationTests(Parser<OperationAst>.D parser)
   [InlineData("{test}[?]")]
   public void Parse_ShouldPartiallySucceed(string input)
   {
-    var context = new OperationContext(input);
+    OperationContext context = new(input);
 
-    var ast = _parser.Parse(context, "Operation").Optional();
+    OperationAst? ast = _parser.Parse(context, "Operation").Optional();
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     ast.Should().BeOfType<OperationAst>()
       .Subject.Result.Should().Be(ParseResultKind.Failure);

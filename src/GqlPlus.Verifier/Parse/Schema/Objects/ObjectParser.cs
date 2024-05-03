@@ -50,7 +50,7 @@ public abstract class ParseObjectDefinition<TObjField, TObjBase>(
     ArgumentNullException.ThrowIfNull(tokens);
     ObjectDefinition<TObjField, TObjBase> result = new();
     if (tokens.Take(':')) {
-      var objBase = _objBase.Parse(tokens, label);
+      IResult<TObjBase> objBase = _objBase.Parse(tokens, label);
       if (objBase.IsError()) {
         return objBase.AsResult(result);
       }
@@ -58,8 +58,8 @@ public abstract class ParseObjectDefinition<TObjField, TObjBase>(
       objBase.WithResult(parent => result.Parent = parent);
     }
 
-    var fields = new List<TObjField>();
-    var objectField = _objField.Parse(tokens, label);
+    List<TObjField> fields = [];
+    IResult<TObjField> objectField = _objField.Parse(tokens, label);
     if (objectField.IsError()) {
       return objectField.AsPartial(result);
     }
@@ -73,7 +73,7 @@ public abstract class ParseObjectDefinition<TObjField, TObjBase>(
     }
 
     result.Fields = [.. fields];
-    var objectAlternates = ParseAlternates(tokens, label);
+    IResultArray<AstAlternate<TObjBase>> objectAlternates = ParseAlternates(tokens, label);
     return !objectAlternates.Optional(alternates => result.Alternates = alternates)
       ? objectAlternates.AsPartial(result)
       : tokens.End(Label, () => result);
@@ -82,16 +82,16 @@ public abstract class ParseObjectDefinition<TObjField, TObjBase>(
   private IResultArray<AstAlternate<TObjBase>> ParseAlternates<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var result = new List<AstAlternate<TObjBase>>();
+    List<AstAlternate<TObjBase>> result = [];
     while (tokens.Take('|')) {
-      var objBase = _objBase.Parse(tokens, label);
+      IResult<TObjBase> objBase = _objBase.Parse(tokens, label);
       if (!objBase.IsOk()) {
         return objBase.AsPartialArray(result);
       }
 
       AstAlternate<TObjBase> alternate = new(objBase.Required());
       result.Add(alternate);
-      var collections = _collections.Value.Parse(tokens, Label);
+      IResultArray<ModifierAst> collections = _collections.Value.Parse(tokens, Label);
       if (!collections.Optional(value => alternate.Modifiers = value)) {
         return collections.AsPartialArray(result);
       }

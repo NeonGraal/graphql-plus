@@ -19,9 +19,9 @@ public sealed class TracePerTestAttribute
       })]
       : null;
 
-    var testClass = methodUnderTest.ReflectedType?.ExpandTypeName();
-    var testNamespace = methodUnderTest.ReflectedType?.Namespace;
-    var testMethod = methodUnderTest.Name;
+    string? testClass = methodUnderTest.ReflectedType?.ExpandTypeName();
+    string? testNamespace = methodUnderTest.ReflectedType?.Namespace;
+    string testMethod = methodUnderTest.Name;
 
     Map<object?>? tags = new() {
       ["namespace"] = testNamespace,

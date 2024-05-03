@@ -9,8 +9,8 @@ internal class EnumParser<TEnum>
 {
   public IResult<TEnum> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
-      => tokens.Identifier(out var option)
-        ? Enum.TryParse<TEnum>(option, true, out var result)
+      => tokens.Identifier(out string? option)
+        ? Enum.TryParse<TEnum>(option, true, out TEnum result)
           ? result.Ok()
           : tokens.Error(label, "valid enum value", result)
         : 0.Empty<TEnum>();

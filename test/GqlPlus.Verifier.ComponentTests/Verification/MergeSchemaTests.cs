@@ -13,12 +13,12 @@ public class MergeSchemaTests(
   [Fact]
   public void CanMerge_All()
   {
-    var schemas = SchemaValidData.Values
+    SchemaAst[] schemas = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
       .Select(input => Parse(input).Required())
       .ToArray();
 
-    var result = merger.CanMerge(schemas);
+    Token.ITokenMessages result = merger.CanMerge(schemas);
 
     result.Should().BeEmpty();
   }
@@ -27,11 +27,11 @@ public class MergeSchemaTests(
   [ClassData(typeof(SchemaValidData))]
   public void CanMerge_Groups(string group)
   {
-    var schemas = SchemaValidData.Values[group]
+    SchemaAst[] schemas = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required())
       .ToArray();
 
-    var result = merger.CanMerge(schemas);
+    Token.ITokenMessages result = merger.CanMerge(schemas);
 
     result.Should().BeEmpty();
   }
@@ -40,11 +40,11 @@ public class MergeSchemaTests(
   [ClassData(typeof(VerifySchemaValidMergesData))]
   public void CanMerge_Valid(string merge)
   {
-    var input = VerifySchemaValidMergesData.Source[merge];
-    var schemas = ReplaceObjects([input])
+    string input = VerifySchemaValidMergesData.Source[merge];
+    IEnumerable<SchemaAst> schemas = ReplaceObjects([input])
       .Select(input => Parse(input).Required());
 
-    var result = merger.CanMerge(schemas);
+    Token.ITokenMessages result = merger.CanMerge(schemas);
 
     result.Should().BeEmpty();
   }
@@ -52,13 +52,13 @@ public class MergeSchemaTests(
   [Fact]
   public async Task Merge_All()
   {
-    var schemas = SchemaValidData.Values
+    IEnumerable<SchemaAst> schemas = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
       .Select(input => Parse(input).Required());
 
-    var result = merger.Merge(schemas);
+    IEnumerable<SchemaAst> result = merger.Merge(schemas);
 
-    var settings = new VerifySettings();
+    VerifySettings settings = new();
     settings.ScrubEmptyLines();
     await Verify(result.Select(s => s.Render()), settings);
   }
@@ -67,13 +67,13 @@ public class MergeSchemaTests(
   [ClassData(typeof(SchemaValidData))]
   public async Task Merge_Groups(string group)
   {
-    var schemas = SchemaValidData.Values[group]
+    SchemaAst[] schemas = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required())
       .ToArray();
 
-    var result = merger.Merge(schemas);
+    IEnumerable<SchemaAst> result = merger.Merge(schemas);
 
-    var settings = new VerifySettings();
+    VerifySettings settings = new();
     settings.ScrubEmptyLines();
     settings.UseTextForParameters(group);
 
@@ -84,7 +84,7 @@ public class MergeSchemaTests(
   [ClassData(typeof(VerifySchemaValidMergesData))]
   public async Task Merge_Valid(string merge)
   {
-    var input = VerifySchemaValidMergesData.Source[merge];
+    string input = VerifySchemaValidMergesData.Source[merge];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Merge(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + merge))
@@ -96,11 +96,11 @@ public class MergeSchemaTests(
 
   private async Task Verify_Merge(string input, string test)
   {
-    var parse = Parse(input);
+    IResult<SchemaAst> parse = Parse(input);
 
-    var result = merger.Merge([parse.Required()]);
+    IEnumerable<SchemaAst> result = merger.Merge([parse.Required()]);
 
-    var settings = new VerifySettings();
+    VerifySettings settings = new();
     settings.ScrubEmptyLines();
     settings.UseDirectory(nameof(MergeSchemaTests));
     settings.UseTypeName("Merge");

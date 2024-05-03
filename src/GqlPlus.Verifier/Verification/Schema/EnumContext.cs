@@ -16,7 +16,7 @@ public class EnumContext(
   internal bool GetEnumType(string? name, [NotNullWhen(true)] out EnumDeclAst? enumType)
   {
     enumType = null;
-    if (GetType(name, out var theType)) {
+    if (GetType(name, out AstDescribed? theType)) {
       enumType = theType as EnumDeclAst;
     }
 
@@ -41,12 +41,12 @@ public static class EnumContextHelper
 {
   public static IMap<string> MakeEnumValues(this AstType[] aliased)
   {
-    var enums = aliased
+    IEnumerable<IGrouping<string, string>> enums = aliased
         .OfType<EnumDeclAst>()
         .SelectMany(e => e.Members.Select(v => (Member: v.Name, Type: e.Name)))
         .GroupBy(e => e.Member, e => e.Type);
 
-    var enumNames = enums.Select(e => e.Key).ToHashSet();
+    HashSet<string> enumNames = enums.Select(e => e.Key).ToHashSet();
 
     return aliased
         .OfType<EnumDeclAst>()

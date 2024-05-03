@@ -19,28 +19,28 @@ internal class ParseParameters(
   public IResultArray<ParameterAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var list = new List<ParameterAst>();
+    List<ParameterAst> list = [];
 
     if (!tokens.Take('(')) {
       return list.EmptyArray();
     }
 
     while (!tokens.Take(')')) {
-      var at = tokens.At;
-      var input = _input.Parse(tokens, label);
+      TokenAt at = tokens.At;
+      IResult<InputBaseAst> input = _input.Parse(tokens, label);
       if (!input.IsOk()) {
         return tokens.ErrorArray("Parameter", "input base after '('", list);
       }
 
-      var parameter = new ParameterAst(at, input.Required());
+      ParameterAst parameter = new(at, input.Required());
       list.Add(parameter);
-      var modifiers = _modifiers.Parse(tokens, "Parameter");
+      IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, "Parameter");
       if (modifiers.IsError()) {
         return modifiers.AsResultArray(list);
       }
 
       modifiers.Optional(value => parameter.Modifiers = value);
-      var constant = _default.I.Parse(tokens, "Default");
+      IResult<ConstantAst> constant = _default.I.Parse(tokens, "Default");
       if (constant.IsError()) {
         return constant.AsResultArray(list);
       }

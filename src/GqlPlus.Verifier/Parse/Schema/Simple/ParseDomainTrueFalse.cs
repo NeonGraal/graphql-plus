@@ -11,9 +11,9 @@ internal class ParseDomainTrueFalse(
 
   public override IResult<DomainTrueFalseAst> Parse<TContext>(TContext tokens, string label)
   {
-    var at = tokens.At;
-    var excluded = tokens.Take('!');
-    var hasType = tokens.Identifier(out var type);
+    Token.TokenAt at = tokens.At;
+    bool excluded = tokens.Take('!');
+    bool hasType = tokens.Identifier(out string? type);
     DomainTrueFalseAst result = new(at, excluded, type.Equals("true", StringComparison.Ordinal));
 
     return hasType && (result.Value || type.Equals("false", StringComparison.Ordinal))

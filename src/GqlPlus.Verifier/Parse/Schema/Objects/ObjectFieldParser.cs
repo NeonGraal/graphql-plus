@@ -29,23 +29,23 @@ public abstract class ObjectFieldParser<TObjField, TObjBase>
     where TContext : Tokenizer
   {
     ArgumentNullException.ThrowIfNull(tokens);
-    var at = tokens.At;
-    tokens.String(out var description);
-    if (!tokens.Identifier(out var name)) {
+    TokenAt at = tokens.At;
+    tokens.String(out string? description);
+    if (!tokens.Identifier(out string? name)) {
       return 0.Empty<TObjField>();
     }
 
-    var hasParameter = FieldParameter(tokens);
+    IResultArray<ParameterAst> hasParameter = FieldParameter(tokens);
     if (hasParameter.IsError()) {
       return hasParameter.AsResult<TObjField>();
     }
 
-    var hasAliases = _aliases.Parse(tokens, label);
+    IResultArray<string> hasAliases = _aliases.Parse(tokens, label);
     if (hasAliases.IsError()) {
       return hasAliases.AsResult<TObjField>();
     }
 
-    var field = ObjField(at, name, description, ObjBase(at, ""));
+    TObjField field = ObjField(at, name, description, ObjBase(at, ""));
 
     if (tokens.Take(':')) {
       if (_objBase.Parse(tokens, label).Required(fieldType
@@ -53,7 +53,7 @@ public abstract class ObjectFieldParser<TObjField, TObjBase>
         ) {
         hasAliases.WithResult(aliases => field.Aliases = aliases);
         hasParameter.WithResult(parameter => ApplyFieldParameters(field, parameter));
-        var modifiers = _modifiers.Parse(tokens, label);
+        IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, label);
         if (modifiers.IsError()) {
           return modifiers.AsResult<TObjField>();
         }

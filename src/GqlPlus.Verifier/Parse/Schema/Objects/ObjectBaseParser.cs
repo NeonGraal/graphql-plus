@@ -15,13 +15,13 @@ internal abstract class ObjectBaseParser<TObjBase>
   private IResult<TObjBase> ParseObjectBase<TContext>(TContext tokens, string label, bool isTypeArgument)
     where TContext : Tokenizer
   {
-    tokens.String(out var description);
-    if (!tokens.Prefix('$', out var param, out var at)) {
+    tokens.String(out string? description);
+    if (!tokens.Prefix('$', out string? param, out TokenAt? at)) {
       return tokens.Error<TObjBase>(label, "identifier after '$'");
     }
 
     if (param is not null) {
-      var objBase = ObjBase(at, param, description) with {
+      TObjBase objBase = ObjBase(at, param, description) with {
         IsTypeParameter = true,
       };
       return objBase.Ok();
@@ -29,11 +29,11 @@ internal abstract class ObjectBaseParser<TObjBase>
 
     at = tokens.At;
 
-    if (tokens.Identifier(out var name)) {
-      var objBase = ObjBase(at, name, description);
+    if (tokens.Identifier(out string? name)) {
+      TObjBase objBase = ObjBase(at, name, description);
       if (tokens.Take('<')) {
-        var arguments = new List<TObjBase>();
-        var argument = ParseObjectBase(tokens, label, isTypeArgument: true);
+        List<TObjBase> arguments = [];
+        IResult<TObjBase> argument = ParseObjectBase(tokens, label, isTypeArgument: true);
         while (argument.Required(arguments.Add)) {
           argument = ParseObjectBase(tokens, label, isTypeArgument: true);
         }

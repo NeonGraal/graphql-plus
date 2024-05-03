@@ -26,20 +26,20 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   public IResult<TResult> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    tokens.String(out var description);
-    var hasName = _name.ParseName(tokens, out var name, out var at);
+    tokens.String(out string? description);
+    bool hasName = _name.ParseName(tokens, out string? name, out TokenAt? at);
     TPartial partial = MakePartial(at, name, description);
 
     if (!hasName) {
       return tokens.Error(label, "name", ToResult(partial));
     }
 
-    var parameters = _param.Parse(tokens, label);
+    IResultArray<TParam> parameters = _param.Parse(tokens, label);
     if (!ApplyParameters(partial, parameters)) {
       return parameters.AsPartial(ToResult(partial));
     }
 
-    var aliases = Aliases.Parse(tokens, label);
+    IResultArray<string> aliases = Aliases.Parse(tokens, label);
     if (!aliases.Optional(value => partial.Aliases = value)) {
       return aliases.AsPartial(ToResult(partial));
     }
@@ -48,12 +48,12 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
       return tokens.Partial(label, "'{' before definition", () => ToResult(partial));
     }
 
-    var option = _option.I.Parse(tokens, label);
+    IResult<TOption> option = _option.I.Parse(tokens, label);
     if (!ApplyOption(partial, option)) {
       return option.AsPartial(ToResult(partial));
     }
 
-    var definition = _definition.Parse(tokens, label);
+    IResult<TDefinition> definition = _definition.Parse(tokens, label);
     return definition.MapOk(
       value => MakeResult(partial, value).Ok(),
       () => definition.AsPartial(ToResult(partial)));

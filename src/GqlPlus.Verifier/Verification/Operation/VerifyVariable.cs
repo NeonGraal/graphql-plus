@@ -8,14 +8,14 @@ internal class VerifyVariable : IVerify<VariableAst>
 {
   public void Verify(VariableAst item, ITokenMessages errors)
   {
-    var def = item.Default;
+    ConstantAst? def = item.Default;
     if (def is null) {
       return;
     }
 
-    var lastModifier = item.Modifers.LastOrDefault();
+    ModifierAst? lastModifier = item.Modifers.LastOrDefault();
     if (lastModifier?.Kind == ModifierKind.Optional) {
-      var secondLastModifier = item.Modifers.Length > 1 ? item.Modifers.TakeLast(2).First() : null;
+      ModifierAst? secondLastModifier = item.Modifers.Length > 1 ? item.Modifers.TakeLast(2).First() : null;
       VerifyVariableDefault("Optional ", secondLastModifier, def, errors);
       return;
     }

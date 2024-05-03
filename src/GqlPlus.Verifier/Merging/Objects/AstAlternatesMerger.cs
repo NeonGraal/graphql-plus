@@ -11,7 +11,7 @@ internal class AstAlternatesMerger<TAlternate, TObjBase>(
 {
   protected override TAlternate MergeGroup(IEnumerable<TAlternate> group)
   {
-    var first = group.First();
+    TAlternate first = group.First();
     return first with { Type = first.Type with { Description = group.MergeDescriptions() } };
   }
 

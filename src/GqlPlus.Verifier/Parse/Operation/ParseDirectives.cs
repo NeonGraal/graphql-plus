@@ -13,15 +13,15 @@ internal class ParseDirectives(
   public IResultArray<DirectiveAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var result = new List<DirectiveAst>();
+    List<DirectiveAst> result = [];
 
-    if (!tokens.Prefix('@', out var name, out var at)) {
+    if (!tokens.Prefix('@', out string? name, out TokenAt? at)) {
       return tokens.ErrorArray(label, "identifier after '@'", result);
     }
 
     while (name is not null) {
-      var directive = new DirectiveAst(at, name);
-      var argument = _argument.I.Parse(tokens, "Argument");
+      DirectiveAst directive = new(at, name);
+      IResult<ArgumentAst> argument = _argument.I.Parse(tokens, "Argument");
       if (!argument.Required(value => directive.Argument = value)) {
         if (argument.IsError()) {
           return argument.AsResultArray(result);

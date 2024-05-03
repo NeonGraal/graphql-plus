@@ -182,10 +182,10 @@ internal abstract class CheckObjectModel<TObject, TObjField, TObjBase, TModel>(
 
   private ToExpected<TInput> ExpectedObject<TInput>(string name, ToExpected<TInput> expectedField)
     => f => {
-      var field = expectedField(f).ToArray();
+      string[] field = expectedField(f).ToArray();
 
-      var first = "- !_ObjectFor(" + field[0][3..] + ")";
-      var last = field.Last();
+      string first = "- !_ObjectFor(" + field[0][3..] + ")";
+      string last = field.Last();
 
       return [first, .. field.Skip(1).SkipLast(1), "  object: " + name, last];
     };

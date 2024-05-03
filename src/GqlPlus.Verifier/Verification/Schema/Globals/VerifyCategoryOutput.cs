@@ -13,7 +13,7 @@ internal class VerifyCategoryOutput(
 
   protected override void UsageValue(CategoryDeclAst usage, UsageContext context)
   {
-    if (context.GetType(usage.Output, out var type) && type is OutputDeclAst output) {
+    if (context.GetType(usage.Output, out Ast.Schema.AstDescribed? type) && type is OutputDeclAst output) {
       if (output.TypeParameters.Length > 0) {
         context.AddError(usage, "Category Output", $"'{usage.Output}' is a generic Output type");
       }

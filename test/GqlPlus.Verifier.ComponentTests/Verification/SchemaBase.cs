@@ -31,7 +31,7 @@ public class SchemaBase(
     };
     public SchemaValidData()
     {
-      foreach (var item in Values.Keys) {
+      foreach (string item in Values.Keys) {
         Add(item);
       }
     }
@@ -58,9 +58,9 @@ public class SchemaBase(
 
   protected static async Task WhenAll(params Task[] tasks)
   {
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
-    var all = Task.WhenAll(tasks);
+    Task all = Task.WhenAll(tasks);
 
     try {
       await all;

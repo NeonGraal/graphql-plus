@@ -25,10 +25,10 @@ public abstract class ValueParser<T>(
   {
     ArgumentNullException.ThrowIfNull(tokens);
 
-    var result = new AstFields<T>(fields);
+    AstFields<T> result = new(fields);
 
     while (!tokens.Take(last)) {
-      var field = KeyValueParser.Parse(tokens, label);
+      IResult<KeyValue<T>> field = KeyValueParser.Parse(tokens, label);
       if (!field.Required(value => result.Add(value.Key, value.Value))) {
         return tokens.Error(label, "a field in object", result);
       }

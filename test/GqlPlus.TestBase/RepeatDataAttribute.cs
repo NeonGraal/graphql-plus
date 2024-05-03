@@ -14,7 +14,7 @@ public sealed class RepeatDataAttribute
       throw new ArgumentException("Repeat must be greater than 0.");
     }
 
-    if (bool.TryParse(Environment.GetEnvironmentVariable("CI"), out var isCi) && isCi) {
+    if (bool.TryParse(Environment.GetEnvironmentVariable("CI"), out bool isCi) && isCi) {
       repeat = CiRepeats;
     }
 
@@ -23,7 +23,7 @@ public sealed class RepeatDataAttribute
 
   public override IEnumerable<object[]> GetData(MethodInfo testMethod)
   {
-    for (var i = 0; i < Repeat; ++i) {
+    for (int i = 0; i < Repeat; ++i) {
       yield return base.GetData(testMethod).First();
     }
   }

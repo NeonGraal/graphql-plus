@@ -40,7 +40,7 @@ public static class SchemaTestHelpers
   private static TResult[] WithExcludes<TInput, TResult>(this TInput[] inputs, Func<TInput, TResult> mapping)
     where TResult : AstDomainItem
   {
-    var exclude = true;
+    bool exclude = true;
 
     return [.. inputs.Select(i => mapping(i) with { Excludes = exclude = !exclude })];
   }

@@ -27,20 +27,20 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
       context.CheckType(usage.Parent, " Parent", false);
     }
 
-    foreach (var field in usage.Fields) {
+    foreach (TObjField field in usage.Fields) {
       UsageField(field, context);
     }
 
-    var input = new ParentUsage<TObject>([], usage, "an alternative");
+    ParentUsage<TObject> input = new([], usage, "an alternative");
     CheckingAlternates(input);
-    foreach (var alternate in usage.Alternates) {
+    foreach (AstAlternate<TObjBase> alternate in usage.Alternates) {
       UsageAlternate(alternate, context);
       if (alternate.Modifiers.Length == 0) {
         CheckAlternate(new([alternate.Type.FullName], usage, "an alternate"), usage.Name, context, true);
       }
     }
 
-    foreach (var typeParameter in usage.TypeParameters) {
+    foreach (TypeParameterAst typeParameter in usage.TypeParameters) {
       if (!context.Used.Contains("$" + typeParameter.Name)) {
         context.AddError(typeParameter, usage.Label, $"'${typeParameter.Name}' not used");
       }
@@ -67,7 +67,7 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
     Action<TObject>? onParent = null)
   {
     if (input.Parent?.StartsWith('$') == true) {
-      var parameter = input.Parent[1..];
+      string parameter = input.Parent[1..];
       if (top && input.Usage.TypeParameters.All(p => p.Name != parameter)) {
         context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' not defined");
       }
@@ -93,7 +93,7 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
 
     CheckingAlternates(input, top, parentType.Name);
     input = input with { Label = "an alternate" };
-    foreach (var alternate in parentType.Alternates) {
+    foreach (AstAlternate<TObjBase> alternate in parentType.Alternates) {
       if (alternate.Modifiers.Length == 0) {
         CheckAlternate(input.AddParent(alternate.Type.FullName), parentType.Name, context, false);
       }
@@ -103,12 +103,12 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
   private void CheckAlternate(ParentUsage<TObject> input, string current, TContext context, bool top)
   {
     if (context.DifferentName(input, top ? null : current)
-      && context.GetType(input.Parent, out var type)
+      && context.GetType(input.Parent, out AstDescribed? type)
       && type is TObject alternateType) {
       CheckParent(input, alternateType, context, false);
 
       CheckingAlternates(input, top, alternateType.Name, current);
-      foreach (var alternate in alternateType.Alternates) {
+      foreach (AstAlternate<TObjBase> alternate in alternateType.Alternates) {
         if (alternate.Modifiers.Length == 0) {
           CheckAlternate(input.AddParent(alternate.Type.FullName), alternateType.Name, context, false);
         }
@@ -129,9 +129,9 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
   {
     base.CheckMergeParent(input, context);
 
-    var alternates = GetParentItems(input, input.Usage, context, ast => ast.Alternates).ToArray();
+    AstAlternate<TObjBase>[] alternates = GetParentItems(input, input.Usage, context, ast => ast.Alternates).ToArray();
     if (alternates.Length > 0) {
-      var failures = mergeAlternates.CanMerge(alternates);
+      Token.ITokenMessages failures = mergeAlternates.CanMerge(alternates);
       if (failures.Any()) {
         context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Parent} alternates");
         context.Add(failures);

@@ -21,13 +21,13 @@ internal class VerifyUnionTypes(
 
   protected override void UsageValue(UnionDeclAst usage, UsageContext context)
   {
-    foreach (var member in usage.Members) {
+    foreach (UnionMemberAst member in usage.Members) {
       if (CheckMember(usage.Name, member, context, CheckTypeLabel)) {
         context.AddError(usage, "Union", $"'{member.Name}' not defined");
       }
     }
 
-    if (GetParentType(usage.Name, usage, context, out var parentType)) {
+    if (GetParentType(usage.Name, usage, context, out UnionDeclAst? parentType)) {
       CheckSelfMember(usage.Name, parentType, context);
     }
 
@@ -44,7 +44,7 @@ internal class VerifyUnionTypes(
     if (member.Name == name) {
       context.AddError(member, "Union Member", $"'{name}' cannot refer to " + (checkType is null ? "self, even recursively" : "self"));
       return false;
-    } else if (context.GetType(member.Name, out var alternate) && alternate is AstType type) {
+    } else if (context.GetType(member.Name, out AstDescribed? alternate) && alternate is AstType type) {
       if (type is UnionDeclAst typeUnion) {
         CheckSelfMember(name, typeUnion, context);
       } else {
@@ -59,11 +59,11 @@ internal class VerifyUnionTypes(
 
   private static void CheckSelfMember(string name, UnionDeclAst usage, UsageContext context)
   {
-    foreach (var member in usage.Members) {
+    foreach (UnionMemberAst member in usage.Members) {
       CheckMember(name, member, context);
     }
 
-    if (GetParentType(name, usage, context, out var parentType)) {
+    if (GetParentType(name, usage, context, out UnionDeclAst? parentType)) {
       CheckSelfMember(name, parentType, context);
     }
   }
@@ -72,7 +72,7 @@ internal class VerifyUnionTypes(
   {
     parent = null;
 
-    if (usage.Parent != name && context.GetType(usage.Parent, out var parentType) && parentType is UnionDeclAst usageParent) {
+    if (usage.Parent != name && context.GetType(usage.Parent, out AstDescribed? parentType) && parentType is UnionDeclAst usageParent) {
       parent = usageParent;
     }
 

@@ -11,12 +11,12 @@ internal class ParseDomainRange(
 
   public override IResult<DomainRangeAst> Parse<TContext>(TContext tokens, string label)
   {
-    var at = tokens.At;
-    var excludes = tokens.Take('!');
+    Token.TokenAt at = tokens.At;
+    bool excludes = tokens.Take('!');
 
-    var range = new DomainRangeAst(at, excludes);
-    var isUpper = tokens.Take('<');
-    var hasLower = tokens.Number(out var min);
+    DomainRangeAst range = new(at, excludes);
+    bool isUpper = tokens.Take('<');
+    bool hasLower = tokens.Number(out decimal min);
 
     if (isUpper) {
       range.Upper = min;
@@ -43,7 +43,7 @@ internal class ParseDomainRange(
       return tokens.Error(label, "lower bound before '~'", range);
     }
 
-    var hasUpper = tokens.Number(out var max);
+    bool hasUpper = tokens.Number(out decimal max);
     range.Upper = max;
     return hasUpper
       ? range.Ok()

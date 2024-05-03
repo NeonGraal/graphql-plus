@@ -9,9 +9,9 @@ internal class ParseAliases
   public IResultArray<string> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var aliases = new List<string>();
+    List<string> aliases = [];
     if (tokens.Take('[')) {
-      while (tokens.Identifier(out var alias)) {
+      while (tokens.Identifier(out string? alias)) {
         aliases.Add(alias);
       }
 

@@ -28,11 +28,11 @@ public sealed record class OperationAst(TokenAt At, string Name)
 
   public string Render()
   {
-    using var sw = new StringWriter();
-    var indent = 0;
-    var begins = new[] { "(", "{", "[", "<" };
-    var ends = new[] { ")", "}", "]", ">" };
-    foreach (var field in GetFields()) {
+    using StringWriter sw = new();
+    int indent = 0;
+    string[] begins = new[] { "(", "{", "[", "<" };
+    string[] ends = new[] { ")", "}", "]", ">" };
+    foreach (string? field in GetFields()) {
       if (string.IsNullOrWhiteSpace(field)) {
         continue;
       }
@@ -52,7 +52,7 @@ public sealed record class OperationAst(TokenAt At, string Name)
 
     void Write(string text)
     {
-      for (var i = 0; i < indent; i++) {
+      for (int i = 0; i < indent; i++) {
         sw.Write("  ");
       }
 

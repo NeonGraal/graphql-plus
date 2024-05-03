@@ -25,7 +25,7 @@ internal abstract partial class GroupedVerifier<TAliased>(
 
     GroupVerifying(item.GetType());
 
-    var byName = item.GroupBy(t => t.Name)
+    Map<TAliased[]> byName = item.GroupBy(t => t.Name)
       .ToMap(g => g.Key, g => g.ToArray());
 
     VerifyAliases(item, byName.Keys, errors);
@@ -41,14 +41,14 @@ internal abstract partial class GroupedVerifier<TAliased>(
 
   private void VerifyDefinitions(Map<TAliased[]> byName, ITokenMessages errors)
   {
-    foreach (var (name, definitions) in byName) {
+    foreach ((string name, TAliased[] definitions) in byName) {
       if (definitions.Length == 1) {
         continue;
       }
 
       VerifyingWithDefinitions(name, definitions.Length);
 
-      var failures = merger.CanMerge(definitions);
+      ITokenMessages failures = merger.CanMerge(definitions);
       if (failures.Any()) {
         errors.Add(definitions.Last().Error($"Multiple {Label} with name '{name}' can't be merged."));
         errors.Add(failures);
@@ -61,12 +61,12 @@ internal abstract partial class GroupedVerifier<TAliased>(
 
   private void VerifyAliases(TAliased[] item, IReadOnlyCollection<string> names, ITokenMessages errors)
   {
-    var byAlias = item.SelectMany(t => t.Aliases.Select(a => (Alias: a, Item: t)))
+    IEnumerable<IGrouping<string, TAliased>> byAlias = item.SelectMany(t => t.Aliases.Select(a => (Alias: a, Item: t)))
           .Where(a => !names.Contains(a.Alias))
           .GroupBy(a => a.Alias, a => a.Item);
 
-    foreach (var alias in byAlias) {
-      var aliases = alias.Select(a => a.Name).Distinct().ToArray();
+    foreach (IGrouping<string, TAliased> alias in byAlias) {
+      string[] aliases = alias.Select(a => a.Name).Distinct().ToArray();
       if (aliases.Length > 1) {
         errors.Add(alias.Last().Error($"Multiple {Label} with alias '{alias.Key}' found. Names {aliases.Joined(n => $"'{n}'")}"));
       }

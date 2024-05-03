@@ -10,7 +10,7 @@ public class VerifySchemaDataTests(
   [Fact]
   public void CheckVerifySchemaDataKeys()
   {
-    var duplicateKeys = VerifySchemaValidMergesData.Source.Keys
+    IEnumerable<string> duplicateKeys = VerifySchemaValidMergesData.Source.Keys
       .Concat(VerifySchemaValidObjectsData.Source.Keys)
       .Concat(VerifySchemaValidGlobalsData.Source.Keys)
       .Concat(VerifySchemaValidSimpleData.Source.Keys)

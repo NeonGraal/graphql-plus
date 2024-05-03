@@ -15,7 +15,7 @@ internal abstract class AliasedVerifier<TAliased>(
   {
     base.Verify(item, errors);
 
-    foreach (var each in item) {
+    foreach (TAliased each in item) {
       verifier.Verify(each, errors);
     }
   }

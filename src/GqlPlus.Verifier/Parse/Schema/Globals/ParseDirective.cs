@@ -49,10 +49,10 @@ internal class ParseDirectiveDefinition(
   public IResult<DirectiveLocation> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var locations = DirectiveLocation.None;
+    DirectiveLocation locations = DirectiveLocation.None;
 
     while (!tokens.Take("}")) {
-      var directiveLocation = _location.I.Parse(tokens, label);
+      IResult<DirectiveLocation> directiveLocation = _location.I.Parse(tokens, label);
       if (!directiveLocation.Required(value => locations |= value)) {
         return tokens.Partial(label, "location", () => locations);
       }

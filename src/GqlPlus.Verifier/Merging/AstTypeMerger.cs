@@ -23,14 +23,14 @@ internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
 
   protected override TType MergeGroup(IEnumerable<TType> group)
   {
-    var items = group.ManyMerge(GetItems, mergeItems);
+    IEnumerable<TItem> items = group.ManyMerge(GetItems, mergeItems);
 
     return SetItems(base.MergeGroup(group), items);
   }
 
   ITokenMessages IMerge<TAst>.CanMerge(IEnumerable<TAst> items)
   {
-    var aliases = items.OfType<TType>();
+    IEnumerable<TType> aliases = items.OfType<TType>();
 
     return aliases.Any() ? CanMerge(aliases) : new TokenMessages();
   }

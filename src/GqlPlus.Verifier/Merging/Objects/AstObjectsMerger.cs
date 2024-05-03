@@ -20,17 +20,17 @@ internal class AstObjectsMerger<TObject, TObjField, TObjBase>(
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TObject> group)
   {
-    var baseCanMerge = base.CanMergeGroup(group);
-    var typeParametersCanMerge = group.ManyCanMerge(item => item.TypeParameters, typeParameters);
-    var alternatesCanMerge = group.ManyGroupCanMerge(item => item.Alternates, a => a.Type.FullType, alternates);
+    ITokenMessages baseCanMerge = base.CanMergeGroup(group);
+    ITokenMessages typeParametersCanMerge = group.ManyCanMerge(item => item.TypeParameters, typeParameters);
+    ITokenMessages alternatesCanMerge = group.ManyGroupCanMerge(item => item.Alternates, a => a.Type.FullType, alternates);
 
     return baseCanMerge.Add(typeParametersCanMerge).Add(alternatesCanMerge);
   }
 
   protected override TObject MergeGroup(IEnumerable<TObject> group)
   {
-    var typeParametersAsts = group.ManyMerge(item => item.TypeParameters, typeParameters);
-    var alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
+    IEnumerable<TypeParameterAst> typeParametersAsts = group.ManyMerge(item => item.TypeParameters, typeParameters);
+    IEnumerable<AstAlternate<TObjBase>> alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
 
     return base.MergeGroup(group) with {
       TypeParameters = [.. typeParametersAsts],

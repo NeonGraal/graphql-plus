@@ -17,7 +17,7 @@ internal sealed class ParameterModelChecks(
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<string> input)
   {
-    var description = input.Description.Indent();
+    IEnumerable<string> description = input.Description.Indent();
     return description.Any()
       ? ["!_Parameter",
         "type: !_BaseDescribed(_ObjRef(_InputBase))",

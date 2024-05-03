@@ -106,7 +106,7 @@ internal abstract class CheckDomainModel<TItem, TAstItem, TItemModel>(
 
   private IEnumerable<string> Items<TInput>(string field, TInput[]? inputs, Func<TInput, bool, IEnumerable<string>> mapping)
   {
-    var exclude = true;
+    bool exclude = true;
 
     return ItemsExpected(field, inputs, i => mapping(i, exclude = !exclude));
   }
@@ -116,7 +116,7 @@ internal abstract class CheckDomainModel<TItem, TAstItem, TItemModel>(
 
   private Func<(string Domain, TItem Item), bool, IEnumerable<string>> ExpectedAllItem()
         => (input, exclude) => {
-          var result = ExpectedItem(input.Item, "  exclude: " + exclude.TrueFalse(), ["  domain: " + input.Domain]);
+          string[] result = ExpectedItem(input.Item, "  exclude: " + exclude.TrueFalse(), ["  domain: " + input.Domain]);
           return ["- !_DomainItem(" + result[0][3..] + ")", .. result[1..]];
         };
 }

@@ -46,7 +46,7 @@ internal class ParseOptionDefinition(
 
     List<OptionSettingAst> values = [];
     while (!tokens.Take("}")) {
-      var setting = _setting.Parse(tokens, "Option Setting");
+      IResult<OptionSettingAst> setting = _setting.Parse(tokens, "Option Setting");
       if (!setting.Required(values.Add)) {
         result.Settings = [.. values];
         return setting.AsResult(result);

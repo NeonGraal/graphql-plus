@@ -42,7 +42,7 @@ internal class ParseUnionDefinition(
     UnionDefinition result = new();
 
     if (tokens.Take(':')) {
-      if (tokens.Identifier(out var parent)) {
+      if (tokens.Identifier(out string? parent)) {
         result.Parent = parent;
       } else {
         return tokens.Error(label, "type after ':'", result);
@@ -51,7 +51,7 @@ internal class ParseUnionDefinition(
 
     List<UnionMemberAst> members = [];
     while (!tokens.Take("}")) {
-      var unionMember = _unionMember.Parse(tokens, "Union Member");
+      IResult<UnionMemberAst> unionMember = _unionMember.Parse(tokens, "Union Member");
       if (!unionMember.Required(members.Add)) {
         result.Values = [.. members];
         return unionMember.AsResult(result);

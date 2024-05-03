@@ -20,8 +20,8 @@ public static class MergeExtensions
 
     TObjField? result = default;
 
-    foreach (var item in items) {
-      var value = field(item);
+    foreach (TItem item in items) {
+      TObjField? value = field(item);
       if (value is null || value.Equals(default)) {
         continue;
       }
@@ -47,7 +47,7 @@ public static class MergeExtensions
   {
     ArgumentNullException.ThrowIfNull(merger);
 
-    var fields = items.Select(field).Where(f => f is not null).Cast<TObjField>().ToArray();
+    TObjField[] fields = items.Select(field).Where(f => f is not null).Cast<TObjField>().ToArray();
 
     return fields.Length > 0 ? merger.CanMerge(fields) : TokenMessages.New;
   }
@@ -61,10 +61,10 @@ public static class MergeExtensions
     ArgumentNullException.ThrowIfNull(items);
     ArgumentNullException.ThrowIfNull(field);
 
-    var result = "";
+    string result = "";
 
-    foreach (var item in items) {
-      var value = field(item);
+    foreach (TItem item in items) {
+      string? value = field(item);
       if (string.IsNullOrEmpty(value)) {
         continue;
       }
@@ -103,7 +103,7 @@ public static class MergeExtensions
   {
     ArgumentNullException.ThrowIfNull(merger);
 
-    var fields = items.Select(field).Where(f => f is not null).Cast<TObjField>().ToArray();
+    TObjField[] fields = items.Select(field).Where(f => f is not null).Cast<TObjField>().ToArray();
 
     return merger.Merge(fields);
   }
@@ -138,10 +138,10 @@ public static class MergeExtensions
     where TGroup : AstBase
   {
     List<Indexed<TGroup>> result = [];
-    var groups = items.SelectMany(many).Select(Indexed<TGroup>.To).GroupBy(i => key(i.Item));
+    IEnumerable<IGrouping<string, Indexed<TGroup>>> groups = items.SelectMany(many).Select(Indexed<TGroup>.To).GroupBy(i => key(i.Item));
 
-    foreach (var group in groups) {
-      var item = group.Combine(i => i.Item, merger);
+    foreach (IGrouping<string, Indexed<TGroup>> group in groups) {
+      TGroup item = group.Combine(i => i.Item, merger);
       result.Add(new(item, group.Min(i => i.Index)));
     }
 
@@ -153,10 +153,10 @@ public static class MergeExtensions
     ArgumentNullException.ThrowIfNull(merger);
 
     List<Indexed<TItem>> result = [];
-    var groups = items.Select(Indexed<TItem>.To).GroupBy(i => key(i.Item));
+    IEnumerable<IGrouping<string, Indexed<TItem>>> groups = items.Select(Indexed<TItem>.To).GroupBy(i => key(i.Item));
 
-    foreach (var group in groups) {
-      var item = merger([.. group.Select(i => i.Item)]);
+    foreach (IGrouping<string, Indexed<TItem>> group in groups) {
+      TItem? item = merger([.. group.Select(i => i.Item)]);
       result.Add(new(item, group.Min(i => i.Index)));
     }
 

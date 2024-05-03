@@ -45,7 +45,7 @@ internal class ParseEnumDefinition(
     EnumDefinition result = new();
 
     if (tokens.Take(':')) {
-      if (tokens.Identifier(out var parent)) {
+      if (tokens.Identifier(out string? parent)) {
         result.Parent = parent;
       } else {
         return tokens.Error(label, "type after ':'", result);
@@ -54,7 +54,7 @@ internal class ParseEnumDefinition(
 
     List<EnumMemberAst> members = [];
     while (!tokens.Take("}")) {
-      var enumMember = _enumMember.Parse(tokens, "Enum Member");
+      IResult<EnumMemberAst> enumMember = _enumMember.Parse(tokens, "Enum Member");
       if (!enumMember.Required(members.Add)) {
         result.Values = [.. members];
         return enumMember.AsResult(result);

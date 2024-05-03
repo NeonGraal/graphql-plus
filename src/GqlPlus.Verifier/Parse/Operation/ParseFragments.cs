@@ -21,11 +21,11 @@ internal abstract class ParseFragments(
   public IResultArray<FragmentAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var definitions = new List<FragmentAst>();
+    List<FragmentAst> definitions = [];
 
     while (FragmentPrefix(ref tokens)) {
-      var at = tokens.At;
-      if (!tokens.Identifier(out var name)) {
+      TokenAt at = tokens.At;
+      if (!tokens.Identifier(out string? name)) {
         return tokens.ErrorArray("Fragment", "name after 'fragment' or '&'", definitions);
       }
 
@@ -33,17 +33,17 @@ internal abstract class ParseFragments(
         return tokens.ErrorArray("Fragment", "':' or 'on' after fragment name", definitions);
       }
 
-      if (!tokens.Identifier(out var onType)) {
+      if (!tokens.Identifier(out string? onType)) {
         return tokens.ErrorArray("Fragment", "type after ':' or 'on'", definitions);
       }
 
-      var directives = _directives.Parse(tokens, "Fragment");
+      IResultArray<DirectiveAst> directives = _directives.Parse(tokens, "Fragment");
 
       if (directives.IsError()) {
         return directives.AsResultArray(definitions);
       }
 
-      var fields = _object.Parse(tokens, "Fragment");
+      IResultArray<IAstSelection> fields = _object.Parse(tokens, "Fragment");
       if (!fields.Required(NewFragment)) {
         return fields.AsResultArray(definitions);
       }

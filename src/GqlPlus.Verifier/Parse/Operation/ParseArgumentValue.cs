@@ -18,12 +18,12 @@ internal class ParseArgumentValue(
   public override IResult<ArgumentAst> Parse<TContext>(TContext tokens, string label)
   {
     _ = tokens.At;
-    if (!tokens.Prefix('$', out var variable, out TokenAt? at)) {
+    if (!tokens.Prefix('$', out string? variable, out TokenAt? at)) {
       return tokens.Error<ArgumentAst>(label, "identifier after '$'");
     }
 
     if (variable is not null) {
-      var argument = new ArgumentAst(at, variable);
+      ArgumentAst argument = new(at, variable);
 
       if (tokens is OperationContext context) {
         context.Variables.Add(argument);
@@ -32,17 +32,17 @@ internal class ParseArgumentValue(
       return argument.Ok();
     }
 
-    var oldSeparators = tokens.IgnoreSeparators;
+    bool oldSeparators = tokens.IgnoreSeparators;
     try {
       tokens.IgnoreSeparators = false;
       at = tokens.At;
 
-      var list = ListParser.Parse(tokens, label);
+      IResultArray<ArgumentAst> list = ListParser.Parse(tokens, label);
       if (!list.IsEmpty()) {
         return list.Select(value => new ArgumentAst(at, value));
       }
 
-      var fields = ObjectParser.Parse(tokens, label);
+      IResult<AstFields<ArgumentAst>> fields = ObjectParser.Parse(tokens, label);
       if (!fields.IsEmpty()) {
         return fields.Select(value => new ArgumentAst(at, value));
       }

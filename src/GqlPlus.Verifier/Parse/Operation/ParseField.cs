@@ -20,16 +20,16 @@ internal class ParseField(
   public IResult<FieldAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    var at = tokens.At;
-    if (!tokens.Identifier(out var alias)) {
+    TokenAt at = tokens.At;
+    if (!tokens.Identifier(out string? alias)) {
       return tokens.Error<FieldAst>(label, "initial identifier");
     }
 
-    var result = new FieldAst(at, alias);
+    FieldAst result = new(at, alias);
 
     if (tokens.Take(':')) {
       at = tokens.At;
-      if (!tokens.Identifier(out var name)) {
+      if (!tokens.Identifier(out string? name)) {
         return tokens.Error<FieldAst>(label, "a name after an alias");
       }
 
@@ -38,14 +38,14 @@ internal class ParseField(
 
     _argument.I.Parse(tokens, "Argument").Required(argument => result.Argument = argument);
 
-    var modifiers = _modifiers.Parse(tokens, label);
+    IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, label);
     if (!modifiers.Optional(value => result.Modifiers = value)) {
       return modifiers.AsResult<FieldAst>();
     }
 
     _directives.Parse(tokens, label).WithResult(directives => result.Directives = directives);
 
-    var selections = _object.Parse(tokens, label);
+    IResultArray<IAstSelection> selections = _object.Parse(tokens, label);
     return !selections.Optional(value => result.Selections = value)
       ? selections.AsResult<FieldAst>()
       : result.Ok();

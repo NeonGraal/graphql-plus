@@ -11,10 +11,10 @@ internal class ParseDomainRegex(
 
   public override IResult<DomainRegexAst> Parse<TContext>(TContext tokens, string label)
   {
-    var at = tokens.At;
+    Token.TokenAt at = tokens.At;
     DomainRegexAst? result;
-    var excluded = tokens.Take('!');
-    if (tokens.Regex(out var regex)) {
+    bool excluded = tokens.Take('!');
+    if (tokens.Regex(out string? regex)) {
       result = new(at, excluded, regex);
       return result.Ok();
     }

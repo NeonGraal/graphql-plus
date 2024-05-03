@@ -19,8 +19,8 @@ internal class AstObjectFieldsMerger<TObjField, TObjBase>(
 
   protected override TObjField MergeGroup(IEnumerable<TObjField> group)
   {
-    var result = base.MergeGroup(group);
-    var typeDescription = group.Select(item => item.Type).MergeDescriptions();
+    TObjField result = base.MergeGroup(group);
+    string typeDescription = group.Select(item => item.Type).MergeDescriptions();
     return result with { Type = result.Type with { Description = typeDescription } };
   }
 }

@@ -1,11 +1,20 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
-public sealed record class FragmentAst(TokenAt At, string Name, string OnType, params IAstSelection[] Selections)
-  : AstDirectives(At, Name), IEquatable<FragmentAst>
+internal sealed record class FragmentAst(
+  TokenAt At,
+  string Name,
+  string OnType,
+  params IGqlpSelection[] Selections
+) : AstDirectives(At, Name)
+  , IEquatable<FragmentAst>
+  , IGqlpFragment
 {
   internal override string Abbr => "t";
+
+  IEnumerable<IGqlpSelection> IGqlpFragment.Selections => Selections;
 
   public bool Equals(FragmentAst? other)
     => base.Equals(other)

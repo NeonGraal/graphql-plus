@@ -27,7 +27,7 @@ public class ParseOptionSettingTests(
   private void CheckNull(OptionSettingAst? ast)
     => ast.Should().BeNull();
 
-  private readonly CheckOne<OptionSettingAst> _test = new(parser);
+  private readonly OneChecksParser<OptionSettingAst> _test = new(parser);
 
   private static OptionSettingAst Setting(string name, string value)
     => new(AstNulls.At, name, new FieldKeyAst(AstNulls.At, value));

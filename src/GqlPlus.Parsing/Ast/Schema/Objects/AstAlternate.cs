@@ -7,7 +7,7 @@ public record class AstAlternate<TObjBase>(
   TObjBase Type
 ) : AstAbbreviated(At), IEquatable<AstAlternate<TObjBase>>
   , IAstDescribed
-  , IAstModified
+  , IGqlpModifiers
   where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   public ModifierAst[] Modifiers { get; set; } = [];
@@ -15,6 +15,8 @@ public record class AstAlternate<TObjBase>(
   internal override string Abbr => "A";
 
   public string Description => Type.Description;
+
+  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
   internal AstAlternate(TObjBase objBase)
     : this(objBase.At, objBase) { }

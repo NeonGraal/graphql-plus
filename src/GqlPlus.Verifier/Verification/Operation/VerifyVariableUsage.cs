@@ -1,13 +1,13 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Verification.Operation;
 
 internal class VerifyVariableUsage(
-    IVerify<ArgumentAst> usage,
-    IVerify<VariableAst> definition
-) : NamedVerifier<ArgumentAst, VariableAst>(usage, definition)
+    IVerify<IGqlpArgument> usage,
+    IVerify<IGqlpVariable> definition
+) : NamedVerifier<IGqlpArgument, IGqlpVariable>(usage, definition)
 {
   public override string Label => "Variable";
 
-  public override string UsageKey(ArgumentAst item) => item.Variable!;
+  public override string UsageKey(IGqlpArgument item) => item.Variable!;
 }

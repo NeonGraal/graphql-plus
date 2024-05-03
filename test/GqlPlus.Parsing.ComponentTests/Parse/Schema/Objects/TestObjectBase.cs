@@ -33,7 +33,7 @@ public abstract class TestObjectBase
 
 internal sealed class CheckObjectBase<TObjBase>(
   IObjectBaseFactories<TObjBase> factories, Parser<TObjBase>.D parser
-) : CheckOne<TObjBase>(parser), ICheckObjectBase
+) : OneChecksParser<TObjBase>(parser), ICheckObjectBase
   where TObjBase : AstObjectBase<TObjBase>
 {
   private readonly IObjectBaseFactories<TObjBase> _factories = factories;

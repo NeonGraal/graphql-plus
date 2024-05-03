@@ -2,10 +2,13 @@
 
 namespace GqlPlus.Parse;
 
-internal sealed class CheckMany<T>(Parser<T>.DA parser)
+internal sealed class ManyChecksParser<T>
 {
-  private readonly Parser<T>.LA _parser = parser;
+  private readonly Parser<T>.LA _parser;
   private readonly string _type = typeof(T).ToString();
+
+  public ManyChecksParser(Parser<T>.DA parser)
+    => _parser = parser;
 
   internal void TrueExpected(string input, bool skipIf, params T[] expected)
   {
@@ -37,17 +40,17 @@ internal sealed class CheckMany<T>(Parser<T>.DA parser)
 
     result.IsOk().Should().BeTrue(_type);
     using AssertionScope scope = new();
-    result.Required().Length.Should().Be(count);
+    result.Required().Count().Should().Be(count);
   }
 }
 
-internal sealed class CheckMany<I, T>
+internal sealed class ManyChecksParser<I, T>
 where I : Parser<T>.IA
 {
   private readonly ParserArray<I, T>.LA _parser;
   private readonly string _type = typeof(I).ToString();
 
-  public CheckMany(ParserArray<I, T>.DA parser)
+  public ManyChecksParser(ParserArray<I, T>.DA parser)
     => _parser = parser;
 
   internal void TrueExpected(string input, params T[] expected)
@@ -73,6 +76,6 @@ where I : Parser<T>.IA
 
     result.IsOk().Should().BeTrue(_type);
     using AssertionScope scope = new();
-    result.Required().Length.Should().Be(count);
+    result.Required().Count().Should().Be(count);
   }
 }

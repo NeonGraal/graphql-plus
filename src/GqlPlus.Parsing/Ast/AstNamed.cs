@@ -7,6 +7,7 @@ public abstract record class AstNamed(
   string Name
 ) : AstAbbreviated(At)
   , IEquatable<AstNamed>
+  , IGqlpNamed
 {
   public string Name { get; set; } = Name;
 

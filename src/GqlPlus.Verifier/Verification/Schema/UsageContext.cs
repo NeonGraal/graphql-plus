@@ -69,12 +69,12 @@ internal record struct ParentUsage<TAst>(List<string> Parents, TAst Usage, strin
 
 internal static class UsageHelpers
 {
-  internal static TContext CheckModifiers<TContext>(this TContext context, IAstModified modified)
+  internal static TContext CheckModifiers<TContext>(this TContext context, IGqlpModifiers modified)
     where TContext : UsageContext
   {
     foreach (ModifierAst modifier in modified.Modifiers) {
       if (modifier.Kind == ModifierKind.Dict) {
-        if (context.GetType(modifier.Key, out AstDescribed? key)) {
+        if (context.GetType(modifier.Key?.Text, out AstDescribed? key)) {
           if (key is not AstSimple and not TypeParameterAst) {
             context.AddError((AstAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");
           }

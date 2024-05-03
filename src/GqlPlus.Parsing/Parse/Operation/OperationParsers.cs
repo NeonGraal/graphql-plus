@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Ast.Operation;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,14 +10,14 @@ public static class OperationParsers
     => services
       .AddParser<IParserArgument, ArgumentAst, ParseArgument>()
       .AddValueParsers<ArgumentAst, ParseArgumentValue>()
-      .AddParserArray<DirectiveAst, ParseDirectives>()
-      .AddParserArray<IParserStartFragments, FragmentAst, ParseStartFragments>()
-      .AddParserArray<IParserEndFragments, FragmentAst, ParseEndFragments>()
-      .AddParserArray<IAstSelection, ParseObject>()
-      .AddParser<IAstSelection, ParseSelection>()
-      .AddParser<FieldAst, ParseField>()
-      .AddParser<OperationAst, ParseOperation>()
-      .AddParser<VariableAst, ParseVariable>()
-      .AddParserArray<VariableAst, ParseVariables>()
+      .AddParserArray<IGqlpDirective, ParseDirectives>()
+      .AddParserArray<IParserStartFragments, IGqlpFragment, ParseStartFragments>()
+      .AddParserArray<IParserEndFragments, IGqlpFragment, ParseEndFragments>()
+      .AddParserArray<IGqlpSelection, ParseObject>()
+      .AddParser<IGqlpSelection, ParseSelection>()
+      .AddParser<IGqlpField, ParseField>()
+      .AddParser<IGqlpOperation, ParseOperation>()
+      .AddParser<IGqlpVariable, ParseVariable>()
+      .AddParserArray<IGqlpVariable, ParseVariables>()
       .AddParser<IParserVarType, string, ParseVarType>();
 }

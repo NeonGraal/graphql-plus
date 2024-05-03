@@ -179,7 +179,7 @@ Success
   !AD
   I@022/0001
   DualModsAlt
-  [^]
+  [( !k '^' )]
 }
 {
   !Du I@044/0001
@@ -192,7 +192,7 @@ Success
   !AI
   I@022/0001
   InpModsAlt
-  [^]
+  [( !k '^' )]
 }
 {
   !In I@044/0001
@@ -205,7 +205,7 @@ Success
   !AO
   I@024/0001
   OutpModsAlt
-  [^]
+  [( !k '^' )]
 }
 {
   !Ou I@048/0001
@@ -310,7 +310,7 @@ Success
     :
     I@029/0001
     DualFieldMods
-    [DualFieldEnum]
+    [( !k 'DualFieldEnum' )]
   }
 }
 {
@@ -328,7 +328,7 @@ Success
     :
     I@029/0001
     InpFieldMods
-    [InpFieldEnum]
+    [( !k 'InpFieldEnum' )]
   }
 }
 {
@@ -346,7 +346,7 @@ Success
     :
     I@031/0001
     OutpFieldMods
-    [OutpFieldEnum]
+    [( !k 'OutpFieldEnum' )]
   }
 }
 {
@@ -1640,7 +1640,7 @@ Success
       !Pa
       I@032/0001
       OutParamDomain
-      [OutDomainParam]
+      [( !k 'OutDomainParam' )]
     )
     :
     I@065/0001

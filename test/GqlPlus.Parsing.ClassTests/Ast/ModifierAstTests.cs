@@ -8,7 +8,7 @@ public class ModifierAstTests
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithKey(string key, bool optional)
-    => _checks.HashCode(() => new ModifierAst(AstNulls.At, key, optional));
+    => _checks.HashCode(() => new ModifierAst(AstNulls.At, new(AstNulls.At, key), optional));
 
   [Fact]
   public void Text()
@@ -20,8 +20,8 @@ public class ModifierAstTests
   [Theory, RepeatData(Repeats)]
   public void String_WithKey(string key, bool optional)
   {
-    var optString = optional ? "?" : "";
-    _checks.Text(() => new ModifierAst(AstNulls.At, key, optional), $"[{key}{optString}]");
+    string optString = optional ? "?" : "";
+    _checks.Text(() => new ModifierAst(AstNulls.At, new(AstNulls.At, key), optional), $"[( !k '{key}' ){optString}]");
   }
 
   [Fact]
@@ -32,18 +32,18 @@ public class ModifierAstTests
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithKey(string key, bool optional)
-    => _checks.Equality(() => new ModifierAst(AstNulls.At, key, optional));
+    => _checks.Equality(() => new ModifierAst(AstNulls.At, new(AstNulls.At, key), optional));
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithKey(string key, bool optional)
     => _checks.Inequality(
-      () => new ModifierAst(AstNulls.At, key, optional),
+      () => new ModifierAst(AstNulls.At, new(AstNulls.At, key), optional),
       () => ModifierAst.List(AstNulls.At));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenKeys(string key1, string key2)
     => _checks.InequalityBetween(key1, key2,
-      k => new ModifierAst(AstNulls.At, k, false),
+      key => new ModifierAst(AstNulls.At, new(AstNulls.At, key), false),
       key1 == key2);
 
   internal BaseAstChecks<ModifierAst> _checks = new();

@@ -9,13 +9,15 @@ public abstract record class AstObjectField<TObjBase>(
   TObjBase Type)
   : AstAliased(At, Name, Description)
   , IEquatable<AstObjectField<TObjBase>>
-  , IAstModified
+  , IGqlpModifiers
   where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   public TObjBase Type { get; set; } = Type;
   public ModifierAst[] Modifiers { get; set; } = [];
 
   public string ModifiedType => Type.GetFields().Skip(1).Concat(Modifiers.AsString()).Joined();
+
+  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
   public virtual bool Equals(AstObjectField<TObjBase>? other)
     => base.Equals(other)

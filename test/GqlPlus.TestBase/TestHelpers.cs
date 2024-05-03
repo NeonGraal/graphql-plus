@@ -76,7 +76,7 @@ public static class TestHelpers
     => new[] { ModifierAst.List(AstNulls.At), ModifierAst.Optional(AstNulls.At) };
 
   public static ModifierAst[] TestCollections()
-    => new[] { ModifierAst.List(AstNulls.At), new(AstNulls.At, "String", false) };
+    => new[] { ModifierAst.List(AstNulls.At), new(AstNulls.At, new(AstNulls.At, "String"), false) };
 
   public static TCheck SkipIf<TCheck>(this TCheck check, bool skipIf, [CallerArgumentExpression(nameof(skipIf))] string? skipExpression = null)
   {

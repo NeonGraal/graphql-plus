@@ -1,8 +1,9 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parse.Operation;
 
-public class ParseFieldTests(Parser<FieldAst>.D parser)
+public class ParseFieldTests(Parser<IGqlpField>.D parser)
 {
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string field)
@@ -14,7 +15,7 @@ public class ParseFieldTests(Parser<FieldAst>.D parser)
   public void WithAlias_ReturnsCorrectAst(string field, string alias)
     => _checks.TrueExpected(
       alias + ":" + field,
-      new FieldAst(AstNulls.At, field) { Alias = alias });
+      new FieldAst(AstNulls.At, field) { FieldAlias = alias });
 
   [Theory, RepeatData(Repeats)]
   public void WithArgument_ReturnsCorrectAst(string field, string argument)
@@ -53,7 +54,7 @@ public class ParseFieldTests(Parser<FieldAst>.D parser)
     => _checks.TrueExpected(
       alias + ":" + field + "($" + argument + ")[]?" + directives.Joined(s => "@" + s) + selections.Bracket("{", "}").Joined(),
       new FieldAst(AstNulls.At, field) {
-        Alias = alias,
+        FieldAlias = alias,
         Argument = new(AstNulls.At, argument),
         Modifiers = TestMods(),
         Directives = directives.Directives(),
@@ -64,8 +65,8 @@ public class ParseFieldTests(Parser<FieldAst>.D parser)
   public void WithJustAlias_ReturnsFalse(string alias)
     => _checks.False(alias + ":", DefaultNull);
 
-  private void DefaultNull(IAstSelection? result)
+  private void DefaultNull(IGqlpSelection? result)
     => result.Should().BeNull();
 
-  private readonly CheckOne<FieldAst> _checks = new(parser);
+  private readonly OneChecksParser<IGqlpField> _checks = new(parser);
 }

@@ -23,7 +23,7 @@ public class InlineAstTests : AstDirectivesTests<string[]>
       () => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType });
 
   private readonly AstDirectivesChecks<string[], InlineAst> _checks
-    = new(input => new InlineAst(AstNulls.At, input?.Fields() ?? Array.Empty<IAstSelection>()));
+    = new(input => new InlineAst(AstNulls.At, input?.Fields() ?? []));
 
   internal override IAstDirectivesChecks<string[]> DirectivesChecks => _checks;
 

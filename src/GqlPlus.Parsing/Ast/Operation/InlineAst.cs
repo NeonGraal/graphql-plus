@@ -1,15 +1,27 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
-internal sealed record class InlineAst(TokenAt At, params IAstSelection[] Selections)
-  : AstAbbreviated(At), IAstDirectives, IAstSelection, IEquatable<InlineAst>
+internal sealed record class InlineAst(
+  TokenAt At,
+  params IGqlpSelection[] Selections
+) : AstAbbreviated(At)
+  , IEquatable<InlineAst>
+  , IGqlpInline
 {
   public string? OnType { get; set; }
 
-  public DirectiveAst[] Directives { get; set; } = Array.Empty<DirectiveAst>();
+  public IGqlpDirective[] Directives { get; set; } = [];
 
   internal override string Abbr => "i";
+
+  IEnumerable<IGqlpDirective> IGqlpDirectives.Directives
+  {
+    get => Directives;
+    init => Directives = [.. value.Cast<DirectiveAst>()];
+  }
+  IEnumerable<IGqlpSelection> IGqlpInline.Selections => Selections;
 
   public bool Equals(InlineAst? other)
     => base.Equals(other)

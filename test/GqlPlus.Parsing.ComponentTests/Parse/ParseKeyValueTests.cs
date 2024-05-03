@@ -35,5 +35,5 @@ public class ParseKeyValueTests(
   private void CheckNull(KeyValue<ConstantAst> result)
     => result.Should().Be((KeyValue<ConstantAst>)default);
 
-  private readonly CheckOne<KeyValue<ConstantAst>> _test = new(parser);
+  private readonly OneChecksParser<KeyValue<ConstantAst>> _test = new(parser);
 }

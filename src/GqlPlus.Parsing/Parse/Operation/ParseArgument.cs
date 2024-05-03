@@ -83,8 +83,7 @@ internal class ParseArgument(
     }
 
     List<ArgumentAst> values = [value];
-    while (_argument.I.Parse(tokens, "Argument").Required(values.Add)) {
-    }
+    while (_argument.I.Parse(tokens, "Argument").Required(values.Add)) { }
 
     if (tokens.Take(")")) {
       ArgumentAst argument = values.Count > 1 ? new(at, [.. values]) : value;

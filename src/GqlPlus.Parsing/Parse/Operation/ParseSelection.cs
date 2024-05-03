@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -6,14 +7,14 @@ using GqlPlus.Token;
 namespace GqlPlus.Parse.Operation;
 
 internal class ParseSelection(
-  Parser<DirectiveAst>.DA directives,
-  Parser<IAstSelection>.DA objectParser
-) : Parser<IAstSelection>.I
+  Parser<IGqlpDirective>.DA directives,
+  Parser<IGqlpSelection>.DA objectParser
+) : Parser<IGqlpSelection>.I
 {
-  private readonly Parser<DirectiveAst>.LA _directives = directives;
-  private readonly Parser<IAstSelection>.LA _object = objectParser;
+  private readonly Parser<IGqlpDirective>.LA _directives = directives;
+  private readonly Parser<IGqlpSelection>.LA _object = objectParser;
 
-  public IResult<IAstSelection> Parse<TContext>(TContext tokens, string label)
+  public IResult<IGqlpSelection> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     if (tokens.Take("...") || tokens.Take('|')) {
@@ -21,36 +22,36 @@ internal class ParseSelection(
       string? onType = null;
       if (tokens.Take("on") || tokens.Take(':')) {
         if (!tokens.Identifier(out onType)) {
-          return tokens.Error<IAstSelection>("Spread", "a type");
+          return tokens.Error<IGqlpSelection>("Spread", "a type");
         }
       } else {
         if (tokens.Identifier(out string? name)) {
           SpreadAst selection = new(at, name);
-          _directives.Parse(tokens, "Spread").Optional(directives => selection.Directives = directives);
+          _directives.Parse(tokens, "Spread").Optional(directives => selection.Directives = [.. directives]);
 
           if (tokens is OperationContext context) {
             context.Spreads.Add(selection);
           }
 
-          return selection.Ok<IAstSelection>();
+          return selection.Ok<IGqlpSelection>();
         }
       }
 
       {
-        IResultArray<DirectiveAst> directives = _directives.Parse(tokens, "Inline");
-        IResultArray<IAstSelection> selections = _object.Parse(tokens, "Object");
+        IResultArray<IGqlpDirective> directives = _directives.Parse(tokens, "Inline");
+        IResultArray<IGqlpSelection> selections = _object.Parse(tokens, "Object");
         if (selections.IsOk()) {
           return selections.Select(values => {
-            InlineAst selection = new(at, values) {
+            InlineAst selection = new(at, [.. values]) {
               OnType = onType,
             };
-            directives.Optional(directives => selection.Directives = directives);
-            return selection as IAstSelection;
+            directives.Optional(directives => selection.Directives = [.. directives]);
+            return selection as IGqlpSelection;
           });
         }
       }
 
-      return tokens.Error<IAstSelection>("Inline", "an object");
+      return tokens.Error<IGqlpSelection>("Inline", "an object");
     }
 
     return AstNulls.Selection.Empty();

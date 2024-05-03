@@ -1,8 +1,9 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parse.Operation;
 
-public class ParseVariableTests(Parser<VariableAst>.D parser)
+public class ParseVariableTests(Parser<IGqlpVariable>.D parser)
 {
   private static VariableAst TestVar(string variable)
     => new(AstNulls.At, variable);
@@ -35,7 +36,7 @@ public class ParseVariableTests(Parser<VariableAst>.D parser)
   [Theory, RepeatData(Repeats)]
   public void WithModifiers_ReturnsCorrectAst(string variable)
     => _checks.TrueExpected($"${variable}[]?",
-      TestVar(variable) with { Modifers = TestMods() });
+      TestVar(variable) with { Modifiers = TestMods() });
 
   [Theory, RepeatData(Repeats)]
   public void WithModifiersBad_ReturnsFalse(string variable)
@@ -44,7 +45,7 @@ public class ParseVariableTests(Parser<VariableAst>.D parser)
   [Theory, RepeatData(Repeats)]
   public void WithDefault_ReturnsCorrectAst(string variable, decimal number)
     => _checks.TrueExpected($"${variable}={number}",
-      TestVar(variable) with { Default = new FieldKeyAst(AstNulls.At, number) });
+      TestVar(variable) with { DefaultValue = new FieldKeyAst(AstNulls.At, number) });
 
   [Theory, RepeatData(Repeats)]
   public void WithDefaultBad_ReturnsFalse(string variable)
@@ -64,10 +65,10 @@ public class ParseVariableTests(Parser<VariableAst>.D parser)
     => _checks.TrueExpected($"${variable}:{varType}[]?={number}{directives.Joined(s => "@" + s)}",
       TestVar(variable) with {
         Type = varType,
-        Modifers = TestMods(),
-        Default = new FieldKeyAst(AstNulls.At, number),
+        Modifiers = TestMods(),
+        DefaultValue = new FieldKeyAst(AstNulls.At, number),
         Directives = directives.Directives()
       });
 
-  private readonly CheckOne<VariableAst> _checks = new(parser);
+  private readonly OneChecksParser<IGqlpVariable> _checks = new(parser);
 }

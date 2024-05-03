@@ -5,7 +5,7 @@ public class FieldAstTests : AstDirectivesTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithAlias(string name, string alias)
     => _checks.HashCode(
-      () => Field(name) with { Alias = alias });
+      () => Field(name) with { FieldAlias = alias });
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithArgument(string variable, string name)
@@ -25,7 +25,7 @@ public class FieldAstTests : AstDirectivesTests
   [Theory, RepeatData(Repeats)]
   public void String_WithAlias(string name, string alias)
     => _checks.Text(
-      () => Field(name) with { Alias = alias },
+      () => Field(name) with { FieldAlias = alias },
       $"( !f {alias}: {name} )");
 
   [Theory, RepeatData(Repeats)]
@@ -49,12 +49,12 @@ public class FieldAstTests : AstDirectivesTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlias(string name, string alias)
     => _checks.Equality(
-      () => Field(name) with { Alias = alias });
+      () => Field(name) with { FieldAlias = alias });
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithAlias(string name, string alias)
     => _checks.InequalityWith(name,
-      () => Field(name) with { Alias = alias });
+      () => Field(name) with { FieldAlias = alias });
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithArgument(string variable, string name)

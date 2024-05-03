@@ -1,18 +1,16 @@
-﻿using GqlPlus.Ast.Operation;
-using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Verification.Operation;
 
 internal class VerifyOperation(
-  IVerifyNamed<ArgumentAst, VariableAst> usages,
-  IVerifyNamed<SpreadAst, FragmentAst> spreads
-) : IVerify<OperationAst>
+  IVerifyNamed<IGqlpArgument, IGqlpVariable> usages,
+  IVerifyNamed<IGqlpSpread, IGqlpFragment> spreads
+) : IVerify<IGqlpOperation>
 {
-  public void Verify(OperationAst item, ITokenMessages errors)
+  public void Verify(IGqlpOperation item, ITokenMessages errors)
   {
     usages.Verify(new(item.Usages, item.Variables), errors);
     spreads.Verify(new(item.Spreads, item.Fragments), errors);
-
     errors.Add(item.Errors);
   }
 }

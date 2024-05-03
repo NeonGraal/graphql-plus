@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -7,22 +8,22 @@ namespace GqlPlus.Parse.Operation;
 
 internal class ParseField(
   Parser<ModifierAst>.DA modifiers,
-  Parser<DirectiveAst>.DA directives,
+  Parser<IGqlpDirective>.DA directives,
   Parser<IParserArgument, ArgumentAst>.D argument,
-  Parser<IAstSelection>.DA objectParser
-) : Parser<FieldAst>.I
+  Parser<IGqlpSelection>.DA objectParser
+) : Parser<IGqlpField>.I
 {
   private readonly Parser<ModifierAst>.LA _modifiers = modifiers;
-  private readonly Parser<DirectiveAst>.LA _directives = directives;
+  private readonly Parser<IGqlpDirective>.LA _directives = directives;
   private readonly Parser<IParserArgument, ArgumentAst>.L _argument = argument;
-  private readonly Parser<IAstSelection>.LA _object = objectParser;
+  private readonly Parser<IGqlpSelection>.LA _object = objectParser;
 
-  public IResult<FieldAst> Parse<TContext>(TContext tokens, string label)
+  public IResult<IGqlpField> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     TokenAt at = tokens.At;
     if (!tokens.Identifier(out string? alias)) {
-      return tokens.Error<FieldAst>(label, "initial identifier");
+      return tokens.Error<IGqlpField>(label, "initial identifier");
     }
 
     FieldAst result = new(at, alias);
@@ -30,24 +31,24 @@ internal class ParseField(
     if (tokens.Take(':')) {
       at = tokens.At;
       if (!tokens.Identifier(out string? name)) {
-        return tokens.Error<FieldAst>(label, "a name after an alias");
+        return tokens.Error<IGqlpField>(label, "a name after an alias");
       }
 
-      result = new FieldAst(at, name) { Alias = alias };
+      result = new FieldAst(at, name) { FieldAlias = alias };
     }
 
     _argument.I.Parse(tokens, "Argument").Required(argument => result.Argument = argument);
 
     IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, label);
-    if (!modifiers.Optional(value => result.Modifiers = value)) {
-      return modifiers.AsResult<FieldAst>();
+    if (!modifiers.Optional(value => result.Modifiers = [.. value])) {
+      return modifiers.AsResult<IGqlpField>();
     }
 
-    _directives.Parse(tokens, label).WithResult(directives => result.Directives = directives);
+    _directives.Parse(tokens, label).WithResult(directives => result.Directives = [.. directives]);
 
-    IResultArray<IAstSelection> selections = _object.Parse(tokens, label);
-    return !selections.Optional(value => result.Selections = value)
-      ? selections.AsResult<FieldAst>()
-      : result.Ok();
+    IResultArray<IGqlpSelection> selections = _object.Parse(tokens, label);
+    return !selections.Optional(value => result.Selections = [.. value])
+      ? selections.AsResult<IGqlpField>()
+      : result.Ok<IGqlpField>();
   }
 }

@@ -1,9 +1,14 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
-public sealed record class SpreadAst(TokenAt At, string Name)
-  : AstDirectives(At, Name), IAstSelection, IEquatable<SpreadAst>
+internal sealed record class SpreadAst(
+  TokenAt At,
+  string Name
+) : AstDirectives(At, Name)
+  , IEquatable<SpreadAst>
+  , IGqlpSpread
 {
   internal override string Abbr => "s";
 

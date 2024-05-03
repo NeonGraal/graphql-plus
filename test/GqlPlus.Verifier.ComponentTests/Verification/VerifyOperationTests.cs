@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Parse;
 using GqlPlus.Parse.Operation;
 using GqlPlus.Result;
@@ -7,17 +8,17 @@ using GqlPlus.Token;
 namespace GqlPlus.Verification;
 
 public class VerifyOperationTests(
-    Parser<OperationAst>.D parser,
-    IVerify<OperationAst> verifier)
+    Parser<IGqlpOperation>.D parser,
+    IVerify<IGqlpOperation> verifier)
 {
-  private readonly Parser<OperationAst>.L _parser = parser;
+  private readonly Parser<IGqlpOperation>.L _parser = parser;
 
   [Theory]
   [ClassData(typeof(VerifyOperationValidData))]
   public void Verify_ValidOperations_ReturnsValid(string operation)
   {
-    IResult<OperationAst> parse = Parse(VerifyOperationValidData.Source[operation]);
-    if (parse is IResultError<OperationAst> error) {
+    IResult<IGqlpOperation> parse = Parse(VerifyOperationValidData.Source[operation]);
+    if (parse is IResultError<IGqlpOperation> error) {
       error.Message.Should().BeNull();
     }
 
@@ -32,7 +33,7 @@ public class VerifyOperationTests(
   [ClassData(typeof(VerifyOperationInvalidData))]
   public void Verify_InvalidOperations_ReturnsInvalid(string operation)
   {
-    IResult<OperationAst> parse = Parse(VerifyOperationInvalidData.Source[operation]);
+    IResult<IGqlpOperation> parse = Parse(VerifyOperationInvalidData.Source[operation]);
 
     TokenMessages result = [];
     if (parse.IsOk()) {
@@ -44,7 +45,7 @@ public class VerifyOperationTests(
     result.Should().NotBeNullOrEmpty();
   }
 
-  private IResult<OperationAst> Parse(string operation)
+  private IResult<IGqlpOperation> Parse(string operation)
   {
     OperationContext tokens = new(operation);
     return _parser.Parse(tokens, "Operation");

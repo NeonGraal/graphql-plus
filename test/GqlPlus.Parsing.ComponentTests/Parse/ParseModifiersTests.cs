@@ -16,11 +16,11 @@ public class ParseModifiersTests(Parser<ModifierAst>.DA parser)
   [Fact]
   public void WithFour_ReturnsSpecific()
     => _test.TrueExpected("[^][_?][]?", [
-      new(AstNulls.At, "^", false),
-      new(AstNulls.At, "_", true),
+      new(AstNulls.At, new(AstNulls.At, "^"), false),
+      new(AstNulls.At, new(AstNulls.At, "_"), true),
       ModifierAst.List(AstNulls.At),
       ModifierAst.Optional(AstNulls.At),
     ]);
 
-  private readonly CheckMany<ModifierAst> _test = new(parser);
+  private readonly ManyChecksParser<ModifierAst> _test = new(parser);
 }

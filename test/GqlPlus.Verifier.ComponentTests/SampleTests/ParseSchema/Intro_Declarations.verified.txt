@@ -18,7 +18,7 @@ Success
     :
     I@039/0003
     _Categories
-    [_Identifier]
+    [( !k '_Identifier' )]
     !OF I@009/0004
     directives
     (
@@ -30,7 +30,7 @@ Success
     :
     I@031/0004
     _Directives
-    [_Identifier]
+    [( !k '_Identifier' )]
     !OF I@009/0005
     types
     (
@@ -42,7 +42,7 @@ Success
     :
     I@030/0005
     _Type
-    [_Identifier]
+    [( !k '_Identifier' )]
     !OF I@009/0006
     settings
     (
@@ -54,7 +54,7 @@ Success
     :
     I@029/0006
     _Setting
-    [_Identifier]
+    [( !k '_Identifier' )]
   }
 }
 {

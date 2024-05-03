@@ -5,17 +5,22 @@ namespace GqlPlus.Ast;
 
 [SuppressMessage("Design", "CA1036:Override methods on comparable types")]
 public record class FieldKeyAst(TokenAt At)
-  : AstAbbreviated(At), IComparable<FieldKeyAst>
+  : AstAbbreviated(At)
+  , IComparable<FieldKeyAst>
+  , IGqlpFieldKey
 {
   internal string? Type { get; }
-  internal string? Value { get; }
+  internal string? Member { get; }
 
   public decimal? Number { get; }
   public string? Text { get; }
   public string? EnumValue
-    => Type.Suffixed(".") + Value;
+    => Type.Suffixed(".") + Member;
 
   internal override string Abbr => "k";
+
+  string? IGqlpFieldKey.EnumType => Type;
+  string? IGqlpFieldKey.EnumMember => Member;
 
   internal FieldKeyAst(TokenAt at, decimal number)
     : this(at)
@@ -23,9 +28,9 @@ public record class FieldKeyAst(TokenAt At)
   internal FieldKeyAst(TokenAt at, string content)
     : this(at)
     => Text = content;
-  internal FieldKeyAst(TokenAt at, string enumType, string enumValue)
+  internal FieldKeyAst(TokenAt at, string enumType, string enumMember)
     : this(at)
-    => (Type, Value) = (enumType, enumValue);
+    => (Type, Member) = (enumType, enumMember);
 
   public int CompareTo(FieldKeyAst? other)
     => Number is not null ? decimal.Compare(Number.Value, other?.Number ?? 0)

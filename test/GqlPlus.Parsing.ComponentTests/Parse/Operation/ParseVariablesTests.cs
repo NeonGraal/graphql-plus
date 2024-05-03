@@ -1,8 +1,9 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parse.Operation;
 
-public class ParseVariablesTests(Parser<VariableAst>.DA parser)
+public class ParseVariablesTests(Parser<IGqlpVariable>.DA parser)
 {
   private static VariableAst TestVar(string variable)
     => new(AstNulls.At, variable);
@@ -21,5 +22,5 @@ public class ParseVariablesTests(Parser<VariableAst>.DA parser)
   public void WithNoEnd_ReturnsFalse(string variable)
     => _checks.False("($" + variable);
 
-  private readonly CheckMany<VariableAst> _checks = new(parser);
+  private readonly ManyChecksParser<IGqlpVariable> _checks = new(parser);
 }

@@ -13,10 +13,10 @@ public class ParseCollectionsTests(ParserArray<IParserCollections, ModifierAst>.
   [Fact]
   public void WithThree_ReturnsSpecific()
     => _test.TrueExpected("[^][_?][]", [
-      new(AstNulls.At, "^", false),
-      new(AstNulls.At, "_", true),
+      new(AstNulls.At, new(AstNulls.At, "^"), false),
+      new(AstNulls.At, new(AstNulls.At, "_"), true),
       ModifierAst.List(AstNulls.At),
     ]);
 
-  private readonly CheckMany<IParserCollections, ModifierAst> _test = new(parser);
+  private readonly ManyChecksParser<IParserCollections, ModifierAst> _test = new(parser);
 }

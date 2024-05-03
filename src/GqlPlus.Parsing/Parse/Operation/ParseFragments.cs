@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -6,22 +6,22 @@ using GqlPlus.Token;
 namespace GqlPlus.Parse.Operation;
 
 internal abstract class ParseFragments(
-  Parser<DirectiveAst>.DA directives,
-  Parser<IAstSelection>.DA objectParser
-) : Parser<FragmentAst>.IA
+  Parser<IGqlpDirective>.DA directives,
+  Parser<IGqlpSelection>.DA objectParser
+) : Parser<IGqlpFragment>.IA
 {
-  private readonly Parser<DirectiveAst>.LA _directives = directives;
-  private readonly Parser<IAstSelection>.LA _object = objectParser;
+  private readonly Parser<IGqlpDirective>.LA _directives = directives;
+  private readonly Parser<IGqlpSelection>.LA _object = objectParser;
 
   protected abstract bool FragmentPrefix<TContext>(ref TContext tokens)
     where TContext : Tokenizer;
   protected abstract bool TypePrefix<TContext>(ref TContext tokens)
     where TContext : Tokenizer;
 
-  public IResultArray<FragmentAst> Parse<TContext>(TContext tokens, string label)
+  public IResultArray<IGqlpFragment> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    List<FragmentAst> definitions = [];
+    List<IGqlpFragment> definitions = [];
 
     while (FragmentPrefix(ref tokens)) {
       TokenAt at = tokens.At;
@@ -37,21 +37,21 @@ internal abstract class ParseFragments(
         return tokens.ErrorArray("Fragment", "type after ':' or 'on'", definitions);
       }
 
-      IResultArray<DirectiveAst> directives = _directives.Parse(tokens, "Fragment");
+      IResultArray<IGqlpDirective> directives = _directives.Parse(tokens, "Fragment");
 
       if (directives.IsError()) {
         return directives.AsResultArray(definitions);
       }
 
-      IResultArray<IAstSelection> fields = _object.Parse(tokens, "Fragment");
+      IResultArray<IGqlpSelection> fields = _object.Parse(tokens, "Fragment");
       if (!fields.Required(NewFragment)) {
         return fields.AsResultArray(definitions);
       }
 
-      void NewFragment(IAstSelection[] selections)
+      void NewFragment(IEnumerable<IGqlpSelection> selections)
         => definitions.Add(
-          new FragmentAst(at, name, onType, selections) {
-            Directives = directives.Optional()
+          new FragmentAst(at, name, onType, [.. selections]) {
+            Directives = [.. directives.Optional()]
           });
     }
 
@@ -59,32 +59,32 @@ internal abstract class ParseFragments(
   }
 }
 
-internal class ParseStartFragments : ParseFragments, IParserStartFragments
+internal class ParseStartFragments(
+  Parser<IGqlpDirective>.DA directives,
+  Parser<IGqlpSelection>.DA objectParser
+) : ParseFragments(directives, objectParser), IParserStartFragments
 {
-  public ParseStartFragments(
-    Parser<DirectiveAst>.DA directives,
-    Parser<IAstSelection>.DA objectParser)
-    : base(directives, objectParser) { }
-
   protected override bool FragmentPrefix<TContext>(ref TContext tokens)
     => tokens.Take('&');
   protected override bool TypePrefix<TContext>(ref TContext tokens)
     => tokens.Take(':');
 }
 
-internal class ParseEndFragments : ParseFragments, IParserEndFragments
+internal class ParseEndFragments(
+  Parser<IGqlpDirective>.DA directives,
+  Parser<IGqlpSelection>.DA objectParser
+) : ParseFragments(directives, objectParser), IParserEndFragments
 {
-  public ParseEndFragments(
-    Parser<DirectiveAst>.DA directives,
-    Parser<IAstSelection>.DA objectParser)
-    : base(directives, objectParser) { }
-
   protected override bool FragmentPrefix<TContext>(ref TContext tokens)
     => tokens.Take("fragment") || tokens.Take('&');
   protected override bool TypePrefix<TContext>(ref TContext tokens)
     => tokens.Take("on") || tokens.Take(':');
 }
 
-public interface IParserStartFragments : Parser<FragmentAst>.IA { }
+public interface IParserStartFragments
+  : Parser<IGqlpFragment>.IA
+{ }
 
-public interface IParserEndFragments : Parser<FragmentAst>.IA { }
+public interface IParserEndFragments
+  : Parser<IGqlpFragment>.IA
+{ }

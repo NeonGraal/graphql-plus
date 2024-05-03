@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
@@ -19,10 +20,10 @@ public static class AllVerifiers
   public static IServiceCollection AddVerifiers(this IServiceCollection services)
     => services
       // Operation
-      .AddVerify<OperationAst, VerifyOperation>()
-      .AddVerifyUsageNamed<ArgumentAst, VariableAst, VerifyVariableUsage>()
-      .AddVerifyUsageNamed<SpreadAst, FragmentAst, VerifyFragmentUsage>()
-      .AddVerify<VariableAst, VerifyVariable>()
+      .AddVerify<IGqlpOperation, VerifyOperation>()
+      .AddVerifyUsageNamed<IGqlpArgument, IGqlpVariable, VerifyVariableUsage>()
+      .AddVerifyUsageNamed<IGqlpSpread, IGqlpFragment, VerifyFragmentUsage>()
+      .AddVerify<IGqlpVariable, VerifyVariable>()
       // Schema
       .AddVerify<SchemaAst, VerifySchema>()
       .AddVerifyAliased<CategoryDeclAst, VerifyCategoryAliased>()
@@ -64,11 +65,12 @@ public static class AllVerifiers
 
   public static IServiceCollection AddVerifyUsageNamed<TUsage, TNamed, TService>(this IServiceCollection services)
     where TService : class, IVerifyNamed<TUsage, TNamed>
-    where TUsage : AstAbbreviated where TNamed : AstNamed
+    where TUsage : IGqlpError
+    where TNamed : IGqlpNamed
   => services
       .AddSingleton<IVerifyNamed<TUsage, TNamed>, TService>()
-      .TryAddVerify<TUsage, NullVerifier<TUsage>>()
-      .TryAddVerify<TNamed, NullVerifier<TNamed>>();
+      .TryAddVerify<TUsage, NullVerifierError<TUsage>>()
+      .TryAddVerify<TNamed, NullVerifierError<TNamed>>();
 
   public static IServiceCollection AddVerifyAliased<TAliased, TService>(this IServiceCollection services)
     where TService : class, IVerifyAliased<TAliased>

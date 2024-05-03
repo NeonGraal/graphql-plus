@@ -1,13 +1,14 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus;
 
 public static class OperationTestHelpers
 {
-  public static DirectiveAst[] Directives(this string[] directives)
+  public static IGqlpDirective[] Directives(this string[] directives)
     => [.. directives.Select(d => new DirectiveAst(AstNulls.At, d))];
 
-  public static IAstSelection[] Fields(this string[] fields)
+  public static IGqlpSelection[] Fields(this string[] fields)
     => [.. fields.Select(f => new FieldAst(AstNulls.At, f))];
 
   public static ArgumentAst[] Arguments(this string[] values)

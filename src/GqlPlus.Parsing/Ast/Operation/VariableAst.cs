@@ -1,27 +1,33 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
-public sealed record class VariableAst(TokenAt At, string Name)
-  : AstDirectives(At, Name), IEquatable<VariableAst>
+internal sealed record class VariableAst(TokenAt At, string Name)
+  : AstDirectives(At, Name)
+  , IEquatable<VariableAst>
+  , IGqlpVariable
 {
   public string? Type { get; set; }
-  public ModifierAst[] Modifers { get; set; } = [];
-  public ConstantAst? Default { get; set; }
+  public ModifierAst[] Modifiers { get; set; } = [];
+  public ConstantAst? DefaultValue { get; set; }
 
   internal override string Abbr => "v";
+
+  IGqlpConstant? IGqlpVariable.DefaultValue => DefaultValue;
+  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
   public bool Equals(VariableAst? other)
     => base.Equals(other)
     && Type.NullEqual(other.Type)
-    && Modifers.SequenceEqual(other.Modifers)
-    && Default.NullEqual(other.Default);
+    && Modifiers.SequenceEqual(other.Modifiers)
+    && DefaultValue.NullEqual(other.DefaultValue);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Type, Modifers.Length, Default);
+    => HashCode.Combine(base.GetHashCode(), Type, Modifiers.Length, DefaultValue);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(Type.Prefixed(":"))
-      .Concat(Modifers.AsString())
-      .Append(Default.Prefixed("="));
+      .Concat(Modifiers.AsString())
+      .Append(DefaultValue.Prefixed("="));
 }

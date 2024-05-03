@@ -1,8 +1,9 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parse.Operation;
 
-public class ParseSelectionTests(Parser<IAstSelection>.D parser)
+public class ParseSelectionTests(Parser<IGqlpSelection>.D parser)
 {
   [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
   public void WithInline_ReturnsCorrectAst(string prefix, string[] fields)
@@ -57,8 +58,8 @@ public class ParseSelectionTests(Parser<IAstSelection>.D parser)
   public void WithInvalidSpread_ReturnsFalse()
     => _checks.False("|:?", CheckNull);
 
-  private void CheckNull(IAstSelection? result)
+  private void CheckNull(IGqlpSelection? result)
     => result.Should().BeNull();
 
-  private readonly CheckOne<IAstSelection> _checks = new(parser);
+  private readonly OneChecksParser<IGqlpSelection> _checks = new(parser);
 }

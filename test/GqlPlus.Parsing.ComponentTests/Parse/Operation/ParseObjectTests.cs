@@ -1,8 +1,9 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parse.Operation;
 
-public class ParseObjectTests(Parser<IAstSelection>.DA parser)
+public class ParseObjectTests(Parser<IGqlpSelection>.DA parser)
 {
   [Theory, RepeatData(Repeats)]
   public void WithJustField_ReturnsCorrectAst(string field)
@@ -44,5 +45,5 @@ public class ParseObjectTests(Parser<IAstSelection>.DA parser)
   public void WithBadSelection_ReturnsFalse()
     => _checks.False("{|}");
 
-  private readonly CheckMany<IAstSelection> _checks = new(parser);
+  private readonly ManyChecksParser<IGqlpSelection> _checks = new(parser);
 }

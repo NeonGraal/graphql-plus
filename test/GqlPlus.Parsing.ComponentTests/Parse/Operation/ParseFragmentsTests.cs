@@ -1,10 +1,11 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parse.Operation;
 
 public class ParseFragmentsTests(
-  ParserArray<IParserStartFragments, FragmentAst>.DA startParser,
-  ParserArray<IParserEndFragments, FragmentAst>.DA endParser)
+  ParserArray<IParserStartFragments, IGqlpFragment>.DA startParser,
+  ParserArray<IParserEndFragments, IGqlpFragment>.DA endParser)
 {
   [Theory, RepeatData(Repeats)]
   public void Start_WithMinimum_ReturnsCorrectAst(string fragment, string onType, string[] fields)
@@ -61,6 +62,6 @@ public class ParseFragmentsTests(
       fragmentPrefix + fragment + typePrefix + onType + directives.Joined(s => "@" + s) + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()) { Directives = directives.Directives() });
 
-  private readonly CheckMany<IParserStartFragments, FragmentAst> _startChecks = new(startParser);
-  private readonly CheckMany<IParserEndFragments, FragmentAst> _endChecks = new(endParser);
+  private readonly ManyChecksParser<IParserStartFragments, IGqlpFragment> _startChecks = new(startParser);
+  private readonly ManyChecksParser<IParserEndFragments, IGqlpFragment> _endChecks = new(endParser);
 }

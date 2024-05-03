@@ -15,10 +15,10 @@ internal class ParseCollections : IParserCollections
     while (tokens.Take('[')) {
       ModifierAst modifier = ModifierAst.List(at);
       if (tokens.Identifier(out string? key)) {
-        modifier = new(at, key, tokens.Take('?'));
+        modifier = new(at, new(AstNulls.At, key), tokens.Take('?'));
       } else {
         if (tokens.TakeAny(out char charType, '^', '0', '*')) {
-          modifier = new(at, charType.ToString(), tokens.Take('?'));
+          modifier = new(at, new(AstNulls.At, charType.ToString()), tokens.Take('?'));
         }
       }
 

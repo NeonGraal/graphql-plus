@@ -3,7 +3,9 @@
 namespace GqlPlus.Ast;
 
 public sealed record class ModifierAst(TokenAt At)
-  : AstBase(At), IEquatable<ModifierAst>
+  : AstBase(At)
+  , IEquatable<ModifierAst>
+  , IGqlpModifier
 {
   internal static ModifierAst Optional(TokenAt at)
     => new(at, ModifierKind.Optional, "?");
@@ -14,13 +16,15 @@ public sealed record class ModifierAst(TokenAt At)
     : this(at)
     => (Kind, _toString) = (kind, toString);
 
-  internal ModifierAst(TokenAt at, string key, bool optional)
+  internal ModifierAst(TokenAt at, FieldKeyAst key, bool optional)
     : this(at, ModifierKind.Dict, "[" + key + (optional ? "?]" : "]"))
     => (Key, KeyOptional) = (key, optional);
 
   internal ModifierKind Kind { get; }
-  internal string? Key { get; init; }
+  internal FieldKeyAst? Key { get; init; }
   internal bool KeyOptional { get; init; }
+  ModifierKind IGqlpModifier.ModifierKind => Kind;
+  IGqlpFieldKey? IGqlpModifier.Key => Key;
 
   private readonly string _toString = "";
 
@@ -37,9 +41,4 @@ public sealed record class ModifierAst(TokenAt At)
   // override object.GetHashCode
   public override int GetHashCode()
     => HashCode.Combine(Kind, Key, KeyOptional);
-}
-
-public interface IAstModified
-{
-  ModifierAst[] Modifiers { get; }
 }

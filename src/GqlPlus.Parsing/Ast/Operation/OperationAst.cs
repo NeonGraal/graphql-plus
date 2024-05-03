@@ -1,27 +1,42 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
-public sealed record class OperationAst(TokenAt At, string Name)
-  : AstDirectives(At, Name), IEquatable<OperationAst>, IAstModified
+internal sealed record class OperationAst(
+  TokenAt At,
+  string Name
+) : AstDirectives(At, Name)
+  , IEquatable<OperationAst>
+  , IGqlpOperation
 {
   public ParseResultKind Result { get; set; }
   internal TokenMessages Errors { get; set; } = [];
 
   public string Category { get; set; } = "query";
 
-  public VariableAst[] Variables { get; set; } = [];
+  public IGqlpVariable[] Variables { get; set; } = [];
   public ArgumentAst[] Usages { get; init; } = [];
 
   public string? ResultType { get; set; }
   public ArgumentAst? Argument { get; set; }
-  public IAstSelection[]? ResultObject { get; set; }
+  public IGqlpSelection[]? ResultObject { get; set; }
   public ModifierAst[] Modifiers { get; set; } = [];
 
-  public FragmentAst[] Fragments { get; set; } = [];
+  public IGqlpFragment[] Fragments { get; set; } = [];
   public SpreadAst[] Spreads { get; set; } = [];
 
   internal override string Abbr => "g";
+
+  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
+  IEnumerable<IGqlpVariable> IGqlpOperation.Variables => Variables;
+  IGqlpArgument? IGqlpOperation.Argument => Argument;
+  IEnumerable<IGqlpSelection>? IGqlpOperation.ResultObject => ResultObject;
+  IEnumerable<IGqlpFragment> IGqlpOperation.Fragments => Fragments;
+  ITokenMessages IGqlpOperation.Errors => Errors;
+
+  IEnumerable<IGqlpArgument> IGqlpOperation.Usages => Usages;
+  IEnumerable<IGqlpSpread> IGqlpOperation.Spreads => Spreads;
 
   public OperationAst(TokenAt at)
     : this(at, "") { }
@@ -30,8 +45,8 @@ public sealed record class OperationAst(TokenAt At, string Name)
   {
     using StringWriter sw = new();
     int indent = 0;
-    string[] begins = new[] { "(", "{", "[", "<" };
-    string[] ends = new[] { ")", "}", "]", ">" };
+    string[] begins = ["(", "{", "[", "<"];
+    string[] ends = [")", "}", "]", ">"];
     foreach (string? field in GetFields()) {
       if (string.IsNullOrWhiteSpace(field)) {
         continue;

@@ -1,9 +1,11 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions;
+using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Result;
 
 namespace GqlPlus.Parse.Operation;
 
-public class ParseOperationTests(Parser<OperationAst>.D parser)
+public class ParseOperationTests(Parser<IGqlpOperation>.D parser)
 {
   [Theory]
   [InlineData(":Boolean")]
@@ -19,13 +21,13 @@ public class ParseOperationTests(Parser<OperationAst>.D parser)
   {
     OperationContext context = new(input);
 
-    OperationAst ast = _parser.Parse(context, "Operation").Required();
+    IGqlpOperation result = _parser.Parse(context, "Operation").Required();
 
     using AssertionScope scope = new();
 
-    ast.Should().BeOfType<OperationAst>()
-      .Subject.Result.Should().Be(ParseResultKind.Success);
-    ast!.Errors.Should().BeEmpty();
+    result.Should().BeOfType<OperationAst>();
+    result.Result.Should().Be(ParseResultKind.Success);
+    result.Errors.Should().BeEmpty();
   }
 
   [Theory]
@@ -34,7 +36,7 @@ public class ParseOperationTests(Parser<OperationAst>.D parser)
   {
     OperationContext context = new(input);
 
-    IResult<OperationAst> result = _parser.Parse(context, "Operation");
+    IResult<IGqlpOperation> result = _parser.Parse(context, "Operation");
     result.Optional(ast => {
       using AssertionScope scope = new();
 
@@ -65,7 +67,7 @@ public class ParseOperationTests(Parser<OperationAst>.D parser)
   {
     OperationContext context = new(input);
 
-    OperationAst? ast = _parser.Parse(context, "Operation").Optional();
+    IGqlpOperation? ast = _parser.Parse(context, "Operation").Optional();
 
     using AssertionScope scope = new();
 
@@ -74,5 +76,5 @@ public class ParseOperationTests(Parser<OperationAst>.D parser)
     ast!.Errors.Should().NotBeEmpty();
   }
 
-  private readonly Parser<OperationAst>.L _parser = parser;
+  private readonly Parser<IGqlpOperation>.L _parser = parser;
 }

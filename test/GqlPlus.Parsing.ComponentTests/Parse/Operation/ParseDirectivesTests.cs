@@ -1,8 +1,9 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parse.Operation;
 
-public class ParseDirectivesTests(Parser<DirectiveAst>.DA parser)
+public class ParseDirectivesTests(Parser<IGqlpDirective>.DA parser)
 {
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string directives)
@@ -24,5 +25,5 @@ public class ParseDirectivesTests(Parser<DirectiveAst>.DA parser)
   public void WithSecondBad_ReturnsFalse(string directives)
     => _checks.False("@" + directives + "@");
 
-  private readonly CheckMany<DirectiveAst> _checks = new(parser);
+  private readonly ManyChecksParser<IGqlpDirective> _checks = new(parser);
 }

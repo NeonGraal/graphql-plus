@@ -15,7 +15,7 @@ public abstract class TestNamed<TInput>
 
 internal abstract class CheckNamed<TInput, TNamed>(
   Parser<TNamed>.D parser
-) : CheckOne<TNamed>(parser), ICheckNamed<TInput>
+) : OneChecksParser<TNamed>(parser), ICheckNamed<TInput>
   where TNamed : AstNamed
 {
   public void WithMinimum(TInput input)

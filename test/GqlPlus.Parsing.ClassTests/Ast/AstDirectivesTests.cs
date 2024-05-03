@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Operation;
+
+namespace GqlPlus.Ast;
 
 public abstract class AstDirectivesTests
   : AstDirectivesTests<string>
@@ -47,7 +49,7 @@ public abstract class AstDirectivesTests<TInput>
 
 internal sealed class AstDirectivesChecks<TAst>
   : AstDirectivesChecks<string, TAst>, IAstDirectivesChecks
-  where TAst : AstAbbreviated, IAstDirectives
+  where TAst : AstAbbreviated, IGqlpDirectives
 {
   public AstDirectivesChecks(CreateBy<string> create)
     : base(create) { }
@@ -55,7 +57,7 @@ internal sealed class AstDirectivesChecks<TAst>
 
 internal class AstDirectivesChecks<TInput, TAst>
   : AstAbbreviatedChecks<TInput, TAst>, IAstDirectivesChecks<TInput>
-  where TAst : AstAbbreviated, IAstDirectives
+  where TAst : AstAbbreviated, IGqlpDirectives
 {
   public AstDirectivesChecks(CreateBy<TInput> create)
     : base(create) { }

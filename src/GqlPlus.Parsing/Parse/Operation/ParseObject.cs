@@ -1,35 +1,34 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parse.Operation;
 
 internal class ParseObject(
-  Parser<FieldAst>.D field,
-  Parser<IAstSelection>.D selection
-) : Parser<IAstSelection>.IA
+  Parser<IGqlpField>.D field,
+  Parser<IGqlpSelection>.D selection
+) : Parser<IGqlpSelection>.IA
 {
-  private readonly Parser<FieldAst>.L _field = field;
-  private readonly Parser<IAstSelection>.L _selection = selection;
+  private readonly Parser<IGqlpField>.L _field = field;
+  private readonly Parser<IGqlpSelection>.L _selection = selection;
 
-  public IResultArray<IAstSelection> Parse<TContext>(TContext tokens, string label)
+  public IResultArray<IGqlpSelection> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    List<IAstSelection> fields = [];
+    List<IGqlpSelection> fields = [];
     if (!tokens.Take('{')) {
       return fields.EmptyArray();
     }
 
     while (!tokens.Take('}')) {
-      IResult<IAstSelection> selection = _selection.Parse(tokens, label);
+      IResult<IGqlpSelection> selection = _selection.Parse(tokens, label);
       if (selection.IsError()) {
         return selection.AsResultArray(fields);
       } else if (selection.Required(fields.Add)) {
         continue;
       }
 
-      IResult<FieldAst> field = _field.Parse(tokens, label);
+      IResult<IGqlpField> field = _field.Parse(tokens, label);
       if (field.IsError()) {
         return field.AsResultArray(fields);
       }

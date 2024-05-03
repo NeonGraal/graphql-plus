@@ -1,13 +1,10 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Token;
-
-namespace GqlPlus.Verification.Operation;
+﻿namespace GqlPlus.Verification.Operation;
 
 internal abstract class NamedVerifier<TUsage, TNamed>(
     IVerify<TUsage> usage,
     IVerify<TNamed> definition
 ) : IVerifyNamed<TUsage, TNamed>
-  where TUsage : AstAbbreviated where TNamed : AstNamed
+  where TUsage : IGqlpError where TNamed : IGqlpNamed
 {
   public abstract string Label { get; }
   public abstract string UsageKey(TUsage item);
@@ -20,7 +17,7 @@ internal abstract class NamedVerifier<TUsage, TNamed>(
 
     foreach ((string k, TUsage u) in used) {
       if (!defined.ContainsKey(k)) {
-        errors.AddError(u, $"Invalid {Label} usage. {Label} not defined.");
+        errors.Add(u.MakeError($"Invalid {Label} usage. {Label} not defined."));
       }
 
       usage?.Verify(u, errors);
@@ -28,7 +25,7 @@ internal abstract class NamedVerifier<TUsage, TNamed>(
 
     foreach ((string k, TNamed d) in defined) {
       if (!used.ContainsKey(k)) {
-        errors.AddError(d, $"Invalid {Label} definition. {Label} not used.");
+        errors.Add(d.MakeError($"Invalid {Label} definition. {Label} not used."));
       }
 
       definition?.Verify(d, errors);
@@ -36,9 +33,9 @@ internal abstract class NamedVerifier<TUsage, TNamed>(
   }
 }
 
-public record class UsageNamed<TUsage, TNamed>(TUsage[] Usages, TNamed[] Definitions)
-  where TUsage : AstAbbreviated where TNamed : AstNamed;
+public record class UsageNamed<TUsage, TNamed>(IEnumerable<TUsage> Usages, IEnumerable<TNamed> Definitions)
+  where TUsage : IGqlpError where TNamed : IGqlpNamed;
 
 public interface IVerifyNamed<TUsage, TNamed> : IVerify<UsageNamed<TUsage, TNamed>>
-    where TUsage : AstAbbreviated where TNamed : AstNamed
+    where TUsage : IGqlpError where TNamed : IGqlpNamed
 { }

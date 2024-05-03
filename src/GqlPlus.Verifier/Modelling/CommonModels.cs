@@ -101,8 +101,8 @@ internal class SimpleModeller
   protected override SimpleModel ToModel(FieldKeyAst ast, IMap<TypeKindModel> typeKinds)
     => ast.Number.HasValue ? SimpleModel.Num("", ast.Number.Value)
     : ast.Text is not null ? SimpleModel.Str("", ast.Text)
-    : "Boolean".Equals(ast.Type, StringComparison.OrdinalIgnoreCase) ? SimpleModel.Bool("true".Equals(ast.Value, StringComparison.OrdinalIgnoreCase))
-    : ast.Type is not null ? SimpleModel.Enum(ast.Type, ast.Value ?? "")
+    : "Boolean".Equals(ast.Type, StringComparison.OrdinalIgnoreCase) ? SimpleModel.Bool("true".Equals(ast.Member, StringComparison.OrdinalIgnoreCase))
+    : ast.Type is not null ? SimpleModel.Enum(ast.Type, ast.Member ?? "")
     : new();
 }
 
@@ -115,7 +115,7 @@ internal class ModifierModeller
 {
   protected override ModifierModel ToModel(ModifierAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Kind) {
-      Key = ast.Key ?? "",
+      Key = ast.Key?.Text ?? "",
       KeyOptional = ast.KeyOptional,
     };
 

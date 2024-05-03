@@ -1,25 +1,25 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parse.Operation;
 
 internal class ParseVariables(
-  Parser<VariableAst>.D variable
-) : Parser<VariableAst>.IA
+  Parser<IGqlpVariable>.D variable
+) : Parser<IGqlpVariable>.IA
 {
-  private readonly Parser<VariableAst>.L _variable = variable;
+  private readonly Parser<IGqlpVariable>.L _variable = variable;
 
-  public IResultArray<VariableAst> Parse<TContext>(TContext tokens, string label)
+  public IResultArray<IGqlpVariable> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    List<VariableAst> list = [];
+    List<IGqlpVariable> list = [];
 
     if (!tokens.Take('(')) {
       return list.EmptyArray();
     }
 
-    IResult<VariableAst> variable = _variable.Parse(tokens, label);
+    IResult<IGqlpVariable> variable = _variable.Parse(tokens, label);
     if (variable.IsError()) {
       return variable.AsResultArray(list);
     }

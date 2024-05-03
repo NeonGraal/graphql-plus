@@ -29,7 +29,7 @@ internal sealed class ModifierModelChecks(
     => input.Kind switch {
       ModifierKind.Optional => ModifierAst.Optional(AstNulls.At),
       ModifierKind.List => ModifierAst.List(AstNulls.At),
-      ModifierKind.Dict => new ModifierAst(AstNulls.At, input.Key, input.Optional),
+      ModifierKind.Dict => new ModifierAst(AstNulls.At, new(AstNulls.At, input.Key), input.Optional),
       _ => throw new NotImplementedException(),
     };
 }

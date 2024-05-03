@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Modelling;
 using GqlPlus.Parse;
@@ -11,13 +11,13 @@ using GqlPlus.Verification;
 namespace GqlPlus;
 
 public class SampleTests(
-    Parser<OperationAst>.D operation,
+    Parser<IGqlpOperation>.D operation,
     Parser<SchemaAst>.D schemaParser,
     IVerify<SchemaAst> schemaVerifier,
     IModeller<SchemaAst, SchemaModel> schemaModeller,
     ITypesModeller types)
 {
-  private readonly Parser<OperationAst>.L _operation = operation;
+  private readonly Parser<IGqlpOperation>.L _operation = operation;
   private readonly Parser<SchemaAst>.L _schemaParser = schemaParser;
 
   [Theory]
@@ -89,7 +89,7 @@ public class SampleTests(
   {
     string operation = await File.ReadAllTextAsync("Sample/Operation/" + sample + ".gql+");
     OperationContext tokens = new(operation);
-    OperationAst? ast = _operation.Parse(tokens, "Operation").Optional();
+    IGqlpOperation? ast = _operation.Parse(tokens, "Operation").Optional();
 
     VerifySettings settings = new();
     settings.ScrubEmptyLines();
@@ -105,7 +105,7 @@ public class SampleTests(
   {
     string operation = await File.ReadAllTextAsync("Sample/GraphQl/" + example + ".gql");
     OperationContext tokens = new(operation);
-    OperationAst ast = _operation.Parse(tokens, "Operation").Required();
+    IGqlpOperation ast = _operation.Parse(tokens, "Operation").Required();
 
     VerifySettings settings = new();
     settings.ScrubEmptyLines();

@@ -64,6 +64,6 @@ public class ParseFieldKeyTests(Parser<FieldKeyAst>.D parser)
   public void WithTypeAndNoValue_ReturnsFalse(string enumType)
     => Test.False(enumType + ".");
 
-  private CheckOne<FieldKeyAst> Test { get; } = new(parser);
+  private OneChecksParser<FieldKeyAst> Test { get; } = new(parser);
 }
 

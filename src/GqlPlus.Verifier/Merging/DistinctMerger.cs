@@ -1,15 +1,15 @@
 ﻿using GqlPlus.Ast;
+using GqlPlus.Token;
 
 namespace GqlPlus.Merging;
 
+#pragma warning disable CA1823 // Avoid unused private fields -- DO NOT DELETE
 internal abstract partial class DistinctMerger<TItem>(
   ILoggerFactory logger
 ) : GroupsMerger<TItem>
   where TItem : AstBase
 {
-#pragma warning disable CA1823 // Avoid unused private fields - do not delete
   private readonly ILogger _logger = logger.CreateLogger(nameof(DistinctMerger<TItem>));
-#pragma warning restore CA1823 // Avoid unused private fields
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)
   {

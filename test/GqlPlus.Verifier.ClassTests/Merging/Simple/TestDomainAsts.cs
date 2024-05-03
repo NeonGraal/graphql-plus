@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Token;
 using NSubstitute;
@@ -8,7 +9,7 @@ namespace GqlPlus.Merging.Simple;
 
 public abstract class TestDomainAsts<TItem, TItemInput>
   : TestTyped<AstDomain, AstDomain<TItem>, string, TItem>
-  where TItem : AstAbbreviated, IAstDomainItem
+  where TItem : AstAbbreviated, IGqlpDomainItem
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_SameKinds_ReturnsGood(string name)

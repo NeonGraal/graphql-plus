@@ -1,11 +1,12 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Merging.Simple;
 
 public abstract class TestDomainItems<TItem>
   : TestGroups<TItem>
-  where TItem : AstAbbreviated, IAstDomainItem
+  where TItem : AstAbbreviated, IGqlpDomainItem
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSame_ReturnsGood(string name)

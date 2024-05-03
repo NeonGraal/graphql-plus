@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Merging.Simple;
@@ -7,7 +8,7 @@ internal class MergeDomains<TMember>(
   ILoggerFactory logger,
   IMerge<TMember> members
 ) : AstTypeMerger<AstDomain, AstDomain<TMember>, string, TMember>(logger, members)
-  where TMember : AstAbbreviated, IAstDomainItem
+  where TMember : AstAbbreviated, IGqlpDomainItem
 {
   protected override string ItemMatchName => "Domain~Parent";
   protected override string ItemMatchKey(AstDomain<TMember> item)

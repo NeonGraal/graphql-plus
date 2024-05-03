@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Parse;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -6,8 +7,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Verification;
 
 public class VerifySchemaTests(
-    Parser<SchemaAst>.D parser,
-    IVerify<SchemaAst> verifier
+    Parser<IGqlpSchema>.D parser,
+    IVerify<IGqlpSchema> verifier
 ) : SchemaBase(parser)
 {
   [Theory]
@@ -78,7 +79,7 @@ public class VerifySchemaTests(
 
   private void Verify_Valid(string input)
   {
-    IResult<SchemaAst> parse = Parse(input);
+    IResult<IGqlpSchema> parse = Parse(input);
 
     if (parse is IResultError<SchemaAst> error) {
       error.Message.Should().BeNull();
@@ -93,7 +94,7 @@ public class VerifySchemaTests(
 
   private async Task Verify_Invalid(string input, string test)
   {
-    IResult<SchemaAst> parse = Parse(input);
+    IResult<IGqlpSchema> parse = Parse(input);
 
     TokenMessages result = [];
     if (parse.IsOk()) {

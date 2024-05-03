@@ -1,4 +1,4 @@
-﻿using GqlPlus.Token;
+using GqlPlus.Token;
 
 namespace GqlPlus.Result;
 
@@ -19,9 +19,9 @@ public static class ResultExtensions
 
   public static IResultArray<TResult> AsResultArray<TValue, TResult>(this IResult<TValue> result, IEnumerable<TResult>? _ = default)
     => result switch {
-      IResultOk<TValue> ok when ok.Result is TResult[] newResult
+      IResultOk<TValue> ok when ok.Result is IEnumerable<TResult> newResult
         => new ResultArrayOk<TResult>(newResult),
-      IResultPartial<TValue> part when part.Result is TResult[] newResult
+      IResultPartial<TValue> part when part.Result is IEnumerable<TResult> newResult
         => new ResultArrayPartial<TResult>(newResult, part.Message),
       IResultMessage<TValue> msg
         => new ResultArrayError<TResult>(msg.Message),
@@ -35,7 +35,7 @@ public static class ResultExtensions
 
   public static IResult<TValue> Error<TValue>(this TValue? _, TokenMessage error)
     => new ResultError<TValue>(error);
-  public static IResult<TValue> Error<TValue>(this int _, TokenMessage error)
+  public static IResult<TValue> Error<TValue>(this TokenMessage error)
     => new ResultError<TValue>(error);
 
   public static bool HasValue<TValue>(this IResult<TValue> result)

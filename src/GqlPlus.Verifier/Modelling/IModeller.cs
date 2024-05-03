@@ -1,10 +1,9 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Rendering;
+﻿using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
 
 public interface IModeller<TAst>
-  where TAst : AstBase
+  where TAst : IGqlpError
 {
   IRendering ToRenderer(TAst ast, IMap<TypeKindModel> typeKinds);
   T? TryModel<T>(TAst? ast, IMap<TypeKindModel> typeKinds);
@@ -15,7 +14,7 @@ public interface IModeller<TAst>
 
 public interface IModeller<TAst, TModel>
   : IModeller<TAst>
-  where TAst : AstBase
+  where TAst : IGqlpError
 {
   TModel? TryModel(TAst? ast, IMap<TypeKindModel> typeKinds);
   TModel ToModel(TAst? ast, IMap<TypeKindModel> typeKinds);

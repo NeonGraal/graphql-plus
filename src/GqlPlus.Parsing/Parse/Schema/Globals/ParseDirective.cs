@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Parse.Schema.Simple;
 using GqlPlus.Result;
@@ -12,33 +13,34 @@ internal class ParseDirective(
   Parser<string>.DA aliases,
   Parser<IOptionParser<DirectiveOption>, DirectiveOption>.D option,
   Parser<DirectiveLocation>.D definition
-) : DeclarationParser<IDirectiveName, ParameterAst, DirectiveOption, DirectiveLocation, DirectiveDeclAst>(name, param, aliases, option, definition)
+) : DeclarationParser<IDirectiveName, ParameterAst, DirectiveOption, DirectiveLocation, IGqlpSchemaDirective>(name, param, aliases, option, definition)
 {
-  protected override DirectiveDeclAst MakeResult(DirectiveDeclAst result, DirectiveLocation value)
-  {
-    result.Locations = value;
+  protected override IGqlpSchemaDirective MakeResult(AstPartial<ParameterAst, DirectiveOption> partial, DirectiveLocation value)
+    => new DirectiveDeclAst(partial.At, partial.Name, partial.Description) {
+      Aliases = partial.Aliases,
+      Parameters = partial.Parameters,
+      Option = partial.Option ?? DirectiveOption.Unique,
+      Locations = value,
+    };
 
-    return result;
-  }
-
-  protected override bool ApplyOption(DirectiveDeclAst result, IResult<DirectiveOption> option)
-    => option.Optional(value => result.Option = value);
-
-  protected override bool ApplyParameters(DirectiveDeclAst result, IResultArray<ParameterAst> parameter)
-    => parameter.Optional(value => result.Parameters = value);
-
-  [return: NotNull]
-  protected override DirectiveDeclAst MakePartial(TokenAt at, string? name, string description)
-    => new(at, name!, description);
+  protected override IGqlpSchemaDirective ToResult(AstPartial<ParameterAst, DirectiveOption> partial)
+    => new DirectiveDeclAst(partial.At, partial.Name, partial.Description) {
+      Aliases = partial.Aliases,
+      Parameters = partial.Parameters,
+      Option = partial.Option ?? DirectiveOption.Unique,
+    };
 }
 
-internal class DirectiveName : IDirectiveName
+internal class DirectiveName
+  : IDirectiveName
 {
   public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
     => tokens.Prefix('@', out name, out at);
 }
 
-internal interface IDirectiveName : INameParser { }
+internal interface IDirectiveName
+  : INameParser
+{ }
 
 internal class ParseDirectiveDefinition(
   Parser<IEnumParser<DirectiveLocation>, DirectiveLocation>.D location

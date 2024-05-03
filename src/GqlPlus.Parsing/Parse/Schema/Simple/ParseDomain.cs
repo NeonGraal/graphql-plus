@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -11,27 +12,52 @@ internal class ParseDomain(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<DomainDefinition>.D definition
-) : DeclarationParser<DomainDefinition, AstDomain>(name, param, aliases, option, definition)
+) : DeclarationParser<DomainDefinition, IGqlpDomain>(name, param, aliases, option, definition)
 {
-  protected override AstDomain MakeResult(AstDomain partial, DomainDefinition value)
-    => value.Kind switch {
-      DomainKind.Boolean => new AstDomain<DomainTrueFalseAst>(partial.At, partial.Name, value.Kind, value.Values),
-      DomainKind.Enum => new AstDomain<DomainMemberAst>(partial.At, partial.Name, value.Kind, value.Members),
-      DomainKind.Number => new AstDomain<DomainRangeAst>(partial.At, partial.Name, value.Kind, value.Numbers),
-      DomainKind.String => new AstDomain<DomainRegexAst>(partial.At, partial.Name, value.Kind, value.Regexes),
-      _ => partial,
-    } with {
+  protected override IGqlpDomain MakeResult(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
+  {
+    return value.Kind switch {
+      DomainKind.Boolean => MakeBoolean(partial, value),
+      DomainKind.Enum => MakeEnum(partial, value),
+      DomainKind.Number => MakeNumber(partial, value),
+      DomainKind.String => MakeString(partial, value),
+      _ => MakeBoolean(partial, new() { Kind = DomainKind.Boolean }),
+    };
+  }
+
+  private static AstDomain<DomainRegexAst> MakeString(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
+    => new(partial.At, partial.Name, value.Kind, value.Regexes) {
       Aliases = partial.Aliases,
       Description = partial.Description,
       Parent = value.Parent
     };
 
-  protected override bool ApplyOption(AstDomain result, IResult<NullOption> option) => true;
-  protected override bool ApplyParameters(AstDomain result, IResultArray<NullAst> parameter) => true;
+  private static AstDomain<DomainRangeAst> MakeNumber(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
+    => new(partial.At, partial.Name, value.Kind, value.Numbers) {
+      Aliases = partial.Aliases,
+      Description = partial.Description,
+      Parent = value.Parent
+    };
 
-  [return: NotNull]
-  protected override AstDomain<AstDomainItem> MakePartial(TokenAt at, string? name, string description)
-    => new(at, name!, description, DomainKind.Enum);
+  private static AstDomain<DomainMemberAst> MakeEnum(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
+    => new(partial.At, partial.Name, value.Kind, value.Members) {
+      Aliases = partial.Aliases,
+      Description = partial.Description,
+      Parent = value.Parent
+    };
+
+  private static AstDomain<DomainTrueFalseAst> MakeBoolean(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
+    => new(partial.At, partial.Name, value.Kind, value.Values) {
+      Aliases = partial.Aliases,
+      Description = partial.Description,
+      Parent = value.Parent
+    };
+
+  protected override IGqlpDomain ToResult(AstPartial<NullAst, NullOption> partial)
+    => new AstDomain<DomainTrueFalseAst>(partial.At, partial.Name, partial.Description, DomainKind.Boolean) {
+      Aliases = partial.Aliases,
+      Description = partial.Description,
+    };
 }
 
 public class DomainDefinition

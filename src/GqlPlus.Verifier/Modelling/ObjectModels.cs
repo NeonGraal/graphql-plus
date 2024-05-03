@@ -143,11 +143,11 @@ public record class ParameterModel(
   BaseDescribedModel<ObjRefModel<InputBaseModel>> Type
 ) : AlternateModel<InputBaseModel>(Type)
 {
-  public ConstantModel? Default { get; set; }
+  public ConstantModel? DefaultValue { get; set; }
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("default", Default?.Render(context));
+      .Add("default", DefaultValue?.Render(context));
 }
 
 internal abstract class ModellerObject<TAst, TObjBaseAst, TObjFieldAst, TModel, TObjBase, TObjField>(
@@ -252,7 +252,7 @@ internal class ParameterModeller(
     AlternateModel<InputBaseModel> altModel = alternate.ToModel(ast, typeKinds);
     return new(altModel.Type) {
       Collections = altModel.Collections,
-      Default = constant.TryModel(ast.Default, typeKinds),
+      DefaultValue = constant.TryModel(ast.DefaultValue, typeKinds),
     };
   }
 }

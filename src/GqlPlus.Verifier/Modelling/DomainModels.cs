@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Rendering;
 
@@ -106,7 +107,7 @@ public record class DomainItemModel<TItem>(
 internal abstract class ModellerDomain<TItemAst, TItemModel>
   : ModellerType<AstDomain<TItemAst>, string, BaseDomainModel<TItemModel>>
   , IDomainModeller<TItemAst, TItemModel>
-  where TItemAst : AstAbbreviated, IAstDomainItem
+  where TItemAst : AstAbbreviated, IGqlpDomainItem
   where TItemModel : IBaseDomainItemModel
 {
   protected ModellerDomain()
@@ -124,7 +125,7 @@ internal abstract class ModellerDomain<TItemAst, TItemModel>
 
 public interface IDomainModeller<TItemAst, TItemModel>
   : IModeller<AstDomain<TItemAst>, BaseDomainModel<TItemModel>>
-  where TItemAst : AstAbbreviated, IAstDomainItem
+  where TItemAst : AstAbbreviated, IGqlpDomainItem
   where TItemModel : IBaseDomainItemModel
 { }
 

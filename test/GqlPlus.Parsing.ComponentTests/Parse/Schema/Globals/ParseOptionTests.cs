@@ -1,11 +1,12 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Parse.Schema.Globals;
 
 public sealed class ParseOptionTests(
-  Parser<OptionDeclAst>.D parser
-) : TestAliased<string>
+  Parser<IGqlpSchemaOption>.D parser
+) : BaseAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void WithSettings_ReturnsCorrectAst(string name)
@@ -23,18 +24,16 @@ public sealed class ParseOptionTests(
   public void WithSettingsNone_ReturnsTrue(string name)
     => _checks.TrueExpected(name + "{}", new OptionDeclAst(AstNulls.At, name));
 
-  internal override ICheckAliased<string> AliasChecks => _checks;
+  internal override IBaseAliasedChecks<string> AliasChecks => _checks;
 
   private readonly ParseOptionChecks _checks = new(parser);
   private static readonly string[] s_settings = ["setting"];
 }
 
-internal sealed class ParseOptionChecks
-  : CheckAliased<string, OptionDeclAst>
+internal sealed class ParseOptionChecks(
+  Parser<IGqlpSchemaOption>.D parser
+) : BaseAliasedChecks<string, OptionDeclAst, IGqlpSchemaOption>(parser)
 {
-  public ParseOptionChecks(Parser<OptionDeclAst>.D parser)
-    : base(parser) { }
-
   internal static readonly string[] Settings = ["setting"];
 
   protected internal override OptionDeclAst NamedFactory(string input)

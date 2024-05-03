@@ -1,20 +1,20 @@
 ﻿namespace GqlPlus.Result;
 
 public readonly struct ResultArrayOk<TValue>
-  : IResultArray<TValue>, IResultOk<TValue[]>
+  : IResultArray<TValue>, IResultOk<IEnumerable<TValue>>
 {
-  public TValue[] Result { get; }
+  public IEnumerable<TValue> Result { get; }
 
-  public ResultArrayOk(TValue[] result) => Result = result;
+  public ResultArrayOk(IEnumerable<TValue> result) => Result = result;
 
-  public IResult<TResult> AsPartial<TResult>(TResult result, Action<TValue[]>? withValue = null, Action? action = null)
+  public IResult<TResult> AsPartial<TResult>(TResult result, Action<IEnumerable<TValue>>? withValue = null, Action? action = null)
   {
     withValue?.Invoke(Result);
     action?.Invoke();
     return result.Ok();
   }
 
-  public IResultArray<TResult> AsPartialArray<TResult>(IEnumerable<TResult> result, Action<TValue[]>? withValue = null)
+  public IResultArray<TResult> AsPartialArray<TResult>(IEnumerable<TResult> result, Action<IEnumerable<TValue>>? withValue = null)
   {
     withValue?.Invoke(Result);
     return result.OkArray();
@@ -25,12 +25,12 @@ public readonly struct ResultArrayOk<TValue>
       ? newResult.Ok()
       : _.Empty();
 
-  public IResultArray<TResult> AsResultArray<TResult>(TResult[]? _ = default)
-    => Result is TResult[] newResult
+  public IResultArray<TResult> AsResultArray<TResult>(IEnumerable<TValue>? _ = default)
+    => Result is IEnumerable<TResult> newResult
       ? newResult.OkArray()
-      : _.EmptyArray();
+      : 0.EmptyArray<TResult>();
 
-  public IResult<TResult> Map<TResult>(SelectResult<TValue[], TResult> onValue, OnResult<TResult>? otherwise = null)
+  public IResult<TResult> Map<TResult>(SelectResult<IEnumerable<TValue>, TResult> onValue, OnResult<TResult>? otherwise = null)
   {
     ArgumentNullException.ThrowIfNull(onValue);
 

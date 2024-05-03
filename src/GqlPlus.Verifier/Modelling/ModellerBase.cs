@@ -1,11 +1,10 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Rendering;
+﻿using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
 
 internal abstract class ModellerBase<TAst, TModel>
   : IModeller<TAst, TModel>
-  where TAst : AstBase
+  where TAst : IGqlpError
   where TModel : IRendering
 {
   public IRendering ToRenderer(TAst ast, IMap<TypeKindModel> typeKinds)

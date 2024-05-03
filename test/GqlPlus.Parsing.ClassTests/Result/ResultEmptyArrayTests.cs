@@ -69,7 +69,7 @@ public class ResultEmptyArrayTests : BaseResultTests
   [Fact]
   public void Optional_ReturnsEmpty()
   {
-    string[] result = _emptyArray.Optional();
+    IEnumerable<string> result = _emptyArray.Optional();
 
     result.Should().BeEmpty();
   }

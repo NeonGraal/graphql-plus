@@ -6,13 +6,13 @@ namespace GqlPlus.Merging;
 
 public abstract class TestAbbreviated<TAst>
   : TestAbbreviated<TAst, string>
-  where TAst : AstAbbreviated
+  where TAst : IGqlpError
 { }
 
 [TracePerTest]
 
 public abstract class TestAbbreviated<TAst, TInput>
-  where TAst : AstAbbreviated
+  where TAst : IGqlpError
 {
   [Fact]
   public void CanMerge_NoAsts_ReturnsErrors()

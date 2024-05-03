@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Modelling;
 using GqlPlus.Parse;
@@ -8,16 +9,16 @@ using GqlPlus.Result;
 namespace GqlPlus.Verification;
 
 public class ModelSchemaTests(
-    Parser<SchemaAst>.D parser,
-    IMerge<SchemaAst> merger,
-    IModeller<SchemaAst, SchemaModel> modeller,
+    Parser<IGqlpSchema>.D parser,
+    IMerge<IGqlpSchema> merger,
+    IModeller<IGqlpSchema, SchemaModel> modeller,
     ITypesModeller types
 ) : SchemaBase(parser)
 {
   [Fact]
   public async Task Model_All()
   {
-    IEnumerable<SchemaAst> asts = SchemaValidData.Values
+    IEnumerable<IGqlpSchema> asts = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
       .Select(input => Parse(input).Required());
 
@@ -33,7 +34,7 @@ public class ModelSchemaTests(
   [ClassData(typeof(SchemaValidData))]
   public async Task Model_Groups(string group)
   {
-    IEnumerable<SchemaAst> asts = SchemaValidData.Values[group]
+    IEnumerable<IGqlpSchema> asts = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required());
 
     RenderStructure result = ModelAsts(asts);
@@ -103,8 +104,8 @@ public class ModelSchemaTests(
 
   private async Task Verify_Model(string input, string test)
   {
-    IResult<SchemaAst> parse = Parse(input);
-    SchemaAst ast = parse.Required();
+    IResult<IGqlpSchema> parse = Parse(input);
+    IGqlpSchema ast = parse.Required();
 
     RenderStructure result = ModelAsts([ast]);
 
@@ -117,9 +118,9 @@ public class ModelSchemaTests(
     await Verify(result.ToYaml(), settings);
   }
 
-  private RenderStructure ModelAsts(IEnumerable<SchemaAst> asts)
+  private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts)
   {
-    SchemaAst schema = merger.Merge(asts).First();
+    IGqlpSchema schema = merger.Merge(asts).First();
 
     TypesCollection context = TypesCollection.WithBuiltins(types);
     SchemaModel model = modeller.ToModel(schema, context);

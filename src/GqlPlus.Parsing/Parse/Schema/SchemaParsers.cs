@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
@@ -21,23 +22,23 @@ public static class SchemaParsers
       .AddSingleton<ICategoryName, CategoryName>()
       .AddOption<CategoryOption>()
       .AddParser<CategoryOutput, ParseCategoryDefinition>()
-      .AddDeclarationParser<CategoryDeclAst, ParseCategory>("category")
+      .AddDeclarationParser<IGqlpSchemaCategory, ParseCategory>("category")
       // Directive
       .AddSingleton<IDirectiveName, DirectiveName>()
       .AddOption<DirectiveOption>()
       .AddEnum<DirectiveLocation>()
       .AddParser<DirectiveLocation, ParseDirectiveDefinition>()
-      .AddDeclarationParser<DirectiveDeclAst, ParseDirective>("directive")
+      .AddDeclarationParser<IGqlpSchemaDirective, ParseDirective>("directive")
       // Option
       .AddParser<OptionDefinition, ParseOptionDefinition>()
       .AddParser<OptionSettingAst, ParseOptionSetting>()
-      .AddDeclarationParser<OptionDeclAst, ParseOption>("option")
+      .AddDeclarationParser<IGqlpSchemaOption, ParseOption>("option")
       // Types
       .AddSingleton<ISimpleName, SimpleName>()
       // Enum
       .AddParser<EnumDefinition, ParseEnumDefinition>()
       .AddParser<EnumMemberAst, ParseEnumMember>()
-      .AddDeclarationParser<EnumDeclAst, ParseEnum>("enum")
+      .AddDeclarationParser<IGqlpEnum, ParseEnum>("enum")
       // Domain
       .AddParser<DomainDefinition, ParseDomainDefinition>()
       .AddEnum<DomainKind>()
@@ -45,11 +46,11 @@ public static class SchemaParsers
       .AddDomainParser<DomainMemberAst, ParseDomainMember>()
       .AddDomainParser<DomainRangeAst, ParseDomainRange>()
       .AddDomainParser<DomainRegexAst, ParseDomainRegex>()
-      .AddDeclarationParser<AstDomain, ParseDomain>("domain")
+      .AddDeclarationParser<IGqlpDomain, ParseDomain>("domain")
       // Union
       .AddParser<UnionDefinition, ParseUnionDefinition>()
       .AddParser<UnionMemberAst, ParseUnionMember>()
-      .AddDeclarationParser<UnionDeclAst, ParseUnion>("union")
+      .AddDeclarationParser<IGqlpUnion, ParseUnion>("union")
       // Objects
       .AddParserArray<TypeParameterAst, ParseTypeParameters>()
       // Dual
@@ -68,7 +69,7 @@ public static class SchemaParsers
       .AddDeclarationParser<OutputDeclAst, ParseOutput>("output")
       .AddObjectParser<ParseOutputDefinition, OutputFieldAst, OutputBaseAst>()
       // Schema
-      .AddParser<SchemaAst, ParseSchema>()
+      .AddParser<IGqlpSchema, ParseSchema>()
       ;
 
   public static IServiceCollection AddEnum<TEnum>(this IServiceCollection services)
@@ -88,7 +89,7 @@ public static class SchemaParsers
     => services.AddParser<ObjectDefinition<TObjField, TObjBase>, TObject>();
 
   public static IServiceCollection AddDeclarationParser<TObject, TParser>(this IServiceCollection services, string selector)
-    where TObject : AstDeclaration
+    where TObject : IGqlpDeclaration
     where TParser : class, Parser<TObject>.I
     => services
       .AddParser<TObject, TParser>()

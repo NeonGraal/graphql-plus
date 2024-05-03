@@ -3,7 +3,7 @@
 namespace GqlPlus.Parse.Schema.Objects;
 
 public abstract class TestObject
-  : TestAliased<ObjectInput>
+  : BaseAliasedTests<ObjectInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithAlternates_ReturnsCorrectAst(string name, string[] others)
@@ -75,13 +75,13 @@ public abstract class TestObject
 
   internal abstract ICheckObject ObjectChecks { get; }
 
-  internal sealed override ICheckAliased<ObjectInput> AliasChecks => ObjectChecks;
+  internal sealed override IBaseAliasedChecks<ObjectInput> AliasChecks => ObjectChecks;
 }
 
 public record struct ObjectInput(string Name, string Other);
 
 internal sealed class CheckObject<O, F, R>
-  : CheckAliased<ObjectInput, O>, ICheckObject
+  : BaseAliasedChecks<ObjectInput, O>, ICheckObject
   where O : AstObject<F, R> where F : AstObjectField<R> where R : AstObjectBase<R>
 {
   private readonly IObjectFactories<O, F, R> _factories;
@@ -213,7 +213,7 @@ internal sealed class CheckObject<O, F, R>
 public record struct AlternateComment(string Content, string Alternate);
 
 internal interface ICheckObject
-  : ICheckAliased<ObjectInput>
+  : IBaseAliasedChecks<ObjectInput>
 {
   void WithNameBad(decimal id, string[] others);
   void WithTypeParameters(string name, string other, string[] typeParameters);

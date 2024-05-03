@@ -1,5 +1,5 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Parse.Schema;
 using GqlPlus.Parse.Schema.Simple;
 using GqlPlus.Result;
@@ -24,8 +24,8 @@ public class ParseDomainClassTests : ClassTestBase
 
     ParseDomain domain = new(simpleName, param, aliases, option, definition);
 
-    IResult<AstDomain> result = domain.Parse(tokens, "test");
+    IResult<IGqlpDomain> result = domain.Parse(tokens, "test");
 
-    result.Should().BeAssignableTo<IResultOk<AstDomain>>();
+    result.Should().BeAssignableTo<IResultOk<IGqlpDomain>>();
   }
 }

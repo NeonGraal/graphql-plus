@@ -1,9 +1,12 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema;
 
 public sealed record class SchemaAst(TokenAt At)
-  : AstAbbreviated(At), IEquatable<SchemaAst>
+  : AstAbbreviated(At)
+  , IEquatable<SchemaAst>
+  , IGqlpSchema
 {
   public ParseResultKind Result { get; set; }
   internal TokenMessages Errors { get; set; } = [];
@@ -11,6 +14,9 @@ public sealed record class SchemaAst(TokenAt At)
   public AstDeclaration[] Declarations { get; set; } = [];
 
   internal override string Abbr => "Sc";
+
+  IEnumerable<IGqlpDeclaration> IGqlpSchema.Declarations => Declarations;
+  ITokenMessages IGqlpSchema.Errors => Errors;
 
   public string Render()
   {

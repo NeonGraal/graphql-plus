@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
@@ -163,7 +164,7 @@ public static class MergeExtensions
   }
 
   public static string MergeDescriptions<TItem>(this IEnumerable<TItem> items)
-    where TItem : AstBase, IAstDescribed
+    where TItem : AstBase, IGqlpDescribed
     => items
       .Select(item => item.Description)
       .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr))

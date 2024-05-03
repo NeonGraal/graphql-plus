@@ -1,11 +1,8 @@
-﻿
-using GqlPlus.Ast;
-
-namespace GqlPlus.Merging;
+﻿namespace GqlPlus.Merging;
 
 internal abstract class GroupsMerger<TItem>
   : BaseMerger<TItem>
-  where TItem : AstBase
+  where TItem : IGqlpError
 {
   protected abstract string ItemGroupKey(TItem item);
   protected abstract ITokenMessages CanMergeGroup(IGrouping<string, TItem> group);

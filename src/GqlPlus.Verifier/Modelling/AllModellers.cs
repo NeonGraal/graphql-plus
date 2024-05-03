@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
@@ -26,7 +27,7 @@ internal static class AllModellers
       .AddModeller<OutputFieldAst, OutputFieldModel, OutputFieldModeller>()
       .AddModeller<OutputBaseAst, OutputBaseModel, OutputBaseModeller>()
       .AddModeller<ParameterAst, ParameterModel, ParameterModeller>()
-      .AddModeller<SchemaAst, SchemaModel, SchemaModeller>()
+      .AddModeller<IGqlpSchema, SchemaModel, SchemaModeller>()
       .AddModifierModeller()
       .AddDomainModeller<DomainTrueFalseAst, DomainTrueFalseModel, DomainBooleanModeller>()
       .AddDomainModeller<DomainMemberAst, DomainMemberModel, DomainEnumModeller>()
@@ -41,7 +42,7 @@ internal static class AllModellers
     ;
 
   public static IServiceCollection AddModeller<TAst, TModel, TModeller>(this IServiceCollection services)
-    where TAst : AstBase
+    where TAst : IGqlpError
     where TModeller : class, IModeller<TAst, TModel>
     => services.AddSingleton<IModeller<TAst, TModel>, TModeller>();
 
@@ -59,7 +60,7 @@ internal static class AllModellers
       .AddSingleton<ITypeModeller, TModeller>(c => c.GetRequiredService<TModeller>());
 
   public static IServiceCollection AddDomainModeller<TItemAst, TItemModel, TModeller>(this IServiceCollection services)
-    where TItemAst : AstAbbreviated, IAstDomainItem
+    where TItemAst : AstAbbreviated, IGqlpDomainItem
     where TItemModel : IBaseDomainItemModel
     where TModeller : class, IDomainModeller<TItemAst, TItemModel>, ITypeModeller
     => services

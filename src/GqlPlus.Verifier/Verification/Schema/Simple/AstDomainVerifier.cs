@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 
@@ -7,7 +8,7 @@ namespace GqlPlus.Verification.Schema.Simple;
 internal class AstDomainVerifier<TMember>(
   IMerge<TMember> members
 ) : IVerifyDomain
-  where TMember : AstAbbreviated, IAstDomainItem
+  where TMember : AstAbbreviated, IGqlpDomainItem
 {
   public ITokenMessages CanMergeItems(AstDomain usage, EnumContext context)
   {

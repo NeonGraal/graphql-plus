@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -11,20 +12,18 @@ internal class ParseEnum(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<EnumDefinition>.D definition
-) : DeclarationParser<EnumDefinition, EnumDeclAst>(name, param, aliases, option, definition)
+) : DeclarationParser<EnumDefinition, IGqlpEnum>(name, param, aliases, option, definition)
 {
-  protected override EnumDeclAst MakeResult(EnumDeclAst result, EnumDefinition value)
-    => result with {
+  protected override IGqlpEnum MakeResult(AstPartial<NullAst, NullOption> partial, EnumDefinition value)
+    => new EnumDeclAst(partial.At, partial.Name, partial.Description, value.Values) {
+      Aliases = partial.Aliases,
       Parent = value.Parent,
-      Members = value.Values
     };
 
-  protected override bool ApplyOption(EnumDeclAst result, IResult<NullOption> option) => true;
-  protected override bool ApplyParameters(EnumDeclAst result, IResultArray<NullAst> parameter) => true;
-
-  [return: NotNull]
-  protected override EnumDeclAst MakePartial(TokenAt at, string? name, string description)
-    => new(at, name!, description, []);
+  protected override IGqlpEnum ToResult(AstPartial<NullAst, NullOption> partial)
+    => new EnumDeclAst(partial.At, partial.Name, partial.Description, []) {
+      Aliases = partial.Aliases,
+    };
 }
 
 internal class EnumDefinition

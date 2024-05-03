@@ -1,11 +1,11 @@
 ﻿namespace GqlPlus.Result;
 
 public interface IResultArray<TValue>
-  : IResult<TValue[]>
+  : IResult<IEnumerable<TValue>>
 {
-  IResultArray<TResult> AsPartialArray<TResult>(IEnumerable<TResult> result, Action<TValue[]>? withValue = null);
-  IResultArray<TResult> AsResultArray<TResult>(TResult[]? _ = default);
+  IResultArray<TResult> AsPartialArray<TResult>(IEnumerable<TResult> result, Action<IEnumerable<TValue>>? withValue = null);
+  IResultArray<TResult> AsResultArray<TResult>(IEnumerable<TValue>? _ = default);
 }
 
-public delegate IResultArray<T> OnResultArray<T>();
-public delegate IResultArray<TResult> SelectResultArray<T, TResult>(T[] value);
+public delegate IResultArray<TValue> OnResultArray<TValue>();
+public delegate IResultArray<TResult> SelectResultArray<TValue, TResult>(IEnumerable<TValue> value);

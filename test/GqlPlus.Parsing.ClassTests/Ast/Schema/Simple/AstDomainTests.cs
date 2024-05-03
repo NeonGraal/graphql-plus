@@ -1,9 +1,11 @@
-﻿namespace GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
+
+namespace GqlPlus.Ast.Schema.Simple;
 
 public abstract class AstDomainTests<TInput, TMember>
   : AstTypeTests
   where TInput : IEquatable<TInput>
-  where TMember : AstAbbreviated, IAstDomainItem
+  where TMember : AstAbbreviated, IGqlpDomainItem
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithMembers(string name, TInput input)

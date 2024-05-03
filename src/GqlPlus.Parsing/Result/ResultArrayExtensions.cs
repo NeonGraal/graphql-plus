@@ -6,7 +6,7 @@ public static class ResultArrayExtensions
 {
   public static bool IsError<T>(this IResultArray<T> result, Action<TokenMessage>? action = null)
   {
-    if (result is IResultMessage<T[]> error) {
+    if (result is IResultMessage<IEnumerable<T>> error) {
       action?.Invoke(error.Message);
       return true;
     }
@@ -14,7 +14,7 @@ public static class ResultArrayExtensions
     return false;
   }
 
-  public static bool Optional<T>(this IResultArray<T> result, Action<T[]> action)
+  public static bool Optional<T>(this IResultArray<T> result, [NotNullWhen(true)] Action<IEnumerable<T>> action)
   {
     ArgumentNullException.ThrowIfNull(action);
 
@@ -31,18 +31,18 @@ public static class ResultArrayExtensions
     return false;
   }
 
-  public static T[] Optional<T>(this IResultArray<T> result)
+  public static IEnumerable<T> Optional<T>(this IResultArray<T> result)
     => result switch {
-      IResultEmpty<T[]>
+      IResultEmpty<IEnumerable<T>>
         => [],
-      IResultValue<T[]> ok
+      IResultValue<IEnumerable<T>> ok
         => ok.Result,
-      IResultMessage<T[]> message
+      IResultMessage<IEnumerable<T>> message
         => throw new InvalidOperationException(message.Message.ToString()),
       _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " has no message"),
     };
 
-  public static bool Required<T>(this IResultArray<T> result, Action<T[]> action)
+  public static bool Required<T>(this IResultArray<T> result, Action<IEnumerable<T>> action)
   {
     ArgumentNullException.ThrowIfNull(action);
 
@@ -54,11 +54,11 @@ public static class ResultArrayExtensions
     return false;
   }
 
-  public static void WithResult<T>(this IResultArray<T> result, Action<T[]> action)
+  public static void WithResult<T>(this IResultArray<T> result, Action<IEnumerable<T>> action)
   {
     ArgumentNullException.ThrowIfNull(action);
 
-    if (result is IResultValue<T[]> ok) {
+    if (result is IResultValue<IEnumerable<T>> ok) {
       action.Invoke(ok.Result);
     }
   }
@@ -75,6 +75,6 @@ public static class ResultArrayExtensions
   public static IResultArray<T> PartialArray<T>(this IEnumerable<T> result, TokenMessage message)
     => new ResultArrayPartial<T>([.. result], message);
 
-  public static IResultArray<T> ErrorArray<T>(this IEnumerable<T>? _, TokenMessage message)
+  public static IResultArray<T> ErrorArray<T>(this TokenMessage message)
     => new ResultArrayError<T>(message);
 }

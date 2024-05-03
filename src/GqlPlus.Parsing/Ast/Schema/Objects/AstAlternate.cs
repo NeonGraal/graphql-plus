@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -6,7 +7,7 @@ public record class AstAlternate<TObjBase>(
   TokenAt At,
   TObjBase Type
 ) : AstAbbreviated(At), IEquatable<AstAlternate<TObjBase>>
-  , IAstDescribed
+  , IGqlpDescribed
   , IGqlpModifiers
   where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
 {

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema;
 
@@ -6,7 +7,9 @@ public abstract record class AstDescribed(
   TokenAt At,
   string Name,
   string Description
-) : AstNamed(At, Name), IEquatable<AstDescribed>, IAstDescribed
+) : AstNamed(At, Name)
+  , IEquatable<AstDescribed>
+  , IGqlpDescribed
 {
   public virtual bool Equals(AstDescribed? other)
     => base.Equals(other)
@@ -17,9 +20,4 @@ public abstract record class AstDescribed(
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Prepend(Description.Quoted("\""));
-}
-
-public interface IAstDescribed
-{
-  string Description { get; }
 }

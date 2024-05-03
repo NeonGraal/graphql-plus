@@ -1,6 +1,8 @@
-﻿namespace GqlPlus.Parse.Schema;
+﻿using GqlPlus.Abstractions;
 
-public abstract class TestNamed<TInput>
+namespace GqlPlus.Parse.Schema;
+
+public abstract class BaseNamedTests<TInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(TInput input)
@@ -10,13 +12,20 @@ public abstract class TestNamed<TInput>
   public void WithNameBad_ReturnsFalse(decimal id)
     => NameChecks.WithNameBad(id);
 
-  internal abstract ICheckNamed<TInput> NameChecks { get; }
+  internal abstract IBaseNamedChecks<TInput> NameChecks { get; }
 }
 
-internal abstract class CheckNamed<TInput, TNamed>(
+internal abstract class BaseNamedChecks<TInput, TNamed>(
   Parser<TNamed>.D parser
-) : OneChecksParser<TNamed>(parser), ICheckNamed<TInput>
+) : BaseNamedChecks<TInput, TNamed, TNamed>(parser)
   where TNamed : AstNamed
+{ }
+
+internal abstract class BaseNamedChecks<TInput, TNamed, TSrc>(
+  Parser<TSrc>.D parser
+) : OneChecksParser<TSrc>(parser), IBaseNamedChecks<TInput>
+  where TNamed : AstNamed, TSrc
+  where TSrc : IGqlpNamed
 {
   public void WithMinimum(TInput input)
   => TrueExpected(NameString(input), NamedFactory(input));
@@ -28,7 +37,7 @@ internal abstract class CheckNamed<TInput, TNamed>(
   protected internal abstract TNamed NamedFactory(TInput input);
 }
 
-internal interface ICheckNamed<TInput>
+internal interface IBaseNamedChecks<TInput>
 {
   void WithMinimum(TInput input);
   void WithNameBad(decimal id);

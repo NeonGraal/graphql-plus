@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Parse.Schema.Simple;
 using GqlPlus.Result;
 using NSubstitute;

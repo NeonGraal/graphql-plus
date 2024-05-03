@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Parse;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -7,10 +8,10 @@ namespace GqlPlus.Verification;
 
 #pragma warning disable CA1034 // Nested types should not be visible
 public class SchemaBase(
-    Parser<SchemaAst>.D parser
+    Parser<IGqlpSchema>.D parser
 )
 {
-  private readonly Parser<SchemaAst>.L _parser = parser;
+  private readonly Parser<IGqlpSchema>.L _parser = parser;
 
   protected static bool IsObjectInput(string input)
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
@@ -38,7 +39,7 @@ public class SchemaBase(
     }
   }
 
-  protected IResult<SchemaAst> Parse(string schema)
+  protected IResult<IGqlpSchema> Parse(string schema)
   {
     Tokenizer tokens = new(schema);
     return _parser.Parse(tokens, "Schema");

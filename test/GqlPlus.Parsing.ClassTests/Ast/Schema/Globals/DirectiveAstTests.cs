@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Ast.Schema.Globals;
+﻿using GqlPlus.Abstractions.Schema;
+
+namespace GqlPlus.Ast.Schema.Globals;
 
 public class DirectiveAstTests : AstAliasedTests
 {

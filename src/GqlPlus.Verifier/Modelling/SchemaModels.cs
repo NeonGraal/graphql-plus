@@ -1,8 +1,8 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Rendering;
-
 namespace GqlPlus.Modelling;
 
 public record class SchemaModel(
@@ -137,11 +137,11 @@ internal class SchemaModeller(
   IModeller<DirectiveDeclAst, DirectiveModel> directive,
   IModeller<OptionSettingAst, SettingModel> setting,
   ITypesModeller type
-) : ModellerBase<SchemaAst, SchemaModel>
+) : ModellerBase<IGqlpSchema, SchemaModel>
 {
-  protected override SchemaModel ToModel(SchemaAst ast, IMap<TypeKindModel> typeKinds)
+  protected override SchemaModel ToModel(IGqlpSchema ast, IMap<TypeKindModel> typeKinds)
   {
-    AstType[] types = [.. ast.Declarations.OfType<AstType>()];
+    AstType[] types = ast.Declarations.ArrayOf<AstType>();
     ITokenMessages errors = ast.Errors;
     if (typeKinds is TypesCollection collection) {
       errors = collection.Errors;
@@ -151,7 +151,7 @@ internal class SchemaModeller(
 
     type.AddTypeKinds(types, typeKinds);
 
-    OptionDeclAst[] options = [.. ast.Declarations.OfType<OptionDeclAst>()];
+    OptionDeclAst[] options = ast.Declarations.ArrayOf<OptionDeclAst>();
     string name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name ?? "";
     IEnumerable<string> aliases = options.SelectMany(a => a.Aliases);
     IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings, typeKinds));
@@ -165,7 +165,7 @@ internal class SchemaModeller(
         ) { Aliases = [.. aliases] };
   }
 
-  private IEnumerable<TResult> DeclarationModel<TAst, TResult>(SchemaAst ast, IModeller<TAst, TResult> modeller, IMap<TypeKindModel> typeKinds)
+  private IEnumerable<TResult> DeclarationModel<TAst, TResult>(IGqlpSchema ast, IModeller<TAst, TResult> modeller, IMap<TypeKindModel> typeKinds)
     where TAst : AstBase
     => ast.Declarations.OfType<TAst>().Select(m => modeller.ToModel(m, typeKinds));
 }

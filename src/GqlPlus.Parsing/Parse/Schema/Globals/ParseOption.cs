@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -11,21 +12,18 @@ internal class ParseOption(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<OptionDefinition>.D definition
-  ) : DeclarationParser<OptionDefinition, OptionDeclAst>(name, param, aliases, option, definition)
+) : DeclarationParser<OptionDefinition, IGqlpSchemaOption>(name, param, aliases, option, definition)
 {
-  protected override OptionDeclAst MakeResult(OptionDeclAst result, OptionDefinition value)
-  {
-    result.Settings = value.Settings;
+  protected override IGqlpSchemaOption MakeResult(AstPartial<NullAst, NullOption> partial, OptionDefinition value)
+        => new OptionDeclAst(partial.At, partial.Name, partial.Description) {
+          Aliases = partial.Aliases,
+          Settings = value.Settings,
+        };
 
-    return result;
-  }
-
-  protected override bool ApplyOption(OptionDeclAst result, IResult<NullOption> option) => true;
-  protected override bool ApplyParameters(OptionDeclAst result, IResultArray<NullAst> parameter) => true;
-
-  [return: NotNull]
-  protected override OptionDeclAst MakePartial(TokenAt at, string? name, string description)
-    => new(at, name!, description);
+  protected override IGqlpSchemaOption ToResult(AstPartial<NullAst, NullOption> partial)
+    => new OptionDeclAst(partial.At, partial.Name, partial.Description) {
+      Aliases = partial.Aliases,
+    };
 }
 
 internal class OptionDefinition

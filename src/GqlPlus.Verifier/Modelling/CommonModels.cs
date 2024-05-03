@@ -59,6 +59,7 @@ public record class CollectionModel(
   ModifierKind ModifierKind
 ) : ModelBase
 {
+  // Todo: Make key a proper SimpleModel
   public string Key { get; set; } = "";
   public bool KeyOptional { get; set; }
 

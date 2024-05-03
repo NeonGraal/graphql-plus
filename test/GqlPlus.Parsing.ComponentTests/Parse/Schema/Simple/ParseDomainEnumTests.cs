@@ -1,10 +1,11 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parse.Schema.Simple;
 
 public sealed class ParseDomainEnumTests(
-  Parser<AstDomain>.D parser
-) : TestDomain<DomainEnumInput>
+  Parser<IGqlpDomain>.D parser
+) : BaseDomainTests<DomainEnumInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithEnumType_ReturnsCorrectAst(DomainEnumInput input, string enumType)
@@ -36,14 +37,14 @@ public sealed class ParseDomainEnumTests(
   public void WithMembersSecondBad_ReturnsFalse(DomainEnumInput input, string member)
     => _checks.False(input.Name + "{enum " + input.Member + "!" + member + ".}");
 
-  internal override ICheckDomain<DomainEnumInput> DomainChecks => _checks;
+  internal override IBaseDomainChecks<DomainEnumInput> DomainChecks => _checks;
 
   private readonly ParseDomainEnumChecks _checks = new(parser);
 }
 
 internal sealed class ParseDomainEnumChecks(
-  Parser<AstDomain>.D parser
-) : CheckDomain<DomainEnumInput, AstDomain>(parser, DomainKind.Enum)
+  Parser<IGqlpDomain>.D parser
+) : BaseDomainChecks<DomainEnumInput, AstDomain>(parser, DomainKind.Enum)
 {
   protected internal override AstDomain<DomainMemberAst> NamedFactory(DomainEnumInput input)
     => new(AstNulls.At, input.Name, DomainKind.Enum, input.DomainMembers());

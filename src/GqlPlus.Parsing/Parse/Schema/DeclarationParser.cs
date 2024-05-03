@@ -5,7 +5,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parse.Schema;
 
-internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, TPartial, TResult>(
+internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, TResult>(
   TName name,
   Parser<TParam>.DA param,
   Parser<string>.DA aliases,
@@ -13,7 +13,6 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   Parser<TDefinition>.D definition
 ) : Parser<TResult>.I
   where TName : INameParser
-  where TPartial : AstAliased
   where TOption : struct
 {
   private readonly TName _name = name.ThrowIfNull();
@@ -26,21 +25,21 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   public IResult<TResult> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    tokens.String(out string? description);
+    string description = tokens.GetDescription();
     bool hasName = _name.ParseName(tokens, out string? name, out TokenAt? at);
-    TPartial partial = MakePartial(at, name, description);
+    AstPartial<TParam, TOption> partial = new(at, name ?? "", description);
 
     if (!hasName) {
       return tokens.Error(label, "name", ToResult(partial));
     }
 
     IResultArray<TParam> parameters = _param.Parse(tokens, label);
-    if (!ApplyParameters(partial, parameters)) {
+    if (!parameters.Optional(value => partial.Parameters = [.. value ?? []])) {
       return parameters.AsPartial(ToResult(partial));
     }
 
     IResultArray<string> aliases = Aliases.Parse(tokens, label);
-    if (!aliases.Optional(value => partial.Aliases = value)) {
+    if (!aliases.Optional(value => partial.Aliases = [.. value])) {
       return aliases.AsPartial(ToResult(partial));
     }
 
@@ -49,7 +48,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
     }
 
     IResult<TOption> option = _option.I.Parse(tokens, label);
-    if (!ApplyOption(partial, option)) {
+    if (!option.Optional(value => partial.Option = value)) {
       return option.AsPartial(ToResult(partial));
     }
 
@@ -59,34 +58,14 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
       () => definition.AsPartial(ToResult(partial)));
   }
 
-  protected abstract bool ApplyOption(TPartial partial, IResult<TOption> option);
-  protected abstract bool ApplyParameters(TPartial partial, IResultArray<TParam> parameter);
-
   [return: NotNull]
-  protected abstract TPartial MakePartial(TokenAt at, string? name, string description);
-
-  [return: NotNull]
-  protected abstract TResult MakeResult(TPartial result, TDefinition value);
-  protected abstract TResult ToResult(TPartial partial);
+  protected abstract TResult MakeResult(AstPartial<TParam, TOption> partial, TDefinition value);
+  protected abstract TResult ToResult(AstPartial<TParam, TOption> partial);
 }
 
 internal interface INameParser
 {
   bool ParseName(Tokenizer tokens, out string? name, out TokenAt at);
-}
-
-internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, TResult>(
-  TName name,
-  Parser<TParam>.DA param,
-  Parser<string>.DA aliases,
-  Parser<IOptionParser<TOption>, TOption>.D option,
-  Parser<TDefinition>.D definition
-) : DeclarationParser<TName, TParam, TOption, TDefinition, TResult, TResult>(name, param, aliases, option, definition)
-  where TName : INameParser
-  where TResult : AstAliased
-  where TOption : struct
-{
-  protected sealed override TResult ToResult(TResult partial) => partial;
 }
 
 internal abstract class DeclarationParser<TParam, TDefinition, TResult>(
@@ -96,9 +75,7 @@ internal abstract class DeclarationParser<TParam, TDefinition, TResult>(
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<TDefinition>.D definition
 ) : DeclarationParser<ISimpleName, TParam, NullOption, TDefinition, TResult>(name, param, aliases, option, definition)
-  where TResult : AstAliased
-{
-}
+{ }
 
 internal abstract class DeclarationParser<TDefinition, TResult>(
   ISimpleName name,
@@ -107,6 +84,17 @@ internal abstract class DeclarationParser<TDefinition, TResult>(
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<TDefinition>.D definition
 ) : DeclarationParser<NullAst, TDefinition, TResult>(name, param, aliases, option, definition)
-  where TResult : AstAliased
+{ }
+
+internal record class AstPartial<TParam, TOption>(
+  TokenAt At,
+  string Name,
+  string Description
+) : AstDeclaration(At, Name, Description)
+  where TOption : struct
 {
+  internal override string Abbr => "Pa";
+  public override string Label => "Partial";
+  internal TOption? Option { get; set; }
+  internal TParam[] Parameters { get; set; } = [];
 }

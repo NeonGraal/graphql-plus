@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Modelling.Globals;
@@ -7,7 +8,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Modelling;
 
 public class SchemaModelTests(
-  IModeller<SchemaAst, SchemaModel> modeller
+  IModeller<IGqlpSchema, SchemaModel> modeller
 ) : TestModelBase<string>
 {
   [Theory, RepeatData(Repeats)]
@@ -152,8 +153,8 @@ public class SchemaModelTests(
 }
 
 internal sealed class SchemaModelChecks(
-  IModeller<SchemaAst, SchemaModel> modeller
-) : CheckModelBase<string, SchemaAst, SchemaModel>(modeller)
+  IModeller<IGqlpSchema, SchemaModel> modeller
+) : CheckModelBase<string, IGqlpSchema, SchemaAst, SchemaModel>(modeller)
 {
   protected override string[] ExpectedBase(string name)
     => ["!_Schema " + name];

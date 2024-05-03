@@ -1,11 +1,12 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling.Simple;
 
 public abstract class TestDomainModel<TItem, TAstItem>
   : TestTypeModel<SimpleKindModel>
-  where TAstItem : AstAbbreviated, IAstDomainItem
+  where TAstItem : AstAbbreviated, IGqlpDomainItem
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, TItem[] members)
@@ -57,7 +58,7 @@ internal abstract class CheckDomainModel<TItem, TAstItem, TItemModel>(
   IDomainModeller<TAstItem, TItemModel> modeller
 ) : CheckTypeModel<AstDomain<TAstItem>, SimpleKindModel, BaseDomainModel<TItemModel>>(modeller, SimpleKindModel.Domain)
   , ICheckDomainModel<TItem, TAstItem>
-  where TAstItem : AstAbbreviated, IAstDomainItem
+  where TAstItem : AstAbbreviated, IGqlpDomainItem
   where TItemModel : IBaseDomainItemModel
 {
   internal string[] ExpectedDomain(ExpectedDomainInput<TItem> input)
@@ -123,7 +124,7 @@ internal abstract class CheckDomainModel<TItem, TAstItem, TItemModel>(
 
 internal interface ICheckDomainModel<TItem, TAstItem>
   : ICheckTypeModel<SimpleKindModel>, IParentModel<TItem>
-  where TAstItem : AstAbbreviated, IAstDomainItem
+  where TAstItem : AstAbbreviated, IGqlpDomainItem
 {
   void DomainExpected(AstDomain<TAstItem> domain, string[] expected);
   AstDomain<TAstItem> DomainAst(string name, TItem[] items);

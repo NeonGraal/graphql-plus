@@ -1,10 +1,11 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parse.Schema.Simple;
 
 public sealed class ParseUnionTests
-  : TestAliased<UnionInput>
+  : BaseAliasedTests<UnionInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithParent_ReturnsCorrectAst(UnionInput input, string parent)
@@ -39,18 +40,18 @@ public sealed class ParseUnionTests
         Parent = parent,
       });
 
-  internal override ICheckAliased<UnionInput> AliasChecks => _checks;
+  internal override IBaseAliasedChecks<UnionInput> AliasChecks => _checks;
 
   private readonly ParseUnionChecks _checks;
 
-  public ParseUnionTests(Parser<UnionDeclAst>.D parser)
+  public ParseUnionTests(Parser<IGqlpUnion>.D parser)
     => _checks = new(parser);
 }
 
 internal sealed class ParseUnionChecks
-  : CheckAliased<UnionInput, UnionDeclAst>
+  : BaseAliasedChecks<UnionInput, UnionDeclAst, IGqlpUnion>
 {
-  public ParseUnionChecks(Parser<UnionDeclAst>.D parser)
+  public ParseUnionChecks(Parser<IGqlpUnion>.D parser)
     : base(parser) { }
 
   protected internal override UnionDeclAst NamedFactory(UnionInput input)

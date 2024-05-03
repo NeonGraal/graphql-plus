@@ -1,9 +1,14 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public abstract record class AstDomainItem(TokenAt At, bool Excludes)
-  : AstAbbreviated(At), IEquatable<AstDomainItem>, IAstDomainItem
+public abstract record class AstDomainItem(
+  TokenAt At,
+  bool Excludes
+) : AstAbbreviated(At)
+  , IEquatable<AstDomainItem>
+  , IGqlpDomainItem
 {
   public virtual bool Equals(AstDomainItem? other)
   => base.Equals(other)
@@ -14,6 +19,3 @@ public abstract record class AstDomainItem(TokenAt At, bool Excludes)
   => base.GetFields()
       .Append(Excludes ? "!" : "");
 }
-
-[SuppressMessage("Design", "CA1040:Avoid empty interfaces")]
-public interface IAstDomainItem { }

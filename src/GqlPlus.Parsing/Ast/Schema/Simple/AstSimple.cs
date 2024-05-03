@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
@@ -15,9 +16,11 @@ public abstract record class AstSimple<TMember>(
   string Description,
   TMember[] Members
 ) : AstSimple(At, Name, Description)
-  , IAstSimple<TMember>
-  where TMember : AstNamed
+  , IGqlpSimple<TMember>
+  where TMember : IGqlpNamed
 {
+  public IEnumerable<TMember> Items => Members;
+
   public virtual bool Equals(AstSimple<TMember>? other)
     => base.Equals(other)
       && Members.SequenceEqual(other.Members);
@@ -27,11 +30,4 @@ public abstract record class AstSimple<TMember>(
     => base.GetFields()
       .Append(Parent.Prefixed(":"))
       .Concat(Members.Bracket());
-}
-
-internal interface IAstSimple<TMember>
-  : IAstType<string>
-  where TMember : AstAbbreviated
-{
-  TMember[] Members { get; }
 }

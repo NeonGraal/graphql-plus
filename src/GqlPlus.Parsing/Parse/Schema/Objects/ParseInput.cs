@@ -13,20 +13,20 @@ internal class ParseInput(
   Parser<ObjectDefinition<InputFieldAst, InputBaseAst>>.D definition
 ) : ObjectParser<InputDeclAst, InputFieldAst, InputBaseAst>(name, param, aliases, option, definition)
 {
-  protected override InputDeclAst MakeResult(InputDeclAst result, ObjectDefinition<InputFieldAst, InputBaseAst> value)
-  {
-    result.Parent = value.Parent;
-    result.Fields = value.Fields;
-    result.Alternates = value.Alternates;
+  protected override InputDeclAst MakeResult(AstPartial<TypeParameterAst, NullOption> partial, ObjectDefinition<InputFieldAst, InputBaseAst> value)
+    => new(partial.At, partial.Name, partial.Description) {
+      Aliases = partial.Aliases,
+      TypeParameters = partial.Parameters,
+      Parent = value.Parent,
+      Fields = value.Fields,
+      Alternates = value.Alternates,
+    };
 
-    return result;
-  }
-
-  protected override bool ApplyOption(InputDeclAst result, IResult<NullOption> option) => true;
-
-  [return: NotNull]
-  protected override InputDeclAst MakePartial(TokenAt at, string? name, string description)
-    => new(at, name!, description);
+  protected override InputDeclAst ToResult(AstPartial<TypeParameterAst, NullOption> partial)
+    => new(partial.At, partial.Name, partial.Description) {
+      Aliases = partial.Aliases,
+      TypeParameters = partial.Parameters,
+    };
 }
 
 internal class ParseInputDefinition(

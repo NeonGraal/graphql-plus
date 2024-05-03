@@ -2,8 +2,12 @@
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public sealed record class DomainMemberAst(TokenAt At, bool Excludes, string Member)
-  : AstDomainItem(At, Excludes), IEquatable<DomainMemberAst>
+public sealed record class DomainMemberAst(
+  TokenAt At,
+  bool Excludes,
+  string Member
+) : AstDomainItem(At, Excludes)
+  , IEquatable<DomainMemberAst>
 {
   public string? EnumType { get; set; }
 

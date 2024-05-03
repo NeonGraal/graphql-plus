@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
+
+namespace GqlPlus.Ast.Schema.Simple;
 
 public class DomainAstNumberTests
   : AstDomainTests<DomainRangeInput, DomainRangeAst>

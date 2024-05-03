@@ -11,5 +11,5 @@ public class MergeUnionMembersTests
   internal override GroupsMerger<UnionMemberAst> MergerGroups => _merger;
 
   protected override UnionMemberAst MakeAst(string input)
-    => new(AstNulls.At, input);
+    => new(AstNulls.At, input, "");
 }

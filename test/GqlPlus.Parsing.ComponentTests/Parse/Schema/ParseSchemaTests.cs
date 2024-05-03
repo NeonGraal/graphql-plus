@@ -1,12 +1,14 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions;
+using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parse.Schema;
 
-public class ParseSchemaTests(Parser<SchemaAst>.D parser)
+public class ParseSchemaTests(Parser<IGqlpSchema>.D parser)
 {
-  private readonly Parser<SchemaAst>.L _parser = parser;
+  private readonly Parser<IGqlpSchema>.L _parser = parser;
 
   [Theory]
   [InlineData("category { Query }")]
@@ -18,13 +20,13 @@ public class ParseSchemaTests(Parser<SchemaAst>.D parser)
   {
     Tokenizer tokens = new(input);
 
-    SchemaAst ast = _parser.Parse(tokens, "Schema").Required();
+    IGqlpSchema result = _parser.Parse(tokens, "Schema").Required();
 
     using AssertionScope scope = new();
 
-    ast.Should().BeOfType<SchemaAst>()
-      .Subject.Result.Should().Be(ParseResultKind.Success);
-    ast!.Errors.Should().BeEmpty();
+    result.Should().BeOfType<SchemaAst>();
+    result!.Result.Should().Be(ParseResultKind.Success);
+    result!.Errors.Should().BeEmpty();
   }
 
   [Theory]
@@ -33,7 +35,7 @@ public class ParseSchemaTests(Parser<SchemaAst>.D parser)
   {
     Tokenizer tokens = new(input);
 
-    IResult<SchemaAst> result = _parser.Parse(tokens, "Schema");
+    IResult<IGqlpSchema> result = _parser.Parse(tokens, "Schema");
     result.Optional(ast => {
       using AssertionScope scope = new();
 
@@ -49,7 +51,7 @@ public class ParseSchemaTests(Parser<SchemaAst>.D parser)
   {
     Tokenizer tokens = new(input);
 
-    SchemaAst? ast = _parser.Parse(tokens, "Schema").Optional();
+    IGqlpSchema? ast = _parser.Parse(tokens, "Schema").Optional();
 
     using AssertionScope scope = new();
 

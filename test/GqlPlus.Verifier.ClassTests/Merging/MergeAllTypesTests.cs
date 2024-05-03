@@ -13,7 +13,7 @@ public class MergeAllTypesTests
 
   public MergeAllTypesTests(ITestOutputHelper outputHelper)
   {
-    var result = Substitute.For<IMergeAll<AstType>>();
+    IMergeAll<AstType> result = Substitute.For<IMergeAll<AstType>>();
     result.CanMerge([]).ReturnsForAnyArgs(EmptyMessages);
     result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<AstType>>());
 

@@ -1,9 +1,10 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parse.Schema.Simple;
 
 public sealed class ParseEnumTests
-  : TestAliased<EnumInput>
+  : BaseAliasedTests<EnumInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithParent_ReturnsCorrectAst(EnumInput input, string parent)
@@ -39,18 +40,18 @@ public sealed class ParseEnumTests
       name + members.Prepend(parent.Prefixed(":")).Bracket("{", "}").Joined(),
       new EnumDeclAst(AstNulls.At, name, members.EnumMembers()) { Parent = parent });
 
-  internal override ICheckAliased<EnumInput> AliasChecks => _checks;
+  internal override IBaseAliasedChecks<EnumInput> AliasChecks => _checks;
 
   private readonly ParseEnumChecks _checks;
 
-  public ParseEnumTests(Parser<EnumDeclAst>.D parser)
+  public ParseEnumTests(Parser<IGqlpEnum>.D parser)
     => _checks = new(parser);
 }
 
 internal sealed class ParseEnumChecks
-  : CheckAliased<EnumInput, EnumDeclAst>
+  : BaseAliasedChecks<EnumInput, EnumDeclAst, IGqlpEnum>
 {
-  public ParseEnumChecks(Parser<EnumDeclAst>.D parser)
+  public ParseEnumChecks(Parser<IGqlpEnum>.D parser)
     : base(parser) { }
 
   protected internal override EnumDeclAst NamedFactory(EnumInput input)

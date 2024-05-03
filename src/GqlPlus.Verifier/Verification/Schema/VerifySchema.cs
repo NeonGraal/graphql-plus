@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
@@ -11,9 +12,9 @@ internal class VerifySchema(
   IVerifyAliased<OptionDeclAst> optionsAliased,
   IVerifyAliased<AstType> typesAliased,
   IVerify<AstType[]> types
-) : IVerify<SchemaAst>
+) : IVerify<IGqlpSchema>
 {
-  public void Verify(SchemaAst item, ITokenMessages errors)
+  public void Verify(IGqlpSchema item, ITokenMessages errors)
   {
     CategoryDeclAst[] categories = item.Declarations.ArrayOf<CategoryDeclAst>();
     DirectiveDeclAst[] directives = item.Declarations.ArrayOf<DirectiveDeclAst>();
@@ -21,9 +22,9 @@ internal class VerifySchema(
     AstType[] astTypes = item.Declarations.ArrayOf<AstType>();
     IEnumerable<AstType> allTypes = astTypes.Concat(BuiltIn.Basic).Concat(BuiltIn.Internal);
 
-    categoryOutputs.Verify(new(categories, [.. allTypes.OfType<OutputDeclAst>()]), errors);
+    categoryOutputs.Verify(new(categories, allTypes.ArrayOf<OutputDeclAst>()), errors);
 
-    directiveInputs.Verify(new(directives, [.. allTypes.OfType<InputDeclAst>()]), errors);
+    directiveInputs.Verify(new(directives, allTypes.ArrayOf<InputDeclAst>()), errors);
 
     optionsAliased.Verify(options, errors);
 

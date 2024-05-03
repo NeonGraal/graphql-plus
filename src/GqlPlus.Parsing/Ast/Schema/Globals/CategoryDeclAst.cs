@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Globals;
 
@@ -7,15 +8,21 @@ public sealed record class CategoryDeclAst(
   string Name,
   string Description,
   string Output
-) : AstDeclaration(At, Name, Description), IEquatable<CategoryDeclAst>
+) : AstDeclaration(At, Name, Description)
+  , IEquatable<CategoryDeclAst>
+  , IGqlpSchemaCategory
 {
   public ModifierAst[] Modifiers { get; set; } = [];
 
   internal override string Abbr => "Ca";
+  public override string Label => "Category";
 
   public string Output { get; set; } = Output;
 
   public CategoryOption Option { get; set; } = CategoryOption.Parallel;
+
+  CategoryOption IGqlpSchemaCategory.CategoryOption => Option;
+  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
   public CategoryDeclAst(TokenAt at, string output)
     : this(at, output.Camelize()!, "", output) { }
@@ -36,11 +43,4 @@ public sealed record class CategoryDeclAst(
       .Append($"({Option})")
       .Append(Output)
       .Concat(Modifiers.AsString());
-}
-
-public enum CategoryOption
-{
-  Parallel,
-  Single,
-  Sequential
 }

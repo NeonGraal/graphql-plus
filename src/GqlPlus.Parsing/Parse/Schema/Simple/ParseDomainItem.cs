@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -16,7 +16,7 @@ internal abstract class ParseDomainItem<TItem>(
   protected IResult<DomainDefinition> ParseMembers(Tokenizer tokens, string label, DomainDefinition result)
   {
     IResultArray<TItem> items = _items.Parse(tokens, label);
-    return items.Required(values => ApplyItems(result, values))
+    return items.Required(values => ApplyItems(result, [.. values]))
       ? tokens.End(label, () => result)
       : items.AsResult(result);
   }

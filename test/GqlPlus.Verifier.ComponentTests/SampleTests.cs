@@ -1,5 +1,5 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Ast.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Modelling;
 using GqlPlus.Parse;
 using GqlPlus.Parse.Operation;
@@ -12,13 +12,13 @@ namespace GqlPlus;
 
 public class SampleTests(
     Parser<IGqlpOperation>.D operation,
-    Parser<SchemaAst>.D schemaParser,
-    IVerify<SchemaAst> schemaVerifier,
-    IModeller<SchemaAst, SchemaModel> schemaModeller,
+    Parser<IGqlpSchema>.D schemaParser,
+    IVerify<IGqlpSchema> schemaVerifier,
+    IModeller<IGqlpSchema, SchemaModel> schemaModeller,
     ITypesModeller types)
 {
   private readonly Parser<IGqlpOperation>.L _operation = operation;
-  private readonly Parser<SchemaAst>.L _schemaParser = schemaParser;
+  private readonly Parser<IGqlpSchema>.L _schemaParser = schemaParser;
 
   [Theory]
   [ClassData(typeof(SampleSchemaData))]
@@ -27,7 +27,7 @@ public class SampleTests(
     string schema = await File.ReadAllTextAsync("Sample/Schema/" + sample + ".graphql+");
     Tokenizer tokens = new(schema);
 
-    SchemaAst ast = _schemaParser.Parse(tokens, "Schema").Required();
+    IGqlpSchema ast = _schemaParser.Parse(tokens, "Schema").Required();
 
     VerifySettings settings = new();
     settings.ScrubEmptyLines();
@@ -43,7 +43,7 @@ public class SampleTests(
   {
     string schema = await File.ReadAllTextAsync("Sample/Schema/" + sample + ".graphql+");
     Tokenizer tokens = new(schema);
-    SchemaAst ast = _schemaParser.Parse(tokens, "Schema").Required();
+    IGqlpSchema ast = _schemaParser.Parse(tokens, "Schema").Required();
 
     TypesCollection context = TypesCollection.WithBuiltins(types);
 
@@ -70,7 +70,7 @@ public class SampleTests(
     string schema = await File.ReadAllTextAsync("Sample/Schema/" + sample + ".graphql+");
     Tokenizer tokens = new(schema);
 
-    SchemaAst ast = _schemaParser.Parse(tokens, "Schema").Required();
+    IGqlpSchema ast = _schemaParser.Parse(tokens, "Schema").Required();
     TokenMessages errors = [];
 
     schemaVerifier.Verify(ast, errors);

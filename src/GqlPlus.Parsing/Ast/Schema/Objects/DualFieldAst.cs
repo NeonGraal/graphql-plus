@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -7,7 +8,9 @@ public sealed record class DualFieldAst(
   string Name,
   string Description,
   DualBaseAst Type
-) : AstObjectField<DualBaseAst>(At, Name, Description, Type), IEquatable<DualFieldAst>
+) : AstObjectField<DualBaseAst>(At, Name, Description, Type)
+  , IEquatable<DualFieldAst>
+  , IGqlpDescribed
 {
   public DualFieldAst(TokenAt at, string name, DualBaseAst typeBase)
     : this(at, name, "", typeBase) { }

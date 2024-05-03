@@ -9,5 +9,5 @@ internal static class SchemaHelper
     => [.. settings.Select(s => new OptionSettingAst(AstNulls.At, s, new FieldKeyAst(AstNulls.At, s)))];
 
   internal static UnionMemberAst[] UnionMembers(this string[] members)
-    => [.. members.Select(m => new UnionMemberAst(AstNulls.At, m))];
+    => [.. members.Select(m => new UnionMemberAst(AstNulls.At, m, ""))];
 }

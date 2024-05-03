@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema;
 
@@ -6,9 +7,12 @@ public abstract record class AstAliased(
   TokenAt At,
   string Name,
   string Description
-) : AstDescribed(At, Name, Description), IEquatable<AstAliased>
+) : AstDescribed(At, Name, Description)
+  , IEquatable<AstAliased>
+  , IGqlpAliased
 {
   public string[] Aliases { get; set; } = [];
+  IEnumerable<string> IGqlpAliased.Aliases => Aliases;
 
   public virtual bool Equals(AstAliased? other)
     => base.Equals(other)

@@ -10,10 +10,12 @@ internal class ParseUnionMember
   public IResult<UnionMemberAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
+    tokens.TakeDescription();
     TokenAt at = tokens.At;
+    string description = tokens.GetDescription();
 
     return tokens.Identifier(out string? value)
-      ? new UnionMemberAst(at, value).Ok()
+      ? new UnionMemberAst(at, value, description).Ok()
       : tokens.Error<UnionMemberAst>(label, "member");
   }
 }

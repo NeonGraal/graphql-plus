@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
@@ -16,7 +17,7 @@ public static class AllMergers
 {
   public static IServiceCollection AddMergers(this IServiceCollection services)
     => services
-      .AddMerge<SchemaAst, MergeSchemas>()
+      .AddMerge<IGqlpSchema, MergeSchemas>()
       .AddMerge<ConstantAst, MergeConstants>()
       .AddMerge<CategoryDeclAst, MergeCategories>()
       .AddMerge<DirectiveDeclAst, MergeDirectives>()
@@ -52,7 +53,7 @@ public static class AllMergers
     ;
 
   public static IServiceCollection AddMerge<TValue, TService>(this IServiceCollection services)
-    where TValue : AstBase
+    where TValue : IGqlpError
     where TService : class, IMerge<TValue>
     => services
       .RemoveAll<IMerge<TValue>>()
@@ -69,7 +70,7 @@ public static class AllMergers
       .AddSingleton<IMergeAll<TType>>(x => x.GetRequiredService<TService>());
 
   public static IServiceCollection AddMergeDomain<TMember>(this IServiceCollection services)
-    where TMember : AstAbbreviated, IAstDomainItem
+    where TMember : AstAbbreviated, IGqlpDomainItem
     => services
       .AddMergeAll<AstDomain<TMember>, AstDomain, MergeDomains<TMember>>();
 }

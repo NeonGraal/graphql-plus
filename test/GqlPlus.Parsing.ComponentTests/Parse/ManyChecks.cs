@@ -40,7 +40,7 @@ internal sealed class ManyChecksParser<T>
 
     result.IsOk().Should().BeTrue(_type);
     using AssertionScope scope = new();
-    result.Required().Length.Should().Be(count);
+    result.Required().Count().Should().Be(count);
   }
 }
 
@@ -76,6 +76,6 @@ where I : Parser<T>.IA
 
     result.IsOk().Should().BeTrue(_type);
     using AssertionScope scope = new();
-    result.Required().Length.Should().Be(count);
+    result.Required().Count().Should().Be(count);
   }
 }

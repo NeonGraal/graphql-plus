@@ -3,7 +3,7 @@
 namespace GqlPlus.Parse.Schema.Objects;
 
 public abstract class TestObjectField
-  : TestAliased<FieldInput>
+  : BaseAliasedTests<FieldInput>
 {
   [Theory, RepeatData(Repeats)]
   public void WithModifiers_ReturnsCorrectAst(string name, string fieldType)
@@ -15,11 +15,11 @@ public abstract class TestObjectField
 
   internal abstract ICheckObjectField FieldChecks { get; }
 
-  internal sealed override ICheckAliased<FieldInput> AliasChecks => FieldChecks;
+  internal sealed override IBaseAliasedChecks<FieldInput> AliasChecks => FieldChecks;
 }
 
 internal sealed class CheckObjectField<TObjField, TObjBase>
-  : CheckAliased<FieldInput, TObjField>
+  : BaseAliasedChecks<FieldInput, TObjField>
   , ICheckObjectField
   where TObjField : AstObjectField<TObjBase>
   where TObjBase : AstObjectBase<TObjBase>
@@ -54,7 +54,7 @@ internal sealed class CheckObjectField<TObjField, TObjBase>
 }
 
 internal interface ICheckObjectField
-  : ICheckAliased<FieldInput>
+  : IBaseAliasedChecks<FieldInput>
 {
   void WithMinimum(string name, string fieldType);
   void WithModifiers(string name, string fieldType);

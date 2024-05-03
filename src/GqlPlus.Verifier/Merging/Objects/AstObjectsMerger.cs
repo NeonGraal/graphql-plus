@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
@@ -10,7 +11,7 @@ internal class AstObjectsMerger<TObject, TObjField, TObjBase>(
   IMerge<AstAlternate<TObjBase>> alternates
 ) : AstTypeMerger<AstType, TObject, TObjBase, TObjField>(logger, fields)
   where TObject : AstObject<TObjField, TObjBase>
-  where TObjField : AstObjectField<TObjBase>, IAstDescribed
+  where TObjField : AstObjectField<TObjBase>, IGqlpDescribed
   where TObjBase : AstObjectBase<TObjBase>
 {
   protected override string ItemMatchName => "Parent";

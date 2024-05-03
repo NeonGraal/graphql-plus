@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
@@ -24,7 +25,7 @@ public static class AllVerifiers
       .AddVerifyUsageNamed<IGqlpSpread, IGqlpFragment, VerifyFragmentUsage>()
       .AddVerify<IGqlpVariable, VerifyVariable>()
       // Schema
-      .AddVerify<SchemaAst, VerifySchema>()
+      .AddVerify<IGqlpSchema, VerifySchema>()
       .AddVerifyAliased<CategoryDeclAst, VerifyCategoryAliased>()
       .AddVerifyUsageAliased<CategoryDeclAst, OutputDeclAst, VerifyCategoryOutput>()
       .AddVerifyAliased<DirectiveDeclAst, VerifyDirectiveAliased>()

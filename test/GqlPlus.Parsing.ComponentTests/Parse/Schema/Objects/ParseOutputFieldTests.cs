@@ -40,7 +40,7 @@ public class ParseOutputFieldTests(
       name + "(" + parameters.Joined(p => p + "='" + content + "'") + "):" + fieldType,
       _checks.Field(name, fieldType) with {
         Parameters = parameters.Parameters(p => p with {
-          Default = new FieldKeyAst(AstNulls.At, content)
+          DefaultValue = new FieldKeyAst(AstNulls.At, content)
         })
       });
 

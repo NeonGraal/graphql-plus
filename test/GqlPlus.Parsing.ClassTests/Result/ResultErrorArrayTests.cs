@@ -3,7 +3,7 @@
 public class ResultErrorArrayTests : BaseResultTests
 {
   private const string Error = "Error";
-  private readonly IResultArray<string> _errorArray = new[] { Error }.ErrorArray(Error.ParseMessage());
+  private readonly IResultArray<string> _errorArray = Error.ParseMessage().ErrorArray<string>();
 
   [Fact]
   public void AsPartial_ReturnsResultOk()
@@ -65,16 +65,16 @@ public class ResultErrorArrayTests : BaseResultTests
   [Fact]
   public void Map_ReturnsOtherwise()
   {
-    IResult<string[]> result = _errorArray.Map(a => a.Ok(), () => SampleArray.Ok());
+    IResult<IEnumerable<string>> result = _errorArray.Map(a => a.Ok(), () => SampleArray.OkArray());
 
-    result.Should().BeOfType<ResultOk<string[]>>()
+    result.Should().BeOfType<ResultArrayOk<string>>()
       .Subject.Required().Should().Equal(SampleArray);
   }
 
   [Fact]
   public void Optional_ReturnsEmpty()
   {
-    Func<string[]> action = () => _errorArray.Optional();
+    Func<IEnumerable<string>> action = () => _errorArray.Optional();
 
     action.Should().Throw<InvalidOperationException>().WithMessage("*Error*");
   }

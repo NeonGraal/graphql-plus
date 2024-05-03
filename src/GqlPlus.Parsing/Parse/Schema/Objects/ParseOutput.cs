@@ -13,20 +13,20 @@ internal class ParseOutput(
   Parser<ObjectDefinition<OutputFieldAst, OutputBaseAst>>.D definition
 ) : ObjectParser<OutputDeclAst, OutputFieldAst, OutputBaseAst>(name, param, aliases, option, definition)
 {
-  protected override OutputDeclAst MakeResult(OutputDeclAst result, ObjectDefinition<OutputFieldAst, OutputBaseAst> value)
-  {
-    result.Parent = value.Parent;
-    result.Fields = value.Fields;
-    result.Alternates = value.Alternates;
+  protected override OutputDeclAst MakeResult(AstPartial<TypeParameterAst, NullOption> partial, ObjectDefinition<OutputFieldAst, OutputBaseAst> value)
+    => new(partial.At, partial.Name, partial.Description) {
+      Aliases = partial.Aliases,
+      TypeParameters = partial.Parameters,
+      Parent = value.Parent,
+      Fields = value.Fields,
+      Alternates = value.Alternates,
+    };
 
-    return result;
-  }
-
-  protected override bool ApplyOption(OutputDeclAst result, IResult<NullOption> option) => true;
-
-  [return: NotNull]
-  protected override OutputDeclAst MakePartial(TokenAt at, string? name, string description)
-    => new(at, name!, description);
+  protected override OutputDeclAst ToResult(AstPartial<TypeParameterAst, NullOption> partial)
+    => new(partial.At, partial.Name, partial.Description) {
+      Aliases = partial.Aliases,
+      TypeParameters = partial.Parameters,
+    };
 }
 
 internal class ParseOutputDefinition(

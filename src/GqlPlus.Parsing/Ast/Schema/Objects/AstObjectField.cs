@@ -6,8 +6,8 @@ public abstract record class AstObjectField<TObjBase>(
   TokenAt At,
   string Name,
   string Description,
-  TObjBase Type)
-  : AstAliased(At, Name, Description)
+  TObjBase Type
+) : AstAliased(At, Name, Description)
   , IEquatable<AstObjectField<TObjBase>>
   , IGqlpModifiers
   where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>

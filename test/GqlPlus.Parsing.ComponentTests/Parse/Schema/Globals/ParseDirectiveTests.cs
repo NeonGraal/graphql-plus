@@ -1,9 +1,10 @@
-﻿using GqlPlus.Ast.Schema.Globals;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Parse.Schema.Globals;
 
 public sealed class ParseDirectiveTests
-  : TestAliased<string>
+  : BaseAliasedTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void WithRepeatable_ReturnsCorrectAst(string name)
@@ -55,17 +56,17 @@ public sealed class ParseDirectiveTests
   public void WithLocationsNone_ReturnsFalse(string name)
     => _checks.False("@" + name + "{}");
 
-  internal override ICheckAliased<string> AliasChecks => _checks;
+  internal override IBaseAliasedChecks<string> AliasChecks => _checks;
 
   private readonly ParseDirectiveChecks _checks;
 
-  public ParseDirectiveTests(Parser<DirectiveDeclAst>.D parser)
+  public ParseDirectiveTests(Parser<IGqlpSchemaDirective>.D parser)
     => _checks = new(parser);
 }
 
 internal sealed class ParseDirectiveChecks(
-  Parser<DirectiveDeclAst>.D parser
-) : CheckAliased<string, DirectiveDeclAst>(parser)
+  Parser<IGqlpSchemaDirective>.D parser
+) : BaseAliasedChecks<string, DirectiveDeclAst, IGqlpSchemaDirective>(parser)
 {
   protected internal override DirectiveDeclAst NamedFactory(string input)
     => new(AstNulls.At, input) { Locations = DirectiveLocation.Operation };

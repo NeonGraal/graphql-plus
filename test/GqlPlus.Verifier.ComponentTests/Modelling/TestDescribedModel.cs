@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -27,7 +28,7 @@ internal abstract class CheckDescribedModel<TName, TAst, TModel>(
   IModeller<TAst, TModel> modeller
 ) : CheckModelBase<TName, TAst, TModel>(modeller)
   , ICheckDescribedModel<TName>
-  where TAst : AstAbbreviated, IAstDescribed
+  where TAst : AstAbbreviated, IGqlpDescribed
   where TModel : IRendering
 {
   protected abstract TAst NewDescribedAst(TName name, string description);

@@ -1,19 +1,20 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parse.Schema.Simple;
 
 public sealed class ParseDomainBooleanTests(
-  Parser<AstDomain>.D parser
-) : TestDomain<string>
+  Parser<IGqlpDomain>.D parser
+) : BaseDomainTests<string>
 {
-  internal override ICheckDomain<string> DomainChecks => _checks;
+  internal override IBaseDomainChecks<string> DomainChecks => _checks;
 
   private readonly ParseDomainBooleanChecks _checks = new(parser);
 }
 
 internal sealed class ParseDomainBooleanChecks(
-  Parser<AstDomain>.D parser
-) : CheckDomain<string, AstDomain>(parser, DomainKind.Boolean)
+  Parser<IGqlpDomain>.D parser
+) : BaseDomainChecks<string, AstDomain>(parser, DomainKind.Boolean)
 {
   protected internal override AstDomain<DomainTrueFalseAst> NamedFactory(string input)
     => new(AstNulls.At, input, DomainKind.Boolean, []);

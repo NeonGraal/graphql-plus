@@ -1,10 +1,11 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Parse;
 
 namespace GqlPlus.Verification;
 
 public class VerifySchemaDataTests(
-    Parser<SchemaAst>.D parser
+    Parser<IGqlpSchema>.D parser
 ) : SchemaBase(parser)
 {
   [Fact]

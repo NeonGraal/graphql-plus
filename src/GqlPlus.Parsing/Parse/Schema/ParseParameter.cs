@@ -29,7 +29,7 @@ internal class ParseParameters(
       TokenAt at = tokens.At;
       IResult<InputBaseAst> input = _input.Parse(tokens, label);
       if (!input.IsOk()) {
-        return tokens.ErrorArray("Parameter", "input base after '('", list);
+        return tokens.ErrorArray("Parameter", "input reference after '('", list);
       }
 
       ParameterAst parameter = new(at, input.Required());
@@ -39,13 +39,13 @@ internal class ParseParameters(
         return modifiers.AsResultArray(list);
       }
 
-      modifiers.Optional(value => parameter.Modifiers = value);
+      modifiers.Optional(value => parameter.Modifiers = [.. value]);
       IResult<ConstantAst> constant = _default.I.Parse(tokens, "Default");
       if (constant.IsError()) {
         return constant.AsResultArray(list);
       }
 
-      constant.Optional(value => parameter.Default = value);
+      constant.Optional(value => parameter.DefaultValue = value);
     }
 
     return list.Count == 0 ? tokens.ErrorArray(label, "at least one parameter after '('", list) : list.OkArray();

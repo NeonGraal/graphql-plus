@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Parse;
 using GqlPlus.Result;
@@ -6,14 +7,14 @@ using GqlPlus.Result;
 namespace GqlPlus.Verification;
 
 public class MergeSchemaTests(
-    Parser<SchemaAst>.D parser,
-    IMerge<SchemaAst> merger
+    Parser<IGqlpSchema>.D parser,
+    IMerge<IGqlpSchema> merger
 ) : SchemaBase(parser)
 {
   [Fact]
   public void CanMerge_All()
   {
-    SchemaAst[] schemas = SchemaValidData.Values
+    IGqlpSchema[] schemas = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
       .Select(input => Parse(input).Required())
       .ToArray();
@@ -27,7 +28,7 @@ public class MergeSchemaTests(
   [ClassData(typeof(SchemaValidData))]
   public void CanMerge_Groups(string group)
   {
-    SchemaAst[] schemas = SchemaValidData.Values[group]
+    IGqlpSchema[] schemas = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required())
       .ToArray();
 
@@ -41,7 +42,7 @@ public class MergeSchemaTests(
   public void CanMerge_Valid(string merge)
   {
     string input = VerifySchemaValidMergesData.Source[merge];
-    IEnumerable<SchemaAst> schemas = ReplaceObjects([input])
+    IEnumerable<IGqlpSchema> schemas = ReplaceObjects([input])
       .Select(input => Parse(input).Required());
 
     ITokenMessages result = merger.CanMerge(schemas);
@@ -52,11 +53,11 @@ public class MergeSchemaTests(
   [Fact]
   public async Task Merge_All()
   {
-    IEnumerable<SchemaAst> schemas = SchemaValidData.Values
+    IEnumerable<IGqlpSchema> schemas = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
       .Select(input => Parse(input).Required());
 
-    IEnumerable<SchemaAst> result = merger.Merge(schemas);
+    IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
 
     VerifySettings settings = new();
     settings.ScrubEmptyLines();
@@ -67,11 +68,11 @@ public class MergeSchemaTests(
   [ClassData(typeof(SchemaValidData))]
   public async Task Merge_Groups(string group)
   {
-    SchemaAst[] schemas = SchemaValidData.Values[group]
+    IGqlpSchema[] schemas = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required())
       .ToArray();
 
-    IEnumerable<SchemaAst> result = merger.Merge(schemas);
+    IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
 
     VerifySettings settings = new();
     settings.ScrubEmptyLines();
@@ -96,9 +97,9 @@ public class MergeSchemaTests(
 
   private async Task Verify_Merge(string input, string test)
   {
-    IResult<SchemaAst> parse = Parse(input);
+    IResult<IGqlpSchema> parse = Parse(input);
 
-    IEnumerable<SchemaAst> result = merger.Merge([parse.Required()]);
+    IEnumerable<IGqlpSchema> result = merger.Merge([parse.Required()]);
 
     VerifySettings settings = new();
     settings.ScrubEmptyLines();

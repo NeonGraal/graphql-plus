@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
@@ -6,7 +7,7 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Merging;
 
 public class MergeSchemasTests
-  : TestAbbreviated<SchemaAst>
+  : TestAbbreviated<IGqlpSchema>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentDeclarations_ReturnsGood(string category, string option)
@@ -26,8 +27,8 @@ public class MergeSchemasTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsDifferentDeclarations_ReturnsExpected(string category, string option)
   {
-    var categoryDecls = CategoryDeclarations(category);
-    var otherDecls = OptionDeclarations(option);
+    AstDeclaration[] categoryDecls = CategoryDeclarations(category);
+    AstDeclaration[] otherDecls = OptionDeclarations(option);
 
     Merge_Expected(
       [ new SchemaAst(AstNulls.At) with { Declarations = categoryDecls },
@@ -55,7 +56,7 @@ public class MergeSchemasTests
     _merger = new(_categories, _directives, _options, _astTypes);
   }
 
-  protected override IMerge<SchemaAst> MergerBase => _merger;
+  protected override IMerge<IGqlpSchema> MergerBase => _merger;
 
   protected override SchemaAst MakeAst(string input)
     => new(AstNulls.At);

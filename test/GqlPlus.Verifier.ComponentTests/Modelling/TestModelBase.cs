@@ -20,17 +20,25 @@ public abstract class TestModelBase<TName>
   internal abstract ICheckModelBase<TName> BaseChecks { get; }
 }
 
-internal abstract class CheckModelBase<TName, TAst, TModel>
-  : ICheckModelBase<TName>
+internal abstract class CheckModelBase<TName, TAst, TModel>(
+  IModeller<TAst, TModel> modeller
+) : CheckModelBase<TName, TAst, TAst, TModel>(modeller)
   where TAst : AstBase
   where TModel : IRendering
+{ }
+
+internal abstract class CheckModelBase<TName, TSrc, TAst, TModel>
+  : ICheckModelBase<TName>
+  where TSrc : IGqlpError
+  where TAst : AstBase, TSrc
+  where TModel : IRendering
 {
-  protected IModeller<TAst, TModel> _modeller;
+  protected IModeller<TSrc, TModel> _modeller;
 
   public IRenderContext Context { get; } = new TestRenderContext();
   public IMap<TypeKindModel> TypeKinds { get; } = new Map<TypeKindModel>();
 
-  protected CheckModelBase(IModeller<TAst, TModel> modeller)
+  protected CheckModelBase(IModeller<TSrc, TModel> modeller)
   {
     ArgumentNullException.ThrowIfNull(modeller);
 

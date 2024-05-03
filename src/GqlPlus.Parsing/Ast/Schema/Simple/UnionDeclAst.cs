@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
@@ -9,9 +10,12 @@ public sealed record class UnionDeclAst(
   UnionMemberAst[] Members
 ) : AstSimple<UnionMemberAst>(At, Name, Description, Members)
   , IEquatable<UnionDeclAst>
+  , IGqlpUnion
 {
   internal override string Abbr => "Un";
   public override string Label => "Union";
+
+  IEnumerable<IGqlpUnionItem> IGqlpSimple<IGqlpUnionItem>.Items => Members;
 
   public UnionDeclAst(TokenAt at, string name, UnionMemberAst[] members)
     : this(at, name, "", members) { }

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging.Objects;
 
@@ -7,7 +8,7 @@ namespace GqlPlus.Merging;
 public abstract class TestObjects<TObject, TObjField, TObjBase>
   : TestTyped<AstType, TObject, TObjBase, TObjField>
   where TObject : AstObject<TObjField, TObjBase>
-  where TObjField : AstObjectField<TObjBase>, IAstDescribed
+  where TObjField : AstObjectField<TObjBase>, IGqlpDescribed
   where TObjBase : AstObjectBase<TObjBase>
 {
   [SkippableTheory, RepeatData(Repeats)]

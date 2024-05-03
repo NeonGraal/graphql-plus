@@ -1,10 +1,11 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parse.Schema.Simple;
 
 public sealed class ParseDomainNumberTests(
-  Parser<AstDomain>.D parser
-) : TestDomain<string>
+  Parser<IGqlpDomain>.D parser
+) : BaseDomainTests<string>
 {
   [Theory, RepeatData(Repeats)]
   public void WithRangeNoBounds_ReturnsFalse(string name)
@@ -47,14 +48,14 @@ public sealed class ParseDomainNumberTests(
       name + $"{{number ~{max} {min}!}}",
       skipIf: max > min);
 
-  internal override ICheckDomain<string> DomainChecks => _checks;
+  internal override IBaseDomainChecks<string> DomainChecks => _checks;
 
   private readonly ParseDomainNumberChecks _checks = new(parser);
 }
 
 internal sealed class ParseDomainNumberChecks(
-  Parser<AstDomain>.D parser
-) : CheckDomain<string, AstDomain>(parser, DomainKind.Number)
+  Parser<IGqlpDomain>.D parser
+) : BaseDomainChecks<string, AstDomain>(parser, DomainKind.Number)
 {
   protected internal override AstDomain<DomainRangeAst> NamedFactory(string input)
     => new(AstNulls.At, input, DomainKind.Number, []);

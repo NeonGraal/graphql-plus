@@ -16,10 +16,7 @@ internal abstract class ObjectParser<TObject, TObjField, TObjBase>(
   where TObject : AstObject<TObjField, TObjBase>
   where TObjField : AstObjectField<TObjBase>
   where TObjBase : AstObjectBase<TObjBase>
-{
-  protected override bool ApplyParameters(TObject result, IResultArray<TypeParameterAst> parameter)
-    => parameter.Optional(value => result.TypeParameters = value ?? []);
-}
+{ }
 
 public class ObjectDefinition<TObjField, TObjBase>
   where TObjField : AstObjectField<TObjBase>
@@ -74,7 +71,7 @@ public abstract class ParseObjectDefinition<TObjField, TObjBase>(
 
     result.Fields = [.. fields];
     IResultArray<AstAlternate<TObjBase>> objectAlternates = ParseAlternates(tokens, label);
-    return !objectAlternates.Optional(alternates => result.Alternates = alternates)
+    return !objectAlternates.Optional(alternates => result.Alternates = [.. alternates])
       ? objectAlternates.AsPartial(result)
       : tokens.End(Label, () => result);
   }
@@ -92,7 +89,7 @@ public abstract class ParseObjectDefinition<TObjField, TObjBase>(
       AstAlternate<TObjBase> alternate = new(objBase.Required());
       result.Add(alternate);
       IResultArray<ModifierAst> collections = _collections.Value.Parse(tokens, Label);
-      if (!collections.Optional(value => alternate.Modifiers = value)) {
+      if (!collections.Optional(value => alternate.Modifiers = [.. value])) {
         return collections.AsPartialArray(result);
       }
     }

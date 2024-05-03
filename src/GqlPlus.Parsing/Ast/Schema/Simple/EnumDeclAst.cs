@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
@@ -9,9 +10,12 @@ public sealed record class EnumDeclAst(
   EnumMemberAst[] Members
 ) : AstSimple<EnumMemberAst>(At, Name, Description, Members)
   , IEquatable<EnumDeclAst>
+  , IGqlpEnum
 {
   internal override string Abbr => "En";
   public override string Label => "Enum";
+
+  IEnumerable<IGqlpEnumItem> IGqlpSimple<IGqlpEnumItem>.Items => Members;
 
   public EnumDeclAst(TokenAt at, string name, EnumMemberAst[] members)
     : this(at, name, "", members) { }

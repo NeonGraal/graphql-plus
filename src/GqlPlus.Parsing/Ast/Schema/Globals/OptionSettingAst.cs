@@ -1,11 +1,20 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Globals;
 
-public sealed record class OptionSettingAst(TokenAt At, string Name, string Description, ConstantAst Value)
-  : AstAliased(At, Name, Description), IEquatable<OptionSettingAst>
+public sealed record class OptionSettingAst(
+  TokenAt At,
+  string Name,
+  string Description,
+  ConstantAst Value)
+  : AstAliased(At, Name, Description)
+  , IEquatable<OptionSettingAst>
+  , IGqlpSetting
 {
   internal override string Abbr => "OS";
+
+  IGqlpConstant IGqlpSetting.Value => Value;
 
   public OptionSettingAst(TokenAt at, string name, ConstantAst value)
     : this(at, name, "", value) { }

@@ -51,14 +51,14 @@ public abstract class ObjectFieldParser<TObjField, TObjBase>
       if (_objBase.Parse(tokens, label).Required(fieldType
         => field = ObjField(at, name, description, fieldType))
         ) {
-        hasAliases.WithResult(aliases => field.Aliases = aliases);
-        hasParameter.WithResult(parameter => ApplyFieldParameters(field, parameter));
+        hasAliases.WithResult(aliases => field.Aliases = [.. aliases]);
+        hasParameter.WithResult(parameter => ApplyFieldParameters(field, [.. parameter]));
         IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, label);
         if (modifiers.IsError()) {
           return modifiers.AsResult<TObjField>();
         }
 
-        modifiers.WithResult(modifiers => field.Modifiers = modifiers);
+        modifiers.WithResult(modifiers => field.Modifiers = [.. modifiers]);
 
         return FieldDefault(tokens, field);
       }
@@ -66,7 +66,7 @@ public abstract class ObjectFieldParser<TObjField, TObjBase>
       return tokens.Error(label, "field type", field);
     }
 
-    hasAliases.WithResult(aliases => field.Aliases = aliases);
+    hasAliases.WithResult(aliases => field.Aliases = [.. aliases]);
     return FieldEnumValue(tokens, field);
   }
 

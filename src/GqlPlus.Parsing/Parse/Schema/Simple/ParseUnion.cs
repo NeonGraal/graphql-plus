@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -11,17 +12,18 @@ internal class ParseUnion(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<UnionDefinition>.D definition
-) : DeclarationParser<UnionDefinition, UnionDeclAst>(name, param, aliases, option, definition)
+) : DeclarationParser<UnionDefinition, IGqlpUnion>(name, param, aliases, option, definition)
 {
-  protected override UnionDeclAst MakeResult(UnionDeclAst result, UnionDefinition value)
-    => result with { Parent = value.Parent, Members = value.Values };
+  protected override IGqlpUnion MakeResult(AstPartial<NullAst, NullOption> partial, UnionDefinition value)
+    => new UnionDeclAst(partial.At, partial.Name, partial.Description, value.Values) {
+      Aliases = partial.Aliases,
+      Parent = value.Parent,
+    };
 
-  protected override bool ApplyOption(UnionDeclAst result, IResult<NullOption> option) => true;
-  protected override bool ApplyParameters(UnionDeclAst result, IResultArray<NullAst> parameter) => true;
-
-  [return: NotNull]
-  protected override UnionDeclAst MakePartial(TokenAt at, string? name, string description)
-    => new(at, name!, description, []);
+  protected override IGqlpUnion ToResult(AstPartial<NullAst, NullOption> partial)
+    => new UnionDeclAst(partial.At, partial.Name, partial.Description, []) {
+      Aliases = partial.Aliases,
+    };
 }
 
 internal class UnionDefinition

@@ -420,13 +420,13 @@ public class Tokenizer
     => Error($"Invalid {label}. Expected {expected}.");
 
   internal IResult<T> Error<T>(string label, string expected)
-    => 0.Error<T>(Error(label, expected));
+    => Error(label, expected).Error<T>();
 
   internal IResult<T> Error<T>(string label, string expected, T? result = default)
     => result.Error(Error(label, expected));
 
-  internal IResultArray<T> ErrorArray<T>(string label, string expected, IEnumerable<T>? result = default)
-    => result.ErrorArray(Error(label, expected));
+  internal IResultArray<T> ErrorArray<T>(string label, string expected, IEnumerable<T>? _ = default)
+    => Error(label, expected).ErrorArray<T>();
 
   internal IResult<T> Partial<T>(string label, string expected, Func<T> result)
   {

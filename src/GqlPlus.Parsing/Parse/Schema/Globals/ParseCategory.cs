@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -11,27 +12,26 @@ internal class ParseCategory(
   Parser<string>.DA aliases,
   Parser<IOptionParser<CategoryOption>, CategoryOption>.D option,
   Parser<CategoryOutput>.D definition
-) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, CategoryDeclAst>(name, param, aliases, option, definition)
+) : DeclarationParser<ICategoryName, NullAst, CategoryOption, CategoryOutput, IGqlpSchemaCategory>(name, param, aliases, option, definition)
 {
-  protected override CategoryDeclAst MakeResult(CategoryDeclAst result, CategoryOutput value)
+  protected override IGqlpSchemaCategory MakeResult(AstPartial<NullAst, CategoryOption> partial, CategoryOutput value)
   {
-    if (string.IsNullOrWhiteSpace(result.Name)) {
-      result.Name = value.Output.Camelize();
-    }
+    string name = string.IsNullOrWhiteSpace(partial.Name)
+      ? value.Output.Camelize() : partial.Name;
 
-    result.Output = value.Output;
-    result.Modifiers = value.Modifiers;
-    return result;
+    return new CategoryDeclAst(partial.At, name, partial.Description) {
+      Aliases = partial.Aliases,
+      Option = partial.Option ?? CategoryOption.Parallel,
+      Output = value.Output,
+      Modifiers = value.Modifiers,
+    };
   }
 
-  protected override bool ApplyOption(CategoryDeclAst result, IResult<CategoryOption> option)
-    => option.Optional(value => result.Option = value);
-
-  protected override bool ApplyParameters(CategoryDeclAst result, IResultArray<NullAst> parameter) => true;
-
-  [return: NotNull]
-  protected override CategoryDeclAst MakePartial(TokenAt at, string? name, string description)
-    => new(at, name ?? "", description, "");
+  protected override IGqlpSchemaCategory ToResult(AstPartial<NullAst, CategoryOption> partial)
+    => new CategoryDeclAst(partial.At, partial.Name, partial.Description) {
+      Aliases = partial.Aliases,
+      Option = partial.Option ?? CategoryOption.Parallel,
+    };
 }
 
 internal record CategoryOutput(string Output)
@@ -39,7 +39,8 @@ internal record CategoryOutput(string Output)
   public ModifierAst[] Modifiers { get; set; } = [];
 }
 
-internal class CategoryName : ICategoryName
+internal class CategoryName
+  : ICategoryName
 {
   public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
   {
@@ -70,7 +71,7 @@ internal class ParseCategoryDefinition(
       return modifiers.AsResult(result);
     }
 
-    modifiers.Optional(value => result.Modifiers = value);
+    modifiers.Optional(value => result.Modifiers = [.. value]);
     return tokens.End(label, () => result);
   }
 }

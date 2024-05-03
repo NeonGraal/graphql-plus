@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Token;
 using GqlPlus.Verification;
 using Xunit.DependencyInjection;
@@ -6,7 +7,7 @@ using Xunit.DependencyInjection;
 namespace GqlPlus;
 
 public class BuiltInTests(
-  IVerify<SchemaAst> verifier
+  IVerify<IGqlpSchema> verifier
 )
 {
   [Fact]

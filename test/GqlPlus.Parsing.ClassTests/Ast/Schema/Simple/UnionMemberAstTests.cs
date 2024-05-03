@@ -4,7 +4,7 @@ public class UnionMemberAstTests
   : AstAbbreviatedTests
 {
   private readonly AstAbbreviatedChecks<UnionMemberAst> _checks
-    = new(name => new UnionMemberAst(AstNulls.At, name));
+    = new(name => new UnionMemberAst(AstNulls.At, name, ""));
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 

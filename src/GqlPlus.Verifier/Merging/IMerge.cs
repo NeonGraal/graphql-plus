@@ -1,10 +1,9 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging;
 
 public interface IMerge<TItem>
-  where TItem : AstBase
+  where TItem : IGqlpError
 {
   ITokenMessages CanMerge(IEnumerable<TItem> items);
   IEnumerable<TItem> Merge(IEnumerable<TItem> items);

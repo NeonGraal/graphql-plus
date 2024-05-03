@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Result;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Result;
 
 public class ResultTests
   : BaseResultTests
@@ -38,10 +40,10 @@ public class ResultTests
   private sealed class TestResultArray<T>
     : IResultArray<T>
   {
-    public IResult<TResult> AsPartial<TResult>(TResult result, Action<T[]>? withValue = null, Action? action = null) => throw new NotImplementedException();
-    public IResultArray<TResult> AsPartialArray<TResult>(IEnumerable<TResult> result, Action<T[]>? withValue = null) => throw new NotImplementedException();
+    public IResult<TResult> AsPartial<TResult>(TResult result, Action<IEnumerable<T>>? withValue = null, Action? action = null) => throw new NotImplementedException();
+    public IResultArray<TResult> AsPartialArray<TResult>(IEnumerable<TResult> result, Action<IEnumerable<T>>? withValue = null) => throw new NotImplementedException();
     public IResult<TResult> AsResult<TResult>(TResult? _ = default) => throw new NotImplementedException();
-    public IResultArray<TResult> AsResultArray<TResult>(TResult[]? _ = null) => throw new NotImplementedException();
-    public IResult<TResult> Map<TResult>(SelectResult<T[], TResult> onValue, OnResult<TResult>? otherwise = null) => throw new NotImplementedException();
+    public IResultArray<TResult> AsResultArray<TResult>(IEnumerable<T>? _ = null) => throw new NotImplementedException();
+    public IResult<TResult> Map<TResult>(SelectResult<IEnumerable<T>, TResult> onValue, OnResult<TResult>? otherwise = null) => throw new NotImplementedException();
   }
 }

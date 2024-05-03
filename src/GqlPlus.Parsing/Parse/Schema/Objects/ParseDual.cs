@@ -13,18 +13,20 @@ internal class ParseDual(
   Parser<ObjectDefinition<DualFieldAst, DualBaseAst>>.D definition
 ) : ObjectParser<DualDeclAst, DualFieldAst, DualBaseAst>(name, param, aliases, option, definition)
 {
-  protected override DualDeclAst MakeResult(DualDeclAst result, ObjectDefinition<DualFieldAst, DualBaseAst> value)
-    => result with {
+  protected override DualDeclAst MakeResult(AstPartial<TypeParameterAst, NullOption> partial, ObjectDefinition<DualFieldAst, DualBaseAst> value)
+    => new(partial.At, partial.Name, partial.Description) {
+      Aliases = partial.Aliases,
+      TypeParameters = partial.Parameters,
       Parent = value.Parent,
       Fields = value.Fields,
       Alternates = value.Alternates,
     };
 
-  protected override bool ApplyOption(DualDeclAst result, IResult<NullOption> option) => true;
-
-  [return: NotNull]
-  protected override DualDeclAst MakePartial(TokenAt at, string? name, string description)
-    => new(at, name!, description);
+  protected override DualDeclAst ToResult(AstPartial<TypeParameterAst, NullOption> partial)
+    => new(partial.At, partial.Name, partial.Description) {
+      Aliases = partial.Aliases,
+      TypeParameters = partial.Parameters,
+    };
 }
 
 internal class ParseDualDefinition(

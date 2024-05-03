@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
@@ -8,14 +9,16 @@ public record class AstDomain<TMember>(
   string Description,
   DomainKind DomainKind
 ) : AstDomain(At, Name, Description, DomainKind)
-  , IAstSimple<TMember>
   , IEquatable<AstDomain<TMember>>
-  where TMember : AstAbbreviated, IAstDomainItem
+  , IGqlpDomain<TMember>
+  where TMember : AstAbbreviated, IGqlpDomainItem, IGqlpError
 {
   public TMember[] Members { get; set; } = [];
 
   internal override string Abbr => "Do";
   public override string Label => "Domain";
+
+  IEnumerable<TMember> IGqlpSimple<TMember>.Items => Members;
 
   public AstDomain(TokenAt at, string name, DomainKind kind, TMember[] members)
     : this(at, name, "", kind)
@@ -40,12 +43,5 @@ public abstract record class AstDomain(
   string Description,
   DomainKind DomainKind
 ) : AstSimple(At, Name, Description)
+  , IGqlpDomain
 { }
-
-public enum DomainKind
-{
-  Boolean,
-  Enum,
-  Number,
-  String,
-}

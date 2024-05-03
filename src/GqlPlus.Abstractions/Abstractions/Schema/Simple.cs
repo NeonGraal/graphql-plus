@@ -2,6 +2,7 @@
 
 public interface IGqlpSimple<TItem>
   : IGqlpType<string>
+  where TItem : IGqlpError
 {
   IEnumerable<TItem> Items { get; }
 }
@@ -19,8 +20,9 @@ public interface IGqlpDomain<TItem>
 }
 
 public interface IGqlpDomainItem
+  : IGqlpError
 {
-  bool Excluded { get; }
+  bool Excludes { get; }
 }
 
 public enum DomainKind
@@ -70,5 +72,5 @@ public interface IGqlpUnion
 { }
 
 public interface IGqlpUnionItem
-  : IGqlpDescribed
+  : IGqlpNamed, IGqlpDescribed
 { }

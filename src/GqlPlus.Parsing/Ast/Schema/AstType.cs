@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema;
 
@@ -6,10 +7,9 @@ public abstract record class AstType(
   TokenAt At,
   string Name,
   string Description
-) : AstDeclaration(At, Name, Description), IAstType
-{
-  public abstract string Label { get; }
-}
+) : AstDeclaration(At, Name, Description)
+  , IAstType
+{ }
 
 public interface IAstType
 {
@@ -21,7 +21,9 @@ public abstract record class AstType<TParent>(
   TokenAt At,
   string Name,
   string Description
-) : AstType(At, Name, Description), IEquatable<AstType<TParent>>
+) : AstType(At, Name, Description)
+  , IEquatable<AstType<TParent>>
+  , IGqlpType<TParent>
   where TParent : IEquatable<TParent>
 {
   public TParent? Parent { get; set; }
@@ -31,9 +33,4 @@ public abstract record class AstType<TParent>(
       && Parent.NullEqual(other.Parent);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Parent);
-}
-
-public interface IAstType<TParent> : IAstType
-{
-  TParent? Parent { get; }
 }

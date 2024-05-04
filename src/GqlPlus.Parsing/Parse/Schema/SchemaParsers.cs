@@ -31,7 +31,7 @@ public static class SchemaParsers
       .AddDeclarationParser<IGqlpSchemaDirective, ParseDirective>("directive")
       // Option
       .AddParser<OptionDefinition, ParseOptionDefinition>()
-      .AddParser<OptionSettingAst, ParseOptionSetting>()
+      .AddParser<IGqlpSchemaSetting, ParseOptionSetting>()
       .AddDeclarationParser<IGqlpSchemaOption, ParseOption>("option")
       // Types
       .AddSingleton<ISimpleName, SimpleName>()

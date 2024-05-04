@@ -16,7 +16,7 @@ public sealed record class OptionDeclAst(
   internal override string Abbr => "Op";
   public override string Label => "Option";
 
-  IEnumerable<IGqlpSetting> IGqlpSchemaOption.Settings => Settings;
+  IEnumerable<IGqlpSchemaSetting> IGqlpSchemaOption.Settings => Settings;
 
   public OptionDeclAst(TokenAt at, string name)
     : this(at, name, "") { }

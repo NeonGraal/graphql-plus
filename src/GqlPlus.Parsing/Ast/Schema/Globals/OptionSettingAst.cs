@@ -10,11 +10,11 @@ public sealed record class OptionSettingAst(
   ConstantAst Value)
   : AstAliased(At, Name, Description)
   , IEquatable<OptionSettingAst>
-  , IGqlpSetting
+  , IGqlpSchemaSetting
 {
   internal override string Abbr => "OS";
 
-  IGqlpConstant IGqlpSetting.Value => Value;
+  IGqlpConstant IGqlpSchemaSetting.Value => Value;
 
   public OptionSettingAst(TokenAt at, string name, ConstantAst value)
     : this(at, name, "", value) { }

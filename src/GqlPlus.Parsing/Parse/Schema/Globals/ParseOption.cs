@@ -32,26 +32,26 @@ internal class OptionDefinition
 }
 
 internal class ParseOptionDefinition(
-  Parser<OptionSettingAst>.D setting
+  Parser<IGqlpSchemaSetting>.D setting
 ) : Parser<OptionDefinition>.I
 {
-  private readonly Parser<OptionSettingAst>.L _setting = setting;
+  private readonly Parser<IGqlpSchemaSetting>.L _setting = setting;
 
   public IResult<OptionDefinition> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     OptionDefinition result = new();
 
-    List<OptionSettingAst> values = [];
+    List<IGqlpSchemaSetting> values = [];
     while (!tokens.Take("}")) {
-      IResult<OptionSettingAst> setting = _setting.Parse(tokens, "Option Setting");
+      IResult<IGqlpSchemaSetting> setting = _setting.Parse(tokens, "Option Setting");
       if (!setting.Required(values.Add)) {
-        result.Settings = [.. values];
+        result.Settings = values.ArrayOf<OptionSettingAst>();
         return setting.AsResult(result);
       }
     }
 
-    result.Settings = [.. values];
+    result.Settings = values.ArrayOf<OptionSettingAst>();
     return result.Ok();
   }
 }

@@ -52,10 +52,10 @@ public enum DirectiveLocation
 public interface IGqlpSchemaOption
   : IGqlpDeclaration
 {
-  IEnumerable<IGqlpSetting> Settings { get; }
+  IEnumerable<IGqlpSchemaSetting> Settings { get; }
 }
 
-public interface IGqlpSetting
+public interface IGqlpSchemaSetting
   : IGqlpNamed
 {
   IGqlpConstant Value { get; }

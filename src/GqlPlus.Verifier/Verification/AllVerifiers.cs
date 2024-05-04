@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
@@ -26,8 +25,8 @@ public static class AllVerifiers
       .AddVerify<IGqlpVariable, VerifyVariable>()
       // Schema
       .AddVerify<IGqlpSchema, VerifySchema>()
-      .AddVerifyAliased<CategoryDeclAst, VerifyCategoryAliased>()
-      .AddVerifyUsageAliased<CategoryDeclAst, OutputDeclAst, VerifyCategoryOutput>()
+      .AddVerifyAliased<IGqlpSchemaCategory, VerifyCategoryAliased>()
+      .AddVerifyUsageAliased<IGqlpSchemaCategory, OutputDeclAst, VerifyCategoryOutput>()
       .AddVerifyAliased<DirectiveDeclAst, VerifyDirectiveAliased>()
       .AddVerifyUsageAliased<DirectiveDeclAst, InputDeclAst, VerifyDirectiveInput>()
       .AddVerifyAliased<OptionDeclAst, VerifyOptionAliased>()
@@ -74,17 +73,18 @@ public static class AllVerifiers
 
   public static IServiceCollection AddVerifyAliased<TAliased, TService>(this IServiceCollection services)
     where TService : class, IVerifyAliased<TAliased>
-    where TAliased : AstAliased
+    where TAliased : IGqlpAliased
     => services
       .AddSingleton<IVerifyAliased<TAliased>, TService>()
-      .TryAddVerify<TAliased, NullVerifier<TAliased>>();
+      .TryAddVerify<TAliased, NullVerifierError<TAliased>>();
 
   public static IServiceCollection AddVerifyUsageAliased<TUsage, TAliased, TService>(this IServiceCollection services)
     where TService : class, IVerifyUsage<TUsage, TAliased>
-    where TUsage : AstAbbreviated where TAliased : AstAliased
+    where TUsage : IGqlpError
+    where TAliased : AstAliased
     => services
       .AddSingleton<IVerifyUsage<TUsage, TAliased>, TService>()
-      .TryAddVerify<TUsage, NullVerifier<TUsage>>()
+      .TryAddVerify<TUsage, NullVerifierError<TUsage>>()
       .TryAddVerify<TAliased, NullVerifier<TAliased>>();
 
   public static IServiceCollection AddVerifyDomainContext<TService>(this IServiceCollection services)

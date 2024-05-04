@@ -1,5 +1,5 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Result;
 
 namespace GqlPlus.Merging;
@@ -7,7 +7,7 @@ namespace GqlPlus.Merging;
 internal abstract class AstAliasedMerger<TItem>(
   ILoggerFactory logger
 ) : DistinctMerger<TItem>(logger)
-  where TItem : AstAliased
+  where TItem : IGqlpAliased
 {
   protected override string ItemGroupKey(TItem item) => item.Name;
 
@@ -25,12 +25,12 @@ internal abstract class AstAliasedMerger<TItem>(
       .Distinct();
     return distinct.Count() == 1 ? []
       : new TokenMessages(group.Last()
-        .item.Error($"Aliases of {typeof(TItem).ExpandTypeName()} for {group.Key} is not singular [{distinct.Debug()}]"));
+        .item.MakeError($"Aliases of {typeof(TItem).ExpandTypeName()} for {group.Key} is not singular [{distinct.Debug()}]"));
   }
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)
     => base.CanMergeGroup(group)
-      .Add(group.CanMerge(item => item.Description));
+      .Add(group.CanMergeString(item => item.Description));
 
   protected override TItem MergeGroup(IEnumerable<TItem> group)
   {
@@ -38,9 +38,8 @@ internal abstract class AstAliasedMerger<TItem>(
     string description = list.MergeDescriptions();
     string[] aliases = list.SelectMany(item => item.Aliases).Distinct().ToArray();
 
-    return list.First() with {
-      Description = description,
-      Aliases = aliases,
-    };
+    TItem result = list.First();
+    result.SetAliases(aliases, description);
+    return result;
   }
 }

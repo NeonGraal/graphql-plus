@@ -8,11 +8,42 @@ namespace GqlPlus.Merging;
 #pragma warning disable CA1508 // Avoid dead conditional code
 public static class MergeExtensions
 {
-  public static ITokenMessages CanMerge<TItem, TObjField>(
+  public static ITokenMessages CanMergeString<TItem>(
       this IEnumerable<TItem> items,
-      Func<TItem, TObjField?> field,
+      Func<TItem, string?> field,
       [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
-    where TItem : AstBase
+    where TItem : IGqlpError
+  {
+    ArgumentNullException.ThrowIfNull(items);
+    ArgumentNullException.ThrowIfNull(field);
+
+    string? result = default;
+
+    foreach (TItem item in items) {
+      string? value = field(item);
+      if (string.IsNullOrEmpty(value)) {
+        continue;
+      }
+
+      if (string.IsNullOrEmpty(result)) {
+        result = value;
+        continue;
+      }
+
+      if (!result.Equals(value, StringComparison.Ordinal)) {
+        return new TokenMessages(item.MakeError($"Different values merging {fieldExpr}: {result} != {value}"));
+      }
+    }
+
+    return new TokenMessages();
+  }
+
+  public static ITokenMessages CanMergeStruct<TItem, TObjField>(
+      this IEnumerable<TItem> items,
+      Func<TItem, TObjField> field,
+      [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
+    where TItem : IGqlpError
+    where TObjField : struct
   {
     ArgumentNullException.ThrowIfNull(items);
     ArgumentNullException.ThrowIfNull(field);
@@ -31,7 +62,7 @@ public static class MergeExtensions
       }
 
       if (!result.Equals(value)) {
-        return new TokenMessages(item.Error($"Different values merging {fieldExpr}: {result} != {value}"));
+        return new TokenMessages(item.MakeError($"Different values merging {fieldExpr}: {result} != {value}"));
       }
     }
 
@@ -163,7 +194,7 @@ public static class MergeExtensions
   }
 
   public static string MergeDescriptions<TItem>(this IEnumerable<TItem> items)
-    where TItem : AstBase, IGqlpDescribed
+    where TItem : IGqlpDescribed
     => items
       .Select(item => item.Description)
       .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr))

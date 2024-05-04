@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verification.Schema;
@@ -6,7 +7,9 @@ namespace GqlPlus.Verification.Schema;
 internal abstract class UsageVerifier<TUsage, TAliased, TContext>(
   IVerifyAliased<TUsage> aliased
 ) : IVerifyUsage<TUsage, TAliased>
- where TUsage : AstAliased where TAliased : AstAliased where TContext : UsageContext
+  where TUsage : IGqlpAliased
+  where TAliased : AstAliased
+  where TContext : UsageContext
 {
   protected abstract void UsageValue(TUsage usage, TContext context);
   protected abstract TContext MakeContext(TUsage usage, TAliased[] aliased, ITokenMessages errors);
@@ -27,9 +30,15 @@ internal abstract class UsageVerifier<TUsage, TAliased, TContext>(
       , errors);
 }
 
-public record class UsageAliased<TUsage, TAliased>(TUsage[] Usages, TAliased[] Definitions)
-  where TUsage : AstAbbreviated where TAliased : AstAliased;
+public record class UsageAliased<TUsage, TAliased>(
+  TUsage[] Usages,
+  TAliased[] Definitions
+)
+  where TUsage : IGqlpError
+  where TAliased : AstAliased;
 
-public interface IVerifyUsage<TUsage, TAliased> : IVerify<UsageAliased<TUsage, TAliased>>
-    where TUsage : AstAbbreviated where TAliased : AstAliased
+public interface IVerifyUsage<TUsage, TAliased>
+  : IVerify<UsageAliased<TUsage, TAliased>>
+  where TUsage : IGqlpError
+  where TAliased : AstAliased
 { }

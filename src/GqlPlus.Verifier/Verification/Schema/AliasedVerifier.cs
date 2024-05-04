@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema;
@@ -8,7 +8,7 @@ internal abstract class AliasedVerifier<TAliased>(
    IMerge<TAliased> merger,
    ILoggerFactory logger
 ) : GroupedVerifier<TAliased>(merger, logger)
- where TAliased : AstAliased
+ where TAliased : IGqlpAliased
 {
   public override void Verify(TAliased[] item, ITokenMessages errors)
   {

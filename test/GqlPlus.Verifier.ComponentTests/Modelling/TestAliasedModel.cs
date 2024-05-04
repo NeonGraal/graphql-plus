@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -23,9 +24,17 @@ public abstract class TestAliasedModel<TInput>
 
 internal abstract class CheckAliasedModel<TName, TAst, TModel>(
   IModeller<TAst, TModel> modeller
-) : CheckDescribedModel<TName, TAst, TModel>(modeller)
+) : CheckAliasedModel<TName, TAst, TAst, TModel>(modeller)
+  where TAst : AstAliased, IGqlpError, IGqlpDescribed
+  where TModel : IRendering
+{ }
+
+internal abstract class CheckAliasedModel<TName, TSrc, TAst, TModel>(
+  IModeller<TSrc, TModel> modeller
+) : CheckDescribedModel<TName, TSrc, TAst, TModel>(modeller)
   , ICheckAliasedModel<TName>
-  where TAst : AstAliased
+  where TSrc : IGqlpError, IGqlpDescribed
+  where TAst : AstAliased, TSrc
   where TModel : IRendering
 {
   protected abstract string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input);

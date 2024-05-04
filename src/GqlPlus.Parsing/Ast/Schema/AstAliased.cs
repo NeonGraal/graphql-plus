@@ -23,4 +23,6 @@ public abstract record class AstAliased(
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Concat(Aliases.Bracket("[", "]"));
+  public void SetAliases(string[] aliases, string description)
+    => (Aliases, Description) = (aliases, description);
 }

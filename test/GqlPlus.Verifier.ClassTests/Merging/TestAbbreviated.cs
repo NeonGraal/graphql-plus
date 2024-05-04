@@ -79,7 +79,7 @@ public abstract class TestAbbreviated<TAst, TInput>
   protected static ITokenMessages EmptyMessages => new TokenMessages();
 
   protected IMerge<TResult> Merger<TResult>()
-    where TResult : AstBase
+    where TResult : IGqlpError
   {
     var result = Substitute.For<IMerge<TResult>>();
     result.CanMerge([]).ReturnsForAnyArgs(EmptyMessages);
@@ -101,7 +101,7 @@ public static class TestMergeHelper
   }
 
   public static TTests MergeCalled<TTests, TResult>(this TTests tests, IMerge<TResult> merger, int times = 1)
-    where TResult : AstBase
+    where TResult : IGqlpError
   {
     merger?.ReceivedWithAnyArgs(times).Merge([]);
 

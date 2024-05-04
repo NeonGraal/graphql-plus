@@ -27,6 +27,8 @@ public interface IGqlpAliased
   : IGqlpNamed, IGqlpDescribed
 {
   IEnumerable<string> Aliases { get; }
+
+  void SetAliases(string[] aliases, string description);
 }
 
 public interface IGqlpDescribed

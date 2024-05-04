@@ -15,7 +15,7 @@ internal static class AllModellers
       .AddAlternateModeller<DualBaseAst, DualBaseModel>()
       .AddAlternateModeller<InputBaseAst, InputBaseModel>()
       .AddAlternateModeller<OutputBaseAst, OutputBaseModel>()
-      .AddModeller<CategoryDeclAst, CategoryModel, CategoryModeller>()
+      .AddModeller<IGqlpSchemaCategory, CategoryModel, CategoryModeller>()
       .AddModeller<ConstantAst, ConstantModel, ConstantModeller>()
       .AddModeller<DirectiveDeclAst, DirectiveModel, DirectiveModeller>()
       .AddModeller<DualFieldAst, DualFieldModel, DualFieldModeller>()

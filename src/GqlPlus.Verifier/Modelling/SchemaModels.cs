@@ -133,7 +133,7 @@ public record class NamedModel(
 }
 
 internal class SchemaModeller(
-  IModeller<CategoryDeclAst, CategoryModel> category,
+  IModeller<IGqlpSchemaCategory, CategoryModel> category,
   IModeller<DirectiveDeclAst, DirectiveModel> directive,
   IModeller<OptionSettingAst, SettingModel> setting,
   ITypesModeller type
@@ -166,6 +166,6 @@ internal class SchemaModeller(
   }
 
   private IEnumerable<TResult> DeclarationModel<TAst, TResult>(IGqlpSchema ast, IModeller<TAst, TResult> modeller, IMap<TypeKindModel> typeKinds)
-    where TAst : AstBase
+    where TAst : IGqlpError
     => ast.Declarations.OfType<TAst>().Select(m => modeller.ToModel(m, typeKinds));
 }

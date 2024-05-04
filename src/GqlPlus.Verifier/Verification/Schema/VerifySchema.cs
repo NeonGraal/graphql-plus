@@ -7,7 +7,7 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Verification.Schema;
 
 internal class VerifySchema(
-  IVerifyUsage<CategoryDeclAst, OutputDeclAst> categoryOutputs,
+  IVerifyUsage<IGqlpSchemaCategory, OutputDeclAst> categoryOutputs,
   IVerifyUsage<DirectiveDeclAst, InputDeclAst> directiveInputs,
   IVerifyAliased<OptionDeclAst> optionsAliased,
   IVerifyAliased<AstType> typesAliased,
@@ -16,7 +16,7 @@ internal class VerifySchema(
 {
   public void Verify(IGqlpSchema item, ITokenMessages errors)
   {
-    CategoryDeclAst[] categories = item.Declarations.ArrayOf<CategoryDeclAst>();
+    IGqlpSchemaCategory[] categories = item.Declarations.ArrayOf<IGqlpSchemaCategory>();
     DirectiveDeclAst[] directives = item.Declarations.ArrayOf<DirectiveDeclAst>();
     OptionDeclAst[] options = item.Declarations.ArrayOf<OptionDeclAst>();
     AstType[] astTypes = item.Declarations.ArrayOf<AstType>();

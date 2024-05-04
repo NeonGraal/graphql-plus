@@ -1,11 +1,12 @@
-﻿using GqlPlus.Ast.Schema.Globals;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling.Globals;
 
 public class CategoriesModelTests(
-  IModeller<CategoryDeclAst, CategoryModel> category,
+  IModeller<IGqlpSchemaCategory, CategoryModel> category,
   IModeller<OutputDeclAst, TypeOutputModel> typeOutput
 ) : TestModelBase<string>
 {
@@ -40,9 +41,9 @@ public class CategoriesModelTests(
 }
 
 internal sealed class CategoriesModelChecks(
-  IModeller<CategoryDeclAst, CategoryModel> modeller,
+  IModeller<IGqlpSchemaCategory, CategoryModel> modeller,
   IModeller<OutputDeclAst, TypeOutputModel> typeOutput
-) : CheckModelBase<string, CategoryDeclAst, CategoryModel>(modeller), ICheckModelBase
+) : CheckModelBase<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel>(modeller), ICheckModelBase
 {
   protected override string[] ExpectedBase(string name)
   => ["!_Category",

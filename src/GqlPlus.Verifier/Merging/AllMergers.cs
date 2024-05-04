@@ -18,7 +18,7 @@ public static class AllMergers
     => services
       .AddMerge<IGqlpSchema, MergeSchemas>()
       .AddMerge<ConstantAst, MergeConstants>()
-      .AddMerge<CategoryDeclAst, MergeCategories>()
+      .AddMerge<IGqlpSchemaCategory, MergeCategories>()
       .AddMerge<DirectiveDeclAst, MergeDirectives>()
       .AddMerge<OptionDeclAst, MergeOptions>()
       .AddMerge<OptionSettingAst, MergeOptionSettings>()

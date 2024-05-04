@@ -1,13 +1,13 @@
-﻿using GqlPlus.Ast.Schema.Globals;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema.Globals;
 
 internal class VerifyCategoryAliased(
-  IVerify<CategoryDeclAst> definition,
-  IMerge<CategoryDeclAst> merger,
+  IVerify<IGqlpSchemaCategory> definition,
+  IMerge<IGqlpSchemaCategory> merger,
   ILoggerFactory logger
-) : AliasedVerifier<CategoryDeclAst>(definition, merger, logger)
+) : AliasedVerifier<IGqlpSchemaCategory>(definition, merger, logger)
 {
   public override string Label => "Categories";
 }

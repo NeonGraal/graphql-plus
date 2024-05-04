@@ -1,11 +1,10 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 
 namespace GqlPlus.Merging;
 
 public abstract class TestDescriptions<TAst>
   : TestGroups<TAst>
-  where TAst : AstAbbreviated, IGqlpDescribed
+  where TAst : IGqlpError, IGqlpDescribed
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneDescription_ReturnsGood(string name, string description)

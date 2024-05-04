@@ -1,5 +1,5 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema;
@@ -8,8 +8,9 @@ internal abstract partial class GroupedVerifier<TAliased>(
    IMerge<TAliased> merger,
    ILoggerFactory logger
 ) : IVerifyAliased<TAliased>
- where TAliased : AstAliased
+ where TAliased : IGqlpAliased
 {
+#pragma warning disable CA1823 // Avoid unused private fields
   private readonly ILogger _logger = logger.CreateLogger(nameof(GroupedVerifier<TAliased>));
 
   public abstract string Label { get; }
@@ -47,7 +48,7 @@ internal abstract partial class GroupedVerifier<TAliased>(
 
       ITokenMessages failures = merger.CanMerge(definitions);
       if (failures.Any()) {
-        errors.Add(definitions.Last().Error($"Multiple {Label} with name '{name}' can't be merged."));
+        errors.Add(definitions.Last().MakeError($"Multiple {Label} with name '{name}' can't be merged."));
         errors.Add(failures);
       }
     }
@@ -65,12 +66,13 @@ internal abstract partial class GroupedVerifier<TAliased>(
     foreach (IGrouping<string, TAliased> alias in byAlias) {
       string[] aliases = alias.Select(a => a.Name).Distinct().ToArray();
       if (aliases.Length > 1) {
-        errors.Add(alias.Last().Error($"Multiple {Label} with alias '{alias.Key}' found. Names {aliases.Joined(n => $"'{n}'")}"));
+        errors.Add(alias.Last().MakeError($"Multiple {Label} with alias '{alias.Key}' found. Names {aliases.Joined(n => $"'{n}'")}"));
       }
     }
   }
 }
 
-public interface IVerifyAliased<TAliased> : IVerify<TAliased[]>
-    where TAliased : AstAliased
+public interface IVerifyAliased<TAliased>
+  : IVerify<TAliased[]>
+    where TAliased : IGqlpAliased
 { }

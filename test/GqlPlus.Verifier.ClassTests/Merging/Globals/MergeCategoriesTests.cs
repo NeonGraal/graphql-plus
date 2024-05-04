@@ -7,7 +7,7 @@ namespace GqlPlus.Merging.Globals;
 
 public class MergeCategoriesTests(
   ITestOutputHelper outputHelper
-) : TestAliased<CategoryDeclAst>
+) : TestAliased<IGqlpSchemaCategory>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameOutput_ReturnsGood(string category)
@@ -35,8 +35,8 @@ public class MergeCategoriesTests(
 
   private readonly MergeCategories _merger = new(outputHelper.ToLoggerFactory());
 
-  internal override GroupsMerger<CategoryDeclAst> MergerGroups => _merger;
+  internal override GroupsMerger<IGqlpSchemaCategory> MergerGroups => _merger;
 
-  protected override CategoryDeclAst MakeAliased(string name, string[] aliases, string description = "")
-    => new(AstNulls.At, name, description, name) { Aliases = aliases };
+  protected override IGqlpSchemaCategory MakeAliased(string name, string[] aliases, string description = "")
+    => new CategoryDeclAst(AstNulls.At, name, description, name) { Aliases = aliases };
 }

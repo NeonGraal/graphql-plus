@@ -6,7 +6,7 @@ namespace GqlPlus.Merging;
 internal abstract partial class DistinctMerger<TItem>(
   ILoggerFactory logger
 ) : GroupsMerger<TItem>
-  where TItem : AstBase
+  where TItem : IGqlpError
 {
   private readonly ILogger _logger = logger.CreateLogger(nameof(DistinctMerger<TItem>));
 
@@ -22,7 +22,7 @@ internal abstract partial class DistinctMerger<TItem>(
     GroupNotSingular(typeName, group.Key, ItemMatchName, values);
 
     return new TokenMessages(group.Last()
-        .Error($"Group of {typeName} for {group.Key} is not singular {ItemMatchName}[{values}]"));
+        .MakeError($"Group of {typeName} for {group.Key} is not singular {ItemMatchName}[{values}]"));
   }
 
   [LoggerMessage(LogLevel.Warning, Message = "Group of {Type} for {Key} is not singular {ItemMatchName}[{Values}]")]

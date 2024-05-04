@@ -11,6 +11,8 @@ public abstract record class AstDescribed(
   , IEquatable<AstDescribed>
   , IGqlpDescribed
 {
+  public string Description { get; internal set; } = Description;
+
   public virtual bool Equals(AstDescribed? other)
     => base.Equals(other)
     && Description.Equals(other.Description, StringComparison.Ordinal);

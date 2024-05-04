@@ -5,7 +5,7 @@ using GqlPlus.Ast.Schema.Globals;
 namespace GqlPlus.Merging;
 
 internal class MergeSchemas(
-  IMerge<CategoryDeclAst> categoryMerger,
+  IMerge<IGqlpSchemaCategory> categoryMerger,
   IMerge<DirectiveDeclAst> directiveMerger,
   IMerge<OptionDeclAst> optionMerger,
   IMerge<AstType> astTypeMerger
@@ -16,7 +16,7 @@ internal class MergeSchemas(
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpSchema> group)
   {
-    IEnumerable<CategoryDeclAst> categories = Just<CategoryDeclAst>(group);
+    IEnumerable<IGqlpSchemaCategory> categories = Just<IGqlpSchemaCategory>(group);
     IEnumerable<DirectiveDeclAst> directives = Just<DirectiveDeclAst>(group);
     IEnumerable<OptionDeclAst> options = Just<OptionDeclAst>(group);
     IEnumerable<AstType> astTypes = Just<AstType>(group);
@@ -37,7 +37,7 @@ internal class MergeSchemas(
 
   protected override IGqlpSchema MergeGroup(IEnumerable<IGqlpSchema> group)
   {
-    IEnumerable<CategoryDeclAst> categories = Just<CategoryDeclAst>(group);
+    IEnumerable<IGqlpSchemaCategory> categories = Just<IGqlpSchemaCategory>(group);
     IEnumerable<DirectiveDeclAst> directives = Just<DirectiveDeclAst>(group);
     IEnumerable<OptionDeclAst> options = Just<OptionDeclAst>(group);
     IEnumerable<AstType> astTypes = Just<AstType>(group);

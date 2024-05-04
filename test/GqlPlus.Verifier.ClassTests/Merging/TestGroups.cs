@@ -1,10 +1,8 @@
-﻿using GqlPlus.Ast;
-
-namespace GqlPlus.Merging;
+﻿namespace GqlPlus.Merging;
 
 public abstract class TestGroups<TAst>
   : TestAbbreviated<TAst>
-  where TAst : AstAbbreviated
+  where TAst : IGqlpError
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentNames_ReturnsGood(string name1, string name2)

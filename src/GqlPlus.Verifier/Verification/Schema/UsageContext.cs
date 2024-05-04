@@ -16,8 +16,8 @@ public class UsageContext(
     => errors.Add(messages);
 
   internal void AddError<TAst>(TAst item, string label, string message)
-      where TAst : AstAbbreviated
-    => errors.AddError(item, $"Invalid {label}. {message}.");
+      where TAst : IGqlpError
+    => errors.Add(item.MakeError($"Invalid {label}. {message}."));
 
   internal bool GetType(string? type, out AstDescribed? value)
   {

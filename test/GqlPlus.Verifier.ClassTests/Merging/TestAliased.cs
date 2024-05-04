@@ -1,10 +1,10 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Merging;
 
 public abstract class TestAliased<TAst>
   : TestDescriptions<TAst>
-  where TAst : AstAliased
+  where TAst : IGqlpAliased
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneAlias_ReturnsGood(string name, string alias)

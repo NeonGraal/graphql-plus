@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Verification.Operation;
@@ -29,7 +28,7 @@ public static class AllVerifiers
       .AddVerifyUsageAliased<IGqlpSchemaCategory, OutputDeclAst, VerifyCategoryOutput>()
       .AddVerifyAliased<IGqlpSchemaDirective, VerifyDirectiveAliased>()
       .AddVerifyUsageAliased<IGqlpSchemaDirective, InputDeclAst, VerifyDirectiveInput>()
-      .AddVerifyAliased<OptionDeclAst, VerifyOptionAliased>()
+      .AddVerifyAliased<IGqlpSchemaOption, VerifyOptionAliased>()
       // Schema Types
       .AddVerify<AstType[], VerifyAllTypes>()
       .AddVerifyAliased<AstType, VerifyAllTypesAliased>()

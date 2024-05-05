@@ -93,7 +93,7 @@ public static class TestMergeHelper
   private static ITokenMessages ErrorMessages => new TokenMessages(new TokenMessage(AstNulls.At, "Error!"));
 
   public static TTests CanMergeReturnsError<TTests, TResult>(this TTests tests, IMerge<TResult> merger)
-    where TResult : AstBase
+    where TResult : IGqlpError
   {
     merger?.CanMerge([]).ReturnsForAnyArgs(ErrorMessages);
 

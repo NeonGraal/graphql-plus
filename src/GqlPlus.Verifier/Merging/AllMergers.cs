@@ -20,7 +20,7 @@ public static class AllMergers
       .AddMerge<ConstantAst, MergeConstants>()
       .AddMerge<IGqlpSchemaCategory, MergeCategories>()
       .AddMerge<IGqlpSchemaDirective, MergeDirectives>()
-      .AddMerge<OptionDeclAst, MergeOptions>()
+      .AddMerge<IGqlpSchemaOption, MergeOptions>()
       .AddMerge<OptionSettingAst, MergeOptionSettings>()
       // Types
       .AddMerge<AstType, MergeAllTypes>()

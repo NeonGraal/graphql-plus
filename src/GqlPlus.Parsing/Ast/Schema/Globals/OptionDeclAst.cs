@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Globals;
 
-public sealed record class OptionDeclAst(
+internal sealed record class OptionDeclAst(
   TokenAt At,
   string Name,
   string Description

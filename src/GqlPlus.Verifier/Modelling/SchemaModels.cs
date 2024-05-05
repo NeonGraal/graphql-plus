@@ -151,10 +151,10 @@ internal class SchemaModeller(
 
     type.AddTypeKinds(types, typeKinds);
 
-    OptionDeclAst[] options = ast.Declarations.ArrayOf<OptionDeclAst>();
+    IGqlpSchemaOption[] options = ast.Declarations.ArrayOf<IGqlpSchemaOption>();
     string name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name ?? "";
     IEnumerable<string> aliases = options.SelectMany(a => a.Aliases);
-    IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings, typeKinds));
+    IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings.ArrayOf<OptionSettingAst>(), typeKinds));
 
     return new(name,
         DeclarationModel(ast, category, typeKinds),

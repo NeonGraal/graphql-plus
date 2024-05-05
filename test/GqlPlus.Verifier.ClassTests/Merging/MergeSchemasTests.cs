@@ -43,14 +43,14 @@ public class MergeSchemasTests
   private readonly MergeSchemas _merger;
   private readonly IMerge<IGqlpSchemaCategory> _categories;
   private readonly IMerge<IGqlpSchemaDirective> _directives;
-  private readonly IMerge<OptionDeclAst> _options;
+  private readonly IMerge<IGqlpSchemaOption> _options;
   private readonly IMerge<AstType> _astTypes;
 
   public MergeSchemasTests()
   {
     _categories = Merger<IGqlpSchemaCategory>();
     _directives = Merger<IGqlpSchemaDirective>();
-    _options = Merger<OptionDeclAst>();
+    _options = Merger<IGqlpSchemaOption>();
     _astTypes = Merger<AstType>();
 
     _merger = new(_categories, _directives, _options, _astTypes);

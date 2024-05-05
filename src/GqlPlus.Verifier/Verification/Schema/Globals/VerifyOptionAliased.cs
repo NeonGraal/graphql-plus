@@ -1,20 +1,20 @@
-﻿using GqlPlus.Ast.Schema.Globals;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema.Globals;
 
 internal class VerifyOptionAliased(
-  IVerify<OptionDeclAst> definition,
-  IMerge<OptionDeclAst> merger,
+  IVerify<IGqlpSchemaOption> definition,
+  IMerge<IGqlpSchemaOption> merger,
   ILoggerFactory logger
-) : AliasedVerifier<OptionDeclAst>(definition, merger, logger)
+) : AliasedVerifier<IGqlpSchemaOption>(definition, merger, logger)
 {
   public override string Label => "Options";
 
-  public override void Verify(OptionDeclAst[] item, ITokenMessages errors)
+  public override void Verify(IGqlpSchemaOption[] item, ITokenMessages errors)
   {
     if (item.Select(i => i.Name).Distinct().Count() > 1) {
-      errors.Add(item.Last().Error($"Multiple Schema names ({Label}) found."));
+      errors.Add(item.Last().MakeError($"Multiple Schema names ({Label}) found."));
     }
 
     base.Verify(item, errors);

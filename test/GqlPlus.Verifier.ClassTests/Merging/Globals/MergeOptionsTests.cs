@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using Xunit.Abstractions;
@@ -6,7 +7,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Globals;
 
 public class MergeOptionsTests
-  : TestAliased<OptionDeclAst>
+  : TestAliased<IGqlpSchemaOption>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSettingsCantMerge_ReturnsErrors(string name, string[] settings)
@@ -40,8 +41,8 @@ public class MergeOptionsTests
 
   protected override bool SkipDifferentNames => true;
 
-  internal override GroupsMerger<OptionDeclAst> MergerGroups => _merger;
+  internal override GroupsMerger<IGqlpSchemaOption> MergerGroups => _merger;
 
-  protected override OptionDeclAst MakeAliased(string name, string[] aliases, string description = "")
-    => new(AstNulls.At, name, description) { Aliases = aliases };
+  protected override IGqlpSchemaOption MakeAliased(string name, string[] aliases, string description = "")
+    => new OptionDeclAst(AstNulls.At, name, description) { Aliases = aliases };
 }

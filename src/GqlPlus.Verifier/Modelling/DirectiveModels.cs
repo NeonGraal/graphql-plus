@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -40,15 +40,15 @@ public record class DirectiveModel(
 
 internal class DirectiveModeller(
   IModeller<ParameterAst, ParameterModel> parameter
-) : ModellerBase<DirectiveDeclAst, DirectiveModel>
+) : ModellerBase<IGqlpSchemaDirective, DirectiveModel>
 {
-  protected override DirectiveModel ToModel(DirectiveDeclAst ast, IMap<TypeKindModel> typeKinds)
+  protected override DirectiveModel ToModel(IGqlpSchemaDirective ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
-      Aliases = ast.Aliases,
+      Aliases = [.. ast.Aliases],
       Description = ast.Description,
-      Repeatable = ast.Option == DirectiveOption.Repeatable,
+      Repeatable = ast.DirectiveOption == DirectiveOption.Repeatable,
       Locations = ast.Locations,
-      Parameters = parameter.ToModels(ast.Parameters, typeKinds),
+      Parameters = parameter.ToModels(ast.Parameters.ArrayOf<ParameterAst>(), typeKinds),
     };
 
   internal static DirectiveLocation Combine(DirectiveLocation[] values)

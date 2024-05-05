@@ -116,7 +116,7 @@ public static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       IMerge<TGroup> merger)
-    where TGroup : AstBase
+    where TGroup : IGqlpError
   {
     ArgumentNullException.ThrowIfNull(merger);
 

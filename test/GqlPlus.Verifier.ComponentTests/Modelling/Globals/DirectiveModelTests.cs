@@ -5,7 +5,7 @@ using GqlPlus.Rendering;
 namespace GqlPlus.Modelling.Globals;
 
 public class DirectiveModelTests(
-  IModeller<DirectiveDeclAst, DirectiveModel> modeller
+  IModeller<IGqlpSchemaDirective, DirectiveModel> modeller
 ) : TestAliasedModel<string>
 {
   [Theory, RepeatData(Repeats)]
@@ -60,8 +60,8 @@ public class DirectiveModelTests(
 }
 
 internal sealed class DirectiveModelChecks(
-  IModeller<DirectiveDeclAst, DirectiveModel> modeller
-) : CheckAliasedModel<string, DirectiveDeclAst, DirectiveModel>(modeller)
+  IModeller<IGqlpSchemaDirective, DirectiveModel> modeller
+) : CheckAliasedModel<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel>(modeller)
 {
   protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)
     => ExpectedDirective(new(input));

@@ -6,7 +6,7 @@ namespace GqlPlus.Merging;
 
 internal class MergeSchemas(
   IMerge<IGqlpSchemaCategory> categoryMerger,
-  IMerge<DirectiveDeclAst> directiveMerger,
+  IMerge<IGqlpSchemaDirective> directiveMerger,
   IMerge<OptionDeclAst> optionMerger,
   IMerge<AstType> astTypeMerger
 ) : GroupsMerger<IGqlpSchema>
@@ -38,12 +38,12 @@ internal class MergeSchemas(
   protected override IGqlpSchema MergeGroup(IEnumerable<IGqlpSchema> group)
   {
     IEnumerable<IGqlpSchemaCategory> categories = Just<IGqlpSchemaCategory>(group);
-    IEnumerable<DirectiveDeclAst> directives = Just<DirectiveDeclAst>(group);
+    IEnumerable<IGqlpSchemaDirective> directives = Just<IGqlpSchemaDirective>(group);
     IEnumerable<OptionDeclAst> options = Just<OptionDeclAst>(group);
     IEnumerable<AstType> astTypes = Just<AstType>(group);
 
     IEnumerable<AstDeclaration> declarations = categoryMerger.Merge(categories).Cast<AstDeclaration>()
-      .Concat(directiveMerger.Merge(directives))
+      .Concat(directiveMerger.Merge(directives).Cast<AstDeclaration>())
       .Concat(optionMerger.Merge(options))
       .Concat(astTypeMerger.Merge(astTypes));
 

@@ -1,16 +1,16 @@
-﻿using GqlPlus.Ast.Schema.Globals;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Verification.Schema.Globals;
 
 internal class VerifyDirectiveInput(
-  IVerifyAliased<DirectiveDeclAst> aliased
-) : UsageVerifier<DirectiveDeclAst, InputDeclAst, UsageContext>(aliased)
+  IVerifyAliased<IGqlpSchemaDirective> aliased
+) : UsageVerifier<IGqlpSchemaDirective, InputDeclAst, UsageContext>(aliased)
 {
-  protected override UsageContext MakeContext(DirectiveDeclAst usage, InputDeclAst[] aliased, ITokenMessages errors)
+  protected override UsageContext MakeContext(IGqlpSchemaDirective usage, InputDeclAst[] aliased, ITokenMessages errors)
     => MakeUsageContext(aliased, errors);
 
-  protected override void UsageValue(DirectiveDeclAst usage, UsageContext context)
+  protected override void UsageValue(IGqlpSchemaDirective usage, UsageContext context)
   {
     foreach (Ast.Schema.ParameterAst parameter in usage.Parameters) {
       if (!context.GetType(parameter.Type.FullName, out Ast.Schema.AstDescribed? _)) {

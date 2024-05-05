@@ -134,7 +134,7 @@ public record class NamedModel(
 
 internal class SchemaModeller(
   IModeller<IGqlpSchemaCategory, CategoryModel> category,
-  IModeller<DirectiveDeclAst, DirectiveModel> directive,
+  IModeller<IGqlpSchemaDirective, DirectiveModel> directive,
   IModeller<OptionSettingAst, SettingModel> setting,
   ITypesModeller type
 ) : ModellerBase<IGqlpSchema, SchemaModel>

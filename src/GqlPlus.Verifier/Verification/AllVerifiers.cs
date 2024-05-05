@@ -27,8 +27,8 @@ public static class AllVerifiers
       .AddVerify<IGqlpSchema, VerifySchema>()
       .AddVerifyAliased<IGqlpSchemaCategory, VerifyCategoryAliased>()
       .AddVerifyUsageAliased<IGqlpSchemaCategory, OutputDeclAst, VerifyCategoryOutput>()
-      .AddVerifyAliased<DirectiveDeclAst, VerifyDirectiveAliased>()
-      .AddVerifyUsageAliased<DirectiveDeclAst, InputDeclAst, VerifyDirectiveInput>()
+      .AddVerifyAliased<IGqlpSchemaDirective, VerifyDirectiveAliased>()
+      .AddVerifyUsageAliased<IGqlpSchemaDirective, InputDeclAst, VerifyDirectiveInput>()
       .AddVerifyAliased<OptionDeclAst, VerifyOptionAliased>()
       // Schema Types
       .AddVerify<AstType[], VerifyAllTypes>()

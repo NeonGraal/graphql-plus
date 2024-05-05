@@ -10,7 +10,7 @@ internal abstract partial class GroupedVerifier<TAliased>(
 ) : IVerifyAliased<TAliased>
  where TAliased : IGqlpAliased
 {
-#pragma warning disable CA1823 // Avoid unused private fields
+#pragma warning disable CA1823 // Avoid unused private fields - DO NOT DELETE
   private readonly ILogger _logger = logger.CreateLogger(nameof(GroupedVerifier<TAliased>));
 
   public abstract string Label { get; }

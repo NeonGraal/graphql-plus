@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Globals;
 
-public sealed record class DirectiveDeclAst(
+internal sealed record class DirectiveDeclAst(
   TokenAt At,
   string Name,
   string Description

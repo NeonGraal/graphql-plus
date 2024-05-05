@@ -2,12 +2,12 @@
 
 namespace GqlPlus.Merging;
 
-#pragma warning disable CA1823 // Avoid unused private fields -- DO NOT DELETE
 internal abstract partial class DistinctMerger<TItem>(
   ILoggerFactory logger
 ) : GroupsMerger<TItem>
   where TItem : IGqlpError
 {
+#pragma warning disable CA1823 // Avoid unused private fields -- DO NOT DELETE
   private readonly ILogger _logger = logger.CreateLogger(nameof(DistinctMerger<TItem>));
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)

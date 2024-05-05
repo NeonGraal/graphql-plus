@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Globals;
 
 public class MergeDirectivesTests
-  : TestAliased<DirectiveDeclAst>
+  : TestAliased<IGqlpSchemaDirective>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameOption_ReturnsGood(string name)
@@ -57,8 +57,8 @@ public class MergeDirectivesTests
     _merger = new(outputHelper.ToLoggerFactory(), _parameters);
   }
 
-  internal override GroupsMerger<DirectiveDeclAst> MergerGroups => _merger;
+  internal override GroupsMerger<IGqlpSchemaDirective> MergerGroups => _merger;
 
-  protected override DirectiveDeclAst MakeAliased(string name, string[] aliases, string description = "")
-    => new(AstNulls.At, name, description) { Aliases = aliases };
+  protected override IGqlpSchemaDirective MakeAliased(string name, string[] aliases, string description = "")
+    => new DirectiveDeclAst(AstNulls.At, name, description) { Aliases = aliases };
 }

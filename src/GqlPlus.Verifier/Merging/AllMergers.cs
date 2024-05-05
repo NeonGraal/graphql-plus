@@ -23,12 +23,12 @@ public static class AllMergers
       .AddMerge<IGqlpSchemaOption, MergeOptions>()
       .AddMerge<OptionSettingAst, MergeOptionSettings>()
       // Types
-      .AddMerge<AstType, MergeAllTypes>()
-      .AddMergeAll<EnumDeclAst, AstType, MergeEnums>()
+      .AddMerge<IGqlpType, MergeAllTypes>()
+      .AddMergeAll<EnumDeclAst, IGqlpType, MergeEnums>()
       .AddMerge<EnumMemberAst, MergeEnumMembers>()
-      .AddMergeAll<AstDomain, AstType, MergeAllDomains>()
+      .AddMergeAll<AstDomain, IGqlpType, MergeAllDomains>()
       .AddMerge<UnionMemberAst, MergeUnionMembers>()
-      .AddMergeAll<UnionDeclAst, AstType, MergeUnions>()
+      .AddMergeAll<UnionDeclAst, IGqlpType, MergeUnions>()
       .AddMergeDomain<DomainTrueFalseAst>()
       .AddMergeDomain<DomainMemberAst>()
       .AddMergeDomain<DomainRangeAst>()
@@ -42,13 +42,13 @@ public static class AllMergers
       .AddMerge<TypeParameterAst, MergeTypeParameters>()
       .AddMerge<AstAlternate<DualBaseAst>, AlternatesMerger<DualBaseAst>>()
       .AddMerge<DualFieldAst, MergeDualFields>()
-      .AddMergeAll<DualDeclAst, AstType, MergeDualObjects>()
+      .AddMergeAll<DualDeclAst, IGqlpType, MergeDualObjects>()
       .AddMerge<AstAlternate<InputBaseAst>, AlternatesMerger<InputBaseAst>>()
       .AddMerge<InputFieldAst, MergeInputFields>()
-      .AddMergeAll<InputDeclAst, AstType, MergeInputObjects>()
+      .AddMergeAll<InputDeclAst, IGqlpType, MergeInputObjects>()
       .AddMerge<AstAlternate<OutputBaseAst>, AlternatesMerger<OutputBaseAst>>()
       .AddMerge<OutputFieldAst, MergeOutputFields>()
-      .AddMergeAll<OutputDeclAst, AstType, MergeOutputObjects>()
+      .AddMergeAll<OutputDeclAst, IGqlpType, MergeOutputObjects>()
     ;
 
   public static IServiceCollection AddMerge<TValue, TService>(this IServiceCollection services)
@@ -60,7 +60,7 @@ public static class AllMergers
 
   public static IServiceCollection AddMergeAll<TAst, TType, TService>(this IServiceCollection services)
     where TAst : AstBase
-    where TType : AstType
+    where TType : IGqlpType
     where TService : class, IMergeAll<TType>, IMerge<TAst>
     => services
       .RemoveAll<IMerge<TAst>>()

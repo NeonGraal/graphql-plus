@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 
@@ -12,9 +12,9 @@ internal class VerifyEnumTypes(
   protected override IEnumerable<EnumMemberAst> GetItems(EnumDeclAst usage)
     => usage.Members;
 
-  protected override string GetParent(AstType<string> usage)
+  protected override string GetParent(IGqlpType<string> usage)
     => usage.Parent ?? "";
 
-  protected override UsageContext MakeContext(EnumDeclAst usage, AstType[] aliased, ITokenMessages errors)
+  protected override UsageContext MakeContext(EnumDeclAst usage, IGqlpType[] aliased, ITokenMessages errors)
     => MakeUsageContext(aliased, errors);
 }

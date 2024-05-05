@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
@@ -13,10 +14,10 @@ internal class VerifyUnionTypes(
   protected override IEnumerable<UnionMemberAst> GetItems(UnionDeclAst usage)
     => usage.Members;
 
-  protected override string GetParent(AstType<string> usage)
+  protected override string GetParent(IGqlpType<string> usage)
     => usage.Parent ?? "";
 
-  protected override UsageContext MakeContext(UnionDeclAst usage, AstType[] aliased, ITokenMessages errors)
+  protected override UsageContext MakeContext(UnionDeclAst usage, IGqlpType[] aliased, ITokenMessages errors)
     => MakeUsageContext(aliased, errors);
 
   protected override void UsageValue(UnionDeclAst usage, UsageContext context)
@@ -44,7 +45,7 @@ internal class VerifyUnionTypes(
     if (member.Name == name) {
       context.AddError(member, "Union Member", $"'{name}' cannot refer to " + (checkType is null ? "self, even recursively" : "self"));
       return false;
-    } else if (context.GetType(member.Name, out AstDescribed? alternate) && alternate is AstType type) {
+    } else if (context.GetType(member.Name, out IGqlpDescribed? alternate) && alternate is AstType type) {
       if (type is UnionDeclAst typeUnion) {
         CheckSelfMember(name, typeUnion, context);
       } else {
@@ -72,7 +73,7 @@ internal class VerifyUnionTypes(
   {
     parent = null;
 
-    if (usage.Parent != name && context.GetType(usage.Parent, out AstDescribed? parentType) && parentType is UnionDeclAst usageParent) {
+    if (usage.Parent != name && context.GetType(usage.Parent, out IGqlpDescribed? parentType) && parentType is UnionDeclAst usageParent) {
       parent = usageParent;
     }
 

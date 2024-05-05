@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
@@ -9,7 +8,7 @@ internal class AstObjectsMerger<TObject, TObjField, TObjBase>(
   IMerge<TObjField> fields,
   IMerge<TypeParameterAst> typeParameters,
   IMerge<AstAlternate<TObjBase>> alternates
-) : AstTypeMerger<AstType, TObject, TObjBase, TObjField>(logger, fields)
+) : AstTypeMerger<IGqlpType, TObject, TObjBase, TObjField>(logger, fields)
   where TObject : AstObject<TObjField, TObjBase>
   where TObjField : AstObjectField<TObjBase>, IGqlpDescribed
   where TObjBase : AstObjectBase<TObjBase>

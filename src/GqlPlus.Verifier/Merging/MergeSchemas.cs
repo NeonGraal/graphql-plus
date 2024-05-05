@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Merging;
 
@@ -8,7 +7,7 @@ internal class MergeSchemas(
   IMerge<IGqlpSchemaCategory> categoryMerger,
   IMerge<IGqlpSchemaDirective> directiveMerger,
   IMerge<IGqlpSchemaOption> optionMerger,
-  IMerge<AstType> astTypeMerger
+  IMerge<IGqlpType> astTypeMerger
 ) : GroupsMerger<IGqlpSchema>
 {
   protected override string ItemGroupKey(IGqlpSchema item)
@@ -16,15 +15,15 @@ internal class MergeSchemas(
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpSchema> group)
   {
-    IEnumerable<IGqlpSchemaCategory> categories = Just<IGqlpSchemaCategory>(group);
-    IEnumerable<IGqlpSchemaDirective> directives = Just<IGqlpSchemaDirective>(group);
-    IEnumerable<IGqlpSchemaOption> options = Just<OptionDeclAst>(group);
-    IEnumerable<AstType> astTypes = Just<AstType>(group);
+    IGqlpSchemaCategory[] categories = Just<IGqlpSchemaCategory>(group);
+    IGqlpSchemaDirective[] directives = Just<IGqlpSchemaDirective>(group);
+    IGqlpSchemaOption[] options = Just<IGqlpSchemaOption>(group);
+    IGqlpType[] astTypes = Just<IGqlpType>(group);
 
-    ITokenMessages categoriesCanMerge = categories.Any() ? categoryMerger.CanMerge(categories) : new TokenMessages();
-    ITokenMessages directivesCanMerge = directives.Any() ? directiveMerger.CanMerge(directives) : new TokenMessages();
-    ITokenMessages optionsCanMerge = options.Any() ? optionMerger.CanMerge(options) : new TokenMessages();
-    ITokenMessages astTypesCanMerge = astTypes.Any() ? astTypeMerger.CanMerge(astTypes) : new TokenMessages();
+    ITokenMessages categoriesCanMerge = categories.Length > 0 ? categoryMerger.CanMerge(categories) : new TokenMessages();
+    ITokenMessages directivesCanMerge = directives.Length > 0 ? directiveMerger.CanMerge(directives) : new TokenMessages();
+    ITokenMessages optionsCanMerge = options.Length > 0 ? optionMerger.CanMerge(options) : new TokenMessages();
+    ITokenMessages astTypesCanMerge = astTypes.Length > 0 ? astTypeMerger.CanMerge(astTypes) : new TokenMessages();
 
     return categoriesCanMerge
       .Add(directivesCanMerge)
@@ -32,20 +31,22 @@ internal class MergeSchemas(
       .Add(astTypesCanMerge);
   }
 
-  private static IEnumerable<TItem> Just<TItem>(IEnumerable<IGqlpSchema> group)
-    => group.SelectMany(item => item.Declarations.OfType<TItem>());
+  private static TItem[] Just<TItem>(IEnumerable<IGqlpSchema> group)
+    => group.SelectMany(item => item.Declarations.OfType<TItem>()).ToArray();
 
   protected override IGqlpSchema MergeGroup(IEnumerable<IGqlpSchema> group)
   {
-    IEnumerable<IGqlpSchemaCategory> categories = Just<IGqlpSchemaCategory>(group);
-    IEnumerable<IGqlpSchemaDirective> directives = Just<IGqlpSchemaDirective>(group);
-    IEnumerable<IGqlpSchemaOption> options = Just<IGqlpSchemaOption>(group);
-    IEnumerable<AstType> astTypes = Just<AstType>(group);
+    IGqlpSchemaCategory[] categories = Just<IGqlpSchemaCategory>(group);
+    IGqlpSchemaDirective[] directives = Just<IGqlpSchemaDirective>(group);
+    IGqlpSchemaOption[] options = Just<IGqlpSchemaOption>(group);
+    IGqlpType[] astTypes = Just<IGqlpType>(group);
 
-    IEnumerable<AstDeclaration> declarations = categoryMerger.Merge(categories).Cast<AstDeclaration>()
-      .Concat(directiveMerger.Merge(directives).Cast<AstDeclaration>())
-      .Concat(optionMerger.Merge(options).Cast<AstDeclaration>())
-      .Concat(astTypeMerger.Merge(astTypes));
+    IEnumerable<AstDeclaration> declarations = categoryMerger
+      .Merge(categories).Cast<IGqlpDeclaration>()
+      .Concat(directiveMerger.Merge(directives))
+      .Concat(optionMerger.Merge(options))
+      .Concat(astTypeMerger.Merge(astTypes))
+      .Cast<AstDeclaration>();
 
     SchemaAst ast = (SchemaAst)group.First();
 

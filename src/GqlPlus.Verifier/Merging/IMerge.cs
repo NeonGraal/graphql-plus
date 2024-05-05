@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Merging;
 
@@ -11,5 +11,5 @@ public interface IMerge<TItem>
 
 public interface IMergeAll<TItem>
   : IMerge<TItem>
-  where TItem : AstType
+  where TItem : IGqlpType
 { }

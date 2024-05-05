@@ -1,5 +1,5 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging;
 
@@ -12,11 +12,11 @@ internal class VerifyDualTypes(
   ILoggerFactory logger
 ) : AstObjectVerifier<DualDeclAst, DualFieldAst, DualBaseAst, UsageContext>(aliased, fields, mergeAlternates, logger)
 {
-  protected override UsageContext MakeContext(DualDeclAst usage, AstType[] aliased, ITokenMessages errors)
+  protected override UsageContext MakeContext(DualDeclAst usage, IGqlpType[] aliased, ITokenMessages errors)
   {
-    Map<AstDescribed> validTypes = aliased.AliasedGroup()
-      .Select(p => (Id: p.Key, Type: (AstDescribed)p.First()))
-      .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (AstDescribed)p)))
+    Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
+      .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))
+      .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);
 
     return new(validTypes, errors);

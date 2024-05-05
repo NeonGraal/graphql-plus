@@ -1,12 +1,12 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema;
 
 internal class VerifyAllTypesAliased(
-  IMerge<AstType> merger,
+  IMerge<IGqlpType> merger,
   ILoggerFactory logger
-) : GroupedVerifier<AstType>(merger, logger)
+) : GroupedVerifier<IGqlpType>(merger, logger)
 {
   public override string Label => "Types";
 }

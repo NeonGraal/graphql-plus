@@ -8,14 +8,8 @@ public abstract record class AstType(
   string Name,
   string Description
 ) : AstDeclaration(At, Name, Description)
-  , IAstType
+  , IGqlpType
 { }
-
-public interface IAstType
-{
-  string Name { get; }
-  string Label { get; }
-}
 
 public abstract record class AstType<TParent>(
   TokenAt At,

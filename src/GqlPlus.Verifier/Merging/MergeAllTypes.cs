@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Ast.Schema.Simple;
 
@@ -6,20 +6,20 @@ namespace GqlPlus.Merging;
 
 internal class MergeAllTypes(
   ILoggerFactory logger,
-  IEnumerable<IMergeAll<AstType>> types
-) : AllMerger<AstType>(logger, types)
+  IEnumerable<IMergeAll<IGqlpType>> types
+) : AllMerger<IGqlpType>(logger, types)
 {
   protected override string ItemMatchName => "Type";
-  protected override string ItemMatchKey(AstType item) => item.Label;
+  protected override string ItemMatchKey(IGqlpType item) => item.Label;
 
-  public override ITokenMessages CanMerge(IEnumerable<AstType> items)
+  public override ITokenMessages CanMerge(IEnumerable<IGqlpType> items)
   {
     FixupEnums(items);
 
     return base.CanMerge(items);
   }
 
-  public override IEnumerable<AstType> Merge(IEnumerable<AstType> items)
+  public override IEnumerable<IGqlpType> Merge(IEnumerable<IGqlpType> items)
   {
     if (items is null) {
       return [];
@@ -30,7 +30,7 @@ internal class MergeAllTypes(
     return base.Merge(items);
   }
 
-  private static void FixupEnums(IEnumerable<AstType> items)
+  private static void FixupEnums(IEnumerable<IGqlpType> items)
   {
     Map<string> enumValues = GetEnumValues(
       BuiltIn.Basic.OfType<EnumDeclAst>()

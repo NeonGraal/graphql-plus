@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Ast.Schema;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Verification.Schema;
 
 public class EnumContext(
-  IMap<AstDescribed> types,
+  IMap<IGqlpDescribed> types,
   ITokenMessages errors,
   IMap<string> enumValues
 ) : UsageContext(types, errors)
@@ -16,7 +16,7 @@ public class EnumContext(
   internal bool GetEnumType(string? name, [NotNullWhen(true)] out EnumDeclAst? enumType)
   {
     enumType = null;
-    if (GetType(name, out AstDescribed? theType)) {
+    if (GetType(name, out IGqlpDescribed? theType)) {
       enumType = theType as EnumDeclAst;
     }
 
@@ -39,7 +39,7 @@ public class EnumContext(
 
 public static class EnumContextHelper
 {
-  public static IMap<string> MakeEnumValues(this AstType[] aliased)
+  public static IMap<string> MakeEnumValues(this IGqlpType[] aliased)
   {
     IEnumerable<IGrouping<string, string>> enums = aliased
         .OfType<EnumDeclAst>()

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging;
 
@@ -56,7 +57,7 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
       .CheckType(field.Type, " Field")
       .CheckModifiers(field);
 
-  protected override string GetParent(AstType<TObjBase> usage)
+  protected override string GetParent(IGqlpType<TObjBase> usage)
     => usage.Parent?.FullName ?? "";
 
   protected override void CheckParentType(
@@ -102,7 +103,7 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
   private void CheckAlternate(ParentUsage<TObject> input, string current, TContext context, bool top)
   {
     if (context.DifferentName(input, top ? null : current)
-      && context.GetType(input.Parent, out AstDescribed? type)
+      && context.GetType(input.Parent, out IGqlpDescribed? type)
       && type is TObject alternateType) {
       CheckParent(input, alternateType, context, false);
 

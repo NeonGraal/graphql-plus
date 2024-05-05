@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Merging.Simple;
@@ -6,7 +6,7 @@ namespace GqlPlus.Merging.Simple;
 internal class MergeUnions(
   ILoggerFactory logger,
   IMerge<UnionMemberAst> unionMembers
-) : AstTypeMerger<AstType, UnionDeclAst, string, UnionMemberAst>(logger, unionMembers)
+) : AstTypeMerger<IGqlpType, UnionDeclAst, string, UnionMemberAst>(logger, unionMembers)
 {
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(UnionDeclAst item)

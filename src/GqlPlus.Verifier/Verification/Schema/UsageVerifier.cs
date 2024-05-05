@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verification.Schema;
 
@@ -8,7 +7,7 @@ internal abstract class UsageVerifier<TUsage, TAliased, TContext>(
   IVerifyAliased<TUsage> aliased
 ) : IVerifyUsage<TUsage, TAliased>
   where TUsage : IGqlpAliased
-  where TAliased : AstAliased
+  where TAliased : IGqlpAliased
   where TContext : UsageContext
 {
   protected abstract void UsageValue(TUsage usage, TContext context);
@@ -26,7 +25,7 @@ internal abstract class UsageVerifier<TUsage, TAliased, TContext>(
 
   protected static UsageContext MakeUsageContext(TAliased[] aliased, ITokenMessages errors)
     => new(
-      aliased.AliasedMap(p => (AstDescribed)p.First())
+      aliased.AliasedMap(p => (IGqlpDescribed)p.First())
       , errors);
 }
 
@@ -35,10 +34,10 @@ public record class UsageAliased<TUsage, TAliased>(
   TAliased[] Definitions
 )
   where TUsage : IGqlpError
-  where TAliased : AstAliased;
+  where TAliased : IGqlpAliased;
 
 public interface IVerifyUsage<TUsage, TAliased>
   : IVerify<UsageAliased<TUsage, TAliased>>
   where TUsage : IGqlpError
-  where TAliased : AstAliased
+  where TAliased : IGqlpAliased
 { }

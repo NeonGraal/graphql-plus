@@ -1,10 +1,10 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Verification.Schema.Objects;
 
 internal class OutputContext(
-  IMap<AstDescribed> types,
+  IMap<IGqlpDescribed> types,
   ITokenMessages errors,
   IMap<string> enumValues
 ) : EnumContext(types, errors, enumValues)

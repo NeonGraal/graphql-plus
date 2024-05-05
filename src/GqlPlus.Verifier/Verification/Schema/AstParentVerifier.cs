@@ -1,12 +1,13 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Verification.Schema;
 
 internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   IVerifyAliased<TAst> aliased
-) : UsageVerifier<TAst, AstType, TContext>(aliased)
-  where TAst : AstType<TParent>
+) : UsageVerifier<TAst, IGqlpType, TContext>(aliased)
+  where TAst : class, IGqlpType<TParent>
   where TParent : IEquatable<TParent>
   where TContext : UsageContext
 {
@@ -29,7 +30,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     bool top,
     Action<TAst>? onParent = null)
   {
-    if (context.GetType(input.Parent, out AstDescribed? defined)) {
+    if (context.GetType(input.Parent, out IGqlpDescribed? defined)) {
       if (defined is AstType astType) {
         if (CheckAstParentType(input, astType)) {
           TAst? parentType = astType as TAst;
@@ -53,7 +54,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   protected virtual bool CheckAstParent(TAst usage, [NotNullWhen(true)] TAst? parent, TContext context)
     => parent is not null;
 
-  protected void CheckParent(ParentUsage<TAst> input, AstType<TParent> child, TContext context, bool top)
+  protected void CheckParent(ParentUsage<TAst> input, IGqlpType<TParent> child, TContext context, bool top)
   {
     input = input.AddParent(GetParent(child));
     if (context.DifferentName(input, top ? null : child.Name)) {
@@ -71,6 +72,6 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     }
   }
 
-  protected abstract string GetParent(AstType<TParent> usage);
+  protected abstract string GetParent(IGqlpType<TParent> usage);
   protected abstract void CheckMergeParent(ParentUsage<TAst> input, TContext context);
 }

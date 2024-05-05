@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Verification.Operation;
@@ -30,24 +29,24 @@ public static class AllVerifiers
       .AddVerifyUsageAliased<IGqlpSchemaDirective, InputDeclAst, VerifyDirectiveInput>()
       .AddVerifyAliased<IGqlpSchemaOption, VerifyOptionAliased>()
       // Schema Types
-      .AddVerify<AstType[], VerifyAllTypes>()
-      .AddVerifyAliased<AstType, VerifyAllTypesAliased>()
+      .AddVerify<IGqlpType[], VerifyAllTypes>()
+      .AddVerifyAliased<IGqlpType, VerifyAllTypesAliased>()
       .AddVerifyAliased<EnumDeclAst, VerifyEnumsAliased>()
-      .AddVerifyUsageAliased<EnumDeclAst, AstType, VerifyEnumTypes>()
+      .AddVerifyUsageAliased<EnumDeclAst, IGqlpType, VerifyEnumTypes>()
       .AddVerifyAliased<DualDeclAst, VerifyDualsAliased>()
-      .AddVerifyUsageAliased<DualDeclAst, AstType, VerifyDualTypes>()
+      .AddVerifyUsageAliased<DualDeclAst, IGqlpType, VerifyDualTypes>()
       .AddVerifyAliased<InputDeclAst, VerifyInputsAliased>()
-      .AddVerifyUsageAliased<InputDeclAst, AstType, VerifyInputTypes>()
+      .AddVerifyUsageAliased<InputDeclAst, IGqlpType, VerifyInputTypes>()
       .AddVerifyAliased<OutputDeclAst, VerifyOutputsAliased>()
-      .AddVerifyUsageAliased<OutputDeclAst, AstType, VerifyOutputTypes>()
+      .AddVerifyUsageAliased<OutputDeclAst, IGqlpType, VerifyOutputTypes>()
       .AddVerifyAliased<AstDomain, VerifyDomainsAliased>()
-      .AddVerifyUsageAliased<AstDomain, AstType, VerifyDomainTypes>()
+      .AddVerifyUsageAliased<AstDomain, IGqlpType, VerifyDomainTypes>()
       .AddVerifyDomainContext<AstDomainVerifier<DomainTrueFalseAst>>()
       .AddVerifyDomainContext<VerifyDomainEnum>()
       .AddVerifyDomainContext<AstDomainVerifier<DomainRangeAst>>()
       .AddVerifyDomainContext<AstDomainVerifier<DomainRegexAst>>()
       .AddVerifyAliased<UnionDeclAst, VerifyUnionsAliased>()
-      .AddVerifyUsageAliased<UnionDeclAst, AstType, VerifyUnionTypes>()
+      .AddVerifyUsageAliased<UnionDeclAst, IGqlpType, VerifyUnionTypes>()
     ;
 
   public static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)
@@ -80,11 +79,11 @@ public static class AllVerifiers
   public static IServiceCollection AddVerifyUsageAliased<TUsage, TAliased, TService>(this IServiceCollection services)
     where TService : class, IVerifyUsage<TUsage, TAliased>
     where TUsage : IGqlpError
-    where TAliased : AstAliased
+    where TAliased : IGqlpAliased
     => services
       .AddSingleton<IVerifyUsage<TUsage, TAliased>, TService>()
       .TryAddVerify<TUsage, NullVerifierError<TUsage>>()
-      .TryAddVerify<TAliased, NullVerifier<TAliased>>();
+      .TryAddVerify<TAliased, NullVerifierError<TAliased>>();
 
   public static IServiceCollection AddVerifyDomainContext<TService>(this IServiceCollection services)
     where TService : class, IVerifyDomain

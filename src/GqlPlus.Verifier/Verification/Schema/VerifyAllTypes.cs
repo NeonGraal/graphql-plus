@@ -1,22 +1,22 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Verification.Schema;
 
 internal class VerifyAllTypes(
-  IVerifyUsage<DualDeclAst, AstType> dualAllTypes,
-  IVerifyUsage<EnumDeclAst, AstType> enumAllTypes,
-  IVerifyUsage<InputDeclAst, AstType> inputAllTypes,
-  IVerifyUsage<OutputDeclAst, AstType> outputAllTypes,
-  IVerifyUsage<AstDomain, AstType> domainAllTypes,
-  IVerifyUsage<UnionDeclAst, AstType> unionAllTypes
-) : IVerify<AstType[]>
+  IVerifyUsage<DualDeclAst, IGqlpType> dualAllTypes,
+  IVerifyUsage<EnumDeclAst, IGqlpType> enumAllTypes,
+  IVerifyUsage<InputDeclAst, IGqlpType> inputAllTypes,
+  IVerifyUsage<OutputDeclAst, IGqlpType> outputAllTypes,
+  IVerifyUsage<AstDomain, IGqlpType> domainAllTypes,
+  IVerifyUsage<UnionDeclAst, IGqlpType> unionAllTypes
+) : IVerify<IGqlpType[]>
 {
-  public void Verify(AstType[] item, ITokenMessages errors)
+  public void Verify(IGqlpType[] item, ITokenMessages errors)
   {
-    AstType[] allTypes = item.Concat(BuiltIn.Basic).Concat(BuiltIn.Internal).ToArray();
+    IGqlpType[] allTypes = [.. item, .. BuiltIn.Basic, .. BuiltIn.Internal];
 
     DualDeclAst[] dualTypes = allTypes.ArrayOf<DualDeclAst>();
     EnumDeclAst[] enumTypes = allTypes.ArrayOf<EnumDeclAst>();

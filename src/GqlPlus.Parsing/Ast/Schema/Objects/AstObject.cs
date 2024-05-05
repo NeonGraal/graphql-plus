@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -31,7 +32,8 @@ public abstract record class AstObject<TObjField, TObjBase>(
       .Concat(Alternates.Bracket("|"));
 }
 
-public interface IAstObject : IAstType
+public interface IAstObject
+  : IGqlpType
 {
   TypeParameterAst[] TypeParameters { get; }
 }

@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Merging;
 
@@ -6,7 +6,7 @@ internal abstract class AllMerger<TItem>(
   ILoggerFactory logger,
   IEnumerable<IMergeAll<TItem>> all
 ) : DistinctMerger<TItem>(logger)
-  where TItem : AstType
+  where TItem : IGqlpType
 {
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)
   {

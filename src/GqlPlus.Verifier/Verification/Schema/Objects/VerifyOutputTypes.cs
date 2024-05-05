@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging;
@@ -43,11 +44,11 @@ internal class VerifyOutputTypes(
     base.UsageField(field, context);
   }
 
-  protected override OutputContext MakeContext(OutputDeclAst usage, AstType[] aliased, ITokenMessages errors)
+  protected override OutputContext MakeContext(OutputDeclAst usage, IGqlpType[] aliased, ITokenMessages errors)
   {
-    Map<AstDescribed> validTypes = aliased.AliasedGroup()
-      .Select(p => (Id: p.Key, Type: (AstDescribed)p.First()))
-      .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (AstDescribed)p)))
+    Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
+      .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))
+      .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);
 
     return new(validTypes, errors, aliased.MakeEnumValues());

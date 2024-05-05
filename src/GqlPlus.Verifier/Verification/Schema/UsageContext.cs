@@ -1,12 +1,12 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Verification.Schema;
 
 public class UsageContext(
-  IMap<AstDescribed> types,
+  IMap<IGqlpDescribed> types,
   ITokenMessages errors
 )
 {
@@ -19,7 +19,7 @@ public class UsageContext(
       where TAst : IGqlpError
     => errors.Add(item.MakeError($"Invalid {label}. {message}."));
 
-  internal bool GetType(string? type, out AstDescribed? value)
+  internal bool GetType(string? type, out IGqlpDescribed? value)
   {
     if (types.TryGetValue(type ?? "", out value)) {
       Used.Add(type!);
@@ -35,7 +35,7 @@ public class UsageContext(
     => this.CheckType(type, labelSuffix);
 
   internal bool DifferentName<TAst>(ParentUsage<TAst> input, string? current)
-    where TAst : AstType
+    where TAst : IGqlpType
   {
     if (input.DifferentName) {
       return true;
@@ -52,7 +52,7 @@ public class UsageContext(
 }
 
 internal record struct ParentUsage<TAst>(List<string> Parents, TAst Usage, string Label)
-  where TAst : AstType
+  where TAst : IGqlpType
 {
   internal readonly string? Parent => Parents?.FirstOrDefault();
   internal readonly bool DifferentName => !Parents.Contains(Usage.Name);
@@ -73,7 +73,7 @@ internal static class UsageHelpers
   {
     foreach (ModifierAst modifier in modified.Modifiers) {
       if (modifier.Kind == ModifierKind.Dict) {
-        if (context.GetType(modifier.Key?.Text, out AstDescribed? key)) {
+        if (context.GetType(modifier.Key?.Text, out IGqlpDescribed? key)) {
           if (key is not AstSimple and not TypeParameterAst) {
             context.AddError((AstAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");
           }
@@ -90,7 +90,7 @@ internal static class UsageHelpers
     where TContext : UsageContext
     where TObjBase : AstObjectBase<TObjBase>
   {
-    if (context.GetType(type.FullName, out AstDescribed? value)) {
+    if (context.GetType(type.FullName, out IGqlpDescribed? value)) {
       int numArgs = type.Arguments.Length;
       if (value is IAstObject definition) {
         if (check && definition.Label != "Dual" && definition.Label != type.Label) {

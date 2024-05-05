@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging;
@@ -6,8 +7,9 @@ namespace GqlPlus.Merging;
 internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
   ILoggerFactory logger,
   IMerge<TItem> mergeItems
-) : AstAliasedMerger<TType>(logger), IMergeAll<TAst>
-  where TAst : AstType
+) : AstAliasedMerger<TType>(logger)
+  , IMergeAll<TAst>
+  where TAst : IGqlpType
   where TType : AstType<TParent>, TAst
   where TParent : IEquatable<TParent>
   where TItem : AstBase

@@ -17,8 +17,12 @@ public interface IGqlpDeclaration
   string Label { get; }
 }
 
-public interface IGqlpType<TParent>
+public interface IGqlpType
   : IGqlpDeclaration
+{ }
+
+public interface IGqlpType<TParent>
+  : IGqlpType
 {
   TParent? Parent { get; }
 }

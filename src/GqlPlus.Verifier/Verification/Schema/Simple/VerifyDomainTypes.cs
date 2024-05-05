@@ -1,5 +1,5 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Verification.Schema.Simple;
@@ -9,12 +9,12 @@ internal class VerifyDomainTypes(
   IEnumerable<IVerifyDomain> domains
 ) : AstParentVerifier<AstDomain, string, EnumContext>(aliased)
 {
-  protected override string GetParent(AstType<string> usage)
+  protected override string GetParent(IGqlpType<string> usage)
     => usage.Parent ?? "";
 
-  protected override EnumContext MakeContext(AstDomain usage, AstType[] aliased, ITokenMessages errors)
+  protected override EnumContext MakeContext(AstDomain usage, IGqlpType[] aliased, ITokenMessages errors)
   {
-    IMap<AstDescribed> validTypes = aliased.AliasedMap(p => (AstDescribed)p.First());
+    IMap<IGqlpDescribed> validTypes = aliased.AliasedMap(p => (IGqlpDescribed)p.First());
 
     return new(validTypes, errors, aliased.MakeEnumValues());
   }

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using GqlPlus.Ast.Schema;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast;
 
@@ -123,7 +123,7 @@ public static class AstExtensions
     => new(items.Distinct().ToDictionary(key, value));
 
   public static IEnumerable<IGrouping<string, TAliased>> AliasedGroup<TAliased>(this TAliased[] items)
-    where TAliased : AstAliased
+    where TAliased : IGqlpAliased
   {
     HashSet<string> names = items.Select(d => d.Name).Distinct().ToHashSet();
 
@@ -134,7 +134,7 @@ public static class AstExtensions
   }
 
   public static IMap<TResult> AliasedMap<TAliased, TResult>(this TAliased[] items, Func<IEnumerable<TAliased>, TResult> element)
-    where TAliased : AstAliased
+    where TAliased : IGqlpAliased
     => AliasedGroup(items)
       .ToMap(g => g.Key, g => element(g));
 }

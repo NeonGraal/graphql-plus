@@ -6,5 +6,5 @@ internal class MergeDomainTrueFalse
   : BaseMerger<DomainTrueFalseAst>
 {
   public override ITokenMessages CanMerge(IEnumerable<DomainTrueFalseAst> items)
-    => new TokenMessages();
+    => Messages();
 }

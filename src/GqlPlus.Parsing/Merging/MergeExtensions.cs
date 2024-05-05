@@ -2,6 +2,7 @@
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Result;
+using GqlPlus.Token;
 
 namespace GqlPlus.Merging;
 
@@ -31,7 +32,7 @@ public static class MergeExtensions
       }
 
       if (!result.Equals(value, StringComparison.Ordinal)) {
-        return new TokenMessages(item.MakeError($"Different values merging {fieldExpr}: {result} != {value}"));
+        return item.MakeError($"Different values merging {fieldExpr}: {result} != {value}");
       }
     }
 
@@ -62,7 +63,7 @@ public static class MergeExtensions
       }
 
       if (!result.Equals(value)) {
-        return new TokenMessages(item.MakeError($"Different values merging {fieldExpr}: {result} != {value}"));
+        return item.MakeError($"Different values merging {fieldExpr}: {result} != {value}");
       }
     }
 
@@ -105,7 +106,7 @@ public static class MergeExtensions
       }
 
       if (result != value) {
-        return new TokenMessages(item.Error($"Different values merging {fieldExpr}: {result} != {value}"));
+        return item.MakeError($"Different values merging {fieldExpr}: {result} != {value}");
       }
     }
 

@@ -20,10 +20,10 @@ internal class MergeSchemas(
     IGqlpSchemaOption[] options = Just<IGqlpSchemaOption>(group);
     IGqlpType[] astTypes = Just<IGqlpType>(group);
 
-    ITokenMessages categoriesCanMerge = categories.Length > 0 ? categoryMerger.CanMerge(categories) : new TokenMessages();
-    ITokenMessages directivesCanMerge = directives.Length > 0 ? directiveMerger.CanMerge(directives) : new TokenMessages();
-    ITokenMessages optionsCanMerge = options.Length > 0 ? optionMerger.CanMerge(options) : new TokenMessages();
-    ITokenMessages astTypesCanMerge = astTypes.Length > 0 ? astTypeMerger.CanMerge(astTypes) : new TokenMessages();
+    ITokenMessages categoriesCanMerge = categories.Length > 0 ? categoryMerger.CanMerge(categories) : Messages();
+    ITokenMessages directivesCanMerge = directives.Length > 0 ? directiveMerger.CanMerge(directives) : Messages();
+    ITokenMessages optionsCanMerge = options.Length > 0 ? optionMerger.CanMerge(options) : Messages();
+    ITokenMessages astTypesCanMerge = astTypes.Length > 0 ? astTypeMerger.CanMerge(astTypes) : Messages();
 
     return categoriesCanMerge
       .Add(directivesCanMerge)

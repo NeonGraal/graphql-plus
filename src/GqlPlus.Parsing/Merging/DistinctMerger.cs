@@ -14,15 +14,15 @@ internal abstract partial class DistinctMerger<TItem>(
   {
     IEnumerable<string> distinct = group.Select(ItemMatchKey).Distinct();
     if (distinct.Count() == 1) {
-      return new TokenMessages();
+      return Messages();
     }
 
     string typeName = typeof(TItem).ExpandTypeName();
     string values = distinct.Debug();
     GroupNotSingular(typeName, group.Key, ItemMatchName, values);
 
-    return new TokenMessages(group.Last()
-        .MakeError($"Group of {typeName} for {group.Key} is not singular {ItemMatchName}[{values}]"));
+    return group.Last()
+        .MakeError($"Group of {typeName} for {group.Key} is not singular {ItemMatchName}[{values}]");
   }
 
   [LoggerMessage(LogLevel.Warning, Message = "Group of {Type} for {Key} is not singular {ItemMatchName}[{Values}]")]

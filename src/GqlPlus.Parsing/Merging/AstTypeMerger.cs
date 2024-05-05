@@ -33,7 +33,7 @@ internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
   {
     IEnumerable<TType> aliases = items.OfType<TType>();
 
-    return aliases.Any() ? CanMerge(aliases) : new TokenMessages();
+    return aliases.Any() ? CanMerge(aliases) : Messages();
   }
 
   IEnumerable<TAst> IMerge<TAst>.Merge(IEnumerable<TAst> items)

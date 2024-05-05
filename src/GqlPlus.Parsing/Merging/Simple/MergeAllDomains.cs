@@ -16,7 +16,7 @@ internal class MergeAllDomains(
   {
     IEnumerable<AstDomain> domains = items.OfType<AstDomain>();
 
-    return domains.Any() ? CanMerge(domains) : new TokenMessages();
+    return domains.Any() ? CanMerge(domains) : Messages();
   }
 
   IEnumerable<IGqlpType> IMerge<IGqlpType>.Merge(IEnumerable<IGqlpType> items)

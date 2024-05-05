@@ -23,9 +23,9 @@ internal abstract class AstAliasedMerger<TItem>(
     IEnumerable<string> distinct = group
       .Select(pair => ItemGroupKey(pair.item))
       .Distinct();
-    return distinct.Count() == 1 ? []
-      : new TokenMessages(group.Last()
-        .item.MakeError($"Aliases of {typeof(TItem).ExpandTypeName()} for {group.Key} is not singular [{distinct.Debug()}]"));
+    return distinct.Count() == 1 ? Messages()
+      : group.Last().item
+        .MakeError($"Aliases of {typeof(TItem).ExpandTypeName()} for {group.Key} is not singular [{distinct.Debug()}]");
   }
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)

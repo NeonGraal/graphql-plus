@@ -11,7 +11,7 @@ public interface IGqlpConstant
 
 public interface IGqlpError
 {
-  ITokenMessage MakeError(string message);
+  ITokenMessages MakeError(string message);
 }
 
 public interface IGqlpFieldKey

@@ -8,6 +8,6 @@ public abstract record class AstBase(
 {
   internal TokenMessage Error(string message)
     => new(At, message);
-  public ITokenMessage MakeError(string message)
-    => Error(message);
+  public ITokenMessages MakeError(string message)
+    => new TokenMessages(Error(message));
 }

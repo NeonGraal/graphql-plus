@@ -4,13 +4,12 @@ using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema;
 
-internal abstract partial class GroupedVerifier<TAliased>(
+internal abstract class GroupedVerifier<TAliased>(
    IMerge<TAliased> merger,
    ILoggerFactory logger
 ) : IVerifyAliased<TAliased>
  where TAliased : IGqlpAliased
 {
-#pragma warning disable CA1823 // Avoid unused private fields - DO NOT DELETE
   private readonly ILogger _logger = logger.CreateLogger(nameof(GroupedVerifier<TAliased>));
 
   public abstract string Label { get; }
@@ -32,10 +31,7 @@ internal abstract partial class GroupedVerifier<TAliased>(
   }
 
   private void GroupVerifying(Type type)
-    => GroupVerifying(type.GetElementType()?.TidyTypeName());
-
-  [LoggerMessage(Level = LogLevel.Information, Message = "Group verifying of {Type}")]
-  private partial void GroupVerifying(string? type);
+    => _logger.GroupVerifying(type.GetElementType()?.TidyTypeName());
 
   private void VerifyDefinitions(Map<TAliased[]> byName, ITokenMessages errors)
   {
@@ -44,7 +40,7 @@ internal abstract partial class GroupedVerifier<TAliased>(
         continue;
       }
 
-      VerifyingWithDefinitions(name, definitions.Length);
+      _logger.VerifyingWithDefinitions(name, definitions.Length);
 
       ITokenMessages failures = merger.CanMerge(definitions);
       if (failures.Any()) {
@@ -53,9 +49,6 @@ internal abstract partial class GroupedVerifier<TAliased>(
       }
     }
   }
-
-  [LoggerMessage(Level = LogLevel.Information, Message = "Verifying {Name} with {Count} definitions")]
-  private partial void VerifyingWithDefinitions(string name, int count);
 
   private void VerifyAliases(TAliased[] item, IReadOnlyCollection<string> names, ITokenMessages errors)
   {
@@ -76,3 +69,12 @@ public interface IVerifyAliased<TAliased>
   : IVerify<TAliased[]>
     where TAliased : IGqlpAliased
 { }
+
+internal static partial class GroupedVerifierLogging
+{
+  [LoggerMessage(Level = LogLevel.Information, Message = "Group verifying of {Type}")]
+  internal static partial void GroupVerifying(this ILogger logger, string? type);
+
+  [LoggerMessage(Level = LogLevel.Information, Message = "Verifying {Name} with {Count} definitions")]
+  internal static partial void VerifyingWithDefinitions(this ILogger logger, string name, int count);
+}

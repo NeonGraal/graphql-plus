@@ -5,7 +5,7 @@ using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema;
 
-internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, TContext>(
+internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext>(
   IVerifyAliased<TObject> aliased,
   IMerge<TObjField> mergeFields,
   IMerge<AstAlternate<TObjBase>> mergeAlternates,
@@ -16,7 +16,6 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
   where TObjBase : AstObjectBase<TObjBase>
   where TContext : UsageContext
 {
-#pragma warning disable CA1823 // Avoid unused private fields -- DO NOT DELETE
   private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, TObjBase, TContext, TypeParameterAst>));
 
   protected override void UsageValue(TObject usage, TContext context)
@@ -32,7 +31,7 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
     }
 
     ParentUsage<TObject> input = new([], usage, "an alternative");
-    CheckingAlternates(input);
+    _logger.CheckingAlternates(input);
     foreach (AstAlternate<TObjBase> alternate in usage.Alternates) {
       UsageAlternate(alternate, context);
       if (alternate.Modifiers.Length == 0) {
@@ -91,7 +90,7 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
       base.OnParentType(input, context, parentType, top);
     }
 
-    CheckingAlternates(input, top, parentType.Name);
+    _logger.CheckingAlternates(input, top, parentType.Name);
     input = input with { Label = "an alternate" };
     foreach (AstAlternate<TObjBase> alternate in parentType.Alternates) {
       if (alternate.Modifiers.Length == 0) {
@@ -107,7 +106,7 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
       && type is TObject alternateType) {
       CheckParent(input, alternateType, context, false);
 
-      CheckingAlternates(input, top, alternateType.Name, current);
+      _logger.CheckingAlternates(input, top, alternateType.Name, current);
       foreach (AstAlternate<TObjBase> alternate in alternateType.Alternates) {
         if (alternate.Modifiers.Length == 0) {
           CheckAlternate(input.AddParent(alternate.Type.FullName), alternateType.Name, context, false);
@@ -115,15 +114,6 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
       }
     }
   }
-
-  [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}")]
-  private partial void CheckingAlternates(ParentUsage<TObject> input);
-
-  [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}, {Top} of {Alternate}")]
-  private partial void CheckingAlternates(ParentUsage<TObject> input, bool top, string alternate);
-
-  [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}, {Top} of {Alternate}, {Current}")]
-  private partial void CheckingAlternates(ParentUsage<TObject> input, bool top, string alternate, string current);
 
   protected override void CheckMergeParent(ParentUsage<TObject> input, TContext context)
   {
@@ -138,4 +128,16 @@ internal abstract partial class AstObjectVerifier<TObject, TObjField, TObjBase, 
       }
     }
   }
+}
+
+internal static partial class AstObjectVerifierLogging
+{
+  [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}")]
+  internal static partial void CheckingAlternates(this ILogger logger, object input);
+
+  [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}, {Top} of {Alternate}")]
+  internal static partial void CheckingAlternates(this ILogger logger, object input, bool top, string alternate);
+
+  [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}, {Top} of {Alternate}, {Current}")]
+  internal static partial void CheckingAlternates(this ILogger logger, object input, bool top, string alternate, string current);
 }

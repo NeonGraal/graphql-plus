@@ -2,8 +2,7 @@
 
 namespace GqlPlus.Verification;
 
-#pragma warning disable CA1823 // Avoid unused private fields
-internal partial class NullVerifier<TAst>(
+internal class NullVerifier<TAst>(
   ILoggerFactory logger
 ) : IVerify<TAst>
   where TAst : AstAbbreviated
@@ -11,13 +10,10 @@ internal partial class NullVerifier<TAst>(
   private readonly ILogger _logger = logger.CreateLogger(nameof(NullVerifier<TAst>));
 
   public void Verify(TAst item, ITokenMessages errors)
-    => NullVerification(item.GetType().TidyTypeName(), item);
-
-  [LoggerMessage(LogLevel.Information, Message = "Null verification of {Type} - {Item}")]
-  private partial void NullVerification(string type, TAst item);
+    => _logger.NullVerification(item);
 }
 
-internal partial class NullVerifierError<TGqlp>(
+internal class NullVerifierError<TGqlp>(
   ILoggerFactory logger
 ) : IVerify<TGqlp>
   where TGqlp : IGqlpError
@@ -25,8 +21,14 @@ internal partial class NullVerifierError<TGqlp>(
   private readonly ILogger _logger = logger.CreateLogger(nameof(NullVerifierError<TGqlp>));
 
   public void Verify(TGqlp item, ITokenMessages errors)
-    => NullVerification(item.GetType().TidyTypeName(), item);
+    => _logger.NullVerification(item);
+}
+
+internal static partial class NullVerifierLogging
+{
+  internal static void NullVerification(this ILogger logger, object item)
+    => logger.NullVerification(item.GetType().TidyTypeName(), item);
 
   [LoggerMessage(LogLevel.Information, Message = "Null verification of {Type} - {Item}")]
-  private partial void NullVerification(string type, TGqlp item);
+  internal static partial void NullVerification(this ILogger logger, string type, object item);
 }

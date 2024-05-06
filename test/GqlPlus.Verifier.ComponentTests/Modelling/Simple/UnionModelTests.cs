@@ -5,7 +5,7 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Modelling.Simple;
 
 public class UnionModelTests(
-  IModeller<IGqlpUnion, UnionModels> modeller
+  IModeller<IGqlpUnion, TypeUnionModel> modeller
 ) : TestTypeModel<SimpleKindModel>
 {
   [Theory, RepeatData(Repeats)]
@@ -62,8 +62,8 @@ public class UnionModelTests(
 }
 
 internal sealed class UnionModelChecks(
-  IModeller<IGqlpUnion, UnionModels> modeller
-) : CheckTypeModel<IGqlpUnion, SimpleKindModel, UnionModels, string>(modeller, SimpleKindModel.Union)
+  IModeller<IGqlpUnion, TypeUnionModel> modeller
+) : CheckTypeModel<IGqlpUnion, SimpleKindModel, TypeUnionModel, string>(modeller, SimpleKindModel.Union)
 {
   internal void UnionExpected(UnionDeclAst ast, ExpectedUnionInput input)
   => AstExpected(ast, ExpectedUnion(input));
@@ -90,7 +90,7 @@ internal sealed class UnionModelChecks(
   protected override UnionDeclAst NewAliasedAst(string input, string? description = null, string[]? aliases = null)
     => new(AstNulls.At, input, description ?? "", []) { Aliases = aliases ?? [] };
 
-  internal override UnionModels NewParent(string name, string[] members, string? parent = null)
+  internal override TypeUnionModel NewParent(string name, string[] members, string? parent = null)
     => new(name) {
       Parent = parent?.TypeRef(SimpleKindModel.Union),
       Items = [.. members.Select(m => new AliasedModel(m))]

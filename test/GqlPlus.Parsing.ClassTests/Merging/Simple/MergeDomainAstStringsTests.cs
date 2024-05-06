@@ -12,6 +12,4 @@ public class MergeDomainAstStringsTests(
   protected override DomainRegexAst[] MakeItems(string input)
     => new[] { input }.DomainRegexes();
 
-  protected override AstDomain<DomainRegexAst> MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
-    => new(AstNulls.At, name, description, DomainKind.String) { Aliases = aliases ?? [], Parent = parent, };
 }

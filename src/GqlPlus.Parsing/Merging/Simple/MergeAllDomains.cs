@@ -5,20 +5,20 @@ namespace GqlPlus.Merging.Simple;
 
 internal class MergeAllDomains(
   ILoggerFactory logger,
-  IEnumerable<IMergeAll<AstDomain>> domains
-) : AllMerger<AstDomain>(logger, domains)
+  IEnumerable<IMergeAll<IGqlpDomain>> domains
+) : AllMerger<IGqlpDomain>(logger, domains)
   , IMergeAll<IGqlpType>
 {
   protected override string ItemMatchName => "Domain";
-  protected override string ItemMatchKey(AstDomain item) => item.DomainKind.ToString();
+  protected override string ItemMatchKey(IGqlpDomain item) => item.DomainKind.ToString();
 
   ITokenMessages IMerge<IGqlpType>.CanMerge(IEnumerable<IGqlpType> items)
   {
-    IEnumerable<AstDomain> domains = items.OfType<AstDomain>();
+    IEnumerable<IGqlpDomain> domains = items.OfType<IGqlpDomain>();
 
     return domains.Any() ? CanMerge(domains) : Messages();
   }
 
   IEnumerable<IGqlpType> IMerge<IGqlpType>.Merge(IEnumerable<IGqlpType> items)
-      => Merge(items.OfType<AstDomain>()).Cast<IGqlpType>();
+      => Merge(items.OfType<IGqlpDomain>()).Cast<IGqlpType>();
 }

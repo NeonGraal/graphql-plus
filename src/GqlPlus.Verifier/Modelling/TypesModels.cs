@@ -158,27 +158,27 @@ internal static class ModelHelper
 
 internal class TypeModeller(
   IEnumerable<ITypeModeller> types
-) : ModellerBase<AstType, BaseTypeModel>, ITypesModeller
+) : ModellerBase<IGqlpType, BaseTypeModel>, ITypesModeller
 {
-  public void AddTypeKinds(IEnumerable<AstType> asts, IMap<TypeKindModel> typeKinds)
+  public void AddTypeKinds(IEnumerable<IGqlpType> asts, IMap<TypeKindModel> typeKinds)
   {
-    foreach (AstType ast in asts) {
+    foreach (IGqlpType ast in asts) {
       typeKinds.Add(ast.Name, types.Single(t => t.ForType(ast)).Kind);
     }
   }
 
-  public TypeKindModel GetTypeKind(AstType ast)
+  public TypeKindModel GetTypeKind(IGqlpType ast)
     => types.Single(t => t.ForType(ast)).Kind;
 
-  protected override BaseTypeModel ToModel(AstType ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseTypeModel ToModel(IGqlpType ast, IMap<TypeKindModel> typeKinds)
     => types.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
 }
 
 public interface ITypesModeller
-  : IModeller<AstType, BaseTypeModel>
+  : IModeller<IGqlpType, BaseTypeModel>
 {
-  void AddTypeKinds(IEnumerable<AstType> asts, IMap<TypeKindModel> typeKinds);
-  TypeKindModel GetTypeKind(AstType ast);
+  void AddTypeKinds(IEnumerable<IGqlpType> asts, IMap<TypeKindModel> typeKinds);
+  TypeKindModel GetTypeKind(IGqlpType ast);
 }
 
 internal class TypesCollection(

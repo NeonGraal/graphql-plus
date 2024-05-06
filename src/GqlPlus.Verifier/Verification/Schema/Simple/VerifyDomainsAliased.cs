@@ -1,13 +1,14 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema.Simple;
 
 internal class VerifyDomainsAliased(
-  IVerify<AstDomain> definition,
-  IMerge<AstDomain> merger,
+  IVerify<IGqlpDomain> definition,
+  IMerge<IGqlpDomain> merger,
   ILoggerFactory logger
-) : AliasedVerifier<AstDomain>(definition, merger, logger)
+) : AliasedVerifier<IGqlpDomain>(definition, merger, logger)
 {
   public override string Label => "Domains";
 }

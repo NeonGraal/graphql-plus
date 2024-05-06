@@ -56,7 +56,7 @@ public abstract class TestDomainModel<TItem, TAstItem>
 internal abstract class CheckDomainModel<TItem, TAstItem, TItemModel>(
   DomainKind kind,
   IDomainModeller<TAstItem, TItemModel> modeller
-) : CheckTypeModel<AstDomain<TAstItem>, SimpleKindModel, BaseDomainModel<TItemModel>>(modeller, SimpleKindModel.Domain)
+) : CheckTypeModel<IGqlpDomain<TAstItem>, SimpleKindModel, BaseDomainModel<TItemModel>>(modeller, SimpleKindModel.Domain)
   , ICheckDomainModel<TItem, TAstItem>
   where TAstItem : AstAbbreviated, IGqlpDomainItem
   where TItemModel : IBaseDomainItemModel

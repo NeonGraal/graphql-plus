@@ -10,31 +10,31 @@ internal class AstDomainVerifier<TMember>(
 ) : IVerifyDomain
   where TMember : AstAbbreviated, IGqlpDomainItem
 {
-  public ITokenMessages CanMergeItems(AstDomain usage, EnumContext context)
+  public ITokenMessages CanMergeItems(IGqlpDomain usage, EnumContext context)
   {
-    return usage is not AstDomain<TMember> domain
-|| !context.GetType(domain.Parent, out IGqlpDescribed? type)
-      || type is not AstDomain<TMember> domainParent
+    return usage is not IGqlpDomain<TMember> domain
+      || !context.GetType(domain.Parent, out IGqlpDescribed? type)
+      || type is not IGqlpDomain<TMember> domainParent
       ? new TokenMessages()
       : CanMergeDomain(domain, domainParent, context);
   }
 
-  public void Verify(AstDomain usage, EnumContext context)
+  public void Verify(IGqlpDomain usage, EnumContext context)
   {
-    if (usage is AstDomain<TMember> domain) {
+    if (usage is IGqlpDomain<TMember> domain) {
       VerifyDomain(domain, context);
     }
   }
 
-  protected virtual void VerifyDomain(AstDomain<TMember> domain, EnumContext context)
+  protected virtual void VerifyDomain(IGqlpDomain<TMember> domain, EnumContext context)
   { }
 
-  protected virtual ITokenMessages CanMergeDomain(AstDomain<TMember> domain, AstDomain<TMember> domainParent, EnumContext context)
-    => members.CanMerge(domainParent.Members.Concat(domain.Members));
+  protected virtual ITokenMessages CanMergeDomain(IGqlpDomain<TMember> domain, IGqlpDomain<TMember> domainParent, EnumContext context)
+    => members.CanMerge(domainParent.Items.Concat(domain.Items));
 }
 
 public interface IVerifyDomain
 {
-  void Verify(AstDomain usage, EnumContext context);
-  ITokenMessages CanMergeItems(AstDomain usage, EnumContext context);
+  void Verify(IGqlpDomain usage, EnumContext context);
+  ITokenMessages CanMergeItems(IGqlpDomain usage, EnumContext context);
 }

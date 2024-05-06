@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 
@@ -8,11 +9,11 @@ internal class VerifyDomainEnum(
   IMerge<DomainMemberAst> members
 ) : AstDomainVerifier<DomainMemberAst>(members)
 {
-  protected override void VerifyDomain(AstDomain<DomainMemberAst> domain, EnumContext context)
+  protected override void VerifyDomain(IGqlpDomain<DomainMemberAst> domain, EnumContext context)
   {
     EnumMembers members = new();
 
-    foreach (DomainMemberAst member in domain.Members) {
+    foreach (DomainMemberAst member in domain.Items) {
       if (string.IsNullOrWhiteSpace(member.EnumType)) {
         if (context.GetEnumValue(member.Member, out string? enumType)) {
           member.EnumType = enumType;

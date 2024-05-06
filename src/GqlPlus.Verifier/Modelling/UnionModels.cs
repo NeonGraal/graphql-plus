@@ -3,7 +3,7 @@ using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
 
-public record class UnionModels(
+public record class TypeUnionModel(
   string Name
 ) : ParentTypeModel<AliasedModel, UnionMemberModel>(TypeKindModel.Union, Name)
 {
@@ -26,13 +26,13 @@ public record class UnionMemberModel(
 }
 
 internal class UnionModeller
-  : ModellerType<IGqlpUnion, string, UnionModels>
+  : ModellerType<IGqlpUnion, string, TypeUnionModel>
 {
   public UnionModeller()
     : base(TypeKindModel.Union)
   { }
 
-  protected override UnionModels ToModel(IGqlpUnion ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeUnionModel ToModel(IGqlpUnion ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,

@@ -37,7 +37,7 @@ internal static class AllModellers
       .AddTypeModeller<IGqlpEnum, TypeEnumModel, EnumModeller>()
       .AddTypeModeller<InputDeclAst, TypeInputModel, InputModeller>()
       .AddTypeModeller<OutputDeclAst, TypeOutputModel, OutputModeller>()
-      .AddTypeModeller<IGqlpUnion, UnionModels, UnionModeller>()
+      .AddTypeModeller<IGqlpUnion, TypeUnionModel, UnionModeller>()
       .AddTypesModeller()
     ;
 
@@ -49,7 +49,7 @@ internal static class AllModellers
   public static IServiceCollection AddTypesModeller(this IServiceCollection services)
     => services
       .AddSingleton<ITypesModeller, TypeModeller>()
-      .AddSingleton<IModeller<AstType, BaseTypeModel>>(c => c.GetRequiredService<ITypesModeller>());
+      .AddSingleton<IModeller<IGqlpType, BaseTypeModel>>(c => c.GetRequiredService<ITypesModeller>());
 
   public static IServiceCollection AddTypeModeller<TAst, TModel, TModeller>(this IServiceCollection services)
     where TAst : IGqlpError

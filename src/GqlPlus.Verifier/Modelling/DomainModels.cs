@@ -105,7 +105,7 @@ public record class DomainItemModel<TItem>(
 }
 
 internal abstract class ModellerDomain<TItemAst, TItemModel>
-  : ModellerType<AstDomain<TItemAst>, string, BaseDomainModel<TItemModel>>
+  : ModellerType<IGqlpDomain<TItemAst>, string, BaseDomainModel<TItemModel>>
   , IDomainModeller<TItemAst, TItemModel>
   where TItemAst : AstAbbreviated, IGqlpDomainItem
   where TItemModel : IBaseDomainItemModel
@@ -114,17 +114,17 @@ internal abstract class ModellerDomain<TItemAst, TItemModel>
     : base(TypeKindModel.Domain)
   { }
 
-  internal TItemModel[] ToItems(AstDomain<TItemAst> ast, IMap<TypeKindModel> typeKinds)
-    => [.. ast.Members.Select(ast => ToItem(ast, typeKinds))];
+  internal TItemModel[] ToItems(IGqlpDomain<TItemAst> ast, IMap<TypeKindModel> typeKinds)
+    => [.. ast.Items.Select(ast => ToItem(ast, typeKinds))];
 
-  internal DomainItemModel<TItemModel>[] ToAllItems(AstDomain<TItemAst> ast, IMap<TypeKindModel> typeKinds)
-    => [.. ast.Members.Select(item => new DomainItemModel<TItemModel>(ToItem(item, typeKinds), ast.Name))];
+  internal DomainItemModel<TItemModel>[] ToAllItems(IGqlpDomain<TItemAst> ast, IMap<TypeKindModel> typeKinds)
+    => [.. ast.Items.Select(item => new DomainItemModel<TItemModel>(ToItem(item, typeKinds), ast.Name))];
 
   protected abstract TItemModel ToItem(TItemAst ast, IMap<TypeKindModel> typeKinds);
 }
 
 public interface IDomainModeller<TItemAst, TItemModel>
-  : IModeller<AstDomain<TItemAst>, BaseDomainModel<TItemModel>>
+  : IModeller<IGqlpDomain<TItemAst>, BaseDomainModel<TItemModel>>
   where TItemAst : AstAbbreviated, IGqlpDomainItem
   where TItemModel : IBaseDomainItemModel
 { }
@@ -132,9 +132,9 @@ public interface IDomainModeller<TItemAst, TItemModel>
 internal class DomainBooleanModeller
   : ModellerDomain<DomainTrueFalseAst, DomainTrueFalseModel>
 {
-  protected override BaseDomainModel<DomainTrueFalseModel> ToModel(AstDomain<DomainTrueFalseAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseDomainModel<DomainTrueFalseModel> ToModel(IGqlpDomain<DomainTrueFalseAst> ast, IMap<TypeKindModel> typeKinds)
     => new(DomainKindModel.Boolean, ast.Name) {
-      Aliases = ast.Aliases,
+      Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Domain),
       Items = ToItems(ast, typeKinds),
@@ -147,9 +147,9 @@ internal class DomainBooleanModeller
 internal class DomainEnumModeller
   : ModellerDomain<DomainMemberAst, DomainMemberModel>
 {
-  protected override BaseDomainModel<DomainMemberModel> ToModel(AstDomain<DomainMemberAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseDomainModel<DomainMemberModel> ToModel(IGqlpDomain<DomainMemberAst> ast, IMap<TypeKindModel> typeKinds)
     => new(DomainKindModel.Enum, ast.Name) {
-      Aliases = ast.Aliases,
+      Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Domain),
       Items = ToItems(ast, typeKinds),
@@ -162,9 +162,9 @@ internal class DomainEnumModeller
 internal class DomainNumberModeller
   : ModellerDomain<DomainRangeAst, DomainRangeModel>
 {
-  protected override BaseDomainModel<DomainRangeModel> ToModel(AstDomain<DomainRangeAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseDomainModel<DomainRangeModel> ToModel(IGqlpDomain<DomainRangeAst> ast, IMap<TypeKindModel> typeKinds)
     => new(DomainKindModel.Number, ast.Name) {
-      Aliases = ast.Aliases,
+      Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Domain),
       Items = ToItems(ast, typeKinds),
@@ -177,9 +177,9 @@ internal class DomainNumberModeller
 internal class DomainStringModeller
   : ModellerDomain<DomainRegexAst, DomainRegexModel>
 {
-  protected override BaseDomainModel<DomainRegexModel> ToModel(AstDomain<DomainRegexAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseDomainModel<DomainRegexModel> ToModel(IGqlpDomain<DomainRegexAst> ast, IMap<TypeKindModel> typeKinds)
     => new(DomainKindModel.String, ast.Name) {
-      Aliases = ast.Aliases,
+      Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Domain),
       Items = ToItems(ast, typeKinds),

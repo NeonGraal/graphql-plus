@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Ast.Schema.Objects;
-using GqlPlus.Merging.Objects;
 
-namespace GqlPlus.Merging;
+namespace GqlPlus.Merging.Objects;
 
 public abstract class TestAlternates<TAlternate, TObjBase>
   : TestDescriptions<TAlternate>

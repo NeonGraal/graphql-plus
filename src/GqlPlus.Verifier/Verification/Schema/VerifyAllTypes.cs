@@ -11,7 +11,7 @@ internal class VerifyAllTypes(
   IVerifyUsage<InputDeclAst, IGqlpType> inputAllTypes,
   IVerifyUsage<OutputDeclAst, IGqlpType> outputAllTypes,
   IVerifyUsage<AstDomain, IGqlpType> domainAllTypes,
-  IVerifyUsage<UnionDeclAst, IGqlpType> unionAllTypes
+  IVerifyUsage<IGqlpUnion, IGqlpType> unionAllTypes
 ) : IVerify<IGqlpType[]>
 {
   public void Verify(IGqlpType[] item, ITokenMessages errors)
@@ -23,7 +23,7 @@ internal class VerifyAllTypes(
     InputDeclAst[] inputTypes = allTypes.ArrayOf<InputDeclAst>();
     OutputDeclAst[] outputTypes = allTypes.ArrayOf<OutputDeclAst>();
     AstDomain[] domainTypes = allTypes.ArrayOf<AstDomain>();
-    UnionDeclAst[] unionTypes = allTypes.ArrayOf<UnionDeclAst>();
+    IGqlpUnion[] unionTypes = allTypes.ArrayOf<IGqlpUnion>();
 
     dualAllTypes.Verify(new(dualTypes, allTypes), errors);
     enumAllTypes.Verify(new(enumTypes, allTypes), errors);

@@ -1,8 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
-using GqlPlus.Merging.Objects;
 
-namespace GqlPlus.Merging;
+namespace GqlPlus.Merging.Objects;
 
 public abstract class TestObjectFields<TObjField, TObjBase>
   : TestAliased<TObjField>
@@ -75,6 +74,6 @@ public abstract class TestObjectFields<TObjField, TObjBase>
   internal override GroupsMerger<TObjField> MergerGroups => MergerField;
 
   protected abstract TObjField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "");
-  protected override TObjField MakeAliased(string name, string[] aliases, string description = "")
-    => MakeField(name, name, description, description) with { Aliases = aliases };
+  protected override TObjField MakeAliased(string name, string[]? aliases = null, string description = "")
+    => MakeField(name, name, description, description) with { Aliases = aliases ?? [] };
 }

@@ -45,8 +45,8 @@ public static class AllVerifiers
       .AddVerifyDomainContext<VerifyDomainEnum>()
       .AddVerifyDomainContext<AstDomainVerifier<DomainRangeAst>>()
       .AddVerifyDomainContext<AstDomainVerifier<DomainRegexAst>>()
-      .AddVerifyAliased<UnionDeclAst, VerifyUnionsAliased>()
-      .AddVerifyUsageAliased<UnionDeclAst, IGqlpType, VerifyUnionTypes>()
+      .AddVerifyAliased<IGqlpUnion, VerifyUnionsAliased>()
+      .AddVerifyUsageAliased<IGqlpUnion, IGqlpType, VerifyUnionTypes>()
     ;
 
   public static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)

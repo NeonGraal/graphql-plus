@@ -14,8 +14,8 @@ public class MergeOutputObjectsTests
 
   internal override AstObjectsMerger<OutputDeclAst, OutputFieldAst, OutputBaseAst> MergerObject => _merger;
 
-  protected override OutputDeclAst MakeObject(string name, string description = "")
-    => new(AstNulls.At, name, description);
+  protected override OutputDeclAst MakeObject(string name, string[]? aliases = null, string description = "", OutputBaseAst? parent = default)
+    => new(AstNulls.At, name, description) { Aliases = aliases ?? [], Parent = parent, };
   protected override OutputFieldAst[] MakeFields(FieldInput[] fields)
     => fields.OutputFields();
   protected override OutputBaseAst MakeBase(string type)

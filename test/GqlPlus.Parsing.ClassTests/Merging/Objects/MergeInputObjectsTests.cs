@@ -14,8 +14,8 @@ public class MergeInputObjectsTests
 
   internal override AstObjectsMerger<InputDeclAst, InputFieldAst, InputBaseAst> MergerObject => _merger;
 
-  protected override InputDeclAst MakeObject(string name, string description = "")
-    => new(AstNulls.At, name, description);
+  protected override InputDeclAst MakeObject(string name, string[]? aliases = null, string description = "", InputBaseAst? parent = default)
+    => new(AstNulls.At, name, description) { Aliases = aliases ?? [], Parent = parent, };
   protected override InputFieldAst[] MakeFields(FieldInput[] fields)
     => fields.InputFields();
   protected override InputBaseAst MakeBase(string type)

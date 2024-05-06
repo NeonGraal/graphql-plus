@@ -8,8 +8,8 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsBothValues_ReturnsExpected(string valueA, string valueB)
   {
-    var astA = MakeValue(valueA);
-    var astB = MakeValue(valueB);
+    ConstantAst astA = MakeValue(valueA);
+    ConstantAst astB = MakeValue(valueB);
 
     Merge_Expected([astA, astB], astB);
   }
@@ -19,8 +19,8 @@ public class MergeConstantsTests
   {
     this.SkipIf(listB.Contains(valueA));
 
-    var astA = MakeValue(valueA);
-    var astB = MakeList(listB);
+    ConstantAst astA = MakeValue(valueA);
+    ConstantAst astB = MakeList(listB);
 
     Merge_Expected([astA, astB], MakeList([valueA, .. listB]));
   }
@@ -28,8 +28,8 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsValueAndObject_ReturnsExpected(string valueA, string[] fieldsB)
   {
-    var astA = MakeValue(valueA);
-    var astB = MakeObject(fieldsB);
+    ConstantAst astA = MakeValue(valueA);
+    ConstantAst astB = MakeObject(fieldsB);
 
     Merge_Expected([astA, astB], MakeObject(fieldsB));
   }
@@ -39,8 +39,8 @@ public class MergeConstantsTests
   {
     this.SkipIf(listA.Contains(valueB));
 
-    var astA = MakeList(listA);
-    var astB = MakeValue(valueB);
+    ConstantAst astA = MakeList(listA);
+    ConstantAst astB = MakeValue(valueB);
 
     Merge_Expected([astA, astB], MakeList([.. listA, valueB]));
   }
@@ -48,8 +48,8 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsBothLists_ReturnsExpected(string[] listA, string[] listB)
   {
-    var astA = MakeList(listA);
-    var astB = MakeList(listB);
+    ConstantAst astA = MakeList(listA);
+    ConstantAst astB = MakeList(listB);
 
     Merge_Expected([astA, astB], MakeList([.. listA, .. listB]));
   }
@@ -57,9 +57,9 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsListAndObject_ReturnsExpected(string[] listA, string[] fieldsB)
   {
-    var astA = MakeList(listA);
-    var astB = MakeObject(fieldsB);
-    var expected = astA with { Values = [.. astA.Values, astB] };
+    ConstantAst astA = MakeList(listA);
+    ConstantAst astB = MakeObject(fieldsB);
+    ConstantAst expected = astA with { Values = [.. astA.Values, astB] };
 
     Merge_Expected([astA, astB], expected);
   }
@@ -67,8 +67,8 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsObjectAndValue_ReturnsExpected(string[] fieldsA, string valueB)
   {
-    var astA = MakeObject(fieldsA);
-    var astB = MakeValue(valueB);
+    ConstantAst astA = MakeObject(fieldsA);
+    ConstantAst astB = MakeValue(valueB);
 
     Merge_Expected([astA, astB], MakeValue(valueB));
   }
@@ -76,9 +76,9 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsObjectAndList_ReturnsExpected(string[] fieldsA, string[] listB)
   {
-    var astA = MakeObject(fieldsA);
-    var astB = MakeList(listB);
-    var expected = astB with { Values = [astA, .. astB.Values] };
+    ConstantAst astA = MakeObject(fieldsA);
+    ConstantAst astB = MakeList(listB);
+    ConstantAst expected = astB with { Values = [astA, .. astB.Values] };
 
     Merge_Expected([astA, astB], expected);
   }
@@ -86,8 +86,8 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsBothObjects_ReturnsExpected(string[] fieldsA, string[] fieldsB)
   {
-    var astA = MakeObject(fieldsA);
-    var astB = MakeObject(fieldsB);
+    ConstantAst astA = MakeObject(fieldsA);
+    ConstantAst astB = MakeObject(fieldsB);
 
     Merge_Expected([astA, astB], MakeObject(fieldsA.Concat(fieldsB).Distinct()));
   }

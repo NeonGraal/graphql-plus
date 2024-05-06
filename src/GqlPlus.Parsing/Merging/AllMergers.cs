@@ -28,7 +28,7 @@ public static class AllMergers
       .AddMerge<EnumMemberAst, MergeEnumMembers>()
       .AddMergeAll<AstDomain, IGqlpType, MergeAllDomains>()
       .AddMerge<UnionMemberAst, MergeUnionMembers>()
-      .AddMergeAll<UnionDeclAst, IGqlpType, MergeUnions>()
+      .AddMergeAll<IGqlpUnion, IGqlpType, MergeUnions>()
       .AddMergeDomain<DomainTrueFalseAst>()
       .AddMergeDomain<DomainMemberAst>()
       .AddMergeDomain<DomainRangeAst>()
@@ -59,7 +59,7 @@ public static class AllMergers
       .AddSingleton<IMerge<TValue>, TService>();
 
   public static IServiceCollection AddMergeAll<TAst, TType, TService>(this IServiceCollection services)
-    where TAst : AstBase
+    where TAst : IGqlpType
     where TType : IGqlpType
     where TService : class, IMergeAll<TType>, IMerge<TAst>
     => services

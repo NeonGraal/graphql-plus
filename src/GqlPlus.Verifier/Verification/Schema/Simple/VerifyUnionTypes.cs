@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
@@ -7,28 +8,28 @@ using GqlPlus.Merging;
 namespace GqlPlus.Verification.Schema.Simple;
 
 internal class VerifyUnionTypes(
-  IVerifyAliased<UnionDeclAst> aliased,
+  IVerifyAliased<IGqlpUnion> aliased,
   IMerge<UnionMemberAst> mergeMembers
-) : AstParentItemVerifier<UnionDeclAst, string, UsageContext, UnionMemberAst>(aliased, mergeMembers)
+) : AstParentItemVerifier<IGqlpUnion, string, UsageContext, UnionMemberAst>(aliased, mergeMembers)
 {
-  protected override IEnumerable<UnionMemberAst> GetItems(UnionDeclAst usage)
-    => usage.Members;
+  protected override IEnumerable<UnionMemberAst> GetItems(IGqlpUnion usage)
+    => usage.Items.ArrayOf<UnionMemberAst>();
 
   protected override string GetParent(IGqlpType<string> usage)
     => usage.Parent ?? "";
 
-  protected override UsageContext MakeContext(UnionDeclAst usage, IGqlpType[] aliased, ITokenMessages errors)
+  protected override UsageContext MakeContext(IGqlpUnion usage, IGqlpType[] aliased, ITokenMessages errors)
     => MakeUsageContext(aliased, errors);
 
-  protected override void UsageValue(UnionDeclAst usage, UsageContext context)
+  protected override void UsageValue(IGqlpUnion usage, UsageContext context)
   {
-    foreach (UnionMemberAst member in usage.Members) {
+    foreach (UnionMemberAst member in usage.Items) {
       if (CheckMember(usage.Name, member, context, CheckTypeLabel)) {
         context.AddError(usage, "Union", $"'{member.Name}' not defined");
       }
     }
 
-    if (GetParentType(usage.Name, usage, context, out UnionDeclAst? parentType)) {
+    if (GetParentType(usage.Name, usage, context, out IGqlpUnion? parentType)) {
       CheckSelfMember(usage.Name, parentType, context);
     }
 
@@ -58,22 +59,22 @@ internal class VerifyUnionTypes(
     return true;
   }
 
-  private static void CheckSelfMember(string name, UnionDeclAst usage, UsageContext context)
+  private static void CheckSelfMember(string name, IGqlpUnion usage, UsageContext context)
   {
-    foreach (UnionMemberAst member in usage.Members) {
+    foreach (UnionMemberAst member in usage.Items.ArrayOf<UnionMemberAst>()) {
       CheckMember(name, member, context);
     }
 
-    if (GetParentType(name, usage, context, out UnionDeclAst? parentType)) {
+    if (GetParentType(name, usage, context, out IGqlpUnion? parentType)) {
       CheckSelfMember(name, parentType, context);
     }
   }
 
-  private static bool GetParentType(string name, UnionDeclAst usage, UsageContext context, [NotNullWhen(true)] out UnionDeclAst? parent)
+  private static bool GetParentType(string name, IGqlpUnion usage, UsageContext context, [NotNullWhen(true)] out IGqlpUnion? parent)
   {
     parent = null;
 
-    if (usage.Parent != name && context.GetType(usage.Parent, out IGqlpDescribed? parentType) && parentType is UnionDeclAst usageParent) {
+    if (usage.Parent != name && context.GetType(usage.Parent, out IGqlpDescribed? parentType) && parentType is IGqlpUnion usageParent) {
       parent = usageParent;
     }
 

@@ -1,5 +1,5 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema;
@@ -8,7 +8,7 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   IVerifyAliased<TAst> aliased,
   IMerge<TItem> mergeItems
 ) : AstParentVerifier<TAst, TParent, TContext>(aliased)
-  where TAst : AstType<TParent>
+  where TAst : class, IGqlpType<TParent>
   where TParent : IEquatable<TParent>
   where TContext : UsageContext
   where TItem : AstBase

@@ -14,9 +14,9 @@ public abstract class TestDomainAsts<TItem, TItemInput>
   [Theory, RepeatData(Repeats)]
   public void CanMerge_SameKinds_ReturnsGood(string name)
   {
-    var items = new[] { MakeDescribed(name), MakeDescribed(name) };
+    AstDomain<TItem>[] items = new[] { MakeDescribed(name), MakeDescribed(name) };
 
-    var result = Merger.CanMerge(items);
+    ITokenMessages result = Merger.CanMerge(items);
 
     result.Should().BeEmpty();
   }
@@ -24,12 +24,12 @@ public abstract class TestDomainAsts<TItem, TItemInput>
   [Theory, RepeatData(Repeats)]
   public void CanMerge_DifferentKinds_ReturnsErrors(string name)
   {
-    var domainKind = MakeDescribed(name).DomainKind == DomainKind.String
+    DomainKind domainKind = MakeDescribed(name).DomainKind == DomainKind.String
       ? DomainKind.Number
       : DomainKind.String;
-    var items = new[] { MakeDescribed(name) with { DomainKind = domainKind }, MakeDescribed(name) };
+    AstDomain<TItem>[] items = new[] { MakeDescribed(name) with { DomainKind = domainKind }, MakeDescribed(name) };
 
-    var result = Merger.CanMerge(items);
+    ITokenMessages result = Merger.CanMerge(items);
 
     result.Should().NotBeEmpty();
   }
@@ -37,13 +37,13 @@ public abstract class TestDomainAsts<TItem, TItemInput>
   [Theory, RepeatData(Repeats)]
   public void CanMerge_ItemsCantMerge_ReturnsErrors(string name, TItemInput input)
   {
-    var items = new[] {
+    AstDomain<TItem>[] items = new[] {
       MakeDescribed(name) with { Members = MakeItems(input) },
       MakeDescribed(name) with { Members = MakeItems(input) },
     };
     MergeItems.CanMerge([]).ReturnsForAnyArgs(new TokenMessages(new TokenMessage(AstNulls.At, "Error!")));
 
-    var result = Merger.CanMerge(items);
+    ITokenMessages result = Merger.CanMerge(items);
 
     result.Should().NotBeEmpty();
   }

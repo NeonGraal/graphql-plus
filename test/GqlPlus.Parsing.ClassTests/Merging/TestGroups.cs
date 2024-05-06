@@ -17,8 +17,8 @@ public abstract class TestGroups<TAst>
   {
     Skip.If(SkipDifferentNames || name1 == name2);
 
-    var ast1 = MakeAst(name1);
-    var ast2 = MakeAst(name2);
+    TAst ast1 = MakeAst(name1);
+    TAst ast2 = MakeAst(name2);
 
     Merge_Expected([ast1, ast2], ast2, ast1);
   }
@@ -26,8 +26,8 @@ public abstract class TestGroups<TAst>
   [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstSameName_ReturnsFirst(string name)
   {
-    var ast1 = MakeAst(name);
-    var ast2 = MakeAst(name);
+    TAst ast1 = MakeAst(name);
+    TAst ast2 = MakeAst(name);
 
     Merge_Expected([ast1, ast2], ast1);
   }

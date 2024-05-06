@@ -9,11 +9,11 @@ public class MergeTypeParametersTests
   [Theory, RepeatData(Repeats)]
   public void Merge_ManyItems_ReturnsItem(string name)
   {
-    var items = Enumerable.Range(1, 5).Select(i => MakeAst(name)).ToArray();
+    TypeParameterAst[] items = Enumerable.Range(1, 5).Select(i => MakeAst(name)).ToArray();
 
-    var result = MergerGroups.Merge(items);
+    IEnumerable<TypeParameterAst> result = MergerGroups.Merge(items);
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     result.Should().BeAssignableTo<IEnumerable<TypeParameterAst>>();
   }

@@ -20,7 +20,7 @@ public class MergeEnumsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] values1, string[] values2)
   {
-    var combined = values1.EnumMembers().Concat(values2.EnumMembers()).ToArray();
+    EnumMemberAst[] combined = values1.EnumMembers().Concat(values2.EnumMembers()).ToArray();
 
     Merge_Expected([
       new EnumDeclAst(AstNulls.At, name, values1.EnumMembers()),
@@ -40,8 +40,8 @@ public class MergeEnumsTests
 
   internal override AstTypeMerger<IGqlpType, EnumDeclAst, string, EnumMemberAst> MergerTyped => _merger;
 
-  protected override EnumDeclAst MakeTyped(string name, string description = "")
-    => new(AstNulls.At, name, description, []);
+  protected override EnumDeclAst MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
+    => new(AstNulls.At, name, description, []) { Aliases = aliases ?? [], Parent = parent, };
   protected override string MakeParent(string parent)
     => parent;
 }

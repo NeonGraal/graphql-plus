@@ -25,7 +25,7 @@ public abstract class TestAbbreviated<TAst, TInput>
   [Fact]
   public void Merge_NullAsts_ReturnsEmpty()
   {
-    var result = MergerBase.Merge(null!);
+    IEnumerable<TAst> result = MergerBase.Merge(null!);
 
     result.Should().BeEmpty();
   }
@@ -33,7 +33,7 @@ public abstract class TestAbbreviated<TAst, TInput>
   [Fact]
   public void Merge_NoAsts_ReturnsEmpty()
   {
-    var result = MergerBase.Merge([]);
+    IEnumerable<TAst> result = MergerBase.Merge([]);
 
     result.Should().BeEmpty();
   }
@@ -41,7 +41,7 @@ public abstract class TestAbbreviated<TAst, TInput>
   [Theory, RepeatData(Repeats)]
   public void Merge_OneAst_ReturnsAst(TInput input)
   {
-    var ast = MakeAst(input);
+    TAst ast = MakeAst(input);
 
     Merge_Expected([ast], ast);
   }
@@ -52,23 +52,23 @@ public abstract class TestAbbreviated<TAst, TInput>
 
   protected void CanMerge_Errors(params TAst[] asts)
   {
-    var result = MergerBase.CanMerge(asts);
+    ITokenMessages result = MergerBase.CanMerge(asts);
 
     result.Should().NotBeEmpty();
   }
 
   protected void CanMerge_Good(params TAst[] asts)
   {
-    var result = MergerBase.CanMerge(asts);
+    ITokenMessages result = MergerBase.CanMerge(asts);
 
     result.Should().BeEmpty();
   }
 
   protected object Merge_Expected(TAst[] asts, params TAst[] expected)
   {
-    var result = MergerBase.Merge(asts);
+    IEnumerable<TAst> result = MergerBase.Merge(asts);
 
-    using var scope = new AssertionScope();
+    using AssertionScope scope = new();
 
     result.Should().BeAssignableTo<IEnumerable<TAst>>();
     result.Should().BeEquivalentTo(expected);
@@ -81,7 +81,7 @@ public abstract class TestAbbreviated<TAst, TInput>
   protected IMerge<TResult> Merger<TResult>()
     where TResult : IGqlpError
   {
-    var result = Substitute.For<IMerge<TResult>>();
+    IMerge<TResult> result = Substitute.For<IMerge<TResult>>();
     result.CanMerge([]).ReturnsForAnyArgs(EmptyMessages);
     result.Merge([]).ReturnsForAnyArgs(c => c.Arg<IEnumerable<TResult>>());
     return result;

@@ -14,8 +14,8 @@ public class MergeDualObjectsTests
 
   internal override AstObjectsMerger<DualDeclAst, DualFieldAst, DualBaseAst> MergerObject => _merger;
 
-  protected override DualDeclAst MakeObject(string name, string description = "")
-    => new(AstNulls.At, name, description);
+  protected override DualDeclAst MakeObject(string name, string[]? aliases = null, string description = "", DualBaseAst? parent = default)
+    => new(AstNulls.At, name, description) { Aliases = aliases ?? [], Parent = parent };
   protected override DualFieldAst[] MakeFields(FieldInput[] fields)
     => fields.DualFields();
   protected override DualBaseAst MakeBase(string type)

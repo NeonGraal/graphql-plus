@@ -1,8 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
-using GqlPlus.Merging.Objects;
 
-namespace GqlPlus.Merging;
+namespace GqlPlus.Merging.Objects;
 
 public abstract class TestObjects<TObject, TObjField, TObjBase>
   : TestTyped<IGqlpType, TObject, TObjBase, TObjField>
@@ -49,12 +48,12 @@ public abstract class TestObjects<TObject, TObjField, TObjBase>
   internal abstract AstObjectsMerger<TObject, TObjField, TObjBase> MergerObject { get; }
   internal override AstTypeMerger<IGqlpType, TObject, TObjBase, TObjField> MergerTyped => MergerObject;
 
-  protected abstract TObject MakeObject(string name, string description = "");
+  protected abstract TObject MakeObject(string name, string[]? aliases = null, string description = "", TObjBase? parent = default);
   protected abstract TObjField[] MakeFields(FieldInput[] fields);
   protected abstract TObjBase MakeBase(string type);
 
-  protected override TObject MakeTyped(string name, string description = "")
-    => MakeObject(name, description);
+  protected override TObject MakeTyped(string name, string[]? aliases = null, string description = "", TObjBase? parent = default)
+    => MakeObject(name, aliases, description, parent);
   protected override TObjBase MakeParent(string parent)
     => MakeBase(parent);
 }

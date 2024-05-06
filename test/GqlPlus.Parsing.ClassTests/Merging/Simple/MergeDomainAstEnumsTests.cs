@@ -12,6 +12,9 @@ public class MergeDomainAstEnumsTests(
   protected override DomainMemberAst[] MakeItems(string input)
     => new[] { input }.DomainMembers();
 
-  protected override AstDomain<DomainMemberAst> MakeTyped(string name, string description = "")
-    => new(AstNulls.At, name, description, DomainKind.Enum);
+  protected override AstDomain<DomainMemberAst> MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
+    => new(AstNulls.At, name, description, DomainKind.Enum) {
+      Aliases = aliases ?? [],
+      Parent = parent,
+    };
 }

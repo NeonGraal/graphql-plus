@@ -5,7 +5,7 @@ dotnet build --disable-build-servers
 
 New-Item per-class -ItemType Directory -ErrorAction Ignore | Out-Null
 
-Push-Location .\test\GqlPlus.Parsing.ClassTests
+Push-Location .\test\GqlPlus.Parser.ClassTests
 
 $base = "-s","coverage.runsettings","-f","cobertura","-o"
 $dotnet = "--","dotnet","test","--no-build","--verbosity","quiet","--disable-build-servers","--filter"

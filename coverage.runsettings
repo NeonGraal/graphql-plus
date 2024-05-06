@@ -11,7 +11,7 @@
             <ModulePaths>
               <Include>
                 <ModulePath>.*\\GqlPlus\.Verifier\.dll$</ModulePath>
-                <ModulePath>.*\\GqlPlus\.Parsing\.ClassTests\.dll$</ModulePath>
+                <ModulePath>.*\\GqlPlus\.Parser\.ClassTests\.dll$</ModulePath>
               </Include>
             </ModulePaths>
 

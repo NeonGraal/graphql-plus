@@ -1,12 +1,12 @@
 ﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Modelling;
-using GqlPlus.Parse;
-using GqlPlus.Parse.Operation;
+using GqlPlus.Parsing;
+using GqlPlus.Parsing.Operation;
 using GqlPlus.Rendering;
 using GqlPlus.Result;
 using GqlPlus.Token;
-using GqlPlus.Verification;
+using GqlPlus.Verifying;
 
 namespace GqlPlus;
 

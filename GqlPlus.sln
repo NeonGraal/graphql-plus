@@ -45,11 +45,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Otel", "Otel", "{90C6E29D-0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Abstractions", "src\GqlPlus.Abstractions\GqlPlus.Abstractions.csproj", "{3AE01A85-4A1B-4D70-92D7-92A6C606EDDB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parsing", "src\GqlPlus.Parsing\GqlPlus.Parsing.csproj", "{2CD75718-076D-4554-9A1A-AB2FD1FFDA47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parser", "src\GqlPlus.Parser\GqlPlus.Parser.csproj", "{2CD75718-076D-4554-9A1A-AB2FD1FFDA47}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parsing.ClassTests", "test\GqlPlus.Parsing.ClassTests\GqlPlus.Parsing.ClassTests.csproj", "{0910A54F-5BA1-4CCF-BDF2-B2AE8DB81D90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parser.ClassTests", "test\GqlPlus.Parser.ClassTests\GqlPlus.Parser.ClassTests.csproj", "{0910A54F-5BA1-4CCF-BDF2-B2AE8DB81D90}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parsing.ComponentTests", "test\GqlPlus.Parsing.ComponentTests\GqlPlus.Parsing.ComponentTests.csproj", "{F9D2FECF-2F45-4984-9D2E-A136F285E47B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parser.ComponentTests", "test\GqlPlus.Parser.ComponentTests\GqlPlus.Parser.ComponentTests.csproj", "{F9D2FECF-2F45-4984-9D2E-A136F285E47B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

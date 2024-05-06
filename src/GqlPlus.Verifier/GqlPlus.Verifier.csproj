@@ -3,6 +3,6 @@
     <PackageReference Include="YamlDotNet" Version="15.1.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GqlPlus.Parsing\GqlPlus.Parsing.csproj" />
+    <ProjectReference Include="..\GqlPlus.Parser\GqlPlus.Parser.csproj" />
   </ItemGroup>
 </Project>

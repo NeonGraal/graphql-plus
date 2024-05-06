@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Token;
-using GqlPlus.Verification;
+using GqlPlus.Verifying;
 using Xunit.DependencyInjection;
 
 namespace GqlPlus;

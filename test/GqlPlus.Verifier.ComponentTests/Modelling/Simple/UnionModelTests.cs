@@ -1,10 +1,11 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Modelling.Simple;
 
 public class UnionModelTests(
-  IModeller<UnionDeclAst, TypeUnionModel> modeller
+  IModeller<IGqlpUnion, UnionModels> modeller
 ) : TestTypeModel<SimpleKindModel>
 {
   [Theory, RepeatData(Repeats)]
@@ -61,8 +62,8 @@ public class UnionModelTests(
 }
 
 internal sealed class UnionModelChecks(
-  IModeller<UnionDeclAst, TypeUnionModel> modeller
-) : CheckTypeModel<UnionDeclAst, SimpleKindModel, TypeUnionModel, string>(modeller, SimpleKindModel.Union)
+  IModeller<IGqlpUnion, UnionModels> modeller
+) : CheckTypeModel<IGqlpUnion, SimpleKindModel, UnionModels, string>(modeller, SimpleKindModel.Union)
 {
   internal void UnionExpected(UnionDeclAst ast, ExpectedUnionInput input)
   => AstExpected(ast, ExpectedUnion(input));
@@ -86,17 +87,20 @@ internal sealed class UnionModelChecks(
         .. input.Parent.TypeRefFor(SimpleKindModel.Union),
         "typeKind: !_TypeKind Union"];
 
-  protected override UnionDeclAst NewDescribedAst(string input, string description)
-    => new(AstNulls.At, input, description, []);
+  protected override UnionDeclAst NewAliasedAst(string input, string? description = null, string[]? aliases = null)
+    => new(AstNulls.At, input, description ?? "", []) { Aliases = aliases ?? [] };
 
-  internal override TypeUnionModel NewParent(string name, string[] members, string? parent = null)
+  internal override UnionModels NewParent(string name, string[] members, string? parent = null)
     => new(name) {
       Parent = parent?.TypeRef(SimpleKindModel.Union),
       Items = [.. members.Select(m => new AliasedModel(m))]
     };
 
-  internal override UnionDeclAst NewTypeAst(string name, string? parent, string description)
-    => new(AstNulls.At, name, description, []) { Parent = parent };
+  internal override UnionDeclAst NewTypeAst(string name, string? parent = default, string? description = null, string[]? aliases = null)
+    => new(AstNulls.At, name, description ?? "", []) {
+      Parent = parent,
+      Aliases = aliases ?? [],
+    };
 }
 
 internal sealed class ExpectedUnionInput(

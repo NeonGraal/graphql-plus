@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -13,7 +12,7 @@ public abstract class TestAliasedModel<TInput>
     Skip.If(SkipIf(input));
 
     AliasedChecks.Model_Expected(
-        AliasedChecks.ToModel(AliasedChecks.AliasedAst(input) with { Aliases = aliases }),
+        AliasedChecks.ToModel(AliasedChecks.AliasedAst(input, aliases)),
         AliasedChecks.ExpectedDescriptionAliases(new(input, aliases)));
   }
 
@@ -25,7 +24,7 @@ public abstract class TestAliasedModel<TInput>
 internal abstract class CheckAliasedModel<TName, TAst, TModel>(
   IModeller<TAst, TModel> modeller
 ) : CheckAliasedModel<TName, TAst, TAst, TModel>(modeller)
-  where TAst : AstAliased, IGqlpError, IGqlpDescribed
+  where TAst : IGqlpAliased
   where TModel : IRendering
 { }
 
@@ -34,7 +33,7 @@ internal abstract class CheckAliasedModel<TName, TSrc, TAst, TModel>(
 ) : CheckDescribedModel<TName, TSrc, TAst, TModel>(modeller)
   , ICheckAliasedModel<TName>
   where TSrc : IGqlpError, IGqlpDescribed
-  where TAst : AstAliased, TSrc
+  where TAst : IGqlpAliased, TSrc
   where TModel : IRendering
 {
   protected abstract string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input);
@@ -42,16 +41,22 @@ internal abstract class CheckAliasedModel<TName, TSrc, TAst, TModel>(
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<TName> input)
     => ExpectedDescriptionAliases(new(input));
 
-  AstAliased ICheckAliasedModel<TName>.AliasedAst(TName name) => NewDescribedAst(name, "");
+  IGqlpAliased ICheckAliasedModel<TName>.AliasedAst(TName name, string[]? aliases)
+    => NewAliasedAst(name, aliases: aliases);
   string[] ICheckAliasedModel<TName>.ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input) => ExpectedDescriptionAliases(input);
-  IRendering ICheckAliasedModel<TName>.ToModel(AstAliased aliased) => AstToModel((TAst)aliased);
+  IRendering ICheckAliasedModel<TName>.ToModel(IGqlpAliased aliased) => AstToModel((TAst)aliased);
+
+  protected override TAst NewDescribedAst(TName name, string description)
+    => NewAliasedAst(name, description);
+
+  protected abstract TAst NewAliasedAst(TName name, string? description = null, string[]? aliases = null);
 }
 
 internal interface ICheckAliasedModel<TName>
   : ICheckDescribedModel<TName>
 {
-  AstAliased AliasedAst(TName name);
-  IRendering ToModel(AstAliased aliased);
+  IGqlpAliased AliasedAst(TName name, string[]? aliases = null);
+  IRendering ToModel(IGqlpAliased aliased);
   string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input);
 }
 

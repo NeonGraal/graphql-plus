@@ -62,8 +62,11 @@ internal sealed class CategoryModelChecks(
         .. input.Output.TypeRefFor(TypeKindModel.Output),
         $"resolution: !_Resolution {input.Option}"];
 
-  protected override CategoryDeclAst NewDescribedAst(string input, string description)
-    => new(AstNulls.At, input) { Description = description };
+  protected override CategoryDeclAst NewAliasedAst(string name, string? description = null, string[]? aliases = null)
+    => new(AstNulls.At, name) {
+      Description = description ?? "",
+      Aliases = aliases ?? [],
+    };
 
   internal void CategoryExpected(CategoryDeclAst ast, ExpectedCategoryInput input)
     => AstExpected(ast, ExpectedCategory(input));

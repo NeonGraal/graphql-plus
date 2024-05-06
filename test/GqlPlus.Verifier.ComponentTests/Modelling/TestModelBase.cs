@@ -30,7 +30,7 @@ internal abstract class CheckModelBase<TName, TAst, TModel>(
 internal abstract class CheckModelBase<TName, TSrc, TAst, TModel>
   : ICheckModelBase<TName>
   where TSrc : IGqlpError
-  where TAst : AstBase, TSrc
+  where TAst : IGqlpError, TSrc
   where TModel : IRendering
 {
   protected IModeller<TSrc, TModel> _modeller;
@@ -70,8 +70,8 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel>
         : items.SelectMany(i => mapping(i)).Prepend(field);
 
   void ICheckModelBase.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
-  AstBase ICheckModelBase<TName>.BaseAst(TName name) => NewBaseAst(name);
-  IRendering ICheckModelBase.ToModel(AstBase ast) => AstToModel((TAst)ast);
+  IGqlpError ICheckModelBase<TName>.BaseAst(TName name) => NewBaseAst(name);
+  IRendering ICheckModelBase.ToModel(IGqlpError ast) => AstToModel((TAst)ast);
   string[] ICheckModelBase<TName>.ExpectedBase(TName name) => ExpectedBase(name);
 }
 
@@ -80,7 +80,7 @@ internal delegate IEnumerable<string> ToExpected<TItem>(TItem input);
 internal interface ICheckModelBase<TName>
   : ICheckModelBase
 {
-  AstBase BaseAst(TName name);
+  IGqlpError BaseAst(TName name);
   string[] ExpectedBase(TName name);
 }
 
@@ -88,7 +88,7 @@ internal interface ICheckModelBase
 {
   IRenderContext Context { get; }
   IMap<TypeKindModel> TypeKinds { get; }
-  IRendering ToModel(AstBase ast);
+  IRendering ToModel(IGqlpError ast);
 
   void Model_Expected(IRendering model, string[] expected);
 }

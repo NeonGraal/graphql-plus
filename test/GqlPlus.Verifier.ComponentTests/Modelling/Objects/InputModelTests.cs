@@ -18,10 +18,12 @@ internal sealed class InputModelChecks(
   protected override InputDeclAst NewObjectAst(
     string name,
     InputBaseAst? parent,
-    string description,
+    string? description,
+    string[]? aliases,
     FieldInput[] fields,
     string[] alternates)
-    => new(AstNulls.At, name, description) {
+    => new(AstNulls.At, name, description ?? "") {
+      Aliases = aliases ?? [],
       Parent = parent,
       Fields = fields.InputFields(),
       Alternates = alternates.Alternates(NewParentAst),

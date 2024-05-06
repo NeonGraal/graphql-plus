@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -26,7 +26,7 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
   : CheckAliasedModel<string, TAst, TModel>
   , ICheckTypeModel<TAstParent, TParent, TTypeKind>
   where TAstParent : IEquatable<TAstParent>
-  where TAst : AstType<TAstParent>
+  where TAst : IGqlpType<TAstParent>
   where TModel : IRendering
 {
   protected readonly TTypeKind TypeKind;
@@ -43,7 +43,7 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
 
   protected abstract string[] ExpectedParent(TParent? parent);
 
-  internal abstract TAst NewTypeAst(string name, TAstParent? parent, string description);
+  internal abstract TAst NewTypeAst(string name, TAstParent? parent = default, string? description = null, string[]? aliases = null);
 
   internal abstract TAstParent NewParentAst(TParent input);
 
@@ -52,14 +52,14 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
 
   TAstParent ICheckTypeModel<TAstParent, TParent, TTypeKind>.ParentAst(TParent parent)
     => NewParentAst(parent);
-  AstType<TAstParent> ICheckTypeModel<TAstParent, TParent, TTypeKind>.TypeAst(string name, TParent parent)
+  IGqlpType<TAstParent> ICheckTypeModel<TAstParent, TParent, TTypeKind>.TypeAst(string name, TParent parent)
     => NewTypeAst(name, NewParentAst(parent), "");
 
-  void ICheckTypeModel<TAstParent, TParent, TTypeKind>.TypeExpected(AstType<TAstParent> type, string[] expected)
+  void ICheckTypeModel<TAstParent, TParent, TTypeKind>.TypeExpected(IGqlpType<TAstParent> type, string[] expected)
     => AstExpected((TAst)type, expected);
 
-  protected override TAst NewDescribedAst(string input, string description)
-    => NewTypeAst(input, default, description);
+  protected override TAst NewAliasedAst(string input, string? description = null, string[]? aliases = null)
+    => NewTypeAst(input, default, description, aliases);
   protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)
     => ExpectedType(new(input));
 }
@@ -69,7 +69,7 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
   TTypeKind kind
 ) : CheckTypeModel<string, string, TAst, TTypeKind, TModel>(modeller, kind)
   , ICheckTypeModel<TTypeKind>
-  where TAst : AstType<string>
+  where TAst : IGqlpType<string>
   where TModel : IRendering
 {
   internal override string NewParentAst(string input)
@@ -81,7 +81,7 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel, TItem>(
   TTypeKind kind
 ) : CheckTypeModel<TAst, TTypeKind, TModel>(modeller, kind)
   , IParentModel<TItem>
-  where TAst : AstType<string>
+  where TAst : IGqlpType<string>
   where TModel : IRendering
 {
   internal abstract BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
@@ -107,8 +107,8 @@ internal interface ICheckTypeModel<TAstParent, TParent, TTypeKind>
 {
   TTypeKind TypeKind { get; }
   string TypeKindLower { get; }
-  void TypeExpected(AstType<TAstParent> type, string[] expected);
-  AstType<TAstParent> TypeAst(string name, TParent parent);
+  void TypeExpected(IGqlpType<TAstParent> type, string[] expected);
+  IGqlpType<TAstParent> TypeAst(string name, TParent parent);
   TAstParent ParentAst(TParent parent);
   string[] ExpectedType(ExpectedTypeInput<TParent> input);
 }

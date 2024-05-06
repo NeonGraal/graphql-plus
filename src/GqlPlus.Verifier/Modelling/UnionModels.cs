@@ -1,9 +1,9 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
 
-public record class TypeUnionModel(
+public record class UnionModels(
   string Name
 ) : ParentTypeModel<AliasedModel, UnionMemberModel>(TypeKindModel.Union, Name)
 {
@@ -26,20 +26,20 @@ public record class UnionMemberModel(
 }
 
 internal class UnionModeller
-  : ModellerType<UnionDeclAst, string, TypeUnionModel>
+  : ModellerType<IGqlpUnion, string, UnionModels>
 {
   public UnionModeller()
     : base(TypeKindModel.Union)
   { }
 
-  protected override TypeUnionModel ToModel(UnionDeclAst ast, IMap<TypeKindModel> typeKinds)
+  protected override UnionModels ToModel(IGqlpUnion ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
-      Aliases = ast.Aliases,
+      Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Union),
-      Items = [.. ast.Members.Select(ToMember)],
+      Items = [.. ast.Items.Select(ToMember)],
     };
 
-  internal static AliasedModel ToMember(UnionMemberAst ast)
+  internal static AliasedModel ToMember(IGqlpUnionItem ast)
     => new(ast.Name);
 }

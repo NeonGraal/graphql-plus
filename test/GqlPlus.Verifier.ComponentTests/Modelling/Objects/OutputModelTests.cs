@@ -18,10 +18,12 @@ internal sealed class OutputModelChecks(
   protected override OutputDeclAst NewObjectAst(
     string name,
     OutputBaseAst? parent,
-    string description,
+    string? description,
+    string[]? aliases,
     FieldInput[] fields,
     string[] alternates)
-    => new(AstNulls.At, name, description) {
+    => new(AstNulls.At, name, description ?? "") {
+      Aliases = aliases ?? [],
       Parent = parent,
       Fields = fields.OutputFields(),
       Alternates = alternates.Alternates(NewParentAst),

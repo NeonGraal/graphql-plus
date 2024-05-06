@@ -92,8 +92,11 @@ internal abstract class CheckDomainModel<TItem, TAstItem, TItemModel>(
   protected override string[] ExpectedType(ExpectedTypeInput<string> input)
     => ExpectedDomain(new ExpectedDomainInput<TItem>(input));
 
-  internal override AstDomain<TAstItem> NewTypeAst(string name, string? parent, string description)
-    => new(AstNulls.At, name, description, kind) { Parent = parent };
+  internal override AstDomain<TAstItem> NewTypeAst(string name, string? parent, string? description, string[]? aliases)
+    => new(AstNulls.At, name, description ?? "", kind) {
+      Parent = parent,
+      Aliases = aliases ?? [],
+    };
 
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);

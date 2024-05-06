@@ -54,7 +54,7 @@ internal sealed class CategoriesModelChecks(
   protected override CategoryDeclAst NewBaseAst(string name)
     => new(AstNulls.At, name);
 
-  IRendering ICheckModelBase.ToModel(AstBase ast)
+  IRendering ICheckModelBase.ToModel(IGqlpError ast)
     => new CategoriesModel() { Category = _modeller.ToModel((CategoryDeclAst)ast, TypeKinds) };
 
   internal CategoriesModel ToModel(CategoryDeclAst? ast, string output)

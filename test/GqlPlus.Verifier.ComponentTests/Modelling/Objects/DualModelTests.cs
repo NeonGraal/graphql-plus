@@ -18,10 +18,12 @@ internal sealed class DualModelChecks(
   protected override DualDeclAst NewObjectAst(
     string name,
     DualBaseAst? parent,
-    string description,
+    string? description,
+    string[]? aliases,
     FieldInput[] fields,
     string[] alternates)
-    => new(AstNulls.At, name, description) {
+    => new(AstNulls.At, name, description ?? "") {
+      Aliases = aliases ?? [],
       Parent = parent,
       Fields = fields.DualFields(),
       Alternates = alternates.Alternates(NewParentAst),

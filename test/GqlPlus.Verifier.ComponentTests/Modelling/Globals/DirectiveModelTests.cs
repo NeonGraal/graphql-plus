@@ -66,8 +66,8 @@ internal sealed class DirectiveModelChecks(
   protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)
     => ExpectedDirective(new(input));
 
-  protected override DirectiveDeclAst NewDescribedAst(string input, string description)
-    => new(AstNulls.At, input, description);
+  protected override DirectiveDeclAst NewAliasedAst(string name, string? description = null, string[]? aliases = null)
+    => new(AstNulls.At, name, description ?? "") { Aliases = aliases ?? [], };
 
   internal string[] ExpectedDirective(ExpectedDirectiveInput input)
     => ["!_Directive",

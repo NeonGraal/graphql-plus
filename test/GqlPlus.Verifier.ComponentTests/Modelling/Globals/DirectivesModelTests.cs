@@ -49,7 +49,7 @@ internal sealed class DirectivesModelChecks(
   protected override DirectiveDeclAst NewBaseAst(string name)
     => new(AstNulls.At, name);
 
-  IRendering ICheckModelBase.ToModel(AstBase ast)
+  IRendering ICheckModelBase.ToModel(IGqlpError ast)
     => new DirectivesModel() { Directive = _modeller.ToModel((DirectiveDeclAst)ast, TypeKinds) };
 
   internal DirectivesModel ToModel(DirectiveDeclAst? ast, string input)

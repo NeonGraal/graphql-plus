@@ -34,10 +34,10 @@ internal static class AllModellers
       .AddDomainModeller<DomainRangeAst, DomainRangeModel, DomainNumberModeller>()
       .AddDomainModeller<DomainRegexAst, DomainRegexModel, DomainStringModeller>()
       .AddTypeModeller<DualDeclAst, TypeDualModel, DualModeller>()
-      .AddTypeModeller<EnumDeclAst, TypeEnumModel, EnumModeller>()
+      .AddTypeModeller<IGqlpEnum, TypeEnumModel, EnumModeller>()
       .AddTypeModeller<InputDeclAst, TypeInputModel, InputModeller>()
       .AddTypeModeller<OutputDeclAst, TypeOutputModel, OutputModeller>()
-      .AddTypeModeller<UnionDeclAst, TypeUnionModel, UnionModeller>()
+      .AddTypeModeller<IGqlpUnion, UnionModels, UnionModeller>()
       .AddTypesModeller()
     ;
 
@@ -52,7 +52,7 @@ internal static class AllModellers
       .AddSingleton<IModeller<AstType, BaseTypeModel>>(c => c.GetRequiredService<ITypesModeller>());
 
   public static IServiceCollection AddTypeModeller<TAst, TModel, TModeller>(this IServiceCollection services)
-    where TAst : AstBase
+    where TAst : IGqlpError
     where TModeller : class, IModeller<TAst, TModel>, ITypeModeller
     => services
       .AddSingleton<TModeller>()

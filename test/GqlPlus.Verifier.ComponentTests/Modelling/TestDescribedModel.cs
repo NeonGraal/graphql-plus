@@ -35,7 +35,7 @@ internal abstract class CheckDescribedModel<TName, TSrc, TAst, TModel>(
 ) : CheckModelBase<TName, TSrc, TAst, TModel>(modeller)
   , ICheckDescribedModel<TName>
   where TSrc : IGqlpError, IGqlpDescribed
-  where TAst : AstAbbreviated, TSrc
+  where TAst : IGqlpError, TSrc
   where TModel : IRendering
 {
   protected abstract TAst NewDescribedAst(TName name, string description);
@@ -44,14 +44,14 @@ internal abstract class CheckDescribedModel<TName, TSrc, TAst, TModel>(
   protected override TAst NewBaseAst(TName name) => NewDescribedAst(name, "");
   protected sealed override string[] ExpectedBase(TName name) => ExpectedDescription(new(name));
 
-  AstAbbreviated ICheckDescribedModel<TName>.DescribedAst(TName name, string description) => NewDescribedAst(name, description);
+  IGqlpError ICheckDescribedModel<TName>.DescribedAst(TName name, string description) => NewDescribedAst(name, description);
   string[] ICheckDescribedModel<TName>.ExpectedDescription(ExpectedDescriptionInput<TName> input) => ExpectedDescription(input);
 }
 
 internal interface ICheckDescribedModel<TName>
   : ICheckModelBase<TName>
 {
-  AstAbbreviated DescribedAst(TName name, string description);
+  IGqlpError DescribedAst(TName name, string description);
   string[] ExpectedDescription(ExpectedDescriptionInput<TName> input);
 }
 

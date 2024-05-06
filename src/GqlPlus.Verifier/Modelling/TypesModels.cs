@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Rendering;
 
@@ -128,24 +129,24 @@ public record class TypeSimpleModel(
 internal abstract class ModellerType<TAst, TParent, TModel>(
   TypeKindModel kind
 ) : ModellerBase<TAst, TModel>, ITypeModeller
-  where TAst : AstType<TParent>
+  where TAst : IGqlpType<TParent>
   where TParent : IEquatable<TParent>
   where TModel : BaseTypeModel
 {
   TypeKindModel ITypeModeller.Kind => kind;
 
-  bool ITypeModeller.ForType(AstType ast)
+  bool ITypeModeller.ForType(IGqlpType ast)
     => ast is TAst;
 
-  BaseTypeModel ITypeModeller.ToTypeModel(AstType ast, IMap<TypeKindModel> typeKinds)
+  BaseTypeModel ITypeModeller.ToTypeModel(IGqlpType ast, IMap<TypeKindModel> typeKinds)
     => ToModel((TAst)ast, typeKinds);
 }
 
 internal interface ITypeModeller
 {
-  bool ForType(AstType ast);
+  bool ForType(IGqlpType ast);
   TypeKindModel Kind { get; }
-  BaseTypeModel ToTypeModel(AstType ast, IMap<TypeKindModel> typeKinds);
+  BaseTypeModel ToTypeModel(IGqlpType ast, IMap<TypeKindModel> typeKinds);
 }
 
 internal static class ModelHelper

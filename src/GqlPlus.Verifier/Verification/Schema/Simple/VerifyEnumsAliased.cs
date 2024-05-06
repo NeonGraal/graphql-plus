@@ -1,13 +1,13 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema.Simple;
 
 internal class VerifyEnumsAliased(
-  IVerify<EnumDeclAst> definition,
-  IMerge<EnumDeclAst> merger,
+  IVerify<IGqlpEnum> definition,
+  IMerge<IGqlpEnum> merger,
   ILoggerFactory logger
-) : AliasedVerifier<EnumDeclAst>(definition, merger, logger)
+) : AliasedVerifier<IGqlpEnum>(definition, merger, logger)
 {
   public override string Label => "Enums";
 }

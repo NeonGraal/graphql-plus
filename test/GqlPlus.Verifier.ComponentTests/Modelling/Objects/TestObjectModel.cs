@@ -153,8 +153,8 @@ internal abstract class CheckObjectModel<TObject, TObjField, TObjBase, TModel>(
   protected override string[] ExpectedType(ExpectedTypeInput<string> input)
     => ExpectedObject(new(input));
 
-  internal override TObject NewTypeAst(string name, TObjBase? parent, string description)
-    => NewObjectAst(name, parent, description, [], []);
+  internal override TObject NewTypeAst(string name, TObjBase? parent = default, string? description = null, string[]? aliases = null)
+    => NewObjectAst(name, parent, description, aliases, [], []);
 
   void ICheckObjectModel<TObject, TObjField, TObjBase>.ObjectExpected(TObject ast, ExpectedObjectInput input,
       ToExpected<string?>? parent, ToExpected<FieldInput>? field, ToExpected<string>? alternate)
@@ -196,7 +196,7 @@ internal abstract class CheckObjectModel<TObject, TObjField, TObjBase, TModel>(
       [], ItemsExpected("allAlternates:", input.Alternates, ExpectedObject<string>(input.Parent!, ExpectedAlternate))));
 
   TObject ICheckObjectModel<TObject, TObjField, TObjBase>.ObjectAst(string name, FieldInput[] fields, string[] alternates)
-    => NewObjectAst(name, default, "", fields, alternates);
+    => NewObjectAst(name, default, "", null, fields, alternates);
 
   BaseTypeModel IParentModel<FieldInput>.NewParent(string name, FieldInput[] members, string? parent)
     => NewParentModel(name, parent, members, []);
@@ -204,9 +204,9 @@ internal abstract class CheckObjectModel<TObject, TObjField, TObjBase, TModel>(
     => NewParentModel(name, parent, [], members);
 
   private BaseTypeModel NewParentModel(string name, string? parent, FieldInput[] fields, string[] alternates)
-    => _modeller.ToModel<TModel>(NewObjectAst(name, parent is null ? null : NewParentAst(parent), "", fields, alternates), TypeKinds);
+    => _modeller.ToModel<TModel>(NewObjectAst(name, parent is null ? null : NewParentAst(parent), "", null, fields, alternates), TypeKinds);
 
-  protected abstract TObject NewObjectAst(string name, TObjBase? parent, string description, FieldInput[] fields, string[] alternates);
+  protected abstract TObject NewObjectAst(string name, TObjBase? parent, string? description, string[]? aliases, FieldInput[] fields, string[] alternates);
 }
 
 internal interface ICheckObjectModel<TObject, TObjField, TObjBase>

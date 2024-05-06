@@ -1,9 +1,10 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Modelling.Simple;
 
 public class EnumModelTests(
-  IModeller<EnumDeclAst, TypeEnumModel> modeller
+  IModeller<IGqlpEnum, TypeEnumModel> modeller
 ) : TestTypeModel<SimpleKindModel>
 {
   [Theory, RepeatData(Repeats)]
@@ -60,8 +61,8 @@ public class EnumModelTests(
 }
 
 internal sealed class EnumModelChecks(
-  IModeller<EnumDeclAst, TypeEnumModel> modeller
-) : CheckTypeModel<EnumDeclAst, SimpleKindModel, TypeEnumModel, string>(modeller, SimpleKindModel.Enum)
+  IModeller<IGqlpEnum, TypeEnumModel> modeller
+) : CheckTypeModel<IGqlpEnum, SimpleKindModel, TypeEnumModel, string>(modeller, SimpleKindModel.Enum)
 {
   internal void EnumExpected(EnumDeclAst ast, ExpectedEnumInput input)
     => AstExpected(ast, ExpectedEnum(input));
@@ -94,8 +95,11 @@ internal sealed class EnumModelChecks(
       Items = [.. members.Select(m => new AliasedModel(m))]
     };
 
-  internal override EnumDeclAst NewTypeAst(string name, string? parent, string description)
-    => new(AstNulls.At, name, description, []) { Parent = parent };
+  internal override EnumDeclAst NewTypeAst(string name, string? parent, string? description, string[]? aliases)
+    => new(AstNulls.At, name, description ?? "", []) {
+      Parent = parent,
+      Aliases = aliases ?? [],
+    };
 }
 
 internal sealed class ExpectedEnumInput(

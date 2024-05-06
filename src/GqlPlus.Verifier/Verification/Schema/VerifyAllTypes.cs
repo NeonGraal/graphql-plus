@@ -7,7 +7,7 @@ namespace GqlPlus.Verification.Schema;
 
 internal class VerifyAllTypes(
   IVerifyUsage<DualDeclAst, IGqlpType> dualAllTypes,
-  IVerifyUsage<EnumDeclAst, IGqlpType> enumAllTypes,
+  IVerifyUsage<IGqlpEnum, IGqlpType> enumAllTypes,
   IVerifyUsage<InputDeclAst, IGqlpType> inputAllTypes,
   IVerifyUsage<OutputDeclAst, IGqlpType> outputAllTypes,
   IVerifyUsage<AstDomain, IGqlpType> domainAllTypes,
@@ -19,7 +19,7 @@ internal class VerifyAllTypes(
     IGqlpType[] allTypes = [.. item, .. BuiltIn.Basic, .. BuiltIn.Internal];
 
     DualDeclAst[] dualTypes = allTypes.ArrayOf<DualDeclAst>();
-    EnumDeclAst[] enumTypes = allTypes.ArrayOf<EnumDeclAst>();
+    IGqlpEnum[] enumTypes = allTypes.ArrayOf<IGqlpEnum>();
     InputDeclAst[] inputTypes = allTypes.ArrayOf<InputDeclAst>();
     OutputDeclAst[] outputTypes = allTypes.ArrayOf<OutputDeclAst>();
     AstDomain[] domainTypes = allTypes.ArrayOf<AstDomain>();

@@ -31,8 +31,8 @@ public static class AllVerifiers
       // Schema Types
       .AddVerify<IGqlpType[], VerifyAllTypes>()
       .AddVerifyAliased<IGqlpType, VerifyAllTypesAliased>()
-      .AddVerifyAliased<EnumDeclAst, VerifyEnumsAliased>()
-      .AddVerifyUsageAliased<EnumDeclAst, IGqlpType, VerifyEnumTypes>()
+      .AddVerifyAliased<IGqlpEnum, VerifyEnumsAliased>()
+      .AddVerifyUsageAliased<IGqlpEnum, IGqlpType, VerifyEnumTypes>()
       .AddVerifyAliased<DualDeclAst, VerifyDualsAliased>()
       .AddVerifyUsageAliased<DualDeclAst, IGqlpType, VerifyDualTypes>()
       .AddVerifyAliased<InputDeclAst, VerifyInputsAliased>()

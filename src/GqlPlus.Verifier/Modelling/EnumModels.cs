@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -36,23 +36,23 @@ public record class EnumValueModel(
 }
 
 internal class EnumModeller
-  : ModellerType<EnumDeclAst, string, TypeEnumModel>
+  : ModellerType<IGqlpEnum, string, TypeEnumModel>
 {
   public EnumModeller()
     : base(TypeKindModel.Enum)
   { }
 
-  protected override TypeEnumModel ToModel(EnumDeclAst ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeEnumModel ToModel(IGqlpEnum ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
-      Aliases = ast.Aliases,
+      Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Enum),
-      Items = [.. ast.Members.Select(ToMember)],
+      Items = [.. ast.Items.Select(ToMember)],
     };
 
-  internal static AliasedModel ToMember(EnumMemberAst ast)
+  internal static AliasedModel ToMember(IGqlpEnumItem ast)
     => new(ast.Name) {
-      Aliases = ast.Aliases,
+      Aliases = [.. ast.Aliases],
       Description = ast.Description,
     };
 }

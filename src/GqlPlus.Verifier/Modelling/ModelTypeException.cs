@@ -4,7 +4,7 @@ public class ModelTypeException<TModel>
   : Exception
 {
   private static string ModelTypeMessage(object? type)
-    => $"Type '{type?.GetType().ExpandTypeName() ?? "null"}' Model is not '{typeof(TModel).ExpandTypeName()}'";
+    => $"Type '{type?.GetType().TidyTypeName() ?? "null"}' Model is not '{typeof(TModel).TidyTypeName()}'";
 
   public ModelTypeException(object? type)
     : base(ModelTypeMessage(type))

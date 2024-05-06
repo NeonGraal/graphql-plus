@@ -1,4 +1,4 @@
 ﻿[
   Multiple Directives with name 'Test' can't be merged.,
-  Group of ParameterAst for Test is not singular Modifiers['', '?']
+  Group of Parameter for Test is not singular Modifiers['', '?']
 ]

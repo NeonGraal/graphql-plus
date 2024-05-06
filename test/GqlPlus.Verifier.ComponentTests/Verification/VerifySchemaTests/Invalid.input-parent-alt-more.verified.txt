@@ -1,4 +1,4 @@
 ﻿[
   Invalid Input Child. Can't merge Test alternates into Parent Recurse alternates.,
-  Group of AstAlternate<InputBaseAst> for Alt is not singular Modifiers['', '[]']
+  Group of Alternate<InputBase> for Alt is not singular Modifiers['', '[]']
 ]

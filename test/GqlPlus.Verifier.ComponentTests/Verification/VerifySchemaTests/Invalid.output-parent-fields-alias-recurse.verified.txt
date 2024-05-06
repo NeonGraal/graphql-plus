@@ -1,4 +1,4 @@
 ﻿[
   Invalid Output Child. Can't merge Test into Parent Recurse.,
-  Aliases of OutputFieldAst for alias is not singular ['field1', 'field2']
+  Aliases of OutputField for alias is not singular ['field1', 'field2']
 ]

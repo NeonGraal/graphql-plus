@@ -8,6 +8,12 @@ public static class TypeHelpers
           ? ExpandTypeName(type)
           : type.Namespace + "::" + ExpandTypeName(type);
 
+  public static string TidyTypeName(this Type type)
+    => type.ExpandTypeName()
+      .Replace("Ast", "", StringComparison.OrdinalIgnoreCase)
+      .Replace("IGqlp", "", StringComparison.OrdinalIgnoreCase)
+      .Replace("Model", "", StringComparison.OrdinalIgnoreCase);
+
   public static string ExpandTypeName(this Type type)
   {
     ArgumentNullException.ThrowIfNull(type);

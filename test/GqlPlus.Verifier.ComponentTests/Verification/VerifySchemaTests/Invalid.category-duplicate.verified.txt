@@ -1,4 +1,4 @@
 ﻿[
   Multiple Categories with name 'test' can't be merged.,
-  Group of IGqlpSchemaCategory for test is not singular Output~Modifiers~Option['Output~System.String[]~Parallel', 'Test~System.String[]~Parallel']
+  Group of SchemaCategory for test is not singular Output~Modifiers~Option['Output~System.String[]~Parallel', 'Test~System.String[]~Parallel']
 ]

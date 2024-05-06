@@ -25,7 +25,7 @@ internal abstract class AstAliasedMerger<TItem>(
       .Distinct();
     return distinct.Count() == 1 ? Messages()
       : group.Last().item
-        .MakeError($"Aliases of {typeof(TItem).ExpandTypeName()} for {group.Key} is not singular [{distinct.Debug()}]");
+        .MakeError($"Aliases of {typeof(TItem).TidyTypeName()} for {group.Key} is not singular [{distinct.Debug()}]");
   }
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)

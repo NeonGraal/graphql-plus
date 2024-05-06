@@ -1,4 +1,4 @@
 ﻿[
   Invalid Input Child. Can't merge Test into Parent Recurse.,
-  Group of InputFieldAst for field is not singular ModifiedType['Test', 'Test []']
+  Group of InputField for field is not singular ModifiedType['Test', 'Test []']
 ]

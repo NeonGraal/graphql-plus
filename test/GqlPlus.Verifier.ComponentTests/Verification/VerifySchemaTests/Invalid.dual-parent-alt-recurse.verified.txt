@@ -1,4 +1,4 @@
 ﻿[
   Invalid Dual Child. Can't merge Test alternates into Parent Recurse alternates.,
-  Group of AstAlternate<DualBaseAst> for Alt is not singular Modifiers['', '[]']
+  Group of Alternate<DualBase> for Alt is not singular Modifiers['', '[]']
 ]

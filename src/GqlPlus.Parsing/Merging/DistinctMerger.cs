@@ -17,7 +17,7 @@ internal abstract partial class DistinctMerger<TItem>(
       return Messages();
     }
 
-    string typeName = typeof(TItem).ExpandTypeName();
+    string typeName = typeof(TItem).TidyTypeName();
     string values = distinct.Debug();
     GroupNotSingular(typeName, group.Key, ItemMatchName, values);
 

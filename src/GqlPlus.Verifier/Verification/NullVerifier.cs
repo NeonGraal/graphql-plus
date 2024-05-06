@@ -11,7 +11,7 @@ internal partial class NullVerifier<TAst>(
   private readonly ILogger _logger = logger.CreateLogger(nameof(NullVerifier<TAst>));
 
   public void Verify(TAst item, ITokenMessages errors)
-    => NullVerification(item.GetType().ExpandTypeName(), item);
+    => NullVerification(item.GetType().TidyTypeName(), item);
 
   [LoggerMessage(LogLevel.Information, Message = "Null verification of {Type} - {Item}")]
   private partial void NullVerification(string type, TAst item);
@@ -25,7 +25,7 @@ internal partial class NullVerifierError<TGqlp>(
   private readonly ILogger _logger = logger.CreateLogger(nameof(NullVerifierError<TGqlp>));
 
   public void Verify(TGqlp item, ITokenMessages errors)
-    => NullVerification(item.GetType().ExpandTypeName(), item);
+    => NullVerification(item.GetType().TidyTypeName(), item);
 
   [LoggerMessage(LogLevel.Information, Message = "Null verification of {Type} - {Item}")]
   private partial void NullVerification(string type, TGqlp item);

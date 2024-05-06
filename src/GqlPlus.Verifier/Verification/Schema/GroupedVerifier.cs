@@ -32,7 +32,7 @@ internal abstract partial class GroupedVerifier<TAliased>(
   }
 
   private void GroupVerifying(Type type)
-    => GroupVerifying(type.GetElementType()?.ExpandTypeName());
+    => GroupVerifying(type.GetElementType()?.TidyTypeName());
 
   [LoggerMessage(Level = LogLevel.Information, Message = "Group verifying of {Type}")]
   private partial void GroupVerifying(string? type);

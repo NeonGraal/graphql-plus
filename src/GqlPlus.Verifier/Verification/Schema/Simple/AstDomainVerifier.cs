@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verification.Schema.Simple;

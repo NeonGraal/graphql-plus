@@ -51,18 +51,18 @@ public static class AllVerifiers
       .AddVerifyUsageAliased<IGqlpUnion, IGqlpType, VerifyUnionTypes>()
     ;
 
-  public static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)
+  private static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)
     where TService : class, IVerify<TValue>
     => services.AddSingleton<IVerify<TValue>, TService>();
 
-  public static IServiceCollection TryAddVerify<TValue, TService>(this IServiceCollection services)
+  private static IServiceCollection TryAddVerify<TValue, TService>(this IServiceCollection services)
     where TService : class, IVerify<TValue>
   {
     services.TryAddSingleton<IVerify<TValue>, TService>();
     return services;
   }
 
-  public static IServiceCollection AddVerifyUsageNamed<TUsage, TNamed, TService>(this IServiceCollection services)
+  private static IServiceCollection AddVerifyUsageNamed<TUsage, TNamed, TService>(this IServiceCollection services)
     where TService : class, IVerifyNamed<TUsage, TNamed>
     where TUsage : IGqlpError
     where TNamed : IGqlpNamed
@@ -71,14 +71,14 @@ public static class AllVerifiers
       .TryAddVerify<TUsage, NullVerifierError<TUsage>>()
       .TryAddVerify<TNamed, NullVerifierError<TNamed>>();
 
-  public static IServiceCollection AddVerifyAliased<TAliased, TService>(this IServiceCollection services)
+  private static IServiceCollection AddVerifyAliased<TAliased, TService>(this IServiceCollection services)
     where TService : class, IVerifyAliased<TAliased>
     where TAliased : IGqlpAliased
     => services
       .AddSingleton<IVerifyAliased<TAliased>, TService>()
       .TryAddVerify<TAliased, NullVerifierError<TAliased>>();
 
-  public static IServiceCollection AddVerifyUsageAliased<TUsage, TAliased, TService>(this IServiceCollection services)
+  private static IServiceCollection AddVerifyUsageAliased<TUsage, TAliased, TService>(this IServiceCollection services)
     where TService : class, IVerifyUsage<TUsage, TAliased>
     where TUsage : IGqlpError
     where TAliased : IGqlpAliased
@@ -87,7 +87,7 @@ public static class AllVerifiers
       .TryAddVerify<TUsage, NullVerifierError<TUsage>>()
       .TryAddVerify<TAliased, NullVerifierError<TAliased>>();
 
-  public static IServiceCollection AddVerifyDomainContext<TService>(this IServiceCollection services)
+  private static IServiceCollection AddVerifyDomainContext<TService>(this IServiceCollection services)
     where TService : class, IVerifyDomain
     => services.AddSingleton<IVerifyDomain, TService>();
 }

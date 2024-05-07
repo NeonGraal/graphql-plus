@@ -1,6 +1,4 @@
-﻿using GqlPlus.Rendering;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public abstract class TestModelBase<TName>
 {

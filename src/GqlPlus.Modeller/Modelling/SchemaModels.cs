@@ -3,6 +3,7 @@ using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Rendering;
+
 namespace GqlPlus.Modelling;
 
 public record class SchemaModel(
@@ -165,7 +166,8 @@ internal class SchemaModeller(
         ) { Aliases = [.. aliases] };
   }
 
-  private IEnumerable<TResult> DeclarationModel<TAst, TResult>(IGqlpSchema ast, IModeller<TAst, TResult> modeller, IMap<TypeKindModel> typeKinds)
+  private IEnumerable<TModel> DeclarationModel<TAst, TModel>(IGqlpSchema ast, IModeller<TAst, TModel> modeller, IMap<TypeKindModel> typeKinds)
     where TAst : IGqlpError
+    where TModel : IRendering
     => ast.Declarations.OfType<TAst>().Select(m => modeller.ToModel(m, typeKinds));
 }

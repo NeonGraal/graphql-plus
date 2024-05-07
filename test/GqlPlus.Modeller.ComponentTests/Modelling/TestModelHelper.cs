@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
 

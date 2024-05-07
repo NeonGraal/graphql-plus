@@ -19,6 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\GqlPlus.Modeller\GqlPlus.Modeller.csproj" />
+    <ProjectReference Include="..\..\src\GqlPlus.Verifier\GqlPlus.Verifier.csproj" />
     <ProjectReference Include="..\GqlPlus.TestBase\GqlPlus.TestBase.csproj" />
   </ItemGroup>
 

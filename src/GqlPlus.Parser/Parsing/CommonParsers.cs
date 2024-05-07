@@ -14,7 +14,7 @@ public static class CommonParsers
       .AddParser<IParserDefault, ConstantAst, ParseDefault>()
       .AddValueParsers<ConstantAst, ParseConstant>();
 
-  public static IServiceCollection AddValueParsers<TValue, TParser>(this IServiceCollection services)
+  internal static IServiceCollection AddValueParsers<TValue, TParser>(this IServiceCollection services)
     where TValue : AstValue<TValue>
     where TParser : class, Parser<TValue>.I, IValueParser<TValue>
     => services
@@ -23,13 +23,13 @@ public static class CommonParsers
       .AddParserArray<TValue, ValueListParser<TValue>>()
       .AddParser<AstFields<TValue>, ValueObjectParser<TValue>>();
 
-  public static IServiceCollection AddParser<TValue, TService>(this IServiceCollection services)
+  internal static IServiceCollection AddParser<TValue, TService>(this IServiceCollection services)
     where TService : class, Parser<TValue>.I
     => services
       .AddSingleton<TService>()
       .AddSingleton<Parser<TValue>.D>(x => () => x.GetRequiredService<TService>());
 
-  public static IServiceCollection AddParser<TInterface, TValue, TService>(this IServiceCollection services)
+  internal static IServiceCollection AddParser<TInterface, TValue, TService>(this IServiceCollection services)
     where TService : class, TInterface
     where TInterface : class, Parser<TValue>.I
     => services
@@ -37,19 +37,19 @@ public static class CommonParsers
       .AddSingleton<Parser<TValue>.D>(x => () => x.GetRequiredService<TService>())
       .AddSingleton<Parser<TInterface, TValue>.D>(x => () => x.GetRequiredService<TService>());
 
-  public static IServiceCollection AddParserArray<TValue, TService>(this IServiceCollection services)
+  internal static IServiceCollection AddParserArray<TValue, TService>(this IServiceCollection services)
     where TService : class, Parser<TValue>.IA
     => services
       .AddSingleton<TService>()
       .AddSingleton<Parser<TValue>.DA>(x => () => x.GetRequiredService<TService>());
 
-  public static IServiceCollection AddArrayParser<TValue, TService>(this IServiceCollection services)
+  internal static IServiceCollection AddArrayParser<TValue, TService>(this IServiceCollection services)
     where TService : class, Parser<TValue>.I
     => services
       .AddParser<TValue, TService>()
       .AddParserArray<TValue, ArrayParser<TValue>>();
 
-  public static IServiceCollection AddParserArray<TInterface, TValue, TService>(this IServiceCollection services)
+  internal static IServiceCollection AddParserArray<TInterface, TValue, TService>(this IServiceCollection services)
     where TService : class, TInterface
     where TInterface : class, Parser<TValue>.IA
     => services

@@ -15,6 +15,7 @@ public interface IModeller<TAst>
 public interface IModeller<TAst, TModel>
   : IModeller<TAst>
   where TAst : IGqlpError
+  where TModel : IRendering
 {
   TModel? TryModel(TAst? ast, IMap<TypeKindModel> typeKinds);
   TModel ToModel(TAst? ast, IMap<TypeKindModel> typeKinds);

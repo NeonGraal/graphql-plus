@@ -51,6 +51,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parser.ClassTests",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parser.ComponentTests", "test\GqlPlus.Parser.ComponentTests\GqlPlus.Parser.ComponentTests.csproj", "{F9D2FECF-2F45-4984-9D2E-A136F285E47B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Modeller", "src\GqlPlus.Modeller\GqlPlus.Modeller.csproj", "{33279A3A-60F3-49A6-BE09-33F3582E61DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Modeller.ComponentTests", "test\GqlPlus.Modeller.ComponentTests\GqlPlus.Modeller.ComponentTests.csproj", "{B265FB57-1412-41AF-88F8-A86CEA28A66E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +89,14 @@ Global
 		{F9D2FECF-2F45-4984-9D2E-A136F285E47B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9D2FECF-2F45-4984-9D2E-A136F285E47B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9D2FECF-2F45-4984-9D2E-A136F285E47B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33279A3A-60F3-49A6-BE09-33F3582E61DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33279A3A-60F3-49A6-BE09-33F3582E61DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33279A3A-60F3-49A6-BE09-33F3582E61DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33279A3A-60F3-49A6-BE09-33F3582E61DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B265FB57-1412-41AF-88F8-A86CEA28A66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B265FB57-1412-41AF-88F8-A86CEA28A66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B265FB57-1412-41AF-88F8-A86CEA28A66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B265FB57-1412-41AF-88F8-A86CEA28A66E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +111,8 @@ Global
 		{2CD75718-076D-4554-9A1A-AB2FD1FFDA47} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
 		{0910A54F-5BA1-4CCF-BDF2-B2AE8DB81D90} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{F9D2FECF-2F45-4984-9D2E-A136F285E47B} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{33279A3A-60F3-49A6-BE09-33F3582E61DA} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
+		{B265FB57-1412-41AF-88F8-A86CEA28A66E} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}

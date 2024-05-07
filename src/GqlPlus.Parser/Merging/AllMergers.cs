@@ -51,14 +51,14 @@ public static class AllMergers
       .AddMergeAll<OutputDeclAst, IGqlpType, MergeOutputObjects>()
     ;
 
-  public static IServiceCollection AddMerge<TValue, TService>(this IServiceCollection services)
+  private static IServiceCollection AddMerge<TValue, TService>(this IServiceCollection services)
     where TValue : IGqlpError
     where TService : class, IMerge<TValue>
     => services
       .RemoveAll<IMerge<TValue>>()
       .AddSingleton<IMerge<TValue>, TService>();
 
-  public static IServiceCollection AddMergeAll<TAst, TType, TService>(this IServiceCollection services)
+  private static IServiceCollection AddMergeAll<TAst, TType, TService>(this IServiceCollection services)
     where TAst : IGqlpType
     where TType : IGqlpType
     where TService : class, IMergeAll<TType>, IMerge<TAst>
@@ -68,7 +68,7 @@ public static class AllMergers
       .AddSingleton<IMerge<TAst>>(x => x.GetRequiredService<TService>())
       .AddSingleton<IMergeAll<TType>>(x => x.GetRequiredService<TService>());
 
-  public static IServiceCollection AddMergeDomain<TMember>(this IServiceCollection services)
+  private static IServiceCollection AddMergeDomain<TMember>(this IServiceCollection services)
     where TMember : AstAbbreviated, IGqlpDomainItem
     => services
       .AddMergeAll<IGqlpDomain<TMember>, IGqlpDomain, MergeDomains<TMember>>();

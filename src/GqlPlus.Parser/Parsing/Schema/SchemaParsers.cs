@@ -71,36 +71,36 @@ public static class SchemaParsers
       .AddParser<IGqlpSchema, ParseSchema>()
       ;
 
-  public static IServiceCollection AddEnum<TEnum>(this IServiceCollection services)
+  private static IServiceCollection AddEnum<TEnum>(this IServiceCollection services)
     where TEnum : struct
     => services.AddParser<IEnumParser<TEnum>, TEnum, EnumParser<TEnum>>();
 
-  public static IServiceCollection AddOption<TOption>(this IServiceCollection services)
+  private static IServiceCollection AddOption<TOption>(this IServiceCollection services)
     where TOption : struct
     => services
       .AddParser<IOptionParser<TOption>, TOption, OptionParser<TOption>>()
       .AddParser<IEnumParser<TOption>, TOption, EnumParser<TOption>>();
 
-  public static IServiceCollection AddObjectParser<TObject, TObjField, TObjBase>(this IServiceCollection services)
+  private static IServiceCollection AddObjectParser<TObject, TObjField, TObjBase>(this IServiceCollection services)
     where TObject : ParseObjectDefinition<TObjField, TObjBase>
     where TObjField : AstObjectField<TObjBase>
     where TObjBase : AstObjectBase<TObjBase>
     => services.AddParser<ObjectDefinition<TObjField, TObjBase>, TObject>();
 
-  public static IServiceCollection AddDeclarationParser<TObject, TParser>(this IServiceCollection services, string selector)
+  private static IServiceCollection AddDeclarationParser<TObject, TParser>(this IServiceCollection services, string selector)
     where TObject : IGqlpDeclaration
     where TParser : class, Parser<TObject>.I
     => services
       .AddParser<TObject, TParser>()
       .AddSingleton<IParseDeclaration>(c => new ParseDeclaration<TObject>(selector, c.GetRequiredService<Parser<TObject>.D>()));
 
-  public static IServiceCollection AddDomainParser<TDomain, TParser>(this IServiceCollection services)
+  private static IServiceCollection AddDomainParser<TDomain, TParser>(this IServiceCollection services)
     where TParser : class, Parser<TDomain>.I, IParseDomain
     => services
       .AddArrayParser<TDomain, TParser>()
       .AddSingleton<IParseDomain>(c => c.GetRequiredService<TParser>());
 
-  public static IServiceCollection AddNullParsers(this IServiceCollection services)
+  private static IServiceCollection AddNullParsers(this IServiceCollection services)
     => services
       .AddParser<NullAst, ParseNull>()
       .AddParserArray<NullAst, ParseNulls>()

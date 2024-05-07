@@ -7,13 +7,13 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal class ParseVariable(
-  Parser<ModifierAst>.DA modifiers,
+  Parser<IGqlpModifier>.DA modifiers,
   Parser<IGqlpDirective>.DA directives,
   Parser<IParserDefault, ConstantAst>.D defaultParser,
   Parser<IParserVarType, string>.D varTypeParser
 ) : Parser<IGqlpVariable>.I
 {
-  private readonly Parser<ModifierAst>.LA _modifiers = modifiers;
+  private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
   private readonly Parser<IGqlpDirective>.LA _directives = directives;
   private readonly Parser<IParserDefault, ConstantAst>.L _default = defaultParser;
   private readonly Parser<IParserVarType, string>.L _varTypeParser = varTypeParser;
@@ -37,8 +37,8 @@ internal class ParseVariable(
       }
     }
 
-    IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, label);
-    if (!modifiers.Optional(value => variable.Modifiers = [.. value])) {
+    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
+    if (!modifiers.Optional(value => variable.Modifiers = value.ArrayOf<ModifierAst>())) {
       return modifiers.AsResult<IGqlpVariable>(variable);
     }
 

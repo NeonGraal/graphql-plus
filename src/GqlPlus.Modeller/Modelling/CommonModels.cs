@@ -108,23 +108,25 @@ internal class SimpleModeller
 }
 
 public interface IModifierModeller
-  : IModeller<ModifierAst, ModifierModel>, IModeller<ModifierAst, CollectionModel>
+  : IModeller<IGqlpModifier, ModifierModel>
+  , IModeller<IGqlpModifier, CollectionModel>
 { }
 
 internal class ModifierModeller
-  : ModellerBase<ModifierAst, ModifierModel>, IModifierModeller
+  : ModellerBase<IGqlpModifier, ModifierModel>
+  , IModifierModeller
 {
-  protected override ModifierModel ToModel(ModifierAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Kind) {
+  protected override ModifierModel ToModel(IGqlpModifier ast, IMap<TypeKindModel> typeKinds)
+    => new(ast.ModifierKind) {
       Key = ast.Key?.Text ?? "",
       KeyOptional = ast.KeyOptional,
     };
 
-  protected override T? TryModel<T>(ModifierAst? ast, IMap<TypeKindModel> typeKinds)
+  protected override T? TryModel<T>(IGqlpModifier? ast, IMap<TypeKindModel> typeKinds)
     where T : default
   {
     if (typeof(T).Equals(typeof(CollectionModel))) {
-      if (ast is not null && ast.Kind != ModifierKind.Optional) {
+      if (ast is not null && ast.ModifierKind != ModifierKind.Optional) {
         return (T?)(object)ToModel(ast, typeKinds);
       }
 
@@ -134,12 +136,12 @@ internal class ModifierModeller
     }
   }
 
-  CollectionModel? IModeller<ModifierAst, CollectionModel>.TryModel(ModifierAst? ast, IMap<TypeKindModel> typeKinds)
+  CollectionModel? IModeller<IGqlpModifier, CollectionModel>.TryModel(IGqlpModifier? ast, IMap<TypeKindModel> typeKinds)
     => TryModel<CollectionModel>(ast, typeKinds);
-  CollectionModel IModeller<ModifierAst, CollectionModel>.ToModel(ModifierAst? ast, IMap<TypeKindModel> typeKinds)
+  CollectionModel IModeller<IGqlpModifier, CollectionModel>.ToModel(IGqlpModifier? ast, IMap<TypeKindModel> typeKinds)
     => ToModel<CollectionModel>(ast, typeKinds);
-  IEnumerable<CollectionModel?> IModeller<ModifierAst, CollectionModel>.TryModels(IEnumerable<ModifierAst>? asts, IMap<TypeKindModel> typeKinds)
+  IEnumerable<CollectionModel?> IModeller<IGqlpModifier, CollectionModel>.TryModels(IEnumerable<IGqlpModifier>? asts, IMap<TypeKindModel> typeKinds)
     => TryModels<CollectionModel>(asts, typeKinds);
-  CollectionModel[] IModeller<ModifierAst, CollectionModel>.ToModels(IEnumerable<ModifierAst>? asts, IMap<TypeKindModel> typeKinds)
+  CollectionModel[] IModeller<IGqlpModifier, CollectionModel>.ToModels(IEnumerable<IGqlpModifier>? asts, IMap<TypeKindModel> typeKinds)
     => ToModels<CollectionModel>(asts, typeKinds);
 }

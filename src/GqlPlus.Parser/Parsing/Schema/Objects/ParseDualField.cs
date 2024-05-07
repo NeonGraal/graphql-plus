@@ -1,5 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -8,7 +7,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseDualField(
   Parser<string>.DA aliases,
-  Parser<ModifierAst>.DA modifiers,
+  Parser<IGqlpModifier>.DA modifiers,
   Parser<DualBaseAst>.D objBase
 ) : ObjectFieldParser<DualFieldAst, DualBaseAst>(aliases, modifiers, objBase)
 {

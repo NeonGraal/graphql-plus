@@ -1,5 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -29,7 +28,7 @@ internal class ParseDual(
 
 internal class ParseDualDefinition(
   Parser<DualFieldAst>.D field,
-  ParserArray<IParserCollections, ModifierAst>.DA collections,
+  ParserArray<IParserCollections, IGqlpModifier>.DA collections,
   Parser<DualBaseAst>.D objBase
 ) : ParseObjectDefinition<DualFieldAst, DualBaseAst>(field, collections, objBase)
 {

@@ -12,12 +12,12 @@ public abstract class ObjectFieldParser<TObjField, TObjBase>
   where TObjBase : AstObjectBase<TObjBase>
 {
   private readonly Parser<string>.LA _aliases;
-  private readonly Parser<ModifierAst>.LA _modifiers;
+  private readonly Parser<IGqlpModifier>.LA _modifiers;
   private readonly Parser<TObjBase>.L _objBase;
 
   protected ObjectFieldParser(
     Parser<string>.DA aliases,
-    Parser<ModifierAst>.DA modifiers,
+    Parser<IGqlpModifier>.DA modifiers,
     Parser<TObjBase>.D objBase)
   {
     _aliases = aliases;
@@ -53,12 +53,12 @@ public abstract class ObjectFieldParser<TObjField, TObjBase>
         ) {
         hasAliases.WithResult(aliases => field.Aliases = [.. aliases]);
         hasParameter.WithResult(parameter => ApplyFieldParameters(field, [.. parameter]));
-        IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, label);
+        IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
         if (modifiers.IsError()) {
           return modifiers.AsResult<TObjField>();
         }
 
-        modifiers.WithResult(modifiers => field.Modifiers = [.. modifiers]);
+        modifiers.WithResult(modifiers => field.Modifiers = modifiers.ArrayOf<ModifierAst>());
 
         return FieldDefault(tokens, field);
       }

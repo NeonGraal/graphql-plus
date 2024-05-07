@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -39,7 +38,7 @@ public record class CategoryModel(
 // ResolutionModel => CategoryOption
 
 internal class CategoryModeller(
-  IModeller<ModifierAst, ModifierModel> modifier
+  IModeller<IGqlpModifier, ModifierModel> modifier
 ) : ModellerBase<IGqlpSchemaCategory, CategoryModel>
 {
   protected override CategoryModel ToModel(IGqlpSchemaCategory ast, IMap<TypeKindModel> typeKinds)
@@ -47,6 +46,6 @@ internal class CategoryModeller(
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Resolution = ast.CategoryOption,
-      Modifiers = modifier.ToModels(ast.Modifiers.ArrayOf<ModifierAst>(), typeKinds),
+      Modifiers = modifier.ToModels(ast.Modifiers, typeKinds),
     };
 }

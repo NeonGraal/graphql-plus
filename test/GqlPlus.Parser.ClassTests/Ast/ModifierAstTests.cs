@@ -46,5 +46,5 @@ public class ModifierAstTests
       key => new ModifierAst(AstNulls.At, new(AstNulls.At, key), false),
       key1 == key2);
 
-  internal BaseAstChecks<ModifierAst> _checks = new();
+  internal BaseAstChecks<IGqlpModifier> _checks = new();
 }

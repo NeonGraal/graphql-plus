@@ -74,8 +74,8 @@ public static class AllModellers
   private static IServiceCollection AddModifierModeller(this IServiceCollection services)
     => services
       .AddSingleton<IModifierModeller, ModifierModeller>()
-      .AddSingleton<IModeller<ModifierAst, ModifierModel>>(c => c.GetRequiredService<IModifierModeller>())
-      .AddSingleton<IModeller<ModifierAst, CollectionModel>>(c => c.GetRequiredService<IModifierModeller>());
+      .AddSingleton<IModeller<IGqlpModifier, ModifierModel>>(c => c.GetRequiredService<IModifierModeller>())
+      .AddSingleton<IModeller<IGqlpModifier, CollectionModel>>(c => c.GetRequiredService<IModifierModeller>());
 
   private static IServiceCollection AddAlternateModeller<TObjBaseAst, TObjBase>(this IServiceCollection services)
     where TObjBaseAst : AstObjectBase<TObjBaseAst>

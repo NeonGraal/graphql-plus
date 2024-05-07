@@ -11,7 +11,7 @@ internal class ParseOperation(
   Parser<IGqlpDirective>.DA directives,
   ParserArray<IParserStartFragments, IGqlpFragment>.DA startFragments,
   ParserArray<IParserEndFragments, IGqlpFragment>.DA endFragments,
-  Parser<ModifierAst>.DA modifiers,
+  Parser<IGqlpModifier>.DA modifiers,
   Parser<IGqlpSelection>.DA objectParser,
   Parser<IGqlpVariable>.DA variables
 ) : Parser<IGqlpOperation>.I
@@ -20,7 +20,7 @@ internal class ParseOperation(
   private readonly Parser<IGqlpDirective>.LA _directives = directives;
   private readonly ParserArray<IParserStartFragments, IGqlpFragment>.LA _startFragments = startFragments;
   private readonly ParserArray<IParserEndFragments, IGqlpFragment>.LA _endFragments = endFragments;
-  private readonly Parser<ModifierAst>.LA _modifiers = modifiers;
+  private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
   private readonly Parser<IGqlpSelection>.LA _object = objectParser;
   private readonly Parser<IGqlpVariable>.LA _variables = variables;
 
@@ -57,13 +57,13 @@ internal class ParseOperation(
       return tokens.Partial(label, "Object or Type", Final);
     }
 
-    IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, label);
+    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
 
     if (modifiers.IsError()) {
       return modifiers.AsPartial(Final());
     }
 
-    modifiers.WithResult(value => ast.Modifiers = [.. value]);
+    modifiers.WithResult(value => ast.Modifiers = value.ArrayOf<ModifierAst>());
     _endFragments.I.Parse(tokens, label).WithResult(value =>
       ast.Fragments = [.. ast.Fragments.Concat(value)]);
 

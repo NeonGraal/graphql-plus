@@ -4,12 +4,13 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-internal class ParseCollections : IParserCollections
+internal class ParseCollections
+  : IParserCollections
 {
-  public IResultArray<ModifierAst> Parse<TContext>(TContext tokens, string label)
+  public IResultArray<IGqlpModifier> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    List<ModifierAst> list = [];
+    List<IGqlpModifier> list = [];
 
     TokenAt at = tokens.At;
     while (tokens.Take('[')) {
@@ -35,4 +36,6 @@ internal class ParseCollections : IParserCollections
   }
 }
 
-public interface IParserCollections : Parser<ModifierAst>.IA { }
+public interface IParserCollections
+  : Parser<IGqlpModifier>.IA
+{ }

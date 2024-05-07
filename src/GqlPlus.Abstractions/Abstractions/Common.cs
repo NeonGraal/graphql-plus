@@ -29,9 +29,11 @@ public interface IGqlpFields<TValue>
 { }
 
 public interface IGqlpModifier
+  : IGqlpError
 {
   ModifierKind ModifierKind { get; }
   IGqlpFieldKey? Key { get; }
+  bool KeyOptional { get; }
 }
 
 public enum ModifierKind

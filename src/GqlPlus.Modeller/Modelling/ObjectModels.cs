@@ -220,7 +220,7 @@ internal abstract class ModellerObjField<TObjBaseAst, TObjFieldAst, TObjBase, TO
 
 internal class AlternateModeller<TObjBaseAst, TObjBase>(
   IModeller<TObjBaseAst, TObjBase> refBase,
-  IModeller<ModifierAst, CollectionModel> modifier
+  IModeller<IGqlpModifier, CollectionModel> modifier
 ) : ModellerBase<AstAlternate<TObjBaseAst>, AlternateModel<TObjBase>>
   , IAlternateModeller<TObjBaseAst, TObjBase>
   where TObjBaseAst : AstObjectBase<TObjBaseAst>

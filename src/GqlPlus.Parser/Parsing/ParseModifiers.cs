@@ -5,19 +5,19 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing;
 
 internal class ParseModifiers(
-    ParserArray<IParserCollections, ModifierAst>.DA collections
-) : Parser<ModifierAst>.IA
+    ParserArray<IParserCollections, IGqlpModifier>.DA collections
+) : Parser<IGqlpModifier>.IA
 {
-  private readonly ParserArray<IParserCollections, ModifierAst>.LA _collections = collections;
+  private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = collections;
 
-  public IResultArray<ModifierAst> Parse<TContext>(TContext tokens, string label)
+  public IResultArray<IGqlpModifier> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    List<ModifierAst> list = [];
-    IResultArray<ModifierAst> collections = _collections.I.Parse(tokens, label);
+    List<IGqlpModifier> list = [];
+    IResultArray<IGqlpModifier> collections = _collections.I.Parse(tokens, label);
 
     if (!collections.Optional(list.AddRange)) {
-      return collections.AsResultArray<ModifierAst>();
+      return collections.AsResultArray<IGqlpModifier>();
     }
 
     TokenAt at = tokens.At;

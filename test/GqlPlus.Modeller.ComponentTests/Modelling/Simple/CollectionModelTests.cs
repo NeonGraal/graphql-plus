@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 public class CollectionModelTests(
-  IModeller<ModifierAst, CollectionModel> modeller
+  IModeller<IGqlpModifier, CollectionModel> modeller
 ) : TestModelBase<ModifierInput>
 {
   internal override ICheckModelBase<ModifierInput> BaseChecks => _checks;
@@ -13,8 +13,8 @@ public class CollectionModelTests(
 }
 
 internal sealed class CollectionModelChecks(
-  IModeller<ModifierAst, CollectionModel> modeller
-) : CheckModelBase<ModifierInput, ModifierAst, CollectionModel>(modeller)
+  IModeller<IGqlpModifier, CollectionModel> modeller
+) : CheckModelBase<ModifierInput, IGqlpModifier, ModifierAst, CollectionModel>(modeller)
 {
   protected override string[] ExpectedBase(ModifierInput name)
     => name.Kind switch {

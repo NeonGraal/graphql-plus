@@ -1,5 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -29,7 +28,7 @@ internal class ParseInput(
 
 internal class ParseInputDefinition(
   Parser<InputFieldAst>.D field,
-  ParserArray<IParserCollections, ModifierAst>.DA collections,
+  ParserArray<IParserCollections, IGqlpModifier>.DA collections,
   Parser<InputBaseAst>.D objBase
 ) : ParseObjectDefinition<InputFieldAst, InputBaseAst>(field, collections, objBase)
 {

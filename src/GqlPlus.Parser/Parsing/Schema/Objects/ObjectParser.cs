@@ -29,14 +29,14 @@ public class ObjectDefinition<TObjField, TObjBase>
 
 public abstract class ParseObjectDefinition<TObjField, TObjBase>(
   Parser<TObjField>.D objField,
-  ParserArray<IParserCollections, ModifierAst>.DA collections,
+  ParserArray<IParserCollections, IGqlpModifier>.DA collections,
   Parser<TObjBase>.D objBase
 ) : Parser<ObjectDefinition<TObjField, TObjBase>>.I
   where TObjField : AstObjectField<TObjBase>
   where TObjBase : AstObjectBase<TObjBase>
 {
   private readonly Parser<TObjField>.L _objField = objField;
-  private readonly ParserArray<IParserCollections, ModifierAst>.LA _collections = collections;
+  private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = collections;
   private readonly Parser<TObjBase>.L _objBase = objBase;
 
   protected abstract string Label { get; }
@@ -88,8 +88,8 @@ public abstract class ParseObjectDefinition<TObjField, TObjBase>(
 
       AstAlternate<TObjBase> alternate = new(objBase.Required());
       result.Add(alternate);
-      IResultArray<ModifierAst> collections = _collections.Value.Parse(tokens, Label);
-      if (!collections.Optional(value => alternate.Modifiers = [.. value])) {
+      IResultArray<IGqlpModifier> collections = _collections.Value.Parse(tokens, Label);
+      if (!collections.Optional(value => alternate.Modifiers = value.ArrayOf<ModifierAst>())) {
         return collections.AsPartialArray(result);
       }
     }

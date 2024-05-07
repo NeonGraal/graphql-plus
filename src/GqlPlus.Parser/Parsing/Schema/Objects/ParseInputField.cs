@@ -8,7 +8,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseInputField(
   Parser<string>.DA aliases,
-  Parser<ModifierAst>.DA modifiers,
+  Parser<IGqlpModifier>.DA modifiers,
   Parser<InputBaseAst>.D objBase,
   Parser<IParserDefault, ConstantAst>.D defaultParser
 ) : ObjectFieldParser<InputFieldAst, InputBaseAst>(aliases, modifiers, objBase)

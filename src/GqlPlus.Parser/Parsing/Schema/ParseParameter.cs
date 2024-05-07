@@ -8,12 +8,12 @@ namespace GqlPlus.Parsing.Schema;
 
 internal class ParseParameters(
   Parser<InputBaseAst>.D input,
-  Parser<ModifierAst>.DA modifiers,
+  Parser<IGqlpModifier>.DA modifiers,
   Parser<IParserDefault, ConstantAst>.D defaultParser
 ) : Parser<ParameterAst>.IA
 {
   private readonly Parser<InputBaseAst>.L _input = input;
-  private readonly Parser<ModifierAst>.LA _modifiers = modifiers;
+  private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
   private readonly Parser<IParserDefault, ConstantAst>.L _default = defaultParser;
 
   public IResultArray<ParameterAst> Parse<TContext>(TContext tokens, string label)
@@ -34,12 +34,12 @@ internal class ParseParameters(
 
       ParameterAst parameter = new(at, input.Required());
       list.Add(parameter);
-      IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, "Parameter");
+      IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Parameter");
       if (modifiers.IsError()) {
         return modifiers.AsResultArray(list);
       }
 
-      modifiers.Optional(value => parameter.Modifiers = [.. value]);
+      modifiers.Optional(value => parameter.Modifiers = value.ArrayOf<ModifierAst>());
       IResult<ConstantAst> constant = _default.I.Parse(tokens, "Default");
       if (constant.IsError()) {
         return constant.AsResultArray(list);

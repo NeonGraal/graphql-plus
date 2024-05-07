@@ -53,10 +53,10 @@ internal class CategoryName
 internal interface ICategoryName : INameParser { }
 
 internal class ParseCategoryDefinition(
-  Parser<ModifierAst>.DA modifiers
+  Parser<IGqlpModifier>.DA modifiers
 ) : Parser<CategoryOutput>.I
 {
-  private readonly Parser<ModifierAst>.LA _modifiers = modifiers;
+  private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
 
   public IResult<CategoryOutput> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -66,12 +66,12 @@ internal class ParseCategoryDefinition(
     }
 
     CategoryOutput result = new(output);
-    IResultArray<ModifierAst> modifiers = _modifiers.Parse(tokens, "Parameter");
+    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Parameter");
     if (modifiers.IsError()) {
       return modifiers.AsResult(result);
     }
 
-    modifiers.Optional(value => result.Modifiers = [.. value]);
+    modifiers.Optional(value => result.Modifiers = value.ArrayOf<ModifierAst>());
     return tokens.End(label, () => result);
   }
 }

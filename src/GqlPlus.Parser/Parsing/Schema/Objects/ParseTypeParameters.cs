@@ -1,16 +1,17 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseTypeParameters
-  : Parser<TypeParameterAst>.IA
+  : Parser<IGqlpTypeParameter>.IA
 {
-  public IResultArray<TypeParameterAst> Parse<TContext>(TContext tokens, string label)
+  public IResultArray<IGqlpTypeParameter> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    List<TypeParameterAst> list = [];
+    List<IGqlpTypeParameter> list = [];
 
     if (!tokens.Take('<')) {
       return list.EmptyArray();
@@ -19,7 +20,7 @@ internal class ParseTypeParameters
     while (!tokens.Take('>')) {
       tokens.String(out string? description);
       if (tokens.Prefix('$', out string? name, out TokenAt? at) && name is not null) {
-        list.Add(new(at, name, description));
+        list.Add(new TypeParameterAst(at, name, description));
       } else {
         return tokens.PartialArray(label, "type parameter", () => list);
       }

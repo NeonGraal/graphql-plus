@@ -51,7 +51,7 @@ public static class SchemaParsers
       .AddParser<IGqlpUnionItem, ParseUnionMember>()
       .AddDeclarationParser<IGqlpUnion, ParseUnion>("union")
       // Objects
-      .AddParserArray<TypeParameterAst, ParseTypeParameters>()
+      .AddParserArray<IGqlpTypeParameter, ParseTypeParameters>()
       // Dual
       .AddParser<DualBaseAst, ParseDualBase>()
       .AddParser<DualFieldAst, ParseDualField>()

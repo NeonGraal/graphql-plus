@@ -5,7 +5,7 @@ public interface IGqlpObject<TBase, TRef, TField>
   where TRef : IGqlpObjectRef
   where TField : IGqlpObjectField<TRef>
 {
-  IEnumerable<IGqlTypeParameter> TypeParameters { get; }
+  IEnumerable<IGqlpTypeParameter> TypeParameters { get; }
   IEnumerable<TField> Fields { get; }
   IEnumerable<IGqlpAlternate<TBase>> Alternates { get; }
 }
@@ -30,7 +30,7 @@ public interface IGqlpObjectField<TRef>
   TRef Type { get; }
 }
 
-public interface IGqlTypeParameter
+public interface IGqlpTypeParameter
   : IGqlpDescribed, IGqlpNamed
 { }
 

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -7,11 +8,11 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal abstract class ObjectParser<TObject, TObjField, TObjBase>(
   ISimpleName name,
-  Parser<TypeParameterAst>.DA param,
+  Parser<IGqlpTypeParameter>.DA param,
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<ObjectDefinition<TObjField, TObjBase>>.D definition
-) : DeclarationParser<TypeParameterAst, ObjectDefinition<TObjField, TObjBase>, TObject>(name, param, aliases, option, definition)
+) : DeclarationParser<IGqlpTypeParameter, ObjectDefinition<TObjField, TObjBase>, TObject>(name, param, aliases, option, definition)
   , Parser<TObject>.I
   where TObject : AstObject<TObjField, TObjBase>
   where TObjField : AstObjectField<TObjBase>

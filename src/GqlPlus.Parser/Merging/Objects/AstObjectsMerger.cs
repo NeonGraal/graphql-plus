@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
@@ -6,7 +7,7 @@ namespace GqlPlus.Merging.Objects;
 internal class AstObjectsMerger<TObject, TObjField, TObjBase>(
   ILoggerFactory logger,
   IMerge<TObjField> fields,
-  IMerge<TypeParameterAst> typeParameters,
+  IMerge<IGqlpTypeParameter> typeParameters,
   IMerge<AstAlternate<TObjBase>> alternates
 ) : AstTypeMerger<IGqlpType, TObject, TObjBase, TObjField>(logger, fields)
   where TObject : AstObject<TObjField, TObjBase>
@@ -28,11 +29,11 @@ internal class AstObjectsMerger<TObject, TObjField, TObjBase>(
 
   protected override TObject MergeGroup(IEnumerable<TObject> group)
   {
-    IEnumerable<TypeParameterAst> typeParametersAsts = group.ManyMerge(item => item.TypeParameters, typeParameters);
+    IEnumerable<IGqlpTypeParameter> typeParametersAsts = group.ManyMerge(item => item.TypeParameters, typeParameters);
     IEnumerable<AstAlternate<TObjBase>> alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
 
     return base.MergeGroup(group) with {
-      TypeParameters = [.. typeParametersAsts],
+      TypeParameters = typeParametersAsts.ArrayOf<TypeParameterAst>(),
       Alternates = [.. alternateAsts],
     };
   }

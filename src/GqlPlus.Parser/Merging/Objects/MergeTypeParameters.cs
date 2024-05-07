@@ -1,15 +1,19 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
 internal class MergeTypeParameters
-  : GroupsMerger<TypeParameterAst>
+  : GroupsMerger<IGqlpTypeParameter>
 {
-  protected override string ItemGroupKey(TypeParameterAst item) => item.Name;
+  protected override string ItemGroupKey(IGqlpTypeParameter item) => item.Name;
 
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, TypeParameterAst> group)
-    => group.CanMerge(item => item.Description);
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpTypeParameter> group)
+    => group.CanMergeString(item => item.Description);
 
-  protected override TypeParameterAst MergeGroup(IEnumerable<TypeParameterAst> group)
-    => group.First() with { Description = group.MergeDescriptions() };
+  protected override TypeParameterAst MergeGroup(IEnumerable<IGqlpTypeParameter> group)
+  {
+    TypeParameterAst ast = (TypeParameterAst)group.First();
+    return ast with { Description = group.MergeDescriptions() };
+  }
 }

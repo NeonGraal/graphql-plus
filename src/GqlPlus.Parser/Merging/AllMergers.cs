@@ -39,7 +39,7 @@ public static class AllMergers
       .AddMerge<DomainRegexAst, MergeDomainRegexes>()
       // Object types
       .AddMerge<ParameterAst, MergeParameters>()
-      .AddMerge<TypeParameterAst, MergeTypeParameters>()
+      .AddMerge<IGqlpTypeParameter, MergeTypeParameters>()
       .AddMerge<AstAlternate<DualBaseAst>, AlternatesMerger<DualBaseAst>>()
       .AddMerge<DualFieldAst, MergeDualFields>()
       .AddMergeAll<DualDeclAst, IGqlpType, MergeDualObjects>()

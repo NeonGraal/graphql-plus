@@ -171,13 +171,13 @@ types: !_Map_Type
       object: _Alternate
       type: !_OutputBase _Collections
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: default
       object: _Parameter
       type: !_OutputBase _Constant
     fields:
     - !_OutputField
-      modifiers: [!_Modifier Optional]
+      modifiers: [!_Modifier Opt]
       name: default
       type: !_OutputBase _Constant
     name: _Parameter

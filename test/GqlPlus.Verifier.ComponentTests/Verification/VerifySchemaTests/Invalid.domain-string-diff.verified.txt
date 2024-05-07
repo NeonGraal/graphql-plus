@@ -1,5 +1,0 @@
-﻿[
-  Multiple Domains with name 'Test' can't be merged.,
-  Group of DomainRegexAst for a+ is not singular Regex['False', 'True'],
-  Multiple Types with name 'Test' can't be merged.
-]

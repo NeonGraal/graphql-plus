@@ -1,0 +1,31 @@
+﻿using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Result;
+using GqlPlus.Token;
+
+namespace GqlPlus.Parsing.Schema.Objects;
+
+internal class ParseDualField(
+  Parser<string>.DA aliases,
+  Parser<IGqlpModifier>.DA modifiers,
+  Parser<DualBaseAst>.D objBase
+) : ObjectFieldParser<DualFieldAst, DualBaseAst>(aliases, modifiers, objBase)
+{
+  protected override void ApplyFieldParameters(DualFieldAst field, ParameterAst[] parameters)
+    => throw new InvalidOperationException();
+
+  protected override DualFieldAst ObjField(TokenAt at, string name, string description, DualBaseAst typeBase)
+    => new(at, name, description, typeBase);
+
+  protected override IResult<DualFieldAst> FieldDefault<TContext>(TContext tokens, DualFieldAst field)
+    => field.Ok();
+
+  protected override IResult<DualFieldAst> FieldEnumValue<TContext>(TContext tokens, DualFieldAst field)
+    => tokens.Error("Dual", "':'", field);
+
+  protected override IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
+    => 0.EmptyArray<ParameterAst>();
+
+  protected override DualBaseAst ObjBase(TokenAt at, string param, string description)
+    => new(at, param, description);
+}

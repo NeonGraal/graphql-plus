@@ -1,4 +1,0 @@
-﻿[
-  Invalid Input Child. Can't merge Test into Parent Recurse.,
-  Aliases of InputFieldAst for alias is not singular ['field1', 'field2']
-]

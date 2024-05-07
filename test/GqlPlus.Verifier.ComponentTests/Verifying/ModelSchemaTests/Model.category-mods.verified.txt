@@ -1,0 +1,14 @@
+﻿!_Schema
+categories: !_Map_Categories
+  !_Identifier catMods: !_Category
+    aliases: [CatM1, CatM2]
+    modifiers: [!_Modifier Opt]
+    name: catMods
+    output: !_TypeRef(_TypeKind)
+      name: CatMods
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+types: !_Map_Type
+  !_Identifier CatMods: !_TypeOutput
+    name: CatMods
+    typeKind: !_TypeKind Output

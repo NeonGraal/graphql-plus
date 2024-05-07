@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3B90AC37-1
 		test\Directory.Build.targets = test\Directory.Build.targets
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier.ClassTests", "test\GqlPlus.Verifier.ClassTests\GqlPlus.Verifier.ClassTests.csproj", "{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E1645F9-6194-4B1F-B93D-5B2CDDE5E6DE}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -28,7 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier.ComponentTests", "test\GqlPlus.Verifier.ComponentTests\GqlPlus.Verifier.ComponentTests.csproj", "{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier.TestBase", "test\GqlPlus.Verifier.TestBase\GqlPlus.Verifier.TestBase.csproj", "{B73CDEC7-3F67-444E-8A06-16C20DF56DFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.TestBase", "test\GqlPlus.TestBase\GqlPlus.TestBase.csproj", "{B73CDEC7-3F67-444E-8A06-16C20DF56DFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Coverage", "Coverage", "{B152D8E1-AD02-4204-8E0D-A475F2A14183}"
 	ProjectSection(SolutionItems) = preProject
@@ -45,6 +43,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Otel", "Otel", "{90C6E29D-0
 		otel.runsettings = otel.runsettings
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Abstractions", "src\GqlPlus.Abstractions\GqlPlus.Abstractions.csproj", "{3AE01A85-4A1B-4D70-92D7-92A6C606EDDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parser", "src\GqlPlus.Parser\GqlPlus.Parser.csproj", "{2CD75718-076D-4554-9A1A-AB2FD1FFDA47}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parser.ClassTests", "test\GqlPlus.Parser.ClassTests\GqlPlus.Parser.ClassTests.csproj", "{0910A54F-5BA1-4CCF-BDF2-B2AE8DB81D90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parser.ComponentTests", "test\GqlPlus.Parser.ComponentTests\GqlPlus.Parser.ComponentTests.csproj", "{F9D2FECF-2F45-4984-9D2E-A136F285E47B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Modeller", "src\GqlPlus.Modeller\GqlPlus.Modeller.csproj", "{33279A3A-60F3-49A6-BE09-33F3582E61DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Modeller.ComponentTests", "test\GqlPlus.Modeller.ComponentTests\GqlPlus.Modeller.ComponentTests.csproj", "{B265FB57-1412-41AF-88F8-A86CEA28A66E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,10 +65,6 @@ Global
 		{DDB8D682-23EA-48C4-A1AD-65F114533202}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDB8D682-23EA-48C4-A1AD-65F114533202}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDB8D682-23EA-48C4-A1AD-65F114533202}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -67,17 +73,46 @@ Global
 		{B73CDEC7-3F67-444E-8A06-16C20DF56DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B73CDEC7-3F67-444E-8A06-16C20DF56DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B73CDEC7-3F67-444E-8A06-16C20DF56DFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AE01A85-4A1B-4D70-92D7-92A6C606EDDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AE01A85-4A1B-4D70-92D7-92A6C606EDDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AE01A85-4A1B-4D70-92D7-92A6C606EDDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AE01A85-4A1B-4D70-92D7-92A6C606EDDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD75718-076D-4554-9A1A-AB2FD1FFDA47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD75718-076D-4554-9A1A-AB2FD1FFDA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD75718-076D-4554-9A1A-AB2FD1FFDA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD75718-076D-4554-9A1A-AB2FD1FFDA47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0910A54F-5BA1-4CCF-BDF2-B2AE8DB81D90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0910A54F-5BA1-4CCF-BDF2-B2AE8DB81D90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0910A54F-5BA1-4CCF-BDF2-B2AE8DB81D90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0910A54F-5BA1-4CCF-BDF2-B2AE8DB81D90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9D2FECF-2F45-4984-9D2E-A136F285E47B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9D2FECF-2F45-4984-9D2E-A136F285E47B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9D2FECF-2F45-4984-9D2E-A136F285E47B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9D2FECF-2F45-4984-9D2E-A136F285E47B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33279A3A-60F3-49A6-BE09-33F3582E61DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33279A3A-60F3-49A6-BE09-33F3582E61DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33279A3A-60F3-49A6-BE09-33F3582E61DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33279A3A-60F3-49A6-BE09-33F3582E61DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B265FB57-1412-41AF-88F8-A86CEA28A66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B265FB57-1412-41AF-88F8-A86CEA28A66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B265FB57-1412-41AF-88F8-A86CEA28A66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B265FB57-1412-41AF-88F8-A86CEA28A66E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DDB8D682-23EA-48C4-A1AD-65F114533202} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
-		{B6FDD7DD-6C32-4A87-8304-8DA0A2718E50} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{B73CDEC7-3F67-444E-8A06-16C20DF56DFB} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{B152D8E1-AD02-4204-8E0D-A475F2A14183} = {4E1645F9-6194-4B1F-B93D-5B2CDDE5E6DE}
 		{90C6E29D-04F6-427C-8E57-27C57664AC04} = {4E1645F9-6194-4B1F-B93D-5B2CDDE5E6DE}
+		{3AE01A85-4A1B-4D70-92D7-92A6C606EDDB} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
+		{2CD75718-076D-4554-9A1A-AB2FD1FFDA47} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
+		{0910A54F-5BA1-4CCF-BDF2-B2AE8DB81D90} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{F9D2FECF-2F45-4984-9D2E-A136F285E47B} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{33279A3A-60F3-49A6-BE09-33F3582E61DA} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
+		{B265FB57-1412-41AF-88F8-A86CEA28A66E} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}

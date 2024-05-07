@@ -1,12 +1,13 @@
-﻿using GqlPlus.Verifier.Ast.Schema;
-using GqlPlus.Verifier.Token;
-using GqlPlus.Verifier.Verification;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Token;
+using GqlPlus.Verifying;
 using Xunit.DependencyInjection;
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 public class BuiltInTests(
-  IVerify<SchemaAst> verifier
+  IVerify<IGqlpSchema> verifier
 )
 {
   [Fact]
@@ -31,8 +32,8 @@ public class BuiltInTests(
   {
     Skip.If(type is null);
 
-    var result = new TokenMessages();
-    var schema = new SchemaAst(AstNulls.At) {
+    TokenMessages result = [];
+    SchemaAst schema = new(AstNulls.At) {
       Declarations = [type]
     };
 

@@ -46,7 +46,7 @@ Success
     :
     I@020/0012
     _
-    [_Location]
+    [( !k '_Location' )]
   }
 }
 {

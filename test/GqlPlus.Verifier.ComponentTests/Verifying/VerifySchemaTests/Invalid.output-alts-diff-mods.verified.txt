@@ -1,0 +1,5 @@
+﻿[
+  Multiple Outputs with name 'Test' can't be merged.,
+  Group of Alternate<OutputBase> for Test1 is not singular Modifiers['', '[]'],
+  Multiple Types with name 'Test' can't be merged.
+]

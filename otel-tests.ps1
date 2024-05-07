@@ -11,7 +11,7 @@ if (!$Keep) {
 
 Push-Location .\publish
 try {
-  dotnet vstest .\GqlPlus.Verifier.*Tests.dll /settings:../otel.runsettings
+  dotnet vstest .\GqlPlus.*Tests.dll /settings:../otel.runsettings
 }
 finally {
   Pop-Location

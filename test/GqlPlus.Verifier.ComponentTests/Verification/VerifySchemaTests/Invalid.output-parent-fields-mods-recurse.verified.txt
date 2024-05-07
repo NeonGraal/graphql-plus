@@ -1,4 +1,0 @@
-﻿[
-  Invalid Output Child. Can't merge Test into Parent Recurse.,
-  Group of OutputFieldAst for field is not singular ModifiedType['Test', 'Test []']
-]

@@ -1,6 +1,6 @@
 ﻿// Generated from .\test\GqlPlus.Verifier.ComponentTests\Sample
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 public class SampleGraphQlData
   : TheoryData<string>

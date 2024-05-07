@@ -6,7 +6,7 @@
 #>
 // Generated from <#= relative #>
 
-namespace GqlPlus.Verifier;
+namespace GqlPlus;
 
 <#  foreach (var dir in sampleDir.EnumerateDirectories()) { #>
 public class Sample<#= dir.Name #>Data

@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InFieldNull: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier Opt]
+      name: field
+      object: InFieldNull
+      type: !_InputBase InFieldNull
+    fields:
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier Opt]
+      name: field
+      type: !_InputBase InFieldNull
+    name: InFieldNull
+    typeKind: !_TypeKind Input

@@ -1,5 +1,0 @@
-﻿[
-  Multiple Duals with name 'Test' can't be merged.,
-  Group of DualFieldAst for field is not singular ModifiedType['Test', 'Test []'],
-  Multiple Types with name 'Test' can't be merged.
-]

@@ -1,11 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Verification\VerifyOperationData.cs">
+    <None Include="Verifying\VerifyOperationData.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>VerifyOperationData.tt</DependentUpon>
@@ -20,7 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GqlPlus.Verifier.TestBase\GqlPlus.Verifier.TestBase.csproj" />
+    <ProjectReference Include="..\..\src\GqlPlus.Modeller\GqlPlus.Modeller.csproj" />
+    <ProjectReference Include="..\..\src\GqlPlus.Verifier\GqlPlus.Verifier.csproj" />
+    <ProjectReference Include="..\GqlPlus.TestBase\GqlPlus.TestBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,11 +33,11 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SampleData.cs</LastGenOutput>
     </None>
-    <None Update="Verification\VerifyOperationData.tt">
+    <None Update="Verifying\VerifyOperationData.tt">
       <LastGenOutput>VerifyOperationData.cs</LastGenOutput>
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Update="Verification\VerifySchemaData.tt">
+    <None Update="Verifying\VerifySchemaData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>VerifySchemaData.cs</LastGenOutput>
     </None>
@@ -47,12 +48,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Verification\VerifyOperationData.cs">
+    <Compile Update="Verifying\VerifyOperationData.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>VerifyOperationData.tt</DependentUpon>
     </Compile>
-    <Compile Update="Verification\VerifySchemaData.cs">
+    <Compile Update="Verifying\VerifySchemaData.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>VerifySchemaData.tt</DependentUpon>
@@ -62,16 +63,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>SampleData.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Update="xunit.runner.visualstudio" Version="2.8.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <Compile Update="Verifying\VerifyOperationData.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VerifyOperationData.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Verifying\VerifySchemaData.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VerifySchemaData.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

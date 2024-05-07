@@ -1,5 +1,0 @@
-﻿[
-  Multiple Outputs with name 'Test' can't be merged.,
-  Group of ParameterAst for Param is not singular Modifiers['', '?'],
-  Multiple Types with name 'Test' can't be merged.
-]

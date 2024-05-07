@@ -9,8 +9,8 @@ public sealed record class FieldKeyAst(TokenAt At)
   , IComparable<FieldKeyAst>
   , IGqlpFieldKey
 {
-  internal string? Type { get; }
-  internal string? Member { get; }
+  public string? Type { get; }
+  public string? Member { get; }
 
   public decimal? Number { get; }
   public string? Text { get; }

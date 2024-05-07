@@ -20,6 +20,6 @@ public sealed record class EnumDeclAst(
   public EnumDeclAst(TokenAt at, string name, EnumMemberAst[] members)
     : this(at, name, "", members) { }
 
-  internal bool HasValue(string value)
+  public bool HasValue(string value)
     => Members.Any(v => v.Name == value || v.Aliases.Contains(value));
 }

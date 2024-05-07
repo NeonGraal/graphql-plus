@@ -31,7 +31,7 @@ public sealed record class OutputBaseAst(
         : $"{Name}.{EnumValue}"
     }.Concat(Arguments.Bracket("<", ">"));
 
-  internal DualBaseAst ToDual()
+  public DualBaseAst ToDual()
     => new(At, Name, Description) {
       IsTypeParameter = IsTypeParameter,
       Arguments = [.. Arguments.Select(a => a.ToDual())],

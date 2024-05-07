@@ -6,9 +6,9 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus;
 
-internal static class BuiltIn
+public static class BuiltIn
 {
-  internal static AstType[] Basic = [
+  public static AstType[] Basic { get; } = [
     new EnumDeclAst(AstNulls.At, "Boolean", [new(AstNulls.At, "false"), new(AstNulls.At, "true")]) { Aliases = ["^"] },
     new EnumDeclAst(AstNulls.At, "Unit", [new(AstNulls.At, "_")]) { Aliases = ["_"] },
 
@@ -20,7 +20,7 @@ internal static class BuiltIn
   public static IEnumerable<object[]> AllBasic()
     => Basic.Select(b => new object[] { b });
 
-  internal static AstType[] Internal = [
+  public static AstType[] Internal { get; } = [
     new EnumDeclAst(AstNulls.At, "Void", []),
     new EnumDeclAst(AstNulls.At, "Null", [new(AstNulls.At, "null")] ) { Aliases = ["null"] },
 

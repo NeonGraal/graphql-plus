@@ -20,7 +20,7 @@ public sealed record class InputBaseAst(
   public override int GetHashCode()
     => base.GetHashCode();
 
-  internal DualBaseAst ToDual()
+  public DualBaseAst ToDual()
     => new(At, Name, Description) {
       IsTypeParameter = IsTypeParameter,
       Arguments = [.. Arguments.Select(a => a.ToDual())],

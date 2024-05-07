@@ -20,9 +20,10 @@ public sealed record class ModifierAst(TokenAt At)
     : this(at, ModifierKind.Dict, "[" + key + (optional ? "?]" : "]"))
     => (Key, KeyOptional) = (key, optional);
 
-  internal ModifierKind Kind { get; }
-  internal FieldKeyAst? Key { get; init; }
-  internal bool KeyOptional { get; init; }
+  public ModifierKind Kind { get; }
+  public FieldKeyAst? Key { get; init; }
+  public bool KeyOptional { get; init; }
+
   ModifierKind IGqlpModifier.ModifierKind => Kind;
   IGqlpFieldKey? IGqlpModifier.Key => Key;
 

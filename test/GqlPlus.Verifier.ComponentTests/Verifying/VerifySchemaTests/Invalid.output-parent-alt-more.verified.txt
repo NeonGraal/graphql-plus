@@ -1,4 +1,4 @@
 ﻿[
   Invalid Output Child. Can't merge Test alternates into Parent Recurse alternates.,
-  Group of Alternate<OutputBase> for Alt is not singular Modifiers['', '[]']
+  Group of Alternate<OutputBase> for 'Alt' is not singular Modifiers['', '[]']
 ]

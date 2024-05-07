@@ -1,5 +1,5 @@
 ﻿[
   Multiple Outputs with name 'Test' can't be merged.,
-  Group of OutputField for field is not singular ModifiedType['Boolean.false', 'Boolean.true'],
+  Group of OutputField for 'field' is not singular ModifiedType['Boolean.false', 'Boolean.true'],
   Multiple Types with name 'Test' can't be merged.
 ]

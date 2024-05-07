@@ -21,7 +21,7 @@ internal abstract class DistinctMerger<TItem>(
     _logger.GroupNotSingular(typeName, group.Key, ItemMatchName, values);
 
     return group.Last()
-        .MakeError($"Group of {typeName} for {group.Key} is not singular {ItemMatchName}[{values}]");
+        .MakeError($"Group of {typeName} for '{group.Key}' is not singular {ItemMatchName}[{values}]");
   }
 
   protected abstract string ItemMatchKey(TItem item);
@@ -31,6 +31,9 @@ internal abstract class DistinctMerger<TItem>(
 internal static partial class DistinctMergerLogging
 {
 
-  [LoggerMessage(LogLevel.Warning, Message = "Group of {Type} for {Key} is not singular {ItemMatchName}[{Values}]")]
+  [LoggerMessage(LogLevel.Warning, Message = "Group of {Type} for '{Key}' is not singular {ItemMatchName}[{Values}]")]
   internal static partial void GroupNotSingular(this ILogger logger, string type, string key, string itemMatchName, string values);
+
+  [LoggerMessage(LogLevel.Warning, Message = "Aliases of {Type} for '{Key}' is not singular {ItemMatchName}[{Values}]")]
+  internal static partial void AliasesNotSingular(this ILogger logger, string type, string key, string itemMatchName, string values);
 }

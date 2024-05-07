@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -6,11 +7,11 @@ namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseEnumMember(
   Parser<string>.DA aliases
-) : Parser<EnumMemberAst>.I
+) : Parser<IGqlpEnumItem>.I
 {
   private readonly Parser<string>.LA _aliases = aliases;
 
-  public IResult<EnumMemberAst> Parse<TContext>(TContext tokens, string label)
+  public IResult<IGqlpEnumItem> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     tokens.TakeDescription();
@@ -18,7 +19,7 @@ internal class ParseEnumMember(
 
     string description = tokens.GetDescription();
     if (!tokens.Identifier(out string? value)) {
-      return tokens.Error<EnumMemberAst>(label, "member");
+      return tokens.Error<IGqlpEnumItem>(label, "member");
     }
 
     IResultArray<string> enumAliases = _aliases.Parse(tokens, "Enum Member");
@@ -26,6 +27,6 @@ internal class ParseEnumMember(
       ? new EnumMemberAst(at, value, description) { Aliases = [.. enumAliases.Required()] }
       : new EnumMemberAst(at, value, description);
 
-    return enumAliases.AsPartial(enumMember);
+    return enumAliases.AsPartial<IGqlpEnumItem>(enumMember);
   }
 }

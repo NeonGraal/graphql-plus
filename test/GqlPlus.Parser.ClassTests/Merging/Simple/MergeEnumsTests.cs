@@ -6,7 +6,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Simple;
 
 public class MergeEnumsTests
-  : TestTyped<IGqlpType, IGqlpEnum, string, EnumMemberAst>
+  : TestTyped<IGqlpType, IGqlpEnum, string, IGqlpEnumItem>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name, string[] values)
@@ -28,17 +28,17 @@ public class MergeEnumsTests
       new EnumDeclAst(AstNulls.At, name, combined));
   }
 
-  private readonly IMerge<EnumMemberAst> _enumMembers;
+  private readonly IMerge<IGqlpEnumItem> _enumMembers;
   private readonly MergeEnums _merger;
 
   public MergeEnumsTests(ITestOutputHelper outputHelper)
   {
-    _enumMembers = Merger<EnumMemberAst>();
+    _enumMembers = Merger<IGqlpEnumItem>();
 
     _merger = new(outputHelper.ToLoggerFactory(), _enumMembers);
   }
 
-  internal override AstTypeMerger<IGqlpType, IGqlpEnum, string, EnumMemberAst> MergerTyped => _merger;
+  internal override AstTypeMerger<IGqlpType, IGqlpEnum, string, IGqlpEnumItem> MergerTyped => _merger;
 
   protected override EnumDeclAst MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
     => new(AstNulls.At, name, description, []) { Aliases = aliases ?? [], Parent = parent, };

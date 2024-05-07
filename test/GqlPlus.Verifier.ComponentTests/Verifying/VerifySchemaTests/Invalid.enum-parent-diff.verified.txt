@@ -1,5 +1,5 @@
 ﻿[
   Multiple Enums with name 'Test' can't be merged.,
-  Group of Enum for Test is not singular Parent['', 'Parent'],
+  Group of Enum for 'Test' is not singular Parent['', 'Parent'],
   Multiple Types with name 'Test' can't be merged.
 ]

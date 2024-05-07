@@ -39,7 +39,7 @@ public abstract class AstBaseTests<TInput>
 internal class AstBaseChecks<TInput, TAst>
   : BaseAstChecks<TAst>
   , IAstBaseChecks<TInput>
-  where TAst : IGqlpError
+  where TAst : AstBase
 {
   protected readonly CreateBy<TInput> CreateInput;
   protected readonly string CreateExpression;

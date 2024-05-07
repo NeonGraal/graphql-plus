@@ -36,7 +36,7 @@ public static class SchemaParsers
       .AddSingleton<ISimpleName, SimpleName>()
       // Enum
       .AddParser<EnumDefinition, ParseEnumDefinition>()
-      .AddParser<EnumMemberAst, ParseEnumMember>()
+      .AddParser<IGqlpEnumItem, ParseEnumMember>()
       .AddDeclarationParser<IGqlpEnum, ParseEnum>("enum")
       // Domain
       .AddParser<DomainDefinition, ParseDomainDefinition>()

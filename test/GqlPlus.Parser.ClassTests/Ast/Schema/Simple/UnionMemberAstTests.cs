@@ -5,7 +5,7 @@ namespace GqlPlus.Ast.Schema.Simple;
 public class UnionMemberAstTests
   : AstAbbreviatedTests
 {
-  private readonly AstAbbreviatedChecks<IGqlpUnionItem> _checks
+  private readonly AstAbbreviatedChecks<UnionMemberAst> _checks
     = new(name => new UnionMemberAst(AstNulls.At, name, ""));
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;

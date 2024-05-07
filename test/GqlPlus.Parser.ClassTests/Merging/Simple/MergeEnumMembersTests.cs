@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 using Xunit.Abstractions;
 
@@ -6,12 +7,12 @@ namespace GqlPlus.Merging.Simple;
 
 public class MergeEnumMembersTests(
   ITestOutputHelper outputHelper
-) : TestAliased<EnumMemberAst>
+) : TestAliased<IGqlpEnumItem>
 {
   private readonly MergeEnumMembers _merger = new(outputHelper.ToLoggerFactory());
 
-  internal override GroupsMerger<EnumMemberAst> MergerGroups => _merger;
+  internal override GroupsMerger<IGqlpEnumItem> MergerGroups => _merger;
 
-  protected override EnumMemberAst MakeAliased(string name, string[]? aliases = null, string description = "")
-    => new(AstNulls.At, name, description) { Aliases = aliases ?? [] };
+  protected override IGqlpEnumItem MakeAliased(string name, string[]? aliases = null, string description = "")
+    => new EnumMemberAst(AstNulls.At, name, description) { Aliases = aliases ?? [] };
 }

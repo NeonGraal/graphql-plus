@@ -9,6 +9,8 @@ internal abstract class AstAliasedMerger<TItem>(
 ) : DistinctMerger<TItem>(logger)
   where TItem : IGqlpAliased
 {
+  private readonly ILogger _logger = logger.CreateLogger(nameof(AstAliasedMerger<TItem>));
+
   protected override string ItemGroupKey(TItem item) => item.Name;
 
   public override ITokenMessages CanMerge(IEnumerable<TItem> items)
@@ -23,9 +25,16 @@ internal abstract class AstAliasedMerger<TItem>(
     IEnumerable<string> distinct = group
       .Select(pair => ItemGroupKey(pair.item))
       .Distinct();
-    return distinct.Count() == 1 ? Messages()
-      : group.Last().item
-        .MakeError($"Aliases of {typeof(TItem).TidyTypeName()} for {group.Key} is not singular [{distinct.Debug()}]");
+    if (distinct.Count() == 1) {
+      return Messages();
+    }
+
+    string typeName = typeof(TItem).TidyTypeName();
+    string values = distinct.Debug();
+    _logger.AliasesNotSingular(typeName, group.Key, ItemMatchName, values);
+
+    return group.Last().item
+        .MakeError($"Aliases of {typeName} for '{group.Key}' is not singular {ItemMatchName}[{values}]");
   }
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)

@@ -33,10 +33,10 @@ internal class EnumDefinition
 }
 
 internal class ParseEnumDefinition(
-  Parser<EnumMemberAst>.D enumMember
+  Parser<IGqlpEnumItem>.D enumMember
 ) : Parser<EnumDefinition>.I
 {
-  private readonly Parser<EnumMemberAst>.L _enumMember = enumMember;
+  private readonly Parser<IGqlpEnumItem>.L _enumMember = enumMember;
 
   public IResult<EnumDefinition> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -51,16 +51,16 @@ internal class ParseEnumDefinition(
       }
     }
 
-    List<EnumMemberAst> members = [];
+    List<IGqlpEnumItem> members = [];
     while (!tokens.Take("}")) {
-      IResult<EnumMemberAst> enumMember = _enumMember.Parse(tokens, "Enum Member");
+      IResult<IGqlpEnumItem> enumMember = _enumMember.Parse(tokens, "Enum Member");
       if (!enumMember.Required(members.Add)) {
-        result.Values = [.. members];
+        result.Values = members.ArrayOf<EnumMemberAst>();
         return enumMember.AsResult(result);
       }
     }
 
-    result.Values = [.. members];
+    result.Values = members.ArrayOf<EnumMemberAst>();
     return members.Count != 0
       ? result.Ok()
       : tokens.Partial(label, "at least one member", () => result);

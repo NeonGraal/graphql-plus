@@ -6,8 +6,8 @@ namespace GqlPlus.Merging.Simple;
 
 internal class MergeEnums(
   ILoggerFactory logger,
-  IMerge<EnumMemberAst> enumMembers
-) : AstTypeMerger<IGqlpType, IGqlpEnum, string, EnumMemberAst>(logger, enumMembers)
+  IMerge<IGqlpEnumItem> enumMembers
+) : AstTypeMerger<IGqlpType, IGqlpEnum, string, IGqlpEnumItem>(logger, enumMembers)
 {
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(IGqlpEnum item)
@@ -16,9 +16,9 @@ internal class MergeEnums(
   internal override IEnumerable<EnumMemberAst> GetItems(IGqlpEnum type)
     => type.Items.ArrayOf<EnumMemberAst>();
 
-  internal override IGqlpEnum SetItems(IGqlpEnum input, IEnumerable<EnumMemberAst> items)
+  internal override IGqlpEnum SetItems(IGqlpEnum input, IEnumerable<IGqlpEnumItem> items)
   {
     EnumDeclAst ast = (EnumDeclAst)input;
-    return ast with { Members = [.. items] };
+    return ast with { Members = items.ArrayOf<EnumMemberAst>() };
   }
 }

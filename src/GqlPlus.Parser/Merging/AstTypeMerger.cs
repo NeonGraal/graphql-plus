@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 
 namespace GqlPlus.Merging;
 
@@ -11,7 +10,7 @@ internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
   where TAst : IGqlpType
   where TType : IGqlpType<TParent>, TAst
   where TParent : IEquatable<TParent>
-  where TItem : AstBase
+  where TItem : IGqlpError
 {
   internal abstract IEnumerable<TItem> GetItems(TType type);
 

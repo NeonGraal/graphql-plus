@@ -8,7 +8,7 @@ namespace GqlPlus.Merging.Simple;
 
 public class MergeUnionsTests(
   ITestOutputHelper outputHelper
-) : TestTyped<IGqlpType, IGqlpUnion, string, UnionMemberAst>
+) : TestTyped<IGqlpType, IGqlpUnion, string, IGqlpUnionItem>
 {
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] members1, string[] members2)
@@ -30,7 +30,7 @@ public class MergeUnionsTests(
 
   private readonly MergeUnions _merger = new(outputHelper.ToLoggerFactory(), new MergeUnionMembers());
 
-  internal override AstTypeMerger<IGqlpType, IGqlpUnion, string, UnionMemberAst> MergerTyped => _merger;
+  internal override AstTypeMerger<IGqlpType, IGqlpUnion, string, IGqlpUnionItem> MergerTyped => _merger;
 
   protected override UnionDeclAst MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
     => new(AstNulls.At, name, description, []) {

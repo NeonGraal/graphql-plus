@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Merging;
 using GqlPlus.Verification.Schema;
 
@@ -12,7 +11,7 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   where TAst : class, IGqlpType<TParent>
   where TParent : IEquatable<TParent>
   where TContext : UsageContext
-  where TItem : AstBase
+  where TItem : IGqlpError
 {
   protected override void CheckMergeParent(ParentUsage<TAst> input, TContext context)
   {

@@ -39,7 +39,7 @@ public abstract class AstBaseTests<TInput>
 internal class AstBaseChecks<TInput, TAst>
   : BaseAstChecks<TAst>
   , IAstBaseChecks<TInput>
-  where TAst : AstBase
+  where TAst : IGqlpError
 {
   protected readonly CreateBy<TInput> CreateInput;
   protected readonly string CreateExpression;
@@ -50,7 +50,7 @@ internal class AstBaseChecks<TInput, TAst>
 
   public void HashCode_WithInput(TInput input)
     => HashCode(
-      () => CreateInput(input) with { At = AstNulls.At },
+      () => CreateInput(input),
       CreateExpression);
 
   public void Text_WithInput(TInput input, string expected)

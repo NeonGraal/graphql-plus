@@ -1,15 +1,15 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Merging.Simple;
 
 internal class MergeUnionMembers
-  : GroupsMerger<UnionMemberAst>
+  : GroupsMerger<IGqlpUnionItem>
 {
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, UnionMemberAst> group)
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpUnionItem> group)
     => group.Distinct().Count() == 1 ? Messages()
-    : Messages(group.Last().Error("Union Members not unique for " + group.Key));
-  protected override string ItemGroupKey(UnionMemberAst item)
+    : group.Last().MakeError("Union Members not unique for " + group.Key);
+  protected override string ItemGroupKey(IGqlpUnionItem item)
     => item.Name;
-  protected override UnionMemberAst MergeGroup(IEnumerable<UnionMemberAst> group)
+  protected override IGqlpUnionItem MergeGroup(IEnumerable<IGqlpUnionItem> group)
     => group.First();
 }

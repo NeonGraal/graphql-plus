@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 
 namespace GqlPlus.Merging;
 
@@ -8,7 +7,7 @@ public abstract class TestTyped<TBase, TType, TParent, TItem>
   where TBase : IGqlpType
   where TType : IGqlpType<TParent>, TBase
   where TParent : IEquatable<TParent>
-  where TItem : AstBase
+  where TItem : IGqlpError
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameParent_ReturnsGood(string name, string type)

@@ -48,7 +48,7 @@ public static class SchemaParsers
       .AddDeclarationParser<IGqlpDomain, ParseDomain>("domain")
       // Union
       .AddParser<UnionDefinition, ParseUnionDefinition>()
-      .AddParser<UnionMemberAst, ParseUnionMember>()
+      .AddParser<IGqlpUnionItem, ParseUnionMember>()
       .AddDeclarationParser<IGqlpUnion, ParseUnion>("union")
       // Objects
       .AddParserArray<TypeParameterAst, ParseTypeParameters>()

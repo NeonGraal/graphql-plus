@@ -1,13 +1,14 @@
-﻿using GqlPlus.Ast.Schema.Simple;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseUnionMember
-  : Parser<UnionMemberAst>.I
+  : Parser<IGqlpUnionItem>.I
 {
-  public IResult<UnionMemberAst> Parse<TContext>(TContext tokens, string label)
+  public IResult<IGqlpUnionItem> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     tokens.TakeDescription();
@@ -15,7 +16,7 @@ internal class ParseUnionMember
     string description = tokens.GetDescription();
 
     return tokens.Identifier(out string? value)
-      ? new UnionMemberAst(at, value, description).Ok()
-      : tokens.Error<UnionMemberAst>(label, "member");
+      ? new UnionMemberAst(at, value, description).Ok<IGqlpUnionItem>()
+      : tokens.Error<IGqlpUnionItem>(label, "member");
   }
 }

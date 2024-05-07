@@ -27,7 +27,7 @@ public static class AllMergers
       .AddMergeAll<IGqlpEnum, IGqlpType, MergeEnums>()
       .AddMerge<EnumMemberAst, MergeEnumMembers>()
       .AddMergeAll<IGqlpDomain, IGqlpType, MergeAllDomains>()
-      .AddMerge<UnionMemberAst, MergeUnionMembers>()
+      .AddMerge<IGqlpUnionItem, MergeUnionMembers>()
       .AddMergeAll<IGqlpUnion, IGqlpType, MergeUnions>()
       .AddMergeDomain<DomainTrueFalseAst>()
       .AddMergeDomain<DomainMemberAst>()

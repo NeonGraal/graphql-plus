@@ -81,7 +81,7 @@ public record class ModifierModel(ModifierKind Kind)
 { }
 
 internal class ConstantModeller(
-  IModeller<FieldKeyAst, SimpleModel> value
+  IModeller<IGqlpFieldKey, SimpleModel> value
 ) : ModellerBase<ConstantAst, ConstantModel>
 {
   protected override ConstantModel ToModel(ConstantAst ast, IMap<TypeKindModel> typeKinds)
@@ -97,13 +97,13 @@ internal class ConstantModeller(
 }
 
 internal class SimpleModeller
-  : ModellerBase<FieldKeyAst, SimpleModel>
+  : ModellerBase<IGqlpFieldKey, SimpleModel>
 {
-  protected override SimpleModel ToModel(FieldKeyAst ast, IMap<TypeKindModel> typeKinds)
+  protected override SimpleModel ToModel(IGqlpFieldKey ast, IMap<TypeKindModel> typeKinds)
     => ast.Number.HasValue ? SimpleModel.Num("", ast.Number.Value)
     : ast.Text is not null ? SimpleModel.Str("", ast.Text)
-    : "Boolean".Equals(ast.Type, StringComparison.OrdinalIgnoreCase) ? SimpleModel.Bool("true".Equals(ast.Member, StringComparison.OrdinalIgnoreCase))
-    : ast.Type is not null ? SimpleModel.Enum(ast.Type, ast.Member ?? "")
+    : "Boolean".Equals(ast.EnumType, StringComparison.OrdinalIgnoreCase) ? SimpleModel.Bool("true".Equals(ast.EnumMember, StringComparison.OrdinalIgnoreCase))
+    : ast.EnumType is not null ? SimpleModel.Enum(ast.EnumType, ast.EnumMember ?? "")
     : new();
 }
 

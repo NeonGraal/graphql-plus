@@ -21,7 +21,7 @@ public static class AllModellers
       .AddModeller<IGqlpSchemaDirective, DirectiveModel, DirectiveModeller>()
       .AddModeller<DualFieldAst, DualFieldModel, DualFieldModeller>()
       .AddModeller<DualBaseAst, DualBaseModel, DualBaseModeller>()
-      .AddModeller<FieldKeyAst, SimpleModel, SimpleModeller>()
+      .AddModeller<IGqlpFieldKey, SimpleModel, SimpleModeller>()
       .AddModeller<InputFieldAst, InputFieldModel, InputFieldModeller>()
       .AddModeller<InputBaseAst, InputBaseModel, InputBaseModeller>()
       .AddModeller<OptionSettingAst, SettingModel, SettingModeller>()

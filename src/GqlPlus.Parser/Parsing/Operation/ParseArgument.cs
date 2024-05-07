@@ -6,11 +6,11 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal class ParseArgument(
-  Parser<FieldKeyAst>.D fieldKey,
+  Parser<IGqlpFieldKey>.D fieldKey,
   Parser<IValueParser<ArgumentAst>, ArgumentAst>.D argument
 ) : IParserArgument
 {
-  private readonly Parser<FieldKeyAst>.L _fieldKey = fieldKey;
+  private readonly Parser<IGqlpFieldKey>.L _fieldKey = fieldKey;
   private readonly Parser<IValueParser<ArgumentAst>, ArgumentAst>.L _argument = argument;
 
   public IResult<ArgumentAst> Parse<TContext>(TContext tokens, string label)
@@ -27,14 +27,14 @@ internal class ParseArgument(
       TokenAt at = tokens.At;
       ArgumentAst? value = new(at);
 
-      IResult<FieldKeyAst> fieldKey = _fieldKey.Parse(tokens, label);
+      IResult<IGqlpFieldKey> fieldKey = _fieldKey.Parse(tokens, label);
       if (fieldKey.IsOk()) {
         return fieldKey.Map(key =>
           tokens.Take(':')
           ? _argument.I.Parse(tokens, "Argument").MapOk(
-            item => ParseArgumentMid(tokens, at, new() { [key] = item }),
+            item => ParseArgumentMid(tokens, at, new() { [(FieldKeyAst)key] = item }),
             () => tokens.Error(label, "a value after field key separator", value))
-          : ParseArgumentEnd(tokens, at, key));
+          : ParseArgumentEnd(tokens, at, (FieldKeyAst)key));
       }
 
       IResult<ArgumentAst> argValue = _argument.I.Parse(tokens, label);
@@ -67,7 +67,7 @@ internal class ParseArgument(
     while (!tokens.Take(')')) {
       IResult<KeyValue<ArgumentAst>> field = _argument.I.KeyValueParser.Parse(tokens, "Argument");
 
-      if (!field.Required(value => fields.Add(value.Key, ParseArgValues(tokens, value.Value)))) {
+      if (!field.Required(value => fields.Add((FieldKeyAst)value.Key, ParseArgValues(tokens, value.Value)))) {
         return field.AsResult<ArgumentAst>();
       }
     }

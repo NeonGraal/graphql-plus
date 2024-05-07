@@ -5,14 +5,14 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing;
 
 public abstract class ValueParser<T>(
-  Parser<FieldKeyAst>.D fieldKey,
+  Parser<IGqlpFieldKey>.D fieldKey,
   Parser<KeyValue<T>>.D keyValueParser,
   Parser<T>.DA listParser,
   Parser<AstFields<T>>.D objectParser
 ) : IValueParser<T>, Parser<T>.I
   where T : AstValue<T>
 {
-  protected Parser<FieldKeyAst>.L FieldKey { get; } = fieldKey;
+  protected Parser<IGqlpFieldKey>.L FieldKey { get; } = fieldKey;
   protected Parser<T>.LA ListParser { get; } = listParser;
   protected Parser<AstFields<T>>.L ObjectParser { get; } = objectParser;
 
@@ -29,7 +29,7 @@ public abstract class ValueParser<T>(
 
     while (!tokens.Take(last)) {
       IResult<KeyValue<T>> field = KeyValueParser.Parse(tokens, label);
-      if (!field.Required(value => result.Add(value.Key, value.Value))) {
+      if (!field.Required(value => result.Add((FieldKeyAst)value.Key, value.Value))) {
         return tokens.Error(label, "a field in object", result);
       }
 

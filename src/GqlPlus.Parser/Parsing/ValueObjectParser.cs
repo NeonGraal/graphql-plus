@@ -24,7 +24,7 @@ public class ValueObjectParser<T>(
 
     while (!tokens.Take('}')) {
       IResult<KeyValue<T>> field = _field.Parse(tokens, label);
-      if (!field.Required(value => result.Add(value.Key, value.Value))) {
+      if (!field.Required(value => result.Add((FieldKeyAst)value.Key, value.Value))) {
         return tokens.Error(label, "a field in object", result);
       }
 

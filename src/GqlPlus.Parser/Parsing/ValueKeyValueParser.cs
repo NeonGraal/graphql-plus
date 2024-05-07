@@ -5,12 +5,12 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing;
 
 public class ValueKeyValueParser<T>(
-  Parser<FieldKeyAst>.D key,
+  Parser<IGqlpFieldKey>.D key,
   Parser<T>.D value
 ) : Parser<KeyValue<T>>.I
   where T : AstValue<T>
 {
-  private readonly Parser<FieldKeyAst>.L _key = key;
+  private readonly Parser<IGqlpFieldKey>.L _key = key;
   private readonly Parser<T>.L _value = value;
 
   public IResult<KeyValue<T>> Parse<TContext>(TContext tokens, string label)
@@ -18,7 +18,7 @@ public class ValueKeyValueParser<T>(
   {
     ArgumentNullException.ThrowIfNull(tokens);
 
-    IResult<FieldKeyAst> fieldKey = _key.Parse(tokens, label);
+    IResult<IGqlpFieldKey> fieldKey = _key.Parse(tokens, label);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<KeyValue<T>>();
     }
@@ -36,5 +36,5 @@ public class ValueKeyValueParser<T>(
   }
 }
 
-public record struct KeyValue<T>(FieldKeyAst Key, T Value)
+public record struct KeyValue<T>(IGqlpFieldKey Key, T Value)
   where T : AstValue<T>;

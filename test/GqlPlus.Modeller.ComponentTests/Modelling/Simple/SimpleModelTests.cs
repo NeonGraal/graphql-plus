@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 public class SimpleModelTests(
-  IModeller<FieldKeyAst, SimpleModel> modeller
+  IModeller<IGqlpFieldKey, SimpleModel> modeller
 ) : TestModelBase<string>
 {
   [Theory, RepeatData(Repeats)]
@@ -26,8 +26,8 @@ public class SimpleModelTests(
 }
 
 internal sealed class SimpleModelChecks(
-  IModeller<FieldKeyAst, SimpleModel> modeller
-) : CheckModelBase<string, FieldKeyAst, SimpleModel>(modeller)
+  IModeller<IGqlpFieldKey, SimpleModel> modeller
+) : CheckModelBase<string, IGqlpFieldKey, FieldKeyAst, SimpleModel>(modeller)
 {
   protected override string[] ExpectedBase(string name)
     => [name.YamlQuoted()];

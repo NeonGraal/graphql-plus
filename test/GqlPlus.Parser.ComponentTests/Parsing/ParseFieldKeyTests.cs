@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Parsing;
 
-public class ParseFieldKeyTests(Parser<FieldKeyAst>.D parser)
+public class ParseFieldKeyTests(Parser<IGqlpFieldKey>.D parser)
 {
   [Theory, RepeatData(Repeats)]
   public void WithNumber_ReturnsCorrectAst(decimal number)
@@ -64,6 +64,6 @@ public class ParseFieldKeyTests(Parser<FieldKeyAst>.D parser)
   public void WithTypeAndNoValue_ReturnsFalse(string enumType)
     => Test.False(enumType + ".");
 
-  private OneChecksParser<FieldKeyAst> Test { get; } = new(parser);
+  private OneChecksParser<IGqlpFieldKey> Test { get; } = new(parser);
 }
 

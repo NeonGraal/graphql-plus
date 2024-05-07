@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Ast;
 
-public sealed record class ConstantAst(TokenAt At)
-  : AstValue<ConstantAst>(At)
+public sealed record class ConstantAst(
+  TokenAt At
+) : AstValue<ConstantAst>(At)
   , IEquatable<ConstantAst>
   , IGqlpConstant
 {
@@ -11,10 +12,10 @@ public sealed record class ConstantAst(TokenAt At)
 
   internal override string Abbr => "c";
 
-  IGqlpFieldKey? IGqlpConstant.Value => Value;
   IEnumerable<IGqlpConstant> IGqlpValue<IGqlpConstant>.Values => Values;
   IGqlpFields<IGqlpConstant> IGqlpValue<IGqlpConstant>.Fields
     => Fields.ToFields(c => (IGqlpConstant)c);
+  IGqlpFieldKey? IGqlpConstant.Value => Value;
 
   internal ConstantAst(FieldKeyAst value)
     : this(value.At)

@@ -15,6 +15,7 @@ public interface IGqlpError
 }
 
 public interface IGqlpFieldKey
+  : IGqlpError
 {
   decimal? Number { get; }
   string? Text { get; }

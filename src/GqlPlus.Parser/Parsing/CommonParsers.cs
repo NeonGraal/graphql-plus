@@ -8,7 +8,7 @@ public static class CommonParsers
 {
   public static IServiceCollection AddCommonParsers(this IServiceCollection services)
     => services
-      .AddParser<FieldKeyAst, ParseFieldKey>()
+      .AddParser<IGqlpFieldKey, ParseFieldKey>()
       .AddParserArray<ModifierAst, ParseModifiers>()
       .AddParserArray<IParserCollections, ModifierAst, ParseCollections>()
       .AddParser<IParserDefault, ConstantAst, ParseDefault>()

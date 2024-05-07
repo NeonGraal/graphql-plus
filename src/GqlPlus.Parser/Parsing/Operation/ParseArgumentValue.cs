@@ -6,7 +6,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal class ParseArgumentValue(
-  Parser<FieldKeyAst>.D fieldKey,
+  Parser<IGqlpFieldKey>.D fieldKey,
   Parser<KeyValue<ArgumentAst>>.D keyValueParser,
   Parser<ArgumentAst>.DA listParser,
   Parser<AstFields<ArgumentAst>>.D objectParser,

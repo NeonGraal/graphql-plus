@@ -3,10 +3,11 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Parsing;
 
-public class ParseConstant : ValueParser<ConstantAst>
+public class ParseConstant
+  : ValueParser<ConstantAst>
 {
   public ParseConstant(
-    Parser<FieldKeyAst>.D fieldKey,
+    Parser<IGqlpFieldKey>.D fieldKey,
     Parser<KeyValue<ConstantAst>>.D keyValueParser,
     Parser<ConstantAst>.DA listParser,
     Parser<AstFields<ConstantAst>>.D objectParser
@@ -17,13 +18,13 @@ public class ParseConstant : ValueParser<ConstantAst>
     ArgumentNullException.ThrowIfNull(tokens);
     Token.TokenAt at = tokens.At;
 
-    IResult<FieldKeyAst> fieldKey = FieldKey.Parse(tokens, label);
+    IResult<IGqlpFieldKey> fieldKey = FieldKey.Parse(tokens, label);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<ConstantAst>();
     }
 
     if (fieldKey.HasValue()) {
-      return fieldKey.Select(value => new ConstantAst(value));
+      return fieldKey.Select(value => new ConstantAst((FieldKeyAst)value));
     }
 
     bool oldSeparators = tokens.IgnoreSeparators;

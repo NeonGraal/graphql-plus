@@ -9,6 +9,6 @@ public class DependencyInjectionTests(
 ) : DependencyInjectionChecks(services, output)
 {
   [Fact]
-  public void CheckVerifierDIContainer()
+  public void CheckParserDIContainer()
     => CheckDependencyInjectionContainer();
 }

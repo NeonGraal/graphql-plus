@@ -51,9 +51,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parser.ClassTests",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Parser.ComponentTests", "test\GqlPlus.Parser.ComponentTests\GqlPlus.Parser.ComponentTests.csproj", "{F9D2FECF-2F45-4984-9D2E-A136F285E47B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Modeller", "src\GqlPlus.Modeller\GqlPlus.Modeller.csproj", "{33279A3A-60F3-49A6-BE09-33F3582E61DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Modeller", "src\GqlPlus.Modeller\GqlPlus.Modeller.csproj", "{33279A3A-60F3-49A6-BE09-33F3582E61DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Modeller.ComponentTests", "test\GqlPlus.Modeller.ComponentTests\GqlPlus.Modeller.ComponentTests.csproj", "{B265FB57-1412-41AF-88F8-A86CEA28A66E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Modeller.ComponentTests", "test\GqlPlus.Modeller.ComponentTests\GqlPlus.Modeller.ComponentTests.csproj", "{B265FB57-1412-41AF-88F8-A86CEA28A66E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.ComponentTestBase", "test\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj", "{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +99,10 @@ Global
 		{B265FB57-1412-41AF-88F8-A86CEA28A66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B265FB57-1412-41AF-88F8-A86CEA28A66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B265FB57-1412-41AF-88F8-A86CEA28A66E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,6 +119,7 @@ Global
 		{F9D2FECF-2F45-4984-9D2E-A136F285E47B} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{33279A3A-60F3-49A6-BE09-33F3582E61DA} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
 		{B265FB57-1412-41AF-88F8-A86CEA28A66E} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}

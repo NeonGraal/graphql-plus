@@ -16,12 +16,12 @@ internal abstract class ParseDomainItem<TItem>(
   protected IResult<DomainDefinition> ParseMembers(Tokenizer tokens, string label, DomainDefinition result)
   {
     IResultArray<TItem> items = _items.Parse(tokens, label);
-    return items.Required(values => ApplyItems(result, [.. values]))
+    return items.Required(values => ApplyItems(tokens, label, result, [.. values]))
       ? tokens.End(label, () => result)
       : items.AsResult(result);
   }
 
-  protected abstract void ApplyItems(DomainDefinition result, TItem[] items);
+  protected abstract void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, TItem[] items);
 
   public abstract IResult<TItem> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer;

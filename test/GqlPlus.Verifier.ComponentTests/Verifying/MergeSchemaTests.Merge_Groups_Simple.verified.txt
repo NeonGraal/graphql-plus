@@ -164,11 +164,15 @@ Number
   DomPrntTest
   Boolean
   :DomTestPrnt
+  !DT I@043/0001
+  False
 }
 {
-  !Do I@052/0001
+  !Do I@058/0001
   DomTestPrnt
   Boolean
+  !DT I@080/0001
+  True
 }
 {
   !Do I@008/0001

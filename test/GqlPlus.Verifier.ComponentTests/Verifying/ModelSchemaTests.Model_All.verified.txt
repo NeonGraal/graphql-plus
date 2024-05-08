@@ -67,6 +67,59 @@ settings: !_Map_Setting
     - 0
     - true
 types: !_Map_Type
+  !_Identifier Bool: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: Bool
+      exclude: false
+      value: false
+    - !_DomainItem(_DomainTrueFalse)
+      domain: Bool
+      exclude: false
+      value: true
+    domain: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: false
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
+    name: Bool
+    typeKind: !_TypeKind Domain
+  !_Identifier BoolDiff: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: BoolDiff
+      exclude: false
+      value: true
+    - !_DomainItem(_DomainTrueFalse)
+      domain: BoolDiff
+      exclude: false
+      value: false
+    domain: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
+    - !_DomainTrueFalse
+      exclude: false
+      value: false
+    name: BoolDiff
+    typeKind: !_TypeKind Domain
+  !_Identifier BoolSame: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: BoolSame
+      exclude: false
+      value: true
+    domain: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
+    name: BoolSame
+    typeKind: !_TypeKind Domain
   !_Identifier Cat: !_TypeOutput
     name: Cat
     typeKind: !_TypeKind Output
@@ -277,7 +330,20 @@ types: !_Map_Type
     name: DomPrntStr
     typeKind: !_TypeKind Domain
   !_Identifier DomPrntTest: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomTestPrnt
+      exclude: false
+      value: true
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomPrntTest
+      exclude: false
+      value: false
     domain: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: false
     name: DomPrntTest
     parent: !_TypeRef(_SimpleKind)
       name: DomTestPrnt
@@ -304,7 +370,16 @@ types: !_Map_Type
       typeKind: !_SimpleKind Domain
     typeKind: !_TypeKind Domain
   !_Identifier DomTestPrnt: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomTestPrnt
+      exclude: false
+      value: true
     domain: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
     name: DomTestPrnt
     typeKind: !_TypeKind Domain
   !_Identifier Dual: !_TypeDual
@@ -1111,6 +1186,30 @@ types: !_Map_Type
       name: value
     name: EnValAlias
     typeKind: !_TypeKind Enum
+  !_Identifier EnumDiff: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: EnumDiff
+      exclude: false
+      typeKind: !_SimpleKind Enum
+      value: true
+    - !_DomainItem(_DomainMember)
+      domain: EnumDiff
+      exclude: false
+      typeKind: !_SimpleKind Enum
+      value: false
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      typeKind: !_SimpleKind Enum
+      value: true
+    - !_DomainMember
+      exclude: false
+      typeKind: !_SimpleKind Enum
+      value: false
+    name: EnumDiff
+    typeKind: !_TypeKind Domain
   !_Identifier EnumDom: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -1249,6 +1348,21 @@ types: !_Map_Type
     - !_Aliased dom_enum
     name: EnumParentDom
     typeKind: !_TypeKind Enum
+  !_Identifier EnumSame: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: EnumSame
+      exclude: false
+      typeKind: !_SimpleKind Enum
+      value: true
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      typeKind: !_SimpleKind Enum
+      value: true
+    name: EnumSame
+    typeKind: !_TypeKind Domain
   !_Identifier FieldEnumAlias: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)

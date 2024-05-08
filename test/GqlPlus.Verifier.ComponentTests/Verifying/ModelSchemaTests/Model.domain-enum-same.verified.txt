@@ -1,0 +1,17 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumSame: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: EnumSame
+      exclude: false
+      typeKind: !_SimpleKind Enum
+      value: true
+    domain: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      typeKind: !_SimpleKind Enum
+      value: true
+    name: EnumSame
+    typeKind: !_TypeKind Domain

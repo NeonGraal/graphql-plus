@@ -1,4 +1,4 @@
-enum _DomainKind { Boolean Enum Number String Union }
+enum _DomainKind { Boolean Enum Number String }
 
 output _TypeDomain {
     | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse>

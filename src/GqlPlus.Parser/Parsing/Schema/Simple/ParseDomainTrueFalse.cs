@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Result;
+using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -26,6 +27,7 @@ internal class ParseDomainTrueFalse(
           : result.Empty();
   }
 
-  protected override void ApplyItems(DomainDefinition result, DomainTrueFalseAst[] items)
-    => result.Values = items;
+  protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, DomainTrueFalseAst[] items)
+    => result.Values = items.Length > 0 ? items
+    : [new(tokens.At, false, false), new(tokens.At, false, true)];
 }

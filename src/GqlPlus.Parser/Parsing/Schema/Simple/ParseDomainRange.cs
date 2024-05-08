@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Result;
+using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -51,6 +52,6 @@ internal class ParseDomainRange(
       : tokens.Error(label, "upper bound after '~'", range);
   }
 
-  protected override void ApplyItems(DomainDefinition result, DomainRangeAst[] items)
+  protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, DomainRangeAst[] items)
     => result.Numbers = items;
 }

@@ -75,15 +75,11 @@ types: !_Map_Type
     - !_EnumMember
       enum: _DomainKind
       name: String
-    - !_EnumMember
-      enum: _DomainKind
-      name: Union
     items:
     - !_Aliased Boolean
     - !_Aliased Enum
     - !_Aliased Number
     - !_Aliased String
-    - !_Aliased Union
     name: _DomainKind
     typeKind: !_TypeKind Enum
   !_Identifier _DomainMember: !_TypeOutput

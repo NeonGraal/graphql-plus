@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Result;
+using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
@@ -36,6 +37,12 @@ internal class ParseDomainMember(
     return result.Ok();
   }
 
-  protected override void ApplyItems(DomainDefinition result, DomainMemberAst[] items)
-    => result.Members = items;
+  protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, DomainMemberAst[] items)
+  {
+    if (items.Length == 0) {
+      tokens.Error(label, "enum Members");
+    }
+
+    result.Members = items;
+  }
 }

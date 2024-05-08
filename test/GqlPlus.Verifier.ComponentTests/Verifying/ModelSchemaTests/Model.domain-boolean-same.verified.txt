@@ -1,0 +1,15 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier BoolSame: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: BoolSame
+      exclude: false
+      value: true
+    domain: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
+    name: BoolSame
+    typeKind: !_TypeKind Domain

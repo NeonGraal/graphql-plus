@@ -95,6 +95,47 @@ Success
 }
 {
   !Do I@008/0001
+  Bool
+  Boolean
+  !DT P@023/0001
+  False
+  !DT P@023/0001
+  True
+}
+{
+  !Do I@008/0001
+  BoolDiff
+  Boolean
+  !DT I@027/0001
+  True
+  !DT I@060/0001
+  False
+}
+{
+  !Do I@008/0001
+  BoolSame
+  Boolean
+  !DT I@027/0001
+  True
+}
+{
+  !Do I@008/0001
+  EnumDiff
+  Enum
+  !DE I@024/0001
+  true
+  !DE I@054/0001
+  false
+}
+{
+  !Do I@008/0001
+  EnumSame
+  Enum
+  !DE I@024/0001
+  true
+}
+{
+  !Do I@008/0001
   Num
   Number
 }

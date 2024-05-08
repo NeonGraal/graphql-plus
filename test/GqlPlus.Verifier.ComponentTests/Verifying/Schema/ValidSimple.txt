@@ -53,8 +53,8 @@ domain DomNumPrnt { :DomPrntNum Number 2>}
 domain DomPrntNum { Number <2 }
 
 // domain-parent
-domain DomPrntTest { :DomTestPrnt Boolean }
-domain DomTestPrnt { Boolean }
+domain DomPrntTest { :DomTestPrnt Boolean false }
+domain DomTestPrnt { Boolean true }
 
 // domain-string-parent
 domain DomStrPrnt { :DomPrntStr String /a+/ }

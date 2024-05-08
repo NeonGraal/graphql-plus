@@ -168,7 +168,20 @@ types: !_Map_Type
     name: DomPrntStr
     typeKind: !_TypeKind Domain
   !_Identifier DomPrntTest: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomTestPrnt
+      exclude: false
+      value: true
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomPrntTest
+      exclude: false
+      value: false
     domain: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: false
     name: DomPrntTest
     parent: !_TypeRef(_SimpleKind)
       name: DomTestPrnt
@@ -195,7 +208,16 @@ types: !_Map_Type
       typeKind: !_SimpleKind Domain
     typeKind: !_TypeKind Domain
   !_Identifier DomTestPrnt: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomTestPrnt
+      exclude: false
+      value: true
     domain: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
     name: DomTestPrnt
     typeKind: !_TypeKind Domain
   !_Identifier EnAliasPrnt: !_TypeEnum

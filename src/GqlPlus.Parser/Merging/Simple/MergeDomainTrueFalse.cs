@@ -2,9 +2,11 @@
 
 namespace GqlPlus.Merging.Simple;
 
-internal class MergeDomainTrueFalse
-  : BaseMerger<DomainTrueFalseAst>
+internal class MergeDomainTrueFalse(
+  ILoggerFactory logger
+) : AstDomainItemMerger<DomainTrueFalseAst>(logger)
 {
-  public override ITokenMessages CanMerge(IEnumerable<DomainTrueFalseAst> items)
-    => Messages();
+  protected override string ItemMatchName => "Value";
+  protected override string ItemGroupKey(DomainTrueFalseAst item)
+    => $"{item.Value}";
 }

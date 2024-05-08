@@ -1,0 +1,11 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  EnumSame
+  Enum
+  !DE I@024/0001
+  true
+}
+]

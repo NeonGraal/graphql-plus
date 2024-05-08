@@ -11,8 +11,6 @@ Success
   Number
   !EM I@040/0001
   String
-  !EM I@047/0001
-  Union
 }
 {
   !Ou I@008/0003

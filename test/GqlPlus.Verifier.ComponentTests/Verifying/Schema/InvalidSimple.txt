@@ -55,6 +55,9 @@ domain Parent { String }
 domain Test { :Parent Boolean }
 output Parent { }
 
+// domain-enum-none
+domain Test { Enum }
+
 // domain-enum-parent-unique
 domain Test { :Parent Enum Enum.value }
 domain Parent { Enum Dup.value }

@@ -40,11 +40,17 @@ internal class ParseDomain(
     };
 
   private static AstDomain<DomainMemberAst> MakeEnum(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
-    => new(partial.At, partial.Name, value.Kind, value.Members) {
+  {
+    if (value.Members.Length == 0) {
+      partial.Error("Invalid Domain Enum. Expected at least one Member");
+    }
+
+    return new(partial.At, partial.Name, value.Kind, value.Members) {
       Aliases = partial.Aliases,
       Description = partial.Description,
       Parent = value.Parent
     };
+  }
 
   private static AstDomain<DomainTrueFalseAst> MakeBoolean(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
     => new(partial.At, partial.Name, value.Kind, value.Values) {

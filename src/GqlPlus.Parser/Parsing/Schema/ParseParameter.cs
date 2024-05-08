@@ -9,12 +9,12 @@ namespace GqlPlus.Parsing.Schema;
 internal class ParseParameters(
   Parser<InputBaseAst>.D input,
   Parser<IGqlpModifier>.DA modifiers,
-  Parser<IParserDefault, ConstantAst>.D defaultParser
+  Parser<IParserDefault, IGqlpConstant>.D defaultParser
 ) : Parser<ParameterAst>.IA
 {
   private readonly Parser<InputBaseAst>.L _input = input;
   private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
-  private readonly Parser<IParserDefault, ConstantAst>.L _default = defaultParser;
+  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
   public IResultArray<ParameterAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -40,12 +40,12 @@ internal class ParseParameters(
       }
 
       modifiers.Optional(value => parameter.Modifiers = value.ArrayOf<ModifierAst>());
-      IResult<ConstantAst> constant = _default.I.Parse(tokens, "Default");
+      IResult<IGqlpConstant> constant = _default.I.Parse(tokens, "Default");
       if (constant.IsError()) {
         return constant.AsResultArray(list);
       }
 
-      constant.Optional(value => parameter.DefaultValue = value);
+      constant.Optional(value => parameter.DefaultValue = (ConstantAst?)value);
     }
 
     return list.Count == 0 ? tokens.ErrorArray(label, "at least one parameter after '('", list) : list.OkArray();

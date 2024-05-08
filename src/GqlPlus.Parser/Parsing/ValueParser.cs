@@ -4,31 +4,32 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-public abstract class ValueParser<T>(
+public abstract class ValueParser<TValue>(
   Parser<IGqlpFieldKey>.D fieldKey,
-  Parser<KeyValue<T>>.D keyValueParser,
-  Parser<T>.DA listParser,
-  Parser<AstFields<T>>.D objectParser
-) : IValueParser<T>, Parser<T>.I
-  where T : AstValue<T>
+  Parser<KeyValue<TValue>>.D keyValueParser,
+  Parser<TValue>.DA listParser,
+  Parser<AstFields<TValue>>.D objectParser
+) : IValueParser<TValue>
+  , Parser<TValue>.I
+  where TValue : IGqlpValue<TValue>
 {
   protected Parser<IGqlpFieldKey>.L FieldKey { get; } = fieldKey;
-  protected Parser<T>.LA ListParser { get; } = listParser;
-  protected Parser<AstFields<T>>.L ObjectParser { get; } = objectParser;
+  protected Parser<TValue>.LA ListParser { get; } = listParser;
+  protected Parser<AstFields<TValue>>.L ObjectParser { get; } = objectParser;
 
-  public Parser<KeyValue<T>>.L KeyValueParser { get; } = keyValueParser;
+  public Parser<KeyValue<TValue>>.L KeyValueParser { get; } = keyValueParser;
 
-  public abstract IResult<T> Parse<TContext>(TContext tokens, string label)
+  public abstract IResult<TValue> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer;
 
-  public IResult<AstFields<T>> ParseFieldValues(Tokenizer tokens, string label, char last, AstFields<T> fields)
+  public IResult<AstFields<TValue>> ParseFieldValues(Tokenizer tokens, string label, char last, AstFields<TValue> fields)
   {
     ArgumentNullException.ThrowIfNull(tokens);
 
-    AstFields<T> result = new(fields);
+    AstFields<TValue> result = new(fields);
 
     while (!tokens.Take(last)) {
-      IResult<KeyValue<T>> field = KeyValueParser.Parse(tokens, label);
+      IResult<KeyValue<TValue>> field = KeyValueParser.Parse(tokens, label);
       if (!field.Required(value => result.Add((FieldKeyAst)value.Key, value.Value))) {
         return tokens.Error(label, "a field in object", result);
       }
@@ -40,10 +41,11 @@ public abstract class ValueParser<T>(
   }
 }
 
-public interface IValueParser<T> : Parser<T>.I
-  where T : AstValue<T>
+public interface IValueParser<TValue>
+  : Parser<TValue>.I
+  where TValue : IGqlpValue<TValue>
 {
-  Parser<KeyValue<T>>.L KeyValueParser { get; }
+  Parser<KeyValue<TValue>>.L KeyValueParser { get; }
 
-  IResult<AstFields<T>> ParseFieldValues(Tokenizer tokens, string label, char last, AstFields<T> fields);
+  IResult<AstFields<TValue>> ParseFieldValues(Tokenizer tokens, string label, char last, AstFields<TValue> fields);
 }

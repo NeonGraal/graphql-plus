@@ -5,16 +5,18 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing;
 
 internal class ParseDefault(
-  Parser<ConstantAst>.D constant
+  Parser<IGqlpConstant>.D constant
 ) : IParserDefault
 {
-  private readonly Parser<ConstantAst>.L _constant = constant;
+  private readonly Parser<IGqlpConstant>.L _constant = constant;
 
-  public IResult<ConstantAst> Parse<TContext>(TContext tokens, string label)
+  public IResult<IGqlpConstant> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
     => tokens.Take('=') ? _constant.Parse(tokens, "Default").MapEmpty(
-          () => tokens.Error<ConstantAst>("Default", "value after '='")
-        ) : 0.Empty<ConstantAst>();
+          () => tokens.Error<IGqlpConstant>("Default", "value after '='")
+        ) : 0.Empty<IGqlpConstant>();
 }
 
-public interface IParserDefault : Parser<ConstantAst>.I { }
+public interface IParserDefault
+  : Parser<IGqlpConstant>.I
+{ }

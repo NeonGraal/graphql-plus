@@ -9,13 +9,13 @@ namespace GqlPlus.Parsing.Operation;
 internal class ParseVariable(
   Parser<IGqlpModifier>.DA modifiers,
   Parser<IGqlpDirective>.DA directives,
-  Parser<IParserDefault, ConstantAst>.D defaultParser,
+  Parser<IParserDefault, IGqlpConstant>.D defaultParser,
   Parser<IParserVarType, string>.D varTypeParser
 ) : Parser<IGqlpVariable>.I
 {
   private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
   private readonly Parser<IGqlpDirective>.LA _directives = directives;
-  private readonly Parser<IParserDefault, ConstantAst>.L _default = defaultParser;
+  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
   private readonly Parser<IParserVarType, string>.L _varTypeParser = varTypeParser;
 
   public IResult<IGqlpVariable> Parse<TContext>(TContext tokens, string label)
@@ -42,8 +42,8 @@ internal class ParseVariable(
       return modifiers.AsResult<IGqlpVariable>(variable);
     }
 
-    IResult<ConstantAst> constant = _default.I.Parse(tokens, label);
-    if (!constant.Optional(value => variable.DefaultValue = value)) {
+    IResult<IGqlpConstant> constant = _default.I.Parse(tokens, label);
+    if (!constant.Optional(value => variable.DefaultValue = (ConstantAst?)value)) {
       return constant.AsResult<IGqlpVariable>(variable);
     }
 

@@ -6,10 +6,10 @@ using GqlPlus.Result;
 namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseOptionSetting(
-  Parser<IParserDefault, ConstantAst>.D defaultParser
+  Parser<IParserDefault, IGqlpConstant>.D defaultParser
 ) : Parser<IGqlpSchemaSetting>.I
 {
-  private readonly Parser<IParserDefault, ConstantAst>.L _default = defaultParser;
+  private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
   IResult<IGqlpSchemaSetting> Parser<IGqlpSchemaSetting>.I.Parse<TContext>(TContext tokens, string label)
   {
@@ -20,9 +20,9 @@ internal class ParseOptionSetting(
       return 0.Empty<IGqlpSchemaSetting>();
     }
 
-    IResult<ConstantAst> constant = _default.I.Parse(tokens, label);
+    IResult<IGqlpConstant> constant = _default.I.Parse(tokens, label);
     return constant.SelectOk(
-      value => new OptionSettingAst(at, name, description, value),
+      value => new OptionSettingAst(at, name, description, (ConstantAst)value),
       () => tokens.Error<IGqlpSchemaSetting>(label, "Value"));
   }
 }

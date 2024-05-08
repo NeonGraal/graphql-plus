@@ -2,31 +2,31 @@
 
 namespace GqlPlus.Parsing;
 
-public class ParseConstantTests(Parser<ConstantAst>.D parser)
+public class ParseConstantTests(Parser<IGqlpConstant>.D parser)
 {
   [Theory, RepeatData(Repeats)]
   public void WithNumber_ReturnsCorrectAst(decimal number)
     => _checks.TrueExpected(
       number.ToString(CultureInfo.InvariantCulture),
-      new FieldKeyAst(AstNulls.At, number));
+      (ConstantAst)new FieldKeyAst(AstNulls.At, number));
 
   [Theory, RepeatData(Repeats)]
   public void WithString_ReturnsCorrectAst(string contents)
     => _checks.TrueExpected(
       contents.Quote(),
-      new FieldKeyAst(AstNulls.At, contents));
+      (ConstantAst)new FieldKeyAst(AstNulls.At, contents));
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumValue_ReturnsCorrectAst(string enumValue)
     => _checks.TrueExpected(
       enumValue,
-      enumValue.FieldKey());
+      (ConstantAst)enumValue.FieldKey());
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumTypeAndValue_ReturnsCorrectAst(string enumType, string enumValue)
     => _checks.TrueExpected(
       enumType + "." + enumValue,
-      new FieldKeyAst(AstNulls.At, enumType, enumValue));
+      (ConstantAst)new FieldKeyAst(AstNulls.At, enumType, enumValue));
 
   [Theory, RepeatData(Repeats)]
   public void WithList_ReturnsCorrectAst(string enumValue)
@@ -67,8 +67,8 @@ public class ParseConstantTests(Parser<ConstantAst>.D parser)
       CheckNull,
       key == enumValue);
 
-  private void CheckNull(ConstantAst? result)
+  private void CheckNull(IGqlpConstant? result)
     => result.Should().BeNull();
 
-  private readonly OneChecksParser<ConstantAst> _checks = new(parser);
+  private readonly OneChecksParser<IGqlpConstant> _checks = new(parser);
 }

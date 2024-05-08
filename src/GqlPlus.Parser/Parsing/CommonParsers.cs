@@ -11,11 +11,11 @@ public static class CommonParsers
       .AddParser<IGqlpFieldKey, ParseFieldKey>()
       .AddParserArray<IGqlpModifier, ParseModifiers>()
       .AddParserArray<IParserCollections, IGqlpModifier, ParseCollections>()
-      .AddParser<IParserDefault, ConstantAst, ParseDefault>()
-      .AddValueParsers<ConstantAst, ParseConstant>();
+      .AddParser<IParserDefault, IGqlpConstant, ParseDefault>()
+      .AddValueParsers<IGqlpConstant, ParseConstant>();
 
   internal static IServiceCollection AddValueParsers<TValue, TParser>(this IServiceCollection services)
-    where TValue : AstValue<TValue>
+    where TValue : IGqlpValue<TValue>
     where TParser : class, Parser<TValue>.I, IValueParser<TValue>
     => services
       .AddParser<IValueParser<TValue>, TValue, TParser>()

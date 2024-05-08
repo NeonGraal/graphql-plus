@@ -1,13 +1,6 @@
 ﻿using DiffEngine;
-using GqlPlus.Merging;
 using GqlPlus.Modelling;
-using GqlPlus.Parsing;
-using GqlPlus.Parsing.Operation;
-using GqlPlus.Parsing.Schema;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Xunit.DependencyInjection;
-using Xunit.DependencyInjection.Logging;
 
 namespace GqlPlus;
 

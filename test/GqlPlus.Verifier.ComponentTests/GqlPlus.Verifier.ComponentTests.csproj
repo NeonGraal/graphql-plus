@@ -17,14 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Sample\**" CopyToOutputDirectory="Always" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="SampleData.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SampleData.cs</LastGenOutput>
-    </None>
     <None Update="Verifying\VerifyOperationData.tt">
       <LastGenOutput>VerifyOperationData.cs</LastGenOutput>
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -49,11 +41,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>VerifySchemaData.tt</DependentUpon>
-    </Compile>
-    <Compile Update="SampleData.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SampleData.tt</DependentUpon>
     </Compile>
     <Compile Update="Verifying\VerifyOperationData.cs">
       <DesignTime>True</DesignTime>

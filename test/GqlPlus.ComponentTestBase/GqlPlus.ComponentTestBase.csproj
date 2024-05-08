@@ -1,10 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <Compile Remove="VerifyOperationData.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Verify.Xunit" Version="24.1.0" />
     <PackageReference Include="Xunit.DependencyInjection" Version="9.2.1" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
@@ -16,31 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="OperationData.cs">
-      <DependentUpon>OperationData.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
     <Compile Update="SampleData.cs">
       <DependentUpon>SampleData.tt</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Update="SchemaData.cs">
-      <DependentUpon>SchemaData.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
+      <DependentUpon>SampleData.tt</DependentUpon>
     </Compile>
     <None Update="SampleData.tt">
       <LastGenOutput>SampleData.cs</LastGenOutput>
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Update="OperationData.tt">
-      <LastGenOutput>OperationData.cs</LastGenOutput>
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Update="SchemaData.tt">
-      <LastGenOutput>SchemaData.cs</LastGenOutput>
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
     <None Update="Sample\**" CopyToOutputDirectory="Always" />

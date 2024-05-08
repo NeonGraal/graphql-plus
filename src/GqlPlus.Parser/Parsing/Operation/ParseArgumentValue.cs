@@ -10,10 +10,10 @@ internal class ParseArgumentValue(
   Parser<KeyValue<ArgumentAst>>.D keyValueParser,
   Parser<ArgumentAst>.DA listParser,
   Parser<AstFields<ArgumentAst>>.D objectParser,
-  Parser<ConstantAst>.D constant
+  Parser<IGqlpConstant>.D constant
 ) : ValueParser<ArgumentAst>(fieldKey, keyValueParser, listParser, objectParser)
 {
-  private readonly Parser<ConstantAst>.L _constant = constant;
+  private readonly Parser<IGqlpConstant>.L _constant = constant;
 
   public override IResult<ArgumentAst> Parse<TContext>(TContext tokens, string label)
   {
@@ -51,7 +51,7 @@ internal class ParseArgumentValue(
     }
 
     return _constant.Parse(tokens, "Constant").MapOk(
-      constant => new ArgumentAst(constant).Ok(),
+      constant => new ArgumentAst((ConstantAst)constant).Ok(),
       () => 0.Empty<ArgumentAst>());
   }
 }

@@ -586,22 +586,22 @@ types: !_Map_Type
       type: !_DualBase Boolean
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier Opt]
-      name: from
+      name: lower
       object: _DomainRange
       type: !_DualBase Number
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier Opt]
-      name: to
+      name: upper
       object: _DomainRange
       type: !_DualBase Number
     fields:
     - !_DualField
       modifiers: [!_Modifier Opt]
-      name: from
+      name: lower
       type: !_DualBase Number
     - !_DualField
       modifiers: [!_Modifier Opt]
-      name: to
+      name: upper
       type: !_DualBase Number
     name: _DomainRange
     parent: !_DualBase _BaseDomainItem
@@ -642,12 +642,12 @@ types: !_Map_Type
       object: _BaseDomainItem
       type: !_DualBase Boolean
     - !_ObjectFor(_DualField)
-      name: regex
+      name: pattern
       object: _DomainRegex
       type: !_DualBase String
     fields:
     - !_DualField
-      name: regex
+      name: pattern
       type: !_DualBase String
     name: _DomainRegex
     parent: !_DualBase _BaseDomainItem
@@ -902,12 +902,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: _Identifier
       exclude: false
-      regex: '[A-Za-z_]+'
+      pattern: '[A-Za-z_]+'
     domain: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      regex: '[A-Za-z_]+'
+      pattern: '[A-Za-z_]+'
     name: _Identifier
     typeKind: !_TypeKind Domain
   !_Identifier _InputBase: !_TypeOutput
@@ -1112,13 +1112,13 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: _NameFilter
       exclude: false
-      regex: '[A-Za-z_.*]+'
+      pattern: '[A-Za-z_.*]+'
     description: '_NameFilter is a simple match expression against _Identifier  where ''.'' matches any single character and ''*'' matches zero or more of any character.'
     domain: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      regex: '[A-Za-z_.*]+'
+      pattern: '[A-Za-z_.*]+'
     name: _NameFilter
     typeKind: !_TypeKind Domain
   !_Identifier _Named: !_TypeDual
@@ -2241,7 +2241,7 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: _Identifier
       exclude: false
-      regex: '[A-Za-z_]+'
+      pattern: '[A-Za-z_]+'
     domain: !_DomainKind String
     name: _TypeParameter
     parent: !_TypeRef(_SimpleKind)

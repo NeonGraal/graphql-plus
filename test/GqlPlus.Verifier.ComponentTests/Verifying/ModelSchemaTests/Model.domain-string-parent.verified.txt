@@ -5,12 +5,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomPrntStr
       exclude: false
-      regex: b+
+      pattern: b+
     domain: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      regex: b+
+      pattern: b+
     name: DomPrntStr
     typeKind: !_TypeKind Domain
   !_Identifier DomStrPrnt: !_DomainString
@@ -18,16 +18,16 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomPrntStr
       exclude: false
-      regex: b+
+      pattern: b+
     - !_DomainItem(_DomainRegex)
       domain: DomStrPrnt
       exclude: false
-      regex: a+
+      pattern: a+
     domain: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      regex: a+
+      pattern: a+
     name: DomStrPrnt
     parent: !_TypeRef(_SimpleKind)
       name: DomPrntStr

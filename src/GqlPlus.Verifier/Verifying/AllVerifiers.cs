@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
-using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Verification;
 using GqlPlus.Verification.Schema;
 using GqlPlus.Verifying.Operation;
@@ -43,10 +42,10 @@ public static class AllVerifiers
       .AddVerifyUsageAliased<OutputDeclAst, IGqlpType, VerifyOutputTypes>()
       .AddVerifyAliased<IGqlpDomain, VerifyDomainsAliased>()
       .AddVerifyUsageAliased<IGqlpDomain, IGqlpType, VerifyDomainTypes>()
-      .AddVerifyDomainContext<AstDomainVerifier<DomainTrueFalseAst>>()
+      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainTrueFalse>>()
       .AddVerifyDomainContext<VerifyDomainEnum>()
-      .AddVerifyDomainContext<AstDomainVerifier<DomainRangeAst>>()
-      .AddVerifyDomainContext<AstDomainVerifier<DomainRegexAst>>()
+      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainRange>>()
+      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainRegex>>()
       .AddVerifyAliased<IGqlpUnion, VerifyUnionsAliased>()
       .AddVerifyUsageAliased<IGqlpUnion, IGqlpType, VerifyUnionTypes>()
     ;

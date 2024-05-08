@@ -546,12 +546,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: StrDiff
       exclude: false
-      regex: a+
+      pattern: a+
     domain: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      regex: a+
+      pattern: a+
     name: StrDiff
     typeKind: !_TypeKind Domain
   !_Identifier StrSame: !_DomainString
@@ -559,12 +559,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: StrSame
       exclude: false
-      regex: a+
+      pattern: a+
     domain: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      regex: a+
+      pattern: a+
     name: StrSame
     typeKind: !_TypeKind Domain
   !_Identifier UnDiff: !_TypeUnion

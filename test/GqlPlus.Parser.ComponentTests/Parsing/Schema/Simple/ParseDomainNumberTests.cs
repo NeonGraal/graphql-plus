@@ -15,31 +15,31 @@ public sealed class ParseDomainNumberTests(
   public void WithRangeLowerBound_ReturnsCorrectAst(string name, decimal min)
     => _checks.TrueExpected(
       name + $"{{number {min}>}}",
-      new AstDomain<DomainRangeAst>(AstNulls.At, name, DomainKind.Number, [new(AstNulls.At, false, min, null)]));
+      NewDomain(name, [new(AstNulls.At, false, min, null)]));
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeSingle_ReturnsCorrectAst(string name, decimal min)
     => _checks.TrueExpected(
       name + $"{{number {min}}}",
-      new AstDomain<DomainRangeAst>(AstNulls.At, name, DomainKind.Number, [new(AstNulls.At, false, min, min)]));
+      NewDomain(name, [new(AstNulls.At, false, min, min)]));
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeExcludes_ReturnsCorrectAst(string name, decimal min)
     => _checks.TrueExpected(
       name + $"{{number !{min}}}",
-      new AstDomain<DomainRangeAst>(AstNulls.At, name, DomainKind.Number, [new(AstNulls.At, true, min, min)]));
+      NewDomain(name, [new(AstNulls.At, true, min, min)]));
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeUpperBound_ReturnsCorrectAst(string name, decimal max)
     => _checks.TrueExpected(
       name + $"{{number <{max}}}",
-      new AstDomain<DomainRangeAst>(AstNulls.At, name, DomainKind.Number, [new(AstNulls.At, false, null, max)]));
+      NewDomain(name, [new(AstNulls.At, false, null, max)]));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithRangeBounds_ReturnsCorrectAst(string name, decimal min, decimal max)
     => _checks.TrueExpected(
       name + $"{{number {min}~{max}}}",
-      new AstDomain<DomainRangeAst>(AstNulls.At, name, DomainKind.Number, [new(AstNulls.At, false, min, max)]),
+      NewDomain(name, [new(AstNulls.At, false, min, max)]),
       skipIf: max <= min);
 
   [SkippableTheory, RepeatData(Repeats)]
@@ -51,13 +51,16 @@ public sealed class ParseDomainNumberTests(
   internal override IBaseDomainChecks<string> DomainChecks => _checks;
 
   private readonly ParseDomainNumberChecks _checks = new(parser);
+
+  private static AstDomain<DomainRangeAst, IGqlpDomainRange> NewDomain(string name, DomainRangeAst[] members)
+    => new(AstNulls.At, name, DomainKind.Number, members);
 }
 
 internal sealed class ParseDomainNumberChecks(
   Parser<IGqlpDomain>.D parser
 ) : BaseDomainChecks<string, AstDomain>(parser, DomainKind.Number)
 {
-  protected internal override AstDomain<DomainRangeAst> NamedFactory(string input)
+  protected internal override AstDomain<DomainRangeAst, IGqlpDomainRange> NamedFactory(string input)
     => new(AstNulls.At, input, DomainKind.Number, []);
 
   protected internal override string AliasesString(string input, string aliases)

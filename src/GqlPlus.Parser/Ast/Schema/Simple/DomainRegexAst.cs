@@ -1,20 +1,26 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public sealed record class DomainRegexAst(TokenAt At, bool Excludes, string Regex)
-  : AstDomainItem(At, Excludes), IEquatable<DomainRegexAst>
+public sealed record class DomainRegexAst(
+  TokenAt At,
+  bool Excludes,
+  string Pattern
+) : AstDomainItem(At, Excludes)
+  , IEquatable<DomainRegexAst>
+  , IGqlpDomainRegex
 {
   internal override string Abbr => "DX";
 
   public bool Equals(DomainRegexAst? other)
     => base.Equals(other)
-      && Regex == other.Regex
+      && Pattern == other.Pattern
       && Excludes == other.Excludes;
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Regex, Excludes);
+    => HashCode.Combine(base.GetHashCode(), Pattern, Excludes);
 
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()
-      .Append(Regex.Quoted("/").Prefixed(Excludes ? "!" : ""));
+      .Append(Pattern.Quoted("/").Prefixed(Excludes ? "!" : ""));
 }

@@ -44,7 +44,7 @@ public static class SchemaParsers
       .AddDomainParser<DomainTrueFalseAst, ParseDomainTrueFalse>()
       .AddDomainParser<DomainMemberAst, ParseDomainMember>()
       .AddDomainParser<DomainRangeAst, ParseDomainRange>()
-      .AddDomainParser<DomainRegexAst, ParseDomainRegex>()
+      .AddDomainParser<IGqlpDomainRegex, ParseDomainRegex>()
       .AddDeclarationParser<IGqlpDomain, ParseDomain>("domain")
       // Union
       .AddParser<UnionDefinition, ParseUnionDefinition>()

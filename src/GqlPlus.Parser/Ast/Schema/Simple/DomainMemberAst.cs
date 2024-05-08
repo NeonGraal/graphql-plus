@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
@@ -8,10 +9,13 @@ public sealed record class DomainMemberAst(
   string Member
 ) : AstDomainItem(At, Excludes)
   , IEquatable<DomainMemberAst>
+  , IGqlpDomainMember
 {
-  public string? EnumType { get; set; }
+  public string EnumType { get; set; } = "";
 
   internal override string Abbr => "DE";
+
+  string IGqlpDomainMember.EnumItem => Member;
 
   public bool Equals(DomainMemberAst? other)
     => base.Equals(other)

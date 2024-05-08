@@ -11,19 +11,19 @@ public sealed class ParseDomainEnumTests(
   public void WithEnumType_ReturnsCorrectAst(DomainEnumInput input, string enumType)
     => _checks.TrueExpected(
       input.Name + "{enum!" + enumType + "." + input.Member + "}",
-      new AstDomain<DomainMemberAst>(AstNulls.At, input.Name, DomainKind.Enum, input.DomainMember(enumType)));
+      NewDomain(input, input.DomainMember(enumType)));
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumAllMembers_ReturnsCorrectAst(DomainEnumInput input)
     => _checks.TrueExpected(
       input.Name + "{enum " + input.Member + ".* }",
-      new AstDomain<DomainMemberAst>(AstNulls.At, input.Name, DomainKind.Enum, input.DomainAllMembers()));
+      NewDomain(input, input.DomainAllMembers()));
 
   [Theory, RepeatData(Repeats)]
   public void WithMembers_ReturnsCorrectAst(DomainEnumInput input, string member)
     => _checks.TrueExpected(
       input.Name + "{enum!" + input.Member + " " + member + "}",
-      new AstDomain<DomainMemberAst>(AstNulls.At, input.Name, DomainKind.Enum, input.DomainMembers(member)));
+      NewDomain(input, input.DomainMembers(member)));
 
   [Theory, RepeatData(Repeats)]
   public void WithMembersExcludeBad_ReturnsFalse(string name)
@@ -40,13 +40,16 @@ public sealed class ParseDomainEnumTests(
   internal override IBaseDomainChecks<DomainEnumInput> DomainChecks => _checks;
 
   private readonly ParseDomainEnumChecks _checks = new(parser);
+
+  private static AstDomain<DomainMemberAst, IGqlpDomainMember> NewDomain(DomainEnumInput input, DomainMemberAst[] members)
+    => new(AstNulls.At, input.Name, DomainKind.Enum, members);
 }
 
 internal sealed class ParseDomainEnumChecks(
   Parser<IGqlpDomain>.D parser
 ) : BaseDomainChecks<DomainEnumInput, AstDomain>(parser, DomainKind.Enum)
 {
-  protected internal override AstDomain<DomainMemberAst> NamedFactory(DomainEnumInput input)
+  protected internal override AstDomain<DomainMemberAst, IGqlpDomainMember> NamedFactory(DomainEnumInput input)
     => new(AstNulls.At, input.Name, DomainKind.Enum, input.DomainMembers());
 
   protected internal override string AliasesString(DomainEnumInput input, string aliases)

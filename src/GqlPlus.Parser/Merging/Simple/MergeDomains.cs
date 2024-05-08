@@ -4,22 +4,24 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Merging.Simple;
 
-internal class MergeDomains<TMember>(
+internal class MergeDomains<TMember, TItem>(
   ILoggerFactory logger,
-  IMerge<TMember> members
-) : AstTypeMerger<IGqlpDomain, IGqlpDomain<TMember>, string, TMember>(logger, members)
-  where TMember : AstAbbreviated, IGqlpDomainItem
+  IMerge<TItem> members
+) : AstTypeMerger<IGqlpDomain, IGqlpDomain<TItem>, string, TItem>(logger, members)
+  where TMember : AstAbbreviated, TItem
+  where TItem : IGqlpDomainItem
 {
   protected override string ItemMatchName => "Domain~Parent";
-  protected override string ItemMatchKey(IGqlpDomain<TMember> item)
+  protected override string ItemMatchKey(IGqlpDomain<TItem> item)
     => item.DomainKind.ToString() + item.Parent.Prefixed("~");
 
-  internal override IEnumerable<TMember> GetItems(IGqlpDomain<TMember> type)
+  internal override IEnumerable<TItem> GetItems(IGqlpDomain<TItem> type)
     => type.Items;
 
-  internal override IGqlpDomain<TMember> SetItems(IGqlpDomain<TMember> input, IEnumerable<TMember> items)
+  internal override IGqlpDomain<TItem> SetItems(IGqlpDomain<TItem> input, IEnumerable<TItem> items)
   {
-    AstDomain<TMember> ast = (AstDomain<TMember>)input;
-    return ast with { Members = [.. items] };
+    AstDomain<TMember, TItem> ast = (AstDomain<TMember, TItem>)input;
+    // Todo: Should use ArrayOf()
+    return ast with { Members = items.Cast<TMember>().ToArray() };
   }
 }

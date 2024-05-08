@@ -16,8 +16,7 @@ public interface IGqlpDomain
 public interface IGqlpDomain<TItem>
   : IGqlpDomain, IGqlpSimple<TItem>
   where TItem : IGqlpDomainItem
-{
-}
+{ }
 
 public interface IGqlpDomainItem
   : IGqlpError
@@ -33,27 +32,27 @@ public enum DomainKind
   String,
 }
 
-public interface IGqlpTrueFalse
+public interface IGqlpDomainTrueFalse
   : IGqlpDomainItem
 {
   bool IsTrue { get; }
 }
 
-public interface IGqlpMember
+public interface IGqlpDomainMember
   : IGqlpDomainItem
 {
   string EnumType { get; }
   string EnumItem { get; }
 }
 
-public interface IGqlpRange
+public interface IGqlpDomainRange
   : IGqlpDomainItem
 {
-  decimal? Min { get; }
-  decimal? Max { get; }
+  decimal? Lower { get; }
+  decimal? Upper { get; }
 }
 
-public interface IGqlpRegex
+public interface IGqlpDomainRegex
   : IGqlpDomainItem
 {
   string Pattern { get; }

@@ -2,10 +2,11 @@
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public abstract class AstDomainTests<TInput, TMember>
+public abstract class AstDomainTests<TInput, TMember, TItem>
   : AstTypeTests
   where TInput : IEquatable<TInput>
-  where TMember : AstAbbreviated, IGqlpDomainItem
+  where TMember : AstAbbreviated, TItem
+  where TItem : IGqlpDomainItem
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithMembers(string name, TInput input)
@@ -32,7 +33,7 @@ public abstract class AstDomainTests<TInput, TMember>
   protected override string AliasesString(string input, string aliases)
     => $"( !Do {input}{aliases} {Kind.Value} )";
 
-  internal readonly AstTypeChecks<AstDomain<TMember>> Checks;
+  internal readonly AstTypeChecks<AstDomain<TMember, TItem>> Checks;
   internal readonly Lazy<string> Kind;
 
   internal override IAstTypeChecks TypeChecks => Checks;
@@ -42,7 +43,7 @@ public abstract class AstDomainTests<TInput, TMember>
 
   protected abstract string MembersString(string name, TInput input);
   protected abstract TMember[] DomainMembers(TInput input);
-  protected abstract AstDomain<TMember> NewDomain(string name, TMember[] list);
+  protected abstract AstDomain<TMember, TItem> NewDomain(string name, TMember[] list);
 
   protected AstDomainTests()
   {

@@ -21,14 +21,16 @@ public class DependencyInjectionTests(IServiceCollection services, ITestOutputHe
     foreach (ServiceDescriptor sd in sds) {
       sb.Clear();
 
-      sb.Append(sd.ServiceType.FullTypeName());
+      string service = sd.ServiceType.FullTypeName();
+      sb.Append(service);
       sb.Append(", ");
       sb.Append(sd.Lifetime);
       sb.Append(", ");
       if (sd.ImplementationType is not null) {
-        sb.Append(sd.ImplementationType.FullTypeName(sd.ServiceType.Namespace));
+        string implementation = sd.ImplementationType.FullTypeName(sd.ServiceType.Namespace);
+        sb.Append(implementation);
 
-        CheckConstructor(sd.ImplementationType, hashset);
+        CheckConstructor(service + " <- " + implementation, sd.ImplementationType, hashset);
       } else if (sd.ImplementationFactory is not null) {
         sb.Append("() => ");
       } else if (sd.ImplementationInstance is not null) {
@@ -40,12 +42,12 @@ public class DependencyInjectionTests(IServiceCollection services, ITestOutputHe
     }
   }
 
-  private static void CheckConstructor(Type implementationType, HashSet<string> hashset)
+  private static void CheckConstructor(string prefix, Type implementationType, HashSet<string> hashset)
   {
     foreach (System.Reflection.ConstructorInfo ctor in implementationType.GetConstructors()) {
       List<string> missing = ctor.GetParameters()
         .Where(p => !MatchType(hashset, p.ParameterType))
-        .Select(p => p.Name + ":" + p.ParameterType.ExpandTypeName()).ToList();
+        .Select(p => $"{prefix} {p.Name} : " + p.ParameterType.ExpandTypeName()).ToList();
 
       missing.Should().BeEmpty();
     }

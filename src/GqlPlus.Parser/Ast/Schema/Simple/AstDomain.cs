@@ -3,28 +3,29 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public record class AstDomain<TMember>(
+public record class AstDomain<TMember, TItem>(
   TokenAt At,
   string Name,
   string Description,
   DomainKind DomainKind
 ) : AstDomain(At, Name, Description, DomainKind)
-  , IEquatable<AstDomain<TMember>>
-  , IGqlpDomain<TMember>
-  where TMember : AstAbbreviated, IGqlpDomainItem, IGqlpError
+  , IEquatable<AstDomain<TMember, TItem>>
+  , IGqlpDomain<TItem>
+  where TMember : AstBase, TItem
+  where TItem : IGqlpDomainItem, IGqlpError
 {
   public TMember[] Members { get; set; } = [];
 
   internal override string Abbr => "Do";
   public override string Label => "Domain";
 
-  public IEnumerable<TMember> Items => Members;
+  public IEnumerable<TItem> Items => Members;
 
   public AstDomain(TokenAt at, string name, DomainKind kind, TMember[] members)
     : this(at, name, "", kind)
     => Members = members;
 
-  public virtual bool Equals(AstDomain<TMember>? other)
+  public virtual bool Equals(AstDomain<TMember, TItem>? other)
     => base.Equals(other)
       && DomainKind == other.DomainKind
       && Members.SequenceEqual(other.Members);

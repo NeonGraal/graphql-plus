@@ -321,12 +321,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomPrntStr
       exclude: false
-      regex: b+
+      pattern: b+
     domain: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      regex: b+
+      pattern: b+
     name: DomPrntStr
     typeKind: !_TypeKind Domain
   !_Identifier DomPrntTest: !_DomainBoolean
@@ -354,16 +354,16 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: DomPrntStr
       exclude: false
-      regex: b+
+      pattern: b+
     - !_DomainItem(_DomainRegex)
       domain: DomStrPrnt
       exclude: false
-      regex: a+
+      pattern: a+
     domain: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      regex: a+
+      pattern: a+
     name: DomStrPrnt
     parent: !_TypeRef(_SimpleKind)
       name: DomPrntStr
@@ -3258,12 +3258,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: StrDiff
       exclude: false
-      regex: a+
+      pattern: a+
     domain: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      regex: a+
+      pattern: a+
     name: StrDiff
     typeKind: !_TypeKind Domain
   !_Identifier StrSame: !_DomainString
@@ -3271,12 +3271,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: StrSame
       exclude: false
-      regex: a+
+      pattern: a+
     domain: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      regex: a+
+      pattern: a+
     name: StrSame
     typeKind: !_TypeKind Domain
   !_Identifier UnDiff: !_TypeUnion

@@ -1,6 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -83,13 +81,13 @@ public record class DomainRangeModel(
 }
 
 public record class DomainRegexModel(
-  string Regex,
+  string Pattern,
   bool Exclude
 ) : BaseDomainItemModel(Exclude)
 {
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("regex", Regex);
+      .Add("pattern", Pattern);
 }
 
 public record class DomainItemModel<TItem>(
@@ -107,7 +105,7 @@ public record class DomainItemModel<TItem>(
 internal abstract class ModellerDomain<TItemAst, TItemModel>
   : ModellerType<IGqlpDomain<TItemAst>, string, BaseDomainModel<TItemModel>>
   , IDomainModeller<TItemAst, TItemModel>
-  where TItemAst : AstAbbreviated, IGqlpDomainItem
+  where TItemAst : IGqlpDomainItem
   where TItemModel : IBaseDomainItemModel
 {
   protected ModellerDomain()
@@ -125,14 +123,14 @@ internal abstract class ModellerDomain<TItemAst, TItemModel>
 
 public interface IDomainModeller<TItemAst, TItemModel>
   : IModeller<IGqlpDomain<TItemAst>, BaseDomainModel<TItemModel>>
-  where TItemAst : AstAbbreviated, IGqlpDomainItem
+  where TItemAst : IGqlpDomainItem
   where TItemModel : IBaseDomainItemModel
 { }
 
 internal class DomainBooleanModeller
-  : ModellerDomain<DomainTrueFalseAst, DomainTrueFalseModel>
+  : ModellerDomain<IGqlpDomainTrueFalse, DomainTrueFalseModel>
 {
-  protected override BaseDomainModel<DomainTrueFalseModel> ToModel(IGqlpDomain<DomainTrueFalseAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseDomainModel<DomainTrueFalseModel> ToModel(IGqlpDomain<IGqlpDomainTrueFalse> ast, IMap<TypeKindModel> typeKinds)
     => new(DomainKindModel.Boolean, ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
@@ -140,14 +138,14 @@ internal class DomainBooleanModeller
       Items = ToItems(ast, typeKinds),
     };
 
-  protected override DomainTrueFalseModel ToItem(DomainTrueFalseAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Value, ast.Excludes);
+  protected override DomainTrueFalseModel ToItem(IGqlpDomainTrueFalse ast, IMap<TypeKindModel> typeKinds)
+    => new(ast.IsTrue, ast.Excludes);
 }
 
 internal class DomainEnumModeller
-  : ModellerDomain<DomainMemberAst, DomainMemberModel>
+  : ModellerDomain<IGqlpDomainMember, DomainMemberModel>
 {
-  protected override BaseDomainModel<DomainMemberModel> ToModel(IGqlpDomain<DomainMemberAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseDomainModel<DomainMemberModel> ToModel(IGqlpDomain<IGqlpDomainMember> ast, IMap<TypeKindModel> typeKinds)
     => new(DomainKindModel.Enum, ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
@@ -155,14 +153,14 @@ internal class DomainEnumModeller
       Items = ToItems(ast, typeKinds),
     };
 
-  protected override DomainMemberModel ToItem(DomainMemberAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.EnumType ?? "", ast.Member, ast.Excludes);
+  protected override DomainMemberModel ToItem(IGqlpDomainMember ast, IMap<TypeKindModel> typeKinds)
+    => new(ast.EnumType ?? "", ast.EnumItem, ast.Excludes);
 }
 
 internal class DomainNumberModeller
-  : ModellerDomain<DomainRangeAst, DomainRangeModel>
+  : ModellerDomain<IGqlpDomainRange, DomainRangeModel>
 {
-  protected override BaseDomainModel<DomainRangeModel> ToModel(IGqlpDomain<DomainRangeAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseDomainModel<DomainRangeModel> ToModel(IGqlpDomain<IGqlpDomainRange> ast, IMap<TypeKindModel> typeKinds)
     => new(DomainKindModel.Number, ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
@@ -170,14 +168,14 @@ internal class DomainNumberModeller
       Items = ToItems(ast, typeKinds),
     };
 
-  protected override DomainRangeModel ToItem(DomainRangeAst ast, IMap<TypeKindModel> typeKinds)
+  protected override DomainRangeModel ToItem(IGqlpDomainRange ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Lower, ast.Upper, ast.Excludes);
 }
 
 internal class DomainStringModeller
-  : ModellerDomain<DomainRegexAst, DomainRegexModel>
+  : ModellerDomain<IGqlpDomainRegex, DomainRegexModel>
 {
-  protected override BaseDomainModel<DomainRegexModel> ToModel(IGqlpDomain<DomainRegexAst> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseDomainModel<DomainRegexModel> ToModel(IGqlpDomain<IGqlpDomainRegex> ast, IMap<TypeKindModel> typeKinds)
     => new(DomainKindModel.String, ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
@@ -185,6 +183,6 @@ internal class DomainStringModeller
       Items = ToItems(ast, typeKinds),
     };
 
-  protected override DomainRegexModel ToItem(DomainRegexAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Regex, ast.Excludes);
+  protected override DomainRegexModel ToItem(IGqlpDomainRegex ast, IMap<TypeKindModel> typeKinds)
+    => new(ast.Pattern, ast.Excludes);
 }

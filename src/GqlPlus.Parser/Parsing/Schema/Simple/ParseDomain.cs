@@ -25,21 +25,21 @@ internal class ParseDomain(
     };
   }
 
-  private static AstDomain<DomainRegexAst> MakeString(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
+  private static AstDomain<DomainRegexAst, IGqlpDomainRegex> MakeString(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
     => new(partial.At, partial.Name, value.Kind, value.Regexes) {
       Aliases = partial.Aliases,
       Description = partial.Description,
       Parent = value.Parent
     };
 
-  private static AstDomain<DomainRangeAst> MakeNumber(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
+  private static AstDomain<DomainRangeAst, IGqlpDomainRange> MakeNumber(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
     => new(partial.At, partial.Name, value.Kind, value.Numbers) {
       Aliases = partial.Aliases,
       Description = partial.Description,
       Parent = value.Parent
     };
 
-  private static AstDomain<DomainMemberAst> MakeEnum(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
+  private static AstDomain<DomainMemberAst, IGqlpDomainMember> MakeEnum(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
   {
     if (value.Members.Length == 0) {
       partial.Error("Invalid Domain Enum. Expected at least one Member");
@@ -52,7 +52,7 @@ internal class ParseDomain(
     };
   }
 
-  private static AstDomain<DomainTrueFalseAst> MakeBoolean(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
+  private static AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse> MakeBoolean(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
     => new(partial.At, partial.Name, value.Kind, value.Values) {
       Aliases = partial.Aliases,
       Description = partial.Description,
@@ -60,7 +60,7 @@ internal class ParseDomain(
     };
 
   protected override IGqlpDomain ToResult(AstPartial<NullAst, NullOption> partial)
-    => new AstDomain<DomainTrueFalseAst>(partial.At, partial.Name, partial.Description, DomainKind.Boolean) {
+    => new AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>(partial.At, partial.Name, partial.Description, DomainKind.Boolean) {
       Aliases = partial.Aliases,
       Description = partial.Description,
     };

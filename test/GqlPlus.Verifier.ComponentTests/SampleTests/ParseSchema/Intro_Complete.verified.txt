@@ -883,15 +883,15 @@ Success
   _BaseDomainItem
   {
     !DF I@009/0218
-    from
+    lower
     :
-    I@015/0218
+    I@016/0218
     Number
     ?
     !DF I@009/0219
-    to
+    upper
     :
-    I@013/0219
+    I@016/0219
     Number
     ?
   }
@@ -904,9 +904,9 @@ Success
   _BaseDomainItem
   {
     !DF I@009/0224
-    regex
+    pattern
     :
-    I@016/0224
+    I@018/0224
     String
   }
 }

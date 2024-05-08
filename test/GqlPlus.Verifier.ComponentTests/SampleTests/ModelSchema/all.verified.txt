@@ -44,12 +44,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: Guid
       exclude: false
-      regex: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
+      pattern: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
     domain: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      regex: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
+      pattern: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
     name: Guid
     typeKind: !_TypeKind Domain
   !_Identifier One: !_TypeEnum

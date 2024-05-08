@@ -11,7 +11,7 @@ public sealed class ParseDomainStringTests(
   public void WithRegexes_ReturnsCorrectAst(DomainStringInput input, string regex)
     => _checks.TrueExpected(
       input.Name + "{string/" + input.Regex + "/!/" + regex + "/}",
-      new AstDomain<DomainRegexAst>(AstNulls.At, input.Name, DomainKind.String, new[] { input.Regex, regex }.DomainRegexes()));
+      NewDomain(input.Name, new[] { input.Regex, regex }.DomainRegexes()));
 
   [Theory, RepeatData(Repeats)]
   public void WithRegexesFirstBad_ReturnsFalse(string name)
@@ -24,13 +24,16 @@ public sealed class ParseDomainStringTests(
   internal override IBaseDomainChecks<DomainStringInput> DomainChecks => _checks;
 
   private readonly ParseDomainStringChecks _checks = new(parser);
+
+  private static AstDomain<DomainRegexAst, IGqlpDomainRegex> NewDomain(string name, DomainRegexAst[] members)
+    => new(AstNulls.At, name, DomainKind.String, members);
 }
 
 internal sealed class ParseDomainStringChecks(
   Parser<IGqlpDomain>.D parser
 ) : BaseDomainChecks<DomainStringInput, AstDomain>(parser, DomainKind.String)
 {
-  protected internal override AstDomain<DomainRegexAst> NamedFactory(DomainStringInput input)
+  protected internal override AstDomain<DomainRegexAst, IGqlpDomainRegex> NamedFactory(DomainStringInput input)
     => new(AstNulls.At, input.Name, DomainKind.String, new[] { input.Regex }.DomainRegexes());
 
   protected internal override string AliasesString(DomainStringInput input, string aliases)

@@ -4,17 +4,17 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Modelling.Simple;
 
 public class DomainNumberModelTests(
-  IDomainModeller<DomainRangeAst, DomainRangeModel> modeller
-) : TestDomainModel<DomainRangeInput, DomainRangeAst>
+  IDomainModeller<IGqlpDomainRange, DomainRangeModel> modeller
+) : TestDomainModel<DomainRangeInput, DomainRangeAst, IGqlpDomainRange>
 {
-  internal override ICheckDomainModel<DomainRangeInput, DomainRangeAst> DomainChecks => _checks;
+  internal override ICheckDomainModel<DomainRangeInput, DomainRangeAst, IGqlpDomainRange> DomainChecks => _checks;
 
   private readonly DomainNumberModelChecks _checks = new(modeller);
 }
 
 internal sealed class DomainNumberModelChecks(
-  IDomainModeller<DomainRangeAst, DomainRangeModel> modeller
-) : CheckDomainModel<DomainRangeInput, DomainRangeAst, DomainRangeModel>(DomainKind.Number, modeller)
+  IDomainModeller<IGqlpDomainRange, DomainRangeModel> modeller
+) : CheckDomainModel<DomainRangeInput, DomainRangeAst, IGqlpDomainRange, DomainRangeModel>(DomainKind.Number, modeller)
 {
   protected override string[] ExpectedItem(DomainRangeInput input, string exclude, string[] domain)
     => ["- !_DomainRange", .. domain, exclude, "  from: " + input.Lower, "  to: " + input.Upper];

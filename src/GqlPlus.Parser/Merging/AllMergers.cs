@@ -29,14 +29,14 @@ public static class AllMergers
       .AddMergeAll<IGqlpDomain, IGqlpType, MergeAllDomains>()
       .AddMerge<IGqlpUnionItem, MergeUnionMembers>()
       .AddMergeAll<IGqlpUnion, IGqlpType, MergeUnions>()
-      .AddMergeDomain<DomainTrueFalseAst>()
-      .AddMergeDomain<DomainMemberAst>()
-      .AddMergeDomain<DomainRangeAst>()
-      .AddMergeDomain<DomainRegexAst>()
-      .AddMerge<DomainTrueFalseAst, MergeDomainTrueFalse>()
-      .AddMerge<DomainMemberAst, MergeDomainMembers>()
-      .AddMerge<DomainRangeAst, MergeDomainRanges>()
-      .AddMerge<DomainRegexAst, MergeDomainRegexes>()
+      .AddMergeDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>()
+      .AddMergeDomain<DomainMemberAst, IGqlpDomainMember>()
+      .AddMergeDomain<DomainRangeAst, IGqlpDomainRange>()
+      .AddMergeDomain<DomainRegexAst, IGqlpDomainRegex>()
+      .AddMerge<IGqlpDomainTrueFalse, MergeDomainTrueFalse>()
+      .AddMerge<IGqlpDomainMember, MergeDomainMembers>()
+      .AddMerge<IGqlpDomainRange, MergeDomainRanges>()
+      .AddMerge<IGqlpDomainRegex, MergeDomainRegexes>()
       // Object types
       .AddMerge<ParameterAst, MergeParameters>()
       .AddMerge<IGqlpTypeParameter, MergeTypeParameters>()
@@ -68,8 +68,9 @@ public static class AllMergers
       .AddSingleton<IMerge<TAst>>(x => x.GetRequiredService<TService>())
       .AddSingleton<IMergeAll<TType>>(x => x.GetRequiredService<TService>());
 
-  private static IServiceCollection AddMergeDomain<TMember>(this IServiceCollection services)
-    where TMember : AstAbbreviated, IGqlpDomainItem
+  private static IServiceCollection AddMergeDomain<TMember, TItem>(this IServiceCollection services)
+  where TMember : AstAbbreviated, TItem
+  where TItem : IGqlpDomainItem
     => services
-      .AddMergeAll<IGqlpDomain<TMember>, IGqlpDomain, MergeDomains<TMember>>();
+      .AddMergeAll<IGqlpDomain<TItem>, IGqlpDomain, MergeDomains<TMember, TItem>>();
 }

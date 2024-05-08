@@ -3,7 +3,6 @@ using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
-using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Rendering;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -30,10 +29,10 @@ public static class AllModellers
       .AddModeller<ParameterAst, ParameterModel, ParameterModeller>()
       .AddModeller<IGqlpSchema, SchemaModel, SchemaModeller>()
       .AddModifierModeller()
-      .AddDomainModeller<DomainTrueFalseAst, DomainTrueFalseModel, DomainBooleanModeller>()
-      .AddDomainModeller<DomainMemberAst, DomainMemberModel, DomainEnumModeller>()
-      .AddDomainModeller<DomainRangeAst, DomainRangeModel, DomainNumberModeller>()
-      .AddDomainModeller<DomainRegexAst, DomainRegexModel, DomainStringModeller>()
+      .AddDomainModeller<IGqlpDomainTrueFalse, DomainTrueFalseModel, DomainBooleanModeller>()
+      .AddDomainModeller<IGqlpDomainMember, DomainMemberModel, DomainEnumModeller>()
+      .AddDomainModeller<IGqlpDomainRange, DomainRangeModel, DomainNumberModeller>()
+      .AddDomainModeller<IGqlpDomainRegex, DomainRegexModel, DomainStringModeller>()
       .AddTypeModeller<DualDeclAst, TypeDualModel, DualModeller>()
       .AddTypeModeller<IGqlpEnum, TypeEnumModel, EnumModeller>()
       .AddTypeModeller<InputDeclAst, TypeInputModel, InputModeller>()
@@ -63,7 +62,7 @@ public static class AllModellers
       .AddSingleton<ITypeModeller, TModeller>(c => c.GetRequiredService<TModeller>());
 
   private static IServiceCollection AddDomainModeller<TItemAst, TItemModel, TModeller>(this IServiceCollection services)
-    where TItemAst : AstAbbreviated, IGqlpDomainItem
+    where TItemAst : IGqlpDomainItem
     where TItemModel : IBaseDomainItemModel
     where TModeller : class, IDomainModeller<TItemAst, TItemModel>, ITypeModeller
     => services

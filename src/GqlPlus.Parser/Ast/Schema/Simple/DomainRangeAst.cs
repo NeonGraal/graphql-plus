@@ -1,10 +1,13 @@
 ﻿using System.Globalization;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
 public sealed record class DomainRangeAst(TokenAt At, bool Excludes)
-  : AstDomainItem(At, Excludes), IEquatable<DomainRangeAst>
+  : AstDomainItem(At, Excludes)
+  , IEquatable<DomainRangeAst>
+  , IGqlpDomainRange
 {
   public decimal? Lower { get; set; }
   public decimal? Upper { get; set; }

@@ -6,10 +6,10 @@ using GqlPlus.Merging;
 namespace GqlPlus.Verifying.Schema.Simple;
 
 internal class VerifyDomainEnum(
-  IMerge<DomainMemberAst> members
-) : AstDomainVerifier<DomainMemberAst>(members)
+  IMerge<IGqlpDomainMember> members
+) : AstDomainVerifier<IGqlpDomainMember>(members)
 {
-  protected override void VerifyDomain(IGqlpDomain<DomainMemberAst> domain, EnumContext context)
+  protected override void VerifyDomain(IGqlpDomain<IGqlpDomainMember> domain, EnumContext context)
   {
     EnumMembers members = new();
 

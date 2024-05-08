@@ -7,12 +7,12 @@ namespace GqlPlus.Merging.Simple;
 
 public class MergeDomainAstEnumsTests(
   ITestOutputHelper outputHelper
-) : TestDomainAsts<DomainMemberAst, string>(outputHelper)
+) : TestDomainAsts<DomainMemberAst, IGqlpDomainMember, string>(outputHelper)
 {
   protected override DomainMemberAst[] MakeItems(string input)
     => new[] { input }.DomainMembers();
 
-  protected override AstDomain<DomainMemberAst> MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
+  protected override AstDomain<DomainMemberAst, IGqlpDomainMember> MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
     => new(AstNulls.At, name, description, DomainKind.Enum) {
       Aliases = aliases ?? [],
       Parent = parent,

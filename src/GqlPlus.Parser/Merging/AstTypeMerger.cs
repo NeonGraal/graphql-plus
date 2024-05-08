@@ -35,5 +35,10 @@ internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
   }
 
   IEnumerable<TAst> IMerge<TAst>.Merge(IEnumerable<TAst> items)
-    => Merge(items.OfType<TType>()).Cast<TAst>();
+  {
+    TType[] typeItems = items.OfType<TType>().ToArray();
+    TType[] merged = base.Merge(typeItems).ToArray();
+    TAst[] cast = merged.Cast<TAst>().ToArray();
+    return cast;
+  }
 }

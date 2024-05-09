@@ -15,19 +15,19 @@ internal class ParseDomainRegex(
   public override IResult<IGqlpDomainRegex> Parse<TContext>(TContext tokens, string label)
   {
     Token.TokenAt at = tokens.At;
-    DomainRegexAst? result;
+    IGqlpDomainRegex? result;
     bool excluded = tokens.Take('!');
     if (tokens.Regex(out string? regex)) {
-      result = new(at, excluded, regex);
-      return result.Ok<IGqlpDomainRegex>();
+      result = new DomainRegexAst(at, excluded, regex);
+      return result.Ok();
     }
 
-    result = new(at, false, regex);
+    result = new DomainRegexAst(at, false, regex);
     return string.IsNullOrEmpty(regex)
       ? excluded
-        ? tokens.Error<IGqlpDomainRegex>(label, "regex after '!'", result)
-        : result.Empty<IGqlpDomainRegex>()
-      : tokens.Error<IGqlpDomainRegex>(label, "Closing '/'", result);
+        ? tokens.Error(label, "regex after '!'", result)
+        : result.Empty()
+      : tokens.Error(label, "Closing '/'", result);
   }
 
   protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, IGqlpDomainRegex[] items)

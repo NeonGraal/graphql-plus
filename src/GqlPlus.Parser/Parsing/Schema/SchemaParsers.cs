@@ -2,7 +2,6 @@
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
-using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Parsing.Schema.Globals;
 using GqlPlus.Parsing.Schema.Objects;
 using GqlPlus.Parsing.Schema.Simple;
@@ -15,7 +14,6 @@ public static class SchemaParsers
   public static IServiceCollection AddSchemaParsers(this IServiceCollection services)
     => services
       .AddNullParsers()
-      .AddParserArray<ParameterAst, ParseParameters>()
       .AddParserArray<string, ParseAliases>()
       // Category
       .AddSingleton<ICategoryName, CategoryName>()
@@ -41,9 +39,9 @@ public static class SchemaParsers
       // Domain
       .AddParser<DomainDefinition, ParseDomainDefinition>()
       .AddEnum<DomainKind>()
-      .AddDomainParser<DomainTrueFalseAst, ParseDomainTrueFalse>()
-      .AddDomainParser<DomainMemberAst, ParseDomainMember>()
-      .AddDomainParser<DomainRangeAst, ParseDomainRange>()
+      .AddDomainParser<IGqlpDomainTrueFalse, ParseDomainTrueFalse>()
+      .AddDomainParser<IGqlpDomainMember, ParseDomainMember>()
+      .AddDomainParser<IGqlpDomainRange, ParseDomainRange>()
       .AddDomainParser<IGqlpDomainRegex, ParseDomainRegex>()
       .AddDeclarationParser<IGqlpDomain, ParseDomain>("domain")
       // Union
@@ -62,6 +60,7 @@ public static class SchemaParsers
       .AddParser<InputFieldAst, ParseInputField>()
       .AddDeclarationParser<InputDeclAst, ParseInput>("input")
       .AddObjectParser<ParseInputDefinition, InputFieldAst, InputBaseAst>()
+      .AddParserArray<ParameterAst, ParseParameters>()
       // Output
       .AddParser<OutputBaseAst, ParseOutputBase>()
       .AddParser<OutputFieldAst, ParseOutputField>()

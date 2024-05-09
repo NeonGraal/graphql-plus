@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -6,28 +7,29 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseDomainRange(
-  Parser<DomainRangeAst>.DA items
-) : ParseDomainItem<DomainRangeAst>(items)
+  Parser<IGqlpDomainRange>.DA items
+) : ParseDomainItem<IGqlpDomainRange>(items)
 {
   public override DomainKind Kind => DomainKind.Number;
 
-  public override IResult<DomainRangeAst> Parse<TContext>(TContext tokens, string label)
+  public override IResult<IGqlpDomainRange> Parse<TContext>(TContext tokens, string label)
   {
     Token.TokenAt at = tokens.At;
     bool excludes = tokens.Take('!');
 
-    DomainRangeAst range = new(at, excludes);
+    DomainRangeAst value = new(at, excludes);
+    IGqlpDomainRange range = value;
     bool isUpper = tokens.Take('<');
     bool hasLower = tokens.Number(out decimal min);
 
     if (isUpper) {
-      range.Upper = min;
+      range = value with { Upper = min };
       return hasLower
         ? range.Ok()
         : tokens.Error(label, "upper bound after '<'", range);
     }
 
-    range.Lower = min;
+    range = value = value with { Lower = min };
     if (tokens.Take('>')) {
       return hasLower
         ? range.Ok()
@@ -35,7 +37,7 @@ internal class ParseDomainRange(
     }
 
     if (!tokens.Take('~')) {
-      range.Upper = min;
+      range = value with { Upper = min };
       return hasLower
         ? range.Ok()
         : range.Empty();
@@ -46,12 +48,12 @@ internal class ParseDomainRange(
     }
 
     bool hasUpper = tokens.Number(out decimal max);
-    range.Upper = max;
+    range = value with { Upper = max };
     return hasUpper
       ? range.Ok()
       : tokens.Error(label, "upper bound after '~'", range);
   }
 
-  protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, DomainRangeAst[] items)
-    => result.Numbers = items;
+  protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, IGqlpDomainRange[] items)
+    => result.Numbers = items.ArrayOf<DomainRangeAst>();
 }

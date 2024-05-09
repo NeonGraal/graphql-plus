@@ -10,16 +10,16 @@ internal class ParseParameters(
   Parser<InputBaseAst>.D input,
   Parser<IGqlpModifier>.DA modifiers,
   Parser<IParserDefault, IGqlpConstant>.D defaultParser
-) : Parser<ParameterAst>.IA
+) : Parser<InputParameterAst>.IA
 {
   private readonly Parser<InputBaseAst>.L _input = input;
   private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
   private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
-  public IResultArray<ParameterAst> Parse<TContext>(TContext tokens, string label)
+  public IResultArray<InputParameterAst> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    List<ParameterAst> list = [];
+    List<InputParameterAst> list = [];
 
     if (!tokens.Take('(')) {
       return list.EmptyArray();
@@ -32,7 +32,7 @@ internal class ParseParameters(
         return tokens.ErrorArray("Parameter", "input reference after '('", list);
       }
 
-      ParameterAst parameter = new(at, input.Required());
+      InputParameterAst parameter = new(at, input.Required());
       list.Add(parameter);
       IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Parameter");
       if (modifiers.IsError()) {

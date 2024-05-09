@@ -9,14 +9,14 @@ types: !_Map_Type
       name: field
       object: OutParamsParent
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutParamParent
       type: !_OutputBase OutPrntParams
     fields:
     - !_OutputField
       name: field
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutParamParent
       type: !_OutputBase OutPrntParams
     name: OutParamsParent
@@ -30,21 +30,21 @@ types: !_Map_Type
       name: field
       object: OutParamsParent
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutParamParent
       type: !_OutputBase OutPrntParams
     - !_ObjectFor(_OutputField)
       name: field
       object: OutPrntParams
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutPrntParam
       type: !_OutputBase OutPrntParams
     fields:
     - !_OutputField
       name: field
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutPrntParam
       type: !_OutputBase OutPrntParams
     name: OutPrntParams

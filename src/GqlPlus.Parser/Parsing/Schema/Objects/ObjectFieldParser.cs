@@ -35,7 +35,7 @@ public abstract class ObjectFieldParser<TObjField, TObjBase>
       return 0.Empty<TObjField>();
     }
 
-    IResultArray<ParameterAst> hasParameter = FieldParameter(tokens);
+    IResultArray<InputParameterAst> hasParameter = FieldParameter(tokens);
     if (hasParameter.IsError()) {
       return hasParameter.AsResult<TObjField>();
     }
@@ -70,13 +70,13 @@ public abstract class ObjectFieldParser<TObjField, TObjBase>
     return FieldEnumValue(tokens, field);
   }
 
-  protected abstract void ApplyFieldParameters(TObjField field, ParameterAst[] parameters);
+  protected abstract void ApplyFieldParameters(TObjField field, InputParameterAst[] parameters);
   protected abstract TObjField ObjField(TokenAt at, string name, string description, TObjBase typeBase);
   protected abstract IResult<TObjField> FieldDefault<TContext>(TContext tokens, TObjField field)
       where TContext : Tokenizer;
   protected abstract IResult<TObjField> FieldEnumValue<TContext>(TContext tokens, TObjField field)
       where TContext : Tokenizer;
-  protected abstract IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
+  protected abstract IResultArray<InputParameterAst> FieldParameter<TContext>(TContext tokens)
       where TContext : Tokenizer;
   protected abstract TObjBase ObjBase(TokenAt at, string param, string description = "");
 }

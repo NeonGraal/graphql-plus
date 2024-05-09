@@ -103,11 +103,11 @@ public class MergeOutputFieldsTests
       MakeFieldEnum(name, type, value) with { Aliases = [alias1, alias2] });
 
   private readonly MergeOutputFields _merger;
-  private readonly IMerge<ParameterAst> _parameters;
+  private readonly IMerge<InputParameterAst> _parameters;
 
   public MergeOutputFieldsTests(ITestOutputHelper outputHelper)
   {
-    _parameters = Merger<ParameterAst>();
+    _parameters = Merger<InputParameterAst>();
     _merger = new(outputHelper.ToLoggerFactory(), _parameters);
   }
 

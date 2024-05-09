@@ -4,7 +4,7 @@ directives: !_Map_Directives
     locations: !_Set(_Location) {Fragment: _, Operation: _}
     name: DirParams
     parameters:
-    - !_Parameter
+    - !_InputParameter
       type: !_InputBase DirParamsIn
     repeatable: false
 types: !_Map_Type

@@ -36,7 +36,7 @@ directives: !_Map_Directives
     locations: !_Set(_Location) {Fragment: _, Operation: _}
     name: DirParams
     parameters:
-    - !_Parameter
+    - !_InputParameter
       type: !_InputBase DirParamsIn
     repeatable: false
 name: Schema
@@ -333,18 +333,18 @@ types: !_Map_Type
       name: field
       object: FieldParams
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase FieldParam1
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase FieldParam2
       type: !_OutputBase FieldParams
     fields:
     - !_OutputField
       name: field
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase FieldParam1
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase FieldParam2
       type: !_OutputBase FieldParams
     name: FieldParams

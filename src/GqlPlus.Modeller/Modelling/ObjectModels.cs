@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;
@@ -140,7 +139,7 @@ public record class ObjFieldModel<TObjBase>(
       .Add("type", Type?.Render(context));
 }
 
-public record class ParameterModel(
+public record class InputParameterModel(
   BaseDescribedModel<ObjRefModel<InputBaseModel>> Type
 ) : AlternateModel<InputBaseModel>(Type)
 {
@@ -243,12 +242,12 @@ public interface IAlternateModeller<TObjBaseAst, TObjBase>
   where TObjBase : IObjBaseModel
 { }
 
-internal class ParameterModeller(
+internal class InputParameterModeller(
   IAlternateModeller<InputBaseAst, InputBaseModel> alternate,
-  IModeller<ConstantAst, ConstantModel> constant
-) : ModellerBase<ParameterAst, ParameterModel>
+  IModeller<IGqlpConstant, ConstantModel> constant
+) : ModellerBase<InputParameterAst, InputParameterModel>
 {
-  protected override ParameterModel ToModel(ParameterAst ast, IMap<TypeKindModel> typeKinds)
+  protected override InputParameterModel ToModel(InputParameterAst ast, IMap<TypeKindModel> typeKinds)
   {
     AlternateModel<InputBaseModel> altModel = alternate.ToModel(ast, typeKinds);
     return new(altModel.Type) {

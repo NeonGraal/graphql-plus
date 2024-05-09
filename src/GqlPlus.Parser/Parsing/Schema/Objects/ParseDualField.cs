@@ -11,7 +11,7 @@ internal class ParseDualField(
   Parser<DualBaseAst>.D objBase
 ) : ObjectFieldParser<DualFieldAst, DualBaseAst>(aliases, modifiers, objBase)
 {
-  protected override void ApplyFieldParameters(DualFieldAst field, ParameterAst[] parameters)
+  protected override void ApplyFieldParameters(DualFieldAst field, InputParameterAst[] parameters)
     => throw new InvalidOperationException();
 
   protected override DualFieldAst ObjField(TokenAt at, string name, string description, DualBaseAst typeBase)
@@ -23,8 +23,8 @@ internal class ParseDualField(
   protected override IResult<DualFieldAst> FieldEnumValue<TContext>(TContext tokens, DualFieldAst field)
     => tokens.Error("Dual", "':'", field);
 
-  protected override IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
-    => 0.EmptyArray<ParameterAst>();
+  protected override IResultArray<InputParameterAst> FieldParameter<TContext>(TContext tokens)
+    => 0.EmptyArray<InputParameterAst>();
 
   protected override DualBaseAst ObjBase(TokenAt at, string param, string description)
     => new(at, param, description);

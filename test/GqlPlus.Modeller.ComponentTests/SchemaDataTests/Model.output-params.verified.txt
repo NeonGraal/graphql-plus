@@ -9,14 +9,14 @@ types: !_Map_Type
       name: field
       object: OutParams
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutParam
       type: !_OutputBase OutParams
     fields:
     - !_OutputField
       name: field
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutParam
       type: !_OutputBase OutParams
     name: OutParams

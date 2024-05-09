@@ -31,11 +31,11 @@ public static class SchemaTestHelpers
   public static OutputBaseAst[] OutputBases(this string[] arguments)
     => [.. arguments.Select(a => new OutputBaseAst(AstNulls.At, a))];
 
-  public static ParameterAst[] Parameters(this IEnumerable<string> parameters)
-    => [.. parameters.Select(parameter => new ParameterAst(AstNulls.At, parameter))];
+  public static InputParameterAst[] Parameters(this IEnumerable<string> parameters)
+    => [.. parameters.Select(parameter => new InputParameterAst(AstNulls.At, parameter))];
 
-  public static ParameterAst[] Parameters(this string[] parameters, Func<ParameterAst, ParameterAst> mapping)
-    => [.. parameters.Select(parameter => mapping(new ParameterAst(AstNulls.At, parameter)))];
+  public static InputParameterAst[] Parameters(this string[] parameters, Func<InputParameterAst, InputParameterAst> mapping)
+    => [.. parameters.Select(parameter => mapping(new InputParameterAst(AstNulls.At, parameter)))];
 
   private static TResult[] WithExcludes<TInput, TResult>(this TInput[] inputs, Func<TInput, TResult> mapping)
     where TResult : AstDomainItem

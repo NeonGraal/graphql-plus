@@ -48,11 +48,11 @@ public class MergeDirectivesTests
   }
 
   private readonly MergeDirectives _merger;
-  private readonly IMerge<ParameterAst> _parameters;
+  private readonly IMerge<InputParameterAst> _parameters;
 
   public MergeDirectivesTests(ITestOutputHelper outputHelper)
   {
-    _parameters = Merger<ParameterAst>();
+    _parameters = Merger<InputParameterAst>();
 
     _merger = new(outputHelper.ToLoggerFactory(), _parameters);
   }

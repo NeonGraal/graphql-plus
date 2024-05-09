@@ -1,7 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,17 +14,17 @@ public static class AllModellers
       .AddAlternateModeller<InputBaseAst, InputBaseModel>()
       .AddAlternateModeller<OutputBaseAst, OutputBaseModel>()
       .AddModeller<IGqlpSchemaCategory, CategoryModel, CategoryModeller>()
-      .AddModeller<ConstantAst, ConstantModel, ConstantModeller>()
+      .AddModeller<IGqlpConstant, ConstantModel, ConstantModeller>()
       .AddModeller<IGqlpSchemaDirective, DirectiveModel, DirectiveModeller>()
       .AddModeller<DualFieldAst, DualFieldModel, DualFieldModeller>()
       .AddModeller<DualBaseAst, DualBaseModel, DualBaseModeller>()
       .AddModeller<IGqlpFieldKey, SimpleModel, SimpleModeller>()
       .AddModeller<InputFieldAst, InputFieldModel, InputFieldModeller>()
       .AddModeller<InputBaseAst, InputBaseModel, InputBaseModeller>()
-      .AddModeller<OptionSettingAst, SettingModel, SettingModeller>()
+      .AddModeller<IGqlpSchemaSetting, SettingModel, SettingModeller>()
       .AddModeller<OutputFieldAst, OutputFieldModel, OutputFieldModeller>()
       .AddModeller<OutputBaseAst, OutputBaseModel, OutputBaseModeller>()
-      .AddModeller<ParameterAst, ParameterModel, ParameterModeller>()
+      .AddModeller<InputParameterAst, InputParameterModel, InputParameterModeller>()
       .AddModeller<IGqlpSchema, SchemaModel, SchemaModeller>()
       .AddModifierModeller()
       .AddDomainModeller<IGqlpDomainTrueFalse, DomainTrueFalseModel, DomainBooleanModeller>()

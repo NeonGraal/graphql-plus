@@ -15,7 +15,7 @@ internal class ParseInputField(
 {
   private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
-  protected override void ApplyFieldParameters(InputFieldAst field, ParameterAst[] parameters)
+  protected override void ApplyFieldParameters(InputFieldAst field, InputParameterAst[] parameters)
     => throw new InvalidOperationException();
 
   protected override InputFieldAst ObjField(TokenAt at, string name, string description, InputBaseAst typeBase)
@@ -27,8 +27,8 @@ internal class ParseInputField(
   protected override IResult<InputFieldAst> FieldEnumValue<TContext>(TContext tokens, InputFieldAst field)
     => tokens.Error("Input", "':'", field);
 
-  protected override IResultArray<ParameterAst> FieldParameter<TContext>(TContext tokens)
-    => 0.EmptyArray<ParameterAst>();
+  protected override IResultArray<InputParameterAst> FieldParameter<TContext>(TContext tokens)
+    => 0.EmptyArray<InputParameterAst>();
 
   protected override InputBaseAst ObjBase(TokenAt at, string param, string description)
     => new(at, param, description);

@@ -48,14 +48,14 @@ directives: !_Map_Directives
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _, Operation: _, Spread: _, Variable: _}
     name: DirParam
     parameters:
-    - !_Parameter
+    - !_InputParameter
       type: !_InputBase DirParamIn
     repeatable: false
   !_Identifier DirParams: !_Directive
     locations: !_Set(_Location) {Fragment: _, Operation: _}
     name: DirParams
     parameters:
-    - !_Parameter
+    - !_InputParameter
       type: !_InputBase DirParamsIn
     repeatable: false
 name: Schema
@@ -1407,18 +1407,18 @@ types: !_Map_Type
       name: field
       object: FieldParams
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase FieldParam1
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase FieldParam2
       type: !_OutputBase FieldParams
     fields:
     - !_OutputField
       name: field
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase FieldParam1
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase FieldParam2
       type: !_OutputBase FieldParams
     name: FieldParams
@@ -2460,14 +2460,14 @@ types: !_Map_Type
       name: field
       object: OutParams
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutParam
       type: !_OutputBase OutParams
     fields:
     - !_OutputField
       name: field
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutParam
       type: !_OutputBase OutParams
     name: OutParams
@@ -2478,7 +2478,7 @@ types: !_Map_Type
       name: field
       object: OutParamsDomain
       parameters:
-      - !_Parameter
+      - !_InputParameter
         collections:
         - !_ModifierDictionary
           by: OutDomainParam
@@ -2489,7 +2489,7 @@ types: !_Map_Type
     - !_OutputField
       name: field
       parameters:
-      - !_Parameter
+      - !_InputParameter
         collections:
         - !_ModifierDictionary
           by: OutDomainParam
@@ -2504,14 +2504,14 @@ types: !_Map_Type
       name: field
       object: OutParamsParent
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutParamParent
       type: !_OutputBase OutPrntParams
     fields:
     - !_OutputField
       name: field
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutParamParent
       type: !_OutputBase OutPrntParams
     name: OutParamsParent
@@ -2540,21 +2540,21 @@ types: !_Map_Type
       name: field
       object: OutParamsParent
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutParamParent
       type: !_OutputBase OutPrntParams
     - !_ObjectFor(_OutputField)
       name: field
       object: OutPrntParams
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutPrntParam
       type: !_OutputBase OutPrntParams
     fields:
     - !_OutputField
       name: field
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase OutPrntParam
       type: !_OutputBase OutPrntParams
     name: OutPrntParams

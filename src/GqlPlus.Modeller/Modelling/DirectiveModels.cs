@@ -27,7 +27,7 @@ public record class DirectiveModel(
   string Name
 ) : AliasedModel(Name)
 {
-  public ParameterModel[] Parameters { get; set; } = [];
+  public InputParameterModel[] Parameters { get; set; } = [];
   public bool Repeatable { get; set; }
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 
@@ -39,7 +39,7 @@ public record class DirectiveModel(
 }
 
 internal class DirectiveModeller(
-  IModeller<ParameterAst, ParameterModel> parameter
+  IModeller<InputParameterAst, InputParameterModel> parameter
 ) : ModellerBase<IGqlpSchemaDirective, DirectiveModel>
 {
   protected override DirectiveModel ToModel(IGqlpSchemaDirective ast, IMap<TypeKindModel> typeKinds)
@@ -48,7 +48,7 @@ internal class DirectiveModeller(
       Description = ast.Description,
       Repeatable = ast.DirectiveOption == DirectiveOption.Repeatable,
       Locations = ast.Locations,
-      Parameters = parameter.ToModels(ast.Parameters.ArrayOf<ParameterAst>(), typeKinds),
+      Parameters = parameter.ToModels(ast.Parameters.ArrayOf<InputParameterAst>(), typeKinds),
     };
 
   internal static DirectiveLocation Combine(DirectiveLocation[] values)

@@ -81,7 +81,7 @@ internal sealed class DirectiveModelChecks(
     => [.. ItemsExpected(
        "parameters:",
         parameters,
-        p => ["- !_Parameter", "  type: !_InputBase " + p])];
+        p => ["- !_InputParameter", "  type: !_InputBase " + p])];
 
   internal void DirectiveExpected(DirectiveDeclAst ast, ExpectedDirectiveInput input)
     => AstExpected(ast, ExpectedDirective(input));

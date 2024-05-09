@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Globals;
 
 namespace GqlPlus.Modelling.Globals;
 
 public class SettingModelTests(
-  IModeller<OptionSettingAst, SettingModel> modeller
+  IModeller<IGqlpSchemaSetting, SettingModel> modeller
 ) : TestDescribedModel<SettingInput>
 {
   internal override ICheckDescribedModel<SettingInput> DescribedChecks => _checks;
@@ -13,8 +14,8 @@ public class SettingModelTests(
 }
 
 internal sealed class SettingModelChecks(
-  IModeller<OptionSettingAst, SettingModel> modeller
-) : CheckDescribedModel<SettingInput, OptionSettingAst, SettingModel>(modeller)
+  IModeller<IGqlpSchemaSetting, SettingModel> modeller
+) : CheckDescribedModel<SettingInput, IGqlpSchemaSetting, OptionSettingAst, SettingModel>(modeller)
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<SettingInput> input)
     => input.Name.Expected(input.Description ?? []);

@@ -1,5 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -74,7 +73,7 @@ internal class InputBaseModeller(
 internal class InputFieldModeller(
   IModifierModeller modifier,
   IModeller<InputBaseAst, InputBaseModel> refBase,
-  IModeller<ConstantAst, ConstantModel> constant
+  IModeller<IGqlpConstant, ConstantModel> constant
 ) : ModellerObjField<InputBaseAst, InputFieldAst, InputBaseModel, InputFieldModel>(modifier, refBase)
 {
   protected override InputFieldModel FieldModel(InputFieldAst ast, ObjRefModel<InputBaseModel> type, IMap<TypeKindModel> typeKinds)

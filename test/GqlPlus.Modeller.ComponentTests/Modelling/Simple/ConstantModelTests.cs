@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 public class ConstantModelTests(
-  IModeller<ConstantAst, ConstantModel> modeller
+  IModeller<IGqlpConstant, ConstantModel> modeller
 ) : TestModelBase<string>
 {
   [Theory, RepeatData(Repeats)]
@@ -37,8 +37,8 @@ public class ConstantModelTests(
 }
 
 internal sealed class ConstantModelChecks(
-  IModeller<ConstantAst, ConstantModel> modeller
-) : CheckModelBase<string, ConstantAst, ConstantModel>(modeller)
+  IModeller<IGqlpConstant, ConstantModel> modeller
+) : CheckModelBase<string, IGqlpConstant, ConstantAst, ConstantModel>(modeller)
 {
   protected override string[] ExpectedBase(string input)
     => [input.YamlQuoted()];

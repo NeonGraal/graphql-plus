@@ -60,7 +60,7 @@ public static class SchemaParsers
       .AddParser<InputFieldAst, ParseInputField>()
       .AddDeclarationParser<InputDeclAst, ParseInput>("input")
       .AddObjectParser<ParseInputDefinition, InputFieldAst, InputBaseAst>()
-      .AddParserArray<ParameterAst, ParseParameters>()
+      .AddParserArray<InputParameterAst, ParseParameters>()
       // Output
       .AddParser<OutputBaseAst, ParseOutputBase>()
       .AddParser<OutputFieldAst, ParseOutputField>()

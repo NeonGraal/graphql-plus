@@ -23,7 +23,7 @@ types: !_Map_Type
       name: items
       object: All
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase Param
       type: !_OutputBase String
     alternates:
@@ -34,7 +34,7 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: items
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase Param
       type: !_OutputBase String
     name: All

@@ -5,7 +5,7 @@ namespace GqlPlus.Ast.Schema.Objects;
 public sealed record class OutputFieldAst(TokenAt At, string Name, string Description, OutputBaseAst Type)
   : AstObjectField<OutputBaseAst>(At, Name, Description, Type), IEquatable<OutputFieldAst>
 {
-  public ParameterAst[] Parameters { get; set; } = [];
+  public InputParameterAst[] Parameters { get; set; } = [];
 
   internal override string Abbr => "OF";
 

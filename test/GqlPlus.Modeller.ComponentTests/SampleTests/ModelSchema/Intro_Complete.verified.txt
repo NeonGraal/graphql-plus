@@ -1477,7 +1477,7 @@ types: !_Map_Type
       name: categories
       object: _Schema
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase _CategoryFilter
       type: !_OutputBase _Categories
     - !_ObjectFor(_OutputField)
@@ -1485,7 +1485,7 @@ types: !_Map_Type
       name: directives
       object: _Schema
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase _Filter
       type: !_OutputBase _Directives
     - !_ObjectFor(_OutputField)
@@ -1493,7 +1493,7 @@ types: !_Map_Type
       name: types
       object: _Schema
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase _TypeFilter
       type: !_OutputBase _Type
     - !_ObjectFor(_OutputField)
@@ -1501,7 +1501,7 @@ types: !_Map_Type
       name: settings
       object: _Schema
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase _Filter
       type: !_OutputBase _Setting
     fields:
@@ -1509,28 +1509,28 @@ types: !_Map_Type
       modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: Dict}]
       name: categories
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase _CategoryFilter
       type: !_OutputBase _Categories
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: Dict}]
       name: directives
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase _Filter
       type: !_OutputBase _Directives
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: Dict}]
       name: types
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase _TypeFilter
       type: !_OutputBase _Type
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: Dict}]
       name: settings
       parameters:
-      - !_Parameter
+      - !_InputParameter
         type: !_InputBase _Filter
       type: !_OutputBase _Setting
     name: _Schema

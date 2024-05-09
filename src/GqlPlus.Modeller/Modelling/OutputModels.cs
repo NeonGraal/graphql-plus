@@ -32,7 +32,7 @@ public record class OutputFieldModel(
   ObjRefModel<OutputBaseModel>? Type
 ) : ObjFieldModel<OutputBaseModel>(Name, Type)
 {
-  internal ParameterModel[] Parameters { get; set; } = [];
+  internal InputParameterModel[] Parameters { get; set; } = [];
   internal OutputEnumModel? Enum { get; set; }
 
   internal override RenderStructure Render(IRenderContext context)
@@ -109,7 +109,7 @@ internal class OutputBaseModeller(
 
 internal class OutputFieldModeller(
   IModifierModeller modifier,
-  IModeller<ParameterAst, ParameterModel> parameter,
+  IModeller<InputParameterAst, InputParameterModel> parameter,
   IModeller<OutputBaseAst, OutputBaseModel> refBase
 ) : ModellerObjField<OutputBaseAst, OutputFieldAst, OutputBaseModel, OutputFieldModel>(modifier, refBase)
 {

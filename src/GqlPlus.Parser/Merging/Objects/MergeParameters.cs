@@ -7,12 +7,12 @@ namespace GqlPlus.Merging.Objects;
 internal class MergeParameters(
   ILoggerFactory logger,
   IMerge<ConstantAst> constant
-) : AstAlternatesMerger<ParameterAst, InputBaseAst>(logger)
+) : AstAlternatesMerger<InputParameterAst, InputBaseAst>(logger)
 {
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, ParameterAst> group)
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, InputParameterAst> group)
     => base.CanMergeGroup(group)
       .Add(group.CanMerge(item => item.DefaultValue, constant));
-  protected override ParameterAst MergeGroup(IEnumerable<ParameterAst> group)
+  protected override InputParameterAst MergeGroup(IEnumerable<InputParameterAst> group)
   => base.MergeGroup(group) with {
     DefaultValue = group.Merge(item => item.DefaultValue, constant).FirstOrDefault()
   };

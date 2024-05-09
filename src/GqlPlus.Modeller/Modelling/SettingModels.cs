@@ -1,5 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Globals;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -15,10 +14,10 @@ public record class SettingModel(
 }
 
 internal class SettingModeller(
-  IModeller<ConstantAst, ConstantModel> constant
-) : ModellerBase<OptionSettingAst, SettingModel>
+  IModeller<IGqlpConstant, ConstantModel> constant
+) : ModellerBase<IGqlpSchemaSetting, SettingModel>
 {
-  protected override SettingModel ToModel(OptionSettingAst ast, IMap<TypeKindModel> typeKinds)
+  protected override SettingModel ToModel(IGqlpSchemaSetting ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, constant.ToModel(ast.Value, typeKinds)) {
       Description = ast.Description,
     };

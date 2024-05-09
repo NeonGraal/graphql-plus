@@ -38,7 +38,7 @@ public static class AllMergers
       .AddMerge<IGqlpDomainRange, MergeDomainRanges>()
       .AddMerge<IGqlpDomainRegex, MergeDomainRegexes>()
       // Object types
-      .AddMerge<ParameterAst, MergeParameters>()
+      .AddMerge<InputParameterAst, MergeParameters>()
       .AddMerge<IGqlpTypeParameter, MergeTypeParameters>()
       .AddMerge<AstAlternate<DualBaseAst>, AlternatesMerger<DualBaseAst>>()
       .AddMerge<DualFieldAst, MergeDualFields>()

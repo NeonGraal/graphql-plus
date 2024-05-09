@@ -4,53 +4,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Verifying\VerifyOperationData.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>VerifyOperationData.tt</DependentUpon>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\src\GqlPlus.Verifier\GqlPlus.Verifier.csproj" />
     <ProjectReference Include="..\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Verifying\VerifyOperationData.tt">
-      <LastGenOutput>VerifyOperationData.cs</LastGenOutput>
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Update="Verifying\VerifySchemaData.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>VerifySchemaData.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Verifying\VerifyOperationData.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>VerifyOperationData.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Verifying\VerifySchemaData.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>VerifySchemaData.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Verifying\VerifyOperationData.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>VerifyOperationData.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Verifying\VerifySchemaData.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>VerifySchemaData.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>

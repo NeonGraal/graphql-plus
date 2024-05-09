@@ -1,8 +1,8 @@
-﻿// Generated from .\test\GqlPlus.Verifier.ComponentTests\Verifying\Operation
+﻿// Generated from .\test\GqlPlus.ComponentTestBase\Operation
 
-namespace GqlPlus.Verifying;
+namespace GqlPlus;
 
-public class VerifyOperationInvalidData
+public class OperationInvalidData
   : TheoryData<string>
 {
   public static readonly Dictionary<string, string> Source = new() {
@@ -18,7 +18,7 @@ public class VerifyOperationInvalidData
     ["var-unused"] = "($var):Boolean",
   };
 
-  public VerifyOperationInvalidData()
+  public OperationInvalidData()
   {
     foreach (string key in Source.Keys) {
       Add(key);
@@ -26,7 +26,7 @@ public class VerifyOperationInvalidData
   }
 }
 
-public class VerifyOperationValidData
+public class OperationValidData
   : TheoryData<string>
 {
   public static readonly Dictionary<string, string> Source = new() {
@@ -36,7 +36,7 @@ public class VerifyOperationValidData
     ["var-null"] = "($var:Id?=null):Boolean($var)",
   };
 
-  public VerifyOperationValidData()
+  public OperationValidData()
   {
     foreach (string key in Source.Keys) {
       Add(key);

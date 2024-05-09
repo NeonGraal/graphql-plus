@@ -3,29 +3,30 @@ using GqlPlus.Ast.Schema;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 using GqlPlus.Token;
+using GqlPlus.Verifying;
 
-namespace GqlPlus.Verifying;
+namespace GqlPlus;
 
-public class VerifySchemaTests(
+public class SchemaDataTests(
     Parser<IGqlpSchema>.D parser,
     IVerify<IGqlpSchema> verifier
-) : SchemaBase(parser)
+) : SchemaDataBase(parser)
 {
   [Theory]
-  [ClassData(typeof(VerifySchemaValidGlobalsData))]
+  [ClassData(typeof(SchemaValidGlobalsData))]
   public void Verify_ValidGlobals(string global)
-    => Verify_Valid(VerifySchemaValidGlobalsData.Source[global]);
+    => Verify_Valid(SchemaValidGlobalsData.Source[global]);
 
   [Theory]
-  [ClassData(typeof(VerifySchemaInvalidGlobalsData))]
+  [ClassData(typeof(SchemaInvalidGlobalsData))]
   public async Task Verify_InvalidGlobals(string global)
-    => await Verify_Invalid(VerifySchemaInvalidGlobalsData.Source[global], global);
+    => await Verify_Invalid(SchemaInvalidGlobalsData.Source[global], global);
 
   [Theory]
-  [ClassData(typeof(VerifySchemaValidMergesData))]
+  [ClassData(typeof(SchemaValidMergesData))]
   public void Verify_ValidMerges(string schema)
   {
-    string input = VerifySchemaValidMergesData.Source[schema];
+    string input = SchemaValidMergesData.Source[schema];
     if (IsObjectInput(input)) {
       using AssertionScope scope = new();
 
@@ -38,20 +39,20 @@ public class VerifySchemaTests(
   }
 
   [Theory]
-  [ClassData(typeof(VerifySchemaValidSimpleData))]
+  [ClassData(typeof(SchemaValidSimpleData))]
   public void Verify_ValidSimple(string simple)
-    => Verify_Valid(VerifySchemaValidSimpleData.Source[simple]);
+    => Verify_Valid(SchemaValidSimpleData.Source[simple]);
 
   [Theory]
-  [ClassData(typeof(VerifySchemaInvalidSimpleData))]
+  [ClassData(typeof(SchemaInvalidSimpleData))]
   public async Task Verify_InvalidSimple(string simple)
-    => await Verify_Invalid(VerifySchemaInvalidSimpleData.Source[simple], simple);
+    => await Verify_Invalid(SchemaInvalidSimpleData.Source[simple], simple);
 
   [Theory]
-  [ClassData(typeof(VerifySchemaValidObjectsData))]
+  [ClassData(typeof(SchemaValidObjectsData))]
   public void Verify_ValidObjects(string obj)
   {
-    string input = VerifySchemaValidObjectsData.Source[obj];
+    string input = SchemaValidObjectsData.Source[obj];
     if (IsObjectInput(input)) {
       using AssertionScope scope = new();
 
@@ -64,10 +65,10 @@ public class VerifySchemaTests(
   }
 
   [Theory]
-  [ClassData(typeof(VerifySchemaInvalidObjectsData))]
+  [ClassData(typeof(SchemaInvalidObjectsData))]
   public async Task Verify_InvalidObjects(string obj)
   {
-    string input = VerifySchemaInvalidObjectsData.Source[obj];
+    string input = SchemaInvalidObjectsData.Source[obj];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Invalid(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + obj))
@@ -107,7 +108,7 @@ public class VerifySchemaTests(
 
     VerifySettings settings = new();
     settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(VerifySchemaTests));
+    settings.UseDirectory(nameof(SchemaDataTests));
     settings.UseTypeName("Invalid");
     settings.UseMethodName(test);
 

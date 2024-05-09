@@ -3,20 +3,21 @@ using GqlPlus.Parsing;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
+using GqlPlus.Verifying;
 
-namespace GqlPlus.Verifying;
+namespace GqlPlus;
 
-public class VerifyOperationTests(
+public class OperationDataTests(
     Parser<IGqlpOperation>.D parser,
     IVerify<IGqlpOperation> verifier)
 {
   private readonly Parser<IGqlpOperation>.L _parser = parser;
 
   [Theory]
-  [ClassData(typeof(VerifyOperationValidData))]
+  [ClassData(typeof(OperationValidData))]
   public void Verify_ValidOperations_ReturnsValid(string operation)
   {
-    IResult<IGqlpOperation> parse = Parse(VerifyOperationValidData.Source[operation]);
+    IResult<IGqlpOperation> parse = Parse(OperationValidData.Source[operation]);
     if (parse is IResultError<IGqlpOperation> error) {
       error.Message.Should().BeNull();
     }
@@ -29,10 +30,10 @@ public class VerifyOperationTests(
   }
 
   [Theory]
-  [ClassData(typeof(VerifyOperationInvalidData))]
+  [ClassData(typeof(OperationInvalidData))]
   public void Verify_InvalidOperations_ReturnsInvalid(string operation)
   {
-    IResult<IGqlpOperation> parse = Parse(VerifyOperationInvalidData.Source[operation]);
+    IResult<IGqlpOperation> parse = Parse(OperationInvalidData.Source[operation]);
 
     TokenMessages result = [];
     if (parse.IsOk()) {

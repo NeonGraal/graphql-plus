@@ -1,4 +1,4 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
-<#@ include file="VerifyData.t4"#>
+<#@ include file="BuildData.t4"#>
 <#@ output extension=".cs" #>
-<#  SampleData("Operation"); #>
+<#  BuildData("Schema"); #>

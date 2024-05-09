@@ -4,56 +4,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Verify.Xunit" Version="24.1.0" />
-    <PackageReference Include="Xunit.DependencyInjection" Version="9.2.1" />
-    <PackageReference Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
-    <PackageReference Include="Xunit.DependencyInjection.SkippableFact" Version="9.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\GqlPlus.Modeller\GqlPlus.Modeller.csproj" />
     <ProjectReference Include="..\..\src\GqlPlus.Verifier\GqlPlus.Verifier.csproj" />
-    <ProjectReference Include="..\GqlPlus.TestBase\GqlPlus.TestBase.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Sample\**" CopyToOutputDirectory="Always" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="SampleData.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SampleData.cs</LastGenOutput>
-    </None>
-    <None Update="Verifying\VerifyOperationData.tt">
-      <LastGenOutput>VerifyOperationData.cs</LastGenOutput>
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Update="Verifying\VerifySchemaData.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>VerifySchemaData.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="SampleData.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SampleData.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Verifying\VerifyOperationData.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>VerifyOperationData.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Verifying\VerifySchemaData.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>VerifySchemaData.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>

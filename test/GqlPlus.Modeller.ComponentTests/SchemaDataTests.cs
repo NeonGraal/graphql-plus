@@ -2,17 +2,16 @@
 using GqlPlus.Merging;
 using GqlPlus.Modelling;
 using GqlPlus.Parsing;
-using GqlPlus.Rendering;
 using GqlPlus.Result;
 
-namespace GqlPlus.Verifying;
+namespace GqlPlus;
 
-public class ModelSchemaTests(
+public class SchemaDataTests(
     Parser<IGqlpSchema>.D parser,
     IMerge<IGqlpSchema> merger,
     IModeller<IGqlpSchema, SchemaModel> modeller,
     ITypesModeller types
-) : SchemaBase(parser)
+) : SchemaDataBase(parser)
 {
   [Fact]
   public async Task Model_All()
@@ -46,10 +45,10 @@ public class ModelSchemaTests(
   }
 
   [Theory]
-  [ClassData(typeof(VerifySchemaValidMergesData))]
+  [ClassData(typeof(SchemaValidMergesData))]
   public async Task Model_Merges(string model)
   {
-    string input = VerifySchemaValidMergesData.Source[model];
+    string input = SchemaValidMergesData.Source[model];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
@@ -60,10 +59,10 @@ public class ModelSchemaTests(
   }
 
   [Theory]
-  [ClassData(typeof(VerifySchemaValidObjectsData))]
+  [ClassData(typeof(SchemaValidObjectsData))]
   public async Task Model_Objects(string model)
   {
-    string input = VerifySchemaValidObjectsData.Source[model];
+    string input = SchemaValidObjectsData.Source[model];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
@@ -74,10 +73,10 @@ public class ModelSchemaTests(
   }
 
   [Theory]
-  [ClassData(typeof(VerifySchemaValidGlobalsData))]
+  [ClassData(typeof(SchemaValidGlobalsData))]
   public async Task Model_Globals(string global)
   {
-    string input = VerifySchemaValidGlobalsData.Source[global];
+    string input = SchemaValidGlobalsData.Source[global];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + global))
@@ -88,10 +87,10 @@ public class ModelSchemaTests(
   }
 
   [Theory]
-  [ClassData(typeof(VerifySchemaValidSimpleData))]
+  [ClassData(typeof(SchemaValidSimpleData))]
   public async Task Model_Simple(string simple)
   {
-    string input = VerifySchemaValidSimpleData.Source[simple];
+    string input = SchemaValidSimpleData.Source[simple];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + simple))
@@ -110,7 +109,7 @@ public class ModelSchemaTests(
 
     VerifySettings settings = new();
     settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(ModelSchemaTests));
+    settings.UseDirectory(nameof(SchemaDataTests));
     settings.UseTypeName("Model");
     settings.UseMethodName(test);
 

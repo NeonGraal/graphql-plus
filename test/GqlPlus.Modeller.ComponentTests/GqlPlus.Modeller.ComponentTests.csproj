@@ -5,15 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Verify.Xunit" Version="24.1.0" />
-    <PackageReference Include="Xunit.DependencyInjection" Version="9.2.1" />
-    <PackageReference Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
-    <PackageReference Include="Xunit.DependencyInjection.SkippableFact" Version="9.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\src\GqlPlus.Modeller\GqlPlus.Modeller.csproj" />
-    <ProjectReference Include="..\GqlPlus.TestBase\GqlPlus.TestBase.csproj" />
+    <ProjectReference Include="..\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>

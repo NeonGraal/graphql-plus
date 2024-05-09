@@ -3,10 +3,10 @@ using GqlPlus.Parsing;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
-namespace GqlPlus.Verifying;
+namespace GqlPlus;
 
 #pragma warning disable CA1034 // Nested types should not be visible
-public class SchemaBase(
+public class SchemaDataBase(
     Parser<IGqlpSchema>.D parser
 )
 {
@@ -16,10 +16,10 @@ public class SchemaBase(
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
 
   protected static IEnumerable<string> ValidObjects
-    => ReplaceObjects(VerifySchemaValidObjectsData.Source.Values);
+    => ReplaceObjects(SchemaValidObjectsData.Source.Values);
 
   protected static IEnumerable<string> ValidMerges
-    => ReplaceObjects(VerifySchemaValidMergesData.Source.Values);
+    => ReplaceObjects(SchemaValidMergesData.Source.Values);
 
   public class SchemaValidData
     : TheoryData<string>
@@ -27,8 +27,8 @@ public class SchemaBase(
     public static readonly Dictionary<string, IEnumerable<string>> Values = new() {
       ["Objects"] = ValidObjects,
       ["Merges"] = ValidMerges,
-      ["Globals"] = VerifySchemaValidGlobalsData.Source.Values,
-      ["Simple"] = VerifySchemaValidSimpleData.Source.Values,
+      ["Globals"] = SchemaValidGlobalsData.Source.Values,
+      ["Simple"] = SchemaValidSimpleData.Source.Values,
     };
     public SchemaValidData()
     {

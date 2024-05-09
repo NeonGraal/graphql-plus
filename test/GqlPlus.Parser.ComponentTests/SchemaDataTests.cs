@@ -3,13 +3,27 @@ using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 
-namespace GqlPlus.Verifying;
+namespace GqlPlus;
 
-public class MergeSchemaTests(
+public class SchemaDataTests(
     Parser<IGqlpSchema>.D parser,
     IMerge<IGqlpSchema> merger
-) : SchemaBase(parser)
+) : SchemaDataBase(parser)
 {
+  [Fact]
+  public void VerifySchemaDataKeys()
+  {
+    IEnumerable<string> duplicateKeys = SchemaValidMergesData.Source.Keys
+      .Concat(SchemaValidObjectsData.Source.Keys)
+      .Concat(SchemaValidGlobalsData.Source.Keys)
+      .Concat(SchemaValidSimpleData.Source.Keys)
+      .GroupBy(k => k)
+      .Where(g => g.Count() > 1)
+      .Select(g => g.Key);
+
+    duplicateKeys.Should().BeEmpty();
+  }
+
   [Fact]
   public void CanMerge_All()
   {
@@ -37,10 +51,10 @@ public class MergeSchemaTests(
   }
 
   [Theory]
-  [ClassData(typeof(VerifySchemaValidMergesData))]
+  [ClassData(typeof(SchemaValidMergesData))]
   public void CanMerge_Valid(string merge)
   {
-    string input = VerifySchemaValidMergesData.Source[merge];
+    string input = SchemaValidMergesData.Source[merge];
     IEnumerable<IGqlpSchema> schemas = ReplaceObjects([input])
       .Select(input => Parse(input).Required());
 
@@ -81,10 +95,10 @@ public class MergeSchemaTests(
   }
 
   [Theory]
-  [ClassData(typeof(VerifySchemaValidMergesData))]
+  [ClassData(typeof(SchemaValidMergesData))]
   public async Task Merge_Valid(string merge)
   {
-    string input = VerifySchemaValidMergesData.Source[merge];
+    string input = SchemaValidMergesData.Source[merge];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
         .Select(r => Verify_Merge(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + merge))
@@ -102,7 +116,7 @@ public class MergeSchemaTests(
 
     VerifySettings settings = new();
     settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(MergeSchemaTests));
+    settings.UseDirectory(nameof(SchemaDataTests));
     settings.UseTypeName("Merge");
     settings.UseMethodName(test);
 

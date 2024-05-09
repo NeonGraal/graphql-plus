@@ -1,8 +1,8 @@
-﻿// Generated from .\test\GqlPlus.Verifier.ComponentTests\Verifying\Schema
+﻿// Generated from .\test\GqlPlus.ComponentTestBase\Schema
 
-namespace GqlPlus.Verifying;
+namespace GqlPlus;
 
-public class VerifySchemaInvalidGlobalsData
+public class SchemaInvalidGlobalsData
   : TheoryData<string>
 {
   public static readonly Dictionary<string, string> Source = new() {
@@ -19,7 +19,7 @@ public class VerifySchemaInvalidGlobalsData
     ["option-diff-name"] = "option Test { } option Schema { }",
   };
 
-  public VerifySchemaInvalidGlobalsData()
+  public SchemaInvalidGlobalsData()
   {
     foreach (string key in Source.Keys) {
       Add(key);
@@ -27,7 +27,7 @@ public class VerifySchemaInvalidGlobalsData
   }
 }
 
-public class VerifySchemaInvalidObjectsData
+public class SchemaInvalidObjectsData
   : TheoryData<string>
 {
   public static readonly Dictionary<string, string> Source = new() {
@@ -103,7 +103,7 @@ public class VerifySchemaInvalidObjectsData
     ["unique-alias"] = "object Test [a] { } object Dup [a] { }",
   };
 
-  public VerifySchemaInvalidObjectsData()
+  public SchemaInvalidObjectsData()
   {
     foreach (string key in Source.Keys) {
       Add(key);
@@ -111,7 +111,7 @@ public class VerifySchemaInvalidObjectsData
   }
 }
 
-public class VerifySchemaInvalidSimpleData
+public class SchemaInvalidSimpleData
   : TheoryData<string>
 {
   public static readonly Dictionary<string, string> Source = new() {
@@ -156,7 +156,7 @@ public class VerifySchemaInvalidSimpleData
     ["unique-types"] = "enum Test { Value } output Test { }",
   };
 
-  public VerifySchemaInvalidSimpleData()
+  public SchemaInvalidSimpleData()
   {
     foreach (string key in Source.Keys) {
       Add(key);
@@ -164,7 +164,7 @@ public class VerifySchemaInvalidSimpleData
   }
 }
 
-public class VerifySchemaValidGlobalsData
+public class SchemaValidGlobalsData
   : TheoryData<string>
 {
   public static readonly Dictionary<string, string> Source = new() {
@@ -179,7 +179,7 @@ public class VerifySchemaValidGlobalsData
     ["option-setting"] = "option Schema { setting = true }",
   };
 
-  public VerifySchemaValidGlobalsData()
+  public SchemaValidGlobalsData()
   {
     foreach (string key in Source.Keys) {
       Add(key);
@@ -187,7 +187,7 @@ public class VerifySchemaValidGlobalsData
   }
 }
 
-public class VerifySchemaValidMergesData
+public class SchemaValidMergesData
   : TheoryData<string>
 {
   public static readonly Dictionary<string, string> Source = new() {
@@ -231,7 +231,7 @@ public class VerifySchemaValidMergesData
     ["union-same"] = "union UnSame { Boolean } union UnSame { Boolean }",
   };
 
-  public VerifySchemaValidMergesData()
+  public SchemaValidMergesData()
   {
     foreach (string key in Source.Keys) {
       Add(key);
@@ -239,7 +239,7 @@ public class VerifySchemaValidMergesData
   }
 }
 
-public class VerifySchemaValidObjectsData
+public class SchemaValidObjectsData
   : TheoryData<string>
 {
   public static readonly Dictionary<string, string> Source = new() {
@@ -284,7 +284,7 @@ public class VerifySchemaValidObjectsData
     ["parent-params-same"] = "object ObjPrntPrmsSame<$a> { :ObjPrmsPrntSame<$a> field: $a } object ObjPrmsPrntSame<$a> { | $a }",
   };
 
-  public VerifySchemaValidObjectsData()
+  public SchemaValidObjectsData()
   {
     foreach (string key in Source.Keys) {
       Add(key);
@@ -292,7 +292,7 @@ public class VerifySchemaValidObjectsData
   }
 }
 
-public class VerifySchemaValidSimpleData
+public class SchemaValidSimpleData
   : TheoryData<string>
 {
   public static readonly Dictionary<string, string> Source = new() {
@@ -313,7 +313,7 @@ public class VerifySchemaValidSimpleData
     ["union-parent"] = "union UnionPrnt { :PrntUnion String } union PrntUnion { Number }",
   };
 
-  public VerifySchemaValidSimpleData()
+  public SchemaValidSimpleData()
   {
     foreach (string key in Source.Keys) {
       Add(key);

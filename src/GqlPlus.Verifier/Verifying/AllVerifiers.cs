@@ -19,9 +19,9 @@ public static class AllVerifiers
     => services
       // Operation
       .AddVerify<IGqlpOperation, VerifyOperation>()
+      .AddVerify<IGqlpVariable, VerifyVariable>()
       .AddVerifyUsageNamed<IGqlpArgument, IGqlpVariable, VerifyVariableUsage>()
       .AddVerifyUsageNamed<IGqlpSpread, IGqlpFragment, VerifyFragmentUsage>()
-      .AddVerify<IGqlpVariable, VerifyVariable>()
       // Schema
       .AddVerify<IGqlpSchema, VerifySchema>()
       .AddVerifyAliased<IGqlpSchemaCategory, VerifyCategoryAliased>()
@@ -32,22 +32,24 @@ public static class AllVerifiers
       // Schema Types
       .AddVerify<IGqlpType[], VerifyAllTypes>()
       .AddVerifyAliased<IGqlpType, VerifyAllTypesAliased>()
+      // Simple Types
+      .AddVerifyAliased<IGqlpDomain, VerifyDomainsAliased>()
+      .AddVerifyUsageAliased<IGqlpDomain, IGqlpType, VerifyDomainTypes>()
+      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainRange>>()
+      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainRegex>>()
+      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainTrueFalse>>()
+      .AddVerifyDomainContext<VerifyDomainEnum>()
       .AddVerifyAliased<IGqlpEnum, VerifyEnumsAliased>()
       .AddVerifyUsageAliased<IGqlpEnum, IGqlpType, VerifyEnumTypes>()
+      .AddVerifyAliased<IGqlpUnion, VerifyUnionsAliased>()
+      .AddVerifyUsageAliased<IGqlpUnion, IGqlpType, VerifyUnionTypes>()
+      // Object Types
       .AddVerifyAliased<DualDeclAst, VerifyDualsAliased>()
       .AddVerifyUsageAliased<DualDeclAst, IGqlpType, VerifyDualTypes>()
       .AddVerifyAliased<InputDeclAst, VerifyInputsAliased>()
       .AddVerifyUsageAliased<InputDeclAst, IGqlpType, VerifyInputTypes>()
       .AddVerifyAliased<OutputDeclAst, VerifyOutputsAliased>()
       .AddVerifyUsageAliased<OutputDeclAst, IGqlpType, VerifyOutputTypes>()
-      .AddVerifyAliased<IGqlpDomain, VerifyDomainsAliased>()
-      .AddVerifyUsageAliased<IGqlpDomain, IGqlpType, VerifyDomainTypes>()
-      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainTrueFalse>>()
-      .AddVerifyDomainContext<VerifyDomainEnum>()
-      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainRange>>()
-      .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainRegex>>()
-      .AddVerifyAliased<IGqlpUnion, VerifyUnionsAliased>()
-      .AddVerifyUsageAliased<IGqlpUnion, IGqlpType, VerifyUnionTypes>()
     ;
 
   private static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)

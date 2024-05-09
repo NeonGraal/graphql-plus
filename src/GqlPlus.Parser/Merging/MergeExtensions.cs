@@ -74,7 +74,7 @@ public static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, TObjField?> field,
       IMerge<TObjField> merger)
-    where TObjField : AstBase
+    where TObjField : IGqlpError
   {
     ArgumentNullException.ThrowIfNull(merger);
 
@@ -130,7 +130,7 @@ public static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, TObjField?> field,
       IMerge<TObjField> merger)
-    where TObjField : AstBase
+    where TObjField : IGqlpError
   {
     ArgumentNullException.ThrowIfNull(merger);
 
@@ -155,7 +155,7 @@ public static class MergeExtensions
       Func<TItem, IEnumerable<TGroup>> many,
       Func<TGroup, string> key,
       IMerge<TGroup> merger)
-    where TGroup : AstBase
+    where TGroup : IGqlpError
     => TokenMessages.New
       .Add(items
         .SelectMany(many).GroupBy(key)
@@ -166,7 +166,7 @@ public static class MergeExtensions
       Func<TItem, IEnumerable<TGroup>> many,
       Func<TGroup, string> key,
       IMerge<TGroup> merger)
-    where TGroup : AstBase
+    where TGroup : IGqlpError
   {
     List<Indexed<TGroup>> result = [];
     IEnumerable<IGrouping<string, Indexed<TGroup>>> groups = items.SelectMany(many).Select(Indexed<TGroup>.To).GroupBy(i => key(i.Item));
@@ -202,7 +202,7 @@ public static class MergeExtensions
       ?? "";
 
   public static TObjField Combine<TItem, TObjField>(this IEnumerable<TItem> items, Func<TItem, TObjField> field, IMerge<TObjField> merger)
-    where TObjField : AstBase
+    where TObjField : IGqlpError
   {
     ArgumentNullException.ThrowIfNull(merger);
 

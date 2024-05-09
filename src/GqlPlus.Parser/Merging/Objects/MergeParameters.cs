@@ -6,7 +6,7 @@ namespace GqlPlus.Merging.Objects;
 
 internal class MergeParameters(
   ILoggerFactory logger,
-  IMerge<ConstantAst> constant
+  IMerge<IGqlpConstant> constant
 ) : AstAlternatesMerger<InputParameterAst, InputBaseAst>(logger)
 {
   protected override ITokenMessages CanMergeGroup(IGrouping<string, InputParameterAst> group)
@@ -14,6 +14,6 @@ internal class MergeParameters(
       .Add(group.CanMerge(item => item.DefaultValue, constant));
   protected override InputParameterAst MergeGroup(IEnumerable<InputParameterAst> group)
   => base.MergeGroup(group) with {
-    DefaultValue = group.Merge(item => item.DefaultValue, constant).FirstOrDefault()
+    DefaultValue = (ConstantAst?)group.Merge(item => item.DefaultValue, constant).FirstOrDefault()
   };
 }

@@ -3,7 +3,7 @@
 namespace GqlPlus.Merging;
 
 public class MergeConstantsTests
-  : TestAbbreviated<ConstantAst>
+  : TestAbbreviated<IGqlpConstant>
 {
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsBothValues_ReturnsExpected(string valueA, string valueB)
@@ -94,7 +94,7 @@ public class MergeConstantsTests
 
   private readonly MergeConstants _merger = new();
 
-  protected override IMerge<ConstantAst> MergerBase => _merger;
+  protected override IMerge<IGqlpConstant> MergerBase => _merger;
 
   protected override ConstantAst MakeAst(string input)
     => new FieldKeyAst(AstNulls.At, input);

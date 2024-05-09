@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging.Globals;
@@ -16,39 +15,41 @@ public static class AllMergers
 {
   public static IServiceCollection AddMergers(this IServiceCollection services)
     => services
+      .AddMerge<IGqlpConstant, MergeConstants>()
+      // Schema
       .AddMerge<IGqlpSchema, MergeSchemas>()
-      .AddMerge<ConstantAst, MergeConstants>()
       .AddMerge<IGqlpSchemaCategory, MergeCategories>()
       .AddMerge<IGqlpSchemaDirective, MergeDirectives>()
       .AddMerge<IGqlpSchemaOption, MergeOptions>()
-      .AddMerge<OptionSettingAst, MergeOptionSettings>()
+      .AddMerge<IGqlpSchemaSetting, MergeOptionSettings>()
       // Types
       .AddMerge<IGqlpType, MergeAllTypes>()
-      .AddMergeAll<IGqlpEnum, IGqlpType, MergeEnums>()
-      .AddMerge<IGqlpEnumItem, MergeEnumMembers>()
+      // Simple
       .AddMergeAll<IGqlpDomain, IGqlpType, MergeAllDomains>()
-      .AddMerge<IGqlpUnionItem, MergeUnionMembers>()
-      .AddMergeAll<IGqlpUnion, IGqlpType, MergeUnions>()
-      .AddMergeDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>()
+      .AddMerge<IGqlpDomainMember, MergeDomainMembers>()
       .AddMergeDomain<DomainMemberAst, IGqlpDomainMember>()
+      .AddMerge<IGqlpDomainRange, MergeDomainRanges>()
       .AddMergeDomain<DomainRangeAst, IGqlpDomainRange>()
+      .AddMerge<IGqlpDomainRegex, MergeDomainRegexes>()
       .AddMergeDomain<DomainRegexAst, IGqlpDomainRegex>()
       .AddMerge<IGqlpDomainTrueFalse, MergeDomainTrueFalse>()
-      .AddMerge<IGqlpDomainMember, MergeDomainMembers>()
-      .AddMerge<IGqlpDomainRange, MergeDomainRanges>()
-      .AddMerge<IGqlpDomainRegex, MergeDomainRegexes>()
+      .AddMergeDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>()
+      .AddMergeAll<IGqlpEnum, IGqlpType, MergeEnums>()
+      .AddMerge<IGqlpEnumItem, MergeEnumMembers>()
+      .AddMergeAll<IGqlpUnion, IGqlpType, MergeUnions>()
+      .AddMerge<IGqlpUnionItem, MergeUnionMembers>()
       // Object types
-      .AddMerge<InputParameterAst, MergeParameters>()
       .AddMerge<IGqlpTypeParameter, MergeTypeParameters>()
+      .AddMergeAll<DualDeclAst, IGqlpType, MergeDualObjects>()
       .AddMerge<AstAlternate<DualBaseAst>, AlternatesMerger<DualBaseAst>>()
       .AddMerge<DualFieldAst, MergeDualFields>()
-      .AddMergeAll<DualDeclAst, IGqlpType, MergeDualObjects>()
+      .AddMergeAll<InputDeclAst, IGqlpType, MergeInputObjects>()
       .AddMerge<AstAlternate<InputBaseAst>, AlternatesMerger<InputBaseAst>>()
       .AddMerge<InputFieldAst, MergeInputFields>()
-      .AddMergeAll<InputDeclAst, IGqlpType, MergeInputObjects>()
+      .AddMerge<InputParameterAst, MergeParameters>()
+      .AddMergeAll<OutputDeclAst, IGqlpType, MergeOutputObjects>()
       .AddMerge<AstAlternate<OutputBaseAst>, AlternatesMerger<OutputBaseAst>>()
       .AddMerge<OutputFieldAst, MergeOutputFields>()
-      .AddMergeAll<OutputDeclAst, IGqlpType, MergeOutputObjects>()
     ;
 
   private static IServiceCollection AddMerge<TValue, TService>(this IServiceCollection services)

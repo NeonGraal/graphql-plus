@@ -3,46 +3,46 @@
 namespace GqlPlus.Merging;
 
 internal class MergeConstants
-  : BaseMerger<ConstantAst>
+  : BaseMerger<IGqlpConstant>
 {
-  public override IEnumerable<ConstantAst> Merge(IEnumerable<ConstantAst> items)
+  public override IEnumerable<IGqlpConstant> Merge(IEnumerable<IGqlpConstant> items)
   {
     if (items is null) {
       return [];
     }
 
-    ConstantAst[] list = items.ToArray();
+    IGqlpConstant[] list = items.ToArray();
     return list.Length > 1
       ? [list.Aggregate(CombineConstants)]
-      : list;
+    : list;
   }
 
-  private ConstantAst CombineConstants(ConstantAst a, ConstantAst b)
-    => a.Values.Length > 0 || b.Values.Length > 0
+  private IGqlpConstant CombineConstants(IGqlpConstant a, IGqlpConstant b)
+    => a.Values.Any() || b.Values.Any()
       ? MergeValues(a, b)
       : a.Fields.Any() && b.Fields.Any()
         ? MergeFields(a, b)
         : b;
 
-  private static ConstantAst MergeValues(ConstantAst a, ConstantAst b)
+  private static IGqlpConstant MergeValues(IGqlpConstant a, IGqlpConstant b)
   {
-    IEnumerable<ConstantAst> values = a.Values.Append(b);
+    IEnumerable<IGqlpConstant> values = a.Values.Append(b);
 
-    if (b.Values.Length > 0) {
-      values = a.Values.Length == 0
-        ? b.Values.Prepend(a)
-        : a.Values.Concat(b.Values).Distinct();
+    if (b.Values.Any()) {
+      values = a.Values.Any()
+        ? a.Values.Concat(b.Values).Distinct()
+        : b.Values.Prepend(a);
     }
 
-    return b with { Value = null, Fields = [], Values = [.. values] };
+    return (ConstantAst)b with { Value = null, Fields = [], Values = values.ArrayOf<ConstantAst>() };
   }
 
-  private ConstantAst MergeFields(ConstantAst a, ConstantAst b)
+  private IGqlpConstant MergeFields(IGqlpConstant a, IGqlpConstant b)
   {
     Dictionary<FieldKeyAst, ConstantAst> fields = a.Fields.Concat(b.Fields)
       .ToLookup(p => p.Key, p => p.Value)
-      .ToDictionary(g => g.Key, g => Merge(g).First());
+      .ToDictionary(g => (FieldKeyAst)g.Key, g => (ConstantAst)Merge(g).First());
 
-    return b with { Fields = new(fields) };
+    return (ConstantAst)b with { Fields = new(fields) };
   }
 }

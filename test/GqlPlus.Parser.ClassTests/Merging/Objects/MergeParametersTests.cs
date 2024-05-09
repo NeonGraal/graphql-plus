@@ -31,12 +31,12 @@ public class MergeParametersTests : TestAlternates<InputParameterAst, InputBaseA
       [MakeAlternate(input), MakeAlternate(input) with { DefaultValue = value.FieldKey() }],
       MakeAlternate(input) with { DefaultValue = value.FieldKey() });
 
-  private readonly IMerge<ConstantAst> _constant;
+  private readonly IMerge<IGqlpConstant> _constant;
   private readonly MergeParameters _merger;
 
   public MergeParametersTests(ITestOutputHelper outputHelper)
   {
-    _constant = Merger<ConstantAst>();
+    _constant = Merger<IGqlpConstant>();
 
     _merger = new(outputHelper.ToLoggerFactory(), _constant);
   }

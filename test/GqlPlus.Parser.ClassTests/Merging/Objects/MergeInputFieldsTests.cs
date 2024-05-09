@@ -30,12 +30,12 @@ public class MergeInputFieldsTests : TestObjectFields<InputFieldAst, InputBaseAs
       [MakeField(name, type), MakeField(name, type) with { Default = value.FieldKey() }],
       MakeField(name, type) with { Default = value.FieldKey() });
 
-  private readonly IMerge<ConstantAst> _constant;
+  private readonly IMerge<IGqlpConstant> _constant;
   private readonly MergeInputFields _merger;
 
   public MergeInputFieldsTests(ITestOutputHelper outputHelper)
   {
-    _constant = Merger<ConstantAst>();
+    _constant = Merger<IGqlpConstant>();
 
     _merger = new(outputHelper.ToLoggerFactory(), _constant);
   }

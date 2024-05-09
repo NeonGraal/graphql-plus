@@ -30,11 +30,11 @@ public class MergeOptionsTests
       .MergeCalled(_settings, settings1.Concat(settings2).Distinct().Count());
 
   private readonly MergeOptions _merger;
-  private readonly IMerge<OptionSettingAst> _settings;
+  private readonly IMerge<IGqlpSchemaSetting> _settings;
 
   public MergeOptionsTests(ITestOutputHelper outputHelper)
   {
-    _settings = Merger<OptionSettingAst>();
+    _settings = Merger<IGqlpSchemaSetting>();
 
     _merger = new(outputHelper.ToLoggerFactory(), _settings);
   }

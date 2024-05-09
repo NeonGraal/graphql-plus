@@ -5,7 +5,7 @@ namespace GqlPlus.Merging.Objects;
 
 internal class MergeInputFields(
   ILoggerFactory logger,
-  IMerge<ConstantAst> constant
+  IMerge<IGqlpConstant> constant
 ) : AstObjectFieldsMerger<InputFieldAst, InputBaseAst>(logger)
 {
   protected override ITokenMessages CanMergeGroup(IGrouping<string, InputFieldAst> group)
@@ -14,6 +14,6 @@ internal class MergeInputFields(
 
   protected override InputFieldAst MergeGroup(IEnumerable<InputFieldAst> group)
     => base.MergeGroup(group) with {
-      Default = group.Merge(item => item.Default, constant).FirstOrDefault()
+      Default = (ConstantAst?)group.Merge(item => item.Default, constant).FirstOrDefault()
     };
 }

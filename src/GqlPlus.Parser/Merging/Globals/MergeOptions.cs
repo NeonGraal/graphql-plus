@@ -6,7 +6,7 @@ namespace GqlPlus.Merging.Globals;
 
 internal class MergeOptions(
   ILoggerFactory logger,
-  IMerge<OptionSettingAst> settings
+  IMerge<IGqlpSchemaSetting> settings
 ) : AstAliasedMerger<IGqlpSchemaOption>(logger)
 {
 
@@ -17,13 +17,13 @@ internal class MergeOptions(
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpSchemaOption> group)
     => base.CanMergeGroup(group)
-      .Add(group.ManyGroupCanMerge(d => d.Settings.ArrayOf<OptionSettingAst>(), s => s.Name, settings));
+      .Add(group.ManyGroupCanMerge(d => d.Settings, s => s.Name, settings));
 
   protected override IGqlpSchemaOption MergeGroup(IEnumerable<IGqlpSchemaOption> group)
   {
     OptionDeclAst ast = (OptionDeclAst)base.MergeGroup(group);
     return ast with {
-      Settings = [.. group.ManyGroupMerger(d => d.Settings.ArrayOf<OptionSettingAst>(), s => s.Name, settings)],
+      Settings = group.ManyGroupMerger(d => d.Settings, s => s.Name, settings).ArrayOf<OptionSettingAst>(),
     };
   }
 }

@@ -1,8 +1,9 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
-public class ParseArgumentTests(Parser<IParserArgument, ArgumentAst>.D parser)
+public class ParseArgumentTests(Parser<IParserArgument, IGqlpArgument>.D parser)
 {
   [Theory, RepeatData(Repeats)]
   public void WithVariable_ReturnsCorrectAst(string variable)
@@ -75,8 +76,8 @@ public class ParseArgumentTests(Parser<IParserArgument, ArgumentAst>.D parser)
       CheckNull,
       key == enumValue);
 
-  private void CheckNull(ArgumentAst? result)
+  private void CheckNull(IGqlpArgument? result)
     => result.Should().BeNull();
 
-  private readonly OneChecksParser<IParserArgument, ArgumentAst> _checks = new(parser);
+  private readonly OneChecksParser<IParserArgument, IGqlpArgument> _checks = new(parser);
 }

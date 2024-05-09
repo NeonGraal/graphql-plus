@@ -6,10 +6,10 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal class ParseDirectives(
-  Parser<IParserArgument, ArgumentAst>.D argument
+  Parser<IParserArgument, IGqlpArgument>.D argument
 ) : Parser<IGqlpDirective>.IA
 {
-  private readonly Parser<IParserArgument, ArgumentAst>.L _argument = argument;
+  private readonly Parser<IParserArgument, IGqlpArgument>.L _argument = argument;
 
   public IResultArray<IGqlpDirective> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -22,8 +22,8 @@ internal class ParseDirectives(
 
     while (name is not null) {
       DirectiveAst directive = new(at, name);
-      IResult<ArgumentAst> argument = _argument.I.Parse(tokens, "Argument");
-      if (!argument.Required(value => directive.Argument = value)) {
+      IResult<IGqlpArgument> argument = _argument.I.Parse(tokens, "Argument");
+      if (!argument.Required(value => directive.Argument = (ArgumentAst)value)) {
         if (argument.IsError()) {
           return argument.AsResultArray(result);
         }

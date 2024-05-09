@@ -7,7 +7,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 internal class ParseOperation(
-  Parser<IParserArgument, ArgumentAst>.D argument,
+  Parser<IParserArgument, IGqlpArgument>.D argument,
   Parser<IGqlpDirective>.DA directives,
   ParserArray<IParserStartFragments, IGqlpFragment>.DA startFragments,
   ParserArray<IParserEndFragments, IGqlpFragment>.DA endFragments,
@@ -16,7 +16,7 @@ internal class ParseOperation(
   Parser<IGqlpVariable>.DA variables
 ) : Parser<IGqlpOperation>.I
 {
-  private readonly Parser<IParserArgument, ArgumentAst>.L _argument = argument;
+  private readonly Parser<IParserArgument, IGqlpArgument>.L _argument = argument;
   private readonly Parser<IGqlpDirective>.LA _directives = directives;
   private readonly ParserArray<IParserStartFragments, IGqlpFragment>.LA _startFragments = startFragments;
   private readonly ParserArray<IParserEndFragments, IGqlpFragment>.LA _endFragments = endFragments;
@@ -49,8 +49,8 @@ internal class ParseOperation(
 
     if (result is not null) {
       ast.ResultType = result;
-      IResult<ArgumentAst> argument = _argument.I.Parse(tokens, "Argument");
-      if (!argument.Optional(value => ast.Argument = value)) {
+      IResult<IGqlpArgument> argument = _argument.I.Parse(tokens, "Argument");
+      if (!argument.Optional(value => ast.Argument = (ArgumentAst?)value)) {
         return argument.AsPartial(Final());
       }
     } else if (!_object.Parse(tokens, label).Required(selections => ast.ResultObject = [.. selections])) {

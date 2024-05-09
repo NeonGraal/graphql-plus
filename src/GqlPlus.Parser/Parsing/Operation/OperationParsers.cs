@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Ast.Operation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parsing.Operation;
@@ -8,8 +7,8 @@ public static class OperationParsers
 {
   public static IServiceCollection AddOperationParsers(this IServiceCollection services)
     => services
-      .AddParser<IParserArgument, ArgumentAst, ParseArgument>()
-      .AddValueParsers<ArgumentAst, ParseArgumentValue>()
+      .AddParser<IParserArgument, IGqlpArgument, ParseArgument>()
+      .AddValueParsers<IGqlpArgument, ParseArgumentValue>()
       .AddParserArray<IGqlpDirective, ParseDirectives>()
       .AddParserArray<IParserStartFragments, IGqlpFragment, ParseStartFragments>()
       .AddParserArray<IParserEndFragments, IGqlpFragment, ParseEndFragments>()

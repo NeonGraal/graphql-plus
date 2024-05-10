@@ -5,15 +5,15 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: OutGenValue
       type: !_OutputBase
-        arguments:
-        - !_OutputBase outValueGen
         output: OutGenValueRef
+        typeArguments:
+        - !_OutputBase outValueGen
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
-        - !_OutputBase outValueGen
         output: OutGenValueRef
+        typeArguments:
+        - !_OutputBase outValueGen
     name: OutGenValue
     typeKind: !_TypeKind Output
   !_Identifier OutGenValueRef: !_TypeOutput

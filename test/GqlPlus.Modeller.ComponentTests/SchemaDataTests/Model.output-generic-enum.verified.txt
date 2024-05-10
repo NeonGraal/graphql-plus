@@ -14,21 +14,21 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: OutGenEnum
       type: !_OutputBase
-        arguments:
+        output: OutGenEnumRef
+        typeArguments:
         - !_OutputArgument
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
           value: outEnumGen
-        output: OutGenEnumRef
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
+        output: OutGenEnumRef
+        typeArguments:
         - !_OutputArgument
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
           value: outEnumGen
-        output: OutGenEnumRef
     name: OutGenEnum
     typeKind: !_TypeKind Output
   !_Identifier OutGenEnumRef: !_TypeOutput

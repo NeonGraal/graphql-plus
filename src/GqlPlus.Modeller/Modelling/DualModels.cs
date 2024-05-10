@@ -51,7 +51,7 @@ internal class DualBaseModeller
   protected override DualBaseModel ToModel(DualBaseAst ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
       IsTypeParameter = ast.IsTypeParameter,
-      Arguments = ModelArguments(ast, typeKinds),
+      TypeArguments = ModelArguments(ast, typeKinds),
     };
 }
 

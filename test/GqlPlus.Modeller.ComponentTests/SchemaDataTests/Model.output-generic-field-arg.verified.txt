@@ -6,16 +6,16 @@ types: !_Map_Type
       name: field
       object: OutpGenFieldArg
       type: !_OutputBase
-        arguments:
-        - !_TypeParameter type
         output: OutpGenFieldRef
+        typeArguments:
+        - !_TypeParameter type
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
-        arguments:
-        - !_TypeParameter type
         output: OutpGenFieldRef
+        typeArguments:
+        - !_TypeParameter type
     name: OutpGenFieldArg
     typeKind: !_TypeKind Output
     typeParameters:

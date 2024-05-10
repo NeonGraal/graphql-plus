@@ -35,22 +35,22 @@ types: !_Map_Type
       type: !_OutputBase _Identifier
     name: _EnumValue
     parent: !_OutputBase
-      arguments:
+      output: _TypeRef
+      typeArguments:
       - !_OutputArgument
         name: _TypeKind
         typeKind: !_SimpleKind Enum
         value: Enum
-      output: _TypeRef
     typeKind: !_TypeKind Output
   !_Identifier _TypeEnum: !_TypeOutput
     name: _TypeEnum
     parent: !_OutputBase
-      arguments:
+      output: _ParentType
+      typeArguments:
       - !_OutputArgument
         name: _TypeKind
         typeKind: !_SimpleKind Enum
         value: Enum
       - !_OutputBase _Aliased
       - !_DualBase _EnumMember
-      output: _ParentType
     typeKind: !_TypeKind Output

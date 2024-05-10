@@ -9,7 +9,7 @@ public abstract class TestObjBaseModel<TObjBase>
   [Theory, RepeatData(Repeats)]
   public void Model_Arguments(string name, string[] arguments)
     => ObjBaseChecks.ObjBase_Expected(
-      ObjBaseChecks.ObjBaseAst(name) with { Arguments = [.. arguments.Select(ObjBaseChecks.ObjBaseAst)] },
+      ObjBaseChecks.ObjBaseAst(name) with { TypeArguments = [.. arguments.Select(ObjBaseChecks.ObjBaseAst)] },
       ObjBaseChecks.ExpectedObjBase(name, false, ObjBaseChecks.ExpectedArguments(arguments))
       );
 
@@ -55,7 +55,7 @@ internal abstract class CheckObjBaseModel<TObjBase, TModel>(
     ? ["!_TypeParameter " + input]
     : args.Length == 0
       ? [$"!_{TypeKind}Base {input}"]
-      : [$"!_{TypeKind}Base", .. args, TypeKindLower + ": " + input];
+      : [$"!_{TypeKind}Base", TypeKindLower + ": " + input, .. args];
   protected string[] ExpectedDual(string input)
     => ["!_DualBase " + input];
 
@@ -70,7 +70,7 @@ internal abstract class CheckObjBaseModel<TObjBase, TModel>(
   string[] ICheckObjBaseModel<TObjBase>.ExpectedDual(string input)
     => ExpectedDual(input);
   string[] ICheckObjBaseModel<TObjBase>.ExpectedArguments(string[] args)
-    => [.. ItemsExpected("arguments:", args, a => [$"- !_{TypeKind}Base {a}"])];
+    => [.. ItemsExpected("typeArguments:", args, a => [$"- !_{TypeKind}Base {a}"])];
 }
 
 internal interface ICheckObjBaseModel<TObjBase>

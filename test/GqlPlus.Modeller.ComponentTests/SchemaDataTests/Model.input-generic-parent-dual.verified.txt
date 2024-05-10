@@ -7,9 +7,9 @@ types: !_Map_Type
       type: !_TypeParameter ref
     name: InpGenParentDual
     parent: !_InputBase
-      arguments:
-      - !_DualBase InpGenParentDualAlt
       input: InpGenParentDualRef
+      typeArguments:
+      - !_DualBase InpGenParentDualAlt
     typeKind: !_TypeKind Input
   !_Identifier InpGenParentDualAlt: !_TypeDual
     name: InpGenParentDualAlt

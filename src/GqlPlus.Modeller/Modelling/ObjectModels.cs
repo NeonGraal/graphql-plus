@@ -86,12 +86,12 @@ public record class ObjBaseModel<TArg>
   : ModelBase, IObjBaseModel
   where TArg : IRendering
 {
-  internal TArg[] Arguments { get; set; } = [];
+  internal TArg[] TypeArguments { get; set; } = [];
   public bool IsTypeParameter { get; set; }
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("arguments", Arguments.Render(context));
+      .Add("typeArguments", TypeArguments.Render(context));
 }
 
 public interface IObjBaseModel
@@ -186,7 +186,7 @@ internal abstract class ModellerObjBase<TObjBaseAst, TObjBase, TArg>
   where TArg : IRendering
 {
   internal TArg[] ModelArguments(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
-    => [.. ast.Arguments.Select(a => NewArgument(a, typeKinds))];
+    => [.. ast.TypeArguments.Select(a => NewArgument(a, typeKinds))];
 
   internal abstract TArg NewArgument(TObjBaseAst ast, IMap<TypeKindModel> typeKinds);
 }

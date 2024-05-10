@@ -28,9 +28,9 @@ types: !_Map_Type
       type: !_TypeParameter a
     name: DualPrntPrmsSame
     parent: !_DualBase
-      arguments:
-      - !_TypeParameter a
       dual: DualPrmsPrntSame
+      typeArguments:
+      - !_TypeParameter a
     typeKind: !_TypeKind Dual
     typeParameters:
     - !_Described a

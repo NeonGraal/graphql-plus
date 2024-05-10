@@ -90,14 +90,14 @@ public static class BuiltIn
     };
 
   private static DualBaseAst DualRef(string name, params DualBaseAst[] args)
-    => new DualBaseAst(AstNulls.At, name, "") with { Arguments = args };
+    => new DualBaseAst(AstNulls.At, name, "") with { TypeArguments = args };
 
   private static DualBaseAst DualParam(string name)
     => DualRef(name) with { IsTypeParameter = true };
 
   private static DualBaseAst DualDict(string type, bool paramSecond = false)
     => DualRef("_Dict") with {
-      Arguments = [
+      TypeArguments = [
         paramSecond ? DualParam("K") : DualRef(type),
         paramSecond ? DualRef(type) : DualParam("T")
       ]

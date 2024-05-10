@@ -7,9 +7,9 @@ types: !_Map_Type
       type: !_TypeParameter ref
     name: InpGenPrntArg
     parent: !_InputBase
-      arguments:
-      - !_TypeParameter type
       input: InpGenPrntRef
+      typeArguments:
+      - !_TypeParameter type
     typeKind: !_TypeKind Input
     typeParameters:
     - !_Described type

@@ -9,7 +9,7 @@ public class OutputBaseModelTests(
   [Theory, RepeatData(Repeats)]
   public void Model_EnumArguments(string name, string[] arguments, string enumValue)
     => ObjBaseChecks.ObjBase_Expected(
-      ObjBaseChecks.ObjBaseAst(name) with { Arguments = [.. arguments.Select(a => ObjBaseChecks.ObjBaseAst(a) with { EnumValue = enumValue })] },
+      ObjBaseChecks.ObjBaseAst(name) with { TypeArguments = [.. arguments.Select(a => ObjBaseChecks.ObjBaseAst(a) with { EnumValue = enumValue })] },
       ObjBaseChecks.ExpectedObjBase(name, false, _checks.ExpectedEnumArguments(arguments, enumValue))
       );
 
@@ -23,7 +23,7 @@ internal sealed class OutputBaseModelChecks(
 ) : CheckObjBaseModel<OutputBaseAst, OutputBaseModel>(modeller, TypeKindModel.Output)
 {
   internal string[] ExpectedEnumArguments(string[] arguments, string enumValue)
-    => [.. ItemsExpected("arguments:", arguments,
+    => [.. ItemsExpected("typeArguments:", arguments,
       a => ["- !_OutputArgument", "  name: " + a, "  typeKind: !_SimpleKind Enum", "  value: " + enumValue])];
 
   protected override OutputBaseAst NewObjBaseAst(string name)

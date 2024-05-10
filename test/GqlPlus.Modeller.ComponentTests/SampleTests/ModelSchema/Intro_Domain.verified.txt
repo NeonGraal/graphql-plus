@@ -19,17 +19,17 @@ types: !_Map_Type
       type: !_TypeParameter domain
     name: _BaseDomain
     parent: !_OutputBase
-      arguments:
+      output: _ParentType
+      typeArguments:
       - !_OutputArgument
         name: _TypeKind
         typeKind: !_SimpleKind Enum
         value: Domain
       - !_TypeParameter item
       - !_DualBase
-        arguments:
-        - !_TypeParameter item
         dual: _DomainItem
-      output: _ParentType
+        typeArguments:
+        - !_TypeParameter item
     typeKind: !_TypeKind Output
     typeParameters:
     - !_Described domain
@@ -139,12 +139,12 @@ types: !_Map_Type
       type: !_TypeParameter kind
     name: _DomainRef
     parent: !_OutputBase
-      arguments:
+      output: _TypeRef
+      typeArguments:
       - !_OutputArgument
         name: _TypeKind
         typeKind: !_SimpleKind Enum
         value: Domain
-      output: _TypeRef
     typeKind: !_TypeKind Output
     typeParameters:
     - !_Described kind
@@ -198,9 +198,9 @@ types: !_Map_Type
       type: !_TypeParameter value
     name: _DomainValue
     parent: !_OutputBase
-      arguments:
-      - !_TypeParameter kind
       output: _DomainRef
+      typeArguments:
+      - !_TypeParameter kind
     typeKind: !_TypeKind Output
     typeParameters:
     - !_Described kind
@@ -210,79 +210,79 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _TypeDomain
       type: !_OutputBase
-        arguments:
+        output: _BaseDomain
+        typeArguments:
         - !_OutputArgument
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Boolean
         - !_DualBase _DomainTrueFalse
-        output: _BaseDomain
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _TypeDomain
       type: !_OutputBase
-        arguments:
+        output: _BaseDomain
+        typeArguments:
         - !_OutputArgument
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Enum
         - !_OutputBase _DomainMember
-        output: _BaseDomain
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _TypeDomain
       type: !_OutputBase
-        arguments:
+        output: _BaseDomain
+        typeArguments:
         - !_OutputArgument
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Number
         - !_DualBase _DomainRange
-        output: _BaseDomain
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _TypeDomain
       type: !_OutputBase
-        arguments:
+        output: _BaseDomain
+        typeArguments:
         - !_OutputArgument
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: String
         - !_DualBase _DomainRegex
-        output: _BaseDomain
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
+        output: _BaseDomain
+        typeArguments:
         - !_OutputArgument
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Boolean
         - !_DualBase _DomainTrueFalse
-        output: _BaseDomain
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
+        output: _BaseDomain
+        typeArguments:
         - !_OutputArgument
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Enum
         - !_OutputBase _DomainMember
-        output: _BaseDomain
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
+        output: _BaseDomain
+        typeArguments:
         - !_OutputArgument
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Number
         - !_DualBase _DomainRange
-        output: _BaseDomain
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
+        output: _BaseDomain
+        typeArguments:
         - !_OutputArgument
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: String
         - !_DualBase _DomainRegex
-        output: _BaseDomain
     name: _TypeDomain
     typeKind: !_TypeKind Output

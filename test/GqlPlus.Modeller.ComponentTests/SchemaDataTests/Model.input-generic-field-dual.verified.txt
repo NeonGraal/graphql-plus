@@ -6,16 +6,16 @@ types: !_Map_Type
       name: field
       object: InpGenFieldDual
       type: !_InputBase
-        arguments:
-        - !_DualBase InpGenFieldDualAlt
         input: InpGenFieldDualRef
+        typeArguments:
+        - !_DualBase InpGenFieldDualAlt
     fields:
     - !_InputField
       name: field
       type: !_InputBase
-        arguments:
-        - !_DualBase InpGenFieldDualAlt
         input: InpGenFieldDualRef
+        typeArguments:
+        - !_DualBase InpGenFieldDualAlt
     name: InpGenFieldDual
     typeKind: !_TypeKind Input
   !_Identifier InpGenFieldDualAlt: !_TypeDual

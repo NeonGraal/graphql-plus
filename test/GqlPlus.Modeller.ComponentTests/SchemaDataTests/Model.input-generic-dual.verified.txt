@@ -6,16 +6,16 @@ types: !_Map_Type
       name: field
       object: InpGenDual
       type: !_InputBase
-        arguments:
-        - !_DualBase InpGenDualAlt
         input: InpGenDualRef
+        typeArguments:
+        - !_DualBase InpGenDualAlt
     fields:
     - !_InputField
       name: field
       type: !_InputBase
-        arguments:
-        - !_DualBase InpGenDualAlt
         input: InpGenDualRef
+        typeArguments:
+        - !_DualBase InpGenDualAlt
     name: InpGenDual
     typeKind: !_TypeKind Input
   !_Identifier InpGenDualAlt: !_TypeDual

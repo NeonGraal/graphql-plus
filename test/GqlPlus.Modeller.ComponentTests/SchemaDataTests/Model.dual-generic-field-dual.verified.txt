@@ -6,16 +6,16 @@ types: !_Map_Type
       name: field
       object: DualGenFieldDual
       type: !_DualBase
-        arguments:
-        - !_DualBase DualGenFieldDualAlt
         dual: DualGenFieldDualRef
+        typeArguments:
+        - !_DualBase DualGenFieldDualAlt
     fields:
     - !_DualField
       name: field
       type: !_DualBase
-        arguments:
-        - !_DualBase DualGenFieldDualAlt
         dual: DualGenFieldDualRef
+        typeArguments:
+        - !_DualBase DualGenFieldDualAlt
     name: DualGenFieldDual
     typeKind: !_TypeKind Dual
   !_Identifier DualGenFieldDualAlt: !_TypeDual

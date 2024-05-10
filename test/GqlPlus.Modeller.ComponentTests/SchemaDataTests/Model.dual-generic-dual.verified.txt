@@ -6,16 +6,16 @@ types: !_Map_Type
       name: field
       object: DualGenDual
       type: !_DualBase
-        arguments:
-        - !_DualBase DualGenDualAlt
         dual: DualGenDualRef
+        typeArguments:
+        - !_DualBase DualGenDualAlt
     fields:
     - !_DualField
       name: field
       type: !_DualBase
-        arguments:
-        - !_DualBase DualGenDualAlt
         dual: DualGenDualRef
+        typeArguments:
+        - !_DualBase DualGenDualAlt
     name: DualGenDual
     typeKind: !_TypeKind Dual
   !_Identifier DualGenDualAlt: !_TypeDual

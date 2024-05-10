@@ -61,7 +61,7 @@ internal class MergeAllTypes(
       type.Name = enumType;
     }
 
-    foreach (OutputBaseAst argument in type.Arguments) {
+    foreach (OutputBaseAst argument in type.TypeArguments) {
       FixupType(argument, enumValues);
     }
   }

@@ -5,15 +5,15 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: OutpGenAltDual
       type: !_OutputBase
-        arguments:
-        - !_DualBase OutpGenAltDualAlt
         output: OutpGenAltDualRef
+        typeArguments:
+        - !_DualBase OutpGenAltDualAlt
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
-        - !_DualBase OutpGenAltDualAlt
         output: OutpGenAltDualRef
+        typeArguments:
+        - !_DualBase OutpGenAltDualAlt
     name: OutpGenAltDual
     typeKind: !_TypeKind Output
   !_Identifier OutpGenAltDualAlt: !_TypeDual

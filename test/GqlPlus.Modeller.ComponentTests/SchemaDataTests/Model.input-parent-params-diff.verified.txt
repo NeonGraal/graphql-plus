@@ -28,9 +28,9 @@ types: !_Map_Type
       type: !_TypeParameter a
     name: InpPrntPrmsDiff
     parent: !_InputBase
-      arguments:
-      - !_TypeParameter a
       input: InpPrmsPrntDiff
+      typeArguments:
+      - !_TypeParameter a
     typeKind: !_TypeKind Input
     typeParameters:
     - !_Described a

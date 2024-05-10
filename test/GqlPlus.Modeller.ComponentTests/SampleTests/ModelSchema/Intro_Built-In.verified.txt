@@ -5,24 +5,24 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Collections
       type: !_OutputBase
-        arguments:
+        output: _Modifier
+        typeArguments:
         - !_OutputArgument
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
           value: List
-        output: _Modifier
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Collections
       type: !_OutputBase _ModifierDictionary
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
+        output: _Modifier
+        typeArguments:
         - !_OutputArgument
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
           value: List
-        output: _Modifier
     - !_Alternate(_OutputBase)
       type: !_OutputBase _ModifierDictionary
     name: _Collections
@@ -116,12 +116,12 @@ types: !_Map_Type
       type: !_OutputBase Boolean
     name: _ModifierDictionary
     parent: !_OutputBase
-      arguments:
+      output: _Modifier
+      typeArguments:
       - !_OutputArgument
         name: _ModifierKind
         typeKind: !_SimpleKind Enum
         value: Dictionary
-      output: _Modifier
     typeKind: !_TypeKind Output
   !_Identifier _ModifierKind: !_TypeEnum
     allItems:
@@ -145,24 +145,24 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Modifiers
       type: !_OutputBase
-        arguments:
+        output: _Modifier
+        typeArguments:
         - !_OutputArgument
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
           value: Optional
-        output: _Modifier
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Modifiers
       type: !_OutputBase _Collections
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
+        output: _Modifier
+        typeArguments:
         - !_OutputArgument
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
           value: Optional
-        output: _Modifier
     - !_Alternate(_OutputBase)
       type: !_OutputBase _Collections
     name: _Modifiers
@@ -175,23 +175,23 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Simple
       type: !_OutputBase
-        arguments:
+        output: _DomainValue
+        typeArguments:
         - !_OutputArgument
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Number
         - !_OutputBase Number
-        output: _DomainValue
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Simple
       type: !_OutputBase
-        arguments:
+        output: _DomainValue
+        typeArguments:
         - !_OutputArgument
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: String
         - !_OutputBase String
-        output: _DomainValue
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Simple
       type: !_OutputBase _EnumValue
@@ -200,22 +200,22 @@ types: !_Map_Type
       type: !_OutputBase Boolean
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
+        output: _DomainValue
+        typeArguments:
         - !_OutputArgument
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Number
         - !_OutputBase Number
-        output: _DomainValue
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
+        output: _DomainValue
+        typeArguments:
         - !_OutputArgument
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: String
         - !_OutputBase String
-        output: _DomainValue
     - !_Alternate(_OutputBase)
       type: !_OutputBase _EnumValue
     name: _Simple

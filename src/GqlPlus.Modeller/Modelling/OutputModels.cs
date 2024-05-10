@@ -103,7 +103,7 @@ internal class OutputBaseModeller(
     }
     : new(ast.Name) {
       IsTypeParameter = ast.IsTypeParameter,
-      Arguments = ModelArguments(ast, typeKinds),
+      TypeArguments = ModelArguments(ast, typeKinds),
     };
 }
 

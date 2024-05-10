@@ -196,7 +196,7 @@ internal sealed class CheckObject<O, F, R>
     => _factories.ObjBase(AstNulls.At, type, description);
 
   public R ObjBaseWithArgs(string type, string subType)
-    => ObjBase(type) with { Arguments = [ObjBase(subType)] };
+    => ObjBase(type) with { TypeArguments = [ObjBase(subType)] };
 
   public AstAlternate<R> Alternate(string type)
     => new(ObjBase(type));

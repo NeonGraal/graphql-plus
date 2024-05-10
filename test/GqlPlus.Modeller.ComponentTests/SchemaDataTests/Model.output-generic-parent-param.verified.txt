@@ -7,9 +7,9 @@ types: !_Map_Type
       type: !_TypeParameter ref
     name: OutpGenParentParam
     parent: !_OutputBase
-      arguments:
-      - !_OutputBase OutpGenParentParamAlt
       output: OutpGenParentParamRef
+      typeArguments:
+      - !_OutputBase OutpGenParentParamAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentParamAlt: !_TypeOutput
     name: OutpGenParentParamAlt

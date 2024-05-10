@@ -92,19 +92,19 @@ internal sealed class AstObjBaseChecks<TObjBase>
       false);
 
   public void HashCode_WithArguments(string input, string[] arguments)
-    => HashCode(() => _createBase(input) with { Arguments = _createArguments(arguments) });
+    => HashCode(() => _createBase(input) with { TypeArguments = _createArguments(arguments) });
 
   public void String_WithArguments(string input, string[] arguments)
     => Text(
-      () => _createBase(input) with { Arguments = _createArguments(arguments) },
+      () => _createBase(input) with { TypeArguments = _createArguments(arguments) },
       $"( {input} < {arguments.Joined()} > )");
 
   public void Equality_WithArguments(string input, string[] arguments)
-    => Equality(() => _createBase(input) with { Arguments = _createArguments(arguments) });
+    => Equality(() => _createBase(input) with { TypeArguments = _createArguments(arguments) });
 
   public void Inequality_BetweenArguments(string input, string[] arguments1, string[] arguments2)
   => InequalityBetween(arguments1, arguments2,
-    arguments => _createBase(input) with { Arguments = _createArguments(arguments) },
+    arguments => _createBase(input) with { TypeArguments = _createArguments(arguments) },
     arguments1.OrderedEqual(arguments2));
 
   public void FullType_WithDefault(string input)
@@ -123,7 +123,7 @@ internal sealed class AstObjBaseChecks<TObjBase>
 
   public void FullType_WithArguments(string input, string[] arguments)
   {
-    TObjBase objBase = _createBase(input) with { Arguments = _createArguments(arguments) };
+    TObjBase objBase = _createBase(input) with { TypeArguments = _createArguments(arguments) };
 
     objBase.FullType.Should().Be(input + $" < {arguments.Joined()} >");
   }
@@ -132,7 +132,7 @@ internal sealed class AstObjBaseChecks<TObjBase>
   {
     TObjBase objBase = _createBase(input) with {
       IsTypeParameter = true,
-      Arguments = _createArguments(arguments)
+      TypeArguments = _createArguments(arguments)
     };
 
     objBase.FullType.Should().Be($"${input} < {arguments.Joined()} >");

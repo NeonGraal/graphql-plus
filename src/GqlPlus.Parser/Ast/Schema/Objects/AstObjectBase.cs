@@ -11,7 +11,7 @@ public abstract record class AstObjectBase<TObjBase>(
   where TObjBase : AstObjectBase<TObjBase>
 {
   public bool IsTypeParameter { get; set; }
-  public TObjBase[] Arguments { get; set; } = [];
+  public TObjBase[] TypeArguments { get; set; } = [];
 
   public abstract string Label { get; }
 
@@ -19,7 +19,7 @@ public abstract record class AstObjectBase<TObjBase>(
 
   public string TypeName => IsTypeParameter ? "" : Name;
 
-  public string FullType => Arguments
+  public string FullType => TypeArguments
     .Bracket("<", ">")
     .Prepend(FullName)
     .Joined();
@@ -27,13 +27,13 @@ public abstract record class AstObjectBase<TObjBase>(
   public virtual bool Equals(TObjBase? other)
     => base.Equals(other)
     && IsTypeParameter == other.IsTypeParameter
-    && Arguments.SequenceEqual(other.Arguments);
+    && TypeArguments.SequenceEqual(other.TypeArguments);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), IsTypeParameter, Arguments.Length);
+    => HashCode.Combine(base.GetHashCode(), IsTypeParameter, TypeArguments.Length);
 
   internal override IEnumerable<string?> GetFields()
     => new[] {
       At.ToString(),
       FullName
-    }.Concat(Arguments.Bracket("<", ">"));
+    }.Concat(TypeArguments.Bracket("<", ">"));
 }

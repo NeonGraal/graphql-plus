@@ -6,16 +6,16 @@ types: !_Map_Type
       name: field
       object: InpGenFieldArg
       type: !_InputBase
-        arguments:
-        - !_TypeParameter type
         input: InpGenFieldRef
+        typeArguments:
+        - !_TypeParameter type
     fields:
     - !_InputField
       name: field
       type: !_InputBase
-        arguments:
-        - !_TypeParameter type
         input: InpGenFieldRef
+        typeArguments:
+        - !_TypeParameter type
     name: InpGenFieldArg
     typeKind: !_TypeKind Input
     typeParameters:

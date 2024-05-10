@@ -21,7 +21,7 @@ public interface IGqlpObjectBase<TBase>
   : IGqlpDescribed
 {
   bool IsTypeParameter { get; }
-  IEnumerable<TBase> Arguments { get; }
+  IEnumerable<TBase> TypeArguments { get; }
 }
 
 public interface IGqlpObjectField<TRef>

@@ -28,9 +28,9 @@ types: !_Map_Type
       type: !_TypeParameter a
     name: InpPrntPrmsSame
     parent: !_InputBase
-      arguments:
-      - !_TypeParameter a
       input: InpPrmsPrntSame
+      typeArguments:
+      - !_TypeParameter a
     typeKind: !_TypeKind Input
     typeParameters:
     - !_Described a

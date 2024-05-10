@@ -19,25 +19,25 @@ types: !_Map_Type
       type: !_OutputBase _Identifier
     name: _DualBase
     parent: !_OutputBase
-      arguments:
-      - !_OutputBase
-        arguments:
-        - !_OutputBase _DualBase
-        output: _ObjRef
       output: _ObjBase
+      typeArguments:
+      - !_OutputBase
+        output: _ObjRef
+        typeArguments:
+        - !_OutputBase _DualBase
     typeKind: !_TypeKind Output
   !_Identifier _TypeDual: !_TypeOutput
     name: _TypeDual
     parent: !_OutputBase
-      arguments:
+      output: _TypeObject
+      typeArguments:
       - !_OutputArgument
         name: _TypeKind
         typeKind: !_SimpleKind Enum
         value: Dual
       - !_OutputBase _DualBase
       - !_OutputBase
-        arguments:
-        - !_OutputBase _DualBase
         output: _Field
-      output: _TypeObject
+        typeArguments:
+        - !_OutputBase _DualBase
     typeKind: !_TypeKind Output

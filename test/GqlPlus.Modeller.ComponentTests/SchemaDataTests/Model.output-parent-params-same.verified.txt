@@ -28,9 +28,9 @@ types: !_Map_Type
       type: !_TypeParameter a
     name: OutpPrntPrmsSame
     parent: !_OutputBase
-      arguments:
-      - !_TypeParameter a
       output: OutpPrmsPrntSame
+      typeArguments:
+      - !_TypeParameter a
     typeKind: !_TypeKind Output
     typeParameters:
     - !_Described a

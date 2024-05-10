@@ -16,12 +16,12 @@ types: !_Map_Type
       name: type
       object: _Alternate
       type: !_OutputBase
-        arguments:
-        - !_OutputBase
-          arguments:
-          - !_TypeParameter base
-          output: _ObjRef
         output: _BaseDescribed
+        typeArguments:
+        - !_OutputBase
+          output: _ObjRef
+          typeArguments:
+          - !_TypeParameter base
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: collections
@@ -31,12 +31,12 @@ types: !_Map_Type
     - !_OutputField
       name: type
       type: !_OutputBase
-        arguments:
-        - !_OutputBase
-          arguments:
-          - !_TypeParameter base
-          output: _ObjRef
         output: _BaseDescribed
+        typeArguments:
+        - !_OutputBase
+          output: _ObjRef
+          typeArguments:
+          - !_TypeParameter base
     - !_OutputField
       modifiers: [!_Modifier List]
       name: collections
@@ -51,12 +51,12 @@ types: !_Map_Type
       name: type
       object: _Field
       type: !_OutputBase
-        arguments:
-        - !_OutputBase
-          arguments:
-          - !_TypeParameter base
-          output: _ObjRef
         output: _BaseDescribed
+        typeArguments:
+        - !_OutputBase
+          output: _ObjRef
+          typeArguments:
+          - !_TypeParameter base
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: modifiers
@@ -66,12 +66,12 @@ types: !_Map_Type
     - !_OutputField
       name: type
       type: !_OutputBase
-        arguments:
-        - !_OutputBase
-          arguments:
-          - !_TypeParameter base
-          output: _ObjRef
         output: _BaseDescribed
+        typeArguments:
+        - !_OutputBase
+          output: _ObjRef
+          typeArguments:
+          - !_TypeParameter base
     - !_OutputField
       modifiers: [!_Modifier List]
       name: modifiers
@@ -109,12 +109,12 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _ObjRef
       type: !_OutputBase
-        arguments:
+        output: _BaseType
+        typeArguments:
         - !_OutputArgument
           name: _TypeKind
           typeKind: !_SimpleKind Enum
           value: Internal
-        output: _BaseType
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _ObjRef
       type: !_OutputBase _TypeSimple
@@ -124,12 +124,12 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
+        output: _BaseType
+        typeArguments:
         - !_OutputArgument
           name: _TypeKind
           typeKind: !_SimpleKind Enum
           value: Internal
-        output: _BaseType
     - !_Alternate(_OutputBase)
       type: !_OutputBase _TypeSimple
     - !_Alternate(_OutputBase)
@@ -159,12 +159,12 @@ types: !_Map_Type
       name: type
       object: _Alternate
       type: !_OutputBase
-        arguments:
-        - !_OutputBase
-          arguments:
-          - !_TypeParameter base
-          output: _ObjRef
         output: _BaseDescribed
+        typeArguments:
+        - !_OutputBase
+          output: _ObjRef
+          typeArguments:
+          - !_TypeParameter base
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: collections
@@ -182,9 +182,9 @@ types: !_Map_Type
       type: !_OutputBase _Constant
     name: _Parameter
     parent: !_OutputBase
-      arguments:
-      - !_OutputBase _InputBase
       output: _Alternate
+      typeArguments:
+      - !_OutputBase _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _TypeObject: !_TypeOutput
     allFields:
@@ -203,28 +203,28 @@ types: !_Map_Type
       name: alternates
       object: _TypeObject
       type: !_OutputBase
-        arguments:
-        - !_TypeParameter base
         output: _Alternate
+        typeArguments:
+        - !_TypeParameter base
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: allFields
       object: _TypeObject
       type: !_OutputBase
-        arguments:
-        - !_TypeParameter field
         output: _ObjectFor
+        typeArguments:
+        - !_TypeParameter field
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: allAlternates
       object: _TypeObject
       type: !_OutputBase
-        arguments:
-        - !_OutputBase
-          arguments:
-          - !_TypeParameter base
-          output: _Alternate
         output: _ObjectFor
+        typeArguments:
+        - !_OutputBase
+          output: _Alternate
+          typeArguments:
+          - !_TypeParameter base
     fields:
     - !_OutputField
       modifiers: [!_Modifier List]
@@ -238,35 +238,35 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: alternates
       type: !_OutputBase
-        arguments:
-        - !_TypeParameter base
         output: _Alternate
+        typeArguments:
+        - !_TypeParameter base
     - !_OutputField
       modifiers: [!_Modifier List]
       name: allFields
       type: !_OutputBase
-        arguments:
-        - !_TypeParameter field
         output: _ObjectFor
+        typeArguments:
+        - !_TypeParameter field
     - !_OutputField
       modifiers: [!_Modifier List]
       name: allAlternates
       type: !_OutputBase
-        arguments:
-        - !_OutputBase
-          arguments:
-          - !_TypeParameter base
-          output: _Alternate
         output: _ObjectFor
+        typeArguments:
+        - !_OutputBase
+          output: _Alternate
+          typeArguments:
+          - !_TypeParameter base
     name: _TypeObject
     parent: !_OutputBase
-      arguments:
+      output: _ChildType
+      typeArguments:
       - !_TypeParameter kind
       - !_OutputBase
-        arguments:
-        - !_TypeParameter base
         output: _BaseDescribed
-      output: _ChildType
+        typeArguments:
+        - !_TypeParameter base
     typeKind: !_TypeKind Output
     typeParameters:
     - !_Described kind

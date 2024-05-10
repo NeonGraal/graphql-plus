@@ -6,16 +6,16 @@ types: !_Map_Type
       name: field
       object: OutpGenFieldDual
       type: !_OutputBase
-        arguments:
-        - !_DualBase OutpGenFieldDualAlt
         output: OutpGenFieldDualRef
+        typeArguments:
+        - !_DualBase OutpGenFieldDualAlt
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
-        arguments:
-        - !_DualBase OutpGenFieldDualAlt
         output: OutpGenFieldDualRef
+        typeArguments:
+        - !_DualBase OutpGenFieldDualAlt
     name: OutpGenFieldDual
     typeKind: !_TypeKind Output
   !_Identifier OutpGenFieldDualAlt: !_TypeDual

@@ -5,15 +5,15 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_DualBase))
       object: DualGenAltDual
       type: !_DualBase
-        arguments:
-        - !_DualBase DualGenAltDualAlt
         dual: DualGenAltDualRef
+        typeArguments:
+        - !_DualBase DualGenAltDualAlt
     alternates:
     - !_Alternate(_DualBase)
       type: !_DualBase
-        arguments:
-        - !_DualBase DualGenAltDualAlt
         dual: DualGenAltDualRef
+        typeArguments:
+        - !_DualBase DualGenAltDualAlt
     name: DualGenAltDual
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAltDualAlt: !_TypeDual

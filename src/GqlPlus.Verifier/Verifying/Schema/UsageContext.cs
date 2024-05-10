@@ -91,7 +91,7 @@ internal static class UsageHelpers
     where TObjBase : AstObjectBase<TObjBase>
   {
     if (context.GetType(type.FullName, out IGqlpDescribed? value)) {
-      int numArgs = type.Arguments.Length;
+      int numArgs = type.TypeArguments.Length;
       if (value is IAstObject definition) {
         if (check && definition.Label != "Dual" && definition.Label != type.Label) {
           context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.FullName}. Found {definition.Label}");
@@ -106,7 +106,7 @@ internal static class UsageHelpers
       context.AddError(type, type.Label + labelSuffix, $"'{type.FullName}' not defined");
     }
 
-    foreach (TObjBase arg in type.Arguments) {
+    foreach (TObjBase arg in type.TypeArguments) {
       context.CheckArgumentType(arg, labelSuffix);
     }
 

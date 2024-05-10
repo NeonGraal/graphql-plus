@@ -7,9 +7,9 @@ types: !_Map_Type
       type: !_TypeParameter ref
     name: OutpGenParentDual
     parent: !_OutputBase
-      arguments:
-      - !_DualBase OutpGenParentDualAlt
       output: OutpGenParentDualRef
+      typeArguments:
+      - !_DualBase OutpGenParentDualAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentDualAlt: !_TypeDual
     name: OutpGenParentDualAlt

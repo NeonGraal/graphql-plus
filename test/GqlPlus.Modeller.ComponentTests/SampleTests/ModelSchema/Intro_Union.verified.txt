@@ -10,14 +10,14 @@ types: !_Map_Type
   !_Identifier _TypeUnion: !_TypeOutput
     name: _TypeUnion
     parent: !_OutputBase
-      arguments:
+      output: _ParentType
+      typeArguments:
       - !_OutputArgument
         name: _TypeKind
         typeKind: !_SimpleKind Enum
         value: Union
       - !_OutputBase _Named
       - !_DualBase _UnionMember
-      output: _ParentType
     typeKind: !_TypeKind Output
   !_Identifier _UnionMember: !_TypeDual
     allFields:

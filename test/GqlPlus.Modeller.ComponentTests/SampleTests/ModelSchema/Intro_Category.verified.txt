@@ -45,12 +45,12 @@ types: !_Map_Type
       name: output
       object: _Category
       type: !_OutputBase
-        arguments:
+        output: _TypeRef
+        typeArguments:
         - !_OutputArgument
           name: _TypeKind
           typeKind: !_SimpleKind Enum
           value: Output
-        output: _TypeRef
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: modifiers
@@ -63,12 +63,12 @@ types: !_Map_Type
     - !_OutputField
       name: output
       type: !_OutputBase
-        arguments:
+        output: _TypeRef
+        typeArguments:
         - !_OutputArgument
           name: _TypeKind
           typeKind: !_SimpleKind Enum
           value: Output
-        output: _TypeRef
     - !_OutputField
       modifiers: [!_Modifier List]
       name: modifiers

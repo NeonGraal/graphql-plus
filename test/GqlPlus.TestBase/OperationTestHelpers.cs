@@ -15,7 +15,7 @@ public static class OperationTestHelpers
     => [.. values.Select(l => new ArgumentAst(l.FieldKey()))];
 
   public static ArgumentAst[] ArgumentList(this string value)
-    => new ArgumentAst[] { new(AstNulls.At, value), value.FieldKey() };
+    => [new(AstNulls.At, value), value.FieldKey()];
 
   public static AstFields<ArgumentAst> ArgumentObject(this string value, string key)
   {

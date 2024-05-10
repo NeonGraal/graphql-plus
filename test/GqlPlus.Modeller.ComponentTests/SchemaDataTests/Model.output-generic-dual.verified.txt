@@ -6,16 +6,16 @@ types: !_Map_Type
       name: field
       object: OutpGenDual
       type: !_OutputBase
-        arguments:
-        - !_DualBase OutpGenDualAlt
         output: OutpGenDualRef
+        typeArguments:
+        - !_DualBase OutpGenDualAlt
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
-        arguments:
-        - !_DualBase OutpGenDualAlt
         output: OutpGenDualRef
+        typeArguments:
+        - !_DualBase OutpGenDualAlt
     name: OutpGenDual
     typeKind: !_TypeKind Output
   !_Identifier OutpGenDualAlt: !_TypeDual

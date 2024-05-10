@@ -7,9 +7,9 @@ types: !_Map_Type
       type: !_TypeParameter ref
     name: DualGenParentDual
     parent: !_DualBase
-      arguments:
-      - !_DualBase DualGenParentDualAlt
       dual: DualGenParentDualRef
+      typeArguments:
+      - !_DualBase DualGenParentDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentDualAlt: !_TypeDual
     name: DualGenParentDualAlt

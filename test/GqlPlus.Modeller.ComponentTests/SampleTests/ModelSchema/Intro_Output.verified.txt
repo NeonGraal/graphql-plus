@@ -21,9 +21,9 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _OutputArgument
       type: !_OutputBase
-        arguments:
-        - !_OutputBase _OutputBase
         output: _ObjRef
+        typeArguments:
+        - !_OutputBase _OutputBase
     allFields:
     - !_ObjectFor(_OutputField)
       name: value
@@ -32,21 +32,21 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        arguments:
-        - !_OutputBase _OutputBase
         output: _ObjRef
+        typeArguments:
+        - !_OutputBase _OutputBase
     fields:
     - !_OutputField
       name: value
       type: !_OutputBase _Identifier
     name: _OutputArgument
     parent: !_OutputBase
-      arguments:
+      output: _TypeRef
+      typeArguments:
       - !_OutputArgument
         name: _TypeKind
         typeKind: !_SimpleKind Enum
         value: Enum
-      output: _TypeRef
     typeKind: !_TypeKind Output
   !_Identifier _OutputBase: !_TypeOutput
     allAlternates:
@@ -67,9 +67,9 @@ types: !_Map_Type
       type: !_OutputBase _Identifier
     name: _OutputBase
     parent: !_OutputBase
-      arguments:
-      - !_OutputBase _OutputArgument
       output: _ObjBase
+      typeArguments:
+      - !_OutputBase _OutputArgument
     typeKind: !_TypeKind Output
   !_Identifier _OutputEnum: !_TypeOutput
     allFields:
@@ -90,12 +90,12 @@ types: !_Map_Type
       type: !_OutputBase _Identifier
     name: _OutputEnum
     parent: !_OutputBase
-      arguments:
+      output: _TypeRef
+      typeArguments:
       - !_OutputArgument
         name: _TypeKind
         typeKind: !_SimpleKind Enum
         value: Enum
-      output: _TypeRef
     typeKind: !_TypeKind Output
   !_Identifier _OutputField: !_TypeOutput
     allAlternates:
@@ -118,19 +118,19 @@ types: !_Map_Type
       type: !_OutputBase _Parameter
     name: _OutputField
     parent: !_OutputBase
-      arguments:
-      - !_OutputBase _OutputBase
       output: _Field
+      typeArguments:
+      - !_OutputBase _OutputBase
     typeKind: !_TypeKind Output
   !_Identifier _TypeOutput: !_TypeOutput
     name: _TypeOutput
     parent: !_OutputBase
-      arguments:
+      output: _TypeObject
+      typeArguments:
       - !_OutputArgument
         name: _TypeKind
         typeKind: !_SimpleKind Enum
         value: Output
       - !_OutputBase _OutputBase
       - !_OutputBase _OutputField
-      output: _TypeObject
     typeKind: !_TypeKind Output

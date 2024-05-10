@@ -22,10 +22,7 @@ public class SchemaDataTests(
 
     RenderStructure result = ModelAsts(asts);
 
-    VerifySettings settings = new();
-    settings.ScrubEmptyLines();
-
-    await Verify(result.ToYaml(), settings);
+    await Verify(result.ToYaml(), SchemaSettings("Mode!", "ALL"));
   }
 
   [Theory]
@@ -37,11 +34,7 @@ public class SchemaDataTests(
 
     RenderStructure result = ModelAsts(asts);
 
-    VerifySettings settings = new();
-    settings.ScrubEmptyLines();
-    settings.UseTextForParameters(group);
-
-    await Verify(result.ToYaml(), settings);
+    await Verify(result.ToYaml(), SchemaSettings("Mode!", group));
   }
 
   [Theory]
@@ -107,13 +100,7 @@ public class SchemaDataTests(
 
     RenderStructure result = ModelAsts([ast]);
 
-    VerifySettings settings = new();
-    settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(SchemaDataTests));
-    settings.UseTypeName("Model");
-    settings.UseMethodName(test);
-
-    await Verify(result.ToYaml(), settings);
+    await Verify(result.ToYaml(), SchemaSettings("Model", test));
   }
 
   private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts)

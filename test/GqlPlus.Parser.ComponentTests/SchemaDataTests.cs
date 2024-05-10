@@ -72,9 +72,7 @@ public class SchemaDataTests(
 
     IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
 
-    VerifySettings settings = new();
-    settings.ScrubEmptyLines();
-    await Verify(result.Select(s => s.Render()), settings);
+    await Verify(result.Select(s => s.Render()), SchemaSettings("Merg3", "ALL"));
   }
 
   [Theory]
@@ -87,11 +85,7 @@ public class SchemaDataTests(
 
     IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
 
-    VerifySettings settings = new();
-    settings.ScrubEmptyLines();
-    settings.UseTextForParameters(group);
-
-    await Verify(result.Select(s => s.Render()), settings);
+    await Verify(result.Select(s => s.Render()), SchemaSettings("Merg3", group));
   }
 
   [Theory]
@@ -114,12 +108,6 @@ public class SchemaDataTests(
 
     IEnumerable<IGqlpSchema> result = merger.Merge([parse.Required()]);
 
-    VerifySettings settings = new();
-    settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(SchemaDataTests));
-    settings.UseTypeName("Merge");
-    settings.UseMethodName(test);
-
-    await Verify(result.Select(s => s.Render()), settings);
+    await Verify(result.Select(s => s.Render()), SchemaSettings("Merge", test));
   }
 }

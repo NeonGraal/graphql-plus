@@ -106,12 +106,6 @@ public class SchemaDataTests(
 
     result.Should().NotBeEmpty(input);
 
-    VerifySettings settings = new();
-    settings.ScrubEmptyLines();
-    settings.UseDirectory(nameof(SchemaDataTests));
-    settings.UseTypeName("Invalid");
-    settings.UseMethodName(test);
-
-    await Verify(result.Select(m => m.Message), settings);
+    await Verify(result.Select(m => m.Message), SchemaSettings("Invalid", test));
   }
 }

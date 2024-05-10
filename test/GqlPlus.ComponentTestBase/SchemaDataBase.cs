@@ -21,29 +21,6 @@ public class SchemaDataBase(
   protected static IEnumerable<string> ValidMerges
     => ReplaceObjects(SchemaValidMergesData.Source.Values);
 
-  public class SchemaValidData
-    : TheoryData<string>
-  {
-    public static readonly Dictionary<string, IEnumerable<string>> Values = new() {
-      ["Objects"] = ValidObjects,
-      ["Merges"] = ValidMerges,
-      ["Globals"] = SchemaValidGlobalsData.Source.Values,
-      ["Simple"] = SchemaValidSimpleData.Source.Values,
-    };
-    public SchemaValidData()
-    {
-      foreach (string item in Values.Keys) {
-        Add(item);
-      }
-    }
-  }
-
-  protected IResult<IGqlpSchema> Parse(string schema)
-  {
-    Tokenizer tokens = new(schema);
-    return _parser.Parse(tokens, "Schema");
-  }
-
   public static readonly (string, string)[] Replacements = [("dual", "Dual"), ("input", "Inp"), ("output", "Outp")];
 
   protected static IEnumerable<string> ReplaceObjects(IEnumerable<string> inputs)
@@ -72,5 +49,39 @@ public class SchemaDataBase(
 
       throw;
     }
+  }
+
+  public class SchemaValidData
+    : TheoryData<string>
+  {
+    public static readonly Dictionary<string, IEnumerable<string>> Values = new() {
+      ["Objects"] = ValidObjects,
+      ["Merges"] = ValidMerges,
+      ["Globals"] = SchemaValidGlobalsData.Source.Values,
+      ["Simple"] = SchemaValidSimpleData.Source.Values,
+    };
+    public SchemaValidData()
+    {
+      foreach (string item in Values.Keys) {
+        Add(item);
+      }
+    }
+  }
+
+  protected IResult<IGqlpSchema> Parse(string schema)
+  {
+    Tokenizer tokens = new(schema);
+    return _parser.Parse(tokens, "Schema");
+  }
+
+  protected VerifySettings SchemaSettings(string prefix, string test)
+  {
+    VerifySettings settings = new();
+    settings.ScrubEmptyLines();
+    settings.UseDirectory("SchemaDataTests");
+    settings.UseTypeName(prefix);
+    settings.UseMethodName(test);
+
+    return settings;
   }
 }

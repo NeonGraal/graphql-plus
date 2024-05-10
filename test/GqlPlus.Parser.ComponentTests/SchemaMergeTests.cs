@@ -3,9 +3,10 @@ using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 
-namespace GqlPlus;
+#pragma warning disable IDE0130
+namespace GqlPlus.SchemaData;
 
-public class SchemaDataTests(
+public class SchemaMergeTests(
     Parser<IGqlpSchema>.D parser,
     IMerge<IGqlpSchema> merger
 ) : SchemaDataBase(parser)
@@ -72,7 +73,7 @@ public class SchemaDataTests(
 
     IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
 
-    await Verify(result.Select(s => s.Render()), SchemaSettings("Merg3", "ALL"));
+    await Verify(result.Select(s => s.Render()), SchemaSettings("Merge", "!ALL"));
   }
 
   [Theory]
@@ -85,7 +86,7 @@ public class SchemaDataTests(
 
     IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
 
-    await Verify(result.Select(s => s.Render()), SchemaSettings("Merg3", group));
+    await Verify(result.Select(s => s.Render()), SchemaSettings("Merge", "!" + group));
   }
 
   [Theory]

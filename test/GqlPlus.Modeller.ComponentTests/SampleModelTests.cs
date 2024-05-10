@@ -2,9 +2,10 @@
 using GqlPlus.Modelling;
 using GqlPlus.Parsing;
 
-namespace GqlPlus;
+#pragma warning disable IDE0130
+namespace GqlPlus.Sample;
 
-public class SampleTests(
+public class SampleModelTests(
     Parser<IGqlpSchema>.D schemaParser,
     IModeller<IGqlpSchema, SchemaModel> schemaModeller,
     ITypesModeller types
@@ -12,9 +13,9 @@ public class SampleTests(
 {
   [Theory]
   [ClassData(typeof(SampleSchemaData))]
-  public async Task ModelSampleSchema(string sample)
+  public async Task YamlSchema(string sample)
   {
-    IGqlpSchema ast = await ParseSchema(sample);
+    IGqlpSchema ast = await ParseSampleSchema(sample);
     TypesCollection context = TypesCollection.WithBuiltins(types);
 
     SchemaModel model = schemaModeller.ToModel(ast, context);
@@ -26,6 +27,6 @@ public class SampleTests(
       result.Add("_errors", context.Errors.Render());
     }
 
-    await Verify(result.ToYaml(), SampleSettings("ModelSchema", sample));
+    await Verify(result.ToYaml(), SampleSettings("Yaml", sample));
   }
 }

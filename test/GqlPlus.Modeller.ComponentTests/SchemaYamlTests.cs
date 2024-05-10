@@ -4,9 +4,10 @@ using GqlPlus.Modelling;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 
-namespace GqlPlus;
+#pragma warning disable IDE0130
+namespace GqlPlus.SchemaData;
 
-public class SchemaDataTests(
+public class SchemaYamlTests(
     Parser<IGqlpSchema>.D parser,
     IMerge<IGqlpSchema> merger,
     IModeller<IGqlpSchema, SchemaModel> modeller,
@@ -14,7 +15,7 @@ public class SchemaDataTests(
 ) : SchemaDataBase(parser)
 {
   [Fact]
-  public async Task Model_All()
+  public async Task Yaml_All()
   {
     IEnumerable<IGqlpSchema> asts = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
@@ -22,24 +23,24 @@ public class SchemaDataTests(
 
     RenderStructure result = ModelAsts(asts);
 
-    await Verify(result.ToYaml(), SchemaSettings("Mode!", "ALL"));
+    await Verify(result.ToYaml(), SchemaSettings("Yaml", "!ALL"));
   }
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
-  public async Task Model_Groups(string group)
+  public async Task Yaml_Groups(string group)
   {
     IEnumerable<IGqlpSchema> asts = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required());
 
     RenderStructure result = ModelAsts(asts);
 
-    await Verify(result.ToYaml(), SchemaSettings("Mode!", group));
+    await Verify(result.ToYaml(), SchemaSettings("Yaml", "!" + group));
   }
 
   [Theory]
   [ClassData(typeof(SchemaValidMergesData))]
-  public async Task Model_Merges(string model)
+  public async Task Yaml_Merges(string model)
   {
     string input = SchemaValidMergesData.Source[model];
     if (IsObjectInput(input)) {
@@ -53,7 +54,7 @@ public class SchemaDataTests(
 
   [Theory]
   [ClassData(typeof(SchemaValidObjectsData))]
-  public async Task Model_Objects(string model)
+  public async Task Yaml_Objects(string model)
   {
     string input = SchemaValidObjectsData.Source[model];
     if (IsObjectInput(input)) {
@@ -67,7 +68,7 @@ public class SchemaDataTests(
 
   [Theory]
   [ClassData(typeof(SchemaValidGlobalsData))]
-  public async Task Model_Globals(string global)
+  public async Task Yaml_Globals(string global)
   {
     string input = SchemaValidGlobalsData.Source[global];
     if (IsObjectInput(input)) {
@@ -81,7 +82,7 @@ public class SchemaDataTests(
 
   [Theory]
   [ClassData(typeof(SchemaValidSimpleData))]
-  public async Task Model_Simple(string simple)
+  public async Task Yaml_Simple(string simple)
   {
     string input = SchemaValidSimpleData.Source[simple];
     if (IsObjectInput(input)) {
@@ -100,7 +101,7 @@ public class SchemaDataTests(
 
     RenderStructure result = ModelAsts([ast]);
 
-    await Verify(result.ToYaml(), SchemaSettings("Model", test));
+    await Verify(result.ToYaml(), SchemaSettings("Yaml", test));
   }
 
   private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts)

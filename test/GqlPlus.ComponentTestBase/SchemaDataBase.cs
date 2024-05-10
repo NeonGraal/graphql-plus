@@ -74,13 +74,12 @@ public class SchemaDataBase(
     return _parser.Parse(tokens, "Schema");
   }
 
-  protected VerifySettings SchemaSettings(string prefix, string test)
+  protected VerifySettings SchemaSettings(string category, string test)
   {
     VerifySettings settings = new();
     settings.ScrubEmptyLines();
-    settings.UseDirectory("SchemaDataTests");
-    settings.UseTypeName(prefix);
-    settings.UseMethodName(test);
+    settings.UseDirectory($"Schema{category}Tests");
+    settings.UseFileName(test);
 
     return settings;
   }

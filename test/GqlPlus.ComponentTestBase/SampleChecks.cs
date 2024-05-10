@@ -4,11 +4,12 @@ using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus;
+
 public class SampleChecks(Parser<IGqlpSchema>.D schemaParser)
 {
   private readonly Parser<IGqlpSchema>.L _schemaParser = schemaParser;
 
-  protected async Task<IGqlpSchema> ParseSchema(string sample)
+  protected async Task<IGqlpSchema> ParseSampleSchema(string sample)
   {
     string schema = await File.ReadAllTextAsync("Sample/Schema/" + sample + ".graphql+");
     Tokenizer tokens = new(schema);
@@ -16,11 +17,11 @@ public class SampleChecks(Parser<IGqlpSchema>.D schemaParser)
     return _schemaParser.Parse(tokens, "Schema").Required();
   }
 
-  protected VerifySettings SampleSettings(string dir, string file)
+  protected VerifySettings SampleSettings(string category, string file)
   {
     VerifySettings settings = new();
     settings.ScrubEmptyLines();
-    settings.UseDirectory("SampleTests/" + dir);
+    settings.UseDirectory($"Sample{category}Tests");
     settings.UseFileName(file);
 
     return settings;

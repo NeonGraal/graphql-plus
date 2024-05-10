@@ -5,9 +5,10 @@ using GqlPlus.Result;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
 
-namespace GqlPlus;
+#pragma warning disable IDE0130
+namespace GqlPlus.SchemaData;
 
-public class SchemaDataTests(
+public class SchemaVerifyTests(
     Parser<IGqlpSchema>.D parser,
     IVerify<IGqlpSchema> verifier
 ) : SchemaDataBase(parser)

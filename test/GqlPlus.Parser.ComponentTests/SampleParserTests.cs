@@ -4,9 +4,10 @@ using GqlPlus.Parsing;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 
-namespace GqlPlus;
+#pragma warning disable IDE0130
+namespace GqlPlus.Sample;
 
-public class SampleTests(
+public class SampleParserTests(
     Parser<IGqlpOperation>.D operation,
     Parser<IGqlpSchema>.D schemaParser
 ) : SampleChecks(schemaParser)
@@ -15,32 +16,32 @@ public class SampleTests(
 
   [Theory]
   [ClassData(typeof(SampleSchemaData))]
-  public async Task ParseSampleSchema(string sample)
+  public async Task ParseSchema(string sample)
   {
-    IGqlpSchema ast = await ParseSchema(sample);
+    IGqlpSchema ast = await ParseSampleSchema(sample);
 
-    await Verify(ast.Render(), SampleSettings("ParseSchema", sample));
+    await Verify(ast.Render(), SampleSettings("Schema", sample));
   }
 
   [Theory]
   [ClassData(typeof(SampleOperationData))]
-  public async Task ParseSampleOperation(string sample)
+  public async Task ParseOperation(string sample)
   {
-    IGqlpOperation? ast = await ParseOperation("Operation", sample, "gql+");
+    IGqlpOperation? ast = await ParseSampleOperation("Operation", sample, "gql+");
 
-    await Verify(ast?.Render(), SampleSettings("ParseOperation", sample));
+    await Verify(ast?.Render(), SampleSettings("Operation", sample));
   }
 
   [Theory]
   [ClassData(typeof(SampleGraphQlData))]
-  public async Task ParseSampleGraphQl(string example)
+  public async Task ParseGraphQl(string example)
   {
-    IGqlpOperation? ast = await ParseOperation("GraphQl", example, "gql");
+    IGqlpOperation? ast = await ParseSampleOperation("GraphQl", example, "gql");
 
-    await Verify(ast?.Render(), SampleSettings("ParseGraphQl", example));
+    await Verify(ast?.Render(), SampleSettings("GraphQl", example));
   }
 
-  private async Task<IGqlpOperation?> ParseOperation(string dir, string sample, string extn)
+  private async Task<IGqlpOperation?> ParseSampleOperation(string dir, string sample, string extn)
   {
 #pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
     string operation = await File.ReadAllTextAsync($"Sample/{dir}/{sample}.{extn}");

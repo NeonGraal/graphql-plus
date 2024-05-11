@@ -1,0 +1,12 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DescrSingle": {
+      "$tag": "_TypeOutput",
+      "description": "A \u0022single-quoted\u0022 description",
+      "name": "DescrSingle",
+      "typeKind": "Output"
+    }
+  }
+}

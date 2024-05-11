@@ -1,0 +1,37 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpFieldDual": {
+      "$tag": "_TypeDual",
+      "name": "OutpFieldDual",
+      "typeKind": "Dual"
+    },
+    "OutpFieldsDual": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpFieldsDual",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "OutpFieldDual"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "OutpFieldDual"
+          }
+        }
+      ],
+      "name": "OutpFieldsDual",
+      "typeKind": "Output"
+    }
+  }
+}

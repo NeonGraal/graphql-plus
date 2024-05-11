@@ -1,0 +1,55 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnDupPrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "aliases": ["valPrnt"],
+          "enum": "EnDupPrnt",
+          "name": "valDup"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "aliases": ["valPrnt"],
+          "name": "valDup"
+        }
+      ],
+      "name": "EnDupPrnt",
+      "typeKind": "Enum"
+    },
+    "EnPrntDup": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "aliases": ["valPrnt"],
+          "enum": "EnDupPrnt",
+          "name": "valDup"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnPrntDup",
+          "name": "valPrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "valPrnt"
+        }
+      ],
+      "name": "EnPrntDup",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "EnDupPrnt",
+        "typeKind": "Enum"
+      },
+      "typeKind": "Enum"
+    }
+  }
+}

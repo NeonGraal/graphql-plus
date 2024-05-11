@@ -1,0 +1,49 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualAltMods": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "^",
+              "modifierKind": "Dict"
+            }
+          ],
+          "object": "DualAltMods",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualModsAlt"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_DualBase)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "^",
+              "modifierKind": "Dict"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualModsAlt"
+          }
+        }
+      ],
+      "name": "DualAltMods",
+      "typeKind": "Dual"
+    },
+    "DualModsAlt": {
+      "$tag": "_TypeDual",
+      "name": "DualModsAlt",
+      "typeKind": "Dual"
+    }
+  }
+}

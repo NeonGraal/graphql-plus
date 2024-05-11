@@ -1,0 +1,49 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpAltMods": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "^",
+              "modifierKind": "Dict"
+            }
+          ],
+          "object": "OutpAltMods",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpModsAlt"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "^",
+              "modifierKind": "Dict"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpModsAlt"
+          }
+        }
+      ],
+      "name": "OutpAltMods",
+      "typeKind": "Output"
+    },
+    "OutpModsAlt": {
+      "$tag": "_TypeOutput",
+      "name": "OutpModsAlt",
+      "typeKind": "Output"
+    }
+  }
+}

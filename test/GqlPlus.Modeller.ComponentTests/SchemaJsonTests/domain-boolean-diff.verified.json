@@ -1,0 +1,38 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "BoolDiff": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "BoolDiff",
+          "exclude": false,
+          "value": true
+        },
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "BoolDiff",
+          "exclude": false,
+          "value": false
+        }
+      ],
+      "domain": "Boolean",
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": true
+        },
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": false
+        }
+      ],
+      "name": "BoolDiff",
+      "typeKind": "Domain"
+    }
+  }
+}

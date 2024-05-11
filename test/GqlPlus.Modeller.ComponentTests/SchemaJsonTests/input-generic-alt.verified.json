@@ -1,0 +1,30 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpGenAlt": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "object": "InpGenAlt",
+          "type": "type"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_InputBase)",
+          "type": "type"
+        }
+      ],
+      "name": "InpGenAlt",
+      "typeKind": "Input",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    }
+  }
+}

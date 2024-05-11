@@ -1,0 +1,126 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutParamParent": {
+      "$tag": "_TypeInput",
+      "name": "OutParamParent",
+      "typeKind": "Input"
+    },
+    "OutParamsParent": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutParamsParent",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "type": {
+                "$tag": "_InputBase",
+                "value": "OutParamParent"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParams"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "type": {
+                "$tag": "_InputBase",
+                "value": "OutParamParent"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParams"
+          }
+        }
+      ],
+      "name": "OutParamsParent",
+      "typeKind": "Output"
+    },
+    "OutPrntParam": {
+      "$tag": "_TypeInput",
+      "name": "OutPrntParam",
+      "typeKind": "Input"
+    },
+    "OutPrntParams": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutParamsParent",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "type": {
+                "$tag": "_InputBase",
+                "value": "OutParamParent"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParams"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutPrntParams",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "type": {
+                "$tag": "_InputBase",
+                "value": "OutPrntParam"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParams"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "type": {
+                "$tag": "_InputBase",
+                "value": "OutPrntParam"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParams"
+          }
+        }
+      ],
+      "name": "OutPrntParams",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "OutParamsParent"
+      },
+      "typeKind": "Output"
+    }
+  }
+}

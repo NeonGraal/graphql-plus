@@ -1,0 +1,71 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualGenAltParam": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "object": "DualGenAltParam",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualGenAltParamRef",
+            "typeArguments": [
+              {
+                "$tag": "_DualBase",
+                "value": "DualGenAltParamAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_DualBase)",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualGenAltParamRef",
+            "typeArguments": [
+              {
+                "$tag": "_DualBase",
+                "value": "DualGenAltParamAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "DualGenAltParam",
+      "typeKind": "Dual"
+    },
+    "DualGenAltParamAlt": {
+      "$tag": "_TypeDual",
+      "name": "DualGenAltParamAlt",
+      "typeKind": "Dual"
+    },
+    "DualGenAltParamRef": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "object": "DualGenAltParamRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_DualBase)",
+          "type": "ref"
+        }
+      ],
+      "name": "DualGenAltParamRef",
+      "typeKind": "Dual",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

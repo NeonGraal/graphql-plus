@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Text.Json;
 
 namespace GqlPlus.Rendering;
 
@@ -104,4 +105,7 @@ public class RenderStructure
 
   public string ToYaml()
     => RenderYaml.Serializer.Serialize(this);
+
+  public string ToJson()
+    => RenderJson.Serialize(this) + "\n";
 }

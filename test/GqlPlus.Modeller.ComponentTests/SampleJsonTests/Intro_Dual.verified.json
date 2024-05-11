@@ -1,0 +1,91 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _TypeDual can\u0027t get model for type \u0027_TypeObject\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _DualBase can\u0027t get model for type \u0027_ObjBase\u0027"
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "_DualBase": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "dual",
+          "object": "_DualBase",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "dual",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DualBase",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjBase",
+        "typeArguments": [
+          {
+            "$tag": "_OutputBase",
+            "output": "_ObjRef",
+            "typeArguments": [
+              {
+                "$tag": "_OutputBase",
+                "value": "_DualBase"
+              }
+            ]
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_TypeDual": {
+      "$tag": "_TypeOutput",
+      "name": "_TypeDual",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_TypeObject",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "name": "_TypeKind",
+            "typeKind": "Enum",
+            "value": "Dual"
+          },
+          {
+            "$tag": "_OutputBase",
+            "value": "_DualBase"
+          },
+          {
+            "$tag": "_OutputBase",
+            "output": "_Field",
+            "typeArguments": [
+              {
+                "$tag": "_OutputBase",
+                "value": "_DualBase"
+              }
+            ]
+          }
+        ]
+      },
+      "typeKind": "Output"
+    }
+  }
+}

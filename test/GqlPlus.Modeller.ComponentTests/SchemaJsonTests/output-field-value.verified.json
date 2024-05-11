@@ -1,0 +1,48 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutEnumValue": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "OutEnumValue",
+          "name": "outEnumValue"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "outEnumValue"
+        }
+      ],
+      "name": "OutEnumValue",
+      "typeKind": "Enum"
+    },
+    "OutFieldValue": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "field",
+          "name": "OutEnumValue",
+          "object": "OutFieldValue",
+          "typeKind": "Enum",
+          "value": "outEnumValue"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputEnum",
+          "field": "field",
+          "name": "OutEnumValue",
+          "typeKind": "Enum",
+          "value": "outEnumValue"
+        }
+      ],
+      "name": "OutFieldValue",
+      "typeKind": "Output"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualGenDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualGenDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualGenDualRef",
+            "typeArguments": [
+              {
+                "$tag": "_DualBase",
+                "value": "DualGenDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualGenDualRef",
+            "typeArguments": [
+              {
+                "$tag": "_DualBase",
+                "value": "DualGenDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "DualGenDual",
+      "typeKind": "Dual"
+    },
+    "DualGenDualAlt": {
+      "$tag": "_TypeDual",
+      "name": "DualGenDualAlt",
+      "typeKind": "Dual"
+    },
+    "DualGenDualRef": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "object": "DualGenDualRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_DualBase)",
+          "type": "ref"
+        }
+      ],
+      "name": "DualGenDualRef",
+      "typeKind": "Dual",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

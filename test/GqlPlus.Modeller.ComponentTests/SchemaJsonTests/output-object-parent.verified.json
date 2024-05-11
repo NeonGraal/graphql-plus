@@ -1,0 +1,20 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpPrnt": {
+      "$tag": "_TypeOutput",
+      "name": "OutpPrnt",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "PrntOutp"
+      },
+      "typeKind": "Output"
+    },
+    "PrntOutp": {
+      "$tag": "_TypeOutput",
+      "name": "PrntOutp",
+      "typeKind": "Output"
+    }
+  }
+}

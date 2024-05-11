@@ -1,0 +1,11 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "Outp": {
+      "$tag": "_TypeOutput",
+      "name": "Outp",
+      "typeKind": "Output"
+    }
+  }
+}

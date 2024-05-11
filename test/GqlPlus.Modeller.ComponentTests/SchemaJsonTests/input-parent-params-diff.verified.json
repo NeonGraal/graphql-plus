@@ -1,0 +1,68 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpPrmsPrntDiff": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "object": "InpPrmsPrntDiff",
+          "type": "b"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_InputBase)",
+          "type": "b"
+        }
+      ],
+      "name": "InpPrmsPrntDiff",
+      "typeKind": "Input",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "b"
+        }
+      ]
+    },
+    "InpPrntPrmsDiff": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "object": "InpPrmsPrntDiff",
+          "type": "b"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpPrntPrmsDiff",
+          "type": "a"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": "a"
+        }
+      ],
+      "name": "InpPrntPrmsDiff",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "InpPrmsPrntDiff",
+        "typeArguments": ["a"]
+      },
+      "typeKind": "Input",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "a"
+        }
+      ]
+    }
+  }
+}

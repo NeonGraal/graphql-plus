@@ -1,0 +1,73 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpGenParam": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpGenParam",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpGenParamRef",
+            "typeArguments": [
+              {
+                "$tag": "_InputBase",
+                "value": "InpGenParamAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpGenParamRef",
+            "typeArguments": [
+              {
+                "$tag": "_InputBase",
+                "value": "InpGenParamAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "InpGenParam",
+      "typeKind": "Input"
+    },
+    "InpGenParamAlt": {
+      "$tag": "_TypeInput",
+      "name": "InpGenParamAlt",
+      "typeKind": "Input"
+    },
+    "InpGenParamRef": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "object": "InpGenParamRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_InputBase)",
+          "type": "ref"
+        }
+      ],
+      "name": "InpGenParamRef",
+      "typeKind": "Input",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

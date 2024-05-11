@@ -1,0 +1,71 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpGenAltParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "OutpGenAltParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGenAltParamRef",
+            "typeArguments": [
+              {
+                "$tag": "_OutputBase",
+                "value": "OutpGenAltParamAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGenAltParamRef",
+            "typeArguments": [
+              {
+                "$tag": "_OutputBase",
+                "value": "OutpGenAltParamAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutpGenAltParam",
+      "typeKind": "Output"
+    },
+    "OutpGenAltParamAlt": {
+      "$tag": "_TypeOutput",
+      "name": "OutpGenAltParamAlt",
+      "typeKind": "Output"
+    },
+    "OutpGenAltParamRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "OutpGenAltParamRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpGenAltParamRef",
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

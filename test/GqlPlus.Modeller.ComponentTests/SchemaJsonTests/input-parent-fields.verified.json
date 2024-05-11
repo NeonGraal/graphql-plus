@@ -1,0 +1,71 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpFieldsParent": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "parent",
+          "object": "InpFieldsParent",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "parent",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "InpFieldsParent",
+      "typeKind": "Input"
+    },
+    "InpPrntFields": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "parent",
+          "object": "InpFieldsParent",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpPrntFields",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InpPrntFields",
+      "parent": {
+        "$tag": "_InputBase",
+        "value": "InpFieldsParent"
+      },
+      "typeKind": "Input"
+    }
+  }
+}

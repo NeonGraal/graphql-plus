@@ -1,0 +1,20 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualParentTest": {
+      "$tag": "_TypeDual",
+      "name": "DualParentTest",
+      "typeKind": "Dual"
+    },
+    "DualTestParent": {
+      "$tag": "_TypeDual",
+      "name": "DualTestParent",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "DualParentTest"
+      },
+      "typeKind": "Dual"
+    }
+  }
+}

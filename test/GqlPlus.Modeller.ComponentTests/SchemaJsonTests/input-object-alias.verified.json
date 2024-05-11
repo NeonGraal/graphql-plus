@@ -1,0 +1,12 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpAlias": {
+      "$tag": "_TypeInput",
+      "aliases": ["Inp1", "Inp2"],
+      "name": "InpAlias",
+      "typeKind": "Input"
+    }
+  }
+}

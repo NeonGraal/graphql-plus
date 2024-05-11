@@ -1,0 +1,64 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualFieldEnum": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "DualFieldEnum",
+          "name": "value"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "value"
+        }
+      ],
+      "name": "DualFieldEnum",
+      "typeKind": "Enum"
+    },
+    "DualFieldMods": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "DualFieldEnum",
+              "modifierKind": "Dict"
+            }
+          ],
+          "name": "field",
+          "object": "DualFieldMods",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualFieldMods"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "DualFieldEnum",
+              "modifierKind": "Dict"
+            }
+          ],
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualFieldMods"
+          }
+        }
+      ],
+      "name": "DualFieldMods",
+      "typeKind": "Dual"
+    }
+  }
+}

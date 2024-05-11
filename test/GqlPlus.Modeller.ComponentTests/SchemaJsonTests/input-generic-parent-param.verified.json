@@ -1,0 +1,57 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpGenParentParam": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "object": "InpGenParentParamRef",
+          "type": "ref"
+        }
+      ],
+      "name": "InpGenParentParam",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "InpGenParentParamRef",
+        "typeArguments": [
+          {
+            "$tag": "_InputBase",
+            "value": "InpGenParentParamAlt"
+          }
+        ]
+      },
+      "typeKind": "Input"
+    },
+    "InpGenParentParamAlt": {
+      "$tag": "_TypeInput",
+      "name": "InpGenParentParamAlt",
+      "typeKind": "Input"
+    },
+    "InpGenParentParamRef": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "object": "InpGenParentParamRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_InputBase)",
+          "type": "ref"
+        }
+      ],
+      "name": "InpGenParentParamRef",
+      "typeKind": "Input",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

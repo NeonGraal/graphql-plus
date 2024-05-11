@@ -1,0 +1,30 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "FieldEnumAlias": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "field",
+          "name": "Boolean",
+          "object": "FieldEnumAlias",
+          "typeKind": "Enum",
+          "value": "true"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputEnum",
+          "field": "field",
+          "name": "Boolean",
+          "typeKind": "Enum",
+          "value": "true"
+        }
+      ],
+      "name": "FieldEnumAlias",
+      "typeKind": "Output"
+    }
+  }
+}

@@ -4,9 +4,10 @@ using YamlDotNet.Serialization;
 
 namespace GqlPlus.Rendering;
 
-internal class RenderTypeConverter : IYamlTypeConverter
+internal class RenderYamlTypeConverter
+  : IYamlTypeConverter
 {
-  public static readonly IYamlTypeConverter Instance = new RenderTypeConverter();
+  public static readonly IYamlTypeConverter Instance = new RenderYamlTypeConverter();
 
   public bool Accepts(Type type) => type == typeof(RenderStructure);
 

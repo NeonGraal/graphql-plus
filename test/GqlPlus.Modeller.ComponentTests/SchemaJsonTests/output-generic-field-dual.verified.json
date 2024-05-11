@@ -1,0 +1,73 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpGenFieldDual": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpGenFieldDual",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGenFieldDualRef",
+            "typeArguments": [
+              {
+                "$tag": "_DualBase",
+                "value": "OutpGenFieldDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGenFieldDualRef",
+            "typeArguments": [
+              {
+                "$tag": "_DualBase",
+                "value": "OutpGenFieldDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutpGenFieldDual",
+      "typeKind": "Output"
+    },
+    "OutpGenFieldDualAlt": {
+      "$tag": "_TypeDual",
+      "name": "OutpGenFieldDualAlt",
+      "typeKind": "Dual"
+    },
+    "OutpGenFieldDualRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "OutpGenFieldDualRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpGenFieldDualRef",
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

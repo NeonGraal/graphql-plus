@@ -1,0 +1,20 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualPrnt": {
+      "$tag": "_TypeDual",
+      "name": "DualPrnt",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "PrntDual"
+      },
+      "typeKind": "Dual"
+    },
+    "PrntDual": {
+      "$tag": "_TypeDual",
+      "name": "PrntDual",
+      "typeKind": "Dual"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpGenDual": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpGenDual",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGenDualRef",
+            "typeArguments": [
+              {
+                "$tag": "_DualBase",
+                "value": "OutpGenDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGenDualRef",
+            "typeArguments": [
+              {
+                "$tag": "_DualBase",
+                "value": "OutpGenDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutpGenDual",
+      "typeKind": "Output"
+    },
+    "OutpGenDualAlt": {
+      "$tag": "_TypeDual",
+      "name": "OutpGenDualAlt",
+      "typeKind": "Dual"
+    },
+    "OutpGenDualRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "OutpGenDualRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpGenDualRef",
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

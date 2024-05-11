@@ -1,0 +1,18 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualGenPrnt": {
+      "$tag": "_TypeDual",
+      "name": "DualGenPrnt",
+      "parent": "type",
+      "typeKind": "Dual",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    }
+  }
+}

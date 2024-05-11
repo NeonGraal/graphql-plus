@@ -1,0 +1,32 @@
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+
+namespace GqlPlus.Rendering;
+
+internal abstract class RenderJsonConverter<T>
+  : JsonConverter<T>
+{
+  protected void WriteValue(Utf8JsonWriter writer, RenderValue value, JsonSerializerOptions options)
+  {
+    if (value is null || value.IsEmpty) {
+      return;
+    }
+
+    if (value.Identifier is not null) {
+      writer.WriteStringValue(value.Identifier);
+    } else if (value.Boolean is not null) {
+      writer.WriteBooleanValue(value.Boolean.Value);
+    } else if (value.Number is not null) {
+      writer.WriteNumberValue(value.Number.Value);
+    } else if (value.Text is not null) {
+      writer.WriteStringValue(value.Text);
+    }
+  }
+
+  protected void StartTaggedValue(Utf8JsonWriter writer, string tag)
+  {
+    writer.WriteStartObject();
+    writer.WriteString("$tag", tag);
+    writer.WritePropertyName("value");
+  }
+}

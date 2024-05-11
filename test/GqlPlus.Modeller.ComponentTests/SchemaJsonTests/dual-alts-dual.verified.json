@@ -1,0 +1,35 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualAltDual": {
+      "$tag": "_TypeDual",
+      "name": "DualAltDual",
+      "typeKind": "Dual"
+    },
+    "DualAltsDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "object": "DualAltsDual",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualAltDual"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_DualBase)",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualAltDual"
+          }
+        }
+      ],
+      "name": "DualAltsDual",
+      "typeKind": "Dual"
+    }
+  }
+}

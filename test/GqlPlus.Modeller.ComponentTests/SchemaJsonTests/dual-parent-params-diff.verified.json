@@ -1,0 +1,68 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualPrmsPrntDiff": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "object": "DualPrmsPrntDiff",
+          "type": "b"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_DualBase)",
+          "type": "b"
+        }
+      ],
+      "name": "DualPrmsPrntDiff",
+      "typeKind": "Dual",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "b"
+        }
+      ]
+    },
+    "DualPrntPrmsDiff": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "object": "DualPrmsPrntDiff",
+          "type": "b"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualPrntPrmsDiff",
+          "type": "a"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": "a"
+        }
+      ],
+      "name": "DualPrntPrmsDiff",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "DualPrmsPrntDiff",
+        "typeArguments": ["a"]
+      },
+      "typeKind": "Dual",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "a"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,49 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpAltMods": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "^",
+              "modifierKind": "Dict"
+            }
+          ],
+          "object": "InpAltMods",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpModsAlt"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_InputBase)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "^",
+              "modifierKind": "Dict"
+            }
+          ],
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpModsAlt"
+          }
+        }
+      ],
+      "name": "InpAltMods",
+      "typeKind": "Input"
+    },
+    "InpModsAlt": {
+      "$tag": "_TypeInput",
+      "name": "InpModsAlt",
+      "typeKind": "Input"
+    }
+  }
+}

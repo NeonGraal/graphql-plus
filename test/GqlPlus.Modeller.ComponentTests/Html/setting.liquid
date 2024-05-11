@@ -1,0 +1,7 @@
+﻿{%- if setting[0] != "_tag" -%}
+<tr>
+  {%- assign set = setting[1] -%}
+  <th> {{ set.name }} </th>
+  <td> {{ set.value | join: ", " }} </td>
+</tr>
+{%- endif -%}

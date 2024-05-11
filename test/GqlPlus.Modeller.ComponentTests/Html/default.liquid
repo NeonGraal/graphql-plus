@@ -1,0 +1,42 @@
+﻿<main>
+  {%- if name or aliases -%}
+  {%- render 'schema' -%}
+  {%- endif -%}
+  {%- if _errors %}
+  <section>
+    <ul>
+      {% render 'error' for _errors as error %}
+    </ul>
+  </section>
+  {%- endif -%}
+  {%- if types %}
+  <section>
+    <h1>Types</h1>
+    {%- render 'type' for types as type %}
+  </section>
+  {%- endif -%}
+  {%- if categories %}
+  <section>
+    <h1>Categories</h1>
+    {%- render 'category' for categories as category %}
+  </section>
+  {%- endif -%}
+  {%- if directives %}
+  <section>
+    <h1>Directives</h1>
+    {%- render 'directive' for directives as directive %}
+  </section>
+  {%- endif -%}
+  {%- if settings %}
+  <section>
+    <h1>Settings</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+      {%- render 'setting' for settings as setting %}
+    </table>
+  </section>
+  {%- endif %}
+</main>

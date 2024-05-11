@@ -3,7 +3,7 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace GqlPlus.Rendering;
 
-internal static class RenderYaml
+public static class RenderYaml
 {
   internal static ISerializer Serializer { get; } = new SerializerBuilder()
       .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull | DefaultValuesHandling.OmitEmptyCollections)
@@ -11,4 +11,7 @@ internal static class RenderYaml
       .WithNamingConvention(CamelCaseNamingConvention.Instance)
       .WithTypeConverter(RenderYamlTypeConverter.Instance)
       .Build();
+
+  public static string ToYaml(this RenderStructure model)
+    => Serializer.Serialize(model);
 }

@@ -40,6 +40,23 @@ public sealed record class RenderValue
       : -1
     : -1;
 
+  public string AsString
+  {
+    get {
+      if (Identifier is not null) {
+        return Identifier;
+      } else if (Boolean is not null) {
+        return Boolean.Value.TrueFalse();
+      } else if (Number is not null) {
+        return $"{Number}";
+      } else if (Text is not null) {
+        return Text;
+      }
+
+      return string.Empty;
+    }
+  }
+
   private static bool BothValued<T>([NotNullWhen(true)] T? left, [NotNullWhen(true)] T? right)
     => left is not null && right is not null;
 }

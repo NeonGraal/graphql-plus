@@ -3,17 +3,14 @@ using System.Text.Json.Serialization;
 
 namespace GqlPlus.Rendering;
 
-internal static class RenderJson
+public static class RenderJson
 {
-  internal static string Serialize(RenderStructure renderStructure)
-    => JsonSerializer.Serialize(renderStructure, Options);
-
   private static JsonSerializerOptions Options { get; } = JsonOptions(true);
 
   internal static JsonSerializerOptions Unindented { get; } = JsonOptions(false);
 
   private static JsonSerializerOptions JsonOptions(bool indented)
-    => new JsonSerializerOptions() {
+    => new() {
       Converters = {
       new RenderStructureJsonConverter(),
         RenderStructureJsonConverter.ValueConverter,
@@ -22,4 +19,7 @@ internal static class RenderJson
       PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
       WriteIndented = indented,
     };
+
+  public static string ToJson(this RenderStructure model)
+    => JsonSerializer.Serialize(model, Options) + "\n";
 }

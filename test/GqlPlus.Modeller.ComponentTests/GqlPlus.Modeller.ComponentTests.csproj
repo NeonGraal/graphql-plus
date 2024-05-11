@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Html\*.liquid" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fluid.Core" Version="2.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\src\GqlPlus.Modeller\GqlPlus.Modeller.csproj" />
     <ProjectReference Include="..\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj" />
   </ItemGroup>

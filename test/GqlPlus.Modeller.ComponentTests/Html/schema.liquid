@@ -1,0 +1,10 @@
+﻿<heading>
+  {%- if name %}
+  <h1>
+    <sub>Schema</sub> {{ name }}
+  </h1>
+  {%- endif -%}
+  {%- if aliases %}
+  <p> Aliases: {{ aliases | join: ", " }} </p>
+  {%- endif -%}
+</heading>

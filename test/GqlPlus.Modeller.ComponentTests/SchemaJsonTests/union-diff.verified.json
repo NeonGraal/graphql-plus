@@ -1,0 +1,33 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "UnDiff": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Boolean",
+          "union": "UnDiff"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "UnDiff"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Boolean"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "Number"
+        }
+      ],
+      "name": "UnDiff",
+      "typeKind": "Union"
+    }
+  }
+}

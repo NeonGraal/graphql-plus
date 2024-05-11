@@ -1,0 +1,57 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpGenParentDual": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "OutpGenParentDualRef",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpGenParentDual",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "OutpGenParentDualRef",
+        "typeArguments": [
+          {
+            "$tag": "_DualBase",
+            "value": "OutpGenParentDualAlt"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "OutpGenParentDualAlt": {
+      "$tag": "_TypeDual",
+      "name": "OutpGenParentDualAlt",
+      "typeKind": "Dual"
+    },
+    "OutpGenParentDualRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "OutpGenParentDualRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpGenParentDualRef",
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

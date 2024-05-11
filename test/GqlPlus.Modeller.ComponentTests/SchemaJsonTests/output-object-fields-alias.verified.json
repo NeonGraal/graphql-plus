@@ -1,0 +1,32 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpFieldAlias": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpFieldAlias",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpFieldAlias"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpFieldAlias"
+          }
+        }
+      ],
+      "name": "OutpFieldAlias",
+      "typeKind": "Output"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpPrmsPrntSame": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "object": "InpPrmsPrntSame",
+          "type": "a"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_InputBase)",
+          "type": "a"
+        }
+      ],
+      "name": "InpPrmsPrntSame",
+      "typeKind": "Input",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "a"
+        }
+      ]
+    },
+    "InpPrntPrmsSame": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "object": "InpPrmsPrntSame",
+          "type": "a"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpPrntPrmsSame",
+          "type": "a"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": "a"
+        }
+      ],
+      "name": "InpPrntPrmsSame",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "InpPrmsPrntSame",
+        "typeArguments": ["a"]
+      },
+      "typeKind": "Input",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "a"
+        }
+      ]
+    }
+  }
+}

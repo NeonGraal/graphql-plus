@@ -1,0 +1,304 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _TypeOutput can\u0027t get model for type \u0027_TypeObject\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _OutputBase can\u0027t get model for type \u0027_ObjBase\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _OutputField can\u0027t get model for type \u0027_Field\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _OutputArgument can\u0027t get model for type \u0027_TypeRef\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _OutputEnum can\u0027t get model for type \u0027_TypeRef\u0027"
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "_OutputArgument": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_OutputArgument",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ObjRef",
+            "typeArguments": [
+              {
+                "$tag": "_OutputBase",
+                "value": "_OutputBase"
+              }
+            ]
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "value",
+          "object": "_OutputArgument",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ObjRef",
+            "typeArguments": [
+              {
+                "$tag": "_OutputBase",
+                "value": "_OutputBase"
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "value",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_OutputArgument",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_TypeRef",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "name": "_TypeKind",
+            "typeKind": "Enum",
+            "value": "Enum"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_OutputBase": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_OutputBase",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_DualBase"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "output",
+          "object": "_OutputBase",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_DualBase"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "output",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_OutputBase",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjBase",
+        "typeArguments": [
+          {
+            "$tag": "_OutputBase",
+            "value": "_OutputArgument"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_OutputEnum": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "_OutputEnum",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "value",
+          "object": "_OutputEnum",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "value",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_OutputEnum",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_TypeRef",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "name": "_TypeKind",
+            "typeKind": "Enum",
+            "value": "Enum"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_OutputField": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_OutputField",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_OutputEnum"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "value": "List"
+            }
+          ],
+          "name": "parameter",
+          "object": "_OutputField",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Parameter"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_OutputEnum"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "value": "List"
+            }
+          ],
+          "name": "parameter",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Parameter"
+          }
+        }
+      ],
+      "name": "_OutputField",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Field",
+        "typeArguments": [
+          {
+            "$tag": "_OutputBase",
+            "value": "_OutputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_TypeOutput": {
+      "$tag": "_TypeOutput",
+      "name": "_TypeOutput",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_TypeObject",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "name": "_TypeKind",
+            "typeKind": "Enum",
+            "value": "Output"
+          },
+          {
+            "$tag": "_OutputBase",
+            "value": "_OutputBase"
+          },
+          {
+            "$tag": "_OutputBase",
+            "value": "_OutputField"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    }
+  }
+}

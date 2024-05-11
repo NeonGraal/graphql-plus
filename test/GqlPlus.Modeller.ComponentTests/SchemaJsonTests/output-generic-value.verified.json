@@ -1,0 +1,86 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutGenValue": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "OutGenValue",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutGenValueRef",
+            "typeArguments": [
+              {
+                "$tag": "_OutputBase",
+                "value": "outValueGen"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutGenValueRef",
+            "typeArguments": [
+              {
+                "$tag": "_OutputBase",
+                "value": "outValueGen"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutGenValue",
+      "typeKind": "Output"
+    },
+    "OutGenValueRef": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutGenValueRef",
+          "type": "type"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": "type"
+        }
+      ],
+      "name": "OutGenValueRef",
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    },
+    "OutValueGen": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "OutValueGen",
+          "name": "outValueGen"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "outValueGen"
+        }
+      ],
+      "name": "OutValueGen",
+      "typeKind": "Enum"
+    }
+  }
+}

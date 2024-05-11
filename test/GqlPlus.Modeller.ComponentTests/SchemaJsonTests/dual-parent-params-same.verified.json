@@ -1,0 +1,68 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualPrmsPrntSame": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "object": "DualPrmsPrntSame",
+          "type": "a"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_DualBase)",
+          "type": "a"
+        }
+      ],
+      "name": "DualPrmsPrntSame",
+      "typeKind": "Dual",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "a"
+        }
+      ]
+    },
+    "DualPrntPrmsSame": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "object": "DualPrmsPrntSame",
+          "type": "a"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualPrntPrmsSame",
+          "type": "a"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": "a"
+        }
+      ],
+      "name": "DualPrntPrmsSame",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "DualPrmsPrntSame",
+        "typeArguments": ["a"]
+      },
+      "typeKind": "Dual",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "a"
+        }
+      ]
+    }
+  }
+}

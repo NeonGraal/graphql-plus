@@ -1,0 +1,32 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpFieldAlias": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpFieldAlias",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpFieldAlias"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpFieldAlias"
+          }
+        }
+      ],
+      "name": "InpFieldAlias",
+      "typeKind": "Input"
+    }
+  }
+}

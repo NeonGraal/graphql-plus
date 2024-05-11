@@ -1,0 +1,18 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpGenPrnt": {
+      "$tag": "_TypeOutput",
+      "name": "OutpGenPrnt",
+      "parent": "type",
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    }
+  }
+}

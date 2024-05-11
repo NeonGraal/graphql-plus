@@ -1,0 +1,71 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpFieldsParent": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "parent",
+          "object": "OutpFieldsParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "parent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "OutpFieldsParent",
+      "typeKind": "Output"
+    },
+    "OutpPrntFields": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "parent",
+          "object": "OutpFieldsParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpPrntFields",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpPrntFields",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "OutpFieldsParent"
+      },
+      "typeKind": "Output"
+    }
+  }
+}

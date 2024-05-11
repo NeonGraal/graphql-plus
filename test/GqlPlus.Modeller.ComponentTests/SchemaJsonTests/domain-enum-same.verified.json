@@ -1,0 +1,29 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumSame": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainMember)",
+          "domain": "EnumSame",
+          "exclude": false,
+          "typeKind": "Enum",
+          "value": "true"
+        }
+      ],
+      "domain": "Enum",
+      "items": [
+        {
+          "$tag": "_DomainMember",
+          "exclude": false,
+          "typeKind": "Enum",
+          "value": "true"
+        }
+      ],
+      "name": "EnumSame",
+      "typeKind": "Domain"
+    }
+  }
+}

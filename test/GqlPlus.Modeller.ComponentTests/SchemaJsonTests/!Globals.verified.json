@@ -1,0 +1,110 @@
+﻿{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "cat": {
+      "$tag": "_Category",
+      "name": "cat",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Cat",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
+    "descrBetween": {
+      "$tag": "_Category",
+      "name": "descrBetween",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "DescrBetween",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    }
+  },
+  "directives": {
+    "$tag": "_Map_Directives",
+    "DirParam": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DirParam",
+      "parameters": [
+        {
+          "$tag": "_InputParameter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "DirParamIn"
+          }
+        }
+      ],
+      "repeatable": false
+    }
+  },
+  "name": "Schema",
+  "settings": {
+    "$tag": "_Map_Setting",
+    "setting": {
+      "$tag": "_Setting",
+      "name": "setting",
+      "value": true
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "Cat": {
+      "$tag": "_TypeOutput",
+      "name": "Cat",
+      "typeKind": "Output"
+    },
+    "Descr": {
+      "$tag": "_TypeOutput",
+      "description": "A simple description",
+      "name": "Descr",
+      "typeKind": "Output"
+    },
+    "DescrBackslash": {
+      "$tag": "_TypeOutput",
+      "description": "A backslash (\u0022\\\u0022) description",
+      "name": "DescrBackslash",
+      "typeKind": "Output"
+    },
+    "DescrBetween": {
+      "$tag": "_TypeOutput",
+      "description": "A description between",
+      "name": "DescrBetween",
+      "typeKind": "Output"
+    },
+    "DescrComplex": {
+      "$tag": "_TypeOutput",
+      "description": "A \u0022more\u0022 \u0027Complicated\u0027 \\ description",
+      "name": "DescrComplex",
+      "typeKind": "Output"
+    },
+    "DescrDouble": {
+      "$tag": "_TypeOutput",
+      "description": "A \u0027double-quoted\u0027 description",
+      "name": "DescrDouble",
+      "typeKind": "Output"
+    },
+    "DescrSingle": {
+      "$tag": "_TypeOutput",
+      "description": "A \u0022single-quoted\u0022 description",
+      "name": "DescrSingle",
+      "typeKind": "Output"
+    },
+    "DirParamIn": {
+      "$tag": "_TypeInput",
+      "name": "DirParamIn",
+      "typeKind": "Input"
+    }
+  }
+}

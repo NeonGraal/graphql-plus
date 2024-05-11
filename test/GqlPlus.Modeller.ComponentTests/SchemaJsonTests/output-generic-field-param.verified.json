@@ -1,0 +1,73 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpGenFieldParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpGenFieldParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGenFieldParamRef",
+            "typeArguments": [
+              {
+                "$tag": "_OutputBase",
+                "value": "OutpGenFieldParamAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGenFieldParamRef",
+            "typeArguments": [
+              {
+                "$tag": "_OutputBase",
+                "value": "OutpGenFieldParamAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutpGenFieldParam",
+      "typeKind": "Output"
+    },
+    "OutpGenFieldParamAlt": {
+      "$tag": "_TypeOutput",
+      "name": "OutpGenFieldParamAlt",
+      "typeKind": "Output"
+    },
+    "OutpGenFieldParamRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "OutpGenFieldParamRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpGenFieldParamRef",
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,484 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "_Collections": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Collections",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Modifier",
+            "typeArguments": [
+              {
+                "$tag": "_OutputArgument",
+                "name": "_ModifierKind",
+                "typeKind": "Enum",
+                "value": "List"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Collections",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_ModifierDictionary"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Modifier",
+            "typeArguments": [
+              {
+                "$tag": "_OutputArgument",
+                "name": "_ModifierKind",
+                "typeKind": "Enum",
+                "value": "List"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_ModifierDictionary"
+          }
+        }
+      ],
+      "name": "_Collections",
+      "typeKind": "Output"
+    },
+    "_Constant": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Constant",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Simple"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Constant",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_ConstantList"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Constant",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_ConstantMap"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Simple"
+          }
+        },
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_ConstantList"
+          }
+        },
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_ConstantMap"
+          }
+        }
+      ],
+      "name": "_Constant",
+      "typeKind": "Output"
+    },
+    "_ConstantList": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "value": "List"
+            }
+          ],
+          "object": "_ConstantList",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "value": "List"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "name": "_ConstantList",
+      "typeKind": "Output"
+    },
+    "_ConstantMap": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "Simple",
+              "modifierKind": "Dict"
+            }
+          ],
+          "object": "_ConstantMap",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "Simple",
+              "modifierKind": "Dict"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "name": "_ConstantMap",
+      "typeKind": "Output"
+    },
+    "_Modifier": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "modifierKind",
+          "object": "_Modifier",
+          "type": "kind"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "modifierKind",
+          "type": "kind"
+        }
+      ],
+      "name": "_Modifier",
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "kind"
+        }
+      ]
+    },
+    "_ModifierDictionary": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "modifierKind",
+          "object": "_Modifier",
+          "type": "kind"
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "by",
+          "object": "_ModifierDictionary",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeSimple"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "optional",
+          "object": "_ModifierDictionary",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "by",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeSimple"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "optional",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Boolean"
+          }
+        }
+      ],
+      "name": "_ModifierDictionary",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Modifier",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "name": "_ModifierKind",
+            "typeKind": "Enum",
+            "value": "Dictionary"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_ModifierKind": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "_ModifierKind",
+          "name": "Optional"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "_ModifierKind",
+          "name": "List"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "_ModifierKind",
+          "name": "Dictionary"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Optional"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "List"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "Dictionary"
+        }
+      ],
+      "name": "_ModifierKind",
+      "typeKind": "Enum"
+    },
+    "_Modifiers": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Modifiers",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Modifier",
+            "typeArguments": [
+              {
+                "$tag": "_OutputArgument",
+                "name": "_ModifierKind",
+                "typeKind": "Enum",
+                "value": "Optional"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Modifiers",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Collections"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Modifier",
+            "typeArguments": [
+              {
+                "$tag": "_OutputArgument",
+                "name": "_ModifierKind",
+                "typeKind": "Enum",
+                "value": "Optional"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Collections"
+          }
+        }
+      ],
+      "name": "_Modifiers",
+      "typeKind": "Output"
+    },
+    "_Simple": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Simple",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Simple",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_DomainValue",
+            "typeArguments": [
+              {
+                "$tag": "_OutputArgument",
+                "name": "_DomainKind",
+                "typeKind": "Enum",
+                "value": "Number"
+              },
+              {
+                "$tag": "_OutputBase",
+                "value": "Number"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Simple",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_DomainValue",
+            "typeArguments": [
+              {
+                "$tag": "_OutputArgument",
+                "name": "_DomainKind",
+                "typeKind": "Enum",
+                "value": "String"
+              },
+              {
+                "$tag": "_OutputBase",
+                "value": "String"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Simple",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_EnumValue"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_DomainValue",
+            "typeArguments": [
+              {
+                "$tag": "_OutputArgument",
+                "name": "_DomainKind",
+                "typeKind": "Enum",
+                "value": "Number"
+              },
+              {
+                "$tag": "_OutputBase",
+                "value": "Number"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_DomainValue",
+            "typeArguments": [
+              {
+                "$tag": "_OutputArgument",
+                "name": "_DomainKind",
+                "typeKind": "Enum",
+                "value": "String"
+              },
+              {
+                "$tag": "_OutputBase",
+                "value": "String"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_EnumValue"
+          }
+        }
+      ],
+      "name": "_Simple",
+      "typeKind": "Output"
+    }
+  }
+}

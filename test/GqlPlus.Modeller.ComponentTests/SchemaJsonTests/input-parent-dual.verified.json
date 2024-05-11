@@ -1,0 +1,20 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpPrntDualTest": {
+      "$tag": "_TypeDual",
+      "name": "InpPrntDualTest",
+      "typeKind": "Dual"
+    },
+    "InpTestPrntDual": {
+      "$tag": "_TypeInput",
+      "name": "InpTestPrntDual",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "InpPrntDualTest"
+      },
+      "typeKind": "Input"
+    }
+  }
+}

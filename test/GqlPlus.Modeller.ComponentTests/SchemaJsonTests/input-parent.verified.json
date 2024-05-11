@@ -1,0 +1,20 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpParentTest": {
+      "$tag": "_TypeInput",
+      "name": "InpParentTest",
+      "typeKind": "Input"
+    },
+    "InpTestParent": {
+      "$tag": "_TypeInput",
+      "name": "InpTestParent",
+      "parent": {
+        "$tag": "_InputBase",
+        "value": "InpParentTest"
+      },
+      "typeKind": "Input"
+    }
+  }
+}

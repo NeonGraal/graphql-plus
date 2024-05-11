@@ -1,0 +1,91 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DomEnumPrnt": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainMember)",
+          "domain": "DomPrntEnum",
+          "exclude": false,
+          "typeKind": "Enum",
+          "value": "dom_parent"
+        },
+        {
+          "$tag": "_DomainItem(_DomainMember)",
+          "domain": "DomEnumPrnt",
+          "exclude": false,
+          "typeKind": "Enum",
+          "value": "dom_enum"
+        }
+      ],
+      "domain": "Enum",
+      "items": [
+        {
+          "$tag": "_DomainMember",
+          "exclude": false,
+          "typeKind": "Enum",
+          "value": "dom_enum"
+        }
+      ],
+      "name": "DomEnumPrnt",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "DomPrntEnum",
+        "typeKind": "Domain"
+      },
+      "typeKind": "Domain"
+    },
+    "DomPrntEnum": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainMember)",
+          "domain": "DomPrntEnum",
+          "exclude": false,
+          "typeKind": "Enum",
+          "value": "dom_parent"
+        }
+      ],
+      "domain": "Enum",
+      "items": [
+        {
+          "$tag": "_DomainMember",
+          "exclude": false,
+          "typeKind": "Enum",
+          "value": "dom_parent"
+        }
+      ],
+      "name": "DomPrntEnum",
+      "typeKind": "Domain"
+    },
+    "EnumDomPrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomPrnt",
+          "name": "dom_enum"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomPrnt",
+          "name": "dom_parent"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "dom_enum"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "dom_parent"
+        }
+      ],
+      "name": "EnumDomPrnt",
+      "typeKind": "Enum"
+    }
+  }
+}

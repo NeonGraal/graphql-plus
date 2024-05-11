@@ -1,0 +1,55 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutParam": {
+      "$tag": "_TypeInput",
+      "name": "OutParam",
+      "typeKind": "Input"
+    },
+    "OutParams": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutParams",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "type": {
+                "$tag": "_InputBase",
+                "value": "OutParam"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutParams"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "type": {
+                "$tag": "_InputBase",
+                "value": "OutParam"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutParams"
+          }
+        }
+      ],
+      "name": "OutParams",
+      "typeKind": "Output"
+    }
+  }
+}

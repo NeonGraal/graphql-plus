@@ -1,0 +1,92 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutDomainParam": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "OutDomainParam",
+          "exclude": false,
+          "from": 1,
+          "to": 10
+        }
+      ],
+      "domain": "Number",
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "from": 1,
+          "to": 10
+        }
+      ],
+      "name": "OutDomainParam",
+      "typeKind": "Domain"
+    },
+    "OutParamDomain": {
+      "$tag": "_TypeInput",
+      "name": "OutParamDomain",
+      "typeKind": "Input"
+    },
+    "OutParamsDomain": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutParamsDomain",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "collections": [
+                {
+                  "$tag": "_ModifierDictionary",
+                  "by": "OutDomainParam",
+                  "modifierKind": "Dict"
+                }
+              ],
+              "type": {
+                "$tag": "_InputBase",
+                "value": "OutParamDomain"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutParamsDomain"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "collections": [
+                {
+                  "$tag": "_ModifierDictionary",
+                  "by": "OutDomainParam",
+                  "modifierKind": "Dict"
+                }
+              ],
+              "type": {
+                "$tag": "_InputBase",
+                "value": "OutParamDomain"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutParamsDomain"
+          }
+        }
+      ],
+      "name": "OutParamsDomain",
+      "typeKind": "Output"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpFieldDual": {
+      "$tag": "_TypeDual",
+      "name": "InpFieldDual",
+      "typeKind": "Dual"
+    },
+    "InpFieldsDual": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpFieldsDual",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "InpFieldDual"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "InpFieldDual"
+          }
+        }
+      ],
+      "name": "InpFieldsDual",
+      "typeKind": "Input"
+    }
+  }
+}

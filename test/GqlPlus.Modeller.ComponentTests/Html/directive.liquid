@@ -1,5 +1,4 @@
-﻿{%- if directive[0] != "_tag" -%}
-<section>
+﻿<section>
   {%- assign dir = directive[1] %}
   <h2>
     <sub>Directive</sub> {{ dir.name }}
@@ -12,4 +11,3 @@
   </p>
   <p> Repeatable: {{ dir.repeatable }} </p>
 </section>
-{%- endif -%}

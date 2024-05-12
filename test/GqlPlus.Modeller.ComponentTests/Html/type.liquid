@@ -1,9 +1,7 @@
-﻿{%- if type[0] != "_tag" -%}
-<section>
+﻿<section>
   {%- assign typ = type[1] %}
   <h2>
-    <sub>Type</sub> {{ typ.name }}
+    <sub>Type</sub> {{ typ.name }} <sup>{{ typ | tag }}</sup>
   </h2>
   <p> Kind: {{ typ.typeKind }}</p>
 </section>
-{%- endif -%}

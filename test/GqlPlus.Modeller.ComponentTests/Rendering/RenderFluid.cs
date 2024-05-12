@@ -17,8 +17,14 @@ public static class RenderFluid
   public static void Setup(IFileProvider provider, string template = "default")
   {
     s_options.FileProvider = provider;
+    s_options.Filters.AddFilter("tag", TagFilter);
     s_template = s_parser.Parse("{% render '" + template + "' %}");
   }
+
+  private static ValueTask<FluidValue> TagFilter(FluidValue input, FilterArguments arguments, TemplateContext context)
+    => input is TaggedValue tagged
+      ? new StringValue(tagged.Tag)
+      : EmptyValue.Instance;
 
   public async static Task<string> ToFluid(this RenderStructure model)
   {
@@ -44,48 +50,51 @@ public static class RenderFluid
 
   private static FluidValue RenderStructureConverter(RenderStructure model)
   {
-    if (model.List.Count > 0) {
-      return new ArrayValue(model.List.Select(RenderStructureConverter));
-    }
+    FluidValue result = NilValue.Empty;
 
-    if (model.Map.Count > 0) {
+    if (model.List.Count > 0) {
+      result = new ArrayValue(model.List.Select(RenderStructureConverter));
+    } else if (model.Map.Count > 0) {
       Dictionary<string, FluidValue> dict = model.Map
         .ToDictionary(
           kv => kv.Key.AsString,
           kv => RenderStructureConverter(kv.Value)
         );
-      if (!string.IsNullOrWhiteSpace(model.Tag)) {
-        dict["_tag"] = StringValue.Create(model.Tag);
+
+      result = new DictionaryValue(new FluidValueDictionaryFluidIndexable(dict));
+    } else if (model.Value is not null) {
+      result = RenderValueConverter(model.Value);
+
+      if (result is TaggedValue) {
+        return result;
       }
-
-      return new DictionaryValue(new FluidValueDictionaryFluidIndexable(dict));
     }
 
-    if (model.Value is not null) {
-      return RenderValueConverter(model.Value);
-    }
-
-    return NilValue.Empty;
+    return string.IsNullOrWhiteSpace(model.Tag) ? result
+      : new TaggedValue(model.Tag, result);
   }
 
   private static FluidValue RenderValueConverter(RenderValue value)
   {
+    FluidValue result = NilValue.Empty;
+
     if (value.Identifier is not null) {
-      return StringValue.Create(value.Identifier);
+      result = StringValue.Create(value.Identifier);
     }
 
     if (value.Boolean is not null) {
-      return BooleanValue.Create(value.Boolean.Value);
+      result = BooleanValue.Create(value.Boolean.Value);
     }
 
     if (value.Number is not null) {
-      return NumberValue.Create(value.Number.Value);
+      result = NumberValue.Create(value.Number.Value);
     }
 
     if (value.Text is not null) {
-      return StringValue.Create(value.Text);
+      result = StringValue.Create(value.Text);
     }
 
-    return NilValue.Empty;
+    return string.IsNullOrWhiteSpace(value.Tag) ? result
+      : new TaggedValue(value.Tag, result);
   }
 }

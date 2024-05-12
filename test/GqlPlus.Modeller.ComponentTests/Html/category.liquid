@@ -1,5 +1,4 @@
-﻿{%- if category[0] != "_tag" -%}
-<section>
+﻿<section>
   {%- assign cat = category[1] %}
   <h2>
     <sub>Category</sub> {{ cat.name }}
@@ -9,4 +8,3 @@
   </p>
   <p> Resolution: {{ cat.resolution }}</p>
 </section>
-{%- endif -%}

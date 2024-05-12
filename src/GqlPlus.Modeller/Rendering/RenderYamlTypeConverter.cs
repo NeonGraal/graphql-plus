@@ -75,6 +75,16 @@ internal class RenderYamlTypeConverter
       text = value.Text;
     }
 
-    emitter.Emit(new Scalar(default, tagName, text!, isString ? ScalarStyle.SingleQuoted : ScalarStyle.Any, plainImplicit, isString));
+    ScalarStyle style = ScalarStyle.Any;
+    if (isString) {
+      style = text.Contains('\'', StringComparison.Ordinal)
+        ? ScalarStyle.DoubleQuoted : ScalarStyle.SingleQuoted;
+
+      if (text.Length > RenderYaml.BestWidth / 2) {
+        style = ScalarStyle.Folded;
+      }
+    }
+
+    emitter.Emit(new Scalar(default, tagName, text!, style, plainImplicit, isString));
   }
 }

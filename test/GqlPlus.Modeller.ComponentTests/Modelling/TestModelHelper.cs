@@ -34,5 +34,7 @@ internal static class TestModelHelper
 
   internal static string YamlQuoted(this string? input)
     => input is null ? ""
-    : $"'{input.Replace("'", "''", StringComparison.Ordinal)}'";
+    : input.Contains('\'', StringComparison.Ordinal)
+      ? '"' + input.Replace("\"", "\\\"", StringComparison.Ordinal) + '"'
+      : "'" + input.Replace("'", "''", StringComparison.Ordinal) + "'";
 }

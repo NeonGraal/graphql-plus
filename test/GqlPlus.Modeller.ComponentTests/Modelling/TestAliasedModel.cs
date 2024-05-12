@@ -66,7 +66,7 @@ internal class ExpectedDescriptionAliasesInput<TName>(
 ) : ExpectedDescriptionInput<TName>(name, description)
 {
   public string[] Aliases { get; protected set; }
-    = aliases is null ? [] : [$"aliases: [{string.Join(", ", aliases)}]"];
+    = aliases is null ? [] : aliases.YamlWidth("aliases: [", "]");
 
   internal ExpectedDescriptionAliasesInput(ExpectedDescriptionInput<TName> input)
     : this(input.Name)

@@ -18,8 +18,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _BaseDescribed
         typeArguments:
-        - !_OutputBase
-          output: _ObjRef
+        - !_DualBase
+          dual: _ObjRef
           typeArguments:
           - !_TypeParameter base
     - !_ObjectFor(_OutputField)
@@ -33,8 +33,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _BaseDescribed
         typeArguments:
-        - !_OutputBase
-          output: _ObjRef
+        - !_DualBase
+          dual: _ObjRef
           typeArguments:
           - !_TypeParameter base
     - !_OutputField
@@ -53,8 +53,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _BaseDescribed
         typeArguments:
-        - !_OutputBase
-          output: _ObjRef
+        - !_DualBase
+          dual: _ObjRef
           typeArguments:
           - !_TypeParameter base
     - !_ObjectFor(_OutputField)
@@ -68,8 +68,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _BaseDescribed
         typeArguments:
-        - !_OutputBase
-          output: _ObjRef
+        - !_DualBase
+          dual: _ObjRef
           typeArguments:
           - !_TypeParameter base
     - !_OutputField
@@ -89,25 +89,40 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier List]
-      name: arguments
-      object: _ObjBase
-      type: !_TypeParameter arg
+      name: typeArguments
+      object: _ObjRef
+      type: !_TypeParameter ref
     alternates:
     - !_Alternate(_DualBase)
       type: !_DualBase _TypeParameter
+    name: _ObjBase
+    parent: !_DualBase
+      dual: _ObjRef
+      typeArguments:
+      - !_TypeParameter base
+    typeKind: !_TypeKind Dual
+    typeParameters:
+    - !_Described base
+  !_Identifier _ObjRef: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier List]
+      name: typeArguments
+      object: _ObjRef
+      type: !_TypeParameter ref
     fields:
     - !_DualField
       modifiers: [!_Modifier List]
-      name: arguments
-      type: !_TypeParameter arg
-    name: _ObjBase
+      name: typeArguments
+      type: !_TypeParameter ref
+    name: _ObjRef
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described arg
-  !_Identifier _ObjRef: !_TypeOutput
+    - !_Described ref
+  !_Identifier _ObjType: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
-      object: _ObjRef
+      object: _ObjType
       type: !_OutputBase
         output: _BaseType
         typeArguments:
@@ -116,10 +131,10 @@ types: !_Map_Type
           typeKind: !_SimpleKind Enum
           value: Internal
     - !_ObjectFor(_Alternate(_OutputBase))
-      object: _ObjRef
+      object: _ObjType
       type: !_OutputBase _TypeSimple
     - !_ObjectFor(_Alternate(_OutputBase))
-      object: _ObjRef
+      object: _ObjType
       type: !_TypeParameter base
     alternates:
     - !_Alternate(_OutputBase)
@@ -134,7 +149,7 @@ types: !_Map_Type
       type: !_OutputBase _TypeSimple
     - !_Alternate(_OutputBase)
       type: !_TypeParameter base
-    name: _ObjRef
+    name: _ObjType
     typeKind: !_TypeKind Output
     typeParameters:
     - !_Described base
@@ -161,8 +176,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _BaseDescribed
         typeArguments:
-        - !_OutputBase
-          output: _ObjRef
+        - !_DualBase
+          dual: _ObjRef
           typeArguments:
           - !_TypeParameter base
     - !_ObjectFor(_OutputField)

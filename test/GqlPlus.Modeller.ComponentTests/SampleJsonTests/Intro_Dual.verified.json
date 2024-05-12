@@ -9,6 +9,11 @@
     {
       "$tag": "_Error",
       "_kind": "End",
+      "_message": "In _DualRef can\u0027t get model for type \u0027_ObjRef\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
       "_message": "In _DualBase can\u0027t get model for type \u0027_ObjBase\u0027"
     }
   ],
@@ -16,11 +21,26 @@
     "$tag": "_Map_Type",
     "_DualBase": {
       "$tag": "_TypeOutput",
+      "name": "_DualBase",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjBase",
+        "typeArguments": [
+          {
+            "$tag": "_OutputBase",
+            "value": "_DualRef"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_DualRef": {
+      "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "dual",
-          "object": "_DualBase",
+          "object": "_DualRef",
           "type": {
             "$tag": "_OutputBase",
             "value": "_Identifier"
@@ -37,20 +57,14 @@
           }
         }
       ],
-      "name": "_DualBase",
+      "name": "_DualRef",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjBase",
+        "output": "_ObjRef",
         "typeArguments": [
           {
             "$tag": "_OutputBase",
-            "output": "_ObjRef",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "value": "_DualBase"
-              }
-            ]
+            "value": "_DualRef"
           }
         ]
       },

@@ -7,14 +7,18 @@ output _TypeObject<$kind $base $field> {
         allAlternates: _ObjectFor<_Alternate<$base>>[]
     }
 
-output _ObjRef<$base> {
+dual _ObjRef<$ref> {
+        typeArguments: $ref[]
+    }
+
+output _ObjType<$base> {
     | _BaseType<_TypeKind.Internal>
     | _TypeSimple
     | $base
     }
 
-dual _ObjBase<$arg> {
-        arguments: $arg[]
+dual _ObjBase<$base> {
+    : _ObjRef<$base>
     | _TypeParameter
     }
 

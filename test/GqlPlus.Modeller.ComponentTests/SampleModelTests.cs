@@ -55,7 +55,7 @@ public class SampleModelTests(
 
   [Theory]
   [ClassData(typeof(SampleSchemaData))]
-  public async Task FluidSchema(string sample)
+  public async Task HtmlSchema(string sample)
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
     TypesCollection context = TypesCollection.WithBuiltins(types);

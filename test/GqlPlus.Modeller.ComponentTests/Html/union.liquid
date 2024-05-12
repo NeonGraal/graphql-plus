@@ -1,0 +1,9 @@
+﻿<table>
+  <thead><th>Name</th><th>Union</th></thead>
+  {%- for item in union.allItems %}
+  <tr>
+    <td>{{ item.name }}</td>
+    <td>{{ item.union }}</td>
+  </tr>
+  {%- endfor %}
+</table>

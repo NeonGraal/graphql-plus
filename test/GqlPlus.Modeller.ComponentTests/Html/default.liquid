@@ -1,42 +1,70 @@
-﻿<main>
-  {%- if name or aliases -%}
-  {%- render 'schema' -%}
-  {%- endif -%}
-  {%- if _errors %}
-  <section>
-    <ul>
-      {% render 'error' for _errors as error %}
-    </ul>
-  </section>
-  {%- endif -%}
-  {%- if types %}
-  <section>
-    <h1>Types</h1>
-    {%- render 'type' for types as type %}
-  </section>
-  {%- endif -%}
-  {%- if categories %}
-  <section>
-    <h1>Categories</h1>
-    {%- render 'category' for categories as category %}
-  </section>
-  {%- endif -%}
-  {%- if directives %}
-  <section>
-    <h1>Directives</h1>
-    {%- render 'directive' for directives as directive %}
-  </section>
-  {%- endif -%}
-  {%- if settings %}
-  <section>
-    <h1>Settings</h1>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Value</th>
-      </tr>
-      {%- render 'setting' for settings as setting %}
-    </table>
-  </section>
-  {%- endif %}
-</main>
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+  <title>Schema {{ name }} Documentation</title>
+  <style>
+    aside { position: absolute; right: 1em; z-index: 10; }
+    table { width: 75%; }
+    sup, sub { font-size: 50%; }
+    sub { font-weight: 400; }
+  </style>
+</head>
+
+<body>
+  <main>
+    <aside>
+      <details>
+        <summary>YAML</summary>
+        <pre>{{ yaml }}</pre>
+      </details>
+    </aside>
+    {%- if name or aliases -%}
+    {%- render 'schema' -%}
+    {%- endif -%}
+    {%- if _errors %}
+    <section>
+      <h3>Errors</h3>
+      <ul>
+        {% render 'error' for _errors as error %}
+      </ul>
+    </section>
+    {%- endif -%}
+    {%- if types %}
+    <section>
+      <h1>Types</h1>
+      {%- render 'type' for types as type %}
+    </section>
+    {%- endif -%}
+    {%- if categories %}
+    <section>
+      <h1>Categories</h1>
+      {%- render 'category' for categories as category %}
+    </section>
+    {%- endif -%}
+    {%- if directives %}
+    <section>
+      <h1>Directives</h1>
+      {%- render 'directive' for directives as directive %}
+    </section>
+    {%- endif -%}
+    {%- if settings %}
+    <section>
+      <h1>Settings</h1>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+        </tr>
+        {%- render 'setting' for settings as setting %}
+      </table>
+    </section>
+    {%- endif %}
+  </main>
+</body>
+
+</html>

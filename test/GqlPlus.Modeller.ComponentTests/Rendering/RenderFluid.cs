@@ -28,6 +28,9 @@ public static class RenderFluid
 
   public async static Task<string> ToFluid(this RenderStructure model)
   {
+    ArgumentNullException.ThrowIfNull(model);
+
+    model.Add("yaml", model.ToYaml());
     TemplateContext context = new(model, s_options);
     return await s_template.RenderAsync(context);
   }

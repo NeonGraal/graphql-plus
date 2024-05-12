@@ -1,7 +1,20 @@
 ﻿<section>
   {%- assign typ = type[1] %}
   <h2>
-    <sub>Type</sub> {{ typ.name }} <sup>{{ typ | tag }}</sup>
+    <sub>Type</sub> {{ typ.name }} <sup>{{ typ.typeKind }}</sup>
   </h2>
-  <p> Kind: {{ typ.typeKind }}</p>
+  {%- if typ.parent %}
+  <p>Parent: {{ typ.parent.name }} <sup>{{ typ.parent.typeKind }}</sup></p>
+  {% endif -%}
+  {%- liquid
+  case typ.typeKind
+  when "Domain"
+  render "domain" with typ as domain
+  when "Enum"
+  render "enum" with typ as enum
+  when "Union"
+  render "union" with typ as union
+  else
+  echo "Other type: " | append: typ.typeKind
+  endcase %}
 </section>

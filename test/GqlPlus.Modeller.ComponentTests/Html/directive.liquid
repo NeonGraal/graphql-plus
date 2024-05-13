@@ -3,9 +3,18 @@
   <h2>
     <sub>Directive</sub> {{ dir.name }}
   </h2>
+  {%- if dir.parameters -%}
+  Parameters:
+    <ul>
+      {%- for parameter in dir.parameters %}
+      <li>{{ parameter.type.input }}</li>
+      {%- endfor %}
+    </ul>
+  {%- endif -%}
   <p>
     Locations:
-    {%- for loc in dir.locations %} {{ loc[0] }}
+    {%- assign locs = dir.locations | sort %}
+    {%- for loc in locs %} {{ loc[0] }}
     {%- unless forloop.last -%},{%- endunless -%}
     {%- endfor %}
   </p>

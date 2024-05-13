@@ -7,9 +7,11 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
       object: OutpAltsDual
-      type: !_DualBase OutpAltDual
+      type: !_DualBase
+        dual: OutpAltDual
     alternates:
     - !_Alternate(_OutputBase)
-      type: !_DualBase OutpAltDual
+      type: !_DualBase
+        dual: OutpAltDual
     name: OutpAltsDual
     typeKind: !_TypeKind Output

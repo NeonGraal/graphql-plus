@@ -19,7 +19,8 @@ types: !_Map_Type
     name: InpGenFieldArg
     typeKind: !_TypeKind Input
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type
   !_Identifier InpGenFieldRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -31,4 +32,5 @@ types: !_Map_Type
     name: InpGenFieldRef
     typeKind: !_TypeKind Input
     typeParameters:
-    - !_Described ref
+    - !_Described
+      name: ref

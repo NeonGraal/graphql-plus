@@ -226,7 +226,8 @@ types: !_Map_Type
       enum: EnAliasPrnt
       name: valAlias
     items:
-    - !_Aliased valAlias
+    - !_Aliased
+      name: valAlias
     name: EnAliasPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnDupPrnt: !_TypeEnum
@@ -254,7 +255,8 @@ types: !_Map_Type
       enum: EnPrntAlias
       name: valAlias
     items:
-    - !_Aliased valPrnt
+    - !_Aliased
+      name: valPrnt
     - !_Aliased
       aliases: [alias]
       name: valAlias
@@ -273,7 +275,8 @@ types: !_Map_Type
       enum: EnPrntDup
       name: valPrnt
     items:
-    - !_Aliased valPrnt
+    - !_Aliased
+      name: valPrnt
     name: EnPrntDup
     parent: !_TypeRef(_SimpleKind)
       name: EnDupPrnt
@@ -285,7 +288,8 @@ types: !_Map_Type
       enum: EnPrntTest
       name: valTest
     items:
-    - !_Aliased valTest
+    - !_Aliased
+      name: valTest
     name: EnPrntTest
     typeKind: !_TypeKind Enum
   !_Identifier EnTestPrnt: !_TypeEnum
@@ -297,7 +301,8 @@ types: !_Map_Type
       enum: EnTestPrnt
       name: valPrnt
     items:
-    - !_Aliased valPrnt
+    - !_Aliased
+      name: valPrnt
     name: EnTestPrnt
     parent: !_TypeRef(_SimpleKind)
       name: EnPrntTest
@@ -309,7 +314,8 @@ types: !_Map_Type
       enum: EnumDom
       name: dom_enum
     items:
-    - !_Aliased dom_enum
+    - !_Aliased
+      name: dom_enum
     name: EnumDom
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomAll: !_TypeEnum
@@ -321,8 +327,10 @@ types: !_Map_Type
       enum: EnumDomAll
       name: dom_enum_all
     items:
-    - !_Aliased dom_all
-    - !_Aliased dom_enum_all
+    - !_Aliased
+      name: dom_all
+    - !_Aliased
+      name: dom_enum_all
     name: EnumDomAll
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomAllParent: !_TypeEnum
@@ -334,7 +342,8 @@ types: !_Map_Type
       enum: EnumDomAllParent
       name: dom_all
     items:
-    - !_Aliased dom_all
+    - !_Aliased
+      name: dom_all
     name: EnumDomAllParent
     parent: !_TypeRef(_SimpleKind)
       name: EnumDomParentAll
@@ -346,7 +355,8 @@ types: !_Map_Type
       enum: EnumDomDup
       name: dup
     items:
-    - !_Aliased dup
+    - !_Aliased
+      name: dup
     name: EnumDomDup
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomDupParent: !_TypeEnum
@@ -355,7 +365,8 @@ types: !_Map_Type
       enum: EnumDomDupParent
       name: dup
     items:
-    - !_Aliased dup
+    - !_Aliased
+      name: dup
     name: EnumDomDupParent
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomParent: !_TypeEnum
@@ -367,7 +378,8 @@ types: !_Map_Type
       enum: EnumDomParent
       name: dom_parent
     items:
-    - !_Aliased dom_parent
+    - !_Aliased
+      name: dom_parent
     name: EnumDomParent
     parent: !_TypeRef(_SimpleKind)
       name: EnumParentDom
@@ -379,7 +391,8 @@ types: !_Map_Type
       enum: EnumDomParentAll
       name: dom_enum_all
     items:
-    - !_Aliased dom_enum_all
+    - !_Aliased
+      name: dom_enum_all
     name: EnumDomParentAll
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomParentUnique: !_TypeEnum
@@ -388,7 +401,8 @@ types: !_Map_Type
       enum: EnumDomParentUnique
       name: dup
     items:
-    - !_Aliased dup
+    - !_Aliased
+      name: dup
     name: EnumDomParentUnique
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomPrnt: !_TypeEnum
@@ -400,8 +414,10 @@ types: !_Map_Type
       enum: EnumDomPrnt
       name: dom_parent
     items:
-    - !_Aliased dom_enum
-    - !_Aliased dom_parent
+    - !_Aliased
+      name: dom_enum
+    - !_Aliased
+      name: dom_parent
     name: EnumDomPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomUnique: !_TypeEnum
@@ -413,8 +429,10 @@ types: !_Map_Type
       enum: EnumDomUnique
       name: dup
     items:
-    - !_Aliased value
-    - !_Aliased dup
+    - !_Aliased
+      name: value
+    - !_Aliased
+      name: dup
     name: EnumDomUnique
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomUniqueParent: !_TypeEnum
@@ -426,7 +444,8 @@ types: !_Map_Type
       enum: EnumDomUniqueParent
       name: value
     items:
-    - !_Aliased value
+    - !_Aliased
+      name: value
     name: EnumDomUniqueParent
     parent: !_TypeRef(_SimpleKind)
       name: EnumDomParentUnique
@@ -438,7 +457,8 @@ types: !_Map_Type
       enum: EnumParentDom
       name: dom_enum
     items:
-    - !_Aliased dom_enum
+    - !_Aliased
+      name: dom_enum
     name: EnumParentDom
     typeKind: !_TypeKind Enum
   !_Identifier MemberDom: !_TypeEnum
@@ -447,7 +467,8 @@ types: !_Map_Type
       enum: MemberDom
       name: dom_member
     items:
-    - !_Aliased dom_member
+    - !_Aliased
+      name: dom_member
     name: MemberDom
     typeKind: !_TypeKind Enum
   !_Identifier PrntUnion: !_TypeUnion
@@ -456,7 +477,8 @@ types: !_Map_Type
       name: Number
       union: PrntUnion
     items:
-    - !_Aliased Number
+    - !_Aliased
+      name: Number
     name: PrntUnion
     typeKind: !_TypeKind Union
   !_Identifier UnionPrnt: !_TypeUnion
@@ -468,7 +490,8 @@ types: !_Map_Type
       name: String
       union: UnionPrnt
     items:
-    - !_Aliased String
+    - !_Aliased
+      name: String
     name: UnionPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntUnion

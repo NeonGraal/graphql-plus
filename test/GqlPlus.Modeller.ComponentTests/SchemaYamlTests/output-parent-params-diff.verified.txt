@@ -11,7 +11,8 @@ types: !_Map_Type
     name: OutpPrmsPrntDiff
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described b
+    - !_Described
+      name: b
   !_Identifier OutpPrntPrmsDiff: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -33,4 +34,5 @@ types: !_Map_Type
       - !_TypeParameter a
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described a
+    - !_Described
+      name: a

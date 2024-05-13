@@ -35,7 +35,8 @@ types: !_Map_Type
     name: OutGenParentRef
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type
   !_Identifier OutParentGen: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -45,7 +46,8 @@ types: !_Map_Type
       enum: OutParentGen
       name: outGenPrntended
     items:
-    - !_Aliased outGenPrntended
+    - !_Aliased
+      name: outGenPrntended
     name: OutParentGen
     parent: !_TypeRef(_SimpleKind)
       name: OutPrntendedGen
@@ -57,6 +59,7 @@ types: !_Map_Type
       enum: OutPrntendedGen
       name: outGenParent
     items:
-    - !_Aliased outGenParent
+    - !_Aliased
+      name: outGenParent
     name: OutPrntendedGen
     typeKind: !_TypeKind Enum

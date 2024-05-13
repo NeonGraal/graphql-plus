@@ -28,9 +28,10 @@ types: !_Map_Type
         collections:
         - !_ModifierDictionary
           by: OutDomainParam
-          modifierKind: Dict
-        type: !_InputBase OutParamDomain
-      type: !_OutputBase OutParamsDomain
+        type: !_InputBase
+          input: OutParamDomain
+      type: !_OutputBase
+        output: OutParamsDomain
     fields:
     - !_OutputField
       name: field
@@ -39,8 +40,9 @@ types: !_Map_Type
         collections:
         - !_ModifierDictionary
           by: OutDomainParam
-          modifierKind: Dict
-        type: !_InputBase OutParamDomain
-      type: !_OutputBase OutParamsDomain
+        type: !_InputBase
+          input: OutParamDomain
+      type: !_OutputBase
+        output: OutParamsDomain
     name: OutParamsDomain
     typeKind: !_TypeKind Output

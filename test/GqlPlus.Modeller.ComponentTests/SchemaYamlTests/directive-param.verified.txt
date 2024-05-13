@@ -6,7 +6,8 @@ directives: !_Map_Directives
     name: DirParam
     parameters:
     - !_InputParameter
-      type: !_InputBase DirParamIn
+      type: !_InputBase
+        input: DirParamIn
     repeatable: false
 types: !_Map_Type
   !_Identifier DirParamIn: !_TypeInput

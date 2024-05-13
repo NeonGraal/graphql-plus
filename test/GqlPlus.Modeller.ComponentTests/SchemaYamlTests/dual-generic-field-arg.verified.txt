@@ -19,7 +19,8 @@ types: !_Map_Type
     name: DualGenFieldArg
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type
   !_Identifier DualGenFieldRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -31,4 +32,5 @@ types: !_Map_Type
     name: DualGenFieldRef
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described ref
+    - !_Described
+      name: ref

@@ -6,7 +6,8 @@ types: !_Map_Type
       enum: EnAliasPrnt
       name: valAlias
     items:
-    - !_Aliased valAlias
+    - !_Aliased
+      name: valAlias
     name: EnAliasPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnPrntAlias: !_TypeEnum
@@ -22,7 +23,8 @@ types: !_Map_Type
       enum: EnPrntAlias
       name: valAlias
     items:
-    - !_Aliased valPrnt
+    - !_Aliased
+      name: valPrnt
     - !_Aliased
       aliases: [alias]
       name: valAlias

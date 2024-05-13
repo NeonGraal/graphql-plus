@@ -9,11 +9,14 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: value
       object: _Setting
-      type: !_OutputBase _Constant
+      type: !_OutputBase
+        output: _Constant
     fields:
     - !_OutputField
       name: value
-      type: !_OutputBase _Constant
+      type: !_OutputBase
+        output: _Constant
     name: _Setting
-    parent: !_OutputBase _Described
+    parent: !_OutputBase
+      output: _Described
     typeKind: !_TypeKind Output

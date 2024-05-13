@@ -8,14 +8,16 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenParamRef
         typeArguments:
-        - !_DualBase DualGenParamAlt
+        - !_DualBase
+          dual: DualGenParamAlt
     fields:
     - !_DualField
       name: field
       type: !_DualBase
         dual: DualGenParamRef
         typeArguments:
-        - !_DualBase DualGenParamAlt
+        - !_DualBase
+          dual: DualGenParamAlt
     name: DualGenParam
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParamAlt: !_TypeDual
@@ -32,4 +34,5 @@ types: !_Map_Type
     name: DualGenParamRef
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described ref
+    - !_Described
+      name: ref

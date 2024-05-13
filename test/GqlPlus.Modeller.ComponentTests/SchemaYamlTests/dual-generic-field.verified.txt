@@ -13,4 +13,5 @@ types: !_Map_Type
     name: DualGenField
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type

@@ -11,7 +11,8 @@ types: !_Map_Type
     name: DualPrmsPrntSame
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described a
+    - !_Described
+      name: a
   !_Identifier DualPrntPrmsSame: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -33,4 +34,5 @@ types: !_Map_Type
       - !_TypeParameter a
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described a
+    - !_Described
+      name: a

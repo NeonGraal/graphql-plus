@@ -11,7 +11,8 @@ types: !_Map_Type
     name: InpPrmsPrntSame
     typeKind: !_TypeKind Input
     typeParameters:
-    - !_Described a
+    - !_Described
+      name: a
   !_Identifier InpPrntPrmsSame: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -33,4 +34,5 @@ types: !_Map_Type
       - !_TypeParameter a
     typeKind: !_TypeKind Input
     typeParameters:
-    - !_Described a
+    - !_Described
+      name: a

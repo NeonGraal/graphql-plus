@@ -4,7 +4,7 @@ namespace GqlPlus.Rendering;
 internal class RenderStructureJsonConverter
   : RenderJsonConverter<RenderStructure>
 {
-  static internal RenderValueJsonConverter ValueConverter { get; } = new();
+  internal static RenderValueJsonConverter ValueConverter { get; } = new();
 
   public override RenderStructure? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException();
   public override void Write(Utf8JsonWriter writer, RenderStructure value, JsonSerializerOptions options)

@@ -2,7 +2,8 @@
 types: !_Map_Type
   !_Identifier InpPrnt: !_TypeInput
     name: InpPrnt
-    parent: !_InputBase PrntInp
+    parent: !_InputBase
+      input: PrntInp
     typeKind: !_TypeKind Input
   !_Identifier PrntInp: !_TypeInput
     name: PrntInp

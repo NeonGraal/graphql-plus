@@ -13,7 +13,8 @@ types: !_Map_Type
           value: List
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Collections
-      type: !_OutputBase _ModifierDictionary
+      type: !_OutputBase
+        output: _ModifierDictionary
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
@@ -24,27 +25,34 @@ types: !_Map_Type
           typeKind: !_SimpleKind Enum
           value: List
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _ModifierDictionary
+      type: !_OutputBase
+        output: _ModifierDictionary
     name: _Collections
     typeKind: !_TypeKind Output
   !_Identifier _Constant: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Constant
-      type: !_OutputBase _Simple
+      type: !_OutputBase
+        output: _Simple
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Constant
-      type: !_OutputBase _ConstantList
+      type: !_OutputBase
+        output: _ConstantList
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Constant
-      type: !_OutputBase _ConstantMap
+      type: !_OutputBase
+        output: _ConstantMap
     alternates:
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _Simple
+      type: !_OutputBase
+        output: _Simple
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _ConstantList
+      type: !_OutputBase
+        output: _ConstantList
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _ConstantMap
+      type: !_OutputBase
+        output: _ConstantMap
     name: _Constant
     typeKind: !_TypeKind Output
   !_Identifier _ConstantList: !_TypeOutput
@@ -53,12 +61,14 @@ types: !_Map_Type
       collections:
       - !_Modifier List
       object: _ConstantList
-      type: !_OutputBase _Constant
+      type: !_OutputBase
+        output: _Constant
     alternates:
     - !_Alternate(_OutputBase)
       collections:
       - !_Modifier List
-      type: !_OutputBase _Constant
+      type: !_OutputBase
+        output: _Constant
     name: _ConstantList
     typeKind: !_TypeKind Output
   !_Identifier _ConstantMap: !_TypeOutput
@@ -67,16 +77,16 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: Simple
-        modifierKind: Dict
       object: _ConstantMap
-      type: !_OutputBase _Constant
+      type: !_OutputBase
+        output: _Constant
     alternates:
     - !_Alternate(_OutputBase)
       collections:
       - !_ModifierDictionary
         by: Simple
-        modifierKind: Dict
-      type: !_OutputBase _Constant
+      type: !_OutputBase
+        output: _Constant
     name: _ConstantMap
     typeKind: !_TypeKind Output
   !_Identifier _Modifier: !_TypeOutput
@@ -92,7 +102,8 @@ types: !_Map_Type
     name: _Modifier
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described kind
+    - !_Described
+      name: kind
   !_Identifier _ModifierDictionary: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -102,18 +113,22 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: by
       object: _ModifierDictionary
-      type: !_OutputBase _TypeSimple
+      type: !_OutputBase
+        output: _TypeSimple
     - !_ObjectFor(_OutputField)
       name: optional
       object: _ModifierDictionary
-      type: !_OutputBase Boolean
+      type: !_OutputBase
+        output: Boolean
     fields:
     - !_OutputField
       name: by
-      type: !_OutputBase _TypeSimple
+      type: !_OutputBase
+        output: _TypeSimple
     - !_OutputField
       name: optional
-      type: !_OutputBase Boolean
+      type: !_OutputBase
+        output: Boolean
     name: _ModifierDictionary
     parent: !_OutputBase
       output: _Modifier
@@ -135,9 +150,12 @@ types: !_Map_Type
       enum: _ModifierKind
       name: Dictionary
     items:
-    - !_Aliased Optional
-    - !_Aliased List
-    - !_Aliased Dictionary
+    - !_Aliased
+      name: Optional
+    - !_Aliased
+      name: List
+    - !_Aliased
+      name: Dictionary
     name: _ModifierKind
     typeKind: !_TypeKind Enum
   !_Identifier _Modifiers: !_TypeOutput
@@ -153,7 +171,8 @@ types: !_Map_Type
           value: Optional
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Modifiers
-      type: !_OutputBase _Collections
+      type: !_OutputBase
+        output: _Collections
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
@@ -164,14 +183,16 @@ types: !_Map_Type
           typeKind: !_SimpleKind Enum
           value: Optional
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _Collections
+      type: !_OutputBase
+        output: _Collections
     name: _Modifiers
     typeKind: !_TypeKind Output
   !_Identifier _Simple: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Simple
-      type: !_OutputBase Boolean
+      type: !_OutputBase
+        output: Boolean
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Simple
       type: !_OutputBase
@@ -181,7 +202,8 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Number
-        - !_OutputBase Number
+        - !_OutputBase
+          output: Number
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Simple
       type: !_OutputBase
@@ -191,13 +213,16 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: String
-        - !_OutputBase String
+        - !_OutputBase
+          output: String
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Simple
-      type: !_OutputBase _EnumValue
+      type: !_OutputBase
+        output: _EnumValue
     alternates:
     - !_Alternate(_OutputBase)
-      type: !_OutputBase Boolean
+      type: !_OutputBase
+        output: Boolean
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _DomainValue
@@ -206,7 +231,8 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Number
-        - !_OutputBase Number
+        - !_OutputBase
+          output: Number
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _DomainValue
@@ -215,8 +241,10 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: String
-        - !_OutputBase String
+        - !_OutputBase
+          output: String
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _EnumValue
+      type: !_OutputBase
+        output: _EnumValue
     name: _Simple
     typeKind: !_TypeKind Output

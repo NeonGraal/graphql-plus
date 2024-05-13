@@ -7,9 +7,11 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
       object: DualAltsDual
-      type: !_DualBase DualAltDual
+      type: !_DualBase
+        dual: DualAltDual
     alternates:
     - !_Alternate(_DualBase)
-      type: !_DualBase DualAltDual
+      type: !_DualBase
+        dual: DualAltDual
     name: DualAltsDual
     typeKind: !_TypeKind Dual

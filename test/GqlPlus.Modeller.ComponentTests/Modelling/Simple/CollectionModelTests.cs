@@ -20,7 +20,7 @@ internal sealed class CollectionModelChecks(
     => name.Kind switch {
       ModifierKind.Optional => ["!_Modifier Opt"],
       ModifierKind.List => ["!_Modifier List"],
-      ModifierKind.Dict => ["!_ModifierDictionary", "by: " + name.Key, "modifierKind: Dict", name.Optional ? "optional: true" : ""],
+      ModifierKind.Dict => ["!_ModifierDictionary", "by: " + name.Key, name.Optional ? "optional: true" : ""],
       _ => [],
     };
 

@@ -15,10 +15,12 @@ types: !_Map_Type
       name: typeKind
       type: !_TypeParameter kind
     name: _BaseType
-    parent: !_OutputBase _Aliased
+    parent: !_OutputBase
+      output: _Aliased
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described kind
+    - !_Described
+      name: kind
   !_Identifier _ChildType: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -40,8 +42,10 @@ types: !_Map_Type
       - !_TypeParameter kind
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described kind
-    - !_Described parent
+    - !_Described
+      name: kind
+    - !_Described
+      name: parent
   !_Identifier _ParentType: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -76,12 +80,16 @@ types: !_Map_Type
       output: _ChildType
       typeArguments:
       - !_TypeParameter kind
-      - !_OutputBase _Identifier
+      - !_OutputBase
+        output: _Identifier
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described kind
-    - !_Described item
-    - !_Described allItem
+    - !_Described
+      name: kind
+    - !_Described
+      name: item
+    - !_Described
+      name: allItem
   !_Identifier _SimpleKind: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -100,11 +108,16 @@ types: !_Map_Type
       enum: _SimpleKind
       name: Union
     items:
-    - !_Aliased Basic
-    - !_Aliased Enum
-    - !_Aliased Internal
-    - !_Aliased Domain
-    - !_Aliased Union
+    - !_Aliased
+      name: Basic
+    - !_Aliased
+      name: Enum
+    - !_Aliased
+      name: Internal
+    - !_Aliased
+      name: Domain
+    - !_Aliased
+      name: Union
     name: _SimpleKind
     typeKind: !_TypeKind Enum
   !_Identifier _Type: !_TypeOutput
@@ -129,22 +142,28 @@ types: !_Map_Type
           value: Internal
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Type
-      type: !_OutputBase _TypeDual
+      type: !_OutputBase
+        output: _TypeDual
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Type
-      type: !_OutputBase _TypeEnum
+      type: !_OutputBase
+        output: _TypeEnum
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Type
-      type: !_OutputBase _TypeInput
+      type: !_OutputBase
+        output: _TypeInput
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Type
-      type: !_OutputBase _TypeOutput
+      type: !_OutputBase
+        output: _TypeOutput
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Type
-      type: !_OutputBase _TypeDomain
+      type: !_OutputBase
+        output: _TypeDomain
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Type
-      type: !_OutputBase _TypeUnion
+      type: !_OutputBase
+        output: _TypeUnion
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
@@ -163,17 +182,23 @@ types: !_Map_Type
           typeKind: !_SimpleKind Enum
           value: Internal
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _TypeDual
+      type: !_OutputBase
+        output: _TypeDual
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _TypeEnum
+      type: !_OutputBase
+        output: _TypeEnum
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _TypeInput
+      type: !_OutputBase
+        output: _TypeInput
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _TypeOutput
+      type: !_OutputBase
+        output: _TypeOutput
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _TypeDomain
+      type: !_OutputBase
+        output: _TypeDomain
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _TypeUnion
+      type: !_OutputBase
+        output: _TypeUnion
     name: _Type
     typeKind: !_TypeKind Output
   !_Identifier _TypeKind: !_TypeEnum
@@ -203,9 +228,12 @@ types: !_Map_Type
       enum: _TypeKind
       name: Output
     items:
-    - !_Aliased Dual
-    - !_Aliased Input
-    - !_Aliased Output
+    - !_Aliased
+      name: Dual
+    - !_Aliased
+      name: Input
+    - !_Aliased
+      name: Output
     name: _TypeKind
     parent: !_TypeRef(_SimpleKind)
       name: _SimpleKind
@@ -220,18 +248,21 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: name
       object: _TypeRef
-      type: !_OutputBase _Identifier
+      type: !_OutputBase
+        output: _Identifier
     fields:
     - !_OutputField
       name: typeKind
       type: !_TypeParameter kind
     - !_OutputField
       name: name
-      type: !_OutputBase _Identifier
+      type: !_OutputBase
+        output: _Identifier
     name: _TypeRef
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described kind
+    - !_Described
+      name: kind
   !_Identifier _TypeSimple: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))

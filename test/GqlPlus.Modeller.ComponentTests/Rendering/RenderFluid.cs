@@ -7,7 +7,7 @@ namespace GqlPlus.Rendering;
 public static class RenderFluid
 {
   private static readonly FluidParser s_parser = new();
-  private readonly static TemplateOptions s_options = new();
+  private static readonly TemplateOptions s_options = new();
   private static readonly string s_projectDir = AttributeReader.GetProjectDirectory();
   private static IFluidTemplate? s_template;
 
@@ -26,7 +26,7 @@ public static class RenderFluid
       ? new StringValue(tagged.Tag)
       : EmptyValue.Instance;
 
-  public async static Task<string> ToFluid(this RenderStructure model)
+  public static async Task<string> ToFluid(this RenderStructure model)
   {
     ArgumentNullException.ThrowIfNull(model);
 
@@ -56,7 +56,7 @@ public static class RenderFluid
     FluidValue result = NilValue.Empty;
 
     if (model.List.Count > 0) {
-      result = new ArrayValue(model.List.Select(RenderStructureConverter));
+      result = new ArrayValue([.. model.List.Select(RenderStructureConverter)]);
     } else if (model.Map.Count > 0) {
       Dictionary<string, FluidValue> dict = model.Map
         .ToDictionary(

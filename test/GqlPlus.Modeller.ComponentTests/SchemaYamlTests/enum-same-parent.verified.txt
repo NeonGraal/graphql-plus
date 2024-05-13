@@ -6,7 +6,8 @@ types: !_Map_Type
       enum: EnParent
       name: parent
     items:
-    - !_Aliased parent
+    - !_Aliased
+      name: parent
     name: EnParent
     typeKind: !_TypeKind Enum
   !_Identifier EnSameParent: !_TypeEnum
@@ -18,7 +19,8 @@ types: !_Map_Type
       enum: EnSameParent
       name: sameP
     items:
-    - !_Aliased sameP
+    - !_Aliased
+      name: sameP
     name: EnSameParent
     parent: !_TypeRef(_SimpleKind)
       name: EnParent

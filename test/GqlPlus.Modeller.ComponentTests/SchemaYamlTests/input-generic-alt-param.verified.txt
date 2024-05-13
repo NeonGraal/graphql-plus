@@ -7,13 +7,15 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenAltParamRef
         typeArguments:
-        - !_InputBase InpGenAltParamAlt
+        - !_InputBase
+          input: InpGenAltParamAlt
     alternates:
     - !_Alternate(_InputBase)
       type: !_InputBase
         input: InpGenAltParamRef
         typeArguments:
-        - !_InputBase InpGenAltParamAlt
+        - !_InputBase
+          input: InpGenAltParamAlt
     name: InpGenAltParam
     typeKind: !_TypeKind Input
   !_Identifier InpGenAltParamAlt: !_TypeInput
@@ -30,4 +32,5 @@ types: !_Map_Type
     name: InpGenAltParamRef
     typeKind: !_TypeKind Input
     typeParameters:
-    - !_Described ref
+    - !_Described
+      name: ref

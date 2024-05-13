@@ -53,11 +53,9 @@ internal abstract class CheckObjBaseModel<TObjBase, TModel>(
   protected string[] ExpectedObjBase(string input, bool isTypeParam, string[] args)
     => isTypeParam
     ? ["!_TypeParameter " + input]
-    : args.Length == 0
-      ? [$"!_{TypeKind}Base {input}"]
-      : [$"!_{TypeKind}Base", TypeKindLower + ": " + input, .. args];
+    : [$"!_{TypeKind}Base", $"{TypeKindLower}: {input}", .. args];
   protected string[] ExpectedDual(string input)
-    => ["!_DualBase " + input];
+    => ["!_DualBase", "dual: " + input];
 
   protected abstract TObjBase NewObjBaseAst(string name);
 
@@ -70,7 +68,7 @@ internal abstract class CheckObjBaseModel<TObjBase, TModel>(
   string[] ICheckObjBaseModel<TObjBase>.ExpectedDual(string input)
     => ExpectedDual(input);
   string[] ICheckObjBaseModel<TObjBase>.ExpectedArguments(string[] args)
-    => [.. ItemsExpected("typeArguments:", args, a => [$"- !_{TypeKind}Base {a}"])];
+    => [.. ItemsExpected("typeArguments:", args, a => [$"- !_{TypeKind}Base", $"  {TypeKindLower}: {a}"])];
 }
 
 internal interface ICheckObjBaseModel<TObjBase>

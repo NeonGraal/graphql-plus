@@ -5,11 +5,13 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: parent
       object: InpFieldsParent
-      type: !_InputBase String
+      type: !_InputBase
+        input: String
     fields:
     - !_InputField
       name: parent
-      type: !_InputBase String
+      type: !_InputBase
+        input: String
     name: InpFieldsParent
     typeKind: !_TypeKind Input
   !_Identifier InpPrntFields: !_TypeInput
@@ -17,15 +19,19 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: parent
       object: InpFieldsParent
-      type: !_InputBase String
+      type: !_InputBase
+        input: String
     - !_ObjectFor(_InputField)
       name: field
       object: InpPrntFields
-      type: !_InputBase Number
+      type: !_InputBase
+        input: Number
     fields:
     - !_InputField
       name: field
-      type: !_InputBase Number
+      type: !_InputBase
+        input: Number
     name: InpPrntFields
-    parent: !_InputBase InpFieldsParent
+    parent: !_InputBase
+      input: InpFieldsParent
     typeKind: !_TypeKind Input

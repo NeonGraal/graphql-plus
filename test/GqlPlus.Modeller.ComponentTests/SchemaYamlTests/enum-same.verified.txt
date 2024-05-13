@@ -6,6 +6,7 @@ types: !_Map_Type
       enum: EnSame
       name: same
     items:
-    - !_Aliased same
+    - !_Aliased
+      name: same
     name: EnSame
     typeKind: !_TypeKind Enum

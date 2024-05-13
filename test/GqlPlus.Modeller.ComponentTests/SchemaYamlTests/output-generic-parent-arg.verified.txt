@@ -12,7 +12,8 @@ types: !_Map_Type
       - !_TypeParameter type
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type
   !_Identifier OutpGenPrntRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -24,4 +25,5 @@ types: !_Map_Type
     name: OutpGenPrntRef
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described ref
+    - !_Described
+      name: ref

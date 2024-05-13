@@ -6,16 +6,16 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
-        modifierKind: Dict
       object: OutpAltMods
-      type: !_OutputBase OutpModsAlt
+      type: !_OutputBase
+        output: OutpModsAlt
     alternates:
     - !_Alternate(_OutputBase)
       collections:
       - !_ModifierDictionary
         by: ^
-        modifierKind: Dict
-      type: !_OutputBase OutpModsAlt
+      type: !_OutputBase
+        output: OutpModsAlt
     name: OutpAltMods
     typeKind: !_TypeKind Output
   !_Identifier OutpModsAlt: !_TypeOutput

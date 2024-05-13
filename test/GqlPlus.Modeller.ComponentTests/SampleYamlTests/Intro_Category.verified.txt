@@ -8,31 +8,39 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Categories
-      type: !_OutputBase _Category
+      type: !_OutputBase
+        output: _Category
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Categories
-      type: !_OutputBase _Type
+      type: !_OutputBase
+        output: _Type
     allFields:
     - !_ObjectFor(_OutputField)
       name: category
       object: _Categories
-      type: !_OutputBase _Category
+      type: !_OutputBase
+        output: _Category
     - !_ObjectFor(_OutputField)
       name: type
       object: _Categories
-      type: !_OutputBase _Type
+      type: !_OutputBase
+        output: _Type
     alternates:
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _Category
+      type: !_OutputBase
+        output: _Category
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _Type
+      type: !_OutputBase
+        output: _Type
     fields:
     - !_OutputField
       name: category
-      type: !_OutputBase _Category
+      type: !_OutputBase
+        output: _Category
     - !_OutputField
       name: type
-      type: !_OutputBase _Type
+      type: !_OutputBase
+        output: _Type
     name: _Categories
     typeKind: !_TypeKind Output
   !_Identifier _Category: !_TypeOutput
@@ -40,7 +48,8 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: resolution
       object: _Category
-      type: !_OutputBase _Resolution
+      type: !_OutputBase
+        output: _Resolution
     - !_ObjectFor(_OutputField)
       name: output
       object: _Category
@@ -55,11 +64,13 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: modifiers
       object: _Category
-      type: !_OutputBase _Modifiers
+      type: !_OutputBase
+        output: _Modifiers
     fields:
     - !_OutputField
       name: resolution
-      type: !_OutputBase _Resolution
+      type: !_OutputBase
+        output: _Resolution
     - !_OutputField
       name: output
       type: !_OutputBase
@@ -72,9 +83,11 @@ types: !_Map_Type
     - !_OutputField
       modifiers: [!_Modifier List]
       name: modifiers
-      type: !_OutputBase _Modifiers
+      type: !_OutputBase
+        output: _Modifiers
     name: _Category
-    parent: !_OutputBase _Aliased
+    parent: !_OutputBase
+      output: _Aliased
     typeKind: !_TypeKind Output
   !_Identifier _Resolution: !_TypeEnum
     allItems:
@@ -88,8 +101,11 @@ types: !_Map_Type
       enum: _Resolution
       name: Single
     items:
-    - !_Aliased Parallel
-    - !_Aliased Sequential
-    - !_Aliased Single
+    - !_Aliased
+      name: Parallel
+    - !_Aliased
+      name: Sequential
+    - !_Aliased
+      name: Single
     name: _Resolution
     typeKind: !_TypeKind Enum

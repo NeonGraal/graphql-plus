@@ -5,5 +5,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualTestPrntDual: !_TypeDual
     name: DualTestPrntDual
-    parent: !_DualBase DualPrntDualTest
+    parent: !_DualBase
+      dual: DualPrntDualTest
     typeKind: !_TypeKind Dual

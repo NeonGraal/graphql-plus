@@ -22,7 +22,8 @@ types: !_Map_Type
       enum: EnPrntDup
       name: valPrnt
     items:
-    - !_Aliased valPrnt
+    - !_Aliased
+      name: valPrnt
     name: EnPrntDup
     parent: !_TypeRef(_SimpleKind)
       name: EnDupPrnt

@@ -8,10 +8,12 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpFieldsDual
-      type: !_DualBase OutpFieldDual
+      type: !_DualBase
+        dual: OutpFieldDual
     fields:
     - !_OutputField
       name: field
-      type: !_DualBase OutpFieldDual
+      type: !_DualBase
+        dual: OutpFieldDual
     name: OutpFieldsDual
     typeKind: !_TypeKind Output

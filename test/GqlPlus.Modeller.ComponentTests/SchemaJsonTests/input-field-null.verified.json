@@ -8,12 +8,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": "null",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "field",
           "object": "InFieldNull",
           "type": {
@@ -26,12 +21,7 @@
         {
           "$tag": "_InputField",
           "default": "null",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "field",
           "type": {
             "$tag": "_InputBase",

@@ -46,9 +46,9 @@ internal abstract class CheckObjectFieldModel<TObjField, TObjBase, TModel>(
     => ExpectedField(input, [], []);
 
   protected string[] ExpectedField(FieldInput input, string[] extras, string[] parameters)
-    => [$"!_{TypeKind}Field", .. extras, "name: " + input.Name, .. parameters, $"type: !_{TypeKind}Base " + input.Type];
+    => [$"!_{TypeKind}Field", .. extras, "name: " + input.Name, .. parameters, $"type: !_{TypeKind}Base", $"  {TypeKindLower}: {input.Type}"];
   protected string[] ExpectedDual(FieldInput input)
-    => [$"!_{TypeKind}Field", "name: " + input.Name, $"type: !_DualBase " + input.Type];
+    => [$"!_{TypeKind}Field", "name: " + input.Name, $"type: !_DualBase", "  dual: " + input.Type];
 
   protected abstract TObjField NewFieldAst(FieldInput name);
 

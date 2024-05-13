@@ -2,7 +2,8 @@
 types: !_Map_Type
   !_Identifier OutpPrnt: !_TypeOutput
     name: OutpPrnt
-    parent: !_OutputBase PrntOutp
+    parent: !_OutputBase
+      output: PrntOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntOutp: !_TypeOutput
     name: PrntOutp

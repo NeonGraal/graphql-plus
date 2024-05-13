@@ -43,8 +43,7 @@
               "collections": [
                 {
                   "$tag": "_ModifierDictionary",
-                  "by": "OutDomainParam",
-                  "modifierKind": "Dict"
+                  "value": "OutDomainParam"
                 }
               ],
               "type": {
@@ -69,8 +68,7 @@
               "collections": [
                 {
                   "$tag": "_ModifierDictionary",
-                  "by": "OutDomainParam",
-                  "modifierKind": "Dict"
+                  "value": "OutDomainParam"
                 }
               ],
               "type": {

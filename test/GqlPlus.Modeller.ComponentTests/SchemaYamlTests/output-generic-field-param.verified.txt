@@ -8,14 +8,16 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenFieldParamRef
         typeArguments:
-        - !_OutputBase OutpGenFieldParamAlt
+        - !_OutputBase
+          output: OutpGenFieldParamAlt
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
         output: OutpGenFieldParamRef
         typeArguments:
-        - !_OutputBase OutpGenFieldParamAlt
+        - !_OutputBase
+          output: OutpGenFieldParamAlt
     name: OutpGenFieldParam
     typeKind: !_TypeKind Output
   !_Identifier OutpGenFieldParamAlt: !_TypeOutput
@@ -32,4 +34,5 @@ types: !_Map_Type
     name: OutpGenFieldParamRef
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described ref
+    - !_Described
+      name: ref

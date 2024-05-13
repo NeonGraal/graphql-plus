@@ -14,19 +14,23 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _InputBase
-      type: !_OutputBase _DualBase
+      type: !_OutputBase
+        output: _DualBase
     allFields:
     - !_ObjectFor(_OutputField)
       name: input
       object: _InputBase
-      type: !_OutputBase _Identifier
+      type: !_OutputBase
+        output: _Identifier
     alternates:
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _DualBase
+      type: !_OutputBase
+        output: _DualBase
     fields:
     - !_OutputField
       name: input
-      type: !_OutputBase _Identifier
+      type: !_OutputBase
+        output: _Identifier
     name: _InputBase
     parent: !_OutputBase
       output: _ObjBase
@@ -34,7 +38,8 @@ types: !_Map_Type
       - !_OutputBase
         output: _ObjRef
         typeArguments:
-        - !_OutputBase _InputBase
+        - !_OutputBase
+          output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputField: !_TypeOutput
     allFields:
@@ -42,17 +47,20 @@ types: !_Map_Type
       modifiers: [!_Modifier Opt]
       name: default
       object: _InputField
-      type: !_OutputBase _Constant
+      type: !_OutputBase
+        output: _Constant
     fields:
     - !_OutputField
       modifiers: [!_Modifier Opt]
       name: default
-      type: !_OutputBase _Constant
+      type: !_OutputBase
+        output: _Constant
     name: _InputField
     parent: !_OutputBase
       output: _Field
       typeArguments:
-      - !_OutputBase _InputBase
+      - !_OutputBase
+        output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _TypeInput: !_TypeOutput
     name: _TypeInput
@@ -63,6 +71,8 @@ types: !_Map_Type
         name: _TypeKind
         typeKind: !_SimpleKind Enum
         value: Input
-      - !_OutputBase _InputBase
-      - !_OutputBase _InputField
+      - !_OutputBase
+        output: _InputBase
+      - !_OutputBase
+        output: _InputField
     typeKind: !_TypeKind Output

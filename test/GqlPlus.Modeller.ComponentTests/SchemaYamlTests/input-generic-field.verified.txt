@@ -13,4 +13,5 @@ types: !_Map_Type
     name: InpGenField
     typeKind: !_TypeKind Input
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type

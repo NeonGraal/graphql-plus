@@ -5,11 +5,13 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: parent
       object: OutpFieldsParent
-      type: !_OutputBase String
+      type: !_OutputBase
+        output: String
     fields:
     - !_OutputField
       name: parent
-      type: !_OutputBase String
+      type: !_OutputBase
+        output: String
     name: OutpFieldsParent
     typeKind: !_TypeKind Output
   !_Identifier OutpPrntFields: !_TypeOutput
@@ -17,15 +19,19 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: parent
       object: OutpFieldsParent
-      type: !_OutputBase String
+      type: !_OutputBase
+        output: String
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpPrntFields
-      type: !_OutputBase Number
+      type: !_OutputBase
+        output: Number
     fields:
     - !_OutputField
       name: field
-      type: !_OutputBase Number
+      type: !_OutputBase
+        output: Number
     name: OutpPrntFields
-    parent: !_OutputBase OutpFieldsParent
+    parent: !_OutputBase
+      output: OutpFieldsParent
     typeKind: !_TypeKind Output

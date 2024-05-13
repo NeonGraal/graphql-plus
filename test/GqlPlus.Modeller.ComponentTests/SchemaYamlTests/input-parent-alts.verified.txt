@@ -4,23 +4,29 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpAltPrnt
-      type: !_InputBase String
+      type: !_InputBase
+        input: String
     alternates:
     - !_Alternate(_InputBase)
-      type: !_InputBase String
+      type: !_InputBase
+        input: String
     name: InpAltPrnt
     typeKind: !_TypeKind Input
   !_Identifier InpPrntAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpAltPrnt
-      type: !_InputBase String
+      type: !_InputBase
+        input: String
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpPrntAlt
-      type: !_InputBase Number
+      type: !_InputBase
+        input: Number
     alternates:
     - !_Alternate(_InputBase)
-      type: !_InputBase Number
+      type: !_InputBase
+        input: Number
     name: InpPrntAlt
-    parent: !_InputBase InpAltPrnt
+    parent: !_InputBase
+      input: InpAltPrnt
     typeKind: !_TypeKind Input

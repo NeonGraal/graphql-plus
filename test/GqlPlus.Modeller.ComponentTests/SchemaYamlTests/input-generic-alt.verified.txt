@@ -11,4 +11,5 @@ types: !_Map_Type
     name: InpGenAlt
     typeKind: !_TypeKind Input
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type

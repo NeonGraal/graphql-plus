@@ -6,7 +6,8 @@ types: !_Map_Type
       enum: OutEnumParent
       name: outEnumParent
     items:
-    - !_Aliased outEnumParent
+    - !_Aliased
+      name: outEnumParent
     name: OutEnumParent
     typeKind: !_TypeKind Enum
   !_Identifier OutEnumParented: !_TypeEnum
@@ -21,8 +22,10 @@ types: !_Map_Type
       enum: OutEnumParented
       name: ed
     items:
-    - !_Aliased outParent
-    - !_Aliased ed
+    - !_Aliased
+      name: outParent
+    - !_Aliased
+      name: ed
     name: OutEnumParented
     parent: !_TypeRef(_SimpleKind)
       name: OutEnumParent

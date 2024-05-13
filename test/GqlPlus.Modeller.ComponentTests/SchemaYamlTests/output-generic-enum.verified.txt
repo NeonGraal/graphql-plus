@@ -6,7 +6,8 @@ types: !_Map_Type
       enum: OutEnumGen
       name: outEnumGen
     items:
-    - !_Aliased outEnumGen
+    - !_Aliased
+      name: outEnumGen
     name: OutEnumGen
     typeKind: !_TypeKind Enum
   !_Identifier OutGenEnum: !_TypeOutput
@@ -44,4 +45,5 @@ types: !_Map_Type
     name: OutGenEnumRef
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type

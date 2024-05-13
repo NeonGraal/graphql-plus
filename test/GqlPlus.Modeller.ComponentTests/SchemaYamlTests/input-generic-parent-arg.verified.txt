@@ -12,7 +12,8 @@ types: !_Map_Type
       - !_TypeParameter type
     typeKind: !_TypeKind Input
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type
   !_Identifier InpGenPrntRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -24,4 +25,5 @@ types: !_Map_Type
     name: InpGenPrntRef
     typeKind: !_TypeKind Input
     typeParameters:
-    - !_Described ref
+    - !_Described
+      name: ref

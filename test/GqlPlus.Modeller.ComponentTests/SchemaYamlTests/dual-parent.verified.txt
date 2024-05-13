@@ -5,5 +5,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualTestParent: !_TypeDual
     name: DualTestParent
-    parent: !_DualBase DualParentTest
+    parent: !_DualBase
+      dual: DualParentTest
     typeKind: !_TypeKind Dual

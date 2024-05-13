@@ -6,7 +6,8 @@ types: !_Map_Type
       name: Number
       union: PrntUnion
     items:
-    - !_Aliased Number
+    - !_Aliased
+      name: Number
     name: PrntUnion
     typeKind: !_TypeKind Union
   !_Identifier UnionPrnt: !_TypeUnion
@@ -18,7 +19,8 @@ types: !_Map_Type
       name: String
       union: UnionPrnt
     items:
-    - !_Aliased String
+    - !_Aliased
+      name: String
     name: UnionPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntUnion

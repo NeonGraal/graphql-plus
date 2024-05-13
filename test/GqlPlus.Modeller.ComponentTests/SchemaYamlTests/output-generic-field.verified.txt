@@ -13,4 +13,5 @@ types: !_Map_Type
     name: OutpGenField
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type

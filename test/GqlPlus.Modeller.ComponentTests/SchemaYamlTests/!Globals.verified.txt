@@ -19,7 +19,8 @@ directives: !_Map_Directives
     name: DirParam
     parameters:
     - !_InputParameter
-      type: !_InputBase DirParamIn
+      type: !_InputBase
+        input: DirParamIn
     repeatable: false
 name: Schema
 settings: !_Map_Setting

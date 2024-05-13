@@ -4,11 +4,26 @@ using YamlDotNet.Serialization;
 
 namespace GqlPlus.Rendering;
 
+internal class RenderYamlFullConverter
+  : RenderYamlTypeConverter
+{
+  public static readonly IYamlTypeConverter Instance = new RenderYamlFullConverter();
+}
+
+internal class RenderYamlWrappedConverter
+  : RenderYamlTypeConverter
+{
+  public static readonly IYamlTypeConverter Instance = new RenderYamlWrappedConverter();
+
+  protected override ScalarStyle GetStringScalarStyle(string text)
+    => text.Length > RenderYaml.BestWidth / 2
+      ? ScalarStyle.Folded
+      : base.GetStringScalarStyle(text);
+}
+
 internal class RenderYamlTypeConverter
   : IYamlTypeConverter
 {
-  public static readonly IYamlTypeConverter Instance = new RenderYamlTypeConverter();
-
   public bool Accepts(Type type) => type == typeof(RenderStructure);
 
   public object? ReadYaml(IParser parser, Type type) => throw new NotImplementedException();
@@ -53,7 +68,7 @@ internal class RenderYamlTypeConverter
     emitter.Emit(new SequenceEnd());
   }
 
-  private static void WriteValue(IEmitter emitter, RenderValue value, string tag)
+  private void WriteValue(IEmitter emitter, RenderValue value, string tag)
   {
     bool isString = !string.IsNullOrWhiteSpace(value.Text);
     bool plainImplicit = string.IsNullOrWhiteSpace(tag) && !isString;
@@ -72,14 +87,14 @@ internal class RenderYamlTypeConverter
 
     ScalarStyle style = ScalarStyle.Any;
     if (isString) {
-      style = text.Contains('\'', StringComparison.Ordinal)
-        ? ScalarStyle.DoubleQuoted : ScalarStyle.SingleQuoted;
-
-      if (text.Length > RenderYaml.BestWidth / 2) {
-        style = ScalarStyle.Folded;
-      }
+      style = GetStringScalarStyle(text);
     }
 
     emitter.Emit(new Scalar(default, tagName, text!, style, plainImplicit, isString));
   }
+
+  protected virtual ScalarStyle GetStringScalarStyle(string text)
+    => text.Contains('\'', StringComparison.Ordinal)
+      ? ScalarStyle.DoubleQuoted
+      : ScalarStyle.SingleQuoted;
 }

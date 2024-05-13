@@ -12,17 +12,24 @@ public static class RenderYaml
 
   static RenderYaml()
   {
-    IValueSerializer valueSerializer = new SerializerBuilder()
+    SerializerBuilder builder = new SerializerBuilder()
       .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull | DefaultValuesHandling.OmitEmptyCollections)
       .EnsureRoundtrip()
-      .WithNamingConvention(CamelCaseNamingConvention.Instance)
-      .WithTypeConverter(RenderYamlTypeConverter.Instance)
-      .BuildValueSerializer();
+      .WithNamingConvention(CamelCaseNamingConvention.Instance);
 
-    EmitterSettings settings = EmitterSettings.Default.WithBestWidth(BestWidth);
+    YamlFull = builder
+      .WithTypeConverter(RenderYamlFullConverter.Instance)
+      .Build();
 
-    YamlFull = Serializer.FromValueSerializer(valueSerializer, EmitterSettings.Default);
-    YamlWrapped = Serializer.FromValueSerializer(valueSerializer, settings);
+    EmitterSettings settings = EmitterSettings
+      .Default
+      .WithBestWidth(BestWidth);
+
+    YamlWrapped = Serializer.FromValueSerializer(
+      builder
+        .WithTypeConverter(RenderYamlWrappedConverter.Instance)
+        .BuildValueSerializer(),
+      settings);
   }
 
   public static string ToYaml(this RenderStructure model, bool wrapped)

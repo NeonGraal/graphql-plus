@@ -23,7 +23,7 @@ public class SchemaYamlTests(
 
     RenderStructure result = ModelAsts(asts);
 
-    await Verify(result.ToYaml(), SchemaSettings("Yaml", "!ALL"));
+    await Verify(result.ToYaml(true), SchemaSettings("Yaml", "!ALL"));
   }
 
   [Theory]
@@ -35,7 +35,7 @@ public class SchemaYamlTests(
 
     RenderStructure result = ModelAsts(asts);
 
-    await Verify(result.ToYaml(), SchemaSettings("Yaml", "!" + group));
+    await Verify(result.ToYaml(true), SchemaSettings("Yaml", "!" + group));
   }
 
   [Theory]
@@ -101,7 +101,7 @@ public class SchemaYamlTests(
 
     RenderStructure result = ModelAsts([ast]);
 
-    await Verify(result.ToYaml(), SchemaSettings("Yaml", test));
+    await Verify(result.ToYaml(true), SchemaSettings("Yaml", test));
   }
 
   private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts)

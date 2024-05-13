@@ -51,7 +51,7 @@ public class DirectiveModelTests(
       .Where(l => location.HasFlag(l))
       .Select(l => $"{l}: _").Order();
 
-    return labels.YamlWidth("locations: !_Set(_Location) {", "}");
+    return [labels.YamlJoin("locations: !_Set(_Location) {", "}")];
   }
 
   internal override ICheckAliasedModel<string> AliasedChecks => _checks;

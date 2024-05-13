@@ -30,7 +30,7 @@ public class SampleModelTests(
       result.Add("_errors", context.Errors.Render());
     }
 
-    await Verify(result.ToYaml(), SampleSettings("Yaml", sample));
+    await Verify(result.ToYaml(true), SampleSettings("Yaml", sample));
   }
 
   [Theory]

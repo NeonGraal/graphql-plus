@@ -30,7 +30,7 @@ public static class RenderFluid
   {
     ArgumentNullException.ThrowIfNull(model);
 
-    model.Add("yaml", model.ToYaml());
+    model.Add("yaml", model.ToYaml(true));
     TemplateContext context = new(model, s_options);
     return await s_template.RenderAsync(context);
   }

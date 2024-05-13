@@ -17,15 +17,4 @@
     <ProjectReference Include="..\..\src\GqlPlus.Parser\GqlPlus.Parser.csproj" />
     <ProjectReference Include="..\GqlPlus.TestBase\GqlPlus.TestBase.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Update="xunit.runner.visualstudio" Version="2.8.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
 </Project>

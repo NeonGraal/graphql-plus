@@ -14,6 +14,11 @@ public class SampleModelTests(
     ITypesModeller types
 ) : SampleChecks(schemaParser)
 {
+  static SampleModelTests()
+    => RenderFluid.Setup(
+      new EmbeddedFileProvider(Assembly.GetExecutingAssembly(),
+      "GqlPlus.Html"));
+
   [Theory]
   [ClassData(typeof(SampleSchemaData))]
   public async Task YamlSchema(string sample)
@@ -68,12 +73,11 @@ public class SampleModelTests(
       result.Add("_errors", context.Errors.Render());
     }
 
-    RenderFluid.Setup(new EmbeddedFileProvider(Assembly.GetExecutingAssembly(), "GqlPlus.Html"));
-    await RenderFluid.WriteHtmlFile("SampleHtmlTests", sample, result);
+    await RenderFluid.WriteHtmlFileAsync("SampleHtmlTests", sample, result);
   }
 
   [Fact]
-  public async Task Html_Index()
+  public void Html_Index()
   {
     RenderStructure groups = RenderStructure.New("");
     groups.Add("All", RenderStructure.ForAll(new SampleSchemaData().Select(i => (string)i[0])));
@@ -81,7 +85,6 @@ public class SampleModelTests(
     RenderStructure result = RenderStructure.New("");
     result.Add("groups", groups);
 
-    RenderFluid.Setup(new EmbeddedFileProvider(Assembly.GetExecutingAssembly(), "GqlPlus.Html"), "index");
-    await RenderFluid.WriteHtmlFile("SampleHtmlTests", "index", result);
+    result.WriteHtmlFile("SampleHtmlTests", "index", "index");
   }
 }

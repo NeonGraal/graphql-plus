@@ -9,6 +9,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Html\heading.liquid" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Fluid.Core" Version="2.9.0" />
   </ItemGroup>
 
@@ -19,6 +23,17 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="BuiltInTests.VerifyBasicTypes.verified.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <DependentUpon>%(ParentFile).cs</DependentUpon>
+    </None>
+    <None Update="BuiltInTests.VerifyInternalTypes.verified.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <DependentUpon>%(ParentFile).cs</DependentUpon>
+    </None>
   </ItemGroup>
 
 </Project>

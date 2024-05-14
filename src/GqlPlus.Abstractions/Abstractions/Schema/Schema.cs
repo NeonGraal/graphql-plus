@@ -21,6 +21,10 @@ public interface IGqlpType
   : IGqlpDeclaration
 { }
 
+public interface IGqlpTypeSpecial
+  : IGqlpType<string>
+{ }
+
 public interface IGqlpType<TParent>
   : IGqlpType
 {

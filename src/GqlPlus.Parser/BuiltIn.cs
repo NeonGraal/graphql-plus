@@ -41,13 +41,13 @@ public static class BuiltIn
     DualObj("MostList", TypeParameters("T"), DualMost("")),
     DualObj("MostDictionary", TypeParameters("T"), DualMost("Simple", true)),
 
-    new SpecialTypeAst(AstNulls.At, "Any") { Aliases = ["Any"] },
-    new SpecialTypeAst(AstNulls.At, "Dual"),
-    new SpecialTypeAst(AstNulls.At, "Enum"),
-    new SpecialTypeAst(AstNulls.At, "Input"),
-    new SpecialTypeAst(AstNulls.At, "Output"),
-    new SpecialTypeAst(AstNulls.At, "Domain"),
-    new SpecialTypeAst(AstNulls.At, "Union"),
+    new SpecialTypeAst("Any") { Aliases = ["Any"] },
+    new SpecialTypeAst("Dual"),
+    new SpecialTypeAst("Enum"),
+    new SpecialTypeAst("Input"),
+    new SpecialTypeAst("Output"),
+    new SpecialTypeAst("Domain"),
+    new SpecialTypeAst("Union"),
   ];
 
   public static IEnumerable<object[]> AllInternal()

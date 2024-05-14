@@ -5,6 +5,8 @@
   </h1>
   {%- endif -%}
   {%- if aliases %}
-  <p> Aliases: {{ aliases | join: ", " }} </p>
+  <p>
+    <sub>Aliases</sub> {{ aliases | join: ", " }}
+  </p>
   {%- endif -%}
 </heading>

@@ -1,0 +1,14 @@
+﻿<table>
+  <tr>
+    <td>
+      <h2>
+        <sub>{{ label }}</sub> {{ dec.name }} <sup>{{ dec.typeKind }}</sup>
+      </h2>
+    </td>
+    <td width="50%">
+      {%- if dec.aliases %}
+      <sub>Aliases</sub> {{ dec.aliases | join: ", " }}
+      {%- endif -%}
+    </td>
+  </tr>
+</table>

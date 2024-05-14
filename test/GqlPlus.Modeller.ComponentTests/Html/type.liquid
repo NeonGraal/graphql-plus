@@ -1,10 +1,10 @@
 ﻿<section>
   {%- assign typ = type[1] %}
-  <h2>
-    <sub>Type</sub> {{ typ.name }} <sup>{{ typ.typeKind }}</sup>
-  </h2>
+  {%- render 'heading', dec: typ, label: "Type" -%}
   {%- if typ.parent %}
-  <p>Parent: {{ typ.parent.name }} <sup>{{ typ.parent.typeKind }}</sup></p>
+  <p>
+    Parent: {{ typ.parent.name }} <sup>{{ typ.parent.typeKind }}</sup>
+  </p>
   {% endif -%}
   {%- liquid
   case typ.typeKind

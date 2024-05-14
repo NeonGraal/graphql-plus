@@ -17,7 +17,7 @@ public class SchemaHtmlTests(
 ) : SchemaDataBase(parser)
 {
   [Fact]
-  public async Task Html_Index()
+  public void Html_Index()
   {
     RenderStructure groups = RenderStructure.New("");
     groups.Add("All", RenderStructure.ForAll(["!ALL", "!Globals", "!Merges", "!Objects", "!Simple"]));
@@ -29,12 +29,11 @@ public class SchemaHtmlTests(
     RenderStructure result = RenderStructure.New("");
     result.Add("groups", groups);
 
-    RenderFluid.Setup(new EmbeddedFileProvider(Assembly.GetExecutingAssembly(), "GqlPlus.Html"), "index");
-    await RenderFluid.WriteHtmlFile("SchemaHtmlTests", "index", result);
+    result.WriteHtmlFile("SchemaHtmlTests", "index", "index");
   }
 
   [Fact]
-  public async Task Html_All()
+  public void Html_All()
   {
     IEnumerable<IGqlpSchema> asts = SchemaValidData.Values
       .SelectMany(kv => kv.Value)
@@ -42,88 +41,85 @@ public class SchemaHtmlTests(
 
     RenderStructure result = ModelAsts(asts);
 
-    RenderFluid.Setup(new EmbeddedFileProvider(Assembly.GetExecutingAssembly(), "GqlPlus.Html"));
-    await RenderFluid.WriteHtmlFile("SchemaHtmlTests", "!ALL", result);
+    result.WriteHtmlFile("SchemaHtmlTests", "!ALL");
   }
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
-  public async Task Html_Groups(string group)
+  public void Html_Groups(string group)
   {
     IEnumerable<IGqlpSchema> asts = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required());
 
     RenderStructure result = ModelAsts(asts);
 
-    RenderFluid.Setup(new EmbeddedFileProvider(Assembly.GetExecutingAssembly(), "GqlPlus.Html"));
-    await RenderFluid.WriteHtmlFile("SchemaHtmlTests", "!" + group, result);
+    result.WriteHtmlFile("SchemaHtmlTests", "!" + group);
   }
 
   [Theory]
   [ClassData(typeof(SchemaValidMergesData))]
-  public async Task Html_Merges(string model)
+  public void Html_Merges(string model)
   {
     string input = SchemaValidMergesData.Source[model];
     if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
-        .ToArray());
+      foreach ((string label, string abbr) in Replacements) {
+        Verify_Model(ReplaceObject(input, label, abbr), label + "-" + model);
+      }
     } else {
-      await Verify_Model(input, model);
+      Verify_Model(input, model);
     }
   }
 
   [Theory]
   [ClassData(typeof(SchemaValidObjectsData))]
-  public async Task Html_Objects(string model)
+  public void Html_Objects(string model)
   {
     string input = SchemaValidObjectsData.Source[model];
     if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
-        .ToArray());
+      foreach ((string label, string abbr) in Replacements) {
+        Verify_Model(ReplaceObject(input, label, abbr), label + "-" + model);
+      }
     } else {
-      await Verify_Model(input, model);
+      Verify_Model(input, model);
     }
   }
 
   [Theory]
   [ClassData(typeof(SchemaValidGlobalsData))]
-  public async Task Html_Globals(string global)
+  public void Html_Globals(string global)
   {
     string input = SchemaValidGlobalsData.Source[global];
     if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + global))
-        .ToArray());
+      foreach ((string label, string abbr) in Replacements) {
+        Verify_Model(ReplaceObject(input, label, abbr), label + "-" + global);
+      }
     } else {
-      await Verify_Model(input, global);
+      Verify_Model(input, global);
     }
   }
 
   [Theory]
   [ClassData(typeof(SchemaValidSimpleData))]
-  public async Task Html_Simple(string simple)
+  public void Html_Simple(string simple)
   {
     string input = SchemaValidSimpleData.Source[simple];
     if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + simple))
-        .ToArray());
+      foreach ((string label, string abbr) in Replacements) {
+        Verify_Model(ReplaceObject(input, label, abbr), label + "-" + simple);
+      }
     } else {
-      await Verify_Model(input, simple);
+      Verify_Model(input, simple);
     }
   }
 
-  private async Task Verify_Model(string input, string test)
+  private void Verify_Model(string input, string test)
   {
     IResult<IGqlpSchema> parse = Parse(input);
     IGqlpSchema ast = parse.Required();
 
     RenderStructure result = ModelAsts([ast]);
 
-    RenderFluid.Setup(new EmbeddedFileProvider(Assembly.GetExecutingAssembly(), "GqlPlus.Html"));
-    await RenderFluid.WriteHtmlFile("SchemaHtmlTests", test, result);
+    result.WriteHtmlFile("SchemaHtmlTests", test);
   }
 
   private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts)
@@ -142,4 +138,7 @@ public class SchemaHtmlTests(
 
     return result;
   }
+
+  static SchemaHtmlTests()
+    => RenderFluid.Setup(new EmbeddedFileProvider(Assembly.GetExecutingAssembly(), "GqlPlus.Html"));
 }

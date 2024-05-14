@@ -22,6 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 		.github\workflows\dotnet-test.yml = .github\workflows\dotnet-test.yml
 		.config\dotnet-tools.json = .config\dotnet-tools.json
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier.ComponentTests", "test\GqlPlus.Verifier.ComponentTests\GqlPlus.Verifier.ComponentTests.csproj", "{D97ABCF2-E6C4-4384-AFB7-C55943EBE1E2}"
@@ -55,7 +56,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Modeller", "src\Gql
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Modeller.ComponentTests", "test\GqlPlus.Modeller.ComponentTests\GqlPlus.Modeller.ComponentTests.csproj", "{B265FB57-1412-41AF-88F8-A86CEA28A66E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.ComponentTestBase", "test\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj", "{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.ComponentTestBase", "test\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj", "{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

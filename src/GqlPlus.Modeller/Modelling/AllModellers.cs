@@ -20,6 +20,7 @@ public static class AllModellers
       .AddModeller<IGqlpSchemaSetting, SettingModel, SettingModeller>()
       // Types
       .AddTypesModeller()
+      .AddTypeModeller<IGqlpTypeSpecial, SpecialTypeModel, SpecialTypeModeller>()
       // Simple
       .AddDomainModeller<IGqlpDomainMember, DomainMemberModel, DomainEnumModeller>()
       .AddDomainModeller<IGqlpDomainRange, DomainRangeModel, DomainNumberModeller>()
@@ -51,7 +52,7 @@ public static class AllModellers
 
   private static IServiceCollection AddTypesModeller(this IServiceCollection services)
     => services
-      .AddSingleton<ITypesModeller, TypeModeller>()
+      .AddSingleton<ITypesModeller, TypesModeller>()
       .AddSingleton<IModeller<IGqlpType, BaseTypeModel>>(c => c.GetRequiredService<ITypesModeller>());
 
   private static IServiceCollection AddTypeModeller<TAst, TModel, TModeller>(this IServiceCollection services)

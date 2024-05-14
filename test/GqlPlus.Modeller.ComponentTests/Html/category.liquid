@@ -1,8 +1,6 @@
 ﻿<section>
   {%- assign cat = category[1] %}
-  <h2>
-    <sub>Category</sub> {{ cat.name }}
-  </h2>
+  {%- render 'heading', dec: cat, label: "Category" -%}
   <p>
     Output: {{ cat.output.name }} <sup> {{ cat.output.typeKind }} </sup>
   </p>

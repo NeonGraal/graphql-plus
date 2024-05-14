@@ -1,15 +1,15 @@
 ﻿<section>
   {%- assign dir = directive[1] %}
-  <h2>
-    <sub>Directive</sub> {{ dir.name }}
-  </h2>
+  {%- render 'heading', dec: dir, label: "Directive" -%}
   {%- if dir.parameters -%}
-  Parameters:
+  <p>
+    Parameters:
     <ul>
       {%- for parameter in dir.parameters %}
       <li>{{ parameter.type.input }}</li>
       {%- endfor %}
     </ul>
+  </p>
   {%- endif -%}
   <p>
     Locations:

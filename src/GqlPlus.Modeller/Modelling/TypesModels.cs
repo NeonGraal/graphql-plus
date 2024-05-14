@@ -106,6 +106,7 @@ public enum TypeKindModel
   Dual,
   Input,
   Output,
+  Special,
 }
 
 public record class TypeRefModel<TKind>(
@@ -124,6 +125,11 @@ public record class TypeSimpleModel(
   SimpleKindModel Kind,
   string Name
 ) : TypeRefModel<SimpleKindModel>(Kind, Name), IBaseDomainItemModel
+{ }
+
+internal record class SpecialTypeModel(
+  string Name
+) : BaseTypeModel(TypeKindModel.Special, Name)
 { }
 
 internal abstract class ModellerType<TAst, TParent, TModel>(
@@ -156,7 +162,7 @@ internal static class ModelHelper
     => input is null ? null : new(kind, input);
 }
 
-internal class TypeModeller(
+internal class TypesModeller(
   IEnumerable<ITypeModeller> types
 ) : ModellerBase<IGqlpType, BaseTypeModel>, ITypesModeller
 {
@@ -290,4 +296,14 @@ internal class TypesCollection(
     model = default;
     return false;
   }
+}
+
+internal class SpecialTypeModeller()
+  : ModellerType<IGqlpTypeSpecial, string, SpecialTypeModel>(TypeKindModel.Special)
+{
+  protected override SpecialTypeModel ToModel(IGqlpTypeSpecial ast, IMap<TypeKindModel> typeKinds)
+    => new(ast.Name) {
+      Aliases = [.. ast.Aliases],
+      Description = ast.Description,
+    };
 }

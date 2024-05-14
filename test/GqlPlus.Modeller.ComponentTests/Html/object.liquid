@@ -1,0 +1,47 @@
+﻿<section>
+  {%- if typ.parent %}
+  <p>
+    Parent: {{ typ.parent.name }} <sup>{{ typ.parent.typeKind }}</sup>
+  </p>
+  {% endif -%}
+  {%- if object.typeParameters %}
+  <p>
+    <sub>Type parameters</sub>
+    {%- for prm in object.typeParameters %} ${{ prm.name }}
+    {%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor %}
+  </p>
+  {%- endif -%}
+  {%- if object.allAlternates %}
+  <table>
+    <thead>
+      <th>Type</th>
+      <th>Object</th>
+    </thead>
+    {%- for alt in object.allAlternates %}
+    <tr>
+      <td>{{ alt.type.dual }}{{ alt.type.input }}{{ alt.type.output }}</td>
+      <td>{{ alt.object }}</td>
+    </tr>
+    {%- endfor %}
+  </table>
+  {%- endif -%}
+  {%- if object.allFields %}
+  <table>
+    <thead>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Value</th>
+      <th>Object</th>
+    </thead>
+    {%- for fld in object.allFields %}
+    <tr>
+      <td>{{ fld.name }}</td>
+      <td>{{ fld.type.dual }}{{ fld.type.input }}{{ fld.type.output }}</td>
+      <td>{{ fld.default }}</td>
+      <td>{{ fld.object }}</td>
+    </tr>
+    {%- endfor %}
+  </table>
+  {%- endif -%}
+</section>

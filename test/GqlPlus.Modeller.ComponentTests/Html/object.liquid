@@ -1,26 +1,26 @@
 ﻿<section>
-  {%- if typ.parent %}
-  <p>
-    Parent: {{ typ.parent.name }} <sup>{{ typ.parent.typeKind }}</sup>
-  </p>
-  {% endif -%}
   {%- if object.typeParameters %}
   <p>
     <sub>Type parameters</sub>
     {%- for prm in object.typeParameters %} ${{ prm.name }}
-    {%- unless forloop.last -%},{%- endunless -%}
+    {%- unless forloop.last -%} , {%- endunless -%}
     {%- endfor %}
   </p>
   {%- endif -%}
-  {%- if object.allAlternates %}
+  {%- if object.parent %}
+    <p>
+      <sub>Parent</sub> {% render "base" with object.parent as base %}
+    </p>
+    {% endif -%}
+    {%- if object.allAlternates %}
   <table>
     <thead>
-      <th>Type</th>
+      <th>Alternate</th>
       <th>Object</th>
     </thead>
     {%- for alt in object.allAlternates %}
     <tr>
-      <td>{{ alt.type.dual }}{{ alt.type.input }}{{ alt.type.output }}</td>
+      <td>{%- render "base" with alt.type as base -%}</td>
       <td>{{ alt.object }}</td>
     </tr>
     {%- endfor %}
@@ -37,7 +37,7 @@
     {%- for fld in object.allFields %}
     <tr>
       <td>{{ fld.name }}</td>
-      <td>{{ fld.type.dual }}{{ fld.type.input }}{{ fld.type.output }}</td>
+      <td>{%- render "base" with fld.type as base -%}</td>
       <td>{{ fld.default }}</td>
       <td>{{ fld.object }}</td>
     </tr>

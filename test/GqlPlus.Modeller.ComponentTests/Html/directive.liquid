@@ -1,9 +1,9 @@
-﻿<section>
+﻿<article>
   {%- assign dir = directive[1] %}
   {%- render 'heading', dec: dir, label: "Directive" -%}
   {%- if dir.parameters -%}
   <p>
-    Parameters:
+    <sub>Parameters:</sub>
     <ul>
       {%- for parameter in dir.parameters %}
       <li>{{ parameter.type.input }}</li>
@@ -19,4 +19,4 @@
     {%- endfor %}
   </p>
   <p> Repeatable: {{ dir.repeatable }} </p>
-</section>
+</article>

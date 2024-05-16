@@ -1,12 +1,10 @@
-﻿<div class="grid">
-  <div>
-    <h2>
-      <sub>{{ label }}</sub> {{ dec.name }}
-    </h2>
-  </div>
-  <div>
-    {%- if dec.aliases %}
-    <sub>Aliases:</sub> {{ dec.aliases | join: ", " }}
-    {%- endif -%}
-  </div>
-</div>
+﻿<header><div class="grid">
+  <div><h2>
+    <sub>{{ label }}</sub> {{ dec.name }}
+  </h2></div>
+    <div>
+      {%- if dec.aliases %}
+      <sub>Aliases:</sub> {{ dec.aliases | join: ", " }}
+      {%- endif -%}
+    </div>
+</div></header>

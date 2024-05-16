@@ -1,16 +1,16 @@
 ﻿<table>
-  <thead>
-    <th>Fields</th>
-    <th>Type</th>
-    <th>Value</th>
-    <th>Object</th>
-  </thead>
+  <thead><tr>
+    <th>Fields</th><th>Type</th><th>Value</th><th class="from">Object</th>
+  </tr></thead>
   {%- for fld in fields %}
   <tr>
     <td>{{ fld.name }}</td>
-    <td>{%- render "base" with fld.type as base -%}</td>
+    <td>
+      {%- render "base" with fld.type as base -%}
+      {%- render "modifiers" with fld.modifiers as modifiers -%}
+    </td>
     <td>{{ fld.default }}</td>
-    <td>{{ fld.object }}</td>
+    <td class="from">{{ fld.object }}</td>
   </tr>
   {%- endfor %}
 </table>

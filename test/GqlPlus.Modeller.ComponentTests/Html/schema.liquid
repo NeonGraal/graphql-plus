@@ -1,12 +1,14 @@
-﻿<heading>
-  {%- if name %}
-  <h1>
-    <sub>Schema</sub> {{ name }}
-  </h1>
-  {%- endif -%}
-  {%- if aliases %}
-  <p>
-    <sub>Aliases:</sub> {{ aliases | join: ", " }}
-  </p>
-  {%- endif -%}
-</heading>
+﻿<header>
+  <div class="grid">
+    {%- if name %}
+    <div><h1>
+      <sub>Schema</sub> {{ name }}
+    </h1></div>
+    {%- endif -%}
+    {%- if aliases %}
+    <div>
+      <sub>Aliases:</sub> {{ aliases | join: ", " }}
+    </div>
+    {%- endif -%}
+  </div>
+</header>

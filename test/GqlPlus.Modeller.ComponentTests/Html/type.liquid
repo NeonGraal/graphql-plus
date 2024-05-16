@@ -1,4 +1,4 @@
-﻿<section>
+﻿<article>
   {%- assign typ = type[1] %}
   {%- render 'heading', dec: typ, label: typ.typeKind -%}
   {%- liquid
@@ -10,4 +10,4 @@
   else
   echo "<i>Other type:</i> " | append: typ.typeKind
   endcase %}
-</section>
+</article>

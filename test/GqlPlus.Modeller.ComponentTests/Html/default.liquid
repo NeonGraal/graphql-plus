@@ -4,51 +4,54 @@
     {%- render "pico" -%}
     <title>Schema {{ name }} Documentation</title>
     <style>
-      aside { position: absolute; right: 1em; z-index: 10; }
-      table { width: 75%; }
+      aside { position: absolute; top: 1rem; right: 1rem; z-index: 10; }
+      table { width: 80%; }
       sub { font-style: italic; }
+      .from { width: 15%; text-align: right;}
+      header h1, header h2, header h3 { margin-bottom: 0.25rem; }
+      article article:last-child { margin-bottom: 0;}
     </style>
   </head>
   <body class="container">
+    <aside>
+      <details>
+        <summary>YAML</summary>
+        <pre>{{ yaml }}</pre>
+      </details>
+    </aside>
+    {%- if name or aliases -%}
+    {%- render 'schema' -%}
+    {%- endif -%}
     <main>
-      <aside>
-        <details>
-          <summary>YAML</summary>
-          <pre>{{ yaml }}</pre>
-        </details>
-      </aside>
-      {%- if name or aliases -%}
-      {%- render 'schema' -%}
-      {%- endif -%}
       {%- if _errors %}
-      <section>
-        <h3>Errors</h3>
+      <article>
+        <header><h3>Errors</h3></header>
         <ul>
           {% render 'error' for _errors as error %}
         </ul>
-      </section>
+      </article>
       {%- endif -%}
       {%- if types %}
-      <section>
-        <h1>Types</h1>
+      <article>
+        <header><h1>Types</h1></header>
         {%- render 'type' for types as type %}
-      </section>
+      </article>
       {%- endif -%}
       {%- if categories %}
-      <section>
-        <h1>Categories</h1>
+      <article>
+        <header><h1>Categories</h1></header>
         {%- render 'category' for categories as category %}
-      </section>
+      </article>
       {%- endif -%}
       {%- if directives %}
-      <section>
-        <h1>Directives</h1>
+      <article>
+        <header><h1>Directives</h1></header>
         {%- render 'directive' for directives as directive %}
-      </section>
+      </article>
       {%- endif -%}
       {%- if settings %}
-      <section>
-        <h1>Settings</h1>
+      <article>
+        <header><h1>Settings</h1></header>        
         <table>
           <tr>
             <th>Name</th>
@@ -56,7 +59,7 @@
           </tr>
           {%- render 'setting' for settings as setting %}
         </table>
-      </section>
+      </article>
       {%- endif %}
     </main>
   </body>

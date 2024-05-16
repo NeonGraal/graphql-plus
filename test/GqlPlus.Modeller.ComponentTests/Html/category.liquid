@@ -1,10 +1,12 @@
-﻿<section>
+﻿<article>
   {%- assign cat = category[1] %}
   {%- render 'heading', dec: cat, label: "Category" -%}
-  <p>
-    <sub>Output:</sub> {{ cat.output.name }} <sup> {{ cat.output.typeKind }} </sup>
-  </p>
-  <p>
-    <sub>Resolution:</sub> {{ cat.resolution }}
-  </p>
-</section>
+  <div class="grid">
+    <div>
+      <sub>Output:</sub> {{ cat.output.name }} <sup> {{ cat.output.typeKind }} </sup>
+    </div>
+    <div>
+      <sub>Resolution:</sub> {{ cat.resolution }}
+    </div>
+  </div>
+</article>

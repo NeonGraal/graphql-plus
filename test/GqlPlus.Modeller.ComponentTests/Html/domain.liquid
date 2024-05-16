@@ -1,14 +1,12 @@
 ﻿<table>
-  <thead>
-    <th>Item</th>
-    <th>Excluded</th>
-    <th>Domain</th>
-  </thead>
+  <thead><tr>
+    <th>Item</th><th>Excluded</th><th class="from">Domain</th>
+  </tr></thead>
   {%- for item in domain.allItems %}
   <tr>
     <td>{{ item }}</td>
     <td>{{ item.exclude }}</td>
-    <td>{{ item.domain }}</td>
+    <td class="from">{{ item.domain }}</td>
   </tr>
   {%- endfor %}
 </table>

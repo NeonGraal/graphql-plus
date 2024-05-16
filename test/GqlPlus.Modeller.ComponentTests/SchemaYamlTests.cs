@@ -45,7 +45,7 @@ public class SchemaYamlTests(
     string input = SchemaValidMergesData.Source[model];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
+        .Select(r => Verify_Model(ReplaceValue(input, r.Item1, r.Item2), r.Item1 + "-" + model))
         .ToArray());
     } else {
       await Verify_Model(input, model);
@@ -59,7 +59,7 @@ public class SchemaYamlTests(
     string input = SchemaValidObjectsData.Source[model];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + model))
+        .Select(r => Verify_Model(ReplaceValue(input, r.Item1, r.Item2), r.Item1 + "-" + model))
         .ToArray());
     } else {
       await Verify_Model(input, model);
@@ -73,7 +73,7 @@ public class SchemaYamlTests(
     string input = SchemaValidGlobalsData.Source[global];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + global))
+        .Select(r => Verify_Model(ReplaceValue(input, r.Item1, r.Item2), r.Item1 + "-" + global))
         .ToArray());
     } else {
       await Verify_Model(input, global);
@@ -87,7 +87,7 @@ public class SchemaYamlTests(
     string input = SchemaValidSimpleData.Source[simple];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + simple))
+        .Select(r => Verify_Model(ReplaceValue(input, r.Item1, r.Item2), r.Item1 + "-" + simple))
         .ToArray());
     } else {
       await Verify_Model(input, simple);

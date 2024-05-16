@@ -1,12 +1,37 @@
-﻿<main>
-  {%- for group in groups %}
-  <h1>{{ group[0] }}</h1>
-  <ul>
-    {%- for item in group[1] %}
-    <li>
-      <a href="{{ item }}.html">{{ item }}</a>
-    </li>
-    {%- endfor %}
-  </ul>
-  {%- endfor %}
-</main>
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    {%- render "pico" -%}
+    <title>Documentation Index</title>
+    <style>
+      aside { position: fixed; right: 1em; z-index: 10; }
+      .grid { grid-template-columns: repeat(4, 1fr);
+    </style>
+  </head>
+  <body class="container">
+    <main>
+      {%- if groups.size > 1 -%}
+      <aside>
+        <details open="">
+          <summary>TOC</summary>
+          {%- for group in groups %}
+          <li>
+            <a href="#{{ group[0] }}">{{ group[0] }}</a>
+          </li>
+          {%- endfor -%}
+        </details>
+      </aside>
+      {%- endif -%}
+      {%- for group in groups %}
+      <h1 id="{{ group[0] }}">{{ group[0] }}</h1>
+      <div class="grid">
+        {%- for item in group[1] %}
+        <div>
+          <a href="{{ item }}.html">{{ item }}</a>
+        </div>
+        {%- endfor %}
+      </div>
+      {%- endfor %}
+    </main>
+  </body>
+</html>

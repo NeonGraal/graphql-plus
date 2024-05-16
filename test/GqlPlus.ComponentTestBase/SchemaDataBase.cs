@@ -16,19 +16,30 @@ public class SchemaDataBase(
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
 
   protected static IEnumerable<string> ValidObjects
-    => ReplaceObjects(SchemaValidObjectsData.Source.Values);
+    => ReplaceValues(SchemaValidObjectsData.Source.Values);
 
   protected static IEnumerable<string> ValidMerges
-    => ReplaceObjects(SchemaValidMergesData.Source.Values);
+    => ReplaceValues(SchemaValidMergesData.Source.Values);
 
   public static readonly (string, string)[] Replacements = [("dual", "Dual"), ("input", "Inp"), ("output", "Outp")];
 
-  protected static IEnumerable<string> ReplaceObjects(IEnumerable<string> inputs)
-    => inputs.SelectMany(input => input.Contains("object ", StringComparison.Ordinal)
-        ? Replacements.Select(r => ReplaceObject(input, r.Item1, r.Item2))
+  protected static IEnumerable<string> ReplaceKeys(IDictionary<string, string> inputs)
+    => inputs
+      .ThrowIfNull()
+      .Keys
+      .SelectMany(k => IsObjectInput(inputs[k])
+        ? Replacements.Select(r => r.Item1 + "-" + k)
+        : [k])
+      .Order();
+
+  protected static IEnumerable<string> ReplaceValues(IEnumerable<string> inputs)
+    => inputs
+      .ThrowIfNull()
+      .SelectMany(input => input.Contains("object ", StringComparison.Ordinal)
+        ? Replacements.Select(r => ReplaceValue(input, r.Item1, r.Item2))
         : [input]);
 
-  protected static string ReplaceObject(string input, string objectReplace, string objReplace)
+  protected static string ReplaceValue(string input, string objectReplace, string objReplace)
     => input is null ? ""
     : input
       .Replace("object", objectReplace, StringComparison.InvariantCulture)

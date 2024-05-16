@@ -42,7 +42,7 @@ public class SchemaMergeTests(
   public void CanMerge_Valid(string merge)
   {
     string input = SchemaValidMergesData.Source[merge];
-    IEnumerable<IGqlpSchema> schemas = ReplaceObjects([input])
+    IEnumerable<IGqlpSchema> schemas = ReplaceValues([input])
       .Select(input => Parse(input).Required());
 
     ITokenMessages result = merger.CanMerge(schemas);
@@ -82,7 +82,7 @@ public class SchemaMergeTests(
     string input = SchemaValidMergesData.Source[merge];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
-        .Select(r => Verify_Merge(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + merge))
+        .Select(r => Verify_Merge(ReplaceValue(input, r.Item1, r.Item2), r.Item1 + "-" + merge))
         .ToArray());
     } else {
       await Verify_Merge(input, merge);

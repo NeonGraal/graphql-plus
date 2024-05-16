@@ -32,7 +32,7 @@ public class SchemaVerifyTests(
       using AssertionScope scope = new();
 
       foreach ((string objLabel, string objAbbr) in Replacements) {
-        Verify_Valid(ReplaceObject(input, objLabel, objAbbr));
+        Verify_Valid(ReplaceValue(input, objLabel, objAbbr));
       }
     } else {
       Verify_Valid(input);
@@ -58,7 +58,7 @@ public class SchemaVerifyTests(
       using AssertionScope scope = new();
 
       foreach ((string objLabel, string objAbbr) in Replacements) {
-        Verify_Valid(ReplaceObject(input, objLabel, objAbbr));
+        Verify_Valid(ReplaceValue(input, objLabel, objAbbr));
       }
     } else {
       Verify_Valid(input);
@@ -72,7 +72,7 @@ public class SchemaVerifyTests(
     string input = SchemaInvalidObjectsData.Source[obj];
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
-        .Select(r => Verify_Invalid(ReplaceObject(input, r.Item1, r.Item2), r.Item1 + "-" + obj))
+        .Select(r => Verify_Invalid(ReplaceValue(input, r.Item1, r.Item2), r.Item1 + "-" + obj))
         .ToArray());
     } else {
       await Verify_Invalid(input, obj);

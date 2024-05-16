@@ -1,6 +1,6 @@
 ﻿<section>
   {%- assign typ = type[1] %}
-  {%- render 'heading', dec: typ, label: "Type" -%}
+  {%- render 'heading', dec: typ, label: typ.typeKind -%}
   {%- liquid
   case typ.typeKind
   when "Domain" or "Enum" or "Union"
@@ -8,6 +8,6 @@
   when "Dual" or "Input" or "Output"
   render "object" with typ as object
   else
-  echo "Other type: " | append: typ.typeKind
+  echo "<i>Other type:</i> " | append: typ.typeKind
   endcase %}
 </section>

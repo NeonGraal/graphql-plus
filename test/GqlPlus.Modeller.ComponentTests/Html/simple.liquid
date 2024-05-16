@@ -1,6 +1,6 @@
 ﻿{%- if simple.parent %}
 <p>
-  Parent: {{ simple.parent.name }} <sup>{{ simple.parent.typeKind }}</sup>
+  <sub>Parent:</sub> {{ simple.parent.name }} <sup>{{ simple.parent.typeKind }}</sup>
 </p>
 {% endif -%}
 {%- liquid
@@ -12,5 +12,5 @@ render "enum" with simple as enum
 when "Union"
 render "union" with simple as union
 else
-echo "Other Simple type: " | append: simple.typeKind
+echo "<i>Other Simple type:</i> " | append: simple.typeKind
 endcase %}

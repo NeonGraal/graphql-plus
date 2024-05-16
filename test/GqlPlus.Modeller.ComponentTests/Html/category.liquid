@@ -2,7 +2,9 @@
   {%- assign cat = category[1] %}
   {%- render 'heading', dec: cat, label: "Category" -%}
   <p>
-    Output: {{ cat.output.name }} <sup> {{ cat.output.typeKind }} </sup>
+    <sub>Output:</sub> {{ cat.output.name }} <sup> {{ cat.output.typeKind }} </sup>
   </p>
-  <p> Resolution: {{ cat.resolution }}</p>
+  <p>
+    <sub>Resolution:</sub> {{ cat.resolution }}
+  </p>
 </section>

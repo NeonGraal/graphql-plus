@@ -1,0 +1,16 @@
+﻿<table>
+  <thead>
+    <th>Fields</th>
+    <th>Type</th>
+    <th>Value</th>
+    <th>Object</th>
+  </thead>
+  {%- for fld in fields %}
+  <tr>
+    <td>{{ fld.name }}</td>
+    <td>{%- render "base" with fld.type as base -%}</td>
+    <td>{{ fld.default }}</td>
+    <td>{{ fld.object }}</td>
+  </tr>
+  {%- endfor %}
+</table>

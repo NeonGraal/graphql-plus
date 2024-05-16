@@ -1,47 +1,25 @@
 ﻿<section>
-  {%- if object.typeParameters %}
-  <p>
-    <sub>Type parameters</sub>
-    {%- for prm in object.typeParameters %} ${{ prm.name }}
-    {%- unless forloop.last -%} , {%- endunless -%}
-    {%- endfor %}
-  </p>
-  {%- endif -%}
-  {%- if object.parent %}
-    <p>
-      <sub>Parent</sub> {% render "base" with object.parent as base %}
-    </p>
+  {%- if object.typeParameters or object.parent %}
+  <div class="grid">
+    {%- if object.typeParameters %}
+    <div>
+      <sub>Type parameters:</sub>
+      {%- for prm in object.typeParameters %} ${{ prm.name }}
+      {%- unless forloop.last -%} , {%- endunless -%}
+      {%- endfor %}
+    </div>
+    {%- endif -%}
+    {%- if object.parent %}
+    <div>
+      <sub>Parent:</sub> {% render "base" with object.parent as base %}
+    </div>
     {% endif -%}
-    {%- if object.allAlternates %}
-  <table>
-    <thead>
-      <th>Alternate</th>
-      <th>Object</th>
-    </thead>
-    {%- for alt in object.allAlternates %}
-    <tr>
-      <td>{%- render "base" with alt.type as base -%}</td>
-      <td>{{ alt.object }}</td>
-    </tr>
-    {%- endfor %}
-  </table>
+  </div>
+  {% endif -%}
+  {%- if object.allAlternates %}
+  {%- render "alternates" with object.allAlternates as alternates -%}
   {%- endif -%}
   {%- if object.allFields %}
-  <table>
-    <thead>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Value</th>
-      <th>Object</th>
-    </thead>
-    {%- for fld in object.allFields %}
-    <tr>
-      <td>{{ fld.name }}</td>
-      <td>{%- render "base" with fld.type as base -%}</td>
-      <td>{{ fld.default }}</td>
-      <td>{{ fld.object }}</td>
-    </tr>
-    {%- endfor %}
-  </table>
+  {%- render "fields" with object.allFields as fields -%}
   {%- endif -%}
 </section>

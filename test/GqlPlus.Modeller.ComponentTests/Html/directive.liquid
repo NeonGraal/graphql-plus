@@ -12,7 +12,7 @@
   </p>
   {%- endif -%}
   <p>
-    Locations:
+    <sub>Locations:</sub>
     {%- assign locs = dir.locations | sort %}
     {%- for loc in locs %} {{ loc[0] }}
     {%- unless forloop.last -%},{%- endunless -%}

@@ -16,19 +16,24 @@ types: !_Map_Type
         name: _TypeKind
         typeKind: !_SimpleKind Enum
         value: Union
-      - !_OutputBase _Named
-      - !_DualBase _UnionMember
+      - !_OutputBase
+        output: _Named
+      - !_DualBase
+        dual: _UnionMember
     typeKind: !_TypeKind Output
   !_Identifier _UnionMember: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: union
       object: _UnionMember
-      type: !_DualBase _Identifier
+      type: !_DualBase
+        dual: _Identifier
     fields:
     - !_DualField
       name: union
-      type: !_DualBase _Identifier
+      type: !_DualBase
+        dual: _Identifier
     name: _UnionMember
-    parent: !_DualBase _Named
+    parent: !_DualBase
+      dual: _Named
     typeKind: !_TypeKind Dual

@@ -9,7 +9,9 @@ types: !_Map_Type
       enum: EnDiff
       name: two
     items:
-    - !_Aliased one
-    - !_Aliased two
+    - !_Aliased
+      name: one
+    - !_Aliased
+      name: two
     name: EnDiff
     typeKind: !_TypeKind Enum

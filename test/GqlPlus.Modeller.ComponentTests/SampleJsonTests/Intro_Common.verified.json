@@ -97,24 +97,14 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "items",
           "object": "_ParentType",
           "type": "item"
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "allItems",
           "object": "_ParentType",
           "type": "allItem"
@@ -123,23 +113,13 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "items",
           "type": "item"
         },
         {
           "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "allItems",
           "type": "allItem"
         }

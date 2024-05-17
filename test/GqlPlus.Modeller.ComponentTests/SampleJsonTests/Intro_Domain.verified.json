@@ -219,12 +219,7 @@
         },
         {
           "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "lower",
           "object": "_DomainRange",
           "type": {
@@ -234,12 +229,7 @@
         },
         {
           "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "upper",
           "object": "_DomainRange",
           "type": {
@@ -251,12 +241,7 @@
       "fields": [
         {
           "$tag": "_DualField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "lower",
           "type": {
             "$tag": "_DualBase",
@@ -265,12 +250,7 @@
         },
         {
           "$tag": "_DualField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "upper",
           "type": {
             "$tag": "_DualBase",

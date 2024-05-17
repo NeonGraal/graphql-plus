@@ -21,6 +21,7 @@ types: !_Map_Type
       enum: MemberDom
       name: dom_member
     items:
-    - !_Aliased dom_member
+    - !_Aliased
+      name: dom_member
     name: MemberDom
     typeKind: !_TypeKind Enum

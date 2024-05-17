@@ -1,20 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <Compile Remove="VerifyOperationData.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="OperationData.cs">
-      <DependentUpon>OperationData.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Verify.Xunit" Version="24.2.0" />
-    <PackageReference Include="Xunit.DependencyInjection" Version="9.2.1" />
+    <PackageReference Include="Xunit.DependencyInjection" Version="9.3.0" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
     <PackageReference Include="Xunit.DependencyInjection.SkippableFact" Version="9.0.0" />
   </ItemGroup>

@@ -23,7 +23,7 @@ public class DirectiveModelTests(
   public void Model_Locations(string name, DirectiveLocation[] locations)
     => _checks.DirectiveExpected(
       new(AstNulls.At, name) { Locations = DirectiveModeller.Combine(locations) },
-      new(name, locations: "locations: !_Set(_Location) " + ExpectedLocations(locations)));
+      new(name, locations: ExpectedLocations(locations)));
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(
@@ -41,16 +41,17 @@ public class DirectiveModelTests(
         Option = option,
         Parameters = parameters.Parameters(),
       },
-      new(name, aliases, contents, _checks.ExpectedParameters(parameters), option, "locations: !_Set(_Location) " + ExpectedLocations(locations)));
+      new(name, aliases, contents, _checks.ExpectedParameters(parameters), option, ExpectedLocations(locations)));
 
-  private static string ExpectedLocations(DirectiveLocation[] locations)
+  private static string[] ExpectedLocations(DirectiveLocation[] locations)
   {
     DirectiveLocation location = DirectiveModeller.Combine(locations);
     IOrderedEnumerable<string> labels = Enum.GetValues<DirectiveLocation>()
       .Where(v => int.PopCount((int)v) == 1)
       .Where(l => location.HasFlag(l))
       .Select(l => $"{l}: _").Order();
-    return "{" + string.Join(", ", labels) + "}";
+
+    return [labels.YamlJoin("locations: !_Set(_Location) {", "}")];
   }
 
   internal override ICheckAliasedModel<string> AliasedChecks => _checks;
@@ -81,7 +82,7 @@ internal sealed class DirectiveModelChecks(
     => [.. ItemsExpected(
        "parameters:",
         parameters,
-        p => ["- !_InputParameter", "  type: !_InputBase " + p])];
+        p => ["- !_InputParameter", "  type: !_InputBase", "    input: " + p])];
 
   internal void DirectiveExpected(DirectiveDeclAst ast, ExpectedDirectiveInput input)
     => AstExpected(ast, ExpectedDirective(input));
@@ -93,12 +94,12 @@ internal sealed class ExpectedDirectiveInput(
   string? description = null,
   string[]? parameters = null,
   DirectiveOption option = DirectiveOption.Unique,
-  string? locations = null
+  string[]? locations = null
 ) : ExpectedDescriptionAliasesInput<string>(name, aliases, description)
 {
   public string[] Parameters { get; } = parameters ?? [];
   public string Repeatable { get; } = "repeatable: " + (option == DirectiveOption.Repeatable).TrueFalse();
-  public string[] Locations { get; } = [locations ?? ""];
+  public string[] Locations { get; } = locations ?? [];
 
   internal ExpectedDirectiveInput(ExpectedDescriptionAliasesInput<string> input)
     : this(input.Name)

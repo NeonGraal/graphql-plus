@@ -14,12 +14,7 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_Alternate(_InputBase))",
-          "collections": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "collections": ["List"],
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
@@ -30,12 +25,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "names",
           "object": "_Filter",
           "type": {
@@ -46,12 +36,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": true,
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "matchAliases",
           "object": "_Filter",
           "type": {
@@ -61,12 +46,7 @@
         },
         {
           "$tag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "aliases",
           "object": "_Filter",
           "type": {
@@ -77,12 +57,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": false,
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "returnByAlias",
           "object": "_Filter",
           "type": {
@@ -93,12 +68,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": false,
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "returnReferencedTypes",
           "object": "_Filter",
           "type": {
@@ -108,12 +78,7 @@
         },
         {
           "$tag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "resolutions",
           "object": "_CategoryFilter",
           "type": {
@@ -125,12 +90,7 @@
       "fields": [
         {
           "$tag": "_InputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "resolutions",
           "type": {
             "$tag": "_InputBase",
@@ -150,12 +110,7 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_Alternate(_InputBase))",
-          "collections": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "collections": ["List"],
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
@@ -166,12 +121,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "names",
           "object": "_Filter",
           "type": {
@@ -182,12 +132,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": true,
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "matchAliases",
           "object": "_Filter",
           "type": {
@@ -197,12 +142,7 @@
         },
         {
           "$tag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "aliases",
           "object": "_Filter",
           "type": {
@@ -213,12 +153,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": false,
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "returnByAlias",
           "object": "_Filter",
           "type": {
@@ -229,12 +164,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": false,
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "returnReferencedTypes",
           "object": "_Filter",
           "type": {
@@ -246,12 +176,7 @@
       "alternates": [
         {
           "$tag": "_Alternate(_InputBase)",
-          "collections": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "collections": ["List"],
           "type": {
             "$tag": "_InputBase",
             "value": "_NameFilter"
@@ -261,12 +186,7 @@
       "fields": [
         {
           "$tag": "_InputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "names",
           "type": {
             "$tag": "_InputBase",
@@ -276,12 +196,7 @@
         {
           "$tag": "_InputField",
           "default": true,
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "matchAliases",
           "type": {
             "$tag": "_InputBase",
@@ -290,12 +205,7 @@
         },
         {
           "$tag": "_InputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "aliases",
           "type": {
             "$tag": "_InputBase",
@@ -305,12 +215,7 @@
         {
           "$tag": "_InputField",
           "default": false,
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "returnByAlias",
           "type": {
             "$tag": "_InputBase",
@@ -320,12 +225,7 @@
         {
           "$tag": "_InputField",
           "default": false,
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "returnReferencedTypes",
           "type": {
             "$tag": "_InputBase",
@@ -387,8 +287,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "_Identifier",
-              "modifierKind": "Dict"
+              "value": "_Identifier"
             }
           ],
           "name": "categories",
@@ -412,8 +311,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "_Identifier",
-              "modifierKind": "Dict"
+              "value": "_Identifier"
             }
           ],
           "name": "directives",
@@ -437,8 +335,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "_Identifier",
-              "modifierKind": "Dict"
+              "value": "_Identifier"
             }
           ],
           "name": "types",
@@ -462,8 +359,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "_Identifier",
-              "modifierKind": "Dict"
+              "value": "_Identifier"
             }
           ],
           "name": "settings",
@@ -489,8 +385,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "_Identifier",
-              "modifierKind": "Dict"
+              "value": "_Identifier"
             }
           ],
           "name": "categories",
@@ -513,8 +408,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "_Identifier",
-              "modifierKind": "Dict"
+              "value": "_Identifier"
             }
           ],
           "name": "directives",
@@ -537,8 +431,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "_Identifier",
-              "modifierKind": "Dict"
+              "value": "_Identifier"
             }
           ],
           "name": "types",
@@ -561,8 +454,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "_Identifier",
-              "modifierKind": "Dict"
+              "value": "_Identifier"
             }
           ],
           "name": "settings",
@@ -593,12 +485,7 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_Alternate(_InputBase))",
-          "collections": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "collections": ["List"],
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
@@ -609,12 +496,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "names",
           "object": "_Filter",
           "type": {
@@ -625,12 +507,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": true,
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "matchAliases",
           "object": "_Filter",
           "type": {
@@ -640,12 +517,7 @@
         },
         {
           "$tag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "aliases",
           "object": "_Filter",
           "type": {
@@ -656,12 +528,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": false,
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "returnByAlias",
           "object": "_Filter",
           "type": {
@@ -672,12 +539,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": false,
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "returnReferencedTypes",
           "object": "_Filter",
           "type": {
@@ -687,12 +549,7 @@
         },
         {
           "$tag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "kinds",
           "object": "_TypeFilter",
           "type": {
@@ -704,12 +561,7 @@
       "fields": [
         {
           "$tag": "_InputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "kinds",
           "type": {
             "$tag": "_InputBase",

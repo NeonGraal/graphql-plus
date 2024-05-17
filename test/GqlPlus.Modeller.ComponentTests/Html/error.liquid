@@ -1,0 +1,6 @@
+﻿<li>
+  {%- if error._kind != "End" and error._kind != "Start" -%}
+  @{{ error._at._col }}/{{ error._at._line }}
+  {%- endif -%}
+  {{ error._kind | truncate: 5, "" }} - {{ error._message }}
+</li>

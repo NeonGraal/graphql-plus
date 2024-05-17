@@ -1,0 +1,11 @@
+﻿<table>
+  <thead><tr>
+    <th>Name</th><th class="from">Union</th>
+  </tr></thead>
+  {%- for item in union.allItems %}
+  <tr>
+    <td>{{ item.name }}</td>
+    <td class="from">{{ item.union }}</td>
+  </tr>
+  {%- endfor %}
+</table>

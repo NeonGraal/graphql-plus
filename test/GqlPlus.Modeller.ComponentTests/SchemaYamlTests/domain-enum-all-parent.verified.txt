@@ -26,7 +26,8 @@ types: !_Map_Type
       enum: EnumDomAllParent
       name: dom_all
     items:
-    - !_Aliased dom_all
+    - !_Aliased
+      name: dom_all
     name: EnumDomAllParent
     parent: !_TypeRef(_SimpleKind)
       name: EnumDomParentAll
@@ -38,6 +39,7 @@ types: !_Map_Type
       enum: EnumDomParentAll
       name: dom_enum_all
     items:
-    - !_Aliased dom_enum_all
+    - !_Aliased
+      name: dom_enum_all
     name: EnumDomParentAll
     typeKind: !_TypeKind Enum

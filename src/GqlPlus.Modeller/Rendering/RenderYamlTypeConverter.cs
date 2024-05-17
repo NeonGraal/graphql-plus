@@ -4,11 +4,26 @@ using YamlDotNet.Serialization;
 
 namespace GqlPlus.Rendering;
 
+internal class RenderYamlFullConverter
+  : RenderYamlTypeConverter
+{
+  public static readonly IYamlTypeConverter Instance = new RenderYamlFullConverter();
+}
+
+internal class RenderYamlWrappedConverter
+  : RenderYamlTypeConverter
+{
+  public static readonly IYamlTypeConverter Instance = new RenderYamlWrappedConverter();
+
+  protected override ScalarStyle GetStringScalarStyle(string text)
+    => text.Length > RenderYaml.BestWidth / 2
+      ? ScalarStyle.Folded
+      : base.GetStringScalarStyle(text);
+}
+
 internal class RenderYamlTypeConverter
   : IYamlTypeConverter
 {
-  public static readonly IYamlTypeConverter Instance = new RenderYamlTypeConverter();
-
   public bool Accepts(Type type) => type == typeof(RenderStructure);
 
   public object? ReadYaml(IParser parser, Type type) => throw new NotImplementedException();
@@ -21,12 +36,7 @@ internal class RenderYamlTypeConverter
       if (model.List.Count > 0) {
         WriteList(emitter, type, model, plainImplicit);
       } else if (model.Map.Count > 0) {
-        (RenderValue _, RenderStructure first) = model.Map.First();
-        if (model.Map.Count == 1 && !plainImplicit && string.IsNullOrWhiteSpace(first.Tag) && first.Value is not null) {
-          WriteValue(emitter, first.Value, model.Tag);
-        } else {
-          WriteMap(emitter, model, plainImplicit, tag);
-        }
+        WriteMap(emitter, model, plainImplicit, tag);
       } else if (model.Value is not null) {
         WriteValue(emitter, model.Value, model.Tag);
       } else {
@@ -58,7 +68,7 @@ internal class RenderYamlTypeConverter
     emitter.Emit(new SequenceEnd());
   }
 
-  private static void WriteValue(IEmitter emitter, RenderValue value, string tag)
+  private void WriteValue(IEmitter emitter, RenderValue value, string tag)
   {
     bool isString = !string.IsNullOrWhiteSpace(value.Text);
     bool plainImplicit = string.IsNullOrWhiteSpace(tag) && !isString;
@@ -75,6 +85,16 @@ internal class RenderYamlTypeConverter
       text = value.Text;
     }
 
-    emitter.Emit(new Scalar(default, tagName, text!, isString ? ScalarStyle.SingleQuoted : ScalarStyle.Any, plainImplicit, isString));
+    ScalarStyle style = ScalarStyle.Any;
+    if (isString) {
+      style = GetStringScalarStyle(text);
+    }
+
+    emitter.Emit(new Scalar(default, tagName, text!, style, plainImplicit, isString));
   }
+
+  protected virtual ScalarStyle GetStringScalarStyle(string text)
+    => text.Contains('\'', StringComparison.Ordinal)
+      ? ScalarStyle.DoubleQuoted
+      : ScalarStyle.SingleQuoted;
 }

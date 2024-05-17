@@ -28,8 +28,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "OutpFieldEnum",
-              "modifierKind": "Dict"
+              "value": "OutpFieldEnum"
             }
           ],
           "name": "field",
@@ -46,8 +45,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "OutpFieldEnum",
-              "modifierKind": "Dict"
+              "value": "OutpFieldEnum"
             }
           ],
           "name": "field",

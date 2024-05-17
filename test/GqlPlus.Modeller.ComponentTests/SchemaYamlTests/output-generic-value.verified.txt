@@ -7,13 +7,15 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutGenValueRef
         typeArguments:
-        - !_OutputBase outValueGen
+        - !_OutputBase
+          output: outValueGen
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: OutGenValueRef
         typeArguments:
-        - !_OutputBase outValueGen
+        - !_OutputBase
+          output: outValueGen
     name: OutGenValue
     typeKind: !_TypeKind Output
   !_Identifier OutGenValueRef: !_TypeOutput
@@ -29,13 +31,15 @@ types: !_Map_Type
     name: OutGenValueRef
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type
   !_Identifier OutValueGen: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: OutValueGen
       name: outValueGen
     items:
-    - !_Aliased outValueGen
+    - !_Aliased
+      name: outValueGen
     name: OutValueGen
     typeKind: !_TypeKind Enum

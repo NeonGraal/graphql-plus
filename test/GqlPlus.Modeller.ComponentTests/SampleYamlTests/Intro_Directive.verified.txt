@@ -10,60 +10,75 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: parameters
       object: _Directive
-      type: !_OutputBase _Parameter
+      type: !_OutputBase
+        output: _Parameter
     - !_ObjectFor(_OutputField)
       name: repeatable
       object: _Directive
-      type: !_OutputBase Boolean
+      type: !_OutputBase
+        output: Boolean
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Location, modifierKind: Dict}]
+      modifiers: [!_ModifierDictionary {by: _Location}]
       name: locations
       object: _Directive
-      type: !_OutputBase _
+      type: !_OutputBase
+        output: _
     fields:
     - !_OutputField
       modifiers: [!_Modifier List]
       name: parameters
-      type: !_OutputBase _Parameter
+      type: !_OutputBase
+        output: _Parameter
     - !_OutputField
       name: repeatable
-      type: !_OutputBase Boolean
+      type: !_OutputBase
+        output: Boolean
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Location, modifierKind: Dict}]
+      modifiers: [!_ModifierDictionary {by: _Location}]
       name: locations
-      type: !_OutputBase _
+      type: !_OutputBase
+        output: _
     name: _Directive
-    parent: !_OutputBase _Aliased
+    parent: !_OutputBase
+      output: _Aliased
     typeKind: !_TypeKind Output
   !_Identifier _Directives: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Directives
-      type: !_OutputBase _Directive
+      type: !_OutputBase
+        output: _Directive
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Directives
-      type: !_OutputBase _Type
+      type: !_OutputBase
+        output: _Type
     allFields:
     - !_ObjectFor(_OutputField)
       name: directive
       object: _Directives
-      type: !_OutputBase _Directive
+      type: !_OutputBase
+        output: _Directive
     - !_ObjectFor(_OutputField)
       name: type
       object: _Directives
-      type: !_OutputBase _Type
+      type: !_OutputBase
+        output: _Type
     alternates:
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _Directive
+      type: !_OutputBase
+        output: _Directive
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _Type
+      type: !_OutputBase
+        output: _Type
     fields:
     - !_OutputField
       name: directive
-      type: !_OutputBase _Directive
+      type: !_OutputBase
+        output: _Directive
     - !_OutputField
       name: type
-      type: !_OutputBase _Type
+      type: !_OutputBase
+        output: _Type
     name: _Directives
     typeKind: !_TypeKind Output
   !_Identifier _Location: !_TypeEnum
@@ -87,11 +102,17 @@ types: !_Map_Type
       enum: _Location
       name: Fragment
     items:
-    - !_Aliased Operation
-    - !_Aliased Variable
-    - !_Aliased Field
-    - !_Aliased Inline
-    - !_Aliased Spread
-    - !_Aliased Fragment
+    - !_Aliased
+      name: Operation
+    - !_Aliased
+      name: Variable
+    - !_Aliased
+      name: Field
+    - !_Aliased
+      name: Inline
+    - !_Aliased
+      name: Spread
+    - !_Aliased
+      name: Fragment
     name: _Location
     typeKind: !_TypeKind Enum

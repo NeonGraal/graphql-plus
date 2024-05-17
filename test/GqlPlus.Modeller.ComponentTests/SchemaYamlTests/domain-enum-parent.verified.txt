@@ -47,7 +47,9 @@ types: !_Map_Type
       enum: EnumDomPrnt
       name: dom_parent
     items:
-    - !_Aliased dom_enum
-    - !_Aliased dom_parent
+    - !_Aliased
+      name: dom_enum
+    - !_Aliased
+      name: dom_parent
     name: EnumDomPrnt
     typeKind: !_TypeKind Enum

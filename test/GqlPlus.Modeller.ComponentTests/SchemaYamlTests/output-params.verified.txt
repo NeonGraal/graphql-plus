@@ -10,14 +10,18 @@ types: !_Map_Type
       object: OutParams
       parameters:
       - !_InputParameter
-        type: !_InputBase OutParam
-      type: !_OutputBase OutParams
+        type: !_InputBase
+          input: OutParam
+      type: !_OutputBase
+        output: OutParams
     fields:
     - !_OutputField
       name: field
       parameters:
       - !_InputParameter
-        type: !_InputBase OutParam
-      type: !_OutputBase OutParams
+        type: !_InputBase
+          input: OutParam
+      type: !_OutputBase
+        output: OutParams
     name: OutParams
     typeKind: !_TypeKind Output

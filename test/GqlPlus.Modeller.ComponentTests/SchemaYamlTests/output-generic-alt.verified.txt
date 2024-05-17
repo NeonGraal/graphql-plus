@@ -11,4 +11,5 @@ types: !_Map_Type
     name: OutpGenAlt
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type

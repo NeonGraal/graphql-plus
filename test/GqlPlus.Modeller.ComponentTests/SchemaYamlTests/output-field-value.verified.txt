@@ -6,7 +6,8 @@ types: !_Map_Type
       enum: OutEnumValue
       name: outEnumValue
     items:
-    - !_Aliased outEnumValue
+    - !_Aliased
+      name: outEnumValue
     name: OutEnumValue
     typeKind: !_TypeKind Enum
   !_Identifier OutFieldValue: !_TypeOutput

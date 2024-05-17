@@ -7,13 +7,15 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenAltDualRef
         typeArguments:
-        - !_DualBase DualGenAltDualAlt
+        - !_DualBase
+          dual: DualGenAltDualAlt
     alternates:
     - !_Alternate(_DualBase)
       type: !_DualBase
         dual: DualGenAltDualRef
         typeArguments:
-        - !_DualBase DualGenAltDualAlt
+        - !_DualBase
+          dual: DualGenAltDualAlt
     name: DualGenAltDual
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAltDualAlt: !_TypeDual
@@ -30,4 +32,5 @@ types: !_Map_Type
     name: DualGenAltDualRef
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described ref
+    - !_Described
+      name: ref

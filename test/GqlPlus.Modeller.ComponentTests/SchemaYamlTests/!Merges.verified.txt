@@ -37,7 +37,8 @@ directives: !_Map_Directives
     name: DirParams
     parameters:
     - !_InputParameter
-      type: !_InputBase DirParamsIn
+      type: !_InputBase
+        input: DirParamsIn
     repeatable: false
 name: Schema
 settings: !_Map_Setting
@@ -123,10 +124,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
       object: DualAlts
-      type: !_DualBase DualAltsType
+      type: !_DualBase
+        dual: DualAltsType
     alternates:
     - !_Alternate(_DualBase)
-      type: !_DualBase DualAltsType
+      type: !_DualBase
+        dual: DualAltsType
     name: DualAlts
     typeKind: !_TypeKind Dual
   !_Identifier DualAltsType: !_TypeDual
@@ -137,11 +140,13 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: field
       object: DualFieldAlias
-      type: !_DualBase DualFieldAlias
+      type: !_DualBase
+        dual: DualFieldAlias
     fields:
     - !_DualField
       name: field
-      type: !_DualBase DualFieldAlias
+      type: !_DualBase
+        dual: DualFieldAlias
     name: DualFieldAlias
     typeKind: !_TypeKind Dual
   !_Identifier DualFields: !_TypeDual
@@ -149,11 +154,13 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: field
       object: DualFields
-      type: !_DualBase DualFields
+      type: !_DualBase
+        dual: DualFields
     fields:
     - !_DualField
       name: field
-      type: !_DualBase DualFields
+      type: !_DualBase
+        dual: DualFields
     name: DualFields
     typeKind: !_TypeKind Dual
   !_Identifier DualParams: !_TypeDual
@@ -176,11 +183,14 @@ types: !_Map_Type
     name: DualParams
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described test
-    - !_Described type
+    - !_Described
+      name: test
+    - !_Described
+      name: type
   !_Identifier DualPrnt: !_TypeDual
     name: DualPrnt
-    parent: !_DualBase PrntDual
+    parent: !_DualBase
+      dual: PrntDual
     typeKind: !_TypeKind Dual
   !_Identifier EnAlias: !_TypeEnum
     aliases: [En1, En2]
@@ -189,7 +199,8 @@ types: !_Map_Type
       enum: EnAlias
       name: alias
     items:
-    - !_Aliased alias
+    - !_Aliased
+      name: alias
     name: EnAlias
     typeKind: !_TypeKind Enum
   !_Identifier EnDiff: !_TypeEnum
@@ -201,8 +212,10 @@ types: !_Map_Type
       enum: EnDiff
       name: two
     items:
-    - !_Aliased one
-    - !_Aliased two
+    - !_Aliased
+      name: one
+    - !_Aliased
+      name: two
     name: EnDiff
     typeKind: !_TypeKind Enum
   !_Identifier EnParent: !_TypeEnum
@@ -211,7 +224,8 @@ types: !_Map_Type
       enum: EnParent
       name: parent
     items:
-    - !_Aliased parent
+    - !_Aliased
+      name: parent
     name: EnParent
     typeKind: !_TypeKind Enum
   !_Identifier EnSame: !_TypeEnum
@@ -220,7 +234,8 @@ types: !_Map_Type
       enum: EnSame
       name: same
     items:
-    - !_Aliased same
+    - !_Aliased
+      name: same
     name: EnSame
     typeKind: !_TypeKind Enum
   !_Identifier EnSameParent: !_TypeEnum
@@ -232,7 +247,8 @@ types: !_Map_Type
       enum: EnSameParent
       name: sameP
     items:
-    - !_Aliased sameP
+    - !_Aliased
+      name: sameP
     name: EnSameParent
     parent: !_TypeRef(_SimpleKind)
       name: EnParent
@@ -334,19 +350,25 @@ types: !_Map_Type
       object: FieldParams
       parameters:
       - !_InputParameter
-        type: !_InputBase FieldParam1
+        type: !_InputBase
+          input: FieldParam1
       - !_InputParameter
-        type: !_InputBase FieldParam2
-      type: !_OutputBase FieldParams
+        type: !_InputBase
+          input: FieldParam2
+      type: !_OutputBase
+        output: FieldParams
     fields:
     - !_OutputField
       name: field
       parameters:
       - !_InputParameter
-        type: !_InputBase FieldParam1
+        type: !_InputBase
+          input: FieldParam1
       - !_InputParameter
-        type: !_InputBase FieldParam2
-      type: !_OutputBase FieldParams
+        type: !_InputBase
+          input: FieldParam2
+      type: !_OutputBase
+        output: FieldParams
     name: FieldParams
     typeKind: !_TypeKind Output
   !_Identifier Inp: !_TypeInput
@@ -360,10 +382,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpAlts
-      type: !_InputBase InpAltsType
+      type: !_InputBase
+        input: InpAltsType
     alternates:
     - !_Alternate(_InputBase)
-      type: !_InputBase InpAltsType
+      type: !_InputBase
+        input: InpAltsType
     name: InpAlts
     typeKind: !_TypeKind Input
   !_Identifier InpAltsType: !_TypeInput
@@ -374,11 +398,13 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: field
       object: InpFieldAlias
-      type: !_InputBase InpFieldAlias
+      type: !_InputBase
+        input: InpFieldAlias
     fields:
     - !_InputField
       name: field
-      type: !_InputBase InpFieldAlias
+      type: !_InputBase
+        input: InpFieldAlias
     name: InpFieldAlias
     typeKind: !_TypeKind Input
   !_Identifier InpFields: !_TypeInput
@@ -386,11 +412,13 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: field
       object: InpFields
-      type: !_InputBase InpFields
+      type: !_InputBase
+        input: InpFields
     fields:
     - !_InputField
       name: field
-      type: !_InputBase InpFields
+      type: !_InputBase
+        input: InpFields
     name: InpFields
     typeKind: !_TypeKind Input
   !_Identifier InpParams: !_TypeInput
@@ -413,11 +441,14 @@ types: !_Map_Type
     name: InpParams
     typeKind: !_TypeKind Input
     typeParameters:
-    - !_Described test
-    - !_Described type
+    - !_Described
+      name: test
+    - !_Described
+      name: type
   !_Identifier InpPrnt: !_TypeInput
     name: InpPrnt
-    parent: !_InputBase PrntInp
+    parent: !_InputBase
+      input: PrntInp
     typeKind: !_TypeKind Input
   !_Identifier Num: !_DomainNumber
     domain: !_DomainKind Number
@@ -469,10 +500,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
       object: OutpAlts
-      type: !_OutputBase OutpAltsType
+      type: !_OutputBase
+        output: OutpAltsType
     alternates:
     - !_Alternate(_OutputBase)
-      type: !_OutputBase OutpAltsType
+      type: !_OutputBase
+        output: OutpAltsType
     name: OutpAlts
     typeKind: !_TypeKind Output
   !_Identifier OutpAltsType: !_TypeOutput
@@ -483,11 +516,13 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpFieldAlias
-      type: !_OutputBase OutpFieldAlias
+      type: !_OutputBase
+        output: OutpFieldAlias
     fields:
     - !_OutputField
       name: field
-      type: !_OutputBase OutpFieldAlias
+      type: !_OutputBase
+        output: OutpFieldAlias
     name: OutpFieldAlias
     typeKind: !_TypeKind Output
   !_Identifier OutpFields: !_TypeOutput
@@ -495,11 +530,13 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpFields
-      type: !_OutputBase OutpFields
+      type: !_OutputBase
+        output: OutpFields
     fields:
     - !_OutputField
       name: field
-      type: !_OutputBase OutpFields
+      type: !_OutputBase
+        output: OutpFields
     name: OutpFields
     typeKind: !_TypeKind Output
   !_Identifier OutpParams: !_TypeOutput
@@ -522,11 +559,14 @@ types: !_Map_Type
     name: OutpParams
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described test
-    - !_Described type
+    - !_Described
+      name: test
+    - !_Described
+      name: type
   !_Identifier OutpPrnt: !_TypeOutput
     name: OutpPrnt
-    parent: !_OutputBase PrntOutp
+    parent: !_OutputBase
+      output: PrntOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntDual: !_TypeDual
     name: PrntDual
@@ -576,8 +616,10 @@ types: !_Map_Type
       name: Number
       union: UnDiff
     items:
-    - !_Aliased Boolean
-    - !_Aliased Number
+    - !_Aliased
+      name: Boolean
+    - !_Aliased
+      name: Number
     name: UnDiff
     typeKind: !_TypeKind Union
   !_Identifier UnSame: !_TypeUnion
@@ -586,6 +628,7 @@ types: !_Map_Type
       name: Boolean
       union: UnSame
     items:
-    - !_Aliased Boolean
+    - !_Aliased
+      name: Boolean
     name: UnSame
     typeKind: !_TypeKind Union

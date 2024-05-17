@@ -2,7 +2,8 @@
 types: !_Map_Type
   !_Identifier DualPrnt: !_TypeDual
     name: DualPrnt
-    parent: !_DualBase PrntDual
+    parent: !_DualBase
+      dual: PrntDual
     typeKind: !_TypeKind Dual
   !_Identifier PrntDual: !_TypeDual
     name: PrntDual

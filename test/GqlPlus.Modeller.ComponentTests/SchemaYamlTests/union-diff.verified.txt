@@ -9,7 +9,9 @@ types: !_Map_Type
       name: Number
       union: UnDiff
     items:
-    - !_Aliased Boolean
-    - !_Aliased Number
+    - !_Aliased
+      name: Boolean
+    - !_Aliased
+      name: Number
     name: UnDiff
     typeKind: !_TypeKind Union

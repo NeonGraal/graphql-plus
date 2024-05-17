@@ -5,23 +5,28 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: name
       object: _Named
-      type: !_DualBase _Identifier
+      type: !_DualBase
+        dual: _Identifier
     - !_ObjectFor(_DualField)
       name: description
       object: _Described
-      type: !_DualBase String
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier List]
       name: aliases
       object: _Aliased
-      type: !_DualBase _Identifier
+      type: !_DualBase
+        dual: _Identifier
     fields:
     - !_DualField
       modifiers: [!_Modifier List]
       name: aliases
-      type: !_DualBase _Identifier
+      type: !_DualBase
+        dual: _Identifier
     name: _Aliased
-    parent: !_DualBase _Described
+    parent: !_DualBase
+      dual: _Described
     typeKind: !_TypeKind Dual
   !_Identifier _BaseDescribed: !_TypeDual
     allAlternates:
@@ -36,7 +41,8 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: description
       object: _BaseDescribed
-      type: !_DualBase String
+      type: !_DualBase
+        dual: String
     alternates:
     - !_Alternate(_DualBase)
       type: !_TypeParameter base
@@ -46,37 +52,45 @@ types: !_Map_Type
       type: !_TypeParameter base
     - !_DualField
       name: description
-      type: !_DualBase String
+      type: !_DualBase
+        dual: String
     name: _BaseDescribed
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described base
+    - !_Described
+      name: base
   !_Identifier _Described: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: name
       object: _Named
-      type: !_DualBase _Identifier
+      type: !_DualBase
+        dual: _Identifier
     - !_ObjectFor(_DualField)
       name: description
       object: _Described
-      type: !_DualBase String
+      type: !_DualBase
+        dual: String
     fields:
     - !_DualField
       name: description
-      type: !_DualBase String
+      type: !_DualBase
+        dual: String
     name: _Described
-    parent: !_DualBase _Named
+    parent: !_DualBase
+      dual: _Named
     typeKind: !_TypeKind Dual
   !_Identifier _Named: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: name
       object: _Named
-      type: !_DualBase _Identifier
+      type: !_DualBase
+        dual: _Identifier
     fields:
     - !_DualField
       name: name
-      type: !_DualBase _Identifier
+      type: !_DualBase
+        dual: _Identifier
     name: _Named
     typeKind: !_TypeKind Dual

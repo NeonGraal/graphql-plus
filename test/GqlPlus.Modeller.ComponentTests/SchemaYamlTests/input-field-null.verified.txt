@@ -7,12 +7,14 @@ types: !_Map_Type
       modifiers: [!_Modifier Opt]
       name: field
       object: InFieldNull
-      type: !_InputBase InFieldNull
+      type: !_InputBase
+        input: InFieldNull
     fields:
     - !_InputField
       default: !Null null
       modifiers: [!_Modifier Opt]
       name: field
-      type: !_InputBase InFieldNull
+      type: !_InputBase
+        input: InFieldNull
     name: InFieldNull
     typeKind: !_TypeKind Input

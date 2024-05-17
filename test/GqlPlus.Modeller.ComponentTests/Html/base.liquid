@@ -1,0 +1,14 @@
+﻿{%- assign tag = base | tag -%}
+{%- if tag == '_TypeParameter' -%}
+  ${{ base }}
+{%- elsif base.typeKind == "Enum" -%}
+  {{ base.name }}.{{ base.value }}
+{%- else -%}
+  {{ base.dual }}{{ base.input }}{{ base.output }}
+  {%- if base.typeArguments -%}
+    &lt; {% for arg in base.typeArguments -%}
+      {%- render "base" with arg as base -%}
+      {%- unless forloop.last %}, {% endunless -%}
+    {%- endfor %} &gt;
+  {%- endif -%}
+{%- endif -%}

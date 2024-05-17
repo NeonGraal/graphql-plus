@@ -21,17 +21,13 @@ Success
 }
 {
   !Ou I@008/0005
-  _DualBase
+  _DualRef
   :
   I@007/0006
-  _ObjBase
+  _ObjRef
   <
-    I@016/0006
-    _ObjRef
-    <
-      I@024/0006
-      _DualBase
-    >
+    I@015/0006
+    _DualRef
   >
   {
     !OF I@009/0007
@@ -40,4 +36,15 @@ Success
     I@015/0007
     _Identifier
   }
+}
+{
+  !Ou I@008/0010
+  _DualBase
+  :
+  I@007/0011
+  _ObjBase
+  <
+    I@016/0011
+    _DualRef
+  >
 }

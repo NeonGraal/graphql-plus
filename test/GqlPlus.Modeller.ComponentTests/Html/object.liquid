@@ -1,0 +1,25 @@
+﻿<section>
+  {%- if object.typeParameters or object.parent %}
+  <div class="grid">
+    {%- if object.typeParameters %}
+    <div>
+      <sub>Type parameters:</sub>
+      {%- for prm in object.typeParameters %} ${{ prm.name }}
+      {%- unless forloop.last -%} , {%- endunless -%}
+      {%- endfor %}
+    </div>
+    {%- endif -%}
+    {%- if object.parent %}
+    <div>
+      <sub>Parent:</sub> {% render "base" with object.parent as base %}
+    </div>
+    {% endif -%}
+  </div>
+  {% endif -%}
+  {%- if object.allAlternates %}
+  {%- render "alternates" with object.allAlternates as alternates -%}
+  {%- endif -%}
+  {%- if object.allFields %}
+  {%- render "fields" with object.allFields as fields -%}
+  {%- endif -%}
+</section>

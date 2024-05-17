@@ -10,8 +10,7 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "^",
-              "modifierKind": "Dict"
+              "value": "^"
             }
           ],
           "object": "OutpAltMods",
@@ -27,8 +26,7 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "^",
-              "modifierKind": "Dict"
+              "value": "^"
             }
           ],
           "type": {

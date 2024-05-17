@@ -7,9 +7,11 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
       object: OutpAlts
-      type: !_OutputBase OutpAlt
+      type: !_OutputBase
+        output: OutpAlt
     alternates:
     - !_Alternate(_OutputBase)
-      type: !_OutputBase OutpAlt
+      type: !_OutputBase
+        output: OutpAlt
     name: OutpAlts
     typeKind: !_TypeKind Output

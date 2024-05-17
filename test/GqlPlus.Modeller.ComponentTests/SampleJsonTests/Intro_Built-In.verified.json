@@ -116,12 +116,7 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_Alternate(_OutputBase))",
-          "collections": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "collections": ["List"],
           "object": "_ConstantList",
           "type": {
             "$tag": "_OutputBase",
@@ -132,12 +127,7 @@
       "alternates": [
         {
           "$tag": "_Alternate(_OutputBase)",
-          "collections": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "collections": ["List"],
           "type": {
             "$tag": "_OutputBase",
             "value": "_Constant"
@@ -155,8 +145,7 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "Simple",
-              "modifierKind": "Dict"
+              "value": "Simple"
             }
           ],
           "object": "_ConstantMap",
@@ -172,8 +161,7 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "Simple",
-              "modifierKind": "Dict"
+              "value": "Simple"
             }
           ],
           "type": {

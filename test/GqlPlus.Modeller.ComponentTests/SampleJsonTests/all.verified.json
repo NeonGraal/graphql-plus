@@ -47,12 +47,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "items",
           "object": "All",
           "parameters": [
@@ -82,12 +77,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "items",
           "parameters": [
             {
@@ -170,12 +160,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "afterId",
           "object": "Param",
           "type": {
@@ -205,12 +190,7 @@
       "fields": [
         {
           "$tag": "_InputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "Opt"
-            }
-          ],
+          "modifiers": ["Opt"],
           "name": "afterId",
           "type": {
             "$tag": "_InputBase",

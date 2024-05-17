@@ -50,7 +50,7 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel>
   {
     RenderStructure render = model.Render(Context);
 
-    string yaml = render.ToYaml();
+    string yaml = render.ToYaml(false);
 
     yaml.ToLines().Should().Equal(expected.Tidy());
   }

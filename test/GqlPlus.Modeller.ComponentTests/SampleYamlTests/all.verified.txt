@@ -8,7 +8,8 @@ categories: !_Map_Categories
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier all: !_Directive
-    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _, Operation: _, Spread: _, Variable: _}
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
     name: all
     repeatable: false
 types: !_Map_Type
@@ -16,7 +17,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
       object: All
-      type: !_OutputBase String
+      type: !_OutputBase
+        output: String
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
@@ -24,19 +26,24 @@ types: !_Map_Type
       object: All
       parameters:
       - !_InputParameter
-        type: !_InputBase Param
-      type: !_OutputBase String
+        type: !_InputBase
+          input: Param
+      type: !_OutputBase
+        output: String
     alternates:
     - !_Alternate(_OutputBase)
-      type: !_OutputBase String
+      type: !_OutputBase
+        output: String
     fields:
     - !_OutputField
       modifiers: [!_Modifier List]
       name: items
       parameters:
       - !_InputParameter
-        type: !_InputBase Param
-      type: !_OutputBase String
+        type: !_InputBase
+          input: Param
+      type: !_OutputBase
+        output: String
     name: All
     typeKind: !_TypeKind Output
   !_Identifier Guid: !_DomainString
@@ -61,35 +68,43 @@ types: !_Map_Type
       enum: One
       name: Three
     items:
-    - !_Aliased Two
-    - !_Aliased Three
+    - !_Aliased
+      name: Two
+    - !_Aliased
+      name: Three
     name: One
     typeKind: !_TypeKind Enum
   !_Identifier Param: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
       object: Param
-      type: !_InputBase String
+      type: !_InputBase
+        input: String
     allFields:
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier Opt]
       name: afterId
       object: Param
-      type: !_InputBase Guid
+      type: !_InputBase
+        input: Guid
     - !_ObjectFor(_InputField)
       name: beforeId
       object: Param
-      type: !_InputBase Guid
+      type: !_InputBase
+        input: Guid
     alternates:
     - !_Alternate(_InputBase)
-      type: !_InputBase String
+      type: !_InputBase
+        input: String
     fields:
     - !_InputField
       modifiers: [!_Modifier Opt]
       name: afterId
-      type: !_InputBase Guid
+      type: !_InputBase
+        input: Guid
     - !_InputField
       name: beforeId
-      type: !_InputBase Guid
+      type: !_InputBase
+        input: Guid
     name: Param
     typeKind: !_TypeKind Input

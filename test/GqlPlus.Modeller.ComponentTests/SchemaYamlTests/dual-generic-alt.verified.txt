@@ -11,4 +11,5 @@ types: !_Map_Type
     name: DualGenAlt
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type

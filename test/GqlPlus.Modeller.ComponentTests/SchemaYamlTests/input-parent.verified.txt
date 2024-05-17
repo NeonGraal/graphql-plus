@@ -5,5 +5,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpTestParent: !_TypeInput
     name: InpTestParent
-    parent: !_InputBase InpParentTest
+    parent: !_InputBase
+      input: InpParentTest
     typeKind: !_TypeKind Input

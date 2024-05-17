@@ -4,10 +4,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpAlts
-      type: !_InputBase InpAltsType
+      type: !_InputBase
+        input: InpAltsType
     alternates:
     - !_Alternate(_InputBase)
-      type: !_InputBase InpAltsType
+      type: !_InputBase
+        input: InpAltsType
     name: InpAlts
     typeKind: !_TypeKind Input
   !_Identifier InpAltsType: !_TypeInput

@@ -6,20 +6,23 @@ types: !_Map_Type
       enum: OutpFieldEnum
       name: value
     items:
-    - !_Aliased value
+    - !_Aliased
+      name: value
     name: OutpFieldEnum
     typeKind: !_TypeKind Enum
   !_Identifier OutpFieldMods: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, modifierKind: Dict}]
+      modifiers: [!_ModifierDictionary {by: OutpFieldEnum}]
       name: field
       object: OutpFieldMods
-      type: !_OutputBase OutpFieldMods
+      type: !_OutputBase
+        output: OutpFieldMods
     fields:
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, modifierKind: Dict}]
+      modifiers: [!_ModifierDictionary {by: OutpFieldEnum}]
       name: field
-      type: !_OutputBase OutpFieldMods
+      type: !_OutputBase
+        output: OutpFieldMods
     name: OutpFieldMods
     typeKind: !_TypeKind Output

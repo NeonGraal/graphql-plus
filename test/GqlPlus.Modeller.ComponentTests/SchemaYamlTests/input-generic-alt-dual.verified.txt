@@ -7,13 +7,15 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenAltDualRef
         typeArguments:
-        - !_DualBase InpGenAltDualAlt
+        - !_DualBase
+          dual: InpGenAltDualAlt
     alternates:
     - !_Alternate(_InputBase)
       type: !_InputBase
         input: InpGenAltDualRef
         typeArguments:
-        - !_DualBase InpGenAltDualAlt
+        - !_DualBase
+          dual: InpGenAltDualAlt
     name: InpGenAltDual
     typeKind: !_TypeKind Input
   !_Identifier InpGenAltDualAlt: !_TypeDual
@@ -30,4 +32,5 @@ types: !_Map_Type
     name: InpGenAltDualRef
     typeKind: !_TypeKind Input
     typeParameters:
-    - !_Described ref
+    - !_Described
+      name: ref

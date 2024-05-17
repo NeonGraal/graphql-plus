@@ -74,147 +74,162 @@ Success
   }
 }
 {
-  !Ou I@008/0010
+  !Du I@006/0010
   _ObjRef
   <
-    I@017/0010
+    I@015/0010
+    $ref
+  >
+  {
+    !DF I@009/0011
+    typeArguments
+    :
+    I@025/0011
+    $ref
+    []
+  }
+}
+{
+  !Ou I@008/0014
+  _ObjType
+  <
+    I@018/0014
     $base
   >
   |
   !AO
-  I@007/0011
+  I@007/0015
   _BaseType
   <
-    I@017/0011
+    I@017/0015
     _TypeKind.Internal
   >
   !AO
-  I@007/0012
+  I@007/0016
   _TypeSimple
   !AO
-  I@008/0013
+  I@008/0017
   $base
 }
 {
-  !Du I@006/0016
+  !Du I@006/0020
   _ObjBase
   <
-    I@016/0016
-    $arg
+    I@016/0020
+    $base
   >
-  {
-    !DF I@009/0017
-    arguments
-    :
-    I@021/0017
-    $arg
-    []
-  }
+  :
+  I@007/0021
+  _ObjRef
+  <
+    I@016/0021
+    $base
+  >
   |
   !AD
-  I@007/0018
+  I@007/0022
   _TypeParameter
 }
 {
-  !Do I@008/0021
+  !Do I@008/0025
   _TypeParameter
   String
   :_Identifier
 }
 {
-  !Ou I@008/0023
+  !Ou I@008/0027
   _Alternate
   <
-    I@020/0023
+    I@020/0027
     $base
   >
   {
-    !OF I@007/0024
+    !OF I@007/0028
     type
     :
-    I@013/0024
+    I@013/0028
     _BaseDescribed
     <
-      I@028/0024
+      I@028/0028
       _ObjRef
       <
-        I@037/0024
+        I@037/0028
         $base
       >
     >
-    !OF I@007/0025
+    !OF I@007/0029
     collections
     :
-    I@020/0025
+    I@020/0029
     _Collections
     []
   }
 }
 {
-  !Ou I@008/0028
+  !Ou I@008/0032
   _ObjectFor
   <
-    I@020/0028
+    I@020/0032
     $for
   >
   :
-  I@008/0029
+  I@008/0033
   $for
   {
-    !OF I@009/0030
+    !OF I@009/0034
     object
     :
-    I@017/0030
+    I@017/0034
     _Identifier
   }
 }
 {
-  !Ou I@008/0033
+  !Ou I@008/0037
   _Field
   <
-    I@016/0033
+    I@016/0037
     $base
   >
   :
-  I@007/0034
+  I@007/0038
   _Aliased
   {
-    !OF I@007/0035
+    !OF I@007/0039
     type
     :
-    I@013/0035
+    I@013/0039
     _BaseDescribed
     <
-      I@028/0035
+      I@028/0039
       _ObjRef
       <
-        I@037/0035
+        I@037/0039
         $base
       >
     >
-    !OF I@007/0036
+    !OF I@007/0040
     modifiers
     :
-    I@018/0036
+    I@018/0040
     _Modifiers
     []
   }
 }
 {
-  !Ou I@008/0039
+  !Ou I@008/0043
   _Parameter
   :
-  I@007/0040
+  I@007/0044
   _Alternate
   <
-    I@018/0040
+    I@018/0044
     _InputBase
   >
   {
-    !OF I@009/0041
+    !OF I@009/0045
     default
     :
-    I@018/0041
+    I@018/0045
     _Constant
     ?
   }

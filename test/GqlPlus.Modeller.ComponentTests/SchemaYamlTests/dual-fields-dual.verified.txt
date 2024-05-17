@@ -8,10 +8,12 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: field
       object: DualFieldsDual
-      type: !_DualBase DualFieldDual
+      type: !_DualBase
+        dual: DualFieldDual
     fields:
     - !_DualField
       name: field
-      type: !_DualBase DualFieldDual
+      type: !_DualBase
+        dual: DualFieldDual
     name: DualFieldsDual
     typeKind: !_TypeKind Dual

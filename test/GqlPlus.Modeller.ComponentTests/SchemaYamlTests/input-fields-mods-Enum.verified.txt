@@ -6,20 +6,23 @@ types: !_Map_Type
       enum: InpFieldEnum
       name: value
     items:
-    - !_Aliased value
+    - !_Aliased
+      name: value
     name: InpFieldEnum
     typeKind: !_TypeKind Enum
   !_Identifier InpFieldMods: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
-      modifiers: [!_ModifierDictionary {by: InpFieldEnum, modifierKind: Dict}]
+      modifiers: [!_ModifierDictionary {by: InpFieldEnum}]
       name: field
       object: InpFieldMods
-      type: !_InputBase InpFieldMods
+      type: !_InputBase
+        input: InpFieldMods
     fields:
     - !_InputField
-      modifiers: [!_ModifierDictionary {by: InpFieldEnum, modifierKind: Dict}]
+      modifiers: [!_ModifierDictionary {by: InpFieldEnum}]
       name: field
-      type: !_InputBase InpFieldMods
+      type: !_InputBase
+        input: InpFieldMods
     name: InpFieldMods
     typeKind: !_TypeKind Input

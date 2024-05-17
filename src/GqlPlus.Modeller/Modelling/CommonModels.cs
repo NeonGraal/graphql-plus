@@ -68,10 +68,11 @@ public record class CollectionModel(
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-        .Add("modifierKind", $"{ModifierKind}")
-        .Add(ModifierKind == ModifierKind.Dict, s => s
-          .Add("by", Key)
-          .Add("optional", KeyOptional, true)
+        .Add(ModifierKind == ModifierKind.Dict,
+          s => s
+            .Add("by", Key)
+            .Add("optional", KeyOptional, true),
+          s => new($"{ModifierKind}", Tag)
         );
 }
 

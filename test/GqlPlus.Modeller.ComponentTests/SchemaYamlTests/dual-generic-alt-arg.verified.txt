@@ -17,7 +17,8 @@ types: !_Map_Type
     name: DualGenAltArg
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described type
+    - !_Described
+      name: type
   !_Identifier DualGenAltRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -29,4 +30,5 @@ types: !_Map_Type
     name: DualGenAltRef
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described ref
+    - !_Described
+      name: ref

@@ -1,12 +1,14 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema;
-public record class SpecialTypeAst : AstType
+public record class SpecialTypeAst
+  : AstType, IGqlpTypeSpecial
 {
   internal override string Abbr => "TZ";
   public override string Label { get; }
+  public string? Parent => null;
 
-  public SpecialTypeAst(TokenAt at, string label)
-    : base(at, "_" + label, "")
+  public SpecialTypeAst(string label)
+    : base(AstNulls.At, "_" + label, "")
     => Label = label;
 }

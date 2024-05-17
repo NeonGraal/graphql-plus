@@ -20,5 +20,7 @@ types: !_Map_Type
     name: DualParams
     typeKind: !_TypeKind Dual
     typeParameters:
-    - !_Described test
-    - !_Described type
+    - !_Described
+      name: test
+    - !_Described
+      name: type

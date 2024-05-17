@@ -23,22 +23,26 @@ types: !_Map_Type
       type: !_OutputBase
         output: _ObjRef
         typeArguments:
-        - !_OutputBase _OutputBase
+        - !_OutputBase
+          output: _OutputBase
     allFields:
     - !_ObjectFor(_OutputField)
       name: value
       object: _OutputArgument
-      type: !_OutputBase _Identifier
+      type: !_OutputBase
+        output: _Identifier
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _ObjRef
         typeArguments:
-        - !_OutputBase _OutputBase
+        - !_OutputBase
+          output: _OutputBase
     fields:
     - !_OutputField
       name: value
-      type: !_OutputBase _Identifier
+      type: !_OutputBase
+        output: _Identifier
     name: _OutputArgument
     parent: !_OutputBase
       output: _TypeRef
@@ -52,42 +56,51 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _OutputBase
-      type: !_OutputBase _DualBase
+      type: !_OutputBase
+        output: _DualBase
     allFields:
     - !_ObjectFor(_OutputField)
       name: output
       object: _OutputBase
-      type: !_OutputBase _Identifier
+      type: !_OutputBase
+        output: _Identifier
     alternates:
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _DualBase
+      type: !_OutputBase
+        output: _DualBase
     fields:
     - !_OutputField
       name: output
-      type: !_OutputBase _Identifier
+      type: !_OutputBase
+        output: _Identifier
     name: _OutputBase
     parent: !_OutputBase
       output: _ObjBase
       typeArguments:
-      - !_OutputBase _OutputArgument
+      - !_OutputBase
+        output: _OutputArgument
     typeKind: !_TypeKind Output
   !_Identifier _OutputEnum: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
       object: _OutputEnum
-      type: !_OutputBase _Identifier
+      type: !_OutputBase
+        output: _Identifier
     - !_ObjectFor(_OutputField)
       name: value
       object: _OutputEnum
-      type: !_OutputBase _Identifier
+      type: !_OutputBase
+        output: _Identifier
     fields:
     - !_OutputField
       name: field
-      type: !_OutputBase _Identifier
+      type: !_OutputBase
+        output: _Identifier
     - !_OutputField
       name: value
-      type: !_OutputBase _Identifier
+      type: !_OutputBase
+        output: _Identifier
     name: _OutputEnum
     parent: !_OutputBase
       output: _TypeRef
@@ -101,26 +114,31 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _OutputField
-      type: !_OutputBase _OutputEnum
+      type: !_OutputBase
+        output: _OutputEnum
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: parameter
       object: _OutputField
-      type: !_OutputBase _Parameter
+      type: !_OutputBase
+        output: _Parameter
     alternates:
     - !_Alternate(_OutputBase)
-      type: !_OutputBase _OutputEnum
+      type: !_OutputBase
+        output: _OutputEnum
     fields:
     - !_OutputField
       modifiers: [!_Modifier List]
       name: parameter
-      type: !_OutputBase _Parameter
+      type: !_OutputBase
+        output: _Parameter
     name: _OutputField
     parent: !_OutputBase
       output: _Field
       typeArguments:
-      - !_OutputBase _OutputBase
+      - !_OutputBase
+        output: _OutputBase
     typeKind: !_TypeKind Output
   !_Identifier _TypeOutput: !_TypeOutput
     name: _TypeOutput
@@ -131,6 +149,8 @@ types: !_Map_Type
         name: _TypeKind
         typeKind: !_SimpleKind Enum
         value: Output
-      - !_OutputBase _OutputBase
-      - !_OutputBase _OutputField
+      - !_OutputBase
+        output: _OutputBase
+      - !_OutputBase
+        output: _OutputField
     typeKind: !_TypeKind Output

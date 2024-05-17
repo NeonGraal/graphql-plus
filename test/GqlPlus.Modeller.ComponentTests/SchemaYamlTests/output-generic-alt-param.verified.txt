@@ -7,13 +7,15 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenAltParamRef
         typeArguments:
-        - !_OutputBase OutpGenAltParamAlt
+        - !_OutputBase
+          output: OutpGenAltParamAlt
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: OutpGenAltParamRef
         typeArguments:
-        - !_OutputBase OutpGenAltParamAlt
+        - !_OutputBase
+          output: OutpGenAltParamAlt
     name: OutpGenAltParam
     typeKind: !_TypeKind Output
   !_Identifier OutpGenAltParamAlt: !_TypeOutput
@@ -30,4 +32,5 @@ types: !_Map_Type
     name: OutpGenAltParamRef
     typeKind: !_TypeKind Output
     typeParameters:
-    - !_Described ref
+    - !_Described
+      name: ref

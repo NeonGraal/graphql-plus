@@ -5,10 +5,12 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: field
       object: InpFields
-      type: !_InputBase InpFields
+      type: !_InputBase
+        input: InpFields
     fields:
     - !_InputField
       name: field
-      type: !_InputBase InpFields
+      type: !_InputBase
+        input: InpFields
     name: InpFields
     typeKind: !_TypeKind Input

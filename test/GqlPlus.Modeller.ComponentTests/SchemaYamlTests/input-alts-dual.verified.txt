@@ -7,9 +7,11 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpAltsDual
-      type: !_DualBase InpAltDual
+      type: !_DualBase
+        dual: InpAltDual
     alternates:
     - !_Alternate(_InputBase)
-      type: !_DualBase InpAltDual
+      type: !_DualBase
+        dual: InpAltDual
     name: InpAltsDual
     typeKind: !_TypeKind Input

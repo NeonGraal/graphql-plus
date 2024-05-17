@@ -158,7 +158,7 @@ internal sealed class SchemaModelChecks(
 ) : CheckModelBase<string, IGqlpSchema, SchemaAst, SchemaModel>(modeller)
 {
   protected override string[] ExpectedBase(string name)
-    => ["!_Schema " + name];
+    => ["!_Schema", "name: " + name];
 
   protected override SchemaAst NewBaseAst(string name)
     => new(AstNulls.At) { Declarations = [new OptionDeclAst(AstNulls.At, name)] };

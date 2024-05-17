@@ -6,11 +6,13 @@ types: !_Map_Type
       default: 0
       name: field
       object: InFieldNum
-      type: !_InputBase Number
+      type: !_InputBase
+        input: Number
     fields:
     - !_InputField
       default: 0
       name: field
-      type: !_InputBase Number
+      type: !_InputBase
+        input: Number
     name: InFieldNum
     typeKind: !_TypeKind Input

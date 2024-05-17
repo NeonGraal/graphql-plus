@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Text.Json;
 
 namespace GqlPlus.Rendering;
 
@@ -16,12 +15,8 @@ public class RenderStructure
 
   public static RenderStructure New(string tag, bool flow = false)
     => new(tag, flow);
-  public static RenderStructure For<T>(T value, string? tag = null)
-    where T : struct
-  {
-    Type type = typeof(T);
-    return type.IsEnum ? new(value.ToString(), tag ?? type.TypeTag()) : new("", false);
-  }
+  public static RenderStructure ForAll(IEnumerable<string> values, string tag = "")
+    => new(values.Select(v => new RenderStructure(v)), tag);
 
   private RenderStructure(string tag, bool flow)
     : base() => (Tag, Flow) = (tag, flow);
@@ -102,10 +97,4 @@ public class RenderStructure
 
     return this;
   }
-
-  public string ToYaml()
-    => RenderYaml.Serializer.Serialize(this);
-
-  public string ToJson()
-    => RenderJson.Serialize(this) + "\n";
 }

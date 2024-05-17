@@ -6,7 +6,8 @@ types: !_Map_Type
       enum: InEnumField
       name: value
     items:
-    - !_Aliased value
+    - !_Aliased
+      name: value
     name: InEnumField
     typeKind: !_TypeKind Enum
   !_Identifier InFieldEnum: !_TypeInput
@@ -15,11 +16,13 @@ types: !_Map_Type
       default: value
       name: field
       object: InFieldEnum
-      type: !_InputBase InEnumField
+      type: !_InputBase
+        input: InEnumField
     fields:
     - !_InputField
       default: value
       name: field
-      type: !_InputBase InEnumField
+      type: !_InputBase
+        input: InEnumField
     name: InFieldEnum
     typeKind: !_TypeKind Input

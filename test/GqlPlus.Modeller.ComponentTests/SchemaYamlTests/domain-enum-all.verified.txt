@@ -26,7 +26,9 @@ types: !_Map_Type
       enum: EnumDomAll
       name: dom_enum_all
     items:
-    - !_Aliased dom_all
-    - !_Aliased dom_enum_all
+    - !_Aliased
+      name: dom_all
+    - !_Aliased
+      name: dom_enum_all
     name: EnumDomAll
     typeKind: !_TypeKind Enum

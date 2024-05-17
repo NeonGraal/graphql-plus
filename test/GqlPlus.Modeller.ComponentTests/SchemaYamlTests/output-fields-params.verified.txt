@@ -13,18 +13,24 @@ types: !_Map_Type
       object: FieldParams
       parameters:
       - !_InputParameter
-        type: !_InputBase FieldParam1
+        type: !_InputBase
+          input: FieldParam1
       - !_InputParameter
-        type: !_InputBase FieldParam2
-      type: !_OutputBase FieldParams
+        type: !_InputBase
+          input: FieldParam2
+      type: !_OutputBase
+        output: FieldParams
     fields:
     - !_OutputField
       name: field
       parameters:
       - !_InputParameter
-        type: !_InputBase FieldParam1
+        type: !_InputBase
+          input: FieldParam1
       - !_InputParameter
-        type: !_InputBase FieldParam2
-      type: !_OutputBase FieldParams
+        type: !_InputBase
+          input: FieldParam2
+      type: !_OutputBase
+        output: FieldParams
     name: FieldParams
     typeKind: !_TypeKind Output

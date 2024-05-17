@@ -1,0 +1,12 @@
+﻿<table>
+  <thead><tr>
+    <th>Value</th><th>Aliases</th><th class="from">Enum</th>
+  </tr></thead>
+  {%- for item in enum.allItems %}
+  <tr>
+    <td>{{ item.name }}</td>
+    <td>{{ item.aliases | join: ", " }}</td>
+    <td class="from">{{ item.enum }}</td>
+  </tr>
+  {%- endfor %}
+</table>

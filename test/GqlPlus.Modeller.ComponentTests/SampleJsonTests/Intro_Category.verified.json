@@ -117,12 +117,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "modifiers",
           "object": "_Category",
           "type": {
@@ -158,12 +153,7 @@
         },
         {
           "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "value": "List"
-            }
-          ],
+          "modifiers": ["List"],
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",

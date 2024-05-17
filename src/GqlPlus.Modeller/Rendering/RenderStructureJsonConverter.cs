@@ -4,7 +4,7 @@ namespace GqlPlus.Rendering;
 internal class RenderStructureJsonConverter
   : RenderJsonConverter<RenderStructure>
 {
-  static internal RenderValueJsonConverter ValueConverter { get; } = new();
+  internal static RenderValueJsonConverter ValueConverter { get; } = new();
 
   public override RenderStructure? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException();
   public override void Write(Utf8JsonWriter writer, RenderStructure value, JsonSerializerOptions options)
@@ -41,7 +41,7 @@ internal class RenderStructureJsonConverter
     }
 
     IEnumerable<(string, RenderStructure)> ordered = map
-      .Select(kv => (key: KeyText(kv.Key), kv.Value))
+      .Select(kv => (key: kv.Key.AsString, kv.Value))
       .OrderBy(kv => kv.key);
 
     foreach ((string key, RenderStructure value) in ordered) {
@@ -50,21 +50,6 @@ internal class RenderStructureJsonConverter
     }
 
     writer.WriteEndObject();
-  }
-
-  private static string KeyText(RenderValue key)
-  {
-    if (key.Identifier is not null) {
-      return key.Identifier;
-    } else if (key.Boolean is not null) {
-      return key.Boolean.Value.TrueFalse();
-    } else if (key.Number is not null) {
-      return $"{key.Number}";
-    } else if (key.Text is not null) {
-      return key.Text;
-    }
-
-    return string.Empty;
   }
 
   private void WriteList(Utf8JsonWriter writer, IList<RenderStructure> list, JsonSerializerOptions options)

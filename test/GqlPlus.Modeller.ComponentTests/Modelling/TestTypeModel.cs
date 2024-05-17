@@ -92,7 +92,7 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel, TItem>(
     => ItemsExpected(field, members, ExpectedMember);
 
   private IEnumerable<string> ExpectedMember(string member)
-        => ["- !_Aliased " + member];
+        => ["- !_Aliased", "  name: " + member];
 
   internal IEnumerable<string> ExpectedAllMembers(string field, string[] members, string type)
     => ItemsExpected(field, members, ExpectedAllMember(type));

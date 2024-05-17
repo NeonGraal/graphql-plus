@@ -42,7 +42,7 @@ public static class RenderFluid
     model.Add("yaml", model.ToYaml(true));
     TemplateContext context = new(model, s_options);
 
-    string dirPath = Path.Join(s_projectDir, dir);
+    string dirPath = Path.Join(s_projectDir, "..", "Html", dir);
     if (!Directory.Exists(dirPath)) {
       Directory.CreateDirectory(dirPath);
     }
@@ -59,7 +59,7 @@ public static class RenderFluid
     model.Add("yaml", model.ToYaml(true));
     TemplateContext context = new(model, s_options);
 
-    string dirPath = Path.Join(s_projectDir, dir);
+    string dirPath = Path.Join(s_projectDir, "..", "Html", dir);
     if (!Directory.Exists(dirPath)) {
       Directory.CreateDirectory(dirPath);
     }

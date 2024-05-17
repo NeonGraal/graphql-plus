@@ -73,7 +73,7 @@ public class SampleModelTests(
       result.Add("_errors", context.Errors.Render());
     }
 
-    await RenderFluid.WriteHtmlFileAsync("SampleHtmlTests", sample, result);
+    await RenderFluid.WriteHtmlFileAsync("Sample", sample, result);
   }
 
   [Fact]
@@ -85,6 +85,6 @@ public class SampleModelTests(
     RenderStructure result = RenderStructure.New("");
     result.Add("groups", groups);
 
-    result.WriteHtmlFile("SampleHtmlTests", "index", "index");
+    result.WriteHtmlFile("Sample", "index", "index");
   }
 }

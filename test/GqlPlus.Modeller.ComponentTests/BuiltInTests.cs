@@ -53,7 +53,7 @@ public class BuiltInTests(
     RenderStructure result = RenderStructure.New("");
     result.Add("groups", groups);
 
-    result.WriteHtmlFile("BuiltInHtmlTests", "index", "index");
+    result.WriteHtmlFile("BuiltIn", "index", "index");
   }
 
   private void RenderTypeHtml(AstType type)
@@ -79,7 +79,7 @@ public class BuiltInTests(
       result.Add("_errors", context.Errors.Render());
     }
 
-    result.WriteHtmlFile("BuiltInHtmlTests", filename);
+    result.WriteHtmlFile("BuiltIn", filename);
   }
 
   static BuiltInTests()

@@ -29,7 +29,7 @@ public class SchemaHtmlTests(
     RenderStructure result = RenderStructure.New("");
     result.Add("groups", groups);
 
-    result.WriteHtmlFile("SchemaHtmlTests", "index", "index");
+    result.WriteHtmlFile("Schema", "index", "index");
   }
 
   [Fact]
@@ -41,7 +41,7 @@ public class SchemaHtmlTests(
 
     RenderStructure result = ModelAsts(asts);
 
-    result.WriteHtmlFile("SchemaHtmlTests", "!ALL");
+    result.WriteHtmlFile("Schema", "!ALL");
   }
 
   [Theory]
@@ -53,7 +53,7 @@ public class SchemaHtmlTests(
 
     RenderStructure result = ModelAsts(asts);
 
-    result.WriteHtmlFile("SchemaHtmlTests", "!" + group);
+    result.WriteHtmlFile("Schema", "!" + group);
   }
 
   [Theory]
@@ -119,7 +119,7 @@ public class SchemaHtmlTests(
 
     RenderStructure result = ModelAsts([ast]);
 
-    result.WriteHtmlFile("SchemaHtmlTests", test);
+    result.WriteHtmlFile("Schema", test);
   }
 
   private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts)

@@ -50,7 +50,7 @@ jobs:
           fail-on-error: true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        if: ${{ matrix.dotnet-version }} == '8.0.x'
+        if: ${{ matrix.dotnet-version == '8.0.x' }} 
         with:
           path: test/Html
 

@@ -53,7 +53,7 @@ public static class AllModellers
   private static IServiceCollection AddTypesModeller(this IServiceCollection services)
     => services
       .AddSingleton<ITypesModeller, TypesModeller>()
-      .AddSingleton<IModeller<IGqlpType, BaseTypeModel>>(c => c.GetRequiredService<ITypesModeller>());
+      .AddProvider<ITypesModeller, IModeller<IGqlpType, BaseTypeModel>>();
 
   private static IServiceCollection AddTypeModeller<TAst, TModel, TModeller>(this IServiceCollection services)
     where TAst : IGqlpError
@@ -61,8 +61,8 @@ public static class AllModellers
     where TModeller : class, IModeller<TAst, TModel>, ITypeModeller
     => services
       .AddSingleton<TModeller>()
-      .AddSingleton<IModeller<TAst, TModel>, TModeller>(c => c.GetRequiredService<TModeller>())
-      .AddSingleton<ITypeModeller, TModeller>(c => c.GetRequiredService<TModeller>());
+      .AddProvider<TModeller, IModeller<TAst, TModel>>()
+      .AddProvider<TModeller, ITypeModeller>();
 
   private static IServiceCollection AddDomainModeller<TItemAst, TItemModel, TModeller>(this IServiceCollection services)
     where TItemAst : IGqlpDomainItem
@@ -70,14 +70,14 @@ public static class AllModellers
     where TModeller : class, IDomainModeller<TItemAst, TItemModel>, ITypeModeller
     => services
       .AddSingleton<TModeller>()
-      .AddSingleton<IDomainModeller<TItemAst, TItemModel>, TModeller>(c => c.GetRequiredService<TModeller>())
-      .AddSingleton<ITypeModeller, TModeller>(c => c.GetRequiredService<TModeller>());
+      .AddProvider<TModeller, IDomainModeller<TItemAst, TItemModel>>()
+      .AddProvider<TModeller, ITypeModeller>();
 
   private static IServiceCollection AddModifierModeller(this IServiceCollection services)
     => services
       .AddSingleton<IModifierModeller, ModifierModeller>()
-      .AddSingleton<IModeller<IGqlpModifier, ModifierModel>>(c => c.GetRequiredService<IModifierModeller>())
-      .AddSingleton<IModeller<IGqlpModifier, CollectionModel>>(c => c.GetRequiredService<IModifierModeller>());
+      .AddProvider<IModifierModeller, IModeller<IGqlpModifier, ModifierModel>>()
+      .AddProvider<IModifierModeller, IModeller<IGqlpModifier, CollectionModel>>();
 
   private static IServiceCollection AddAlternateModeller<TObjBaseAst, TObjBase>(this IServiceCollection services)
     where TObjBaseAst : AstObjectBase<TObjBaseAst>

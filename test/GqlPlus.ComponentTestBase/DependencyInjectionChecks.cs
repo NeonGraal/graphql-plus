@@ -12,9 +12,7 @@ public class DependencyInjectionChecks(
   public void CheckDependencyInjectionContainer()
   {
     StringBuilder sb = new();
-    ServiceDescriptor[] sds = services
-        .OrderBy(o => o.ServiceType.ExpandTypeName())
-        .ToArray();
+    ServiceDescriptor[] sds = [.. services.OrderBy(o => o.ServiceType.ExpandTypeName())];
 
     HashSet<string> hashset = sds.Select(o => o.ServiceType.FullTypeName()).ToHashSet();
 
@@ -24,6 +22,11 @@ public class DependencyInjectionChecks(
       sb.Clear();
 
       string service = sd.ServiceType.FullTypeName();
+
+      if (!service.StartsWith("GqlPlus", StringComparison.Ordinal)) {
+        continue;
+      }
+
       sb.Append(service);
       sb.Append(", ");
       sb.Append(sd.Lifetime);
@@ -35,6 +38,15 @@ public class DependencyInjectionChecks(
         CheckConstructor(service + " <- " + implementation, sd.ImplementationType, hashset);
       } else if (sd.ImplementationFactory is not null) {
         sb.Append("() => ");
+        if (sd.ImplementationFactory.Method.IsGenericMethod) {
+          Type[] args = sd.ImplementationFactory.Method.GetGenericArguments();
+          if (args.Length > 0) {
+            string implementation = args[0].FullTypeName(sd.ServiceType.Namespace);
+            sb.Append(implementation);
+
+            CheckConstructor(service + " <- " + implementation, args[0], hashset);
+          }
+        }
       } else if (sd.ImplementationInstance is not null) {
         sb.Append("= ");
         sb.Append(sd.ImplementationInstance.GetType().FullTypeName(sd.ServiceType.Namespace));

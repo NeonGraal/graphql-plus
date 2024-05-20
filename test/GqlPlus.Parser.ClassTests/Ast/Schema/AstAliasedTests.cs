@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using GqlPlus.Parsing;
 
 namespace GqlPlus.Ast.Schema;
 
@@ -50,7 +51,7 @@ public abstract class AstAliasedTests<TInput>
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_ByInputs(TInput input1, TInput input2, string aliased)
     => AliasedChecks
-      .SkipIf(input1!.Equals(input2))
+      .SkipIf(input1.ThrowIfNull().Equals(input2))
       .Inequality_ByInputs(input1, input2, aliased);
 
   protected virtual string AliasesString(TInput input, string aliases)

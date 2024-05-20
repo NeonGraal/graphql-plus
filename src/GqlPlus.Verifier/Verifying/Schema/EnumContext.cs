@@ -10,7 +10,7 @@ public class EnumContext(
   IMap<string> enumValues
 ) : UsageContext(types, errors)
 {
-  internal bool GetEnumValue(string value, out string? type)
+  internal bool GetEnumValue(string value, [NotNullWhen(true)] out string? type)
     => enumValues.TryGetValue(value, out type);
 
   internal bool GetEnumType(string? name, [NotNullWhen(true)] out EnumDeclAst? enumType)

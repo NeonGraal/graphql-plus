@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Parsing;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -53,7 +54,7 @@ public record class OutputArgumentModel(
 
   internal override RenderStructure Render(IRenderContext context)
     => string.IsNullOrWhiteSpace(EnumValue)
-    ? Ref!.Render(context)
+    ? Ref.ThrowIfNull().Render(context)
     : base.Render(context)
       .Add("value", EnumValue);
 }

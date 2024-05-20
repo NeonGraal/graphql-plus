@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Parsing;
 using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Objects;
@@ -14,7 +15,7 @@ public class MergeOutputFieldsTests
       .SkipUnless(parameters)
       .CanMergeReturnsError(_parameters)
       .CanMerge_Errors(
-        MakeField(name, type) with { Parameters = parameters!.Parameters() },
+        MakeField(name, type) with { Parameters = parameters.ThrowIfNull().Parameters() },
         MakeField(name, type));
 
   [Theory, RepeatData(Repeats)]

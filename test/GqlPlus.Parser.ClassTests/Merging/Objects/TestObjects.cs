@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Parsing;
 
 namespace GqlPlus.Merging.Objects;
 
@@ -15,8 +16,8 @@ public abstract class TestObjects<TObject, TObjField, TObjBase>
       .SkipUnless(typeParameters)
       .CanMergeReturnsError(TypeParameters)
       .CanMerge_Errors(
-        MakeObject(name) with { TypeParameters = typeParameters!.TypeParameters() },
-        MakeObject(name) with { TypeParameters = typeParameters!.TypeParameters() });
+        MakeObject(name) with { TypeParameters = typeParameters.ThrowIfNull().TypeParameters() },
+        MakeObject(name) with { TypeParameters = typeParameters.ThrowIfNull().TypeParameters() });
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsErrors(string name, string[] alternates)

@@ -24,8 +24,8 @@ public class ParseSchemaTests(Parser<IGqlpSchema>.D parser)
     using AssertionScope scope = new();
 
     result.Should().BeOfType<SchemaAst>();
-    result!.Result.Should().Be(ParseResultKind.Success);
-    result!.Errors.Should().BeEmpty();
+    result.ThrowIfNull().Result.Should().Be(ParseResultKind.Success);
+    result.Errors.Should().BeEmpty();
   }
 
   [Theory]
@@ -56,6 +56,6 @@ public class ParseSchemaTests(Parser<IGqlpSchema>.D parser)
 
     ast.Should().BeOfType<SchemaAst>()
       .Subject.Result.Should().Be(ParseResultKind.Failure);
-    ast!.Errors.Should().NotBeEmpty();
+    ast.ThrowIfNull().Errors.Should().NotBeEmpty();
   }
 }

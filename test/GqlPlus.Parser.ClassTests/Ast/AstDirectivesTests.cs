@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Parsing;
 
 namespace GqlPlus.Ast;
 
@@ -86,7 +87,7 @@ internal class AstDirectivesChecks<TInput, TAst>
   public void Inequality_ByInputs(TInput input1, TInput input2, string[] directives)
     => InequalityBetween(input1, input2,
       input => CreateDirective(input, directives),
-      input1!.Equals(input2), CreateExpression);
+      input1.ThrowIfNull().Equals(input2), CreateExpression);
 
   public void String(TInput input, string[] directives, string expected)
     => Text(

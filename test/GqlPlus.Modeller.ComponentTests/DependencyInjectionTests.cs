@@ -11,4 +11,9 @@ public class DependencyInjectionTests(
   [Fact]
   public void CheckModellerDIContainer()
     => CheckDependencyInjectionContainer();
+
+  [Fact]
+  public void HtmlDiagramModellerDIContainer()
+    => HtmlDiagramDependencyInjectionContainer()
+    .WriteHtmlFile("DI", "Modeller");
 }

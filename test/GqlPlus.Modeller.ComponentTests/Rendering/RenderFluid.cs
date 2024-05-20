@@ -35,21 +35,25 @@ public static class RenderFluid
       ? new StringValue(tagged.Tag)
       : EmptyValue.Instance;
 
-  internal static void WriteHtmlFile(this RenderStructure model, string dir, string file, string initial = "default")
+  internal static void WriteHtmlFile(this string contents, string dir, string file)
   {
-    ArgumentNullException.ThrowIfNull(model);
-
-    model.Add("yaml", model.ToYaml(true));
-    TemplateContext context = new(model, s_options);
-
     string dirPath = Path.Join(s_projectDir, "..", "Html", dir);
     if (!Directory.Exists(dirPath)) {
       Directory.CreateDirectory(dirPath);
     }
 
     string filePath = Path.Join(dirPath, file + ".html");
+    File.WriteAllText(filePath, contents);
+  }
+
+  internal static void WriteHtmlFile(this RenderStructure model, string dir, string file, string initial = "default")
+  {
+    ArgumentNullException.ThrowIfNull(model);
+
+    model.Add("yaml", model.ToYaml(true));
+    TemplateContext context = new(model, s_options);
     IFluidTemplate template = GetTemplate(initial);
-    File.WriteAllText(filePath, template.Render(context));
+    template.Render(context).WriteHtmlFile(dir, file);
   }
 
   internal static async Task WriteHtmlFileAsync(string dir, string file, RenderStructure model, string initial = "default")

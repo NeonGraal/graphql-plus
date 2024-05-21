@@ -86,16 +86,13 @@ public static class SchemaParsers
     where TObjBase : AstObjectBase<TObjBase>
     => services.AddParser<ObjectDefinition<TObjField, TObjBase>, TObject>();
 
-  private static Func<IServiceProvider, IParseDeclaration> GetDeclaration<TObject>(string selector)
-    where TObject : IGqlpDeclaration
-    => c => new ParseDeclaration<TObject>(selector, c.GetRequiredService<Parser<TObject>.D>());
-
   private static IServiceCollection AddDeclarationParser<TObject, TParser>(this IServiceCollection services, string selector)
     where TObject : IGqlpDeclaration
     where TParser : class, Parser<TObject>.I
     => services
       .AddParser<TObject, TParser>()
-      .AddSingleton(GetDeclaration<TObject>(selector));
+      .AddSingleton<IDeclarationSelector<TObject>>(new DeclarationSelector<TObject>(selector))
+      .AddSingleton<IParseDeclaration, ParseDeclaration<TObject>>();
 
   private static IServiceCollection AddDomainParser<TDomain, TParser>(this IServiceCollection services)
     where TParser : class, Parser<TDomain>.I, IParseDomain

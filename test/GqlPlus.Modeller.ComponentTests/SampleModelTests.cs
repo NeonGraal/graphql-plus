@@ -14,11 +14,6 @@ public class SampleModelTests(
     ITypesModeller types
 ) : SampleChecks(schemaParser)
 {
-  static SampleModelTests()
-    => RenderFluid.Setup(
-      new EmbeddedFileProvider(Assembly.GetExecutingAssembly(),
-      "GqlPlus.Html"));
-
   [Theory]
   [ClassData(typeof(SampleSchemaData))]
   public async Task YamlSchema(string sample)
@@ -73,7 +68,7 @@ public class SampleModelTests(
       result.Add("_errors", context.Errors.Render());
     }
 
-    await RenderFluid.WriteHtmlFileAsync("Sample", sample, result);
+    await result.WriteHtmlFileAsync("Sample", sample);
   }
 
   [Fact]

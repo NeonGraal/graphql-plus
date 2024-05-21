@@ -44,7 +44,7 @@ public static class RenderFluid
     template.Render(context).WriteHtmlFile(dir, file);
   }
 
-  internal static async Task WriteHtmlFileAsync(string dir, string file, RenderStructure model, string initial = "default")
+  internal static async Task WriteHtmlFileAsync(this RenderStructure model, string dir, string file, string initial = "default")
   {
     ArgumentNullException.ThrowIfNull(model);
 

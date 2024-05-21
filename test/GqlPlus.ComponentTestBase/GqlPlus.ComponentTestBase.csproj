@@ -16,31 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="OperationData.cs">
-      <DependentUpon>OperationData.tt</DependentUpon>
+    <Compile Update="*.gen.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DependentUpon>$([System.String]::Copy('%(Filename)').Replace('.gen','.tt'))</DependentUpon>
     </Compile>
-    <Compile Update="SampleData.cs">
-      <DependentUpon>SampleData.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Update="SchemaData.cs">
-      <DependentUpon>SchemaData.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <None Update="SampleData.tt">
-      <LastGenOutput>SampleData.cs</LastGenOutput>
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Update="OperationData.tt">
-      <LastGenOutput>OperationData.cs</LastGenOutput>
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Update="SchemaData.tt">
-      <LastGenOutput>SchemaData.cs</LastGenOutput>
+    <None Update="*.tt">
+      <LastGenOutput>%(Filename).gen.cs</LastGenOutput>
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
     <None Update="Sample\**" CopyToOutputDirectory="Always" />

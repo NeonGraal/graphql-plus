@@ -1,6 +1,6 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ import namespace="System.IO" #>
-<#@ output extension=".cs" #>
+<#@ output extension=".gen.cs" #>
 <#  var sampleDir = new DirectoryInfo(this.Host.ResolvePath("Sample"));
     var relative = sampleDir.FullName.Replace(Environment.CurrentDirectory, ".");
 #>

@@ -138,7 +138,4 @@ public class SchemaHtmlTests(
 
     return result;
   }
-
-  static SchemaHtmlTests()
-    => RenderFluid.Setup(new EmbeddedFileProvider(Assembly.GetExecutingAssembly(), "GqlPlus.Html"));
 }

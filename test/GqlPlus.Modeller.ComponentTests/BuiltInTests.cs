@@ -82,9 +82,4 @@ public class BuiltInTests(
 
     result.WriteHtmlFile("BuiltIn", filename);
   }
-
-  static BuiltInTests()
-    => RenderFluid.Setup(
-    new EmbeddedFileProvider(Assembly.GetExecutingAssembly(),
-      "GqlPlus.Html"));
 }

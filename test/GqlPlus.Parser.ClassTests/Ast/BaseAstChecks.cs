@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using GqlPlus.Parsing;
 
 namespace GqlPlus.Ast;
 
@@ -11,9 +12,9 @@ internal class BaseAstChecks<TAst>
   public void HashCode(AstCreator factory,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
   {
-    int expected = factory()!.GetHashCode();
+    int expected = factory().ThrowIfNull().GetHashCode();
 
-    int result = factory()!.GetHashCode();
+    int result = factory().ThrowIfNull().GetHashCode();
 
     result.Should().Be(expected, factoryExpression);
   }
@@ -24,7 +25,7 @@ internal class BaseAstChecks<TAst>
     TAst? left = factory();
     TAst? right = factory();
 
-    bool result = left!.Equals(right);
+    bool result = left.ThrowIfNull().Equals(right);
 
     result.Should().BeTrue(factoryExpression);
 
@@ -37,7 +38,7 @@ internal class BaseAstChecks<TAst>
     TAst? left = factory1();
     TAst? right = factory2();
 
-    bool result = left!.Equals(right);
+    bool result = left.ThrowIfNull().Equals(right);
 
     result.Should().BeFalse(factoryExpression);
 

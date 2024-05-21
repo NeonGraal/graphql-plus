@@ -66,8 +66,8 @@ public static class AllMergers
     => services
       .RemoveAll<IMerge<TAst>>()
       .AddSingleton<TService>()
-      .AddSingleton<IMerge<TAst>>(x => x.GetRequiredService<TService>())
-      .AddSingleton<IMergeAll<TType>>(x => x.GetRequiredService<TService>());
+      .AddProvider<TService, IMerge<TAst>>()
+      .AddProvider<TService, IMergeAll<TType>>();
 
   private static IServiceCollection AddMergeDomain<TMember, TItem>(this IServiceCollection services)
   where TMember : AstAbbreviated, TItem

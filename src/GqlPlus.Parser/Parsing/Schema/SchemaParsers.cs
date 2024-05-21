@@ -91,13 +91,14 @@ public static class SchemaParsers
     where TParser : class, Parser<TObject>.I
     => services
       .AddParser<TObject, TParser>()
-      .AddSingleton<IParseDeclaration>(c => new ParseDeclaration<TObject>(selector, c.GetRequiredService<Parser<TObject>.D>()));
+      .AddSingleton<IDeclarationSelector<TObject>>(new DeclarationSelector<TObject>(selector))
+      .AddSingleton<IParseDeclaration, ParseDeclaration<TObject>>();
 
   private static IServiceCollection AddDomainParser<TDomain, TParser>(this IServiceCollection services)
     where TParser : class, Parser<TDomain>.I, IParseDomain
     => services
       .AddArrayParser<TDomain, TParser>()
-      .AddSingleton<IParseDomain>(c => c.GetRequiredService<TParser>());
+      .AddProvider<TParser, IParseDomain>();
 
   private static IServiceCollection AddNullParsers(this IServiceCollection services)
     => services

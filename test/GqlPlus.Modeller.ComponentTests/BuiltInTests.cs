@@ -2,6 +2,7 @@
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Modelling;
+using GqlPlus.Parsing;
 using Microsoft.Extensions.FileProviders;
 using Xunit.DependencyInjection;
 
@@ -15,12 +16,12 @@ public class BuiltInTests(
   [SkippableTheory]
   [MethodData("AllBasic", typeof(BuiltIn))]
   public void HtmlBasicTypes(AstType type)
-    => RenderTypeHtml(type);
+    => RenderTypeHtml(type.ThrowIfNull());
 
   [SkippableTheory]
   [MethodData("AllInternal", typeof(BuiltIn))]
   public void HtmlInternalTypes(AstType type)
-    => RenderTypeHtml(type);
+    => RenderTypeHtml(type.ThrowIfNull());
 
   [Fact]
   public void HtmlAllBasicTypes()

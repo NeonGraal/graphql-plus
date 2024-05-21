@@ -72,7 +72,7 @@ public class ParseOperationTests(Parser<IGqlpOperation>.D parser)
 
     ast.Should().BeOfType<OperationAst>()
       .Subject.Result.Should().Be(ParseResultKind.Failure);
-    ast!.Errors.Should().NotBeEmpty();
+    ast.ThrowIfNull().Errors.Should().NotBeEmpty();
   }
 
   private readonly Parser<IGqlpOperation>.L _parser = parser;

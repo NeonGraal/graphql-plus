@@ -9,6 +9,11 @@ public class DependencyInjectionTests(
 ) : DependencyInjectionChecks(services, output)
 {
   [Fact]
-  public void CheckVerifierDIContainer()
-    => CheckDependencyInjectionContainer();
+  public void CheckVerifierDI()
+    => CheckDependencyInjection();
+
+  [Fact]
+  public void HtmlVerifierDI()
+    => HtmlDependencyInjection()
+    .WriteHtmlFile("DI", "Verifier");
 }

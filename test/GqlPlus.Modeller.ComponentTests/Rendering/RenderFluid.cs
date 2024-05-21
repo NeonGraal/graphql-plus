@@ -8,7 +8,6 @@ public static class RenderFluid
 {
   private static readonly FluidParser s_parser = new();
   private static readonly TemplateOptions s_options = new();
-  private static readonly string s_projectDir = AttributeReader.GetProjectDirectory();
   private static readonly Map<IFluidTemplate> s_templates = [];
 
   static RenderFluid()
@@ -35,17 +34,6 @@ public static class RenderFluid
       ? new StringValue(tagged.Tag)
       : EmptyValue.Instance;
 
-  internal static void WriteHtmlFile(this string contents, string dir, string file)
-  {
-    string dirPath = Path.Join(s_projectDir, "..", "Html", dir);
-    if (!Directory.Exists(dirPath)) {
-      Directory.CreateDirectory(dirPath);
-    }
-
-    string filePath = Path.Join(dirPath, file + ".html");
-    File.WriteAllText(filePath, contents);
-  }
-
   internal static void WriteHtmlFile(this RenderStructure model, string dir, string file, string initial = "default")
   {
     ArgumentNullException.ThrowIfNull(model);
@@ -62,15 +50,8 @@ public static class RenderFluid
 
     model.Add("yaml", model.ToYaml(true));
     TemplateContext context = new(model, s_options);
-
-    string dirPath = Path.Join(s_projectDir, "..", "Html", dir);
-    if (!Directory.Exists(dirPath)) {
-      Directory.CreateDirectory(dirPath);
-    }
-
-    string filePath = Path.Join(dirPath, file + ".html");
     IFluidTemplate template = GetTemplate(initial);
-    await File.WriteAllTextAsync(filePath, await template.RenderAsync(context));
+    await template.RenderAsync(context).WriteHtmlFileAsync(dir, file);
   }
 
   private static object RenderConverter(object input)

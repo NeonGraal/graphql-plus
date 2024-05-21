@@ -27,4 +27,28 @@ public static class ComponentTestStartup
       .AddSchemaParsers()
       .AddMergers()
       .AddSingleton(_ => services);
+
+  private static readonly string s_projectDir = AttributeReader.GetProjectDirectory();
+
+  public static void WriteHtmlFile(this string contents, string dir, string file)
+  {
+    string dirPath = Path.Join(s_projectDir, "..", "Html", dir);
+    if (!Directory.Exists(dirPath)) {
+      Directory.CreateDirectory(dirPath);
+    }
+
+    string filePath = Path.Join(dirPath, file + ".html");
+    File.WriteAllText(filePath, contents);
+  }
+
+  public static async Task WriteHtmlFileAsync(this ValueTask<string> contents, string dir, string file)
+  {
+    string dirPath = Path.Join(s_projectDir, "..", "Html", dir);
+    if (!Directory.Exists(dirPath)) {
+      Directory.CreateDirectory(dirPath);
+    }
+
+    string filePath = Path.Join(dirPath, file + ".html");
+    await File.WriteAllTextAsync(filePath, await contents);
+  }
 }

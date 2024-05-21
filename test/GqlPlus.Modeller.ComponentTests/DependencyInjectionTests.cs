@@ -9,11 +9,11 @@ public class DependencyInjectionTests(
 ) : DependencyInjectionChecks(services, output)
 {
   [Fact]
-  public void CheckModellerDIContainer()
-    => CheckDependencyInjectionContainer();
+  public void CheckModellerDI()
+    => CheckDependencyInjection();
 
   [Fact]
-  public void HtmlDiagramModellerDIContainer()
-    => HtmlDiagramDependencyInjectionContainer()
+  public void HtmlModellerDI()
+    => HtmlDependencyInjection()
     .WriteHtmlFile("DI", "Modeller");
 }

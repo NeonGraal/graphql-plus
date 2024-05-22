@@ -1,4 +1,5 @@
-﻿using Fluid;
+﻿using FluentAssertions.Execution;
+using Fluid;
 using Fluid.Values;
 using Microsoft.Extensions.FileProviders;
 
@@ -8,7 +9,6 @@ public static class RenderFluid
 {
   private static readonly FluidParser s_parser = new();
   private static readonly TemplateOptions s_options = new();
-  private static readonly string s_projectDir = AttributeReader.GetProjectDirectory();
   private static readonly Map<IFluidTemplate> s_templates = [];
 
   static RenderFluid()
@@ -41,32 +41,18 @@ public static class RenderFluid
 
     model.Add("yaml", model.ToYaml(true));
     TemplateContext context = new(model, s_options);
-
-    string dirPath = Path.Join(s_projectDir, "..", "Html", dir);
-    if (!Directory.Exists(dirPath)) {
-      Directory.CreateDirectory(dirPath);
-    }
-
-    string filePath = Path.Join(dirPath, file + ".html");
     IFluidTemplate template = GetTemplate(initial);
-    File.WriteAllText(filePath, template.Render(context));
+    template.Render(context).WriteHtmlFile(dir, file);
   }
 
-  internal static async Task WriteHtmlFileAsync(string dir, string file, RenderStructure model, string initial = "default")
+  internal static async Task WriteHtmlFileAsync(this RenderStructure model, string dir, string file, string initial = "default")
   {
     ArgumentNullException.ThrowIfNull(model);
 
     model.Add("yaml", model.ToYaml(true));
     TemplateContext context = new(model, s_options);
-
-    string dirPath = Path.Join(s_projectDir, "..", "Html", dir);
-    if (!Directory.Exists(dirPath)) {
-      Directory.CreateDirectory(dirPath);
-    }
-
-    string filePath = Path.Join(dirPath, file + ".html");
     IFluidTemplate template = GetTemplate(initial);
-    await File.WriteAllTextAsync(filePath, await template.RenderAsync(context));
+    await template.RenderAsync(context).WriteHtmlFileAsync(dir, file);
   }
 
   private static object RenderConverter(object input)
@@ -122,5 +108,18 @@ public static class RenderFluid
 
     return string.IsNullOrWhiteSpace(value.Tag) ? result
       : new TaggedValue(value.Tag, result);
+  }
+
+  public static void CheckFluidFiles()
+  {
+    IFileProvider files = s_options.FileProvider;
+
+    IDirectoryContents contents = files.GetDirectoryContents("");
+
+    using AssertionScope scope = new();
+
+    contents.Exists.Should().BeTrue();
+    contents.Should().NotBeEmpty();
+    contents.Should().Contain(fi => fi.Name == "pico.liquid");
   }
 }

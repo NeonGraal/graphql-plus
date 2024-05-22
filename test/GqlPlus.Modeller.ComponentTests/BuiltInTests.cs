@@ -1,9 +1,7 @@
-﻿using System.Reflection;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Modelling;
 using GqlPlus.Parsing;
-using Microsoft.Extensions.FileProviders;
 using Xunit.DependencyInjection;
 
 namespace GqlPlus;
@@ -57,6 +55,10 @@ public class BuiltInTests(
     result.WriteHtmlFile("BuiltIn", "index", "index");
   }
 
+  [Fact]
+  public void ModelsFluidFiles()
+    => RenderFluid.CheckFluidFiles();
+
   private void RenderTypeHtml(AstType type)
   {
     Skip.If(type is null);
@@ -82,9 +84,4 @@ public class BuiltInTests(
 
     result.WriteHtmlFile("BuiltIn", filename);
   }
-
-  static BuiltInTests()
-    => RenderFluid.Setup(
-    new EmbeddedFileProvider(Assembly.GetExecutingAssembly(),
-      "GqlPlus.Html"));
 }

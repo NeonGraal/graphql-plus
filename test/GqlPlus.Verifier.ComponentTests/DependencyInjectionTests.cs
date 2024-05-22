@@ -9,6 +9,18 @@ public class DependencyInjectionTests(
 ) : DependencyInjectionChecks(services, output)
 {
   [Fact]
-  public void CheckVerifierDIContainer()
-    => CheckDependencyInjectionContainer();
+  public void CheckVerifierDI()
+    => CheckDependencyInjection();
+
+  [Fact]
+  public void HtmlVerifierDI()
+    => HtmlDependencyInjection("Verifier");
+
+  [Fact]
+  public void DiagramVerifierDI()
+    => DiagramDependencyInjection("Verifier");
+
+  [Fact]
+  public void FluidVerifierFiles()
+    => CheckFluidFiles();
 }

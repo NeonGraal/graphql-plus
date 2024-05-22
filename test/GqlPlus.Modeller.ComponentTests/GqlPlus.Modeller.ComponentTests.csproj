@@ -5,11 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Html\*.liquid" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Fluid.Core" Version="2.10.0" />
+    <EmbeddedResource Include="Models\*.liquid" />
   </ItemGroup>
 
   <ItemGroup>

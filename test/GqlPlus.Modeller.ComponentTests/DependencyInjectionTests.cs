@@ -9,6 +9,18 @@ public class DependencyInjectionTests(
 ) : DependencyInjectionChecks(services, output)
 {
   [Fact]
-  public void CheckModellerDIContainer()
-    => CheckDependencyInjectionContainer();
+  public void CheckModellerDI()
+    => CheckDependencyInjection();
+
+  [Fact]
+  public void HtmlModellerDI()
+    => HtmlDependencyInjection("Modeller");
+
+  [Fact]
+  public void DiagramModellerDI()
+    => DiagramDependencyInjection("Modeller");
+
+  [Fact]
+  public void FluidModellerFiles()
+    => CheckFluidFiles();
 }

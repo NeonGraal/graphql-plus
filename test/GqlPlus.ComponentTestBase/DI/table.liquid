@@ -1,0 +1,46 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    {%- render "pico" -%}
+    <title>{{ name }} Dependency Injection</title>
+    <style>
+      :root { --pico-font-size: 100%; }
+      th { position: sticky; top: 0; }
+      td { background-image: linear-gradient(var(--pico-background-color), var(--pico-table-row-stripped-background-color)); }
+    </style>
+  </head>
+  <body class="container-fluid">
+    <TABLE>
+      <THEAD data-theme='dark'>
+        <TR>
+          <TH>Service</TH>
+          <TH>Namespace</TH>
+          <TH>Provider</TH>
+          <TH>Parameter</TH>
+          <TH>Prerequisite</TH>
+        </TR>
+      </THEAD>
+      {%- for svc in services -%}
+      {%- capture rowspan -%}
+      {%- if svc.Parameters.size > 1 %} rowspan='{{svc.Parameters.size}}'
+      {%- endif -%}
+      {%- endcapture -%}
+      <TR>
+        <TD{{ rowspan }}>{{ svc.Service.HtmlName }}</TD>
+        <TD{{ rowspan }}>{{ svc.Service.NameSpace }}</TD>
+        <TD{{ rowspan }}>{{ svc.HtmlProvider }}</TD>
+        {%- for prm in svc.Parameters -%}
+          {%- unless forloop.first  %}
+            <TR>
+          {%- endunless -%}
+          <TD>{{ prm[0] }}</TD>
+          <TD>{{ prm[1].HtmlName }}</TD>
+          {%- unless forloop.last %}
+            </TR>
+          {%- endunless -%}
+        {%- endfor -%}
+      </TR>
+      {%- endfor -%}
+    </TABLE>
+  </body>
+</html>

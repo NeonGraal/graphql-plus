@@ -57,6 +57,10 @@ public class BuiltInTests(
     result.WriteHtmlFile("BuiltIn", "index", "index");
   }
 
+  [Fact]
+  public void ModelsFluidFiles()
+    => RenderFluid.CheckFluidFiles();
+
   private void RenderTypeHtml(AstType type)
   {
     Skip.If(type is null);

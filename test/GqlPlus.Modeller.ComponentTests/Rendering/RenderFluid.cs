@@ -1,4 +1,5 @@
-﻿using Fluid;
+﻿using FluentAssertions.Execution;
+using Fluid;
 using Fluid.Values;
 using Microsoft.Extensions.FileProviders;
 
@@ -107,5 +108,18 @@ public static class RenderFluid
 
     return string.IsNullOrWhiteSpace(value.Tag) ? result
       : new TaggedValue(value.Tag, result);
+  }
+
+  public static void CheckFluidFiles()
+  {
+    IFileProvider files = s_options.FileProvider;
+
+    IDirectoryContents contents = files.GetDirectoryContents("");
+
+    using AssertionScope scope = new();
+
+    contents.Exists.Should().BeTrue();
+    contents.Should().NotBeEmpty();
+    contents.Should().Contain(fi => fi.Name == "pico.liquid");
   }
 }

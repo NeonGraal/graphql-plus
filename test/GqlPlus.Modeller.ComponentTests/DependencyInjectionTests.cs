@@ -14,6 +14,9 @@ public class DependencyInjectionTests(
 
   [Fact]
   public void HtmlModellerDI()
-    => HtmlDependencyInjection()
-    .WriteHtmlFile("DI", "Modeller");
+    => FluidDependencyInjection("Modeller");
+
+  [Fact]
+  public void FluidModellerFiles()
+    => CheckFluidFiles();
 }

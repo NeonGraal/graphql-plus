@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using System.Text;
+using Fluid;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Xunit.DependencyInjection;
 
 namespace GqlPlus;
@@ -10,6 +12,27 @@ public class DependencyInjectionChecks(
   ITestOutputHelperAccessor output
 )
 {
+  private static readonly FluidParser s_parser = new();
+  private static readonly Map<IFluidTemplate> s_templates = [];
+  private static readonly TemplateOptions s_options = new();
+
+  static DependencyInjectionChecks()
+  {
+    s_options.FileProvider = new EmbeddedFileProvider(Assembly.GetAssembly(typeof(DependencyInjectionChecks))!, "GqlPlus.DI");
+    s_options.MemberAccessStrategy.Register<DiService>();
+    s_options.MemberAccessStrategy.Register<TypeIdName>();
+  }
+
+  private static IFluidTemplate GetTemplate(string template)
+  {
+    if (!s_templates.TryGetValue(template, out IFluidTemplate? value)) {
+      value = s_parser.Parse("{% render '" + template + "' %}");
+      s_templates.Add(template, value);
+    }
+
+    return value;
+  }
+
   private readonly Map<DiService[]> _diServices = DependencyInjectionServices(services);
 
   internal static Map<DiService[]> DependencyInjectionServices(IServiceCollection services)
@@ -82,63 +105,31 @@ public class DependencyInjectionChecks(
     }
   }
 
-  public string HtmlDependencyInjection()
+  public void CheckFluidFiles()
   {
-    StringBuilder sb = new();
+    IFileProvider files = s_options.FileProvider;
 
-    sb.AppendLine("<HEAD>");
-    sb.AppendLine("<meta charset='utf-8'/>");
-    sb.AppendLine("<meta name='viewport' content='width=device-width, initial-scale=1' />");
-    sb.AppendLine("<meta name='color-scheme' content='light dark' />");
-    sb.AppendLine("<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css' />");
-    sb.AppendLine("<style>");
-    sb.AppendLine("  th { position: sticky; top: 0; }");
-    sb.AppendLine("  td { background-image: linear-gradient(var(--pico-background-color), var(--pico-table-row-stripped-background-color)); }");
-    sb.AppendLine("</style>");
-    sb.AppendLine("</HEAD><BODY class='fluid-container'>");
-    sb.AppendLine("<TABLE><THEAD data-theme='dark'><TR>");
-    sb.Append("<TH>Service</TH><TH>Namespace</TH><TH>Lifetime</TH>");
-    sb.AppendLine("<TH>Provider</TH><TH>Parameter</TH><TH>Prerequisite</TH>");
-    sb.AppendLine("</TR></THEAD>");
+    IDirectoryContents contents = files.GetDirectoryContents("");
 
+    using AssertionScope scope = new();
+
+    contents.Exists.Should().BeTrue();
+    contents.Should().NotBeEmpty();
+    contents.Should().Contain(fi => fi.Name == "pico.liquid");
+  }
+
+  public void FluidDependencyInjection(string file)
+  {
     IOrderedEnumerable<DiService> services = _diServices.Values
       .SelectMany(v => v)
       .OrderBy(s => (-s.Parameters.Count, s.Implementation.Name));
 
-    foreach (DiService di in services) {
-      string start = di.Parameters.Count > 1
-        ? $"<TD rowspan={di.Parameters.Count}>" : "<TD>";
-      sb.Append("<TR>");
-      sb.Append(start);
-      sb.Append(di.Service.HtmlName);
-      sb.AppendLine("</TD>");
-      sb.Append(start);
-      sb.Append(di.Service.NameSpace);
-      sb.AppendLine("</TD>");
-      sb.Append(start);
-      sb.Append(di.Lifetime);
-      sb.AppendLine("</TD>");
-      sb.Append(start);
-      sb.Append(di.HtmlProvider);
-      sb.AppendLine("</TD>");
+    TemplateContext context = new(s_options);
+    context.SetValue("name", file);
+    context.SetValue("services", services);
 
-      if (di.Parameters.Count > 0) {
-        string prefix = "<TD>";
-        foreach ((string param, TypeIdName prereq) in di.Parameters) {
-          sb.Append(prefix);
-          prefix = "<TR><TD>";
-          sb.Append(param);
-          sb.Append("</TD><TD>");
-          sb.Append(prereq.HtmlName);
-          sb.AppendLine("</TD</TR>");
-        }
-      } else {
-        sb.AppendLine("</TD</TR>");
-      }
-    }
-
-    sb.AppendLine("</TABLE></BODY>");
-    return sb.ToString();
+    IFluidTemplate template = GetTemplate("table");
+    template.Render(context).WriteHtmlFile("DI", file);
   }
 
   public string DiagramDependencyInjection()
@@ -166,30 +157,30 @@ public class DependencyInjectionChecks(
       || parameter.Name.StartsWith("IEnumerable", StringComparison.Ordinal);
 }
 
-internal sealed class TypeIdName(Type type)
+public sealed class TypeIdName(Type type)
 {
-  internal string Id { get; } = type.FullTypeName();
-  internal string NameSpace { get; } = type.Namespace ?? "";
-  internal string Name { get; } = type.ExpandTypeName();
-  internal string Key { get; } = type.FullTypeName()
+  public string Id { get; } = type.FullTypeName();
+  public string NameSpace { get; } = type.Namespace ?? "";
+  public string Name { get; } = type.ExpandTypeName();
+  public string Key { get; } = type.FullTypeName()
       .Replace('<', '_')
       .Replace('>', '_')
       .Replace('+', '_')
       .Replace('.', '_')
       .Replace(',', '_');
 
-  internal string HtmlName => Name.Replace('<', '(').Replace('>', ')');
-  internal string Mermaid => "  " + Id + "[\"" + HtmlName + "\"]";
+  public string HtmlName => Name.Replace('<', '(').Replace('>', ')');
+  public string Mermaid => "  " + Id + "[\"" + HtmlName + "\"]";
 }
 
-internal sealed class DiService(ServiceDescriptor service, Type implementation)
+public sealed class DiService(ServiceDescriptor service, Type implementation)
 {
-  internal TypeIdName Service { get; } = new(service.ServiceType);
-  internal ServiceLifetime Lifetime { get; } = service.Lifetime;
-  internal bool IsFactory { get; init; }
-  internal bool IsInstance { get; init; }
-  internal TypeIdName Implementation { get; } = new(implementation);
-  internal Map<TypeIdName> Parameters { get; } = [];
+  public TypeIdName Service { get; } = new(service.ServiceType);
+  public ServiceLifetime Lifetime { get; } = service.Lifetime;
+  public bool IsFactory { get; init; }
+  public bool IsInstance { get; init; }
+  public TypeIdName Implementation { get; } = new(implementation);
+  public Map<TypeIdName> Parameters { get; } = [];
 
   internal void AddParameters(Type provider)
   {
@@ -200,17 +191,18 @@ internal sealed class DiService(ServiceDescriptor service, Type implementation)
     }
   }
 
-  internal string Provider => IsFactory
+  public string HtmlLifetime => Lifetime.ToString();
+
+  public string Provider => IsFactory
     ? " () => " + (IsInstance ? "" : Implementation.Name)
     : (IsInstance ? " = " : "") + Implementation.Name;
-
-  internal string HtmlProvider => IsFactory
+  public string HtmlProvider => IsFactory
     ? " () => " + (IsInstance ? "" : Implementation.HtmlName)
     : (IsInstance ? " = " : "") + Implementation.HtmlName;
 
   private string? _prefix;
 
-  internal string Prefix => _prefix ??=
+  public string Prefix => _prefix ??=
     "    " + Service.Key +
     ' ' + Lifetime switch {
       ServiceLifetime.Singleton => "-->",
@@ -219,6 +211,6 @@ internal sealed class DiService(ServiceDescriptor service, Type implementation)
       _ => "..x"
     };
 
-  internal IEnumerable<string> Mermaid
+  public IEnumerable<string> Mermaid
     => Parameters.Select(p => Prefix + '|' + p.Key + '|' + p.Value.Key);
 }

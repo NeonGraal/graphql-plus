@@ -14,7 +14,7 @@ public class DependencyInjectionTests(
 
   [Fact]
   public void HtmlModellerDI()
-    => FluidDependencyInjection("Modeller");
+    => HtmlDependencyInjection("Modeller");
 
   [Fact]
   public void FluidModellerFiles()

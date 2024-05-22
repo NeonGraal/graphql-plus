@@ -14,7 +14,11 @@ public class DependencyInjectionTests(
 
   [Fact]
   public void HtmlParserDI()
-    => FluidDependencyInjection("Parser");
+    => HtmlDependencyInjection("Parser");
+
+  [Fact]
+  public void DiagramParserDI()
+    => DiagramDependencyInjection("Parser");
 
   [Fact]
   public void FluidParserFiles()

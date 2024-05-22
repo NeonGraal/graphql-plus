@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  {%- render "pico" -%}
+  <title>{{ name }} Dependency Injection</title>
+</head>
+
+<body class="container-fluid">
+  <article>
+    <summary>{{ name }} Dependency Injection</summary>
+    <pre class='mermaid'>
+      flowchart LR
+      {%- for svc in services %}
+        {{ svc.Service.Mermaid }}
+        {{ svc.Mermaid }}
+        {{ svc.Implementation.Mermaid }}
+        {%- for prm in svc.MermaidParameters %}
+          {{ prm }}
+        {%- endfor -%}
+      {%- endfor %}
+    </pre>
+  </article>
+  <script type='module'>
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, maxTextSize: 90000, defaultRenderer: 'elk' });
+  </script>
+</body>
+
+</html>

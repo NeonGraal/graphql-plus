@@ -118,7 +118,7 @@ public class DependencyInjectionChecks(
     contents.Should().Contain(fi => fi.Name == "pico.liquid");
   }
 
-  public void FluidDependencyInjection(string file)
+  public void HtmlDependencyInjection(string file)
   {
     IOrderedEnumerable<DiService> services = _diServices.Values
       .SelectMany(v => v)
@@ -129,19 +129,21 @@ public class DependencyInjectionChecks(
     context.SetValue("services", services);
 
     IFluidTemplate template = GetTemplate("table");
-    template.Render(context).WriteHtmlFile("DI", file);
+    template.Render(context).WriteHtmlFile("DI", file + "-table");
   }
 
-  public string DiagramDependencyInjection()
+  public void DiagramDependencyInjection(string file)
   {
-    StringBuilder sb = new();
+    IOrderedEnumerable<DiService> services = _diServices.Values
+      .SelectMany(v => v)
+      .OrderBy(s => (-s.Parameters.Count, s.Implementation.Name));
 
-    sb.AppendLine(@"<script type='module'>");
-    sb.AppendLine(@"  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'; ");
-    sb.AppendLine(@"  mermaid.initialize({ startOnLoad: true, maxTextSize: 90000, defaultRenderer: 'elk' }); ");
-    sb.AppendLine(@"</script>");
+    TemplateContext context = new(s_options);
+    context.SetValue("name", file);
+    context.SetValue("services", services);
 
-    return sb.ToString();
+    IFluidTemplate template = GetTemplate("diagram");
+    template.Render(context).WriteHtmlFile("DI", file + "-diagram");
   }
 
   private static readonly HashSet<string> s_optionalTypes = [
@@ -167,10 +169,11 @@ public sealed class TypeIdName(Type type)
       .Replace('>', '_')
       .Replace('+', '_')
       .Replace('.', '_')
-      .Replace(',', '_');
+      .Replace(',', '_')
+      .Replace("::", "_", StringComparison.Ordinal);
 
   public string HtmlName => Name.Replace('<', '(').Replace('>', ')');
-  public string Mermaid => "  " + Id + "[\"" + HtmlName + "\"]";
+  public string Mermaid => "  " + Key + "[\"" + HtmlName + "\"]";
 }
 
 public sealed class DiService(ServiceDescriptor service, Type implementation)
@@ -200,10 +203,8 @@ public sealed class DiService(ServiceDescriptor service, Type implementation)
     ? " () => " + (IsInstance ? "" : Implementation.HtmlName)
     : (IsInstance ? " = " : "") + Implementation.HtmlName;
 
-  private string? _prefix;
-
-  public string Prefix => _prefix ??=
-    "    " + Service.Key +
+  private string? _link;
+  public string Link => _link ??=
     ' ' + Lifetime switch {
       ServiceLifetime.Singleton => "-->",
       ServiceLifetime.Scoped => "--o",
@@ -211,6 +212,13 @@ public sealed class DiService(ServiceDescriptor service, Type implementation)
       _ => "..x"
     };
 
-  public IEnumerable<string> Mermaid
+  private string? _prefix;
+  public string Prefix => _prefix ??= "    " + Implementation.Key + Link;
+
+  public string Mermaid
+    => Service.Id == Implementation.Id ? ""
+    : "    " + Service.Key + Link + ' ' + Implementation.Key;
+
+  public IEnumerable<string> MermaidParameters
     => Parameters.Select(p => Prefix + '|' + p.Key + '|' + p.Value.Key);
 }

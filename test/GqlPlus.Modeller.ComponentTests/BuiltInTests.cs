@@ -1,9 +1,7 @@
-﻿using System.Reflection;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Modelling;
 using GqlPlus.Parsing;
-using Microsoft.Extensions.FileProviders;
 using Xunit.DependencyInjection;
 
 namespace GqlPlus;

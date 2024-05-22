@@ -1,10 +1,8 @@
-﻿using System.Reflection;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Modelling;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
-using Microsoft.Extensions.FileProviders;
 
 #pragma warning disable IDE0130
 namespace GqlPlus.SchemaData;

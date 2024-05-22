@@ -1,9 +1,7 @@
-﻿using System.Reflection;
-using Fluid;
+﻿using Fluid;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Modelling;
 using GqlPlus.Parsing;
-using Microsoft.Extensions.FileProviders;
 
 #pragma warning disable IDE0130
 namespace GqlPlus.Sample;

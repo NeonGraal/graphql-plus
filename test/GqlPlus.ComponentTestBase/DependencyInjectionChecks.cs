@@ -58,7 +58,6 @@ public class DependencyInjectionChecks(
           Type[] args = sd.ImplementationFactory.Method.GetGenericArguments();
           if (args.Length > 0) {
             service = new(sd, args[0]) { IsFactory = true };
-            // service.AddParameters(args[0]);
           }
         }
       } else if (sd.ImplementationInstance is not null) {
@@ -70,9 +69,20 @@ public class DependencyInjectionChecks(
       }
     }
 
-    return diServices
-      .ToLookup(d => d.Service.Id)
+    Map<DiService[]> result = diServices
+      .GroupBy(d => d.Service.Id)
       .ToMap(l => l.Key, l => l.ToArray());
+
+    IEnumerable<IGrouping<string, DiService>> factories = diServices
+      .Where(di => di.IsInstance && !di.IsInstance)
+      .GroupBy(d => d.Implementation.Id);
+
+    foreach (IGrouping<string, DiService> group in factories) {
+      IEnumerable<TypeIdName> parents = group.Select(g => g.Service).DistinctBy(t => t.Id);
+      result[group.Key].First().Parents = [.. parents];
+    }
+
+    return result;
   }
 
   public void CheckDependencyInjection()
@@ -90,8 +100,6 @@ public class DependencyInjectionChecks(
       sb.Clear();
 
       sb.Append(di.Service.Id);
-      sb.Append(", ");
-      sb.Append(di.Lifetime);
       sb.Append(", ");
       sb.Append(di.Provider);
 
@@ -132,18 +140,92 @@ public class DependencyInjectionChecks(
     template.Render(context).WriteHtmlFile("DI", file + "-table");
   }
 
+  private readonly HashSet<string> _ids = [];
+  private readonly List<DiService> _group = [];
+  private readonly HashSet<string> _groupIds = [];
+
   public void DiagramDependencyInjection(string file)
   {
+    _ids.Clear();
+    Map<DiService[]> groups = [];
+
     IOrderedEnumerable<DiService> services = _diServices.Values
       .SelectMany(v => v)
       .OrderBy(s => (-s.Parameters.Count, s.Implementation.Name));
 
+    string name = "";
+    _group.Clear();
+    _groupIds.Clear();
+    foreach (DiService di in services) {
+      if (_ids.Contains(di.Service.Id)) {
+        continue;
+      }
+
+      if (string.IsNullOrWhiteSpace(name)) {
+        name = di.Service.HtmlName;
+      }
+
+      AddToGroup(di);
+      _ids.UnionWith(_groupIds);
+
+      if (_group.Count > 5) {
+        groups[name] = [.. _group];
+        name = "";
+        _group.Clear();
+        _groupIds.Clear();
+      }
+    }
+
+    if (_group.Count > 0) {
+      groups[name] = [.. _group];
+      name = "";
+      _group.Clear();
+      _groupIds.Clear();
+    }
+
     TemplateContext context = new(s_options);
     context.SetValue("name", file);
-    context.SetValue("services", services);
+    context.SetValue("services", groups);
 
     IFluidTemplate template = GetTemplate("diagram");
     template.Render(context).WriteHtmlFile("DI", file + "-diagram");
+  }
+
+  private void AddToGroup(DiService di)
+  {
+    if (_groupIds.Contains(di.Service.Id)) {
+      return;
+    }
+
+    _group.Add(di);
+    _groupIds.Add(di.Service.Id);
+    if (di.Service.Id != di.Implementation.Id
+      && _diServices.TryGetValue(di.Implementation.Id, out DiService[]? impl)) {
+      AddAllToGroup(impl);
+    }
+
+    AddAllToGroup([.. di.Parents.SelectMany(p => _diServices.GetValueOrDefault(p.Id) ?? [])]);
+    AddChildren(_group, di);
+  }
+
+  private void AddAllToGroup(params DiService[] toAdd)
+  {
+    foreach (DiService di in toAdd) {
+      AddToGroup(di);
+    }
+  }
+
+  private void AddChildren(List<DiService> group, DiService service)
+  {
+    foreach (TypeIdName prereq in service.Parameters.Values) {
+      if (_diServices.TryGetValue(prereq.Id, out DiService[]? prereqs)) {
+        AddAllToGroup(prereqs);
+
+        foreach (DiService child in prereqs) {
+          AddChildren(group, child);
+        }
+      }
+    }
   }
 
   private static readonly HashSet<string> s_optionalTypes = [
@@ -179,22 +261,21 @@ public sealed class TypeIdName(Type type)
 public sealed class DiService(ServiceDescriptor service, Type implementation)
 {
   public TypeIdName Service { get; } = new(service.ServiceType);
-  public ServiceLifetime Lifetime { get; } = service.Lifetime;
   public bool IsFactory { get; init; }
   public bool IsInstance { get; init; }
   public TypeIdName Implementation { get; } = new(implementation);
   public Map<TypeIdName> Parameters { get; } = [];
+  public IEnumerable<TypeIdName> Parents { get; set; } = [];
 
   internal void AddParameters(Type provider)
   {
     foreach (ConstructorInfo ctor in provider.GetConstructors()) {
+      string prefix = ctor.Name == ".ctor" ? "" : ctor.Name + '!';
       foreach (ParameterInfo parameter in ctor.GetParameters()) {
-        Parameters.Add(ctor.Name + '!' + parameter.Name, new(parameter.ParameterType));
+        Parameters.Add(prefix + parameter.Name, new(parameter.ParameterType));
       }
     }
   }
-
-  public string HtmlLifetime => Lifetime.ToString();
 
   public string Provider => IsFactory
     ? " () => " + (IsInstance ? "" : Implementation.Name)
@@ -203,21 +284,12 @@ public sealed class DiService(ServiceDescriptor service, Type implementation)
     ? " () => " + (IsInstance ? "" : Implementation.HtmlName)
     : (IsInstance ? " = " : "") + Implementation.HtmlName;
 
-  private string? _link;
-  public string Link => _link ??=
-    ' ' + Lifetime switch {
-      ServiceLifetime.Singleton => "-->",
-      ServiceLifetime.Scoped => "--o",
-      ServiceLifetime.Transient => "--x",
-      _ => "..x"
-    };
-
   private string? _prefix;
-  public string Prefix => _prefix ??= "    " + Implementation.Key + Link;
+  public string Prefix => _prefix ??= "    " + Implementation.Key + " -->";
 
   public string Mermaid
     => Service.Id == Implementation.Id ? ""
-    : "    " + Service.Key + Link + ' ' + Implementation.Key;
+    : "    " + Service.Key + " --> " + Implementation.Key;
 
   public IEnumerable<string> MermaidParameters
     => Parameters.Select(p => Prefix + '|' + p.Key + '|' + p.Value.Key);

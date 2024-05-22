@@ -15,7 +15,6 @@
         <TR>
           <TH>Service</TH>
           <TH>Namespace</TH>
-          <TH>Lifetime</TH>
           <TH>Provider</TH>
           <TH>Parameter</TH>
           <TH>Prerequisite</TH>
@@ -29,7 +28,6 @@
       <TR>
         <TD{{ rowspan }}>{{ svc.Service.HtmlName }}</TD>
         <TD{{ rowspan }}>{{ svc.Service.NameSpace }}</TD>
-        <TD{{ rowspan }}>{{ svc.HtmlLifetime }}</TD>
         <TD{{ rowspan }}>{{ svc.HtmlProvider }}</TD>
         {%- for prm in svc.Parameters -%}
           {%- unless forloop.first  %}

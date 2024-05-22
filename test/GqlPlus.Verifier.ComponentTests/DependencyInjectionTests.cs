@@ -17,6 +17,10 @@ public class DependencyInjectionTests(
     => HtmlDependencyInjection("Verifier");
 
   [Fact]
+  public void DiagramVerifierDI()
+    => DiagramDependencyInjection("Verifier");
+
+  [Fact]
   public void FluidVerifierFiles()
     => CheckFluidFiles();
 }

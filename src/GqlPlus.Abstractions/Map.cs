@@ -12,6 +12,9 @@ public interface IReadOnlyMap<T> : IReadOnlyDictionary<string, T>;
 
 public static class MapExtensions
 {
+  public static Map<TMap> ToMap<TMap>(this IEnumerable<(string, TMap)>? items)
+    => new(items?.ToDictionary() ?? []);
+
   public static Map<TMap> ToMap<TMap>(this IEnumerable<TMap>? items, Func<TMap, string> key)
     => new(items?.ToDictionary(key) ?? []);
 

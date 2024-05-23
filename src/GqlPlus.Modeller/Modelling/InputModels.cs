@@ -7,8 +7,11 @@ public record class TypeInputModel(
   string Name
 ) : TypeObjectModel<InputBaseModel, InputFieldModel>(TypeKindModel.Input, Name)
 {
-  protected override string? ParentName(BaseDescribedModel<InputBaseModel>? parent)
-    => parent?.Base.Input;
+  protected override TypeInputModel Apply(Map<IObjBaseModel> arguments)
+    => throw new NotImplementedException();
+
+  protected override string BaseName(InputBaseModel? objBase)
+    => objBase?.Input ?? "";
 }
 
 public record class InputBaseModel(
@@ -39,7 +42,7 @@ public record class InputFieldModel(
 }
 
 public record class InputParameterModel(
-  BaseDescribedModel<ObjRefModel<InputBaseModel>> Type
+  ObjDescribedModel<ObjRefModel<InputBaseModel>> Type
 ) : ModelBase
 {
   internal ModifierModel[] Modifiers { get; set; } = [];

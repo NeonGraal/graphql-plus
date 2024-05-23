@@ -17,7 +17,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
       object: DualPrmsPrntDiff
-      type: !_TypeParameter b
+      type: !_TypeParameter a
     allFields:
     - !_ObjectFor(_DualField)
       name: field

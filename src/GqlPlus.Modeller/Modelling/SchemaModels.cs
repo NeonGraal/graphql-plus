@@ -108,21 +108,6 @@ public record class DescribedModel(
       .Add("description", RenderValue.Str(Description));
 }
 
-public record class BaseDescribedModel<TBase>(
-  TBase Base
-) : ModelBase
-  where TBase : IRendering
-{
-  public string? Description { get; set; }
-
-  internal override RenderStructure Render(IRenderContext context)
-    => string.IsNullOrEmpty(Description)
-      ? Base.Render(context)
-      : base.Render(context)
-        .Add("base", Base.Render(context))
-        .Add("description", RenderValue.Str(Description));
-}
-
 public record class NamedModel(
   string Name
 ) : ModelBase

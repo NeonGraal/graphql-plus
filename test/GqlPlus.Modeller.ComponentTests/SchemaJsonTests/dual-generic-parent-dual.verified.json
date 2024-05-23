@@ -8,7 +8,10 @@
         {
           "$tag": "_ObjectFor(_Alternate(_DualBase))",
           "object": "DualGenParentDualRef",
-          "type": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualGenParentDualAlt"
+          }
         }
       ],
       "name": "DualGenParentDual",

@@ -7,8 +7,39 @@ public record class TypeDualModel(
   string Name
 ) : TypeObjectModel<DualBaseModel, DualFieldModel>(TypeKindModel.Dual, Name)
 {
-  protected override string? ParentName(BaseDescribedModel<DualBaseModel>? parent)
-    => parent?.Base.Dual;
+  protected override TypeDualModel Apply(Map<IObjBaseModel> arguments)
+  {
+    ArgumentNullException.ThrowIfNull(arguments);
+    TypeDualModel result = new(this);
+
+    if (GetArgument(arguments, Parent?.Base, out ObjRefModel<DualBaseModel>? parentModel)
+      && parentModel.BaseRef is not null) {
+      result.Parent = new(parentModel.BaseRef) { Description = Parent?.Description };
+    }
+
+    result.Alternates = Alternates
+      .Select(a =>
+        GetArgument(arguments, a.Type.Base.BaseRef, out ObjRefModel<DualBaseModel>? typeModel)
+          ? new(new(typeModel)) { Collections = a.Collections }
+          : a
+        ).ToArray();
+
+    result.Fields = Fields
+      .Select(f =>
+        GetArgument(arguments, f.Type?.BaseRef, out ObjRefModel<DualBaseModel>? typeModel)
+        ? new(f.Name, typeModel) {
+          Aliases = f.Aliases,
+          Description = f.Description,
+          Modifiers = f.Modifiers,
+        }
+        : f
+      ).ToArray();
+
+    return result;
+  }
+
+  protected override string BaseName(DualBaseModel? objBase)
+    => objBase?.Dual ?? "";
 }
 
 public record class DualBaseModel(

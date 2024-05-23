@@ -8,7 +8,7 @@
         {
           "$tag": "_ObjectFor(_Alternate(_DualBase))",
           "object": "DualGenPrntRef",
-          "type": "ref"
+          "type": "type"
         }
       ],
       "name": "DualGenPrntArg",

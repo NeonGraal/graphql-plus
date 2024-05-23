@@ -7,8 +7,11 @@ public record class TypeOutputModel(
   string Name
 ) : TypeObjectModel<OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, Name)
 {
-  protected override string? ParentName(BaseDescribedModel<OutputBaseModel>? parent)
-    => parent?.Base.Output;
+  protected override TypeOutputModel Apply(Map<IObjBaseModel> arguments)
+    => throw new NotImplementedException();
+
+  protected override string BaseName(OutputBaseModel? objBase)
+    => objBase?.Output ?? "";
 }
 
 public record class OutputBaseModel(
@@ -43,12 +46,14 @@ public record class OutputFieldModel(
 
 public record class OutputArgumentModel(
   string Name
-) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name), IObjBaseModel
+) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name)
+  , IObjBaseModel
 {
   internal string? EnumValue { get; set; }
   internal ObjRefModel<OutputBaseModel>? Ref { get; set; }
 
   public bool IsTypeParameter => string.IsNullOrEmpty(EnumValue) && Ref?.BaseRef?.IsTypeParameter == true;
+  public IObjBaseModel? BaseRef => Ref;
 
   internal override RenderStructure Render(IRenderContext context)
     => string.IsNullOrWhiteSpace(EnumValue)

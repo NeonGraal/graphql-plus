@@ -34,7 +34,7 @@ public abstract record class ChildTypeModel<TParent>(
     where TModel : IRendering
   {
     if (_parentModel is null) {
-      _parentModel = model = context.TryGetType<TModel>(Name, ParentName(Parent), out TModel? parentModel) ? parentModel : default;
+      _parentModel = model = context.TryGetType(Name, ParentName(Parent), out TModel? parentModel) ? parentModel : default;
     } else {
       model = (TModel?)_parentModel;
     }

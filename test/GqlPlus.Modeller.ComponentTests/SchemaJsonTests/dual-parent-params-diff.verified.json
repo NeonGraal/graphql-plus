@@ -32,7 +32,7 @@
         {
           "$tag": "_ObjectFor(_Alternate(_DualBase))",
           "object": "DualPrmsPrntDiff",
-          "type": "b"
+          "type": "a"
         }
       ],
       "allFields": [

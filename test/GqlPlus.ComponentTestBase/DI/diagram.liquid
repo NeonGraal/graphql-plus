@@ -1,33 +1,46 @@
 ﻿<!doctype html>
 <html lang="en">
-
-<head>
-  {%- render "pico" -%}
-  <title>{{ name }} Dependency Injection</title>
-</head>
-
-<body class="container-fluid">
-  {%- for grp in services %}
-  <article>
-    <summary>{{ grp[0] }} Group</summary>
-    <pre class='mermaid'>
-      flowchart TD
-      {%- for svc in grp[1] %}       
-        {{ svc.Service.Mermaid }}
-        {{ svc.Mermaid }}
-        {{ svc.Implementation.Mermaid }}
-        {%- for prm in svc.Parameters %}
-          {{ svc.Prefix }}|{{ prm[0] }}|{{ prm[1].Key }}
-          {{ prm[1].Mermaid }}
-        {%- endfor -%}
+  <head>
+    {%- render "pico" -%}
+    <title>{{ name }} Dependency Injection</title>
+    <style>
+      aside li { padding: 0 ; font-size: 50%; }
+      pre { margin-bottom: 0; }
+    </style>
+  </head>
+  <body class="container">
+    <main>
+      <aside>
+        <details open>
+          <summary>TOC</summary>
+          <ul class="overflow-auto">
+            {%- for grp in services %}
+              <li><a href="#{{ grp[0] }}">{{ grp[0] }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </details>
+      </aside>
+      {%- for grp in services %}
+      <article>
+        <header>
+          <h3 id="{{ grp[0] }}">{{ grp[0] }}</h3>
+        </header>        
+        <pre class='mermaid'>
+            flowchart TD
+            {%- for svc in grp[1] %}       
+              {% render 'node' with svc.Service as type -%}
+              {%- for prm in svc.Requires %}
+                {{ svc.Service.Key }} -->|"{{ prm[0] }}"| {{ prm[1].Key }}
+                {% render 'node' with prm[1] as type -%}
+              {%- endfor -%}
+            {%- endfor %}
+          </pre>
+      </article>
       {%- endfor %}
-    </pre>
-  </article>
-  {%- endfor %}
-  <script type='module'>
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true, maxTextSize: 90000, defaultRenderer: 'elk' });
-  </script>
-</body>
-
+    </main>
+    <script type='module'>
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true, maxTextSize: 90000, defaultRenderer: 'elk' });
+    </script>
+  </body>
 </html>

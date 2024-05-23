@@ -1,8 +1,10 @@
-﻿using System.Reflection;
+﻿using System.Globalization;
+using System.Reflection;
 using System.Text;
 using Fluid;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Logging;
 using Xunit.DependencyInjection;
 
 namespace GqlPlus;
@@ -33,11 +35,22 @@ public class DependencyInjectionChecks(
     return value;
   }
 
-  private readonly Map<DiService[]> _diServices = DependencyInjectionServices(services);
+  private readonly Map<DiService> _diServices = DependencyInjectionServices(services);
 
-  internal static Map<DiService[]> DependencyInjectionServices(IServiceCollection services)
+  internal static Map<DiService> DependencyInjectionServices(IServiceCollection services)
   {
-    List<DiService> diServices = [];
+    Map<DiService> diServices = [];
+    TypeIdName func = new(typeof(Func<>));
+
+    DiService GetOrCreate(Type type)
+    {
+      if (!diServices.TryGetValue(type.FullTypeName(), out DiService? di)) {
+        di = new(type);
+        diServices[di.Service.Id] = di;
+      }
+
+      return di;
+    }
 
     foreach (ServiceDescriptor sd in services) {
       string context = sd.ServiceType.Namespace ?? "";
@@ -46,50 +59,53 @@ public class DependencyInjectionChecks(
         continue;
       }
 
-      DiService? service = null;
+      DiService service = GetOrCreate(sd.ServiceType);
 
       if (sd.ImplementationType is not null) {
-        service = new(sd, sd.ImplementationType);
+        if (sd.ImplementationType != sd.ServiceType) {
+          TypeIdName impl = new(sd.ImplementationType);
+          if (!service.Requires.Values.Any(r => r == impl)) {
+            string key = service.Requires.Count.ToString(CultureInfo.InvariantCulture);
+            service.Requires[key] = impl;
+          }
+
+          service = GetOrCreate(sd.ImplementationType);
+        }
+
         service.AddParameters(sd.ImplementationType);
       } else if (sd.ImplementationFactory is not null) {
-        service = new(sd, sd.ImplementationFactory.Method.ReturnType) { IsFactory = true, IsInstance = true };
-
+        service.Requires["()="] = func;
         if (sd.ImplementationFactory.Method.IsGenericMethod) {
           Type[] args = sd.ImplementationFactory.Method.GetGenericArguments();
           if (args.Length > 0) {
-            service = new(sd, args[0]) { IsFactory = true };
+            service.Requires["()="] = new(args[0]);
           }
         }
       } else if (sd.ImplementationInstance is not null) {
-        service = new(sd, sd.ImplementationInstance.GetType()) { IsInstance = true };
-      }
-
-      if (service is not null) {
-        diServices.Add(service);
+        service.Requires["="] = new(sd.ImplementationInstance.GetType());
       }
     }
 
-    Map<DiService[]> result = diServices
-      .GroupBy(d => d.Service.Id)
-      .ToMap(l => l.Key, l => l.ToArray());
+    Map<int> requiredBy = diServices.Values
+      .SelectMany(s => s.Requires
+        .Where(r => r.Value != func && r.Key != "=")
+        .Select(r => r.Value.Id))
+      .GroupBy(t => t)
+      .ToMap(g => g.Key, g => g.Count());
 
-    IEnumerable<IGrouping<string, DiService>> factories = diServices
-      .Where(di => di.IsInstance && !di.IsInstance)
-      .GroupBy(d => d.Implementation.Id);
-
-    foreach (IGrouping<string, DiService> group in factories) {
-      IEnumerable<TypeIdName> parents = group.Select(g => g.Service).DistinctBy(t => t.Id);
-      result[group.Key].First().Parents = [.. parents];
+    foreach ((string id, int count) in requiredBy) {
+      if (diServices.TryGetValue(id, out DiService? service)) {
+        service.RequiredBy = count;
+      }
     }
 
-    return result;
+    return diServices;
   }
 
   public void CheckDependencyInjection()
   {
     StringBuilder sb = new();
     DiService[] services = [.. _diServices.Values
-      .SelectMany(v => v)
       .OrderBy(s => s.Service.Name)];
 
     HashSet<string> hashset = [.. _diServices.Keys];
@@ -101,12 +117,10 @@ public class DependencyInjectionChecks(
 
       sb.Append(di.Service.Id);
       sb.Append(", ");
-      sb.Append(di.Provider);
 
-      string prefix = di.Service.Name + " <- " + di.Implementation.Name;
-      List<string> missing = di.Parameters
-        .Where(p => !MatchType(hashset, p.Value))
-      .Select(p => $"{prefix} {p.Key} : " + p.Value.Name).ToList();
+      List<string> missing = di.Requires
+        .Where(p => p.Key != "=" && !MatchType(hashset, p.Value))
+        .Select(p => $"{di.Service.Name} {p.Key} : " + p.Value.Name).ToList();
 
       missing.Should().BeEmpty();
       output.Output?.WriteLine(sb.ToString());
@@ -129,8 +143,7 @@ public class DependencyInjectionChecks(
   public void HtmlDependencyInjection(string file)
   {
     IOrderedEnumerable<DiService> services = _diServices.Values
-      .SelectMany(v => v)
-      .OrderBy(s => (-s.Parameters.Count, s.Implementation.Name));
+      .OrderBy(s => (s.RequiredBy, s.Service.Name));
 
     TemplateContext context = new(s_options);
     context.SetValue("name", file);
@@ -150,10 +163,11 @@ public class DependencyInjectionChecks(
     Map<DiService[]> groups = [];
 
     IOrderedEnumerable<DiService> services = _diServices.Values
-      .SelectMany(v => v)
-      .OrderBy(s => (-s.Parameters.Count, s.Implementation.Name));
+      .OrderBy(s => (s.RequiredBy, s.Service.Name));
 
     string name = "";
+    List<DiService> group = [];
+
     _group.Clear();
     _groupIds.Clear();
     foreach (DiService di in services) {
@@ -161,26 +175,24 @@ public class DependencyInjectionChecks(
         continue;
       }
 
-      if (string.IsNullOrWhiteSpace(name)) {
-        name = di.Service.HtmlName;
-      }
-
       AddToGroup(di);
       _ids.UnionWith(_groupIds);
+      _groupIds.Clear();
 
-      if (_group.Count > 5) {
-        groups[name] = [.. _group];
-        name = "";
-        _group.Clear();
-        _groupIds.Clear();
+      if (group.Count > 5 || group.Count > 0 && group.Count < _group.Count) {
+        groups[name] = [.. group];
+        name = di.Service.Safe;
+        group.Clear();
+      } else if (string.IsNullOrWhiteSpace(name)) {
+        name = di.Service.Safe;
       }
+
+      group.AddRange(_group);
+      _group.Clear();
     }
 
-    if (_group.Count > 0) {
-      groups[name] = [.. _group];
-      name = "";
-      _group.Clear();
-      _groupIds.Clear();
+    if (group.Count > 0) {
+      groups[name] = [.. group];
     }
 
     TemplateContext context = new(s_options);
@@ -199,30 +211,11 @@ public class DependencyInjectionChecks(
 
     _group.Add(di);
     _groupIds.Add(di.Service.Id);
-    if (di.Service.Id != di.Implementation.Id
-      && _diServices.TryGetValue(di.Implementation.Id, out DiService[]? impl)) {
-      AddAllToGroup(impl);
-    }
 
-    AddAllToGroup([.. di.Parents.SelectMany(p => _diServices.GetValueOrDefault(p.Id) ?? [])]);
-    AddChildren(_group, di);
-  }
-
-  private void AddAllToGroup(params DiService[] toAdd)
-  {
-    foreach (DiService di in toAdd) {
-      AddToGroup(di);
-    }
-  }
-
-  private void AddChildren(List<DiService> group, DiService service)
-  {
-    foreach (TypeIdName prereq in service.Parameters.Values) {
-      if (_diServices.TryGetValue(prereq.Id, out DiService[]? prereqs)) {
-        AddAllToGroup(prereqs);
-
-        foreach (DiService child in prereqs) {
-          AddChildren(group, child);
+    foreach ((string key, TypeIdName prereq) in di.Requires) {
+      if (!int.TryParse(key, out int _)) {
+        if (_diServices.TryGetValue(prereq.Id, out DiService? requires)) {
+          AddToGroup(requires);
         }
       }
     }
@@ -241,12 +234,15 @@ public class DependencyInjectionChecks(
       || parameter.Name.StartsWith("IEnumerable", StringComparison.Ordinal);
 }
 
-public sealed class TypeIdName(Type type)
+public sealed record TypeIdName
 {
-  public string Id { get; } = type.FullTypeName();
-  public string NameSpace { get; } = type.Namespace ?? "";
-  public string Name { get; } = type.ExpandTypeName();
-  public string Key { get; } = type.FullTypeName()
+  public TypeIdName(Type type)
+  {
+    Id = type.ThrowIfNull().FullTypeName();
+    NameSpace = type.Namespace ?? "";
+    Name = type.ExpandTypeName();
+
+    Key = Id
       .Replace('<', '_')
       .Replace('>', '_')
       .Replace('+', '_')
@@ -254,43 +250,36 @@ public sealed class TypeIdName(Type type)
       .Replace(',', '_')
       .Replace("::", "_", StringComparison.Ordinal);
 
-  public string HtmlName => Name.Replace('<', '(').Replace('>', ')');
-  public string Mermaid => "  " + Key + "[\"" + HtmlName + "\"]";
+    Safe = Name
+      .Replace('<', '(')
+      .Replace('>', ')');
+  }
+
+  public string Id { get; }
+  public string NameSpace { get; }
+  public string Name { get; }
+  public string Key { get; }
+  public string Safe { get; }
 }
 
-public sealed class DiService(ServiceDescriptor service, Type implementation)
+public sealed class DiService(Type service)
 {
-  public TypeIdName Service { get; } = new(service.ServiceType);
-  public bool IsFactory { get; init; }
-  public bool IsInstance { get; init; }
-  public TypeIdName Implementation { get; } = new(implementation);
-  public Map<TypeIdName> Parameters { get; } = [];
-  public IEnumerable<TypeIdName> Parents { get; set; } = [];
+  public TypeIdName Service { get; } = new(service);
+  public Map<TypeIdName> Requires { get; } = [];
+  public int RequiredBy { get; set; } = -1;
 
   internal void AddParameters(Type provider)
   {
     foreach (ConstructorInfo ctor in provider.GetConstructors()) {
       string prefix = ctor.Name == ".ctor" ? "" : ctor.Name + '!';
       foreach (ParameterInfo parameter in ctor.GetParameters()) {
-        Parameters.Add(prefix + parameter.Name, new(parameter.ParameterType));
+        if (parameter.ParameterType.IsGenericType
+          && parameter.ParameterType.GetGenericTypeDefinition() == typeof(IEnumerable<>)) {
+          Requires.Add(prefix + parameter.Name + "[]", new(parameter.ParameterType.GetGenericArguments()[0]));
+        } else if (parameter.ParameterType != typeof(ILoggerFactory)) {
+          Requires.Add(prefix + parameter.Name, new(parameter.ParameterType));
+        }
       }
     }
   }
-
-  public string Provider => IsFactory
-    ? " () => " + (IsInstance ? "" : Implementation.Name)
-    : (IsInstance ? " = " : "") + Implementation.Name;
-  public string HtmlProvider => IsFactory
-    ? " () => " + (IsInstance ? "" : Implementation.HtmlName)
-    : (IsInstance ? " = " : "") + Implementation.HtmlName;
-
-  private string? _prefix;
-  public string Prefix => _prefix ??= "    " + Implementation.Key + " -->";
-
-  public string Mermaid
-    => Service.Id == Implementation.Id ? ""
-    : "    " + Service.Key + " --> " + Implementation.Key;
-
-  public IEnumerable<string> MermaidParameters
-    => Parameters.Select(p => Prefix + '|' + p.Key + '|' + p.Value.Key);
 }

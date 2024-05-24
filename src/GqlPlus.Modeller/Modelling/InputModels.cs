@@ -7,11 +7,12 @@ public record class TypeInputModel(
   string Name
 ) : TypeObjectModel<InputBaseModel, InputFieldModel>(TypeKindModel.Input, Name)
 {
-  protected override TypeInputModel Apply(Map<IObjBaseModel> arguments)
-    => throw new NotImplementedException();
-
   protected override string BaseName(InputBaseModel? objBase)
     => objBase?.Input ?? "";
+
+  protected override InputFieldModel NewField(InputFieldModel field, ObjRefModel<InputBaseModel> typeModel)
+    // todo: correct
+    => field;
 }
 
 public record class InputBaseModel(

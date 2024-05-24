@@ -430,7 +430,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
       object: DualGenParentDualRef
-      type: !_TypeParameter ref
+      type: !_DualBase
+        dual: DualGenParentDualAlt
     name: DualGenParentDual
     parent: !_DualBase
       dual: DualGenParentDualRef
@@ -458,7 +459,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
       object: DualGenParentParamRef
-      type: !_TypeParameter ref
+      type: !_DualBase
+        dual: DualGenParentParamAlt
     name: DualGenParentParam
     parent: !_DualBase
       dual: DualGenParentParamRef
@@ -493,7 +495,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
       object: DualGenPrntRef
-      type: !_TypeParameter ref
+      type: !_TypeParameter type
     name: DualGenPrntArg
     parent: !_DualBase
       dual: DualGenPrntRef
@@ -594,7 +596,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
       object: DualPrmsPrntDiff
-      type: !_TypeParameter b
+      type: !_TypeParameter a
     allFields:
     - !_ObjectFor(_DualField)
       name: field
@@ -1192,7 +1194,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpGenParentDualRef
-      type: !_TypeParameter ref
+      type: !_DualBase
+        dual: InpGenParentDualAlt
     name: InpGenParentDual
     parent: !_InputBase
       input: InpGenParentDualRef
@@ -1220,7 +1223,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpGenParentParamRef
-      type: !_TypeParameter ref
+      type: !_InputBase
+        input: InpGenParentParamAlt
     name: InpGenParentParam
     parent: !_InputBase
       input: InpGenParentParamRef
@@ -1255,7 +1259,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpGenPrntRef
-      type: !_TypeParameter ref
+      type: !_TypeParameter type
     name: InpGenPrntArg
     parent: !_InputBase
       input: InpGenPrntRef
@@ -1356,7 +1360,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
       object: InpPrmsPrntDiff
-      type: !_TypeParameter b
+      type: !_TypeParameter a
     allFields:
     - !_ObjectFor(_InputField)
       name: field

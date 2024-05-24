@@ -11,7 +11,7 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
 ) : ChildTypeModel<ObjDescribedModel<TObjBase>>(Kind, Name)
   , ITypeObjectModel
   where TObjBase : class, IObjBaseModel
-  where TObjField : ModelBase
+  where TObjField : ObjFieldModel<TObjBase>
 {
   internal DescribedModel[] TypeParameters { get; set; } = [];
   internal TObjField[] Fields { get; set; } = [];
@@ -81,7 +81,33 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
     return false;
   }
 
-  protected abstract TypeObjectModel<TObjBase, TObjField> Apply(Map<IObjBaseModel> arguments);
+  protected TypeObjectModel<TObjBase, TObjField> Apply(Map<IObjBaseModel> arguments)
+  {
+    ArgumentNullException.ThrowIfNull(arguments);
+    TypeObjectModel<TObjBase, TObjField> result = (TypeObjectModel<TObjBase, TObjField>)MemberwiseClone();
+
+    if (GetArgument(arguments, Parent?.Base, out ObjRefModel<TObjBase>? parentModel)
+      && parentModel.BaseRef is not null) {
+      result.Parent = new(parentModel.BaseRef) { Description = Parent?.Description };
+    }
+
+    result.Alternates = Alternates
+      .Select(a =>
+        GetArgument(arguments, a.Type.Base.BaseRef, out ObjRefModel<TObjBase>? typeModel)
+          ? new(new(typeModel)) { Collections = a.Collections }
+          : a
+        ).ToArray();
+
+    result.Fields = Fields
+      .Select(f =>
+        GetArgument(arguments, f.Type?.BaseRef, out ObjRefModel<TObjBase>? typeModel)
+        ? NewField(f, typeModel) : f
+      ).ToArray();
+
+    return result;
+  }
+
+  protected abstract TObjField NewField(TObjField field, ObjRefModel<TObjBase> typeModel);
   protected abstract string BaseName(TObjBase? objBase);
 
   ITypeObjectModel ITypeObjectModel.Apply(Map<IObjBaseModel> arguments) => Apply(arguments);

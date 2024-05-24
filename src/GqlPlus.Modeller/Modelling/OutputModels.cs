@@ -7,11 +7,12 @@ public record class TypeOutputModel(
   string Name
 ) : TypeObjectModel<OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, Name)
 {
-  protected override TypeOutputModel Apply(Map<IObjBaseModel> arguments)
-    => throw new NotImplementedException();
-
   protected override string BaseName(OutputBaseModel? objBase)
     => objBase?.Output ?? "";
+
+  protected override OutputFieldModel NewField(OutputFieldModel field, ObjRefModel<OutputBaseModel> typeModel)
+    // todo: correct
+    => field;
 }
 
 public record class OutputBaseModel(

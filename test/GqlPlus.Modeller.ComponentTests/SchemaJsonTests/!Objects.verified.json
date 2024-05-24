@@ -806,7 +806,10 @@
         {
           "$tag": "_ObjectFor(_Alternate(_DualBase))",
           "object": "DualGenParentDualRef",
-          "type": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualGenParentDualAlt"
+          }
         }
       ],
       "name": "DualGenParentDual",
@@ -857,7 +860,10 @@
         {
           "$tag": "_ObjectFor(_Alternate(_DualBase))",
           "object": "DualGenParentParamRef",
-          "type": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualGenParentParamAlt"
+          }
         }
       ],
       "name": "DualGenParentParam",
@@ -920,7 +926,7 @@
         {
           "$tag": "_ObjectFor(_Alternate(_DualBase))",
           "object": "DualGenPrntRef",
-          "type": "ref"
+          "type": "type"
         }
       ],
       "name": "DualGenPrntArg",
@@ -1105,7 +1111,7 @@
         {
           "$tag": "_ObjectFor(_Alternate(_DualBase))",
           "object": "DualPrmsPrntDiff",
-          "type": "b"
+          "type": "a"
         }
       ],
       "allFields": [
@@ -2205,7 +2211,10 @@
         {
           "$tag": "_ObjectFor(_Alternate(_InputBase))",
           "object": "InpGenParentDualRef",
-          "type": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "InpGenParentDualAlt"
+          }
         }
       ],
       "name": "InpGenParentDual",
@@ -2256,7 +2265,10 @@
         {
           "$tag": "_ObjectFor(_Alternate(_InputBase))",
           "object": "InpGenParentParamRef",
-          "type": "ref"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpGenParentParamAlt"
+          }
         }
       ],
       "name": "InpGenParentParam",
@@ -2319,7 +2331,7 @@
         {
           "$tag": "_ObjectFor(_Alternate(_InputBase))",
           "object": "InpGenPrntRef",
-          "type": "ref"
+          "type": "type"
         }
       ],
       "name": "InpGenPrntArg",
@@ -2504,7 +2516,7 @@
         {
           "$tag": "_ObjectFor(_Alternate(_InputBase))",
           "object": "InpPrmsPrntDiff",
-          "type": "b"
+          "type": "a"
         }
       ],
       "allFields": [

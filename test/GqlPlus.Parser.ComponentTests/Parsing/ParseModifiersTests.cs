@@ -18,8 +18,8 @@ public class ParseModifiersTests(
   [Fact]
   public void WithFour_ReturnsSpecific()
     => _test.TrueExpected("[^][_?][]?", [
-      new ModifierAst(AstNulls.At, new(AstNulls.At, "^"), false),
-      new ModifierAst(AstNulls.At, new(AstNulls.At, "_"), true),
+      ModifierAst.Dict(AstNulls.At, "^", false),
+      ModifierAst.Dict(AstNulls.At, "_", true),
       ModifierAst.List(AstNulls.At),
       ModifierAst.Optional(AstNulls.At),
     ]);

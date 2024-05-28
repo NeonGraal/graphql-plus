@@ -17,20 +17,6 @@ public interface IGqlpDeclaration
   string Label { get; }
 }
 
-public interface IGqlpType
-  : IGqlpDeclaration
-{ }
-
-public interface IGqlpTypeSpecial
-  : IGqlpType<string>
-{ }
-
-public interface IGqlpType<TParent>
-  : IGqlpType
-{
-  TParent? Parent { get; }
-}
-
 public interface IGqlpAliased
   : IGqlpNamed, IGqlpDescribed
 {

@@ -59,7 +59,7 @@ Success
   !AO
   I@007/0019
   _Constant
-  [( !k 'Simple' )]
+  [Simple]
 }
 {
   !Ou I@008/0022

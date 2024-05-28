@@ -14,13 +14,6 @@ public enum CategoryOption
   Single,
 }
 
-public interface IGqlpCollection
-{
-  //* Value Opt is invalid
-  ModifierKind CollectionKind { get; }
-  IGqlpFieldKey? Key { get; }
-}
-
 public interface IGqlpSchemaDirective
   : IGqlpDeclaration
 {

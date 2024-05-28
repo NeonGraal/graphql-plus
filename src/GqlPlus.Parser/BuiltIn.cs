@@ -77,7 +77,7 @@ public static class BuiltIn
       Modifiers = key switch {
         null => [],
         "" => [ModifierAst.List(AstNulls.At)],
-        _ => [new(AstNulls.At, new(AstNulls.At, key), false)]
+        _ => [ModifierAst.Dict(AstNulls.At, key, false)]
       }
     };
 
@@ -85,7 +85,7 @@ public static class BuiltIn
     => new(AstNulls.At, DualRef("_Most", DualParam("T"))) {
       Modifiers = key switch {
         "" => [optional ? ModifierAst.Optional(AstNulls.At) : ModifierAst.List(AstNulls.At)],
-        _ => [new(AstNulls.At, new(AstNulls.At, key), optional)]
+        _ => [ModifierAst.Dict(AstNulls.At, key, optional)]
       }
     };
 

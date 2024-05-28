@@ -22,6 +22,13 @@ public interface IGqlpOperation
   string Render();
 }
 
+public interface IGqlpVariable
+  : IGqlpNamed, IGqlpDirectives, IGqlpModifiers
+{
+  string? Type { get; }
+  IGqlpConstant? DefaultValue { get; }
+}
+
 public interface IGqlpDirectives
 {
   IEnumerable<IGqlpDirective> Directives { get; init; }
@@ -31,20 +38,6 @@ public interface IGqlpDirective
   : IGqlpNamed
 {
   IGqlpArgument? Argument { get; }
-}
-
-public interface IGqlpArgument
-  : IGqlpValue<IGqlpArgument>
-{
-  string? Variable { get; }
-  IGqlpConstant? Constant { get; }
-}
-
-public interface IGqlpVariable
-  : IGqlpNamed, IGqlpDirectives, IGqlpModifiers
-{
-  string? Type { get; }
-  IGqlpConstant? DefaultValue { get; }
 }
 
 public interface IGqlpFragment

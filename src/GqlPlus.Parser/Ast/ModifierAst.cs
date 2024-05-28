@@ -12,20 +12,27 @@ public sealed record class ModifierAst(TokenAt At)
   internal static ModifierAst List(TokenAt at)
     => new(at, ModifierKind.List, "[]");
 
+  internal static ModifierAst Dict(TokenAt at, string key, bool optional)
+   => new(at, ModifierKind.Dict, "[" + key + (optional ? "?]" : "]")) {
+     Key = key,
+     IsOptional = optional
+   };
+
+  internal static ModifierAst Param(TokenAt at, string key, bool optional)
+   => new(at, ModifierKind.Param, "[$" + key + (optional ? "?]" : "]")) {
+     Key = key,
+     IsOptional = optional
+   };
+
   private ModifierAst(TokenAt at, ModifierKind kind, string toString)
     : this(at)
     => (Kind, _toString) = (kind, toString);
 
-  internal ModifierAst(TokenAt at, FieldKeyAst key, bool optional)
-    : this(at, ModifierKind.Dict, "[" + key + (optional ? "?]" : "]"))
-    => (Key, KeyOptional) = (key, optional);
-
   public ModifierKind Kind { get; }
-  public FieldKeyAst? Key { get; init; }
-  public bool KeyOptional { get; init; }
+  public string? Key { get; init; }
+  public bool IsOptional { get; init; }
 
   ModifierKind IGqlpModifier.ModifierKind => Kind;
-  IGqlpFieldKey? IGqlpModifier.Key => Key;
 
   private readonly string _toString = "";
 
@@ -37,9 +44,9 @@ public sealed record class ModifierAst(TokenAt At)
     => other is not null
     && Kind == other.Kind
     && Key.NullEqual(other.Key)
-    && KeyOptional.NullEqual(other.KeyOptional);
+    && IsOptional.NullEqual(other.IsOptional);
 
   // override object.GetHashCode
   public override int GetHashCode()
-    => HashCode.Combine(Kind, Key, KeyOptional);
+    => HashCode.Combine(Kind, Key, IsOptional);
 }

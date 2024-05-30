@@ -55,12 +55,12 @@ internal sealed class CategoryModelChecks(
 
   private string[] ExpectedCategory(ExpectedCategoryInput input)
     => ["!_Category",
-        .. input.Aliases ?? [],
-        .. input.Description ?? [],
-        input.Modifiers ? "modifiers: [!_Modifier List, !_Modifier Opt]" : "",
-        "name: " + input.Name,
-        .. input.Output.TypeRefFor(TypeKindModel.Output),
-        $"resolution: !_Resolution {input.Option}"];
+      .. input.Aliases ?? [],
+      .. input.Description ?? [],
+      input.Modifiers ? "modifiers: [!_Modifier List, !_Modifier Opt]" : "",
+      "name: " + input.Name,
+      .. input.Output.TypeRefFor(TypeKindModel.Output),
+      $"resolution: !_Resolution {input.Option}"];
 
   protected override CategoryDeclAst NewAliasedAst(string name, string? description = null, string[]? aliases = null)
     => new(AstNulls.At, name) {

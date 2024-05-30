@@ -1,8 +1,9 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ import namespace="System.IO" #>
-<#@ output extension=".gen.cs" #>
-<#  var sampleDir = new DirectoryInfo(this.Host.ResolvePath("Sample"));
-    var relative = sampleDir.FullName.Replace(Environment.CurrentDirectory, ".");
+<#@ output extension=".gen.cs" #><#  
+  var sampleDir = new DirectoryInfo(this.Host.ResolvePath("Sample"));
+  var index = sampleDir.FullName.IndexOf("test") - 1;
+  var relative = "." + sampleDir.FullName.Substring(index);
 #>
 // Generated from <#= relative #>
 

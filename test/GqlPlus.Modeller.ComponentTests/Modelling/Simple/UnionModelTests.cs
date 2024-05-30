@@ -79,13 +79,13 @@ internal sealed class UnionModelChecks(
 
   private string[] ExpectedUnion(ExpectedUnionInput input)
     => ["!_TypeUnion",
-        .. input.Aliases,
-        .. input.AllItems,
-        .. input.Description,
-        .. input.Items,
-        "name: " + input.Name,
-        .. input.Parent.TypeRefFor(SimpleKindModel.Union),
-        "typeKind: !_TypeKind Union"];
+      .. input.Aliases,
+      .. input.AllItems,
+      .. input.Description,
+      .. input.Items,
+      "name: " + input.Name,
+      .. input.Parent.TypeRefFor(SimpleKindModel.Union),
+      "typeKind: !_TypeKind Union"];
 
   protected override UnionDeclAst NewAliasedAst(string input, string? description = null, string[]? aliases = null)
     => new(AstNulls.At, input, description ?? "", []) { Aliases = aliases ?? [] };

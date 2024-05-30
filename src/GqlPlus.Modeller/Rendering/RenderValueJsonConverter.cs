@@ -13,14 +13,14 @@ internal class RenderValueJsonConverter
     }
 
     if (string.IsNullOrWhiteSpace(value.Tag)) {
-      WriteValue(writer, value, options);
+      WriteValue(writer, value);
       return;
     }
 
     writer.WriteStartObject();
     writer.WriteString("$tag", value.Tag);
     writer.WritePropertyName("value");
-    WriteValue(writer, value, options);
+    WriteValue(writer, value);
     writer.WriteEndObject();
   }
 }

@@ -24,8 +24,8 @@ private IDictionary<string,string> TestData(FileInfo file) {
 
 private void BuildData(string directory) {
   var sampleDir = new DirectoryInfo(this.Host.ResolvePath(directory));
-  var relative = sampleDir.FullName.Replace(Environment.CurrentDirectory, ".");
-#>
+  var index = sampleDir.FullName.IndexOf("test") - 1;
+  var relative = "." + sampleDir.FullName.Substring(index);#>
 // Generated from <#= relative #>
 
 namespace GqlPlus;

@@ -31,7 +31,7 @@ public class MergeSchemasTests
     AstDeclaration[] otherDecls = OptionDeclarations(option);
 
     Merge_Expected(
-      [ new SchemaAst(AstNulls.At) with { Declarations = categoryDecls },
+      [new SchemaAst(AstNulls.At) with { Declarations = categoryDecls },
         new SchemaAst(AstNulls.At) with { Declarations = otherDecls }],
       new SchemaAst(AstNulls.At) with { Declarations = [.. categoryDecls, .. otherDecls] })
     .MergeCalled(_categories)

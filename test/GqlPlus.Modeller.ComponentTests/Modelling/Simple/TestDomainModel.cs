@@ -64,14 +64,14 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
 {
   internal string[] ExpectedDomain(ExpectedDomainInput<TValue> input)
     => [$"!_Domain{kind}",
-        .. input.Aliases ?? [],
-        .. AllItems(input.AllItems),
-        .. input.Description ?? [],
-        $"domain: !_DomainKind {kind}",
-        .. Items(input.Items),
-        "name: " + input.Name,
-        .. input.Parent.TypeRefFor(SimpleKindModel.Domain),
-        "typeKind: !_TypeKind Domain"];
+      .. input.Aliases ?? [],
+      .. AllItems(input.AllItems),
+      .. input.Description ?? [],
+      $"domain: !_DomainKind {kind}",
+      .. Items(input.Items),
+      "name: " + input.Name,
+      .. input.Parent.TypeRefFor(SimpleKindModel.Domain),
+      "typeKind: !_TypeKind Domain"];
 
   string[] ICheckDomainModel<TValue, TAstItem, TItem>.ExpectedDomain(ExpectedDomainInput<TValue> input) => ExpectedDomain(input);
 

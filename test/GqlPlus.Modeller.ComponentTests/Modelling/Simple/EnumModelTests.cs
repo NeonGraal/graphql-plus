@@ -78,13 +78,13 @@ internal sealed class EnumModelChecks(
 
   private string[] ExpectedEnum(ExpectedEnumInput input)
     => ["!_TypeEnum",
-        .. input.Aliases,
-        .. input.AllItems,
-        .. input.Description,
-        .. input.Items,
-        "name: " + input.Name,
-        .. input.Parent.TypeRefFor(SimpleKindModel.Enum),
-        "typeKind: !_TypeKind Enum"];
+      .. input.Aliases,
+      .. input.AllItems,
+      .. input.Description,
+      .. input.Items,
+      "name: " + input.Name,
+      .. input.Parent.TypeRefFor(SimpleKindModel.Enum),
+      "typeKind: !_TypeKind Enum"];
 
   protected override EnumDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description, []);

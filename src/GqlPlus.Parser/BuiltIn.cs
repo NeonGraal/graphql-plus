@@ -22,10 +22,10 @@ public static class BuiltIn
 
   public static AstType[] Internal { get; } = [
     new EnumDeclAst(AstNulls.At, "Void", []),
-    new EnumDeclAst(AstNulls.At, "Null", [new(AstNulls.At, "null")] ) { Aliases = ["null"] },
+    new EnumDeclAst(AstNulls.At, "Null", [new(AstNulls.At, "null")]) { Aliases = ["null"] },
 
-    new UnionDeclAst(AstNulls.At, "Simple", new[] {"^", "0", "*", "_", "_Union", "_Domain", "_Enum" }.UnionMembers()),
-    new UnionDeclAst(AstNulls.At, "Internal", new[] {"Void", "Null" }.UnionMembers()),
+    new UnionDeclAst(AstNulls.At, "Simple", new[] { "^", "0", "*", "_", "_Union", "_Domain", "_Enum" }.UnionMembers()),
+    new UnionDeclAst(AstNulls.At, "Internal", new[] { "Void", "Null" }.UnionMembers()),
 
     DualObj("Opt", TypeParameters("T"), DualAlt(null), DualType("Null")),
     DualObj("List", TypeParameters("T"), DualAlt("")),

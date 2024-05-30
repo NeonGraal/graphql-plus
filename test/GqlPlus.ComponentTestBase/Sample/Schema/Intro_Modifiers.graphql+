@@ -1,0 +1,15 @@
+output _ObjectCollections {
+    | _Collections
+    | _ModifierTypeParameter
+    }
+
+output _ModifierTypeParameter {
+    : _Modifier<_ModifierKind.TypeParameter>
+        typeParameter: _TypeParameter
+        optional: Boolean
+    }
+
+output _ObjectModifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _ObjectCollections
+    }

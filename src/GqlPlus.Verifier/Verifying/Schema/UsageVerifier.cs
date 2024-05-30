@@ -4,17 +4,16 @@ using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
-internal abstract class UsageVerifier<TUsage, TAliased, TContext>(
+internal abstract class UsageVerifier<TUsage, TContext>(
   IVerifyAliased<TUsage> aliased
-) : IVerifyUsage<TUsage, TAliased>
+) : IVerifyUsage<TUsage>
   where TUsage : IGqlpAliased
-  where TAliased : IGqlpAliased
   where TContext : UsageContext
 {
   protected abstract void UsageValue(TUsage usage, TContext context);
-  protected abstract TContext MakeContext(TUsage usage, TAliased[] aliased, ITokenMessages errors);
+  protected abstract TContext MakeContext(TUsage usage, IGqlpType[] aliased, ITokenMessages errors);
 
-  public virtual void Verify(UsageAliased<TUsage, TAliased> item, ITokenMessages errors)
+  public virtual void Verify(UsageAliased<TUsage> item, ITokenMessages errors)
   {
     foreach (TUsage usage in item.Usages) {
       TContext context = MakeContext(usage, item.Definitions, errors);
@@ -24,21 +23,19 @@ internal abstract class UsageVerifier<TUsage, TAliased, TContext>(
     aliased.Verify(item.Usages, errors);
   }
 
-  protected static UsageContext MakeUsageContext(TAliased[] aliased, ITokenMessages errors)
+  protected static UsageContext MakeUsageContext(IGqlpType[] aliased, ITokenMessages errors)
     => new(
       aliased.AliasedMap(p => (IGqlpDescribed)p.First())
       , errors);
 }
 
-public record class UsageAliased<TUsage, TAliased>(
+public record class UsageAliased<TUsage>(
   TUsage[] Usages,
-  TAliased[] Definitions
+  IGqlpType[] Definitions
 )
-  where TUsage : IGqlpError
-  where TAliased : IGqlpAliased;
+  where TUsage : IGqlpError;
 
-public interface IVerifyUsage<TUsage, TAliased>
-  : IVerify<UsageAliased<TUsage, TAliased>>
+public interface IVerifyUsage<TUsage>
+  : IVerify<UsageAliased<TUsage>>
   where TUsage : IGqlpError
-  where TAliased : IGqlpAliased
 { }

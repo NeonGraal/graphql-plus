@@ -27,12 +27,3 @@ internal class ParseDual(
       TypeParameters = partial.Parameters.ArrayOf<TypeParameterAst>(),
     };
 }
-
-internal class ParseDualDefinition(
-  Parser<DualFieldAst>.D field,
-  ParserArray<IParserCollections, IGqlpModifier>.DA collections,
-  Parser<DualBaseAst>.D objBase
-) : ParseObjectDefinition<DualFieldAst, DualBaseAst>(field, collections, objBase)
-{
-  protected override string Label => "Dual";
-}

@@ -21,7 +21,8 @@ internal sealed class ParameterModelChecks(
     return description.Any()
       ? ["!_InputParameter",
         "type: !_BaseDescribed(_ObjRef(_InputBase))",
-        "  base: !_InputBase", "    input: " + input.Name,
+        "  base: !_InputBase",
+        "    input: " + input.Name,
         .. description]
         : ["!_InputParameter", "type: !_InputBase", "  input: " + input.Name];
   }

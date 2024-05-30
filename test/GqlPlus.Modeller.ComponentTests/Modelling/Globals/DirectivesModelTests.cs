@@ -28,7 +28,7 @@ public class DirectivesModelTests(
         "  name: " + name,
         "  repeatable: false",
         "type: !_TypeInput",
-          "  name: " + input,
+        "  name: " + input,
         "  typeKind: !_TypeKind Input"]);
 
   internal override ICheckModelBase<string> BaseChecks => _checks;
@@ -42,8 +42,8 @@ internal sealed class DirectivesModelChecks(
 {
   protected override string[] ExpectedBase(string name)
   => ["!_Directive",
-      "name: " + name,
-      "repeatable: false"];
+    "name: " + name,
+    "repeatable: false"];
 
   protected override DirectiveDeclAst NewBaseAst(string name)
     => new(AstNulls.At, name);

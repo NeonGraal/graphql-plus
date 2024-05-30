@@ -6,7 +6,7 @@ namespace GqlPlus.Rendering;
 internal abstract class RenderJsonConverter<T>
   : JsonConverter<T>
 {
-  protected void WriteValue(Utf8JsonWriter writer, RenderValue value, JsonSerializerOptions options)
+  protected void WriteValue(Utf8JsonWriter writer, RenderValue value)
   {
     if (value is null || value.IsEmpty) {
       return;

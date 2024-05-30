@@ -35,6 +35,7 @@ public record class SchemaModel(
   internal IMap<SettingModel> Settings { get; init; } = new Map<SettingModel>();
   public ITokenMessages Errors { get; } = new TokenMessages();
 
+#pragma warning disable IDE0060 // Remove unused parameter
   public IMap<CategoriesModel> GetCategories(CategoryFilterParameter? filter)
     => Categories.ToMap(c => c.Key,
       c => new CategoriesModel() {
@@ -51,6 +52,7 @@ public record class SchemaModel(
 
   public IMap<BaseTypeModel> GetTypes(TypeFilterParameter? filter) => Types;
   public IMap<SettingModel> GetSettings(FilterParameter? filter) => Settings;
+#pragma warning restore IDE0060 // Remove unused parameter
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)

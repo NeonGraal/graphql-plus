@@ -71,7 +71,8 @@ public class SchemaModelTests(
       new SchemaAst(AstNulls.At) {
         Declarations = [
           new DirectiveDeclAst(AstNulls.At, directive),
-          new OutputDeclAst(AstNulls.At, directive),]
+          new OutputDeclAst(AstNulls.At, directive),
+        ]
       },
       ["!_Schema",
         .. _checks.ExpectedDirectives([directive], true),
@@ -174,12 +175,12 @@ internal sealed class SchemaModelChecks(
       .Prepend("categories: !_Map_Categories");
 
   private IEnumerable<string> ExpectedCategory(string category, string first)
-    => [ first,
-        "    name: " + category,
-        "    output: !_TypeRef(_TypeKind)",
-        "      name: " + category,
-        "      typeKind: !_TypeKind Output",
-        "    resolution: !_Resolution Parallel"];
+    => [first,
+      "    name: " + category,
+      "    output: !_TypeRef(_TypeKind)",
+      "      name: " + category,
+      "      typeKind: !_TypeKind Output",
+      "    resolution: !_Resolution Parallel"];
 
   internal IEnumerable<string> ExpectedDirectives(string[] directives, bool withType)
     => directives.Order(StringComparer.Ordinal)

@@ -1,4 +1,4 @@
-using GqlPlus.Token;
+﻿using GqlPlus.Token;
 
 namespace GqlPlus.Result;
 

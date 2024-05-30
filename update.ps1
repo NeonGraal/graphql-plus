@@ -1,3 +1,4 @@
+dotnet format
 prettier -w .
 dotnet outdated -u
 dotnet tools-outdated

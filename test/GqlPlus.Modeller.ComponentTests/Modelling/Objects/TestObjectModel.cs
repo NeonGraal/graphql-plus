@@ -261,7 +261,7 @@ internal sealed class ExpectedObjectInput(
       .. allAlternates ?? [],
       .. allFields ?? [],
       .. alternates ?? [],
-      .. Description ,
+      .. Description,
       .. fields ?? [],
       "name: " + Name,
       .. parent(Parent),

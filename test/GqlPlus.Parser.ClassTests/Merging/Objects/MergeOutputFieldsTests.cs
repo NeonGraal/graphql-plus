@@ -60,7 +60,7 @@ public class MergeOutputFieldsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsWithParameters_CallsParametersMerge(string name, string type, string[] parameters)
     => Merge_Expected(
-        [ MakeField(name, type) with { Parameters = parameters.Parameters() },
+        [MakeField(name, type) with { Parameters = parameters.Parameters() },
           MakeField(name, type) with { Parameters = parameters.Parameters() }],
         MakeField(name, type) with { Parameters = parameters.Concat(parameters).Parameters() })
       .MergeCalled(_parameters);
@@ -98,7 +98,7 @@ public class MergeOutputFieldsTests
     => this
     .SkipIf(alias1 == alias2)
     .Merge_Expected(
-      [ MakeFieldEnum(name, type, value) with { Aliases = [alias1] },
+      [MakeFieldEnum(name, type, value) with { Aliases = [alias1] },
         MakeFieldEnum(name, type, value) with { Aliases = [alias2] }],
       MakeFieldEnum(name, type, value) with { Aliases = [alias1, alias2] });
 

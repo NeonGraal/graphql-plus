@@ -25,7 +25,7 @@ public class MergeOptionsTests
     .SkipNull(settings2)
     .Merge_Expected([
         new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.OptionSettings() },
-        new OptionDeclAst(AstNulls.At, name) with { Settings = settings2.OptionSettings() }],
+      new OptionDeclAst(AstNulls.At, name) with { Settings = settings2.OptionSettings() }],
         new OptionDeclAst(AstNulls.At, name) with { Settings = settings1.Concat(settings2).Distinct().OptionSettings() })
       .MergeCalled(_settings, settings1.Concat(settings2).Distinct().Count());
 

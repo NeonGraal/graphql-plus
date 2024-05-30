@@ -46,9 +46,9 @@ internal sealed class CategoriesModelChecks(
 {
   protected override string[] ExpectedBase(string name)
   => ["!_Category",
-      "name: " + name.Camelize(),
-      .. name.TypeRefFor(TypeKindModel.Output, "output"),
-      "resolution: !_Resolution Parallel"];
+    "name: " + name.Camelize(),
+    .. name.TypeRefFor(TypeKindModel.Output, "output"),
+    "resolution: !_Resolution Parallel"];
 
   protected override CategoryDeclAst NewBaseAst(string name)
     => new(AstNulls.At, name);

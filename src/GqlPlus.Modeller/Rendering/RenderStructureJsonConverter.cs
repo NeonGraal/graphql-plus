@@ -22,7 +22,7 @@ internal class RenderStructureJsonConverter
       (RenderValue _, RenderStructure first) = value.Map.First();
       if (value.Map.Count == 1 && !plain && string.IsNullOrWhiteSpace(first.Tag) && first.Value is not null) {
         StartTaggedValue(writer, value.Tag);
-        WriteValue(writer, first.Value, options);
+        WriteValue(writer, first.Value);
         writer.WriteEndObject();
       } else {
         WriteMap(writer, value.Map, value.Tag, options);

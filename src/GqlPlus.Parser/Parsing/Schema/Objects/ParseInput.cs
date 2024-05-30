@@ -27,12 +27,3 @@ internal class ParseInput(
       TypeParameters = partial.Parameters.ArrayOf<TypeParameterAst>(),
     };
 }
-
-internal class ParseInputDefinition(
-  Parser<InputFieldAst>.D field,
-  ParserArray<IParserCollections, IGqlpModifier>.DA collections,
-  Parser<InputBaseAst>.D objBase
-) : ParseObjectDefinition<InputFieldAst, InputBaseAst>(field, collections, objBase)
-{
-  protected override string Label => "Input";
-}

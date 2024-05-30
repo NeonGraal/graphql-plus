@@ -71,12 +71,12 @@ internal sealed class DirectiveModelChecks(
 
   internal string[] ExpectedDirective(ExpectedDirectiveInput input)
     => ["!_Directive",
-        .. input.Aliases,
-        .. input.Description,
-        .. input.Locations,
-        "name: " + input.Name,
-        .. input.Parameters,
-        input.Repeatable];
+      .. input.Aliases,
+      .. input.Description,
+      .. input.Locations,
+      "name: " + input.Name,
+      .. input.Parameters,
+      input.Repeatable];
 
   internal string[] ExpectedParameters(string[] parameters)
     => [.. ItemsExpected(

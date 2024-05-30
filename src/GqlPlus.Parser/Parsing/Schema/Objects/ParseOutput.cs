@@ -27,12 +27,3 @@ internal class ParseOutput(
       TypeParameters = partial.Parameters.ArrayOf<TypeParameterAst>(),
     };
 }
-
-internal class ParseOutputDefinition(
-  Parser<OutputFieldAst>.D objField,
-  ParserArray<IParserCollections, IGqlpModifier>.DA collections,
-  Parser<OutputBaseAst>.D objBase
-) : ParseObjectDefinition<OutputFieldAst, OutputBaseAst>(objField, collections, objBase)
-{
-  protected override string Label => "Output";
-}

@@ -1,9 +1,9 @@
 ﻿namespace GqlPlus.Abstractions.Schema;
 
-public interface IGqlpObject<TBase, TRef, TField>
-  : IGqlpType<TRef>
-  where TRef : IGqlpObjectRef
-  where TField : IGqlpObjectField<TRef>
+public interface IGqlpObject<TBase, TField>
+  : IGqlpType<TBase>
+  where TBase : IGqlpObjectBase<TBase>
+  where TField : IGqlpObjectField<TBase>
 {
   IEnumerable<IGqlpTypeParameter> TypeParameters { get; }
   IEnumerable<TField> Fields { get; }
@@ -24,24 +24,26 @@ public interface IGqlpObjectBase<TBase>
   IEnumerable<TBase> TypeArguments { get; }
 }
 
-public interface IGqlpObjectField<TRef>
+public interface IGqlpObjectField<TBase>
   : IGqlpAliased, IGqlpModifiers
+  where TBase : IGqlpObjectBase<TBase>
 {
-  TRef Type { get; }
+  TBase Type { get; }
 }
 
 public interface IGqlpTypeParameter
   : IGqlpDescribed, IGqlpNamed
 { }
 
-public interface IGqlpAlternate<TRef>
+public interface IGqlpAlternate<TBase>
+  where TBase : IGqlpObjectBase<TBase>
 {
-  TRef Type { get; }
+  TBase Type { get; }
   IEnumerable<IGqlpModifier> Collections { get; } // Optional is invalid
 }
 
 public interface IGqlpDual
-  : IGqlpObject<IGqlpDualBase, IGqlpObjectRef, IGqlpDualField>
+  : IGqlpObject<IGqlpDualBase, IGqlpDualField>
 { }
 
 public interface IGqlpDualBase
@@ -51,11 +53,11 @@ public interface IGqlpDualBase
 }
 
 public interface IGqlpDualField
-  : IGqlpObjectField<IGqlpObjectRef>
+  : IGqlpObjectField<IGqlpDualBase>
 { }
 
 public interface IGqlpInput
-  : IGqlpObject<IGqlpInputBase, IGqlpInputRef, IGqlpInputField>
+  : IGqlpObject<IGqlpInputBase, IGqlpInputField>
 { }
 
 public interface IGqlpInputBase
@@ -64,20 +66,14 @@ public interface IGqlpInputBase
   string Input { get; }
 }
 
-public interface IGqlpInputRef
-  : IGqlpObjectRef
-{
-  IGqlpInputBase? Input { get; }
-}
-
 public interface IGqlpInputField
-  : IGqlpObjectField<IGqlpInputRef>
+  : IGqlpObjectField<IGqlpInputBase>
 {
   IGqlpConstant? DefaultValue { get; }
 }
 
 public interface IGqlpOutput
-  : IGqlpObject<IGqlpOutputBase, IGqlpOutputRef, IGqlOutputField>
+  : IGqlpObject<IGqlpOutputBase, IGqlOutputField>
 { }
 
 public interface IGqlpOutputBase
@@ -87,19 +83,13 @@ public interface IGqlpOutputBase
   string? EnumValue { get; }
 }
 
-public interface IGqlpOutputRef
-  : IGqlpObjectRef
-{
-  IGqlpOutputBase? Output { get; }
-}
-
 public interface IGqlOutputField
-  : IGqlpObjectField<IGqlpOutputRef>
+  : IGqlpObjectField<IGqlpOutputBase>
 { }
 
 public interface IGqlpInputParameter
   : IGqlpModifiers
 {
-  IGqlpInputRef Type { get; }
+  IGqlpInputBase Type { get; }
   IGqlpConstant? DefaultValue { get; }
 }

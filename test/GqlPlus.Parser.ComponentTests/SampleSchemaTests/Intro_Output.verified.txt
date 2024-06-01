@@ -80,11 +80,7 @@ Success
   |
   !AO
   I@007/0020
-  _ObjRef
-  <
-    I@015/0020
-    _OutputBase
-  >
+  _OutputBase
 }
 {
   !Ou I@008/0023

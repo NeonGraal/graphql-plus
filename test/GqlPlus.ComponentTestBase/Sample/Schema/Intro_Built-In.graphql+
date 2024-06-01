@@ -30,12 +30,18 @@ output _ModifierDictionary {
         optional: Boolean
     }
 
+output _ModifierTypeParameter {
+    : _Modifier<_ModifierKind.TypeParameter>
+        typeParameter: _TypeParameter
+        optional: Boolean
+    }
+
 output _Modifiers {
     | _Modifier<_ModifierKind.Optional>
     | _Collections
     }
 
-enum _ModifierKind { Optional List Dictionary }
+enum _ModifierKind { Optional List Dictionary TypeParameter }
 
 output _Modifier<$kind> {
         modifierKind: $kind

@@ -9,6 +9,9 @@ _errors:
 - !_Error
   _kind: !_TokenKind End
   _message: In _InputField can't get model for type '_Field'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _Parameter can't get model for type '_Alternate'
 types: !_Map_Type
   !_Identifier _InputBase: !_TypeOutput
     allAlternates:
@@ -36,10 +39,7 @@ types: !_Map_Type
       output: _ObjBase
       typeArguments:
       - !_OutputBase
-        output: _ObjRef
-        typeArguments:
-        - !_OutputBase
-          output: _InputBase
+        output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputField: !_TypeOutput
     allFields:
@@ -58,6 +58,27 @@ types: !_Map_Type
     name: _InputField
     parent: !_OutputBase
       output: _Field
+      typeArguments:
+      - !_OutputBase
+        output: _InputBase
+    typeKind: !_TypeKind Output
+  !_Identifier _Parameter: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier Opt]
+      name: default
+      object: _Parameter
+      type: !_OutputBase
+        output: _Constant
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier Opt]
+      name: default
+      type: !_OutputBase
+        output: _Constant
+    name: _Parameter
+    parent: !_OutputBase
+      output: _Alternate
       typeArguments:
       - !_OutputBase
         output: _InputBase

@@ -17,7 +17,7 @@ output _OutputField {
 output _OutputArgument {
     : _TypeRef<_TypeKind.Enum>
         value: _Identifier
-    | _ObjRef<_OutputBase>
+    | _OutputBase
     }
 
 output _OutputEnum {

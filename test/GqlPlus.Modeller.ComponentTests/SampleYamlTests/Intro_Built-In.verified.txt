@@ -149,6 +149,9 @@ types: !_Map_Type
     - !_EnumMember
       enum: _ModifierKind
       name: Dictionary
+    - !_EnumMember
+      enum: _ModifierKind
+      name: TypeParameter
     items:
     - !_Aliased
       name: Optional
@@ -156,8 +159,44 @@ types: !_Map_Type
       name: List
     - !_Aliased
       name: Dictionary
+    - !_Aliased
+      name: TypeParameter
     name: _ModifierKind
     typeKind: !_TypeKind Enum
+  !_Identifier _ModifierTypeParameter: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: modifierKind
+      object: _Modifier
+      type: !_TypeParameter kind
+    - !_ObjectFor(_OutputField)
+      name: typeParameter
+      object: _ModifierTypeParameter
+      type: !_OutputBase
+        output: _TypeParameter
+    - !_ObjectFor(_OutputField)
+      name: optional
+      object: _ModifierTypeParameter
+      type: !_OutputBase
+        output: Boolean
+    fields:
+    - !_OutputField
+      name: typeParameter
+      type: !_OutputBase
+        output: _TypeParameter
+    - !_OutputField
+      name: optional
+      type: !_OutputBase
+        output: Boolean
+    name: _ModifierTypeParameter
+    parent: !_OutputBase
+      output: _Modifier
+      typeArguments:
+      - !_OutputArgument
+        name: _ModifierKind
+        typeKind: !_SimpleKind Enum
+        value: TypeParameter
+    typeKind: !_TypeKind Output
   !_Identifier _Modifiers: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))

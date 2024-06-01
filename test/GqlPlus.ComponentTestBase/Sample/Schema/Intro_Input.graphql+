@@ -3,12 +3,17 @@ output _TypeInput {
     }
 
 output _InputBase {
-    : _ObjBase<_ObjRef<_InputBase>>
+    : _ObjBase<_InputBase>
         input: _Identifier
     | _DualBase
     }
 
 output _InputField {
     : _Field<_InputBase>
+        default: _Constant?
+    }
+
+output _Parameter {
+    : _Alternate<_InputBase>
         default: _Constant?
     }

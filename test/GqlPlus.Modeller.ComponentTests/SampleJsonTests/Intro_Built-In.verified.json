@@ -277,6 +277,11 @@
           "$tag": "_EnumMember",
           "enum": "_ModifierKind",
           "name": "Dictionary"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "_ModifierKind",
+          "name": "TypeParameter"
         }
       ],
       "items": [
@@ -291,6 +296,10 @@
         {
           "$tag": "_Aliased",
           "value": "Dictionary"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "TypeParameter"
         }
       ],
       "name": "_ModifierKind",
@@ -349,6 +358,67 @@
         }
       ],
       "name": "_Modifiers",
+      "typeKind": "Output"
+    },
+    "_ModifierTypeParameter": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "modifierKind",
+          "object": "_Modifier",
+          "type": "kind"
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "typeParameter",
+          "object": "_ModifierTypeParameter",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeParameter"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "optional",
+          "object": "_ModifierTypeParameter",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "typeParameter",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeParameter"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "optional",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Boolean"
+          }
+        }
+      ],
+      "name": "_ModifierTypeParameter",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Modifier",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "name": "_ModifierKind",
+            "typeKind": "Enum",
+            "value": "TypeParameter"
+          }
+        ]
+      },
       "typeKind": "Output"
     },
     "_Simple": {

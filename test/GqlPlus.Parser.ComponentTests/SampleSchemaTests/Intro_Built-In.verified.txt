@@ -59,7 +59,7 @@ Success
   !AO
   I@007/0019
   _Constant
-  [( !k 'Simple' )]
+  [Simple]
 }
 {
   !Ou I@008/0022
@@ -101,41 +101,66 @@ Success
 }
 {
   !Ou I@008/0033
-  _Modifiers
-  |
-  !AO
+  _ModifierTypeParameter
+  :
   I@007/0034
   _Modifier
   <
     I@017/0034
+    _ModifierKind.TypeParameter
+  >
+  {
+    !OF I@009/0035
+    typeParameter
+    :
+    I@024/0035
+    _TypeParameter
+    !OF I@009/0036
+    optional
+    :
+    I@019/0036
+    Boolean
+  }
+}
+{
+  !Ou I@008/0039
+  _Modifiers
+  |
+  !AO
+  I@007/0040
+  _Modifier
+  <
+    I@017/0040
     _ModifierKind.Optional
   >
   !AO
-  I@007/0035
+  I@007/0041
   _Collections
 }
 {
-  !En I@006/0038
+  !En I@006/0044
   _ModifierKind
-  !EM I@022/0038
+  !EM I@022/0044
   Optional
-  !EM I@031/0038
+  !EM I@031/0044
   List
-  !EM I@036/0038
+  !EM I@036/0044
   Dictionary
+  !EM I@047/0044
+  TypeParameter
 }
 {
-  !Ou I@008/0040
+  !Ou I@008/0046
   _Modifier
   <
-    I@019/0040
+    I@019/0046
     $kind
   >
   {
-    !OF I@009/0041
+    !OF I@009/0047
     modifierKind
     :
-    I@024/0041
+    I@024/0047
     $kind
   }
 }

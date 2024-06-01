@@ -28,37 +28,6 @@ types: !_Map_Type
     parent: !_DualBase
       dual: _Described
     typeKind: !_TypeKind Dual
-  !_Identifier _BaseDescribed: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
-      object: _BaseDescribed
-      type: !_TypeParameter base
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: base
-      object: _BaseDescribed
-      type: !_TypeParameter base
-    - !_ObjectFor(_DualField)
-      name: description
-      object: _BaseDescribed
-      type: !_DualBase
-        dual: String
-    alternates:
-    - !_Alternate(_DualBase)
-      type: !_TypeParameter base
-    fields:
-    - !_DualField
-      name: base
-      type: !_TypeParameter base
-    - !_DualField
-      name: description
-      type: !_DualBase
-        dual: String
-    name: _BaseDescribed
-    typeKind: !_TypeKind Dual
-    typeParameters:
-    - !_Described
-      name: base
   !_Identifier _Described: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)

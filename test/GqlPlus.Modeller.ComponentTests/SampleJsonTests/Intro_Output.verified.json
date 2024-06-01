@@ -37,13 +37,7 @@
           "object": "_OutputArgument",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_ObjRef",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "value": "_OutputBase"
-              }
-            ]
+            "value": "_OutputBase"
           }
         }
       ],
@@ -63,13 +57,7 @@
           "$tag": "_Alternate(_OutputBase)",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_ObjRef",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "value": "_OutputBase"
-              }
-            ]
+            "value": "_OutputBase"
           }
         }
       ],

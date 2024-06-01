@@ -3,15 +3,23 @@ using System.Collections.Immutable;
 
 namespace GqlPlus.Abstractions;
 
-public interface IGqlpConstant
-  : IGqlpValue<IGqlpConstant>
-{
-  IGqlpFieldKey? Value { get; }
-}
-
 public interface IGqlpError
 {
   ITokenMessages MakeError(string message);
+}
+
+public interface IGqlpAbbreviated
+  : IGqlpError
+{
+  ITokenAt At { get; }
+  string Abbr { get; }
+  IEnumerable<string?> GetFields();
+}
+
+public interface IGqlpNamed
+  : IGqlpAbbreviated
+{
+  string Name { get; }
 }
 
 public interface IGqlpFieldKey
@@ -24,16 +32,12 @@ public interface IGqlpFieldKey
   string? EnumValue { get; }
 }
 
-public interface IGqlpFields<TValue>
-  : IImmutableDictionary<IGqlpFieldKey, TValue>
-{ }
-
 public interface IGqlpModifier
   : IGqlpError
 {
   ModifierKind ModifierKind { get; }
-  IGqlpFieldKey? Key { get; }
-  bool KeyOptional { get; }
+  string? Key { get; }
+  bool IsOptional { get; }
 }
 
 public enum ModifierKind
@@ -43,6 +47,8 @@ public enum ModifierKind
   List,
   Dict,
   Dictionary = Dict,
+  Param,
+  TypeParameter = Param,
 }
 
 public interface IGqlpModifiers
@@ -50,18 +56,22 @@ public interface IGqlpModifiers
   IEnumerable<IGqlpModifier> Modifiers { get; }
 }
 
-public interface IGqlpNamed
-  : IGqlpError
+public interface IGqlpConstant
+  : IGqlpValue<IGqlpConstant>
 {
-  string Name { get; }
+  IGqlpFieldKey? Value { get; }
 }
 
 public interface IGqlpValue<TValue>
-  : IGqlpError
+  : IGqlpAbbreviated
 {
   IEnumerable<TValue> Values { get; }
   IGqlpFields<TValue> Fields { get; }
 }
+
+public interface IGqlpFields<TValue>
+  : IImmutableDictionary<IGqlpFieldKey, TValue>
+{ }
 
 public static class IGqlpValuesHelper
 {

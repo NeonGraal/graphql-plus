@@ -15,7 +15,7 @@ public sealed record class InputParameterAst(
 
   internal override string Abbr => "Pa";
 
-  IGqlpInputRef? IGqlpInputParameter.Type => default;
+  IGqlpInputBase? IGqlpInputParameter.Type => default;
   IGqlpConstant? IGqlpInputParameter.DefaultValue => DefaultValue;
 
   internal InputParameterAst(TokenAt at, string input, string description = "")

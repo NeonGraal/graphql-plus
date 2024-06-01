@@ -22,6 +22,7 @@ internal sealed class ModifierModelChecks(
       ModifierKind.Optional => ["!_Modifier Opt"],
       ModifierKind.List => ["!_Modifier List"],
       ModifierKind.Dict => ["!_ModifierDictionary", "by: " + name.Key, name.Optional ? "optional: true" : ""],
+      ModifierKind.Param => ["!_ModifierTypeParameter", name.Optional ? "optional: true" : "", "typeParameter: " + name.Key],
       _ => [],
     };
 
@@ -29,7 +30,8 @@ internal sealed class ModifierModelChecks(
     => input.Kind switch {
       ModifierKind.Optional => ModifierAst.Optional(AstNulls.At),
       ModifierKind.List => ModifierAst.List(AstNulls.At),
-      ModifierKind.Dict => new ModifierAst(AstNulls.At, new(AstNulls.At, input.Key), input.Optional),
+      ModifierKind.Dict => ModifierAst.Dict(AstNulls.At, input.Key, input.Optional),
+      ModifierKind.Param => ModifierAst.Param(AstNulls.At, input.Key, input.Optional),
       _ => throw new NotImplementedException(),
     };
 }

@@ -22,3 +22,10 @@ public interface IGqlpInline
 public interface IGqlpSpread
   : IGqlpNamed, IGqlpSelection
 { }
+
+public interface IGqlpArgument
+  : IGqlpValue<IGqlpArgument>
+{
+  string? Variable { get; }
+  IGqlpConstant? Constant { get; }
+}

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Abstractions.Schema;
 
 public interface IGqlpSimple<TItem>
-  : IGqlpType<string>
+  : IGqlpType<string>, IGqlpSimple
   where TItem : IGqlpError
 {
   IEnumerable<TItem> Items { get; }

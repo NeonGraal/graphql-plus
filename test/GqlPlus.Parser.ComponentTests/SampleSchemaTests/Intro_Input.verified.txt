@@ -23,11 +23,7 @@ Success
   _ObjBase
   <
     I@016/0006
-    _ObjRef
-    <
-      I@024/0006
-      _InputBase
-    >
+    _InputBase
   >
   {
     !OF I@009/0007
@@ -56,6 +52,25 @@ Success
     default
     :
     I@018/0013
+    _Constant
+    ?
+  }
+}
+{
+  !Ou I@008/0016
+  _Parameter
+  :
+  I@007/0017
+  _Alternate
+  <
+    I@018/0017
+    _InputBase
+  >
+  {
+    !OF I@009/0018
+    default
+    :
+    I@018/0018
     _Constant
     ?
   }

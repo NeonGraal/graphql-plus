@@ -120,106 +120,43 @@ Success
 }
 {
   !Du I@006/0024
-  _DomainTrueFalse
-  :
-  I@007/0025
-  _BaseDomainItem
-  {
-    !DF I@009/0026
-    value
-    :
-    I@016/0026
-    Boolean
-  }
-}
-{
-  !Ou I@008/0029
-  _DomainMember
-  :
-  I@007/0030
-  _BaseDomainItem
-  {
-    !OF I@009/0031
-    member
-    :
-    I@017/0031
-    _EnumValue
-  }
-}
-{
-  !Du I@006/0034
-  _DomainRange
-  :
-  I@007/0035
-  _BaseDomainItem
-  {
-    !DF I@009/0036
-    lower
-    :
-    I@016/0036
-    Number
-    ?
-    !DF I@009/0037
-    upper
-    :
-    I@016/0037
-    Number
-    ?
-  }
-}
-{
-  !Du I@006/0040
-  _DomainRegex
-  :
-  I@007/0041
-  _BaseDomainItem
-  {
-    !DF I@009/0042
-    pattern
-    :
-    I@018/0042
-    String
-  }
-}
-{
-  !Du I@006/0045
   _DomainItem
   <
-    I@019/0045
+    I@019/0024
     $item
   >
   :
-  I@008/0046
+  I@008/0025
   $item
   {
-    !DF I@009/0047
+    !DF I@009/0026
     domain
     :
-    I@017/0047
+    I@017/0026
     _Identifier
   }
 }
 {
-  !Ou I@008/0050
+  !Ou I@008/0029
   _DomainValue
   <
-    I@022/0050
+    I@022/0029
     $kind
-    I@028/0050
+    I@028/0029
     $value
   >
   :
-  I@007/0051
+  I@007/0030
   _DomainRef
   <
-    I@019/0051
+    I@019/0030
     $kind
   >
   {
-    !OF I@009/0052
+    !OF I@009/0031
     value
     :
-    I@017/0052
+    I@017/0031
     $value
   }
 }

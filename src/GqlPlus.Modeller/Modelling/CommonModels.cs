@@ -60,18 +60,21 @@ public record class CollectionModel(
 {
   // Todo: Make key a proper SimpleModel
   public string Key { get; set; } = "";
-  public bool KeyOptional { get; set; }
+  public bool IsOptional { get; set; }
 
-  protected override string Tag => ModifierKind == ModifierKind.Dict
-    ? "_ModifierDictionary"
-    : base.Tag;
+  protected override string Tag =>
+    ModifierKind switch {
+      ModifierKind.Dict => "_ModifierDictionary",
+      ModifierKind.Param => "_ModifierTypeParameter",
+      _ => base.Tag,
+    };
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-        .Add(ModifierKind == ModifierKind.Dict,
+        .Add(ModifierKind is ModifierKind.Dict or ModifierKind.Param,
           s => s
-            .Add("by", Key)
-            .Add("optional", KeyOptional, true),
+            .Add(ModifierKind is ModifierKind.Dict ? "by" : "typeParameter", Key)
+            .Add("optional", IsOptional, true),
           s => new($"{ModifierKind}", Tag)
         );
 }
@@ -118,8 +121,8 @@ internal class ModifierModeller
 {
   protected override ModifierModel ToModel(IGqlpModifier ast, IMap<TypeKindModel> typeKinds)
     => new(ast.ModifierKind) {
-      Key = ast.Key?.Text ?? "",
-      KeyOptional = ast.KeyOptional,
+      Key = ast.Key ?? "",
+      IsOptional = ast.IsOptional,
     };
 
   protected override T? TryModel<T>(IGqlpModifier? ast, IMap<TypeKindModel> typeKinds)

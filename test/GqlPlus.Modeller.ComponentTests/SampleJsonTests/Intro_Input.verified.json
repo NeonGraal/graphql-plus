@@ -15,6 +15,11 @@
       "$tag": "_Error",
       "_kind": "End",
       "_message": "In _InputField can\u0027t get model for type \u0027_Field\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _Parameter can\u0027t get model for type \u0027_Alternate\u0027"
     }
   ],
   "types": {
@@ -68,13 +73,7 @@
         "typeArguments": [
           {
             "$tag": "_OutputBase",
-            "output": "_ObjRef",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "value": "_InputBase"
-              }
-            ]
+            "value": "_InputBase"
           }
         ]
       },
@@ -109,6 +108,44 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_Field",
+        "typeArguments": [
+          {
+            "$tag": "_OutputBase",
+            "value": "_InputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_Parameter": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": ["Opt"],
+          "name": "default",
+          "object": "_Parameter",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": ["Opt"],
+          "name": "default",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "name": "_Parameter",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Alternate",
         "typeArguments": [
           {
             "$tag": "_OutputBase",

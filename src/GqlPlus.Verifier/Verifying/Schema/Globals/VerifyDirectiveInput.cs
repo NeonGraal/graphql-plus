@@ -1,14 +1,13 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema.Globals;
 
 internal class VerifyDirectiveInput(
   IVerifyAliased<IGqlpSchemaDirective> aliased
-) : UsageVerifier<IGqlpSchemaDirective, InputDeclAst, UsageContext>(aliased)
+) : UsageVerifier<IGqlpSchemaDirective, UsageContext>(aliased)
 {
-  protected override UsageContext MakeContext(IGqlpSchemaDirective usage, InputDeclAst[] aliased, ITokenMessages errors)
+  protected override UsageContext MakeContext(IGqlpSchemaDirective usage, IGqlpType[] aliased, ITokenMessages errors)
     => MakeUsageContext(aliased, errors);
 
   protected override void UsageValue(IGqlpSchemaDirective usage, UsageContext context)

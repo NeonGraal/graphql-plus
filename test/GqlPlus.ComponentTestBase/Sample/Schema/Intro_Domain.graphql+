@@ -21,27 +21,6 @@ dual _BaseDomainItem {
         exclude: Boolean
     }
 
-dual _DomainTrueFalse {
-    : _BaseDomainItem
-        value: Boolean
-    }
-
-output _DomainMember {
-    : _BaseDomainItem
-        member: _EnumValue
-    }
-
-dual _DomainRange {
-    : _BaseDomainItem
-        lower: Number?
-        upper: Number?
-    }
-
-dual _DomainRegex {
-    : _BaseDomainItem
-        pattern: String
-    }
-
 dual _DomainItem<$item> {
     : $item
         domain: _Identifier

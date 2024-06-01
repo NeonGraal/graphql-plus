@@ -39,12 +39,6 @@ dual _Described {
         description: String
     }
 
-dual _BaseDescribed<$base> {
-        base: $base
-        description: String
-    | $base
-    }
-
 dual _Named {
         name: _Identifier
     }
@@ -157,28 +151,21 @@ output _ModifierDictionary {
         optional: Boolean
     }
 
+output _ModifierTypeParameter {
+    : _Modifier<_ModifierKind.TypeParameter>
+        typeParameter: _TypeParameter
+        optional: Boolean
+    }
+
 output _Modifiers {
     | _Modifier<_ModifierKind.Optional>
     | _Collections
     }
 
-enum _ModifierKind { Optional List Dictionary }
+enum _ModifierKind { Optional List Dictionary TypeParameter }
 
 output _Modifier<$kind> {
         modifierKind: $kind
-    }
-output _TypeEnum {
-    : _ParentType<_TypeKind.Enum _Aliased _EnumMember>
-    }
-
-dual _EnumMember {
-    : _Aliased
-        enum: _Identifier
-    }
-
-output _EnumValue {
-    : _TypeRef<_TypeKind.Enum>
-        value: _Identifier
     }
 enum _DomainKind { Boolean Enum Number String }
 
@@ -203,27 +190,6 @@ dual _BaseDomainItem {
         exclude: Boolean
     }
 
-dual _DomainTrueFalse {
-    : _BaseDomainItem
-        value: Boolean
-    }
-
-output _DomainMember {
-    : _BaseDomainItem
-        member: _EnumValue
-    }
-
-dual _DomainRange {
-    : _BaseDomainItem
-        lower: Number?
-        upper: Number?
-    }
-
-dual _DomainRegex {
-    : _BaseDomainItem
-        pattern: String
-    }
-
 dual _DomainItem<$item> {
     : $item
         domain: _Identifier
@@ -232,6 +198,19 @@ dual _DomainItem<$item> {
 output _DomainValue<$kind $value> {
     : _DomainRef<$kind>
         value: $value
+    }
+output _TypeEnum {
+    : _ParentType<_TypeKind.Enum _Aliased _EnumMember>
+    }
+
+dual _EnumMember {
+    : _Aliased
+        enum: _Identifier
+    }
+
+output _EnumValue {
+    : _TypeRef<_TypeKind.Enum>
+        value: _Identifier
     }
 output _TypeUnion {
     : _ParentType<_TypeKind.Union _Named _UnionMember>
@@ -242,7 +221,7 @@ dual _UnionMember {
         union: _Identifier
     }
 output _TypeObject<$kind $base $field> {
-    : _ChildType<$kind _BaseDescribed<$base>>
+    : _ChildType<$kind _ObjDescribed<$base>>
         typeParameters: _Described[]
         fields: $field[]
         alternates: _Alternate<$base>[]
@@ -250,8 +229,10 @@ output _TypeObject<$kind $base $field> {
         allAlternates: _ObjectFor<_Alternate<$base>>[]
     }
 
-dual _ObjRef<$ref> {
-        typeArguments: $ref[]
+dual _ObjDescribed<$base> {
+        base: $base
+        description: String
+    | $base
     }
 
 output _ObjType<$base> {
@@ -261,15 +242,15 @@ output _ObjType<$base> {
     }
 
 dual _ObjBase<$base> {
-    : _ObjRef<$base>
+        typeArguments: $base[]
     | _TypeParameter
     }
 
 domain _TypeParameter { :_Identifier String }
 
 output _Alternate<$base> {
-      type: _BaseDescribed<_ObjRef<$base>>
-      collections: _Collections[]
+      type: _ObjDescribed<$base>
+      collections: _ObjectCollections[]
     }
 
 output _ObjectFor<$for> {
@@ -279,38 +260,34 @@ output _ObjectFor<$for> {
 
 output _Field<$base> {
     : _Aliased
-      type: _BaseDescribed<_ObjRef<$base>>
-      modifiers: _Modifiers[]
-    }
-
-output _Parameter {
-    : _Alternate<_InputBase>
-        default: _Constant?
+      type: _ObjDescribed<$base>
+      modifiers: _ObjectModifiers[]
     }
 output _TypeDual {
     : _TypeObject<_TypeKind.Dual _DualBase _Field<_DualBase>>
     }
 
-output _DualRef {
-    : _ObjRef<_DualRef>
-        dual: _Identifier
-    }
-
 output _DualBase {
-    : _ObjBase<_DualRef>
+    : _ObjBase<_DualBase>
+        dual: _Identifier
     }
 output _TypeInput {
     : _TypeObject<_TypeKind.Input _InputBase _InputField>
     }
 
 output _InputBase {
-    : _ObjBase<_ObjRef<_InputBase>>
+    : _ObjBase<_InputBase>
         input: _Identifier
     | _DualBase
     }
 
 output _InputField {
     : _Field<_InputBase>
+        default: _Constant?
+    }
+
+output _Parameter {
+    : _Alternate<_InputBase>
         default: _Constant?
     }
 output _TypeOutput {
@@ -332,7 +309,7 @@ output _OutputField {
 output _OutputArgument {
     : _TypeRef<_TypeKind.Enum>
         value: _Identifier
-    | _ObjRef<_OutputBase>
+    | _OutputBase
     }
 
 output _OutputEnum {

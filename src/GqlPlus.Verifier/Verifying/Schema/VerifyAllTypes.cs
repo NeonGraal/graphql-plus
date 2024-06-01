@@ -5,12 +5,12 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Verifying.Schema;
 
 internal class VerifyAllTypes(
-  IVerifyUsage<DualDeclAst, IGqlpType> dualAllTypes,
-  IVerifyUsage<IGqlpEnum, IGqlpType> enumAllTypes,
-  IVerifyUsage<InputDeclAst, IGqlpType> inputAllTypes,
-  IVerifyUsage<OutputDeclAst, IGqlpType> outputAllTypes,
-  IVerifyUsage<IGqlpDomain, IGqlpType> domainAllTypes,
-  IVerifyUsage<IGqlpUnion, IGqlpType> unionAllTypes
+  IVerifyUsage<DualDeclAst> dualAllTypes,
+  IVerifyUsage<IGqlpEnum> enumAllTypes,
+  IVerifyUsage<InputDeclAst> inputAllTypes,
+  IVerifyUsage<OutputDeclAst> outputAllTypes,
+  IVerifyUsage<IGqlpDomain> domainAllTypes,
+  IVerifyUsage<IGqlpUnion> unionAllTypes
 ) : IVerify<IGqlpType[]>
 {
   public void Verify(IGqlpType[] item, ITokenMessages errors)

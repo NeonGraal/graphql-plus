@@ -8,6 +8,7 @@ using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Globals;
 using GqlPlus.Verifying.Schema.Objects;
 using GqlPlus.Verifying.Schema.Simple;
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -25,31 +26,31 @@ public static class AllVerifiers
       // Schema
       .AddVerify<IGqlpSchema, VerifySchema>()
       .AddVerifyAliased<IGqlpSchemaCategory, VerifyCategoryAliased>()
-      .AddVerifyUsageAliased<IGqlpSchemaCategory, OutputDeclAst, VerifyCategoryOutput>()
+      .AddVerifyUsageAliased<IGqlpSchemaCategory, VerifyCategoryOutput>()
       .AddVerifyAliased<IGqlpSchemaDirective, VerifyDirectiveAliased>()
-      .AddVerifyUsageAliased<IGqlpSchemaDirective, InputDeclAst, VerifyDirectiveInput>()
+      .AddVerifyUsageAliased<IGqlpSchemaDirective, VerifyDirectiveInput>()
       .AddVerifyAliased<IGqlpSchemaOption, VerifyOptionAliased>()
       // Schema Types
       .AddVerify<IGqlpType[], VerifyAllTypes>()
       .AddVerifyAliased<IGqlpType, VerifyAllTypesAliased>()
       // Simple Types
       .AddVerifyAliased<IGqlpDomain, VerifyDomainsAliased>()
-      .AddVerifyUsageAliased<IGqlpDomain, IGqlpType, VerifyDomainTypes>()
+      .AddVerifyUsageAliased<IGqlpDomain, VerifyDomainTypes>()
       .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainRange>>()
       .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainRegex>>()
       .AddVerifyDomainContext<AstDomainVerifier<IGqlpDomainTrueFalse>>()
       .AddVerifyDomainContext<VerifyDomainEnum>()
       .AddVerifyAliased<IGqlpEnum, VerifyEnumsAliased>()
-      .AddVerifyUsageAliased<IGqlpEnum, IGqlpType, VerifyEnumTypes>()
+      .AddVerifyUsageAliased<IGqlpEnum, VerifyEnumTypes>()
       .AddVerifyAliased<IGqlpUnion, VerifyUnionsAliased>()
-      .AddVerifyUsageAliased<IGqlpUnion, IGqlpType, VerifyUnionTypes>()
+      .AddVerifyUsageAliased<IGqlpUnion, VerifyUnionTypes>()
       // Object Types
       .AddVerifyAliased<DualDeclAst, VerifyDualsAliased>()
-      .AddVerifyUsageAliased<DualDeclAst, IGqlpType, VerifyDualTypes>()
+      .AddVerifyUsageAliased<DualDeclAst, VerifyDualTypes>()
       .AddVerifyAliased<InputDeclAst, VerifyInputsAliased>()
-      .AddVerifyUsageAliased<InputDeclAst, IGqlpType, VerifyInputTypes>()
+      .AddVerifyUsageAliased<InputDeclAst, VerifyInputTypes>()
       .AddVerifyAliased<OutputDeclAst, VerifyOutputsAliased>()
-      .AddVerifyUsageAliased<OutputDeclAst, IGqlpType, VerifyOutputTypes>()
+      .AddVerifyUsageAliased<OutputDeclAst, VerifyOutputTypes>()
     ;
 
   private static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)
@@ -79,14 +80,12 @@ public static class AllVerifiers
       .AddSingleton<IVerifyAliased<TAliased>, TService>()
       .TryAddVerify<TAliased, NullVerifierError<TAliased>>();
 
-  private static IServiceCollection AddVerifyUsageAliased<TUsage, TAliased, TService>(this IServiceCollection services)
-    where TService : class, IVerifyUsage<TUsage, TAliased>
+  private static IServiceCollection AddVerifyUsageAliased<TUsage, TService>(this IServiceCollection services)
+    where TService : class, IVerifyUsage<TUsage>
     where TUsage : IGqlpError
-    where TAliased : IGqlpAliased
     => services
-      .AddSingleton<IVerifyUsage<TUsage, TAliased>, TService>()
-      .TryAddVerify<TUsage, NullVerifierError<TUsage>>()
-      .TryAddVerify<TAliased, NullVerifierError<TAliased>>();
+      .AddSingleton<IVerifyUsage<TUsage>, TService>()
+      .TryAddVerify<TUsage, NullVerifierError<TUsage>>();
 
   private static IServiceCollection AddVerifyDomainContext<TService>(this IServiceCollection services)
     where TService : class, IVerifyDomain

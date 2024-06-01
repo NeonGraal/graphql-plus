@@ -1,9 +1,15 @@
 ﻿namespace GqlPlus.Abstractions.Schema;
 
-public interface IGqlpObject<TBase, TRef, TField>
-  : IGqlpType<TRef>
-  where TRef : IGqlpObjectRef
-  where TField : IGqlpObjectField<TRef>
+public interface IGqlpObject
+  : IGqlpType
+{
+  IEnumerable<IGqlpTypeParameter> TypeParameters { get; }
+}
+
+public interface IGqlpObject<TField, TBase>
+  : IGqlpType<TBase>, IGqlpObject
+  where TBase : IGqlpObjectBase<TBase>
+  where TField : IGqlpObjectField<TBase>
 {
   IEnumerable<IGqlpTypeParameter> TypeParameters { get; }
   IEnumerable<TField> Fields { get; }
@@ -18,30 +24,37 @@ public interface IGqlpObjectRef
 }
 
 public interface IGqlpObjectBase<TBase>
-  : IGqlpDescribed
+  : IGqlpAbbreviated
+  , IGqlpDescribed
+  , IEquatable<TBase>
 {
   bool IsTypeParameter { get; }
   IEnumerable<TBase> TypeArguments { get; }
 }
 
-public interface IGqlpObjectField<TRef>
-  : IGqlpAliased, IGqlpModifiers
+public interface IGqlpObjectField<TBase>
+  : IGqlpAliased
+  , IGqlpModifiers
+  , IEquatable<IGqlpObjectField<TBase>>
+  where TBase : IGqlpObjectBase<TBase>
 {
-  TRef Type { get; }
+  TBase Type { get; }
 }
 
 public interface IGqlpTypeParameter
   : IGqlpDescribed, IGqlpNamed
 { }
 
-public interface IGqlpAlternate<TRef>
+public interface IGqlpAlternate<TBase>
+  : IGqlpError, IGqlpDescribed, IGqlpModifiers
+  where TBase : IGqlpObjectBase<TBase>
 {
-  TRef Type { get; }
+  TBase Type { get; }
   IEnumerable<IGqlpModifier> Collections { get; } // Optional is invalid
 }
 
-public interface IGqlpDual
-  : IGqlpObject<IGqlpDualBase, IGqlpObjectRef, IGqlpDualField>
+public interface IGqlpDualObject
+  : IGqlpObject<IGqlpDualField, IGqlpDualBase>
 { }
 
 public interface IGqlpDualBase
@@ -51,55 +64,52 @@ public interface IGqlpDualBase
 }
 
 public interface IGqlpDualField
-  : IGqlpObjectField<IGqlpObjectRef>
+  : IGqlpObjectField<IGqlpDualBase>
 { }
 
-public interface IGqlpInput
-  : IGqlpObject<IGqlpInputBase, IGqlpInputRef, IGqlpInputField>
+public interface IGqlpToDual
+{
+  IGqlpDualBase ToDual { get; }
+}
+
+public interface IGqlpInputObject
+  : IGqlpObject<IGqlpInputField, IGqlpInputBase>
 { }
 
 public interface IGqlpInputBase
   : IGqlpObjectBase<IGqlpInputBase>
+  , IGqlpToDual
 {
   string Input { get; }
 }
 
-public interface IGqlpInputRef
-  : IGqlpObjectRef
-{
-  IGqlpInputBase? Input { get; }
-}
-
 public interface IGqlpInputField
-  : IGqlpObjectField<IGqlpInputRef>
+  : IGqlpObjectField<IGqlpInputBase>
 {
   IGqlpConstant? DefaultValue { get; }
 }
 
-public interface IGqlpOutput
-  : IGqlpObject<IGqlpOutputBase, IGqlpOutputRef, IGqlOutputField>
+public interface IGqlpOutputObject
+  : IGqlpObject<IGqlpOutputField, IGqlpOutputBase>
 { }
 
 public interface IGqlpOutputBase
   : IGqlpObjectBase<IGqlpOutputBase>
+  , IGqlpToDual
 {
   string Output { get; }
   string? EnumValue { get; }
 }
 
-public interface IGqlpOutputRef
-  : IGqlpObjectRef
+public interface IGqlpOutputField
+  : IGqlpObjectField<IGqlpOutputBase>
 {
-  IGqlpOutputBase? Output { get; }
+  IEnumerable<IGqlpInputParameter> Parameters { get; }
 }
-
-public interface IGqlOutputField
-  : IGqlpObjectField<IGqlpOutputRef>
-{ }
 
 public interface IGqlpInputParameter
   : IGqlpModifiers
 {
-  IGqlpInputRef Type { get; }
+  IGqlpInputBase Type { get; }
   IGqlpConstant? DefaultValue { get; }
 }

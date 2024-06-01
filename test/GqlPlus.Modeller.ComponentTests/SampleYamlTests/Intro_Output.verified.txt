@@ -21,10 +21,7 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _OutputArgument
       type: !_OutputBase
-        output: _ObjRef
-        typeArguments:
-        - !_OutputBase
-          output: _OutputBase
+        output: _OutputBase
     allFields:
     - !_ObjectFor(_OutputField)
       name: value
@@ -34,10 +31,7 @@ types: !_Map_Type
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        output: _ObjRef
-        typeArguments:
-        - !_OutputBase
-          output: _OutputBase
+        output: _OutputBase
     fields:
     - !_OutputField
       name: value

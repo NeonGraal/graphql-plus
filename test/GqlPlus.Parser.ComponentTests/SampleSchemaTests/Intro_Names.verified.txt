@@ -31,36 +31,12 @@ Success
 }
 {
   !Du I@006/0011
-  _BaseDescribed
-  <
-    I@022/0011
-    $base
-  >
-  {
-    !DF I@009/0012
-    base
-    :
-    I@016/0012
-    $base
-    !DF I@009/0013
-    description
-    :
-    I@022/0013
-    String
-  }
-  |
-  !AD
-  I@008/0014
-  $base
-}
-{
-  !Du I@006/0017
   _Named
   {
-    !DF I@009/0018
+    !DF I@009/0012
     name
     :
-    I@015/0018
+    I@015/0012
     _Identifier
   }
 }

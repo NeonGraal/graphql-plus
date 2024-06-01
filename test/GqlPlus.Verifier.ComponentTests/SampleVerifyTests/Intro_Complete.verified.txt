@@ -1,1 +1,8 @@
-﻿[]
+﻿[
+  !!! I@018/0264 : Invalid Output Field. '_ObjectModifiers' not defined. - '_ObjectModifiers' !!!,
+  !!! I@020/0253 : Invalid Output Field. '_ObjectCollections' not defined. - '_ObjectCollections' !!!,
+  !!! I@036/0174 : Invalid Output Alternate. '_DomainMember' not defined. - '_DomainMember' !!!,
+  !!! I@038/0175 : Invalid Output Alternate. '_DomainRange' not defined. - '_DomainRange' !!!,
+  !!! I@038/0176 : Invalid Output Alternate. '_DomainRegex' not defined. - '_DomainRegex' !!!,
+  !!! I@039/0173 : Invalid Output Alternate. '_DomainTrueFalse' not defined. - '_DomainTrueFalse' !!!
+]

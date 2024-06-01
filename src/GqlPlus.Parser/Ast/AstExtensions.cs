@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+
 using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast;
@@ -74,7 +75,7 @@ public static class AstExtensions
   public static string Joined<T>(this IEnumerable<T?>? items, Func<T?, string> mapping)
     => (items?.Select(mapping)).Joined();
 
-  internal static IEnumerable<string?> Bracket(this AstAbbreviated? item, string before, string after)
+  internal static IEnumerable<string?> Bracket(this IGqlpAbbreviated? item, string before, string after)
     => item?.GetFields().Prepend(before).Append(after) ?? [];
 
   [return: NotNullIfNotNull(nameof(text))]

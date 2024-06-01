@@ -8,8 +8,16 @@ public interface IGqlpError
   ITokenMessages MakeError(string message);
 }
 
-public interface IGqlpNamed
+public interface IGqlpAbbreviated
   : IGqlpError
+{
+  ITokenAt At { get; }
+  string Abbr { get; }
+  IEnumerable<string?> GetFields();
+}
+
+public interface IGqlpNamed
+  : IGqlpAbbreviated
 {
   string Name { get; }
 }
@@ -55,7 +63,7 @@ public interface IGqlpConstant
 }
 
 public interface IGqlpValue<TValue>
-  : IGqlpError
+  : IGqlpAbbreviated
 {
   IEnumerable<TValue> Values { get; }
   IGqlpFields<TValue> Fields { get; }

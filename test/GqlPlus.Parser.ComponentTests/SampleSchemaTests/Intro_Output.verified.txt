@@ -52,7 +52,7 @@ Success
     parameter
     :
     I@020/0013
-    _Parameter
+    _InputParameter
     []
   }
   |

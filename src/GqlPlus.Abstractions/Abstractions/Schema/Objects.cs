@@ -108,7 +108,7 @@ public interface IGqlpOutputField
 }
 
 public interface IGqlpInputParameter
-  : IGqlpModifiers
+  : IGqlpDescribed, IGqlpModifiers
 {
   IGqlpInputBase Type { get; }
   IGqlpConstant? DefaultValue { get; }

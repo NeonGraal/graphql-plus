@@ -10,7 +10,7 @@ output _OutputBase {
 
 output _OutputField {
     : _Field<_OutputBase>
-        parameter: _Parameter[]
+        parameter: _InputParameter[]
     | _OutputEnum
     }
 

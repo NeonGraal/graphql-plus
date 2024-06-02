@@ -13,11 +13,9 @@ types: !_Map_Type
       object: FieldParams
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: FieldParam1
+        input: FieldParam1
       - !_InputParameter
-        type: !_InputBase
-          input: FieldParam2
+        input: FieldParam2
       type: !_OutputBase
         output: FieldParams
     fields:
@@ -25,11 +23,9 @@ types: !_Map_Type
       name: field
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: FieldParam1
+        input: FieldParam1
       - !_InputParameter
-        type: !_InputBase
-          input: FieldParam2
+        input: FieldParam2
       type: !_OutputBase
         output: FieldParams
     name: FieldParams

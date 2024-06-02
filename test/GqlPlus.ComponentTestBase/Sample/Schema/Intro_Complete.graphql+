@@ -66,7 +66,7 @@ output _Directives {
 
 output _Directive {
     : _Aliased
-        parameters: _Parameter[]
+        parameters: _InputParameter[]
         repeatable: Boolean
         locations: _[_Location]
     }
@@ -143,6 +143,7 @@ output _ConstantMap {
 output _Collections {
     | _Modifier<_ModifierKind.List>
     | _ModifierDictionary
+    | _ModifierTypeParameter
     }
 
 output _ModifierDictionary {
@@ -250,7 +251,7 @@ domain _TypeParameter { :_Identifier String }
 
 output _Alternate<$base> {
       type: _ObjDescribed<$base>
-      collections: _ObjectCollections[]
+      collections: _Collections[]
     }
 
 output _ObjectFor<$for> {
@@ -261,7 +262,7 @@ output _ObjectFor<$for> {
 output _Field<$base> {
     : _Aliased
       type: _ObjDescribed<$base>
-      modifiers: _ObjectModifiers[]
+      modifiers: _Modifiers[]
     }
 output _TypeDual {
     : _TypeObject<_TypeKind.Dual _DualBase _Field<_DualBase>>
@@ -286,8 +287,9 @@ output _InputField {
         default: _Constant?
     }
 
-output _Parameter {
-    : _Alternate<_InputBase>
+output _InputParameter {
+    : _ObjDescribed<_InputBase>
+        modifiers: _Modifiers[]
         default: _Constant?
     }
 output _TypeOutput {
@@ -302,7 +304,7 @@ output _OutputBase {
 
 output _OutputField {
     : _Field<_OutputBase>
-        parameter: _Parameter[]
+        parameter: _InputParameter[]
     | _OutputEnum
     }
 

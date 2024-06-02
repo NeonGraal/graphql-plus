@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;
@@ -42,7 +43,8 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
   internal override bool GetParentModel<TModel>(IRenderContext context, [NotNullWhen(true)] out TModel? model)
     where TModel : default
   {
-    if (Parent?.Base.IsTypeParameter == false) {
+    if (Parent?.Base.IsTypeParameter == false)
+    {
       return base.GetParentModel(context, out model);
     }
 
@@ -139,17 +141,6 @@ public record class ObjFieldModel<TObjBase>(
       .Add("type", Type?.Render(context));
 }
 
-public record class InputParameterModel(
-  BaseDescribedModel<ObjRefModel<InputBaseModel>> Type
-) : AlternateModel<InputBaseModel>(Type)
-{
-  public ConstantModel? DefaultValue { get; set; }
-
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("default", DefaultValue?.Render(context));
-}
-
 internal abstract class ModellerObject<TAst, TObjBaseAst, TObjFieldAst, TModel, TObjBase, TObjField>(
   TypeKindModel kind,
   IAlternateModeller<TObjBaseAst, TObjBase> alternate,
@@ -210,7 +201,8 @@ internal abstract class ModellerObjField<TObjBaseAst, TObjFieldAst, TObjBase, TO
   where TObjField : ObjFieldModel<TObjBase>
 {
   protected override TObjField ToModel(TObjFieldAst field, IMap<TypeKindModel> typeKinds)
-    => FieldModel(field, new(refBase.ToModel(field.Type, typeKinds)), typeKinds) with {
+    => FieldModel(field, new(refBase.ToModel(field.Type, typeKinds)), typeKinds) with
+    {
       Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
     };
 
@@ -226,9 +218,11 @@ internal class AlternateModeller<TObjBaseAst, TObjBase>(
   where TObjBase : IObjBaseModel
 {
   protected override AlternateModel<TObjBase> ToModel(AstAlternate<TObjBaseAst> ast, IMap<TypeKindModel> typeKinds)
-    => new(new(new(BaseModel(ast.Type, typeKinds))) {
+    => new(new(new(BaseModel(ast.Type, typeKinds)))
+    {
       Description = ast.Description
-    }) {
+    })
+    {
       Collections = modifier.ToModels(ast.Modifiers, typeKinds)
     };
 
@@ -241,18 +235,3 @@ public interface IAlternateModeller<TObjBaseAst, TObjBase>
   where TObjBaseAst : AstObjectBase<TObjBaseAst>
   where TObjBase : IObjBaseModel
 { }
-
-internal class InputParameterModeller(
-  IAlternateModeller<InputBaseAst, InputBaseModel> alternate,
-  IModeller<IGqlpConstant, ConstantModel> constant
-) : ModellerBase<InputParameterAst, InputParameterModel>
-{
-  protected override InputParameterModel ToModel(InputParameterAst ast, IMap<TypeKindModel> typeKinds)
-  {
-    AlternateModel<InputBaseModel> altModel = alternate.ToModel(ast, typeKinds);
-    return new(altModel.Type) {
-      Collections = altModel.Collections,
-      DefaultValue = constant.TryModel(ast.DefaultValue, typeKinds),
-    };
-  }
-}

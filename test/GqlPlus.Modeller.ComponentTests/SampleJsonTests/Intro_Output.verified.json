@@ -216,7 +216,7 @@
           "object": "_OutputField",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Parameter"
+            "value": "_InputParameter"
           }
         }
       ],
@@ -236,7 +236,7 @@
           "name": "parameter",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Parameter"
+            "value": "_InputParameter"
           }
         }
       ],

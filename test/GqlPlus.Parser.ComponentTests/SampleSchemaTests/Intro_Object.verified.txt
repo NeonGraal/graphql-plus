@@ -166,7 +166,7 @@ Success
     collections
     :
     I@020/0031
-    _ObjectCollections
+    _Collections
     []
   }
 }
@@ -212,7 +212,7 @@ Success
     modifiers
     :
     I@018/0042
-    _ObjectModifiers
+    _Modifiers
     []
   }
 }

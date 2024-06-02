@@ -116,7 +116,7 @@ types: !_Map_Type
       name: parameter
       object: _OutputField
       type: !_OutputBase
-        output: _Parameter
+        output: _InputParameter
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
@@ -126,7 +126,7 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: parameter
       type: !_OutputBase
-        output: _Parameter
+        output: _InputParameter
     name: _OutputField
     parent: !_OutputBase
       output: _Field

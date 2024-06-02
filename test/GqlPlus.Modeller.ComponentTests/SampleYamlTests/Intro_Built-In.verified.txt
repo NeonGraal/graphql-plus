@@ -15,6 +15,10 @@ types: !_Map_Type
       object: _Collections
       type: !_OutputBase
         output: _ModifierDictionary
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Collections
+      type: !_OutputBase
+        output: _ModifierTypeParameter
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
@@ -27,6 +31,9 @@ types: !_Map_Type
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _ModifierDictionary
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: _ModifierTypeParameter
     name: _Collections
     typeKind: !_TypeKind Output
   !_Identifier _Constant: !_TypeOutput

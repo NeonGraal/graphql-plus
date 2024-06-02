@@ -72,7 +72,7 @@
           "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjectCollections"
+            "value": "_Collections"
           }
         }
       ],
@@ -92,7 +92,7 @@
           "name": "collections",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjectCollections"
+            "value": "_Collections"
           }
         }
       ],
@@ -669,6 +669,14 @@
             "$tag": "_OutputBase",
             "value": "_ModifierDictionary"
           }
+        },
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Collections",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_ModifierTypeParameter"
+          }
         }
       ],
       "alternates": [
@@ -692,6 +700,13 @@
           "type": {
             "$tag": "_OutputBase",
             "value": "_ModifierDictionary"
+          }
+        },
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_ModifierTypeParameter"
           }
         }
       ],
@@ -891,7 +906,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Parameter"
+            "value": "_InputParameter"
           }
         },
         {
@@ -926,7 +941,7 @@
           "name": "parameters",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Parameter"
+            "value": "_InputParameter"
           }
         },
         {
@@ -1435,7 +1450,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjectModifiers"
+            "value": "_Modifiers"
           }
         }
       ],
@@ -1455,7 +1470,7 @@
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjectModifiers"
+            "value": "_Modifiers"
           }
         }
       ],
@@ -1742,7 +1757,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjectModifiers"
+            "value": "_Modifiers"
           }
         },
         {
@@ -1774,6 +1789,85 @@
         "typeArguments": [
           {
             "$tag": "_OutputBase",
+            "value": "_InputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_InputParameter": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "object": "_ObjDescribed",
+          "type": "base"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "base",
+          "object": "_ObjDescribed",
+          "type": "base"
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "description",
+          "object": "_ObjDescribed",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": ["List"],
+          "name": "modifiers",
+          "object": "_InputParameter",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Modifiers"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": ["Opt"],
+          "name": "default",
+          "object": "_InputParameter",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": ["List"],
+          "name": "modifiers",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Modifiers"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": ["Opt"],
+          "name": "default",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "name": "_InputParameter",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_ObjDescribed",
+        "typeArguments": [
+          {
+            "$tag": "_DualBase",
             "value": "_InputBase"
           }
         ]
@@ -2615,7 +2709,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjectModifiers"
+            "value": "_Modifiers"
           }
         },
         {
@@ -2625,7 +2719,7 @@
           "object": "_OutputField",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Parameter"
+            "value": "_InputParameter"
           }
         }
       ],
@@ -2645,7 +2739,7 @@
           "name": "parameter",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Parameter"
+            "value": "_InputParameter"
           }
         }
       ],
@@ -2657,64 +2751,6 @@
           {
             "$tag": "_OutputBase",
             "value": "_OutputBase"
-          }
-        ]
-      },
-      "typeKind": "Output"
-    },
-    "_Parameter": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "_Alternate",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "_ObjDescribed",
-            "typeArguments": ["base"]
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
-          "name": "collections",
-          "object": "_Alternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_ObjectCollections"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["Opt"],
-          "name": "default",
-          "object": "_Parameter",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Constant"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "modifiers": ["Opt"],
-          "name": "default",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Constant"
-          }
-        }
-      ],
-      "name": "_Parameter",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "_Alternate",
-        "typeArguments": [
-          {
-            "$tag": "_OutputBase",
-            "value": "_InputBase"
           }
         ]
       },
@@ -2881,10 +2917,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_CategoryFilter"
-              }
+              "input": "_CategoryFilter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -2905,10 +2939,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_Filter"
-              }
+              "input": "_Filter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -2929,10 +2961,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_TypeFilter"
-              }
+              "input": "_TypeFilter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -2953,10 +2983,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_Filter"
-              }
+              "input": "_Filter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -2978,10 +3006,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_CategoryFilter"
-              }
+              "input": "_CategoryFilter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -3001,10 +3027,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_Filter"
-              }
+              "input": "_Filter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -3024,10 +3048,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_TypeFilter"
-              }
+              "input": "_TypeFilter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -3047,10 +3069,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_Filter"
-              }
+              "input": "_Filter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {

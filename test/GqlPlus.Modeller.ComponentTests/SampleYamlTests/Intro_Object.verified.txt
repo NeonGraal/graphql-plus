@@ -24,7 +24,7 @@ types: !_Map_Type
       name: collections
       object: _Alternate
       type: !_OutputBase
-        output: _ObjectCollections
+        output: _Collections
     fields:
     - !_OutputField
       name: type
@@ -36,7 +36,7 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: collections
       type: !_OutputBase
-        output: _ObjectCollections
+        output: _Collections
     name: _Alternate
     typeKind: !_TypeKind Output
     typeParameters:
@@ -56,7 +56,7 @@ types: !_Map_Type
       name: modifiers
       object: _Field
       type: !_OutputBase
-        output: _ObjectModifiers
+        output: _Modifiers
     fields:
     - !_OutputField
       name: type
@@ -68,7 +68,7 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: modifiers
       type: !_OutputBase
-        output: _ObjectModifiers
+        output: _Modifiers
     name: _Field
     parent: !_OutputBase
       output: _Aliased

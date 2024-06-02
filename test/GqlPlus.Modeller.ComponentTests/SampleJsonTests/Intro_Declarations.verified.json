@@ -295,10 +295,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_CategoryFilter"
-              }
+              "input": "_CategoryFilter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -319,10 +317,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_Filter"
-              }
+              "input": "_Filter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -343,10 +339,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_TypeFilter"
-              }
+              "input": "_TypeFilter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -367,10 +361,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_Filter"
-              }
+              "input": "_Filter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -392,10 +384,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_CategoryFilter"
-              }
+              "input": "_CategoryFilter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -415,10 +405,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_Filter"
-              }
+              "input": "_Filter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -438,10 +426,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_TypeFilter"
-              }
+              "input": "_TypeFilter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -461,10 +447,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "_Filter"
-              }
+              "input": "_Filter",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {

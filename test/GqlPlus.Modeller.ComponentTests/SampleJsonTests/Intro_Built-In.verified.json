@@ -28,6 +28,14 @@
             "$tag": "_OutputBase",
             "value": "_ModifierDictionary"
           }
+        },
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_Collections",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_ModifierTypeParameter"
+          }
         }
       ],
       "alternates": [
@@ -51,6 +59,13 @@
           "type": {
             "$tag": "_OutputBase",
             "value": "_ModifierDictionary"
+          }
+        },
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_ModifierTypeParameter"
           }
         }
       ],

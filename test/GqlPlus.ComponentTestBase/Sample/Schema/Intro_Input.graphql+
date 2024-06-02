@@ -13,7 +13,8 @@ output _InputField {
         default: _Constant?
     }
 
-output _Parameter {
-    : _Alternate<_InputBase>
+output _InputParameter {
+    : _ObjDescribed<_InputBase>
+        modifiers: _Modifiers[]
         default: _Constant?
     }

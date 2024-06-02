@@ -179,8 +179,8 @@ types: !_Map_Type
       object: _Schema
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _CategoryFilter
+        input: _CategoryFilter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Categories
     - !_ObjectFor(_OutputField)
@@ -189,8 +189,8 @@ types: !_Map_Type
       object: _Schema
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _Filter
+        input: _Filter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Directives
     - !_ObjectFor(_OutputField)
@@ -199,8 +199,8 @@ types: !_Map_Type
       object: _Schema
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _TypeFilter
+        input: _TypeFilter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Type
     - !_ObjectFor(_OutputField)
@@ -209,8 +209,8 @@ types: !_Map_Type
       object: _Schema
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _Filter
+        input: _Filter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Setting
     fields:
@@ -219,8 +219,8 @@ types: !_Map_Type
       name: categories
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _CategoryFilter
+        input: _CategoryFilter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Categories
     - !_OutputField
@@ -228,8 +228,8 @@ types: !_Map_Type
       name: directives
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _Filter
+        input: _Filter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Directives
     - !_OutputField
@@ -237,8 +237,8 @@ types: !_Map_Type
       name: types
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _TypeFilter
+        input: _TypeFilter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Type
     - !_OutputField
@@ -246,8 +246,8 @@ types: !_Map_Type
       name: settings
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _Filter
+        input: _Filter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Setting
     name: _Schema

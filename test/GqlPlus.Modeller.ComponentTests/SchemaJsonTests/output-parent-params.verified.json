@@ -17,10 +17,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutParamParent"
-              }
+              "value": "OutParamParent"
             }
           ],
           "type": {
@@ -36,10 +33,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutParamParent"
-              }
+              "value": "OutParamParent"
             }
           ],
           "type": {
@@ -66,10 +60,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutParamParent"
-              }
+              "value": "OutParamParent"
             }
           ],
           "type": {
@@ -84,10 +75,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutPrntParam"
-              }
+              "value": "OutPrntParam"
             }
           ],
           "type": {
@@ -103,10 +91,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutPrntParam"
-              }
+              "value": "OutPrntParam"
             }
           ],
           "type": {

@@ -28,7 +28,7 @@ domain _TypeParameter { :_Identifier String }
 
 output _Alternate<$base> {
       type: _ObjDescribed<$base>
-      collections: _ObjectCollections[]
+      collections: _Collections[]
     }
 
 output _ObjectFor<$for> {
@@ -39,5 +39,5 @@ output _ObjectFor<$for> {
 output _Field<$base> {
     : _Aliased
       type: _ObjDescribed<$base>
-      modifiers: _ObjectModifiers[]
+      modifiers: _Modifiers[]
     }

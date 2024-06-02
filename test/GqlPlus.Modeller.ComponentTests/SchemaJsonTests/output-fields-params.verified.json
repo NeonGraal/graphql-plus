@@ -22,17 +22,11 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "FieldParam1"
-              }
+              "value": "FieldParam1"
             },
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "FieldParam2"
-              }
+              "value": "FieldParam2"
             }
           ],
           "type": {
@@ -48,17 +42,11 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "FieldParam1"
-              }
+              "value": "FieldParam1"
             },
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "FieldParam2"
-              }
+              "value": "FieldParam2"
             }
           ],
           "type": {

@@ -39,7 +39,7 @@
           "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjectCollections"
+            "value": "_Collections"
           }
         }
       ],
@@ -59,7 +59,7 @@
           "name": "collections",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjectCollections"
+            "value": "_Collections"
           }
         }
       ],
@@ -92,7 +92,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjectModifiers"
+            "value": "_Modifiers"
           }
         }
       ],
@@ -112,7 +112,7 @@
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjectModifiers"
+            "value": "_Modifiers"
           }
         }
       ],

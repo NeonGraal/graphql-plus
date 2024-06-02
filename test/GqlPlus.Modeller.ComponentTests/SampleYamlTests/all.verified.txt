@@ -26,8 +26,8 @@ types: !_Map_Type
       object: All
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: Param
+        input: Param
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: String
     alternates:
@@ -40,8 +40,8 @@ types: !_Map_Type
       name: items
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: Param
+        input: Param
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: String
     name: All

@@ -42,7 +42,7 @@ types: !_Map_Type
       name: collections
       object: _Alternate
       type: !_OutputBase
-        output: _ObjectCollections
+        output: _Collections
     fields:
     - !_OutputField
       name: type
@@ -54,7 +54,7 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: collections
       type: !_OutputBase
-        output: _ObjectCollections
+        output: _Collections
     name: _Alternate
     typeKind: !_TypeKind Output
     typeParameters:
@@ -385,6 +385,10 @@ types: !_Map_Type
       object: _Collections
       type: !_OutputBase
         output: _ModifierDictionary
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: _Collections
+      type: !_OutputBase
+        output: _ModifierTypeParameter
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
@@ -397,6 +401,9 @@ types: !_Map_Type
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _ModifierDictionary
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: _ModifierTypeParameter
     name: _Collections
     typeKind: !_TypeKind Output
   !_Identifier _Constant: !_TypeOutput
@@ -503,7 +510,7 @@ types: !_Map_Type
       name: parameters
       object: _Directive
       type: !_OutputBase
-        output: _Parameter
+        output: _InputParameter
     - !_ObjectFor(_OutputField)
       name: repeatable
       object: _Directive
@@ -520,7 +527,7 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: parameters
       type: !_OutputBase
-        output: _Parameter
+        output: _InputParameter
     - !_OutputField
       name: repeatable
       type: !_OutputBase
@@ -802,7 +809,7 @@ types: !_Map_Type
       name: modifiers
       object: _Field
       type: !_OutputBase
-        output: _ObjectModifiers
+        output: _Modifiers
     fields:
     - !_OutputField
       name: type
@@ -814,7 +821,7 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: modifiers
       type: !_OutputBase
-        output: _ObjectModifiers
+        output: _Modifiers
     name: _Field
     parent: !_DualBase
       dual: _Aliased
@@ -981,7 +988,7 @@ types: !_Map_Type
       name: modifiers
       object: _Field
       type: !_OutputBase
-        output: _ObjectModifiers
+        output: _Modifiers
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier Opt]
       name: default
@@ -1000,6 +1007,51 @@ types: !_Map_Type
       typeArguments:
       - !_OutputBase
         output: _InputBase
+    typeKind: !_TypeKind Output
+  !_Identifier _InputParameter: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: _ObjDescribed
+      type: !_TypeParameter base
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: base
+      object: _ObjDescribed
+      type: !_TypeParameter base
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _ObjDescribed
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier List]
+      name: modifiers
+      object: _InputParameter
+      type: !_OutputBase
+        output: _Modifiers
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier Opt]
+      name: default
+      object: _InputParameter
+      type: !_OutputBase
+        output: _Constant
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier List]
+      name: modifiers
+      type: !_OutputBase
+        output: _Modifiers
+    - !_OutputField
+      modifiers: [!_Modifier Opt]
+      name: default
+      type: !_OutputBase
+        output: _Constant
+    name: _InputParameter
+    parent: !_DualBase
+      dual: _ObjDescribed
+      typeArguments:
+      - !_DualBase
+        dual: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _Location: !_TypeEnum
     allItems:
@@ -1466,13 +1518,13 @@ types: !_Map_Type
       name: modifiers
       object: _Field
       type: !_OutputBase
-        output: _ObjectModifiers
+        output: _Modifiers
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier List]
       name: parameter
       object: _OutputField
       type: !_OutputBase
-        output: _Parameter
+        output: _InputParameter
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
@@ -1482,47 +1534,13 @@ types: !_Map_Type
       modifiers: [!_Modifier List]
       name: parameter
       type: !_OutputBase
-        output: _Parameter
+        output: _InputParameter
     name: _OutputField
     parent: !_OutputBase
       output: _Field
       typeArguments:
       - !_OutputBase
         output: _OutputBase
-    typeKind: !_TypeKind Output
-  !_Identifier _Parameter: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: type
-      object: _Alternate
-      type: !_DualBase
-        dual: _ObjDescribed
-        typeArguments:
-        - !_TypeParameter base
-    - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier List]
-      name: collections
-      object: _Alternate
-      type: !_OutputBase
-        output: _ObjectCollections
-    - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier Opt]
-      name: default
-      object: _Parameter
-      type: !_OutputBase
-        output: _Constant
-    fields:
-    - !_OutputField
-      modifiers: [!_Modifier Opt]
-      name: default
-      type: !_OutputBase
-        output: _Constant
-    name: _Parameter
-    parent: !_OutputBase
-      output: _Alternate
-      typeArguments:
-      - !_OutputBase
-        output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _ParentType: !_TypeOutput
     allFields:
@@ -1617,8 +1635,8 @@ types: !_Map_Type
       object: _Schema
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _CategoryFilter
+        input: _CategoryFilter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Categories
     - !_ObjectFor(_OutputField)
@@ -1627,8 +1645,8 @@ types: !_Map_Type
       object: _Schema
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _Filter
+        input: _Filter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Directives
     - !_ObjectFor(_OutputField)
@@ -1637,8 +1655,8 @@ types: !_Map_Type
       object: _Schema
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _TypeFilter
+        input: _TypeFilter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Type
     - !_ObjectFor(_OutputField)
@@ -1647,8 +1665,8 @@ types: !_Map_Type
       object: _Schema
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _Filter
+        input: _Filter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Setting
     fields:
@@ -1657,8 +1675,8 @@ types: !_Map_Type
       name: categories
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _CategoryFilter
+        input: _CategoryFilter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Categories
     - !_OutputField
@@ -1666,8 +1684,8 @@ types: !_Map_Type
       name: directives
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _Filter
+        input: _Filter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Directives
     - !_OutputField
@@ -1675,8 +1693,8 @@ types: !_Map_Type
       name: types
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _TypeFilter
+        input: _TypeFilter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Type
     - !_OutputField
@@ -1684,8 +1702,8 @@ types: !_Map_Type
       name: settings
       parameters:
       - !_InputParameter
-        type: !_InputBase
-          input: _Filter
+        input: _Filter
+        modifiers: [!_Modifier Opt]
       type: !_OutputBase
         output: _Setting
     name: _Schema

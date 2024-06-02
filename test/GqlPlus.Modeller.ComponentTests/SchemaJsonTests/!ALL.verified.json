@@ -95,10 +95,7 @@
       "parameters": [
         {
           "$tag": "_InputParameter",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "DirParamIn"
-          }
+          "value": "DirParamIn"
         }
       ],
       "repeatable": false
@@ -114,10 +111,7 @@
       "parameters": [
         {
           "$tag": "_InputParameter",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "DirParamsIn"
-          }
+          "value": "DirParamsIn"
         }
       ],
       "repeatable": false
@@ -2631,17 +2625,11 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "FieldParam1"
-              }
+              "value": "FieldParam1"
             },
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "FieldParam2"
-              }
+              "value": "FieldParam2"
             }
           ],
           "type": {
@@ -2657,17 +2645,11 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "FieldParam1"
-              }
+              "value": "FieldParam1"
             },
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "FieldParam2"
-              }
+              "value": "FieldParam2"
             }
           ],
           "type": {
@@ -4860,10 +4842,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutParam"
-              }
+              "value": "OutParam"
             }
           ],
           "type": {
@@ -4879,10 +4858,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutParam"
-              }
+              "value": "OutParam"
             }
           ],
           "type": {
@@ -4904,16 +4880,13 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "collections": [
+              "input": "OutParamDomain",
+              "modifiers": [
                 {
                   "$tag": "_ModifierDictionary",
                   "value": "OutDomainParam"
                 }
-              ],
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutParamDomain"
-              }
+              ]
             }
           ],
           "type": {
@@ -4929,16 +4902,13 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "collections": [
+              "input": "OutParamDomain",
+              "modifiers": [
                 {
                   "$tag": "_ModifierDictionary",
                   "value": "OutDomainParam"
                 }
-              ],
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutParamDomain"
-              }
+              ]
             }
           ],
           "type": {
@@ -4960,10 +4930,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutParamParent"
-              }
+              "value": "OutParamParent"
             }
           ],
           "type": {
@@ -4979,10 +4946,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutParamParent"
-              }
+              "value": "OutParamParent"
             }
           ],
           "type": {
@@ -6212,10 +6176,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutParamParent"
-              }
+              "value": "OutParamParent"
             }
           ],
           "type": {
@@ -6230,10 +6191,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutPrntParam"
-              }
+              "value": "OutPrntParam"
             }
           ],
           "type": {
@@ -6249,10 +6207,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutPrntParam"
-              }
+              "value": "OutPrntParam"
             }
           ],
           "type": {

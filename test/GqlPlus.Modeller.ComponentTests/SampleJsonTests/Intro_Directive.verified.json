@@ -19,7 +19,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Parameter"
+            "value": "_InputParameter"
           }
         },
         {
@@ -54,7 +54,7 @@
           "name": "parameters",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Parameter"
+            "value": "_InputParameter"
           }
         },
         {

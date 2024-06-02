@@ -53,10 +53,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "Param"
-              }
+              "input": "Param",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {
@@ -82,10 +80,8 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "Param"
-              }
+              "input": "Param",
+              "modifiers": ["Opt"]
             }
           ],
           "type": {

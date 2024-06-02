@@ -34,7 +34,8 @@ public class DirectiveModelTests(
     DirectiveOption option,
     DirectiveLocation[] locations
   ) => _checks.DirectiveExpected(
-      new(AstNulls.At, name) {
+      new(AstNulls.At, name)
+      {
         Aliases = aliases,
         Description = contents,
         Locations = DirectiveModeller.Combine(locations),
@@ -82,7 +83,7 @@ internal sealed class DirectiveModelChecks(
     => [.. ItemsExpected(
        "parameters:",
         parameters,
-        p => ["- !_InputParameter", "  type: !_InputBase", "    input: " + p])];
+        p => ["- !_InputParameter", "  input: " + p])];
 
   internal void DirectiveExpected(DirectiveDeclAst ast, ExpectedDirectiveInput input)
     => AstExpected(ast, ExpectedDirective(input));

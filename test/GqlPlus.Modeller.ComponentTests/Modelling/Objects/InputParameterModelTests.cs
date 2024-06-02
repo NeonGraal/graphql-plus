@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Modelling.Objects;
 
-public class ParameterModelTests(
+public class InputParameterModelTests(
   IModeller<InputParameterAst, InputParameterModel> modeller
 ) : TestDescribedModel<string>
 {
@@ -17,14 +17,13 @@ internal sealed class ParameterModelChecks(
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<string> input)
   {
-    IEnumerable<string> description = input.Description.Indent();
+    IEnumerable<string> description = input.Description;
     return description.Any()
       ? ["!_InputParameter",
-        "type: !_BaseDescribed(_ObjRef(_InputBase))",
-        "  base: !_InputBase",
-        "    input: " + input.Name,
+        "base: !_InputBase",
+        "  input: " + input.Name,
         .. description]
-        : ["!_InputParameter", "type: !_InputBase", "  input: " + input.Name];
+        : ["!_InputParameter", "input: " + input.Name];
   }
 
   protected override InputParameterAst NewDescribedAst(string input, string description)

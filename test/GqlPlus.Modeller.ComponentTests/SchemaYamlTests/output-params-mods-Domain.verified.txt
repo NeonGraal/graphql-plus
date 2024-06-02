@@ -25,11 +25,8 @@ types: !_Map_Type
       object: OutParamsDomain
       parameters:
       - !_InputParameter
-        collections:
-        - !_ModifierDictionary
-          by: OutDomainParam
-        type: !_InputBase
-          input: OutParamDomain
+        input: OutParamDomain
+        modifiers: [!_ModifierDictionary {by: OutDomainParam}]
       type: !_OutputBase
         output: OutParamsDomain
     fields:
@@ -37,11 +34,8 @@ types: !_Map_Type
       name: field
       parameters:
       - !_InputParameter
-        collections:
-        - !_ModifierDictionary
-          by: OutDomainParam
-        type: !_InputBase
-          input: OutParamDomain
+        input: OutParamDomain
+        modifiers: [!_ModifierDictionary {by: OutDomainParam}]
       type: !_OutputBase
         output: OutParamsDomain
     name: OutParamsDomain

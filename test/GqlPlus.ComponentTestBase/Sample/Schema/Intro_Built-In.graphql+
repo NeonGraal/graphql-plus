@@ -22,6 +22,7 @@ output _ConstantMap {
 output _Collections {
     | _Modifier<_ModifierKind.List>
     | _ModifierDictionary
+    | _ModifierTypeParameter
     }
 
 output _ModifierDictionary {

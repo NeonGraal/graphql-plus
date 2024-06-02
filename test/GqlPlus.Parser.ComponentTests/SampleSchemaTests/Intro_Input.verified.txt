@@ -58,19 +58,25 @@ Success
 }
 {
   !Ou I@008/0016
-  _Parameter
+  _InputParameter
   :
   I@007/0017
-  _Alternate
+  _ObjDescribed
   <
-    I@018/0017
+    I@021/0017
     _InputBase
   >
   {
     !OF I@009/0018
+    modifiers
+    :
+    I@020/0018
+    _Modifiers
+    []
+    !OF I@009/0019
     default
     :
-    I@018/0018
+    I@018/0019
     _Constant
     ?
   }

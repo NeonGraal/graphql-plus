@@ -46,7 +46,7 @@ public static class AllMergers
       .AddMergeAll<InputDeclAst, IGqlpType, MergeInputObjects>()
       .AddMerge<AstAlternate<InputBaseAst>, AlternatesMerger<InputBaseAst>>()
       .AddMerge<InputFieldAst, MergeInputFields>()
-      .AddMerge<InputParameterAst, MergeParameters>()
+      .AddMerge<InputParameterAst, MergeInputParameters>()
       .AddMergeAll<OutputDeclAst, IGqlpType, MergeOutputObjects>()
       .AddMerge<AstAlternate<OutputBaseAst>, AlternatesMerger<OutputBaseAst>>()
       .AddMerge<OutputFieldAst, MergeOutputFields>()

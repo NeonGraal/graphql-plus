@@ -17,10 +17,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutParam"
-              }
+              "value": "OutParam"
             }
           ],
           "type": {
@@ -36,10 +33,7 @@
           "parameters": [
             {
               "$tag": "_InputParameter",
-              "type": {
-                "$tag": "_InputBase",
-                "value": "OutParam"
-              }
+              "value": "OutParam"
             }
           ],
           "type": {

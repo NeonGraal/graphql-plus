@@ -7,7 +7,7 @@
   !!! I@017/0017 : Invalid Output Alternate. '_TypeKind' not defined. - '_TypeKind' !!!,
   !!! I@017/0017 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@017/0036 : Invalid Output Field. '_Identifier' not defined. - '_Identifier' !!!,
-  !!! I@018/0042 : Invalid Output Field. '_ObjectModifiers' not defined. - '_ObjectModifiers' !!!,
-  !!! I@020/0031 : Invalid Output Field. '_ObjectCollections' not defined. - '_ObjectCollections' !!!,
+  !!! I@018/0042 : Invalid Output Field. '_Modifiers' not defined. - '_Modifiers' !!!,
+  !!! I@020/0031 : Invalid Output Field. '_Collections' not defined. - '_Collections' !!!,
   !!! I@025/0003 : Invalid Output Field. '_Described' not defined. - '_Described' !!!
 ]

@@ -17,10 +17,7 @@
       "parameters": [
         {
           "$tag": "_InputParameter",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "DirParamIn"
-          }
+          "value": "DirParamIn"
         }
       ],
       "repeatable": false

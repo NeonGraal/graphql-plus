@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -8,5 +9,5 @@ public class ParseInputTests(
 {
   internal override ICheckObject ObjectChecks => _checks;
 
-  private readonly CheckObject<InputDeclAst, InputFieldAst, InputBaseAst> _checks = new(new InputFactories(), parser);
+  private readonly CheckObject<InputDeclAst, InputFieldAst, IGqlpInputBase, InputBaseAst> _checks = new(new InputFactories(), parser);
 }

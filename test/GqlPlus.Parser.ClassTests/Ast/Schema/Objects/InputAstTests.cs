@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+
+namespace GqlPlus.Ast.Schema.Objects;
 
 public class InputAstTests
   : AstAliasedTests
@@ -28,23 +30,23 @@ public class InputAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithParent(string name, string parent)
       => _checks.HashCode(
-        () => new InputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) });
+        () => new InputDeclAst(AstNulls.At, name) { Parent = NewBase(parent) });
 
   [Theory, RepeatData(Repeats)]
   public void String_WithParent(string name, string parent)
     => _checks.Text(
-      () => new InputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
+      () => new InputDeclAst(AstNulls.At, name) { Parent = NewBase(parent) },
       $"( !In {name} : {parent} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithParent(string name, string parent)
     => _checks.Equality(
-      () => new InputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) });
+      () => new InputDeclAst(AstNulls.At, name) { Parent = NewBase(parent) });
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenParent(string name, string parent1, string parent2)
     => _checks.InequalityBetween(parent1, parent2,
-      parent => new InputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
+      parent => new InputDeclAst(AstNulls.At, name) { Parent = NewBase(parent) },
       parent1 == parent2);
 
   [Theory, RepeatData(Repeats)]
@@ -91,8 +93,8 @@ public class InputAstTests
       parameters => new InputDeclAst(AstNulls.At, name) { TypeParameters = parameters.TypeParameters() },
       typeParameters1.SequenceEqual(typeParameters2));
 
-  private static InputBaseAst NewBase(string argument)
-    => new(AstNulls.At, argument);
+  private static IGqlpInputBase NewBase(string argument)
+    => new InputBaseAst(AstNulls.At, argument);
 
   protected override string AbbreviatedString(string input)
     => $"( !In {input} )";

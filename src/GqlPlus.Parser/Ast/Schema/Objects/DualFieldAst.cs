@@ -7,12 +7,12 @@ public sealed record class DualFieldAst(
   TokenAt At,
   string Name,
   string Description,
-  DualBaseAst Type
-) : AstObjectField<DualBaseAst>(At, Name, Description, Type)
+  IGqlpDualBase Type
+) : AstObjectField<IGqlpDualBase>(At, Name, Description, Type)
   , IEquatable<DualFieldAst>
   , IGqlpDualField
 {
-  public DualFieldAst(TokenAt at, string name, DualBaseAst typeBase)
+  public DualFieldAst(TokenAt at, string name, IGqlpDualBase typeBase)
     : this(at, name, "", typeBase) { }
 
   internal override string Abbr => "DF";

@@ -4,7 +4,7 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
-internal class AstObjectsMerger<TObject, TObjField, TObjBase>(
+internal abstract class AstObjectsMerger<TObject, TObjField, TObjBase>(
   ILoggerFactory logger,
   IMerge<TObjField> fields,
   IMerge<IGqlpTypeParameter> typeParameters,
@@ -12,11 +12,11 @@ internal class AstObjectsMerger<TObject, TObjField, TObjBase>(
 ) : AstTypeMerger<IGqlpType, TObject, TObjBase, TObjField>(logger, fields)
   where TObject : AstObject<TObjField, TObjBase>
   where TObjField : AstObjectField<TObjBase>, IGqlpDescribed
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(TObject item)
-    => item.Parent?.Name ?? "";
+    => item.Parent?.TypeName ?? "";
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TObject> group)
   {
@@ -32,7 +32,8 @@ internal class AstObjectsMerger<TObject, TObjField, TObjBase>(
     IEnumerable<IGqlpTypeParameter> typeParametersAsts = group.ManyMerge(item => item.TypeParameters, typeParameters);
     IEnumerable<AstAlternate<TObjBase>> alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
 
-    return base.MergeGroup(group) with {
+    return base.MergeGroup(group) with
+    {
       TypeParameters = typeParametersAsts.ArrayOf<TypeParameterAst>(),
       Alternates = [.. alternateAsts],
     };

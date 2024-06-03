@@ -11,7 +11,7 @@ public abstract record class AstObjectField<TObjBase>(
 ) : AstAliased(At, Name, Description)
   , IEquatable<AstObjectField<TObjBase>>
   , IGqlpObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>, IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   public TObjBase Type { get; set; } = Type;
   public ModifierAst[] Modifiers { get; set; } = [];

@@ -53,7 +53,8 @@ public static class BuiltIn
   public static IEnumerable<object[]> AllInternal()
     => Internal.Select(b => new object[] { b });
 
-  internal static Map<string> EnumValues = new() {
+  internal static Map<string> EnumValues = new()
+  {
     ["_"] = "Unit",
     ["null"] = "Null",
     ["true"] = "Boolean",
@@ -63,27 +64,31 @@ public static class BuiltIn
   private static TypeParameterAst[] TypeParameters(params string[] parameters)
     => [.. parameters.Select(r => new TypeParameterAst(AstNulls.At, r))];
 
-  private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, params AstAlternate<DualBaseAst>[] alternates)
+  private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, params AstAlternate<IGqlpDualBase>[] alternates)
     => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Alternates = alternates };
 
   private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, DualBaseAst parent)
     => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Parent = parent };
 
-  private static AstAlternate<DualBaseAst> DualType(string type, params DualBaseAst[] args)
+  private static AstAlternate<IGqlpDualBase> DualType(string type, params DualBaseAst[] args)
     => new(AstNulls.At, DualRef(type, args));
 
-  private static AstAlternate<DualBaseAst> DualAlt(string? key)
-    => new(AstNulls.At, DualParam("T")) {
-      Modifiers = key switch {
+  private static AstAlternate<IGqlpDualBase> DualAlt(string? key)
+    => new(AstNulls.At, DualParam("T"))
+    {
+      Modifiers = key switch
+      {
         null => [],
         "" => [ModifierAst.List(AstNulls.At)],
         _ => [ModifierAst.Dict(AstNulls.At, key, false)]
       }
     };
 
-  private static AstAlternate<DualBaseAst> DualMost(string key, bool optional = false)
-    => new(AstNulls.At, DualRef("_Most", DualParam("T"))) {
-      Modifiers = key switch {
+  private static AstAlternate<IGqlpDualBase> DualMost(string key, bool optional = false)
+    => new(AstNulls.At, DualRef("_Most", DualParam("T")))
+    {
+      Modifiers = key switch
+      {
         "" => [optional ? ModifierAst.Optional(AstNulls.At) : ModifierAst.List(AstNulls.At)],
         _ => [ModifierAst.Dict(AstNulls.At, key, optional)]
       }
@@ -96,7 +101,8 @@ public static class BuiltIn
     => DualRef(name) with { IsTypeParameter = true };
 
   private static DualBaseAst DualDict(string type, bool paramSecond = false)
-    => DualRef("_Dict") with {
+    => DualRef("_Dict") with
+    {
       TypeArguments = [
         paramSecond ? DualParam("K") : DualRef(type),
         paramSecond ? DualRef(type) : DualParam("T")

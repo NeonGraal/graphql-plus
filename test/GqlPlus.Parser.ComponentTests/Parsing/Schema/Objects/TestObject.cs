@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -80,13 +81,16 @@ public abstract class TestObject
 
 public record struct ObjectInput(string Name, string Other);
 
-internal sealed class CheckObject<O, F, R>
-  : BaseAliasedChecks<ObjectInput, O>, ICheckObject
-  where O : AstObject<F, R> where F : AstObjectField<R> where R : AstObjectBase<R>
+internal sealed class CheckObject<TObject, TObjField, TObjBase, TObjBaseAst>
+  : BaseAliasedChecks<ObjectInput, TObject>, ICheckObject
+  where TObject : AstObject<TObjField, TObjBase>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
 {
-  private readonly IObjectFactories<O, F, R> _factories;
+  private readonly IObjectFactories<TObject, TObjField, TObjBase, TObjBaseAst> _factories;
 
-  internal CheckObject(IObjectFactories<O, F, R> factories, Parser<O>.D parser)
+  internal CheckObject(IObjectFactories<TObject, TObjField, TObjBase, TObjBaseAst> factories, Parser<TObject>.D parser)
     : base(parser)
     => _factories = factories;
 
@@ -96,14 +100,16 @@ internal sealed class CheckObject<O, F, R>
   public void WithAlternates(string name, string[] others)
     => TrueExpected(
       name + "{" + others.Joined(s => "|" + s) + "}",
-       Object(name) with {
+       Object(name) with
+       {
          Alternates = [.. others.Select(Alternate)],
        });
 
   public void WithFieldsAndAlternates(string name, FieldInput[] fields, string[] others)
     => TrueExpected(
       name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + others.Joined(s => "|" + s) + "}",
-       Object(name) with {
+       Object(name) with
+       {
          Fields = [.. fields.Select(f => ObjField(f.Name, f.Type))],
          Alternates = [.. others.Select(Alternate)],
        });
@@ -117,14 +123,16 @@ internal sealed class CheckObject<O, F, R>
   public void WithAlternateComments(string name, AlternateComment[] others)
     => TrueExpected(
       name + "{" + others.Select(o => $"|'{o.Content}'{o.Alternate}").Joined() + "}",
-       Object(name) with {
+       Object(name) with
+       {
          Alternates = [.. others.Select(o => Alternate(o.Alternate, o.Content))],
        });
 
   public void WithAlternateModifiers(string name, string[] others)
     => TrueExpected(
       name + "{" + others.Joined(a => $"|{a}[][String]") + "}",
-       Object(name) with {
+       Object(name) with
+       {
          Alternates = [.. others.Select(a => Alternate(a) with { Modifiers = TestCollections() })],
        });
 
@@ -134,7 +142,8 @@ internal sealed class CheckObject<O, F, R>
   public void WithTypeParameters(string name, string other, string[] parameters)
     => TrueExpected(
       name + "<" + parameters.Joined(s => "$" + s) + ">{|" + other + "}",
-       Object(name) with {
+       Object(name) with
+       {
          Alternates = [Alternate(other)],
          TypeParameters = parameters.TypeParameters(),
        });
@@ -154,7 +163,8 @@ internal sealed class CheckObject<O, F, R>
   public void WithFields(string name, FieldInput[] fields)
     => TrueExpected(
       name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}",
-       Object(name) with {
+       Object(name) with
+       {
          Fields = [.. fields.Select(f => ObjField(f.Name, f.Type))],
        });
 
@@ -164,7 +174,8 @@ internal sealed class CheckObject<O, F, R>
   public void WithParentField(string name, string parent, string field, string fieldType)
     => TrueExpected(
       name + "{:" + parent + " " + field + ":" + fieldType + "}",
-       Object(name) with {
+       Object(name) with
+       {
          Fields = [ObjField(field, fieldType)],
          Parent = ObjBase(parent),
        });
@@ -175,7 +186,8 @@ internal sealed class CheckObject<O, F, R>
   public void WithParentGenericField(string name, string parent, string subType, string field, string fieldType)
     => TrueExpected(
       name + "{:" + parent + "<" + subType + ">" + field + ":" + fieldType + "}",
-       Object(name) with {
+       Object(name) with
+       {
          Fields = [ObjField(field, fieldType)],
          Parent = ObjBaseWithArgs(parent, subType),
        });
@@ -183,30 +195,30 @@ internal sealed class CheckObject<O, F, R>
   public void WithParentGenericFieldBad(string name, string parent, string subType, string field, string fieldType)
     => False(name + "{:" + parent + "<" + subType + " " + field + ":" + fieldType + "}");
 
-  public O Object(string name)
+  public TObject Object(string name)
     => _factories.Object(AstNulls.At, name);
 
-  public F ObjField(string field, string fieldType)
+  public TObjField ObjField(string field, string fieldType)
     => _factories.ObjField(AstNulls.At, field, ObjBase(fieldType));
 
-  public F ObjField(string field, R fieldType)
+  public TObjField ObjField(string field, TObjBase fieldType)
     => _factories.ObjField(AstNulls.At, field, fieldType);
 
-  public R ObjBase(string type, string description = "")
+  public TObjBaseAst ObjBase(string type, string description = "")
     => _factories.ObjBase(AstNulls.At, type, description);
 
-  public R ObjBaseWithArgs(string type, string subType)
+  public TObjBase ObjBaseWithArgs(string type, string subType)
     => ObjBase(type) with { TypeArguments = [ObjBase(subType)] };
 
-  public AstAlternate<R> Alternate(string type)
+  public AstAlternate<TObjBase> Alternate(string type)
     => new(ObjBase(type));
 
-  public AstAlternate<R> Alternate(string type, string description)
+  public AstAlternate<TObjBase> Alternate(string type, string description)
     => new(ObjBase(type, description));
 
   protected internal sealed override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";
-  protected internal sealed override O NamedFactory(ObjectInput input)
+  protected internal sealed override TObject NamedFactory(ObjectInput input)
     => Object(input.Name) with { Alternates = [Alternate(input.Other)] };
 }
 

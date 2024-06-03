@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -7,13 +8,13 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal class ParseDualField(
   Parser<string>.DA aliases,
   Parser<IGqlpModifier>.DA modifiers,
-  Parser<DualBaseAst>.D objBase
-) : ObjectFieldParser<DualFieldAst, DualBaseAst>(aliases, modifiers, objBase)
+  Parser<IGqlpDualBase>.D objBase
+) : ObjectFieldParser<DualFieldAst, IGqlpDualBase>(aliases, modifiers, objBase)
 {
   protected override void ApplyFieldParameters(DualFieldAst field, InputParameterAst[] parameters)
     => throw new InvalidOperationException();
 
-  protected override DualFieldAst ObjField(TokenAt at, string name, string description, DualBaseAst typeBase)
+  protected override DualFieldAst ObjField(TokenAt at, string name, string description, IGqlpDualBase typeBase)
     => new(at, name, description, typeBase);
 
   protected override IResult<DualFieldAst> FieldDefault<TContext>(TContext tokens, DualFieldAst field)

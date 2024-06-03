@@ -1,11 +1,13 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Modelling.Objects;
 
-public abstract class TestObjectFieldModel<TObjField, TObjBase>
+public abstract class TestObjectFieldModel<TObjField, TObjFieldAst, TObjBase>
   : TestModelBase<FieldInput>
-  where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjField : IGqlpObjectField<TObjBase>
+  where TObjFieldAst : AstObjectField<TObjBase>, TObjField
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Modifiers(FieldInput input)
@@ -25,22 +27,23 @@ public abstract class TestObjectFieldModel<TObjField, TObjBase>
 
   internal override ICheckModelBase<FieldInput> BaseChecks => FieldChecks;
 
-  internal abstract ICheckObjectFieldModel<TObjField, TObjBase> FieldChecks { get; }
+  internal abstract ICheckObjectFieldModel<TObjFieldAst, TObjBase> FieldChecks { get; }
 }
 
-internal abstract class CheckObjectFieldModel<TObjField, TObjBase, TModel>(
+internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TObjBase, TModel>(
   IModeller<TObjField, TModel> field,
   TypeKindModel kind
 ) : CheckModelBase<FieldInput, TObjField, TModel>(field),
-    ICheckObjectFieldModel<TObjField, TObjBase>
-  where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+    ICheckObjectFieldModel<TObjFieldAst, TObjBase>
+  where TObjField : IGqlpObjectField<TObjBase>
+  where TObjFieldAst : AstObjectField<TObjBase>, TObjField
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
   where TModel : IRendering
 {
   protected readonly TypeKindModel TypeKind = kind;
   protected readonly string TypeKindLower = $"{kind}".ToLowerInvariant();
 
-  protected override TObjField NewBaseAst(FieldInput input)
+  protected override TObjFieldAst NewBaseAst(FieldInput input)
     => NewFieldAst(input);
   protected override string[] ExpectedBase(FieldInput input)
     => ExpectedField(input, [], []);
@@ -50,25 +53,25 @@ internal abstract class CheckObjectFieldModel<TObjField, TObjBase, TModel>(
   protected string[] ExpectedDual(FieldInput input)
     => [$"!_{TypeKind}Field", "name: " + input.Name, $"type: !_DualBase", "  dual: " + input.Type];
 
-  protected abstract TObjField NewFieldAst(FieldInput name);
+  protected abstract TObjFieldAst NewFieldAst(FieldInput name);
 
-  void ICheckObjectFieldModel<TObjField, TObjBase>.Field_Expected(TObjField ast, string[] expected)
+  void ICheckObjectFieldModel<TObjFieldAst, TObjBase>.Field_Expected(TObjFieldAst ast, string[] expected)
     => Model_Expected(AstToModel(ast), expected);
-  TObjField ICheckObjectFieldModel<TObjField, TObjBase>.FieldAst(FieldInput input)
+  TObjFieldAst ICheckObjectFieldModel<TObjFieldAst, TObjBase>.FieldAst(FieldInput input)
     => NewFieldAst(input);
-  string[] ICheckObjectFieldModel<TObjField, TObjBase>.ExpectedField(FieldInput input, string[] extras, string[] parameters)
+  string[] ICheckObjectFieldModel<TObjFieldAst, TObjBase>.ExpectedField(FieldInput input, string[] extras, string[] parameters)
     => ExpectedField(input, extras, parameters);
-  string[] ICheckObjectFieldModel<TObjField, TObjBase>.ExpectedDual(FieldInput input)
+  string[] ICheckObjectFieldModel<TObjFieldAst, TObjBase>.ExpectedDual(FieldInput input)
     => ExpectedDual(input);
 }
 
-internal interface ICheckObjectFieldModel<TObjField, TObjBase>
+internal interface ICheckObjectFieldModel<TObjFieldAst, TObjBase>
   : ICheckModelBase<FieldInput>
-  where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjFieldAst : AstObjectField<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
-  TObjField FieldAst(FieldInput input);
+  TObjFieldAst FieldAst(FieldInput input);
   string[] ExpectedField(FieldInput input, string[] extras, string[] parameters);
   string[] ExpectedDual(FieldInput input);
-  void Field_Expected(TObjField ast, string[] expected);
+  void Field_Expected(TObjFieldAst ast, string[] expected);
 }

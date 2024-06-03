@@ -7,7 +7,7 @@ public sealed record class OutputDeclAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObject<OutputFieldAst, OutputBaseAst>(At, Name, Description)
+) : AstObject<OutputFieldAst, IGqlpOutputBase>(At, Name, Description)
   , IGqlpOutputObject
 {
   internal override string Abbr => "Ou";

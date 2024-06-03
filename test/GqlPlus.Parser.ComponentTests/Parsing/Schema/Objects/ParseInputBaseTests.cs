@@ -1,12 +1,13 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseInputBaseTests(
-  Parser<InputBaseAst>.D parser
+  Parser<IGqlpInputBase>.D parser
 ) : TestObjectBase
 {
   internal override ICheckObjectBase ObjectBaseChecks => _checks;
 
-  private readonly CheckObjectBase<InputBaseAst> _checks = new(new InputFactories(), parser);
+  private readonly CheckObjectBase<IGqlpInputBase, InputBaseAst> _checks = new(new InputFactories(), parser);
 }

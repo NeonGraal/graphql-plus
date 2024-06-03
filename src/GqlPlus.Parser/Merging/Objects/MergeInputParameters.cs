@@ -9,7 +9,7 @@ internal class MergeInputParameters(
 ) : DistinctMerger<InputParameterAst>(logger)
 {
   protected override string ItemGroupKey(InputParameterAst item)
-    => item.Type.FullName;
+    => item.Type.FullType;
 
   protected override string ItemMatchName => "Modifiers";
   protected override string ItemMatchKey(InputParameterAst item)
@@ -23,9 +23,9 @@ internal class MergeInputParameters(
   protected override InputParameterAst MergeGroup(IEnumerable<InputParameterAst> group)
   {
     InputParameterAst first = group.First();
-
-    return first with {
-      Type = first.Type with { Description = group.MergeDescriptions() },
+    first.Type.MakeDescription(group);
+    return first with
+    {
       DefaultValue = (ConstantAst?)group.Merge(item => item.DefaultValue, constant).FirstOrDefault(),
     };
   }

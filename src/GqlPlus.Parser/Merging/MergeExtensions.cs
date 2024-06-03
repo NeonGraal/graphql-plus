@@ -1,6 +1,9 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -20,18 +23,22 @@ public static class MergeExtensions
 
     string? result = default;
 
-    foreach (TItem item in items) {
+    foreach (TItem item in items)
+    {
       string? value = field(item);
-      if (string.IsNullOrEmpty(value)) {
+      if (string.IsNullOrEmpty(value))
+      {
         continue;
       }
 
-      if (string.IsNullOrEmpty(result)) {
+      if (string.IsNullOrEmpty(result))
+      {
         result = value;
         continue;
       }
 
-      if (!result.Equals(value, StringComparison.Ordinal)) {
+      if (!result.Equals(value, StringComparison.Ordinal))
+      {
         return item.MakeError($"Different values merging {fieldExpr}: {result} != {value}");
       }
     }
@@ -51,18 +58,22 @@ public static class MergeExtensions
 
     TObjField? result = default;
 
-    foreach (TItem item in items) {
+    foreach (TItem item in items)
+    {
       TObjField? value = field(item);
-      if (value is null || value.Equals(default)) {
+      if (value is null || value.Equals(default))
+      {
         continue;
       }
 
-      if (result is null || result.Equals(default)) {
+      if (result is null || result.Equals(default))
+      {
         result = value;
         continue;
       }
 
-      if (!result.Equals(value)) {
+      if (!result.Equals(value))
+      {
         return item.MakeError($"Different values merging {fieldExpr}: {result} != {value}");
       }
     }
@@ -94,18 +105,22 @@ public static class MergeExtensions
 
     string result = "";
 
-    foreach (TItem item in items) {
+    foreach (TItem item in items)
+    {
       string? value = field(item);
-      if (string.IsNullOrEmpty(value)) {
+      if (string.IsNullOrEmpty(value))
+      {
         continue;
       }
 
-      if (string.IsNullOrEmpty(result)) {
+      if (string.IsNullOrEmpty(result))
+      {
         result = value;
         continue;
       }
 
-      if (result != value) {
+      if (result != value)
+      {
         return item.MakeError($"Different values merging {fieldExpr}: {result} != {value}");
       }
     }
@@ -171,7 +186,8 @@ public static class MergeExtensions
     List<Indexed<TGroup>> result = [];
     IEnumerable<IGrouping<string, Indexed<TGroup>>> groups = items.SelectMany(many).Select(Indexed<TGroup>.To).GroupBy(i => key(i.Item));
 
-    foreach (IGrouping<string, Indexed<TGroup>> group in groups) {
+    foreach (IGrouping<string, Indexed<TGroup>> group in groups)
+    {
       TGroup item = group.Combine(i => i.Item, merger);
       result.Add(new(item, group.Min(i => i.Index)));
     }
@@ -186,12 +202,28 @@ public static class MergeExtensions
     List<Indexed<TItem>> result = [];
     IEnumerable<IGrouping<string, Indexed<TItem>>> groups = items.Select(Indexed<TItem>.To).GroupBy(i => key(i.Item));
 
-    foreach (IGrouping<string, Indexed<TItem>> group in groups) {
+    foreach (IGrouping<string, Indexed<TItem>> group in groups)
+    {
       TItem? item = merger([.. group.Select(i => i.Item)]);
       result.Add(new(item, group.Min(i => i.Index)));
     }
 
     return result.OrderBy(i => i.Index).Select(i => i.Item);
+  }
+
+  internal static TDescr MakeDescription<TDescr, TItem>(this TDescr descr, IEnumerable<TItem> items)
+    where TDescr : IAstSetDescription
+    where TItem : IGqlpDescribed
+  {
+    string? description = items
+      .Select(item => item.Description)
+      .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr));
+    if (!string.IsNullOrWhiteSpace(description))
+    {
+      descr.SetDescription(description);
+    }
+
+    return descr;
   }
 
   public static string MergeDescriptions<TItem>(this IEnumerable<TItem> items)

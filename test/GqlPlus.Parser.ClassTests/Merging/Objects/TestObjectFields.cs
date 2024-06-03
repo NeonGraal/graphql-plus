@@ -6,7 +6,7 @@ namespace GqlPlus.Merging.Objects;
 public abstract class TestObjectFields<TObjField, TObjBase>
   : TestAliased<TObjField>
   where TObjField : AstObjectField<TObjBase>, IGqlpDescribed
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)

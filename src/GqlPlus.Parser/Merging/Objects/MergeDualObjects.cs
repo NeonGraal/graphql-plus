@@ -7,6 +7,6 @@ internal class MergeDualObjects(
   ILoggerFactory logger,
   IMerge<DualFieldAst> fields,
   IMerge<IGqlpTypeParameter> typeParameters,
-  IMerge<AstAlternate<DualBaseAst>> alternates
-) : AstObjectsMerger<DualDeclAst, DualFieldAst, DualBaseAst>(logger, fields, typeParameters, alternates)
+  IMerge<AstAlternate<IGqlpDualBase>> alternates
+) : AstObjectsMerger<DualDeclAst, DualFieldAst, IGqlpDualBase>(logger, fields, typeParameters, alternates)
 { }

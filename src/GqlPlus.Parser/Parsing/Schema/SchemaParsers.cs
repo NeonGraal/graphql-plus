@@ -54,18 +54,18 @@ public static class SchemaParsers
       .AddParser<DualBaseAst, ParseDualBase>()
       .AddParser<DualFieldAst, ParseDualField>()
       .AddDeclarationParser<DualDeclAst, ParseDual>("dual")
-      .AddObjectParser<DualFieldAst, DualBaseAst>()
+      .AddObjectParser<DualFieldAst, IGqlpDualBase>()
       // Input
       .AddParser<InputBaseAst, ParseInputBase>()
       .AddParser<InputFieldAst, ParseInputField>()
       .AddDeclarationParser<InputDeclAst, ParseInput>("input")
-      .AddObjectParser<InputFieldAst, InputBaseAst>()
+      .AddObjectParser<InputFieldAst, IGqlpInputBase>()
       .AddParserArray<InputParameterAst, ParseParameters>()
       // Output
       .AddParser<OutputBaseAst, ParseOutputBase>()
       .AddParser<OutputFieldAst, ParseOutputField>()
       .AddDeclarationParser<OutputDeclAst, ParseOutput>("output")
-      .AddObjectParser<OutputFieldAst, OutputBaseAst>()
+      .AddObjectParser<OutputFieldAst, IGqlpOutputBase>()
       // Schema
       .AddParser<IGqlpSchema, ParseSchema>()
       ;
@@ -82,7 +82,7 @@ public static class SchemaParsers
 
   private static IServiceCollection AddObjectParser<TObjField, TObjBase>(this IServiceCollection services)
     where TObjField : AstObjectField<TObjBase>
-    where TObjBase : AstObjectBase<TObjBase>
+    where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
     => services
       .AddParserArray<AstAlternate<TObjBase>, ParseAlternates<TObjBase>>()
       .AddParser<ObjectDefinition<TObjField, TObjBase>, ParseObjectDefinition<TObjField, TObjBase>>();

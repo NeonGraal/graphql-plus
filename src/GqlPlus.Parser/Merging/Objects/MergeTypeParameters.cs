@@ -14,6 +14,6 @@ internal class MergeTypeParameters
   protected override TypeParameterAst MergeGroup(IEnumerable<IGqlpTypeParameter> group)
   {
     TypeParameterAst ast = (TypeParameterAst)group.First();
-    return ast with { Description = group.MergeDescriptions() };
+    return ast.MakeDescription(group);
   }
 }

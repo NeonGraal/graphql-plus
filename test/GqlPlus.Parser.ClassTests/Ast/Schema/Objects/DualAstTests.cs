@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+
+namespace GqlPlus.Ast.Schema.Objects;
 
 public class DualAstTests
   : AstAliasedTests
@@ -28,23 +30,23 @@ public class DualAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithParent(string name, string parent)
       => _checks.HashCode(
-        () => new DualDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) });
+        () => new DualDeclAst(AstNulls.At, name) { Parent = Base(parent) });
 
   [Theory, RepeatData(Repeats)]
   public void String_WithParent(string name, string parent)
     => _checks.Text(
-      () => new DualDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
+      () => new DualDeclAst(AstNulls.At, name) { Parent = Base(parent) },
       $"( !Du {name} : {parent} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithParent(string name, string parent)
     => _checks.Equality(
-      () => new DualDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) });
+      () => new DualDeclAst(AstNulls.At, name) { Parent = Base(parent) });
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenParent(string name, string parent1, string parent2)
     => _checks.InequalityBetween(parent1, parent2,
-      parent => new DualDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
+      parent => new DualDeclAst(AstNulls.At, name) { Parent = Base(parent) },
       parent1 == parent2);
 
   [Theory, RepeatData(Repeats)]
@@ -91,8 +93,8 @@ public class DualAstTests
       parameters => new DualDeclAst(AstNulls.At, name) { TypeParameters = parameters.TypeParameters() },
       typeParameters1.SequenceEqual(typeParameters2));
 
-  private static DualBaseAst Base(string argument)
-    => new(AstNulls.At, argument);
+  private static IGqlpDualBase Base(string argument)
+    => new DualBaseAst(AstNulls.At, argument);
 
   protected override string AbbreviatedString(string input)
     => $"( !Du {input} )";

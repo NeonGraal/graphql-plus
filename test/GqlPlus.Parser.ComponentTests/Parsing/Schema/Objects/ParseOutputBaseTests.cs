@@ -1,16 +1,18 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseOutputBaseTests(
-  Parser<OutputBaseAst>.D parser
+  Parser<IGqlpOutputBase>.D parser
 ) : TestObjectBase
 {
   [Theory, RepeatData(Repeats)]
   public void WithArgumentEnumValues_ReturnsCorrectAst(string name, string enumType, string[] enumValues)
     => _checks.TrueExpected(
       name + "<" + enumValues.Joined(s => enumType + "." + s) + ">",
-      _checks.ObjBase(name) with {
+      _checks.ObjBase(name) with
+      {
         TypeArguments = [.. enumValues.Select(enumValue => _checks.ObjBase(enumType) with { EnumValue = enumValue })]
       });
 
@@ -20,5 +22,5 @@ public class ParseOutputBaseTests(
 
   internal override ICheckObjectBase ObjectBaseChecks => _checks;
 
-  private readonly CheckObjectBase<OutputBaseAst> _checks = new(new OutputFactories(), parser);
+  private readonly CheckObjectBase<IGqlpOutputBase, OutputBaseAst> _checks = new(new OutputFactories(), parser);
 }

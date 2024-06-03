@@ -7,7 +7,7 @@ public sealed record class DualDeclAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObject<DualFieldAst, DualBaseAst>(At, Name, Description)
+) : AstObject<DualFieldAst, IGqlpDualBase>(At, Name, Description)
   , IGqlpDualObject
 {
   internal override string Abbr => "Du";

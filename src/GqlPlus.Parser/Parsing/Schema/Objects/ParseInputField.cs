@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -8,16 +9,16 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal class ParseInputField(
   Parser<string>.DA aliases,
   Parser<IGqlpModifier>.DA modifiers,
-  Parser<InputBaseAst>.D objBase,
+  Parser<IGqlpInputBase>.D objBase,
   Parser<IParserDefault, IGqlpConstant>.D defaultParser
-) : ObjectFieldParser<InputFieldAst, InputBaseAst>(aliases, modifiers, objBase)
+) : ObjectFieldParser<InputFieldAst, IGqlpInputBase>(aliases, modifiers, objBase)
 {
   private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
   protected override void ApplyFieldParameters(InputFieldAst field, InputParameterAst[] parameters)
     => throw new InvalidOperationException();
 
-  protected override InputFieldAst ObjField(TokenAt at, string name, string description, InputBaseAst typeBase)
+  protected override InputFieldAst ObjField(TokenAt at, string name, string description, IGqlpInputBase typeBase)
     => new(at, name, description, typeBase);
 
   protected override IResult<InputFieldAst> FieldDefault<TContext>(TContext tokens, InputFieldAst field)

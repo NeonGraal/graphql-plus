@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -10,7 +11,8 @@ public class ParseOutputFieldTests(
   public void WithParameters_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
     => _checks.TrueExpected(
       name + "(" + parameters.Joined() + "):" + fieldType,
-      _checks.Field(name, fieldType) with {
+      _checks.Field(name, fieldType) with
+      {
         Parameters = parameters.Parameters()
       });
 
@@ -22,7 +24,8 @@ public class ParseOutputFieldTests(
   public void WithParametersModifiers_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
     => _checks.TrueExpected(
       name + "(" + parameters.Joined(p => p + "[]?") + "):" + fieldType,
-      _checks.Field(name, fieldType) with {
+      _checks.Field(name, fieldType) with
+      {
         Parameters = parameters.Parameters(p => p with { Modifiers = TestMods() })
       });
 
@@ -38,8 +41,10 @@ public class ParseOutputFieldTests(
   public void WithParametersDefault_ReturnsCorrectAst(string name, string fieldType, string[] parameters, string content)
     => _checks.TrueExpected(
       name + "(" + parameters.Joined(p => p + "='" + content + "'") + "):" + fieldType,
-      _checks.Field(name, fieldType) with {
-        Parameters = parameters.Parameters(p => p with {
+      _checks.Field(name, fieldType) with
+      {
+        Parameters = parameters.Parameters(p => p with
+        {
           DefaultValue = new FieldKeyAst(AstNulls.At, content)
         })
       });
@@ -78,8 +83,8 @@ public class ParseOutputFieldTests(
 
   internal override ICheckObjectField FieldChecks => _checks;
 
-  private readonly CheckObjectField<OutputFieldAst, OutputBaseAst> _checks = new(new OutputFactories(), parser);
+  private readonly CheckObjectField<OutputFieldAst, IGqlpOutputBase, OutputBaseAst> _checks = new(new OutputFactories(), parser);
 
   private static OutputFieldAst FieldEnum(string name, string enumType, string enumValue)
-    => new(AstNulls.At, name, new(AstNulls.At, enumType) { EnumValue = enumValue });
+    => new(AstNulls.At, name, new OutputBaseAst(AstNulls.At, enumType) { EnumValue = enumValue });
 }

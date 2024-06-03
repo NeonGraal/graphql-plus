@@ -13,8 +13,10 @@ internal class VerifyDirectiveInput(
 
   protected override void UsageValue(IGqlpSchemaDirective usage, UsageContext context)
   {
-    foreach (InputParameterAst parameter in usage.Parameters) {
-      if (!context.GetType(parameter.Type.FullName, out IGqlpDescribed? _)) {
+    foreach (InputParameterAst parameter in usage.Parameters)
+    {
+      if (!context.GetType(parameter.Type.FullType, out IGqlpDescribed? _))
+      {
         context.AddError(parameter, "Directive Parameter", $"'{parameter.Type}' not defined");
       }
     }

@@ -10,6 +10,7 @@ public abstract record class AstAliased(
 ) : AstDescribed(At, Name, Description)
   , IEquatable<AstAliased>
   , IGqlpAliased
+  , IAstSetAliases
 {
   public string[] Aliases { get; set; } = [];
   IEnumerable<string> IGqlpAliased.Aliases => Aliases;
@@ -23,6 +24,12 @@ public abstract record class AstAliased(
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Concat(Aliases.Bracket("[", "]"));
-  public void SetAliases(string[] aliases, string description)
-    => (Aliases, Description) = (aliases, description);
+  void IAstSetAliases.SetAliases(IEnumerable<string> aliases)
+    => Aliases = [.. aliases];
+}
+
+internal interface IAstSetAliases
+  : IAstSetDescription
+{
+  void SetAliases(IEnumerable<string> aliases);
 }

@@ -15,17 +15,14 @@ public interface IGqlpObject<TField, TBase>
   IEnumerable<IGqlpAlternate<TBase>> Alternates { get; }
 }
 
-public interface IGqlpObjectRef
-  : IGqlpDescribed
-{
-  string? TypeName { get; }
-  IGqlpDualBase? Dual { get; }
-}
-
 public interface IGqlpObjectBase<TBase>
   : IGqlpAbbreviated
   , IGqlpDescribed
 {
+  string Label { get; }
+  string TypeName { get; }
+  string FullType { get; }
+
   bool IsTypeParameter { get; }
   IEnumerable<TBase> TypeArguments { get; }
 }

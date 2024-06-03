@@ -12,11 +12,12 @@ internal class AstAlternatesMerger<TAlternate, TObjBase>(
   protected override TAlternate MergeGroup(IEnumerable<TAlternate> group)
   {
     TAlternate first = group.First();
-    return first with { Type = first.Type with { Description = group.MergeDescriptions() } };
+    first.Type.MakeDescription(group);
+    return first;
   }
 
   protected override string ItemGroupKey(TAlternate item)
-    => item.Type.FullName;
+    => item.Type.FullType;
 
   protected override string ItemMatchName => "Modifiers";
   protected override string ItemMatchKey(TAlternate item)

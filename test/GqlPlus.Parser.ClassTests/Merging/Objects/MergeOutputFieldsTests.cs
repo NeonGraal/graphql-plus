@@ -1,11 +1,13 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
+
 using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Objects;
 
 public class MergeOutputFieldsTests
-  : TestObjectFields<OutputFieldAst, OutputBaseAst>
+  : TestObjectFields<OutputFieldAst, IGqlpOutputBase>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsParametersCantMerge_ReturnsErrors(string name, string type, string[] parameters)
@@ -110,11 +112,11 @@ public class MergeOutputFieldsTests
     _merger = new(outputHelper.ToLoggerFactory(), _parameters);
   }
 
-  internal override AstObjectFieldsMerger<OutputFieldAst, OutputBaseAst> MergerField => _merger;
+  internal override AstObjectFieldsMerger<OutputFieldAst, IGqlpOutputBase> MergerField => _merger;
 
   protected override OutputFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
-    => new(AstNulls.At, name, fieldDescription, new(AstNulls.At, type, typeDescription));
+    => new(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription));
 
   private static OutputFieldAst MakeFieldEnum(string name, string type, string enumValue, string fieldDescription = "", string typeDescription = "")
-    => new(AstNulls.At, name, fieldDescription, new(AstNulls.At, type, typeDescription) { EnumValue = enumValue });
+    => new(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription) { EnumValue = enumValue });
 }

@@ -1,10 +1,11 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public interface IObjectBaseFactories<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+public interface IObjectBaseFactories<TObjBaseAst>
+  where TObjBaseAst : AstObjectBase<TObjBaseAst>
 {
-  TObjBase ObjBase(TokenAt at, string name, string description = "");
+  TObjBaseAst ObjBase(TokenAt at, string name, string description = "");
 }

@@ -1,10 +1,11 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Modelling.Objects;
 
 public class InputBaseModelTests(
-  IModeller<InputBaseAst, InputBaseModel> modeller
-) : TestObjBaseModel<InputBaseAst>
+  IModeller<IGqlpInputBase, InputBaseModel> modeller
+) : TestObjBaseModel<IGqlpInputBase, InputBaseAst>
 {
   internal override ICheckObjBaseModel<InputBaseAst> ObjBaseChecks => _checks;
 
@@ -12,8 +13,8 @@ public class InputBaseModelTests(
 }
 
 internal sealed class InputBaseModelChecks(
-  IModeller<InputBaseAst, InputBaseModel> modeller
-) : CheckObjBaseModel<InputBaseAst, InputBaseModel>(modeller, TypeKindModel.Input)
+  IModeller<IGqlpInputBase, InputBaseModel> modeller
+) : CheckObjBaseModel<IGqlpInputBase, InputBaseAst, InputBaseModel>(modeller, TypeKindModel.Input)
 {
   protected override InputBaseAst NewObjBaseAst(string name)
     => new(AstNulls.At, name);

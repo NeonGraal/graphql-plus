@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+
+namespace GqlPlus.Ast.Schema.Objects;
 
 public class OutputAstTests : AstAliasedTests
 {
@@ -27,23 +29,23 @@ public class OutputAstTests : AstAliasedTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithParent(string name, string parent)
       => _checks.HashCode(
-        () => new OutputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) });
+        () => new OutputDeclAst(AstNulls.At, name) { Parent = NewBase(parent) });
 
   [Theory, RepeatData(Repeats)]
   public void String_WithParent(string name, string parent)
     => _checks.Text(
-      () => new OutputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
+      () => new OutputDeclAst(AstNulls.At, name) { Parent = NewBase(parent) },
       $"( !Ou {name} : {parent} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithParent(string name, string parent)
     => _checks.Equality(
-      () => new OutputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) });
+      () => new OutputDeclAst(AstNulls.At, name) { Parent = NewBase(parent) });
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenParent(string name, string parent1, string parent2)
     => _checks.InequalityBetween(parent1, parent2,
-      parent => new OutputDeclAst(AstNulls.At, name) { Parent = new(AstNulls.At, parent) },
+      parent => new OutputDeclAst(AstNulls.At, name) { Parent = NewBase(parent) },
       parent1 == parent2);
 
   [Theory, RepeatData(Repeats)]
@@ -90,8 +92,8 @@ public class OutputAstTests : AstAliasedTests
       parameters => new OutputDeclAst(AstNulls.At, name) { TypeParameters = parameters.TypeParameters() },
       typeParameters1.SequenceEqual(typeParameters2));
 
-  private static OutputBaseAst NewBase(string argument)
-    => new(AstNulls.At, argument);
+  private static IGqlpOutputBase NewBase(string argument)
+    => new OutputBaseAst(AstNulls.At, argument);
 
   protected override string AbbreviatedString(string input)
     => $"( !Ou {input} )";

@@ -11,7 +11,7 @@ public abstract record class AstObject<TObjField, TObjBase>(
   , IEquatable<AstObject<TObjField, TObjBase>>
   , IGqlpObject<TObjField, TObjBase>
   where TObjField : AstObjectField<TObjBase>, IGqlpObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>, IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   public TypeParameterAst[] TypeParameters { get; set; } = [];
   public TObjField[] Fields { get; set; } = [];

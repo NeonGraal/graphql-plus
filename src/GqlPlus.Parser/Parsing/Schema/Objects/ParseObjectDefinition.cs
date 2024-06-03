@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -10,7 +11,7 @@ public class ParseObjectDefinition<TObjField, TObjBase>(
   Parser<TObjBase>.D objBase
 ) : Parser<ObjectDefinition<TObjField, TObjBase>>.I
   where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   private readonly Parser<AstAlternate<TObjBase>>.LA _alternates = alternates;
   private readonly Parser<TObjField>.L _objField = objField;
@@ -21,9 +22,11 @@ public class ParseObjectDefinition<TObjField, TObjBase>(
   {
     ArgumentNullException.ThrowIfNull(tokens);
     ObjectDefinition<TObjField, TObjBase> result = new();
-    if (tokens.Take(':')) {
+    if (tokens.Take(':'))
+    {
       IResult<TObjBase> objBase = _objBase.Parse(tokens, label);
-      if (objBase.IsError()) {
+      if (objBase.IsError())
+      {
         return objBase.AsResult(result);
       }
 
@@ -32,13 +35,16 @@ public class ParseObjectDefinition<TObjField, TObjBase>(
 
     List<TObjField> fields = [];
     IResult<TObjField> objectField = _objField.Parse(tokens, label);
-    if (objectField.IsError()) {
+    if (objectField.IsError())
+    {
       return objectField.AsPartial(result);
     }
 
-    while (objectField.Required(fields.Add)) {
+    while (objectField.Required(fields.Add))
+    {
       objectField = _objField.Parse(tokens, label);
-      if (objectField.IsError()) {
+      if (objectField.IsError())
+      {
         return objectField.AsPartial(result, fields.Add, () =>
           result.Fields = [.. fields]);
       }

@@ -1,10 +1,11 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Modelling.Objects;
 
 public class OutputBaseModelTests(
-  IModeller<OutputBaseAst, OutputBaseModel> modeller
-) : TestObjBaseModel<OutputBaseAst>
+  IModeller<IGqlpOutputBase, OutputBaseModel> modeller
+) : TestObjBaseModel<IGqlpOutputBase, OutputBaseAst>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_EnumArguments(string name, string[] arguments, string enumValue)
@@ -19,8 +20,8 @@ public class OutputBaseModelTests(
 }
 
 internal sealed class OutputBaseModelChecks(
-  IModeller<OutputBaseAst, OutputBaseModel> modeller
-) : CheckObjBaseModel<OutputBaseAst, OutputBaseModel>(modeller, TypeKindModel.Output)
+  IModeller<IGqlpOutputBase, OutputBaseModel> modeller
+) : CheckObjBaseModel<IGqlpOutputBase, OutputBaseAst, OutputBaseModel>(modeller, TypeKindModel.Output)
 {
   internal string[] ExpectedEnumArguments(string[] arguments, string enumValue)
     => [.. ItemsExpected("typeArguments:", arguments,

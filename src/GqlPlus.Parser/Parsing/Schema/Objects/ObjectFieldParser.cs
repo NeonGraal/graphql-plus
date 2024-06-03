@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -8,7 +9,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public abstract class ObjectFieldParser<TObjField, TObjBase>
   : Parser<TObjField>.I
   where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   private readonly Parser<string>.LA _aliases;
   private readonly Parser<IGqlpModifier>.LA _modifiers;
@@ -30,30 +31,36 @@ public abstract class ObjectFieldParser<TObjField, TObjBase>
     ArgumentNullException.ThrowIfNull(tokens);
     TokenAt at = tokens.At;
     tokens.String(out string? description);
-    if (!tokens.Identifier(out string? name)) {
+    if (!tokens.Identifier(out string? name))
+    {
       return 0.Empty<TObjField>();
     }
 
     IResultArray<InputParameterAst> hasParameter = FieldParameter(tokens);
-    if (hasParameter.IsError()) {
+    if (hasParameter.IsError())
+    {
       return hasParameter.AsResult<TObjField>();
     }
 
     IResultArray<string> hasAliases = _aliases.Parse(tokens, label);
-    if (hasAliases.IsError()) {
+    if (hasAliases.IsError())
+    {
       return hasAliases.AsResult<TObjField>();
     }
 
     TObjField field = ObjField(at, name, description, ObjBase(at, ""));
 
-    if (tokens.Take(':')) {
+    if (tokens.Take(':'))
+    {
       if (_objBase.Parse(tokens, label).Required(fieldType
         => field = ObjField(at, name, description, fieldType))
-        ) {
+        )
+      {
         hasAliases.WithResult(aliases => field.Aliases = [.. aliases]);
         hasParameter.WithResult(parameter => ApplyFieldParameters(field, [.. parameter]));
         IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
-        if (modifiers.IsError()) {
+        if (modifiers.IsError())
+        {
           return modifiers.AsResult<TObjField>();
         }
 

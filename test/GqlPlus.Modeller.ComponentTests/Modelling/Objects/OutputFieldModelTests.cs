@@ -1,15 +1,17 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Modelling.Objects;
 
 public class OutputFieldModelTests(
-  IModeller<OutputFieldAst, OutputFieldModel> modeller
-) : TestObjectFieldModel<OutputFieldAst, OutputBaseAst>
+  IModeller<IGqlpOutputField, OutputFieldModel> modeller
+) : TestObjectFieldModel<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_EnumValue(FieldInput input, string enumValue)
     => FieldChecks.Field_Expected(
-      FieldChecks.FieldAst(input) with {
+      FieldChecks.FieldAst(input) with
+      {
         Type = _checks.NewObjBaseAst(input.Type) with { EnumValue = enumValue }
       },
       _checks.ExpectedEnum(input, enumValue)
@@ -22,14 +24,14 @@ public class OutputFieldModelTests(
       FieldChecks.ExpectedField(input, [], _checks.ExpectedParameters(parameters))
       );
 
-  internal override ICheckObjectFieldModel<OutputFieldAst, OutputBaseAst> FieldChecks => _checks;
+  internal override ICheckObjectFieldModel<OutputFieldAst, IGqlpOutputBase> FieldChecks => _checks;
 
   private readonly OutputFieldModelChecks _checks = new(modeller);
 }
 
 internal sealed class OutputFieldModelChecks(
-  IModeller<OutputFieldAst, OutputFieldModel> modeller
-) : CheckObjectFieldModel<OutputFieldAst, OutputBaseAst, OutputFieldModel>(modeller, TypeKindModel.Output)
+  IModeller<IGqlpOutputField, OutputFieldModel> modeller
+) : CheckObjectFieldModel<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputFieldModel>(modeller, TypeKindModel.Output)
 {
   protected override OutputFieldAst NewFieldAst(FieldInput input)
     => new(AstNulls.At, input.Name, NewObjBaseAst(input.Type));

@@ -34,8 +34,7 @@ public class DirectiveModelTests(
     DirectiveOption option,
     DirectiveLocation[] locations
   ) => _checks.DirectiveExpected(
-      new(AstNulls.At, name)
-      {
+      new(AstNulls.At, name) {
         Aliases = aliases,
         Description = contents,
         Locations = DirectiveModeller.Combine(locations),

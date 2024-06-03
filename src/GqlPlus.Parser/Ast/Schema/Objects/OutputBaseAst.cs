@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -8,6 +9,7 @@ public sealed record class OutputBaseAst(
   string Description
 ) : AstObjectBase<OutputBaseAst>(At, Name, Description)
   , IEquatable<OutputBaseAst>
+  , IGqlpOutputBase
 {
   public OutputBaseAst(TokenAt at, string name)
     : this(at, name, "") { }
@@ -16,6 +18,10 @@ public sealed record class OutputBaseAst(
 
   internal override string Abbr => "OR";
   public override string Label => "Output";
+
+  string IGqlpOutputBase.Output => Name;
+  IEnumerable<IGqlpOutputBase> IGqlpObjectBase<IGqlpOutputBase>.TypeArguments => TypeArguments;
+  IGqlpDualBase IGqlpToDual.ToDual => ToDual();
 
   public override bool Equals(OutputBaseAst? other)
     => base.Equals(other)

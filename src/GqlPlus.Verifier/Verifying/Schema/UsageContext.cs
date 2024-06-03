@@ -92,12 +92,12 @@ internal static class UsageHelpers
   {
     if (context.GetType(type.FullName, out IGqlpDescribed? value)) {
       int numArgs = type.TypeArguments.Length;
-      if (value is IAstObject definition) {
+      if (value is IGqlpObject definition) {
         if (check && definition.Label != "Dual" && definition.Label != type.Label) {
           context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.FullName}. Found {definition.Label}");
         }
 
-        int numParams = definition.TypeParameters.Length;
+        int numParams = definition.TypeParameters.Count();
         if (numParams != numArgs) {
           context.AddError(type, type.Label + labelSuffix, $"Arguments mismatch, expected {numParams} given {numArgs}");
         }

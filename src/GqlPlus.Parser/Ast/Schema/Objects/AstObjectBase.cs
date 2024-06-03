@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -8,7 +9,8 @@ public abstract record class AstObjectBase<TObjBase>(
   string Description
 ) : AstDescribed(At, Name, Description)
   , IEquatable<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  , IGqlpObjectBase<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>, IGqlpObjectBase<TObjBase>
 {
   public bool IsTypeParameter { get; set; }
   public TObjBase[] TypeArguments { get; set; } = [];
@@ -23,6 +25,8 @@ public abstract record class AstObjectBase<TObjBase>(
     .Bracket("<", ">")
     .Prepend(FullName)
     .Joined();
+
+  IEnumerable<TObjBase> IGqlpObjectBase<TObjBase>.TypeArguments => TypeArguments;
 
   public virtual bool Equals(TObjBase? other)
     => base.Equals(other)

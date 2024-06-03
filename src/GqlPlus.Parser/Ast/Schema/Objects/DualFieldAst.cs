@@ -10,12 +10,14 @@ public sealed record class DualFieldAst(
   DualBaseAst Type
 ) : AstObjectField<DualBaseAst>(At, Name, Description, Type)
   , IEquatable<DualFieldAst>
-  , IGqlpDescribed
+  , IGqlpDualField
 {
   public DualFieldAst(TokenAt at, string name, DualBaseAst typeBase)
     : this(at, name, "", typeBase) { }
 
   internal override string Abbr => "DF";
+
+  IGqlpDualBase IGqlpObjectField<IGqlpDualBase>.Type => Type;
 
   public bool Equals(DualFieldAst? other)
     => base.Equals(other);

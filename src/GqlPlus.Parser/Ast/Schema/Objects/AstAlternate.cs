@@ -6,10 +6,10 @@ namespace GqlPlus.Ast.Schema.Objects;
 public record class AstAlternate<TObjBase>(
   TokenAt At,
   TObjBase Type
-) : AstAbbreviated(At), IEquatable<AstAlternate<TObjBase>>
-  , IGqlpDescribed
-  , IGqlpModifiers
-  where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
+) : AstAbbreviated(At)
+  , IEquatable<AstAlternate<TObjBase>>
+  , IGqlpAlternate<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>, IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   public ModifierAst[] Modifiers { get; set; } = [];
 

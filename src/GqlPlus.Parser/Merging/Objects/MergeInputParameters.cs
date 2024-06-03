@@ -25,8 +25,7 @@ internal class MergeInputParameters(
   {
     InputParameterAst first = group.First();
 
-    return first with
-    {
+    return first with {
       Type = first.Type with { Description = group.MergeDescriptions() },
       DefaultValue = (ConstantAst?)group.Merge(item => item.DefaultValue, constant).FirstOrDefault(),
     };

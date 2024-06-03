@@ -11,7 +11,6 @@ public interface IGqlpObject<TField, TBase>
   where TBase : IGqlpObjectBase<TBase>
   where TField : IGqlpObjectField<TBase>
 {
-  IEnumerable<IGqlpTypeParameter> TypeParameters { get; }
   IEnumerable<TField> Fields { get; }
   IEnumerable<IGqlpAlternate<TBase>> Alternates { get; }
 }
@@ -26,7 +25,6 @@ public interface IGqlpObjectRef
 public interface IGqlpObjectBase<TBase>
   : IGqlpAbbreviated
   , IGqlpDescribed
-  , IEquatable<TBase>
 {
   bool IsTypeParameter { get; }
   IEnumerable<TBase> TypeArguments { get; }
@@ -35,7 +33,6 @@ public interface IGqlpObjectBase<TBase>
 public interface IGqlpObjectField<TBase>
   : IGqlpAliased
   , IGqlpModifiers
-  , IEquatable<IGqlpObjectField<TBase>>
   where TBase : IGqlpObjectBase<TBase>
 {
   TBase Type { get; }
@@ -46,11 +43,12 @@ public interface IGqlpTypeParameter
 { }
 
 public interface IGqlpAlternate<TBase>
-  : IGqlpError, IGqlpDescribed, IGqlpModifiers
+  : IGqlpError
+  , IGqlpDescribed
+  , IGqlpModifiers
   where TBase : IGqlpObjectBase<TBase>
 {
   TBase Type { get; }
-  IEnumerable<IGqlpModifier> Collections { get; } // Optional is invalid
 }
 
 public interface IGqlpDualObject

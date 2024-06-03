@@ -8,27 +8,27 @@ public class MergeInputFieldsTests : TestObjectFields<InputFieldAst, InputBaseAs
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string name, string type, string value)
-    => CanMerge_Good([MakeField(name, type), MakeField(name, type) with { Default = value.FieldKey() }]);
+    => CanMerge_Good([MakeField(name, type), MakeField(name, type) with { DefaultValue = value.FieldKey() }]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameDefault_ReturnsGood(string name, string type, string value)
     => CanMerge_Good([
-      MakeField(name, type) with { Default = value.FieldKey() },
-      MakeField(name, type) with { Default = value.FieldKey() }]);
+      MakeField(name, type) with { DefaultValue = value.FieldKey() },
+      MakeField(name, type) with { DefaultValue = value.FieldKey() }]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentDefaults_ReturnsErrors(string name, string type, string value)
     => this
       .CanMergeReturnsError(_constant)
       .CanMerge_Errors(
-        MakeField(name, type) with { Default = value.FieldKey() },
-        MakeField(name, type) with { Default = value.FieldKey() });
+        MakeField(name, type) with { DefaultValue = value.FieldKey() },
+        MakeField(name, type) with { DefaultValue = value.FieldKey() });
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsOneDefault_ReturnsExpected(string name, string type, string value)
     => Merge_Expected(
-      [MakeField(name, type), MakeField(name, type) with { Default = value.FieldKey() }],
-      MakeField(name, type) with { Default = value.FieldKey() });
+      [MakeField(name, type), MakeField(name, type) with { DefaultValue = value.FieldKey() }],
+      MakeField(name, type) with { DefaultValue = value.FieldKey() });
 
   private readonly IMerge<IGqlpConstant> _constant;
   private readonly MergeInputFields _merger;

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -9,8 +10,8 @@ public abstract record class AstObjectField<TObjBase>(
   TObjBase Type
 ) : AstAliased(At, Name, Description)
   , IEquatable<AstObjectField<TObjBase>>
-  , IGqlpModifiers
-  where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
+  , IGqlpObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>, IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   public TObjBase Type { get; set; } = Type;
   public ModifierAst[] Modifiers { get; set; } = [];

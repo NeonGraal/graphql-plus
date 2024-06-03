@@ -10,10 +10,10 @@ internal class MergeInputFields(
 {
   protected override ITokenMessages CanMergeGroup(IGrouping<string, InputFieldAst> group)
     => base.CanMergeGroup(group)
-      .Add(group.CanMerge(item => item.Default, constant));
+      .Add(group.CanMerge(item => item.DefaultValue, constant));
 
   protected override InputFieldAst MergeGroup(IEnumerable<InputFieldAst> group)
     => base.MergeGroup(group) with {
-      Default = (ConstantAst?)group.Merge(item => item.Default, constant).FirstOrDefault()
+      DefaultValue = (ConstantAst?)group.Merge(item => item.DefaultValue, constant).FirstOrDefault()
     };
 }

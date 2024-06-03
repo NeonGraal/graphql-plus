@@ -9,13 +9,16 @@ public abstract record class AstObject<TObjField, TObjBase>(
   string Description
 ) : AstType<TObjBase>(At, Name, Description)
   , IEquatable<AstObject<TObjField, TObjBase>>
-  , IAstObject
-  where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
+  , IGqlpObject<TObjField, TObjBase>
+  where TObjField : AstObjectField<TObjBase>, IGqlpObjectField<TObjBase>
+  where TObjBase : AstObjectBase<TObjBase>, IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   public TypeParameterAst[] TypeParameters { get; set; } = [];
   public TObjField[] Fields { get; set; } = [];
   public AstAlternate<TObjBase>[] Alternates { get; set; } = [];
+  IEnumerable<IGqlpTypeParameter> IGqlpObject.TypeParameters => TypeParameters;
+  IEnumerable<TObjField> IGqlpObject<TObjField, TObjBase>.Fields => Fields;
+  IEnumerable<IGqlpAlternate<TObjBase>> IGqlpObject<TObjField, TObjBase>.Alternates => Alternates;
 
   public virtual bool Equals(AstObject<TObjField, TObjBase>? other)
     => base.Equals(other)
@@ -30,10 +33,4 @@ public abstract record class AstObject<TObjField, TObjBase>(
       .Concat(Parent.Bracket(":", ""))
       .Concat(Fields.Bracket("{", "}"))
       .Concat(Alternates.Bracket("|"));
-}
-
-public interface IAstObject
-  : IGqlpType
-{
-  TypeParameterAst[] TypeParameters { get; }
 }

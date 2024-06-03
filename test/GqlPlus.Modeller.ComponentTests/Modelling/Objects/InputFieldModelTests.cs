@@ -9,7 +9,7 @@ public class InputFieldModelTests(
   [Theory, RepeatData(Repeats)]
   public void Model_DefaultString(FieldInput input, string contents)
     => FieldChecks.Field_Expected(
-      FieldChecks.FieldAst(input) with { Default = new FieldKeyAst(AstNulls.At, contents) },
+      FieldChecks.FieldAst(input) with { DefaultValue = new FieldKeyAst(AstNulls.At, contents) },
       FieldChecks.ExpectedField(input, ["default: " + contents.YamlQuoted()], [])
       );
 

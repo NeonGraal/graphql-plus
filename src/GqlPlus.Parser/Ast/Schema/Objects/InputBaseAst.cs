@@ -1,4 +1,5 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -8,12 +9,17 @@ public sealed record class InputBaseAst(
   string Description
 ) : AstObjectBase<InputBaseAst>(At, Name, Description)
   , IEquatable<InputBaseAst>
+  , IGqlpInputBase
 {
   public InputBaseAst(TokenAt at, string name)
     : this(at, name, "") { }
 
   internal override string Abbr => "IR";
   public override string Label => "Input";
+
+  string IGqlpInputBase.Input => Name;
+  IEnumerable<IGqlpInputBase> IGqlpObjectBase<IGqlpInputBase>.TypeArguments => TypeArguments;
+  IGqlpDualBase IGqlpToDual.ToDual => ToDual();
 
   public override bool Equals(InputBaseAst? other)
     => base.Equals(other);

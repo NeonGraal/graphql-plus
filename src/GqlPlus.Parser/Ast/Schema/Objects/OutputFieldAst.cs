@@ -1,13 +1,23 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class OutputFieldAst(TokenAt At, string Name, string Description, OutputBaseAst Type)
-  : AstObjectField<OutputBaseAst>(At, Name, Description, Type), IEquatable<OutputFieldAst>
+public sealed record class OutputFieldAst(
+  TokenAt At,
+  string Name,
+  string Description,
+  OutputBaseAst Type
+) : AstObjectField<OutputBaseAst>(At, Name, Description, Type)
+  , IEquatable<OutputFieldAst>
+  , IGqlpOutputField
 {
   public InputParameterAst[] Parameters { get; set; } = [];
 
   internal override string Abbr => "OF";
+
+  IEnumerable<IGqlpInputParameter> IGqlpOutputField.Parameters => Parameters;
+  IGqlpOutputBase IGqlpObjectField<IGqlpOutputBase>.Type => Type;
 
   public OutputFieldAst(TokenAt at, string name, OutputBaseAst typeBase)
     : this(at, name, "", typeBase) { }
@@ -20,7 +30,7 @@ public sealed record class OutputFieldAst(TokenAt At, string Name, string Descri
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-        .Concat(Parameters.Bracket("(", ")"))
-        .Concat(Type.GetFields().Prepend(string.IsNullOrWhiteSpace(Type.EnumValue) ? ":" : "="))
-        .Concat(Modifiers.AsString());
+      .Concat(Parameters.Bracket("(", ")"))
+      .Concat(Type.GetFields().Prepend(string.IsNullOrWhiteSpace(Type.EnumValue) ? ":" : "="))
+      .Concat(Modifiers.AsString());
 }

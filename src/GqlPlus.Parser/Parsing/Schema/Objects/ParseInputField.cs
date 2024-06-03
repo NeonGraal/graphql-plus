@@ -22,7 +22,7 @@ internal class ParseInputField(
     => new(at, name, description, typeBase);
 
   protected override IResult<InputFieldAst> FieldDefault<TContext>(TContext tokens, InputFieldAst field)
-    => _default.I.Parse(tokens, "Default").AsPartial(field, constant => field.Default = (ConstantAst?)constant);
+    => _default.I.Parse(tokens, "Default").AsPartial(field, constant => field.DefaultValue = (ConstantAst?)constant);
 
   protected override IResult<InputFieldAst> FieldEnumValue<TContext>(TContext tokens, InputFieldAst field)
     => tokens.Error("Input", "':'", field);

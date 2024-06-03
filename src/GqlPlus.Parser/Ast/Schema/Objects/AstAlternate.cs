@@ -9,7 +9,7 @@ public record class AstAlternate<TObjBase>(
 ) : AstAbbreviated(At)
   , IEquatable<AstAlternate<TObjBase>>
   , IGqlpAlternate<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>, IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   public ModifierAst[] Modifiers { get; set; } = [];
 
@@ -20,7 +20,7 @@ public record class AstAlternate<TObjBase>(
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
   internal AstAlternate(TObjBase objBase)
-    : this(objBase.At, objBase) { }
+    : this((TokenAt)objBase.At, objBase) { }
 
   public virtual bool Equals(AstAlternate<TObjBase>? other)
     => base.Equals(other)

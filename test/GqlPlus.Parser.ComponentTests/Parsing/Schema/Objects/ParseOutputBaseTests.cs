@@ -1,9 +1,10 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseOutputBaseTests(
-  Parser<OutputBaseAst>.D parser
+  Parser<IGqlpOutputBase>.D parser
 ) : TestObjectBase
 {
   [Theory, RepeatData(Repeats)]
@@ -20,5 +21,5 @@ public class ParseOutputBaseTests(
 
   internal override ICheckObjectBase ObjectBaseChecks => _checks;
 
-  private readonly CheckObjectBase<OutputBaseAst> _checks = new(new OutputFactories(), parser);
+  private readonly CheckObjectBase<IGqlpOutputBase, OutputBaseAst> _checks = new(new OutputFactories(), parser);
 }

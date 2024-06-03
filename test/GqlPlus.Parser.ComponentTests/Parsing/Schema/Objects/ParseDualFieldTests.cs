@@ -1,14 +1,13 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public class ParseDualFieldTests
-  : TestObjectField
+public class ParseDualFieldTests(
+  Parser<DualFieldAst>.D parser
+) : TestObjectField
 {
   internal override ICheckObjectField FieldChecks => _checks;
 
-  private readonly CheckObjectField<DualFieldAst, DualBaseAst> _checks;
-
-  public ParseDualFieldTests(Parser<DualFieldAst>.D parser)
-    => _checks = new(new DualFactories(), parser);
+  private readonly CheckObjectField<DualFieldAst, IGqlpDualBase, DualBaseAst> _checks = new(new DualFactories(), parser);
 }

@@ -9,9 +9,9 @@ namespace GqlPlus.Verifying.Schema.Objects;
 internal class VerifyDualTypes(
   IVerifyAliased<DualDeclAst> aliased,
   IMerge<DualFieldAst> fields,
-  IMerge<AstAlternate<DualBaseAst>> mergeAlternates,
+  IMerge<AstAlternate<IGqlpDualBase>> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<DualDeclAst, DualFieldAst, DualBaseAst, UsageContext>(aliased, fields, mergeAlternates, logger)
+) : AstObjectVerifier<DualDeclAst, DualFieldAst, IGqlpDualBase, UsageContext>(aliased, fields, mergeAlternates, logger)
 {
   protected override UsageContext MakeContext(DualDeclAst usage, IGqlpType[] aliased, ITokenMessages errors)
   {

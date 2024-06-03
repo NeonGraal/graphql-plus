@@ -1,12 +1,13 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal sealed class DualFactories
-  : IObjectFactories<DualDeclAst, DualFieldAst, DualBaseAst>
+  : IObjectFactories<DualDeclAst, DualFieldAst, IGqlpDualBase, DualBaseAst>
 {
-  public DualFieldAst ObjField(TokenAt at, string name, DualBaseAst typeBase, string description)
+  public DualFieldAst ObjField(TokenAt at, string name, IGqlpDualBase typeBase, string description)
     => new(at, name, description, typeBase);
 
   public DualDeclAst Object(TokenAt at, string name, string description)

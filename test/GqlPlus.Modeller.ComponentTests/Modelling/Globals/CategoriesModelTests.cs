@@ -6,7 +6,7 @@ namespace GqlPlus.Modelling.Globals;
 
 public class CategoriesModelTests(
   IModeller<IGqlpSchemaCategory, CategoryModel> category,
-  IModeller<OutputDeclAst, TypeOutputModel> typeOutput
+  IModeller<IGqlpOutputObject, TypeOutputModel> typeOutput
 ) : TestModelBase<string>
 {
   [Theory, RepeatData(Repeats)]
@@ -41,7 +41,7 @@ public class CategoriesModelTests(
 
 internal sealed class CategoriesModelChecks(
   IModeller<IGqlpSchemaCategory, CategoryModel> modeller,
-  IModeller<OutputDeclAst, TypeOutputModel> typeOutput
+  IModeller<IGqlpOutputObject, TypeOutputModel> typeOutput
 ) : CheckModelBase<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel>(modeller), ICheckModelBase
 {
   protected override string[] ExpectedBase(string name)
@@ -59,6 +59,6 @@ internal sealed class CategoriesModelChecks(
   internal CategoriesModel ToModel(CategoryDeclAst? ast, string output)
     => new() {
       Category = _modeller.TryModel(ast, TypeKinds),
-      Type = string.IsNullOrWhiteSpace(output) ? null : typeOutput.ToModel(new(AstNulls.At, output), TypeKinds),
+      Type = string.IsNullOrWhiteSpace(output) ? null : typeOutput.ToModel(new OutputDeclAst(AstNulls.At, output), TypeKinds),
     };
 }

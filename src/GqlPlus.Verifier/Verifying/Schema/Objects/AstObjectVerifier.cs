@@ -14,7 +14,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
 ) : AstParentItemVerifier<TObject, TObjBase, TContext, TObjField>(aliased, mergeFields)
   where TObject : AstObject<TObjField, TObjBase>
   where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
   where TContext : UsageContext
 {
   private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, TObjBase, TContext, TypeParameterAst>));
@@ -36,7 +36,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
     foreach (AstAlternate<TObjBase> alternate in usage.Alternates) {
       UsageAlternate(alternate, context);
       if (alternate.Modifiers.Length == 0) {
-        CheckAlternate(new([alternate.Type.FullName], usage, "an alternate"), usage.Name, context, true);
+        CheckAlternate(new([alternate.Type.FullType], usage, "an alternate"), usage.Name, context, true);
       }
     }
 
@@ -58,7 +58,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
       .CheckModifiers(field);
 
   protected override string GetParent(IGqlpType<TObjBase> usage)
-    => usage.Parent?.FullName ?? "";
+    => usage.Parent?.TypeName ?? "";
 
   protected override void CheckParentType(
     ParentUsage<TObject> input,
@@ -95,7 +95,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
     input = input with { Label = "an alternate" };
     foreach (AstAlternate<TObjBase> alternate in parentType.Alternates) {
       if (alternate.Modifiers.Length == 0) {
-        CheckAlternate(input.AddParent(alternate.Type.FullName), parentType.Name, context, false);
+        CheckAlternate(input.AddParent(alternate.Type.TypeName), parentType.Name, context, false);
       }
     }
   }
@@ -110,7 +110,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
       _logger.CheckingAlternates(input, top, alternateType.Name, current);
       foreach (AstAlternate<TObjBase> alternate in alternateType.Alternates) {
         if (alternate.Modifiers.Length == 0) {
-          CheckAlternate(input.AddParent(alternate.Type.FullName), alternateType.Name, context, false);
+          CheckAlternate(input.AddParent(alternate.Type.TypeName), alternateType.Name, context, false);
         }
       }
     }

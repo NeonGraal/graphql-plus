@@ -17,13 +17,11 @@ public abstract record class AstObjectBase<TObjBase>(
 
   public abstract string Label { get; }
 
-  public string FullName => IsTypeParameter ? Name.Prefixed("$") : Name;
-
-  public string TypeName => IsTypeParameter ? "" : Name;
+  public string TypeName => IsTypeParameter ? Name.Prefixed("$") : Name;
 
   public string FullType => TypeArguments
     .Bracket("<", ">")
-    .Prepend(FullName)
+    .Prepend(TypeName)
     .Joined();
 
   IEnumerable<TObjBase> IGqlpObjectBase<TObjBase>.TypeArguments => TypeArguments;
@@ -38,6 +36,6 @@ public abstract record class AstObjectBase<TObjBase>(
   internal override IEnumerable<string?> GetFields()
     => new[] {
       At.ToString(),
-      FullName
+      TypeName
     }.Concat(TypeArguments.Bracket("<", ">"));
 }

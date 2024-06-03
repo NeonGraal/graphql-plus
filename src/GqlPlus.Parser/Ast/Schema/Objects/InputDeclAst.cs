@@ -7,7 +7,7 @@ public sealed record class InputDeclAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObject<InputFieldAst, InputBaseAst>(At, Name, Description)
+) : AstObject<InputFieldAst, IGqlpInputBase>(At, Name, Description)
   , IGqlpInputObject
 {
   internal override string Abbr => "In";

@@ -1,10 +1,13 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
+
 using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Objects;
 
-public class MergeInputFieldsTests : TestObjectFields<InputFieldAst, InputBaseAst>
+public class MergeInputFieldsTests
+  : TestObjectFields<InputFieldAst, IGqlpInputBase>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string name, string type, string value)
@@ -40,8 +43,8 @@ public class MergeInputFieldsTests : TestObjectFields<InputFieldAst, InputBaseAs
     _merger = new(outputHelper.ToLoggerFactory(), _constant);
   }
 
-  internal override AstObjectFieldsMerger<InputFieldAst, InputBaseAst> MergerField => _merger;
+  internal override AstObjectFieldsMerger<InputFieldAst, IGqlpInputBase> MergerField => _merger;
 
   protected override InputFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
-    => new(AstNulls.At, name, fieldDescription, new(AstNulls.At, type, typeDescription));
+    => new(AstNulls.At, name, fieldDescription, new InputBaseAst(AstNulls.At, type, typeDescription));
 }

@@ -1,11 +1,12 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseInputBase
-  : ObjectBaseParser<InputBaseAst>
+  : ObjectBaseParser<IGqlpInputBase, InputBaseAst>
 {
   protected override InputBaseAst ObjBase(TokenAt at, string param, string description)
     => new(at, param, description);

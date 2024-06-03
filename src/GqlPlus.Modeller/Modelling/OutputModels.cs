@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -70,14 +70,14 @@ public record class OutputEnumModel(
 }
 
 internal class OutputModeller(
-  IAlternateModeller<OutputBaseAst, OutputBaseModel> alternate,
-  IModeller<OutputFieldAst, OutputFieldModel> objField,
-  IModeller<OutputBaseAst, OutputBaseModel> objBase
-) : ModellerObject<OutputDeclAst, OutputBaseAst, OutputFieldAst, TypeOutputModel, OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, alternate, objField, objBase)
+  IAlternateModeller<IGqlpOutputBase, OutputBaseModel> alternate,
+  IModeller<IGqlpOutputField, OutputFieldModel> objField,
+  IModeller<IGqlpOutputBase, OutputBaseModel> objBase
+) : ModellerObject<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, TypeOutputModel, OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, alternate, objField, objBase)
 {
-  protected override TypeOutputModel ToModel(OutputDeclAst ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeOutputModel ToModel(IGqlpOutputObject ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
-      Aliases = ast.Aliases,
+      Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ParentModel(ast.Parent, typeKinds),
       TypeParameters = TypeParametersModels(ast.TypeParameters),
@@ -87,20 +87,20 @@ internal class OutputModeller(
 }
 
 internal class OutputBaseModeller(
-  IModeller<DualBaseAst, DualBaseModel> dual
-) : ModellerObjBase<OutputBaseAst, OutputBaseModel, OutputArgumentModel>
+  IModeller<IGqlpDualBase, DualBaseModel> dual
+) : ModellerObjBase<IGqlpOutputBase, OutputBaseModel, OutputArgumentModel>
 {
-  internal override OutputArgumentModel NewArgument(OutputBaseAst ast, IMap<TypeKindModel> typeKinds)
+  internal override OutputArgumentModel NewArgument(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(ast.EnumValue)
-      ? new(ast.Name) { Ref = new(ToModel(ast, typeKinds)) }
-      : new(ast.Name) { EnumValue = ast.EnumValue };
+      ? new(ast.Output) { Ref = new(ToModel(ast, typeKinds)) }
+      : new(ast.Output) { EnumValue = ast.EnumValue };
 
-  protected override OutputBaseModel ToModel(OutputBaseAst ast, IMap<TypeKindModel> typeKinds)
-    => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new(ast.Name) {
-      Dual = dual.ToModel(ast.ToDual(), typeKinds)
+  protected override OutputBaseModel ToModel(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
+    => typeKinds.TryGetValue(ast.Output, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
+    ? new(ast.Output) {
+      Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
-    : new(ast.Name) {
+    : new(ast.Output) {
       IsTypeParameter = ast.IsTypeParameter,
       TypeArguments = ModelArguments(ast, typeKinds),
     };
@@ -108,16 +108,16 @@ internal class OutputBaseModeller(
 
 internal class OutputFieldModeller(
   IModifierModeller modifier,
-  IModeller<InputParameterAst, InputParameterModel> parameter,
-  IModeller<OutputBaseAst, OutputBaseModel> refBase
-) : ModellerObjField<OutputBaseAst, OutputFieldAst, OutputBaseModel, OutputFieldModel>(modifier, refBase)
+  IModeller<IGqlpInputParameter, InputParameterModel> parameter,
+  IModeller<IGqlpOutputBase, OutputBaseModel> refBase
+) : ModellerObjField<IGqlpOutputBase, IGqlpOutputField, OutputBaseModel, OutputFieldModel>(modifier, refBase)
 {
-  protected override OutputFieldModel FieldModel(OutputFieldAst field, ObjRefModel<OutputBaseModel> type, IMap<TypeKindModel> typeKinds)
+  protected override OutputFieldModel FieldModel(IGqlpOutputField field, ObjRefModel<OutputBaseModel> type, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(field.Type.EnumValue)
       ? new(field.Name, type) {
         Parameters = parameter.ToModels(field.Parameters, typeKinds),
       }
       : new(field.Name, null) { // or should it be `type`
-        Enum = new(field.Name, field.Type.Name, field.Type.EnumValue)
+        Enum = new(field.Name, field.Type.Output, field.Type.EnumValue)
       };
 }

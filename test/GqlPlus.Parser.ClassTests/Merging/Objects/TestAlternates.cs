@@ -1,11 +1,12 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
 public abstract class TestAlternates<TAlternate, TObjBase>
   : TestDescriptions<TAlternate>
   where TAlternate : AstAlternate<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
@@ -31,5 +32,5 @@ public abstract class TestAlternates<TAlternate, TObjBase>
 
 public abstract class TestAlternates<TObjBase>
   : TestAlternates<AstAlternate<TObjBase>, TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 { }

@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;
+
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Modelling;
@@ -28,19 +28,19 @@ public static class AllModellers
       .AddTypeModeller<IGqlpEnum, TypeEnumModel, EnumModeller>()
       .AddTypeModeller<IGqlpUnion, TypeUnionModel, UnionModeller>()
       // Object
-      .AddAlternateModeller<DualBaseAst, DualBaseModel>()
-      .AddAlternateModeller<InputBaseAst, InputBaseModel>()
-      .AddAlternateModeller<OutputBaseAst, OutputBaseModel>()
-      .AddModeller<DualBaseAst, DualBaseModel, DualBaseModeller>()
-      .AddModeller<DualFieldAst, DualFieldModel, DualFieldModeller>()
-      .AddModeller<InputBaseAst, InputBaseModel, InputBaseModeller>()
-      .AddModeller<InputFieldAst, InputFieldModel, InputFieldModeller>()
-      .AddModeller<InputParameterAst, InputParameterModel, InputParameterModeller>()
-      .AddModeller<OutputBaseAst, OutputBaseModel, OutputBaseModeller>()
-      .AddModeller<OutputFieldAst, OutputFieldModel, OutputFieldModeller>()
-      .AddTypeModeller<DualDeclAst, TypeDualModel, DualModeller>()
-      .AddTypeModeller<InputDeclAst, TypeInputModel, InputModeller>()
-      .AddTypeModeller<OutputDeclAst, TypeOutputModel, OutputModeller>()
+      .AddAlternateModeller<IGqlpDualBase, DualBaseModel>()
+      .AddAlternateModeller<IGqlpInputBase, InputBaseModel>()
+      .AddAlternateModeller<IGqlpOutputBase, OutputBaseModel>()
+      .AddModeller<IGqlpDualBase, DualBaseModel, DualBaseModeller>()
+      .AddModeller<IGqlpDualField, DualFieldModel, DualFieldModeller>()
+      .AddModeller<IGqlpInputBase, InputBaseModel, InputBaseModeller>()
+      .AddModeller<IGqlpInputField, InputFieldModel, InputFieldModeller>()
+      .AddModeller<IGqlpInputParameter, InputParameterModel, InputParameterModeller>()
+      .AddModeller<IGqlpOutputBase, OutputBaseModel, OutputBaseModeller>()
+      .AddModeller<IGqlpOutputField, OutputFieldModel, OutputFieldModeller>()
+      .AddTypeModeller<IGqlpDualObject, TypeDualModel, DualModeller>()
+      .AddTypeModeller<IGqlpInputObject, TypeInputModel, InputModeller>()
+      .AddTypeModeller<IGqlpOutputObject, TypeOutputModel, OutputModeller>()
     ;
 
   private static IServiceCollection AddModeller<TAst, TModel, TModeller>(this IServiceCollection services)
@@ -79,7 +79,7 @@ public static class AllModellers
       .AddProvider<IModifierModeller, IModeller<IGqlpModifier, CollectionModel>>();
 
   private static IServiceCollection AddAlternateModeller<TObjBaseAst, TObjBase>(this IServiceCollection services)
-    where TObjBaseAst : AstObjectBase<TObjBaseAst>
+    where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>, IEquatable<TObjBaseAst>
     where TObjBase : IObjBaseModel
     => services.AddSingleton<IAlternateModeller<TObjBaseAst, TObjBase>, AlternateModeller<TObjBaseAst, TObjBase>>();
 }

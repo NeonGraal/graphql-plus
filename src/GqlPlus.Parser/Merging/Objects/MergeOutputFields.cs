@@ -1,11 +1,12 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
 internal class MergeOutputFields(
   ILoggerFactory logger,
   IMerge<InputParameterAst> parameters
-) : AstObjectFieldsMerger<OutputFieldAst, OutputBaseAst>(logger)
+) : AstObjectFieldsMerger<OutputFieldAst, IGqlpOutputBase>(logger)
 {
   protected override ITokenMessages CanMergeGroup(IGrouping<string, OutputFieldAst> group)
     => base.CanMergeGroup(group)

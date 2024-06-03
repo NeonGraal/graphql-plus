@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -80,13 +81,16 @@ public abstract class TestObject
 
 public record struct ObjectInput(string Name, string Other);
 
-internal sealed class CheckObject<O, F, R>
-  : BaseAliasedChecks<ObjectInput, O>, ICheckObject
-  where O : AstObject<F, R> where F : AstObjectField<R> where R : AstObjectBase<R>
+internal sealed class CheckObject<TObject, TObjField, TObjBase, TObjBaseAst>
+  : BaseAliasedChecks<ObjectInput, TObject>, ICheckObject
+  where TObject : AstObject<TObjField, TObjBase>
+  where TObjField : AstObjectField<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
 {
-  private readonly IObjectFactories<O, F, R> _factories;
+  private readonly IObjectFactories<TObject, TObjField, TObjBase, TObjBaseAst> _factories;
 
-  internal CheckObject(IObjectFactories<O, F, R> factories, Parser<O>.D parser)
+  internal CheckObject(IObjectFactories<TObject, TObjField, TObjBase, TObjBaseAst> factories, Parser<TObject>.D parser)
     : base(parser)
     => _factories = factories;
 
@@ -183,30 +187,30 @@ internal sealed class CheckObject<O, F, R>
   public void WithParentGenericFieldBad(string name, string parent, string subType, string field, string fieldType)
     => False(name + "{:" + parent + "<" + subType + " " + field + ":" + fieldType + "}");
 
-  public O Object(string name)
+  public TObject Object(string name)
     => _factories.Object(AstNulls.At, name);
 
-  public F ObjField(string field, string fieldType)
+  public TObjField ObjField(string field, string fieldType)
     => _factories.ObjField(AstNulls.At, field, ObjBase(fieldType));
 
-  public F ObjField(string field, R fieldType)
+  public TObjField ObjField(string field, TObjBase fieldType)
     => _factories.ObjField(AstNulls.At, field, fieldType);
 
-  public R ObjBase(string type, string description = "")
+  public TObjBaseAst ObjBase(string type, string description = "")
     => _factories.ObjBase(AstNulls.At, type, description);
 
-  public R ObjBaseWithArgs(string type, string subType)
+  public TObjBase ObjBaseWithArgs(string type, string subType)
     => ObjBase(type) with { TypeArguments = [ObjBase(subType)] };
 
-  public AstAlternate<R> Alternate(string type)
+  public AstAlternate<TObjBase> Alternate(string type)
     => new(ObjBase(type));
 
-  public AstAlternate<R> Alternate(string type, string description)
+  public AstAlternate<TObjBase> Alternate(string type, string description)
     => new(ObjBase(type, description));
 
   protected internal sealed override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";
-  protected internal sealed override O NamedFactory(ObjectInput input)
+  protected internal sealed override TObject NamedFactory(ObjectInput input)
     => Object(input.Name) with { Alternates = [Alternate(input.Other)] };
 }
 

@@ -9,9 +9,9 @@ namespace GqlPlus.Verifying.Schema.Objects;
 internal class VerifyOutputTypes(
   IVerifyAliased<OutputDeclAst> aliased,
   IMerge<OutputFieldAst> mergeFields,
-  IMerge<AstAlternate<OutputBaseAst>> mergeAlternates,
+  IMerge<AstAlternate<IGqlpOutputBase>> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<OutputDeclAst, OutputFieldAst, OutputBaseAst, OutputContext>(aliased, mergeFields, mergeAlternates, logger)
+) : AstObjectVerifier<OutputDeclAst, OutputFieldAst, IGqlpOutputBase, OutputContext>(aliased, mergeFields, mergeAlternates, logger)
 {
   protected override void UsageValue(OutputDeclAst usage, OutputContext context)
   {
@@ -19,9 +19,9 @@ internal class VerifyOutputTypes(
       .Where(f => !string.IsNullOrWhiteSpace(f.Type.EnumValue));
 
     foreach (OutputFieldAst? enumField in enumFields) {
-      if (string.IsNullOrWhiteSpace(enumField.Type.Name)) {
+      if (string.IsNullOrWhiteSpace(enumField.Type.TypeName)) {
         if (context.GetEnumValue(enumField.Type.EnumValue!, out string? enumType)) {
-          enumField.Type.Name = enumType!;
+          ((OutputBaseAst)enumField.Type).Name = enumType!;
         } else {
           context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.Type.EnumValue}' not defined");
         }

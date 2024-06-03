@@ -1,4 +1,6 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
@@ -7,16 +9,20 @@ internal class AstAlternatesMerger<TAlternate, TObjBase>(
   ILoggerFactory logger
 ) : AstDescribedMerger<TAlternate>(logger)
   where TAlternate : AstAlternate<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   protected override TAlternate MergeGroup(IEnumerable<TAlternate> group)
   {
     TAlternate first = group.First();
-    return first with { Type = first.Type with { Description = group.MergeDescriptions() } };
+    if (first.Type is IAstSetDescription descrType) {
+      descrType.MakeDescription(group);
+    }
+
+    return first;
   }
 
   protected override string ItemGroupKey(TAlternate item)
-    => item.Type.FullName;
+    => item.Type.FullType;
 
   protected override string ItemMatchName => "Modifiers";
   protected override string ItemMatchKey(TAlternate item)
@@ -26,5 +32,5 @@ internal class AstAlternatesMerger<TAlternate, TObjBase>(
 internal class AlternatesMerger<TObjBase>(
   ILoggerFactory logger
 ) : AstAlternatesMerger<AstAlternate<TObjBase>, TObjBase>(logger)
-  where TObjBase : AstObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 { }

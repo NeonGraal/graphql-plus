@@ -42,4 +42,6 @@ public sealed record class OutputBaseAst(
       IsTypeParameter = IsTypeParameter,
       TypeArguments = [.. TypeArguments.Select(a => a.ToDual())],
     };
+  bool IEquatable<IGqlpOutputBase>.Equals(IGqlpOutputBase? other)
+    => Equals(other);
 }

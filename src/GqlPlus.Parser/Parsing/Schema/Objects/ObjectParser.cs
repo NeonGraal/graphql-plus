@@ -13,12 +13,12 @@ internal abstract class ObjectParser<TObject, TObjField, TObjBase>(
   , Parser<TObject>.I
   where TObject : AstObject<TObjField, TObjBase>
   where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 { }
 
 public class ObjectDefinition<TObjField, TObjBase>
   where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   public TObjBase? Parent { get; set; }
   public TObjField[] Fields { get; set; } = [];

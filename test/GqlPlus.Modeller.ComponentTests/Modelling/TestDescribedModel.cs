@@ -25,7 +25,7 @@ public abstract class TestDescribedModel<TName>
 internal abstract class CheckDescribedModel<TName, TAst, TModel>(
   IModeller<TAst, TModel> modeller
 ) : CheckDescribedModel<TName, TAst, TAst, TModel>(modeller)
-  where TAst : AstAbbreviated, IGqlpError, IGqlpDescribed
+  where TAst : IGqlpError, IGqlpDescribed
   where TModel : IRendering
 { }
 

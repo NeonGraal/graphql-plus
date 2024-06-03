@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -31,12 +32,14 @@ public abstract class TestObjectBase
   internal abstract ICheckObjectBase ObjectBaseChecks { get; }
 }
 
-internal sealed class CheckObjectBase<TObjBase>(
-  IObjectBaseFactories<TObjBase> factories, Parser<TObjBase>.D parser
+internal sealed class CheckObjectBase<TObjBase, TObjBaseAst>(
+  IObjectBaseFactories<TObjBaseAst> factories,
+  Parser<TObjBase>.D parser
 ) : OneChecksParser<TObjBase>(parser), ICheckObjectBase
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>
+  where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
 {
-  private readonly IObjectBaseFactories<TObjBase> _factories = factories;
+  private readonly IObjectBaseFactories<TObjBaseAst> _factories = factories;
 
   public void WithMinimum(string name)
     => TrueExpected(name, ObjBase(name));
@@ -60,7 +63,7 @@ internal sealed class CheckObjectBase<TObjBase>(
   public void WithTypeArgumentsNone(string name)
     => False(name + "<>");
 
-  public TObjBase ObjBase(string type)
+  public TObjBaseAst ObjBase(string type)
     => _factories.ObjBase(AstNulls.At, type);
 }
 

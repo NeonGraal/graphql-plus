@@ -5,7 +5,7 @@ namespace GqlPlus.Ast.Schema.Objects;
 
 public sealed record class InputParameterAst(
   TokenAt At,
-  InputBaseAst Type
+  IGqlpInputBase Type
 ) : AstAbbreviated(At)
   , IEquatable<InputParameterAst>
   , IGqlpInputParameter

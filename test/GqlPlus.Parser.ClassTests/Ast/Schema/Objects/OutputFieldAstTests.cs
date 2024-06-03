@@ -1,58 +1,61 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
 
-public class OutputFieldAstTests : AstObjectFieldTests<OutputFieldAst, OutputBaseAst>
+namespace GqlPlus.Ast.Schema.Objects;
+
+public class OutputFieldAstTests
+  : AstObjectFieldTests<OutputFieldAst, IGqlpOutputBase>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithParameter(FieldInput input, string[] parameters)
       => _checks.HashCode(
-        () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() });
+        () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() });
 
   [Theory, RepeatData(Repeats)]
   public void String_WithParameters(FieldInput input, string[] parameters)
     => _checks.Text(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() },
+      () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() },
       $"( !OF {input.Name} ( {parameters.Joined(s => "!Pa " + s)} ) : {input.Type} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithParameter(FieldInput input, string[] parameters)
     => _checks.Equality(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() });
+      () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() });
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenParameters(FieldInput input, string[] parameters1, string[] parameters2)
     => _checks.InequalityBetween(parameters1, parameters2,
-      parameters => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() },
+      parameters => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() },
       parameters1.SequenceEqual(parameters2));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithEnumValue(FieldInput input, string enumValue)
       => _checks.HashCode(
-        () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type) { EnumValue = enumValue }));
+        () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumValue = enumValue }));
 
   [Theory, RepeatData(Repeats)]
   public void String_WithEnumValue(FieldInput input, string enumValue)
     => _checks.Text(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type) { EnumValue = enumValue }),
+      () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumValue = enumValue }),
       $"( !OF {input.Name} = {input.Type}.{enumValue} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithEnumValue(FieldInput input, string enumValue)
     => _checks.Equality(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type) { EnumValue = enumValue }));
+      () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumValue = enumValue }));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenEnumValues(FieldInput input, string enumValue1, string enumValue2)
     => _checks.InequalityBetween(enumValue1, enumValue2,
-      enumValue => new OutputFieldAst(AstNulls.At, input.Name, new(AstNulls.At, input.Type) { EnumValue = enumValue }),
+      enumValue => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumValue = enumValue }),
       enumValue1 == enumValue2);
 
   protected override string AliasesString(FieldInput input, string aliases)
     => $"( !OF {input.Name}{aliases} : {input.Type} )";
 
-  private readonly AstObjectFieldChecks<OutputFieldAst, OutputBaseAst> _checks = new(
+  private readonly AstObjectFieldChecks<OutputFieldAst, IGqlpOutputBase, OutputBaseAst> _checks = new(
           (input, objBase) => new(AstNulls.At, input.Name, objBase),
       input => new(AstNulls.At, input.Type),
       arguments => arguments.OutputBases());
 
-  internal override IAstObjectFieldChecks<OutputFieldAst, OutputBaseAst> FieldChecks => _checks;
+  internal override IAstObjectFieldChecks<OutputFieldAst, IGqlpOutputBase> FieldChecks => _checks;
 }

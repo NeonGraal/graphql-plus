@@ -7,7 +7,7 @@ public abstract class TestObjects<TObject, TObjField, TObjBase>
   : TestTyped<IGqlpType, TObject, TObjBase, TObjField>
   where TObject : AstObject<TObjField, TObjBase>
   where TObjField : AstObjectField<TObjBase>, IGqlpDescribed
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsTypeParametersCantMerge_ReturnsErrors(string name, string[] typeParameters)

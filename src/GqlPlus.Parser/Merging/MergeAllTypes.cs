@@ -38,7 +38,7 @@ internal class MergeAllTypes(
       .Concat(items.OfType<EnumDeclAst>()));
 
     foreach (OutputDeclAst output in items.OfType<OutputDeclAst>()) {
-      foreach (AstAlternate<OutputBaseAst> alternate in output.Alternates) {
+      foreach (AstAlternate<IGqlpOutputBase> alternate in output.Alternates) {
         FixupType(alternate.Type, enumValues);
       }
 
@@ -54,14 +54,14 @@ internal class MergeAllTypes(
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());
 
-  private static void FixupType(OutputBaseAst type, Map<string> enumValues)
+  private static void FixupType(IGqlpOutputBase type, Map<string> enumValues)
   {
-    if (string.IsNullOrWhiteSpace(type.Name)
+    if (string.IsNullOrWhiteSpace(type.Output)
       && enumValues.TryGetValue(type.EnumValue ?? "", out string? enumType)) {
-      type.Name = enumType;
+      ((OutputBaseAst)type).Name = enumType;
     }
 
-    foreach (OutputBaseAst argument in type.TypeArguments) {
+    foreach (IGqlpOutputBase argument in type.TypeArguments) {
       FixupType(argument, enumValues);
     }
   }

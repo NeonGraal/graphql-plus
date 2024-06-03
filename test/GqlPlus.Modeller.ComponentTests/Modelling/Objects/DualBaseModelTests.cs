@@ -1,10 +1,11 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Modelling.Objects;
 
 public class DualBaseModelTests(
-  IModeller<DualBaseAst, DualBaseModel> modeller
-) : TestObjBaseModel<DualBaseAst>
+  IModeller<IGqlpDualBase, DualBaseModel> modeller
+) : TestObjBaseModel<IGqlpDualBase, DualBaseAst>
 {
   internal override ICheckObjBaseModel<DualBaseAst> ObjBaseChecks => _checks;
 
@@ -12,8 +13,8 @@ public class DualBaseModelTests(
 }
 
 internal sealed class DualBaseModelChecks(
-  IModeller<DualBaseAst, DualBaseModel> modeller
-) : CheckObjBaseModel<DualBaseAst, DualBaseModel>(modeller, TypeKindModel.Dual)
+  IModeller<IGqlpDualBase, DualBaseModel> modeller
+) : CheckObjBaseModel<IGqlpDualBase, DualBaseAst, DualBaseModel>(modeller, TypeKindModel.Dual)
 {
   protected override DualBaseAst NewObjBaseAst(string name)
     => new(AstNulls.At, name);

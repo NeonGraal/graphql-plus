@@ -1,4 +1,6 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
@@ -6,7 +8,7 @@ internal class AstObjectFieldsMerger<TObjField, TObjBase>(
   ILoggerFactory logger
 ) : AstAliasedMerger<TObjField>(logger)
   where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   protected override string ItemMatchName => "ModifiedType";
   protected override string ItemMatchKey(TObjField item)
@@ -19,7 +21,10 @@ internal class AstObjectFieldsMerger<TObjField, TObjBase>(
   protected override TObjField MergeGroup(IEnumerable<TObjField> group)
   {
     TObjField result = base.MergeGroup(group);
-    string typeDescription = group.Select(item => item.Type).MergeDescriptions();
-    return result with { Type = result.Type with { Description = typeDescription } };
+    if (result.Type is IAstSetDescription descrType) {
+      descrType.MakeDescription(group.Select(item => item.Type));
+    }
+
+    return result;
   }
 }

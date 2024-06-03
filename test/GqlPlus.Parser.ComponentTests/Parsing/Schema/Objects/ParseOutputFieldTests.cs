@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -78,8 +79,8 @@ public class ParseOutputFieldTests(
 
   internal override ICheckObjectField FieldChecks => _checks;
 
-  private readonly CheckObjectField<OutputFieldAst, OutputBaseAst> _checks = new(new OutputFactories(), parser);
+  private readonly CheckObjectField<OutputFieldAst, IGqlpOutputBase, OutputBaseAst> _checks = new(new OutputFactories(), parser);
 
   private static OutputFieldAst FieldEnum(string name, string enumType, string enumValue)
-    => new(AstNulls.At, name, new(AstNulls.At, enumType) { EnumValue = enumValue });
+    => new(AstNulls.At, name, new OutputBaseAst(AstNulls.At, enumType) { EnumValue = enumValue });
 }

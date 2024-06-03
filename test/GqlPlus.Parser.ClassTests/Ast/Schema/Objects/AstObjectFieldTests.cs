@@ -1,9 +1,11 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+
+namespace GqlPlus.Ast.Schema.Objects;
 
 public abstract class AstObjectFieldTests<TObjField, TObjBase>
   : AstAliasedTests<FieldInput>
   where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithModifiers(FieldInput input)
@@ -38,21 +40,22 @@ public abstract class AstObjectFieldTests<TObjField, TObjBase>
   internal abstract IAstObjectFieldChecks<TObjField, TObjBase> FieldChecks { get; }
 }
 
-internal sealed class AstObjectFieldChecks<TObjField, TObjBase>
+internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
   : AstAliasedChecks<FieldInput, TObjField>
   , IAstObjectFieldChecks<TObjField, TObjBase>
   where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
 {
   private readonly FieldBy _createField;
   private readonly BaseBy _createBase;
   private readonly ArgumentsBy _createArguments;
 
-  internal delegate TObjBase BaseBy(FieldInput input);
+  internal delegate TObjBaseAst BaseBy(FieldInput input);
   internal delegate TObjField FieldBy(FieldInput input, TObjBase refBase);
-  internal delegate TObjBase[] ArgumentsBy(string[] arguments);
+  internal delegate TObjBaseAst[] ArgumentsBy(string[] arguments);
 
-  public AstObjectFieldChecks(FieldBy createField, BaseBy createBase, AstObjectFieldChecks<TObjField, TObjBase>.ArgumentsBy createArguments)
+  public AstObjectFieldChecks(FieldBy createField, BaseBy createBase, AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>.ArgumentsBy createArguments)
     : base(input => createField(input, createBase(input)))
   {
     _createField = createField;
@@ -108,7 +111,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase>
 internal interface IAstObjectFieldChecks<TObjField, TObjBase>
   : IAstAliasedChecks<FieldInput>
   where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   void HashCode_WithModifiers(FieldInput input);
   void String_WithModifiers(FieldInput input);

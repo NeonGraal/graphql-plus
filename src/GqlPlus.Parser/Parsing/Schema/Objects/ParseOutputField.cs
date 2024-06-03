@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -7,16 +8,16 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal class ParseOutputField(
   Parser<string>.DA aliases,
   Parser<IGqlpModifier>.DA modifiers,
-  Parser<OutputBaseAst>.D objBase,
+  Parser<IGqlpOutputBase>.D objBase,
   Parser<InputParameterAst>.DA parameter
-) : ObjectFieldParser<OutputFieldAst, OutputBaseAst>(aliases, modifiers, objBase)
+) : ObjectFieldParser<OutputFieldAst, IGqlpOutputBase>(aliases, modifiers, objBase)
 {
   private readonly Parser<InputParameterAst>.LA _parameter = parameter;
 
   protected override void ApplyFieldParameters(OutputFieldAst field, InputParameterAst[] parameters)
     => field.Parameters = parameters;
 
-  protected override OutputFieldAst ObjField(TokenAt at, string name, string description, OutputBaseAst typeBase)
+  protected override OutputFieldAst ObjField(TokenAt at, string name, string description, IGqlpOutputBase typeBase)
     => new(at, name, description, typeBase);
 
   protected override IResult<OutputFieldAst> FieldDefault<TContext>(TContext tokens, OutputFieldAst field)

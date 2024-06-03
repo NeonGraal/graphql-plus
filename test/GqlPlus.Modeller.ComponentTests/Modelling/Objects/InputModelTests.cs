@@ -1,34 +1,35 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Modelling.Objects;
 
 public class InputModelTests(
-  IModeller<InputDeclAst, TypeInputModel> modeller
-) : TestObjectModel<InputDeclAst, InputFieldAst, InputBaseAst>
+  IModeller<IGqlpInputObject, TypeInputModel> modeller
+) : TestObjectModel<InputDeclAst, InputFieldAst, IGqlpInputBase, InputBaseAst>
 {
-  internal override ICheckObjectModel<InputDeclAst, InputFieldAst, InputBaseAst> ObjectChecks => _checks;
+  internal override ICheckObjectModel<InputDeclAst, InputFieldAst, IGqlpInputBase> ObjectChecks => _checks;
 
   private readonly InputModelChecks _checks = new(modeller);
 }
 
 internal sealed class InputModelChecks(
-  IModeller<InputDeclAst, TypeInputModel> modeller
-) : CheckObjectModel<InputDeclAst, InputFieldAst, InputBaseAst, TypeInputModel>(modeller, TypeKindModel.Input)
+  IModeller<IGqlpInputObject, TypeInputModel> modeller
+) : CheckObjectModel<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputBase, TypeInputModel>(modeller, TypeKindModel.Input)
 {
   protected override InputDeclAst NewObjectAst(
     string name,
-    InputBaseAst? parent,
+    IGqlpInputBase? parent,
     string? description,
     string[]? aliases,
     FieldInput[] fields,
     string[] alternates)
     => new(AstNulls.At, name, description ?? "") {
       Aliases = aliases ?? [],
-      Parent = parent,
+      Parent = (InputBaseAst?)parent,
       Fields = fields.InputFields(),
       Alternates = alternates.Alternates(NewParentAst),
     };
 
-  internal override InputBaseAst NewParentAst(string input)
-    => new(AstNulls.At, input);
+  internal override IGqlpInputBase NewParentAst(string input)
+    => new InputBaseAst(AstNulls.At, input);
 }

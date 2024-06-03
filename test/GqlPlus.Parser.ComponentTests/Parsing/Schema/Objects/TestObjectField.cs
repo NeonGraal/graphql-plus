@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -18,15 +19,16 @@ public abstract class TestObjectField
   internal sealed override IBaseAliasedChecks<FieldInput> AliasChecks => FieldChecks;
 }
 
-internal sealed class CheckObjectField<TObjField, TObjBase>
+internal sealed class CheckObjectField<TObjField, TObjBase, TObjBaseAst>
   : BaseAliasedChecks<FieldInput, TObjField>
   , ICheckObjectField
   where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
 {
-  private readonly IObjectFieldFactories<TObjField, TObjBase> _factories;
+  private readonly IObjectFieldFactories<TObjField, TObjBase, TObjBaseAst> _factories;
 
-  internal CheckObjectField(IObjectFieldFactories<TObjField, TObjBase> factories, Parser<TObjField>.D parser)
+  internal CheckObjectField(IObjectFieldFactories<TObjField, TObjBase, TObjBaseAst> factories, Parser<TObjField>.D parser)
     : base(parser)
     => _factories = factories;
 

@@ -10,6 +10,7 @@ public abstract record class AstDescribed(
 ) : AstNamed(At, Name)
   , IEquatable<AstDescribed>
   , IGqlpDescribed
+  , IAstSetDescription
 {
   public string Description { get; internal set; } = Description;
 
@@ -22,4 +23,11 @@ public abstract record class AstDescribed(
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Prepend(Description.Quoted("\""));
+  void IAstSetDescription.SetDescription(string description)
+    => Description = description;
+}
+
+internal interface IAstSetDescription
+{
+  void SetDescription(string description);
 }

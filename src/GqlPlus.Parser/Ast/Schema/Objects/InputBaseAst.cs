@@ -31,4 +31,6 @@ public sealed record class InputBaseAst(
       IsTypeParameter = IsTypeParameter,
       TypeArguments = [.. TypeArguments.Select(a => a.ToDual())],
     };
+  bool IEquatable<IGqlpInputBase>.Equals(IGqlpInputBase? other)
+    => Equals(other);
 }

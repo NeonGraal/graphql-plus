@@ -1,4 +1,4 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -29,14 +29,14 @@ public record class DualFieldModel(
 { }
 
 internal class DualModeller(
-  IAlternateModeller<DualBaseAst, DualBaseModel> alternate,
-  IModeller<DualFieldAst, DualFieldModel> objField,
-  IModeller<DualBaseAst, DualBaseModel> objBase
-) : ModellerObject<DualDeclAst, DualBaseAst, DualFieldAst, TypeDualModel, DualBaseModel, DualFieldModel>(TypeKindModel.Dual, alternate, objField, objBase)
+  IAlternateModeller<IGqlpDualBase, DualBaseModel> alternate,
+  IModeller<IGqlpDualField, DualFieldModel> objField,
+  IModeller<IGqlpDualBase, DualBaseModel> objBase
+) : ModellerObject<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, TypeDualModel, DualBaseModel, DualFieldModel>(TypeKindModel.Dual, alternate, objField, objBase)
 {
-  protected override TypeDualModel ToModel(DualDeclAst ast, IMap<TypeKindModel> typeKinds)
+  protected override TypeDualModel ToModel(IGqlpDualObject ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name) {
-      Aliases = ast.Aliases,
+      Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ParentModel(ast.Parent, typeKinds),
       TypeParameters = TypeParametersModels(ast.TypeParameters),
@@ -46,10 +46,10 @@ internal class DualModeller(
 }
 
 internal class DualBaseModeller
-  : ModellerObjBase<DualBaseAst, DualBaseModel>
+  : ModellerObjBase<IGqlpDualBase, DualBaseModel>
 {
-  protected override DualBaseModel ToModel(DualBaseAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
+  protected override DualBaseModel ToModel(IGqlpDualBase ast, IMap<TypeKindModel> typeKinds)
+    => new(ast.Dual) {
       IsTypeParameter = ast.IsTypeParameter,
       TypeArguments = ModelArguments(ast, typeKinds),
     };
@@ -57,9 +57,9 @@ internal class DualBaseModeller
 
 internal class DualFieldModeller(
   IModifierModeller modifier,
-  IModeller<DualBaseAst, DualBaseModel> refBase
-) : ModellerObjField<DualBaseAst, DualFieldAst, DualBaseModel, DualFieldModel>(modifier, refBase)
+  IModeller<IGqlpDualBase, DualBaseModel> objBase
+) : ModellerObjField<IGqlpDualBase, IGqlpDualField, DualBaseModel, DualFieldModel>(modifier, objBase)
 {
-  protected override DualFieldModel FieldModel(DualFieldAst ast, ObjRefModel<DualBaseModel> type, IMap<TypeKindModel> typeKinds)
+  protected override DualFieldModel FieldModel(IGqlpDualField ast, ObjRefModel<DualBaseModel> type, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, type);
 }

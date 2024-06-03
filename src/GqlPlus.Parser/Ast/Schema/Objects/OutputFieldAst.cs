@@ -7,8 +7,8 @@ public sealed record class OutputFieldAst(
   TokenAt At,
   string Name,
   string Description,
-  OutputBaseAst Type
-) : AstObjectField<OutputBaseAst>(At, Name, Description, Type)
+  IGqlpOutputBase Type
+) : AstObjectField<IGqlpOutputBase>(At, Name, Description, Type)
   , IEquatable<OutputFieldAst>
   , IGqlpOutputField
 {
@@ -19,7 +19,7 @@ public sealed record class OutputFieldAst(
   IEnumerable<IGqlpInputParameter> IGqlpOutputField.Parameters => Parameters;
   IGqlpOutputBase IGqlpObjectField<IGqlpOutputBase>.Type => Type;
 
-  public OutputFieldAst(TokenAt at, string name, OutputBaseAst typeBase)
+  public OutputFieldAst(TokenAt at, string name, IGqlpOutputBase typeBase)
     : this(at, name, "", typeBase) { }
 
   public bool Equals(OutputFieldAst? other)

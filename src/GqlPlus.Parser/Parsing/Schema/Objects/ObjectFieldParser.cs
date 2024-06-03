@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -8,7 +9,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public abstract class ObjectFieldParser<TObjField, TObjBase>
   : Parser<TObjField>.I
   where TObjField : AstObjectField<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   private readonly Parser<string>.LA _aliases;
   private readonly Parser<IGqlpModifier>.LA _modifiers;

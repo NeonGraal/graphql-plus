@@ -1,6 +1,8 @@
 ﻿using System.Runtime.CompilerServices;
+
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -192,6 +194,20 @@ public static class MergeExtensions
     }
 
     return result.OrderBy(i => i.Index).Select(i => i.Item);
+  }
+
+  internal static TDescr MakeDescription<TDescr, TItem>(this TDescr descr, IEnumerable<TItem> items)
+    where TDescr : IAstSetDescription
+    where TItem : IGqlpDescribed
+  {
+    string? description = items
+      .Select(item => item.Description)
+      .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr));
+    if (!string.IsNullOrWhiteSpace(description)) {
+      descr.SetDescription(description);
+    }
+
+    return descr;
   }
 
   public static string MergeDescriptions<TItem>(this IEnumerable<TItem> items)

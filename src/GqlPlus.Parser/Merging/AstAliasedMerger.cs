@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 
 namespace GqlPlus.Merging;
@@ -44,11 +45,12 @@ internal abstract class AstAliasedMerger<TItem>(
   protected override TItem MergeGroup(IEnumerable<TItem> group)
   {
     TItem[] list = group.ToArray();
-    string description = list.MergeDescriptions();
-    string[] aliases = list.SelectMany(item => item.Aliases).Distinct().ToArray();
-
     TItem result = list.First();
-    result.SetAliases(aliases, description);
+    if (result is IAstSetAliases setAliases) {
+      setAliases.SetAliases(list.SelectMany(item => item.Aliases).Distinct());
+      setAliases.MakeDescription(list);
+    }
+
     return result;
   }
 }

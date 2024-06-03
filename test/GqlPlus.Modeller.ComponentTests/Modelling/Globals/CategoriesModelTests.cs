@@ -57,8 +57,7 @@ internal sealed class CategoriesModelChecks(
     => new CategoriesModel() { Category = _modeller.ToModel((CategoryDeclAst)ast, TypeKinds) };
 
   internal CategoriesModel ToModel(CategoryDeclAst? ast, string output)
-    => new()
-    {
+    => new() {
       Category = _modeller.TryModel(ast, TypeKinds),
       Type = string.IsNullOrWhiteSpace(output) ? null : typeOutput.ToModel(new OutputDeclAst(AstNulls.At, output), TypeKinds),
     };

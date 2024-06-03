@@ -53,8 +53,7 @@ internal sealed class CheckObjectBase<TObjBase, TObjBaseAst>(
   public void WithTypeArguments(string name, string[] objBases)
     => TrueExpected(
       name + "<" + objBases.Joined() + ">",
-      ObjBase(name) with
-      {
+      ObjBase(name) with {
         TypeArguments = [.. objBases.Select(ObjBase)]
       });
 

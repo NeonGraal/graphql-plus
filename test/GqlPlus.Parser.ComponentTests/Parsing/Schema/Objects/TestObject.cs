@@ -100,16 +100,14 @@ internal sealed class CheckObject<TObject, TObjField, TObjBase, TObjBaseAst>
   public void WithAlternates(string name, string[] others)
     => TrueExpected(
       name + "{" + others.Joined(s => "|" + s) + "}",
-       Object(name) with
-       {
+       Object(name) with {
          Alternates = [.. others.Select(Alternate)],
        });
 
   public void WithFieldsAndAlternates(string name, FieldInput[] fields, string[] others)
     => TrueExpected(
       name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + others.Joined(s => "|" + s) + "}",
-       Object(name) with
-       {
+       Object(name) with {
          Fields = [.. fields.Select(f => ObjField(f.Name, f.Type))],
          Alternates = [.. others.Select(Alternate)],
        });
@@ -123,16 +121,14 @@ internal sealed class CheckObject<TObject, TObjField, TObjBase, TObjBaseAst>
   public void WithAlternateComments(string name, AlternateComment[] others)
     => TrueExpected(
       name + "{" + others.Select(o => $"|'{o.Content}'{o.Alternate}").Joined() + "}",
-       Object(name) with
-       {
+       Object(name) with {
          Alternates = [.. others.Select(o => Alternate(o.Alternate, o.Content))],
        });
 
   public void WithAlternateModifiers(string name, string[] others)
     => TrueExpected(
       name + "{" + others.Joined(a => $"|{a}[][String]") + "}",
-       Object(name) with
-       {
+       Object(name) with {
          Alternates = [.. others.Select(a => Alternate(a) with { Modifiers = TestCollections() })],
        });
 
@@ -142,8 +138,7 @@ internal sealed class CheckObject<TObject, TObjField, TObjBase, TObjBaseAst>
   public void WithTypeParameters(string name, string other, string[] parameters)
     => TrueExpected(
       name + "<" + parameters.Joined(s => "$" + s) + ">{|" + other + "}",
-       Object(name) with
-       {
+       Object(name) with {
          Alternates = [Alternate(other)],
          TypeParameters = parameters.TypeParameters(),
        });
@@ -163,8 +158,7 @@ internal sealed class CheckObject<TObject, TObjField, TObjBase, TObjBaseAst>
   public void WithFields(string name, FieldInput[] fields)
     => TrueExpected(
       name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "}",
-       Object(name) with
-       {
+       Object(name) with {
          Fields = [.. fields.Select(f => ObjField(f.Name, f.Type))],
        });
 
@@ -174,8 +168,7 @@ internal sealed class CheckObject<TObject, TObjField, TObjBase, TObjBaseAst>
   public void WithParentField(string name, string parent, string field, string fieldType)
     => TrueExpected(
       name + "{:" + parent + " " + field + ":" + fieldType + "}",
-       Object(name) with
-       {
+       Object(name) with {
          Fields = [ObjField(field, fieldType)],
          Parent = ObjBase(parent),
        });
@@ -186,8 +179,7 @@ internal sealed class CheckObject<TObject, TObjField, TObjBase, TObjBaseAst>
   public void WithParentGenericField(string name, string parent, string subType, string field, string fieldType)
     => TrueExpected(
       name + "{:" + parent + "<" + subType + ">" + field + ":" + fieldType + "}",
-       Object(name) with
-       {
+       Object(name) with {
          Fields = [ObjField(field, fieldType)],
          Parent = ObjBaseWithArgs(parent, subType),
        });

@@ -21,19 +21,16 @@ public class ParseAlternates<TObjBase>(
     ArgumentNullException.ThrowIfNull(tokens);
 
     List<AstAlternate<TObjBase>> result = [];
-    while (tokens.Take('|'))
-    {
+    while (tokens.Take('|')) {
       IResult<TObjBase> objBase = _objBase.Parse(tokens, label);
-      if (!objBase.IsOk())
-      {
+      if (!objBase.IsOk()) {
         return objBase.AsPartialArray(result);
       }
 
       AstAlternate<TObjBase> alternate = new(objBase.Required());
       result.Add(alternate);
       IResultArray<IGqlpModifier> collections = _collections.Value.Parse(tokens, label);
-      if (!collections.Optional(value => alternate.Modifiers = value.ArrayOf<ModifierAst>()))
-      {
+      if (!collections.Optional(value => alternate.Modifiers = value.ArrayOf<ModifierAst>())) {
         return collections.AsPartialArray(result);
       }
     }

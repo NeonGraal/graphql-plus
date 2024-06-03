@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -60,8 +59,7 @@ internal class InputModeller(
 ) : ModellerObject<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, TypeInputModel, InputBaseModel, InputFieldModel>(TypeKindModel.Input, alternate, objField, objBase)
 {
   protected override TypeInputModel ToModel(IGqlpInputObject ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name)
-    {
+    => new(ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ParentModel(ast.Parent, typeKinds),
@@ -77,12 +75,10 @@ internal class InputBaseModeller(
 {
   protected override InputBaseModel ToModel(IGqlpInputBase ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Input, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new(ast.Input)
-    {
+    ? new(ast.Input) {
       Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
-    : new(ast.Input)
-    {
+    : new(ast.Input) {
       IsTypeParameter = ast.IsTypeParameter,
       TypeArguments = ModelArguments(ast, typeKinds),
     };
@@ -95,8 +91,7 @@ internal class InputFieldModeller(
 ) : ModellerObjField<IGqlpInputBase, IGqlpInputField, InputBaseModel, InputFieldModel>(modifier, refBase)
 {
   protected override InputFieldModel FieldModel(IGqlpInputField ast, ObjRefModel<InputBaseModel> type, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, type)
-    {
+    => new(ast.Name, type) {
       Default = constant.TryModel(ast.DefaultValue, typeKinds),
     };
 }
@@ -110,8 +105,7 @@ internal class InputParameterModeller(
   protected override InputParameterModel ToModel(IGqlpInputParameter ast, IMap<TypeKindModel> typeKinds)
   {
     InputBaseModel typeModel = objBase.ToModel(ast.Type, typeKinds);
-    return new(new(new(typeModel)) { Description = ast.Type.Description })
-    {
+    return new(new(new(typeModel)) { Description = ast.Type.Description }) {
       Modifiers = modifier.ToModels<ModifierModel>(ast.Modifiers, typeKinds),
       DefaultValue = constant.TryModel(ast.DefaultValue, typeKinds),
     };

@@ -11,8 +11,7 @@ public class ParseOutputBaseTests(
   public void WithArgumentEnumValues_ReturnsCorrectAst(string name, string enumType, string[] enumValues)
     => _checks.TrueExpected(
       name + "<" + enumValues.Joined(s => enumType + "." + s) + ">",
-      _checks.ObjBase(name) with
-      {
+      _checks.ObjBase(name) with {
         TypeArguments = [.. enumValues.Select(enumValue => _checks.ObjBase(enumType) with { EnumValue = enumValue })]
       });
 

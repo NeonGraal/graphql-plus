@@ -13,8 +13,7 @@ internal class ParseOutput(
 ) : ObjectParser<OutputDeclAst, OutputFieldAst, IGqlpOutputBase>(name, param, aliases, option, definition)
 {
   protected override OutputDeclAst MakeResult(AstPartial<IGqlpTypeParameter, NullOption> partial, ObjectDefinition<OutputFieldAst, IGqlpOutputBase> value)
-    => new(partial.At, partial.Name, partial.Description)
-    {
+    => new(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
       TypeParameters = partial.Parameters.ArrayOf<TypeParameterAst>(),
       Parent = value.Parent,
@@ -23,8 +22,7 @@ internal class ParseOutput(
     };
 
   protected override OutputDeclAst ToResult(AstPartial<IGqlpTypeParameter, NullOption> partial)
-    => new(partial.At, partial.Name, partial.Description)
-    {
+    => new(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
       TypeParameters = partial.Parameters.ArrayOf<TypeParameterAst>(),
     };

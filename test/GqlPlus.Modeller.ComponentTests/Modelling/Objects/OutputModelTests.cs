@@ -23,8 +23,7 @@ internal sealed class OutputModelChecks(
     string[]? aliases,
     FieldInput[] fields,
     string[] alternates)
-    => new(AstNulls.At, name, description ?? "")
-    {
+    => new(AstNulls.At, name, description ?? "") {
       Aliases = aliases ?? [],
       Parent = (OutputBaseAst?)parent,
       Fields = fields.OutputFields(),

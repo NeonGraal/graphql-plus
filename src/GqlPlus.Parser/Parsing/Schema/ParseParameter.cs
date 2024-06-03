@@ -21,32 +21,27 @@ internal class ParseParameters(
   {
     List<InputParameterAst> list = [];
 
-    if (!tokens.Take('('))
-    {
+    if (!tokens.Take('(')) {
       return list.EmptyArray();
     }
 
-    while (!tokens.Take(')'))
-    {
+    while (!tokens.Take(')')) {
       TokenAt at = tokens.At;
       IResult<IGqlpInputBase> input = _input.Parse(tokens, label);
-      if (!input.IsOk())
-      {
+      if (!input.IsOk()) {
         return tokens.ErrorArray("Parameter", "input reference after '('", list);
       }
 
       InputParameterAst parameter = new(at, input.Required());
       list.Add(parameter);
       IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Parameter");
-      if (modifiers.IsError())
-      {
+      if (modifiers.IsError()) {
         return modifiers.AsResultArray(list);
       }
 
       modifiers.Optional(value => parameter.Modifiers = value.ArrayOf<ModifierAst>());
       IResult<IGqlpConstant> constant = _default.I.Parse(tokens, "Default");
-      if (constant.IsError())
-      {
+      if (constant.IsError()) {
         return constant.AsResultArray(list);
       }
 

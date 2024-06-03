@@ -26,8 +26,7 @@ internal abstract class AstAliasedMerger<TItem>(
     IEnumerable<string> distinct = group
       .Select(pair => ItemGroupKey(pair.item))
       .Distinct();
-    if (distinct.Count() == 1)
-    {
+    if (distinct.Count() == 1) {
       return Messages();
     }
 
@@ -47,8 +46,7 @@ internal abstract class AstAliasedMerger<TItem>(
   {
     TItem[] list = group.ToArray();
     TItem result = list.First();
-    if (result is IAstSetAliases setAliases)
-    {
+    if (result is IAstSetAliases setAliases) {
       setAliases.SetAliases(list.SelectMany(item => item.Aliases).Distinct());
       setAliases.MakeDescription(list);
     }

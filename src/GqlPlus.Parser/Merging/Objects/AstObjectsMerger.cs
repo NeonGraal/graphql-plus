@@ -32,8 +32,7 @@ internal abstract class AstObjectsMerger<TObject, TObjField, TObjBase>(
     IEnumerable<IGqlpTypeParameter> typeParametersAsts = group.ManyMerge(item => item.TypeParameters, typeParameters);
     IEnumerable<AstAlternate<TObjBase>> alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
 
-    return base.MergeGroup(group) with
-    {
+    return base.MergeGroup(group) with {
       TypeParameters = typeParametersAsts.ArrayOf<TypeParameterAst>(),
       Alternates = [.. alternateAsts],
     };

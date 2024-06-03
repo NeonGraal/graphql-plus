@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -44,8 +42,7 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
   internal override bool GetParentModel<TModel>(IRenderContext context, [NotNullWhen(true)] out TModel? model)
     where TModel : default
   {
-    if (Parent?.Base.IsTypeParameter == false)
-    {
+    if (Parent?.Base.IsTypeParameter == false) {
       return base.GetParentModel(context, out model);
     }
 
@@ -202,8 +199,7 @@ internal abstract class ModellerObjField<TObjBaseAst, TObjFieldAst, TObjBase, TO
   where TObjField : ObjFieldModel<TObjBase>
 {
   protected override TObjField ToModel(TObjFieldAst field, IMap<TypeKindModel> typeKinds)
-    => FieldModel(field, new(objBase.ToModel(field.Type, typeKinds)), typeKinds) with
-    {
+    => FieldModel(field, new(objBase.ToModel(field.Type, typeKinds)), typeKinds) with {
       Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
     };
 
@@ -219,11 +215,9 @@ internal class AlternateModeller<TObjBaseAst, TObjBase>(
   where TObjBase : IObjBaseModel
 {
   protected override AlternateModel<TObjBase> ToModel(IGqlpAlternate<TObjBaseAst> ast, IMap<TypeKindModel> typeKinds)
-    => new(new(new(BaseModel(ast.Type, typeKinds)))
-    {
+    => new(new(new(BaseModel(ast.Type, typeKinds))) {
       Description = ast.Description
-    })
-    {
+    }) {
       Collections = modifier.ToModels(ast.Modifiers, typeKinds)
     };
 

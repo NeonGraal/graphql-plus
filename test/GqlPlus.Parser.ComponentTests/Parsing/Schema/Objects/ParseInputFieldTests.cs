@@ -11,8 +11,7 @@ public class ParseInputFieldTests(
   public void WithDefault_ReturnsCorrectAst(string name, string fieldType, string content)
     => _checks.TrueExpected(
       name + ":" + fieldType + "='" + content + "'",
-      _checks.Field(name, fieldType) with
-      {
+      _checks.Field(name, fieldType) with {
         DefaultValue = new FieldKeyAst(AstNulls.At, content)
       });
 

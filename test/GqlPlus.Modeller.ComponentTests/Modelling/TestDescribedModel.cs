@@ -8,8 +8,7 @@ public abstract class TestDescribedModel<TName>
   [Theory, RepeatData(Repeats)]
   public void Model_Description(TName name, string contents)
   {
-    if (SkipIf(name))
-    {
+    if (SkipIf(name)) {
       return;
     }
 

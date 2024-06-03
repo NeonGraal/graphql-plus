@@ -24,13 +24,11 @@ internal class MergeInputParameters(
   protected override InputParameterAst MergeGroup(IEnumerable<InputParameterAst> group)
   {
     InputParameterAst first = group.First();
-    if (first.Type is IAstSetDescription descrType)
-    {
+    if (first.Type is IAstSetDescription descrType) {
       descrType.MakeDescription(group);
     }
 
-    return first with
-    {
+    return first with {
       DefaultValue = (ConstantAst?)group.Merge(item => item.DefaultValue, constant).FirstOrDefault(),
     };
   }

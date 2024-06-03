@@ -53,8 +53,7 @@ public static class BuiltIn
   public static IEnumerable<object[]> AllInternal()
     => Internal.Select(b => new object[] { b });
 
-  internal static Map<string> EnumValues = new()
-  {
+  internal static Map<string> EnumValues = new() {
     ["_"] = "Unit",
     ["null"] = "Null",
     ["true"] = "Boolean",
@@ -74,10 +73,8 @@ public static class BuiltIn
     => new(AstNulls.At, DualRef(type, args));
 
   private static AstAlternate<IGqlpDualBase> DualAlt(string? key)
-    => new(AstNulls.At, DualParam("T"))
-    {
-      Modifiers = key switch
-      {
+    => new(AstNulls.At, DualParam("T")) {
+      Modifiers = key switch {
         null => [],
         "" => [ModifierAst.List(AstNulls.At)],
         _ => [ModifierAst.Dict(AstNulls.At, key, false)]
@@ -85,10 +82,8 @@ public static class BuiltIn
     };
 
   private static AstAlternate<IGqlpDualBase> DualMost(string key, bool optional = false)
-    => new(AstNulls.At, DualRef("_Most", DualParam("T")))
-    {
-      Modifiers = key switch
-      {
+    => new(AstNulls.At, DualRef("_Most", DualParam("T"))) {
+      Modifiers = key switch {
         "" => [optional ? ModifierAst.Optional(AstNulls.At) : ModifierAst.List(AstNulls.At)],
         _ => [ModifierAst.Dict(AstNulls.At, key, optional)]
       }
@@ -101,8 +96,7 @@ public static class BuiltIn
     => DualRef(name) with { IsTypeParameter = true };
 
   private static DualBaseAst DualDict(string type, bool paramSecond = false)
-    => DualRef("_Dict") with
-    {
+    => DualRef("_Dict") with {
       TypeArguments = [
         paramSecond ? DualParam("K") : DualRef(type),
         paramSecond ? DualRef(type) : DualParam("T")

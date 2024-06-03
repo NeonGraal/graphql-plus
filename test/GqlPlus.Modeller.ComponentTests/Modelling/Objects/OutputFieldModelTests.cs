@@ -10,8 +10,7 @@ public class OutputFieldModelTests(
   [Theory, RepeatData(Repeats)]
   public void Model_EnumValue(FieldInput input, string enumValue)
     => FieldChecks.Field_Expected(
-      FieldChecks.FieldAst(input) with
-      {
+      FieldChecks.FieldAst(input) with {
         Type = _checks.NewObjBaseAst(input.Type) with { EnumValue = enumValue }
       },
       _checks.ExpectedEnum(input, enumValue)

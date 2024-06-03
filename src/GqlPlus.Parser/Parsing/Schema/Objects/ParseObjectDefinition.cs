@@ -22,11 +22,9 @@ public class ParseObjectDefinition<TObjField, TObjBase>(
   {
     ArgumentNullException.ThrowIfNull(tokens);
     ObjectDefinition<TObjField, TObjBase> result = new();
-    if (tokens.Take(':'))
-    {
+    if (tokens.Take(':')) {
       IResult<TObjBase> objBase = _objBase.Parse(tokens, label);
-      if (objBase.IsError())
-      {
+      if (objBase.IsError()) {
         return objBase.AsResult(result);
       }
 
@@ -35,16 +33,13 @@ public class ParseObjectDefinition<TObjField, TObjBase>(
 
     List<TObjField> fields = [];
     IResult<TObjField> objectField = _objField.Parse(tokens, label);
-    if (objectField.IsError())
-    {
+    if (objectField.IsError()) {
       return objectField.AsPartial(result);
     }
 
-    while (objectField.Required(fields.Add))
-    {
+    while (objectField.Required(fields.Add)) {
       objectField = _objField.Parse(tokens, label);
-      if (objectField.IsError())
-      {
+      if (objectField.IsError()) {
         return objectField.AsPartial(result, fields.Add, () =>
           result.Fields = [.. fields]);
       }

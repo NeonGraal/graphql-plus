@@ -13,8 +13,7 @@ internal class ParseDual(
 ) : ObjectParser<DualDeclAst, DualFieldAst, IGqlpDualBase>(name, param, aliases, option, definition)
 {
   protected override DualDeclAst MakeResult(AstPartial<IGqlpTypeParameter, NullOption> partial, ObjectDefinition<DualFieldAst, IGqlpDualBase> value)
-    => new(partial.At, partial.Name, partial.Description)
-    {
+    => new(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
       TypeParameters = partial.Parameters.ArrayOf<TypeParameterAst>(),
       Parent = value.Parent,
@@ -23,8 +22,7 @@ internal class ParseDual(
     };
 
   protected override DualDeclAst ToResult(AstPartial<IGqlpTypeParameter, NullOption> partial)
-    => new(partial.At, partial.Name, partial.Description)
-    {
+    => new(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
       TypeParameters = partial.Parameters.ArrayOf<TypeParameterAst>(),
     };

@@ -23,8 +23,7 @@ internal sealed class InputModelChecks(
     string[]? aliases,
     FieldInput[] fields,
     string[] alternates)
-    => new(AstNulls.At, name, description ?? "")
-    {
+    => new(AstNulls.At, name, description ?? "") {
       Aliases = aliases ?? [],
       Parent = (InputBaseAst?)parent,
       Fields = fields.InputFields(),

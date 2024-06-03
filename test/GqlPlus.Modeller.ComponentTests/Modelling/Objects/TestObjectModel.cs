@@ -24,8 +24,7 @@ public abstract class TestObjectModel<TObjectAst, TObjFieldAst, TObjBase, TObjBa
     => ObjectChecks
       .AddTypeKinds(TypeKindModel.Dual, parent)
       .ObjectExpected(
-        ObjectChecks.ObjectAst(name, [], []) with
-        {
+        ObjectChecks.ObjectAst(name, [], []) with {
           Parent = (TObjBaseAst)TypeChecks.ParentAst(parent) with { IsTypeParameter = true }
         },
         new(name, parent), ObjectChecks.TypeParameterParent);
@@ -47,8 +46,7 @@ public abstract class TestObjectModel<TObjectAst, TObjFieldAst, TObjBase, TObjBa
   [Theory, RepeatData(Repeats)]
   public void Model_AlternateTypeParameter(string name, string alternate)
     => ObjectChecks.ObjectExpected(
-      ObjectChecks.ObjectAst(name, [], []) with
-      {
+      ObjectChecks.ObjectAst(name, [], []) with {
         Alternates = [new((TObjBaseAst)TypeChecks.ParentAst(alternate) with { IsTypeParameter = true })]
       },
       new(name, alternates: [alternate]),
@@ -112,8 +110,7 @@ public abstract class TestObjectModel<TObjectAst, TObjFieldAst, TObjBase, TObjBa
   [Theory, RepeatData(Repeats)]
   public void Model_All(string name, string contents, string parent, string[] aliases, FieldInput[] fields, string[] alternates, string[] typeParameters)
     => ObjectChecks.ObjectExpected(
-      ObjectChecks.ObjectAst(name, fields, alternates) with
-      {
+      ObjectChecks.ObjectAst(name, fields, alternates) with {
         Aliases = aliases,
         Description = contents,
         Parent = (TObjBaseAst)ObjectChecks.ParentAst(parent),
@@ -186,8 +183,7 @@ internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFie
     => [$"- !_Alternate(_{TypeKind}Base)", "  type: !_TypeParameter " + alternate];
 
   private ToExpected<TInput> ExpectedObject<TInput>(string name, ToExpected<TInput> expectedField)
-    => f =>
-    {
+    => f => {
       string[] field = expectedField(f).ToArray();
 
       string first = "- !_ObjectFor(" + field[0][3..] + ")";

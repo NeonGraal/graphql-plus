@@ -18,15 +18,12 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst>
     where TContext : Tokenizer
   {
     tokens.String(out string? description);
-    if (!tokens.Prefix('$', out string? param, out TokenAt? at))
-    {
+    if (!tokens.Prefix('$', out string? param, out TokenAt? at)) {
       return tokens.Error<TObjBaseAst>(label, "identifier after '$'");
     }
 
-    if (param is not null)
-    {
-      TObjBaseAst objBase = ObjBase(at, param, description) with
-      {
+    if (param is not null) {
+      TObjBaseAst objBase = ObjBase(at, param, description) with {
         IsTypeParameter = true,
       };
       return objBase.Ok();
@@ -34,29 +31,23 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst>
 
     at = tokens.At;
 
-    if (tokens.Identifier(out string? name))
-    {
+    if (tokens.Identifier(out string? name)) {
       TObjBaseAst objBase = ObjBase(at, name, description);
-      if (tokens.Take('<'))
-      {
+      if (tokens.Take('<')) {
         List<TObjBaseAst> arguments = [];
         IResult<TObjBaseAst> argument = ParseObjectBase(tokens, label, isTypeArgument: true);
-        while (argument.Required(arguments.Add))
-        {
+        while (argument.Required(arguments.Add)) {
           argument = ParseObjectBase(tokens, label, isTypeArgument: true);
         }
 
         objBase.TypeArguments = [.. arguments];
 
-        if (!tokens.Take('>'))
-        {
+        if (!tokens.Take('>')) {
           return tokens.Error(label, "'>' after type argument(s)", objBase);
-        } else if (arguments.Count < 1)
-        {
+        } else if (arguments.Count < 1) {
           return tokens.Error(label, "at least one type argument after '<'", objBase);
         }
-      } else if (isTypeArgument)
-      {
+      } else if (isTypeArgument) {
         return TypeEnumValue(tokens, objBase);
       }
 

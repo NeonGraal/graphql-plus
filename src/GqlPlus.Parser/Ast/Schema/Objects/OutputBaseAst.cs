@@ -38,8 +38,7 @@ public sealed record class OutputBaseAst(
     }.Concat(TypeArguments.Bracket("<", ">"));
 
   public DualBaseAst ToDual()
-    => new(At, Name, Description)
-    {
+    => new(At, Name, Description) {
       IsTypeParameter = IsTypeParameter,
       TypeArguments = [.. TypeArguments.Select(a => a.ToDual())],
     };

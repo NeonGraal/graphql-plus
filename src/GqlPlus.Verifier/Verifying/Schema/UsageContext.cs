@@ -21,8 +21,7 @@ public class UsageContext(
 
   internal bool GetType(string? type, out IGqlpDescribed? value)
   {
-    if (types.TryGetValue(type ?? "", out value))
-    {
+    if (types.TryGetValue(type ?? "", out value)) {
       Used.Add(type!);
       return true;
     }
@@ -38,14 +37,12 @@ public class UsageContext(
   internal bool DifferentName<TAst>(ParentUsage<TAst> input, string? current)
     where TAst : IGqlpType
   {
-    if (input.DifferentName)
-    {
+    if (input.DifferentName) {
       return true;
     }
 
     string message = $"'{input.UsageName}' cannot be {input.Label} of itself";
-    if (current is not null)
-    {
+    if (current is not null) {
       message += $", even recursively via {current}";
     }
 
@@ -74,18 +71,13 @@ internal static class UsageHelpers
   internal static TContext CheckModifiers<TContext>(this TContext context, IGqlpModifiers modified)
     where TContext : UsageContext
   {
-    foreach (IGqlpModifier modifier in modified.Modifiers)
-    {
-      if (modifier.ModifierKind == ModifierKind.Dict)
-      {
-        if (context.GetType(modifier.Key, out IGqlpDescribed? key))
-        {
-          if (key is not AstSimple and not TypeParameterAst)
-          {
+    foreach (IGqlpModifier modifier in modified.Modifiers) {
+      if (modifier.ModifierKind == ModifierKind.Dict) {
+        if (context.GetType(modifier.Key, out IGqlpDescribed? key)) {
+          if (key is not AstSimple and not TypeParameterAst) {
             context.AddError((AstAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");
           }
-        } else
-        {
+        } else {
           context.AddError((AstAbbreviated)modified, "Modifier", $"'{modifier.Key}' not defined");
         }
       }
@@ -98,29 +90,23 @@ internal static class UsageHelpers
     where TContext : UsageContext
     where TObjBase : IGqlpObjectBase<TObjBase>
   {
-    if (context.GetType(type.TypeName, out IGqlpDescribed? value))
-    {
+    if (context.GetType(type.TypeName, out IGqlpDescribed? value)) {
       int numArgs = type.TypeArguments.Count();
-      if (value is IGqlpObject definition)
-      {
-        if (check && definition.Label != "Dual" && definition.Label != type.Label)
-        {
+      if (value is IGqlpObject definition) {
+        if (check && definition.Label != "Dual" && definition.Label != type.Label) {
           context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.TypeName}. Found {definition.Label}");
         }
 
         int numParams = definition.TypeParameters.Count();
-        if (numParams != numArgs)
-        {
+        if (numParams != numArgs) {
           context.AddError(type, type.Label + labelSuffix, $"Arguments mismatch, expected {numParams} given {numArgs}");
         }
       }
-    } else if (check)
-    {
+    } else if (check) {
       context.AddError(type, type.Label + labelSuffix, $"'{type.TypeName}' not defined");
     }
 
-    foreach (TObjBase arg in type.TypeArguments)
-    {
+    foreach (TObjBase arg in type.TypeArguments) {
       context.CheckArgumentType(arg, labelSuffix);
     }
 

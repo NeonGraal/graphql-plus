@@ -21,8 +21,7 @@ internal class MergeAllTypes(
 
   public override IEnumerable<IGqlpType> Merge(IEnumerable<IGqlpType> items)
   {
-    if (items is null)
-    {
+    if (items is null) {
       return [];
     }
 
@@ -38,15 +37,12 @@ internal class MergeAllTypes(
       .Concat(BuiltIn.Internal.OfType<EnumDeclAst>())
       .Concat(items.OfType<EnumDeclAst>()));
 
-    foreach (OutputDeclAst output in items.OfType<OutputDeclAst>())
-    {
-      foreach (AstAlternate<IGqlpOutputBase> alternate in output.Alternates)
-      {
+    foreach (OutputDeclAst output in items.OfType<OutputDeclAst>()) {
+      foreach (AstAlternate<IGqlpOutputBase> alternate in output.Alternates) {
         FixupType(alternate.Type, enumValues);
       }
 
-      foreach (OutputFieldAst field in output.Fields)
-      {
+      foreach (OutputFieldAst field in output.Fields) {
         FixupType(field.Type, enumValues);
       }
     }
@@ -61,13 +57,11 @@ internal class MergeAllTypes(
   private static void FixupType(IGqlpOutputBase type, Map<string> enumValues)
   {
     if (string.IsNullOrWhiteSpace(type.Output)
-      && enumValues.TryGetValue(type.EnumValue ?? "", out string? enumType))
-    {
+      && enumValues.TryGetValue(type.EnumValue ?? "", out string? enumType)) {
       ((OutputBaseAst)type).Name = enumType;
     }
 
-    foreach (IGqlpOutputBase argument in type.TypeArguments)
-    {
+    foreach (IGqlpOutputBase argument in type.TypeArguments) {
       FixupType(argument, enumValues);
     }
   }

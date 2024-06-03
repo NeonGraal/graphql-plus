@@ -11,8 +11,7 @@ public class ParseOutputFieldTests(
   public void WithParameters_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
     => _checks.TrueExpected(
       name + "(" + parameters.Joined() + "):" + fieldType,
-      _checks.Field(name, fieldType) with
-      {
+      _checks.Field(name, fieldType) with {
         Parameters = parameters.Parameters()
       });
 
@@ -24,8 +23,7 @@ public class ParseOutputFieldTests(
   public void WithParametersModifiers_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
     => _checks.TrueExpected(
       name + "(" + parameters.Joined(p => p + "[]?") + "):" + fieldType,
-      _checks.Field(name, fieldType) with
-      {
+      _checks.Field(name, fieldType) with {
         Parameters = parameters.Parameters(p => p with { Modifiers = TestMods() })
       });
 
@@ -41,10 +39,8 @@ public class ParseOutputFieldTests(
   public void WithParametersDefault_ReturnsCorrectAst(string name, string fieldType, string[] parameters, string content)
     => _checks.TrueExpected(
       name + "(" + parameters.Joined(p => p + "='" + content + "'") + "):" + fieldType,
-      _checks.Field(name, fieldType) with
-      {
-        Parameters = parameters.Parameters(p => p with
-        {
+      _checks.Field(name, fieldType) with {
+        Parameters = parameters.Parameters(p => p with {
           DefaultValue = new FieldKeyAst(AstNulls.At, content)
         })
       });

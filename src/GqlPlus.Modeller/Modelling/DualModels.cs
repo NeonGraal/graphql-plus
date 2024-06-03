@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -36,8 +35,7 @@ internal class DualModeller(
 ) : ModellerObject<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, TypeDualModel, DualBaseModel, DualFieldModel>(TypeKindModel.Dual, alternate, objField, objBase)
 {
   protected override TypeDualModel ToModel(IGqlpDualObject ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name)
-    {
+    => new(ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ParentModel(ast.Parent, typeKinds),
@@ -51,8 +49,7 @@ internal class DualBaseModeller
   : ModellerObjBase<IGqlpDualBase, DualBaseModel>
 {
   protected override DualBaseModel ToModel(IGqlpDualBase ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Dual)
-    {
+    => new(ast.Dual) {
       IsTypeParameter = ast.IsTypeParameter,
       TypeArguments = ModelArguments(ast, typeKinds),
     };

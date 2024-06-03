@@ -31,36 +31,30 @@ public abstract class ObjectFieldParser<TObjField, TObjBase>
     ArgumentNullException.ThrowIfNull(tokens);
     TokenAt at = tokens.At;
     tokens.String(out string? description);
-    if (!tokens.Identifier(out string? name))
-    {
+    if (!tokens.Identifier(out string? name)) {
       return 0.Empty<TObjField>();
     }
 
     IResultArray<InputParameterAst> hasParameter = FieldParameter(tokens);
-    if (hasParameter.IsError())
-    {
+    if (hasParameter.IsError()) {
       return hasParameter.AsResult<TObjField>();
     }
 
     IResultArray<string> hasAliases = _aliases.Parse(tokens, label);
-    if (hasAliases.IsError())
-    {
+    if (hasAliases.IsError()) {
       return hasAliases.AsResult<TObjField>();
     }
 
     TObjField field = ObjField(at, name, description, ObjBase(at, ""));
 
-    if (tokens.Take(':'))
-    {
+    if (tokens.Take(':')) {
       if (_objBase.Parse(tokens, label).Required(fieldType
         => field = ObjField(at, name, description, fieldType))
-        )
-      {
+        ) {
         hasAliases.WithResult(aliases => field.Aliases = [.. aliases]);
         hasParameter.WithResult(parameter => ApplyFieldParameters(field, [.. parameter]));
         IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
-        if (modifiers.IsError())
-        {
+        if (modifiers.IsError()) {
           return modifiers.AsResult<TObjField>();
         }
 

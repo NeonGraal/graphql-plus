@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -77,8 +76,7 @@ internal class OutputModeller(
 ) : ModellerObject<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, TypeOutputModel, OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, alternate, objField, objBase)
 {
   protected override TypeOutputModel ToModel(IGqlpOutputObject ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name)
-    {
+    => new(ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ParentModel(ast.Parent, typeKinds),
@@ -99,12 +97,10 @@ internal class OutputBaseModeller(
 
   protected override OutputBaseModel ToModel(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Output, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new(ast.Output)
-    {
+    ? new(ast.Output) {
       Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
-    : new(ast.Output)
-    {
+    : new(ast.Output) {
       IsTypeParameter = ast.IsTypeParameter,
       TypeArguments = ModelArguments(ast, typeKinds),
     };
@@ -118,12 +114,10 @@ internal class OutputFieldModeller(
 {
   protected override OutputFieldModel FieldModel(IGqlpOutputField field, ObjRefModel<OutputBaseModel> type, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(field.Type.EnumValue)
-      ? new(field.Name, type)
-      {
+      ? new(field.Name, type) {
         Parameters = parameter.ToModels(field.Parameters, typeKinds),
       }
-      : new(field.Name, null)
-      { // or should it be `type`
+      : new(field.Name, null) { // or should it be `type`
         Enum = new(field.Name, field.Type.Output, field.Type.EnumValue)
       };
 }

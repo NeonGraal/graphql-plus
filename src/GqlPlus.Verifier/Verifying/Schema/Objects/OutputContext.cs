@@ -12,16 +12,13 @@ internal class OutputContext(
 
   internal override void CheckArgumentType<TObjBase>(TObjBase type, string labelSuffix)
   {
-    if (type is OutputBaseAst output)
-    {
-      if (string.IsNullOrWhiteSpace(output.EnumValue) && GetEnumValue(type.TypeName, out string? enumType))
-      {
+    if (type is OutputBaseAst output) {
+      if (string.IsNullOrWhiteSpace(output.EnumValue) && GetEnumValue(type.TypeName, out string? enumType)) {
         output.EnumValue = type.TypeName;
         output.Name = enumType!;
       }
 
-      if (!string.IsNullOrWhiteSpace(output.EnumValue))
-      {
+      if (!string.IsNullOrWhiteSpace(output.EnumValue)) {
         CheckEnumValue("Argument", output);
       }
 
@@ -31,14 +28,11 @@ internal class OutputContext(
 
   internal void CheckEnumValue(string label, IGqlpOutputBase output)
   {
-    if (GetEnumType(output.TypeName, out Ast.Schema.Simple.EnumDeclAst? theType))
-    {
-      if (!GetEnumValueType(theType, output.EnumValue ?? "", out Ast.Schema.Simple.EnumDeclAst? _))
-      {
+    if (GetEnumType(output.TypeName, out Ast.Schema.Simple.EnumDeclAst? theType)) {
+      if (!GetEnumValueType(theType, output.EnumValue ?? "", out Ast.Schema.Simple.EnumDeclAst? _)) {
         AddError(output, $"Output {label} Enum Value", $"'{output.EnumValue}' not a Value of '{output.TypeName}'");
       }
-    } else
-    {
+    } else {
       AddError(output, $"Output {label} Enum", $"'{output.TypeName}' is not an Enum type");
     }
   }

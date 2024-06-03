@@ -14,8 +14,7 @@ internal class AstAlternatesMerger<TAlternate, TObjBase>(
   protected override TAlternate MergeGroup(IEnumerable<TAlternate> group)
   {
     TAlternate first = group.First();
-    if (first.Type is IAstSetDescription descrType)
-    {
+    if (first.Type is IAstSetDescription descrType) {
       descrType.MakeDescription(group);
     }
 

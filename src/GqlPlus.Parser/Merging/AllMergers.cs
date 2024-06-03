@@ -5,6 +5,7 @@ using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging.Globals;
 using GqlPlus.Merging.Objects;
 using GqlPlus.Merging.Simple;
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -40,14 +41,14 @@ public static class AllMergers
       // Object types
       .AddMerge<IGqlpTypeParameter, MergeTypeParameters>()
       .AddMergeAll<DualDeclAst, IGqlpType, MergeDualObjects>()
-      .AddMerge<AstAlternate<DualBaseAst>, AlternatesMerger<DualBaseAst>>()
+      .AddMerge<AstAlternate<IGqlpDualBase>, AlternatesMerger<IGqlpDualBase>>()
       .AddMerge<DualFieldAst, MergeDualFields>()
       .AddMergeAll<InputDeclAst, IGqlpType, MergeInputObjects>()
-      .AddMerge<AstAlternate<InputBaseAst>, AlternatesMerger<InputBaseAst>>()
+      .AddMerge<AstAlternate<IGqlpInputBase>, AlternatesMerger<IGqlpInputBase>>()
       .AddMerge<InputFieldAst, MergeInputFields>()
       .AddMerge<InputParameterAst, MergeInputParameters>()
       .AddMergeAll<OutputDeclAst, IGqlpType, MergeOutputObjects>()
-      .AddMerge<AstAlternate<OutputBaseAst>, AlternatesMerger<OutputBaseAst>>()
+      .AddMerge<AstAlternate<IGqlpOutputBase>, AlternatesMerger<IGqlpOutputBase>>()
       .AddMerge<OutputFieldAst, MergeOutputFields>()
     ;
 

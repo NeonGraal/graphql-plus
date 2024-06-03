@@ -64,7 +64,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
       .CheckModifiers(field);
 
   protected override string GetParent(IGqlpType<TObjBase> usage)
-    => usage.Parent?.FullType ?? "";
+    => usage.Parent?.TypeName ?? "";
 
   protected override void CheckParentType(
     ParentUsage<TObject> input,
@@ -106,7 +106,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
     {
       if (alternate.Modifiers.Length == 0)
       {
-        CheckAlternate(input.AddParent(alternate.Type.FullType), parentType.Name, context, false);
+        CheckAlternate(input.AddParent(alternate.Type.TypeName), parentType.Name, context, false);
       }
     }
   }
@@ -124,7 +124,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
       {
         if (alternate.Modifiers.Length == 0)
         {
-          CheckAlternate(input.AddParent(alternate.Type.FullType), alternateType.Name, context, false);
+          CheckAlternate(input.AddParent(alternate.Type.TypeName), alternateType.Name, context, false);
         }
       }
     }

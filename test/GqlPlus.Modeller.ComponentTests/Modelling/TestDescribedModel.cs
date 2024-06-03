@@ -8,7 +8,8 @@ public abstract class TestDescribedModel<TName>
   [Theory, RepeatData(Repeats)]
   public void Model_Description(TName name, string contents)
   {
-    if (SkipIf(name)) {
+    if (SkipIf(name))
+    {
       return;
     }
 
@@ -25,7 +26,7 @@ public abstract class TestDescribedModel<TName>
 internal abstract class CheckDescribedModel<TName, TAst, TModel>(
   IModeller<TAst, TModel> modeller
 ) : CheckDescribedModel<TName, TAst, TAst, TModel>(modeller)
-  where TAst : AstAbbreviated, IGqlpError, IGqlpDescribed
+  where TAst : IGqlpError, IGqlpDescribed
   where TModel : IRendering
 { }
 

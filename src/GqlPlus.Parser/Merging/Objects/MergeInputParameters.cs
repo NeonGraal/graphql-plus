@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
@@ -23,7 +24,11 @@ internal class MergeInputParameters(
   protected override InputParameterAst MergeGroup(IEnumerable<InputParameterAst> group)
   {
     InputParameterAst first = group.First();
-    first.Type.MakeDescription(group);
+    if (first.Type is IAstSetDescription descrType)
+    {
+      descrType.MakeDescription(group);
+    }
+
     return first with
     {
       DefaultValue = (ConstantAst?)group.Merge(item => item.DefaultValue, constant).FirstOrDefault(),

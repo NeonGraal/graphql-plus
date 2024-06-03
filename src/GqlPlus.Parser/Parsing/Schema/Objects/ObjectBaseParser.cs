@@ -1,27 +1,32 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal abstract class ObjectBaseParser<TObjBase>
+internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst>
   : Parser<TObjBase>.I
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjectBase<TObjBase>
+  where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
 {
   public IResult<TObjBase> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
-    => ParseObjectBase(tokens, label, false);
+    => ParseObjectBase(tokens, label, false).AsResult<TObjBase>();
 
-  private IResult<TObjBase> ParseObjectBase<TContext>(TContext tokens, string label, bool isTypeArgument)
+  private IResult<TObjBaseAst> ParseObjectBase<TContext>(TContext tokens, string label, bool isTypeArgument)
     where TContext : Tokenizer
   {
     tokens.String(out string? description);
-    if (!tokens.Prefix('$', out string? param, out TokenAt? at)) {
-      return tokens.Error<TObjBase>(label, "identifier after '$'");
+    if (!tokens.Prefix('$', out string? param, out TokenAt? at))
+    {
+      return tokens.Error<TObjBaseAst>(label, "identifier after '$'");
     }
 
-    if (param is not null) {
-      TObjBase objBase = ObjBase(at, param, description) with {
+    if (param is not null)
+    {
+      TObjBaseAst objBase = ObjBase(at, param, description) with
+      {
         IsTypeParameter = true,
       };
       return objBase.Ok();
@@ -29,33 +34,39 @@ internal abstract class ObjectBaseParser<TObjBase>
 
     at = tokens.At;
 
-    if (tokens.Identifier(out string? name)) {
-      TObjBase objBase = ObjBase(at, name, description);
-      if (tokens.Take('<')) {
-        List<TObjBase> arguments = [];
-        IResult<TObjBase> argument = ParseObjectBase(tokens, label, isTypeArgument: true);
-        while (argument.Required(arguments.Add)) {
+    if (tokens.Identifier(out string? name))
+    {
+      TObjBaseAst objBase = ObjBase(at, name, description);
+      if (tokens.Take('<'))
+      {
+        List<TObjBaseAst> arguments = [];
+        IResult<TObjBaseAst> argument = ParseObjectBase(tokens, label, isTypeArgument: true);
+        while (argument.Required(arguments.Add))
+        {
           argument = ParseObjectBase(tokens, label, isTypeArgument: true);
         }
 
         objBase.TypeArguments = [.. arguments];
 
-        if (!tokens.Take('>')) {
+        if (!tokens.Take('>'))
+        {
           return tokens.Error(label, "'>' after type argument(s)", objBase);
-        } else if (arguments.Count < 1) {
+        } else if (arguments.Count < 1)
+        {
           return tokens.Error(label, "at least one type argument after '<'", objBase);
         }
-      } else if (isTypeArgument) {
+      } else if (isTypeArgument)
+      {
         return TypeEnumValue(tokens, objBase);
       }
 
       return objBase.Ok();
     }
 
-    return 0.Empty<TObjBase>();
+    return 0.Empty<TObjBaseAst>();
   }
 
-  protected abstract TObjBase ObjBase(TokenAt at, string type, string description);
-  protected abstract IResult<TObjBase> TypeEnumValue<TContext>(TContext tokens, TObjBase objBase)
+  protected abstract TObjBaseAst ObjBase(TokenAt at, string type, string description);
+  protected abstract IResult<TObjBaseAst> TypeEnumValue<TContext>(TContext tokens, TObjBaseAst objBase)
       where TContext : Tokenizer;
 }

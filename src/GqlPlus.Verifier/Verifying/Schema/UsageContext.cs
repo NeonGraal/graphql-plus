@@ -98,14 +98,14 @@ internal static class UsageHelpers
     where TContext : UsageContext
     where TObjBase : IGqlpObjectBase<TObjBase>
   {
-    if (context.GetType(type.FullType, out IGqlpDescribed? value))
+    if (context.GetType(type.TypeName, out IGqlpDescribed? value))
     {
       int numArgs = type.TypeArguments.Count();
       if (value is IGqlpObject definition)
       {
         if (check && definition.Label != "Dual" && definition.Label != type.Label)
         {
-          context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.FullType}. Found {definition.Label}");
+          context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.TypeName}. Found {definition.Label}");
         }
 
         int numParams = definition.TypeParameters.Count();
@@ -116,7 +116,7 @@ internal static class UsageHelpers
       }
     } else if (check)
     {
-      context.AddError(type, type.Label + labelSuffix, $"'{type.FullType}' not defined");
+      context.AddError(type, type.Label + labelSuffix, $"'{type.TypeName}' not defined");
     }
 
     foreach (TObjBase arg in type.TypeArguments)

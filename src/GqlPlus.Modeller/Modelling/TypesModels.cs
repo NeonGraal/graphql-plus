@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -33,9 +33,11 @@ public abstract record class ChildTypeModel<TParent>(
   internal virtual bool GetParentModel<TModel>(IRenderContext context, [NotNullWhen(true)] out TModel? model)
     where TModel : IRendering
   {
-    if (_parentModel is null) {
+    if (_parentModel is null)
+    {
       _parentModel = model = context.TryGetType<TModel>(Name, ParentName(Parent), out TModel? parentModel) ? parentModel : default;
-    } else {
+    } else
+    {
       model = (TModel?)_parentModel;
     }
 
@@ -49,7 +51,8 @@ public abstract record class ChildTypeModel<TParent>(
   internal void ForParent<TModel>(IRenderContext context, Action<TModel> action)
     where TModel : IChildTypeModel
   {
-    if (GetParentModel<TModel>(context, out TModel? parentModel)) {
+    if (GetParentModel<TModel>(context, out TModel? parentModel))
+    {
       parentModel.ForParent(context, action);
       action(parentModel);
     }
@@ -168,7 +171,8 @@ internal class TypesModeller(
 {
   public void AddTypeKinds(IEnumerable<IGqlpType> asts, IMap<TypeKindModel> typeKinds)
   {
-    foreach (IGqlpType ast in asts) {
+    foreach (IGqlpType ast in asts)
+    {
       typeKinds.Add(ast.Name, types.Single(t => t.ForType(ast)).Kind);
     }
   }
@@ -205,22 +209,28 @@ internal class TypesCollection(
     return typeKinds;
   }
 
-  internal void AddTypes(AstType[] asts, TypeKindModel kind)
+  internal void AddTypes(IGqlpType[] asts, TypeKindModel kind)
   {
-    foreach (AstType ast in asts) {
+    foreach (IGqlpType ast in asts)
+    {
       this[ast.Name] = kind;
 
-      foreach (string alias in ast.Aliases) {
+      foreach (string alias in ast.Aliases)
+      {
         TryAdd(alias, kind);
       }
     }
 
-    foreach (AstType ast in asts) {
-      try {
+    foreach (IGqlpType ast in asts)
+    {
+      try
+      {
         BaseTypeModel? model = types.TryModel(ast, this);
-        if (model is not null) {
+        if (model is not null)
+        {
           Types[model.Name] = model;
-          foreach (string alias in ast.Aliases) {
+          foreach (string alias in ast.Aliases)
+          {
             Types.TryAdd(alias, model);
           }
         }
@@ -228,54 +238,14 @@ internal class TypesCollection(
     }
   }
 
-  //internal void AddTypes(IEnumerable<AstType> toAdd)
-  //{
-  //  var asts = toAdd.ToArray();
-
-  //  AddTypeAndAliasKinds(types, asts);
-
-  //  foreach (var ast in asts) {
-  //    if (Types.TryGetValue(ast.Name, out var existing) && existing.Name == ast.Name) {
-  //      Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"Type {ast.Name} allready exists in collection"));
-  //      continue;
-  //    }
-
-  //    var model = types.TryModel(ast, this);
-  //    if (model is not null) {
-  //      Types[model.Name] = model;
-  //      foreach (var alias in ast.Aliases) {
-  //        Types.TryAdd(alias, model);
-  //      }
-  //    }
-  //  }
-  //}
-
-  //private void AddTypeAndAliasKinds(ITypesModeller types, AstType[] asts)
-  //{
-  //  foreach (var ast in asts) {
-  //    var kind = types.GetTypeKind(ast);
-  //    if (Types.TryGetValue(ast.Name, out var existing) && existing.Name == ast.Name) {
-  //      if (existing.Kind != kind) {
-  //        Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"Type {ast.Name}({kind} already exists with different kind ({existing.Kind}) in collection"));
-  //      }
-
-  //      continue;
-  //    }
-
-  //    this[ast.Name] = kind;
-
-  //    foreach (var alias in ast.Aliases) {
-  //      TryAdd(alias, kind);
-  //    }
-  //  }
-  //}
-
   public void AddModels(IEnumerable<BaseTypeModel> models)
   {
-    foreach (BaseTypeModel model in models) {
+    foreach (BaseTypeModel model in models)
+    {
       Types.Add(model.Name, model);
 
-      foreach (string alias in model.Aliases) {
+      foreach (string alias in model.Aliases)
+      {
         Types.TryAdd(alias, model);
       }
     }
@@ -284,8 +254,10 @@ internal class TypesCollection(
   public bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)
     where TModel : IRendering
   {
-    if (name is not null) {
-      if (Types.TryGetValue(name, out BaseTypeModel? type) && type is TModel modelType) {
+    if (name is not null)
+    {
+      if (Types.TryGetValue(name, out BaseTypeModel? type) && type is TModel modelType)
+      {
         model = modelType;
         return true;
       }
@@ -302,7 +274,8 @@ internal class SpecialTypeModeller()
   : ModellerType<IGqlpTypeSpecial, string, SpecialTypeModel>(TypeKindModel.Special)
 {
   protected override SpecialTypeModel ToModel(IGqlpTypeSpecial ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
+    => new(ast.Name)
+    {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
     };

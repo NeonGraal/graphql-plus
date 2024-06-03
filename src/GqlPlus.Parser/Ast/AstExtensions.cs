@@ -19,9 +19,6 @@ public static class AstExtensions
   public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
     => left.Order(comparer).SequenceEqual(right.Order(comparer));
 
-  public static TResult[] ArrayOf<TResult>(this IEnumerable<object>? items)
-    => [.. items?.OfType<TResult>() ?? []];
-
   public static IEnumerable<string> AsString<T>(this IEnumerable<T>? items)
     => items?.Any() == true
       ? items.Where(i => i is not null).Select(i => $"{i}")
@@ -44,7 +41,8 @@ public static class AstExtensions
   {
     IEnumerable<string?>? result = AsFields(items);
 
-    if (sort) {
+    if (sort)
+    {
       result = result?.Order();
     }
 
@@ -112,7 +110,8 @@ public static class AstExtensions
   public static void AddError<TAst>(this ITokenMessages errors, TAst item, string message)
     where TAst : AstAbbreviated
   {
-    if (errors is null || item is null) {
+    if (errors is null || item is null)
+    {
       return;
     }
 

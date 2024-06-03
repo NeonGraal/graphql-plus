@@ -1,7 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -24,7 +21,8 @@ public record class SchemaModel(
     Types = types.ToMap(t => t.Name);
     Settings = settings.ToMap(s => s.Name);
     Errors = new TokenMessages();
-    if (errors is not null) {
+    if (errors is not null)
+    {
       Errors.Add(errors);
     }
   }
@@ -38,14 +36,16 @@ public record class SchemaModel(
 #pragma warning disable IDE0060 // Remove unused parameter
   public IMap<CategoriesModel> GetCategories(CategoryFilterParameter? filter)
     => Categories.ToMap(c => c.Key,
-      c => new CategoriesModel() {
+      c => new CategoriesModel()
+      {
         Category = c.Value,
         Type = Types.TryGetValue(c.Key, out BaseTypeModel? type) ? type : null,
       });
 
   public IMap<DirectivesModel> GetDirectives(FilterParameter? filter)
     => Directives.ToMap(d => d.Key,
-      d => new DirectivesModel() {
+      d => new DirectivesModel()
+      {
         Directive = d.Value,
         Type = Types.TryGetValue(d.Key, out BaseTypeModel? type) ? type : null,
       });
@@ -144,9 +144,10 @@ internal class SchemaModeller(
 {
   protected override SchemaModel ToModel(IGqlpSchema ast, IMap<TypeKindModel> typeKinds)
   {
-    AstType[] types = ast.Declarations.ArrayOf<AstType>();
+    IGqlpType[] types = ast.Declarations.ArrayOf<IGqlpType>();
     ITokenMessages errors = ast.Errors;
-    if (typeKinds is TypesCollection collection) {
+    if (typeKinds is TypesCollection collection)
+    {
       errors = collection.Errors;
       errors.Clear();
       errors.Add(ast.Errors);
@@ -157,7 +158,7 @@ internal class SchemaModeller(
     IGqlpSchemaOption[] options = ast.Declarations.ArrayOf<IGqlpSchemaOption>();
     string name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name ?? "";
     IEnumerable<string> aliases = options.SelectMany(a => a.Aliases);
-    IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings.ArrayOf<OptionSettingAst>(), typeKinds));
+    IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings, typeKinds));
 
     return new(name,
         DeclarationModel(ast, category, typeKinds),
@@ -165,7 +166,8 @@ internal class SchemaModeller(
         settings,
         types.Select(t => type.ToModel(t, typeKinds)),
         errors
-        ) { Aliases = [.. aliases] };
+        )
+    { Aliases = [.. aliases] };
   }
 
   private IEnumerable<TModel> DeclarationModel<TAst, TModel>(IGqlpSchema ast, IModeller<TAst, TModel> modeller, IMap<TypeKindModel> typeKinds)

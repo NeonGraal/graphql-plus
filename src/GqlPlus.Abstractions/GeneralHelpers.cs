@@ -11,4 +11,7 @@ public static class GeneralHelpers
     ArgumentNullException.ThrowIfNull(value, expression);
     return value;
   }
+
+  public static TResult[] ArrayOf<TResult>(this IEnumerable<object>? items)
+    => [.. items?.OfType<TResult>() ?? []];
 }

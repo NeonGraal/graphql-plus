@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Globals;

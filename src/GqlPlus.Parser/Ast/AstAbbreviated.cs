@@ -17,7 +17,6 @@ public abstract record class AstAbbreviated(TokenAt At)
   protected string AbbrAt
     => new[] { "!" + Abbr, At.ToString() }.Joined();
 
-
   internal virtual IEnumerable<string?> GetFields()
     => [AbbrAt];
 

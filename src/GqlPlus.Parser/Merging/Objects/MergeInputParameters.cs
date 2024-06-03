@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;

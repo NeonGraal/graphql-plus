@@ -1,8 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Token;
 
-namespace GqlPlus.Ast.Schema;
+namespace GqlPlus.Ast.Schema.Objects;
 
 public sealed record class InputParameterAst(
   TokenAt At,

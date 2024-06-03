@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
@@ -53,14 +54,15 @@ public record class InputParameterModel(
 }
 
 internal class InputModeller(
-  IAlternateModeller<InputBaseAst, InputBaseModel> alternate,
-  IModeller<InputFieldAst, InputFieldModel> objField,
-  IModeller<InputBaseAst, InputBaseModel> objBase
-) : ModellerObject<InputDeclAst, InputBaseAst, InputFieldAst, TypeInputModel, InputBaseModel, InputFieldModel>(TypeKindModel.Input, alternate, objField, objBase)
+  IAlternateModeller<IGqlpInputBase, InputBaseModel> alternate,
+  IModeller<IGqlpInputField, InputFieldModel> objField,
+  IModeller<IGqlpInputBase, InputBaseModel> objBase
+) : ModellerObject<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, TypeInputModel, InputBaseModel, InputFieldModel>(TypeKindModel.Input, alternate, objField, objBase)
 {
-  protected override TypeInputModel ToModel(InputDeclAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
-      Aliases = ast.Aliases,
+  protected override TypeInputModel ToModel(IGqlpInputObject ast, IMap<TypeKindModel> typeKinds)
+    => new(ast.Name)
+    {
+      Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ParentModel(ast.Parent, typeKinds),
       TypeParameters = TypeParametersModels(ast.TypeParameters),
@@ -70,15 +72,17 @@ internal class InputModeller(
 }
 
 internal class InputBaseModeller(
-  IModeller<DualBaseAst, DualBaseModel> dual
-) : ModellerObjBase<InputBaseAst, InputBaseModel>
+  IModeller<IGqlpDualBase, DualBaseModel> dual
+) : ModellerObjBase<IGqlpInputBase, InputBaseModel>
 {
-  protected override InputBaseModel ToModel(InputBaseAst ast, IMap<TypeKindModel> typeKinds)
-    => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new(ast.Name) {
-      Dual = dual.ToModel(ast.ToDual(), typeKinds)
+  protected override InputBaseModel ToModel(IGqlpInputBase ast, IMap<TypeKindModel> typeKinds)
+    => typeKinds.TryGetValue(ast.Input, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
+    ? new(ast.Input)
+    {
+      Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
-    : new(ast.Name) {
+    : new(ast.Input)
+    {
       IsTypeParameter = ast.IsTypeParameter,
       TypeArguments = ModelArguments(ast, typeKinds),
     };
@@ -86,26 +90,28 @@ internal class InputBaseModeller(
 
 internal class InputFieldModeller(
   IModifierModeller modifier,
-  IModeller<InputBaseAst, InputBaseModel> refBase,
+  IModeller<IGqlpInputBase, InputBaseModel> refBase,
   IModeller<IGqlpConstant, ConstantModel> constant
-) : ModellerObjField<InputBaseAst, InputFieldAst, InputBaseModel, InputFieldModel>(modifier, refBase)
+) : ModellerObjField<IGqlpInputBase, IGqlpInputField, InputBaseModel, InputFieldModel>(modifier, refBase)
 {
-  protected override InputFieldModel FieldModel(InputFieldAst ast, ObjRefModel<InputBaseModel> type, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, type) {
+  protected override InputFieldModel FieldModel(IGqlpInputField ast, ObjRefModel<InputBaseModel> type, IMap<TypeKindModel> typeKinds)
+    => new(ast.Name, type)
+    {
       Default = constant.TryModel(ast.DefaultValue, typeKinds),
     };
 }
 
 internal class InputParameterModeller(
   IModifierModeller modifier,
-  IModeller<InputBaseAst, InputBaseModel> objBase,
+  IModeller<IGqlpInputBase, InputBaseModel> objBase,
   IModeller<IGqlpConstant, ConstantModel> constant
-) : ModellerBase<InputParameterAst, InputParameterModel>
+) : ModellerBase<IGqlpInputParameter, InputParameterModel>
 {
-  protected override InputParameterModel ToModel(InputParameterAst ast, IMap<TypeKindModel> typeKinds)
+  protected override InputParameterModel ToModel(IGqlpInputParameter ast, IMap<TypeKindModel> typeKinds)
   {
     InputBaseModel typeModel = objBase.ToModel(ast.Type, typeKinds);
-    return new(new(new(typeModel)) { Description = ast.Type.Description }) {
+    return new(new(new(typeModel)) { Description = ast.Type.Description })
+    {
       Modifiers = modifier.ToModels<ModifierModel>(ast.Modifiers, typeKinds),
       DefaultValue = constant.TryModel(ast.DefaultValue, typeKinds),
     };

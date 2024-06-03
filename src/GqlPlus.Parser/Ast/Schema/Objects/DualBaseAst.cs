@@ -24,4 +24,6 @@ public sealed record class DualBaseAst(
     => base.Equals(other);
   public override int GetHashCode()
     => base.GetHashCode();
+  bool IEquatable<IGqlpDualBase>.Equals(IGqlpDualBase? other)
+    => Equals(other);
 }

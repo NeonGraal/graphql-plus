@@ -21,7 +21,7 @@ public abstract class TestModelBase<TName>
 internal abstract class CheckModelBase<TName, TAst, TModel>(
   IModeller<TAst, TModel> modeller
 ) : CheckModelBase<TName, TAst, TAst, TModel>(modeller)
-  where TAst : AstBase
+  where TAst : IGqlpError
   where TModel : IRendering
 { }
 

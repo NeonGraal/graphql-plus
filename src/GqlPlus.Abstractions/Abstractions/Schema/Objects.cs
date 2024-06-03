@@ -57,6 +57,7 @@ public interface IGqlpDualObject
 
 public interface IGqlpDualBase
   : IGqlpObjectBase<IGqlpDualBase>
+  , IEquatable<IGqlpDualBase>
 {
   string Dual { get; }
 }
@@ -76,6 +77,7 @@ public interface IGqlpInputObject
 
 public interface IGqlpInputBase
   : IGqlpObjectBase<IGqlpInputBase>
+  , IEquatable<IGqlpInputBase>
   , IGqlpToDual
 {
   string Input { get; }
@@ -93,6 +95,7 @@ public interface IGqlpOutputObject
 
 public interface IGqlpOutputBase
   : IGqlpObjectBase<IGqlpOutputBase>
+  , IEquatable<IGqlpOutputBase>
   , IGqlpToDual
 {
   string Output { get; }
@@ -106,7 +109,7 @@ public interface IGqlpOutputField
 }
 
 public interface IGqlpInputParameter
-  : IGqlpDescribed, IGqlpModifiers
+  : IGqlpError, IGqlpDescribed, IGqlpModifiers
 {
   IGqlpInputBase Type { get; }
   IGqlpConstant? DefaultValue { get; }

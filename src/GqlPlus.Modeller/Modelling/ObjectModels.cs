@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Rendering;
@@ -43,7 +44,8 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
   internal override bool GetParentModel<TModel>(IRenderContext context, [NotNullWhen(true)] out TModel? model)
     where TModel : default
   {
-    if (Parent?.Base.IsTypeParameter == false) {
+    if (Parent?.Base.IsTypeParameter == false)
+    {
       return base.GetParentModel(context, out model);
     }
 
@@ -146,9 +148,9 @@ internal abstract class ModellerObject<TAst, TObjBaseAst, TObjFieldAst, TModel, 
   IModeller<TObjFieldAst, TObjField> objField,
   IModeller<TObjBaseAst, TObjBase> objBase
 ) : ModellerType<TAst, TObjBaseAst, TModel>(kind)
-  where TAst : AstType<TObjBaseAst>
-  where TObjBaseAst : AstObjectBase<TObjBaseAst>
-  where TObjFieldAst : AstObjectField<TObjBaseAst>
+  where TAst : IGqlpType<TObjBaseAst>
+  where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>, IEquatable<TObjBaseAst>
+  where TObjFieldAst : IGqlpObjectField<TObjBaseAst>
   where TModel : BaseTypeModel
   where TObjBase : IObjBaseModel
   where TObjField : ObjFieldModel<TObjBase>
@@ -156,13 +158,13 @@ internal abstract class ModellerObject<TAst, TObjBaseAst, TObjFieldAst, TModel, 
   internal BaseDescribedModel<TObjBase>? ParentModel(TObjBaseAst? parent, IMap<TypeKindModel> typeKinds)
     => parent is null ? null : new BaseDescribedModel<TObjBase>(BaseModel(parent, typeKinds));
 
-  internal AlternateModel<TObjBase>[] AlternatesModels(AstAlternate<TObjBaseAst>[] alternates, IMap<TypeKindModel> typeKinds)
+  internal AlternateModel<TObjBase>[] AlternatesModels(IEnumerable<IGqlpAlternate<TObjBaseAst>> alternates, IMap<TypeKindModel> typeKinds)
     => alternate.ToModels(alternates, typeKinds);
 
-  internal TObjField[] FieldsModels(TObjFieldAst[] fields, IMap<TypeKindModel> typeKinds)
+  internal TObjField[] FieldsModels(IEnumerable<TObjFieldAst> fields, IMap<TypeKindModel> typeKinds)
     => objField.ToModels(fields, typeKinds);
 
-  internal DescribedModel[] TypeParametersModels(TypeParameterAst[] typeParameters)
+  internal DescribedModel[] TypeParametersModels(IEnumerable<IGqlpTypeParameter> typeParameters)
     => [.. typeParameters.Select(p => new DescribedModel(p.Name) { Description = p.Description })];
 
   protected TObjBase BaseModel(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
@@ -171,7 +173,7 @@ internal abstract class ModellerObject<TAst, TObjBaseAst, TObjFieldAst, TModel, 
 
 internal abstract class ModellerObjBase<TObjBaseAst, TObjBase, TArg>
   : ModellerBase<TObjBaseAst, TObjBase>
-  where TObjBaseAst : AstObjectBase<TObjBaseAst>
+  where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>
   where TObjBase : IObjBaseModel
   where TArg : IRendering
 {
@@ -183,7 +185,7 @@ internal abstract class ModellerObjBase<TObjBaseAst, TObjBase, TArg>
 
 internal abstract class ModellerObjBase<TObjBaseAst, TObjBase>
   : ModellerObjBase<TObjBaseAst, TObjBase, ObjRefModel<TObjBase>>
-  where TObjBaseAst : AstObjectBase<TObjBaseAst>
+  where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>
   where TObjBase : IObjBaseModel
 {
   internal override ObjRefModel<TObjBase> NewArgument(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
@@ -192,15 +194,16 @@ internal abstract class ModellerObjBase<TObjBaseAst, TObjBase>
 
 internal abstract class ModellerObjField<TObjBaseAst, TObjFieldAst, TObjBase, TObjField>(
   IModifierModeller modifier,
-  IModeller<TObjBaseAst, TObjBase> refBase
+  IModeller<TObjBaseAst, TObjBase> objBase
 ) : ModellerBase<TObjFieldAst, TObjField>
-  where TObjBaseAst : AstObjectBase<TObjBaseAst>
-  where TObjFieldAst : AstObjectField<TObjBaseAst>
+  where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>
+  where TObjFieldAst : IGqlpObjectField<TObjBaseAst>
   where TObjBase : IObjBaseModel
   where TObjField : ObjFieldModel<TObjBase>
 {
   protected override TObjField ToModel(TObjFieldAst field, IMap<TypeKindModel> typeKinds)
-    => FieldModel(field, new(refBase.ToModel(field.Type, typeKinds)), typeKinds) with {
+    => FieldModel(field, new(objBase.ToModel(field.Type, typeKinds)), typeKinds) with
+    {
       Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
     };
 
@@ -210,15 +213,17 @@ internal abstract class ModellerObjField<TObjBaseAst, TObjFieldAst, TObjBase, TO
 internal class AlternateModeller<TObjBaseAst, TObjBase>(
   IModeller<TObjBaseAst, TObjBase> refBase,
   IModeller<IGqlpModifier, CollectionModel> modifier
-) : ModellerBase<AstAlternate<TObjBaseAst>, AlternateModel<TObjBase>>
+) : ModellerBase<IGqlpAlternate<TObjBaseAst>, AlternateModel<TObjBase>>
   , IAlternateModeller<TObjBaseAst, TObjBase>
-  where TObjBaseAst : AstObjectBase<TObjBaseAst>
+  where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>, IEquatable<TObjBaseAst>
   where TObjBase : IObjBaseModel
 {
-  protected override AlternateModel<TObjBase> ToModel(AstAlternate<TObjBaseAst> ast, IMap<TypeKindModel> typeKinds)
-    => new(new(new(BaseModel(ast.Type, typeKinds))) {
+  protected override AlternateModel<TObjBase> ToModel(IGqlpAlternate<TObjBaseAst> ast, IMap<TypeKindModel> typeKinds)
+    => new(new(new(BaseModel(ast.Type, typeKinds)))
+    {
       Description = ast.Description
-    }) {
+    })
+    {
       Collections = modifier.ToModels(ast.Modifiers, typeKinds)
     };
 
@@ -227,7 +232,7 @@ internal class AlternateModeller<TObjBaseAst, TObjBase>(
 }
 
 public interface IAlternateModeller<TObjBaseAst, TObjBase>
-  : IModeller<AstAlternate<TObjBaseAst>, AlternateModel<TObjBase>>
-  where TObjBaseAst : AstObjectBase<TObjBaseAst>
+  : IModeller<IGqlpAlternate<TObjBaseAst>, AlternateModel<TObjBase>>
+  where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>, IEquatable<TObjBaseAst>
   where TObjBase : IObjBaseModel
 { }

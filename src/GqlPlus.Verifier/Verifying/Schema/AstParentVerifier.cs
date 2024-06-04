@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema;
@@ -9,7 +8,7 @@ namespace GqlPlus.Verifying.Schema;
 internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   IVerifyAliased<TAst> aliased
 ) : UsageVerifier<TAst, TContext>(aliased)
-  where TAst : class, IGqlpType<TParent>
+  where TAst : IGqlpType<TParent>
   where TParent : IEquatable<TParent>
   where TContext : UsageContext
 {
@@ -33,11 +32,12 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     Action<TAst>? onParent = null)
   {
     if (context.GetType(input.Parent, out IGqlpDescribed? defined)) {
-      if (defined is AstType astType) {
+      if (defined is IGqlpType astType) {
         if (CheckAstParentType(input, astType)) {
-          TAst? parentType = astType as TAst;
-          if (CheckAstParent(input.Usage, parentType, context)) {
-            onParent?.Invoke(parentType);
+          if (astType is TAst parentType) {
+            if (CheckAstParent(input.Usage, parentType, context)) {
+              onParent?.Invoke(parentType);
+            }
           }
         } else if (top) {
           context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' invalid type. Found '{astType.Label}'");
@@ -50,7 +50,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     }
   }
 
-  protected virtual bool CheckAstParentType(ParentUsage<TAst> input, AstType astType)
+  protected virtual bool CheckAstParentType(ParentUsage<TAst> input, IGqlpType astType)
     => astType.Label == input.UsageLabel;
 
   protected virtual bool CheckAstParent(TAst usage, [NotNullWhen(true)] TAst? parent, TContext context)

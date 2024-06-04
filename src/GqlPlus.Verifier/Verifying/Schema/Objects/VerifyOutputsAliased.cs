@@ -1,13 +1,13 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyOutputsAliased(
-  IVerify<OutputDeclAst> definition,
-  IMerge<OutputDeclAst> merger,
+  IVerify<IGqlpOutputObject> definition,
+  IMerge<IGqlpOutputObject> merger,
   ILoggerFactory logger
-) : AliasedVerifier<OutputDeclAst>(definition, merger, logger)
+) : AliasedVerifier<IGqlpOutputObject>(definition, merger, logger)
 {
   public override string Label => "Outputs";
 }

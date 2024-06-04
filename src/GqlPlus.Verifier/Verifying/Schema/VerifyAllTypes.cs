@@ -1,14 +1,12 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Verifying.Schema;
 
 internal class VerifyAllTypes(
-  IVerifyUsage<DualDeclAst> dualAllTypes,
+  IVerifyUsage<IGqlpDualObject> dualAllTypes,
   IVerifyUsage<IGqlpEnum> enumAllTypes,
-  IVerifyUsage<InputDeclAst> inputAllTypes,
-  IVerifyUsage<OutputDeclAst> outputAllTypes,
+  IVerifyUsage<IGqlpInputObject> inputAllTypes,
+  IVerifyUsage<IGqlpOutputObject> outputAllTypes,
   IVerifyUsage<IGqlpDomain> domainAllTypes,
   IVerifyUsage<IGqlpUnion> unionAllTypes
 ) : IVerify<IGqlpType[]>
@@ -17,10 +15,10 @@ internal class VerifyAllTypes(
   {
     IGqlpType[] allTypes = [.. item, .. BuiltIn.Basic, .. BuiltIn.Internal];
 
-    DualDeclAst[] dualTypes = allTypes.ArrayOf<DualDeclAst>();
+    IGqlpDualObject[] dualTypes = allTypes.ArrayOf<IGqlpDualObject>();
     IGqlpEnum[] enumTypes = allTypes.ArrayOf<IGqlpEnum>();
-    InputDeclAst[] inputTypes = allTypes.ArrayOf<InputDeclAst>();
-    OutputDeclAst[] outputTypes = allTypes.ArrayOf<OutputDeclAst>();
+    IGqlpInputObject[] inputTypes = allTypes.ArrayOf<IGqlpInputObject>();
+    IGqlpOutputObject[] outputTypes = allTypes.ArrayOf<IGqlpOutputObject>();
     IGqlpDomain[] domainTypes = allTypes.ArrayOf<IGqlpDomain>();
     IGqlpUnion[] unionTypes = allTypes.ArrayOf<IGqlpUnion>();
 

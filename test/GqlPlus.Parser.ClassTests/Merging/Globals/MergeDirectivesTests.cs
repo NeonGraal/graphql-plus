@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Globals;
-using GqlPlus.Ast.Schema.Objects;
+
 using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Globals;
@@ -48,11 +48,11 @@ public class MergeDirectivesTests
   }
 
   private readonly MergeDirectives _merger;
-  private readonly IMerge<InputParameterAst> _parameters;
+  private readonly IMerge<IGqlpInputParameter> _parameters;
 
   public MergeDirectivesTests(ITestOutputHelper outputHelper)
   {
-    _parameters = Merger<InputParameterAst>();
+    _parameters = Merger<IGqlpInputParameter>();
 
     _merger = new(outputHelper.ToLoggerFactory(), _parameters);
   }

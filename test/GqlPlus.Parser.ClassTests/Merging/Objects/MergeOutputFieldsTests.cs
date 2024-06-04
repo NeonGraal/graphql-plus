@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Objects;
 
 public class MergeOutputFieldsTests
-  : TestObjectFields<OutputFieldAst, IGqlpOutputBase>
+  : TestObjectFields<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsParametersCantMerge_ReturnsErrors(string name, string type, string[] parameters)
@@ -104,15 +104,15 @@ public class MergeOutputFieldsTests
       MakeFieldEnum(name, type, value) with { Aliases = [alias1, alias2] });
 
   private readonly MergeOutputFields _merger;
-  private readonly IMerge<InputParameterAst> _parameters;
+  private readonly IMerge<IGqlpInputParameter> _parameters;
 
   public MergeOutputFieldsTests(ITestOutputHelper outputHelper)
   {
-    _parameters = Merger<InputParameterAst>();
+    _parameters = Merger<IGqlpInputParameter>();
     _merger = new(outputHelper.ToLoggerFactory(), _parameters);
   }
 
-  internal override AstObjectFieldsMerger<OutputFieldAst, IGqlpOutputBase> MergerField => _merger;
+  internal override AstObjectFieldsMerger<IGqlpOutputField, IGqlpOutputBase> MergerField => _merger;
 
   protected override OutputFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
     => new(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription));

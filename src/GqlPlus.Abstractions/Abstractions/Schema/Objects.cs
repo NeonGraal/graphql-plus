@@ -33,6 +33,7 @@ public interface IGqlpObjectField<TBase>
   where TBase : IGqlpObjectBase<TBase>
 {
   TBase Type { get; }
+  string ModifiedType { get; }
 }
 
 public interface IGqlpTypeParameter
@@ -97,6 +98,8 @@ public interface IGqlpOutputBase
 {
   string Output { get; }
   string? EnumValue { get; }
+
+  void SetEnumType(string enumType);
 }
 
 public interface IGqlpOutputField

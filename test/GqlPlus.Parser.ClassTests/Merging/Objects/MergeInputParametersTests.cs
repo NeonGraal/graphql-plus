@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 
 using Xunit.Abstractions;
@@ -6,7 +7,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Objects;
 
 public class MergeInputParametersTests
-  : TestDescriptions<InputParameterAst>
+  : TestDescriptions<IGqlpInputParameter>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string input, string value)
@@ -42,7 +43,7 @@ public class MergeInputParametersTests
     _merger = new(outputHelper.ToLoggerFactory(), _constant);
   }
 
-  internal override GroupsMerger<InputParameterAst> MergerGroups => _merger;
+  internal override GroupsMerger<IGqlpInputParameter> MergerGroups => _merger;
 
   protected override InputParameterAst MakeDescribed(string name, string description = "")
     => new(AstNulls.At, new InputBaseAst(AstNulls.At, name, description));

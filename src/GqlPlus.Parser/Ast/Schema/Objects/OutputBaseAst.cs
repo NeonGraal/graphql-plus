@@ -44,4 +44,10 @@ public sealed record class OutputBaseAst(
     };
   bool IEquatable<IGqlpOutputBase>.Equals(IGqlpOutputBase? other)
     => Equals(other);
+
+  void IGqlpOutputBase.SetEnumType(string enumType)
+  {
+    EnumValue ??= Name;
+    Name = enumType;
+  }
 }

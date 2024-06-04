@@ -5,8 +5,19 @@ namespace GqlPlus.Merging.Objects;
 
 internal class MergeInputObjects(
   ILoggerFactory logger,
-  IMerge<InputFieldAst> fields,
+  IMerge<IGqlpInputField> fields,
   IMerge<IGqlpTypeParameter> typeParameters,
-  IMerge<AstAlternate<IGqlpInputBase>> alternates
-) : AstObjectsMerger<InputDeclAst, InputFieldAst, IGqlpInputBase>(logger, fields, typeParameters, alternates)
-{ }
+  IMerge<IGqlpAlternate<IGqlpInputBase>> alternates
+) : AstObjectsMerger<IGqlpInputObject, IGqlpInputField, IGqlpInputBase>(logger, fields, typeParameters, alternates)
+{
+  protected override IGqlpInputObject SetAlternates(IGqlpInputObject obj, IEnumerable<IGqlpTypeParameter> typeParameters, IEnumerable<IGqlpAlternate<IGqlpInputBase>> alternates)
+    => (InputDeclAst)obj with {
+      TypeParameters = typeParameters.ArrayOf<TypeParameterAst>(),
+      Alternates = alternates.ArrayOf<AstAlternate<IGqlpInputBase>>(),
+    };
+
+  internal override IGqlpInputObject SetItems(IGqlpInputObject input, IEnumerable<IGqlpInputField> items)
+    => (InputDeclAst)input with {
+      Fields = items.ArrayOf<InputFieldAst>(),
+    };
+}

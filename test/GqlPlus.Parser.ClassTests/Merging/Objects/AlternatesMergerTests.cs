@@ -12,7 +12,7 @@ public class AlternatesMergerTests(
 {
   private readonly AlternatesMerger<IGqlpOutputBase> _merger = new(outputHelper.ToLoggerFactory());
 
-  internal override AstAlternatesMerger<AstAlternate<IGqlpOutputBase>, IGqlpOutputBase> MergerAlternate => _merger;
+  internal override AstAlternatesMerger<IGqlpAlternate<IGqlpOutputBase>, IGqlpOutputBase> MergerAlternate => _merger;
 
   protected override AstAlternate<IGqlpOutputBase> MakeAlternate(string name, string description = "")
     => new(AstNulls.At, new OutputBaseAst(AstNulls.At, name, description));

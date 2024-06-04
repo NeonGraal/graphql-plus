@@ -1,6 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
@@ -8,10 +6,10 @@ internal abstract class AstObjectsMerger<TObject, TObjField, TObjBase>(
   ILoggerFactory logger,
   IMerge<TObjField> fields,
   IMerge<IGqlpTypeParameter> typeParameters,
-  IMerge<AstAlternate<TObjBase>> alternates
+  IMerge<IGqlpAlternate<TObjBase>> alternates
 ) : AstTypeMerger<IGqlpType, TObject, TObjBase, TObjField>(logger, fields)
-  where TObject : AstObject<TObjField, TObjBase>
-  where TObjField : AstObjectField<TObjBase>, IGqlpDescribed
+  where TObject : IGqlpObject<TObjField, TObjBase>
+  where TObjField : IGqlpObjectField<TObjBase>, IGqlpDescribed
   where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   protected override string ItemMatchName => "Parent";
@@ -30,16 +28,13 @@ internal abstract class AstObjectsMerger<TObject, TObjField, TObjBase>(
   protected override TObject MergeGroup(IEnumerable<TObject> group)
   {
     IEnumerable<IGqlpTypeParameter> typeParametersAsts = group.ManyMerge(item => item.TypeParameters, typeParameters);
-    IEnumerable<AstAlternate<TObjBase>> alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
+    IEnumerable<IGqlpAlternate<TObjBase>> alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
 
-    return base.MergeGroup(group) with {
-      TypeParameters = typeParametersAsts.ArrayOf<TypeParameterAst>(),
-      Alternates = [.. alternateAsts],
-    };
+    return SetAlternates(base.MergeGroup(group), typeParametersAsts, alternateAsts);
   }
 
   internal override IEnumerable<TObjField> GetItems(TObject type)
     => type.Fields;
-  internal override TObject SetItems(TObject input, IEnumerable<TObjField> items)
-    => input with { Fields = [.. items] };
+
+  protected abstract TObject SetAlternates(TObject obj, IEnumerable<IGqlpTypeParameter> typeParameters, IEnumerable<IGqlpAlternate<TObjBase>> alternates);
 }

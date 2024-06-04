@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Verification;
 using GqlPlus.Verification.Schema;
 using GqlPlus.Verifying.Operation;
@@ -32,6 +31,7 @@ public static class AllVerifiers
       .AddVerifyAliased<IGqlpSchemaOption, VerifyOptionAliased>()
       // Schema Types
       .AddVerify<IGqlpType[], VerifyAllTypes>()
+
       .AddVerifyAliased<IGqlpType, VerifyAllTypesAliased>()
       // Simple Types
       .AddVerifyAliased<IGqlpDomain, VerifyDomainsAliased>()
@@ -45,12 +45,12 @@ public static class AllVerifiers
       .AddVerifyAliased<IGqlpUnion, VerifyUnionsAliased>()
       .AddVerifyUsageAliased<IGqlpUnion, VerifyUnionTypes>()
       // Object Types
-      .AddVerifyAliased<DualDeclAst, VerifyDualsAliased>()
-      .AddVerifyUsageAliased<DualDeclAst, VerifyDualTypes>()
-      .AddVerifyAliased<InputDeclAst, VerifyInputsAliased>()
-      .AddVerifyUsageAliased<InputDeclAst, VerifyInputTypes>()
-      .AddVerifyAliased<OutputDeclAst, VerifyOutputsAliased>()
-      .AddVerifyUsageAliased<OutputDeclAst, VerifyOutputTypes>()
+      .AddVerifyAliased<IGqlpDualObject, VerifyDualsAliased>()
+      .AddVerifyUsageAliased<IGqlpDualObject, VerifyDualTypes>()
+      .AddVerifyAliased<IGqlpInputObject, VerifyInputsAliased>()
+      .AddVerifyUsageAliased<IGqlpInputObject, VerifyInputTypes>()
+      .AddVerifyAliased<IGqlpOutputObject, VerifyOutputsAliased>()
+      .AddVerifyUsageAliased<IGqlpOutputObject, VerifyOutputTypes>()
     ;
 
   private static IServiceCollection AddVerify<TValue, TService>(this IServiceCollection services)

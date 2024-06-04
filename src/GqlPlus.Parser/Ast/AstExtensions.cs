@@ -41,8 +41,7 @@ public static class AstExtensions
   {
     IEnumerable<string?>? result = AsFields(items);
 
-    if (sort)
-    {
+    if (sort) {
       result = result?.Order();
     }
 
@@ -64,14 +63,6 @@ public static class AstExtensions
 
   public static string Debug<T>(this IEnumerable<T?>? items, Func<T?, string> mapping)
     => (items?.Select(mapping)).Debug();
-
-  public static string Joined(this IEnumerable<string?>? items, string by = " ")
-    => string.Join(by,
-      items?.Where(i => !string.IsNullOrWhiteSpace(i))
-      ?? []);
-
-  public static string Joined<T>(this IEnumerable<T?>? items, Func<T?, string> mapping)
-    => (items?.Select(mapping)).Joined();
 
   internal static IEnumerable<string?> Bracket(this IGqlpAbbreviated? item, string before, string after)
     => item?.GetFields().Prepend(before).Append(after) ?? [];
@@ -110,8 +101,7 @@ public static class AstExtensions
   public static void AddError<TAst>(this ITokenMessages errors, TAst item, string message)
     where TAst : AstAbbreviated
   {
-    if (errors is null || item is null)
-    {
+    if (errors is null || item is null) {
       return;
     }
 
@@ -121,20 +111,4 @@ public static class AstExtensions
   public static AstFields<TValue> ToObject<TItem, TValue>(this IEnumerable<TItem> items, Func<TItem, FieldKeyAst> key, Func<TItem, TValue> value)
     where TValue : AstValue<TValue>
     => new(items.Distinct().ToDictionary(key, value));
-
-  public static IEnumerable<IGrouping<string, TAliased>> AliasedGroup<TAliased>(this TAliased[] items)
-    where TAliased : IGqlpAliased
-  {
-    HashSet<string> names = items.Select(d => d.Name).Distinct().ToHashSet();
-
-    return items.SelectMany(t => t.Aliases.Select(a => (Id: a, Item: t)))
-      .Where(p => !names.Contains(p.Id))
-      .GroupBy(p => p.Id, p => p.Item)
-      .Union(items.GroupBy(t => t.Name));
-  }
-
-  public static IMap<TResult> AliasedMap<TAliased, TResult>(this TAliased[] items, Func<IEnumerable<TAliased>, TResult> element)
-    where TAliased : IGqlpAliased
-    => AliasedGroup(items)
-      .ToMap(g => g.Key, g => element(g));
 }

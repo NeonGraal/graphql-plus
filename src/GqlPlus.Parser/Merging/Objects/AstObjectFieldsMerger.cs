@@ -1,13 +1,12 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
 internal class AstObjectFieldsMerger<TObjField, TObjBase>(
   ILoggerFactory logger
 ) : AstAliasedMerger<TObjField>(logger)
-  where TObjField : AstObjectField<TObjBase>
+  where TObjField : IGqlpObjectField<TObjBase>
   where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   protected override string ItemMatchName => "ModifiedType";

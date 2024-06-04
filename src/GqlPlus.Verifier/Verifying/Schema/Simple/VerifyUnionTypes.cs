@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
-using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 using GqlPlus.Verification.Schema;
 
@@ -13,8 +11,8 @@ internal class VerifyUnionTypes(
   IMerge<IGqlpUnionItem> mergeMembers
 ) : AstParentItemVerifier<IGqlpUnion, string, UsageContext, IGqlpUnionItem>(aliased, mergeMembers)
 {
-  protected override IEnumerable<UnionMemberAst> GetItems(IGqlpUnion usage)
-    => usage.Items.ArrayOf<UnionMemberAst>();
+  protected override IEnumerable<IGqlpUnionItem> GetItems(IGqlpUnion usage)
+    => usage.Items;
 
   protected override string GetParent(IGqlpType<string> usage)
     => usage.Parent ?? "";
@@ -24,7 +22,7 @@ internal class VerifyUnionTypes(
 
   protected override void UsageValue(IGqlpUnion usage, UsageContext context)
   {
-    foreach (UnionMemberAst member in usage.Items) {
+    foreach (IGqlpUnionItem member in usage.Items) {
       if (CheckMember(usage.Name, member, context, CheckTypeLabel)) {
         context.AddError(usage, "Union", $"'{member.Name}' not defined");
       }
@@ -34,21 +32,21 @@ internal class VerifyUnionTypes(
       CheckSelfMember(usage.Name, parentType, context);
     }
 
-    void CheckTypeLabel(string name, AstType type)
+    void CheckTypeLabel(string name, IGqlpType type)
     {
-      if (type is not AstSimple and not SpecialTypeAst) {
+      if (type is not IGqlpSimple and not IGqlpTypeSpecial) {
         context.AddError(usage, "union", $"Type kind mismatch for {name}. Found {type?.Label}");
       }
     }
   }
 
-  private static bool CheckMember(string name, IGqlpUnionItem member, UsageContext context, Action<string, AstType>? checkType = null)
+  private static bool CheckMember(string name, IGqlpUnionItem member, UsageContext context, Action<string, IGqlpType>? checkType = null)
   {
     if (member.Name == name) {
       context.AddError(member, "Union Member", $"'{name}' cannot refer to " + (checkType is null ? "self, even recursively" : "self"));
       return false;
-    } else if (context.GetType(member.Name, out IGqlpDescribed? alternate) && alternate is AstType type) {
-      if (type is UnionDeclAst typeUnion) {
+    } else if (context.GetType(member.Name, out IGqlpDescribed? alternate) && alternate is IGqlpType type) {
+      if (type is IGqlpUnion typeUnion) {
         CheckSelfMember(name, typeUnion, context);
       } else {
         checkType?.Invoke(member.Name, type);

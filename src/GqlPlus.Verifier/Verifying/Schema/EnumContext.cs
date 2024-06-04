@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Verifying.Schema;
 
@@ -13,17 +13,17 @@ public class EnumContext(
   internal bool GetEnumValue(string value, [NotNullWhen(true)] out string? type)
     => enumValues.TryGetValue(value, out type);
 
-  internal bool GetEnumType(string? name, [NotNullWhen(true)] out EnumDeclAst? enumType)
+  internal bool GetEnumType(string? name, [NotNullWhen(true)] out IGqlpEnum? enumType)
   {
     enumType = null;
     if (GetType(name, out IGqlpDescribed? theType)) {
-      enumType = theType as EnumDeclAst;
+      enumType = theType as IGqlpEnum;
     }
 
     return enumType is not null;
   }
 
-  internal bool GetEnumValueType(EnumDeclAst enumType, string value, [NotNullWhen(true)] out EnumDeclAst? valueType)
+  internal bool GetEnumValueType(IGqlpEnum enumType, string value, [NotNullWhen(true)] out IGqlpEnum? valueType)
   {
     valueType = enumType;
     while (!valueType.HasValue(value)) {
@@ -42,15 +42,15 @@ public static class EnumContextHelper
   public static IMap<string> MakeEnumValues(this IGqlpType[] aliased)
   {
     IEnumerable<IGrouping<string, string>> enums = aliased
-        .OfType<EnumDeclAst>()
-        .SelectMany(e => e.Members.Select(v => (Member: v.Name, Type: e.Name)))
+        .OfType<IGqlpEnum>()
+        .SelectMany(e => e.Items.Select(v => (Member: v.Name, Type: e.Name)))
         .GroupBy(e => e.Member, e => e.Type);
 
     HashSet<string> enumNames = enums.Select(e => e.Key).ToHashSet();
 
     return aliased
-        .OfType<EnumDeclAst>()
-        .SelectMany(e => e.Members.SelectMany(
+        .OfType<IGqlpEnum>()
+        .SelectMany(e => e.Items.SelectMany(
           v => v.Aliases
             .Where(a => !enumNames.Contains(a))
             .Select(a => (Member: a, Type: e.Name))))

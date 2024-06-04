@@ -7,6 +7,13 @@ public interface IGqlpSimple<TItem>
   IEnumerable<TItem> Items { get; }
 }
 
+public interface IGqlpValued<TItem>
+  : IGqlpSimple<TItem>
+  where TItem : IGqlpError
+{
+  bool HasValue(string value);
+}
+
 public interface IGqlpDomain
   : IGqlpType<string>
 {
@@ -43,6 +50,8 @@ public interface IGqlpDomainMember
 {
   string EnumType { get; }
   string EnumItem { get; }
+
+  void SetEnumType(string enumType);
 }
 
 public interface IGqlpDomainRange
@@ -59,7 +68,7 @@ public interface IGqlpDomainRegex
 }
 
 public interface IGqlpEnum
-  : IGqlpSimple<IGqlpEnumItem>
+  : IGqlpValued<IGqlpEnumItem>
 { }
 
 public interface IGqlpEnumItem
@@ -67,7 +76,7 @@ public interface IGqlpEnumItem
 { }
 
 public interface IGqlpUnion
-  : IGqlpSimple<IGqlpUnionItem>
+  : IGqlpValued<IGqlpUnionItem>
 { }
 
 public interface IGqlpUnionItem

@@ -8,7 +8,7 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   IVerifyAliased<TAst> aliased,
   IMerge<TItem> mergeItems
 ) : AstParentVerifier<TAst, TParent, TContext>(aliased)
-  where TAst : class, IGqlpType<TParent>
+  where TAst : IGqlpType<TParent>
   where TParent : IEquatable<TParent>
   where TContext : UsageContext
   where TItem : IGqlpError

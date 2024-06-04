@@ -1,7 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -89,7 +88,7 @@ public static class MergeExtensions
       this IEnumerable<TItem> items,
       Func<TItem, string?> field,
       [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
-    where TItem : AstBase
+    where TItem : IGqlpError
   {
     ArgumentNullException.ThrowIfNull(items);
     ArgumentNullException.ThrowIfNull(field);

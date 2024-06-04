@@ -1,12 +1,11 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Verifying;
+﻿using GqlPlus.Verifying;
 
 namespace GqlPlus.Verification;
 
 internal class NullVerifier<TAst>(
   ILoggerFactory logger
 ) : IVerify<TAst>
-  where TAst : AstAbbreviated
+  where TAst : IGqlpAbbreviated
 {
   private readonly ILogger _logger = logger.CreateLogger(nameof(NullVerifier<TAst>));
 

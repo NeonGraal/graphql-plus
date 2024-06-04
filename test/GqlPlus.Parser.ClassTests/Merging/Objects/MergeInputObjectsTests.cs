@@ -7,14 +7,14 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Objects;
 
 public class MergeInputObjectsTests
-  : TestObjects<InputDeclAst, InputFieldAst, IGqlpInputBase>
+  : TestObjects<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputBase>
 {
   private readonly MergeInputObjects _merger;
 
   public MergeInputObjectsTests(ITestOutputHelper outputHelper)
     => _merger = new(outputHelper.ToLoggerFactory(), Fields, TypeParameters, Alternates);
 
-  internal override AstObjectsMerger<InputDeclAst, InputFieldAst, IGqlpInputBase> MergerObject => _merger;
+  internal override AstObjectsMerger<IGqlpInputObject, IGqlpInputField, IGqlpInputBase> MergerObject => _merger;
 
   protected override InputDeclAst MakeObject(string name, string[]? aliases = null, string description = "", IGqlpInputBase? parent = default)
     => new(AstNulls.At, name, description) { Aliases = aliases ?? [], Parent = parent, };

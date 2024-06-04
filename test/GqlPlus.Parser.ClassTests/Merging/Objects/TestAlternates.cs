@@ -3,9 +3,8 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
-public abstract class TestAlternates<TAlternate, TObjBase>
-  : TestDescriptions<TAlternate>
-  where TAlternate : AstAlternate<TObjBase>
+public abstract class TestAlternates<TObjBase>
+  : TestDescriptions<IGqlpAlternate<TObjBase>>
   where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
@@ -22,15 +21,10 @@ public abstract class TestAlternates<TAlternate, TObjBase>
       [MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() }],
       MakeDescribed(input) with { Modifiers = TestMods() });
 
-  internal abstract AstAlternatesMerger<TAlternate, TObjBase> MergerAlternate { get; }
-  internal override GroupsMerger<TAlternate> MergerGroups => MergerAlternate;
+  internal abstract AstAlternatesMerger<IGqlpAlternate<TObjBase>, TObjBase> MergerAlternate { get; }
+  internal override GroupsMerger<IGqlpAlternate<TObjBase>> MergerGroups => MergerAlternate;
 
-  protected abstract TAlternate MakeAlternate(string name, string description = "");
-  protected override TAlternate MakeDescribed(string name, string description = "")
+  protected abstract AstAlternate<TObjBase> MakeAlternate(string name, string description = "");
+  protected override AstAlternate<TObjBase> MakeDescribed(string name, string description = "")
     => MakeAlternate(name, description);
 }
-
-public abstract class TestAlternates<TObjBase>
-  : TestAlternates<AstAlternate<TObjBase>, TObjBase>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
-{ }

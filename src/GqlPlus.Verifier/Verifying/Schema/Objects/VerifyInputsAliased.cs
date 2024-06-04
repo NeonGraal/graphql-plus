@@ -1,13 +1,13 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyInputsAliased(
-  IVerify<InputDeclAst> definition,
-  IMerge<InputDeclAst> merger,
+  IVerify<IGqlpInputObject> definition,
+  IMerge<IGqlpInputObject> merger,
   ILoggerFactory logger
-) : AliasedVerifier<InputDeclAst>(definition, merger, logger)
+) : AliasedVerifier<IGqlpInputObject>(definition, merger, logger)
 {
   public override string Label => "Inputs";
 }

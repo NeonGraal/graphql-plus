@@ -7,13 +7,13 @@ using GqlPlus.Verification.Schema;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyInputTypes(
-  IVerifyAliased<InputDeclAst> aliased,
-  IMerge<InputFieldAst> fields,
-  IMerge<AstAlternate<IGqlpInputBase>> mergeAlternates,
+  IVerifyAliased<IGqlpInputObject> aliased,
+  IMerge<IGqlpInputField> fields,
+  IMerge<IGqlpAlternate<IGqlpInputBase>> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<InputDeclAst, InputFieldAst, IGqlpInputBase, UsageContext>(aliased, fields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpInputObject, IGqlpInputField, IGqlpInputBase, UsageContext>(aliased, fields, mergeAlternates, logger)
 {
-  protected override UsageContext MakeContext(InputDeclAst usage, IGqlpType[] aliased, ITokenMessages errors)
+  protected override UsageContext MakeContext(IGqlpInputObject usage, IGqlpType[] aliased, ITokenMessages errors)
   {
     Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))
@@ -23,11 +23,12 @@ internal class VerifyInputTypes(
     return new(validTypes, errors);
   }
 
-  protected override void UsageField(InputFieldAst field, UsageContext context)
+  protected override void UsageField(IGqlpInputField field, UsageContext context)
   {
     base.UsageField(field, context);
 
-    if (field.DefaultValue?.Value?.EnumValue == "Null.null" && !(field.Modifiers.LastOrDefault()?.Kind == ModifierKind.Optional)) {
+    if (field.DefaultValue?.Value?.EnumValue == "Null.null" && !(field.Modifiers.LastOrDefault()?.ModifierKind == ModifierKind.Optional))
+    {
       context.AddError(field, "Input Field Default", $"'null' default requires Optional type, not '{field.ModifiedType}'");
     }
   }

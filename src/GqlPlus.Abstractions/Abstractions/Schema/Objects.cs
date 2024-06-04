@@ -33,6 +33,7 @@ public interface IGqlpObjectField<TBase>
   where TBase : IGqlpObjectBase<TBase>
 {
   TBase Type { get; }
+  string ModifiedType { get; }
 }
 
 public interface IGqlpTypeParameter

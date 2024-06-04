@@ -7,25 +7,30 @@ using GqlPlus.Verification.Schema;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyOutputTypes(
-  IVerifyAliased<OutputDeclAst> aliased,
-  IMerge<OutputFieldAst> mergeFields,
-  IMerge<AstAlternate<IGqlpOutputBase>> mergeAlternates,
+  IVerifyAliased<IGqlpOutputObject> aliased,
+  IMerge<IGqlpOutputField> mergeFields,
+  IMerge<IGqlpAlternate<IGqlpOutputBase>> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<OutputDeclAst, OutputFieldAst, IGqlpOutputBase, OutputContext>(aliased, mergeFields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputBase, OutputContext>(aliased, mergeFields, mergeAlternates, logger)
 {
-  protected override void UsageValue(OutputDeclAst usage, OutputContext context)
+  protected override void UsageValue(IGqlpOutputObject usage, OutputContext context)
   {
-    IEnumerable<OutputFieldAst> enumFields = usage.Fields
+    IEnumerable<IGqlpOutputField> enumFields = usage.Fields
       .Where(f => !string.IsNullOrWhiteSpace(f.Type.EnumValue));
 
-    foreach (OutputFieldAst? enumField in enumFields) {
-      if (string.IsNullOrWhiteSpace(enumField.Type.TypeName)) {
-        if (context.GetEnumValue(enumField.Type.EnumValue!, out string? enumType)) {
+    foreach (OutputFieldAst? enumField in enumFields)
+    {
+      if (string.IsNullOrWhiteSpace(enumField?.Type.TypeName))
+      {
+        if (context.GetEnumValue(enumField!.Type.EnumValue!, out string? enumType))
+        {
           ((OutputBaseAst)enumField.Type).Name = enumType!;
-        } else {
+        } else
+        {
           context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.Type.EnumValue}' not defined");
         }
-      } else {
+      } else
+      {
         context.CheckEnumValue("Field", enumField.Type);
       }
     }
@@ -33,9 +38,10 @@ internal class VerifyOutputTypes(
     base.UsageValue(usage, context);
   }
 
-  protected override void UsageField(OutputFieldAst field, OutputContext context)
+  protected override void UsageField(IGqlpOutputField field, OutputContext context)
   {
-    foreach (InputParameterAst parameter in field.Parameters) {
+    foreach (InputParameterAst parameter in field.Parameters)
+    {
       context.CheckType(parameter.Type, " Parameter");
 
       context.CheckModifiers(parameter);
@@ -44,7 +50,7 @@ internal class VerifyOutputTypes(
     base.UsageField(field, context);
   }
 
-  protected override OutputContext MakeContext(OutputDeclAst usage, IGqlpType[] aliased, ITokenMessages errors)
+  protected override OutputContext MakeContext(IGqlpOutputObject usage, IGqlpType[] aliased, ITokenMessages errors)
   {
     Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))

@@ -7,13 +7,13 @@ using GqlPlus.Verification.Schema;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyDualTypes(
-  IVerifyAliased<DualDeclAst> aliased,
-  IMerge<DualFieldAst> fields,
-  IMerge<AstAlternate<IGqlpDualBase>> mergeAlternates,
+  IVerifyAliased<IGqlpDualObject> aliased,
+  IMerge<IGqlpDualField> fields,
+  IMerge<IGqlpAlternate<IGqlpDualBase>> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<DualDeclAst, DualFieldAst, IGqlpDualBase, UsageContext>(aliased, fields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpDualObject, IGqlpDualField, IGqlpDualBase, UsageContext>(aliased, fields, mergeAlternates, logger)
 {
-  protected override UsageContext MakeContext(DualDeclAst usage, IGqlpType[] aliased, ITokenMessages errors)
+  protected override UsageContext MakeContext(IGqlpDualObject usage, IGqlpType[] aliased, ITokenMessages errors)
   {
     Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))

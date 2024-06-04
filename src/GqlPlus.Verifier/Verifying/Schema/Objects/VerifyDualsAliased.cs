@@ -1,13 +1,13 @@
-﻿using GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyDualsAliased(
-  IVerify<DualDeclAst> definition,
-  IMerge<DualDeclAst> merger,
+  IVerify<IGqlpDualObject> definition,
+  IMerge<IGqlpDualObject> merger,
   ILoggerFactory logger
-) : AliasedVerifier<DualDeclAst>(definition, merger, logger)
+) : AliasedVerifier<IGqlpDualObject>(definition, merger, logger)
 {
   public override string Label => "Duals";
 }

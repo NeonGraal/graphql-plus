@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Verification;
 using GqlPlus.Verification.Schema;
 using GqlPlus.Verifying.Operation;

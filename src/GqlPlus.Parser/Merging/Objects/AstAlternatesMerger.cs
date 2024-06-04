@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
@@ -14,8 +13,7 @@ internal class AstAlternatesMerger<TAlternate, TObjBase>(
   protected override TAlternate MergeGroup(IEnumerable<TAlternate> group)
   {
     TAlternate first = group.First();
-    if (first.Type is IAstSetDescription descrType)
-    {
+    if (first.Type is IAstSetDescription descrType) {
       descrType.MakeDescription(group);
     }
 

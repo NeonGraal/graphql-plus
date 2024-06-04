@@ -11,15 +11,13 @@ internal class MergeInputObjects(
 ) : AstObjectsMerger<IGqlpInputObject, IGqlpInputField, IGqlpInputBase>(logger, fields, typeParameters, alternates)
 {
   protected override IGqlpInputObject SetAlternates(IGqlpInputObject obj, IEnumerable<IGqlpTypeParameter> typeParameters, IEnumerable<IGqlpAlternate<IGqlpInputBase>> alternates)
-    => (InputDeclAst)obj with
-    {
+    => (InputDeclAst)obj with {
       TypeParameters = typeParameters.ArrayOf<TypeParameterAst>(),
       Alternates = alternates.ArrayOf<AstAlternate<IGqlpInputBase>>(),
     };
 
   internal override IGqlpInputObject SetItems(IGqlpInputObject input, IEnumerable<IGqlpInputField> items)
-    => (InputDeclAst)input with
-    {
+    => (InputDeclAst)input with {
       Fields = items.ArrayOf<InputFieldAst>(),
     };
 }

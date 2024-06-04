@@ -23,31 +23,25 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
   {
     base.UsageValue(usage, context);
 
-    if (usage.Parent is not null)
-    {
+    if (usage.Parent is not null) {
       context.CheckType(usage.Parent, " Parent", false);
     }
 
-    foreach (TObjField field in usage.Fields)
-    {
+    foreach (TObjField field in usage.Fields) {
       UsageField(field, context);
     }
 
     ParentUsage<TObject> input = new([], usage, "an alternative");
     _logger.CheckingAlternates(input);
-    foreach (AstAlternate<TObjBase> alternate in usage.Alternates)
-    {
+    foreach (AstAlternate<TObjBase> alternate in usage.Alternates) {
       UsageAlternate(alternate, context);
-      if (alternate.Modifiers.Length == 0)
-      {
+      if (alternate.Modifiers.Length == 0) {
         CheckAlternate(new([alternate.Type.FullType], usage, "an alternate"), usage.Name, context, true);
       }
     }
 
-    foreach (TypeParameterAst typeParameter in usage.TypeParameters)
-    {
-      if (!context.Used.Contains("$" + typeParameter.Name))
-      {
+    foreach (TypeParameterAst typeParameter in usage.TypeParameters) {
+      if (!context.Used.Contains("$" + typeParameter.Name)) {
         context.AddError(typeParameter, usage.Label, $"'${typeParameter.Name}' not used");
       }
     }
@@ -72,11 +66,9 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
     bool top,
     Action<TObject>? onParent = null)
   {
-    if (input.Parent?.StartsWith('$') == true)
-    {
+    if (input.Parent?.StartsWith('$') == true) {
       string parameter = input.Parent[1..];
-      if (top && input.Usage.TypeParameters.All(p => p.Name != parameter))
-      {
+      if (top && input.Usage.TypeParameters.All(p => p.Name != parameter)) {
         context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' not defined");
       }
 
@@ -95,17 +87,14 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
 
   protected override void OnParentType(ParentUsage<TObject> input, TContext context, TObject parentType, bool top)
   {
-    if (top && parentType.Label != "Dual")
-    {
+    if (top && parentType.Label != "Dual") {
       base.OnParentType(input, context, parentType, top);
     }
 
     _logger.CheckingAlternates(input, top, parentType.Name);
     input = input with { Label = "an alternate" };
-    foreach (AstAlternate<TObjBase> alternate in parentType.Alternates)
-    {
-      if (alternate.Modifiers.Length == 0)
-      {
+    foreach (AstAlternate<TObjBase> alternate in parentType.Alternates) {
+      if (alternate.Modifiers.Length == 0) {
         CheckAlternate(input.AddParent(alternate.Type.TypeName), parentType.Name, context, false);
       }
     }
@@ -115,15 +104,12 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
   {
     if (context.DifferentName(input, top ? null : current)
       && context.GetType(input.Parent, out IGqlpDescribed? type)
-      && type is TObject alternateType)
-    {
+      && type is TObject alternateType) {
       CheckParent(input, alternateType, context, false);
 
       _logger.CheckingAlternates(input, top, alternateType.Name, current);
-      foreach (AstAlternate<TObjBase> alternate in alternateType.Alternates)
-      {
-        if (alternate.Modifiers.Length == 0)
-        {
+      foreach (AstAlternate<TObjBase> alternate in alternateType.Alternates) {
+        if (alternate.Modifiers.Length == 0) {
           CheckAlternate(input.AddParent(alternate.Type.TypeName), alternateType.Name, context, false);
         }
       }
@@ -135,11 +121,9 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
     base.CheckMergeParent(input, context);
 
     IGqlpAlternate<TObjBase>[] alternates = GetParentItems(input, input.Usage, context, ast => ast.Alternates).ToArray();
-    if (alternates.Length > 0)
-    {
+    if (alternates.Length > 0) {
       ITokenMessages failures = mergeAlternates.CanMerge(alternates);
-      if (failures.Any())
-      {
+      if (failures.Any()) {
         context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Parent} alternates");
         context.Add(failures);
       }

@@ -11,15 +11,13 @@ internal class MergeDualObjects(
 ) : AstObjectsMerger<IGqlpDualObject, IGqlpDualField, IGqlpDualBase>(logger, fields, typeParameters, alternates)
 {
   protected override IGqlpDualObject SetAlternates(IGqlpDualObject obj, IEnumerable<IGqlpTypeParameter> typeParameters, IEnumerable<IGqlpAlternate<IGqlpDualBase>> alternates)
-    => (DualDeclAst)obj with
-    {
+    => (DualDeclAst)obj with {
       TypeParameters = typeParameters.ArrayOf<TypeParameterAst>(),
       Alternates = alternates.ArrayOf<AstAlternate<IGqlpDualBase>>(),
     };
 
   internal override IGqlpDualObject SetItems(IGqlpDualObject input, IEnumerable<IGqlpDualField> items)
-    => (DualDeclAst)input with
-    {
+    => (DualDeclAst)input with {
       Fields = items.ArrayOf<DualFieldAst>(),
     };
 }

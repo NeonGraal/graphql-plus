@@ -18,19 +18,14 @@ internal class VerifyOutputTypes(
     IEnumerable<IGqlpOutputField> enumFields = usage.Fields
       .Where(f => !string.IsNullOrWhiteSpace(f.Type.EnumValue));
 
-    foreach (OutputFieldAst? enumField in enumFields)
-    {
-      if (string.IsNullOrWhiteSpace(enumField?.Type.TypeName))
-      {
-        if (context.GetEnumValue(enumField!.Type.EnumValue!, out string? enumType))
-        {
+    foreach (OutputFieldAst? enumField in enumFields) {
+      if (string.IsNullOrWhiteSpace(enumField?.Type.TypeName)) {
+        if (context.GetEnumValue(enumField!.Type.EnumValue!, out string? enumType)) {
           ((OutputBaseAst)enumField.Type).Name = enumType!;
-        } else
-        {
+        } else {
           context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.Type.EnumValue}' not defined");
         }
-      } else
-      {
+      } else {
         context.CheckEnumValue("Field", enumField.Type);
       }
     }
@@ -40,8 +35,7 @@ internal class VerifyOutputTypes(
 
   protected override void UsageField(IGqlpOutputField field, OutputContext context)
   {
-    foreach (InputParameterAst parameter in field.Parameters)
-    {
+    foreach (InputParameterAst parameter in field.Parameters) {
       context.CheckType(parameter.Type, " Parameter");
 
       context.CheckModifiers(parameter);

@@ -41,8 +41,7 @@ public static class AstExtensions
   {
     IEnumerable<string?>? result = AsFields(items);
 
-    if (sort)
-    {
+    if (sort) {
       result = result?.Order();
     }
 
@@ -110,8 +109,7 @@ public static class AstExtensions
   public static void AddError<TAst>(this ITokenMessages errors, TAst item, string message)
     where TAst : AstAbbreviated
   {
-    if (errors is null || item is null)
-    {
+    if (errors is null || item is null) {
       return;
     }
 

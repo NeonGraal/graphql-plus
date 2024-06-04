@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
@@ -21,8 +20,7 @@ internal class AstObjectFieldsMerger<TObjField, TObjBase>(
   protected override TObjField MergeGroup(IEnumerable<TObjField> group)
   {
     TObjField result = base.MergeGroup(group);
-    if (result.Type is IAstSetDescription descrType)
-    {
+    if (result.Type is IAstSetDescription descrType) {
       descrType.MakeDescription(group.Select(item => item.Type));
     }
 

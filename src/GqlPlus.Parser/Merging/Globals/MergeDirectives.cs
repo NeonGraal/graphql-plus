@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
 
@@ -21,8 +20,7 @@ internal class MergeDirectives(
   protected override IGqlpSchemaDirective MergeGroup(IEnumerable<IGqlpSchemaDirective> group)
   {
     DirectiveDeclAst ast = (DirectiveDeclAst)base.MergeGroup(group);
-    return ast with
-    {
+    return ast with {
       Parameters = group.ManyMerge(item => item.Parameters, parameters).ArrayOf<InputParameterAst>(),
       Locations = group.Aggregate(DirectiveLocation.None, (l, d) => d.Locations | l),
     };

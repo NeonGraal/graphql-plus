@@ -41,8 +41,7 @@ internal class DirectiveModeller(
 ) : ModellerBase<IGqlpSchemaDirective, DirectiveModel>
 {
   protected override DirectiveModel ToModel(IGqlpSchemaDirective ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name)
-    {
+    => new(ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Repeatable = ast.DirectiveOption == DirectiveOption.Repeatable,

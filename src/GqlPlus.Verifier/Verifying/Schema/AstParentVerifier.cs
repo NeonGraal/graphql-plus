@@ -20,8 +20,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
 
     string parent = GetParent(usage);
 
-    if (!string.IsNullOrWhiteSpace(parent))
-    {
+    if (!string.IsNullOrWhiteSpace(parent)) {
       input = input.AddParent(parent);
       CheckMergeParent(input, context);
     }
@@ -33,29 +32,21 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     bool top,
     Action<TAst>? onParent = null)
   {
-    if (context.GetType(input.Parent, out IGqlpDescribed? defined))
-    {
-      if (defined is AstType astType)
-      {
-        if (CheckAstParentType(input, astType))
-        {
-          if (astType is TAst parentType)
-          {
-            if (CheckAstParent(input.Usage, parentType, context))
-            {
+    if (context.GetType(input.Parent, out IGqlpDescribed? defined)) {
+      if (defined is AstType astType) {
+        if (CheckAstParentType(input, astType)) {
+          if (astType is TAst parentType) {
+            if (CheckAstParent(input.Usage, parentType, context)) {
               onParent?.Invoke(parentType);
             }
           }
-        } else if (top)
-        {
+        } else if (top) {
           context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' invalid type. Found '{astType.Label}'");
         }
-      } else if (top)
-      {
+      } else if (top) {
         context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' invalid definition.");
       }
-    } else if (top && !string.IsNullOrWhiteSpace(input.Parent))
-    {
+    } else if (top && !string.IsNullOrWhiteSpace(input.Parent)) {
       context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' not defined");
     }
   }
@@ -69,10 +60,8 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   protected void CheckParent(ParentUsage<TAst> input, IGqlpType<TParent> child, TContext context, bool top)
   {
     input = input.AddParent(GetParent(child));
-    if (context.DifferentName(input, top ? null : child.Name))
-    {
-      CheckParentType(input, context, top, parentType =>
-      {
+    if (context.DifferentName(input, top ? null : child.Name)) {
+      CheckParentType(input, context, top, parentType => {
         CheckParent(input, parentType, context, false);
         OnParentType(input, context, parentType, top);
       });
@@ -81,8 +70,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
 
   protected virtual void OnParentType(ParentUsage<TAst> input, TContext context, TAst parentType, bool top)
   {
-    if (top && parentType.Label != input.UsageLabel)
-    {
+    if (top && parentType.Label != input.UsageLabel) {
       context.AddError(input.Usage, input.UsageLabel + " Parent", $"Type kind mismatch for {input.Parent}. Found {parentType.Label}");
     }
   }

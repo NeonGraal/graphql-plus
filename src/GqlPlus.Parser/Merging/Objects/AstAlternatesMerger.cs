@@ -8,13 +8,14 @@ namespace GqlPlus.Merging.Objects;
 internal class AstAlternatesMerger<TAlternate, TObjBase>(
   ILoggerFactory logger
 ) : AstDescribedMerger<TAlternate>(logger)
-  where TAlternate : AstAlternate<TObjBase>
+  where TAlternate : IGqlpAlternate<TObjBase>
   where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 {
   protected override TAlternate MergeGroup(IEnumerable<TAlternate> group)
   {
     TAlternate first = group.First();
-    if (first.Type is IAstSetDescription descrType) {
+    if (first.Type is IAstSetDescription descrType)
+    {
       descrType.MakeDescription(group);
     }
 
@@ -31,6 +32,6 @@ internal class AstAlternatesMerger<TAlternate, TObjBase>(
 
 internal class AlternatesMerger<TObjBase>(
   ILoggerFactory logger
-) : AstAlternatesMerger<AstAlternate<TObjBase>, TObjBase>(logger)
+) : AstAlternatesMerger<IGqlpAlternate<TObjBase>, TObjBase>(logger)
   where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
 { }

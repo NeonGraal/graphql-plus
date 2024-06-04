@@ -5,8 +5,21 @@ namespace GqlPlus.Merging.Objects;
 
 internal class MergeDualObjects(
   ILoggerFactory logger,
-  IMerge<DualFieldAst> fields,
+  IMerge<IGqlpDualField> fields,
   IMerge<IGqlpTypeParameter> typeParameters,
-  IMerge<AstAlternate<IGqlpDualBase>> alternates
-) : AstObjectsMerger<DualDeclAst, DualFieldAst, IGqlpDualBase>(logger, fields, typeParameters, alternates)
-{ }
+  IMerge<IGqlpAlternate<IGqlpDualBase>> alternates
+) : AstObjectsMerger<IGqlpDualObject, IGqlpDualField, IGqlpDualBase>(logger, fields, typeParameters, alternates)
+{
+  protected override IGqlpDualObject SetAlternates(IGqlpDualObject obj, IEnumerable<IGqlpTypeParameter> typeParameters, IEnumerable<IGqlpAlternate<IGqlpDualBase>> alternates)
+    => (DualDeclAst)obj with
+    {
+      TypeParameters = typeParameters.ArrayOf<TypeParameterAst>(),
+      Alternates = alternates.ArrayOf<AstAlternate<IGqlpDualBase>>(),
+    };
+
+  internal override IGqlpDualObject SetItems(IGqlpDualObject input, IEnumerable<IGqlpDualField> items)
+    => (DualDeclAst)input with
+    {
+      Fields = items.ArrayOf<DualFieldAst>(),
+    };
+}

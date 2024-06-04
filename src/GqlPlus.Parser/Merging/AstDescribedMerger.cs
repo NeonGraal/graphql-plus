@@ -6,7 +6,7 @@ namespace GqlPlus.Merging;
 internal abstract class AstDescribedMerger<TItem>(
   ILoggerFactory logger
 ) : DistinctMerger<TItem>(logger)
-  where TItem : AstBase, IGqlpDescribed
+  where TItem : IGqlpError, IGqlpDescribed
 {
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)
     => base.CanMergeGroup(group)

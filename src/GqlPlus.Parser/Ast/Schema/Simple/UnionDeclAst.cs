@@ -20,6 +20,6 @@ public sealed record class UnionDeclAst(
   public UnionDeclAst(TokenAt at, string name, UnionMemberAst[] members)
     : this(at, name, "", members) { }
 
-  internal bool HasValue(string value)
+  public bool HasValue(string value)
     => Members.Select(a => a.Name).Contains(value);
 }

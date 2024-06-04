@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema;
@@ -33,7 +32,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     Action<TAst>? onParent = null)
   {
     if (context.GetType(input.Parent, out IGqlpDescribed? defined)) {
-      if (defined is AstType astType) {
+      if (defined is IGqlpType astType) {
         if (CheckAstParentType(input, astType)) {
           if (astType is TAst parentType) {
             if (CheckAstParent(input.Usage, parentType, context)) {
@@ -51,7 +50,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     }
   }
 
-  protected virtual bool CheckAstParentType(ParentUsage<TAst> input, AstType astType)
+  protected virtual bool CheckAstParentType(ParentUsage<TAst> input, IGqlpType astType)
     => astType.Label == input.UsageLabel;
 
   protected virtual bool CheckAstParent(TAst usage, [NotNullWhen(true)] TAst? parent, TContext context)

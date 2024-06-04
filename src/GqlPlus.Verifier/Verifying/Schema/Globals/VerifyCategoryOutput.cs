@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema.Globals;
@@ -13,8 +12,8 @@ internal class VerifyCategoryOutput(
 
   protected override void UsageValue(IGqlpSchemaCategory usage, UsageContext context)
   {
-    if (context.GetType(usage.Output, out IGqlpDescribed? type) && type is OutputDeclAst output) {
-      if (output.TypeParameters.Length > 0) {
+    if (context.GetType(usage.Output, out IGqlpDescribed? type) && type is IGqlpOutputObject output) {
+      if (output.TypeParameters.Any()) {
         context.AddError(usage, "Category Output", $"'{usage.Output}' is a generic Output type");
       }
     } else {

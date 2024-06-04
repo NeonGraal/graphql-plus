@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -12,10 +11,9 @@ internal class OutputContext(
 
   internal override void CheckArgumentType<TObjBase>(TObjBase type, string labelSuffix)
   {
-    if (type is OutputBaseAst output) {
+    if (type is IGqlpOutputBase output) {
       if (string.IsNullOrWhiteSpace(output.EnumValue) && GetEnumValue(type.TypeName, out string? enumType)) {
-        output.EnumValue = type.TypeName;
-        output.Name = enumType!;
+        output.SetEnumType(enumType);
       }
 
       if (!string.IsNullOrWhiteSpace(output.EnumValue)) {
@@ -28,8 +26,8 @@ internal class OutputContext(
 
   internal void CheckEnumValue(string label, IGqlpOutputBase output)
   {
-    if (GetEnumType(output.TypeName, out Ast.Schema.Simple.EnumDeclAst? theType)) {
-      if (!GetEnumValueType(theType, output.EnumValue ?? "", out Ast.Schema.Simple.EnumDeclAst? _)) {
+    if (GetEnumType(output.TypeName, out IGqlpEnum? theType)) {
+      if (!GetEnumValueType(theType, output.EnumValue ?? "", out IGqlpEnum? _)) {
         AddError(output, $"Output {label} Enum Value", $"'{output.EnumValue}' not a Value of '{output.TypeName}'");
       }
     } else {

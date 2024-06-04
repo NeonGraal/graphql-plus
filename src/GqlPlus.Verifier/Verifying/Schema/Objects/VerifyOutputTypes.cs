@@ -1,6 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging;
 using GqlPlus.Verification.Schema;
 
@@ -18,10 +16,10 @@ internal class VerifyOutputTypes(
     IEnumerable<IGqlpOutputField> enumFields = usage.Fields
       .Where(f => !string.IsNullOrWhiteSpace(f.Type.EnumValue));
 
-    foreach (OutputFieldAst? enumField in enumFields) {
+    foreach (IGqlpOutputField? enumField in enumFields) {
       if (string.IsNullOrWhiteSpace(enumField?.Type.TypeName)) {
         if (context.GetEnumValue(enumField!.Type.EnumValue!, out string? enumType)) {
-          ((OutputBaseAst)enumField.Type).Name = enumType!;
+          enumField.Type.SetEnumType(enumType);
         } else {
           context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.Type.EnumValue}' not defined");
         }
@@ -35,7 +33,7 @@ internal class VerifyOutputTypes(
 
   protected override void UsageField(IGqlpOutputField field, OutputContext context)
   {
-    foreach (InputParameterAst parameter in field.Parameters) {
+    foreach (IGqlpInputParameter parameter in field.Parameters) {
       context.CheckType(parameter.Type, " Parameter");
 
       context.CheckModifiers(parameter);

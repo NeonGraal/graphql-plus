@@ -1,7 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Objects;
-using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Verifying.Schema;
 
@@ -74,11 +71,11 @@ internal static class UsageHelpers
     foreach (IGqlpModifier modifier in modified.Modifiers) {
       if (modifier.ModifierKind == ModifierKind.Dict) {
         if (context.GetType(modifier.Key, out IGqlpDescribed? key)) {
-          if (key is not AstSimple and not TypeParameterAst) {
-            context.AddError((AstAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");
+          if (key is not IGqlpSimple and not IGqlpTypeParameter) {
+            context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");
           }
         } else {
-          context.AddError((AstAbbreviated)modified, "Modifier", $"'{modifier.Key}' not defined");
+          context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' not defined");
         }
       }
     }

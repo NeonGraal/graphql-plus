@@ -1,6 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 
 namespace GqlPlus.Verifying.Schema.Simple;
@@ -13,23 +11,23 @@ internal class VerifyDomainEnum(
   {
     EnumMembers members = new();
 
-    foreach (DomainMemberAst member in domain.Items.Cast<DomainMemberAst>()) {
+    foreach (IGqlpDomainMember member in domain.Items) {
       if (string.IsNullOrWhiteSpace(member.EnumType)) {
-        if (context.GetEnumValue(member.Member, out string? enumType)) {
-          member.EnumType = enumType;
-          if (context.GetEnumType(member.EnumType, out EnumDeclAst? theType)) {
-            members.Add(member.Excludes, theType, member.Member);
+        if (context.GetEnumValue(member.EnumItem, out string? enumType)) {
+          member.SetEnumType(enumType);
+          if (context.GetEnumType(member.EnumType, out IGqlpEnum? theType)) {
+            members.Add(member.Excludes, theType, member.EnumItem);
           }
         } else {
-          context.AddError(member, "Domain Enum Member", $"Enum Value '{member.Member}' not defined");
+          context.AddError(member, "Domain Enum Member", $"Enum Value '{member.EnumItem}' not defined");
         }
-      } else if (context.GetEnumType(member.EnumType, out EnumDeclAst? theType)) {
-        if (member.Member == "*") {
+      } else if (context.GetEnumType(member.EnumType, out IGqlpEnum? theType)) {
+        if (member.EnumItem == "*") {
           AddAllMembers(members, context, member.Excludes, theType);
-        } else if (context.GetEnumValueType(theType, member.Member, out EnumDeclAst? memberType)) {
-          members.Add(member.Excludes, memberType, member.Member);
+        } else if (context.GetEnumValueType(theType, member.EnumItem, out IGqlpEnum? memberType)) {
+          members.Add(member.Excludes, memberType, member.EnumItem);
         } else {
-          context.AddError(member, "Domain Enum Value", $"'{member.Member}' not a Value of '{member.EnumType}'");
+          context.AddError(member, "Domain Enum Value", $"'{member.EnumItem}' not a Value of '{member.EnumType}'");
         }
       } else {
         context.AddError(member, "Domain Enum", $"'{member.EnumType}' not an Enum type");
@@ -43,28 +41,28 @@ internal class VerifyDomainEnum(
     }
   }
 
-  private static void AddAllMembers(EnumMembers members, EnumContext context, bool excludes, EnumDeclAst enumType)
+  private static void AddAllMembers(EnumMembers members, EnumContext context, bool excludes, IGqlpEnum enumType)
   {
-    foreach (EnumMemberAst enumMember in enumType.Members) {
+    foreach (IGqlpEnumItem enumMember in enumType.Items) {
       members.Add(excludes, enumType, enumMember.Name);
     }
 
-    if (context.GetEnumType(enumType.Parent, out EnumDeclAst? parentType)) {
+    if (context.GetEnumType(enumType.Parent, out IGqlpEnum? parentType)) {
       AddAllMembers(members, context, excludes, parentType);
     }
   }
 }
 
-internal record struct EnumMember(EnumDeclAst Enum, string Member);
+internal record struct EnumMember(IGqlpEnum Enum, string Member);
 
 internal class EnumMembers
 {
   private readonly List<EnumMember> _includes = [];
   private readonly List<EnumMember> _excludes = [];
 
-  internal void Add(bool excluded, EnumDeclAst theEnum, string theMember)
+  internal void Add(bool excluded, IGqlpEnum theEnum, string theMember)
   {
-    EnumMemberAst enumMember = theEnum.Members.First(m => m.Name == theMember || m.Aliases.Contains(theMember));
+    IGqlpEnumItem enumMember = theEnum.Items.First(m => m.Name == theMember || m.Aliases.Contains(theMember));
     if (excluded) {
       _excludes.Add(new(theEnum, enumMember.Name));
     } else {

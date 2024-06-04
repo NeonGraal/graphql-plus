@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema;
@@ -19,8 +18,8 @@ internal class VerifySchema(
     IGqlpSchemaOption[] options = item.Declarations.ArrayOf<IGqlpSchemaOption>();
 
     IGqlpType[] astTypes = item.Declarations.ArrayOf<IGqlpType>();
-    IGqlpType[] outputTypes = [.. astTypes.Where(t => t is OutputDeclAst), .. BuiltIn.Basic, .. BuiltIn.Internal];
-    IGqlpType[] inputTypes = [.. astTypes.Where(t => t is InputDeclAst), .. BuiltIn.Basic, .. BuiltIn.Internal];
+    IGqlpType[] outputTypes = [.. astTypes.Where(t => t is IGqlpOutputObject), .. BuiltIn.Basic, .. BuiltIn.Internal];
+    IGqlpType[] inputTypes = [.. astTypes.Where(t => t is IGqlpInputObject), .. BuiltIn.Basic, .. BuiltIn.Internal];
 
     categoryOutputs.Verify(new(categories, outputTypes), errors);
     directiveInputs.Verify(new(directives, inputTypes), errors);

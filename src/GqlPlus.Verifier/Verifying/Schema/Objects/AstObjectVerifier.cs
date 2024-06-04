@@ -1,6 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging;
 using GqlPlus.Verifying.Schema;
 
@@ -17,7 +15,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
   where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
   where TContext : UsageContext
 {
-  private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, TObjBase, TContext, TypeParameterAst>));
+  private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, TObjBase, TContext, IGqlpTypeParameter>));
 
   protected override void UsageValue(TObject usage, TContext context)
   {
@@ -33,21 +31,21 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
 
     ParentUsage<TObject> input = new([], usage, "an alternative");
     _logger.CheckingAlternates(input);
-    foreach (AstAlternate<TObjBase> alternate in usage.Alternates) {
+    foreach (IGqlpAlternate<TObjBase> alternate in usage.Alternates) {
       UsageAlternate(alternate, context);
-      if (alternate.Modifiers.Length == 0) {
+      if (!alternate.Modifiers.Any()) {
         CheckAlternate(new([alternate.Type.FullType], usage, "an alternate"), usage.Name, context, true);
       }
     }
 
-    foreach (TypeParameterAst typeParameter in usage.TypeParameters) {
+    foreach (IGqlpTypeParameter typeParameter in usage.TypeParameters) {
       if (!context.Used.Contains("$" + typeParameter.Name)) {
         context.AddError(typeParameter, usage.Label, $"'${typeParameter.Name}' not used");
       }
     }
   }
 
-  protected virtual void UsageAlternate(AstAlternate<TObjBase> alternate, TContext context)
+  protected virtual void UsageAlternate(IGqlpAlternate<TObjBase> alternate, TContext context)
     => context
       .CheckType(alternate.Type, " Alternate")
       .CheckModifiers(alternate);
@@ -78,7 +76,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
     base.CheckParentType(input, context, top, onParent);
   }
 
-  protected override bool CheckAstParentType(ParentUsage<TObject> input, AstType astType)
+  protected override bool CheckAstParentType(ParentUsage<TObject> input, IGqlpType astType)
     => base.CheckAstParentType(input, astType)
       || astType.Label == "Dual";
 
@@ -93,8 +91,8 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
 
     _logger.CheckingAlternates(input, top, parentType.Name);
     input = input with { Label = "an alternate" };
-    foreach (AstAlternate<TObjBase> alternate in parentType.Alternates) {
-      if (alternate.Modifiers.Length == 0) {
+    foreach (IGqlpAlternate<TObjBase> alternate in parentType.Alternates) {
+      if (!alternate.Modifiers.Any()) {
         CheckAlternate(input.AddParent(alternate.Type.TypeName), parentType.Name, context, false);
       }
     }
@@ -108,8 +106,8 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
       CheckParent(input, alternateType, context, false);
 
       _logger.CheckingAlternates(input, top, alternateType.Name, current);
-      foreach (AstAlternate<TObjBase> alternate in alternateType.Alternates) {
-        if (alternate.Modifiers.Length == 0) {
+      foreach (IGqlpAlternate<TObjBase> alternate in alternateType.Alternates) {
+        if (!alternate.Modifiers.Any()) {
           CheckAlternate(input.AddParent(alternate.Type.TypeName), alternateType.Name, context, false);
         }
       }

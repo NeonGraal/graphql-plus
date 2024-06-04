@@ -98,6 +98,8 @@ public interface IGqlpOutputBase
 {
   string Output { get; }
   string? EnumValue { get; }
+
+  void SetEnumType(string enumType);
 }
 
 public interface IGqlpOutputField

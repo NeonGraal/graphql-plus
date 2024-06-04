@@ -28,4 +28,7 @@ public sealed record class DomainMemberAst(
       .Append(Excludes ? "!" : "")
       .Append(EnumType)
       .Append(Member);
+
+  void IGqlpDomainMember.SetEnumType(string enumType)
+    => EnumType ??= enumType;
 }

@@ -1,0 +1,45 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutDomainsParam: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: OutDomainsParam
+      exclude: false
+      from: 1
+      to: 10
+    domain: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      from: 1
+      to: 10
+    name: OutDomainsParam
+    typeKind: !_TypeKind Domain
+  !_Identifier OutParamDomainParam: !_TypeInput
+    name: OutParamDomainParam
+    typeKind: !_TypeKind Input
+  !_Identifier OutParamsDomainParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParamsDomainParam
+      parameters:
+      - !_InputParameter
+        input: OutParamDomainParam
+        modifiers: [!_ModifierTypeParameter {key: mod}]
+      type: !_OutputBase
+        output: OutDomainsParam
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_InputParameter
+        input: OutParamDomainParam
+        modifiers: [!_ModifierTypeParameter {key: mod}]
+      type: !_OutputBase
+        output: OutDomainsParam
+    name: OutParamsDomainParam
+    typeKind: !_TypeKind Output
+    typeParameters:
+    - !_Described
+      name: mod

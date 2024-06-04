@@ -174,7 +174,7 @@ types: !_Map_Type
   !_Identifier _Schema: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier}]
+      modifiers: [!_ModifierDictionary {key: _Identifier}]
       name: categories
       object: _Schema
       parameters:
@@ -184,7 +184,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Categories
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier}]
+      modifiers: [!_ModifierDictionary {key: _Identifier}]
       name: directives
       object: _Schema
       parameters:
@@ -194,7 +194,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Directives
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier}]
+      modifiers: [!_ModifierDictionary {key: _Identifier}]
       name: types
       object: _Schema
       parameters:
@@ -204,7 +204,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Type
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier}]
+      modifiers: [!_ModifierDictionary {key: _Identifier}]
       name: settings
       object: _Schema
       parameters:
@@ -215,7 +215,7 @@ types: !_Map_Type
         output: _Setting
     fields:
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier}]
+      modifiers: [!_ModifierDictionary {key: _Identifier}]
       name: categories
       parameters:
       - !_InputParameter
@@ -224,7 +224,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Categories
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier}]
+      modifiers: [!_ModifierDictionary {key: _Identifier}]
       name: directives
       parameters:
       - !_InputParameter
@@ -233,7 +233,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Directives
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier}]
+      modifiers: [!_ModifierDictionary {key: _Identifier}]
       name: types
       parameters:
       - !_InputParameter
@@ -242,7 +242,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Type
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier}]
+      modifiers: [!_ModifierDictionary {key: _Identifier}]
       name: settings
       parameters:
       - !_InputParameter

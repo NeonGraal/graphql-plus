@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Ast;
 
-public sealed record class ModifierAst(TokenAt At)
-  : AstBase(At)
+public sealed record class ModifierAst(
+  TokenAt At
+) : AstBase(At)
   , IEquatable<ModifierAst>
   , IGqlpModifier
 {
@@ -11,13 +12,11 @@ public sealed record class ModifierAst(TokenAt At)
     => new(at, ModifierKind.Optional, "?");
   internal static ModifierAst List(TokenAt at)
     => new(at, ModifierKind.List, "[]");
-
   internal static ModifierAst Dict(TokenAt at, string key, bool optional)
    => new(at, ModifierKind.Dict, "[" + key + (optional ? "?]" : "]")) {
      Key = key,
      IsOptional = optional
    };
-
   internal static ModifierAst Param(TokenAt at, string key, bool optional)
    => new(at, ModifierKind.Param, "[$" + key + (optional ? "?]" : "]")) {
      Key = key,

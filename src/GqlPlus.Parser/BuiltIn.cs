@@ -29,7 +29,7 @@ public static class BuiltIn
 
     DualObj("Opt", TypeParameters("T"), DualAlt(null), DualType("Null")),
     DualObj("List", TypeParameters("T"), DualAlt("")),
-    DualObj("Dict", TypeParameters("K", "T"), DualAlt("$K")),
+    DualObj("Dict", TypeParameters("K", "T"), DualAltParam("K")),
     DualObj("Map", TypeParameters("T"), DualDict("String")),
     DualObj("Array", TypeParameters("T"), DualDict("Number")),
     DualObj("IfElse", TypeParameters("T"), DualDict("Boolean")),
@@ -79,6 +79,11 @@ public static class BuiltIn
         "" => [ModifierAst.List(AstNulls.At)],
         _ => [ModifierAst.Dict(AstNulls.At, key, false)]
       }
+    };
+
+  private static AstAlternate<IGqlpDualBase> DualAltParam(string param)
+    => new(AstNulls.At, DualParam("T")) {
+      Modifiers = [ModifierAst.Param(AstNulls.At, param, false)]
     };
 
   private static AstAlternate<IGqlpDualBase> DualMost(string key, bool optional = false)

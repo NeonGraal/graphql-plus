@@ -19,5 +19,7 @@ internal class VerifyCategoryOutput(
     } else {
       context.AddError(usage, "Category Output", $"'{usage.Output}' not defined or not an Output type");
     }
+
+    context.CheckModifiers(usage);
   }
 }

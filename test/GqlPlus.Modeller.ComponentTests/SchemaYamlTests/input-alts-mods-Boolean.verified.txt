@@ -5,7 +5,7 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_InputBase))
       collections:
       - !_ModifierDictionary
-        by: ^
+        key: ^
       object: InpAltMods
       type: !_InputBase
         input: InpModsAlt
@@ -13,7 +13,7 @@ types: !_Map_Type
     - !_Alternate(_InputBase)
       collections:
       - !_ModifierDictionary
-        by: ^
+        key: ^
       type: !_InputBase
         input: InpModsAlt
     name: InpAltMods

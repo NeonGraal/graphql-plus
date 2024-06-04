@@ -1,0 +1,26 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpAltModsParam: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      collections:
+      - !_ModifierTypeParameter
+        key: mod
+      object: InpAltModsParam
+      type: !_InputBase
+        input: InpModsParamAlt
+    alternates:
+    - !_Alternate(_InputBase)
+      collections:
+      - !_ModifierTypeParameter
+        key: mod
+      type: !_InputBase
+        input: InpModsParamAlt
+    name: InpAltModsParam
+    typeKind: !_TypeKind Input
+    typeParameters:
+    - !_Described
+      name: mod
+  !_Identifier InpModsParamAlt: !_TypeInput
+    name: InpModsParamAlt
+    typeKind: !_TypeKind Input

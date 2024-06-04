@@ -69,6 +69,21 @@ internal static class UsageHelpers
     where TContext : UsageContext
   {
     foreach (IGqlpModifier modifier in modified.Modifiers) {
+      if (modifier.ModifierKind == ModifierKind.Param) {
+        if (!context.GetType("$" + modifier.Key, out IGqlpDescribed? key)) {
+          context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' not defined");
+        }
+      }
+
+      if (modifier.ModifierKind == ModifierKind.Dict) {
+        if (context.GetType(modifier.Key, out IGqlpDescribed? key)) {
+          if (key is not IGqlpSimple and not IGqlpTypeParameter) {
+            context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");
+          }
+        }
+      }
+    }
+    foreach (IGqlpModifier modifier in modified.Modifiers) {
       if (modifier.ModifierKind == ModifierKind.Dict) {
         if (context.GetType(modifier.Key, out IGqlpDescribed? key)) {
           if (key is not IGqlpSimple and not IGqlpTypeParameter) {

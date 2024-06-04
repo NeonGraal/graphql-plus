@@ -21,8 +21,8 @@ internal sealed class ModifierModelChecks(
     => name.Kind switch {
       ModifierKind.Optional => ["!_Modifier Opt"],
       ModifierKind.List => ["!_Modifier List"],
-      ModifierKind.Dict => ["!_ModifierDictionary", "by: " + name.Key, name.Optional ? "optional: true" : ""],
-      ModifierKind.Param => ["!_ModifierTypeParameter", name.Optional ? "optional: true" : "", "typeParameter: " + name.Key],
+      ModifierKind.Dict => ["!_ModifierDictionary", "key: " + name.Key, name.Optional ? "optional: true" : ""],
+      ModifierKind.Param => ["!_ModifierTypeParameter", "key: " + name.Key, name.Optional ? "optional: true" : ""],
       _ => [],
     };
 

@@ -1,0 +1,13 @@
+﻿!_Schema
+categories: !_Map_Categories
+  !_Identifier catDict: !_Category
+    modifiers: [!_ModifierDictionary {key: '*'}]
+    name: catDict
+    output: !_TypeRef(_TypeKind)
+      name: CatDict
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+types: !_Map_Type
+  !_Identifier CatDict: !_TypeOutput
+    name: CatDict
+    typeKind: !_TypeKind Output

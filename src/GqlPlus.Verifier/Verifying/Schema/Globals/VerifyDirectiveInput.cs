@@ -16,6 +16,8 @@ internal class VerifyDirectiveInput(
       if (!context.GetType(parameter.Type.FullType, out IGqlpDescribed? _)) {
         context.AddError(parameter, "Directive Parameter", $"'{parameter.Type}' not defined");
       }
+
+      context.CheckModifiers(parameter);
     }
   }
 }

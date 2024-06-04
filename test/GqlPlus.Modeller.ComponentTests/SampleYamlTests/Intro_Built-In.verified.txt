@@ -83,7 +83,7 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       collections:
       - !_ModifierDictionary
-        by: Simple
+        key: Simple
       object: _ConstantMap
       type: !_OutputBase
         output: _Constant
@@ -91,7 +91,7 @@ types: !_Map_Type
     - !_Alternate(_OutputBase)
       collections:
       - !_ModifierDictionary
-        by: Simple
+        key: Simple
       type: !_OutputBase
         output: _Constant
     name: _ConstantMap

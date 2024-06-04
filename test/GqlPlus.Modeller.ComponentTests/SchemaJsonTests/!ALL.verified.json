@@ -24,12 +24,39 @@
       },
       "resolution": "Parallel"
     },
+    "catDict": {
+      "$tag": "_Category",
+      "modifiers": [
+        {
+          "$tag": "_ModifierDictionary",
+          "value": "*"
+        }
+      ],
+      "name": "catDict",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CatDict",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
     "category": {
       "$tag": "_Category",
       "name": "category",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "name": "Category",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
+    "catList": {
+      "$tag": "_Category",
+      "modifiers": ["List"],
+      "name": "catList",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CatList",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
@@ -42,6 +69,17 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "name": "CatMods",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
+    "catOpt": {
+      "$tag": "_Category",
+      "modifiers": ["Opt"],
+      "name": "catOpt",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CatOpt",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
@@ -96,6 +134,74 @@
         {
           "$tag": "_InputParameter",
           "value": "DirParamIn"
+        }
+      ],
+      "repeatable": false
+    },
+    "DirParamDict": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DirParamDict",
+      "parameters": [
+        {
+          "$tag": "_InputParameter",
+          "input": "DirParamIn",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "value": "String"
+            }
+          ]
+        }
+      ],
+      "repeatable": false
+    },
+    "DirParamList": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DirParamList",
+      "parameters": [
+        {
+          "$tag": "_InputParameter",
+          "input": "DirParamIn",
+          "modifiers": ["List"]
+        }
+      ],
+      "repeatable": false
+    },
+    "DirParamOpt": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DirParamOpt",
+      "parameters": [
+        {
+          "$tag": "_InputParameter",
+          "input": "DirParamIn",
+          "modifiers": ["Opt"]
         }
       ],
       "repeatable": false
@@ -223,14 +329,29 @@
       "name": "CatAlias",
       "typeKind": "Output"
     },
+    "CatDict": {
+      "$tag": "_TypeOutput",
+      "name": "CatDict",
+      "typeKind": "Output"
+    },
     "Category": {
       "$tag": "_TypeOutput",
       "name": "Category",
       "typeKind": "Output"
     },
+    "CatList": {
+      "$tag": "_TypeOutput",
+      "name": "CatList",
+      "typeKind": "Output"
+    },
     "CatMods": {
       "$tag": "_TypeOutput",
       "name": "CatMods",
+      "typeKind": "Output"
+    },
+    "CatOpt": {
+      "$tag": "_TypeOutput",
+      "name": "CatOpt",
       "typeKind": "Output"
     },
     "Descr": {
@@ -676,6 +797,48 @@
       "name": "DualAltMods",
       "typeKind": "Dual"
     },
+    "DualAltModsParam": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "value": "mod"
+            }
+          ],
+          "object": "DualAltModsParam",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualModsParamAlt"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_DualBase)",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "value": "mod"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualModsParamAlt"
+          }
+        }
+      ],
+      "name": "DualAltModsParam",
+      "typeKind": "Dual",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
+    },
     "DualAltPrnt": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -858,6 +1021,55 @@
         }
       ],
       "name": "DualFieldMods",
+      "typeKind": "Dual"
+    },
+    "DualFieldModsParam": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "value": "mod"
+            }
+          ],
+          "name": "field",
+          "object": "DualFieldModsParam",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualFieldParamMods"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "value": "mod"
+            }
+          ],
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualFieldParamMods"
+          }
+        }
+      ],
+      "name": "DualFieldModsParam",
+      "typeKind": "Dual",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
+    },
+    "DualFieldParamMods": {
+      "$tag": "_TypeDual",
+      "name": "DualFieldParamMods",
       "typeKind": "Dual"
     },
     "DualFields": {
@@ -1664,6 +1876,11 @@
     "DualModsAlt": {
       "$tag": "_TypeDual",
       "name": "DualModsAlt",
+      "typeKind": "Dual"
+    },
+    "DualModsParamAlt": {
+      "$tag": "_TypeDual",
+      "name": "DualModsParamAlt",
       "typeKind": "Dual"
     },
     "DualParams": {
@@ -2926,6 +3143,48 @@
       "name": "InpAltMods",
       "typeKind": "Input"
     },
+    "InpAltModsParam": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "value": "mod"
+            }
+          ],
+          "object": "InpAltModsParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpModsParamAlt"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_InputBase)",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "value": "mod"
+            }
+          ],
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpModsParamAlt"
+          }
+        }
+      ],
+      "name": "InpAltModsParam",
+      "typeKind": "Input",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
+    },
     "InpAltPrnt": {
       "$tag": "_TypeInput",
       "allAlternates": [
@@ -3108,6 +3367,55 @@
         }
       ],
       "name": "InpFieldMods",
+      "typeKind": "Input"
+    },
+    "InpFieldModsParam": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "value": "mod"
+            }
+          ],
+          "name": "field",
+          "object": "InpFieldModsParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpFieldParamMods"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "value": "mod"
+            }
+          ],
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpFieldParamMods"
+          }
+        }
+      ],
+      "name": "InpFieldModsParam",
+      "typeKind": "Input",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
+    },
+    "InpFieldParamMods": {
+      "$tag": "_TypeInput",
+      "name": "InpFieldParamMods",
       "typeKind": "Input"
     },
     "InpFields": {
@@ -3916,6 +4224,11 @@
       "name": "InpModsAlt",
       "typeKind": "Input"
     },
+    "InpModsParamAlt": {
+      "$tag": "_TypeInput",
+      "name": "InpModsParamAlt",
+      "typeKind": "Input"
+    },
     "InpParams": {
       "$tag": "_TypeInput",
       "allFields": [
@@ -4291,6 +4604,29 @@
         }
       ],
       "name": "OutDomainParam",
+      "typeKind": "Domain"
+    },
+    "OutDomainsParam": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "OutDomainsParam",
+          "exclude": false,
+          "from": 1,
+          "to": 10
+        }
+      ],
+      "domain": "Number",
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "from": 1,
+          "to": 10
+        }
+      ],
+      "name": "OutDomainsParam",
       "typeKind": "Domain"
     },
     "OutEnumField": {
@@ -4725,6 +5061,48 @@
       "name": "OutpAltMods",
       "typeKind": "Output"
     },
+    "OutpAltModsParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "value": "mod"
+            }
+          ],
+          "object": "OutpAltModsParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpModsParamAlt"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "value": "mod"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpModsParamAlt"
+          }
+        }
+      ],
+      "name": "OutpAltModsParam",
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
+    },
     "OutpAltPrnt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -4827,6 +5205,11 @@
       "name": "OutParamDomain",
       "typeKind": "Input"
     },
+    "OutParamDomainParam": {
+      "$tag": "_TypeInput",
+      "name": "OutParamDomainParam",
+      "typeKind": "Input"
+    },
     "OutParamParent": {
       "$tag": "_TypeInput",
       "name": "OutParamParent",
@@ -4891,7 +5274,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutParamsDomain"
+            "value": "OutDomainParam"
           }
         }
       ],
@@ -4913,12 +5296,68 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutParamsDomain"
+            "value": "OutDomainParam"
           }
         }
       ],
       "name": "OutParamsDomain",
       "typeKind": "Output"
+    },
+    "OutParamsDomainParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutParamsDomainParam",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "input": "OutParamDomainParam",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierTypeParameter",
+                  "value": "mod"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutDomainsParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "input": "OutParamDomainParam",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierTypeParameter",
+                  "value": "mod"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutDomainsParam"
+          }
+        }
+      ],
+      "name": "OutParamsDomainParam",
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
     },
     "OutParamsParent": {
       "$tag": "_TypeOutput",
@@ -5076,6 +5515,55 @@
         }
       ],
       "name": "OutpFieldMods",
+      "typeKind": "Output"
+    },
+    "OutpFieldModsParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "value": "mod"
+            }
+          ],
+          "name": "field",
+          "object": "OutpFieldModsParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpFieldParamMods"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "value": "mod"
+            }
+          ],
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpFieldParamMods"
+          }
+        }
+      ],
+      "name": "OutpFieldModsParam",
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
+    },
+    "OutpFieldParamMods": {
+      "$tag": "_TypeOutput",
+      "name": "OutpFieldParamMods",
       "typeKind": "Output"
     },
     "OutpFields": {
@@ -5882,6 +6370,11 @@
     "OutpModsAlt": {
       "$tag": "_TypeOutput",
       "name": "OutpModsAlt",
+      "typeKind": "Output"
+    },
+    "OutpModsParamAlt": {
+      "$tag": "_TypeOutput",
+      "name": "OutpModsParamAlt",
       "typeKind": "Output"
     },
     "OutpParams": {

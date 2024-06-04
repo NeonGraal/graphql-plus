@@ -5,7 +5,7 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       collections:
       - !_ModifierDictionary
-        by: ^
+        key: ^
       object: OutpAltMods
       type: !_OutputBase
         output: OutpModsAlt
@@ -13,7 +13,7 @@ types: !_Map_Type
     - !_Alternate(_OutputBase)
       collections:
       - !_ModifierDictionary
-        by: ^
+        key: ^
       type: !_OutputBase
         output: OutpModsAlt
     name: OutpAltMods

@@ -5,7 +5,7 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_DualBase))
       collections:
       - !_ModifierDictionary
-        by: ^
+        key: ^
       object: DualAltMods
       type: !_DualBase
         dual: DualModsAlt
@@ -13,7 +13,7 @@ types: !_Map_Type
     - !_Alternate(_DualBase)
       collections:
       - !_ModifierDictionary
-        by: ^
+        key: ^
       type: !_DualBase
         dual: DualModsAlt
     name: DualAltMods

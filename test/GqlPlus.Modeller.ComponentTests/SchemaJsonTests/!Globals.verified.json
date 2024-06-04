@@ -12,6 +12,44 @@
       },
       "resolution": "Parallel"
     },
+    "catDict": {
+      "$tag": "_Category",
+      "modifiers": [
+        {
+          "$tag": "_ModifierDictionary",
+          "value": "*"
+        }
+      ],
+      "name": "catDict",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CatDict",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
+    "catList": {
+      "$tag": "_Category",
+      "modifiers": ["List"],
+      "name": "catList",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CatList",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
+    "catOpt": {
+      "$tag": "_Category",
+      "modifiers": ["Opt"],
+      "name": "catOpt",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CatOpt",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
     "descrBetween": {
       "$tag": "_Category",
       "name": "descrBetween",
@@ -44,6 +82,74 @@
         }
       ],
       "repeatable": false
+    },
+    "DirParamDict": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DirParamDict",
+      "parameters": [
+        {
+          "$tag": "_InputParameter",
+          "input": "DirParamIn",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "value": "String"
+            }
+          ]
+        }
+      ],
+      "repeatable": false
+    },
+    "DirParamList": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DirParamList",
+      "parameters": [
+        {
+          "$tag": "_InputParameter",
+          "input": "DirParamIn",
+          "modifiers": ["List"]
+        }
+      ],
+      "repeatable": false
+    },
+    "DirParamOpt": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DirParamOpt",
+      "parameters": [
+        {
+          "$tag": "_InputParameter",
+          "input": "DirParamIn",
+          "modifiers": ["Opt"]
+        }
+      ],
+      "repeatable": false
     }
   },
   "name": "Schema",
@@ -60,6 +166,21 @@
     "Cat": {
       "$tag": "_TypeOutput",
       "name": "Cat",
+      "typeKind": "Output"
+    },
+    "CatDict": {
+      "$tag": "_TypeOutput",
+      "name": "CatDict",
+      "typeKind": "Output"
+    },
+    "CatList": {
+      "$tag": "_TypeOutput",
+      "name": "CatList",
+      "typeKind": "Output"
+    },
+    "CatOpt": {
+      "$tag": "_TypeOutput",
+      "name": "CatOpt",
       "typeKind": "Output"
     },
     "Descr": {

@@ -51,7 +51,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutParamsDomain"
+            "value": "OutDomainParam"
           }
         }
       ],
@@ -73,7 +73,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutParamsDomain"
+            "value": "OutDomainParam"
           }
         }
       ],

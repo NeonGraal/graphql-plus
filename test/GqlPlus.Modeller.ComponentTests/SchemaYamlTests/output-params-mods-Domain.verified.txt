@@ -26,17 +26,17 @@ types: !_Map_Type
       parameters:
       - !_InputParameter
         input: OutParamDomain
-        modifiers: [!_ModifierDictionary {by: OutDomainParam}]
+        modifiers: [!_ModifierDictionary {key: OutDomainParam}]
       type: !_OutputBase
-        output: OutParamsDomain
+        output: OutDomainParam
     fields:
     - !_OutputField
       name: field
       parameters:
       - !_InputParameter
         input: OutParamDomain
-        modifiers: [!_ModifierDictionary {by: OutDomainParam}]
+        modifiers: [!_ModifierDictionary {key: OutDomainParam}]
       type: !_OutputBase
-        output: OutParamsDomain
+        output: OutDomainParam
     name: OutParamsDomain
     typeKind: !_TypeKind Output

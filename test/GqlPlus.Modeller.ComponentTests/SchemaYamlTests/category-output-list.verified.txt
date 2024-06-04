@@ -1,0 +1,13 @@
+﻿!_Schema
+categories: !_Map_Categories
+  !_Identifier catList: !_Category
+    modifiers: [!_Modifier List]
+    name: catList
+    output: !_TypeRef(_TypeKind)
+      name: CatList
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+types: !_Map_Type
+  !_Identifier CatList: !_TypeOutput
+    name: CatList
+    typeKind: !_TypeKind Output

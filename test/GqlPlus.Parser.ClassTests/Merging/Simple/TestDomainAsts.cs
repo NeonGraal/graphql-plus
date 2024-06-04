@@ -2,7 +2,9 @@
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Token;
+
 using NSubstitute;
+
 using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Simple;
@@ -10,7 +12,7 @@ namespace GqlPlus.Merging.Simple;
 public abstract class TestDomainAsts<TMember, TItem, TItemInput>
   : TestTyped<IGqlpDomain, IGqlpDomain<TItem>, string, TItem>
   where TMember : AstAbbreviated, TItem
-  where TItem : IGqlpDomainItem
+  where TItem : class, IGqlpDomainItem
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_SameKinds_ReturnsGood(string name)
@@ -72,8 +74,7 @@ public abstract class TestDomainAsts<TMember, TItem, TItemInput>
   ) => new AstDomain<TMember, TItem>(AstNulls.At, name, description, kind ?? DomainKind.Boolean) {
     Aliases = aliases ?? [],
     Parent = parent,
-    // Todo: Should use ArrayOf
-    Members = [.. items?.Cast<TMember>() ?? []],
+    Members = items?.ArrayOf<TMember>() ?? [],
   };
 
   protected override IGqlpDomain<TItem> MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
@@ -82,3 +83,4 @@ public abstract class TestDomainAsts<TMember, TItem, TItemInput>
   protected override string MakeParent(string parent)
     => parent;
 }
+

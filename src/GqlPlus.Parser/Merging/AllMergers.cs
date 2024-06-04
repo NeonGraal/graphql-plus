@@ -70,7 +70,7 @@ public static class AllMergers
 
   private static IServiceCollection AddMergeDomain<TMember, TItem>(this IServiceCollection services)
   where TMember : AstAbbreviated, TItem
-  where TItem : IGqlpDomainItem
+  where TItem : class, IGqlpDomainItem
     => services
       .AddMergeAll<IGqlpDomain<TItem>, IGqlpDomain, MergeDomains<TMember, TItem>>();
 }

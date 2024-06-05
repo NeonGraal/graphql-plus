@@ -3,8 +3,6 @@ using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Modelling;
 
-using Xunit.DependencyInjection;
-
 namespace GqlPlus;
 
 public class BuiltInTests(

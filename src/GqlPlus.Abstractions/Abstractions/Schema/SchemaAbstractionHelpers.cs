@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GqlPlus.Abstractions.Schema;
+﻿namespace GqlPlus.Abstractions.Schema;
 public static class SchemaAbstractionHelpers
 {
   public static IEnumerable<IGrouping<string, TAliased>> AliasedGroup<TAliased>(this TAliased[] items)

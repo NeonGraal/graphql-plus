@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
-using GqlPlus.Abstractions.Schema;
-
 namespace GqlPlus.Ast;
 
 public static class AstExtensions

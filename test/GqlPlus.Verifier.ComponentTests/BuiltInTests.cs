@@ -2,6 +2,7 @@
 using GqlPlus.Ast.Schema;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
+
 using Xunit.DependencyInjection;
 
 namespace GqlPlus;
@@ -19,14 +20,15 @@ public class BuiltInTests(
     => Verify(BuiltIn.Internal.AsString());
 
   [SkippableTheory]
-  [MethodData("AllBasic", typeof(BuiltIn))]
-  public void ValidBasicTypes(AstType type)
-    => Verify_Valid(type);
+  [ClassData(typeof(BuiltInBasicData))]
+  public void ValidBasicTypes(string type)
+    => Verify_Valid(BuiltInData.BasicMap[type]);
 
   [SkippableTheory]
-  [MethodData("AllInternal", typeof(BuiltIn))]
-  public void ValidInternalTypes(AstType type)
-    => Verify_Valid(type);
+  [ClassData(typeof(BuiltInInternalData))]
+
+  public void ValidInternalTypes(string type)
+    => Verify_Valid(BuiltInData.InternalMap[type]);
 
   private void Verify_Valid(AstType type)
   {

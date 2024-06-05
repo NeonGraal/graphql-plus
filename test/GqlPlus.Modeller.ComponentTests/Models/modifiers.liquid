@@ -1,6 +1,9 @@
 ﻿{%- for mod in modifiers -%}
   {%- if mod == "Opt" %} ?
   {%- elsif mod == "List" %} []
-  {%- elsif mod.by %} [{{ mod.by }}]
+  {%- elsif mod.by %} [{{ mod.by }}
+    {%- if mod.optional -%}?{%- endif -%}]
+  {%- elsif mod.typeParameter %} [${{ mod.typeParameter }}
+    {%- if mod.optional -%}?{%- endif -%}]
   {%- endif -%}
 {%- endfor -%}

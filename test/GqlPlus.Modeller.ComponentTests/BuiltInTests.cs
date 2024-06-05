@@ -2,7 +2,6 @@
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Modelling;
-using Xunit.DependencyInjection;
 
 namespace GqlPlus;
 
@@ -12,14 +11,14 @@ public class BuiltInTests(
 )
 {
   [SkippableTheory]
-  [MethodData("AllBasic", typeof(BuiltIn))]
-  public void HtmlBasicTypes(AstType type)
-    => RenderTypeHtml(type.ThrowIfNull());
+  [ClassData(typeof(BuiltInBasicData))]
+  public void HtmlBasicTypes(string type)
+    => RenderTypeHtml(BuiltInData.BasicMap[type]);
 
   [SkippableTheory]
-  [MethodData("AllInternal", typeof(BuiltIn))]
-  public void HtmlInternalTypes(AstType type)
-    => RenderTypeHtml(type.ThrowIfNull());
+  [ClassData(typeof(BuiltInInternalData))]
+  public void HtmlInternalTypes(string type)
+    => RenderTypeHtml(BuiltInData.InternalMap[type]);
 
   [Fact]
   public void HtmlAllBasicTypes()

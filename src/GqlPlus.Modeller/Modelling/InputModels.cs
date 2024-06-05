@@ -10,9 +10,13 @@ public record class TypeInputModel(
   protected override string BaseName(InputBaseModel? objBase)
     => objBase?.Input ?? "";
 
-  protected override InputFieldModel NewField(InputFieldModel field, ObjRefModel<InputBaseModel> typeModel)
-    // todo: correct
-    => field;
+  protected override InputFieldModel NewField(InputFieldModel field, ObjRefModel<InputBaseModel> typeModel, IEnumerable<ModifierModel> modifiers)
+    => new(field.ThrowIfNull().Name, typeModel) {
+      Aliases = field.Aliases,
+      Description = field.Description,
+      Modifiers = [.. modifiers],
+      DefaultValue = field.DefaultValue,
+    };
 }
 
 public record class InputBaseModel(
@@ -35,11 +39,11 @@ public record class InputFieldModel(
   ObjRefModel<InputBaseModel> Type
 ) : ObjFieldModel<InputBaseModel>(Name, Type)
 {
-  internal ConstantModel? Default { get; init; }
+  internal ConstantModel? DefaultValue { get; init; }
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("default", Default?.Render(context));
+      .Add("default", DefaultValue?.Render(context));
 }
 
 public record class InputParameterModel(
@@ -96,7 +100,7 @@ internal class InputFieldModeller(
 {
   protected override InputFieldModel FieldModel(IGqlpInputField ast, ObjRefModel<InputBaseModel> type, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, type) {
-      Default = constant.TryModel(ast.DefaultValue, typeKinds),
+      DefaultValue = constant.TryModel(ast.DefaultValue, typeKinds),
     };
 }
 

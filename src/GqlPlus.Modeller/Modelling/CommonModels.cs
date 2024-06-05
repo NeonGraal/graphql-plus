@@ -69,6 +69,12 @@ public record class CollectionModel(
       _ => base.Tag,
     };
 
+  internal virtual CollectionModel MakeKey((string Key, bool Param) newKey)
+    => new(newKey.Param ? ModifierKind.Param : ModifierKind.Dict) {
+      Key = newKey.Key,
+      IsOptional = IsOptional,
+    };
+
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
         .Add(ModifierKind is ModifierKind.Dict or ModifierKind.Param,
@@ -79,9 +85,16 @@ public record class CollectionModel(
         );
 }
 
-public record class ModifierModel(ModifierKind Kind)
-  : CollectionModel(Kind)
-{ }
+public record class ModifierModel(
+  ModifierKind ModifierKind
+) : CollectionModel(ModifierKind)
+{
+  internal override ModifierModel MakeKey((string Key, bool Param) newKey)
+    => new(newKey.Param ? ModifierKind.Param : ModifierKind.Dict) {
+      Key = newKey.Key,
+      IsOptional = IsOptional,
+    };
+}
 
 internal class ConstantModeller(
   IModeller<IGqlpFieldKey, SimpleModel> value

@@ -10,11 +10,11 @@ public record class TypeDualModel(
   protected override string BaseName(DualBaseModel? objBase)
     => objBase?.Dual ?? "";
 
-  protected override DualFieldModel NewField(DualFieldModel field, ObjRefModel<DualBaseModel> typeModel)
+  protected override DualFieldModel NewField(DualFieldModel field, ObjRefModel<DualBaseModel> typeModel, IEnumerable<ModifierModel> modifiers)
     => new(field.ThrowIfNull().Name, typeModel) {
       Aliases = field.Aliases,
       Description = field.Description,
-      Modifiers = field.Modifiers,
+      Modifiers = [.. modifiers],
     };
 }
 

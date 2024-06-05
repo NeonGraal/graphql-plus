@@ -10,9 +10,14 @@ public record class TypeOutputModel(
   protected override string BaseName(OutputBaseModel? objBase)
     => objBase?.Output ?? "";
 
-  protected override OutputFieldModel NewField(OutputFieldModel field, ObjRefModel<OutputBaseModel> typeModel)
-    // todo: correct
-    => field;
+  protected override OutputFieldModel NewField(OutputFieldModel field, ObjRefModel<OutputBaseModel> typeModel, IEnumerable<ModifierModel> modifiers)
+    => new(field.ThrowIfNull().Name, typeModel) {
+      Parameters = field.Parameters,
+      Aliases = field.Aliases,
+      Description = field.Description,
+      Modifiers = [.. modifiers],
+      EnumValue = field.EnumValue,
+    };
 }
 
 public record class OutputBaseModel(
@@ -36,13 +41,13 @@ public record class OutputFieldModel(
 ) : ObjFieldModel<OutputBaseModel>(Name, Type)
 {
   internal InputParameterModel[] Parameters { get; set; } = [];
-  internal OutputEnumModel? Enum { get; set; }
+  internal OutputEnumModel? EnumValue { get; set; }
 
   internal override RenderStructure Render(IRenderContext context)
-    => Enum is null
+    => EnumValue is null
       ? base.Render(context)
         .Add("parameters", Parameters.Render(context))
-      : Enum.Render(context);
+      : EnumValue.Render(context);
 }
 
 public record class OutputArgumentModel(
@@ -124,6 +129,6 @@ internal class OutputFieldModeller(
         Parameters = parameter.ToModels(field.Parameters, typeKinds),
       }
       : new(field.Name, null) { // or should it be `type`
-        Enum = new(field.Name, field.Type.Output, field.Type.EnumValue)
+        EnumValue = new(field.Name, field.Type.Output, field.Type.EnumValue)
       };
 }

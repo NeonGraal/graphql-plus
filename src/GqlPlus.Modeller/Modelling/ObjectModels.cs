@@ -1,7 +1,10 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
 using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Rendering;
+
+using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Modelling;
 
@@ -81,6 +84,24 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
     return false;
   }
 
+  protected bool GetArgument(
+    Map<IObjBaseModel> arguments,
+    string? type,
+    [NotNullWhen(true)] out (string Key, bool Param)? value)
+  {
+    ArgumentNullException.ThrowIfNull(arguments);
+
+    if (arguments.TryGetValue(type ?? "", out IObjBaseModel? typeBase)) {
+      if (typeBase is ObjRefModel<TObjBase> objBase && objBase.BaseRef is not null) {
+        value = (BaseName(objBase.BaseRef), objBase.BaseRef.IsTypeParameter);
+        return true;
+      }
+    }
+
+    value = null;
+    return false;
+  }
+
   protected TypeObjectModel<TObjBase, TObjField> Apply(Map<IObjBaseModel> arguments)
   {
     ArgumentNullException.ThrowIfNull(arguments);
@@ -91,23 +112,58 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
       result.Parent = new(parentModel.BaseRef) { Description = Parent?.Description };
     }
 
-    result.Alternates = Alternates
-      .Select(a =>
-        GetArgument(arguments, a.Type.Base.BaseRef, out ObjRefModel<TObjBase>? typeModel)
-          ? new(new(typeModel)) { Collections = a.Collections }
-          : a
-        ).ToArray();
+    result.Alternates = [.. Alternates.Select(a => ApplyAlternate(a, arguments))];
 
-    result.Fields = Fields
-      .Select(f =>
-        GetArgument(arguments, f.Type?.BaseRef, out ObjRefModel<TObjBase>? typeModel)
-        ? NewField(f, typeModel) : f
-      ).ToArray();
+    result.Fields = [.. Fields.Select(f => ApplyField(f, arguments))];
 
     return result;
   }
 
-  protected abstract TObjField NewField(TObjField field, ObjRefModel<TObjBase> typeModel);
+  private AlternateModel<TObjBase> ApplyAlternate(AlternateModel<TObjBase> alternate, Map<IObjBaseModel> arguments)
+  {
+    bool applied = false;
+    CollectionModel ApplyCollection(CollectionModel collection)
+    {
+      if (collection.ModifierKind == ModifierKind.Param
+        && GetArgument(arguments, collection.Key, out (string Key, bool Param)? newKey)) {
+        applied = true;
+        return collection.MakeKey(newKey.Value);
+      }
+
+      return collection;
+    }
+
+    IEnumerable<CollectionModel> collections = alternate.Collections.Select(ApplyCollection);
+
+    return GetArgument(arguments, alternate.Type.Base.BaseRef, out ObjRefModel<TObjBase>? typeModel)
+      ? new(new(typeModel)) { Collections = [.. collections] }
+      : applied
+        ? (alternate with { Collections = [.. collections] })
+        : alternate;
+  }
+
+  private TObjField ApplyField(TObjField field, Map<IObjBaseModel> arguments)
+  {
+    bool applied = false;
+    ModifierModel ApplyModifier(ModifierModel modifier)
+    {
+      if (modifier.ModifierKind == ModifierKind.Param
+        && GetArgument(arguments, modifier.Key, out (string Key, bool Param)? newKey)) {
+        applied = true;
+        return modifier.MakeKey(newKey.Value);
+      }
+
+      return modifier;
+    }
+
+    IEnumerable<ModifierModel> modifiers = field.Modifiers.Select(ApplyModifier);
+
+    return GetArgument(arguments, field.Type?.BaseRef, out ObjRefModel<TObjBase>? typeModel)
+        ? NewField(field, typeModel, modifiers)
+        : applied ? NewField(field, field.Type!, modifiers) : field;
+  }
+
+  protected abstract TObjField NewField(TObjField field, ObjRefModel<TObjBase> typeModel, IEnumerable<ModifierModel> modifiers);
   protected abstract string BaseName(TObjBase? objBase);
 
   ITypeObjectModel ITypeObjectModel.Apply(Map<IObjBaseModel> arguments) => Apply(arguments);

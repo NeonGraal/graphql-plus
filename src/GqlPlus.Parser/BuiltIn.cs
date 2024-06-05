@@ -17,9 +17,6 @@ public static class BuiltIn
     new AstDomain<DomainRegexAst, IGqlpDomainRegex>(AstNulls.At, "String", DomainKind.String, []) { Aliases = ["*"] },
   ];
 
-  public static IEnumerable<object[]> AllBasic()
-    => Basic.Select(b => new object[] { b });
-
   public static AstType[] Internal { get; } = [
     new EnumDeclAst(AstNulls.At, "Void", []),
     new EnumDeclAst(AstNulls.At, "Null", [new(AstNulls.At, "null")]) { Aliases = ["null"] },
@@ -35,9 +32,9 @@ public static class BuiltIn
     DualObj("IfElse", TypeParameters("T"), DualDict("Boolean")),
     DualObj("Set", TypeParameters("K"), DualDict("Unit", true)),
     DualObj("Mask", TypeParameters("K"), DualDict("Boolean", true)),
-    DualObj("Object", [], DualRef("_Map", DualRef("Any"))) with { Aliases = ["%", "Object"] },
+    DualObj("Object", [], DualRef("_Map", DualRef("_Any"))) with { Aliases = ["%", "Object"] },
     DualObj("Most", TypeParameters("T"),
-      DualAlt(null), DualType("Object"), DualMost("", true), DualType("_MostList", DualParam("T")), DualType("_MostDictionary", DualParam("T"))),
+      DualAlt(null), DualType("_Object"), DualMost("", true), DualType("_MostList", DualParam("T")), DualType("_MostDictionary", DualParam("T"))),
     DualObj("MostList", TypeParameters("T"), DualMost("")),
     DualObj("MostDictionary", TypeParameters("T"), DualMost("Simple", true)),
 
@@ -49,9 +46,6 @@ public static class BuiltIn
     new SpecialTypeAst("Domain"),
     new SpecialTypeAst("Union"),
   ];
-
-  public static IEnumerable<object[]> AllInternal()
-    => Internal.Select(b => new object[] { b });
 
   internal static Map<string> EnumValues = new() {
     ["_"] = "Unit",
@@ -77,7 +71,8 @@ public static class BuiltIn
       Modifiers = key switch {
         null => [],
         "" => [ModifierAst.List(AstNulls.At)],
-        _ => [ModifierAst.Dict(AstNulls.At, key, false)]
+        "$K" => [ModifierAst.Param(AstNulls.At, "K", false)],
+        _ => [ModifierAst.Dict(AstNulls.At, key, false)],
       }
     };
 

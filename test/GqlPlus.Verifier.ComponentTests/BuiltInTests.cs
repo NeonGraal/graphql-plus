@@ -3,8 +3,6 @@ using GqlPlus.Ast.Schema;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
 
-using Xunit.DependencyInjection;
-
 namespace GqlPlus;
 
 public class BuiltInTests(

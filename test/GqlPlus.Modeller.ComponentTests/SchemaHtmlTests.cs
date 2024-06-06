@@ -4,7 +4,7 @@ using GqlPlus.Modelling;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 
-#pragma warning disable IDE0130
+
 namespace GqlPlus.SchemaData;
 
 public class SchemaHtmlTests(

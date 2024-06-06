@@ -3,7 +3,7 @@ using GqlPlus.Abstractions.Schema;
 using GqlPlus.Modelling;
 using GqlPlus.Parsing;
 
-#pragma warning disable IDE0130
+
 namespace GqlPlus.Sample;
 
 public class SampleModelTests(

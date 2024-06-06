@@ -4,7 +4,7 @@ using GqlPlus.Result;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
 
-#pragma warning disable IDE0130
+
 namespace GqlPlus.Sample;
 
 public class SampleVerifyTests(

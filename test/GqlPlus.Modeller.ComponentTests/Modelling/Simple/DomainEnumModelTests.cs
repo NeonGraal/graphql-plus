@@ -18,8 +18,12 @@ internal sealed class DomainEnumModelChecks(
 {
   protected override string[] ExpectedItem(string input, string exclude, string[] domain)
     => [
-      "- !_DomainMember", .. domain, exclude,
-      "  value: !_EnumValue", "    member: " + input, "    typeKind: !_SimpleKind Enum"
+      "- !_DomainMember",
+      .. domain,
+      exclude,
+      "  value: !_EnumValue",
+      "    member: " + input,
+      "    typeKind: !_SimpleKind Enum"
       ];
 
   protected override DomainMemberAst[]? DomainItems(string[]? inputs)

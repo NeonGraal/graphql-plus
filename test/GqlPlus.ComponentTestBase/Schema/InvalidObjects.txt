@@ -7,6 +7,10 @@ object Test1 { }
 object Test { | Alt[Domain] }
 object Alt { }
 
+// alts-mods-undef-param
+object Test { | Alt[$a] }
+object Alt { }
+
 // alts-mods-wrong
 object Test { | Alt[Test] }
 object Alt { }
@@ -92,6 +96,9 @@ object Test1 { }
 
 // fields-mods-undef
 object Test { field: Test[Random] }
+
+// fields-mods-undef-param
+object Test { field: Test[$a] }
 
 // fields-mods-wrong
 object Test { field: Test[Test] }
@@ -185,6 +192,10 @@ input Param { }
 
 // output-params-mods-undef
 output Test { field(Param[Domain]): Test }
+input Param { }
+
+// output-params-mods-undef-param
+output Test { field(Param[$a]): Test }
 input Param { }
 
 // output-params-mods-wrong

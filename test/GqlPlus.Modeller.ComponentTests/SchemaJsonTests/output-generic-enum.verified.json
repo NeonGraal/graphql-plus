@@ -32,9 +32,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "outEnumGen",
                 "name": "OutEnumGen",
-                "typeKind": "Enum",
-                "value": "outEnumGen"
+                "typeKind": "Enum"
               }
             ]
           }
@@ -49,9 +49,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "outEnumGen",
                 "name": "OutEnumGen",
-                "typeKind": "Enum",
-                "value": "outEnumGen"
+                "typeKind": "Enum"
               }
             ]
           }

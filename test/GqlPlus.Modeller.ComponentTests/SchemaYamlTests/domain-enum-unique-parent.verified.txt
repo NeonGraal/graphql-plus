@@ -4,27 +4,27 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumDomDupParent
-      name: dup
+      name: enum_dom_parent_dup
     items:
     - !_Aliased
-      name: dup
+      name: enum_dom_parent_dup
     name: EnumDomDupParent
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomParentUnique: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumDomParentUnique
-      name: dup
+      name: enum_dom_parent_dup
     items:
     - !_Aliased
-      name: dup
+      name: enum_dom_parent_dup
     name: EnumDomParentUnique
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomUniqueParent: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumDomParentUnique
-      name: dup
+      name: enum_dom_parent_dup
     - !_EnumMember
       enum: EnumDomUniqueParent
       name: value

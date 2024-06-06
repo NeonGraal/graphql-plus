@@ -34,7 +34,12 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "collections",
           "object": "_Alternate",
           "type": {
@@ -55,7 +60,12 @@
         },
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "collections",
           "type": {
             "$tag": "_OutputBase",
@@ -87,7 +97,12 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "modifiers",
           "object": "_Field",
           "type": {
@@ -108,7 +123,12 @@
         },
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
@@ -144,7 +164,12 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "typeArguments",
           "object": "_ObjBase",
           "type": "base"
@@ -162,7 +187,12 @@
       "fields": [
         {
           "$tag": "_DualField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "typeArguments",
           "type": "base"
         }
@@ -277,9 +307,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Internal",
                 "name": "_TypeKind",
-                "typeKind": "Enum",
-                "value": "Internal"
+                "typeKind": "Enum"
               }
             ]
           }
@@ -307,9 +337,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Internal",
                 "name": "_TypeKind",
-                "typeKind": "Enum",
-                "value": "Internal"
+                "typeKind": "Enum"
               }
             ]
           }
@@ -340,7 +370,12 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "typeParameters",
           "object": "_TypeObject",
           "type": {
@@ -350,14 +385,24 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "fields",
           "object": "_TypeObject",
           "type": "field"
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "alternates",
           "object": "_TypeObject",
           "type": {
@@ -368,7 +413,12 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "allFields",
           "object": "_TypeObject",
           "type": {
@@ -379,7 +429,12 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "allAlternates",
           "object": "_TypeObject",
           "type": {
@@ -398,7 +453,12 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "typeParameters",
           "type": {
             "$tag": "_OutputBase",
@@ -407,13 +467,23 @@
         },
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "fields",
           "type": "field"
         },
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "alternates",
           "type": {
             "$tag": "_OutputBase",
@@ -423,7 +493,12 @@
         },
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "allFields",
           "type": {
             "$tag": "_OutputBase",
@@ -433,7 +508,12 @@
         },
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "allAlternates",
           "type": {
             "$tag": "_OutputBase",
@@ -479,7 +559,7 @@
     },
     "_TypeParameter": {
       "$tag": "_DomainString",
-      "domain": "String",
+      "domainKind": "String",
       "name": "_TypeParameter",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",

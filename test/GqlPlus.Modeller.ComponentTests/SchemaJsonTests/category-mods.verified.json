@@ -5,7 +5,12 @@
     "catMods": {
       "$tag": "_Category",
       "aliases": ["CatM1", "CatM2"],
-      "modifiers": ["Opt"],
+      "modifiers": [
+        {
+          "$tag": "_Modifier",
+          "modifierKind": "Opt"
+        }
+      ],
       "name": "catMods",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",

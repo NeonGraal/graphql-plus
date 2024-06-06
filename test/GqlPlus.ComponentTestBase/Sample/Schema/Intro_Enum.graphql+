@@ -9,5 +9,5 @@ dual _EnumMember {
 
 output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
-        value: _Identifier
+        member: _Identifier
     }

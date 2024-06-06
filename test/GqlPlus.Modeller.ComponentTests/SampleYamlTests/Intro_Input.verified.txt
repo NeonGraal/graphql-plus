@@ -44,14 +44,14 @@ types: !_Map_Type
   !_Identifier _InputField: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
       object: _InputField
       type: !_OutputBase
         output: _Constant
     fields:
     - !_OutputField
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
       type: !_OutputBase
         output: _Constant
@@ -65,25 +65,25 @@ types: !_Map_Type
   !_Identifier _InputParameter: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       object: _InputParameter
       type: !_OutputBase
         output: _Modifiers
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
       object: _InputParameter
       type: !_OutputBase
         output: _Constant
     fields:
     - !_OutputField
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       type: !_OutputBase
         output: _Modifiers
     - !_OutputField
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
       type: !_OutputBase
         output: _Constant
@@ -100,9 +100,9 @@ types: !_Map_Type
       output: _TypeObject
       typeArguments:
       - !_OutputArgument
+        member: Input
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-        value: Input
       - !_OutputBase
         output: _InputBase
       - !_OutputBase

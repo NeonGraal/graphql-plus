@@ -14,14 +14,14 @@ internal class VerifyOutputTypes(
   protected override void UsageValue(IGqlpOutputObject usage, OutputContext context)
   {
     IEnumerable<IGqlpOutputField> enumFields = usage.Fields
-      .Where(f => !string.IsNullOrWhiteSpace(f.Type.EnumValue));
+      .Where(f => !string.IsNullOrWhiteSpace(f.Type.EnumMember));
 
     foreach (IGqlpOutputField? enumField in enumFields) {
       if (string.IsNullOrWhiteSpace(enumField?.Type.TypeName)) {
-        if (context.GetEnumValue(enumField!.Type.EnumValue!, out string? enumType)) {
+        if (context.GetEnumValue(enumField!.Type.EnumMember!, out string? enumType)) {
           enumField.Type.SetEnumType(enumType);
         } else {
-          context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.Type.EnumValue}' not defined");
+          context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.Type.EnumMember}' not defined");
         }
       } else {
         context.CheckEnumValue("Field", enumField.Type);

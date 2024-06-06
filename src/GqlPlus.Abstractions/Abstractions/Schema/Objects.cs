@@ -97,7 +97,7 @@ public interface IGqlpOutputBase
   , IGqlpToDual
 {
   string Output { get; }
-  string? EnumValue { get; }
+  string? EnumMember { get; }
 
   void SetEnumType(string enumType);
 }

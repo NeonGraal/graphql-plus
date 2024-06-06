@@ -1,6 +1,8 @@
 ﻿using FluentAssertions.Execution;
+
 using Fluid;
 using Fluid.Values;
+
 using Microsoft.Extensions.FileProviders;
 
 namespace GqlPlus.Rendering;
@@ -22,12 +24,14 @@ public static class RenderFluid
 
   private static IFluidTemplate GetTemplate(string template)
   {
-    if (!s_templates.TryGetValue(template, out IFluidTemplate? value)) {
-      value = s_parser.Parse("{% render '" + template + "' %}");
-      s_templates.Add(template, value);
-    }
+    lock (s_templates) {
+      if (!s_templates.TryGetValue(template, out IFluidTemplate? value)) {
+        value = s_parser.Parse("{% render '" + template + "' %}");
+        s_templates.Add(template, value);
+      }
 
-    return value;
+      return value;
+    }
   }
 
   private static ValueTask<FluidValue> TagFilter(FluidValue input, FilterArguments arguments, TemplateContext context)

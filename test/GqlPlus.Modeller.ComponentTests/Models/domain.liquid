@@ -1,10 +1,21 @@
 ﻿<table>
-  <thead><tr>
-    <th>Item</th><th>Excluded</th><th class="from">Domain</th>
-  </tr></thead>
+  <thead>
+    <tr>
+      <th>{{ domain.domainKind }}</th>
+      <th>Excluded</th>
+      <th class="from">Domain</th>
+    </tr>
+  </thead>
   {%- for item in domain.allItems %}
   <tr>
-    <td>{{ item }}</td>
+    <td>
+      {%- case domain.domainKind -%}
+      {%- when "Boolean" -%} {{ item.value }}
+      {%- when "Enum" -%} {{ item.value.name }}.{{ item.value.member }}
+      {%- when "Number" -%} {{ item.from }} ~ {{ item.to }}
+      {%- when "String" -%} {{ item.pattern }}
+      {%- endcase -%}
+    </td>
     <td>{{ item.exclude }}</td>
     <td class="from">{{ item.domain }}</td>
   </tr>

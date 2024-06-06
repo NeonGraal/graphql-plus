@@ -5,7 +5,7 @@
     "NumAlias": {
       "$tag": "_DomainNumber",
       "aliases": ["Num1", "Num2"],
-      "domain": "Number",
+      "domainKind": "Number",
       "name": "NumAlias",
       "typeKind": "Domain"
     }

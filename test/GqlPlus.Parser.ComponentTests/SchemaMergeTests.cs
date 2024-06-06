@@ -3,8 +3,7 @@ using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 
-#pragma warning disable IDE0130
-namespace GqlPlus.SchemaData;
+namespace GqlPlus;
 
 public class SchemaMergeTests(
     Parser<IGqlpSchema>.D parser,

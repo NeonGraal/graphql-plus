@@ -9,19 +9,25 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomEnum",
           "exclude": false,
-          "name": "EnumDom",
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_enum",
+            "name": "EnumDom",
+            "typeKind": "Enum"
+          }
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "name": "EnumDom",
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_enum",
+            "name": "EnumDom",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomEnum",
@@ -34,19 +40,25 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomEnumAll",
           "exclude": false,
-          "name": "EnumDomAll",
-          "typeKind": "Enum",
-          "value": "*"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "*",
+            "name": "EnumDomAll",
+            "typeKind": "Enum"
+          }
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "name": "EnumDomAll",
-          "typeKind": "Enum",
-          "value": "*"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "*",
+            "name": "EnumDomAll",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomEnumAll",
@@ -59,19 +71,25 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomEnumAllParent",
           "exclude": false,
-          "name": "EnumDomAllParent",
-          "typeKind": "Enum",
-          "value": "*"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "*",
+            "name": "EnumDomAllParent",
+            "typeKind": "Enum"
+          }
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "name": "EnumDomAllParent",
-          "typeKind": "Enum",
-          "value": "*"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "*",
+            "name": "EnumDomAllParent",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomEnumAllParent",
@@ -84,19 +102,25 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomEnumParent",
           "exclude": false,
-          "name": "EnumDomParent",
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_enum_parent",
+            "name": "EnumDomParent",
+            "typeKind": "Enum"
+          }
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "name": "EnumDomParent",
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_enum_parent",
+            "name": "EnumDomParent",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomEnumParent",
@@ -109,24 +133,36 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomPrntEnum",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_parent"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "both_parent",
+            "name": "EnumDomBoth",
+            "typeKind": "Enum"
+          }
         },
         {
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomEnumPrnt",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "both_enum",
+            "name": "EnumDomBoth",
+            "typeKind": "Enum"
+          }
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "both_enum",
+            "name": "EnumDomBoth",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomEnumPrnt",
@@ -144,17 +180,25 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_member"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_member",
+            "name": "MemberDom",
+            "typeKind": "Enum"
+          }
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_member"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_member",
+            "name": "MemberDom",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomMember",
@@ -176,7 +220,7 @@
           "from": 2
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -199,17 +243,25 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomPrntEnum",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_parent"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "both_parent",
+            "name": "EnumDomBoth",
+            "typeKind": "Enum"
+          }
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_parent"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "both_parent",
+            "name": "EnumDomBoth",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomPrntEnum",
@@ -225,7 +277,7 @@
           "to": 2
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -246,7 +298,7 @@
           "pattern": "b\u002B"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",
@@ -273,7 +325,7 @@
           "value": false
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -305,7 +357,7 @@
           "pattern": "a\u002B"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",
@@ -331,7 +383,7 @@
           "value": true
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -348,13 +400,13 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnAliasPrnt",
-          "name": "valAlias"
+          "name": "val_alias"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "valAlias"
+          "value": "val_alias"
         }
       ],
       "name": "EnAliasPrnt",
@@ -365,16 +417,16 @@
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "aliases": ["valPrnt"],
+          "aliases": ["val_prnt_dup"],
           "enum": "EnDupPrnt",
-          "name": "valDup"
+          "name": "val_dup"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "aliases": ["valPrnt"],
-          "name": "valDup"
+          "aliases": ["val_prnt_dup"],
+          "name": "val_dup"
         }
       ],
       "name": "EnDupPrnt",
@@ -386,29 +438,29 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnAliasPrnt",
-          "name": "valAlias"
+          "name": "val_alias"
         },
         {
           "$tag": "_EnumMember",
           "enum": "EnPrntAlias",
-          "name": "valPrnt"
+          "name": "val_prnt_alias"
         },
         {
           "$tag": "_EnumMember",
-          "aliases": ["alias"],
+          "aliases": ["alias_val"],
           "enum": "EnPrntAlias",
-          "name": "valAlias"
+          "name": "val_alias"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "valPrnt"
+          "value": "val_prnt_alias"
         },
         {
           "$tag": "_Aliased",
-          "aliases": ["alias"],
-          "name": "valAlias"
+          "aliases": ["alias_val"],
+          "name": "val_alias"
         }
       ],
       "name": "EnPrntAlias",
@@ -424,20 +476,20 @@
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "aliases": ["valPrnt"],
+          "aliases": ["val_prnt_dup"],
           "enum": "EnDupPrnt",
-          "name": "valDup"
+          "name": "val_dup"
         },
         {
           "$tag": "_EnumMember",
           "enum": "EnPrntDup",
-          "name": "valPrnt"
+          "name": "val_prnt_dup"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "valPrnt"
+          "value": "val_prnt_dup"
         }
       ],
       "name": "EnPrntDup",
@@ -454,13 +506,13 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnPrntTest",
-          "name": "valTest"
+          "name": "val_test"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "valTest"
+          "value": "val_test"
         }
       ],
       "name": "EnPrntTest",
@@ -472,18 +524,18 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnPrntTest",
-          "name": "valTest"
+          "name": "val_test"
         },
         {
           "$tag": "_EnumMember",
           "enum": "EnTestPrnt",
-          "name": "valPrnt"
+          "name": "val_prnt"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "valPrnt"
+          "value": "val_prnt"
         }
       ],
       "name": "EnTestPrnt",
@@ -545,18 +597,18 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomParentAll",
-          "name": "dom_enum_all"
+          "name": "dom_enum_all_parent"
         },
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomAllParent",
-          "name": "dom_all"
+          "name": "dom_all_parent"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dom_all"
+          "value": "dom_all_parent"
         }
       ],
       "name": "EnumDomAllParent",
@@ -567,19 +619,46 @@
       },
       "typeKind": "Enum"
     },
+    "EnumDomBoth": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomBoth",
+          "name": "both_enum"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomBoth",
+          "name": "both_parent"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "both_enum"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "both_parent"
+        }
+      ],
+      "name": "EnumDomBoth",
+      "typeKind": "Enum"
+    },
     "EnumDomDup": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomDup",
-          "name": "dup"
+          "name": "eum_dom_dup"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dup"
+          "value": "eum_dom_dup"
         }
       ],
       "name": "EnumDomDup",
@@ -591,13 +670,13 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomDupParent",
-          "name": "dup"
+          "name": "enum_dom_parent_dup"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dup"
+          "value": "enum_dom_parent_dup"
         }
       ],
       "name": "EnumDomDupParent",
@@ -609,18 +688,18 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnumParentDom",
-          "name": "dom_enum"
+          "name": "dom_enum_parent"
         },
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomParent",
-          "name": "dom_parent"
+          "name": "dom_parent_enum"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dom_parent"
+          "value": "dom_parent_enum"
         }
       ],
       "name": "EnumDomParent",
@@ -637,13 +716,13 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomParentAll",
-          "name": "dom_enum_all"
+          "name": "dom_enum_all_parent"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dom_enum_all"
+          "value": "dom_enum_all_parent"
         }
       ],
       "name": "EnumDomParentAll",
@@ -655,43 +734,16 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomParentUnique",
-          "name": "dup"
+          "name": "enum_dom_parent_dup"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dup"
+          "value": "enum_dom_parent_dup"
         }
       ],
       "name": "EnumDomParentUnique",
-      "typeKind": "Enum"
-    },
-    "EnumDomPrnt": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumMember",
-          "enum": "EnumDomPrnt",
-          "name": "dom_enum"
-        },
-        {
-          "$tag": "_EnumMember",
-          "enum": "EnumDomPrnt",
-          "name": "dom_parent"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "value": "dom_enum"
-        },
-        {
-          "$tag": "_Aliased",
-          "value": "dom_parent"
-        }
-      ],
-      "name": "EnumDomPrnt",
       "typeKind": "Enum"
     },
     "EnumDomUnique": {
@@ -700,22 +752,22 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomUnique",
-          "name": "value"
+          "name": "eum_dom_value"
         },
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomUnique",
-          "name": "dup"
+          "name": "eum_dom_dup"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "value"
+          "value": "eum_dom_value"
         },
         {
           "$tag": "_Aliased",
-          "value": "dup"
+          "value": "eum_dom_dup"
         }
       ],
       "name": "EnumDomUnique",
@@ -727,7 +779,7 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomParentUnique",
-          "name": "dup"
+          "name": "enum_dom_parent_dup"
         },
         {
           "$tag": "_EnumMember",
@@ -755,13 +807,13 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnumParentDom",
-          "name": "dom_enum"
+          "name": "dom_enum_parent"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dom_enum"
+          "value": "dom_enum_parent"
         }
       ],
       "name": "EnumParentDom",

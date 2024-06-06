@@ -10,7 +10,7 @@ types: !_Map_Type
       domain: DomPrntTest
       exclude: false
       value: false
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false
@@ -26,7 +26,7 @@ types: !_Map_Type
       domain: DomTestPrnt
       exclude: false
       value: true
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false

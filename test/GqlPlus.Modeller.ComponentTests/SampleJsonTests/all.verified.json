@@ -47,14 +47,24 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "items",
           "object": "All",
           "parameters": [
             {
               "$tag": "_InputParameter",
               "input": "Param",
-              "modifiers": ["Opt"]
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
             }
           ],
           "type": {
@@ -75,13 +85,23 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "items",
           "parameters": [
             {
               "$tag": "_InputParameter",
               "input": "Param",
-              "modifiers": ["Opt"]
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
             }
           ],
           "type": {
@@ -103,7 +123,7 @@
           "pattern": "[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",
@@ -156,7 +176,12 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "modifiers": ["Opt"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
           "name": "afterId",
           "object": "Param",
           "type": {
@@ -186,7 +211,12 @@
       "fields": [
         {
           "$tag": "_InputField",
-          "modifiers": ["Opt"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
           "name": "afterId",
           "type": {
             "$tag": "_InputBase",

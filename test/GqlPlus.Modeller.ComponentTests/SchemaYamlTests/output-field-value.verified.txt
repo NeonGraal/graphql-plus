@@ -14,15 +14,15 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumValue
       name: OutEnumValue
       object: OutFieldValue
       typeKind: !_SimpleKind Enum
-      value: outEnumValue
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumValue
       name: OutEnumValue
       typeKind: !_SimpleKind Enum
-      value: outEnumValue
     name: OutFieldValue
     typeKind: !_TypeKind Output

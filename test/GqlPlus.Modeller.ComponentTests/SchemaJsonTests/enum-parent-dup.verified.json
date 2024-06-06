@@ -7,16 +7,16 @@
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "aliases": ["valPrnt"],
+          "aliases": ["val_prnt_dup"],
           "enum": "EnDupPrnt",
-          "name": "valDup"
+          "name": "val_dup"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "aliases": ["valPrnt"],
-          "name": "valDup"
+          "aliases": ["val_prnt_dup"],
+          "name": "val_dup"
         }
       ],
       "name": "EnDupPrnt",
@@ -27,20 +27,20 @@
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "aliases": ["valPrnt"],
+          "aliases": ["val_prnt_dup"],
           "enum": "EnDupPrnt",
-          "name": "valDup"
+          "name": "val_dup"
         },
         {
           "$tag": "_EnumMember",
           "enum": "EnPrntDup",
-          "name": "valPrnt"
+          "name": "val_prnt_dup"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "valPrnt"
+          "value": "val_prnt_dup"
         }
       ],
       "name": "EnPrntDup",

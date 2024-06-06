@@ -9,7 +9,7 @@ internal class MergeDomains<TMember, TItem>(
   IMerge<TItem> members
 ) : AstTypeMerger<IGqlpDomain, IGqlpDomain<TItem>, string, TItem>(logger, members)
   where TMember : AstAbbreviated, TItem
-  where TItem : IGqlpDomainItem
+  where TItem : class, IGqlpDomainItem
 {
   protected override string ItemMatchName => "Domain~Parent";
   protected override string ItemMatchKey(IGqlpDomain<TItem> item)
@@ -21,7 +21,6 @@ internal class MergeDomains<TMember, TItem>(
   internal override IGqlpDomain<TItem> SetItems(IGqlpDomain<TItem> input, IEnumerable<TItem> items)
   {
     AstDomain<TMember, TItem> ast = (AstDomain<TMember, TItem>)input;
-    // Todo: Should use ArrayOf()
-    return ast with { Members = items.Cast<TMember>().ToArray() };
+    return ast with { Members = items.ArrayOf<TMember>() };
   }
 }

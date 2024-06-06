@@ -9,19 +9,25 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomEnum",
           "exclude": false,
-          "name": "EnumDom",
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_enum",
+            "name": "EnumDom",
+            "typeKind": "Enum"
+          }
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "name": "EnumDom",
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_enum",
+            "name": "EnumDom",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomEnum",

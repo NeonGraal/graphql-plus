@@ -108,16 +108,21 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Output",
                 "name": "_TypeKind",
-                "typeKind": "Enum",
-                "value": "Output"
+                "typeKind": "Enum"
               }
             ]
           }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "modifiers",
           "object": "_Category",
           "type": {
@@ -144,16 +149,21 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Output",
                 "name": "_TypeKind",
-                "typeKind": "Enum",
-                "value": "Output"
+                "typeKind": "Enum"
               }
             ]
           }
         },
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",

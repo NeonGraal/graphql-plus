@@ -27,7 +27,12 @@
     "catMods": {
       "$tag": "_Category",
       "aliases": ["CatM1", "CatM2"],
-      "modifiers": ["Opt"],
+      "modifiers": [
+        {
+          "$tag": "_Modifier",
+          "modifierKind": "Opt"
+        }
+      ],
       "name": "catMods",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
@@ -104,7 +109,7 @@
           "value": true
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -136,7 +141,7 @@
           "value": false
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -162,7 +167,7 @@
           "value": true
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -452,30 +457,46 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "EnumDiff",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "name": "Boolean",
+            "typeKind": "Enum"
+          }
         },
         {
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "EnumDiff",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "false"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "false",
+            "name": "Boolean",
+            "typeKind": "Enum"
+          }
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "name": "Boolean",
+            "typeKind": "Enum"
+          }
         },
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "false"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "false",
+            "name": "Boolean",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "EnumDiff",
@@ -488,17 +509,25 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "EnumSame",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "name": "Boolean",
+            "typeKind": "Enum"
+          }
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "name": "Boolean",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "EnumSame",
@@ -530,19 +559,19 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
+          "member": "true",
           "name": "Boolean",
           "object": "FieldEnumAlias",
-          "typeKind": "Enum",
-          "value": "true"
+          "typeKind": "Enum"
         }
       ],
       "fields": [
         {
           "$tag": "_OutputEnum",
           "field": "field",
+          "member": "true",
           "name": "Boolean",
-          "typeKind": "Enum",
-          "value": "true"
+          "typeKind": "Enum"
         }
       ],
       "name": "FieldEnumAlias",
@@ -554,19 +583,19 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
+          "member": "true",
           "name": "Boolean",
           "object": "FieldEnums",
-          "typeKind": "Enum",
-          "value": "true"
+          "typeKind": "Enum"
         }
       ],
       "fields": [
         {
           "$tag": "_OutputEnum",
           "field": "field",
+          "member": "true",
           "name": "Boolean",
-          "typeKind": "Enum",
-          "value": "true"
+          "typeKind": "Enum"
         }
       ],
       "name": "FieldEnums",
@@ -772,14 +801,14 @@
     },
     "Num": {
       "$tag": "_DomainNumber",
-      "domain": "Number",
+      "domainKind": "Number",
       "name": "Num",
       "typeKind": "Domain"
     },
     "NumAlias": {
       "$tag": "_DomainNumber",
       "aliases": ["Num1", "Num2"],
-      "domain": "Number",
+      "domainKind": "Number",
       "name": "NumAlias",
       "typeKind": "Domain"
     },
@@ -794,7 +823,7 @@
           "to": 9
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -817,7 +846,7 @@
           "to": 9
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -988,7 +1017,7 @@
     },
     "Str": {
       "$tag": "_DomainString",
-      "domain": "String",
+      "domainKind": "String",
       "name": "Str",
       "typeKind": "Domain"
     },
@@ -1002,7 +1031,7 @@
           "pattern": "a\u002B"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",
@@ -1023,7 +1052,7 @@
           "pattern": "a\u002B"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",

@@ -57,22 +57,22 @@ types: !_Map_Type
       object: _ChildType
       type: !_TypeParameter parent
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
       object: _ParentType
       type: !_TypeParameter item
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: allItems
       object: _ParentType
       type: !_TypeParameter allItem
     fields:
     - !_OutputField
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
       type: !_TypeParameter item
     - !_OutputField
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: allItems
       type: !_TypeParameter allItem
     name: _ParentType
@@ -128,18 +128,18 @@ types: !_Map_Type
         output: _BaseType
         typeArguments:
         - !_OutputArgument
+          member: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Basic
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Type
       type: !_OutputBase
         output: _BaseType
         typeArguments:
         - !_OutputArgument
+          member: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Internal
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Type
       type: !_OutputBase
@@ -170,17 +170,17 @@ types: !_Map_Type
         output: _BaseType
         typeArguments:
         - !_OutputArgument
+          member: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Basic
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _BaseType
         typeArguments:
         - !_OutputArgument
+          member: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Internal
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _TypeDual
@@ -271,68 +271,68 @@ types: !_Map_Type
         output: _TypeRef
         typeArguments:
         - !_OutputArgument
+          member: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Basic
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _TypeSimple
       type: !_OutputBase
         output: _TypeRef
         typeArguments:
         - !_OutputArgument
+          member: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Enum
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _TypeSimple
       type: !_OutputBase
         output: _TypeRef
         typeArguments:
         - !_OutputArgument
+          member: Domain
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Domain
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _TypeSimple
       type: !_OutputBase
         output: _TypeRef
         typeArguments:
         - !_OutputArgument
+          member: Union
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Union
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _TypeRef
         typeArguments:
         - !_OutputArgument
+          member: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Basic
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _TypeRef
         typeArguments:
         - !_OutputArgument
+          member: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Enum
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _TypeRef
         typeArguments:
         - !_OutputArgument
+          member: Domain
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Domain
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _TypeRef
         typeArguments:
         - !_OutputArgument
+          member: Union
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Union
     name: _TypeSimple
     typeKind: !_TypeKind Output

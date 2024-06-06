@@ -14,8 +14,8 @@ internal class ParseOutputBase
   protected override IResult<OutputBaseAst> TypeEnumValue<TContext>(TContext tokens, OutputBaseAst objBase)
   {
     if (tokens.Take('.')) {
-      if (tokens.Identifier(out string? enumValue)) {
-        objBase.EnumValue = enumValue;
+      if (tokens.Identifier(out string? enumMember)) {
+        objBase.EnumMember = enumMember;
         return objBase.Ok();
       }
 

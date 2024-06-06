@@ -8,13 +8,13 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomDup",
-          "name": "dup"
+          "name": "eum_dom_dup"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dup"
+          "value": "eum_dom_dup"
         }
       ],
       "name": "EnumDomDup",
@@ -26,22 +26,22 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomUnique",
-          "name": "value"
+          "name": "eum_dom_value"
         },
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomUnique",
-          "name": "dup"
+          "name": "eum_dom_dup"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "value"
+          "value": "eum_dom_value"
         },
         {
           "$tag": "_Aliased",
-          "value": "dup"
+          "value": "eum_dom_dup"
         }
       ],
       "name": "EnumDomUnique",

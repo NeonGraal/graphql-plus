@@ -21,6 +21,10 @@ output Output { }
 category { Test }
 output Test<$a> { | $a }
 
+// category-output-mod-param
+category { Test[$a] }
+output Test { }
+
 // category-output-undef
 category { Test }
 
@@ -32,13 +36,17 @@ input Test { }
 directive @Test { all }
 directive @Test { ( repeatable ) all }
 
-// directive-diff-parameter
+// directive-diff-param
 directive @Test(Test) { all }
 directive @Test(Test?) { all }
 input Test { }
 
 // directive-no-param
 directive @Test(Test) { all }
+
+// directive-param-mod-param
+directive @Test(TestIn[$a]) { all }
+input TestIn { }
 
 // option-diff-name
 option Test { }

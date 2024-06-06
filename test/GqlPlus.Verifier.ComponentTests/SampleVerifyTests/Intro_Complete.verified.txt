@@ -1,6 +1,1 @@
-﻿[
-  !!! I@036/0175 : Invalid Output Alternate. '_DomainMember' not defined. - '_DomainMember' !!!,
-  !!! I@038/0176 : Invalid Output Alternate. '_DomainRange' not defined. - '_DomainRange' !!!,
-  !!! I@038/0177 : Invalid Output Alternate. '_DomainRegex' not defined. - '_DomainRegex' !!!,
-  !!! I@039/0174 : Invalid Output Alternate. '_DomainTrueFalse' not defined. - '_DomainTrueFalse' !!!
-]
+﻿[]

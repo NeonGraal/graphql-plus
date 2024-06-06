@@ -77,7 +77,9 @@ internal static class UsageHelpers
         } else {
           context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' not defined");
         }
-      } else if (modifier.ModifierKind == ModifierKind.Dict) {
+      }
+
+      if (modifier.ModifierKind == ModifierKind.Dict) {
         if (context.GetType(modifier.Key, out IGqlpDescribed? key)) {
           if (key is not IGqlpSimple and not IGqlpTypeParameter) {
             context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");

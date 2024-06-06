@@ -1,15 +1,24 @@
 ﻿<table>
-  <thead><tr>
-    <th>Fields</th><th>Type</th><th>Value</th><th class="from">Object</th>
-  </tr></thead>
+  <thead>
+    <tr>
+      <th>Fields</th>
+      <th>Type</th>
+      <th class="from">Object</th>
+    </tr>
+  </thead>
   {%- for fld in fields %}
   <tr>
-    <td>{{ fld.name }}</td>
+    <td>
+      {{ fld.name }}
+      {%- if fld.parameters -%}
+      {%- render "parameters" with fld.parameters as parameters -%}
+      {%- endif -%}
+    </td>
     <td>
       {%- render "base" with fld.type as base -%}
       {%- render "modifiers" with fld.modifiers as modifiers -%}
+      {%- if fld.default %} = {{ fld.default }}{%- endif -%}
     </td>
-    <td>{{ fld.default }}</td>
     <td class="from">{{ fld.object }}</td>
   </tr>
   {%- endfor %}

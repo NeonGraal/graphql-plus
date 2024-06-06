@@ -1,0 +1,30 @@
+﻿{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "catOpt": {
+      "$tag": "_Category",
+      "modifiers": [
+        {
+          "$tag": "_Modifier",
+          "modifierKind": "Opt"
+        }
+      ],
+      "name": "catOpt",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CatOpt",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "CatOpt": {
+      "$tag": "_TypeOutput",
+      "name": "CatOpt",
+      "typeKind": "Output"
+    }
+  }
+}

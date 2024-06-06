@@ -32,18 +32,29 @@ internal class MergeAllTypes(
 
   private static void FixupEnums(IEnumerable<IGqlpType> items)
   {
+    IGqlpType[] types = [.. items];
+
     Map<string> enumValues = GetEnumValues(
       BuiltIn.Basic.OfType<EnumDeclAst>()
       .Concat(BuiltIn.Internal.OfType<EnumDeclAst>())
-      .Concat(items.OfType<EnumDeclAst>()));
+      .Concat(types.OfType<EnumDeclAst>()));
 
-    foreach (OutputDeclAst output in items.OfType<OutputDeclAst>()) {
+    foreach (OutputDeclAst output in types.OfType<OutputDeclAst>()) {
       foreach (AstAlternate<IGqlpOutputBase> alternate in output.Alternates) {
         FixupType(alternate.Type, enumValues);
       }
 
       foreach (OutputFieldAst field in output.Fields) {
         FixupType(field.Type, enumValues);
+      }
+    }
+
+    foreach (AstDomain<DomainMemberAst, IGqlpDomainMember> domain in types.OfType<AstDomain<DomainMemberAst, IGqlpDomainMember>>()) {
+      foreach (DomainMemberAst item in domain.Members) {
+        if (string.IsNullOrEmpty(item.EnumType)
+          && enumValues.TryGetValue(item.Member ?? "", out string? enumType)) {
+          item.EnumType = enumType;
+        }
       }
     }
   }
@@ -57,7 +68,7 @@ internal class MergeAllTypes(
   private static void FixupType(IGqlpOutputBase type, Map<string> enumValues)
   {
     if (string.IsNullOrWhiteSpace(type.Output)
-      && enumValues.TryGetValue(type.EnumValue ?? "", out string? enumType)) {
+      && enumValues.TryGetValue(type.EnumMember ?? "", out string? enumType)) {
       ((OutputBaseAst)type).Name = enumType;
     }
 

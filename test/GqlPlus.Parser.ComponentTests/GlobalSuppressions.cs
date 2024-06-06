@@ -7,5 +7,6 @@ using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase")]
 [assembly: SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores")]
+[assembly: SuppressMessage("Reliability", "CA2007:Consider calling ConfigureAwait on the awaited task")]
 
 [assembly: SuppressMessage("Style", "IDE0058:Expression value is never used")]

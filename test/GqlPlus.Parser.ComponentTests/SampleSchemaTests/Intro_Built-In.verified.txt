@@ -74,20 +74,32 @@ Success
   >
   !AO
   I@007/0024
-  _ModifierDictionary
+  _ModifierKeyed
+  <
+    I@022/0024
+    _ModifierKind.Dictionary
+  >
   !AO
   I@007/0025
-  _ModifierTypeParameter
+  _ModifierKeyed
+  <
+    I@022/0025
+    _ModifierKind.TypeParameter
+  >
 }
 {
   !Ou I@008/0028
-  _ModifierDictionary
+  _ModifierKeyed
+  <
+    I@024/0028
+    $kind
+  >
   :
   I@007/0029
   _Modifier
   <
-    I@017/0029
-    _ModifierKind.Dictionary
+    I@018/0029
+    $kind
   >
   {
     !OF I@009/0030
@@ -104,66 +116,52 @@ Success
 }
 {
   !Ou I@008/0034
-  _ModifierTypeParameter
-  :
+  _Modifiers
+  |
+  !AO
   I@007/0035
   _Modifier
   <
     I@017/0035
-    _ModifierKind.TypeParameter
-  >
-  {
-    !OF I@009/0036
-    typeParameter
-    :
-    I@024/0036
-    _TypeParameter
-    !OF I@009/0037
-    optional
-    :
-    I@019/0037
-    Boolean
-  }
-}
-{
-  !Ou I@008/0040
-  _Modifiers
-  |
-  !AO
-  I@007/0041
-  _Modifier
-  <
-    I@017/0041
     _ModifierKind.Optional
   >
   !AO
-  I@007/0042
+  I@007/0036
   _Collections
 }
 {
-  !En I@006/0045
+  !En I@006/0039
   _ModifierKind
-  !EM I@022/0045
-  Optional
-  !EM I@031/0045
+  !EM I@022/0039
+  Opt
+  [
+    Optional
+  ]
+  !EM I@036/0039
   List
-  !EM I@036/0045
-  Dictionary
-  !EM I@047/0045
-  TypeParameter
+  !EM I@041/0039
+  Dict
+  [
+    Dictionary
+  ]
+  !EM I@058/0039
+  Param
+  [
+    TypeParameter
+  ]
 }
 {
-  !Ou I@008/0047
+  !Ou I@008/0041
   _Modifier
   <
-    I@019/0047
+    I@019/0041
     $kind
   >
   {
-    !OF I@009/0048
+    !OF I@009/0042
     modifierKind
     :
-    I@024/0048
+    I@024/0042
     $kind
   }
 }

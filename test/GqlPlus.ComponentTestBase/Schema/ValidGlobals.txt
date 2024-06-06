@@ -2,6 +2,18 @@
 category { Cat }
 output Cat { }
 
+// category-output-dict
+category { CatDict[*] }
+output CatDict { }
+
+// category-output-list
+category { CatList[] }
+output CatList { }
+
+// category-output-optional
+category { CatOpt? }
+output CatOpt { }
+
 // description
 "A simple description"
 output Descr { }
@@ -29,6 +41,18 @@ output DescrComplex { }
 
 // directive-param
 directive @DirParam(DirParamIn) { all }
+input DirParamIn { }
+
+// directive-param-opt
+directive @DirParamOpt(DirParamIn?) { all }
+input DirParamIn { }
+
+// directive-param-list
+directive @DirParamList(DirParamIn[]) { all }
+input DirParamIn { }
+
+// directive-param-dict
+directive @DirParamDict(DirParamIn[String]) { all }
 input DirParamIn { }
 
 // option-setting

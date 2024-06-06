@@ -10,7 +10,7 @@ types: !_Map_Type
       domain: DomNumPrnt
       exclude: false
       from: 2
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
@@ -26,7 +26,7 @@ types: !_Map_Type
       domain: DomPrntNum
       exclude: false
       to: 2
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false

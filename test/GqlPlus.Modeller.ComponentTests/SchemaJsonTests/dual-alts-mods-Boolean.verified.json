@@ -10,7 +10,8 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "^"
+              "by": "^",
+              "modifierKind": "Dict"
             }
           ],
           "object": "DualAltMods",
@@ -26,7 +27,8 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "^"
+              "by": "^",
+              "modifierKind": "Dict"
             }
           ],
           "type": {

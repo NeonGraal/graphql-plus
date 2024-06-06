@@ -59,9 +59,9 @@
         "typeArguments": [
           {
             "$tag": "_OutputArgument",
+            "member": "Dual",
             "name": "_TypeKind",
-            "typeKind": "Enum",
-            "value": "Dual"
+            "typeKind": "Enum"
           },
           {
             "$tag": "_OutputBase",

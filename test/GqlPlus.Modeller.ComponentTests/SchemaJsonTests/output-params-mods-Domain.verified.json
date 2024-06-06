@@ -13,7 +13,7 @@
           "to": 10
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -44,14 +44,15 @@
               "modifiers": [
                 {
                   "$tag": "_ModifierDictionary",
-                  "value": "OutDomainParam"
+                  "by": "OutDomainParam",
+                  "modifierKind": "Dict"
                 }
               ]
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutParamsDomain"
+            "value": "OutDomainParam"
           }
         }
       ],
@@ -66,14 +67,15 @@
               "modifiers": [
                 {
                   "$tag": "_ModifierDictionary",
-                  "value": "OutDomainParam"
+                  "by": "OutDomainParam",
+                  "modifierKind": "Dict"
                 }
               ]
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutParamsDomain"
+            "value": "OutDomainParam"
           }
         }
       ],

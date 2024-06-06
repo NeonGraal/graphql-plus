@@ -6,7 +6,7 @@ types: !_Map_Type
       domain: StrSame
       exclude: false
       pattern: a+
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false

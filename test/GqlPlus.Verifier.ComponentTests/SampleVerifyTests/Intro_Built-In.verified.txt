@@ -6,6 +6,5 @@
   !!! I@020/0009 : Invalid Output Alternate. '_DomainKind' not defined. - '_DomainKind' !!!,
   !!! I@020/0009 : Invalid Output Argument Enum. '_DomainKind' is not an Enum type. - '_DomainKind' !!!,
   !!! I@020/0010 : Invalid Output Alternate. '_DomainKind' not defined. - '_DomainKind' !!!,
-  !!! I@020/0010 : Invalid Output Argument Enum. '_DomainKind' is not an Enum type. - '_DomainKind' !!!,
-  !!! I@024/0036 : Invalid Output Field. '_TypeParameter' not defined. - '_TypeParameter' !!!
+  !!! I@020/0010 : Invalid Output Argument Enum. '_DomainKind' is not an Enum type. - '_DomainKind' !!!
 ]

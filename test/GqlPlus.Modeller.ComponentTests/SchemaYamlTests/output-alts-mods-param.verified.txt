@@ -1,0 +1,28 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpAltModsParam: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      object: OutpAltModsParam
+      type: !_OutputBase
+        output: OutpModsParamAlt
+    alternates:
+    - !_Alternate(_OutputBase)
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      type: !_OutputBase
+        output: OutpModsParamAlt
+    name: OutpAltModsParam
+    typeKind: !_TypeKind Output
+    typeParameters:
+    - !_Described
+      name: mod
+  !_Identifier OutpModsParamAlt: !_TypeOutput
+    name: OutpModsParamAlt
+    typeKind: !_TypeKind Output

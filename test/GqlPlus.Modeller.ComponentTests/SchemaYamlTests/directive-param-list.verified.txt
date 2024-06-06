@@ -1,0 +1,15 @@
+﻿!_Schema
+directives: !_Map_Directives
+  !_Identifier DirParamList: !_Directive
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
+    name: DirParamList
+    parameters:
+    - !_InputParameter
+      input: DirParamIn
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+    repeatable: false
+types: !_Map_Type
+  !_Identifier DirParamIn: !_TypeInput
+    name: DirParamIn
+    typeKind: !_TypeKind Input

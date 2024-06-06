@@ -21,19 +21,13 @@ output _ConstantMap {
 
 output _Collections {
     | _Modifier<_ModifierKind.List>
-    | _ModifierDictionary
-    | _ModifierTypeParameter
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParameter>
     }
 
-output _ModifierDictionary {
-    : _Modifier<_ModifierKind.Dictionary>
+output _ModifierKeyed<$kind> {
+    : _Modifier<$kind>
         by: _TypeSimple
-        optional: Boolean
-    }
-
-output _ModifierTypeParameter {
-    : _Modifier<_ModifierKind.TypeParameter>
-        typeParameter: _TypeParameter
         optional: Boolean
     }
 
@@ -42,7 +36,7 @@ output _Modifiers {
     | _Collections
     }
 
-enum _ModifierKind { Optional List Dictionary TypeParameter }
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParameter] }
 
 output _Modifier<$kind> {
         modifierKind: $kind

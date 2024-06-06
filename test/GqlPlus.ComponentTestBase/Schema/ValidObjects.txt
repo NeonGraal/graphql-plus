@@ -10,6 +10,10 @@ dual ObjAltDual { }
 object ObjAltMods { | ObjModsAlt[^] }
 object ObjModsAlt { }
 
+// alts-mods-param
+object ObjAltModsParam<$mod> { | ObjModsParamAlt[$mod] }
+object ObjModsParamAlt { }
+
 // fields
 object FieldsObj { field: ObjField }
 object ObjField { }
@@ -21,6 +25,10 @@ dual ObjFieldDual { }
 // fields-mods-Enum
 object ObjFieldMods { field: ObjFieldMods[ObjFieldEnum] }
 enum ObjFieldEnum { value }
+
+// fields-mods-param
+object ObjFieldModsParam<$mod> { field: ObjFieldParamMods[$mod] }
+object ObjFieldParamMods { }
 
 // generic-alt
 object ObjGenAlt<$type> { | $type }
@@ -130,9 +138,14 @@ output OutParams { field(OutParam): OutParams }
 input OutParam { }
 
 // output-params-mods-Domain
-output OutParamsDomain { field(OutParamDomain[OutDomainParam]): OutParamsDomain }
+output OutParamsDomain { field(OutParamDomain[OutDomainParam]): OutDomainParam }
 input OutParamDomain { }
 domain OutDomainParam { number 1 ~ 10 }
+
+// output-params-mods-param
+output OutParamsDomainParam<$mod> { field(OutParamDomainParam[$mod]): OutDomainsParam }
+input OutParamDomainParam { }
+domain OutDomainsParam { number 1 ~ 10 }
 
 // output-parent-params
 output OutPrntParams { :OutParamsParent field(OutPrntParam): OutPrntParams }

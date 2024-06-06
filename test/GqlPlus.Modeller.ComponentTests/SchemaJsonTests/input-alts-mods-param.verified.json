@@ -1,0 +1,55 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpAltModsParam": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "by": "mod",
+              "modifierKind": "Param"
+            }
+          ],
+          "object": "InpAltModsParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpModsParamAlt"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_InputBase)",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "by": "mod",
+              "modifierKind": "Param"
+            }
+          ],
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpModsParamAlt"
+          }
+        }
+      ],
+      "name": "InpAltModsParam",
+      "typeKind": "Input",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
+    },
+    "InpModsParamAlt": {
+      "$tag": "_TypeInput",
+      "name": "InpModsParamAlt",
+      "typeKind": "Input"
+    }
+  }
+}

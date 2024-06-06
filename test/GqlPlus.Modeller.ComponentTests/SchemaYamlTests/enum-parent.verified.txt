@@ -4,23 +4,23 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnPrntTest
-      name: valTest
+      name: val_test
     items:
     - !_Aliased
-      name: valTest
+      name: val_test
     name: EnPrntTest
     typeKind: !_TypeKind Enum
   !_Identifier EnTestPrnt: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnPrntTest
-      name: valTest
+      name: val_test
     - !_EnumMember
       enum: EnTestPrnt
-      name: valPrnt
+      name: val_prnt
     items:
     - !_Aliased
-      name: valPrnt
+      name: val_prnt
     name: EnTestPrnt
     parent: !_TypeRef(_SimpleKind)
       name: EnPrntTest

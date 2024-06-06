@@ -25,7 +25,12 @@
         },
         {
           "$tag": "_ObjectFor(_DualField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "aliases",
           "object": "_Aliased",
           "type": {
@@ -37,7 +42,12 @@
       "fields": [
         {
           "$tag": "_DualField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "aliases",
           "type": {
             "$tag": "_DualBase",

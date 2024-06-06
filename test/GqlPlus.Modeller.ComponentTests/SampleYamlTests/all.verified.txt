@@ -21,13 +21,13 @@ types: !_Map_Type
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
       object: All
       parameters:
       - !_InputParameter
         input: Param
-        modifiers: [!_Modifier Opt]
+        modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase
         output: String
     alternates:
@@ -36,12 +36,12 @@ types: !_Map_Type
         output: String
     fields:
     - !_OutputField
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
       parameters:
       - !_InputParameter
         input: Param
-        modifiers: [!_Modifier Opt]
+        modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase
         output: String
     name: All
@@ -52,7 +52,7 @@ types: !_Map_Type
       domain: Guid
       exclude: false
       pattern: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
@@ -82,7 +82,7 @@ types: !_Map_Type
         input: String
     allFields:
     - !_ObjectFor(_InputField)
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: afterId
       object: Param
       type: !_InputBase
@@ -98,7 +98,7 @@ types: !_Map_Type
         input: String
     fields:
     - !_InputField
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: afterId
       type: !_InputBase
         input: Guid

@@ -18,7 +18,7 @@
           "from": 2
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -44,7 +44,7 @@
           "to": 2
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",

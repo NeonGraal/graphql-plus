@@ -1,0 +1,92 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutDomainsParam": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "OutDomainsParam",
+          "exclude": false,
+          "from": 1,
+          "to": 10
+        }
+      ],
+      "domainKind": "Number",
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "from": 1,
+          "to": 10
+        }
+      ],
+      "name": "OutDomainsParam",
+      "typeKind": "Domain"
+    },
+    "OutParamDomainParam": {
+      "$tag": "_TypeInput",
+      "name": "OutParamDomainParam",
+      "typeKind": "Input"
+    },
+    "OutParamsDomainParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutParamsDomainParam",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "input": "OutParamDomainParam",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierTypeParameter",
+                  "by": "mod",
+                  "modifierKind": "Param"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutDomainsParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParameter",
+              "input": "OutParamDomainParam",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierTypeParameter",
+                  "by": "mod",
+                  "modifierKind": "Param"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutDomainsParam"
+          }
+        }
+      ],
+      "name": "OutParamsDomainParam",
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
+    }
+  }
+}

@@ -5,19 +5,25 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomPrntEnum
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_parent
+      value: !_EnumValue
+        member: both_parent
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
     - !_DomainItem(_DomainMember)
       domain: DomEnumPrnt
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: both_enum
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
+      value: !_EnumValue
+        member: both_enum
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
     name: DomEnumPrnt
     parent: !_TypeRef(_SimpleKind)
       name: DomPrntEnum
@@ -28,28 +34,32 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomPrntEnum
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_parent
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: both_parent
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_parent
+      value: !_EnumValue
+        member: both_parent
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
     name: DomPrntEnum
     typeKind: !_TypeKind Domain
-  !_Identifier EnumDomPrnt: !_TypeEnum
+  !_Identifier EnumDomBoth: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: EnumDomPrnt
-      name: dom_enum
+      enum: EnumDomBoth
+      name: both_enum
     - !_EnumMember
-      enum: EnumDomPrnt
-      name: dom_parent
+      enum: EnumDomBoth
+      name: both_parent
     items:
     - !_Aliased
-      name: dom_enum
+      name: both_enum
     - !_Aliased
-      name: dom_parent
-    name: EnumDomPrnt
+      name: both_parent
+    name: EnumDomBoth
     typeKind: !_TypeKind Enum

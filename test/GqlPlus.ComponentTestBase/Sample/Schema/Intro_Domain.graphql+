@@ -30,3 +30,20 @@ output _DomainValue<$kind $value> {
     : _DomainRef<$kind>
         value: $value
     }
+dual _DomainTrueFalse {
+    : _BaseDomainItem
+        value: Boolean
+    }
+output _DomainMember {
+    : _BaseDomainItem
+        value: _EnumValue
+    }
+dual _DomainRange {
+    : _BaseDomainItem
+        lower: Number?
+        upper: Number?
+    }
+dual _DomainRegex {
+    : _BaseDomainItem
+        pattern: String
+    }

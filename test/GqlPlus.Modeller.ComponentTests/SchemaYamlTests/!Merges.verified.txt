@@ -10,7 +10,7 @@ categories: !_Map_Categories
     resolution: !_Resolution Parallel
   !_Identifier catMods: !_Category
     aliases: [CatM1, CatM2]
-    modifiers: [!_Modifier Opt]
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     name: catMods
     output: !_TypeRef(_TypeKind)
       name: CatMods
@@ -57,7 +57,7 @@ types: !_Map_Type
       domain: Bool
       exclude: false
       value: true
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false
@@ -77,7 +77,7 @@ types: !_Map_Type
       domain: BoolDiff
       exclude: false
       value: false
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false
@@ -93,7 +93,7 @@ types: !_Map_Type
       domain: BoolSame
       exclude: false
       value: true
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false
@@ -270,23 +270,31 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: EnumDiff
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
     - !_DomainItem(_DomainMember)
       domain: EnumDiff
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: false
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: false
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: false
+      value: !_EnumValue
+        member: false
+        name: Boolean
+        typeKind: !_SimpleKind Enum
     name: EnumDiff
     typeKind: !_TypeKind Domain
   !_Identifier EnumSame: !_DomainEnum
@@ -294,46 +302,50 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: EnumSame
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
     name: EnumSame
     typeKind: !_TypeKind Domain
   !_Identifier FieldEnumAlias: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: true
       name: Boolean
       object: FieldEnumAlias
       typeKind: !_SimpleKind Enum
-      value: true
     fields:
     - !_OutputEnum
       field: field
+      member: true
       name: Boolean
       typeKind: !_SimpleKind Enum
-      value: true
     name: FieldEnumAlias
     typeKind: !_TypeKind Output
   !_Identifier FieldEnums: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: true
       name: Boolean
       object: FieldEnums
       typeKind: !_SimpleKind Enum
-      value: true
     fields:
     - !_OutputEnum
       field: field
+      member: true
       name: Boolean
       typeKind: !_SimpleKind Enum
-      value: true
     name: FieldEnums
     typeKind: !_TypeKind Output
   !_Identifier FieldParam1: !_TypeInput
@@ -446,12 +458,12 @@ types: !_Map_Type
       input: PrntInp
     typeKind: !_TypeKind Input
   !_Identifier Num: !_DomainNumber
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     name: Num
     typeKind: !_TypeKind Domain
   !_Identifier NumAlias: !_DomainNumber
     aliases: [Num1, Num2]
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     name: NumAlias
     typeKind: !_TypeKind Domain
   !_Identifier NumDiff: !_DomainNumber
@@ -461,7 +473,7 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 9
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
@@ -476,7 +488,7 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 9
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
@@ -573,7 +585,7 @@ types: !_Map_Type
     name: PrntOutp
     typeKind: !_TypeKind Output
   !_Identifier Str: !_DomainString
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     name: Str
     typeKind: !_TypeKind Domain
   !_Identifier StrDiff: !_DomainString
@@ -582,7 +594,7 @@ types: !_Map_Type
       domain: StrDiff
       exclude: false
       pattern: a+
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
@@ -595,7 +607,7 @@ types: !_Map_Type
       domain: StrSame
       exclude: false
       pattern: a+
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false

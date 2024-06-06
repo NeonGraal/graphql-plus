@@ -46,41 +46,41 @@ public class ParseOutputFieldTests(
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithFieldEnumValue_ReturnsCorrectAst(string name, string enumValue)
+  public void WithFieldEnumValue_ReturnsCorrectAst(string name, string enumMember)
     => _checks.TrueExpected(
-      name + "=" + enumValue,
-        FieldEnum(name, "", enumValue));
+      name + "=" + enumMember,
+        FieldEnum(name, "", enumMember));
 
   [Theory, RepeatData(Repeats)]
-  public void WithFieldEnumAliasValue_ReturnsCorrectAst(string name, string enumValue, string alias)
+  public void WithFieldEnumAliasValue_ReturnsCorrectAst(string name, string enumMember, string alias)
     => _checks.TrueExpected(
-      name + "[" + alias + "]=" + enumValue,
-        FieldEnum(name, "", enumValue) with { Aliases = [alias] });
+      name + "[" + alias + "]=" + enumMember,
+        FieldEnum(name, "", enumMember) with { Aliases = [alias] });
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldEnumValueBad_ReturnsFalse(string name)
     => _checks.False(name + "=");
 
   [Theory, RepeatData(Repeats)]
-  public void WithFieldEnumTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumValue)
+  public void WithFieldEnumTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumMember)
     => _checks.TrueExpected(
-      name + "=" + enumType + "." + enumValue,
-        FieldEnum(name, enumType, enumValue));
+      name + "=" + enumType + "." + enumMember,
+        FieldEnum(name, enumType, enumMember));
 
   [Theory, RepeatData(Repeats)]
-  public void WithFieldEnumAliasTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumValue, string alias)
+  public void WithFieldEnumAliasTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumMember, string alias)
     => _checks.TrueExpected(
-      name + "[" + alias + "]=" + enumType + "." + enumValue,
-        FieldEnum(name, enumType, enumValue) with { Aliases = [alias] });
+      name + "[" + alias + "]=" + enumType + "." + enumMember,
+        FieldEnum(name, enumType, enumMember) with { Aliases = [alias] });
 
   [Theory, RepeatData(Repeats)]
-  public void WithFieldEnumTypeAndValueBad_ReturnsFalse(string name, string enumValue)
-    => _checks.False(name + "=" + enumValue + ".");
+  public void WithFieldEnumTypeAndValueBad_ReturnsFalse(string name, string enumMember)
+    => _checks.False(name + "=" + enumMember + ".");
 
   internal override ICheckObjectField FieldChecks => _checks;
 
   private readonly CheckObjectField<OutputFieldAst, IGqlpOutputBase, OutputBaseAst> _checks = new(new OutputFactories(), parser);
 
-  private static OutputFieldAst FieldEnum(string name, string enumType, string enumValue)
-    => new(AstNulls.At, name, new OutputBaseAst(AstNulls.At, enumType) { EnumValue = enumValue });
+  private static OutputFieldAst FieldEnum(string name, string enumType, string enumMember)
+    => new(AstNulls.At, name, new OutputBaseAst(AstNulls.At, enumType) { EnumMember = enumMember });
 }

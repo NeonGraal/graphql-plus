@@ -13,7 +13,7 @@
           "to": 9
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",

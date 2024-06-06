@@ -3,11 +3,8 @@
   !!! I@008/0015 : Invalid Output Parent. '_ParentType' not defined. - '_BaseDomain' !!!,
   !!! I@016/0011 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@016/0011 : Invalid Output Parent. '_TypeKind' not defined. - '_TypeKind' !!!,
+  !!! I@016/0039 : Invalid Output Field. '_EnumValue' not defined. - '_EnumValue' !!!,
   !!! I@017/0026 : Invalid Dual Field. '_Identifier' not defined. - '_Identifier' !!!,
   !!! I@019/0016 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
-  !!! I@019/0016 : Invalid Output Parent. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@036/0005 : Invalid Output Alternate. '_DomainMember' not defined. - '_DomainMember' !!!,
-  !!! I@038/0006 : Invalid Output Alternate. '_DomainRange' not defined. - '_DomainRange' !!!,
-  !!! I@038/0007 : Invalid Output Alternate. '_DomainRegex' not defined. - '_DomainRegex' !!!,
-  !!! I@039/0004 : Invalid Output Alternate. '_DomainTrueFalse' not defined. - '_DomainTrueFalse' !!!
+  !!! I@019/0016 : Invalid Output Parent. '_TypeKind' not defined. - '_TypeKind' !!!
 ]

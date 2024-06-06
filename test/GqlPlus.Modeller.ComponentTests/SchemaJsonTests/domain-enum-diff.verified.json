@@ -9,30 +9,46 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "EnumDiff",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "name": "Boolean",
+            "typeKind": "Enum"
+          }
         },
         {
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "EnumDiff",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "false"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "false",
+            "name": "Boolean",
+            "typeKind": "Enum"
+          }
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "name": "Boolean",
+            "typeKind": "Enum"
+          }
         },
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "false"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "false",
+            "name": "Boolean",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "EnumDiff",

@@ -4,7 +4,6 @@ using GqlPlus.Parsing;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 
-#pragma warning disable IDE0130
 namespace GqlPlus.Sample;
 
 public class SampleParserTests(
@@ -43,7 +42,6 @@ public class SampleParserTests(
 
   private async Task<IGqlpOperation?> ParseSampleOperation(string dir, string sample, string extn)
   {
-#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
     string operation = await File.ReadAllTextAsync($"Sample/{dir}/{sample}.{extn}");
 
     OperationContext tokens = new(operation);

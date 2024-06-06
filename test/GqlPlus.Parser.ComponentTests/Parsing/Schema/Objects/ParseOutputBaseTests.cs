@@ -12,7 +12,7 @@ public class ParseOutputBaseTests(
     => _checks.TrueExpected(
       name + "<" + enumValues.Joined(s => enumType + "." + s) + ">",
       _checks.ObjBase(name) with {
-        TypeArguments = [.. enumValues.Select(enumValue => _checks.ObjBase(enumType) with { EnumValue = enumValue })]
+        TypeArguments = [.. enumValues.Select(enumMember => _checks.ObjBase(enumType) with { EnumMember = enumMember })]
       });
 
   [Theory, RepeatData(Repeats)]

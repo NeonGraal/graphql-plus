@@ -58,8 +58,8 @@ public record class CollectionModel(
   ModifierKind ModifierKind
 ) : ModelBase
 {
-  // Todo: Make key a proper SimpleModel
-  public string Key { get; set; } = "";
+  // Todo: Make key a proper SimpleType
+  public string? Key { get; set; } = "";
   public bool IsOptional { get; set; }
 
   protected override string Tag =>
@@ -71,16 +71,17 @@ public record class CollectionModel(
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
+        .Add("modifierKind", ModifierKind)
         .Add(ModifierKind is ModifierKind.Dict or ModifierKind.Param,
           s => s
-            .Add(ModifierKind is ModifierKind.Dict ? "by" : "typeParameter", Key)
-            .Add("optional", IsOptional, true),
-          s => new($"{ModifierKind}", Tag)
-        );
+            .Add("by", Key
+              ?? throw new InvalidOperationException($"{ModifierKind} Modifier must have a Key specified"))
+            .Add("optional", IsOptional, true));
 }
 
-public record class ModifierModel(ModifierKind Kind)
-  : CollectionModel(Kind)
+public record class ModifierModel(
+  ModifierKind Kind
+) : CollectionModel(Kind)
 { }
 
 internal class ConstantModeller(
@@ -121,7 +122,7 @@ internal class ModifierModeller
 {
   protected override ModifierModel ToModel(IGqlpModifier ast, IMap<TypeKindModel> typeKinds)
     => new(ast.ModifierKind) {
-      Key = ast.Key ?? "",
+      Key = ast.Key,
       IsOptional = ast.IsOptional,
     };
 

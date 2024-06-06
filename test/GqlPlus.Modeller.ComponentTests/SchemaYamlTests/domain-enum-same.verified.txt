@@ -5,13 +5,17 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: EnumSame
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
     name: EnumSame
     typeKind: !_TypeKind Domain

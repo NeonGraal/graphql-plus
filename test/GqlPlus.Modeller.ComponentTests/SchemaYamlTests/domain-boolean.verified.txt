@@ -10,7 +10,7 @@ types: !_Map_Type
       domain: Bool
       exclude: false
       value: true
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false

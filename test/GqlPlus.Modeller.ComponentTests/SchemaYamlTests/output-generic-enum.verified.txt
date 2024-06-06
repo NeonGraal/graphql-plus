@@ -18,18 +18,18 @@ types: !_Map_Type
         output: OutGenEnumRef
         typeArguments:
         - !_OutputArgument
+          member: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
-          value: outEnumGen
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: OutGenEnumRef
         typeArguments:
         - !_OutputArgument
+          member: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
-          value: outEnumGen
     name: OutGenEnum
     typeKind: !_TypeKind Output
   !_Identifier OutGenEnumRef: !_TypeOutput

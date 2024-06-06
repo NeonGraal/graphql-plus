@@ -6,6 +6,27 @@ categories: !_Map_Categories
       name: Cat
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Identifier catDict: !_Category
+    modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict}]
+    name: catDict
+    output: !_TypeRef(_TypeKind)
+      name: CatDict
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Identifier catList: !_Category
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+    name: catList
+    output: !_TypeRef(_TypeKind)
+      name: CatList
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Identifier catOpt: !_Category
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+    name: catOpt
+    output: !_TypeRef(_TypeKind)
+      name: CatOpt
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Identifier descrBetween: !_Category
     name: descrBetween
     output: !_TypeRef(_TypeKind)
@@ -21,6 +42,33 @@ directives: !_Map_Directives
     - !_InputParameter
       input: DirParamIn
     repeatable: false
+  !_Identifier DirParamDict: !_Directive
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
+    name: DirParamDict
+    parameters:
+    - !_InputParameter
+      input: DirParamIn
+      modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict}]
+    repeatable: false
+  !_Identifier DirParamList: !_Directive
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
+    name: DirParamList
+    parameters:
+    - !_InputParameter
+      input: DirParamIn
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+    repeatable: false
+  !_Identifier DirParamOpt: !_Directive
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
+    name: DirParamOpt
+    parameters:
+    - !_InputParameter
+      input: DirParamIn
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+    repeatable: false
 name: Schema
 settings: !_Map_Setting
   !_Identifier setting: !_Setting
@@ -29,6 +77,15 @@ settings: !_Map_Setting
 types: !_Map_Type
   !_Identifier Cat: !_TypeOutput
     name: Cat
+    typeKind: !_TypeKind Output
+  !_Identifier CatDict: !_TypeOutput
+    name: CatDict
+    typeKind: !_TypeKind Output
+  !_Identifier CatList: !_TypeOutput
+    name: CatList
+    typeKind: !_TypeKind Output
+  !_Identifier CatOpt: !_TypeOutput
+    name: CatOpt
     typeKind: !_TypeKind Output
   !_Identifier Descr: !_TypeOutput
     description: 'A simple description'

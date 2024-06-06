@@ -1,0 +1,55 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualAltModsParam": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "by": "mod",
+              "modifierKind": "Param"
+            }
+          ],
+          "object": "DualAltModsParam",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualModsParamAlt"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_DualBase)",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParameter",
+              "by": "mod",
+              "modifierKind": "Param"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualModsParamAlt"
+          }
+        }
+      ],
+      "name": "DualAltModsParam",
+      "typeKind": "Dual",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
+    },
+    "DualModsParamAlt": {
+      "$tag": "_TypeDual",
+      "name": "DualModsParamAlt",
+      "typeKind": "Dual"
+    }
+  }
+}

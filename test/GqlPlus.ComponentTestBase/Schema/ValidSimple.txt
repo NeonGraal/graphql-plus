@@ -1,14 +1,14 @@
 ﻿// enum-parent
-enum EnTestPrnt { :EnPrntTest valPrnt }
-enum EnPrntTest { valTest }
+enum EnTestPrnt { :EnPrntTest val_prnt }
+enum EnPrntTest { val_test }
 
 // enum-parent-alias
-enum EnPrntAlias { :EnAliasPrnt valPrnt valAlias[alias] }
-enum EnAliasPrnt { valAlias }
+enum EnPrntAlias { :EnAliasPrnt val_prnt_alias val_alias[alias_val] }
+enum EnAliasPrnt { val_alias }
 
 // enum-parent-dup
-enum EnPrntDup { :EnDupPrnt valPrnt  }
-enum EnDupPrnt { valDup[valPrnt] }
+enum EnPrntDup { :EnDupPrnt val_prnt_dup  }
+enum EnDupPrnt { val_dup[val_prnt_dup] }
 
 // domain-enum-all
 domain DomEnumAll { enum EnumDomAll.* }
@@ -16,37 +16,37 @@ enum EnumDomAll { dom_all dom_enum_all }
 
 // domain-enum-all-parent
 domain DomEnumAllParent { enum EnumDomAllParent.* }
-enum EnumDomAllParent { :EnumDomParentAll dom_all }
-enum EnumDomParentAll { dom_enum_all }
+enum EnumDomAllParent { :EnumDomParentAll dom_all_parent }
+enum EnumDomParentAll { dom_enum_all_parent }
 
 // domain-enum-member
 domain DomMember { enum dom_member }
 enum MemberDom { dom_member }
 
 // domain-enum-parent
-domain DomEnumPrnt { :DomPrntEnum Enum dom_enum }
-domain DomPrntEnum { Enum dom_parent }
-enum EnumDomPrnt { dom_enum dom_parent }
+domain DomEnumPrnt { :DomPrntEnum Enum both_enum }
+domain DomPrntEnum { Enum both_parent }
+enum EnumDomBoth { both_enum both_parent }
 
 // domain-enum-unique
-enum EnumDomUnique { value dup }
-enum EnumDomDup { dup }
-# domain DomEnumUnique { enum EnumDomUnique.* !EnumDomUnique.dup EnumDomDup.dup }
+enum EnumDomUnique { eum_dom_value eum_dom_dup }
+enum EnumDomDup { eum_dom_dup }
+# domain DomEnumUnique { enum EnumDomUnique.* !EnumDomUnique.eum_dom_dup EnumDomDup.eum_dom_dup }
 
 // domain-enum-unique-parent
 enum EnumDomUniqueParent { :EnumDomParentUnique value }
-enum EnumDomParentUnique { dup }
-enum EnumDomDupParent { dup }
-# domain DomEnumUniqueParent { enum EnumDomUniqueParent.* !EnumDomUniqueParent.dup EnumDomDupParent.dup }
+enum EnumDomParentUnique { enum_dom_parent_dup }
+enum EnumDomDupParent { enum_dom_parent_dup }
+# domain DomEnumUniqueParent { enum EnumDomUniqueParent.* !EnumDomUniqueParent.enum_dom_parent_dup EnumDomDupParent.enum_dom_parent_dup }
 
 // domain-enum-value
 domain DomEnum { Enum EnumDom.dom_enum }
 enum EnumDom { dom_enum }
 
 // domain-enum-value-parent
-domain DomEnumParent { Enum EnumDomParent.dom_enum }
-enum EnumDomParent { :EnumParentDom dom_parent } 
-enum EnumParentDom { dom_enum }
+domain DomEnumParent { Enum EnumDomParent.dom_enum_parent }
+enum EnumDomParent { :EnumParentDom dom_parent_enum } 
+enum EnumParentDom { dom_enum_parent }
 
 // domain-number-parent
 domain DomNumPrnt { :DomPrntNum Number 2>}

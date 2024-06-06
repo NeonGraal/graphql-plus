@@ -13,9 +13,9 @@ types: !_Map_Type
       output: _ParentType
       typeArguments:
       - !_OutputArgument
+        member: Union
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-        value: Union
       - !_OutputBase
         output: _Named
       - !_DualBase

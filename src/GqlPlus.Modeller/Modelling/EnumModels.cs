@@ -27,12 +27,12 @@ public record class EnumMemberModel(
 
 public record class EnumValueModel(
   string Name,
-  string Value
+  string Member
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name)
 {
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("value", Value);
+      .Add("member", Member);
 }
 
 internal class EnumModeller

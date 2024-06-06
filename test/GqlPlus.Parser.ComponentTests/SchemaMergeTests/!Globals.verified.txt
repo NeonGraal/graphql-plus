@@ -9,6 +9,27 @@ Success
 }
 {
   !Ca P@010/0001
+  catDict
+  (Parallel)
+  CatDict
+  [*]
+}
+{
+  !Ca P@010/0001
+  catList
+  (Parallel)
+  CatList
+  []
+}
+{
+  !Ca P@010/0001
+  catOpt
+  (Parallel)
+  CatOpt
+  ?
+}
+{
+  !Ca P@010/0001
   descrBetween
   (Parallel)
   DescrBetween
@@ -25,6 +46,42 @@ Success
   All
 }
 {
+  !Di I@012/0001
+  DirParamDict
+  (
+    !Pa
+    I@025/0001
+    DirParamIn
+    [String]
+  )
+  (Unique)
+  All
+}
+{
+  !Di I@012/0001
+  DirParamList
+  (
+    !Pa
+    I@025/0001
+    DirParamIn
+    []
+  )
+  (Unique)
+  All
+}
+{
+  !Di I@012/0001
+  DirParamOpt
+  (
+    !Pa
+    I@024/0001
+    DirParamIn
+    ?
+  )
+  (Unique)
+  All
+}
+{
   !Op I@008/0001
   Schema
   {
@@ -36,6 +93,18 @@ Success
 {
   !Ou I@025/0001
   Cat
+}
+{
+  !Ou I@032/0001
+  CatDict
+}
+{
+  !Ou I@031/0001
+  CatList
+}
+{
+  !Ou I@029/0001
+  CatOpt
 }
 {
   "A simple description"

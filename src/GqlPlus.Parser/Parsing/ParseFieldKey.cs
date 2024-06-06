@@ -21,8 +21,8 @@ internal class ParseFieldKey
 
     if (tokens.Identifier(out string? enumType)) {
       if (tokens.Take('.')) {
-        return tokens.Identifier(out string? enumValue)
-          ? new FieldKeyAst(at, enumType, enumValue).Ok<IGqlpFieldKey>()
+        return tokens.Identifier(out string? enumMember)
+          ? new FieldKeyAst(at, enumType, enumMember).Ok<IGqlpFieldKey>()
           : tokens.Error<IGqlpFieldKey>(label, "enum value after '.'");
       }
 

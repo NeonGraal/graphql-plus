@@ -4,24 +4,24 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumDomDup
-      name: dup
+      name: eum_dom_dup
     items:
     - !_Aliased
-      name: dup
+      name: eum_dom_dup
     name: EnumDomDup
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomUnique: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumDomUnique
-      name: value
+      name: eum_dom_value
     - !_EnumMember
       enum: EnumDomUnique
-      name: dup
+      name: eum_dom_dup
     items:
     - !_Aliased
-      name: value
+      name: eum_dom_value
     - !_Aliased
-      name: dup
+      name: eum_dom_dup
     name: EnumDomUnique
     typeKind: !_TypeKind Enum

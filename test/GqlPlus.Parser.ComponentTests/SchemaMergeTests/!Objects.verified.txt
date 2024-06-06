@@ -114,6 +114,57 @@ Success
 }
 {
   !Du I@006/0001
+  DualAltModsParam
+  <
+    I@024/0001
+    $mod
+  >
+  |
+  !AD
+  I@033/0001
+  DualModsParamAlt
+  [$mod]
+}
+{
+  !Du I@063/0001
+  DualModsParamAlt
+}
+{
+  !In I@007/0001
+  InpAltModsParam
+  <
+    I@024/0001
+    $mod
+  >
+  |
+  !AI
+  I@033/0001
+  InpModsParamAlt
+  [$mod]
+}
+{
+  !In I@063/0001
+  InpModsParamAlt
+}
+{
+  !Ou I@008/0001
+  OutpAltModsParam
+  <
+    I@026/0001
+    $mod
+  >
+  |
+  !AO
+  I@035/0001
+  OutpModsParamAlt
+  [$mod]
+}
+{
+  !Ou I@067/0001
+  OutpModsParamAlt
+}
+{
+  !Du I@006/0001
   FieldsDual
   {
     !DF I@019/0001
@@ -255,6 +306,66 @@ Success
   OutpFieldEnum
   !EM I@083/0001
   value
+}
+{
+  !Du I@006/0001
+  DualFieldModsParam
+  <
+    I@026/0001
+    $mod
+  >
+  {
+    !DF I@033/0001
+    field
+    :
+    I@040/0001
+    DualFieldParamMods
+    [$mod]
+  }
+}
+{
+  !Du I@072/0001
+  DualFieldParamMods
+}
+{
+  !In I@007/0001
+  InpFieldModsParam
+  <
+    I@026/0001
+    $mod
+  >
+  {
+    !IF I@033/0001
+    field
+    :
+    I@040/0001
+    InpFieldParamMods
+    [$mod]
+  }
+}
+{
+  !In I@072/0001
+  InpFieldParamMods
+}
+{
+  !Ou I@008/0001
+  OutpFieldModsParam
+  <
+    I@028/0001
+    $mod
+  >
+  {
+    !OF I@035/0001
+    field
+    :
+    I@042/0001
+    OutpFieldParamMods
+    [$mod]
+  }
+}
+{
+  !Ou I@076/0001
+  OutpFieldParamMods
 }
 {
   !Du I@006/0001
@@ -1545,18 +1656,52 @@ Success
     )
     :
     I@065/0001
-    OutParamsDomain
+    OutDomainParam
   }
 }
 {
-  !In I@089/0001
+  !In I@088/0001
   OutParamDomain
 }
 {
-  !Do I@115/0001
+  !Do I@114/0001
   OutDomainParam
   Number
-  !DN N@139/0001
+  !DN N@138/0001
+  1
+  ~
+  10
+}
+{
+  !Ou I@008/0001
+  OutParamsDomainParam
+  <
+    I@030/0001
+    $mod
+  >
+  {
+    !OF I@037/0001
+    field
+    (
+      !Pa
+      I@043/0001
+      OutParamDomainParam
+      [$mod]
+    )
+    :
+    I@071/0001
+    OutDomainsParam
+  }
+}
+{
+  !In I@095/0001
+  OutParamDomainParam
+}
+{
+  !Do I@126/0001
+  OutDomainsParam
+  Number
+  !DN N@151/0001
   1
   ~
   10

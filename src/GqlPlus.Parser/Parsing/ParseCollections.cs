@@ -19,7 +19,7 @@ internal class ParseCollections
         if (tokens.Identifier(out string? param)) {
           modifier = ModifierAst.Param(at, param, tokens.Take('?'));
         } else {
-          return tokens.PartialArray(label, "Identifier after '$'.", () => list);
+          return tokens.PartialArray(label, "identitifer after '$'.", () => list);
         }
       } else if (tokens.Identifier(out string? key)) {
         modifier = ModifierAst.Dict(at, key, tokens.Take('?'));

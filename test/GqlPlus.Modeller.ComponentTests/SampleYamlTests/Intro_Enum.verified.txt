@@ -29,13 +29,13 @@ types: !_Map_Type
   !_Identifier _EnumValue: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: value
+      name: member
       object: _EnumValue
       type: !_OutputBase
         output: _Identifier
     fields:
     - !_OutputField
-      name: value
+      name: member
       type: !_OutputBase
         output: _Identifier
     name: _EnumValue
@@ -43,9 +43,9 @@ types: !_Map_Type
       output: _TypeRef
       typeArguments:
       - !_OutputArgument
+        member: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-        value: Enum
     typeKind: !_TypeKind Output
   !_Identifier _TypeEnum: !_TypeOutput
     name: _TypeEnum
@@ -53,9 +53,9 @@ types: !_Map_Type
       output: _ParentType
       typeArguments:
       - !_OutputArgument
+        member: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-        value: Enum
       - !_OutputBase
         output: _Aliased
       - !_DualBase

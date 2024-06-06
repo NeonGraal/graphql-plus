@@ -12,6 +12,7 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
+        modifierKind: !_ModifierKind Dict
       object: DualAltMods
       type: !_DualBase
         dual: DualModsAlt
@@ -20,10 +21,34 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
+        modifierKind: !_ModifierKind Dict
       type: !_DualBase
         dual: DualModsAlt
     name: DualAltMods
     typeKind: !_TypeKind Dual
+  !_Identifier DualAltModsParam: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      object: DualAltModsParam
+      type: !_DualBase
+        dual: DualModsParamAlt
+    alternates:
+    - !_Alternate(_DualBase)
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      type: !_DualBase
+        dual: DualModsParamAlt
+    name: DualAltModsParam
+    typeKind: !_TypeKind Dual
+    typeParameters:
+    - !_Described
+      name: mod
   !_Identifier DualAltPrnt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -79,18 +104,40 @@ types: !_Map_Type
   !_Identifier DualFieldMods: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
-      modifiers: [!_ModifierDictionary {by: DualFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: DualFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       object: DualFieldMods
       type: !_DualBase
         dual: DualFieldMods
     fields:
     - !_DualField
-      modifiers: [!_ModifierDictionary {by: DualFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: DualFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       type: !_DualBase
         dual: DualFieldMods
     name: DualFieldMods
+    typeKind: !_TypeKind Dual
+  !_Identifier DualFieldModsParam: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      object: DualFieldModsParam
+      type: !_DualBase
+        dual: DualFieldParamMods
+    fields:
+    - !_DualField
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      type: !_DualBase
+        dual: DualFieldParamMods
+    name: DualFieldModsParam
+    typeKind: !_TypeKind Dual
+    typeParameters:
+    - !_Described
+      name: mod
+  !_Identifier DualFieldParamMods: !_TypeDual
+    name: DualFieldParamMods
     typeKind: !_TypeKind Dual
   !_Identifier DualFieldsDual: !_TypeDual
     allFields:
@@ -519,6 +566,9 @@ types: !_Map_Type
   !_Identifier DualModsAlt: !_TypeDual
     name: DualModsAlt
     typeKind: !_TypeKind Dual
+  !_Identifier DualModsParamAlt: !_TypeDual
+    name: DualModsParamAlt
+    typeKind: !_TypeKind Dual
   !_Identifier DualParentTest: !_TypeDual
     name: DualParentTest
     typeKind: !_TypeKind Dual
@@ -718,7 +768,7 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_InputField)
       default: !Null null
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: field
       object: InFieldNull
       type: !_InputBase
@@ -726,7 +776,7 @@ types: !_Map_Type
     fields:
     - !_InputField
       default: !Null null
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: field
       type: !_InputBase
         input: InFieldNull
@@ -774,6 +824,7 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
+        modifierKind: !_ModifierKind Dict
       object: InpAltMods
       type: !_InputBase
         input: InpModsAlt
@@ -782,10 +833,34 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
+        modifierKind: !_ModifierKind Dict
       type: !_InputBase
         input: InpModsAlt
     name: InpAltMods
     typeKind: !_TypeKind Input
+  !_Identifier InpAltModsParam: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      object: InpAltModsParam
+      type: !_InputBase
+        input: InpModsParamAlt
+    alternates:
+    - !_Alternate(_InputBase)
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      type: !_InputBase
+        input: InpModsParamAlt
+    name: InpAltModsParam
+    typeKind: !_TypeKind Input
+    typeParameters:
+    - !_Described
+      name: mod
   !_Identifier InpAltPrnt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -841,18 +916,40 @@ types: !_Map_Type
   !_Identifier InpFieldMods: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
-      modifiers: [!_ModifierDictionary {by: InpFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: InpFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       object: InpFieldMods
       type: !_InputBase
         input: InpFieldMods
     fields:
     - !_InputField
-      modifiers: [!_ModifierDictionary {by: InpFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: InpFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       type: !_InputBase
         input: InpFieldMods
     name: InpFieldMods
+    typeKind: !_TypeKind Input
+  !_Identifier InpFieldModsParam: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      object: InpFieldModsParam
+      type: !_InputBase
+        input: InpFieldParamMods
+    fields:
+    - !_InputField
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      type: !_InputBase
+        input: InpFieldParamMods
+    name: InpFieldModsParam
+    typeKind: !_TypeKind Input
+    typeParameters:
+    - !_Described
+      name: mod
+  !_Identifier InpFieldParamMods: !_TypeInput
+    name: InpFieldParamMods
     typeKind: !_TypeKind Input
   !_Identifier InpFieldsDual: !_TypeInput
     allFields:
@@ -1281,6 +1378,9 @@ types: !_Map_Type
   !_Identifier InpModsAlt: !_TypeInput
     name: InpModsAlt
     typeKind: !_TypeKind Input
+  !_Identifier InpModsParamAlt: !_TypeInput
+    name: InpModsParamAlt
+    typeKind: !_TypeKind Input
   !_Identifier InpParentTest: !_TypeInput
     name: InpParentTest
     typeKind: !_TypeKind Input
@@ -1415,13 +1515,28 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 10
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
       from: 1
       to: 10
     name: OutDomainParam
+    typeKind: !_TypeKind Domain
+  !_Identifier OutDomainsParam: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: OutDomainsParam
+      exclude: false
+      from: 1
+      to: 10
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      from: 1
+      to: 10
+    name: OutDomainsParam
     typeKind: !_TypeKind Domain
   !_Identifier OutEnumField: !_TypeEnum
     allItems:
@@ -1488,48 +1603,48 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumField
       name: OutEnumField
       object: OutFieldEnum
       typeKind: !_SimpleKind Enum
-      value: outEnumField
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumField
       name: OutEnumField
       typeKind: !_SimpleKind Enum
-      value: outEnumField
     name: OutFieldEnum
     typeKind: !_TypeKind Output
   !_Identifier OutFieldParent: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumParent
       name: OutEnumParented
       object: OutFieldParent
       typeKind: !_SimpleKind Enum
-      value: outEnumParent
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumParent
       name: OutEnumParented
       typeKind: !_SimpleKind Enum
-      value: outEnumParent
     name: OutFieldParent
     typeKind: !_TypeKind Output
   !_Identifier OutFieldValue: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumValue
       name: OutEnumValue
       object: OutFieldValue
       typeKind: !_SimpleKind Enum
-      value: outEnumValue
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumValue
       name: OutEnumValue
       typeKind: !_SimpleKind Enum
-      value: outEnumValue
     name: OutFieldValue
     typeKind: !_TypeKind Output
   !_Identifier OutGenEnum: !_TypeOutput
@@ -1540,18 +1655,18 @@ types: !_Map_Type
         output: OutGenEnumRef
         typeArguments:
         - !_OutputArgument
+          member: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
-          value: outEnumGen
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: OutGenEnumRef
         typeArguments:
         - !_OutputArgument
+          member: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
-          value: outEnumGen
     name: OutGenEnum
     typeKind: !_TypeKind Output
   !_Identifier OutGenEnumRef: !_TypeOutput
@@ -1577,18 +1692,18 @@ types: !_Map_Type
         output: OutGenParentRef
         typeArguments:
         - !_OutputArgument
+          member: outGenParent
           name: OutParentGen
           typeKind: !_SimpleKind Enum
-          value: outGenParent
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: OutGenParentRef
         typeArguments:
         - !_OutputArgument
+          member: outGenParent
           name: OutParentGen
           typeKind: !_SimpleKind Enum
-          value: outGenParent
     name: OutGenParent
     typeKind: !_TypeKind Output
   !_Identifier OutGenParentRef: !_TypeOutput
@@ -1645,6 +1760,9 @@ types: !_Map_Type
   !_Identifier OutParamDomain: !_TypeInput
     name: OutParamDomain
     typeKind: !_TypeKind Input
+  !_Identifier OutParamDomainParam: !_TypeInput
+    name: OutParamDomainParam
+    typeKind: !_TypeKind Input
   !_Identifier OutParamParent: !_TypeInput
     name: OutParamParent
     typeKind: !_TypeKind Input
@@ -1676,20 +1794,47 @@ types: !_Map_Type
       parameters:
       - !_InputParameter
         input: OutParamDomain
-        modifiers: [!_ModifierDictionary {by: OutDomainParam}]
+        modifiers: [!_ModifierDictionary {by: OutDomainParam,
+            modifierKind: !_ModifierKind Dict}]
       type: !_OutputBase
-        output: OutParamsDomain
+        output: OutDomainParam
     fields:
     - !_OutputField
       name: field
       parameters:
       - !_InputParameter
         input: OutParamDomain
-        modifiers: [!_ModifierDictionary {by: OutDomainParam}]
+        modifiers: [!_ModifierDictionary {by: OutDomainParam,
+            modifierKind: !_ModifierKind Dict}]
       type: !_OutputBase
-        output: OutParamsDomain
+        output: OutDomainParam
     name: OutParamsDomain
     typeKind: !_TypeKind Output
+  !_Identifier OutParamsDomainParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParamsDomainParam
+      parameters:
+      - !_InputParameter
+        input: OutParamDomainParam
+        modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      type: !_OutputBase
+        output: OutDomainsParam
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_InputParameter
+        input: OutParamDomainParam
+        modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      type: !_OutputBase
+        output: OutDomainsParam
+    name: OutParamsDomainParam
+    typeKind: !_TypeKind Output
+    typeParameters:
+    - !_Described
+      name: mod
   !_Identifier OutParamsParent: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -1791,6 +1936,7 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
+        modifierKind: !_ModifierKind Dict
       object: OutpAltMods
       type: !_OutputBase
         output: OutpModsAlt
@@ -1799,10 +1945,34 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
+        modifierKind: !_ModifierKind Dict
       type: !_OutputBase
         output: OutpModsAlt
     name: OutpAltMods
     typeKind: !_TypeKind Output
+  !_Identifier OutpAltModsParam: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      object: OutpAltModsParam
+      type: !_OutputBase
+        output: OutpModsParamAlt
+    alternates:
+    - !_Alternate(_OutputBase)
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      type: !_OutputBase
+        output: OutpModsParamAlt
+    name: OutpAltModsParam
+    typeKind: !_TypeKind Output
+    typeParameters:
+    - !_Described
+      name: mod
   !_Identifier OutpAltPrnt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -1858,18 +2028,40 @@ types: !_Map_Type
   !_Identifier OutpFieldMods: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: OutpFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       object: OutpFieldMods
       type: !_OutputBase
         output: OutpFieldMods
     fields:
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: OutpFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       type: !_OutputBase
         output: OutpFieldMods
     name: OutpFieldMods
+    typeKind: !_TypeKind Output
+  !_Identifier OutpFieldModsParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      object: OutpFieldModsParam
+      type: !_OutputBase
+        output: OutpFieldParamMods
+    fields:
+    - !_OutputField
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      type: !_OutputBase
+        output: OutpFieldParamMods
+    name: OutpFieldModsParam
+    typeKind: !_TypeKind Output
+    typeParameters:
+    - !_Described
+      name: mod
+  !_Identifier OutpFieldParamMods: !_TypeOutput
+    name: OutpFieldParamMods
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldsDual: !_TypeOutput
     allFields:
@@ -2297,6 +2489,9 @@ types: !_Map_Type
       name: ref
   !_Identifier OutpModsAlt: !_TypeOutput
     name: OutpModsAlt
+    typeKind: !_TypeKind Output
+  !_Identifier OutpModsParamAlt: !_TypeOutput
+    name: OutpModsParamAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpParentTest: !_TypeOutput
     name: OutpParentTest

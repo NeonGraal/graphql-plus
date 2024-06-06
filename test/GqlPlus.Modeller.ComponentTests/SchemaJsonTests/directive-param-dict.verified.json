@@ -1,0 +1,41 @@
+﻿{
+  "$tag": "_Schema",
+  "directives": {
+    "$tag": "_Map_Directives",
+    "DirParamDict": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DirParamDict",
+      "parameters": [
+        {
+          "$tag": "_InputParameter",
+          "input": "DirParamIn",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "String",
+              "modifierKind": "Dict"
+            }
+          ]
+        }
+      ],
+      "repeatable": false
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "DirParamIn": {
+      "$tag": "_TypeInput",
+      "name": "DirParamIn",
+      "typeKind": "Input"
+    }
+  }
+}

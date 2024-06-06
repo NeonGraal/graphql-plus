@@ -1,0 +1,28 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualAltModsParam: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      object: DualAltModsParam
+      type: !_DualBase
+        dual: DualModsParamAlt
+    alternates:
+    - !_Alternate(_DualBase)
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      type: !_DualBase
+        dual: DualModsParamAlt
+    name: DualAltModsParam
+    typeKind: !_TypeKind Dual
+    typeParameters:
+    - !_Described
+      name: mod
+  !_Identifier DualModsParamAlt: !_TypeDual
+    name: DualModsParamAlt
+    typeKind: !_TypeKind Dual

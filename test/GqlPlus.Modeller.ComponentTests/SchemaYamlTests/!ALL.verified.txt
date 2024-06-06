@@ -14,12 +14,33 @@ categories: !_Map_Categories
       name: CatAlias
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Identifier catDict: !_Category
+    modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict}]
+    name: catDict
+    output: !_TypeRef(_TypeKind)
+      name: CatDict
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Identifier catList: !_Category
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+    name: catList
+    output: !_TypeRef(_TypeKind)
+      name: CatList
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Identifier catMods: !_Category
     aliases: [CatM1, CatM2]
-    modifiers: [!_Modifier Opt]
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     name: catMods
     output: !_TypeRef(_TypeKind)
       name: CatMods
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Identifier catOpt: !_Category
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+    name: catOpt
+    output: !_TypeRef(_TypeKind)
+      name: CatOpt
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier category: !_Category
@@ -52,6 +73,33 @@ directives: !_Map_Directives
     - !_InputParameter
       input: DirParamIn
     repeatable: false
+  !_Identifier DirParamDict: !_Directive
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
+    name: DirParamDict
+    parameters:
+    - !_InputParameter
+      input: DirParamIn
+      modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict}]
+    repeatable: false
+  !_Identifier DirParamList: !_Directive
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
+    name: DirParamList
+    parameters:
+    - !_InputParameter
+      input: DirParamIn
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+    repeatable: false
+  !_Identifier DirParamOpt: !_Directive
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
+    name: DirParamOpt
+    parameters:
+    - !_InputParameter
+      input: DirParamIn
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+    repeatable: false
   !_Identifier DirParams: !_Directive
     locations: !_Set(_Location) {Fragment: _, Operation: _}
     name: DirParams
@@ -78,7 +126,7 @@ types: !_Map_Type
       domain: Bool
       exclude: false
       value: true
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false
@@ -98,7 +146,7 @@ types: !_Map_Type
       domain: BoolDiff
       exclude: false
       value: false
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false
@@ -114,7 +162,7 @@ types: !_Map_Type
       domain: BoolSame
       exclude: false
       value: true
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false
@@ -127,8 +175,17 @@ types: !_Map_Type
   !_Identifier CatAlias: !_TypeOutput
     name: CatAlias
     typeKind: !_TypeKind Output
+  !_Identifier CatDict: !_TypeOutput
+    name: CatDict
+    typeKind: !_TypeKind Output
+  !_Identifier CatList: !_TypeOutput
+    name: CatList
+    typeKind: !_TypeKind Output
   !_Identifier CatMods: !_TypeOutput
     name: CatMods
+    typeKind: !_TypeKind Output
+  !_Identifier CatOpt: !_TypeOutput
+    name: CatOpt
     typeKind: !_TypeKind Output
   !_Identifier Category: !_TypeOutput
     name: Category
@@ -169,16 +226,18 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomEnum
       exclude: false
-      name: EnumDom
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: dom_enum
+        name: EnumDom
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      name: EnumDom
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
+      value: !_EnumValue
+        member: dom_enum
+        name: EnumDom
+        typeKind: !_SimpleKind Enum
     name: DomEnum
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumAll: !_DomainEnum
@@ -186,16 +245,18 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomEnumAll
       exclude: false
-      name: EnumDomAll
-      typeKind: !_SimpleKind Enum
-      value: '*'
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: '*'
+        name: EnumDomAll
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      name: EnumDomAll
-      typeKind: !_SimpleKind Enum
-      value: '*'
+      value: !_EnumValue
+        member: '*'
+        name: EnumDomAll
+        typeKind: !_SimpleKind Enum
     name: DomEnumAll
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumAllParent: !_DomainEnum
@@ -203,16 +264,18 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomEnumAllParent
       exclude: false
-      name: EnumDomAllParent
-      typeKind: !_SimpleKind Enum
-      value: '*'
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: '*'
+        name: EnumDomAllParent
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      name: EnumDomAllParent
-      typeKind: !_SimpleKind Enum
-      value: '*'
+      value: !_EnumValue
+        member: '*'
+        name: EnumDomAllParent
+        typeKind: !_SimpleKind Enum
     name: DomEnumAllParent
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumParent: !_DomainEnum
@@ -220,16 +283,18 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomEnumParent
       exclude: false
-      name: EnumDomParent
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: dom_enum_parent
+        name: EnumDomParent
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      name: EnumDomParent
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
+      value: !_EnumValue
+        member: dom_enum_parent
+        name: EnumDomParent
+        typeKind: !_SimpleKind Enum
     name: DomEnumParent
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumPrnt: !_DomainEnum
@@ -237,19 +302,25 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomPrntEnum
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_parent
+      value: !_EnumValue
+        member: both_parent
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
     - !_DomainItem(_DomainMember)
       domain: DomEnumPrnt
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: both_enum
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
+      value: !_EnumValue
+        member: both_enum
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
     name: DomEnumPrnt
     parent: !_TypeRef(_SimpleKind)
       name: DomPrntEnum
@@ -260,14 +331,18 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_member
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: dom_member
+        name: MemberDom
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_member
+      value: !_EnumValue
+        member: dom_member
+        name: MemberDom
+        typeKind: !_SimpleKind Enum
     name: DomMember
     typeKind: !_TypeKind Domain
   !_Identifier DomNumPrnt: !_DomainNumber
@@ -280,7 +355,7 @@ types: !_Map_Type
       domain: DomNumPrnt
       exclude: false
       from: 2
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
@@ -295,14 +370,18 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomPrntEnum
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_parent
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: both_parent
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_parent
+      value: !_EnumValue
+        member: both_parent
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
     name: DomPrntEnum
     typeKind: !_TypeKind Domain
   !_Identifier DomPrntNum: !_DomainNumber
@@ -311,7 +390,7 @@ types: !_Map_Type
       domain: DomPrntNum
       exclude: false
       to: 2
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
@@ -324,7 +403,7 @@ types: !_Map_Type
       domain: DomPrntStr
       exclude: false
       pattern: b+
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
@@ -341,7 +420,7 @@ types: !_Map_Type
       domain: DomPrntTest
       exclude: false
       value: false
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false
@@ -361,7 +440,7 @@ types: !_Map_Type
       domain: DomStrPrnt
       exclude: false
       pattern: a+
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
@@ -377,7 +456,7 @@ types: !_Map_Type
       domain: DomTestPrnt
       exclude: false
       value: true
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false
@@ -403,6 +482,7 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
+        modifierKind: !_ModifierKind Dict
       object: DualAltMods
       type: !_DualBase
         dual: DualModsAlt
@@ -411,10 +491,34 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
+        modifierKind: !_ModifierKind Dict
       type: !_DualBase
         dual: DualModsAlt
     name: DualAltMods
     typeKind: !_TypeKind Dual
+  !_Identifier DualAltModsParam: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      object: DualAltModsParam
+      type: !_DualBase
+        dual: DualModsParamAlt
+    alternates:
+    - !_Alternate(_DualBase)
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      type: !_DualBase
+        dual: DualModsParamAlt
+    name: DualAltModsParam
+    typeKind: !_TypeKind Dual
+    typeParameters:
+    - !_Described
+      name: mod
   !_Identifier DualAltPrnt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -494,18 +598,40 @@ types: !_Map_Type
   !_Identifier DualFieldMods: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
-      modifiers: [!_ModifierDictionary {by: DualFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: DualFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       object: DualFieldMods
       type: !_DualBase
         dual: DualFieldMods
     fields:
     - !_DualField
-      modifiers: [!_ModifierDictionary {by: DualFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: DualFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       type: !_DualBase
         dual: DualFieldMods
     name: DualFieldMods
+    typeKind: !_TypeKind Dual
+  !_Identifier DualFieldModsParam: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      object: DualFieldModsParam
+      type: !_DualBase
+        dual: DualFieldParamMods
+    fields:
+    - !_DualField
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      type: !_DualBase
+        dual: DualFieldParamMods
+    name: DualFieldModsParam
+    typeKind: !_TypeKind Dual
+    typeParameters:
+    - !_Described
+      name: mod
+  !_Identifier DualFieldParamMods: !_TypeDual
+    name: DualFieldParamMods
     typeKind: !_TypeKind Dual
   !_Identifier DualFields: !_TypeDual
     allFields:
@@ -948,6 +1074,9 @@ types: !_Map_Type
   !_Identifier DualModsAlt: !_TypeDual
     name: DualModsAlt
     typeKind: !_TypeKind Dual
+  !_Identifier DualModsParamAlt: !_TypeDual
+    name: DualModsParamAlt
+    typeKind: !_TypeKind Dual
   !_Identifier DualParams: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -1119,10 +1248,10 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnAliasPrnt
-      name: valAlias
+      name: val_alias
     items:
     - !_Aliased
-      name: valAlias
+      name: val_alias
     name: EnAliasPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnDiff: !_TypeEnum
@@ -1143,13 +1272,13 @@ types: !_Map_Type
   !_Identifier EnDupPrnt: !_TypeEnum
     allItems:
     - !_EnumMember
-      aliases: [valPrnt]
+      aliases: [val_prnt_dup]
       enum: EnDupPrnt
-      name: valDup
+      name: val_dup
     items:
     - !_Aliased
-      aliases: [valPrnt]
-      name: valDup
+      aliases: [val_prnt_dup]
+      name: val_dup
     name: EnDupPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnParent: !_TypeEnum
@@ -1166,20 +1295,20 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnAliasPrnt
-      name: valAlias
+      name: val_alias
     - !_EnumMember
       enum: EnPrntAlias
-      name: valPrnt
+      name: val_prnt_alias
     - !_EnumMember
-      aliases: [alias]
+      aliases: [alias_val]
       enum: EnPrntAlias
-      name: valAlias
+      name: val_alias
     items:
     - !_Aliased
-      name: valPrnt
+      name: val_prnt_alias
     - !_Aliased
-      aliases: [alias]
-      name: valAlias
+      aliases: [alias_val]
+      name: val_alias
     name: EnPrntAlias
     parent: !_TypeRef(_SimpleKind)
       name: EnAliasPrnt
@@ -1188,15 +1317,15 @@ types: !_Map_Type
   !_Identifier EnPrntDup: !_TypeEnum
     allItems:
     - !_EnumMember
-      aliases: [valPrnt]
+      aliases: [val_prnt_dup]
       enum: EnDupPrnt
-      name: valDup
+      name: val_dup
     - !_EnumMember
       enum: EnPrntDup
-      name: valPrnt
+      name: val_prnt_dup
     items:
     - !_Aliased
-      name: valPrnt
+      name: val_prnt_dup
     name: EnPrntDup
     parent: !_TypeRef(_SimpleKind)
       name: EnDupPrnt
@@ -1206,10 +1335,10 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnPrntTest
-      name: valTest
+      name: val_test
     items:
     - !_Aliased
-      name: valTest
+      name: val_test
     name: EnPrntTest
     typeKind: !_TypeKind Enum
   !_Identifier EnSame: !_TypeEnum
@@ -1242,13 +1371,13 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnPrntTest
-      name: valTest
+      name: val_test
     - !_EnumMember
       enum: EnTestPrnt
-      name: valPrnt
+      name: val_prnt
     items:
     - !_Aliased
-      name: valPrnt
+      name: val_prnt
     name: EnTestPrnt
     parent: !_TypeRef(_SimpleKind)
       name: EnPrntTest
@@ -1271,23 +1400,31 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: EnumDiff
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
     - !_DomainItem(_DomainMember)
       domain: EnumDiff
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: false
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: false
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: false
+      value: !_EnumValue
+        member: false
+        name: Boolean
+        typeKind: !_SimpleKind Enum
     name: EnumDiff
     typeKind: !_TypeKind Domain
   !_Identifier EnumDom: !_TypeEnum
@@ -1319,49 +1456,64 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumDomParentAll
-      name: dom_enum_all
+      name: dom_enum_all_parent
     - !_EnumMember
       enum: EnumDomAllParent
-      name: dom_all
+      name: dom_all_parent
     items:
     - !_Aliased
-      name: dom_all
+      name: dom_all_parent
     name: EnumDomAllParent
     parent: !_TypeRef(_SimpleKind)
       name: EnumDomParentAll
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
+  !_Identifier EnumDomBoth: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumDomBoth
+      name: both_enum
+    - !_EnumMember
+      enum: EnumDomBoth
+      name: both_parent
+    items:
+    - !_Aliased
+      name: both_enum
+    - !_Aliased
+      name: both_parent
+    name: EnumDomBoth
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomDup: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumDomDup
-      name: dup
+      name: eum_dom_dup
     items:
     - !_Aliased
-      name: dup
+      name: eum_dom_dup
     name: EnumDomDup
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomDupParent: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumDomDupParent
-      name: dup
+      name: enum_dom_parent_dup
     items:
     - !_Aliased
-      name: dup
+      name: enum_dom_parent_dup
     name: EnumDomDupParent
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomParent: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumParentDom
-      name: dom_enum
+      name: dom_enum_parent
     - !_EnumMember
       enum: EnumDomParent
-      name: dom_parent
+      name: dom_parent_enum
     items:
     - !_Aliased
-      name: dom_parent
+      name: dom_parent_enum
     name: EnumDomParent
     parent: !_TypeRef(_SimpleKind)
       name: EnumParentDom
@@ -1371,57 +1523,42 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumDomParentAll
-      name: dom_enum_all
+      name: dom_enum_all_parent
     items:
     - !_Aliased
-      name: dom_enum_all
+      name: dom_enum_all_parent
     name: EnumDomParentAll
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomParentUnique: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumDomParentUnique
-      name: dup
+      name: enum_dom_parent_dup
     items:
     - !_Aliased
-      name: dup
+      name: enum_dom_parent_dup
     name: EnumDomParentUnique
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDomPrnt: !_TypeEnum
-    allItems:
-    - !_EnumMember
-      enum: EnumDomPrnt
-      name: dom_enum
-    - !_EnumMember
-      enum: EnumDomPrnt
-      name: dom_parent
-    items:
-    - !_Aliased
-      name: dom_enum
-    - !_Aliased
-      name: dom_parent
-    name: EnumDomPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomUnique: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumDomUnique
-      name: value
+      name: eum_dom_value
     - !_EnumMember
       enum: EnumDomUnique
-      name: dup
+      name: eum_dom_dup
     items:
     - !_Aliased
-      name: value
+      name: eum_dom_value
     - !_Aliased
-      name: dup
+      name: eum_dom_dup
     name: EnumDomUnique
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomUniqueParent: !_TypeEnum
     allItems:
     - !_EnumMember
       enum: EnumDomParentUnique
-      name: dup
+      name: enum_dom_parent_dup
     - !_EnumMember
       enum: EnumDomUniqueParent
       name: value
@@ -1437,10 +1574,10 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumParentDom
-      name: dom_enum
+      name: dom_enum_parent
     items:
     - !_Aliased
-      name: dom_enum
+      name: dom_enum_parent
     name: EnumParentDom
     typeKind: !_TypeKind Enum
   !_Identifier EnumSame: !_DomainEnum
@@ -1448,46 +1585,50 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: EnumSame
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
-    domain: !_DomainKind Enum
+      value: !_EnumValue
+        member: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
     name: EnumSame
     typeKind: !_TypeKind Domain
   !_Identifier FieldEnumAlias: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: true
       name: Boolean
       object: FieldEnumAlias
       typeKind: !_SimpleKind Enum
-      value: true
     fields:
     - !_OutputEnum
       field: field
+      member: true
       name: Boolean
       typeKind: !_SimpleKind Enum
-      value: true
     name: FieldEnumAlias
     typeKind: !_TypeKind Output
   !_Identifier FieldEnums: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: true
       name: Boolean
       object: FieldEnums
       typeKind: !_SimpleKind Enum
-      value: true
     fields:
     - !_OutputEnum
       field: field
+      member: true
       name: Boolean
       typeKind: !_SimpleKind Enum
-      value: true
     name: FieldEnums
     typeKind: !_TypeKind Output
   !_Identifier FieldParam1: !_TypeInput
@@ -1592,7 +1733,7 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_InputField)
       default: !Null null
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: field
       object: InFieldNull
       type: !_InputBase
@@ -1600,7 +1741,7 @@ types: !_Map_Type
     fields:
     - !_InputField
       default: !Null null
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: field
       type: !_InputBase
         input: InFieldNull
@@ -1655,6 +1796,7 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
+        modifierKind: !_ModifierKind Dict
       object: InpAltMods
       type: !_InputBase
         input: InpModsAlt
@@ -1663,10 +1805,34 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
+        modifierKind: !_ModifierKind Dict
       type: !_InputBase
         input: InpModsAlt
     name: InpAltMods
     typeKind: !_TypeKind Input
+  !_Identifier InpAltModsParam: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      object: InpAltModsParam
+      type: !_InputBase
+        input: InpModsParamAlt
+    alternates:
+    - !_Alternate(_InputBase)
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      type: !_InputBase
+        input: InpModsParamAlt
+    name: InpAltModsParam
+    typeKind: !_TypeKind Input
+    typeParameters:
+    - !_Described
+      name: mod
   !_Identifier InpAltPrnt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -1746,18 +1912,40 @@ types: !_Map_Type
   !_Identifier InpFieldMods: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
-      modifiers: [!_ModifierDictionary {by: InpFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: InpFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       object: InpFieldMods
       type: !_InputBase
         input: InpFieldMods
     fields:
     - !_InputField
-      modifiers: [!_ModifierDictionary {by: InpFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: InpFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       type: !_InputBase
         input: InpFieldMods
     name: InpFieldMods
+    typeKind: !_TypeKind Input
+  !_Identifier InpFieldModsParam: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      object: InpFieldModsParam
+      type: !_InputBase
+        input: InpFieldParamMods
+    fields:
+    - !_InputField
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      type: !_InputBase
+        input: InpFieldParamMods
+    name: InpFieldModsParam
+    typeKind: !_TypeKind Input
+    typeParameters:
+    - !_Described
+      name: mod
+  !_Identifier InpFieldParamMods: !_TypeInput
+    name: InpFieldParamMods
     typeKind: !_TypeKind Input
   !_Identifier InpFields: !_TypeInput
     allFields:
@@ -2200,6 +2388,9 @@ types: !_Map_Type
   !_Identifier InpModsAlt: !_TypeInput
     name: InpModsAlt
     typeKind: !_TypeKind Input
+  !_Identifier InpModsParamAlt: !_TypeInput
+    name: InpModsParamAlt
+    typeKind: !_TypeKind Input
   !_Identifier InpParams: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
@@ -2367,12 +2558,12 @@ types: !_Map_Type
     name: MemberDom
     typeKind: !_TypeKind Enum
   !_Identifier Num: !_DomainNumber
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     name: Num
     typeKind: !_TypeKind Domain
   !_Identifier NumAlias: !_DomainNumber
     aliases: [Num1, Num2]
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     name: NumAlias
     typeKind: !_TypeKind Domain
   !_Identifier NumDiff: !_DomainNumber
@@ -2382,7 +2573,7 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 9
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
@@ -2397,7 +2588,7 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 9
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
@@ -2412,13 +2603,28 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 10
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
       from: 1
       to: 10
     name: OutDomainParam
+    typeKind: !_TypeKind Domain
+  !_Identifier OutDomainsParam: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: OutDomainsParam
+      exclude: false
+      from: 1
+      to: 10
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      from: 1
+      to: 10
+    name: OutDomainsParam
     typeKind: !_TypeKind Domain
   !_Identifier OutEnumField: !_TypeEnum
     allItems:
@@ -2485,48 +2691,48 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumField
       name: OutEnumField
       object: OutFieldEnum
       typeKind: !_SimpleKind Enum
-      value: outEnumField
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumField
       name: OutEnumField
       typeKind: !_SimpleKind Enum
-      value: outEnumField
     name: OutFieldEnum
     typeKind: !_TypeKind Output
   !_Identifier OutFieldParent: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumParent
       name: OutEnumParented
       object: OutFieldParent
       typeKind: !_SimpleKind Enum
-      value: outEnumParent
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumParent
       name: OutEnumParented
       typeKind: !_SimpleKind Enum
-      value: outEnumParent
     name: OutFieldParent
     typeKind: !_TypeKind Output
   !_Identifier OutFieldValue: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumValue
       name: OutEnumValue
       object: OutFieldValue
       typeKind: !_SimpleKind Enum
-      value: outEnumValue
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumValue
       name: OutEnumValue
       typeKind: !_SimpleKind Enum
-      value: outEnumValue
     name: OutFieldValue
     typeKind: !_TypeKind Output
   !_Identifier OutGenEnum: !_TypeOutput
@@ -2537,18 +2743,18 @@ types: !_Map_Type
         output: OutGenEnumRef
         typeArguments:
         - !_OutputArgument
+          member: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
-          value: outEnumGen
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: OutGenEnumRef
         typeArguments:
         - !_OutputArgument
+          member: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
-          value: outEnumGen
     name: OutGenEnum
     typeKind: !_TypeKind Output
   !_Identifier OutGenEnumRef: !_TypeOutput
@@ -2574,18 +2780,18 @@ types: !_Map_Type
         output: OutGenParentRef
         typeArguments:
         - !_OutputArgument
+          member: outGenParent
           name: OutParentGen
           typeKind: !_SimpleKind Enum
-          value: outGenParent
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: OutGenParentRef
         typeArguments:
         - !_OutputArgument
+          member: outGenParent
           name: OutParentGen
           typeKind: !_SimpleKind Enum
-          value: outGenParent
     name: OutGenParent
     typeKind: !_TypeKind Output
   !_Identifier OutGenParentRef: !_TypeOutput
@@ -2642,6 +2848,9 @@ types: !_Map_Type
   !_Identifier OutParamDomain: !_TypeInput
     name: OutParamDomain
     typeKind: !_TypeKind Input
+  !_Identifier OutParamDomainParam: !_TypeInput
+    name: OutParamDomainParam
+    typeKind: !_TypeKind Input
   !_Identifier OutParamParent: !_TypeInput
     name: OutParamParent
     typeKind: !_TypeKind Input
@@ -2673,20 +2882,47 @@ types: !_Map_Type
       parameters:
       - !_InputParameter
         input: OutParamDomain
-        modifiers: [!_ModifierDictionary {by: OutDomainParam}]
+        modifiers: [!_ModifierDictionary {by: OutDomainParam,
+            modifierKind: !_ModifierKind Dict}]
       type: !_OutputBase
-        output: OutParamsDomain
+        output: OutDomainParam
     fields:
     - !_OutputField
       name: field
       parameters:
       - !_InputParameter
         input: OutParamDomain
-        modifiers: [!_ModifierDictionary {by: OutDomainParam}]
+        modifiers: [!_ModifierDictionary {by: OutDomainParam,
+            modifierKind: !_ModifierKind Dict}]
       type: !_OutputBase
-        output: OutParamsDomain
+        output: OutDomainParam
     name: OutParamsDomain
     typeKind: !_TypeKind Output
+  !_Identifier OutParamsDomainParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParamsDomainParam
+      parameters:
+      - !_InputParameter
+        input: OutParamDomainParam
+        modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      type: !_OutputBase
+        output: OutDomainsParam
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_InputParameter
+        input: OutParamDomainParam
+        modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      type: !_OutputBase
+        output: OutDomainsParam
+    name: OutParamsDomainParam
+    typeKind: !_TypeKind Output
+    typeParameters:
+    - !_Described
+      name: mod
   !_Identifier OutParamsParent: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -2795,6 +3031,7 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
+        modifierKind: !_ModifierKind Dict
       object: OutpAltMods
       type: !_OutputBase
         output: OutpModsAlt
@@ -2803,10 +3040,34 @@ types: !_Map_Type
       collections:
       - !_ModifierDictionary
         by: ^
+        modifierKind: !_ModifierKind Dict
       type: !_OutputBase
         output: OutpModsAlt
     name: OutpAltMods
     typeKind: !_TypeKind Output
+  !_Identifier OutpAltModsParam: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      object: OutpAltModsParam
+      type: !_OutputBase
+        output: OutpModsParamAlt
+    alternates:
+    - !_Alternate(_OutputBase)
+      collections:
+      - !_ModifierTypeParameter
+        by: mod
+        modifierKind: !_ModifierKind Param
+      type: !_OutputBase
+        output: OutpModsParamAlt
+    name: OutpAltModsParam
+    typeKind: !_TypeKind Output
+    typeParameters:
+    - !_Described
+      name: mod
   !_Identifier OutpAltPrnt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -2886,18 +3147,40 @@ types: !_Map_Type
   !_Identifier OutpFieldMods: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: OutpFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       object: OutpFieldMods
       type: !_OutputBase
         output: OutpFieldMods
     fields:
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: OutpFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       type: !_OutputBase
         output: OutpFieldMods
     name: OutpFieldMods
+    typeKind: !_TypeKind Output
+  !_Identifier OutpFieldModsParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      object: OutpFieldModsParam
+      type: !_OutputBase
+        output: OutpFieldParamMods
+    fields:
+    - !_OutputField
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      type: !_OutputBase
+        output: OutpFieldParamMods
+    name: OutpFieldModsParam
+    typeKind: !_TypeKind Output
+    typeParameters:
+    - !_Described
+      name: mod
+  !_Identifier OutpFieldParamMods: !_TypeOutput
+    name: OutpFieldParamMods
     typeKind: !_TypeKind Output
   !_Identifier OutpFields: !_TypeOutput
     allFields:
@@ -3340,6 +3623,9 @@ types: !_Map_Type
   !_Identifier OutpModsAlt: !_TypeOutput
     name: OutpModsAlt
     typeKind: !_TypeKind Output
+  !_Identifier OutpModsParamAlt: !_TypeOutput
+    name: OutpModsParamAlt
+    typeKind: !_TypeKind Output
   !_Identifier OutpParams: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -3516,7 +3802,7 @@ types: !_Map_Type
     name: PrntUnion
     typeKind: !_TypeKind Union
   !_Identifier Str: !_DomainString
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     name: Str
     typeKind: !_TypeKind Domain
   !_Identifier StrDiff: !_DomainString
@@ -3525,7 +3811,7 @@ types: !_Map_Type
       domain: StrDiff
       exclude: false
       pattern: a+
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
@@ -3538,7 +3824,7 @@ types: !_Map_Type
       domain: StrSame
       exclude: false
       pattern: a+
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false

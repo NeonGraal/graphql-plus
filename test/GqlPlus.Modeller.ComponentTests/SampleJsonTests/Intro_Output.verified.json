@@ -44,7 +44,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "value",
+          "name": "member",
           "object": "_OutputArgument",
           "type": {
             "$tag": "_OutputBase",
@@ -64,7 +64,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "name": "value",
+          "name": "member",
           "type": {
             "$tag": "_OutputBase",
             "value": "_Identifier"
@@ -78,9 +78,9 @@
         "typeArguments": [
           {
             "$tag": "_OutputArgument",
+            "member": "Enum",
             "name": "_TypeKind",
-            "typeKind": "Enum",
-            "value": "Enum"
+            "typeKind": "Enum"
           }
         ]
       },
@@ -155,7 +155,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "value",
+          "name": "member",
           "object": "_OutputEnum",
           "type": {
             "$tag": "_OutputBase",
@@ -174,7 +174,7 @@
         },
         {
           "$tag": "_OutputField",
-          "name": "value",
+          "name": "member",
           "type": {
             "$tag": "_OutputBase",
             "value": "_Identifier"
@@ -188,9 +188,9 @@
         "typeArguments": [
           {
             "$tag": "_OutputArgument",
+            "member": "Enum",
             "name": "_TypeKind",
-            "typeKind": "Enum",
-            "value": "Enum"
+            "typeKind": "Enum"
           }
         ]
       },
@@ -211,7 +211,12 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "parameter",
           "object": "_OutputField",
           "type": {
@@ -232,7 +237,12 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "parameter",
           "type": {
             "$tag": "_OutputBase",
@@ -262,9 +272,9 @@
         "typeArguments": [
           {
             "$tag": "_OutputArgument",
+            "member": "Output",
             "name": "_TypeKind",
-            "typeKind": "Enum",
-            "value": "Output"
+            "typeKind": "Enum"
           },
           {
             "$tag": "_OutputBase",

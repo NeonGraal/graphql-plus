@@ -26,19 +26,19 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
+          "member": "outEnumField",
           "name": "OutEnumField",
           "object": "OutFieldEnum",
-          "typeKind": "Enum",
-          "value": "outEnumField"
+          "typeKind": "Enum"
         }
       ],
       "fields": [
         {
           "$tag": "_OutputEnum",
           "field": "field",
+          "member": "outEnumField",
           "name": "OutEnumField",
-          "typeKind": "Enum",
-          "value": "outEnumField"
+          "typeKind": "Enum"
         }
       ],
       "name": "OutFieldEnum",

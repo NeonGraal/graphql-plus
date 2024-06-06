@@ -7,7 +7,7 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 10
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
@@ -26,17 +26,19 @@ types: !_Map_Type
       parameters:
       - !_InputParameter
         input: OutParamDomain
-        modifiers: [!_ModifierDictionary {by: OutDomainParam}]
+        modifiers: [!_ModifierDictionary {by: OutDomainParam,
+            modifierKind: !_ModifierKind Dict}]
       type: !_OutputBase
-        output: OutParamsDomain
+        output: OutDomainParam
     fields:
     - !_OutputField
       name: field
       parameters:
       - !_InputParameter
         input: OutParamDomain
-        modifiers: [!_ModifierDictionary {by: OutDomainParam}]
+        modifiers: [!_ModifierDictionary {by: OutDomainParam,
+            modifierKind: !_ModifierKind Dict}]
       type: !_OutputBase
-        output: OutParamsDomain
+        output: OutDomainParam
     name: OutParamsDomain
     typeKind: !_TypeKind Output

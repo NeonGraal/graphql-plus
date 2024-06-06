@@ -67,7 +67,7 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
       .. input.Aliases ?? [],
       .. AllItems(input.AllItems),
       .. input.Description ?? [],
-      $"domain: !_DomainKind {kind}",
+      $"domainKind: !_DomainKind {kind}",
       .. Items(input.Items),
       "name: " + input.Name,
       .. input.Parent.TypeRefFor(SimpleKindModel.Domain),

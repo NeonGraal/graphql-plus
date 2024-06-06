@@ -1515,7 +1515,7 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 10
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
@@ -1530,7 +1530,7 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 10
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false

@@ -18,7 +18,7 @@
           "value": false
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",

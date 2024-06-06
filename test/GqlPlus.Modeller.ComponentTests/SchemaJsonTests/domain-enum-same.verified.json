@@ -13,7 +13,7 @@
           "value": "true"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",

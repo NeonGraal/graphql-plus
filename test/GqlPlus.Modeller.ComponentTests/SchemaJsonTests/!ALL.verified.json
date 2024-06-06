@@ -277,7 +277,7 @@
           "value": true
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -309,7 +309,7 @@
           "value": false
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -335,7 +335,7 @@
           "value": true
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -439,7 +439,7 @@
           "value": "dom_enum"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -464,7 +464,7 @@
           "value": "*"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -489,7 +489,7 @@
           "value": "*"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -514,7 +514,7 @@
           "value": "dom_enum"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -545,7 +545,7 @@
           "value": "dom_enum"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -573,7 +573,7 @@
           "value": "dom_member"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -601,7 +601,7 @@
           "from": 2
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -628,7 +628,7 @@
           "value": "dom_parent"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -650,7 +650,7 @@
           "to": 2
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -671,7 +671,7 @@
           "pattern": "b\u002B"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",
@@ -698,7 +698,7 @@
           "value": false
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -730,7 +730,7 @@
           "pattern": "a\u002B"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",
@@ -756,7 +756,7 @@
           "value": true
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -2475,7 +2475,7 @@
           "value": "false"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -2777,7 +2777,7 @@
           "value": "true"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -4579,14 +4579,14 @@
     },
     "Num": {
       "$tag": "_DomainNumber",
-      "domain": "Number",
+      "domainKind": "Number",
       "name": "Num",
       "typeKind": "Domain"
     },
     "NumAlias": {
       "$tag": "_DomainNumber",
       "aliases": ["Num1", "Num2"],
-      "domain": "Number",
+      "domainKind": "Number",
       "name": "NumAlias",
       "typeKind": "Domain"
     },
@@ -4601,7 +4601,7 @@
           "to": 9
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -4624,7 +4624,7 @@
           "to": 9
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -4647,7 +4647,7 @@
           "to": 10
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -4670,7 +4670,7 @@
           "to": 10
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -6852,7 +6852,7 @@
     },
     "Str": {
       "$tag": "_DomainString",
-      "domain": "String",
+      "domainKind": "String",
       "name": "Str",
       "typeKind": "Domain"
     },
@@ -6866,7 +6866,7 @@
           "pattern": "a\u002B"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",
@@ -6887,7 +6887,7 @@
           "pattern": "a\u002B"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",

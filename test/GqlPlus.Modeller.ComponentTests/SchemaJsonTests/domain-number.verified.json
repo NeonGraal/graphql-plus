@@ -4,7 +4,7 @@
     "$tag": "_Map_Type",
     "Num": {
       "$tag": "_DomainNumber",
-      "domain": "Number",
+      "domainKind": "Number",
       "name": "Num",
       "typeKind": "Domain"
     }

@@ -8,7 +8,7 @@ types: !_Map_Type
       name: EnumDom
       typeKind: !_SimpleKind Enum
       value: dom_enum
-    domain: !_DomainKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
@@ -25,7 +25,7 @@ types: !_Map_Type
       name: EnumDomAll
       typeKind: !_SimpleKind Enum
       value: '*'
-    domain: !_DomainKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
@@ -42,7 +42,7 @@ types: !_Map_Type
       name: EnumDomAllParent
       typeKind: !_SimpleKind Enum
       value: '*'
-    domain: !_DomainKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
@@ -59,7 +59,7 @@ types: !_Map_Type
       name: EnumDomParent
       typeKind: !_SimpleKind Enum
       value: dom_enum
-    domain: !_DomainKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
@@ -80,7 +80,7 @@ types: !_Map_Type
       exclude: false
       typeKind: !_SimpleKind Enum
       value: dom_enum
-    domain: !_DomainKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
@@ -98,7 +98,7 @@ types: !_Map_Type
       exclude: false
       typeKind: !_SimpleKind Enum
       value: dom_member
-    domain: !_DomainKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
@@ -116,7 +116,7 @@ types: !_Map_Type
       domain: DomNumPrnt
       exclude: false
       from: 2
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
@@ -133,7 +133,7 @@ types: !_Map_Type
       exclude: false
       typeKind: !_SimpleKind Enum
       value: dom_parent
-    domain: !_DomainKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
@@ -147,7 +147,7 @@ types: !_Map_Type
       domain: DomPrntNum
       exclude: false
       to: 2
-    domain: !_DomainKind Number
+    domainKind: !_DomainKind Number
     items:
     - !_DomainRange
       exclude: false
@@ -160,7 +160,7 @@ types: !_Map_Type
       domain: DomPrntStr
       exclude: false
       pattern: b+
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
@@ -177,7 +177,7 @@ types: !_Map_Type
       domain: DomPrntTest
       exclude: false
       value: false
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false
@@ -197,7 +197,7 @@ types: !_Map_Type
       domain: DomStrPrnt
       exclude: false
       pattern: a+
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
@@ -213,7 +213,7 @@ types: !_Map_Type
       domain: DomTestPrnt
       exclude: false
       value: true
-    domain: !_DomainKind Boolean
+    domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
       exclude: false

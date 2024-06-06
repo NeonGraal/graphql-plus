@@ -8,7 +8,7 @@ types: !_Map_Type
       name: EnumDomAllParent
       typeKind: !_SimpleKind Enum
       value: '*'
-    domain: !_DomainKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false

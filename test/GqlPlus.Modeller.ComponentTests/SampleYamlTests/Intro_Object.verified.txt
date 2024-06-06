@@ -280,7 +280,7 @@ types: !_Map_Type
     - !_Described
       name: field
   !_Identifier _TypeParameter: !_DomainString
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     name: _TypeParameter
     parent: !_TypeRef(_SimpleKind)
       name: _Identifier

@@ -559,7 +559,7 @@
     },
     "_TypeParameter": {
       "$tag": "_DomainString",
-      "domain": "String",
+      "domainKind": "String",
       "name": "_TypeParameter",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",

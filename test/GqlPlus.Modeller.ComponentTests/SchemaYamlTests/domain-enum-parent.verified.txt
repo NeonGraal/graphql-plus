@@ -12,7 +12,7 @@ types: !_Map_Type
       exclude: false
       typeKind: !_SimpleKind Enum
       value: dom_enum
-    domain: !_DomainKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
@@ -30,7 +30,7 @@ types: !_Map_Type
       exclude: false
       typeKind: !_SimpleKind Enum
       value: dom_parent
-    domain: !_DomainKind Enum
+    domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false

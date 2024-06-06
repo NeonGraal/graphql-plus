@@ -52,7 +52,7 @@ types: !_Map_Type
       domain: Guid
       exclude: false
       pattern: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
-    domain: !_DomainKind String
+    domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false

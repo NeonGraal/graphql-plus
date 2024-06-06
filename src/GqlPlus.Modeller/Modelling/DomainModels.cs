@@ -16,19 +16,19 @@ internal record class DomainRefModel(
 }
 
 public sealed record class BaseDomainModel<TItem>(
-  DomainKindModel Domain,
+  DomainKindModel DomainKind,
   string Name
 ) : ParentTypeModel<TItem, DomainItemModel<TItem>>(TypeKindModel.Domain, Name)
   where TItem : IBaseDomainItemModel
 {
-  protected override string Tag => $"_Domain{Domain}";
+  protected override string Tag => $"_Domain{DomainKind}";
 
   protected override Func<TItem, DomainItemModel<TItem>> NewItem(string parent)
     => item => new(item, parent);
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("domain", Domain.RenderEnum());
+      .Add("domainKind", DomainKind.RenderEnum());
 }
 
 public record class BaseDomainItemModel(

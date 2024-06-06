@@ -20,7 +20,7 @@
           "value": "dom_enum"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -48,7 +48,7 @@
           "value": "dom_parent"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",

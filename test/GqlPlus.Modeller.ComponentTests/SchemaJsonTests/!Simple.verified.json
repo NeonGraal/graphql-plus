@@ -14,7 +14,7 @@
           "value": "dom_enum"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -39,7 +39,7 @@
           "value": "*"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -64,7 +64,7 @@
           "value": "*"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -89,7 +89,7 @@
           "value": "dom_enum"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -120,7 +120,7 @@
           "value": "dom_enum"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -148,7 +148,7 @@
           "value": "dom_member"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -176,7 +176,7 @@
           "from": 2
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -203,7 +203,7 @@
           "value": "dom_parent"
         }
       ],
-      "domain": "Enum",
+      "domainKind": "Enum",
       "items": [
         {
           "$tag": "_DomainMember",
@@ -225,7 +225,7 @@
           "to": 2
         }
       ],
-      "domain": "Number",
+      "domainKind": "Number",
       "items": [
         {
           "$tag": "_DomainRange",
@@ -246,7 +246,7 @@
           "pattern": "b\u002B"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",
@@ -273,7 +273,7 @@
           "value": false
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -305,7 +305,7 @@
           "pattern": "a\u002B"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",
@@ -331,7 +331,7 @@
           "value": true
         }
       ],
-      "domain": "Boolean",
+      "domainKind": "Boolean",
       "items": [
         {
           "$tag": "_DomainTrueFalse",

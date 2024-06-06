@@ -12,7 +12,7 @@
           "pattern": "b\u002B"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",
@@ -39,7 +39,7 @@
           "pattern": "a\u002B"
         }
       ],
-      "domain": "String",
+      "domainKind": "String",
       "items": [
         {
           "$tag": "_DomainRegex",

@@ -11,7 +11,7 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_enum",
+            "member": "dom_enum_parent",
             "name": "EnumDomParent",
             "typeKind": "Enum"
           }
@@ -24,7 +24,7 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_enum",
+            "member": "dom_enum_parent",
             "name": "EnumDomParent",
             "typeKind": "Enum"
           }
@@ -39,18 +39,18 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnumParentDom",
-          "name": "dom_enum"
+          "name": "dom_enum_parent"
         },
         {
           "$tag": "_EnumMember",
           "enum": "EnumDomParent",
-          "name": "dom_parent"
+          "name": "dom_parent_enum"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dom_parent"
+          "value": "dom_parent_enum"
         }
       ],
       "name": "EnumDomParent",
@@ -67,13 +67,13 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnumParentDom",
-          "name": "dom_enum"
+          "name": "dom_enum_parent"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dom_enum"
+          "value": "dom_enum_parent"
         }
       ],
       "name": "EnumParentDom",

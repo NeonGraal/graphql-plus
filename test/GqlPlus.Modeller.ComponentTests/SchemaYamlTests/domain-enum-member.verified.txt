@@ -7,6 +7,7 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         member: dom_member
+        name: MemberDom
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
@@ -14,6 +15,7 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         member: dom_member
+        name: MemberDom
         typeKind: !_SimpleKind Enum
     name: DomMember
     typeKind: !_TypeKind Domain

@@ -3,27 +3,27 @@ types: !_Map_Type
   !_Identifier EnDupPrnt: !_TypeEnum
     allItems:
     - !_EnumMember
-      aliases: [valPrnt]
+      aliases: [val_prnt_dup]
       enum: EnDupPrnt
-      name: valDup
+      name: val_dup
     items:
     - !_Aliased
-      aliases: [valPrnt]
-      name: valDup
+      aliases: [val_prnt_dup]
+      name: val_dup
     name: EnDupPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnPrntDup: !_TypeEnum
     allItems:
     - !_EnumMember
-      aliases: [valPrnt]
+      aliases: [val_prnt_dup]
       enum: EnDupPrnt
-      name: valDup
+      name: val_dup
     - !_EnumMember
       enum: EnPrntDup
-      name: valPrnt
+      name: val_prnt_dup
     items:
     - !_Aliased
-      name: valPrnt
+      name: val_prnt_dup
     name: EnPrntDup
     parent: !_TypeRef(_SimpleKind)
       name: EnDupPrnt

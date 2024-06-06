@@ -12,6 +12,7 @@
           "value": {
             "$tag": "_EnumValue",
             "member": "dom_member",
+            "name": "MemberDom",
             "typeKind": "Enum"
           }
         }
@@ -24,6 +25,7 @@
           "value": {
             "$tag": "_EnumValue",
             "member": "dom_member",
+            "name": "MemberDom",
             "typeKind": "Enum"
           }
         }

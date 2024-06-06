@@ -7,6 +7,7 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         member: true
+        name: Boolean
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
@@ -14,6 +15,7 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         member: true
+        name: Boolean
         typeKind: !_SimpleKind Enum
     name: EnumSame
     typeKind: !_TypeKind Domain

@@ -11,7 +11,8 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_parent",
+            "member": "both_parent",
+            "name": "EnumDomBoth",
             "typeKind": "Enum"
           }
         },
@@ -21,7 +22,8 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_enum",
+            "member": "both_enum",
+            "name": "EnumDomBoth",
             "typeKind": "Enum"
           }
         }
@@ -33,7 +35,8 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_enum",
+            "member": "both_enum",
+            "name": "EnumDomBoth",
             "typeKind": "Enum"
           }
         }
@@ -55,7 +58,8 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_parent",
+            "member": "both_parent",
+            "name": "EnumDomBoth",
             "typeKind": "Enum"
           }
         }
@@ -67,7 +71,8 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_parent",
+            "member": "both_parent",
+            "name": "EnumDomBoth",
             "typeKind": "Enum"
           }
         }
@@ -75,31 +80,31 @@
       "name": "DomPrntEnum",
       "typeKind": "Domain"
     },
-    "EnumDomPrnt": {
+    "EnumDomBoth": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "enum": "EnumDomPrnt",
-          "name": "dom_enum"
+          "enum": "EnumDomBoth",
+          "name": "both_enum"
         },
         {
           "$tag": "_EnumMember",
-          "enum": "EnumDomPrnt",
-          "name": "dom_parent"
+          "enum": "EnumDomBoth",
+          "name": "both_parent"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dom_enum"
+          "value": "both_enum"
         },
         {
           "$tag": "_Aliased",
-          "value": "dom_parent"
+          "value": "both_parent"
         }
       ],
-      "name": "EnumDomPrnt",
+      "name": "EnumDomBoth",
       "typeKind": "Enum"
     }
   }

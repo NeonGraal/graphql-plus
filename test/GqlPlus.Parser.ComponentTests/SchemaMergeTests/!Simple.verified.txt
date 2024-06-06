@@ -30,19 +30,20 @@ Success
   EnumDomAllParent
   :EnumDomParentAll
   !EM I@095/0001
-  dom_all
+  dom_all_parent
 }
 {
-  !En I@110/0001
+  !En I@117/0001
   EnumDomParentAll
-  !EM I@129/0001
-  dom_enum_all
+  !EM I@136/0001
+  dom_enum_all_parent
 }
 {
   !Do I@008/0001
   DomMember
   Enum
   !DE I@025/0001
+  MemberDom
   dom_member
 }
 {
@@ -57,36 +58,38 @@ Success
   Enum
   :DomPrntEnum
   !DE I@040/0001
-  dom_enum
+  EnumDomBoth
+  both_enum
 }
 {
-  !Do I@058/0001
+  !Do I@059/0001
   DomPrntEnum
   Enum
-  !DE I@077/0001
-  dom_parent
+  !DE I@078/0001
+  EnumDomBoth
+  both_parent
 }
 {
-  !En I@095/0001
-  EnumDomPrnt
-  !EM I@109/0001
-  dom_enum
-  !EM I@118/0001
-  dom_parent
+  !En I@097/0001
+  EnumDomBoth
+  !EM I@111/0001
+  both_enum
+  !EM I@121/0001
+  both_parent
 }
 {
   !En I@006/0001
   EnumDomUnique
   !EM I@022/0001
-  value
-  !EM I@028/0001
-  dup
+  eum_dom_value
+  !EM I@036/0001
+  eum_dom_dup
 }
 {
-  !En I@039/0001
+  !En I@055/0001
   EnumDomDup
-  !EM I@052/0001
-  dup
+  !EM I@068/0001
+  eum_dom_dup
 }
 {
   !En I@006/0001
@@ -99,13 +102,13 @@ Success
   !En I@062/0001
   EnumDomParentUnique
   !EM I@084/0001
-  dup
+  enum_dom_parent_dup
 }
 {
-  !En I@095/0001
+  !En I@111/0001
   EnumDomDupParent
-  !EM I@114/0001
-  dup
+  !EM I@130/0001
+  enum_dom_parent_dup
 }
 {
   !Do I@008/0001
@@ -127,20 +130,20 @@ Success
   Enum
   !DE I@029/0001
   EnumDomParent
-  dom_enum
+  dom_enum_parent
 }
 {
-  !En I@059/0001
+  !En I@066/0001
   EnumDomParent
   :EnumParentDom
-  !EM I@090/0001
-  dom_parent
+  !EM I@097/0001
+  dom_parent_enum
 }
 {
-  !En I@108/0001
+  !En I@120/0001
   EnumParentDom
-  !EM I@124/0001
-  dom_enum
+  !EM I@136/0001
+  dom_enum_parent
 }
 {
   !Do I@008/0001
@@ -194,46 +197,46 @@ Number
   EnTestPrnt
   :EnPrntTest
   !EM I@031/0001
-  valPrnt
+  val_prnt
 }
 {
-  !En I@046/0001
+  !En I@047/0001
   EnPrntTest
-  !EM I@059/0001
-  valTest
+  !EM I@060/0001
+  val_test
 }
 {
   !En I@006/0001
   EnPrntAlias
   :EnAliasPrnt
   !EM I@033/0001
-  valPrnt
-  !EM I@041/0001
-  valAlias
+  val_prnt_alias
+  !EM I@048/0001
+  val_alias
   [
-    alias
+    alias_val
   ]
 }
 {
-  !En I@064/0001
+  !En I@076/0001
   EnAliasPrnt
-  !EM I@078/0001
-  valAlias
+  !EM I@090/0001
+  val_alias
 }
 {
   !En I@006/0001
   EnPrntDup
   :EnDupPrnt
   !EM I@029/0001
-  valPrnt
+  val_prnt_dup
 }
 {
-  !En I@045/0001
+  !En I@050/0001
   EnDupPrnt
-  !EM I@057/0001
-  valDup
+  !EM I@062/0001
+  val_dup
   [
-    valPrnt
+    val_prnt_dup
   ]
 }
 {

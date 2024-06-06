@@ -8,13 +8,13 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnAliasPrnt",
-          "name": "valAlias"
+          "name": "val_alias"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "valAlias"
+          "value": "val_alias"
         }
       ],
       "name": "EnAliasPrnt",
@@ -26,29 +26,29 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnAliasPrnt",
-          "name": "valAlias"
+          "name": "val_alias"
         },
         {
           "$tag": "_EnumMember",
           "enum": "EnPrntAlias",
-          "name": "valPrnt"
+          "name": "val_prnt_alias"
         },
         {
           "$tag": "_EnumMember",
-          "aliases": ["alias"],
+          "aliases": ["alias_val"],
           "enum": "EnPrntAlias",
-          "name": "valAlias"
+          "name": "val_alias"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "valPrnt"
+          "value": "val_prnt_alias"
         },
         {
           "$tag": "_Aliased",
-          "aliases": ["alias"],
-          "name": "valAlias"
+          "aliases": ["alias_val"],
+          "name": "val_alias"
         }
       ],
       "name": "EnPrntAlias",

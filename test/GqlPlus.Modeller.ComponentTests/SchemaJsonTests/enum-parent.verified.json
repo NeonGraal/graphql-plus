@@ -8,13 +8,13 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnPrntTest",
-          "name": "valTest"
+          "name": "val_test"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "valTest"
+          "value": "val_test"
         }
       ],
       "name": "EnPrntTest",
@@ -26,18 +26,18 @@
         {
           "$tag": "_EnumMember",
           "enum": "EnPrntTest",
-          "name": "valTest"
+          "name": "val_test"
         },
         {
           "$tag": "_EnumMember",
           "enum": "EnTestPrnt",
-          "name": "valPrnt"
+          "name": "val_prnt"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "valPrnt"
+          "value": "val_prnt"
         }
       ],
       "name": "EnTestPrnt",

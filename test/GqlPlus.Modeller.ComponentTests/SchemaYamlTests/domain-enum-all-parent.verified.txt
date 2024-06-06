@@ -23,13 +23,13 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumDomParentAll
-      name: dom_enum_all
+      name: dom_enum_all_parent
     - !_EnumMember
       enum: EnumDomAllParent
-      name: dom_all
+      name: dom_all_parent
     items:
     - !_Aliased
-      name: dom_all
+      name: dom_all_parent
     name: EnumDomAllParent
     parent: !_TypeRef(_SimpleKind)
       name: EnumDomParentAll
@@ -39,9 +39,9 @@ types: !_Map_Type
     allItems:
     - !_EnumMember
       enum: EnumDomParentAll
-      name: dom_enum_all
+      name: dom_enum_all_parent
     items:
     - !_Aliased
-      name: dom_enum_all
+      name: dom_enum_all_parent
     name: EnumDomParentAll
     typeKind: !_TypeKind Enum

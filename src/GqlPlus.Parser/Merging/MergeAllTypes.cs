@@ -48,6 +48,15 @@ internal class MergeAllTypes(
         FixupType(field.Type, enumValues);
       }
     }
+
+    foreach (AstDomain<DomainMemberAst, IGqlpDomainMember> domain in types.OfType<AstDomain<DomainMemberAst, IGqlpDomainMember>>()) {
+      foreach (DomainMemberAst item in domain.Members) {
+        if (string.IsNullOrEmpty(item.EnumType)
+          && enumValues.TryGetValue(item.Member ?? "", out string? enumType)) {
+          item.EnumType = enumType;
+        }
+      }
+    }
   }
 
   private static Map<string> GetEnumValues(IEnumerable<EnumDeclAst> enums)

@@ -460,6 +460,7 @@
           "value": {
             "$tag": "_EnumValue",
             "member": "true",
+            "name": "Boolean",
             "typeKind": "Enum"
           }
         },
@@ -470,6 +471,7 @@
           "value": {
             "$tag": "_EnumValue",
             "member": "false",
+            "name": "Boolean",
             "typeKind": "Enum"
           }
         }
@@ -482,6 +484,7 @@
           "value": {
             "$tag": "_EnumValue",
             "member": "true",
+            "name": "Boolean",
             "typeKind": "Enum"
           }
         },
@@ -491,6 +494,7 @@
           "value": {
             "$tag": "_EnumValue",
             "member": "false",
+            "name": "Boolean",
             "typeKind": "Enum"
           }
         }
@@ -508,6 +512,7 @@
           "value": {
             "$tag": "_EnumValue",
             "member": "true",
+            "name": "Boolean",
             "typeKind": "Enum"
           }
         }
@@ -520,6 +525,7 @@
           "value": {
             "$tag": "_EnumValue",
             "member": "true",
+            "name": "Boolean",
             "typeKind": "Enum"
           }
         }

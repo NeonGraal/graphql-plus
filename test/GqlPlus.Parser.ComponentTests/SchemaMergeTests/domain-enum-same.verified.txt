@@ -6,6 +6,7 @@ Success
   EnumSame
   Enum
   !DE I@024/0001
+  Boolean
   true
 }
 ]

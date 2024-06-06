@@ -272,12 +272,14 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         member: true
+        name: Boolean
         typeKind: !_SimpleKind Enum
     - !_DomainItem(_DomainMember)
       domain: EnumDiff
       exclude: false
       value: !_EnumValue
         member: false
+        name: Boolean
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
@@ -285,11 +287,13 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         member: true
+        name: Boolean
         typeKind: !_SimpleKind Enum
     - !_DomainMember
       exclude: false
       value: !_EnumValue
         member: false
+        name: Boolean
         typeKind: !_SimpleKind Enum
     name: EnumDiff
     typeKind: !_TypeKind Domain
@@ -300,6 +304,7 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         member: true
+        name: Boolean
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
@@ -307,6 +312,7 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         member: true
+        name: Boolean
         typeKind: !_SimpleKind Enum
     name: EnumSame
     typeKind: !_TypeKind Domain

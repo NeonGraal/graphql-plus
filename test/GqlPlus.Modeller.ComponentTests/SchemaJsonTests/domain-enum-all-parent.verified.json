@@ -9,9 +9,12 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomEnumAllParent",
           "exclude": false,
-          "name": "EnumDomAllParent",
-          "typeKind": "Enum",
-          "value": "*"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "*",
+            "name": "EnumDomAllParent",
+            "typeKind": "Enum"
+          }
         }
       ],
       "domainKind": "Enum",
@@ -19,9 +22,12 @@
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "name": "EnumDomAllParent",
-          "typeKind": "Enum",
-          "value": "*"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "*",
+            "name": "EnumDomAllParent",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomEnumAllParent",

@@ -22,9 +22,9 @@ types: !_Map_Type
       output: _ParentType
       typeArguments:
       - !_OutputArgument
+        member: Domain
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-        value: Domain
       - !_TypeParameter item
       - !_DualBase
         dual: _DomainItem
@@ -101,13 +101,13 @@ types: !_Map_Type
       type: !_DualBase
         dual: Boolean
     - !_ObjectFor(_OutputField)
-      name: member
+      name: value
       object: _DomainMember
       type: !_OutputBase
         output: _EnumValue
     fields:
     - !_OutputField
-      name: member
+      name: value
       type: !_OutputBase
         output: _EnumValue
     name: _DomainMember
@@ -163,9 +163,9 @@ types: !_Map_Type
       output: _TypeRef
       typeArguments:
       - !_OutputArgument
+        member: Domain
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-        value: Domain
     typeKind: !_TypeKind Output
     typeParameters:
     - !_Described
@@ -245,9 +245,9 @@ types: !_Map_Type
         output: _BaseDomain
         typeArguments:
         - !_OutputArgument
+          member: Boolean
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-          value: Boolean
         - !_DualBase
           dual: _DomainTrueFalse
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -256,9 +256,9 @@ types: !_Map_Type
         output: _BaseDomain
         typeArguments:
         - !_OutputArgument
+          member: Enum
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-          value: Enum
         - !_OutputBase
           output: _DomainMember
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -267,9 +267,9 @@ types: !_Map_Type
         output: _BaseDomain
         typeArguments:
         - !_OutputArgument
+          member: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-          value: Number
         - !_DualBase
           dual: _DomainRange
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -278,9 +278,9 @@ types: !_Map_Type
         output: _BaseDomain
         typeArguments:
         - !_OutputArgument
+          member: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-          value: String
         - !_DualBase
           dual: _DomainRegex
     alternates:
@@ -289,9 +289,9 @@ types: !_Map_Type
         output: _BaseDomain
         typeArguments:
         - !_OutputArgument
+          member: Boolean
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-          value: Boolean
         - !_DualBase
           dual: _DomainTrueFalse
     - !_Alternate(_OutputBase)
@@ -299,9 +299,9 @@ types: !_Map_Type
         output: _BaseDomain
         typeArguments:
         - !_OutputArgument
+          member: Enum
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-          value: Enum
         - !_OutputBase
           output: _DomainMember
     - !_Alternate(_OutputBase)
@@ -309,9 +309,9 @@ types: !_Map_Type
         output: _BaseDomain
         typeArguments:
         - !_OutputArgument
+          member: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-          value: Number
         - !_DualBase
           dual: _DomainRange
     - !_Alternate(_OutputBase)
@@ -319,9 +319,9 @@ types: !_Map_Type
         output: _BaseDomain
         typeArguments:
         - !_OutputArgument
+          member: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-          value: String
         - !_DualBase
           dual: _DomainRegex
     name: _TypeDomain

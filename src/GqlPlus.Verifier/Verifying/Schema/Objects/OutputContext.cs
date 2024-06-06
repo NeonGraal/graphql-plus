@@ -12,11 +12,11 @@ internal class OutputContext(
   internal override void CheckArgumentType<TObjBase>(TObjBase type, string labelSuffix)
   {
     if (type is IGqlpOutputBase output) {
-      if (string.IsNullOrWhiteSpace(output.EnumValue) && GetEnumValue(type.TypeName, out string? enumType)) {
+      if (string.IsNullOrWhiteSpace(output.EnumMember) && GetEnumValue(type.TypeName, out string? enumType)) {
         output.SetEnumType(enumType);
       }
 
-      if (!string.IsNullOrWhiteSpace(output.EnumValue)) {
+      if (!string.IsNullOrWhiteSpace(output.EnumMember)) {
         CheckEnumValue("Argument", output);
       }
 
@@ -27,8 +27,8 @@ internal class OutputContext(
   internal void CheckEnumValue(string label, IGqlpOutputBase output)
   {
     if (GetEnumType(output.TypeName, out IGqlpEnum? theType)) {
-      if (!GetEnumValueType(theType, output.EnumValue ?? "", out IGqlpEnum? _)) {
-        AddError(output, $"Output {label} Enum Value", $"'{output.EnumValue}' not a Value of '{output.TypeName}'");
+      if (!GetEnumValueType(theType, output.EnumMember ?? "", out IGqlpEnum? _)) {
+        AddError(output, $"Output {label} Enum Value", $"'{output.EnumMember}' not a Value of '{output.TypeName}'");
       }
     } else {
       AddError(output, $"Output {label} Enum", $"'{output.TypeName}' is not an Enum type");

@@ -9,8 +9,11 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "EnumSame",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "typeKind": "Enum"
+          }
         }
       ],
       "domainKind": "Enum",
@@ -18,8 +21,11 @@
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "EnumSame",

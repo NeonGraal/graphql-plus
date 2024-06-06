@@ -17,7 +17,10 @@ internal sealed class DomainEnumModelChecks(
 ) : CheckDomainModel<string, DomainMemberAst, IGqlpDomainMember, DomainMemberModel>(DomainKind.Enum, modeller)
 {
   protected override string[] ExpectedItem(string input, string exclude, string[] domain)
-    => ["- !_DomainMember", .. domain, exclude, "  typeKind: !_SimpleKind Enum", "  value: " + input];
+    => [
+      "- !_DomainMember", .. domain, exclude,
+      "  value: !_EnumValue", "    member: " + input, "    typeKind: !_SimpleKind Enum"
+      ];
 
   protected override DomainMemberAst[]? DomainItems(string[]? inputs)
     => inputs?.DomainMembers();

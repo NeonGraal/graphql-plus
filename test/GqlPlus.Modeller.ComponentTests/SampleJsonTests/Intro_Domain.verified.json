@@ -38,9 +38,9 @@
         "typeArguments": [
           {
             "$tag": "_OutputArgument",
+            "member": "Domain",
             "name": "_TypeKind",
-            "typeKind": "Enum",
-            "value": "Domain"
+            "typeKind": "Enum"
           },
           "item",
           {
@@ -180,7 +180,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "member",
+          "name": "value",
           "object": "_DomainMember",
           "type": {
             "$tag": "_OutputBase",
@@ -191,7 +191,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "name": "member",
+          "name": "value",
           "type": {
             "$tag": "_OutputBase",
             "value": "_EnumValue"
@@ -309,9 +309,9 @@
         "typeArguments": [
           {
             "$tag": "_OutputArgument",
+            "member": "Domain",
             "name": "_TypeKind",
-            "typeKind": "Enum",
-            "value": "Domain"
+            "typeKind": "Enum"
           }
         ]
       },
@@ -454,9 +454,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Boolean",
                 "name": "_DomainKind",
-                "typeKind": "Enum",
-                "value": "Boolean"
+                "typeKind": "Enum"
               },
               {
                 "$tag": "_DualBase",
@@ -474,9 +474,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Enum",
                 "name": "_DomainKind",
-                "typeKind": "Enum",
-                "value": "Enum"
+                "typeKind": "Enum"
               },
               {
                 "$tag": "_OutputBase",
@@ -494,9 +494,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Number",
                 "name": "_DomainKind",
-                "typeKind": "Enum",
-                "value": "Number"
+                "typeKind": "Enum"
               },
               {
                 "$tag": "_DualBase",
@@ -514,9 +514,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "String",
                 "name": "_DomainKind",
-                "typeKind": "Enum",
-                "value": "String"
+                "typeKind": "Enum"
               },
               {
                 "$tag": "_DualBase",
@@ -535,9 +535,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Boolean",
                 "name": "_DomainKind",
-                "typeKind": "Enum",
-                "value": "Boolean"
+                "typeKind": "Enum"
               },
               {
                 "$tag": "_DualBase",
@@ -554,9 +554,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Enum",
                 "name": "_DomainKind",
-                "typeKind": "Enum",
-                "value": "Enum"
+                "typeKind": "Enum"
               },
               {
                 "$tag": "_OutputBase",
@@ -573,9 +573,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Number",
                 "name": "_DomainKind",
-                "typeKind": "Enum",
-                "value": "Number"
+                "typeKind": "Enum"
               },
               {
                 "$tag": "_DualBase",
@@ -592,9 +592,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "String",
                 "name": "_DomainKind",
-                "typeKind": "Enum",
-                "value": "String"
+                "typeKind": "Enum"
               },
               {
                 "$tag": "_DualBase",

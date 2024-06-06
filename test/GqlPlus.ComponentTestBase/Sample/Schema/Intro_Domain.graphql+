@@ -36,7 +36,7 @@ dual _DomainTrueFalse {
     }
 output _DomainMember {
     : _BaseDomainItem
-        member: _EnumValue
+        value: _EnumValue
     }
 dual _DomainRange {
     : _BaseDomainItem

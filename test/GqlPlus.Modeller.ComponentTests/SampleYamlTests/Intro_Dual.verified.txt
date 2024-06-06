@@ -32,9 +32,9 @@ types: !_Map_Type
       output: _TypeObject
       typeArguments:
       - !_OutputArgument
+        member: Dual
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-        value: Dual
       - !_OutputBase
         output: _DualBase
       - !_OutputBase

@@ -5,22 +5,26 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: EnumDiff
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        typeKind: !_SimpleKind Enum
     - !_DomainItem(_DomainMember)
       domain: EnumDiff
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: false
+      value: !_EnumValue
+        member: false
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        typeKind: !_SimpleKind Enum
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: false
+      value: !_EnumValue
+        member: false
+        typeKind: !_SimpleKind Enum
     name: EnumDiff
     typeKind: !_TypeKind Domain

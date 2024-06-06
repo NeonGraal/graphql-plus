@@ -9,9 +9,12 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomEnum",
           "exclude": false,
-          "name": "EnumDom",
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_enum",
+            "name": "EnumDom",
+            "typeKind": "Enum"
+          }
         }
       ],
       "domainKind": "Enum",
@@ -19,9 +22,12 @@
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "name": "EnumDom",
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_enum",
+            "name": "EnumDom",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomEnum",
@@ -34,9 +40,12 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomEnumAll",
           "exclude": false,
-          "name": "EnumDomAll",
-          "typeKind": "Enum",
-          "value": "*"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "*",
+            "name": "EnumDomAll",
+            "typeKind": "Enum"
+          }
         }
       ],
       "domainKind": "Enum",
@@ -44,9 +53,12 @@
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "name": "EnumDomAll",
-          "typeKind": "Enum",
-          "value": "*"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "*",
+            "name": "EnumDomAll",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomEnumAll",
@@ -59,9 +71,12 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomEnumAllParent",
           "exclude": false,
-          "name": "EnumDomAllParent",
-          "typeKind": "Enum",
-          "value": "*"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "*",
+            "name": "EnumDomAllParent",
+            "typeKind": "Enum"
+          }
         }
       ],
       "domainKind": "Enum",
@@ -69,9 +84,12 @@
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "name": "EnumDomAllParent",
-          "typeKind": "Enum",
-          "value": "*"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "*",
+            "name": "EnumDomAllParent",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomEnumAllParent",
@@ -84,9 +102,12 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomEnumParent",
           "exclude": false,
-          "name": "EnumDomParent",
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_enum",
+            "name": "EnumDomParent",
+            "typeKind": "Enum"
+          }
         }
       ],
       "domainKind": "Enum",
@@ -94,9 +115,12 @@
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "name": "EnumDomParent",
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_enum",
+            "name": "EnumDomParent",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomEnumParent",
@@ -109,15 +133,21 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomPrntEnum",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_parent"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_parent",
+            "typeKind": "Enum"
+          }
         },
         {
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomEnumPrnt",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_enum",
+            "typeKind": "Enum"
+          }
         }
       ],
       "domainKind": "Enum",
@@ -125,8 +155,11 @@
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_enum"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_enum",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomEnumPrnt",
@@ -144,8 +177,11 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_member"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_member",
+            "typeKind": "Enum"
+          }
         }
       ],
       "domainKind": "Enum",
@@ -153,8 +189,11 @@
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_member"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_member",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomMember",
@@ -199,8 +238,11 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "DomPrntEnum",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_parent"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_parent",
+            "typeKind": "Enum"
+          }
         }
       ],
       "domainKind": "Enum",
@@ -208,8 +250,11 @@
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "dom_parent"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_parent",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "DomPrntEnum",

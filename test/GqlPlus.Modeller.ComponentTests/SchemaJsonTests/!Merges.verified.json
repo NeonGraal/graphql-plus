@@ -457,15 +457,21 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "EnumDiff",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "typeKind": "Enum"
+          }
         },
         {
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "EnumDiff",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "false"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "false",
+            "typeKind": "Enum"
+          }
         }
       ],
       "domainKind": "Enum",
@@ -473,14 +479,20 @@
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "typeKind": "Enum"
+          }
         },
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "false"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "false",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "EnumDiff",
@@ -493,8 +505,11 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "EnumSame",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "typeKind": "Enum"
+          }
         }
       ],
       "domainKind": "Enum",
@@ -502,8 +517,11 @@
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "EnumSame",
@@ -535,19 +553,19 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
+          "member": "true",
           "name": "Boolean",
           "object": "FieldEnumAlias",
-          "typeKind": "Enum",
-          "value": "true"
+          "typeKind": "Enum"
         }
       ],
       "fields": [
         {
           "$tag": "_OutputEnum",
           "field": "field",
+          "member": "true",
           "name": "Boolean",
-          "typeKind": "Enum",
-          "value": "true"
+          "typeKind": "Enum"
         }
       ],
       "name": "FieldEnumAlias",
@@ -559,19 +577,19 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
+          "member": "true",
           "name": "Boolean",
           "object": "FieldEnums",
-          "typeKind": "Enum",
-          "value": "true"
+          "typeKind": "Enum"
         }
       ],
       "fields": [
         {
           "$tag": "_OutputEnum",
           "field": "field",
+          "member": "true",
           "name": "Boolean",
-          "typeKind": "Enum",
-          "value": "true"
+          "typeKind": "Enum"
         }
       ],
       "name": "FieldEnums",

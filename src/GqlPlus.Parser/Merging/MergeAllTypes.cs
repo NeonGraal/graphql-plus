@@ -32,12 +32,14 @@ internal class MergeAllTypes(
 
   private static void FixupEnums(IEnumerable<IGqlpType> items)
   {
+    IGqlpType[] types = [.. items];
+
     Map<string> enumValues = GetEnumValues(
       BuiltIn.Basic.OfType<EnumDeclAst>()
       .Concat(BuiltIn.Internal.OfType<EnumDeclAst>())
-      .Concat(items.OfType<EnumDeclAst>()));
+      .Concat(types.OfType<EnumDeclAst>()));
 
-    foreach (OutputDeclAst output in items.OfType<OutputDeclAst>()) {
+    foreach (OutputDeclAst output in types.OfType<OutputDeclAst>()) {
       foreach (AstAlternate<IGqlpOutputBase> alternate in output.Alternates) {
         FixupType(alternate.Type, enumValues);
       }
@@ -57,7 +59,7 @@ internal class MergeAllTypes(
   private static void FixupType(IGqlpOutputBase type, Map<string> enumValues)
   {
     if (string.IsNullOrWhiteSpace(type.Output)
-      && enumValues.TryGetValue(type.EnumValue ?? "", out string? enumType)) {
+      && enumValues.TryGetValue(type.EnumMember ?? "", out string? enumType)) {
       ((OutputBaseAst)type).Name = enumType;
     }
 

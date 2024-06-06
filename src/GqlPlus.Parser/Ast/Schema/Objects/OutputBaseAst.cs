@@ -14,7 +14,7 @@ public sealed record class OutputBaseAst(
   public OutputBaseAst(TokenAt at, string name)
     : this(at, name, "") { }
 
-  public string? EnumValue { get; set; }
+  public string? EnumMember { get; set; }
 
   internal override string Abbr => "OR";
   public override string Label => "Output";
@@ -25,16 +25,16 @@ public sealed record class OutputBaseAst(
 
   public override bool Equals(OutputBaseAst? other)
     => base.Equals(other)
-    && EnumValue.NullEqual(other.EnumValue);
+    && EnumMember.NullEqual(other.EnumMember);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), EnumValue);
+    => HashCode.Combine(base.GetHashCode(), EnumMember);
 
   internal override IEnumerable<string?> GetFields()
     => new[] {
       At.ToString(),
-      string.IsNullOrWhiteSpace(EnumValue)
+      string.IsNullOrWhiteSpace(EnumMember)
         ? IsTypeParameter ? Name.Prefixed("$") : Name
-        : $"{Name}.{EnumValue}"
+        : $"{Name}.{EnumMember}"
     }.Concat(TypeArguments.Bracket("<", ">"));
 
   public DualBaseAst ToDual()
@@ -47,7 +47,7 @@ public sealed record class OutputBaseAst(
 
   void IGqlpOutputBase.SetEnumType(string enumType)
   {
-    EnumValue ??= Name;
+    EnumMember ??= Name;
     Name = enumType;
   }
 }

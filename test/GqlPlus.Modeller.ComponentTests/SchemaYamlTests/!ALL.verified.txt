@@ -226,16 +226,18 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomEnum
       exclude: false
-      name: EnumDom
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
+      value: !_EnumValue
+        member: dom_enum
+        name: EnumDom
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      name: EnumDom
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
+      value: !_EnumValue
+        member: dom_enum
+        name: EnumDom
+        typeKind: !_SimpleKind Enum
     name: DomEnum
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumAll: !_DomainEnum
@@ -243,16 +245,18 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomEnumAll
       exclude: false
-      name: EnumDomAll
-      typeKind: !_SimpleKind Enum
-      value: '*'
+      value: !_EnumValue
+        member: '*'
+        name: EnumDomAll
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      name: EnumDomAll
-      typeKind: !_SimpleKind Enum
-      value: '*'
+      value: !_EnumValue
+        member: '*'
+        name: EnumDomAll
+        typeKind: !_SimpleKind Enum
     name: DomEnumAll
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumAllParent: !_DomainEnum
@@ -260,16 +264,18 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomEnumAllParent
       exclude: false
-      name: EnumDomAllParent
-      typeKind: !_SimpleKind Enum
-      value: '*'
+      value: !_EnumValue
+        member: '*'
+        name: EnumDomAllParent
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      name: EnumDomAllParent
-      typeKind: !_SimpleKind Enum
-      value: '*'
+      value: !_EnumValue
+        member: '*'
+        name: EnumDomAllParent
+        typeKind: !_SimpleKind Enum
     name: DomEnumAllParent
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumParent: !_DomainEnum
@@ -277,16 +283,18 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomEnumParent
       exclude: false
-      name: EnumDomParent
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
+      value: !_EnumValue
+        member: dom_enum
+        name: EnumDomParent
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      name: EnumDomParent
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
+      value: !_EnumValue
+        member: dom_enum
+        name: EnumDomParent
+        typeKind: !_SimpleKind Enum
     name: DomEnumParent
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumPrnt: !_DomainEnum
@@ -294,19 +302,22 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomPrntEnum
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_parent
+      value: !_EnumValue
+        member: dom_parent
+        typeKind: !_SimpleKind Enum
     - !_DomainItem(_DomainMember)
       domain: DomEnumPrnt
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
+      value: !_EnumValue
+        member: dom_enum
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_enum
+      value: !_EnumValue
+        member: dom_enum
+        typeKind: !_SimpleKind Enum
     name: DomEnumPrnt
     parent: !_TypeRef(_SimpleKind)
       name: DomPrntEnum
@@ -317,14 +328,16 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_member
+      value: !_EnumValue
+        member: dom_member
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_member
+      value: !_EnumValue
+        member: dom_member
+        typeKind: !_SimpleKind Enum
     name: DomMember
     typeKind: !_TypeKind Domain
   !_Identifier DomNumPrnt: !_DomainNumber
@@ -352,14 +365,16 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: DomPrntEnum
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_parent
+      value: !_EnumValue
+        member: dom_parent
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: dom_parent
+      value: !_EnumValue
+        member: dom_parent
+        typeKind: !_SimpleKind Enum
     name: DomPrntEnum
     typeKind: !_TypeKind Domain
   !_Identifier DomPrntNum: !_DomainNumber
@@ -1378,23 +1393,27 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: EnumDiff
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        typeKind: !_SimpleKind Enum
     - !_DomainItem(_DomainMember)
       domain: EnumDiff
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: false
+      value: !_EnumValue
+        member: false
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        typeKind: !_SimpleKind Enum
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: false
+      value: !_EnumValue
+        member: false
+        typeKind: !_SimpleKind Enum
     name: EnumDiff
     typeKind: !_TypeKind Domain
   !_Identifier EnumDom: !_TypeEnum
@@ -1555,46 +1574,48 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: EnumSame
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        typeKind: !_SimpleKind Enum
     name: EnumSame
     typeKind: !_TypeKind Domain
   !_Identifier FieldEnumAlias: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: true
       name: Boolean
       object: FieldEnumAlias
       typeKind: !_SimpleKind Enum
-      value: true
     fields:
     - !_OutputEnum
       field: field
+      member: true
       name: Boolean
       typeKind: !_SimpleKind Enum
-      value: true
     name: FieldEnumAlias
     typeKind: !_TypeKind Output
   !_Identifier FieldEnums: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: true
       name: Boolean
       object: FieldEnums
       typeKind: !_SimpleKind Enum
-      value: true
     fields:
     - !_OutputEnum
       field: field
+      member: true
       name: Boolean
       typeKind: !_SimpleKind Enum
-      value: true
     name: FieldEnums
     typeKind: !_TypeKind Output
   !_Identifier FieldParam1: !_TypeInput
@@ -2657,48 +2678,48 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumField
       name: OutEnumField
       object: OutFieldEnum
       typeKind: !_SimpleKind Enum
-      value: outEnumField
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumField
       name: OutEnumField
       typeKind: !_SimpleKind Enum
-      value: outEnumField
     name: OutFieldEnum
     typeKind: !_TypeKind Output
   !_Identifier OutFieldParent: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumParent
       name: OutEnumParented
       object: OutFieldParent
       typeKind: !_SimpleKind Enum
-      value: outEnumParent
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumParent
       name: OutEnumParented
       typeKind: !_SimpleKind Enum
-      value: outEnumParent
     name: OutFieldParent
     typeKind: !_TypeKind Output
   !_Identifier OutFieldValue: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumValue
       name: OutEnumValue
       object: OutFieldValue
       typeKind: !_SimpleKind Enum
-      value: outEnumValue
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumValue
       name: OutEnumValue
       typeKind: !_SimpleKind Enum
-      value: outEnumValue
     name: OutFieldValue
     typeKind: !_TypeKind Output
   !_Identifier OutGenEnum: !_TypeOutput
@@ -2709,18 +2730,18 @@ types: !_Map_Type
         output: OutGenEnumRef
         typeArguments:
         - !_OutputArgument
+          member: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
-          value: outEnumGen
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: OutGenEnumRef
         typeArguments:
         - !_OutputArgument
+          member: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
-          value: outEnumGen
     name: OutGenEnum
     typeKind: !_TypeKind Output
   !_Identifier OutGenEnumRef: !_TypeOutput
@@ -2746,18 +2767,18 @@ types: !_Map_Type
         output: OutGenParentRef
         typeArguments:
         - !_OutputArgument
+          member: outGenParent
           name: OutParentGen
           typeKind: !_SimpleKind Enum
-          value: outGenParent
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: OutGenParentRef
         typeArguments:
         - !_OutputArgument
+          member: outGenParent
           name: OutParentGen
           typeKind: !_SimpleKind Enum
-          value: outGenParent
     name: OutGenParent
     typeKind: !_TypeKind Output
   !_Identifier OutGenParentRef: !_TypeOutput

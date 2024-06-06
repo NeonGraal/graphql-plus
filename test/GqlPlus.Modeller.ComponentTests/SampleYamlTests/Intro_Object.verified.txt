@@ -141,9 +141,9 @@ types: !_Map_Type
         output: _BaseType
         typeArguments:
         - !_OutputArgument
+          member: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Internal
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _ObjType
       type: !_OutputBase
@@ -157,9 +157,9 @@ types: !_Map_Type
         output: _BaseType
         typeArguments:
         - !_OutputArgument
+          member: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Internal
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _TypeSimple

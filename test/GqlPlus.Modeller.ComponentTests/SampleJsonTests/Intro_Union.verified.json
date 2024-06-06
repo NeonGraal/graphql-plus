@@ -23,9 +23,9 @@
         "typeArguments": [
           {
             "$tag": "_OutputArgument",
+            "member": "Union",
             "name": "_TypeKind",
-            "typeKind": "Enum",
-            "value": "Union"
+            "typeKind": "Enum"
           },
           {
             "$tag": "_OutputBase",

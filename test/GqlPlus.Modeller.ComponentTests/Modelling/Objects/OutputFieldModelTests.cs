@@ -8,12 +8,12 @@ public class OutputFieldModelTests(
 ) : TestObjectFieldModel<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase>
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_EnumValue(FieldInput input, string enumValue)
+  public void Model_EnumValue(FieldInput input, string enumMember)
     => FieldChecks.Field_Expected(
       FieldChecks.FieldAst(input) with {
-        Type = _checks.NewObjBaseAst(input.Type) with { EnumValue = enumValue }
+        Type = _checks.NewObjBaseAst(input.Type) with { EnumMember = enumMember }
       },
-      _checks.ExpectedEnum(input, enumValue)
+      _checks.ExpectedEnum(input, enumMember)
       );
 
   [Theory, RepeatData(Repeats)]
@@ -43,6 +43,6 @@ internal sealed class OutputFieldModelChecks(
        "parameters:",
         parameters,
         p => ["- !_InputParameter", "  input: " + p])];
-  internal string[] ExpectedEnum(FieldInput input, string enumValue)
-    => [$"!_OutputEnum", "field: " + input.Name, "name: " + input.Type, $"typeKind: !_SimpleKind Enum", "value: " + enumValue];
+  internal string[] ExpectedEnum(FieldInput input, string enumMember)
+    => [$"!_OutputEnum", "field: " + input.Name, "member: " + enumMember, "name: " + input.Type, $"typeKind: !_SimpleKind Enum"];
 }

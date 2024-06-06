@@ -72,9 +72,9 @@ Success
   >
   {
     !OF I@009/0019
-    value
+    member
     :
-    I@016/0019
+    I@017/0019
     _Identifier
   }
   |
@@ -99,9 +99,9 @@ Success
     I@016/0025
     _Identifier
     !OF I@009/0026
-    value
+    member
     :
-    I@016/0026
+    I@017/0026
     _Identifier
   }
 }

@@ -307,9 +307,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Internal",
                 "name": "_TypeKind",
-                "typeKind": "Enum",
-                "value": "Internal"
+                "typeKind": "Enum"
               }
             ]
           }
@@ -337,9 +337,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Internal",
                 "name": "_TypeKind",
-                "typeKind": "Enum",
-                "value": "Internal"
+                "typeKind": "Enum"
               }
             ]
           }

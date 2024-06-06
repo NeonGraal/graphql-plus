@@ -213,9 +213,9 @@
         "typeArguments": [
           {
             "$tag": "_OutputArgument",
+            "member": "Input",
             "name": "_TypeKind",
-            "typeKind": "Enum",
-            "value": "Input"
+            "typeKind": "Enum"
           },
           {
             "$tag": "_OutputBase",

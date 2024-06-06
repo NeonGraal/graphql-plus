@@ -16,12 +16,12 @@ output _OutputField {
 
 output _OutputArgument {
     : _TypeRef<_TypeKind.Enum>
-        value: _Identifier
+        member: _Identifier
     | _OutputBase
     }
 
 output _OutputEnum {
     : _TypeRef<_TypeKind.Enum>
         field: _Identifier
-        value: _Identifier
+        member: _Identifier
     }

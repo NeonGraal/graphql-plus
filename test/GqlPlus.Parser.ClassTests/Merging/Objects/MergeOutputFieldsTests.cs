@@ -117,6 +117,6 @@ public class MergeOutputFieldsTests
   protected override OutputFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
     => new(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription));
 
-  private static OutputFieldAst MakeFieldEnum(string name, string type, string enumValue, string fieldDescription = "", string typeDescription = "")
-    => new(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription) { EnumValue = enumValue });
+  private static OutputFieldAst MakeFieldEnum(string name, string type, string enumMember, string fieldDescription = "", string typeDescription = "")
+    => new(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription) { EnumMember = enumMember });
 }

@@ -866,9 +866,9 @@ Success
   _BaseDomainItem
   {
     !OF I@009/0203
-    member
+    value
     :
-    I@017/0203
+    I@016/0203
     _EnumValue
   }
 }
@@ -948,9 +948,9 @@ Success
   >
   {
     !OF I@009/0225
-    value
+    member
     :
-    I@016/0225
+    I@017/0225
     _Identifier
   }
 }
@@ -1389,9 +1389,9 @@ Success
   >
   {
     !OF I@009/0324
-    value
+    member
     :
-    I@016/0324
+    I@017/0324
     _Identifier
   }
   |
@@ -1416,9 +1416,9 @@ Success
     I@016/0330
     _Identifier
     !OF I@009/0331
-    value
+    member
     :
-    I@016/0331
+    I@017/0331
     _Identifier
   }
 }

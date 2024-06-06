@@ -2971,19 +2971,19 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
+          "member": "outEnumField",
           "name": "OutEnumField",
           "object": "OutFieldEnum",
-          "typeKind": "Enum",
-          "value": "outEnumField"
+          "typeKind": "Enum"
         }
       ],
       "fields": [
         {
           "$tag": "_OutputEnum",
           "field": "field",
+          "member": "outEnumField",
           "name": "OutEnumField",
-          "typeKind": "Enum",
-          "value": "outEnumField"
+          "typeKind": "Enum"
         }
       ],
       "name": "OutFieldEnum",
@@ -2995,19 +2995,19 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
+          "member": "outEnumParent",
           "name": "OutEnumParented",
           "object": "OutFieldParent",
-          "typeKind": "Enum",
-          "value": "outEnumParent"
+          "typeKind": "Enum"
         }
       ],
       "fields": [
         {
           "$tag": "_OutputEnum",
           "field": "field",
+          "member": "outEnumParent",
           "name": "OutEnumParented",
-          "typeKind": "Enum",
-          "value": "outEnumParent"
+          "typeKind": "Enum"
         }
       ],
       "name": "OutFieldParent",
@@ -3019,19 +3019,19 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
+          "member": "outEnumValue",
           "name": "OutEnumValue",
           "object": "OutFieldValue",
-          "typeKind": "Enum",
-          "value": "outEnumValue"
+          "typeKind": "Enum"
         }
       ],
       "fields": [
         {
           "$tag": "_OutputEnum",
           "field": "field",
+          "member": "outEnumValue",
           "name": "OutEnumValue",
-          "typeKind": "Enum",
-          "value": "outEnumValue"
+          "typeKind": "Enum"
         }
       ],
       "name": "OutFieldValue",
@@ -3049,9 +3049,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "outEnumGen",
                 "name": "OutEnumGen",
-                "typeKind": "Enum",
-                "value": "outEnumGen"
+                "typeKind": "Enum"
               }
             ]
           }
@@ -3066,9 +3066,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "outEnumGen",
                 "name": "OutEnumGen",
-                "typeKind": "Enum",
-                "value": "outEnumGen"
+                "typeKind": "Enum"
               }
             ]
           }
@@ -3115,9 +3115,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "outGenParent",
                 "name": "OutParentGen",
-                "typeKind": "Enum",
-                "value": "outGenParent"
+                "typeKind": "Enum"
               }
             ]
           }
@@ -3132,9 +3132,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "outGenParent",
                 "name": "OutParentGen",
-                "typeKind": "Enum",
-                "value": "outGenParent"
+                "typeKind": "Enum"
               }
             ]
           }

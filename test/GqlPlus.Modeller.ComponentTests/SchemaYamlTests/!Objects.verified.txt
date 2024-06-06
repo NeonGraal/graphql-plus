@@ -1603,48 +1603,48 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumField
       name: OutEnumField
       object: OutFieldEnum
       typeKind: !_SimpleKind Enum
-      value: outEnumField
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumField
       name: OutEnumField
       typeKind: !_SimpleKind Enum
-      value: outEnumField
     name: OutFieldEnum
     typeKind: !_TypeKind Output
   !_Identifier OutFieldParent: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumParent
       name: OutEnumParented
       object: OutFieldParent
       typeKind: !_SimpleKind Enum
-      value: outEnumParent
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumParent
       name: OutEnumParented
       typeKind: !_SimpleKind Enum
-      value: outEnumParent
     name: OutFieldParent
     typeKind: !_TypeKind Output
   !_Identifier OutFieldValue: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumValue
       name: OutEnumValue
       object: OutFieldValue
       typeKind: !_SimpleKind Enum
-      value: outEnumValue
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumValue
       name: OutEnumValue
       typeKind: !_SimpleKind Enum
-      value: outEnumValue
     name: OutFieldValue
     typeKind: !_TypeKind Output
   !_Identifier OutGenEnum: !_TypeOutput
@@ -1655,18 +1655,18 @@ types: !_Map_Type
         output: OutGenEnumRef
         typeArguments:
         - !_OutputArgument
+          member: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
-          value: outEnumGen
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: OutGenEnumRef
         typeArguments:
         - !_OutputArgument
+          member: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
-          value: outEnumGen
     name: OutGenEnum
     typeKind: !_TypeKind Output
   !_Identifier OutGenEnumRef: !_TypeOutput
@@ -1692,18 +1692,18 @@ types: !_Map_Type
         output: OutGenParentRef
         typeArguments:
         - !_OutputArgument
+          member: outGenParent
           name: OutParentGen
           typeKind: !_SimpleKind Enum
-          value: outGenParent
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: OutGenParentRef
         typeArguments:
         - !_OutputArgument
+          member: outGenParent
           name: OutParentGen
           typeKind: !_SimpleKind Enum
-          value: outGenParent
     name: OutGenParent
     typeKind: !_TypeKind Output
   !_Identifier OutGenParentRef: !_TypeOutput

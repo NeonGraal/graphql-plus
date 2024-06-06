@@ -28,25 +28,25 @@ public class OutputFieldAstTests
       parameters1.SequenceEqual(parameters2));
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithEnumValue(FieldInput input, string enumValue)
+  public void HashCode_WithEnumValue(FieldInput input, string enumMember)
       => _checks.HashCode(
-        () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumValue = enumValue }));
+        () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumMember = enumMember }));
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithEnumValue(FieldInput input, string enumValue)
+  public void String_WithEnumValue(FieldInput input, string enumMember)
     => _checks.Text(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumValue = enumValue }),
-      $"( !OF {input.Name} = {input.Type}.{enumValue} )");
+      () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumMember = enumMember }),
+      $"( !OF {input.Name} = {input.Type}.{enumMember} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithEnumValue(FieldInput input, string enumValue)
+  public void Equality_WithEnumValue(FieldInput input, string enumMember)
     => _checks.Equality(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumValue = enumValue }));
+      () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumMember = enumMember }));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenEnumValues(FieldInput input, string enumValue1, string enumValue2)
     => _checks.InequalityBetween(enumValue1, enumValue2,
-      enumValue => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumValue = enumValue }),
+      enumMember => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumMember = enumMember }),
       enumValue1 == enumValue2);
 
   protected override string AliasesString(FieldInput input, string aliases)

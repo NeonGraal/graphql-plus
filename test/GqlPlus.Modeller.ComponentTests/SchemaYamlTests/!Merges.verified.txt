@@ -270,23 +270,27 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: EnumDiff
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        typeKind: !_SimpleKind Enum
     - !_DomainItem(_DomainMember)
       domain: EnumDiff
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: false
+      value: !_EnumValue
+        member: false
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        typeKind: !_SimpleKind Enum
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: false
+      value: !_EnumValue
+        member: false
+        typeKind: !_SimpleKind Enum
     name: EnumDiff
     typeKind: !_TypeKind Domain
   !_Identifier EnumSame: !_DomainEnum
@@ -294,46 +298,48 @@ types: !_Map_Type
     - !_DomainItem(_DomainMember)
       domain: EnumSame
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainMember
       exclude: false
-      typeKind: !_SimpleKind Enum
-      value: true
+      value: !_EnumValue
+        member: true
+        typeKind: !_SimpleKind Enum
     name: EnumSame
     typeKind: !_TypeKind Domain
   !_Identifier FieldEnumAlias: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: true
       name: Boolean
       object: FieldEnumAlias
       typeKind: !_SimpleKind Enum
-      value: true
     fields:
     - !_OutputEnum
       field: field
+      member: true
       name: Boolean
       typeKind: !_SimpleKind Enum
-      value: true
     name: FieldEnumAlias
     typeKind: !_TypeKind Output
   !_Identifier FieldEnums: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: true
       name: Boolean
       object: FieldEnums
       typeKind: !_SimpleKind Enum
-      value: true
     fields:
     - !_OutputEnum
       field: field
+      member: true
       name: Boolean
       typeKind: !_SimpleKind Enum
-      value: true
     name: FieldEnums
     typeKind: !_TypeKind Output
   !_Identifier FieldParam1: !_TypeInput

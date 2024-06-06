@@ -182,9 +182,9 @@ Success
   _BaseDomainItem
   {
     !OF I@009/0039
-    member
+    value
     :
-    I@017/0039
+    I@016/0039
     _EnumValue
   }
 }

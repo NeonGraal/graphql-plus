@@ -108,9 +108,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Output",
                 "name": "_TypeKind",
-                "typeKind": "Enum",
-                "value": "Output"
+                "typeKind": "Enum"
               }
             ]
           }
@@ -149,9 +149,9 @@
             "typeArguments": [
               {
                 "$tag": "_OutputArgument",
+                "member": "Output",
                 "name": "_TypeKind",
-                "typeKind": "Enum",
-                "value": "Output"
+                "typeKind": "Enum"
               }
             ]
           }

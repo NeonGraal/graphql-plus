@@ -8,52 +8,52 @@ types: !_Map_Type
         output: _Modifier
         typeArguments:
         - !_OutputArgument
+          member: List
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          value: List
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Collections
       type: !_OutputBase
         output: _ModifierKeyed
         typeArguments:
         - !_OutputArgument
+          member: Dictionary
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          value: Dictionary
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Collections
       type: !_OutputBase
         output: _ModifierKeyed
         typeArguments:
         - !_OutputArgument
+          member: TypeParameter
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          value: TypeParameter
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _Modifier
         typeArguments:
         - !_OutputArgument
+          member: List
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          value: List
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _ModifierKeyed
         typeArguments:
         - !_OutputArgument
+          member: Dictionary
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          value: Dictionary
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _ModifierKeyed
         typeArguments:
         - !_OutputArgument
+          member: TypeParameter
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          value: TypeParameter
     name: _Collections
     typeKind: !_TypeKind Output
   !_Identifier _Constant: !_TypeOutput
@@ -208,9 +208,9 @@ types: !_Map_Type
         output: _Modifier
         typeArguments:
         - !_OutputArgument
+          member: Optional
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          value: Optional
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Modifiers
       type: !_OutputBase
@@ -221,9 +221,9 @@ types: !_Map_Type
         output: _Modifier
         typeArguments:
         - !_OutputArgument
+          member: Optional
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          value: Optional
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _Collections
@@ -241,9 +241,9 @@ types: !_Map_Type
         output: _DomainValue
         typeArguments:
         - !_OutputArgument
+          member: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-          value: Number
         - !_OutputBase
           output: Number
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -252,9 +252,9 @@ types: !_Map_Type
         output: _DomainValue
         typeArguments:
         - !_OutputArgument
+          member: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-          value: String
         - !_OutputBase
           output: String
     - !_ObjectFor(_Alternate(_OutputBase))
@@ -270,9 +270,9 @@ types: !_Map_Type
         output: _DomainValue
         typeArguments:
         - !_OutputArgument
+          member: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-          value: Number
         - !_OutputBase
           output: Number
     - !_Alternate(_OutputBase)
@@ -280,9 +280,9 @@ types: !_Map_Type
         output: _DomainValue
         typeArguments:
         - !_OutputArgument
+          member: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-          value: String
         - !_OutputBase
           output: String
     - !_Alternate(_OutputBase)

@@ -49,13 +49,13 @@ public record class DomainMemberModel(
   bool Exclude
 ) : BaseDomainItemModel(Exclude)
 {
-  public DomainMemberModel(string name, string value, bool exclude)
-    : this(new(name, value), exclude)
+  public DomainMemberModel(string name, string member, bool exclude)
+    : this(new(name, member), exclude)
   { }
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add(EnumValue, context);
+      .Add("value", EnumValue.Render(context));
 }
 
 public record class DomainTrueFalseModel(

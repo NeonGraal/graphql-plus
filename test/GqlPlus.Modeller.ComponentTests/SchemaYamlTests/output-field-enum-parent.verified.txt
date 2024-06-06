@@ -35,15 +35,15 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
+      member: outEnumParent
       name: OutEnumParented
       object: OutFieldParent
       typeKind: !_SimpleKind Enum
-      value: outEnumParent
     fields:
     - !_OutputEnum
       field: field
+      member: outEnumParent
       name: OutEnumParented
       typeKind: !_SimpleKind Enum
-      value: outEnumParent
     name: OutFieldParent
     typeKind: !_TypeKind Output

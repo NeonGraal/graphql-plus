@@ -45,28 +45,28 @@ public record class OutputArgumentModel(
   string Name
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name), IObjBaseModel
 {
-  internal string? EnumValue { get; set; }
+  internal string? EnumMember { get; set; }
   internal ObjRefModel<OutputBaseModel>? Ref { get; set; }
 
-  public bool IsTypeParameter => string.IsNullOrEmpty(EnumValue) && Ref?.BaseRef?.IsTypeParameter == true;
+  public bool IsTypeParameter => string.IsNullOrEmpty(EnumMember) && Ref?.BaseRef?.IsTypeParameter == true;
 
   internal override RenderStructure Render(IRenderContext context)
-    => string.IsNullOrWhiteSpace(EnumValue)
+    => string.IsNullOrWhiteSpace(EnumMember)
     ? Ref.ThrowIfNull().Render(context)
     : base.Render(context)
-      .Add("value", EnumValue);
+      .Add("member", EnumMember);
 }
 
 public record class OutputEnumModel(
   string Field,
   string Type,
-  string Value
+  string EnumMember
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Type)
 {
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
       .Add("field", Field)
-      .Add("value", Value);
+      .Add("member", EnumMember);
 }
 
 internal class OutputModeller(
@@ -91,9 +91,9 @@ internal class OutputBaseModeller(
 ) : ModellerObjBase<IGqlpOutputBase, OutputBaseModel, OutputArgumentModel>
 {
   internal override OutputArgumentModel NewArgument(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
-    => string.IsNullOrWhiteSpace(ast.EnumValue)
+    => string.IsNullOrWhiteSpace(ast.EnumMember)
       ? new(ast.Output) { Ref = new(ToModel(ast, typeKinds)) }
-      : new(ast.Output) { EnumValue = ast.EnumValue };
+      : new(ast.Output) { EnumMember = ast.EnumMember };
 
   protected override OutputBaseModel ToModel(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Output, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
@@ -113,11 +113,11 @@ internal class OutputFieldModeller(
 ) : ModellerObjField<IGqlpOutputBase, IGqlpOutputField, OutputBaseModel, OutputFieldModel>(modifier, refBase)
 {
   protected override OutputFieldModel FieldModel(IGqlpOutputField field, ObjRefModel<OutputBaseModel> type, IMap<TypeKindModel> typeKinds)
-    => string.IsNullOrWhiteSpace(field.Type.EnumValue)
+    => string.IsNullOrWhiteSpace(field.Type.EnumMember)
       ? new(field.Name, type) {
         Parameters = parameter.ToModels(field.Parameters, typeKinds),
       }
       : new(field.Name, null) { // or should it be `type`
-        Enum = new(field.Name, field.Type.Output, field.Type.EnumValue)
+        Enum = new(field.Name, field.Type.Output, field.Type.EnumMember)
       };
 }

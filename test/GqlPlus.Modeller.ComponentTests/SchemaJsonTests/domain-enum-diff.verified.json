@@ -9,15 +9,21 @@
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "EnumDiff",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "typeKind": "Enum"
+          }
         },
         {
           "$tag": "_DomainItem(_DomainMember)",
           "domain": "EnumDiff",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "false"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "false",
+            "typeKind": "Enum"
+          }
         }
       ],
       "domainKind": "Enum",
@@ -25,14 +31,20 @@
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "true"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "true",
+            "typeKind": "Enum"
+          }
         },
         {
           "$tag": "_DomainMember",
           "exclude": false,
-          "typeKind": "Enum",
-          "value": "false"
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "false",
+            "typeKind": "Enum"
+          }
         }
       ],
       "name": "EnumDiff",

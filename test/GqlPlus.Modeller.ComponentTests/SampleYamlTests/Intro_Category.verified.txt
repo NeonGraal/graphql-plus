@@ -57,9 +57,9 @@ types: !_Map_Type
         output: _TypeRef
         typeArguments:
         - !_OutputArgument
+          member: Output
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Output
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
@@ -77,9 +77,9 @@ types: !_Map_Type
         output: _TypeRef
         typeArguments:
         - !_OutputArgument
+          member: Output
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-          value: Output
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers

@@ -24,7 +24,7 @@ types: !_Map_Type
         output: _OutputBase
     allFields:
     - !_ObjectFor(_OutputField)
-      name: value
+      name: member
       object: _OutputArgument
       type: !_OutputBase
         output: _Identifier
@@ -34,7 +34,7 @@ types: !_Map_Type
         output: _OutputBase
     fields:
     - !_OutputField
-      name: value
+      name: member
       type: !_OutputBase
         output: _Identifier
     name: _OutputArgument
@@ -42,9 +42,9 @@ types: !_Map_Type
       output: _TypeRef
       typeArguments:
       - !_OutputArgument
+        member: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-        value: Enum
     typeKind: !_TypeKind Output
   !_Identifier _OutputBase: !_TypeOutput
     allAlternates:
@@ -82,7 +82,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Identifier
     - !_ObjectFor(_OutputField)
-      name: value
+      name: member
       object: _OutputEnum
       type: !_OutputBase
         output: _Identifier
@@ -92,7 +92,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Identifier
     - !_OutputField
-      name: value
+      name: member
       type: !_OutputBase
         output: _Identifier
     name: _OutputEnum
@@ -100,9 +100,9 @@ types: !_Map_Type
       output: _TypeRef
       typeArguments:
       - !_OutputArgument
+        member: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-        value: Enum
     typeKind: !_TypeKind Output
   !_Identifier _OutputField: !_TypeOutput
     allAlternates:
@@ -140,9 +140,9 @@ types: !_Map_Type
       output: _TypeObject
       typeArguments:
       - !_OutputArgument
+        member: Output
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-        value: Output
       - !_OutputBase
         output: _OutputBase
       - !_OutputBase

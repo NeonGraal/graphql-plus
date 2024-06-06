@@ -26,7 +26,7 @@ types: !_Map_Type
       parameters:
       - !_InputParameter
         input: OutParamDomainParam
-        modifiers: [!_ModifierTypeParameter {key: mod}]
+        modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
       type: !_OutputBase
         output: OutDomainsParam
     fields:
@@ -35,7 +35,7 @@ types: !_Map_Type
       parameters:
       - !_InputParameter
         input: OutParamDomainParam
-        modifiers: [!_ModifierTypeParameter {key: mod}]
+        modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
       type: !_OutputBase
         output: OutDomainsParam
     name: OutParamsDomainParam

@@ -13,7 +13,7 @@ public abstract class TestObjectFieldModel<TObjField, TObjFieldAst, TObjBase>
   public void Model_Modifiers(FieldInput input)
     => FieldChecks.Field_Expected(
         FieldChecks.FieldAst(input) with { Modifiers = TestMods() },
-        FieldChecks.ExpectedField(input, ["modifiers: [!_Modifier List, !_Modifier Opt]"], [])
+        FieldChecks.ExpectedField(input, ["modifiers: [!_Modifier {modifierKind: !_ModifierKind List}, !_Modifier {modifierKind: !_ModifierKind Opt}]"], [])
       );
 
   [Theory, RepeatData(Repeats)]

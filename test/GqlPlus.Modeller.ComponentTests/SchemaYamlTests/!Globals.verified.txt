@@ -7,21 +7,21 @@ categories: !_Map_Categories
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier catDict: !_Category
-    modifiers: [!_ModifierDictionary {key: '*'}]
+    modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict}]
     name: catDict
     output: !_TypeRef(_TypeKind)
       name: CatDict
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier catList: !_Category
-    modifiers: [!_Modifier List]
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
     name: catList
     output: !_TypeRef(_TypeKind)
       name: CatList
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier catOpt: !_Category
-    modifiers: [!_Modifier Opt]
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     name: catOpt
     output: !_TypeRef(_TypeKind)
       name: CatOpt
@@ -49,7 +49,7 @@ directives: !_Map_Directives
     parameters:
     - !_InputParameter
       input: DirParamIn
-      modifiers: [!_ModifierDictionary {key: String}]
+      modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict}]
     repeatable: false
   !_Identifier DirParamList: !_Directive
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
@@ -58,7 +58,7 @@ directives: !_Map_Directives
     parameters:
     - !_InputParameter
       input: DirParamIn
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
     repeatable: false
   !_Identifier DirParamOpt: !_Directive
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
@@ -67,7 +67,7 @@ directives: !_Map_Directives
     parameters:
     - !_InputParameter
       input: DirParamIn
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     repeatable: false
 name: Schema
 settings: !_Map_Setting

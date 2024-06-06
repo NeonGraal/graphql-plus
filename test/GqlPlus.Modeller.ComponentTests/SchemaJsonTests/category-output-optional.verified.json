@@ -4,7 +4,12 @@
     "$tag": "_Map_Categories",
     "catOpt": {
       "$tag": "_Category",
-      "modifiers": ["Opt"],
+      "modifiers": [
+        {
+          "$tag": "_Modifier",
+          "modifierKind": "Opt"
+        }
+      ],
       "name": "catOpt",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",

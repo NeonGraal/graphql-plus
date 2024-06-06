@@ -93,6 +93,61 @@ types: !_Map_Type
       name: String
     name: _DomainKind
     typeKind: !_TypeKind Enum
+  !_Identifier _DomainMember: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: Boolean
+    - !_ObjectFor(_OutputField)
+      name: member
+      object: _DomainMember
+      type: !_OutputBase
+        output: _EnumValue
+    fields:
+    - !_OutputField
+      name: member
+      type: !_OutputBase
+        output: _EnumValue
+    name: _DomainMember
+    parent: !_DualBase
+      dual: _BaseDomainItem
+    typeKind: !_TypeKind Output
+  !_Identifier _DomainRange: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: Boolean
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: lower
+      object: _DomainRange
+      type: !_DualBase
+        dual: Number
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: upper
+      object: _DomainRange
+      type: !_DualBase
+        dual: Number
+    fields:
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: lower
+      type: !_DualBase
+        dual: Number
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: upper
+      type: !_DualBase
+        dual: Number
+    name: _DomainRange
+    parent: !_DualBase
+      dual: _BaseDomainItem
+    typeKind: !_TypeKind Dual
   !_Identifier _DomainRef: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -115,6 +170,48 @@ types: !_Map_Type
     typeParameters:
     - !_Described
       name: kind
+  !_Identifier _DomainRegex: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: Boolean
+    - !_ObjectFor(_DualField)
+      name: pattern
+      object: _DomainRegex
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: pattern
+      type: !_DualBase
+        dual: String
+    name: _DomainRegex
+    parent: !_DualBase
+      dual: _BaseDomainItem
+    typeKind: !_TypeKind Dual
+  !_Identifier _DomainTrueFalse: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: Boolean
+    - !_ObjectFor(_DualField)
+      name: value
+      object: _DomainTrueFalse
+      type: !_DualBase
+        dual: Boolean
+    fields:
+    - !_DualField
+      name: value
+      type: !_DualBase
+        dual: Boolean
+    name: _DomainTrueFalse
+    parent: !_DualBase
+      dual: _BaseDomainItem
+    typeKind: !_TypeKind Dual
   !_Identifier _DomainValue: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -151,8 +248,8 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Boolean
-        - !_OutputBase
-          output: _DomainTrueFalse
+        - !_DualBase
+          dual: _DomainTrueFalse
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _TypeDomain
       type: !_OutputBase
@@ -173,8 +270,8 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Number
-        - !_OutputBase
-          output: _DomainRange
+        - !_DualBase
+          dual: _DomainRange
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _TypeDomain
       type: !_OutputBase
@@ -184,8 +281,8 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: String
-        - !_OutputBase
-          output: _DomainRegex
+        - !_DualBase
+          dual: _DomainRegex
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
@@ -195,8 +292,8 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Boolean
-        - !_OutputBase
-          output: _DomainTrueFalse
+        - !_DualBase
+          dual: _DomainTrueFalse
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _BaseDomain
@@ -215,8 +312,8 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: Number
-        - !_OutputBase
-          output: _DomainRange
+        - !_DualBase
+          dual: _DomainRange
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: _BaseDomain
@@ -225,7 +322,7 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
           value: String
-        - !_OutputBase
-          output: _DomainRegex
+        - !_DualBase
+          dual: _DomainRegex
     name: _TypeDomain
     typeKind: !_TypeKind Output

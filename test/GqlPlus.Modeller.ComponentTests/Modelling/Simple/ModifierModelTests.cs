@@ -6,7 +6,7 @@ public class ModifierModelTests(
 {
   [Fact]
   public void Model_Nothing()
-    => _checks.AstExpected(new(AstNulls.At), ["!_Modifier Opt"]);
+    => _checks.AstExpected(new(AstNulls.At), ["!_Modifier", "modifierKind: !_ModifierKind Opt"]);
 
   internal override ICheckModelBase<ModifierInput> BaseChecks => _checks;
 
@@ -19,10 +19,10 @@ internal sealed class ModifierModelChecks(
 {
   protected override string[] ExpectedBase(ModifierInput name)
     => name.Kind switch {
-      ModifierKind.Optional => ["!_Modifier Opt"],
-      ModifierKind.List => ["!_Modifier List"],
-      ModifierKind.Dict => ["!_ModifierDictionary", "key: " + name.Key, name.Optional ? "optional: true" : ""],
-      ModifierKind.Param => ["!_ModifierTypeParameter", "key: " + name.Key, name.Optional ? "optional: true" : ""],
+      ModifierKind.Optional => ["!_Modifier", "modifierKind: !_ModifierKind Opt"],
+      ModifierKind.List => ["!_Modifier", "modifierKind: !_ModifierKind List"],
+      ModifierKind.Dict => ["!_ModifierDictionary", "by: " + name.Key, "modifierKind: !_ModifierKind Dict", name.Optional ? "optional: true" : ""],
+      ModifierKind.Param => ["!_ModifierTypeParameter", "by: " + name.Key, "modifierKind: !_ModifierKind Param", name.Optional ? "optional: true" : ""],
       _ => [],
     };
 

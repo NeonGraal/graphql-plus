@@ -84,7 +84,12 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["Opt"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
           "name": "default",
           "object": "_InputField",
           "type": {
@@ -96,7 +101,12 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "modifiers": ["Opt"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
           "name": "default",
           "type": {
             "$tag": "_OutputBase",
@@ -122,7 +132,12 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "modifiers",
           "object": "_InputParameter",
           "type": {
@@ -132,7 +147,12 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["Opt"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
           "name": "default",
           "object": "_InputParameter",
           "type": {
@@ -144,7 +164,12 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
@@ -153,7 +178,12 @@
         },
         {
           "$tag": "_OutputField",
-          "modifiers": ["Opt"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
           "name": "default",
           "type": {
             "$tag": "_OutputBase",

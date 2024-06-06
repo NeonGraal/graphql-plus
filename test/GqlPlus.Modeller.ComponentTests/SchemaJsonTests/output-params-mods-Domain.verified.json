@@ -44,7 +44,8 @@
               "modifiers": [
                 {
                   "$tag": "_ModifierDictionary",
-                  "value": "OutDomainParam"
+                  "by": "OutDomainParam",
+                  "modifierKind": "Dict"
                 }
               ]
             }
@@ -66,7 +67,8 @@
               "modifiers": [
                 {
                   "$tag": "_ModifierDictionary",
-                  "value": "OutDomainParam"
+                  "by": "OutDomainParam",
+                  "modifierKind": "Dict"
                 }
               ]
             }

@@ -211,7 +211,12 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "parameter",
           "object": "_OutputField",
           "type": {
@@ -232,7 +237,12 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "parameter",
           "type": {
             "$tag": "_OutputBase",

@@ -10,7 +10,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "name": "field",
@@ -27,7 +28,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "name": "field",

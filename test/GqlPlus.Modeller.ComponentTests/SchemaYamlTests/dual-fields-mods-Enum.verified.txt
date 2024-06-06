@@ -13,14 +13,14 @@ types: !_Map_Type
   !_Identifier DualFieldMods: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
-      modifiers: [!_ModifierDictionary {key: DualFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: DualFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       object: DualFieldMods
       type: !_DualBase
         dual: DualFieldMods
     fields:
     - !_DualField
-      modifiers: [!_ModifierDictionary {key: DualFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: DualFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       type: !_DualBase
         dual: DualFieldMods

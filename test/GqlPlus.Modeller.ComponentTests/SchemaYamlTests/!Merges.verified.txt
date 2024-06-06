@@ -10,7 +10,7 @@ categories: !_Map_Categories
     resolution: !_Resolution Parallel
   !_Identifier catMods: !_Category
     aliases: [CatM1, CatM2]
-    modifiers: [!_Modifier Opt]
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     name: catMods
     output: !_TypeRef(_TypeKind)
       name: CatMods

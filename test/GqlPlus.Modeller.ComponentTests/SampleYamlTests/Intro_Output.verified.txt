@@ -112,7 +112,7 @@ types: !_Map_Type
         output: _OutputEnum
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameter
       object: _OutputField
       type: !_OutputBase
@@ -123,7 +123,7 @@ types: !_Map_Type
         output: _OutputEnum
     fields:
     - !_OutputField
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameter
       type: !_OutputBase
         output: _InputParameter

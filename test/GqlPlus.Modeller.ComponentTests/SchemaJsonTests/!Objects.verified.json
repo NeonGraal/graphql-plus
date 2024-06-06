@@ -20,7 +20,8 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "^"
+              "by": "^",
+              "modifierKind": "Dict"
             }
           ],
           "object": "DualAltMods",
@@ -36,7 +37,8 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "^"
+              "by": "^",
+              "modifierKind": "Dict"
             }
           ],
           "type": {
@@ -56,7 +58,8 @@
           "collections": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "object": "DualAltModsParam",
@@ -72,7 +75,8 @@
           "collections": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "type": {
@@ -198,7 +202,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "DualFieldEnum"
+              "by": "DualFieldEnum",
+              "modifierKind": "Dict"
             }
           ],
           "name": "field",
@@ -215,7 +220,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "DualFieldEnum"
+              "by": "DualFieldEnum",
+              "modifierKind": "Dict"
             }
           ],
           "name": "field",
@@ -236,7 +242,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "name": "field",
@@ -253,7 +260,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "name": "field",
@@ -1419,7 +1427,12 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": "null",
-          "modifiers": ["Opt"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
           "name": "field",
           "object": "InFieldNull",
           "type": {
@@ -1432,7 +1445,12 @@
         {
           "$tag": "_InputField",
           "default": "null",
-          "modifiers": ["Opt"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
           "name": "field",
           "type": {
             "$tag": "_InputBase",
@@ -1515,7 +1533,8 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "^"
+              "by": "^",
+              "modifierKind": "Dict"
             }
           ],
           "object": "InpAltMods",
@@ -1531,7 +1550,8 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "^"
+              "by": "^",
+              "modifierKind": "Dict"
             }
           ],
           "type": {
@@ -1551,7 +1571,8 @@
           "collections": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "object": "InpAltModsParam",
@@ -1567,7 +1588,8 @@
           "collections": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "type": {
@@ -1693,7 +1715,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "InpFieldEnum"
+              "by": "InpFieldEnum",
+              "modifierKind": "Dict"
             }
           ],
           "name": "field",
@@ -1710,7 +1733,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "InpFieldEnum"
+              "by": "InpFieldEnum",
+              "modifierKind": "Dict"
             }
           ],
           "name": "field",
@@ -1731,7 +1755,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "name": "field",
@@ -1748,7 +1773,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "name": "field",
@@ -3223,7 +3249,8 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "^"
+              "by": "^",
+              "modifierKind": "Dict"
             }
           ],
           "object": "OutpAltMods",
@@ -3239,7 +3266,8 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "^"
+              "by": "^",
+              "modifierKind": "Dict"
             }
           ],
           "type": {
@@ -3259,7 +3287,8 @@
           "collections": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "object": "OutpAltModsParam",
@@ -3275,7 +3304,8 @@
           "collections": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "type": {
@@ -3437,7 +3467,8 @@
               "modifiers": [
                 {
                   "$tag": "_ModifierDictionary",
-                  "value": "OutDomainParam"
+                  "by": "OutDomainParam",
+                  "modifierKind": "Dict"
                 }
               ]
             }
@@ -3459,7 +3490,8 @@
               "modifiers": [
                 {
                   "$tag": "_ModifierDictionary",
-                  "value": "OutDomainParam"
+                  "by": "OutDomainParam",
+                  "modifierKind": "Dict"
                 }
               ]
             }
@@ -3487,7 +3519,8 @@
               "modifiers": [
                 {
                   "$tag": "_ModifierTypeParameter",
-                  "value": "mod"
+                  "by": "mod",
+                  "modifierKind": "Param"
                 }
               ]
             }
@@ -3509,7 +3542,8 @@
               "modifiers": [
                 {
                   "$tag": "_ModifierTypeParameter",
-                  "value": "mod"
+                  "by": "mod",
+                  "modifierKind": "Param"
                 }
               ]
             }
@@ -3631,7 +3665,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "OutpFieldEnum"
+              "by": "OutpFieldEnum",
+              "modifierKind": "Dict"
             }
           ],
           "name": "field",
@@ -3648,7 +3683,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "OutpFieldEnum"
+              "by": "OutpFieldEnum",
+              "modifierKind": "Dict"
             }
           ],
           "name": "field",
@@ -3669,7 +3705,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "name": "field",
@@ -3686,7 +3723,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "name": "field",

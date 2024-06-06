@@ -57,22 +57,22 @@ types: !_Map_Type
       object: _ChildType
       type: !_TypeParameter parent
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
       object: _ParentType
       type: !_TypeParameter item
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: allItems
       object: _ParentType
       type: !_TypeParameter allItem
     fields:
     - !_OutputField
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
       type: !_TypeParameter item
     - !_OutputField
-      modifiers: [!_Modifier List]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: allItems
       type: !_TypeParameter allItem
     name: _ParentType

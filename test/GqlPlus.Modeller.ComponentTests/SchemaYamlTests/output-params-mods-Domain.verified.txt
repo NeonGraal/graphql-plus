@@ -26,7 +26,8 @@ types: !_Map_Type
       parameters:
       - !_InputParameter
         input: OutParamDomain
-        modifiers: [!_ModifierDictionary {key: OutDomainParam}]
+        modifiers: [!_ModifierDictionary {by: OutDomainParam,
+            modifierKind: !_ModifierKind Dict}]
       type: !_OutputBase
         output: OutDomainParam
     fields:
@@ -35,7 +36,8 @@ types: !_Map_Type
       parameters:
       - !_InputParameter
         input: OutParamDomain
-        modifiers: [!_ModifierDictionary {key: OutDomainParam}]
+        modifiers: [!_ModifierDictionary {by: OutDomainParam,
+            modifierKind: !_ModifierKind Dict}]
       type: !_OutputBase
         output: OutDomainParam
     name: OutParamsDomain

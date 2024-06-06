@@ -5,7 +5,8 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_DualBase))
       collections:
       - !_ModifierTypeParameter
-        key: mod
+        by: mod
+        modifierKind: !_ModifierKind Param
       object: DualAltModsParam
       type: !_DualBase
         dual: DualModsParamAlt
@@ -13,7 +14,8 @@ types: !_Map_Type
     - !_Alternate(_DualBase)
       collections:
       - !_ModifierTypeParameter
-        key: mod
+        by: mod
+        modifierKind: !_ModifierKind Param
       type: !_DualBase
         dual: DualModsParamAlt
     name: DualAltModsParam

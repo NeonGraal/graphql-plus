@@ -13,14 +13,14 @@ types: !_Map_Type
   !_Identifier OutpFieldMods: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {key: OutpFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       object: OutpFieldMods
       type: !_OutputBase
         output: OutpFieldMods
     fields:
     - !_OutputField
-      modifiers: [!_ModifierDictionary {key: OutpFieldEnum}]
+      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, modifierKind: !_ModifierKind Dict}]
       name: field
       type: !_OutputBase
         output: OutpFieldMods

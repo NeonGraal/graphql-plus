@@ -7,7 +7,7 @@ directives: !_Map_Directives
     parameters:
     - !_InputParameter
       input: DirParamIn
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     repeatable: false
 types: !_Map_Type
   !_Identifier DirParamIn: !_TypeInput

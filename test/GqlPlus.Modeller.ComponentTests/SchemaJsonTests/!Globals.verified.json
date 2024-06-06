@@ -17,7 +17,8 @@
       "modifiers": [
         {
           "$tag": "_ModifierDictionary",
-          "value": "*"
+          "by": "*",
+          "modifierKind": "Dict"
         }
       ],
       "name": "catDict",
@@ -30,7 +31,12 @@
     },
     "catList": {
       "$tag": "_Category",
-      "modifiers": ["List"],
+      "modifiers": [
+        {
+          "$tag": "_Modifier",
+          "modifierKind": "List"
+        }
+      ],
       "name": "catList",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
@@ -41,7 +47,12 @@
     },
     "catOpt": {
       "$tag": "_Category",
-      "modifiers": ["Opt"],
+      "modifiers": [
+        {
+          "$tag": "_Modifier",
+          "modifierKind": "Opt"
+        }
+      ],
       "name": "catOpt",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
@@ -102,7 +113,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "String"
+              "by": "String",
+              "modifierKind": "Dict"
             }
           ]
         }
@@ -125,7 +137,12 @@
         {
           "$tag": "_InputParameter",
           "input": "DirParamIn",
-          "modifiers": ["List"]
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ]
         }
       ],
       "repeatable": false
@@ -146,7 +163,12 @@
         {
           "$tag": "_InputParameter",
           "input": "DirParamIn",
-          "modifiers": ["Opt"]
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ]
         }
       ],
       "repeatable": false

@@ -14,7 +14,12 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "parameters",
           "object": "_Directive",
           "type": {
@@ -36,7 +41,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "_Location"
+              "by": "_Location",
+              "modifierKind": "Dict"
             }
           ],
           "name": "locations",
@@ -50,7 +56,12 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "modifiers": ["List"],
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "parameters",
           "type": {
             "$tag": "_OutputBase",
@@ -70,7 +81,8 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "_Location"
+              "by": "_Location",
+              "modifierKind": "Dict"
             }
           ],
           "name": "locations",

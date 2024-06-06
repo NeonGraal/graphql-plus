@@ -3,14 +3,14 @@ types: !_Map_Type
   !_Identifier InpFieldModsParam: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
-      modifiers: [!_ModifierTypeParameter {key: mod}]
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       object: InpFieldModsParam
       type: !_InputBase
         input: InpFieldParamMods
     fields:
     - !_InputField
-      modifiers: [!_ModifierTypeParameter {key: mod}]
+      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       type: !_InputBase
         input: InpFieldParamMods

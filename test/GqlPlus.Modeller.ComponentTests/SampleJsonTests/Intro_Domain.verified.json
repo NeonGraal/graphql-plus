@@ -166,6 +166,125 @@
       "name": "_DomainKind",
       "typeKind": "Enum"
     },
+    "_DomainMember": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "member",
+          "object": "_DomainMember",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_EnumValue"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "member",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_EnumValue"
+          }
+        }
+      ],
+      "name": "_DomainMember",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "_BaseDomainItem"
+      },
+      "typeKind": "Output"
+    },
+    "_DomainRange": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "lower",
+          "object": "_DomainRange",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "upper",
+          "object": "_DomainRange",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "lower",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        },
+        {
+          "$tag": "_DualField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "upper",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "_DomainRange",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "_BaseDomainItem"
+      },
+      "typeKind": "Dual"
+    },
     "_DomainRef": {
       "$tag": "_TypeOutput",
       "allFields": [
@@ -203,6 +322,84 @@
           "value": "kind"
         }
       ]
+    },
+    "_DomainRegex": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "pattern",
+          "object": "_DomainRegex",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "pattern",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "_DomainRegex",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "_BaseDomainItem"
+      },
+      "typeKind": "Dual"
+    },
+    "_DomainTrueFalse": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "value",
+          "object": "_DomainTrueFalse",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "value",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Boolean"
+          }
+        }
+      ],
+      "name": "_DomainTrueFalse",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "_BaseDomainItem"
+      },
+      "typeKind": "Dual"
     },
     "_DomainValue": {
       "$tag": "_TypeOutput",
@@ -262,7 +459,7 @@
                 "value": "Boolean"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_DualBase",
                 "value": "_DomainTrueFalse"
               }
             ]
@@ -302,7 +499,7 @@
                 "value": "Number"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_DualBase",
                 "value": "_DomainRange"
               }
             ]
@@ -322,7 +519,7 @@
                 "value": "String"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_DualBase",
                 "value": "_DomainRegex"
               }
             ]
@@ -343,7 +540,7 @@
                 "value": "Boolean"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_DualBase",
                 "value": "_DomainTrueFalse"
               }
             ]
@@ -381,7 +578,7 @@
                 "value": "Number"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_DualBase",
                 "value": "_DomainRange"
               }
             ]
@@ -400,7 +597,7 @@
                 "value": "String"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_DualBase",
                 "value": "_DomainRegex"
               }
             ]

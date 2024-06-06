@@ -1,7 +1,7 @@
 ﻿!_Schema
 categories: !_Map_Categories
   !_Identifier catList: !_Category
-    modifiers: [!_Modifier List]
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
     name: catList
     output: !_TypeRef(_TypeKind)
       name: CatList

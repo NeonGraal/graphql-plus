@@ -18,7 +18,12 @@
         {
           "$tag": "_InputParameter",
           "input": "DirParamIn",
-          "modifiers": ["Opt"]
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ]
         }
       ],
       "repeatable": false

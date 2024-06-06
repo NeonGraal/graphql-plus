@@ -4,7 +4,7 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_InputField)
       default: !Null null
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: field
       object: InFieldNull
       type: !_InputBase
@@ -12,7 +12,7 @@ types: !_Map_Type
     fields:
     - !_InputField
       default: !Null null
-      modifiers: [!_Modifier Opt]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: field
       type: !_InputBase
         input: InFieldNull

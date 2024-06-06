@@ -5,7 +5,8 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_InputBase))
       collections:
       - !_ModifierTypeParameter
-        key: mod
+        by: mod
+        modifierKind: !_ModifierKind Param
       object: InpAltModsParam
       type: !_InputBase
         input: InpModsParamAlt
@@ -13,7 +14,8 @@ types: !_Map_Type
     - !_Alternate(_InputBase)
       collections:
       - !_ModifierTypeParameter
-        key: mod
+        by: mod
+        modifierKind: !_ModifierKind Param
       type: !_InputBase
         input: InpModsParamAlt
     name: InpAltModsParam

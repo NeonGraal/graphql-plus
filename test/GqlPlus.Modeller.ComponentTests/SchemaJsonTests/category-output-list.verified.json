@@ -4,7 +4,12 @@
     "$tag": "_Map_Categories",
     "catList": {
       "$tag": "_Category",
-      "modifiers": ["List"],
+      "modifiers": [
+        {
+          "$tag": "_Modifier",
+          "modifierKind": "List"
+        }
+      ],
       "name": "catList",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",

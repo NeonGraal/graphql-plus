@@ -10,7 +10,8 @@
           "collections": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "object": "OutpAltModsParam",
@@ -26,7 +27,8 @@
           "collections": [
             {
               "$tag": "_ModifierTypeParameter",
-              "value": "mod"
+              "by": "mod",
+              "modifierKind": "Param"
             }
           ],
           "type": {

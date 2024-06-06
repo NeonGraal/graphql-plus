@@ -14,11 +14,21 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Collections
       type: !_OutputBase
-        output: _ModifierDictionary
+        output: _ModifierKeyed
+        typeArguments:
+        - !_OutputArgument
+          name: _ModifierKind
+          typeKind: !_SimpleKind Enum
+          value: Dictionary
     - !_ObjectFor(_Alternate(_OutputBase))
       object: _Collections
       type: !_OutputBase
-        output: _ModifierTypeParameter
+        output: _ModifierKeyed
+        typeArguments:
+        - !_OutputArgument
+          name: _ModifierKind
+          typeKind: !_SimpleKind Enum
+          value: TypeParameter
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
@@ -30,10 +40,20 @@ types: !_Map_Type
           value: List
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        output: _ModifierDictionary
+        output: _ModifierKeyed
+        typeArguments:
+        - !_OutputArgument
+          name: _ModifierKind
+          typeKind: !_SimpleKind Enum
+          value: Dictionary
     - !_Alternate(_OutputBase)
       type: !_OutputBase
-        output: _ModifierTypeParameter
+        output: _ModifierKeyed
+        typeArguments:
+        - !_OutputArgument
+          name: _ModifierKind
+          typeKind: !_SimpleKind Enum
+          value: TypeParameter
     name: _Collections
     typeKind: !_TypeKind Output
   !_Identifier _Constant: !_TypeOutput
@@ -66,14 +86,16 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))
       collections:
-      - !_Modifier List
+      - !_Modifier
+        modifierKind: !_ModifierKind List
       object: _ConstantList
       type: !_OutputBase
         output: _Constant
     alternates:
     - !_Alternate(_OutputBase)
       collections:
-      - !_Modifier List
+      - !_Modifier
+        modifierKind: !_ModifierKind List
       type: !_OutputBase
         output: _Constant
     name: _ConstantList
@@ -83,7 +105,8 @@ types: !_Map_Type
     - !_ObjectFor(_Alternate(_OutputBase))
       collections:
       - !_ModifierDictionary
-        key: Simple
+        by: Simple
+        modifierKind: !_ModifierKind Dict
       object: _ConstantMap
       type: !_OutputBase
         output: _Constant
@@ -91,7 +114,8 @@ types: !_Map_Type
     - !_Alternate(_OutputBase)
       collections:
       - !_ModifierDictionary
-        key: Simple
+        by: Simple
+        modifierKind: !_ModifierKind Dict
       type: !_OutputBase
         output: _Constant
     name: _ConstantMap
@@ -111,7 +135,7 @@ types: !_Map_Type
     typeParameters:
     - !_Described
       name: kind
-  !_Identifier _ModifierDictionary: !_TypeOutput
+  !_Identifier _ModifierKeyed: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: modifierKind
@@ -119,12 +143,12 @@ types: !_Map_Type
       type: !_TypeParameter kind
     - !_ObjectFor(_OutputField)
       name: by
-      object: _ModifierDictionary
+      object: _ModifierKeyed
       type: !_OutputBase
         output: _TypeSimple
     - !_ObjectFor(_OutputField)
       name: optional
-      object: _ModifierDictionary
+      object: _ModifierKeyed
       type: !_OutputBase
         output: Boolean
     fields:
@@ -136,74 +160,46 @@ types: !_Map_Type
       name: optional
       type: !_OutputBase
         output: Boolean
-    name: _ModifierDictionary
+    name: _ModifierKeyed
     parent: !_OutputBase
       output: _Modifier
       typeArguments:
-      - !_OutputArgument
-        name: _ModifierKind
-        typeKind: !_SimpleKind Enum
-        value: Dictionary
+      - !_TypeParameter kind
     typeKind: !_TypeKind Output
+    typeParameters:
+    - !_Described
+      name: kind
   !_Identifier _ModifierKind: !_TypeEnum
     allItems:
     - !_EnumMember
+      aliases: [Optional]
       enum: _ModifierKind
-      name: Optional
+      name: Opt
     - !_EnumMember
       enum: _ModifierKind
       name: List
     - !_EnumMember
+      aliases: [Dictionary]
       enum: _ModifierKind
-      name: Dictionary
+      name: Dict
     - !_EnumMember
+      aliases: [TypeParameter]
       enum: _ModifierKind
-      name: TypeParameter
+      name: Param
     items:
     - !_Aliased
-      name: Optional
+      aliases: [Optional]
+      name: Opt
     - !_Aliased
       name: List
     - !_Aliased
-      name: Dictionary
+      aliases: [Dictionary]
+      name: Dict
     - !_Aliased
-      name: TypeParameter
+      aliases: [TypeParameter]
+      name: Param
     name: _ModifierKind
     typeKind: !_TypeKind Enum
-  !_Identifier _ModifierTypeParameter: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: modifierKind
-      object: _Modifier
-      type: !_TypeParameter kind
-    - !_ObjectFor(_OutputField)
-      name: typeParameter
-      object: _ModifierTypeParameter
-      type: !_OutputBase
-        output: _TypeParameter
-    - !_ObjectFor(_OutputField)
-      name: optional
-      object: _ModifierTypeParameter
-      type: !_OutputBase
-        output: Boolean
-    fields:
-    - !_OutputField
-      name: typeParameter
-      type: !_OutputBase
-        output: _TypeParameter
-    - !_OutputField
-      name: optional
-      type: !_OutputBase
-        output: Boolean
-    name: _ModifierTypeParameter
-    parent: !_OutputBase
-      output: _Modifier
-      typeArguments:
-      - !_OutputArgument
-        name: _ModifierKind
-        typeKind: !_SimpleKind Enum
-        value: TypeParameter
-    typeKind: !_TypeKind Output
   !_Identifier _Modifiers: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_Alternate(_OutputBase))

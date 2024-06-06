@@ -7,7 +7,8 @@
       "modifiers": [
         {
           "$tag": "_ModifierDictionary",
-          "value": "*"
+          "by": "*",
+          "modifierKind": "Dict"
         }
       ],
       "name": "catDict",

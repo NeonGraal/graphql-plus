@@ -160,3 +160,66 @@ Success
     $value
   }
 }
+{
+  !Du I@006/0033
+  _DomainTrueFalse
+  :
+  I@007/0034
+  _BaseDomainItem
+  {
+    !DF I@009/0035
+    value
+    :
+    I@016/0035
+    Boolean
+  }
+}
+{
+  !Ou I@008/0037
+  _DomainMember
+  :
+  I@007/0038
+  _BaseDomainItem
+  {
+    !OF I@009/0039
+    member
+    :
+    I@017/0039
+    _EnumValue
+  }
+}
+{
+  !Du I@006/0041
+  _DomainRange
+  :
+  I@007/0042
+  _BaseDomainItem
+  {
+    !DF I@009/0043
+    lower
+    :
+    I@016/0043
+    Number
+    ?
+    !DF I@009/0044
+    upper
+    :
+    I@016/0044
+    Number
+    ?
+  }
+}
+{
+  !Du I@006/0046
+  _DomainRegex
+  :
+  I@007/0047
+  _BaseDomainItem
+  {
+    !DF I@009/0048
+    pattern
+    :
+    I@018/0048
+    String
+  }
+}

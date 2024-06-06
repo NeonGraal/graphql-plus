@@ -1,7 +1,7 @@
 ﻿!_Schema
 categories: !_Map_Categories
   !_Identifier catOpt: !_Category
-    modifiers: [!_Modifier Opt]
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     name: catOpt
     output: !_TypeRef(_TypeKind)
       name: CatOpt

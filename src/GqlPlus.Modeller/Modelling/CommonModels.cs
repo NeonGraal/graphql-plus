@@ -71,12 +71,12 @@ public record class CollectionModel(
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
+        .Add("modifierKind", ModifierKind)
         .Add(ModifierKind is ModifierKind.Dict or ModifierKind.Param,
           s => s
-            .Add("key", Key
+            .Add("by", Key
               ?? throw new InvalidOperationException($"{ModifierKind} Modifier must have a Key specified"))
-            .Add("optional", IsOptional, true),
-          s => new($"{ModifierKind}", Tag));
+            .Add("optional", IsOptional, true));
 }
 
 public record class ModifierModel(

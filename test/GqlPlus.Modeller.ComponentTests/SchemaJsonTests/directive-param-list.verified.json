@@ -18,7 +18,12 @@
         {
           "$tag": "_InputParameter",
           "input": "DirParamIn",
-          "modifiers": ["List"]
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ]
         }
       ],
       "repeatable": false

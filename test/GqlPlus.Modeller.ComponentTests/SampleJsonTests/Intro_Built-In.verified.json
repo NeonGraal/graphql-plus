@@ -26,7 +26,15 @@
           "object": "_Collections",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ModifierDictionary"
+            "output": "_ModifierKeyed",
+            "typeArguments": [
+              {
+                "$tag": "_OutputArgument",
+                "name": "_ModifierKind",
+                "typeKind": "Enum",
+                "value": "Dictionary"
+              }
+            ]
           }
         },
         {
@@ -34,7 +42,15 @@
           "object": "_Collections",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ModifierTypeParameter"
+            "output": "_ModifierKeyed",
+            "typeArguments": [
+              {
+                "$tag": "_OutputArgument",
+                "name": "_ModifierKind",
+                "typeKind": "Enum",
+                "value": "TypeParameter"
+              }
+            ]
           }
         }
       ],
@@ -58,14 +74,30 @@
           "$tag": "_Alternate(_OutputBase)",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ModifierDictionary"
+            "output": "_ModifierKeyed",
+            "typeArguments": [
+              {
+                "$tag": "_OutputArgument",
+                "name": "_ModifierKind",
+                "typeKind": "Enum",
+                "value": "Dictionary"
+              }
+            ]
           }
         },
         {
           "$tag": "_Alternate(_OutputBase)",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ModifierTypeParameter"
+            "output": "_ModifierKeyed",
+            "typeArguments": [
+              {
+                "$tag": "_OutputArgument",
+                "name": "_ModifierKind",
+                "typeKind": "Enum",
+                "value": "TypeParameter"
+              }
+            ]
           }
         }
       ],
@@ -131,7 +163,12 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_Alternate(_OutputBase))",
-          "collections": ["List"],
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "object": "_ConstantList",
           "type": {
             "$tag": "_OutputBase",
@@ -142,7 +179,12 @@
       "alternates": [
         {
           "$tag": "_Alternate(_OutputBase)",
-          "collections": ["List"],
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "type": {
             "$tag": "_OutputBase",
             "value": "_Constant"
@@ -160,7 +202,8 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "Simple"
+              "by": "Simple",
+              "modifierKind": "Dict"
             }
           ],
           "object": "_ConstantMap",
@@ -176,7 +219,8 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "value": "Simple"
+              "by": "Simple",
+              "modifierKind": "Dict"
             }
           ],
           "type": {
@@ -214,7 +258,7 @@
         }
       ]
     },
-    "_ModifierDictionary": {
+    "_ModifierKeyed": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
@@ -226,7 +270,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "by",
-          "object": "_ModifierDictionary",
+          "object": "_ModifierKeyed",
           "type": {
             "$tag": "_OutputBase",
             "value": "_TypeSimple"
@@ -235,7 +279,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "optional",
-          "object": "_ModifierDictionary",
+          "object": "_ModifierKeyed",
           "type": {
             "$tag": "_OutputBase",
             "value": "Boolean"
@@ -260,28 +304,28 @@
           }
         }
       ],
-      "name": "_ModifierDictionary",
+      "name": "_ModifierKeyed",
       "parent": {
         "$tag": "_OutputBase",
         "output": "_Modifier",
-        "typeArguments": [
-          {
-            "$tag": "_OutputArgument",
-            "name": "_ModifierKind",
-            "typeKind": "Enum",
-            "value": "Dictionary"
-          }
-        ]
+        "typeArguments": ["kind"]
       },
-      "typeKind": "Output"
+      "typeKind": "Output",
+      "typeParameters": [
+        {
+          "$tag": "_Described",
+          "value": "kind"
+        }
+      ]
     },
     "_ModifierKind": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumMember",
+          "aliases": ["Optional"],
           "enum": "_ModifierKind",
-          "name": "Optional"
+          "name": "Opt"
         },
         {
           "$tag": "_EnumMember",
@@ -290,19 +334,22 @@
         },
         {
           "$tag": "_EnumMember",
+          "aliases": ["Dictionary"],
           "enum": "_ModifierKind",
-          "name": "Dictionary"
+          "name": "Dict"
         },
         {
           "$tag": "_EnumMember",
+          "aliases": ["TypeParameter"],
           "enum": "_ModifierKind",
-          "name": "TypeParameter"
+          "name": "Param"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Optional"
+          "aliases": ["Optional"],
+          "name": "Opt"
         },
         {
           "$tag": "_Aliased",
@@ -310,11 +357,13 @@
         },
         {
           "$tag": "_Aliased",
-          "value": "Dictionary"
+          "aliases": ["Dictionary"],
+          "name": "Dict"
         },
         {
           "$tag": "_Aliased",
-          "value": "TypeParameter"
+          "aliases": ["TypeParameter"],
+          "name": "Param"
         }
       ],
       "name": "_ModifierKind",
@@ -373,67 +422,6 @@
         }
       ],
       "name": "_Modifiers",
-      "typeKind": "Output"
-    },
-    "_ModifierTypeParameter": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "modifierKind",
-          "object": "_Modifier",
-          "type": "kind"
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeParameter",
-          "object": "_ModifierTypeParameter",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeParameter"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "optional",
-          "object": "_ModifierTypeParameter",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Boolean"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "typeParameter",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeParameter"
-          }
-        },
-        {
-          "$tag": "_OutputField",
-          "name": "optional",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Boolean"
-          }
-        }
-      ],
-      "name": "_ModifierTypeParameter",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "_Modifier",
-        "typeArguments": [
-          {
-            "$tag": "_OutputArgument",
-            "name": "_ModifierKind",
-            "typeKind": "Enum",
-            "value": "TypeParameter"
-          }
-        ]
-      },
       "typeKind": "Output"
     },
     "_Simple": {

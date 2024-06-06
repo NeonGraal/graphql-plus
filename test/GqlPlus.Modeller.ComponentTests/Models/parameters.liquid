@@ -1,0 +1,6 @@
+﻿(
+{%- for parameter in parameters -%}
+{{ parameter.input }}
+{%- unless forloop.last -%} | {%- endunless -%}
+{%- endfor -%}
+)

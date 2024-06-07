@@ -7,6 +7,7 @@ public class ParseCollectionsTests(ParserArray<IParserCollections, IGqlpModifier
   [InlineData("[]", 1)]
   [InlineData("[String]", 1)]
   [InlineData("[^?]", 1)]
+  [InlineData("[0][_][*?]", 3)]
   public void WithInput_ReturnsGivenNumber(string input, int count)
     => _test.Count(input, count);
 

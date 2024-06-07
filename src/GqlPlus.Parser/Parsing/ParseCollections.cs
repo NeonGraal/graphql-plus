@@ -23,10 +23,10 @@ internal class ParseCollections
         }
       } else if (tokens.Identifier(out string? key)) {
         modifier = ModifierAst.Dict(at, key, tokens.Take('?'));
-      } else {
-        if (tokens.TakeAny(out char charType, '^', '0', '*')) {
-          modifier = ModifierAst.Dict(at, charType.ToString(), tokens.Take('?'));
-        }
+      } else if (tokens.TakeZero()) {
+        modifier = ModifierAst.Dict(at, "0", tokens.Take('?'));
+      } else if (tokens.TakeAny(out char charType, '^', '_', '*')) {
+        modifier = ModifierAst.Dict(at, charType.ToString(), tokens.Take('?'));
       }
 
       if (tokens.Take(']')) {

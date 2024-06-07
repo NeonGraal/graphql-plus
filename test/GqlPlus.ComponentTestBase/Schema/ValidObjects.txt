@@ -15,8 +15,7 @@ object ObjAltModsParam<$mod> { | ObjModsParamAlt[$mod] }
 object ObjModsParamAlt { }
 
 // fields
-object FieldsObj { field: ObjField }
-object ObjField { }
+object ObjFieldsStr { field: * }
 
 // fields-dual
 object ObjFieldsDual { field: ObjFieldDual }
@@ -29,6 +28,10 @@ enum ObjFieldEnum { value }
 // fields-mods-param
 object ObjFieldModsParam<$mod> { field: ObjFieldParamMods[$mod] }
 object ObjFieldParamMods { }
+
+// fields-object
+object FieldsObj { field: ObjField }
+object ObjField { }
 
 // generic-alt
 object ObjGenAlt<$type> { | $type }

@@ -321,48 +321,36 @@ Success
 }
 {
   !Du I@006/0001
-  FieldsDual
+  DualFieldsStr
   {
-    !DF I@019/0001
+    !DF I@022/0001
     field
     :
-    I@026/0001
-    DualField
+    P@029/0001
+    *
   }
-}
-{
-  !Du I@043/0001
-  DualField
 }
 {
   !In I@007/0001
-  FieldsInp
+  InpFieldsStr
   {
-    !IF I@019/0001
+    !IF I@022/0001
     field
     :
-    I@026/0001
-    InpField
+    P@029/0001
+    *
   }
-}
-{
-  !In I@043/0001
-  InpField
 }
 {
   !Ou I@008/0001
-  FieldsOutp
+  OutpFieldsStr
   {
-    !OF I@021/0001
+    !OF I@024/0001
     field
     :
-    I@028/0001
-    OutpField
+    P@031/0001
+    *
   }
-}
-{
-  !Ou I@047/0001
-  OutpField
 }
 {
   !Du I@006/0001
@@ -522,6 +510,51 @@ Success
 {
   !Ou I@076/0001
   OutpFieldParamMods
+}
+{
+  !Du I@006/0001
+  FieldsDual
+  {
+    !DF I@019/0001
+    field
+    :
+    I@026/0001
+    DualField
+  }
+}
+{
+  !Du I@043/0001
+  DualField
+}
+{
+  !In I@007/0001
+  FieldsInp
+  {
+    !IF I@019/0001
+    field
+    :
+    I@026/0001
+    InpField
+  }
+}
+{
+  !In I@043/0001
+  InpField
+}
+{
+  !Ou I@008/0001
+  FieldsOutp
+  {
+    !OF I@021/0001
+    field
+    :
+    I@028/0001
+    OutpField
+  }
+}
+{
+  !Ou I@047/0001
+  OutpField
 }
 {
   !Du I@006/0001

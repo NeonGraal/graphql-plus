@@ -675,6 +675,20 @@ types: !_Map_Type
         dual: String
     name: DualFieldsParent
     typeKind: !_TypeKind Dual
+  !_Identifier DualFieldsStr: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualFieldsStr
+      type: !_DualBase
+        dual: '*'
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: '*'
+    name: DualFieldsStr
+    typeKind: !_TypeKind Dual
   !_Identifier DualGenAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_Alternate(_DualBase))
@@ -1989,6 +2003,20 @@ types: !_Map_Type
         input: String
     name: InpFieldsParent
     typeKind: !_TypeKind Input
+  !_Identifier InpFieldsStr: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpFieldsStr
+      type: !_InputBase
+        input: '*'
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        input: '*'
+    name: InpFieldsStr
+    typeKind: !_TypeKind Input
   !_Identifier InpGenAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_Alternate(_InputBase))
@@ -3223,6 +3251,20 @@ types: !_Map_Type
       type: !_OutputBase
         output: String
     name: OutpFieldsParent
+    typeKind: !_TypeKind Output
+  !_Identifier OutpFieldsStr: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpFieldsStr
+      type: !_OutputBase
+        output: '*'
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: '*'
+    name: OutpFieldsStr
     typeKind: !_TypeKind Output
   !_Identifier OutpGenAlt: !_TypeOutput
     allAlternates:

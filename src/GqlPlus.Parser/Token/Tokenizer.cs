@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+
 using GqlPlus.Result;
 
 namespace GqlPlus.Token;
@@ -349,6 +350,17 @@ public class Tokenizer
     result = _operation.Span[_pos++];
     Read();
 
+    return true;
+  }
+
+  internal bool TakeZero()
+  {
+    if (_kind != TokenKind.Number || _pos >= _len || _operation.Span[_pos] != '0') {
+      return false;
+    }
+
+    _pos++;
+    Read();
     return true;
   }
 

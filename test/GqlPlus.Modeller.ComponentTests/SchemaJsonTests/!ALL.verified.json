@@ -1237,6 +1237,32 @@
       "name": "DualFieldsParent",
       "typeKind": "Dual"
     },
+    "DualFieldsStr": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualFieldsStr",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "*"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "*"
+          }
+        }
+      ],
+      "name": "DualFieldsStr",
+      "typeKind": "Dual"
+    },
     "DualGenAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -3625,6 +3651,32 @@
       "name": "InpFieldsParent",
       "typeKind": "Input"
     },
+    "InpFieldsStr": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpFieldsStr",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "*"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "*"
+          }
+        }
+      ],
+      "name": "InpFieldsStr",
+      "typeKind": "Input"
+    },
     "InpGenAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
@@ -5783,6 +5835,32 @@
         }
       ],
       "name": "OutpFieldsParent",
+      "typeKind": "Output"
+    },
+    "OutpFieldsStr": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpFieldsStr",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "*"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "*"
+          }
+        }
+      ],
+      "name": "OutpFieldsStr",
       "typeKind": "Output"
     },
     "OutpGenAlt": {

@@ -13,7 +13,7 @@ public record class TypeDualModel(
 
 public record class DualBaseModel(
   string Dual
-) : ObjBaseModel<ObjRefModel<DualBaseModel>>
+) : ObjBaseModel<DualBaseModel>
 {
   internal override RenderStructure Render(IRenderContext context)
     => IsTypeParameter
@@ -24,7 +24,7 @@ public record class DualBaseModel(
 
 public record class DualFieldModel(
   string Name,
-  ObjRefModel<DualBaseModel> Type
+  DualBaseModel Type
 ) : ObjFieldModel<DualBaseModel>(Name, Type)
 { }
 
@@ -60,6 +60,6 @@ internal class DualFieldModeller(
   IModeller<IGqlpDualBase, DualBaseModel> objBase
 ) : ModellerObjField<IGqlpDualBase, IGqlpDualField, DualBaseModel, DualFieldModel>(modifier, objBase)
 {
-  protected override DualFieldModel FieldModel(IGqlpDualField ast, ObjRefModel<DualBaseModel> type, IMap<TypeKindModel> typeKinds)
+  protected override DualFieldModel FieldModel(IGqlpDualField ast, DualBaseModel type, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, type);
 }

@@ -44,7 +44,7 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
   {
     if (Parent?.Base.IsTypeParameter == false) {
       if (base.GetParentModel(context, out model)) {
-        if (Parent.Base is ObjBaseModel<ObjRefModel<TObjBase>> baseParent
+        if (Parent.Base is ObjBaseModel<TObjBase> baseParent
           && model is ITypeObjectModel objectModel
           && baseParent.TypeArguments.Length > 0
           && objectModel.TypeParameters.Length >= baseParent.TypeArguments.Length) {
@@ -65,19 +65,40 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
   protected override string? ParentName(ObjDescribedModel<TObjBase>? parent)
     => BaseName(parent?.Base);
 
-  protected bool GetArgument(Map<IObjBaseModel> arguments, TObjBase? type, [NotNullWhen(true)] out ObjRefModel<TObjBase>? value)
+  protected bool GetArgument(Map<IObjBaseModel> arguments, TObjBase? type, [NotNullWhen(true)] out TObjBase? value)
   {
     ArgumentNullException.ThrowIfNull(arguments);
 
-    if (type?.IsTypeParameter == true
-      && arguments.TryGetValue(BaseName(type), out IObjBaseModel? typeBase)
-      && typeBase is ObjRefModel<TObjBase> objBase
-    ) {
-      value = objBase;
-      return true;
+    value = null;
+
+    bool applied = false;
+
+    TObjBase ApplyArgument(TObjBase argument)
+    {
+      if (GetArgument(arguments, argument, out TObjBase? argumentModel)) {
+        return argumentModel;
+      }
+
+      return argument;
     }
 
-    value = null;
+    // TObjBase[] typeArguments = [.. (TObjBase)type?.Cast<TObjBase>.TypeArguments.Select(ApplyArgument)];
+
+    if (type?.IsTypeParameter == true) {
+      string argumentName = BaseName(type);
+      if (arguments.TryGetValue(argumentName, out IObjBaseModel? typeBase)
+        && typeBase is TObjBase objBase
+    ) {
+        if (objBase?.IsTypeParameter == true
+          && string.Equals(argumentName, BaseName(objBase), StringComparison.Ordinal)) {
+          return false;
+        }
+
+        value = objBase;
+        return true;
+      }
+    }
+
     return false;
   }
 
@@ -89,8 +110,8 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
     ArgumentNullException.ThrowIfNull(arguments);
 
     if (arguments.TryGetValue(type ?? "", out IObjBaseModel? typeBase)) {
-      if (typeBase is ObjRefModel<TObjBase> objBase && objBase.BaseRef is not null) {
-        value = (BaseName(objBase.BaseRef), objBase.BaseRef.IsTypeParameter);
+      if (typeBase is TObjBase objBase) {
+        value = (BaseName(objBase), objBase.IsTypeParameter);
         return true;
       }
     }
@@ -104,9 +125,9 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
     ArgumentNullException.ThrowIfNull(arguments);
     TypeObjectModel<TObjBase, TObjField> result = (TypeObjectModel<TObjBase, TObjField>)MemberwiseClone();
 
-    if (GetArgument(arguments, Parent?.Base, out ObjRefModel<TObjBase>? parentModel)
-      && parentModel.BaseRef is not null) {
-      result.Parent = new(parentModel.BaseRef) { Description = Parent?.Description };
+    if (GetArgument(arguments, Parent?.Base, out TObjBase? parentModel)
+      && parentModel is not null) {
+      result.Parent = new(parentModel) { Description = Parent?.Description };
     }
 
     result.Alternates = [.. Alternates.Select(a => ApplyAlternate(a, arguments))];
@@ -130,13 +151,15 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
       return collection;
     }
 
-    IEnumerable<CollectionModel> collections = alternate.Collections.Select(ApplyCollection);
+    CollectionModel[] collections = [.. alternate.Collections.Select(ApplyCollection)];
 
-    return GetArgument(arguments, alternate.Type.Base.BaseRef, out ObjRefModel<TObjBase>? typeModel)
-      ? new(new(typeModel)) { Collections = [.. collections] }
-      : applied
-        ? (alternate with { Collections = [.. collections] })
+    if (GetArgument(arguments, alternate.Type.Base, out TObjBase? typeModel)) {
+      return new(new(typeModel)) { Collections = collections };
+    } else {
+      return applied
+        ? (alternate with { Collections = collections })
         : alternate;
+    }
   }
 
   private TObjField ApplyField(TObjField field, Map<IObjBaseModel> arguments)
@@ -153,14 +176,16 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
       return modifier;
     }
 
-    IEnumerable<ModifierModel> modifiers = field.Modifiers.Select(ApplyModifier);
+    ModifierModel[] modifiers = [.. field.Modifiers.Select(ApplyModifier)];
 
-    return GetArgument(arguments, field.Type?.BaseRef, out ObjRefModel<TObjBase>? typeModel)
-        ? NewField(field, typeModel, modifiers)
-        : applied ? NewField(field, field.Type!, modifiers) : field;
+    if (GetArgument(arguments, field.Type, out TObjBase? typeModel)) {
+      return NewField(field, typeModel, modifiers);
+    } else {
+      return applied ? NewField(field, field.Type!, modifiers) : field;
+    }
   }
 
-  protected abstract TObjField NewField(TObjField field, ObjRefModel<TObjBase> typeModel, IEnumerable<ModifierModel> modifiers);
+  protected abstract TObjField NewField(TObjField field, TObjBase typeModel, ModifierModel[] modifiers);
   protected abstract string BaseName(TObjBase? objBase);
 
   ITypeObjectModel ITypeObjectModel.Apply(Map<IObjBaseModel> arguments) => Apply(arguments);
@@ -196,27 +221,6 @@ internal interface ITypeObjectModel
   ITypeObjectModel Apply(Map<IObjBaseModel> arguments);
 }
 
-public sealed record class ObjRefModel<TObjBase>
-  : ModelBase, IObjBaseModel
-  where TObjBase : IObjBaseModel
-{
-  internal TypeRefModel<SimpleKindModel>? TypeRef { get; private init; }
-
-  internal TObjBase? BaseRef { get; private init; }
-
-  public ObjRefModel(TypeRefModel<SimpleKindModel> typeRef)
-    => TypeRef = typeRef;
-  public ObjRefModel(TObjBase baseRef)
-    => BaseRef = baseRef;
-
-  internal override RenderStructure Render(IRenderContext context)
-    => TypeRef is not null ? TypeRef.Render(context)
-      : BaseRef is not null ? BaseRef.Render(context)
-      : new("");
-
-  bool IObjBaseModel.IsTypeParameter => BaseRef?.IsTypeParameter ?? false;
-}
-
 public record class ObjBaseModel<TArg>
   : ModelBase, IObjBaseModel
   where TArg : IObjBaseModel
@@ -236,7 +240,7 @@ public interface IObjBaseModel
 }
 
 public record class AlternateModel<TObjBase>(
-  ObjDescribedModel<ObjRefModel<TObjBase>> Type
+  ObjDescribedModel<TObjBase> Type
 ) : ModelBase
   where TObjBase : IObjBaseModel
 {
@@ -262,7 +266,7 @@ public record class ObjectForModel<TFor>(
 
 public record class ObjFieldModel<TObjBase>(
   string Name,
-  ObjRefModel<TObjBase>? Type
+  TObjBase? Type
 ) : AliasedModel(Name)
   where TObjBase : IObjBaseModel
 {
@@ -316,12 +320,12 @@ internal abstract class ModellerObjBase<TObjBaseAst, TObjBase, TArg>
 }
 
 internal abstract class ModellerObjBase<TObjBaseAst, TObjBase>
-  : ModellerObjBase<TObjBaseAst, TObjBase, ObjRefModel<TObjBase>>
+  : ModellerObjBase<TObjBaseAst, TObjBase, TObjBase>
   where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>
   where TObjBase : IObjBaseModel
 {
-  internal override ObjRefModel<TObjBase> NewArgument(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
-    => new(ToModel(ast, typeKinds));
+  internal override TObjBase NewArgument(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
+    => ToModel(ast, typeKinds);
 }
 
 internal abstract class ModellerObjField<TObjBaseAst, TObjFieldAst, TObjBase, TObjField>(
@@ -334,11 +338,11 @@ internal abstract class ModellerObjField<TObjBaseAst, TObjFieldAst, TObjBase, TO
   where TObjField : ObjFieldModel<TObjBase>
 {
   protected override TObjField ToModel(TObjFieldAst field, IMap<TypeKindModel> typeKinds)
-    => FieldModel(field, new(objBase.ToModel(field.Type, typeKinds)), typeKinds) with {
+    => FieldModel(field, objBase.ToModel(field.Type, typeKinds), typeKinds) with {
       Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
     };
 
-  protected abstract TObjField FieldModel(TObjFieldAst ast, ObjRefModel<TObjBase> type, IMap<TypeKindModel> typeKinds);
+  protected abstract TObjField FieldModel(TObjFieldAst ast, TObjBase type, IMap<TypeKindModel> typeKinds);
 }
 
 internal class AlternateModeller<TObjBaseAst, TObjBase>(
@@ -350,7 +354,7 @@ internal class AlternateModeller<TObjBaseAst, TObjBase>(
   where TObjBase : IObjBaseModel
 {
   protected override AlternateModel<TObjBase> ToModel(IGqlpAlternate<TObjBaseAst> ast, IMap<TypeKindModel> typeKinds)
-    => new(new(new(BaseModel(ast.Type, typeKinds))) {
+    => new(new(BaseModel(ast.Type, typeKinds)) {
       Description = ast.Description
     }) {
       Collections = modifier.ToModels(ast.Modifiers, typeKinds)

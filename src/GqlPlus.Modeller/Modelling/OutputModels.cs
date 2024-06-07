@@ -10,12 +10,12 @@ public record class TypeOutputModel(
   protected override string BaseName(OutputBaseModel? objBase)
     => objBase?.Output ?? "";
 
-  protected override OutputFieldModel NewField(OutputFieldModel field, ObjRefModel<OutputBaseModel> typeModel, IEnumerable<ModifierModel> modifiers)
+  protected override OutputFieldModel NewField(OutputFieldModel field, OutputBaseModel typeModel, ModifierModel[] modifiers)
     => new(field.ThrowIfNull().Name, typeModel) {
       Parameters = field.Parameters,
       Aliases = field.Aliases,
       Description = field.Description,
-      Modifiers = [.. modifiers],
+      Modifiers = modifiers,
       EnumValue = field.EnumValue,
     };
 }
@@ -37,7 +37,7 @@ public record class OutputBaseModel(
 
 public record class OutputFieldModel(
   string Name,
-  ObjRefModel<OutputBaseModel>? Type
+  OutputBaseModel? Type
 ) : ObjFieldModel<OutputBaseModel>(Name, Type)
 {
   internal InputParameterModel[] Parameters { get; set; } = [];
@@ -56,9 +56,9 @@ public record class OutputArgumentModel(
   , IObjBaseModel
 {
   internal string? EnumMember { get; set; }
-  internal ObjRefModel<OutputBaseModel>? Ref { get; set; }
+  internal OutputBaseModel? Ref { get; set; }
 
-  public bool IsTypeParameter => string.IsNullOrEmpty(EnumMember) && Ref?.BaseRef?.IsTypeParameter == true;
+  public bool IsTypeParameter => string.IsNullOrEmpty(EnumMember) && Ref?.IsTypeParameter == true;
   public IObjBaseModel? BaseRef => Ref;
 
   internal override RenderStructure Render(IRenderContext context)
@@ -103,7 +103,7 @@ internal class OutputBaseModeller(
 {
   internal override OutputArgumentModel NewArgument(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(ast.EnumMember)
-      ? new(ast.Output) { Ref = new(ToModel(ast, typeKinds)) }
+      ? new(ast.Output) { Ref = ToModel(ast, typeKinds) }
       : new(ast.Output) { EnumMember = ast.EnumMember };
 
   protected override OutputBaseModel ToModel(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
@@ -123,7 +123,7 @@ internal class OutputFieldModeller(
   IModeller<IGqlpOutputBase, OutputBaseModel> refBase
 ) : ModellerObjField<IGqlpOutputBase, IGqlpOutputField, OutputBaseModel, OutputFieldModel>(modifier, refBase)
 {
-  protected override OutputFieldModel FieldModel(IGqlpOutputField field, ObjRefModel<OutputBaseModel> type, IMap<TypeKindModel> typeKinds)
+  protected override OutputFieldModel FieldModel(IGqlpOutputField field, OutputBaseModel type, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(field.Type.EnumMember)
       ? new(field.Name, type) {
         Parameters = parameter.ToModels(field.Parameters, typeKinds),

@@ -207,12 +207,40 @@
                       <Property Name="TestWithNormalizedFullyQualifiedName" Value="GqlPlus.BuiltInTests.HtmlBasicTypes" />
                       <Rule Match="Any">
                         <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlBasicTypes" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlBasicTypes(type: &quot;Boolean&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlBasicTypes(type: &quot;Unit&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlBasicTypes(type: &quot;Enum&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlBasicTypes(type: &quot;Number&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlBasicTypes(type: &quot;String&quot;)" />
                       </Rule>
                     </Rule>
                     <Rule Match="All">
                       <Property Name="TestWithNormalizedFullyQualifiedName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes" />
                       <Rule Match="Any">
                         <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;Void&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;Null&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;Simple&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;Internal&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Opt&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_List&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Dict&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Map&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Array&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_IfElse&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Set&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Mask&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Object&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Most&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_MostList&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_MostDictionary&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Any&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Dual&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Enum&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Input&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Output&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Domain&quot;)" />
+                        <Property Name="DisplayName" Value="GqlPlus.BuiltInTests.HtmlInternalTypes(type: &quot;_Union&quot;)" />
                       </Rule>
                     </Rule>
                     <Rule Match="All">

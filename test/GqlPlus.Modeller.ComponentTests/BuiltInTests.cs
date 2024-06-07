@@ -13,12 +13,12 @@ public class BuiltInTests(
   [SkippableTheory]
   [ClassData(typeof(BuiltInBasicData))]
   public void HtmlBasicTypes(string type)
-    => RenderTypeHtml(BuiltInData.BasicMap[type]);
+    => RenderTypeHtml(BuiltInData.BasicMap[type], []);
 
   [SkippableTheory]
   [ClassData(typeof(BuiltInInternalData))]
   public void HtmlInternalTypes(string type)
-    => RenderTypeHtml(BuiltInData.InternalMap[type]);
+    => RenderTypeHtml(BuiltInData.InternalMap[type], BuiltIn.Internal);
 
   [Fact]
   public void HtmlAllBasicTypes()
@@ -58,7 +58,7 @@ public class BuiltInTests(
   public void ModelsFluidFiles()
     => RenderFluid.CheckFluidFiles();
 
-  private void RenderTypeHtml(AstType type)
+  private void RenderTypeHtml(AstType type, AstType[] extras)
   {
     Skip.If(type is null);
 
@@ -66,14 +66,23 @@ public class BuiltInTests(
       Declarations = [type]
     };
 
-    RenderSchemaHtml(schema, type.Name);
+    SchemaAst extrasSchema = new(AstNulls.At) {
+      Declarations = [.. extras.Where(e => e != type)]
+    };
+
+    RenderSchemaHtml(schema, type.Name, extrasSchema);
   }
 
-  private void RenderSchemaHtml(SchemaAst schema, string filename)
+  private void RenderSchemaHtml(SchemaAst schema, string filename, SchemaAst? extras = null)
   {
     TypesCollection context = new(types);
     SchemaModel model = modeller.ToModel(schema, context);
     context.AddModels(model.Types.Values);
+    if (extras is not null) {
+      SchemaModel extraModel = modeller.ToModel(extras, context);
+      context.AddModels(extraModel.Types.Values);
+    }
+
     context.Errors.Clear();
 
     RenderStructure result = model.Render(context);

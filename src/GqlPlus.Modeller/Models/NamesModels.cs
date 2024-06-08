@@ -1,6 +1,4 @@
-﻿using GqlPlus.Rendering;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Models;
 
 public record class AliasedModel(
   string Name

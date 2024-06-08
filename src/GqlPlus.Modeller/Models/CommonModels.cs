@@ -1,6 +1,4 @@
-﻿using GqlPlus.Rendering;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Models;
 
 public class ConstantModel
   : Structured<SimpleModel, ConstantModel>, IRendering
@@ -83,69 +81,3 @@ public record class ModifierModel(
   ModifierKind Kind
 ) : CollectionModel(Kind)
 { }
-
-internal class ConstantModeller(
-  IModeller<IGqlpFieldKey, SimpleModel> value
-) : ModellerBase<IGqlpConstant, ConstantModel>
-{
-  protected override ConstantModel ToModel(IGqlpConstant ast, IMap<TypeKindModel> typeKinds)
-    => ast.Fields.Count > 0 ? new(ToModel(ast.Fields, typeKinds))
-    : ast.Values.Any() ? new(ast.Values.Select(v => ToModel(v, typeKinds)))
-    : ast.Value is not null ? new(value.ToModel(ast.Value, typeKinds))
-    : new(new SimpleModel());
-
-  private Dictionary<SimpleModel, ConstantModel> ToModel(IGqlpFields<IGqlpConstant> constant, IMap<TypeKindModel> typeKinds)
-    => constant.ToDictionary(
-      p => value.ToModel(p.Key, typeKinds),
-      p => ToModel(p.Value, typeKinds));
-}
-
-internal class SimpleModeller
-  : ModellerBase<IGqlpFieldKey, SimpleModel>
-{
-  protected override SimpleModel ToModel(IGqlpFieldKey ast, IMap<TypeKindModel> typeKinds)
-    => ast.Number.HasValue ? SimpleModel.Num("", ast.Number.Value)
-    : ast.Text is not null ? SimpleModel.Str("", ast.Text)
-    : "Boolean".Equals(ast.EnumType, StringComparison.OrdinalIgnoreCase) ? SimpleModel.Bool("true".Equals(ast.EnumMember, StringComparison.OrdinalIgnoreCase))
-    : ast.EnumType is not null ? SimpleModel.Enum(ast.EnumType, ast.EnumMember ?? "")
-    : new();
-}
-
-public interface IModifierModeller
-  : IModeller<IGqlpModifier, ModifierModel>
-  , IModeller<IGqlpModifier, CollectionModel>
-{ }
-
-internal class ModifierModeller
-  : ModellerBase<IGqlpModifier, ModifierModel>
-  , IModifierModeller
-{
-  protected override ModifierModel ToModel(IGqlpModifier ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.ModifierKind) {
-      Key = ast.Key,
-      IsOptional = ast.IsOptional,
-    };
-
-  protected override T? TryModel<T>(IGqlpModifier? ast, IMap<TypeKindModel> typeKinds)
-    where T : default
-  {
-    if (typeof(T).Equals(typeof(CollectionModel))) {
-      if (ast is not null && ast.ModifierKind != ModifierKind.Optional) {
-        return (T?)(object)ToModel(ast, typeKinds);
-      }
-
-      return default;
-    } else {
-      return base.TryModel<T>(ast, typeKinds);
-    }
-  }
-
-  CollectionModel? IModeller<IGqlpModifier, CollectionModel>.TryModel(IGqlpModifier? ast, IMap<TypeKindModel> typeKinds)
-    => TryModel<CollectionModel>(ast, typeKinds);
-  CollectionModel IModeller<IGqlpModifier, CollectionModel>.ToModel(IGqlpModifier? ast, IMap<TypeKindModel> typeKinds)
-    => ToModel<CollectionModel>(ast, typeKinds);
-  IEnumerable<CollectionModel?> IModeller<IGqlpModifier, CollectionModel>.TryModels(IEnumerable<IGqlpModifier>? asts, IMap<TypeKindModel> typeKinds)
-    => TryModels<CollectionModel>(asts, typeKinds);
-  CollectionModel[] IModeller<IGqlpModifier, CollectionModel>.ToModels(IEnumerable<IGqlpModifier>? asts, IMap<TypeKindModel> typeKinds)
-    => ToModels<CollectionModel>(asts, typeKinds);
-}

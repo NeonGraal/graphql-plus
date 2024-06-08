@@ -1,9 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Modelling;
 
-using GqlPlus.Abstractions.Schema;
-using GqlPlus.Rendering;
-
-namespace GqlPlus.Modelling;
+namespace GqlPlus.Models;
 
 // TypeModel => BaseTypeModel
 
@@ -34,7 +32,7 @@ public abstract record class ChildTypeModel<TParent>(
     where TModel : IRendering
   {
     if (_parentModel is null) {
-      _parentModel = model = context.TryGetType<TModel>(Name, ParentName(Parent), out TModel? parentModel) ? parentModel : default;
+      _parentModel = model = context.TryGetType(Name, ParentName(Parent), out TModel? parentModel) ? parentModel : default;
     } else {
       model = (TModel?)_parentModel;
     }
@@ -126,59 +124,11 @@ internal record class SpecialTypeModel(
 ) : BaseTypeModel(TypeKindModel.Special, Name)
 { }
 
-internal abstract class ModellerType<TAst, TParent, TModel>(
-  TypeKindModel kind
-) : ModellerBase<TAst, TModel>, ITypeModeller
-  where TAst : IGqlpType<TParent>
-  where TParent : IEquatable<TParent>
-  where TModel : BaseTypeModel
-{
-  TypeKindModel ITypeModeller.Kind => kind;
-
-  bool ITypeModeller.ForType(IGqlpType ast)
-    => ast is TAst;
-
-  BaseTypeModel ITypeModeller.ToTypeModel(IGqlpType ast, IMap<TypeKindModel> typeKinds)
-    => ToModel((TAst)ast, typeKinds);
-}
-
-internal interface ITypeModeller
-{
-  bool ForType(IGqlpType ast);
-  TypeKindModel Kind { get; }
-  BaseTypeModel ToTypeModel(IGqlpType ast, IMap<TypeKindModel> typeKinds);
-}
-
 internal static class ModelHelper
 {
   [return: NotNullIfNotNull(nameof(input))]
   internal static TypeRefModel<TKind>? TypeRef<TKind>(this string? input, TKind kind)
     => input is null ? null : new(kind, input);
-}
-
-internal class TypesModeller(
-  IEnumerable<ITypeModeller> types
-) : ModellerBase<IGqlpType, BaseTypeModel>, ITypesModeller
-{
-  public void AddTypeKinds(IEnumerable<IGqlpType> asts, IMap<TypeKindModel> typeKinds)
-  {
-    foreach (IGqlpType ast in asts) {
-      typeKinds.Add(ast.Name, types.Single(t => t.ForType(ast)).Kind);
-    }
-  }
-
-  public TypeKindModel GetTypeKind(IGqlpType ast)
-    => types.Single(t => t.ForType(ast)).Kind;
-
-  protected override BaseTypeModel ToModel(IGqlpType ast, IMap<TypeKindModel> typeKinds)
-    => types.Single(t => t.ForType(ast)).ToTypeModel(ast, typeKinds);
-}
-
-public interface ITypesModeller
-  : IModeller<IGqlpType, BaseTypeModel>
-{
-  void AddTypeKinds(IEnumerable<IGqlpType> asts, IMap<TypeKindModel> typeKinds);
-  TypeKindModel GetTypeKind(IGqlpType ast);
 }
 
 internal class TypesCollection(
@@ -248,14 +198,4 @@ internal class TypesCollection(
     model = default;
     return false;
   }
-}
-
-internal class SpecialTypeModeller()
-  : ModellerType<IGqlpTypeSpecial, string, SpecialTypeModel>(TypeKindModel.Special)
-{
-  protected override SpecialTypeModel ToModel(IGqlpTypeSpecial ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
-      Aliases = [.. ast.Aliases],
-      Description = ast.Description,
-    };
 }

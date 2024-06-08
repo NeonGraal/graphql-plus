@@ -1,12 +1,11 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Modelling;
-using GqlPlus.Modelling.Globals;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 
-
-namespace GqlPlus.SchemaData;
+namespace GqlPlus;
 
 public class SchemaHtmlTests(
     Parser<IGqlpSchema>.D parser,

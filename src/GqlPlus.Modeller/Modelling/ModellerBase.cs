@@ -1,6 +1,4 @@
-﻿using GqlPlus.Rendering;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 internal abstract class ModellerBase<TAst, TModel>
   : IModeller<TAst, TModel>

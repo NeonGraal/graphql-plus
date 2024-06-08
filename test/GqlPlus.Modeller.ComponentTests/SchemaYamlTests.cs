@@ -1,12 +1,10 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Modelling;
-using GqlPlus.Modelling.Globals;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 
-
-namespace GqlPlus.SchemaData;
+namespace GqlPlus;
 
 public class SchemaYamlTests(
     Parser<IGqlpSchema>.D parser,

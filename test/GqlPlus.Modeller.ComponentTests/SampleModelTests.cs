@@ -1,12 +1,10 @@
 ﻿using Fluid;
-
+using GqlPlus;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Modelling;
-using GqlPlus.Modelling.Globals;
 using GqlPlus.Parsing;
 
-
-namespace GqlPlus.Sample;
+namespace GqlPlus;
 
 public class SampleModelTests(
     Parser<IGqlpSchema>.D schemaParser,

@@ -1,0 +1,14 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpAltsSimple: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpAltsSimple
+      type: !_InputBase
+        input: String
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    name: InpAltsSimple
+    typeKind: !_TypeKind Input

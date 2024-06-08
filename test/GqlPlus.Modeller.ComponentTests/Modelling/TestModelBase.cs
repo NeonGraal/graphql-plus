@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling;
+﻿using GqlPlus.Convert;
+
+namespace GqlPlus.Modelling;
 
 public abstract class TestModelBase<TName>
 {

@@ -2,7 +2,7 @@
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
 
-namespace GqlPlus.Rendering;
+namespace GqlPlus.Convert;
 
 internal class RenderYamlFullConverter
   : RenderYamlTypeConverter

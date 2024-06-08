@@ -4,7 +4,7 @@ using GqlPlus.Parsing;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 
-namespace GqlPlus.Sample;
+namespace GqlPlus;
 
 public class SampleParserTests(
     Parser<IGqlpOperation>.D operation,

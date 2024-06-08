@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace GqlPlus.Rendering;
+namespace GqlPlus.Convert;
 
 internal abstract class RenderJsonConverter<T>
   : JsonConverter<T>

@@ -1,9 +1,10 @@
 ﻿using System.Globalization;
 using System.Text.Encodings.Web;
+
 using Fluid;
 using Fluid.Values;
 
-namespace GqlPlus.Rendering;
+namespace GqlPlus.Convert;
 
 internal sealed class TaggedValue : FluidValue
 {

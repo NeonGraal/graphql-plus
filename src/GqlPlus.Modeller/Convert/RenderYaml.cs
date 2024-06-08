@@ -2,7 +2,7 @@
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace GqlPlus.Rendering;
+namespace GqlPlus.Convert;
 
 public static class RenderYaml
 {

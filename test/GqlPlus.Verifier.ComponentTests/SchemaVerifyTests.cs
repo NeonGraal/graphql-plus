@@ -5,8 +5,7 @@ using GqlPlus.Result;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
 
-
-namespace GqlPlus.SchemaData;
+namespace GqlPlus;
 
 public class SchemaVerifyTests(
     Parser<IGqlpSchema>.D parser,

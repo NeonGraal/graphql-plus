@@ -5,7 +5,7 @@ using Fluid.Values;
 
 using Microsoft.Extensions.FileProviders;
 
-namespace GqlPlus.Rendering;
+namespace GqlPlus.Convert;
 
 public static class RenderFluid
 {

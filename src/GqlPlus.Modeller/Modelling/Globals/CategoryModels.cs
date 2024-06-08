@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Rendering;
 
-namespace GqlPlus.Modelling;
+namespace GqlPlus.Modelling.Globals;
 
 public record class CategoriesModel
   : ModelBase

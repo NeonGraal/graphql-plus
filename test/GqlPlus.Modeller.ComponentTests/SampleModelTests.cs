@@ -1,6 +1,8 @@
 ﻿using Fluid;
+
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Modelling;
+using GqlPlus.Modelling.Globals;
 using GqlPlus.Parsing;
 
 

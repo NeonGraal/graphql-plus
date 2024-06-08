@@ -121,12 +121,6 @@ public record class TypeRefModel<TKind>(
       .Add("typeKind", new(TypeKind?.ToString(), s_typeKindTag));
 }
 
-public record class TypeSimpleModel(
-  SimpleKindModel Kind,
-  string Name
-) : TypeRefModel<SimpleKindModel>(Kind, Name), IBaseDomainItemModel
-{ }
-
 internal record class SpecialTypeModel(
   string Name
 ) : BaseTypeModel(TypeKindModel.Special, Name)

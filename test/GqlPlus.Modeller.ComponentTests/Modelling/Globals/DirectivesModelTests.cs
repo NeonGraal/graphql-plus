@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Modelling.Objects;
 
 namespace GqlPlus.Modelling.Globals;
 

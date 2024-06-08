@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Rendering;
 
-namespace GqlPlus.Modelling;
+namespace GqlPlus.Modelling.Simple;
 
 public record class TypeEnumModel(
   string Name

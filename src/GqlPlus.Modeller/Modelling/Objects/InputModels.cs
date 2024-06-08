@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Rendering;
 
-namespace GqlPlus.Modelling;
+namespace GqlPlus.Modelling.Objects;
 
 public record class TypeInputModel(
   string Name

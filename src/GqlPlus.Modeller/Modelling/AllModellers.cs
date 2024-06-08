@@ -1,4 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Modelling.Globals;
+using GqlPlus.Modelling.Objects;
+using GqlPlus.Modelling.Simple;
 using GqlPlus.Rendering;
 
 using Microsoft.Extensions.DependencyInjection;

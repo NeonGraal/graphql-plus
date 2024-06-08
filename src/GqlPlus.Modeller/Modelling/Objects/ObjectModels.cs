@@ -1,9 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Rendering;
 
-namespace GqlPlus.Modelling;
+namespace GqlPlus.Modelling.Objects;
 
 public abstract record class TypeObjectModel<TObjBase, TObjField>(
   TypeKindModel Kind,

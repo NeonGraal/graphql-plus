@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Rendering;
 
-namespace GqlPlus.Modelling;
+namespace GqlPlus.Modelling.Globals;
 public record class SettingModel(
   string Name,
   ConstantModel Value

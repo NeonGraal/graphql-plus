@@ -1,7 +1,8 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Modelling.Objects;
 using GqlPlus.Rendering;
 
-namespace GqlPlus.Modelling;
+namespace GqlPlus.Modelling.Globals;
 
 public record class DirectivesModel
   : ModelBase

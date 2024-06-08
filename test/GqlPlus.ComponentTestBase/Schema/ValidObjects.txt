@@ -14,6 +14,9 @@ object ObjModsAlt { }
 object ObjAltModsParam<$mod> { | ObjModsParamAlt[$mod] }
 object ObjModsParamAlt { }
 
+// alts-simple
+object ObjAltsSimple { | String }
+
 // fields
 object ObjFieldsStr { field: * }
 
@@ -32,6 +35,9 @@ object ObjFieldParamMods { }
 // fields-object
 object FieldsObj { field: ObjField }
 object ObjField { }
+
+// fields-simple
+object ObjFieldsSimple { field: Number }
 
 // generic-alt
 object ObjGenAlt<$type> { | $type }

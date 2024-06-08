@@ -1,1 +1,3 @@
-﻿
+﻿[
+  Invalid Dual Field. Arguments invalid on String, given 1.
+]

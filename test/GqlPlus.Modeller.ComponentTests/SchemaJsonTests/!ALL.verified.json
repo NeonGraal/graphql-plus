@@ -1009,6 +1009,30 @@
       "name": "DualAltsDual",
       "typeKind": "Dual"
     },
+    "DualAltsSimple": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "object": "DualAltsSimple",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_DualBase)",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "DualAltsSimple",
+      "typeKind": "Dual"
+    },
     "DualAltsType": {
       "$tag": "_TypeDual",
       "name": "DualAltsType",
@@ -1235,6 +1259,32 @@
         }
       ],
       "name": "DualFieldsParent",
+      "typeKind": "Dual"
+    },
+    "DualFieldsSimple": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualFieldsSimple",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "DualFieldsSimple",
       "typeKind": "Dual"
     },
     "DualFieldsStr": {
@@ -3423,6 +3473,30 @@
       "name": "InpAltsDual",
       "typeKind": "Input"
     },
+    "InpAltsSimple": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "object": "InpAltsSimple",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_InputBase)",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "InpAltsSimple",
+      "typeKind": "Input"
+    },
     "InpAltsType": {
       "$tag": "_TypeInput",
       "name": "InpAltsType",
@@ -3649,6 +3723,32 @@
         }
       ],
       "name": "InpFieldsParent",
+      "typeKind": "Input"
+    },
+    "InpFieldsSimple": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpFieldsSimple",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InpFieldsSimple",
       "typeKind": "Input"
     },
     "InpFieldsStr": {
@@ -5375,6 +5475,30 @@
       "name": "OutpAltsDual",
       "typeKind": "Output"
     },
+    "OutpAltsSimple": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "OutpAltsSimple",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "OutpAltsSimple",
+      "typeKind": "Output"
+    },
     "OutpAltsType": {
       "$tag": "_TypeOutput",
       "name": "OutpAltsType",
@@ -5835,6 +5959,32 @@
         }
       ],
       "name": "OutpFieldsParent",
+      "typeKind": "Output"
+    },
+    "OutpFieldsSimple": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpFieldsSimple",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpFieldsSimple",
       "typeKind": "Output"
     },
     "OutpFieldsStr": {

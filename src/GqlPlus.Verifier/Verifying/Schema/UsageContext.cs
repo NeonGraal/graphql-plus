@@ -104,6 +104,8 @@ internal static class UsageHelpers
         if (numParams != numArgs) {
           context.AddError(type, type.Label + labelSuffix, $"Arguments mismatch, expected {numParams} given {numArgs}");
         }
+      } else if (value is IGqlpSimple simple && numArgs != 0) {
+        context.AddError(type, type.Label + labelSuffix, $"Arguments invalid on {simple.Name}, given {numArgs}");
       }
     } else if (check) {
       context.AddError(type, type.Label + labelSuffix, $"'{type.TypeName}' not defined");

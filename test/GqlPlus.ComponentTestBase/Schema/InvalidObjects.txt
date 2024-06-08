@@ -27,6 +27,9 @@ object Recurse { | Test }
 // alts-self
 object Test { | Test }
 
+// alts-simple-param
+object Test { | Number<String> }
+
 // dual-alt-input
 dual Test { | Bad }
 input Bad { }
@@ -102,6 +105,9 @@ object Test { field: Test[$a] }
 
 // fields-mods-wrong
 object Test { field: Test[Test] }
+
+// fields-simple-param
+object Test { field: String<0> }
 
 // generic-alt-undef
 object Test { | $type }
@@ -301,6 +307,9 @@ object Recurse { :Test }
 object Test { | Alt }
 object Alt { :Recurse }
 object Recurse { | Test }
+
+// parent-simple
+object Test { :String }
 
 // parent-undef
 object Test { :Parent }

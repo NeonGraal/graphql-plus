@@ -31,7 +31,16 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst>
 
     at = tokens.At;
 
-    if (tokens.Identifier(out string? name)) {
+    bool hasName = tokens.Identifier(out string? name);
+    if (!hasName) {
+      if (hasName = tokens.TakeZero()) {
+        name = "0";
+      } else if (hasName = tokens.TakeAny(out char simple, '^', '*', '_')) {
+        name = $"{simple}";
+      }
+    }
+
+    if (hasName) {
       TObjBaseAst objBase = ObjBase(at, name, description);
       if (tokens.Take('<')) {
         List<TObjBaseAst> arguments = [];

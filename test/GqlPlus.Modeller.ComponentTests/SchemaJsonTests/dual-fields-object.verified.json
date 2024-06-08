@@ -2,16 +2,21 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualFieldsStr": {
+    "DualField": {
+      "$tag": "_TypeDual",
+      "name": "DualField",
+      "typeKind": "Dual"
+    },
+    "FieldsDual": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualFieldsStr",
+          "object": "FieldsDual",
           "type": {
             "$tag": "_DualBase",
-            "value": "*"
+            "value": "DualField"
           }
         }
       ],
@@ -21,11 +26,11 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "*"
+            "value": "DualField"
           }
         }
       ],
-      "name": "DualFieldsStr",
+      "name": "FieldsDual",
       "typeKind": "Dual"
     }
   }

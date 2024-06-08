@@ -13,7 +13,7 @@ public record class TypeInputModel(
 
 public record class InputBaseModel(
   string Input
-) : ObjBaseModel<ObjRefModel<InputBaseModel>>
+) : ObjBaseModel<InputBaseModel>
 {
   internal DualBaseModel? Dual { get; init; }
 
@@ -28,7 +28,7 @@ public record class InputBaseModel(
 
 public record class InputFieldModel(
   string Name,
-  ObjRefModel<InputBaseModel> Type
+  InputBaseModel Type
 ) : ObjFieldModel<InputBaseModel>(Name, Type)
 {
   internal ConstantModel? Default { get; init; }
@@ -39,7 +39,7 @@ public record class InputFieldModel(
 }
 
 public record class InputParameterModel(
-  BaseDescribedModel<ObjRefModel<InputBaseModel>> Type
+  BaseDescribedModel<InputBaseModel> Type
 ) : ModelBase
 {
   internal ModifierModel[] Modifiers { get; set; } = [];
@@ -90,7 +90,7 @@ internal class InputFieldModeller(
   IModeller<IGqlpConstant, ConstantModel> constant
 ) : ModellerObjField<IGqlpInputBase, IGqlpInputField, InputBaseModel, InputFieldModel>(modifier, refBase)
 {
-  protected override InputFieldModel FieldModel(IGqlpInputField ast, ObjRefModel<InputBaseModel> type, IMap<TypeKindModel> typeKinds)
+  protected override InputFieldModel FieldModel(IGqlpInputField ast, InputBaseModel type, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, type) {
       Default = constant.TryModel(ast.DefaultValue, typeKinds),
     };
@@ -105,7 +105,7 @@ internal class InputParameterModeller(
   protected override InputParameterModel ToModel(IGqlpInputParameter ast, IMap<TypeKindModel> typeKinds)
   {
     InputBaseModel typeModel = objBase.ToModel(ast.Type, typeKinds);
-    return new(new(new(typeModel)) { Description = ast.Type.Description }) {
+    return new(new(typeModel) { Description = ast.Type.Description }) {
       Modifiers = modifier.ToModels<ModifierModel>(ast.Modifiers, typeKinds),
       DefaultValue = constant.TryModel(ast.DefaultValue, typeKinds),
     };

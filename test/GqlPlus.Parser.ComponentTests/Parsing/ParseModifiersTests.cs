@@ -12,6 +12,7 @@ public class ParseModifiersTests(
   [InlineData("[^?]", 1)]
   [InlineData("[]?", 2)]
   [InlineData("[_?][]?", 3)]
+  [InlineData("[0][_][*?]", 3)]
   public void WithInput_ReturnsGivenNumber(string input, int count)
     => _test.Count(input, count);
 

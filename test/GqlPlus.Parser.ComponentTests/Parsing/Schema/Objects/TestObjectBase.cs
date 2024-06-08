@@ -17,6 +17,16 @@ public abstract class TestObjectBase
   public void WithTypeParameterBad_ReturnsFalse()
   => ObjectBaseChecks.WithTypeParameterBad();
 
+  [Theory]
+  [RepeatInlineData(Repeats, "Boolean")]
+  [RepeatInlineData(Repeats, "Number")]
+  [RepeatInlineData(Repeats, "String")]
+  [RepeatInlineData(Repeats, "^")]
+  [RepeatInlineData(Repeats, "0")]
+  [RepeatInlineData(Repeats, "*")]
+  public void WithSimpleArguments_ReturnsCorrectAst(string argument, string name)
+  => ObjectBaseChecks.WithTypeArguments(name, [argument]);
+
   [Theory, RepeatData(Repeats)]
   public void WithTypeArguments_ReturnsCorrectAst(string name, string[] objBases)
   => ObjectBaseChecks.WithTypeArguments(name, objBases);

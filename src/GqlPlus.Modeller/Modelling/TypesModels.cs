@@ -49,7 +49,7 @@ public abstract record class ChildTypeModel<TParent>(
   internal void ForParent<TModel>(IRenderContext context, Action<TModel> action)
     where TModel : IChildTypeModel
   {
-    if (GetParentModel<TModel>(context, out TModel? parentModel)) {
+    if (GetParentModel(context, out TModel? parentModel)) {
       parentModel.ForParent(context, action);
       action(parentModel);
     }

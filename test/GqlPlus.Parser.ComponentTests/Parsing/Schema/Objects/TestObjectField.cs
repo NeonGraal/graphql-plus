@@ -6,6 +6,16 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public abstract class TestObjectField
   : BaseAliasedTests<FieldInput>
 {
+  [Theory]
+  [RepeatInlineData(Repeats, "Boolean")]
+  [RepeatInlineData(Repeats, "Number")]
+  [RepeatInlineData(Repeats, "String")]
+  [RepeatInlineData(Repeats, "^")]
+  [RepeatInlineData(Repeats, "0")]
+  [RepeatInlineData(Repeats, "*")]
+  public void WithSimple_ReturnsCorrectAst(string fieldType, string name)
+  => FieldChecks.WithMinimum(name, fieldType);
+
   [Theory, RepeatData(Repeats)]
   public void WithModifiers_ReturnsCorrectAst(string name, string fieldType)
   => FieldChecks.WithModifiers(name, fieldType);

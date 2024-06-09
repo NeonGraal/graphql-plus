@@ -28,7 +28,7 @@ internal class ObjectBaseRenderer<TBase, TArg>
 
 internal class ObjectFieldRenderer<TField, TBase>(
   IRenderer<ModifierModel> modifier,
-  IRenderer<TBase> objBase
+  IRenderer<ObjDescribedModel<TBase>> objBase
 ) : AliasedRenderer<TField>
   where TField : ObjFieldModel<TBase>
   where TBase : IObjBaseModel
@@ -51,7 +51,7 @@ internal class DualBaseRenderer
 
 internal class DualFieldRenderer(
   IRenderer<ModifierModel> modifier,
-  IRenderer<DualBaseModel> objBase
+  IRenderer<ObjDescribedModel<DualBaseModel>> objBase
 ) : ObjectFieldRenderer<DualFieldModel, DualBaseModel>(modifier, objBase)
 { }
 
@@ -71,7 +71,7 @@ internal class InputBaseRenderer(
 internal class InputFieldRenderer(
   IRenderer<ConstantModel> constant,
   IRenderer<ModifierModel> modifier,
-  IRenderer<InputBaseModel> objBase
+  IRenderer<ObjDescribedModel<InputBaseModel>> objBase
 ) : ObjectFieldRenderer<InputFieldModel, InputBaseModel>(modifier, objBase)
 {
   internal override RenderStructure Render(InputFieldModel model, IRenderContext context)
@@ -108,7 +108,7 @@ internal class OutputBaseRenderer(
 internal class OutputFieldRenderer(
   IRenderer<OutputEnumModel> outputEnum,
   IRenderer<ModifierModel> modifier,
-  IRenderer<OutputBaseModel> objBase,
+  IRenderer<ObjDescribedModel<OutputBaseModel>> objBase,
   IRenderer<InputParameterModel> parameter
 ) : ObjectFieldRenderer<OutputFieldModel, OutputBaseModel>(modifier, objBase)
 {

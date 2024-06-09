@@ -8,7 +8,7 @@ internal class OutputFieldModeller(
 {
   protected override OutputFieldModel FieldModel(IGqlpOutputField field, OutputBaseModel type, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(field.Type.EnumMember)
-      ? new(field.Name, type) {
+      ? new(field.Name, new(type, field.Type.Description)) {
         Parameters = parameter.ToModels(field.Parameters, typeKinds),
       }
       : new(field.Name, null) { // or should it be `type`

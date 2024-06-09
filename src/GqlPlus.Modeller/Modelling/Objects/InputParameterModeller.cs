@@ -9,7 +9,7 @@ internal class InputParameterModeller(
   protected override InputParameterModel ToModel(IGqlpInputParameter ast, IMap<TypeKindModel> typeKinds)
   {
     InputBaseModel typeModel = objBase.ToModel(ast.Type, typeKinds);
-    return new(new(typeModel) { Description = ast.Type.Description }) {
+    return new(new(typeModel, ast.Type.Description)) {
       Modifiers = modifier.ToModels<ModifierModel>(ast.Modifiers, typeKinds),
       DefaultValue = constant.TryModel(ast.DefaultValue, typeKinds),
     };

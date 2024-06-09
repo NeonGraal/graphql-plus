@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using System.ComponentModel;
+
+namespace GqlPlus.Modelling.Objects;
 
 internal class DualFieldModeller(
   IModifierModeller modifier,
@@ -6,5 +8,5 @@ internal class DualFieldModeller(
 ) : ModellerObjField<IGqlpDualBase, IGqlpDualField, DualBaseModel, DualFieldModel>(modifier, objBase)
 {
   protected override DualFieldModel FieldModel(IGqlpDualField ast, DualBaseModel type, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, type);
+    => new(ast.Name, new(type, ast.Type.Description));
 }

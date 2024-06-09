@@ -9,9 +9,7 @@ internal class AlternateModeller<TObjBaseAst, TObjBase>(
   where TObjBase : IObjBaseModel
 {
   protected override AlternateModel<TObjBase> ToModel(IGqlpAlternate<TObjBaseAst> ast, IMap<TypeKindModel> typeKinds)
-    => new(new(BaseModel(ast.Type, typeKinds)) {
-      Description = ast.Description
-    }) {
+    => new(new(BaseModel(ast.Type, typeKinds), ast.Description)) {
       Collections = modifier.ToModels(ast.Modifiers, typeKinds)
     };
 

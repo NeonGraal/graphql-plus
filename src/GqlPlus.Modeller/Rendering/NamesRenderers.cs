@@ -23,10 +23,10 @@ internal class DescribedRenderer<TModel>
 
 internal class BaseDescribedRenderer<TDescr>(
   IRenderer<TDescr> described
-) : BaseRenderer<BaseDescribedModel<TDescr>>
+) : BaseRenderer<ObjDescribedModel<TDescr>>
   where TDescr : ModelBase
 {
-  internal override RenderStructure Render(BaseDescribedModel<TDescr> model, IRenderContext context)
+  internal override RenderStructure Render(ObjDescribedModel<TDescr> model, IRenderContext context)
     => string.IsNullOrEmpty(model.Description)
       ? described.Render(model.Base, context)
       : base.Render(model, context)

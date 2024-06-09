@@ -5,7 +5,7 @@ namespace GqlPlus.Models;
 public abstract record class TypeObjectModel<TObjBase, TObjField>(
   TypeKindModel Kind,
   string Name
-) : ChildTypeModel<BaseDescribedModel<TObjBase>>(Kind, Name)
+) : ChildTypeModel<ObjDescribedModel<TObjBase>>(Kind, Name)
   , ITypeObjectModel
   where TObjBase : IObjBaseModel
   where TObjField : ModelBase
@@ -79,7 +79,7 @@ public interface IObjBaseModel
 }
 
 public record class AlternateModel<TObjBase>(
-  BaseDescribedModel<TObjBase> Type
+  ObjDescribedModel<TObjBase> Type
 ) : ModelBase
   where TObjBase : IObjBaseModel
 {
@@ -105,7 +105,7 @@ public record class ObjectForModel<TFor>(
 
 public record class ObjFieldModel<TObjBase>(
   string Name,
-  TObjBase? Type
+  ObjDescribedModel<TObjBase>? Type
 ) : AliasedModel(Name)
   where TObjBase : IObjBaseModel
 {
@@ -115,4 +115,18 @@ public record class ObjFieldModel<TObjBase>(
     => base.Render(context)
       .Add("modifiers", Modifiers.Render(context, flow: true))
       .Add("type", Type?.Render(context));
+}
+
+public record class ObjDescribedModel<TDescribed>(
+  TDescribed Base,
+  string? Description
+) : ModelBase
+  where TDescribed : IRendering
+{
+  internal override RenderStructure Render(IRenderContext context)
+    => string.IsNullOrEmpty(Description)
+      ? Base.Render(context)
+      : base.Render(context)
+        .Add("base", Base.Render(context))
+        .Add("description", RenderValue.Str(Description));
 }

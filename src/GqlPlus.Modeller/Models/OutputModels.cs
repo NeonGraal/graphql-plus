@@ -4,7 +4,7 @@ public record class TypeOutputModel(
   string Name
 ) : TypeObjectModel<OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, Name)
 {
-  protected override string? ParentName(BaseDescribedModel<OutputBaseModel>? parent)
+  protected override string? ParentName(ObjDescribedModel<OutputBaseModel>? parent)
     => parent?.Base.Output;
 }
 
@@ -25,7 +25,7 @@ public record class OutputBaseModel(
 
 public record class OutputFieldModel(
   string Name,
-  OutputBaseModel? Type
+  ObjDescribedModel<OutputBaseModel>? Type
 ) : ObjFieldModel<OutputBaseModel>(Name, Type)
 {
   internal InputParameterModel[] Parameters { get; set; } = [];

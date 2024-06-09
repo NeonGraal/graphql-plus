@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+
 using GqlPlus.Modelling;
 
 namespace GqlPlus.Models;
@@ -24,17 +25,17 @@ public abstract record class ChildTypeModel<TParent>(
 {
   public TParent? Parent { get; set; }
 
-  private IRendering? _parentModel;
+  internal IRendering? _parentModel;
 
   protected abstract string? ParentName(TParent? parent);
 
-  internal virtual bool GetParentModel<TModel>(IRenderContext context, [NotNullWhen(true)] out TModel? model)
-    where TModel : IRendering
+  internal virtual bool GetParentModel<TResult>(IRenderContext context, [NotNullWhen(true)] out TResult? model)
+    where TResult : IRendering
   {
     if (_parentModel is null) {
-      _parentModel = model = context.TryGetType(Name, ParentName(Parent), out TModel? parentModel) ? parentModel : default;
+      _parentModel = model = context.TryGetType(Name, ParentName(Parent), out TResult? parentModel) ? parentModel : default;
     } else {
-      model = (TModel?)_parentModel;
+      model = (TResult?)_parentModel;
     }
 
     return model is not null;
@@ -44,10 +45,10 @@ public abstract record class ChildTypeModel<TParent>(
     => base.Render(context)
       .Add("parent", Parent?.Render(context));
 
-  internal void ForParent<TModel>(IRenderContext context, Action<TModel> action)
-    where TModel : IChildTypeModel
+  internal void ForParent<TResult>(IRenderContext context, Action<TResult> action)
+    where TResult : IChildTypeModel
   {
-    if (GetParentModel(context, out TModel? parentModel)) {
+    if (GetParentModel(context, out TResult? parentModel)) {
       parentModel.ForParent(context, action);
       action(parentModel);
     }

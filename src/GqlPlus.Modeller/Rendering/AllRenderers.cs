@@ -15,6 +15,9 @@ public static class AllRenderers
       .AddRenderer<CategoryModel, CategoryRenderer>()
       .AddRenderer<DirectiveModel, DirectiveRenderer>()
       .AddRenderer<SettingModel, SettingRenderer>()
+      // Simple
+      .AddRenderer<TypeUnionModel, TypeUnionRenderer>()
+      .AddRenderer<UnionMemberModel, UnionMemberRenderer>()
     ;
 
   private static IServiceCollection AddRenderer<TModel, TRenderer>(this IServiceCollection services)

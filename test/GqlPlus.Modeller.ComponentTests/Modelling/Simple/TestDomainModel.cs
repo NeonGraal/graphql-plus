@@ -61,7 +61,7 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
   , ICheckDomainModel<TValue, TAstItem, TItem>
   where TAstItem : AstAbbreviated, TItem
   where TItem : IGqlpDomainItem
-  where TItemModel : IBaseDomainItemModel
+  where TItemModel : BaseDomainItemModel
 {
   internal string[] ExpectedDomain(ExpectedDomainInput<TValue> input)
     => [$"!_Domain{kind}",

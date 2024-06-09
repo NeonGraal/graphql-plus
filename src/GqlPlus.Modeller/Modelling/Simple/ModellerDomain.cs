@@ -4,7 +4,7 @@ internal abstract class ModellerDomain<TItemAst, TItemModel>
   : ModellerType<IGqlpDomain<TItemAst>, string, BaseDomainModel<TItemModel>>
   , IDomainModeller<TItemAst, TItemModel>
   where TItemAst : IGqlpDomainItem
-  where TItemModel : IBaseDomainItemModel
+  where TItemModel : BaseDomainItemModel
 {
   protected ModellerDomain()
     : base(TypeKindModel.Domain)
@@ -22,5 +22,5 @@ internal abstract class ModellerDomain<TItemAst, TItemModel>
 public interface IDomainModeller<TItemAst, TItemModel>
   : IModeller<IGqlpDomain<TItemAst>, BaseDomainModel<TItemModel>>
   where TItemAst : IGqlpDomainItem
-  where TItemModel : IBaseDomainItemModel
+  where TItemModel : BaseDomainItemModel
 { }

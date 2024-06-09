@@ -67,6 +67,16 @@ public class RenderStructure
     return this;
   }
 
+  public RenderStructure Add<TValue>(TValue value, IRenderer<TValue> renderer, IRenderContext context)
+    where TValue : IRendering
+  {
+    foreach ((RenderValue key, RenderStructure item) in renderer.Render(value, context).Map) {
+      Map.Add(key, item);
+    }
+
+    return this;
+  }
+
   public RenderStructure Add<T>(string key, T value, string? tag = null)
     where T : Enum
     => Add(key, new(value.ToString(), tag ?? typeof(T).TypeTag()));

@@ -16,7 +16,7 @@ public sealed record class BaseDomainModel<TItem>(
   DomainKindModel DomainKind,
   string Name
 ) : ParentTypeModel<TItem, DomainItemModel<TItem>>(TypeKindModel.Domain, Name)
-  where TItem : IBaseDomainItemModel
+  where TItem : BaseDomainItemModel
 {
   internal override string Tag => $"_Domain{DomainKind}";
 
@@ -30,16 +30,12 @@ public sealed record class BaseDomainModel<TItem>(
 
 public record class BaseDomainItemModel(
   bool Exclude
-) : ModelBase, IBaseDomainItemModel
+) : ModelBase
 {
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
       .Add("exclude", Exclude);
 }
-
-public interface IBaseDomainItemModel
-  : IRendering
-{ }
 
 public record class DomainMemberModel(
   EnumValueModel EnumValue,
@@ -51,8 +47,7 @@ public record class DomainMemberModel(
   { }
 
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("value", EnumValue.Render(context));
+    => throw new NotImplementedException();
 }
 
 public record class DomainTrueFalseModel(
@@ -61,8 +56,7 @@ public record class DomainTrueFalseModel(
 ) : BaseDomainItemModel(Exclude)
 {
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("value", Value);
+    => throw new NotImplementedException();
 }
 
 public record class DomainRangeModel(
@@ -72,9 +66,7 @@ public record class DomainRangeModel(
 ) : BaseDomainItemModel(Exclude)
 {
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("from", From)
-      .Add("to", To);
+    => throw new NotImplementedException();
 }
 
 public record class DomainRegexModel(
@@ -83,15 +75,14 @@ public record class DomainRegexModel(
 ) : BaseDomainItemModel(Exclude)
 {
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("pattern", Pattern);
+    => throw new NotImplementedException();
 }
 
 public record class DomainItemModel<TItem>(
   TItem Item,
   string Domain
 ) : ModelBase
-  where TItem : IBaseDomainItemModel
+  where TItem : BaseDomainItemModel
 {
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)

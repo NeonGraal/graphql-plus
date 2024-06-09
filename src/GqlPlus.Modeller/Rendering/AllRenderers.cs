@@ -23,14 +23,10 @@ public static class AllRenderers
       .AddRenderer<BaseTypeModel, AllTypesRenderer>()
       .AddDefaultRenderer<SpecialTypeModel>()
       // Simple
-      .AddDefaultRenderer<BaseDomainModel<DomainMemberModel>>()
-      .AddDefaultRenderer<BaseDomainModel<DomainRangeModel>>()
-      .AddDefaultRenderer<BaseDomainModel<DomainRegexModel>>()
-      .AddDefaultRenderer<BaseDomainModel<DomainTrueFalseModel>>()
-      .AddDefaultRenderer<DomainMemberModel>()
-      .AddDefaultRenderer<DomainRangeModel>()
-      .AddDefaultRenderer<DomainRegexModel>()
-      .AddDefaultRenderer<DomainTrueFalseModel>()
+      .AddDomainRenderer<DomainMemberModel, DomainMemberRenderer>()
+      .AddDomainRenderer<DomainRangeModel, DomainRangeRenderer>()
+      .AddDomainRenderer<DomainRegexModel, DomainRegexRenderer>()
+      .AddDomainRenderer<DomainTrueFalseModel, DomainTrueFalseRenderer>()
       .AddTypeRenderer<TypeEnumModel, TypeEnumRenderer>()
       .AddRenderer<EnumMemberModel, EnumMemberRenderer>()
       .AddTypeRenderer<TypeUnionModel, TypeUnionRenderer>()
@@ -54,6 +50,14 @@ public static class AllRenderers
   private static IServiceCollection AddRenderer<TModel, TRenderer>(this IServiceCollection services)
     where TRenderer : class, IRenderer<TModel>
     => services.AddSingleton<IRenderer<TModel>, TRenderer>();
+
+  private static IServiceCollection AddDomainRenderer<TItem, TRenderer>(this IServiceCollection services)
+    where TItem : BaseDomainItemModel
+    where TRenderer : class, IRenderer<TItem>
+    => services
+      .AddRenderer<TItem, TRenderer>()
+      .AddTypeRenderer<BaseDomainModel<TItem>, BaseDomainRenderer<TItem>>()
+      .AddRenderer<DomainItemModel<TItem>, DomainItemRenderer<TItem>>();
 
   private static IServiceCollection AddTypeRenderer<TModel, TRenderer>(this IServiceCollection services)
     where TRenderer : class, IRenderer<TModel>, ITypeRenderer

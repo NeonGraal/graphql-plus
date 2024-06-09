@@ -1,6 +1,73 @@
 ﻿
 namespace GqlPlus.Rendering;
 
+internal class BaseDomainRenderer<TItem>(
+  IRenderer<TItem> item,
+  IRenderer<DomainItemModel<TItem>> all
+) : ParentTypeRenderer<BaseDomainModel<TItem>, TItem, DomainItemModel<TItem>>(item, all)
+  where TItem : BaseDomainItemModel
+{
+  protected override Func<TItem, DomainItemModel<TItem>> NewItem(string parent)
+    => item => new(item, parent);
+
+  internal override RenderStructure Render(BaseDomainModel<TItem> model, IRenderContext context)
+    => base.Render(model, context)
+      .Add("domainKind", model.DomainKind.RenderEnum());
+}
+
+internal class BaseDomainItemRenderer<TItem>
+  : BaseRenderer<TItem>
+  where TItem : BaseDomainItemModel
+{
+  internal override RenderStructure Render(TItem model, IRenderContext context)
+    => base.Render(model, context)
+      .Add("exclude", model.Exclude);
+}
+
+internal class DomainItemRenderer<TItem>(
+  IRenderer<TItem> item
+) : BaseRenderer<DomainItemModel<TItem>>
+  where TItem : BaseDomainItemModel
+{
+  internal override RenderStructure Render(DomainItemModel<TItem> model, IRenderContext context)
+    => base.Render(model, context)
+      .Add(model.Item, item, context)
+      .Add("domain", model.Domain);
+}
+
+internal class DomainMemberRenderer
+  : BaseDomainItemRenderer<DomainMemberModel>
+{
+  internal override RenderStructure Render(DomainMemberModel model, IRenderContext context)
+    => base.Render(model, context)
+      .Add("value", model.EnumValue.Render(context));
+}
+
+internal class DomainRangeRenderer
+  : BaseDomainItemRenderer<DomainRangeModel>
+{
+  internal override RenderStructure Render(DomainRangeModel model, IRenderContext context)
+    => base.Render(model, context)
+      .Add("from", model.From)
+      .Add("to", model.To);
+}
+
+internal class DomainRegexRenderer
+  : BaseDomainItemRenderer<DomainRegexModel>
+{
+  internal override RenderStructure Render(DomainRegexModel model, IRenderContext context)
+    => base.Render(model, context)
+      .Add("pattern", model.Pattern);
+}
+
+internal class DomainTrueFalseRenderer
+  : BaseDomainItemRenderer<DomainTrueFalseModel>
+{
+  internal override RenderStructure Render(DomainTrueFalseModel model, IRenderContext context)
+    => base.Render(model, context)
+      .Add("value", model.Value);
+}
+
 internal class TypeEnumRenderer(
   IRenderer<AliasedModel> item,
   IRenderer<EnumMemberModel> all

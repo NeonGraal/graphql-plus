@@ -66,7 +66,7 @@ public static class AllModellers
 
   private static IServiceCollection AddDomainModeller<TItemAst, TItemModel, TModeller>(this IServiceCollection services)
     where TItemAst : IGqlpDomainItem
-    where TItemModel : IBaseDomainItemModel
+    where TItemModel : BaseDomainItemModel
     where TModeller : class, IDomainModeller<TItemAst, TItemModel>, ITypeModeller
     => services
       .AddSingleton<TModeller>()

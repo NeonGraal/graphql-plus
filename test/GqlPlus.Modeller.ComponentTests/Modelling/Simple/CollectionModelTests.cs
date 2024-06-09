@@ -1,6 +1,4 @@
-﻿using GqlPlus.Rendering;
-
-namespace GqlPlus.Modelling.Simple;
+﻿namespace GqlPlus.Modelling.Simple;
 
 public class CollectionModelTests(
   IModeller<IGqlpModifier, CollectionModel> modeller,

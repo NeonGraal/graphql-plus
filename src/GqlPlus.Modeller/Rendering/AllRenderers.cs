@@ -1,8 +1,4 @@
-﻿using GqlPlus.Modelling.Globals;
-using GqlPlus.Modelling.Objects;
-using GqlPlus.Modelling.Simple;
-using GqlPlus.Modelling;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Rendering;
 

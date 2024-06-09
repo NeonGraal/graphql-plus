@@ -1,7 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-using YamlDotNet.Core.Tokens;
-
-namespace GqlPlus.Rendering;
+﻿namespace GqlPlus.Rendering;
 
 internal class ConstantRenderer
   : IRenderer<ConstantModel>

@@ -1,6 +1,4 @@
-﻿using GqlPlus.Rendering;
-
-namespace GqlPlus.Modelling.Simple;
+﻿namespace GqlPlus.Modelling.Simple;
 
 public class ConstantModelTests(
   IModeller<IGqlpConstant, ConstantModel> modeller,

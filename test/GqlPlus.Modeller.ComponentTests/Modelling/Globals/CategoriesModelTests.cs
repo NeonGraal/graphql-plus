@@ -6,6 +6,7 @@ namespace GqlPlus.Modelling.Globals;
 
 public class CategoriesModelTests(
   IModeller<IGqlpSchemaCategory, CategoryModel> category,
+  IRenderer<CategoriesModel> rendering,
   IModeller<IGqlpOutputObject, TypeOutputModel> typeOutput
 ) : TestModelBase<string>
 {
@@ -36,13 +37,15 @@ public class CategoriesModelTests(
 
   internal override ICheckModelBase<string> BaseChecks => _checks;
 
-  private readonly CategoriesModelChecks _checks = new(category, typeOutput);
+  private readonly CategoriesModelChecks _checks = new(category, rendering, typeOutput);
 }
 
 internal sealed class CategoriesModelChecks(
   IModeller<IGqlpSchemaCategory, CategoryModel> modeller,
+  IRenderer<CategoriesModel> rendering,
   IModeller<IGqlpOutputObject, TypeOutputModel> typeOutput
-) : CheckModelBase<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel>(modeller), ICheckModelBase
+) : CheckModelBase<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel, CategoriesModel>(modeller, rendering)
+  , ICheckModelBase
 {
   protected override string[] ExpectedBase(string name)
   => ["!_Category",

@@ -7,7 +7,7 @@ public interface IRendering
   RenderStructure Render(IRenderContext context);
 }
 
-public interface IRendering<TModel>
+public interface IRenderer<TModel>
 {
   RenderStructure Render(TModel model, IRenderContext context);
 }

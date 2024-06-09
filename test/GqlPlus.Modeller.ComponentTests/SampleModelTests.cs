@@ -1,4 +1,5 @@
 ﻿using Fluid;
+
 using GqlPlus;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Convert;
@@ -10,6 +11,7 @@ namespace GqlPlus;
 public class SampleModelTests(
     Parser<IGqlpSchema>.D schemaParser,
     IModeller<IGqlpSchema, SchemaModel> schemaModeller,
+    IRenderer<SchemaModel> renderer,
     ITypesModeller types
 ) : SampleChecks(schemaParser)
 {
@@ -24,7 +26,7 @@ public class SampleModelTests(
     context.AddModels(model.Types.Values);
     context.Errors.Clear();
 
-    RenderStructure result = model.Render(context);
+    RenderStructure result = renderer.Render(model, context);
     if (context.Errors.Count > 0) {
       result.Add("_errors", context.Errors.Render());
     }
@@ -43,7 +45,7 @@ public class SampleModelTests(
     context.AddModels(model.Types.Values);
     context.Errors.Clear();
 
-    RenderStructure result = model.Render(context);
+    RenderStructure result = renderer.Render(model, context);
     if (context.Errors.Count > 0) {
       result.Add("_errors", context.Errors.Render());
     }
@@ -62,7 +64,7 @@ public class SampleModelTests(
     context.AddModels(model.Types.Values);
     context.Errors.Clear();
 
-    RenderStructure result = model.Render(context);
+    RenderStructure result = renderer.Render(model, context);
     if (context.Errors.Count > 0) {
       result.Add("_errors", context.Errors.Render());
     }

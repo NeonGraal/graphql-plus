@@ -23,5 +23,6 @@ public static class Startup
   public static void ConfigureServices(IServiceCollection services)
     => services
       .AddComponentTest()
-      .AddModellers();
+      .AddModellers()
+      .AddRenderers();
 }

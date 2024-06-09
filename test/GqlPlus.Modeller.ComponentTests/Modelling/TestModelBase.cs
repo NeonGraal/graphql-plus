@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Convert;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
 
@@ -21,28 +22,42 @@ public abstract class TestModelBase<TName>
 }
 
 internal abstract class CheckModelBase<TName, TAst, TModel>(
-  IModeller<TAst, TModel> modeller
-) : CheckModelBase<TName, TAst, TAst, TModel>(modeller)
+  IModeller<TAst, TModel> modeller,
+  IRenderer<TModel> rendering
+) : CheckModelBase<TName, TAst, TAst, TModel, TModel>(modeller, rendering)
   where TAst : IGqlpError
   where TModel : IRendering
 { }
 
-internal abstract class CheckModelBase<TName, TSrc, TAst, TModel>
+internal abstract class CheckModelBase<TName, TSrc, TAst, TModel>(
+  IModeller<TSrc, TModel> modeller,
+  IRenderer<TModel> rendering
+) : CheckModelBase<TName, TSrc, TAst, TModel, TModel>(modeller, rendering)
+  where TSrc : IGqlpError
+  where TAst : IGqlpError, TSrc
+  where TModel : IRendering
+{ }
+
+internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
   : ICheckModelBase<TName>
   where TSrc : IGqlpError
   where TAst : IGqlpError, TSrc
   where TModel : IRendering
+  where TRender : IRendering
 {
   protected IModeller<TSrc, TModel> _modeller;
+  protected IRenderer<TRender> _rendering;
 
   public IRenderContext Context { get; } = new TestRenderContext();
   public IMap<TypeKindModel> TypeKinds { get; } = new Map<TypeKindModel>();
 
-  protected CheckModelBase(IModeller<TSrc, TModel> modeller)
+  protected CheckModelBase(IModeller<TSrc, TModel> modeller, IRenderer<TRender> rendering)
   {
     ArgumentNullException.ThrowIfNull(modeller);
+    ArgumentNullException.ThrowIfNull(rendering);
 
     _modeller = modeller;
+    _rendering = rendering;
   }
 
   internal void AstExpected(TAst ast, string[] expected)
@@ -50,7 +65,7 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel>
 
   internal void Model_Expected(IRendering model, string[] expected)
   {
-    RenderStructure render = model.Render(Context);
+    RenderStructure render = _rendering.Render((TRender)model, Context);
 
     string yaml = render.ToYaml(false);
 

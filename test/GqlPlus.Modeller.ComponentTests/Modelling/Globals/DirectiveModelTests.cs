@@ -1,11 +1,13 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Convert;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling.Globals;
 
 public class DirectiveModelTests(
-  IModeller<IGqlpSchemaDirective, DirectiveModel> modeller
+  IModeller<IGqlpSchemaDirective, DirectiveModel> modeller,
+  IRenderer<DirectiveModel> rendering
 ) : TestAliasedModel<string>
 {
   [Theory, RepeatData(Repeats)]
@@ -57,12 +59,13 @@ public class DirectiveModelTests(
 
   internal override ICheckAliasedModel<string> AliasedChecks => _checks;
 
-  private readonly DirectiveModelChecks _checks = new(modeller);
+  private readonly DirectiveModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class DirectiveModelChecks(
-  IModeller<IGqlpSchemaDirective, DirectiveModel> modeller
-) : CheckAliasedModel<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel>(modeller)
+  IModeller<IGqlpSchemaDirective, DirectiveModel> modeller,
+  IRenderer<DirectiveModel> rendering
+) : CheckAliasedModel<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel>(modeller, rendering)
 {
   protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)
     => ExpectedDirective(new(input));

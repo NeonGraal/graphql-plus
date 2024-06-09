@@ -1,10 +1,12 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling.Globals;
 
 public class DirectivesModelTests(
-  IModeller<IGqlpSchemaDirective, DirectiveModel> directive
+  IModeller<IGqlpSchemaDirective, DirectiveModel> directive,
+  IRenderer<DirectivesModel> rendering
 ) : TestModelBase<string>
 {
   [Theory, RepeatData(Repeats)]
@@ -33,12 +35,13 @@ public class DirectivesModelTests(
 
   internal override ICheckModelBase<string> BaseChecks => _checks;
 
-  private readonly DirectivesModelChecks _checks = new(directive);
+  private readonly DirectivesModelChecks _checks = new(directive, rendering);
 }
 
 internal sealed class DirectivesModelChecks(
-  IModeller<IGqlpSchemaDirective, DirectiveModel> modeller
-) : CheckModelBase<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel>(modeller), ICheckModelBase
+  IModeller<IGqlpSchemaDirective, DirectiveModel> modeller,
+  IRenderer<DirectivesModel> rendering
+) : CheckModelBase<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel, DirectivesModel>(modeller, rendering), ICheckModelBase
 {
   protected override string[] ExpectedBase(string name)
   => ["!_Directive",

@@ -1,20 +1,23 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling.Simple;
 
 public class DomainEnumModelTests(
-  IDomainModeller<IGqlpDomainMember, DomainMemberModel> modeller
+  IDomainModeller<IGqlpDomainMember, DomainMemberModel> modeller,
+  IRenderer<BaseDomainModel<DomainMemberModel>> rendering
 ) : TestDomainModel<string, DomainMemberAst, IGqlpDomainMember>
 {
   internal override ICheckDomainModel<string, DomainMemberAst, IGqlpDomainMember> DomainChecks => _checks;
 
-  private readonly DomainEnumModelChecks _checks = new(modeller);
+  private readonly DomainEnumModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class DomainEnumModelChecks(
-  IDomainModeller<IGqlpDomainMember, DomainMemberModel> modeller
-) : CheckDomainModel<string, DomainMemberAst, IGqlpDomainMember, DomainMemberModel>(DomainKind.Enum, modeller)
+  IDomainModeller<IGqlpDomainMember, DomainMemberModel> modeller,
+  IRenderer<BaseDomainModel<DomainMemberModel>> rendering
+) : CheckDomainModel<string, DomainMemberAst, IGqlpDomainMember, DomainMemberModel>(DomainKind.Enum, modeller, rendering)
 {
   protected override string[] ExpectedItem(string input, string exclude, string[] domain)
     => [

@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Convert;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
 
@@ -22,15 +23,17 @@ public abstract class TestAliasedModel<TInput>
 }
 
 internal abstract class CheckAliasedModel<TName, TAst, TModel>(
-  IModeller<TAst, TModel> modeller
-) : CheckAliasedModel<TName, TAst, TAst, TModel>(modeller)
+  IModeller<TAst, TModel> modeller,
+  IRenderer<TModel> rendering
+) : CheckAliasedModel<TName, TAst, TAst, TModel>(modeller, rendering)
   where TAst : IGqlpAliased
   where TModel : IRendering
 { }
 
 internal abstract class CheckAliasedModel<TName, TSrc, TAst, TModel>(
-  IModeller<TSrc, TModel> modeller
-) : CheckDescribedModel<TName, TSrc, TAst, TModel>(modeller)
+  IModeller<TSrc, TModel> modeller,
+  IRenderer<TModel> rendering
+) : CheckDescribedModel<TName, TSrc, TAst, TModel>(modeller, rendering)
   , ICheckAliasedModel<TName>
   where TSrc : IGqlpError, IGqlpDescribed
   where TAst : IGqlpAliased, TSrc

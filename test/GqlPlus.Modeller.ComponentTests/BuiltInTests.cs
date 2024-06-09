@@ -8,6 +8,7 @@ namespace GqlPlus;
 
 public class BuiltInTests(
   IModeller<IGqlpSchema, SchemaModel> modeller,
+  IRenderer<SchemaModel> renderer,
   ITypesModeller types
 )
 {
@@ -86,7 +87,7 @@ public class BuiltInTests(
 
     context.Errors.Clear();
 
-    RenderStructure result = model.Render(context);
+    RenderStructure result = renderer.Render(model, context);
     if (context.Errors.Count > 0) {
       result.Add("_errors", context.Errors.Render());
     }

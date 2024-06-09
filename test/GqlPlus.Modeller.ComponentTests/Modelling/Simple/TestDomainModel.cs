@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling.Simple;
 
@@ -55,8 +56,9 @@ public abstract class TestDomainModel<TValue, TAstItem, TItem>
 
 internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
   DomainKind kind,
-  IDomainModeller<TItem, TItemModel> modeller
-) : CheckTypeModel<IGqlpDomain<TItem>, SimpleKindModel, BaseDomainModel<TItemModel>>(modeller, SimpleKindModel.Domain)
+  IDomainModeller<TItem, TItemModel> modeller,
+  IRenderer<BaseDomainModel<TItemModel>> rendering
+) : CheckTypeModel<IGqlpDomain<TItem>, SimpleKindModel, BaseDomainModel<TItemModel>>(modeller, rendering, SimpleKindModel.Domain)
   , ICheckDomainModel<TValue, TAstItem, TItem>
   where TAstItem : AstAbbreviated, TItem
   where TItem : IGqlpDomainItem

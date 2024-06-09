@@ -1,20 +1,23 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling.Objects;
 
 public class OutputModelTests(
-  IModeller<IGqlpOutputObject, TypeOutputModel> modeller
+  IModeller<IGqlpOutputObject, TypeOutputModel> modeller,
+  IRenderer<TypeOutputModel> rendering
 ) : TestObjectModel<OutputDeclAst, OutputFieldAst, IGqlpOutputBase, OutputBaseAst>
 {
   internal override ICheckObjectModel<OutputDeclAst, OutputFieldAst, IGqlpOutputBase> ObjectChecks => _checks;
 
-  private readonly OutputModelChecks _checks = new(modeller);
+  private readonly OutputModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class OutputModelChecks(
-  IModeller<IGqlpOutputObject, TypeOutputModel> modeller
-) : CheckObjectModel<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, TypeOutputModel>(modeller, TypeKindModel.Output)
+  IModeller<IGqlpOutputObject, TypeOutputModel> modeller,
+  IRenderer<TypeOutputModel> rendering
+) : CheckObjectModel<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, TypeOutputModel>(modeller, rendering, TypeKindModel.Output)
 {
   protected override OutputDeclAst NewObjectAst(
     string name,

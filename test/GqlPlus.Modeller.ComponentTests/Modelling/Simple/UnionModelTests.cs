@@ -1,11 +1,13 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling.Simple;
 
 public class UnionModelTests(
-  IModeller<IGqlpUnion, TypeUnionModel> modeller
+  IModeller<IGqlpUnion, TypeUnionModel> modeller,
+  IRenderer<TypeUnionModel> rendering
 ) : TestTypeModel<SimpleKindModel>
 {
   [Theory, RepeatData(Repeats)]
@@ -58,12 +60,13 @@ public class UnionModelTests(
 
   internal override ICheckTypeModel<SimpleKindModel> TypeChecks => _checks;
 
-  private readonly UnionModelChecks _checks = new(modeller);
+  private readonly UnionModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class UnionModelChecks(
-  IModeller<IGqlpUnion, TypeUnionModel> modeller
-) : CheckTypeModel<IGqlpUnion, SimpleKindModel, TypeUnionModel, string>(modeller, SimpleKindModel.Union)
+  IModeller<IGqlpUnion, TypeUnionModel> modeller,
+  IRenderer<TypeUnionModel> rendering
+) : CheckTypeModel<IGqlpUnion, SimpleKindModel, TypeUnionModel, string>(modeller, rendering, SimpleKindModel.Union)
 {
   internal void UnionExpected(UnionDeclAst ast, ExpectedUnionInput input)
   => AstExpected(ast, ExpectedUnion(input));

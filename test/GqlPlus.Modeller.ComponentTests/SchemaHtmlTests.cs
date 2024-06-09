@@ -12,6 +12,7 @@ public class SchemaHtmlTests(
     Parser<IGqlpSchema>.D parser,
     IMerge<IGqlpSchema> merger,
     IModeller<IGqlpSchema, SchemaModel> modeller,
+    IRenderer<SchemaModel> renderer,
     ITypesModeller types
 ) : SchemaDataBase(parser)
 {
@@ -130,7 +131,7 @@ public class SchemaHtmlTests(
     context.AddModels(model.Types.Values);
     context.Errors.Clear();
 
-    RenderStructure result = model.Render(context);
+    RenderStructure result = renderer.Render(model, context);
     if (context.Errors.Count > 0) {
       result.Add("_errors", context.Errors.Render());
     }

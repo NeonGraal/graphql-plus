@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling.Objects;
 
@@ -38,8 +39,9 @@ public abstract class TestObjBaseModel<TObjBase, TObjBaseAst>
 
 internal abstract class CheckObjBaseModel<TObjBase, TObjBaseAst, TModel>(
   IModeller<TObjBase, TModel> objBase,
+  IRenderer<TModel> rendering,
   TypeKindModel kind
-) : CheckModelBase<string, TObjBase, TModel>(objBase),
+) : CheckModelBase<string, TObjBase, TModel>(objBase, rendering),
     ICheckObjBaseModel<TObjBaseAst>
   where TObjBase : IGqlpObjectBase<TObjBase>
   where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase

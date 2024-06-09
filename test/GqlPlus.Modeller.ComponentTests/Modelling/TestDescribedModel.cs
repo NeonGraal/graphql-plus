@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling;
 
@@ -23,15 +24,17 @@ public abstract class TestDescribedModel<TName>
 }
 
 internal abstract class CheckDescribedModel<TName, TAst, TModel>(
-  IModeller<TAst, TModel> modeller
-) : CheckDescribedModel<TName, TAst, TAst, TModel>(modeller)
+  IModeller<TAst, TModel> modeller,
+  IRenderer<TModel> rendering
+) : CheckDescribedModel<TName, TAst, TAst, TModel>(modeller, rendering)
   where TAst : IGqlpError, IGqlpDescribed
   where TModel : IRendering
 { }
 
 internal abstract class CheckDescribedModel<TName, TSrc, TAst, TModel>(
-  IModeller<TSrc, TModel> modeller
-) : CheckModelBase<TName, TSrc, TAst, TModel>(modeller)
+  IModeller<TSrc, TModel> modeller,
+  IRenderer<TModel> rendering
+) : CheckModelBase<TName, TSrc, TAst, TModel>(modeller, rendering)
   , ICheckDescribedModel<TName>
   where TSrc : IGqlpError, IGqlpDescribed
   where TAst : IGqlpError, TSrc

@@ -1,10 +1,12 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling.Simple;
 
 public class EnumModelTests(
-  IModeller<IGqlpEnum, TypeEnumModel> modeller
+  IModeller<IGqlpEnum, TypeEnumModel> modeller,
+  IRenderer<TypeEnumModel> rendering
 ) : TestTypeModel<SimpleKindModel>
 {
   [Theory, RepeatData(Repeats)]
@@ -57,12 +59,13 @@ public class EnumModelTests(
 
   internal override ICheckTypeModel<SimpleKindModel> TypeChecks => _checks;
 
-  private readonly EnumModelChecks _checks = new(modeller);
+  private readonly EnumModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class EnumModelChecks(
-  IModeller<IGqlpEnum, TypeEnumModel> modeller
-) : CheckTypeModel<IGqlpEnum, SimpleKindModel, TypeEnumModel, string>(modeller, SimpleKindModel.Enum)
+  IModeller<IGqlpEnum, TypeEnumModel> modeller,
+  IRenderer<TypeEnumModel> rendering
+) : CheckTypeModel<IGqlpEnum, SimpleKindModel, TypeEnumModel, string>(modeller, rendering, SimpleKindModel.Enum)
 {
   internal void EnumExpected(EnumDeclAst ast, ExpectedEnumInput input)
     => AstExpected(ast, ExpectedEnum(input));

@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Rendering;
 
 internal class BaseRenderer<TModel>
-  : IRendering<TModel>
+  : IRenderer<TModel>
   where TModel : ModelBase
 {
-  RenderStructure IRendering<TModel>.Render(TModel model, IRenderContext context)
+  RenderStructure IRenderer<TModel>.Render(TModel model, IRenderContext context)
     => Render(model, context);
 
   internal virtual RenderStructure Render(TModel model, IRenderContext context)

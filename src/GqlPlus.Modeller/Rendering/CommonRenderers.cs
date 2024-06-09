@@ -4,9 +4,9 @@ using YamlDotNet.Core.Tokens;
 namespace GqlPlus.Rendering;
 
 internal class ConstantRenderer
-  : IRendering<ConstantModel>
+  : IRenderer<ConstantModel>
 {
-  RenderStructure IRendering<ConstantModel>.Render(ConstantModel model, IRenderContext context)
+  RenderStructure IRenderer<ConstantModel>.Render(ConstantModel model, IRenderContext context)
     => model.Map.Count > 0 ? new RenderStructure(model.Map.ToDictionary(
         p => p.Key.Render(context).Value!,
         p => p.Value.Render(context)), "_ConstantMap")
@@ -16,9 +16,9 @@ internal class ConstantRenderer
 }
 
 internal class SimpleRenderer
-  : IRendering<SimpleModel>
+  : IRenderer<SimpleModel>
 {
-  RenderStructure IRendering<SimpleModel>.Render(SimpleModel model, IRenderContext context)
+  RenderStructure IRenderer<SimpleModel>.Render(SimpleModel model, IRenderContext context)
     => model.Boolean is not null ? new(model.Boolean)
       : model.Number is not null ? new(model.Number, model.TypeRef?.Name ?? "")
       : model.String is not null ? new(RenderValue.Str(model.String), model.TypeRef?.Name ?? "")
@@ -41,8 +41,8 @@ internal class CollectionRenderer
 
 internal class ModifierRenderer
   : CollectionRenderer
-  , IRendering<ModifierModel>
+  , IRenderer<ModifierModel>
 {
-  RenderStructure IRendering<ModifierModel>.Render(ModifierModel model, IRenderContext context)
+  RenderStructure IRenderer<ModifierModel>.Render(ModifierModel model, IRenderContext context)
     => Render(model, context);
 }

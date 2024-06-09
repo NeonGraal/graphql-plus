@@ -1,21 +1,25 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling.Globals;
 
 public class SettingModelTests(
-  IModeller<IGqlpSchemaSetting, SettingModel> modeller
+  IModeller<IGqlpSchemaSetting, SettingModel> modeller,
+  IRenderer<SettingModel> rendering
 ) : TestDescribedModel<SettingInput>
 {
   internal override ICheckDescribedModel<SettingInput> DescribedChecks => _checks;
 
-  private readonly SettingModelChecks _checks = new(modeller);
+  private readonly SettingModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class SettingModelChecks(
-  IModeller<IGqlpSchemaSetting, SettingModel> modeller
-) : CheckDescribedModel<SettingInput, IGqlpSchemaSetting, OptionSettingAst, SettingModel>(modeller)
+  IModeller<IGqlpSchemaSetting, SettingModel> modeller,
+  IRenderer<SettingModel> rendering
+) : CheckDescribedModel<SettingInput, IGqlpSchemaSetting, OptionSettingAst, SettingModel>(modeller, rendering)
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<SettingInput> input)
     => input.Name.Expected(input.Description ?? []);

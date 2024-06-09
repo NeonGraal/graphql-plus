@@ -1,10 +1,12 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Rendering;
 
 namespace GqlPlus.Modelling.Globals;
 
 public class CategoryModelTests(
-  IModeller<IGqlpSchemaCategory, CategoryModel> modeller
+  IModeller<IGqlpSchemaCategory, CategoryModel> modeller,
+  IRenderer<CategoryModel> rendering
 ) : TestAliasedModel<string>
 {
   [Theory, RepeatData(Repeats)]
@@ -43,12 +45,13 @@ public class CategoryModelTests(
 
   internal override ICheckAliasedModel<string> AliasedChecks => _checks;
 
-  private readonly CategoryModelChecks _checks = new(modeller);
+  private readonly CategoryModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class CategoryModelChecks(
-  IModeller<IGqlpSchemaCategory, CategoryModel> modeller
-) : CheckAliasedModel<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel>(modeller)
+  IModeller<IGqlpSchemaCategory, CategoryModel> modeller,
+  IRenderer<CategoryModel> rendering
+) : CheckAliasedModel<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel>(modeller, rendering)
 {
   protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)
     => ExpectedCategory(new(input));

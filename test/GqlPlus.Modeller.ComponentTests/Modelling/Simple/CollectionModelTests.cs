@@ -1,20 +1,24 @@
-﻿namespace GqlPlus.Modelling.Simple;
+﻿using GqlPlus.Rendering;
+
+namespace GqlPlus.Modelling.Simple;
 
 public class CollectionModelTests(
-  IModeller<IGqlpModifier, CollectionModel> modeller
+  IModeller<IGqlpModifier, CollectionModel> modeller,
+  IRenderer<CollectionModel> rendering
 ) : TestModelBase<ModifierInput>
 {
   internal override ICheckModelBase<ModifierInput> BaseChecks => _checks;
 
-  private readonly CollectionModelChecks _checks = new(modeller);
+  private readonly CollectionModelChecks _checks = new(modeller, rendering);
 
   protected override bool SkipIf(ModifierInput name)
     => name.Kind == ModifierKind.Optional;
 }
 
 internal sealed class CollectionModelChecks(
-  IModeller<IGqlpModifier, CollectionModel> modeller
-) : CheckModelBase<ModifierInput, IGqlpModifier, ModifierAst, CollectionModel>(modeller)
+  IModeller<IGqlpModifier, CollectionModel> modeller,
+  IRenderer<CollectionModel> rendering
+) : CheckModelBase<ModifierInput, IGqlpModifier, ModifierAst, CollectionModel>(modeller, rendering)
 {
   protected override string[] ExpectedBase(ModifierInput name)
     => name.Kind switch {

@@ -18,7 +18,7 @@ public sealed record class BaseDomainModel<TItem>(
 ) : ParentTypeModel<TItem, DomainItemModel<TItem>>(TypeKindModel.Domain, Name)
   where TItem : IBaseDomainItemModel
 {
-  protected override string Tag => $"_Domain{DomainKind}";
+  internal override string Tag => $"_Domain{DomainKind}";
 
   protected override Func<TItem, DomainItemModel<TItem>> NewItem(string parent)
     => item => new(item, parent);

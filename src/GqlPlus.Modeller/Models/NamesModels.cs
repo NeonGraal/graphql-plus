@@ -2,7 +2,7 @@
 
 public record class AliasedModel(
   string Name
-) : NamedModel(new NamedModel(Name))
+) : NamedModel(Name)
 {
   public string? Description { get; set; }
   public string[] Aliases { get; set; } = [];

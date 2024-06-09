@@ -54,11 +54,11 @@ internal sealed class CategoriesModelChecks(
     => new(AstNulls.At, name);
 
   IRendering ICheckModelBase.ToModel(IGqlpError ast)
-    => new CategoriesModel() { Category = _modeller.ToModel((CategoryDeclAst)ast, TypeKinds) };
+    => new CategoriesModel() { And = _modeller.ToModel((CategoryDeclAst)ast, TypeKinds) };
 
   internal CategoriesModel ToModel(CategoryDeclAst? ast, string output)
     => new() {
-      Category = _modeller.TryModel(ast, TypeKinds),
+      And = _modeller.TryModel(ast, TypeKinds),
       Type = string.IsNullOrWhiteSpace(output) ? null : typeOutput.ToModel(new OutputDeclAst(AstNulls.At, output), TypeKinds),
     };
 }

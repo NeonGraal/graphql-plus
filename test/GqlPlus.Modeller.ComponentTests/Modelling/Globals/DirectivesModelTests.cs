@@ -49,11 +49,11 @@ internal sealed class DirectivesModelChecks(
     => new(AstNulls.At, name);
 
   IRendering ICheckModelBase.ToModel(IGqlpError ast)
-    => new DirectivesModel() { Directive = _modeller.ToModel((DirectiveDeclAst)ast, TypeKinds) };
+    => new DirectivesModel() { And = _modeller.ToModel((DirectiveDeclAst)ast, TypeKinds) };
 
   internal DirectivesModel ToModel(DirectiveDeclAst? ast, string input)
     => new() {
-      Directive = _modeller.TryModel(ast, TypeKinds),
+      And = _modeller.TryModel(ast, TypeKinds),
       Type = new TypeInputModel(input),
     };
 }

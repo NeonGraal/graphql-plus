@@ -60,7 +60,7 @@ public record class CollectionModel(
   public string? Key { get; set; } = "";
   public bool IsOptional { get; set; }
 
-  protected override string Tag =>
+  internal override string Tag =>
     ModifierKind switch {
       ModifierKind.Dict => "_ModifierDictionary",
       ModifierKind.Param => "_ModifierTypeParameter",

@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling.Simple;
 
 internal class SimpleModeller
   : ModellerBase<IGqlpFieldKey, SimpleModel>

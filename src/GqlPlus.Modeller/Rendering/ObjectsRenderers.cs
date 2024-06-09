@@ -1,22 +1,41 @@
-﻿using GqlPlus.Ast;
+﻿using System.Reflection;
+
+using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Rendering;
 
 internal class ObjectBaseRenderer<TBase>
-  : BaseRenderer<TBase>
-  where TBase : ObjBaseModel<TBase>
+  : ObjectBaseRenderer<TBase, TBase>
+  where TBase : ObjBaseModel<TBase>, IObjBaseModel
 {
+  public ObjectBaseRenderer()
+    => _typeArgument = this;
+}
+
+internal class ObjectBaseRenderer<TBase, TArg>
+  : BaseRenderer<TBase>
+  where TBase : ObjBaseModel<TArg>
+  where TArg : IObjBaseModel
+{
+  protected IRenderer<TArg>? _typeArgument;
+
+  protected ObjectBaseRenderer()
+    => _typeArgument = default;
+
+  public ObjectBaseRenderer(IRenderer<TArg> typeArgument)
+    => _typeArgument = typeArgument;
+
   internal override RenderStructure Render(TBase model, IRenderContext context)
     => base.Render(model, context)
-      .Add("typeArguments", model.TypeArguments.Render(this, context));
+      .Add("typeArguments", model.TypeArguments.Render(_typeArgument!, context));
 }
 
 internal class ObjectFieldRenderer<TField, TBase>(
-  IRenderer<TBase> objBase,
-  IRenderer<ModifierModel> modifier
+  IRenderer<ModifierModel> modifier,
+  IRenderer<TBase> objBase
 ) : AliasedRenderer<TField>
   where TField : ObjFieldModel<TBase>
-  where TBase : ObjBaseModel<TBase>
+  where TBase : IObjBaseModel
 {
   internal override RenderStructure Render(TField model, IRenderContext context)
     => base.Render(model, context)
@@ -36,7 +55,60 @@ internal class DualBaseRenderer
 }
 
 internal class DualFieldRenderer(
-  IRenderer<DualBaseModel> objBase,
-  IRenderer<ModifierModel> modifier
-) : ObjectFieldRenderer<DualFieldModel, DualBaseModel>(objBase, modifier)
+  IRenderer<ModifierModel> modifier,
+  IRenderer<DualBaseModel> objBase
+) : ObjectFieldRenderer<DualFieldModel, DualBaseModel>(modifier, objBase)
 { }
+
+internal class InputBaseRenderer(
+  IRenderer<DualBaseModel> dual
+) : ObjectBaseRenderer<InputBaseModel>
+{
+  internal override RenderStructure Render(InputBaseModel model, IRenderContext context)
+    => model.Dual is null
+    ? model.IsTypeParameter
+      ? new(model.Input, "_TypeParameter")
+      : base.Render(model, context)
+        .Add("input", model.Input)
+    : dual.Render(model.Dual, context);
+}
+
+internal class InputFieldRenderer(
+  IRenderer<ConstantModel> constant,
+  IRenderer<ModifierModel> modifier,
+  IRenderer<InputBaseModel> objBase
+) : ObjectFieldRenderer<InputFieldModel, InputBaseModel>(modifier, objBase)
+{
+  internal override RenderStructure Render(InputFieldModel model, IRenderContext context)
+    => base.Render(model, context)
+      .Add(model.Default is not null,
+        s => s.Add("default", constant.Render(model.Default!, context)));
+}
+
+internal class OutputBaseRenderer(
+  IRenderer<DualBaseModel> dual,
+  IRenderer<OutputArgumentModel> typeArgument
+) : ObjectBaseRenderer<OutputBaseModel, OutputArgumentModel>(typeArgument)
+{
+  internal override RenderStructure Render(OutputBaseModel model, IRenderContext context)
+    => model.Dual is null
+    ? model.IsTypeParameter
+      ? new(model.Output, "_TypeParameter")
+      : base.Render(model, context)
+        .Add("output", model.Output)
+    : dual.Render(model.Dual, context);
+}
+
+internal class OutputFieldRenderer(
+  IRenderer<OutputEnumModel> outputEnum,
+  IRenderer<ModifierModel> modifier,
+  IRenderer<OutputBaseModel> objBase,
+  IRenderer<InputParameterModel> parameter
+) : ObjectFieldRenderer<OutputFieldModel, OutputBaseModel>(modifier, objBase)
+{
+  internal override RenderStructure Render(OutputFieldModel model, IRenderContext context)
+    => model.Enum is null
+      ? base.Render(model, context)
+        .Add("parameters", model.Parameters.Render(parameter, context))
+      : outputEnum.Render(model.Enum, context);
+}

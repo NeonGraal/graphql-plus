@@ -18,7 +18,7 @@ public sealed record class SchemaAst(TokenAt At)
   IEnumerable<IGqlpDeclaration> IGqlpSchema.Declarations => Declarations;
   ITokenMessages IGqlpSchema.Errors => Errors;
 
-  public string Render()
+  public string Show()
   {
     using StringWriter sw = new();
     int indent = 0;

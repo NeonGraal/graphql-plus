@@ -19,7 +19,7 @@ public interface IGqlpOperation
   IEnumerable<IGqlpArgument> Usages { get; }
   IEnumerable<IGqlpSpread> Spreads { get; }
 
-  string Render();
+  string Show();
 }
 
 public interface IGqlpVariable

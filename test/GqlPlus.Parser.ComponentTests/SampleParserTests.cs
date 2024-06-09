@@ -19,7 +19,7 @@ public class SampleParserTests(
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
 
-    await Verify(ast.Render(), SampleSettings("Schema", sample));
+    await Verify(ast.Show(), SampleSettings("Schema", sample));
   }
 
   [Theory]
@@ -28,7 +28,7 @@ public class SampleParserTests(
   {
     IGqlpOperation? ast = await ParseSampleOperation("Operation", sample, "gql+");
 
-    await Verify(ast?.Render(), SampleSettings("Operation", sample));
+    await Verify(ast?.Show(), SampleSettings("Operation", sample));
   }
 
   [Theory]
@@ -37,7 +37,7 @@ public class SampleParserTests(
   {
     IGqlpOperation? ast = await ParseSampleOperation("GraphQl", example, "gql");
 
-    await Verify(ast?.Render(), SampleSettings("GraphQl", example));
+    await Verify(ast?.Show(), SampleSettings("GraphQl", example));
   }
 
   private async Task<IGqlpOperation?> ParseSampleOperation(string dir, string sample, string extn)

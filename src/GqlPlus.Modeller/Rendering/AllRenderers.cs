@@ -7,20 +7,11 @@ public static class AllRenderers
   public static IServiceCollection AddRenderers(this IServiceCollection services)
   => services
       // Common
-      //.AddRenderer<ConstantModel, ConstantRenderer>()
-      //.AddRenderer<SimpleModel, SimpleRenderer>()
-      //.AddRenderer<CollectionModel, CollectionRenderer>()
-      //.AddRenderer<ModifierModel, ModifierRenderer>()
-      //// Globals
-      //// Simple
-      //.AddRenderer<TypeUnionModel, TypeUnionRenderer>()
-      //.AddRenderer<UnionMemberModel, UnionMemberRenderer>()
-
-      // Default Renderers
-      .AddDefaultRenderer<ConstantModel>()
-      .AddDefaultRenderer<SimpleModel>()
-      .AddDefaultRenderer<ModifierModel>()
-      .AddDefaultRenderer<CollectionModel>()
+      .AddRenderer<AliasedModel, AliasedRenderer<AliasedModel>>()
+      .AddRenderer<ConstantModel, ConstantRenderer>()
+      .AddRenderer<SimpleModel, SimpleRenderer>()
+      .AddRenderer<CollectionModel, CollectionRenderer>()
+      .AddRenderer<ModifierModel, ModifierRenderer>()
       // Schema
       .AddRenderer<SchemaModel, SchemaRenderer>()
       .AddRenderer<CategoriesModel, CategoriesRenderer>()
@@ -29,6 +20,7 @@ public static class AllRenderers
       .AddRenderer<DirectiveModel, DirectiveRenderer>()
       .AddRenderer<SettingModel, SettingRenderer>()
       // Types
+      .AddRenderer<BaseTypeModel, AllTypesRenderer>()
       .AddDefaultRenderer<SpecialTypeModel>()
       // Simple
       .AddDefaultRenderer<BaseDomainModel<DomainMemberModel>>()
@@ -39,8 +31,10 @@ public static class AllRenderers
       .AddDefaultRenderer<DomainRangeModel>()
       .AddDefaultRenderer<DomainRegexModel>()
       .AddDefaultRenderer<DomainTrueFalseModel>()
-      .AddDefaultRenderer<TypeEnumModel>()
-      .AddDefaultRenderer<TypeUnionModel>()
+      .AddTypeRenderer<TypeEnumModel, TypeEnumRenderer>()
+      .AddRenderer<EnumMemberModel, EnumMemberRenderer>()
+      .AddTypeRenderer<TypeUnionModel, TypeUnionRenderer>()
+      .AddRenderer<UnionMemberModel, UnionMemberRenderer>()
       // Object
       .AddDefaultRenderer<DualBaseModel>()
       .AddDefaultRenderer<InputBaseModel>()
@@ -60,6 +54,13 @@ public static class AllRenderers
   private static IServiceCollection AddRenderer<TModel, TRenderer>(this IServiceCollection services)
     where TRenderer : class, IRenderer<TModel>
     => services.AddSingleton<IRenderer<TModel>, TRenderer>();
+
+  private static IServiceCollection AddTypeRenderer<TModel, TRenderer>(this IServiceCollection services)
+    where TRenderer : class, IRenderer<TModel>, ITypeRenderer
+    => services
+      .AddSingleton<TRenderer>()
+      .AddProvider<TRenderer, IRenderer<TModel>>()
+      .AddProvider<TRenderer, ITypeRenderer>();
 
   private static IServiceCollection AddDefaultRenderer<TModel>(this IServiceCollection services)
     where TModel : IRendering

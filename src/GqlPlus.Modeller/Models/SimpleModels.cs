@@ -117,8 +117,7 @@ public record class EnumMemberModel(
 ) : AliasedModel(Name)
 {
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("enum", OfEnum);
+    => throw new NotImplementedException();
 }
 
 public record class EnumValueModel(
@@ -149,6 +148,5 @@ public record class UnionMemberModel(
 ) : AliasedModel(Name)
 {
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("union", OfUnion);
+    => throw new NotImplementedException();
 }

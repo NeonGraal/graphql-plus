@@ -1,14 +1,15 @@
 ﻿namespace GqlPlus.Rendering;
 
-internal class ConstantRenderer
-  : IRenderer<ConstantModel>
+internal class ConstantRenderer(
+  IRenderer<SimpleModel> simple
+) : IRenderer<ConstantModel>
 {
-  RenderStructure IRenderer<ConstantModel>.Render(ConstantModel model, IRenderContext context)
+  public RenderStructure Render(ConstantModel model, IRenderContext context)
     => model.Map.Count > 0 ? new RenderStructure(model.Map.ToDictionary(
-        p => p.Key.Render(context).Value!,
-        p => p.Value.Render(context)), "_ConstantMap")
-    : model.List.Count > 0 ? model.List.Render(context, "_ConstantList")
-    : model.Value is not null ? model.Value.Render(context)
+        p => simple.Render(p.Key, context).Value!,
+        p => Render(p.Value, context)), "_ConstantMap")
+    : model.List.Count > 0 ? model.List.Render(this, context, "_ConstantList")
+    : model.Value is not null ? simple.Render(model.Value, context)
     : new("");
 }
 

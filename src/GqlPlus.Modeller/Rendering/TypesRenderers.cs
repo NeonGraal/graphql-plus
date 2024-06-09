@@ -4,8 +4,15 @@ namespace GqlPlus.Rendering;
 
 internal class BaseTypeRenderer<TModel>
   : AliasedRenderer<TModel>
+  , ITypeRenderer
   where TModel : BaseTypeModel
 {
+  public bool ForType(BaseTypeModel model)
+    => model is TModel;
+
+  public RenderStructure TypeRender(BaseTypeModel model, IRenderContext context)
+    => Render((TModel)model, context);
+
   internal override RenderStructure Render(TModel model, IRenderContext context)
     => base.Render(model, context)
     .Add("typeKind", model.TypeKind.RenderEnum());
@@ -47,28 +54,48 @@ internal abstract class ChildTypeRenderer<TModel, TParent>
   protected abstract string? ParentName(TParent? parent);
 }
 
-internal abstract class ParentTypeRenderer<TModel, TItem, TAll>
-  : ChildTypeRenderer<TModel, TypeRefModel<SimpleKindModel>>
+internal abstract class ParentTypeRenderer<TModel, TItem, TAll>(
+  IRenderer<TItem> item,
+  IRenderer<TAll> all
+) : ChildTypeRenderer<TModel, TypeRefModel<SimpleKindModel>>
   where TModel : ParentTypeModel<TItem, TAll>
   where TItem : ModelBase
   where TAll : ModelBase
 {
   internal override RenderStructure Render(TModel model, IRenderContext context)
   {
-    List<TAll> all = [];
+    List<TAll> allItems = [];
     void AddMembers(ParentTypeModel<TItem, TAll> model)
-      => all.AddRange(model.Items.Select(NewItem(model.Name)));
+      => allItems.AddRange(model.Items.Select(NewItem(model.Name)));
 
     ForParent<ParentTypeModel<TItem, TAll>, ParentTypeModel<TItem, TAll>>(model, context, AddMembers);
     AddMembers(model);
 
     return base.Render(model, context)
-        .Add("items", model.Items.Render(context))
-        .Add("allItems", all.Render(context));
+        .Add("items", model.Items.Render(item, context))
+        .Add("allItems", allItems.Render(all, context));
   }
 
   protected override string? ParentName(TypeRefModel<SimpleKindModel>? parent)
     => parent?.Name;
 
   protected abstract Func<TItem, TAll> NewItem(string parent);
+}
+
+internal class AllTypesRenderer(
+  IEnumerable<ITypeRenderer> types
+) : IRenderer<BaseTypeModel>
+{
+  RenderStructure IRenderer<BaseTypeModel>.Render(BaseTypeModel model, IRenderContext context)
+    // Todo: Should be Single instead of SingleOrDefault.
+    => types
+    .SingleOrDefault(t => t.ForType(model))
+    ?.TypeRender(model, context)
+    ?? model.Render(context);
+}
+
+internal interface ITypeRenderer
+{
+  bool ForType(BaseTypeModel model);
+  RenderStructure TypeRender(BaseTypeModel model, IRenderContext context);
 }

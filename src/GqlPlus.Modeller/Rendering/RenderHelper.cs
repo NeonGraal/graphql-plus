@@ -24,6 +24,10 @@ internal static class RenderHelper
     where T : IRendering
     => new(values.Select(v => v.Render(context)), tag, flow);
 
+  internal static RenderStructure Render<TModel>(this IEnumerable<TModel> values, IRenderer<TModel> renderer, IRenderContext context, string tag = "", bool flow = false)
+    where TModel : IRendering
+    => new(values.Select(v => renderer.Render(v, context)), tag, flow);
+
   internal static RenderStructure Render<TModel>(this IMap<TModel> values, IRenderContext context, string dictTag = "", bool flow = false, string keyTag = "_Identifier")
     where TModel : IRendering
     => new(values.ToDictionary(

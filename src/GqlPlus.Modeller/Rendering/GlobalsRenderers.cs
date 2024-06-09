@@ -26,14 +26,15 @@ internal class CategoriesRenderer(
 ) : AndTypeRenderer<CategoriesModel, CategoryModel>("category", and)
 { }
 
-internal class CategoryRenderer
-  : AliasedRenderer<CategoryModel>
+internal class CategoryRenderer(
+  IRenderer<ModifierModel> modifiers
+) : AliasedRenderer<CategoryModel>
 {
   internal override RenderStructure Render(CategoryModel model, IRenderContext context)
     => base.Render(model, context)
       .Add("resolution", model.Resolution, "_Resolution")
       .Add("output", model.Output.Render(context))
-      .Add("modifiers", model.Modifiers.Render(context, flow: true));
+      .Add("modifiers", model.Modifiers.Render(modifiers, context, flow: true));
 }
 
 internal class DirectivesRenderer(
@@ -51,10 +52,11 @@ internal class DirectiveRenderer
       .Add("repeatable", model.Repeatable);
 }
 
-internal class SettingRenderer
-  : DescribedRenderer<SettingModel>
+internal class SettingRenderer(
+  IRenderer<ConstantModel> constant
+) : DescribedRenderer<SettingModel>
 {
   internal override RenderStructure Render(SettingModel model, IRenderContext context)
     => base.Render(model, context)
-      .Add("value", model.Value.Render(context));
+      .Add("value", constant.Render(model.Value, context));
 }

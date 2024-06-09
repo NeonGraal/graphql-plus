@@ -7,6 +7,11 @@ public interface IRendering
   RenderStructure Render(IRenderContext context);
 }
 
+public interface IRendering<TModel>
+{
+  RenderStructure Render(TModel model, IRenderContext context);
+}
+
 public interface IRenderContext
 {
   bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)

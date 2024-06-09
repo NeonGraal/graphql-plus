@@ -137,12 +137,14 @@ types: !_Map_Type
   !_Identifier DualFieldAlias: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
+      aliases: [field1, field2]
       name: field
       object: DualFieldAlias
       type: !_DualBase
         dual: DualFieldAlias
     fields:
     - !_DualField
+      aliases: [field1, field2]
       name: field
       type: !_DualBase
         dual: DualFieldAlias
@@ -403,12 +405,14 @@ types: !_Map_Type
   !_Identifier InpFieldAlias: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
+      aliases: [field1, field2]
       name: field
       object: InpFieldAlias
       type: !_InputBase
         input: InpFieldAlias
     fields:
     - !_InputField
+      aliases: [field1, field2]
       name: field
       type: !_InputBase
         input: InpFieldAlias
@@ -521,12 +525,14 @@ types: !_Map_Type
   !_Identifier OutpFieldAlias: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
+      aliases: [field1, field2]
       name: field
       object: OutpFieldAlias
       type: !_OutputBase
         output: OutpFieldAlias
     fields:
     - !_OutputField
+      aliases: [field1, field2]
       name: field
       type: !_OutputBase
         output: OutpFieldAlias

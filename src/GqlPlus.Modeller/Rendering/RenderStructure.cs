@@ -70,6 +70,8 @@ public class RenderStructure
   public RenderStructure Add<TValue>(TValue value, IRenderer<TValue> renderer, IRenderContext context)
     where TValue : IRendering
   {
+    ArgumentNullException.ThrowIfNull(renderer);
+
     foreach ((RenderValue key, RenderStructure item) in renderer.Render(value, context).Map) {
       Map.Add(key, item);
     }

@@ -32,11 +32,8 @@ public static class AllRenderers
       .AddTypeRenderer<TypeUnionModel, TypeUnionRenderer>()
       .AddRenderer<UnionMemberModel, UnionMemberRenderer>()
       // Object
-      .AddDefaultRenderer<DualBaseModel>()
-      .AddDefaultRenderer<InputBaseModel>()
-      .AddDefaultRenderer<OutputBaseModel>()
-      .AddDefaultRenderer<DualBaseModel>()
-      .AddDefaultRenderer<DualFieldModel>()
+      .AddRenderer<DualBaseModel, DualBaseRenderer>()
+      .AddRenderer<DualFieldModel, DualFieldRenderer>()
       .AddDefaultRenderer<InputBaseModel>()
       .AddDefaultRenderer<InputFieldModel>()
       .AddDefaultRenderer<InputParameterModel>()

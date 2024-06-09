@@ -243,6 +243,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
+          "aliases": ["field1", "field2"],
           "name": "field",
           "object": "DualFieldAlias",
           "type": {
@@ -254,6 +255,7 @@
       "fields": [
         {
           "$tag": "_DualField",
+          "aliases": ["field1", "field2"],
           "name": "field",
           "type": {
             "$tag": "_DualBase",
@@ -702,6 +704,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
+          "aliases": ["field1", "field2"],
           "name": "field",
           "object": "InpFieldAlias",
           "type": {
@@ -713,6 +716,7 @@
       "fields": [
         {
           "$tag": "_InputField",
+          "aliases": ["field1", "field2"],
           "name": "field",
           "type": {
             "$tag": "_InputBase",
@@ -903,6 +907,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "aliases": ["field1", "field2"],
           "name": "field",
           "object": "OutpFieldAlias",
           "type": {
@@ -914,6 +919,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
+          "aliases": ["field1", "field2"],
           "name": "field",
           "type": {
             "$tag": "_OutputBase",

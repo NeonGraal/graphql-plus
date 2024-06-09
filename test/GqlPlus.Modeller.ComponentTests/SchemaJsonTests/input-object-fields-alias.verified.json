@@ -7,6 +7,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
+          "aliases": ["field1", "field2"],
           "name": "field",
           "object": "InpFieldAlias",
           "type": {
@@ -18,6 +19,7 @@
       "fields": [
         {
           "$tag": "_InputField",
+          "aliases": ["field1", "field2"],
           "name": "field",
           "type": {
             "$tag": "_InputBase",

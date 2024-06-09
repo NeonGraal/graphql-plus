@@ -7,6 +7,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "aliases": ["field1", "field2"],
           "name": "field",
           "object": "OutpFieldAlias",
           "type": {
@@ -18,6 +19,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
+          "aliases": ["field1", "field2"],
           "name": "field",
           "type": {
             "$tag": "_OutputBase",

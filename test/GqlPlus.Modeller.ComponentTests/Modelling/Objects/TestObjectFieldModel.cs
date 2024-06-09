@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Convert;
 
 namespace GqlPlus.Modelling.Objects;
 
@@ -23,6 +24,13 @@ public abstract class TestObjectFieldModel<TObjField, TObjFieldAst, TObjBase>
       .Field_Expected(
         FieldChecks.FieldAst(input),
         FieldChecks.ExpectedDual(input)
+      );
+
+  [Theory, RepeatData(Repeats)]
+  public void Model_Aliases(FieldInput input, string[] aliases)
+    => FieldChecks.Field_Expected(
+        FieldChecks.FieldAst(input) with { Aliases = aliases },
+        FieldChecks.ExpectedField(input, [aliases.YamlJoin("aliases: [", "]")], [])
       );
 
   internal override ICheckModelBase<FieldInput> BaseChecks => FieldChecks;

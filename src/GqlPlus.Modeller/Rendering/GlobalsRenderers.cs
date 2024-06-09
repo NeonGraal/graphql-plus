@@ -1,7 +1,8 @@
 ﻿namespace GqlPlus.Rendering;
 
 internal class AndTypeRenderer<TModel, TAnd>(
-  string field
+  string field,
+  IRenderer<TAnd> and
 ) : BaseRenderer<TModel>
   where TModel : AndTypeModel<TAnd>
   where TAnd : ModelBase
@@ -12,16 +13,17 @@ internal class AndTypeRenderer<TModel, TAnd>(
     => model.Type is null
       ? model.And is null
         ? new("")
-        : model.And.Render(context)
+        : and.Render(model.And, context)
       : model.And is null
         ? model.Type.Render(context)
         : base.Render(model, context)
-          .Add(_field, model.And.Render(context))
+          .Add(_field, and.Render(model.And, context))
           .Add("type", model.Type.Render(context));
 }
 
-internal class CategoriesRenderer()
-  : AndTypeRenderer<CategoriesModel, CategoryModel>("category")
+internal class CategoriesRenderer(
+  IRenderer<CategoryModel> and
+) : AndTypeRenderer<CategoriesModel, CategoryModel>("category", and)
 { }
 
 internal class CategoryRenderer
@@ -34,8 +36,9 @@ internal class CategoryRenderer
       .Add("modifiers", model.Modifiers.Render(context, flow: true));
 }
 
-internal class DirectivesRenderer()
-  : AndTypeRenderer<DirectivesModel, DirectiveModel>("directive")
+internal class DirectivesRenderer(
+  IRenderer<DirectiveModel> and
+) : AndTypeRenderer<DirectivesModel, DirectiveModel>("directive", and)
 { }
 
 internal class DirectiveRenderer

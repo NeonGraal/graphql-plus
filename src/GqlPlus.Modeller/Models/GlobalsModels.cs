@@ -14,15 +14,7 @@ public record class AndTypeModel<TModel>
   public BaseTypeModel? Type { get; init; }
 
   internal override RenderStructure Render(IRenderContext context)
-    => Type is null
-      ? And is null
-        ? new("")
-        : And.Render(context)
-      : And is null
-        ? Type.Render(context)
-        : base.Render(context)
-          .Add(_field, And.Render(context))
-          .Add("type", Type.Render(context));
+    => throw new NotImplementedException();
 }
 
 public record class CategoriesModel()
@@ -37,10 +29,7 @@ public record class CategoryModel(
   public ModifierModel[] Modifiers { get; set; } = [];
 
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("resolution", Resolution, "_Resolution")
-      .Add("output", Output.Render(context))
-      .Add("modifiers", Modifiers.Render(context, flow: true));
+    => throw new NotImplementedException();
 }
 
 public record class DirectivesModel()
@@ -56,10 +45,7 @@ public record class DirectiveModel(
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .AddSet("locations", Locations, "_Location")
-      .Add("parameters", Parameters.Render(context))
-      .Add("repeatable", Repeatable);
+    => throw new NotImplementedException();
 }
 
 public record class SettingModel(
@@ -68,6 +54,5 @@ public record class SettingModel(
 ) : DescribedModel(Name)
 {
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("value", Value.Render(context));
+    => throw new NotImplementedException();
 }

@@ -12,9 +12,6 @@ public static class AllRenderers
       //.AddRenderer<CollectionModel, CollectionRenderer>()
       //.AddRenderer<ModifierModel, ModifierRenderer>()
       //// Globals
-      //.AddRenderer<CategoryModel, CategoryRenderer>()
-      //.AddRenderer<DirectiveModel, DirectiveRenderer>()
-      //.AddRenderer<SettingModel, SettingRenderer>()
       //// Simple
       //.AddRenderer<TypeUnionModel, TypeUnionRenderer>()
       //.AddRenderer<UnionMemberModel, UnionMemberRenderer>()
@@ -25,12 +22,12 @@ public static class AllRenderers
       .AddDefaultRenderer<ModifierModel>()
       .AddDefaultRenderer<CollectionModel>()
       // Schema
-      .AddDefaultRenderer<SchemaModel>()
-      .AddDefaultRenderer<CategoriesModel>()
-      .AddDefaultRenderer<CategoryModel>()
-      .AddDefaultRenderer<DirectiveModel>()
-      .AddDefaultRenderer<DirectivesModel>()
-      .AddDefaultRenderer<SettingModel>()
+      .AddRenderer<SchemaModel, SchemaRenderer>()
+      .AddRenderer<CategoriesModel, CategoriesRenderer>()
+      .AddRenderer<CategoryModel, CategoryRenderer>()
+      .AddRenderer<DirectivesModel, DirectivesRenderer>()
+      .AddRenderer<DirectiveModel, DirectiveRenderer>()
+      .AddRenderer<SettingModel, SettingRenderer>()
       // Types
       .AddDefaultRenderer<SpecialTypeModel>()
       // Simple

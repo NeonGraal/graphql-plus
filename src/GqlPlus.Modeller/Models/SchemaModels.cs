@@ -49,12 +49,7 @@ public record class SchemaModel(
 #pragma warning restore IDE0060 // Remove unused parameter
 
   internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("categories", GetCategories(default).Render(context, keyTag: "_Identifier", "_Categories"))
-      .Add("directives", GetDirectives(default).Render(context, keyTag: "_Identifier", "_Directives"))
-      .Add("types", GetTypes(default).Render(context, keyTag: "_Identifier", "_Type"))
-      .Add("settings", GetSettings(default).Render(context, keyTag: "_Identifier", "_Setting"))
-      .Add("_errors", Errors.Render());
+    => throw new NotImplementedException();
 }
 
 public record class FilterParameter(

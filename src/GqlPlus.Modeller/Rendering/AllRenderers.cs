@@ -36,7 +36,8 @@ public static class AllRenderers
       .AddRenderer<DualFieldModel, DualFieldRenderer>()
       .AddRenderer<InputBaseModel, InputBaseRenderer>()
       .AddRenderer<InputFieldModel, InputFieldRenderer>()
-      .AddDefaultRenderer<InputParameterModel>()
+      .AddDescribedRenderer<InputBaseModel>()
+      .AddRenderer<InputParameterModel, InputParameterRenderer>()
       .AddDefaultRenderer<OutputArgumentModel>()
       .AddRenderer<OutputBaseModel, OutputBaseRenderer>()
       .AddDefaultRenderer<OutputEnumModel>()
@@ -64,6 +65,10 @@ public static class AllRenderers
       .AddSingleton<TRenderer>()
       .AddProvider<TRenderer, IRenderer<TModel>>()
       .AddProvider<TRenderer, ITypeRenderer>();
+
+  private static IServiceCollection AddDescribedRenderer<TDescr>(this IServiceCollection services)
+    where TDescr : ModelBase
+    => services.AddRenderer<BaseDescribedModel<TDescr>, BaseDescribedRenderer<TDescr>>();
 
   private static IServiceCollection AddDefaultRenderer<TModel>(this IServiceCollection services)
     where TModel : IRendering

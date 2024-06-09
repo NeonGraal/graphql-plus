@@ -36,8 +36,7 @@ internal class ObjectFieldRenderer<TField, TBase>(
   internal override RenderStructure Render(TField model, IRenderContext context)
     => base.Render(model, context)
       .Add("modifiers", model.Modifiers.Render(modifier, context, flow: true))
-      .Add(model.Type is not null,
-        s => s.Add("type", objBase.Render(model.Type!, context)));
+      .Add("type", model.Type, objBase, context);
 }
 
 internal class DualBaseRenderer
@@ -77,8 +76,19 @@ internal class InputFieldRenderer(
 {
   internal override RenderStructure Render(InputFieldModel model, IRenderContext context)
     => base.Render(model, context)
-      .Add(model.Default is not null,
-        s => s.Add("default", constant.Render(model.Default!, context)));
+      .Add("default", model.Default, constant, context);
+}
+
+internal class InputParameterRenderer(
+  IRenderer<ConstantModel> constant,
+  IRenderer<ModifierModel> modifier
+) : BaseRenderer<InputParameterModel>
+{
+  internal override RenderStructure Render(InputParameterModel model, IRenderContext context)
+    => base.Render(model, context)
+      .Add(model.Type, context)
+      .Add("modifiers", model.Modifiers.Render(modifier, context, flow: true))
+      .Add("default", model.DefaultValue, constant, context);
 }
 
 internal class OutputBaseRenderer(

@@ -24,10 +24,10 @@ public record class DescribedModel(
       .Add("description", RenderValue.Str(Description));
 }
 
-public record class BaseDescribedModel<TBase>(
-  TBase Base
+public record class BaseDescribedModel<TDescr>(
+  TDescr Base
 ) : ModelBase
-  where TBase : IRendering
+  where TDescr : IRendering
 {
   public string? Description { get; set; }
 

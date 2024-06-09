@@ -67,9 +67,13 @@ public class RenderStructure
     return this;
   }
 
-  public RenderStructure Add<TValue>(TValue value, IRenderer<TValue> renderer, IRenderContext context)
+  public RenderStructure Add<TValue>(TValue? value, IRenderer<TValue> renderer, IRenderContext context)
     where TValue : IRendering
   {
+    if (value is null) {
+      return this;
+    }
+
     ArgumentNullException.ThrowIfNull(renderer);
 
     foreach ((RenderValue key, RenderStructure item) in renderer.Render(value, context).Map) {
@@ -79,9 +83,13 @@ public class RenderStructure
     return this;
   }
 
-  public RenderStructure Add<T>(string key, T value, string? tag = null)
-    where T : Enum
-    => Add(key, new(value.ToString(), tag ?? typeof(T).TypeTag()));
+  public RenderStructure Add<TValue>(string key, TValue value, string? tag = null)
+    where TValue : Enum
+    => Add(key, new(value.ToString(), tag ?? typeof(TValue).TypeTag()));
+
+  public RenderStructure Add<TValue>(string key, TValue? value, IRenderer<TValue> renderer, IRenderContext context)
+    => value is null ? this
+    : Add(key, renderer.ThrowIfNull().Render(value, context));
 
   public RenderStructure Add(bool optional, Func<RenderStructure, RenderStructure>? onTrue = null, Func<RenderStructure, RenderStructure>? onFalse = null)
     => optional

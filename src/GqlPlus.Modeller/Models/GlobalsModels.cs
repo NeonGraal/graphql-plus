@@ -22,7 +22,8 @@ public record class CategoriesModel()
 { }
 
 public record class CategoryModel(
-  string Name, TypeRefModel<TypeKindModel> Output
+  string Name,
+  TypeRefModel<TypeKindModel> Output
 ) : AliasedModel(Name)
 {
   public CategoryOption Resolution { get; set; } = CategoryOption.Parallel;

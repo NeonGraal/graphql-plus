@@ -112,12 +112,13 @@ public record class TypeRefModel<TKind>(
   TKind TypeKind,
   string Name
 ) : NamedModel(Name)
+  where TKind : struct
 {
   private static readonly string s_typeKindTag = typeof(TKind).TypeTag();
 
   internal override RenderStructure Render(IRenderContext context)
     => base.Render(context)
-      .Add("typeKind", new(TypeKind?.ToString(), s_typeKindTag));
+      .Add("typeKind", new(TypeKind.ToString(), s_typeKindTag));
 }
 
 internal record class SpecialTypeModel(
@@ -129,6 +130,7 @@ internal static class ModelHelper
 {
   [return: NotNullIfNotNull(nameof(input))]
   internal static TypeRefModel<TKind>? TypeRef<TKind>(this string? input, TKind kind)
+    where TKind : struct
     => input is null ? null : new(kind, input);
 }
 

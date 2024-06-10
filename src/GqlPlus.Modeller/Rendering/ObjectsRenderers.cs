@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
+using YamlDotNet.Core.Tokens;
+
 namespace GqlPlus.Rendering;
 
 internal class AlternateRenderer<TBase>(
@@ -15,29 +17,12 @@ internal class AlternateRenderer<TBase>(
 }
 
 internal class ObjectBaseRenderer<TBase>
-  : ObjectBaseRenderer<TBase, TBase>
-  where TBase : ObjBaseModel<TBase>, IObjBaseModel
-{
-  public ObjectBaseRenderer()
-    => _typeArgument = this;
-}
-
-internal class ObjectBaseRenderer<TBase, TArg>
   : BaseRenderer<TBase>
-  where TBase : ObjBaseModel<TArg>
-  where TArg : IObjBaseModel
+  where TBase : ObjBaseModel<TBase>
 {
-  protected IRenderer<TArg>? _typeArgument;
-
-  protected ObjectBaseRenderer()
-    => _typeArgument = default;
-
-  public ObjectBaseRenderer(IRenderer<TArg> typeArgument)
-    => _typeArgument = typeArgument;
-
   internal override RenderStructure Render(TBase model, IRenderContext context)
     => base.Render(model, context)
-      .Add("typeArguments", model.TypeArguments.Render(_typeArgument!, context));
+      .Add("typeArguments", model.TypeArguments.Render(this, context));
 }
 
 internal record class ObjectFieldRenderers<TBase>(
@@ -189,18 +174,37 @@ internal class TypeInputRenderer(
     => parent?.Base.Input;
 }
 
-internal class OutputBaseRenderer(
-  IRenderer<DualBaseModel> dual,
-  IRenderer<OutputArgumentModel> typeArgument
-) : ObjectBaseRenderer<OutputBaseModel, OutputArgumentModel>(typeArgument)
+internal class OutputArgumentAndBaseRenderer(
+  IRenderer<DualBaseModel> dual
+) : TypeRefRenderer<OutputArgumentModel, SimpleKindModel>
+  , IRenderer<OutputBaseModel>
 {
-  internal override RenderStructure Render(OutputBaseModel model, IRenderContext context)
+  public RenderStructure Render(OutputBaseModel model, IRenderContext context)
+    => RenderBase(model, context);
+
+  private RenderStructure RenderBase(OutputBaseModel model, IRenderContext context)
     => model.Dual is null
     ? model.IsTypeParameter
       ? new(model.Output, "_TypeParameter")
-      : base.Render(model, context)
+      : RenderStructure.New(model.Tag)
+        .Add("typeArguments", model.TypeArguments.Render(this, context))
         .Add("output", model.Output)
     : dual.Render(model.Dual, context);
+
+  internal override RenderStructure Render(OutputArgumentModel model, IRenderContext context)
+    => string.IsNullOrWhiteSpace(model.EnumMember)
+    ? RenderBase(model.Ref.ThrowIfNull(), context)
+    : base.Render(model, context)
+      .Add("member", model.EnumMember);
+}
+
+internal class OutputEnumRenderer
+  : TypeRefRenderer<OutputEnumModel, SimpleKindModel>
+{
+  internal override RenderStructure Render(OutputEnumModel model, IRenderContext context)
+    => base.Render(model, context)
+      .Add("field", model.Field)
+      .Add("member", model.EnumMember);
 }
 
 internal class OutputFieldRenderer(

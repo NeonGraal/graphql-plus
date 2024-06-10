@@ -96,11 +96,10 @@ internal class AllTypesRenderer(
 ) : IRenderer<BaseTypeModel>
 {
   RenderStructure IRenderer<BaseTypeModel>.Render(BaseTypeModel model, IRenderContext context)
-    // Todo: Should be Single instead of SingleOrDefault.
     => types
     .SingleOrDefault(t => t.ForType(model))
     ?.TypeRender(model, context)
-    ?? model.Render(context);
+    ?? throw new InvalidOperationException("Unable to find Renderer for " + model.GetType().ExpandTypeName());
 }
 
 internal interface ITypeRenderer
@@ -108,3 +107,19 @@ internal interface ITypeRenderer
   bool ForType(BaseTypeModel model);
   RenderStructure TypeRender(BaseTypeModel model, IRenderContext context);
 }
+
+internal class TypeRefRenderer<TModel, TKind>
+  : NamedRenderer<TModel>
+  where TModel : TypeRefModel<TKind>
+  where TKind : struct
+{
+  private static readonly string s_typeKindTag = typeof(TKind).TypeTag();
+
+  internal override RenderStructure Render(TModel model, IRenderContext context)
+    => base.Render(model, context)
+      .Add("typeKind", new(model.TypeKind.ToString(), s_typeKindTag));
+}
+
+internal class SpecialTypeRenderer
+  : BaseTypeRenderer<SpecialTypeModel>
+{ }

@@ -22,7 +22,7 @@ public static class AllRenderers
       .AddRenderer<SettingModel, SettingRenderer>()
       // Types
       .AddRenderer<BaseTypeModel, AllTypesRenderer>()
-      .AddDefaultRenderer<SpecialTypeModel>()
+      .AddTypeRenderer<SpecialTypeModel, SpecialTypeRenderer>()
       // Simple
       .AddDomainRenderer<DomainMemberModel, DomainMemberRenderer>()
       .AddDomainRenderer<DomainRangeModel, DomainRangeRenderer>()
@@ -38,15 +38,14 @@ public static class AllRenderers
       .AddBaseRenderer<InputBaseModel, InputBaseRenderer>()
       .AddRenderer<InputFieldModel, InputFieldRenderer>()
       .AddRenderer<InputParameterModel, InputParameterRenderer>()
-      .AddDefaultRenderer<OutputArgumentModel>()
-      .AddBaseRenderer<OutputBaseModel, OutputBaseRenderer>()
-      .AddDefaultRenderer<OutputEnumModel>()
+      .AddOutputBaseRenderer()
+      .AddRenderer<OutputEnumModel, OutputEnumRenderer>()
       .AddRenderer<OutputFieldModel, OutputFieldRenderer>()
-      .AddRenderer<TypeDualModel, TypeDualRenderer>()
+      .AddTypeRenderer<TypeDualModel, TypeDualRenderer>()
       .AddObjectRenderers<DualFieldModel, DualBaseModel>()
-      .AddRenderer<TypeInputModel, TypeInputRenderer>()
+      .AddTypeRenderer<TypeInputModel, TypeInputRenderer>()
       .AddObjectRenderers<InputFieldModel, InputBaseModel>()
-      .AddRenderer<TypeOutputModel, TypeOutputRenderer>()
+      .AddTypeRenderer<TypeOutputModel, TypeOutputRenderer>()
       .AddObjectRenderers<OutputFieldModel, OutputBaseModel>()
     ;
 
@@ -94,7 +93,11 @@ public static class AllRenderers
       .AddRenderer<TBase, TRenderer>()
       .AddRenderer<ObjDescribedModel<TBase>, BaseDescribedRenderer<TBase>>();
 
-  private static IServiceCollection AddDefaultRenderer<TModel>(this IServiceCollection services)
-    where TModel : IRendering
-    => services.AddSingleton<IRenderer<TModel>, DefaultRenderer<TModel>>();
+  private static IServiceCollection AddOutputBaseRenderer(this IServiceCollection services)
+    => services
+      .AddSingleton<OutputArgumentAndBaseRenderer>()
+      .AddProvider<OutputArgumentAndBaseRenderer, IRenderer<OutputArgumentModel>>()
+      .AddProvider<OutputArgumentAndBaseRenderer, IRenderer<OutputBaseModel>>()
+      .AddSingleton<ObjectFieldRenderers<OutputBaseModel>>()
+      .AddRenderer<ObjDescribedModel<OutputBaseModel>, BaseDescribedRenderer<OutputBaseModel>>();
 }

@@ -2,9 +2,8 @@
 namespace GqlPlus.Rendering;
 
 internal class BaseDomainRenderer<TItem>(
-  IRenderer<TItem> item,
-  IRenderer<DomainItemModel<TItem>> all
-) : ParentTypeRenderer<BaseDomainModel<TItem>, TItem, DomainItemModel<TItem>>(item, all)
+  ParentTypeRenderers<TItem, DomainItemModel<TItem>> renderers
+) : ParentTypeRenderer<BaseDomainModel<TItem>, TItem, DomainItemModel<TItem>>(renderers)
   where TItem : BaseDomainItemModel
 {
   protected override Func<TItem, DomainItemModel<TItem>> NewItem(string parent)
@@ -69,9 +68,8 @@ internal class DomainTrueFalseRenderer
 }
 
 internal class TypeEnumRenderer(
-  IRenderer<AliasedModel> item,
-  IRenderer<EnumMemberModel> all
-) : ParentTypeRenderer<TypeEnumModel, AliasedModel, EnumMemberModel>(item, all)
+  ParentTypeRenderers<AliasedModel, EnumMemberModel> renderers
+) : ParentTypeRenderer<TypeEnumModel, AliasedModel, EnumMemberModel>(renderers)
 {
   protected override Func<AliasedModel, EnumMemberModel> NewItem(string parent)
     => member
@@ -90,9 +88,8 @@ internal class EnumMemberRenderer
 }
 
 internal class TypeUnionRenderer(
-  IRenderer<AliasedModel> item,
-  IRenderer<UnionMemberModel> all
-) : ParentTypeRenderer<TypeUnionModel, AliasedModel, UnionMemberModel>(item, all)
+  ParentTypeRenderers<AliasedModel, UnionMemberModel> renderers
+) : ParentTypeRenderer<TypeUnionModel, AliasedModel, UnionMemberModel>(renderers)
 {
   protected override Func<AliasedModel, UnionMemberModel> NewItem(string parent)
     => member

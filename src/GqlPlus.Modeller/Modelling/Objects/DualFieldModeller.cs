@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace GqlPlus.Modelling.Objects;
+﻿namespace GqlPlus.Modelling.Objects;
 
 internal class DualFieldModeller(
   IModifierModeller modifier,

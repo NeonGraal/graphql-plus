@@ -43,10 +43,13 @@ internal abstract class ChildTypeRenderer<TModel, TParent>
 
   internal void ForParent<TInput, TResult>(TInput input, IRenderContext context, Action<TResult> action)
     where TInput : ChildTypeModel<TParent>
-    where TResult : ChildTypeModel<TParent>
+    where TResult : IChildTypeModel
   {
     if (GetParentModel(input, context, out TResult? parentModel)) {
-      ForParent(parentModel, context, action);
+      if (parentModel is ChildTypeModel<TParent> childModel) {
+        ForParent(childModel, context, action);
+      }
+
       action(parentModel);
     }
   }
@@ -54,9 +57,15 @@ internal abstract class ChildTypeRenderer<TModel, TParent>
   protected abstract string? ParentName(TParent? parent);
 }
 
+internal record class ParentTypeRenderers<TItem, TAll>(
+  IRenderer<TItem> Item,
+  IRenderer<TAll> All
+  )
+  where TItem : ModelBase
+  where TAll : ModelBase;
+
 internal abstract class ParentTypeRenderer<TModel, TItem, TAll>(
-  IRenderer<TItem> item,
-  IRenderer<TAll> all
+  ParentTypeRenderers<TItem, TAll> renderers
 ) : ChildTypeRenderer<TModel, TypeRefModel<SimpleKindModel>>
   where TModel : ParentTypeModel<TItem, TAll>
   where TItem : ModelBase
@@ -72,8 +81,8 @@ internal abstract class ParentTypeRenderer<TModel, TItem, TAll>(
     AddMembers(model);
 
     return base.Render(model, context)
-        .Add("items", model.Items.Render(item, context))
-        .Add("allItems", allItems.Render(all, context));
+        .Add("items", model.Items.Render(renderers.Item, context))
+        .Add("allItems", allItems.Render(renderers.All, context));
   }
 
   protected override string? ParentName(TypeRefModel<SimpleKindModel>? parent)

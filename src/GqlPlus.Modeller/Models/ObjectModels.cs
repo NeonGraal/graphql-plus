@@ -36,8 +36,8 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
         .Add("allAlternates", allAlternates.Render(context));
   }
 
-  internal override bool GetParentModel<TModel>(IRenderContext context, [NotNullWhen(true)] out TModel? model)
-    where TModel : default
+  internal override bool GetParentModel<TResult>(IRenderContext context, [NotNullWhen(true)] out TResult? model)
+    where TResult : default
   {
     if (Parent?.Base.IsTypeParameter == false) {
       return base.GetParentModel(context, out model);

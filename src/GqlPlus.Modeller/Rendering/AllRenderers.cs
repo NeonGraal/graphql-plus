@@ -8,6 +8,7 @@ public static class AllRenderers
   => services
       // Common
       .AddRenderer<AliasedModel, AliasedRenderer<AliasedModel>>()
+      .AddRenderer<DescribedModel, DescribedRenderer<DescribedModel>>()
       .AddRenderer<ConstantModel, ConstantRenderer>()
       .AddRenderer<SimpleModel, SimpleRenderer>()
       .AddRenderer<CollectionModel, CollectionRenderer>()
@@ -28,25 +29,25 @@ public static class AllRenderers
       .AddDomainRenderer<DomainRegexModel, DomainRegexRenderer>()
       .AddDomainRenderer<DomainTrueFalseModel, DomainTrueFalseRenderer>()
       .AddTypeRenderer<TypeEnumModel, TypeEnumRenderer>()
-      .AddRenderer<EnumMemberModel, EnumMemberRenderer>()
+      .AddItemRenderer<EnumMemberModel, EnumMemberRenderer>()
       .AddTypeRenderer<TypeUnionModel, TypeUnionRenderer>()
-      .AddRenderer<UnionMemberModel, UnionMemberRenderer>()
+      .AddItemRenderer<UnionMemberModel, UnionMemberRenderer>()
       // Object
-      .AddRenderer<DualBaseModel, DualBaseRenderer>()
+      .AddBaseRenderer<DualBaseModel, DualBaseRenderer>()
       .AddRenderer<DualFieldModel, DualFieldRenderer>()
-      .AddDescribedRenderer<DualBaseModel>()
-      .AddRenderer<InputBaseModel, InputBaseRenderer>()
+      .AddBaseRenderer<InputBaseModel, InputBaseRenderer>()
       .AddRenderer<InputFieldModel, InputFieldRenderer>()
-      .AddDescribedRenderer<InputBaseModel>()
       .AddRenderer<InputParameterModel, InputParameterRenderer>()
       .AddDefaultRenderer<OutputArgumentModel>()
-      .AddRenderer<OutputBaseModel, OutputBaseRenderer>()
+      .AddBaseRenderer<OutputBaseModel, OutputBaseRenderer>()
       .AddDefaultRenderer<OutputEnumModel>()
       .AddRenderer<OutputFieldModel, OutputFieldRenderer>()
-      .AddDescribedRenderer<OutputBaseModel>()
-      .AddDefaultRenderer<TypeDualModel>()
-      .AddDefaultRenderer<TypeInputModel>()
-      .AddDefaultRenderer<TypeOutputModel>()
+      .AddRenderer<TypeDualModel, TypeDualRenderer>()
+      .AddObjectRenderers<DualFieldModel, DualBaseModel>()
+      .AddRenderer<TypeInputModel, TypeInputRenderer>()
+      .AddObjectRenderers<InputFieldModel, InputBaseModel>()
+      .AddRenderer<TypeOutputModel, TypeOutputRenderer>()
+      .AddObjectRenderers<OutputFieldModel, OutputBaseModel>()
     ;
 
   private static IServiceCollection AddRenderer<TModel, TRenderer>(this IServiceCollection services)
@@ -58,8 +59,16 @@ public static class AllRenderers
     where TRenderer : class, IRenderer<TItem>
     => services
       .AddRenderer<TItem, TRenderer>()
+      .AddSingleton<ParentTypeRenderers<TItem, DomainItemModel<TItem>>>()
       .AddTypeRenderer<BaseDomainModel<TItem>, BaseDomainRenderer<TItem>>()
       .AddRenderer<DomainItemModel<TItem>, DomainItemRenderer<TItem>>();
+
+  private static IServiceCollection AddItemRenderer<TItem, TRenderer>(this IServiceCollection services)
+    where TItem : AliasedModel
+    where TRenderer : class, IRenderer<TItem>
+    => services
+      .AddRenderer<TItem, TRenderer>()
+      .AddSingleton<ParentTypeRenderers<AliasedModel, TItem>>();
 
   private static IServiceCollection AddTypeRenderer<TModel, TRenderer>(this IServiceCollection services)
     where TRenderer : class, IRenderer<TModel>, ITypeRenderer
@@ -68,9 +77,22 @@ public static class AllRenderers
       .AddProvider<TRenderer, IRenderer<TModel>>()
       .AddProvider<TRenderer, ITypeRenderer>();
 
-  private static IServiceCollection AddDescribedRenderer<TDescr>(this IServiceCollection services)
-    where TDescr : ModelBase
-    => services.AddRenderer<ObjDescribedModel<TDescr>, BaseDescribedRenderer<TDescr>>();
+  private static IServiceCollection AddObjectRenderers<TField, TBase>(this IServiceCollection services)
+    where TBase : IObjBaseModel
+    where TField : ModelBase
+    => services
+    .AddRenderer<AlternateModel<TBase>, AlternateRenderer<TBase>>()
+    .AddRenderer<ObjectForModel<AlternateModel<TBase>>, ObjectForRenderer<AlternateModel<TBase>>>()
+    .AddRenderer<ObjectForModel<TField>, ObjectForRenderer<TField>>()
+    .AddSingleton<TypeObjectRenderers<TField, TBase>>();
+
+  private static IServiceCollection AddBaseRenderer<TBase, TRenderer>(this IServiceCollection services)
+    where TBase : ModelBase, IObjBaseModel
+    where TRenderer : class, IRenderer<TBase>
+    => services
+      .AddSingleton<ObjectFieldRenderers<TBase>>()
+      .AddRenderer<TBase, TRenderer>()
+      .AddRenderer<ObjDescribedModel<TBase>, BaseDescribedRenderer<TBase>>();
 
   private static IServiceCollection AddDefaultRenderer<TModel>(this IServiceCollection services)
     where TModel : IRendering

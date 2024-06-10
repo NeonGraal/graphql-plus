@@ -1,6 +1,4 @@
-﻿using GqlPlus.Models;
-
-namespace GqlPlus.Rendering;
+﻿namespace GqlPlus.Rendering;
 
 internal class AliasedRenderer<TModel>
   : NamedRenderer<TModel>

@@ -10,11 +10,7 @@ public abstract record class BaseTypeModel(
   TypeKindModel TypeKind,
   string Name
 ) : AliasedModel(Name)
-{
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-    .Add("typeKind", TypeKind.RenderEnum());
-}
+{ }
 
 public abstract record class ChildTypeModel<TParent>(
   TypeKindModel Kind,
@@ -40,10 +36,6 @@ public abstract record class ChildTypeModel<TParent>(
 
     return model is not null;
   }
-
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("parent", Parent?.Render(context));
 
   internal void ForParent<TResult>(IRenderContext context, Action<TResult> action)
     where TResult : IChildTypeModel
@@ -78,19 +70,6 @@ public abstract record class ParentTypeModel<TItem, TAll>(
     => parent?.Name;
 
   protected abstract Func<TItem, TAll> NewItem(string parent);
-  internal override RenderStructure Render(IRenderContext context)
-  {
-    List<TAll> all = [];
-    void AddMembers(ParentTypeModel<TItem, TAll> model)
-      => all.AddRange(model.Items.Select(NewItem(model.Name)));
-
-    ForParent<ParentTypeModel<TItem, TAll>>(context, AddMembers);
-    AddMembers(this);
-
-    return base.Render(context)
-        .Add("items", Items.Render(context))
-        .Add("allItems", all.Render(context));
-  }
 }
 
 public enum SimpleKindModel { Basic, Enum, Internal, Domain, Union }
@@ -113,13 +92,7 @@ public record class TypeRefModel<TKind>(
   string Name
 ) : NamedModel(Name)
   where TKind : struct
-{
-  private static readonly string s_typeKindTag = typeof(TKind).TypeTag();
-
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("typeKind", new(TypeKind.ToString(), s_typeKindTag));
-}
+{ }
 
 internal record class SpecialTypeModel(
   string Name

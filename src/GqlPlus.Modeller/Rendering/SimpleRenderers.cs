@@ -34,12 +34,13 @@ internal class DomainItemRenderer<TItem>(
       .Add("domain", model.Domain);
 }
 
-internal class DomainMemberRenderer
-  : BaseDomainItemRenderer<DomainMemberModel>
+internal class DomainMemberRenderer(
+  IRenderer<EnumValueModel> enumValue
+) : BaseDomainItemRenderer<DomainMemberModel>
 {
   internal override RenderStructure Render(DomainMemberModel model, IRenderContext context)
     => base.Render(model, context)
-      .Add("value", model.EnumValue.Render(context));
+      .Add("value", model.EnumValue, enumValue, context);
 }
 
 internal class DomainRangeRenderer
@@ -85,6 +86,14 @@ internal class EnumMemberRenderer
   internal override RenderStructure Render(EnumMemberModel model, IRenderContext context)
     => base.Render(model, context)
       .Add("enum", model.OfEnum);
+}
+
+internal class EnumValueRenderer
+  : TypeRefRenderer<EnumValueModel, SimpleKindModel>
+{
+  internal override RenderStructure Render(EnumValueModel model, IRenderContext context)
+    => base.Render(model, context)
+      .Add("member", model.Member);
 }
 
 internal class TypeUnionRenderer(

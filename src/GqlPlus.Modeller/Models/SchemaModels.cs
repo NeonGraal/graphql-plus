@@ -47,9 +47,6 @@ public record class SchemaModel(
   public IMap<BaseTypeModel> GetTypes(TypeFilterParameter? filter) => Types;
   public IMap<SettingModel> GetSettings(FilterParameter? filter) => Settings;
 #pragma warning restore IDE0060 // Remove unused parameter
-
-  internal override RenderStructure Render(IRenderContext context)
-    => throw new NotImplementedException();
 }
 
 public record class FilterParameter(

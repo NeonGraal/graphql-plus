@@ -13,14 +13,6 @@ public record class OutputBaseModel(
 ) : ObjBaseModel<OutputArgumentModel>
 {
   internal DualBaseModel? Dual { get; init; }
-
-  internal override RenderStructure Render(IRenderContext context)
-    => Dual is null
-    ? IsTypeParameter
-      ? new(Output, "_TypeParameter")
-      : base.Render(context)
-        .Add("output", Output)
-    : Dual.Render(context);
 }
 
 public record class OutputFieldModel(
@@ -30,12 +22,6 @@ public record class OutputFieldModel(
 {
   internal InputParameterModel[] Parameters { get; set; } = [];
   internal OutputEnumModel? Enum { get; set; }
-
-  internal override RenderStructure Render(IRenderContext context)
-    => Enum is null
-      ? base.Render(context)
-        .Add("parameters", Parameters.Render(context))
-      : Enum.Render(context);
 }
 
 public record class OutputArgumentModel(
@@ -46,12 +32,6 @@ public record class OutputArgumentModel(
   internal OutputBaseModel? Ref { get; set; }
 
   public bool IsTypeParameter => string.IsNullOrEmpty(EnumMember) && Ref?.IsTypeParameter == true;
-
-  internal override RenderStructure Render(IRenderContext context)
-    => string.IsNullOrWhiteSpace(EnumMember)
-    ? Ref.ThrowIfNull().Render(context)
-    : base.Render(context)
-      .Add("member", EnumMember);
 }
 
 public record class OutputEnumModel(
@@ -59,9 +39,4 @@ public record class OutputEnumModel(
   string Type,
   string EnumMember
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Type)
-{
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("field", Field)
-      .Add("member", EnumMember);
-}
+{ }

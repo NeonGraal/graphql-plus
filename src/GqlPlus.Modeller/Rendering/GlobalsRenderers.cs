@@ -1,8 +1,13 @@
 ﻿namespace GqlPlus.Rendering;
 
+internal record class AndBaseTypeRenderers<TAnd>(
+  IRenderer<TAnd> And,
+  IRenderer<BaseTypeModel> Type
+) where TAnd : ModelBase;
+
 internal class AndTypeRenderer<TModel, TAnd>(
   string field,
-  IRenderer<TAnd> and
+  AndBaseTypeRenderers<TAnd> and
 ) : BaseRenderer<TModel>
   where TModel : AndTypeModel<TAnd>
   where TAnd : ModelBase
@@ -13,42 +18,44 @@ internal class AndTypeRenderer<TModel, TAnd>(
     => model.Type is null
       ? model.And is null
         ? new("")
-        : and.Render(model.And, context)
+        : and.And.Render(model.And, context)
       : model.And is null
-        ? model.Type.Render(context)
+        ? and.Type.Render(model.Type, context)
         : base.Render(model, context)
-          .Add(_field, and.Render(model.And, context))
-          .Add("type", model.Type.Render(context));
+          .Add(_field, model.And, and.And, context)
+          .Add("type", model.Type, and.Type, context);
 }
 
 internal class CategoriesRenderer(
-  IRenderer<CategoryModel> and
+  AndBaseTypeRenderers<CategoryModel> and
 ) : AndTypeRenderer<CategoriesModel, CategoryModel>("category", and)
 { }
 
 internal class CategoryRenderer(
-  IRenderer<ModifierModel> modifiers
+  IRenderer<ModifierModel> modifiers,
+  IRenderer<TypeRefModel<TypeKindModel>> output
 ) : AliasedRenderer<CategoryModel>
 {
   internal override RenderStructure Render(CategoryModel model, IRenderContext context)
     => base.Render(model, context)
       .Add("resolution", model.Resolution, "_Resolution")
-      .Add("output", model.Output.Render(context))
+      .Add("output", model.Output, output, context)
       .Add("modifiers", model.Modifiers.Render(modifiers, context, flow: true));
 }
 
 internal class DirectivesRenderer(
-  IRenderer<DirectiveModel> and
+  AndBaseTypeRenderers<DirectiveModel> and
 ) : AndTypeRenderer<DirectivesModel, DirectiveModel>("directive", and)
 { }
 
-internal class DirectiveRenderer
-  : AliasedRenderer<DirectiveModel>
+internal class DirectiveRenderer(
+  IRenderer<InputParameterModel> parameter
+) : AliasedRenderer<DirectiveModel>
 {
   internal override RenderStructure Render(DirectiveModel model, IRenderContext context)
     => base.Render(model, context)
       .AddSet("locations", model.Locations, "_Location")
-      .Add("parameters", model.Parameters.Render(context))
+      .Add("parameters", model.Parameters.Render(parameter, context))
       .Add("repeatable", model.Repeatable);
 }
 

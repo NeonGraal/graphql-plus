@@ -13,12 +13,7 @@ public class ConstantModel
     : base(values) { }
 
   public RenderStructure Render(IRenderContext context)
-    => Map.Count > 0 ? new RenderStructure(Map.ToDictionary(
-        p => p.Key.Render(context).Value!,
-        p => p.Value.Render(context)), "_ConstantMap")
-    : List.Count > 0 ? List.Render(context, "_ConstantList")
-    : Value is not null ? Value.Render(context)
-    : new("");
+    => throw new NotImplementedException();
 }
 
 public record class SimpleModel
@@ -45,11 +40,7 @@ public record class SimpleModel
     => new() { TypeRef = TypeFor(type), Value = value };
 
   public RenderStructure Render(IRenderContext context)
-    => Boolean is not null ? new(Boolean)
-      : Number is not null ? new(Number, TypeRef?.Name ?? "")
-      : String is not null ? new(RenderValue.Str(String), TypeRef?.Name ?? "")
-      : Value is not null ? new(Value, TypeRef?.Name ?? "")
-      : new("null", "Basic");
+    => throw new NotImplementedException();
 }
 
 public record class CollectionModel(
@@ -66,15 +57,6 @@ public record class CollectionModel(
       ModifierKind.Param => "_ModifierTypeParameter",
       _ => base.Tag,
     };
-
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-        .Add("modifierKind", ModifierKind)
-        .Add(ModifierKind is ModifierKind.Dict or ModifierKind.Param,
-          s => s
-            .Add("by", Key
-              ?? throw new InvalidOperationException($"{ModifierKind} Modifier must have a Key specified"))
-            .Add("optional", IsOptional, true));
 }
 
 public record class ModifierModel(

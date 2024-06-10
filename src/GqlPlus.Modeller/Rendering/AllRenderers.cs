@@ -17,11 +17,15 @@ public static class AllRenderers
       .AddRenderer<SchemaModel, SchemaRenderer>()
       .AddRenderer<CategoriesModel, CategoriesRenderer>()
       .AddRenderer<CategoryModel, CategoryRenderer>()
+      .AddSingleton<AndBaseTypeRenderers<CategoryModel>>()
       .AddRenderer<DirectivesModel, DirectivesRenderer>()
       .AddRenderer<DirectiveModel, DirectiveRenderer>()
+      .AddSingleton<AndBaseTypeRenderers<DirectiveModel>>()
       .AddRenderer<SettingModel, SettingRenderer>()
       // Types
       .AddRenderer<BaseTypeModel, AllTypesRenderer>()
+      .AddRenderer<TypeRefModel<SimpleKindModel>, TypeRefRenderer<TypeRefModel<SimpleKindModel>, SimpleKindModel>>()
+      .AddRenderer<TypeRefModel<TypeKindModel>, TypeRefRenderer<TypeRefModel<TypeKindModel>, TypeKindModel>>()
       .AddTypeRenderer<SpecialTypeModel, SpecialTypeRenderer>()
       // Simple
       .AddDomainRenderer<DomainMemberModel, DomainMemberRenderer>()
@@ -30,6 +34,7 @@ public static class AllRenderers
       .AddDomainRenderer<DomainTrueFalseModel, DomainTrueFalseRenderer>()
       .AddTypeRenderer<TypeEnumModel, TypeEnumRenderer>()
       .AddItemRenderer<EnumMemberModel, EnumMemberRenderer>()
+      .AddRenderer<EnumValueModel, EnumValueRenderer>()
       .AddTypeRenderer<TypeUnionModel, TypeUnionRenderer>()
       .AddItemRenderer<UnionMemberModel, UnionMemberRenderer>()
       // Object
@@ -89,7 +94,7 @@ public static class AllRenderers
     where TBase : ModelBase, IObjBaseModel
     where TRenderer : class, IRenderer<TBase>
     => services
-      .AddSingleton<ObjectFieldRenderers<TBase>>()
+      .AddSingleton<ModifierBaseRenderers<TBase>>()
       .AddRenderer<TBase, TRenderer>()
       .AddRenderer<ObjDescribedModel<TBase>, BaseDescribedRenderer<TBase>>();
 
@@ -98,6 +103,6 @@ public static class AllRenderers
       .AddSingleton<OutputArgumentAndBaseRenderer>()
       .AddProvider<OutputArgumentAndBaseRenderer, IRenderer<OutputArgumentModel>>()
       .AddProvider<OutputArgumentAndBaseRenderer, IRenderer<OutputBaseModel>>()
-      .AddSingleton<ObjectFieldRenderers<OutputBaseModel>>()
+      .AddSingleton<ModifierBaseRenderers<OutputBaseModel>>()
       .AddRenderer<ObjDescribedModel<OutputBaseModel>, BaseDescribedRenderer<OutputBaseModel>>();
 }

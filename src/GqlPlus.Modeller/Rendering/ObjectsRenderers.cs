@@ -23,13 +23,13 @@ internal class ObjectBaseRenderer<TBase>
       .Add("typeArguments", model.TypeArguments.Render(this, context));
 }
 
-internal record class ObjectFieldRenderers<TBase>(
+internal record class ModifierBaseRenderers<TBase>(
   IRenderer<ModifierModel> Modifier,
   IRenderer<ObjDescribedModel<TBase>> ObjBase
 ) where TBase : IObjBaseModel;
 
 internal class ObjectFieldRenderer<TField, TBase>(
-  ObjectFieldRenderers<TBase> renderers
+  ModifierBaseRenderers<TBase> renderers
 ) : AliasedRenderer<TField>
   where TField : ObjFieldModel<TBase>
   where TBase : IObjBaseModel
@@ -52,6 +52,7 @@ internal class ObjectForRenderer<TFor>(
 }
 
 internal record class TypeObjectRenderers<TField, TBase>(
+  IRenderer<ObjDescribedModel<TBase>> Parent,
   IRenderer<AlternateModel<TBase>> Alternate,
   IRenderer<ObjectForModel<AlternateModel<TBase>>> ObjAlternate,
   IRenderer<ObjectForModel<AlternateModel<DualBaseModel>>> DualAlternate,
@@ -65,7 +66,7 @@ internal record class TypeObjectRenderers<TField, TBase>(
 
 internal abstract class TypeObjectRenderer<TObject, TField, TBase>(
   TypeObjectRenderers<TField, TBase> renderers
-) : ChildTypeRenderer<TObject, ObjDescribedModel<TBase>>
+) : ChildTypeRenderer<TObject, ObjDescribedModel<TBase>>(renderers.Parent)
   where TObject : TypeObjectModel<TBase, TField>
   where TBase : IObjBaseModel
   where TField : ModelBase
@@ -124,7 +125,7 @@ internal class DualBaseRenderer
 }
 
 internal class DualFieldRenderer(
-  ObjectFieldRenderers<DualBaseModel> renderers
+  ModifierBaseRenderers<DualBaseModel> renderers
 ) : ObjectFieldRenderer<DualFieldModel, DualBaseModel>(renderers)
 { }
 
@@ -151,7 +152,7 @@ internal class InputBaseRenderer(
 
 internal class InputFieldRenderer(
   IRenderer<ConstantModel> constant,
-  ObjectFieldRenderers<InputBaseModel> renderers
+  ModifierBaseRenderers<InputBaseModel> renderers
 ) : ObjectFieldRenderer<InputFieldModel, InputBaseModel>(renderers)
 {
   internal override RenderStructure Render(InputFieldModel model, IRenderContext context)
@@ -161,13 +162,13 @@ internal class InputFieldRenderer(
 
 internal class InputParameterRenderer(
   IRenderer<ConstantModel> constant,
-  IRenderer<ModifierModel> modifier
+  ModifierBaseRenderers<InputBaseModel> renderers
 ) : BaseRenderer<InputParameterModel>
 {
   internal override RenderStructure Render(InputParameterModel model, IRenderContext context)
     => base.Render(model, context)
-      .Add(model.Type, context)
-      .Add("modifiers", model.Modifiers.Render(modifier, context, flow: true))
+      .Add(model.Type, renderers.ObjBase, context)
+      .Add("modifiers", model.Modifiers.Render(renderers.Modifier, context, flow: true))
       .Add("default", model.DefaultValue, constant, context);
 }
 
@@ -214,7 +215,7 @@ internal class OutputEnumRenderer
 
 internal class OutputFieldRenderer(
   IRenderer<OutputEnumModel> outputEnum,
-  ObjectFieldRenderers<OutputBaseModel> renderers,
+  ModifierBaseRenderers<OutputBaseModel> renderers,
   IRenderer<InputParameterModel> parameter
 ) : ObjectFieldRenderer<OutputFieldModel, OutputBaseModel>(renderers)
 {

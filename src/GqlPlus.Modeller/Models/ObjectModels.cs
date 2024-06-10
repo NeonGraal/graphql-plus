@@ -14,28 +14,6 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
   internal TObjField[] Fields { get; set; } = [];
   internal AlternateModel<TObjBase>[] Alternates { get; set; } = [];
 
-  internal override RenderStructure Render(IRenderContext context)
-  {
-    List<ModelBase> allAlternates = [];
-    List<ModelBase> allFields = [];
-
-    void AddMembers(ITypeObjectModel model)
-    {
-      allAlternates.AddRange(model.AllAlternates);
-      allFields.AddRange(model.AllFields);
-    }
-
-    ForParent<ITypeObjectModel>(context, AddMembers);
-    AddMembers(this);
-
-    return base.Render(context)
-        .Add("typeParameters", TypeParameters.Render(context))
-        .Add("fields", Fields.Render(context))
-        .Add("allFields", allFields.Render(context))
-        .Add("alternates", Alternates.Render(context))
-        .Add("allAlternates", allAlternates.Render(context));
-  }
-
   internal override bool GetParentModel<TResult>(IRenderContext context, [NotNullWhen(true)] out TResult? model)
     where TResult : default
   {
@@ -66,10 +44,6 @@ public record class ObjBaseModel<TArg>
 {
   internal TArg[] TypeArguments { get; set; } = [];
   public bool IsTypeParameter { get; set; }
-
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("typeArguments", TypeArguments.Render(context));
 }
 
 public interface IObjBaseModel
@@ -84,11 +58,6 @@ public record class AlternateModel<TObjBase>(
   where TObjBase : IObjBaseModel
 {
   internal CollectionModel[] Collections { get; set; } = [];
-
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("type", Type.Render(context))
-      .Add("collections", Collections.Render(context));
 }
 
 public record class ObjectForModel<TFor>(
@@ -96,12 +65,7 @@ public record class ObjectForModel<TFor>(
   string Obj
 ) : ModelBase
   where TFor : IRendering
-{
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add(For, context)
-      .Add("object", Obj);
-}
+{ }
 
 public record class ObjFieldModel<TObjBase>(
   string Name,
@@ -110,11 +74,6 @@ public record class ObjFieldModel<TObjBase>(
   where TObjBase : IObjBaseModel
 {
   internal ModifierModel[] Modifiers { get; set; } = [];
-
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("modifiers", Modifiers.Render(context, flow: true))
-      .Add("type", Type?.Render(context));
 }
 
 public record class ObjDescribedModel<TDescribed>(
@@ -122,11 +81,4 @@ public record class ObjDescribedModel<TDescribed>(
   string? Description
 ) : ModelBase
   where TDescribed : IRendering
-{
-  internal override RenderStructure Render(IRenderContext context)
-    => string.IsNullOrEmpty(Description)
-      ? Base.Render(context)
-      : base.Render(context)
-        .Add("base", Base.Render(context))
-        .Add("description", RenderValue.Str(Description));
-}
+{ }

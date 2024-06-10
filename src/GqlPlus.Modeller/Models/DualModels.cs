@@ -11,13 +11,7 @@ public record class TypeDualModel(
 public record class DualBaseModel(
   string Dual
 ) : ObjBaseModel<DualBaseModel>
-{
-  internal override RenderStructure Render(IRenderContext context)
-    => IsTypeParameter
-    ? new(Dual, "_TypeParameter")
-    : base.Render(context)
-      .Add("dual", Dual);
-}
+{ }
 
 public record class DualFieldModel(
   string Name,

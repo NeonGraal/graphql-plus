@@ -12,9 +12,6 @@ public record class AndTypeModel<TModel>
   public TModel? And { get; set; }
 
   public BaseTypeModel? Type { get; init; }
-
-  internal override RenderStructure Render(IRenderContext context)
-    => throw new NotImplementedException();
 }
 
 public record class CategoriesModel()
@@ -28,9 +25,6 @@ public record class CategoryModel(
 {
   public CategoryOption Resolution { get; set; } = CategoryOption.Parallel;
   public ModifierModel[] Modifiers { get; set; } = [];
-
-  internal override RenderStructure Render(IRenderContext context)
-    => throw new NotImplementedException();
 }
 
 public record class DirectivesModel()
@@ -44,16 +38,10 @@ public record class DirectiveModel(
   public InputParameterModel[] Parameters { get; set; } = [];
   public bool Repeatable { get; set; }
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
-
-  internal override RenderStructure Render(IRenderContext context)
-    => throw new NotImplementedException();
 }
 
 public record class SettingModel(
   string Name,
   ConstantModel Value
 ) : DescribedModel(Name)
-{
-  internal override RenderStructure Render(IRenderContext context)
-    => throw new NotImplementedException();
-}
+{ }

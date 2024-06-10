@@ -18,14 +18,15 @@ internal class BaseTypeRenderer<TModel>
     .Add("typeKind", model.TypeKind.RenderEnum());
 }
 
-internal abstract class ChildTypeRenderer<TModel, TParent>
-  : BaseTypeRenderer<TModel>
+internal abstract class ChildTypeRenderer<TModel, TParent>(
+  IRenderer<TParent> parent
+) : BaseTypeRenderer<TModel>
   where TModel : ChildTypeModel<TParent>
   where TParent : ModelBase
 {
   internal override RenderStructure Render(TModel model, IRenderContext context)
     => base.Render(model, context)
-      .Add("parent", model.Parent?.Render(context));
+      .Add("parent", model.Parent, parent, context);
 
   internal virtual bool GetParentModel<TInput, TResult>(TInput input, IRenderContext context, [NotNullWhen(true)] out TResult? result)
     where TInput : ChildTypeModel<TParent>
@@ -58,15 +59,15 @@ internal abstract class ChildTypeRenderer<TModel, TParent>
 }
 
 internal record class ParentTypeRenderers<TItem, TAll>(
+  IRenderer<TypeRefModel<SimpleKindModel>> Parent,
   IRenderer<TItem> Item,
   IRenderer<TAll> All
-  )
-  where TItem : ModelBase
-  where TAll : ModelBase;
+  ) where TItem : ModelBase
+    where TAll : ModelBase;
 
 internal abstract class ParentTypeRenderer<TModel, TItem, TAll>(
   ParentTypeRenderers<TItem, TAll> renderers
-) : ChildTypeRenderer<TModel, TypeRefModel<SimpleKindModel>>
+) : ChildTypeRenderer<TModel, TypeRefModel<SimpleKindModel>>(renderers.Parent)
   where TModel : ParentTypeModel<TItem, TAll>
   where TItem : ModelBase
   where TAll : ModelBase

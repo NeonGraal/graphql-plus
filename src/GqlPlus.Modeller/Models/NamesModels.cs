@@ -6,11 +6,6 @@ public record class AliasedModel(
 {
   public string? Description { get; set; }
   public string[] Aliases { get; set; } = [];
-
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("aliases", Aliases.Render())
-      .Add("description", RenderValue.Str(Description));
 }
 
 public record class DescribedModel(
@@ -18,17 +13,9 @@ public record class DescribedModel(
 ) : NamedModel(Name)
 {
   public string? Description { get; set; }
-
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("description", RenderValue.Str(Description));
 }
 
 public record class NamedModel(
   string Name
 ) : ModelBase
-{
-  internal override RenderStructure Render(IRenderContext context)
-    => base.Render(context)
-      .Add("name", Name);
-}
+{ }

@@ -14,12 +14,33 @@
           }
         }
       ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "parent",
+          "object": "DualAltPrnt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
       "alternates": [
         {
           "$tag": "_Alternate(_DualBase)",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "parent",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
           }
         }
       ],
@@ -40,6 +61,17 @@
         {
           "$tag": "_ObjectFor(_Alternate(_DualBase))",
           "object": "DualPrntAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "parent",
+          "object": "DualAltPrnt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"

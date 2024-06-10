@@ -4,11 +4,30 @@
     "$tag": "_Map_Type",
     "OutpFieldsParent": {
       "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "OutpFieldsParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
           "object": "OutpFieldsParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -21,7 +40,7 @@
           "name": "parent",
           "type": {
             "$tag": "_OutputBase",
-            "value": "String"
+            "value": "Number"
           }
         }
       ],
@@ -30,6 +49,16 @@
     },
     "OutpPrntFields": {
       "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "OutpFieldsParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -37,7 +66,7 @@
           "object": "OutpFieldsParent",
           "type": {
             "$tag": "_OutputBase",
-            "value": "String"
+            "value": "Number"
           }
         },
         {

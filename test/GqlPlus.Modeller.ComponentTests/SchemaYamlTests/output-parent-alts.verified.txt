@@ -6,10 +6,21 @@ types: !_Map_Type
       object: OutpAltPrnt
       type: !_OutputBase
         output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: OutpAltPrnt
+      type: !_OutputBase
+        output: Number
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: String
+    fields:
+    - !_OutputField
+      name: parent
+      type: !_OutputBase
+        output: Number
     name: OutpAltPrnt
     typeKind: !_TypeKind Output
   !_Identifier OutpPrntAlt: !_TypeOutput
@@ -20,6 +31,12 @@ types: !_Map_Type
         output: String
     - !_ObjectFor(_Alternate(_OutputBase))
       object: OutpPrntAlt
+      type: !_OutputBase
+        output: Number
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: OutpAltPrnt
       type: !_OutputBase
         output: Number
     alternates:

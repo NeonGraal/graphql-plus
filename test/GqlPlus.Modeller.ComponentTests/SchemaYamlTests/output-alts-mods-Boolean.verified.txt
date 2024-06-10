@@ -21,5 +21,25 @@ types: !_Map_Type
     name: OutpAltMods
     typeKind: !_TypeKind Output
   !_Identifier OutpModsAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpModsAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpModsAlt
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
     name: OutpModsAlt
     typeKind: !_TypeKind Output

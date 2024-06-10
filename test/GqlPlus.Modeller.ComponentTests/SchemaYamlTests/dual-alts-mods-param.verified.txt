@@ -24,5 +24,25 @@ types: !_Map_Type
     - !_Described
       name: mod
   !_Identifier DualModsParamAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualModsParamAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualModsParamAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualModsParamAlt
     typeKind: !_TypeKind Dual

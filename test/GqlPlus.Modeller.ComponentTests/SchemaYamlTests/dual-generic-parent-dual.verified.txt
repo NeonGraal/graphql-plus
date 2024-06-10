@@ -13,6 +13,26 @@ types: !_Map_Type
         dual: DualGenParentDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenParentDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenParentDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualGenParentDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentDualRef: !_TypeDual

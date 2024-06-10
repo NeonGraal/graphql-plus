@@ -1,6 +1,26 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier OutParamParent: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: OutParamParent
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: OutParamParent
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: parent
+      type: !_InputBase
+        input: Number
     name: OutParamParent
     typeKind: !_TypeKind Input
   !_Identifier OutParamsParent: !_TypeOutput
@@ -24,6 +44,26 @@ types: !_Map_Type
     name: OutParamsParent
     typeKind: !_TypeKind Output
   !_Identifier OutPrntParam: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: OutPrntParam
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: param
+      object: OutPrntParam
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: param
+      type: !_InputBase
+        input: Number
     name: OutPrntParam
     typeKind: !_TypeKind Input
   !_Identifier OutPrntParams: !_TypeOutput

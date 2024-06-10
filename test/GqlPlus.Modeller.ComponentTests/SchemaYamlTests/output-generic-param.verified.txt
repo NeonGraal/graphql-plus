@@ -21,6 +21,26 @@ types: !_Map_Type
     name: OutpGenParam
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParamAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpGenParamAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpGenParamAlt
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
     name: OutpGenParamAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParamRef: !_TypeOutput

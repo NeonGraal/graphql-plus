@@ -21,5 +21,25 @@ types: !_Map_Type
     name: InpAltMods
     typeKind: !_TypeKind Input
   !_Identifier InpModsAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpModsAlt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: InpModsAlt
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: alt
+      type: !_InputBase
+        input: Number
     name: InpModsAlt
     typeKind: !_TypeKind Input

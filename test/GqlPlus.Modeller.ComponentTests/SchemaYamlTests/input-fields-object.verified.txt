@@ -15,5 +15,25 @@ types: !_Map_Type
     name: FieldsInp
     typeKind: !_TypeKind Input
   !_Identifier InpField: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpField
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpField
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        input: Number
     name: InpField
     typeKind: !_TypeKind Input

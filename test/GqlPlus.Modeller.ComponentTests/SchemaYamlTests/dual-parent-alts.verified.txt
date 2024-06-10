@@ -6,10 +6,21 @@ types: !_Map_Type
       object: DualAltPrnt
       type: !_DualBase
         dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: DualAltPrnt
+      type: !_DualBase
+        dual: Number
     alternates:
     - !_Alternate(_DualBase)
       type: !_DualBase
         dual: String
+    fields:
+    - !_DualField
+      name: parent
+      type: !_DualBase
+        dual: Number
     name: DualAltPrnt
     typeKind: !_TypeKind Dual
   !_Identifier DualPrntAlt: !_TypeDual
@@ -20,6 +31,12 @@ types: !_Map_Type
         dual: String
     - !_ObjectFor(_Alternate(_DualBase))
       object: DualPrntAlt
+      type: !_DualBase
+        dual: Number
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: DualAltPrnt
       type: !_DualBase
         dual: Number
     alternates:

@@ -1,6 +1,26 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier OutpAltDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: OutpAltDual
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: OutpAltDual
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: OutpAltDual
     typeKind: !_TypeKind Dual
   !_Identifier OutpAltsDual: !_TypeOutput

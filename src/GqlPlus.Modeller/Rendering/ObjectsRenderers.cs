@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-using YamlDotNet.Core.Tokens;
-
 namespace GqlPlus.Rendering;
 
 internal class AlternateRenderer<TBase>(
@@ -56,8 +54,10 @@ internal class ObjectForRenderer<TFor>(
 internal record class TypeObjectRenderers<TField, TBase>(
   IRenderer<AlternateModel<TBase>> Alternate,
   IRenderer<ObjectForModel<AlternateModel<TBase>>> ObjAlternate,
+  IRenderer<ObjectForModel<AlternateModel<DualBaseModel>>> DualAlternate,
   IRenderer<TField> Field,
   IRenderer<ObjectForModel<TField>> ObjField,
+  IRenderer<ObjectForModel<DualFieldModel>> DualField,
   IRenderer<DescribedModel> TypeParameter
 )
   where TBase : IObjBaseModel
@@ -84,16 +84,21 @@ internal abstract class TypeObjectRenderer<TObject, TField, TBase>(
     ForParent<TObject, ITypeObjectModel>(model, context, AddMembers);
     AddMembers(model);
 
-    RenderStructure ObjRender<TModel>(List<ModelBase> list, IRenderer<ObjectForModel<TModel>> renderer)
+    RenderStructure ObjRender<TModel, TDual>(List<ModelBase> list, IRenderer<ObjectForModel<TModel>> renderer, IRenderer<ObjectForModel<TDual>> dual)
       where TModel : ModelBase
-      => list.Cast<ObjectForModel<TModel>>().Render(renderer, context);
+      where TDual : ModelBase
+      => new(list.Select(o => o switch {
+        ObjectForModel<TModel> modelFor => renderer.Render(modelFor, context),
+        ObjectForModel<TDual> dualFor => dual.Render(dualFor, context),
+        _ => throw new InvalidCastException("Invalid ObjectFor " + o.GetType().ExpandTypeName())
+      }));
 
     return base.Render(model, context)
         .Add("typeParameters", model.TypeParameters.Render(renderers.TypeParameter, context))
         .Add("fields", model.Fields.Render(renderers.Field, context))
-        .Add("allFields", ObjRender(allFields, renderers.ObjField))
+        .Add("allFields", ObjRender(allFields, renderers.ObjField, renderers.DualField))
         .Add("alternates", model.Alternates.Render(renderers.Alternate, context))
-        .Add("allAlternates", ObjRender(allAlternates, renderers.ObjAlternate));
+        .Add("allAlternates", ObjRender(allAlternates, renderers.ObjAlternate, renderers.DualAlternate));
   }
 
   internal override bool GetParentModel<TInput, TResult>(TInput input, IRenderContext context, [NotNullWhen(true)] out TResult? result)

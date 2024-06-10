@@ -40,14 +40,14 @@ internal interface ITypeObjectModel
 
 public record class ObjBaseModel<TArg>
   : ModelBase, IObjBaseModel
-  where TArg : IRendering
+  where TArg : IModelBase
 {
   internal TArg[] TypeArguments { get; set; } = [];
   public bool IsTypeParameter { get; set; }
 }
 
 public interface IObjBaseModel
-  : IRendering
+  : IModelBase
 {
   bool IsTypeParameter { get; }
 }
@@ -64,7 +64,7 @@ public record class ObjectForModel<TFor>(
   TFor For,
   string Obj
 ) : ModelBase
-  where TFor : IRendering
+  where TFor : IModelBase
 { }
 
 public record class ObjFieldModel<TObjBase>(
@@ -80,5 +80,5 @@ public record class ObjDescribedModel<TDescribed>(
   TDescribed Base,
   string? Description
 ) : ModelBase
-  where TDescribed : IRendering
+  where TDescribed : IModelBase
 { }

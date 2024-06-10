@@ -13,7 +13,7 @@ internal abstract class ModellerObjBase<TObjBaseAst, TObjBase, TArg>
   : ModellerBase<TObjBaseAst, TObjBase>
   where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>
   where TObjBase : IObjBaseModel
-  where TArg : IRendering
+  where TArg : IModelBase
 {
   internal TArg[] ModelArguments(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
     => [.. ast.TypeArguments.Select(a => NewArgument(a, typeKinds))];

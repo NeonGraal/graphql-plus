@@ -26,7 +26,7 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
   , ICheckTypeModel<TAstParent, TParent, TTypeKind>
   where TAstParent : IEquatable<TAstParent>
   where TAst : IGqlpType<TAstParent>
-  where TModel : IRendering
+  where TModel : IModelBase
 {
   protected readonly TTypeKind TypeKind;
   protected readonly string TypeKindLower;
@@ -70,7 +70,7 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
 ) : CheckTypeModel<string, string, TAst, TTypeKind, TModel>(modeller, rendering, kind)
   , ICheckTypeModel<TTypeKind>
   where TAst : IGqlpType<string>
-  where TModel : IRendering
+  where TModel : IModelBase
 {
   internal override string NewParentAst(string input)
     => input;
@@ -83,7 +83,7 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel, TItem>(
 ) : CheckTypeModel<TAst, TTypeKind, TModel>(modeller, rendering, kind)
   , IParentModel<TItem>
   where TAst : IGqlpType<string>
-  where TModel : IRendering
+  where TModel : IModelBase
 {
   internal abstract BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
 

@@ -35,6 +35,6 @@ internal class SchemaModeller(
 
   private IEnumerable<TModel> DeclarationModel<TAst, TModel>(IGqlpSchema ast, IModeller<TAst, TModel> modeller, IMap<TypeKindModel> typeKinds)
     where TAst : IGqlpError
-    where TModel : IRendering
+    where TModel : IModelBase
     => ast.Declarations.OfType<TAst>().Select(m => modeller.ToModel(m, typeKinds));
 }

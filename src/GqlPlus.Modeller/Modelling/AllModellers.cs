@@ -46,7 +46,7 @@ public static class AllModellers
 
   private static IServiceCollection AddModeller<TAst, TModel, TModeller>(this IServiceCollection services)
     where TAst : IGqlpError
-    where TModel : IRendering
+    where TModel : IModelBase
     where TModeller : class, IModeller<TAst, TModel>
     => services.AddSingleton<IModeller<TAst, TModel>, TModeller>();
 
@@ -57,7 +57,7 @@ public static class AllModellers
 
   private static IServiceCollection AddTypeModeller<TAst, TModel, TModeller>(this IServiceCollection services)
     where TAst : IGqlpError
-    where TModel : IRendering
+    where TModel : IModelBase
     where TModeller : class, IModeller<TAst, TModel>, ITypeModeller
     => services
       .AddSingleton<TModeller>()

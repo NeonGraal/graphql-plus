@@ -1,7 +1,8 @@
 ﻿namespace GqlPlus.Models;
 
 public class ConstantModel
-  : Structured<SimpleModel, ConstantModel>, IRendering
+  : Structured<SimpleModel, ConstantModel>
+  , IModelBase
 {
   internal ConstantModel(SimpleModel value)
     : base(value) { }
@@ -11,13 +12,10 @@ public class ConstantModel
 
   internal ConstantModel(Dictionary<SimpleModel, ConstantModel> values)
     : base(values) { }
-
-  public RenderStructure Render(IRenderContext context)
-    => throw new NotImplementedException();
 }
 
 public record class SimpleModel
-  : IRendering
+  : IModelBase
 {
   internal bool? Boolean { get; private init; }
   internal TypeRefModel<SimpleKindModel>? TypeRef { get; private init; }
@@ -38,9 +36,6 @@ public record class SimpleModel
     => new() { TypeRef = TypeFor(type), String = value };
   internal static SimpleModel Enum(string type, string value)
     => new() { TypeRef = TypeFor(type), Value = value };
-
-  public RenderStructure Render(IRenderContext context)
-    => throw new NotImplementedException();
 }
 
 public record class CollectionModel(

@@ -3,11 +3,8 @@
 internal abstract class ModellerBase<TAst, TModel>
   : IModeller<TAst, TModel>
   where TAst : IGqlpError
-  where TModel : IRendering
+  where TModel : IModelBase
 {
-  public IRendering ToRenderer(TAst ast, IMap<TypeKindModel> typeKinds)
-    => ToModel(ast, typeKinds);
-
   public T ToModel<T>(TAst? ast, IMap<TypeKindModel> typeKinds)
     => TryModel<T>(ast, typeKinds) ?? throw new ModelTypeException<T>(ast);
   public T[] ToModels<T>(IEnumerable<TAst>? asts, IMap<TypeKindModel> typeKinds)

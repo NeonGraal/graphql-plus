@@ -43,7 +43,7 @@ internal class ObjectFieldRenderer<TField, TBase>(
 internal class ObjectForRenderer<TFor>(
   IRenderer<TFor> renderer
 ) : BaseRenderer<ObjectForModel<TFor>>
-  where TFor : ModelBase
+  where TFor : IModelBase
 {
   internal override RenderStructure Render(ObjectForModel<TFor> model, IRenderContext context)
     => base.Render(model, context)

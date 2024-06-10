@@ -27,7 +27,7 @@ internal abstract class CheckDescribedModel<TName, TAst, TModel>(
   IRenderer<TModel> rendering
 ) : CheckDescribedModel<TName, TAst, TAst, TModel>(modeller, rendering)
   where TAst : IGqlpError, IGqlpDescribed
-  where TModel : IRendering
+  where TModel : IModelBase
 { }
 
 internal abstract class CheckDescribedModel<TName, TSrc, TAst, TModel>(
@@ -37,7 +37,7 @@ internal abstract class CheckDescribedModel<TName, TSrc, TAst, TModel>(
   , ICheckDescribedModel<TName>
   where TSrc : IGqlpError, IGqlpDescribed
   where TAst : IGqlpError, TSrc
-  where TModel : IRendering
+  where TModel : IModelBase
 {
   protected abstract TAst NewDescribedAst(TName name, string description);
   protected abstract string[] ExpectedDescription(ExpectedDescriptionInput<TName> input);

@@ -57,18 +57,8 @@ public class RenderStructure
     ? Add(key, value)
     : this;
 
-  public RenderStructure Add<T>(T value, IRenderContext context)
-    where T : IRendering
-  {
-    foreach ((RenderValue key, RenderStructure item) in value.Render(context).Map) {
-      Map.Add(key, item);
-    }
-
-    return this;
-  }
-
   public RenderStructure Add<TValue>(TValue? value, IRenderer<TValue> renderer, IRenderContext context)
-    where TValue : IRendering
+    where TValue : IModelBase
   {
     if (value is null) {
       return this;
@@ -88,6 +78,7 @@ public class RenderStructure
     => Add(key, new(value.ToString(), tag ?? typeof(TValue).TypeTag()));
 
   public RenderStructure Add<TValue>(string key, TValue? value, IRenderer<TValue> renderer, IRenderContext context)
+    where TValue : IModelBase
     => value is null ? this
     : Add(key, renderer.ThrowIfNull().Render(value, context));
 

@@ -17,16 +17,16 @@ public abstract record class ChildTypeModel<TParent>(
   string Name
 ) : BaseTypeModel(Kind, Name)
   , IChildTypeModel
-  where TParent : IRendering
+  where TParent : IModelBase
 {
   public TParent? Parent { get; set; }
 
-  internal IRendering? _parentModel;
+  internal IModelBase? _parentModel;
 
   protected abstract string? ParentName(TParent? parent);
 
   internal virtual bool GetParentModel<TResult>(IRenderContext context, [NotNullWhen(true)] out TResult? model)
-    where TResult : IRendering
+    where TResult : IModelBase
   {
     if (_parentModel is null) {
       _parentModel = model = context.TryGetType(Name, ParentName(Parent), out TResult? parentModel) ? parentModel : default;
@@ -51,7 +51,7 @@ public abstract record class ChildTypeModel<TParent>(
 }
 
 internal interface IChildTypeModel
-  : IRendering
+  : IModelBase
 {
   void ForParent<TModel>(IRenderContext context, Action<TModel> action)
     where TModel : IChildTypeModel;
@@ -61,8 +61,8 @@ public abstract record class ParentTypeModel<TItem, TAll>(
   TypeKindModel Kind,
   string Name
 ) : ChildTypeModel<TypeRefModel<SimpleKindModel>>(Kind, Name)
-  where TItem : IRendering
-  where TAll : IRendering
+  where TItem : IModelBase
+  where TAll : IModelBase
 {
   public TItem[] Items { get; set; } = [];
 
@@ -160,7 +160,7 @@ internal class TypesCollection(
   }
 
   public bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)
-    where TModel : IRendering
+    where TModel : IModelBase
   {
     if (name is not null) {
       if (Types.TryGetValue(name, out BaseTypeModel? type) && type is TModel modelType) {

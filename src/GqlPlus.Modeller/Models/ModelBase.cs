@@ -1,13 +1,13 @@
 ﻿namespace GqlPlus.Models;
 
 public record class ModelBase
-  : IRendering
+  : IModelBase
 {
   private string? _tag;
 
   internal virtual string Tag => _tag ??= GetType().TypeTag();
-
-#pragma warning disable CA1033 // Interface methods should be callable by child types
-  RenderStructure IRendering.Render(IRenderContext context)
-    => throw new NotImplementedException();
 }
+
+#pragma warning disable CA1040 // Avoid empty interfaces
+public interface IModelBase
+{ }

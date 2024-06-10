@@ -55,6 +55,7 @@ public static class AllRenderers
     ;
 
   private static IServiceCollection AddRenderer<TModel, TRenderer>(this IServiceCollection services)
+    where TModel : IModelBase
     where TRenderer : class, IRenderer<TModel>
     => services.AddSingleton<IRenderer<TModel>, TRenderer>();
 
@@ -75,6 +76,7 @@ public static class AllRenderers
       .AddSingleton<ParentTypeRenderers<AliasedModel, TItem>>();
 
   private static IServiceCollection AddTypeRenderer<TModel, TRenderer>(this IServiceCollection services)
+    where TModel : IModelBase
     where TRenderer : class, IRenderer<TModel>, ITypeRenderer
     => services
       .AddSingleton<TRenderer>()

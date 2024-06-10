@@ -2,12 +2,8 @@
 
 namespace GqlPlus.Rendering;
 
-public interface IRendering
-{
-  RenderStructure Render(IRenderContext context);
-}
-
 public interface IRenderer<TModel>
+  where TModel : IModelBase
 {
   RenderStructure Render(TModel model, IRenderContext context);
 }
@@ -15,5 +11,5 @@ public interface IRenderer<TModel>
 public interface IRenderContext
 {
   bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)
-    where TModel : IRendering;
+    where TModel : IModelBase;
 }

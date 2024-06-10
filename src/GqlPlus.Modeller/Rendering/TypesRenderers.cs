@@ -30,7 +30,7 @@ internal abstract class ChildTypeRenderer<TModel, TParent>(
 
   internal virtual bool GetParentModel<TInput, TResult>(TInput input, IRenderContext context, [NotNullWhen(true)] out TResult? result)
     where TInput : ChildTypeModel<TParent>
-    where TResult : IRendering
+    where TResult : IModelBase
   {
     if (input._parentModel is null) {
       input._parentModel = result = context.TryGetType(input.Name, ParentName(input.Parent), out TResult? parentModel)

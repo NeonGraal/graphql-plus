@@ -44,7 +44,7 @@ internal abstract class CheckObjBaseModel<TObjBase, TObjBaseAst, TModel>(
     ICheckObjBaseModel<TObjBaseAst>
   where TObjBase : IGqlpObjectBase<TObjBase>
   where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
-  where TModel : IRendering
+  where TModel : IModelBase
 {
   protected readonly TypeKindModel TypeKind = kind;
   protected readonly string TypeKindLower = $"{kind}".ToLowerInvariant();

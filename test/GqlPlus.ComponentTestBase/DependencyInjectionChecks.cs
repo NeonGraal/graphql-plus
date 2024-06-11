@@ -1,10 +1,13 @@
 ﻿using System.Globalization;
 using System.Reflection;
 using System.Text;
+
 using Fluid;
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
+
 using Xunit.DependencyInjection;
 
 namespace GqlPlus;
@@ -14,6 +17,8 @@ public class DependencyInjectionChecks(
   ITestOutputHelperAccessor output
 )
 {
+  private const int MaxGroupSize = 8;
+
   private static readonly FluidParser s_parser = new();
   private static readonly Map<IFluidTemplate> s_templates = [];
   private static readonly TemplateOptions s_options = new();
@@ -74,15 +79,15 @@ public class DependencyInjectionChecks(
 
         service.AddParameters(sd.ImplementationType);
       } else if (sd.ImplementationFactory is not null) {
-        service.Requires["()="] = func;
+        service.Requires["=>"] = func;
         if (sd.ImplementationFactory.Method.IsGenericMethod) {
           Type[] args = sd.ImplementationFactory.Method.GetGenericArguments();
           if (args.Length > 0) {
-            service.Requires["()="] = new(args[0]);
+            service.Requires["=>"] = new(args[0]);
           }
         }
       } else if (sd.ImplementationInstance is not null) {
-        service.Requires["="] = new(sd.ImplementationInstance.GetType());
+        service.Requires[":="] = new(sd.ImplementationInstance.GetType());
       }
     }
 
@@ -163,7 +168,8 @@ public class DependencyInjectionChecks(
     Map<DiService[]> groups = [];
 
     IOrderedEnumerable<DiService> services = _diServices.Values
-      .OrderBy(s => (s.RequiredBy, s.Service.Name));
+      .Where(s => s.Requires.Any())
+      .OrderBy(s => (s.Requires.Count - s.RequiredBy, s.Service.Name));
 
     string name = "";
     List<DiService> group = [];
@@ -179,7 +185,7 @@ public class DependencyInjectionChecks(
       _ids.UnionWith(_groupIds);
       _groupIds.Clear();
 
-      if (group.Count > 5 || group.Count > 0 && group.Count < _group.Count) {
+      if (group.Count > MaxGroupSize || group.Count > 0 && group.Count < _group.Count) {
         groups[name] = [.. group];
         name = di.Service.Safe;
         group.Clear();
@@ -213,10 +219,8 @@ public class DependencyInjectionChecks(
     _groupIds.Add(di.Service.Id);
 
     foreach ((string key, TypeIdName prereq) in di.Requires) {
-      if (!int.TryParse(key, out int _)) {
-        if (_diServices.TryGetValue(prereq.Id, out DiService? requires)) {
-          AddToGroup(requires);
-        }
+      if (_diServices.TryGetValue(prereq.Id, out DiService? requires)) {
+        AddToGroup(requires);
       }
     }
   }

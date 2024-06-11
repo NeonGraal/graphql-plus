@@ -18,6 +18,8 @@ public class DependencyInjectionChecks(
 )
 {
   private const int MaxGroupSize = 8;
+  private const string FunctionRequirement = "=>";
+  private const string InstanceRequirement = "=";
 
   private static readonly FluidParser s_parser = new();
   private static readonly Map<IFluidTemplate> s_templates = [];
@@ -79,21 +81,21 @@ public class DependencyInjectionChecks(
 
         service.AddParameters(sd.ImplementationType);
       } else if (sd.ImplementationFactory is not null) {
-        service.Requires["=>"] = func;
+        service.Requires[FunctionRequirement] = func;
         if (sd.ImplementationFactory.Method.IsGenericMethod) {
           Type[] args = sd.ImplementationFactory.Method.GetGenericArguments();
           if (args.Length > 0) {
-            service.Requires["=>"] = new(args[0]);
+            service.Requires[FunctionRequirement] = new(args[0]);
           }
         }
       } else if (sd.ImplementationInstance is not null) {
-        service.Requires[":="] = new(sd.ImplementationInstance.GetType());
+        service.Requires[InstanceRequirement] = new(sd.ImplementationInstance.GetType());
       }
     }
 
     Map<int> requiredBy = diServices.Values
       .SelectMany(s => s.Requires
-        .Where(r => r.Value != func && r.Key != "=")
+        .Where(r => r.Value != func && r.Key != InstanceRequirement)
         .Select(r => r.Value.Id))
       .GroupBy(t => t)
       .ToMap(g => g.Key, g => g.Count());
@@ -124,7 +126,7 @@ public class DependencyInjectionChecks(
       sb.Append(", ");
 
       List<string> missing = di.Requires
-        .Where(p => p.Key != "=" && !MatchType(hashset, p.Value))
+        .Where(p => p.Key != InstanceRequirement && !MatchType(hashset, p.Value))
         .Select(p => $"{di.Service.Name} {p.Key} : " + p.Value.Name).ToList();
 
       missing.Should().BeEmpty();

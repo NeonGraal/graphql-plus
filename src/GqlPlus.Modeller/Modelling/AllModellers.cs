@@ -1,5 +1,6 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Rendering;
+﻿using GqlPlus.Modelling.Globals;
+using GqlPlus.Modelling.Objects;
+using GqlPlus.Modelling.Simple;
 
 using Microsoft.Extensions.DependencyInjection;
 
@@ -45,7 +46,7 @@ public static class AllModellers
 
   private static IServiceCollection AddModeller<TAst, TModel, TModeller>(this IServiceCollection services)
     where TAst : IGqlpError
-    where TModel : IRendering
+    where TModel : IModelBase
     where TModeller : class, IModeller<TAst, TModel>
     => services.AddSingleton<IModeller<TAst, TModel>, TModeller>();
 
@@ -56,7 +57,7 @@ public static class AllModellers
 
   private static IServiceCollection AddTypeModeller<TAst, TModel, TModeller>(this IServiceCollection services)
     where TAst : IGqlpError
-    where TModel : IRendering
+    where TModel : IModelBase
     where TModeller : class, IModeller<TAst, TModel>, ITypeModeller
     => services
       .AddSingleton<TModeller>()
@@ -65,7 +66,7 @@ public static class AllModellers
 
   private static IServiceCollection AddDomainModeller<TItemAst, TItemModel, TModeller>(this IServiceCollection services)
     where TItemAst : IGqlpDomainItem
-    where TItemModel : IBaseDomainItemModel
+    where TItemModel : BaseDomainItemModel
     where TModeller : class, IDomainModeller<TItemAst, TItemModel>, ITypeModeller
     => services
       .AddSingleton<TModeller>()

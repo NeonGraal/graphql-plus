@@ -19,6 +19,26 @@ types: !_Map_Type
     name: InpGenAltDual
     typeKind: !_TypeKind Input
   !_Identifier InpGenAltDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: InpGenAltDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: InpGenAltDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: InpGenAltDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier InpGenAltDualRef: !_TypeInput

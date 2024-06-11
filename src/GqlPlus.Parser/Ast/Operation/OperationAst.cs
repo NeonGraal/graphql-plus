@@ -41,7 +41,7 @@ internal sealed record class OperationAst(
   public OperationAst(TokenAt at)
     : this(at, "") { }
 
-  public string Render()
+  public string Show()
   {
     using StringWriter sw = new();
     int indent = 0;

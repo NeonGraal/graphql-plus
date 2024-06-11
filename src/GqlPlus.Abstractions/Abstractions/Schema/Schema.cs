@@ -8,7 +8,7 @@ public interface IGqlpSchema
   ParseResultKind Result { get; }
   ITokenMessages Errors { get; }
 
-  string Render();
+  string Show();
 }
 
 public interface IGqlpDeclaration

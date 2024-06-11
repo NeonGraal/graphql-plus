@@ -1,6 +1,10 @@
 ﻿using System.Reflection;
+
 using DiffEngine;
+
+using GqlPlus.Convert;
 using GqlPlus.Modelling;
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 
@@ -19,5 +23,6 @@ public static class Startup
   public static void ConfigureServices(IServiceCollection services)
     => services
       .AddComponentTest()
-      .AddModellers();
+      .AddModellers()
+      .AddRenderers();
 }

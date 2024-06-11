@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
@@ -9,7 +10,8 @@ using GqlPlus.Token;
 namespace GqlPlus.Modelling;
 
 public class SchemaModelTests(
-  IModeller<IGqlpSchema, SchemaModel> modeller
+  IModeller<IGqlpSchema, SchemaModel> modeller,
+  IRenderer<SchemaModel> rendering
 ) : TestModelBase<string>
 {
   [Theory, RepeatData(Repeats)]
@@ -151,12 +153,13 @@ public class SchemaModelTests(
 
   internal override ICheckModelBase<string> BaseChecks => _checks;
 
-  private readonly SchemaModelChecks _checks = new(modeller);
+  private readonly SchemaModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class SchemaModelChecks(
-  IModeller<IGqlpSchema, SchemaModel> modeller
-) : CheckModelBase<string, IGqlpSchema, SchemaAst, SchemaModel>(modeller)
+  IModeller<IGqlpSchema, SchemaModel> modeller,
+  IRenderer<SchemaModel> rendering
+) : CheckModelBase<string, IGqlpSchema, SchemaAst, SchemaModel>(modeller, rendering)
 {
   protected override string[] ExpectedBase(string name)
     => ["!_Schema", "name: " + name];

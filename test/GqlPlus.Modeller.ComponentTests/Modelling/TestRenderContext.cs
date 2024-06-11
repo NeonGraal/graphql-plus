@@ -7,7 +7,7 @@ internal sealed class TestRenderContext
   , IRenderContext
 {
   public bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)
-    where TModel : IRendering
+    where TModel : IModelBase
   {
     if (name is not null && TryGetValue(name, out BaseTypeModel? type) && type is TModel modelType) {
       model = modelType;

@@ -4,11 +4,30 @@
     "$tag": "_Map_Type",
     "DualFieldsParent": {
       "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "object": "DualFieldsParent",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
           "object": "DualFieldsParent",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_DualBase)",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -21,7 +40,7 @@
           "name": "parent",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "value": "Number"
           }
         }
       ],
@@ -30,6 +49,16 @@
     },
     "DualPrntFields": {
       "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "object": "DualFieldsParent",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
@@ -37,7 +66,7 @@
           "object": "DualFieldsParent",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "value": "Number"
           }
         },
         {

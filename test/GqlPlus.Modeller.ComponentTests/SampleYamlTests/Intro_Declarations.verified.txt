@@ -177,7 +177,8 @@ types: !_Map_Type
   !_Identifier _Schema: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: categories
       object: _Schema
       parameters:
@@ -187,7 +188,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Categories
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: directives
       object: _Schema
       parameters:
@@ -197,7 +199,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Directives
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: types
       object: _Schema
       parameters:
@@ -207,7 +210,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Type
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: settings
       object: _Schema
       parameters:
@@ -218,7 +222,8 @@ types: !_Map_Type
         output: _Setting
     fields:
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: categories
       parameters:
       - !_InputParameter
@@ -227,7 +232,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Categories
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: directives
       parameters:
       - !_InputParameter
@@ -236,7 +242,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Directives
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: types
       parameters:
       - !_InputParameter
@@ -245,7 +252,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Type
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: settings
       parameters:
       - !_InputParameter

@@ -29,7 +29,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "DualFieldEnum",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Enum"
             }
           ],
           "name": "field",
@@ -47,7 +48,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "DualFieldEnum",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Enum"
             }
           ],
           "name": "field",

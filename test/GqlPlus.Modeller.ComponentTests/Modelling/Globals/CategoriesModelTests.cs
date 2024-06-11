@@ -6,6 +6,7 @@ namespace GqlPlus.Modelling.Globals;
 
 public class CategoriesModelTests(
   IModeller<IGqlpSchemaCategory, CategoryModel> category,
+  IRenderer<CategoriesModel> rendering,
   IModeller<IGqlpOutputObject, TypeOutputModel> typeOutput
 ) : TestModelBase<string>
 {
@@ -36,13 +37,15 @@ public class CategoriesModelTests(
 
   internal override ICheckModelBase<string> BaseChecks => _checks;
 
-  private readonly CategoriesModelChecks _checks = new(category, typeOutput);
+  private readonly CategoriesModelChecks _checks = new(category, rendering, typeOutput);
 }
 
 internal sealed class CategoriesModelChecks(
   IModeller<IGqlpSchemaCategory, CategoryModel> modeller,
+  IRenderer<CategoriesModel> rendering,
   IModeller<IGqlpOutputObject, TypeOutputModel> typeOutput
-) : CheckModelBase<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel>(modeller), ICheckModelBase
+) : CheckModelBase<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel, CategoriesModel>(modeller, rendering)
+  , ICheckModelBase
 {
   protected override string[] ExpectedBase(string name)
   => ["!_Category",
@@ -53,12 +56,12 @@ internal sealed class CategoriesModelChecks(
   protected override CategoryDeclAst NewBaseAst(string name)
     => new(AstNulls.At, name);
 
-  IRendering ICheckModelBase.ToModel(IGqlpError ast)
-    => new CategoriesModel() { Category = _modeller.ToModel((CategoryDeclAst)ast, TypeKinds) };
+  IModelBase ICheckModelBase.ToModel(IGqlpError ast)
+    => new CategoriesModel() { And = _modeller.ToModel((CategoryDeclAst)ast, TypeKinds) };
 
   internal CategoriesModel ToModel(CategoryDeclAst? ast, string output)
     => new() {
-      Category = _modeller.TryModel(ast, TypeKinds),
+      And = _modeller.TryModel(ast, TypeKinds),
       Type = string.IsNullOrWhiteSpace(output) ? null : typeOutput.ToModel(new OutputDeclAst(AstNulls.At, output), TypeKinds),
     };
 }

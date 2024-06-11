@@ -7,7 +7,8 @@ directives: !_Map_Directives
     parameters:
     - !_InputParameter
       input: DirParamIn
-      modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Basic}]
     repeatable: false
 types: !_Map_Type
   !_Identifier DirParamIn: !_TypeInput

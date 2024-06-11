@@ -1,9 +1,40 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier InpParentTest: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpParentTest
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: InpParentTest
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: parent
+      type: !_InputBase
+        input: Number
     name: InpParentTest
     typeKind: !_TypeKind Input
   !_Identifier InpTestParent: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpParentTest
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: InpParentTest
+      type: !_InputBase
+        input: Number
     name: InpTestParent
     parent: !_InputBase
       input: InpParentTest

@@ -15,5 +15,25 @@ types: !_Map_Type
     name: FieldsOutp
     typeKind: !_TypeKind Output
   !_Identifier OutpField: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpField
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpField
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: Number
     name: OutpField
     typeKind: !_TypeKind Output

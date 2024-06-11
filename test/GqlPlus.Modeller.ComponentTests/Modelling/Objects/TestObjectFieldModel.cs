@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Convert;
 
 namespace GqlPlus.Modelling.Objects;
 
@@ -25,20 +26,28 @@ public abstract class TestObjectFieldModel<TObjField, TObjFieldAst, TObjBase>
         FieldChecks.ExpectedDual(input)
       );
 
+  [Theory, RepeatData(Repeats)]
+  public void Model_Aliases(FieldInput input, string[] aliases)
+    => FieldChecks.Field_Expected(
+        FieldChecks.FieldAst(input) with { Aliases = aliases },
+        FieldChecks.ExpectedField(input, [aliases.YamlJoin("aliases: [", "]")], [])
+      );
+
   internal override ICheckModelBase<FieldInput> BaseChecks => FieldChecks;
 
   internal abstract ICheckObjectFieldModel<TObjFieldAst, TObjBase> FieldChecks { get; }
 }
 
 internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TObjBase, TModel>(
-  IModeller<TObjField, TModel> field,
+  IModeller<TObjField, TModel> field, IRenderer
+  <TModel> rendering,
   TypeKindModel kind
-) : CheckModelBase<FieldInput, TObjField, TModel>(field),
+) : CheckModelBase<FieldInput, TObjField, TModel>(field, rendering),
     ICheckObjectFieldModel<TObjFieldAst, TObjBase>
   where TObjField : IGqlpObjectField<TObjBase>
   where TObjFieldAst : AstObjectField<TObjBase>, TObjField
   where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
-  where TModel : IRendering
+  where TModel : IModelBase
 {
   protected readonly TypeKindModel TypeKind = kind;
   protected readonly string TypeKindLower = $"{kind}".ToLowerInvariant();

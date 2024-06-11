@@ -4,7 +4,8 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Modelling.Objects;
 
 public class OutputBaseModelTests(
-  IModeller<IGqlpOutputBase, OutputBaseModel> modeller
+  IModeller<IGqlpOutputBase, OutputBaseModel> modeller,
+  IRenderer<OutputBaseModel> rendering
 ) : TestObjBaseModel<IGqlpOutputBase, OutputBaseAst>
 {
   [Theory, RepeatData(Repeats)]
@@ -16,12 +17,13 @@ public class OutputBaseModelTests(
 
   internal override ICheckObjBaseModel<OutputBaseAst> ObjBaseChecks => _checks;
 
-  private readonly OutputBaseModelChecks _checks = new(modeller);
+  private readonly OutputBaseModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class OutputBaseModelChecks(
-  IModeller<IGqlpOutputBase, OutputBaseModel> modeller
-) : CheckObjBaseModel<IGqlpOutputBase, OutputBaseAst, OutputBaseModel>(modeller, TypeKindModel.Output)
+  IModeller<IGqlpOutputBase, OutputBaseModel> modeller,
+  IRenderer<OutputBaseModel> rendering
+) : CheckObjBaseModel<IGqlpOutputBase, OutputBaseAst, OutputBaseModel>(modeller, rendering, TypeKindModel.Output)
 {
   internal string[] ExpectedEnumArguments(string[] arguments, string enumMember)
     => [.. ItemsExpected("typeArguments:", arguments,

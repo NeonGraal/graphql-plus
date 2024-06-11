@@ -4,17 +4,19 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Modelling.Objects;
 
 public class InputModelTests(
-  IModeller<IGqlpInputObject, TypeInputModel> modeller
+  IModeller<IGqlpInputObject, TypeInputModel> modeller,
+  IRenderer<TypeInputModel> rendering
 ) : TestObjectModel<InputDeclAst, InputFieldAst, IGqlpInputBase, InputBaseAst>
 {
   internal override ICheckObjectModel<InputDeclAst, InputFieldAst, IGqlpInputBase> ObjectChecks => _checks;
 
-  private readonly InputModelChecks _checks = new(modeller);
+  private readonly InputModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class InputModelChecks(
-  IModeller<IGqlpInputObject, TypeInputModel> modeller
-) : CheckObjectModel<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputBase, TypeInputModel>(modeller, TypeKindModel.Input)
+  IModeller<IGqlpInputObject, TypeInputModel> modeller,
+  IRenderer<TypeInputModel> rendering
+) : CheckObjectModel<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputBase, TypeInputModel>(modeller, rendering, TypeKindModel.Input)
 {
   protected override InputDeclAst NewObjectAst(
     string name,

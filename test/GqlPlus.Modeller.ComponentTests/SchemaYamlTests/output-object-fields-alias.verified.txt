@@ -3,12 +3,14 @@ types: !_Map_Type
   !_Identifier OutpFieldAlias: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
+      aliases: [field1, field2]
       name: field
       object: OutpFieldAlias
       type: !_OutputBase
         output: OutpFieldAlias
     fields:
     - !_OutputField
+      aliases: [field1, field2]
       name: field
       type: !_OutputBase
         output: OutpFieldAlias

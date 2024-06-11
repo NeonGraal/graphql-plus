@@ -4,8 +4,7 @@ using GqlPlus.Result;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
 
-
-namespace GqlPlus.Sample;
+namespace GqlPlus;
 
 public class SampleVerifyTests(
     Parser<IGqlpSchema>.D schemaParser,

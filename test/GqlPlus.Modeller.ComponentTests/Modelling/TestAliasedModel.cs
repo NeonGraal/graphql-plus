@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Convert;
 
 namespace GqlPlus.Modelling;
 
@@ -21,19 +22,21 @@ public abstract class TestAliasedModel<TInput>
 }
 
 internal abstract class CheckAliasedModel<TName, TAst, TModel>(
-  IModeller<TAst, TModel> modeller
-) : CheckAliasedModel<TName, TAst, TAst, TModel>(modeller)
+  IModeller<TAst, TModel> modeller,
+  IRenderer<TModel> rendering
+) : CheckAliasedModel<TName, TAst, TAst, TModel>(modeller, rendering)
   where TAst : IGqlpAliased
-  where TModel : IRendering
+  where TModel : IModelBase
 { }
 
 internal abstract class CheckAliasedModel<TName, TSrc, TAst, TModel>(
-  IModeller<TSrc, TModel> modeller
-) : CheckDescribedModel<TName, TSrc, TAst, TModel>(modeller)
+  IModeller<TSrc, TModel> modeller,
+  IRenderer<TModel> rendering
+) : CheckDescribedModel<TName, TSrc, TAst, TModel>(modeller, rendering)
   , ICheckAliasedModel<TName>
   where TSrc : IGqlpError, IGqlpDescribed
   where TAst : IGqlpAliased, TSrc
-  where TModel : IRendering
+  where TModel : IModelBase
 {
   protected abstract string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input);
 
@@ -43,7 +46,7 @@ internal abstract class CheckAliasedModel<TName, TSrc, TAst, TModel>(
   IGqlpAliased ICheckAliasedModel<TName>.AliasedAst(TName name, string[]? aliases)
     => NewAliasedAst(name, aliases: aliases);
   string[] ICheckAliasedModel<TName>.ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input) => ExpectedDescriptionAliases(input);
-  IRendering ICheckAliasedModel<TName>.ToModel(IGqlpAliased aliased) => AstToModel((TAst)aliased);
+  IModelBase ICheckAliasedModel<TName>.ToModel(IGqlpAliased aliased) => AstToModel((TAst)aliased);
 
   protected override TAst NewDescribedAst(TName name, string description)
     => NewAliasedAst(name, description);
@@ -55,7 +58,7 @@ internal interface ICheckAliasedModel<TName>
   : ICheckDescribedModel<TName>
 {
   IGqlpAliased AliasedAst(TName name, string[]? aliases = null);
-  IRendering ToModel(IGqlpAliased aliased);
+  IModelBase ToModel(IGqlpAliased aliased);
   string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input);
 }
 

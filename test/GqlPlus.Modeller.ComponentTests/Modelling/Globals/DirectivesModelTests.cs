@@ -4,7 +4,8 @@ using GqlPlus.Ast.Schema.Globals;
 namespace GqlPlus.Modelling.Globals;
 
 public class DirectivesModelTests(
-  IModeller<IGqlpSchemaDirective, DirectiveModel> directive
+  IModeller<IGqlpSchemaDirective, DirectiveModel> directive,
+  IRenderer<DirectivesModel> rendering
 ) : TestModelBase<string>
 {
   [Theory, RepeatData(Repeats)]
@@ -33,12 +34,13 @@ public class DirectivesModelTests(
 
   internal override ICheckModelBase<string> BaseChecks => _checks;
 
-  private readonly DirectivesModelChecks _checks = new(directive);
+  private readonly DirectivesModelChecks _checks = new(directive, rendering);
 }
 
 internal sealed class DirectivesModelChecks(
-  IModeller<IGqlpSchemaDirective, DirectiveModel> modeller
-) : CheckModelBase<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel>(modeller), ICheckModelBase
+  IModeller<IGqlpSchemaDirective, DirectiveModel> modeller,
+  IRenderer<DirectivesModel> rendering
+) : CheckModelBase<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel, DirectivesModel>(modeller, rendering), ICheckModelBase
 {
   protected override string[] ExpectedBase(string name)
   => ["!_Directive",
@@ -48,12 +50,12 @@ internal sealed class DirectivesModelChecks(
   protected override DirectiveDeclAst NewBaseAst(string name)
     => new(AstNulls.At, name);
 
-  IRendering ICheckModelBase.ToModel(IGqlpError ast)
-    => new DirectivesModel() { Directive = _modeller.ToModel((DirectiveDeclAst)ast, TypeKinds) };
+  IModelBase ICheckModelBase.ToModel(IGqlpError ast)
+    => new DirectivesModel() { And = _modeller.ToModel((DirectiveDeclAst)ast, TypeKinds) };
 
   internal DirectivesModel ToModel(DirectiveDeclAst? ast, string input)
     => new() {
-      Directive = _modeller.TryModel(ast, TypeKinds),
+      And = _modeller.TryModel(ast, TypeKinds),
       Type = new TypeInputModel(input),
     };
 }

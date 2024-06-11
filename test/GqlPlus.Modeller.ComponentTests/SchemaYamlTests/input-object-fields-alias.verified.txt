@@ -3,12 +3,14 @@ types: !_Map_Type
   !_Identifier InpFieldAlias: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
+      aliases: [field1, field2]
       name: field
       object: InpFieldAlias
       type: !_InputBase
         input: InpFieldAlias
     fields:
     - !_InputField
+      aliases: [field1, field2]
       name: field
       type: !_InputBase
         input: InpFieldAlias

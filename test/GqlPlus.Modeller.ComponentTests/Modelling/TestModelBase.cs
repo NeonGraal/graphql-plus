@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling;
+﻿using GqlPlus.Convert;
+
+namespace GqlPlus.Modelling;
 
 public abstract class TestModelBase<TName>
 {
@@ -19,36 +21,50 @@ public abstract class TestModelBase<TName>
 }
 
 internal abstract class CheckModelBase<TName, TAst, TModel>(
-  IModeller<TAst, TModel> modeller
-) : CheckModelBase<TName, TAst, TAst, TModel>(modeller)
+  IModeller<TAst, TModel> modeller,
+  IRenderer<TModel> rendering
+) : CheckModelBase<TName, TAst, TAst, TModel, TModel>(modeller, rendering)
   where TAst : IGqlpError
-  where TModel : IRendering
+  where TModel : IModelBase
 { }
 
-internal abstract class CheckModelBase<TName, TSrc, TAst, TModel>
+internal abstract class CheckModelBase<TName, TSrc, TAst, TModel>(
+  IModeller<TSrc, TModel> modeller,
+  IRenderer<TModel> rendering
+) : CheckModelBase<TName, TSrc, TAst, TModel, TModel>(modeller, rendering)
+  where TSrc : IGqlpError
+  where TAst : IGqlpError, TSrc
+  where TModel : IModelBase
+{ }
+
+internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
   : ICheckModelBase<TName>
   where TSrc : IGqlpError
   where TAst : IGqlpError, TSrc
-  where TModel : IRendering
+  where TModel : IModelBase
+  where TRender : IModelBase
 {
   protected IModeller<TSrc, TModel> _modeller;
+  protected IRenderer<TRender> _rendering;
 
   public IRenderContext Context { get; } = new TestRenderContext();
   public IMap<TypeKindModel> TypeKinds { get; } = new Map<TypeKindModel>();
 
-  protected CheckModelBase(IModeller<TSrc, TModel> modeller)
+  protected CheckModelBase(IModeller<TSrc, TModel> modeller, IRenderer<TRender> rendering)
   {
     ArgumentNullException.ThrowIfNull(modeller);
+    ArgumentNullException.ThrowIfNull(rendering);
 
     _modeller = modeller;
+    _rendering = rendering;
   }
 
   internal void AstExpected(TAst ast, string[] expected)
     => Model_Expected(AstToModel(ast), expected);
 
-  internal void Model_Expected(IRendering model, string[] expected)
+  internal void Model_Expected(IModelBase model, string[] expected)
   {
-    RenderStructure render = model.Render(Context);
+    RenderStructure render = _rendering.Render((TRender)model, Context);
 
     string yaml = render.ToYaml(false);
 
@@ -67,9 +83,9 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel>
         ? items.SelectMany(i => mapping(i))
         : items.SelectMany(i => mapping(i)).Prepend(field);
 
-  void ICheckModelBase.Model_Expected(IRendering model, string[] expected) => Model_Expected(model, expected);
+  void ICheckModelBase.Model_Expected(IModelBase model, string[] expected) => Model_Expected(model, expected);
   IGqlpError ICheckModelBase<TName>.BaseAst(TName name) => NewBaseAst(name);
-  IRendering ICheckModelBase.ToModel(IGqlpError ast) => AstToModel((TAst)ast);
+  IModelBase ICheckModelBase.ToModel(IGqlpError ast) => AstToModel((TAst)ast);
   string[] ICheckModelBase<TName>.ExpectedBase(TName name) => ExpectedBase(name);
 }
 
@@ -86,9 +102,9 @@ internal interface ICheckModelBase
 {
   IRenderContext Context { get; }
   IMap<TypeKindModel> TypeKinds { get; }
-  IRendering ToModel(IGqlpError ast);
+  IModelBase ToModel(IGqlpError ast);
 
-  void Model_Expected(IRendering model, string[] expected);
+  void Model_Expected(IModelBase model, string[] expected);
 }
 
 internal static class CheckModelBaseHelper

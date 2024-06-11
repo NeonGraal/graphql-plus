@@ -3,12 +3,14 @@ types: !_Map_Type
   !_Identifier DualFieldAlias: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
+      aliases: [field1, field2]
       name: field
       object: DualFieldAlias
       type: !_DualBase
         dual: DualFieldAlias
     fields:
     - !_DualField
+      aliases: [field1, field2]
       name: field
       type: !_DualBase
         dual: DualFieldAlias

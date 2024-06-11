@@ -23,19 +23,21 @@ public abstract class TestDescribedModel<TName>
 }
 
 internal abstract class CheckDescribedModel<TName, TAst, TModel>(
-  IModeller<TAst, TModel> modeller
-) : CheckDescribedModel<TName, TAst, TAst, TModel>(modeller)
+  IModeller<TAst, TModel> modeller,
+  IRenderer<TModel> rendering
+) : CheckDescribedModel<TName, TAst, TAst, TModel>(modeller, rendering)
   where TAst : IGqlpError, IGqlpDescribed
-  where TModel : IRendering
+  where TModel : IModelBase
 { }
 
 internal abstract class CheckDescribedModel<TName, TSrc, TAst, TModel>(
-  IModeller<TSrc, TModel> modeller
-) : CheckModelBase<TName, TSrc, TAst, TModel>(modeller)
+  IModeller<TSrc, TModel> modeller,
+  IRenderer<TModel> rendering
+) : CheckModelBase<TName, TSrc, TAst, TModel>(modeller, rendering)
   , ICheckDescribedModel<TName>
   where TSrc : IGqlpError, IGqlpDescribed
   where TAst : IGqlpError, TSrc
-  where TModel : IRendering
+  where TModel : IModelBase
 {
   protected abstract TAst NewDescribedAst(TName name, string description);
   protected abstract string[] ExpectedDescription(ExpectedDescriptionInput<TName> input);

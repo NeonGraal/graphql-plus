@@ -26,7 +26,7 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
   , ICheckTypeModel<TAstParent, TParent, TTypeKind>
   where TAstParent : IEquatable<TAstParent>
   where TAst : IGqlpType<TAstParent>
-  where TModel : IRendering
+  where TModel : IModelBase
 {
   protected readonly TTypeKind TypeKind;
   protected readonly string TypeKindLower;
@@ -34,8 +34,8 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
   TTypeKind ICheckTypeModel<TAstParent, TParent, TTypeKind>.TypeKind => TypeKind;
   string ICheckTypeModel<TAstParent, TParent, TTypeKind>.TypeKindLower => TypeKindLower;
 
-  protected CheckTypeModel(IModeller<TAst, TModel> modeller, TTypeKind kind)
-    : base(modeller)
+  protected CheckTypeModel(IModeller<TAst, TModel> modeller, IRenderer<TModel> rendering, TTypeKind kind)
+    : base(modeller, rendering)
     => (TypeKind, TypeKindLower) = (kind, $"{kind}".ToLowerInvariant());
 
   protected abstract string[] ExpectedType(ExpectedTypeInput<TParent> input);
@@ -65,11 +65,12 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
 
 internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
   IModeller<TAst, TModel> modeller,
+  IRenderer<TModel> rendering,
   TTypeKind kind
-) : CheckTypeModel<string, string, TAst, TTypeKind, TModel>(modeller, kind)
+) : CheckTypeModel<string, string, TAst, TTypeKind, TModel>(modeller, rendering, kind)
   , ICheckTypeModel<TTypeKind>
   where TAst : IGqlpType<string>
-  where TModel : IRendering
+  where TModel : IModelBase
 {
   internal override string NewParentAst(string input)
     => input;
@@ -77,11 +78,12 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
 
 internal abstract class CheckTypeModel<TAst, TTypeKind, TModel, TItem>(
   IModeller<TAst, TModel> modeller,
+  IRenderer<TModel> rendering,
   TTypeKind kind
-) : CheckTypeModel<TAst, TTypeKind, TModel>(modeller, kind)
+) : CheckTypeModel<TAst, TTypeKind, TModel>(modeller, rendering, kind)
   , IParentModel<TItem>
   where TAst : IGqlpType<string>
-  where TModel : IRendering
+  where TModel : IModelBase
 {
   internal abstract BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
 

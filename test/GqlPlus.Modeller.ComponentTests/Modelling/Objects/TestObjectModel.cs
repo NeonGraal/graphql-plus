@@ -125,8 +125,9 @@ public abstract class TestObjectModel<TObjectAst, TObjFieldAst, TObjBase, TObjBa
 
 internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFieldAst, TObjBase, TModel>(
   IModeller<TObject, TModel> modeller,
+  IRenderer<TModel> rendering,
   TypeKindModel kind
-) : CheckTypeModel<TObjBase, string, TObject, TypeKindModel, TModel>(modeller, kind),
+) : CheckTypeModel<TObjBase, string, TObject, TypeKindModel, TModel>(modeller, rendering, kind),
     ICheckObjectModel<TObjectAst, TObjFieldAst, TObjBase>
   where TObject : IGqlpObject<TObjField, TObjBase>
   where TObjectAst : AstObject<TObjFieldAst, TObjBase>, TObject

@@ -1,7 +1,8 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 public class ModifierModelTests(
-  IModeller<IGqlpModifier, ModifierModel> modeller
+  IModeller<IGqlpModifier, ModifierModel> modeller,
+  IRenderer<ModifierModel> rendering
 ) : TestModelBase<ModifierInput>
 {
   [Fact]
@@ -10,12 +11,13 @@ public class ModifierModelTests(
 
   internal override ICheckModelBase<ModifierInput> BaseChecks => _checks;
 
-  private readonly ModifierModelChecks _checks = new(modeller);
+  private readonly ModifierModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class ModifierModelChecks(
-  IModeller<IGqlpModifier, ModifierModel> modeller
-) : CheckModelBase<ModifierInput, IGqlpModifier, ModifierAst, ModifierModel>(modeller)
+  IModeller<IGqlpModifier, ModifierModel> modeller,
+  IRenderer<ModifierModel> rendering
+) : CheckModelBase<ModifierInput, IGqlpModifier, ModifierAst, ModifierModel>(modeller, rendering)
 {
   protected override string[] ExpectedBase(ModifierInput name)
     => name.Kind switch {

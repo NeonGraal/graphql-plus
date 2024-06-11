@@ -20,5 +20,25 @@ types: !_Map_Type
     - !_Described
       name: mod
   !_Identifier OutpFieldParamMods: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpFieldParamMods
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpFieldParamMods
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: Number
     name: OutpFieldParamMods
     typeKind: !_TypeKind Output

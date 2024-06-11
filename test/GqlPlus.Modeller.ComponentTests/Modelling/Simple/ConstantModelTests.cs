@@ -1,7 +1,8 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 public class ConstantModelTests(
-  IModeller<IGqlpConstant, ConstantModel> modeller
+  IModeller<IGqlpConstant, ConstantModel> modeller,
+  IRenderer<ConstantModel> rendering
 ) : TestModelBase<string>
 {
   [Theory, RepeatData(Repeats)]
@@ -33,12 +34,13 @@ public class ConstantModelTests(
 
   internal override ICheckModelBase<string> BaseChecks => _checks;
 
-  private readonly ConstantModelChecks _checks = new(modeller);
+  private readonly ConstantModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class ConstantModelChecks(
-  IModeller<IGqlpConstant, ConstantModel> modeller
-) : CheckModelBase<string, IGqlpConstant, ConstantAst, ConstantModel>(modeller)
+  IModeller<IGqlpConstant, ConstantModel> modeller,
+  IRenderer<ConstantModel> rendering
+) : CheckModelBase<string, IGqlpConstant, ConstantAst, ConstantModel>(modeller, rendering)
 {
   protected override string[] ExpectedBase(string input)
     => [input.YamlQuoted()];

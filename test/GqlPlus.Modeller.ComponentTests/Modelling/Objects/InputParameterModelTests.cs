@@ -4,17 +4,19 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Modelling.Objects;
 
 public class InputParameterModelTests(
-  IModeller<IGqlpInputParameter, InputParameterModel> modeller
+  IModeller<IGqlpInputParameter, InputParameterModel> modeller,
+  IRenderer<InputParameterModel> rendering
 ) : TestDescribedModel<string>
 {
   internal override ICheckDescribedModel<string> DescribedChecks => _checks;
 
-  internal ParameterModelChecks _checks = new(modeller);
+  internal ParameterModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class ParameterModelChecks(
-  IModeller<IGqlpInputParameter, InputParameterModel> modeller
-) : CheckDescribedModel<string, IGqlpInputParameter, InputParameterModel>(modeller)
+  IModeller<IGqlpInputParameter, InputParameterModel> modeller,
+  IRenderer<InputParameterModel> rendering
+) : CheckDescribedModel<string, IGqlpInputParameter, InputParameterModel>(modeller, rendering)
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<string> input)
   {

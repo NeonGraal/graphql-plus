@@ -4,7 +4,8 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Modelling.Objects;
 
 public class OutputFieldModelTests(
-  IModeller<IGqlpOutputField, OutputFieldModel> modeller
+  IModeller<IGqlpOutputField, OutputFieldModel> modeller,
+  IRenderer<OutputFieldModel> rendering
 ) : TestObjectFieldModel<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase>
 {
   [Theory, RepeatData(Repeats)]
@@ -25,12 +26,13 @@ public class OutputFieldModelTests(
 
   internal override ICheckObjectFieldModel<OutputFieldAst, IGqlpOutputBase> FieldChecks => _checks;
 
-  private readonly OutputFieldModelChecks _checks = new(modeller);
+  private readonly OutputFieldModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class OutputFieldModelChecks(
-  IModeller<IGqlpOutputField, OutputFieldModel> modeller
-) : CheckObjectFieldModel<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputFieldModel>(modeller, TypeKindModel.Output)
+  IModeller<IGqlpOutputField, OutputFieldModel> modeller,
+  IRenderer<OutputFieldModel> rendering
+) : CheckObjectFieldModel<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputFieldModel>(modeller, rendering, TypeKindModel.Output)
 {
   protected override OutputFieldAst NewFieldAst(FieldInput input)
     => new(AstNulls.At, input.Name, NewObjBaseAst(input.Type));

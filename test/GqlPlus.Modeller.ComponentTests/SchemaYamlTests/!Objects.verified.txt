@@ -1,9 +1,49 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier DualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualAltDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualAltDual
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualAltDual
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualAltDual
     typeKind: !_TypeKind Dual
   !_Identifier DualAltMods: !_TypeDual
@@ -13,6 +53,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: ^
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
       object: DualAltMods
       type: !_DualBase
         dual: DualModsAlt
@@ -22,6 +63,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: ^
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
       type: !_DualBase
         dual: DualModsAlt
     name: DualAltMods
@@ -55,10 +97,21 @@ types: !_Map_Type
       object: DualAltPrnt
       type: !_DualBase
         dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: DualAltPrnt
+      type: !_DualBase
+        dual: Number
     alternates:
     - !_Alternate(_DualBase)
       type: !_DualBase
         dual: String
+    fields:
+    - !_DualField
+      name: parent
+      type: !_DualBase
+        dual: Number
     name: DualAltPrnt
     typeKind: !_TypeKind Dual
   !_Identifier DualAlts: !_TypeDual
@@ -98,9 +151,49 @@ types: !_Map_Type
     name: DualAltsSimple
     typeKind: !_TypeKind Dual
   !_Identifier DualField: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualField
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualField
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: Number
     name: DualField
     typeKind: !_TypeKind Dual
   !_Identifier DualFieldDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualFieldDual
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualFieldDual
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: Number
     name: DualFieldDual
     typeKind: !_TypeKind Dual
   !_Identifier DualFieldEnum: !_TypeEnum
@@ -116,14 +209,16 @@ types: !_Map_Type
   !_Identifier DualFieldMods: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
-      modifiers: [!_ModifierDictionary {by: DualFieldEnum, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: DualFieldEnum, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Enum}]
       name: field
       object: DualFieldMods
       type: !_DualBase
         dual: DualFieldMods
     fields:
     - !_DualField
-      modifiers: [!_ModifierDictionary {by: DualFieldEnum, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: DualFieldEnum, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Enum}]
       name: field
       type: !_DualBase
         dual: DualFieldMods
@@ -149,6 +244,26 @@ types: !_Map_Type
     - !_Described
       name: mod
   !_Identifier DualFieldParamMods: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualFieldParamMods
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualFieldParamMods
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: Number
     name: DualFieldParamMods
     typeKind: !_TypeKind Dual
   !_Identifier DualFieldsDual: !_TypeDual
@@ -166,17 +281,26 @@ types: !_Map_Type
     name: DualFieldsDual
     typeKind: !_TypeKind Dual
   !_Identifier DualFieldsParent: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualFieldsParent
+      type: !_DualBase
+        dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: parent
       object: DualFieldsParent
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
       type: !_DualBase
         dual: String
     fields:
     - !_DualField
       name: parent
       type: !_DualBase
-        dual: String
+        dual: Number
     name: DualFieldsParent
     typeKind: !_TypeKind Dual
   !_Identifier DualFieldsSimple: !_TypeDual
@@ -258,6 +382,26 @@ types: !_Map_Type
     name: DualGenAltDual
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAltDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenAltDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenAltDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualGenAltDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAltDualRef: !_TypeDual
@@ -292,6 +436,26 @@ types: !_Map_Type
     name: DualGenAltParam
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAltParamAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenAltParamAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenAltParamAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualGenAltParamAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAltParamRef: !_TypeDual
@@ -341,6 +505,26 @@ types: !_Map_Type
     name: DualGenDual
     typeKind: !_TypeKind Dual
   !_Identifier DualGenDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualGenDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenDualRef: !_TypeDual
@@ -413,6 +597,26 @@ types: !_Map_Type
     name: DualGenFieldDual
     typeKind: !_TypeKind Dual
   !_Identifier DualGenFieldDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenFieldDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenFieldDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualGenFieldDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenFieldDualRef: !_TypeDual
@@ -449,6 +653,26 @@ types: !_Map_Type
     name: DualGenFieldParam
     typeKind: !_TypeKind Dual
   !_Identifier DualGenFieldParamAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenFieldParamAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenFieldParamAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualGenFieldParamAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenFieldParamRef: !_TypeDual
@@ -498,6 +722,26 @@ types: !_Map_Type
     name: DualGenParam
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParamAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenParamAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenParamAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualGenParamAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParamRef: !_TypeDual
@@ -526,6 +770,26 @@ types: !_Map_Type
         dual: DualGenParentDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenParentDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenParentDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualGenParentDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentDualRef: !_TypeDual
@@ -554,6 +818,26 @@ types: !_Map_Type
         dual: DualGenParentParamAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentParamAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualGenParentParamAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenParentParamAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualGenParentParamAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentParamRef: !_TypeDual
@@ -604,12 +888,72 @@ types: !_Map_Type
     - !_Described
       name: ref
   !_Identifier DualModsAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualModsAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualModsAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualModsAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualModsParamAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualModsParamAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualModsParamAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: DualModsParamAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualParentTest: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualParentTest
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: DualParentTest
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: parent
+      type: !_DualBase
+        dual: Number
     name: DualParentTest
     typeKind: !_TypeKind Dual
   !_Identifier DualPrmsPrntDiff: !_TypeDual
@@ -648,6 +992,12 @@ types: !_Map_Type
       object: DualPrntAlt
       type: !_DualBase
         dual: Number
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: DualAltPrnt
+      type: !_DualBase
+        dual: Number
     alternates:
     - !_Alternate(_DualBase)
       type: !_DualBase
@@ -657,15 +1007,40 @@ types: !_Map_Type
       dual: DualAltPrnt
     typeKind: !_TypeKind Dual
   !_Identifier DualPrntDualTest: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualPrntDualTest
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: DualPrntDualTest
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: parent
+      type: !_DualBase
+        dual: Number
     name: DualPrntDualTest
     typeKind: !_TypeKind Dual
   !_Identifier DualPrntFields: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualFieldsParent
+      type: !_DualBase
+        dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: parent
       object: DualFieldsParent
       type: !_DualBase
-        dual: String
+        dual: Number
     - !_ObjectFor(_DualField)
       name: field
       object: DualPrntFields
@@ -727,11 +1102,33 @@ types: !_Map_Type
     - !_Described
       name: a
   !_Identifier DualTestParent: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualParentTest
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: DualParentTest
+      type: !_DualBase
+        dual: Number
     name: DualTestParent
     parent: !_DualBase
       dual: DualParentTest
     typeKind: !_TypeKind Dual
   !_Identifier DualTestPrntDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: DualPrntDualTest
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: DualPrntDualTest
+      type: !_DualBase
+        dual: Number
     name: DualTestPrntDual
     parent: !_DualBase
       dual: DualPrntDualTest
@@ -853,9 +1250,49 @@ types: !_Map_Type
     name: InFieldStr
     typeKind: !_TypeKind Input
   !_Identifier InpAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpAlt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: InpAlt
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: alt
+      type: !_InputBase
+        input: Number
     name: InpAlt
     typeKind: !_TypeKind Input
   !_Identifier InpAltDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: InpAltDual
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: InpAltDual
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: InpAltDual
     typeKind: !_TypeKind Dual
   !_Identifier InpAltMods: !_TypeInput
@@ -865,6 +1302,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: ^
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
       object: InpAltMods
       type: !_InputBase
         input: InpModsAlt
@@ -874,6 +1312,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: ^
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
       type: !_InputBase
         input: InpModsAlt
     name: InpAltMods
@@ -907,10 +1346,21 @@ types: !_Map_Type
       object: InpAltPrnt
       type: !_InputBase
         input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: InpAltPrnt
+      type: !_InputBase
+        input: Number
     alternates:
     - !_Alternate(_InputBase)
       type: !_InputBase
         input: String
+    fields:
+    - !_InputField
+      name: parent
+      type: !_InputBase
+        input: Number
     name: InpAltPrnt
     typeKind: !_TypeKind Input
   !_Identifier InpAlts: !_TypeInput
@@ -950,9 +1400,49 @@ types: !_Map_Type
     name: InpAltsSimple
     typeKind: !_TypeKind Input
   !_Identifier InpField: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpField
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpField
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        input: Number
     name: InpField
     typeKind: !_TypeKind Input
   !_Identifier InpFieldDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: InpFieldDual
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: InpFieldDual
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: Number
     name: InpFieldDual
     typeKind: !_TypeKind Dual
   !_Identifier InpFieldEnum: !_TypeEnum
@@ -968,14 +1458,16 @@ types: !_Map_Type
   !_Identifier InpFieldMods: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
-      modifiers: [!_ModifierDictionary {by: InpFieldEnum, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: InpFieldEnum, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Enum}]
       name: field
       object: InpFieldMods
       type: !_InputBase
         input: InpFieldMods
     fields:
     - !_InputField
-      modifiers: [!_ModifierDictionary {by: InpFieldEnum, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: InpFieldEnum, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Enum}]
       name: field
       type: !_InputBase
         input: InpFieldMods
@@ -1001,6 +1493,26 @@ types: !_Map_Type
     - !_Described
       name: mod
   !_Identifier InpFieldParamMods: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpFieldParamMods
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpFieldParamMods
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        input: Number
     name: InpFieldParamMods
     typeKind: !_TypeKind Input
   !_Identifier InpFieldsDual: !_TypeInput
@@ -1018,17 +1530,26 @@ types: !_Map_Type
     name: InpFieldsDual
     typeKind: !_TypeKind Input
   !_Identifier InpFieldsParent: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpFieldsParent
+      type: !_InputBase
+        input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
       object: InpFieldsParent
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
       type: !_InputBase
         input: String
     fields:
     - !_InputField
       name: parent
       type: !_InputBase
-        input: String
+        input: Number
     name: InpFieldsParent
     typeKind: !_TypeKind Input
   !_Identifier InpFieldsSimple: !_TypeInput
@@ -1110,6 +1631,26 @@ types: !_Map_Type
     name: InpGenAltDual
     typeKind: !_TypeKind Input
   !_Identifier InpGenAltDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: InpGenAltDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: InpGenAltDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: InpGenAltDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier InpGenAltDualRef: !_TypeInput
@@ -1144,6 +1685,26 @@ types: !_Map_Type
     name: InpGenAltParam
     typeKind: !_TypeKind Input
   !_Identifier InpGenAltParamAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpGenAltParamAlt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: InpGenAltParamAlt
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: alt
+      type: !_InputBase
+        input: Number
     name: InpGenAltParamAlt
     typeKind: !_TypeKind Input
   !_Identifier InpGenAltParamRef: !_TypeInput
@@ -1193,6 +1754,26 @@ types: !_Map_Type
     name: InpGenDual
     typeKind: !_TypeKind Input
   !_Identifier InpGenDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: InpGenDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: InpGenDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: InpGenDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier InpGenDualRef: !_TypeInput
@@ -1265,6 +1846,26 @@ types: !_Map_Type
     name: InpGenFieldDual
     typeKind: !_TypeKind Input
   !_Identifier InpGenFieldDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: InpGenFieldDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: InpGenFieldDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: InpGenFieldDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier InpGenFieldDualRef: !_TypeInput
@@ -1301,6 +1902,26 @@ types: !_Map_Type
     name: InpGenFieldParam
     typeKind: !_TypeKind Input
   !_Identifier InpGenFieldParamAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpGenFieldParamAlt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: InpGenFieldParamAlt
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: alt
+      type: !_InputBase
+        input: Number
     name: InpGenFieldParamAlt
     typeKind: !_TypeKind Input
   !_Identifier InpGenFieldParamRef: !_TypeInput
@@ -1350,6 +1971,26 @@ types: !_Map_Type
     name: InpGenParam
     typeKind: !_TypeKind Input
   !_Identifier InpGenParamAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpGenParamAlt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: InpGenParamAlt
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: alt
+      type: !_InputBase
+        input: Number
     name: InpGenParamAlt
     typeKind: !_TypeKind Input
   !_Identifier InpGenParamRef: !_TypeInput
@@ -1378,6 +2019,26 @@ types: !_Map_Type
         dual: InpGenParentDualAlt
     typeKind: !_TypeKind Input
   !_Identifier InpGenParentDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: InpGenParentDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: InpGenParentDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: InpGenParentDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier InpGenParentDualRef: !_TypeInput
@@ -1406,6 +2067,26 @@ types: !_Map_Type
         input: InpGenParentParamAlt
     typeKind: !_TypeKind Input
   !_Identifier InpGenParentParamAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpGenParentParamAlt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: InpGenParentParamAlt
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: alt
+      type: !_InputBase
+        input: Number
     name: InpGenParentParamAlt
     typeKind: !_TypeKind Input
   !_Identifier InpGenParentParamRef: !_TypeInput
@@ -1456,12 +2137,72 @@ types: !_Map_Type
     - !_Described
       name: ref
   !_Identifier InpModsAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpModsAlt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: InpModsAlt
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: alt
+      type: !_InputBase
+        input: Number
     name: InpModsAlt
     typeKind: !_TypeKind Input
   !_Identifier InpModsParamAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpModsParamAlt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: InpModsParamAlt
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: alt
+      type: !_InputBase
+        input: Number
     name: InpModsParamAlt
     typeKind: !_TypeKind Input
   !_Identifier InpParentTest: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpParentTest
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: InpParentTest
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: parent
+      type: !_InputBase
+        input: Number
     name: InpParentTest
     typeKind: !_TypeKind Input
   !_Identifier InpPrmsPrntDiff: !_TypeInput
@@ -1500,6 +2241,12 @@ types: !_Map_Type
       object: InpPrntAlt
       type: !_InputBase
         input: Number
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: InpAltPrnt
+      type: !_InputBase
+        input: Number
     alternates:
     - !_Alternate(_InputBase)
       type: !_InputBase
@@ -1509,15 +2256,40 @@ types: !_Map_Type
       input: InpAltPrnt
     typeKind: !_TypeKind Input
   !_Identifier InpPrntDualTest: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: InpPrntDualTest
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: InpPrntDualTest
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: parent
+      type: !_DualBase
+        dual: Number
     name: InpPrntDualTest
     typeKind: !_TypeKind Dual
   !_Identifier InpPrntFields: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpFieldsParent
+      type: !_InputBase
+        input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
       object: InpFieldsParent
       type: !_InputBase
-        input: String
+        input: Number
     - !_ObjectFor(_InputField)
       name: field
       object: InpPrntFields
@@ -1579,11 +2351,33 @@ types: !_Map_Type
     - !_Described
       name: a
   !_Identifier InpTestParent: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: InpParentTest
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: InpParentTest
+      type: !_InputBase
+        input: Number
     name: InpTestParent
     parent: !_InputBase
       input: InpParentTest
     typeKind: !_TypeKind Input
   !_Identifier InpTestPrntDual: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: InpPrntDualTest
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: InpPrntDualTest
+      type: !_DualBase
+        dual: Number
     name: InpTestPrntDual
     parent: !_DualBase
       dual: InpPrntDualTest
@@ -1835,15 +2629,95 @@ types: !_Map_Type
     - !_Described
       name: type
   !_Identifier OutParam: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: OutParam
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: param
+      object: OutParam
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: param
+      type: !_InputBase
+        input: Number
     name: OutParam
     typeKind: !_TypeKind Input
   !_Identifier OutParamDomain: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: OutParamDomain
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: param
+      object: OutParamDomain
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: param
+      type: !_InputBase
+        input: Number
     name: OutParamDomain
     typeKind: !_TypeKind Input
   !_Identifier OutParamDomainParam: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: OutParamDomainParam
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: param
+      object: OutParamDomainParam
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: param
+      type: !_InputBase
+        input: Number
     name: OutParamDomainParam
     typeKind: !_TypeKind Input
   !_Identifier OutParamParent: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: OutParamParent
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: OutParamParent
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: parent
+      type: !_InputBase
+        input: Number
     name: OutParamParent
     typeKind: !_TypeKind Input
   !_Identifier OutParams: !_TypeOutput
@@ -1875,7 +2749,7 @@ types: !_Map_Type
       - !_InputParameter
         input: OutParamDomain
         modifiers: [!_ModifierDictionary {by: OutDomainParam,
-            modifierKind: !_ModifierKind Dict}]
+            modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       type: !_OutputBase
         output: OutDomainParam
     fields:
@@ -1885,7 +2759,7 @@ types: !_Map_Type
       - !_InputParameter
         input: OutParamDomain
         modifiers: [!_ModifierDictionary {by: OutDomainParam,
-            modifierKind: !_ModifierKind Dict}]
+            modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       type: !_OutputBase
         output: OutDomainParam
     name: OutParamsDomain
@@ -1952,6 +2826,26 @@ types: !_Map_Type
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
   !_Identifier OutPrntParam: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_InputBase))
+      object: OutPrntParam
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: param
+      object: OutPrntParam
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_Alternate(_InputBase)
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: param
+      type: !_InputBase
+        input: Number
     name: OutPrntParam
     typeKind: !_TypeKind Input
   !_Identifier OutPrntParams: !_TypeOutput
@@ -2005,9 +2899,49 @@ types: !_Map_Type
     name: OutValueGen
     typeKind: !_TypeKind Enum
   !_Identifier OutpAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpAlt
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
     name: OutpAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpAltDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: OutpAltDual
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: OutpAltDual
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: OutpAltDual
     typeKind: !_TypeKind Dual
   !_Identifier OutpAltMods: !_TypeOutput
@@ -2017,6 +2951,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: ^
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
       object: OutpAltMods
       type: !_OutputBase
         output: OutpModsAlt
@@ -2026,6 +2961,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: ^
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
       type: !_OutputBase
         output: OutpModsAlt
     name: OutpAltMods
@@ -2059,10 +2995,21 @@ types: !_Map_Type
       object: OutpAltPrnt
       type: !_OutputBase
         output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: OutpAltPrnt
+      type: !_OutputBase
+        output: Number
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: String
+    fields:
+    - !_OutputField
+      name: parent
+      type: !_OutputBase
+        output: Number
     name: OutpAltPrnt
     typeKind: !_TypeKind Output
   !_Identifier OutpAlts: !_TypeOutput
@@ -2102,9 +3049,49 @@ types: !_Map_Type
     name: OutpAltsSimple
     typeKind: !_TypeKind Output
   !_Identifier OutpField: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpField
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpField
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: Number
     name: OutpField
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: OutpFieldDual
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: OutpFieldDual
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: Number
     name: OutpFieldDual
     typeKind: !_TypeKind Dual
   !_Identifier OutpFieldEnum: !_TypeEnum
@@ -2120,14 +3107,16 @@ types: !_Map_Type
   !_Identifier OutpFieldMods: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Enum}]
       name: field
       object: OutpFieldMods
       type: !_OutputBase
         output: OutpFieldMods
     fields:
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: OutpFieldEnum, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Enum}]
       name: field
       type: !_OutputBase
         output: OutpFieldMods
@@ -2153,6 +3142,26 @@ types: !_Map_Type
     - !_Described
       name: mod
   !_Identifier OutpFieldParamMods: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpFieldParamMods
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpFieldParamMods
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: Number
     name: OutpFieldParamMods
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldsDual: !_TypeOutput
@@ -2170,17 +3179,26 @@ types: !_Map_Type
     name: OutpFieldsDual
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldsParent: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpFieldsParent
+      type: !_OutputBase
+        output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: parent
       object: OutpFieldsParent
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
       type: !_OutputBase
         output: String
     fields:
     - !_OutputField
       name: parent
       type: !_OutputBase
-        output: String
+        output: Number
     name: OutpFieldsParent
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldsSimple: !_TypeOutput
@@ -2262,6 +3280,26 @@ types: !_Map_Type
     name: OutpGenAltDual
     typeKind: !_TypeKind Output
   !_Identifier OutpGenAltDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: OutpGenAltDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: OutpGenAltDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: OutpGenAltDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier OutpGenAltDualRef: !_TypeOutput
@@ -2296,6 +3334,26 @@ types: !_Map_Type
     name: OutpGenAltParam
     typeKind: !_TypeKind Output
   !_Identifier OutpGenAltParamAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpGenAltParamAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpGenAltParamAlt
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
     name: OutpGenAltParamAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenAltParamRef: !_TypeOutput
@@ -2345,6 +3403,26 @@ types: !_Map_Type
     name: OutpGenDual
     typeKind: !_TypeKind Output
   !_Identifier OutpGenDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: OutpGenDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: OutpGenDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: OutpGenDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier OutpGenDualRef: !_TypeOutput
@@ -2417,6 +3495,26 @@ types: !_Map_Type
     name: OutpGenFieldDual
     typeKind: !_TypeKind Output
   !_Identifier OutpGenFieldDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: OutpGenFieldDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: OutpGenFieldDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: OutpGenFieldDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier OutpGenFieldDualRef: !_TypeOutput
@@ -2453,6 +3551,26 @@ types: !_Map_Type
     name: OutpGenFieldParam
     typeKind: !_TypeKind Output
   !_Identifier OutpGenFieldParamAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpGenFieldParamAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpGenFieldParamAlt
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
     name: OutpGenFieldParamAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenFieldParamRef: !_TypeOutput
@@ -2502,6 +3620,26 @@ types: !_Map_Type
     name: OutpGenParam
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParamAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpGenParamAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpGenParamAlt
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
     name: OutpGenParamAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParamRef: !_TypeOutput
@@ -2530,6 +3668,26 @@ types: !_Map_Type
         dual: OutpGenParentDualAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: OutpGenParentDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: OutpGenParentDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
     name: OutpGenParentDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier OutpGenParentDualRef: !_TypeOutput
@@ -2558,6 +3716,26 @@ types: !_Map_Type
         output: OutpGenParentParamAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentParamAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpGenParentParamAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpGenParentParamAlt
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
     name: OutpGenParentParamAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentParamRef: !_TypeOutput
@@ -2608,12 +3786,72 @@ types: !_Map_Type
     - !_Described
       name: ref
   !_Identifier OutpModsAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpModsAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpModsAlt
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
     name: OutpModsAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpModsParamAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpModsParamAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpModsParamAlt
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
     name: OutpModsParamAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpParentTest: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpParentTest
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: OutpParentTest
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_Alternate(_OutputBase)
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: parent
+      type: !_OutputBase
+        output: Number
     name: OutpParentTest
     typeKind: !_TypeKind Output
   !_Identifier OutpPrmsPrntDiff: !_TypeOutput
@@ -2652,6 +3890,12 @@ types: !_Map_Type
       object: OutpPrntAlt
       type: !_OutputBase
         output: Number
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: OutpAltPrnt
+      type: !_OutputBase
+        output: Number
     alternates:
     - !_Alternate(_OutputBase)
       type: !_OutputBase
@@ -2661,15 +3905,40 @@ types: !_Map_Type
       output: OutpAltPrnt
     typeKind: !_TypeKind Output
   !_Identifier OutpPrntDualTest: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: OutpPrntDualTest
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: OutpPrntDualTest
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_Alternate(_DualBase)
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: parent
+      type: !_DualBase
+        dual: Number
     name: OutpPrntDualTest
     typeKind: !_TypeKind Dual
   !_Identifier OutpPrntFields: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpFieldsParent
+      type: !_OutputBase
+        output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: parent
       object: OutpFieldsParent
       type: !_OutputBase
-        output: String
+        output: Number
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpPrntFields
@@ -2731,11 +4000,33 @@ types: !_Map_Type
     - !_Described
       name: a
   !_Identifier OutpTestParent: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_OutputBase))
+      object: OutpParentTest
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: OutpParentTest
+      type: !_OutputBase
+        output: Number
     name: OutpTestParent
     parent: !_OutputBase
       output: OutpParentTest
     typeKind: !_TypeKind Output
   !_Identifier OutpTestPrntDual: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_Alternate(_DualBase))
+      object: OutpPrntDualTest
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: OutpPrntDualTest
+      type: !_DualBase
+        dual: Number
     name: OutpTestPrntDual
     parent: !_DualBase
       dual: OutpPrntDualTest

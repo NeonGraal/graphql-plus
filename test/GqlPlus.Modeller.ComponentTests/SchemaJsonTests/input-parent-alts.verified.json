@@ -14,12 +14,33 @@
           }
         }
       ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "parent",
+          "object": "InpAltPrnt",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
       "alternates": [
         {
           "$tag": "_Alternate(_InputBase)",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "parent",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
           }
         }
       ],
@@ -40,6 +61,17 @@
         {
           "$tag": "_ObjectFor(_Alternate(_InputBase))",
           "object": "InpPrntAlt",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "parent",
+          "object": "InpAltPrnt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"

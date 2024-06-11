@@ -1,7 +1,8 @@
 ﻿!_Schema
 categories: !_Map_Categories
   !_Identifier catDict: !_Category
-    modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict}]
+    modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict,
+        typeKind: !_SimpleKind Basic}]
     name: catDict
     output: !_TypeRef(_TypeKind)
       name: CatDict

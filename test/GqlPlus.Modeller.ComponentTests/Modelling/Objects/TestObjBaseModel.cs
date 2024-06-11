@@ -38,12 +38,13 @@ public abstract class TestObjBaseModel<TObjBase, TObjBaseAst>
 
 internal abstract class CheckObjBaseModel<TObjBase, TObjBaseAst, TModel>(
   IModeller<TObjBase, TModel> objBase,
+  IRenderer<TModel> rendering,
   TypeKindModel kind
-) : CheckModelBase<string, TObjBase, TModel>(objBase),
+) : CheckModelBase<string, TObjBase, TModel>(objBase, rendering),
     ICheckObjBaseModel<TObjBaseAst>
   where TObjBase : IGqlpObjectBase<TObjBase>
   where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
-  where TModel : IRendering
+  where TModel : IModelBase
 {
   protected readonly TypeKindModel TypeKind = kind;
   protected readonly string TypeKindLower = $"{kind}".ToLowerInvariant();

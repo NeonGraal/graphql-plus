@@ -22,8 +22,8 @@ internal class AndTypeRenderer<TModel, TAnd>(
       : model.And is null
         ? and.Type.Render(model.Type, context)
         : base.Render(model, context)
-          .Add(_field, model.And, and.And, context)
-          .Add("type", model.Type, and.Type, context);
+          .Add(_field, model.And, and.And)
+          .Add("type", model.Type, and.Type);
 }
 
 internal class CategoriesRenderer(
@@ -39,8 +39,8 @@ internal class CategoryRenderer(
   internal override RenderStructure Render(CategoryModel model, IRenderContext context)
     => base.Render(model, context)
       .Add("resolution", model.Resolution, "_Resolution")
-      .Add("output", model.Output, output, context)
-      .Add("modifiers", model.Modifiers.Render(modifiers, context, flow: true));
+      .Add("output", model.Output, output)
+      .Add("modifiers", model.Modifiers, modifiers, flow: true);
 }
 
 internal class DirectivesRenderer(
@@ -55,7 +55,7 @@ internal class DirectiveRenderer(
   internal override RenderStructure Render(DirectiveModel model, IRenderContext context)
     => base.Render(model, context)
       .AddSet("locations", model.Locations, "_Location")
-      .Add("parameters", model.Parameters.Render(parameter, context))
+      .Add("parameters", model.Parameters, parameter)
       .Add("repeatable", model.Repeatable);
 }
 
@@ -65,5 +65,5 @@ internal class SettingRenderer(
 {
   internal override RenderStructure Render(SettingModel model, IRenderContext context)
     => base.Render(model, context)
-      .Add("value", constant.Render(model.Value, context));
+      .Add("value", model.Value, constant);
 }

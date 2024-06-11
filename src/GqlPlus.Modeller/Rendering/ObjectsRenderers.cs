@@ -10,8 +10,8 @@ internal class AlternateRenderer<TBase>(
 {
   internal override RenderStructure Render(AlternateModel<TBase> model, IRenderContext context)
     => base.Render(model, context)
-      .Add("type", type.Render(model.Type, context))
-      .Add("collections", model.Collections.Render(collection, context));
+      .Add("type", model.Type, type)
+      .Add("collections", model.Collections, collection);
 }
 
 internal class ObjectBaseRenderer<TBase>
@@ -20,7 +20,7 @@ internal class ObjectBaseRenderer<TBase>
 {
   internal override RenderStructure Render(TBase model, IRenderContext context)
     => base.Render(model, context)
-      .Add("typeArguments", model.TypeArguments.Render(this, context));
+      .Add("typeArguments", model.TypeArguments, this);
 }
 
 internal record class ModifierBaseRenderers<TBase>(
@@ -36,8 +36,8 @@ internal class ObjectFieldRenderer<TField, TBase>(
 {
   internal override RenderStructure Render(TField model, IRenderContext context)
     => base.Render(model, context)
-      .Add("modifiers", model.Modifiers.Render(renderers.Modifier, context, flow: true))
-      .Add("type", model.Type, renderers.ObjBase, context);
+      .Add("modifiers", model.Modifiers, renderers.Modifier, flow: true)
+      .Add("type", model.Type, renderers.ObjBase);
 }
 
 internal class ObjectForRenderer<TFor>(
@@ -47,7 +47,7 @@ internal class ObjectForRenderer<TFor>(
 {
   internal override RenderStructure Render(ObjectForModel<TFor> model, IRenderContext context)
     => base.Render(model, context)
-      .Add(model.For, renderer, context)
+      .Add(model.For, renderer)
       .Add("object", model.Obj);
 }
 
@@ -95,10 +95,10 @@ internal abstract class TypeObjectRenderer<TObject, TField, TBase>(
       }));
 
     return base.Render(model, context)
-        .Add("typeParameters", model.TypeParameters.Render(renderers.TypeParameter, context))
-        .Add("fields", model.Fields.Render(renderers.Field, context))
+        .Add("typeParameters", model.TypeParameters, renderers.TypeParameter)
+        .Add("fields", model.Fields, renderers.Field)
         .Add("allFields", ObjRender(allFields, renderers.ObjField, renderers.DualField))
-        .Add("alternates", model.Alternates.Render(renderers.Alternate, context))
+        .Add("alternates", model.Alternates, renderers.Alternate)
         .Add("allAlternates", ObjRender(allAlternates, renderers.ObjAlternate, renderers.DualAlternate));
   }
 
@@ -157,7 +157,7 @@ internal class InputFieldRenderer(
 {
   internal override RenderStructure Render(InputFieldModel model, IRenderContext context)
     => base.Render(model, context)
-      .Add("default", model.Default, constant, context);
+      .Add("default", model.Default, constant);
 }
 
 internal class InputParameterRenderer(
@@ -167,9 +167,9 @@ internal class InputParameterRenderer(
 {
   internal override RenderStructure Render(InputParameterModel model, IRenderContext context)
     => base.Render(model, context)
-      .Add(model.Type, renderers.ObjBase, context)
-      .Add("modifiers", model.Modifiers.Render(renderers.Modifier, context, flow: true))
-      .Add("default", model.DefaultValue, constant, context);
+      .Add(model.Type, renderers.ObjBase)
+      .Add("modifiers", model.Modifiers, renderers.Modifier, flow: true)
+      .Add("default", model.DefaultValue, constant);
 }
 
 internal class TypeInputRenderer(
@@ -192,8 +192,8 @@ internal class OutputArgumentAndBaseRenderer(
     => model.Dual is null
     ? model.IsTypeParameter
       ? new(model.Output, "_TypeParameter")
-      : RenderStructure.New(model.Tag)
-        .Add("typeArguments", model.TypeArguments.Render(this, context))
+      : RenderStructure.New(model.Tag, context)
+        .Add("typeArguments", model.TypeArguments, this)
         .Add("output", model.Output)
     : dual.Render(model.Dual, context);
 
@@ -222,7 +222,7 @@ internal class OutputFieldRenderer(
   internal override RenderStructure Render(OutputFieldModel model, IRenderContext context)
     => model.Enum is null
       ? base.Render(model, context)
-        .Add("parameters", model.Parameters.Render(parameter, context))
+        .Add("parameters", model.Parameters, parameter)
       : outputEnum.Render(model.Enum, context);
 }
 

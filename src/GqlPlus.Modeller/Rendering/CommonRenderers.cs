@@ -8,7 +8,7 @@ internal class ConstantRenderer(
     => model.Map.Count > 0 ? new RenderStructure(model.Map.ToDictionary(
         p => simple.Render(p.Key, context).Value!,
         p => Render(p.Value, context)), "_ConstantMap")
-    : model.List.Count > 0 ? model.List.Render(this, context, "_ConstantList")
+    : model.List.Count > 0 ? new(model.List.Select(v => Render(v, context)), "_ConstantList")
     : model.Value is not null ? simple.Render(model.Value, context)
     : new("");
 }

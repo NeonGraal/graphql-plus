@@ -13,13 +13,15 @@ public class RenderStructure
   public bool Flow { get; }
   public string Tag { get; } = string.Empty;
 
-  public static RenderStructure New(string tag, bool flow = false)
-    => new(tag, flow);
-  public static RenderStructure ForAll(IEnumerable<string> values, string tag = "")
-    => new(values.Select(v => new RenderStructure(v)), tag);
+  private readonly IRenderContext? _context;
 
-  private RenderStructure(string tag, bool flow)
-    : base() => (Tag, Flow) = (tag, flow);
+  public static RenderStructure New(string tag, IRenderContext? context = null, bool flow = false)
+    => new(tag, flow, context);
+  public static RenderStructure ForAll(IEnumerable<string> values, string tag = "", IRenderContext? context = null, bool flow = false)
+    => new(values.Select(v => new RenderStructure(v)), tag, context, flow);
+
+  private RenderStructure(string tag, bool flow, IRenderContext? context)
+    : base() => (Tag, Flow, _context) = (tag, flow, context);
   public RenderStructure(bool? value, string tag = "")
     : base(new RenderValue(value)) => Tag = tag;
   public RenderStructure(string? value, string tag = "")
@@ -28,10 +30,10 @@ public class RenderStructure
     : base(new RenderValue(value)) => Tag = tag;
   public RenderStructure(RenderValue value, string tag = "")
     : base(value) => Tag = tag;
-  public RenderStructure(IEnumerable<RenderStructure> list, string tag = "", bool flow = false)
-    : base(list) => (Tag, Flow) = (tag, flow);
-  public RenderStructure(IDictionary<RenderValue, RenderStructure> map, string tag, bool flow = false)
-    : base(map) => (Tag, Flow) = (tag, flow);
+  public RenderStructure(IEnumerable<RenderStructure> list, string tag = "", IRenderContext? context = null, bool flow = false)
+    : base(list) => (Tag, Flow, _context) = (tag, flow, context);
+  public RenderStructure(IDictionary<RenderValue, RenderStructure> map, string tag, IRenderContext? context = null, bool flow = false)
+    : base(map) => (Tag, Flow, _context) = (tag, flow, context);
 
   public static implicit operator RenderStructure(RenderValue value)
     => new(value);
@@ -57,16 +59,17 @@ public class RenderStructure
     ? Add(key, value)
     : this;
 
-  public RenderStructure Add<TValue>(TValue? value, IRenderer<TValue> renderer, IRenderContext context)
+  public RenderStructure Add<TValue>(TValue? value, IRenderer<TValue> renderer)
     where TValue : IModelBase
   {
     if (value is null) {
       return this;
     }
 
+    ArgumentNullException.ThrowIfNull(_context);
     ArgumentNullException.ThrowIfNull(renderer);
 
-    foreach ((RenderValue key, RenderStructure item) in renderer.Render(value, context).Map) {
+    foreach ((RenderValue key, RenderStructure item) in renderer.Render(value, _context).Map) {
       Map.Add(key, item);
     }
 
@@ -77,10 +80,20 @@ public class RenderStructure
     where TValue : Enum
     => Add(key, new(value.ToString(), tag ?? typeof(TValue).TypeTag()));
 
-  public RenderStructure Add<TValue>(string key, TValue? value, IRenderer<TValue> renderer, IRenderContext context)
+  public RenderStructure Add<TValue>(string key, TValue? value, IRenderer<TValue> renderer)
     where TValue : IModelBase
     => value is null ? this
-    : Add(key, renderer.ThrowIfNull().Render(value, context));
+    : Add(key, renderer.ThrowIfNull().Render(value, _context.ThrowIfNull()));
+
+  public RenderStructure Add<TValue>(string key, IEnumerable<TValue> values, IRenderer<TValue> renderer, string tag = "", bool flow = false)
+    where TValue : IModelBase
+    => Add(key, new(values.Select(v => renderer.Render(v, _context!)), tag, _context, flow));
+
+  public RenderStructure Add<TValue>(string key, IMap<TValue> values, IRenderer<TValue> renderer, string dictTag, bool flow = false, string keyTag = "_Identifier")
+    where TValue : IModelBase
+    => Add(key, new(values.ToDictionary(
+        p => new RenderValue(p.Key, keyTag),
+        p => renderer.Render(p.Value, _context!)), "_Map" + dictTag, _context, flow));
 
   public RenderStructure Add(bool optional, Func<RenderStructure, RenderStructure>? onTrue = null, Func<RenderStructure, RenderStructure>? onFalse = null)
     => optional
@@ -103,7 +116,7 @@ public class RenderStructure
         }
       }
 
-      return Add(key, new(result, $"_Set({tag ?? type.TypeTag()})", flow));
+      return Add(key, new(result, $"_Set({tag ?? type.TypeTag()})", flow: flow));
     }
 
     return this;

@@ -30,7 +30,7 @@ internal class DomainItemRenderer<TItem>(
 {
   internal override RenderStructure Render(DomainItemModel<TItem> model, IRenderContext context)
     => base.Render(model, context)
-      .Add(model.Item, item, context)
+      .Add(model.Item, item)
       .Add("domain", model.Domain);
 }
 
@@ -40,7 +40,7 @@ internal class DomainMemberRenderer(
 {
   internal override RenderStructure Render(DomainMemberModel model, IRenderContext context)
     => base.Render(model, context)
-      .Add("value", model.EnumValue, enumValue, context);
+      .Add("value", model.EnumValue, enumValue);
 }
 
 internal class DomainRangeRenderer

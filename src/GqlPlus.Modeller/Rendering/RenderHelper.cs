@@ -2,33 +2,20 @@
 
 internal static class RenderHelper
 {
-  internal static RenderStructure Render(this IEnumerable<string> strings, string tag = "", bool flow = true)
-    => new(strings.Select(a => new RenderStructure(new RenderValue(a))), tag, flow);
-
   internal static RenderStructure Render(this ITokenMessages errors)
     => new(errors.Select(Render), "_Errors");
 
-  internal static RenderStructure Render(this ITokenMessage error)
+  private static RenderStructure Render(ITokenMessage error)
     => RenderStructure.New("_Error")
       .Add(error.Kind is TokenKind.Start or TokenKind.End,
-        onFalse: r => r.Add("_at", error.RenderAt()))
+        onFalse: r => r.Add("_at", RenderAt(error)))
       .Add("_kind", error.Kind)
       .Add("_message", error.Message);
 
-  internal static RenderStructure RenderAt(this ITokenAt at)
-    => RenderStructure.New("_At", true)
+  private static RenderStructure RenderAt(ITokenAt at)
+    => RenderStructure.New("_At", null, true)
       .Add("_col", at.Column)
       .Add("_line", at.Line);
-
-  internal static RenderStructure Render<TModel>(this IEnumerable<TModel> values, IRenderer<TModel> renderer, IRenderContext context, string tag = "", bool flow = false)
-    where TModel : IModelBase
-    => new(values.Select(v => renderer.Render(v, context)), tag, flow);
-
-  internal static RenderStructure Render<TModel>(this IMap<TModel> values, IRenderer<TModel> renderer, IRenderContext context, string dictTag = "", bool flow = false, string keyTag = "_Identifier")
-    where TModel : IModelBase
-    => new(values.ToDictionary(
-        p => new RenderValue(p.Key, keyTag),
-        p => renderer.Render(p.Value, context)), "_Map" + dictTag, flow);
 
   internal static string TrueFalse(this bool value)
     => value ? "true" : "false";

@@ -26,7 +26,7 @@ internal abstract class ChildTypeRenderer<TModel, TParent>(
 {
   internal override RenderStructure Render(TModel model, IRenderContext context)
     => base.Render(model, context)
-      .Add("parent", model.Parent, parent, context);
+      .Add("parent", model.Parent, parent);
 
   internal virtual bool GetParentModel<TInput, TResult>(TInput input, IRenderContext context, [NotNullWhen(true)] out TResult? result)
     where TInput : ChildTypeModel<TParent>
@@ -82,8 +82,8 @@ internal abstract class ParentTypeRenderer<TModel, TItem, TAll>(
     AddMembers(model);
 
     return base.Render(model, context)
-        .Add("items", model.Items.Render(renderers.Item, context))
-        .Add("allItems", allItems.Render(renderers.All, context));
+        .Add("items", model.Items, renderers.Item)
+        .Add("allItems", allItems, renderers.All);
   }
 
   protected override string? ParentName(TypeRefModel<SimpleKindModel>? parent)

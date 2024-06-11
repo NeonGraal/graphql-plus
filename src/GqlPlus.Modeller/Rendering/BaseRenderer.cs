@@ -8,5 +8,5 @@ internal class BaseRenderer<TModel>
     => Render(model, context);
 
   internal virtual RenderStructure Render(TModel model, IRenderContext context)
-    => RenderStructure.New(model.Tag);
+    => RenderStructure.New(model.Tag, context);
 }

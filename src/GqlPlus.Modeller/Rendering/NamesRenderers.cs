@@ -6,7 +6,7 @@ internal class AliasedRenderer<TModel>
 {
   internal override RenderStructure Render(TModel model, IRenderContext context)
     => base.Render(model, context)
-      .Add("aliases", model.Aliases.Render())
+      .Add("aliases", new(model.Aliases.Select(a => new RenderStructure(new RenderValue(a))), flow: true))
       .Add("description", RenderValue.Str(model.Description));
 }
 
@@ -28,7 +28,7 @@ internal class BaseDescribedRenderer<TDescr>(
     => string.IsNullOrEmpty(model.Description)
       ? described.Render(model.Base, context)
       : base.Render(model, context)
-        .Add("base", described.Render(model.Base, context))
+        .Add("base", model.Base, described)
         .Add("description", RenderValue.Str(model.Description));
 }
 

@@ -72,7 +72,7 @@ public abstract record class ParentTypeModel<TItem, TAll>(
   protected abstract Func<TItem, TAll> NewItem(string parent);
 }
 
-public enum SimpleKindModel { Basic, Enum, Internal, Domain, Union }
+public enum SimpleKindModel { Basic, Enum, Internal, Domain, Union, LastSimple = 9 }
 
 public enum TypeKindModel
 {
@@ -81,6 +81,7 @@ public enum TypeKindModel
   Internal = SimpleKindModel.Internal,
   Domain = SimpleKindModel.Domain,
   Union = SimpleKindModel.Union,
+  LastSimple = SimpleKindModel.LastSimple,
   Dual,
   Input,
   Output,

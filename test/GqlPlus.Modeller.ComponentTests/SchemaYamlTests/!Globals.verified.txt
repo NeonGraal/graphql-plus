@@ -7,7 +7,8 @@ categories: !_Map_Categories
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier catDict: !_Category
-    modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict}]
+    modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict,
+        typeKind: !_SimpleKind Basic}]
     name: catDict
     output: !_TypeRef(_TypeKind)
       name: CatDict
@@ -49,7 +50,8 @@ directives: !_Map_Directives
     parameters:
     - !_InputParameter
       input: DirParamIn
-      modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Basic}]
     repeatable: false
   !_Identifier DirParamList: !_Directive
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,

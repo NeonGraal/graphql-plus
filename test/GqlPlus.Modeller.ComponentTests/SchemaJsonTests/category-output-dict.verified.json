@@ -8,7 +8,8 @@
         {
           "$tag": "_ModifierDictionary",
           "by": "*",
-          "modifierKind": "Dict"
+          "modifierKind": "Dict",
+          "typeKind": "Basic"
         }
       ],
       "name": "catDict",

@@ -107,6 +107,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: Simple
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Internal
       object: _ConstantMap
       type: !_OutputBase
         output: _Constant
@@ -116,6 +117,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: Simple
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Internal
       type: !_OutputBase
         output: _Constant
     name: _ConstantMap

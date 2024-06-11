@@ -7,6 +7,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: ^
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
       object: OutpAltMods
       type: !_OutputBase
         output: OutpModsAlt
@@ -16,6 +17,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: ^
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
       type: !_OutputBase
         output: OutpModsAlt
     name: OutpAltMods

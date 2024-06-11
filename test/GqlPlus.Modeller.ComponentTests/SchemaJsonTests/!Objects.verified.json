@@ -101,7 +101,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "^",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
             }
           ],
           "object": "DualAltMods",
@@ -118,7 +119,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "^",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
             }
           ],
           "type": {
@@ -408,7 +410,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "DualFieldEnum",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Enum"
             }
           ],
           "name": "field",
@@ -426,7 +429,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "DualFieldEnum",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Enum"
             }
           ],
           "name": "field",
@@ -2473,7 +2477,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "^",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
             }
           ],
           "object": "InpAltMods",
@@ -2490,7 +2495,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "^",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
             }
           ],
           "type": {
@@ -2780,7 +2786,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "InpFieldEnum",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Enum"
             }
           ],
           "name": "field",
@@ -2798,7 +2805,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "InpFieldEnum",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Enum"
             }
           ],
           "name": "field",
@@ -5048,7 +5056,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "^",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
             }
           ],
           "object": "OutpAltMods",
@@ -5065,7 +5074,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "^",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
             }
           ],
           "type": {
@@ -5471,7 +5481,8 @@
                 {
                   "$tag": "_ModifierDictionary",
                   "by": "OutDomainParam",
-                  "modifierKind": "Dict"
+                  "modifierKind": "Dict",
+                  "typeKind": "Domain"
                 }
               ]
             }
@@ -5494,7 +5505,8 @@
                 {
                   "$tag": "_ModifierDictionary",
                   "by": "OutDomainParam",
-                  "modifierKind": "Dict"
+                  "modifierKind": "Dict",
+                  "typeKind": "Domain"
                 }
               ]
             }
@@ -5749,7 +5761,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "OutpFieldEnum",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Enum"
             }
           ],
           "name": "field",
@@ -5767,7 +5780,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "OutpFieldEnum",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Enum"
             }
           ],
           "name": "field",

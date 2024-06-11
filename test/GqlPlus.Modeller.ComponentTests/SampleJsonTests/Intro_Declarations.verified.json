@@ -388,7 +388,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "categories",
@@ -416,7 +417,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "directives",
@@ -444,7 +446,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "types",
@@ -472,7 +475,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "settings",
@@ -502,7 +506,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "categories",
@@ -529,7 +534,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "directives",
@@ -556,7 +562,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "types",
@@ -583,7 +590,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "settings",

@@ -22,7 +22,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "String",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
             }
           ]
         }

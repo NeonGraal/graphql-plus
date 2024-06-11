@@ -34,7 +34,8 @@ internal class CollectionRenderer
           s => s
             .Add("by", model.Key
               ?? throw new InvalidOperationException($"{model.ModifierKind} Modifier must have a Key specified"))
-            .Add("optional", model.IsOptional, true));
+            .Add("optional", model.IsOptional, true)
+            .Add("typeKind", model.KeyType?.RenderEnum()));
 }
 
 internal class ModifierRenderer

@@ -872,7 +872,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "Simple",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Internal"
             }
           ],
           "object": "_ConstantMap",
@@ -889,7 +890,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "Simple",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Internal"
             }
           ],
           "type": {
@@ -988,7 +990,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Location",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Enum"
             }
           ],
           "name": "locations",
@@ -1028,7 +1031,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Location",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Enum"
             }
           ],
           "name": "locations",
@@ -3240,7 +3244,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "categories",
@@ -3268,7 +3273,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "directives",
@@ -3296,7 +3302,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "types",
@@ -3324,7 +3331,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "settings",
@@ -3354,7 +3362,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "categories",
@@ -3381,7 +3390,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "directives",
@@ -3408,7 +3418,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "types",
@@ -3435,7 +3446,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Identifier",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
             }
           ],
           "name": "settings",

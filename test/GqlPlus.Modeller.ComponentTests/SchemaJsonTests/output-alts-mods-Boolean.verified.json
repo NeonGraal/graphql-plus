@@ -11,7 +11,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "^",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
             }
           ],
           "object": "OutpAltMods",
@@ -28,7 +29,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "^",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
             }
           ],
           "type": {

@@ -438,6 +438,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: Simple
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Internal
       object: _ConstantMap
       type: !_OutputBase
         output: _Constant
@@ -447,6 +448,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: Simple
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Internal
       type: !_OutputBase
         output: _Constant
     name: _ConstantMap
@@ -492,7 +494,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: Boolean
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Enum}]
       name: locations
       object: _Directive
       type: !_OutputBase
@@ -508,7 +511,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: Boolean
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Enum}]
       name: locations
       type: !_OutputBase
         output: _
@@ -1636,7 +1640,8 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: categories
       object: _Schema
       parameters:
@@ -1646,7 +1651,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Categories
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: directives
       object: _Schema
       parameters:
@@ -1656,7 +1662,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Directives
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: types
       object: _Schema
       parameters:
@@ -1666,7 +1673,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Type
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: settings
       object: _Schema
       parameters:
@@ -1677,7 +1685,8 @@ types: !_Map_Type
         output: _Setting
     fields:
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: categories
       parameters:
       - !_InputParameter
@@ -1686,7 +1695,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Categories
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: directives
       parameters:
       - !_InputParameter
@@ -1695,7 +1705,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Directives
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: types
       parameters:
       - !_InputParameter
@@ -1704,7 +1715,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Type
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: settings
       parameters:
       - !_InputParameter

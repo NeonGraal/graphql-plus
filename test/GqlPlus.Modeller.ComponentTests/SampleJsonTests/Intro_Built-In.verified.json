@@ -203,7 +203,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "Simple",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Internal"
             }
           ],
           "object": "_ConstantMap",
@@ -220,7 +221,8 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "Simple",
-              "modifierKind": "Dict"
+              "modifierKind": "Dict",
+              "typeKind": "Internal"
             }
           ],
           "type": {

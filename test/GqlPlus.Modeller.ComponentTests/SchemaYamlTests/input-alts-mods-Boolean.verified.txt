@@ -7,6 +7,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: ^
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
       object: InpAltMods
       type: !_InputBase
         input: InpModsAlt
@@ -16,6 +17,7 @@ types: !_Map_Type
       - !_ModifierDictionary
         by: ^
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
       type: !_InputBase
         input: InpModsAlt
     name: InpAltMods

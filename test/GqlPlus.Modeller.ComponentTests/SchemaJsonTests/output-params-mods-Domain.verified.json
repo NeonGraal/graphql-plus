@@ -85,7 +85,8 @@
                 {
                   "$tag": "_ModifierDictionary",
                   "by": "OutDomainParam",
-                  "modifierKind": "Dict"
+                  "modifierKind": "Dict",
+                  "typeKind": "Domain"
                 }
               ]
             }
@@ -108,7 +109,8 @@
                 {
                   "$tag": "_ModifierDictionary",
                   "by": "OutDomainParam",
-                  "modifierKind": "Dict"
+                  "modifierKind": "Dict",
+                  "typeKind": "Domain"
                 }
               ]
             }

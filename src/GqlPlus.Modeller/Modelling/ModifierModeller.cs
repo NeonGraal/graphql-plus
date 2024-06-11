@@ -7,6 +7,10 @@ internal class ModifierModeller
   protected override ModifierModel ToModel(IGqlpModifier ast, IMap<TypeKindModel> typeKinds)
     => new(ast.ModifierKind) {
       Key = ast.Key,
+      KeyType = ast.Key is not null
+          && typeKinds.TryGetValue(ast.Key, out TypeKindModel keyType)
+          && keyType < TypeKindModel.LastSimple
+        ? (SimpleKindModel)keyType : null,
       IsOptional = ast.IsOptional,
     };
 

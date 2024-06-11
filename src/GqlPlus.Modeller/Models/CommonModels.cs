@@ -44,6 +44,7 @@ public record class CollectionModel(
 {
   // Todo: Make key a proper SimpleType
   public string? Key { get; set; } = "";
+  public SimpleKindModel? KeyType { get; init; }
   public bool IsOptional { get; set; }
 
   internal override string Tag =>

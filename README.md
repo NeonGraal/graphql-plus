@@ -19,3 +19,4 @@ Defining a successor to GraphQL <img src="images/GraphQL_Logo.svg" width="50">
 
 - [Liquid](https://shopify.github.io/liquid/)
 - [PicoCss](https://picocss.com/)
+- [Mermaid](https://mermaid.js.org/syntax/flowchart.html)

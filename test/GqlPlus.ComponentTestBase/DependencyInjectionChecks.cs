@@ -17,7 +17,7 @@ public class DependencyInjectionChecks(
   ITestOutputHelperAccessor output
 )
 {
-  private const int MaxGroupSize = 8;
+  private const int MaxGroupSize = 5;
   private const string FunctionRequirement = "=>";
   private const string InstanceRequirement = "=";
 
@@ -221,8 +221,14 @@ public class DependencyInjectionChecks(
     _groupIds.Add(di.Service.Id);
 
     foreach ((string key, TypeIdName prereq) in di.Requires) {
-      if (_diServices.TryGetValue(prereq.Id, out DiService? requires)) {
-        AddToGroup(requires);
+      if (!_groupIds.Contains(prereq.Id)
+        && _diServices.TryGetValue(prereq.Id, out DiService? requires)) {
+        if (_ids.Contains(prereq.Id)) {
+          _group.Add(new(requires));
+          _groupIds.Add(requires.Service.Id);
+        } else {
+          AddToGroup(requires);
+        }
       }
     }
   }
@@ -268,11 +274,28 @@ public sealed record TypeIdName
   public string Safe { get; }
 }
 
-public sealed class DiService(Type service)
+public sealed class DiService
 {
-  public TypeIdName Service { get; } = new(service);
+  public TypeIdName Service { get; }
   public Map<TypeIdName> Requires { get; } = [];
   public int RequiredBy { get; set; } = -1;
+  public bool IsLink { get; set; }
+
+  public DiService(Type service)
+    => Service = new(service);
+
+  public DiService(DiService service)
+  {
+    ArgumentNullException.ThrowIfNull(service);
+
+    Service = service.Service;
+    Requires = service.Requires;
+    RequiredBy = service.RequiredBy;
+    IsLink = true;
+  }
+
+  public override string? ToString()
+    => Service.Name + (IsLink ? " ~" : " ") + $"{RequiredBy}/{Requires.Count}";
 
   internal void AddParameters(Type provider)
   {

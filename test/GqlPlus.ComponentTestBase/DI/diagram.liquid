@@ -11,11 +11,13 @@
   <body class="container">
     <main>
       <aside>
-        <details open>
+        <details open="">
           <summary>TOC</summary>
           <ul class="overflow-auto">
             {%- for grp in services %}
-              <li><a href="#{{ grp[0] }}">{{ grp[0] }}</a></li>
+            <li>
+              <a href="#{{ grp[0] }}">{{ grp[0] }}</a>
+            </li>
             {%- endfor -%}
           </ul>
         </details>
@@ -23,18 +25,23 @@
       {%- for grp in services %}
       <article>
         <header>
+          {%- for svc in grp[1] -%}
+          {%- unless svc.IsLink %}
+          <span id="{{ svc.Service.Key }}" />
+          {% endunless -%}
+          {%- endfor %}
           <h3 id="{{ grp[0] }}">{{ grp[0] }}</h3>
-        </header>        
+        </header>
         <pre class='mermaid'>
-            flowchart TD
-            {%- for svc in grp[1] %}       
-              {% render 'node' with svc.Service as type -%}
-              {%- for prm in svc.Requires %}
-                {{ svc.Service.Key }} -->|"{{ prm[0] }}"| {{ prm[1].Key }}
-                {% render 'node' with prm[1] as type -%}
-              {%- endfor -%}
-            {%- endfor %}
-          </pre>
+          flowchart TD
+          {%- for svc in grp[1] %}
+          {% render 'node', type: svc.Service, link: svc.IsLink -%}
+          {%- for prm in svc.Requires %}
+          {{ svc.Service.Key }} -->|"{{ prm[0] }}"| {{ prm[1].Key }}
+          {% render 'node' with prm[1] as type -%}
+          {%- endfor -%}
+          {%- endfor %}
+        </pre>
       </article>
       {%- endfor %}
     </main>

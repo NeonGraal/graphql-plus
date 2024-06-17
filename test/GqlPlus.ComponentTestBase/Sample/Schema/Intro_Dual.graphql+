@@ -3,6 +3,6 @@ output _TypeDual {
     }
 
 output _DualBase {
-    : _ObjBase<_DualBase>
+    : _ObjBase
         dual: _Identifier
     }

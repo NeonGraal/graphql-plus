@@ -37,13 +37,19 @@
           "object": "_OutputArgument",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_OutputBase"
+            "value": "_TypeParameter"
           }
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
           "name": "member",
           "object": "_OutputArgument",
           "type": {
@@ -57,13 +63,19 @@
           "$tag": "_Alternate(_OutputBase)",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_OutputBase"
+            "value": "_TypeParameter"
           }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
           "name": "member",
           "type": {
             "$tag": "_OutputBase",
@@ -77,10 +89,8 @@
         "output": "_TypeRef",
         "typeArguments": [
           {
-            "$tag": "_OutputArgument",
-            "member": "Enum",
-            "name": "_TypeKind",
-            "typeKind": "Enum"
+            "$tag": "_OutputBase",
+            "value": "TypeKind"
           }
         ]
       },
@@ -131,13 +141,7 @@
       "name": "_OutputBase",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjBase",
-        "typeArguments": [
-          {
-            "$tag": "_OutputBase",
-            "value": "_OutputArgument"
-          }
-        ]
+        "value": "_ObjBase"
       },
       "typeKind": "Output"
     },

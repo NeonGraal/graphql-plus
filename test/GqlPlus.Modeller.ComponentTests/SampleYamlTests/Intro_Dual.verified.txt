@@ -22,9 +22,6 @@ types: !_Map_Type
     name: _DualBase
     parent: !_OutputBase
       output: _ObjBase
-      typeArguments:
-      - !_OutputBase
-        output: _DualBase
     typeKind: !_TypeKind Output
   !_Identifier _TypeDual: !_TypeOutput
     name: _TypeDual

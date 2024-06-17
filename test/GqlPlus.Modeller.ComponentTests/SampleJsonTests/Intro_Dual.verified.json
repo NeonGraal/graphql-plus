@@ -40,13 +40,7 @@
       "name": "_DualBase",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjBase",
-        "typeArguments": [
-          {
-            "$tag": "_OutputBase",
-            "value": "_DualBase"
-          }
-        ]
+        "value": "_ObjBase"
       },
       "typeKind": "Output"
     },

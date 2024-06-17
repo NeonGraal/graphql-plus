@@ -21,10 +21,6 @@ Success
   :
   I@007/0006
   _ObjBase
-  <
-    I@016/0006
-    _OutputArgument
-  >
   {
     !OF I@009/0007
     output
@@ -68,7 +64,7 @@ Success
   _TypeRef
   <
     I@016/0018
-    _TypeKind.Enum
+    TypeKind
   >
   {
     !OF I@009/0019
@@ -76,11 +72,12 @@ Success
     :
     I@017/0019
     _Identifier
+    ?
   }
   |
   !AO
   I@007/0020
-  _OutputBase
+  _TypeParameter
 }
 {
   !Ou I@008/0023

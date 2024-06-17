@@ -9,6 +9,11 @@
     {
       "$tag": "_Error",
       "_kind": "End",
+      "_message": "In _ObjArgument can\u0027t get model for type \u0027_TypeRef\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
       "_message": "In _TypeParameter can\u0027t get model for type \u0027_Identifier\u0027"
     },
     {
@@ -149,6 +154,40 @@
         }
       ]
     },
+    "_ObjArgument": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "object": "_ObjArgument",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeParameter"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_Alternate(_OutputBase)",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeParameter"
+          }
+        }
+      ],
+      "name": "_ObjArgument",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_TypeRef",
+        "typeArguments": [
+          {
+            "$tag": "_OutputBase",
+            "value": "TypeKind"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_ObjBase": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -172,7 +211,16 @@
           ],
           "name": "typeArguments",
           "object": "_ObjBase",
-          "type": "base"
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "_ObjDescribed",
+            "typeArguments": [
+              {
+                "$tag": "_DualBase",
+                "value": "_ObjArgument"
+              }
+            ]
+          }
         }
       ],
       "alternates": [
@@ -194,17 +242,20 @@
             }
           ],
           "name": "typeArguments",
-          "type": "base"
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "_ObjDescribed",
+            "typeArguments": [
+              {
+                "$tag": "_DualBase",
+                "value": "_ObjArgument"
+              }
+            ]
+          }
         }
       ],
       "name": "_ObjBase",
-      "typeKind": "Dual",
-      "typeParameters": [
-        {
-          "$tag": "_Described",
-          "value": "base"
-        }
-      ]
+      "typeKind": "Dual"
     },
     "_ObjDescribed": {
       "$tag": "_TypeDual",

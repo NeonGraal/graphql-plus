@@ -69,13 +69,7 @@
       "name": "_InputBase",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjBase",
-        "typeArguments": [
-          {
-            "$tag": "_OutputBase",
-            "value": "_InputBase"
-          }
-        ]
+        "value": "_ObjBase"
       },
       "typeKind": "Output"
     },

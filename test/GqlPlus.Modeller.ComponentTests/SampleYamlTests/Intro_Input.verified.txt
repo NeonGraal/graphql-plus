@@ -37,9 +37,6 @@ types: !_Map_Type
     name: _InputBase
     parent: !_OutputBase
       output: _ObjBase
-      typeArguments:
-      - !_OutputBase
-        output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputField: !_TypeOutput
     allFields:

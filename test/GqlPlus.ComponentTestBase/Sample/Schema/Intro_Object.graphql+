@@ -19,10 +19,15 @@ output _ObjType<$base> {
     | $base
     }
 
-dual _ObjBase<$base> {
-        typeArguments: $base[]
+dual _ObjBase {
+        typeArguments: _ObjDescribed<_ObjArgument>[]
     | _TypeParameter
     }
+
+output _ObjArgument {
+    : _TypeRef<TypeKind>
+    | _TypeParameter
+}
 
 domain _TypeParameter { :_Identifier String }
 

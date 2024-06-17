@@ -91,7 +91,8 @@ internal abstract class TypeObjectRenderer<TObject, TField, TBase>(
       => new(list.Select(o => o switch {
         ObjectForModel<TModel> modelFor => renderer.Render(modelFor, context),
         ObjectForModel<TDual> dualFor => dual.Render(dualFor, context),
-        _ => throw new InvalidCastException("Invalid ObjectFor " + o.GetType().ExpandTypeName())
+        _ => throw new InvalidCastException("Invalid ObjectFor " + o.GetType().ExpandTypeName() + " in " + model.Name
+            + " expected " + typeof(TModel).ExpandTypeName() + " or " + typeof(TDual).ExpandTypeName())
       }));
 
     return base.Render(model, context)

@@ -15,7 +15,7 @@ public class OutputBaseModelTests(
       ObjBaseChecks.ExpectedObjBase(name, false, _checks.ExpectedEnumArguments(arguments, enumMember))
       );
 
-  internal override ICheckObjBaseModel<OutputBaseAst> ObjBaseChecks => _checks;
+  internal override ICheckObjBaseModel<IGqlpOutputBase, OutputBaseAst> ObjBaseChecks => _checks;
 
   private readonly OutputBaseModelChecks _checks = new(modeller, rendering);
 }

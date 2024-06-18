@@ -5,25 +5,26 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public class ParseObjectDefinition<TObjField, TObjBase>(
-  Parser<AstAlternate<TObjBase>>.DA alternates,
-  Parser<TObjField>.D objField,
-  Parser<TObjBase>.D objBase
-) : Parser<ObjectDefinition<TObjField, TObjBase>>.I
-  where TObjField : AstObjectField<TObjBase>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+public class ParseObjectDefinition<TObjField, TObjAlt, TObjBase>(
+  Parser<TObjAlt>.DA alternates,
+  Parser<TObjField>.D parseField,
+  Parser<TObjBase>.D parseBase
+) : Parser<ObjectDefinition<TObjField, TObjAlt, TObjBase>>.I
+  where TObjField : IGqlpObjField<TObjBase>
+  where TObjAlt : IGqlpObjAlternate<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
-  private readonly Parser<AstAlternate<TObjBase>>.LA _alternates = alternates;
-  private readonly Parser<TObjField>.L _objField = objField;
-  private readonly Parser<TObjBase>.L _objBase = objBase;
+  private readonly Parser<TObjAlt>.LA _alternates = alternates;
+  private readonly Parser<TObjField>.L _parseField = parseField;
+  private readonly Parser<TObjBase>.L _parseBase = parseBase;
 
-  public IResult<ObjectDefinition<TObjField, TObjBase>> Parse<TContext>(TContext tokens, string label)
+  public IResult<ObjectDefinition<TObjField, TObjAlt, TObjBase>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     ArgumentNullException.ThrowIfNull(tokens);
-    ObjectDefinition<TObjField, TObjBase> result = new();
+    ObjectDefinition<TObjField, TObjAlt, TObjBase> result = new();
     if (tokens.Take(':')) {
-      IResult<TObjBase> objBase = _objBase.Parse(tokens, label);
+      IResult<TObjBase> objBase = _parseBase.Parse(tokens, label);
       if (objBase.IsError()) {
         return objBase.AsResult(result);
       }
@@ -32,13 +33,13 @@ public class ParseObjectDefinition<TObjField, TObjBase>(
     }
 
     List<TObjField> fields = [];
-    IResult<TObjField> objectField = _objField.Parse(tokens, label);
+    IResult<TObjField> objectField = _parseField.Parse(tokens, label);
     if (objectField.IsError()) {
       return objectField.AsPartial(result);
     }
 
     while (objectField.Required(fields.Add)) {
-      objectField = _objField.Parse(tokens, label);
+      objectField = _parseField.Parse(tokens, label);
       if (objectField.IsError()) {
         return objectField.AsPartial(result, fields.Add, () =>
           result.Fields = [.. fields]);
@@ -46,7 +47,7 @@ public class ParseObjectDefinition<TObjField, TObjBase>(
     }
 
     result.Fields = [.. fields];
-    IResultArray<AstAlternate<TObjBase>> objectAlternates = _alternates.Parse(tokens, label);
+    IResultArray<TObjAlt> objectAlternates = _alternates.Parse(tokens, label);
     return !objectAlternates.Optional(alternates => result.Alternates = [.. alternates])
       ? objectAlternates.AsPartial(result)
       : tokens.End(label, () => result);

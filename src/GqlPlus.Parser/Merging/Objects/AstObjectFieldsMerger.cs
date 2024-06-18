@@ -6,8 +6,8 @@ namespace GqlPlus.Merging.Objects;
 internal class AstObjectFieldsMerger<TObjField, TObjBase>(
   ILoggerFactory logger
 ) : AstAliasedMerger<TObjField>(logger)
-  where TObjField : IGqlpObjectField<TObjBase>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjField : IGqlpObjField<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
   protected override string ItemMatchName => "ModifiedType";
   protected override string ItemMatchKey(TObjField item)

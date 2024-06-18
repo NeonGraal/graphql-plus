@@ -5,8 +5,8 @@ namespace GqlPlus.Modelling.Objects;
 
 public abstract class TestObjBaseModel<TObjBase, TObjBaseAst>
   : TestModelBase<string>
-  where TObjBase : IGqlpObjectBase<TObjBase>
-  where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
+  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Arguments(string name, string[] arguments)
@@ -33,7 +33,7 @@ public abstract class TestObjBaseModel<TObjBase, TObjBaseAst>
 
   internal override ICheckModelBase<string> BaseChecks => ObjBaseChecks;
 
-  internal abstract ICheckObjBaseModel<TObjBaseAst> ObjBaseChecks { get; }
+  internal abstract ICheckObjBaseModel<TObjBase, TObjBaseAst> ObjBaseChecks { get; }
 }
 
 internal abstract class CheckObjBaseModel<TObjBase, TObjBaseAst, TModel>(
@@ -41,9 +41,9 @@ internal abstract class CheckObjBaseModel<TObjBase, TObjBaseAst, TModel>(
   IRenderer<TModel> rendering,
   TypeKindModel kind
 ) : CheckModelBase<string, TObjBase, TModel>(objBase, rendering),
-    ICheckObjBaseModel<TObjBaseAst>
-  where TObjBase : IGqlpObjectBase<TObjBase>
-  where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
+    ICheckObjBaseModel<TObjBase, TObjBaseAst>
+  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
   where TModel : IModelBase
 {
   protected readonly TypeKindModel TypeKind = kind;
@@ -63,21 +63,22 @@ internal abstract class CheckObjBaseModel<TObjBase, TObjBaseAst, TModel>(
 
   protected abstract TObjBaseAst NewObjBaseAst(string name);
 
-  void ICheckObjBaseModel<TObjBaseAst>.ObjBase_Expected(TObjBaseAst ast, string[] expected)
+  void ICheckObjBaseModel<TObjBase, TObjBaseAst>.ObjBase_Expected(TObjBaseAst ast, string[] expected)
     => Model_Expected(AstToModel(ast), expected);
-  TObjBaseAst ICheckObjBaseModel<TObjBaseAst>.ObjBaseAst(string name)
+  TObjBaseAst ICheckObjBaseModel<TObjBase, TObjBaseAst>.ObjBaseAst(string name)
     => NewObjBaseAst(name);
-  string[] ICheckObjBaseModel<TObjBaseAst>.ExpectedObjBase(string input, bool isTypeParam, string[] args)
+  string[] ICheckObjBaseModel<TObjBase, TObjBaseAst>.ExpectedObjBase(string input, bool isTypeParam, string[] args)
     => ExpectedObjBase(input, isTypeParam, args);
-  string[] ICheckObjBaseModel<TObjBaseAst>.ExpectedDual(string input)
+  string[] ICheckObjBaseModel<TObjBase, TObjBaseAst>.ExpectedDual(string input)
     => ExpectedDual(input);
-  string[] ICheckObjBaseModel<TObjBaseAst>.ExpectedArguments(string[] args)
+  string[] ICheckObjBaseModel<TObjBase, TObjBaseAst>.ExpectedArguments(string[] args)
     => [.. ItemsExpected("typeArguments:", args, a => [$"- !_{TypeKind}Base", $"  {TypeKindLower}: {a}"])];
 }
 
-internal interface ICheckObjBaseModel<TObjBaseAst>
+internal interface ICheckObjBaseModel<TObjBase, TObjBaseAst>
   : ICheckModelBase<string>
-  where TObjBaseAst : AstObjectBase<TObjBaseAst>
+  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   string[] ExpectedObjBase(string input, bool isTypeParam, string[] args);
   string[] ExpectedDual(string input);

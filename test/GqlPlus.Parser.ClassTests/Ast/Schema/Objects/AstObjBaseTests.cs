@@ -1,8 +1,11 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
 
-public abstract class AstObjBaseTests<TObjBase>
+namespace GqlPlus.Ast.Schema.Objects;
+
+public abstract class AstObjBaseTests<TObjBase, TObjBaseAst>
   : AstAbbreviatedTests<string>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithIsTypeParameter(string input)
@@ -54,21 +57,22 @@ public abstract class AstObjBaseTests<TObjBase>
 
   internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ObjBaseChecks;
 
-  internal abstract IAstObjBaseChecks<TObjBase> ObjBaseChecks { get; }
+  internal abstract IAstObjBaseChecks<TObjBase, TObjBaseAst> ObjBaseChecks { get; }
 }
 
-internal sealed class AstObjBaseChecks<TObjBase>
+internal sealed class AstObjBaseChecks<TObjBase, TObjBaseAst>
   : AstAbbreviatedChecks<string, TObjBase>
-  , IAstObjBaseChecks<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>
+  , IAstObjBaseChecks<TObjBase, TObjBaseAst>
+  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   private readonly BaseBy _createBase;
   private readonly ArgumentsBy _createArguments;
 
-  internal delegate TObjBase BaseBy(string input);
+  internal delegate TObjBaseAst BaseBy(string input);
   internal delegate TObjBase[] ArgumentsBy(string[] argument);
 
-  public AstObjBaseChecks(BaseBy createBase, AstObjBaseChecks<TObjBase>.ArgumentsBy createArguments)
+  public AstObjBaseChecks(BaseBy createBase, AstObjBaseChecks<TObjBase, TObjBaseAst>.ArgumentsBy createArguments)
     : base(input => createBase(input))
   {
     _createBase = createBase;
@@ -139,9 +143,10 @@ internal sealed class AstObjBaseChecks<TObjBase>
   }
 }
 
-internal interface IAstObjBaseChecks<TObjBase>
+internal interface IAstObjBaseChecks<TObjBase, TObjBaseAst>
   : IAstAbbreviatedChecks<string>
-  where TObjBase : AstObjectBase<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   void HashCode_WithIsTypeParameter(string input);
   void String_WithIsTypeParameter(string input);

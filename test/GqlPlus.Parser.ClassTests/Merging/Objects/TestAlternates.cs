@@ -3,9 +3,11 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
-public abstract class TestAlternates<TObjBase>
-  : TestDescriptions<IGqlpAlternate<TObjBase>>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+public abstract class TestAlternates<TObjAlt, TObjAltAst, TObjBase>
+  : TestDescriptions<TObjAlt>
+  where TObjAlt : IGqlpObjAlternate<TObjBase>
+  where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
@@ -21,10 +23,10 @@ public abstract class TestAlternates<TObjBase>
       [MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() }],
       MakeDescribed(input) with { Modifiers = TestMods() });
 
-  internal abstract AstAlternatesMerger<IGqlpAlternate<TObjBase>, TObjBase> MergerAlternate { get; }
-  internal override GroupsMerger<IGqlpAlternate<TObjBase>> MergerGroups => MergerAlternate;
+  internal abstract AstAlternatesMerger<TObjAlt, TObjBase> MergerAlternate { get; }
+  internal override GroupsMerger<TObjAlt> MergerGroups => MergerAlternate;
 
-  protected abstract AstAlternate<TObjBase> MakeAlternate(string name, string description = "");
-  protected override AstAlternate<TObjBase> MakeDescribed(string name, string description = "")
+  protected abstract TObjAltAst MakeAlternate(string name, string description = "");
+  protected override TObjAltAst MakeDescribed(string name, string description = "")
     => MakeAlternate(name, description);
 }

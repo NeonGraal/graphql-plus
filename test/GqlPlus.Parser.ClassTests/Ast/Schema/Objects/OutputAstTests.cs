@@ -5,25 +5,25 @@ namespace GqlPlus.Ast.Schema.Objects;
 public class OutputAstTests : AstAliasedTests
 {
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithAlternates(string name, string[] alternates)
+  public void HashCode_WithAlternates(string name, AlternateInput[] alternates)
       => _checks.HashCode(
-        () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(NewBase) });
+        () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.OutputAlternates() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithAlternates(string name, string[] alternates)
+  public void String_WithAlternates(string name, AlternateInput[] alternates)
     => _checks.Text(
-      () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(NewBase) },
-      $"( !Ou {name} | {alternates.Joined(a => $"!AO {a} [] ?")} )");
+      () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.OutputAlternates() },
+      $"( !Ou {name} | {alternates.Joined(a => $"!OA {a.Type} [] ?")} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithAlternates(string name, string[] alternates)
+  public void Equality_WithAlternates(string name, AlternateInput[] alternates)
     => _checks.Equality(
-      () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(NewBase) });
+      () => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.OutputAlternates() });
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void Inequality_BetweenAlternates(string name, string[] alternates1, string[] alternates2)
+  public void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2)
     => _checks.InequalityBetween(alternates1, alternates2,
-      alternates => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(NewBase) },
+      alternates => new OutputDeclAst(AstNulls.At, name) { Alternates = alternates.OutputAlternates() },
       alternates1.OrderedEqual(alternates2));
 
   [Theory, RepeatData(Repeats)]
@@ -92,8 +92,8 @@ public class OutputAstTests : AstAliasedTests
       parameters => new OutputDeclAst(AstNulls.At, name) { TypeParameters = parameters.TypeParameters() },
       typeParameters1.SequenceEqual(typeParameters2));
 
-  private static IGqlpOutputBase NewBase(string argument)
-    => new OutputBaseAst(AstNulls.At, argument);
+  private static OutputBaseAst NewBase(string argument)
+    => new(AstNulls.At, argument);
 
   protected override string AbbreviatedString(string input)
     => $"( !Ou {input} )";

@@ -8,8 +8,8 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal class ParseDualField(
   Parser<string>.DA aliases,
   Parser<IGqlpModifier>.DA modifiers,
-  Parser<IGqlpDualBase>.D objBase
-) : ObjectFieldParser<DualFieldAst, IGqlpDualBase>(aliases, modifiers, objBase)
+  Parser<IGqlpDualBase>.D parseBase
+) : ObjectFieldParser<IGqlpDualField, DualFieldAst, IGqlpDualBase>(aliases, modifiers, parseBase)
 {
   protected override void ApplyFieldParameters(DualFieldAst field, InputParameterAst[] parameters)
     => throw new InvalidOperationException();
@@ -17,11 +17,11 @@ internal class ParseDualField(
   protected override DualFieldAst ObjField(TokenAt at, string name, string description, IGqlpDualBase typeBase)
     => new(at, name, description, typeBase);
 
-  protected override IResult<DualFieldAst> FieldDefault<TContext>(TContext tokens, DualFieldAst field)
-    => field.Ok();
+  protected override IResult<IGqlpDualField> FieldDefault<TContext>(TContext tokens, DualFieldAst field)
+    => field.Ok<IGqlpDualField>();
 
-  protected override IResult<DualFieldAst> FieldEnumValue<TContext>(TContext tokens, DualFieldAst field)
-    => tokens.Error("Dual", "':'", field);
+  protected override IResult<IGqlpDualField> FieldEnumValue<TContext>(TContext tokens, DualFieldAst field)
+    => tokens.Error<IGqlpDualField>("Dual", "':'", field);
 
   protected override IResultArray<InputParameterAst> FieldParameter<TContext>(TContext tokens)
     => 0.EmptyArray<InputParameterAst>();

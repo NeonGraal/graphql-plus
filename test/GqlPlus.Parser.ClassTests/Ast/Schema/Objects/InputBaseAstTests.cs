@@ -1,13 +1,15 @@
-﻿namespace GqlPlus.Ast.Schema.Objects;
+﻿using GqlPlus.Abstractions.Schema;
+
+namespace GqlPlus.Ast.Schema.Objects;
 
 public class InputBaseAstTests
-  : AstObjBaseTests<InputBaseAst>
+  : AstObjBaseTests<IGqlpInputBase, InputBaseAst>
 {
   protected override string AbbreviatedString(string input)
     => $"( {input} )";
 
-  private readonly AstObjBaseChecks<InputBaseAst> _checks
+  private readonly AstObjBaseChecks<IGqlpInputBase, InputBaseAst> _checks
     = new(name => new InputBaseAst(AstNulls.At, name), arguments => arguments.InputBases());
 
-  internal override IAstObjBaseChecks<InputBaseAst> ObjBaseChecks => _checks;
+  internal override IAstObjBaseChecks<IGqlpInputBase, InputBaseAst> ObjBaseChecks => _checks;
 }

@@ -33,7 +33,7 @@ Success
     _Identifier
   }
   |
-  !AO
+  !OA I@007/0008
   I@007/0008
   _DualBase
 }
@@ -56,7 +56,7 @@ Success
     []
   }
   |
-  !AO
+  !OA I@007/0014
   I@007/0014
   _OutputEnum
 }
@@ -78,7 +78,7 @@ Success
     _Identifier
   }
   |
-  !AO
+  !OA I@007/0020
   I@007/0020
   _OutputBase
 }

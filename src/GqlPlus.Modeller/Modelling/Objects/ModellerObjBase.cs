@@ -2,7 +2,7 @@
 
 internal abstract class ModellerObjBase<TObjBaseAst, TObjBase>
   : ModellerObjBase<TObjBaseAst, TObjBase, TObjBase>
-  where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>
+  where TObjBaseAst : IGqlpObjBase<TObjBaseAst>
   where TObjBase : IObjBaseModel
 {
   internal override TObjBase NewArgument(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
@@ -11,7 +11,7 @@ internal abstract class ModellerObjBase<TObjBaseAst, TObjBase>
 
 internal abstract class ModellerObjBase<TObjBaseAst, TObjBase, TArg>
   : ModellerBase<TObjBaseAst, TObjBase>
-  where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>
+  where TObjBaseAst : IGqlpObjBase<TObjBaseAst>
   where TObjBase : IObjBaseModel
   where TArg : IModelBase
 {

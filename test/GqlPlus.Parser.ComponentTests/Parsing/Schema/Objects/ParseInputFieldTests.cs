@@ -4,7 +4,7 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseInputFieldTests(
-  Parser<InputFieldAst>.D parser
+  Parser<IGqlpInputField>.D parser
 ) : TestObjectField
 {
   [Theory, RepeatData(Repeats)]
@@ -17,5 +17,5 @@ public class ParseInputFieldTests(
 
   internal override ICheckObjectField FieldChecks => _checks;
 
-  private readonly CheckObjectField<InputFieldAst, IGqlpInputBase, InputBaseAst> _checks = new(new InputFactories(), parser);
+  private readonly CheckObjectField<IGqlpInputField, InputFieldAst, IGqlpInputBase, InputBaseAst> _checks = new(new InputFactories(), parser);
 }

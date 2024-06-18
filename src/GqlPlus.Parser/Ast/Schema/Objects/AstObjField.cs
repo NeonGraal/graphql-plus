@@ -3,15 +3,15 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract record class AstObjectField<TObjBase>(
+public abstract record class AstObjField<TObjBase>(
   TokenAt At,
   string Name,
   string Description,
   TObjBase Type
 ) : AstAliased(At, Name, Description)
-  , IEquatable<AstObjectField<TObjBase>>
-  , IGqlpObjectField<TObjBase>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  , IEquatable<AstObjField<TObjBase>>
+  , IGqlpObjField<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
   public TObjBase Type { get; set; } = Type;
   public ModifierAst[] Modifiers { get; set; } = [];
@@ -20,7 +20,7 @@ public abstract record class AstObjectField<TObjBase>(
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
-  public virtual bool Equals(AstObjectField<TObjBase>? other)
+  public virtual bool Equals(AstObjField<TObjBase>? other)
     => base.Equals(other)
     && (Type?.Equals(other.Type) ?? other.Type is null)
     && Modifiers.SequenceEqual(other.Modifiers);

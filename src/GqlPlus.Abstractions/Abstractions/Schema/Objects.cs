@@ -6,18 +6,20 @@ public interface IGqlpObject
   IEnumerable<IGqlpTypeParameter> TypeParameters { get; }
 }
 
-public interface IGqlpObject<TField, TBase>
+public interface IGqlpObject<TField, TAlt, TBase>
   : IGqlpType<TBase>, IGqlpObject
-  where TBase : IGqlpObjectBase<TBase>
-  where TField : IGqlpObjectField<TBase>
+  where TBase : IGqlpObjBase<TBase>
+  where TField : IGqlpObjField<TBase>
+  where TAlt : IGqlpObjAlternate<TBase>
 {
   IEnumerable<TField> Fields { get; }
-  IEnumerable<IGqlpAlternate<TBase>> Alternates { get; }
+  IEnumerable<TAlt> Alternates { get; }
 }
 
-public interface IGqlpObjectBase<TBase>
+public interface IGqlpObjBase<TBase>
   : IGqlpAbbreviated
   , IGqlpDescribed
+  , IEquatable<TBase>
 {
   string Label { get; }
   string TypeName { get; }
@@ -27,10 +29,10 @@ public interface IGqlpObjectBase<TBase>
   IEnumerable<TBase> TypeArguments { get; }
 }
 
-public interface IGqlpObjectField<TBase>
+public interface IGqlpObjField<TBase>
   : IGqlpAliased
   , IGqlpModifiers
-  where TBase : IGqlpObjectBase<TBase>
+  where TBase : IGqlpObjBase<TBase>
 {
   TBase Type { get; }
   string ModifiedType { get; }
@@ -40,28 +42,31 @@ public interface IGqlpTypeParameter
   : IGqlpDescribed, IGqlpNamed
 { }
 
-public interface IGqlpAlternate<TBase>
+public interface IGqlpObjAlternate<TBase>
   : IGqlpError
   , IGqlpDescribed
   , IGqlpModifiers
-  where TBase : IGqlpObjectBase<TBase>
+  where TBase : IGqlpObjBase<TBase>
 {
   TBase Type { get; }
 }
 
 public interface IGqlpDualObject
-  : IGqlpObject<IGqlpDualField, IGqlpDualBase>
+  : IGqlpObject<IGqlpDualField, IGqlpDualAlternate, IGqlpDualBase>
 { }
 
 public interface IGqlpDualBase
-  : IGqlpObjectBase<IGqlpDualBase>
-  , IEquatable<IGqlpDualBase>
+  : IGqlpObjBase<IGqlpDualBase>
 {
   string Dual { get; }
 }
 
 public interface IGqlpDualField
-  : IGqlpObjectField<IGqlpDualBase>
+  : IGqlpObjField<IGqlpDualBase>
+{ }
+
+public interface IGqlpDualAlternate
+  : IGqlpObjAlternate<IGqlpDualBase>
 { }
 
 public interface IGqlpToDual
@@ -70,30 +75,32 @@ public interface IGqlpToDual
 }
 
 public interface IGqlpInputObject
-  : IGqlpObject<IGqlpInputField, IGqlpInputBase>
+  : IGqlpObject<IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase>
 { }
 
 public interface IGqlpInputBase
-  : IGqlpObjectBase<IGqlpInputBase>
-  , IEquatable<IGqlpInputBase>
+  : IGqlpObjBase<IGqlpInputBase>
   , IGqlpToDual
 {
   string Input { get; }
 }
 
 public interface IGqlpInputField
-  : IGqlpObjectField<IGqlpInputBase>
+  : IGqlpObjField<IGqlpInputBase>
 {
   IGqlpConstant? DefaultValue { get; }
 }
 
+public interface IGqlpInputAlternate
+  : IGqlpObjAlternate<IGqlpInputBase>
+{ }
+
 public interface IGqlpOutputObject
-  : IGqlpObject<IGqlpOutputField, IGqlpOutputBase>
+  : IGqlpObject<IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputBase>
 { }
 
 public interface IGqlpOutputBase
-  : IGqlpObjectBase<IGqlpOutputBase>
-  , IEquatable<IGqlpOutputBase>
+  : IGqlpObjBase<IGqlpOutputBase>
   , IGqlpToDual
 {
   string Output { get; }
@@ -103,10 +110,14 @@ public interface IGqlpOutputBase
 }
 
 public interface IGqlpOutputField
-  : IGqlpObjectField<IGqlpOutputBase>
+  : IGqlpObjField<IGqlpOutputBase>
 {
   IEnumerable<IGqlpInputParameter> Parameters { get; }
 }
+
+public interface IGqlpOutputAlternate
+  : IGqlpObjAlternate<IGqlpOutputBase>
+{ }
 
 public interface IGqlpInputParameter
   : IGqlpError, IGqlpDescribed, IGqlpModifiers

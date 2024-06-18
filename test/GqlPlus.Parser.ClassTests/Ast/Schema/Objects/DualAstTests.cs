@@ -1,30 +1,28 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public class DualAstTests
   : AstAliasedTests
 {
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithAlternates(string name, string[] alternates)
+  public void HashCode_WithAlternates(string name, AlternateInput[] alternates)
       => _checks.HashCode(
-        () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Base) });
+        () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.DualAlternates() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithAlternates(string name, string[] alternates)
+  public void String_WithAlternates(string name, AlternateInput[] alternates)
     => _checks.Text(
-      () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Base) },
-      $"( !Du {name} | {alternates.Joined(a => $"!AD {a} [] ?")} )");
+      () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.DualAlternates() },
+      $"( !Du {name} | {alternates.Joined(a => $"!DA {a.Type} [] ?")} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithAlternates(string name, string[] alternates)
+  public void Equality_WithAlternates(string name, AlternateInput[] alternates)
     => _checks.Equality(
-      () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Base) });
+      () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.DualAlternates() });
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void Inequality_BetweenAlternates(string name, string[] alternates1, string[] alternates2)
+  public void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2)
     => _checks.InequalityBetween(alternates1, alternates2,
-      alternates => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(Base) },
+      alternates => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.DualAlternates() },
       alternates1.OrderedEqual(alternates2));
 
   [Theory, RepeatData(Repeats)]
@@ -93,8 +91,8 @@ public class DualAstTests
       parameters => new DualDeclAst(AstNulls.At, name) { TypeParameters = parameters.TypeParameters() },
       typeParameters1.SequenceEqual(typeParameters2));
 
-  private static IGqlpDualBase Base(string argument)
-    => new DualBaseAst(AstNulls.At, argument);
+  private static DualBaseAst Base(string argument)
+    => new(AstNulls.At, argument);
 
   protected override string AbbreviatedString(string input)
     => $"( !Du {input} )";

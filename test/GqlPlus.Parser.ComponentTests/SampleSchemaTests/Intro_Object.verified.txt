@@ -93,7 +93,7 @@ Success
     String
   }
   |
-  !AD
+  !DA P@007/0013
   I@008/0013
   $base
 }
@@ -105,17 +105,17 @@ Success
     $base
   >
   |
-  !AO
+  !OA I@007/0017
   I@007/0017
   _BaseType
   <
     I@017/0017
     _TypeKind.Internal
   >
-  !AO
+  !OA I@007/0018
   I@007/0018
   _TypeSimple
-  !AO
+  !OA P@007/0019
   I@008/0019
   $base
 }
@@ -135,7 +135,7 @@ Success
     []
   }
   |
-  !AD
+  !DA I@007/0024
   I@007/0024
   _TypeParameter
 }
@@ -150,7 +150,7 @@ Success
     TypeKind
   >
   |
-  !AO
+  !OA I@007/0029
   I@007/0029
   _TypeParameter
 }

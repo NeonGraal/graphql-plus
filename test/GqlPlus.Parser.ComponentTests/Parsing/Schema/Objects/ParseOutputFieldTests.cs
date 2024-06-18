@@ -4,7 +4,7 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseOutputFieldTests(
-  Parser<OutputFieldAst>.D parser
+  Parser<IGqlpOutputField>.D parser
 ) : TestObjectField
 {
   [Theory, RepeatData(Repeats)]
@@ -79,7 +79,7 @@ public class ParseOutputFieldTests(
 
   internal override ICheckObjectField FieldChecks => _checks;
 
-  private readonly CheckObjectField<OutputFieldAst, IGqlpOutputBase, OutputBaseAst> _checks = new(new OutputFactories(), parser);
+  private readonly CheckObjectField<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputBaseAst> _checks = new(new OutputFactories(), parser);
 
   private static OutputFieldAst FieldEnum(string name, string enumType, string enumMember)
     => new(AstNulls.At, name, new OutputBaseAst(AstNulls.At, enumType) { EnumMember = enumMember });

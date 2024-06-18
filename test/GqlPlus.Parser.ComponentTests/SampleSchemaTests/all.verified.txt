@@ -37,7 +37,7 @@ Success
     Guid
   }
   |
-  !AI
+  !IA I@047/0004
   I@047/0004
   String
 }
@@ -59,7 +59,7 @@ Success
     []
   }
   |
-  !AO
+  !OA I@040/0005
   I@040/0005
   String
 }

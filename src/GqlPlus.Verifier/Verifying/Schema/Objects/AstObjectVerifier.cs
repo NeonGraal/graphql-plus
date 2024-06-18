@@ -4,15 +4,16 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Verification.Schema;
 
-internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext>(
+internal abstract class AstObjectVerifier<TObject, TObjField, TObjAlt, TObjBase, TContext>(
   IVerifyAliased<TObject> aliased,
   IMerge<TObjField> mergeFields,
-  IMerge<IGqlpAlternate<TObjBase>> mergeAlternates,
+  IMerge<TObjAlt> mergeAlternates,
   ILoggerFactory logger
 ) : AstParentItemVerifier<TObject, TObjBase, TContext, TObjField>(aliased, mergeFields)
-  where TObject : IGqlpObject<TObjField, TObjBase>
-  where TObjField : IGqlpObjectField<TObjBase>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObject : IGqlpObject<TObjField, TObjAlt, TObjBase>
+  where TObjField : IGqlpObjField<TObjBase>
+  where TObjAlt : IGqlpObjAlternate<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
   where TContext : UsageContext
 {
   private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, TObjBase, TContext, IGqlpTypeParameter>));
@@ -31,7 +32,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
 
     ParentUsage<TObject> input = new([], usage, "an alternative");
     _logger.CheckingAlternates(input);
-    foreach (IGqlpAlternate<TObjBase> alternate in usage.Alternates) {
+    foreach (IGqlpObjAlternate<TObjBase> alternate in usage.Alternates) {
       UsageAlternate(alternate, context);
       if (!alternate.Modifiers.Any()) {
         CheckAlternate(new([alternate.Type.FullType], usage, "an alternate"), usage.Name, context, true);
@@ -45,7 +46,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
     }
   }
 
-  protected virtual void UsageAlternate(IGqlpAlternate<TObjBase> alternate, TContext context)
+  protected virtual void UsageAlternate(IGqlpObjAlternate<TObjBase> alternate, TContext context)
     => context
       .CheckType(alternate.Type, " Alternate")
       .CheckModifiers(alternate);
@@ -91,7 +92,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
 
     _logger.CheckingAlternates(input, top, parentType.Name);
     input = input with { Label = "an alternate" };
-    foreach (IGqlpAlternate<TObjBase> alternate in parentType.Alternates) {
+    foreach (IGqlpObjAlternate<TObjBase> alternate in parentType.Alternates) {
       if (!alternate.Modifiers.Any()) {
         CheckAlternate(input.AddParent(alternate.Type.TypeName), parentType.Name, context, false);
       }
@@ -106,7 +107,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
       CheckParent(input, alternateType, context, false);
 
       _logger.CheckingAlternates(input, top, alternateType.Name, current);
-      foreach (IGqlpAlternate<TObjBase> alternate in alternateType.Alternates) {
+      foreach (IGqlpObjAlternate<TObjBase> alternate in alternateType.Alternates) {
         if (!alternate.Modifiers.Any()) {
           CheckAlternate(input.AddParent(alternate.Type.TypeName), alternateType.Name, context, false);
         }
@@ -118,7 +119,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjBase, TContext
   {
     base.CheckMergeParent(input, context);
 
-    IGqlpAlternate<TObjBase>[] alternates = GetParentItems(input, input.Usage, context, ast => ast.Alternates).ToArray();
+    TObjAlt[] alternates = GetParentItems(input, input.Usage, context, ast => ast.Alternates).ToArray();
     if (alternates.Length > 0) {
       ITokenMessages failures = mergeAlternates.CanMerge(alternates);
       if (failures.Any()) {

@@ -6,9 +6,9 @@ namespace GqlPlus.Modelling.Objects;
 public class DualModelTests(
   IModeller<IGqlpDualObject, TypeDualModel> modeller,
   IRenderer<TypeDualModel> rendering
-) : TestObjectModel<DualDeclAst, DualFieldAst, IGqlpDualBase, DualBaseAst>
+) : TestObjectModel<DualDeclAst, IGqlpDualField, DualFieldAst, IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase, DualBaseAst>
 {
-  internal override ICheckObjectModel<DualDeclAst, DualFieldAst, IGqlpDualBase> ObjectChecks => _checks;
+  internal override ICheckObjectModel<DualDeclAst, IGqlpDualField, IGqlpDualAlternate, IGqlpDualBase> ObjectChecks => _checks;
 
   private readonly DualModelChecks _checks = new(modeller, rendering);
 }
@@ -16,7 +16,7 @@ public class DualModelTests(
 internal sealed class DualModelChecks(
   IModeller<IGqlpDualObject, TypeDualModel> modeller,
   IRenderer<TypeDualModel> rendering
-) : CheckObjectModel<IGqlpDualObject, DualDeclAst, IGqlpDualField, DualFieldAst, IGqlpDualBase, TypeDualModel>(modeller, rendering, TypeKindModel.Dual)
+) : CheckObjectModel<IGqlpDualObject, DualDeclAst, IGqlpDualField, DualFieldAst, IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase, TypeDualModel>(modeller, rendering, TypeKindModel.Dual)
 {
   protected override DualDeclAst NewObjectAst(
     string name,
@@ -24,12 +24,12 @@ internal sealed class DualModelChecks(
     string? description,
     string[]? aliases,
     FieldInput[] fields,
-    string[] alternates)
+    AlternateInput[] alternates)
     => new(AstNulls.At, name, description ?? "") {
       Aliases = aliases ?? [],
       Parent = (DualBaseAst?)parent,
       Fields = fields.DualFields(),
-      Alternates = alternates.Alternates(NewParentAst),
+      Alternates = alternates.DualAlternates(),
     };
   internal override IGqlpDualBase NewParentAst(string input)
     => new DualBaseAst(AstNulls.At, input);

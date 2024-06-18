@@ -26,7 +26,7 @@ public abstract class BaseAliasedTests<TInput>
 internal abstract class BaseAliasedChecks<TInput, TAliased>(
   Parser<TAliased>.D parser
 ) : BaseAliasedChecks<TInput, TAliased, TAliased>(parser), IBaseAliasedChecks<TInput>
-  where TAliased : AstAliased
+  where TAliased : AstAliased, IGqlpAliased
 { }
 
 internal abstract class BaseAliasedChecks<TInput, TAliased, TSrc>(

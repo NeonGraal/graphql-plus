@@ -5,7 +5,7 @@ Success
   !Ou I@008/0001
   OutpAlts
   |
-  !AO
+  !OA I@021/0001
   I@021/0001
   OutpAltsType
 }

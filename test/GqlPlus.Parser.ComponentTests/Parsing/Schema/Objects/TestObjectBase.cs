@@ -43,13 +43,13 @@ public abstract class TestObjectBase
 }
 
 internal sealed class CheckObjectBase<TObjBase, TObjBaseAst>(
-  IObjectBaseFactories<TObjBaseAst> factories,
+  IObjectBaseFactories<TObjBase, TObjBaseAst> factories,
   Parser<TObjBase>.D parser
 ) : OneChecksParser<TObjBase>(parser), ICheckObjectBase
-  where TObjBase : IGqlpObjectBase<TObjBase>
-  where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
+  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
-  private readonly IObjectBaseFactories<TObjBaseAst> _factories = factories;
+  private readonly IObjectBaseFactories<TObjBase, TObjBaseAst> _factories = factories;
 
   public void WithMinimum(string name)
     => TrueExpected(name, ObjBase(name));

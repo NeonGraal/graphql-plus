@@ -7,8 +7,8 @@ namespace GqlPlus.Merging.Objects;
 internal class AstAlternatesMerger<TAlternate, TObjBase>(
   ILoggerFactory logger
 ) : AstDescribedMerger<TAlternate>(logger)
-  where TAlternate : IGqlpAlternate<TObjBase>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TAlternate : IGqlpObjAlternate<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
   protected override TAlternate MergeGroup(IEnumerable<TAlternate> group)
   {
@@ -27,9 +27,3 @@ internal class AstAlternatesMerger<TAlternate, TObjBase>(
   protected override string ItemMatchKey(TAlternate item)
     => item.Modifiers.AsString().Joined();
 }
-
-internal class AlternatesMerger<TObjBase>(
-  ILoggerFactory logger
-) : AstAlternatesMerger<IGqlpAlternate<TObjBase>, TObjBase>(logger)
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
-{ }

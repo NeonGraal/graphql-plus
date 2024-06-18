@@ -3,14 +3,14 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract record class AstObjectBase<TObjBase>(
+public abstract record class AstObjBase<TObjBase>(
   TokenAt At,
   string Name,
   string Description
 ) : AstDescribed(At, Name, Description)
-  , IEquatable<TObjBase>
-  , IGqlpObjectBase<TObjBase>
-  where TObjBase : AstObjectBase<TObjBase>, IGqlpObjectBase<TObjBase>
+  , IEquatable<AstObjBase<TObjBase>>
+  , IGqlpObjBase<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>
 {
   public bool IsTypeParameter { get; set; }
   public TObjBase[] TypeArguments { get; set; } = [];
@@ -24,12 +24,14 @@ public abstract record class AstObjectBase<TObjBase>(
     .Prepend(TypeName)
     .Joined();
 
-  IEnumerable<TObjBase> IGqlpObjectBase<TObjBase>.TypeArguments => TypeArguments;
+  IEnumerable<TObjBase> IGqlpObjBase<TObjBase>.TypeArguments => TypeArguments;
 
-  public virtual bool Equals(TObjBase? other)
+  public virtual bool Equals(AstObjBase<TObjBase>? other)
     => base.Equals(other)
-    && IsTypeParameter == other.IsTypeParameter
+    && IsTypeParameter == other!.IsTypeParameter
     && TypeArguments.SequenceEqual(other.TypeArguments);
+  public bool Equals(TObjBase? other)
+    => Equals(other as AstObjBase<TObjBase>);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), IsTypeParameter, TypeArguments.Length);
 

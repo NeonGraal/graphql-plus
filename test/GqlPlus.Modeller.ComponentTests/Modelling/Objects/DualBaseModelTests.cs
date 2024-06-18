@@ -8,7 +8,7 @@ public class DualBaseModelTests(
   IRenderer<DualBaseModel> rendering
 ) : TestObjBaseModel<IGqlpDualBase, DualBaseAst>
 {
-  internal override ICheckObjBaseModel<DualBaseAst> ObjBaseChecks => _checks;
+  internal override ICheckObjBaseModel<IGqlpDualBase, DualBaseAst> ObjBaseChecks => _checks;
 
   private readonly DualBaseModelChecks _checks = new(modeller, rendering);
 }

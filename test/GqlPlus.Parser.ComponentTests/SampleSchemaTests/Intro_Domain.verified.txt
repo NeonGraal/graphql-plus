@@ -16,7 +16,7 @@ Success
   !Ou I@008/0003
   _TypeDomain
   |
-  !AO
+  !OA I@007/0004
   I@007/0004
   _BaseDomain
   <
@@ -25,7 +25,7 @@ Success
     I@039/0004
     _DomainTrueFalse
   >
-  !AO
+  !OA I@007/0005
   I@007/0005
   _BaseDomain
   <
@@ -34,7 +34,7 @@ Success
     I@036/0005
     _DomainMember
   >
-  !AO
+  !OA I@007/0006
   I@007/0006
   _BaseDomain
   <
@@ -43,7 +43,7 @@ Success
     I@038/0006
     _DomainRange
   >
-  !AO
+  !OA I@007/0007
   I@007/0007
   _BaseDomain
   <

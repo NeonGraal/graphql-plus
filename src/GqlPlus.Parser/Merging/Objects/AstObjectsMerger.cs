@@ -2,15 +2,16 @@
 
 namespace GqlPlus.Merging.Objects;
 
-internal abstract class AstObjectsMerger<TObject, TObjField, TObjBase>(
+internal abstract class AstObjectsMerger<TObject, TObjField, TObjAlt, TObjBase>(
   ILoggerFactory logger,
   IMerge<TObjField> fields,
   IMerge<IGqlpTypeParameter> typeParameters,
-  IMerge<IGqlpAlternate<TObjBase>> alternates
+  IMerge<TObjAlt> alternates
 ) : AstTypeMerger<IGqlpType, TObject, TObjBase, TObjField>(logger, fields)
-  where TObject : IGqlpObject<TObjField, TObjBase>
-  where TObjField : IGqlpObjectField<TObjBase>, IGqlpDescribed
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObject : IGqlpObject<TObjField, TObjAlt, TObjBase>
+  where TObjField : IGqlpObjField<TObjBase>, IGqlpDescribed
+  where TObjAlt : IGqlpObjAlternate<TObjBase>, IGqlpDescribed
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(TObject item)
@@ -28,7 +29,7 @@ internal abstract class AstObjectsMerger<TObject, TObjField, TObjBase>(
   protected override TObject MergeGroup(IEnumerable<TObject> group)
   {
     IEnumerable<IGqlpTypeParameter> typeParametersAsts = group.ManyMerge(item => item.TypeParameters, typeParameters);
-    IEnumerable<IGqlpAlternate<TObjBase>> alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
+    IEnumerable<TObjAlt> alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
 
     return SetAlternates(base.MergeGroup(group), typeParametersAsts, alternateAsts);
   }
@@ -36,5 +37,5 @@ internal abstract class AstObjectsMerger<TObject, TObjField, TObjBase>(
   internal override IEnumerable<TObjField> GetItems(TObject type)
     => type.Fields;
 
-  protected abstract TObject SetAlternates(TObject obj, IEnumerable<IGqlpTypeParameter> typeParameters, IEnumerable<IGqlpAlternate<TObjBase>> alternates);
+  protected abstract TObject SetAlternates(TObject obj, IEnumerable<IGqlpTypeParameter> typeParameters, IEnumerable<TObjAlt> alternates);
 }

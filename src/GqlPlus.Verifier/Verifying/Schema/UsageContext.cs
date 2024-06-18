@@ -28,7 +28,7 @@ public class UsageContext(
   }
 
   internal virtual void CheckArgumentType<TObjBase>(TObjBase type, string labelSuffix)
-    where TObjBase : IGqlpObjectBase<TObjBase>
+    where TObjBase : IGqlpObjBase<TObjBase>
     => this.CheckType(type, labelSuffix);
 
   internal bool DifferentName<TAst>(ParentUsage<TAst> input, string? current)
@@ -91,7 +91,7 @@ internal static class UsageHelpers
 
   internal static TContext CheckType<TContext, TObjBase>(this TContext context, TObjBase type, string labelSuffix, bool check = true)
     where TContext : UsageContext
-    where TObjBase : IGqlpObjectBase<TObjBase>
+    where TObjBase : IGqlpObjBase<TObjBase>
   {
     if (context.GetType(type.TypeName, out IGqlpDescribed? value)) {
       int numArgs = type.TypeArguments.Count();

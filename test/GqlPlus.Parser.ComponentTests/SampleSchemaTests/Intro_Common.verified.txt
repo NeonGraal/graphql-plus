@@ -4,36 +4,36 @@ Success
   !Ou I@008/0001
   _Type
   |
-  !AO
+  !OA I@007/0002
   I@007/0002
   _BaseType
   <
     I@017/0002
     _TypeKind.Basic
   >
-  !AO
+  !OA I@007/0003
   I@007/0003
   _BaseType
   <
     I@017/0003
     _TypeKind.Internal
   >
-  !AO
+  !OA I@007/0004
   I@007/0004
   _TypeDual
-  !AO
+  !OA I@007/0005
   I@007/0005
   _TypeEnum
-  !AO
+  !OA I@007/0006
   I@007/0006
   _TypeInput
-  !AO
+  !OA I@007/0007
   I@007/0007
   _TypeOutput
-  !AO
+  !OA I@007/0008
   I@007/0008
   _TypeDomain
-  !AO
+  !OA I@007/0009
   I@007/0009
   _TypeUnion
 }
@@ -163,28 +163,28 @@ Success
   !Ou I@008/0037
   _TypeSimple
   |
-  !AO
+  !OA I@007/0038
   I@007/0038
   _TypeRef
   <
     I@016/0038
     _TypeKind.Basic
   >
-  !AO
+  !OA I@007/0039
   I@007/0039
   _TypeRef
   <
     I@016/0039
     _TypeKind.Enum
   >
-  !AO
+  !OA I@007/0040
   I@007/0040
   _TypeRef
   <
     I@016/0040
     _TypeKind.Domain
   >
-  !AO
+  !OA I@007/0041
   I@007/0041
   _TypeRef
   <

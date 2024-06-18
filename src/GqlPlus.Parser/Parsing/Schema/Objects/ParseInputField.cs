@@ -9,9 +9,9 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal class ParseInputField(
   Parser<string>.DA aliases,
   Parser<IGqlpModifier>.DA modifiers,
-  Parser<IGqlpInputBase>.D objBase,
+  Parser<IGqlpInputBase>.D parseBase,
   Parser<IParserDefault, IGqlpConstant>.D defaultParser
-) : ObjectFieldParser<InputFieldAst, IGqlpInputBase>(aliases, modifiers, objBase)
+) : ObjectFieldParser<IGqlpInputField, InputFieldAst, IGqlpInputBase>(aliases, modifiers, parseBase)
 {
   private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
@@ -21,11 +21,13 @@ internal class ParseInputField(
   protected override InputFieldAst ObjField(TokenAt at, string name, string description, IGqlpInputBase typeBase)
     => new(at, name, description, typeBase);
 
-  protected override IResult<InputFieldAst> FieldDefault<TContext>(TContext tokens, InputFieldAst field)
-    => _default.I.Parse(tokens, "Default").AsPartial(field, constant => field.DefaultValue = (ConstantAst?)constant);
+  protected override IResult<IGqlpInputField> FieldDefault<TContext>(TContext tokens, InputFieldAst field)
+    => _default.I
+    .Parse(tokens, "Default")
+    .AsPartial<IGqlpInputField>(field, constant => field.DefaultValue = (ConstantAst?)constant);
 
-  protected override IResult<InputFieldAst> FieldEnumValue<TContext>(TContext tokens, InputFieldAst field)
-    => tokens.Error("Input", "':'", field);
+  protected override IResult<IGqlpInputField> FieldEnumValue<TContext>(TContext tokens, InputFieldAst field)
+    => tokens.Error<IGqlpInputField>("Input", "':'", field);
 
   protected override IResultArray<InputParameterAst> FieldParameter<TContext>(TContext tokens)
     => 0.EmptyArray<InputParameterAst>();

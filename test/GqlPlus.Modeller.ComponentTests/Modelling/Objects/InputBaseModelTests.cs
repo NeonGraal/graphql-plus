@@ -8,7 +8,7 @@ public class InputBaseModelTests(
   IRenderer<InputBaseModel> rendering
 ) : TestObjBaseModel<IGqlpInputBase, InputBaseAst>
 {
-  internal override ICheckObjBaseModel<InputBaseAst> ObjBaseChecks => _checks;
+  internal override ICheckObjBaseModel<IGqlpInputBase, InputBaseAst> ObjBaseChecks => _checks;
 
   private readonly InputBaseModelChecks _checks = new(modeller, rendering);
 }

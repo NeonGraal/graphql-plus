@@ -8,7 +8,7 @@ public sealed record class InputFieldAst(
   string Name,
   string Description,
   IGqlpInputBase Type
-) : AstObjectField<IGqlpInputBase>(At, Name, Description, Type)
+) : AstObjField<IGqlpInputBase>(At, Name, Description, Type)
   , IEquatable<InputFieldAst>
   , IGqlpInputField
 {
@@ -17,7 +17,7 @@ public sealed record class InputFieldAst(
   internal override string Abbr => "IF";
 
   IGqlpConstant? IGqlpInputField.DefaultValue => DefaultValue;
-  IGqlpInputBase IGqlpObjectField<IGqlpInputBase>.Type => Type;
+  IGqlpInputBase IGqlpObjField<IGqlpInputBase>.Type => Type;
 
   public InputFieldAst(TokenAt at, string name, IGqlpInputBase typeBase)
     : this(at, name, "", typeBase) { }

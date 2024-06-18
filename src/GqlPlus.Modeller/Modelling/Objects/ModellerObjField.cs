@@ -4,8 +4,8 @@ internal abstract class ModellerObjField<TObjBaseAst, TObjFieldAst, TObjBase, TO
   IModifierModeller modifier,
   IModeller<TObjBaseAst, TObjBase> objBase
 ) : ModellerBase<TObjFieldAst, TObjField>
-  where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>
-  where TObjFieldAst : IGqlpObjectField<TObjBaseAst>
+  where TObjBaseAst : IGqlpObjBase<TObjBaseAst>
+  where TObjFieldAst : IGqlpObjField<TObjBaseAst>
   where TObjBase : IObjBaseModel
   where TObjField : ObjFieldModel<TObjBase>
 {

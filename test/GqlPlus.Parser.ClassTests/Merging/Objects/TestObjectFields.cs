@@ -5,9 +5,9 @@ namespace GqlPlus.Merging.Objects;
 
 public abstract class TestObjectFields<TObjField, TObjFieldAst, TObjBase>
   : TestAliased<TObjField>
-  where TObjField : IGqlpObjectField<TObjBase>, IGqlpDescribed
-  where TObjFieldAst : AstObjectField<TObjBase>, TObjField
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjField : IGqlpObjField<TObjBase>, IGqlpDescribed
+  where TObjFieldAst : AstObjField<TObjBase>, TObjField
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)

@@ -80,7 +80,7 @@ public static class AllModellers
       .AddProvider<IModifierModeller, IModeller<IGqlpModifier, CollectionModel>>();
 
   private static IServiceCollection AddAlternateModeller<TObjBaseAst, TObjBase>(this IServiceCollection services)
-    where TObjBaseAst : IGqlpObjectBase<TObjBaseAst>, IEquatable<TObjBaseAst>
+    where TObjBaseAst : IGqlpObjBase<TObjBaseAst>, IEquatable<TObjBaseAst>
     where TObjBase : IObjBaseModel
     => services.AddSingleton<IAlternateModeller<TObjBaseAst, TObjBase>, AlternateModeller<TObjBaseAst, TObjBase>>();
 }

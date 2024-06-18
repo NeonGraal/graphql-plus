@@ -7,9 +7,9 @@ namespace GqlPlus.Verifying.Schema.Objects;
 internal class VerifyInputTypes(
   IVerifyAliased<IGqlpInputObject> aliased,
   IMerge<IGqlpInputField> fields,
-  IMerge<IGqlpAlternate<IGqlpInputBase>> mergeAlternates,
+  IMerge<IGqlpInputAlternate> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<IGqlpInputObject, IGqlpInputField, IGqlpInputBase, UsageContext>(aliased, fields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase, UsageContext>(aliased, fields, mergeAlternates, logger)
 {
   protected override UsageContext MakeContext(IGqlpInputObject usage, IGqlpType[] aliased, ITokenMessages errors)
   {

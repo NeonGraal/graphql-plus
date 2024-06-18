@@ -3,13 +3,15 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
-public abstract class TestObjects<TObject, TObjectAst, TObjField, TObjFieldAst, TObjBase>
+public abstract class TestObjects<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase>
   : TestTyped<IGqlpType, TObject, TObjBase, TObjField>
-  where TObject : IGqlpObject<TObjField, TObjBase>
-  where TObjectAst : AstObject<TObjFieldAst, TObjBase>, TObject
-  where TObjField : IGqlpObjectField<TObjBase>, IGqlpDescribed
-  where TObjFieldAst : AstObjectField<TObjBase>, TObjField
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObject : IGqlpObject<TObjField, TObjAlt, TObjBase>
+  where TObjectAst : AstObject<TObjField, TObjAlt, TObjBase>, TObject
+  where TObjField : IGqlpObjField<TObjBase>, IGqlpDescribed
+  where TObjFieldAst : AstObjField<TObjBase>, TObjField
+  where TObjAlt : IGqlpObjAlternate<TObjBase>, IGqlpDescribed
+  where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsTypeParametersCantMerge_ReturnsErrors(string name, string[] typeParameters)
@@ -21,12 +23,12 @@ public abstract class TestObjects<TObject, TObjectAst, TObjField, TObjFieldAst, 
         MakeObject(name) with { TypeParameters = typeParameters.ThrowIfNull().TypeParameters() });
 
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsErrors(string name, string[] alternates)
+  public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsErrors(string name, AlternateInput[] alternates)
     => this
       .CanMergeReturnsError(Alternates)
       .CanMerge_Errors(
-        MakeObject(name) with { Alternates = alternates.Alternates(MakeBase) },
-        MakeObject(name) with { Alternates = alternates.Alternates(MakeBase) });
+        MakeObject(name) with { Alternates = MakeAlternates(alternates) },
+        MakeObject(name) with { Alternates = MakeAlternates(alternates) });
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsFieldsCantMerge_ReturnsErrors(string name, FieldInput[] fields)
@@ -37,21 +39,22 @@ public abstract class TestObjects<TObject, TObjectAst, TObjField, TObjFieldAst, 
         MakeObject(name) with { Fields = MakeFields(fields) });
 
   protected IMerge<IGqlpTypeParameter> TypeParameters { get; }
-  protected IMerge<IGqlpAlternate<TObjBase>> Alternates { get; }
+  protected IMerge<TObjAlt> Alternates { get; }
   protected IMerge<TObjField> Fields { get; }
 
   protected TestObjects()
   {
     TypeParameters = Merger<IGqlpTypeParameter>();
-    Alternates = Merger<IGqlpAlternate<TObjBase>>();
+    Alternates = Merger<TObjAlt>();
     Fields = Merger<TObjField>();
   }
 
-  internal abstract AstObjectsMerger<TObject, TObjField, TObjBase> MergerObject { get; }
+  internal abstract AstObjectsMerger<TObject, TObjField, TObjAlt, TObjBase> MergerObject { get; }
   internal override AstTypeMerger<IGqlpType, TObject, TObjBase, TObjField> MergerTyped => MergerObject;
 
   protected abstract TObjectAst MakeObject(string name, string[]? aliases = null, string description = "", TObjBase? parent = default);
   protected abstract TObjFieldAst[] MakeFields(FieldInput[] fields);
+  protected abstract TObjAltAst[] MakeAlternates(AlternateInput[] alternates);
   protected abstract TObjBase MakeBase(string type);
 
   protected override TObject MakeTyped(string name, string[]? aliases = null, string description = "", TObjBase? parent = default)

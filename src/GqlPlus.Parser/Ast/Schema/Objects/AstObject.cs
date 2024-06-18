@@ -3,24 +3,26 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract record class AstObject<TObjField, TObjBase>(
+public abstract record class AstObject<TObjField, TObjAlt, TObjBase>(
   TokenAt At,
   string Name,
   string Description
 ) : AstType<TObjBase>(At, Name, Description)
-  , IEquatable<AstObject<TObjField, TObjBase>>
-  , IGqlpObject<TObjField, TObjBase>
-  where TObjField : AstObjectField<TObjBase>, IGqlpObjectField<TObjBase>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  , IEquatable<AstObject<TObjField, TObjAlt, TObjBase>>
+  , IGqlpObject<TObjField, TObjAlt, TObjBase>
+  where TObjField : IGqlpObjField<TObjBase>
+  where TObjAlt : IGqlpObjAlternate<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
   public TypeParameterAst[] TypeParameters { get; set; } = [];
   public TObjField[] Fields { get; set; } = [];
-  public AstAlternate<TObjBase>[] Alternates { get; set; } = [];
-  IEnumerable<IGqlpTypeParameter> IGqlpObject.TypeParameters => TypeParameters;
-  IEnumerable<TObjField> IGqlpObject<TObjField, TObjBase>.Fields => Fields;
-  IEnumerable<IGqlpAlternate<TObjBase>> IGqlpObject<TObjField, TObjBase>.Alternates => Alternates;
+  public TObjAlt[] Alternates { get; set; } = [];
 
-  public virtual bool Equals(AstObject<TObjField, TObjBase>? other)
+  IEnumerable<IGqlpTypeParameter> IGqlpObject.TypeParameters => TypeParameters;
+  IEnumerable<TObjField> IGqlpObject<TObjField, TObjAlt, TObjBase>.Fields => Fields;
+  IEnumerable<TObjAlt> IGqlpObject<TObjField, TObjAlt, TObjBase>.Alternates => Alternates;
+
+  public virtual bool Equals(AstObject<TObjField, TObjAlt, TObjBase>? other)
     => base.Equals(other)
       && TypeParameters.SequenceEqual(other.TypeParameters)
       && Fields.SequenceEqual(other.Fields)

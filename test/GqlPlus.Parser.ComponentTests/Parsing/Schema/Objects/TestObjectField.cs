@@ -29,16 +29,17 @@ public abstract class TestObjectField
   internal sealed override IBaseAliasedChecks<FieldInput> AliasChecks => FieldChecks;
 }
 
-internal sealed class CheckObjectField<TObjField, TObjBase, TObjBaseAst>
-  : BaseAliasedChecks<FieldInput, TObjField>
+internal sealed class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBaseAst>
+  : BaseAliasedChecks<FieldInput, TObjFieldAst, TObjField>
   , ICheckObjectField
-  where TObjField : AstObjectField<TObjBase>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
-  where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
+  where TObjField : IGqlpObjField<TObjBase>
+  where TObjFieldAst : AstObjField<TObjBase>, TObjField
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
-  private readonly IObjectFieldFactories<TObjField, TObjBase, TObjBaseAst> _factories;
+  private readonly IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst> _factories;
 
-  internal CheckObjectField(IObjectFieldFactories<TObjField, TObjBase, TObjBaseAst> factories, Parser<TObjField>.D parser)
+  internal CheckObjectField(IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst> factories, Parser<TObjField>.D parser)
     : base(parser)
     => _factories = factories;
 
@@ -53,13 +54,13 @@ internal sealed class CheckObjectField<TObjField, TObjBase, TObjBaseAst>
   public void WithModifiersBad(string name, string fieldType)
     => False(name + ":" + fieldType + "[?");
 
-  internal TObjField Field(string field, string fieldType)
+  internal TObjFieldAst Field(string field, string fieldType)
     => _factories.ObjField(AstNulls.At, field, ObjBase(fieldType));
 
   internal TObjBase ObjBase(string type)
     => _factories.ObjBase(AstNulls.At, type);
 
-  protected internal sealed override TObjField NamedFactory(FieldInput input)
+  protected internal sealed override TObjFieldAst NamedFactory(FieldInput input)
     => Field(input.Name, input.Type);
   protected internal override string AliasesString(FieldInput input, string aliases)
     => $"{input.Name}{aliases}:{input.Type}";

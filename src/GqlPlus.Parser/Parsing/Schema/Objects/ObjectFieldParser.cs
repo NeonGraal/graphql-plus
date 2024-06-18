@@ -6,22 +6,23 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class ObjectFieldParser<TObjField, TObjBase>
+public abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>
   : Parser<TObjField>.I
-  where TObjField : AstObjectField<TObjBase>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjField : IGqlpObjField<TObjBase>
+  where TObjFieldAst : AstObjField<TObjBase>, TObjField
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
   private readonly Parser<string>.LA _aliases;
   private readonly Parser<IGqlpModifier>.LA _modifiers;
-  private readonly Parser<TObjBase>.L _objBase;
+  private readonly Parser<TObjBase>.L _parseBase;
 
   protected ObjectFieldParser(
     Parser<string>.DA aliases,
     Parser<IGqlpModifier>.DA modifiers,
-    Parser<TObjBase>.D objBase)
+    Parser<TObjBase>.D parseBase)
   {
     _aliases = aliases;
-    _objBase = objBase;
+    _parseBase = parseBase;
     _modifiers = modifiers;
   }
 
@@ -45,10 +46,10 @@ public abstract class ObjectFieldParser<TObjField, TObjBase>
       return hasAliases.AsResult<TObjField>();
     }
 
-    TObjField field = ObjField(at, name, description, ObjBase(at, ""));
+    TObjFieldAst field = ObjField(at, name, description, ObjBase(at, ""));
 
     if (tokens.Take(':')) {
-      if (_objBase.Parse(tokens, label).Required(fieldType
+      if (_parseBase.Parse(tokens, label).Required(fieldType
         => field = ObjField(at, name, description, fieldType))
         ) {
         hasAliases.WithResult(aliases => field.Aliases = [.. aliases]);
@@ -63,18 +64,18 @@ public abstract class ObjectFieldParser<TObjField, TObjBase>
         return FieldDefault(tokens, field);
       }
 
-      return tokens.Error(label, "field type", field);
+      return tokens.Error<TObjField>(label, "field type", field);
     }
 
     hasAliases.WithResult(aliases => field.Aliases = [.. aliases]);
     return FieldEnumValue(tokens, field);
   }
 
-  protected abstract void ApplyFieldParameters(TObjField field, InputParameterAst[] parameters);
-  protected abstract TObjField ObjField(TokenAt at, string name, string description, TObjBase typeBase);
-  protected abstract IResult<TObjField> FieldDefault<TContext>(TContext tokens, TObjField field)
+  protected abstract void ApplyFieldParameters(TObjFieldAst field, InputParameterAst[] parameters);
+  protected abstract TObjFieldAst ObjField(TokenAt at, string name, string description, TObjBase typeBase);
+  protected abstract IResult<TObjField> FieldDefault<TContext>(TContext tokens, TObjFieldAst field)
       where TContext : Tokenizer;
-  protected abstract IResult<TObjField> FieldEnumValue<TContext>(TContext tokens, TObjField field)
+  protected abstract IResult<TObjField> FieldEnumValue<TContext>(TContext tokens, TObjFieldAst field)
       where TContext : Tokenizer;
   protected abstract IResultArray<InputParameterAst> FieldParameter<TContext>(TContext tokens)
       where TContext : Tokenizer;

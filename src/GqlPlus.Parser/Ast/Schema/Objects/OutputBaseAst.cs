@@ -7,8 +7,7 @@ public sealed record class OutputBaseAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObjectBase<OutputBaseAst>(At, Name, Description)
-  , IEquatable<OutputBaseAst>
+) : AstObjBase<IGqlpOutputBase>(At, Name, Description)
   , IGqlpOutputBase
 {
   public OutputBaseAst(TokenAt at, string name)
@@ -20,30 +19,18 @@ public sealed record class OutputBaseAst(
   public override string Label => "Output";
 
   string IGqlpOutputBase.Output => Name;
-  IEnumerable<IGqlpOutputBase> IGqlpObjectBase<IGqlpOutputBase>.TypeArguments => TypeArguments;
   IGqlpDualBase IGqlpToDual.ToDual => ToDual();
 
-  public override bool Equals(OutputBaseAst? other)
-    => base.Equals(other)
-    && EnumMember.NullEqual(other.EnumMember);
-  public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), EnumMember);
-
   internal override IEnumerable<string?> GetFields()
-    => new[] {
-      At.ToString(),
-      string.IsNullOrWhiteSpace(EnumMember)
-        ? IsTypeParameter ? Name.Prefixed("$") : Name
-        : $"{Name}.{EnumMember}"
-    }.Concat(TypeArguments.Bracket("<", ">"));
+    => string.IsNullOrWhiteSpace(EnumMember)
+    ? base.GetFields()
+    : [At.ToString(), $"{Name}.{EnumMember}"];
 
   public DualBaseAst ToDual()
     => new(At, Name, Description) {
       IsTypeParameter = IsTypeParameter,
-      TypeArguments = [.. TypeArguments.Select(a => a.ToDual())],
+      TypeArguments = [.. TypeArguments.Select(a => a.ToDual)],
     };
-  bool IEquatable<IGqlpOutputBase>.Equals(IGqlpOutputBase? other)
-    => Equals(other);
 
   void IGqlpOutputBase.SetEnumType(string enumType)
   {

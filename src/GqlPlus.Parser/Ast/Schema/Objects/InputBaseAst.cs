@@ -7,7 +7,7 @@ public sealed record class InputBaseAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObjectBase<InputBaseAst>(At, Name, Description)
+) : AstObjBase<IGqlpInputBase>(At, Name, Description)
   , IEquatable<InputBaseAst>
   , IGqlpInputBase
 {
@@ -18,19 +18,11 @@ public sealed record class InputBaseAst(
   public override string Label => "Input";
 
   string IGqlpInputBase.Input => Name;
-  IEnumerable<IGqlpInputBase> IGqlpObjectBase<IGqlpInputBase>.TypeArguments => TypeArguments;
   IGqlpDualBase IGqlpToDual.ToDual => ToDual();
-
-  public override bool Equals(InputBaseAst? other)
-    => base.Equals(other);
-  public override int GetHashCode()
-    => base.GetHashCode();
 
   public DualBaseAst ToDual()
     => new(At, Name, Description) {
       IsTypeParameter = IsTypeParameter,
-      TypeArguments = [.. TypeArguments.Select(a => a.ToDual())],
+      TypeArguments = [.. TypeArguments.Select(a => a.ToDual)],
     };
-  bool IEquatable<IGqlpInputBase>.Equals(IGqlpInputBase? other)
-    => Equals(other);
 }

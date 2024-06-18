@@ -5,7 +5,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal sealed class InputFactories
-  : IObjectFactories<InputDeclAst, InputFieldAst, IGqlpInputBase, InputBaseAst>
+  : IObjectFactories<InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, InputBaseAst>
 {
   public InputFieldAst ObjField(TokenAt at, string name, IGqlpInputBase typeBase, string description)
     => new(at, name, description, typeBase);
@@ -15,4 +15,7 @@ internal sealed class InputFactories
 
   public InputBaseAst ObjBase(TokenAt at, string name, string description)
     => new(at, name, description);
+
+  public InputAlternateAst ObjAlternate(TokenAt at, IGqlpInputBase typeBase)
+    => new(at, typeBase);
 }

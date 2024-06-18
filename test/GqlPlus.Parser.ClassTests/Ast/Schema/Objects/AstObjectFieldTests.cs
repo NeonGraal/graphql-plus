@@ -4,8 +4,8 @@ namespace GqlPlus.Ast.Schema.Objects;
 
 public abstract class AstObjectFieldTests<TObjField, TObjBase>
   : AstAliasedTests<FieldInput>
-  where TObjField : AstObjectField<TObjBase>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjField : AstObjField<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithModifiers(FieldInput input)
@@ -43,9 +43,9 @@ public abstract class AstObjectFieldTests<TObjField, TObjBase>
 internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
   : AstAliasedChecks<FieldInput, TObjField>
   , IAstObjectFieldChecks<TObjField, TObjBase>
-  where TObjField : AstObjectField<TObjBase>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
-  where TObjBaseAst : AstObjectBase<TObjBaseAst>, TObjBase
+  where TObjField : AstObjField<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   private readonly FieldBy _createField;
   private readonly BaseBy _createBase;
@@ -110,8 +110,8 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
 
 internal interface IAstObjectFieldChecks<TObjField, TObjBase>
   : IAstAliasedChecks<FieldInput>
-  where TObjField : AstObjectField<TObjBase>
-  where TObjBase : IGqlpObjectBase<TObjBase>, IEquatable<TObjBase>
+  where TObjField : AstObjField<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
   void HashCode_WithModifiers(FieldInput input);
   void String_WithModifiers(FieldInput input);

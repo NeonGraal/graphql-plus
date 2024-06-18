@@ -16,10 +16,10 @@ Success
     _Type
   }
   |
-  !AO
+  !OA I@007/0004
   I@007/0004
   _Category
-  !AO
+  !OA I@007/0005
   I@007/0005
   _Type
 }

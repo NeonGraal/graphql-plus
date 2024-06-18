@@ -266,7 +266,7 @@ Success
   !Du I@006/0001
   DualAlts
   |
-  !AD
+  !DA I@019/0001
   I@019/0001
   DualAltsType
 }
@@ -278,7 +278,7 @@ Success
   !In I@007/0001
   InpAlts
   |
-  !AI
+  !IA I@019/0001
   I@019/0001
   InpAltsType
 }
@@ -290,7 +290,7 @@ Success
   !Ou I@008/0001
   OutpAlts
   |
-  !AO
+  !OA I@021/0001
   I@021/0001
   OutpAltsType
 }

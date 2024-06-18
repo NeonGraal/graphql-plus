@@ -1,30 +1,28 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public class InputAstTests
   : AstAliasedTests
 {
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithAlternates(string name, string[] alternates)
+  public void HashCode_WithAlternates(string name, AlternateInput[] alternates)
       => _checks.HashCode(
-        () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(NewBase) });
+        () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.InputAlternates() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithAlternates(string name, string[] alternates)
+  public void String_WithAlternates(string name, AlternateInput[] alternates)
     => _checks.Text(
-      () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(NewBase) },
-      $"( !In {name} | {alternates.Joined(a => $"!AI {a} [] ?")} )");
+      () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.InputAlternates() },
+      $"( !In {name} | {alternates.Joined(a => $"!IA {a.Type} [] ?")} )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithAlternates(string name, string[] alternates)
+  public void Equality_WithAlternates(string name, AlternateInput[] alternates)
     => _checks.Equality(
-      () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(NewBase) });
+      () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.InputAlternates() });
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void Inequality_BetweenAlternates(string name, string[] alternates1, string[] alternates2)
+  public void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2)
     => _checks.InequalityBetween(alternates1, alternates2,
-      alternates => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.Alternates(NewBase) },
+      alternates => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.InputAlternates() },
       alternates1.OrderedEqual(alternates2));
 
   [Theory, RepeatData(Repeats)]
@@ -93,8 +91,8 @@ public class InputAstTests
       parameters => new InputDeclAst(AstNulls.At, name) { TypeParameters = parameters.TypeParameters() },
       typeParameters1.SequenceEqual(typeParameters2));
 
-  private static IGqlpInputBase NewBase(string argument)
-    => new InputBaseAst(AstNulls.At, argument);
+  private static InputBaseAst NewBase(string argument)
+    => new(AstNulls.At, argument);
 
   protected override string AbbreviatedString(string input)
     => $"( !In {input} )";

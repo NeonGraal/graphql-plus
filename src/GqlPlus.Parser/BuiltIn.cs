@@ -57,16 +57,16 @@ public static class BuiltIn
   private static TypeParameterAst[] TypeParameters(params string[] parameters)
     => [.. parameters.Select(r => new TypeParameterAst(AstNulls.At, r))];
 
-  private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, params AstAlternate<IGqlpDualBase>[] alternates)
+  private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, params IGqlpDualAlternate[] alternates)
     => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Alternates = alternates };
 
   private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, DualBaseAst parent)
     => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Parent = parent };
 
-  private static AstAlternate<IGqlpDualBase> DualType(string type, params DualBaseAst[] args)
+  private static DualAlternateAst DualType(string type, params DualBaseAst[] args)
     => new(AstNulls.At, DualRef(type, args));
 
-  private static AstAlternate<IGqlpDualBase> DualAlt(string? key)
+  private static DualAlternateAst DualAlt(string? key)
     => new(AstNulls.At, DualParam("T")) {
       Modifiers = key switch {
         null => [],
@@ -76,12 +76,12 @@ public static class BuiltIn
       }
     };
 
-  private static AstAlternate<IGqlpDualBase> DualAltParam(string param)
+  private static DualAlternateAst DualAltParam(string param)
     => new(AstNulls.At, DualParam("T")) {
       Modifiers = [ModifierAst.Param(AstNulls.At, param, false)]
     };
 
-  private static AstAlternate<IGqlpDualBase> DualMost(string key, bool optional = false)
+  private static DualAlternateAst DualMost(string key, bool optional = false)
     => new(AstNulls.At, DualRef("_Most", DualParam("T"))) {
       Modifiers = key switch {
         "" => [optional ? ModifierAst.Optional(AstNulls.At) : ModifierAst.List(AstNulls.At)],

@@ -2,7 +2,7 @@
 
 public record class TypeInputModel(
   string Name
-) : TypeObjectModel<InputBaseModel, InputFieldModel>(TypeKindModel.Input, Name)
+) : TypeObjectModel<InputBaseModel, InputFieldModel, InputAlternateModel>(TypeKindModel.Input, Name)
 {
   protected override string? ParentName(ObjDescribedModel<InputBaseModel>? parent)
     => parent?.Base.Input;
@@ -22,6 +22,11 @@ public record class InputFieldModel(
 {
   internal ConstantModel? Default { get; init; }
 }
+
+public record class InputAlternateModel(
+  ObjDescribedModel<InputBaseModel> Type
+) : ObjAlternateModel<InputBaseModel>(Type)
+{ }
 
 public record class InputParameterModel(
   ObjDescribedModel<InputBaseModel> Type

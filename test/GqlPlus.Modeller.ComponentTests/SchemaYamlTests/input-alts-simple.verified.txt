@@ -2,12 +2,12 @@
 types: !_Map_Type
   !_Identifier InpAltsSimple: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpAltsSimple
       type: !_InputBase
         input: String
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     name: InpAltsSimple

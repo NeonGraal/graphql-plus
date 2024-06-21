@@ -15,7 +15,7 @@ _errors:
 types: !_Map_Type
   !_Identifier _InputBase: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _InputBase
       type: !_OutputBase
         output: _DualBase
@@ -26,7 +26,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Identifier
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _DualBase
     fields:

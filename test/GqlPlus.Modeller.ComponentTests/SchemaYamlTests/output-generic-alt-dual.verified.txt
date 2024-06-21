@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier OutpGenAltDual: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAltDual
       type: !_OutputBase
         output: OutpGenAltDualRef
@@ -10,7 +10,7 @@ types: !_Map_Type
         - !_DualBase
           dual: OutpGenAltDualAlt
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutpGenAltDualRef
         typeArguments:
@@ -20,7 +20,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenAltDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: OutpGenAltDualAlt
       type: !_DualBase
         dual: String
@@ -31,7 +31,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -43,11 +43,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier OutpGenAltDualRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAltDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenAltDualRef
     typeKind: !_TypeKind Output

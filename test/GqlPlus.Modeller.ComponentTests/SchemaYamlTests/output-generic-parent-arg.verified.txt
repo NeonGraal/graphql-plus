@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier OutpGenPrntArg: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenPrntRef
       type: !_TypeParameter ref
     name: OutpGenPrntArg
@@ -16,11 +16,11 @@ types: !_Map_Type
       name: type
   !_Identifier OutpGenPrntRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenPrntRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenPrntRef
     typeKind: !_TypeKind Output

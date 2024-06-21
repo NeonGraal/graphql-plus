@@ -2,11 +2,11 @@
 types: !_Map_Type
   !_Identifier OutpPrmsPrntSame: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpPrmsPrntSame
       type: !_TypeParameter a
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter a
     name: OutpPrmsPrntSame
     typeKind: !_TypeKind Output
@@ -15,7 +15,7 @@ types: !_Map_Type
       name: a
   !_Identifier OutpPrntPrmsSame: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpPrmsPrntSame
       type: !_TypeParameter a
     allFields:

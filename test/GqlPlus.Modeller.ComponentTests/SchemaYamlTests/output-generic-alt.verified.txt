@@ -2,11 +2,11 @@
 types: !_Map_Type
   !_Identifier OutpGenAlt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAlt
       type: !_TypeParameter type
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter type
     name: OutpGenAlt
     typeKind: !_TypeKind Output

@@ -6,14 +6,14 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "$tag": "_ObjectFor(_DualAlternate)",
           "object": "DualPrmsPrntDiff",
           "type": "b"
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_DualBase)",
+          "$tag": "_DualAlternate",
           "type": "b"
         }
       ],
@@ -30,7 +30,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "$tag": "_ObjectFor(_DualAlternate)",
           "object": "DualPrmsPrntDiff",
           "type": "b"
         }

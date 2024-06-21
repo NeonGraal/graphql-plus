@@ -29,7 +29,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "$tag": "_ObjectFor(_InputAlternate)",
           "object": "OutParamDomain",
           "type": {
             "$tag": "_InputBase",
@@ -50,7 +50,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_InputBase)",
+          "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
             "value": "String"

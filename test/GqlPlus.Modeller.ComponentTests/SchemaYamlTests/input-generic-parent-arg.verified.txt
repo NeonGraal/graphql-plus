@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier InpGenPrntArg: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenPrntRef
       type: !_TypeParameter ref
     name: InpGenPrntArg
@@ -16,11 +16,11 @@ types: !_Map_Type
       name: type
   !_Identifier InpGenPrntRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenPrntRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenPrntRef
     typeKind: !_TypeKind Input

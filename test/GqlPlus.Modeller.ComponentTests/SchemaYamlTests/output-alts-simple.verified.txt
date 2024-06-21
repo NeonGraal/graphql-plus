@@ -2,12 +2,12 @@
 types: !_Map_Type
   !_Identifier OutpAltsSimple: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpAltsSimple
       type: !_OutputBase
         output: String
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     name: OutpAltsSimple

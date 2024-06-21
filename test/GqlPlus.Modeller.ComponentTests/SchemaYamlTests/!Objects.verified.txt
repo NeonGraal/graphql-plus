@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier DualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualAlt
       type: !_DualBase
         dual: String
@@ -13,7 +13,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -25,7 +25,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualAltDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualAltDual
       type: !_DualBase
         dual: String
@@ -36,7 +36,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -48,7 +48,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualAltMods: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       collections:
       - !_ModifierDictionary
         by: ^
@@ -58,7 +58,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualModsAlt
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       collections:
       - !_ModifierDictionary
         by: ^
@@ -70,7 +70,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualAltModsParam: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       collections:
       - !_ModifierTypeParameter
         by: mod
@@ -79,7 +79,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualModsParamAlt
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       collections:
       - !_ModifierTypeParameter
         by: mod
@@ -93,7 +93,7 @@ types: !_Map_Type
       name: mod
   !_Identifier DualAltPrnt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualAltPrnt
       type: !_DualBase
         dual: String
@@ -104,7 +104,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -116,43 +116,43 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualAlts: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualAlts
       type: !_DualBase
         dual: DualAlt
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: DualAlt
     name: DualAlts
     typeKind: !_TypeKind Dual
   !_Identifier DualAltsDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualAltsDual
       type: !_DualBase
         dual: DualAltDual
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: DualAltDual
     name: DualAltsDual
     typeKind: !_TypeKind Dual
   !_Identifier DualAltsSimple: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualAltsSimple
       type: !_DualBase
         dual: String
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     name: DualAltsSimple
     typeKind: !_TypeKind Dual
   !_Identifier DualField: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualField
       type: !_DualBase
         dual: String
@@ -163,7 +163,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -175,7 +175,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualFieldDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualFieldDual
       type: !_DualBase
         dual: String
@@ -186,7 +186,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -245,7 +245,7 @@ types: !_Map_Type
       name: mod
   !_Identifier DualFieldParamMods: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualFieldParamMods
       type: !_DualBase
         dual: String
@@ -256,7 +256,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -282,7 +282,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualFieldsParent: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualFieldsParent
       type: !_DualBase
         dual: String
@@ -293,7 +293,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -333,11 +333,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAlt
       type: !_TypeParameter type
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter type
     name: DualGenAlt
     typeKind: !_TypeKind Dual
@@ -346,14 +346,14 @@ types: !_Map_Type
       name: type
   !_Identifier DualGenAltArg: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltArg
       type: !_DualBase
         dual: DualGenAltRef
         typeArguments:
         - !_TypeParameter type
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: DualGenAltRef
         typeArguments:
@@ -365,7 +365,7 @@ types: !_Map_Type
       name: type
   !_Identifier DualGenAltDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltDual
       type: !_DualBase
         dual: DualGenAltDualRef
@@ -373,7 +373,7 @@ types: !_Map_Type
         - !_DualBase
           dual: DualGenAltDualAlt
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: DualGenAltDualRef
         typeArguments:
@@ -383,7 +383,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAltDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltDualAlt
       type: !_DualBase
         dual: String
@@ -394,7 +394,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -406,11 +406,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAltDualRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenAltDualRef
     typeKind: !_TypeKind Dual
@@ -419,7 +419,7 @@ types: !_Map_Type
       name: ref
   !_Identifier DualGenAltParam: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltParam
       type: !_DualBase
         dual: DualGenAltParamRef
@@ -427,7 +427,7 @@ types: !_Map_Type
         - !_DualBase
           dual: DualGenAltParamAlt
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: DualGenAltParamRef
         typeArguments:
@@ -437,7 +437,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAltParamAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltParamAlt
       type: !_DualBase
         dual: String
@@ -448,7 +448,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -460,11 +460,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAltParamRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenAltParamRef
     typeKind: !_TypeKind Dual
@@ -473,11 +473,11 @@ types: !_Map_Type
       name: ref
   !_Identifier DualGenAltRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenAltRef
     typeKind: !_TypeKind Dual
@@ -506,7 +506,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenDualAlt
       type: !_DualBase
         dual: String
@@ -517,7 +517,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -529,11 +529,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenDualRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenDualRef
     typeKind: !_TypeKind Dual
@@ -598,7 +598,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenFieldDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenFieldDualAlt
       type: !_DualBase
         dual: String
@@ -609,7 +609,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -621,11 +621,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenFieldDualRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenFieldDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenFieldDualRef
     typeKind: !_TypeKind Dual
@@ -654,7 +654,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenFieldParamAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenFieldParamAlt
       type: !_DualBase
         dual: String
@@ -665,7 +665,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -677,11 +677,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenFieldParamRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenFieldParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenFieldParamRef
     typeKind: !_TypeKind Dual
@@ -690,11 +690,11 @@ types: !_Map_Type
       name: ref
   !_Identifier DualGenFieldRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenFieldRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenFieldRef
     typeKind: !_TypeKind Dual
@@ -723,7 +723,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParamAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenParamAlt
       type: !_DualBase
         dual: String
@@ -734,7 +734,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -746,11 +746,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParamRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenParamRef
     typeKind: !_TypeKind Dual
@@ -759,7 +759,7 @@ types: !_Map_Type
       name: ref
   !_Identifier DualGenParentDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenParentDualRef
       type: !_TypeParameter ref
     name: DualGenParentDual
@@ -771,7 +771,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenParentDualAlt
       type: !_DualBase
         dual: String
@@ -782,7 +782,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -794,11 +794,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentDualRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenParentDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenParentDualRef
     typeKind: !_TypeKind Dual
@@ -807,7 +807,7 @@ types: !_Map_Type
       name: ref
   !_Identifier DualGenParentParam: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenParentParamRef
       type: !_TypeParameter ref
     name: DualGenParentParam
@@ -819,7 +819,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentParamAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenParentParamAlt
       type: !_DualBase
         dual: String
@@ -830,7 +830,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -842,11 +842,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentParamRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenParentParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenParentParamRef
     typeKind: !_TypeKind Dual
@@ -862,7 +862,7 @@ types: !_Map_Type
       name: type
   !_Identifier DualGenPrntArg: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenPrntRef
       type: !_TypeParameter ref
     name: DualGenPrntArg
@@ -876,11 +876,11 @@ types: !_Map_Type
       name: type
   !_Identifier DualGenPrntRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenPrntRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenPrntRef
     typeKind: !_TypeKind Dual
@@ -889,7 +889,7 @@ types: !_Map_Type
       name: ref
   !_Identifier DualModsAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualModsAlt
       type: !_DualBase
         dual: String
@@ -900,7 +900,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -912,7 +912,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualModsParamAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualModsParamAlt
       type: !_DualBase
         dual: String
@@ -923,7 +923,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -935,7 +935,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualParentTest: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualParentTest
       type: !_DualBase
         dual: String
@@ -946,7 +946,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -958,11 +958,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualPrmsPrntDiff: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualPrmsPrntDiff
       type: !_TypeParameter b
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter b
     name: DualPrmsPrntDiff
     typeKind: !_TypeKind Dual
@@ -971,11 +971,11 @@ types: !_Map_Type
       name: b
   !_Identifier DualPrmsPrntSame: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualPrmsPrntSame
       type: !_TypeParameter a
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter a
     name: DualPrmsPrntSame
     typeKind: !_TypeKind Dual
@@ -984,11 +984,11 @@ types: !_Map_Type
       name: a
   !_Identifier DualPrntAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualAltPrnt
       type: !_DualBase
         dual: String
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualPrntAlt
       type: !_DualBase
         dual: Number
@@ -999,7 +999,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: Number
     name: DualPrntAlt
@@ -1008,7 +1008,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualPrntDualTest: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualPrntDualTest
       type: !_DualBase
         dual: String
@@ -1019,7 +1019,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -1031,7 +1031,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualPrntFields: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualFieldsParent
       type: !_DualBase
         dual: String
@@ -1057,7 +1057,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualPrntPrmsDiff: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualPrmsPrntDiff
       type: !_TypeParameter b
     allFields:
@@ -1080,7 +1080,7 @@ types: !_Map_Type
       name: a
   !_Identifier DualPrntPrmsSame: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualPrmsPrntSame
       type: !_TypeParameter a
     allFields:
@@ -1103,7 +1103,7 @@ types: !_Map_Type
       name: a
   !_Identifier DualTestParent: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualParentTest
       type: !_DualBase
         dual: String
@@ -1119,7 +1119,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualTestPrntDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualPrntDualTest
       type: !_DualBase
         dual: String
@@ -1251,7 +1251,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpAlt
       type: !_InputBase
         input: String
@@ -1262,7 +1262,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -1274,7 +1274,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpAltDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: InpAltDual
       type: !_DualBase
         dual: String
@@ -1285,7 +1285,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -1297,7 +1297,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier InpAltMods: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       collections:
       - !_ModifierDictionary
         by: ^
@@ -1307,7 +1307,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpModsAlt
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       collections:
       - !_ModifierDictionary
         by: ^
@@ -1319,7 +1319,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpAltModsParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       collections:
       - !_ModifierTypeParameter
         by: mod
@@ -1328,7 +1328,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpModsParamAlt
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       collections:
       - !_ModifierTypeParameter
         by: mod
@@ -1342,7 +1342,7 @@ types: !_Map_Type
       name: mod
   !_Identifier InpAltPrnt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpAltPrnt
       type: !_InputBase
         input: String
@@ -1353,7 +1353,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -1365,43 +1365,43 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpAlts: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpAlts
       type: !_InputBase
         input: InpAlt
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: InpAlt
     name: InpAlts
     typeKind: !_TypeKind Input
   !_Identifier InpAltsDual: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpAltsDual
       type: !_DualBase
         dual: InpAltDual
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_DualBase
         dual: InpAltDual
     name: InpAltsDual
     typeKind: !_TypeKind Input
   !_Identifier InpAltsSimple: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpAltsSimple
       type: !_InputBase
         input: String
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     name: InpAltsSimple
     typeKind: !_TypeKind Input
   !_Identifier InpField: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpField
       type: !_InputBase
         input: String
@@ -1412,7 +1412,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -1424,7 +1424,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpFieldDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: InpFieldDual
       type: !_DualBase
         dual: String
@@ -1435,7 +1435,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -1494,7 +1494,7 @@ types: !_Map_Type
       name: mod
   !_Identifier InpFieldParamMods: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpFieldParamMods
       type: !_InputBase
         input: String
@@ -1505,7 +1505,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -1531,7 +1531,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpFieldsParent: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpFieldsParent
       type: !_InputBase
         input: String
@@ -1542,7 +1542,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -1582,11 +1582,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAlt
       type: !_TypeParameter type
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter type
     name: InpGenAlt
     typeKind: !_TypeKind Input
@@ -1595,14 +1595,14 @@ types: !_Map_Type
       name: type
   !_Identifier InpGenAltArg: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAltArg
       type: !_InputBase
         input: InpGenAltRef
         typeArguments:
         - !_TypeParameter type
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: InpGenAltRef
         typeArguments:
@@ -1614,7 +1614,7 @@ types: !_Map_Type
       name: type
   !_Identifier InpGenAltDual: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAltDual
       type: !_InputBase
         input: InpGenAltDualRef
@@ -1622,7 +1622,7 @@ types: !_Map_Type
         - !_DualBase
           dual: InpGenAltDualAlt
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: InpGenAltDualRef
         typeArguments:
@@ -1632,7 +1632,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenAltDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: InpGenAltDualAlt
       type: !_DualBase
         dual: String
@@ -1643,7 +1643,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -1655,11 +1655,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier InpGenAltDualRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAltDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenAltDualRef
     typeKind: !_TypeKind Input
@@ -1668,7 +1668,7 @@ types: !_Map_Type
       name: ref
   !_Identifier InpGenAltParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAltParam
       type: !_InputBase
         input: InpGenAltParamRef
@@ -1676,7 +1676,7 @@ types: !_Map_Type
         - !_InputBase
           input: InpGenAltParamAlt
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: InpGenAltParamRef
         typeArguments:
@@ -1686,7 +1686,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenAltParamAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAltParamAlt
       type: !_InputBase
         input: String
@@ -1697,7 +1697,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -1709,11 +1709,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenAltParamRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAltParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenAltParamRef
     typeKind: !_TypeKind Input
@@ -1722,11 +1722,11 @@ types: !_Map_Type
       name: ref
   !_Identifier InpGenAltRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAltRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenAltRef
     typeKind: !_TypeKind Input
@@ -1755,7 +1755,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: InpGenDualAlt
       type: !_DualBase
         dual: String
@@ -1766,7 +1766,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -1778,11 +1778,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier InpGenDualRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenDualRef
     typeKind: !_TypeKind Input
@@ -1847,7 +1847,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenFieldDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: InpGenFieldDualAlt
       type: !_DualBase
         dual: String
@@ -1858,7 +1858,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -1870,11 +1870,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier InpGenFieldDualRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenFieldDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenFieldDualRef
     typeKind: !_TypeKind Input
@@ -1903,7 +1903,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenFieldParamAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenFieldParamAlt
       type: !_InputBase
         input: String
@@ -1914,7 +1914,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -1926,11 +1926,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenFieldParamRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenFieldParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenFieldParamRef
     typeKind: !_TypeKind Input
@@ -1939,11 +1939,11 @@ types: !_Map_Type
       name: ref
   !_Identifier InpGenFieldRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenFieldRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenFieldRef
     typeKind: !_TypeKind Input
@@ -1972,7 +1972,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenParamAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenParamAlt
       type: !_InputBase
         input: String
@@ -1983,7 +1983,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -1995,11 +1995,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenParamRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenParamRef
     typeKind: !_TypeKind Input
@@ -2008,7 +2008,7 @@ types: !_Map_Type
       name: ref
   !_Identifier InpGenParentDual: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenParentDualRef
       type: !_TypeParameter ref
     name: InpGenParentDual
@@ -2020,7 +2020,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenParentDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: InpGenParentDualAlt
       type: !_DualBase
         dual: String
@@ -2031,7 +2031,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -2043,11 +2043,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier InpGenParentDualRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenParentDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenParentDualRef
     typeKind: !_TypeKind Input
@@ -2056,7 +2056,7 @@ types: !_Map_Type
       name: ref
   !_Identifier InpGenParentParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenParentParamRef
       type: !_TypeParameter ref
     name: InpGenParentParam
@@ -2068,7 +2068,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenParentParamAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenParentParamAlt
       type: !_InputBase
         input: String
@@ -2079,7 +2079,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -2091,11 +2091,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenParentParamRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenParentParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenParentParamRef
     typeKind: !_TypeKind Input
@@ -2111,7 +2111,7 @@ types: !_Map_Type
       name: type
   !_Identifier InpGenPrntArg: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenPrntRef
       type: !_TypeParameter ref
     name: InpGenPrntArg
@@ -2125,11 +2125,11 @@ types: !_Map_Type
       name: type
   !_Identifier InpGenPrntRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenPrntRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenPrntRef
     typeKind: !_TypeKind Input
@@ -2138,7 +2138,7 @@ types: !_Map_Type
       name: ref
   !_Identifier InpModsAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpModsAlt
       type: !_InputBase
         input: String
@@ -2149,7 +2149,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -2161,7 +2161,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpModsParamAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpModsParamAlt
       type: !_InputBase
         input: String
@@ -2172,7 +2172,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -2184,7 +2184,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpParentTest: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpParentTest
       type: !_InputBase
         input: String
@@ -2195,7 +2195,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -2207,11 +2207,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpPrmsPrntDiff: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpPrmsPrntDiff
       type: !_TypeParameter b
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter b
     name: InpPrmsPrntDiff
     typeKind: !_TypeKind Input
@@ -2220,11 +2220,11 @@ types: !_Map_Type
       name: b
   !_Identifier InpPrmsPrntSame: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpPrmsPrntSame
       type: !_TypeParameter a
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter a
     name: InpPrmsPrntSame
     typeKind: !_TypeKind Input
@@ -2233,11 +2233,11 @@ types: !_Map_Type
       name: a
   !_Identifier InpPrntAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpAltPrnt
       type: !_InputBase
         input: String
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpPrntAlt
       type: !_InputBase
         input: Number
@@ -2248,7 +2248,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: Number
     name: InpPrntAlt
@@ -2257,7 +2257,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpPrntDualTest: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: InpPrntDualTest
       type: !_DualBase
         dual: String
@@ -2268,7 +2268,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -2280,7 +2280,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier InpPrntFields: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpFieldsParent
       type: !_InputBase
         input: String
@@ -2306,7 +2306,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpPrntPrmsDiff: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpPrmsPrntDiff
       type: !_TypeParameter b
     allFields:
@@ -2329,7 +2329,7 @@ types: !_Map_Type
       name: a
   !_Identifier InpPrntPrmsSame: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpPrmsPrntSame
       type: !_TypeParameter a
     allFields:
@@ -2352,7 +2352,7 @@ types: !_Map_Type
       name: a
   !_Identifier InpTestParent: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpParentTest
       type: !_InputBase
         input: String
@@ -2368,7 +2368,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpTestPrntDual: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: InpPrntDualTest
       type: !_DualBase
         dual: String
@@ -2523,7 +2523,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutGenEnum: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutGenEnum
       type: !_OutputBase
         output: OutGenEnumRef
@@ -2533,7 +2533,7 @@ types: !_Map_Type
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutGenEnumRef
         typeArguments:
@@ -2560,7 +2560,7 @@ types: !_Map_Type
       name: type
   !_Identifier OutGenParent: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutGenParent
       type: !_OutputBase
         output: OutGenParentRef
@@ -2570,7 +2570,7 @@ types: !_Map_Type
           name: OutParentGen
           typeKind: !_SimpleKind Enum
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutGenParentRef
         typeArguments:
@@ -2597,7 +2597,7 @@ types: !_Map_Type
       name: type
   !_Identifier OutGenValue: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutGenValue
       type: !_OutputBase
         output: OutGenValueRef
@@ -2605,7 +2605,7 @@ types: !_Map_Type
         - !_OutputBase
           output: outValueGen
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutGenValueRef
         typeArguments:
@@ -2630,7 +2630,7 @@ types: !_Map_Type
       name: type
   !_Identifier OutParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: OutParam
       type: !_InputBase
         input: String
@@ -2641,7 +2641,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -2653,7 +2653,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier OutParamDomain: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: OutParamDomain
       type: !_InputBase
         input: String
@@ -2664,7 +2664,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -2676,7 +2676,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier OutParamDomainParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: OutParamDomainParam
       type: !_InputBase
         input: String
@@ -2687,7 +2687,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -2699,7 +2699,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier OutParamParent: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: OutParamParent
       type: !_InputBase
         input: String
@@ -2710,7 +2710,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -2827,7 +2827,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier OutPrntParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: OutPrntParam
       type: !_InputBase
         input: String
@@ -2838,7 +2838,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -2900,7 +2900,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier OutpAlt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpAlt
       type: !_OutputBase
         output: String
@@ -2911,7 +2911,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -2923,7 +2923,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpAltDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: OutpAltDual
       type: !_DualBase
         dual: String
@@ -2934,7 +2934,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -2946,7 +2946,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier OutpAltMods: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       collections:
       - !_ModifierDictionary
         by: ^
@@ -2956,7 +2956,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpModsAlt
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       collections:
       - !_ModifierDictionary
         by: ^
@@ -2968,7 +2968,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpAltModsParam: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       collections:
       - !_ModifierTypeParameter
         by: mod
@@ -2977,7 +2977,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpModsParamAlt
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       collections:
       - !_ModifierTypeParameter
         by: mod
@@ -2991,7 +2991,7 @@ types: !_Map_Type
       name: mod
   !_Identifier OutpAltPrnt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpAltPrnt
       type: !_OutputBase
         output: String
@@ -3002,7 +3002,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -3014,43 +3014,43 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpAlts: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpAlts
       type: !_OutputBase
         output: OutpAlt
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutpAlt
     name: OutpAlts
     typeKind: !_TypeKind Output
   !_Identifier OutpAltsDual: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpAltsDual
       type: !_DualBase
         dual: OutpAltDual
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_DualBase
         dual: OutpAltDual
     name: OutpAltsDual
     typeKind: !_TypeKind Output
   !_Identifier OutpAltsSimple: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpAltsSimple
       type: !_OutputBase
         output: String
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     name: OutpAltsSimple
     typeKind: !_TypeKind Output
   !_Identifier OutpField: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpField
       type: !_OutputBase
         output: String
@@ -3061,7 +3061,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -3073,7 +3073,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: OutpFieldDual
       type: !_DualBase
         dual: String
@@ -3084,7 +3084,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -3143,7 +3143,7 @@ types: !_Map_Type
       name: mod
   !_Identifier OutpFieldParamMods: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpFieldParamMods
       type: !_OutputBase
         output: String
@@ -3154,7 +3154,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -3180,7 +3180,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldsParent: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpFieldsParent
       type: !_OutputBase
         output: String
@@ -3191,7 +3191,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -3231,11 +3231,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenAlt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAlt
       type: !_TypeParameter type
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter type
     name: OutpGenAlt
     typeKind: !_TypeKind Output
@@ -3244,14 +3244,14 @@ types: !_Map_Type
       name: type
   !_Identifier OutpGenAltArg: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAltArg
       type: !_OutputBase
         output: OutpGenAltRef
         typeArguments:
         - !_TypeParameter type
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutpGenAltRef
         typeArguments:
@@ -3263,7 +3263,7 @@ types: !_Map_Type
       name: type
   !_Identifier OutpGenAltDual: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAltDual
       type: !_OutputBase
         output: OutpGenAltDualRef
@@ -3271,7 +3271,7 @@ types: !_Map_Type
         - !_DualBase
           dual: OutpGenAltDualAlt
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutpGenAltDualRef
         typeArguments:
@@ -3281,7 +3281,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenAltDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: OutpGenAltDualAlt
       type: !_DualBase
         dual: String
@@ -3292,7 +3292,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -3304,11 +3304,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier OutpGenAltDualRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAltDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenAltDualRef
     typeKind: !_TypeKind Output
@@ -3317,7 +3317,7 @@ types: !_Map_Type
       name: ref
   !_Identifier OutpGenAltParam: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAltParam
       type: !_OutputBase
         output: OutpGenAltParamRef
@@ -3325,7 +3325,7 @@ types: !_Map_Type
         - !_OutputBase
           output: OutpGenAltParamAlt
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutpGenAltParamRef
         typeArguments:
@@ -3335,7 +3335,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenAltParamAlt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAltParamAlt
       type: !_OutputBase
         output: String
@@ -3346,7 +3346,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -3358,11 +3358,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenAltParamRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAltParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenAltParamRef
     typeKind: !_TypeKind Output
@@ -3371,11 +3371,11 @@ types: !_Map_Type
       name: ref
   !_Identifier OutpGenAltRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAltRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenAltRef
     typeKind: !_TypeKind Output
@@ -3404,7 +3404,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: OutpGenDualAlt
       type: !_DualBase
         dual: String
@@ -3415,7 +3415,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -3427,11 +3427,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier OutpGenDualRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenDualRef
     typeKind: !_TypeKind Output
@@ -3496,7 +3496,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenFieldDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: OutpGenFieldDualAlt
       type: !_DualBase
         dual: String
@@ -3507,7 +3507,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -3519,11 +3519,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier OutpGenFieldDualRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenFieldDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenFieldDualRef
     typeKind: !_TypeKind Output
@@ -3552,7 +3552,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenFieldParamAlt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenFieldParamAlt
       type: !_OutputBase
         output: String
@@ -3563,7 +3563,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -3575,11 +3575,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenFieldParamRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenFieldParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenFieldParamRef
     typeKind: !_TypeKind Output
@@ -3588,11 +3588,11 @@ types: !_Map_Type
       name: ref
   !_Identifier OutpGenFieldRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenFieldRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenFieldRef
     typeKind: !_TypeKind Output
@@ -3621,7 +3621,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParamAlt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenParamAlt
       type: !_OutputBase
         output: String
@@ -3632,7 +3632,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -3644,11 +3644,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParamRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenParamRef
     typeKind: !_TypeKind Output
@@ -3657,7 +3657,7 @@ types: !_Map_Type
       name: ref
   !_Identifier OutpGenParentDual: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentDualRef
       type: !_TypeParameter ref
     name: OutpGenParentDual
@@ -3669,7 +3669,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: OutpGenParentDualAlt
       type: !_DualBase
         dual: String
@@ -3680,7 +3680,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -3692,11 +3692,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier OutpGenParentDualRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenParentDualRef
     typeKind: !_TypeKind Output
@@ -3705,7 +3705,7 @@ types: !_Map_Type
       name: ref
   !_Identifier OutpGenParentParam: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentParamRef
       type: !_TypeParameter ref
     name: OutpGenParentParam
@@ -3717,7 +3717,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentParamAlt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentParamAlt
       type: !_OutputBase
         output: String
@@ -3728,7 +3728,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -3740,11 +3740,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentParamRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenParentParamRef
     typeKind: !_TypeKind Output
@@ -3760,7 +3760,7 @@ types: !_Map_Type
       name: type
   !_Identifier OutpGenPrntArg: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenPrntRef
       type: !_TypeParameter ref
     name: OutpGenPrntArg
@@ -3774,11 +3774,11 @@ types: !_Map_Type
       name: type
   !_Identifier OutpGenPrntRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenPrntRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenPrntRef
     typeKind: !_TypeKind Output
@@ -3787,7 +3787,7 @@ types: !_Map_Type
       name: ref
   !_Identifier OutpModsAlt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpModsAlt
       type: !_OutputBase
         output: String
@@ -3798,7 +3798,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -3810,7 +3810,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpModsParamAlt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpModsParamAlt
       type: !_OutputBase
         output: String
@@ -3821,7 +3821,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -3833,7 +3833,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpParentTest: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpParentTest
       type: !_OutputBase
         output: String
@@ -3844,7 +3844,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -3856,11 +3856,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpPrmsPrntDiff: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpPrmsPrntDiff
       type: !_TypeParameter b
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter b
     name: OutpPrmsPrntDiff
     typeKind: !_TypeKind Output
@@ -3869,11 +3869,11 @@ types: !_Map_Type
       name: b
   !_Identifier OutpPrmsPrntSame: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpPrmsPrntSame
       type: !_TypeParameter a
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter a
     name: OutpPrmsPrntSame
     typeKind: !_TypeKind Output
@@ -3882,11 +3882,11 @@ types: !_Map_Type
       name: a
   !_Identifier OutpPrntAlt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpAltPrnt
       type: !_OutputBase
         output: String
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpPrntAlt
       type: !_OutputBase
         output: Number
@@ -3897,7 +3897,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: Number
     name: OutpPrntAlt
@@ -3906,7 +3906,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpPrntDualTest: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: OutpPrntDualTest
       type: !_DualBase
         dual: String
@@ -3917,7 +3917,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -3929,7 +3929,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier OutpPrntFields: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpFieldsParent
       type: !_OutputBase
         output: String
@@ -3955,7 +3955,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpPrntPrmsDiff: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpPrmsPrntDiff
       type: !_TypeParameter b
     allFields:
@@ -3978,7 +3978,7 @@ types: !_Map_Type
       name: a
   !_Identifier OutpPrntPrmsSame: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpPrmsPrntSame
       type: !_TypeParameter a
     allFields:
@@ -4001,7 +4001,7 @@ types: !_Map_Type
       name: a
   !_Identifier OutpTestParent: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpParentTest
       type: !_OutputBase
         output: String
@@ -4017,7 +4017,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpTestPrntDual: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: OutpPrntDualTest
       type: !_DualBase
         dual: String

@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier InpAltMods: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       collections:
       - !_ModifierDictionary
         by: ^
@@ -12,7 +12,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpModsAlt
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       collections:
       - !_ModifierDictionary
         by: ^
@@ -24,7 +24,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpModsAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpModsAlt
       type: !_InputBase
         input: String
@@ -35,7 +35,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:

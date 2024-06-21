@@ -44,7 +44,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "$tag": "_ObjectFor(_DualAlternate)",
           "object": "InpGenDualAlt",
           "type": {
             "$tag": "_DualBase",
@@ -65,7 +65,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_DualBase)",
+          "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -89,14 +89,14 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "$tag": "_ObjectFor(_InputAlternate)",
           "object": "InpGenDualRef",
           "type": "ref"
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_InputBase)",
+          "$tag": "_InputAlternate",
           "type": "ref"
         }
       ],

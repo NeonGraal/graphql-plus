@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier DualGenPrntArg: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenPrntRef
       type: !_TypeParameter ref
     name: DualGenPrntArg
@@ -16,11 +16,11 @@ types: !_Map_Type
       name: type
   !_Identifier DualGenPrntRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenPrntRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenPrntRef
     typeKind: !_TypeKind Dual

@@ -4,6 +4,8 @@ public class ConstantModel
   : Structured<SimpleModel, ConstantModel>
   , IModelBase
 {
+  public string Tag => "_Constant";
+
   internal ConstantModel(SimpleModel value)
     : base(value) { }
 
@@ -17,6 +19,8 @@ public class ConstantModel
 public record class SimpleModel
   : IModelBase
 {
+  public string Tag => "_Simple";
+
   internal bool? Boolean { get; private init; }
   internal TypeRefModel<SimpleKindModel>? TypeRef { get; private init; }
   internal decimal? Number { get; private init; }

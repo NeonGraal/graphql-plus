@@ -17,7 +17,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier OutParamDomain: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: OutParamDomain
       type: !_InputBase
         input: String
@@ -28,7 +28,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:

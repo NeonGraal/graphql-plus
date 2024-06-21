@@ -6,11 +6,11 @@ _errors:
 types: !_Map_Type
   !_Identifier _Categories: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _Categories
       type: !_OutputBase
         output: _Category
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _Categories
       type: !_OutputBase
         output: _Type
@@ -26,10 +26,10 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Type
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _Category
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _Type
     fields:

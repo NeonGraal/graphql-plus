@@ -2,12 +2,12 @@
 types: !_Map_Type
   !_Identifier OutpAlts: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpAlts
       type: !_OutputBase
         output: OutpAltsType
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutpAltsType
     name: OutpAlts

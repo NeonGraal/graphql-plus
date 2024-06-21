@@ -40,14 +40,14 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "$tag": "_ObjectFor(_DualAlternate)",
           "object": "DualGenFieldRef",
           "type": "ref"
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_DualBase)",
+          "$tag": "_DualAlternate",
           "type": "ref"
         }
       ],

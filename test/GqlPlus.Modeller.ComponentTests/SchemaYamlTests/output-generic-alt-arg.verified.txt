@@ -2,14 +2,14 @@
 types: !_Map_Type
   !_Identifier OutpGenAltArg: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAltArg
       type: !_OutputBase
         output: OutpGenAltRef
         typeArguments:
         - !_TypeParameter type
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutpGenAltRef
         typeArguments:
@@ -21,11 +21,11 @@ types: !_Map_Type
       name: type
   !_Identifier OutpGenAltRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenAltRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenAltRef
     typeKind: !_TypeKind Output

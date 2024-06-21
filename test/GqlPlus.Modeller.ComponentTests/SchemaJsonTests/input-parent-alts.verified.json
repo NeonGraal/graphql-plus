@@ -6,7 +6,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "$tag": "_ObjectFor(_InputAlternate)",
           "object": "InpAltPrnt",
           "type": {
             "$tag": "_InputBase",
@@ -27,7 +27,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_InputBase)",
+          "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -51,7 +51,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "$tag": "_ObjectFor(_InputAlternate)",
           "object": "InpAltPrnt",
           "type": {
             "$tag": "_InputBase",
@@ -59,7 +59,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "$tag": "_ObjectFor(_InputAlternate)",
           "object": "InpPrntAlt",
           "type": {
             "$tag": "_InputBase",
@@ -80,7 +80,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_InputBase)",
+          "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"

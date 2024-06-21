@@ -2,11 +2,11 @@
 types: !_Map_Type
   !_Identifier OutpPrmsPrntDiff: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpPrmsPrntDiff
       type: !_TypeParameter b
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter b
     name: OutpPrmsPrntDiff
     typeKind: !_TypeKind Output
@@ -15,7 +15,7 @@ types: !_Map_Type
       name: b
   !_Identifier OutpPrntPrmsDiff: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpPrmsPrntDiff
       type: !_TypeParameter b
     allFields:

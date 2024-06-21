@@ -121,12 +121,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualAlts: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualAlts
       type: !_DualBase
         dual: DualAltsType
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: DualAltsType
     name: DualAlts
@@ -389,12 +389,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpAlts: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpAlts
       type: !_InputBase
         input: InpAltsType
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: InpAltsType
     name: InpAlts
@@ -509,12 +509,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpAlts: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpAlts
       type: !_OutputBase
         output: OutpAltsType
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutpAltsType
     name: OutpAlts

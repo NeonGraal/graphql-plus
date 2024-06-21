@@ -6,7 +6,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "$tag": "_ObjectFor(_InputAlternate)",
           "object": "InpGenParentParamRef",
           "type": "ref"
         }
@@ -28,7 +28,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "$tag": "_ObjectFor(_InputAlternate)",
           "object": "InpGenParentParamAlt",
           "type": {
             "$tag": "_InputBase",
@@ -49,7 +49,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_InputBase)",
+          "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -73,14 +73,14 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_InputBase))",
+          "$tag": "_ObjectFor(_InputAlternate)",
           "object": "InpGenParentParamRef",
           "type": "ref"
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_InputBase)",
+          "$tag": "_InputAlternate",
           "type": "ref"
         }
       ],

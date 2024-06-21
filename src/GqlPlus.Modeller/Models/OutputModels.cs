@@ -2,7 +2,7 @@
 
 public record class TypeOutputModel(
   string Name
-) : TypeObjectModel<OutputBaseModel, OutputFieldModel>(TypeKindModel.Output, Name)
+) : TypeObjectModel<OutputBaseModel, OutputFieldModel, OutputAlternateModel>(TypeKindModel.Output, Name)
 {
   protected override string? ParentName(ObjDescribedModel<OutputBaseModel>? parent)
     => parent?.Base.Output;
@@ -23,6 +23,11 @@ public record class OutputFieldModel(
   internal InputParameterModel[] Parameters { get; set; } = [];
   internal OutputEnumModel? Enum { get; set; }
 }
+
+public record class OutputAlternateModel(
+  ObjDescribedModel<OutputBaseModel> Type
+) : ObjAlternateModel<OutputBaseModel>(Type)
+{ }
 
 public record class OutputArgumentModel(
   string Name

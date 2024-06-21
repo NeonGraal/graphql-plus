@@ -153,7 +153,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "$tag": "_ObjectFor(_DualAlternate)",
           "object": "_ObjBase",
           "type": {
             "$tag": "_DualBase",
@@ -177,7 +177,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_DualBase)",
+          "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
             "value": "_TypeParameter"
@@ -210,7 +210,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_DualBase))",
+          "$tag": "_ObjectFor(_DualAlternate)",
           "object": "_ObjDescribed",
           "type": "base"
         }
@@ -234,7 +234,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_DualBase)",
+          "$tag": "_DualAlternate",
           "type": "base"
         }
       ],
@@ -299,7 +299,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjType",
           "type": {
             "$tag": "_OutputBase",
@@ -315,7 +315,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjType",
           "type": {
             "$tag": "_OutputBase",
@@ -323,14 +323,14 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjType",
           "type": "base"
         }
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "output": "_BaseType",
@@ -345,14 +345,14 @@
           }
         },
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "value": "_TypeSimple"
           }
         },
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": "base"
         }
       ],

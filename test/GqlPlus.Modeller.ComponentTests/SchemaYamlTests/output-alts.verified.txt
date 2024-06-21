@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier OutpAlt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpAlt
       type: !_OutputBase
         output: String
@@ -13,7 +13,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -25,12 +25,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpAlts: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpAlts
       type: !_OutputBase
         output: OutpAlt
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutpAlt
     name: OutpAlts

@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier OutpGenParentParam: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentParamRef
       type: !_TypeParameter ref
     name: OutpGenParentParam
@@ -14,7 +14,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentParamAlt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentParamAlt
       type: !_OutputBase
         output: String
@@ -25,7 +25,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -37,11 +37,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentParamRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenParentParamRef
     typeKind: !_TypeKind Output

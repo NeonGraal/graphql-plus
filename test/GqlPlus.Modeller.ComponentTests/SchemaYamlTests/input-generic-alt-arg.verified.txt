@@ -2,14 +2,14 @@
 types: !_Map_Type
   !_Identifier InpGenAltArg: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAltArg
       type: !_InputBase
         input: InpGenAltRef
         typeArguments:
         - !_TypeParameter type
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: InpGenAltRef
         typeArguments:
@@ -21,11 +21,11 @@ types: !_Map_Type
       name: type
   !_Identifier InpGenAltRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAltRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenAltRef
     typeKind: !_TypeKind Input

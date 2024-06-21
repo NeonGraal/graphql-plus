@@ -6,8 +6,11 @@ public record class ModelBase
   private string? _tag;
 
   internal virtual string Tag => _tag ??= GetType().TypeTag();
+
+  string IModelBase.Tag => Tag;
 }
 
-#pragma warning disable CA1040 // Avoid empty interfaces
 public interface IModelBase
-{ }
+{
+  string Tag { get; }
+}

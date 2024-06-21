@@ -23,11 +23,11 @@ types: !_Map_Type
       name: type
   !_Identifier DualGenFieldRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenFieldRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenFieldRef
     typeKind: !_TypeKind Dual

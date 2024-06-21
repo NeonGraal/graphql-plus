@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier InpGenParentDual: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenParentDualRef
       type: !_TypeParameter ref
     name: InpGenParentDual
@@ -14,7 +14,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenParentDualAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: InpGenParentDualAlt
       type: !_DualBase
         dual: String
@@ -25,7 +25,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -37,11 +37,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier InpGenParentDualRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenParentDualRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenParentDualRef
     typeKind: !_TypeKind Input

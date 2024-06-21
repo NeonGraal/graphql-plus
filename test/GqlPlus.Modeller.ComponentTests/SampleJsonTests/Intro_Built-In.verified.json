@@ -6,7 +6,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Collections",
           "type": {
             "$tag": "_OutputBase",
@@ -22,7 +22,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Collections",
           "type": {
             "$tag": "_OutputBase",
@@ -38,7 +38,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Collections",
           "type": {
             "$tag": "_OutputBase",
@@ -56,7 +56,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "output": "_Modifier",
@@ -71,7 +71,7 @@
           }
         },
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "output": "_ModifierKeyed",
@@ -86,7 +86,7 @@
           }
         },
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "output": "_ModifierKeyed",
@@ -108,7 +108,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Constant",
           "type": {
             "$tag": "_OutputBase",
@@ -116,7 +116,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Constant",
           "type": {
             "$tag": "_OutputBase",
@@ -124,7 +124,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Constant",
           "type": {
             "$tag": "_OutputBase",
@@ -134,21 +134,21 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "value": "_Simple"
           }
         },
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "value": "_ConstantList"
           }
         },
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "value": "_ConstantMap"
@@ -162,7 +162,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -178,7 +178,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -198,7 +198,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "collections": [
             {
               "$tag": "_ModifierDictionary",
@@ -216,7 +216,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "collections": [
             {
               "$tag": "_ModifierDictionary",
@@ -375,7 +375,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Modifiers",
           "type": {
             "$tag": "_OutputBase",
@@ -391,7 +391,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Modifiers",
           "type": {
             "$tag": "_OutputBase",
@@ -401,7 +401,7 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "output": "_Modifier",
@@ -416,7 +416,7 @@
           }
         },
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "value": "_Collections"
@@ -430,7 +430,7 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Simple",
           "type": {
             "$tag": "_OutputBase",
@@ -438,7 +438,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Simple",
           "type": {
             "$tag": "_OutputBase",
@@ -458,7 +458,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Simple",
           "type": {
             "$tag": "_OutputBase",
@@ -478,7 +478,7 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_Alternate(_OutputBase))",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Simple",
           "type": {
             "$tag": "_OutputBase",
@@ -488,14 +488,14 @@
       ],
       "alternates": [
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "value": "Boolean"
           }
         },
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "output": "_DomainValue",
@@ -514,7 +514,7 @@
           }
         },
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "output": "_DomainValue",
@@ -533,7 +533,7 @@
           }
         },
         {
-          "$tag": "_Alternate(_OutputBase)",
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "value": "_EnumValue"

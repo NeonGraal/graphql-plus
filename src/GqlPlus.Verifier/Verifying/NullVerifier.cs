@@ -1,17 +1,8 @@
-﻿using GqlPlus.Verifying;
+﻿using System.Diagnostics.CodeAnalysis;
+
+using GqlPlus.Verifying;
 
 namespace GqlPlus.Verification;
-
-internal class NullVerifier<TAst>(
-  ILoggerFactory logger
-) : IVerify<TAst>
-  where TAst : IGqlpAbbreviated
-{
-  private readonly ILogger _logger = logger.CreateLogger(nameof(NullVerifier<TAst>));
-
-  public void Verify(TAst item, ITokenMessages errors)
-    => _logger.NullVerification(item);
-}
 
 internal class NullVerifierError<TGqlp>(
   ILoggerFactory logger
@@ -24,6 +15,7 @@ internal class NullVerifierError<TGqlp>(
     => _logger.NullVerification(item);
 }
 
+[ExcludeFromCodeCoverage]
 internal static partial class NullVerifierLogging
 {
   internal static void NullVerification(this ILogger logger, object item)

@@ -2,9 +2,9 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjectFieldTests<TObjField, TObjBase>
+public abstract class AstObjectFieldTests<TObjFieldAst, TObjBase>
   : AstAliasedTests<FieldInput>
-  where TObjField : AstObjField<TObjBase>
+  where TObjFieldAst : AstObjField<TObjBase>
   where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
 {
   [Theory, RepeatData(Repeats)]
@@ -37,7 +37,7 @@ public abstract class AstObjectFieldTests<TObjField, TObjBase>
 
   internal sealed override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 
-  internal abstract IAstObjectFieldChecks<TObjField, TObjBase> FieldChecks { get; }
+  internal abstract IAstObjectFieldChecks<TObjFieldAst, TObjBase> FieldChecks { get; }
 }
 
 internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>

@@ -13,6 +13,7 @@ public abstract record class AstObjAlternate<TObjBase>(
 {
   public ModifierAst[] Modifiers { get; set; } = [];
 
+  public string ModifiedType => Type.GetFields().Skip(1).Concat(Modifiers.AsString()).Joined();
   public string Description => Type.Description;
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;

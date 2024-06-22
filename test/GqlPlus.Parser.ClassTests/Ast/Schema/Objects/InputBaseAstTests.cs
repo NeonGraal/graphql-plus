@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
 public class InputBaseAstTests
-  : AstObjBaseTests<IGqlpInputBase, InputBaseAst>
+  : AstObjectBaseTests<IGqlpInputBase, InputBaseAst>
 {
   protected override string AbbreviatedString(string input)
     => $"( {input} )";

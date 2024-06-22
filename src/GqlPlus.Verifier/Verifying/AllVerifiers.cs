@@ -84,8 +84,7 @@ public static class AllVerifiers
     where TService : class, IVerifyUsage<TUsage>
     where TUsage : IGqlpError
     => services
-      .AddSingleton<IVerifyUsage<TUsage>, TService>()
-      .TryAddVerify<TUsage, NullVerifierError<TUsage>>();
+      .AddSingleton<IVerifyUsage<TUsage>, TService>();
 
   private static IServiceCollection AddVerifyDomainContext<TService>(this IServiceCollection services)
     where TService : class, IVerifyDomain

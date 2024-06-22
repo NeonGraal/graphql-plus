@@ -1,6 +1,7 @@
 ﻿namespace GqlPlus.Ast.Schema.Objects;
 
-public class OutputAstTests : AstAliasedTests
+public class OutputAstTests
+  : AstAliasedTests
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithAlternates(string name, AlternateInput[] alternates)

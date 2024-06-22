@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier InpGenAltParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAltParam
       type: !_InputBase
         input: InpGenAltParamRef
@@ -10,7 +10,7 @@ types: !_Map_Type
         - !_InputBase
           input: InpGenAltParamAlt
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: InpGenAltParamRef
         typeArguments:
@@ -20,7 +20,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenAltParamAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAltParamAlt
       type: !_InputBase
         input: String
@@ -31,7 +31,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -43,11 +43,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenAltParamRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenAltParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenAltParamRef
     typeKind: !_TypeKind Input

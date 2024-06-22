@@ -81,12 +81,12 @@ types: !_Map_Type
       name: base
   !_Identifier _ObjArgument: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _ObjArgument
       type: !_OutputBase
         output: _TypeParameter
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeParameter
     name: _ObjArgument
@@ -98,7 +98,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _ObjBase: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: _ObjBase
       type: !_DualBase
         dual: _TypeParameter
@@ -113,7 +113,7 @@ types: !_Map_Type
         - !_DualBase
           dual: _ObjArgument
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: _TypeParameter
     fields:
@@ -129,7 +129,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _ObjDescribed: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: _ObjDescribed
       type: !_TypeParameter base
     allFields:
@@ -143,7 +143,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: String
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter base
     fields:
     - !_DualField
@@ -160,7 +160,7 @@ types: !_Map_Type
       name: base
   !_Identifier _ObjType: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _ObjType
       type: !_OutputBase
         output: _BaseType
@@ -169,15 +169,15 @@ types: !_Map_Type
           member: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _ObjType
       type: !_OutputBase
         output: _TypeSimple
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _ObjType
       type: !_TypeParameter base
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _BaseType
         typeArguments:
@@ -185,10 +185,10 @@ types: !_Map_Type
           member: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeSimple
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter base
     name: _ObjType
     typeKind: !_TypeKind Output

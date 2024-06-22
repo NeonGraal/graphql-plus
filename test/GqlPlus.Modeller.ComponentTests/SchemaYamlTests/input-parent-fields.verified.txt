@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier InpFieldsParent: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpFieldsParent
       type: !_InputBase
         input: String
@@ -13,7 +13,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -25,7 +25,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpPrntFields: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpFieldsParent
       type: !_InputBase
         input: String

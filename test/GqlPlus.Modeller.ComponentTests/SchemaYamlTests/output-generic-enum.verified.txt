@@ -12,7 +12,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier OutGenEnum: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutGenEnum
       type: !_OutputBase
         output: OutGenEnumRef
@@ -22,7 +22,7 @@ types: !_Map_Type
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutGenEnumRef
         typeArguments:

@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier OutpAltDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: OutpAltDual
       type: !_DualBase
         dual: String
@@ -13,7 +13,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -25,12 +25,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier OutpAltsDual: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpAltsDual
       type: !_DualBase
         dual: OutpAltDual
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_DualBase
         dual: OutpAltDual
     name: OutpAltsDual

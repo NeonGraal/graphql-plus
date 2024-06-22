@@ -22,7 +22,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenFieldParamAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenFieldParamAlt
       type: !_InputBase
         input: String
@@ -33,7 +33,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:
@@ -45,11 +45,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier InpGenFieldParamRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenFieldParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenFieldParamRef
     typeKind: !_TypeKind Input

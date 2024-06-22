@@ -23,11 +23,11 @@ types: !_Map_Type
       name: type
   !_Identifier InpGenFieldRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpGenFieldRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter ref
     name: InpGenFieldRef
     typeKind: !_TypeKind Input

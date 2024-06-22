@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier DualGenAltParam: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltParam
       type: !_DualBase
         dual: DualGenAltParamRef
@@ -10,7 +10,7 @@ types: !_Map_Type
         - !_DualBase
           dual: DualGenAltParamAlt
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: DualGenAltParamRef
         typeArguments:
@@ -20,7 +20,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAltParamAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltParamAlt
       type: !_DualBase
         dual: String
@@ -31,7 +31,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:
@@ -43,11 +43,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAltParamRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltParamRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenAltParamRef
     typeKind: !_TypeKind Dual

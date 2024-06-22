@@ -15,7 +15,7 @@ directives: !_Map_Directives
 types: !_Map_Type
   !_Identifier All: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: All
       type: !_OutputBase
         output: String
@@ -31,7 +31,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: String
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: String
     fields:
@@ -76,7 +76,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier Param: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: Param
       type: !_InputBase
         input: String
@@ -93,7 +93,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Guid
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:

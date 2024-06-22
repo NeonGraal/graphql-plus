@@ -2,18 +2,6 @@
 
 namespace GqlPlus.Rendering;
 
-internal class AlternateRenderer<TBase>(
-  IRenderer<CollectionModel> collection,
-  IRenderer<ObjDescribedModel<TBase>> type
-) : BaseRenderer<AlternateModel<TBase>>
-  where TBase : IObjBaseModel
-{
-  internal override RenderStructure Render(AlternateModel<TBase> model, IRenderContext context)
-    => base.Render(model, context)
-      .Add("type", model.Type, type)
-      .Add("collections", model.Collections, collection);
-}
-
 internal class ObjectBaseRenderer<TBase>
   : BaseRenderer<TBase>
   where TBase : ObjBaseModel<TBase>
@@ -31,13 +19,30 @@ internal record class ModifierBaseRenderers<TBase>(
 internal class ObjectFieldRenderer<TField, TBase>(
   ModifierBaseRenderers<TBase> renderers
 ) : AliasedRenderer<TField>
-  where TField : ObjFieldModel<TBase>
+  where TField : IObjFieldModel
   where TBase : IObjBaseModel
 {
   internal override RenderStructure Render(TField model, IRenderContext context)
     => base.Render(model, context)
       .Add("modifiers", model.Modifiers, renderers.Modifier, flow: true)
-      .Add("type", model.Type, renderers.ObjBase);
+      .Add("type", model.BaseType?.BaseAs<TBase>(), renderers.ObjBase);
+}
+
+internal record class CollectionBaseRenderers<TBase>(
+  IRenderer<CollectionModel> Collection,
+  IRenderer<ObjDescribedModel<TBase>> ObjBase
+) where TBase : IObjBaseModel;
+
+internal class ObjectAlternateRenderer<TAlt, TBase>(
+  CollectionBaseRenderers<TBase> renderers
+) : BaseRenderer<TAlt>
+  where TAlt : IObjAlternateModel
+  where TBase : IObjBaseModel
+{
+  internal override RenderStructure Render(TAlt model, IRenderContext context)
+    => base.Render(model, context)
+      .Add("type", model.BaseType?.BaseAs<TBase>(), renderers.ObjBase)
+      .Add("collections", model.Collections, renderers.Collection);
 }
 
 internal class ObjectForRenderer<TFor>(
@@ -51,25 +56,27 @@ internal class ObjectForRenderer<TFor>(
       .Add("object", model.Obj);
 }
 
-internal record class TypeObjectRenderers<TField, TBase>(
+internal record class TypeObjectRenderers<TBase, TField, TAlt>(
   IRenderer<ObjDescribedModel<TBase>> Parent,
-  IRenderer<AlternateModel<TBase>> Alternate,
-  IRenderer<ObjectForModel<AlternateModel<TBase>>> ObjAlternate,
-  IRenderer<ObjectForModel<AlternateModel<DualBaseModel>>> DualAlternate,
   IRenderer<TField> Field,
   IRenderer<ObjectForModel<TField>> ObjField,
   IRenderer<ObjectForModel<DualFieldModel>> DualField,
+  IRenderer<TAlt> Alternate,
+  IRenderer<ObjectForModel<TAlt>> ObjAlternate,
+  IRenderer<ObjectForModel<DualAlternateModel>> DualAlternate,
   IRenderer<DescribedModel> TypeParameter
 )
   where TBase : IObjBaseModel
-  where TField : ModelBase;
+  where TField : IObjFieldModel
+  where TAlt : IObjAlternateModel;
 
-internal abstract class TypeObjectRenderer<TObject, TField, TBase>(
-  TypeObjectRenderers<TField, TBase> renderers
+internal abstract class TypeObjectRenderer<TObject, TBase, TField, TAlt>(
+  TypeObjectRenderers<TBase, TField, TAlt> renderers
 ) : ChildTypeRenderer<TObject, ObjDescribedModel<TBase>>(renderers.Parent)
-  where TObject : TypeObjectModel<TBase, TField>
+  where TObject : TypeObjectModel<TBase, TField, TAlt>
   where TBase : IObjBaseModel
-  where TField : ModelBase
+  where TField : IObjFieldModel
+  where TAlt : IObjAlternateModel
 {
   internal override RenderStructure Render(TObject model, IRenderContext context)
   {
@@ -86,7 +93,7 @@ internal abstract class TypeObjectRenderer<TObject, TField, TBase>(
     AddMembers(model);
 
     RenderStructure ObjRender<TModel, TDual>(List<ModelBase> list, IRenderer<ObjectForModel<TModel>> renderer, IRenderer<ObjectForModel<TDual>> dual)
-      where TModel : ModelBase
+      where TModel : IModelBase
       where TDual : ModelBase
       => new(list.Select(o => o switch {
         ObjectForModel<TModel> modelFor => renderer.Render(modelFor, context),
@@ -130,9 +137,14 @@ internal class DualFieldRenderer(
 ) : ObjectFieldRenderer<DualFieldModel, DualBaseModel>(renderers)
 { }
 
+internal class DualAlternateRenderer(
+  CollectionBaseRenderers<DualBaseModel> renderers
+) : ObjectAlternateRenderer<DualAlternateModel, DualBaseModel>(renderers)
+{ }
+
 internal class TypeDualRenderer(
-  TypeObjectRenderers<DualFieldModel, DualBaseModel> renderers
-) : TypeObjectRenderer<TypeDualModel, DualFieldModel, DualBaseModel>(renderers)
+  TypeObjectRenderers<DualBaseModel, DualFieldModel, DualAlternateModel> renderers
+) : TypeObjectRenderer<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>(renderers)
 {
   protected override string? ParentName(ObjDescribedModel<DualBaseModel>? parent)
     => parent?.Base.Dual;
@@ -161,6 +173,11 @@ internal class InputFieldRenderer(
       .Add("default", model.Default, constant);
 }
 
+internal class InputAlternateRenderer(
+  CollectionBaseRenderers<InputBaseModel> renderers
+) : ObjectAlternateRenderer<InputAlternateModel, InputBaseModel>(renderers)
+{ }
+
 internal class InputParameterRenderer(
   IRenderer<ConstantModel> constant,
   ModifierBaseRenderers<InputBaseModel> renderers
@@ -174,8 +191,8 @@ internal class InputParameterRenderer(
 }
 
 internal class TypeInputRenderer(
-  TypeObjectRenderers<InputFieldModel, InputBaseModel> renderers
-) : TypeObjectRenderer<TypeInputModel, InputFieldModel, InputBaseModel>(renderers)
+  TypeObjectRenderers<InputBaseModel, InputFieldModel, InputAlternateModel> renderers
+) : TypeObjectRenderer<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>(renderers)
 {
   protected override string? ParentName(ObjDescribedModel<InputBaseModel>? parent)
     => parent?.Base.Input;
@@ -227,9 +244,14 @@ internal class OutputFieldRenderer(
       : outputEnum.Render(model.Enum, context);
 }
 
+internal class OutputAlternateRenderer(
+  CollectionBaseRenderers<OutputBaseModel> renderers
+) : ObjectAlternateRenderer<OutputAlternateModel, OutputBaseModel>(renderers)
+{ }
+
 internal class TypeOutputRenderer(
-  TypeObjectRenderers<OutputFieldModel, OutputBaseModel> renderers
-) : TypeObjectRenderer<TypeOutputModel, OutputFieldModel, OutputBaseModel>(renderers)
+  TypeObjectRenderers<OutputBaseModel, OutputFieldModel, OutputAlternateModel> renderers
+) : TypeObjectRenderer<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>(renderers)
 {
   protected override string? ParentName(ObjDescribedModel<OutputBaseModel>? parent)
     => parent?.Base.Output;

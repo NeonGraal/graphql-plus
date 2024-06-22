@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier OutGenValue: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutGenValue
       type: !_OutputBase
         output: OutGenValueRef
@@ -10,7 +10,7 @@ types: !_Map_Type
         - !_OutputBase
           output: outValueGen
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: OutGenValueRef
         typeArguments:

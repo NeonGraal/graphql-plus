@@ -2,17 +2,18 @@
 
 namespace GqlPlus.Models;
 
-public abstract record class TypeObjectModel<TObjBase, TObjField>(
+public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   TypeKindModel Kind,
   string Name
 ) : ChildTypeModel<ObjDescribedModel<TObjBase>>(Kind, Name)
   , ITypeObjectModel
   where TObjBase : IObjBaseModel
-  where TObjField : ModelBase
+  where TObjField : IObjFieldModel
+  where TObjAlt : IObjAlternateModel
 {
   internal DescribedModel[] TypeParameters { get; set; } = [];
   internal TObjField[] Fields { get; set; } = [];
-  internal AlternateModel<TObjBase>[] Alternates { get; set; } = [];
+  internal TObjAlt[] Alternates { get; set; } = [];
 
   internal override bool GetParentModel<TResult>(IRenderContext context, [NotNullWhen(true)] out TResult? model)
     where TResult : default
@@ -26,7 +27,7 @@ public abstract record class TypeObjectModel<TObjBase, TObjField>(
   }
 
   IEnumerable<ModelBase> ITypeObjectModel.AllAlternates
-    => Alternates.Select(a => new ObjectForModel<AlternateModel<TObjBase>>(a, Name));
+    => Alternates.Select(a => new ObjectForModel<TObjAlt>(a, Name));
   IEnumerable<ModelBase> ITypeObjectModel.AllFields
     => Fields.Select(f => new ObjectForModel<TObjField>(f, Name));
 }
@@ -52,14 +53,6 @@ public interface IObjBaseModel
   bool IsTypeParameter { get; }
 }
 
-public record class AlternateModel<TObjBase>(
-  ObjDescribedModel<TObjBase> Type
-) : ModelBase
-  where TObjBase : IObjBaseModel
-{
-  internal CollectionModel[] Collections { get; set; } = [];
-}
-
 public record class ObjectForModel<TFor>(
   TFor For,
   string Obj
@@ -71,9 +64,36 @@ public record class ObjFieldModel<TObjBase>(
   string Name,
   ObjDescribedModel<TObjBase>? Type
 ) : AliasedModel(Name)
+  , IObjFieldModel
   where TObjBase : IObjBaseModel
 {
-  internal ModifierModel[] Modifiers { get; set; } = [];
+  public ModifierModel[] Modifiers { get; set; } = [];
+  public ObjDescribedModel<IObjBaseModel>? BaseType
+    => Type?.BaseAs<IObjBaseModel>();
+}
+
+public interface IObjFieldModel
+  : IAliasedModel
+{
+  ObjDescribedModel<IObjBaseModel>? BaseType { get; }
+  ModifierModel[] Modifiers { get; }
+}
+
+public record class ObjAlternateModel<TObjBase>(
+  ObjDescribedModel<TObjBase> Type
+) : ModelBase, IObjAlternateModel
+  where TObjBase : IObjBaseModel
+{
+  public CollectionModel[] Collections { get; set; } = [];
+  public ObjDescribedModel<IObjBaseModel>? BaseType
+    => Type?.BaseAs<IObjBaseModel>();
+}
+
+public interface IObjAlternateModel
+  : IModelBase
+{
+  ObjDescribedModel<IObjBaseModel>? BaseType { get; }
+  CollectionModel[] Collections { get; }
 }
 
 public record class ObjDescribedModel<TDescribed>(
@@ -81,4 +101,10 @@ public record class ObjDescribedModel<TDescribed>(
   string? Description
 ) : ModelBase
   where TDescribed : IModelBase
-{ }
+{
+  public ObjDescribedModel<TBase>? BaseAs<TBase>()
+    where TBase : IModelBase
+    => Base is TBase newBase
+    ? new(newBase, Description) :
+    null;
+}

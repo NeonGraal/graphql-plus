@@ -2,11 +2,11 @@
 types: !_Map_Type
   !_Identifier DualPrmsPrntDiff: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualPrmsPrntDiff
       type: !_TypeParameter b
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter b
     name: DualPrmsPrntDiff
     typeKind: !_TypeKind Dual
@@ -15,7 +15,7 @@ types: !_Map_Type
       name: b
   !_Identifier DualPrntPrmsDiff: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualPrmsPrntDiff
       type: !_TypeParameter b
     allFields:

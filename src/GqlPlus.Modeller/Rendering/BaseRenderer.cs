@@ -2,7 +2,7 @@
 
 internal class BaseRenderer<TModel>
   : IRenderer<TModel>
-  where TModel : ModelBase
+  where TModel : IModelBase
 {
   RenderStructure IRenderer<TModel>.Render(TModel model, IRenderContext context)
     => Render(model, context);

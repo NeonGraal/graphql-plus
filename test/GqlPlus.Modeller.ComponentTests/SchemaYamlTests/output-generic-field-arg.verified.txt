@@ -23,11 +23,11 @@ types: !_Map_Type
       name: type
   !_Identifier OutpGenFieldRef: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: OutpGenFieldRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_TypeParameter ref
     name: OutpGenFieldRef
     typeKind: !_TypeKind Output

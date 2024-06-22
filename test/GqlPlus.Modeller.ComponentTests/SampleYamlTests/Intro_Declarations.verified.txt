@@ -6,7 +6,7 @@ _errors:
 types: !_Map_Type
   !_Identifier _CategoryFilter: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
@@ -65,7 +65,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier _Filter: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
@@ -107,7 +107,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Boolean
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
@@ -267,7 +267,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _TypeFilter: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List

@@ -5,6 +5,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 
+[assembly: SuppressMessage("Design", "CA1033:Interface methods should be callable by child types")]
 [assembly: SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase")]
 [assembly: SuppressMessage("Naming", "CA1720:Identifier contains type name")]
 [assembly: SuppressMessage("Performance", "CA1819:Properties should not return arrays")]

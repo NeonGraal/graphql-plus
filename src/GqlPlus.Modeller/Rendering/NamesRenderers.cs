@@ -2,7 +2,7 @@
 
 internal class AliasedRenderer<TModel>
   : NamedRenderer<TModel>
-  where TModel : AliasedModel
+  where TModel : IAliasedModel
 {
   internal override RenderStructure Render(TModel model, IRenderContext context)
     => base.Render(model, context)
@@ -34,7 +34,7 @@ internal class BaseDescribedRenderer<TDescr>(
 
 internal class NamedRenderer<TModel>
   : BaseRenderer<TModel>
-  where TModel : NamedModel
+  where TModel : INamedModel
 {
   internal override RenderStructure Render(TModel model, IRenderContext context)
     => base.Render(model, context)

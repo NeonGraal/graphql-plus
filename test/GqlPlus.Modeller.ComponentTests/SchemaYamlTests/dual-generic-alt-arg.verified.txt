@@ -2,14 +2,14 @@
 types: !_Map_Type
   !_Identifier DualGenAltArg: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltArg
       type: !_DualBase
         dual: DualGenAltRef
         typeArguments:
         - !_TypeParameter type
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: DualGenAltRef
         typeArguments:
@@ -21,11 +21,11 @@ types: !_Map_Type
       name: type
   !_Identifier DualGenAltRef: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAltRef
       type: !_TypeParameter ref
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter ref
     name: DualGenAltRef
     typeKind: !_TypeKind Dual

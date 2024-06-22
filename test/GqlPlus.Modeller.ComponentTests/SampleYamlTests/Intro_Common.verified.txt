@@ -122,7 +122,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier _Type: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
         output: _BaseType
@@ -131,7 +131,7 @@ types: !_Map_Type
           member: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
         output: _BaseType
@@ -140,32 +140,32 @@ types: !_Map_Type
           member: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
         output: _TypeDual
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
         output: _TypeEnum
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
         output: _TypeInput
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
         output: _TypeOutput
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
         output: _TypeDomain
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
         output: _TypeUnion
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _BaseType
         typeArguments:
@@ -173,7 +173,7 @@ types: !_Map_Type
           member: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _BaseType
         typeArguments:
@@ -181,22 +181,22 @@ types: !_Map_Type
           member: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeDual
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeEnum
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeInput
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeOutput
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeDomain
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeUnion
     name: _Type
@@ -265,7 +265,7 @@ types: !_Map_Type
       name: kind
   !_Identifier _TypeSimple: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _TypeSimple
       type: !_OutputBase
         output: _TypeRef
@@ -274,7 +274,7 @@ types: !_Map_Type
           member: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _TypeSimple
       type: !_OutputBase
         output: _TypeRef
@@ -283,7 +283,7 @@ types: !_Map_Type
           member: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _TypeSimple
       type: !_OutputBase
         output: _TypeRef
@@ -292,7 +292,7 @@ types: !_Map_Type
           member: Domain
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _TypeSimple
       type: !_OutputBase
         output: _TypeRef
@@ -302,7 +302,7 @@ types: !_Map_Type
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeRef
         typeArguments:
@@ -310,7 +310,7 @@ types: !_Map_Type
           member: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeRef
         typeArguments:
@@ -318,7 +318,7 @@ types: !_Map_Type
           member: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeRef
         typeArguments:
@@ -326,7 +326,7 @@ types: !_Map_Type
           member: Domain
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeRef
         typeArguments:

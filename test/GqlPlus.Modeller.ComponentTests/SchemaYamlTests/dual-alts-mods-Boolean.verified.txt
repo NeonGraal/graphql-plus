@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier DualAltMods: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       collections:
       - !_ModifierDictionary
         by: ^
@@ -12,7 +12,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualModsAlt
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       collections:
       - !_ModifierDictionary
         by: ^
@@ -24,7 +24,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualModsAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualModsAlt
       type: !_DualBase
         dual: String
@@ -35,7 +35,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_DualBase
         dual: String
     fields:

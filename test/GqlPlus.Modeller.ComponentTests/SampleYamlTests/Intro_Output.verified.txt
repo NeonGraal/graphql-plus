@@ -18,7 +18,7 @@ _errors:
 types: !_Map_Type
   !_Identifier _OutputArgument: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _OutputArgument
       type: !_OutputBase
         output: _TypeParameter
@@ -30,7 +30,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Identifier
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _TypeParameter
     fields:
@@ -48,7 +48,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _OutputBase: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _OutputBase
       type: !_OutputBase
         output: _DualBase
@@ -59,7 +59,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Identifier
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _DualBase
     fields:
@@ -103,7 +103,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _OutputField: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_Alternate(_OutputBase))
+    - !_ObjectFor(_OutputAlternate)
       object: _OutputField
       type: !_OutputBase
         output: _OutputEnum
@@ -115,7 +115,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _InputParameter
     alternates:
-    - !_Alternate(_OutputBase)
+    - !_OutputAlternate
       type: !_OutputBase
         output: _OutputEnum
     fields:

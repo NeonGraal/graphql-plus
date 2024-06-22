@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier InpAltModsParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       collections:
       - !_ModifierTypeParameter
         by: mod
@@ -11,7 +11,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpModsParamAlt
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       collections:
       - !_ModifierTypeParameter
         by: mod
@@ -25,7 +25,7 @@ types: !_Map_Type
       name: mod
   !_Identifier InpModsParamAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpModsParamAlt
       type: !_InputBase
         input: String
@@ -36,7 +36,7 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_InputBase
         input: String
     fields:

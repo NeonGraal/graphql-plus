@@ -2,11 +2,11 @@
 types: !_Map_Type
   !_Identifier InpPrmsPrntSame: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpPrmsPrntSame
       type: !_TypeParameter a
     alternates:
-    - !_Alternate(_InputBase)
+    - !_InputAlternate
       type: !_TypeParameter a
     name: InpPrmsPrntSame
     typeKind: !_TypeKind Input
@@ -15,7 +15,7 @@ types: !_Map_Type
       name: a
   !_Identifier InpPrntPrmsSame: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_Alternate(_InputBase))
+    - !_ObjectFor(_InputAlternate)
       object: InpPrmsPrntSame
       type: !_TypeParameter a
     allFields:

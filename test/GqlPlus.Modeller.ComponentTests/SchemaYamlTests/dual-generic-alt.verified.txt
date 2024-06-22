@@ -2,11 +2,11 @@
 types: !_Map_Type
   !_Identifier DualGenAlt: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_Alternate(_DualBase))
+    - !_ObjectFor(_DualAlternate)
       object: DualGenAlt
       type: !_TypeParameter type
     alternates:
-    - !_Alternate(_DualBase)
+    - !_DualAlternate
       type: !_TypeParameter type
     name: DualGenAlt
     typeKind: !_TypeKind Dual

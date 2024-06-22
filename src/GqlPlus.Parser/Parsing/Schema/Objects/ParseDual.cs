@@ -8,16 +8,16 @@ internal class ParseDual(
   Parser<IGqlpTypeParameter>.DA param,
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<ObjectDefinition<IGqlpDualField, IGqlpDualAlternate, IGqlpDualBase>>.D definition
-) : ObjectParser<DualDeclAst, IGqlpDualField, IGqlpDualAlternate, IGqlpDualBase>(name, param, aliases, option, definition)
+  Parser<ObjectDefinition<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>>.D definition
+) : ObjectParser<DualDeclAst, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>(name, param, aliases, option, definition)
 {
-  protected override DualDeclAst MakeResult(AstPartial<IGqlpTypeParameter, NullOption> partial, ObjectDefinition<IGqlpDualField, IGqlpDualAlternate, IGqlpDualBase> value)
+  protected override DualDeclAst MakeResult(AstPartial<IGqlpTypeParameter, NullOption> partial, ObjectDefinition<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate> value)
     => new(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
       TypeParameters = partial.Parameters.ArrayOf<TypeParameterAst>(),
       Parent = value.Parent,
-      Fields = value.Fields,
-      Alternates = value.Alternates,
+      ObjFields = value.Fields,
+      ObjAlternates = value.Alternates,
     };
 
   protected override DualDeclAst ToResult(AstPartial<IGqlpTypeParameter, NullOption> partial)

@@ -43,7 +43,7 @@ public record class ObjBaseModel<TArg>
   : ModelBase, IObjBaseModel
   where TArg : IModelBase
 {
-  internal TArg[] TypeArguments { get; set; } = [];
+  internal TArg[] Arguments { get; set; } = [];
   public bool IsTypeParameter { get; set; }
 }
 

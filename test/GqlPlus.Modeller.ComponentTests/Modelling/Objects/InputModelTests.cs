@@ -8,7 +8,7 @@ public class InputModelTests(
   IRenderer<TypeInputModel> rendering
 ) : TestObjectModel<InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, InputBaseAst>
 {
-  internal override ICheckObjectModel<InputDeclAst, IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase> ObjectChecks => _checks;
+  internal override ICheckObjectModel<InputDeclAst, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate> ObjectChecks => _checks;
 
   private readonly InputModelChecks _checks = new(modeller, rendering);
 }
@@ -20,7 +20,7 @@ internal sealed class InputModelChecks(
 {
   protected override InputDeclAst NewObjectAst(
     string name,
-    IGqlpInputBase? parent,
+    IGqlpObjBase? parent,
     string? description,
     string[]? aliases,
     FieldInput[] fields,
@@ -28,8 +28,8 @@ internal sealed class InputModelChecks(
     => new(AstNulls.At, name, description ?? "") {
       Aliases = aliases ?? [],
       Parent = (InputBaseAst?)parent,
-      Fields = fields.InputFields(),
-      Alternates = alternates.InputAlternates(),
+      ObjFields = fields.InputFields(),
+      ObjAlternates = alternates.InputAlternates(),
     };
 
   internal override IGqlpInputBase NewParentAst(string input)

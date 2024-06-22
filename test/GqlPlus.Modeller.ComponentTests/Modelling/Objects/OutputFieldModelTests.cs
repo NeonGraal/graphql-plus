@@ -12,7 +12,7 @@ public class OutputFieldModelTests(
   public void Model_EnumValue(FieldInput input, string enumMember)
     => FieldChecks.Field_Expected(
       FieldChecks.FieldAst(input) with {
-        Type = _checks.NewObjBaseAst(input.Type) with { EnumMember = enumMember }
+        BaseType = _checks.NewObjBaseAst(input.Type) with { EnumMember = enumMember }
       },
       _checks.ExpectedEnum(input, enumMember)
       );

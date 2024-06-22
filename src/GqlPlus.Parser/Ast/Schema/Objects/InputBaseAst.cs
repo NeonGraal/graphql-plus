@@ -23,6 +23,6 @@ public sealed record class InputBaseAst(
   public DualBaseAst ToDual()
     => new(At, Name, Description) {
       IsTypeParameter = IsTypeParameter,
-      TypeArguments = [.. TypeArguments.Select(a => a.ToDual)],
+      BaseArguments = [.. BaseArguments.Select(a => a.ToDual)],
     };
 }

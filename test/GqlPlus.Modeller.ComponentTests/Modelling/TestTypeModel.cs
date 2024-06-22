@@ -4,7 +4,6 @@ namespace GqlPlus.Modelling;
 
 public abstract class TestTypeModel<TAstParent, TParent, TTypeKind>
   : TestAliasedModel<string>
-  where TAstParent : IEquatable<TAstParent>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Parent(string name, TParent parent)
@@ -24,7 +23,6 @@ public abstract class TestTypeModel<TTypeKind>
 internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TModel>
   : CheckAliasedModel<string, TAst, TModel>
   , ICheckTypeModel<TAstParent, TParent, TTypeKind>
-  where TAstParent : IEquatable<TAstParent>
   where TAst : IGqlpType<TAstParent>
   where TModel : IModelBase
 {
@@ -104,7 +102,6 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel, TItem>(
 
 internal interface ICheckTypeModel<TAstParent, TParent, TTypeKind>
   : ICheckAliasedModel<string>
-  where TAstParent : IEquatable<TAstParent>
 {
   TTypeKind TypeKind { get; }
   string TypeKindLower { get; }

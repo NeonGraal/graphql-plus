@@ -49,7 +49,7 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst>
           argument = ParseObjectBase(tokens, label, isTypeArgument: true);
         }
 
-        objBase.TypeArguments = [.. arguments];
+        objBase.BaseArguments = [.. arguments];
 
         if (!tokens.Take('>')) {
           return tokens.Error(label, "'>' after type argument(s)", objBase);

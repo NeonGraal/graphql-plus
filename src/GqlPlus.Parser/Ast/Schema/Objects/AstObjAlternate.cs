@@ -5,31 +5,32 @@ namespace GqlPlus.Ast.Schema.Objects;
 
 public abstract record class AstObjAlternate<TObjBase>(
   TokenAt At,
-  TObjBase Type
+  TObjBase BaseType
 ) : AstAbbreviated(At)
   , IEquatable<AstObjAlternate<TObjBase>>
   , IGqlpObjAlternate<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   public ModifierAst[] Modifiers { get; set; } = [];
 
-  public string ModifiedType => Type.GetFields().Skip(1).Concat(Modifiers.AsString()).Joined();
-  public string Description => Type.Description;
+  public string ModifiedType => BaseType.GetFields().Skip(1).Concat(Modifiers.AsString()).Joined();
+  public string Description => BaseType.Description;
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
+  IGqlpObjBase IGqlpObjAlternate.Type => BaseType;
 
   internal AstObjAlternate(TObjBase objBase)
     : this((TokenAt)objBase.At, objBase) { }
 
   public virtual bool Equals(AstObjAlternate<TObjBase>? other)
     => base.Equals(other)
-    && (Type?.Equals(other.Type) ?? other.Type is null)
+    && (BaseType?.Equals(other.BaseType) ?? other.BaseType is null)
     && Modifiers.SequenceEqual(other.Modifiers);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Type, Modifiers.Length);
+    => HashCode.Combine(base.GetHashCode(), BaseType, Modifiers.Length);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Concat(Type.GetFields())
+      .Concat(BaseType.GetFields())
       .Concat(Modifiers.AsString());
 }

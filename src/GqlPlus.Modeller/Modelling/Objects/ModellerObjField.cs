@@ -10,7 +10,7 @@ internal abstract class ModellerObjField<TObjBaseAst, TObjFieldAst, TObjBase, TO
   where TObjField : ObjFieldModel<TObjBase>
 {
   protected override TObjField ToModel(TObjFieldAst field, IMap<TypeKindModel> typeKinds)
-    => FieldModel(field, objBase.ToModel(field.Type, typeKinds), typeKinds) with {
+    => FieldModel(field, objBase.ToModel(field.BaseType, typeKinds), typeKinds) with {
       Aliases = [.. field.Aliases],
       Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
     };

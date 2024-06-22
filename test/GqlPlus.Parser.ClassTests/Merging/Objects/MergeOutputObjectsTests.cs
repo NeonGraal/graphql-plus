@@ -14,9 +14,9 @@ public class MergeOutputObjectsTests
   public MergeOutputObjectsTests(ITestOutputHelper outputHelper)
     => _merger = new(outputHelper.ToLoggerFactory(), Fields, TypeParameters, Alternates);
 
-  internal override AstObjectsMerger<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputBase> MergerObject => _merger;
+  internal override AstObjectsMerger<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate> MergerObject => _merger;
 
-  protected override OutputDeclAst MakeObject(string name, string[]? aliases = null, string description = "", IGqlpOutputBase? parent = default)
+  protected override OutputDeclAst MakeObject(string name, string[]? aliases = null, string description = "", IGqlpObjBase? parent = default)
     => new(AstNulls.At, name, description) { Aliases = aliases ?? [], Parent = parent, };
   protected override OutputFieldAst[] MakeFields(FieldInput[] fields)
     => fields.OutputFields();

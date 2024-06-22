@@ -6,9 +6,9 @@ namespace GqlPlus.Modelling.Objects;
 
 public abstract class TestObjectFieldModel<TObjField, TObjFieldAst, TObjBase>
   : TestModelBase<FieldInput>
-  where TObjField : IGqlpObjField<TObjBase>
+  where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Modifiers(FieldInput input)
@@ -44,9 +44,9 @@ internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TObjBase,
   TypeKindModel kind
 ) : CheckModelBase<FieldInput, TObjField, TModel>(field, rendering),
     ICheckObjectFieldModel<TObjFieldAst, TObjBase>
-  where TObjField : IGqlpObjField<TObjBase>
+  where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TModel : IModelBase
 {
   protected readonly TypeKindModel TypeKind = kind;
@@ -77,7 +77,7 @@ internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TObjBase,
 internal interface ICheckObjectFieldModel<TObjFieldAst, TObjBase>
   : ICheckModelBase<FieldInput>
   where TObjFieldAst : AstObjField<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   TObjFieldAst FieldAst(FieldInput input);
   string[] ExpectedField(FieldInput input, string[] extras, string[] parameters);

@@ -29,7 +29,7 @@ public sealed record class OutputBaseAst(
   public DualBaseAst ToDual()
     => new(At, Name, Description) {
       IsTypeParameter = IsTypeParameter,
-      TypeArguments = [.. TypeArguments.Select(a => a.ToDual)],
+      BaseArguments = [.. BaseArguments.Select(a => a.ToDual)],
     };
 
   void IGqlpOutputBase.SetEnumType(string enumType)

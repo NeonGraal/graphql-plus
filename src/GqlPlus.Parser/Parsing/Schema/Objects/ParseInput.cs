@@ -8,16 +8,16 @@ internal class ParseInput(
   Parser<IGqlpTypeParameter>.DA param,
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
-  Parser<ObjectDefinition<IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase>>.D definition
-) : ObjectParser<InputDeclAst, IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase>(name, param, aliases, option, definition)
+  Parser<ObjectDefinition<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>>.D definition
+) : ObjectParser<InputDeclAst, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>(name, param, aliases, option, definition)
 {
-  protected override InputDeclAst MakeResult(AstPartial<IGqlpTypeParameter, NullOption> partial, ObjectDefinition<IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase> value)
+  protected override InputDeclAst MakeResult(AstPartial<IGqlpTypeParameter, NullOption> partial, ObjectDefinition<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate> value)
     => new(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
       TypeParameters = partial.Parameters.ArrayOf<TypeParameterAst>(),
       Parent = value.Parent,
-      Fields = value.Fields,
-      Alternates = value.Alternates,
+      ObjFields = value.Fields,
+      ObjAlternates = value.Alternates,
     };
 
   protected override InputDeclAst ToResult(AstPartial<IGqlpTypeParameter, NullOption> partial)

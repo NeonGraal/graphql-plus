@@ -43,7 +43,7 @@ public class MergeInputFieldsTests
     _merger = new(outputHelper.ToLoggerFactory(), _constant);
   }
 
-  internal override AstObjectFieldsMerger<IGqlpInputField, IGqlpInputBase> MergerField => _merger;
+  internal override AstObjectFieldsMerger<IGqlpInputField> MergerField => _merger;
 
   protected override InputFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
     => new(AstNulls.At, name, fieldDescription, new InputBaseAst(AstNulls.At, type, typeDescription));

@@ -34,12 +34,12 @@ internal class ParseOutputField(
       }
 
       if (!tokens.Take('.')) {
-        field.Type = new OutputBaseAst(at, "", description) { EnumMember = enumType };
+        field.BaseType = new OutputBaseAst(at, "", description) { EnumMember = enumType };
         return field.Ok<IGqlpOutputField>();
       }
 
       if (tokens.Identifier(out string? enumMember)) {
-        field.Type = new OutputBaseAst(at, enumType, description) { EnumMember = enumMember };
+        field.BaseType = new OutputBaseAst(at, enumType, description) { EnumMember = enumMember };
         return field.Ok<IGqlpOutputField>();
       }
 

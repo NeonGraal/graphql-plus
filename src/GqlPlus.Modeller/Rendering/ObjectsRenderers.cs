@@ -8,7 +8,7 @@ internal class ObjectBaseRenderer<TBase>
 {
   internal override RenderStructure Render(TBase model, IRenderContext context)
     => base.Render(model, context)
-      .Add("typeArguments", model.TypeArguments, this);
+      .Add("typeArguments", model.Arguments, this);
 }
 
 internal record class ModifierBaseRenderers<TBase>(
@@ -210,7 +210,7 @@ internal class OutputArgumentAndBaseRenderer(
     ? model.IsTypeParameter
       ? new(model.Output, "_TypeParameter")
       : RenderStructure.New(model.Tag, context)
-        .Add("typeArguments", model.TypeArguments, this)
+        .Add("typeArguments", model.Arguments, this)
         .Add("output", model.Output)
     : dual.Render(model.Dual, context);
 

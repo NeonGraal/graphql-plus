@@ -6,23 +6,23 @@ public class DualAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithAlternates(string name, AlternateInput[] alternates)
       => _checks.HashCode(
-        () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.DualAlternates() });
+        () => new DualDeclAst(AstNulls.At, name) { ObjAlternates = alternates.DualAlternates() });
 
   [Theory, RepeatData(Repeats)]
   public void String_WithAlternates(string name, AlternateInput[] alternates)
     => _checks.Text(
-      () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.DualAlternates() },
+      () => new DualDeclAst(AstNulls.At, name) { ObjAlternates = alternates.DualAlternates() },
       $"( !Du {name} | {alternates.Joined(a => $"!DA {a.Type} [] ?")} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlternates(string name, AlternateInput[] alternates)
     => _checks.Equality(
-      () => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.DualAlternates() });
+      () => new DualDeclAst(AstNulls.At, name) { ObjAlternates = alternates.DualAlternates() });
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2)
     => _checks.InequalityBetween(alternates1, alternates2,
-      alternates => new DualDeclAst(AstNulls.At, name) { Alternates = alternates.DualAlternates() },
+      alternates => new DualDeclAst(AstNulls.At, name) { ObjAlternates = alternates.DualAlternates() },
       alternates1.OrderedEqual(alternates2));
 
   [Theory, RepeatData(Repeats)]
@@ -50,23 +50,23 @@ public class DualAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithFields(string name, FieldInput[] fields)
       => _checks.HashCode(
-        () => new DualDeclAst(AstNulls.At, name) { Fields = fields.DualFields() });
+        () => new DualDeclAst(AstNulls.At, name) { ObjFields = fields.DualFields() });
 
   [Theory, RepeatData(Repeats)]
   public void String_WithFields(string name, FieldInput[] fields)
     => _checks.Text(
-      () => new DualDeclAst(AstNulls.At, name) { Fields = fields.DualFields() },
+      () => new DualDeclAst(AstNulls.At, name) { ObjFields = fields.DualFields() },
       $"( !Du {name} {{ {fields.Joined(fi => $"!DF {fi.Name} : {fi.Type}")} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithFields(string name, FieldInput[] fields)
     => _checks.Equality(
-      () => new DualDeclAst(AstNulls.At, name) { Fields = fields.DualFields() });
+      () => new DualDeclAst(AstNulls.At, name) { ObjFields = fields.DualFields() });
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenFields(string name, FieldInput[] fields1, FieldInput[] fields2)
     => _checks.InequalityBetween(fields1, fields2,
-      fields => new DualDeclAst(AstNulls.At, name) { Fields = fields.DualFields() },
+      fields => new DualDeclAst(AstNulls.At, name) { ObjFields = fields.DualFields() },
       fields1.OrderedEqual(fields2));
 
   [Theory, RepeatData(Repeats)]

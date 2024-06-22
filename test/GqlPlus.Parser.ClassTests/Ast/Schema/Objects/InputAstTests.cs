@@ -6,23 +6,23 @@ public class InputAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithAlternates(string name, AlternateInput[] alternates)
       => _checks.HashCode(
-        () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.InputAlternates() });
+        () => new InputDeclAst(AstNulls.At, name) { ObjAlternates = alternates.InputAlternates() });
 
   [Theory, RepeatData(Repeats)]
   public void String_WithAlternates(string name, AlternateInput[] alternates)
     => _checks.Text(
-      () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.InputAlternates() },
+      () => new InputDeclAst(AstNulls.At, name) { ObjAlternates = alternates.InputAlternates() },
       $"( !In {name} | {alternates.Joined(a => $"!IA {a.Type} [] ?")} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithAlternates(string name, AlternateInput[] alternates)
     => _checks.Equality(
-      () => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.InputAlternates() });
+      () => new InputDeclAst(AstNulls.At, name) { ObjAlternates = alternates.InputAlternates() });
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2)
     => _checks.InequalityBetween(alternates1, alternates2,
-      alternates => new InputDeclAst(AstNulls.At, name) { Alternates = alternates.InputAlternates() },
+      alternates => new InputDeclAst(AstNulls.At, name) { ObjAlternates = alternates.InputAlternates() },
       alternates1.OrderedEqual(alternates2));
 
   [Theory, RepeatData(Repeats)]
@@ -50,23 +50,23 @@ public class InputAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithFields(string name, FieldInput[] fields)
       => _checks.HashCode(
-        () => new InputDeclAst(AstNulls.At, name) { Fields = fields.InputFields() });
+        () => new InputDeclAst(AstNulls.At, name) { ObjFields = fields.InputFields() });
 
   [Theory, RepeatData(Repeats)]
   public void String_WithFields(string name, FieldInput[] fields)
     => _checks.Text(
-      () => new InputDeclAst(AstNulls.At, name) { Fields = fields.InputFields() },
+      () => new InputDeclAst(AstNulls.At, name) { ObjFields = fields.InputFields() },
       $"( !In {name} {{ {fields.Joined(fi => $"!IF {fi.Name} : {fi.Type}")} }} )");
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithFields(string name, FieldInput[] fields)
     => _checks.Equality(
-      () => new InputDeclAst(AstNulls.At, name) { Fields = fields.InputFields() });
+      () => new InputDeclAst(AstNulls.At, name) { ObjFields = fields.InputFields() });
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_BetweenFields(string name, FieldInput[] fields1, FieldInput[] fields2)
     => _checks.InequalityBetween(fields1, fields2,
-      fields => new InputDeclAst(AstNulls.At, name) { Fields = fields.InputFields() },
+      fields => new InputDeclAst(AstNulls.At, name) { ObjFields = fields.InputFields() },
       fields1.OrderedEqual(fields2));
 
   [Theory, RepeatData(Repeats)]

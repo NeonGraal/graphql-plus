@@ -11,7 +11,7 @@ public abstract class TestObjBaseModel<TObjBase, TObjBaseAst>
   [Theory, RepeatData(Repeats)]
   public void Model_Arguments(string name, string[] arguments)
     => ObjBaseChecks.ObjBase_Expected(
-      ObjBaseChecks.ObjBaseAst(name) with { TypeArguments = [.. arguments.Select(ObjBaseChecks.ObjBaseAst)] },
+      ObjBaseChecks.ObjBaseAst(name) with { BaseArguments = [.. arguments.Select(ObjBaseChecks.ObjBaseAst)] },
       ObjBaseChecks.ExpectedObjBase(name, false, ObjBaseChecks.ExpectedArguments(arguments))
       );
 

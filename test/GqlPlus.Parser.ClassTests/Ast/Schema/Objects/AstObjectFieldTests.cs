@@ -5,7 +5,7 @@ namespace GqlPlus.Ast.Schema.Objects;
 public abstract class AstObjectFieldTests<TObjFieldAst, TObjBase>
   : AstAliasedTests<FieldInput>
   where TObjFieldAst : AstObjField<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithModifiers(FieldInput input)
@@ -44,7 +44,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
   : AstAliasedChecks<FieldInput, TObjField>
   , IAstObjectFieldChecks<TObjField, TObjBase>
   where TObjField : AstObjField<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   private readonly FieldBy _createField;
@@ -79,7 +79,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
 
   public void ModifiedType_WithArguments(FieldInput input, string[] arguments)
   {
-    TObjField field = _createField(input, _createBase(input) with { TypeArguments = _createArguments(arguments) });
+    TObjField field = _createField(input, _createBase(input) with { BaseArguments = _createArguments(arguments) });
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     field.ModifiedType.Should().Be(expected);
@@ -97,7 +97,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
   {
     TObjField field = _createField(
         input,
-        _createBase(input) with { TypeArguments = _createArguments(arguments) }
+        _createBase(input) with { BaseArguments = _createArguments(arguments) }
       ) with { Modifiers = TestMods() };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";
 
@@ -111,7 +111,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
 internal interface IAstObjectFieldChecks<TObjField, TObjBase>
   : IAstAliasedChecks<FieldInput>
   where TObjField : AstObjField<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   void HashCode_WithModifiers(FieldInput input);
   void String_WithModifiers(FieldInput input);

@@ -7,20 +7,19 @@ public sealed record class InputFieldAst(
   TokenAt At,
   string Name,
   string Description,
-  IGqlpInputBase Type
-) : AstObjField<IGqlpInputBase>(At, Name, Description, Type)
+  IGqlpInputBase BaseType
+) : AstObjField<IGqlpInputBase>(At, Name, Description, BaseType)
   , IEquatable<InputFieldAst>
   , IGqlpInputField
 {
   public ConstantAst? DefaultValue { get; set; }
 
+  public InputFieldAst(TokenAt at, string name, IGqlpInputBase typeBase)
+    : this(at, name, "", typeBase) { }
+
   internal override string Abbr => "IF";
 
   IGqlpConstant? IGqlpInputField.DefaultValue => DefaultValue;
-  IGqlpInputBase IGqlpObjField<IGqlpInputBase>.Type => Type;
-
-  public InputFieldAst(TokenAt at, string name, IGqlpInputBase typeBase)
-    : this(at, name, "", typeBase) { }
 
   public bool Equals(InputFieldAst? other)
     => base.Equals(other)
@@ -31,7 +30,7 @@ public sealed record class InputFieldAst(
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(":")
-      .Concat(Type.GetFields())
+      .Concat(BaseType.GetFields())
       .Concat(Modifiers.AsString())
       .Append(DefaultValue.Prefixed("="));
 }

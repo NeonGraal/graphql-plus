@@ -7,12 +7,12 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal interface IObjectFactories<TObject, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst>
   : IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst>
   , IObjectAlternateFactories<TObjAltAst, TObjBase, TObjBaseAst>
-  where TObject : AstObject<TObjField, TObjAlt, TObjBase>
-  where TObjField : IGqlpObjField<TObjBase>
+  where TObject : AstObject<TObjBase, TObjField, TObjAlt>
+  where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
-  where TObjAlt : IGqlpObjAlternate<TObjBase>
+  where TObjAlt : IGqlpObjAlternate
   where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   TObject Object(TokenAt at, string name, string description = "");

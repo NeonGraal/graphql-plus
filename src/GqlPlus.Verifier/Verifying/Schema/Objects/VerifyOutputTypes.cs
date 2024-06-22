@@ -9,22 +9,22 @@ internal class VerifyOutputTypes(
   IMerge<IGqlpOutputField> mergeFields,
   IMerge<IGqlpOutputAlternate> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputBase, OutputContext>(aliased, mergeFields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, OutputContext>(aliased, mergeFields, mergeAlternates, logger)
 {
   protected override void UsageValue(IGqlpOutputObject usage, OutputContext context)
   {
-    IEnumerable<IGqlpOutputField> enumFields = usage.Fields
-      .Where(f => !string.IsNullOrWhiteSpace(f.Type.EnumMember));
+    IEnumerable<IGqlpOutputField> enumFields = usage.ObjFields
+      .Where(f => !string.IsNullOrWhiteSpace(f.BaseType.EnumMember));
 
     foreach (IGqlpOutputField? enumField in enumFields) {
       if (string.IsNullOrWhiteSpace(enumField?.Type.TypeName)) {
-        if (context.GetEnumValue(enumField!.Type.EnumMember!, out string? enumType)) {
-          enumField.Type.SetEnumType(enumType);
+        if (context.GetEnumValue(enumField!.BaseType.EnumMember!, out string? enumType)) {
+          enumField.BaseType.SetEnumType(enumType);
         } else {
-          context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.Type.EnumMember}' not defined");
+          context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.BaseType.EnumMember}' not defined");
         }
       } else {
-        context.CheckEnumValue("Field", enumField.Type);
+        context.CheckEnumValue("Field", enumField.BaseType);
       }
     }
 

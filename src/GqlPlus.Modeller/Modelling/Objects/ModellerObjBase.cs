@@ -16,7 +16,7 @@ internal abstract class ModellerObjBase<TObjBaseAst, TObjBase, TArg>
   where TArg : IModelBase
 {
   internal TArg[] ModelArguments(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
-    => [.. ast.TypeArguments.Select(a => NewArgument(a, typeKinds))];
+    => [.. ast.BaseArguments.Select(a => NewArgument(a, typeKinds))];
 
   internal abstract TArg NewArgument(TObjBaseAst ast, IMap<TypeKindModel> typeKinds);
 }

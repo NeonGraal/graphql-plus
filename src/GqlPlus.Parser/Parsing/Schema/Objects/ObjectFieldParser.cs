@@ -6,25 +6,18 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>
-  : Parser<TObjField>.I
-  where TObjField : IGqlpObjField<TObjBase>
+public abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
+  Parser<string>.DA aliases,
+  Parser<IGqlpModifier>.DA modifiers,
+  Parser<TObjBase>.D parseBase
+) : Parser<TObjField>.I
+  where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
-  private readonly Parser<string>.LA _aliases;
-  private readonly Parser<IGqlpModifier>.LA _modifiers;
-  private readonly Parser<TObjBase>.L _parseBase;
-
-  protected ObjectFieldParser(
-    Parser<string>.DA aliases,
-    Parser<IGqlpModifier>.DA modifiers,
-    Parser<TObjBase>.D parseBase)
-  {
-    _aliases = aliases;
-    _parseBase = parseBase;
-    _modifiers = modifiers;
-  }
+  private readonly Parser<string>.LA _aliases = aliases;
+  private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
+  private readonly Parser<TObjBase>.L _parseBase = parseBase;
 
   public IResult<TObjField> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer

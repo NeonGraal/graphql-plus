@@ -8,7 +8,7 @@ public class DualModelTests(
   IRenderer<TypeDualModel> rendering
 ) : TestObjectModel<DualDeclAst, IGqlpDualField, DualFieldAst, IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase, DualBaseAst>
 {
-  internal override ICheckObjectModel<DualDeclAst, IGqlpDualField, IGqlpDualAlternate, IGqlpDualBase> ObjectChecks => _checks;
+  internal override ICheckObjectModel<DualDeclAst, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate> ObjectChecks => _checks;
 
   private readonly DualModelChecks _checks = new(modeller, rendering);
 }
@@ -20,7 +20,7 @@ internal sealed class DualModelChecks(
 {
   protected override DualDeclAst NewObjectAst(
     string name,
-    IGqlpDualBase? parent,
+    IGqlpObjBase? parent,
     string? description,
     string[]? aliases,
     FieldInput[] fields,
@@ -28,8 +28,8 @@ internal sealed class DualModelChecks(
     => new(AstNulls.At, name, description ?? "") {
       Aliases = aliases ?? [],
       Parent = (DualBaseAst?)parent,
-      Fields = fields.DualFields(),
-      Alternates = alternates.DualAlternates(),
+      ObjFields = fields.DualFields(),
+      ObjAlternates = alternates.DualAlternates(),
     };
   internal override IGqlpDualBase NewParentAst(string input)
     => new DualBaseAst(AstNulls.At, input);

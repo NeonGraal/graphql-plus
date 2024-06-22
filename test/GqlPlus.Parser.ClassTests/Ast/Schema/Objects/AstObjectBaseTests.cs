@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjBaseTests<TObjBase, TObjBaseAst>
+public abstract class AstObjectBaseTests<TObjBase, TObjBaseAst>
   : AstAbbreviatedTests<string>
   where TObjBase : IGqlpObjBase<TObjBase>
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase

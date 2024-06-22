@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
 public class DualBaseAstTests
-  : AstObjBaseTests<IGqlpDualBase, DualBaseAst>
+  : AstObjectBaseTests<IGqlpDualBase, DualBaseAst>
 {
   protected override string AbbreviatedString(string input)
     => $"( {input} )";

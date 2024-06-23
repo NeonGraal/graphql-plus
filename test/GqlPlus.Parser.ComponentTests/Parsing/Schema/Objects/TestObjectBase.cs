@@ -46,7 +46,7 @@ internal sealed class CheckObjectBase<TObjBase, TObjBaseAst>(
   IObjectBaseFactories<TObjBase, TObjBaseAst> factories,
   Parser<TObjBase>.D parser
 ) : OneChecksParser<TObjBase>(parser), ICheckObjectBase
-  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   private readonly IObjectBaseFactories<TObjBase, TObjBaseAst> _factories = factories;

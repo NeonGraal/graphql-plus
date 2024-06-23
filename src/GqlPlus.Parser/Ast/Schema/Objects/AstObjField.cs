@@ -10,7 +10,7 @@ public abstract record class AstObjField<TObjBase>(
   TObjBase BaseType
 ) : AstAliased(At, Name, Description)
   , IEquatable<AstObjField<TObjBase>>
-  , IGqlpObjField<TObjBase>
+  , IGqlpObjField
   where TObjBase : IGqlpObjBase
 {
   public TObjBase BaseType { get; set; } = BaseType;

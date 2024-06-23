@@ -7,7 +7,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst>
   : Parser<TObjBase>.I
-  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   public IResult<TObjBase> Parse<TContext>(TContext tokens, string label)

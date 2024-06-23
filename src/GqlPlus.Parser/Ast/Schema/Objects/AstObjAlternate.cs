@@ -8,7 +8,7 @@ public abstract record class AstObjAlternate<TObjBase>(
   TObjBase BaseType
 ) : AstAbbreviated(At)
   , IEquatable<AstObjAlternate<TObjBase>>
-  , IGqlpObjAlternate<TObjBase>
+  , IGqlpObjAlternate
   where TObjBase : IGqlpObjBase
 {
   public ModifierAst[] Modifiers { get; set; } = [];

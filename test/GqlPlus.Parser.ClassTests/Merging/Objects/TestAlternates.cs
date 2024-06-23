@@ -5,7 +5,7 @@ namespace GqlPlus.Merging.Objects;
 
 public abstract class TestAlternates<TObjAlt, TObjAltAst, TObjBase>
   : TestDescriptions<TObjAlt>
-  where TObjAlt : IGqlpObjAlternate<TObjBase>
+  where TObjAlt : IGqlpObjAlternate
   where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
   where TObjBase : IGqlpObjBase
 {

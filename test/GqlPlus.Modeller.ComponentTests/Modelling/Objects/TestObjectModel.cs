@@ -129,7 +129,7 @@ internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFie
   TypeKindModel kind
 ) : CheckTypeModel<IGqlpObjBase, string, TObject, TypeKindModel, TModel>(modeller, rendering, kind),
     ICheckObjectModel<TObjectAst, TObjBase, TObjField, TObjAlt>
-  where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
+  where TObject : IGqlpObject
   where TObjectAst : AstObject<TObjBase, TObjField, TObjAlt>, TObject
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField

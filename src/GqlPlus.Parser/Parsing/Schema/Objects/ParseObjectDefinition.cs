@@ -4,24 +4,24 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public class ParseObjectDefinition<TObjField, TObjAlt, TObjBase>(
+public class ParseObjectDefinition<TObjBase, TObjField, TObjAlt>(
   Parser<TObjAlt>.DA alternates,
   Parser<TObjField>.D parseField,
   Parser<TObjBase>.D parseBase
-) : Parser<ObjectDefinition<TObjField, TObjAlt, TObjBase>>.I
-  where TObjField : IGqlpObjField<TObjBase>
-  where TObjAlt : IGqlpObjAlternate<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+) : Parser<ObjectDefinition<TObjBase, TObjField, TObjAlt>>.I
+  where TObjField : IGqlpObjField
+  where TObjAlt : IGqlpObjAlternate
+  where TObjBase : IGqlpObjBase
 {
   private readonly Parser<TObjAlt>.LA _alternates = alternates;
   private readonly Parser<TObjField>.L _parseField = parseField;
   private readonly Parser<TObjBase>.L _parseBase = parseBase;
 
-  public IResult<ObjectDefinition<TObjField, TObjAlt, TObjBase>> Parse<TContext>(TContext tokens, string label)
+  public IResult<ObjectDefinition<TObjBase, TObjField, TObjAlt>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     ArgumentNullException.ThrowIfNull(tokens);
-    ObjectDefinition<TObjField, TObjAlt, TObjBase> result = new();
+    ObjectDefinition<TObjBase, TObjField, TObjAlt> result = new();
     if (tokens.Take(':')) {
       IResult<TObjBase> objBase = _parseBase.Parse(tokens, label);
       if (objBase.IsError()) {

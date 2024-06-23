@@ -12,7 +12,7 @@ public class MergeDualFieldsTests(
 {
   private readonly MergeDualFields _merger = new(outputHelper.ToLoggerFactory());
 
-  internal override AstObjectFieldsMerger<IGqlpDualField, IGqlpDualBase> MergerField => _merger;
+  internal override AstObjectFieldsMerger<IGqlpDualField> MergerField => _merger;
 
   protected override DualFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
     => new(AstNulls.At, name, fieldDescription, new DualBaseAst(AstNulls.At, type, typeDescription));

@@ -28,7 +28,7 @@ public abstract record class AstAbbreviated(TokenAt At)
   public override int GetHashCode() => 0;
 
   ITokenAt IGqlpAbbreviated.At => At;
-#pragma warning disable CA1033 // Interface methods should be callable by child types
+
   IEnumerable<string?> IGqlpAbbreviated.GetFields() => GetFields();
   string IGqlpAbbreviated.Abbr => Abbr;
 }

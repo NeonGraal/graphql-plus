@@ -13,6 +13,5 @@ public class OutputAlternateAstTests
       dual => new OutputBaseAst(AstNulls.At, dual.Type),
       arguments => arguments.OutputBases());
 
-
   internal override IAstObjectAlternateChecks<OutputAlternateAst, IGqlpOutputBase> AlternateChecks => _checks;
 }

@@ -5,13 +5,13 @@ namespace GqlPlus.Modelling.Objects;
 
 public abstract class TestObjBaseModel<TObjBase, TObjBaseAst>
   : TestModelBase<string>
-  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Arguments(string name, string[] arguments)
     => ObjBaseChecks.ObjBase_Expected(
-      ObjBaseChecks.ObjBaseAst(name) with { TypeArguments = [.. arguments.Select(ObjBaseChecks.ObjBaseAst)] },
+      ObjBaseChecks.ObjBaseAst(name) with { BaseArguments = [.. arguments.Select(ObjBaseChecks.ObjBaseAst)] },
       ObjBaseChecks.ExpectedObjBase(name, false, ObjBaseChecks.ExpectedArguments(arguments))
       );
 
@@ -42,7 +42,7 @@ internal abstract class CheckObjBaseModel<TObjBase, TObjBaseAst, TModel>(
   TypeKindModel kind
 ) : CheckModelBase<string, TObjBase, TModel>(objBase, rendering),
     ICheckObjBaseModel<TObjBase, TObjBaseAst>
-  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
   where TModel : IModelBase
 {
@@ -77,7 +77,7 @@ internal abstract class CheckObjBaseModel<TObjBase, TObjBaseAst, TModel>(
 
 internal interface ICheckObjBaseModel<TObjBase, TObjBaseAst>
   : ICheckModelBase<string>
-  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   string[] ExpectedObjBase(string input, bool isTypeParam, string[] args);

@@ -8,7 +8,7 @@ public class OutputModelTests(
   IRenderer<TypeOutputModel> rendering
 ) : TestObjectModel<OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, OutputBaseAst>
 {
-  internal override ICheckObjectModel<OutputDeclAst, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputBase> ObjectChecks => _checks;
+  internal override ICheckObjectModel<OutputDeclAst, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate> ObjectChecks => _checks;
 
   private readonly OutputModelChecks _checks = new(modeller, rendering);
 }
@@ -20,7 +20,7 @@ internal sealed class OutputModelChecks(
 {
   protected override OutputDeclAst NewObjectAst(
     string name,
-    IGqlpOutputBase? parent,
+    IGqlpObjBase? parent,
     string? description,
     string[]? aliases,
     FieldInput[] fields,
@@ -28,8 +28,8 @@ internal sealed class OutputModelChecks(
     => new(AstNulls.At, name, description ?? "") {
       Aliases = aliases ?? [],
       Parent = (OutputBaseAst?)parent,
-      Fields = fields.OutputFields(),
-      Alternates = alternates.OutputAlternates(),
+      ObjFields = fields.OutputFields(),
+      ObjAlternates = alternates.OutputAlternates(),
     };
 
   internal override IGqlpOutputBase NewParentAst(string input)

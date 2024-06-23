@@ -12,7 +12,7 @@ public class MergeDualAlternatesTests(
 {
   private readonly MergeDualAlternates _merger = new(outputHelper.ToLoggerFactory());
 
-  internal override AstAlternatesMerger<IGqlpDualAlternate, IGqlpDualBase> MergerAlternate => _merger;
+  internal override AstAlternatesMerger<IGqlpDualAlternate> MergerAlternate => _merger;
 
   protected override DualAlternateAst MakeAlternate(string name, string description = "")
     => new(AstNulls.At, new DualBaseAst(AstNulls.At, name, description));

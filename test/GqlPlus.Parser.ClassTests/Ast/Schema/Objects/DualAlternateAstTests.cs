@@ -13,6 +13,5 @@ public class DualAlternateAstTests
       dual => new DualBaseAst(AstNulls.At, dual.Type),
       arguments => arguments.DualBases());
 
-
   internal override IAstObjectAlternateChecks<DualAlternateAst, IGqlpDualBase> AlternateChecks => _checks;
 }

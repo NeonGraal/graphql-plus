@@ -40,12 +40,12 @@ internal class MergeAllTypes(
       .Concat(types.OfType<EnumDeclAst>()));
 
     foreach (OutputDeclAst output in types.OfType<OutputDeclAst>()) {
-      foreach (AstObjAlternate<IGqlpOutputBase> alternate in output.Alternates) {
-        FixupType(alternate.Type, enumValues);
+      foreach (IGqlpOutputAlternate alternate in output.ObjAlternates) {
+        FixupType(alternate.BaseType, enumValues);
       }
 
-      foreach (OutputFieldAst field in output.Fields) {
-        FixupType(field.Type, enumValues);
+      foreach (IGqlpOutputField field in output.ObjFields) {
+        FixupType(field.BaseType, enumValues);
       }
     }
 
@@ -72,7 +72,7 @@ internal class MergeAllTypes(
       ((OutputBaseAst)type).Name = enumType;
     }
 
-    foreach (IGqlpOutputBase argument in type.TypeArguments) {
+    foreach (IGqlpOutputBase argument in type.BaseArguments) {
       FixupType(argument, enumValues);
     }
   }

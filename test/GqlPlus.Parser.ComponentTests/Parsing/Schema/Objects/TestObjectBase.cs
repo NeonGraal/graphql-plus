@@ -46,7 +46,7 @@ internal sealed class CheckObjectBase<TObjBase, TObjBaseAst>(
   IObjectBaseFactories<TObjBase, TObjBaseAst> factories,
   Parser<TObjBase>.D parser
 ) : OneChecksParser<TObjBase>(parser), ICheckObjectBase
-  where TObjBase : IGqlpObjBase<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   private readonly IObjectBaseFactories<TObjBase, TObjBaseAst> _factories = factories;
@@ -64,7 +64,7 @@ internal sealed class CheckObjectBase<TObjBase, TObjBaseAst>(
     => TrueExpected(
       name + "<" + objBases.Joined() + ">",
       ObjBase(name) with {
-        TypeArguments = [.. objBases.Select(ObjBase)]
+        BaseArguments = [.. objBases.Select(ObjBase)]
       });
 
   public void WithTypeArgumentsBad(string name, string[] objBases)

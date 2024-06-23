@@ -9,7 +9,7 @@ internal class VerifyInputTypes(
   IMerge<IGqlpInputField> fields,
   IMerge<IGqlpInputAlternate> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase, UsageContext>(aliased, fields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, UsageContext>(aliased, fields, mergeAlternates, logger)
 {
   protected override UsageContext MakeContext(IGqlpInputObject usage, IGqlpType[] aliased, ITokenMessages errors)
   {

@@ -5,7 +5,7 @@ namespace GqlPlus.Ast.Schema.Objects;
 public abstract class AstObjectAlternateTests<TObjAltAst, TObjBase>
   : AstAbbreviatedTests<AlternateInput>
   where TObjAltAst : AstObjAlternate<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithModifiers(AlternateInput input)
@@ -44,7 +44,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
   : AstAbbreviatedChecks<AlternateInput, TObjAltAst>
   , IAstObjectAlternateChecks<TObjAltAst, TObjBase>
   where TObjAltAst : AstObjAlternate<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   private readonly AlternateBy _createAlternate;
@@ -79,7 +79,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
 
   public void ModifiedType_WithArguments(AlternateInput input, string[] arguments)
   {
-    TObjAltAst alternate = _createAlternate(input, _createBase(input) with { TypeArguments = _createArguments(arguments) });
+    TObjAltAst alternate = _createAlternate(input, _createBase(input) with { BaseArguments = _createArguments(arguments) });
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     alternate.ModifiedType.Should().Be(expected);
@@ -97,7 +97,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
   {
     TObjAltAst alternate = _createAlternate(
         input,
-        _createBase(input) with { TypeArguments = _createArguments(arguments) }
+        _createBase(input) with { BaseArguments = _createArguments(arguments) }
       ) with { Modifiers = TestMods() };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";
 
@@ -111,7 +111,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
 internal interface IAstObjectAlternateChecks<TObjAlternate, TObjBase>
   : IAstAbbreviatedChecks<AlternateInput>
   where TObjAlternate : AstObjAlternate<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   void HashCode_WithModifiers(AlternateInput input);
   void String_WithModifiers(AlternateInput input);

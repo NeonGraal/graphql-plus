@@ -7,9 +7,8 @@ public sealed record class DualFieldAst(
   TokenAt At,
   string Name,
   string Description,
-  IGqlpDualBase Type
-) : AstObjField<IGqlpDualBase>(At, Name, Description, Type)
-  , IEquatable<DualFieldAst>
+  IGqlpDualBase BaseType
+) : AstObjField<IGqlpDualBase>(At, Name, Description, BaseType)
   , IGqlpDualField
 {
   public DualFieldAst(TokenAt at, string name, IGqlpDualBase typeBase)
@@ -17,14 +16,9 @@ public sealed record class DualFieldAst(
 
   internal override string Abbr => "DF";
 
-  public bool Equals(DualFieldAst? other)
-    => base.Equals(other);
-  public override int GetHashCode()
-    => base.GetHashCode();
-
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(":")
-      .Concat(Type.GetFields())
+      .Concat(BaseType.GetFields())
       .Concat(Modifiers.AsString());
 }

@@ -94,7 +94,7 @@ internal static class UsageHelpers
     where TObjBase : IGqlpObjBase<TObjBase>
   {
     if (context.GetType(type.TypeName, out IGqlpDescribed? value)) {
-      int numArgs = type.TypeArguments.Count();
+      int numArgs = type.Arguments.Count();
       if (value is IGqlpObject definition) {
         if (check && definition.Label != "Dual" && definition.Label != type.Label) {
           context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.TypeName}. Found {definition.Label}");
@@ -111,7 +111,7 @@ internal static class UsageHelpers
       context.AddError(type, type.Label + labelSuffix, $"'{type.TypeName}' not defined");
     }
 
-    foreach (TObjBase arg in type.TypeArguments) {
+    foreach (TObjBase arg in type.BaseArguments) {
       context.CheckArgumentType(arg, labelSuffix);
     }
 

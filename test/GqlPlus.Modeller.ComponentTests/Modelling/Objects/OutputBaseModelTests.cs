@@ -11,7 +11,7 @@ public class OutputBaseModelTests(
   [Theory, RepeatData(Repeats)]
   public void Model_EnumArguments(string name, string[] arguments, string enumMember)
     => ObjBaseChecks.ObjBase_Expected(
-      ObjBaseChecks.ObjBaseAst(name) with { TypeArguments = [.. arguments.Select(a => ObjBaseChecks.ObjBaseAst(a) with { EnumMember = enumMember })] },
+      ObjBaseChecks.ObjBaseAst(name) with { BaseArguments = [.. arguments.Select(a => ObjBaseChecks.ObjBaseAst(a) with { EnumMember = enumMember })] },
       ObjBaseChecks.ExpectedObjBase(name, false, _checks.ExpectedEnumArguments(arguments, enumMember))
       );
 

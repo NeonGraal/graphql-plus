@@ -5,9 +5,9 @@ namespace GqlPlus.Merging.Objects;
 
 public abstract class TestAlternates<TObjAlt, TObjAltAst, TObjBase>
   : TestDescriptions<TObjAlt>
-  where TObjAlt : IGqlpObjAlternate<TObjBase>
+  where TObjAlt : IGqlpObjAlternate
   where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
@@ -23,7 +23,7 @@ public abstract class TestAlternates<TObjAlt, TObjAltAst, TObjBase>
       [MakeDescribed(input) with { Modifiers = TestMods() }, MakeDescribed(input) with { Modifiers = TestMods() }],
       MakeDescribed(input) with { Modifiers = TestMods() });
 
-  internal abstract AstAlternatesMerger<TObjAlt, TObjBase> MergerAlternate { get; }
+  internal abstract AstAlternatesMerger<TObjAlt> MergerAlternate { get; }
   internal override GroupsMerger<TObjAlt> MergerGroups => MergerAlternate;
 
   protected abstract TObjAltAst MakeAlternate(string name, string description = "");

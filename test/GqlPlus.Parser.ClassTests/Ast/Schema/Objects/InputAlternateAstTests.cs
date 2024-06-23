@@ -13,6 +13,5 @@ public class InputAlternateAstTests
       dual => new InputBaseAst(AstNulls.At, dual.Type),
       arguments => arguments.InputBases());
 
-
   internal override IAstObjectAlternateChecks<InputAlternateAst, IGqlpInputBase> AlternateChecks => _checks;
 }

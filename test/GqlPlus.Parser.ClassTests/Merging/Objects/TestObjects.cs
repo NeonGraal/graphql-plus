@@ -4,14 +4,14 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Merging.Objects;
 
 public abstract class TestObjects<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase>
-  : TestTyped<IGqlpType, TObject, TObjBase, TObjField>
-  where TObject : IGqlpObject<TObjField, TObjAlt, TObjBase>
-  where TObjectAst : AstObject<TObjField, TObjAlt, TObjBase>, TObject
-  where TObjField : IGqlpObjField<TObjBase>, IGqlpDescribed
+  : TestTyped<IGqlpType, TObject, IGqlpObjBase, TObjField>
+  where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
+  where TObjectAst : AstObject<TObjBase, TObjField, TObjAlt>, TObject
+  where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
-  where TObjAlt : IGqlpObjAlternate<TObjBase>, IGqlpDescribed
+  where TObjAlt : IGqlpObjAlternate
   where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsTypeParametersCantMerge_ReturnsErrors(string name, string[] typeParameters)
@@ -27,16 +27,16 @@ public abstract class TestObjects<TObject, TObjectAst, TObjField, TObjFieldAst, 
     => this
       .CanMergeReturnsError(Alternates)
       .CanMerge_Errors(
-        MakeObject(name) with { Alternates = MakeAlternates(alternates) },
-        MakeObject(name) with { Alternates = MakeAlternates(alternates) });
+        MakeObject(name) with { ObjAlternates = MakeAlternates(alternates) },
+        MakeObject(name) with { ObjAlternates = MakeAlternates(alternates) });
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsFieldsCantMerge_ReturnsErrors(string name, FieldInput[] fields)
     => this
       .CanMergeReturnsError(Fields)
       .CanMerge_Errors(
-        MakeObject(name) with { Fields = MakeFields(fields) },
-        MakeObject(name) with { Fields = MakeFields(fields) });
+        MakeObject(name) with { ObjFields = MakeFields(fields) },
+        MakeObject(name) with { ObjFields = MakeFields(fields) });
 
   protected IMerge<IGqlpTypeParameter> TypeParameters { get; }
   protected IMerge<TObjAlt> Alternates { get; }
@@ -49,16 +49,16 @@ public abstract class TestObjects<TObject, TObjectAst, TObjField, TObjFieldAst, 
     Fields = Merger<TObjField>();
   }
 
-  internal abstract AstObjectsMerger<TObject, TObjField, TObjAlt, TObjBase> MergerObject { get; }
-  internal override AstTypeMerger<IGqlpType, TObject, TObjBase, TObjField> MergerTyped => MergerObject;
+  internal abstract AstObjectsMerger<TObject, TObjBase, TObjField, TObjAlt> MergerObject { get; }
+  internal override AstTypeMerger<IGqlpType, TObject, IGqlpObjBase, TObjField> MergerTyped => MergerObject;
 
-  protected abstract TObjectAst MakeObject(string name, string[]? aliases = null, string description = "", TObjBase? parent = default);
+  protected abstract TObjectAst MakeObject(string name, string[]? aliases = null, string description = "", IGqlpObjBase? parent = default);
   protected abstract TObjFieldAst[] MakeFields(FieldInput[] fields);
   protected abstract TObjAltAst[] MakeAlternates(AlternateInput[] alternates);
   protected abstract TObjBase MakeBase(string type);
 
-  protected override TObject MakeTyped(string name, string[]? aliases = null, string description = "", TObjBase? parent = default)
+  protected override TObject MakeTyped(string name, string[]? aliases = null, string description = "", IGqlpObjBase? parent = default)
     => MakeObject(name, aliases, description, parent);
-  protected override TObjBase MakeParent(string parent)
+  protected override IGqlpObjBase MakeParent(string parent)
     => MakeBase(parent);
 }

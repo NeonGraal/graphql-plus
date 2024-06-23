@@ -5,9 +5,9 @@ namespace GqlPlus.Merging.Objects;
 
 public abstract class TestObjectFields<TObjField, TObjFieldAst, TObjBase>
   : TestAliased<TObjField>
-  where TObjField : IGqlpObjField<TObjBase>, IGqlpDescribed
+  where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
@@ -71,7 +71,7 @@ public abstract class TestObjectFields<TObjField, TObjFieldAst, TObjBase>
       [MakeField(name, type, typeDescription: description), MakeField(name, type, typeDescription: description)],
       MakeField(name, type, typeDescription: description));
 
-  internal abstract AstObjectFieldsMerger<TObjField, TObjBase> MergerField { get; }
+  internal abstract AstObjectFieldsMerger<TObjField> MergerField { get; }
   internal override GroupsMerger<TObjField> MergerGroups => MergerField;
 
   protected abstract TObjFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "");

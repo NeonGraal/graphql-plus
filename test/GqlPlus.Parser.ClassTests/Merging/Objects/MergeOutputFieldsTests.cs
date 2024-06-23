@@ -112,7 +112,7 @@ public class MergeOutputFieldsTests
     _merger = new(outputHelper.ToLoggerFactory(), _parameters);
   }
 
-  internal override AstObjectFieldsMerger<IGqlpOutputField, IGqlpOutputBase> MergerField => _merger;
+  internal override AstObjectFieldsMerger<IGqlpOutputField> MergerField => _merger;
 
   protected override OutputFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
     => new(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription));

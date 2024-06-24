@@ -81,9 +81,10 @@ public abstract class TestObject
 
 public record struct ObjectInput(string Name, string Other);
 
-internal sealed class CheckObject<TObject, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst>
-  : BaseAliasedChecks<ObjectInput, TObject>, ICheckObject
-  where TObject : AstObject<TObjBase, TObjField, TObjAlt>
+internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst>
+  : BaseAliasedChecks<ObjectInput, TObjectAst, TObject>, ICheckObject
+  where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
+  where TObjectAst : AstObject<TObjBase, TObjField, TObjAlt>, TObject
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
   where TObjAlt : IGqlpObjAlternate
@@ -91,9 +92,9 @@ internal sealed class CheckObject<TObject, TObjField, TObjFieldAst, TObjAlt, TOb
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
-  private readonly IObjectFactories<TObject, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst> _factories;
+  private readonly IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst> _factories;
 
-  internal CheckObject(IObjectFactories<TObject, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst> factories, Parser<TObject>.D parser)
+  internal CheckObject(IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst> factories, Parser<TObject>.D parser)
     : base(parser)
     => _factories = factories;
 
@@ -190,7 +191,7 @@ internal sealed class CheckObject<TObject, TObjField, TObjFieldAst, TObjAlt, TOb
   public void WithParentGenericFieldBad(string name, string parent, string subType, string field, string fieldType)
     => False(name + "{:" + parent + "<" + subType + " " + field + ":" + fieldType + "}");
 
-  public TObject Object(string name)
+  public TObjectAst Object(string name)
     => _factories.Object(AstNulls.At, name);
 
   public TObjField ObjField(string field, string baseType)
@@ -213,7 +214,7 @@ internal sealed class CheckObject<TObject, TObjField, TObjFieldAst, TObjAlt, TOb
 
   protected internal sealed override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";
-  protected internal sealed override TObject NamedFactory(ObjectInput input)
+  protected internal sealed override TObjectAst NamedFactory(ObjectInput input)
     => Object(input.Name) with { ObjAlternates = [ObjAlternate(input.Other)] };
 }
 

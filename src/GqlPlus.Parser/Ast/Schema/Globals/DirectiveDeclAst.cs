@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Globals;
@@ -13,7 +12,7 @@ internal sealed record class DirectiveDeclAst(
   , IGqlpSchemaDirective
 {
   public DirectiveOption Option { get; set; } = DirectiveOption.Unique;
-  public InputParameterAst[] Parameters { get; set; } = [];
+  public IGqlpInputParameter[] Parameters { get; set; } = [];
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 
   internal override string Abbr => "Di";

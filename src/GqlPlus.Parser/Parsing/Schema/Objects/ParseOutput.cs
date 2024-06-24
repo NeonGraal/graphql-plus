@@ -9,10 +9,10 @@ internal class ParseOutput(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<ObjectDefinition<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>>.D definition
-) : ObjectParser<OutputDeclAst, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>(name, param, aliases, option, definition)
+) : ObjectParser<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>(name, param, aliases, option, definition)
 {
-  protected override OutputDeclAst MakeResult(AstPartial<IGqlpTypeParameter, NullOption> partial, ObjectDefinition<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate> value)
-    => new(partial.At, partial.Name, partial.Description) {
+  protected override IGqlpOutputObject MakeResult(AstPartial<IGqlpTypeParameter, NullOption> partial, ObjectDefinition<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate> value)
+    => new OutputDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
       TypeParameters = partial.Parameters.ArrayOf<TypeParameterAst>(),
       Parent = value.Parent,
@@ -20,8 +20,8 @@ internal class ParseOutput(
       ObjAlternates = value.Alternates,
     };
 
-  protected override OutputDeclAst ToResult(AstPartial<IGqlpTypeParameter, NullOption> partial)
-    => new(partial.At, partial.Name, partial.Description) {
+  protected override IGqlpOutputObject ToResult(AstPartial<IGqlpTypeParameter, NullOption> partial)
+    => new OutputDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
       TypeParameters = partial.Parameters.ArrayOf<TypeParameterAst>(),
     };

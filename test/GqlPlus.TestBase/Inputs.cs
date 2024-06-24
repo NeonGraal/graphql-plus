@@ -5,7 +5,8 @@ namespace GqlPlus;
 public record struct DomainRangeInput(decimal? Min, decimal? Max)
 {
   private bool? _minLtMax;
-  private bool MinLtMax {
+  private bool MinLtMax
+  {
     get {
       _minLtMax ??= Min is null || Max is null || Min <= Max;
       return _minLtMax.Value;

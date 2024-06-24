@@ -5,7 +5,7 @@ using GqlPlus.Ast.Schema.Globals;
 namespace GqlPlus.Merging.Globals;
 
 public class MergeOptionSettingsTests
-  : TestGroups<IGqlpSchemaSetting, string>
+  : TestGroupsMerger<IGqlpSchemaSetting, string>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name)

@@ -7,7 +7,7 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Merging;
 
 public class MergeSchemasTests
-  : TestAbbreviated<IGqlpSchema>
+  : TestAbbreviatedMerger<IGqlpSchema>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentDeclarations_ReturnsGood(string category, string option)

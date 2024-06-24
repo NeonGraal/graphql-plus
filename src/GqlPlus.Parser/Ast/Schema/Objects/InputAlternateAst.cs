@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class InputAlternateAst(
+internal sealed record class InputAlternateAst(
   TokenAt At,
   IGqlpInputBase Type
 ) : AstObjAlternate<IGqlpInputBase>(At, Type)

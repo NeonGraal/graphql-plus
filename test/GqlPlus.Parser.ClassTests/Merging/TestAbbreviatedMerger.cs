@@ -1,17 +1,18 @@
 ﻿using GqlPlus.Ast;
 using GqlPlus.Token;
+
 using NSubstitute;
 
 namespace GqlPlus.Merging;
 
-public abstract class TestAbbreviated<TAst>
-  : TestAbbreviated<TAst, string>
+public abstract class TestAbbreviatedMerger<TAst>
+  : TestAbbreviatedMerger<TAst, string>
   where TAst : IGqlpError
 { }
 
 [TracePerTest]
 
-public abstract class TestAbbreviated<TAst, TInput>
+public abstract class TestAbbreviatedMerger<TAst, TInput>
   where TAst : IGqlpError
 {
   [Fact]

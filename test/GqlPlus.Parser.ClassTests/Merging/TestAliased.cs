@@ -3,7 +3,7 @@
 namespace GqlPlus.Merging;
 
 public abstract class TestAliased<TAst>
-  : TestDescriptions<TAst>
+  : TestDescriptionsMerger<TAst>
   where TAst : IGqlpAliased
 {
   [Theory, RepeatData(Repeats)]

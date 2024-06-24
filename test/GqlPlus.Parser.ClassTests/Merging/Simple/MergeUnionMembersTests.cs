@@ -5,7 +5,7 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Merging.Simple;
 
 public class MergeUnionMembersTests
-  : TestGroups<IGqlpUnionItem, string>
+  : TestGroupsMerger<IGqlpUnionItem, string>
 {
   private readonly MergeUnionMembers _merger = new();
 

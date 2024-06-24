@@ -5,7 +5,7 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Merging.Objects;
 
 public class MergeTypeParametersTests
-  : TestDescriptions<IGqlpTypeParameter>
+  : TestDescriptionsMerger<IGqlpTypeParameter>
 {
   [Theory, RepeatData(Repeats)]
   public void Merge_ManyItems_ReturnsItem(string name)

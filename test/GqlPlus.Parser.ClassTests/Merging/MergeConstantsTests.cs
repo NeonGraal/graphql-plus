@@ -3,7 +3,7 @@
 namespace GqlPlus.Merging;
 
 public class MergeConstantsTests
-  : TestAbbreviated<IGqlpConstant>
+  : TestAbbreviatedMerger<IGqlpConstant>
 {
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsBothValues_ReturnsExpected(string valueA, string valueB)

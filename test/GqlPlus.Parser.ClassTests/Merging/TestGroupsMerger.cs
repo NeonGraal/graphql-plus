@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Merging;
 
-public abstract class TestGroups<TAst, TInput>
-  : TestAbbreviated<TAst, TInput>
+public abstract class TestGroupsMerger<TAst, TInput>
+  : TestAbbreviatedMerger<TAst, TInput>
   where TAst : IGqlpError
 {
   [SkippableTheory, RepeatData(Repeats)]

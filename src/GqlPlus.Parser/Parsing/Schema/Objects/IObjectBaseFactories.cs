@@ -4,7 +4,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public interface IObjectBaseFactories<TObjBase, TObjBaseAst>
+internal interface IObjectBaseFactories<TObjBase, TObjBaseAst>
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>
 {

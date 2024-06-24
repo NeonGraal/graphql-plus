@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Objects;
 
 public class MergeInputParametersTests
-  : TestDescriptions<IGqlpInputParameter>
+  : TestDescriptionsMerger<IGqlpInputParameter>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string input, string value)

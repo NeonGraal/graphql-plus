@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
 public class OutputBaseAstTests
-  : AstObjectBaseTests<IGqlpOutputBase, OutputBaseAst>
+  : AstObjectBaseTests<IGqlpOutputBase>
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithEnumValue(string name, string enumMember)
@@ -33,5 +33,5 @@ public class OutputBaseAstTests
   private readonly AstObjBaseChecks<IGqlpOutputBase, OutputBaseAst> _checks
     = new(name => new OutputBaseAst(AstNulls.At, name), arguments => arguments.OutputBases());
 
-  internal override IAstObjBaseChecks<IGqlpOutputBase, OutputBaseAst> ObjBaseChecks => _checks;
+  internal override IAstObjBaseChecks<IGqlpOutputBase> ObjBaseChecks => _checks;
 }

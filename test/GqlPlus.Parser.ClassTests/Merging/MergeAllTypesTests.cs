@@ -8,7 +8,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging;
 
 public class MergeAllTypesTests
-  : TestAbbreviated<IGqlpType>
+  : TestAbbreviatedMerger<IGqlpType>
 {
   private readonly MergeAllTypes _merger;
 

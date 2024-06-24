@@ -3,7 +3,7 @@
 namespace GqlPlus.Merging.Simple;
 
 public abstract class TestDomainItems<TItem, TInput>
-  : TestGroups<TItem, TInput>
+  : TestGroupsMerger<TItem, TInput>
   where TItem : IGqlpDomainItem
 {
   [Theory, RepeatData(Repeats)]

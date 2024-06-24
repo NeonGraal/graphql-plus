@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Merging;
 
-public abstract class TestDescriptions<TAst>
-  : TestGroups<TAst, string>
+public abstract class TestDescriptionsMerger<TAst>
+  : TestGroupsMerger<TAst, string>
   where TAst : IGqlpError, IGqlpDescribed
 {
   [Theory, RepeatData(Repeats)]

@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract record class AstObjBase<TObjBase>(
+internal abstract record class AstObjBase<TObjBase>(
   TokenAt At,
   string Name,
   string Description

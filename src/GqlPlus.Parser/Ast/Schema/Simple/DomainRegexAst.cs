@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public sealed record class DomainRegexAst(
+internal sealed record class DomainRegexAst(
   TokenAt At,
   bool Excludes,
   string Pattern

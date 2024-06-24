@@ -8,6 +8,7 @@ internal class MergeDomains<TMember, TItem>(
   ILoggerFactory logger,
   IMerge<TItem> members
 ) : AstTypeMerger<IGqlpDomain, IGqlpDomain<TItem>, string, TItem>(logger, members)
+  , IDomainMerger<TItem>
   where TMember : AstAbbreviated, TItem
   where TItem : class, IGqlpDomainItem
 {
@@ -24,3 +25,8 @@ internal class MergeDomains<TMember, TItem>(
     return ast with { Members = items.ArrayOf<TMember>() };
   }
 }
+
+internal interface IDomainMerger<TItem>
+  : IMerge<IGqlpDomain<TItem>>
+  where TItem : IGqlpDomainItem
+{ }

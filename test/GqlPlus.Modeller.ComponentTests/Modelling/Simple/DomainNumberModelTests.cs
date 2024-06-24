@@ -6,9 +6,9 @@ namespace GqlPlus.Modelling.Simple;
 public class DomainNumberModelTests(
   IDomainModeller<IGqlpDomainRange, DomainRangeModel> modeller,
   IRenderer<BaseDomainModel<DomainRangeModel>> rendering
-) : TestDomainModel<DomainRangeInput, DomainRangeAst, IGqlpDomainRange>
+) : TestDomainModel<DomainRangeInput, IGqlpDomainRange>
 {
-  internal override ICheckDomainModel<DomainRangeInput, DomainRangeAst, IGqlpDomainRange> DomainChecks => _checks;
+  internal override ICheckDomainModel<DomainRangeInput, IGqlpDomainRange> DomainChecks => _checks;
 
   private readonly DomainNumberModelChecks _checks = new(modeller, rendering);
 }

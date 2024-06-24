@@ -1,20 +1,31 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
+
 using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Simple;
 
-public class MergeDomainAstNumbersTests(
-  ITestOutputHelper outputHelper
-) : TestDomainAsts<DomainRangeAst, IGqlpDomainRange, DomainRangeInput>(outputHelper)
+public class MergeDomainAstNumbersTests
+  : TestDomainAsts<IGqlpDomainRange, DomainRangeInput>
 {
-  protected override DomainRangeAst[] MakeItems(DomainRangeInput input)
-    => input.DomainRange();
+  internal override IDomainMerger<IGqlpDomainRange> Merger { get; }
+  internal override AstTypeMerger<IGqlpDomain, IGqlpDomain<IGqlpDomainRange>, string, IGqlpDomainRange> MergerTyped { get; }
 
-  protected override AstDomain<DomainRangeAst, IGqlpDomainRange> MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
-    => new(AstNulls.At, name, description, DomainKind.Number) {
+  public MergeDomainAstNumbersTests(ITestOutputHelper outputHelper)
+  {
+    MergeDomains<DomainRangeAst, IGqlpDomainRange> merger = new(outputHelper.ToLoggerFactory(), MergeItems);
+    MergerTyped = merger;
+    Merger = merger;
+  }
+
+  protected override IGqlpDomain<IGqlpDomainRange> MakeDomain(string name, string[]? aliases = null, string description = "", string? parent = null, DomainKind? kind = null, IEnumerable<IGqlpDomainRange>? items = null)
+    => new AstDomain<DomainRangeAst, IGqlpDomainRange>(AstNulls.At, name, description, kind ?? DomainKind.Boolean) {
       Aliases = aliases ?? [],
-      Parent = parent
+      Parent = parent,
+      Members = items?.ArrayOf<DomainRangeAst>() ?? [],
     };
+
+  protected override IGqlpDomainRange[] MakeItems(DomainRangeInput input)
+    => input.DomainRange();
 }

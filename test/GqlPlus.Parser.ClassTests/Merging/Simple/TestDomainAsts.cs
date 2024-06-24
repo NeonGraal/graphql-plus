@@ -9,9 +9,8 @@ using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Simple;
 
-public abstract class TestDomainAsts<TMember, TItem, TItemInput>
+public abstract class TestDomainAsts<TItem, TItemInput>
   : TestTyped<IGqlpDomain, IGqlpDomain<TItem>, string, TItem>
-  where TMember : AstAbbreviated, TItem
   where TItem : class, IGqlpDomainItem
 {
   [Theory, RepeatData(Repeats)]
@@ -52,30 +51,22 @@ public abstract class TestDomainAsts<TMember, TItem, TItemInput>
   }
 
   internal readonly IMerge<TItem> MergeItems;
-  internal readonly MergeDomains<TMember, TItem> Merger;
+  internal abstract IDomainMerger<TItem> Merger { get; }
 
-  protected TestDomainAsts(ITestOutputHelper outputHelper)
-  {
-    MergeItems = Merger<TItem>();
+  protected TestDomainAsts()
+    => MergeItems = Merger<TItem>();
 
-    Merger = new(outputHelper.ToLoggerFactory(), MergeItems);
-  }
-
-  internal override AstTypeMerger<IGqlpDomain, IGqlpDomain<TItem>, string, TItem> MergerTyped => Merger;
+  // internal override AstTypeMerger<IGqlpDomain, IGqlpDomain<TItem>, string, TItem> MergerTyped => Merger;
 
   protected abstract TItem[] MakeItems(TItemInput input);
-  protected IGqlpDomain<TItem> MakeDomain(
+  protected abstract IGqlpDomain<TItem> MakeDomain(
     string name,
     string[]? aliases = null,
     string description = "",
     string? parent = default,
     DomainKind? kind = null,
     IEnumerable<TItem>? items = null
-  ) => new AstDomain<TMember, TItem>(AstNulls.At, name, description, kind ?? DomainKind.Boolean) {
-    Aliases = aliases ?? [],
-    Parent = parent,
-    Members = items?.ArrayOf<TMember>() ?? [],
-  };
+  );
 
   protected override IGqlpDomain<TItem> MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
     => MakeDomain(name, aliases, description, parent);
@@ -83,4 +74,3 @@ public abstract class TestDomainAsts<TMember, TItem, TItemInput>
   protected override string MakeParent(string parent)
     => parent;
 }
-

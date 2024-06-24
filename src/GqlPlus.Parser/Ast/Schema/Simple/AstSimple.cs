@@ -3,14 +3,14 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public abstract record class AstSimple(
+internal abstract record class AstSimple(
   TokenAt At,
   string Name,
   string Description
 ) : AstType<string>(At, Name, Description)
 { }
 
-public abstract record class AstSimple<TMember>(
+internal abstract record class AstSimple<TMember>(
   TokenAt At,
   string Name,
   string Description,

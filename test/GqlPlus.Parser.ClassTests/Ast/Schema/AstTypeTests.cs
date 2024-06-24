@@ -71,7 +71,7 @@ internal class AstTypeChecks<TType, TParent>(
     => CreateInput(name) with { Parent = CreateParent(parent) };
 }
 
-internal sealed class AstTypeChecks<TType>(
+internal class AstTypeChecks<TType>(
   BaseAstChecks<TType>.CreateBy<string> createInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
 ) : AstTypeChecks<TType, string>(createInput, parent => parent, createExpression)

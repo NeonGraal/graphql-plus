@@ -6,9 +6,9 @@ namespace GqlPlus.Modelling.Simple;
 public class DomainEnumModelTests(
   IDomainModeller<IGqlpDomainMember, DomainMemberModel> modeller,
   IRenderer<BaseDomainModel<DomainMemberModel>> rendering
-) : TestDomainModel<string, DomainMemberAst, IGqlpDomainMember>
+) : TestDomainModel<string, IGqlpDomainMember>
 {
-  internal override ICheckDomainModel<string, DomainMemberAst, IGqlpDomainMember> DomainChecks => _checks;
+  internal override ICheckDomainModel<string, IGqlpDomainMember> DomainChecks => _checks;
 
   private readonly DomainEnumModelChecks _checks = new(modeller, rendering);
 }

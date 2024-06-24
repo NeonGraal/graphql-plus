@@ -6,9 +6,9 @@ namespace GqlPlus.Modelling.Simple;
 public class DomainBooleanModelTests(
   IDomainModeller<IGqlpDomainTrueFalse, DomainTrueFalseModel> modeller,
   IRenderer<BaseDomainModel<DomainTrueFalseModel>> rendering
-) : TestDomainModel<bool, DomainTrueFalseAst, IGqlpDomainTrueFalse>
+) : TestDomainModel<bool, IGqlpDomainTrueFalse>
 {
-  internal override ICheckDomainModel<bool, DomainTrueFalseAst, IGqlpDomainTrueFalse> DomainChecks => _checks;
+  internal override ICheckDomainModel<bool, IGqlpDomainTrueFalse> DomainChecks => _checks;
 
   private readonly DomainBooleanModelChecks _checks = new(modeller, rendering);
 }

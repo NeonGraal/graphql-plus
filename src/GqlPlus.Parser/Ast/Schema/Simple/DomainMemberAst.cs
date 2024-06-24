@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public sealed record class DomainMemberAst(
+internal sealed record class DomainMemberAst(
   TokenAt At,
   bool Excludes,
   string Member

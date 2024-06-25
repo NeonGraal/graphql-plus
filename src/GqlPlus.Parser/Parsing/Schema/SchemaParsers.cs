@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Parsing.Schema.Globals;
 using GqlPlus.Parsing.Schema.Objects;
 using GqlPlus.Parsing.Schema.Simple;
@@ -54,20 +53,20 @@ public static class SchemaParsers
       .AddParser<IGqlpDualBase, ParseDualBase>()
       .AddParser<IGqlpDualField, ParseDualField>()
       .AddParserArray<IGqlpDualAlternate, ParseDualAlternate>()
-      .AddDeclarationParser<DualDeclAst, ParseDual>("dual")
+      .AddDeclarationParser<IGqlpDualObject, ParseDual>("dual")
       .AddObjectParser<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>()
       // Input
       .AddParser<IGqlpInputBase, ParseInputBase>()
       .AddParser<IGqlpInputField, ParseInputField>()
       .AddParserArray<IGqlpInputAlternate, ParseInputAlternate>()
-      .AddDeclarationParser<InputDeclAst, ParseInput>("input")
+      .AddDeclarationParser<IGqlpInputObject, ParseInput>("input")
       .AddObjectParser<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>()
-      .AddParserArray<InputParameterAst, ParseParameters>()
+      .AddParserArray<IGqlpInputParameter, ParseParameters>()
       // Output
       .AddParser<IGqlpOutputBase, ParseOutputBase>()
       .AddParser<IGqlpOutputField, ParseOutputField>()
       .AddParserArray<IGqlpOutputAlternate, ParseOutputAlternate>()
-      .AddDeclarationParser<OutputDeclAst, ParseOutput>("output")
+      .AddDeclarationParser<IGqlpOutputObject, ParseOutput>("output")
       .AddObjectParser<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>()
       // Schema
       .AddParser<IGqlpSchema, ParseSchema>()

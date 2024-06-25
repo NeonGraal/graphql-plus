@@ -12,7 +12,7 @@ internal sealed record class OutputFieldAst(
   , IEquatable<OutputFieldAst>
   , IGqlpOutputField
 {
-  public InputParameterAst[] Parameters { get; set; } = [];
+  public IGqlpInputParameter[] Parameters { get; set; } = [];
 
   public OutputFieldAst(TokenAt at, string name, IGqlpOutputBase typeBase)
     : this(at, name, "", typeBase) { }

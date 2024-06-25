@@ -6,9 +6,9 @@ namespace GqlPlus.Modelling.Objects;
 public class DualFieldModelTests(
   IModeller<IGqlpDualField, DualFieldModel> modeller,
   IRenderer<DualFieldModel> rendering
-) : TestObjectFieldModel<IGqlpDualField, DualFieldAst, IGqlpDualBase>
+) : TestObjectFieldModel<IGqlpDualField, IGqlpDualBase>
 {
-  internal override ICheckObjectFieldModel<DualFieldAst, IGqlpDualBase> FieldChecks => _checks;
+  internal override ICheckObjectFieldModel<IGqlpDualField> FieldChecks => _checks;
 
   private readonly DualFieldModelChecks _checks = new(modeller, rendering);
 }
@@ -18,6 +18,9 @@ internal sealed class DualFieldModelChecks(
   IRenderer<DualFieldModel> rendering
 ) : CheckObjectFieldModel<IGqlpDualField, DualFieldAst, IGqlpDualBase, DualFieldModel>(modeller, rendering, TypeKindModel.Dual)
 {
-  protected override DualFieldAst NewFieldAst(FieldInput input)
-    => new(AstNulls.At, input.Name, new DualBaseAst(AstNulls.At, input.Type));
+  internal override DualFieldAst NewFieldAst(FieldInput input, string[] aliases, bool withModifiers)
+    => new(AstNulls.At, input.Name, new DualBaseAst(AstNulls.At, input.Type)) {
+      Aliases = aliases,
+      Modifiers = withModifiers ? TestMods() : [],
+    };
 }

@@ -6,9 +6,9 @@ namespace GqlPlus.Modelling.Objects;
 public class OutputModelTests(
   IModeller<IGqlpOutputObject, TypeOutputModel> modeller,
   IRenderer<TypeOutputModel> rendering
-) : TestObjectModel<OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, OutputBaseAst>
+) : TestObjectModel<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputBase>
 {
-  internal override ICheckObjectModel<OutputDeclAst, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate> ObjectChecks => _checks;
+  internal override ICheckObjectModel<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate> ObjectChecks => _checks;
 
   private readonly OutputModelChecks _checks = new(modeller, rendering);
 }
@@ -18,18 +18,12 @@ internal sealed class OutputModelChecks(
   IRenderer<TypeOutputModel> rendering
 ) : CheckObjectModel<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, TypeOutputModel>(modeller, rendering, TypeKindModel.Output)
 {
-  protected override OutputDeclAst NewObjectAst(
-    string name,
-    IGqlpObjBase? parent,
-    string? description,
-    string[]? aliases,
-    FieldInput[] fields,
-    AlternateInput[] alternates)
-    => new(AstNulls.At, name, description ?? "") {
-      Aliases = aliases ?? [],
-      Parent = (OutputBaseAst?)parent,
-      ObjFields = fields.OutputFields(),
-      ObjAlternates = alternates.OutputAlternates(),
+  protected override OutputDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)
+    => new(AstNulls.At, input.Name, input.Description.FirstOrDefault() ?? "") {
+      Aliases = input.Aliases,
+      Parent = parent ?? (input.Parent is not null ? NewParentAst(input.Parent) : null),
+      ObjFields = input.Fields.OutputFields(),
+      ObjAlternates = input.Alternates.OutputAlternates(),
     };
 
   internal override IGqlpOutputBase NewParentAst(string input)

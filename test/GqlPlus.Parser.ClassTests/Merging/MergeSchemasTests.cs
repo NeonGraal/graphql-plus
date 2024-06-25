@@ -58,8 +58,8 @@ public class MergeSchemasTests
 
   protected override IMerge<IGqlpSchema> MergerBase => _merger;
 
-  protected override SchemaAst MakeAst(string input)
-    => new(AstNulls.At);
+  protected override IGqlpSchema MakeAst(string input)
+    => new SchemaAst(AstNulls.At);
 
   private static AstDeclaration[] CategoryDeclarations(string category)
     => [new CategoryDeclAst(AstNulls.At, category), new OutputDeclAst(AstNulls.At, category)];

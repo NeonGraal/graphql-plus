@@ -8,7 +8,7 @@ namespace GqlPlus;
 
 public static class BuiltIn
 {
-  public static AstType[] Basic { get; } = [
+  public static IGqlpType[] Basic { get; } = [
     new EnumDeclAst(AstNulls.At, "Boolean", [new(AstNulls.At, "false"), new(AstNulls.At, "true")]) { Aliases = ["^"] },
     new EnumDeclAst(AstNulls.At, "Unit", [new(AstNulls.At, "_")]) { Aliases = ["_"] },
 
@@ -17,7 +17,7 @@ public static class BuiltIn
     new AstDomain<DomainRegexAst, IGqlpDomainRegex>(AstNulls.At, "String", DomainKind.String, []) { Aliases = ["*"] },
   ];
 
-  public static AstType[] Internal { get; } = [
+  public static IGqlpType[] Internal { get; } = [
     new EnumDeclAst(AstNulls.At, "Void", []),
     new EnumDeclAst(AstNulls.At, "Null", [new(AstNulls.At, "null")]) { Aliases = ["null"] },
 

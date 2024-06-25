@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema;
 
-public sealed record class SchemaAst(TokenAt At)
+internal sealed record class SchemaAst(TokenAt At)
   : AstAbbreviated(At)
   , IEquatable<SchemaAst>
   , IGqlpSchema
@@ -11,7 +11,7 @@ public sealed record class SchemaAst(TokenAt At)
   public ParseResultKind Result { get; set; }
   internal TokenMessages Errors { get; set; } = [];
 
-  public AstDeclaration[] Declarations { get; set; } = [];
+  public IGqlpDeclaration[] Declarations { get; set; } = [];
 
   internal override string Abbr => "Sc";
 

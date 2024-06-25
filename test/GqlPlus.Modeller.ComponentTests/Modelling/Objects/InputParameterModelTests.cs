@@ -20,7 +20,7 @@ internal sealed class ParameterModelChecks(
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<string> input)
   {
-    IEnumerable<string> description = input.Description;
+    IEnumerable<string> description = input.ExpectedDescription;
     return description.Any()
       ? ["!_InputParameter",
         "base: !_InputBase",

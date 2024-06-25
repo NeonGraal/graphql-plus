@@ -133,6 +133,8 @@ internal class ExpectedTypeInput<TParent>(
     : this(input.Name)
   {
     Aliases = input.Aliases;
+    ExpectedAliases = input.ExpectedAliases;
     Description = input.Description;
+    ExpectedDescription = input.ExpectedDescription;
   }
 }

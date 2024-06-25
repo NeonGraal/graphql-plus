@@ -57,8 +57,8 @@ internal sealed class CategoryModelChecks(
 
   private string[] ExpectedCategory(ExpectedCategoryInput input)
     => ["!_Category",
-      .. input.Aliases ?? [],
-      .. input.Description ?? [],
+      .. input.ExpectedAliases ?? [],
+      .. input.ExpectedDescription ?? [],
       input.Modifiers ? "modifiers: [!_Modifier {modifierKind: !_ModifierKind List}, !_Modifier {modifierKind: !_ModifierKind Opt}]" : "",
       "name: " + input.Name,
       .. input.Output.TypeRefFor(TypeKindModel.Output),
@@ -89,6 +89,8 @@ internal sealed class ExpectedCategoryInput(
     : this(input.Name)
   {
     Aliases = input.Aliases;
+    ExpectedAliases = input.ExpectedAliases;
     Description = input.Description;
+    ExpectedDescription = input.ExpectedDescription;
   }
 }

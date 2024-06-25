@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Objects;
 
 public class MergeDualObjectsTests
-  : TestObjects<IGqlpDualObject, DualDeclAst, IGqlpDualField, DualFieldAst, IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase>
+  : TestObjects<IGqlpDualObject, IGqlpDualField, IGqlpDualAlternate, IGqlpDualBase>
 {
   private readonly MergeDualObjects _merger;
 
@@ -16,12 +16,21 @@ public class MergeDualObjectsTests
 
   internal override AstObjectsMerger<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate> MergerObject => _merger;
 
-  protected override DualDeclAst MakeObject(string name, string[]? aliases = null, string description = "", IGqlpObjBase? parent = default)
-    => new(AstNulls.At, name, description) { Aliases = aliases ?? [], Parent = parent };
-  protected override DualFieldAst[] MakeFields(FieldInput[] fields)
-    => fields.DualFields();
-  protected override DualAlternateAst[] MakeAlternates(AlternateInput[] alternates)
-    => alternates.DualAlternates();
-  protected override DualBaseAst MakeBase(string type)
-    => new(AstNulls.At, type);
+  protected override IGqlpDualObject MakeObject(
+    string name,
+    string[]? aliases = null,
+    string description = "",
+    IGqlpObjBase? parent = default,
+    string[]? typeParameters = null,
+    FieldInput[]? fields = null,
+    AlternateInput[]? alternates = null)
+    => new DualDeclAst(AstNulls.At, name, description) {
+      Aliases = aliases ?? [],
+      Parent = parent,
+      TypeParameters = typeParameters?.TypeParameters() ?? [],
+      ObjFields = fields?.DualFields() ?? [],
+      ObjAlternates = alternates?.DualAlternates() ?? []
+    };
+  protected override IGqlpDualBase MakeBase(string type)
+    => new DualBaseAst(AstNulls.At, type);
 }

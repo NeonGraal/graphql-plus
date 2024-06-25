@@ -19,7 +19,7 @@ public class MergeDualAlternatesTests(
   internal override ICheckAlternatesMerger<IGqlpDualAlternate> CheckAlternates => _checks;
 }
 
-internal class MergeDualAlternatesChecks
+internal sealed class MergeDualAlternatesChecks
   : CheckAlternatesMerger<IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase>
 {
   public override IGqlpDualAlternate MakeAlternate(string input, bool withModifiers = false, string description = "")

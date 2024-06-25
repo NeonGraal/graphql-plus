@@ -11,27 +11,27 @@ public class MergeInputParametersTests
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string input, string value)
-    => CanMerge_Good([MakeDescribed(input), MakeDescribed(input) with { DefaultValue = value.FieldKey() }]);
+    => CanMerge_Good([MakeDescribed(input), MakeDefault(input, value)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameDefault_ReturnsGood(string input, string value)
     => CanMerge_Good([
-      MakeDescribed(input) with { DefaultValue = value.FieldKey() },
-      MakeDescribed(input) with { DefaultValue = value.FieldKey() }]);
+      MakeDefault(input, value),
+      MakeDefault(input, value)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentDefault_ReturnsErrors(string input, string value)
     => this
       .CanMergeReturnsError(_constant)
       .CanMerge_Errors(
-        MakeDescribed(input) with { DefaultValue = value.FieldKey() },
-        MakeDescribed(input) with { DefaultValue = value.FieldKey() });
+        MakeDefault(input, value),
+        MakeDefault(input, value));
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsOneDefault_ReturnsExpected(string input, string value)
     => Merge_Expected(
-      [MakeDescribed(input), MakeDescribed(input) with { DefaultValue = value.FieldKey() }],
-      MakeDescribed(input) with { DefaultValue = value.FieldKey() });
+      [MakeDescribed(input), MakeDefault(input, value)],
+      MakeDefault(input, value));
 
   private readonly IMerge<IGqlpConstant> _constant;
   private readonly MergeInputParameters _merger;
@@ -45,6 +45,10 @@ public class MergeInputParametersTests
 
   internal override GroupsMerger<IGqlpInputParameter> MergerGroups => _merger;
 
-  protected override InputParameterAst MakeDescribed(string name, string description = "")
-    => new(AstNulls.At, new InputBaseAst(AstNulls.At, name, description));
+  protected override IGqlpInputParameter MakeDescribed(string name, string description = "")
+    => new InputParameterAst(AstNulls.At, new InputBaseAst(AstNulls.At, name, description));
+  private static InputParameterAst MakeDefault(string name, string value)
+    => new(AstNulls.At, new InputBaseAst(AstNulls.At, name)) {
+      DefaultValue = value.FieldKey()
+    };
 }

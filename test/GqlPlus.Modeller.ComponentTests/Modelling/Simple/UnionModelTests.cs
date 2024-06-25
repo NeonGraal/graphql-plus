@@ -81,9 +81,9 @@ internal sealed class UnionModelChecks(
 
   private string[] ExpectedUnion(ExpectedUnionInput input)
     => ["!_TypeUnion",
-      .. input.Aliases,
+      .. input.ExpectedAliases,
       .. input.AllItems,
-      .. input.Description,
+      .. input.ExpectedDescription,
       .. input.Items,
       "name: " + input.Name,
       .. input.Parent.TypeRefFor(SimpleKindModel.Union),
@@ -121,6 +121,8 @@ internal sealed class ExpectedUnionInput(
     : this(input.Name, input.Parent)
   {
     Aliases = input.Aliases;
+    ExpectedAliases = input.ExpectedAliases;
     Description = input.Description;
+    ExpectedDescription = input.ExpectedDescription;
   }
 }

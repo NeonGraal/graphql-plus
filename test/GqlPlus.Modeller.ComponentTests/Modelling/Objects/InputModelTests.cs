@@ -19,9 +19,10 @@ internal sealed class InputModelChecks(
 ) : CheckObjectModel<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, TypeInputModel>(modeller, rendering, TypeKindModel.Input)
 {
   protected override InputDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)
-    => new(AstNulls.At, input.Name, input.Description.FirstOrDefault() ?? "") {
+    => new(AstNulls.At, input.Name, input.Description) {
       Aliases = input.Aliases,
       Parent = parent ?? (input.Parent is not null ? NewParentAst(input.Parent) : null),
+      TypeParameters = input.TypeParameters.TypeParameters(),
       ObjFields = input.Fields.InputFields(),
       ObjAlternates = input.Alternates.InputAlternates(),
     };

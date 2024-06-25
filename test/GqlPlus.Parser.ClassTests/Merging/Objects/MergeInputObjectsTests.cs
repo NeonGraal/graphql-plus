@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Objects;
 
 public class MergeInputObjectsTests
-  : TestObjects<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase>
+  : TestObjects<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase>
 {
   private readonly MergeInputObjects _merger;
 
@@ -16,12 +16,21 @@ public class MergeInputObjectsTests
 
   internal override AstObjectsMerger<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate> MergerObject => _merger;
 
-  protected override InputDeclAst MakeObject(string name, string[]? aliases = null, string description = "", IGqlpObjBase? parent = default)
-    => new(AstNulls.At, name, description) { Aliases = aliases ?? [], Parent = parent, };
-  protected override InputFieldAst[] MakeFields(FieldInput[] fields)
-    => fields.InputFields();
-  protected override InputAlternateAst[] MakeAlternates(AlternateInput[] alternates)
-    => alternates.InputAlternates();
-  protected override InputBaseAst MakeBase(string type)
-    => new(AstNulls.At, type);
+  protected override IGqlpInputObject MakeObject(
+    string name,
+    string[]? aliases = null,
+    string description = "",
+    IGqlpObjBase? parent = default,
+    string[]? typeParameters = null,
+    FieldInput[]? fields = null,
+    AlternateInput[]? alternates = null)
+    => new InputDeclAst(AstNulls.At, name, description) {
+      Aliases = aliases ?? [],
+      Parent = parent,
+      TypeParameters = typeParameters?.TypeParameters() ?? [],
+      ObjFields = fields?.InputFields() ?? [],
+      ObjAlternates = alternates?.InputAlternates() ?? [],
+    };
+  protected override IGqlpInputBase MakeBase(string type)
+    => new InputBaseAst(AstNulls.At, type);
 }

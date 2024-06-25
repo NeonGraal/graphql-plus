@@ -7,31 +7,31 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Objects;
 
 public class MergeInputFieldsTests
-  : TestObjectFields<IGqlpInputField, InputFieldAst, IGqlpInputBase>
+  : TestObjectFields<IGqlpInputField, IGqlpInputBase>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string name, string type, string value)
-    => CanMerge_Good([MakeField(name, type), MakeField(name, type) with { DefaultValue = value.FieldKey() }]);
+    => CanMerge_Good([MakeField(name, type), MakeFieldDefault(name, type, value)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameDefault_ReturnsGood(string name, string type, string value)
     => CanMerge_Good([
-      MakeField(name, type) with { DefaultValue = value.FieldKey() },
-      MakeField(name, type) with { DefaultValue = value.FieldKey() }]);
+      MakeFieldDefault(name, type, value),
+      MakeFieldDefault(name, type, value)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentDefaults_ReturnsErrors(string name, string type, string value)
     => this
       .CanMergeReturnsError(_constant)
       .CanMerge_Errors(
-        MakeField(name, type) with { DefaultValue = value.FieldKey() },
-        MakeField(name, type) with { DefaultValue = value.FieldKey() });
+        MakeFieldDefault(name, type, value),
+        MakeFieldDefault(name, type, value));
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsOneDefault_ReturnsExpected(string name, string type, string value)
     => Merge_Expected(
-      [MakeField(name, type), MakeField(name, type) with { DefaultValue = value.FieldKey() }],
-      MakeField(name, type) with { DefaultValue = value.FieldKey() });
+      [MakeField(name, type), MakeFieldDefault(name, type, value)],
+      MakeFieldDefault(name, type, value));
 
   private readonly IMerge<IGqlpConstant> _constant;
   private readonly MergeInputFields _merger;
@@ -45,6 +45,19 @@ public class MergeInputFieldsTests
 
   internal override AstObjectFieldsMerger<IGqlpInputField> MergerField => _merger;
 
-  protected override InputFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
-    => new(AstNulls.At, name, fieldDescription, new InputBaseAst(AstNulls.At, type, typeDescription));
+  protected override IGqlpInputField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
+    => new InputFieldAst(AstNulls.At, name, fieldDescription, new InputBaseAst(AstNulls.At, type, typeDescription));
+
+  internal static IGqlpInputField MakeFieldDefault(string name, string type, string defaultValue)
+    => new InputFieldAst(AstNulls.At, name, new InputBaseAst(AstNulls.At, type)) {
+      DefaultValue = defaultValue.FieldKey()
+    };
+  protected override IGqlpInputField MakeFieldModifiers(string name)
+    => new InputFieldAst(AstNulls.At, name, new InputBaseAst(AstNulls.At, name)) {
+      Modifiers = TestMods()
+    };
+  protected override IGqlpInputField MakeAliased(string name, string[] aliases, string description = "")
+    => new InputFieldAst(AstNulls.At, name, description, new InputBaseAst(AstNulls.At, name, description)) {
+      Aliases = aliases
+    };
 }

@@ -60,9 +60,9 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
 {
   internal string[] ExpectedDomain(ExpectedDomainInput<TValue> input)
     => [$"!_Domain{kind}",
-      .. input.Aliases ?? [],
+      .. input.ExpectedAliases ?? [],
       .. AllItems(input.AllItems),
-      .. input.Description ?? [],
+      .. input.ExpectedDescription ?? [],
       $"domainKind: !_DomainKind {kind}",
       .. Items(input.Items),
       "name: " + input.Name,
@@ -152,6 +152,8 @@ internal sealed class ExpectedDomainInput<TItem>(
     : this(input.Name, input.Parent)
   {
     Aliases = input.Aliases;
+    ExpectedAliases = input.ExpectedAliases;
     Description = input.Description;
+    ExpectedDescription = input.ExpectedDescription;
   }
 }

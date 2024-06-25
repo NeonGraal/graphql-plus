@@ -220,7 +220,9 @@ internal sealed class ExpectedObjectInput(
     : this(input.Name, input.Parent)
   {
     Aliases = input.Aliases;
+    ExpectedAliases = input.ExpectedAliases;
     Description = input.Description;
+    ExpectedDescription = input.ExpectedDescription;
   }
 
   internal string[] Expected(
@@ -232,11 +234,11 @@ internal sealed class ExpectedObjectInput(
     IEnumerable<string>? alternates = null,
     IEnumerable<string>? allAlternates = null)
     => [$"!_Type{typeKind}",
-      .. Aliases,
+      .. ExpectedAliases,
       .. allAlternates ?? [],
       .. allFields ?? [],
       .. alternates ?? [],
-      .. Description,
+      .. ExpectedDescription,
       .. fields ?? [],
       "name: " + Name,
       .. parent(Parent),

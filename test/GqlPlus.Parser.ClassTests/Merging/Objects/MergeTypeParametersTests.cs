@@ -23,6 +23,6 @@ public class MergeTypeParametersTests
 
   internal override GroupsMerger<IGqlpTypeParameter> MergerGroups => _merger;
 
-  protected override TypeParameterAst MakeDescribed(string name, string description = "")
-    => new(AstNulls.At, name, description);
+  protected override IGqlpTypeParameter MakeDescribed(string name, string description = "")
+    => new TypeParameterAst(AstNulls.At, name, description);
 }

@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class DualDeclAst(
+internal sealed record class DualDeclAst(
   TokenAt At,
   string Name,
   string Description

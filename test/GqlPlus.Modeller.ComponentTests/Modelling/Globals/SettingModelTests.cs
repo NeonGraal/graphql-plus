@@ -21,7 +21,7 @@ internal sealed class SettingModelChecks(
 ) : CheckDescribedModel<SettingInput, IGqlpSchemaSetting, OptionSettingAst, SettingModel>(modeller, rendering)
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<SettingInput> input)
-    => input.Name.Expected(input.Description ?? []);
+    => input.Name.Expected(input.ExpectedDescription ?? []);
 
   protected override OptionSettingAst NewDescribedAst(SettingInput input, string description)
     => input.ToAst(description);

@@ -19,9 +19,10 @@ internal sealed class OutputModelChecks(
 ) : CheckObjectModel<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, TypeOutputModel>(modeller, rendering, TypeKindModel.Output)
 {
   protected override OutputDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)
-    => new(AstNulls.At, input.Name, input.Description.FirstOrDefault() ?? "") {
+    => new(AstNulls.At, input.Name, input.Description) {
       Aliases = input.Aliases,
       Parent = parent ?? (input.Parent is not null ? NewParentAst(input.Parent) : null),
+      TypeParameters = input.TypeParameters.TypeParameters(),
       ObjFields = input.Fields.OutputFields(),
       ObjAlternates = input.Alternates.OutputAlternates(),
     };

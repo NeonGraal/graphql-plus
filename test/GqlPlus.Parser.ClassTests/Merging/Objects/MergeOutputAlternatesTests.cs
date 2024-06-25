@@ -17,7 +17,7 @@ public class MergeOutputAlternatesTests(
   internal override ICheckAlternatesMerger<IGqlpOutputAlternate> CheckAlternates => _checks;
 }
 
-internal class MergeOutputAlternatesChecks
+internal sealed class MergeOutputAlternatesChecks
   : CheckAlternatesMerger<IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase>
 {
   public override IGqlpOutputAlternate MakeAlternate(string input, bool withModifiers = false, string description = "")

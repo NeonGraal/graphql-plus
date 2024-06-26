@@ -24,7 +24,7 @@ public class OptionSettingAstTests
   internal override IAstAliasedChecks<SettingInput> AliasedChecks => _checks;
 
   private static OptionSettingAst Setting(string name, string value)
-    => new(AstNulls.At, name, new FieldKeyAst(AstNulls.At, value));
+    => new(AstNulls.At, name, new(new FieldKeyAst(AstNulls.At, value)));
 }
 
 public record struct SettingInput(string Name, string Value);

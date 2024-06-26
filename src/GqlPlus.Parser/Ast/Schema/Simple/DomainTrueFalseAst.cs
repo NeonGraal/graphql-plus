@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public sealed record class DomainTrueFalseAst(
+internal sealed record class DomainTrueFalseAst(
   TokenAt At,
   bool Excludes,
   bool Value

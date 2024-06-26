@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract record class AstObjAlternate<TObjBase>(
+internal abstract record class AstObjAlternate<TObjBase>(
   TokenAt At,
   TObjBase BaseType
 ) : AstAbbreviated(At)
@@ -11,7 +11,7 @@ public abstract record class AstObjAlternate<TObjBase>(
   , IGqlpObjAlternate
   where TObjBase : IGqlpObjBase
 {
-  public ModifierAst[] Modifiers { get; set; } = [];
+  public IGqlpModifier[] Modifiers { get; set; } = [];
 
   public string ModifiedType => BaseType.GetFields().Skip(1).Concat(Modifiers.AsString()).Joined();
   public string Description => BaseType.Description;

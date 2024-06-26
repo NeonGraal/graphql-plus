@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
+
 using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Simple;
@@ -40,8 +41,8 @@ public class MergeEnumsTests
 
   internal override AstTypeMerger<IGqlpType, IGqlpEnum, string, IGqlpEnumItem> MergerTyped => _merger;
 
-  protected override EnumDeclAst MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
-    => new(AstNulls.At, name, description, []) { Aliases = aliases ?? [], Parent = parent, };
+  protected override IGqlpEnum MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
+    => new EnumDeclAst(AstNulls.At, name, description, []) { Aliases = aliases ?? [], Parent = parent, };
   protected override string MakeParent(string parent)
     => parent;
 }

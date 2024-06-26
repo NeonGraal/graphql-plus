@@ -28,7 +28,7 @@ public class BuiltInTests(
   public void ValidInternalTypes(string type)
     => Verify_Valid(BuiltInData.InternalMap[type]);
 
-  private void Verify_Valid(AstType type)
+  private void Verify_Valid(IGqlpType type)
   {
     Skip.If(type is null);
 

@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
 public class InputAlternateAstTests
-  : AstObjectAlternateTests<InputAlternateAst, IGqlpInputBase>
+  : AstObjectAlternateTests<IGqlpInputBase>
 {
   protected override string AbbreviatedString(AlternateInput input)
     => $"( !IA {input.Type} )";
@@ -13,5 +13,5 @@ public class InputAlternateAstTests
       dual => new InputBaseAst(AstNulls.At, dual.Type),
       arguments => arguments.InputBases());
 
-  internal override IAstObjectAlternateChecks<InputAlternateAst, IGqlpInputBase> AlternateChecks => _checks;
+  internal override IAstObjectAlternateChecks<IGqlpInputBase> AlternateChecks => _checks;
 }

@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class InputBaseAst(
+internal sealed record class InputBaseAst(
   TokenAt At,
   string Name,
   string Description

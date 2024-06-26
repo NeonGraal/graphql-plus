@@ -6,7 +6,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
+internal abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
   Parser<string>.DA aliases,
   Parser<IGqlpModifier>.DA modifiers,
   Parser<TObjBase>.D parseBase

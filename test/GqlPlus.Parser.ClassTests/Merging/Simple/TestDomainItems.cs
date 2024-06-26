@@ -2,25 +2,31 @@
 
 namespace GqlPlus.Merging.Simple;
 
-public abstract class TestDomainItems<TItem>
-  : TestGroups<TItem>
+public abstract class TestDomainItems<TItem, TInput>
+  : TestGroupsMerger<TItem, TInput>
   where TItem : IGqlpDomainItem
 {
   [Theory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsSame_ReturnsGood(string name)
+  public void CanMerge_TwoAstsSame_ReturnsGood(TInput name)
     => CanMerge_Good([MakeAst(name), MakeAst(name)]);
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoAstsSame_ReturnsExpected(string name)
+  public void Merge_TwoAstsSame_ReturnsExpected(TInput name)
     => Merge_Expected(
       [MakeAst(name), MakeAst(name)],
       MakeAst(name));
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void Merge_TwoAstsDifferent_ReturnsExpected(string name1, string name2)
+  public void Merge_TwoAstsDifferent_ReturnsExpected(TInput name1, TInput name2)
     => this
-      .SkipIf(name1 == name2)
+      .SkipNull(name1)
+      .SkipIf(name1.Equals(name2))
       .Merge_Expected(
         [MakeAst(name1), MakeAst(name2)],
         MakeAst(name1), MakeAst(name2));
+
+  protected abstract TItem MakeItem(TInput input, bool excludes);
+
+  protected override TItem MakeAst(TInput input)
+    => MakeItem(input, false);
 }

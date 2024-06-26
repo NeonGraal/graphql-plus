@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema;
 
-public abstract record class AstDeclaration(
+internal abstract record class AstDeclaration(
   TokenAt At,
   string Name,
   string Description

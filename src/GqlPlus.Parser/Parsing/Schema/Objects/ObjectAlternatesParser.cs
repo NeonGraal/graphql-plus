@@ -6,7 +6,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class ObjectAlternatesParser<TObjAlt, TObjAltAst, TObjBase>(
+internal abstract class ObjectAlternatesParser<TObjAlt, TObjAltAst, TObjBase>(
   ParserArray<IParserCollections, IGqlpModifier>.DA collections,
   Parser<TObjBase>.D parseBase
 ) : Parser<TObjAlt>.IA

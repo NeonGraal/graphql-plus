@@ -2,10 +2,9 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjectBaseTests<TObjBase, TObjBaseAst>
+public abstract class AstObjectBaseTests<TObjBase>
   : AstAbbreviatedTests<string>
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithIsTypeParameter(string input)
@@ -57,14 +56,14 @@ public abstract class AstObjectBaseTests<TObjBase, TObjBaseAst>
 
   internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ObjBaseChecks;
 
-  internal abstract IAstObjBaseChecks<TObjBase, TObjBaseAst> ObjBaseChecks { get; }
+  internal abstract IAstObjBaseChecks<TObjBase> ObjBaseChecks { get; }
 }
 
 internal sealed class AstObjBaseChecks<TObjBase, TObjBaseAst>(
   AstObjBaseChecks<TObjBase, TObjBaseAst>.BaseBy createBase,
   AstObjBaseChecks<TObjBase, TObjBaseAst>.ArgumentsBy createArguments
 ) : AstAbbreviatedChecks<string, TObjBase>(input => createBase(input))
-  , IAstObjBaseChecks<TObjBase, TObjBaseAst>
+  , IAstObjBaseChecks<TObjBase>
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
@@ -135,10 +134,9 @@ internal sealed class AstObjBaseChecks<TObjBase, TObjBaseAst>(
   }
 }
 
-internal interface IAstObjBaseChecks<TObjBase, TObjBaseAst>
+internal interface IAstObjBaseChecks<TObjBase>
   : IAstAbbreviatedChecks<string>
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   void HashCode_WithIsTypeParameter(string input);
   void String_WithIsTypeParameter(string input);

@@ -2,9 +2,8 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjectAlternateTests<TObjAltAst, TObjBase>
+public abstract class AstObjectAlternateTests<TObjBase>
   : AstAbbreviatedTests<AlternateInput>
-  where TObjAltAst : AstObjAlternate<TObjBase>
   where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData(Repeats)]
@@ -37,12 +36,12 @@ public abstract class AstObjectAlternateTests<TObjAltAst, TObjBase>
 
   internal sealed override IAstAbbreviatedChecks<AlternateInput> AbbreviatedChecks => AlternateChecks;
 
-  internal abstract IAstObjectAlternateChecks<TObjAltAst, TObjBase> AlternateChecks { get; }
+  internal abstract IAstObjectAlternateChecks<TObjBase> AlternateChecks { get; }
 }
 
 internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst>
   : AstAbbreviatedChecks<AlternateInput, TObjAltAst>
-  , IAstObjectAlternateChecks<TObjAltAst, TObjBase>
+  , IAstObjectAlternateChecks<TObjBase>
   where TObjAltAst : AstObjAlternate<TObjBase>
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
@@ -108,9 +107,8 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
     => CreateInput(input) with { Modifiers = TestMods() };
 }
 
-internal interface IAstObjectAlternateChecks<TObjAlternate, TObjBase>
+internal interface IAstObjectAlternateChecks<TObjBase>
   : IAstAbbreviatedChecks<AlternateInput>
-  where TObjAlternate : AstObjAlternate<TObjBase>
   where TObjBase : IGqlpObjBase
 {
   void HashCode_WithModifiers(AlternateInput input);

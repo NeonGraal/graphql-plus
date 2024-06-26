@@ -1,21 +1,21 @@
 ﻿namespace GqlPlus.Merging;
 
-public abstract class TestGroups<TAst>
-  : TestAbbreviated<TAst>
+public abstract class TestGroupsMerger<TAst, TInput>
+  : TestAbbreviatedMerger<TAst, TInput>
   where TAst : IGqlpError
 {
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsDifferentNames_ReturnsGood(string name1, string name2)
+  public void CanMerge_TwoAstsDifferentNames_ReturnsGood(TInput name1, TInput name2)
   {
-    Skip.If(SkipDifferentNames || name1 == name2);
+    Skip.If(SkipDifferentNames || name1 is null || name1.Equals(name2));
 
     CanMerge_Good([MakeAst(name1), MakeAst(name2)]);
   }
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void Merge_TwoAstsDifferentName_ReturnsAsts(string name1, string name2)
+  public void Merge_TwoAstsDifferentName_ReturnsAsts(TInput name1, TInput name2)
   {
-    Skip.If(SkipDifferentNames || name1 == name2);
+    Skip.If(SkipDifferentNames || name1 is null || name1.Equals(name2));
 
     TAst ast1 = MakeAst(name1);
     TAst ast2 = MakeAst(name2);
@@ -24,7 +24,7 @@ public abstract class TestGroups<TAst>
   }
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void Merge_TwoAstSameName_ReturnsFirst(string name)
+  public void Merge_TwoAstSameName_ReturnsFirst(TInput name)
   {
     TAst ast1 = MakeAst(name);
     TAst ast2 = MakeAst(name);

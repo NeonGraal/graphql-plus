@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast;
 
-public abstract record class AstBase(
+internal abstract record class AstBase(
   TokenAt At
 ) : IGqlpError
 {

@@ -60,7 +60,7 @@ public class BuiltInTests(
   public void ModelsFluidFiles()
     => RenderFluid.CheckFluidFiles();
 
-  private void RenderTypeHtml(AstType type, AstType[] extras)
+  private void RenderTypeHtml(IGqlpType type, IGqlpType[] extras)
   {
     Skip.If(type is null);
 

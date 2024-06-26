@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public sealed record class EnumMemberAst(
+internal sealed record class EnumMemberAst(
   TokenAt At,
   string Name,
   string Description

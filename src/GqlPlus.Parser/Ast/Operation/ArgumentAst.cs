@@ -3,39 +3,28 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
-public sealed record class ArgumentAst
-  : AstValue<ArgumentAst>
+internal sealed record class ArgumentAst
+  : AstValue<IGqlpArgument>
   , IEquatable<ArgumentAst>
   , IGqlpArgument
 {
   public string? Variable { get; }
-  public ConstantAst? Constant { get; }
+  public IGqlpConstant? Constant { get; }
 
   internal override string Abbr => "a";
-
-  IGqlpConstant? IGqlpArgument.Constant => Constant;
-  IEnumerable<IGqlpArgument> IGqlpValue<IGqlpArgument>.Values => Values;
-  IGqlpFields<IGqlpArgument> IGqlpValue<IGqlpArgument>.Fields
-    => Fields.ToFields(a => (IGqlpArgument)a);
 
   internal ArgumentAst(TokenAt at)
     : base(at) { }
   internal ArgumentAst(TokenAt at, string variable)
     : base(at) => Variable = variable;
+  internal ArgumentAst(IGqlpFieldKey field)
+    : base((TokenAt)field.At) => Constant = new ConstantAst(field);
   internal ArgumentAst(ConstantAst constant)
     : base(constant.At) => Constant = constant;
-  internal ArgumentAst(TokenAt at, IEnumerable<ArgumentAst> values)
+  internal ArgumentAst(TokenAt at, IEnumerable<IGqlpArgument> values)
     : base(at, values) { }
-  internal ArgumentAst(TokenAt at, AstFields<ArgumentAst> fields)
+  internal ArgumentAst(TokenAt at, IGqlpFields<IGqlpArgument> fields)
     : base(at, fields) { }
-
-  public static implicit operator ArgumentAst(FieldKeyAst field)
-    => new(field);
-  public static implicit operator ArgumentAst(ConstantAst constant)
-  {
-    ArgumentNullException.ThrowIfNull(constant);
-    return new(constant);
-  }
 
   public bool Equals(ArgumentAst? other)
     => base.Equals(other)

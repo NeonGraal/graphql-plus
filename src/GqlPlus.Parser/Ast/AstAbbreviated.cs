@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast;
 
-public abstract record class AstAbbreviated(TokenAt At)
+internal abstract record class AstAbbreviated(TokenAt At)
   : AstBase(At)
   , IEquatable<AstAbbreviated>
   , IGqlpAbbreviated

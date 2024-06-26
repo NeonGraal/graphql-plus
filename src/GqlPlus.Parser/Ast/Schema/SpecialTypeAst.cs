@@ -1,7 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema;
-public record class SpecialTypeAst
+internal record class SpecialTypeAst
   : AstType, IGqlpTypeSpecial
 {
   internal override string Abbr => "TZ";

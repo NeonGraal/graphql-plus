@@ -80,9 +80,9 @@ internal sealed class EnumModelChecks(
 
   private string[] ExpectedEnum(ExpectedEnumInput input)
     => ["!_TypeEnum",
-      .. input.Aliases,
+      .. input.ExpectedAliases,
       .. input.AllItems,
-      .. input.Description,
+      .. input.ExpectedDescription,
       .. input.Items,
       "name: " + input.Name,
       .. input.Parent.TypeRefFor(SimpleKindModel.Enum),
@@ -120,6 +120,8 @@ internal sealed class ExpectedEnumInput(
     : this(input.Name, input.Parent)
   {
     Aliases = input.Aliases;
+    ExpectedAliases = input.ExpectedAliases;
     Description = input.Description;
+    ExpectedDescription = input.ExpectedDescription;
   }
 }

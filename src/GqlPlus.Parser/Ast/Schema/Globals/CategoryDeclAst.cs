@@ -12,7 +12,7 @@ internal sealed record class CategoryDeclAst(
   , IEquatable<CategoryDeclAst>
   , IGqlpSchemaCategory
 {
-  public ModifierAst[] Modifiers { get; set; } = [];
+  public IGqlpModifier[] Modifiers { get; set; } = [];
 
   internal override string Abbr => "Ca";
   public override string Label => "Category";

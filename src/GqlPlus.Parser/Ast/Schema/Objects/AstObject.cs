@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract record class AstObject<TObjBase, TObjField, TObjAlt>(
+internal abstract record class AstObject<TObjBase, TObjField, TObjAlt>(
   TokenAt At,
   string Name,
   string Description
@@ -14,7 +14,7 @@ public abstract record class AstObject<TObjBase, TObjField, TObjAlt>(
   where TObjField : IGqlpObjField
   where TObjAlt : IGqlpObjAlternate
 {
-  public TypeParameterAst[] TypeParameters { get; set; } = [];
+  public IGqlpTypeParameter[] TypeParameters { get; set; } = [];
   public TObjField[] ObjFields { get; set; } = [];
   public TObjAlt[] ObjAlternates { get; set; } = [];
 

@@ -7,7 +7,7 @@ public class ParseConstant(
   Parser<IGqlpFieldKey>.D fieldKey,
   Parser<KeyValue<IGqlpConstant>>.D keyValueParser,
   Parser<IGqlpConstant>.DA listParser,
-  Parser<AstFields<IGqlpConstant>>.D objectParser
+  Parser<IGqlpFields<IGqlpConstant>>.D objectParser
 ) : ValueParser<IGqlpConstant>(fieldKey, keyValueParser, listParser, objectParser)
 {
   public override IResult<IGqlpConstant> Parse<TContext>(TContext tokens, string label)
@@ -33,7 +33,7 @@ public class ParseConstant(
         theList => new ConstantAst(at, theList.ArrayOf<ConstantAst>()).Ok<IGqlpConstant>(),
         () => list.IsError()
           ? list.AsResult<IGqlpConstant>(AstNulls.Constant)
-          : ObjectParser.Parse(tokens, label).Select(fields => new ConstantAst(at, fields.Cast<ConstantAst>()) as IGqlpConstant));
+          : ObjectParser.Parse(tokens, label).Select(fields => new ConstantAst(at, fields) as IGqlpConstant));
     } finally {
       tokens.IgnoreSeparators = oldSeparators;
     }

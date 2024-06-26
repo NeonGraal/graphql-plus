@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Objects;
 
 public class MergeOutputFieldsTests
-  : TestObjectFields<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase>
+  : TestObjectFields<IGqlpOutputField, IGqlpOutputBase>
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsParametersCantMerge_ReturnsErrors(string name, string type, string[] parameters)
@@ -15,7 +15,7 @@ public class MergeOutputFieldsTests
       .SkipUnless(parameters)
       .CanMergeReturnsError(_parameters)
       .CanMerge_Errors(
-        MakeField(name, type) with { Parameters = parameters.ThrowIfNull().Parameters() },
+        MakeFieldParameters(name, type, parameters),
         MakeField(name, type));
 
   [Theory, RepeatData(Repeats)]
@@ -61,9 +61,9 @@ public class MergeOutputFieldsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsWithParameters_CallsParametersMerge(string name, string type, string[] parameters)
     => Merge_Expected(
-        [MakeField(name, type) with { Parameters = parameters.Parameters() },
-          MakeField(name, type) with { Parameters = parameters.Parameters() }],
-        MakeField(name, type) with { Parameters = parameters.Concat(parameters).Parameters() })
+        [MakeFieldParameters(name, type, parameters),
+          MakeFieldParameters(name, type, parameters)],
+        MakeFieldParameters(name, type, parameters.Concat(parameters)))
       .MergeCalled(_parameters);
 
   [Theory, RepeatData(Repeats)]
@@ -114,9 +114,20 @@ public class MergeOutputFieldsTests
 
   internal override AstObjectFieldsMerger<IGqlpOutputField> MergerField => _merger;
 
-  protected override OutputFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
-    => new(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription));
-
+  protected override IGqlpOutputField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
+    => new OutputFieldAst(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription));
+  private static OutputFieldAst MakeFieldParameters(string name, string type, IEnumerable<string> parameters)
+    => new(AstNulls.At, name, new OutputBaseAst(AstNulls.At, type)) {
+      Parameters = parameters.ThrowIfNull().Parameters()
+    };
   private static OutputFieldAst MakeFieldEnum(string name, string type, string enumMember, string fieldDescription = "", string typeDescription = "")
     => new(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription) { EnumMember = enumMember });
+  protected override IGqlpOutputField MakeFieldModifiers(string name)
+    => new OutputFieldAst(AstNulls.At, name, new OutputBaseAst(AstNulls.At, name)) {
+      Modifiers = TestMods()
+    };
+  protected override IGqlpOutputField MakeAliased(string name, string[] aliases, string description = "")
+    => new OutputFieldAst(AstNulls.At, name, description, new OutputBaseAst(AstNulls.At, name, description)) {
+      Aliases = aliases
+    };
 }

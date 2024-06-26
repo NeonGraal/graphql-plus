@@ -3,9 +3,8 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Modelling.Simple;
 
-public abstract class TestDomainModel<TValue, TAstItem, TItem>
+public abstract class TestDomainModel<TValue, TItem>
   : TestTypeModel<SimpleKindModel>
-  where TAstItem : AstAbbreviated, TItem
   where TItem : IGqlpDomainItem
 {
   [Theory, RepeatData(Repeats)]
@@ -13,7 +12,7 @@ public abstract class TestDomainModel<TValue, TAstItem, TItem>
     => DomainChecks
     .AddTypeKinds(TypeKindModel.Basic, members)
     .DomainExpected(
-      DomainChecks.DomainAst(name, members),
+      DomainChecks.DomainAst(name, null, [], null, members),
       DomainChecks.ExpectedDomain(new(name, items: members)));
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersParent(string name, string parent, TValue[] parentMembers)
@@ -22,7 +21,7 @@ public abstract class TestDomainModel<TValue, TAstItem, TItem>
     .AddTypeKinds(TypeKindModel.Basic, parentMembers)
     .AddParent(DomainChecks.NewParent(parent, parentMembers))
     .DomainExpected(
-      DomainChecks.DomainAst(name, []) with { Parent = parent },
+      DomainChecks.DomainAst(name, null, [], parent, []),
       DomainChecks.ExpectedDomain(new(name, parent, otherItems: parentMembers.ParentItems(parent))));
 
   [SkippableTheory, RepeatData(Repeats)]
@@ -33,7 +32,7 @@ public abstract class TestDomainModel<TValue, TAstItem, TItem>
     .AddParent(DomainChecks.NewParent(parent, [], grandParent))
     .AddParent(DomainChecks.NewParent(grandParent, grandParentMembers))
     .DomainExpected(
-      DomainChecks.DomainAst(name, []) with { Parent = parent },
+      DomainChecks.DomainAst(name, null, [], parent, []),
       DomainChecks.ExpectedDomain(new(name, parent, otherItems: grandParentMembers.ParentItems(grandParent))));
 
   [Theory, RepeatData(Repeats)]
@@ -41,16 +40,12 @@ public abstract class TestDomainModel<TValue, TAstItem, TItem>
     => DomainChecks
     .AddTypeKinds(TypeKindModel.Basic, members)
     .DomainExpected(
-      DomainChecks.DomainAst(name, members) with {
-        Aliases = aliases,
-        Description = contents,
-        Parent = parent,
-      },
+      DomainChecks.DomainAst(name, contents, aliases, parent, members),
       DomainChecks.ExpectedDomain(new(name, parent, members, aliases: aliases, description: contents)));
 
   internal override ICheckTypeModel<SimpleKindModel> TypeChecks => DomainChecks;
 
-  internal abstract ICheckDomainModel<TValue, TAstItem, TItem> DomainChecks { get; }
+  internal abstract ICheckDomainModel<TValue, TItem> DomainChecks { get; }
 }
 
 internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
@@ -58,32 +53,32 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
   IDomainModeller<TItem, TItemModel> modeller,
   IRenderer<BaseDomainModel<TItemModel>> rendering
 ) : CheckTypeModel<IGqlpDomain<TItem>, SimpleKindModel, BaseDomainModel<TItemModel>>(modeller, rendering, SimpleKindModel.Domain)
-  , ICheckDomainModel<TValue, TAstItem, TItem>
+  , ICheckDomainModel<TValue, TItem>
   where TAstItem : AstAbbreviated, TItem
   where TItem : IGqlpDomainItem
   where TItemModel : BaseDomainItemModel
 {
   internal string[] ExpectedDomain(ExpectedDomainInput<TValue> input)
     => [$"!_Domain{kind}",
-      .. input.Aliases ?? [],
+      .. input.ExpectedAliases ?? [],
       .. AllItems(input.AllItems),
-      .. input.Description ?? [],
+      .. input.ExpectedDescription ?? [],
       $"domainKind: !_DomainKind {kind}",
       .. Items(input.Items),
       "name: " + input.Name,
       .. input.Parent.TypeRefFor(SimpleKindModel.Domain),
       "typeKind: !_TypeKind Domain"];
 
-  string[] ICheckDomainModel<TValue, TAstItem, TItem>.ExpectedDomain(ExpectedDomainInput<TValue> input) => ExpectedDomain(input);
+  string[] ICheckDomainModel<TValue, TItem>.ExpectedDomain(ExpectedDomainInput<TValue> input) => ExpectedDomain(input);
 
-  AstDomain<TAstItem, TItem> ICheckDomainModel<TValue, TAstItem, TItem>.DomainAst(string name, TValue[] items)
-    => NewDomainAst(name, items);
+  IGqlpDomain<TItem> ICheckDomainModel<TValue, TItem>.DomainAst(string name, string? description, string[] aliases, string? parent, TValue[] items)
+    => NewDomainAst(name, description, aliases, parent, items);
 
-  void ICheckDomainModel<TValue, TAstItem, TItem>.DomainExpected(AstDomain<TAstItem, TItem> domain, string[] expected)
+  void ICheckDomainModel<TValue, TItem>.DomainExpected(IGqlpDomain<TItem> domain, string[] expected)
     => AstExpected(domain, expected);
 
   BaseTypeModel IParentModel<TValue>.NewParent(string name, TValue[] members, string? parent)
-    => _modeller.ToModel(NewDomainAst(name, members) with { Parent = parent }, TypeKinds);
+    => _modeller.ToModel(NewDomainAst(name, null, [], null, members) with { Parent = parent }, TypeKinds);
 
   protected IEnumerable<string> Items(TValue[]? inputs)
     => Items("items:", inputs, ExpectedItem());
@@ -107,8 +102,12 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
 
   protected abstract TAstItem[]? DomainItems(TValue[]? inputs);
 
-  private AstDomain<TAstItem, TItem> NewDomainAst(string name, TValue[] items)
-    => new(AstNulls.At, name, kind, DomainItems(items) ?? []);
+  private AstDomain<TAstItem, TItem> NewDomainAst(string name, string? description, string[] aliases, string? parent, TValue[] items)
+    => new(AstNulls.At, name, kind, DomainItems(items) ?? []) {
+      Description = description ?? "",
+      Aliases = aliases ?? [],
+      Parent = parent,
+    };
 
   private IEnumerable<string> Items<TInput>(string field, TInput[]? inputs, Func<TInput, bool, IEnumerable<string>> mapping)
   {
@@ -127,13 +126,12 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
         };
 }
 
-internal interface ICheckDomainModel<TValue, TAstItem, TItem>
+internal interface ICheckDomainModel<TValue, TItem>
   : ICheckTypeModel<SimpleKindModel>, IParentModel<TValue>
-  where TAstItem : AstAbbreviated, TItem
   where TItem : IGqlpDomainItem
 {
-  void DomainExpected(AstDomain<TAstItem, TItem> domain, string[] expected);
-  AstDomain<TAstItem, TItem> DomainAst(string name, TValue[] items);
+  void DomainExpected(IGqlpDomain<TItem> domain, string[] expected);
+  IGqlpDomain<TItem> DomainAst(string name, string? description, string[] aliases, string? parent, TValue[] items);
   string[] ExpectedDomain(ExpectedDomainInput<TValue> input);
 }
 
@@ -154,6 +152,8 @@ internal sealed class ExpectedDomainInput<TItem>(
     : this(input.Name, input.Parent)
   {
     Aliases = input.Aliases;
+    ExpectedAliases = input.ExpectedAliases;
     Description = input.Description;
+    ExpectedDescription = input.ExpectedDescription;
   }
 }

@@ -8,25 +8,25 @@ public class ParseConstantTests(Parser<IGqlpConstant>.D parser)
   public void WithNumber_ReturnsCorrectAst(decimal number)
     => _checks.TrueExpected(
       number.ToString(CultureInfo.InvariantCulture),
-      (ConstantAst)new FieldKeyAst(AstNulls.At, number));
+      new ConstantAst(new FieldKeyAst(AstNulls.At, number)));
 
   [Theory, RepeatData(Repeats)]
   public void WithString_ReturnsCorrectAst(string contents)
     => _checks.TrueExpected(
       contents.Quote(),
-      (ConstantAst)new FieldKeyAst(AstNulls.At, contents));
+      new ConstantAst(new FieldKeyAst(AstNulls.At, contents)));
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumValue_ReturnsCorrectAst(string enumValue)
     => _checks.TrueExpected(
       enumValue,
-      (ConstantAst)enumValue.FieldKey());
+      new ConstantAst(enumValue.FieldKey()));
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumTypeAndValue_ReturnsCorrectAst(string enumType, string enumValue)
     => _checks.TrueExpected(
       enumType + "." + enumValue,
-      (ConstantAst)new FieldKeyAst(AstNulls.At, enumType, enumValue));
+      new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, enumValue)));
 
   [Theory, RepeatData(Repeats)]
   public void WithList_ReturnsCorrectAst(string enumValue)

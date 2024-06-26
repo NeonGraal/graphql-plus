@@ -8,7 +8,7 @@ public class ParseKeyValueTests(
   public void WithKeyValueValid_ReturnsCorrectAst(string key, string value)
     => _test.TrueExpected(
       key + ':' + value,
-      new KeyValue<IGqlpConstant>(key.FieldKey(), (ConstantAst)value.FieldKey()));
+      new KeyValue<IGqlpConstant>(key.FieldKey(), new ConstantAst(value.FieldKey())));
 
   [Theory, RepeatData(Repeats)]
   public void WithKeyValueKeyNoEnumValue_ReturnsFalse(string key, string value)

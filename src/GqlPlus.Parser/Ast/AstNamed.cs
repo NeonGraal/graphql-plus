@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast;
 
-public abstract record class AstNamed(
+internal abstract record class AstNamed(
   TokenAt At,
   string Name
 ) : AstAbbreviated(At)

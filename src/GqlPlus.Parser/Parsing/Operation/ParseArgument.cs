@@ -66,7 +66,7 @@ internal class ParseArgument(
     if (tokens.Take(',')) {
       return _argument.I
         .ParseFieldValues(tokens, "Argument", ')', fields)
-        .Select(result => new ArgumentAst(at, result.Cast<ArgumentAst>()) as IGqlpArgument);
+        .Select(result => new ArgumentAst(at, result) as IGqlpArgument);
     }
 
     while (!tokens.Take(')')) {
@@ -77,7 +77,7 @@ internal class ParseArgument(
       }
     }
 
-    return new ArgumentAst(at, fields.Cast<ArgumentAst>()).Ok<IGqlpArgument>();
+    return new ArgumentAst(at, fields).Ok<IGqlpArgument>();
   }
 
   private IResult<IGqlpArgument> ParseArgumentEnd(Tokenizer tokens, TokenAt at, ArgumentAst value)

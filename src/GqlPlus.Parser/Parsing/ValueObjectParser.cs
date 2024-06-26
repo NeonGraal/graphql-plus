@@ -6,31 +6,30 @@ namespace GqlPlus.Parsing;
 
 public class ValueObjectParser<TValue>(
   Parser<KeyValue<TValue>>.D field
-) : Parser<AstFields<TValue>>.I
+) : Parser<IGqlpFields<TValue>>.I
   where TValue : IGqlpValue<TValue>
 {
   private readonly Parser<KeyValue<TValue>>.L _field = field;
 
-  public IResult<AstFields<TValue>> Parse<TContext>(TContext tokens, string label)
+  public IResult<IGqlpFields<TValue>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     ArgumentNullException.ThrowIfNull(tokens);
 
-    AstFields<TValue> result = [];
-
     if (!tokens.Take('{')) {
-      return result.Empty();
+      return 0.Empty<IGqlpFields<TValue>>();
     }
 
+    AstFields<TValue> result = [];
     while (!tokens.Take('}')) {
       IResult<KeyValue<TValue>> field = _field.Parse(tokens, label);
-      if (!field.Required(value => result.Add((FieldKeyAst)value.Key, value.Value))) {
-        return tokens.Error(label, "a field in object", result);
+      if (!field.Required(value => result.Add(value.Key, value.Value))) {
+        return tokens.Error<IGqlpFields<TValue>>(label, "a field in object", result);
       }
 
       tokens.Take(',');
     }
 
-    return result.Ok();
+    return result.Ok<IGqlpFields<TValue>>();
   }
 }

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace GqlPlus.Ast;
@@ -80,7 +81,7 @@ public static class AstExtensions
   public static string Prefixed(this string? text, string prefix)
     => text?.Length > 0 ? prefix + text : "";
 
-  public static string Prefixed(this AstAbbreviated? ast, string prefix)
+  public static string Prefixed(this IGqlpAbbreviated? ast, string prefix)
     => ast is null ? "" : $"{prefix}{ast}";
 
   public static string Suffixed(this string? text, string suffix)
@@ -97,16 +98,16 @@ public static class AstExtensions
     : "";
 
   public static void AddError<TAst>(this ITokenMessages errors, TAst item, string message)
-    where TAst : AstAbbreviated
+    where TAst : IGqlpAbbreviated
   {
     if (errors is null || item is null) {
       return;
     }
 
-    errors.Add(item.Error(message));
+    errors.Add(item.MakeError(message));
   }
 
-  public static AstFields<TValue> ToObject<TItem, TValue>(this IEnumerable<TItem> items, Func<TItem, IGqlpFieldKey> key, Func<TItem, TValue> value)
+  public static IGqlpFields<TValue> ToObject<TItem, TValue>(this IEnumerable<TItem> items, Func<TItem, IGqlpFieldKey> key, Func<TItem, TValue> value)
     where TValue : IGqlpValue<TValue>
-    => new(items.Distinct().ToDictionary(key, value));
+    => new AstFields<TValue>(items.Distinct().ToImmutableDictionary(key, value));
 }

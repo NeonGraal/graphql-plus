@@ -1,4 +1,6 @@
-﻿using GqlPlus.Ast;
+﻿using System.Collections.Immutable;
+
+using GqlPlus.Ast;
 
 namespace GqlPlus.Merging;
 
@@ -34,15 +36,15 @@ internal class MergeConstants
         : b.Values.Prepend(a);
     }
 
-    return (ConstantAst)b with { Value = null, Fields = [], Values = values.ArrayOf<ConstantAst>() };
+    return (ConstantAst)b with { Value = null, Fields = new AstFields<IGqlpConstant>(), Values = values.ArrayOf<ConstantAst>() };
   }
 
   private IGqlpConstant MergeFields(IGqlpConstant a, IGqlpConstant b)
   {
-    Dictionary<IGqlpFieldKey, IGqlpConstant> fields = a.Fields.Concat(b.Fields)
+    ImmutableDictionary<IGqlpFieldKey, IGqlpConstant> fields = a.Fields.Concat(b.Fields)
       .ToLookup(p => p.Key, p => p.Value)
-      .ToDictionary(g => g.Key, g => Merge(g).First());
+      .ToImmutableDictionary(g => g.Key, g => Merge(g).First());
 
-    return (ConstantAst)b with { Fields = new(fields) };
+    return (ConstantAst)b with { Fields = new AstFields<IGqlpConstant>(fields) };
   }
 }

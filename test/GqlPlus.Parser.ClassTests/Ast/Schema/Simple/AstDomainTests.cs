@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema.Simple;
 

@@ -7,7 +7,7 @@ public class DomainAstNumberTests
 {
   internal override IAstDomainChecks<DomainRangeInput> Checks => _checks;
 
-  private DomainAstNumberChecks _checks = new();
+  private readonly DomainAstNumberChecks _checks = new();
 }
 
 internal sealed class DomainAstNumberChecks()

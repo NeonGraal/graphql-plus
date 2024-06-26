@@ -7,7 +7,7 @@ public class DomainAstEnumTests
 {
   internal override IAstDomainChecks<DomainMemberInput> Checks => _checks;
 
-  private DomainAstEnumChecks _checks = new();
+  private readonly DomainAstEnumChecks _checks = new();
 }
 
 internal sealed class DomainAstEnumChecks()

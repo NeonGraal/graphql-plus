@@ -2,26 +2,26 @@
 
 namespace GqlPlus.Ast;
 
-public abstract record class AstValue<T>(TokenAt At)
+internal abstract record class AstValue<TValue>(TokenAt At)
   : AstAbbreviated(At)
-  , IEquatable<AstValue<T>>
-  , IGqlpValue<T>
-  where T : IGqlpValue<T>
+  , IEquatable<AstValue<TValue>>
+  , IGqlpValue<TValue>
+  where TValue : IGqlpValue<TValue>
 {
-  public T[] Values { get; init; } = [];
-  public AstFields<T> Fields { get; init; } = [];
+  public TValue[] Values { get; init; } = [];
+  public IGqlpFields<TValue> Fields { get; init; } = new AstFields<TValue>();
 
-  IEnumerable<T> IGqlpValue<T>.Values => Values;
-  IGqlpFields<T> IGqlpValue<T>.Fields => Fields.ToFields(t => t);
+  IEnumerable<TValue> IGqlpValue<TValue>.Values => Values;
+  IGqlpFields<TValue> IGqlpValue<TValue>.Fields => Fields;
 
-  internal AstValue(TokenAt at, IEnumerable<T> values)
+  internal AstValue(TokenAt at, IEnumerable<TValue> values)
     : this(at)
     => Values = [.. values];
-  internal AstValue(TokenAt at, AstFields<T> fields)
+  internal AstValue(TokenAt at, IGqlpFields<TValue> fields)
     : this(at)
     => Fields = fields;
 
-  public virtual bool Equals(AstValue<T>? other)
+  public virtual bool Equals(AstValue<TValue>? other)
     => other is not null
     && Values.SequenceEqual(other.Values)
     && Fields.Equals(other.Fields);
@@ -32,4 +32,6 @@ public abstract record class AstValue<T>(TokenAt At)
     => base.GetFields()
       .Concat(Values.Bracket("[", "]"))
       .Concat(Fields.Bracket("{", "}", kv => $"{kv.Key}:{kv.Value}"));
+  bool IEquatable<IGqlpValue<TValue>>.Equals(IGqlpValue<TValue>? other)
+    => Equals(other as AstValue<TValue>);
 }

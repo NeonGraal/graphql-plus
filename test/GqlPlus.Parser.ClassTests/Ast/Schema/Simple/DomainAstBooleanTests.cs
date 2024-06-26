@@ -7,7 +7,7 @@ public class DomainAstBooleanTests
 {
   internal override IAstDomainChecks<bool> Checks => _checks;
 
-  private DomainAstBooleanChecks _checks = new();
+  private readonly DomainAstBooleanChecks _checks = new();
 }
 
 internal sealed class DomainAstBooleanChecks()

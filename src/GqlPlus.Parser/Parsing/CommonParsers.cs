@@ -1,5 +1,5 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Parsing.Schema;
+﻿using GqlPlus.Parsing.Schema;
+
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Parsing;
@@ -21,7 +21,7 @@ public static class CommonParsers
       .AddParser<IValueParser<TValue>, TValue, TParser>()
       .AddParser<KeyValue<TValue>, ValueKeyValueParser<TValue>>()
       .AddParserArray<TValue, ValueListParser<TValue>>()
-      .AddParser<AstFields<TValue>, ValueObjectParser<TValue>>();
+      .AddParser<IGqlpFields<TValue>, ValueObjectParser<TValue>>();
 
   private static Parser<TValue>.D GetParser<TService, TValue>(IServiceProvider provider)
     where TService : class, Parser<TValue>.I

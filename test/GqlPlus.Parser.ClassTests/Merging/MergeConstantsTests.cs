@@ -20,7 +20,7 @@ public class MergeConstantsTests
     this.SkipIf(listB.Contains(valueA));
 
     IGqlpConstant astA = MakeValue(valueA);
-    ConstantAst astB = MakeList(listB);
+    IGqlpConstant astB = MakeList(listB);
 
     Merge_Expected([astA, astB], MakeList([valueA, .. listB]));
   }
@@ -29,7 +29,7 @@ public class MergeConstantsTests
   public void Merge_TwoAstsValueAndObject_ReturnsExpected(string valueA, string[] fieldsB)
   {
     IGqlpConstant astA = MakeValue(valueA);
-    ConstantAst astB = MakeObject(fieldsB);
+    IGqlpConstant astB = MakeObject(fieldsB);
 
     Merge_Expected([astA, astB], MakeObject(fieldsB));
   }
@@ -39,7 +39,7 @@ public class MergeConstantsTests
   {
     this.SkipIf(listA.Contains(valueB));
 
-    ConstantAst astA = MakeList(listA);
+    IGqlpConstant astA = MakeList(listA);
     IGqlpConstant astB = MakeValue(valueB);
 
     Merge_Expected([astA, astB], MakeList([.. listA, valueB]));
@@ -48,8 +48,8 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsBothLists_ReturnsExpected(string[] listA, string[] listB)
   {
-    ConstantAst astA = MakeList(listA);
-    ConstantAst astB = MakeList(listB);
+    IGqlpConstant astA = MakeList(listA);
+    IGqlpConstant astB = MakeList(listB);
 
     Merge_Expected([astA, astB], MakeList([.. listA, .. listB]));
   }
@@ -58,8 +58,8 @@ public class MergeConstantsTests
   public void Merge_TwoAstsListAndObject_ReturnsExpected(string[] listA, string[] fieldsB)
   {
     ConstantAst astA = MakeList(listA);
-    ConstantAst astB = MakeObject(fieldsB);
-    ConstantAst expected = astA with { Values = [.. astA.Values, astB] };
+    IGqlpConstant astB = MakeObject(fieldsB);
+    IGqlpConstant expected = astA with { Values = [.. astA.Values, astB] };
 
     Merge_Expected([astA, astB], expected);
   }
@@ -67,7 +67,7 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsObjectAndValue_ReturnsExpected(string[] fieldsA, string valueB)
   {
-    ConstantAst astA = MakeObject(fieldsA);
+    IGqlpConstant astA = MakeObject(fieldsA);
     IGqlpConstant astB = MakeValue(valueB);
 
     Merge_Expected([astA, astB], MakeValue(valueB));
@@ -76,7 +76,7 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsObjectAndList_ReturnsExpected(string[] fieldsA, string[] listB)
   {
-    ConstantAst astA = MakeObject(fieldsA);
+    IGqlpConstant astA = MakeObject(fieldsA);
     ConstantAst astB = MakeList(listB);
     ConstantAst expected = astB with { Values = [astA, .. astB.Values] };
 
@@ -86,8 +86,8 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsBothObjects_ReturnsExpected(string[] fieldsA, string[] fieldsB)
   {
-    ConstantAst astA = MakeObject(fieldsA);
-    ConstantAst astB = MakeObject(fieldsB);
+    IGqlpConstant astA = MakeObject(fieldsA);
+    IGqlpConstant astB = MakeObject(fieldsB);
 
     Merge_Expected([astA, astB], MakeObject(fieldsA.Concat(fieldsB).Distinct()));
   }

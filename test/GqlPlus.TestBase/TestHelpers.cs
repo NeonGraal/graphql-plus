@@ -25,14 +25,14 @@ public static class TestHelpers
       new ConstantAst(value.FieldKey())
     ];
 
-  public static AstFields<IGqlpConstant> ConstantObject(this string value, string key)
+  public static IGqlpFields<IGqlpConstant> ConstantObject(this string value, string key)
   {
     IGqlpFieldKey keyAst = key.FieldKey();
     IGqlpFieldKey valueAst = value.FieldKey();
 
     return key == value
-      ? new() { [keyAst] = new ConstantAst(valueAst) }
-      : new() { [keyAst] = new ConstantAst(valueAst), [valueAst] = new ConstantAst(keyAst) };
+      ? new AstFields<IGqlpConstant>() { [keyAst] = new ConstantAst(valueAst) }
+      : new AstFields<IGqlpConstant>() { [keyAst] = new ConstantAst(valueAst), [valueAst] = new ConstantAst(keyAst) };
   }
 
   public static TokenMessage ParseMessage(this string message)

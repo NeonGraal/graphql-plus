@@ -7,7 +7,7 @@ public class DomainAstStringTests
 {
   internal override IAstDomainChecks<string> Checks => _checks;
 
-  private DomainAstStringChecks _checks = new();
+  private readonly DomainAstStringChecks _checks = new();
 }
 
 internal sealed class DomainAstStringChecks()

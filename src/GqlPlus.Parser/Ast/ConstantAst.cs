@@ -12,11 +12,6 @@ internal sealed record class ConstantAst(
 
   internal override string Abbr => "c";
 
-  IEnumerable<IGqlpConstant> IGqlpValue<IGqlpConstant>.Values => Values;
-  IGqlpFields<IGqlpConstant> IGqlpValue<IGqlpConstant>.Fields
-    => Fields.ToFields(c => c);
-  IGqlpFieldKey? IGqlpConstant.Value => Value;
-
   internal ConstantAst(IGqlpFieldKey value)
     : this((TokenAt)value.At)
     => Value = value;
@@ -25,7 +20,7 @@ internal sealed record class ConstantAst(
     : this(at)
     => Values = [.. values];
 
-  internal ConstantAst(TokenAt at, AstFields<IGqlpConstant> fields)
+  internal ConstantAst(TokenAt at, IGqlpFields<IGqlpConstant> fields)
     : this(at)
     => Fields = fields;
 

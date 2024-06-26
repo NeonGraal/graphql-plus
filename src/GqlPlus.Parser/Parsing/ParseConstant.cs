@@ -7,7 +7,7 @@ public class ParseConstant(
   Parser<IGqlpFieldKey>.D fieldKey,
   Parser<KeyValue<IGqlpConstant>>.D keyValueParser,
   Parser<IGqlpConstant>.DA listParser,
-  Parser<AstFields<IGqlpConstant>>.D objectParser
+  Parser<IGqlpFields<IGqlpConstant>>.D objectParser
 ) : ValueParser<IGqlpConstant>(fieldKey, keyValueParser, listParser, objectParser)
 {
   public override IResult<IGqlpConstant> Parse<TContext>(TContext tokens, string label)

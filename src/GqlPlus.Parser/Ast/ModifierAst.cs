@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast;
 
-public sealed record class ModifierAst(
+internal sealed record class ModifierAst(
   TokenAt At
 ) : AstBase(At)
   , IEquatable<ModifierAst>

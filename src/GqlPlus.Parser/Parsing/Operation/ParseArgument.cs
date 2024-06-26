@@ -37,7 +37,7 @@ internal class ParseArgument(
             .MapOk(
               item => ParseArgumentMid(tokens, at, new() { [(FieldKeyAst)key] = item }),
               () => tokens.Error(label, "a value after field key separator", value))
-          : ParseArgumentEnd(tokens, at, (FieldKeyAst)key));
+          : ParseArgumentEnd(tokens, at, new(key)));
       }
 
       IResult<IGqlpArgument> argValue = _argument.I.Parse(tokens, label);

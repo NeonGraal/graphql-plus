@@ -12,7 +12,7 @@ public class ParseInputFieldTests(
     => _checks.TrueExpected(
       name + ":" + fieldType + "='" + content + "'",
       _checks.Field(name, fieldType) with {
-        DefaultValue = new FieldKeyAst(AstNulls.At, content)
+        DefaultValue = new(new FieldKeyAst(AstNulls.At, content))
       });
 
   internal override ICheckObjectField FieldChecks => _checks;

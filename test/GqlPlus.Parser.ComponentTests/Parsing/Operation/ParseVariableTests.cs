@@ -45,7 +45,7 @@ public class ParseVariableTests(Parser<IGqlpVariable>.D parser)
   [Theory, RepeatData(Repeats)]
   public void WithDefault_ReturnsCorrectAst(string variable, decimal number)
     => _checks.TrueExpected($"${variable}={number}",
-      TestVar(variable) with { DefaultValue = new FieldKeyAst(AstNulls.At, number) });
+      TestVar(variable) with { DefaultValue = new(new FieldKeyAst(AstNulls.At, number)) });
 
   [Theory, RepeatData(Repeats)]
   public void WithDefaultBad_ReturnsFalse(string variable)
@@ -66,7 +66,7 @@ public class ParseVariableTests(Parser<IGqlpVariable>.D parser)
       TestVar(variable) with {
         Type = varType,
         Modifiers = TestMods(),
-        DefaultValue = new FieldKeyAst(AstNulls.At, number),
+        DefaultValue = new(new FieldKeyAst(AstNulls.At, number)),
         Directives = directives.Directives()
       });
 

@@ -2,39 +2,32 @@
 
 namespace GqlPlus.Ast;
 
-public sealed record class ConstantAst(
+internal sealed record class ConstantAst(
   TokenAt At
-) : AstValue<ConstantAst>(At)
+) : AstValue<IGqlpConstant>(At)
   , IEquatable<ConstantAst>
   , IGqlpConstant
 {
-  public FieldKeyAst? Value { get; set; }
+  public IGqlpFieldKey? Value { get; set; }
 
   internal override string Abbr => "c";
 
   IEnumerable<IGqlpConstant> IGqlpValue<IGqlpConstant>.Values => Values;
   IGqlpFields<IGqlpConstant> IGqlpValue<IGqlpConstant>.Fields
-    => Fields.ToFields(c => (IGqlpConstant)c);
+    => Fields.ToFields(c => c);
   IGqlpFieldKey? IGqlpConstant.Value => Value;
 
-  internal ConstantAst(FieldKeyAst value)
-    : this(value.At)
+  internal ConstantAst(IGqlpFieldKey value)
+    : this((TokenAt)value.At)
     => Value = value;
 
-  internal ConstantAst(TokenAt at, IEnumerable<ConstantAst> values)
+  internal ConstantAst(TokenAt at, IEnumerable<IGqlpConstant> values)
     : this(at)
     => Values = [.. values];
 
-  internal ConstantAst(TokenAt at, AstFields<ConstantAst> fields)
+  internal ConstantAst(TokenAt at, AstFields<IGqlpConstant> fields)
     : this(at)
     => Fields = fields;
-
-  public static implicit operator ConstantAst(FieldKeyAst field)
-  {
-    ArgumentNullException.ThrowIfNull(field);
-
-    return new(field);
-  }
 
   public bool Equals(ConstantAst? other)
     => base.Equals(other)
@@ -44,4 +37,7 @@ public sealed record class ConstantAst(
 
   internal override IEnumerable<string?> GetFields()
     => Value?.GetFields() ?? base.GetFields();
+
+  bool IEquatable<IGqlpConstant>.Equals(IGqlpConstant? other)
+    => Equals(other as ConstantAst);
 }

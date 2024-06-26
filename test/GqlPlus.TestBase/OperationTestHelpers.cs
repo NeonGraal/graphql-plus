@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Abstractions;
+using GqlPlus.Abstractions.Operation;
 using GqlPlus.Ast.Operation;
 
 namespace GqlPlus;
@@ -15,15 +16,15 @@ public static class OperationTestHelpers
     => [.. values.Select(l => new ArgumentAst(l.FieldKey()))];
 
   public static ArgumentAst[] ArgumentList(this string value)
-    => [new(AstNulls.At, value), value.FieldKey()];
+    => [new(AstNulls.At, value), new(value.FieldKey())];
 
   public static AstFields<ArgumentAst> ArgumentObject(this string value, string key)
   {
-    FieldKeyAst keyAst = key.FieldKey();
-    FieldKeyAst valueAst = value.FieldKey();
+    IGqlpFieldKey keyAst = key.FieldKey();
+    IGqlpFieldKey valueAst = value.FieldKey();
 
     return key == value
       ? new() { [keyAst] = new(AstNulls.At, value) }
-      : new() { [keyAst] = new(AstNulls.At, value), [valueAst] = keyAst };
+      : new() { [keyAst] = new(AstNulls.At, value), [valueAst] = new(keyAst) };
   }
 }

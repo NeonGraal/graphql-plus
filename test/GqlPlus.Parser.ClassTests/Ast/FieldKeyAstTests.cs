@@ -117,14 +117,13 @@ public class FieldKeyAstTests : AstAbbreviatedTests
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithEnumValue(string enumValue)
-    => _checks.Equality(
-      enumValue.FieldKey);
+    => _checks.Equality(enumValue.FieldKey);
 
   [Theory, RepeatData(Repeats)]
   public void Compare_WithEnumValue(string enumValue1, string enumValue2)
   {
-    FieldKeyAst left = enumValue1.FieldKey();
-    FieldKeyAst right = enumValue2.FieldKey();
+    IGqlpFieldKey left = enumValue1.FieldKey();
+    IGqlpFieldKey right = enumValue2.FieldKey();
     int expected = string.Compare(enumValue1, enumValue2, StringComparison.Ordinal);
 
     left.CompareTo(right).Should().Be(expected);
@@ -133,8 +132,8 @@ public class FieldKeyAstTests : AstAbbreviatedTests
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithEnumValue(string enumValue)
   {
-    FieldKeyAst left = enumValue.FieldKey();
-    FieldKeyAst right = FieldKey(enumValue, enumValue);
+    IGqlpFieldKey left = enumValue.FieldKey();
+    IGqlpFieldKey right = FieldKey(enumValue, enumValue);
 
     (left != right).Should().BeTrue();
   }
@@ -163,7 +162,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     (left != right).Should().BeTrue();
   }
 
-  internal AstAbbreviatedChecks<string, FieldKeyAst> _checks = new(value => value.FieldKey());
+  internal AstAbbreviatedChecks<string, IGqlpFieldKey> _checks = new(value => value.FieldKey());
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 

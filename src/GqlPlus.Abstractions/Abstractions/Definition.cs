@@ -23,7 +23,9 @@ public interface IGqlpNamed
 }
 
 public interface IGqlpFieldKey
-  : IGqlpError
+  : IGqlpAbbreviated
+  , IEquatable<IGqlpFieldKey>
+  , IComparable<IGqlpFieldKey>
 {
   decimal? Number { get; }
   string? Text { get; }
@@ -58,6 +60,7 @@ public interface IGqlpModifiers
 
 public interface IGqlpConstant
   : IGqlpValue<IGqlpConstant>
+  , IEquatable<IGqlpConstant>
 {
   IGqlpFieldKey? Value { get; }
 }

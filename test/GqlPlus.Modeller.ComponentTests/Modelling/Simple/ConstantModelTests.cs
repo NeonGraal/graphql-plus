@@ -46,5 +46,5 @@ internal sealed class ConstantModelChecks(
     => [input.YamlQuoted()];
 
   protected override ConstantAst NewBaseAst(string input)
-    => new FieldKeyAst(AstNulls.At, input);
+    => new(new FieldKeyAst(AstNulls.At, input));
 }

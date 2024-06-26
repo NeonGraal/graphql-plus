@@ -106,7 +106,7 @@ public static class AstExtensions
     errors.Add(item.Error(message));
   }
 
-  public static AstFields<TValue> ToObject<TItem, TValue>(this IEnumerable<TItem> items, Func<TItem, FieldKeyAst> key, Func<TItem, TValue> value)
-    where TValue : AstValue<TValue>
+  public static AstFields<TValue> ToObject<TItem, TValue>(this IEnumerable<TItem> items, Func<TItem, IGqlpFieldKey> key, Func<TItem, TValue> value)
+    where TValue : IGqlpValue<TValue>
     => new(items.Distinct().ToDictionary(key, value));
 }

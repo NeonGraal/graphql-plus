@@ -8,8 +8,8 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsBothValues_ReturnsExpected(string valueA, string valueB)
   {
-    ConstantAst astA = MakeValue(valueA);
-    ConstantAst astB = MakeValue(valueB);
+    IGqlpConstant astA = MakeValue(valueA);
+    IGqlpConstant astB = MakeValue(valueB);
 
     Merge_Expected([astA, astB], astB);
   }
@@ -19,7 +19,7 @@ public class MergeConstantsTests
   {
     this.SkipIf(listB.Contains(valueA));
 
-    ConstantAst astA = MakeValue(valueA);
+    IGqlpConstant astA = MakeValue(valueA);
     ConstantAst astB = MakeList(listB);
 
     Merge_Expected([astA, astB], MakeList([valueA, .. listB]));
@@ -28,7 +28,7 @@ public class MergeConstantsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsValueAndObject_ReturnsExpected(string valueA, string[] fieldsB)
   {
-    ConstantAst astA = MakeValue(valueA);
+    IGqlpConstant astA = MakeValue(valueA);
     ConstantAst astB = MakeObject(fieldsB);
 
     Merge_Expected([astA, astB], MakeObject(fieldsB));
@@ -40,7 +40,7 @@ public class MergeConstantsTests
     this.SkipIf(listA.Contains(valueB));
 
     ConstantAst astA = MakeList(listA);
-    ConstantAst astB = MakeValue(valueB);
+    IGqlpConstant astB = MakeValue(valueB);
 
     Merge_Expected([astA, astB], MakeList([.. listA, valueB]));
   }
@@ -68,7 +68,7 @@ public class MergeConstantsTests
   public void Merge_TwoAstsObjectAndValue_ReturnsExpected(string[] fieldsA, string valueB)
   {
     ConstantAst astA = MakeObject(fieldsA);
-    ConstantAst astB = MakeValue(valueB);
+    IGqlpConstant astB = MakeValue(valueB);
 
     Merge_Expected([astA, astB], MakeValue(valueB));
   }
@@ -96,15 +96,15 @@ public class MergeConstantsTests
 
   protected override IMerge<IGqlpConstant> MergerBase => _merger;
 
-  protected override ConstantAst MakeAst(string input)
-    => new FieldKeyAst(AstNulls.At, input);
+  protected override IGqlpConstant MakeAst(string input)
+    => new ConstantAst(new FieldKeyAst(AstNulls.At, input));
 
-  private ConstantAst MakeValue(string value)
-    => new FieldKeyAst(AstNulls.At, value);
+  private IGqlpConstant MakeValue(string value)
+    => new ConstantAst(new FieldKeyAst(AstNulls.At, value));
 
   private ConstantAst MakeList(IEnumerable<string> list)
     => new(AstNulls.At, [.. list.Distinct().Select(MakeValue)]);
 
   private ConstantAst MakeObject(IEnumerable<string> fields)
-    => new(AstNulls.At, fields.ToObject(v => new(AstNulls.At, v), MakeValue));
+    => new(AstNulls.At, fields.ToObject(v => new FieldKeyAst(AstNulls.At, v), MakeValue));
 }

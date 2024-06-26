@@ -6,7 +6,7 @@ public abstract record class AstValue<T>(TokenAt At)
   : AstAbbreviated(At)
   , IEquatable<AstValue<T>>
   , IGqlpValue<T>
-  where T : AstValue<T>, IGqlpValue<T>
+  where T : IGqlpValue<T>
 {
   public T[] Values { get; init; } = [];
   public AstFields<T> Fields { get; init; } = [];

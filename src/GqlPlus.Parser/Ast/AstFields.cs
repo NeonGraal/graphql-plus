@@ -1,16 +1,16 @@
 ﻿namespace GqlPlus.Ast;
 
 public class AstFields<TValue>
-  : Dictionary<FieldKeyAst, TValue>
-  , IEquatable<Dictionary<FieldKeyAst, TValue>>
+  : Dictionary<IGqlpFieldKey, TValue>
+  , IEquatable<Dictionary<IGqlpFieldKey, TValue>>
   where TValue : IGqlpValue<TValue>
 {
   public AstFields()
     : base() { }
-  public AstFields(IDictionary<FieldKeyAst, TValue> dict)
+  public AstFields(IDictionary<IGqlpFieldKey, TValue> dict)
     : base(dict) { }
 
-  public virtual bool Equals(Dictionary<FieldKeyAst, TValue>? other)
+  public virtual bool Equals(Dictionary<IGqlpFieldKey, TValue>? other)
     => other is not null
     && Keys.Order().SequenceEqual(other.Keys.Order())
     && Keys.All(k => this[k]?.Equals(other[k]) ?? false);

@@ -39,9 +39,9 @@ internal class MergeConstants
 
   private IGqlpConstant MergeFields(IGqlpConstant a, IGqlpConstant b)
   {
-    Dictionary<FieldKeyAst, ConstantAst> fields = a.Fields.Concat(b.Fields)
+    Dictionary<IGqlpFieldKey, IGqlpConstant> fields = a.Fields.Concat(b.Fields)
       .ToLookup(p => p.Key, p => p.Value)
-      .ToDictionary(g => (FieldKeyAst)g.Key, g => (ConstantAst)Merge(g).First());
+      .ToDictionary(g => g.Key, g => Merge(g).First());
 
     return (ConstantAst)b with { Fields = new(fields) };
   }

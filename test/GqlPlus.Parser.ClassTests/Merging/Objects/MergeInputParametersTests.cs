@@ -49,6 +49,6 @@ public class MergeInputParametersTests
     => new InputParameterAst(AstNulls.At, new InputBaseAst(AstNulls.At, name, description));
   private static InputParameterAst MakeDefault(string name, string value)
     => new(AstNulls.At, new InputBaseAst(AstNulls.At, name)) {
-      DefaultValue = value.FieldKey()
+      DefaultValue = new(value.FieldKey())
     };
 }

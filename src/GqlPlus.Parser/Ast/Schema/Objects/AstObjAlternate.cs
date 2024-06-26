@@ -11,7 +11,7 @@ internal abstract record class AstObjAlternate<TObjBase>(
   , IGqlpObjAlternate
   where TObjBase : IGqlpObjBase
 {
-  public ModifierAst[] Modifiers { get; set; } = [];
+  public IGqlpModifier[] Modifiers { get; set; } = [];
 
   public string ModifiedType => BaseType.GetFields().Skip(1).Concat(Modifiers.AsString()).Joined();
   public string Description => BaseType.Description;

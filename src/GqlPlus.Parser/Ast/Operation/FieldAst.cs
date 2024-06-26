@@ -11,7 +11,7 @@ internal sealed record class FieldAst(
 {
   public string? FieldAlias { get; init; }
   public ArgumentAst? Argument { get; set; }
-  public ModifierAst[] Modifiers { get; set; } = [];
+  public IGqlpModifier[] Modifiers { get; set; } = [];
   public IGqlpSelection[] Selections { get; set; } = [];
 
   internal override string Abbr => "f";

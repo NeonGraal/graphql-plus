@@ -70,10 +70,10 @@ public class DomainDefinition
 {
   public DomainKind Kind { get; set; } = DomainKind.Number;
   public string? Parent { get; set; }
-  public DomainTrueFalseAst[] Values { get; set; } = [];
-  public DomainMemberAst[] Members { get; set; } = [];
-  public DomainRangeAst[] Numbers { get; set; } = [];
-  public DomainRegexAst[] Regexes { get; set; } = [];
+  internal DomainTrueFalseAst[] Values { get; set; } = [];
+  internal DomainMemberAst[] Members { get; set; } = [];
+  internal DomainRangeAst[] Numbers { get; set; } = [];
+  internal DomainRegexAst[] Regexes { get; set; } = [];
 }
 
 internal class ParseDomainDefinition

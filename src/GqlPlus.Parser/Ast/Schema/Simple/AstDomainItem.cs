@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public abstract record class AstDomainItem(
+internal abstract record class AstDomainItem(
   TokenAt At,
   bool Excludes
 ) : AstAbbreviated(At)

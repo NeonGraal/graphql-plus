@@ -10,10 +10,10 @@ internal class OutputModeller(
     => new(ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
-      Parent = ParentModel(ast.Parent, typeKinds),
+      Parent = ParentModel(ast.ObjParent, typeKinds),
       TypeParameters = TypeParametersModels(ast.TypeParameters),
-      Fields = FieldsModels(ast.Fields, typeKinds),
-      Alternates = AlternatesModels(ast.Alternates, typeKinds),
+      Fields = FieldsModels(ast.ObjFields, typeKinds),
+      Alternates = AlternatesModels(ast.ObjAlternates, typeKinds),
     };
 }
 
@@ -33,7 +33,7 @@ internal class OutputBaseModeller(
     }
     : new(ast.Output) {
       IsTypeParameter = ast.IsTypeParameter,
-      TypeArguments = ModelArguments(ast, typeKinds),
+      Arguments = ModelArguments(ast, typeKinds),
     };
 }
 
@@ -44,12 +44,12 @@ internal class OutputFieldModeller(
 ) : ModellerObjField<IGqlpOutputBase, IGqlpOutputField, OutputBaseModel, OutputFieldModel>(modifier, refBase)
 {
   protected override OutputFieldModel FieldModel(IGqlpOutputField field, OutputBaseModel type, IMap<TypeKindModel> typeKinds)
-    => string.IsNullOrWhiteSpace(field.Type.EnumMember)
+    => string.IsNullOrWhiteSpace(field.BaseType.EnumMember)
       ? new(field.Name, new(type, field.Type.Description)) {
         Parameters = parameter.ToModels(field.Parameters, typeKinds),
       }
       : new(field.Name, null) { // or should it be `type`
-        Enum = new(field.Name, field.Type.Output, field.Type.EnumMember)
+        Enum = new(field.Name, field.BaseType.Output, field.BaseType.EnumMember)
       };
 }
 

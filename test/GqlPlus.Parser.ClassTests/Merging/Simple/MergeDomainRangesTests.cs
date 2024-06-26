@@ -1,13 +1,14 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
+
 using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Simple;
 
 public class MergeDomainRangesTests(
   ITestOutputHelper outputHelper
-) : TestAbbreviated<IGqlpDomainRange, DomainRangeInput>
+) : TestDomainItems<IGqlpDomainRange, DomainRangeInput>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameExcludes_ReturnsGood(DomainRangeInput input)
@@ -15,12 +16,12 @@ public class MergeDomainRangesTests(
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(DomainRangeInput input)
-    => CanMerge_Errors([MakeAst(input) with { Excludes = true }, MakeAst(input)]);
+    => CanMerge_Errors([MakeItem(input, true), MakeAst(input)]);
 
   private readonly MergeDomainRanges _merger = new(outputHelper.ToLoggerFactory());
 
-  protected override IMerge<IGqlpDomainRange> MergerBase => _merger;
+  internal override GroupsMerger<IGqlpDomainRange> MergerGroups => _merger;
 
-  protected override DomainRangeAst MakeAst(DomainRangeInput input)
-    => new(AstNulls.At, false, input.Lower, input.Upper);
+  protected override IGqlpDomainRange MakeItem(DomainRangeInput input, bool excludes)
+    => new DomainRangeAst(AstNulls.At, excludes, input.Lower, input.Upper);
 }

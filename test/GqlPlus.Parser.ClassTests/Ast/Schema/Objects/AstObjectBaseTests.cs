@@ -2,10 +2,9 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjectBaseTests<TObjBase, TObjBaseAst>
+public abstract class AstObjectBaseTests<TObjBase>
   : AstAbbreviatedTests<string>
-  where TObjBase : IGqlpObjBase<TObjBase>
-  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
+  where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithIsTypeParameter(string input)
@@ -57,96 +56,87 @@ public abstract class AstObjectBaseTests<TObjBase, TObjBaseAst>
 
   internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ObjBaseChecks;
 
-  internal abstract IAstObjBaseChecks<TObjBase, TObjBaseAst> ObjBaseChecks { get; }
+  internal abstract IAstObjBaseChecks<TObjBase> ObjBaseChecks { get; }
 }
 
-internal sealed class AstObjBaseChecks<TObjBase, TObjBaseAst>
-  : AstAbbreviatedChecks<string, TObjBase>
-  , IAstObjBaseChecks<TObjBase, TObjBaseAst>
-  where TObjBase : IGqlpObjBase<TObjBase>
+internal sealed class AstObjBaseChecks<TObjBase, TObjBaseAst>(
+  AstObjBaseChecks<TObjBase, TObjBaseAst>.BaseBy createBase,
+  AstObjBaseChecks<TObjBase, TObjBaseAst>.ArgumentsBy createArguments
+) : AstAbbreviatedChecks<string, TObjBase>(input => createBase(input))
+  , IAstObjBaseChecks<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
-  private readonly BaseBy _createBase;
-  private readonly ArgumentsBy _createArguments;
-
   internal delegate TObjBaseAst BaseBy(string input);
   internal delegate TObjBase[] ArgumentsBy(string[] argument);
 
-  public AstObjBaseChecks(BaseBy createBase, AstObjBaseChecks<TObjBase, TObjBaseAst>.ArgumentsBy createArguments)
-    : base(input => createBase(input))
-  {
-    _createBase = createBase;
-    _createArguments = createArguments;
-  }
-
   public void HashCode_WithIsTypeParameter(string input)
-      => HashCode(() => _createBase(input) with { IsTypeParameter = true });
+      => HashCode(() => createBase(input) with { IsTypeParameter = true });
 
   public void String_WithIsTypeParameter(string input)
     => Text(
-      () => _createBase(input) with { IsTypeParameter = true },
+      () => createBase(input) with { IsTypeParameter = true },
       $"( ${input} )");
 
   public void Equality_WithIsTypeParameter(string input)
-    => Equality(() => _createBase(input) with { IsTypeParameter = true });
+    => Equality(() => createBase(input) with { IsTypeParameter = true });
 
   public void Inequality_BetweenIsTypeParameters(string input, bool isTypeParam1)
     => InequalityBetween(isTypeParam1, !isTypeParam1,
-      isTypeParam => _createBase(input) with { IsTypeParameter = isTypeParam },
+      isTypeParam => createBase(input) with { IsTypeParameter = isTypeParam },
       false);
 
   public void HashCode_WithArguments(string input, string[] arguments)
-    => HashCode(() => _createBase(input) with { TypeArguments = _createArguments(arguments) });
+    => HashCode(() => createBase(input) with { BaseArguments = createArguments(arguments) });
 
   public void String_WithArguments(string input, string[] arguments)
     => Text(
-      () => _createBase(input) with { TypeArguments = _createArguments(arguments) },
+      () => createBase(input) with { BaseArguments = createArguments(arguments) },
       $"( {input} < {arguments.Joined()} > )");
 
   public void Equality_WithArguments(string input, string[] arguments)
-    => Equality(() => _createBase(input) with { TypeArguments = _createArguments(arguments) });
+    => Equality(() => createBase(input) with { BaseArguments = createArguments(arguments) });
 
   public void Inequality_BetweenArguments(string input, string[] arguments1, string[] arguments2)
   => InequalityBetween(arguments1, arguments2,
-    arguments => _createBase(input) with { TypeArguments = _createArguments(arguments) },
+    arguments => createBase(input) with { BaseArguments = createArguments(arguments) },
     arguments1.OrderedEqual(arguments2));
 
   public void FullType_WithDefault(string input)
   {
-    TObjBase objBase = _createBase(input);
+    TObjBase objBase = createBase(input);
 
     objBase.FullType.Should().Be(input);
   }
 
   public void FullType_WithIsTypeParameter(string input)
   {
-    TObjBase objBase = _createBase(input) with { IsTypeParameter = true };
+    TObjBase objBase = createBase(input) with { IsTypeParameter = true };
 
     objBase.FullType.Should().Be("$" + input);
   }
 
   public void FullType_WithArguments(string input, string[] arguments)
   {
-    TObjBase objBase = _createBase(input) with { TypeArguments = _createArguments(arguments) };
+    TObjBase objBase = createBase(input) with { BaseArguments = createArguments(arguments) };
 
     objBase.FullType.Should().Be(input + $" < {arguments.Joined()} >");
   }
 
   public void FullType_WithIsTypeParameterAndArguments(string input, string[] arguments)
   {
-    TObjBase objBase = _createBase(input) with {
+    TObjBase objBase = createBase(input) with {
       IsTypeParameter = true,
-      TypeArguments = _createArguments(arguments)
+      BaseArguments = createArguments(arguments)
     };
 
     objBase.FullType.Should().Be($"${input} < {arguments.Joined()} >");
   }
 }
 
-internal interface IAstObjBaseChecks<TObjBase, TObjBaseAst>
+internal interface IAstObjBaseChecks<TObjBase>
   : IAstAbbreviatedChecks<string>
-  where TObjBase : IGqlpObjBase<TObjBase>
-  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
+  where TObjBase : IGqlpObjBase
 {
   void HashCode_WithIsTypeParameter(string input);
   void String_WithIsTypeParameter(string input);

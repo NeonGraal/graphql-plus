@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public record class AstDomain<TMember, TItem>(
+internal record class AstDomain<TMember, TItem>(
   TokenAt At,
   string Name,
   string Description,
@@ -38,7 +38,7 @@ public record class AstDomain<TMember, TItem>(
       .Concat(Members.Bracket());
 }
 
-public abstract record class AstDomain(
+internal abstract record class AstDomain(
   TokenAt At,
   string Name,
   string Description,

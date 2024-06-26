@@ -1,10 +1,10 @@
 ﻿using System.Globalization;
+
 using GqlPlus.Token;
 
 namespace GqlPlus.Ast;
 
-#pragma warning disable CA1036 // Override methods on comparable types
-public sealed record class FieldKeyAst(TokenAt At)
+internal sealed record class FieldKeyAst(TokenAt At)
   : AstAbbreviated(At)
   , IComparable<FieldKeyAst>
   , IGqlpFieldKey
@@ -21,6 +21,10 @@ public sealed record class FieldKeyAst(TokenAt At)
 
   string? IGqlpFieldKey.EnumType => Type;
   string? IGqlpFieldKey.EnumMember => Member;
+  bool IEquatable<IGqlpFieldKey>.Equals(IGqlpFieldKey? other)
+    => Equals(other as FieldKeyAst);
+  int IComparable<IGqlpFieldKey>.CompareTo(IGqlpFieldKey? other)
+    => CompareTo(other as FieldKeyAst);
 
   internal FieldKeyAst(TokenAt at, decimal number)
     : this(at)

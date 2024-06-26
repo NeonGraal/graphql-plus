@@ -3,36 +3,40 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract record class AstObject<TObjField, TObjAlt, TObjBase>(
+internal abstract record class AstObject<TObjBase, TObjField, TObjAlt>(
   TokenAt At,
   string Name,
   string Description
-) : AstType<TObjBase>(At, Name, Description)
-  , IEquatable<AstObject<TObjField, TObjAlt, TObjBase>>
-  , IGqlpObject<TObjField, TObjAlt, TObjBase>
-  where TObjField : IGqlpObjField<TObjBase>
-  where TObjAlt : IGqlpObjAlternate<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+) : AstType<IGqlpObjBase>(At, Name, Description)
+  , IEquatable<AstObject<TObjBase, TObjField, TObjAlt>>
+  , IGqlpObject<TObjBase, TObjField, TObjAlt>
+  where TObjBase : IGqlpObjBase
+  where TObjField : IGqlpObjField
+  where TObjAlt : IGqlpObjAlternate
 {
-  public TypeParameterAst[] TypeParameters { get; set; } = [];
-  public TObjField[] Fields { get; set; } = [];
-  public TObjAlt[] Alternates { get; set; } = [];
+  public IGqlpTypeParameter[] TypeParameters { get; set; } = [];
+  public TObjField[] ObjFields { get; set; } = [];
+  public TObjAlt[] ObjAlternates { get; set; } = [];
 
   IEnumerable<IGqlpTypeParameter> IGqlpObject.TypeParameters => TypeParameters;
-  IEnumerable<TObjField> IGqlpObject<TObjField, TObjAlt, TObjBase>.Fields => Fields;
-  IEnumerable<TObjAlt> IGqlpObject<TObjField, TObjAlt, TObjBase>.Alternates => Alternates;
+  IEnumerable<IGqlpObjField> IGqlpObject.Fields => ObjFields.Cast<IGqlpObjField>();
+  IEnumerable<IGqlpObjAlternate> IGqlpObject.Alternates => ObjAlternates.Cast<IGqlpObjAlternate>();
 
-  public virtual bool Equals(AstObject<TObjField, TObjAlt, TObjBase>? other)
+  TObjBase? IGqlpObject<TObjBase, TObjField, TObjAlt>.ObjParent => Parent is TObjBase objBase ? objBase : default;
+  IEnumerable<TObjField> IGqlpObject<TObjBase, TObjField, TObjAlt>.ObjFields => ObjFields;
+  IEnumerable<TObjAlt> IGqlpObject<TObjBase, TObjField, TObjAlt>.ObjAlternates => ObjAlternates;
+
+  public virtual bool Equals(AstObject<TObjBase, TObjField, TObjAlt>? other)
     => base.Equals(other)
       && TypeParameters.SequenceEqual(other.TypeParameters)
-      && Fields.SequenceEqual(other.Fields)
-      && Alternates.SequenceEqual(other.Alternates);
+      && ObjFields.SequenceEqual(other.ObjFields)
+      && ObjAlternates.SequenceEqual(other.ObjAlternates);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), TypeParameters.Length, Fields.Length, Alternates.Length);
+    => HashCode.Combine(base.GetHashCode(), TypeParameters.Length, ObjFields.Length, ObjAlternates.Length);
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Concat(TypeParameters.Bracket("<", ">"))
       .Concat(Parent.Bracket(":", ""))
-      .Concat(Fields.Bracket("{", "}"))
-      .Concat(Alternates.Bracket("|"));
+      .Concat(ObjFields.Bracket("{", "}"))
+      .Concat(ObjAlternates.Bracket("|"));
 }

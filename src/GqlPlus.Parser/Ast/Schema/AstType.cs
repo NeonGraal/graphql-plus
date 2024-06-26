@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema;
 
-public abstract record class AstType(
+internal abstract record class AstType(
   TokenAt At,
   string Name,
   string Description
@@ -11,7 +11,7 @@ public abstract record class AstType(
   , IGqlpType
 { }
 
-public abstract record class AstType<TParent>(
+internal abstract record class AstType<TParent>(
   TokenAt At,
   string Name,
   string Description

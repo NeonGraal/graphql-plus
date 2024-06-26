@@ -32,9 +32,9 @@ public abstract class TestObjectField
 internal sealed class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBaseAst>
   : BaseAliasedChecks<FieldInput, TObjFieldAst, TObjField>
   , ICheckObjectField
-  where TObjField : IGqlpObjField<TObjBase>
+  where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   private readonly IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst> _factories;

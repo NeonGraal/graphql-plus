@@ -3,14 +3,14 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class InputParameterAst(
+internal sealed record class InputParameterAst(
   TokenAt At,
   IGqlpInputBase Type
 ) : AstAbbreviated(At)
   , IEquatable<InputParameterAst>
   , IGqlpInputParameter
 {
-  public ModifierAst[] Modifiers { get; set; } = [];
+  public IGqlpModifier[] Modifiers { get; set; } = [];
   public ConstantAst? DefaultValue { get; set; }
 
   internal override string Abbr => "Pa";

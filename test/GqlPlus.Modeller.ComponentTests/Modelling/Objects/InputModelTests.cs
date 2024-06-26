@@ -6,9 +6,9 @@ namespace GqlPlus.Modelling.Objects;
 public class InputModelTests(
   IModeller<IGqlpInputObject, TypeInputModel> modeller,
   IRenderer<TypeInputModel> rendering
-) : TestObjectModel<InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, InputBaseAst>
+) : TestObjectModel<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase>
 {
-  internal override ICheckObjectModel<InputDeclAst, IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase> ObjectChecks => _checks;
+  internal override ICheckObjectModel<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate> ObjectChecks => _checks;
 
   private readonly InputModelChecks _checks = new(modeller, rendering);
 }
@@ -18,18 +18,13 @@ internal sealed class InputModelChecks(
   IRenderer<TypeInputModel> rendering
 ) : CheckObjectModel<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, TypeInputModel>(modeller, rendering, TypeKindModel.Input)
 {
-  protected override InputDeclAst NewObjectAst(
-    string name,
-    IGqlpInputBase? parent,
-    string? description,
-    string[]? aliases,
-    FieldInput[] fields,
-    AlternateInput[] alternates)
-    => new(AstNulls.At, name, description ?? "") {
-      Aliases = aliases ?? [],
-      Parent = (InputBaseAst?)parent,
-      Fields = fields.InputFields(),
-      Alternates = alternates.InputAlternates(),
+  protected override InputDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)
+    => new(AstNulls.At, input.Name, input.Description) {
+      Aliases = input.Aliases,
+      Parent = parent ?? (input.Parent is not null ? NewParentAst(input.Parent) : null),
+      TypeParameters = input.TypeParameters.TypeParameters(),
+      ObjFields = input.Fields.InputFields(),
+      ObjAlternates = input.Alternates.InputAlternates(),
     };
 
   internal override IGqlpInputBase NewParentAst(string input)

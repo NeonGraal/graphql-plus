@@ -3,11 +3,11 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class OutputDeclAst(
+internal sealed record class OutputDeclAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObject<IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputBase>(At, Name, Description)
+) : AstObject<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>(At, Name, Description)
   , IGqlpOutputObject
 {
   internal override string Abbr => "Ou";

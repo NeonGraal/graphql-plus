@@ -23,17 +23,11 @@ public abstract class BaseAliasedTests<TInput>
   internal override IBaseNamedChecks<TInput> NameChecks => AliasChecks;
 }
 
-internal abstract class BaseAliasedChecks<TInput, TAliased>(
+internal abstract class BaseAliasedChecks<TInput, TAliasedAst, TAliased>(
   Parser<TAliased>.D parser
-) : BaseAliasedChecks<TInput, TAliased, TAliased>(parser), IBaseAliasedChecks<TInput>
-  where TAliased : AstAliased, IGqlpAliased
-{ }
-
-internal abstract class BaseAliasedChecks<TInput, TAliased, TSrc>(
-  Parser<TSrc>.D parser
-) : BaseNamedChecks<TInput, TAliased, TSrc>(parser), IBaseAliasedChecks<TInput>
-  where TAliased : AstAliased, TSrc
-  where TSrc : IGqlpAliased
+) : BaseNamedChecks<TInput, TAliasedAst, TAliased>(parser), IBaseAliasedChecks<TInput>
+  where TAliasedAst : AstAliased, TAliased
+  where TAliased : IGqlpAliased
 {
   public void WithAliases(TInput input, string[] aliases)
   => TrueExpected(AliasesString(input, "[" + aliases.Joined() + "]"),

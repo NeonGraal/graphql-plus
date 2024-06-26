@@ -6,16 +6,16 @@ namespace GqlPlus.Modelling.Objects;
 public class OutputBaseModelTests(
   IModeller<IGqlpOutputBase, OutputBaseModel> modeller,
   IRenderer<OutputBaseModel> rendering
-) : TestObjBaseModel<IGqlpOutputBase, OutputBaseAst>
+) : TestObjBaseModel<IGqlpOutputBase>
 {
   [Theory, RepeatData(Repeats)]
   public void Model_EnumArguments(string name, string[] arguments, string enumMember)
     => ObjBaseChecks.ObjBase_Expected(
-      ObjBaseChecks.ObjBaseAst(name) with { TypeArguments = [.. arguments.Select(a => ObjBaseChecks.ObjBaseAst(a) with { EnumMember = enumMember })] },
+      ObjBaseChecks.ObjBaseAst(name, false, [.. arguments.Select(a => _checks.EnumObjBase(a, enumMember))]),
       ObjBaseChecks.ExpectedObjBase(name, false, _checks.ExpectedEnumArguments(arguments, enumMember))
       );
 
-  internal override ICheckObjBaseModel<IGqlpOutputBase, OutputBaseAst> ObjBaseChecks => _checks;
+  internal override ICheckObjBaseModel<IGqlpOutputBase> ObjBaseChecks => _checks;
 
   private readonly OutputBaseModelChecks _checks = new(modeller, rendering);
 }
@@ -29,6 +29,12 @@ internal sealed class OutputBaseModelChecks(
     => [.. ItemsExpected("typeArguments:", arguments,
       a => ["- !_OutputArgument", "  member: " + enumMember, "  name: " + a, "  typeKind: !_SimpleKind Enum"])];
 
-  protected override OutputBaseAst NewObjBaseAst(string name)
-    => new(AstNulls.At, name);
+  protected override OutputBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpOutputBase[] args)
+    => new(AstNulls.At, input) {
+      IsTypeParameter = isTypeParam,
+      BaseArguments = args,
+    };
+
+  internal IGqlpOutputBase EnumObjBase(string input, string enumMember)
+    => NewObjBaseAst(input, false, []) with { EnumMember = enumMember };
 }

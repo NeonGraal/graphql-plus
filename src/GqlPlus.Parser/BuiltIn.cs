@@ -8,7 +8,7 @@ namespace GqlPlus;
 
 public static class BuiltIn
 {
-  public static AstType[] Basic { get; } = [
+  public static IGqlpType[] Basic { get; } = [
     new EnumDeclAst(AstNulls.At, "Boolean", [new(AstNulls.At, "false"), new(AstNulls.At, "true")]) { Aliases = ["^"] },
     new EnumDeclAst(AstNulls.At, "Unit", [new(AstNulls.At, "_")]) { Aliases = ["_"] },
 
@@ -17,7 +17,7 @@ public static class BuiltIn
     new AstDomain<DomainRegexAst, IGqlpDomainRegex>(AstNulls.At, "String", DomainKind.String, []) { Aliases = ["*"] },
   ];
 
-  public static AstType[] Internal { get; } = [
+  public static IGqlpType[] Internal { get; } = [
     new EnumDeclAst(AstNulls.At, "Void", []),
     new EnumDeclAst(AstNulls.At, "Null", [new(AstNulls.At, "null")]) { Aliases = ["null"] },
 
@@ -58,7 +58,7 @@ public static class BuiltIn
     => [.. parameters.Select(r => new TypeParameterAst(AstNulls.At, r))];
 
   private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, params IGqlpDualAlternate[] alternates)
-    => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Alternates = alternates };
+    => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, ObjAlternates = alternates };
 
   private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, DualBaseAst parent)
     => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Parent = parent };
@@ -90,14 +90,14 @@ public static class BuiltIn
     };
 
   private static DualBaseAst DualRef(string name, params DualBaseAst[] args)
-    => new DualBaseAst(AstNulls.At, name, "") with { TypeArguments = args };
+    => new DualBaseAst(AstNulls.At, name, "") with { BaseArguments = args };
 
   private static DualBaseAst DualParam(string name)
     => DualRef(name) with { IsTypeParameter = true };
 
   private static DualBaseAst DualDict(string type, bool paramSecond = false)
     => DualRef("_Dict") with {
-      TypeArguments = [
+      BaseArguments = [
         paramSecond ? DualParam("K") : DualRef(type),
         paramSecond ? DualRef(type) : DualParam("T")
       ]

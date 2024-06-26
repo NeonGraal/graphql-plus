@@ -23,7 +23,9 @@ public interface IGqlpNamed
 }
 
 public interface IGqlpFieldKey
-  : IGqlpError
+  : IGqlpAbbreviated
+  , IEquatable<IGqlpFieldKey>
+  , IComparable<IGqlpFieldKey>
 {
   decimal? Number { get; }
   string? Text { get; }
@@ -58,12 +60,14 @@ public interface IGqlpModifiers
 
 public interface IGqlpConstant
   : IGqlpValue<IGqlpConstant>
+  , IEquatable<IGqlpConstant>
 {
   IGqlpFieldKey? Value { get; }
 }
 
 public interface IGqlpValue<TValue>
   : IGqlpAbbreviated
+  , IEquatable<IGqlpValue<TValue>>
 {
   IEnumerable<TValue> Values { get; }
   IGqlpFields<TValue> Fields { get; }
@@ -71,6 +75,7 @@ public interface IGqlpValue<TValue>
 
 public interface IGqlpFields<TValue>
   : IImmutableDictionary<IGqlpFieldKey, TValue>
+  , IEquatable<IGqlpFields<TValue>>
 { }
 
 public static class IGqlpValuesHelper
@@ -94,6 +99,8 @@ public static class IGqlpValuesHelper
       => fields.Contains(pair);
     bool IReadOnlyDictionary<IGqlpFieldKey, TValue>.ContainsKey(IGqlpFieldKey key)
       => fields.ContainsKey(key);
+    bool IEquatable<IGqlpFields<TValue>>.Equals(IGqlpFields<TValue>? other)
+      => fields.Equals(other);
     IEnumerator<KeyValuePair<IGqlpFieldKey, TValue>> IEnumerable<KeyValuePair<IGqlpFieldKey, TValue>>.GetEnumerator()
       => fields.GetEnumerator();
     IEnumerator IEnumerable.GetEnumerator()

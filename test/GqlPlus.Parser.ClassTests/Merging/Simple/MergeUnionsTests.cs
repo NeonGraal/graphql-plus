@@ -2,6 +2,7 @@
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
+
 using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Simple;
@@ -32,8 +33,8 @@ public class MergeUnionsTests(
 
   internal override AstTypeMerger<IGqlpType, IGqlpUnion, string, IGqlpUnionItem> MergerTyped => _merger;
 
-  protected override UnionDeclAst MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
-    => new(AstNulls.At, name, description, []) {
+  protected override IGqlpUnion MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
+    => new UnionDeclAst(AstNulls.At, name, description, []) {
       Aliases = aliases ?? [],
       Parent = parent,
     };

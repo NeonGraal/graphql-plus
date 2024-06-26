@@ -3,7 +3,7 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus;
 
-public static class SchemaTestHelpers
+internal static class SchemaTestHelpers
 {
   public static EnumMemberAst[] EnumMembers(this IEnumerable<string> enumMembers)
     => [.. enumMembers.Select(l => new EnumMemberAst(AstNulls.At, l))];

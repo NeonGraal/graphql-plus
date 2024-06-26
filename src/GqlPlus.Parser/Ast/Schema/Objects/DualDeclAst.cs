@@ -3,11 +3,11 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class DualDeclAst(
+internal sealed record class DualDeclAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObject<IGqlpDualField, IGqlpDualAlternate, IGqlpDualBase>(At, Name, Description)
+) : AstObject<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>(At, Name, Description)
   , IGqlpDualObject
 {
   internal override string Abbr => "Du";

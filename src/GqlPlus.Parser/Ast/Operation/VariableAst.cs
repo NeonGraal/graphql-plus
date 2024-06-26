@@ -9,7 +9,7 @@ internal sealed record class VariableAst(TokenAt At, string Name)
   , IGqlpVariable
 {
   public string? Type { get; set; }
-  public ModifierAst[] Modifiers { get; set; } = [];
+  public IGqlpModifier[] Modifiers { get; set; } = [];
   public ConstantAst? DefaultValue { get; set; }
 
   internal override string Abbr => "v";

@@ -9,7 +9,7 @@ internal class VerifyDualTypes(
   IMerge<IGqlpDualField> fields,
   IMerge<IGqlpDualAlternate> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<IGqlpDualObject, IGqlpDualField, IGqlpDualAlternate, IGqlpDualBase, UsageContext>(aliased, fields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, UsageContext>(aliased, fields, mergeAlternates, logger)
 {
   protected override UsageContext MakeContext(IGqlpDualObject usage, IGqlpType[] aliased, ITokenMessages errors)
   {

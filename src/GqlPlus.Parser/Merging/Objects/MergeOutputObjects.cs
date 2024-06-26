@@ -8,16 +8,16 @@ internal class MergeOutputObjects(
   IMerge<IGqlpOutputField> fields,
   IMerge<IGqlpTypeParameter> typeParameters,
   IMerge<IGqlpOutputAlternate> alternates
-) : AstObjectsMerger<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputBase>(logger, fields, typeParameters, alternates)
+) : AstObjectsMerger<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>(logger, fields, typeParameters, alternates)
 {
   protected override IGqlpOutputObject SetAlternates(IGqlpOutputObject obj, IEnumerable<IGqlpTypeParameter> typeParameters, IEnumerable<IGqlpOutputAlternate> alternates)
     => (OutputDeclAst)obj with {
       TypeParameters = typeParameters.ArrayOf<TypeParameterAst>(),
-      Alternates = [.. alternates],
+      ObjAlternates = [.. alternates],
     };
 
   internal override IGqlpOutputObject SetItems(IGqlpOutputObject input, IEnumerable<IGqlpOutputField> items)
     => (OutputDeclAst)input with {
-      Fields = [.. items],
+      ObjFields = [.. items],
     };
 }

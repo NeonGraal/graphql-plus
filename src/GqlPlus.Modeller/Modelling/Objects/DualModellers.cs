@@ -10,10 +10,10 @@ internal class DualModeller(
     => new(ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
-      Parent = ParentModel(ast.Parent, typeKinds),
+      Parent = ParentModel(ast.ObjParent, typeKinds),
       TypeParameters = TypeParametersModels(ast.TypeParameters),
-      Fields = FieldsModels(ast.Fields, typeKinds),
-      Alternates = AlternatesModels(ast.Alternates, typeKinds),
+      Fields = FieldsModels(ast.ObjFields, typeKinds),
+      Alternates = AlternatesModels(ast.ObjAlternates, typeKinds),
     };
 }
 
@@ -23,7 +23,7 @@ internal class DualBaseModeller
   protected override DualBaseModel ToModel(IGqlpDualBase ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Dual) {
       IsTypeParameter = ast.IsTypeParameter,
-      TypeArguments = ModelArguments(ast, typeKinds),
+      Arguments = ModelArguments(ast, typeKinds),
     };
 }
 

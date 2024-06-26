@@ -4,5 +4,5 @@ namespace GqlPlus.Merging.Objects;
 
 internal class MergeDualAlternates(
   ILoggerFactory logger
-) : AstAlternatesMerger<IGqlpDualAlternate, IGqlpDualBase>(logger)
+) : AstAlternatesMerger<IGqlpDualAlternate>(logger)
 { }

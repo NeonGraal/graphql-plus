@@ -3,11 +3,11 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class InputDeclAst(
+internal sealed record class InputDeclAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObject<IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase>(At, Name, Description)
+) : AstObject<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>(At, Name, Description)
   , IGqlpInputObject
 {
   internal override string Abbr => "In";

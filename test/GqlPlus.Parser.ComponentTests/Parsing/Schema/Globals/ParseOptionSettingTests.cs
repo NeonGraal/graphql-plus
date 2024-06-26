@@ -31,5 +31,5 @@ public class ParseOptionSettingTests(
   private readonly OneChecksParser<IGqlpSchemaSetting> _test = new(parser);
 
   private static OptionSettingAst Setting(string name, string value)
-    => new(AstNulls.At, name, new FieldKeyAst(AstNulls.At, value));
+    => new(AstNulls.At, name, new(new FieldKeyAst(AstNulls.At, value)));
 }

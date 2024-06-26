@@ -6,25 +6,18 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>
-  : Parser<TObjField>.I
-  where TObjField : IGqlpObjField<TObjBase>
+internal abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
+  Parser<string>.DA aliases,
+  Parser<IGqlpModifier>.DA modifiers,
+  Parser<TObjBase>.D parseBase
+) : Parser<TObjField>.I
+  where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
-  private readonly Parser<string>.LA _aliases;
-  private readonly Parser<IGqlpModifier>.LA _modifiers;
-  private readonly Parser<TObjBase>.L _parseBase;
-
-  protected ObjectFieldParser(
-    Parser<string>.DA aliases,
-    Parser<IGqlpModifier>.DA modifiers,
-    Parser<TObjBase>.D parseBase)
-  {
-    _aliases = aliases;
-    _parseBase = parseBase;
-    _modifiers = modifiers;
-  }
+  private readonly Parser<string>.LA _aliases = aliases;
+  private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
+  private readonly Parser<TObjBase>.L _parseBase = parseBase;
 
   public IResult<TObjField> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -36,7 +29,7 @@ public abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>
       return 0.Empty<TObjField>();
     }
 
-    IResultArray<InputParameterAst> hasParameter = FieldParameter(tokens);
+    IResultArray<IGqlpInputParameter> hasParameter = FieldParameter(tokens);
     if (hasParameter.IsError()) {
       return hasParameter.AsResult<TObjField>();
     }
@@ -71,13 +64,13 @@ public abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>
     return FieldEnumValue(tokens, field);
   }
 
-  protected abstract void ApplyFieldParameters(TObjFieldAst field, InputParameterAst[] parameters);
+  protected abstract void ApplyFieldParameters(TObjFieldAst field, IGqlpInputParameter[] parameters);
   protected abstract TObjFieldAst ObjField(TokenAt at, string name, string description, TObjBase typeBase);
   protected abstract IResult<TObjField> FieldDefault<TContext>(TContext tokens, TObjFieldAst field)
       where TContext : Tokenizer;
   protected abstract IResult<TObjField> FieldEnumValue<TContext>(TContext tokens, TObjFieldAst field)
       where TContext : Tokenizer;
-  protected abstract IResultArray<InputParameterAst> FieldParameter<TContext>(TContext tokens)
+  protected abstract IResultArray<IGqlpInputParameter> FieldParameter<TContext>(TContext tokens)
       where TContext : Tokenizer;
   protected abstract TObjBase ObjBase(TokenAt at, string param, string description = "");
 }

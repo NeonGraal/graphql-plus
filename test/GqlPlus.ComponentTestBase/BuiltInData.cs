@@ -1,13 +1,13 @@
-﻿using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus;
 
 public static class BuiltInData
 {
-  public static Map<AstType> BasicMap { get; }
+  public static Map<IGqlpType> BasicMap { get; }
       = BuiltIn.Basic.ToMap(m => m.Name);
 
-  public static Map<AstType> InternalMap { get; }
+  public static Map<IGqlpType> InternalMap { get; }
       = BuiltIn.Internal.ToMap(m => m.Name);
 }
 

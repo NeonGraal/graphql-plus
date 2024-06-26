@@ -15,7 +15,7 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithConstant(string enumType, string enumValue)
     => _checks.HashCode(
-      () => new FieldKeyAst(AstNulls.At, enumType, enumValue));
+      () => new(new FieldKeyAst(AstNulls.At, enumType, enumValue)));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithValues(string enumValue)
@@ -36,7 +36,7 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void String_WithConstant(string enumValue)
     => _checks.Text(
-      () => new ConstantAst(enumValue.FieldKey()),
+      () => new(new ConstantAst(enumValue.FieldKey())),
       $"( !k {enumValue} )");
 
   [Theory, RepeatData(Repeats)]
@@ -65,13 +65,13 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithConstant(string enumType, string enumValue)
     => _checks.Equality(
-      () => new FieldKeyAst(AstNulls.At, enumType, enumValue));
+      () => new(new FieldKeyAst(AstNulls.At, enumType, enumValue)));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_WithConstant(string enumType, string enumValue)
     => _checks.Inequality(
-      () => new FieldKeyAst(AstNulls.At, enumType, enumValue),
-      () => new FieldKeyAst(AstNulls.At, enumValue, enumType),
+      () => new(new FieldKeyAst(AstNulls.At, enumType, enumValue)),
+      () => new(new FieldKeyAst(AstNulls.At, enumValue, enumType)),
       enumType == enumValue);
 
   [Theory, RepeatData(Repeats)]

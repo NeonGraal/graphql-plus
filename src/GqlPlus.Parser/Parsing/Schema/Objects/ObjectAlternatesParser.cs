@@ -6,13 +6,13 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class ObjectAlternatesParser<TObjAlt, TObjAltAst, TObjBase>(
+internal abstract class ObjectAlternatesParser<TObjAlt, TObjAltAst, TObjBase>(
   ParserArray<IParserCollections, IGqlpModifier>.DA collections,
   Parser<TObjBase>.D parseBase
 ) : Parser<TObjAlt>.IA
-  where TObjAlt : IGqlpObjAlternate<TObjBase>
+  where TObjAlt : IGqlpObjAlternate
   where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = collections;
   private readonly Parser<TObjBase>.L _parseBase = parseBase;

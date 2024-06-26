@@ -1,20 +1,31 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
+
 using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Simple;
 
-public class MergeDomainAstBooleansTests(
-  ITestOutputHelper outputHelper
-) : TestDomainAsts<DomainTrueFalseAst, IGqlpDomainTrueFalse, bool>(outputHelper)
+public class MergeDomainAstBooleansTests
+  : TestDomainAsts<IGqlpDomainTrueFalse, bool>
 {
-  protected override DomainTrueFalseAst[] MakeItems(bool input)
-    => new[] { input }.DomainTrueFalses();
+  internal override IDomainMerger<IGqlpDomainTrueFalse> Merger { get; }
+  internal override AstTypeMerger<IGqlpDomain, IGqlpDomain<IGqlpDomainTrueFalse>, string, IGqlpDomainTrueFalse> MergerTyped { get; }
 
-  protected override AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse> MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
-    => new(AstNulls.At, name, description, DomainKind.Boolean) {
+  public MergeDomainAstBooleansTests(ITestOutputHelper outputHelper)
+  {
+    MergeDomains<DomainTrueFalseAst, IGqlpDomainTrueFalse> merger = new(outputHelper.ToLoggerFactory(), MergeItems);
+    Merger = merger;
+    MergerTyped = merger;
+  }
+
+  protected override IGqlpDomain<IGqlpDomainTrueFalse> MakeDomain(string name, string[]? aliases = null, string description = "", string? parent = null, DomainKind? kind = null, IEnumerable<IGqlpDomainTrueFalse>? items = null)
+    => new AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>(AstNulls.At, name, description, kind ?? DomainKind.Boolean) {
       Aliases = aliases ?? [],
       Parent = parent,
+      Members = items?.ArrayOf<DomainTrueFalseAst>() ?? [],
     };
+
+  protected override IGqlpDomainTrueFalse[] MakeItems(bool input)
+    => new[] { input }.DomainTrueFalses();
 }

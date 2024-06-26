@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class InputBaseAst(
+internal sealed record class InputBaseAst(
   TokenAt At,
   string Name,
   string Description
@@ -23,6 +23,6 @@ public sealed record class InputBaseAst(
   public DualBaseAst ToDual()
     => new(At, Name, Description) {
       IsTypeParameter = IsTypeParameter,
-      TypeArguments = [.. TypeArguments.Select(a => a.ToDual)],
+      BaseArguments = [.. BaseArguments.Select(a => a.ToDual)],
     };
 }

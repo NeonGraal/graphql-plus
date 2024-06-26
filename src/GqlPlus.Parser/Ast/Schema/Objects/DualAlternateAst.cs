@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class DualAlternateAst(
+internal sealed record class DualAlternateAst(
   TokenAt At,
   IGqlpDualBase Type
 ) : AstObjAlternate<IGqlpDualBase>(At, Type)

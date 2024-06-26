@@ -1,27 +1,25 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
-public abstract class TestObjectFields<TObjField, TObjFieldAst, TObjBase>
+public abstract class TestObjectFields<TObjField, TObjBase>
   : TestAliased<TObjField>
-  where TObjField : IGqlpObjField<TObjBase>, IGqlpDescribed
-  where TObjFieldAst : AstObjField<TObjBase>, TObjField
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjField : IGqlpObjField
+  where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
-    => CanMerge_Good([MakeField(input, input) with { Modifiers = TestMods() }, MakeField(input, input) with { Modifiers = TestMods() }]);
+    => CanMerge_Good([MakeFieldModifiers(input), MakeFieldModifiers(input)]);
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentModifers_ReturnsErrors(string input)
-    => CanMerge_Errors([MakeField(input, input) with { Modifiers = TestMods() }, MakeDescribed(input)]);
+    => CanMerge_Errors([MakeFieldModifiers(input), MakeDescribed(input)]);
 
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsSameModifers_ReturnsExpected(string input)
     => Merge_Expected(
-      [MakeField(input, input) with { Modifiers = TestMods() }, MakeField(input, input) with { Modifiers = TestMods() }],
-      MakeField(input, input) with { Modifiers = TestMods() });
+      [MakeFieldModifiers(input), MakeFieldModifiers(input)],
+      MakeFieldModifiers(input));
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameType_ReturnsGood(string name, string type)
@@ -71,10 +69,9 @@ public abstract class TestObjectFields<TObjField, TObjFieldAst, TObjBase>
       [MakeField(name, type, typeDescription: description), MakeField(name, type, typeDescription: description)],
       MakeField(name, type, typeDescription: description));
 
-  internal abstract AstObjectFieldsMerger<TObjField, TObjBase> MergerField { get; }
+  internal abstract AstObjectFieldsMerger<TObjField> MergerField { get; }
   internal override GroupsMerger<TObjField> MergerGroups => MergerField;
 
-  protected abstract TObjFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "");
-  protected override TObjField MakeAliased(string name, string[]? aliases = null, string description = "")
-    => MakeField(name, name, description, description) with { Aliases = aliases ?? [] };
+  protected abstract TObjField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "");
+  protected abstract TObjField MakeFieldModifiers(string name);
 }

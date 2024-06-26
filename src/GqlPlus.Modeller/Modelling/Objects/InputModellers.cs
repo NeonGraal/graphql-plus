@@ -10,10 +10,10 @@ internal class InputModeller(
     => new(ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
-      Parent = ParentModel(ast.Parent, typeKinds),
+      Parent = ParentModel(ast.ObjParent, typeKinds),
       TypeParameters = TypeParametersModels(ast.TypeParameters),
-      Fields = FieldsModels(ast.Fields, typeKinds),
-      Alternates = AlternatesModels(ast.Alternates, typeKinds),
+      Fields = FieldsModels(ast.ObjFields, typeKinds),
+      Alternates = AlternatesModels(ast.ObjAlternates, typeKinds),
     };
 }
 
@@ -28,7 +28,7 @@ internal class InputBaseModeller(
     }
     : new(ast.Input) {
       IsTypeParameter = ast.IsTypeParameter,
-      TypeArguments = ModelArguments(ast, typeKinds),
+      Arguments = ModelArguments(ast, typeKinds),
     };
 }
 

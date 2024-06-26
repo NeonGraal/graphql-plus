@@ -1,58 +1,80 @@
 ﻿namespace GqlPlus.Abstractions.Schema;
 
 public interface IGqlpObject
-  : IGqlpType
+  : IGqlpType<IGqlpObjBase>
 {
   IEnumerable<IGqlpTypeParameter> TypeParameters { get; }
+  IEnumerable<IGqlpObjField> Fields { get; }
+  IEnumerable<IGqlpObjAlternate> Alternates { get; }
 }
 
-public interface IGqlpObject<TField, TAlt, TBase>
-  : IGqlpType<TBase>, IGqlpObject
-  where TBase : IGqlpObjBase<TBase>
-  where TField : IGqlpObjField<TBase>
-  where TAlt : IGqlpObjAlternate<TBase>
+public interface IGqlpObject<TBase, TField, TAlt>
+  : IGqlpObject
+  where TBase : IGqlpObjBase
+  where TField : IGqlpObjField
+  where TAlt : IGqlpObjAlternate
 {
-  IEnumerable<TField> Fields { get; }
-  IEnumerable<TAlt> Alternates { get; }
+  TBase? ObjParent { get; }
+  IEnumerable<TField> ObjFields { get; }
+  IEnumerable<TAlt> ObjAlternates { get; }
 }
 
-public interface IGqlpObjBase<TBase>
+public interface IGqlpObjBase
   : IGqlpAbbreviated
   , IGqlpDescribed
-  , IEquatable<TBase>
+  , IEquatable<IGqlpObjBase>
 {
   string Label { get; }
   string TypeName { get; }
   string FullType { get; }
 
   bool IsTypeParameter { get; }
-  IEnumerable<TBase> TypeArguments { get; }
+  IEnumerable<IGqlpObjBase> Arguments { get; }
+}
+
+public interface IGqlpObjBase<TBase>
+  : IGqlpObjBase
+  where TBase : IGqlpObjBase
+{
+  IEnumerable<TBase> BaseArguments { get; }
+}
+
+public interface IGqlpObjField
+  : IGqlpAliased
+  , IGqlpModifiers
+{
+  IGqlpObjBase Type { get; }
+  string ModifiedType { get; }
 }
 
 public interface IGqlpObjField<TBase>
-  : IGqlpAliased
-  , IGqlpModifiers
-  where TBase : IGqlpObjBase<TBase>
+  : IGqlpObjField
+  where TBase : IGqlpObjBase
 {
-  TBase Type { get; }
-  string ModifiedType { get; }
+  TBase BaseType { get; }
+}
+
+public interface IGqlpObjAlternate
+  : IGqlpError
+  , IGqlpDescribed
+  , IGqlpModifiers
+{
+  IGqlpObjBase Type { get; }
+}
+
+public interface IGqlpObjAlternate<TBase>
+  : IGqlpObjAlternate
+  where TBase : IGqlpObjBase
+{
+  TBase BaseType { get; }
 }
 
 public interface IGqlpTypeParameter
   : IGqlpDescribed, IGqlpNamed
 { }
 
-public interface IGqlpObjAlternate<TBase>
-  : IGqlpError
-  , IGqlpDescribed
-  , IGqlpModifiers
-  where TBase : IGqlpObjBase<TBase>
-{
-  TBase Type { get; }
-}
-
 public interface IGqlpDualObject
-  : IGqlpObject<IGqlpDualField, IGqlpDualAlternate, IGqlpDualBase>
+  : IGqlpObject<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
 { }
 
 public interface IGqlpDualBase
@@ -75,7 +97,7 @@ public interface IGqlpToDual
 }
 
 public interface IGqlpInputObject
-  : IGqlpObject<IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase>
+  : IGqlpObject<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
 { }
 
 public interface IGqlpInputBase
@@ -96,7 +118,7 @@ public interface IGqlpInputAlternate
 { }
 
 public interface IGqlpOutputObject
-  : IGqlpObject<IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputBase>
+  : IGqlpObject<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
 { }
 
 public interface IGqlpOutputBase

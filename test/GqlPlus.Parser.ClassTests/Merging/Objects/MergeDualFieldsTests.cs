@@ -8,12 +8,20 @@ namespace GqlPlus.Merging.Objects;
 
 public class MergeDualFieldsTests(
   ITestOutputHelper outputHelper
-) : TestObjectFields<IGqlpDualField, DualFieldAst, IGqlpDualBase>
+) : TestObjectFields<IGqlpDualField, IGqlpDualBase>
 {
   private readonly MergeDualFields _merger = new(outputHelper.ToLoggerFactory());
 
-  internal override AstObjectFieldsMerger<IGqlpDualField, IGqlpDualBase> MergerField => _merger;
+  internal override AstObjectFieldsMerger<IGqlpDualField> MergerField => _merger;
 
-  protected override DualFieldAst MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
-    => new(AstNulls.At, name, fieldDescription, new DualBaseAst(AstNulls.At, type, typeDescription));
+  protected override IGqlpDualField MakeAliased(string name, string[] aliases, string description = "")
+    => new DualFieldAst(AstNulls.At, name, description, new DualBaseAst(AstNulls.At, name, description)) {
+      Aliases = aliases
+    };
+  protected override IGqlpDualField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
+    => new DualFieldAst(AstNulls.At, name, fieldDescription, new DualBaseAst(AstNulls.At, type, typeDescription));
+  protected override IGqlpDualField MakeFieldModifiers(string name)
+    => new DualFieldAst(AstNulls.At, name, new DualBaseAst(AstNulls.At, name)) {
+      Modifiers = TestMods()
+    };
 }

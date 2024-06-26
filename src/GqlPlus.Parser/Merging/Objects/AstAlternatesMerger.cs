@@ -4,11 +4,10 @@ using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging.Objects;
 
-internal class AstAlternatesMerger<TAlternate, TObjBase>(
+internal class AstAlternatesMerger<TAlternate>(
   ILoggerFactory logger
 ) : AstDescribedMerger<TAlternate>(logger)
-  where TAlternate : IGqlpObjAlternate<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TAlternate : IGqlpObjAlternate
 {
   protected override TAlternate MergeGroup(IEnumerable<TAlternate> group)
   {

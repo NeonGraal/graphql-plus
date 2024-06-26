@@ -2,10 +2,9 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjectFieldTests<TObjFieldAst, TObjBase>
+public abstract class AstObjectFieldTests<TObjBase>
   : AstAliasedTests<FieldInput>
-  where TObjFieldAst : AstObjField<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithModifiers(FieldInput input)
@@ -37,14 +36,14 @@ public abstract class AstObjectFieldTests<TObjFieldAst, TObjBase>
 
   internal sealed override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 
-  internal abstract IAstObjectFieldChecks<TObjFieldAst, TObjBase> FieldChecks { get; }
+  internal abstract IAstObjectFieldChecks<TObjBase> FieldChecks { get; }
 }
 
 internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
   : AstAliasedChecks<FieldInput, TObjField>
-  , IAstObjectFieldChecks<TObjField, TObjBase>
+  , IAstObjectFieldChecks<TObjBase>
   where TObjField : AstObjField<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
 {
   private readonly FieldBy _createField;
@@ -79,7 +78,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
 
   public void ModifiedType_WithArguments(FieldInput input, string[] arguments)
   {
-    TObjField field = _createField(input, _createBase(input) with { TypeArguments = _createArguments(arguments) });
+    TObjField field = _createField(input, _createBase(input) with { BaseArguments = _createArguments(arguments) });
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     field.ModifiedType.Should().Be(expected);
@@ -97,7 +96,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
   {
     TObjField field = _createField(
         input,
-        _createBase(input) with { TypeArguments = _createArguments(arguments) }
+        _createBase(input) with { BaseArguments = _createArguments(arguments) }
       ) with { Modifiers = TestMods() };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";
 
@@ -108,10 +107,9 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
     => CreateInput(input) with { Modifiers = TestMods() };
 }
 
-internal interface IAstObjectFieldChecks<TObjField, TObjBase>
+internal interface IAstObjectFieldChecks<TObjBase>
   : IAstAliasedChecks<FieldInput>
-  where TObjField : AstObjField<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   void HashCode_WithModifiers(FieldInput input);
   void String_WithModifiers(FieldInput input);

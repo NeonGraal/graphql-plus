@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public sealed record class TypeParameterAst(
+internal sealed record class TypeParameterAst(
   TokenAt At,
   string Name,
   string Description

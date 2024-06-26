@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Globals;
+
 using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Globals;

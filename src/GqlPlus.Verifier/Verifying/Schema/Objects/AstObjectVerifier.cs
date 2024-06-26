@@ -4,35 +4,35 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Verification.Schema;
 
-internal abstract class AstObjectVerifier<TObject, TObjField, TObjAlt, TObjBase, TContext>(
+internal abstract class AstObjectVerifier<TObject, TObjBase, TObjField, TObjAlt, TContext>(
   IVerifyAliased<TObject> aliased,
   IMerge<TObjField> mergeFields,
   IMerge<TObjAlt> mergeAlternates,
   ILoggerFactory logger
-) : AstParentItemVerifier<TObject, TObjBase, TContext, TObjField>(aliased, mergeFields)
-  where TObject : IGqlpObject<TObjField, TObjAlt, TObjBase>
+) : AstParentItemVerifier<TObject, IGqlpObjBase, TContext, TObjField>(aliased, mergeFields)
+  where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjField : IGqlpObjField<TObjBase>
   where TObjAlt : IGqlpObjAlternate<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>, IEquatable<TObjBase>
+  where TObjBase : IGqlpObjBase<TObjBase>
   where TContext : UsageContext
 {
-  private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, TObjBase, TContext, IGqlpTypeParameter>));
+  private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParameter>));
 
   protected override void UsageValue(TObject usage, TContext context)
   {
     base.UsageValue(usage, context);
 
-    if (usage.Parent is not null) {
-      context.CheckType(usage.Parent, " Parent", false);
+    if (usage.ObjParent is not null) {
+      context.CheckType(usage.ObjParent, " Parent", false);
     }
 
-    foreach (TObjField field in usage.Fields) {
+    foreach (TObjField field in usage.ObjFields) {
       UsageField(field, context);
     }
 
     ParentUsage<TObject> input = new([], usage, "an alternative");
     _logger.CheckingAlternates(input);
-    foreach (IGqlpObjAlternate<TObjBase> alternate in usage.Alternates) {
+    foreach (TObjAlt alternate in usage.ObjAlternates) {
       UsageAlternate(alternate, context);
       if (!alternate.Modifiers.Any()) {
         CheckAlternate(new([alternate.Type.FullType], usage, "an alternate"), usage.Name, context, true);
@@ -46,17 +46,17 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjAlt, TObjBase,
     }
   }
 
-  protected virtual void UsageAlternate(IGqlpObjAlternate<TObjBase> alternate, TContext context)
+  protected virtual void UsageAlternate(TObjAlt alternate, TContext context)
     => context
-      .CheckType(alternate.Type, " Alternate")
+      .CheckType(alternate.BaseType, " Alternate")
       .CheckModifiers(alternate);
 
   protected virtual void UsageField(TObjField field, TContext context)
     => context
-      .CheckType(field.Type, " Field")
+      .CheckType(field.BaseType, " Field")
       .CheckModifiers(field);
 
-  protected override string GetParent(IGqlpType<TObjBase> usage)
+  protected override string GetParent(IGqlpType<IGqlpObjBase> usage)
     => usage.Parent?.TypeName ?? "";
 
   protected override void CheckParentType(
@@ -82,7 +82,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjAlt, TObjBase,
       || astType.Label == "Dual";
 
   protected override IEnumerable<TObjField> GetItems(TObject usage)
-    => usage.Fields;
+    => usage.ObjFields;
 
   protected override void OnParentType(ParentUsage<TObject> input, TContext context, TObject parentType, bool top)
   {
@@ -92,7 +92,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjAlt, TObjBase,
 
     _logger.CheckingAlternates(input, top, parentType.Name);
     input = input with { Label = "an alternate" };
-    foreach (IGqlpObjAlternate<TObjBase> alternate in parentType.Alternates) {
+    foreach (TObjAlt alternate in parentType.ObjAlternates) {
       if (!alternate.Modifiers.Any()) {
         CheckAlternate(input.AddParent(alternate.Type.TypeName), parentType.Name, context, false);
       }
@@ -107,9 +107,9 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjAlt, TObjBase,
       CheckParent(input, alternateType, context, false);
 
       _logger.CheckingAlternates(input, top, alternateType.Name, current);
-      foreach (IGqlpObjAlternate<TObjBase> alternate in alternateType.Alternates) {
+      foreach (TObjAlt alternate in alternateType.ObjAlternates) {
         if (!alternate.Modifiers.Any()) {
-          CheckAlternate(input.AddParent(alternate.Type.TypeName), alternateType.Name, context, false);
+          CheckAlternate(input.AddParent(alternate.BaseType.TypeName), alternateType.Name, context, false);
         }
       }
     }
@@ -119,7 +119,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField, TObjAlt, TObjBase,
   {
     base.CheckMergeParent(input, context);
 
-    TObjAlt[] alternates = GetParentItems(input, input.Usage, context, ast => ast.Alternates).ToArray();
+    TObjAlt[] alternates = GetParentItems(input, input.Usage, context, ast => ast.ObjAlternates).ToArray();
     if (alternates.Length > 0) {
       ITokenMessages failures = mergeAlternates.CanMerge(alternates);
       if (failures.Any()) {

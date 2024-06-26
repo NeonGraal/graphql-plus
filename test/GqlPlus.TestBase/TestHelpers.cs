@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
+
+using GqlPlus.Abstractions;
 using GqlPlus.Token;
+
 using Xunit;
 
 namespace GqlPlus;
@@ -13,23 +16,23 @@ public static class TestHelpers
   public const string IdentifierPattern = @"[A-Za-z][A-Za-z0-9_]*";
   public const string PunctuationPattern = @"[!$-&(-*.:<-@[-^`{-~]";
 
-  public static FieldKeyAst FieldKey(this string value)
-    => new(AstNulls.At, "", value);
+  public static IGqlpFieldKey FieldKey(this string value)
+    => new FieldKeyAst(AstNulls.At, "", value);
 
-  public static ConstantAst[] ConstantList(this string value)
-    => new ConstantAst[] {
-      value.FieldKey(),
-      value.FieldKey()
-    };
+  public static IGqlpConstant[] ConstantList(this string value)
+    => [
+      new ConstantAst(value.FieldKey()),
+      new ConstantAst(value.FieldKey())
+    ];
 
-  public static AstFields<ConstantAst> ConstantObject(this string value, string key)
+  public static IGqlpFields<IGqlpConstant> ConstantObject(this string value, string key)
   {
-    FieldKeyAst keyAst = key.FieldKey();
-    FieldKeyAst valueAst = value.FieldKey();
+    IGqlpFieldKey keyAst = key.FieldKey();
+    IGqlpFieldKey valueAst = value.FieldKey();
 
     return key == value
-      ? new() { [keyAst] = valueAst }
-      : new() { [keyAst] = valueAst, [valueAst] = keyAst };
+      ? new AstFields<IGqlpConstant>() { [keyAst] = new ConstantAst(valueAst) }
+      : new AstFields<IGqlpConstant>() { [keyAst] = new ConstantAst(valueAst), [valueAst] = new ConstantAst(keyAst) };
   }
 
   public static TokenMessage ParseMessage(this string message)
@@ -72,11 +75,11 @@ public static class TestHelpers
     return tokens;
   }
 
-  public static ModifierAst[] TestMods()
-    => new[] { ModifierAst.List(AstNulls.At), ModifierAst.Optional(AstNulls.At) };
+  public static IGqlpModifier[] TestMods()
+    => [ModifierAst.List(AstNulls.At), ModifierAst.Optional(AstNulls.At)];
 
-  public static ModifierAst[] TestCollections()
-    => new[] { ModifierAst.List(AstNulls.At), ModifierAst.Dict(AstNulls.At, "String", false) };
+  public static IGqlpModifier[] TestCollections()
+    => [ModifierAst.List(AstNulls.At), ModifierAst.Dict(AstNulls.At, "String", false)];
 
   public static TCheck SkipIf<TCheck>(this TCheck check, bool skipIf, [CallerArgumentExpression(nameof(skipIf))] string? skipExpression = null)
   {

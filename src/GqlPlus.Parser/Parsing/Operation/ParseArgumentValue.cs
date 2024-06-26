@@ -10,7 +10,7 @@ internal class ParseArgumentValue(
   Parser<IGqlpFieldKey>.D fieldKey,
   Parser<KeyValue<IGqlpArgument>>.D keyValueParser,
   Parser<IGqlpArgument>.DA listParser,
-  Parser<AstFields<IGqlpArgument>>.D objectParser,
+  Parser<IGqlpFields<IGqlpArgument>>.D objectParser,
   Parser<IGqlpConstant>.D constant
 ) : ValueParser<IGqlpArgument>(fieldKey, keyValueParser, listParser, objectParser)
 {
@@ -43,9 +43,9 @@ internal class ParseArgumentValue(
         return list.Select(value => new ArgumentAst(at, value.ArrayOf<ArgumentAst>()) as IGqlpArgument);
       }
 
-      IResult<AstFields<IGqlpArgument>> fields = ObjectParser.Parse(tokens, label);
+      IResult<IGqlpFields<IGqlpArgument>> fields = ObjectParser.Parse(tokens, label);
       if (!fields.IsEmpty()) {
-        return fields.Select(value => new ArgumentAst(at, value.Cast<ArgumentAst>()) as IGqlpArgument);
+        return fields.Select(value => new ArgumentAst(at, value) as IGqlpArgument);
       }
     } finally {
       tokens.IgnoreSeparators = oldSeparators;

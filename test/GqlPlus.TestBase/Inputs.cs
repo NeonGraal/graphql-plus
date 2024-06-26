@@ -33,7 +33,7 @@ public record struct DomainRangeInput(decimal? Min, decimal? Max)
     return result;
   }
 
-  public DomainRangeAst[] DomainRange()
+  internal DomainRangeAst[] DomainRange()
     => [new(AstNulls.At, false, Lower, Upper)];
 }
 

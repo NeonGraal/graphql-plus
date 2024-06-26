@@ -5,11 +5,11 @@ internal abstract class ModellerObject<TAst, TObjBaseAst, TObjFieldAst, TObjAltA
   IModeller<TObjAltAst, TObjAlt> alternate,
   IModeller<TObjFieldAst, TObjField> objField,
   IModeller<TObjBaseAst, TObjBase> objBase
-) : ModellerType<TAst, TObjBaseAst, TModel>(kind)
-  where TAst : IGqlpType<TObjBaseAst>
-  where TObjBaseAst : IGqlpObjBase<TObjBaseAst>, IEquatable<TObjBaseAst>
-  where TObjFieldAst : IGqlpObjField<TObjBaseAst>
-  where TObjAltAst : IGqlpObjAlternate<TObjBaseAst>
+) : ModellerType<TAst, IGqlpObjBase, TModel>(kind)
+  where TAst : IGqlpType<IGqlpObjBase>
+  where TObjBaseAst : IGqlpObjBase
+  where TObjFieldAst : IGqlpObjField
+  where TObjAltAst : IGqlpObjAlternate
   where TModel : BaseTypeModel
   where TObjBase : IObjBaseModel
   where TObjField : IObjFieldModel

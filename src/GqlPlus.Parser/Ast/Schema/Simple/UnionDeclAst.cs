@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public sealed record class UnionDeclAst(
+internal sealed record class UnionDeclAst(
   TokenAt At,
   string Name,
   string Description,

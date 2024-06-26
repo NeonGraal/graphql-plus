@@ -7,21 +7,31 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Objects;
 
 public class MergeOutputObjectsTests
-  : TestObjects<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase>
+  : TestObjects<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputBase>
 {
   private readonly MergeOutputObjects _merger;
 
   public MergeOutputObjectsTests(ITestOutputHelper outputHelper)
     => _merger = new(outputHelper.ToLoggerFactory(), Fields, TypeParameters, Alternates);
 
-  internal override AstObjectsMerger<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputBase> MergerObject => _merger;
+  internal override AstObjectsMerger<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate> MergerObject => _merger;
 
-  protected override OutputDeclAst MakeObject(string name, string[]? aliases = null, string description = "", IGqlpOutputBase? parent = default)
-    => new(AstNulls.At, name, description) { Aliases = aliases ?? [], Parent = parent, };
-  protected override OutputFieldAst[] MakeFields(FieldInput[] fields)
-    => fields.OutputFields();
-  protected override OutputAlternateAst[] MakeAlternates(AlternateInput[] alternates)
-    => alternates.OutputAlternates();
-  protected override OutputBaseAst MakeBase(string type)
-    => new(AstNulls.At, type);
+  protected override IGqlpOutputObject MakeObject(
+    string name,
+    string[]? aliases = null,
+    string description = "",
+    IGqlpObjBase? parent = default,
+    string[]? typeParameters = null,
+    FieldInput[]? fields = null,
+    AlternateInput[]? alternates = null)
+    => new OutputDeclAst(AstNulls.At, name, description) {
+      Aliases = aliases ?? [],
+      Parent = parent,
+      TypeParameters = typeParameters?.TypeParameters() ?? [],
+      ObjFields = fields?.OutputFields() ?? [],
+      ObjAlternates = alternates?.OutputAlternates() ?? [],
+    };
+
+  protected override IGqlpOutputBase MakeBase(string type)
+    => new OutputBaseAst(AstNulls.At, type);
 }

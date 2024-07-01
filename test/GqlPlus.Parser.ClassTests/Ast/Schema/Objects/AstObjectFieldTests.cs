@@ -39,12 +39,14 @@ public abstract class AstObjectFieldTests<TObjBase>
   internal abstract IAstObjectFieldChecks<TObjBase> FieldChecks { get; }
 }
 
-internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
+internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
   : AstAliasedChecks<FieldInput, TObjField>
   , IAstObjectFieldChecks<TObjBase>
   where TObjField : AstObjField<TObjBase>
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
+  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
+  where TObjArg : IGqlpObjArgument
+  where TObjArgAst : AstObjArgument, TObjArg
 {
   private readonly FieldBy _createField;
   private readonly BaseBy _createBase;
@@ -52,9 +54,9 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>
 
   internal delegate TObjBaseAst BaseBy(FieldInput input);
   internal delegate TObjField FieldBy(FieldInput input, TObjBase refBase);
-  internal delegate TObjBaseAst[] ArgumentsBy(string[] arguments);
+  internal delegate TObjArgAst[] ArgumentsBy(string[] arguments);
 
-  public AstObjectFieldChecks(FieldBy createField, BaseBy createBase, AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst>.ArgumentsBy createArguments)
+  public AstObjectFieldChecks(FieldBy createField, BaseBy createBase, ArgumentsBy createArguments)
     : base(input => createField(input, createBase(input)))
   {
     _createField = createField;

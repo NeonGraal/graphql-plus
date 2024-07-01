@@ -6,9 +6,9 @@ namespace GqlPlus.Modelling.Objects;
 public class DualBaseModelTests(
   IModeller<IGqlpDualBase, DualBaseModel> modeller,
   IRenderer<DualBaseModel> rendering
-) : TestObjBaseModel<IGqlpDualBase>
+) : TestObjBaseModel<IGqlpDualBase, IGqlpDualArgument>
 {
-  internal override ICheckObjBaseModel<IGqlpDualBase> ObjBaseChecks => _checks;
+  internal override ICheckObjBaseModel<IGqlpDualBase, IGqlpDualArgument> ObjBaseChecks => _checks;
 
   private readonly DualBaseModelChecks _checks = new(modeller, rendering);
 }
@@ -16,9 +16,14 @@ public class DualBaseModelTests(
 internal sealed class DualBaseModelChecks(
   IModeller<IGqlpDualBase, DualBaseModel> modeller,
   IRenderer<DualBaseModel> rendering
-) : CheckObjBaseModel<IGqlpDualBase, DualBaseAst, DualBaseModel>(modeller, rendering, TypeKindModel.Dual)
+) : CheckObjBaseModel<IGqlpDualBase, IGqlpDualArgument, DualBaseAst, DualArgumentAst, DualBaseModel>(modeller, rendering, TypeKindModel.Dual)
 {
-  protected override DualBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpDualBase[] args)
+  protected override DualArgumentAst NewObjArgAst(string input, bool isTypeParam)
+    => new(AstNulls.At, input) {
+      IsTypeParameter = isTypeParam,
+    };
+
+  protected override DualBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpDualArgument[] args)
     => new(AstNulls.At, input) {
       IsTypeParameter = isTypeParam,
       BaseArguments = args,

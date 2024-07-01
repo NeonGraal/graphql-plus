@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Objects;
 
 public class MergeInputObjectsTests
-  : TestObjects<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase>
+  : TestObjects<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
 {
   private readonly MergeInputObjects _merger;
 

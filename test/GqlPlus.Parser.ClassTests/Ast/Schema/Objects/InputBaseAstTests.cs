@@ -8,8 +8,8 @@ public class InputBaseAstTests
   protected override string AbbreviatedString(string input)
     => $"( {input} )";
 
-  private readonly AstObjBaseChecks<IGqlpInputBase, InputBaseAst> _checks
-    = new(name => new InputBaseAst(AstNulls.At, name), arguments => arguments.InputBases());
+  private readonly AstObjBaseChecks<IGqlpInputBase, InputBaseAst, IGqlpInputArgument, InputArgumentAst> _checks
+    = new(name => new InputBaseAst(AstNulls.At, name), arguments => arguments.InputArguments());
 
   internal override IAstObjBaseChecks<IGqlpInputBase> ObjBaseChecks => _checks;
 }

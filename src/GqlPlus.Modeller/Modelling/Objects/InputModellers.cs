@@ -18,8 +18,9 @@ internal class InputModeller(
 }
 
 internal class InputBaseModeller(
+  IModeller<IGqlpInputArgument, InputBaseModel> objArgument,
   IModeller<IGqlpDualBase, DualBaseModel> dual
-) : ModellerObjBase<IGqlpInputBase, InputBaseModel>
+) : ModellerObjBase<IGqlpInputBase, IGqlpInputArgument, InputBaseModel, InputBaseModel>(objArgument)
 {
   protected override InputBaseModel ToModel(IGqlpInputBase ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Input, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual

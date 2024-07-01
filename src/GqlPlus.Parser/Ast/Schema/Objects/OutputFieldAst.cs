@@ -21,6 +21,9 @@ internal sealed record class OutputFieldAst(
 
   IEnumerable<IGqlpInputParameter> IGqlpOutputField.Parameters => Parameters;
 
+  public string? EnumMember { get; set; }
+  string IGqlpOutputEnum.TypeName => BaseType.TypeName;
+
   public bool Equals(OutputFieldAst? other)
     => base.Equals(other)
     && Parameters.SequenceEqual(other.Parameters);
@@ -30,6 +33,12 @@ internal sealed record class OutputFieldAst(
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Concat(Parameters.Bracket("(", ")"))
-      .Concat(BaseType.GetFields().Prepend(string.IsNullOrWhiteSpace(BaseType.EnumMember) ? ":" : "="))
+      .Concat(BaseType.GetFields())
       .Concat(Modifiers.AsString());
+
+  public void SetEnumType(string enumType)
+  {
+    EnumMember ??= BaseType.Output;
+    BaseType = (OutputBaseAst)BaseType with { Name = enumType };
+  }
 }

@@ -5,11 +5,16 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst>
-  : Parser<TObjBase>.I
+internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>(
+  Parser<TObjArg>.DA parseArgs
+) : Parser<TObjBase>.I
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
+  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
+  where TObjArg : IGqlpObjArgument
+  where TObjArgAst : AstObjArgument, TObjArg
 {
+  private readonly Parser<TObjArg>.LA _parseArgs = parseArgs;
+
   public IResult<TObjBase> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
     => ParseObjectBase(tokens, label, false).AsResult<TObjBase>();
@@ -42,20 +47,9 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst>
 
     if (hasName) {
       TObjBaseAst objBase = ObjBase(at, name, description);
-      if (tokens.Take('<')) {
-        List<TObjBaseAst> arguments = [];
-        IResult<TObjBaseAst> argument = ParseObjectBase(tokens, label, isTypeArgument: true);
-        while (argument.Required(arguments.Add)) {
-          argument = ParseObjectBase(tokens, label, isTypeArgument: true);
-        }
-
-        objBase.BaseArguments = [.. arguments];
-
-        if (!tokens.Take('>')) {
-          return tokens.Error(label, "'>' after type argument(s)", objBase);
-        } else if (arguments.Count < 1) {
-          return tokens.Error(label, "at least one type argument after '<'", objBase);
-        }
+      IResultArray<TObjArg> arguments = _parseArgs.Parse(tokens, label);
+      if (!arguments.Optional(values => objBase.BaseArguments = [.. values])) {
+        return arguments.AsResult(objBase);
       } else if (isTypeArgument) {
         return TypeEnumValue(tokens, objBase);
       }

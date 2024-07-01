@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Merging.Objects;
 
-public abstract class TestObjects<TObject, TObjField, TObjAlt, TObjBase>
+public abstract class TestObjects<TObject, TObjBase, TObjField, TObjAlt>
   : TestTyped<IGqlpType, TObject, IGqlpObjBase, TObjField>
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjField : IGqlpObjField

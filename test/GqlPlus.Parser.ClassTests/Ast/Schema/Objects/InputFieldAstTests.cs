@@ -30,10 +30,10 @@ public class InputFieldAstTests
   protected override string AliasesString(FieldInput input, string aliases)
     => $"( !IF {input.Name}{aliases} : {input.Type} )";
 
-  private readonly AstObjectFieldChecks<InputFieldAst, IGqlpInputBase, InputBaseAst> _checks = new(
+  private readonly AstObjectFieldChecks<InputFieldAst, IGqlpInputBase, InputBaseAst, IGqlpInputArgument, InputArgumentAst> _checks = new(
       (input, objBase) => new(AstNulls.At, input.Name, objBase),
       input => new(AstNulls.At, input.Type),
-      arguments => arguments.InputBases());
+      arguments => arguments.InputArguments());
 
   internal override IAstObjectFieldChecks<IGqlpInputBase> FieldChecks => _checks;
 }

@@ -18,13 +18,14 @@ internal class OutputModeller(
 }
 
 internal class OutputBaseModeller(
+  IModeller<IGqlpOutputArgument, OutputArgumentModel> objArgument,
   IModeller<IGqlpDualBase, DualBaseModel> dual
-) : ModellerObjBase<IGqlpOutputBase, OutputBaseModel, OutputArgumentModel>
+) : ModellerObjBase<IGqlpOutputBase, IGqlpOutputArgument, OutputBaseModel, OutputArgumentModel>(objArgument)
 {
-  internal override OutputArgumentModel NewArgument(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
-    => string.IsNullOrWhiteSpace(ast.EnumMember)
-      ? new(ast.Output) { Ref = ToModel(ast, typeKinds) }
-      : new(ast.Output) { EnumMember = ast.EnumMember };
+  //internal override OutputArgumentModel NewArgument(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
+  //  => string.IsNullOrWhiteSpace(ast.EnumMember)
+  //    ? new(ast.Output) { Ref = ToModel(ast, typeKinds) }
+  //    : new(ast.Output) { EnumMember = ast.EnumMember };
 
   protected override OutputBaseModel ToModel(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Output, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
@@ -44,12 +45,12 @@ internal class OutputFieldModeller(
 ) : ModellerObjField<IGqlpOutputBase, IGqlpOutputField, OutputBaseModel, OutputFieldModel>(modifier, refBase)
 {
   protected override OutputFieldModel FieldModel(IGqlpOutputField field, OutputBaseModel type, IMap<TypeKindModel> typeKinds)
-    => string.IsNullOrWhiteSpace(field.BaseType.EnumMember)
+    => string.IsNullOrWhiteSpace(field.EnumMember)
       ? new(field.Name, new(type, field.Type.Description)) {
         Parameters = parameter.ToModels(field.Parameters, typeKinds),
       }
       : new(field.Name, null) { // or should it be `type`
-        Enum = new(field.Name, field.BaseType.Output, field.BaseType.EnumMember)
+        Enum = new(field.Name, field.TypeName, field.EnumMember)
       };
 }
 

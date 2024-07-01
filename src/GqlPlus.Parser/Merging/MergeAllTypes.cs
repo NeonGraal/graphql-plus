@@ -65,14 +65,17 @@ internal class MergeAllTypes(
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());
 
-  private static void FixupType(IGqlpOutputBase type, Map<string> enumValues)
+  private static void FixupType(IGqlpOutputArgument type, Map<string> enumValues)
   {
     if (string.IsNullOrWhiteSpace(type.Output)
       && enumValues.TryGetValue(type.EnumMember ?? "", out string? enumType)) {
-      ((OutputBaseAst)type).Name = enumType;
+      ((OutputArgumentAst)type).Name = enumType;
     }
+  }
 
-    foreach (IGqlpOutputBase argument in type.BaseArguments) {
+  private static void FixupType(IGqlpOutputBase type, Map<string> enumValues)
+  {
+    foreach (IGqlpOutputArgument argument in type.BaseArguments) {
       FixupType(argument, enumValues);
     }
   }

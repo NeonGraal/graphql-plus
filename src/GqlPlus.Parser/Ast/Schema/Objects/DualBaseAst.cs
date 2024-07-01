@@ -7,13 +7,13 @@ internal sealed record class DualBaseAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObjBase<IGqlpDualBase>(At, Name, Description)
+) : AstObjBase<IGqlpDualArgument>(At, Name, Description)
   , IGqlpDualBase
 {
   public DualBaseAst(TokenAt at, string name)
     : this(at, name, "") { }
 
-  internal override string Abbr => "DR";
+  internal override string Abbr => "DB";
   public override string Label => "Dual";
 
   string IGqlpDualBase.Dual => Name;

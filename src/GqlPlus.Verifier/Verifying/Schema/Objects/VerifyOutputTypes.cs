@@ -9,22 +9,22 @@ internal class VerifyOutputTypes(
   IMerge<IGqlpOutputField> mergeFields,
   IMerge<IGqlpOutputAlternate> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, OutputContext>(aliased, mergeFields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputArgument, IGqlpOutputField, IGqlpOutputAlternate, OutputContext>(aliased, mergeFields, mergeAlternates, logger)
 {
   protected override void UsageValue(IGqlpOutputObject usage, OutputContext context)
   {
     IEnumerable<IGqlpOutputField> enumFields = usage.ObjFields
-      .Where(f => !string.IsNullOrWhiteSpace(f.BaseType.EnumMember));
+      .Where(f => !string.IsNullOrWhiteSpace(f.EnumMember));
 
     foreach (IGqlpOutputField? enumField in enumFields) {
       if (string.IsNullOrWhiteSpace(enumField?.Type.TypeName)) {
-        if (context.GetEnumValue(enumField!.BaseType.EnumMember!, out string? enumType)) {
-          enumField.BaseType.SetEnumType(enumType);
+        if (context.GetEnumValue(enumField!.EnumMember!, out string? enumType)) {
+          enumField.SetEnumType(enumType);
         } else {
-          context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.BaseType.EnumMember}' not defined");
+          context.AddError(enumField, "Output Field Enum", $"Enum Value '{enumField.EnumMember}' not defined");
         }
       } else {
-        context.CheckEnumValue("Field", enumField.BaseType);
+        context.CheckEnumValue("Field", enumField);
       }
     }
 
@@ -34,7 +34,9 @@ internal class VerifyOutputTypes(
   protected override void UsageField(IGqlpOutputField field, OutputContext context)
   {
     foreach (IGqlpInputParameter parameter in field.Parameters) {
-      context.CheckType(parameter.Type, " Parameter");
+      context
+        .CheckType(parameter.Type, " Parameter")
+        .CheckArguments(parameter.Type.Arguments, " Parameter");
 
       context.CheckModifiers(parameter);
     }

@@ -17,8 +17,9 @@ internal class DualModeller(
     };
 }
 
-internal class DualBaseModeller
-  : ModellerObjBase<IGqlpDualBase, DualBaseModel>
+internal class DualBaseModeller(
+  IModeller<IGqlpDualArgument, DualBaseModel> objArgument
+) : ModellerObjBase<IGqlpDualBase, IGqlpDualArgument, DualBaseModel, DualBaseModel>(objArgument)
 {
   protected override DualBaseModel ToModel(IGqlpDualBase ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Dual) {

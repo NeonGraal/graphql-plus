@@ -8,7 +8,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenParamRef
         typeArguments:
-        - !_OutputBase
+        - !_OutputArgument
           output: OutpGenParamAlt
     fields:
     - !_OutputField
@@ -16,7 +16,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenParamRef
         typeArguments:
-        - !_OutputBase
+        - !_OutputArgument
           output: OutpGenParamAlt
     name: OutpGenParam
     typeKind: !_TypeKind Output

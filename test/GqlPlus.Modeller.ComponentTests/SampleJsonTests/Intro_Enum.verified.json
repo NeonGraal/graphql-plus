@@ -101,11 +101,11 @@
             "typeKind": "Enum"
           },
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_Aliased"
           },
           {
-            "$tag": "_DualBase",
+            "$tag": "_DualArgument",
             "value": "_EnumMember"
           }
         ]

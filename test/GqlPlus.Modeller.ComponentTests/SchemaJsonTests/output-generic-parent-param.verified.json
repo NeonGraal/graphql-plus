@@ -17,7 +17,7 @@
         "output": "OutpGenParentParamRef",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "OutpGenParentParamAlt"
           }
         ]

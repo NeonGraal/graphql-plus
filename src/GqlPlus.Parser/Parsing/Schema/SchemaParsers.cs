@@ -57,6 +57,7 @@ public static class SchemaParsers
       .AddDeclarationParser<IGqlpDualObject, ParseDual>("dual")
       .AddObjectParser<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>()
       // Input
+      .AddParserArray<IGqlpInputArgument, ParseInputArguments>()
       .AddParser<IGqlpInputBase, ParseInputBase>()
       .AddParser<IGqlpInputField, ParseInputField>()
       .AddParserArray<IGqlpInputAlternate, ParseInputAlternates>()
@@ -64,6 +65,7 @@ public static class SchemaParsers
       .AddObjectParser<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>()
       .AddParserArray<IGqlpInputParameter, ParseInputParameters>()
       // Output
+      .AddParserArray<IGqlpOutputArgument, ParseOutputArguments>()
       .AddParser<IGqlpOutputBase, ParseOutputBase>()
       .AddParser<IGqlpOutputField, ParseOutputField>()
       .AddParserArray<IGqlpOutputAlternate, ParseOutputAlternates>()

@@ -1628,7 +1628,7 @@
             "dual": "DualGenAltDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenAltDualAlt"
               }
             ]
@@ -1643,7 +1643,7 @@
             "dual": "DualGenAltDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenAltDualAlt"
               }
             ]
@@ -1733,7 +1733,7 @@
             "dual": "DualGenAltParamRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenAltParamAlt"
               }
             ]
@@ -1748,7 +1748,7 @@
             "dual": "DualGenAltParamRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenAltParamAlt"
               }
             ]
@@ -1863,7 +1863,7 @@
             "dual": "DualGenDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenDualAlt"
               }
             ]
@@ -1879,7 +1879,7 @@
             "dual": "DualGenDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenDualAlt"
               }
             ]
@@ -2030,7 +2030,7 @@
             "dual": "DualGenFieldDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenFieldDualAlt"
               }
             ]
@@ -2046,7 +2046,7 @@
             "dual": "DualGenFieldDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenFieldDualAlt"
               }
             ]
@@ -2137,7 +2137,7 @@
             "dual": "DualGenFieldParamRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenFieldParamAlt"
               }
             ]
@@ -2153,7 +2153,7 @@
             "dual": "DualGenFieldParamRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenFieldParamAlt"
               }
             ]
@@ -2268,7 +2268,7 @@
             "dual": "DualGenParamRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenParamAlt"
               }
             ]
@@ -2284,7 +2284,7 @@
             "dual": "DualGenParamRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenParamAlt"
               }
             ]
@@ -2378,7 +2378,7 @@
         "dual": "DualGenParentDualRef",
         "typeArguments": [
           {
-            "$tag": "_DualBase",
+            "$tag": "_DualArgument",
             "value": "DualGenParentDualAlt"
           }
         ]
@@ -2469,7 +2469,7 @@
         "dual": "DualGenParentParamRef",
         "typeArguments": [
           {
-            "$tag": "_DualBase",
+            "$tag": "_DualArgument",
             "value": "DualGenParentParamAlt"
           }
         ]
@@ -4881,7 +4881,7 @@
             "input": "InpGenAltDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "InpGenAltDualAlt"
               }
             ]
@@ -4896,7 +4896,7 @@
             "input": "InpGenAltDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "InpGenAltDualAlt"
               }
             ]
@@ -4986,7 +4986,7 @@
             "input": "InpGenAltParamRef",
             "typeArguments": [
               {
-                "$tag": "_InputBase",
+                "$tag": "_InputArgument",
                 "value": "InpGenAltParamAlt"
               }
             ]
@@ -5001,7 +5001,7 @@
             "input": "InpGenAltParamRef",
             "typeArguments": [
               {
-                "$tag": "_InputBase",
+                "$tag": "_InputArgument",
                 "value": "InpGenAltParamAlt"
               }
             ]
@@ -5116,7 +5116,7 @@
             "input": "InpGenDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "InpGenDualAlt"
               }
             ]
@@ -5132,7 +5132,7 @@
             "input": "InpGenDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "InpGenDualAlt"
               }
             ]
@@ -5283,7 +5283,7 @@
             "input": "InpGenFieldDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "InpGenFieldDualAlt"
               }
             ]
@@ -5299,7 +5299,7 @@
             "input": "InpGenFieldDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "InpGenFieldDualAlt"
               }
             ]
@@ -5390,7 +5390,7 @@
             "input": "InpGenFieldParamRef",
             "typeArguments": [
               {
-                "$tag": "_InputBase",
+                "$tag": "_InputArgument",
                 "value": "InpGenFieldParamAlt"
               }
             ]
@@ -5406,7 +5406,7 @@
             "input": "InpGenFieldParamRef",
             "typeArguments": [
               {
-                "$tag": "_InputBase",
+                "$tag": "_InputArgument",
                 "value": "InpGenFieldParamAlt"
               }
             ]
@@ -5521,7 +5521,7 @@
             "input": "InpGenParamRef",
             "typeArguments": [
               {
-                "$tag": "_InputBase",
+                "$tag": "_InputArgument",
                 "value": "InpGenParamAlt"
               }
             ]
@@ -5537,7 +5537,7 @@
             "input": "InpGenParamRef",
             "typeArguments": [
               {
-                "$tag": "_InputBase",
+                "$tag": "_InputArgument",
                 "value": "InpGenParamAlt"
               }
             ]
@@ -5631,7 +5631,7 @@
         "input": "InpGenParentDualRef",
         "typeArguments": [
           {
-            "$tag": "_DualBase",
+            "$tag": "_DualArgument",
             "value": "InpGenParentDualAlt"
           }
         ]
@@ -5722,7 +5722,7 @@
         "input": "InpGenParentParamRef",
         "typeArguments": [
           {
-            "$tag": "_InputBase",
+            "$tag": "_InputArgument",
             "value": "InpGenParentParamAlt"
           }
         ]
@@ -6814,7 +6814,7 @@
             "output": "OutGenValueRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "outValueGen"
               }
             ]
@@ -6829,7 +6829,7 @@
             "output": "OutGenValueRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "outValueGen"
               }
             ]
@@ -8068,7 +8068,7 @@
             "output": "OutpGenAltDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "OutpGenAltDualAlt"
               }
             ]
@@ -8083,7 +8083,7 @@
             "output": "OutpGenAltDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "OutpGenAltDualAlt"
               }
             ]
@@ -8173,7 +8173,7 @@
             "output": "OutpGenAltParamRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "OutpGenAltParamAlt"
               }
             ]
@@ -8188,7 +8188,7 @@
             "output": "OutpGenAltParamRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "OutpGenAltParamAlt"
               }
             ]
@@ -8303,7 +8303,7 @@
             "output": "OutpGenDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "OutpGenDualAlt"
               }
             ]
@@ -8319,7 +8319,7 @@
             "output": "OutpGenDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "OutpGenDualAlt"
               }
             ]
@@ -8470,7 +8470,7 @@
             "output": "OutpGenFieldDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "OutpGenFieldDualAlt"
               }
             ]
@@ -8486,7 +8486,7 @@
             "output": "OutpGenFieldDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "OutpGenFieldDualAlt"
               }
             ]
@@ -8577,7 +8577,7 @@
             "output": "OutpGenFieldParamRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "OutpGenFieldParamAlt"
               }
             ]
@@ -8593,7 +8593,7 @@
             "output": "OutpGenFieldParamRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "OutpGenFieldParamAlt"
               }
             ]
@@ -8708,7 +8708,7 @@
             "output": "OutpGenParamRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "OutpGenParamAlt"
               }
             ]
@@ -8724,7 +8724,7 @@
             "output": "OutpGenParamRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "OutpGenParamAlt"
               }
             ]
@@ -8818,7 +8818,7 @@
         "output": "OutpGenParentDualRef",
         "typeArguments": [
           {
-            "$tag": "_DualBase",
+            "$tag": "_DualArgument",
             "value": "OutpGenParentDualAlt"
           }
         ]
@@ -8909,7 +8909,7 @@
         "output": "OutpGenParentParamRef",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "OutpGenParentParamAlt"
           }
         ]

@@ -13,7 +13,7 @@
             "input": "InpGenAltDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "InpGenAltDualAlt"
               }
             ]
@@ -28,7 +28,7 @@
             "input": "InpGenAltDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "InpGenAltDualAlt"
               }
             ]

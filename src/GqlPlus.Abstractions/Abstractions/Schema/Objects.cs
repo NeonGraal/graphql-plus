@@ -147,7 +147,7 @@ public interface IGqlpOutputObject
 public interface IGqlpOutputEnum
   : IGqlpError
 {
-  string TypeName { get; }
+  string EnumType { get; }
   string? EnumMember { get; }
 
   void SetEnumType(string enumType);
@@ -163,6 +163,7 @@ public interface IGqlpOutputArgument
 
 public interface IGqlpOutputBase
   : IGqlpObjBase<IGqlpOutputArgument>
+  , IGqlpOutputEnum
   , IGqlpToDual<IGqlpDualBase>
 {
   string Output { get; }
@@ -170,7 +171,6 @@ public interface IGqlpOutputBase
 
 public interface IGqlpOutputField
   : IGqlpObjField<IGqlpOutputBase>
-  , IGqlpOutputEnum
 {
   IEnumerable<IGqlpInputParameter> Parameters { get; }
 }

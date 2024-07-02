@@ -8,7 +8,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenFieldParamRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenFieldParamAlt
     fields:
     - !_DualField
@@ -16,7 +16,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenFieldParamRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenFieldParamAlt
     name: DualGenFieldParam
     typeKind: !_TypeKind Dual

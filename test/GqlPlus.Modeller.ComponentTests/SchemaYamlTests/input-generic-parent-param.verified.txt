@@ -9,7 +9,7 @@ types: !_Map_Type
     parent: !_InputBase
       input: InpGenParentParamRef
       typeArguments:
-      - !_InputBase
+      - !_InputArgument
         input: InpGenParentParamAlt
     typeKind: !_TypeKind Input
   !_Identifier InpGenParentParamAlt: !_TypeInput

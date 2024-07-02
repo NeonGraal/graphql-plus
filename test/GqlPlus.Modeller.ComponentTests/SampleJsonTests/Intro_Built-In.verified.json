@@ -451,7 +451,7 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "Number"
               }
             ]
@@ -471,7 +471,7 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "String"
               }
             ]
@@ -507,7 +507,7 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "Number"
               }
             ]
@@ -526,7 +526,7 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "String"
               }
             ]

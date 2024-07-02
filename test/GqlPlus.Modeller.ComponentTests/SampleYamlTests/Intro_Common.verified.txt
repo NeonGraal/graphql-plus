@@ -80,7 +80,7 @@ types: !_Map_Type
       output: _ChildType
       typeArguments:
       - !_TypeParameter kind
-      - !_OutputBase
+      - !_OutputArgument
         output: _Identifier
     typeKind: !_TypeKind Output
     typeParameters:

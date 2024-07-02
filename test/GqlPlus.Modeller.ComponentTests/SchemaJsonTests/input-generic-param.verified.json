@@ -14,7 +14,7 @@
             "input": "InpGenParamRef",
             "typeArguments": [
               {
-                "$tag": "_InputBase",
+                "$tag": "_InputArgument",
                 "value": "InpGenParamAlt"
               }
             ]
@@ -30,7 +30,7 @@
             "input": "InpGenParamRef",
             "typeArguments": [
               {
-                "$tag": "_InputBase",
+                "$tag": "_InputArgument",
                 "value": "InpGenParamAlt"
               }
             ]

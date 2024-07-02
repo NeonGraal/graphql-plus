@@ -4,7 +4,7 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseDualArgumentTests(
-  Parser<IGqlpDualArgument>.D parser
+  Parser<IGqlpDualArgument>.DA parser
 ) : TestObjectArgument
 {
   internal override ICheckObjectArgument ObjectArgumentChecks => _checks;

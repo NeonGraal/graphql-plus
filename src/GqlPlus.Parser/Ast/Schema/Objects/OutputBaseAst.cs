@@ -18,9 +18,6 @@ internal sealed record class OutputBaseAst(
   internal override string Abbr => "OR";
   public override string Label => "Output";
 
-  string IGqlpOutputBase.Output => Name;
-  IGqlpDualBase IGqlpToDual<IGqlpDualBase>.ToDual => ToDual();
-
   internal override IEnumerable<string?> GetFields()
     => string.IsNullOrWhiteSpace(EnumMember)
     ? base.GetFields()
@@ -31,4 +28,15 @@ internal sealed record class OutputBaseAst(
       IsTypeParameter = IsTypeParameter,
       BaseArguments = [.. BaseArguments.Select(a => a.ToDual)],
     };
+
+  IGqlpDualBase IGqlpToDual<IGqlpDualBase>.ToDual => ToDual();
+
+  string IGqlpOutputBase.Output => Name;
+
+  string IGqlpOutputEnum.EnumType => TypeName;
+  void IGqlpOutputEnum.SetEnumType(string enumType)
+  {
+    EnumMember ??= Name;
+    Name = enumType;
+  }
 }

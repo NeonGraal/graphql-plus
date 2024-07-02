@@ -16,9 +16,9 @@ types: !_Map_Type
         member: Union
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-      - !_OutputBase
+      - !_OutputArgument
         output: _Named
-      - !_DualBase
+      - !_DualArgument
         dual: _UnionMember
     typeKind: !_TypeKind Output
   !_Identifier _UnionMember: !_TypeDual

@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
+using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
@@ -19,7 +20,9 @@ internal abstract class ObjectArgumentsParser<TObjArg, TObjArgAst>
     }
 
     IResult<TObjArgAst> argument = ParseObjectType(tokens, label);
-    while (argument.Required(list.Add)) {
+    while (argument
+        .Map(value => ArgumentEnumValue(tokens, value))
+        .Required(list.Add)) {
       argument = ParseObjectType(tokens, label);
     }
 
@@ -33,4 +36,8 @@ internal abstract class ObjectArgumentsParser<TObjArg, TObjArgAst>
 
     return list.OkArray();
   }
+
+  protected virtual IResult<TObjArgAst> ArgumentEnumValue<TContext>(TContext tokens, TObjArgAst argument)
+    where TContext : Tokenizer
+    => argument.Ok();
 }

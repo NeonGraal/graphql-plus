@@ -14,7 +14,7 @@
             "dual": "DualGenDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenDualAlt"
               }
             ]
@@ -30,7 +30,7 @@
             "dual": "DualGenDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenDualAlt"
               }
             ]

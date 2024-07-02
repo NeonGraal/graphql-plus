@@ -39,9 +39,21 @@ internal interface ITypeObjectModel
   IEnumerable<ModelBase> AllFields { get; }
 }
 
+public record class ObjArgumentModel
+  : ModelBase, IObjArgumentModel
+{
+  public bool IsTypeParameter { get; set; }
+}
+
+public interface IObjArgumentModel
+  : IModelBase
+{
+  bool IsTypeParameter { get; }
+}
+
 public record class ObjBaseModel<TArg>
   : ModelBase, IObjBaseModel
-  where TArg : IModelBase
+  where TArg : IObjArgumentModel
 {
   internal TArg[] Arguments { get; set; } = [];
   public bool IsTypeParameter { get; set; }

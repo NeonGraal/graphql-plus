@@ -8,6 +8,17 @@ public record class TypeOutputModel(
     => parent?.Base.Output;
 }
 
+public record class OutputArgumentModel(
+  string Name
+) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name), IObjArgumentModel
+{
+  internal string? Output => Name;
+  public bool IsTypeParameter { get; set; }
+  internal DualArgumentModel? Dual { get; init; }
+
+  internal string? EnumMember { get; set; }
+}
+
 public record class OutputBaseModel(
   string Output
 ) : ObjBaseModel<OutputArgumentModel>
@@ -28,16 +39,6 @@ public record class OutputAlternateModel(
   ObjDescribedModel<OutputBaseModel> Type
 ) : ObjAlternateModel<OutputBaseModel>(Type)
 { }
-
-public record class OutputArgumentModel(
-  string Name
-) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name), IObjBaseModel
-{
-  internal string? EnumMember { get; set; }
-  internal OutputBaseModel? Ref { get; set; }
-
-  public bool IsTypeParameter => string.IsNullOrEmpty(EnumMember) && Ref?.IsTypeParameter == true;
-}
 
 public record class OutputEnumModel(
   string Field,

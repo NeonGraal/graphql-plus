@@ -14,7 +14,7 @@
             "input": "InpGenFieldParamRef",
             "typeArguments": [
               {
-                "$tag": "_InputBase",
+                "$tag": "_InputArgument",
                 "value": "InpGenFieldParamAlt"
               }
             ]
@@ -30,7 +30,7 @@
             "input": "InpGenFieldParamRef",
             "typeArguments": [
               {
-                "$tag": "_InputBase",
+                "$tag": "_InputArgument",
                 "value": "InpGenFieldParamAlt"
               }
             ]

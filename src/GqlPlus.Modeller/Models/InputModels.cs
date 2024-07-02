@@ -8,9 +8,16 @@ public record class TypeInputModel(
     => parent?.Base.Input;
 }
 
+public record class InputArgumentModel(
+  string Input
+) : ObjArgumentModel
+{
+  internal DualArgumentModel? Dual { get; init; }
+}
+
 public record class InputBaseModel(
   string Input
-) : ObjBaseModel<InputBaseModel>
+) : ObjBaseModel<InputArgumentModel>
 {
   internal DualBaseModel? Dual { get; init; }
 }

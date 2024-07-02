@@ -89,7 +89,7 @@
         "output": "_TypeRef",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "TypeKind"
           }
         ]
@@ -260,7 +260,7 @@
         "output": "_Field",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_OutputBase"
           }
         ]
@@ -281,11 +281,11 @@
             "typeKind": "Enum"
           },
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_OutputBase"
           },
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_OutputField"
           }
         ]

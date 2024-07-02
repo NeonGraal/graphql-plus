@@ -8,7 +8,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenParamRef
         typeArguments:
-        - !_InputBase
+        - !_InputArgument
           input: InpGenParamAlt
     fields:
     - !_InputField
@@ -16,7 +16,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenParamRef
         typeArguments:
-        - !_InputBase
+        - !_InputArgument
           input: InpGenParamAlt
     name: InpGenParam
     typeKind: !_TypeKind Input

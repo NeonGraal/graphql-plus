@@ -114,7 +114,7 @@
         "output": "_Field",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_InputBase"
           }
         ]
@@ -191,7 +191,7 @@
         "output": "_ObjDescribed",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_InputBase"
           }
         ]
@@ -212,11 +212,11 @@
             "typeKind": "Enum"
           },
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_InputBase"
           },
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_InputField"
           }
         ]

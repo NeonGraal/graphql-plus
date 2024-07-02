@@ -2,13 +2,15 @@
 
 namespace GqlPlus.Rendering;
 
-internal class ObjectBaseRenderer<TBase>
-  : BaseRenderer<TBase>
-  where TBase : ObjBaseModel<TBase>
+internal class ObjectBaseRenderer<TBase, TArg>(
+  IRenderer<TArg> objArgument
+) : BaseRenderer<TBase>
+  where TBase : ObjBaseModel<TArg>
+  where TArg : IObjArgumentModel
 {
   internal override RenderStructure Render(TBase model, IRenderContext context)
     => base.Render(model, context)
-      .Add("typeArguments", model.Arguments, this);
+      .Add("typeArguments", model.Arguments, objArgument);
 }
 
 internal record class ModifierBaseRenderers<TBase>(
@@ -122,8 +124,19 @@ internal abstract class TypeObjectRenderer<TObject, TBase, TField, TAlt>(
   }
 }
 
-internal class DualBaseRenderer
-  : ObjectBaseRenderer<DualBaseModel>
+internal class DualArgumentRenderer
+  : BaseRenderer<DualArgumentModel>
+{
+  internal override RenderStructure Render(DualArgumentModel model, IRenderContext context)
+    => model.IsTypeParameter
+    ? new(model.Dual, "_TypeParameter")
+    : base.Render(model, context)
+      .Add("dual", model.Dual);
+}
+
+internal class DualBaseRenderer(
+  IRenderer<DualArgumentModel> objArgument
+) : ObjectBaseRenderer<DualBaseModel, DualArgumentModel>(objArgument)
 {
   internal override RenderStructure Render(DualBaseModel model, IRenderContext context)
     => model.IsTypeParameter
@@ -150,9 +163,23 @@ internal class TypeDualRenderer(
     => parent?.Base.Dual;
 }
 
+internal class InputArgumentRenderer(
+  IRenderer<DualArgumentModel> dual
+) : BaseRenderer<InputArgumentModel>
+{
+  internal override RenderStructure Render(InputArgumentModel model, IRenderContext context)
+    => model.Dual is null
+    ? model.IsTypeParameter
+      ? new(model.Input, "_TypeParameter")
+      : base.Render(model, context)
+        .Add("input", model.Input)
+    : dual.Render(model.Dual, context);
+}
+
 internal class InputBaseRenderer(
+  IRenderer<InputArgumentModel> objArgument,
   IRenderer<DualBaseModel> dual
-) : ObjectBaseRenderer<InputBaseModel>
+) : ObjectBaseRenderer<InputBaseModel, InputArgumentModel>(objArgument)
 {
   internal override RenderStructure Render(InputBaseModel model, IRenderContext context)
     => model.Dual is null
@@ -198,28 +225,34 @@ internal class TypeInputRenderer(
     => parent?.Base.Input;
 }
 
-internal class OutputArgumentAndBaseRenderer(
-  IRenderer<DualBaseModel> dual
+internal class OutputArgumentRenderer(
+  IRenderer<DualArgumentModel> dual
 ) : TypeRefRenderer<OutputArgumentModel, SimpleKindModel>
-  , IRenderer<OutputBaseModel>
 {
-  public RenderStructure Render(OutputBaseModel model, IRenderContext context)
-    => RenderBase(model, context);
+  internal override RenderStructure Render(OutputArgumentModel model, IRenderContext context)
+    => string.IsNullOrWhiteSpace(model.ThrowIfNull().EnumMember)
+    ? model.Dual is null
+      ? model.IsTypeParameter
+        ? new(model.Output, "_TypeParameter")
+        : RenderStructure.New(model.Tag, context)
+          .Add("output", model.Output!)
+      : dual.Render(model.Dual, context)
+    : base.Render(model, context)
+      .Add("member", model.EnumMember!);
+}
 
-  private RenderStructure RenderBase(OutputBaseModel model, IRenderContext context)
+internal class OutputBaseRenderer(
+  IRenderer<OutputArgumentModel> objArgument,
+  IRenderer<DualBaseModel> dual
+) : ObjectBaseRenderer<OutputBaseModel, OutputArgumentModel>(objArgument)
+{
+  internal override RenderStructure Render(OutputBaseModel model, IRenderContext context)
     => model.Dual is null
     ? model.IsTypeParameter
       ? new(model.Output, "_TypeParameter")
-      : RenderStructure.New(model.Tag, context)
-        .Add("typeArguments", model.Arguments, this)
+      : base.Render(model, context)
         .Add("output", model.Output)
     : dual.Render(model.Dual, context);
-
-  internal override RenderStructure Render(OutputArgumentModel model, IRenderContext context)
-    => string.IsNullOrWhiteSpace(model.EnumMember)
-    ? RenderBase(model.Ref.ThrowIfNull(), context)
-    : base.Render(model, context)
-      .Add("member", model.EnumMember);
 }
 
 internal class OutputEnumRenderer

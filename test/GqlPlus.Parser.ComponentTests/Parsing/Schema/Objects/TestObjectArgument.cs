@@ -10,6 +10,10 @@ public abstract class TestObjectArgument
   => ObjectArgumentChecks.WithMinimum(name);
 
   [Theory, RepeatData(Repeats)]
+  public void WithMany_ReturnsCorrectAsts(string[] names)
+  => ObjectArgumentChecks.WithMany(names);
+
+  [Theory, RepeatData(Repeats)]
   public void WithTypeParameter_ReturnsCorrectAst(string name)
   => ObjectArgumentChecks.WithTypeParameter(name);
 
@@ -22,21 +26,25 @@ public abstract class TestObjectArgument
 
 internal sealed class CheckObjectArgument<TObjArg, TObjArgAst>(
   IObjectArgumentFactories<TObjArg, TObjArgAst> factories,
-  Parser<TObjArg>.D parser
-) : OneChecksParser<TObjArg>(parser), ICheckObjectArgument
+  Parser<TObjArg>.DA parser
+) : ManyChecksParser<TObjArg>(parser)
+  , ICheckObjectArgument
   where TObjArg : IGqlpObjArgument
   where TObjArgAst : AstObjArgument, TObjArg
 {
   private readonly IObjectArgumentFactories<TObjArg, TObjArgAst> _factories = factories;
 
   public void WithMinimum(string name)
-    => TrueExpected(name, ObjArg(name));
+    => TrueExpected("<" + name + ">", ObjArg(name));
+
+  public void WithMany(string[] names)
+    => TrueExpected("<" + names.Joined() + ">", [.. names.Select(ObjArg)]);
 
   public void WithTypeParameter(string name)
-    => TrueExpected("$" + name, ObjArg(name) with { IsTypeParameter = true });
+    => TrueExpected("<$" + name + ">", ObjArg(name) with { IsTypeParameter = true });
 
   public void WithTypeParameterBad()
-    => False("$");
+    => False("<$");
 
   public TObjArgAst ObjArg(string type)
     => _factories.ObjArgument(AstNulls.At, type);
@@ -45,6 +53,7 @@ internal sealed class CheckObjectArgument<TObjArg, TObjArgAst>(
 public interface ICheckObjectArgument
 {
   void WithMinimum(string name);
+  void WithMany(string[] names);
   void WithTypeParameter(string name);
   void WithTypeParameterBad();
 }

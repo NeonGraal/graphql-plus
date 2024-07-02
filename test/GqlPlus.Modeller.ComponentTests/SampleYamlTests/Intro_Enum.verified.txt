@@ -56,8 +56,8 @@ types: !_Map_Type
         member: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-      - !_OutputBase
+      - !_OutputArgument
         output: _Aliased
-      - !_DualBase
+      - !_DualArgument
         dual: _EnumMember
     typeKind: !_TypeKind Output

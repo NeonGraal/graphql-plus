@@ -151,7 +151,7 @@
         "typeArguments": [
           "kind",
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_Identifier"
           }
         ]

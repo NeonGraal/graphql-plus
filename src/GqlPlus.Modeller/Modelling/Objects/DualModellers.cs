@@ -17,9 +17,18 @@ internal class DualModeller(
     };
 }
 
+internal class DualArgumentModeller
+  : ModellerObjArgument<IGqlpDualArgument, DualArgumentModel>
+{
+  protected override DualArgumentModel ToModel(IGqlpDualArgument ast, IMap<TypeKindModel> typeKinds)
+    => new(ast.Dual) {
+      IsTypeParameter = ast.IsTypeParameter,
+    };
+}
+
 internal class DualBaseModeller(
-  IModeller<IGqlpDualArgument, DualBaseModel> objArgument
-) : ModellerObjBase<IGqlpDualBase, IGqlpDualArgument, DualBaseModel, DualBaseModel>(objArgument)
+  IModeller<IGqlpDualArgument, DualArgumentModel> objArgument
+) : ModellerObjBase<IGqlpDualBase, IGqlpDualArgument, DualBaseModel, DualArgumentModel>(objArgument)
 {
   protected override DualBaseModel ToModel(IGqlpDualBase ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Dual) {

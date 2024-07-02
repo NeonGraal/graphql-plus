@@ -13,7 +13,7 @@
             "output": "OutpGenAltParamRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "OutpGenAltParamAlt"
               }
             ]
@@ -28,7 +28,7 @@
             "output": "OutpGenAltParamRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "OutpGenAltParamAlt"
               }
             ]

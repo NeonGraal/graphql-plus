@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Parsing;
 
-internal sealed class ManyChecksParser<T>
+internal class ManyChecksParser<T>
 {
   private readonly Parser<T>.LA _parser;
   private readonly string _type = typeof(T).ToString();

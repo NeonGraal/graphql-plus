@@ -7,7 +7,7 @@ internal sealed record class OutputBaseAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObjBase<IGqlpOutputBase>(At, Name, Description)
+) : AstObjBase<IGqlpOutputArgument>(At, Name, Description)
   , IGqlpOutputBase
 {
   public OutputBaseAst(TokenAt at, string name)
@@ -17,9 +17,6 @@ internal sealed record class OutputBaseAst(
 
   internal override string Abbr => "OR";
   public override string Label => "Output";
-
-  string IGqlpOutputBase.Output => Name;
-  IGqlpDualBase IGqlpToDual.ToDual => ToDual();
 
   internal override IEnumerable<string?> GetFields()
     => string.IsNullOrWhiteSpace(EnumMember)
@@ -32,7 +29,12 @@ internal sealed record class OutputBaseAst(
       BaseArguments = [.. BaseArguments.Select(a => a.ToDual)],
     };
 
-  void IGqlpOutputBase.SetEnumType(string enumType)
+  IGqlpDualBase IGqlpToDual<IGqlpDualBase>.ToDual => ToDual();
+
+  string IGqlpOutputBase.Output => Name;
+
+  string IGqlpOutputEnum.EnumType => TypeName;
+  void IGqlpOutputEnum.SetEnumType(string enumType)
   {
     EnumMember ??= Name;
     Name = enumType;

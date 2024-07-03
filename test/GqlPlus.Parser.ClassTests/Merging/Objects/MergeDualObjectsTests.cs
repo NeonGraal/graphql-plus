@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 namespace GqlPlus.Merging.Objects;
 
 public class MergeDualObjectsTests
-  : TestObjects<IGqlpDualObject, IGqlpDualField, IGqlpDualAlternate, IGqlpDualBase>
+  : TestObjects<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
 {
   private readonly MergeDualObjects _merger;
 

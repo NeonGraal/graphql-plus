@@ -8,10 +8,10 @@ public class OutputAlternateAstTests
   protected override string AbbreviatedString(AlternateInput input)
     => $"( !OA {input.Type} )";
 
-  private readonly AstObjectAlternateChecks<OutputAlternateAst, IGqlpOutputBase, OutputBaseAst> _checks
+  private readonly AstObjectAlternateChecks<OutputAlternateAst, IGqlpOutputBase, OutputBaseAst, IGqlpOutputArgument, OutputArgumentAst> _checks
     = new((dual, objBase) => new(AstNulls.At, objBase),
       dual => new OutputBaseAst(AstNulls.At, dual.Type),
-      arguments => arguments.OutputBases());
+      arguments => arguments.OutputArguments());
 
   internal override IAstObjectAlternateChecks<IGqlpOutputBase> AlternateChecks => _checks;
 }

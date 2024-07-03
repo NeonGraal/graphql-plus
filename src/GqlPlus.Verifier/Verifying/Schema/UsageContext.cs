@@ -27,8 +27,8 @@ public class UsageContext(
     return false;
   }
 
-  internal virtual void CheckArgumentType<TObjBase>(TObjBase type, string labelSuffix)
-    where TObjBase : IGqlpObjBase<TObjBase>
+  internal virtual void CheckArgumentType<TObjArg>(TObjArg type, string labelSuffix)
+    where TObjArg : IGqlpObjArgument
     => this.CheckType(type, labelSuffix);
 
   internal bool DifferentName<TAst>(ParentUsage<TAst> input, string? current)
@@ -89,12 +89,23 @@ internal static class UsageHelpers
     return context;
   }
 
+  internal static TContext CheckArguments<TContext, TObjArg>(this TContext context, IEnumerable<TObjArg> arguments, string labelSuffix)
+    where TContext : UsageContext
+    where TObjArg : IGqlpObjArgument
+  {
+    foreach (TObjArg arg in arguments) {
+      context.CheckArgumentType(arg, labelSuffix);
+    }
+
+    return context;
+  }
+
   internal static TContext CheckType<TContext, TObjBase>(this TContext context, TObjBase type, string labelSuffix, bool check = true)
     where TContext : UsageContext
-    where TObjBase : IGqlpObjBase<TObjBase>
+    where TObjBase : IGqlpObjType
   {
     if (context.GetType(type.TypeName, out IGqlpDescribed? value)) {
-      int numArgs = type.Arguments.Count();
+      int numArgs = type is IGqlpObjBase baseType ? baseType.Arguments.Count() : 0;
       if (value is IGqlpObject definition) {
         if (check && definition.Label != "Dual" && definition.Label != type.Label) {
           context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.TypeName}. Found {definition.Label}");
@@ -109,10 +120,6 @@ internal static class UsageHelpers
       }
     } else if (check) {
       context.AddError(type, type.Label + labelSuffix, $"'{type.TypeName}' not defined");
-    }
-
-    foreach (TObjBase arg in type.BaseArguments) {
-      context.CheckArgumentType(arg, labelSuffix);
     }
 
     return context;

@@ -28,11 +28,11 @@
             "typeKind": "Enum"
           },
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_Named"
           },
           {
-            "$tag": "_DualBase",
+            "$tag": "_DualArgument",
             "value": "_UnionMember"
           }
         ]

@@ -20,6 +20,9 @@ internal static class SchemaTestHelpers
   public static DualBaseAst[] DualBases(this string[] bases)
     => [.. bases.Select(b => new DualBaseAst(AstNulls.At, b))];
 
+  public static DualArgumentAst[] DualArguments(this string[] arguments)
+    => [.. arguments.Select(b => new DualArgumentAst(AstNulls.At, b))];
+
   public static InputFieldAst[] InputFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new InputFieldAst(AstNulls.At, f.Name, InputBase(f.Type, f.TypeParameter)))];
   public static InputAlternateAst[] InputAlternates(this IEnumerable<AlternateInput> alternates)
@@ -28,8 +31,11 @@ internal static class SchemaTestHelpers
   private static InputBaseAst InputBase(string type, bool isTypeParameter)
     => new(AstNulls.At, type) { IsTypeParameter = isTypeParameter };
 
-  public static InputBaseAst[] InputBases(this string[] arguments)
-    => [.. arguments.Select(a => new InputBaseAst(AstNulls.At, a))];
+  public static InputBaseAst[] InputBases(this string[] bases)
+    => [.. bases.Select(a => new InputBaseAst(AstNulls.At, a))];
+
+  public static InputArgumentAst[] InputArguments(this string[] arguments)
+    => [.. arguments.Select(a => new InputArgumentAst(AstNulls.At, a))];
 
   public static OutputFieldAst[] OutputFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new OutputFieldAst(AstNulls.At, f.Name, OutputBase(f.Type, f.TypeParameter)))];
@@ -42,6 +48,9 @@ internal static class SchemaTestHelpers
 
   public static OutputBaseAst[] OutputBases(this string[] arguments)
     => [.. arguments.Select(a => new OutputBaseAst(AstNulls.At, a))];
+
+  public static OutputArgumentAst[] OutputArguments(this string[] arguments)
+    => [.. arguments.Select(a => new OutputArgumentAst(AstNulls.At, a))];
 
   public static InputParameterAst[] Parameters(this IEnumerable<string> parameters)
     => [.. parameters.Select(parameter => new InputParameterAst(AstNulls.At, parameter))];

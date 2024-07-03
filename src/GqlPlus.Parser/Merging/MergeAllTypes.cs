@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Ast.Schema.Simple;
 
@@ -65,15 +66,23 @@ internal class MergeAllTypes(
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());
 
+  private static void FixupType<TEnum>(IGqlpOutputEnum type, Map<string> enumValues)
+    where TEnum : AstNamed, IGqlpOutputEnum
+  {
+    if (type is TEnum named) {
+      if (string.IsNullOrWhiteSpace(named.Name)
+        && enumValues.TryGetValue(type.EnumMember ?? "", out string? enumType)) {
+        named.Name = enumType;
+      }
+    }
+  }
+
   private static void FixupType(IGqlpOutputBase type, Map<string> enumValues)
   {
-    if (string.IsNullOrWhiteSpace(type.Output)
-      && enumValues.TryGetValue(type.EnumMember ?? "", out string? enumType)) {
-      ((OutputBaseAst)type).Name = enumType;
-    }
+    FixupType<OutputBaseAst>(type, enumValues);
 
-    foreach (IGqlpOutputBase argument in type.BaseArguments) {
-      FixupType(argument, enumValues);
+    foreach (IGqlpOutputArgument argument in type.BaseArguments) {
+      FixupType<OutputArgumentAst>(argument, enumValues);
     }
   }
 }

@@ -8,7 +8,13 @@ _errors:
   _message: In _OutputBase can't get model for type '_ObjBase'
 - !_Error
   _kind: !_TokenKind End
+  _message: In _OutputParent can't get model for type '_ObjDescribed'
+- !_Error
+  _kind: !_TokenKind End
   _message: In _OutputField can't get model for type '_Field'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _OutputAlternate can't get model for type '_Alternate'
 - !_Error
   _kind: !_TokenKind End
   _message: In _OutputArgument can't get model for type '_TypeRef'
@@ -16,14 +22,23 @@ _errors:
   _kind: !_TokenKind End
   _message: In _OutputEnum can't get model for type '_TypeRef'
 types: !_Map_Type
+  !_Identifier _OutputAlternate: !_TypeOutput
+    name: _OutputAlternate
+    parent: !_OutputBase
+      output: _Alternate
+      typeArguments:
+      - !_OutputArgument
+        output: _OutputBase
+    typeKind: !_TypeKind Output
   !_Identifier _OutputArgument: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _OutputArgument
       type: !_OutputBase
-        output: _OutputBase
+        output: _TypeParameter
     allFields:
     - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: member
       object: _OutputArgument
       type: !_OutputBase
@@ -31,9 +46,10 @@ types: !_Map_Type
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: _OutputBase
+        output: _TypeParameter
     fields:
     - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: member
       type: !_OutputBase
         output: _Identifier
@@ -42,9 +58,7 @@ types: !_Map_Type
       output: _TypeRef
       typeArguments:
       - !_OutputArgument
-        member: Enum
-        name: _TypeKind
-        typeKind: !_SimpleKind Enum
+        output: _TypeKind
     typeKind: !_TypeKind Output
   !_Identifier _OutputBase: !_TypeOutput
     allAlternates:
@@ -70,9 +84,6 @@ types: !_Map_Type
     name: _OutputBase
     parent: !_OutputBase
       output: _ObjBase
-      typeArguments:
-      - !_OutputBase
-        output: _OutputArgument
     typeKind: !_TypeKind Output
   !_Identifier _OutputEnum: !_TypeOutput
     allFields:
@@ -131,7 +142,15 @@ types: !_Map_Type
     parent: !_OutputBase
       output: _Field
       typeArguments:
-      - !_OutputBase
+      - !_OutputArgument
+        output: _OutputBase
+    typeKind: !_TypeKind Output
+  !_Identifier _OutputParent: !_TypeOutput
+    name: _OutputParent
+    parent: !_OutputBase
+      output: _ObjDescribed
+      typeArguments:
+      - !_OutputArgument
         output: _OutputBase
     typeKind: !_TypeKind Output
   !_Identifier _TypeOutput: !_TypeOutput
@@ -143,8 +162,10 @@ types: !_Map_Type
         member: Output
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-      - !_OutputBase
-        output: _OutputBase
-      - !_OutputBase
+      - !_OutputArgument
+        output: _OutputParent
+      - !_OutputArgument
         output: _OutputField
+      - !_OutputArgument
+        output: _OutputAlternate
     typeKind: !_TypeKind Output

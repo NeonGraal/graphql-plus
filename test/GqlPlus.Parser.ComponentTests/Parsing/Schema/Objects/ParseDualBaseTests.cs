@@ -9,5 +9,5 @@ public class ParseDualBaseTests(
 {
   internal override ICheckObjectBase ObjectBaseChecks => _checks;
 
-  private readonly CheckObjectBase<IGqlpDualBase, DualBaseAst> _checks = new(new DualFactories(), parser);
+  private readonly CheckObjectBase<IGqlpDualBase, DualBaseAst, IGqlpDualArgument, DualArgumentAst> _checks = new(new DualFactories(), parser);
 }

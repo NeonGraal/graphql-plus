@@ -79,7 +79,7 @@ public class ParseOutputFieldTests(
 
   internal override ICheckObjectField FieldChecks => _checks;
 
-  private readonly CheckObjectField<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputBaseAst> _checks = new(new OutputFactories(), parser);
+  private readonly CheckObjectField<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputBaseAst, IGqlpOutputArgument, OutputArgumentAst> _checks = new(new OutputFactories(), parser);
 
   private static OutputFieldAst FieldEnum(string name, string enumType, string enumMember)
     => new(AstNulls.At, name, new OutputBaseAst(AstNulls.At, enumType) { EnumMember = enumMember });

@@ -370,14 +370,14 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenAltDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenAltDualAlt
     alternates:
     - !_DualAlternate
       type: !_DualBase
         dual: DualGenAltDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenAltDualAlt
     name: DualGenAltDual
     typeKind: !_TypeKind Dual
@@ -424,14 +424,14 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenAltParamRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenAltParamAlt
     alternates:
     - !_DualAlternate
       type: !_DualBase
         dual: DualGenAltParamRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenAltParamAlt
     name: DualGenAltParam
     typeKind: !_TypeKind Dual
@@ -492,7 +492,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenDualAlt
     fields:
     - !_DualField
@@ -500,7 +500,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenDualAlt
     name: DualGenDual
     typeKind: !_TypeKind Dual
@@ -584,7 +584,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenFieldDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenFieldDualAlt
     fields:
     - !_DualField
@@ -592,7 +592,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenFieldDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenFieldDualAlt
     name: DualGenFieldDual
     typeKind: !_TypeKind Dual
@@ -640,7 +640,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenFieldParamRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenFieldParamAlt
     fields:
     - !_DualField
@@ -648,7 +648,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenFieldParamRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenFieldParamAlt
     name: DualGenFieldParam
     typeKind: !_TypeKind Dual
@@ -709,7 +709,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenParamRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenParamAlt
     fields:
     - !_DualField
@@ -717,7 +717,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: DualGenParamRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: DualGenParamAlt
     name: DualGenParam
     typeKind: !_TypeKind Dual
@@ -766,7 +766,7 @@ types: !_Map_Type
     parent: !_DualBase
       dual: DualGenParentDualRef
       typeArguments:
-      - !_DualBase
+      - !_DualArgument
         dual: DualGenParentDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentDualAlt: !_TypeDual
@@ -814,7 +814,7 @@ types: !_Map_Type
     parent: !_DualBase
       dual: DualGenParentParamRef
       typeArguments:
-      - !_DualBase
+      - !_DualArgument
         dual: DualGenParentParamAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentParamAlt: !_TypeDual
@@ -1619,14 +1619,14 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenAltDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: InpGenAltDualAlt
     alternates:
     - !_InputAlternate
       type: !_InputBase
         input: InpGenAltDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: InpGenAltDualAlt
     name: InpGenAltDual
     typeKind: !_TypeKind Input
@@ -1673,14 +1673,14 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenAltParamRef
         typeArguments:
-        - !_InputBase
+        - !_InputArgument
           input: InpGenAltParamAlt
     alternates:
     - !_InputAlternate
       type: !_InputBase
         input: InpGenAltParamRef
         typeArguments:
-        - !_InputBase
+        - !_InputArgument
           input: InpGenAltParamAlt
     name: InpGenAltParam
     typeKind: !_TypeKind Input
@@ -1741,7 +1741,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: InpGenDualAlt
     fields:
     - !_InputField
@@ -1749,7 +1749,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: InpGenDualAlt
     name: InpGenDual
     typeKind: !_TypeKind Input
@@ -1833,7 +1833,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenFieldDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: InpGenFieldDualAlt
     fields:
     - !_InputField
@@ -1841,7 +1841,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenFieldDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: InpGenFieldDualAlt
     name: InpGenFieldDual
     typeKind: !_TypeKind Input
@@ -1889,7 +1889,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenFieldParamRef
         typeArguments:
-        - !_InputBase
+        - !_InputArgument
           input: InpGenFieldParamAlt
     fields:
     - !_InputField
@@ -1897,7 +1897,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenFieldParamRef
         typeArguments:
-        - !_InputBase
+        - !_InputArgument
           input: InpGenFieldParamAlt
     name: InpGenFieldParam
     typeKind: !_TypeKind Input
@@ -1958,7 +1958,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenParamRef
         typeArguments:
-        - !_InputBase
+        - !_InputArgument
           input: InpGenParamAlt
     fields:
     - !_InputField
@@ -1966,7 +1966,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenParamRef
         typeArguments:
-        - !_InputBase
+        - !_InputArgument
           input: InpGenParamAlt
     name: InpGenParam
     typeKind: !_TypeKind Input
@@ -2015,7 +2015,7 @@ types: !_Map_Type
     parent: !_InputBase
       input: InpGenParentDualRef
       typeArguments:
-      - !_DualBase
+      - !_DualArgument
         dual: InpGenParentDualAlt
     typeKind: !_TypeKind Input
   !_Identifier InpGenParentDualAlt: !_TypeDual
@@ -2063,7 +2063,7 @@ types: !_Map_Type
     parent: !_InputBase
       input: InpGenParentParamRef
       typeArguments:
-      - !_InputBase
+      - !_InputArgument
         input: InpGenParentParamAlt
     typeKind: !_TypeKind Input
   !_Identifier InpGenParentParamAlt: !_TypeInput
@@ -2602,14 +2602,14 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutGenValueRef
         typeArguments:
-        - !_OutputBase
+        - !_OutputArgument
           output: outValueGen
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         output: OutGenValueRef
         typeArguments:
-        - !_OutputBase
+        - !_OutputArgument
           output: outValueGen
     name: OutGenValue
     typeKind: !_TypeKind Output
@@ -3268,14 +3268,14 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenAltDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: OutpGenAltDualAlt
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         output: OutpGenAltDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: OutpGenAltDualAlt
     name: OutpGenAltDual
     typeKind: !_TypeKind Output
@@ -3322,14 +3322,14 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenAltParamRef
         typeArguments:
-        - !_OutputBase
+        - !_OutputArgument
           output: OutpGenAltParamAlt
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         output: OutpGenAltParamRef
         typeArguments:
-        - !_OutputBase
+        - !_OutputArgument
           output: OutpGenAltParamAlt
     name: OutpGenAltParam
     typeKind: !_TypeKind Output
@@ -3390,7 +3390,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: OutpGenDualAlt
     fields:
     - !_OutputField
@@ -3398,7 +3398,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: OutpGenDualAlt
     name: OutpGenDual
     typeKind: !_TypeKind Output
@@ -3482,7 +3482,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenFieldDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: OutpGenFieldDualAlt
     fields:
     - !_OutputField
@@ -3490,7 +3490,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenFieldDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: OutpGenFieldDualAlt
     name: OutpGenFieldDual
     typeKind: !_TypeKind Output
@@ -3538,7 +3538,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenFieldParamRef
         typeArguments:
-        - !_OutputBase
+        - !_OutputArgument
           output: OutpGenFieldParamAlt
     fields:
     - !_OutputField
@@ -3546,7 +3546,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenFieldParamRef
         typeArguments:
-        - !_OutputBase
+        - !_OutputArgument
           output: OutpGenFieldParamAlt
     name: OutpGenFieldParam
     typeKind: !_TypeKind Output
@@ -3607,7 +3607,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenParamRef
         typeArguments:
-        - !_OutputBase
+        - !_OutputArgument
           output: OutpGenParamAlt
     fields:
     - !_OutputField
@@ -3615,7 +3615,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenParamRef
         typeArguments:
-        - !_OutputBase
+        - !_OutputArgument
           output: OutpGenParamAlt
     name: OutpGenParam
     typeKind: !_TypeKind Output
@@ -3664,7 +3664,7 @@ types: !_Map_Type
     parent: !_OutputBase
       output: OutpGenParentDualRef
       typeArguments:
-      - !_DualBase
+      - !_DualArgument
         dual: OutpGenParentDualAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentDualAlt: !_TypeDual
@@ -3712,7 +3712,7 @@ types: !_Map_Type
     parent: !_OutputBase
       output: OutpGenParentParamRef
       typeArguments:
-      - !_OutputBase
+      - !_OutputArgument
         output: OutpGenParentParamAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentParamAlt: !_TypeOutput

@@ -14,7 +14,7 @@
             "input": "InpGenFieldDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "InpGenFieldDualAlt"
               }
             ]
@@ -30,7 +30,7 @@
             "input": "InpGenFieldDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "InpGenFieldDualAlt"
               }
             ]

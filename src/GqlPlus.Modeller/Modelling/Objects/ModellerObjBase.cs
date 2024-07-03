@@ -1,22 +1,13 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-internal abstract class ModellerObjBase<TObjBaseAst, TObjBase>
-  : ModellerObjBase<TObjBaseAst, TObjBase, TObjBase>
-  where TObjBaseAst : IGqlpObjBase<TObjBaseAst>
+internal abstract class ModellerObjBase<TObjBaseAst, TObjArgAst, TObjBase, TObjArg>(
+    IModeller<TObjArgAst, TObjArg> objArgument
+) : ModellerBase<TObjBaseAst, TObjBase>
+  where TObjBaseAst : IGqlpObjBase<TObjArgAst>
+  where TObjArgAst : IGqlpObjArgument
   where TObjBase : IObjBaseModel
+  where TObjArg : IModelBase
 {
-  internal override TObjBase NewArgument(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
-    => ToModel(ast, typeKinds);
-}
-
-internal abstract class ModellerObjBase<TObjBaseAst, TObjBase, TArg>
-  : ModellerBase<TObjBaseAst, TObjBase>
-  where TObjBaseAst : IGqlpObjBase<TObjBaseAst>
-  where TObjBase : IObjBaseModel
-  where TArg : IModelBase
-{
-  internal TArg[] ModelArguments(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
-    => [.. ast.BaseArguments.Select(a => NewArgument(a, typeKinds))];
-
-  internal abstract TArg NewArgument(TObjBaseAst ast, IMap<TypeKindModel> typeKinds);
+  internal TObjArg[] ModelArguments(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
+    => [.. ast.BaseArguments.Select(a => objArgument.ToModel(a, typeKinds))];
 }

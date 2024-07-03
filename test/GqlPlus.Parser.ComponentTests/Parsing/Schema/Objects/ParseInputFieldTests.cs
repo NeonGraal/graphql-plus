@@ -17,5 +17,5 @@ public class ParseInputFieldTests(
 
   internal override ICheckObjectField FieldChecks => _checks;
 
-  private readonly CheckObjectField<IGqlpInputField, InputFieldAst, IGqlpInputBase, InputBaseAst> _checks = new(new InputFactories(), parser);
+  private readonly CheckObjectField<IGqlpInputField, InputFieldAst, IGqlpInputBase, InputBaseAst, IGqlpInputArgument, InputArgumentAst> _checks = new(new InputFactories(), parser);
 }

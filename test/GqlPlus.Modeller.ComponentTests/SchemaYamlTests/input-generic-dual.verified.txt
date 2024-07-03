@@ -8,7 +8,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: InpGenDualAlt
     fields:
     - !_InputField
@@ -16,7 +16,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: InpGenDualAlt
     name: InpGenDual
     typeKind: !_TypeKind Input

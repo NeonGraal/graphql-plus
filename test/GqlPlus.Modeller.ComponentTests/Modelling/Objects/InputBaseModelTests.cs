@@ -6,9 +6,9 @@ namespace GqlPlus.Modelling.Objects;
 public class InputBaseModelTests(
   IModeller<IGqlpInputBase, InputBaseModel> modeller,
   IRenderer<InputBaseModel> rendering
-) : TestObjBaseModel<IGqlpInputBase>
+) : TestObjBaseModel<IGqlpInputBase, IGqlpInputArgument>
 {
-  internal override ICheckObjBaseModel<IGqlpInputBase> ObjBaseChecks => _checks;
+  internal override ICheckObjBaseModel<IGqlpInputBase, IGqlpInputArgument> ObjBaseChecks => _checks;
 
   private readonly InputBaseModelChecks _checks = new(modeller, rendering);
 }
@@ -16,9 +16,14 @@ public class InputBaseModelTests(
 internal sealed class InputBaseModelChecks(
   IModeller<IGqlpInputBase, InputBaseModel> modeller,
   IRenderer<InputBaseModel> rendering
-) : CheckObjBaseModel<IGqlpInputBase, InputBaseAst, InputBaseModel>(modeller, rendering, TypeKindModel.Input)
+) : CheckObjBaseModel<IGqlpInputBase, IGqlpInputArgument, InputBaseAst, InputArgumentAst, InputBaseModel>(modeller, rendering, TypeKindModel.Input)
 {
-  protected override InputBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpInputBase[] args)
+  protected override InputArgumentAst NewObjArgAst(string input, bool isTypeParam)
+    => new(AstNulls.At, input) {
+      IsTypeParameter = isTypeParam,
+    };
+
+  protected override InputBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpInputArgument[] args)
     => new(AstNulls.At, input) {
       IsTypeParameter = isTypeParam,
       BaseArguments = args,

@@ -14,7 +14,7 @@
             "dual": "DualGenFieldParamRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenFieldParamAlt"
               }
             ]
@@ -30,7 +30,7 @@
             "dual": "DualGenFieldParamRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "DualGenFieldParamAlt"
               }
             ]

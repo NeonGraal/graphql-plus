@@ -14,7 +14,7 @@
             "output": "OutpGenFieldDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "OutpGenFieldDualAlt"
               }
             ]
@@ -30,7 +30,7 @@
             "output": "OutpGenFieldDualRef",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "OutpGenFieldDualAlt"
               }
             ]

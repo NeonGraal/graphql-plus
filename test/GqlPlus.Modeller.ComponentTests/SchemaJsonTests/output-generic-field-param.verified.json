@@ -14,7 +14,7 @@
             "output": "OutpGenFieldParamRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "OutpGenFieldParamAlt"
               }
             ]
@@ -30,7 +30,7 @@
             "output": "OutpGenFieldParamRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "OutpGenFieldParamAlt"
               }
             ]

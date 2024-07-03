@@ -7,14 +7,14 @@ types: !_Map_Type
       type: !_OutputBase
         output: OutpGenAltParamRef
         typeArguments:
-        - !_OutputBase
+        - !_OutputArgument
           output: OutpGenAltParamAlt
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         output: OutpGenAltParamRef
         typeArguments:
-        - !_OutputBase
+        - !_OutputArgument
           output: OutpGenAltParamAlt
     name: OutpGenAltParam
     typeKind: !_TypeKind Output

@@ -14,7 +14,17 @@
     {
       "$tag": "_Error",
       "_kind": "End",
+      "_message": "In _InputParent can\u0027t get model for type \u0027_ObjDescribed\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
       "_message": "In _InputField can\u0027t get model for type \u0027_Field\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _InputAlternate can\u0027t get model for type \u0027_Alternate\u0027"
     },
     {
       "$tag": "_Error",
@@ -24,6 +34,21 @@
   ],
   "types": {
     "$tag": "_Map_Type",
+    "_InputAlternate": {
+      "$tag": "_TypeOutput",
+      "name": "_InputAlternate",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Alternate",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "value": "_InputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_InputBase": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -69,13 +94,7 @@
       "name": "_InputBase",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjBase",
-        "typeArguments": [
-          {
-            "$tag": "_OutputBase",
-            "value": "_InputBase"
-          }
-        ]
+        "value": "_ObjBase"
       },
       "typeKind": "Output"
     },
@@ -120,7 +139,7 @@
         "output": "_Field",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_InputBase"
           }
         ]
@@ -197,7 +216,22 @@
         "output": "_ObjDescribed",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
+            "value": "_InputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_InputParent": {
+      "$tag": "_TypeOutput",
+      "name": "_InputParent",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjDescribed",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
             "value": "_InputBase"
           }
         ]
@@ -218,12 +252,16 @@
             "typeKind": "Enum"
           },
           {
-            "$tag": "_OutputBase",
-            "value": "_InputBase"
+            "$tag": "_OutputArgument",
+            "value": "_InputParent"
           },
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_InputField"
+          },
+          {
+            "$tag": "_OutputArgument",
+            "value": "_InputAlternate"
           }
         ]
       },

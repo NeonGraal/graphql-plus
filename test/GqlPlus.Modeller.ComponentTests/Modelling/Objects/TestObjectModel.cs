@@ -3,7 +3,7 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Modelling.Objects;
 
-public abstract class TestObjectModel<TObject, TObjField, TObjAlt, TObjBase>
+public abstract class TestObjectModel<TObject, TObjBase, TObjField, TObjAlt>
   : TestTypeModel<IGqlpObjBase, string, TypeKindModel>
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjField : IGqlpObjField

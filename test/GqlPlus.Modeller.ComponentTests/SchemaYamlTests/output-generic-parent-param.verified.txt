@@ -9,7 +9,7 @@ types: !_Map_Type
     parent: !_OutputBase
       output: OutpGenParentParamRef
       typeArguments:
-      - !_OutputBase
+      - !_OutputArgument
         output: OutpGenParentParamAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentParamAlt: !_TypeOutput

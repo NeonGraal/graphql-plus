@@ -9,7 +9,7 @@ types: !_Map_Type
     parent: !_DualBase
       dual: DualGenParentDualRef
       typeArguments:
-      - !_DualBase
+      - !_DualArgument
         dual: DualGenParentDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentDualAlt: !_TypeDual

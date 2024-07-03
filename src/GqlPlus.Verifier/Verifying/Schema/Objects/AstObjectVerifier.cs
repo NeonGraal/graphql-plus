@@ -4,7 +4,7 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Verification.Schema;
 
-internal abstract class AstObjectVerifier<TObject, TObjBase, TObjField, TObjAlt, TContext>(
+internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField, TObjAlt, TContext>(
   IVerifyAliased<TObject> aliased,
   IMerge<TObjField> mergeFields,
   IMerge<TObjAlt> mergeAlternates,
@@ -13,8 +13,9 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjField, TObjAlt,
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjField : IGqlpObjField<TObjBase>
   where TObjAlt : IGqlpObjAlternate<TObjBase>
-  where TObjBase : IGqlpObjBase<TObjBase>
-  where TContext : UsageContext
+  where TObjBase : IGqlpObjBase<TObjArg>
+  where TObjArg : IGqlpObjArgument
+where TContext : UsageContext
 {
   private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParameter>));
 
@@ -23,7 +24,9 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjField, TObjAlt,
     base.UsageValue(usage, context);
 
     if (usage.ObjParent is not null) {
-      context.CheckType(usage.ObjParent, " Parent", false);
+      context
+        .CheckType(usage.ObjParent, " Parent", false)
+        .CheckArguments(usage.ObjParent.BaseArguments, " Parent");
     }
 
     foreach (TObjField field in usage.ObjFields) {
@@ -49,11 +52,13 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjField, TObjAlt,
   protected virtual void UsageAlternate(TObjAlt alternate, TContext context)
     => context
       .CheckType(alternate.BaseType, " Alternate")
+      .CheckArguments(alternate.BaseType.BaseArguments, " Alternate")
       .CheckModifiers(alternate);
 
   protected virtual void UsageField(TObjField field, TContext context)
     => context
       .CheckType(field.BaseType, " Field")
+      .CheckArguments(field.BaseType.BaseArguments, " Field")
       .CheckModifiers(field);
 
   protected override string GetParent(IGqlpType<IGqlpObjBase> usage)

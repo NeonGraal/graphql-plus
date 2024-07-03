@@ -7,7 +7,7 @@ internal sealed record class InputBaseAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObjBase<IGqlpInputBase>(At, Name, Description)
+) : AstObjBase<IGqlpInputArgument>(At, Name, Description)
   , IEquatable<InputBaseAst>
   , IGqlpInputBase
 {
@@ -18,7 +18,7 @@ internal sealed record class InputBaseAst(
   public override string Label => "Input";
 
   string IGqlpInputBase.Input => Name;
-  IGqlpDualBase IGqlpToDual.ToDual => ToDual();
+  IGqlpDualBase IGqlpToDual<IGqlpDualBase>.ToDual => ToDual();
 
   public DualBaseAst ToDual()
     => new(At, Name, Description) {

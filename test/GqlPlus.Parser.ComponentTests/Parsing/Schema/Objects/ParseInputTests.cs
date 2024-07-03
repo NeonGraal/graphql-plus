@@ -9,5 +9,5 @@ public class ParseInputTests(
 {
   internal override ICheckObject ObjectChecks => _checks;
 
-  private readonly CheckObject<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, InputBaseAst> _checks = new(new InputFactories(), parser);
+  private readonly CheckObject<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, InputBaseAst, IGqlpInputArgument, InputArgumentAst> _checks = new(new InputFactories(), parser);
 }

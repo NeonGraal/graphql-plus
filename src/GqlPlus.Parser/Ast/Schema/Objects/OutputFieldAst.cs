@@ -30,6 +30,7 @@ internal sealed record class OutputFieldAst(
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Concat(Parameters.Bracket("(", ")"))
-      .Concat(BaseType.GetFields().Prepend(string.IsNullOrWhiteSpace(BaseType.EnumMember) ? ":" : "="))
+      .Append(string.IsNullOrWhiteSpace(BaseType.EnumMember) ? ":" : "=")
+      .Concat(BaseType.GetFields())
       .Concat(Modifiers.AsString());
 }

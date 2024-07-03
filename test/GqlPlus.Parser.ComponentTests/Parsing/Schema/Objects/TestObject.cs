@@ -81,7 +81,7 @@ public abstract class TestObject
 
 public record struct ObjectInput(string Name, string Other);
 
-internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst>
+internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
   : BaseAliasedChecks<ObjectInput, TObjectAst, TObject>, ICheckObject
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjectAst : AstObject<TObjBase, TObjField, TObjAlt>, TObject
@@ -90,11 +90,13 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
   where TObjAlt : IGqlpObjAlternate
   where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
+  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
+  where TObjArg : IGqlpObjArgument
+  where TObjArgAst : AstObjArgument, TObjArg
 {
-  private readonly IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst> _factories;
+  private readonly IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst> _factories;
 
-  internal CheckObject(IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst> factories, Parser<TObject>.D parser)
+  internal CheckObject(IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst> factories, Parser<TObject>.D parser)
     : base(parser)
     => _factories = factories;
 
@@ -210,7 +212,10 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
     => _factories.ObjBase(AstNulls.At, type, description);
 
   public TObjBase ObjBaseWithArgs(string type, string subType)
-    => ObjBase(type) with { BaseArguments = [ObjBase(subType)] };
+    => ObjBase(type) with { BaseArguments = [ObjArg(subType)] };
+
+  public TObjArgAst ObjArg(string type, string description = "")
+    => _factories.ObjArgument(AstNulls.At, type, description);
 
   protected internal sealed override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";

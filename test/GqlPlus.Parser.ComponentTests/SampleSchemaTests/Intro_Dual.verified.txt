@@ -10,13 +10,11 @@ Success
     I@019/0002
     _TypeKind.Dual
     I@034/0002
-    _DualBase
-    I@044/0002
-    _Field
-    <
-      I@051/0002
-      _DualBase
-    >
+    _DualParent
+    I@046/0002
+    _DualField
+    I@057/0002
+    _DualAlternate
   >
 }
 {
@@ -25,10 +23,6 @@ Success
   :
   I@007/0006
   _ObjBase
-  <
-    I@016/0006
-    _DualBase
-  >
   {
     !OF I@009/0007
     dual
@@ -36,4 +30,37 @@ Success
     I@015/0007
     _Identifier
   }
+}
+{
+  !Ou I@008/0010
+  _DualParent
+  :
+  I@007/0011
+  _ObjDescribed
+  <
+    I@021/0011
+    _DualBase
+  >
+}
+{
+  !Ou I@008/0014
+  _DualField
+  :
+  I@007/0015
+  _Field
+  <
+    I@014/0015
+    _DualBase
+  >
+}
+{
+  !Ou I@008/0018
+  _DualAlternate
+  :
+  I@007/0019
+  _Alternate
+  <
+    I@018/0019
+    _DualBase
+  >
 }

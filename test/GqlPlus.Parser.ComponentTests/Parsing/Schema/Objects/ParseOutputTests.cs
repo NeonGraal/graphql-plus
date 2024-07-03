@@ -9,6 +9,6 @@ public class ParseOutputTests(
 {
   internal override ICheckObject ObjectChecks => _checks;
 
-  private readonly CheckObject<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, OutputBaseAst> _checks
+  private readonly CheckObject<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, OutputBaseAst, IGqlpOutputArgument, OutputArgumentAst> _checks
     = new(new OutputFactories(), parser);
 }

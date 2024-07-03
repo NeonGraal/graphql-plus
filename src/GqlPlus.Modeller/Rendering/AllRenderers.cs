@@ -42,6 +42,7 @@ public static class AllRenderers
       .AddItemRenderer<UnionMemberModel, UnionMemberRenderer>()
       // Object
       // Dual
+      .AddRenderer<DualArgumentModel, DualArgumentRenderer>()
       .AddRenderer<DualBaseModel, DualBaseRenderer>()
       .AddBaseRenderer<DualBaseModel>()
       .AddRenderer<DualFieldModel, DualFieldRenderer>()
@@ -49,6 +50,7 @@ public static class AllRenderers
       .AddTypeRenderer<TypeDualModel, TypeDualRenderer>()
       .AddObjectRenderers<DualBaseModel, DualFieldModel, DualAlternateModel>()
       // Input
+      .AddRenderer<InputArgumentModel, InputArgumentRenderer>()
       .AddRenderer<InputBaseModel, InputBaseRenderer>()
       .AddBaseRenderer<InputBaseModel>()
       .AddRenderer<InputFieldModel, InputFieldRenderer>()
@@ -57,7 +59,8 @@ public static class AllRenderers
       .AddTypeRenderer<TypeInputModel, TypeInputRenderer>()
       .AddObjectRenderers<InputBaseModel, InputFieldModel, InputAlternateModel>()
       // Output
-      .AddOutputBaseRenderer()
+      .AddRenderer<OutputArgumentModel, OutputArgumentRenderer>()
+      .AddRenderer<OutputBaseModel, OutputBaseRenderer>()
       .AddBaseRenderer<OutputBaseModel>()
       .AddRenderer<OutputEnumModel, OutputEnumRenderer>()
       .AddRenderer<OutputFieldModel, OutputFieldRenderer>()
@@ -110,10 +113,4 @@ public static class AllRenderers
       .AddSingleton<ModifierBaseRenderers<TBase>>()
       .AddSingleton<CollectionBaseRenderers<TBase>>()
       .AddRenderer<ObjDescribedModel<TBase>, BaseDescribedRenderer<TBase>>();
-
-  private static IServiceCollection AddOutputBaseRenderer(this IServiceCollection services)
-    => services
-      .AddSingleton<OutputArgumentAndBaseRenderer>()
-      .AddProvider<OutputArgumentAndBaseRenderer, IRenderer<OutputArgumentModel>>()
-      .AddProvider<OutputArgumentAndBaseRenderer, IRenderer<OutputBaseModel>>();
 }

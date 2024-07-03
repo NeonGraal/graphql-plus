@@ -32,9 +32,9 @@ public static class BuiltIn
     DualObj("IfElse", TypeParameters("T"), DualDict("Boolean")),
     DualObj("Set", TypeParameters("K"), DualDict("Unit", true)),
     DualObj("Mask", TypeParameters("K"), DualDict("Boolean", true)),
-    DualObj("Object", [], DualRef("_Map", DualRef("_Any"))) with { Aliases = ["%", "Object"] },
+    DualObj("Object", [], DualRef("_Map", DualArg("_Any"))) with { Aliases = ["%", "Object"] },
     DualObj("Most", TypeParameters("T"),
-      DualAlt(null), DualType("_Object"), DualMost("", true), DualType("_MostList", DualParam("T")), DualType("_MostDictionary", DualParam("T"))),
+      DualAlt(null), DualType("_Object"), DualMost("", true), DualType("_MostList", DualArgParam("T")), DualType("_MostDictionary", DualArgParam("T"))),
     DualObj("MostList", TypeParameters("T"), DualMost("")),
     DualObj("MostDictionary", TypeParameters("T"), DualMost("Simple", true)),
 
@@ -63,11 +63,11 @@ public static class BuiltIn
   private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, DualBaseAst parent)
     => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Parent = parent };
 
-  private static DualAlternateAst DualType(string type, params DualBaseAst[] args)
+  private static DualAlternateAst DualType(string type, params IGqlpDualArgument[] args)
     => new(AstNulls.At, DualRef(type, args));
 
   private static DualAlternateAst DualAlt(string? key)
-    => new(AstNulls.At, DualParam("T")) {
+    => new(AstNulls.At, DualRefParam("T")) {
       Modifiers = key switch {
         null => [],
         "" => [ModifierAst.List(AstNulls.At)],
@@ -77,29 +77,35 @@ public static class BuiltIn
     };
 
   private static DualAlternateAst DualAltParam(string param)
-    => new(AstNulls.At, DualParam("T")) {
+    => new(AstNulls.At, DualRefParam("T")) {
       Modifiers = [ModifierAst.Param(AstNulls.At, param, false)]
     };
 
   private static DualAlternateAst DualMost(string key, bool optional = false)
-    => new(AstNulls.At, DualRef("_Most", DualParam("T"))) {
+    => new(AstNulls.At, DualRef("_Most", DualArgParam("T"))) {
       Modifiers = key switch {
         "" => [optional ? ModifierAst.Optional(AstNulls.At) : ModifierAst.List(AstNulls.At)],
         _ => [ModifierAst.Dict(AstNulls.At, key, optional)]
       }
     };
 
-  private static DualBaseAst DualRef(string name, params DualBaseAst[] args)
+  private static DualBaseAst DualRef(string name, params IGqlpDualArgument[] args)
     => new DualBaseAst(AstNulls.At, name, "") with { BaseArguments = args };
 
-  private static DualBaseAst DualParam(string name)
+  private static DualBaseAst DualRefParam(string name)
     => DualRef(name) with { IsTypeParameter = true };
+
+  private static DualArgumentAst DualArg(string name)
+    => new(AstNulls.At, name, "");
+
+  private static DualArgumentAst DualArgParam(string name)
+    => DualArg(name) with { IsTypeParameter = true };
 
   private static DualBaseAst DualDict(string type, bool paramSecond = false)
     => DualRef("_Dict") with {
       BaseArguments = [
-        paramSecond ? DualParam("K") : DualRef(type),
-        paramSecond ? DualRef(type) : DualParam("T")
+        paramSecond ? DualArgParam("K") : DualArg(type),
+        paramSecond ? DualArg(type) : DualArgParam("T")
       ]
     };
 }

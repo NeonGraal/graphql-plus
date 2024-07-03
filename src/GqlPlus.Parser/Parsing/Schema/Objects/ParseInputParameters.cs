@@ -4,9 +4,9 @@ using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
-namespace GqlPlus.Parsing.Schema;
+namespace GqlPlus.Parsing.Schema.Objects;
 
-internal class ParseParameters(
+internal class ParseInputParameters(
   Parser<IGqlpInputBase>.D input,
   Parser<IGqlpModifier>.DA modifiers,
   Parser<IParserDefault, IGqlpConstant>.D defaultParser

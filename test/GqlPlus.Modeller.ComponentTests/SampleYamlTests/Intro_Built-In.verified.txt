@@ -246,7 +246,7 @@ types: !_Map_Type
           member: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-        - !_OutputBase
+        - !_OutputArgument
           output: Number
     - !_ObjectFor(_OutputAlternate)
       object: _Simple
@@ -257,7 +257,7 @@ types: !_Map_Type
           member: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-        - !_OutputBase
+        - !_OutputArgument
           output: String
     - !_ObjectFor(_OutputAlternate)
       object: _Simple
@@ -275,7 +275,7 @@ types: !_Map_Type
           member: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-        - !_OutputBase
+        - !_OutputArgument
           output: Number
     - !_OutputAlternate
       type: !_OutputBase
@@ -285,7 +285,7 @@ types: !_Map_Type
           member: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
-        - !_OutputBase
+        - !_OutputArgument
           output: String
     - !_OutputAlternate
       type: !_OutputBase

@@ -6,7 +6,7 @@ namespace GqlPlus.Modelling.Objects;
 public class DualModelTests(
   IModeller<IGqlpDualObject, TypeDualModel> modeller,
   IRenderer<TypeDualModel> rendering
-) : TestObjectModel<IGqlpDualObject, IGqlpDualField, IGqlpDualAlternate, IGqlpDualBase>
+) : TestObjectModel<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
 {
   internal override ICheckObjectModel<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate> ObjectChecks => _checks;
 

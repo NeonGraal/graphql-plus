@@ -8,7 +8,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenFieldDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: InpGenFieldDualAlt
     fields:
     - !_InputField
@@ -16,7 +16,7 @@ types: !_Map_Type
       type: !_InputBase
         input: InpGenFieldDualRef
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: InpGenFieldDualAlt
     name: InpGenFieldDual
     typeKind: !_TypeKind Input

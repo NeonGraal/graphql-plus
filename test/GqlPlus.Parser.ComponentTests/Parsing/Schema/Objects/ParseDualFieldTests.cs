@@ -9,5 +9,5 @@ public class ParseDualFieldTests(
 {
   internal override ICheckObjectField FieldChecks => _checks;
 
-  private readonly CheckObjectField<IGqlpDualField, DualFieldAst, IGqlpDualBase, DualBaseAst> _checks = new(new DualFactories(), parser);
+  private readonly CheckObjectField<IGqlpDualField, DualFieldAst, IGqlpDualBase, DualBaseAst, IGqlpDualArgument, DualArgumentAst> _checks = new(new DualFactories(), parser);
 }

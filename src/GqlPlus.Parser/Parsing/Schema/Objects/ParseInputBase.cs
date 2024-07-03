@@ -5,8 +5,9 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal class ParseInputBase
-  : ObjectBaseParser<IGqlpInputBase, InputBaseAst>
+internal class ParseInputBase(
+  Parser<IGqlpInputArgument>.DA parseArgs
+) : ObjectBaseParser<IGqlpInputBase, InputBaseAst, IGqlpInputArgument, InputArgumentAst>(parseArgs)
 {
   protected override InputBaseAst ObjBase(TokenAt at, string param, string description)
     => new(at, param, description);

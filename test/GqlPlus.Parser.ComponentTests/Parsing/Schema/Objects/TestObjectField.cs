@@ -29,17 +29,19 @@ public abstract class TestObjectField
   internal sealed override IBaseAliasedChecks<FieldInput> AliasChecks => FieldChecks;
 }
 
-internal sealed class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBaseAst>
+internal sealed class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
   : BaseAliasedChecks<FieldInput, TObjFieldAst, TObjField>
   , ICheckObjectField
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
+  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
+  where TObjArg : IGqlpObjArgument
+  where TObjArgAst : AstObjArgument, TObjArg
 {
-  private readonly IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst> _factories;
+  private readonly IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst> _factories;
 
-  internal CheckObjectField(IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst> factories, Parser<TObjField>.D parser)
+  internal CheckObjectField(IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst> factories, Parser<TObjField>.D parser)
     : base(parser)
     => _factories = factories;
 

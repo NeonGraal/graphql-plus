@@ -12,7 +12,7 @@ public class ParseOutputBaseTests(
     => _checks.TrueExpected(
       name + "<" + enumValues.Joined(s => enumType + "." + s) + ">",
       _checks.ObjBase(name) with {
-        BaseArguments = [.. enumValues.Select(enumMember => _checks.ObjBase(enumType) with { EnumMember = enumMember })]
+        BaseArguments = [.. enumValues.Select(enumMember => _checks.ObjArg(enumType) with { EnumMember = enumMember })]
       });
 
   [Theory, RepeatData(Repeats)]
@@ -21,5 +21,5 @@ public class ParseOutputBaseTests(
 
   internal override ICheckObjectBase ObjectBaseChecks => _checks;
 
-  private readonly CheckObjectBase<IGqlpOutputBase, OutputBaseAst> _checks = new(new OutputFactories(), parser);
+  private readonly CheckObjectBase<IGqlpOutputBase, OutputBaseAst, IGqlpOutputArgument, OutputArgumentAst> _checks = new(new OutputFactories(), parser);
 }

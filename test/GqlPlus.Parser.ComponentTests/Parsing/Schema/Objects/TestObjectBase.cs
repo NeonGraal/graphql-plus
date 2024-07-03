@@ -42,14 +42,16 @@ public abstract class TestObjectBase
   internal abstract ICheckObjectBase ObjectBaseChecks { get; }
 }
 
-internal sealed class CheckObjectBase<TObjBase, TObjBaseAst>(
-  IObjectBaseFactories<TObjBase, TObjBaseAst> factories,
+internal sealed class CheckObjectBase<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>(
+  IObjectBaseFactories<TObjBase, TObjBaseAst, TObjArg, TObjArgAst> factories,
   Parser<TObjBase>.D parser
 ) : OneChecksParser<TObjBase>(parser), ICheckObjectBase
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
+  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
+  where TObjArg : IGqlpObjArgument
+  where TObjArgAst : AstObjArgument, TObjArg
 {
-  private readonly IObjectBaseFactories<TObjBase, TObjBaseAst> _factories = factories;
+  private readonly IObjectBaseFactories<TObjBase, TObjBaseAst, TObjArg, TObjArgAst> _factories = factories;
 
   public void WithMinimum(string name)
     => TrueExpected(name, ObjBase(name));
@@ -64,7 +66,7 @@ internal sealed class CheckObjectBase<TObjBase, TObjBaseAst>(
     => TrueExpected(
       name + "<" + objBases.Joined() + ">",
       ObjBase(name) with {
-        BaseArguments = [.. objBases.Select(ObjBase)]
+        BaseArguments = [.. objBases.Select(ObjArg)]
       });
 
   public void WithTypeArgumentsBad(string name, string[] objBases)
@@ -75,6 +77,9 @@ internal sealed class CheckObjectBase<TObjBase, TObjBaseAst>(
 
   public TObjBaseAst ObjBase(string type)
     => _factories.ObjBase(AstNulls.At, type);
+
+  public TObjArgAst ObjArg(string type)
+    => _factories.ObjArgument(AstNulls.At, type);
 }
 
 public interface ICheckObjectBase

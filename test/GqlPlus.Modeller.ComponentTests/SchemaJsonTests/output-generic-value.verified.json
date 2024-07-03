@@ -13,7 +13,7 @@
             "output": "OutGenValueRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "outValueGen"
               }
             ]
@@ -28,7 +28,7 @@
             "output": "OutGenValueRef",
             "typeArguments": [
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "outValueGen"
               }
             ]

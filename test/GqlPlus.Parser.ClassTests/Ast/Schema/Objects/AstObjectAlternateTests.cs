@@ -39,12 +39,14 @@ public abstract class AstObjectAlternateTests<TObjBase>
   internal abstract IAstObjectAlternateChecks<TObjBase> AlternateChecks { get; }
 }
 
-internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst>
+internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
   : AstAbbreviatedChecks<AlternateInput, TObjAltAst>
   , IAstObjectAlternateChecks<TObjBase>
   where TObjAltAst : AstObjAlternate<TObjBase>
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjBase>, TObjBase
+  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
+  where TObjArg : IGqlpObjArgument
+  where TObjArgAst : AstObjArgument, TObjArg
 {
   private readonly AlternateBy _createAlternate;
   private readonly BaseBy _createBase;
@@ -52,7 +54,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
 
   internal delegate TObjBaseAst BaseBy(AlternateInput input);
   internal delegate TObjAltAst AlternateBy(AlternateInput input, TObjBase refBase);
-  internal delegate TObjBaseAst[] ArgumentsBy(string[] arguments);
+  internal delegate TObjArgAst[] ArgumentsBy(string[] arguments);
 
   public AstObjectAlternateChecks(AlternateBy createAlternate, BaseBy createBase, ArgumentsBy createArguments)
     : base(input => createAlternate(input, createBase(input)))

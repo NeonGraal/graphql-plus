@@ -19,22 +19,31 @@ public interface IGqlpObject<TBase, TField, TAlt>
   IEnumerable<TAlt> ObjAlternates { get; }
 }
 
-public interface IGqlpObjBase
+public interface IGqlpObjType
   : IGqlpAbbreviated
   , IGqlpDescribed
-  , IEquatable<IGqlpObjBase>
 {
   string Label { get; }
   string TypeName { get; }
   string FullType { get; }
-
   bool IsTypeParameter { get; }
-  IEnumerable<IGqlpObjBase> Arguments { get; }
+}
+
+public interface IGqlpObjArgument
+  : IGqlpObjType
+  , IEquatable<IGqlpObjArgument>
+{ }
+
+public interface IGqlpObjBase
+  : IGqlpObjType
+  , IEquatable<IGqlpObjBase>
+{
+  IEnumerable<IGqlpObjArgument> Arguments { get; }
 }
 
 public interface IGqlpObjBase<TBase>
   : IGqlpObjBase
-  where TBase : IGqlpObjBase
+  where TBase : IGqlpObjArgument
 {
   IEnumerable<TBase> BaseArguments { get; }
 }
@@ -77,8 +86,14 @@ public interface IGqlpDualObject
   : IGqlpObject<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
 { }
 
+public interface IGqlpDualArgument
+  : IGqlpObjArgument
+{
+  string Dual { get; }
+}
+
 public interface IGqlpDualBase
-  : IGqlpObjBase<IGqlpDualBase>
+  : IGqlpObjBase<IGqlpDualArgument>
 {
   string Dual { get; }
 }
@@ -91,18 +106,26 @@ public interface IGqlpDualAlternate
   : IGqlpObjAlternate<IGqlpDualBase>
 { }
 
-public interface IGqlpToDual
+public interface IGqlpToDual<T>
+  where T : IGqlpObjType
 {
-  IGqlpDualBase ToDual { get; }
+  T ToDual { get; }
 }
 
 public interface IGqlpInputObject
   : IGqlpObject<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
 { }
 
+public interface IGqlpInputArgument
+  : IGqlpObjArgument
+  , IGqlpToDual<IGqlpDualArgument>
+{
+  string Input { get; }
+}
+
 public interface IGqlpInputBase
-  : IGqlpObjBase<IGqlpInputBase>
-  , IGqlpToDual
+  : IGqlpObjBase<IGqlpInputArgument>
+  , IGqlpToDual<IGqlpDualBase>
 {
   string Input { get; }
 }
@@ -121,14 +144,29 @@ public interface IGqlpOutputObject
   : IGqlpObject<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
 { }
 
-public interface IGqlpOutputBase
-  : IGqlpObjBase<IGqlpOutputBase>
-  , IGqlpToDual
+public interface IGqlpOutputEnum
+  : IGqlpError
 {
-  string Output { get; }
+  string EnumType { get; }
   string? EnumMember { get; }
 
   void SetEnumType(string enumType);
+}
+
+public interface IGqlpOutputArgument
+  : IGqlpObjArgument
+  , IGqlpOutputEnum
+  , IGqlpToDual<IGqlpDualArgument>
+{
+  string Output { get; }
+}
+
+public interface IGqlpOutputBase
+  : IGqlpObjBase<IGqlpOutputArgument>
+  , IGqlpOutputEnum
+  , IGqlpToDual<IGqlpDualBase>
+{
+  string Output { get; }
 }
 
 public interface IGqlpOutputField

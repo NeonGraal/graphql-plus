@@ -8,9 +8,14 @@ public record class TypeDualModel(
     => parent?.Base.Dual;
 }
 
+public record class DualArgumentModel(
+  string Dual
+) : ObjArgumentModel
+{ }
+
 public record class DualBaseModel(
   string Dual
-) : ObjBaseModel<DualBaseModel>
+) : ObjBaseModel<DualArgumentModel>
 { }
 
 public record class DualFieldModel(

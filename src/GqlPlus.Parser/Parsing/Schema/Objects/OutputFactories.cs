@@ -5,7 +5,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class OutputFactories
-  : IObjectFactories<OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, OutputBaseAst>
+  : IObjectFactories<OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, OutputBaseAst, IGqlpOutputArgument, OutputArgumentAst>
 {
   public OutputFieldAst ObjField(TokenAt at, string name, IGqlpOutputBase typeBase, string description)
     => new(at, name, description, typeBase);
@@ -15,6 +15,10 @@ internal class OutputFactories
 
   public OutputBaseAst ObjBase(TokenAt at, string name, string description)
     => new(at, name, description);
+
   public OutputAlternateAst ObjAlternate(TokenAt at, IGqlpOutputBase typeBase)
     => new(at, typeBase);
+
+  public OutputArgumentAst ObjArgument(TokenAt at, string name, string description = "")
+    => new(at, name, description);
 }

@@ -6,7 +6,7 @@ namespace GqlPlus.Modelling.Objects;
 public class InputModelTests(
   IModeller<IGqlpInputObject, TypeInputModel> modeller,
   IRenderer<TypeInputModel> rendering
-) : TestObjectModel<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate, IGqlpInputBase>
+) : TestObjectModel<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
 {
   internal override ICheckObjectModel<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate> ObjectChecks => _checks;
 

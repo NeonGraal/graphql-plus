@@ -3,42 +3,34 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal abstract record class AstObjBase<TObjBase>(
+internal abstract record class AstObjBase<TObjArg>(
   TokenAt At,
   string Name,
   string Description
-) : AstDescribed(At, Name, Description)
-  , IEquatable<AstObjBase<TObjBase>>
-  , IGqlpObjBase<TObjBase>
-  where TObjBase : IGqlpObjBase
+) : AstObjType(At, Name, Description)
+  , IEquatable<AstObjBase<TObjArg>>
+  , IGqlpObjBase<TObjArg>
+  where TObjArg : IGqlpObjArgument
 {
-  public bool IsTypeParameter { get; set; }
-  public TObjBase[] BaseArguments { get; set; } = [];
+  public TObjArg[] BaseArguments { get; set; } = [];
 
-  public abstract string Label { get; }
-
-  public string TypeName => IsTypeParameter ? Name.Prefixed("$") : Name;
-
-  public string FullType => BaseArguments
+  public override string FullType => BaseArguments
     .Bracket("<", ">")
-    .Prepend(TypeName)
+    .Prepend(base.FullType)
     .Joined();
 
-  IEnumerable<IGqlpObjBase> IGqlpObjBase.Arguments => BaseArguments.Cast<IGqlpObjBase>();
-  IEnumerable<TObjBase> IGqlpObjBase<TObjBase>.BaseArguments => BaseArguments;
+  IEnumerable<IGqlpObjArgument> IGqlpObjBase.Arguments => BaseArguments.Cast<IGqlpObjArgument>();
+  IEnumerable<TObjArg> IGqlpObjBase<TObjArg>.BaseArguments => BaseArguments;
   bool IEquatable<IGqlpObjBase>.Equals(IGqlpObjBase? other)
-    => Equals(other as AstObjBase<TObjBase>);
+    => Equals(other as AstObjBase<TObjArg>);
 
-  public virtual bool Equals(AstObjBase<TObjBase>? other)
+  public virtual bool Equals(AstObjBase<TObjArg>? other)
     => base.Equals(other)
-    && IsTypeParameter == other!.IsTypeParameter
     && BaseArguments.SequenceEqual(other.BaseArguments);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), IsTypeParameter, BaseArguments.Length);
+    => HashCode.Combine(base.GetHashCode(), BaseArguments.Length);
 
   internal override IEnumerable<string?> GetFields()
-    => new[] {
-      At.ToString(),
-      TypeName
-    }.Concat(BaseArguments.Bracket("<", ">"));
+    => base.GetFields()
+    .Concat(BaseArguments.Bracket("<", ">"));
 }

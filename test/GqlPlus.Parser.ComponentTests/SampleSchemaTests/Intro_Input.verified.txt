@@ -10,9 +10,11 @@ Success
     I@019/0002
     _TypeKind.Input
     I@035/0002
-    _InputBase
-    I@046/0002
+    _InputParent
+    I@048/0002
     _InputField
+    I@060/0002
+    _InputAlternate
   >
 }
 {
@@ -21,10 +23,6 @@ Success
   :
   I@007/0006
   _ObjBase
-  <
-    I@016/0006
-    _InputBase
-  >
   {
     !OF I@009/0007
     input
@@ -39,44 +37,66 @@ Success
 }
 {
   !Ou I@008/0011
-  _InputField
+  _InputParent
   :
   I@007/0012
+  _ObjDescribed
+  <
+    I@021/0012
+    _InputBase
+  >
+}
+{
+  !Ou I@008/0015
+  _InputField
+  :
+  I@007/0016
   _Field
   <
-    I@014/0012
+    I@014/0016
     _InputBase
   >
   {
-    !OF I@009/0013
+    !OF I@009/0017
     default
     :
-    I@018/0013
+    I@018/0017
     _Constant
     ?
   }
 }
 {
-  !Ou I@008/0016
+  !Ou I@008/0020
+  _InputAlternate
+  :
+  I@007/0021
+  _Alternate
+  <
+    I@018/0021
+    _InputBase
+  >
+}
+{
+  !Ou I@008/0024
   _InputParameter
   :
-  I@007/0017
+  I@007/0025
   _ObjDescribed
   <
-    I@021/0017
+    I@021/0025
     _InputBase
   >
   {
-    !OF I@009/0018
+    !OF I@009/0026
     modifiers
     :
-    I@020/0018
+    I@020/0026
     _Modifiers
     []
-    !OF I@009/0019
+    !OF I@009/0027
     default
     :
-    I@018/0019
+    I@018/0027
     _Constant
     ?
   }

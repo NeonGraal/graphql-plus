@@ -4,7 +4,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal class ParseOutputAlternate(
+internal class ParseOutputAlternates(
   ParserArray<IParserCollections, IGqlpModifier>.DA collections,
   Parser<IGqlpOutputBase>.D parseBase
 ) : ObjectAlternatesParser<IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase>(collections, parseBase)

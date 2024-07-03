@@ -24,6 +24,8 @@ Success
     _DomainKind.Boolean
     I@039/0004
     _DomainTrueFalse
+    I@056/0004
+    _DomainItemTrueFalse
   >
   !OA I@007/0005
   I@007/0005
@@ -33,6 +35,8 @@ Success
     _DomainKind.Enum
     I@036/0005
     _DomainMember
+    I@050/0005
+    _DomainItemMember
   >
   !OA I@007/0006
   I@007/0006
@@ -42,6 +46,8 @@ Success
     _DomainKind.Number
     I@038/0006
     _DomainRange
+    I@051/0006
+    _DomainItemRange
   >
   !OA I@007/0007
   I@007/0007
@@ -51,6 +57,8 @@ Success
     _DomainKind.String
     I@038/0007
     _DomainRegex
+    I@051/0007
+    _DomainItemRegex
   >
 }
 {
@@ -83,6 +91,8 @@ Success
     $domain
     I@029/0015
     $item
+    I@035/0015
+    $domainItem
   >
   :
   I@007/0016
@@ -92,12 +102,8 @@ Success
     _TypeKind.Domain
     I@037/0016
     $item
-    I@042/0016
-    _DomainItem
-    <
-      I@055/0016
-      $item
-    >
+    I@044/0016
+    $domainItem
   >
   {
     !OF I@009/0017
@@ -175,51 +181,95 @@ Success
   }
 }
 {
-  !Ou I@008/0037
-  _DomainMember
+  !Du I@006/0038
+  _DomainItemTrueFalse
   :
-  I@007/0038
-  _BaseDomainItem
-  {
-    !OF I@009/0039
-    value
-    :
-    I@016/0039
-    _EnumValue
-  }
+  I@007/0039
+  _DomainItem
+  <
+    I@019/0039
+    _DomainTrueFalse
+  >
 }
 {
-  !Du I@006/0041
-  _DomainRange
+  !Ou I@008/0041
+  _DomainMember
   :
   I@007/0042
   _BaseDomainItem
   {
-    !DF I@009/0043
-    lower
+    !OF I@009/0043
+    value
     :
     I@016/0043
+    _EnumValue
+  }
+}
+{
+  !Ou I@008/0046
+  _DomainItemMember
+  :
+  I@007/0047
+  _DomainItem
+  <
+    I@019/0047
+    _DomainMember
+  >
+}
+{
+  !Du I@006/0049
+  _DomainRange
+  :
+  I@007/0050
+  _BaseDomainItem
+  {
+    !DF I@009/0051
+    lower
+    :
+    I@016/0051
     Number
     ?
-    !DF I@009/0044
+    !DF I@009/0052
     upper
     :
-    I@016/0044
+    I@016/0052
     Number
     ?
   }
 }
 {
-  !Du I@006/0046
+  !Du I@006/0055
+  _DomainItemRange
+  :
+  I@007/0056
+  _DomainItem
+  <
+    I@019/0056
+    _DomainRange
+  >
+}
+{
+  !Du I@006/0058
   _DomainRegex
   :
-  I@007/0047
+  I@007/0059
   _BaseDomainItem
   {
-    !DF I@009/0048
+    !DF I@009/0060
     pattern
     :
-    I@018/0048
+    I@018/0060
     String
   }
+}
+{
+  !Du I@006/0063
+  _DomainItemRegex
+  :
+  I@007/0064
+  _DomainItem
+  <
+    I@019/0064
+    _DomainRegex
+  >
 }

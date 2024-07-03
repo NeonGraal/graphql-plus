@@ -43,11 +43,7 @@
             "typeKind": "Enum"
           },
           "item",
-          {
-            "$tag": "_DualBase",
-            "dual": "_DomainItem",
-            "typeArguments": ["item"]
-          }
+          "domainItem"
         ]
       },
       "typeKind": "Output",
@@ -59,6 +55,10 @@
         {
           "$tag": "_Described",
           "value": "item"
+        },
+        {
+          "$tag": "_Described",
+          "value": "domainItem"
         }
       ]
     },
@@ -120,6 +120,110 @@
           "value": "item"
         }
       ]
+    },
+    "_DomainItemMember": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "domain",
+          "object": "_DomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DomainItemMember",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_DomainItem",
+        "typeArguments": [
+          {
+            "$tag": "_DualArgument",
+            "value": "_DomainMember"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_DomainItemRange": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "domain",
+          "object": "_DomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DomainItemRange",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_DomainItem",
+        "typeArguments": [
+          {
+            "$tag": "_DualArgument",
+            "value": "_DomainRange"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
+    "_DomainItemRegex": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "domain",
+          "object": "_DomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DomainItemRegex",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_DomainItem",
+        "typeArguments": [
+          {
+            "$tag": "_DualArgument",
+            "value": "_DomainRegex"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
+    "_DomainItemTrueFalse": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "domain",
+          "object": "_DomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DomainItemTrueFalse",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_DomainItem",
+        "typeArguments": [
+          {
+            "$tag": "_DualArgument",
+            "value": "_DomainTrueFalse"
+          }
+        ]
+      },
+      "typeKind": "Dual"
     },
     "_DomainKind": {
       "$tag": "_TypeEnum",
@@ -459,8 +563,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_DomainTrueFalse"
+              },
+              {
+                "$tag": "_DualArgument",
+                "value": "_DomainItemTrueFalse"
               }
             ]
           }
@@ -479,8 +587,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "_DomainMember"
+              },
+              {
+                "$tag": "_OutputArgument",
+                "value": "_DomainItemMember"
               }
             ]
           }
@@ -499,8 +611,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_DomainRange"
+              },
+              {
+                "$tag": "_DualArgument",
+                "value": "_DomainItemRange"
               }
             ]
           }
@@ -519,8 +635,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_DomainRegex"
+              },
+              {
+                "$tag": "_DualArgument",
+                "value": "_DomainItemRegex"
               }
             ]
           }
@@ -540,8 +660,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_DomainTrueFalse"
+              },
+              {
+                "$tag": "_DualArgument",
+                "value": "_DomainItemTrueFalse"
               }
             ]
           }
@@ -559,8 +683,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "_DomainMember"
+              },
+              {
+                "$tag": "_OutputArgument",
+                "value": "_DomainItemMember"
               }
             ]
           }
@@ -578,8 +706,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_DomainRange"
+              },
+              {
+                "$tag": "_DualArgument",
+                "value": "_DomainItemRange"
               }
             ]
           }
@@ -597,8 +729,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_DomainRegex"
+              },
+              {
+                "$tag": "_DualArgument",
+                "value": "_DomainItemRegex"
               }
             ]
           }

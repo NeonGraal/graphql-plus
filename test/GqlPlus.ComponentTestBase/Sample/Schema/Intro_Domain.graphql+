@@ -1,10 +1,10 @@
 enum _DomainKind { Boolean Enum Number String }
 
 output _TypeDomain {
-    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse>
-    | _BaseDomain<_DomainKind.Enum _DomainMember>
-    | _BaseDomain<_DomainKind.Number _DomainRange>
-    | _BaseDomain<_DomainKind.String _DomainRegex>
+    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
+    | _BaseDomain<_DomainKind.Enum _DomainMember _DomainItemMember>
+    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
+    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
     }
 
 output _DomainRef<$kind> {
@@ -12,8 +12,8 @@ output _DomainRef<$kind> {
         domainKind: $kind
     }
 
-output _BaseDomain<$domain $item> {
-    : _ParentType<_TypeKind.Domain $item _DomainItem<$item>>
+output _BaseDomain<$domain $item $domainItem> {
+    : _ParentType<_TypeKind.Domain $item  $domainItem>
         domain: $domain
     }
 
@@ -34,16 +34,32 @@ dual _DomainTrueFalse {
     : _BaseDomainItem
         value: Boolean
     }
+
+dual _DomainItemTrueFalse {
+    : _DomainItem<_DomainTrueFalse>
+    }
 output _DomainMember {
     : _BaseDomainItem
         value: _EnumValue
+    }
+
+output _DomainItemMember {
+    : _DomainItem<_DomainMember>
     }
 dual _DomainRange {
     : _BaseDomainItem
         lower: Number?
         upper: Number?
     }
+
+dual _DomainItemRange {
+    : _DomainItem<_DomainRange>
+    }
 dual _DomainRegex {
     : _BaseDomainItem
         pattern: String
+    }
+
+dual _DomainItemRegex {
+    : _DomainItem<_DomainRegex>
     }

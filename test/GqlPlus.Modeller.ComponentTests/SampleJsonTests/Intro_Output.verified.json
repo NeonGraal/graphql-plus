@@ -14,7 +14,17 @@
     {
       "$tag": "_Error",
       "_kind": "End",
+      "_message": "In _OutputParent can\u0027t get model for type \u0027_ObjDescribed\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
       "_message": "In _OutputField can\u0027t get model for type \u0027_Field\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _OutputAlternate can\u0027t get model for type \u0027_Alternate\u0027"
     },
     {
       "$tag": "_Error",
@@ -29,6 +39,21 @@
   ],
   "types": {
     "$tag": "_Map_Type",
+    "_OutputAlternate": {
+      "$tag": "_TypeOutput",
+      "name": "_OutputAlternate",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Alternate",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "value": "_OutputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_OutputArgument": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -90,7 +115,7 @@
         "typeArguments": [
           {
             "$tag": "_OutputArgument",
-            "value": "TypeKind"
+            "value": "_TypeKind"
           }
         ]
       },
@@ -267,6 +292,21 @@
       },
       "typeKind": "Output"
     },
+    "_OutputParent": {
+      "$tag": "_TypeOutput",
+      "name": "_OutputParent",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjDescribed",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "value": "_OutputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_TypeOutput": {
       "$tag": "_TypeOutput",
       "name": "_TypeOutput",
@@ -282,11 +322,15 @@
           },
           {
             "$tag": "_OutputArgument",
-            "value": "_OutputBase"
+            "value": "_OutputParent"
           },
           {
             "$tag": "_OutputArgument",
             "value": "_OutputField"
+          },
+          {
+            "$tag": "_OutputArgument",
+            "value": "_OutputAlternate"
           }
         ]
       },

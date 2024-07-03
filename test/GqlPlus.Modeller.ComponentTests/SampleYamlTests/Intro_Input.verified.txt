@@ -8,11 +8,25 @@ _errors:
   _message: In _InputBase can't get model for type '_ObjBase'
 - !_Error
   _kind: !_TokenKind End
+  _message: In _InputParent can't get model for type '_ObjDescribed'
+- !_Error
+  _kind: !_TokenKind End
   _message: In _InputField can't get model for type '_Field'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _InputAlternate can't get model for type '_Alternate'
 - !_Error
   _kind: !_TokenKind End
   _message: In _InputParameter can't get model for type '_ObjDescribed'
 types: !_Map_Type
+  !_Identifier _InputAlternate: !_TypeOutput
+    name: _InputAlternate
+    parent: !_OutputBase
+      output: _Alternate
+      typeArguments:
+      - !_OutputArgument
+        output: _InputBase
+    typeKind: !_TypeKind Output
   !_Identifier _InputBase: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
@@ -91,6 +105,14 @@ types: !_Map_Type
       - !_OutputArgument
         output: _InputBase
     typeKind: !_TypeKind Output
+  !_Identifier _InputParent: !_TypeOutput
+    name: _InputParent
+    parent: !_OutputBase
+      output: _ObjDescribed
+      typeArguments:
+      - !_OutputArgument
+        output: _InputBase
+    typeKind: !_TypeKind Output
   !_Identifier _TypeInput: !_TypeOutput
     name: _TypeInput
     parent: !_OutputBase
@@ -101,7 +123,9 @@ types: !_Map_Type
         name: _TypeKind
         typeKind: !_SimpleKind Enum
       - !_OutputArgument
-        output: _InputBase
+        output: _InputParent
       - !_OutputArgument
         output: _InputField
+      - !_OutputArgument
+        output: _InputAlternate
     typeKind: !_TypeKind Output

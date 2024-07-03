@@ -181,28 +181,28 @@
         "output": "_TypeRef",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
-            "value": "TypeKind"
+            "$tag": "_OutputArgument",
+            "value": "_TypeKind"
           }
         ]
       },
       "typeKind": "Output"
     },
     "_ObjBase": {
-      "$tag": "_TypeDual",
+      "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjBase",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_TypeParameter"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -216,7 +216,7 @@
             "dual": "_ObjDescribed",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_ObjArgument"
               }
             ]
@@ -225,16 +225,16 @@
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_OutputAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_TypeParameter"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$tag": "_OutputField",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -247,7 +247,7 @@
             "dual": "_ObjDescribed",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_ObjArgument"
               }
             ]
@@ -255,7 +255,7 @@
         }
       ],
       "name": "_ObjBase",
-      "typeKind": "Dual"
+      "typeKind": "Output"
     },
     "_ObjDescribed": {
       "$tag": "_TypeDual",
@@ -456,11 +456,7 @@
           ],
           "name": "alternates",
           "object": "_TypeObject",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Alternate",
-            "typeArguments": ["base"]
-          }
+          "type": "alternate"
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -491,13 +487,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "output": "_Alternate",
-                "typeArguments": ["base"]
-              }
-            ]
+            "typeArguments": ["alternate"]
           }
         }
       ],
@@ -536,11 +526,7 @@
             }
           ],
           "name": "alternates",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Alternate",
-            "typeArguments": ["base"]
-          }
+          "type": "alternate"
         },
         {
           "$tag": "_OutputField",
@@ -569,13 +555,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "output": "_Alternate",
-                "typeArguments": ["base"]
-              }
-            ]
+            "typeArguments": ["alternate"]
           }
         }
       ],
@@ -583,14 +563,7 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ChildType",
-        "typeArguments": [
-          "kind",
-          {
-            "$tag": "_DualBase",
-            "dual": "_ObjDescribed",
-            "typeArguments": ["base"]
-          }
-        ]
+        "typeArguments": ["kind", "parent"]
       },
       "typeKind": "Output",
       "typeParameters": [
@@ -600,11 +573,15 @@
         },
         {
           "$tag": "_Described",
-          "value": "base"
+          "value": "parent"
         },
         {
           "$tag": "_Described",
           "value": "field"
+        },
+        {
+          "$tag": "_Described",
+          "value": "alternate"
         }
       ]
     },

@@ -93,40 +93,40 @@ types: !_Map_Type
     parent: !_OutputBase
       output: _TypeRef
       typeArguments:
-      - !_OutputBase
-        output: TypeKind
+      - !_OutputArgument
+        output: _TypeKind
     typeKind: !_TypeKind Output
-  !_Identifier _ObjBase: !_TypeDual
+  !_Identifier _ObjBase: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_OutputAlternate)
       object: _ObjBase
-      type: !_DualBase
-        dual: _TypeParameter
+      type: !_OutputBase
+        output: _TypeParameter
     allFields:
-    - !_ObjectFor(_DualField)
+    - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeArguments
       object: _ObjBase
       type: !_DualBase
         dual: _ObjDescribed
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: _ObjArgument
     alternates:
-    - !_DualAlternate
-      type: !_DualBase
-        dual: _TypeParameter
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _TypeParameter
     fields:
-    - !_DualField
+    - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeArguments
       type: !_DualBase
         dual: _ObjDescribed
         typeArguments:
-        - !_DualBase
+        - !_DualArgument
           dual: _ObjArgument
     name: _ObjBase
-    typeKind: !_TypeKind Dual
+    typeKind: !_TypeKind Output
   !_Identifier _ObjDescribed: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
@@ -230,10 +230,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: alternates
       object: _TypeObject
-      type: !_OutputBase
-        output: _Alternate
-        typeArguments:
-        - !_TypeParameter base
+      type: !_TypeParameter alternate
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: allFields
@@ -249,10 +246,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _ObjectFor
         typeArguments:
-        - !_OutputBase
-          output: _Alternate
-          typeArguments:
-          - !_TypeParameter base
+        - !_TypeParameter alternate
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -266,10 +260,7 @@ types: !_Map_Type
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: alternates
-      type: !_OutputBase
-        output: _Alternate
-        typeArguments:
-        - !_TypeParameter base
+      type: !_TypeParameter alternate
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: allFields
@@ -283,27 +274,23 @@ types: !_Map_Type
       type: !_OutputBase
         output: _ObjectFor
         typeArguments:
-        - !_OutputBase
-          output: _Alternate
-          typeArguments:
-          - !_TypeParameter base
+        - !_TypeParameter alternate
     name: _TypeObject
     parent: !_OutputBase
       output: _ChildType
       typeArguments:
       - !_TypeParameter kind
-      - !_DualBase
-        dual: _ObjDescribed
-        typeArguments:
-        - !_TypeParameter base
+      - !_TypeParameter parent
     typeKind: !_TypeKind Output
     typeParameters:
     - !_Described
       name: kind
     - !_Described
-      name: base
+      name: parent
     - !_Described
       name: field
+    - !_Described
+      name: alternate
   !_Identifier _TypeParameter: !_DomainString
     domainKind: !_DomainKind String
     name: _TypeParameter

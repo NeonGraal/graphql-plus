@@ -205,11 +205,7 @@
             "typeKind": "Enum"
           },
           "item",
-          {
-            "$tag": "_DualBase",
-            "dual": "_DomainItem",
-            "typeArguments": ["item"]
-          }
+          "domainItem"
         ]
       },
       "typeKind": "Output",
@@ -221,6 +217,10 @@
         {
           "$tag": "_Described",
           "value": "item"
+        },
+        {
+          "$tag": "_Described",
+          "value": "domainItem"
         }
       ]
     },
@@ -1159,6 +1159,110 @@
         }
       ]
     },
+    "_DomainItemMember": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "domain",
+          "object": "_DomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DomainItemMember",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_DomainItem",
+        "typeArguments": [
+          {
+            "$tag": "_DualArgument",
+            "value": "_DomainMember"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_DomainItemRange": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "domain",
+          "object": "_DomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DomainItemRange",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_DomainItem",
+        "typeArguments": [
+          {
+            "$tag": "_DualArgument",
+            "value": "_DomainRange"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
+    "_DomainItemRegex": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "domain",
+          "object": "_DomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DomainItemRegex",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_DomainItem",
+        "typeArguments": [
+          {
+            "$tag": "_DualArgument",
+            "value": "_DomainRegex"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
+    "_DomainItemTrueFalse": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "domain",
+          "object": "_DomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DomainItemTrueFalse",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_DomainItem",
+        "typeArguments": [
+          {
+            "$tag": "_DualArgument",
+            "value": "_DomainTrueFalse"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
     "_DomainKind": {
       "$tag": "_TypeEnum",
       "allItems": [
@@ -1510,21 +1614,63 @@
         }
       ]
     },
+    "_DualAlternate": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_Alternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "_ObjDescribed",
+            "typeArguments": ["base"]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "collections",
+          "object": "_Alternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Collections"
+          }
+        }
+      ],
+      "name": "_DualAlternate",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Alternate",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "value": "_DualBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_DualBase": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjBase",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_TypeParameter"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -1538,7 +1684,7 @@
             "dual": "_ObjDescribed",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_ObjArgument"
               }
             ]
@@ -1566,8 +1712,104 @@
       ],
       "name": "_DualBase",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_OutputBase",
         "value": "_ObjBase"
+      },
+      "typeKind": "Output"
+    },
+    "_DualField": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_Field",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "_ObjDescribed",
+            "typeArguments": ["base"]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "modifiers",
+          "object": "_Field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Modifiers"
+          }
+        }
+      ],
+      "name": "_DualField",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Field",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "value": "_DualBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_DualParent": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_ObjDescribed",
+          "type": "base"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "base",
+          "object": "_ObjDescribed",
+          "type": "base"
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "description",
+          "object": "_ObjDescribed",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "_DualParent",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_ObjDescribed",
+        "typeArguments": [
+          {
+            "$tag": "_DualArgument",
+            "value": "_DualBase"
+          }
+        ]
       },
       "typeKind": "Output"
     },
@@ -1981,14 +2223,56 @@
       "name": "_Identifier",
       "typeKind": "Domain"
     },
+    "_InputAlternate": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_Alternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "_ObjDescribed",
+            "typeArguments": ["base"]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "collections",
+          "object": "_Alternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Collections"
+          }
+        }
+      ],
+      "name": "_InputAlternate",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Alternate",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "value": "_InputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_InputBase": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjBase",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_TypeParameter"
           }
         },
@@ -2003,7 +2287,7 @@
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -2017,7 +2301,7 @@
             "dual": "_ObjDescribed",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_ObjArgument"
               }
             ]
@@ -2054,7 +2338,7 @@
       ],
       "name": "_InputBase",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_OutputBase",
         "value": "_ObjBase"
       },
       "typeKind": "Output"
@@ -2140,7 +2424,7 @@
         "output": "_Field",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_InputBase"
           }
         ]
@@ -2239,7 +2523,46 @@
         "dual": "_ObjDescribed",
         "typeArguments": [
           {
+            "$tag": "_DualArgument",
+            "value": "_InputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_InputParent": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_ObjDescribed",
+          "type": "base"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "base",
+          "object": "_ObjDescribed",
+          "type": "base"
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "description",
+          "object": "_ObjDescribed",
+          "type": {
             "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "_InputParent",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_ObjDescribed",
+        "typeArguments": [
+          {
+            "$tag": "_DualArgument",
             "value": "_InputBase"
           }
         ]
@@ -2593,28 +2916,28 @@
         "output": "_TypeRef",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
-            "value": "TypeKind"
+            "$tag": "_OutputArgument",
+            "value": "_TypeKind"
           }
         ]
       },
       "typeKind": "Output"
     },
     "_ObjBase": {
-      "$tag": "_TypeDual",
+      "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjBase",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_TypeParameter"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -2628,7 +2951,7 @@
             "dual": "_ObjDescribed",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_ObjArgument"
               }
             ]
@@ -2637,16 +2960,16 @@
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_OutputAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_TypeParameter"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$tag": "_OutputField",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -2659,7 +2982,7 @@
             "dual": "_ObjDescribed",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_ObjArgument"
               }
             ]
@@ -2667,7 +2990,7 @@
         }
       ],
       "name": "_ObjBase",
-      "typeKind": "Dual"
+      "typeKind": "Output"
     },
     "_ObjDescribed": {
       "$tag": "_TypeDual",
@@ -2828,6 +3151,48 @@
         }
       ]
     },
+    "_OutputAlternate": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_Alternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "_ObjDescribed",
+            "typeArguments": ["base"]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "collections",
+          "object": "_Alternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Collections"
+          }
+        }
+      ],
+      "name": "_OutputAlternate",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Alternate",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "value": "_OutputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_OutputArgument": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -2903,8 +3268,8 @@
         "output": "_TypeRef",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
-            "value": "TypeKind"
+            "$tag": "_OutputArgument",
+            "value": "_TypeKind"
           }
         ]
       },
@@ -2914,10 +3279,10 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjBase",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_TypeParameter"
           }
         },
@@ -2932,7 +3297,7 @@
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -2946,7 +3311,7 @@
             "dual": "_ObjDescribed",
             "typeArguments": [
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_ObjArgument"
               }
             ]
@@ -2983,7 +3348,7 @@
       ],
       "name": "_OutputBase",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_OutputBase",
         "value": "_ObjBase"
       },
       "typeKind": "Output"
@@ -3158,7 +3523,46 @@
         "output": "_Field",
         "typeArguments": [
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
+            "value": "_OutputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_OutputParent": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_ObjDescribed",
+          "type": "base"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "base",
+          "object": "_ObjDescribed",
+          "type": "base"
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "description",
+          "object": "_ObjDescribed",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "_OutputParent",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_ObjDescribed",
+        "typeArguments": [
+          {
+            "$tag": "_DualArgument",
             "value": "_OutputBase"
           }
         ]
@@ -3251,7 +3655,7 @@
         "typeArguments": [
           "kind",
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_Identifier"
           }
         ]
@@ -3622,7 +4026,7 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "Number"
               }
             ]
@@ -3642,7 +4046,7 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "String"
               }
             ]
@@ -3678,7 +4082,7 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "Number"
               }
             ]
@@ -3697,7 +4101,7 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "String"
               }
             ]
@@ -3946,8 +4350,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_DomainTrueFalse"
+              },
+              {
+                "$tag": "_DualArgument",
+                "value": "_DomainItemTrueFalse"
               }
             ]
           }
@@ -3966,8 +4374,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "_DomainMember"
+              },
+              {
+                "$tag": "_OutputArgument",
+                "value": "_DomainItemMember"
               }
             ]
           }
@@ -3986,8 +4398,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_DomainRange"
+              },
+              {
+                "$tag": "_DualArgument",
+                "value": "_DomainItemRange"
               }
             ]
           }
@@ -4006,8 +4422,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_DomainRegex"
+              },
+              {
+                "$tag": "_DualArgument",
+                "value": "_DomainItemRegex"
               }
             ]
           }
@@ -4027,8 +4447,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_DomainTrueFalse"
+              },
+              {
+                "$tag": "_DualArgument",
+                "value": "_DomainItemTrueFalse"
               }
             ]
           }
@@ -4046,8 +4470,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_OutputBase",
+                "$tag": "_OutputArgument",
                 "value": "_DomainMember"
+              },
+              {
+                "$tag": "_OutputArgument",
+                "value": "_DomainItemMember"
               }
             ]
           }
@@ -4065,8 +4493,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_DomainRange"
+              },
+              {
+                "$tag": "_DualArgument",
+                "value": "_DomainItemRange"
               }
             ]
           }
@@ -4084,8 +4516,12 @@
                 "typeKind": "Enum"
               },
               {
-                "$tag": "_DualBase",
+                "$tag": "_DualArgument",
                 "value": "_DomainRegex"
+              },
+              {
+                "$tag": "_DualArgument",
+                "value": "_DomainItemRegex"
               }
             ]
           }
@@ -4161,11 +4597,7 @@
           ],
           "name": "alternates",
           "object": "_TypeObject",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Alternate",
-            "typeArguments": ["base"]
-          }
+          "type": "alternate"
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -4196,13 +4628,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "output": "_Alternate",
-                "typeArguments": ["base"]
-              }
-            ]
+            "typeArguments": ["alternate"]
           }
         }
       ],
@@ -4218,18 +4644,16 @@
             "typeKind": "Enum"
           },
           {
-            "$tag": "_OutputBase",
-            "value": "_DualBase"
+            "$tag": "_OutputArgument",
+            "value": "_DualParent"
           },
           {
-            "$tag": "_OutputBase",
-            "output": "_Field",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "value": "_DualBase"
-              }
-            ]
+            "$tag": "_OutputArgument",
+            "value": "_DualField"
+          },
+          {
+            "$tag": "_OutputArgument",
+            "value": "_DualAlternate"
           }
         ]
       },
@@ -4302,11 +4726,11 @@
             "typeKind": "Enum"
           },
           {
-            "$tag": "_DualBase",
+            "$tag": "_DualArgument",
             "value": "_Aliased"
           },
           {
-            "$tag": "_DualBase",
+            "$tag": "_DualArgument",
             "value": "_EnumMember"
           }
         ]
@@ -4516,11 +4940,7 @@
           ],
           "name": "alternates",
           "object": "_TypeObject",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Alternate",
-            "typeArguments": ["base"]
-          }
+          "type": "alternate"
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -4551,13 +4971,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "output": "_Alternate",
-                "typeArguments": ["base"]
-              }
-            ]
+            "typeArguments": ["alternate"]
           }
         }
       ],
@@ -4573,12 +4987,16 @@
             "typeKind": "Enum"
           },
           {
-            "$tag": "_OutputBase",
-            "value": "_InputBase"
+            "$tag": "_OutputArgument",
+            "value": "_InputParent"
           },
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_InputField"
+          },
+          {
+            "$tag": "_OutputArgument",
+            "value": "_InputAlternate"
           }
         ]
       },
@@ -4717,11 +5135,7 @@
           ],
           "name": "alternates",
           "object": "_TypeObject",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Alternate",
-            "typeArguments": ["base"]
-          }
+          "type": "alternate"
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -4752,13 +5166,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "output": "_Alternate",
-                "typeArguments": ["base"]
-              }
-            ]
+            "typeArguments": ["alternate"]
           }
         }
       ],
@@ -4797,11 +5205,7 @@
             }
           ],
           "name": "alternates",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Alternate",
-            "typeArguments": ["base"]
-          }
+          "type": "alternate"
         },
         {
           "$tag": "_OutputField",
@@ -4830,13 +5234,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "output": "_Alternate",
-                "typeArguments": ["base"]
-              }
-            ]
+            "typeArguments": ["alternate"]
           }
         }
       ],
@@ -4844,14 +5242,7 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ChildType",
-        "typeArguments": [
-          "kind",
-          {
-            "$tag": "_DualBase",
-            "dual": "_ObjDescribed",
-            "typeArguments": ["base"]
-          }
-        ]
+        "typeArguments": ["kind", "parent"]
       },
       "typeKind": "Output",
       "typeParameters": [
@@ -4861,11 +5252,15 @@
         },
         {
           "$tag": "_Described",
-          "value": "base"
+          "value": "parent"
         },
         {
           "$tag": "_Described",
           "value": "field"
+        },
+        {
+          "$tag": "_Described",
+          "value": "alternate"
         }
       ]
     },
@@ -4936,11 +5331,7 @@
           ],
           "name": "alternates",
           "object": "_TypeObject",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Alternate",
-            "typeArguments": ["base"]
-          }
+          "type": "alternate"
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -4971,13 +5362,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "output": "_Alternate",
-                "typeArguments": ["base"]
-              }
-            ]
+            "typeArguments": ["alternate"]
           }
         }
       ],
@@ -4993,12 +5378,16 @@
             "typeKind": "Enum"
           },
           {
-            "$tag": "_OutputBase",
-            "value": "_OutputBase"
+            "$tag": "_OutputArgument",
+            "value": "_OutputParent"
           },
           {
-            "$tag": "_OutputBase",
+            "$tag": "_OutputArgument",
             "value": "_OutputField"
+          },
+          {
+            "$tag": "_OutputArgument",
+            "value": "_OutputAlternate"
           }
         ]
       },
@@ -5266,11 +5655,11 @@
             "typeKind": "Enum"
           },
           {
-            "$tag": "_DualBase",
+            "$tag": "_DualArgument",
             "value": "_Named"
           },
           {
-            "$tag": "_DualBase",
+            "$tag": "_DualArgument",
             "value": "_UnionMember"
           }
         ]

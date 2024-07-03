@@ -14,7 +14,17 @@
     {
       "$tag": "_Error",
       "_kind": "End",
+      "_message": "In _InputParent can\u0027t get model for type \u0027_ObjDescribed\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
       "_message": "In _InputField can\u0027t get model for type \u0027_Field\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _InputAlternate can\u0027t get model for type \u0027_Alternate\u0027"
     },
     {
       "$tag": "_Error",
@@ -24,6 +34,21 @@
   ],
   "types": {
     "$tag": "_Map_Type",
+    "_InputAlternate": {
+      "$tag": "_TypeOutput",
+      "name": "_InputAlternate",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Alternate",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "value": "_InputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_InputBase": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -198,6 +223,21 @@
       },
       "typeKind": "Output"
     },
+    "_InputParent": {
+      "$tag": "_TypeOutput",
+      "name": "_InputParent",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjDescribed",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "value": "_InputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_TypeInput": {
       "$tag": "_TypeOutput",
       "name": "_TypeInput",
@@ -213,11 +253,15 @@
           },
           {
             "$tag": "_OutputArgument",
-            "value": "_InputBase"
+            "value": "_InputParent"
           },
           {
             "$tag": "_OutputArgument",
             "value": "_InputField"
+          },
+          {
+            "$tag": "_OutputArgument",
+            "value": "_InputAlternate"
           }
         ]
       },

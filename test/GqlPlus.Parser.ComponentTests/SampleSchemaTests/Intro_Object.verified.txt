@@ -7,9 +7,11 @@ Success
     I@021/0001
     $kind
     I@027/0001
-    $base
-    I@033/0001
+    $parent
+    I@035/0001
     $field
+    I@042/0001
+    $alternate
   >
   :
   I@007/0002
@@ -17,12 +19,8 @@ Success
   <
     I@019/0002
     $kind
-    I@024/0002
-    _ObjDescribed
-    <
-      I@039/0002
-      $base
-    >
+    I@025/0002
+    $parent
   >
   {
     !OF I@009/0003
@@ -40,12 +38,8 @@ Success
     !OF I@009/0005
     alternates
     :
-    I@021/0005
-    _Alternate
-    <
-      I@033/0005
-      $base
-    >
+    I@022/0005
+    $alternate
     []
     !OF I@009/0006
     allFields
@@ -63,12 +57,8 @@ Success
     I@024/0007
     _ObjectFor
     <
-      I@035/0007
-      _Alternate
-      <
-        I@047/0007
-        $base
-      >
+      I@036/0007
+      $alternate
     >
     []
   }
@@ -120,10 +110,10 @@ Success
   $base
 }
 {
-  !Du I@006/0022
+  !Ou I@008/0022
   _ObjBase
   {
-    !DF I@009/0023
+    !OF I@009/0023
     typeArguments
     :
     I@024/0023
@@ -135,7 +125,7 @@ Success
     []
   }
   |
-  !DA I@007/0024
+  !OA I@007/0024
   I@007/0024
   _TypeParameter
 }
@@ -147,7 +137,7 @@ Success
   _TypeRef
   <
     I@016/0028
-    TypeKind
+    _TypeKind
   >
   |
   !OA I@007/0029

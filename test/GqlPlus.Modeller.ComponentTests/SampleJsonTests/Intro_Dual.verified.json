@@ -10,10 +10,40 @@
       "$tag": "_Error",
       "_kind": "End",
       "_message": "In _DualBase can\u0027t get model for type \u0027_ObjBase\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _DualParent can\u0027t get model for type \u0027_ObjDescribed\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _DualField can\u0027t get model for type \u0027_Field\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _DualAlternate can\u0027t get model for type \u0027_Alternate\u0027"
     }
   ],
   "types": {
     "$tag": "_Map_Type",
+    "_DualAlternate": {
+      "$tag": "_TypeOutput",
+      "name": "_DualAlternate",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Alternate",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "value": "_DualBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_DualBase": {
       "$tag": "_TypeOutput",
       "allFields": [
@@ -44,6 +74,36 @@
       },
       "typeKind": "Output"
     },
+    "_DualField": {
+      "$tag": "_TypeOutput",
+      "name": "_DualField",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Field",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "value": "_DualBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "_DualParent": {
+      "$tag": "_TypeOutput",
+      "name": "_DualParent",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjDescribed",
+        "typeArguments": [
+          {
+            "$tag": "_OutputArgument",
+            "value": "_DualBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_TypeDual": {
       "$tag": "_TypeOutput",
       "name": "_TypeDual",
@@ -58,18 +118,16 @@
             "typeKind": "Enum"
           },
           {
-            "$tag": "_OutputBase",
-            "value": "_DualBase"
+            "$tag": "_OutputArgument",
+            "value": "_DualParent"
           },
           {
-            "$tag": "_OutputBase",
-            "output": "_Field",
-            "typeArguments": [
-              {
-                "$tag": "_OutputBase",
-                "value": "_DualBase"
-              }
-            ]
+            "$tag": "_OutputArgument",
+            "value": "_DualField"
+          },
+          {
+            "$tag": "_OutputArgument",
+            "value": "_DualAlternate"
           }
         ]
       },

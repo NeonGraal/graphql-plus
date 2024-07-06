@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Resolving;
 
 namespace GqlPlus.Rendering;
 
@@ -10,11 +11,11 @@ internal class BaseTypeRenderer<TModel>
   public bool ForType(BaseTypeModel model)
     => model is TModel;
 
-  public RenderStructure TypeRender(BaseTypeModel model, IRenderContext context)
-    => Render((TModel)model, context);
+  public RenderStructure TypeRender(BaseTypeModel model)
+    => Render((TModel)model);
 
-  internal override RenderStructure Render(TModel model, IRenderContext context)
-    => base.Render(model, context)
+  internal override RenderStructure Render(TModel model)
+    => base.Render(model)
     .Add("typeKind", model.TypeKind.RenderEnum());
 }
 
@@ -24,11 +25,11 @@ internal abstract class ChildTypeRenderer<TModel, TParent>(
   where TModel : ChildTypeModel<TParent>
   where TParent : ModelBase
 {
-  internal override RenderStructure Render(TModel model, IRenderContext context)
-    => base.Render(model, context)
+  internal override RenderStructure Render(TModel model)
+    => base.Render(model)
       .Add("parent", model.Parent, parent);
 
-  internal virtual bool GetParentModel<TInput, TResult>(TInput input, IRenderContext context, [NotNullWhen(true)] out TResult? result)
+  internal virtual bool GetParentModel<TInput, TResult>(TInput input, IResolveContext context, [NotNullWhen(true)] out TResult? result)
     where TInput : ChildTypeModel<TParent>
     where TResult : IModelBase
   {
@@ -42,7 +43,7 @@ internal abstract class ChildTypeRenderer<TModel, TParent>(
     return result is not null;
   }
 
-  internal void ForParent<TInput, TResult>(TInput input, IRenderContext context, Action<TResult> action)
+  internal void ForParent<TInput, TResult>(TInput input, IResolveContext context, Action<TResult> action)
     where TInput : ChildTypeModel<TParent>
     where TResult : IChildTypeModel
   {
@@ -72,16 +73,16 @@ internal abstract class ParentTypeRenderer<TModel, TItem, TAll>(
   where TItem : ModelBase
   where TAll : ModelBase
 {
-  internal override RenderStructure Render(TModel model, IRenderContext context)
+  internal override RenderStructure Render(TModel model)
   {
     List<TAll> allItems = [];
     void AddMembers(ParentTypeModel<TItem, TAll> model)
       => allItems.AddRange(model.Items.Select(NewItem(model.Name)));
 
-    ForParent<ParentTypeModel<TItem, TAll>, ParentTypeModel<TItem, TAll>>(model, context, AddMembers);
+    //ForParent<ParentTypeModel<TItem, TAll>, ParentTypeModel<TItem, TAll>>(model, context, AddMembers);
     AddMembers(model);
 
-    return base.Render(model, context)
+    return base.Render(model)
         .Add("items", model.Items, renderers.Item)
         .Add("allItems", allItems, renderers.All);
   }
@@ -96,17 +97,17 @@ internal class AllTypesRenderer(
   IEnumerable<ITypeRenderer> types
 ) : IRenderer<BaseTypeModel>
 {
-  RenderStructure IRenderer<BaseTypeModel>.Render(BaseTypeModel model, IRenderContext context)
+  RenderStructure IRenderer<BaseTypeModel>.Render(BaseTypeModel model)
     => types
     .SingleOrDefault(t => t.ForType(model))
-    ?.TypeRender(model, context)
+    ?.TypeRender(model)
     ?? throw new InvalidOperationException("Unable to find Renderer for " + model.GetType().ExpandTypeName());
 }
 
 internal interface ITypeRenderer
 {
   bool ForType(BaseTypeModel model);
-  RenderStructure TypeRender(BaseTypeModel model, IRenderContext context);
+  RenderStructure TypeRender(BaseTypeModel model);
 }
 
 internal class TypeRefRenderer<TModel, TKind>
@@ -116,8 +117,8 @@ internal class TypeRefRenderer<TModel, TKind>
 {
   private static readonly string s_typeKindTag = typeof(TKind).TypeTag();
 
-  internal override RenderStructure Render(TModel model, IRenderContext context)
-    => base.Render(model, context)
+  internal override RenderStructure Render(TModel model)
+    => base.Render(model)
       .Add("typeKind", new(model.TypeKind.ToString(), s_typeKindTag));
 }
 

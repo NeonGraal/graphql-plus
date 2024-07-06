@@ -1,14 +1,20 @@
 ﻿namespace GqlPlus;
 
-public class Map<T> : Dictionary<string, T>, IMap<T>, IReadOnlyMap<T>
+public class Map<TMap>
+  : Dictionary<string, TMap>
+  , IMap<TMap>
+  , IReadOnlyMap<TMap>
 {
   public Map() { }
-  public Map(IReadOnlyDictionary<string, T> dictionary) : base(dictionary) { }
+  public Map(IReadOnlyDictionary<string, TMap> dictionary)
+    : base(dictionary) { }
 }
 
-public interface IMap<T> : IDictionary<string, T>;
+public interface IMap<TMap>
+  : IDictionary<string, TMap>;
 
-public interface IReadOnlyMap<T> : IReadOnlyDictionary<string, T>;
+public interface IReadOnlyMap<TMap>
+  : IReadOnlyDictionary<string, TMap>;
 
 public static class MapExtensions
 {
@@ -17,5 +23,4 @@ public static class MapExtensions
 
   public static Map<TMap> ToMap<TInput, TMap>(this IEnumerable<TInput>? items, Func<TInput, string> key, Func<TInput, TMap> map)
     => new(items?.ToDictionary(key, map) ?? []);
-
 }

@@ -14,14 +14,14 @@ internal class AndTypeRenderer<TModel, TAnd>(
 {
   private readonly string _field = field;
 
-  internal override RenderStructure Render(TModel model, IRenderContext context)
+  internal override RenderStructure Render(TModel model)
     => model.Type is null
       ? model.And is null
         ? new("")
-        : and.And.Render(model.And, context)
+        : and.And.Render(model.And)
       : model.And is null
-        ? and.Type.Render(model.Type, context)
-        : base.Render(model, context)
+        ? and.Type.Render(model.Type)
+        : base.Render(model)
           .Add(_field, model.And, and.And)
           .Add("type", model.Type, and.Type);
 }
@@ -36,8 +36,8 @@ internal class CategoryRenderer(
   IRenderer<TypeRefModel<TypeKindModel>> output
 ) : AliasedRenderer<CategoryModel>
 {
-  internal override RenderStructure Render(CategoryModel model, IRenderContext context)
-    => base.Render(model, context)
+  internal override RenderStructure Render(CategoryModel model)
+    => base.Render(model)
       .Add("resolution", model.Resolution, "_Resolution")
       .Add("output", model.Output, output)
       .Add("modifiers", model.Modifiers, modifiers, flow: true);
@@ -52,8 +52,8 @@ internal class DirectiveRenderer(
   IRenderer<InputParameterModel> parameter
 ) : AliasedRenderer<DirectiveModel>
 {
-  internal override RenderStructure Render(DirectiveModel model, IRenderContext context)
-    => base.Render(model, context)
+  internal override RenderStructure Render(DirectiveModel model)
+    => base.Render(model)
       .AddSet("locations", model.Locations, "_Location")
       .Add("parameters", model.Parameters, parameter)
       .Add("repeatable", model.Repeatable);
@@ -63,7 +63,7 @@ internal class SettingRenderer(
   IRenderer<ConstantModel> constant
 ) : DescribedRenderer<SettingModel>
 {
-  internal override RenderStructure Render(SettingModel model, IRenderContext context)
-    => base.Render(model, context)
+  internal override RenderStructure Render(SettingModel model)
+    => base.Render(model)
       .Add("value", model.Value, constant);
 }

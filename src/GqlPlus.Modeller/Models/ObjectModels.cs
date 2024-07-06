@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Resolving;
 
 namespace GqlPlus.Models;
 
@@ -15,7 +16,7 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   internal TObjField[] Fields { get; set; } = [];
   internal TObjAlt[] Alternates { get; set; } = [];
 
-  internal override bool GetParentModel<TResult>(IRenderContext context, [NotNullWhen(true)] out TResult? model)
+  internal override bool GetParentModel<TResult>(IResolveContext context, [NotNullWhen(true)] out TResult? model)
     where TResult : default
   {
     if (Parent?.Base.IsTypeParameter == false) {

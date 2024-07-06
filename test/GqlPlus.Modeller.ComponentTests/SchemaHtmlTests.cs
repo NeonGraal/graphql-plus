@@ -2,7 +2,6 @@
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Convert;
 using GqlPlus.Merging;
-using GqlPlus.Modelling;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 
@@ -11,9 +10,7 @@ namespace GqlPlus;
 public class SchemaHtmlTests(
     Parser<IGqlpSchema>.D parser,
     IMerge<IGqlpSchema> merger,
-    IModeller<IGqlpSchema, SchemaModel> modeller,
-    IRenderer<SchemaModel> renderer,
-    ITypesModeller types
+    IModelAndRender renderer
 ) : SchemaDataBase(parser)
 {
   [Fact]
@@ -126,15 +123,7 @@ public class SchemaHtmlTests(
   {
     IGqlpSchema schema = merger.Merge(asts).First();
 
-    TypesCollection context = TypesCollection.WithBuiltins(types);
-    SchemaModel model = modeller.ToModel(schema, context);
-    context.AddModels(model.Types.Values);
-    context.Errors.Clear();
-
-    RenderStructure result = renderer.Render(model, context);
-    if (context.Errors.Count > 0) {
-      result.Add("_errors", context.Errors.Render());
-    }
+    RenderStructure result = renderer.RenderAst(schema, withBuiltIns: true);
 
     return result;
   }

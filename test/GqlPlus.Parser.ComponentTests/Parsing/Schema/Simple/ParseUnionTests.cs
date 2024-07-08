@@ -16,7 +16,7 @@ public sealed class ParseUnionTests
 
   [Theory, RepeatData(Repeats)]
   public void WithParentBad_ReturnsFalse(string name)
-    => _checks.False(name + "{:}");
+    => _checks.FalseExpected(name + "{:}");
 
   [Theory, RepeatData(Repeats)]
   public void WithUnionMembers_ReturnsCorrectAst(string name, string[] members)
@@ -26,11 +26,11 @@ public sealed class ParseUnionTests
 
   [Theory, RepeatData(Repeats)]
   public void WithUnionMembersBad_ReturnsFalse(string name, string[] members)
-    => _checks.False(name + "{" + members.Joined() + "|}");
+    => _checks.FalseExpected(name + "{" + members.Joined() + "|}");
 
   [Theory, RepeatData(Repeats)]
   public void WithUnionMembersNone_ReturnsFalse(string name)
-    => _checks.False(name + "{}");
+    => _checks.FalseExpected(name + "{}");
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string name, string parent, string[] members)

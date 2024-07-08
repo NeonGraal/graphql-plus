@@ -17,11 +17,11 @@ public sealed class ParseDirectiveTests
 
   [Theory, RepeatData(Repeats)]
   public void WithOptionBad_ReturnsFalse(string name)
-    => _checks.False("@" + name + "{(repeatable operation}");
+    => _checks.FalseExpected("@" + name + "{(repeatable operation}");
 
   [Theory, RepeatData(Repeats)]
   public void WithOptionNone_ReturnsFalse(string name)
-    => _checks.False("@" + name + "{()operation}");
+    => _checks.FalseExpected("@" + name + "{()operation}");
 
   [Theory, RepeatData(Repeats)]
   public void WithParameters_ReturnsCorrectAst(string name, string[] parameters)
@@ -34,11 +34,11 @@ public sealed class ParseDirectiveTests
 
   [Theory, RepeatData(Repeats)]
   public void WithParameterBad_ReturnsFalse(string name, string parameter)
-    => _checks.False("@" + name + "(" + parameter + "{operation}");
+    => _checks.FalseExpected("@" + name + "(" + parameter + "{operation}");
 
   [Theory, RepeatData(Repeats)]
   public void WithParameterNone_ReturnsFalse(string name)
-    => _checks.False("@" + name + "(){operation}");
+    => _checks.FalseExpected("@" + name + "(){operation}");
 
   [Theory, RepeatData(Repeats)]
   public void WithLocations_ReturnsCorrectAst(string name)
@@ -50,11 +50,11 @@ public sealed class ParseDirectiveTests
 
   [Theory, RepeatData(Repeats)]
   public void WithLocationsBad_ReturnsFalse(string name)
-    => _checks.False("@" + name + "{random}");
+    => _checks.FalseExpected("@" + name + "{random}");
 
   [Theory, RepeatData(Repeats)]
   public void WithLocationsNone_ReturnsFalse(string name)
-    => _checks.False("@" + name + "{}");
+    => _checks.FalseExpected("@" + name + "{}");
 
   internal override IBaseAliasedChecks<string> AliasChecks => _checks;
 

@@ -6,11 +6,11 @@ public class ParseDefaultTests(Parser<IParserDefault, IGqlpConstant>.D parser)
 {
   [Fact]
   public void WithEmpty_ReturnsEmpty()
-    => _checks.Empty("");
+    => _checks.EmptyResult("");
 
   [Fact]
   public void WithInvalid_ReturnsFalse()
-    => _checks.False("=");
+    => _checks.FalseExpected("=");
 
   [Theory, RepeatData(Repeats)]
   public void WithNumber_ReturnsCorrectAst(decimal number)
@@ -32,7 +32,7 @@ public class ParseDefaultTests(Parser<IParserDefault, IGqlpConstant>.D parser)
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumValueInvalid_ReturnsFalse(string enumValue)
-    => _checks.False("=." + enumValue);
+    => _checks.FalseExpected("=." + enumValue);
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumTypeAndValue_ReturnsCorrectAst(string enumType, string enumValue)
@@ -42,7 +42,7 @@ public class ParseDefaultTests(Parser<IParserDefault, IGqlpConstant>.D parser)
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumInvalid_ReturnsFalse(string enumType)
-    => _checks.False("=" + enumType + ".");
+    => _checks.FalseExpected("=" + enumType + ".");
 
   [Theory, RepeatData(Repeats)]
   public void WithList_ReturnsCorrectAst(string enumValue)
@@ -52,23 +52,25 @@ public class ParseDefaultTests(Parser<IParserDefault, IGqlpConstant>.D parser)
 
   [Theory, RepeatData(Repeats)]
   public void WithListInvalid_ReturnsFalse(string enumValue)
-    => _checks.False(
+    => _checks.FalseExpected(
       "=" + '[' + enumValue + ':' + enumValue + ']',
       CheckNull);
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string enumValue)
-    => _checks.TrueExpected(
-      "=" + '{' + key + ':' + enumValue + ' ' + enumValue + ':' + key + '}',
-      new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)),
-      key == enumValue);
+    => _checks
+      .SkipIf(key == enumValue)
+      .TrueExpected(
+        "=" + '{' + key + ':' + enumValue + ' ' + enumValue + ':' + key + '}',
+        new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
-    => _checks.False(
-      "=" + '{' + key + ':' + enumValue + ':' + key + '}',
-      CheckNull,
-      key == enumValue);
+    => _checks
+      .SkipIf(key == enumValue)
+      .FalseExpected(
+        "=" + '{' + key + ':' + enumValue + ':' + key + '}',
+        CheckNull);
 
   private void CheckNull(IGqlpConstant? result)
     => result.Should().BeNull();

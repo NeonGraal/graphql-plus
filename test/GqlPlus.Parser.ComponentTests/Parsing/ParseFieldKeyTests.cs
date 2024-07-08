@@ -62,7 +62,7 @@ public class ParseFieldKeyTests(Parser<IGqlpFieldKey>.D parser)
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeAndNoValue_ReturnsFalse(string enumType)
-    => Test.False(enumType + ".");
+    => Test.FalseExpected(enumType + ".");
 
   private OneChecksParser<IGqlpFieldKey> Test { get; } = new(parser);
 }

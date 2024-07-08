@@ -29,7 +29,7 @@ internal abstract class BaseNamedChecks<TInput, TNamed, TSrc>(
   => TrueExpected(NameString(input), NamedFactory(input));
 
   public void WithNameBad(decimal id)
-  => False($"{id}{{}}");
+  => FalseExpected($"{id}{{}}");
 
   protected internal abstract string NameString(TInput input);
   protected internal abstract TNamed NamedFactory(TInput input);

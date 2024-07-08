@@ -17,7 +17,7 @@ public class ParseOutputBaseTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithArgumentEnumValueBad_ReturnsFalse(string name, string enumType)
-    => _checks.False(name + "<" + enumType + ".>");
+    => _checks.FalseExpected(name + "<" + enumType + ".>");
 
   internal override ICheckObjectBase ObjectBaseChecks => _checks;
 

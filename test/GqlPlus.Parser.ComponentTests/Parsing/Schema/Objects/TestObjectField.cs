@@ -54,7 +54,7 @@ internal sealed class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBa
       Field(name, fieldType) with { Modifiers = TestMods() });
 
   public void WithModifiersBad(string name, string fieldType)
-    => False(name + ":" + fieldType + "[?");
+    => FalseExpected(name + ":" + fieldType + "[?");
 
   internal TObjFieldAst Field(string field, string fieldType)
     => _factories.ObjField(AstNulls.At, field, ObjBase(fieldType));

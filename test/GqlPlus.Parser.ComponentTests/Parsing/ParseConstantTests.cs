@@ -42,30 +42,33 @@ public class ParseConstantTests(Parser<IGqlpConstant>.D parser)
 
   [Theory, RepeatData(Repeats)]
   public void WithListInvalid_ReturnsFalse(string enumValue)
-    => _checks.False(
+    => _checks.FalseExpected(
       '[' + enumValue + ':' + enumValue + ']',
       CheckNull);
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string enumValue)
-    => _checks.TrueExpected(
-      '{' + key + ':' + enumValue + ' ' + enumValue + ':' + key + '}',
-      new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)),
-      key == enumValue);
+    => _checks
+      .SkipIf(key == enumValue)
+      .TrueExpected(
+        '{' + key + ':' + enumValue + ' ' + enumValue + ':' + key + '}',
+        new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string enumValue)
-    => _checks.TrueExpected(
-      '{' + key + ':' + enumValue + ',' + enumValue + ':' + key + '}',
-      new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)),
-      key == enumValue);
+    => _checks
+      .SkipIf(key == enumValue)
+      .TrueExpected(
+        '{' + key + ':' + enumValue + ',' + enumValue + ':' + key + '}',
+        new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
-    => _checks.False(
-      '{' + key + ':' + enumValue + ':' + key + '}',
-      CheckNull,
-      key == enumValue);
+    => _checks
+      .SkipIf(key == enumValue)
+      .FalseExpected(
+        '{' + key + ':' + enumValue + ':' + key + '}',
+        CheckNull);
 
   private void CheckNull(IGqlpConstant? result)
     => result.Should().BeNull();

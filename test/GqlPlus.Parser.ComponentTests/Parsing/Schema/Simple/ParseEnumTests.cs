@@ -15,7 +15,7 @@ public sealed class ParseEnumTests
 
   [Theory, RepeatData(Repeats)]
   public void WithParentBad_ReturnsFalse(string name)
-    => _checks.False(name + "{:}");
+    => _checks.FalseExpected(name + "{:}");
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumMembers_ReturnsCorrectAst(string name, string[] members)
@@ -27,12 +27,14 @@ public sealed class ParseEnumTests
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithEnumMembersBad_ReturnsFalse(string name, string[] members)
-    => _checks.False(name + "{" + string.Join("|", members) + "}",
-      skipIf: members is null || members.Length < 2);
+    => _checks
+    .SkipNull(members)
+    .SkipIf(members.Length < 2)
+    .FalseExpected(name + "{" + string.Join("|", members) + "}");
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumMembersNone_ReturnsFalse(string name)
-    => _checks.False(name + "{}");
+    => _checks.FalseExpected(name + "{}");
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string name, string parent, string[] members)

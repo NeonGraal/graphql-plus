@@ -9,7 +9,7 @@ public sealed class ParseDomainNumberTests(
 {
   [Theory, RepeatData(Repeats)]
   public void WithRangeNoBounds_ReturnsFalse(string name)
-    => _checks.False(name + "{number ~}");
+    => _checks.FalseExpected(name + "{number ~}");
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeLowerBound_ReturnsCorrectAst(string name, decimal min)
@@ -37,16 +37,18 @@ public sealed class ParseDomainNumberTests(
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithRangeBounds_ReturnsCorrectAst(string name, decimal min, decimal max)
-    => _checks.TrueExpected(
-      name + $"{{number {min}~{max}}}",
-      NewDomain(name, [new(AstNulls.At, false, min, max)]),
-      skipIf: max <= min);
+    => _checks
+      .SkipIf(max <= min)
+      .TrueExpected(
+        name + $"{{number {min}~{max}}}",
+        NewDomain(name, [new(AstNulls.At, false, min, max)]));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithRangeBoundsBad_ReturnsCorrectAst(string name, decimal min, decimal max)
-    => _checks.False(
-      name + $"{{number ~{max} {min}!}}",
-      skipIf: max > min);
+    => _checks
+      .SkipIf(max > min)
+      .FalseExpected(
+        name + $"{{number ~{max} {min}!}}");
 
   internal override IBaseDomainChecks<string> DomainChecks => _checks;
 

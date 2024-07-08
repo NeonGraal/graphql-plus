@@ -34,16 +34,16 @@ internal abstract class BaseDomainChecks<TInput, TDomain>
     : base(parser) => _kind = kind;
 
   public void WithKindBad(TInput input, string kind)
-    => False(
-      KindString(input, kind, ""),
-      skipIf: Enum.TryParse(kind, out DomainKind _));
+    => this.
+      SkipIf(Enum.TryParse(kind, out DomainKind _))
+      .FalseExpected(KindString(input, kind, ""));
 
   public void WithParent(TInput input, string parent)
     => TrueExpected(KindString(input, _kind.ToString(), ":" + parent + " "),
       NamedFactory(input) with { Parent = parent });
 
   public void WithParentBad(TInput input)
-    => False(
+    => FalseExpected(
       KindString(input, _kind.ToString(), ":!"));
 
   protected internal abstract string KindString(TInput input, string kind, string parent);

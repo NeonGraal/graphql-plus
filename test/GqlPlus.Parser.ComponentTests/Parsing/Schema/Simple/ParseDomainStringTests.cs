@@ -15,11 +15,11 @@ public sealed class ParseDomainStringTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithRegexesFirstBad_ReturnsFalse(string name)
-    => _checks.False(name + "{string/}");
+    => _checks.FalseExpected(name + "{string/}");
 
   [Theory, RepeatData(Repeats)]
   public void WithRegexesSecondBad_ReturnsFalse(DomainStringInput input, string regex)
-    => _checks.False(input.Name + "{string/" + input.Regex + "/!/" + regex + "}");
+    => _checks.FalseExpected(input.Name + "{string/" + input.Regex + "/!/" + regex + "}");
 
   internal override IBaseDomainChecks<DomainStringInput> DomainChecks => _checks;
 

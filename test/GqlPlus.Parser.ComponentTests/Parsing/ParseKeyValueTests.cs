@@ -12,25 +12,25 @@ public class ParseKeyValueTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithKeyValueKeyNoEnumValue_ReturnsFalse(string key, string value)
-    => _test.False(
+    => _test.FalseExpected(
       key + ".:" + value);
 
   [Theory, RepeatData(Repeats)]
   public void WithKeyValueValueNoEnumValue_ReturnsFalse(string key, string value)
-    => _test.False(
+    => _test.FalseExpected(
       key + ":" + value + ".");
 
   [Theory, RepeatData(Repeats)]
   public void WithKeyValueNoKey_ReturnsFalse(string value)
-    => _test.False(':' + value, CheckNull);
+    => _test.FalseExpected(':' + value, CheckNull);
 
   [Theory, RepeatData(Repeats)]
   public void WithKeyValueNoColon_ReturnsFalse(string key, string value)
-    => _test.False(key + ' ' + value, CheckNull);
+    => _test.FalseExpected(key + ' ' + value, CheckNull);
 
   [Theory, RepeatData(Repeats)]
   public void WithKeyValueNoValue_ReturnsFalse(string key)
-    => _test.False(key + ' ', CheckNull);
+    => _test.FalseExpected(key + ' ', CheckNull);
 
   private void CheckNull(KeyValue<IGqlpConstant> result)
     => result.Should().Be((KeyValue<IGqlpConstant>)default);

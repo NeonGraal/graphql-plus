@@ -60,7 +60,7 @@ internal sealed class CheckObjectBase<TObjBase, TObjBaseAst, TObjArg, TObjArgAst
     => TrueExpected("$" + name, ObjBase(name) with { IsTypeParameter = true });
 
   public void WithTypeParameterBad()
-    => False("$");
+    => FalseExpected("$");
 
   public void WithTypeArguments(string name, string[] objBases)
     => TrueExpected(
@@ -70,10 +70,10 @@ internal sealed class CheckObjectBase<TObjBase, TObjBaseAst, TObjArg, TObjArgAst
       });
 
   public void WithTypeArgumentsBad(string name, string[] objBases)
-    => False(name + "<" + objBases.Joined());
+    => FalseExpected(name + "<" + objBases.Joined());
 
   public void WithTypeArgumentsNone(string name)
-    => False(name + "<>");
+    => FalseExpected(name + "<>");
 
   public TObjBaseAst ObjBase(string type)
     => _factories.ObjBase(AstNulls.At, type);

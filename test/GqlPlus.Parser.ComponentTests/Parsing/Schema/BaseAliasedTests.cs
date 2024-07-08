@@ -34,10 +34,10 @@ internal abstract class BaseAliasedChecks<TInput, TAliasedAst, TAliased>(
       NamedFactory(input) with { Aliases = aliases });
 
   public void WithAliasesBad(TInput input, string[] aliases)
-    => False(AliasesString(input, "[" + aliases.Joined()));
+    => FalseExpected(AliasesString(input, "[" + aliases.Joined()));
 
   public void WithAliasesNone(TInput input)
-    => False(AliasesString(input, "[]"));
+    => FalseExpected(AliasesString(input, "[]"));
 
   protected internal abstract string AliasesString(TInput input, string aliases);
 

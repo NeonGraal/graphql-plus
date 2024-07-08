@@ -18,7 +18,7 @@ public sealed class ParseOptionTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithSettingsBad_ReturnsFalse(string name)
-    => _checks.False(name + "{random}");
+    => _checks.FalseExpected(name + "{random}");
 
   [Theory, RepeatData(Repeats)]
   public void WithSettingsNone_ReturnsTrue(string name)

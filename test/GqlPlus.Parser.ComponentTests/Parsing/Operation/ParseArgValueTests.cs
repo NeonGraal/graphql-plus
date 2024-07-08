@@ -3,71 +3,74 @@ using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
-public class ParseArgValueTests(Parser<IGqlpArgument>.D parser)
+public class ParseArgValueTests(
+  IOneChecksParser<IGqlpArgument> checks
+)
 {
   [Theory, RepeatData(Repeats)]
   public void WithVariable_ReturnsCorrectAst(string variable)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       "$" + variable,
       new ArgumentAst(AstNulls.At, variable));
 
   [Theory, RepeatData(Repeats)]
   public void WithVariableBad_ReturnsFalse(string variable)
-    => _checks.False("$ " + variable);
+    => checks.FalseExpected("$ " + variable);
 
   [Theory, RepeatData(Repeats)]
   public void WithConstant_ReturnsCorrectAst(string enumValue)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       enumValue,
       new ArgumentAst(enumValue.FieldKey()));
 
   [Theory, RepeatData(Repeats)]
   public void WithList_ReturnsCorrectAst(string enumValue)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       "[$" + enumValue + ' ' + enumValue + ']',
       new ArgumentAst(AstNulls.At, enumValue.ArgumentList()));
 
   [Theory, RepeatData(Repeats)]
   public void WithListComma_ReturnsCorrectAst(string enumValue)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       "[$" + enumValue + ',' + enumValue + ']',
       new ArgumentAst(AstNulls.At, enumValue.ArgumentList()));
 
   [Theory, RepeatData(Repeats)]
   public void WithListInvalid_ReturnsFalse(string enumValue)
-    => _checks.False(
+    => checks.FalseExpected(
       '[' + enumValue + ':' + enumValue + ']',
       CheckNull);
 
   [Theory, RepeatData(Repeats)]
   public void WithListDoubleComma_ReturnsFalse(string enumValue)
-    => _checks.False(
+    => checks.FalseExpected(
       '[' + enumValue + ",," + enumValue + ']',
       CheckNull);
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string enumValue)
-    => _checks.TrueExpected(
-      '{' + key + ":$" + enumValue + ' ' + enumValue + ':' + key + '}',
-      new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),
-      key == enumValue);
+    => checks
+      .SkipIf(key == enumValue)
+      .TrueExpected(
+        '{' + key + ":$" + enumValue + ' ' + enumValue + ':' + key + '}',
+        new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string enumValue)
-    => _checks.TrueExpected(
-      '{' + key + ":$" + enumValue + ',' + enumValue + ':' + key + '}',
-      new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),
-      key == enumValue);
+    => checks
+      .SkipIf(key == enumValue)
+      .TrueExpected(
+        '{' + key + ":$" + enumValue + ',' + enumValue + ':' + key + '}',
+        new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
-    => _checks.False(
-      '{' + key + ':' + enumValue + ':' + enumValue + ':' + key + '}',
-      CheckNull,
-      key == enumValue);
+    => checks
+      .SkipIf(key == enumValue)
+      .FalseExpected(
+        '{' + key + ':' + enumValue + ':' + enumValue + ':' + key + '}',
+        CheckNull);
 
   private void CheckNull(IGqlpArgument? result)
     => result.Should().BeNull();
-
-  private readonly OneChecksParser<IGqlpArgument> _checks = new(parser);
 }

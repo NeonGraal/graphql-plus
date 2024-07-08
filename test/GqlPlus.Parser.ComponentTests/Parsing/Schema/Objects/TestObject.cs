@@ -101,7 +101,7 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
     => _factories = factories;
 
   public void WithNameBad(decimal id, string[] others)
-      => False($"{id}{{" + others.Joined(s => "|" + s) + "}");
+      => FalseExpected($"{id}{{" + others.Joined(s => "|" + s) + "}");
 
   public void WithAlternates(string name, string[] others)
     => TrueExpected(
@@ -119,10 +119,10 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
        });
 
   public void WithFieldsBadAndAlternates(string name, FieldInput[] fields, string[] others)
-    => False(name + "{" + fields.Select(f => f.Name + " " + f.Type).Joined() + others.Joined(s => "|" + s) + "}");
+    => FalseExpected(name + "{" + fields.Select(f => f.Name + " " + f.Type).Joined() + others.Joined(s => "|" + s) + "}");
 
   public void WithFieldsAndAlternatesBad(string name, FieldInput[] fields, string[] others)
-    => False(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "||" + others.Joined(s => "|" + s) + "}");
+    => FalseExpected(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "||" + others.Joined(s => "|" + s) + "}");
 
   public void WithAlternateComments(string name, AlternateComment[] others)
     => TrueExpected(
@@ -139,7 +139,7 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
        });
 
   public void WithAlternateModifiersBad(string name, string[] others)
-    => False(name + "{" + others.Joined(a => $"|{a}[?]") + "}");
+    => FalseExpected(name + "{" + others.Joined(a => $"|{a}[?]") + "}");
 
   public void WithTypeParameters(string name, string other, string[] parameters)
     => TrueExpected(
@@ -150,16 +150,16 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
        });
 
   public void WithTypeParameterBad(string name, string other)
-    => False(name + "<$>{|" + other);
+    => FalseExpected(name + "<$>{|" + other);
 
   public void WithTypeParametersBad(string name, string other, string[] parameters)
-    => False(name + "<" + parameters.Joined(s => "$" + s) + "{|" + other);
+    => FalseExpected(name + "<" + parameters.Joined(s => "$" + s) + "{|" + other);
 
   public void WithTypeParametersNone(string name, string other)
-    => False(name + "<>{|" + other);
+    => FalseExpected(name + "<>{|" + other);
 
   public void WithFieldBad(string name, FieldInput[] fields, string fieldName)
-    => False(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + " " + fieldName + ":}");
+    => FalseExpected(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + " " + fieldName + ":}");
 
   public void WithFields(string name, FieldInput[] fields)
     => TrueExpected(
@@ -169,7 +169,7 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
        });
 
   public void WithFieldsBad(string name, FieldInput[] fields)
-    => False(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined());
+    => FalseExpected(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined());
 
   public void WithParentField(string name, string parent, string field, string fieldType)
     => TrueExpected(
@@ -180,7 +180,7 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
        });
 
   public void WithParentFieldBad(string name, string parent, string field, string fieldType)
-    => False(name + "{:" + parent + " " + field + ":" + fieldType);
+    => FalseExpected(name + "{:" + parent + " " + field + ":" + fieldType);
 
   public void WithParentGenericField(string name, string parent, string subType, string field, string fieldType)
     => TrueExpected(
@@ -191,7 +191,7 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
        });
 
   public void WithParentGenericFieldBad(string name, string parent, string subType, string field, string fieldType)
-    => False(name + "{:" + parent + "<" + subType + " " + field + ":" + fieldType + "}");
+    => FalseExpected(name + "{:" + parent + "<" + subType + " " + field + ":" + fieldType + "}");
 
   public TObjectAst Object(string name)
     => _factories.Object(AstNulls.At, name);

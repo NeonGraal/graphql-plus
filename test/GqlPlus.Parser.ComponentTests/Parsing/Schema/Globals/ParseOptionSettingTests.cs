@@ -15,15 +15,15 @@ public class ParseOptionSettingTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithNoName_ReturnsEmpty(string value)
-    => _test.Empty("='" + value + "'");
+    => _test.EmptyResult("='" + value + "'");
 
   [Theory, RepeatData(Repeats)]
   public void WithNoEquals_ReturnsFalse(string name, string value)
-    => _test.False(name + " '" + value + "'", CheckNull);
+    => _test.FalseExpected(name + " '" + value + "'", CheckNull);
 
   [Theory, RepeatData(Repeats)]
   public void WithNoValue_ReturnsFalse(string name)
-    => _test.False(name + '=', CheckNull);
+    => _test.FalseExpected(name + '=', CheckNull);
 
   private void CheckNull(IGqlpSchemaSetting? ast)
     => ast.Should().BeNull();

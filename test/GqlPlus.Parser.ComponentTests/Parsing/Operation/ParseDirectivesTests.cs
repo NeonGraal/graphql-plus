@@ -3,27 +3,27 @@ using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
-public class ParseDirectivesTests(Parser<IGqlpDirective>.DA parser)
+public class ParseDirectivesTests(
+  IManyChecksParser<IGqlpDirective> checks
+)
 {
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string directives)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       "@" + directives,
       new DirectiveAst(AstNulls.At, directives));
 
   [Theory, RepeatData(Repeats)]
   public void WithArgument_ReturnsCorrectAst(string directives, string variable)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       "@" + directives + "($" + variable + ")",
       new DirectiveAst(AstNulls.At, directives) { Argument = new ArgumentAst(AstNulls.At, variable) });
 
   [Theory, RepeatData(Repeats)]
   public void WithArgumentBad_ReturnsFalse(string directives)
-    => _checks.False("@" + directives + "($)");
+    => checks.FalseExpected("@" + directives + "($)");
 
   [Theory, RepeatData(Repeats)]
   public void WithSecondBad_ReturnsFalse(string directives)
-    => _checks.False("@" + directives + "@");
-
-  private readonly ManyChecksParser<IGqlpDirective> _checks = new(parser);
+    => checks.FalseExpected("@" + directives + "@");
 }

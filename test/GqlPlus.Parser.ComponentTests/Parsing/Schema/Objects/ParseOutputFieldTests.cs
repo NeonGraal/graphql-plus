@@ -17,7 +17,7 @@ public class ParseOutputFieldTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithParametersBad_ReturnsFalse(string name, string fieldType, string[] parameters)
-    => _checks.False(name + "(" + parameters.Joined() + ":" + fieldType);
+    => _checks.FalseExpected(name + "(" + parameters.Joined() + ":" + fieldType);
 
   [Theory, RepeatData(Repeats)]
   public void WithParametersModifiers_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
@@ -29,11 +29,11 @@ public class ParseOutputFieldTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithParameterModifiersBad_ReturnsFalse(string name, string fieldType, string parameter)
-    => _checks.False(name + "(" + parameter + "[?):" + fieldType);
+    => _checks.FalseExpected(name + "(" + parameter + "[?):" + fieldType);
 
   [Theory, RepeatData(Repeats)]
   public void WithParameterConstantBad_ReturnsFalse(string name, string fieldType, string parameter)
-    => _checks.False(name + "(" + parameter + "=):" + fieldType);
+    => _checks.FalseExpected(name + "(" + parameter + "=):" + fieldType);
 
   [Theory, RepeatData(Repeats)]
   public void WithParametersDefault_ReturnsCorrectAst(string name, string fieldType, string[] parameters, string content)
@@ -59,7 +59,7 @@ public class ParseOutputFieldTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldEnumValueBad_ReturnsFalse(string name)
-    => _checks.False(name + "=");
+    => _checks.FalseExpected(name + "=");
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldEnumTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumMember)
@@ -75,7 +75,7 @@ public class ParseOutputFieldTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldEnumTypeAndValueBad_ReturnsFalse(string name, string enumMember)
-    => _checks.False(name + "=" + enumMember + ".");
+    => _checks.FalseExpected(name + "=" + enumMember + ".");
 
   internal override ICheckObjectField FieldChecks => _checks;
 

@@ -2,41 +2,33 @@
 
 namespace GqlPlus.Parsing;
 
-internal class ManyChecksParser<T>
+internal class ManyChecksParser<TResult>(
+  Parser<TResult>.DA parser
+) : IManyChecksParser<TResult>
 {
-  private readonly Parser<T>.LA _parser;
-  private readonly string _type = typeof(T).ToString();
+  private readonly Parser<TResult>.LA _parser = parser;
+  private readonly string _type = typeof(TResult).ToString();
 
-  public ManyChecksParser(Parser<T>.DA parser)
-    => _parser = parser;
-
-  internal void TrueExpected(string input, bool skipIf, params T[] expected)
+  public void TrueExpected(string input, params TResult[] expected)
   {
-    Skip.If(skipIf);
-
-    TrueExpected(input, expected);
-  }
-
-  internal void TrueExpected(string input, params T[] expected)
-  {
-    IResultArray<T> result = _parser.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
     result.IsOk().Should().BeTrue(_type);
     using AssertionScope scope = new();
     result.Required().Should().Equal(expected);
   }
 
-  internal void False(string input)
+  public void FalseExpected(string input)
   {
-    IResultArray<T> result = _parser.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
     using AssertionScope scope = new();
     result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).Should().BeTrue(_type);
   }
 
-  internal void Count(string input, int count)
+  public void Count(string input, int count)
   {
-    IResultArray<T> result = _parser.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
     result.IsOk().Should().BeTrue(_type);
     using AssertionScope scope = new();
@@ -44,38 +36,49 @@ internal class ManyChecksParser<T>
   }
 }
 
-internal sealed class ManyChecksParser<I, T>
-where I : Parser<T>.IA
+internal sealed class ManyChecksParser<TInterface, TResult>(
+  ParserArray<TInterface, TResult>.DA parser
+) : IManyChecksParser<TInterface, TResult>
+  where TInterface : Parser<TResult>.IA
 {
-  private readonly ParserArray<I, T>.LA _parser;
-  private readonly string _type = typeof(I).ToString();
+  private readonly ParserArray<TInterface, TResult>.LA _parser = parser;
+  private readonly string _type = typeof(TInterface).ToString();
 
-  public ManyChecksParser(ParserArray<I, T>.DA parser)
-    => _parser = parser;
-
-  internal void TrueExpected(string input, params T[] expected)
+  public void TrueExpected(string input, params TResult[] expected)
   {
-    IResultArray<T> result = _parser.I.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
 
     result.IsOk().Should().BeTrue(_type);
     using AssertionScope scope = new();
     result.Required().Should().Equal(expected);
   }
 
-  internal void False(string input)
+  public void FalseExpected(string input)
   {
-    IResultArray<T> result = _parser.I.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
 
     using AssertionScope scope = new();
     result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).Should().BeTrue(_type);
   }
 
-  internal void Count(string input, int count)
+  public void Count(string input, int count)
   {
-    IResultArray<T> result = _parser.I.Parse(Tokens(input), _type);
+    IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
 
     result.IsOk().Should().BeTrue(_type);
     using AssertionScope scope = new();
     result.Required().Count().Should().Be(count);
   }
 }
+
+public interface IManyChecksParser<T>
+{
+  void TrueExpected(string input, params T[] expected);
+  void FalseExpected(string input);
+  void Count(string input, int count);
+}
+
+public interface IManyChecksParser<TInterface, TResult>
+  : IManyChecksParser<TResult>
+  where TInterface : Parser<TResult>.IA
+{ }

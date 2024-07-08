@@ -44,7 +44,7 @@ internal sealed class CheckObjectArgument<TObjArg, TObjArgAst>(
     => TrueExpected("<$" + name + ">", ObjArg(name) with { IsTypeParameter = true });
 
   public void WithTypeParameterBad()
-    => False("<$");
+    => FalseExpected("<$");
 
   public TObjArgAst ObjArg(string type)
     => _factories.ObjArgument(AstNulls.At, type);

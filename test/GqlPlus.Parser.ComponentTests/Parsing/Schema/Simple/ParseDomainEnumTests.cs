@@ -27,15 +27,15 @@ public sealed class ParseDomainEnumTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithMembersExcludeBad_ReturnsFalse(string name)
-    => _checks.False(name + "{enum !}");
+    => _checks.FalseExpected(name + "{enum !}");
 
   [Theory, RepeatData(Repeats)]
   public void WithMembersFirstBad_ReturnsFalse(DomainEnumInput input)
-    => _checks.False(input.Name + "{enum " + input.Member + ".}");
+    => _checks.FalseExpected(input.Name + "{enum " + input.Member + ".}");
 
   [Theory, RepeatData(Repeats)]
   public void WithMembersSecondBad_ReturnsFalse(DomainEnumInput input, string member)
-    => _checks.False(input.Name + "{enum " + input.Member + "!" + member + ".}");
+    => _checks.FalseExpected(input.Name + "{enum " + input.Member + "!" + member + ".}");
 
   internal override IBaseDomainChecks<DomainEnumInput> DomainChecks => _checks;
 

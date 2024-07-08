@@ -16,7 +16,7 @@ public class ParseOutputArgumentTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithArgumentEnumValueBad_ReturnsFalse(string enumType)
-    => _checks.False("<" + enumType + ".");
+    => _checks.FalseExpected("<" + enumType + ".");
 
   internal override ICheckObjectArgument ObjectArgumentChecks => _checks;
 

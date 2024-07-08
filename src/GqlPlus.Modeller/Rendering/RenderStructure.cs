@@ -84,7 +84,7 @@ public class RenderStructure
 
   public RenderStructure Add<TValue>(string key, IEnumerable<TValue> values, IRenderer<TValue> renderer, string tag = "", bool flow = false)
     where TValue : IModelBase
-    => Add(key, new(values.Select(renderer.Render), tag, flow));
+    => Add(key, new(values.Select(renderer.ThrowIfNull().Render), tag, flow));
 
   public RenderStructure Add<TValue>(string key, IMap<TValue> values, IRenderer<TValue> renderer, string dictTag, bool flow = false, string keyTag = "_Identifier")
     where TValue : IModelBase

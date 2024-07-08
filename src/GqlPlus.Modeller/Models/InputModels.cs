@@ -3,10 +3,7 @@
 public record class TypeInputModel(
   string Name
 ) : TypeObjectModel<InputBaseModel, InputFieldModel, InputAlternateModel>(TypeKindModel.Input, Name)
-{
-  protected override string? ParentName(ObjDescribedModel<InputBaseModel>? parent)
-    => parent?.Base.Input;
-}
+{ }
 
 public record class InputArgumentModel(
   string Input

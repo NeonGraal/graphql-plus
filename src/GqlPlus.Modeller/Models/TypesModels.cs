@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+
 using GqlPlus.Resolving;
 
 namespace GqlPlus.Models;
@@ -20,20 +21,13 @@ public abstract record class ChildTypeModel<TParent>(
 {
   public TParent? Parent { get; set; }
 
-  internal IModelBase? _parentModel;
-
-  protected abstract string? ParentName(TParent? parent);
+  internal IModelBase? ParentModel { get; set; }
 
   internal virtual bool GetParentModel<TResult>(IResolveContext context, [NotNullWhen(true)] out TResult? model)
     where TResult : IModelBase
   {
-    if (_parentModel is null) {
-      _parentModel = model = context.TryGetType(Name, ParentName(Parent), out TResult? parentModel) ? parentModel : default;
-    } else {
-      model = (TResult?)_parentModel;
-    }
-
-    return model is not null;
+    model = default;
+    return false;
   }
 
   internal void ForParent<TResult>(IResolveContext context, Action<TResult> action)
@@ -56,7 +50,7 @@ internal interface IChildTypeModel
     where TModel : IChildTypeModel;
 }
 
-public abstract record class ParentTypeModel<TItem, TAll>(
+public record class ParentTypeModel<TItem, TAll>(
   TypeKindModel Kind,
   string Name
 ) : ChildTypeModel<TypeRefModel<SimpleKindModel>>(Kind, Name)
@@ -64,11 +58,7 @@ public abstract record class ParentTypeModel<TItem, TAll>(
   where TAll : IModelBase
 {
   public TItem[] Items { get; set; } = [];
-
-  protected override string? ParentName(TypeRefModel<SimpleKindModel>? parent)
-    => parent?.Name;
-
-  protected abstract Func<TItem, TAll> NewItem(string parent);
+  public TAll[] AllItems { get; set; } = [];
 }
 
 public enum SimpleKindModel { Basic, Enum, Internal, Domain, Union, LastSimple = 9 }

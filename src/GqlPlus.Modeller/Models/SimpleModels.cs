@@ -15,9 +15,6 @@ public sealed record class BaseDomainModel<TItem>(
   where TItem : BaseDomainItemModel
 {
   internal override string Tag => $"_Domain{DomainKind}";
-
-  protected override Func<TItem, DomainItemModel<TItem>> NewItem(string parent)
-    => item => new(item, parent);
 }
 
 public record class BaseDomainItemModel(
@@ -64,14 +61,7 @@ public record class DomainItemModel<TItem>(
 public record class TypeEnumModel(
   string Name
 ) : ParentTypeModel<AliasedModel, EnumMemberModel>(TypeKindModel.Enum, Name)
-{
-  protected override Func<AliasedModel, EnumMemberModel> NewItem(string parent)
-    => member
-        => new(member.Name, parent) {
-          Aliases = member.Aliases,
-          Description = member.Description,
-        };
-}
+{ }
 
 public record class EnumMemberModel(
   string Name,
@@ -88,14 +78,7 @@ public record class EnumValueModel(
 public record class TypeUnionModel(
   string Name
 ) : ParentTypeModel<AliasedModel, UnionMemberModel>(TypeKindModel.Union, Name)
-{
-  protected override Func<AliasedModel, UnionMemberModel> NewItem(string parent)
-    => member
-        => new(member.Name, parent) {
-          Aliases = member.Aliases,
-          Description = member.Description,
-        };
-}
+{ }
 
 public record class UnionMemberModel(
   string Name,

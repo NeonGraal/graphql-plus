@@ -4,17 +4,13 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public sealed class ParseDomainBooleanTests(
-  Parser<IGqlpDomain>.D parser
-) : BaseDomainTests<string>
-{
-  internal override IBaseDomainChecks<string> DomainChecks => _checks;
-
-  private readonly ParseDomainBooleanChecks _checks = new(parser);
-}
+  IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainTrueFalse>> domainChecks
+) : BaseDomainTests<string, IGqlpDomain<IGqlpDomainTrueFalse>>(domainChecks)
+{ }
 
 internal sealed class ParseDomainBooleanChecks(
   Parser<IGqlpDomain>.D parser
-) : BaseDomainChecks<string, AstDomain>(parser, DomainKind.Boolean)
+) : BaseDomainChecks<string, AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>, IGqlpDomain<IGqlpDomainTrueFalse>>(parser, DomainKind.Boolean)
 {
   protected internal override AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse> NamedFactory(string input)
     => new(AstNulls.At, input, DomainKind.Boolean, [new(AstNulls.At, false, false), new(AstNulls.At, false, true)]);

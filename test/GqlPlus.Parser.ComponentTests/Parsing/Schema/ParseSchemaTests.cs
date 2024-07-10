@@ -5,7 +5,9 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema;
 
-public class ParseSchemaTests(Parser<IGqlpSchema>.D parser)
+public class ParseSchemaTests(
+  Parser<IGqlpSchema>.D parser
+)
 {
   private readonly Parser<IGqlpSchema>.L _parser = parser;
 

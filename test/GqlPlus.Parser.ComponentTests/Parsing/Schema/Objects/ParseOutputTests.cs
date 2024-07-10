@@ -4,11 +4,11 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseOutputTests(
-  Parser<IGqlpOutputObject>.D parser
-) : TestObject
-{
-  internal override ICheckObject ObjectChecks => _checks;
+  ICheckObject<IGqlpOutputObject> objectChecks
+) : TestObject<IGqlpOutputObject>(objectChecks)
+{ }
 
-  private readonly CheckObject<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, OutputBaseAst, IGqlpOutputArgument, OutputArgumentAst> _checks
-    = new(new OutputFactories(), parser);
-}
+internal sealed class ParseOutputChecks(
+  Parser<IGqlpOutputObject>.D parser
+) : CheckObject<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, OutputBaseAst, IGqlpOutputArgument, OutputArgumentAst>(new OutputFactories(), parser)
+{ }

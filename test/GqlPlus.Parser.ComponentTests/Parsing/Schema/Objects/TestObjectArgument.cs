@@ -3,32 +3,32 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class TestObjectArgument
+public abstract class TestObjectArgument<TObjArg>(
+  ICheckObjectArgument<TObjArg> objectArgumentChecks
+) where TObjArg : IGqlpObjArgument
 {
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string name)
-  => ObjectArgumentChecks.WithMinimum(name);
+  => objectArgumentChecks.WithMinimum(name);
 
   [Theory, RepeatData(Repeats)]
   public void WithMany_ReturnsCorrectAsts(string[] names)
-  => ObjectArgumentChecks.WithMany(names);
+  => objectArgumentChecks.WithMany(names);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeParameter_ReturnsCorrectAst(string name)
-  => ObjectArgumentChecks.WithTypeParameter(name);
+  => objectArgumentChecks.WithTypeParameter(name);
 
   [Fact]
   public void WithTypeParameterBad_ReturnsFalse()
-  => ObjectArgumentChecks.WithTypeParameterBad();
-
-  internal abstract ICheckObjectArgument ObjectArgumentChecks { get; }
+  => objectArgumentChecks.WithTypeParameterBad();
 }
 
-internal sealed class CheckObjectArgument<TObjArg, TObjArgAst>(
+internal class CheckObjectArgument<TObjArg, TObjArgAst>(
   IObjectArgumentFactories<TObjArg, TObjArgAst> factories,
   Parser<TObjArg>.DA parser
 ) : ManyChecksParser<TObjArg>(parser)
-  , ICheckObjectArgument
+  , ICheckObjectArgument<TObjArg>
   where TObjArg : IGqlpObjArgument
   where TObjArgAst : AstObjArgument, TObjArg
 {
@@ -50,7 +50,8 @@ internal sealed class CheckObjectArgument<TObjArg, TObjArgAst>(
     => _factories.ObjArgument(AstNulls.At, type);
 }
 
-public interface ICheckObjectArgument
+public interface ICheckObjectArgument<TObjArg>
+  : IManyChecksParser<TObjArg>
 {
   void WithMinimum(string name);
   void WithMany(string[] names);

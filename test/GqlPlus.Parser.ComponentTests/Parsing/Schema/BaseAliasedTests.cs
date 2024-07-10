@@ -3,29 +3,28 @@ using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Parsing.Schema;
 
-public abstract class BaseAliasedTests<TInput>
-  : BaseNamedTests<TInput>
+public abstract class BaseAliasedTests<TInput, TParsed>(
+  IBaseAliasedChecks<TInput, TParsed> aliasChecks
+) : BaseNamedTests<TInput, TParsed>(aliasChecks)
+  where TParsed : IGqlpAliased
 {
   [Theory, RepeatData(Repeats)]
   public void WithAliases_ReturnsCorrectAst(TInput input, string[] aliases)
-    => AliasChecks.WithAliases(input, aliases);
+    => aliasChecks.WithAliases(input, aliases);
 
   [Theory, RepeatData(Repeats)]
   public void WithAliasesBad_ReturnsFalse(TInput input, string[] aliases)
-    => AliasChecks.WithAliasesBad(input, aliases);
+    => aliasChecks.WithAliasesBad(input, aliases);
 
   [Theory, RepeatData(Repeats)]
   public void WithAliasesNone_ReturnsFalse(TInput input)
-    => AliasChecks.WithAliasesNone(input);
-
-  internal abstract IBaseAliasedChecks<TInput> AliasChecks { get; }
-
-  internal override IBaseNamedChecks<TInput> NameChecks => AliasChecks;
+    => aliasChecks.WithAliasesNone(input);
 }
 
 internal abstract class BaseAliasedChecks<TInput, TAliasedAst, TAliased>(
   Parser<TAliased>.D parser
-) : BaseNamedChecks<TInput, TAliasedAst, TAliased>(parser), IBaseAliasedChecks<TInput>
+) : BaseNamedChecks<TInput, TAliasedAst, TAliased>(parser)
+  , IBaseAliasedChecks<TInput, TAliased>
   where TAliasedAst : AstAliased, TAliased
   where TAliased : IGqlpAliased
 {
@@ -45,8 +44,9 @@ internal abstract class BaseAliasedChecks<TInput, TAliasedAst, TAliased>(
     => AliasesString(input, "");
 }
 
-internal interface IBaseAliasedChecks<TInput>
-  : IBaseNamedChecks<TInput>
+public interface IBaseAliasedChecks<TInput, TParsed>
+  : IBaseNamedChecks<TInput, TParsed>
+  where TParsed : IGqlpAliased
 {
   void WithAliases(TInput input, string[] aliases);
   void WithAliasesBad(TInput input, string[] aliases);

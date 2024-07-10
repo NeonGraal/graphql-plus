@@ -4,42 +4,38 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public sealed class ParseDomainEnumTests(
-  Parser<IGqlpDomain>.D parser
-) : BaseDomainTests<DomainEnumInput>
+  IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainMember>> checks
+) : BaseDomainTests<DomainEnumInput, IGqlpDomain<IGqlpDomainMember>>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void WithEnumType_ReturnsCorrectAst(DomainEnumInput input, string enumType)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       input.Name + "{enum!" + enumType + "." + input.Member + "}",
       NewDomain(input, input.DomainMember(enumType)));
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumAllMembers_ReturnsCorrectAst(DomainEnumInput input)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       input.Name + "{enum " + input.Member + ".* }",
       NewDomain(input, input.DomainAllMembers()));
 
   [Theory, RepeatData(Repeats)]
   public void WithMembers_ReturnsCorrectAst(DomainEnumInput input, string member)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       input.Name + "{enum!" + input.Member + " " + member + "}",
       NewDomain(input, input.DomainMembers(member)));
 
   [Theory, RepeatData(Repeats)]
   public void WithMembersExcludeBad_ReturnsFalse(string name)
-    => _checks.FalseExpected(name + "{enum !}");
+    => checks.FalseExpected(name + "{enum !}");
 
   [Theory, RepeatData(Repeats)]
   public void WithMembersFirstBad_ReturnsFalse(DomainEnumInput input)
-    => _checks.FalseExpected(input.Name + "{enum " + input.Member + ".}");
+    => checks.FalseExpected(input.Name + "{enum " + input.Member + ".}");
 
   [Theory, RepeatData(Repeats)]
   public void WithMembersSecondBad_ReturnsFalse(DomainEnumInput input, string member)
-    => _checks.FalseExpected(input.Name + "{enum " + input.Member + "!" + member + ".}");
-
-  internal override IBaseDomainChecks<DomainEnumInput> DomainChecks => _checks;
-
-  private readonly ParseDomainEnumChecks _checks = new(parser);
+    => checks.FalseExpected(input.Name + "{enum " + input.Member + "!" + member + ".}");
 
   private static AstDomain<DomainMemberAst, IGqlpDomainMember> NewDomain(DomainEnumInput input, DomainMemberAst[] members)
     => new(AstNulls.At, input.Name, DomainKind.Enum, members);
@@ -47,7 +43,7 @@ public sealed class ParseDomainEnumTests(
 
 internal sealed class ParseDomainEnumChecks(
   Parser<IGqlpDomain>.D parser
-) : BaseDomainChecks<DomainEnumInput, AstDomain>(parser, DomainKind.Enum)
+) : BaseDomainChecks<DomainEnumInput, AstDomain<DomainMemberAst, IGqlpDomainMember>, IGqlpDomain<IGqlpDomainMember>>(parser, DomainKind.Enum)
 {
   protected internal override AstDomain<DomainMemberAst, IGqlpDomainMember> NamedFactory(DomainEnumInput input)
     => new(AstNulls.At, input.Name, DomainKind.Enum, input.DomainMembers());

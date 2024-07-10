@@ -4,13 +4,9 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public sealed class ParseUnionMemberTests(
-  Parser<IGqlpUnionItem>.D parser
-) : BaseNamedTests<string>
-{
-  internal override IBaseNamedChecks<string> NameChecks => _checks;
-
-  private readonly ParseUnionMemberChecks _checks = new(parser);
-}
+  IBaseNamedChecks<string, IGqlpUnionItem> checks
+) : BaseNamedTests<string, IGqlpUnionItem>(checks)
+{ }
 
 internal sealed class ParseUnionMemberChecks(
   Parser<IGqlpUnionItem>.D parser

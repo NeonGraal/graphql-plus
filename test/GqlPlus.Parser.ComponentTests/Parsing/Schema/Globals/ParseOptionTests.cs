@@ -5,12 +5,12 @@ using GqlPlus.Ast.Schema.Globals;
 namespace GqlPlus.Parsing.Schema.Globals;
 
 public sealed class ParseOptionTests(
-  Parser<IGqlpSchemaOption>.D parser
-) : BaseAliasedTests<string>
+  IBaseAliasedChecks<string, IGqlpSchemaOption> checks
+) : BaseAliasedTests<string, IGqlpSchemaOption>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void WithSettings_ReturnsCorrectAst(string name)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       name + "{setting='setting'}",
       new OptionDeclAst(AstNulls.At, name) {
         Settings = s_settings.OptionSettings(),
@@ -18,15 +18,12 @@ public sealed class ParseOptionTests(
 
   [Theory, RepeatData(Repeats)]
   public void WithSettingsBad_ReturnsFalse(string name)
-    => _checks.FalseExpected(name + "{random}");
+    => checks.FalseExpected(name + "{random}");
 
   [Theory, RepeatData(Repeats)]
   public void WithSettingsNone_ReturnsTrue(string name)
-    => _checks.TrueExpected(name + "{}", new OptionDeclAst(AstNulls.At, name));
+    => checks.TrueExpected(name + "{}", new OptionDeclAst(AstNulls.At, name));
 
-  internal override IBaseAliasedChecks<string> AliasChecks => _checks;
-
-  private readonly ParseOptionChecks _checks = new(parser);
   private static readonly string[] s_settings = ["setting"];
 }
 

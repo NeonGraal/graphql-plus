@@ -3,8 +3,10 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class TestObjectField
-  : BaseAliasedTests<FieldInput>
+public abstract class TestObjectField<TObjField>(
+  ICheckObjectField<TObjField> fieldChecks
+) : BaseAliasedTests<FieldInput, TObjField>(fieldChecks)
+  where TObjField : IGqlpObjField
 {
   [Theory]
   [RepeatInlineData(Repeats, "Boolean")]
@@ -14,24 +16,20 @@ public abstract class TestObjectField
   [RepeatInlineData(Repeats, "0")]
   [RepeatInlineData(Repeats, "*")]
   public void WithSimple_ReturnsCorrectAst(string fieldType, string name)
-  => FieldChecks.WithMinimum(name, fieldType);
+  => fieldChecks.WithMinimum(name, fieldType);
 
   [Theory, RepeatData(Repeats)]
   public void WithModifiers_ReturnsCorrectAst(string name, string fieldType)
-  => FieldChecks.WithModifiers(name, fieldType);
+  => fieldChecks.WithModifiers(name, fieldType);
 
   [Theory, RepeatData(Repeats)]
   public void WithModifiersBad_ReturnsFalse(string name, string fieldType)
-  => FieldChecks.WithModifiersBad(name, fieldType);
-
-  internal abstract ICheckObjectField FieldChecks { get; }
-
-  internal sealed override IBaseAliasedChecks<FieldInput> AliasChecks => FieldChecks;
+  => fieldChecks.WithModifiersBad(name, fieldType);
 }
 
-internal sealed class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
+internal class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
   : BaseAliasedChecks<FieldInput, TObjFieldAst, TObjField>
-  , ICheckObjectField
+  , ICheckObjectField<TObjField>
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
   where TObjBase : IGqlpObjBase
@@ -68,8 +66,9 @@ internal sealed class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBa
     => $"{input.Name}{aliases}:{input.Type}";
 }
 
-internal interface ICheckObjectField
-  : IBaseAliasedChecks<FieldInput>
+public interface ICheckObjectField<TObjField>
+  : IBaseAliasedChecks<FieldInput, TObjField>
+  where TObjField : IGqlpObjField
 {
   void WithMinimum(string name, string fieldType);
   void WithModifiers(string name, string fieldType);

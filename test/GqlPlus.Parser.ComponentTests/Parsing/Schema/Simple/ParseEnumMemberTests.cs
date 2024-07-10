@@ -4,13 +4,9 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public sealed class ParseEnumMemberTests(
-  Parser<IGqlpEnumItem>.D parser
-) : BaseAliasedTests<string>
-{
-  internal override IBaseAliasedChecks<string> AliasChecks => _checks;
-
-  private readonly ParseEnumMemberChecks _checks = new(parser);
-}
+  IBaseAliasedChecks<string, IGqlpEnumItem> checks
+) : BaseAliasedTests<string, IGqlpEnumItem>(checks)
+{ }
 
 internal sealed class ParseEnumMemberChecks(
   Parser<IGqlpEnumItem>.D parser

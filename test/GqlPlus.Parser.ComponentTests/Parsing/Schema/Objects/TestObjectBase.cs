@@ -3,19 +3,21 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class TestObjectBase
+public abstract class TestObjectBase<TObjBase>(
+  ICheckObjectBase<TObjBase> objectBaseChecks
+) where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string name)
-  => ObjectBaseChecks.WithMinimum(name);
+  => objectBaseChecks.WithMinimum(name);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeParameter_ReturnsCorrectAst(string name)
-  => ObjectBaseChecks.WithTypeParameter(name);
+  => objectBaseChecks.WithTypeParameter(name);
 
   [Fact]
   public void WithTypeParameterBad_ReturnsFalse()
-  => ObjectBaseChecks.WithTypeParameterBad();
+  => objectBaseChecks.WithTypeParameterBad();
 
   [Theory]
   [RepeatInlineData(Repeats, "Boolean")]
@@ -25,27 +27,26 @@ public abstract class TestObjectBase
   [RepeatInlineData(Repeats, "0")]
   [RepeatInlineData(Repeats, "*")]
   public void WithSimpleArguments_ReturnsCorrectAst(string argument, string name)
-  => ObjectBaseChecks.WithTypeArguments(name, [argument]);
+  => objectBaseChecks.WithTypeArguments(name, [argument]);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeArguments_ReturnsCorrectAst(string name, string[] objBases)
-  => ObjectBaseChecks.WithTypeArguments(name, objBases);
+  => objectBaseChecks.WithTypeArguments(name, objBases);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeArgumentsBad_ReturnsCorrectAst(string name, string[] objBases)
-  => ObjectBaseChecks.WithTypeArgumentsBad(name, objBases);
+  => objectBaseChecks.WithTypeArgumentsBad(name, objBases);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeArgumentsNone_ReturnsFalse(string name)
-  => ObjectBaseChecks.WithTypeArgumentsNone(name);
-
-  internal abstract ICheckObjectBase ObjectBaseChecks { get; }
+  => objectBaseChecks.WithTypeArgumentsNone(name);
 }
 
-internal sealed class CheckObjectBase<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>(
+internal class CheckObjectBase<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>(
   IObjectBaseFactories<TObjBase, TObjBaseAst, TObjArg, TObjArgAst> factories,
   Parser<TObjBase>.D parser
-) : OneChecksParser<TObjBase>(parser), ICheckObjectBase
+) : OneChecksParser<TObjBase>(parser)
+  , ICheckObjectBase<TObjBase>
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
   where TObjArg : IGqlpObjArgument
@@ -82,7 +83,9 @@ internal sealed class CheckObjectBase<TObjBase, TObjBaseAst, TObjArg, TObjArgAst
     => _factories.ObjArgument(AstNulls.At, type);
 }
 
-public interface ICheckObjectBase
+public interface ICheckObjectBase<TObjBase>
+  : IOneChecksParser<TObjBase>
+  where TObjBase : IGqlpObjBase
 {
   void WithMinimum(string name);
   void WithTypeParameter(string name);

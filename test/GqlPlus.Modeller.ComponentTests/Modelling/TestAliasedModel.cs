@@ -3,22 +3,20 @@ using GqlPlus.Convert;
 
 namespace GqlPlus.Modelling;
 
-public abstract class TestAliasedModel<TInput>
-  : TestDescribedModel<TInput>
+public abstract class TestAliasedModel<TInput, TRender>(
+  ICheckAliasedModel<TInput, TRender> aliasedChecks
+) : TestDescribedModel<TInput, TRender>(aliasedChecks)
+  where TRender : IModelBase
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Aliases(TInput input, string[] aliases)
   {
     Skip.If(SkipIf(input));
 
-    AliasedChecks.Model_Expected(
-        AliasedChecks.ToModel(AliasedChecks.AliasedAst(input, aliases)),
-        AliasedChecks.ExpectedDescriptionAliases(new(input, aliases)));
+    aliasedChecks.Model_Expected(
+        aliasedChecks.ToModel(aliasedChecks.AliasedAst(input, aliases)),
+        aliasedChecks.ExpectedDescriptionAliases(new(input, aliases)));
   }
-
-  internal sealed override ICheckDescribedModel<TInput> DescribedChecks => AliasedChecks;
-
-  internal abstract ICheckAliasedModel<TInput> AliasedChecks { get; }
 }
 
 internal abstract class CheckAliasedModel<TName, TAst, TModel>(
@@ -33,7 +31,7 @@ internal abstract class CheckAliasedModel<TName, TSrc, TAst, TModel>(
   IModeller<TSrc, TModel> modeller,
   IRenderer<TModel> rendering
 ) : CheckDescribedModel<TName, TSrc, TAst, TModel>(modeller, rendering)
-  , ICheckAliasedModel<TName>
+  , ICheckAliasedModel<TName, TModel>
   where TSrc : IGqlpError, IGqlpDescribed
   where TAst : IGqlpAliased, TSrc
   where TModel : IModelBase
@@ -43,10 +41,10 @@ internal abstract class CheckAliasedModel<TName, TSrc, TAst, TModel>(
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<TName> input)
     => ExpectedDescriptionAliases(new(input));
 
-  IGqlpAliased ICheckAliasedModel<TName>.AliasedAst(TName name, string[]? aliases)
+  IGqlpAliased ICheckAliasedModel<TName, TModel>.AliasedAst(TName name, string[]? aliases)
     => NewAliasedAst(name, aliases: aliases);
-  string[] ICheckAliasedModel<TName>.ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input) => ExpectedDescriptionAliases(input);
-  IModelBase ICheckAliasedModel<TName>.ToModel(IGqlpAliased aliased) => AstToModel((TAst)aliased);
+  string[] ICheckAliasedModel<TName, TModel>.ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input) => ExpectedDescriptionAliases(input);
+  IModelBase ICheckAliasedModel<TName, TModel>.ToModel(IGqlpAliased aliased) => AstToModel((TAst)aliased);
 
   protected override TAst NewDescribedAst(TName name, string description)
     => NewAliasedAst(name, description);
@@ -54,23 +52,26 @@ internal abstract class CheckAliasedModel<TName, TSrc, TAst, TModel>(
   protected abstract TAst NewAliasedAst(TName name, string? description = null, string[]? aliases = null);
 }
 
-internal interface ICheckAliasedModel<TName>
-  : ICheckDescribedModel<TName>
+public interface ICheckAliasedModel<TName, TRender>
+  : ICheckDescribedModel<TName, TRender>
+  where TRender : IModelBase
 {
   IGqlpAliased AliasedAst(TName name, string[]? aliases = null);
   IModelBase ToModel(IGqlpAliased aliased);
   string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<TName> input);
 }
 
-internal class ExpectedDescriptionAliasesInput<TName>(
+public class ExpectedDescriptionAliasesInput<TName>(
   TName name,
   IEnumerable<string>? aliases = null,
   string? description = null
 ) : ExpectedDescriptionInput<TName>(name, description)
 {
+#pragma warning disable CA1819 // Properties should not return arrays
   public string[] Aliases { get; protected set; } = aliases is null ? [] : [.. aliases];
   public string[] ExpectedAliases { get; protected set; }
     = aliases is null ? [] : [aliases.YamlJoin("aliases: [", "]")];
+#pragma warning restore CA1819 // Properties should not return arrays
 
   internal ExpectedDescriptionAliasesInput(ExpectedDescriptionInput<TName> input)
     : this(input.Name)

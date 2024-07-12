@@ -15,13 +15,13 @@ public sealed class ParseDomainNumberTests(
   public void WithRangeLowerBound_ReturnsCorrectAst(string name, decimal min)
     => checks.TrueExpected(
       name + $"{{number {min}>}}",
-      NewDomain(name, [new(AstNulls.At, false, min, null)]));
+      NewDomain(name, [NewRange(min, null)]));
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeSingle_ReturnsCorrectAst(string name, decimal min)
     => checks.TrueExpected(
       name + $"{{number {min}}}",
-      NewDomain(name, [new(AstNulls.At, false, min, min)]));
+      NewDomain(name, [NewRange(min, min)]));
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeExcludes_ReturnsCorrectAst(string name, decimal min)
@@ -33,7 +33,7 @@ public sealed class ParseDomainNumberTests(
   public void WithRangeUpperBound_ReturnsCorrectAst(string name, decimal max)
     => checks.TrueExpected(
       name + $"{{number <{max}}}",
-      NewDomain(name, [new(AstNulls.At, false, null, max)]));
+      NewDomain(name, [NewRange(null, max)]));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithRangeBounds_ReturnsCorrectAst(string name, decimal min, decimal max)
@@ -41,7 +41,7 @@ public sealed class ParseDomainNumberTests(
       .SkipIf(max <= min)
       .TrueExpected(
         name + $"{{number {min}~{max}}}",
-        NewDomain(name, [new(AstNulls.At, false, min, max)]));
+        NewDomain(name, [NewRange(min, max)]));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithRangeBoundsBad_ReturnsCorrectAst(string name, decimal min, decimal max)
@@ -52,6 +52,9 @@ public sealed class ParseDomainNumberTests(
 
   private static AstDomain<DomainRangeAst, IGqlpDomainRange> NewDomain(string name, DomainRangeAst[] members)
     => new(AstNulls.At, name, DomainKind.Number, members);
+
+  private static DomainRangeAst NewRange(decimal? min, decimal? max)
+    => new(AstNulls.At, false, min, max);
 }
 
 internal sealed class ParseDomainNumberChecks(

@@ -4,19 +4,15 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Modelling.Simple;
 
 public class DomainEnumModelTests(
-  IDomainModeller<IGqlpDomainMember, DomainMemberModel> modeller,
-  IRenderer<BaseDomainModel<DomainMemberModel>> rendering
-) : TestDomainModel<string, IGqlpDomainMember>
-{
-  internal override ICheckDomainModel<string, IGqlpDomainMember> DomainChecks => _checks;
-
-  private readonly DomainEnumModelChecks _checks = new(modeller, rendering);
-}
+  IDomainEnumModelChecks checks
+) : TestDomainModel<string, IGqlpDomainMember, DomainMemberModel>(checks)
+{ }
 
 internal sealed class DomainEnumModelChecks(
   IDomainModeller<IGqlpDomainMember, DomainMemberModel> modeller,
   IRenderer<BaseDomainModel<DomainMemberModel>> rendering
 ) : CheckDomainModel<string, DomainMemberAst, IGqlpDomainMember, DomainMemberModel>(DomainKind.Enum, modeller, rendering)
+  , IDomainEnumModelChecks
 {
   protected override string[] ExpectedItem(string input, string exclude, string[] domain)
     => [
@@ -31,3 +27,7 @@ internal sealed class DomainEnumModelChecks(
   protected override DomainMemberAst[]? DomainItems(string[]? inputs)
     => inputs?.DomainMembers();
 }
+
+public interface IDomainEnumModelChecks
+  : ICheckDomainModel<string, IGqlpDomainMember, DomainMemberModel>
+{ }

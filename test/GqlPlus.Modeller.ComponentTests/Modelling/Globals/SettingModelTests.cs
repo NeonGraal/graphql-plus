@@ -6,14 +6,9 @@ using GqlPlus.Ast.Schema.Globals;
 namespace GqlPlus.Modelling.Globals;
 
 public class SettingModelTests(
-  IModeller<IGqlpSchemaSetting, SettingModel> modeller,
-  IRenderer<SettingModel> rendering
-) : TestDescribedModel<SettingInput>
-{
-  internal override ICheckDescribedModel<SettingInput> DescribedChecks => _checks;
-
-  private readonly SettingModelChecks _checks = new(modeller, rendering);
-}
+  ICheckDescribedModel<SettingInput, SettingModel> checks
+) : TestDescribedModel<SettingInput, SettingModel>(checks)
+{ }
 
 internal sealed class SettingModelChecks(
   IModeller<IGqlpSchemaSetting, SettingModel> modeller,

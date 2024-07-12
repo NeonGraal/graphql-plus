@@ -2,22 +2,22 @@
 
 namespace GqlPlus.Modelling;
 
-public abstract class TestModelBase<TName>
+public abstract class TestModelBase<TName, TRender>(
+  ICheckModelBase<TName, TRender> baseChecks
+) where TRender : IModelBase
 {
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_Default(TName name)
-    => BaseChecks
+    => baseChecks
       .SkipIf(SkipIf(name))
       .Model_Expected(
-        BaseChecks.ToModel(BaseChecks.BaseAst(name)),
-        BaseChecks.ExpectedBase(name));
+        baseChecks.ToModel(baseChecks.BaseAst(name)),
+        baseChecks.ExpectedBase(name));
 
   protected virtual bool SkipIf(TName name)
     => false;
 
   internal ToExpected<TItem> EmptyExpected<TItem>() => i => [];
-
-  internal abstract ICheckModelBase<TName> BaseChecks { get; }
 }
 
 internal abstract class CheckModelBase<TName, TAst, TModel>(
@@ -38,7 +38,7 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel>(
 { }
 
 internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
-  : ICheckModelBase<TName>
+  : ICheckModelBase<TName, TRender>
   where TSrc : IGqlpError
   where TAst : IGqlpError, TSrc
   where TModel : IModelBase
@@ -84,21 +84,22 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
         : items.SelectMany(i => mapping(i)).Prepend(field);
 
   void ICheckModelBase.Model_Expected(IModelBase model, string[] expected) => Model_Expected(model, expected);
-  IGqlpError ICheckModelBase<TName>.BaseAst(TName name) => NewBaseAst(name);
+  IGqlpError ICheckModelBase<TName, TRender>.BaseAst(TName name) => NewBaseAst(name);
   IModelBase ICheckModelBase.ToModel(IGqlpError ast) => AstToModel((TAst)ast);
-  string[] ICheckModelBase<TName>.ExpectedBase(TName name) => ExpectedBase(name);
+  string[] ICheckModelBase<TName, TRender>.ExpectedBase(TName name) => ExpectedBase(name);
 }
 
-internal delegate IEnumerable<string> ToExpected<TItem>(TItem input);
+public delegate IEnumerable<string> ToExpected<TItem>(TItem input);
 
-internal interface ICheckModelBase<TName>
+public interface ICheckModelBase<TName, TRender>
   : ICheckModelBase
+  where TRender : IModelBase
 {
   IGqlpError BaseAst(TName name);
   string[] ExpectedBase(TName name);
 }
 
-internal interface ICheckModelBase
+public interface ICheckModelBase
 {
   IRenderContext Context { get; }
   IMap<TypeKindModel> TypeKinds { get; }

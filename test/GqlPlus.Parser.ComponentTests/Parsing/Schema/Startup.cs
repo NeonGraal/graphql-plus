@@ -11,36 +11,36 @@ public static class Startup
 {
   public static void ConfigureServices(IServiceCollection services)
     => services
-      .AddSingleton<IBaseAliasedChecks<string, IGqlpSchemaCategory>, ParseCategoryChecks>()
+      .AddTransient<IBaseAliasedChecks<string, IGqlpSchemaCategory>, ParseCategoryChecks>()
 
-      .AddSingleton<IBaseAliasedChecks<string, IGqlpSchemaDirective>, ParseDirectiveChecks>()
+      .AddTransient<IBaseAliasedChecks<string, IGqlpSchemaDirective>, ParseDirectiveChecks>()
       .AddOneChecks<IGqlpSchemaSetting>()
-      .AddSingleton<IBaseAliasedChecks<string, IGqlpSchemaOption>, ParseOptionChecks>()
+      .AddTransient<IBaseAliasedChecks<string, IGqlpSchemaOption>, ParseOptionChecks>()
 
-      .AddSingleton<IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainTrueFalse>>, ParseDomainBooleanChecks>()
-      .AddSingleton<IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainMember>>, ParseDomainEnumChecks>()
-      .AddSingleton<IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainRange>>, ParseDomainNumberChecks>()
-      .AddSingleton<IBaseDomainChecks<DomainStringInput, IGqlpDomain<IGqlpDomainRegex>>, ParseDomainStringChecks>()
+      .AddTransient<IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainTrueFalse>>, ParseDomainBooleanChecks>()
+      .AddTransient<IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainMember>>, ParseDomainEnumChecks>()
+      .AddTransient<IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainRange>>, ParseDomainNumberChecks>()
+      .AddTransient<IBaseDomainChecks<DomainStringInput, IGqlpDomain<IGqlpDomainRegex>>, ParseDomainStringChecks>()
 
-      .AddSingleton<IBaseAliasedChecks<string, IGqlpEnumItem>, ParseEnumMemberChecks>()
-      .AddSingleton<IBaseSimpleChecks<EnumInput, IGqlpEnum>, ParseEnumChecks>()
-      .AddSingleton<IBaseNamedChecks<string, IGqlpUnionItem>, ParseUnionMemberChecks>()
-      .AddSingleton<IBaseSimpleChecks<UnionInput, IGqlpUnion>, ParseUnionChecks>()
+      .AddTransient<IBaseAliasedChecks<string, IGqlpEnumItem>, ParseEnumMemberChecks>()
+      .AddTransient<IBaseSimpleChecks<EnumInput, IGqlpEnum>, ParseEnumChecks>()
+      .AddTransient<IBaseNamedChecks<string, IGqlpUnionItem>, ParseUnionMemberChecks>()
+      .AddTransient<IBaseSimpleChecks<UnionInput, IGqlpUnion>, ParseUnionChecks>()
 
-      .AddSingleton<ICheckObjectArgument<IGqlpDualArgument>, ParseDualArgumentChecks>()
-      .AddSingleton<ICheckObjectBase<IGqlpDualBase>, ParseDualBaseChecks>()
-      .AddSingleton<ICheckObjectField<IGqlpDualField>, ParseDualFieldChecks>()
-      .AddSingleton<ICheckObject<IGqlpDualObject>, ParseDualChecks>()
+      .AddTransient<ICheckObjectArgument<IGqlpDualArgument>, ParseDualArgumentChecks>()
+      .AddTransient<ICheckObjectBase<IGqlpDualBase>, ParseDualBaseChecks>()
+      .AddTransient<ICheckObjectField<IGqlpDualField>, ParseDualFieldChecks>()
+      .AddTransient<ICheckObject<IGqlpDualObject>, ParseDualChecks>()
 
-      .AddSingleton<ICheckObjectArgument<IGqlpInputArgument>, ParseInputArgumentChecks>()
-      .AddSingleton<ICheckObjectBase<IGqlpInputBase>, ParseInputBaseChecks>()
-      .AddSingleton<ICheckObjectField<IGqlpInputField>, ParseInputFieldChecks>()
-      .AddSingleton<ICheckObject<IGqlpInputObject>, ParseInputChecks>()
+      .AddTransient<ICheckObjectArgument<IGqlpInputArgument>, ParseInputArgumentChecks>()
+      .AddTransient<ICheckObjectBase<IGqlpInputBase>, ParseInputBaseChecks>()
+      .AddTransient<ICheckObjectField<IGqlpInputField>, ParseInputFieldChecks>()
+      .AddTransient<ICheckObject<IGqlpInputObject>, ParseInputChecks>()
 
-      .AddSingleton<ICheckObjectArgument<IGqlpOutputArgument>, ParseOutputArgumentChecks>()
-      .AddSingleton<ICheckObjectBase<IGqlpOutputBase>, ParseOutputBaseChecks>()
-      .AddSingleton<ICheckObjectField<IGqlpOutputField>, ParseOutputFieldChecks>()
-      .AddSingleton<ICheckObject<IGqlpOutputObject>, ParseOutputChecks>()
+      .AddTransient<ICheckObjectArgument<IGqlpOutputArgument>, ParseOutputArgumentChecks>()
+      .AddTransient<ICheckObjectBase<IGqlpOutputBase>, ParseOutputBaseChecks>()
+      .AddTransient<ICheckObjectField<IGqlpOutputField>, ParseOutputFieldChecks>()
+      .AddTransient<ICheckObject<IGqlpOutputObject>, ParseOutputChecks>()
 
       .AddComponentTest();
 }

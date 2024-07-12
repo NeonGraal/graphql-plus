@@ -4,19 +4,15 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Modelling.Objects;
 
 public class DualFieldModelTests(
-  IModeller<IGqlpDualField, DualFieldModel> modeller,
-  IRenderer<DualFieldModel> rendering
-) : TestObjectFieldModel<IGqlpDualField, IGqlpDualBase>
-{
-  internal override ICheckObjectFieldModel<IGqlpDualField> FieldChecks => _checks;
-
-  private readonly DualFieldModelChecks _checks = new(modeller, rendering);
-}
+  IDualFieldModelChecks checks
+) : TestObjectFieldModel<IGqlpDualField, IGqlpDualBase, DualFieldModel>(checks)
+{ }
 
 internal sealed class DualFieldModelChecks(
   IModeller<IGqlpDualField, DualFieldModel> modeller,
   IRenderer<DualFieldModel> rendering
 ) : CheckObjectFieldModel<IGqlpDualField, DualFieldAst, IGqlpDualBase, DualFieldModel>(modeller, rendering, TypeKindModel.Dual)
+  , IDualFieldModelChecks
 {
   internal override DualFieldAst NewFieldAst(FieldInput input, string[] aliases, bool withModifiers)
     => new(AstNulls.At, input.Name, new DualBaseAst(AstNulls.At, input.Type)) {
@@ -24,3 +20,7 @@ internal sealed class DualFieldModelChecks(
       Modifiers = withModifiers ? TestMods() : [],
     };
 }
+
+public interface IDualFieldModelChecks
+  : ICheckObjectFieldModel<IGqlpDualField, DualFieldModel>
+{ }

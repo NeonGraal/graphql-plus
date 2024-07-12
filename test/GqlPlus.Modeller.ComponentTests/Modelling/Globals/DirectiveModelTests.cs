@@ -5,26 +5,25 @@ using GqlPlus.Convert;
 namespace GqlPlus.Modelling.Globals;
 
 public class DirectiveModelTests(
-  IModeller<IGqlpSchemaDirective, DirectiveModel> modeller,
-  IRenderer<DirectiveModel> rendering
-) : TestAliasedModel<string>
+  IDirectiveModelChecks checks
+) : TestAliasedModel<string, DirectiveModel>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Repeatable(string name, DirectiveOption option)
-    => _checks.DirectiveExpected(
-      new(AstNulls.At, name) { Option = option },
+    => checks.DirectiveExpected(
+      new DirectiveDeclAst(AstNulls.At, name) { Option = option },
       new(name, option: option));
 
   [Theory, RepeatData(Repeats)]
   public void Model_Parameters(string name, string[] parameters)
-    => _checks.DirectiveExpected(
-      new(AstNulls.At, name) { Parameters = parameters.Parameters() },
-      new(name, parameters: _checks.ExpectedParameters(parameters)));
+    => checks.DirectiveExpected(
+      new DirectiveDeclAst(AstNulls.At, name) { Parameters = parameters.Parameters() },
+      new(name, parameters: checks.ExpectedParameters(parameters)));
 
   [Theory, RepeatData(Repeats)]
   public void Model_Locations(string name, DirectiveLocation[] locations)
-    => _checks.DirectiveExpected(
-      new(AstNulls.At, name) { Locations = DirectiveModeller.Combine(locations) },
+    => checks.DirectiveExpected(
+      new DirectiveDeclAst(AstNulls.At, name) { Locations = DirectiveModeller.Combine(locations) },
       new(name, locations: ExpectedLocations(locations)));
 
   [Theory, RepeatData(Repeats)]
@@ -35,15 +34,15 @@ public class DirectiveModelTests(
     string[] aliases,
     DirectiveOption option,
     DirectiveLocation[] locations
-  ) => _checks.DirectiveExpected(
-      new(AstNulls.At, name) {
+  ) => checks.DirectiveExpected(
+      new DirectiveDeclAst(AstNulls.At, name) {
         Aliases = aliases,
         Description = contents,
         Locations = DirectiveModeller.Combine(locations),
         Option = option,
         Parameters = parameters.Parameters(),
       },
-      new(name, aliases, contents, _checks.ExpectedParameters(parameters), option, ExpectedLocations(locations)));
+      new(name, aliases, contents, checks.ExpectedParameters(parameters), option, ExpectedLocations(locations)));
 
   private static string[] ExpectedLocations(DirectiveLocation[] locations)
   {
@@ -55,16 +54,13 @@ public class DirectiveModelTests(
 
     return [labels.YamlJoin("locations: !_Set(_Location) {", "}")];
   }
-
-  internal override ICheckAliasedModel<string> AliasedChecks => _checks;
-
-  private readonly DirectiveModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class DirectiveModelChecks(
   IModeller<IGqlpSchemaDirective, DirectiveModel> modeller,
   IRenderer<DirectiveModel> rendering
 ) : CheckAliasedModel<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel>(modeller, rendering)
+  , IDirectiveModelChecks
 {
   protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)
     => ExpectedDirective(new(input));
@@ -81,17 +77,17 @@ internal sealed class DirectiveModelChecks(
       .. input.Parameters,
       input.Repeatable];
 
-  internal string[] ExpectedParameters(string[] parameters)
+  public string[] ExpectedParameters(string[] parameters)
     => [.. ItemsExpected(
        "parameters:",
         parameters,
         p => ["- !_InputParameter", "  input: " + p])];
 
-  internal void DirectiveExpected(DirectiveDeclAst ast, ExpectedDirectiveInput input)
-    => AstExpected(ast, ExpectedDirective(input));
+  public void DirectiveExpected(IGqlpSchemaDirective ast, ExpectedDirectiveInput input)
+    => AstExpected((DirectiveDeclAst)ast, ExpectedDirective(input));
 }
 
-internal sealed class ExpectedDirectiveInput(
+public sealed class ExpectedDirectiveInput(
   string name,
   IEnumerable<string>? aliases = null,
   string? description = null,
@@ -100,9 +96,11 @@ internal sealed class ExpectedDirectiveInput(
   string[]? locations = null
 ) : ExpectedDescriptionAliasesInput<string>(name, aliases, description)
 {
+#pragma warning disable CA1819 // Properties should not return arrays
   public string[] Parameters { get; } = parameters ?? [];
-  public string Repeatable { get; } = "repeatable: " + (option == DirectiveOption.Repeatable).TrueFalse();
   public string[] Locations { get; } = locations ?? [];
+#pragma warning restore CA1819 // Properties should not return arrays
+  public string Repeatable { get; } = "repeatable: " + (option == DirectiveOption.Repeatable).TrueFalse();
 
   internal ExpectedDirectiveInput(ExpectedDescriptionAliasesInput<string> input)
     : this(input.Name)
@@ -112,4 +110,11 @@ internal sealed class ExpectedDirectiveInput(
     Description = input.Description;
     ExpectedDescription = input.ExpectedDescription;
   }
+}
+
+public interface IDirectiveModelChecks
+  : ICheckAliasedModel<string, DirectiveModel>
+{
+  void DirectiveExpected(IGqlpSchemaDirective ast, ExpectedDirectiveInput input);
+  string[] ExpectedParameters(string[] parameters);
 }

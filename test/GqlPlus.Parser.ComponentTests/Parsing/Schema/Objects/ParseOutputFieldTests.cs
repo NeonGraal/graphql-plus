@@ -11,7 +11,7 @@ public class ParseOutputFieldTests(
   public void WithParameters_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
     => checks.TrueExpected(
       name + "(" + parameters.Joined() + "):" + fieldType,
-      Field(name, fieldType) with {
+      Field(name, FieldBase(fieldType)) with {
         Parameters = parameters.Parameters()
       });
 
@@ -23,7 +23,7 @@ public class ParseOutputFieldTests(
   public void WithParametersModifiers_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
     => checks.TrueExpected(
       name + "(" + parameters.Joined(p => p + "[]?") + "):" + fieldType,
-      Field(name, fieldType) with {
+      Field(name, FieldBase(fieldType)) with {
         Parameters = parameters.Parameters(p => p with { Modifiers = TestMods() })
       });
 
@@ -39,7 +39,7 @@ public class ParseOutputFieldTests(
   public void WithParametersDefault_ReturnsCorrectAst(string name, string fieldType, string[] parameters, string content)
     => checks.TrueExpected(
       name + "(" + parameters.Joined(p => p + "='" + content + "'") + "):" + fieldType,
-      Field(name, fieldType) with {
+      Field(name, FieldBase(fieldType)) with {
         Parameters = parameters.Parameters(p => p with {
           DefaultValue = new(new FieldKeyAst(AstNulls.At, content))
         })
@@ -49,13 +49,13 @@ public class ParseOutputFieldTests(
   public void WithFieldEnumValue_ReturnsCorrectAst(string name, string enumMember)
     => checks.TrueExpected(
       name + "=" + enumMember,
-        FieldEnum(name, "", enumMember));
+        Field(name, FieldBase("") with { EnumMember = enumMember }));
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldEnumAliasValue_ReturnsCorrectAst(string name, string enumMember, string alias)
     => checks.TrueExpected(
       name + "[" + alias + "]=" + enumMember,
-        FieldEnum(name, "", enumMember) with { Aliases = [alias] });
+        Field(name, FieldBase("") with { EnumMember = enumMember }) with { Aliases = [alias] });
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldEnumValueBad_ReturnsFalse(string name)
@@ -65,23 +65,23 @@ public class ParseOutputFieldTests(
   public void WithFieldEnumTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumMember)
     => checks.TrueExpected(
       name + "=" + enumType + "." + enumMember,
-        FieldEnum(name, enumType, enumMember));
+        Field(name, FieldBase(enumType) with { EnumMember = enumMember }));
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldEnumAliasTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumMember, string alias)
     => checks.TrueExpected(
       name + "[" + alias + "]=" + enumType + "." + enumMember,
-        FieldEnum(name, enumType, enumMember) with { Aliases = [alias] });
+        Field(name, FieldBase(enumType) with { EnumMember = enumMember }) with { Aliases = [alias] });
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldEnumTypeAndValueBad_ReturnsFalse(string name, string enumMember)
     => checks.FalseExpected(name + "=" + enumMember + ".");
 
-  private static OutputFieldAst Field(string name, string enumType)
-    => new(AstNulls.At, name, new OutputBaseAst(AstNulls.At, enumType));
+  private static OutputFieldAst Field(string name, OutputBaseAst enumType)
+    => new(AstNulls.At, name, enumType);
 
-  private static OutputFieldAst FieldEnum(string name, string enumType, string enumMember)
-    => new(AstNulls.At, name, new OutputBaseAst(AstNulls.At, enumType) { EnumMember = enumMember });
+  private static OutputBaseAst FieldBase(string enumType)
+    => new(AstNulls.At, enumType);
 }
 
 internal sealed class ParseOutputFieldChecks(

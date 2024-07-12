@@ -7,9 +7,6 @@ public class ParseVariableTests(
   IOneChecksParser<IGqlpVariable> checks
 )
 {
-  private static VariableAst TestVar(string variable)
-    => new(AstNulls.At, variable);
-
   [Theory, RepeatData(Repeats)]
   public void WithMinimum_ReturnsCorrectAst(string variable)
     => checks.TrueExpected("$" + variable,
@@ -71,4 +68,7 @@ public class ParseVariableTests(
         DefaultValue = new(new FieldKeyAst(AstNulls.At, number)),
         Directives = directives.Directives()
       });
+
+  private static VariableAst TestVar(string variable)
+    => new(AstNulls.At, variable);
 }

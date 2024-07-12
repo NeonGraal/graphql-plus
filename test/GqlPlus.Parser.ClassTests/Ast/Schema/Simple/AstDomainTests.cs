@@ -53,12 +53,15 @@ internal abstract class AstDomainChecks<TInput, TMember, TItem>(
   public void Inequality_BetweenMembers(string name, TInput input1, TInput input2)
     => InequalityBetween(input1, input2,
       input => NewDomain(name, DomainMembers(input)),
-      input1.NullEqual(input2));
+      SkipEquals(input1, input2));
 
   public void String_WithMembers(string name, TInput input)
     => Text(
       () => NewDomain(name, DomainMembers(input)),
       MembersString(name, input));
+
+  protected virtual bool SkipEquals(TInput input1, TInput input2)
+    => input1.NullEqual(input2);
 
   protected abstract string MembersString(string name, TInput input);
   protected abstract TMember[] DomainMembers(TInput input);

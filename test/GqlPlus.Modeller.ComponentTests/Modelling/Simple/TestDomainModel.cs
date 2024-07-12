@@ -3,49 +3,47 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Modelling.Simple;
 
-public abstract class TestDomainModel<TValue, TItem>
-  : TestTypeModel<SimpleKindModel>
+public abstract class TestDomainModel<TValue, TItem, TItemModel>(
+  ICheckDomainModel<TValue, TItem, TItemModel> domainChecks
+) : TestTypeModel<SimpleKindModel, BaseDomainModel<TItemModel>>(domainChecks)
   where TItem : IGqlpDomainItem
+  where TItemModel : BaseDomainItemModel
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, TValue[] members)
-    => DomainChecks
+    => domainChecks
     .AddTypeKinds(TypeKindModel.Basic, members)
     .DomainExpected(
-      DomainChecks.DomainAst(name, null, [], null, members),
-      DomainChecks.ExpectedDomain(new(name, items: members)));
+      domainChecks.DomainAst(name, null, [], null, members),
+      domainChecks.ExpectedDomain(new(name, items: members)));
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersParent(string name, string parent, TValue[] parentMembers)
-    => DomainChecks
+    => domainChecks
     .SkipIf(string.Equals(name, parent, StringComparison.Ordinal))
     .AddTypeKinds(TypeKindModel.Basic, parentMembers)
-    .AddParent(DomainChecks.NewParent(parent, parentMembers))
+    .AddParent(domainChecks.NewParent(parent, parentMembers))
     .DomainExpected(
-      DomainChecks.DomainAst(name, null, [], parent, []),
-      DomainChecks.ExpectedDomain(new(name, parent, otherItems: parentMembers.ParentItems(parent))));
+      domainChecks.DomainAst(name, null, [], parent, []),
+      domainChecks.ExpectedDomain(new(name, parent, otherItems: parentMembers.ParentItems(parent))));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersGrandParent(string name, string parent, string grandParent, TValue[] grandParentMembers)
-    => DomainChecks
+    => domainChecks
     .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
     .AddTypeKinds(TypeKindModel.Basic, grandParentMembers)
-    .AddParent(DomainChecks.NewParent(parent, [], grandParent))
-    .AddParent(DomainChecks.NewParent(grandParent, grandParentMembers))
+    .AddParent(domainChecks.NewParent(parent, [], grandParent))
+    .AddParent(domainChecks.NewParent(grandParent, grandParentMembers))
     .DomainExpected(
-      DomainChecks.DomainAst(name, null, [], parent, []),
-      DomainChecks.ExpectedDomain(new(name, parent, otherItems: grandParentMembers.ParentItems(grandParent))));
+      domainChecks.DomainAst(name, null, [], parent, []),
+      domainChecks.ExpectedDomain(new(name, parent, otherItems: grandParentMembers.ParentItems(grandParent))));
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(string name, string contents, string[] aliases, string parent, TValue[] members)
-    => DomainChecks
+    => domainChecks
     .AddTypeKinds(TypeKindModel.Basic, members)
     .DomainExpected(
-      DomainChecks.DomainAst(name, contents, aliases, parent, members),
-      DomainChecks.ExpectedDomain(new(name, parent, members, aliases: aliases, description: contents)));
-
-  internal override ICheckTypeModel<SimpleKindModel> TypeChecks => DomainChecks;
-
-  internal abstract ICheckDomainModel<TValue, TItem> DomainChecks { get; }
+      domainChecks.DomainAst(name, contents, aliases, parent, members),
+      domainChecks.ExpectedDomain(new(name, parent, members, aliases: aliases, description: contents)));
 }
 
 internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
@@ -53,7 +51,7 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
   IDomainModeller<TItem, TItemModel> modeller,
   IRenderer<BaseDomainModel<TItemModel>> rendering
 ) : CheckTypeModel<IGqlpDomain<TItem>, SimpleKindModel, BaseDomainModel<TItemModel>>(modeller, rendering, SimpleKindModel.Domain)
-  , ICheckDomainModel<TValue, TItem>
+  , ICheckDomainModel<TValue, TItem, TItemModel>
   where TAstItem : AstAbbreviated, TItem
   where TItem : IGqlpDomainItem
   where TItemModel : BaseDomainItemModel
@@ -69,12 +67,12 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
       .. input.Parent.TypeRefFor(SimpleKindModel.Domain),
       "typeKind: !_TypeKind Domain"];
 
-  string[] ICheckDomainModel<TValue, TItem>.ExpectedDomain(ExpectedDomainInput<TValue> input) => ExpectedDomain(input);
+  string[] ICheckDomainModel<TValue, TItem, TItemModel>.ExpectedDomain(ExpectedDomainInput<TValue> input) => ExpectedDomain(input);
 
-  IGqlpDomain<TItem> ICheckDomainModel<TValue, TItem>.DomainAst(string name, string? description, string[] aliases, string? parent, TValue[] items)
+  IGqlpDomain<TItem> ICheckDomainModel<TValue, TItem, TItemModel>.DomainAst(string name, string? description, string[] aliases, string? parent, TValue[] items)
     => NewDomainAst(name, description, aliases, parent, items);
 
-  void ICheckDomainModel<TValue, TItem>.DomainExpected(IGqlpDomain<TItem> domain, string[] expected)
+  void ICheckDomainModel<TValue, TItem, TItemModel>.DomainExpected(IGqlpDomain<TItem> domain, string[] expected)
     => AstExpected(domain, expected);
 
   BaseTypeModel IParentModel<TValue>.NewParent(string name, TValue[] members, string? parent)
@@ -126,16 +124,18 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
         };
 }
 
-internal interface ICheckDomainModel<TValue, TItem>
-  : ICheckTypeModel<SimpleKindModel>, IParentModel<TValue>
+public interface ICheckDomainModel<TValue, TItem, TItemModel>
+  : ICheckTypeModel<SimpleKindModel, BaseDomainModel<TItemModel>>
+  , IParentModel<TValue>
   where TItem : IGqlpDomainItem
+  where TItemModel : BaseDomainItemModel
 {
   void DomainExpected(IGqlpDomain<TItem> domain, string[] expected);
   IGqlpDomain<TItem> DomainAst(string name, string? description, string[] aliases, string? parent, TValue[] items);
   string[] ExpectedDomain(ExpectedDomainInput<TValue> input);
 }
 
-internal sealed class ExpectedDomainInput<TItem>(
+public sealed class ExpectedDomainInput<TItem>(
   string name,
   string? parent = null,
   TItem[]? items = null,

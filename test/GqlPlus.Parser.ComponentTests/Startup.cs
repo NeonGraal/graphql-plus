@@ -5,5 +5,6 @@ namespace GqlPlus;
 public static class Startup
 {
   public static void ConfigureServices(IServiceCollection services)
-    => services.AddComponentTest();
+    => services
+      .AddComponentTest();
 }

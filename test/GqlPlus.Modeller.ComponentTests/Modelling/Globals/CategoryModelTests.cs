@@ -4,26 +4,25 @@ using GqlPlus.Ast.Schema.Globals;
 namespace GqlPlus.Modelling.Globals;
 
 public class CategoryModelTests(
-  IModeller<IGqlpSchemaCategory, CategoryModel> modeller,
-  IRenderer<CategoryModel> rendering
-) : TestAliasedModel<string>
+  ICategoryModelChecks checks
+) : TestAliasedModel<string, CategoryModel>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Name(string output, string name)
-    => _checks.CategoryExpected(
-      new(AstNulls.At, name, output),
+    => checks.CategoryExpected(
+      new CategoryDeclAst(AstNulls.At, name, output),
       new(output, name));
 
   [Theory, RepeatData(Repeats)]
   public void Model_Resolution(string output, CategoryOption option)
-    => _checks.CategoryExpected(
-      new(AstNulls.At, output) { Option = option },
+    => checks.CategoryExpected(
+      new CategoryDeclAst(AstNulls.At, output) { Option = option },
       new(output) { Option = option });
 
   [Theory, RepeatData(Repeats)]
   public void Model_Modifiers(string output)
-    => _checks.CategoryExpected(
-      new(AstNulls.At, output) { Modifiers = TestMods() },
+    => checks.CategoryExpected(
+      new CategoryDeclAst(AstNulls.At, output) { Modifiers = TestMods() },
       new(output) { Modifiers = true });
 
   [Theory, RepeatData(Repeats)]
@@ -33,24 +32,21 @@ public class CategoryModelTests(
     string contents,
     string[] aliases,
     CategoryOption option
-  ) => _checks.CategoryExpected(
-      new(AstNulls.At, name, output) {
+  ) => checks.CategoryExpected(
+      new CategoryDeclAst(AstNulls.At, name, output) {
         Aliases = aliases,
         Description = contents,
         Option = option,
         Modifiers = TestMods(),
       },
       new(output, name, aliases, contents) { Option = option, Modifiers = true });
-
-  internal override ICheckAliasedModel<string> AliasedChecks => _checks;
-
-  private readonly CategoryModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class CategoryModelChecks(
   IModeller<IGqlpSchemaCategory, CategoryModel> modeller,
   IRenderer<CategoryModel> rendering
 ) : CheckAliasedModel<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel>(modeller, rendering)
+  , ICategoryModelChecks
 {
   protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)
     => ExpectedCategory(new(input));
@@ -70,11 +66,17 @@ internal sealed class CategoryModelChecks(
       Aliases = aliases ?? [],
     };
 
-  internal void CategoryExpected(CategoryDeclAst ast, ExpectedCategoryInput input)
-    => AstExpected(ast, ExpectedCategory(input));
+  public void CategoryExpected(IGqlpSchemaCategory ast, ExpectedCategoryInput input)
+    => AstExpected((CategoryDeclAst)ast, ExpectedCategory(input));
 }
 
-internal sealed class ExpectedCategoryInput(
+public interface ICategoryModelChecks
+  : ICheckAliasedModel<string, CategoryModel>
+{
+  void CategoryExpected(IGqlpSchemaCategory ast, ExpectedCategoryInput input);
+}
+
+public sealed class ExpectedCategoryInput(
   string output,
   string? name = null,
   IEnumerable<string>? aliases = null,

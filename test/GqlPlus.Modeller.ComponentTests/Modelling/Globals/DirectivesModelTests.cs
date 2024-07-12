@@ -4,15 +4,14 @@ using GqlPlus.Ast.Schema.Globals;
 namespace GqlPlus.Modelling.Globals;
 
 public class DirectivesModelTests(
-  IModeller<IGqlpSchemaDirective, DirectiveModel> directive,
-  IRenderer<DirectivesModel> rendering
-) : TestModelBase<string>
+  IDirectivesModelChecks checks
+) : TestModelBase<string, DirectivesModel>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Type(string input)
-    => _checks
+    => checks
     .Model_Expected(
-      _checks.ToModel(null, input),
+      checks.ToModel(null, input),
       ["!_TypeInput",
         "name: " + input,
         "typeKind: !_TypeKind Input"]);
@@ -21,9 +20,9 @@ public class DirectivesModelTests(
   public void Model_Both(
     string input,
     string name
-  ) => _checks
+  ) => checks
     .Model_Expected(
-      _checks.ToModel(new(AstNulls.At, name), input),
+      checks.ToModel(new DirectiveDeclAst(AstNulls.At, name), input),
       ["!_Directives",
         "directive: !_Directive",
         "  name: " + name,
@@ -31,16 +30,13 @@ public class DirectivesModelTests(
         "type: !_TypeInput",
         "  name: " + input,
         "  typeKind: !_TypeKind Input"]);
-
-  internal override ICheckModelBase<string> BaseChecks => _checks;
-
-  private readonly DirectivesModelChecks _checks = new(directive, rendering);
 }
 
 internal sealed class DirectivesModelChecks(
   IModeller<IGqlpSchemaDirective, DirectiveModel> modeller,
   IRenderer<DirectivesModel> rendering
-) : CheckModelBase<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel, DirectivesModel>(modeller, rendering), ICheckModelBase
+) : CheckModelBase<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel, DirectivesModel>(modeller, rendering)
+  , IDirectivesModelChecks
 {
   protected override string[] ExpectedBase(string name)
   => ["!_Directive",
@@ -53,9 +49,15 @@ internal sealed class DirectivesModelChecks(
   IModelBase ICheckModelBase.ToModel(IGqlpError ast)
     => new DirectivesModel() { And = _modeller.ToModel((DirectiveDeclAst)ast, TypeKinds) };
 
-  internal DirectivesModel ToModel(DirectiveDeclAst? ast, string input)
+  public DirectivesModel ToModel(IGqlpSchemaDirective? ast, string input)
     => new() {
-      And = _modeller.TryModel(ast, TypeKinds),
+      And = _modeller.TryModel((DirectiveDeclAst?)ast, TypeKinds),
       Type = new TypeInputModel(input),
     };
+}
+
+public interface IDirectivesModelChecks
+  : ICheckModelBase<string, DirectivesModel>
+{
+  DirectivesModel ToModel(IGqlpSchemaDirective? ast, string input);
 }

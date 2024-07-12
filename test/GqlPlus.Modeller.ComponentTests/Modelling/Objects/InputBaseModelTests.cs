@@ -4,19 +4,15 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Modelling.Objects;
 
 public class InputBaseModelTests(
-  IModeller<IGqlpInputBase, InputBaseModel> modeller,
-  IRenderer<InputBaseModel> rendering
-) : TestObjBaseModel<IGqlpInputBase, IGqlpInputArgument>
-{
-  internal override ICheckObjBaseModel<IGqlpInputBase, IGqlpInputArgument> ObjBaseChecks => _checks;
-
-  private readonly InputBaseModelChecks _checks = new(modeller, rendering);
-}
+  IInputBaseModelChecks checks
+) : TestObjBaseModel<IGqlpInputBase, IGqlpInputArgument, InputBaseModel>(checks)
+{ }
 
 internal sealed class InputBaseModelChecks(
   IModeller<IGqlpInputBase, InputBaseModel> modeller,
   IRenderer<InputBaseModel> rendering
 ) : CheckObjBaseModel<IGqlpInputBase, IGqlpInputArgument, InputBaseAst, InputArgumentAst, InputBaseModel>(modeller, rendering, TypeKindModel.Input)
+  , IInputBaseModelChecks
 {
   protected override InputArgumentAst NewObjArgAst(string input, bool isTypeParam)
     => new(AstNulls.At, input) {
@@ -29,3 +25,7 @@ internal sealed class InputBaseModelChecks(
       BaseArguments = args,
     };
 }
+
+public interface IInputBaseModelChecks
+  : ICheckObjBaseModel<IGqlpInputBase, IGqlpInputArgument, InputBaseModel>
+{ }

@@ -4,19 +4,15 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Modelling.Objects;
 
 public class InputModelTests(
-  IModeller<IGqlpInputObject, TypeInputModel> modeller,
-  IRenderer<TypeInputModel> rendering
-) : TestObjectModel<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
-{
-  internal override ICheckObjectModel<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate> ObjectChecks => _checks;
-
-  private readonly InputModelChecks _checks = new(modeller, rendering);
-}
+  IInputModelChecks checks
+) : TestObjectModel<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, TypeInputModel>(checks)
+{ }
 
 internal sealed class InputModelChecks(
   IModeller<IGqlpInputObject, TypeInputModel> modeller,
   IRenderer<TypeInputModel> rendering
 ) : CheckObjectModel<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, TypeInputModel>(modeller, rendering, TypeKindModel.Input)
+  , IInputModelChecks
 {
   protected override InputDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)
     => new(AstNulls.At, input.Name, input.Description) {
@@ -30,3 +26,7 @@ internal sealed class InputModelChecks(
   internal override IGqlpInputBase NewParentAst(string input)
     => new InputBaseAst(AstNulls.At, input);
 }
+
+public interface IInputModelChecks
+  : ICheckObjectModel<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, TypeInputModel>
+{ }

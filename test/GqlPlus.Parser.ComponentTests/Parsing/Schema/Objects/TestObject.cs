@@ -3,86 +3,85 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class TestObject
-  : BaseAliasedTests<ObjectInput>
+public abstract class TestObject<TObject>(
+  ICheckObject<TObject> objectChecks
+) : BaseAliasedTests<ObjectInput, TObject>(objectChecks)
+where TObject : IGqlpObject
 {
   [Theory, RepeatData(Repeats)]
   public void WithAlternates_ReturnsCorrectAst(string name, string[] others)
-    => ObjectChecks.WithAlternates(name, others);
+    => objectChecks.WithAlternates(name, others);
 
   [Theory, RepeatData(Repeats)]
   public void WithAlternateComments_ReturnsCorrectAst(string name, AlternateComment[] others)
-    => ObjectChecks.WithAlternateComments(name, others);
+    => objectChecks.WithAlternateComments(name, others);
 
   [Theory, RepeatData(Repeats)]
   public void WithAlternateModifiers_ReturnsCorrectAst(string name, string[] others)
-    => ObjectChecks.WithAlternateModifiers(name, others);
+    => objectChecks.WithAlternateModifiers(name, others);
 
   [Theory, RepeatData(Repeats)]
   public void WithAlternateModifiersBad_ReturnsFalse(string name, string[] others)
-    => ObjectChecks.WithAlternateModifiersBad(name, others);
+    => objectChecks.WithAlternateModifiersBad(name, others);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeParameters_ReturnsCorrectAst(string name, string other, string[] parameters)
-    => ObjectChecks.WithTypeParameters(name, other, parameters);
+    => objectChecks.WithTypeParameters(name, other, parameters);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeParameterBad_ReturnsFalse(string name, string other)
-    => ObjectChecks.WithTypeParameterBad(name, other);
+    => objectChecks.WithTypeParameterBad(name, other);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeParametersBad_ReturnsFalse(string name, string other, string[] parameters)
-    => ObjectChecks.WithTypeParametersBad(name, other, parameters);
+    => objectChecks.WithTypeParametersBad(name, other, parameters);
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeParametersNone_ReturnsFalse(string name, string other)
-    => ObjectChecks.WithTypeParametersNone(name, other);
+    => objectChecks.WithTypeParametersNone(name, other);
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldBad_ReturnsFalse(string name, FieldInput[] fields, string fieldName)
-    => ObjectChecks.WithFieldBad(name, fields, fieldName);
+    => objectChecks.WithFieldBad(name, fields, fieldName);
 
   [Theory, RepeatData(Repeats)]
   public void WithFields_ReturnsCorrectAst(string name, FieldInput[] fields)
-    => ObjectChecks.WithFields(name, fields);
+    => objectChecks.WithFields(name, fields);
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldsBad_ReturnsFalse(string name, FieldInput[] fields)
-    => ObjectChecks.WithFieldsBad(name, fields);
+    => objectChecks.WithFieldsBad(name, fields);
 
   [Theory, RepeatData(Repeats)]
   public void WithParentField_ReturnsCorrectAst(string name, string parent, string field, string fieldType)
-    => ObjectChecks.WithParentField(name, parent, field, fieldType);
+    => objectChecks.WithParentField(name, parent, field, fieldType);
 
   [Theory, RepeatData(Repeats)]
   public void WithParentFieldBad_ReturnsFalse(string name, string parent, string field, string fieldType)
-    => ObjectChecks.WithParentFieldBad(name, parent, field, fieldType);
+    => objectChecks.WithParentFieldBad(name, parent, field, fieldType);
 
   [Theory, RepeatData(Repeats)]
   public void WithParentGenericFieldBad_ReturnsFalse(string name, string parent, string subType, string field, string fieldType)
-    => ObjectChecks.WithParentGenericFieldBad(name, parent, subType, field, fieldType);
+    => objectChecks.WithParentGenericFieldBad(name, parent, subType, field, fieldType);
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldsAndAlternates_ReturnsCorrectAst(string name, FieldInput[] fields, string[] others)
-    => ObjectChecks.WithFieldsAndAlternates(name, fields, others);
+    => objectChecks.WithFieldsAndAlternates(name, fields, others);
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldsBadAndAlternates_ReturnsFalse(string name, FieldInput[] fields, string[] others)
-    => ObjectChecks.WithFieldsBadAndAlternates(name, fields, others);
+    => objectChecks.WithFieldsBadAndAlternates(name, fields, others);
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldsAndAlternatesBad_ReturnsFalse(string name, FieldInput[] fields, string[] others)
-    => ObjectChecks.WithFieldsAndAlternatesBad(name, fields, others);
-
-  internal abstract ICheckObject ObjectChecks { get; }
-
-  internal sealed override IBaseAliasedChecks<ObjectInput> AliasChecks => ObjectChecks;
+    => objectChecks.WithFieldsAndAlternatesBad(name, fields, others);
 }
 
 public record struct ObjectInput(string Name, string Other);
 
-internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
-  : BaseAliasedChecks<ObjectInput, TObjectAst, TObject>, ICheckObject
+internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
+  : BaseAliasedChecks<ObjectInput, TObjectAst, TObject>
+  , ICheckObject<TObject>
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjectAst : AstObject<TObjBase, TObjField, TObjAlt>, TObject
   where TObjField : IGqlpObjField
@@ -101,7 +100,7 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
     => _factories = factories;
 
   public void WithNameBad(decimal id, string[] others)
-      => False($"{id}{{" + others.Joined(s => "|" + s) + "}");
+      => FalseExpected($"{id}{{" + others.Joined(s => "|" + s) + "}");
 
   public void WithAlternates(string name, string[] others)
     => TrueExpected(
@@ -119,10 +118,10 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
        });
 
   public void WithFieldsBadAndAlternates(string name, FieldInput[] fields, string[] others)
-    => False(name + "{" + fields.Select(f => f.Name + " " + f.Type).Joined() + others.Joined(s => "|" + s) + "}");
+    => FalseExpected(name + "{" + fields.Select(f => f.Name + " " + f.Type).Joined() + others.Joined(s => "|" + s) + "}");
 
   public void WithFieldsAndAlternatesBad(string name, FieldInput[] fields, string[] others)
-    => False(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "||" + others.Joined(s => "|" + s) + "}");
+    => FalseExpected(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + "||" + others.Joined(s => "|" + s) + "}");
 
   public void WithAlternateComments(string name, AlternateComment[] others)
     => TrueExpected(
@@ -139,7 +138,7 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
        });
 
   public void WithAlternateModifiersBad(string name, string[] others)
-    => False(name + "{" + others.Joined(a => $"|{a}[?]") + "}");
+    => FalseExpected(name + "{" + others.Joined(a => $"|{a}[?]") + "}");
 
   public void WithTypeParameters(string name, string other, string[] parameters)
     => TrueExpected(
@@ -150,16 +149,16 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
        });
 
   public void WithTypeParameterBad(string name, string other)
-    => False(name + "<$>{|" + other);
+    => FalseExpected(name + "<$>{|" + other);
 
   public void WithTypeParametersBad(string name, string other, string[] parameters)
-    => False(name + "<" + parameters.Joined(s => "$" + s) + "{|" + other);
+    => FalseExpected(name + "<" + parameters.Joined(s => "$" + s) + "{|" + other);
 
   public void WithTypeParametersNone(string name, string other)
-    => False(name + "<>{|" + other);
+    => FalseExpected(name + "<>{|" + other);
 
   public void WithFieldBad(string name, FieldInput[] fields, string fieldName)
-    => False(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + " " + fieldName + ":}");
+    => FalseExpected(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + " " + fieldName + ":}");
 
   public void WithFields(string name, FieldInput[] fields)
     => TrueExpected(
@@ -169,7 +168,7 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
        });
 
   public void WithFieldsBad(string name, FieldInput[] fields)
-    => False(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined());
+    => FalseExpected(name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined());
 
   public void WithParentField(string name, string parent, string field, string fieldType)
     => TrueExpected(
@@ -180,7 +179,7 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
        });
 
   public void WithParentFieldBad(string name, string parent, string field, string fieldType)
-    => False(name + "{:" + parent + " " + field + ":" + fieldType);
+    => FalseExpected(name + "{:" + parent + " " + field + ":" + fieldType);
 
   public void WithParentGenericField(string name, string parent, string subType, string field, string fieldType)
     => TrueExpected(
@@ -191,7 +190,7 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
        });
 
   public void WithParentGenericFieldBad(string name, string parent, string subType, string field, string fieldType)
-    => False(name + "{:" + parent + "<" + subType + " " + field + ":" + fieldType + "}");
+    => FalseExpected(name + "{:" + parent + "<" + subType + " " + field + ":" + fieldType + "}");
 
   public TObjectAst Object(string name)
     => _factories.Object(AstNulls.At, name);
@@ -225,8 +224,9 @@ internal sealed class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, 
 
 public record struct AlternateComment(string Content, string Alternate);
 
-internal interface ICheckObject
-  : IBaseAliasedChecks<ObjectInput>
+public interface ICheckObject<TObject>
+  : IBaseAliasedChecks<ObjectInput, TObject>
+where TObject : IGqlpObject
 {
   void WithNameBad(decimal id, string[] others);
   void WithTypeParameters(string name, string other, string[] typeParameters);

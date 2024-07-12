@@ -8,12 +8,12 @@ public interface IGqlpTypeSpecial
   : IGqlpType<string>
 { }
 
-public interface IGqlpSimple
-  : IGqlpType
-{ }
-
 public interface IGqlpType<TParent>
   : IGqlpType
 {
   TParent? Parent { get; }
 }
+
+public interface IGqlpSimple
+  : IGqlpType<string>
+{ }

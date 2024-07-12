@@ -1,15 +1,14 @@
-﻿namespace GqlPlus.Modelling.Simple;
+﻿namespace GqlPlus.Modelling;
 
 public class ConstantModelTests(
-  IModeller<IGqlpConstant, ConstantModel> modeller,
-  IRenderer<ConstantModel> rendering
-) : TestModelBase<string>
+  IConstantModelChecks checks
+) : TestModelBase<string, ConstantModel>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void Model_List(string value)
-    => _checks
-    .AstExpected(
-      new(AstNulls.At, value.ConstantList()),
+    => checks
+    .ConstantExpected(
+      new ConstantAst(AstNulls.At, value.ConstantList()),
       ["- " + value, "- " + value]);
 
   [Theory, RepeatData(Repeats)]
@@ -29,22 +28,28 @@ public class ConstantModelTests(
     }
 
     ConstantAst ast = new(AstNulls.At, value.ConstantObject(key));
-    _checks.AstExpected(ast, expected);
+    checks.ConstantExpected(ast, expected);
   }
-
-  internal override ICheckModelBase<string> BaseChecks => _checks;
-
-  private readonly ConstantModelChecks _checks = new(modeller, rendering);
 }
 
 internal sealed class ConstantModelChecks(
   IModeller<IGqlpConstant, ConstantModel> modeller,
   IRenderer<ConstantModel> rendering
 ) : CheckModelBase<string, IGqlpConstant, ConstantAst, ConstantModel>(modeller, rendering)
+  , IConstantModelChecks
 {
+  public void ConstantExpected(IGqlpConstant ast, string[] expected)
+    => AstExpected((ConstantAst)ast, expected);
+
   protected override string[] ExpectedBase(string input)
     => [input.YamlQuoted()];
 
   protected override ConstantAst NewBaseAst(string input)
     => new(new FieldKeyAst(AstNulls.At, input));
+}
+
+public interface IConstantModelChecks
+  : ICheckModelBase<string, ConstantModel>
+{
+  void ConstantExpected(IGqlpConstant ast, string[] expected);
 }

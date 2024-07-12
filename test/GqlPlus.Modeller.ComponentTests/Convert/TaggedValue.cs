@@ -6,7 +6,8 @@ using Fluid.Values;
 
 namespace GqlPlus.Convert;
 
-internal sealed class TaggedValue : FluidValue
+internal sealed class TaggedValue
+  : FluidValue
 {
   internal readonly string Tag;
   private readonly FluidValue _value;
@@ -46,7 +47,13 @@ internal sealed class TaggedValue : FluidValue
   public override string? ToString() => _value.ToString();
 
   public override string ToStringValue() => _value.ToStringValue();
+  public override ValueTask WriteToAsync(TextWriter writer, TextEncoder encoder, CultureInfo cultureInfo)
+  {
+    AssertWriteToParameters(writer, encoder, cultureInfo);
+    return _value.WriteToAsync(writer, encoder, cultureInfo);
+  }
 
+  [Obsolete]
   public override void WriteTo(TextWriter writer, TextEncoder encoder, CultureInfo cultureInfo)
   {
     AssertWriteToParameters(writer, encoder, cultureInfo);

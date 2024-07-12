@@ -2,8 +2,10 @@
 
 namespace GqlPlus.Modelling;
 
-public abstract class TestDescribedModel<TName>
-  : TestModelBase<TName>
+public abstract class TestDescribedModel<TName, TRender>(
+  ICheckDescribedModel<TName, TRender> describedChecks
+) : TestModelBase<TName, TRender>(describedChecks)
+  where TRender : IModelBase
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Description(TName name, string contents)
@@ -12,14 +14,10 @@ public abstract class TestDescribedModel<TName>
       return;
     }
 
-    DescribedChecks.Model_Expected(
-        DescribedChecks.ToModel(DescribedChecks.DescribedAst(name, contents)),
-        DescribedChecks.ExpectedDescription(new(name, contents)));
+    describedChecks.Model_Expected(
+        describedChecks.ToModel(describedChecks.DescribedAst(name, contents)),
+        describedChecks.ExpectedDescription(new(name, contents)));
   }
-
-  internal sealed override ICheckModelBase<TName> BaseChecks => DescribedChecks;
-
-  internal abstract ICheckDescribedModel<TName> DescribedChecks { get; }
 }
 
 internal abstract class CheckDescribedModel<TName, TAst, TModel>(
@@ -34,7 +32,7 @@ internal abstract class CheckDescribedModel<TName, TSrc, TAst, TModel>(
   IModeller<TSrc, TModel> modeller,
   IRenderer<TModel> rendering
 ) : CheckModelBase<TName, TSrc, TAst, TModel>(modeller, rendering)
-  , ICheckDescribedModel<TName>
+  , ICheckDescribedModel<TName, TModel>
   where TSrc : IGqlpError, IGqlpDescribed
   where TAst : IGqlpError, TSrc
   where TModel : IModelBase
@@ -45,23 +43,26 @@ internal abstract class CheckDescribedModel<TName, TSrc, TAst, TModel>(
   protected override TAst NewBaseAst(TName name) => NewDescribedAst(name, "");
   protected sealed override string[] ExpectedBase(TName name) => ExpectedDescription(new(name));
 
-  IGqlpError ICheckDescribedModel<TName>.DescribedAst(TName name, string description) => NewDescribedAst(name, description);
-  string[] ICheckDescribedModel<TName>.ExpectedDescription(ExpectedDescriptionInput<TName> input) => ExpectedDescription(input);
+  IGqlpError ICheckDescribedModel<TName, TModel>.DescribedAst(TName name, string description) => NewDescribedAst(name, description);
+  string[] ICheckDescribedModel<TName, TModel>.ExpectedDescription(ExpectedDescriptionInput<TName> input) => ExpectedDescription(input);
 }
 
-internal interface ICheckDescribedModel<TName>
-  : ICheckModelBase<TName>
+public interface ICheckDescribedModel<TName, TRender>
+  : ICheckModelBase<TName, TRender>
+  where TRender : IModelBase
 {
   IGqlpError DescribedAst(TName name, string description);
   string[] ExpectedDescription(ExpectedDescriptionInput<TName> input);
 }
 
-internal class ExpectedDescriptionInput<TName>(
+public class ExpectedDescriptionInput<TName>(
   TName name,
   string? description = null)
 {
   internal TName Name { get; } = name;
   public string Description { get; protected set; } = description ?? string.Empty;
+#pragma warning disable CA1819 // Properties should not return arrays
   public string[] ExpectedDescription { get; protected set; }
+#pragma warning restore CA1819 // Properties should not return arrays
     = string.IsNullOrWhiteSpace(description) ? [] : ["description: " + description.YamlQuoted()];
 }

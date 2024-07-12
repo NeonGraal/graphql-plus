@@ -1,6 +1,8 @@
 ﻿namespace GqlPlus.Parsing;
 
-public class ParseCollectionsTests(ParserArray<IParserCollections, IGqlpModifier>.DA parser)
+public class ParseCollectionsTests(
+  IManyChecksParser<IParserCollections, IGqlpModifier> checks
+)
 {
   [Theory]
   [InlineData("", 0)]
@@ -9,15 +11,13 @@ public class ParseCollectionsTests(ParserArray<IParserCollections, IGqlpModifier
   [InlineData("[^?]", 1)]
   [InlineData("[0][_][*?]", 3)]
   public void WithInput_ReturnsGivenNumber(string input, int count)
-    => _test.Count(input, count);
+    => checks.Count(input, count);
 
   [Fact]
   public void WithThree_ReturnsSpecific()
-    => _test.TrueExpected("[^][_?][]", [
+    => checks.TrueExpected("[^][_?][]", [
       ModifierAst.Dict(AstNulls.At, "^", false),
       ModifierAst.Dict(AstNulls.At, "_", true),
       ModifierAst.List(AstNulls.At),
     ]);
-
-  private readonly ManyChecksParser<IParserCollections, IGqlpModifier> _test = new(parser);
 }

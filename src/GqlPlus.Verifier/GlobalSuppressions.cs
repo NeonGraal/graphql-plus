@@ -12,4 +12,3 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Usage", "CA2225:Operator overloads have named alternates")]
 
 [assembly: SuppressMessage("Style", "IDE0058:Expression value is never used")]
-[assembly: SuppressMessage("Style", "IDE2001:Embedded statements must be on their own line")]

@@ -4,37 +4,35 @@ using GqlPlus.Convert;
 
 namespace GqlPlus.Modelling.Objects;
 
-public abstract class TestObjectFieldModel<TObjField, TObjBase>
-  : TestModelBase<FieldInput>
+public abstract class TestObjectFieldModel<TObjField, TObjBase, TModel>(
+  ICheckObjectFieldModel<TObjField, TModel> fieldChecks
+) : TestModelBase<FieldInput, TModel>(fieldChecks)
   where TObjField : IGqlpObjField
   where TObjBase : IGqlpObjBase
+  where TModel : IObjFieldModel
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Modifiers(FieldInput input)
-    => FieldChecks.Field_Expected(
-        FieldChecks.FieldAst(input, [], true),
-        FieldChecks.ExpectedField(input, ["modifiers: [!_Modifier {modifierKind: !_ModifierKind List}, !_Modifier {modifierKind: !_ModifierKind Opt}]"], [])
+    => fieldChecks.Field_Expected(
+        fieldChecks.FieldAst(input, [], true),
+        fieldChecks.ExpectedField(input, ["modifiers: [!_Modifier {modifierKind: !_ModifierKind List}, !_Modifier {modifierKind: !_ModifierKind Opt}]"], [])
       );
 
   [Theory, RepeatData(Repeats)]
   public void Model_DualTyped(FieldInput input)
-    => FieldChecks
+    => fieldChecks
       .AddTypeKinds(TypeKindModel.Dual, input.Type)
       .Field_Expected(
-        FieldChecks.FieldAst(input, [], false),
-        FieldChecks.ExpectedDual(input)
+        fieldChecks.FieldAst(input, [], false),
+        fieldChecks.ExpectedDual(input)
       );
 
   [Theory, RepeatData(Repeats)]
   public void Model_Aliases(FieldInput input, string[] aliases)
-    => FieldChecks.Field_Expected(
-        FieldChecks.FieldAst(input, aliases, false),
-        FieldChecks.ExpectedField(input, [aliases.YamlJoin("aliases: [", "]")], [])
+    => fieldChecks.Field_Expected(
+        fieldChecks.FieldAst(input, aliases, false),
+        fieldChecks.ExpectedField(input, [aliases.YamlJoin("aliases: [", "]")], [])
       );
-
-  internal override ICheckModelBase<FieldInput> BaseChecks => FieldChecks;
-
-  internal abstract ICheckObjectFieldModel<TObjField> FieldChecks { get; }
 }
 
 internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TObjBase, TModel>(
@@ -42,11 +40,11 @@ internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TObjBase,
   <TModel> rendering,
   TypeKindModel kind
 ) : CheckModelBase<FieldInput, TObjField, TModel>(field, rendering),
-    ICheckObjectFieldModel<TObjField>
+    ICheckObjectFieldModel<TObjField, TModel>
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
   where TObjBase : IGqlpObjBase
-  where TModel : IModelBase
+  where TModel : IObjFieldModel
 {
   protected readonly TypeKindModel TypeKind = kind;
   protected readonly string TypeKindLower = $"{kind}".ToLowerInvariant();
@@ -63,19 +61,20 @@ internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TObjBase,
 
   internal abstract TObjFieldAst NewFieldAst(FieldInput name, string[] aliases, bool withModifiers);
 
-  void ICheckObjectFieldModel<TObjField>.Field_Expected(TObjField ast, string[] expected)
+  void ICheckObjectFieldModel<TObjField, TModel>.Field_Expected(TObjField ast, string[] expected)
     => Model_Expected(AstToModel(ast), expected);
-  TObjField ICheckObjectFieldModel<TObjField>.FieldAst(FieldInput input, string[] aliases, bool withModifiers)
+  TObjField ICheckObjectFieldModel<TObjField, TModel>.FieldAst(FieldInput input, string[] aliases, bool withModifiers)
     => NewFieldAst(input, aliases, withModifiers);
-  string[] ICheckObjectFieldModel<TObjField>.ExpectedField(FieldInput input, string[] extras, string[] parameters)
+  string[] ICheckObjectFieldModel<TObjField, TModel>.ExpectedField(FieldInput input, string[] extras, string[] parameters)
     => ExpectedField(input, extras, parameters);
-  string[] ICheckObjectFieldModel<TObjField>.ExpectedDual(FieldInput input)
+  string[] ICheckObjectFieldModel<TObjField, TModel>.ExpectedDual(FieldInput input)
     => ExpectedDual(input);
 }
 
-internal interface ICheckObjectFieldModel<TObjField>
-  : ICheckModelBase<FieldInput>
+public interface ICheckObjectFieldModel<TObjField, TModel>
+  : ICheckModelBase<FieldInput, TModel>
   where TObjField : IGqlpObjField
+  where TModel : IObjFieldModel
 {
   TObjField FieldAst(FieldInput input, string[] aliases, bool withModifiers);
   string[] ExpectedField(FieldInput input, string[] extras, string[] parameters);

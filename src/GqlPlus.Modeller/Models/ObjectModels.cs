@@ -33,7 +33,7 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
     => Fields.Select(f => new ObjectForModel<TObjField>(f, Name));
 }
 
-internal interface ITypeObjectModel
+public interface ITypeObjectModel
   : IChildTypeModel
 {
   IEnumerable<ModelBase> AllAlternates { get; }

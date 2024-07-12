@@ -2,11 +2,13 @@
 
 namespace GqlPlus.Parsing;
 
-public class ParseFieldKeyTests(Parser<IGqlpFieldKey>.D parser)
+public class ParseFieldKeyTests(
+  IOneChecksParser<IGqlpFieldKey> checks
+)
 {
   [Theory, RepeatData(Repeats)]
   public void WithNumber_ReturnsCorrectAst(decimal number)
-    => Test.TrueExpected(
+    => checks.TrueExpected(
       number.ToString(CultureInfo.InvariantCulture),
       new FieldKeyAst(AstNulls.At, number));
 
@@ -14,13 +16,13 @@ public class ParseFieldKeyTests(Parser<IGqlpFieldKey>.D parser)
   [InlineData(", b.BJ)s\"")]
   [InlineData("?&ZbND|\"\"\"2\\")]
   public void WithSpecificString_ReturnsCorrectAst(string contents)
-    => Test.TrueExpected(
+    => checks.TrueExpected(
       contents.Quote(),
       new FieldKeyAst(AstNulls.At, contents));
 
   [Theory, RepeatData(Repeats)]
   public void WithString_ReturnsCorrectAst(string contents)
-    => Test.TrueExpected(
+    => checks.TrueExpected(
       contents.Quote(),
       new FieldKeyAst(AstNulls.At, contents));
 
@@ -28,19 +30,19 @@ public class ParseFieldKeyTests(Parser<IGqlpFieldKey>.D parser)
   [InlineData(", b.BJ)s\"")]
   [InlineData("?&ZbND|\"\"\"2\\")]
   public void WithSpecificBlockString_ReturnsCorrectAst(string contents)
-    => Test.TrueExpected(
+    => checks.TrueExpected(
       contents.BlockQuote(),
       new FieldKeyAst(AstNulls.At, contents));
 
   [Theory, RepeatData(Repeats)]
   public void WithBlockString_ReturnsCorrectAst(string contents)
-    => Test.TrueExpected(
+    => checks.TrueExpected(
       contents.BlockQuote(),
       new FieldKeyAst(AstNulls.At, contents));
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumValue_ReturnsCorrectAst(string enumValue)
-    => Test.TrueExpected(
+    => checks.TrueExpected(
       enumValue,
       enumValue.FieldKey());
 
@@ -50,20 +52,18 @@ public class ParseFieldKeyTests(Parser<IGqlpFieldKey>.D parser)
   [InlineData("null", "Null", "null")]
   [InlineData("_", "Unit", "_")]
   public void WithSpecificValues_ReturnsCorrectAst(string value, string enumType, string enumValue)
-    => Test.TrueExpected(
+    => checks.TrueExpected(
       value,
       new FieldKeyAst(AstNulls.At, enumType, enumValue));
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeAndValue_ReturnsCorrectAst(string enumType, string enumValue)
-    => Test.TrueExpected(
+    => checks.TrueExpected(
       enumType + "." + enumValue,
       new FieldKeyAst(AstNulls.At, enumType, enumValue));
 
   [Theory, RepeatData(Repeats)]
   public void WithTypeAndNoValue_ReturnsFalse(string enumType)
-    => Test.False(enumType + ".");
-
-  private OneChecksParser<IGqlpFieldKey> Test { get; } = new(parser);
+    => checks.FalseExpected(enumType + ".");
 }
 

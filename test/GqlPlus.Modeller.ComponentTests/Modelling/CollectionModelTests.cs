@@ -1,23 +1,17 @@
-﻿namespace GqlPlus.Modelling.Simple;
+﻿namespace GqlPlus.Modelling;
 
-public class ModifierModelTests(
-  IModeller<IGqlpModifier, ModifierModel> modeller,
-  IRenderer<ModifierModel> rendering
-) : TestModelBase<ModifierInput>
+public class CollectionModelTests(
+  ICheckModelBase<ModifierInput, CollectionModel> checks
+) : TestModelBase<ModifierInput, CollectionModel>(checks)
 {
-  [Fact]
-  public void Model_Nothing()
-    => _checks.AstExpected(new(AstNulls.At), ["!_Modifier", "modifierKind: !_ModifierKind Opt"]);
-
-  internal override ICheckModelBase<ModifierInput> BaseChecks => _checks;
-
-  private readonly ModifierModelChecks _checks = new(modeller, rendering);
+  protected override bool SkipIf(ModifierInput name)
+    => name.Kind == ModifierKind.Optional;
 }
 
-internal sealed class ModifierModelChecks(
-  IModeller<IGqlpModifier, ModifierModel> modeller,
-  IRenderer<ModifierModel> rendering
-) : CheckModelBase<ModifierInput, IGqlpModifier, ModifierAst, ModifierModel>(modeller, rendering)
+internal sealed class CollectionModelChecks(
+  IModeller<IGqlpModifier, CollectionModel> modeller,
+  IRenderer<CollectionModel> rendering
+) : CheckModelBase<ModifierInput, IGqlpModifier, ModifierAst, CollectionModel>(modeller, rendering)
 {
   protected override string[] ExpectedBase(ModifierInput name)
     => name.Kind switch {
@@ -37,5 +31,3 @@ internal sealed class ModifierModelChecks(
       _ => throw new NotImplementedException(),
     };
 }
-
-public record struct ModifierInput(ModifierKind Kind, string Key, bool Optional);

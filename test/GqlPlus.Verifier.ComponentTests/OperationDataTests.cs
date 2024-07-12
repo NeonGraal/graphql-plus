@@ -9,7 +9,8 @@ namespace GqlPlus;
 
 public class OperationDataTests(
     Parser<IGqlpOperation>.D parser,
-    IVerify<IGqlpOperation> verifier)
+    IVerify<IGqlpOperation> verifier
+)
 {
   private readonly Parser<IGqlpOperation>.L _parser = parser;
 

@@ -4,26 +4,22 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public sealed class ParseDomainStringTests(
-  Parser<IGqlpDomain>.D parser
-) : BaseDomainTests<DomainStringInput>
+  IBaseDomainChecks<DomainStringInput, IGqlpDomain<IGqlpDomainRegex>> checks
+) : BaseDomainTests<DomainStringInput, IGqlpDomain<IGqlpDomainRegex>>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void WithRegexes_ReturnsCorrectAst(DomainStringInput input, string regex)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       input.Name + "{string/" + input.Regex + "/!/" + regex + "/}",
       NewDomain(input.Name, new[] { input.Regex, regex }.DomainRegexes()));
 
   [Theory, RepeatData(Repeats)]
   public void WithRegexesFirstBad_ReturnsFalse(string name)
-    => _checks.False(name + "{string/}");
+    => checks.FalseExpected(name + "{string/}");
 
   [Theory, RepeatData(Repeats)]
   public void WithRegexesSecondBad_ReturnsFalse(DomainStringInput input, string regex)
-    => _checks.False(input.Name + "{string/" + input.Regex + "/!/" + regex + "}");
-
-  internal override IBaseDomainChecks<DomainStringInput> DomainChecks => _checks;
-
-  private readonly ParseDomainStringChecks _checks = new(parser);
+    => checks.FalseExpected(input.Name + "{string/" + input.Regex + "/!/" + regex + "}");
 
   private static AstDomain<DomainRegexAst, IGqlpDomainRegex> NewDomain(string name, DomainRegexAst[] members)
     => new(AstNulls.At, name, DomainKind.String, members);
@@ -31,7 +27,7 @@ public sealed class ParseDomainStringTests(
 
 internal sealed class ParseDomainStringChecks(
   Parser<IGqlpDomain>.D parser
-) : BaseDomainChecks<DomainStringInput, AstDomain>(parser, DomainKind.String)
+) : BaseDomainChecks<DomainStringInput, AstDomain<DomainRegexAst, IGqlpDomainRegex>, IGqlpDomain<IGqlpDomainRegex>>(parser, DomainKind.String)
 {
   protected internal override AstDomain<DomainRegexAst, IGqlpDomainRegex> NamedFactory(DomainStringInput input)
     => new(AstNulls.At, input.Name, DomainKind.String, new[] { input.Regex }.DomainRegexes());

@@ -131,17 +131,6 @@ dotnet_style_parentheses_in_arithmetic_binary_operators = never_if_unnecessary:s
 dotnet_style_parentheses_in_other_binary_operators = never_if_unnecessary:suggestion
 dotnet_style_parentheses_in_relational_binary_operators = never_if_unnecessary:suggestion
 dotnet_style_parentheses_in_other_operators = never_if_unnecessary:suggestion
-dotnet_diagnostic.CA1000.severity = warning
-dotnet_diagnostic.CA1001.severity = warning
-dotnet_diagnostic.CA1010.severity = warning
-dotnet_diagnostic.CA1036.severity = suggestion
-dotnet_diagnostic.CA1310.severity = warning
-dotnet_diagnostic.CA1708.severity = warning
-dotnet_diagnostic.CA1716.severity = warning
-dotnet_diagnostic.CA1725.severity = warning
-dotnet_diagnostic.CA1727.severity = warning
-dotnet_diagnostic.CA1805.severity = warning
-dotnet_diagnostic.CA1852.severity = warning
 dotnet_style_prefer_collection_expression = when_types_loosely_match:suggestion
 
 # Newline settings
@@ -245,6 +234,23 @@ csharp_style_prefer_readonly_struct_member = true:suggestion
 csharp_style_prefer_switch_expression = true:suggestion
 csharp_style_prefer_pattern_matching = true:suggestion
 csharp_style_prefer_not_pattern = true:suggestion
+
+dotnet_diagnostic.CA1000.severity = warning
+dotnet_diagnostic.CA1001.severity = warning
+dotnet_diagnostic.CA1010.severity = warning
+dotnet_diagnostic.CA1036.severity = suggestion
+dotnet_diagnostic.CA1310.severity = warning
+dotnet_diagnostic.CA1708.severity = warning
+dotnet_diagnostic.CA1716.severity = warning
+dotnet_diagnostic.CA1725.severity = warning
+dotnet_diagnostic.CA1727.severity = warning
+dotnet_diagnostic.CA1805.severity = warning
+dotnet_diagnostic.CA1812.severity = none
+
+# CA1852: Type can be sealed
+dotnet_diagnostic.CA1852.severity = warning
+
+dotnet_diagnostic.CS9107.severity = none
 
 # IDE0060: Remove unused parameter
 dotnet_diagnostic.IDE0060.severity = warning

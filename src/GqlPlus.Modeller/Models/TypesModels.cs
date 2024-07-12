@@ -43,7 +43,7 @@ public abstract record class ChildTypeModel<TParent>(
     => ForParent(context, action);
 }
 
-internal interface IChildTypeModel
+public interface IChildTypeModel
   : IModelBase
 {
   void ForParent<TModel>(IResolveContext context, Action<TModel> action)

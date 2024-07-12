@@ -4,37 +4,36 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Modelling.Simple;
 
 public class EnumModelTests(
-  IModeller<IGqlpEnum, TypeEnumModel> modeller,
-  IRenderer<TypeEnumModel> rendering
-) : TestTypeModel<SimpleKindModel>
+  IEnumModelChecks checks
+) : TestTypeModel<SimpleKindModel, TypeEnumModel>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, string[] members)
-    => _checks.EnumExpected(
-      new(AstNulls.At, name, members.EnumMembers()),
+    => checks.EnumExpected(
+      new EnumDeclAst(AstNulls.At, name, members.EnumMembers()),
       new(name,
-        members: _checks.ExpectedMembers("items:", members),
-        allMembers: _checks.ExpectedAllMembers("allItems:", members, name)));
+        members: checks.ExpectedMembers("items:", members),
+        allMembers: checks.ExpectedAllMembers("allItems:", members, name)));
 
   [Theory, RepeatData(Repeats)]
   public void Model_MembersParent(string name, string parent, string[] parentMembers)
-    => _checks
-    .AddParent(_checks.NewParent(parent, parentMembers))
+    => checks
+    .AddParent(checks.NewParent(parent, parentMembers))
     .EnumExpected(
-      new(AstNulls.At, name, []) { Parent = parent, },
-      new(name, parent, allMembers: _checks.ExpectedAllMembers("allItems:", parentMembers, parent)));
+      new EnumDeclAst(AstNulls.At, name, []) { Parent = parent, },
+      new(name, parent, allMembers: checks.ExpectedAllMembers("allItems:", parentMembers, parent)));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersGrandParent(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
-    => _checks
+    => checks
     .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
-    .AddParent(_checks.NewParent(parent, parentMembers, grandParent))
-    .AddParent(_checks.NewParent(grandParent, grandParentMembers))
+    .AddParent(checks.NewParent(parent, parentMembers, grandParent))
+    .AddParent(checks.NewParent(grandParent, grandParentMembers))
     .EnumExpected(
-      new(AstNulls.At, name, []) { Parent = parent, },
-      new(name, parent, allMembers: _checks
+      new EnumDeclAst(AstNulls.At, name, []) { Parent = parent, },
+      new(name, parent, allMembers: checks
         .ExpectedAllMembers("allItems:", grandParentMembers, grandParent)
-        .Concat(_checks.ExpectedAllMembers("", parentMembers, parent))));
+        .Concat(checks.ExpectedAllMembers("", parentMembers, parent))));
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(
@@ -44,29 +43,26 @@ public class EnumModelTests(
     string parent,
     string[] members,
     string[] parentMembers
-  ) => _checks
-    .AddParent(_checks.NewParent(parent, parentMembers))
+  ) => checks
+    .AddParent(checks.NewParent(parent, parentMembers))
     .EnumExpected(
-      new(AstNulls.At, name, members.EnumMembers()) {
+      new EnumDeclAst(AstNulls.At, name, members.EnumMembers()) {
         Aliases = aliases,
         Description = contents,
         Parent = parent,
       },
-      new(name, parent, aliases, contents, _checks.ExpectedMembers("items:", members),
-        _checks.ExpectedAllMembers("allItems:", parentMembers, parent)
-        .Concat(_checks.ExpectedAllMembers("", members, name))));
-
-  internal override ICheckTypeModel<SimpleKindModel> TypeChecks => _checks;
-
-  private readonly EnumModelChecks _checks = new(modeller, rendering);
+      new(name, parent, aliases, contents, checks.ExpectedMembers("items:", members),
+        checks.ExpectedAllMembers("allItems:", parentMembers, parent)
+        .Concat(checks.ExpectedAllMembers("", members, name))));
 }
 
 internal sealed class EnumModelChecks(
   IModeller<IGqlpEnum, TypeEnumModel> modeller,
   IRenderer<TypeEnumModel> rendering
-) : CheckTypeModel<IGqlpEnum, SimpleKindModel, TypeEnumModel, string>(modeller, rendering, SimpleKindModel.Enum)
+) : CheckParentModel<IGqlpEnum, SimpleKindModel, TypeEnumModel, string>(modeller, rendering, SimpleKindModel.Enum)
+  , IEnumModelChecks
 {
-  internal void EnumExpected(EnumDeclAst ast, ExpectedEnumInput input)
+  public void EnumExpected(IGqlpEnum ast, ExpectedEnumInput input)
     => AstExpected(ast, ExpectedEnum(input));
 
   protected override ToExpected<string> ExpectedAllMember(string type)
@@ -104,7 +100,14 @@ internal sealed class EnumModelChecks(
     };
 }
 
-internal sealed class ExpectedEnumInput(
+public interface IEnumModelChecks
+  : ICheckParentModel<SimpleKindModel, TypeEnumModel>
+  , IParentModel<string>
+{
+  void EnumExpected(IGqlpEnum ast, ExpectedEnumInput input);
+}
+
+public sealed class ExpectedEnumInput(
   string name,
   string? parent = null,
   IEnumerable<string>? aliases = null,
@@ -113,8 +116,10 @@ internal sealed class ExpectedEnumInput(
   IEnumerable<string>? allMembers = null
 ) : ExpectedTypeInput<string>(name, parent, aliases, description)
 {
+#pragma warning disable CA1819 // Properties should not return arrays
   public string[] Items { get; } = [.. members ?? []];
   public string[] AllItems { get; } = [.. allMembers ?? []];
+#pragma warning restore CA1819 // Properties should not return arrays
 
   internal ExpectedEnumInput(ExpectedTypeInput<string> input)
     : this(input.Name, input.Parent)

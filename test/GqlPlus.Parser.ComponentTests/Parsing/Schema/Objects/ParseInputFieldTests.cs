@@ -4,18 +4,19 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseInputFieldTests(
-  Parser<IGqlpInputField>.D parser
-) : TestObjectField
+  ICheckObjectField<IGqlpInputField> checks
+) : TestObjectField<IGqlpInputField>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void WithDefault_ReturnsCorrectAst(string name, string fieldType, string content)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       name + ":" + fieldType + "='" + content + "'",
-      _checks.Field(name, fieldType) with {
+      new InputFieldAst(AstNulls.At, name, new InputBaseAst(AstNulls.At, fieldType)) {
         DefaultValue = new(new FieldKeyAst(AstNulls.At, content))
       });
-
-  internal override ICheckObjectField FieldChecks => _checks;
-
-  private readonly CheckObjectField<IGqlpInputField, InputFieldAst, IGqlpInputBase, InputBaseAst, IGqlpInputArgument, InputArgumentAst> _checks = new(new InputFactories(), parser);
 }
+
+internal sealed class ParseInputFieldChecks(
+  Parser<IGqlpInputField>.D parser
+) : CheckObjectField<IGqlpInputField, InputFieldAst, IGqlpInputBase, InputBaseAst, IGqlpInputArgument, InputArgumentAst>(new InputFactories(), parser)
+{ }

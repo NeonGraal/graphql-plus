@@ -5,37 +5,36 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Modelling.Simple;
 
 public class UnionModelTests(
-  IModeller<IGqlpUnion, TypeUnionModel> modeller,
-  IRenderer<TypeUnionModel> rendering
-) : TestTypeModel<SimpleKindModel>
+  IUnionModelChecks checks
+) : TestTypeModel<SimpleKindModel, TypeUnionModel>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, string[] members)
-    => _checks.UnionExpected(
-      new(AstNulls.At, name, members.UnionMembers()),
+    => checks.UnionExpected(
+      new UnionDeclAst(AstNulls.At, name, members.UnionMembers()),
       new(name,
-        members: _checks.ExpectedMembers("items:", members),
-        allMembers: _checks.ExpectedAllMembers("allItems:", members, name)));
+        members: checks.ExpectedMembers("items:", members),
+        allMembers: checks.ExpectedAllMembers("allItems:", members, name)));
 
   [Theory, RepeatData(Repeats)]
   public void Model_MembersParent(string name, string parent, string[] parentMembers)
-    => _checks
-    .AddParent(_checks.NewParent(parent, parentMembers))
+    => checks
+    .AddParent(checks.NewParent(parent, parentMembers))
     .UnionExpected(
-      new(AstNulls.At, name, []) { Parent = parent, },
-      new(name, parent, allMembers: _checks.ExpectedAllMembers("allItems:", parentMembers, parent)));
+      new UnionDeclAst(AstNulls.At, name, []) { Parent = parent, },
+      new(name, parent, allMembers: checks.ExpectedAllMembers("allItems:", parentMembers, parent)));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersGrandParent(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
-    => _checks
+    => checks
     .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
-    .AddParent(_checks.NewParent(parent, parentMembers, grandParent))
-    .AddParent(_checks.NewParent(grandParent, grandParentMembers))
+    .AddParent(checks.NewParent(parent, parentMembers, grandParent))
+    .AddParent(checks.NewParent(grandParent, grandParentMembers))
     .UnionExpected(
-      new(AstNulls.At, name, []) { Parent = parent, },
-      new(name, parent, allMembers: _checks
+      new UnionDeclAst(AstNulls.At, name, []) { Parent = parent, },
+      new(name, parent, allMembers: checks
         .ExpectedAllMembers("allItems:", grandParentMembers, grandParent)
-        .Concat(_checks.ExpectedAllMembers("", parentMembers, parent))));
+        .Concat(checks.ExpectedAllMembers("", parentMembers, parent))));
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(
@@ -45,29 +44,26 @@ public class UnionModelTests(
     string parent,
     string[] members,
     string[] parentMembers
-  ) => _checks
-    .AddParent(_checks.NewParent(parent, parentMembers))
+  ) => checks
+    .AddParent(checks.NewParent(parent, parentMembers))
     .UnionExpected(
-      new(AstNulls.At, name, members.UnionMembers()) {
+      new UnionDeclAst(AstNulls.At, name, members.UnionMembers()) {
         Aliases = aliases,
         Description = contents,
         Parent = parent,
       },
-      new(name, parent, aliases, contents, _checks.ExpectedMembers("items:", members),
-        _checks.ExpectedAllMembers("allItems:", parentMembers, parent)
-        .Concat(_checks.ExpectedAllMembers("", members, name))));
-
-  internal override ICheckTypeModel<SimpleKindModel> TypeChecks => _checks;
-
-  private readonly UnionModelChecks _checks = new(modeller, rendering);
+      new(name, parent, aliases, contents, checks.ExpectedMembers("items:", members),
+        checks.ExpectedAllMembers("allItems:", parentMembers, parent)
+        .Concat(checks.ExpectedAllMembers("", members, name))));
 }
 
 internal sealed class UnionModelChecks(
   IModeller<IGqlpUnion, TypeUnionModel> modeller,
   IRenderer<TypeUnionModel> rendering
-) : CheckTypeModel<IGqlpUnion, SimpleKindModel, TypeUnionModel, string>(modeller, rendering, SimpleKindModel.Union)
+) : CheckParentModel<IGqlpUnion, SimpleKindModel, TypeUnionModel, string>(modeller, rendering, SimpleKindModel.Union)
+  , IUnionModelChecks
 {
-  internal void UnionExpected(UnionDeclAst ast, ExpectedUnionInput input)
+  public void UnionExpected(IGqlpUnion ast, ExpectedUnionInput input)
   => AstExpected(ast, ExpectedUnion(input));
 
   protected override ToExpected<string> ExpectedAllMember(string type)
@@ -105,7 +101,14 @@ internal sealed class UnionModelChecks(
     };
 }
 
-internal sealed class ExpectedUnionInput(
+public interface IUnionModelChecks
+  : ICheckParentModel<SimpleKindModel, TypeUnionModel>
+  , IParentModel<string>
+{
+  void UnionExpected(IGqlpUnion ast, ExpectedUnionInput input);
+}
+
+public sealed class ExpectedUnionInput(
   string name,
   string? parent = null,
   IEnumerable<string>? aliases = null,
@@ -114,8 +117,10 @@ internal sealed class ExpectedUnionInput(
   IEnumerable<string>? allMembers = null
 ) : ExpectedTypeInput<string>(name, parent, aliases, description)
 {
+#pragma warning disable CA1819 // Properties should not return arrays
   public string[] Items { get; } = [.. members ?? []];
   public string[] AllItems { get; } = [.. allMembers ?? []];
+#pragma warning restore CA1819 // Properties should not return arrays
 
   internal ExpectedUnionInput(ExpectedTypeInput<string> input)
     : this(input.Name, input.Parent)

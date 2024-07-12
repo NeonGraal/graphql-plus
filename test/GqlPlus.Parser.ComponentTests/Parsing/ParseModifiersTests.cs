@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Parsing;
 
 public class ParseModifiersTests(
-  Parser<IGqlpModifier>.DA parser
+  IManyChecksParser<IGqlpModifier> checks
 )
 {
   [Theory]
@@ -14,16 +14,14 @@ public class ParseModifiersTests(
   [InlineData("[_?][]?", 3)]
   [InlineData("[0][_][*?]", 3)]
   public void WithInput_ReturnsGivenNumber(string input, int count)
-    => _test.Count(input, count);
+    => checks.Count(input, count);
 
   [Fact]
   public void WithFour_ReturnsSpecific()
-    => _test.TrueExpected("[^][_?][]?", [
+    => checks.TrueExpected("[^][_?][]?", [
       ModifierAst.Dict(AstNulls.At, "^", false),
       ModifierAst.Dict(AstNulls.At, "_", true),
       ModifierAst.List(AstNulls.At),
       ModifierAst.Optional(AstNulls.At),
     ]);
-
-  private readonly ManyChecksParser<IGqlpModifier> _test = new(parser);
 }

@@ -4,61 +4,62 @@ using GqlPlus.Ast.Schema.Simple;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public sealed class ParseDomainNumberTests(
-  Parser<IGqlpDomain>.D parser
-) : BaseDomainTests<string>
+  IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainRange>> checks
+) : BaseDomainTests<string, IGqlpDomain<IGqlpDomainRange>>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void WithRangeNoBounds_ReturnsFalse(string name)
-    => _checks.False(name + "{number ~}");
+    => checks.FalseExpected(name + "{number ~}");
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeLowerBound_ReturnsCorrectAst(string name, decimal min)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       name + $"{{number {min}>}}",
-      NewDomain(name, [new(AstNulls.At, false, min, null)]));
+      NewDomain(name, [NewRange(min, null)]));
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeSingle_ReturnsCorrectAst(string name, decimal min)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       name + $"{{number {min}}}",
-      NewDomain(name, [new(AstNulls.At, false, min, min)]));
+      NewDomain(name, [NewRange(min, min)]));
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeExcludes_ReturnsCorrectAst(string name, decimal min)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       name + $"{{number !{min}}}",
       NewDomain(name, [new(AstNulls.At, true, min, min)]));
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeUpperBound_ReturnsCorrectAst(string name, decimal max)
-    => _checks.TrueExpected(
+    => checks.TrueExpected(
       name + $"{{number <{max}}}",
-      NewDomain(name, [new(AstNulls.At, false, null, max)]));
+      NewDomain(name, [NewRange(null, max)]));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithRangeBounds_ReturnsCorrectAst(string name, decimal min, decimal max)
-    => _checks.TrueExpected(
-      name + $"{{number {min}~{max}}}",
-      NewDomain(name, [new(AstNulls.At, false, min, max)]),
-      skipIf: max <= min);
+    => checks
+      .SkipIf(max <= min)
+      .TrueExpected(
+        name + $"{{number {min}~{max}}}",
+        NewDomain(name, [NewRange(min, max)]));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithRangeBoundsBad_ReturnsCorrectAst(string name, decimal min, decimal max)
-    => _checks.False(
-      name + $"{{number ~{max} {min}!}}",
-      skipIf: max > min);
-
-  internal override IBaseDomainChecks<string> DomainChecks => _checks;
-
-  private readonly ParseDomainNumberChecks _checks = new(parser);
+    => checks
+      .SkipIf(max > min)
+      .FalseExpected(
+        name + $"{{number ~{max} {min}!}}");
 
   private static AstDomain<DomainRangeAst, IGqlpDomainRange> NewDomain(string name, DomainRangeAst[] members)
     => new(AstNulls.At, name, DomainKind.Number, members);
+
+  private static DomainRangeAst NewRange(decimal? min, decimal? max)
+    => new(AstNulls.At, false, min, max);
 }
 
 internal sealed class ParseDomainNumberChecks(
   Parser<IGqlpDomain>.D parser
-) : BaseDomainChecks<string, AstDomain>(parser, DomainKind.Number)
+) : BaseDomainChecks<string, AstDomain<DomainRangeAst, IGqlpDomainRange>, IGqlpDomain<IGqlpDomainRange>>(parser, DomainKind.Number)
 {
   protected internal override AstDomain<DomainRangeAst, IGqlpDomainRange> NamedFactory(string input)
     => new(AstNulls.At, input, DomainKind.Number, []);

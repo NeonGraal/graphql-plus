@@ -5,16 +5,14 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Modelling.Globals;
 
 public class CategoriesModelTests(
-  IModeller<IGqlpSchemaCategory, CategoryModel> category,
-  IRenderer<CategoriesModel> rendering,
-  IModeller<IGqlpOutputObject, TypeOutputModel> typeOutput
-) : TestModelBase<string>
+  ICategoriesModelChecks checks
+) : TestModelBase<string, CategoriesModel>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void Model_Type(string output)
-    => _checks
+    => checks
     .Model_Expected(
-      _checks.ToModel(null, output),
+      checks.ToModel(null, output),
       ["!_TypeOutput",
         "name: " + output,
         "typeKind: !_TypeKind Output"]);
@@ -23,9 +21,9 @@ public class CategoriesModelTests(
   public void Model_Both(
     string output,
     string name
-  ) => _checks
+  ) => checks
     .Model_Expected(
-      _checks.ToModel(new(AstNulls.At, name, output), output),
+      checks.ToModel(new CategoryDeclAst(AstNulls.At, name, output), output),
       ["!_Categories",
         "category: !_Category",
         "  name: " + name,
@@ -34,10 +32,6 @@ public class CategoriesModelTests(
         "type: !_TypeOutput",
         "  name: " + output,
         "  typeKind: !_TypeKind Output"]);
-
-  internal override ICheckModelBase<string> BaseChecks => _checks;
-
-  private readonly CategoriesModelChecks _checks = new(category, rendering, typeOutput);
 }
 
 internal sealed class CategoriesModelChecks(
@@ -45,7 +39,7 @@ internal sealed class CategoriesModelChecks(
   IRenderer<CategoriesModel> rendering,
   IModeller<IGqlpOutputObject, TypeOutputModel> typeOutput
 ) : CheckModelBase<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel, CategoriesModel>(modeller, rendering)
-  , ICheckModelBase
+  , ICategoriesModelChecks
 {
   protected override string[] ExpectedBase(string name)
   => ["!_Category",
@@ -59,9 +53,15 @@ internal sealed class CategoriesModelChecks(
   IModelBase ICheckModelBase.ToModel(IGqlpError ast)
     => new CategoriesModel() { And = _modeller.ToModel((CategoryDeclAst)ast, TypeKinds) };
 
-  internal CategoriesModel ToModel(CategoryDeclAst? ast, string output)
+  public CategoriesModel ToModel(IGqlpSchemaCategory? ast, string output)
     => new() {
       And = _modeller.TryModel(ast, TypeKinds),
       Type = string.IsNullOrWhiteSpace(output) ? null : typeOutput.ToModel(new OutputDeclAst(AstNulls.At, output), TypeKinds),
     };
+}
+
+public interface ICategoriesModelChecks
+  : ICheckModelBase<string, CategoriesModel>
+{
+  CategoriesModel ToModel(IGqlpSchemaCategory? ast, string input);
 }

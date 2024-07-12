@@ -10,5 +10,3 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Performance", "CA1815:Override equals and operator equals on value types")]
 [assembly: SuppressMessage("Performance", "CA1819:Properties should not return arrays")]
 [assembly: SuppressMessage("Usage", "CA2225:Operator overloads have named alternates")]
-
-[assembly: SuppressMessage("Style", "IDE2001:Embedded statements must be on their own line")]

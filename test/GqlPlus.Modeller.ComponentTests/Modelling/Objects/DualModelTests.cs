@@ -4,19 +4,15 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Modelling.Objects;
 
 public class DualModelTests(
-  IModeller<IGqlpDualObject, TypeDualModel> modeller,
-  IRenderer<TypeDualModel> rendering
-) : TestObjectModel<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
-{
-  internal override ICheckObjectModel<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate> ObjectChecks => _checks;
-
-  private readonly DualModelChecks _checks = new(modeller, rendering);
-}
+  IDualModelChecks checks
+) : TestObjectModel<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, TypeDualModel>(checks)
+{ }
 
 internal sealed class DualModelChecks(
   IModeller<IGqlpDualObject, TypeDualModel> modeller,
   IRenderer<TypeDualModel> rendering
 ) : CheckObjectModel<IGqlpDualObject, DualDeclAst, IGqlpDualField, DualFieldAst, IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase, TypeDualModel>(modeller, rendering, TypeKindModel.Dual)
+  , IDualModelChecks
 {
   protected override DualDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)
     => new(AstNulls.At, input.Name, input.Description) {
@@ -30,3 +26,7 @@ internal sealed class DualModelChecks(
   internal override IGqlpDualBase NewParentAst(string input)
     => new DualBaseAst(AstNulls.At, input);
 }
+
+public interface IDualModelChecks
+  : ICheckObjectModel<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, TypeDualModel>
+{ }

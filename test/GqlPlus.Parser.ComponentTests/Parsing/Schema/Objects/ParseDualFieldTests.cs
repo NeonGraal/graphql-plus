@@ -4,10 +4,11 @@ using GqlPlus.Ast.Schema.Objects;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseDualFieldTests(
-  Parser<IGqlpDualField>.D parser
-) : TestObjectField
-{
-  internal override ICheckObjectField FieldChecks => _checks;
+  ICheckObjectField<IGqlpDualField> checks
+) : TestObjectField<IGqlpDualField>(checks)
+{ }
 
-  private readonly CheckObjectField<IGqlpDualField, DualFieldAst, IGqlpDualBase, DualBaseAst, IGqlpDualArgument, DualArgumentAst> _checks = new(new DualFactories(), parser);
-}
+internal sealed class ParseDualFieldChecks(
+  Parser<IGqlpDualField>.D parser
+) : CheckObjectField<IGqlpDualField, DualFieldAst, IGqlpDualBase, DualBaseAst, IGqlpDualArgument, DualArgumentAst>(new DualFactories(), parser)
+{ }

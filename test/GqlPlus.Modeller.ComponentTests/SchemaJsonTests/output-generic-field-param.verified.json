@@ -12,9 +12,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenFieldParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "value": "OutpGenFieldParamAlt"
               }
             ]
@@ -28,9 +28,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenFieldParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "value": "OutpGenFieldParamAlt"
               }
             ]
@@ -102,7 +102,7 @@
       ],
       "name": "OutpGenFieldParamRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

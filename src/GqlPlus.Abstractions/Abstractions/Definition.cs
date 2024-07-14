@@ -50,7 +50,7 @@ public enum ModifierKind
   Dict,
   Dictionary = Dict,
   Param,
-  TypeParameter = Param,
+  TypeParam = Param,
 }
 
 public interface IGqlpModifiers

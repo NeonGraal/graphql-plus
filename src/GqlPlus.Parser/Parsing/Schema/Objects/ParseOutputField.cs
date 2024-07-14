@@ -9,13 +9,13 @@ internal class ParseOutputField(
   Parser<string>.DA aliases,
   Parser<IGqlpModifier>.DA modifiers,
   Parser<IGqlpOutputBase>.D parseBase,
-  Parser<IGqlpInputParameter>.DA parameter
+  Parser<IGqlpInputParam>.DA parameter
 ) : ObjectFieldParser<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase>(aliases, modifiers, parseBase)
 {
-  private readonly Parser<IGqlpInputParameter>.LA _parameter = parameter;
+  private readonly Parser<IGqlpInputParam>.LA _parameter = parameter;
 
-  protected override void ApplyFieldParameters(OutputFieldAst field, IGqlpInputParameter[] parameters)
-    => field.Parameters = parameters;
+  protected override void ApplyFieldParams(OutputFieldAst field, IGqlpInputParam[] parameters)
+    => field.Params = parameters;
 
   protected override OutputFieldAst ObjField(TokenAt at, string name, string description, IGqlpOutputBase typeBase)
     => new(at, name, description, typeBase);
@@ -49,7 +49,7 @@ internal class ParseOutputField(
     return tokens.Error<IGqlpOutputField>("Output", "':' or '='", field);
   }
 
-  protected override IResultArray<IGqlpInputParameter> FieldParameter<TContext>(TContext tokens)
+  protected override IResultArray<IGqlpInputParam> FieldParam<TContext>(TContext tokens)
     => _parameter.Parse(tokens, "Output");
 
   protected override OutputBaseAst ObjBase(TokenAt at, string param, string description)

@@ -54,5 +54,5 @@ public class ResultErrorTests : BaseResultTests
   }
 
   [Fact]
-  public void WithMesssage_CallsActionParameter() => _error.WithMessage(m => m.Message.Should().Be(Error));
+  public void WithMesssage_CallsActionParam() => _error.WithMessage(m => m.Message.Should().Be(Error));
 }

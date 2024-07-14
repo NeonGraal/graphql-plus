@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Globals;
 
 internal class DirectiveModeller(
-  IModeller<IGqlpInputParameter, InputParameterModel> parameter
+  IModeller<IGqlpInputParam, InputParamModel> parameter
 ) : ModellerBase<IGqlpSchemaDirective, DirectiveModel>
 {
   protected override DirectiveModel ToModel(IGqlpSchemaDirective ast, IMap<TypeKindModel> typeKinds)
@@ -10,7 +10,7 @@ internal class DirectiveModeller(
       Description = ast.Description,
       Repeatable = ast.DirectiveOption == DirectiveOption.Repeatable,
       Locations = ast.Locations,
-      Parameters = parameter.ToModels(ast.Parameters, typeKinds),
+      Params = parameter.ToModels(ast.Params, typeKinds),
     };
 
   internal static DirectiveLocation Combine(DirectiveLocation[] values)

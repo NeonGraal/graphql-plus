@@ -3,30 +3,30 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
-internal sealed record class ArgumentAst
-  : AstValue<IGqlpArgument>
-  , IEquatable<ArgumentAst>
-  , IGqlpArgument
+internal sealed record class ArgAst
+  : AstValue<IGqlpArg>
+  , IEquatable<ArgAst>
+  , IGqlpArg
 {
   public string? Variable { get; }
   public IGqlpConstant? Constant { get; }
 
   internal override string Abbr => "a";
 
-  internal ArgumentAst(TokenAt at)
+  internal ArgAst(TokenAt at)
     : base(at) { }
-  internal ArgumentAst(TokenAt at, string variable)
+  internal ArgAst(TokenAt at, string variable)
     : base(at) => Variable = variable;
-  internal ArgumentAst(IGqlpFieldKey field)
+  internal ArgAst(IGqlpFieldKey field)
     : base((TokenAt)field.At) => Constant = new ConstantAst(field);
-  internal ArgumentAst(ConstantAst constant)
+  internal ArgAst(ConstantAst constant)
     : base(constant.At) => Constant = constant;
-  internal ArgumentAst(TokenAt at, IEnumerable<IGqlpArgument> values)
+  internal ArgAst(TokenAt at, IEnumerable<IGqlpArg> values)
     : base(at, values) { }
-  internal ArgumentAst(TokenAt at, IGqlpFields<IGqlpArgument> fields)
+  internal ArgAst(TokenAt at, IGqlpFields<IGqlpArg> fields)
     : base(at, fields) { }
 
-  public bool Equals(ArgumentAst? other)
+  public bool Equals(ArgAst? other)
     => base.Equals(other)
     && Variable.NullEqual(other.Variable)
     && Constant.NullEqual(other.Constant);

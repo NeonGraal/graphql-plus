@@ -139,7 +139,7 @@
           "$tag": "_ObjectFor(_DualAlternate)",
           "collections": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -156,7 +156,7 @@
           "$tag": "_DualAlternate",
           "collections": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -169,7 +169,7 @@
       ],
       "name": "DualAltModsParam",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "mod"
@@ -450,7 +450,7 @@
           "$tag": "_ObjectFor(_DualField)",
           "modifiers": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -468,7 +468,7 @@
           "$tag": "_DualField",
           "modifiers": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -482,7 +482,7 @@
       ],
       "name": "DualFieldModsParam",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "mod"
@@ -674,7 +674,7 @@
       ],
       "name": "DualGenAlt",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -690,7 +690,7 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenAltRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
@@ -700,13 +700,13 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenAltRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
       "name": "DualGenAltArg",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -722,9 +722,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenAltDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenAltDualAlt"
               }
             ]
@@ -737,9 +737,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenAltDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenAltDualAlt"
               }
             ]
@@ -811,7 +811,7 @@
       ],
       "name": "DualGenAltDualRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -827,9 +827,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenAltParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenAltParamAlt"
               }
             ]
@@ -842,9 +842,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenAltParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenAltParamAlt"
               }
             ]
@@ -916,7 +916,7 @@
       ],
       "name": "DualGenAltParamRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -940,7 +940,7 @@
       ],
       "name": "DualGenAltRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -957,9 +957,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenDualAlt"
               }
             ]
@@ -973,9 +973,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenDualAlt"
               }
             ]
@@ -1047,7 +1047,7 @@
       ],
       "name": "DualGenDualRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -1073,7 +1073,7 @@
       ],
       "name": "DualGenField",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -1090,7 +1090,7 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenFieldRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
@@ -1101,13 +1101,13 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenFieldRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
       "name": "DualGenFieldArg",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -1124,9 +1124,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenFieldDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenFieldDualAlt"
               }
             ]
@@ -1140,9 +1140,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenFieldDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenFieldDualAlt"
               }
             ]
@@ -1214,7 +1214,7 @@
       ],
       "name": "DualGenFieldDualRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -1231,9 +1231,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenFieldParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenFieldParamAlt"
               }
             ]
@@ -1247,9 +1247,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenFieldParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenFieldParamAlt"
               }
             ]
@@ -1321,7 +1321,7 @@
       ],
       "name": "DualGenFieldParamRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -1345,7 +1345,7 @@
       ],
       "name": "DualGenFieldRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -1362,9 +1362,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenParamAlt"
               }
             ]
@@ -1378,9 +1378,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenParamAlt"
               }
             ]
@@ -1452,7 +1452,7 @@
       ],
       "name": "DualGenParamRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -1472,9 +1472,9 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "DualGenParentDualRef",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_DualArgument",
+            "$tag": "_DualArg",
             "value": "DualGenParentDualAlt"
           }
         ]
@@ -1543,7 +1543,7 @@
       ],
       "name": "DualGenParentDualRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -1563,9 +1563,9 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "DualGenParentParamRef",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_DualArgument",
+            "$tag": "_DualArg",
             "value": "DualGenParentParamAlt"
           }
         ]
@@ -1634,7 +1634,7 @@
       ],
       "name": "DualGenParentParamRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -1646,7 +1646,7 @@
       "name": "DualGenPrnt",
       "parent": "type",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -1666,10 +1666,10 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "DualGenPrntRef",
-        "typeArguments": ["type"]
+        "typeArgs": ["type"]
       },
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -1693,7 +1693,7 @@
       ],
       "name": "DualGenPrntRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -1852,7 +1852,7 @@
       ],
       "name": "DualPrmsPrntDiff",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "b"
@@ -1876,7 +1876,7 @@
       ],
       "name": "DualPrmsPrntSame",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"
@@ -2052,10 +2052,10 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "DualPrmsPrntDiff",
-        "typeArguments": ["a"]
+        "typeArgs": ["a"]
       },
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"
@@ -2090,10 +2090,10 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "DualPrmsPrntSame",
-        "typeArguments": ["a"]
+        "typeArgs": ["a"]
       },
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"
@@ -2515,7 +2515,7 @@
           "$tag": "_ObjectFor(_InputAlternate)",
           "collections": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -2532,7 +2532,7 @@
           "$tag": "_InputAlternate",
           "collections": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -2545,7 +2545,7 @@
       ],
       "name": "InpAltModsParam",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "mod"
@@ -2826,7 +2826,7 @@
           "$tag": "_ObjectFor(_InputField)",
           "modifiers": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -2844,7 +2844,7 @@
           "$tag": "_InputField",
           "modifiers": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -2858,7 +2858,7 @@
       ],
       "name": "InpFieldModsParam",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "mod"
@@ -3050,7 +3050,7 @@
       ],
       "name": "InpGenAlt",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -3066,7 +3066,7 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenAltRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
@@ -3076,13 +3076,13 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenAltRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
       "name": "InpGenAltArg",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -3098,9 +3098,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenAltDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "InpGenAltDualAlt"
               }
             ]
@@ -3113,9 +3113,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenAltDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "InpGenAltDualAlt"
               }
             ]
@@ -3187,7 +3187,7 @@
       ],
       "name": "InpGenAltDualRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -3203,9 +3203,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenAltParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_InputArgument",
+                "$tag": "_InputArg",
                 "value": "InpGenAltParamAlt"
               }
             ]
@@ -3218,9 +3218,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenAltParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_InputArgument",
+                "$tag": "_InputArg",
                 "value": "InpGenAltParamAlt"
               }
             ]
@@ -3292,7 +3292,7 @@
       ],
       "name": "InpGenAltParamRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -3316,7 +3316,7 @@
       ],
       "name": "InpGenAltRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -3333,9 +3333,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "InpGenDualAlt"
               }
             ]
@@ -3349,9 +3349,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "InpGenDualAlt"
               }
             ]
@@ -3423,7 +3423,7 @@
       ],
       "name": "InpGenDualRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -3449,7 +3449,7 @@
       ],
       "name": "InpGenField",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -3466,7 +3466,7 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenFieldRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
@@ -3477,13 +3477,13 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenFieldRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
       "name": "InpGenFieldArg",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -3500,9 +3500,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenFieldDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "InpGenFieldDualAlt"
               }
             ]
@@ -3516,9 +3516,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenFieldDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "InpGenFieldDualAlt"
               }
             ]
@@ -3590,7 +3590,7 @@
       ],
       "name": "InpGenFieldDualRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -3607,9 +3607,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenFieldParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_InputArgument",
+                "$tag": "_InputArg",
                 "value": "InpGenFieldParamAlt"
               }
             ]
@@ -3623,9 +3623,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenFieldParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_InputArgument",
+                "$tag": "_InputArg",
                 "value": "InpGenFieldParamAlt"
               }
             ]
@@ -3697,7 +3697,7 @@
       ],
       "name": "InpGenFieldParamRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -3721,7 +3721,7 @@
       ],
       "name": "InpGenFieldRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -3738,9 +3738,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_InputArgument",
+                "$tag": "_InputArg",
                 "value": "InpGenParamAlt"
               }
             ]
@@ -3754,9 +3754,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_InputArgument",
+                "$tag": "_InputArg",
                 "value": "InpGenParamAlt"
               }
             ]
@@ -3828,7 +3828,7 @@
       ],
       "name": "InpGenParamRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -3848,9 +3848,9 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "InpGenParentDualRef",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_DualArgument",
+            "$tag": "_DualArg",
             "value": "InpGenParentDualAlt"
           }
         ]
@@ -3919,7 +3919,7 @@
       ],
       "name": "InpGenParentDualRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -3939,9 +3939,9 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "InpGenParentParamRef",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_InputArgument",
+            "$tag": "_InputArg",
             "value": "InpGenParentParamAlt"
           }
         ]
@@ -4010,7 +4010,7 @@
       ],
       "name": "InpGenParentParamRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -4022,7 +4022,7 @@
       "name": "InpGenPrnt",
       "parent": "type",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -4042,10 +4042,10 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "InpGenPrntRef",
-        "typeArguments": ["type"]
+        "typeArgs": ["type"]
       },
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -4069,7 +4069,7 @@
       ],
       "name": "InpGenPrntRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -4228,7 +4228,7 @@
       ],
       "name": "InpPrmsPrntDiff",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "b"
@@ -4252,7 +4252,7 @@
       ],
       "name": "InpPrmsPrntSame",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"
@@ -4428,10 +4428,10 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "InpPrmsPrntDiff",
-        "typeArguments": ["a"]
+        "typeArgs": ["a"]
       },
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"
@@ -4466,10 +4466,10 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "InpPrmsPrntSame",
-        "typeArguments": ["a"]
+        "typeArgs": ["a"]
       },
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"
@@ -4772,9 +4772,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutGenEnumRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "outEnumGen",
                 "name": "OutEnumGen",
                 "typeKind": "Enum"
@@ -4789,9 +4789,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutGenEnumRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "outEnumGen",
                 "name": "OutEnumGen",
                 "typeKind": "Enum"
@@ -4822,7 +4822,7 @@
       ],
       "name": "OutGenEnumRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -4838,9 +4838,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutGenParentRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "outGenParent",
                 "name": "OutParentGen",
                 "typeKind": "Enum"
@@ -4855,9 +4855,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutGenParentRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "outGenParent",
                 "name": "OutParentGen",
                 "typeKind": "Enum"
@@ -4888,7 +4888,7 @@
       ],
       "name": "OutGenParentRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -4904,9 +4904,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutGenValueRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "value": "outValueGen"
               }
             ]
@@ -4919,9 +4919,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutGenValueRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "value": "outValueGen"
               }
             ]
@@ -4950,7 +4950,7 @@
       ],
       "name": "OutGenValueRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -5094,7 +5094,7 @@
           "$tag": "_ObjectFor(_OutputAlternate)",
           "collections": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -5111,7 +5111,7 @@
           "$tag": "_OutputAlternate",
           "collections": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -5124,7 +5124,7 @@
       ],
       "name": "OutpAltModsParam",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "mod"
@@ -5437,7 +5437,7 @@
           "object": "OutParams",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutParam"
             }
           ],
@@ -5453,7 +5453,7 @@
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutParam"
             }
           ],
@@ -5475,7 +5475,7 @@
           "object": "OutParamsDomain",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "OutParamDomain",
               "modifiers": [
                 {
@@ -5499,7 +5499,7 @@
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "OutParamDomain",
               "modifiers": [
                 {
@@ -5529,11 +5529,11 @@
           "object": "OutParamsDomainParam",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "OutParamDomainParam",
               "modifiers": [
                 {
-                  "$tag": "_ModifierTypeParameter",
+                  "$tag": "_ModifierTypeParam",
                   "by": "mod",
                   "modifierKind": "Param"
                 }
@@ -5552,11 +5552,11 @@
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "OutParamDomainParam",
               "modifiers": [
                 {
-                  "$tag": "_ModifierTypeParameter",
+                  "$tag": "_ModifierTypeParam",
                   "by": "mod",
                   "modifierKind": "Param"
                 }
@@ -5571,7 +5571,7 @@
       ],
       "name": "OutParamsDomainParam",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "mod"
@@ -5587,7 +5587,7 @@
           "object": "OutParamsParent",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutParamParent"
             }
           ],
@@ -5603,7 +5603,7 @@
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutParamParent"
             }
           ],
@@ -5801,7 +5801,7 @@
           "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -5819,7 +5819,7 @@
           "$tag": "_OutputField",
           "modifiers": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -5833,7 +5833,7 @@
       ],
       "name": "OutpFieldModsParam",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "mod"
@@ -6025,7 +6025,7 @@
       ],
       "name": "OutpGenAlt",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -6041,7 +6041,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenAltRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
@@ -6051,13 +6051,13 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenAltRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
       "name": "OutpGenAltArg",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -6073,9 +6073,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenAltDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "OutpGenAltDualAlt"
               }
             ]
@@ -6088,9 +6088,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenAltDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "OutpGenAltDualAlt"
               }
             ]
@@ -6162,7 +6162,7 @@
       ],
       "name": "OutpGenAltDualRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -6178,9 +6178,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenAltParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "value": "OutpGenAltParamAlt"
               }
             ]
@@ -6193,9 +6193,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenAltParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "value": "OutpGenAltParamAlt"
               }
             ]
@@ -6267,7 +6267,7 @@
       ],
       "name": "OutpGenAltParamRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -6291,7 +6291,7 @@
       ],
       "name": "OutpGenAltRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -6308,9 +6308,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "OutpGenDualAlt"
               }
             ]
@@ -6324,9 +6324,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "OutpGenDualAlt"
               }
             ]
@@ -6398,7 +6398,7 @@
       ],
       "name": "OutpGenDualRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -6424,7 +6424,7 @@
       ],
       "name": "OutpGenField",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -6441,7 +6441,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenFieldRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
@@ -6452,13 +6452,13 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenFieldRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
       "name": "OutpGenFieldArg",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -6475,9 +6475,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenFieldDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "OutpGenFieldDualAlt"
               }
             ]
@@ -6491,9 +6491,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenFieldDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "OutpGenFieldDualAlt"
               }
             ]
@@ -6565,7 +6565,7 @@
       ],
       "name": "OutpGenFieldDualRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -6582,9 +6582,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenFieldParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "value": "OutpGenFieldParamAlt"
               }
             ]
@@ -6598,9 +6598,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenFieldParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "value": "OutpGenFieldParamAlt"
               }
             ]
@@ -6672,7 +6672,7 @@
       ],
       "name": "OutpGenFieldParamRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -6696,7 +6696,7 @@
       ],
       "name": "OutpGenFieldRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -6713,9 +6713,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "value": "OutpGenParamAlt"
               }
             ]
@@ -6729,9 +6729,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "value": "OutpGenParamAlt"
               }
             ]
@@ -6803,7 +6803,7 @@
       ],
       "name": "OutpGenParamRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -6823,9 +6823,9 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "OutpGenParentDualRef",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_DualArgument",
+            "$tag": "_DualArg",
             "value": "OutpGenParentDualAlt"
           }
         ]
@@ -6894,7 +6894,7 @@
       ],
       "name": "OutpGenParentDualRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -6914,9 +6914,9 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "OutpGenParentParamRef",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "OutpGenParentParamAlt"
           }
         ]
@@ -6985,7 +6985,7 @@
       ],
       "name": "OutpGenParentParamRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -6997,7 +6997,7 @@
       "name": "OutpGenPrnt",
       "parent": "type",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -7017,10 +7017,10 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "OutpGenPrntRef",
-        "typeArguments": ["type"]
+        "typeArgs": ["type"]
       },
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -7044,7 +7044,7 @@
       ],
       "name": "OutpGenPrntRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"
@@ -7203,7 +7203,7 @@
       ],
       "name": "OutpPrmsPrntDiff",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "b"
@@ -7227,7 +7227,7 @@
       ],
       "name": "OutpPrmsPrntSame",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"
@@ -7403,10 +7403,10 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "OutpPrmsPrntDiff",
-        "typeArguments": ["a"]
+        "typeArgs": ["a"]
       },
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"
@@ -7441,10 +7441,10 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "OutpPrmsPrntSame",
-        "typeArguments": ["a"]
+        "typeArgs": ["a"]
       },
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"
@@ -7523,7 +7523,7 @@
           "object": "OutParamsParent",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutParamParent"
             }
           ],
@@ -7538,7 +7538,7 @@
           "object": "OutPrntParams",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutPrntParam"
             }
           ],
@@ -7554,7 +7554,7 @@
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutPrntParam"
             }
           ],

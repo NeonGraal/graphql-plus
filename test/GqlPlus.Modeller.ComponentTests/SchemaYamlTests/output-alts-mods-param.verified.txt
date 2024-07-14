@@ -4,7 +4,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       collections:
-      - !_ModifierTypeParameter
+      - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
       object: OutpAltModsParam
@@ -13,14 +13,14 @@ types: !_Map_Type
     alternates:
     - !_OutputAlternate
       collections:
-      - !_ModifierTypeParameter
+      - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
       type: !_OutputBase
         output: OutpModsParamAlt
     name: OutpAltModsParam
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: mod
   !_Identifier OutpModsParamAlt: !_TypeOutput

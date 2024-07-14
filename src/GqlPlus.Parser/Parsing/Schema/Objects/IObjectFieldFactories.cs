@@ -9,8 +9,8 @@ internal interface IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst, TO
   where TObjFieldAst : AstObjField<TObjBase>, IGqlpObjField
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArgument
-  where TObjArgAst : AstObjArgument, TObjArg
+  where TObjArg : IGqlpObjArg
+  where TObjArgAst : AstObjArg, TObjArg
 {
   TObjFieldAst ObjField(TokenAt at, string name, TObjBase typeBase, string description = "");
 }

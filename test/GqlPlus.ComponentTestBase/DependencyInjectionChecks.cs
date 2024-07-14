@@ -79,7 +79,7 @@ public class DependencyInjectionChecks(
           service = GetOrCreate(sd.ImplementationType);
         }
 
-        service.AddParameters(sd.ImplementationType);
+        service.AddParams(sd.ImplementationType);
       } else if (sd.ImplementationFactory is not null) {
         service.Requires[FunctionRequirement] = func;
         if (sd.ImplementationFactory.Method.IsGenericMethod) {
@@ -297,16 +297,17 @@ public sealed class DiService
   public override string? ToString()
     => Service.Name + (IsLink ? " ~" : " ") + $"{RequiredBy}/{Requires.Count}";
 
-  internal void AddParameters(Type provider)
+  internal void AddParams(Type provider)
   {
     foreach (ConstructorInfo ctor in provider.GetConstructors()) {
       string prefix = ctor.Name == ".ctor" ? "" : ctor.Name + '!';
       foreach (ParameterInfo parameter in ctor.GetParameters()) {
-        if (parameter.ParameterType.IsGenericType
-          && parameter.ParameterType.GetGenericTypeDefinition() == typeof(IEnumerable<>)) {
-          Requires.Add(prefix + parameter.Name + "[]", new(parameter.ParameterType.GetGenericArguments()[0]));
-        } else if (parameter.ParameterType != typeof(ILoggerFactory)) {
-          Requires.Add(prefix + parameter.Name, new(parameter.ParameterType));
+        Type paramType = parameter.ParameterType;
+        if (paramType.IsGenericType
+          && paramType.GetGenericTypeDefinition() == typeof(IEnumerable<>)) {
+          Requires.Add(prefix + parameter.Name + "[]", new(paramType.GetGenericArguments()[0]));
+        } else if (paramType != typeof(ILoggerFactory)) {
+          Requires.Add(prefix + parameter.Name, new(paramType));
         }
       }
     }

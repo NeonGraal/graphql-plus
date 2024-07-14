@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Ast.Schema.Objects;
 
-public class TypeParameterAstTests : AstAbbreviatedTests
+public class TypeParamAstTests : AstAbbreviatedTests
 {
   protected override string AbbreviatedString(string input)
     => $"( ${input} )";
 
-  private readonly AstAbbreviatedChecks<TypeParameterAst> _checks
-    = new(name => new TypeParameterAst(AstNulls.At, name));
+  private readonly AstAbbreviatedChecks<TypeParamAst> _checks
+    = new(name => new TypeParamAst(AstNulls.At, name));
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

@@ -19,7 +19,7 @@
       ],
       "name": "DualPrmsPrntSame",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"
@@ -54,10 +54,10 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "DualPrmsPrntSame",
-        "typeArguments": ["a"]
+        "typeArgs": ["a"]
       },
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"

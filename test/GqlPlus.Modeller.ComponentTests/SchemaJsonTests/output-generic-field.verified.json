@@ -21,7 +21,7 @@
       ],
       "name": "OutpGenField",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"

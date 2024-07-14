@@ -16,7 +16,7 @@
       "name": "DirParamDict",
       "parameters": [
         {
-          "$tag": "_InputParameter",
+          "$tag": "_InputParam",
           "input": "DirParamIn",
           "modifiers": [
             {

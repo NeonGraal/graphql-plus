@@ -15,9 +15,9 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "OutpGenParentParamRef",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "OutpGenParentParamAlt"
           }
         ]
@@ -86,7 +86,7 @@
       ],
       "name": "OutpGenParentParamRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

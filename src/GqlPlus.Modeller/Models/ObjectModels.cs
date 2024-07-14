@@ -12,14 +12,14 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   where TObjField : IObjFieldModel
   where TObjAlt : IObjAlternateModel
 {
-  internal DescribedModel[] TypeParameters { get; set; } = [];
+  internal DescribedModel[] TypeParams { get; set; } = [];
   internal TObjField[] Fields { get; set; } = [];
   internal TObjAlt[] Alternates { get; set; } = [];
 
   internal override bool GetParentModel<TResult>(IResolveContext context, [NotNullWhen(true)] out TResult? model)
     where TResult : default
   {
-    if (Parent?.Base.IsTypeParameter == false) {
+    if (Parent?.Base.IsTypeParam == false) {
       return base.GetParentModel(context, out model);
     }
 
@@ -40,30 +40,30 @@ public interface ITypeObjectModel
   IEnumerable<ModelBase> AllFields { get; }
 }
 
-public record class ObjArgumentModel
-  : ModelBase, IObjArgumentModel
+public record class ObjArgModel
+  : ModelBase, IObjArgModel
 {
-  public bool IsTypeParameter { get; set; }
+  public bool IsTypeParam { get; set; }
 }
 
-public interface IObjArgumentModel
+public interface IObjArgModel
   : IModelBase
 {
-  bool IsTypeParameter { get; }
+  bool IsTypeParam { get; }
 }
 
 public record class ObjBaseModel<TArg>
   : ModelBase, IObjBaseModel
-  where TArg : IObjArgumentModel
+  where TArg : IObjArgModel
 {
-  internal TArg[] Arguments { get; set; } = [];
-  public bool IsTypeParameter { get; set; }
+  internal TArg[] Args { get; set; } = [];
+  public bool IsTypeParam { get; set; }
 }
 
 public interface IObjBaseModel
   : IModelBase
 {
-  bool IsTypeParameter { get; }
+  bool IsTypeParam { get; }
 }
 
 public record class ObjectForModel<TFor>(

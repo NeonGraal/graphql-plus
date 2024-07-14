@@ -21,7 +21,7 @@
       ],
       "name": "InpGenField",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"

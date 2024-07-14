@@ -10,5 +10,5 @@ public class ParseDualFieldTests(
 
 internal sealed class ParseDualFieldChecks(
   Parser<IGqlpDualField>.D parser
-) : CheckObjectField<IGqlpDualField, DualFieldAst, IGqlpDualBase, DualBaseAst, IGqlpDualArgument, DualArgumentAst>(new DualFactories(), parser)
+) : CheckObjectField<IGqlpDualField, DualFieldAst, IGqlpDualBase, DualBaseAst, IGqlpDualArg, DualArgAst>(new DualFactories(), parser)
 { }

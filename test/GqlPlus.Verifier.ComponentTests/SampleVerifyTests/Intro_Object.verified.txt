@@ -2,14 +2,14 @@
   !!! I@007/0017 : Invalid Output Alternate. '_BaseType' not defined. - '_BaseType' !!!,
   !!! I@007/0018 : Invalid Output Alternate. '_TypeSimple' not defined. - '_TypeSimple' !!!,
   !!! I@008/0001 : Invalid Output Parent. '_ChildType' not defined. - '_TypeObject' !!!,
-  !!! I@008/0027 : Invalid Output Parent. '_TypeRef' not defined. - '_ObjArgument' !!!,
-  !!! I@008/0032 : Invalid Domain Parent. '_Identifier' not defined. - '_TypeParameter' !!!,
+  !!! I@008/0027 : Invalid Output Parent. '_TypeRef' not defined. - '_ObjArg' !!!,
+  !!! I@008/0032 : Invalid Domain Parent. '_Identifier' not defined. - '_TypeParam' !!!,
   !!! I@008/0044 : Invalid Output Parent. '_Aliased' not defined. - '_Field' !!!,
   !!! I@016/0028 : Invalid Output Parent. '_TypeKind' not defined. - '_TypeKind' !!!,
   !!! I@017/0017 : Invalid Output Alternate. '_TypeKind' not defined. - '_TypeKind' !!!,
-  !!! I@017/0017 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
+  !!! I@017/0017 : Invalid Output Arg Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@017/0041 : Invalid Output Field. '_Identifier' not defined. - '_Identifier' !!!,
   !!! I@018/0047 : Invalid Output Field. '_Modifiers' not defined. - '_Modifiers' !!!,
   !!! I@020/0036 : Invalid Output Field. '_Collections' not defined. - '_Collections' !!!,
-  !!! I@025/0003 : Invalid Output Field. '_Described' not defined. - '_Described' !!!
+  !!! I@021/0003 : Invalid Output Field. '_Described' not defined. - '_Described' !!!
 ]

@@ -3,20 +3,20 @@ types: !_Map_Type
   !_Identifier DualFieldModsParam: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
-      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       object: DualFieldModsParam
       type: !_DualBase
         dual: DualFieldParamMods
     fields:
     - !_DualField
-      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       type: !_DualBase
         dual: DualFieldParamMods
     name: DualFieldModsParam
     typeKind: !_TypeKind Dual
-    typeParameters:
+    typeParams:
     - !_Described
       name: mod
   !_Identifier DualFieldParamMods: !_TypeDual

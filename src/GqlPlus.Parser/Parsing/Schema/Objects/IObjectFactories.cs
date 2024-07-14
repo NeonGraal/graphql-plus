@@ -14,8 +14,8 @@ internal interface IObjectFactories<TObject, TObjField, TObjFieldAst, TObjAlt, T
   where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArgument
-  where TObjArgAst : AstObjArgument, TObjArg
+  where TObjArg : IGqlpObjArg
+  where TObjArgAst : AstObjArg, TObjArg
 {
   TObject Object(TokenAt at, string name, string description = "");
 }

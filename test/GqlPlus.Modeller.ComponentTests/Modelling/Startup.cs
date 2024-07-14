@@ -41,7 +41,7 @@ public static class Startup
       .AddTransient<IInputBaseModelChecks, InputBaseModelChecks>()
       .AddTransient<IInputFieldModelChecks, InputFieldModelChecks>()
       .AddTransient<IInputModelChecks, InputModelChecks>()
-      .AddTransient<ICheckDescribedModel<string, InputParameterModel>, InputParameterModelChecks>()
+      .AddTransient<ICheckDescribedModel<string, InputParamModel>, InputParamModelChecks>()
       .AddTransient<IOutputBaseModelChecks, OutputBaseModelChecks>()
       .AddTransient<IOutputFieldModelChecks, OutputFieldModelChecks>()
       .AddTransient<IOutputModelChecks, OutputModelChecks>()

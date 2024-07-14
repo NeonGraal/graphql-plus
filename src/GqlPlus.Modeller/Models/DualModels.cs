@@ -5,14 +5,14 @@ public record class TypeDualModel(
 ) : TypeObjectModel<DualBaseModel, DualFieldModel, DualAlternateModel>(TypeKindModel.Dual, Name)
 { }
 
-public record class DualArgumentModel(
+public record class DualArgModel(
   string Dual
-) : ObjArgumentModel
+) : ObjArgModel
 { }
 
 public record class DualBaseModel(
   string Dual
-) : ObjBaseModel<DualArgumentModel>
+) : ObjBaseModel<DualArgModel>
 { }
 
 public record class DualFieldModel(

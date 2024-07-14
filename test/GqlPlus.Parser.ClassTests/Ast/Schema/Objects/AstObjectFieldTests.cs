@@ -23,16 +23,16 @@ public abstract class AstObjectFieldTests<TObjBase>
     => FieldChecks.Inequality_WithModifiers(input);
 
   [Theory, RepeatData(Repeats)]
-  public void ModifiedType_WithArguments(FieldInput input, string[] arguments)
-    => FieldChecks.ModifiedType_WithArguments(input, arguments);
+  public void ModifiedType_WithArgs(FieldInput input, string[] arguments)
+    => FieldChecks.ModifiedType_WithArgs(input, arguments);
 
   [Theory, RepeatData(Repeats)]
   public void ModifiedType_WithModifiers(FieldInput input)
     => FieldChecks.ModifiedType_WithModifiers(input);
 
   [Theory, RepeatData(Repeats)]
-  public void ModifiedType_WithModifiersAndArguments(FieldInput input, string[] arguments)
-    => FieldChecks.ModifiedType_WithModifiersAndArguments(input, arguments);
+  public void ModifiedType_WithModifiersAndArgs(FieldInput input, string[] arguments)
+    => FieldChecks.ModifiedType_WithModifiersAndArgs(input, arguments);
 
   internal sealed override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 
@@ -45,23 +45,23 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TOb
   where TObjField : AstObjField<TObjBase>
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArgument
-  where TObjArgAst : AstObjArgument, TObjArg
+  where TObjArg : IGqlpObjArg
+  where TObjArgAst : AstObjArg, TObjArg
 {
   private readonly FieldBy _createField;
   private readonly BaseBy _createBase;
-  private readonly ArgumentsBy _createArguments;
+  private readonly ArgsBy _createArgs;
 
   internal delegate TObjBaseAst BaseBy(FieldInput input);
   internal delegate TObjField FieldBy(FieldInput input, TObjBase refBase);
-  internal delegate TObjArgAst[] ArgumentsBy(string[] arguments);
+  internal delegate TObjArgAst[] ArgsBy(string[] arguments);
 
-  public AstObjectFieldChecks(FieldBy createField, BaseBy createBase, ArgumentsBy createArguments)
+  public AstObjectFieldChecks(FieldBy createField, BaseBy createBase, ArgsBy createArgs)
     : base(input => createField(input, createBase(input)))
   {
     _createField = createField;
     _createBase = createBase;
-    _createArguments = createArguments;
+    _createArgs = createArgs;
   }
 
   public void HashCode_WithModifiers(FieldInput input)
@@ -78,9 +78,9 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TOb
   public void Inequality_WithModifiers(FieldInput input)
     => InequalityWith(input, () => CreateModifiers(input));
 
-  public void ModifiedType_WithArguments(FieldInput input, string[] arguments)
+  public void ModifiedType_WithArgs(FieldInput input, string[] arguments)
   {
-    TObjField field = _createField(input, _createBase(input) with { BaseArguments = _createArguments(arguments) });
+    TObjField field = _createField(input, _createBase(input) with { BaseArgs = _createArgs(arguments) });
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     field.ModifiedType.Should().Be(expected);
@@ -94,11 +94,11 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TOb
     field.ModifiedType.Should().Be(expected);
   }
 
-  public void ModifiedType_WithModifiersAndArguments(FieldInput input, string[] arguments)
+  public void ModifiedType_WithModifiersAndArgs(FieldInput input, string[] arguments)
   {
     TObjField field = _createField(
         input,
-        _createBase(input) with { BaseArguments = _createArguments(arguments) }
+        _createBase(input) with { BaseArgs = _createArgs(arguments) }
       ) with { Modifiers = TestMods() };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";
 
@@ -117,7 +117,7 @@ internal interface IAstObjectFieldChecks<TObjBase>
   void String_WithModifiers(FieldInput input);
   void Equality_WithModifiers(FieldInput input);
   void Inequality_WithModifiers(FieldInput input);
-  void ModifiedType_WithArguments(FieldInput input, string[] arguments);
+  void ModifiedType_WithArgs(FieldInput input, string[] arguments);
   void ModifiedType_WithModifiers(FieldInput input);
-  void ModifiedType_WithModifiersAndArguments(FieldInput input, string[] arguments);
+  void ModifiedType_WithModifiersAndArgs(FieldInput input, string[] arguments);
 }

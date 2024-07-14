@@ -16,10 +16,10 @@ internal sealed record class OperationAst(
   public string Category { get; set; } = "query";
 
   public IGqlpVariable[] Variables { get; set; } = [];
-  public ArgumentAst[] Usages { get; init; } = [];
+  public ArgAst[] Usages { get; init; } = [];
 
   public string? ResultType { get; set; }
-  public ArgumentAst? Argument { get; set; }
+  public ArgAst? Arg { get; set; }
   public IGqlpSelection[]? ResultObject { get; set; }
   public ModifierAst[] Modifiers { get; set; } = [];
 
@@ -30,12 +30,12 @@ internal sealed record class OperationAst(
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
   IEnumerable<IGqlpVariable> IGqlpOperation.Variables => Variables;
-  IGqlpArgument? IGqlpOperation.Argument => Argument;
+  IGqlpArg? IGqlpOperation.Arg => Arg;
   IEnumerable<IGqlpSelection>? IGqlpOperation.ResultObject => ResultObject;
   IEnumerable<IGqlpFragment> IGqlpOperation.Fragments => Fragments;
   ITokenMessages IGqlpOperation.Errors => Errors;
 
-  IEnumerable<IGqlpArgument> IGqlpOperation.Usages => Usages;
+  IEnumerable<IGqlpArg> IGqlpOperation.Usages => Usages;
   IEnumerable<IGqlpSpread> IGqlpOperation.Spreads => Spreads;
 
   public OperationAst(TokenAt at)
@@ -88,7 +88,7 @@ internal sealed record class OperationAst(
       .Concat(Variables.Bracket("[", "]"))
       .Concat(Directives.AsString())
       .Append(ResultType)
-      .Concat(Argument.Bracket("(", ")"))
+      .Concat(Arg.Bracket("(", ")"))
       .Concat(ResultObject.Bracket("{", "}"))
       .Append(Modifiers.AsString().Joined(""))
       .Concat(Fragments.Bracket());

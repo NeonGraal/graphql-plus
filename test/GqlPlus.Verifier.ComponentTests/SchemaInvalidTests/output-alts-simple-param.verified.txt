@@ -1,3 +1,3 @@
 ﻿[
-  Invalid Output Alternate. Arguments invalid on Number, given 1.
+  Invalid Output Alternate. Args invalid on Number, given 1.
 ]

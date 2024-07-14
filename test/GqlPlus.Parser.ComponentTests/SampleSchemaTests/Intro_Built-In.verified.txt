@@ -84,7 +84,7 @@ Success
   _ModifierKeyed
   <
     I@022/0025
-    _ModifierKind.TypeParameter
+    _ModifierKind.TypeParam
   >
 }
 {
@@ -147,7 +147,7 @@ Success
   !EM I@058/0039
   Param
   [
-    TypeParameter
+    TypeParam
   ]
 }
 {

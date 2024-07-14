@@ -11,30 +11,30 @@ internal class InputModeller(
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ParentModel(ast.ObjParent, typeKinds),
-      TypeParameters = TypeParametersModels(ast.TypeParameters),
+      TypeParams = TypeParamsModels(ast.TypeParams),
       Fields = FieldsModels(ast.ObjFields, typeKinds),
       Alternates = AlternatesModels(ast.ObjAlternates, typeKinds),
     };
 }
 
-internal class InputArgumentModeller(
-  IModeller<IGqlpDualArgument, DualArgumentModel> dual
-) : ModellerObjArgument<IGqlpInputArgument, InputArgumentModel>
+internal class InputArgModeller(
+  IModeller<IGqlpDualArg, DualArgModel> dual
+) : ModellerObjArg<IGqlpInputArg, InputArgModel>
 {
-  protected override InputArgumentModel ToModel(IGqlpInputArgument ast, IMap<TypeKindModel> typeKinds)
+  protected override InputArgModel ToModel(IGqlpInputArg ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Input, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
     ? new(ast.Input) {
       Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
     : new(ast.Input) {
-      IsTypeParameter = ast.IsTypeParameter,
+      IsTypeParam = ast.IsTypeParam,
     };
 }
 
 internal class InputBaseModeller(
-  IModeller<IGqlpInputArgument, InputArgumentModel> objArgument,
+  IModeller<IGqlpInputArg, InputArgModel> objArg,
   IModeller<IGqlpDualBase, DualBaseModel> dual
-) : ModellerObjBase<IGqlpInputBase, IGqlpInputArgument, InputBaseModel, InputArgumentModel>(objArgument)
+) : ModellerObjBase<IGqlpInputBase, IGqlpInputArg, InputBaseModel, InputArgModel>(objArg)
 {
   protected override InputBaseModel ToModel(IGqlpInputBase ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Input, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
@@ -42,8 +42,8 @@ internal class InputBaseModeller(
       Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
     : new(ast.Input) {
-      IsTypeParameter = ast.IsTypeParameter,
-      Arguments = ModelArguments(ast, typeKinds),
+      IsTypeParam = ast.IsTypeParam,
+      Args = ModelArgs(ast, typeKinds),
     };
 }
 
@@ -68,13 +68,13 @@ internal class InputAlternateModeller(
     => new(new(type, ast.Type.Description));
 }
 
-internal class InputParameterModeller(
+internal class InputParamModeller(
   IModifierModeller modifier,
   IModeller<IGqlpInputBase, InputBaseModel> objBase,
   IModeller<IGqlpConstant, ConstantModel> constant
-) : ModellerBase<IGqlpInputParameter, InputParameterModel>
+) : ModellerBase<IGqlpInputParam, InputParamModel>
 {
-  protected override InputParameterModel ToModel(IGqlpInputParameter ast, IMap<TypeKindModel> typeKinds)
+  protected override InputParamModel ToModel(IGqlpInputParam ast, IMap<TypeKindModel> typeKinds)
   {
     InputBaseModel typeModel = objBase.ToModel(ast.Type, typeKinds);
     return new(new(typeModel, ast.Type.Description)) {

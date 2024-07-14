@@ -79,11 +79,11 @@
           "object": "OutParamsDomainParam",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "OutParamDomainParam",
               "modifiers": [
                 {
-                  "$tag": "_ModifierTypeParameter",
+                  "$tag": "_ModifierTypeParam",
                   "by": "mod",
                   "modifierKind": "Param"
                 }
@@ -102,11 +102,11 @@
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "OutParamDomainParam",
               "modifiers": [
                 {
-                  "$tag": "_ModifierTypeParameter",
+                  "$tag": "_ModifierTypeParam",
                   "by": "mod",
                   "modifierKind": "Param"
                 }
@@ -121,7 +121,7 @@
       ],
       "name": "OutParamsDomainParam",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "mod"

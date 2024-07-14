@@ -19,7 +19,7 @@
       ],
       "name": "OutpPrmsPrntSame",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"
@@ -54,10 +54,10 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "OutpPrmsPrntSame",
-        "typeArguments": ["a"]
+        "typeArgs": ["a"]
       },
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"

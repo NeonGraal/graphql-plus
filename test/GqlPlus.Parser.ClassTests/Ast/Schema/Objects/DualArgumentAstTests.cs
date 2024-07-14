@@ -2,14 +2,14 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class DualArgumentAstTests
-  : AstObjectArgumentTests<IGqlpDualArgument>
+public class DualArgAstTests
+  : AstObjectArgTests<IGqlpDualArg>
 {
   protected override string AbbreviatedString(string input)
     => $"( {input} )";
 
-  private readonly AstObjArgumentChecks<IGqlpDualArgument, DualArgumentAst> _checks
-    = new(name => new DualArgumentAst(AstNulls.At, name));
+  private readonly AstObjArgChecks<IGqlpDualArg, DualArgAst> _checks
+    = new(name => new DualArgAst(AstNulls.At, name));
 
-  internal override IAstObjArgumentChecks<IGqlpDualArgument> ObjArgumentChecks => _checks;
+  internal override IAstObjArgChecks<IGqlpDualArg> ObjArgChecks => _checks;
 }

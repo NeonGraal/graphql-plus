@@ -11,7 +11,7 @@ types: !_Map_Type
       name: parameters
       object: _Directive
       type: !_OutputBase
-        output: _InputParameter
+        output: _InputParam
     - !_ObjectFor(_OutputField)
       name: repeatable
       object: _Directive
@@ -29,7 +29,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameters
       type: !_OutputBase
-        output: _InputParameter
+        output: _InputParam
     - !_OutputField
       name: repeatable
       type: !_OutputBase

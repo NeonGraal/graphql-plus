@@ -29,7 +29,7 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _InputParameter can\u0027t get model for type \u0027_ObjDescribed\u0027"
+      "_message": "In _InputParam can\u0027t get model for type \u0027_ObjDescribed\u0027"
     }
   ],
   "types": {
@@ -40,9 +40,9 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_Alternate",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_InputBase"
           }
         ]
@@ -137,16 +137,16 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_Field",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_InputBase"
           }
         ]
       },
       "typeKind": "Output"
     },
-    "_InputParameter": {
+    "_InputParam": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
@@ -158,7 +158,7 @@
             }
           ],
           "name": "modifiers",
-          "object": "_InputParameter",
+          "object": "_InputParam",
           "type": {
             "$tag": "_OutputBase",
             "value": "_Modifiers"
@@ -173,7 +173,7 @@
             }
           ],
           "name": "default",
-          "object": "_InputParameter",
+          "object": "_InputParam",
           "type": {
             "$tag": "_OutputBase",
             "value": "_Constant"
@@ -210,13 +210,13 @@
           }
         }
       ],
-      "name": "_InputParameter",
+      "name": "_InputParam",
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ObjDescribed",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_InputBase"
           }
         ]
@@ -229,9 +229,9 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ObjDescribed",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_InputBase"
           }
         ]
@@ -244,23 +244,23 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_TypeObject",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "member": "Input",
             "name": "_TypeKind",
             "typeKind": "Enum"
           },
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_InputParent"
           },
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_InputField"
           },
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_InputAlternate"
           }
         ]

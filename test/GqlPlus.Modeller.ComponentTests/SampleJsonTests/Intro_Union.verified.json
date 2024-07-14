@@ -20,19 +20,19 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ParentType",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "member": "Union",
             "name": "_TypeKind",
             "typeKind": "Enum"
           },
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_Named"
           },
           {
-            "$tag": "_DualArgument",
+            "$tag": "_DualArg",
             "value": "_UnionMember"
           }
         ]

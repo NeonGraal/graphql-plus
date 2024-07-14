@@ -81,8 +81,8 @@ internal class MergeAllTypes(
   {
     FixupType<OutputBaseAst>(type, enumValues);
 
-    foreach (IGqlpOutputArgument argument in type.BaseArguments) {
-      FixupType<OutputArgumentAst>(argument, enumValues);
+    foreach (IGqlpOutputArg argument in type.BaseArgs) {
+      FixupType<OutputArgAst>(argument, enumValues);
     }
   }
 }

@@ -75,7 +75,7 @@
       "name": "DirParams",
       "parameters": [
         {
-          "$tag": "_InputParameter",
+          "$tag": "_InputParam",
           "value": "DirParamsIn"
         }
       ],
@@ -322,7 +322,7 @@
       ],
       "name": "DualParams",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "test"
@@ -622,11 +622,11 @@
           "object": "FieldParams",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "FieldParam1"
             },
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "FieldParam2"
             }
           ],
@@ -642,11 +642,11 @@
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "FieldParam1"
             },
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "FieldParam2"
             }
           ],
@@ -783,7 +783,7 @@
       ],
       "name": "InpParams",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "test"
@@ -986,7 +986,7 @@
       ],
       "name": "OutpParams",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "test"

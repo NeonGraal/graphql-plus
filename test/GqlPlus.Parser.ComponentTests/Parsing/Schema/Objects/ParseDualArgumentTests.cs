@@ -3,12 +3,12 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public class ParseDualArgumentTests(
-  ICheckObjectArgument<IGqlpDualArgument> checks
-) : TestObjectArgument<IGqlpDualArgument>(checks)
+public class ParseDualArgTests(
+  ICheckObjectArg<IGqlpDualArg> checks
+) : TestObjectArg<IGqlpDualArg>(checks)
 { }
 
-internal sealed class ParseDualArgumentChecks(
-  Parser<IGqlpDualArgument>.DA parser
-) : CheckObjectArgument<IGqlpDualArgument, DualArgumentAst>(new DualFactories(), parser)
+internal sealed class ParseDualArgChecks(
+  Parser<IGqlpDualArg>.DA parser
+) : CheckObjectArg<IGqlpDualArg, DualArgAst>(new DualFactories(), parser)
 { }

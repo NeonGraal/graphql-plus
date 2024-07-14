@@ -20,7 +20,7 @@ public static class AllVerifiers
       // Operation
       .AddVerify<IGqlpOperation, VerifyOperation>()
       .AddVerify<IGqlpVariable, VerifyVariable>()
-      .AddVerifyUsageNamed<IGqlpArgument, IGqlpVariable, VerifyVariableUsage>()
+      .AddVerifyUsageNamed<IGqlpArg, IGqlpVariable, VerifyVariableUsage>()
       .AddVerifyUsageNamed<IGqlpSpread, IGqlpFragment, VerifyFragmentUsage>()
       // Schema
       .AddVerify<IGqlpSchema, VerifySchema>()

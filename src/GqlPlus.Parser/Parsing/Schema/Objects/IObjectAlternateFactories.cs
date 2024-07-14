@@ -9,8 +9,8 @@ internal interface IObjectAlternateFactories<TObjAltAst, TObjBase, TObjBaseAst, 
   where TObjAltAst : AstObjAlternate<TObjBase>, IGqlpObjAlternate
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArgument
-  where TObjArgAst : AstObjArgument, TObjArg
+  where TObjArg : IGqlpObjArg
+  where TObjArgAst : AstObjArg, TObjArg
 {
   TObjAltAst ObjAlternate(TokenAt at, TObjBase typeBase);
 }

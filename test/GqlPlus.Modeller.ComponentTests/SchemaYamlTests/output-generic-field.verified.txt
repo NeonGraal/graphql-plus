@@ -5,13 +5,13 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpGenField
-      type: !_TypeParameter type
+      type: !_TypeParam type
     fields:
     - !_OutputField
       name: field
-      type: !_TypeParameter type
+      type: !_TypeParam type
     name: OutpGenField
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: type

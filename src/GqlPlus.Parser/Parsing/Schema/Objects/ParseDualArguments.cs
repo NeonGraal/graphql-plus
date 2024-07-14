@@ -4,9 +4,9 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal class ParseDualArguments
-  : ObjectArgumentsParser<IGqlpDualArgument, DualArgumentAst>
+internal class ParseDualArgs
+  : ObjectArgsParser<IGqlpDualArg, DualArgAst>
 {
-  protected override DualArgumentAst ObjType(TokenAt at, string type, string description)
+  protected override DualArgAst ObjType(TokenAt at, string type, string description)
     => new(at, type, description);
 }

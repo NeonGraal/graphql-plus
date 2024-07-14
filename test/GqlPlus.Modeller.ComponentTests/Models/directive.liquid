@@ -3,7 +3,7 @@
   {%- render 'heading', dec: dir, label: "Directive" -%}
   {%- if dir.parameters -%}
   <p>
-    <sub>Parameters:</sub>
+    <sub>Params:</sub>
     <ul>
       {%- for parameter in dir.parameters %}
       <li>{{ parameter.type.input }}</li>

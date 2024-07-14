@@ -1,16 +1,16 @@
 ﻿namespace GqlPlus.Ast.Operation;
 
-public class ArgumentAstTests
+public class ArgAstTests
 {
   [Fact]
   public void HashCode_WithNull()
     => _checks.HashCode(
-      () => new ArgumentAst(AstNulls.At) with { At = AstNulls.At });
+      () => new ArgAst(AstNulls.At) with { At = AstNulls.At });
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithVariable(string variable)
     => _checks.HashCode(
-      () => new ArgumentAst(AstNulls.At, variable));
+      () => new ArgAst(AstNulls.At, variable));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithConstant(string enumType, string enumValue)
@@ -20,17 +20,17 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithValues(string enumValue)
     => _checks.HashCode(
-      () => new ArgumentAst(AstNulls.At, enumValue.ArgumentList()));
+      () => new ArgAst(AstNulls.At, enumValue.ArgList()));
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithFields(string key, string enumValue)
     => _checks.HashCode(
-      () => new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)));
+      () => new ArgAst(AstNulls.At, enumValue.ArgObject(key)));
 
   [Theory, RepeatData(Repeats)]
   public void String_WithVariable(string variable)
     => _checks.Text(
-      () => new ArgumentAst(AstNulls.At, variable),
+      () => new ArgAst(AstNulls.At, variable),
       $"( !a ${variable} )");
 
   [Theory, RepeatData(Repeats)]
@@ -42,25 +42,25 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void String_WithValues(string enumValue)
     => _checks.Text(
-      () => new ArgumentAst(AstNulls.At, enumValue.ArgumentList()),
+      () => new ArgAst(AstNulls.At, enumValue.ArgList()),
       $"( !a [ !a ${enumValue} !k {enumValue} ] )");
 
   [SkippableTheory, RepeatData(Repeats)]
   public void String_WithFields(string key, string enumValue)
     => _checks.Text(
-      () => new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),
+      () => new ArgAst(AstNulls.At, enumValue.ArgObject(key)),
       $"( !a {{ ( !k {key} ):( !a ${enumValue} ) ( !k {enumValue} ):( !k {key} ) }} )",
       key == enumValue);
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithVariable(string variable)
     => _checks.Equality(
-      () => new ArgumentAst(AstNulls.At, variable));
+      () => new ArgAst(AstNulls.At, variable));
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithVariable(string variable)
     => _checks.InequalityBetween(variable, variable + "a",
-      v => new ArgumentAst(AstNulls.At, v));
+      v => new ArgAst(AstNulls.At, v));
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithConstant(string enumType, string enumValue)
@@ -77,24 +77,24 @@ public class ArgumentAstTests
   [Theory, RepeatData(Repeats)]
   public void Equality_WithValues(string enumValue)
     => _checks.Equality(
-      () => new ArgumentAst(AstNulls.At, enumValue.ArgumentList()));
+      () => new ArgAst(AstNulls.At, enumValue.ArgList()));
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithValues(string enumValue)
     => _checks.Inequality(
-      () => new ArgumentAst(AstNulls.At, enumValue.ArgumentList()),
-      () => new ArgumentAst(AstNulls.At, enumValue));
+      () => new ArgAst(AstNulls.At, enumValue.ArgList()),
+      () => new ArgAst(AstNulls.At, enumValue));
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithFields(string key, string enumValue)
     => _checks.Equality(
-      () => new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)));
+      () => new ArgAst(AstNulls.At, enumValue.ArgObject(key)));
 
   [Theory, RepeatData(Repeats)]
   public void Inequality_WithFields(string key, string enumValue)
     => _checks.Inequality(
-      () => new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)),
-      () => new ArgumentAst(AstNulls.At, enumValue));
+      () => new ArgAst(AstNulls.At, enumValue.ArgObject(key)),
+      () => new ArgAst(AstNulls.At, enumValue));
 
-  internal BaseAstChecks<ArgumentAst> _checks = new();
+  internal BaseAstChecks<ArgAst> _checks = new();
 }

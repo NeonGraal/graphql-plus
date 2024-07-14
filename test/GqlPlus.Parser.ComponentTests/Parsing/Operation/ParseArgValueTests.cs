@@ -4,14 +4,14 @@ using GqlPlus.Ast.Operation;
 namespace GqlPlus.Parsing.Operation;
 
 public class ParseArgValueTests(
-  IOneChecksParser<IGqlpArgument> checks
+  IOneChecksParser<IGqlpArg> checks
 )
 {
   [Theory, RepeatData(Repeats)]
   public void WithVariable_ReturnsCorrectAst(string variable)
     => checks.TrueExpected(
       "$" + variable,
-      new ArgumentAst(AstNulls.At, variable));
+      new ArgAst(AstNulls.At, variable));
 
   [Theory, RepeatData(Repeats)]
   public void WithVariableBad_ReturnsFalse(string variable)
@@ -21,19 +21,19 @@ public class ParseArgValueTests(
   public void WithConstant_ReturnsCorrectAst(string enumValue)
     => checks.TrueExpected(
       enumValue,
-      new ArgumentAst(enumValue.FieldKey()));
+      new ArgAst(enumValue.FieldKey()));
 
   [Theory, RepeatData(Repeats)]
   public void WithList_ReturnsCorrectAst(string enumValue)
     => checks.TrueExpected(
       "[$" + enumValue + ' ' + enumValue + ']',
-      new ArgumentAst(AstNulls.At, enumValue.ArgumentList()));
+      new ArgAst(AstNulls.At, enumValue.ArgList()));
 
   [Theory, RepeatData(Repeats)]
   public void WithListComma_ReturnsCorrectAst(string enumValue)
     => checks.TrueExpected(
       "[$" + enumValue + ',' + enumValue + ']',
-      new ArgumentAst(AstNulls.At, enumValue.ArgumentList()));
+      new ArgAst(AstNulls.At, enumValue.ArgList()));
 
   [Theory, RepeatData(Repeats)]
   public void WithListInvalid_ReturnsFalse(string enumValue)
@@ -53,7 +53,7 @@ public class ParseArgValueTests(
       .SkipIf(key == enumValue)
       .TrueExpected(
         '{' + key + ":$" + enumValue + ' ' + enumValue + ':' + key + '}',
-        new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)));
+        new ArgAst(AstNulls.At, enumValue.ArgObject(key)));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string enumValue)
@@ -61,7 +61,7 @@ public class ParseArgValueTests(
       .SkipIf(key == enumValue)
       .TrueExpected(
         '{' + key + ":$" + enumValue + ',' + enumValue + ':' + key + '}',
-        new ArgumentAst(AstNulls.At, enumValue.ArgumentObject(key)));
+        new ArgAst(AstNulls.At, enumValue.ArgObject(key)));
 
   [SkippableTheory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
@@ -71,6 +71,6 @@ public class ParseArgValueTests(
         '{' + key + ':' + enumValue + ':' + enumValue + ':' + key + '}',
         CheckNull);
 
-  private void CheckNull(IGqlpArgument? result)
+  private void CheckNull(IGqlpArg? result)
     => result.Should().BeNull();
 }

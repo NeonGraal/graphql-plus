@@ -12,7 +12,7 @@ public class MergeDualObjectsTests
   private readonly MergeDualObjects _merger;
 
   public MergeDualObjectsTests(ITestOutputHelper outputHelper)
-    => _merger = new(outputHelper.ToLoggerFactory(), Fields, TypeParameters, Alternates);
+    => _merger = new(outputHelper.ToLoggerFactory(), Fields, TypeParams, Alternates);
 
   internal override AstObjectsMerger<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate> MergerObject => _merger;
 
@@ -21,13 +21,13 @@ public class MergeDualObjectsTests
     string[]? aliases = null,
     string description = "",
     IGqlpObjBase? parent = default,
-    string[]? typeParameters = null,
+    string[]? typeParams = null,
     FieldInput[]? fields = null,
     AlternateInput[]? alternates = null)
     => new DualDeclAst(AstNulls.At, name, description) {
       Aliases = aliases ?? [],
       Parent = parent,
-      TypeParameters = typeParameters?.TypeParameters() ?? [],
+      TypeParams = typeParams?.TypeParams() ?? [],
       ObjFields = fields?.DualFields() ?? [],
       ObjAlternates = alternates?.DualAlternates() ?? []
     };

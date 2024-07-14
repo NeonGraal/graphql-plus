@@ -4,35 +4,35 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: DualPrmsPrntDiff
-      type: !_TypeParameter b
+      type: !_TypeParam b
     alternates:
     - !_DualAlternate
-      type: !_TypeParameter b
+      type: !_TypeParam b
     name: DualPrmsPrntDiff
     typeKind: !_TypeKind Dual
-    typeParameters:
+    typeParams:
     - !_Described
       name: b
   !_Identifier DualPrntPrmsDiff: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: DualPrmsPrntDiff
-      type: !_TypeParameter b
+      type: !_TypeParam b
     allFields:
     - !_ObjectFor(_DualField)
       name: field
       object: DualPrntPrmsDiff
-      type: !_TypeParameter a
+      type: !_TypeParam a
     fields:
     - !_DualField
       name: field
-      type: !_TypeParameter a
+      type: !_TypeParam a
     name: DualPrntPrmsDiff
     parent: !_DualBase
       dual: DualPrmsPrntDiff
-      typeArguments:
-      - !_TypeParameter a
+      typeArgs:
+      - !_TypeParam a
     typeKind: !_TypeKind Dual
-    typeParameters:
+    typeParams:
     - !_Described
       name: a

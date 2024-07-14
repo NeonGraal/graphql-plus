@@ -5,7 +5,7 @@ directives: !_Map_Directives
       Operation: _, Spread: _, Variable: _}
     name: DirParamDict
     parameters:
-    - !_InputParameter
+    - !_InputParam
       input: DirParamIn
       modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Basic}]

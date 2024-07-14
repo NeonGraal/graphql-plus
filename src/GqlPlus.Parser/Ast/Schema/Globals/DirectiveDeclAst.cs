@@ -12,13 +12,13 @@ internal sealed record class DirectiveDeclAst(
   , IGqlpSchemaDirective
 {
   public DirectiveOption Option { get; set; } = DirectiveOption.Unique;
-  public IGqlpInputParameter[] Parameters { get; set; } = [];
+  public IGqlpInputParam[] Params { get; set; } = [];
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 
   internal override string Abbr => "Di";
   public override string Label => "Directive";
 
-  IEnumerable<IGqlpInputParameter> IGqlpSchemaDirective.Parameters => Parameters;
+  IEnumerable<IGqlpInputParam> IGqlpSchemaDirective.Params => Params;
   DirectiveOption IGqlpSchemaDirective.DirectiveOption => Option;
   DirectiveLocation IGqlpSchemaDirective.Locations => Locations;
 
@@ -28,14 +28,14 @@ internal sealed record class DirectiveDeclAst(
   public bool Equals(DirectiveDeclAst? other)
     => base.Equals(other)
     && Option == other.Option
-    && Parameters.SequenceEqual(other.Parameters)
+    && Params.SequenceEqual(other.Params)
     && Locations == other.Locations;
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Option);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Concat(Parameters.Bracket("(", ")"))
+      .Concat(Params.Bracket("(", ")"))
       .Append($"({Option})")
       .Append(Locations.ToString());
 }

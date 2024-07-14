@@ -2,8 +2,8 @@
 types: !_Map_Type
   !_Identifier DualGenPrnt: !_TypeDual
     name: DualGenPrnt
-    parent: !_TypeParameter type
+    parent: !_TypeParam type
     typeKind: !_TypeKind Dual
-    typeParameters:
+    typeParams:
     - !_Described
       name: type

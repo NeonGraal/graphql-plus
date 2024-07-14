@@ -34,8 +34,8 @@ internal class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBaseAst, 
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArgument
-  where TObjArgAst : AstObjArgument, TObjArg
+  where TObjArg : IGqlpObjArg
+  where TObjArgAst : AstObjArg, TObjArg
 {
   private readonly IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst> _factories;
 

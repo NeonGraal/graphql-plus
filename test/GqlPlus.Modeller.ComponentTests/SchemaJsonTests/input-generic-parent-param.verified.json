@@ -15,9 +15,9 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "InpGenParentParamRef",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_InputArgument",
+            "$tag": "_InputArg",
             "value": "InpGenParentParamAlt"
           }
         ]
@@ -86,7 +86,7 @@
       ],
       "name": "InpGenParentParamRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

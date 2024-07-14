@@ -40,10 +40,10 @@ public record struct DomainRangeInput(decimal? Min, decimal? Max)
 public record struct AlternateInput(string Type)
   : IComparable<AlternateInput>
 {
-  public bool TypeParameter { get; private init; } = false;
+  public bool TypeParam { get; private init; } = false;
 
-  public AlternateInput MakeTypeParameter()
-    => this with { TypeParameter = true };
+  public AlternateInput MakeTypeParam()
+    => this with { TypeParam = true };
 
   public readonly int CompareTo(AlternateInput other)
     => string.CompareOrdinal(Type, other.Type);
@@ -52,10 +52,10 @@ public record struct AlternateInput(string Type)
 public record struct FieldInput(string Name, string Type)
   : IComparable<FieldInput>
 {
-  public bool TypeParameter { get; private init; } = false;
+  public bool TypeParam { get; private init; } = false;
 
-  public FieldInput MakeTypeParameter()
-    => this with { TypeParameter = true };
+  public FieldInput MakeTypeParam()
+    => this with { TypeParam = true };
 
   public readonly int CompareTo(FieldInput other)
   {

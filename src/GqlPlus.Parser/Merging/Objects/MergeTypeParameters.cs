@@ -3,17 +3,17 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
-internal class MergeTypeParameters
-  : GroupsMerger<IGqlpTypeParameter>
+internal class MergeTypeParams
+  : GroupsMerger<IGqlpTypeParam>
 {
-  protected override string ItemGroupKey(IGqlpTypeParameter item) => item.Name;
+  protected override string ItemGroupKey(IGqlpTypeParam item) => item.Name;
 
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpTypeParameter> group)
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpTypeParam> group)
     => group.CanMergeString(item => item.Description);
 
-  protected override TypeParameterAst MergeGroup(IEnumerable<IGqlpTypeParameter> group)
+  protected override TypeParamAst MergeGroup(IEnumerable<IGqlpTypeParam> group)
   {
-    TypeParameterAst ast = (TypeParameterAst)group.First();
+    TypeParamAst ast = (TypeParamAst)group.First();
     return ast.MakeDescription(group);
   }
 }

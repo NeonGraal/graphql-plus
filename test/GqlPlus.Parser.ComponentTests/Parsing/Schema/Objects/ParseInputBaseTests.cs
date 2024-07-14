@@ -10,5 +10,5 @@ public class ParseInputBaseTests(
 
 internal sealed class ParseInputBaseChecks(
   Parser<IGqlpInputBase>.D parser
-) : CheckObjectBase<IGqlpInputBase, InputBaseAst, IGqlpInputArgument, InputArgumentAst>(new InputFactories(), parser)
+) : CheckObjectBase<IGqlpInputBase, InputBaseAst, IGqlpInputArg, InputArgAst>(new InputFactories(), parser)
 { }

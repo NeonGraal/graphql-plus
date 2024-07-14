@@ -15,10 +15,10 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "DualGenPrntRef",
-        "typeArguments": ["type"]
+        "typeArgs": ["type"]
       },
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -42,7 +42,7 @@
       ],
       "name": "DualGenPrntRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

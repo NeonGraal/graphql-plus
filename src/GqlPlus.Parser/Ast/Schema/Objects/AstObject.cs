@@ -14,11 +14,11 @@ internal abstract record class AstObject<TObjBase, TObjField, TObjAlt>(
   where TObjField : IGqlpObjField
   where TObjAlt : IGqlpObjAlternate
 {
-  public IGqlpTypeParameter[] TypeParameters { get; set; } = [];
+  public IGqlpTypeParam[] TypeParams { get; set; } = [];
   public TObjField[] ObjFields { get; set; } = [];
   public TObjAlt[] ObjAlternates { get; set; } = [];
 
-  IEnumerable<IGqlpTypeParameter> IGqlpObject.TypeParameters => TypeParameters;
+  IEnumerable<IGqlpTypeParam> IGqlpObject.TypeParams => TypeParams;
   IEnumerable<IGqlpObjField> IGqlpObject.Fields => ObjFields.Cast<IGqlpObjField>();
   IEnumerable<IGqlpObjAlternate> IGqlpObject.Alternates => ObjAlternates.Cast<IGqlpObjAlternate>();
 
@@ -28,14 +28,14 @@ internal abstract record class AstObject<TObjBase, TObjField, TObjAlt>(
 
   public virtual bool Equals(AstObject<TObjBase, TObjField, TObjAlt>? other)
     => base.Equals(other)
-      && TypeParameters.SequenceEqual(other.TypeParameters)
+      && TypeParams.SequenceEqual(other.TypeParams)
       && ObjFields.SequenceEqual(other.ObjFields)
       && ObjAlternates.SequenceEqual(other.ObjAlternates);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), TypeParameters.Length, ObjFields.Length, ObjAlternates.Length);
+    => HashCode.Combine(base.GetHashCode(), TypeParams.Length, ObjFields.Length, ObjAlternates.Length);
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Concat(TypeParameters.Bracket("<", ">"))
+      .Concat(TypeParams.Bracket("<", ">"))
       .Concat(Parent.Bracket(":", ""))
       .Concat(ObjFields.Bracket("{", "}"))
       .Concat(ObjAlternates.Bracket("|"));

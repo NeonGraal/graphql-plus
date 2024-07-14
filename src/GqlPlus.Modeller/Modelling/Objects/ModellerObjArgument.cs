@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-internal abstract class ModellerObjArgument<TObjArgAst, TObjArg>
+internal abstract class ModellerObjArg<TObjArgAst, TObjArg>
   : ModellerBase<TObjArgAst, TObjArg>
-  where TObjArgAst : IGqlpObjArgument
+  where TObjArgAst : IGqlpObjArg
   where TObjArg : IModelBase
 { }

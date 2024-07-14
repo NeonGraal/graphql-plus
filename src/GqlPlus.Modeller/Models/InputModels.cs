@@ -5,16 +5,16 @@ public record class TypeInputModel(
 ) : TypeObjectModel<InputBaseModel, InputFieldModel, InputAlternateModel>(TypeKindModel.Input, Name)
 { }
 
-public record class InputArgumentModel(
+public record class InputArgModel(
   string Input
-) : ObjArgumentModel
+) : ObjArgModel
 {
-  internal DualArgumentModel? Dual { get; init; }
+  internal DualArgModel? Dual { get; init; }
 }
 
 public record class InputBaseModel(
   string Input
-) : ObjBaseModel<InputArgumentModel>
+) : ObjBaseModel<InputArgModel>
 {
   internal DualBaseModel? Dual { get; init; }
 }
@@ -32,7 +32,7 @@ public record class InputAlternateModel(
 ) : ObjAlternateModel<InputBaseModel>(Type)
 { }
 
-public record class InputParameterModel(
+public record class InputParamModel(
   ObjDescribedModel<InputBaseModel> Type
 ) : ModelBase
 {

@@ -9,16 +9,16 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: typeKind
       object: _BaseType
-      type: !_TypeParameter kind
+      type: !_TypeParam kind
     fields:
     - !_OutputField
       name: typeKind
-      type: !_TypeParameter kind
+      type: !_TypeParam kind
     name: _BaseType
     parent: !_OutputBase
       output: _Aliased
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: kind
   !_Identifier _ChildType: !_TypeOutput
@@ -26,22 +26,22 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: typeKind
       object: _BaseType
-      type: !_TypeParameter kind
+      type: !_TypeParam kind
     - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
-      type: !_TypeParameter parent
+      type: !_TypeParam parent
     fields:
     - !_OutputField
       name: parent
-      type: !_TypeParameter parent
+      type: !_TypeParam parent
     name: _ChildType
     parent: !_OutputBase
       output: _BaseType
-      typeArguments:
-      - !_TypeParameter kind
+      typeArgs:
+      - !_TypeParam kind
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: kind
     - !_Described
@@ -51,39 +51,39 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: typeKind
       object: _BaseType
-      type: !_TypeParameter kind
+      type: !_TypeParam kind
     - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
-      type: !_TypeParameter parent
+      type: !_TypeParam parent
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
       object: _ParentType
-      type: !_TypeParameter item
+      type: !_TypeParam item
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: allItems
       object: _ParentType
-      type: !_TypeParameter allItem
+      type: !_TypeParam allItem
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
-      type: !_TypeParameter item
+      type: !_TypeParam item
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: allItems
-      type: !_TypeParameter allItem
+      type: !_TypeParam allItem
     name: _ParentType
     parent: !_OutputBase
       output: _ChildType
-      typeArguments:
-      - !_TypeParameter kind
-      - !_OutputArgument
+      typeArgs:
+      - !_TypeParam kind
+      - !_OutputArg
         output: _Identifier
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: kind
     - !_Described
@@ -126,8 +126,8 @@ types: !_Map_Type
       object: _Type
       type: !_OutputBase
         output: _BaseType
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -135,8 +135,8 @@ types: !_Map_Type
       object: _Type
       type: !_OutputBase
         output: _BaseType
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -168,16 +168,16 @@ types: !_Map_Type
     - !_OutputAlternate
       type: !_OutputBase
         output: _BaseType
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_OutputAlternate
       type: !_OutputBase
         output: _BaseType
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -244,7 +244,7 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: typeKind
       object: _TypeRef
-      type: !_TypeParameter kind
+      type: !_TypeParam kind
     - !_ObjectFor(_OutputField)
       name: name
       object: _TypeRef
@@ -253,14 +253,14 @@ types: !_Map_Type
     fields:
     - !_OutputField
       name: typeKind
-      type: !_TypeParameter kind
+      type: !_TypeParam kind
     - !_OutputField
       name: name
       type: !_OutputBase
         output: _Identifier
     name: _TypeRef
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: kind
   !_Identifier _TypeSimple: !_TypeOutput
@@ -269,8 +269,8 @@ types: !_Map_Type
       object: _TypeSimple
       type: !_OutputBase
         output: _TypeRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -278,8 +278,8 @@ types: !_Map_Type
       object: _TypeSimple
       type: !_OutputBase
         output: _TypeRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -287,8 +287,8 @@ types: !_Map_Type
       object: _TypeSimple
       type: !_OutputBase
         output: _TypeRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Domain
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -296,8 +296,8 @@ types: !_Map_Type
       object: _TypeSimple
       type: !_OutputBase
         output: _TypeRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Union
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -305,32 +305,32 @@ types: !_Map_Type
     - !_OutputAlternate
       type: !_OutputBase
         output: _TypeRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_OutputAlternate
       type: !_OutputBase
         output: _TypeRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_OutputAlternate
       type: !_OutputBase
         output: _TypeRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Domain
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_OutputAlternate
       type: !_OutputBase
         output: _TypeRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Union
           name: _TypeKind
           typeKind: !_SimpleKind Enum

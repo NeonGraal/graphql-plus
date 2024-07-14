@@ -396,7 +396,7 @@
           "object": "_Schema",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "_CategoryFilter",
               "modifiers": [
                 {
@@ -425,7 +425,7 @@
           "object": "_Schema",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "_Filter",
               "modifiers": [
                 {
@@ -454,7 +454,7 @@
           "object": "_Schema",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "_TypeFilter",
               "modifiers": [
                 {
@@ -483,7 +483,7 @@
           "object": "_Schema",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "_Filter",
               "modifiers": [
                 {
@@ -513,7 +513,7 @@
           "name": "categories",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "_CategoryFilter",
               "modifiers": [
                 {
@@ -541,7 +541,7 @@
           "name": "directives",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "_Filter",
               "modifiers": [
                 {
@@ -569,7 +569,7 @@
           "name": "types",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "_TypeFilter",
               "modifiers": [
                 {
@@ -597,7 +597,7 @@
           "name": "settings",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "_Filter",
               "modifiers": [
                 {

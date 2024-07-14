@@ -66,7 +66,7 @@ internal class ParseCategoryDefinition(
     }
 
     CategoryOutput result = new(output);
-    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Parameter");
+    IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Param");
     if (modifiers.IsError()) {
       return modifiers.AsResult(result);
     }

@@ -89,7 +89,7 @@
       "name": "DirParam",
       "parameters": [
         {
-          "$tag": "_InputParameter",
+          "$tag": "_InputParam",
           "value": "DirParamIn"
         }
       ],
@@ -109,7 +109,7 @@
       "name": "DirParamDict",
       "parameters": [
         {
-          "$tag": "_InputParameter",
+          "$tag": "_InputParam",
           "input": "DirParamIn",
           "modifiers": [
             {
@@ -137,7 +137,7 @@
       "name": "DirParamList",
       "parameters": [
         {
-          "$tag": "_InputParameter",
+          "$tag": "_InputParam",
           "input": "DirParamIn",
           "modifiers": [
             {
@@ -163,7 +163,7 @@
       "name": "DirParamOpt",
       "parameters": [
         {
-          "$tag": "_InputParameter",
+          "$tag": "_InputParam",
           "input": "DirParamIn",
           "modifiers": [
             {

@@ -5,13 +5,13 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal class ParseTypeParameters
-  : Parser<IGqlpTypeParameter>.IA
+internal class ParseTypeParams
+  : Parser<IGqlpTypeParam>.IA
 {
-  public IResultArray<IGqlpTypeParameter> Parse<TContext>(TContext tokens, string label)
+  public IResultArray<IGqlpTypeParam> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    List<IGqlpTypeParameter> list = [];
+    List<IGqlpTypeParam> list = [];
 
     if (!tokens.Take('<')) {
       return list.EmptyArray();
@@ -20,7 +20,7 @@ internal class ParseTypeParameters
     while (!tokens.Take('>')) {
       tokens.String(out string? description);
       if (tokens.Prefix('$', out string? name, out TokenAt? at) && name is not null) {
-        list.Add(new TypeParameterAst(at, name, description));
+        list.Add(new TypeParamAst(at, name, description));
       } else {
         return tokens.PartialArray(label, "type parameter", () => list);
       }

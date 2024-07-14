@@ -3,18 +3,18 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal sealed record class DualArgumentAst(
+internal sealed record class DualArgAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObjArgument(At, Name, Description)
-  , IGqlpDualArgument
+) : AstObjArg(At, Name, Description)
+  , IGqlpDualArg
 {
-  public DualArgumentAst(TokenAt at, string name)
+  public DualArgAst(TokenAt at, string name)
     : this(at, name, "") { }
 
   internal override string Abbr => "DR";
   public override string Label => "Dual";
 
-  string IGqlpDualArgument.Dual => Name;
+  string IGqlpDualArg.Dual => Name;
 }

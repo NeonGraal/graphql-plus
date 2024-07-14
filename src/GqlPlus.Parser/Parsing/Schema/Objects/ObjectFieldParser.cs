@@ -29,9 +29,9 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
       return 0.Empty<TObjField>();
     }
 
-    IResultArray<IGqlpInputParameter> hasParameter = FieldParameter(tokens);
-    if (hasParameter.IsError()) {
-      return hasParameter.AsResult<TObjField>();
+    IResultArray<IGqlpInputParam> hasParam = FieldParam(tokens);
+    if (hasParam.IsError()) {
+      return hasParam.AsResult<TObjField>();
     }
 
     IResultArray<string> hasAliases = _aliases.Parse(tokens, label);
@@ -46,7 +46,7 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
         => field = ObjField(at, name, description, fieldType))
         ) {
         hasAliases.WithResult(aliases => field.Aliases = [.. aliases]);
-        hasParameter.WithResult(parameter => ApplyFieldParameters(field, [.. parameter]));
+        hasParam.WithResult(parameter => ApplyFieldParams(field, [.. parameter]));
         IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
         if (modifiers.IsError()) {
           return modifiers.AsResult<TObjField>();
@@ -64,13 +64,13 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
     return FieldEnumValue(tokens, field);
   }
 
-  protected abstract void ApplyFieldParameters(TObjFieldAst field, IGqlpInputParameter[] parameters);
+  protected abstract void ApplyFieldParams(TObjFieldAst field, IGqlpInputParam[] parameters);
   protected abstract TObjFieldAst ObjField(TokenAt at, string name, string description, TObjBase typeBase);
   protected abstract IResult<TObjField> FieldDefault<TContext>(TContext tokens, TObjFieldAst field)
       where TContext : Tokenizer;
   protected abstract IResult<TObjField> FieldEnumValue<TContext>(TContext tokens, TObjFieldAst field)
       where TContext : Tokenizer;
-  protected abstract IResultArray<IGqlpInputParameter> FieldParameter<TContext>(TContext tokens)
+  protected abstract IResultArray<IGqlpInputParam> FieldParam<TContext>(TContext tokens)
       where TContext : Tokenizer;
   protected abstract TObjBase ObjBase(TokenAt at, string param, string description = "");
 }

@@ -24,19 +24,19 @@ public static class BuiltIn
     new UnionDeclAst(AstNulls.At, "Simple", new[] { "^", "0", "*", "_", "_Union", "_Domain", "_Enum" }.UnionMembers()),
     new UnionDeclAst(AstNulls.At, "Internal", new[] { "Void", "Null" }.UnionMembers()),
 
-    DualObj("Opt", TypeParameters("T"), DualAlt(null), DualType("Null")),
-    DualObj("List", TypeParameters("T"), DualAlt("")),
-    DualObj("Dict", TypeParameters("K", "T"), DualAltParam("K")),
-    DualObj("Map", TypeParameters("T"), DualDict("String")),
-    DualObj("Array", TypeParameters("T"), DualDict("Number")),
-    DualObj("IfElse", TypeParameters("T"), DualDict("Boolean")),
-    DualObj("Set", TypeParameters("K"), DualDict("Unit", true)),
-    DualObj("Mask", TypeParameters("K"), DualDict("Boolean", true)),
+    DualObj("Opt", TypeParams("T"), DualAlt(null), DualType("Null")),
+    DualObj("List", TypeParams("T"), DualAlt("")),
+    DualObj("Dict", TypeParams("K", "T"), DualAltParam("K")),
+    DualObj("Map", TypeParams("T"), DualDict("String")),
+    DualObj("Array", TypeParams("T"), DualDict("Number")),
+    DualObj("IfElse", TypeParams("T"), DualDict("Boolean")),
+    DualObj("Set", TypeParams("K"), DualDict("Unit", true)),
+    DualObj("Mask", TypeParams("K"), DualDict("Boolean", true)),
     DualObj("Object", [], DualRef("_Map", DualArg("_Any"))) with { Aliases = ["%", "Object"] },
-    DualObj("Most", TypeParameters("T"),
+    DualObj("Most", TypeParams("T"),
       DualAlt(null), DualType("_Object"), DualMost("", true), DualType("_MostList", DualArgParam("T")), DualType("_MostDictionary", DualArgParam("T"))),
-    DualObj("MostList", TypeParameters("T"), DualMost("")),
-    DualObj("MostDictionary", TypeParameters("T"), DualMost("Simple", true)),
+    DualObj("MostList", TypeParams("T"), DualMost("")),
+    DualObj("MostDictionary", TypeParams("T"), DualMost("Simple", true)),
 
     new SpecialTypeAst("Any") { Aliases = ["Any"] },
     new SpecialTypeAst("Dual"),
@@ -54,16 +54,16 @@ public static class BuiltIn
     ["false"] = "Boolean",
   };
 
-  private static TypeParameterAst[] TypeParameters(params string[] parameters)
-    => [.. parameters.Select(r => new TypeParameterAst(AstNulls.At, r))];
+  private static TypeParamAst[] TypeParams(params string[] parameters)
+    => [.. parameters.Select(r => new TypeParamAst(AstNulls.At, r))];
 
-  private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, params IGqlpDualAlternate[] alternates)
-    => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, ObjAlternates = alternates };
+  private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, params IGqlpDualAlternate[] alternates)
+    => new(AstNulls.At, "_" + label) { TypeParams = typeParams, ObjAlternates = alternates };
 
-  private static DualDeclAst DualObj(string label, TypeParameterAst[] typeParameters, DualBaseAst parent)
-    => new(AstNulls.At, "_" + label) { TypeParameters = typeParameters, Parent = parent };
+  private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, DualBaseAst parent)
+    => new(AstNulls.At, "_" + label) { TypeParams = typeParams, Parent = parent };
 
-  private static DualAlternateAst DualType(string type, params IGqlpDualArgument[] args)
+  private static DualAlternateAst DualType(string type, params IGqlpDualArg[] args)
     => new(AstNulls.At, DualRef(type, args));
 
   private static DualAlternateAst DualAlt(string? key)
@@ -89,21 +89,21 @@ public static class BuiltIn
       }
     };
 
-  private static DualBaseAst DualRef(string name, params IGqlpDualArgument[] args)
-    => new DualBaseAst(AstNulls.At, name, "") with { BaseArguments = args };
+  private static DualBaseAst DualRef(string name, params IGqlpDualArg[] args)
+    => new DualBaseAst(AstNulls.At, name, "") with { BaseArgs = args };
 
   private static DualBaseAst DualRefParam(string name)
-    => DualRef(name) with { IsTypeParameter = true };
+    => DualRef(name) with { IsTypeParam = true };
 
-  private static DualArgumentAst DualArg(string name)
+  private static DualArgAst DualArg(string name)
     => new(AstNulls.At, name, "");
 
-  private static DualArgumentAst DualArgParam(string name)
-    => DualArg(name) with { IsTypeParameter = true };
+  private static DualArgAst DualArgParam(string name)
+    => DualArg(name) with { IsTypeParam = true };
 
   private static DualBaseAst DualDict(string type, bool paramSecond = false)
     => DualRef("_Dict") with {
-      BaseArguments = [
+      BaseArgs = [
         paramSecond ? DualArgParam("K") : DualArg(type),
         paramSecond ? DualArg(type) : DualArgParam("T")
       ]

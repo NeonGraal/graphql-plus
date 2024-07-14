@@ -19,7 +19,7 @@
       ],
       "name": "InpGenAlt",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"

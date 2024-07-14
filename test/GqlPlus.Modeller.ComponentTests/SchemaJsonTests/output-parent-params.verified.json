@@ -56,7 +56,7 @@
           "object": "OutParamsParent",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutParamParent"
             }
           ],
@@ -72,7 +72,7 @@
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutParamParent"
             }
           ],
@@ -139,7 +139,7 @@
           "object": "OutParamsParent",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutParamParent"
             }
           ],
@@ -154,7 +154,7 @@
           "object": "OutPrntParams",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutPrntParam"
             }
           ],
@@ -170,7 +170,7 @@
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutPrntParam"
             }
           ],

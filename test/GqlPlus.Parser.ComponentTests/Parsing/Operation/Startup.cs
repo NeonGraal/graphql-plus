@@ -8,8 +8,8 @@ public static class Startup
 {
   public static void ConfigureServices(IServiceCollection services)
     => services
-      .AddOneChecks<IParserArgument, IGqlpArgument>()
-      .AddOneChecks<IGqlpArgument>()
+      .AddOneChecks<IParserArg, IGqlpArg>()
+      .AddOneChecks<IGqlpArg>()
       .AddManyChecks<IGqlpDirective>()
       .AddOneChecks<IGqlpField>()
       .AddManyChecks<IParserStartFragments, IGqlpFragment>()

@@ -3,7 +3,7 @@
 public interface IGqlpObject
   : IGqlpType<IGqlpObjBase>
 {
-  IEnumerable<IGqlpTypeParameter> TypeParameters { get; }
+  IEnumerable<IGqlpTypeParam> TypeParams { get; }
   IEnumerable<IGqlpObjField> Fields { get; }
   IEnumerable<IGqlpObjAlternate> Alternates { get; }
 }
@@ -26,26 +26,26 @@ public interface IGqlpObjType
   string Label { get; }
   string TypeName { get; }
   string FullType { get; }
-  bool IsTypeParameter { get; }
+  bool IsTypeParam { get; }
 }
 
-public interface IGqlpObjArgument
+public interface IGqlpObjArg
   : IGqlpObjType
-  , IEquatable<IGqlpObjArgument>
+  , IEquatable<IGqlpObjArg>
 { }
 
 public interface IGqlpObjBase
   : IGqlpObjType
   , IEquatable<IGqlpObjBase>
 {
-  IEnumerable<IGqlpObjArgument> Arguments { get; }
+  IEnumerable<IGqlpObjArg> Args { get; }
 }
 
 public interface IGqlpObjBase<TBase>
   : IGqlpObjBase
-  where TBase : IGqlpObjArgument
+  where TBase : IGqlpObjArg
 {
-  IEnumerable<TBase> BaseArguments { get; }
+  IEnumerable<TBase> BaseArgs { get; }
 }
 
 public interface IGqlpObjField
@@ -78,7 +78,7 @@ public interface IGqlpObjAlternate<TBase>
   TBase BaseType { get; }
 }
 
-public interface IGqlpTypeParameter
+public interface IGqlpTypeParam
   : IGqlpDescribed, IGqlpNamed
 { }
 
@@ -86,14 +86,14 @@ public interface IGqlpDualObject
   : IGqlpObject<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
 { }
 
-public interface IGqlpDualArgument
-  : IGqlpObjArgument
+public interface IGqlpDualArg
+  : IGqlpObjArg
 {
   string Dual { get; }
 }
 
 public interface IGqlpDualBase
-  : IGqlpObjBase<IGqlpDualArgument>
+  : IGqlpObjBase<IGqlpDualArg>
 {
   string Dual { get; }
 }
@@ -116,15 +116,15 @@ public interface IGqlpInputObject
   : IGqlpObject<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
 { }
 
-public interface IGqlpInputArgument
-  : IGqlpObjArgument
-  , IGqlpToDual<IGqlpDualArgument>
+public interface IGqlpInputArg
+  : IGqlpObjArg
+  , IGqlpToDual<IGqlpDualArg>
 {
   string Input { get; }
 }
 
 public interface IGqlpInputBase
-  : IGqlpObjBase<IGqlpInputArgument>
+  : IGqlpObjBase<IGqlpInputArg>
   , IGqlpToDual<IGqlpDualBase>
 {
   string Input { get; }
@@ -153,16 +153,16 @@ public interface IGqlpOutputEnum
   void SetEnumType(string enumType);
 }
 
-public interface IGqlpOutputArgument
-  : IGqlpObjArgument
+public interface IGqlpOutputArg
+  : IGqlpObjArg
   , IGqlpOutputEnum
-  , IGqlpToDual<IGqlpDualArgument>
+  , IGqlpToDual<IGqlpDualArg>
 {
   string Output { get; }
 }
 
 public interface IGqlpOutputBase
-  : IGqlpObjBase<IGqlpOutputArgument>
+  : IGqlpObjBase<IGqlpOutputArg>
   , IGqlpOutputEnum
   , IGqlpToDual<IGqlpDualBase>
 {
@@ -172,14 +172,14 @@ public interface IGqlpOutputBase
 public interface IGqlpOutputField
   : IGqlpObjField<IGqlpOutputBase>
 {
-  IEnumerable<IGqlpInputParameter> Parameters { get; }
+  IEnumerable<IGqlpInputParam> Params { get; }
 }
 
 public interface IGqlpOutputAlternate
   : IGqlpObjAlternate<IGqlpOutputBase>
 { }
 
-public interface IGqlpInputParameter
+public interface IGqlpInputParam
   : IGqlpError, IGqlpDescribed, IGqlpModifiers
 {
   IGqlpInputBase Type { get; }

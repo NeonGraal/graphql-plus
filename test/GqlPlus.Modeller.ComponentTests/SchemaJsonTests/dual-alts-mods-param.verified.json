@@ -9,7 +9,7 @@
           "$tag": "_ObjectFor(_DualAlternate)",
           "collections": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -26,7 +26,7 @@
           "$tag": "_DualAlternate",
           "collections": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -39,7 +39,7 @@
       ],
       "name": "DualAltModsParam",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "mod"

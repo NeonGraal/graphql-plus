@@ -12,19 +12,19 @@ public static class OperationTestHelpers
   public static IGqlpSelection[] Fields(this string[] fields)
     => [.. fields.Select(f => new FieldAst(AstNulls.At, f))];
 
-  public static IGqlpArgument[] Arguments(this string[] values)
-    => [.. values.Select(l => new ArgumentAst(l.FieldKey()))];
+  public static IGqlpArg[] Args(this string[] values)
+    => [.. values.Select(l => new ArgAst(l.FieldKey()))];
 
-  public static IGqlpArgument[] ArgumentList(this string value)
-    => [new ArgumentAst(AstNulls.At, value), new ArgumentAst(value.FieldKey())];
+  public static IGqlpArg[] ArgList(this string value)
+    => [new ArgAst(AstNulls.At, value), new ArgAst(value.FieldKey())];
 
-  public static IGqlpFields<IGqlpArgument> ArgumentObject(this string value, string key)
+  public static IGqlpFields<IGqlpArg> ArgObject(this string value, string key)
   {
     IGqlpFieldKey keyAst = key.FieldKey();
     IGqlpFieldKey valueAst = value.FieldKey();
 
     return key == value
-      ? new AstFields<IGqlpArgument>() { [keyAst] = new ArgumentAst(AstNulls.At, value) }
-      : new AstFields<IGqlpArgument>() { [keyAst] = new ArgumentAst(AstNulls.At, value), [valueAst] = new ArgumentAst(keyAst) };
+      ? new AstFields<IGqlpArg>() { [keyAst] = new ArgAst(AstNulls.At, value) }
+      : new AstFields<IGqlpArg>() { [keyAst] = new ArgAst(AstNulls.At, value), [valueAst] = new ArgAst(keyAst) };
   }
 }

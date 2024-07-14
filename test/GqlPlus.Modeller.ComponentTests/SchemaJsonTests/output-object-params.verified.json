@@ -32,7 +32,7 @@
       ],
       "name": "OutpParams",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "test"

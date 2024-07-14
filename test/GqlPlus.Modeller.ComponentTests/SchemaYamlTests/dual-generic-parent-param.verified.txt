@@ -4,12 +4,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: DualGenParentParamRef
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     name: DualGenParentParam
     parent: !_DualBase
       dual: DualGenParentParamRef
-      typeArguments:
-      - !_DualArgument
+      typeArgs:
+      - !_DualArg
         dual: DualGenParentParamAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualGenParentParamAlt: !_TypeDual
@@ -39,12 +39,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: DualGenParentParamRef
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     alternates:
     - !_DualAlternate
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     name: DualGenParentParamRef
     typeKind: !_TypeKind Dual
-    typeParameters:
+    typeParams:
     - !_Described
       name: ref

@@ -14,13 +14,13 @@ public class ParseDirectivesTests(
       new DirectiveAst(AstNulls.At, directives));
 
   [Theory, RepeatData(Repeats)]
-  public void WithArgument_ReturnsCorrectAst(string directives, string variable)
+  public void WithArg_ReturnsCorrectAst(string directives, string variable)
     => checks.TrueExpected(
       "@" + directives + "($" + variable + ")",
-      new DirectiveAst(AstNulls.At, directives) { Argument = new ArgumentAst(AstNulls.At, variable) });
+      new DirectiveAst(AstNulls.At, directives) { Arg = new ArgAst(AstNulls.At, variable) });
 
   [Theory, RepeatData(Repeats)]
-  public void WithArgumentBad_ReturnsFalse(string directives)
+  public void WithArgBad_ReturnsFalse(string directives)
     => checks.FalseExpected("@" + directives + "($)");
 
   [Theory, RepeatData(Repeats)]

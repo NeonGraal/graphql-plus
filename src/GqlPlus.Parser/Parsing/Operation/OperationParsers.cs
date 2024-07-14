@@ -7,8 +7,8 @@ public static class OperationParsers
 {
   public static IServiceCollection AddOperationParsers(this IServiceCollection services)
     => services
-      .AddParser<IParserArgument, IGqlpArgument, ParseArgument>()
-      .AddValueParsers<IGqlpArgument, ParseArgumentValue>()
+      .AddParser<IParserArg, IGqlpArg, ParseArg>()
+      .AddValueParsers<IGqlpArg, ParseArgValue>()
       .AddParserArray<IGqlpDirective, ParseDirectives>()
       .AddParserArray<IParserStartFragments, IGqlpFragment, ParseStartFragments>()
       .AddParserArray<IParserEndFragments, IGqlpFragment, ParseEndFragments>()

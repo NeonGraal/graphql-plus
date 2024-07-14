@@ -12,9 +12,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_InputArgument",
+                "$tag": "_InputArg",
                 "value": "InpGenParamAlt"
               }
             ]
@@ -28,9 +28,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_InputArgument",
+                "$tag": "_InputArg",
                 "value": "InpGenParamAlt"
               }
             ]
@@ -102,7 +102,7 @@
       ],
       "name": "InpGenParamRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

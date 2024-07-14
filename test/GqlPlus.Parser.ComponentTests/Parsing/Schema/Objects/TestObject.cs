@@ -25,20 +25,20 @@ where TObject : IGqlpObject
     => objectChecks.WithAlternateModifiersBad(name, others);
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeParameters_ReturnsCorrectAst(string name, string other, string[] parameters)
-    => objectChecks.WithTypeParameters(name, other, parameters);
+  public void WithTypeParams_ReturnsCorrectAst(string name, string other, string[] parameters)
+    => objectChecks.WithTypeParams(name, other, parameters);
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeParameterBad_ReturnsFalse(string name, string other)
-    => objectChecks.WithTypeParameterBad(name, other);
+  public void WithTypeParamBad_ReturnsFalse(string name, string other)
+    => objectChecks.WithTypeParamBad(name, other);
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeParametersBad_ReturnsFalse(string name, string other, string[] parameters)
-    => objectChecks.WithTypeParametersBad(name, other, parameters);
+  public void WithTypeParamsBad_ReturnsFalse(string name, string other, string[] parameters)
+    => objectChecks.WithTypeParamsBad(name, other, parameters);
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeParametersNone_ReturnsFalse(string name, string other)
-    => objectChecks.WithTypeParametersNone(name, other);
+  public void WithTypeParamsNone_ReturnsFalse(string name, string other)
+    => objectChecks.WithTypeParamsNone(name, other);
 
   [Theory, RepeatData(Repeats)]
   public void WithFieldBad_ReturnsFalse(string name, FieldInput[] fields, string fieldName)
@@ -90,8 +90,8 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
   where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArgument
-  where TObjArgAst : AstObjArgument, TObjArg
+  where TObjArg : IGqlpObjArg
+  where TObjArgAst : AstObjArg, TObjArg
 {
   private readonly IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst> _factories;
 
@@ -140,21 +140,21 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
   public void WithAlternateModifiersBad(string name, string[] others)
     => FalseExpected(name + "{" + others.Joined(a => $"|{a}[?]") + "}");
 
-  public void WithTypeParameters(string name, string other, string[] parameters)
+  public void WithTypeParams(string name, string other, string[] parameters)
     => TrueExpected(
       name + "<" + parameters.Joined(s => "$" + s) + ">{|" + other + "}",
        Object(name) with {
          ObjAlternates = [ObjAlternate(other)],
-         TypeParameters = parameters.TypeParameters(),
+         TypeParams = parameters.TypeParams(),
        });
 
-  public void WithTypeParameterBad(string name, string other)
+  public void WithTypeParamBad(string name, string other)
     => FalseExpected(name + "<$>{|" + other);
 
-  public void WithTypeParametersBad(string name, string other, string[] parameters)
+  public void WithTypeParamsBad(string name, string other, string[] parameters)
     => FalseExpected(name + "<" + parameters.Joined(s => "$" + s) + "{|" + other);
 
-  public void WithTypeParametersNone(string name, string other)
+  public void WithTypeParamsNone(string name, string other)
     => FalseExpected(name + "<>{|" + other);
 
   public void WithFieldBad(string name, FieldInput[] fields, string fieldName)
@@ -211,10 +211,10 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
     => _factories.ObjBase(AstNulls.At, type, description);
 
   public TObjBase ObjBaseWithArgs(string type, string subType)
-    => ObjBase(type) with { BaseArguments = [ObjArg(subType)] };
+    => ObjBase(type) with { BaseArgs = [ObjArg(subType)] };
 
   public TObjArgAst ObjArg(string type, string description = "")
-    => _factories.ObjArgument(AstNulls.At, type, description);
+    => _factories.ObjArg(AstNulls.At, type, description);
 
   protected internal sealed override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";
@@ -229,10 +229,10 @@ public interface ICheckObject<TObject>
 where TObject : IGqlpObject
 {
   void WithNameBad(decimal id, string[] others);
-  void WithTypeParameters(string name, string other, string[] typeParameters);
-  void WithTypeParameterBad(string name, string other);
-  void WithTypeParametersBad(string name, string other, string[] typeParameters);
-  void WithTypeParametersNone(string name, string other);
+  void WithTypeParams(string name, string other, string[] typeParams);
+  void WithTypeParamBad(string name, string other);
+  void WithTypeParamsBad(string name, string other, string[] typeParams);
+  void WithTypeParamsNone(string name, string other);
   void WithParentField(string name, string parent, string field, string fieldType);
   void WithParentFieldBad(string name, string parent, string field, string fieldType);
   void WithParentGenericField(string name, string parent, string subType, string field, string fieldType);

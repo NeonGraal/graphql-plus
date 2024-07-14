@@ -4,12 +4,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentDualRef
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     name: OutpGenParentDual
     parent: !_OutputBase
       output: OutpGenParentDualRef
-      typeArguments:
-      - !_DualArgument
+      typeArgs:
+      - !_DualArg
         dual: OutpGenParentDualAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpGenParentDualAlt: !_TypeDual
@@ -39,12 +39,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentDualRef
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     alternates:
     - !_OutputAlternate
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     name: OutpGenParentDualRef
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: ref

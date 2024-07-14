@@ -8,6 +8,6 @@ internal class OperationContext : Tokenizer
   internal OperationContext(string operation)
     : base(operation) { }
 
-  internal readonly List<ArgumentAst> Variables = [];
+  internal readonly List<ArgAst> Variables = [];
   internal readonly List<SpreadAst> Spreads = [];
 }

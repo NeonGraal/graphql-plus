@@ -4,35 +4,35 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpPrmsPrntSame
-      type: !_TypeParameter a
+      type: !_TypeParam a
     alternates:
     - !_OutputAlternate
-      type: !_TypeParameter a
+      type: !_TypeParam a
     name: OutpPrmsPrntSame
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: a
   !_Identifier OutpPrntPrmsSame: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpPrmsPrntSame
-      type: !_TypeParameter a
+      type: !_TypeParam a
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpPrntPrmsSame
-      type: !_TypeParameter a
+      type: !_TypeParam a
     fields:
     - !_OutputField
       name: field
-      type: !_TypeParameter a
+      type: !_TypeParam a
     name: OutpPrntPrmsSame
     parent: !_OutputBase
       output: OutpPrmsPrntSame
-      typeArguments:
-      - !_TypeParameter a
+      typeArgs:
+      - !_TypeParam a
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: a

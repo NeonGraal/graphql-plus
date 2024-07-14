@@ -4,26 +4,26 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: InpGenPrntRef
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     name: InpGenPrntArg
     parent: !_InputBase
       input: InpGenPrntRef
-      typeArguments:
-      - !_TypeParameter type
+      typeArgs:
+      - !_TypeParam type
     typeKind: !_TypeKind Input
-    typeParameters:
+    typeParams:
     - !_Described
       name: type
   !_Identifier InpGenPrntRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: InpGenPrntRef
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     alternates:
     - !_InputAlternate
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     name: InpGenPrntRef
     typeKind: !_TypeKind Input
-    typeParameters:
+    typeParams:
     - !_Described
       name: ref

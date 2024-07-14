@@ -15,9 +15,9 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "InpGenParentDualRef",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_DualArgument",
+            "$tag": "_DualArg",
             "value": "InpGenParentDualAlt"
           }
         ]
@@ -86,7 +86,7 @@
       ],
       "name": "InpGenParentDualRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

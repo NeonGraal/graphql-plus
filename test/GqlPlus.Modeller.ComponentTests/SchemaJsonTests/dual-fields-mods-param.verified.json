@@ -9,7 +9,7 @@
           "$tag": "_ObjectFor(_DualField)",
           "modifiers": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -27,7 +27,7 @@
           "$tag": "_DualField",
           "modifiers": [
             {
-              "$tag": "_ModifierTypeParameter",
+              "$tag": "_ModifierTypeParam",
               "by": "mod",
               "modifierKind": "Param"
             }
@@ -41,7 +41,7 @@
       ],
       "name": "DualFieldModsParam",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "mod"

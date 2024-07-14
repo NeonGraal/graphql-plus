@@ -12,12 +12,12 @@ public abstract class TestObjectBase<TObjBase>(
   => objectBaseChecks.WithMinimum(name);
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeParameter_ReturnsCorrectAst(string name)
-  => objectBaseChecks.WithTypeParameter(name);
+  public void WithTypeParam_ReturnsCorrectAst(string name)
+  => objectBaseChecks.WithTypeParam(name);
 
   [Fact]
-  public void WithTypeParameterBad_ReturnsFalse()
-  => objectBaseChecks.WithTypeParameterBad();
+  public void WithTypeParamBad_ReturnsFalse()
+  => objectBaseChecks.WithTypeParamBad();
 
   [Theory]
   [RepeatInlineData(Repeats, "Boolean")]
@@ -26,20 +26,20 @@ public abstract class TestObjectBase<TObjBase>(
   [RepeatInlineData(Repeats, "^")]
   [RepeatInlineData(Repeats, "0")]
   [RepeatInlineData(Repeats, "*")]
-  public void WithSimpleArguments_ReturnsCorrectAst(string argument, string name)
-  => objectBaseChecks.WithTypeArguments(name, [argument]);
+  public void WithSimpleArgs_ReturnsCorrectAst(string argument, string name)
+  => objectBaseChecks.WithTypeArgs(name, [argument]);
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeArguments_ReturnsCorrectAst(string name, string[] objBases)
-  => objectBaseChecks.WithTypeArguments(name, objBases);
+  public void WithTypeArgs_ReturnsCorrectAst(string name, string[] objBases)
+  => objectBaseChecks.WithTypeArgs(name, objBases);
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeArgumentsBad_ReturnsCorrectAst(string name, string[] objBases)
-  => objectBaseChecks.WithTypeArgumentsBad(name, objBases);
+  public void WithTypeArgsBad_ReturnsCorrectAst(string name, string[] objBases)
+  => objectBaseChecks.WithTypeArgsBad(name, objBases);
 
   [Theory, RepeatData(Repeats)]
-  public void WithTypeArgumentsNone_ReturnsFalse(string name)
-  => objectBaseChecks.WithTypeArgumentsNone(name);
+  public void WithTypeArgsNone_ReturnsFalse(string name)
+  => objectBaseChecks.WithTypeArgsNone(name);
 }
 
 internal class CheckObjectBase<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>(
@@ -49,38 +49,38 @@ internal class CheckObjectBase<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>(
   , ICheckObjectBase<TObjBase>
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArgument
-  where TObjArgAst : AstObjArgument, TObjArg
+  where TObjArg : IGqlpObjArg
+  where TObjArgAst : AstObjArg, TObjArg
 {
   private readonly IObjectBaseFactories<TObjBase, TObjBaseAst, TObjArg, TObjArgAst> _factories = factories;
 
   public void WithMinimum(string name)
     => TrueExpected(name, ObjBase(name));
 
-  public void WithTypeParameter(string name)
-    => TrueExpected("$" + name, ObjBase(name) with { IsTypeParameter = true });
+  public void WithTypeParam(string name)
+    => TrueExpected("$" + name, ObjBase(name) with { IsTypeParam = true });
 
-  public void WithTypeParameterBad()
+  public void WithTypeParamBad()
     => FalseExpected("$");
 
-  public void WithTypeArguments(string name, string[] objBases)
+  public void WithTypeArgs(string name, string[] objBases)
     => TrueExpected(
       name + "<" + objBases.Joined() + ">",
       ObjBase(name) with {
-        BaseArguments = [.. objBases.Select(ObjArg)]
+        BaseArgs = [.. objBases.Select(ObjArg)]
       });
 
-  public void WithTypeArgumentsBad(string name, string[] objBases)
+  public void WithTypeArgsBad(string name, string[] objBases)
     => FalseExpected(name + "<" + objBases.Joined());
 
-  public void WithTypeArgumentsNone(string name)
+  public void WithTypeArgsNone(string name)
     => FalseExpected(name + "<>");
 
   public TObjBaseAst ObjBase(string type)
     => _factories.ObjBase(AstNulls.At, type);
 
   public TObjArgAst ObjArg(string type)
-    => _factories.ObjArgument(AstNulls.At, type);
+    => _factories.ObjArg(AstNulls.At, type);
 }
 
 public interface ICheckObjectBase<TObjBase>
@@ -88,9 +88,9 @@ public interface ICheckObjectBase<TObjBase>
   where TObjBase : IGqlpObjBase
 {
   void WithMinimum(string name);
-  void WithTypeParameter(string name);
-  void WithTypeParameterBad();
-  void WithTypeArguments(string name, string[] objBases);
-  void WithTypeArgumentsBad(string name, string[] objBases);
-  void WithTypeArgumentsNone(string name);
+  void WithTypeParam(string name);
+  void WithTypeParamBad();
+  void WithTypeArgs(string name, string[] objBases);
+  void WithTypeArgsBad(string name, string[] objBases);
+  void WithTypeArgsNone(string name);
 }

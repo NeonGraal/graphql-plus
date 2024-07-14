@@ -41,8 +41,8 @@ types: !_Map_Type
     name: _EnumValue
     parent: !_OutputBase
       output: _TypeRef
-      typeArguments:
-      - !_OutputArgument
+      typeArgs:
+      - !_OutputArg
         member: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
@@ -51,13 +51,13 @@ types: !_Map_Type
     name: _TypeEnum
     parent: !_OutputBase
       output: _ParentType
-      typeArguments:
-      - !_OutputArgument
+      typeArgs:
+      - !_OutputArg
         member: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-      - !_OutputArgument
+      - !_OutputArg
         output: _Aliased
-      - !_DualArgument
+      - !_DualArg
         dual: _EnumMember
     typeKind: !_TypeKind Output

@@ -29,9 +29,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutGenEnumRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "outEnumGen",
                 "name": "OutEnumGen",
                 "typeKind": "Enum"
@@ -46,9 +46,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutGenEnumRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "outEnumGen",
                 "name": "OutEnumGen",
                 "typeKind": "Enum"
@@ -79,7 +79,7 @@
       ],
       "name": "OutGenEnumRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"

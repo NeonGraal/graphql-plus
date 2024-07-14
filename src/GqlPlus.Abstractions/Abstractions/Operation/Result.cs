@@ -8,7 +8,7 @@ public interface IGqlpField
   : IGqlpNamed, IGqlpSelection, IGqlpModifiers
 {
   string? FieldAlias { get; }
-  IGqlpArgument? Argument { get; }
+  IGqlpArg? Arg { get; }
   IEnumerable<IGqlpSelection> Selections { get; }
 }
 
@@ -23,8 +23,8 @@ public interface IGqlpSpread
   : IGqlpNamed, IGqlpSelection
 { }
 
-public interface IGqlpArgument
-  : IGqlpValue<IGqlpArgument>
+public interface IGqlpArg
+  : IGqlpValue<IGqlpArg>
 {
   string? Variable { get; }
   IGqlpConstant? Constant { get; }

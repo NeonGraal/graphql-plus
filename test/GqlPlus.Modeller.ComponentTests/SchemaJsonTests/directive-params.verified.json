@@ -12,7 +12,7 @@
       "name": "DirParams",
       "parameters": [
         {
-          "$tag": "_InputParameter",
+          "$tag": "_InputParam",
           "value": "DirParamsIn"
         }
       ],

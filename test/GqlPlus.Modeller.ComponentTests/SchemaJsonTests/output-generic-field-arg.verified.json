@@ -12,7 +12,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenFieldRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
@@ -23,13 +23,13 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenFieldRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
       "name": "OutpGenFieldArg",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -53,7 +53,7 @@
       ],
       "name": "OutpGenFieldRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

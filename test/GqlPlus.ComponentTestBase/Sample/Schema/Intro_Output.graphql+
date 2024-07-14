@@ -14,7 +14,7 @@ output _OutputParent {
 
 output _OutputField {
     : _Field<_OutputBase>
-        parameter: _InputParameter[]
+        parameter: _InputParam[]
     | _OutputEnum
     }
 
@@ -22,10 +22,10 @@ output _OutputAlternate {
     : _Alternate<_OutputBase>
     }
 
-output _OutputArgument {
+output _OutputArg {
     : _TypeRef<_TypeKind>
         member: _Identifier?
-    | _TypeParameter
+    | _TypeParam
     }
 
 output _OutputEnum {

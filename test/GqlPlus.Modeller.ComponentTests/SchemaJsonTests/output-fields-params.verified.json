@@ -21,11 +21,11 @@
           "object": "FieldParams",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "FieldParam1"
             },
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "FieldParam2"
             }
           ],
@@ -41,11 +41,11 @@
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "FieldParam1"
             },
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "FieldParam2"
             }
           ],

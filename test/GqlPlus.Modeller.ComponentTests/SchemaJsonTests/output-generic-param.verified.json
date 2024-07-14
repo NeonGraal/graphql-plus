@@ -12,9 +12,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "value": "OutpGenParamAlt"
               }
             ]
@@ -28,9 +28,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "value": "OutpGenParamAlt"
               }
             ]
@@ -102,7 +102,7 @@
       ],
       "name": "OutpGenParamRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

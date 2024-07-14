@@ -4,26 +4,26 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGenPrntRef
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     name: OutpGenPrntArg
     parent: !_OutputBase
       output: OutpGenPrntRef
-      typeArguments:
-      - !_TypeParameter type
+      typeArgs:
+      - !_TypeParam type
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: type
   !_Identifier OutpGenPrntRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGenPrntRef
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     alternates:
     - !_OutputAlternate
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     name: OutpGenPrntRef
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: ref

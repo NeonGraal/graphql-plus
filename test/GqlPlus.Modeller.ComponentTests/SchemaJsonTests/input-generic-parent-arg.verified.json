@@ -15,10 +15,10 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "InpGenPrntRef",
-        "typeArguments": ["type"]
+        "typeArgs": ["type"]
       },
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -42,7 +42,7 @@
       ],
       "name": "InpGenPrntRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

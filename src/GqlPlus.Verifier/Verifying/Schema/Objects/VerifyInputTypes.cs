@@ -9,13 +9,13 @@ internal class VerifyInputTypes(
   IMerge<IGqlpInputField> fields,
   IMerge<IGqlpInputAlternate> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpInputArgument, IGqlpInputField, IGqlpInputAlternate, UsageContext>(aliased, fields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpInputArg, IGqlpInputField, IGqlpInputAlternate, UsageContext>(aliased, fields, mergeAlternates, logger)
 {
   protected override UsageContext MakeContext(IGqlpInputObject usage, IGqlpType[] aliased, ITokenMessages errors)
   {
     Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))
-      .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
+      .Concat(usage.TypeParams.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);
 
     return new(validTypes, errors);

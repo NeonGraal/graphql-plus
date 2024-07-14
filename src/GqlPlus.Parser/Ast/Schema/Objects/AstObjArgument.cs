@@ -3,13 +3,13 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal abstract record class AstObjArgument(
+internal abstract record class AstObjArg(
   TokenAt At,
   string Name,
   string Description
 ) : AstObjType(At, Name, Description)
-  , IGqlpObjArgument
+  , IGqlpObjArg
 {
-  bool IEquatable<IGqlpObjArgument>.Equals(IGqlpObjArgument? other)
+  bool IEquatable<IGqlpObjArg>.Equals(IGqlpObjArg? other)
     => Equals(other as AstObjType);
 }

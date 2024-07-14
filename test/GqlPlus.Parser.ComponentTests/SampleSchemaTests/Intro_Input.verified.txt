@@ -78,7 +78,7 @@ Success
 }
 {
   !Ou I@008/0024
-  _InputParameter
+  _InputParam
   :
   I@007/0025
   _ObjDescribed

@@ -13,7 +13,7 @@ internal class VerifyCategoryOutput(
   protected override void UsageValue(IGqlpSchemaCategory usage, UsageContext context)
   {
     if (context.GetType(usage.Output, out IGqlpDescribed? type) && type is IGqlpOutputObject output) {
-      if (output.TypeParameters.Any()) {
+      if (output.TypeParams.Any()) {
         context.AddError(usage, "Category Output", $"'{usage.Output}' is a generic Output type");
       }
     } else {

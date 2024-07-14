@@ -4,35 +4,35 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpPrmsPrntDiff
-      type: !_TypeParameter b
+      type: !_TypeParam b
     alternates:
     - !_OutputAlternate
-      type: !_TypeParameter b
+      type: !_TypeParam b
     name: OutpPrmsPrntDiff
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: b
   !_Identifier OutpPrntPrmsDiff: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpPrmsPrntDiff
-      type: !_TypeParameter b
+      type: !_TypeParam b
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpPrntPrmsDiff
-      type: !_TypeParameter a
+      type: !_TypeParam a
     fields:
     - !_OutputField
       name: field
-      type: !_TypeParameter a
+      type: !_TypeParam a
     name: OutpPrntPrmsDiff
     parent: !_OutputBase
       output: OutpPrmsPrntDiff
-      typeArguments:
-      - !_TypeParameter a
+      typeArgs:
+      - !_TypeParam a
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: a

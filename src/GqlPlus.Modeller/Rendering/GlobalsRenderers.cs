@@ -49,13 +49,13 @@ internal class DirectivesRenderer(
 { }
 
 internal class DirectiveRenderer(
-  IRenderer<InputParameterModel> parameter
+  IRenderer<InputParamModel> parameter
 ) : AliasedRenderer<DirectiveModel>
 {
   internal override RenderStructure Render(DirectiveModel model)
     => base.Render(model)
       .AddSet("locations", model.Locations, "_Location")
-      .Add("parameters", model.Parameters, parameter)
+      .Add("parameters", model.Params, parameter)
       .Add("repeatable", model.Repeatable);
 }
 

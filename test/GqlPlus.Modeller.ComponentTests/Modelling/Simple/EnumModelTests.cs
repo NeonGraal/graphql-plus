@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Resolving;
 
 namespace GqlPlus.Modelling.Simple;
 
@@ -57,9 +58,8 @@ public class EnumModelTests(
 }
 
 internal sealed class EnumModelChecks(
-  IModeller<IGqlpEnum, TypeEnumModel> modeller,
-  IRenderer<TypeEnumModel> rendering
-) : CheckParentModel<IGqlpEnum, SimpleKindModel, TypeEnumModel, string>(modeller, rendering, SimpleKindModel.Enum)
+  CheckParentInputs<IGqlpEnum, TypeEnumModel> inputs
+) : CheckParentModel<IGqlpEnum, SimpleKindModel, TypeEnumModel, string>(inputs, SimpleKindModel.Enum)
   , IEnumModelChecks
 {
   public void EnumExpected(IGqlpEnum ast, ExpectedEnumInput input)

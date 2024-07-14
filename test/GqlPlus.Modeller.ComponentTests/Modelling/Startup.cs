@@ -1,6 +1,8 @@
-﻿using GqlPlus.Modelling.Globals;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Modelling.Globals;
 using GqlPlus.Modelling.Objects;
 using GqlPlus.Modelling.Simple;
+using GqlPlus.Resolving;
 
 using Microsoft.Extensions.DependencyInjection;
 
@@ -29,7 +31,9 @@ public static class Startup
       .AddTransient<IDomainNumberModelChecks, DomainNumberModelChecks>()
       .AddTransient<IDomainStringModelChecks, DomainStringModelChecks>()
       .AddTransient<IEnumModelChecks, EnumModelChecks>()
+      .AddSingleton<CheckParentInputs<IGqlpEnum, TypeEnumModel>>()
       .AddTransient<IUnionModelChecks, UnionModelChecks>()
+      .AddSingleton<CheckParentInputs<IGqlpUnion, TypeUnionModel>>()
 
       .AddTransient<IDualBaseModelChecks, DualBaseModelChecks>()
       .AddTransient<IDualFieldModelChecks, DualFieldModelChecks>()
@@ -44,5 +48,6 @@ public static class Startup
 
       .AddComponentTest()
       .AddModellers()
+      .AddResolvers()
       .AddRenderers();
 }

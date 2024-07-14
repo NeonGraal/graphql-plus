@@ -48,7 +48,7 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
   protected IModeller<TSrc, TModel> _modeller;
   protected IRenderer<TRender> _rendering;
 
-  public IResolveContext Context { get; } = new TestRenderContext();
+  public IResolveContext Context { get; } = new TestResolveContext();
   public IMap<TypeKindModel> TypeKinds { get; } = new Map<TypeKindModel>();
 
   protected CheckModelBase(IModeller<TSrc, TModel> modeller, IRenderer<TRender> rendering)

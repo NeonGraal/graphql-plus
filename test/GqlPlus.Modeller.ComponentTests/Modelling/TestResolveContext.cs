@@ -3,7 +3,7 @@ using GqlPlus.Resolving;
 
 namespace GqlPlus.Modelling;
 
-internal sealed class TestRenderContext
+internal sealed class TestResolveContext
   : Dictionary<string, BaseTypeModel>
   , IResolveContext
 {

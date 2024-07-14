@@ -25,7 +25,7 @@ types: !_Map_Type
       name: items
       object: All
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: Param
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase
@@ -39,7 +39,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: Param
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase

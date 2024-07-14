@@ -57,7 +57,7 @@
           "object": "All",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "Param",
               "modifiers": [
                 {
@@ -94,7 +94,7 @@
           "name": "items",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "Param",
               "modifiers": [
                 {

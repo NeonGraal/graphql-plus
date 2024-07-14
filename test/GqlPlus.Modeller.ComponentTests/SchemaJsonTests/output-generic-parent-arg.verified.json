@@ -15,10 +15,10 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "OutpGenPrntRef",
-        "typeArguments": ["type"]
+        "typeArgs": ["type"]
       },
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -42,7 +42,7 @@
       ],
       "name": "OutpGenPrntRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

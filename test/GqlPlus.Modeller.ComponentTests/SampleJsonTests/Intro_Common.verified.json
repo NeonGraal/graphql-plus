@@ -32,7 +32,7 @@
         "value": "_Aliased"
       },
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "kind"
@@ -66,10 +66,10 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_BaseType",
-        "typeArguments": ["kind"]
+        "typeArgs": ["kind"]
       },
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "kind"
@@ -148,16 +148,16 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ChildType",
-        "typeArguments": [
+        "typeArgs": [
           "kind",
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_Identifier"
           }
         ]
       },
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "kind"
@@ -235,9 +235,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_BaseType",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Basic",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
@@ -251,9 +251,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_BaseType",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Internal",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
@@ -316,9 +316,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_BaseType",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Basic",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
@@ -331,9 +331,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_BaseType",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Internal",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
@@ -489,7 +489,7 @@
       ],
       "name": "_TypeRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "kind"
@@ -505,9 +505,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_TypeRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Basic",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
@@ -521,9 +521,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_TypeRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Enum",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
@@ -537,9 +537,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_TypeRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Domain",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
@@ -553,9 +553,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_TypeRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Union",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
@@ -570,9 +570,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_TypeRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Basic",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
@@ -585,9 +585,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_TypeRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Enum",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
@@ -600,9 +600,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_TypeRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Domain",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
@@ -615,9 +615,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_TypeRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Union",
                 "name": "_TypeKind",
                 "typeKind": "Enum"

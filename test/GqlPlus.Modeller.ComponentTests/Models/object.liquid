@@ -1,10 +1,10 @@
 ﻿<section>
-  {%- if object.typeParameters or object.parent %}
+  {%- if object.typeParams or object.parent %}
   <div class="grid">
-    {%- if object.typeParameters %}
+    {%- if object.typeParams %}
     <div>
       <sub>Type parameters:</sub>
-      {%- for prm in object.typeParameters %} ${{ prm.name }}
+      {%- for prm in object.typeParams %} ${{ prm.name }}
       {%- unless forloop.last -%} , {%- endunless -%}
       {%- endfor %}
     </div>

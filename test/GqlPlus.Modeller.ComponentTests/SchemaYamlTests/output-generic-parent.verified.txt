@@ -2,8 +2,8 @@
 types: !_Map_Type
   !_Identifier OutpGenPrnt: !_TypeOutput
     name: OutpGenPrnt
-    parent: !_TypeParameter type
+    parent: !_TypeParam type
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: type

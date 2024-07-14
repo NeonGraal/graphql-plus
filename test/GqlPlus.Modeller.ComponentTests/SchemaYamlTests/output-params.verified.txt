@@ -29,7 +29,7 @@ types: !_Map_Type
       name: field
       object: OutParams
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: OutParam
       type: !_OutputBase
         output: OutParams
@@ -37,7 +37,7 @@ types: !_Map_Type
     - !_OutputField
       name: field
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: OutParam
       type: !_OutputBase
         output: OutParams

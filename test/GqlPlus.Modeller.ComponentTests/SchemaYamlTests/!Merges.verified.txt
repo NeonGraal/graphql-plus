@@ -36,7 +36,7 @@ directives: !_Map_Directives
     locations: !_Set(_Location) {Fragment: _, Operation: _}
     name: DirParams
     parameters:
-    - !_InputParameter
+    - !_InputParam
       input: DirParamsIn
     repeatable: false
 name: Schema
@@ -169,21 +169,21 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: test
       object: DualParams
-      type: !_TypeParameter test
+      type: !_TypeParam test
     - !_ObjectFor(_DualField)
       name: type
       object: DualParams
-      type: !_TypeParameter type
+      type: !_TypeParam type
     fields:
     - !_DualField
       name: test
-      type: !_TypeParameter test
+      type: !_TypeParam test
     - !_DualField
       name: type
-      type: !_TypeParameter type
+      type: !_TypeParam type
     name: DualParams
     typeKind: !_TypeKind Dual
-    typeParameters:
+    typeParams:
     - !_Described
       name: test
     - !_Described
@@ -362,9 +362,9 @@ types: !_Map_Type
       name: field
       object: FieldParams
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: FieldParam1
-      - !_InputParameter
+      - !_InputParam
         input: FieldParam2
       type: !_OutputBase
         output: FieldParams
@@ -372,9 +372,9 @@ types: !_Map_Type
     - !_OutputField
       name: field
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: FieldParam1
-      - !_InputParameter
+      - !_InputParam
         input: FieldParam2
       type: !_OutputBase
         output: FieldParams
@@ -437,21 +437,21 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: test
       object: InpParams
-      type: !_TypeParameter test
+      type: !_TypeParam test
     - !_ObjectFor(_InputField)
       name: type
       object: InpParams
-      type: !_TypeParameter type
+      type: !_TypeParam type
     fields:
     - !_InputField
       name: test
-      type: !_TypeParameter test
+      type: !_TypeParam test
     - !_InputField
       name: type
-      type: !_TypeParameter type
+      type: !_TypeParam type
     name: InpParams
     typeKind: !_TypeKind Input
-    typeParameters:
+    typeParams:
     - !_Described
       name: test
     - !_Described
@@ -557,21 +557,21 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: test
       object: OutpParams
-      type: !_TypeParameter test
+      type: !_TypeParam test
     - !_ObjectFor(_OutputField)
       name: type
       object: OutpParams
-      type: !_TypeParameter type
+      type: !_TypeParam type
     fields:
     - !_OutputField
       name: test
-      type: !_TypeParameter test
+      type: !_TypeParam test
     - !_OutputField
       name: type
-      type: !_TypeParameter type
+      type: !_TypeParam type
     name: OutpParams
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: test
     - !_Described

@@ -56,7 +56,7 @@
           "object": "OutParams",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutParam"
             }
           ],
@@ -72,7 +72,7 @@
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "value": "OutParam"
             }
           ],

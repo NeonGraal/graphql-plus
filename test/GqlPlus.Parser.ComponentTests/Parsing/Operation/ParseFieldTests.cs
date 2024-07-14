@@ -20,10 +20,10 @@ public class ParseFieldTests(
       new FieldAst(AstNulls.At, field) { FieldAlias = alias });
 
   [Theory, RepeatData(Repeats)]
-  public void WithArgument_ReturnsCorrectAst(string field, string argument)
+  public void WithArg_ReturnsCorrectAst(string field, string argument)
     => checks.TrueExpected(
       field + $"(${argument})",
-      new FieldAst(AstNulls.At, field) { Argument = new(AstNulls.At, argument) });
+      new FieldAst(AstNulls.At, field) { Arg = new(AstNulls.At, argument) });
 
   [Theory, RepeatData(Repeats)]
   public void WithModifiers_ReturnsCorrectAst(string field)
@@ -57,7 +57,7 @@ public class ParseFieldTests(
       alias + ":" + field + "($" + argument + ")[]?" + directives.Joined(s => "@" + s) + selections.Bracket("{", "}").Joined(),
       new FieldAst(AstNulls.At, field) {
         FieldAlias = alias,
-        Argument = new(AstNulls.At, argument),
+        Arg = new(AstNulls.At, argument),
         Modifiers = TestMods(),
         Directives = directives.Directives(),
         Selections = selections.Fields(),

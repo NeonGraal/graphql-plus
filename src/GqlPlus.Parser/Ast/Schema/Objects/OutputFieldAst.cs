@@ -12,24 +12,24 @@ internal sealed record class OutputFieldAst(
   , IEquatable<OutputFieldAst>
   , IGqlpOutputField
 {
-  public IGqlpInputParameter[] Parameters { get; set; } = [];
+  public IGqlpInputParam[] Params { get; set; } = [];
 
   public OutputFieldAst(TokenAt at, string name, IGqlpOutputBase typeBase)
     : this(at, name, "", typeBase) { }
 
   internal override string Abbr => "OF";
 
-  IEnumerable<IGqlpInputParameter> IGqlpOutputField.Parameters => Parameters;
+  IEnumerable<IGqlpInputParam> IGqlpOutputField.Params => Params;
 
   public bool Equals(OutputFieldAst? other)
     => base.Equals(other)
-    && Parameters.SequenceEqual(other.Parameters);
+    && Params.SequenceEqual(other.Params);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Parameters.Length);
+    => HashCode.Combine(base.GetHashCode(), Params.Length);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Concat(Parameters.Bracket("(", ")"))
+      .Concat(Params.Bracket("(", ")"))
       .Append(string.IsNullOrWhiteSpace(BaseType.EnumMember) ? ":" : "=")
       .Concat(BaseType.GetFields())
       .Concat(Modifiers.AsString());

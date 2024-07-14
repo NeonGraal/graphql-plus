@@ -79,7 +79,7 @@
           "object": "OutParamsDomain",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "OutParamDomain",
               "modifiers": [
                 {
@@ -103,7 +103,7 @@
           "name": "field",
           "parameters": [
             {
-              "$tag": "_InputParameter",
+              "$tag": "_InputParam",
               "input": "OutParamDomain",
               "modifiers": [
                 {

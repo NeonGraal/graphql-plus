@@ -7,7 +7,7 @@
       "name": "OutpGenPrnt",
       "parent": "type",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"

@@ -6,13 +6,13 @@ namespace GqlPlus.Merging.Objects;
 internal class MergeDualObjects(
   ILoggerFactory logger,
   IMerge<IGqlpDualField> fields,
-  IMerge<IGqlpTypeParameter> typeParameters,
+  IMerge<IGqlpTypeParam> typeParams,
   IMerge<IGqlpDualAlternate> alternates
-) : AstObjectsMerger<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>(logger, fields, typeParameters, alternates)
+) : AstObjectsMerger<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>(logger, fields, typeParams, alternates)
 {
-  protected override IGqlpDualObject SetAlternates(IGqlpDualObject obj, IEnumerable<IGqlpTypeParameter> typeParameters, IEnumerable<IGqlpDualAlternate> alternates)
+  protected override IGqlpDualObject SetAlternates(IGqlpDualObject obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<IGqlpDualAlternate> alternates)
     => (DualDeclAst)obj with {
-      TypeParameters = typeParameters.ArrayOf<TypeParameterAst>(),
+      TypeParams = typeParams.ArrayOf<TypeParamAst>(),
       ObjAlternates = [.. alternates],
     };
 

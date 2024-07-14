@@ -3,27 +3,27 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Modelling.Objects;
 
-public class InputParameterModelTests(
-  ICheckDescribedModel<string, InputParameterModel> checks
-) : TestDescribedModel<string, InputParameterModel>(checks)
+public class InputParamModelTests(
+  ICheckDescribedModel<string, InputParamModel> checks
+) : TestDescribedModel<string, InputParamModel>(checks)
 { }
 
-internal sealed class InputParameterModelChecks(
-  IModeller<IGqlpInputParameter, InputParameterModel> modeller,
-  IRenderer<InputParameterModel> rendering
-) : CheckDescribedModel<string, IGqlpInputParameter, InputParameterModel>(modeller, rendering)
+internal sealed class InputParamModelChecks(
+  IModeller<IGqlpInputParam, InputParamModel> modeller,
+  IRenderer<InputParamModel> rendering
+) : CheckDescribedModel<string, IGqlpInputParam, InputParamModel>(modeller, rendering)
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<string> input)
   {
     IEnumerable<string> description = input.ExpectedDescription;
     return description.Any()
-      ? ["!_InputParameter",
+      ? ["!_InputParam",
         "base: !_InputBase",
         "  input: " + input.Name,
         .. description]
-        : ["!_InputParameter", "input: " + input.Name];
+        : ["!_InputParam", "input: " + input.Name];
   }
 
-  protected override InputParameterAst NewDescribedAst(string input, string description)
+  protected override InputParamAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);
 }

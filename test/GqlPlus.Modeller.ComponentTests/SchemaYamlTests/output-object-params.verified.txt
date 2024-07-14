@@ -5,21 +5,21 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: test
       object: OutpParams
-      type: !_TypeParameter test
+      type: !_TypeParam test
     - !_ObjectFor(_OutputField)
       name: type
       object: OutpParams
-      type: !_TypeParameter type
+      type: !_TypeParam type
     fields:
     - !_OutputField
       name: test
-      type: !_TypeParameter test
+      type: !_TypeParam test
     - !_OutputField
       name: type
-      type: !_TypeParameter type
+      type: !_TypeParam type
     name: OutpParams
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: test
     - !_Described

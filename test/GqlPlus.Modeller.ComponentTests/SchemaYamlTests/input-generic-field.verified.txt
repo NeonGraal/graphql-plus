@@ -5,13 +5,13 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: field
       object: InpGenField
-      type: !_TypeParameter type
+      type: !_TypeParam type
     fields:
     - !_InputField
       name: field
-      type: !_TypeParameter type
+      type: !_TypeParam type
     name: InpGenField
     typeKind: !_TypeKind Input
-    typeParameters:
+    typeParams:
     - !_Described
       name: type

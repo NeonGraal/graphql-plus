@@ -105,9 +105,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_TypeRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Output",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
@@ -146,9 +146,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_TypeRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_OutputArgument",
+                "$tag": "_OutputArg",
                 "member": "Output",
                 "name": "_TypeKind",
                 "typeKind": "Enum"

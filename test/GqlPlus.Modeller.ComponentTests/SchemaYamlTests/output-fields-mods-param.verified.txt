@@ -3,20 +3,20 @@ types: !_Map_Type
   !_Identifier OutpFieldModsParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       object: OutpFieldModsParam
       type: !_OutputBase
         output: OutpFieldParamMods
     fields:
     - !_OutputField
-      modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       type: !_OutputBase
         output: OutpFieldParamMods
     name: OutpFieldModsParam
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: mod
   !_Identifier OutpFieldParamMods: !_TypeOutput

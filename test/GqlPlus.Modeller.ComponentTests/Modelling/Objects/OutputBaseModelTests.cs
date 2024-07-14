@@ -5,44 +5,44 @@ namespace GqlPlus.Modelling.Objects;
 
 public class OutputBaseModelTests(
   IOutputBaseModelChecks checks
-) : TestObjBaseModel<IGqlpOutputBase, IGqlpOutputArgument, OutputBaseModel>(checks)
+) : TestObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseModel>(checks)
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_EnumArguments(string name, string[] arguments, string enumMember)
+  public void Model_EnumArgs(string name, string[] arguments, string enumMember)
     => checks.ObjBase_Expected(
       checks.ObjBaseAst(name, false, [.. arguments.Select(a => checks.EnumObjArg(a, enumMember))]),
-      checks.ExpectedObjBase(name, false, checks.ExpectedEnumArguments(arguments, enumMember))
+      checks.ExpectedObjBase(name, false, checks.ExpectedEnumArgs(arguments, enumMember))
       );
 }
 
 internal sealed class OutputBaseModelChecks(
   IModeller<IGqlpOutputBase, OutputBaseModel> modeller,
   IRenderer<OutputBaseModel> rendering
-) : CheckObjBaseModel<IGqlpOutputBase, IGqlpOutputArgument, OutputBaseAst, OutputArgumentAst, OutputBaseModel>(modeller, rendering, TypeKindModel.Output)
+) : CheckObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseAst, OutputArgAst, OutputBaseModel>(modeller, rendering, TypeKindModel.Output)
   , IOutputBaseModelChecks
 {
-  public string[] ExpectedEnumArguments(string[] arguments, string enumMember)
-    => [.. ItemsExpected("typeArguments:", arguments,
-      a => ["- !_OutputArgument", "  member: " + enumMember, "  name: " + a, "  typeKind: !_SimpleKind Enum"])];
+  public string[] ExpectedEnumArgs(string[] arguments, string enumMember)
+    => [.. ItemsExpected("typeArgs:", arguments,
+      a => ["- !_OutputArg", "  member: " + enumMember, "  name: " + a, "  typeKind: !_SimpleKind Enum"])];
 
-  protected override OutputBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpOutputArgument[] args)
+  protected override OutputBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpOutputArg[] args)
     => new(AstNulls.At, input) {
-      IsTypeParameter = isTypeParam,
-      BaseArguments = args,
+      IsTypeParam = isTypeParam,
+      BaseArgs = args,
     };
 
-  public IGqlpOutputArgument EnumObjArg(string input, string enumMember)
+  public IGqlpOutputArg EnumObjArg(string input, string enumMember)
     => NewObjArgAst(input, false) with { EnumMember = enumMember };
 
-  protected override OutputArgumentAst NewObjArgAst(string input, bool isTypeParam)
+  protected override OutputArgAst NewObjArgAst(string input, bool isTypeParam)
     => new(AstNulls.At, input) {
-      IsTypeParameter = isTypeParam,
+      IsTypeParam = isTypeParam,
     };
 }
 
 public interface IOutputBaseModelChecks
-  : ICheckObjBaseModel<IGqlpOutputBase, IGqlpOutputArgument, OutputBaseModel>
+  : ICheckObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseModel>
 {
-  string[] ExpectedEnumArguments(string[] arguments, string enumMember);
-  IGqlpOutputArgument EnumObjArg(string input, string enumMember);
+  string[] ExpectedEnumArgs(string[] arguments, string enumMember);
+  IGqlpOutputArg EnumObjArg(string input, string enumMember);
 }

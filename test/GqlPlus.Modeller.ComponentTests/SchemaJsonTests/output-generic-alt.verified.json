@@ -19,7 +19,7 @@
       ],
       "name": "OutpGenAlt",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"

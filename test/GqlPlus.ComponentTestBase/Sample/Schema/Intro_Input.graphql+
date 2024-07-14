@@ -21,7 +21,7 @@ output _InputAlternate {
     : _Alternate<_InputBase>
     }
 
-output _InputParameter {
+output _InputParam {
     : _ObjDescribed<_InputBase>
         modifiers: _Modifiers[]
         default: _Constant?

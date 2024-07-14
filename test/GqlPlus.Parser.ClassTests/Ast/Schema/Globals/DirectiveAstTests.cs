@@ -27,25 +27,25 @@ public class DirectiveAstTests : AstAliasedTests
       option1 == option2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithParameter(string name, string[] parameters)
+  public void HashCode_WithParam(string name, string[] parameters)
       => _checks.HashCode(
-        () => new DirectiveDeclAst(AstNulls.At, name) { Parameters = parameters.Parameters() });
+        () => new DirectiveDeclAst(AstNulls.At, name) { Params = parameters.Params() });
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithParameters(string name, string[] parameters)
+  public void String_WithParams(string name, string[] parameters)
     => _checks.Text(
-      () => new DirectiveDeclAst(AstNulls.At, name) { Parameters = parameters.Parameters() },
+      () => new DirectiveDeclAst(AstNulls.At, name) { Params = parameters.Params() },
       $"( !Di {name} ( {parameters.Joined(s => "!Pa " + s)} ) (Unique) None )");
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithParameter(string name, string[] parameters)
+  public void Equality_WithParam(string name, string[] parameters)
     => _checks.Equality(
-      () => new DirectiveDeclAst(AstNulls.At, name) { Parameters = parameters.Parameters() });
+      () => new DirectiveDeclAst(AstNulls.At, name) { Params = parameters.Params() });
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void Inequality_BetweenParameters(string name, string[] parameters1, string[] parameters2)
+  public void Inequality_BetweenParams(string name, string[] parameters1, string[] parameters2)
     => _checks.InequalityBetween(parameters1, parameters2,
-      parameters => new DirectiveDeclAst(AstNulls.At, name) { Parameters = parameters.Parameters() },
+      parameters => new DirectiveDeclAst(AstNulls.At, name) { Params = parameters.Params() },
       parameters1.SequenceEqual(parameters2));
 
   [Theory, RepeatData(Repeats)]

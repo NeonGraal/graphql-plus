@@ -19,7 +19,7 @@
       ],
       "name": "DualPrmsPrntDiff",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "b"
@@ -54,10 +54,10 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "DualPrmsPrntDiff",
-        "typeArguments": ["a"]
+        "typeArgs": ["a"]
       },
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"

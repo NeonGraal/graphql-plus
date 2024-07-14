@@ -24,9 +24,9 @@ Success
   >
   {
     !OF I@009/0003
-    typeParameters
+    typeParams
     :
-    I@025/0003
+    I@021/0003
     _Described
     []
     !OF I@009/0004
@@ -114,24 +114,24 @@ Success
   _ObjBase
   {
     !OF I@009/0023
-    typeArguments
+    typeArgs
     :
-    I@024/0023
+    I@019/0023
     _ObjDescribed
     <
-      I@038/0023
-      _ObjArgument
+      I@033/0023
+      _ObjArg
     >
     []
   }
   |
   !OA I@007/0024
   I@007/0024
-  _TypeParameter
+  _TypeParam
 }
 {
   !Ou I@008/0027
-  _ObjArgument
+  _ObjArg
   :
   I@007/0028
   _TypeRef
@@ -142,11 +142,11 @@ Success
   |
   !OA I@007/0029
   I@007/0029
-  _TypeParameter
+  _TypeParam
 }
 {
   !Do I@008/0032
-  _TypeParameter
+  _TypeParam
   String
   :_Identifier
 }

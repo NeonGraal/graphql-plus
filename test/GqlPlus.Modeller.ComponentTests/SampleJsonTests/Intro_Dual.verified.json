@@ -35,9 +35,9 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_Alternate",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_DualBase"
           }
         ]
@@ -80,9 +80,9 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_Field",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_DualBase"
           }
         ]
@@ -95,9 +95,9 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ObjDescribed",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_DualBase"
           }
         ]
@@ -110,23 +110,23 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_TypeObject",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "member": "Dual",
             "name": "_TypeKind",
             "typeKind": "Enum"
           },
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_DualParent"
           },
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_DualField"
           },
           {
-            "$tag": "_OutputArgument",
+            "$tag": "_OutputArg",
             "value": "_DualAlternate"
           }
         ]

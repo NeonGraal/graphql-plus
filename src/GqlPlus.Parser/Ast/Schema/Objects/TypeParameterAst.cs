@@ -3,16 +3,16 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal sealed record class TypeParameterAst(
+internal sealed record class TypeParamAst(
   TokenAt At,
   string Name,
   string Description
 ) : AstDescribed(At, Name, Description)
-  , IGqlpTypeParameter
+  , IGqlpTypeParam
 {
   internal override string Abbr => "TP";
 
-  internal TypeParameterAst(TokenAt at, string name)
+  internal TypeParamAst(TokenAt at, string name)
     : this(at, name, "") { }
 
   internal override IEnumerable<string?> GetFields()

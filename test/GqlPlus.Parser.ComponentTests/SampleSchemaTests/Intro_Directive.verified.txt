@@ -34,7 +34,7 @@ Success
     parameters
     :
     I@021/0010
-    _InputParameter
+    _InputParam
     []
     !OF I@009/0011
     repeatable

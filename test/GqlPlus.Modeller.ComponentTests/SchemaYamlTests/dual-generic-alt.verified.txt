@@ -4,12 +4,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: DualGenAlt
-      type: !_TypeParameter type
+      type: !_TypeParam type
     alternates:
     - !_DualAlternate
-      type: !_TypeParameter type
+      type: !_TypeParam type
     name: DualGenAlt
     typeKind: !_TypeKind Dual
-    typeParameters:
+    typeParams:
     - !_Described
       name: type

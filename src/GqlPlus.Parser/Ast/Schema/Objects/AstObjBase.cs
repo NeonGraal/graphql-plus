@@ -10,27 +10,27 @@ internal abstract record class AstObjBase<TObjArg>(
 ) : AstObjType(At, Name, Description)
   , IEquatable<AstObjBase<TObjArg>>
   , IGqlpObjBase<TObjArg>
-  where TObjArg : IGqlpObjArgument
+  where TObjArg : IGqlpObjArg
 {
-  public TObjArg[] BaseArguments { get; set; } = [];
+  public TObjArg[] BaseArgs { get; set; } = [];
 
-  public override string FullType => BaseArguments
+  public override string FullType => BaseArgs
     .Bracket("<", ">")
     .Prepend(base.FullType)
     .Joined();
 
-  IEnumerable<IGqlpObjArgument> IGqlpObjBase.Arguments => BaseArguments.Cast<IGqlpObjArgument>();
-  IEnumerable<TObjArg> IGqlpObjBase<TObjArg>.BaseArguments => BaseArguments;
+  IEnumerable<IGqlpObjArg> IGqlpObjBase.Args => BaseArgs.Cast<IGqlpObjArg>();
+  IEnumerable<TObjArg> IGqlpObjBase<TObjArg>.BaseArgs => BaseArgs;
   bool IEquatable<IGqlpObjBase>.Equals(IGqlpObjBase? other)
     => Equals(other as AstObjBase<TObjArg>);
 
   public virtual bool Equals(AstObjBase<TObjArg>? other)
     => base.Equals(other)
-    && BaseArguments.SequenceEqual(other.BaseArguments);
+    && BaseArgs.SequenceEqual(other.BaseArgs);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), BaseArguments.Length);
+    => HashCode.Combine(base.GetHashCode(), BaseArgs.Length);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-    .Concat(BaseArguments.Bracket("<", ">"));
+    .Concat(BaseArgs.Bracket("<", ">"));
 }

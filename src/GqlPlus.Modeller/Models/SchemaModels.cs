@@ -30,26 +30,26 @@ public record class SchemaModel(
   public ITokenMessages Errors { get; } = new TokenMessages();
 
 #pragma warning disable IDE0060 // Remove unused parameter
-  public IMap<CategoriesModel> GetCategories(CategoryFilterParameter? filter)
+  public IMap<CategoriesModel> GetCategories(CategoryFilterParam? filter)
     => Categories.ToMap(c => c.Key,
       c => new CategoriesModel() {
         And = c.Value,
         Type = Types.TryGetValue(c.Key, out BaseTypeModel? type) ? type : null,
       });
 
-  public IMap<DirectivesModel> GetDirectives(FilterParameter? filter)
+  public IMap<DirectivesModel> GetDirectives(FilterParam? filter)
     => Directives.ToMap(d => d.Key,
       d => new DirectivesModel() {
         And = d.Value,
         Type = Types.TryGetValue(d.Key, out BaseTypeModel? type) ? type : null,
       });
 
-  public IMap<BaseTypeModel> GetTypes(TypeFilterParameter? filter) => Types;
-  public IMap<SettingModel> GetSettings(FilterParameter? filter) => Settings;
+  public IMap<BaseTypeModel> GetTypes(TypeFilterParam? filter) => Types;
+  public IMap<SettingModel> GetSettings(FilterParam? filter) => Settings;
 #pragma warning restore IDE0060 // Remove unused parameter
 }
 
-public record class FilterParameter(
+public record class FilterParam(
   string[] Names
 )
 {
@@ -59,16 +59,16 @@ public record class FilterParameter(
   public bool ReturnByAlias { get; set; }
 }
 
-public record class CategoryFilterParameter(
+public record class CategoryFilterParam(
   string[] Names
-) : FilterParameter(Names)
+) : FilterParam(Names)
 {
   public CategoryOption[] Resolutions { get; set; } = [];
 }
 
-public record class TypeFilterParameter(
+public record class TypeFilterParam(
   string[] Names
-) : FilterParameter(Names)
+) : FilterParam(Names)
 {
   public TypeKindModel[] Kinds { get; set; } = [];
 }

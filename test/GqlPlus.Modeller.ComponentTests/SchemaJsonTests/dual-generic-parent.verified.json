@@ -7,7 +7,7 @@
       "name": "DualGenPrnt",
       "parent": "type",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"

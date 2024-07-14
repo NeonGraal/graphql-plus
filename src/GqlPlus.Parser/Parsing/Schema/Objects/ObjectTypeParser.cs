@@ -19,7 +19,7 @@ internal abstract class ObjectTypeParser<TObjType, TObjTypeAst>
 
     if (param is not null) {
       TObjTypeAst objType = ObjType(at, param, description) with {
-        IsTypeParameter = true,
+        IsTypeParam = true,
       };
       return objType.Ok();
     }

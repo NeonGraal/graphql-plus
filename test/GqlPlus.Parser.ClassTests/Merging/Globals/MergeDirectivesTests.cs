@@ -22,12 +22,12 @@ public class MergeDirectivesTests
       new DirectiveDeclAst(AstNulls.At, name)]);
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsParametersCantMerge_ReturnsErrors(string name, string[] parameters)
+  public void CanMerge_TwoAstsParamsCantMerge_ReturnsErrors(string name, string[] parameters)
     => this
       .SkipUnless(parameters)
       .CanMergeReturnsError(_parameters)
       .CanMerge_Errors(
-        new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
+        new DirectiveDeclAst(AstNulls.At, name) with { Params = parameters.Params() },
         new DirectiveDeclAst(AstNulls.At, name));
 
   [Theory, RepeatData(Repeats)]
@@ -38,21 +38,21 @@ public class MergeDirectivesTests
       new DirectiveDeclAst(AstNulls.At, name) with { Locations = locations1 | locations2 });
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoAstsWithParameters_CallsParametersMerge(string name, string[] parameters)
+  public void Merge_TwoAstsWithParams_CallsParamsMerge(string name, string[] parameters)
   {
     Merge_Expected([
-      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() },
-      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Parameters() }],
-      new DirectiveDeclAst(AstNulls.At, name) with { Parameters = parameters.Concat(parameters).Parameters() })
+      new DirectiveDeclAst(AstNulls.At, name) with { Params = parameters.Params() },
+      new DirectiveDeclAst(AstNulls.At, name) with { Params = parameters.Params() }],
+      new DirectiveDeclAst(AstNulls.At, name) with { Params = parameters.Concat(parameters).Params() })
     .MergeCalled(_parameters);
   }
 
   private readonly MergeDirectives _merger;
-  private readonly IMerge<IGqlpInputParameter> _parameters;
+  private readonly IMerge<IGqlpInputParam> _parameters;
 
   public MergeDirectivesTests(ITestOutputHelper outputHelper)
   {
-    _parameters = Merger<IGqlpInputParameter>();
+    _parameters = Merger<IGqlpInputParam>();
 
     _merger = new(outputHelper.ToLoggerFactory(), _parameters);
   }

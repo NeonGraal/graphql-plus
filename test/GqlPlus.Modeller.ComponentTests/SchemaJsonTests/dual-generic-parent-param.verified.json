@@ -15,9 +15,9 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "DualGenParentParamRef",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_DualArgument",
+            "$tag": "_DualArg",
             "value": "DualGenParentParamAlt"
           }
         ]
@@ -86,7 +86,7 @@
       ],
       "name": "DualGenParentParamRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

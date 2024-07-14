@@ -32,7 +32,7 @@
       ],
       "name": "DualParams",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "test"

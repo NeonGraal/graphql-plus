@@ -7,7 +7,7 @@ internal sealed record class InputBaseAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObjBase<IGqlpInputArgument>(At, Name, Description)
+) : AstObjBase<IGqlpInputArg>(At, Name, Description)
   , IEquatable<InputBaseAst>
   , IGqlpInputBase
 {
@@ -22,7 +22,7 @@ internal sealed record class InputBaseAst(
 
   public DualBaseAst ToDual()
     => new(At, Name, Description) {
-      IsTypeParameter = IsTypeParameter,
-      BaseArguments = [.. BaseArguments.Select(a => a.ToDual)],
+      IsTypeParam = IsTypeParam,
+      BaseArgs = [.. BaseArgs.Select(a => a.ToDual)],
     };
 }

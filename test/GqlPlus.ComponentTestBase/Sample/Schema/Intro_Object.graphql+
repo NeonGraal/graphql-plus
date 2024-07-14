@@ -1,6 +1,6 @@
 output _TypeObject<$kind $parent $field $alternate> {
     : _ChildType<$kind $parent>
-        typeParameters: _Described[]
+        typeParams: _Described[]
         fields: $field[]
         alternates: $alternate[]
         allFields: _ObjectFor<$field>[]
@@ -20,16 +20,16 @@ output _ObjType<$base> {
     }
 
 output _ObjBase {
-        typeArguments: _ObjDescribed<_ObjArgument>[]
-    | _TypeParameter
+        typeArgs: _ObjDescribed<_ObjArg>[]
+    | _TypeParam
     }
 
-output _ObjArgument {
+output _ObjArg {
     : _TypeRef<_TypeKind>
-    | _TypeParameter
+    | _TypeParam
 }
 
-domain _TypeParameter { :_Identifier String }
+domain _TypeParam { :_Identifier String }
 
 output _Alternate<$base> {
       type: _ObjDescribed<$base>

@@ -19,7 +19,7 @@
       ],
       "name": "InpPrmsPrntSame",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"
@@ -54,10 +54,10 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "InpPrmsPrntSame",
-        "typeArguments": ["a"]
+        "typeArgs": ["a"]
       },
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"

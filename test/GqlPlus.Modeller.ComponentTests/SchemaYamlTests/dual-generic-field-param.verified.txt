@@ -7,16 +7,16 @@ types: !_Map_Type
       object: DualGenFieldParam
       type: !_DualBase
         dual: DualGenFieldParamRef
-        typeArguments:
-        - !_DualArgument
+        typeArgs:
+        - !_DualArg
           dual: DualGenFieldParamAlt
     fields:
     - !_DualField
       name: field
       type: !_DualBase
         dual: DualGenFieldParamRef
-        typeArguments:
-        - !_DualArgument
+        typeArgs:
+        - !_DualArg
           dual: DualGenFieldParamAlt
     name: DualGenFieldParam
     typeKind: !_TypeKind Dual
@@ -47,12 +47,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: DualGenFieldParamRef
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     alternates:
     - !_DualAlternate
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     name: DualGenFieldParamRef
     typeKind: !_TypeKind Dual
-    typeParameters:
+    typeParams:
     - !_Described
       name: ref

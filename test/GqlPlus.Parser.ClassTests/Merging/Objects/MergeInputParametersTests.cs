@@ -6,8 +6,8 @@ using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Objects;
 
-public class MergeInputParametersTests
-  : TestDescriptionsMerger<IGqlpInputParameter>
+public class MergeInputParamsTests
+  : TestDescriptionsMerger<IGqlpInputParam>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string input, string value)
@@ -34,20 +34,20 @@ public class MergeInputParametersTests
       MakeDefault(input, value));
 
   private readonly IMerge<IGqlpConstant> _constant;
-  private readonly MergeInputParameters _merger;
+  private readonly MergeInputParams _merger;
 
-  public MergeInputParametersTests(ITestOutputHelper outputHelper)
+  public MergeInputParamsTests(ITestOutputHelper outputHelper)
   {
     _constant = Merger<IGqlpConstant>();
 
     _merger = new(outputHelper.ToLoggerFactory(), _constant);
   }
 
-  internal override GroupsMerger<IGqlpInputParameter> MergerGroups => _merger;
+  internal override GroupsMerger<IGqlpInputParam> MergerGroups => _merger;
 
-  protected override IGqlpInputParameter MakeDescribed(string name, string description = "")
-    => new InputParameterAst(AstNulls.At, new InputBaseAst(AstNulls.At, name, description));
-  private static InputParameterAst MakeDefault(string name, string value)
+  protected override IGqlpInputParam MakeDescribed(string name, string description = "")
+    => new InputParamAst(AstNulls.At, new InputBaseAst(AstNulls.At, name, description));
+  private static InputParamAst MakeDefault(string name, string value)
     => new(AstNulls.At, new InputBaseAst(AstNulls.At, name)) {
       DefaultValue = new(value.FieldKey())
     };

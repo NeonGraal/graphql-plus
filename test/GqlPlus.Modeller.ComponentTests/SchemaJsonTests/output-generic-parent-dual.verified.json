@@ -15,9 +15,9 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "OutpGenParentDualRef",
-        "typeArguments": [
+        "typeArgs": [
           {
-            "$tag": "_DualArgument",
+            "$tag": "_DualArg",
             "value": "OutpGenParentDualAlt"
           }
         ]
@@ -86,7 +86,7 @@
       ],
       "name": "OutpGenParentDualRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

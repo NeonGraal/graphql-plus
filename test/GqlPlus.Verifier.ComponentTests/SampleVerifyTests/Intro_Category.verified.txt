@@ -4,6 +4,6 @@
   !!! I@015/0003 : Invalid Output Field. '_Type' not defined. - '_Type' !!!,
   !!! I@017/0011 : Invalid Output Field. '_TypeRef' not defined. - '_TypeRef' !!!,
   !!! I@020/0012 : Invalid Output Field. '_Modifiers' not defined. - '_Modifiers' !!!,
-  !!! I@026/0011 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
+  !!! I@026/0011 : Invalid Output Arg Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@026/0011 : Invalid Output Field. '_TypeKind' not defined. - '_TypeKind' !!!
 ]

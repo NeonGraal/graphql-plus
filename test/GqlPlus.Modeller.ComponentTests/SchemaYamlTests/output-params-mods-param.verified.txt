@@ -44,22 +44,22 @@ types: !_Map_Type
       name: field
       object: OutParamsDomainParam
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: OutParamDomainParam
-        modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+        modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       type: !_OutputBase
         output: OutDomainsParam
     fields:
     - !_OutputField
       name: field
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: OutParamDomainParam
-        modifiers: [!_ModifierTypeParameter {by: mod, modifierKind: !_ModifierKind Param}]
+        modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       type: !_OutputBase
         output: OutDomainsParam
     name: OutParamsDomainParam
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: mod

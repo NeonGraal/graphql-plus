@@ -9,7 +9,7 @@ internal class VerifyOutputTypes(
   IMerge<IGqlpOutputField> mergeFields,
   IMerge<IGqlpOutputAlternate> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputArgument, IGqlpOutputField, IGqlpOutputAlternate, OutputContext>(aliased, mergeFields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputArg, IGqlpOutputField, IGqlpOutputAlternate, OutputContext>(aliased, mergeFields, mergeAlternates, logger)
 {
   protected override void UsageValue(IGqlpOutputObject usage, OutputContext context)
   {
@@ -33,10 +33,10 @@ internal class VerifyOutputTypes(
 
   protected override void UsageField(IGqlpOutputField field, OutputContext context)
   {
-    foreach (IGqlpInputParameter parameter in field.Parameters) {
+    foreach (IGqlpInputParam parameter in field.Params) {
       context
-        .CheckType(parameter.Type, " Parameter")
-        .CheckArguments(parameter.Type.Arguments, " Parameter");
+        .CheckType(parameter.Type, " Param")
+        .CheckArgs(parameter.Type.Args, " Param");
 
       context.CheckModifiers(parameter);
     }
@@ -48,7 +48,7 @@ internal class VerifyOutputTypes(
   {
     Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))
-      .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
+      .Concat(usage.TypeParams.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);
 
     return new(validTypes, errors, aliased.MakeEnumValues());

@@ -19,7 +19,7 @@
       ],
       "name": "OutpPrmsPrntDiff",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "b"
@@ -54,10 +54,10 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "OutpPrmsPrntDiff",
-        "typeArguments": ["a"]
+        "typeArgs": ["a"]
       },
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "a"

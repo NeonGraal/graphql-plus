@@ -3,12 +3,12 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public class ParseInputArgumentTests(
-  ICheckObjectArgument<IGqlpInputArgument> objectArgumentChecks
-) : TestObjectArgument<IGqlpInputArgument>(objectArgumentChecks)
+public class ParseInputArgTests(
+  ICheckObjectArg<IGqlpInputArg> objectArgChecks
+) : TestObjectArg<IGqlpInputArg>(objectArgChecks)
 { }
 
-internal sealed class ParseInputArgumentChecks(
-  Parser<IGqlpInputArgument>.DA parser
-) : CheckObjectArgument<IGqlpInputArgument, InputArgumentAst>(new InputFactories(), parser)
+internal sealed class ParseInputArgChecks(
+  Parser<IGqlpInputArg>.DA parser
+) : CheckObjectArg<IGqlpInputArg, InputArgAst>(new InputFactories(), parser)
 { }

@@ -9,13 +9,13 @@ internal class VerifyDualTypes(
   IMerge<IGqlpDualField> fields,
   IMerge<IGqlpDualAlternate> mergeAlternates,
   ILoggerFactory logger
-) : AstObjectVerifier<IGqlpDualObject, IGqlpDualBase, IGqlpDualArgument, IGqlpDualField, IGqlpDualAlternate, UsageContext>(aliased, fields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpDualObject, IGqlpDualBase, IGqlpDualArg, IGqlpDualField, IGqlpDualAlternate, UsageContext>(aliased, fields, mergeAlternates, logger)
 {
   protected override UsageContext MakeContext(IGqlpDualObject usage, IGqlpType[] aliased, ITokenMessages errors)
   {
     Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))
-      .Concat(usage.TypeParameters.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
+      .Concat(usage.TypeParams.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);
 
     return new(validTypes, errors);

@@ -40,7 +40,7 @@ directives: !_Map_Directives
       Operation: _, Spread: _, Variable: _}
     name: DirParam
     parameters:
-    - !_InputParameter
+    - !_InputParam
       input: DirParamIn
     repeatable: false
   !_Identifier DirParamDict: !_Directive
@@ -48,7 +48,7 @@ directives: !_Map_Directives
       Operation: _, Spread: _, Variable: _}
     name: DirParamDict
     parameters:
-    - !_InputParameter
+    - !_InputParam
       input: DirParamIn
       modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Basic}]
@@ -58,7 +58,7 @@ directives: !_Map_Directives
       Operation: _, Spread: _, Variable: _}
     name: DirParamList
     parameters:
-    - !_InputParameter
+    - !_InputParam
       input: DirParamIn
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
     repeatable: false
@@ -67,7 +67,7 @@ directives: !_Map_Directives
       Operation: _, Spread: _, Variable: _}
     name: DirParamOpt
     parameters:
-    - !_InputParameter
+    - !_InputParam
       input: DirParamIn
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     repeatable: false

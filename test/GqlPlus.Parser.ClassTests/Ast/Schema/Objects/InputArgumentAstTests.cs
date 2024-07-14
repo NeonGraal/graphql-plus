@@ -2,14 +2,14 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class InputArgumentAstTests
-  : AstObjectArgumentTests<IGqlpInputArgument>
+public class InputArgAstTests
+  : AstObjectArgTests<IGqlpInputArg>
 {
   protected override string AbbreviatedString(string input)
     => $"( {input} )";
 
-  private readonly AstObjArgumentChecks<IGqlpInputArgument, InputArgumentAst> _checks
-    = new(name => new InputArgumentAst(AstNulls.At, name));
+  private readonly AstObjArgChecks<IGqlpInputArg, InputArgAst> _checks
+    = new(name => new InputArgAst(AstNulls.At, name));
 
-  internal override IAstObjArgumentChecks<IGqlpInputArgument> ObjArgumentChecks => _checks;
+  internal override IAstObjArgChecks<IGqlpInputArg> ObjArgChecks => _checks;
 }

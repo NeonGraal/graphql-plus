@@ -12,9 +12,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenParamAlt"
               }
             ]
@@ -28,9 +28,9 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "DualGenParamRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "DualGenParamAlt"
               }
             ]
@@ -102,7 +102,7 @@
       ],
       "name": "DualGenParamRef",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

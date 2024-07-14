@@ -3,25 +3,25 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal sealed record class InputArgumentAst(
+internal sealed record class InputArgAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObjArgument(At, Name, Description)
-  , IEquatable<InputArgumentAst>
-  , IGqlpInputArgument
+) : AstObjArg(At, Name, Description)
+  , IEquatable<InputArgAst>
+  , IGqlpInputArg
 {
-  public InputArgumentAst(TokenAt at, string name)
+  public InputArgAst(TokenAt at, string name)
     : this(at, name, "") { }
 
   internal override string Abbr => "IR";
   public override string Label => "Input";
 
-  string IGqlpInputArgument.Input => Name;
-  IGqlpDualArgument IGqlpToDual<IGqlpDualArgument>.ToDual => ToDual();
+  string IGqlpInputArg.Input => Name;
+  IGqlpDualArg IGqlpToDual<IGqlpDualArg>.ToDual => ToDual();
 
-  public DualArgumentAst ToDual()
+  public DualArgAst ToDual()
     => new(At, Name, Description) {
-      IsTypeParameter = IsTypeParameter,
+      IsTypeParam = IsTypeParam,
     };
 }

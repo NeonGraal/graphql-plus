@@ -3,23 +3,23 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public class ParseOutputArgumentTests(
-  ICheckObjectArgument<IGqlpOutputArgument> checks
-) : TestObjectArgument<IGqlpOutputArgument>(checks)
+public class ParseOutputArgTests(
+  ICheckObjectArg<IGqlpOutputArg> checks
+) : TestObjectArg<IGqlpOutputArg>(checks)
 {
   [Theory, RepeatData(Repeats)]
-  public void WithArgumentEnumValues_ReturnsCorrectAst(string enumType, string[] enumValues)
+  public void WithArgEnumValues_ReturnsCorrectAst(string enumType, string[] enumValues)
     => checks.TrueExpected(
       "<" + enumValues.Joined(s => enumType + "." + s) + ">",
       [.. enumValues.Select(enumMember
-        => new OutputArgumentAst(AstNulls.At, enumType) { EnumMember = enumMember })]);
+        => new OutputArgAst(AstNulls.At, enumType) { EnumMember = enumMember })]);
 
   [Theory, RepeatData(Repeats)]
-  public void WithArgumentEnumValueBad_ReturnsFalse(string enumType)
+  public void WithArgEnumValueBad_ReturnsFalse(string enumType)
     => checks.FalseExpected("<" + enumType + ".");
 }
 
-internal sealed class ParseOutputArgumentChecks(
-  Parser<IGqlpOutputArgument>.DA parser
-) : CheckObjectArgument<IGqlpOutputArgument, OutputArgumentAst>(new OutputFactories(), parser)
+internal sealed class ParseOutputArgChecks(
+  Parser<IGqlpOutputArg>.DA parser
+) : CheckObjectArg<IGqlpOutputArg, OutputArgAst>(new OutputFactories(), parser)
 { }

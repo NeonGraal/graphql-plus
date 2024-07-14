@@ -8,7 +8,7 @@ public interface IGqlpOperation
   IEnumerable<IGqlpVariable> Variables { get; }
 
   string? ResultType { get; }
-  IGqlpArgument? Argument { get; }
+  IGqlpArg? Arg { get; }
   IEnumerable<IGqlpSelection>? ResultObject { get; }
 
   IEnumerable<IGqlpFragment> Fragments { get; }
@@ -16,7 +16,7 @@ public interface IGqlpOperation
   ParseResultKind Result { get; }
   ITokenMessages Errors { get; }
 
-  IEnumerable<IGqlpArgument> Usages { get; }
+  IEnumerable<IGqlpArg> Usages { get; }
   IEnumerable<IGqlpSpread> Spreads { get; }
 
   string Show();
@@ -37,7 +37,7 @@ public interface IGqlpDirectives
 public interface IGqlpDirective
   : IGqlpNamed
 {
-  IGqlpArgument? Argument { get; }
+  IGqlpArg? Arg { get; }
 }
 
 public interface IGqlpFragment

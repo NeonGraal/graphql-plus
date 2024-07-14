@@ -54,7 +54,7 @@ public record class CollectionModel(
   internal override string Tag =>
     ModifierKind switch {
       ModifierKind.Dict => "_ModifierDictionary",
-      ModifierKind.Param => "_ModifierTypeParameter",
+      ModifierKind.Param => "_ModifierTypeParam",
       _ => base.Tag,
     };
 }

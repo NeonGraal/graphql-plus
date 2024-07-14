@@ -12,7 +12,7 @@ public class MergeInputObjectsTests
   private readonly MergeInputObjects _merger;
 
   public MergeInputObjectsTests(ITestOutputHelper outputHelper)
-    => _merger = new(outputHelper.ToLoggerFactory(), Fields, TypeParameters, Alternates);
+    => _merger = new(outputHelper.ToLoggerFactory(), Fields, TypeParams, Alternates);
 
   internal override AstObjectsMerger<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate> MergerObject => _merger;
 
@@ -21,13 +21,13 @@ public class MergeInputObjectsTests
     string[]? aliases = null,
     string description = "",
     IGqlpObjBase? parent = default,
-    string[]? typeParameters = null,
+    string[]? typeParams = null,
     FieldInput[]? fields = null,
     AlternateInput[]? alternates = null)
     => new InputDeclAst(AstNulls.At, name, description) {
       Aliases = aliases ?? [],
       Parent = parent,
-      TypeParameters = typeParameters?.TypeParameters() ?? [],
+      TypeParams = typeParams?.TypeParams() ?? [],
       ObjFields = fields?.InputFields() ?? [],
       ObjAlternates = alternates?.InputAlternates() ?? [],
     };

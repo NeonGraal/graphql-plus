@@ -3,14 +3,14 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal sealed record class OutputArgumentAst(
+internal sealed record class OutputArgAst(
   TokenAt At,
   string Name,
   string Description
-) : AstObjArgument(At, Name, Description)
-  , IGqlpOutputArgument
+) : AstObjArg(At, Name, Description)
+  , IGqlpOutputArg
 {
-  public OutputArgumentAst(TokenAt at, string name)
+  public OutputArgAst(TokenAt at, string name)
     : this(at, name, "") { }
 
   public string? EnumMember { get; set; }
@@ -23,14 +23,14 @@ internal sealed record class OutputArgumentAst(
     ? base.GetFields()
     : [At.ToString(), $"{Name}.{EnumMember}"];
 
-  public DualArgumentAst ToDual()
+  public DualArgAst ToDual()
     => new(At, Name, Description) {
-      IsTypeParameter = IsTypeParameter,
+      IsTypeParam = IsTypeParam,
     };
 
-  IGqlpDualArgument IGqlpToDual<IGqlpDualArgument>.ToDual => ToDual();
+  IGqlpDualArg IGqlpToDual<IGqlpDualArg>.ToDual => ToDual();
 
-  string IGqlpOutputArgument.Output => Name;
+  string IGqlpOutputArg.Output => Name;
 
   string IGqlpOutputEnum.EnumType => TypeName;
   void IGqlpOutputEnum.SetEnumType(string enumType)

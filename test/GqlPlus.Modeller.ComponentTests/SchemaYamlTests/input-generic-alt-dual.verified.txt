@@ -6,15 +6,15 @@ types: !_Map_Type
       object: InpGenAltDual
       type: !_InputBase
         input: InpGenAltDualRef
-        typeArguments:
-        - !_DualArgument
+        typeArgs:
+        - !_DualArg
           dual: InpGenAltDualAlt
     alternates:
     - !_InputAlternate
       type: !_InputBase
         input: InpGenAltDualRef
-        typeArguments:
-        - !_DualArgument
+        typeArgs:
+        - !_DualArg
           dual: InpGenAltDualAlt
     name: InpGenAltDual
     typeKind: !_TypeKind Input
@@ -45,12 +45,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: InpGenAltDualRef
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     alternates:
     - !_InputAlternate
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     name: InpGenAltDualRef
     typeKind: !_TypeKind Input
-    typeParameters:
+    typeParams:
     - !_Described
       name: ref

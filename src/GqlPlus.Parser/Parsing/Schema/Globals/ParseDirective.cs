@@ -8,24 +8,24 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 internal class ParseDirective(
   IDirectiveName name,
-  Parser<IGqlpInputParameter>.DA param,
+  Parser<IGqlpInputParam>.DA param,
   Parser<string>.DA aliases,
   Parser<IOptionParser<DirectiveOption>, DirectiveOption>.D option,
   Parser<DirectiveLocation>.D definition
-) : DeclarationParser<IDirectiveName, IGqlpInputParameter, DirectiveOption, DirectiveLocation, IGqlpSchemaDirective>(name, param, aliases, option, definition)
+) : DeclarationParser<IDirectiveName, IGqlpInputParam, DirectiveOption, DirectiveLocation, IGqlpSchemaDirective>(name, param, aliases, option, definition)
 {
-  protected override IGqlpSchemaDirective MakeResult(AstPartial<IGqlpInputParameter, DirectiveOption> partial, DirectiveLocation value)
+  protected override IGqlpSchemaDirective MakeResult(AstPartial<IGqlpInputParam, DirectiveOption> partial, DirectiveLocation value)
     => new DirectiveDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
-      Parameters = partial.Parameters,
+      Params = partial.Params,
       Option = partial.Option ?? DirectiveOption.Unique,
       Locations = value,
     };
 
-  protected override IGqlpSchemaDirective ToResult(AstPartial<IGqlpInputParameter, DirectiveOption> partial)
+  protected override IGqlpSchemaDirective ToResult(AstPartial<IGqlpInputParam, DirectiveOption> partial)
     => new DirectiveDeclAst(partial.At, partial.Name, partial.Description) {
       Aliases = partial.Aliases,
-      Parameters = partial.Parameters,
+      Params = partial.Params,
       Option = partial.Option ?? DirectiveOption.Unique,
     };
 }

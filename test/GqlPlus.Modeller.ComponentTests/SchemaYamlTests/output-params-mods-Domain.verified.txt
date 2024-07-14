@@ -44,7 +44,7 @@ types: !_Map_Type
       name: field
       object: OutParamsDomain
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: OutParamDomain
         modifiers: [!_ModifierDictionary {by: OutDomainParam,
             modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
@@ -54,7 +54,7 @@ types: !_Map_Type
     - !_OutputField
       name: field
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: OutParamDomain
         modifiers: [!_ModifierDictionary {by: OutDomainParam,
             modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]

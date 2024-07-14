@@ -34,17 +34,17 @@ public abstract class AstObjectTests
     => ObjectChecks.Inequality_BetweenFields(name, fields1, fields2);
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithTypeParameters(string name, string[] typeParameters)
-      => ObjectChecks.HashCode_WithTypeParameters(name, typeParameters);
+  public void HashCode_WithTypeParams(string name, string[] typeParams)
+      => ObjectChecks.HashCode_WithTypeParams(name, typeParams);
   [Theory, RepeatData(Repeats)]
-  public void String_WithTypeParameters(string name, string[] typeParameters)
-    => ObjectChecks.String_WithTypeParameters(name, typeParameters);
+  public void String_WithTypeParams(string name, string[] typeParams)
+    => ObjectChecks.String_WithTypeParams(name, typeParams);
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithTypeParameters(string name, string[] typeParameters)
-    => ObjectChecks.Equality_WithTypeParameters(name, typeParameters);
+  public void Equality_WithTypeParams(string name, string[] typeParams)
+    => ObjectChecks.Equality_WithTypeParams(name, typeParams);
   [SkippableTheory, RepeatData(Repeats)]
-  public void Inequality_BetweenTypeParameterss(string name, string[] typeParameters1, string[] typeParameters2)
-    => ObjectChecks.Inequality_BetweenTypeParameterss(name, typeParameters1, typeParameters2);
+  public void Inequality_BetweenTypeParamss(string name, string[] typeParams1, string[] typeParams2)
+    => ObjectChecks.Inequality_BetweenTypeParamss(name, typeParams1, typeParams2);
 
   protected override string ParentString(string name, string parent)
     => $"( !{TypeChecks.Abbr} {name} : {parent} )";
@@ -95,20 +95,20 @@ internal abstract class AstObjectChecks<TObjectAst, TObjBase, TObjField, TObjAlt
       fields => CreateInput(name) with { ObjFields = CreateFields(fields) },
       fields1.OrderedEqual(fields2));
 
-  public void HashCode_WithTypeParameters(string name, string[] typeParameters)
+  public void HashCode_WithTypeParams(string name, string[] typeParams)
       => HashCode(
-        () => CreateInput(name) with { TypeParameters = typeParameters.TypeParameters() });
-  public void String_WithTypeParameters(string name, string[] typeParameters)
+        () => CreateInput(name) with { TypeParams = typeParams.TypeParams() });
+  public void String_WithTypeParams(string name, string[] typeParams)
     => Text(
-      () => CreateInput(name) with { TypeParameters = typeParameters.TypeParameters() },
-      $"( !{Abbr} {name} < {typeParameters.Joined(s => "$" + s)} > )");
-  public void Equality_WithTypeParameters(string name, string[] typeParameters)
+      () => CreateInput(name) with { TypeParams = typeParams.TypeParams() },
+      $"( !{Abbr} {name} < {typeParams.Joined(s => "$" + s)} > )");
+  public void Equality_WithTypeParams(string name, string[] typeParams)
     => Equality(
-      () => CreateInput(name) with { TypeParameters = typeParameters.TypeParameters() });
-  public void Inequality_BetweenTypeParameterss(string name, string[] typeParameters1, string[] typeParameters2)
-    => InequalityBetween(typeParameters1, typeParameters2,
-      parameters => CreateInput(name) with { TypeParameters = parameters.TypeParameters() },
-      typeParameters1.SequenceEqual(typeParameters2));
+      () => CreateInput(name) with { TypeParams = typeParams.TypeParams() });
+  public void Inequality_BetweenTypeParamss(string name, string[] typeParams1, string[] typeParams2)
+    => InequalityBetween(typeParams1, typeParams2,
+      parameters => CreateInput(name) with { TypeParams = parameters.TypeParams() },
+      typeParams1.SequenceEqual(typeParams2));
 
   protected abstract TObjAlt[] CreateAlternates(IEnumerable<AlternateInput> alternates);
   protected abstract string AlternateString(AlternateInput input);
@@ -130,8 +130,8 @@ internal interface IAstObjectChecks
   public void Equality_WithFields(string name, FieldInput[] fields);
   public void Inequality_BetweenFields(string name, FieldInput[] fields1, FieldInput[] fields2);
 
-  public void HashCode_WithTypeParameters(string name, string[] typeParameters);
-  public void String_WithTypeParameters(string name, string[] typeParameters);
-  public void Equality_WithTypeParameters(string name, string[] typeParameters);
-  public void Inequality_BetweenTypeParameterss(string name, string[] typeParameters1, string[] typeParameters2);
+  public void HashCode_WithTypeParams(string name, string[] typeParams);
+  public void String_WithTypeParams(string name, string[] typeParams);
+  public void Equality_WithTypeParams(string name, string[] typeParams);
+  public void Inequality_BetweenTypeParamss(string name, string[] typeParams1, string[] typeParams2);
 }

@@ -19,7 +19,7 @@
       ],
       "name": "DualGenAlt",
       "typeKind": "Dual",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"

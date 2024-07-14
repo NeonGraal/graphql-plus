@@ -2,87 +2,87 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjectArgumentTests<TObjArg>
+public abstract class AstObjectArgTests<TObjArg>
   : AstAbbreviatedTests<string>
-  where TObjArg : IGqlpObjArgument
+  where TObjArg : IGqlpObjArg
 {
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithIsTypeParameter(string input)
-      => ObjArgumentChecks.HashCode_WithIsTypeParameter(input);
+  public void HashCode_WithIsTypeParam(string input)
+      => ObjArgChecks.HashCode_WithIsTypeParam(input);
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithIsTypeParameter(string input)
-    => ObjArgumentChecks.String_WithIsTypeParameter(input);
+  public void String_WithIsTypeParam(string input)
+    => ObjArgChecks.String_WithIsTypeParam(input);
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithIsTypeParameter(string input)
-    => ObjArgumentChecks.Equality_WithIsTypeParameter(input);
+  public void Equality_WithIsTypeParam(string input)
+    => ObjArgChecks.Equality_WithIsTypeParam(input);
 
   [SkippableTheory, RepeatData(Repeats)]
-  public void Inequality_BetweenIsTypeParameters(string input, bool isTypeParam1)
-    => ObjArgumentChecks.Inequality_BetweenIsTypeParameters(input, isTypeParam1);
+  public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
+    => ObjArgChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
 
   [Theory, RepeatData(Repeats)]
   public void FullType_WithDefault(string input)
-    => ObjArgumentChecks.FullType_WithDefault(input);
+    => ObjArgChecks.FullType_WithDefault(input);
 
   [Theory, RepeatData(Repeats)]
-  public void FullType_WithIsTypeParameter(string input)
-    => ObjArgumentChecks.FullType_WithIsTypeParameter(input);
+  public void FullType_WithIsTypeParam(string input)
+    => ObjArgChecks.FullType_WithIsTypeParam(input);
 
-  internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ObjArgumentChecks;
+  internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ObjArgChecks;
 
-  internal abstract IAstObjArgumentChecks<TObjArg> ObjArgumentChecks { get; }
+  internal abstract IAstObjArgChecks<TObjArg> ObjArgChecks { get; }
 }
 
-internal sealed class AstObjArgumentChecks<TObjArg, TObjArgAst>(
-  AstObjArgumentChecks<TObjArg, TObjArgAst>.ArgumentBy createArgument
-) : AstAbbreviatedChecks<string, TObjArg>(input => createArgument(input))
-  , IAstObjArgumentChecks<TObjArg>
-  where TObjArg : IGqlpObjArgument
-  where TObjArgAst : AstObjArgument, TObjArg
+internal sealed class AstObjArgChecks<TObjArg, TObjArgAst>(
+  AstObjArgChecks<TObjArg, TObjArgAst>.ArgBy createArg
+) : AstAbbreviatedChecks<string, TObjArg>(input => createArg(input))
+  , IAstObjArgChecks<TObjArg>
+  where TObjArg : IGqlpObjArg
+  where TObjArgAst : AstObjArg, TObjArg
 {
-  internal delegate TObjArgAst ArgumentBy(string input);
+  internal delegate TObjArgAst ArgBy(string input);
 
-  public void HashCode_WithIsTypeParameter(string input)
-      => HashCode(() => createArgument(input) with { IsTypeParameter = true });
+  public void HashCode_WithIsTypeParam(string input)
+      => HashCode(() => createArg(input) with { IsTypeParam = true });
 
-  public void String_WithIsTypeParameter(string input)
+  public void String_WithIsTypeParam(string input)
     => Text(
-      () => createArgument(input) with { IsTypeParameter = true },
+      () => createArg(input) with { IsTypeParam = true },
       $"( ${input} )");
 
-  public void Equality_WithIsTypeParameter(string input)
-    => Equality(() => createArgument(input) with { IsTypeParameter = true });
+  public void Equality_WithIsTypeParam(string input)
+    => Equality(() => createArg(input) with { IsTypeParam = true });
 
-  public void Inequality_BetweenIsTypeParameters(string input, bool isTypeParam1)
+  public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
     => InequalityBetween(isTypeParam1, !isTypeParam1,
-      isTypeParam => createArgument(input) with { IsTypeParameter = isTypeParam },
+      isTypeParam => createArg(input) with { IsTypeParam = isTypeParam },
       false);
 
   public void FullType_WithDefault(string input)
   {
-    TObjArg objArgument = createArgument(input);
+    TObjArg objArg = createArg(input);
 
-    objArgument.FullType.Should().Be(input);
+    objArg.FullType.Should().Be(input);
   }
 
-  public void FullType_WithIsTypeParameter(string input)
+  public void FullType_WithIsTypeParam(string input)
   {
-    TObjArg objArgument = createArgument(input) with { IsTypeParameter = true };
+    TObjArg objArg = createArg(input) with { IsTypeParam = true };
 
-    objArgument.FullType.Should().Be("$" + input);
+    objArg.FullType.Should().Be("$" + input);
   }
 }
 
-internal interface IAstObjArgumentChecks<TObjArg>
+internal interface IAstObjArgChecks<TObjArg>
   : IAstAbbreviatedChecks<string>
-  where TObjArg : IGqlpObjArgument
+  where TObjArg : IGqlpObjArg
 {
-  void HashCode_WithIsTypeParameter(string input);
-  void String_WithIsTypeParameter(string input);
-  void Equality_WithIsTypeParameter(string input);
-  void Inequality_BetweenIsTypeParameters(string input, bool isTypeParam1);
+  void HashCode_WithIsTypeParam(string input);
+  void String_WithIsTypeParam(string input);
+  void Equality_WithIsTypeParam(string input);
+  void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1);
   void FullType_WithDefault(string input);
-  void FullType_WithIsTypeParameter(string input);
+  void FullType_WithIsTypeParam(string input);
 }

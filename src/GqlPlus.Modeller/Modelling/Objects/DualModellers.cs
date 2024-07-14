@@ -11,29 +11,29 @@ internal class DualModeller(
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ParentModel(ast.ObjParent, typeKinds),
-      TypeParameters = TypeParametersModels(ast.TypeParameters),
+      TypeParams = TypeParamsModels(ast.TypeParams),
       Fields = FieldsModels(ast.ObjFields, typeKinds),
       Alternates = AlternatesModels(ast.ObjAlternates, typeKinds),
     };
 }
 
-internal class DualArgumentModeller
-  : ModellerObjArgument<IGqlpDualArgument, DualArgumentModel>
+internal class DualArgModeller
+  : ModellerObjArg<IGqlpDualArg, DualArgModel>
 {
-  protected override DualArgumentModel ToModel(IGqlpDualArgument ast, IMap<TypeKindModel> typeKinds)
+  protected override DualArgModel ToModel(IGqlpDualArg ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Dual) {
-      IsTypeParameter = ast.IsTypeParameter,
+      IsTypeParam = ast.IsTypeParam,
     };
 }
 
 internal class DualBaseModeller(
-  IModeller<IGqlpDualArgument, DualArgumentModel> objArgument
-) : ModellerObjBase<IGqlpDualBase, IGqlpDualArgument, DualBaseModel, DualArgumentModel>(objArgument)
+  IModeller<IGqlpDualArg, DualArgModel> objArg
+) : ModellerObjBase<IGqlpDualBase, IGqlpDualArg, DualBaseModel, DualArgModel>(objArg)
 {
   protected override DualBaseModel ToModel(IGqlpDualBase ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Dual) {
-      IsTypeParameter = ast.IsTypeParameter,
-      Arguments = ModelArguments(ast, typeKinds),
+      IsTypeParam = ast.IsTypeParam,
+      Args = ModelArgs(ast, typeKinds),
     };
 }
 

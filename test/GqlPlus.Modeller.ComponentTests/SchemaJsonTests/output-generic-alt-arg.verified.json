@@ -11,7 +11,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenAltRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
@@ -21,13 +21,13 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenAltRef",
-            "typeArguments": ["type"]
+            "typeArgs": ["type"]
           }
         }
       ],
       "name": "OutpGenAltArg",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "type"
@@ -51,7 +51,7 @@
       ],
       "name": "OutpGenAltRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

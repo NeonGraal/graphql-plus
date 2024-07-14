@@ -11,9 +11,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenAltDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "OutpGenAltDualAlt"
               }
             ]
@@ -26,9 +26,9 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "OutpGenAltDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "OutpGenAltDualAlt"
               }
             ]
@@ -100,7 +100,7 @@
       ],
       "name": "OutpGenAltDualRef",
       "typeKind": "Output",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

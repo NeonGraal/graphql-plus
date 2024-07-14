@@ -14,10 +14,10 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
   where TObjField : IGqlpObjField<TObjBase>
   where TObjAlt : IGqlpObjAlternate<TObjBase>
   where TObjBase : IGqlpObjBase<TObjArg>
-  where TObjArg : IGqlpObjArgument
+  where TObjArg : IGqlpObjArg
 where TContext : UsageContext
 {
-  private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParameter>));
+  private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParam>));
 
   protected override void UsageValue(TObject usage, TContext context)
   {
@@ -26,7 +26,7 @@ where TContext : UsageContext
     if (usage.ObjParent is not null) {
       context
         .CheckType(usage.ObjParent, " Parent", false)
-        .CheckArguments(usage.ObjParent.BaseArguments, " Parent");
+        .CheckArgs(usage.ObjParent.BaseArgs, " Parent");
     }
 
     foreach (TObjField field in usage.ObjFields) {
@@ -42,9 +42,9 @@ where TContext : UsageContext
       }
     }
 
-    foreach (IGqlpTypeParameter typeParameter in usage.TypeParameters) {
-      if (!context.Used.Contains("$" + typeParameter.Name)) {
-        context.AddError(typeParameter, usage.Label, $"'${typeParameter.Name}' not used");
+    foreach (IGqlpTypeParam typeParam in usage.TypeParams) {
+      if (!context.Used.Contains("$" + typeParam.Name)) {
+        context.AddError(typeParam, usage.Label, $"'${typeParam.Name}' not used");
       }
     }
   }
@@ -52,13 +52,13 @@ where TContext : UsageContext
   protected virtual void UsageAlternate(TObjAlt alternate, TContext context)
     => context
       .CheckType(alternate.BaseType, " Alternate")
-      .CheckArguments(alternate.BaseType.BaseArguments, " Alternate")
+      .CheckArgs(alternate.BaseType.BaseArgs, " Alternate")
       .CheckModifiers(alternate);
 
   protected virtual void UsageField(TObjField field, TContext context)
     => context
       .CheckType(field.BaseType, " Field")
-      .CheckArguments(field.BaseType.BaseArguments, " Field")
+      .CheckArgs(field.BaseType.BaseArgs, " Field")
       .CheckModifiers(field);
 
   protected override string GetParent(IGqlpType<IGqlpObjBase> usage)
@@ -72,7 +72,7 @@ where TContext : UsageContext
   {
     if (input.Parent?.StartsWith('$') == true) {
       string parameter = input.Parent[1..];
-      if (top && input.Usage.TypeParameters.All(p => p.Name != parameter)) {
+      if (top && input.Usage.TypeParams.All(p => p.Name != parameter)) {
         context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' not defined");
       }
 

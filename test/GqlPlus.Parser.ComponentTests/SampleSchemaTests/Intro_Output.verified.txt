@@ -61,7 +61,7 @@ Success
     parameter
     :
     I@020/0017
-    _InputParameter
+    _InputParam
     []
   }
   |
@@ -82,7 +82,7 @@ Success
 }
 {
   !Ou I@008/0025
-  _OutputArgument
+  _OutputArg
   :
   I@007/0026
   _TypeRef
@@ -101,7 +101,7 @@ Success
   |
   !OA I@007/0028
   I@007/0028
-  _TypeParameter
+  _TypeParam
 }
 {
   !Ou I@008/0031

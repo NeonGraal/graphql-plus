@@ -4,25 +4,25 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
-public class MergeTypeParametersTests
-  : TestDescriptionsMerger<IGqlpTypeParameter>
+public class MergeTypeParamsTests
+  : TestDescriptionsMerger<IGqlpTypeParam>
 {
   [Theory, RepeatData(Repeats)]
   public void Merge_ManyItems_ReturnsItem(string name)
   {
-    IGqlpTypeParameter[] items = Enumerable.Range(1, 5).Select(i => MakeAst(name)).ToArray();
+    IGqlpTypeParam[] items = Enumerable.Range(1, 5).Select(i => MakeAst(name)).ToArray();
 
-    IEnumerable<IGqlpTypeParameter> result = MergerGroups.Merge(items);
+    IEnumerable<IGqlpTypeParam> result = MergerGroups.Merge(items);
 
     using AssertionScope scope = new();
 
-    result.Should().BeAssignableTo<IEnumerable<IGqlpTypeParameter>>();
+    result.Should().BeAssignableTo<IEnumerable<IGqlpTypeParam>>();
   }
 
-  private readonly MergeTypeParameters _merger = new();
+  private readonly MergeTypeParams _merger = new();
 
-  internal override GroupsMerger<IGqlpTypeParameter> MergerGroups => _merger;
+  internal override GroupsMerger<IGqlpTypeParam> MergerGroups => _merger;
 
-  protected override IGqlpTypeParameter MakeDescribed(string name, string description = "")
-    => new TypeParameterAst(AstNulls.At, name, description);
+  protected override IGqlpTypeParam MakeDescribed(string name, string description = "")
+    => new TypeParamAst(AstNulls.At, name, description);
 }

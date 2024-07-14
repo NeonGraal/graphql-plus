@@ -182,7 +182,7 @@ types: !_Map_Type
       name: categories
       object: _Schema
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: _CategoryFilter
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase
@@ -193,7 +193,7 @@ types: !_Map_Type
       name: directives
       object: _Schema
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: _Filter
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase
@@ -204,7 +204,7 @@ types: !_Map_Type
       name: types
       object: _Schema
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: _TypeFilter
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase
@@ -215,7 +215,7 @@ types: !_Map_Type
       name: settings
       object: _Schema
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: _Filter
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase
@@ -226,7 +226,7 @@ types: !_Map_Type
           typeKind: !_SimpleKind Domain}]
       name: categories
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: _CategoryFilter
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase
@@ -236,7 +236,7 @@ types: !_Map_Type
           typeKind: !_SimpleKind Domain}]
       name: directives
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: _Filter
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase
@@ -246,7 +246,7 @@ types: !_Map_Type
           typeKind: !_SimpleKind Domain}]
       name: types
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: _TypeFilter
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase
@@ -256,7 +256,7 @@ types: !_Map_Type
           typeKind: !_SimpleKind Domain}]
       name: settings
       parameters:
-      - !_InputParameter
+      - !_InputParam
         input: _Filter
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase

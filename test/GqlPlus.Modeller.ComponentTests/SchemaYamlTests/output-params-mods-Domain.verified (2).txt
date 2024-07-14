@@ -9,7 +9,7 @@ types: !_Map_Type
       name: field
       object: OutParamsDomain
       parameters:
-      - !_InputParameter
+      - !_InputParam
         collections:
         - !_ModifierDictionary
           by: OutDomainParam
@@ -20,7 +20,7 @@ types: !_Map_Type
     - !_OutputField
       name: field
       parameters:
-      - !_InputParameter
+      - !_InputParam
         collections:
         - !_ModifierDictionary
           by: OutDomainParam

@@ -55,8 +55,8 @@ types: !_Map_Type
       object: _Category
       type: !_OutputBase
         output: _TypeRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Output
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -75,8 +75,8 @@ types: !_Map_Type
       name: output
       type: !_OutputBase
         output: _TypeRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: Output
           name: _TypeKind
           typeKind: !_SimpleKind Enum

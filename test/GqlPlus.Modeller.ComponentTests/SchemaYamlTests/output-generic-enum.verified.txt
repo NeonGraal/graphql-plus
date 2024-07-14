@@ -16,8 +16,8 @@ types: !_Map_Type
       object: OutGenEnum
       type: !_OutputBase
         output: OutGenEnumRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
@@ -25,8 +25,8 @@ types: !_Map_Type
     - !_OutputAlternate
       type: !_OutputBase
         output: OutGenEnumRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           member: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
@@ -37,13 +37,13 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: OutGenEnumRef
-      type: !_TypeParameter type
+      type: !_TypeParam type
     fields:
     - !_OutputField
       name: field
-      type: !_TypeParameter type
+      type: !_TypeParam type
     name: OutGenEnumRef
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: type

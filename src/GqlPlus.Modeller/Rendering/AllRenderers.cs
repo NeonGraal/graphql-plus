@@ -42,7 +42,7 @@ public static class AllRenderers
       .AddItemRenderer<UnionMemberModel, UnionMemberRenderer>()
       // Object
       // Dual
-      .AddRenderer<DualArgumentModel, DualArgumentRenderer>()
+      .AddRenderer<DualArgModel, DualArgRenderer>()
       .AddRenderer<DualBaseModel, DualBaseRenderer>()
       .AddBaseRenderer<DualBaseModel>()
       .AddRenderer<DualFieldModel, DualFieldRenderer>()
@@ -50,16 +50,16 @@ public static class AllRenderers
       .AddTypeRenderer<TypeDualModel, TypeDualRenderer>()
       .AddObjectRenderers<DualBaseModel, DualFieldModel, DualAlternateModel>()
       // Input
-      .AddRenderer<InputArgumentModel, InputArgumentRenderer>()
+      .AddRenderer<InputArgModel, InputArgRenderer>()
       .AddRenderer<InputBaseModel, InputBaseRenderer>()
       .AddBaseRenderer<InputBaseModel>()
       .AddRenderer<InputFieldModel, InputFieldRenderer>()
       .AddRenderer<InputAlternateModel, InputAlternateRenderer>()
-      .AddRenderer<InputParameterModel, InputParameterRenderer>()
+      .AddRenderer<InputParamModel, InputParamRenderer>()
       .AddTypeRenderer<TypeInputModel, TypeInputRenderer>()
       .AddObjectRenderers<InputBaseModel, InputFieldModel, InputAlternateModel>()
       // Output
-      .AddRenderer<OutputArgumentModel, OutputArgumentRenderer>()
+      .AddRenderer<OutputArgModel, OutputArgRenderer>()
       .AddRenderer<OutputBaseModel, OutputBaseRenderer>()
       .AddBaseRenderer<OutputBaseModel>()
       .AddRenderer<OutputEnumModel, OutputEnumRenderer>()

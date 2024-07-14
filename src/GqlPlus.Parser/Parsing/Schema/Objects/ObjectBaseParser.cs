@@ -10,8 +10,8 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArg
 ) : Parser<TObjBase>.I
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArgument
-  where TObjArgAst : AstObjArgument, TObjArg
+  where TObjArg : IGqlpObjArg
+  where TObjArgAst : AstObjArg, TObjArg
 {
   private readonly Parser<TObjArg>.LA _parseArgs = parseArgs;
 
@@ -19,7 +19,7 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArg
     where TContext : Tokenizer
     => ParseObjectBase(tokens, label, false).AsResult<TObjBase>();
 
-  private IResult<TObjBaseAst> ParseObjectBase<TContext>(TContext tokens, string label, bool isTypeArgument)
+  private IResult<TObjBaseAst> ParseObjectBase<TContext>(TContext tokens, string label, bool isTypeArg)
     where TContext : Tokenizer
   {
     tokens.String(out string? description);
@@ -29,7 +29,7 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArg
 
     if (param is not null) {
       TObjBaseAst objBase = ObjBase(at, param, description) with {
-        IsTypeParameter = true,
+        IsTypeParam = true,
       };
       return objBase.Ok();
     }
@@ -48,9 +48,9 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArg
     if (hasName) {
       TObjBaseAst objBase = ObjBase(at, name, description);
       IResultArray<TObjArg> arguments = _parseArgs.Parse(tokens, label);
-      if (!arguments.Optional(values => objBase.BaseArguments = [.. values])) {
+      if (!arguments.Optional(values => objBase.BaseArgs = [.. values])) {
         return arguments.AsResult(objBase);
-      } else if (isTypeArgument) {
+      } else if (isTypeArg) {
         return TypeEnumValue(tokens, objBase);
       }
 

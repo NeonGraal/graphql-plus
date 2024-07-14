@@ -282,7 +282,7 @@ Success
     parameters
     :
     I@021/0069
-    _InputParameter
+    _InputParam
     []
     !OF I@009/0070
     repeatable
@@ -603,7 +603,7 @@ Success
   _ModifierKeyed
   <
     I@022/0146
-    _ModifierKind.TypeParameter
+    _ModifierKind.TypeParam
   >
 }
 {
@@ -666,7 +666,7 @@ Success
   !EM I@058/0160
   Param
   [
-    TypeParameter
+    TypeParam
   ]
 }
 {
@@ -1057,9 +1057,9 @@ Success
   >
   {
     !OF I@009/0253
-    typeParameters
+    typeParams
     :
-    I@025/0253
+    I@021/0253
     _Described
     []
     !OF I@009/0254
@@ -1147,24 +1147,24 @@ Success
   _ObjBase
   {
     !OF I@009/0273
-    typeArguments
+    typeArgs
     :
-    I@024/0273
+    I@019/0273
     _ObjDescribed
     <
-      I@038/0273
-      _ObjArgument
+      I@033/0273
+      _ObjArg
     >
     []
   }
   |
   !OA I@007/0274
   I@007/0274
-  _TypeParameter
+  _TypeParam
 }
 {
   !Ou I@008/0277
-  _ObjArgument
+  _ObjArg
   :
   I@007/0278
   _TypeRef
@@ -1175,11 +1175,11 @@ Success
   |
   !OA I@007/0279
   I@007/0279
-  _TypeParameter
+  _TypeParam
 }
 {
   !Do I@008/0282
-  _TypeParameter
+  _TypeParam
   String
   :_Identifier
 }
@@ -1396,7 +1396,7 @@ Success
 }
 {
   !Ou I@008/0342
-  _InputParameter
+  _InputParam
   :
   I@007/0343
   _ObjDescribed
@@ -1480,7 +1480,7 @@ Success
     parameter
     :
     I@020/0363
-    _InputParameter
+    _InputParam
     []
   }
   |
@@ -1501,7 +1501,7 @@ Success
 }
 {
   !Ou I@008/0371
-  _OutputArgument
+  _OutputArg
   :
   I@007/0372
   _TypeRef
@@ -1520,7 +1520,7 @@ Success
   |
   !OA I@007/0374
   I@007/0374
-  _TypeParameter
+  _TypeParam
 }
 {
   !Ou I@008/0377

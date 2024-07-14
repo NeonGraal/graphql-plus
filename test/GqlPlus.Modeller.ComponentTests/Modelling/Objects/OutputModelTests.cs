@@ -18,7 +18,7 @@ internal sealed class OutputModelChecks(
     => new(AstNulls.At, input.Name, input.Description) {
       Aliases = input.Aliases,
       Parent = parent ?? (input.Parent is not null ? NewParentAst(input.Parent) : null),
-      TypeParameters = input.TypeParameters.TypeParameters(),
+      TypeParams = input.TypeParams.TypeParams(),
       ObjFields = input.Fields.OutputFields(),
       ObjAlternates = input.Alternates.OutputAlternates(),
     };

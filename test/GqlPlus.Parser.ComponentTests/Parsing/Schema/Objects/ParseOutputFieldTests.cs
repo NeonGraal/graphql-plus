@@ -8,39 +8,39 @@ public class ParseOutputFieldTests(
 ) : TestObjectField<IGqlpOutputField>(checks)
 {
   [Theory, RepeatData(Repeats)]
-  public void WithParameters_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
+  public void WithParams_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
     => checks.TrueExpected(
       name + "(" + parameters.Joined() + "):" + fieldType,
       Field(name, FieldBase(fieldType)) with {
-        Parameters = parameters.Parameters()
+        Params = parameters.Params()
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithParametersBad_ReturnsFalse(string name, string fieldType, string[] parameters)
+  public void WithParamsBad_ReturnsFalse(string name, string fieldType, string[] parameters)
     => checks.FalseExpected(name + "(" + parameters.Joined() + ":" + fieldType);
 
   [Theory, RepeatData(Repeats)]
-  public void WithParametersModifiers_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
+  public void WithParamsModifiers_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
     => checks.TrueExpected(
       name + "(" + parameters.Joined(p => p + "[]?") + "):" + fieldType,
       Field(name, FieldBase(fieldType)) with {
-        Parameters = parameters.Parameters(p => p with { Modifiers = TestMods() })
+        Params = parameters.Params(p => p with { Modifiers = TestMods() })
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithParameterModifiersBad_ReturnsFalse(string name, string fieldType, string parameter)
+  public void WithParamModifiersBad_ReturnsFalse(string name, string fieldType, string parameter)
     => checks.FalseExpected(name + "(" + parameter + "[?):" + fieldType);
 
   [Theory, RepeatData(Repeats)]
-  public void WithParameterConstantBad_ReturnsFalse(string name, string fieldType, string parameter)
+  public void WithParamConstantBad_ReturnsFalse(string name, string fieldType, string parameter)
     => checks.FalseExpected(name + "(" + parameter + "=):" + fieldType);
 
   [Theory, RepeatData(Repeats)]
-  public void WithParametersDefault_ReturnsCorrectAst(string name, string fieldType, string[] parameters, string content)
+  public void WithParamsDefault_ReturnsCorrectAst(string name, string fieldType, string[] parameters, string content)
     => checks.TrueExpected(
       name + "(" + parameters.Joined(p => p + "='" + content + "'") + "):" + fieldType,
       Field(name, FieldBase(fieldType)) with {
-        Parameters = parameters.Parameters(p => p with {
+        Params = parameters.Params(p => p with {
           DefaultValue = new(new FieldKeyAst(AstNulls.At, content))
         })
       });
@@ -86,5 +86,5 @@ public class ParseOutputFieldTests(
 
 internal sealed class ParseOutputFieldChecks(
   Parser<IGqlpOutputField>.D parser
-) : CheckObjectField<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputBaseAst, IGqlpOutputArgument, OutputArgumentAst>(new OutputFactories(), parser)
+) : CheckObjectField<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputBaseAst, IGqlpOutputArg, OutputArgAst>(new OutputFactories(), parser)
 { }

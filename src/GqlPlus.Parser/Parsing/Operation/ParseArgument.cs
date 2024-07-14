@@ -6,19 +6,19 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Operation;
 
-internal class ParseArgument(
+internal class ParseArg(
   Parser<IGqlpFieldKey>.D fieldKey,
-  Parser<IValueParser<IGqlpArgument>, IGqlpArgument>.D argument
-) : IParserArgument
+  Parser<IValueParser<IGqlpArg>, IGqlpArg>.D argument
+) : IParserArg
 {
   private readonly Parser<IGqlpFieldKey>.L _fieldKey = fieldKey;
-  private readonly Parser<IValueParser<IGqlpArgument>, IGqlpArgument>.L _argument = argument;
+  private readonly Parser<IValueParser<IGqlpArg>, IGqlpArg>.L _argument = argument;
 
-  public IResult<IGqlpArgument> Parse<TContext>(TContext tokens, string label)
+  public IResult<IGqlpArg> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     if (!tokens.Take('(')) {
-      return 0.Empty<IGqlpArgument>();
+      return 0.Empty<IGqlpArg>();
     }
 
     bool oldSeparators = tokens.IgnoreSeparators;
@@ -26,79 +26,79 @@ internal class ParseArgument(
       tokens.IgnoreSeparators = false;
 
       TokenAt at = tokens.At;
-      IGqlpArgument? value = new ArgumentAst(at);
+      IGqlpArg? value = new ArgAst(at);
 
       IResult<IGqlpFieldKey> fieldKey = _fieldKey.Parse(tokens, label);
       if (fieldKey.IsOk()) {
-        return fieldKey.Map<IGqlpArgument>(key =>
+        return fieldKey.Map<IGqlpArg>(key =>
           tokens.Take(':')
           ? _argument.I
-            .Parse(tokens, "Argument")
+            .Parse(tokens, "Arg")
             .MapOk(
-              item => ParseArgumentMid(tokens, at, new() { [(FieldKeyAst)key] = item }),
+              item => ParseArgMid(tokens, at, new() { [(FieldKeyAst)key] = item }),
               () => tokens.Error(label, "a value after field key separator", value))
-          : ParseArgumentEnd(tokens, at, new(key)));
+          : ParseArgEnd(tokens, at, new(key)));
       }
 
-      IResult<IGqlpArgument> argValue = _argument.I.Parse(tokens, label);
+      IResult<IGqlpArg> argValue = _argument.I.Parse(tokens, label);
 
-      return argValue.MapOk(value => ParseArgumentEnd(tokens, at, (ArgumentAst)value), () => argValue);
+      return argValue.MapOk(value => ParseArgEnd(tokens, at, (ArgAst)value), () => argValue);
     } finally {
       tokens.IgnoreSeparators = oldSeparators;
     }
   }
 
-  private ArgumentAst ParseArgValues(Tokenizer tokens, ArgumentAst initial)
+  private ArgAst ParseArgValues(Tokenizer tokens, ArgAst initial)
   {
     TokenAt at = initial.At;
-    List<IGqlpArgument> values = [initial];
+    List<IGqlpArg> values = [initial];
     while (tokens.Take(',')) {
-      _argument.I.Parse(tokens, "Argument").Required(values.Add);
+      _argument.I.Parse(tokens, "Arg").Required(values.Add);
     }
 
     return values.Count > 1
-      ? new(at, values.ArrayOf<ArgumentAst>())
+      ? new(at, values.ArrayOf<ArgAst>())
       : initial;
   }
 
-  private IResult<IGqlpArgument> ParseArgumentMid(Tokenizer tokens, TokenAt at, AstFields<IGqlpArgument> fields)
+  private IResult<IGqlpArg> ParseArgMid(Tokenizer tokens, TokenAt at, AstFields<IGqlpArg> fields)
   {
     if (tokens.Take(',')) {
       return _argument.I
-        .ParseFieldValues(tokens, "Argument", ')', fields)
-        .Select(result => new ArgumentAst(at, result) as IGqlpArgument);
+        .ParseFieldValues(tokens, "Arg", ')', fields)
+        .Select(result => new ArgAst(at, result) as IGqlpArg);
     }
 
     while (!tokens.Take(')')) {
-      IResult<KeyValue<IGqlpArgument>> field = _argument.I.KeyValueParser.Parse(tokens, "Argument");
+      IResult<KeyValue<IGqlpArg>> field = _argument.I.KeyValueParser.Parse(tokens, "Arg");
 
-      if (!field.Required(value => fields.Add((FieldKeyAst)value.Key, ParseArgValues(tokens, (ArgumentAst)value.Value)))) {
-        return field.AsResult<IGqlpArgument>();
+      if (!field.Required(value => fields.Add((FieldKeyAst)value.Key, ParseArgValues(tokens, (ArgAst)value.Value)))) {
+        return field.AsResult<IGqlpArg>();
       }
     }
 
-    return new ArgumentAst(at, fields).Ok<IGqlpArgument>();
+    return new ArgAst(at, fields).Ok<IGqlpArg>();
   }
 
-  private IResult<IGqlpArgument> ParseArgumentEnd(Tokenizer tokens, TokenAt at, ArgumentAst value)
+  private IResult<IGqlpArg> ParseArgEnd(Tokenizer tokens, TokenAt at, ArgAst value)
   {
-    IGqlpArgument more = ParseArgValues(tokens, value);
+    IGqlpArg more = ParseArgValues(tokens, value);
     if (more.Values.Count() > 1) {
       return more.Ok();
     }
 
-    List<IGqlpArgument> values = [value];
-    while (_argument.I.Parse(tokens, "Argument").Required(values.Add)) { }
+    List<IGqlpArg> values = [value];
+    while (_argument.I.Parse(tokens, "Arg").Required(values.Add)) { }
 
     if (tokens.Take(")")) {
-      IGqlpArgument argument = values.Count > 1 ? new(at, values.ArrayOf<ArgumentAst>()) : value;
+      IGqlpArg argument = values.Count > 1 ? new(at, values.ArrayOf<ArgAst>()) : value;
       return argument.Ok();
     }
 
-    return tokens.Error("Argument", "a value", more);
+    return tokens.Error("Arg", "a value", more);
   }
 }
 
-public interface IParserArgument
-  : Parser<IGqlpArgument>.I
+public interface IParserArg
+  : Parser<IGqlpArg>.I
 { }

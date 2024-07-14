@@ -9,18 +9,18 @@ internal class OutputContext(
 ) : EnumContext(types, errors, enumValues)
 {
 
-  internal override void CheckArgumentType<TObjBase>(TObjBase type, string labelSuffix)
+  internal override void CheckArgType<TObjBase>(TObjBase type, string labelSuffix)
   {
-    if (type is IGqlpOutputArgument output) {
+    if (type is IGqlpOutputArg output) {
       if (string.IsNullOrWhiteSpace(output.EnumMember) && GetEnumValue(type.TypeName, out string? enumType)) {
         output.SetEnumType(enumType);
       }
 
       if (!string.IsNullOrWhiteSpace(output.EnumMember)) {
-        CheckEnumValue("Argument", output);
+        CheckEnumValue("Arg", output);
       }
 
-      base.CheckArgumentType(type, labelSuffix);
+      base.CheckArgType(type, labelSuffix);
     }
   }
 

@@ -35,7 +35,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
     }
 
     IResultArray<TParam> parameters = _param.Parse(tokens, label);
-    if (!parameters.Optional(value => partial.Parameters = [.. value ?? []])) {
+    if (!parameters.Optional(value => partial.Params = [.. value ?? []])) {
       return parameters.AsPartial(ToResult(partial));
     }
 
@@ -97,5 +97,5 @@ internal record class AstPartial<TParam, TOption>(
   internal override string Abbr => "Pa";
   public override string Label => "Partial";
   internal TOption? Option { get; set; }
-  internal TParam[] Parameters { get; set; } = [];
+  internal TParam[] Params { get; set; } = [];
 }

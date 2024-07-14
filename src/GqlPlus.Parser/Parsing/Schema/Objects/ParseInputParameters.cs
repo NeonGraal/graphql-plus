@@ -6,20 +6,20 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal class ParseInputParameters(
+internal class ParseInputParams(
   Parser<IGqlpInputBase>.D input,
   Parser<IGqlpModifier>.DA modifiers,
   Parser<IParserDefault, IGqlpConstant>.D defaultParser
-) : Parser<IGqlpInputParameter>.IA
+) : Parser<IGqlpInputParam>.IA
 {
   private readonly Parser<IGqlpInputBase>.L _input = input;
   private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
   private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
-  public IResultArray<IGqlpInputParameter> Parse<TContext>(TContext tokens, string label)
+  public IResultArray<IGqlpInputParam> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    List<IGqlpInputParameter> list = [];
+    List<IGqlpInputParam> list = [];
 
     if (!tokens.Take('(')) {
       return list.EmptyArray();
@@ -29,12 +29,12 @@ internal class ParseInputParameters(
       TokenAt at = tokens.At;
       IResult<IGqlpInputBase> input = _input.Parse(tokens, label);
       if (!input.IsOk()) {
-        return tokens.ErrorArray("Parameter", "input reference after '('", list);
+        return tokens.ErrorArray("Param", "input reference after '('", list);
       }
 
-      InputParameterAst parameter = new(at, input.Required());
+      InputParamAst parameter = new(at, input.Required());
       list.Add(parameter);
-      IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Parameter");
+      IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Param");
       if (modifiers.IsError()) {
         return modifiers.AsResultArray(list);
       }

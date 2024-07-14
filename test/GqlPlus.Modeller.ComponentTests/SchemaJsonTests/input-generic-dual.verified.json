@@ -12,9 +12,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "InpGenDualAlt"
               }
             ]
@@ -28,9 +28,9 @@
           "type": {
             "$tag": "_InputBase",
             "input": "InpGenDualRef",
-            "typeArguments": [
+            "typeArgs": [
               {
-                "$tag": "_DualArgument",
+                "$tag": "_DualArg",
                 "value": "InpGenDualAlt"
               }
             ]
@@ -102,7 +102,7 @@
       ],
       "name": "InpGenDualRef",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "ref"

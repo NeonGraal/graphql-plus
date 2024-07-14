@@ -10,13 +10,13 @@ public abstract class TestObjects<TObject, TObjBase, TObjField, TObjAlt>
   where TObjBase : IGqlpObjBase
 {
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsTypeParametersCantMerge_ReturnsErrors(string name, string[] typeParameters)
+  public void CanMerge_TwoAstsTypeParamsCantMerge_ReturnsErrors(string name, string[] typeParams)
     => this
-      .SkipUnless(typeParameters)
-      .CanMergeReturnsError(TypeParameters)
+      .SkipUnless(typeParams)
+      .CanMergeReturnsError(TypeParams)
       .CanMerge_Errors(
-        MakeObject(name, typeParameters: typeParameters),
-        MakeObject(name, typeParameters: typeParameters));
+        MakeObject(name, typeParams: typeParams),
+        MakeObject(name, typeParams: typeParams));
 
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsErrors(string name, AlternateInput[] alternates)
@@ -34,13 +34,13 @@ public abstract class TestObjects<TObject, TObjBase, TObjField, TObjAlt>
         MakeObject(name, fields: fields),
         MakeObject(name, fields: fields));
 
-  protected IMerge<IGqlpTypeParameter> TypeParameters { get; }
+  protected IMerge<IGqlpTypeParam> TypeParams { get; }
   protected IMerge<TObjAlt> Alternates { get; }
   protected IMerge<TObjField> Fields { get; }
 
   protected TestObjects()
   {
-    TypeParameters = Merger<IGqlpTypeParameter>();
+    TypeParams = Merger<IGqlpTypeParam>();
     Alternates = Merger<TObjAlt>();
     Fields = Merger<TObjField>();
   }
@@ -53,7 +53,7 @@ public abstract class TestObjects<TObject, TObjBase, TObjField, TObjAlt>
     string[]? aliases = null,
     string description = "",
     IGqlpObjBase? parent = default,
-    string[]? typeParameters = null,
+    string[]? typeParams = null,
     FieldInput[]? fields = null,
     AlternateInput[]? alternates = null);
   protected abstract TObjBase MakeBase(string type);

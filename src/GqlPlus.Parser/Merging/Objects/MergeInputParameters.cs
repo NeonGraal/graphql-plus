@@ -5,26 +5,26 @@ using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
 
-internal class MergeInputParameters(
+internal class MergeInputParams(
   ILoggerFactory logger,
   IMerge<IGqlpConstant> constant
-) : DistinctMerger<IGqlpInputParameter>(logger)
+) : DistinctMerger<IGqlpInputParam>(logger)
 {
-  protected override string ItemGroupKey(IGqlpInputParameter item)
+  protected override string ItemGroupKey(IGqlpInputParam item)
     => item.Type.FullType;
 
   protected override string ItemMatchName => "Modifiers";
-  protected override string ItemMatchKey(IGqlpInputParameter item)
+  protected override string ItemMatchKey(IGqlpInputParam item)
     => item.Modifiers.AsString().Joined();
 
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpInputParameter> group)
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpInputParam> group)
     => base.CanMergeGroup(group)
       .Add(group.CanMergeString(item => item.Type.Description))
       .Add(group.CanMerge(item => item.DefaultValue, constant));
 
-  protected override InputParameterAst MergeGroup(IEnumerable<IGqlpInputParameter> group)
+  protected override InputParamAst MergeGroup(IEnumerable<IGqlpInputParam> group)
   {
-    InputParameterAst first = (InputParameterAst)group.First();
+    InputParamAst first = (InputParamAst)group.First();
     if (first.Type is IAstSetDescription descrType) {
       descrType.MakeDescription(group);
     }

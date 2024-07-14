@@ -15,10 +15,10 @@ public class OutputFieldModelTests(
       );
 
   [Theory, RepeatData(Repeats)]
-  public void Model_Parameter(FieldInput input, string[] parameters)
+  public void Model_Param(FieldInput input, string[] parameters)
     => checks.Field_Expected(
-      new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type)) { Parameters = parameters.Parameters() },
-      checks.ExpectedField(input, [], checks.ExpectedParameters(parameters))
+      new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type)) { Params = parameters.Params() },
+      checks.ExpectedField(input, [], checks.ExpectedParams(parameters))
       );
 }
 
@@ -37,11 +37,11 @@ internal sealed class OutputFieldModelChecks(
   internal OutputBaseAst NewObjBaseAst(string input)
     => new(AstNulls.At, input);
 
-  public string[] ExpectedParameters(string[] parameters)
+  public string[] ExpectedParams(string[] parameters)
     => [.. ItemsExpected(
        "parameters:",
         parameters,
-        p => ["- !_InputParameter", "  input: " + p])];
+        p => ["- !_InputParam", "  input: " + p])];
 
   public string[] ExpectedEnum(FieldInput input, string enumMember)
     => [$"!_OutputEnum", "field: " + input.Name, "member: " + enumMember, "name: " + input.Type, $"typeKind: !_SimpleKind Enum"];
@@ -50,6 +50,6 @@ internal sealed class OutputFieldModelChecks(
 public interface IOutputFieldModelChecks
   : ICheckObjectFieldModel<IGqlpOutputField, OutputFieldModel>
 {
-  string[] ExpectedParameters(string[] parameters);
+  string[] ExpectedParams(string[] parameters);
   string[] ExpectedEnum(FieldInput input, string enumMember);
 }

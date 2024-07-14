@@ -4,7 +4,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       collections:
-      - !_ModifierTypeParameter
+      - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
       object: InpAltModsParam
@@ -13,14 +13,14 @@ types: !_Map_Type
     alternates:
     - !_InputAlternate
       collections:
-      - !_ModifierTypeParameter
+      - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
       type: !_InputBase
         input: InpModsParamAlt
     name: InpAltModsParam
     typeKind: !_TypeKind Input
-    typeParameters:
+    typeParams:
     - !_Described
       name: mod
   !_Identifier InpModsParamAlt: !_TypeInput

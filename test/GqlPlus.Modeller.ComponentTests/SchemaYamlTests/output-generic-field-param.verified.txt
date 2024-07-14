@@ -7,16 +7,16 @@ types: !_Map_Type
       object: OutpGenFieldParam
       type: !_OutputBase
         output: OutpGenFieldParamRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           output: OutpGenFieldParamAlt
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
         output: OutpGenFieldParamRef
-        typeArguments:
-        - !_OutputArgument
+        typeArgs:
+        - !_OutputArg
           output: OutpGenFieldParamAlt
     name: OutpGenFieldParam
     typeKind: !_TypeKind Output
@@ -47,12 +47,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGenFieldParamRef
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     alternates:
     - !_OutputAlternate
-      type: !_TypeParameter ref
+      type: !_TypeParam ref
     name: OutpGenFieldParamRef
     typeKind: !_TypeKind Output
-    typeParameters:
+    typeParams:
     - !_Described
       name: ref

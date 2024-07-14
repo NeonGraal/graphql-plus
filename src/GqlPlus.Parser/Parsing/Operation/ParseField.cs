@@ -9,13 +9,13 @@ namespace GqlPlus.Parsing.Operation;
 internal class ParseField(
   Parser<IGqlpModifier>.DA modifiers,
   Parser<IGqlpDirective>.DA directives,
-  Parser<IParserArgument, IGqlpArgument>.D argument,
+  Parser<IParserArg, IGqlpArg>.D argument,
   Parser<IGqlpSelection>.DA objectParser
 ) : Parser<IGqlpField>.I
 {
   private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
   private readonly Parser<IGqlpDirective>.LA _directives = directives;
-  private readonly Parser<IParserArgument, IGqlpArgument>.L _argument = argument;
+  private readonly Parser<IParserArg, IGqlpArg>.L _argument = argument;
   private readonly Parser<IGqlpSelection>.LA _object = objectParser;
 
   public IResult<IGqlpField> Parse<TContext>(TContext tokens, string label)
@@ -37,7 +37,7 @@ internal class ParseField(
       result = new FieldAst(at, name) { FieldAlias = alias };
     }
 
-    _argument.I.Parse(tokens, "Argument").Required(argument => result.Argument = (ArgumentAst)argument);
+    _argument.I.Parse(tokens, "Arg").Required(argument => result.Arg = (ArgAst)argument);
 
     IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
     if (!modifiers.Optional(value => result.Modifiers = value.ArrayOf<ModifierAst>())) {

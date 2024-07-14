@@ -27,8 +27,8 @@ public class UsageContext(
     return false;
   }
 
-  internal virtual void CheckArgumentType<TObjArg>(TObjArg type, string labelSuffix)
-    where TObjArg : IGqlpObjArgument
+  internal virtual void CheckArgType<TObjArg>(TObjArg type, string labelSuffix)
+    where TObjArg : IGqlpObjArg
     => this.CheckType(type, labelSuffix);
 
   internal bool DifferentName<TAst>(ParentUsage<TAst> input, string? current)
@@ -77,7 +77,7 @@ internal static class UsageHelpers
 
       if (modifier.ModifierKind == ModifierKind.Dict) {
         if (context.GetType(modifier.Key, out IGqlpDescribed? key)) {
-          if (key is not IGqlpSimple and not IGqlpTypeParameter) {
+          if (key is not IGqlpSimple and not IGqlpTypeParam) {
             context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");
           }
         } else {
@@ -89,12 +89,12 @@ internal static class UsageHelpers
     return context;
   }
 
-  internal static TContext CheckArguments<TContext, TObjArg>(this TContext context, IEnumerable<TObjArg> arguments, string labelSuffix)
+  internal static TContext CheckArgs<TContext, TObjArg>(this TContext context, IEnumerable<TObjArg> arguments, string labelSuffix)
     where TContext : UsageContext
-    where TObjArg : IGqlpObjArgument
+    where TObjArg : IGqlpObjArg
   {
     foreach (TObjArg arg in arguments) {
-      context.CheckArgumentType(arg, labelSuffix);
+      context.CheckArgType(arg, labelSuffix);
     }
 
     return context;
@@ -105,18 +105,18 @@ internal static class UsageHelpers
     where TObjBase : IGqlpObjType
   {
     if (context.GetType(type.TypeName, out IGqlpDescribed? value)) {
-      int numArgs = type is IGqlpObjBase baseType ? baseType.Arguments.Count() : 0;
+      int numArgs = type is IGqlpObjBase baseType ? baseType.Args.Count() : 0;
       if (value is IGqlpObject definition) {
         if (check && definition.Label != "Dual" && definition.Label != type.Label) {
           context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.TypeName}. Found {definition.Label}");
         }
 
-        int numParams = definition.TypeParameters.Count();
+        int numParams = definition.TypeParams.Count();
         if (numParams != numArgs) {
-          context.AddError(type, type.Label + labelSuffix, $"Arguments mismatch, expected {numParams} given {numArgs}");
+          context.AddError(type, type.Label + labelSuffix, $"Args mismatch, expected {numParams} given {numArgs}");
         }
       } else if (value is IGqlpSimple simple && numArgs != 0) {
-        context.AddError(type, type.Label + labelSuffix, $"Arguments invalid on {simple.Name}, given {numArgs}");
+        context.AddError(type, type.Label + labelSuffix, $"Args invalid on {simple.Name}, given {numArgs}");
       }
     } else if (check) {
       context.AddError(type, type.Label + labelSuffix, $"'{type.TypeName}' not defined");

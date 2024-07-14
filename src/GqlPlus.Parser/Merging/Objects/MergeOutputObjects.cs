@@ -6,13 +6,13 @@ namespace GqlPlus.Merging.Objects;
 internal class MergeOutputObjects(
   ILoggerFactory logger,
   IMerge<IGqlpOutputField> fields,
-  IMerge<IGqlpTypeParameter> typeParameters,
+  IMerge<IGqlpTypeParam> typeParams,
   IMerge<IGqlpOutputAlternate> alternates
-) : AstObjectsMerger<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>(logger, fields, typeParameters, alternates)
+) : AstObjectsMerger<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>(logger, fields, typeParams, alternates)
 {
-  protected override IGqlpOutputObject SetAlternates(IGqlpOutputObject obj, IEnumerable<IGqlpTypeParameter> typeParameters, IEnumerable<IGqlpOutputAlternate> alternates)
+  protected override IGqlpOutputObject SetAlternates(IGqlpOutputObject obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<IGqlpOutputAlternate> alternates)
     => (OutputDeclAst)obj with {
-      TypeParameters = typeParameters.ArrayOf<TypeParameterAst>(),
+      TypeParams = typeParams.ArrayOf<TypeParamAst>(),
       ObjAlternates = [.. alternates],
     };
 

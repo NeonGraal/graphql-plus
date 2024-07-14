@@ -9,54 +9,54 @@ internal static class SchemaTestHelpers
     => [.. enumMembers.Select(l => new EnumMemberAst(AstNulls.At, l))];
 
   public static DualFieldAst[] DualFields(this IEnumerable<FieldInput> fields)
-    => [.. fields.Select(f => new DualFieldAst(AstNulls.At, f.Name, DualBase(f.Type, f.TypeParameter)))];
+    => [.. fields.Select(f => new DualFieldAst(AstNulls.At, f.Name, DualBase(f.Type, f.TypeParam)))];
 
   public static DualAlternateAst[] DualAlternates(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new DualAlternateAst(AstNulls.At, DualBase(a.Type, a.TypeParameter)) { Modifiers = TestMods() })];
+    => [.. alternates.Select(a => new DualAlternateAst(AstNulls.At, DualBase(a.Type, a.TypeParam)) { Modifiers = TestMods() })];
 
-  private static DualBaseAst DualBase(string type, bool isTypeParameter)
-    => new(AstNulls.At, type) { IsTypeParameter = isTypeParameter };
+  private static DualBaseAst DualBase(string type, bool isTypeParam)
+    => new(AstNulls.At, type) { IsTypeParam = isTypeParam };
 
   public static DualBaseAst[] DualBases(this string[] bases)
     => [.. bases.Select(b => new DualBaseAst(AstNulls.At, b))];
 
-  public static DualArgumentAst[] DualArguments(this string[] arguments)
-    => [.. arguments.Select(b => new DualArgumentAst(AstNulls.At, b))];
+  public static DualArgAst[] DualArgs(this string[] arguments)
+    => [.. arguments.Select(b => new DualArgAst(AstNulls.At, b))];
 
   public static InputFieldAst[] InputFields(this IEnumerable<FieldInput> fields)
-    => [.. fields.Select(f => new InputFieldAst(AstNulls.At, f.Name, InputBase(f.Type, f.TypeParameter)))];
+    => [.. fields.Select(f => new InputFieldAst(AstNulls.At, f.Name, InputBase(f.Type, f.TypeParam)))];
   public static InputAlternateAst[] InputAlternates(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new InputAlternateAst(AstNulls.At, InputBase(a.Type, a.TypeParameter)) { Modifiers = TestMods() })];
+    => [.. alternates.Select(a => new InputAlternateAst(AstNulls.At, InputBase(a.Type, a.TypeParam)) { Modifiers = TestMods() })];
 
-  private static InputBaseAst InputBase(string type, bool isTypeParameter)
-    => new(AstNulls.At, type) { IsTypeParameter = isTypeParameter };
+  private static InputBaseAst InputBase(string type, bool isTypeParam)
+    => new(AstNulls.At, type) { IsTypeParam = isTypeParam };
 
   public static InputBaseAst[] InputBases(this string[] bases)
     => [.. bases.Select(a => new InputBaseAst(AstNulls.At, a))];
 
-  public static InputArgumentAst[] InputArguments(this string[] arguments)
-    => [.. arguments.Select(a => new InputArgumentAst(AstNulls.At, a))];
+  public static InputArgAst[] InputArgs(this string[] arguments)
+    => [.. arguments.Select(a => new InputArgAst(AstNulls.At, a))];
 
   public static OutputFieldAst[] OutputFields(this IEnumerable<FieldInput> fields)
-    => [.. fields.Select(f => new OutputFieldAst(AstNulls.At, f.Name, OutputBase(f.Type, f.TypeParameter)))];
+    => [.. fields.Select(f => new OutputFieldAst(AstNulls.At, f.Name, OutputBase(f.Type, f.TypeParam)))];
 
   public static OutputAlternateAst[] OutputAlternates(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new OutputAlternateAst(AstNulls.At, OutputBase(a.Type, a.TypeParameter)) { Modifiers = TestMods() })];
+    => [.. alternates.Select(a => new OutputAlternateAst(AstNulls.At, OutputBase(a.Type, a.TypeParam)) { Modifiers = TestMods() })];
 
-  private static OutputBaseAst OutputBase(string type, bool isTypeParameter)
-    => new(AstNulls.At, type) { IsTypeParameter = isTypeParameter };
+  private static OutputBaseAst OutputBase(string type, bool isTypeParam)
+    => new(AstNulls.At, type) { IsTypeParam = isTypeParam };
 
   public static OutputBaseAst[] OutputBases(this string[] arguments)
     => [.. arguments.Select(a => new OutputBaseAst(AstNulls.At, a))];
 
-  public static OutputArgumentAst[] OutputArguments(this string[] arguments)
-    => [.. arguments.Select(a => new OutputArgumentAst(AstNulls.At, a))];
+  public static OutputArgAst[] OutputArgs(this string[] arguments)
+    => [.. arguments.Select(a => new OutputArgAst(AstNulls.At, a))];
 
-  public static InputParameterAst[] Parameters(this IEnumerable<string> parameters)
-    => [.. parameters.Select(parameter => new InputParameterAst(AstNulls.At, parameter))];
+  public static InputParamAst[] Params(this IEnumerable<string> parameters)
+    => [.. parameters.Select(parameter => new InputParamAst(AstNulls.At, parameter))];
 
-  public static InputParameterAst[] Parameters(this string[] parameters, Func<InputParameterAst, InputParameterAst> mapping)
-    => [.. parameters.Select(parameter => mapping(new InputParameterAst(AstNulls.At, parameter)))];
+  public static InputParamAst[] Params(this string[] parameters, Func<InputParamAst, InputParamAst> mapping)
+    => [.. parameters.Select(parameter => mapping(new InputParamAst(AstNulls.At, parameter)))];
 
   private static TResult[] WithExcludes<TInput, TResult>(this TInput[] inputs, Func<TInput, TResult> mapping)
     where TResult : AstDomainItem
@@ -78,6 +78,6 @@ internal static class SchemaTestHelpers
   public static DomainRegexAst[] DomainRegexes(this string[] regexes)
     => [.. regexes.WithExcludes(r => new DomainRegexAst(AstNulls.At, false, r))];
 
-  public static TypeParameterAst[] TypeParameters(this string[] parameters)
-    => [.. parameters.Select(parameter => new TypeParameterAst(AstNulls.At, parameter))];
+  public static TypeParamAst[] TypeParams(this string[] parameters)
+    => [.. parameters.Select(parameter => new TypeParamAst(AstNulls.At, parameter))];
 }

@@ -5,6 +5,6 @@
   !!! I@008/0014 : Invalid Output Parent. '_Field' not defined. - '_DualField' !!!,
   !!! I@008/0018 : Invalid Output Parent. '_Alternate' not defined. - '_DualAlternate' !!!,
   !!! I@015/0007 : Invalid Output Field. '_Identifier' not defined. - '_Identifier' !!!,
-  !!! I@019/0002 : Invalid Output Argument Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
+  !!! I@019/0002 : Invalid Output Arg Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@019/0002 : Invalid Output Parent. '_TypeKind' not defined. - '_TypeKind' !!!
 ]

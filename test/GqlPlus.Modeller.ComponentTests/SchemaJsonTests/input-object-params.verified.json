@@ -32,7 +32,7 @@
       ],
       "name": "InpParams",
       "typeKind": "Input",
-      "typeParameters": [
+      "typeParams": [
         {
           "$tag": "_Described",
           "value": "test"

@@ -5,7 +5,7 @@ directives: !_Map_Directives
       Operation: _, Spread: _, Variable: _}
     name: DirParam
     parameters:
-    - !_InputParameter
+    - !_InputParam
       input: DirParamIn
     repeatable: false
 types: !_Map_Type

@@ -8,9 +8,9 @@ public class FieldAstTests : AstDirectivesTests
       () => Field(name) with { FieldAlias = alias });
 
   [Theory, RepeatData(Repeats)]
-  public void HashCode_WithArgument(string variable, string name)
+  public void HashCode_WithArg(string variable, string name)
     => _checks.HashCode(
-      () => Field(name) with { Argument = new ArgumentAst(AstNulls.At, variable) });
+      () => Field(name) with { Arg = new ArgAst(AstNulls.At, variable) });
 
   [Theory, RepeatData(Repeats)]
   public void HashCode_WithModifiers(string name)
@@ -29,9 +29,9 @@ public class FieldAstTests : AstDirectivesTests
       $"( !f {alias}: {name} )");
 
   [Theory, RepeatData(Repeats)]
-  public void String_WithArgument(string variable, string name)
+  public void String_WithArg(string variable, string name)
     => _checks.Text(
-      () => Field(name) with { Argument = new ArgumentAst(AstNulls.At, variable) },
+      () => Field(name) with { Arg = new ArgAst(AstNulls.At, variable) },
       $"( !f {name} ( !a ${variable} ) )");
 
   [Theory, RepeatData(Repeats)]
@@ -57,14 +57,14 @@ public class FieldAstTests : AstDirectivesTests
       () => Field(name) with { FieldAlias = alias });
 
   [Theory, RepeatData(Repeats)]
-  public void Equality_WithArgument(string variable, string name)
+  public void Equality_WithArg(string variable, string name)
     => _checks.Equality(
-      () => Field(name) with { Argument = new ArgumentAst(AstNulls.At, variable) });
+      () => Field(name) with { Arg = new ArgAst(AstNulls.At, variable) });
 
   [Theory, RepeatData(Repeats)]
-  public void Inequality_WithArgument(string variable, string name)
+  public void Inequality_WithArg(string variable, string name)
     => _checks.InequalityWith(name,
-      () => Field(name) with { Argument = new ArgumentAst(AstNulls.At, variable) });
+      () => Field(name) with { Arg = new ArgAst(AstNulls.At, variable) });
 
   [Theory, RepeatData(Repeats)]
   public void Equality_WithModifiers(string name)

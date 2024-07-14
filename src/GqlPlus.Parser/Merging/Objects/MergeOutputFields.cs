@@ -5,15 +5,15 @@ namespace GqlPlus.Merging.Objects;
 
 internal class MergeOutputFields(
   ILoggerFactory logger,
-  IMerge<IGqlpInputParameter> parameters
+  IMerge<IGqlpInputParam> parameters
 ) : AstObjectFieldsMerger<IGqlpOutputField>(logger)
 {
   protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpOutputField> group)
     => base.CanMergeGroup(group)
-      .Add(group.ManyCanMerge(item => item.Parameters, parameters));
+      .Add(group.ManyCanMerge(item => item.Params, parameters));
 
   protected override OutputFieldAst MergeGroup(IEnumerable<IGqlpOutputField> group)
     => (OutputFieldAst)base.MergeGroup(group) with {
-      Parameters = group.ManyMerge(item => item.Parameters, parameters).ArrayOf<InputParameterAst>(),
+      Params = group.ManyMerge(item => item.Params, parameters).ArrayOf<InputParamAst>(),
     };
 }

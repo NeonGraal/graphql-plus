@@ -17,7 +17,7 @@ public enum CategoryOption
 public interface IGqlpSchemaDirective
   : IGqlpDeclaration
 {
-  IEnumerable<IGqlpInputParameter> Parameters { get; }
+  IEnumerable<IGqlpInputParam> Params { get; }
   DirectiveOption DirectiveOption { get; }
   DirectiveLocation Locations { get; }
 }

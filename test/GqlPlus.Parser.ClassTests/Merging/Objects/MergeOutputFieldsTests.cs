@@ -10,12 +10,12 @@ public class MergeOutputFieldsTests
   : TestObjectFields<IGqlpOutputField, IGqlpOutputBase>
 {
   [SkippableTheory, RepeatData(Repeats)]
-  public void CanMerge_TwoAstsParametersCantMerge_ReturnsErrors(string name, string type, string[] parameters)
+  public void CanMerge_TwoAstsParamsCantMerge_ReturnsErrors(string name, string type, string[] parameters)
     => this
       .SkipUnless(parameters)
       .CanMergeReturnsError(_parameters)
       .CanMerge_Errors(
-        MakeFieldParameters(name, type, parameters),
+        MakeFieldParams(name, type, parameters),
         MakeField(name, type));
 
   [Theory, RepeatData(Repeats)]
@@ -59,11 +59,11 @@ public class MergeOutputFieldsTests
       MakeFieldEnum(name, type, value));
 
   [Theory, RepeatData(Repeats)]
-  public void Merge_TwoAstsWithParameters_CallsParametersMerge(string name, string type, string[] parameters)
+  public void Merge_TwoAstsWithParams_CallsParamsMerge(string name, string type, string[] parameters)
     => Merge_Expected(
-        [MakeFieldParameters(name, type, parameters),
-          MakeFieldParameters(name, type, parameters)],
-        MakeFieldParameters(name, type, parameters.Concat(parameters)))
+        [MakeFieldParams(name, type, parameters),
+          MakeFieldParams(name, type, parameters)],
+        MakeFieldParams(name, type, parameters.Concat(parameters)))
       .MergeCalled(_parameters);
 
   [Theory, RepeatData(Repeats)]
@@ -104,11 +104,11 @@ public class MergeOutputFieldsTests
       MakeFieldEnum(name, type, value) with { Aliases = [alias1, alias2] });
 
   private readonly MergeOutputFields _merger;
-  private readonly IMerge<IGqlpInputParameter> _parameters;
+  private readonly IMerge<IGqlpInputParam> _parameters;
 
   public MergeOutputFieldsTests(ITestOutputHelper outputHelper)
   {
-    _parameters = Merger<IGqlpInputParameter>();
+    _parameters = Merger<IGqlpInputParam>();
     _merger = new(outputHelper.ToLoggerFactory(), _parameters);
   }
 
@@ -116,9 +116,9 @@ public class MergeOutputFieldsTests
 
   protected override IGqlpOutputField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
     => new OutputFieldAst(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription));
-  private static OutputFieldAst MakeFieldParameters(string name, string type, IEnumerable<string> parameters)
+  private static OutputFieldAst MakeFieldParams(string name, string type, IEnumerable<string> parameters)
     => new(AstNulls.At, name, new OutputBaseAst(AstNulls.At, type)) {
-      Parameters = parameters.ThrowIfNull().Parameters()
+      Params = parameters.ThrowIfNull().Params()
     };
   private static OutputFieldAst MakeFieldEnum(string name, string type, string enumMember, string fieldDescription = "", string typeDescription = "")
     => new(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription) { EnumMember = enumMember });

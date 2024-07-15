@@ -1,18 +1,13 @@
-﻿using Fluid;
-
-using GqlPlus;
+﻿using GqlPlus;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Convert;
-using GqlPlus.Modelling;
 using GqlPlus.Parsing;
 
 namespace GqlPlus;
 
 public class SampleModelTests(
     Parser<IGqlpSchema>.D schemaParser,
-    IModeller<IGqlpSchema, SchemaModel> schemaModeller,
-    IRenderer<SchemaModel> renderer,
-    ITypesModeller types
+    IModelAndRender renderer
 ) : SampleChecks(schemaParser)
 {
   [Theory]
@@ -20,16 +15,8 @@ public class SampleModelTests(
   public async Task YamlSchema(string sample)
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
-    TypesCollection context = TypesCollection.WithBuiltins(types);
 
-    SchemaModel model = schemaModeller.ToModel(ast, context);
-    context.AddModels(model.Types.Values);
-    context.Errors.Clear();
-
-    RenderStructure result = renderer.Render(model, context);
-    if (context.Errors.Count > 0) {
-      result.Add("_errors", context.Errors.Render());
-    }
+    RenderStructure result = renderer.RenderAst(ast, withBuiltIns: true);
 
     await Verify(result.ToYaml(true), SampleSettings("Yaml", sample));
   }
@@ -39,16 +26,8 @@ public class SampleModelTests(
   public async Task JsonSchema(string sample)
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
-    TypesCollection context = TypesCollection.WithBuiltins(types);
 
-    SchemaModel model = schemaModeller.ToModel(ast, context);
-    context.AddModels(model.Types.Values);
-    context.Errors.Clear();
-
-    RenderStructure result = renderer.Render(model, context);
-    if (context.Errors.Count > 0) {
-      result.Add("_errors", context.Errors.Render());
-    }
+    RenderStructure result = renderer.RenderAst(ast, withBuiltIns: true);
 
     await Verify(result.ToJson(), "json", SampleSettings("Json", sample));
   }
@@ -58,16 +37,8 @@ public class SampleModelTests(
   public async Task HtmlSchema(string sample)
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
-    TypesCollection context = TypesCollection.WithBuiltins(types);
 
-    SchemaModel model = schemaModeller.ToModel(ast, context);
-    context.AddModels(model.Types.Values);
-    context.Errors.Clear();
-
-    RenderStructure result = renderer.Render(model, context);
-    if (context.Errors.Count > 0) {
-      result.Add("_errors", context.Errors.Render());
-    }
+    RenderStructure result = renderer.RenderAst(ast, withBuiltIns: true);
 
     await result.WriteHtmlFileAsync("Sample", sample);
   }

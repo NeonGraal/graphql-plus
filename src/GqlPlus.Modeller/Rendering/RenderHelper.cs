@@ -13,7 +13,7 @@ internal static class RenderHelper
       .Add("_message", error.Message);
 
   private static RenderStructure RenderAt(ITokenAt at)
-    => RenderStructure.New("_At", null, true)
+    => RenderStructure.New("_At", true)
       .Add("_col", at.Column)
       .Add("_line", at.Line);
 

@@ -3,17 +3,14 @@
 namespace GqlPlus.Modelling;
 
 internal abstract class CheckParentModel<TAst, TTypeKind, TModel, TItem>(
-  IModeller<TAst, TModel> modeller,
-  IRenderer<TModel> rendering,
+  CheckTypeInputs<TAst, TModel> inputs,
   TTypeKind kind
-) : CheckTypeModel<TAst, TTypeKind, TModel>(modeller, rendering, kind)
+) : CheckTypeModel<TAst, TTypeKind, TModel>(inputs, kind)
   , IParentModel<TItem>
   , ICheckTypeModel<TTypeKind, TModel>
   where TAst : IGqlpType<string>
   where TModel : IModelBase
 {
-  internal abstract BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
-
   BaseTypeModel IParentModel<TItem>.NewParent(string name, TItem[] members, string? parent)
     => NewParent(name, members, parent);
 
@@ -25,6 +22,8 @@ internal abstract class CheckParentModel<TAst, TTypeKind, TModel, TItem>(
 
   public IEnumerable<string> ExpectedAllMembers(string field, string[] members, string type)
     => ItemsExpected(field, members, ExpectedAllMember(type));
+
+  internal abstract BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
 
   protected abstract ToExpected<string> ExpectedAllMember(string type);
 }

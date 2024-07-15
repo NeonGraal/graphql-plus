@@ -71,5 +71,5 @@ internal class OutputAlternateModeller(
 ) : ModellerObjAlternate<IGqlpOutputBase, IGqlpOutputAlternate, OutputBaseModel, OutputAlternateModel>(objBase, collection)
 {
   protected override OutputAlternateModel AlternateModel(IGqlpOutputAlternate ast, OutputBaseModel type, IMap<TypeKindModel> typeKinds)
-    => new(new(type, ast.Type.Description));
+    => new(new ObjDescribedModel<OutputBaseModel>(type, ast.Type.Description));
 }

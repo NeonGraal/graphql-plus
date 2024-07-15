@@ -4,9 +4,9 @@ internal class BaseRenderer<TModel>
   : IRenderer<TModel>
   where TModel : IModelBase
 {
-  RenderStructure IRenderer<TModel>.Render(TModel model, IRenderContext context)
-    => Render(model, context);
+  RenderStructure IRenderer<TModel>.Render(TModel model)
+    => Render(model);
 
-  internal virtual RenderStructure Render(TModel model, IRenderContext context)
-    => RenderStructure.New(model.Tag, context);
+  internal virtual RenderStructure Render(TModel model)
+    => RenderStructure.New(model.Tag);
 }

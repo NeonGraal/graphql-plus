@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Convert;
+using GqlPlus.Resolving;
 
 namespace GqlPlus.Modelling;
 
@@ -47,7 +48,7 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
   protected IModeller<TSrc, TModel> _modeller;
   protected IRenderer<TRender> _rendering;
 
-  public IRenderContext Context { get; } = new TestRenderContext();
+  public IResolveContext Context { get; } = new TestResolveContext();
   public IMap<TypeKindModel> TypeKinds { get; } = new Map<TypeKindModel>();
 
   protected CheckModelBase(IModeller<TSrc, TModel> modeller, IRenderer<TRender> rendering)
@@ -64,7 +65,7 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
 
   internal void Model_Expected(IModelBase model, string[] expected)
   {
-    RenderStructure render = _rendering.Render((TRender)model, Context);
+    RenderStructure render = _rendering.Render((TRender)model);
 
     string yaml = render.ToYaml(false);
 
@@ -101,7 +102,7 @@ public interface ICheckModelBase<TName, TRender>
 
 public interface ICheckModelBase
 {
-  IRenderContext Context { get; }
+  IResolveContext Context { get; }
   IMap<TypeKindModel> TypeKinds { get; }
   IModelBase ToModel(IGqlpError ast);
 

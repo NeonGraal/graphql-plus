@@ -25,7 +25,7 @@ public record class SchemaModel(
 
   internal IMap<CategoryModel> Categories { get; } = new Map<CategoryModel>();
   internal IMap<DirectiveModel> Directives { get; } = new Map<DirectiveModel>();
-  internal IMap<BaseTypeModel> Types { get; } = new Map<BaseTypeModel>();
+  internal IMap<BaseTypeModel> Types { get; init; } = new Map<BaseTypeModel>();
   internal IMap<SettingModel> Settings { get; init; } = new Map<SettingModel>();
   public ITokenMessages Errors { get; } = new TokenMessages();
 
@@ -46,7 +46,7 @@ public record class SchemaModel(
 
   public IMap<BaseTypeModel> GetTypes(TypeFilterParam? filter) => Types;
   public IMap<SettingModel> GetSettings(FilterParam? filter) => Settings;
-#pragma warning restore IDE0060 // Remove unused parameter
+#pragma warning restore IDE0060
 }
 
 public record class FilterParam(

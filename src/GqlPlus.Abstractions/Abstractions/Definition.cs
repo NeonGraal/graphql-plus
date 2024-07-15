@@ -118,7 +118,7 @@ public static class IGqlpValuesHelper
 #pragma warning disable CS8601 // Possible null reference assignment.
     bool IReadOnlyDictionary<IGqlpFieldKey, TValue>.TryGetValue(IGqlpFieldKey key, out TValue value)
       => fields.TryGetValue(key, out value);
-#pragma warning restore CS8601 // Possible null reference assignment.
+#pragma warning restore CS8601
   }
 
   public static IGqlpFields<TResult> ToFields<TKey, TValue, TResult>(this IDictionary<TKey, TValue> dictionary, Func<TValue, TResult> valueSelector)

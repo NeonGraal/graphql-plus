@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-using GqlPlus.Modelling;
+using GqlPlus.Resolving;
 
 namespace GqlPlus.Models;
 
@@ -21,23 +21,16 @@ public abstract record class ChildTypeModel<TParent>(
 {
   public TParent? Parent { get; set; }
 
-  internal IModelBase? _parentModel;
+  internal IModelBase? ParentModel { get; set; }
 
-  protected abstract string? ParentName(TParent? parent);
-
-  internal virtual bool GetParentModel<TResult>(IRenderContext context, [NotNullWhen(true)] out TResult? model)
+  internal virtual bool GetParentModel<TResult>(IResolveContext context, [NotNullWhen(true)] out TResult? model)
     where TResult : IModelBase
   {
-    if (_parentModel is null) {
-      _parentModel = model = context.TryGetType(Name, ParentName(Parent), out TResult? parentModel) ? parentModel : default;
-    } else {
-      model = (TResult?)_parentModel;
-    }
-
-    return model is not null;
+    model = default;
+    return false;
   }
 
-  internal void ForParent<TResult>(IRenderContext context, Action<TResult> action)
+  internal void ForParent<TResult>(IResolveContext context, Action<TResult> action)
     where TResult : IChildTypeModel
   {
     if (GetParentModel(context, out TResult? parentModel)) {
@@ -46,18 +39,18 @@ public abstract record class ChildTypeModel<TParent>(
     }
   }
 
-  void IChildTypeModel.ForParent<TModel>(IRenderContext context, Action<TModel> action)
+  void IChildTypeModel.ForParent<TModel>(IResolveContext context, Action<TModel> action)
     => ForParent(context, action);
 }
 
 public interface IChildTypeModel
   : IModelBase
 {
-  void ForParent<TModel>(IRenderContext context, Action<TModel> action)
+  void ForParent<TModel>(IResolveContext context, Action<TModel> action)
     where TModel : IChildTypeModel;
 }
 
-public abstract record class ParentTypeModel<TItem, TAll>(
+public record class ParentTypeModel<TItem, TAll>(
   TypeKindModel Kind,
   string Name
 ) : ChildTypeModel<TypeRefModel<SimpleKindModel>>(Kind, Name)
@@ -65,11 +58,7 @@ public abstract record class ParentTypeModel<TItem, TAll>(
   where TAll : IModelBase
 {
   public TItem[] Items { get; set; } = [];
-
-  protected override string? ParentName(TypeRefModel<SimpleKindModel>? parent)
-    => parent?.Name;
-
-  protected abstract Func<TItem, TAll> NewItem(string parent);
+  public TAll[] AllItems { get; set; } = [];
 }
 
 public enum SimpleKindModel { Basic, Enum, Internal, Domain, Union, LastSimple = 9 }
@@ -106,73 +95,4 @@ internal static class ModelHelper
   internal static TypeRefModel<TKind>? TypeRef<TKind>(this string? input, TKind kind)
     where TKind : struct
     => input is null ? null : new(kind, input);
-}
-
-internal class TypesCollection(
-  ITypesModeller types
-) : Map<TypeKindModel>
-  , IRenderContext
-{
-  internal IMap<BaseTypeModel> Types { get; } = new Map<BaseTypeModel>();
-  internal ITokenMessages Errors { get; } = new TokenMessages();
-
-  internal static TypesCollection WithBuiltins(ITypesModeller types)
-  {
-    TypesCollection typeKinds = new(types);
-
-    typeKinds.AddTypes(BuiltIn.Basic, TypeKindModel.Basic);
-    typeKinds.AddTypes(BuiltIn.Internal, TypeKindModel.Internal);
-
-    return typeKinds;
-  }
-
-  internal void AddTypes(IGqlpType[] asts, TypeKindModel kind)
-  {
-    foreach (IGqlpType ast in asts) {
-      this[ast.Name] = kind;
-
-      foreach (string alias in ast.Aliases) {
-        TryAdd(alias, kind);
-      }
-    }
-
-    foreach (IGqlpType ast in asts) {
-      try {
-        BaseTypeModel? model = types.TryModel(ast, this);
-        if (model is not null) {
-          Types[model.Name] = model;
-          foreach (string alias in ast.Aliases) {
-            Types.TryAdd(alias, model);
-          }
-        }
-      } catch (InvalidOperationException) { }
-    }
-  }
-
-  public void AddModels(IEnumerable<BaseTypeModel> models)
-  {
-    foreach (BaseTypeModel model in models) {
-      Types.Add(model.Name, model);
-
-      foreach (string alias in model.Aliases) {
-        Types.TryAdd(alias, model);
-      }
-    }
-  }
-
-  public bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)
-    where TModel : IModelBase
-  {
-    if (name is not null) {
-      if (Types.TryGetValue(name, out BaseTypeModel? type) && type is TModel modelType) {
-        model = modelType;
-        return true;
-      }
-
-      Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"In {context} can't get model for type '{name}'"));
-    }
-
-    model = default;
-    return false;
-  }
 }

@@ -16,4 +16,4 @@ dotnet tool restore
 dotnet build
 dotnet coverage collect --settings coverage.runsettings -- dotnet @coverage
 dotnet reportgenerator -reports:output.cobertura.xml -targetdir:.\coverage @report
-dotnet livereloadserver coverage
+dotnet livereloadserver coverage --port 5300

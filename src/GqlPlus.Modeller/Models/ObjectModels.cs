@@ -1,12 +1,13 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
+using GqlPlus.Resolving;
+
 namespace GqlPlus.Models;
 
 public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   TypeKindModel Kind,
   string Name
 ) : ChildTypeModel<ObjDescribedModel<TObjBase>>(Kind, Name)
-  , ITypeObjectModel
   where TObjBase : IObjBaseModel
   where TObjField : IObjFieldModel
   where TObjAlt : IObjAlternateModel
@@ -15,7 +16,10 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   internal TObjField[] Fields { get; set; } = [];
   internal TObjAlt[] Alternates { get; set; } = [];
 
-  internal override bool GetParentModel<TResult>(IRenderContext context, [NotNullWhen(true)] out TResult? model)
+  internal ObjectForModel[] AllFields { get; set; } = [];
+  internal ObjectForModel[] AllAlternates { get; set; } = [];
+
+  internal override bool GetParentModel<TResult>(IResolveContext context, [NotNullWhen(true)] out TResult? model)
     where TResult : default
   {
     if (Parent?.Base.IsTypeParam == false) {
@@ -25,18 +29,6 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
     model = default;
     return false;
   }
-
-  IEnumerable<ModelBase> ITypeObjectModel.AllAlternates
-    => Alternates.Select(a => new ObjectForModel<TObjAlt>(a, Name));
-  IEnumerable<ModelBase> ITypeObjectModel.AllFields
-    => Fields.Select(f => new ObjectForModel<TObjField>(f, Name));
-}
-
-public interface ITypeObjectModel
-  : IChildTypeModel
-{
-  IEnumerable<ModelBase> AllAlternates { get; }
-  IEnumerable<ModelBase> AllFields { get; }
 }
 
 public record class ObjArgModel
@@ -65,10 +57,15 @@ public interface IObjBaseModel
   bool IsTypeParam { get; }
 }
 
+public record class ObjectForModel(
+  string Obj
+) : ModelBase
+{ }
+
 public record class ObjectForModel<TFor>(
   TFor For,
   string Obj
-) : ModelBase
+) : ObjectForModel(Obj)
   where TFor : IModelBase
 { }
 
@@ -119,4 +116,8 @@ public record class ObjDescribedModel<TDescribed>(
     => Base is TBase newBase
     ? new(newBase, Description) :
     null;
+
+  public ObjDescribedModel<TBase> BaseFor<TBase>(Func<TDescribed, TBase> convert)
+    where TBase : IModelBase
+    => new(convert.ThrowIfNull().Invoke(Base), Description);
 }

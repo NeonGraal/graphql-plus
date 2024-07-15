@@ -57,9 +57,8 @@ public class EnumModelTests(
 }
 
 internal sealed class EnumModelChecks(
-  IModeller<IGqlpEnum, TypeEnumModel> modeller,
-  IRenderer<TypeEnumModel> rendering
-) : CheckParentModel<IGqlpEnum, SimpleKindModel, TypeEnumModel, string>(modeller, rendering, SimpleKindModel.Enum)
+  CheckTypeInputs<IGqlpEnum, TypeEnumModel> inputs
+) : CheckParentModel<IGqlpEnum, SimpleKindModel, TypeEnumModel, string>(inputs, SimpleKindModel.Enum)
   , IEnumModelChecks
 {
   public void EnumExpected(IGqlpEnum ast, ExpectedEnumInput input)

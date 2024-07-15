@@ -10,7 +10,7 @@ public abstract class TestObjectModel<TObject, TObjBase, TObjField, TObjAlt, TMo
   where TObjField : IGqlpObjField
   where TObjAlt : IGqlpObjAlternate
   where TObjBase : IGqlpObjBase
-  where TModel : ITypeObjectModel
+  where TModel : IModelBase
 {
   [Theory, RepeatData(Repeats)]
   public void Model_ParentDual(string name, string parent)
@@ -88,10 +88,9 @@ public abstract class TestObjectModel<TObject, TObjBase, TObjField, TObjAlt, TMo
 }
 
 internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TModel>(
-  IModeller<TObject, TModel> modeller,
-  IRenderer<TModel> rendering,
+  CheckTypeInputs<TObject, TModel> inputs,
   TypeKindModel kind
-) : CheckTypeModel<IGqlpObjBase, string, TObject, TypeKindModel, TModel>(modeller, rendering, kind),
+) : CheckTypeModel<IGqlpObjBase, string, TObject, TypeKindModel, TModel>(inputs, kind),
     ICheckObjectModel<TObject, TObjBase, TObjField, TObjAlt, TModel>
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjectAst : AstObject<TObjBase, TObjField, TObjAlt>, TObject
@@ -100,7 +99,7 @@ internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFie
   where TObjAlt : IGqlpObjAlternate
   where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
   where TObjBase : IGqlpObjBase
-  where TModel : BaseTypeModel, ITypeObjectModel
+  where TModel : BaseTypeModel
 {
   internal string[] ExpectedObject(ExpectedObjectInput input)
     => input.Expected(TypeKind, ExpectedParent);
@@ -188,7 +187,7 @@ public interface ICheckObjectModel<TObject, TObjBase, TObjField, TObjAlt, TModel
   where TObjBase : IGqlpObjBase
   where TObjField : IGqlpObjField
   where TObjAlt : IGqlpObjAlternate
-  where TModel : ITypeObjectModel
+  where TModel : IModelBase
 {
   void ObjectExpected(ExpectedObjectInput input, ToExpected<string?>? parent = null,
     ToExpected<FieldInput>? field = null, ToExpected<AlternateInput>? alternate = null);

@@ -63,6 +63,16 @@ types: !_Map_Type
   !_Identifier _BaseDomain: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
       object: _Aliased
@@ -129,6 +139,16 @@ types: !_Map_Type
   !_Identifier _BaseType: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
       object: _Aliased
@@ -190,6 +210,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _Category: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -301,6 +331,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier _ChildType: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -475,6 +515,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _Directive: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -874,6 +924,16 @@ types: !_Map_Type
   !_Identifier _DualField: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
       object: _Aliased
@@ -985,6 +1045,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _Field: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -1179,6 +1249,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _InputField: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -1749,6 +1829,16 @@ types: !_Map_Type
         output: _OutputEnum
     allFields:
     - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
       object: _Aliased
@@ -1814,6 +1904,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _ParentType: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -1980,6 +2080,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _Setting: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
     - !_ObjectFor(_DualField)
       name: description
       object: _Described
@@ -2279,6 +2384,16 @@ types: !_Map_Type
   !_Identifier _TypeDual: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
       object: _Aliased
@@ -2341,6 +2456,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _TypeEnum: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -2439,6 +2564,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier _TypeInput: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -2541,6 +2676,16 @@ types: !_Map_Type
   !_Identifier _TypeObject: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
       object: _Aliased
@@ -2632,6 +2777,16 @@ types: !_Map_Type
       name: alternate
   !_Identifier _TypeOutput: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -2804,6 +2959,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _TypeUnion: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases

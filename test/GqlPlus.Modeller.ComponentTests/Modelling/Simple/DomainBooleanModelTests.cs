@@ -9,9 +9,8 @@ public class DomainBooleanModelTests(
 { }
 
 internal sealed class DomainBooleanModelChecks(
-  IDomainModeller<IGqlpDomainTrueFalse, DomainTrueFalseModel> modeller,
-  IRenderer<BaseDomainModel<DomainTrueFalseModel>> rendering
-) : CheckDomainModel<bool, DomainTrueFalseAst, IGqlpDomainTrueFalse, DomainTrueFalseModel>(DomainKind.Boolean, modeller, rendering)
+  CheckDomainInputs<IGqlpDomainTrueFalse, DomainTrueFalseModel> inputs
+) : CheckDomainModel<bool, DomainTrueFalseAst, IGqlpDomainTrueFalse, DomainTrueFalseModel>(DomainKind.Boolean, inputs)
   , IDomainBooleanModelChecks
 {
   protected override string[] ExpectedItem(bool input, string exclude, string[] domain)

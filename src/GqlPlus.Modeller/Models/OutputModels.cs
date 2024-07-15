@@ -3,10 +3,7 @@
 public record class TypeOutputModel(
   string Name
 ) : TypeObjectModel<OutputBaseModel, OutputFieldModel, OutputAlternateModel>(TypeKindModel.Output, Name)
-{
-  protected override string? ParentName(ObjDescribedModel<OutputBaseModel>? parent)
-    => parent?.Base.Output;
-}
+{ }
 
 public record class OutputArgModel(
   string Name

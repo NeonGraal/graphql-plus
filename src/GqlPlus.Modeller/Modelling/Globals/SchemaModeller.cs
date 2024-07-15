@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Globals;
+﻿using GqlPlus.Resolving;
+
+namespace GqlPlus.Modelling.Globals;
 
 internal class SchemaModeller(
   IModeller<IGqlpSchemaCategory, CategoryModel> category,

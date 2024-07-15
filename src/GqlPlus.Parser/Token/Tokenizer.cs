@@ -20,7 +20,7 @@ public class Tokenizer
 #pragma warning disable IDE1006 // Naming Styles
   private static readonly TokenKind[] _kinds = new TokenKind[96];
   private static readonly bool[] _identifier = new bool[75];
-#pragma warning restore IDE1006 // Naming Styles
+#pragma warning restore IDE1006
 
   static Tokenizer()
   {

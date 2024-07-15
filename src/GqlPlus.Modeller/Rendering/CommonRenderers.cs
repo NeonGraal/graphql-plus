@@ -4,19 +4,19 @@ internal class ConstantRenderer(
   IRenderer<SimpleModel> simple
 ) : IRenderer<ConstantModel>
 {
-  public RenderStructure Render(ConstantModel model, IRenderContext context)
+  public RenderStructure Render(ConstantModel model)
     => model.Map.Count > 0 ? new RenderStructure(model.Map.ToDictionary(
-        p => simple.Render(p.Key, context).Value!,
-        p => Render(p.Value, context)), "_ConstantMap")
-    : model.List.Count > 0 ? new(model.List.Select(v => Render(v, context)), "_ConstantList")
-    : model.Value is not null ? simple.Render(model.Value, context)
+        p => simple.Render(p.Key).Value!,
+        p => Render(p.Value)), "_ConstantMap")
+    : model.List.Count > 0 ? new(model.List.Select(Render), "_ConstantList")
+    : model.Value is not null ? simple.Render(model.Value)
     : new("");
 }
 
 internal class SimpleRenderer
   : IRenderer<SimpleModel>
 {
-  RenderStructure IRenderer<SimpleModel>.Render(SimpleModel model, IRenderContext context)
+  RenderStructure IRenderer<SimpleModel>.Render(SimpleModel model)
     => model.Boolean is not null ? new(model.Boolean)
       : model.Number is not null ? new(model.Number, model.TypeRef?.Name ?? "")
       : model.String is not null ? new(RenderValue.Str(model.String), model.TypeRef?.Name ?? "")
@@ -27,8 +27,8 @@ internal class SimpleRenderer
 internal class CollectionRenderer
   : BaseRenderer<CollectionModel>
 {
-  internal override RenderStructure Render(CollectionModel model, IRenderContext context)
-    => base.Render(model, context)
+  internal override RenderStructure Render(CollectionModel model)
+    => base.Render(model)
         .Add("modifierKind", model.ModifierKind)
         .Add(model.ModifierKind is ModifierKind.Dict or ModifierKind.Param,
           s => s
@@ -42,6 +42,6 @@ internal class ModifierRenderer
   : CollectionRenderer
   , IRenderer<ModifierModel>
 {
-  RenderStructure IRenderer<ModifierModel>.Render(ModifierModel model, IRenderContext context)
-    => Render(model, context);
+  RenderStructure IRenderer<ModifierModel>.Render(ModifierModel model)
+    => Render(model);
 }

@@ -3,10 +3,7 @@
 public record class TypeDualModel(
   string Name
 ) : TypeObjectModel<DualBaseModel, DualFieldModel, DualAlternateModel>(TypeKindModel.Dual, Name)
-{
-  protected override string? ParentName(ObjDescribedModel<DualBaseModel>? parent)
-    => parent?.Base.Dual;
-}
+{ }
 
 public record class DualArgModel(
   string Dual
@@ -20,7 +17,7 @@ public record class DualBaseModel(
 
 public record class DualFieldModel(
   string Name,
-  ObjDescribedModel<DualBaseModel> Type
+  ObjDescribedModel<DualBaseModel>? Type
 ) : ObjFieldModel<DualBaseModel>(Name, Type)
 { }
 

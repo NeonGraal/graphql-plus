@@ -2,15 +2,10 @@
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Convert;
-using GqlPlus.Modelling;
 
 namespace GqlPlus;
 
-public class BuiltInTests(
-  IModeller<IGqlpSchema, SchemaModel> modeller,
-  IRenderer<SchemaModel> renderer,
-  ITypesModeller types
-)
+public class BuiltInTests(IModelAndRender renderer)
 {
   [SkippableTheory]
   [ClassData(typeof(BuiltInBasicData))]
@@ -77,20 +72,7 @@ public class BuiltInTests(
 
   private void RenderSchemaHtml(SchemaAst schema, string filename, SchemaAst? extras = null)
   {
-    TypesCollection context = new(types);
-    SchemaModel model = modeller.ToModel(schema, context);
-    context.AddModels(model.Types.Values);
-    if (extras is not null) {
-      SchemaModel extraModel = modeller.ToModel(extras, context);
-      context.AddModels(extraModel.Types.Values);
-    }
-
-    context.Errors.Clear();
-
-    RenderStructure result = renderer.Render(model, context);
-    if (context.Errors.Count > 0) {
-      result.Add("_errors", context.Errors.Render());
-    }
+    RenderStructure result = renderer.RenderAst(schema, extras);
 
     result.WriteHtmlFile("BuiltIn", filename);
   }

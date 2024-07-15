@@ -9,9 +9,8 @@ public class DomainEnumModelTests(
 { }
 
 internal sealed class DomainEnumModelChecks(
-  IDomainModeller<IGqlpDomainMember, DomainMemberModel> modeller,
-  IRenderer<BaseDomainModel<DomainMemberModel>> rendering
-) : CheckDomainModel<string, DomainMemberAst, IGqlpDomainMember, DomainMemberModel>(DomainKind.Enum, modeller, rendering)
+  CheckDomainInputs<IGqlpDomainMember, DomainMemberModel> inputs
+) : CheckDomainModel<string, DomainMemberAst, IGqlpDomainMember, DomainMemberModel>(DomainKind.Enum, inputs)
   , IDomainEnumModelChecks
 {
   protected override string[] ExpectedItem(string input, string exclude, string[] domain)

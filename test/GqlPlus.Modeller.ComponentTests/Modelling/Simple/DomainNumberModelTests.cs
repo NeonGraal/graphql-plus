@@ -9,9 +9,8 @@ public class DomainNumberModelTests(
 { }
 
 internal sealed class DomainNumberModelChecks(
-  IDomainModeller<IGqlpDomainRange, DomainRangeModel> modeller,
-  IRenderer<BaseDomainModel<DomainRangeModel>> rendering
-) : CheckDomainModel<DomainRangeInput, DomainRangeAst, IGqlpDomainRange, DomainRangeModel>(DomainKind.Number, modeller, rendering)
+  CheckDomainInputs<IGqlpDomainRange, DomainRangeModel> inputs
+) : CheckDomainModel<DomainRangeInput, DomainRangeAst, IGqlpDomainRange, DomainRangeModel>(DomainKind.Number, inputs)
   , IDomainNumberModelChecks
 {
   protected override string[] ExpectedItem(DomainRangeInput input, string exclude, string[] domain)

@@ -7,8 +7,8 @@ internal class SchemaRenderer(
   IRenderer<SettingModel> settings
 ) : AliasedRenderer<SchemaModel>
 {
-  internal override RenderStructure Render(SchemaModel model, IRenderContext context)
-    => base.Render(model, context)
+  internal override RenderStructure Render(SchemaModel model)
+    => base.Render(model)
       .Add("categories", model.GetCategories(default), categories, "_Categories")
       .Add("directives", model.GetDirectives(default), directives, "_Directives")
       .Add("types", model.GetTypes(default), types, "_Type")

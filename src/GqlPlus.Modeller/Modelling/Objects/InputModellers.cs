@@ -65,7 +65,7 @@ internal class InputAlternateModeller(
 ) : ModellerObjAlternate<IGqlpInputBase, IGqlpInputAlternate, InputBaseModel, InputAlternateModel>(objBase, collection)
 {
   protected override InputAlternateModel AlternateModel(IGqlpInputAlternate ast, InputBaseModel type, IMap<TypeKindModel> typeKinds)
-    => new(new(type, ast.Type.Description));
+    => new(new ObjDescribedModel<InputBaseModel>(type, ast.Type.Description));
 }
 
 internal class InputParamModeller(

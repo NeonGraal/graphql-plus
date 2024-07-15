@@ -17,7 +17,7 @@ public record class DualBaseModel(
 
 public record class DualFieldModel(
   string Name,
-  ObjDescribedModel<DualBaseModel> Type
+  ObjDescribedModel<DualBaseModel>? Type
 ) : ObjFieldModel<DualBaseModel>(Name, Type)
 { }
 

@@ -1,6 +1,4 @@
-﻿using GqlPlus.Models;
-
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Resolving;
 

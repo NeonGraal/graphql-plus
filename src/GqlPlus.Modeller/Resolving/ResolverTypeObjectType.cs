@@ -18,23 +18,14 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
   {
     model = base.Resolve(model, context);
 
-    IEnumerable<ObjectForModel<TObjAlt>> allAlternates = model.Alternates.Select(NewObjectFor<TObjAlt>(model));
-    IEnumerable<ObjectForModel<TObjField>> allFields = model.Fields.Select(NewObjectFor<TObjField>(model));
+    IEnumerable<ObjectForModel> allAlternates = Apply(model.Alternates, ObjectAlt(model.Name));
+    IEnumerable<ObjectForModel> allFields = Apply(model.Fields, ObjectField(model.Name));
 
-    if (model.ParentModel is TModel parent) {
-      model.AllAlternates = [.. parent.AllAlternates, .. allAlternates];
-      model.AllFields = [.. parent.AllFields, .. allFields];
-    } else {
-      model.AllAlternates = [.. allAlternates];
-      model.AllFields = [.. allFields];
-    }
+    model.AllAlternates = [.. ParentAlternatives(model.ParentModel), .. allAlternates];
+    model.AllFields = [.. ParentFields(model.ParentModel), .. allFields];
 
     return model;
   }
-
-  private Func<TFor, ObjectForModel<TFor>> NewObjectFor<TFor>(TModel model)
-    where TFor : IModelBase
-    => f => new ObjectForModel<TFor>(f, model.Name);
 
   protected override void ResolveParent(TModel model, IResolveContext context)
   {
@@ -42,4 +33,16 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
       base.ResolveParent(model, context);
     }
   }
+
+  protected delegate ObjectForModel<TFor> MakeFor<TFor>(TFor obj)
+    where TFor : IModelBase;
+
+  protected IEnumerable<ObjectForModel> Apply<TFor>(IEnumerable<TFor> list, MakeFor<TFor> convert)
+    where TFor : IModelBase
+    => list.Select(f => convert(f));
+
+  protected abstract MakeFor<TObjAlt> ObjectAlt(string obj);
+  protected abstract MakeFor<TObjField> ObjectField(string obj);
+  protected abstract IEnumerable<ObjectForModel> ParentAlternatives(IModelBase? parent);
+  protected abstract IEnumerable<ObjectForModel> ParentFields(IModelBase? parent);
 }

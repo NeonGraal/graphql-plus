@@ -16,8 +16,8 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   internal TObjField[] Fields { get; set; } = [];
   internal TObjAlt[] Alternates { get; set; } = [];
 
-  internal ObjectForModel<TObjField>[] AllFields { get; set; } = [];
-  internal ObjectForModel<TObjAlt>[] AllAlternates { get; set; } = [];
+  internal ObjectForModel[] AllFields { get; set; } = [];
+  internal ObjectForModel[] AllAlternates { get; set; } = [];
 
   internal override bool GetParentModel<TResult>(IResolveContext context, [NotNullWhen(true)] out TResult? model)
     where TResult : default
@@ -57,10 +57,15 @@ public interface IObjBaseModel
   bool IsTypeParam { get; }
 }
 
+public record class ObjectForModel(
+  string Obj
+) : ModelBase
+{ }
+
 public record class ObjectForModel<TFor>(
   TFor For,
   string Obj
-) : ModelBase
+) : ObjectForModel(Obj)
   where TFor : IModelBase
 { }
 
@@ -111,4 +116,8 @@ public record class ObjDescribedModel<TDescribed>(
     => Base is TBase newBase
     ? new(newBase, Description) :
     null;
+
+  public ObjDescribedModel<TBase> BaseFor<TBase>(Func<TDescribed, TBase> convert)
+    where TBase : IModelBase
+    => new(convert.ThrowIfNull().Invoke(Base), Description);
 }

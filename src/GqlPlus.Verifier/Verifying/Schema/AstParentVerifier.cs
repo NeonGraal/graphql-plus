@@ -33,20 +33,25 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   {
     if (context.GetType(input.Parent, out IGqlpDescribed? defined)) {
       if (defined is IGqlpType astType) {
-        if (CheckAstParentType(input, astType)) {
-          if (astType is TAst parentType) {
-            if (CheckAstParent(input.Usage, parentType, context)) {
-              onParent?.Invoke(parentType);
-            }
-          }
-        } else if (top) {
-          context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' invalid type. Found '{astType.Label}'");
-        }
+        CheckTypedParentType(input, context, top, onParent, astType);
       } else if (top) {
         context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' invalid definition.");
       }
     } else if (top && !string.IsNullOrWhiteSpace(input.Parent)) {
       context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' not defined");
+    }
+  }
+
+  private void CheckTypedParentType(ParentUsage<TAst> input, TContext context, bool top, Action<TAst>? onParent, IGqlpType astType)
+  {
+    if (CheckAstParentType(input, astType)) {
+      if (astType is TAst parentType) {
+        if (CheckAstParent(input.Usage, parentType, context)) {
+          onParent?.Invoke(parentType);
+        }
+      }
+    } else if (top) {
+      context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' invalid type. Found '{astType.Label}'");
     }
   }
 

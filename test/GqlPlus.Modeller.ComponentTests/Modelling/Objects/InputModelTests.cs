@@ -9,9 +9,8 @@ public class InputModelTests(
 { }
 
 internal sealed class InputModelChecks(
-  IModeller<IGqlpInputObject, TypeInputModel> modeller,
-  IRenderer<TypeInputModel> rendering
-) : CheckObjectModel<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, TypeInputModel>(modeller, rendering, TypeKindModel.Input)
+  CheckTypeInputs<IGqlpInputObject, TypeInputModel> inputs
+) : CheckObjectModel<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, TypeInputModel>(inputs, TypeKindModel.Input)
   , IInputModelChecks
 {
   protected override InputDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)

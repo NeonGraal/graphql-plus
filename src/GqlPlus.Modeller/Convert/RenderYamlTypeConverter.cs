@@ -27,16 +27,16 @@ internal class RenderYamlTypeConverter
   public bool Accepts(Type type) => type == typeof(RenderStructure);
 
   public object? ReadYaml(IParser parser, Type type) => throw new NotImplementedException();
-
-  public void WriteYaml(IEmitter emitter, object? yaml, Type type)
+  public object? ReadYaml(IParser parser, Type type, ObjectDeserializer rootDeserializer) => throw new NotImplementedException();
+  public void WriteYaml(IEmitter emitter, object? value, Type type, ObjectSerializer serializer)
   {
-    if (yaml is RenderStructure model) {
+    if (value is RenderStructure model) {
       bool plainImplicit = string.IsNullOrWhiteSpace(model.Tag);
       TagName tag = plainImplicit ? new TagName() : new TagName("!" + model.Tag);
       if (model.List.Count > 0) {
-        WriteList(emitter, type, model, plainImplicit);
+        WriteList(emitter, type, model, plainImplicit, serializer);
       } else if (model.Map.Count > 0) {
-        WriteMap(emitter, model, plainImplicit, tag);
+        WriteMap(emitter, model, plainImplicit, tag, serializer);
       } else if (model.Value is not null) {
         WriteValue(emitter, model.Value, model.Tag);
       } else {
@@ -45,24 +45,24 @@ internal class RenderYamlTypeConverter
     }
   }
 
-  private void WriteMap(IEmitter emitter, RenderStructure model, bool plainImplicit, TagName tag)
+  private void WriteMap(IEmitter emitter, RenderStructure model, bool plainImplicit, TagName tag, ObjectSerializer serializer)
   {
     MappingStyle flow = model.Flow ? MappingStyle.Flow : MappingStyle.Any;
     emitter.Emit(new MappingStart(default, tag, plainImplicit, flow));
     foreach (KeyValuePair<RenderValue, RenderStructure> kv in model.Map.OrderBy(kv => kv.Key)) {
       WriteValue(emitter, kv.Key, kv.Key.Tag);
-      WriteYaml(emitter, kv.Value, kv.Value.GetType());
+      WriteYaml(emitter, kv.Value, kv.Value.GetType(), serializer);
     }
 
     emitter.Emit(new MappingEnd());
   }
 
-  private void WriteList(IEmitter emitter, Type type, RenderStructure model, bool plainImplicit)
+  private void WriteList(IEmitter emitter, Type type, RenderStructure model, bool plainImplicit, ObjectSerializer serializer)
   {
     SequenceStyle flow = model.Flow ? SequenceStyle.Flow : SequenceStyle.Any;
     emitter.Emit(new SequenceStart(default, default, plainImplicit, flow));
     foreach (RenderStructure item in model.List) {
-      WriteYaml(emitter, item, type);
+      WriteYaml(emitter, item, type, serializer);
     }
 
     emitter.Emit(new SequenceEnd());

@@ -18,10 +18,10 @@ public static class AllResolvers
       .AddDomainResolver<DomainTrueFalseModel>()
       .AddTypeResolver<TypeEnumModel, TypeEnumResolver>()
       .AddTypeResolver<TypeUnionModel, TypeUnionResolver>()
-    // Object
-    //.AddTypeResolver<TypeDualModel, TypeDualResolver>()
-    //.AddTypeResolver<TypeInputModel, TypeInputResolver>()
-    //.AddTypeResolver<TypeOutputModel, TypeOutputResolver>()
+      // Object
+      .AddTypeResolver<TypeDualModel, TypeDualResolver>()
+      .AddTypeResolver<TypeInputModel, TypeInputResolver>()
+      .AddTypeResolver<TypeOutputModel, TypeOutputResolver>()
     ;
 
   private static IServiceCollection AddResolver<TModel, TResolver>(this IServiceCollection services)

@@ -9,9 +9,8 @@ public class DomainStringModelTests(
 { }
 
 internal sealed class DomainStringModelChecks(
-  IDomainModeller<IGqlpDomainRegex, DomainRegexModel> modeller,
-  IRenderer<BaseDomainModel<DomainRegexModel>> rendering
-) : CheckDomainModel<string, DomainRegexAst, IGqlpDomainRegex, DomainRegexModel>(DomainKind.String, modeller, rendering)
+  CheckDomainInputs<IGqlpDomainRegex, DomainRegexModel> inputs
+) : CheckDomainModel<string, DomainRegexAst, IGqlpDomainRegex, DomainRegexModel>(DomainKind.String, inputs)
   , IDomainStringModelChecks
 {
   protected override string[] ExpectedItem(string input, string exclude, string[] domain)

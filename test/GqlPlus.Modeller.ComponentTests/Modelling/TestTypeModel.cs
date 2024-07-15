@@ -1,4 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Modelling.Objects;
+using GqlPlus.Resolving;
 
 namespace GqlPlus.Modelling;
 
@@ -20,21 +22,23 @@ public abstract class TestTypeModel<TTypeKind, TRender>(
   where TRender : IModelBase
 { }
 
-internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TModel>
-  : CheckAliasedModel<string, TAst, TModel>
+internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TModel>(
+  CheckTypeInputs<TAst, TModel> inputs,
+  TTypeKind kind
+) : CheckAliasedModel<string, TAst, TModel>(inputs.Modeller, inputs.Rendering)
   , ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>
   where TAst : IGqlpType<TAstParent>
   where TModel : IModelBase
 {
-  protected readonly TTypeKind TypeKind;
-  protected readonly string TypeKindLower;
+  private readonly CheckTypeInputs<TAst, TModel> _inputs = inputs;
+  protected readonly TTypeKind TypeKind = kind;
+  protected readonly string TypeKindLower = $"{kind}".ToLowerInvariant();
 
   TTypeKind ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>.TypeKind => TypeKind;
   string ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>.TypeKindLower => TypeKindLower;
 
-  protected CheckTypeModel(IModeller<TAst, TModel> modeller, IRenderer<TModel> rendering, TTypeKind kind)
-    : base(modeller, rendering)
-    => (TypeKind, TypeKindLower) = (kind, $"{kind}".ToLowerInvariant());
+  protected override TModel AstToModel(TAst ast)
+    => _inputs.Resolver.Resolve(base.AstToModel(ast), Context);
 
   protected abstract string[] ExpectedType(ExpectedTypeInput<TParent> input);
 
@@ -62,10 +66,9 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
 }
 
 internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
-  IModeller<TAst, TModel> modeller,
-  IRenderer<TModel> rendering,
+  CheckTypeInputs<TAst, TModel> inputs,
   TTypeKind kind
-) : CheckTypeModel<string, string, TAst, TTypeKind, TModel>(modeller, rendering, kind)
+) : CheckTypeModel<string, string, TAst, TTypeKind, TModel>(inputs, kind)
   , ICheckTypeModel<TTypeKind, TModel>
   where TAst : IGqlpType<string>
   where TModel : IModelBase
@@ -73,6 +76,13 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
   internal override string NewParentAst(string input)
     => input;
 }
+
+public record class CheckTypeInputs<TAst, TModel>(
+  IModeller<TAst, TModel> Modeller,
+  IResolver<TModel> Resolver,
+  IRenderer<TModel> Rendering
+) where TAst : IGqlpError
+  where TModel : IModelBase;
 
 public interface ICheckTypeModel<TAstParent, TParent, TTypeKind, TRender>
   : ICheckAliasedModel<string, TRender>

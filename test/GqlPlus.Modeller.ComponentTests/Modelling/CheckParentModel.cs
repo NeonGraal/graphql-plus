@@ -4,9 +4,9 @@ using GqlPlus.Resolving;
 namespace GqlPlus.Modelling;
 
 internal abstract class CheckParentModel<TAst, TTypeKind, TModel, TItem>(
-  CheckParentInputs<TAst, TModel> inputs,
+  CheckTypeInputs<TAst, TModel> inputs,
   TTypeKind kind
-) : CheckTypeModel<TAst, TTypeKind, TModel>(inputs.Modeller, inputs.Rendering, kind)
+) : CheckTypeModel<TAst, TTypeKind, TModel>(inputs, kind)
   , IParentModel<TItem>
   , ICheckTypeModel<TTypeKind, TModel>
   where TAst : IGqlpType<string>
@@ -24,20 +24,10 @@ internal abstract class CheckParentModel<TAst, TTypeKind, TModel, TItem>(
   public IEnumerable<string> ExpectedAllMembers(string field, string[] members, string type)
     => ItemsExpected(field, members, ExpectedAllMember(type));
 
-  protected override TModel AstToModel(TAst ast)
-    => inputs.Resolver.Resolve(base.AstToModel(ast), Context);
-
   internal abstract BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
 
   protected abstract ToExpected<string> ExpectedAllMember(string type);
 }
-
-public record class CheckParentInputs<TAst, TModel>(
-  IModeller<TAst, TModel> Modeller,
-  IResolver<TModel> Resolver,
-  IRenderer<TModel> Rendering
-) where TAst : IGqlpType<string>
-  where TModel : IModelBase;
 
 public interface ICheckParentModel<TTypeKind, TRender>
   : ICheckTypeModel<TTypeKind, TRender>

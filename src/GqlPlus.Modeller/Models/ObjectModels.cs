@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+
 using GqlPlus.Resolving;
 
 namespace GqlPlus.Models;
@@ -7,7 +8,6 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   TypeKindModel Kind,
   string Name
 ) : ChildTypeModel<ObjDescribedModel<TObjBase>>(Kind, Name)
-  , ITypeObjectModel
   where TObjBase : IObjBaseModel
   where TObjField : IObjFieldModel
   where TObjAlt : IObjAlternateModel
@@ -15,6 +15,9 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   internal DescribedModel[] TypeParams { get; set; } = [];
   internal TObjField[] Fields { get; set; } = [];
   internal TObjAlt[] Alternates { get; set; } = [];
+
+  internal ObjectForModel<TObjField>[] AllFields { get; set; } = [];
+  internal ObjectForModel<TObjAlt>[] AllAlternates { get; set; } = [];
 
   internal override bool GetParentModel<TResult>(IResolveContext context, [NotNullWhen(true)] out TResult? model)
     where TResult : default
@@ -26,18 +29,6 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
     model = default;
     return false;
   }
-
-  IEnumerable<ModelBase> ITypeObjectModel.AllAlternates
-    => Alternates.Select(a => new ObjectForModel<TObjAlt>(a, Name));
-  IEnumerable<ModelBase> ITypeObjectModel.AllFields
-    => Fields.Select(f => new ObjectForModel<TObjField>(f, Name));
-}
-
-public interface ITypeObjectModel
-  : IChildTypeModel
-{
-  IEnumerable<ModelBase> AllAlternates { get; }
-  IEnumerable<ModelBase> AllFields { get; }
 }
 
 public record class ObjArgModel

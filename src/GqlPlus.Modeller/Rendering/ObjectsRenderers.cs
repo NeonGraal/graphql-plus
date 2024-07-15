@@ -87,16 +87,16 @@ internal abstract class TypeObjectRenderer<TObject, TBase, TField, TAlt>(
     List<ModelBase> allAlternates = [];
     List<ModelBase> allFields = [];
 
-    void AddMembers(ITypeObjectModel model)
-    {
-      allAlternates.AddRange(model.AllAlternates);
-      allFields.AddRange(model.AllFields);
-    }
+    //void AddMembers(ITypeObjectModel model)
+    //{
+    //  allAlternates.AddRange(model.AllAlternates);
+    //  allFields.AddRange(model.AllFields);
+    //}
 
     //ForParent<TObject, ITypeObjectModel>(model, context, AddMembers);
-    AddMembers(model);
+    // AddMembers(model);
 
-    RenderStructure ObjRender<TModel, TDual>(List<ModelBase> list, IRenderer<ObjectForModel<TModel>> renderer, IRenderer<ObjectForModel<TDual>> dual)
+    RenderStructure ObjRender<TModel, TDual>(ModelBase[] list, IRenderer<ObjectForModel<TModel>> renderer, IRenderer<ObjectForModel<TDual>> dual)
       where TModel : IModelBase
       where TDual : ModelBase
       => new(list.Select(o => o switch {
@@ -109,9 +109,9 @@ internal abstract class TypeObjectRenderer<TObject, TBase, TField, TAlt>(
     return base.Render(model)
         .Add("typeParams", model.TypeParams, renderers.TypeParam)
         .Add("fields", model.Fields, renderers.Field)
-        .Add("allFields", ObjRender(allFields, renderers.ObjField, renderers.DualField))
+        .Add("allFields", ObjRender(model.AllFields, renderers.ObjField, renderers.DualField))
         .Add("alternates", model.Alternates, renderers.Alternate)
-        .Add("allAlternates", ObjRender(allAlternates, renderers.ObjAlternate, renderers.DualAlternate));
+        .Add("allAlternates", ObjRender(model.AllAlternates, renderers.ObjAlternate, renderers.DualAlternate));
   }
 
   internal override bool GetParentModel<TInput, TResult>(TInput input, IResolveContext context, [NotNullWhen(true)] out TResult? result)

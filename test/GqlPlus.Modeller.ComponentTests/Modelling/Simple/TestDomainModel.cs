@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
+using GqlPlus.Resolving;
 
 namespace GqlPlus.Modelling.Simple;
 
@@ -48,9 +49,8 @@ public abstract class TestDomainModel<TValue, TItem, TItemModel>(
 
 internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
   DomainKind kind,
-  IDomainModeller<TItem, TItemModel> modeller,
-  IRenderer<BaseDomainModel<TItemModel>> rendering
-) : CheckTypeModel<IGqlpDomain<TItem>, SimpleKindModel, BaseDomainModel<TItemModel>>(modeller, rendering, SimpleKindModel.Domain)
+  CheckTypeInputs<IGqlpDomain<TItem>, BaseDomainModel<TItemModel>> inputs
+) : CheckTypeModel<IGqlpDomain<TItem>, SimpleKindModel, BaseDomainModel<TItemModel>>(inputs, SimpleKindModel.Domain)
   , ICheckDomainModel<TValue, TItem, TItemModel>
   where TAstItem : AstAbbreviated, TItem
   where TItem : IGqlpDomainItem
@@ -123,6 +123,15 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
           return ["- !_DomainItem(" + result[0][3..] + ")", .. result[1..]];
         };
 }
+
+public record class CheckDomainInputs<TItem, TItemModel>(
+    IDomainModeller<TItem, TItemModel> DomainModeller,
+    IResolver<BaseDomainModel<TItemModel>> Resolver,
+    IRenderer<BaseDomainModel<TItemModel>> Rendering
+  ) : CheckTypeInputs<IGqlpDomain<TItem>, BaseDomainModel<TItemModel>>(DomainModeller, Resolver, Rendering)
+  where TItem : IGqlpDomainItem
+  where TItemModel : BaseDomainItemModel
+{ }
 
 public interface ICheckDomainModel<TValue, TItem, TItemModel>
   : ICheckTypeModel<SimpleKindModel, BaseDomainModel<TItemModel>>

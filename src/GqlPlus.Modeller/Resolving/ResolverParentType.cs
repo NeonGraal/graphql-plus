@@ -16,11 +16,12 @@ internal abstract class ResolverParentType<TModel, TItem, TAll>
 
   protected override string? ParentName(TModel model)
     => model.Parent?.Name;
+
   public override TModel Resolve(TModel model, IResolveContext context)
   {
     model = base.Resolve(model, context);
 
-    var allItems = model.Items.Select(i => NewItem(model, i));
+    IEnumerable<TAll> allItems = model.Items.Select(i => NewItem(model, i));
 
     if (model.ParentModel is TModel parent) {
       model.AllItems = [.. parent.AllItems, .. allItems];

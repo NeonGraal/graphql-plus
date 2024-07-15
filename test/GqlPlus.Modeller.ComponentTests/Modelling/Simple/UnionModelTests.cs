@@ -58,7 +58,7 @@ public class UnionModelTests(
 }
 
 internal sealed class UnionModelChecks(
-  CheckParentInputs<IGqlpUnion, TypeUnionModel> inputs
+  CheckTypeInputs<IGqlpUnion, TypeUnionModel> inputs
 ) : CheckParentModel<IGqlpUnion, SimpleKindModel, TypeUnionModel, string>(inputs, SimpleKindModel.Union)
   , IUnionModelChecks
 {

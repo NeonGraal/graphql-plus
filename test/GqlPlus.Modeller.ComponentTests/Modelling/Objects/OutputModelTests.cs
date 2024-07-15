@@ -9,9 +9,8 @@ public class OutputModelTests(
 { }
 
 internal sealed class OutputModelChecks(
-  IModeller<IGqlpOutputObject, TypeOutputModel> modeller,
-  IRenderer<TypeOutputModel> rendering
-) : CheckObjectModel<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, TypeOutputModel>(modeller, rendering, TypeKindModel.Output)
+  CheckTypeInputs<IGqlpOutputObject, TypeOutputModel> inputs
+) : CheckObjectModel<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, TypeOutputModel>(inputs, TypeKindModel.Output)
   , IOutputModelChecks
 {
   protected override OutputDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)

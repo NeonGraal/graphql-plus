@@ -82,7 +82,7 @@ object ObjName { field [field1]: ObjNameFld }
 object ObjName { field [field2]: ObjNameFld }
 object ObjNameFld { }
 
-// output-fields-enums
+// output-fields-enum
 output FieldEnums { field = Boolean.true }
 output FieldEnums { field = true }
 

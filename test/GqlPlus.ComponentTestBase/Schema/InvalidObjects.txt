@@ -167,7 +167,7 @@ input Bad { }
 // output-enum-bad
 output Test { field = unknown }
 
-// output-enums-diff
+// output-enum-diff
 output Test { field = true }
 output Test { field = false }
 

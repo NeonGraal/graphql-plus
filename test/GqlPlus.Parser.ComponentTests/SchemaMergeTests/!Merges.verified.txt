@@ -501,6 +501,17 @@ Success
 }
 {
   !Ou I@008/0001
+  FieldEnums
+  {
+    !OF I@021/0001
+    field
+    =
+    I@029/0001
+    Boolean.true
+  }
+}
+{
+  !Ou I@008/0001
   FieldEnumAlias
   {
     !OF I@025/0001
@@ -511,17 +522,6 @@ Success
     ]
     =
     I@042/0001
-    Boolean.true
-  }
-}
-{
-  !Ou I@008/0001
-  FieldEnums
-  {
-    !OF I@021/0001
-    field
-    =
-    I@029/0001
     Boolean.true
   }
 }

@@ -84,29 +84,29 @@ dual Test { :Param<Bad> }
 dual Param<$T> { | $T }
 output Bad { }
 
-// fields-alias
+// field-alias
 object Test { field1[alias]: Test }
 object Test { field2[alias]: Test[] }
 
-// fields-diff-mods
+// field-diff-mods
 object Test { field: Test }
 object Test { field: Test[] }
 
-// fields-diff-type
+// field-diff-type
 object Test { field: Test }
 object Test { field: Test1 }
 object Test1 { }
 
-// fields-mods-undef
+// field-mods-undef
 object Test { field: Test[Random] }
 
-// fields-mods-undef-param
+// field-mods-undef-param
 object Test { field: Test[$a] }
 
-// fields-mods-wrong
+// field-mods-wrong
 object Test { field: Test[Test] }
 
-// fields-simple-param
+// field-simple-param
 object Test { field: String<0> }
 
 // generic-alt-undef
@@ -249,34 +249,34 @@ object Test { :Alt }
 object Alt { | Recurse }
 object Recurse { :Test }
 
-// parent-fields-alias
+// parent-field-alias
 object Test { :Parent }
 object Test { field1[alias]: Test }
 object Parent { field2[alias]: Parent }
 
-// parent-fields-alias-more
+// parent-field-alias-more
 object Test { :Recurse field1[alias]: Test }
 object Recurse { :More }
 object More { :Parent }
 object Parent { field2[alias]: Parent }
 
-// parent-fields-alias-recurse
+// parent-field-alias-recurse
 object Test { :Recurse field1[alias]: Test }
 object Recurse { :Parent }
 object Parent { field2[alias]: Parent }
 
-// parent-fields-mods
+// parent-field-mods
 object Test { :Parent }
 object Test { field: Test }
 object Parent { field: Test[] }
 
-// parent-fields-mods-more
+// parent-field-mods-more
 object Test { :Recurse field: Test }
 object Recurse { :More }
 object More { :Parent }
 object Parent { field: Test[] }
 
-// parent-fields-mods-recurse
+// parent-field-mods-recurse
 object Test { :Recurse field: Test }
 object Recurse { :Parent }
 object Parent { field: Test[] }

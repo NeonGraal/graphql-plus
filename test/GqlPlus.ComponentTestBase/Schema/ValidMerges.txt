@@ -72,25 +72,25 @@ object ObjName { | ObjNameType }
 object ObjName { | ObjNameType }
 object ObjNameType { }
 
-// object-fields
+// object-field
 object ObjName { field: ObjNameFld }
 object ObjName { field: ObjNameFld }
 object ObjNameFld { }
 
-// object-fields-alias
+// object-field-alias
 object ObjName { field [field1]: ObjNameFld }
 object ObjName { field [field2]: ObjNameFld }
 object ObjNameFld { }
 
-// output-fields-enum
-output FieldEnums { field = Boolean.true }
-output FieldEnums { field = true }
-
-// output-fields-enum-alias
+// output-field-enum-alias
 output FieldEnumAlias { field [field1] = Boolean.true }
 output FieldEnumAlias { field [field2] = true }
 
-// output-fields-params
+// output-field-enum-value
+output FieldEnums { field = Boolean.true }
+output FieldEnums { field = true }
+
+// output-field-params
 output FieldParams { field(FieldParam1): FieldParamsFld }
 output FieldParams { field(FieldParam2): FieldParamsFld }
 input FieldParam1 { }

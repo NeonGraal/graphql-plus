@@ -300,105 +300,105 @@ Success
 }
 {
   !Du I@006/0001
-  DualObjectFields
+  DualObjectField
   {
-    !DF I@025/0001
+    !DF I@024/0001
     field
     :
-    I@032/0001
-    DualObjectFieldsFld
+    I@031/0001
+    DualObjectFieldFld
   }
 }
 {
-  !Du I@112/0001
-  DualObjectFieldsFld
+  !Du I@108/0001
+  DualObjectFieldFld
 }
 {
   !In I@007/0001
-  InpObjectFields
+  InpObjectField
   {
-    !IF I@025/0001
+    !IF I@024/0001
     field
     :
-    I@032/0001
-    InpObjectFieldsFld
+    I@031/0001
+    InpObjectFieldFld
   }
 }
 {
-  !In I@111/0001
-  InpObjectFieldsFld
+  !In I@107/0001
+  InpObjectFieldFld
 }
 {
   !Ou I@008/0001
-  OutpObjectFields
+  OutpObjectField
   {
-    !OF I@027/0001
+    !OF I@026/0001
     field
     :
-    I@034/0001
-    OutpObjectFieldsFld
+    I@033/0001
+    OutpObjectFieldFld
   }
 }
 {
-  !Ou I@118/0001
-  OutpObjectFieldsFld
+  !Ou I@114/0001
+  OutpObjectFieldFld
 }
 {
   !Du I@006/0001
-  DualObjectFieldsAlias
+  DualObjectFieldAlias
   {
-    !DF I@030/0001
+    !DF I@029/0001
     field
     [
       field1
       field2
     ]
     :
-    I@046/0001
-    DualObjectFieldsAliasFld
+    I@045/0001
+    DualObjectFieldAliasFld
   }
 }
 {
-  !Du I@150/0001
-  DualObjectFieldsAliasFld
+  !Du I@146/0001
+  DualObjectFieldAliasFld
 }
 {
   !In I@007/0001
-  InpObjectFieldsAlias
+  InpObjectFieldAlias
   {
-    !IF I@030/0001
+    !IF I@029/0001
     field
     [
       field1
       field2
     ]
     :
-    I@046/0001
-    InpObjectFieldsAliasFld
+    I@045/0001
+    InpObjectFieldAliasFld
   }
 }
 {
-  !In I@149/0001
-  InpObjectFieldsAliasFld
+  !In I@145/0001
+  InpObjectFieldAliasFld
 }
 {
   !Ou I@008/0001
-  OutpObjectFieldsAlias
+  OutpObjectFieldAlias
   {
-    !OF I@032/0001
+    !OF I@031/0001
     field
     [
       field1
       field2
     ]
     :
-    I@048/0001
-    OutpObjectFieldsAliasFld
+    I@047/0001
+    OutpObjectFieldAliasFld
   }
 }
 {
-  !Ou I@156/0001
-  OutpObjectFieldsAliasFld
+  !Ou I@152/0001
+  OutpObjectFieldAliasFld
 }
 {
   !Du I@006/0001
@@ -501,17 +501,6 @@ Success
 }
 {
   !Ou I@008/0001
-  FieldEnums
-  {
-    !OF I@021/0001
-    field
-    =
-    I@029/0001
-    Boolean.true
-  }
-}
-{
-  !Ou I@008/0001
   FieldEnumAlias
   {
     !OF I@025/0001
@@ -522,6 +511,17 @@ Success
     ]
     =
     I@042/0001
+    Boolean.true
+  }
+}
+{
+  !Ou I@008/0001
+  FieldEnums
+  {
+    !OF I@021/0001
+    field
+    =
+    I@029/0001
     Boolean.true
   }
 }

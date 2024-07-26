@@ -17,26 +17,26 @@ object ObjNameAlt { alt: Number | String }
 // alts-simple
 object ObjName { | String }
 
-// fields
+// field
 object ObjName { field: * }
 
-// fields-dual
+// field-dual
 object ObjName { field: ObjNameFld }
 dual ObjNameFld { field: Number | String }
 
-// fields-mods-Enum
+// field-mods-Enum
 object ObjName { field: *[ObjEnumName] }
 enum ObjEnumName { value }
 
-// fields-mods-param
+// field-mods-param
 object ObjName<$mod> { field: ObjNameFld[$mod] }
 object ObjNameFld { field: Number | String }
 
-// fields-object
+// field-object
 object ObjName { field: ObjNameFld }
 object ObjNameFld { field: Number | String }
 
-// fields-simple
+// field-simple
 object ObjName { field: Number }
 
 // generic-alt
@@ -178,7 +178,7 @@ dual ObjNameRef { parent: Number | String }
 object ObjName { :ObjNameRef | Number }
 object ObjNameRef {  parent: Number | String }
 
-// parent-fields
+// parent-field
 object ObjName { :ObjNameRef field: Number }
 object ObjNameRef { parent: Number | String }
 

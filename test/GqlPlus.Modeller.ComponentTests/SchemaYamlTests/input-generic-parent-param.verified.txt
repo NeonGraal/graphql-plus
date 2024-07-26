@@ -4,7 +4,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: InpGenParentParamRef
-      type: !_TypeParam ref
+      type: !_InputBase
+        input: InpGenParentParamAlt
     name: InpGenParentParam
     parent: !_InputBase
       input: InpGenParentParamRef

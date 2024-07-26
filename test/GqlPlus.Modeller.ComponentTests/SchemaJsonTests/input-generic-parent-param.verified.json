@@ -8,7 +8,10 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "InpGenParentParamRef",
-          "type": "ref"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpGenParentParamAlt"
+          }
         }
       ],
       "name": "InpGenParentParam",

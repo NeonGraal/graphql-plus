@@ -4,7 +4,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentDualRef
-      type: !_TypeParam ref
+      type: !_OutputBase
+        output: OutpGenParentDualAlt
     name: OutpGenParentDual
     parent: !_OutputBase
       output: OutpGenParentDualRef

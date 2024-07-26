@@ -1,4 +1,13 @@
 ﻿!_Schema
+_errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In InpGenParentDualParentRef can't get model for type
+    'InpGenParentDualParentAlt'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In OutpGenParentDualParentRef can't get model for
+    type 'OutpGenParentDualParentAlt'
 types: !_Map_Type
   !_Identifier DualAlt: !_TypeDual
     allAlternates:
@@ -840,7 +849,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: DualGenParentDualRef
-      type: !_TypeParam ref
+      type: !_DualBase
+        dual: DualGenParentDualAlt
     name: DualGenParentDual
     parent: !_DualBase
       dual: DualGenParentDualRef
@@ -871,6 +881,55 @@ types: !_Map_Type
         dual: Number
     name: DualGenParentDualAlt
     typeKind: !_TypeKind Dual
+  !_Identifier DualGenParentDualParent: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualGenParentDualParentAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenParentDualParentAlt
+      type: !_DualBase
+        dual: Number
+    name: DualGenParentDualParent
+    parent: !_DualBase
+      dual: DualGenParentDualParentRef
+      typeArgs:
+      - !_DualArg
+        dual: DualGenParentDualParentAlt
+    typeKind: !_TypeKind Dual
+  !_Identifier DualGenParentDualParentAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualGenParentDualParentAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenParentDualParentAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
+    name: DualGenParentDualParentAlt
+    typeKind: !_TypeKind Dual
+  !_Identifier DualGenParentDualParentRef: !_TypeDual
+    name: DualGenParentDualParentRef
+    parent: !_TypeParam ref
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Described
+      name: ref
   !_Identifier DualGenParentDualRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
@@ -888,7 +947,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: DualGenParentParamRef
-      type: !_TypeParam ref
+      type: !_DualBase
+        dual: DualGenParentParamAlt
     name: DualGenParentParam
     parent: !_DualBase
       dual: DualGenParentParamRef
@@ -919,6 +979,55 @@ types: !_Map_Type
         dual: Number
     name: DualGenParentParamAlt
     typeKind: !_TypeKind Dual
+  !_Identifier DualGenParentParamParent: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualGenParentParamParentAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenParentParamParentAlt
+      type: !_DualBase
+        dual: Number
+    name: DualGenParentParamParent
+    parent: !_DualBase
+      dual: DualGenParentParamParentRef
+      typeArgs:
+      - !_DualArg
+        dual: DualGenParentParamParentAlt
+    typeKind: !_TypeKind Dual
+  !_Identifier DualGenParentParamParentAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualGenParentParamParentAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenParentParamParentAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
+    name: DualGenParentParamParentAlt
+    typeKind: !_TypeKind Dual
+  !_Identifier DualGenParentParamParentRef: !_TypeDual
+    name: DualGenParentParamParentRef
+    parent: !_TypeParam ref
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Described
+      name: ref
   !_Identifier DualGenParentParamRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
@@ -2092,7 +2201,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: InpGenParentDualRef
-      type: !_TypeParam ref
+      type: !_InputBase
+        input: InpGenParentDualAlt
     name: InpGenParentDual
     parent: !_InputBase
       input: InpGenParentDualRef
@@ -2123,6 +2233,44 @@ types: !_Map_Type
         dual: Number
     name: InpGenParentDualAlt
     typeKind: !_TypeKind Dual
+  !_Identifier InpGenParentDualParent: !_TypeInput
+    name: InpGenParentDualParent
+    parent: !_InputBase
+      input: InpGenParentDualParentRef
+      typeArgs:
+      - !_DualArg
+        dual: InpGenParentDualParentAlt
+    typeKind: !_TypeKind Input
+  !_Identifier InpGenParentDualParentAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: InpGenParentDualParentAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: InpGenParentDualParentAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
+    name: InpGenParentDualParentAlt
+    typeKind: !_TypeKind Dual
+  !_Identifier InpGenParentDualParentRef: !_TypeInput
+    name: InpGenParentDualParentRef
+    parent: !_TypeParam ref
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      name: ref
   !_Identifier InpGenParentDualRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
@@ -2140,7 +2288,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: InpGenParentParamRef
-      type: !_TypeParam ref
+      type: !_InputBase
+        input: InpGenParentParamAlt
     name: InpGenParentParam
     parent: !_InputBase
       input: InpGenParentParamRef
@@ -2171,6 +2320,55 @@ types: !_Map_Type
         input: Number
     name: InpGenParentParamAlt
     typeKind: !_TypeKind Input
+  !_Identifier InpGenParentParamParent: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpGenParentParamParentAlt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: InpGenParentParamParentAlt
+      type: !_InputBase
+        input: Number
+    name: InpGenParentParamParent
+    parent: !_InputBase
+      input: InpGenParentParamParentRef
+      typeArgs:
+      - !_InputArg
+        input: InpGenParentParamParentAlt
+    typeKind: !_TypeKind Input
+  !_Identifier InpGenParentParamParentAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpGenParentParamParentAlt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: InpGenParentParamParentAlt
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: alt
+      type: !_InputBase
+        input: Number
+    name: InpGenParentParamParentAlt
+    typeKind: !_TypeKind Input
+  !_Identifier InpGenParentParamParentRef: !_TypeInput
+    name: InpGenParentParamParentRef
+    parent: !_TypeParam ref
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      name: ref
   !_Identifier InpGenParentParamRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
@@ -3786,7 +3984,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentDualRef
-      type: !_TypeParam ref
+      type: !_OutputBase
+        output: OutpGenParentDualAlt
     name: OutpGenParentDual
     parent: !_OutputBase
       output: OutpGenParentDualRef
@@ -3817,6 +4016,44 @@ types: !_Map_Type
         dual: Number
     name: OutpGenParentDualAlt
     typeKind: !_TypeKind Dual
+  !_Identifier OutpGenParentDualParent: !_TypeOutput
+    name: OutpGenParentDualParent
+    parent: !_OutputBase
+      output: OutpGenParentDualParentRef
+      typeArgs:
+      - !_DualArg
+        dual: OutpGenParentDualParentAlt
+    typeKind: !_TypeKind Output
+  !_Identifier OutpGenParentDualParentAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: OutpGenParentDualParentAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: OutpGenParentDualParentAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
+    name: OutpGenParentDualParentAlt
+    typeKind: !_TypeKind Dual
+  !_Identifier OutpGenParentDualParentRef: !_TypeOutput
+    name: OutpGenParentDualParentRef
+    parent: !_TypeParam ref
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: ref
   !_Identifier OutpGenParentDualRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
@@ -3834,7 +4071,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentParamRef
-      type: !_TypeParam ref
+      type: !_OutputBase
+        output: OutpGenParentParamAlt
     name: OutpGenParentParam
     parent: !_OutputBase
       output: OutpGenParentParamRef
@@ -3865,6 +4103,55 @@ types: !_Map_Type
         output: Number
     name: OutpGenParentParamAlt
     typeKind: !_TypeKind Output
+  !_Identifier OutpGenParentParamParent: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpGenParentParamParentAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpGenParentParamParentAlt
+      type: !_OutputBase
+        output: Number
+    name: OutpGenParentParamParent
+    parent: !_OutputBase
+      output: OutpGenParentParamParentRef
+      typeArgs:
+      - !_OutputArg
+        output: OutpGenParentParamParentAlt
+    typeKind: !_TypeKind Output
+  !_Identifier OutpGenParentParamParentAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpGenParentParamParentAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpGenParentParamParentAlt
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
+    name: OutpGenParentParamParentAlt
+    typeKind: !_TypeKind Output
+  !_Identifier OutpGenParentParamParentRef: !_TypeOutput
+    name: OutpGenParentParamParentRef
+    parent: !_TypeParam ref
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: ref
   !_Identifier OutpGenParentParamRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)

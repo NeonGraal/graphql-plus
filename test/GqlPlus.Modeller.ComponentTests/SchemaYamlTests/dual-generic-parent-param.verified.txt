@@ -4,7 +4,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: DualGenParentParamRef
-      type: !_TypeParam ref
+      type: !_DualBase
+        dual: DualGenParentParamAlt
     name: DualGenParentParam
     parent: !_DualBase
       dual: DualGenParentParamRef

@@ -1,0 +1,85 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In OutpGenParentDualParentRef can\u0027t get model for type \u0027OutpGenParentDualParentAlt\u0027"
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpGenParentDualParent": {
+      "$tag": "_TypeOutput",
+      "name": "OutpGenParentDualParent",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "OutpGenParentDualParentRef",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "value": "OutpGenParentDualParentAlt"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "OutpGenParentDualParentAlt": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "OutpGenParentDualParentAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "OutpGenParentDualParentAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "alt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpGenParentDualParentAlt",
+      "typeKind": "Dual"
+    },
+    "OutpGenParentDualParentRef": {
+      "$tag": "_TypeOutput",
+      "name": "OutpGenParentDualParentRef",
+      "parent": "ref",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

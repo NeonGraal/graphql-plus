@@ -55,7 +55,8 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
-      type: !_TypeParam parent
+      type: !_OutputBase
+        output: _Identifier
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items

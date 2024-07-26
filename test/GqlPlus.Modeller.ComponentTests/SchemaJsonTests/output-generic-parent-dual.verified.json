@@ -8,7 +8,10 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpGenParentDualRef",
-          "type": "ref"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpGenParentDualAlt"
+          }
         }
       ],
       "name": "OutpGenParentDual",

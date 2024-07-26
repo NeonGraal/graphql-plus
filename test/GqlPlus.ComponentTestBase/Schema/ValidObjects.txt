@@ -86,9 +86,19 @@ object ObjName { :ObjNameRef<ObjNameAlt> }
 object ObjNameRef<$ref> { | $ref }
 dual ObjNameAlt { alt: Number | String }
 
+// generic-parent-dual-parent
+object ObjName { :ObjNameRef<ObjNameAlt> }
+object ObjNameRef<$ref> { :$ref }
+dual ObjNameAlt { alt: Number | String }
+
 // generic-parent-param
 object ObjName { :ObjNameRef<ObjNameAlt> }
 object ObjNameRef<$ref> { | $ref }
+object ObjNameAlt { alt: Number | String }
+
+// generic-parent-param-parent
+object ObjName { :ObjNameRef<ObjNameAlt> }
+object ObjNameRef<$ref> { :$ref }
 object ObjNameAlt { alt: Number | String }
 
 // generic-param

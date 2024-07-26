@@ -93,7 +93,10 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
           "object": "_ChildType",
-          "type": "parent"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",

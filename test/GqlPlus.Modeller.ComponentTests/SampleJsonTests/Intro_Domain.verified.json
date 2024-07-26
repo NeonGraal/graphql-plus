@@ -10,6 +10,21 @@
       "$tag": "_Error",
       "_kind": "End",
       "_message": "In _BaseDomain can\u0027t get model for type \u0027_ParentType\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainTrueFalse\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainRange\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainRegex\u0027"
     }
   ],
   "types": {
@@ -89,31 +104,31 @@
       "typeKind": "Dual"
     },
     "_DomainItem": {
-      "$tag": "_TypeDual",
+      "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$tag": "_ObjectFor(_OutputField)",
           "name": "domain",
           "object": "_DomainItem",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_Identifier"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$tag": "_OutputField",
           "name": "domain",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_Identifier"
           }
         }
       ],
       "name": "_DomainItem",
       "parent": "item",
-      "typeKind": "Dual",
+      "typeKind": "Output",
       "typeParams": [
         {
           "$tag": "_Described",
@@ -126,21 +141,39 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "value",
+          "object": "_DomainMember",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_EnumValue"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
           "name": "domain",
           "object": "_DomainItem",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_Identifier"
           }
         }
       ],
       "name": "_DomainItemMember",
       "parent": {
-        "$tag": "_DualBase",
-        "dual": "_DomainItem",
+        "$tag": "_OutputBase",
+        "output": "_DomainItem",
         "typeArgs": [
           {
-            "$tag": "_DualArg",
+            "$tag": "_OutputArg",
             "value": "_DomainMember"
           }
         ]
@@ -148,22 +181,22 @@
       "typeKind": "Output"
     },
     "_DomainItemRange": {
-      "$tag": "_TypeDual",
+      "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$tag": "_ObjectFor(_OutputField)",
           "name": "domain",
           "object": "_DomainItem",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_Identifier"
           }
         }
       ],
       "name": "_DomainItemRange",
       "parent": {
-        "$tag": "_DualBase",
-        "dual": "_DomainItem",
+        "$tag": "_OutputBase",
+        "output": "_DomainItem",
         "typeArgs": [
           {
             "$tag": "_DualArg",
@@ -171,25 +204,25 @@
           }
         ]
       },
-      "typeKind": "Dual"
+      "typeKind": "Output"
     },
     "_DomainItemRegex": {
-      "$tag": "_TypeDual",
+      "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$tag": "_ObjectFor(_OutputField)",
           "name": "domain",
           "object": "_DomainItem",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_Identifier"
           }
         }
       ],
       "name": "_DomainItemRegex",
       "parent": {
-        "$tag": "_DualBase",
-        "dual": "_DomainItem",
+        "$tag": "_OutputBase",
+        "output": "_DomainItem",
         "typeArgs": [
           {
             "$tag": "_DualArg",
@@ -197,25 +230,25 @@
           }
         ]
       },
-      "typeKind": "Dual"
+      "typeKind": "Output"
     },
     "_DomainItemTrueFalse": {
-      "$tag": "_TypeDual",
+      "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$tag": "_ObjectFor(_OutputField)",
           "name": "domain",
           "object": "_DomainItem",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_Identifier"
           }
         }
       ],
       "name": "_DomainItemTrueFalse",
       "parent": {
-        "$tag": "_DualBase",
-        "dual": "_DomainItem",
+        "$tag": "_OutputBase",
+        "output": "_DomainItem",
         "typeArgs": [
           {
             "$tag": "_DualArg",
@@ -223,7 +256,7 @@
           }
         ]
       },
-      "typeKind": "Dual"
+      "typeKind": "Output"
     },
     "_DomainKind": {
       "$tag": "_TypeEnum",
@@ -567,7 +600,7 @@
                 "value": "_DomainTrueFalse"
               },
               {
-                "$tag": "_DualArg",
+                "$tag": "_OutputArg",
                 "value": "_DomainItemTrueFalse"
               }
             ]
@@ -615,7 +648,7 @@
                 "value": "_DomainRange"
               },
               {
-                "$tag": "_DualArg",
+                "$tag": "_OutputArg",
                 "value": "_DomainItemRange"
               }
             ]
@@ -639,7 +672,7 @@
                 "value": "_DomainRegex"
               },
               {
-                "$tag": "_DualArg",
+                "$tag": "_OutputArg",
                 "value": "_DomainItemRegex"
               }
             ]
@@ -664,7 +697,7 @@
                 "value": "_DomainTrueFalse"
               },
               {
-                "$tag": "_DualArg",
+                "$tag": "_OutputArg",
                 "value": "_DomainItemTrueFalse"
               }
             ]
@@ -710,7 +743,7 @@
                 "value": "_DomainRange"
               },
               {
-                "$tag": "_DualArg",
+                "$tag": "_OutputArg",
                 "value": "_DomainItemRange"
               }
             ]
@@ -733,7 +766,7 @@
                 "value": "_DomainRegex"
               },
               {
-                "$tag": "_DualArg",
+                "$tag": "_OutputArg",
                 "value": "_DomainItemRegex"
               }
             ]

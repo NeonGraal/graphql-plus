@@ -1,0 +1,19 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualObjectField
+  {
+    !DF I@024/0001
+    field
+    :
+    I@031/0001
+    DualObjectFieldFld
+  }
+}
+{
+  !Du I@108/0001
+  DualObjectFieldFld
+}
+]

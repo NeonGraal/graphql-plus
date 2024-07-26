@@ -1,28 +1,28 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenPrntArg: !_TypeInput
+  !_Identifier InpGenParentArg: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenPrntRef
+      object: InpGenParentArgRef
       type: !_TypeParam ref
-    name: InpGenPrntArg
+    name: InpGenParentArg
     parent: !_InputBase
-      input: InpGenPrntRef
+      input: InpGenParentArgRef
       typeArgs:
       - !_TypeParam type
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
       name: type
-  !_Identifier InpGenPrntRef: !_TypeInput
+  !_Identifier InpGenParentArgRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenPrntRef
+      object: InpGenParentArgRef
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpGenPrntRef
+    name: InpGenParentArgRef
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

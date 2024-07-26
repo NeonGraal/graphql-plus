@@ -1,15 +1,31 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpPrntDualTest: !_TypeDual
+  !_Identifier OutpParentDual: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: OutpPrntDualTest
+      object: OutpParentDualRef
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: parent
-      object: OutpPrntDualTest
+      object: OutpParentDualRef
+      type: !_DualBase
+        dual: Number
+    name: OutpParentDual
+    parent: !_DualBase
+      dual: OutpParentDualRef
+    typeKind: !_TypeKind Output
+  !_Identifier OutpParentDualRef: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: OutpParentDualRef
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: OutpParentDualRef
       type: !_DualBase
         dual: Number
     alternates:
@@ -21,21 +37,5 @@ types: !_Map_Type
       name: parent
       type: !_DualBase
         dual: Number
-    name: OutpPrntDualTest
+    name: OutpParentDualRef
     typeKind: !_TypeKind Dual
-  !_Identifier OutpTestPrntDual: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: OutpPrntDualTest
-      type: !_DualBase
-        dual: String
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: parent
-      object: OutpPrntDualTest
-      type: !_DualBase
-        dual: Number
-    name: OutpTestPrntDual
-    parent: !_DualBase
-      dual: OutpPrntDualTest
-    typeKind: !_TypeKind Output

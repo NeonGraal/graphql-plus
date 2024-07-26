@@ -1,10 +1,10 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualPrnt: !_TypeDual
-    name: DualPrnt
+  !_Identifier DualObjectParent: !_TypeDual
+    name: DualObjectParent
     parent: !_DualBase
-      dual: PrntDual
+      dual: DualObjectParentRef
     typeKind: !_TypeKind Dual
-  !_Identifier PrntDual: !_TypeDual
-    name: PrntDual
+  !_Identifier DualObjectParentRef: !_TypeDual
+    name: DualObjectParentRef
     typeKind: !_TypeKind Dual

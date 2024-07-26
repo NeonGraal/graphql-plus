@@ -5,13 +5,13 @@ types: !_Map_Type
     - !_ObjectFor(_InputAlternate)
       object: InpGenAltArg
       type: !_InputBase
-        input: InpGenAltRef
+        input: InpGenAltArgRef
         typeArgs:
         - !_TypeParam type
     alternates:
     - !_InputAlternate
       type: !_InputBase
-        input: InpGenAltRef
+        input: InpGenAltArgRef
         typeArgs:
         - !_TypeParam type
     name: InpGenAltArg
@@ -19,15 +19,15 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: type
-  !_Identifier InpGenAltRef: !_TypeInput
+  !_Identifier InpGenAltArgRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenAltRef
+      object: InpGenAltArgRef
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpGenAltRef
+    name: InpGenAltArgRef
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

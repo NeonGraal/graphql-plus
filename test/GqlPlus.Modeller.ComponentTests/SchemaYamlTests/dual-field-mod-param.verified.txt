@@ -1,0 +1,44 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualFieldModParam: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      object: DualFieldModParam
+      type: !_DualBase
+        dual: DualFieldModParamFld
+    fields:
+    - !_DualField
+      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      type: !_DualBase
+        dual: DualFieldModParamFld
+    name: DualFieldModParam
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Described
+      name: mod
+  !_Identifier DualFieldModParamFld: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualFieldModParamFld
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualFieldModParamFld
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: Number
+    name: DualFieldModParamFld
+    typeKind: !_TypeKind Dual

@@ -1,0 +1,37 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpAlt
+      type: !_InputBase
+        input: InpAltAlt
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: InpAltAlt
+    name: InpAlt
+    typeKind: !_TypeKind Input
+  !_Identifier InpAltAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpAltAlt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: InpAltAlt
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: alt
+      type: !_InputBase
+        input: Number
+    name: InpAltAlt
+    typeKind: !_TypeKind Input

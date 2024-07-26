@@ -36,23 +36,23 @@ Success
 }
 {
   !Di I@012/0001
-  DirParam
-  (
-    !Pa
-    I@021/0001
-    DirParamIn
-  )
-  (Unique)
-  All
-}
-{
-  !Di I@012/0001
   DirParamDict
   (
     !Pa
     I@025/0001
     DirParamIn
     [String]
+  )
+  (Unique)
+  All
+}
+{
+  !Di I@012/0001
+  DirParam
+  (
+    !Pa
+    I@021/0001
+    DirParamIn
   )
   (Unique)
   All
@@ -137,7 +137,7 @@ Success
   DescrSingle
 }
 {
-  !In I@047/0001
+  !In I@059/0001
   DirParamIn
 }
 ]

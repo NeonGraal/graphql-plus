@@ -3,6 +3,6 @@
 Success
 {
   !Du I@006/0001
-  Dual
+  DualObject
 }
 ]

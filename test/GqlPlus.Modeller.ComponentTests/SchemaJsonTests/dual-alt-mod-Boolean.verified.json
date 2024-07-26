@@ -1,0 +1,91 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualAltModBoolean": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "^",
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
+            }
+          ],
+          "object": "DualAltModBoolean",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualAltModBooleanAlt"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "^",
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualAltModBooleanAlt"
+          }
+        }
+      ],
+      "name": "DualAltModBoolean",
+      "typeKind": "Dual"
+    },
+    "DualAltModBooleanAlt": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualAltModBooleanAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "DualAltModBooleanAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "alt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "DualAltModBooleanAlt",
+      "typeKind": "Dual"
+    }
+  }
+}

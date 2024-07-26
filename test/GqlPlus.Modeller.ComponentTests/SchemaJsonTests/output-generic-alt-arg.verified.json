@@ -10,7 +10,7 @@
           "object": "OutpGenAltArg",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpGenAltRef",
+            "output": "OutpGenAltArgRef",
             "typeArgs": ["type"]
           }
         }
@@ -20,7 +20,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpGenAltRef",
+            "output": "OutpGenAltArgRef",
             "typeArgs": ["type"]
           }
         }
@@ -34,12 +34,12 @@
         }
       ]
     },
-    "OutpGenAltRef": {
+    "OutpGenAltArgRef": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenAltRef",
+          "object": "OutpGenAltArgRef",
           "type": "ref"
         }
       ],
@@ -49,7 +49,7 @@
           "type": "ref"
         }
       ],
-      "name": "OutpGenAltRef",
+      "name": "OutpGenAltArgRef",
       "typeKind": "Output",
       "typeParams": [
         {

@@ -1,0 +1,44 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpFieldModParam: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      object: InpFieldModParam
+      type: !_InputBase
+        input: InpFieldModParamFld
+    fields:
+    - !_InputField
+      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      type: !_InputBase
+        input: InpFieldModParamFld
+    name: InpFieldModParam
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      name: mod
+  !_Identifier InpFieldModParamFld: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpFieldModParamFld
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpFieldModParamFld
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        input: Number
+    name: InpFieldModParamFld
+    typeKind: !_TypeKind Input

@@ -1,0 +1,19 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpObjectField
+  {
+    !OF I@026/0001
+    field
+    :
+    I@033/0001
+    OutpObjectFieldFld
+  }
+}
+{
+  !Ou I@114/0001
+  OutpObjectFieldFld
+}
+]

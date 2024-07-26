@@ -8,16 +8,17 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   TypeKindModel Kind,
   string Name
 ) : ChildTypeModel<ObjDescribedModel<TObjBase>>(Kind, Name)
+  , ITypeObjectModel
   where TObjBase : IObjBaseModel
   where TObjField : IObjFieldModel
   where TObjAlt : IObjAlternateModel
 {
-  internal DescribedModel[] TypeParams { get; set; } = [];
+  public DescribedModel[] TypeParams { get; set; } = [];
   internal TObjField[] Fields { get; set; } = [];
   internal TObjAlt[] Alternates { get; set; } = [];
 
-  internal ObjectForModel[] AllFields { get; set; } = [];
-  internal ObjectForModel[] AllAlternates { get; set; } = [];
+  public ObjectForModel[] AllFields { get; set; } = [];
+  public ObjectForModel[] AllAlternates { get; set; } = [];
 
   internal override bool GetParentModel<TResult>(IResolveContext context, [NotNullWhen(true)] out TResult? model)
     where TResult : default
@@ -31,8 +32,16 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   }
 }
 
+public interface ITypeObjectModel
+{
+  DescribedModel[] TypeParams { get; }
+  ObjectForModel[] AllFields { get; }
+  ObjectForModel[] AllAlternates { get; }
+}
+
 public record class ObjArgModel
-  : ModelBase, IObjArgModel
+  : ModelBase
+  , IObjArgModel
 {
   public bool IsTypeParam { get; set; }
 }
@@ -44,16 +53,20 @@ public interface IObjArgModel
 }
 
 public record class ObjBaseModel<TArg>
-  : ModelBase, IObjBaseModel
+  : ModelBase
+  , IObjBaseModel
   where TArg : IObjArgModel
 {
   internal TArg[] Args { get; set; } = [];
   public bool IsTypeParam { get; set; }
+  IObjArgModel[] IObjBaseModel.Args => [.. Args.Cast<IObjArgModel>()];
 }
 
 public interface IObjBaseModel
   : IModelBase
 {
+  IObjArgModel[] Args { get; }
+
   bool IsTypeParam { get; }
 }
 
@@ -76,6 +89,7 @@ public record class ObjFieldModel<TObjBase>(
   , IObjFieldModel
   where TObjBase : IObjBaseModel
 {
+  public ObjDescribedModel<TObjBase>? Type { get; internal set; } = Type;
   public ModifierModel[] Modifiers { get; set; } = [];
   public ObjDescribedModel<IObjBaseModel>? BaseType
     => Type?.BaseAs<IObjBaseModel>();

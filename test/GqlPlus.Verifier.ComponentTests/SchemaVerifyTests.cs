@@ -15,7 +15,7 @@ public class SchemaVerifyTests(
   [Theory]
   [ClassData(typeof(SchemaValidGlobalsData))]
   public void Verify_ValidGlobals(string global)
-    => Verify_Valid(SchemaValidGlobalsData.Source[global]);
+    => Verify_Valid(SchemaValidGlobalsData.Source[global], global);
 
   [Theory]
   [ClassData(typeof(SchemaInvalidGlobalsData))]
@@ -27,21 +27,14 @@ public class SchemaVerifyTests(
   public void Verify_ValidMerges(string schema)
   {
     string input = SchemaValidMergesData.Source[schema];
-    if (IsObjectInput(input)) {
-      using AssertionScope scope = new();
-
-      foreach ((string objLabel, string objAbbr) in Replacements) {
-        Verify_Valid(ReplaceValue(input, objLabel, objAbbr));
-      }
-    } else {
-      Verify_Valid(input);
-    }
+    using AssertionScope scope = new();
+    ReplaceAction(input, schema, Verify_Valid);
   }
 
   [Theory]
   [ClassData(typeof(SchemaValidSimpleData))]
   public void Verify_ValidSimple(string simple)
-    => Verify_Valid(SchemaValidSimpleData.Source[simple]);
+    => Verify_Valid(SchemaValidSimpleData.Source[simple], simple);
 
   [Theory]
   [ClassData(typeof(SchemaInvalidSimpleData))]
@@ -53,15 +46,8 @@ public class SchemaVerifyTests(
   public void Verify_ValidObjects(string obj)
   {
     string input = SchemaValidObjectsData.Source[obj];
-    if (IsObjectInput(input)) {
-      using AssertionScope scope = new();
-
-      foreach ((string objLabel, string objAbbr) in Replacements) {
-        Verify_Valid(ReplaceValue(input, objLabel, objAbbr));
-      }
-    } else {
-      Verify_Valid(input);
-    }
+    using AssertionScope scope = new();
+    ReplaceAction(input, obj, Verify_Valid);
   }
 
   [Theory]
@@ -69,28 +55,23 @@ public class SchemaVerifyTests(
   public async Task Verify_InvalidObjects(string obj)
   {
     string input = SchemaInvalidObjectsData.Source[obj];
-    if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => Verify_Invalid(ReplaceValue(input, r.Item1, r.Item2), r.Item1 + "-" + obj))
-        .ToArray());
-    } else {
-      await Verify_Invalid(input, obj);
-    }
+    using AssertionScope scope = new();
+    await ReplaceActionAsync(input, obj, Verify_Invalid);
   }
 
-  private void Verify_Valid(string input)
+  private void Verify_Valid(string input, string testName)
   {
     IResult<IGqlpSchema> parse = Parse(input);
 
     if (parse is IResultError<SchemaAst> error) {
-      error.Message.Should().BeNull();
+      error.Message.Should().BeNull(testName);
     }
 
     TokenMessages result = [];
 
     verifier.Verify(parse.Required(), result);
 
-    result.Should().BeNullOrEmpty();
+    result.Should().BeNullOrEmpty(testName);
   }
 
   private async Task Verify_Invalid(string input, string test)

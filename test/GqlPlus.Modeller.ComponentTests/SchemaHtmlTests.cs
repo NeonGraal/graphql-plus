@@ -58,13 +58,7 @@ public class SchemaHtmlTests(
   public void Html_Merges(string model)
   {
     string input = SchemaValidMergesData.Source[model];
-    if (IsObjectInput(input)) {
-      foreach ((string label, string abbr) in Replacements) {
-        Verify_Model(ReplaceValue(input, label, abbr), label + "-" + model);
-      }
-    } else {
-      Verify_Model(input, model);
-    }
+    ReplaceAction(input, model, Verify_Model);
   }
 
   [Theory]
@@ -72,13 +66,7 @@ public class SchemaHtmlTests(
   public void Html_Objects(string model)
   {
     string input = SchemaValidObjectsData.Source[model];
-    if (IsObjectInput(input)) {
-      foreach ((string label, string abbr) in Replacements) {
-        Verify_Model(ReplaceValue(input, label, abbr), label + "-" + model);
-      }
-    } else {
-      Verify_Model(input, model);
-    }
+    ReplaceAction(input, model, Verify_Model);
   }
 
   [Theory]
@@ -86,13 +74,7 @@ public class SchemaHtmlTests(
   public void Html_Globals(string global)
   {
     string input = SchemaValidGlobalsData.Source[global];
-    if (IsObjectInput(input)) {
-      foreach ((string label, string abbr) in Replacements) {
-        Verify_Model(ReplaceValue(input, label, abbr), label + "-" + global);
-      }
-    } else {
-      Verify_Model(input, global);
-    }
+    ReplaceAction(input, global, Verify_Model);
   }
 
   [Theory]
@@ -100,13 +82,7 @@ public class SchemaHtmlTests(
   public void Html_Simple(string simple)
   {
     string input = SchemaValidSimpleData.Source[simple];
-    if (IsObjectInput(input)) {
-      foreach ((string label, string abbr) in Replacements) {
-        Verify_Model(ReplaceValue(input, label, abbr), label + "-" + simple);
-      }
-    } else {
-      Verify_Model(input, simple);
-    }
+    ReplaceAction(input, simple, Verify_Model);
   }
 
   private void Verify_Model(string input, string test)

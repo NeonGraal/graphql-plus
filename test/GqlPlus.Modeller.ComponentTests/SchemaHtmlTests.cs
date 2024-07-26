@@ -123,7 +123,7 @@ public class SchemaHtmlTests(
   {
     IGqlpSchema schema = merger.Merge(asts).First();
 
-    RenderStructure result = renderer.RenderAst(schema, withBuiltIns: true);
+    RenderStructure result = renderer.RenderAst(schema, renderer.WithBuiltIns());
 
     return result;
   }

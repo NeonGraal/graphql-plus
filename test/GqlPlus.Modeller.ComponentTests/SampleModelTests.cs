@@ -16,7 +16,7 @@ public class SampleModelTests(
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
 
-    RenderStructure result = renderer.RenderAst(ast, withBuiltIns: true);
+    RenderStructure result = renderer.RenderAst(ast, renderer.WithBuiltIns());
 
     await Verify(result.ToYaml(true), SampleSettings("Yaml", sample));
   }
@@ -27,7 +27,7 @@ public class SampleModelTests(
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
 
-    RenderStructure result = renderer.RenderAst(ast, withBuiltIns: true);
+    RenderStructure result = renderer.RenderAst(ast, renderer.WithBuiltIns());
 
     await Verify(result.ToJson(), "json", SampleSettings("Json", sample));
   }
@@ -38,7 +38,7 @@ public class SampleModelTests(
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
 
-    RenderStructure result = renderer.RenderAst(ast, withBuiltIns: true);
+    RenderStructure result = renderer.RenderAst(ast, renderer.WithBuiltIns());
 
     await result.WriteHtmlFileAsync("Sample", sample);
   }

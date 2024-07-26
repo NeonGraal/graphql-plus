@@ -4,17 +4,18 @@ using GqlPlus.Modelling;
 
 namespace GqlPlus.Resolving;
 
-internal class TypesCollection(
+internal class TypesContext(
   ITypesModeller types
 ) : Map<TypeKindModel>
-  , IResolveContext
+  , ITypesContext
 {
-  internal IMap<BaseTypeModel> Types { get; } = new Map<BaseTypeModel>();
-  internal ITokenMessages Errors { get; } = new TokenMessages();
+  internal IMap<IModelBase> Types { get; } = new Map<IModelBase>();
+  public ITokenMessages Errors { get; } = new TokenMessages();
+  IMap<TypeKindModel> ITypesContext.TypeKinds => this;
 
-  internal static TypesCollection WithBuiltins(ITypesModeller types)
+  internal static TypesContext WithBuiltins(ITypesModeller types)
   {
-    TypesCollection typeKinds = new(types);
+    TypesContext typeKinds = new(types);
 
     typeKinds.AddTypes(BuiltIn.Basic, TypeKindModel.Basic);
     typeKinds.AddTypes(BuiltIn.Internal, TypeKindModel.Internal);
@@ -56,19 +57,29 @@ internal class TypesCollection(
     }
   }
 
-  public bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)
+  public bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model, bool canError = true)
     where TModel : IModelBase
   {
     if (name is not null) {
-      if (Types.TryGetValue(name, out BaseTypeModel? type) && type is TModel modelType) {
+      if (Types.TryGetValue(name, out IModelBase? type) && type is TModel modelType) {
         model = modelType;
         return true;
       }
 
-      Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"In {context} can't get model for type '{name}'"));
+      if (canError) {
+        Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"In {context} can't get model for type '{name}'"));
+      }
     }
 
     model = default;
     return false;
   }
+}
+
+public interface ITypesContext
+  : IResolveContext
+{
+  IMap<TypeKindModel> TypeKinds { get; }
+  ITokenMessages Errors { get; }
+  void AddModels(IEnumerable<BaseTypeModel> models);
 }

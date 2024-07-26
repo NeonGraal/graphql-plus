@@ -2,6 +2,7 @@
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Convert;
+using GqlPlus.Resolving;
 
 namespace GqlPlus;
 
@@ -51,9 +52,64 @@ public class BuiltInTests(IModelAndRender renderer)
     result.WriteHtmlFile("BuiltIn", "index", "index");
   }
 
+  [SkippableTheory]
+  [ClassData(typeof(BuiltInBasicData))]
+  public void ModelBasicTypes(string type)
+    => ModelType(BuiltInData.BasicMap[type], []);
+
+  [SkippableTheory]
+  [ClassData(typeof(BuiltInInternalData))]
+  public void ModelInternalTypes(string type)
+    => ModelType(BuiltInData.InternalMap[type], BuiltIn.Internal);
+
+  [Fact]
+  public void ModelAllBasicTypes()
+  {
+    SchemaAst schema = new(AstNulls.At) {
+      Declarations = BuiltIn.Basic
+    };
+
+
+    ITypesContext context = renderer.Context();
+    RenderStructure result = renderer.RenderAst(schema, context);
+
+    context.Errors.Should().BeNullOrEmpty();
+  }
+
+  [Fact]
+  public void ModelAllInternalTypes()
+  {
+    SchemaAst schema = new(AstNulls.At) {
+      Declarations = BuiltIn.Internal
+    };
+
+    ITypesContext context = renderer.Context();
+    RenderStructure result = renderer.RenderAst(schema, context);
+
+    context.Errors.Should().BeNullOrEmpty();
+  }
+
   [Fact]
   public void ModelsFluidFiles()
     => RenderFluid.CheckFluidFiles();
+
+  private void ModelType(IGqlpType type, IGqlpType[] extras)
+  {
+    Skip.If(type is null);
+
+    SchemaAst schema = new(AstNulls.At) {
+      Declarations = [type]
+    };
+
+    SchemaAst extrasSchema = new(AstNulls.At) {
+      Declarations = [.. extras.Where(e => e != type)]
+    };
+
+    ITypesContext context = renderer.Context();
+    RenderStructure result = renderer.RenderAst(schema, context, extrasSchema);
+
+    context.Errors.Should().BeNullOrEmpty(type?.Label);
+  }
 
   private void RenderTypeHtml(IGqlpType type, IGqlpType[] extras)
   {
@@ -72,7 +128,7 @@ public class BuiltInTests(IModelAndRender renderer)
 
   private void RenderSchemaHtml(SchemaAst schema, string filename, SchemaAst? extras = null)
   {
-    RenderStructure result = renderer.RenderAst(schema, extras);
+    RenderStructure result = renderer.RenderAst(schema, renderer.Context(), extras);
 
     result.WriteHtmlFile("BuiltIn", filename);
   }

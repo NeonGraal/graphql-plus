@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpPrntDualTest": {
-      "$tag": "_TypeDual",
+    "InpParentDual": {
+      "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpPrntDualTest",
+          "object": "InpParentDualRef",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,7 +18,37 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "InpPrntDualTest",
+          "object": "InpParentDualRef",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InpParentDual",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "InpParentDualRef"
+      },
+      "typeKind": "Input"
+    },
+    "InpParentDualRef": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "InpParentDualRef",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "parent",
+          "object": "InpParentDualRef",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -44,38 +74,8 @@
           }
         }
       ],
-      "name": "InpPrntDualTest",
+      "name": "InpParentDualRef",
       "typeKind": "Dual"
-    },
-    "InpTestPrntDual": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpPrntDualTest",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "parent",
-          "object": "InpPrntDualTest",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "InpTestPrntDual",
-      "parent": {
-        "$tag": "_DualBase",
-        "value": "InpPrntDualTest"
-      },
-      "typeKind": "Input"
     }
   }
 }

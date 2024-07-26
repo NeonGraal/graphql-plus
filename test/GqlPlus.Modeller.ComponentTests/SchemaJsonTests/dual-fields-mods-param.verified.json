@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualFieldModsParam": {
+    "DualFieldsModsParam": {
       "$tag": "_TypeDual",
       "allFields": [
         {
@@ -15,10 +15,10 @@
             }
           ],
           "name": "field",
-          "object": "DualFieldModsParam",
+          "object": "DualFieldsModsParam",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualFieldParamMods"
+            "value": "DualFieldsModsParamFld"
           }
         }
       ],
@@ -35,11 +35,11 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualFieldParamMods"
+            "value": "DualFieldsModsParamFld"
           }
         }
       ],
-      "name": "DualFieldModsParam",
+      "name": "DualFieldsModsParam",
       "typeKind": "Dual",
       "typeParams": [
         {
@@ -48,12 +48,12 @@
         }
       ]
     },
-    "DualFieldParamMods": {
+    "DualFieldsModsParamFld": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualFieldParamMods",
+          "object": "DualFieldsModsParamFld",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -64,7 +64,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualFieldParamMods",
+          "object": "DualFieldsModsParamFld",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -90,7 +90,7 @@
           }
         }
       ],
-      "name": "DualFieldParamMods",
+      "name": "DualFieldsModsParamFld",
       "typeKind": "Dual"
     }
   }

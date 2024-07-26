@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpAltModsParam: !_TypeOutput
+  !_Identifier OutpAltsModsParam: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       collections:
       - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
-      object: OutpAltModsParam
+      object: OutpAltsModsParam
       type: !_OutputBase
-        output: OutpModsParamAlt
+        output: OutpAltsModsParamAlt
     alternates:
     - !_OutputAlternate
       collections:
@@ -17,22 +17,22 @@ types: !_Map_Type
         by: mod
         modifierKind: !_ModifierKind Param
       type: !_OutputBase
-        output: OutpModsParamAlt
-    name: OutpAltModsParam
+        output: OutpAltsModsParamAlt
+    name: OutpAltsModsParam
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: mod
-  !_Identifier OutpModsParamAlt: !_TypeOutput
+  !_Identifier OutpAltsModsParamAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpModsParamAlt
+      object: OutpAltsModsParamAlt
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpModsParamAlt
+      object: OutpAltsModsParamAlt
       type: !_OutputBase
         output: Number
     alternates:
@@ -44,5 +44,5 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpModsParamAlt
+    name: OutpAltsModsParamAlt
     typeKind: !_TypeKind Output

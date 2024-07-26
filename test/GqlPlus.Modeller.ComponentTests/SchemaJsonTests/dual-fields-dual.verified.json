@@ -2,12 +2,38 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualFieldDual": {
+    "DualFieldsDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualFieldsDual",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualFieldsDualFld"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualFieldsDualFld"
+          }
+        }
+      ],
+      "name": "DualFieldsDual",
+      "typeKind": "Dual"
+    },
+    "DualFieldsDualFld": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualFieldDual",
+          "object": "DualFieldsDualFld",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,7 +44,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualFieldDual",
+          "object": "DualFieldsDualFld",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -44,33 +70,7 @@
           }
         }
       ],
-      "name": "DualFieldDual",
-      "typeKind": "Dual"
-    },
-    "DualFieldsDual": {
-      "$tag": "_TypeDual",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "field",
-          "object": "DualFieldsDual",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualFieldDual"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "field",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualFieldDual"
-          }
-        }
-      ],
-      "name": "DualFieldsDual",
+      "name": "DualFieldsDualFld",
       "typeKind": "Dual"
     }
   }

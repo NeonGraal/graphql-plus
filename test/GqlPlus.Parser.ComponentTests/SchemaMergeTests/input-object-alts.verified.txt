@@ -3,14 +3,14 @@
 Success
 {
   !In I@007/0001
-  InpAlts
+  InpObjectAlts
   |
-  !IA I@019/0001
-  I@019/0001
-  InpAltsType
+  !IA I@025/0001
+  I@025/0001
+  InpObjectAltsType
 }
 {
-  !In I@071/0001
-  InpAltsType
+  !In I@095/0001
+  InpObjectAltsType
 }
 ]

@@ -2,12 +2,59 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualAltPrnt": {
+    "DualParentAlts": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltPrnt",
+          "object": "DualParentAltsRef",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualParentAlts",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "parent",
+          "object": "DualParentAltsRef",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "DualParentAlts",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "DualParentAltsRef"
+      },
+      "typeKind": "Dual"
+    },
+    "DualParentAltsRef": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualParentAltsRef",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,7 +65,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "DualAltPrnt",
+          "object": "DualParentAltsRef",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -44,54 +91,7 @@
           }
         }
       ],
-      "name": "DualAltPrnt",
-      "typeKind": "Dual"
-    },
-    "DualPrntAlt": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltPrnt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualPrntAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "parent",
-          "object": "DualAltPrnt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "DualPrntAlt",
-      "parent": {
-        "$tag": "_DualBase",
-        "value": "DualAltPrnt"
-      },
+      "name": "DualParentAltsRef",
       "typeKind": "Dual"
     }
   }

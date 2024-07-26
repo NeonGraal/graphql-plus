@@ -2,36 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpPrmsPrntDiff": {
+    "InpParentParamsDiff": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpPrmsPrntDiff",
-          "type": "b"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": "b"
-        }
-      ],
-      "name": "InpPrmsPrntDiff",
-      "typeKind": "Input",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "b"
-        }
-      ]
-    },
-    "InpPrntPrmsDiff": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpPrmsPrntDiff",
+          "object": "InpParentParamsDiffRef",
           "type": "b"
         }
       ],
@@ -39,7 +15,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpPrntPrmsDiff",
+          "object": "InpParentParamsDiff",
           "type": "a"
         }
       ],
@@ -50,10 +26,10 @@
           "type": "a"
         }
       ],
-      "name": "InpPrntPrmsDiff",
+      "name": "InpParentParamsDiff",
       "parent": {
         "$tag": "_InputBase",
-        "input": "InpPrmsPrntDiff",
+        "input": "InpParentParamsDiffRef",
         "typeArgs": ["a"]
       },
       "typeKind": "Input",
@@ -61,6 +37,30 @@
         {
           "$tag": "_Described",
           "value": "a"
+        }
+      ]
+    },
+    "InpParentParamsDiffRef": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpParentParamsDiffRef",
+          "type": "b"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": "b"
+        }
+      ],
+      "name": "InpParentParamsDiffRef",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "b"
         }
       ]
     }

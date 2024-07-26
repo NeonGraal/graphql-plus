@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpFieldModsParam": {
+    "OutpFieldsModsParam": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
@@ -15,10 +15,10 @@
             }
           ],
           "name": "field",
-          "object": "OutpFieldModsParam",
+          "object": "OutpFieldsModsParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpFieldParamMods"
+            "value": "OutpFieldsModsParamFld"
           }
         }
       ],
@@ -35,11 +35,11 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpFieldParamMods"
+            "value": "OutpFieldsModsParamFld"
           }
         }
       ],
-      "name": "OutpFieldModsParam",
+      "name": "OutpFieldsModsParam",
       "typeKind": "Output",
       "typeParams": [
         {
@@ -48,12 +48,12 @@
         }
       ]
     },
-    "OutpFieldParamMods": {
+    "OutpFieldsModsParamFld": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpFieldParamMods",
+          "object": "OutpFieldsModsParamFld",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -64,7 +64,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpFieldParamMods",
+          "object": "OutpFieldsModsParamFld",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -90,7 +90,7 @@
           }
         }
       ],
-      "name": "OutpFieldParamMods",
+      "name": "OutpFieldsModsParamFld",
       "typeKind": "Output"
     }
   }

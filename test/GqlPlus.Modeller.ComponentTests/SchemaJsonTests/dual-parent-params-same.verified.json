@@ -2,36 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualPrmsPrntSame": {
+    "DualParentParamsSame": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualPrmsPrntSame",
-          "type": "a"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": "a"
-        }
-      ],
-      "name": "DualPrmsPrntSame",
-      "typeKind": "Dual",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "a"
-        }
-      ]
-    },
-    "DualPrntPrmsSame": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualPrmsPrntSame",
+          "object": "DualParentParamsSameRef",
           "type": "a"
         }
       ],
@@ -39,7 +15,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualPrntPrmsSame",
+          "object": "DualParentParamsSame",
           "type": "a"
         }
       ],
@@ -50,12 +26,36 @@
           "type": "a"
         }
       ],
-      "name": "DualPrntPrmsSame",
+      "name": "DualParentParamsSame",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "DualPrmsPrntSame",
+        "dual": "DualParentParamsSameRef",
         "typeArgs": ["a"]
       },
+      "typeKind": "Dual",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "a"
+        }
+      ]
+    },
+    "DualParentParamsSameRef": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualParentParamsSameRef",
+          "type": "a"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": "a"
+        }
+      ],
+      "name": "DualParentParamsSameRef",
       "typeKind": "Dual",
       "typeParams": [
         {

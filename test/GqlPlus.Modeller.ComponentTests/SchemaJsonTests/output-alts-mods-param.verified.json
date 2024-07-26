@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpAltModsParam": {
+    "OutpAltsModsParam": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
@@ -14,10 +14,10 @@
               "modifierKind": "Param"
             }
           ],
-          "object": "OutpAltModsParam",
+          "object": "OutpAltsModsParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpModsParamAlt"
+            "value": "OutpAltsModsParamAlt"
           }
         }
       ],
@@ -33,11 +33,11 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpModsParamAlt"
+            "value": "OutpAltsModsParamAlt"
           }
         }
       ],
-      "name": "OutpAltModsParam",
+      "name": "OutpAltsModsParam",
       "typeKind": "Output",
       "typeParams": [
         {
@@ -46,12 +46,12 @@
         }
       ]
     },
-    "OutpModsParamAlt": {
+    "OutpAltsModsParamAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpModsParamAlt",
+          "object": "OutpAltsModsParamAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -62,7 +62,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpModsParamAlt",
+          "object": "OutpAltsModsParamAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -88,7 +88,7 @@
           }
         }
       ],
-      "name": "OutpModsParamAlt",
+      "name": "OutpAltsModsParamAlt",
       "typeKind": "Output"
     }
   }

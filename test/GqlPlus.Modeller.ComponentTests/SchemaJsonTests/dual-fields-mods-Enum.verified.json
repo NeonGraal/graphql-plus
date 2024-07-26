@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualFieldEnum": {
+    "DualEnumFieldsModsEnum": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "enum": "DualFieldEnum",
+          "enum": "DualEnumFieldsModsEnum",
           "name": "value"
         }
       ],
@@ -17,10 +17,10 @@
           "value": "value"
         }
       ],
-      "name": "DualFieldEnum",
+      "name": "DualEnumFieldsModsEnum",
       "typeKind": "Enum"
     },
-    "DualFieldMods": {
+    "DualFieldsModsEnum": {
       "$tag": "_TypeDual",
       "allFields": [
         {
@@ -28,16 +28,16 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "DualFieldEnum",
+              "by": "DualEnumFieldsModsEnum",
               "modifierKind": "Dict",
               "typeKind": "Enum"
             }
           ],
           "name": "field",
-          "object": "DualFieldMods",
+          "object": "DualFieldsModsEnum",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualFieldMods"
+            "value": "*"
           }
         }
       ],
@@ -47,7 +47,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "DualFieldEnum",
+              "by": "DualEnumFieldsModsEnum",
               "modifierKind": "Dict",
               "typeKind": "Enum"
             }
@@ -55,11 +55,11 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualFieldMods"
+            "value": "*"
           }
         }
       ],
-      "name": "DualFieldMods",
+      "name": "DualFieldsModsEnum",
       "typeKind": "Dual"
     }
   }

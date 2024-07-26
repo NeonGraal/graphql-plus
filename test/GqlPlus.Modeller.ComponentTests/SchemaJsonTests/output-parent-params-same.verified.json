@@ -2,36 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpPrmsPrntSame": {
+    "OutpParentParamsSame": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpPrmsPrntSame",
-          "type": "a"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": "a"
-        }
-      ],
-      "name": "OutpPrmsPrntSame",
-      "typeKind": "Output",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "a"
-        }
-      ]
-    },
-    "OutpPrntPrmsSame": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpPrmsPrntSame",
+          "object": "OutpParentParamsSameRef",
           "type": "a"
         }
       ],
@@ -39,7 +15,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpPrntPrmsSame",
+          "object": "OutpParentParamsSame",
           "type": "a"
         }
       ],
@@ -50,12 +26,36 @@
           "type": "a"
         }
       ],
-      "name": "OutpPrntPrmsSame",
+      "name": "OutpParentParamsSame",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpPrmsPrntSame",
+        "output": "OutpParentParamsSameRef",
         "typeArgs": ["a"]
       },
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "a"
+        }
+      ]
+    },
+    "OutpParentParamsSameRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpParentParamsSameRef",
+          "type": "a"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": "a"
+        }
+      ],
+      "name": "OutpParentParamsSameRef",
       "typeKind": "Output",
       "typeParams": [
         {

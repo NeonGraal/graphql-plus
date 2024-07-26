@@ -1,34 +1,34 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualFieldModsParam: !_TypeDual
+  !_Identifier DualFieldsModsParam: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
-      object: DualFieldModsParam
+      object: DualFieldsModsParam
       type: !_DualBase
-        dual: DualFieldParamMods
+        dual: DualFieldsModsParamFld
     fields:
     - !_DualField
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       type: !_DualBase
-        dual: DualFieldParamMods
-    name: DualFieldModsParam
+        dual: DualFieldsModsParamFld
+    name: DualFieldsModsParam
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
       name: mod
-  !_Identifier DualFieldParamMods: !_TypeDual
+  !_Identifier DualFieldsModsParamFld: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualFieldParamMods
+      object: DualFieldsModsParamFld
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: DualFieldParamMods
+      object: DualFieldsModsParamFld
       type: !_DualBase
         dual: Number
     alternates:
@@ -40,5 +40,5 @@ types: !_Map_Type
       name: field
       type: !_DualBase
         dual: Number
-    name: DualFieldParamMods
+    name: DualFieldsModsParamFld
     typeKind: !_TypeKind Dual

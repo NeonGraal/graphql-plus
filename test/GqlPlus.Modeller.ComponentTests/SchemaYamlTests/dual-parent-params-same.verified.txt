@@ -1,37 +1,37 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualPrmsPrntSame: !_TypeDual
+  !_Identifier DualParentParamsSame: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualPrmsPrntSame
-      type: !_TypeParam a
-    alternates:
-    - !_DualAlternate
-      type: !_TypeParam a
-    name: DualPrmsPrntSame
-    typeKind: !_TypeKind Dual
-    typeParams:
-    - !_Described
-      name: a
-  !_Identifier DualPrntPrmsSame: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: DualPrmsPrntSame
+      object: DualParentParamsSameRef
       type: !_TypeParam a
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: DualPrntPrmsSame
+      object: DualParentParamsSame
       type: !_TypeParam a
     fields:
     - !_DualField
       name: field
       type: !_TypeParam a
-    name: DualPrntPrmsSame
+    name: DualParentParamsSame
     parent: !_DualBase
-      dual: DualPrmsPrntSame
+      dual: DualParentParamsSameRef
       typeArgs:
       - !_TypeParam a
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Described
+      name: a
+  !_Identifier DualParentParamsSameRef: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualParentParamsSameRef
+      type: !_TypeParam a
+    alternates:
+    - !_DualAlternate
+      type: !_TypeParam a
+    name: DualParentParamsSameRef
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described

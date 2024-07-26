@@ -2,12 +2,59 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpAltPrnt": {
+    "InpParentAlts": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAltPrnt",
+          "object": "InpParentAltsRef",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpParentAlts",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "parent",
+          "object": "InpParentAltsRef",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InpParentAlts",
+      "parent": {
+        "$tag": "_InputBase",
+        "value": "InpParentAltsRef"
+      },
+      "typeKind": "Input"
+    },
+    "InpParentAltsRef": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpParentAltsRef",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -18,7 +65,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "InpAltPrnt",
+          "object": "InpParentAltsRef",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -44,54 +91,7 @@
           }
         }
       ],
-      "name": "InpAltPrnt",
-      "typeKind": "Input"
-    },
-    "InpPrntAlt": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAltPrnt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpPrntAlt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "parent",
-          "object": "InpAltPrnt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "InpPrntAlt",
-      "parent": {
-        "$tag": "_InputBase",
-        "value": "InpAltPrnt"
-      },
+      "name": "InpParentAltsRef",
       "typeKind": "Input"
     }
   }

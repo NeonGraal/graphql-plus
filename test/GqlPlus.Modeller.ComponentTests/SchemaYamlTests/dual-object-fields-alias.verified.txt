@@ -1,18 +1,21 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualFieldAlias: !_TypeDual
+  !_Identifier DualObjectFieldsAlias: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       aliases: [field1, field2]
       name: field
-      object: DualFieldAlias
+      object: DualObjectFieldsAlias
       type: !_DualBase
-        dual: DualFieldAlias
+        dual: DualObjectFieldsAliasFld
     fields:
     - !_DualField
       aliases: [field1, field2]
       name: field
       type: !_DualBase
-        dual: DualFieldAlias
-    name: DualFieldAlias
+        dual: DualObjectFieldsAliasFld
+    name: DualObjectFieldsAlias
+    typeKind: !_TypeKind Dual
+  !_Identifier DualObjectFieldsAliasFld: !_TypeDual
+    name: DualObjectFieldsAliasFld
     typeKind: !_TypeKind Dual

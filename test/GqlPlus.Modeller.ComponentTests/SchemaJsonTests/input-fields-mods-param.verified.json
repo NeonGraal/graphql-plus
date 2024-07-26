@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpFieldModsParam": {
+    "InpFieldsModsParam": {
       "$tag": "_TypeInput",
       "allFields": [
         {
@@ -15,10 +15,10 @@
             }
           ],
           "name": "field",
-          "object": "InpFieldModsParam",
+          "object": "InpFieldsModsParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpFieldParamMods"
+            "value": "InpFieldsModsParamFld"
           }
         }
       ],
@@ -35,11 +35,11 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpFieldParamMods"
+            "value": "InpFieldsModsParamFld"
           }
         }
       ],
-      "name": "InpFieldModsParam",
+      "name": "InpFieldsModsParam",
       "typeKind": "Input",
       "typeParams": [
         {
@@ -48,12 +48,12 @@
         }
       ]
     },
-    "InpFieldParamMods": {
+    "InpFieldsModsParamFld": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpFieldParamMods",
+          "object": "InpFieldsModsParamFld",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -64,7 +64,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpFieldParamMods",
+          "object": "InpFieldsModsParamFld",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -90,7 +90,7 @@
           }
         }
       ],
-      "name": "InpFieldParamMods",
+      "name": "InpFieldsModsParamFld",
       "typeKind": "Input"
     }
   }

@@ -112,67 +112,73 @@ types: !_Map_Type
   !_Identifier DirParamsIn: !_TypeInput
     name: DirParamsIn
     typeKind: !_TypeKind Input
-  !_Identifier Dual: !_TypeDual
-    name: Dual
+  !_Identifier DualObject: !_TypeDual
+    name: DualObject
     typeKind: !_TypeKind Dual
-  !_Identifier DualAlias: !_TypeDual
+  !_Identifier DualObjectAlias: !_TypeDual
     aliases: [Dual1, Dual2]
-    name: DualAlias
+    name: DualObjectAlias
     typeKind: !_TypeKind Dual
-  !_Identifier DualAlts: !_TypeDual
+  !_Identifier DualObjectAlts: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualAlts
+      object: DualObjectAlts
       type: !_DualBase
-        dual: DualAltsType
+        dual: DualObjectAltsType
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: DualAltsType
-    name: DualAlts
+        dual: DualObjectAltsType
+    name: DualObjectAlts
     typeKind: !_TypeKind Dual
-  !_Identifier DualAltsType: !_TypeDual
-    name: DualAltsType
+  !_Identifier DualObjectAltsType: !_TypeDual
+    name: DualObjectAltsType
     typeKind: !_TypeKind Dual
-  !_Identifier DualFieldAlias: !_TypeDual
+  !_Identifier DualObjectFields: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualObjectFields
+      type: !_DualBase
+        dual: DualObjectFieldsFld
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: DualObjectFieldsFld
+    name: DualObjectFields
+    typeKind: !_TypeKind Dual
+  !_Identifier DualObjectFieldsAlias: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       aliases: [field1, field2]
       name: field
-      object: DualFieldAlias
+      object: DualObjectFieldsAlias
       type: !_DualBase
-        dual: DualFieldAlias
+        dual: DualObjectFieldsAliasFld
     fields:
     - !_DualField
       aliases: [field1, field2]
       name: field
       type: !_DualBase
-        dual: DualFieldAlias
-    name: DualFieldAlias
+        dual: DualObjectFieldsAliasFld
+    name: DualObjectFieldsAlias
     typeKind: !_TypeKind Dual
-  !_Identifier DualFields: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: field
-      object: DualFields
-      type: !_DualBase
-        dual: DualFields
-    fields:
-    - !_DualField
-      name: field
-      type: !_DualBase
-        dual: DualFields
-    name: DualFields
+  !_Identifier DualObjectFieldsAliasFld: !_TypeDual
+    name: DualObjectFieldsAliasFld
     typeKind: !_TypeKind Dual
-  !_Identifier DualParams: !_TypeDual
+  !_Identifier DualObjectFieldsFld: !_TypeDual
+    name: DualObjectFieldsFld
+    typeKind: !_TypeKind Dual
+  !_Identifier DualObjectParams: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: test
-      object: DualParams
+      object: DualObjectParams
       type: !_TypeParam test
     - !_ObjectFor(_DualField)
       name: type
-      object: DualParams
+      object: DualObjectParams
       type: !_TypeParam type
     fields:
     - !_DualField
@@ -181,17 +187,20 @@ types: !_Map_Type
     - !_DualField
       name: type
       type: !_TypeParam type
-    name: DualParams
+    name: DualObjectParams
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
       name: test
     - !_Described
       name: type
-  !_Identifier DualPrnt: !_TypeDual
-    name: DualPrnt
+  !_Identifier DualObjectParent: !_TypeDual
+    name: DualObjectParent
     parent: !_DualBase
-      dual: PrntDual
+      dual: DualObjectParentRef
+    typeKind: !_TypeKind Dual
+  !_Identifier DualObjectParentRef: !_TypeDual
+    name: DualObjectParentRef
     typeKind: !_TypeKind Dual
   !_Identifier EnAlias: !_TypeEnum
     aliases: [En1, En2]
@@ -367,7 +376,7 @@ types: !_Map_Type
       - !_InputParam
         input: FieldParam2
       type: !_OutputBase
-        output: FieldParams
+        output: FieldParamsFld
     fields:
     - !_OutputField
       name: field
@@ -377,70 +386,79 @@ types: !_Map_Type
       - !_InputParam
         input: FieldParam2
       type: !_OutputBase
-        output: FieldParams
+        output: FieldParamsFld
     name: FieldParams
     typeKind: !_TypeKind Output
-  !_Identifier Inp: !_TypeInput
-    name: Inp
+  !_Identifier FieldParamsFld: !_TypeOutput
+    name: FieldParamsFld
+    typeKind: !_TypeKind Output
+  !_Identifier InpObject: !_TypeInput
+    name: InpObject
     typeKind: !_TypeKind Input
-  !_Identifier InpAlias: !_TypeInput
+  !_Identifier InpObjectAlias: !_TypeInput
     aliases: [Inp1, Inp2]
-    name: InpAlias
+    name: InpObjectAlias
     typeKind: !_TypeKind Input
-  !_Identifier InpAlts: !_TypeInput
+  !_Identifier InpObjectAlts: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpAlts
+      object: InpObjectAlts
       type: !_InputBase
-        input: InpAltsType
+        input: InpObjectAltsType
     alternates:
     - !_InputAlternate
       type: !_InputBase
-        input: InpAltsType
-    name: InpAlts
+        input: InpObjectAltsType
+    name: InpObjectAlts
     typeKind: !_TypeKind Input
-  !_Identifier InpAltsType: !_TypeInput
-    name: InpAltsType
+  !_Identifier InpObjectAltsType: !_TypeInput
+    name: InpObjectAltsType
     typeKind: !_TypeKind Input
-  !_Identifier InpFieldAlias: !_TypeInput
+  !_Identifier InpObjectFields: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpObjectFields
+      type: !_InputBase
+        input: InpObjectFieldsFld
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        input: InpObjectFieldsFld
+    name: InpObjectFields
+    typeKind: !_TypeKind Input
+  !_Identifier InpObjectFieldsAlias: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       aliases: [field1, field2]
       name: field
-      object: InpFieldAlias
+      object: InpObjectFieldsAlias
       type: !_InputBase
-        input: InpFieldAlias
+        input: InpObjectFieldsAliasFld
     fields:
     - !_InputField
       aliases: [field1, field2]
       name: field
       type: !_InputBase
-        input: InpFieldAlias
-    name: InpFieldAlias
+        input: InpObjectFieldsAliasFld
+    name: InpObjectFieldsAlias
     typeKind: !_TypeKind Input
-  !_Identifier InpFields: !_TypeInput
-    allFields:
-    - !_ObjectFor(_InputField)
-      name: field
-      object: InpFields
-      type: !_InputBase
-        input: InpFields
-    fields:
-    - !_InputField
-      name: field
-      type: !_InputBase
-        input: InpFields
-    name: InpFields
+  !_Identifier InpObjectFieldsAliasFld: !_TypeInput
+    name: InpObjectFieldsAliasFld
     typeKind: !_TypeKind Input
-  !_Identifier InpParams: !_TypeInput
+  !_Identifier InpObjectFieldsFld: !_TypeInput
+    name: InpObjectFieldsFld
+    typeKind: !_TypeKind Input
+  !_Identifier InpObjectParams: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: test
-      object: InpParams
+      object: InpObjectParams
       type: !_TypeParam test
     - !_ObjectFor(_InputField)
       name: type
-      object: InpParams
+      object: InpObjectParams
       type: !_TypeParam type
     fields:
     - !_InputField
@@ -449,17 +467,20 @@ types: !_Map_Type
     - !_InputField
       name: type
       type: !_TypeParam type
-    name: InpParams
+    name: InpObjectParams
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
       name: test
     - !_Described
       name: type
-  !_Identifier InpPrnt: !_TypeInput
-    name: InpPrnt
+  !_Identifier InpObjectParent: !_TypeInput
+    name: InpObjectParent
     parent: !_InputBase
-      input: PrntInp
+      input: InpObjectParentRef
+    typeKind: !_TypeKind Input
+  !_Identifier InpObjectParentRef: !_TypeInput
+    name: InpObjectParentRef
     typeKind: !_TypeKind Input
   !_Identifier Num: !_DomainNumber
     domainKind: !_DomainKind Number
@@ -500,67 +521,73 @@ types: !_Map_Type
       to: 9
     name: NumSame
     typeKind: !_TypeKind Domain
-  !_Identifier Outp: !_TypeOutput
-    name: Outp
+  !_Identifier OutpObject: !_TypeOutput
+    name: OutpObject
     typeKind: !_TypeKind Output
-  !_Identifier OutpAlias: !_TypeOutput
+  !_Identifier OutpObjectAlias: !_TypeOutput
     aliases: [Outp1, Outp2]
-    name: OutpAlias
+    name: OutpObjectAlias
     typeKind: !_TypeKind Output
-  !_Identifier OutpAlts: !_TypeOutput
+  !_Identifier OutpObjectAlts: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpAlts
+      object: OutpObjectAlts
       type: !_OutputBase
-        output: OutpAltsType
+        output: OutpObjectAltsType
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: OutpAltsType
-    name: OutpAlts
+        output: OutpObjectAltsType
+    name: OutpObjectAlts
     typeKind: !_TypeKind Output
-  !_Identifier OutpAltsType: !_TypeOutput
-    name: OutpAltsType
+  !_Identifier OutpObjectAltsType: !_TypeOutput
+    name: OutpObjectAltsType
     typeKind: !_TypeKind Output
-  !_Identifier OutpFieldAlias: !_TypeOutput
+  !_Identifier OutpObjectFields: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpObjectFields
+      type: !_OutputBase
+        output: OutpObjectFieldsFld
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: OutpObjectFieldsFld
+    name: OutpObjectFields
+    typeKind: !_TypeKind Output
+  !_Identifier OutpObjectFieldsAlias: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       aliases: [field1, field2]
       name: field
-      object: OutpFieldAlias
+      object: OutpObjectFieldsAlias
       type: !_OutputBase
-        output: OutpFieldAlias
+        output: OutpObjectFieldsAliasFld
     fields:
     - !_OutputField
       aliases: [field1, field2]
       name: field
       type: !_OutputBase
-        output: OutpFieldAlias
-    name: OutpFieldAlias
+        output: OutpObjectFieldsAliasFld
+    name: OutpObjectFieldsAlias
     typeKind: !_TypeKind Output
-  !_Identifier OutpFields: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutpFields
-      type: !_OutputBase
-        output: OutpFields
-    fields:
-    - !_OutputField
-      name: field
-      type: !_OutputBase
-        output: OutpFields
-    name: OutpFields
+  !_Identifier OutpObjectFieldsAliasFld: !_TypeOutput
+    name: OutpObjectFieldsAliasFld
     typeKind: !_TypeKind Output
-  !_Identifier OutpParams: !_TypeOutput
+  !_Identifier OutpObjectFieldsFld: !_TypeOutput
+    name: OutpObjectFieldsFld
+    typeKind: !_TypeKind Output
+  !_Identifier OutpObjectParams: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: test
-      object: OutpParams
+      object: OutpObjectParams
       type: !_TypeParam test
     - !_ObjectFor(_OutputField)
       name: type
-      object: OutpParams
+      object: OutpObjectParams
       type: !_TypeParam type
     fields:
     - !_OutputField
@@ -569,26 +596,20 @@ types: !_Map_Type
     - !_OutputField
       name: type
       type: !_TypeParam type
-    name: OutpParams
+    name: OutpObjectParams
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: test
     - !_Described
       name: type
-  !_Identifier OutpPrnt: !_TypeOutput
-    name: OutpPrnt
+  !_Identifier OutpObjectParent: !_TypeOutput
+    name: OutpObjectParent
     parent: !_OutputBase
-      output: PrntOutp
+      output: OutpObjectParentRef
     typeKind: !_TypeKind Output
-  !_Identifier PrntDual: !_TypeDual
-    name: PrntDual
-    typeKind: !_TypeKind Dual
-  !_Identifier PrntInp: !_TypeInput
-    name: PrntInp
-    typeKind: !_TypeKind Input
-  !_Identifier PrntOutp: !_TypeOutput
-    name: PrntOutp
+  !_Identifier OutpObjectParentRef: !_TypeOutput
+    name: OutpObjectParentRef
     typeKind: !_TypeKind Output
   !_Identifier Str: !_DomainString
     domainKind: !_DomainKind String

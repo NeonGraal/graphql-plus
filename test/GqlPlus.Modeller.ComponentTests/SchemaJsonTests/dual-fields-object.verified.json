@@ -2,12 +2,38 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualField": {
+    "DualFieldsObject": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualFieldsObject",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualFieldsObjectFld"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualFieldsObjectFld"
+          }
+        }
+      ],
+      "name": "DualFieldsObject",
+      "typeKind": "Dual"
+    },
+    "DualFieldsObjectFld": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualField",
+          "object": "DualFieldsObjectFld",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,7 +44,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualField",
+          "object": "DualFieldsObjectFld",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -44,33 +70,7 @@
           }
         }
       ],
-      "name": "DualField",
-      "typeKind": "Dual"
-    },
-    "FieldsDual": {
-      "$tag": "_TypeDual",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "field",
-          "object": "FieldsDual",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualField"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "field",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualField"
-          }
-        }
-      ],
-      "name": "FieldsDual",
+      "name": "DualFieldsObjectFld",
       "typeKind": "Dual"
     }
   }

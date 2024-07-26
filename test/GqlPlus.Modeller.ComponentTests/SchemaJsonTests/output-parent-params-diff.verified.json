@@ -2,36 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpPrmsPrntDiff": {
+    "OutpParentParamsDiff": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpPrmsPrntDiff",
-          "type": "b"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": "b"
-        }
-      ],
-      "name": "OutpPrmsPrntDiff",
-      "typeKind": "Output",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "b"
-        }
-      ]
-    },
-    "OutpPrntPrmsDiff": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpPrmsPrntDiff",
+          "object": "OutpParentParamsDiffRef",
           "type": "b"
         }
       ],
@@ -39,7 +15,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpPrntPrmsDiff",
+          "object": "OutpParentParamsDiff",
           "type": "a"
         }
       ],
@@ -50,10 +26,10 @@
           "type": "a"
         }
       ],
-      "name": "OutpPrntPrmsDiff",
+      "name": "OutpParentParamsDiff",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpPrmsPrntDiff",
+        "output": "OutpParentParamsDiffRef",
         "typeArgs": ["a"]
       },
       "typeKind": "Output",
@@ -61,6 +37,30 @@
         {
           "$tag": "_Described",
           "value": "a"
+        }
+      ]
+    },
+    "OutpParentParamsDiffRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpParentParamsDiffRef",
+          "type": "b"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": "b"
+        }
+      ],
+      "name": "OutpParentParamsDiffRef",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "b"
         }
       ]
     }

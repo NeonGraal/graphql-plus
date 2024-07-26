@@ -3,14 +3,14 @@
 Success
 {
   !Du I@006/0001
-  DualAlts
+  DualObjectAlts
   |
-  !DA I@019/0001
-  I@019/0001
-  DualAltsType
+  !DA I@025/0001
+  I@025/0001
+  DualObjectAltsType
 }
 {
-  !Du I@072/0001
-  DualAltsType
+  !Du I@096/0001
+  DualObjectAltsType
 }
 ]

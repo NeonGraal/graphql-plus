@@ -198,26 +198,26 @@
       "name": "DirParamsIn",
       "typeKind": "Input"
     },
-    "Dual": {
+    "DualObject": {
       "$tag": "_TypeDual",
-      "name": "Dual",
+      "name": "DualObject",
       "typeKind": "Dual"
     },
-    "DualAlias": {
+    "DualObjectAlias": {
       "$tag": "_TypeDual",
       "aliases": ["Dual1", "Dual2"],
-      "name": "DualAlias",
+      "name": "DualObjectAlias",
       "typeKind": "Dual"
     },
-    "DualAlts": {
+    "DualObjectAlts": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAlts",
+          "object": "DualObjectAlts",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualAltsType"
+            "value": "DualObjectAltsType"
           }
         }
       ],
@@ -226,29 +226,55 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualAltsType"
+            "value": "DualObjectAltsType"
           }
         }
       ],
-      "name": "DualAlts",
+      "name": "DualObjectAlts",
       "typeKind": "Dual"
     },
-    "DualAltsType": {
+    "DualObjectAltsType": {
       "$tag": "_TypeDual",
-      "name": "DualAltsType",
+      "name": "DualObjectAltsType",
       "typeKind": "Dual"
     },
-    "DualFieldAlias": {
+    "DualObjectFields": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualObjectFields",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualObjectFieldsFld"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualObjectFieldsFld"
+          }
+        }
+      ],
+      "name": "DualObjectFields",
+      "typeKind": "Dual"
+    },
+    "DualObjectFieldsAlias": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "aliases": ["field1", "field2"],
           "name": "field",
-          "object": "DualFieldAlias",
+          "object": "DualObjectFieldsAlias",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualFieldAlias"
+            "value": "DualObjectFieldsAliasFld"
           }
         }
       ],
@@ -259,52 +285,36 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualFieldAlias"
+            "value": "DualObjectFieldsAliasFld"
           }
         }
       ],
-      "name": "DualFieldAlias",
+      "name": "DualObjectFieldsAlias",
       "typeKind": "Dual"
     },
-    "DualFields": {
+    "DualObjectFieldsAliasFld": {
       "$tag": "_TypeDual",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "field",
-          "object": "DualFields",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualFields"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "field",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualFields"
-          }
-        }
-      ],
-      "name": "DualFields",
+      "name": "DualObjectFieldsAliasFld",
       "typeKind": "Dual"
     },
-    "DualParams": {
+    "DualObjectFieldsFld": {
+      "$tag": "_TypeDual",
+      "name": "DualObjectFieldsFld",
+      "typeKind": "Dual"
+    },
+    "DualObjectParams": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "test",
-          "object": "DualParams",
+          "object": "DualObjectParams",
           "type": "test"
         },
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "type",
-          "object": "DualParams",
+          "object": "DualObjectParams",
           "type": "type"
         }
       ],
@@ -320,7 +330,7 @@
           "type": "type"
         }
       ],
-      "name": "DualParams",
+      "name": "DualObjectParams",
       "typeKind": "Dual",
       "typeParams": [
         {
@@ -333,13 +343,18 @@
         }
       ]
     },
-    "DualPrnt": {
+    "DualObjectParent": {
       "$tag": "_TypeDual",
-      "name": "DualPrnt",
+      "name": "DualObjectParent",
       "parent": {
         "$tag": "_DualBase",
-        "value": "PrntDual"
+        "value": "DualObjectParentRef"
       },
+      "typeKind": "Dual"
+    },
+    "DualObjectParentRef": {
+      "$tag": "_TypeDual",
+      "name": "DualObjectParentRef",
       "typeKind": "Dual"
     },
     "EnAlias": {
@@ -632,7 +647,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "FieldParams"
+            "value": "FieldParamsFld"
           }
         }
       ],
@@ -652,33 +667,38 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "FieldParams"
+            "value": "FieldParamsFld"
           }
         }
       ],
       "name": "FieldParams",
       "typeKind": "Output"
     },
-    "Inp": {
+    "FieldParamsFld": {
+      "$tag": "_TypeOutput",
+      "name": "FieldParamsFld",
+      "typeKind": "Output"
+    },
+    "InpObject": {
       "$tag": "_TypeInput",
-      "name": "Inp",
+      "name": "InpObject",
       "typeKind": "Input"
     },
-    "InpAlias": {
+    "InpObjectAlias": {
       "$tag": "_TypeInput",
       "aliases": ["Inp1", "Inp2"],
-      "name": "InpAlias",
+      "name": "InpObjectAlias",
       "typeKind": "Input"
     },
-    "InpAlts": {
+    "InpObjectAlts": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAlts",
+          "object": "InpObjectAlts",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpAltsType"
+            "value": "InpObjectAltsType"
           }
         }
       ],
@@ -687,29 +707,55 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpAltsType"
+            "value": "InpObjectAltsType"
           }
         }
       ],
-      "name": "InpAlts",
+      "name": "InpObjectAlts",
       "typeKind": "Input"
     },
-    "InpAltsType": {
+    "InpObjectAltsType": {
       "$tag": "_TypeInput",
-      "name": "InpAltsType",
+      "name": "InpObjectAltsType",
       "typeKind": "Input"
     },
-    "InpFieldAlias": {
+    "InpObjectFields": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpObjectFields",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpObjectFieldsFld"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpObjectFieldsFld"
+          }
+        }
+      ],
+      "name": "InpObjectFields",
+      "typeKind": "Input"
+    },
+    "InpObjectFieldsAlias": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "aliases": ["field1", "field2"],
           "name": "field",
-          "object": "InpFieldAlias",
+          "object": "InpObjectFieldsAlias",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpFieldAlias"
+            "value": "InpObjectFieldsAliasFld"
           }
         }
       ],
@@ -720,52 +766,36 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpFieldAlias"
+            "value": "InpObjectFieldsAliasFld"
           }
         }
       ],
-      "name": "InpFieldAlias",
+      "name": "InpObjectFieldsAlias",
       "typeKind": "Input"
     },
-    "InpFields": {
+    "InpObjectFieldsAliasFld": {
       "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "InpFields",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpFields"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "field",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpFields"
-          }
-        }
-      ],
-      "name": "InpFields",
+      "name": "InpObjectFieldsAliasFld",
       "typeKind": "Input"
     },
-    "InpParams": {
+    "InpObjectFieldsFld": {
+      "$tag": "_TypeInput",
+      "name": "InpObjectFieldsFld",
+      "typeKind": "Input"
+    },
+    "InpObjectParams": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "test",
-          "object": "InpParams",
+          "object": "InpObjectParams",
           "type": "test"
         },
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "type",
-          "object": "InpParams",
+          "object": "InpObjectParams",
           "type": "type"
         }
       ],
@@ -781,7 +811,7 @@
           "type": "type"
         }
       ],
-      "name": "InpParams",
+      "name": "InpObjectParams",
       "typeKind": "Input",
       "typeParams": [
         {
@@ -794,13 +824,18 @@
         }
       ]
     },
-    "InpPrnt": {
+    "InpObjectParent": {
       "$tag": "_TypeInput",
-      "name": "InpPrnt",
+      "name": "InpObjectParent",
       "parent": {
         "$tag": "_InputBase",
-        "value": "PrntInp"
+        "value": "InpObjectParentRef"
       },
+      "typeKind": "Input"
+    },
+    "InpObjectParentRef": {
+      "$tag": "_TypeInput",
+      "name": "InpObjectParentRef",
       "typeKind": "Input"
     },
     "Num": {
@@ -862,26 +897,26 @@
       "name": "NumSame",
       "typeKind": "Domain"
     },
-    "Outp": {
+    "OutpObject": {
       "$tag": "_TypeOutput",
-      "name": "Outp",
+      "name": "OutpObject",
       "typeKind": "Output"
     },
-    "OutpAlias": {
+    "OutpObjectAlias": {
       "$tag": "_TypeOutput",
       "aliases": ["Outp1", "Outp2"],
-      "name": "OutpAlias",
+      "name": "OutpObjectAlias",
       "typeKind": "Output"
     },
-    "OutpAlts": {
+    "OutpObjectAlts": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAlts",
+          "object": "OutpObjectAlts",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpAltsType"
+            "value": "OutpObjectAltsType"
           }
         }
       ],
@@ -890,29 +925,55 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpAltsType"
+            "value": "OutpObjectAltsType"
           }
         }
       ],
-      "name": "OutpAlts",
+      "name": "OutpObjectAlts",
       "typeKind": "Output"
     },
-    "OutpAltsType": {
+    "OutpObjectAltsType": {
       "$tag": "_TypeOutput",
-      "name": "OutpAltsType",
+      "name": "OutpObjectAltsType",
       "typeKind": "Output"
     },
-    "OutpFieldAlias": {
+    "OutpObjectFields": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpObjectFields",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpObjectFieldsFld"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpObjectFieldsFld"
+          }
+        }
+      ],
+      "name": "OutpObjectFields",
+      "typeKind": "Output"
+    },
+    "OutpObjectFieldsAlias": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "aliases": ["field1", "field2"],
           "name": "field",
-          "object": "OutpFieldAlias",
+          "object": "OutpObjectFieldsAlias",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpFieldAlias"
+            "value": "OutpObjectFieldsAliasFld"
           }
         }
       ],
@@ -923,52 +984,36 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpFieldAlias"
+            "value": "OutpObjectFieldsAliasFld"
           }
         }
       ],
-      "name": "OutpFieldAlias",
+      "name": "OutpObjectFieldsAlias",
       "typeKind": "Output"
     },
-    "OutpFields": {
+    "OutpObjectFieldsAliasFld": {
       "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutpFields",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpFields"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpFields"
-          }
-        }
-      ],
-      "name": "OutpFields",
+      "name": "OutpObjectFieldsAliasFld",
       "typeKind": "Output"
     },
-    "OutpParams": {
+    "OutpObjectFieldsFld": {
+      "$tag": "_TypeOutput",
+      "name": "OutpObjectFieldsFld",
+      "typeKind": "Output"
+    },
+    "OutpObjectParams": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "test",
-          "object": "OutpParams",
+          "object": "OutpObjectParams",
           "type": "test"
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
-          "object": "OutpParams",
+          "object": "OutpObjectParams",
           "type": "type"
         }
       ],
@@ -984,7 +1029,7 @@
           "type": "type"
         }
       ],
-      "name": "OutpParams",
+      "name": "OutpObjectParams",
       "typeKind": "Output",
       "typeParams": [
         {
@@ -997,28 +1042,18 @@
         }
       ]
     },
-    "OutpPrnt": {
+    "OutpObjectParent": {
       "$tag": "_TypeOutput",
-      "name": "OutpPrnt",
+      "name": "OutpObjectParent",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "PrntOutp"
+        "value": "OutpObjectParentRef"
       },
       "typeKind": "Output"
     },
-    "PrntDual": {
-      "$tag": "_TypeDual",
-      "name": "PrntDual",
-      "typeKind": "Dual"
-    },
-    "PrntInp": {
-      "$tag": "_TypeInput",
-      "name": "PrntInp",
-      "typeKind": "Input"
-    },
-    "PrntOutp": {
+    "OutpObjectParentRef": {
       "$tag": "_TypeOutput",
-      "name": "PrntOutp",
+      "name": "OutpObjectParentRef",
       "typeKind": "Output"
     },
     "Str": {

@@ -1,15 +1,41 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpFieldsParent: !_TypeOutput
+  !_Identifier OutpParentFields: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpFieldsParent
+      object: OutpParentFieldsRef
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: parent
-      object: OutpFieldsParent
+      object: OutpParentFieldsRef
+      type: !_OutputBase
+        output: Number
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpParentFields
+      type: !_OutputBase
+        output: Number
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: Number
+    name: OutpParentFields
+    parent: !_OutputBase
+      output: OutpParentFieldsRef
+    typeKind: !_TypeKind Output
+  !_Identifier OutpParentFieldsRef: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpParentFieldsRef
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: OutpParentFieldsRef
       type: !_OutputBase
         output: Number
     alternates:
@@ -21,31 +47,5 @@ types: !_Map_Type
       name: parent
       type: !_OutputBase
         output: Number
-    name: OutpFieldsParent
-    typeKind: !_TypeKind Output
-  !_Identifier OutpPrntFields: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: OutpFieldsParent
-      type: !_OutputBase
-        output: String
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: parent
-      object: OutpFieldsParent
-      type: !_OutputBase
-        output: Number
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutpPrntFields
-      type: !_OutputBase
-        output: Number
-    fields:
-    - !_OutputField
-      name: field
-      type: !_OutputBase
-        output: Number
-    name: OutpPrntFields
-    parent: !_OutputBase
-      output: OutpFieldsParent
+    name: OutpParentFieldsRef
     typeKind: !_TypeKind Output

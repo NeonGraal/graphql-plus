@@ -2,17 +2,17 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpFieldAlias": {
+    "InpObjectFieldsAlias": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "aliases": ["field1", "field2"],
           "name": "field",
-          "object": "InpFieldAlias",
+          "object": "InpObjectFieldsAlias",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpFieldAlias"
+            "value": "InpObjectFieldsAliasFld"
           }
         }
       ],
@@ -23,11 +23,16 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpFieldAlias"
+            "value": "InpObjectFieldsAliasFld"
           }
         }
       ],
-      "name": "InpFieldAlias",
+      "name": "InpObjectFieldsAlias",
+      "typeKind": "Input"
+    },
+    "InpObjectFieldsAliasFld": {
+      "$tag": "_TypeInput",
+      "name": "InpObjectFieldsAliasFld",
       "typeKind": "Input"
     }
   }

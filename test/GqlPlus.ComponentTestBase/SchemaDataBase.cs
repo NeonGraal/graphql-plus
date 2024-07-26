@@ -3,6 +3,8 @@ using GqlPlus.Parsing;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
+using Grpc.Core;
+
 namespace GqlPlus;
 
 #pragma warning disable CA1034 // Nested types should not be visible
@@ -22,6 +24,8 @@ public class SchemaDataBase(
     => ReplaceValues(SchemaValidMergesData.Source);
 
   public static readonly (string, string)[] Replacements = [("dual", "Dual"), ("input", "Inp"), ("output", "Outp")];
+
+  public static readonly Map<string> Abbreviations = new() { ["Generic"] = "Gen" };
 
   protected static IEnumerable<string> ReplaceKeys(IDictionary<string, string> inputs)
     => inputs
@@ -79,7 +83,11 @@ public class SchemaDataBase(
 
   private static string PascalCase(string input)
     => input is null ? ""
-    : string.Concat(input.Split('-').Select(s => s.ToUpperInvariant()[0] + s[1..]));
+    : string.Concat(input
+      .Split('-')
+      .Select(s => s.ToUpperInvariant()[0] + s[1..])
+      .Select(s => Abbreviations.TryGetValue(s, out string? abbr) ? abbr : s)
+      );
 
   protected static async Task WhenAll(params Task[] tasks)
   {

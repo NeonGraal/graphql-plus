@@ -1,17 +1,17 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualAlts: !_TypeDual
+  !_Identifier DualObjectAlts: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualAlts
+      object: DualObjectAlts
       type: !_DualBase
-        dual: DualAltsType
+        dual: DualObjectAltsType
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: DualAltsType
-    name: DualAlts
+        dual: DualObjectAltsType
+    name: DualObjectAlts
     typeKind: !_TypeKind Dual
-  !_Identifier DualAltsType: !_TypeDual
-    name: DualAltsType
+  !_Identifier DualObjectAltsType: !_TypeDual
+    name: DualObjectAltsType
     typeKind: !_TypeKind Dual

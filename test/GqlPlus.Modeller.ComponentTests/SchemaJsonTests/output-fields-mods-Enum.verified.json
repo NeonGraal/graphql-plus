@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpFieldEnum": {
+    "OutpEnumFieldsModsEnum": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "enum": "OutpFieldEnum",
+          "enum": "OutpEnumFieldsModsEnum",
           "name": "value"
         }
       ],
@@ -17,10 +17,10 @@
           "value": "value"
         }
       ],
-      "name": "OutpFieldEnum",
+      "name": "OutpEnumFieldsModsEnum",
       "typeKind": "Enum"
     },
-    "OutpFieldMods": {
+    "OutpFieldsModsEnum": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
@@ -28,16 +28,16 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "OutpFieldEnum",
+              "by": "OutpEnumFieldsModsEnum",
               "modifierKind": "Dict",
               "typeKind": "Enum"
             }
           ],
           "name": "field",
-          "object": "OutpFieldMods",
+          "object": "OutpFieldsModsEnum",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpFieldMods"
+            "value": "*"
           }
         }
       ],
@@ -47,7 +47,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "OutpFieldEnum",
+              "by": "OutpEnumFieldsModsEnum",
               "modifierKind": "Dict",
               "typeKind": "Enum"
             }
@@ -55,11 +55,11 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpFieldMods"
+            "value": "*"
           }
         }
       ],
-      "name": "OutpFieldMods",
+      "name": "OutpFieldsModsEnum",
       "typeKind": "Output"
     }
   }

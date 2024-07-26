@@ -1,38 +1,38 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpPrmsPrntDiff: !_TypeInput
+  !_Identifier InpParentParamsDiff: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpPrmsPrntDiff
-      type: !_TypeParam b
-    alternates:
-    - !_InputAlternate
-      type: !_TypeParam b
-    name: InpPrmsPrntDiff
-    typeKind: !_TypeKind Input
-    typeParams:
-    - !_Described
-      name: b
-  !_Identifier InpPrntPrmsDiff: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: InpPrmsPrntDiff
+      object: InpParentParamsDiffRef
       type: !_TypeParam b
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpPrntPrmsDiff
+      object: InpParentParamsDiff
       type: !_TypeParam a
     fields:
     - !_InputField
       name: field
       type: !_TypeParam a
-    name: InpPrntPrmsDiff
+    name: InpParentParamsDiff
     parent: !_InputBase
-      input: InpPrmsPrntDiff
+      input: InpParentParamsDiffRef
       typeArgs:
       - !_TypeParam a
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
       name: a
+  !_Identifier InpParentParamsDiffRef: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpParentParamsDiffRef
+      type: !_TypeParam b
+    alternates:
+    - !_InputAlternate
+      type: !_TypeParam b
+    name: InpParentParamsDiffRef
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      name: b

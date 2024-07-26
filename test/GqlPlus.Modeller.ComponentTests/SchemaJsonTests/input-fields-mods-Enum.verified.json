@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpFieldEnum": {
+    "InpEnumFieldsModsEnum": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "enum": "InpFieldEnum",
+          "enum": "InpEnumFieldsModsEnum",
           "name": "value"
         }
       ],
@@ -17,10 +17,10 @@
           "value": "value"
         }
       ],
-      "name": "InpFieldEnum",
+      "name": "InpEnumFieldsModsEnum",
       "typeKind": "Enum"
     },
-    "InpFieldMods": {
+    "InpFieldsModsEnum": {
       "$tag": "_TypeInput",
       "allFields": [
         {
@@ -28,16 +28,16 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "InpFieldEnum",
+              "by": "InpEnumFieldsModsEnum",
               "modifierKind": "Dict",
               "typeKind": "Enum"
             }
           ],
           "name": "field",
-          "object": "InpFieldMods",
+          "object": "InpFieldsModsEnum",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpFieldMods"
+            "value": "*"
           }
         }
       ],
@@ -47,7 +47,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "InpFieldEnum",
+              "by": "InpEnumFieldsModsEnum",
               "modifierKind": "Dict",
               "typeKind": "Enum"
             }
@@ -55,11 +55,11 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpFieldMods"
+            "value": "*"
           }
         }
       ],
-      "name": "InpFieldMods",
+      "name": "InpFieldsModsEnum",
       "typeKind": "Input"
     }
   }

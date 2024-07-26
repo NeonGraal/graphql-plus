@@ -1,34 +1,34 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpFieldModsParam: !_TypeOutput
+  !_Identifier OutpFieldsModsParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
-      object: OutpFieldModsParam
+      object: OutpFieldsModsParam
       type: !_OutputBase
-        output: OutpFieldParamMods
+        output: OutpFieldsModsParamFld
     fields:
     - !_OutputField
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       type: !_OutputBase
-        output: OutpFieldParamMods
-    name: OutpFieldModsParam
+        output: OutpFieldsModsParamFld
+    name: OutpFieldsModsParam
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: mod
-  !_Identifier OutpFieldParamMods: !_TypeOutput
+  !_Identifier OutpFieldsModsParamFld: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpFieldParamMods
+      object: OutpFieldsModsParamFld
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpFieldParamMods
+      object: OutpFieldsModsParamFld
       type: !_OutputBase
         output: Number
     alternates:
@@ -40,5 +40,5 @@ types: !_Map_Type
       name: field
       type: !_OutputBase
         output: Number
-    name: OutpFieldParamMods
+    name: OutpFieldsModsParamFld
     typeKind: !_TypeKind Output

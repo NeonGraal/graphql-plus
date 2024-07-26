@@ -2,12 +2,36 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpAltDual": {
+    "InpAltsDual": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpAltsDual",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "InpDualAltsDual"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "InpDualAltsDual"
+          }
+        }
+      ],
+      "name": "InpAltsDual",
+      "typeKind": "Input"
+    },
+    "InpDualAltsDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpAltDual",
+          "object": "InpDualAltsDual",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,7 +42,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "InpAltDual",
+          "object": "InpDualAltsDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -44,32 +68,8 @@
           }
         }
       ],
-      "name": "InpAltDual",
+      "name": "InpDualAltsDual",
       "typeKind": "Dual"
-    },
-    "InpAltsDual": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAltsDual",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "InpAltDual"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "InpAltDual"
-          }
-        }
-      ],
-      "name": "InpAltsDual",
-      "typeKind": "Input"
     }
   }
 }

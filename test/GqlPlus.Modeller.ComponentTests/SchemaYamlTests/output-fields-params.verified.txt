@@ -17,7 +17,7 @@ types: !_Map_Type
       - !_InputParam
         input: FieldParam2
       type: !_OutputBase
-        output: FieldParams
+        output: FieldParamsFld
     fields:
     - !_OutputField
       name: field
@@ -27,6 +27,9 @@ types: !_Map_Type
       - !_InputParam
         input: FieldParam2
       type: !_OutputBase
-        output: FieldParams
+        output: FieldParamsFld
     name: FieldParams
+    typeKind: !_TypeKind Output
+  !_Identifier FieldParamsFld: !_TypeOutput
+    name: FieldParamsFld
     typeKind: !_TypeKind Output

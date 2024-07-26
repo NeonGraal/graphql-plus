@@ -1,104 +1,108 @@
 ﻿// alts
-object ObjAlts { | ObjAlt }
-object ObjAlt { alt: Number | String }
+object ObjName { | ObjNameAlt }
+object ObjNameAlt { alt: Number | String }
 
 // alts-dual
-object ObjAltsDual { | ObjAltDual }
-dual ObjAltDual { alt: Number | String }
+object ObjName { | ObjDualName }
+dual ObjDualName { alt: Number | String }
 
 // alts-mods-Boolean
-object ObjAltMods { | ObjModsAlt[^] }
-object ObjModsAlt { alt: Number | String }
+object ObjName { | ObjNameAlt[^] }
+object ObjNameAlt { alt: Number | String }
 
 // alts-mods-param
-object ObjAltModsParam<$mod> { | ObjModsParamAlt[$mod] }
-object ObjModsParamAlt { alt: Number | String }
+object ObjName<$mod> { | ObjNameAlt[$mod] }
+object ObjNameAlt { alt: Number | String }
 
 // alts-simple
-object ObjAltsSimple { | String }
+object ObjName { | String }
 
 // fields
-object ObjFieldsStr { field: * }
+object ObjName { field: * }
 
 // fields-dual
-object ObjFieldsDual { field: ObjFieldDual }
-dual ObjFieldDual { field: Number | String }
+object ObjName { field: ObjNameFld }
+dual ObjNameFld { field: Number | String }
 
 // fields-mods-Enum
-object ObjFieldMods { field: ObjFieldMods[ObjFieldEnum] }
-enum ObjFieldEnum { value }
+object ObjName { field: *[ObjEnumName] }
+enum ObjEnumName { value }
 
 // fields-mods-param
-object ObjFieldModsParam<$mod> { field: ObjFieldParamMods[$mod] }
-object ObjFieldParamMods { field: Number | String }
+object ObjName<$mod> { field: ObjNameFld[$mod] }
+object ObjNameFld { field: Number | String }
 
 // fields-object
-object FieldsObj { field: ObjField }
-object ObjField { field: Number | String }
+object ObjName { field: ObjNameFld }
+object ObjNameFld { field: Number | String }
 
 // fields-simple
-object ObjFieldsSimple { field: Number }
+object ObjName { field: Number }
 
 // generic-alt
-object ObjGenAlt<$type> { | $type }
+object ObjName<$type> { | $type }
 
 // generic-alt-arg
-object ObjGenAltArg<$type> { | ObjGenAltRef<$type> }
-object ObjGenAltRef<$ref> { | $ref }
+object ObjName<$type> { | ObjNameRef<$type> }
+object ObjNameRef<$ref> { | $ref }
 
 // generic-alt-dual
-object ObjGenAltDual { | ObjGenAltDualRef<ObjGenAltDualAlt> }
-object ObjGenAltDualRef<$ref> { | $ref }
-dual ObjGenAltDualAlt { alt: Number | String }
+object ObjName { | ObjNameRef<ObjNameAlt> }
+object ObjNameRef<$ref> { | $ref }
+dual ObjNameAlt { alt: Number | String }
 
 // generic-alt-param
-object ObjGenAltParam { | ObjGenAltParamRef<ObjGenAltParamAlt> }
-object ObjGenAltParamRef<$ref> { | $ref }
-object ObjGenAltParamAlt { alt: Number | String }
+object ObjName { | ObjNameRef<ObjNameAlt> }
+object ObjNameRef<$ref> { | $ref }
+object ObjNameAlt { alt: Number | String }
+
+// generic-alt-simple
+object ObjName { | ObjNameRef<String> }
+object ObjNameRef<$ref> { | $ref }
 
 // generic-field
-object ObjGenField<$type> { field: $type }
+object ObjName<$type> { field: $type }
 
 // generic-field-arg
-object ObjGenFieldArg<$type> { field: ObjGenFieldRef<$type> }
-object ObjGenFieldRef<$ref> { | $ref }
+object ObjName<$type> { field: ObjNameRef<$type> }
+object ObjNameRef<$ref> { | $ref }
 
 // generic-field-dual
-object ObjGenFieldDual { field: ObjGenFieldDualRef<ObjGenFieldDualAlt> }
-object ObjGenFieldDualRef<$ref> { | $ref }
-dual ObjGenFieldDualAlt { alt: Number | String }
+object ObjName { field: ObjNameRef<ObjNameAlt> }
+object ObjNameRef<$ref> { | $ref }
+dual ObjNameAlt { alt: Number | String }
 
 // generic-field-param
-object ObjGenFieldParam { field: ObjGenFieldParamRef<ObjGenFieldParamAlt> }
-object ObjGenFieldParamRef<$ref> { | $ref }
-object ObjGenFieldParamAlt { alt: Number | String }
+object ObjName { field: ObjNameRef<ObjNameAlt> }
+object ObjNameRef<$ref> { | $ref }
+object ObjNameAlt { alt: Number | String }
 
 // generic-parent-arg
-object ObjGenPrntArg<$type> { :ObjGenPrntRef<$type> }
-object ObjGenPrntRef<$ref> { | $ref }
+object ObjName<$type> { :ObjNameRef<$type> }
+object ObjNameRef<$ref> { | $ref }
 
 // generic-parent-dual
-object ObjGenParentDual { :ObjGenParentDualRef<ObjGenParentDualAlt> }
-object ObjGenParentDualRef<$ref> { | $ref }
-dual ObjGenParentDualAlt { alt: Number | String }
+object ObjName { :ObjNameRef<ObjNameAlt> }
+object ObjNameRef<$ref> { | $ref }
+dual ObjNameAlt { alt: Number | String }
 
 // generic-parent-param
-object ObjGenParentParam { :ObjGenParentParamRef<ObjGenParentParamAlt> }
-object ObjGenParentParamRef<$ref> { | $ref }
-object ObjGenParentParamAlt { alt: Number | String }
+object ObjName { :ObjNameRef<ObjNameAlt> }
+object ObjNameRef<$ref> { | $ref }
+object ObjNameAlt { alt: Number | String }
 
 // generic-param
-object ObjGenParam { field: ObjGenParamRef<ObjGenParamAlt> }
-object ObjGenParamRef<$ref> { | $ref }
-object ObjGenParamAlt { alt: Number | String }
+object ObjName { field: ObjNameRef<ObjNameAlt> }
+object ObjNameRef<$ref> { | $ref }
+object ObjNameAlt { alt: Number | String }
 
 // generic-dual
-object ObjGenDual { field: ObjGenDualRef<ObjGenDualAlt> }
-object ObjGenDualRef<$ref> { | $ref }
-dual ObjGenDualAlt { alt: Number | String }
+object ObjName { field: ObjNameRef<ObjNameAlt> }
+object ObjNameRef<$ref> { | $ref }
+dual ObjNameAlt { alt: Number | String }
 
 // generic-parent
-object ObjGenPrnt<$type> { :$type }
+object ObjName<$type> { :$type }
 
 // input-field-Enum
 input InFieldEnum { field: InEnumField = value }
@@ -163,25 +167,25 @@ input OutPrntParam { param: Number | String }
 input OutParamParent { parent: Number | String }
 
 // parent
-object ObjTestParent { :ObjParentTest }
-object ObjParentTest { parent: Number | String }
+object ObjName { :ObjNameRef }
+object ObjNameRef { parent: Number | String }
 
 // parent-dual
-object ObjTestPrntDual { :ObjPrntDualTest }
-dual ObjPrntDualTest { parent: Number | String }
+object ObjName { :ObjNameRef }
+dual ObjNameRef { parent: Number | String }
 
 // parent-alts
-object ObjPrntAlt { :ObjAltPrnt | Number }
-object ObjAltPrnt {  parent: Number | String }
+object ObjName { :ObjNameRef | Number }
+object ObjNameRef {  parent: Number | String }
 
 // parent-fields
-object ObjPrntFields { :ObjFieldsParent field: Number }
-object ObjFieldsParent { parent: Number | String }
+object ObjName { :ObjNameRef field: Number }
+object ObjNameRef { parent: Number | String }
 
 // parent-params-diff
-object ObjPrntPrmsDiff<$a> { :ObjPrmsPrntDiff<$a> field: $a }
-object ObjPrmsPrntDiff<$b> { | $b }
+object ObjName<$a> { :ObjNameRef<$a> field: $a }
+object ObjNameRef<$b> { | $b }
 
 // parent-params-same
-object ObjPrntPrmsSame<$a> { :ObjPrmsPrntSame<$a> field: $a }
-object ObjPrmsPrntSame<$a> { | $a }
+object ObjName<$a> { :ObjNameRef<$a> field: $a }
+object ObjNameRef<$a> { | $a }

@@ -2,19 +2,19 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpParams": {
+    "InpObjectParams": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "test",
-          "object": "InpParams",
+          "object": "InpObjectParams",
           "type": "test"
         },
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "type",
-          "object": "InpParams",
+          "object": "InpObjectParams",
           "type": "type"
         }
       ],
@@ -30,7 +30,7 @@
           "type": "type"
         }
       ],
-      "name": "InpParams",
+      "name": "InpObjectParams",
       "typeKind": "Input",
       "typeParams": [
         {

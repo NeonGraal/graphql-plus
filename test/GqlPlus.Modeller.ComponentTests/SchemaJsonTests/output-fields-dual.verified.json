@@ -2,12 +2,38 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpFieldDual": {
+    "OutpFieldsDual": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpFieldsDual",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "OutpFieldsDualFld"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "OutpFieldsDualFld"
+          }
+        }
+      ],
+      "name": "OutpFieldsDual",
+      "typeKind": "Output"
+    },
+    "OutpFieldsDualFld": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "OutpFieldDual",
+          "object": "OutpFieldsDualFld",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,7 +44,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "OutpFieldDual",
+          "object": "OutpFieldsDualFld",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -44,34 +70,8 @@
           }
         }
       ],
-      "name": "OutpFieldDual",
+      "name": "OutpFieldsDualFld",
       "typeKind": "Dual"
-    },
-    "OutpFieldsDual": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutpFieldsDual",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "OutpFieldDual"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "OutpFieldDual"
-          }
-        }
-      ],
-      "name": "OutpFieldsDual",
-      "typeKind": "Output"
     }
   }
 }

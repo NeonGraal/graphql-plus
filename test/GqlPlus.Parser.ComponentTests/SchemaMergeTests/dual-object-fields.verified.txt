@@ -3,13 +3,17 @@
 Success
 {
   !Du I@006/0001
-  DualFields
+  DualObjectFields
   {
-    !DF I@019/0001
+    !DF I@025/0001
     field
     :
-    I@026/0001
-    DualFields
+    I@032/0001
+    DualObjectFieldsFld
   }
+}
+{
+  !Du I@112/0001
+  DualObjectFieldsFld
 }
 ]

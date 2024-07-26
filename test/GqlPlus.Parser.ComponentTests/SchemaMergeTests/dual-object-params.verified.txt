@@ -3,23 +3,23 @@
 Success
 {
   !Du I@006/0001
-  DualParams
+  DualObjectParams
   <
-    I@018/0001
+    I@024/0001
     $test
-    I@057/0001
+    I@069/0001
     $type
   >
   {
-    !DF I@026/0001
+    !DF I@032/0001
     test
     :
-    I@033/0001
+    I@039/0001
     $test
-    !DF I@065/0001
+    !DF I@077/0001
     type
     :
-    I@072/0001
+    I@084/0001
     $type
   }
 }

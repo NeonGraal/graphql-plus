@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualAltModsParam: !_TypeDual
+  !_Identifier DualAltsModsParam: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       collections:
       - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
-      object: DualAltModsParam
+      object: DualAltsModsParam
       type: !_DualBase
-        dual: DualModsParamAlt
+        dual: DualAltsModsParamAlt
     alternates:
     - !_DualAlternate
       collections:
@@ -17,22 +17,22 @@ types: !_Map_Type
         by: mod
         modifierKind: !_ModifierKind Param
       type: !_DualBase
-        dual: DualModsParamAlt
-    name: DualAltModsParam
+        dual: DualAltsModsParamAlt
+    name: DualAltsModsParam
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
       name: mod
-  !_Identifier DualModsParamAlt: !_TypeDual
+  !_Identifier DualAltsModsParamAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualModsParamAlt
+      object: DualAltsModsParamAlt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualModsParamAlt
+      object: DualAltsModsParamAlt
       type: !_DualBase
         dual: Number
     alternates:
@@ -44,5 +44,5 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualModsParamAlt
+    name: DualAltsModsParamAlt
     typeKind: !_TypeKind Dual

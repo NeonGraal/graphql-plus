@@ -2,19 +2,19 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenPrntArg": {
+    "OutpGenParentArg": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenPrntRef",
+          "object": "OutpGenParentArgRef",
           "type": "ref"
         }
       ],
-      "name": "OutpGenPrntArg",
+      "name": "OutpGenParentArg",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpGenPrntRef",
+        "output": "OutpGenParentArgRef",
         "typeArgs": ["type"]
       },
       "typeKind": "Output",
@@ -25,12 +25,12 @@
         }
       ]
     },
-    "OutpGenPrntRef": {
+    "OutpGenParentArgRef": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenPrntRef",
+          "object": "OutpGenParentArgRef",
           "type": "ref"
         }
       ],
@@ -40,7 +40,7 @@
           "type": "ref"
         }
       ],
-      "name": "OutpGenPrntRef",
+      "name": "OutpGenParentArgRef",
       "typeKind": "Output",
       "typeParams": [
         {

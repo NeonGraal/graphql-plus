@@ -2,12 +2,59 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpAltPrnt": {
+    "OutpParentAlts": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltPrnt",
+          "object": "OutpParentAltsRef",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpParentAlts",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "parent",
+          "object": "OutpParentAltsRef",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpParentAlts",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "OutpParentAltsRef"
+      },
+      "typeKind": "Output"
+    },
+    "OutpParentAltsRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpParentAltsRef",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -18,7 +65,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "OutpAltPrnt",
+          "object": "OutpParentAltsRef",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -44,54 +91,7 @@
           }
         }
       ],
-      "name": "OutpAltPrnt",
-      "typeKind": "Output"
-    },
-    "OutpPrntAlt": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltPrnt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpPrntAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "parent",
-          "object": "OutpAltPrnt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "OutpPrntAlt",
-      "parent": {
-        "$tag": "_OutputBase",
-        "value": "OutpAltPrnt"
-      },
+      "name": "OutpParentAltsRef",
       "typeKind": "Output"
     }
   }

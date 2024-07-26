@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpAltMods": {
+    "InpAltsModsBoolean": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
@@ -15,10 +15,10 @@
               "typeKind": "Basic"
             }
           ],
-          "object": "InpAltMods",
+          "object": "InpAltsModsBoolean",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpModsAlt"
+            "value": "InpAltsModsBooleanAlt"
           }
         }
       ],
@@ -35,19 +35,19 @@
           ],
           "type": {
             "$tag": "_InputBase",
-            "value": "InpModsAlt"
+            "value": "InpAltsModsBooleanAlt"
           }
         }
       ],
-      "name": "InpAltMods",
+      "name": "InpAltsModsBoolean",
       "typeKind": "Input"
     },
-    "InpModsAlt": {
+    "InpAltsModsBooleanAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpModsAlt",
+          "object": "InpAltsModsBooleanAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -58,7 +58,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpModsAlt",
+          "object": "InpAltsModsBooleanAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -84,7 +84,7 @@
           }
         }
       ],
-      "name": "InpModsAlt",
+      "name": "InpAltsModsBooleanAlt",
       "typeKind": "Input"
     }
   }

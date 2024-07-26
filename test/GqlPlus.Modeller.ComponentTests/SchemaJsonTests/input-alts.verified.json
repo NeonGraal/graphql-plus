@@ -2,12 +2,36 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpAlt": {
+    "InpAlts": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAlt",
+          "object": "InpAlts",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpAltsAlt"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InpAltsAlt"
+          }
+        }
+      ],
+      "name": "InpAlts",
+      "typeKind": "Input"
+    },
+    "InpAltsAlt": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpAltsAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -18,7 +42,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpAlt",
+          "object": "InpAltsAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -44,31 +68,7 @@
           }
         }
       ],
-      "name": "InpAlt",
-      "typeKind": "Input"
-    },
-    "InpAlts": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAlts",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpAlt"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpAlt"
-          }
-        }
-      ],
-      "name": "InpAlts",
+      "name": "InpAltsAlt",
       "typeKind": "Input"
     }
   }

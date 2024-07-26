@@ -1,15 +1,27 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualAltDual: !_TypeDual
+  !_Identifier DualAltsDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualAltDual
+      object: DualAltsDual
+      type: !_DualBase
+        dual: DualDualAltsDual
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        dual: DualDualAltsDual
+    name: DualAltsDual
+    typeKind: !_TypeKind Dual
+  !_Identifier DualDualAltsDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualDualAltsDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualAltDual
+      object: DualDualAltsDual
       type: !_DualBase
         dual: Number
     alternates:
@@ -21,17 +33,5 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualAltDual
-    typeKind: !_TypeKind Dual
-  !_Identifier DualAltsDual: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: DualAltsDual
-      type: !_DualBase
-        dual: DualAltDual
-    alternates:
-    - !_DualAlternate
-      type: !_DualBase
-        dual: DualAltDual
-    name: DualAltsDual
+    name: DualDualAltsDual
     typeKind: !_TypeKind Dual

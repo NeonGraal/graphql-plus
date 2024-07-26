@@ -1,0 +1,35 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpOutputFieldsParams
+  {
+    !OF I@033/0001
+    field
+    (
+      !Pa
+      I@039/0001
+      OutpOutputFieldsParams1
+      !Pa
+      I@131/0001
+      OutpOutputFieldsParams2
+    )
+    :
+    I@065/0001
+    OutpOutputFieldsParamsFld
+  }
+}
+{
+  !In I@191/0001
+  OutpOutputFieldsParams1
+}
+{
+  !In I@225/0001
+  OutpOutputFieldsParams2
+}
+{
+  !Ou I@260/0001
+  OutpOutputFieldsParamsFld
+}
+]

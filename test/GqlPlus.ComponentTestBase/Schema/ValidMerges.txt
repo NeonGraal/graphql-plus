@@ -60,25 +60,27 @@ enum EnValAlias { value [val1] }
 enum EnValAlias { value [val2] }
 
 // object
-object Obj { }
-object Obj { }
+object ObjName { }
+object ObjName { }
 
 // object-alias
-object ObjAlias [Obj1] { }
-object ObjAlias [Obj2] { }
+object ObjName [Obj1] { }
+object ObjName [Obj2] { }
 
 // object-alts
-object ObjAlts { | ObjAltsType }
-object ObjAlts { | ObjAltsType }
-object ObjAltsType { }
+object ObjName { | ObjNameType }
+object ObjName { | ObjNameType }
+object ObjNameType { }
 
 // object-fields
-object ObjFields { field: ObjFields }
-object ObjFields { field: ObjFields }
+object ObjName { field: ObjNameFld }
+object ObjName { field: ObjNameFld }
+object ObjNameFld { }
 
 // object-fields-alias
-object ObjFieldAlias { field [field1]: ObjFieldAlias }
-object ObjFieldAlias { field [field2]: ObjFieldAlias }
+object ObjName { field [field1]: ObjNameFld }
+object ObjName { field [field2]: ObjNameFld }
+object ObjNameFld { }
 
 // output-fields-enums
 output FieldEnums { field = Boolean.true }
@@ -89,19 +91,20 @@ output FieldEnumAlias { field [field1] = Boolean.true }
 output FieldEnumAlias { field [field2] = true }
 
 // output-fields-params
-output FieldParams { field(FieldParam1): FieldParams }
-output FieldParams { field(FieldParam2): FieldParams }
+output FieldParams { field(FieldParam1): FieldParamsFld }
+output FieldParams { field(FieldParam2): FieldParamsFld }
 input FieldParam1 { }
 input FieldParam2 { }
+output FieldParamsFld { }
 
 // object-params
-object ObjParams<$test> { test: $test }
-object ObjParams<$type> { type: $type }
+object ObjName<$test> { test: $test }
+object ObjName<$type> { type: $type }
 
 // object-parent
-object ObjPrnt { :PrntObj }
-object ObjPrnt { :PrntObj }
-object PrntObj { }
+object ObjName { :ObjNameRef }
+object ObjName { :ObjNameRef }
+object ObjNameRef { }
 
 // domain-alias
 domain NumAlias [Num1] { number }

@@ -1,29 +1,29 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier FieldsInp: !_TypeInput
+  !_Identifier InpFieldsObject: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: FieldsInp
+      object: InpFieldsObject
       type: !_InputBase
-        input: InpField
+        input: InpFieldsObjectFld
     fields:
     - !_InputField
       name: field
       type: !_InputBase
-        input: InpField
-    name: FieldsInp
+        input: InpFieldsObjectFld
+    name: InpFieldsObject
     typeKind: !_TypeKind Input
-  !_Identifier InpField: !_TypeInput
+  !_Identifier InpFieldsObjectFld: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpField
+      object: InpFieldsObjectFld
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpField
+      object: InpFieldsObjectFld
       type: !_InputBase
         input: Number
     alternates:
@@ -35,5 +35,5 @@ types: !_Map_Type
       name: field
       type: !_InputBase
         input: Number
-    name: InpField
+    name: InpFieldsObjectFld
     typeKind: !_TypeKind Input

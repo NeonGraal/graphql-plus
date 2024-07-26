@@ -1,15 +1,31 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpParentTest: !_TypeOutput
+  !_Identifier OutpParent: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentTest
+      object: OutpParentRef
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: parent
-      object: OutpParentTest
+      object: OutpParentRef
+      type: !_OutputBase
+        output: Number
+    name: OutpParent
+    parent: !_OutputBase
+      output: OutpParentRef
+    typeKind: !_TypeKind Output
+  !_Identifier OutpParentRef: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpParentRef
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: OutpParentRef
       type: !_OutputBase
         output: Number
     alternates:
@@ -21,21 +37,5 @@ types: !_Map_Type
       name: parent
       type: !_OutputBase
         output: Number
-    name: OutpParentTest
-    typeKind: !_TypeKind Output
-  !_Identifier OutpTestParent: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: OutpParentTest
-      type: !_OutputBase
-        output: String
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: parent
-      object: OutpParentTest
-      type: !_OutputBase
-        output: Number
-    name: OutpTestParent
-    parent: !_OutputBase
-      output: OutpParentTest
+    name: OutpParentRef
     typeKind: !_TypeKind Output

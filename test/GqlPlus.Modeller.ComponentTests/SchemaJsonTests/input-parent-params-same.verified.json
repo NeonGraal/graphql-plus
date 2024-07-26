@@ -2,36 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpPrmsPrntSame": {
+    "InpParentParamsSame": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpPrmsPrntSame",
-          "type": "a"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": "a"
-        }
-      ],
-      "name": "InpPrmsPrntSame",
-      "typeKind": "Input",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "a"
-        }
-      ]
-    },
-    "InpPrntPrmsSame": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpPrmsPrntSame",
+          "object": "InpParentParamsSameRef",
           "type": "a"
         }
       ],
@@ -39,7 +15,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpPrntPrmsSame",
+          "object": "InpParentParamsSame",
           "type": "a"
         }
       ],
@@ -50,12 +26,36 @@
           "type": "a"
         }
       ],
-      "name": "InpPrntPrmsSame",
+      "name": "InpParentParamsSame",
       "parent": {
         "$tag": "_InputBase",
-        "input": "InpPrmsPrntSame",
+        "input": "InpParentParamsSameRef",
         "typeArgs": ["a"]
       },
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "a"
+        }
+      ]
+    },
+    "InpParentParamsSameRef": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpParentParamsSameRef",
+          "type": "a"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": "a"
+        }
+      ],
+      "name": "InpParentParamsSameRef",
       "typeKind": "Input",
       "typeParams": [
         {

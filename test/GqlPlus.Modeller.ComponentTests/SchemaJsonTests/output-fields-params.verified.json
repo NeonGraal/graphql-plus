@@ -31,7 +31,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "FieldParams"
+            "value": "FieldParamsFld"
           }
         }
       ],
@@ -51,11 +51,16 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "FieldParams"
+            "value": "FieldParamsFld"
           }
         }
       ],
       "name": "FieldParams",
+      "typeKind": "Output"
+    },
+    "FieldParamsFld": {
+      "$tag": "_TypeOutput",
+      "name": "FieldParamsFld",
       "typeKind": "Output"
     }
   }

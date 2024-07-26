@@ -3,13 +3,17 @@
 Success
 {
   !In I@007/0001
-  InpFields
+  InpObjectFields
   {
-    !IF I@019/0001
+    !IF I@025/0001
     field
     :
-    I@026/0001
-    InpFields
+    I@032/0001
+    InpObjectFieldsFld
   }
+}
+{
+  !In I@111/0001
+  InpObjectFieldsFld
 }
 ]

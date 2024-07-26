@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualAltMods": {
+    "DualAltsModsBoolean": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
@@ -15,10 +15,10 @@
               "typeKind": "Basic"
             }
           ],
-          "object": "DualAltMods",
+          "object": "DualAltsModsBoolean",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualModsAlt"
+            "value": "DualAltsModsBooleanAlt"
           }
         }
       ],
@@ -35,19 +35,19 @@
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "DualModsAlt"
+            "value": "DualAltsModsBooleanAlt"
           }
         }
       ],
-      "name": "DualAltMods",
+      "name": "DualAltsModsBoolean",
       "typeKind": "Dual"
     },
-    "DualModsAlt": {
+    "DualAltsModsBooleanAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualModsAlt",
+          "object": "DualAltsModsBooleanAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -58,7 +58,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualModsAlt",
+          "object": "DualAltsModsBooleanAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -84,7 +84,7 @@
           }
         }
       ],
-      "name": "DualModsAlt",
+      "name": "DualAltsModsBooleanAlt",
       "typeKind": "Dual"
     }
   }

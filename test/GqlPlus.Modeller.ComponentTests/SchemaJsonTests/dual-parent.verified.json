@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualParentTest": {
+    "DualParent": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentTest",
+          "object": "DualParentRef",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,7 +18,37 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "DualParentTest",
+          "object": "DualParentRef",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "DualParent",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "DualParentRef"
+      },
+      "typeKind": "Dual"
+    },
+    "DualParentRef": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualParentRef",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "parent",
+          "object": "DualParentRef",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -44,37 +74,7 @@
           }
         }
       ],
-      "name": "DualParentTest",
-      "typeKind": "Dual"
-    },
-    "DualTestParent": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentTest",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "parent",
-          "object": "DualParentTest",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "DualTestParent",
-      "parent": {
-        "$tag": "_DualBase",
-        "value": "DualParentTest"
-      },
+      "name": "DualParentRef",
       "typeKind": "Dual"
     }
   }

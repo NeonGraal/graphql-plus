@@ -39,7 +39,7 @@ output DescrBackslash { }
 "A \"more\" 'Complicated' \\ description"
 output DescrComplex { }
 
-// directive-param
+// directive-param-in
 directive @DirParam(DirParamIn) { all }
 input DirParamIn { }
 

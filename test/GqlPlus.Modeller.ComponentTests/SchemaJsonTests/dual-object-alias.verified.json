@@ -2,10 +2,10 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualAlias": {
+    "DualObjectAlias": {
       "$tag": "_TypeDual",
       "aliases": ["Dual1", "Dual2"],
-      "name": "DualAlias",
+      "name": "DualObjectAlias",
       "typeKind": "Dual"
     }
   }

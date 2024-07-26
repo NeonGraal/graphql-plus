@@ -1,0 +1,64 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutDomainParam: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: OutDomainParam
+      exclude: false
+      from: 1
+      to: 10
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      from: 1
+      to: 10
+    name: OutDomainParam
+    typeKind: !_TypeKind Domain
+  !_Identifier OutParamDomain: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParamDomain
+      parameters:
+      - !_InputParam
+        input: OutParamDomainIn
+        modifiers: [!_ModifierDictionary {by: OutDomainParam,
+            modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
+      type: !_OutputBase
+        output: OutDomainParam
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_InputParam
+        input: OutParamDomainIn
+        modifiers: [!_ModifierDictionary {by: OutDomainParam,
+            modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
+      type: !_OutputBase
+        output: OutDomainParam
+    name: OutParamDomain
+    typeKind: !_TypeKind Output
+  !_Identifier OutParamDomainIn: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: OutParamDomainIn
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: param
+      object: OutParamDomainIn
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: param
+      type: !_InputBase
+        input: Number
+    name: OutParamDomainIn
+    typeKind: !_TypeKind Input

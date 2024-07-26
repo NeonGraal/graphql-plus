@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpAlias
+  OutpObjectAlias
   [
     Outp1
     Outp2

@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpParentTest": {
+    "InpParent": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentTest",
+          "object": "InpParentRef",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -18,7 +18,37 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "InpParentTest",
+          "object": "InpParentRef",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InpParent",
+      "parent": {
+        "$tag": "_InputBase",
+        "value": "InpParentRef"
+      },
+      "typeKind": "Input"
+    },
+    "InpParentRef": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpParentRef",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "parent",
+          "object": "InpParentRef",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -44,37 +74,7 @@
           }
         }
       ],
-      "name": "InpParentTest",
-      "typeKind": "Input"
-    },
-    "InpTestParent": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentTest",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "parent",
-          "object": "InpParentTest",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "InpTestParent",
-      "parent": {
-        "$tag": "_InputBase",
-        "value": "InpParentTest"
-      },
+      "name": "InpParentRef",
       "typeKind": "Input"
     }
   }

@@ -8,7 +8,7 @@ category [CatA1] { CatAlias }
 category [CatA2] { CatAlias }
 output CatAlias { }
 
-// category-mods
+// category-mod
 category [CatM1] { CatMods? }
 category [CatM2] { CatMods? }
 output CatMods { }
@@ -21,10 +21,10 @@ directive @Dir { spread }
 directive @DirAlias [DirA1] { variable }
 directive @DirAlias [DirA2] { field }
 
-// directive-params
-directive @DirParams(DirParamsIn) { operation }
-directive @DirParams { fragment }
-input DirParamsIn { }
+// directive-param
+directive @DirParam(DirParamIn) { operation }
+directive @DirParam { fragment }
+input DirParamIn { }
 
 // option
 option Schema { }
@@ -60,48 +60,51 @@ enum EnValAlias { value [val1] }
 enum EnValAlias { value [val2] }
 
 // object
-object Obj { }
-object Obj { }
+object ObjName { }
+object ObjName { }
 
 // object-alias
-object ObjAlias [Obj1] { }
-object ObjAlias [Obj2] { }
+object ObjName [Obj1] { }
+object ObjName [Obj2] { }
 
-// object-alts
-object ObjAlts { | ObjAltsType }
-object ObjAlts { | ObjAltsType }
-object ObjAltsType { }
+// object-alt
+object ObjName { | ObjNameType }
+object ObjName { | ObjNameType }
+object ObjNameType { }
 
-// object-fields
-object ObjFields { field: ObjFields }
-object ObjFields { field: ObjFields }
+// object-field
+object ObjName { field: ObjNameFld }
+object ObjName { field: ObjNameFld }
+object ObjNameFld { }
 
-// object-fields-alias
-object ObjFieldAlias { field [field1]: ObjFieldAlias }
-object ObjFieldAlias { field [field2]: ObjFieldAlias }
+// object-field-alias
+object ObjName { field [field1]: ObjNameFld }
+object ObjName { field [field2]: ObjNameFld }
+object ObjNameFld { }
 
-// output-fields-enums
-output FieldEnums { field = Boolean.true }
-output FieldEnums { field = true }
-
-// output-fields-enum-alias
+// output-field-enum-alias
 output FieldEnumAlias { field [field1] = Boolean.true }
 output FieldEnumAlias { field [field2] = true }
 
-// output-fields-params
-output FieldParams { field(FieldParam1): FieldParams }
-output FieldParams { field(FieldParam2): FieldParams }
+// output-field-enum-value
+output FieldEnums { field = Boolean.true }
+output FieldEnums { field = true }
+
+// output-field-param
+output FieldParam { field(FieldParam1): FieldParamFld }
+output FieldParam { field(FieldParam2): FieldParamFld }
 input FieldParam1 { }
 input FieldParam2 { }
+output FieldParamFld { }
 
-// object-params
-object ObjParams<$test> { test: $test }
-object ObjParams<$type> { type: $type }
+// object-param
+object ObjName<$test> { test: $test }
+object ObjName<$type> { type: $type }
 
 // object-parent
-object ObjPrnt { :PrntObj }
-object ObjPrnt { :PrntObj }
-object PrntObj { }
+object ObjName { :ObjNameRef }
+object ObjName { :ObjNameRef }
+object ObjNameRef { }
 
 // domain-alias
 domain NumAlias [Num1] { number }

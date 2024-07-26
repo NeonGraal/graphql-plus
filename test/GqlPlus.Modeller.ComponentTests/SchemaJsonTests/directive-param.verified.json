@@ -6,12 +6,8 @@
       "$tag": "_Directive",
       "locations": {
         "$tag": "_Set(_Location)",
-        "Field": "_",
         "Fragment": "_",
-        "Inline": "_",
-        "Operation": "_",
-        "Spread": "_",
-        "Variable": "_"
+        "Operation": "_"
       },
       "name": "DirParam",
       "parameters": [

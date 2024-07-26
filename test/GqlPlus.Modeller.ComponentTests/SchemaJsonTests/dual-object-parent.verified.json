@@ -2,18 +2,18 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualPrnt": {
+    "DualObjectParent": {
       "$tag": "_TypeDual",
-      "name": "DualPrnt",
+      "name": "DualObjectParent",
       "parent": {
         "$tag": "_DualBase",
-        "value": "PrntDual"
+        "value": "DualObjectParentRef"
       },
       "typeKind": "Dual"
     },
-    "PrntDual": {
+    "DualObjectParentRef": {
       "$tag": "_TypeDual",
-      "name": "PrntDual",
+      "name": "DualObjectParentRef",
       "typeKind": "Dual"
     }
   }

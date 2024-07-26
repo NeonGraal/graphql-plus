@@ -42,13 +42,7 @@ public class SchemaJsonTests(
   public async Task Json_Merges(string model)
   {
     string input = SchemaValidMergesData.Source[model];
-    if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceValue(input, r.Item1, r.Item2), r.Item1 + "-" + model))
-        .ToArray());
-    } else {
-      await Verify_Model(input, model);
-    }
+    await ReplaceActionAsync(input, model, Verify_Model);
   }
 
   [Theory]
@@ -56,13 +50,7 @@ public class SchemaJsonTests(
   public async Task Json_Objects(string model)
   {
     string input = SchemaValidObjectsData.Source[model];
-    if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceValue(input, r.Item1, r.Item2), r.Item1 + "-" + model))
-        .ToArray());
-    } else {
-      await Verify_Model(input, model);
-    }
+    await ReplaceActionAsync(input, model, Verify_Model);
   }
 
   [Theory]
@@ -70,13 +58,7 @@ public class SchemaJsonTests(
   public async Task Json_Globals(string global)
   {
     string input = SchemaValidGlobalsData.Source[global];
-    if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceValue(input, r.Item1, r.Item2), r.Item1 + "-" + global))
-        .ToArray());
-    } else {
-      await Verify_Model(input, global);
-    }
+    await ReplaceActionAsync(input, global, Verify_Model);
   }
 
   [Theory]
@@ -84,13 +66,7 @@ public class SchemaJsonTests(
   public async Task Json_Simple(string simple)
   {
     string input = SchemaValidSimpleData.Source[simple];
-    if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => Verify_Model(ReplaceValue(input, r.Item1, r.Item2), r.Item1 + "-" + simple))
-        .ToArray());
-    } else {
-      await Verify_Model(input, simple);
-    }
+    await ReplaceActionAsync(input, simple, Verify_Model);
   }
 
   private async Task Verify_Model(string input, string test)

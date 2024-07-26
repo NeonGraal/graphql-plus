@@ -1,0 +1,35 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpOutputFieldsParams: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpOutputFieldsParams
+      parameters:
+      - !_InputParam
+        input: OutpOutputFieldsParams1
+      - !_InputParam
+        input: OutpOutputFieldsParams2
+      type: !_OutputBase
+        output: OutpOutputFieldsParamsFld
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_InputParam
+        input: OutpOutputFieldsParams1
+      - !_InputParam
+        input: OutpOutputFieldsParams2
+      type: !_OutputBase
+        output: OutpOutputFieldsParamsFld
+    name: OutpOutputFieldsParams
+    typeKind: !_TypeKind Output
+  !_Identifier OutpOutputFieldsParams1: !_TypeInput
+    name: OutpOutputFieldsParams1
+    typeKind: !_TypeKind Input
+  !_Identifier OutpOutputFieldsParams2: !_TypeInput
+    name: OutpOutputFieldsParams2
+    typeKind: !_TypeKind Input
+  !_Identifier OutpOutputFieldsParamsFld: !_TypeOutput
+    name: OutpOutputFieldsParamsFld
+    typeKind: !_TypeKind Output

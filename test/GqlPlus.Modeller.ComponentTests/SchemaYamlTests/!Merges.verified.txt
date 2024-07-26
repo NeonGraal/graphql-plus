@@ -119,20 +119,20 @@ types: !_Map_Type
     aliases: [Dual1, Dual2]
     name: DualObjectAlias
     typeKind: !_TypeKind Dual
-  !_Identifier DualObjectAlts: !_TypeDual
+  !_Identifier DualObjectAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualObjectAlts
+      object: DualObjectAlt
       type: !_DualBase
-        dual: DualObjectAltsType
+        dual: DualObjectAltType
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: DualObjectAltsType
-    name: DualObjectAlts
+        dual: DualObjectAltType
+    name: DualObjectAlt
     typeKind: !_TypeKind Dual
-  !_Identifier DualObjectAltsType: !_TypeDual
-    name: DualObjectAltsType
+  !_Identifier DualObjectAltType: !_TypeDual
+    name: DualObjectAltType
     typeKind: !_TypeKind Dual
   !_Identifier DualObjectField: !_TypeDual
     allFields:
@@ -399,20 +399,20 @@ types: !_Map_Type
     aliases: [Inp1, Inp2]
     name: InpObjectAlias
     typeKind: !_TypeKind Input
-  !_Identifier InpObjectAlts: !_TypeInput
+  !_Identifier InpObjectAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpObjectAlts
+      object: InpObjectAlt
       type: !_InputBase
-        input: InpObjectAltsType
+        input: InpObjectAltType
     alternates:
     - !_InputAlternate
       type: !_InputBase
-        input: InpObjectAltsType
-    name: InpObjectAlts
+        input: InpObjectAltType
+    name: InpObjectAlt
     typeKind: !_TypeKind Input
-  !_Identifier InpObjectAltsType: !_TypeInput
-    name: InpObjectAltsType
+  !_Identifier InpObjectAltType: !_TypeInput
+    name: InpObjectAltType
     typeKind: !_TypeKind Input
   !_Identifier InpObjectField: !_TypeInput
     allFields:
@@ -528,20 +528,20 @@ types: !_Map_Type
     aliases: [Outp1, Outp2]
     name: OutpObjectAlias
     typeKind: !_TypeKind Output
-  !_Identifier OutpObjectAlts: !_TypeOutput
+  !_Identifier OutpObjectAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpObjectAlts
+      object: OutpObjectAlt
       type: !_OutputBase
-        output: OutpObjectAltsType
+        output: OutpObjectAltType
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: OutpObjectAltsType
-    name: OutpObjectAlts
+        output: OutpObjectAltType
+    name: OutpObjectAlt
     typeKind: !_TypeKind Output
-  !_Identifier OutpObjectAltsType: !_TypeOutput
-    name: OutpObjectAltsType
+  !_Identifier OutpObjectAltType: !_TypeOutput
+    name: OutpObjectAltType
     typeKind: !_TypeKind Output
   !_Identifier OutpObjectField: !_TypeOutput
     allFields:

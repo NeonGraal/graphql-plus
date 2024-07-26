@@ -1,0 +1,14 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpAltSimple: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpAltSimple
+      type: !_OutputBase
+        output: String
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: String
+    name: OutpAltSimple
+    typeKind: !_TypeKind Output

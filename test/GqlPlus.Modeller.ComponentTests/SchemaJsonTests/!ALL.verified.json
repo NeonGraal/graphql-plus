@@ -821,15 +821,15 @@
       "name": "DomTestPrnt",
       "typeKind": "Domain"
     },
-    "DualAlts": {
+    "DualAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAlts",
+          "object": "DualAlt",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualAltsAlt"
+            "value": "DualAltAlt"
           }
         }
       ],
@@ -838,19 +838,19 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualAltsAlt"
+            "value": "DualAltAlt"
           }
         }
       ],
-      "name": "DualAlts",
+      "name": "DualAlt",
       "typeKind": "Dual"
     },
-    "DualAltsAlt": {
+    "DualAltAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltsAlt",
+          "object": "DualAltAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -861,7 +861,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualAltsAlt",
+          "object": "DualAltAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -887,18 +887,18 @@
           }
         }
       ],
-      "name": "DualAltsAlt",
+      "name": "DualAltAlt",
       "typeKind": "Dual"
     },
-    "DualAltsDual": {
+    "DualAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltsDual",
+          "object": "DualAltDual",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualDualAltsDual"
+            "value": "DualDualAltDual"
           }
         }
       ],
@@ -907,14 +907,14 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualDualAltsDual"
+            "value": "DualDualAltDual"
           }
         }
       ],
-      "name": "DualAltsDual",
+      "name": "DualAltDual",
       "typeKind": "Dual"
     },
-    "DualAltsModsBoolean": {
+    "DualAltModBoolean": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
@@ -927,10 +927,10 @@
               "typeKind": "Basic"
             }
           ],
-          "object": "DualAltsModsBoolean",
+          "object": "DualAltModBoolean",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualAltsModsBooleanAlt"
+            "value": "DualAltModBooleanAlt"
           }
         }
       ],
@@ -947,19 +947,19 @@
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "DualAltsModsBooleanAlt"
+            "value": "DualAltModBooleanAlt"
           }
         }
       ],
-      "name": "DualAltsModsBoolean",
+      "name": "DualAltModBoolean",
       "typeKind": "Dual"
     },
-    "DualAltsModsBooleanAlt": {
+    "DualAltModBooleanAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltsModsBooleanAlt",
+          "object": "DualAltModBooleanAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -970,7 +970,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualAltsModsBooleanAlt",
+          "object": "DualAltModBooleanAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -996,10 +996,10 @@
           }
         }
       ],
-      "name": "DualAltsModsBooleanAlt",
+      "name": "DualAltModBooleanAlt",
       "typeKind": "Dual"
     },
-    "DualAltsModsParam": {
+    "DualAltModParam": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
@@ -1011,10 +1011,10 @@
               "modifierKind": "Param"
             }
           ],
-          "object": "DualAltsModsParam",
+          "object": "DualAltModParam",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualAltsModsParamAlt"
+            "value": "DualAltModParamAlt"
           }
         }
       ],
@@ -1030,11 +1030,11 @@
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "DualAltsModsParamAlt"
+            "value": "DualAltModParamAlt"
           }
         }
       ],
-      "name": "DualAltsModsParam",
+      "name": "DualAltModParam",
       "typeKind": "Dual",
       "typeParams": [
         {
@@ -1043,12 +1043,12 @@
         }
       ]
     },
-    "DualAltsModsParamAlt": {
+    "DualAltModParamAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltsModsParamAlt",
+          "object": "DualAltModParamAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -1059,7 +1059,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualAltsModsParamAlt",
+          "object": "DualAltModParamAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -1085,15 +1085,15 @@
           }
         }
       ],
-      "name": "DualAltsModsParamAlt",
+      "name": "DualAltModParamAlt",
       "typeKind": "Dual"
     },
-    "DualAltsSimple": {
+    "DualAltSimple": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltsSimple",
+          "object": "DualAltSimple",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -1109,15 +1109,15 @@
           }
         }
       ],
-      "name": "DualAltsSimple",
+      "name": "DualAltSimple",
       "typeKind": "Dual"
     },
-    "DualDualAltsDual": {
+    "DualDualAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualDualAltsDual",
+          "object": "DualDualAltDual",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -1128,7 +1128,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualDualAltsDual",
+          "object": "DualDualAltDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -1154,15 +1154,15 @@
           }
         }
       ],
-      "name": "DualDualAltsDual",
+      "name": "DualDualAltDual",
       "typeKind": "Dual"
     },
-    "DualEnumFieldModsEnum": {
+    "DualEnumFieldModEnum": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "enum": "DualEnumFieldModsEnum",
+          "enum": "DualEnumFieldModEnum",
           "name": "value"
         }
       ],
@@ -1172,7 +1172,7 @@
           "value": "value"
         }
       ],
-      "name": "DualEnumFieldModsEnum",
+      "name": "DualEnumFieldModEnum",
       "typeKind": "Enum"
     },
     "DualField": {
@@ -1272,7 +1272,7 @@
       "name": "DualFieldDualFld",
       "typeKind": "Dual"
     },
-    "DualFieldModsEnum": {
+    "DualFieldModEnum": {
       "$tag": "_TypeDual",
       "allFields": [
         {
@@ -1280,13 +1280,13 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "DualEnumFieldModsEnum",
+              "by": "DualEnumFieldModEnum",
               "modifierKind": "Dict",
               "typeKind": "Enum"
             }
           ],
           "name": "field",
-          "object": "DualFieldModsEnum",
+          "object": "DualFieldModEnum",
           "type": {
             "$tag": "_DualBase",
             "value": "*"
@@ -1299,7 +1299,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "DualEnumFieldModsEnum",
+              "by": "DualEnumFieldModEnum",
               "modifierKind": "Dict",
               "typeKind": "Enum"
             }
@@ -1311,10 +1311,10 @@
           }
         }
       ],
-      "name": "DualFieldModsEnum",
+      "name": "DualFieldModEnum",
       "typeKind": "Dual"
     },
-    "DualFieldModsParam": {
+    "DualFieldModParam": {
       "$tag": "_TypeDual",
       "allFields": [
         {
@@ -1327,10 +1327,10 @@
             }
           ],
           "name": "field",
-          "object": "DualFieldModsParam",
+          "object": "DualFieldModParam",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualFieldModsParamFld"
+            "value": "DualFieldModParamFld"
           }
         }
       ],
@@ -1347,11 +1347,11 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualFieldModsParamFld"
+            "value": "DualFieldModParamFld"
           }
         }
       ],
-      "name": "DualFieldModsParam",
+      "name": "DualFieldModParam",
       "typeKind": "Dual",
       "typeParams": [
         {
@@ -1360,12 +1360,12 @@
         }
       ]
     },
-    "DualFieldModsParamFld": {
+    "DualFieldModParamFld": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualFieldModsParamFld",
+          "object": "DualFieldModParamFld",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -1376,7 +1376,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualFieldModsParamFld",
+          "object": "DualFieldModParamFld",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -1402,7 +1402,7 @@
           }
         }
       ],
-      "name": "DualFieldModsParamFld",
+      "name": "DualFieldModParamFld",
       "typeKind": "Dual"
     },
     "DualFieldObject": {
@@ -2616,15 +2616,15 @@
       "name": "DualObjectAlias",
       "typeKind": "Dual"
     },
-    "DualObjectAlts": {
+    "DualObjectAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualObjectAlts",
+          "object": "DualObjectAlt",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualObjectAltsType"
+            "value": "DualObjectAltType"
           }
         }
       ],
@@ -2633,16 +2633,16 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualObjectAltsType"
+            "value": "DualObjectAltType"
           }
         }
       ],
-      "name": "DualObjectAlts",
+      "name": "DualObjectAlt",
       "typeKind": "Dual"
     },
-    "DualObjectAltsType": {
+    "DualObjectAltType": {
       "$tag": "_TypeDual",
-      "name": "DualObjectAltsType",
+      "name": "DualObjectAltType",
       "typeKind": "Dual"
     },
     "DualObjectField": {
@@ -2794,12 +2794,12 @@
       },
       "typeKind": "Dual"
     },
-    "DualParentAlts": {
+    "DualParentAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentAltsRef",
+          "object": "DualParentAltRef",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -2807,7 +2807,7 @@
         },
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentAlts",
+          "object": "DualParentAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -2818,7 +2818,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "DualParentAltsRef",
+          "object": "DualParentAltRef",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -2834,19 +2834,19 @@
           }
         }
       ],
-      "name": "DualParentAlts",
+      "name": "DualParentAlt",
       "parent": {
         "$tag": "_DualBase",
-        "value": "DualParentAltsRef"
+        "value": "DualParentAltRef"
       },
       "typeKind": "Dual"
     },
-    "DualParentAltsRef": {
+    "DualParentAltRef": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentAltsRef",
+          "object": "DualParentAltRef",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -2857,7 +2857,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "DualParentAltsRef",
+          "object": "DualParentAltRef",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -2883,7 +2883,7 @@
           }
         }
       ],
-      "name": "DualParentAltsRef",
+      "name": "DualParentAltRef",
       "typeKind": "Dual"
     },
     "DualParentDual": {
@@ -4111,15 +4111,15 @@
       "name": "InFieldStr",
       "typeKind": "Input"
     },
-    "InpAlts": {
+    "InpAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAlts",
+          "object": "InpAlt",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpAltsAlt"
+            "value": "InpAltAlt"
           }
         }
       ],
@@ -4128,19 +4128,19 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpAltsAlt"
+            "value": "InpAltAlt"
           }
         }
       ],
-      "name": "InpAlts",
+      "name": "InpAlt",
       "typeKind": "Input"
     },
-    "InpAltsAlt": {
+    "InpAltAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAltsAlt",
+          "object": "InpAltAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -4151,7 +4151,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpAltsAlt",
+          "object": "InpAltAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -4177,18 +4177,18 @@
           }
         }
       ],
-      "name": "InpAltsAlt",
+      "name": "InpAltAlt",
       "typeKind": "Input"
     },
-    "InpAltsDual": {
+    "InpAltDual": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAltsDual",
+          "object": "InpAltDual",
           "type": {
             "$tag": "_DualBase",
-            "value": "InpDualAltsDual"
+            "value": "InpDualAltDual"
           }
         }
       ],
@@ -4197,14 +4197,14 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_DualBase",
-            "value": "InpDualAltsDual"
+            "value": "InpDualAltDual"
           }
         }
       ],
-      "name": "InpAltsDual",
+      "name": "InpAltDual",
       "typeKind": "Input"
     },
-    "InpAltsModsBoolean": {
+    "InpAltModBoolean": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
@@ -4217,10 +4217,10 @@
               "typeKind": "Basic"
             }
           ],
-          "object": "InpAltsModsBoolean",
+          "object": "InpAltModBoolean",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpAltsModsBooleanAlt"
+            "value": "InpAltModBooleanAlt"
           }
         }
       ],
@@ -4237,19 +4237,19 @@
           ],
           "type": {
             "$tag": "_InputBase",
-            "value": "InpAltsModsBooleanAlt"
+            "value": "InpAltModBooleanAlt"
           }
         }
       ],
-      "name": "InpAltsModsBoolean",
+      "name": "InpAltModBoolean",
       "typeKind": "Input"
     },
-    "InpAltsModsBooleanAlt": {
+    "InpAltModBooleanAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAltsModsBooleanAlt",
+          "object": "InpAltModBooleanAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -4260,7 +4260,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpAltsModsBooleanAlt",
+          "object": "InpAltModBooleanAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -4286,10 +4286,10 @@
           }
         }
       ],
-      "name": "InpAltsModsBooleanAlt",
+      "name": "InpAltModBooleanAlt",
       "typeKind": "Input"
     },
-    "InpAltsModsParam": {
+    "InpAltModParam": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
@@ -4301,10 +4301,10 @@
               "modifierKind": "Param"
             }
           ],
-          "object": "InpAltsModsParam",
+          "object": "InpAltModParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpAltsModsParamAlt"
+            "value": "InpAltModParamAlt"
           }
         }
       ],
@@ -4320,11 +4320,11 @@
           ],
           "type": {
             "$tag": "_InputBase",
-            "value": "InpAltsModsParamAlt"
+            "value": "InpAltModParamAlt"
           }
         }
       ],
-      "name": "InpAltsModsParam",
+      "name": "InpAltModParam",
       "typeKind": "Input",
       "typeParams": [
         {
@@ -4333,12 +4333,12 @@
         }
       ]
     },
-    "InpAltsModsParamAlt": {
+    "InpAltModParamAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAltsModsParamAlt",
+          "object": "InpAltModParamAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -4349,7 +4349,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpAltsModsParamAlt",
+          "object": "InpAltModParamAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -4375,15 +4375,15 @@
           }
         }
       ],
-      "name": "InpAltsModsParamAlt",
+      "name": "InpAltModParamAlt",
       "typeKind": "Input"
     },
-    "InpAltsSimple": {
+    "InpAltSimple": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAltsSimple",
+          "object": "InpAltSimple",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -4399,15 +4399,15 @@
           }
         }
       ],
-      "name": "InpAltsSimple",
+      "name": "InpAltSimple",
       "typeKind": "Input"
     },
-    "InpDualAltsDual": {
+    "InpDualAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpDualAltsDual",
+          "object": "InpDualAltDual",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -4418,7 +4418,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "InpDualAltsDual",
+          "object": "InpDualAltDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -4444,15 +4444,15 @@
           }
         }
       ],
-      "name": "InpDualAltsDual",
+      "name": "InpDualAltDual",
       "typeKind": "Dual"
     },
-    "InpEnumFieldModsEnum": {
+    "InpEnumFieldModEnum": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "enum": "InpEnumFieldModsEnum",
+          "enum": "InpEnumFieldModEnum",
           "name": "value"
         }
       ],
@@ -4462,7 +4462,7 @@
           "value": "value"
         }
       ],
-      "name": "InpEnumFieldModsEnum",
+      "name": "InpEnumFieldModEnum",
       "typeKind": "Enum"
     },
     "InpField": {
@@ -4562,7 +4562,7 @@
       "name": "InpFieldDualFld",
       "typeKind": "Dual"
     },
-    "InpFieldModsEnum": {
+    "InpFieldModEnum": {
       "$tag": "_TypeInput",
       "allFields": [
         {
@@ -4570,13 +4570,13 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "InpEnumFieldModsEnum",
+              "by": "InpEnumFieldModEnum",
               "modifierKind": "Dict",
               "typeKind": "Enum"
             }
           ],
           "name": "field",
-          "object": "InpFieldModsEnum",
+          "object": "InpFieldModEnum",
           "type": {
             "$tag": "_InputBase",
             "value": "*"
@@ -4589,7 +4589,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "InpEnumFieldModsEnum",
+              "by": "InpEnumFieldModEnum",
               "modifierKind": "Dict",
               "typeKind": "Enum"
             }
@@ -4601,10 +4601,10 @@
           }
         }
       ],
-      "name": "InpFieldModsEnum",
+      "name": "InpFieldModEnum",
       "typeKind": "Input"
     },
-    "InpFieldModsParam": {
+    "InpFieldModParam": {
       "$tag": "_TypeInput",
       "allFields": [
         {
@@ -4617,10 +4617,10 @@
             }
           ],
           "name": "field",
-          "object": "InpFieldModsParam",
+          "object": "InpFieldModParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpFieldModsParamFld"
+            "value": "InpFieldModParamFld"
           }
         }
       ],
@@ -4637,11 +4637,11 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpFieldModsParamFld"
+            "value": "InpFieldModParamFld"
           }
         }
       ],
-      "name": "InpFieldModsParam",
+      "name": "InpFieldModParam",
       "typeKind": "Input",
       "typeParams": [
         {
@@ -4650,12 +4650,12 @@
         }
       ]
     },
-    "InpFieldModsParamFld": {
+    "InpFieldModParamFld": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpFieldModsParamFld",
+          "object": "InpFieldModParamFld",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -4666,7 +4666,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpFieldModsParamFld",
+          "object": "InpFieldModParamFld",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -4692,7 +4692,7 @@
           }
         }
       ],
-      "name": "InpFieldModsParamFld",
+      "name": "InpFieldModParamFld",
       "typeKind": "Input"
     },
     "InpFieldObject": {
@@ -5906,15 +5906,15 @@
       "name": "InpObjectAlias",
       "typeKind": "Input"
     },
-    "InpObjectAlts": {
+    "InpObjectAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpObjectAlts",
+          "object": "InpObjectAlt",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpObjectAltsType"
+            "value": "InpObjectAltType"
           }
         }
       ],
@@ -5923,16 +5923,16 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpObjectAltsType"
+            "value": "InpObjectAltType"
           }
         }
       ],
-      "name": "InpObjectAlts",
+      "name": "InpObjectAlt",
       "typeKind": "Input"
     },
-    "InpObjectAltsType": {
+    "InpObjectAltType": {
       "$tag": "_TypeInput",
-      "name": "InpObjectAltsType",
+      "name": "InpObjectAltType",
       "typeKind": "Input"
     },
     "InpObjectField": {
@@ -6084,12 +6084,12 @@
       },
       "typeKind": "Input"
     },
-    "InpParentAlts": {
+    "InpParentAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentAltsRef",
+          "object": "InpParentAltRef",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -6097,7 +6097,7 @@
         },
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentAlts",
+          "object": "InpParentAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -6108,7 +6108,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "InpParentAltsRef",
+          "object": "InpParentAltRef",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -6124,19 +6124,19 @@
           }
         }
       ],
-      "name": "InpParentAlts",
+      "name": "InpParentAlt",
       "parent": {
         "$tag": "_InputBase",
-        "value": "InpParentAltsRef"
+        "value": "InpParentAltRef"
       },
       "typeKind": "Input"
     },
-    "InpParentAltsRef": {
+    "InpParentAltRef": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentAltsRef",
+          "object": "InpParentAltRef",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -6147,7 +6147,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "InpParentAltsRef",
+          "object": "InpParentAltRef",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -6173,7 +6173,7 @@
           }
         }
       ],
-      "name": "InpParentAltsRef",
+      "name": "InpParentAltRef",
       "typeKind": "Input"
     },
     "InpParentDual": {
@@ -7012,15 +7012,15 @@
         }
       ]
     },
-    "OutpAlts": {
+    "OutpAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAlts",
+          "object": "OutpAlt",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpAltsAlt"
+            "value": "OutpAltAlt"
           }
         }
       ],
@@ -7029,19 +7029,19 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpAltsAlt"
+            "value": "OutpAltAlt"
           }
         }
       ],
-      "name": "OutpAlts",
+      "name": "OutpAlt",
       "typeKind": "Output"
     },
-    "OutpAltsAlt": {
+    "OutpAltAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltsAlt",
+          "object": "OutpAltAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -7052,7 +7052,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpAltsAlt",
+          "object": "OutpAltAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -7078,18 +7078,18 @@
           }
         }
       ],
-      "name": "OutpAltsAlt",
+      "name": "OutpAltAlt",
       "typeKind": "Output"
     },
-    "OutpAltsDual": {
+    "OutpAltDual": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltsDual",
+          "object": "OutpAltDual",
           "type": {
             "$tag": "_DualBase",
-            "value": "OutpDualAltsDual"
+            "value": "OutpDualAltDual"
           }
         }
       ],
@@ -7098,14 +7098,14 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_DualBase",
-            "value": "OutpDualAltsDual"
+            "value": "OutpDualAltDual"
           }
         }
       ],
-      "name": "OutpAltsDual",
+      "name": "OutpAltDual",
       "typeKind": "Output"
     },
-    "OutpAltsModsBoolean": {
+    "OutpAltModBoolean": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
@@ -7118,10 +7118,10 @@
               "typeKind": "Basic"
             }
           ],
-          "object": "OutpAltsModsBoolean",
+          "object": "OutpAltModBoolean",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpAltsModsBooleanAlt"
+            "value": "OutpAltModBooleanAlt"
           }
         }
       ],
@@ -7138,19 +7138,19 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpAltsModsBooleanAlt"
+            "value": "OutpAltModBooleanAlt"
           }
         }
       ],
-      "name": "OutpAltsModsBoolean",
+      "name": "OutpAltModBoolean",
       "typeKind": "Output"
     },
-    "OutpAltsModsBooleanAlt": {
+    "OutpAltModBooleanAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltsModsBooleanAlt",
+          "object": "OutpAltModBooleanAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -7161,7 +7161,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpAltsModsBooleanAlt",
+          "object": "OutpAltModBooleanAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -7187,10 +7187,10 @@
           }
         }
       ],
-      "name": "OutpAltsModsBooleanAlt",
+      "name": "OutpAltModBooleanAlt",
       "typeKind": "Output"
     },
-    "OutpAltsModsParam": {
+    "OutpAltModParam": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
@@ -7202,10 +7202,10 @@
               "modifierKind": "Param"
             }
           ],
-          "object": "OutpAltsModsParam",
+          "object": "OutpAltModParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpAltsModsParamAlt"
+            "value": "OutpAltModParamAlt"
           }
         }
       ],
@@ -7221,11 +7221,11 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpAltsModsParamAlt"
+            "value": "OutpAltModParamAlt"
           }
         }
       ],
-      "name": "OutpAltsModsParam",
+      "name": "OutpAltModParam",
       "typeKind": "Output",
       "typeParams": [
         {
@@ -7234,12 +7234,12 @@
         }
       ]
     },
-    "OutpAltsModsParamAlt": {
+    "OutpAltModParamAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltsModsParamAlt",
+          "object": "OutpAltModParamAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -7250,7 +7250,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpAltsModsParamAlt",
+          "object": "OutpAltModParamAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -7276,15 +7276,15 @@
           }
         }
       ],
-      "name": "OutpAltsModsParamAlt",
+      "name": "OutpAltModParamAlt",
       "typeKind": "Output"
     },
-    "OutpAltsSimple": {
+    "OutpAltSimple": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltsSimple",
+          "object": "OutpAltSimple",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -7300,7 +7300,7 @@
           }
         }
       ],
-      "name": "OutpAltsSimple",
+      "name": "OutpAltSimple",
       "typeKind": "Output"
     },
     "OutParam": {
@@ -7699,12 +7699,12 @@
       },
       "typeKind": "Enum"
     },
-    "OutpDualAltsDual": {
+    "OutpDualAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "OutpDualAltsDual",
+          "object": "OutpDualAltDual",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -7715,7 +7715,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "OutpDualAltsDual",
+          "object": "OutpDualAltDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -7741,15 +7741,15 @@
           }
         }
       ],
-      "name": "OutpDualAltsDual",
+      "name": "OutpDualAltDual",
       "typeKind": "Dual"
     },
-    "OutpEnumFieldModsEnum": {
+    "OutpEnumFieldModEnum": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "enum": "OutpEnumFieldModsEnum",
+          "enum": "OutpEnumFieldModEnum",
           "name": "value"
         }
       ],
@@ -7759,7 +7759,7 @@
           "value": "value"
         }
       ],
-      "name": "OutpEnumFieldModsEnum",
+      "name": "OutpEnumFieldModEnum",
       "typeKind": "Enum"
     },
     "OutpField": {
@@ -7859,7 +7859,7 @@
       "name": "OutpFieldDualFld",
       "typeKind": "Dual"
     },
-    "OutpFieldModsEnum": {
+    "OutpFieldModEnum": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
@@ -7867,13 +7867,13 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "OutpEnumFieldModsEnum",
+              "by": "OutpEnumFieldModEnum",
               "modifierKind": "Dict",
               "typeKind": "Enum"
             }
           ],
           "name": "field",
-          "object": "OutpFieldModsEnum",
+          "object": "OutpFieldModEnum",
           "type": {
             "$tag": "_OutputBase",
             "value": "*"
@@ -7886,7 +7886,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "OutpEnumFieldModsEnum",
+              "by": "OutpEnumFieldModEnum",
               "modifierKind": "Dict",
               "typeKind": "Enum"
             }
@@ -7898,10 +7898,10 @@
           }
         }
       ],
-      "name": "OutpFieldModsEnum",
+      "name": "OutpFieldModEnum",
       "typeKind": "Output"
     },
-    "OutpFieldModsParam": {
+    "OutpFieldModParam": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
@@ -7914,10 +7914,10 @@
             }
           ],
           "name": "field",
-          "object": "OutpFieldModsParam",
+          "object": "OutpFieldModParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpFieldModsParamFld"
+            "value": "OutpFieldModParamFld"
           }
         }
       ],
@@ -7934,11 +7934,11 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpFieldModsParamFld"
+            "value": "OutpFieldModParamFld"
           }
         }
       ],
-      "name": "OutpFieldModsParam",
+      "name": "OutpFieldModParam",
       "typeKind": "Output",
       "typeParams": [
         {
@@ -7947,12 +7947,12 @@
         }
       ]
     },
-    "OutpFieldModsParamFld": {
+    "OutpFieldModParamFld": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpFieldModsParamFld",
+          "object": "OutpFieldModParamFld",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -7963,7 +7963,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpFieldModsParamFld",
+          "object": "OutpFieldModParamFld",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -7989,7 +7989,7 @@
           }
         }
       ],
-      "name": "OutpFieldModsParamFld",
+      "name": "OutpFieldModParamFld",
       "typeKind": "Output"
     },
     "OutpFieldObject": {
@@ -9203,15 +9203,15 @@
       "name": "OutpObjectAlias",
       "typeKind": "Output"
     },
-    "OutpObjectAlts": {
+    "OutpObjectAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpObjectAlts",
+          "object": "OutpObjectAlt",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpObjectAltsType"
+            "value": "OutpObjectAltType"
           }
         }
       ],
@@ -9220,16 +9220,16 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpObjectAltsType"
+            "value": "OutpObjectAltType"
           }
         }
       ],
-      "name": "OutpObjectAlts",
+      "name": "OutpObjectAlt",
       "typeKind": "Output"
     },
-    "OutpObjectAltsType": {
+    "OutpObjectAltType": {
       "$tag": "_TypeOutput",
-      "name": "OutpObjectAltsType",
+      "name": "OutpObjectAltType",
       "typeKind": "Output"
     },
     "OutpObjectField": {
@@ -9381,12 +9381,12 @@
       },
       "typeKind": "Output"
     },
-    "OutpParentAlts": {
+    "OutpParentAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentAltsRef",
+          "object": "OutpParentAltRef",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -9394,7 +9394,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentAlts",
+          "object": "OutpParentAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -9405,7 +9405,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "OutpParentAltsRef",
+          "object": "OutpParentAltRef",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -9421,19 +9421,19 @@
           }
         }
       ],
-      "name": "OutpParentAlts",
+      "name": "OutpParentAlt",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "OutpParentAltsRef"
+        "value": "OutpParentAltRef"
       },
       "typeKind": "Output"
     },
-    "OutpParentAltsRef": {
+    "OutpParentAltRef": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentAltsRef",
+          "object": "OutpParentAltRef",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -9444,7 +9444,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "OutpParentAltsRef",
+          "object": "OutpParentAltRef",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -9470,7 +9470,7 @@
           }
         }
       ],
-      "name": "OutpParentAltsRef",
+      "name": "OutpParentAltRef",
       "typeKind": "Output"
     },
     "OutpParentDual": {

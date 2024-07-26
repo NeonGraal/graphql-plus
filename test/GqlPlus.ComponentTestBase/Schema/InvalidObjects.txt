@@ -1,33 +1,33 @@
-﻿// alts-diff-mods
+﻿// alt-diff-mod
 object Test { | Test1 }
 object Test { | Test1[] }
 object Test1 { }
 
-// alts-mods-undef
+// alt-mod-undef
 object Test { | Alt[Domain] }
 object Alt { }
 
-// alts-mods-undef-param
+// alt-mod-undef-param
 object Test { | Alt[$a] }
 object Alt { }
 
-// alts-mods-wrong
+// alt-mod-wrong
 object Test { | Alt[Test] }
 object Alt { }
 
-// alts-more
+// alt-more
 object Test { | Recurse }
 object Recurse { | More }
 object More { | Test }
 
-// alts-recurse
+// alt-recurse
 object Test { | Recurse }
 object Recurse { | Test }
 
-// alts-self
+// alt-self
 object Test { | Test }
 
-// alts-simple-param
+// alt-simple-param
 object Test { | Number<String> }
 
 // dual-alt-input
@@ -88,7 +88,7 @@ output Bad { }
 object Test { field1[alias]: Test }
 object Test { field2[alias]: Test[] }
 
-// field-diff-mods
+// field-diff-mod
 object Test { field: Test }
 object Test { field: Test[] }
 
@@ -97,13 +97,13 @@ object Test { field: Test }
 object Test { field: Test1 }
 object Test1 { }
 
-// field-mods-undef
+// field-mod-undef
 object Test { field: Test[Random] }
 
-// field-mods-undef-param
+// field-mod-undef-param
 object Test { field: Test[$a] }
 
-// field-mods-wrong
+// field-mod-wrong
 object Test { field: Test[Test] }
 
 // field-simple-param
@@ -196,15 +196,15 @@ output Test { field(Param): Test }
 output Test { field(Param?): Test }
 input Param { }
 
-// output-params-mods-undef
+// output-params-mod-undef
 output Test { field(Param[Domain]): Test }
 input Param { }
 
-// output-params-mods-undef-param
+// output-params-mod-undef-param
 output Test { field(Param[$a]): Test }
 input Param { }
 
-// output-params-mods-wrong
+// output-params-mod-wrong
 output Test { field(Param[Test]): Test }
 input Param { }
 
@@ -215,7 +215,7 @@ output Test { field(Param): Test }
 output Test { :Bad }
 input Bad { }
 
-// parent-alt-mods
+// parent-alt-mod
 object Test { :Parent }
 object Test { | Alt }
 object Parent { | Alt[] }
@@ -265,18 +265,18 @@ object Test { :Recurse field1[alias]: Test }
 object Recurse { :Parent }
 object Parent { field2[alias]: Parent }
 
-// parent-field-mods
+// parent-field-mod
 object Test { :Parent }
 object Test { field: Test }
 object Parent { field: Test[] }
 
-// parent-field-mods-more
+// parent-field-mod-more
 object Test { :Recurse field: Test }
 object Recurse { :More }
 object More { :Parent }
 object Parent { field: Test[] }
 
-// parent-field-mods-recurse
+// parent-field-mod-recurse
 object Test { :Recurse field: Test }
 object Recurse { :Parent }
 object Parent { field: Test[] }

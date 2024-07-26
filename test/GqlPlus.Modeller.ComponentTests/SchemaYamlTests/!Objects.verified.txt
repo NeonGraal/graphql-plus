@@ -1,27 +1,27 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualAlts: !_TypeDual
+  !_Identifier DualAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualAlts
+      object: DualAlt
       type: !_DualBase
-        dual: DualAltsAlt
+        dual: DualAltAlt
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: DualAltsAlt
-    name: DualAlts
+        dual: DualAltAlt
+    name: DualAlt
     typeKind: !_TypeKind Dual
-  !_Identifier DualAltsAlt: !_TypeDual
+  !_Identifier DualAltAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualAltsAlt
+      object: DualAltAlt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualAltsAlt
+      object: DualAltAlt
       type: !_DualBase
         dual: Number
     alternates:
@@ -33,21 +33,21 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualAltsAlt
+    name: DualAltAlt
     typeKind: !_TypeKind Dual
-  !_Identifier DualAltsDual: !_TypeDual
+  !_Identifier DualAltDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualAltsDual
+      object: DualAltDual
       type: !_DualBase
-        dual: DualDualAltsDual
+        dual: DualDualAltDual
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: DualDualAltsDual
-    name: DualAltsDual
+        dual: DualDualAltDual
+    name: DualAltDual
     typeKind: !_TypeKind Dual
-  !_Identifier DualAltsModsBoolean: !_TypeDual
+  !_Identifier DualAltModBoolean: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       collections:
@@ -55,9 +55,9 @@ types: !_Map_Type
         by: ^
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
-      object: DualAltsModsBoolean
+      object: DualAltModBoolean
       type: !_DualBase
-        dual: DualAltsModsBooleanAlt
+        dual: DualAltModBooleanAlt
     alternates:
     - !_DualAlternate
       collections:
@@ -66,19 +66,19 @@ types: !_Map_Type
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       type: !_DualBase
-        dual: DualAltsModsBooleanAlt
-    name: DualAltsModsBoolean
+        dual: DualAltModBooleanAlt
+    name: DualAltModBoolean
     typeKind: !_TypeKind Dual
-  !_Identifier DualAltsModsBooleanAlt: !_TypeDual
+  !_Identifier DualAltModBooleanAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualAltsModsBooleanAlt
+      object: DualAltModBooleanAlt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualAltsModsBooleanAlt
+      object: DualAltModBooleanAlt
       type: !_DualBase
         dual: Number
     alternates:
@@ -90,18 +90,18 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualAltsModsBooleanAlt
+    name: DualAltModBooleanAlt
     typeKind: !_TypeKind Dual
-  !_Identifier DualAltsModsParam: !_TypeDual
+  !_Identifier DualAltModParam: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       collections:
       - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
-      object: DualAltsModsParam
+      object: DualAltModParam
       type: !_DualBase
-        dual: DualAltsModsParamAlt
+        dual: DualAltModParamAlt
     alternates:
     - !_DualAlternate
       collections:
@@ -109,22 +109,22 @@ types: !_Map_Type
         by: mod
         modifierKind: !_ModifierKind Param
       type: !_DualBase
-        dual: DualAltsModsParamAlt
-    name: DualAltsModsParam
+        dual: DualAltModParamAlt
+    name: DualAltModParam
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
       name: mod
-  !_Identifier DualAltsModsParamAlt: !_TypeDual
+  !_Identifier DualAltModParamAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualAltsModsParamAlt
+      object: DualAltModParamAlt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualAltsModsParamAlt
+      object: DualAltModParamAlt
       type: !_DualBase
         dual: Number
     alternates:
@@ -136,30 +136,30 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualAltsModsParamAlt
+    name: DualAltModParamAlt
     typeKind: !_TypeKind Dual
-  !_Identifier DualAltsSimple: !_TypeDual
+  !_Identifier DualAltSimple: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualAltsSimple
+      object: DualAltSimple
       type: !_DualBase
         dual: String
     alternates:
     - !_DualAlternate
       type: !_DualBase
         dual: String
-    name: DualAltsSimple
+    name: DualAltSimple
     typeKind: !_TypeKind Dual
-  !_Identifier DualDualAltsDual: !_TypeDual
+  !_Identifier DualDualAltDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualDualAltsDual
+      object: DualDualAltDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualDualAltsDual
+      object: DualDualAltDual
       type: !_DualBase
         dual: Number
     alternates:
@@ -171,17 +171,17 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualDualAltsDual
+    name: DualDualAltDual
     typeKind: !_TypeKind Dual
-  !_Identifier DualEnumFieldModsEnum: !_TypeEnum
+  !_Identifier DualEnumFieldModEnum: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: DualEnumFieldModsEnum
+      enum: DualEnumFieldModEnum
       name: value
     items:
     - !_Aliased
       name: value
-    name: DualEnumFieldModsEnum
+    name: DualEnumFieldModEnum
     typeKind: !_TypeKind Enum
   !_Identifier DualField: !_TypeDual
     allFields:
@@ -234,53 +234,53 @@ types: !_Map_Type
         dual: Number
     name: DualFieldDualFld
     typeKind: !_TypeKind Dual
-  !_Identifier DualFieldModsEnum: !_TypeDual
+  !_Identifier DualFieldModEnum: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
-      modifiers: [!_ModifierDictionary {by: DualEnumFieldModsEnum,
+      modifiers: [!_ModifierDictionary {by: DualEnumFieldModEnum,
           modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
-      object: DualFieldModsEnum
+      object: DualFieldModEnum
       type: !_DualBase
         dual: '*'
     fields:
     - !_DualField
-      modifiers: [!_ModifierDictionary {by: DualEnumFieldModsEnum,
+      modifiers: [!_ModifierDictionary {by: DualEnumFieldModEnum,
           modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
       type: !_DualBase
         dual: '*'
-    name: DualFieldModsEnum
+    name: DualFieldModEnum
     typeKind: !_TypeKind Dual
-  !_Identifier DualFieldModsParam: !_TypeDual
+  !_Identifier DualFieldModParam: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
-      object: DualFieldModsParam
+      object: DualFieldModParam
       type: !_DualBase
-        dual: DualFieldModsParamFld
+        dual: DualFieldModParamFld
     fields:
     - !_DualField
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       type: !_DualBase
-        dual: DualFieldModsParamFld
-    name: DualFieldModsParam
+        dual: DualFieldModParamFld
+    name: DualFieldModParam
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
       name: mod
-  !_Identifier DualFieldModsParamFld: !_TypeDual
+  !_Identifier DualFieldModParamFld: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualFieldModsParamFld
+      object: DualFieldModParamFld
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: DualFieldModsParamFld
+      object: DualFieldModParamFld
       type: !_DualBase
         dual: Number
     alternates:
@@ -292,7 +292,7 @@ types: !_Map_Type
       name: field
       type: !_DualBase
         dual: Number
-    name: DualFieldModsParamFld
+    name: DualFieldModParamFld
     typeKind: !_TypeKind Dual
   !_Identifier DualFieldObject: !_TypeDual
     allFields:
@@ -948,40 +948,40 @@ types: !_Map_Type
     parent: !_DualBase
       dual: DualParentRef
     typeKind: !_TypeKind Dual
-  !_Identifier DualParentAlts: !_TypeDual
+  !_Identifier DualParentAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualParentAltsRef
+      object: DualParentAltRef
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualAlternate)
-      object: DualParentAlts
+      object: DualParentAlt
       type: !_DualBase
         dual: Number
     allFields:
     - !_ObjectFor(_DualField)
       name: parent
-      object: DualParentAltsRef
+      object: DualParentAltRef
       type: !_DualBase
         dual: Number
     alternates:
     - !_DualAlternate
       type: !_DualBase
         dual: Number
-    name: DualParentAlts
+    name: DualParentAlt
     parent: !_DualBase
-      dual: DualParentAltsRef
+      dual: DualParentAltRef
     typeKind: !_TypeKind Dual
-  !_Identifier DualParentAltsRef: !_TypeDual
+  !_Identifier DualParentAltRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualParentAltsRef
+      object: DualParentAltRef
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: parent
-      object: DualParentAltsRef
+      object: DualParentAltRef
       type: !_DualBase
         dual: Number
     alternates:
@@ -993,7 +993,7 @@ types: !_Map_Type
       name: parent
       type: !_DualBase
         dual: Number
-    name: DualParentAltsRef
+    name: DualParentAltRef
     typeKind: !_TypeKind Dual
   !_Identifier DualParentDual: !_TypeDual
     allAlternates:
@@ -1252,28 +1252,28 @@ types: !_Map_Type
         input: String
     name: InFieldStr
     typeKind: !_TypeKind Input
-  !_Identifier InpAlts: !_TypeInput
+  !_Identifier InpAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpAlts
+      object: InpAlt
       type: !_InputBase
-        input: InpAltsAlt
+        input: InpAltAlt
     alternates:
     - !_InputAlternate
       type: !_InputBase
-        input: InpAltsAlt
-    name: InpAlts
+        input: InpAltAlt
+    name: InpAlt
     typeKind: !_TypeKind Input
-  !_Identifier InpAltsAlt: !_TypeInput
+  !_Identifier InpAltAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpAltsAlt
+      object: InpAltAlt
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: InpAltsAlt
+      object: InpAltAlt
       type: !_InputBase
         input: Number
     alternates:
@@ -1285,21 +1285,21 @@ types: !_Map_Type
       name: alt
       type: !_InputBase
         input: Number
-    name: InpAltsAlt
+    name: InpAltAlt
     typeKind: !_TypeKind Input
-  !_Identifier InpAltsDual: !_TypeInput
+  !_Identifier InpAltDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpAltsDual
+      object: InpAltDual
       type: !_DualBase
-        dual: InpDualAltsDual
+        dual: InpDualAltDual
     alternates:
     - !_InputAlternate
       type: !_DualBase
-        dual: InpDualAltsDual
-    name: InpAltsDual
+        dual: InpDualAltDual
+    name: InpAltDual
     typeKind: !_TypeKind Input
-  !_Identifier InpAltsModsBoolean: !_TypeInput
+  !_Identifier InpAltModBoolean: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       collections:
@@ -1307,9 +1307,9 @@ types: !_Map_Type
         by: ^
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
-      object: InpAltsModsBoolean
+      object: InpAltModBoolean
       type: !_InputBase
-        input: InpAltsModsBooleanAlt
+        input: InpAltModBooleanAlt
     alternates:
     - !_InputAlternate
       collections:
@@ -1318,19 +1318,19 @@ types: !_Map_Type
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       type: !_InputBase
-        input: InpAltsModsBooleanAlt
-    name: InpAltsModsBoolean
+        input: InpAltModBooleanAlt
+    name: InpAltModBoolean
     typeKind: !_TypeKind Input
-  !_Identifier InpAltsModsBooleanAlt: !_TypeInput
+  !_Identifier InpAltModBooleanAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpAltsModsBooleanAlt
+      object: InpAltModBooleanAlt
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: InpAltsModsBooleanAlt
+      object: InpAltModBooleanAlt
       type: !_InputBase
         input: Number
     alternates:
@@ -1342,18 +1342,18 @@ types: !_Map_Type
       name: alt
       type: !_InputBase
         input: Number
-    name: InpAltsModsBooleanAlt
+    name: InpAltModBooleanAlt
     typeKind: !_TypeKind Input
-  !_Identifier InpAltsModsParam: !_TypeInput
+  !_Identifier InpAltModParam: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       collections:
       - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
-      object: InpAltsModsParam
+      object: InpAltModParam
       type: !_InputBase
-        input: InpAltsModsParamAlt
+        input: InpAltModParamAlt
     alternates:
     - !_InputAlternate
       collections:
@@ -1361,22 +1361,22 @@ types: !_Map_Type
         by: mod
         modifierKind: !_ModifierKind Param
       type: !_InputBase
-        input: InpAltsModsParamAlt
-    name: InpAltsModsParam
+        input: InpAltModParamAlt
+    name: InpAltModParam
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
       name: mod
-  !_Identifier InpAltsModsParamAlt: !_TypeInput
+  !_Identifier InpAltModParamAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpAltsModsParamAlt
+      object: InpAltModParamAlt
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: InpAltsModsParamAlt
+      object: InpAltModParamAlt
       type: !_InputBase
         input: Number
     alternates:
@@ -1388,30 +1388,30 @@ types: !_Map_Type
       name: alt
       type: !_InputBase
         input: Number
-    name: InpAltsModsParamAlt
+    name: InpAltModParamAlt
     typeKind: !_TypeKind Input
-  !_Identifier InpAltsSimple: !_TypeInput
+  !_Identifier InpAltSimple: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpAltsSimple
+      object: InpAltSimple
       type: !_InputBase
         input: String
     alternates:
     - !_InputAlternate
       type: !_InputBase
         input: String
-    name: InpAltsSimple
+    name: InpAltSimple
     typeKind: !_TypeKind Input
-  !_Identifier InpDualAltsDual: !_TypeDual
+  !_Identifier InpDualAltDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpDualAltsDual
+      object: InpDualAltDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: InpDualAltsDual
+      object: InpDualAltDual
       type: !_DualBase
         dual: Number
     alternates:
@@ -1423,17 +1423,17 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: InpDualAltsDual
+    name: InpDualAltDual
     typeKind: !_TypeKind Dual
-  !_Identifier InpEnumFieldModsEnum: !_TypeEnum
+  !_Identifier InpEnumFieldModEnum: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: InpEnumFieldModsEnum
+      enum: InpEnumFieldModEnum
       name: value
     items:
     - !_Aliased
       name: value
-    name: InpEnumFieldModsEnum
+    name: InpEnumFieldModEnum
     typeKind: !_TypeKind Enum
   !_Identifier InpField: !_TypeInput
     allFields:
@@ -1486,53 +1486,53 @@ types: !_Map_Type
         dual: Number
     name: InpFieldDualFld
     typeKind: !_TypeKind Dual
-  !_Identifier InpFieldModsEnum: !_TypeInput
+  !_Identifier InpFieldModEnum: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
-      modifiers: [!_ModifierDictionary {by: InpEnumFieldModsEnum,
+      modifiers: [!_ModifierDictionary {by: InpEnumFieldModEnum,
           modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
-      object: InpFieldModsEnum
+      object: InpFieldModEnum
       type: !_InputBase
         input: '*'
     fields:
     - !_InputField
-      modifiers: [!_ModifierDictionary {by: InpEnumFieldModsEnum,
+      modifiers: [!_ModifierDictionary {by: InpEnumFieldModEnum,
           modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
       type: !_InputBase
         input: '*'
-    name: InpFieldModsEnum
+    name: InpFieldModEnum
     typeKind: !_TypeKind Input
-  !_Identifier InpFieldModsParam: !_TypeInput
+  !_Identifier InpFieldModParam: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
-      object: InpFieldModsParam
+      object: InpFieldModParam
       type: !_InputBase
-        input: InpFieldModsParamFld
+        input: InpFieldModParamFld
     fields:
     - !_InputField
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       type: !_InputBase
-        input: InpFieldModsParamFld
-    name: InpFieldModsParam
+        input: InpFieldModParamFld
+    name: InpFieldModParam
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
       name: mod
-  !_Identifier InpFieldModsParamFld: !_TypeInput
+  !_Identifier InpFieldModParamFld: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpFieldModsParamFld
+      object: InpFieldModParamFld
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpFieldModsParamFld
+      object: InpFieldModParamFld
       type: !_InputBase
         input: Number
     alternates:
@@ -1544,7 +1544,7 @@ types: !_Map_Type
       name: field
       type: !_InputBase
         input: Number
-    name: InpFieldModsParamFld
+    name: InpFieldModParamFld
     typeKind: !_TypeKind Input
   !_Identifier InpFieldObject: !_TypeInput
     allFields:
@@ -2200,40 +2200,40 @@ types: !_Map_Type
     parent: !_InputBase
       input: InpParentRef
     typeKind: !_TypeKind Input
-  !_Identifier InpParentAlts: !_TypeInput
+  !_Identifier InpParentAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentAltsRef
+      object: InpParentAltRef
       type: !_InputBase
         input: String
     - !_ObjectFor(_InputAlternate)
-      object: InpParentAlts
+      object: InpParentAlt
       type: !_InputBase
         input: Number
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
-      object: InpParentAltsRef
+      object: InpParentAltRef
       type: !_InputBase
         input: Number
     alternates:
     - !_InputAlternate
       type: !_InputBase
         input: Number
-    name: InpParentAlts
+    name: InpParentAlt
     parent: !_InputBase
-      input: InpParentAltsRef
+      input: InpParentAltRef
     typeKind: !_TypeKind Input
-  !_Identifier InpParentAltsRef: !_TypeInput
+  !_Identifier InpParentAltRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentAltsRef
+      object: InpParentAltRef
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
-      object: InpParentAltsRef
+      object: InpParentAltRef
       type: !_InputBase
         input: Number
     alternates:
@@ -2245,7 +2245,7 @@ types: !_Map_Type
       name: parent
       type: !_InputBase
         input: Number
-    name: InpParentAltsRef
+    name: InpParentAltRef
     typeKind: !_TypeKind Input
   !_Identifier InpParentDual: !_TypeInput
     allAlternates:
@@ -2946,28 +2946,28 @@ types: !_Map_Type
       name: outValueGen
     name: OutValueGen
     typeKind: !_TypeKind Enum
-  !_Identifier OutpAlts: !_TypeOutput
+  !_Identifier OutpAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpAlts
+      object: OutpAlt
       type: !_OutputBase
-        output: OutpAltsAlt
+        output: OutpAltAlt
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: OutpAltsAlt
-    name: OutpAlts
+        output: OutpAltAlt
+    name: OutpAlt
     typeKind: !_TypeKind Output
-  !_Identifier OutpAltsAlt: !_TypeOutput
+  !_Identifier OutpAltAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpAltsAlt
+      object: OutpAltAlt
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpAltsAlt
+      object: OutpAltAlt
       type: !_OutputBase
         output: Number
     alternates:
@@ -2979,21 +2979,21 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpAltsAlt
+    name: OutpAltAlt
     typeKind: !_TypeKind Output
-  !_Identifier OutpAltsDual: !_TypeOutput
+  !_Identifier OutpAltDual: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpAltsDual
+      object: OutpAltDual
       type: !_DualBase
-        dual: OutpDualAltsDual
+        dual: OutpDualAltDual
     alternates:
     - !_OutputAlternate
       type: !_DualBase
-        dual: OutpDualAltsDual
-    name: OutpAltsDual
+        dual: OutpDualAltDual
+    name: OutpAltDual
     typeKind: !_TypeKind Output
-  !_Identifier OutpAltsModsBoolean: !_TypeOutput
+  !_Identifier OutpAltModBoolean: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       collections:
@@ -3001,9 +3001,9 @@ types: !_Map_Type
         by: ^
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
-      object: OutpAltsModsBoolean
+      object: OutpAltModBoolean
       type: !_OutputBase
-        output: OutpAltsModsBooleanAlt
+        output: OutpAltModBooleanAlt
     alternates:
     - !_OutputAlternate
       collections:
@@ -3012,19 +3012,19 @@ types: !_Map_Type
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       type: !_OutputBase
-        output: OutpAltsModsBooleanAlt
-    name: OutpAltsModsBoolean
+        output: OutpAltModBooleanAlt
+    name: OutpAltModBoolean
     typeKind: !_TypeKind Output
-  !_Identifier OutpAltsModsBooleanAlt: !_TypeOutput
+  !_Identifier OutpAltModBooleanAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpAltsModsBooleanAlt
+      object: OutpAltModBooleanAlt
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpAltsModsBooleanAlt
+      object: OutpAltModBooleanAlt
       type: !_OutputBase
         output: Number
     alternates:
@@ -3036,18 +3036,18 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpAltsModsBooleanAlt
+    name: OutpAltModBooleanAlt
     typeKind: !_TypeKind Output
-  !_Identifier OutpAltsModsParam: !_TypeOutput
+  !_Identifier OutpAltModParam: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       collections:
       - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
-      object: OutpAltsModsParam
+      object: OutpAltModParam
       type: !_OutputBase
-        output: OutpAltsModsParamAlt
+        output: OutpAltModParamAlt
     alternates:
     - !_OutputAlternate
       collections:
@@ -3055,22 +3055,22 @@ types: !_Map_Type
         by: mod
         modifierKind: !_ModifierKind Param
       type: !_OutputBase
-        output: OutpAltsModsParamAlt
-    name: OutpAltsModsParam
+        output: OutpAltModParamAlt
+    name: OutpAltModParam
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: mod
-  !_Identifier OutpAltsModsParamAlt: !_TypeOutput
+  !_Identifier OutpAltModParamAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpAltsModsParamAlt
+      object: OutpAltModParamAlt
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpAltsModsParamAlt
+      object: OutpAltModParamAlt
       type: !_OutputBase
         output: Number
     alternates:
@@ -3082,30 +3082,30 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpAltsModsParamAlt
+    name: OutpAltModParamAlt
     typeKind: !_TypeKind Output
-  !_Identifier OutpAltsSimple: !_TypeOutput
+  !_Identifier OutpAltSimple: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpAltsSimple
+      object: OutpAltSimple
       type: !_OutputBase
         output: String
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         output: String
-    name: OutpAltsSimple
+    name: OutpAltSimple
     typeKind: !_TypeKind Output
-  !_Identifier OutpDualAltsDual: !_TypeDual
+  !_Identifier OutpDualAltDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: OutpDualAltsDual
+      object: OutpDualAltDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: OutpDualAltsDual
+      object: OutpDualAltDual
       type: !_DualBase
         dual: Number
     alternates:
@@ -3117,17 +3117,17 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: OutpDualAltsDual
+    name: OutpDualAltDual
     typeKind: !_TypeKind Dual
-  !_Identifier OutpEnumFieldModsEnum: !_TypeEnum
+  !_Identifier OutpEnumFieldModEnum: !_TypeEnum
     allItems:
     - !_EnumMember
-      enum: OutpEnumFieldModsEnum
+      enum: OutpEnumFieldModEnum
       name: value
     items:
     - !_Aliased
       name: value
-    name: OutpEnumFieldModsEnum
+    name: OutpEnumFieldModEnum
     typeKind: !_TypeKind Enum
   !_Identifier OutpField: !_TypeOutput
     allFields:
@@ -3180,53 +3180,53 @@ types: !_Map_Type
         dual: Number
     name: OutpFieldDualFld
     typeKind: !_TypeKind Dual
-  !_Identifier OutpFieldModsEnum: !_TypeOutput
+  !_Identifier OutpFieldModEnum: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: OutpEnumFieldModsEnum,
+      modifiers: [!_ModifierDictionary {by: OutpEnumFieldModEnum,
           modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
-      object: OutpFieldModsEnum
+      object: OutpFieldModEnum
       type: !_OutputBase
         output: '*'
     fields:
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: OutpEnumFieldModsEnum,
+      modifiers: [!_ModifierDictionary {by: OutpEnumFieldModEnum,
           modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
       type: !_OutputBase
         output: '*'
-    name: OutpFieldModsEnum
+    name: OutpFieldModEnum
     typeKind: !_TypeKind Output
-  !_Identifier OutpFieldModsParam: !_TypeOutput
+  !_Identifier OutpFieldModParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
-      object: OutpFieldModsParam
+      object: OutpFieldModParam
       type: !_OutputBase
-        output: OutpFieldModsParamFld
+        output: OutpFieldModParamFld
     fields:
     - !_OutputField
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       type: !_OutputBase
-        output: OutpFieldModsParamFld
-    name: OutpFieldModsParam
+        output: OutpFieldModParamFld
+    name: OutpFieldModParam
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: mod
-  !_Identifier OutpFieldModsParamFld: !_TypeOutput
+  !_Identifier OutpFieldModParamFld: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpFieldModsParamFld
+      object: OutpFieldModParamFld
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpFieldModsParamFld
+      object: OutpFieldModParamFld
       type: !_OutputBase
         output: Number
     alternates:
@@ -3238,7 +3238,7 @@ types: !_Map_Type
       name: field
       type: !_OutputBase
         output: Number
-    name: OutpFieldModsParamFld
+    name: OutpFieldModParamFld
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldObject: !_TypeOutput
     allFields:
@@ -3894,40 +3894,40 @@ types: !_Map_Type
     parent: !_OutputBase
       output: OutpParentRef
     typeKind: !_TypeKind Output
-  !_Identifier OutpParentAlts: !_TypeOutput
+  !_Identifier OutpParentAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentAltsRef
+      object: OutpParentAltRef
       type: !_OutputBase
         output: String
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentAlts
+      object: OutpParentAlt
       type: !_OutputBase
         output: Number
     allFields:
     - !_ObjectFor(_OutputField)
       name: parent
-      object: OutpParentAltsRef
+      object: OutpParentAltRef
       type: !_OutputBase
         output: Number
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         output: Number
-    name: OutpParentAlts
+    name: OutpParentAlt
     parent: !_OutputBase
-      output: OutpParentAltsRef
+      output: OutpParentAltRef
     typeKind: !_TypeKind Output
-  !_Identifier OutpParentAltsRef: !_TypeOutput
+  !_Identifier OutpParentAltRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentAltsRef
+      object: OutpParentAltRef
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: parent
-      object: OutpParentAltsRef
+      object: OutpParentAltRef
       type: !_OutputBase
         output: Number
     alternates:
@@ -3939,7 +3939,7 @@ types: !_Map_Type
       name: parent
       type: !_OutputBase
         output: Number
-    name: OutpParentAltsRef
+    name: OutpParentAltRef
     typeKind: !_TypeKind Output
   !_Identifier OutpParentDual: !_TypeOutput
     allAlternates:

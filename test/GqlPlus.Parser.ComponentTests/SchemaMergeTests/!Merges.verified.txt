@@ -264,39 +264,39 @@ Success
 }
 {
   !Du I@006/0001
-  DualObjectAlts
+  DualObjectAlt
   |
-  !DA I@025/0001
-  I@025/0001
-  DualObjectAltsType
+  !DA I@024/0001
+  I@024/0001
+  DualObjectAltType
 }
 {
-  !Du I@096/0001
-  DualObjectAltsType
+  !Du I@092/0001
+  DualObjectAltType
 }
 {
   !In I@007/0001
-  InpObjectAlts
+  InpObjectAlt
   |
-  !IA I@025/0001
-  I@025/0001
-  InpObjectAltsType
+  !IA I@024/0001
+  I@024/0001
+  InpObjectAltType
 }
 {
-  !In I@095/0001
-  InpObjectAltsType
+  !In I@091/0001
+  InpObjectAltType
 }
 {
   !Ou I@008/0001
-  OutpObjectAlts
+  OutpObjectAlt
   |
-  !OA I@027/0001
-  I@027/0001
-  OutpObjectAltsType
+  !OA I@026/0001
+  I@026/0001
+  OutpObjectAltType
 }
 {
-  !Ou I@102/0001
-  OutpObjectAltsType
+  !Ou I@098/0001
+  OutpObjectAltType
 }
 {
   !Du I@006/0001

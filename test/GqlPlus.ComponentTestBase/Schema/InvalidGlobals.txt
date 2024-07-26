@@ -1,6 +1,6 @@
 ﻿// bad-parse
 
-// category-diff-mods
+// category-diff-mod
 category { Test }
 category { Test? }
 output Test { }

@@ -209,15 +209,15 @@
       "name": "DualObjectAlias",
       "typeKind": "Dual"
     },
-    "DualObjectAlts": {
+    "DualObjectAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualObjectAlts",
+          "object": "DualObjectAlt",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualObjectAltsType"
+            "value": "DualObjectAltType"
           }
         }
       ],
@@ -226,16 +226,16 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualObjectAltsType"
+            "value": "DualObjectAltType"
           }
         }
       ],
-      "name": "DualObjectAlts",
+      "name": "DualObjectAlt",
       "typeKind": "Dual"
     },
-    "DualObjectAltsType": {
+    "DualObjectAltType": {
       "$tag": "_TypeDual",
-      "name": "DualObjectAltsType",
+      "name": "DualObjectAltType",
       "typeKind": "Dual"
     },
     "DualObjectField": {
@@ -690,15 +690,15 @@
       "name": "InpObjectAlias",
       "typeKind": "Input"
     },
-    "InpObjectAlts": {
+    "InpObjectAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpObjectAlts",
+          "object": "InpObjectAlt",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpObjectAltsType"
+            "value": "InpObjectAltType"
           }
         }
       ],
@@ -707,16 +707,16 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpObjectAltsType"
+            "value": "InpObjectAltType"
           }
         }
       ],
-      "name": "InpObjectAlts",
+      "name": "InpObjectAlt",
       "typeKind": "Input"
     },
-    "InpObjectAltsType": {
+    "InpObjectAltType": {
       "$tag": "_TypeInput",
-      "name": "InpObjectAltsType",
+      "name": "InpObjectAltType",
       "typeKind": "Input"
     },
     "InpObjectField": {
@@ -908,15 +908,15 @@
       "name": "OutpObjectAlias",
       "typeKind": "Output"
     },
-    "OutpObjectAlts": {
+    "OutpObjectAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpObjectAlts",
+          "object": "OutpObjectAlt",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpObjectAltsType"
+            "value": "OutpObjectAltType"
           }
         }
       ],
@@ -925,16 +925,16 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpObjectAltsType"
+            "value": "OutpObjectAltType"
           }
         }
       ],
-      "name": "OutpObjectAlts",
+      "name": "OutpObjectAlt",
       "typeKind": "Output"
     },
-    "OutpObjectAltsType": {
+    "OutpObjectAltType": {
       "$tag": "_TypeOutput",
-      "name": "OutpObjectAltsType",
+      "name": "OutpObjectAltType",
       "typeKind": "Output"
     },
     "OutpObjectField": {

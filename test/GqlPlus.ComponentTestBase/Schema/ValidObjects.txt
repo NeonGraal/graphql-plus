@@ -1,20 +1,20 @@
-﻿// alts
+﻿// alt
 object ObjName { | ObjNameAlt }
 object ObjNameAlt { alt: Number | String }
 
-// alts-dual
+// alt-dual
 object ObjName { | ObjDualName }
 dual ObjDualName { alt: Number | String }
 
-// alts-mods-Boolean
+// alt-mod-Boolean
 object ObjName { | ObjNameAlt[^] }
 object ObjNameAlt { alt: Number | String }
 
-// alts-mods-param
+// alt-mod-param
 object ObjName<$mod> { | ObjNameAlt[$mod] }
 object ObjNameAlt { alt: Number | String }
 
-// alts-simple
+// alt-simple
 object ObjName { | String }
 
 // field
@@ -24,11 +24,11 @@ object ObjName { field: * }
 object ObjName { field: ObjNameFld }
 dual ObjNameFld { field: Number | String }
 
-// field-mods-Enum
+// field-mod-Enum
 object ObjName { field: *[ObjEnumName] }
 enum ObjEnumName { value }
 
-// field-mods-param
+// field-mod-param
 object ObjName<$mod> { field: ObjNameFld[$mod] }
 object ObjNameFld { field: Number | String }
 
@@ -150,12 +150,12 @@ enum OutValueGen { outValueGen }
 output OutParams { field(OutParam): OutParams }
 input OutParam { param: Number | String }
 
-// output-params-mods-Domain
+// output-params-mod-Domain
 output OutParamsDomain { field(OutParamDomain[OutDomainParam]): OutDomainParam }
 input OutParamDomain { param: Number | String }
 domain OutDomainParam { number 1 ~ 10 }
 
-// output-params-mods-param
+// output-params-mod-param
 output OutParamsDomainParam<$mod> { field(OutParamDomainParam[$mod]): OutDomainsParam }
 input OutParamDomainParam { param: Number | String }
 domain OutDomainsParam { number 1 ~ 10 }
@@ -174,7 +174,7 @@ object ObjNameRef { parent: Number | String }
 object ObjName { :ObjNameRef }
 dual ObjNameRef { parent: Number | String }
 
-// parent-alts
+// parent-alt
 object ObjName { :ObjNameRef | Number }
 object ObjNameRef {  parent: Number | String }
 

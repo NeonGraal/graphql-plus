@@ -1083,74 +1083,74 @@ types: !_Map_Type
         dual: Number
     name: DualParentFieldRef
     typeKind: !_TypeKind Dual
-  !_Identifier DualParentParamsDiff: !_TypeDual
+  !_Identifier DualParentParamDiff: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualParentParamsDiffRef
+      object: DualParentParamDiffRef
       type: !_TypeParam b
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: DualParentParamsDiff
+      object: DualParentParamDiff
       type: !_TypeParam a
     fields:
     - !_DualField
       name: field
       type: !_TypeParam a
-    name: DualParentParamsDiff
+    name: DualParentParamDiff
     parent: !_DualBase
-      dual: DualParentParamsDiffRef
+      dual: DualParentParamDiffRef
       typeArgs:
       - !_TypeParam a
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
       name: a
-  !_Identifier DualParentParamsDiffRef: !_TypeDual
+  !_Identifier DualParentParamDiffRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualParentParamsDiffRef
+      object: DualParentParamDiffRef
       type: !_TypeParam b
     alternates:
     - !_DualAlternate
       type: !_TypeParam b
-    name: DualParentParamsDiffRef
+    name: DualParentParamDiffRef
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
       name: b
-  !_Identifier DualParentParamsSame: !_TypeDual
+  !_Identifier DualParentParamSame: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualParentParamsSameRef
+      object: DualParentParamSameRef
       type: !_TypeParam a
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: DualParentParamsSame
+      object: DualParentParamSame
       type: !_TypeParam a
     fields:
     - !_DualField
       name: field
       type: !_TypeParam a
-    name: DualParentParamsSame
+    name: DualParentParamSame
     parent: !_DualBase
-      dual: DualParentParamsSameRef
+      dual: DualParentParamSameRef
       typeArgs:
       - !_TypeParam a
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
       name: a
-  !_Identifier DualParentParamsSameRef: !_TypeDual
+  !_Identifier DualParentParamSameRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualParentParamsSameRef
+      object: DualParentParamSameRef
       type: !_TypeParam a
     alternates:
     - !_DualAlternate
       type: !_TypeParam a
-    name: DualParentParamsSameRef
+    name: DualParentParamSameRef
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
@@ -2335,74 +2335,74 @@ types: !_Map_Type
         input: Number
     name: InpParentFieldRef
     typeKind: !_TypeKind Input
-  !_Identifier InpParentParamsDiff: !_TypeInput
+  !_Identifier InpParentParamDiff: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentParamsDiffRef
+      object: InpParentParamDiffRef
       type: !_TypeParam b
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpParentParamsDiff
+      object: InpParentParamDiff
       type: !_TypeParam a
     fields:
     - !_InputField
       name: field
       type: !_TypeParam a
-    name: InpParentParamsDiff
+    name: InpParentParamDiff
     parent: !_InputBase
-      input: InpParentParamsDiffRef
+      input: InpParentParamDiffRef
       typeArgs:
       - !_TypeParam a
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
       name: a
-  !_Identifier InpParentParamsDiffRef: !_TypeInput
+  !_Identifier InpParentParamDiffRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentParamsDiffRef
+      object: InpParentParamDiffRef
       type: !_TypeParam b
     alternates:
     - !_InputAlternate
       type: !_TypeParam b
-    name: InpParentParamsDiffRef
+    name: InpParentParamDiffRef
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
       name: b
-  !_Identifier InpParentParamsSame: !_TypeInput
+  !_Identifier InpParentParamSame: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentParamsSameRef
+      object: InpParentParamSameRef
       type: !_TypeParam a
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpParentParamsSame
+      object: InpParentParamSame
       type: !_TypeParam a
     fields:
     - !_InputField
       name: field
       type: !_TypeParam a
-    name: InpParentParamsSame
+    name: InpParentParamSame
     parent: !_InputBase
-      input: InpParentParamsSameRef
+      input: InpParentParamSameRef
       typeArgs:
       - !_TypeParam a
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
       name: a
-  !_Identifier InpParentParamsSameRef: !_TypeInput
+  !_Identifier InpParentParamSameRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentParamsSameRef
+      object: InpParentParamSameRef
       type: !_TypeParam a
     alternates:
     - !_InputAlternate
       type: !_TypeParam a
-    name: InpParentParamsSameRef
+    name: InpParentParamSameRef
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
@@ -2676,62 +2676,60 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: type
-  !_Identifier OutParam: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: OutParam
-      type: !_InputBase
-        input: String
+  !_Identifier OutParam: !_TypeOutput
     allFields:
-    - !_ObjectFor(_InputField)
-      name: param
+    - !_ObjectFor(_OutputField)
+      name: field
       object: OutParam
-      type: !_InputBase
-        input: Number
-    alternates:
-    - !_InputAlternate
-      type: !_InputBase
-        input: String
+      parameters:
+      - !_InputParam
+        input: OutParamIn
+      type: !_OutputBase
+        output: OutParam
     fields:
-    - !_InputField
-      name: param
-      type: !_InputBase
-        input: Number
+    - !_OutputField
+      name: field
+      parameters:
+      - !_InputParam
+        input: OutParamIn
+      type: !_OutputBase
+        output: OutParam
     name: OutParam
-    typeKind: !_TypeKind Input
-  !_Identifier OutParamDomain: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: OutParamDomain
-      type: !_InputBase
-        input: String
+    typeKind: !_TypeKind Output
+  !_Identifier OutParamDomain: !_TypeOutput
     allFields:
-    - !_ObjectFor(_InputField)
-      name: param
+    - !_ObjectFor(_OutputField)
+      name: field
       object: OutParamDomain
-      type: !_InputBase
-        input: Number
-    alternates:
-    - !_InputAlternate
-      type: !_InputBase
-        input: String
+      parameters:
+      - !_InputParam
+        input: OutParamDomainIn
+        modifiers: [!_ModifierDictionary {by: OutDomainParam,
+            modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
+      type: !_OutputBase
+        output: OutDomainParam
     fields:
-    - !_InputField
-      name: param
-      type: !_InputBase
-        input: Number
+    - !_OutputField
+      name: field
+      parameters:
+      - !_InputParam
+        input: OutParamDomainIn
+        modifiers: [!_ModifierDictionary {by: OutDomainParam,
+            modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
+      type: !_OutputBase
+        output: OutDomainParam
     name: OutParamDomain
-    typeKind: !_TypeKind Input
-  !_Identifier OutParamDomainParam: !_TypeInput
+    typeKind: !_TypeKind Output
+  !_Identifier OutParamDomainIn: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: OutParamDomainParam
+      object: OutParamDomainIn
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: param
-      object: OutParamDomainParam
+      object: OutParamDomainIn
       type: !_InputBase
         input: Number
     alternates:
@@ -2743,120 +2741,122 @@ types: !_Map_Type
       name: param
       type: !_InputBase
         input: Number
+    name: OutParamDomainIn
+    typeKind: !_TypeKind Input
+  !_Identifier OutParamDomainParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParamDomainParam
+      parameters:
+      - !_InputParam
+        input: OutParamDomainParamIn
+        modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
+      type: !_OutputBase
+        output: OutDomainsParam
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_InputParam
+        input: OutParamDomainParamIn
+        modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
+      type: !_OutputBase
+        output: OutDomainsParam
     name: OutParamDomainParam
-    typeKind: !_TypeKind Input
-  !_Identifier OutParamParent: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: OutParamParent
-      type: !_InputBase
-        input: String
-    allFields:
-    - !_ObjectFor(_InputField)
-      name: parent
-      object: OutParamParent
-      type: !_InputBase
-        input: Number
-    alternates:
-    - !_InputAlternate
-      type: !_InputBase
-        input: String
-    fields:
-    - !_InputField
-      name: parent
-      type: !_InputBase
-        input: Number
-    name: OutParamParent
-    typeKind: !_TypeKind Input
-  !_Identifier OutParams: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutParams
-      parameters:
-      - !_InputParam
-        input: OutParam
-      type: !_OutputBase
-        output: OutParams
-    fields:
-    - !_OutputField
-      name: field
-      parameters:
-      - !_InputParam
-        input: OutParam
-      type: !_OutputBase
-        output: OutParams
-    name: OutParams
-    typeKind: !_TypeKind Output
-  !_Identifier OutParamsDomain: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutParamsDomain
-      parameters:
-      - !_InputParam
-        input: OutParamDomain
-        modifiers: [!_ModifierDictionary {by: OutDomainParam,
-            modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
-      type: !_OutputBase
-        output: OutDomainParam
-    fields:
-    - !_OutputField
-      name: field
-      parameters:
-      - !_InputParam
-        input: OutParamDomain
-        modifiers: [!_ModifierDictionary {by: OutDomainParam,
-            modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
-      type: !_OutputBase
-        output: OutDomainParam
-    name: OutParamsDomain
-    typeKind: !_TypeKind Output
-  !_Identifier OutParamsDomainParam: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutParamsDomainParam
-      parameters:
-      - !_InputParam
-        input: OutParamDomainParam
-        modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
-      type: !_OutputBase
-        output: OutDomainsParam
-    fields:
-    - !_OutputField
-      name: field
-      parameters:
-      - !_InputParam
-        input: OutParamDomainParam
-        modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
-      type: !_OutputBase
-        output: OutDomainsParam
-    name: OutParamsDomainParam
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: mod
-  !_Identifier OutParamsParent: !_TypeOutput
+  !_Identifier OutParamDomainParamIn: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: OutParamDomainParamIn
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: param
+      object: OutParamDomainParamIn
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: param
+      type: !_InputBase
+        input: Number
+    name: OutParamDomainParamIn
+    typeKind: !_TypeKind Input
+  !_Identifier OutParamIn: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: OutParamIn
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: param
+      object: OutParamIn
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: param
+      type: !_InputBase
+        input: Number
+    name: OutParamIn
+    typeKind: !_TypeKind Input
+  !_Identifier OutParamParent: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutParamsParent
+      object: OutParamParent
       parameters:
       - !_InputParam
-        input: OutParamParent
+        input: OutParamParentIn
       type: !_OutputBase
-        output: OutPrntParams
+        output: OutPrntParam
     fields:
     - !_OutputField
       name: field
       parameters:
       - !_InputParam
-        input: OutParamParent
+        input: OutParamParentIn
       type: !_OutputBase
-        output: OutPrntParams
-    name: OutParamsParent
+        output: OutPrntParam
+    name: OutParamParent
     typeKind: !_TypeKind Output
+  !_Identifier OutParamParentIn: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: OutParamParentIn
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: OutParamParentIn
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: parent
+      type: !_InputBase
+        input: Number
+    name: OutParamParentIn
+    typeKind: !_TypeKind Input
   !_Identifier OutParentGen: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -2873,16 +2873,46 @@ types: !_Map_Type
       name: OutPrntendedGen
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier OutPrntParam: !_TypeInput
+  !_Identifier OutPrntParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutParamParent
+      parameters:
+      - !_InputParam
+        input: OutParamParentIn
+      type: !_OutputBase
+        output: OutPrntParam
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutPrntParam
+      parameters:
+      - !_InputParam
+        input: OutPrntParamIn
+      type: !_OutputBase
+        output: OutPrntParam
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_InputParam
+        input: OutPrntParamIn
+      type: !_OutputBase
+        output: OutPrntParam
+    name: OutPrntParam
+    parent: !_OutputBase
+      output: OutParamParent
+    typeKind: !_TypeKind Output
+  !_Identifier OutPrntParamIn: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: OutPrntParam
+      object: OutPrntParamIn
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: param
-      object: OutPrntParam
+      object: OutPrntParamIn
       type: !_InputBase
         input: Number
     alternates:
@@ -2894,38 +2924,8 @@ types: !_Map_Type
       name: param
       type: !_InputBase
         input: Number
-    name: OutPrntParam
+    name: OutPrntParamIn
     typeKind: !_TypeKind Input
-  !_Identifier OutPrntParams: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutParamsParent
-      parameters:
-      - !_InputParam
-        input: OutParamParent
-      type: !_OutputBase
-        output: OutPrntParams
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutPrntParams
-      parameters:
-      - !_InputParam
-        input: OutPrntParam
-      type: !_OutputBase
-        output: OutPrntParams
-    fields:
-    - !_OutputField
-      name: field
-      parameters:
-      - !_InputParam
-        input: OutPrntParam
-      type: !_OutputBase
-        output: OutPrntParams
-    name: OutPrntParams
-    parent: !_OutputBase
-      output: OutParamsParent
-    typeKind: !_TypeKind Output
   !_Identifier OutPrntendedGen: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -4029,74 +4029,74 @@ types: !_Map_Type
         output: Number
     name: OutpParentFieldRef
     typeKind: !_TypeKind Output
-  !_Identifier OutpParentParamsDiff: !_TypeOutput
+  !_Identifier OutpParentParamDiff: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentParamsDiffRef
+      object: OutpParentParamDiffRef
       type: !_TypeParam b
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpParentParamsDiff
+      object: OutpParentParamDiff
       type: !_TypeParam a
     fields:
     - !_OutputField
       name: field
       type: !_TypeParam a
-    name: OutpParentParamsDiff
+    name: OutpParentParamDiff
     parent: !_OutputBase
-      output: OutpParentParamsDiffRef
+      output: OutpParentParamDiffRef
       typeArgs:
       - !_TypeParam a
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: a
-  !_Identifier OutpParentParamsDiffRef: !_TypeOutput
+  !_Identifier OutpParentParamDiffRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentParamsDiffRef
+      object: OutpParentParamDiffRef
       type: !_TypeParam b
     alternates:
     - !_OutputAlternate
       type: !_TypeParam b
-    name: OutpParentParamsDiffRef
+    name: OutpParentParamDiffRef
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: b
-  !_Identifier OutpParentParamsSame: !_TypeOutput
+  !_Identifier OutpParentParamSame: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentParamsSameRef
+      object: OutpParentParamSameRef
       type: !_TypeParam a
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpParentParamsSame
+      object: OutpParentParamSame
       type: !_TypeParam a
     fields:
     - !_OutputField
       name: field
       type: !_TypeParam a
-    name: OutpParentParamsSame
+    name: OutpParentParamSame
     parent: !_OutputBase
-      output: OutpParentParamsSameRef
+      output: OutpParentParamSameRef
       typeArgs:
       - !_TypeParam a
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: a
-  !_Identifier OutpParentParamsSameRef: !_TypeOutput
+  !_Identifier OutpParentParamSameRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentParamsSameRef
+      object: OutpParentParamSameRef
       type: !_TypeParam a
     alternates:
     - !_OutputAlternate
       type: !_TypeParam a
-    name: OutpParentParamsSameRef
+    name: OutpParentParamSameRef
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

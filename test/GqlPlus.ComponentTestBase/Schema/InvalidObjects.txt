@@ -191,24 +191,24 @@ output Test { | Ref<Wrong.unknown> }
 output Ref<$type> { field: $type }
 output Wrong { }
 
-// output-params-diff
+// output-param-diff
 output Test { field(Param): Test }
 output Test { field(Param?): Test }
 input Param { }
 
-// output-params-mod-undef
+// output-param-mod-undef
 output Test { field(Param[Domain]): Test }
 input Param { }
 
-// output-params-mod-undef-param
+// output-param-mod-undef-param
 output Test { field(Param[$a]): Test }
 input Param { }
 
-// output-params-mod-wrong
+// output-param-mod-wrong
 output Test { field(Param[Test]): Test }
 input Param { }
 
-// output-params-undef
+// output-param-undef
 output Test { field(Param): Test }
 
 // output-parent-input

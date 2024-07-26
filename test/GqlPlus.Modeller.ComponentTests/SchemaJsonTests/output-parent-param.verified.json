@@ -1,0 +1,191 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutParamParent": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutParamParent",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutParamParentIn"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutParamParentIn"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParam"
+          }
+        }
+      ],
+      "name": "OutParamParent",
+      "typeKind": "Output"
+    },
+    "OutParamParentIn": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "OutParamParentIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "parent",
+          "object": "OutParamParentIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "parent",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutParamParentIn",
+      "typeKind": "Input"
+    },
+    "OutPrntParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutParamParent",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutParamParentIn"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParam"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutPrntParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutPrntParamIn"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutPrntParamIn"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParam"
+          }
+        }
+      ],
+      "name": "OutPrntParam",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "OutParamParent"
+      },
+      "typeKind": "Output"
+    },
+    "OutPrntParamIn": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "OutPrntParamIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "param",
+          "object": "OutPrntParamIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "param",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutPrntParamIn",
+      "typeKind": "Input"
+    }
+  }
+}

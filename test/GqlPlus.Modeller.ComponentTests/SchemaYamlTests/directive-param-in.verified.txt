@@ -1,7 +1,8 @@
 ﻿!_Schema
 directives: !_Map_Directives
   !_Identifier DirParam: !_Directive
-    locations: !_Set(_Location) {Fragment: _, Operation: _}
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
     name: DirParam
     parameters:
     - !_InputParam

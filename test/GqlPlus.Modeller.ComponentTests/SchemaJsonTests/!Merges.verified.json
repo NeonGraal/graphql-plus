@@ -65,18 +65,18 @@
       "name": "DirAlias",
       "repeatable": false
     },
-    "DirParams": {
+    "DirParam": {
       "$tag": "_Directive",
       "locations": {
         "$tag": "_Set(_Location)",
         "Fragment": "_",
         "Operation": "_"
       },
-      "name": "DirParams",
+      "name": "DirParam",
       "parameters": [
         {
           "$tag": "_InputParam",
-          "value": "DirParamsIn"
+          "value": "DirParamIn"
         }
       ],
       "repeatable": false
@@ -193,9 +193,9 @@
       "name": "CatMods",
       "typeKind": "Output"
     },
-    "DirParamsIn": {
+    "DirParamIn": {
       "$tag": "_TypeInput",
-      "name": "DirParamsIn",
+      "name": "DirParamIn",
       "typeKind": "Input"
     },
     "DualObject": {
@@ -302,19 +302,19 @@
       "name": "DualObjectFieldFld",
       "typeKind": "Dual"
     },
-    "DualObjectParams": {
+    "DualObjectParam": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "test",
-          "object": "DualObjectParams",
+          "object": "DualObjectParam",
           "type": "test"
         },
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "type",
-          "object": "DualObjectParams",
+          "object": "DualObjectParam",
           "type": "type"
         }
       ],
@@ -330,7 +330,7 @@
           "type": "type"
         }
       ],
-      "name": "DualObjectParams",
+      "name": "DualObjectParam",
       "typeKind": "Dual",
       "typeParams": [
         {
@@ -618,23 +618,13 @@
       "name": "FieldEnums",
       "typeKind": "Output"
     },
-    "FieldParam1": {
-      "$tag": "_TypeInput",
-      "name": "FieldParam1",
-      "typeKind": "Input"
-    },
-    "FieldParam2": {
-      "$tag": "_TypeInput",
-      "name": "FieldParam2",
-      "typeKind": "Input"
-    },
-    "FieldParams": {
+    "FieldParam": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "FieldParams",
+          "object": "FieldParam",
           "parameters": [
             {
               "$tag": "_InputParam",
@@ -647,7 +637,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "FieldParamsFld"
+            "value": "FieldParamFld"
           }
         }
       ],
@@ -667,16 +657,26 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "FieldParamsFld"
+            "value": "FieldParamFld"
           }
         }
       ],
-      "name": "FieldParams",
+      "name": "FieldParam",
       "typeKind": "Output"
     },
-    "FieldParamsFld": {
+    "FieldParam1": {
+      "$tag": "_TypeInput",
+      "name": "FieldParam1",
+      "typeKind": "Input"
+    },
+    "FieldParam2": {
+      "$tag": "_TypeInput",
+      "name": "FieldParam2",
+      "typeKind": "Input"
+    },
+    "FieldParamFld": {
       "$tag": "_TypeOutput",
-      "name": "FieldParamsFld",
+      "name": "FieldParamFld",
       "typeKind": "Output"
     },
     "InpObject": {
@@ -783,19 +783,19 @@
       "name": "InpObjectFieldFld",
       "typeKind": "Input"
     },
-    "InpObjectParams": {
+    "InpObjectParam": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "test",
-          "object": "InpObjectParams",
+          "object": "InpObjectParam",
           "type": "test"
         },
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "type",
-          "object": "InpObjectParams",
+          "object": "InpObjectParam",
           "type": "type"
         }
       ],
@@ -811,7 +811,7 @@
           "type": "type"
         }
       ],
-      "name": "InpObjectParams",
+      "name": "InpObjectParam",
       "typeKind": "Input",
       "typeParams": [
         {
@@ -1001,19 +1001,19 @@
       "name": "OutpObjectFieldFld",
       "typeKind": "Output"
     },
-    "OutpObjectParams": {
+    "OutpObjectParam": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "test",
-          "object": "OutpObjectParams",
+          "object": "OutpObjectParam",
           "type": "test"
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
-          "object": "OutpObjectParams",
+          "object": "OutpObjectParam",
           "type": "type"
         }
       ],
@@ -1029,7 +1029,7 @@
           "type": "type"
         }
       ],
-      "name": "OutpObjectParams",
+      "name": "OutpObjectParam",
       "typeKind": "Output",
       "typeParams": [
         {

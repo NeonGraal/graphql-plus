@@ -21,10 +21,10 @@ directive @Dir { spread }
 directive @DirAlias [DirA1] { variable }
 directive @DirAlias [DirA2] { field }
 
-// directive-params
-directive @DirParams(DirParamsIn) { operation }
-directive @DirParams { fragment }
-input DirParamsIn { }
+// directive-param
+directive @DirParam(DirParamIn) { operation }
+directive @DirParam { fragment }
+input DirParamIn { }
 
 // option
 option Schema { }
@@ -90,14 +90,14 @@ output FieldEnumAlias { field [field2] = true }
 output FieldEnums { field = Boolean.true }
 output FieldEnums { field = true }
 
-// output-field-params
-output FieldParams { field(FieldParam1): FieldParamsFld }
-output FieldParams { field(FieldParam2): FieldParamsFld }
+// output-field-param
+output FieldParam { field(FieldParam1): FieldParamFld }
+output FieldParam { field(FieldParam2): FieldParamFld }
 input FieldParam1 { }
 input FieldParam2 { }
-output FieldParamsFld { }
+output FieldParamFld { }
 
-// object-params
+// object-param
 object ObjName<$test> { test: $test }
 object ObjName<$type> { type: $type }
 

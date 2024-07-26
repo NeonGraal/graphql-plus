@@ -2077,12 +2077,12 @@
       "name": "DualParentFieldRef",
       "typeKind": "Dual"
     },
-    "DualParentParamsDiff": {
+    "DualParentParamDiff": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentParamsDiffRef",
+          "object": "DualParentParamDiffRef",
           "type": "b"
         }
       ],
@@ -2090,7 +2090,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualParentParamsDiff",
+          "object": "DualParentParamDiff",
           "type": "a"
         }
       ],
@@ -2101,10 +2101,10 @@
           "type": "a"
         }
       ],
-      "name": "DualParentParamsDiff",
+      "name": "DualParentParamDiff",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "DualParentParamsDiffRef",
+        "dual": "DualParentParamDiffRef",
         "typeArgs": ["a"]
       },
       "typeKind": "Dual",
@@ -2115,12 +2115,12 @@
         }
       ]
     },
-    "DualParentParamsDiffRef": {
+    "DualParentParamDiffRef": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentParamsDiffRef",
+          "object": "DualParentParamDiffRef",
           "type": "b"
         }
       ],
@@ -2130,7 +2130,7 @@
           "type": "b"
         }
       ],
-      "name": "DualParentParamsDiffRef",
+      "name": "DualParentParamDiffRef",
       "typeKind": "Dual",
       "typeParams": [
         {
@@ -2139,12 +2139,12 @@
         }
       ]
     },
-    "DualParentParamsSame": {
+    "DualParentParamSame": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentParamsSameRef",
+          "object": "DualParentParamSameRef",
           "type": "a"
         }
       ],
@@ -2152,7 +2152,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualParentParamsSame",
+          "object": "DualParentParamSame",
           "type": "a"
         }
       ],
@@ -2163,10 +2163,10 @@
           "type": "a"
         }
       ],
-      "name": "DualParentParamsSame",
+      "name": "DualParentParamSame",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "DualParentParamsSameRef",
+        "dual": "DualParentParamSameRef",
         "typeArgs": ["a"]
       },
       "typeKind": "Dual",
@@ -2177,12 +2177,12 @@
         }
       ]
     },
-    "DualParentParamsSameRef": {
+    "DualParentParamSameRef": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentParamsSameRef",
+          "object": "DualParentParamSameRef",
           "type": "a"
         }
       ],
@@ -2192,7 +2192,7 @@
           "type": "a"
         }
       ],
-      "name": "DualParentParamsSameRef",
+      "name": "DualParentParamSameRef",
       "typeKind": "Dual",
       "typeParams": [
         {
@@ -4461,12 +4461,12 @@
       "name": "InpParentFieldRef",
       "typeKind": "Input"
     },
-    "InpParentParamsDiff": {
+    "InpParentParamDiff": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentParamsDiffRef",
+          "object": "InpParentParamDiffRef",
           "type": "b"
         }
       ],
@@ -4474,7 +4474,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpParentParamsDiff",
+          "object": "InpParentParamDiff",
           "type": "a"
         }
       ],
@@ -4485,10 +4485,10 @@
           "type": "a"
         }
       ],
-      "name": "InpParentParamsDiff",
+      "name": "InpParentParamDiff",
       "parent": {
         "$tag": "_InputBase",
-        "input": "InpParentParamsDiffRef",
+        "input": "InpParentParamDiffRef",
         "typeArgs": ["a"]
       },
       "typeKind": "Input",
@@ -4499,12 +4499,12 @@
         }
       ]
     },
-    "InpParentParamsDiffRef": {
+    "InpParentParamDiffRef": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentParamsDiffRef",
+          "object": "InpParentParamDiffRef",
           "type": "b"
         }
       ],
@@ -4514,7 +4514,7 @@
           "type": "b"
         }
       ],
-      "name": "InpParentParamsDiffRef",
+      "name": "InpParentParamDiffRef",
       "typeKind": "Input",
       "typeParams": [
         {
@@ -4523,12 +4523,12 @@
         }
       ]
     },
-    "InpParentParamsSame": {
+    "InpParentParamSame": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentParamsSameRef",
+          "object": "InpParentParamSameRef",
           "type": "a"
         }
       ],
@@ -4536,7 +4536,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpParentParamsSame",
+          "object": "InpParentParamSame",
           "type": "a"
         }
       ],
@@ -4547,10 +4547,10 @@
           "type": "a"
         }
       ],
-      "name": "InpParentParamsSame",
+      "name": "InpParentParamSame",
       "parent": {
         "$tag": "_InputBase",
-        "input": "InpParentParamsSameRef",
+        "input": "InpParentParamSameRef",
         "typeArgs": ["a"]
       },
       "typeKind": "Input",
@@ -4561,12 +4561,12 @@
         }
       ]
     },
-    "InpParentParamsSameRef": {
+    "InpParentParamSameRef": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentParamsSameRef",
+          "object": "InpParentParamSameRef",
           "type": "a"
         }
       ],
@@ -4576,7 +4576,7 @@
           "type": "a"
         }
       ],
-      "name": "InpParentParamsSameRef",
+      "name": "InpParentParamSameRef",
       "typeKind": "Input",
       "typeParams": [
         {
@@ -5343,101 +5343,103 @@
       "typeKind": "Output"
     },
     "OutParam": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "OutParam",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
-        }
-      ],
+      "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "param",
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
           "object": "OutParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutParamIn"
+            }
+          ],
           "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
+            "$tag": "_OutputBase",
+            "value": "OutParam"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
-          "name": "param",
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutParamIn"
+            }
+          ],
           "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
+            "$tag": "_OutputBase",
+            "value": "OutParam"
           }
         }
       ],
       "name": "OutParam",
-      "typeKind": "Input"
+      "typeKind": "Output"
     },
     "OutParamDomain": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "OutParamDomain",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
-        }
-      ],
+      "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "param",
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
           "object": "OutParamDomain",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "OutParamDomainIn",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierDictionary",
+                  "by": "OutDomainParam",
+                  "modifierKind": "Dict",
+                  "typeKind": "Domain"
+                }
+              ]
+            }
+          ],
           "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
+            "$tag": "_OutputBase",
+            "value": "OutDomainParam"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_InputField",
-          "name": "param",
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "OutParamDomainIn",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierDictionary",
+                  "by": "OutDomainParam",
+                  "modifierKind": "Dict",
+                  "typeKind": "Domain"
+                }
+              ]
+            }
+          ],
           "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
+            "$tag": "_OutputBase",
+            "value": "OutDomainParam"
           }
         }
       ],
       "name": "OutParamDomain",
-      "typeKind": "Input"
+      "typeKind": "Output"
     },
-    "OutParamDomainParam": {
+    "OutParamDomainIn": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "OutParamDomainParam",
+          "object": "OutParamDomainIn",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -5448,7 +5450,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "param",
-          "object": "OutParamDomainParam",
+          "object": "OutParamDomainIn",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -5471,199 +5473,62 @@
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
+          }
+        }
+      ],
+      "name": "OutParamDomainIn",
+      "typeKind": "Input"
+    },
+    "OutParamDomainParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutParamDomainParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "OutParamDomainParamIn",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierTypeParam",
+                  "by": "mod",
+                  "modifierKind": "Param"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutDomainsParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "OutParamDomainParamIn",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierTypeParam",
+                  "by": "mod",
+                  "modifierKind": "Param"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutDomainsParam"
           }
         }
       ],
       "name": "OutParamDomainParam",
-      "typeKind": "Input"
-    },
-    "OutParamParent": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "OutParamParent",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "parent",
-          "object": "OutParamParent",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "parent",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "OutParamParent",
-      "typeKind": "Input"
-    },
-    "OutParams": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutParams",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "value": "OutParam"
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutParams"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "value": "OutParam"
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutParams"
-          }
-        }
-      ],
-      "name": "OutParams",
-      "typeKind": "Output"
-    },
-    "OutParamsDomain": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutParamsDomain",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "input": "OutParamDomain",
-              "modifiers": [
-                {
-                  "$tag": "_ModifierDictionary",
-                  "by": "OutDomainParam",
-                  "modifierKind": "Dict",
-                  "typeKind": "Domain"
-                }
-              ]
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutDomainParam"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "input": "OutParamDomain",
-              "modifiers": [
-                {
-                  "$tag": "_ModifierDictionary",
-                  "by": "OutDomainParam",
-                  "modifierKind": "Dict",
-                  "typeKind": "Domain"
-                }
-              ]
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutDomainParam"
-          }
-        }
-      ],
-      "name": "OutParamsDomain",
-      "typeKind": "Output"
-    },
-    "OutParamsDomainParam": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutParamsDomainParam",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "input": "OutParamDomainParam",
-              "modifiers": [
-                {
-                  "$tag": "_ModifierTypeParam",
-                  "by": "mod",
-                  "modifierKind": "Param"
-                }
-              ]
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutDomainsParam"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "input": "OutParamDomainParam",
-              "modifiers": [
-                {
-                  "$tag": "_ModifierTypeParam",
-                  "by": "mod",
-                  "modifierKind": "Param"
-                }
-              ]
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutDomainsParam"
-          }
-        }
-      ],
-      "name": "OutParamsDomainParam",
       "typeKind": "Output",
       "typeParams": [
         {
@@ -5672,22 +5537,112 @@
         }
       ]
     },
-    "OutParamsParent": {
+    "OutParamDomainParamIn": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "OutParamDomainParamIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "param",
+          "object": "OutParamDomainParamIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "param",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutParamDomainParamIn",
+      "typeKind": "Input"
+    },
+    "OutParamIn": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "OutParamIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "param",
+          "object": "OutParamIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "param",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutParamIn",
+      "typeKind": "Input"
+    },
+    "OutParamParent": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutParamsParent",
+          "object": "OutParamParent",
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "OutParamParent"
+              "value": "OutParamParentIn"
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutPrntParams"
+            "value": "OutPrntParam"
           }
         }
       ],
@@ -5698,17 +5653,62 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "OutParamParent"
+              "value": "OutParamParentIn"
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutPrntParams"
+            "value": "OutPrntParam"
           }
         }
       ],
-      "name": "OutParamsParent",
+      "name": "OutParamParent",
       "typeKind": "Output"
+    },
+    "OutParamParentIn": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "OutParamParentIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "parent",
+          "object": "OutParamParentIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "parent",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutParamParentIn",
+      "typeKind": "Input"
     },
     "OutParentGen": {
       "$tag": "_TypeEnum",
@@ -7522,12 +7522,12 @@
       "name": "OutpParentFieldRef",
       "typeKind": "Output"
     },
-    "OutpParentParamsDiff": {
+    "OutpParentParamDiff": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentParamsDiffRef",
+          "object": "OutpParentParamDiffRef",
           "type": "b"
         }
       ],
@@ -7535,7 +7535,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpParentParamsDiff",
+          "object": "OutpParentParamDiff",
           "type": "a"
         }
       ],
@@ -7546,10 +7546,10 @@
           "type": "a"
         }
       ],
-      "name": "OutpParentParamsDiff",
+      "name": "OutpParentParamDiff",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpParentParamsDiffRef",
+        "output": "OutpParentParamDiffRef",
         "typeArgs": ["a"]
       },
       "typeKind": "Output",
@@ -7560,12 +7560,12 @@
         }
       ]
     },
-    "OutpParentParamsDiffRef": {
+    "OutpParentParamDiffRef": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentParamsDiffRef",
+          "object": "OutpParentParamDiffRef",
           "type": "b"
         }
       ],
@@ -7575,7 +7575,7 @@
           "type": "b"
         }
       ],
-      "name": "OutpParentParamsDiffRef",
+      "name": "OutpParentParamDiffRef",
       "typeKind": "Output",
       "typeParams": [
         {
@@ -7584,12 +7584,12 @@
         }
       ]
     },
-    "OutpParentParamsSame": {
+    "OutpParentParamSame": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentParamsSameRef",
+          "object": "OutpParentParamSameRef",
           "type": "a"
         }
       ],
@@ -7597,7 +7597,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpParentParamsSame",
+          "object": "OutpParentParamSame",
           "type": "a"
         }
       ],
@@ -7608,10 +7608,10 @@
           "type": "a"
         }
       ],
-      "name": "OutpParentParamsSame",
+      "name": "OutpParentParamSame",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpParentParamsSameRef",
+        "output": "OutpParentParamSameRef",
         "typeArgs": ["a"]
       },
       "typeKind": "Output",
@@ -7622,12 +7622,12 @@
         }
       ]
     },
-    "OutpParentParamsSameRef": {
+    "OutpParentParamSameRef": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentParamsSameRef",
+          "object": "OutpParentParamSameRef",
           "type": "a"
         }
       ],
@@ -7637,7 +7637,7 @@
           "type": "a"
         }
       ],
-      "name": "OutpParentParamsSameRef",
+      "name": "OutpParentParamSameRef",
       "typeKind": "Output",
       "typeParams": [
         {
@@ -7710,11 +7710,68 @@
       "typeKind": "Enum"
     },
     "OutPrntParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutParamParent",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutParamParentIn"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParam"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutPrntParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutPrntParamIn"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutPrntParamIn"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutPrntParam"
+          }
+        }
+      ],
+      "name": "OutPrntParam",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "OutParamParent"
+      },
+      "typeKind": "Output"
+    },
+    "OutPrntParamIn": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "OutPrntParam",
+          "object": "OutPrntParamIn",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -7725,7 +7782,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "param",
-          "object": "OutPrntParam",
+          "object": "OutPrntParamIn",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -7751,65 +7808,8 @@
           }
         }
       ],
-      "name": "OutPrntParam",
+      "name": "OutPrntParamIn",
       "typeKind": "Input"
-    },
-    "OutPrntParams": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutParamsParent",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "value": "OutParamParent"
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutPrntParams"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutPrntParams",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "value": "OutPrntParam"
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutPrntParams"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "value": "OutPrntParam"
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutPrntParams"
-          }
-        }
-      ],
-      "name": "OutPrntParams",
-      "parent": {
-        "$tag": "_OutputBase",
-        "value": "OutParamsParent"
-      },
-      "typeKind": "Output"
     },
     "OutValueGen": {
       "$tag": "_TypeEnum",

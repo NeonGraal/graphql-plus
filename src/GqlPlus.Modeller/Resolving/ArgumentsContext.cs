@@ -9,7 +9,7 @@ internal class ArgumentsContext(
 {
   internal IResolveContext Parent { get; } = parent;
 
-  public bool TryGetArg<TArg>(string context, string name, [NotNullWhen(true)] out TArg? arg, bool canError = true)
+  public bool TryGetArg<TArg>(string label, string name, [NotNullWhen(true)] out TArg? arg, bool canError = true)
     where TArg : IObjArgModel
   {
     arg = default;
@@ -24,10 +24,10 @@ internal class ArgumentsContext(
     }
 
     return Parent is ArgumentsContext parentContext
-        && parentContext.TryGetArg(context, name, out arg, canError);
+        && parentContext.TryGetArg(label, name, out arg, canError);
   }
 
-  public bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model, bool canError = true)
+  public bool TryGetType<TModel>(string label, string? name, [NotNullWhen(true)] out TModel? model, bool canError = true)
     where TModel : IModelBase
   {
     model = default;
@@ -40,6 +40,6 @@ internal class ArgumentsContext(
       return true;
     }
 
-    return Parent.TryGetType(context, name, out model, canError);
+    return Parent.TryGetType(label, name, out model, canError);
   }
 }

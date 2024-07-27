@@ -28,50 +28,6 @@ internal class TypeInputResolver(
     return result;
   }
 
-  private Func<InputFieldModel, InputFieldModel> ApplyField(string context, ArgumentsContext arguments)
-    => field => {
-      ObjDescribedModel<InputBaseModel>? fieldType = field.Type;
-      if (fieldType is not null
-        && GetInputArgument(context + " - " + field.Name, fieldType.Base, arguments, out InputBaseModel? argModel)) {
-        field = field with { Type = new(argModel, fieldType.Description) };
-      }
-
-      ApplyArray(field.Modifiers, ApplyModifier(context, arguments),
-        modifiers => field = field with { Modifiers = modifiers });
-
-      return field;
-    };
-
-  private Func<InputAlternateModel, InputAlternateModel> ApplyAlternate(string context, ArgumentsContext arguments)
-    => alternate => {
-      ObjDescribedModel<InputBaseModel>? alternateType = alternate.Type;
-      if (alternateType is not null
-        && GetInputArgument(context, alternateType.Base, arguments, out InputBaseModel? argModel)) {
-        alternate = alternate with { Type = new(argModel, alternateType.Description) };
-      }
-
-      ApplyArray(alternate.Collections, ApplyCollection(context, arguments),
-        collections => alternate = alternate with { Collections = collections });
-
-      return alternate;
-    };
-
-  private bool GetInputArgument(string context, InputBaseModel inputBase, ArgumentsContext arguments, [NotNullWhen(true)] out InputBaseModel? outBase)
-  {
-    outBase = null;
-    if (inputBase?.IsTypeParam == true) {
-      if (arguments.TryGetArg(context, inputBase.Input, out InputArgModel? inputArg)) {
-        if (!arguments.TryGetType(context, inputArg.Input, out outBase, false)) {
-          outBase = new(inputArg.Input) { IsTypeParam = inputArg.IsTypeParam };
-        }
-
-        return true;
-      }
-    }
-
-    return false;
-  }
-
   protected override TypeInputModel CloneModel(TypeInputModel model)
     => model with { };
 
@@ -115,5 +71,55 @@ internal class TypeInputResolver(
     } else {
       base.ResolveParent(model, context);
     }
+  }
+
+  private Func<InputFieldModel, InputFieldModel> ApplyField(string label, ArgumentsContext arguments)
+    => field => {
+      ObjDescribedModel<InputBaseModel>? fieldType = field.Type;
+      if (fieldType is not null
+        && GetInputArgument(label + " - " + field.Name, fieldType.Base, arguments, out InputBaseModel? argModel)) {
+        field = field with { Type = new(argModel, fieldType.Description) };
+      }
+
+      ApplyArray(field.Modifiers, ApplyModifier(label, arguments),
+        modifiers => field = field with { Modifiers = modifiers });
+
+      return field;
+    };
+
+  private Func<InputAlternateModel, InputAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
+    => alternate => {
+      ObjDescribedModel<InputBaseModel>? alternateType = alternate.Type;
+      if (alternateType is not null
+        && GetInputArgument(label, alternateType.Base, arguments, out InputBaseModel? argModel)) {
+        alternate = alternate with { Type = new(argModel, alternateType.Description) };
+      }
+
+      ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
+        collections => alternate = alternate with { Collections = collections });
+
+      return alternate;
+    };
+
+  private bool GetInputArgument(string label, InputBaseModel inputBase, ArgumentsContext arguments, [NotNullWhen(true)] out InputBaseModel? outBase)
+  {
+    outBase = null;
+    if (inputBase?.IsTypeParam == true) {
+      if (arguments.TryGetArg(label, inputBase.Input, out InputArgModel? inputArg)) {
+        if (inputArg.Dual is not null) {
+          if (arguments.TryGetType(label, inputArg.Dual.Dual, out DualBaseModel? dualBase, false)) {
+            outBase = new("") { Dual = dualBase };
+          } else {
+            outBase = new("") { Dual = new(inputArg.Dual.Dual) { IsTypeParam = inputArg.Dual.IsTypeParam } };
+          }
+        } else if (!arguments.TryGetType(label, inputArg.Input, out outBase, false)) {
+          outBase = new(inputArg.Input) { IsTypeParam = inputArg.IsTypeParam };
+        }
+
+        return true;
+      }
+    }
+
+    return false;
   }
 }

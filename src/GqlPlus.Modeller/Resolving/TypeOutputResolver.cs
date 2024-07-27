@@ -1,5 +1,4 @@
-﻿
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace GqlPlus.Resolving;
 
@@ -27,50 +26,6 @@ internal class TypeOutputResolver(
     }
 
     return result;
-  }
-
-  private Func<OutputFieldModel, OutputFieldModel> ApplyField(string context, ArgumentsContext arguments)
-    => field => {
-      ObjDescribedModel<OutputBaseModel>? fieldType = field.Type;
-      if (fieldType is not null
-        && GetOutputArgument(context + " - " + field.Name, fieldType.Base, arguments, out OutputBaseModel? argModel)) {
-        field = field with { Type = new(argModel, fieldType.Description) };
-      }
-
-      ApplyArray(field.Modifiers, ApplyModifier(context, arguments),
-        modifiers => field = field with { Modifiers = modifiers });
-
-      return field;
-    };
-
-  private Func<OutputAlternateModel, OutputAlternateModel> ApplyAlternate(string context, ArgumentsContext arguments)
-    => alternate => {
-      ObjDescribedModel<OutputBaseModel>? alternateType = alternate.Type;
-      if (alternateType is not null
-        && GetOutputArgument(context, alternateType.Base, arguments, out OutputBaseModel? argModel)) {
-        alternate = alternate with { Type = new(argModel, alternateType.Description) };
-      }
-
-      ApplyArray(alternate.Collections, ApplyCollection(context, arguments),
-        collections => alternate = alternate with { Collections = collections });
-
-      return alternate;
-    };
-
-  private bool GetOutputArgument(string context, OutputBaseModel outputBase, ArgumentsContext arguments, [NotNullWhen(true)] out OutputBaseModel? outBase)
-  {
-    outBase = null;
-    if (outputBase?.IsTypeParam == true) {
-      if (arguments.TryGetArg(context, outputBase.Output, out OutputArgModel? outputArg)) {
-        if (!arguments.TryGetType(context, outputArg.Output, out outBase, false)) {
-          outBase = new(outputArg.Output!) { IsTypeParam = outputArg.IsTypeParam };
-        }
-
-        return true;
-      }
-    }
-
-    return false;
   }
 
   protected override TypeOutputModel CloneModel(TypeOutputModel model)
@@ -116,5 +71,55 @@ internal class TypeOutputResolver(
     } else {
       base.ResolveParent(model, context);
     }
+  }
+
+  private Func<OutputFieldModel, OutputFieldModel> ApplyField(string label, ArgumentsContext arguments)
+    => field => {
+      ObjDescribedModel<OutputBaseModel>? fieldType = field.Type;
+      if (fieldType is not null
+        && GetOutputArgument(label + " - " + field.Name, fieldType.Base, arguments, out OutputBaseModel? argModel)) {
+        field = field with { Type = new(argModel, fieldType.Description) };
+      }
+
+      ApplyArray(field.Modifiers, ApplyModifier(label, arguments),
+        modifiers => field = field with { Modifiers = modifiers });
+
+      return field;
+    };
+
+  private Func<OutputAlternateModel, OutputAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
+    => alternate => {
+      ObjDescribedModel<OutputBaseModel>? alternateType = alternate.Type;
+      if (alternateType is not null
+        && GetOutputArgument(label, alternateType.Base, arguments, out OutputBaseModel? argModel)) {
+        alternate = alternate with { Type = new(argModel, alternateType.Description) };
+      }
+
+      ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
+        collections => alternate = alternate with { Collections = collections });
+
+      return alternate;
+    };
+
+  private bool GetOutputArgument(string label, OutputBaseModel outputBase, ArgumentsContext arguments, [NotNullWhen(true)] out OutputBaseModel? outBase)
+  {
+    outBase = null;
+    if (outputBase?.IsTypeParam == true) {
+      if (arguments.TryGetArg(label, outputBase.Output, out OutputArgModel? outputArg)) {
+        if (outputArg.Dual is not null) {
+          if (arguments.TryGetType(label, outputArg.Dual.Dual, out DualBaseModel? dualBase, false)) {
+            outBase = new("") { Dual = dualBase };
+          } else {
+            outBase = new("") { Dual = new(outputArg.Dual.Dual) { IsTypeParam = outputArg.Dual.IsTypeParam } };
+          }
+        } else if (!arguments.TryGetType(label, outputArg.Output, out outBase, false)) {
+          outBase = new(outputArg.Output!) { IsTypeParam = outputArg.IsTypeParam };
+        }
+
+        return true;
+      }
+    }
+
+    return false;
   }
 }

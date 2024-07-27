@@ -24,7 +24,7 @@ internal class OutputArgModeller(
   protected override OutputArgModel ToModel(IGqlpOutputArg ast, IMap<TypeKindModel> typeKinds)
       => string.IsNullOrWhiteSpace(ast.EnumMember)
       ? typeKinds.TryGetValue(ast.Output, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-        ? new(ast.Output) {
+        ? new("") {
           Dual = dual.ToModel(ast.ToDual, typeKinds)
         }
         : new(ast.Output) {
@@ -40,7 +40,7 @@ internal class OutputBaseModeller(
 {
   protected override OutputBaseModel ToModel(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Output, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new(ast.Output) {
+    ? new("") {
       Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
     : new(ast.Output) {

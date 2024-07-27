@@ -23,7 +23,7 @@ internal class InputArgModeller(
 {
   protected override InputArgModel ToModel(IGqlpInputArg ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Input, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new(ast.Input) {
+    ? new("") {
       Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
     : new(ast.Input) {
@@ -38,7 +38,7 @@ internal class InputBaseModeller(
 {
   protected override InputBaseModel ToModel(IGqlpInputBase ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Input, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new(ast.Input) {
+    ? new("") {
       Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
     : new(ast.Input) {

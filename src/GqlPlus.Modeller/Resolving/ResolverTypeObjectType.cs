@@ -49,7 +49,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
         ArgumentsContext? argsContext = MakeArgumentsContext(context, parentBase.Args, parentModel);
         if (argsContext is not null) {
           parentModel = Apply(CloneModel(parentModel), argsContext);
-          model.ParentModel = Resolve(parentModel, context);
+          model.ParentModel = Resolve(parentModel, argsContext);
         }
       }
     }
@@ -94,32 +94,32 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
     }
   }
 
-  protected Func<CollectionModel, CollectionModel> ApplyCollection(string context, ArgumentsContext arguments)
+  protected Func<CollectionModel, CollectionModel> ApplyCollection(string label, ArgumentsContext arguments)
     => collection => {
       if (collection.ModifierKind == ModifierKind.Param
-        && arguments.TryGetArg(context, collection.Key!, out DualArgModel? keyModel)) {
+        && arguments.TryGetArg(label, collection.Key!, out DualArgModel? keyModel)) {
         return new(ModifierKind.Dict) { Key = keyModel.Dual };
       }
 
       return collection;
     };
 
-  protected Func<ModifierModel, ModifierModel> ApplyModifier(string context, ArgumentsContext arguments)
+  protected Func<ModifierModel, ModifierModel> ApplyModifier(string label, ArgumentsContext arguments)
     => modifier => {
       if (modifier.ModifierKind == ModifierKind.Param
-        && arguments.TryGetArg(context, modifier.Key!, out DualArgModel? keyModel)) {
+        && arguments.TryGetArg(label, modifier.Key!, out DualArgModel? keyModel)) {
         return new(ModifierKind.Dict) { Key = keyModel.Dual };
       }
 
       return modifier;
     };
 
-  protected bool GetDualArgument(string context, DualBaseModel dualBase, ArgumentsContext arguments, [NotNullWhen(true)] out DualBaseModel? outBase)
+  protected bool GetDualArgument(string label, DualBaseModel dualBase, ArgumentsContext arguments, [NotNullWhen(true)] out DualBaseModel? outBase)
   {
     outBase = null;
     if (dualBase?.IsTypeParam == true) {
-      if (arguments.TryGetArg(context, dualBase.Dual, out DualArgModel? dualArg)) {
-        if (!arguments.TryGetType(context, dualArg.Dual, out outBase, false)) {
+      if (arguments.TryGetArg(label, dualBase.Dual, out DualArgModel? dualArg)) {
+        if (!arguments.TryGetType(label, dualArg.Dual, out outBase, false)) {
           outBase = new(dualArg.Dual) { IsTypeParam = dualArg.IsTypeParam };
         }
 
@@ -130,29 +130,29 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
     return false;
   }
 
-  protected Func<DualAlternateModel, DualAlternateModel> ApplyDualAlternate(string context, ArgumentsContext arguments)
+  protected Func<DualAlternateModel, DualAlternateModel> ApplyDualAlternate(string label, ArgumentsContext arguments)
     => alternate => {
       ObjDescribedModel<DualBaseModel>? alternateType = alternate.Type;
       if (alternateType is not null
-        && GetDualArgument(context, alternateType.Base, arguments, out DualBaseModel? argModel)) {
+        && GetDualArgument(label, alternateType.Base, arguments, out DualBaseModel? argModel)) {
         alternate = alternate with { Type = new(argModel, alternateType.Description) };
       }
 
-      ApplyArray(alternate.Collections, ApplyCollection(context, arguments),
+      ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
         collections => alternate = alternate with { Collections = collections });
 
       return alternate;
     };
 
-  protected Func<DualFieldModel, DualFieldModel> ApplyDualField(string context, ArgumentsContext arguments)
+  protected Func<DualFieldModel, DualFieldModel> ApplyDualField(string label, ArgumentsContext arguments)
     => field => {
       ObjDescribedModel<DualBaseModel>? fieldType = field.Type;
       if (fieldType is not null
-        && GetDualArgument(context + " - " + field.Name, fieldType.Base, arguments, out DualBaseModel? argModel)) {
+        && GetDualArgument(label + " - " + field.Name, fieldType.Base, arguments, out DualBaseModel? argModel)) {
         field = field with { Type = new(argModel, fieldType.Description) };
       }
 
-      ApplyArray(field.Modifiers, ApplyModifier(context, arguments),
+      ApplyArray(field.Modifiers, ApplyModifier(label, arguments),
         modifiers => field = field with { Modifiers = modifiers });
 
       return field;

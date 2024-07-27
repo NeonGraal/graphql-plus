@@ -57,7 +57,7 @@ internal class TypesContext(
     }
   }
 
-  public bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model, bool canError = true)
+  public bool TryGetType<TModel>(string label, string? name, [NotNullWhen(true)] out TModel? model, bool canError = true)
     where TModel : IModelBase
   {
     if (name is not null) {
@@ -67,7 +67,7 @@ internal class TypesContext(
       }
 
       if (canError) {
-        Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"In {context} can't get model for type '{name}'"));
+        Errors.Add(new TokenMessage(TokenKind.End, 0, 0, "", $"In {label} can't get model for type '{name}'"));
       }
     }
 

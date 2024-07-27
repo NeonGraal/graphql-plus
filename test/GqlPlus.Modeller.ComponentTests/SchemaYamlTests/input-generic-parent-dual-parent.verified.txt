@@ -1,11 +1,17 @@
 ﻿!_Schema
-_errors:
-- !_Error
-  _kind: !_TokenKind End
-  _message: In InpGenParentDualParentRef can't get model for type
-    'InpGenParentDualParentAlt'
 types: !_Map_Type
   !_Identifier InpGenParentDualParent: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: InpGenParentDualParentAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: InpGenParentDualParentAlt
+      type: !_DualBase
+        dual: Number
     name: InpGenParentDualParent
     parent: !_InputBase
       input: InpGenParentDualParentRef

@@ -6,15 +6,6 @@ _errors:
 - !_Error
   _kind: !_TokenKind End
   _message: In _BaseDomain can't get model for type '_ParentType'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _DomainItem can't get model for type '_DomainTrueFalse'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _DomainItem can't get model for type '_DomainRange'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _DomainItem can't get model for type '_DomainRegex'
 types: !_Map_Type
   !_Identifier _BaseDomain: !_TypeOutput
     allFields:
@@ -102,6 +93,23 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemRange: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: Boolean
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: lower
+      object: _DomainRange
+      type: !_DualBase
+        dual: Number
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: upper
+      object: _DomainRange
+      type: !_DualBase
+        dual: Number
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem
@@ -116,6 +124,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemRegex: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: Boolean
+    - !_ObjectFor(_DualField)
+      name: pattern
+      object: _DomainRegex
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem
@@ -130,6 +148,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemTrueFalse: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: Boolean
+    - !_ObjectFor(_DualField)
+      name: value
+      object: _DomainTrueFalse
+      type: !_DualBase
+        dual: Boolean
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem

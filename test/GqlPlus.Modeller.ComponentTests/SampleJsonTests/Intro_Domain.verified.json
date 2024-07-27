@@ -10,21 +10,6 @@
       "$tag": "_Error",
       "_kind": "End",
       "_message": "In _BaseDomain can\u0027t get model for type \u0027_ParentType\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": "End",
-      "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainTrueFalse\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": "End",
-      "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainRange\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": "End",
-      "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainRegex\u0027"
     }
   ],
   "types": {
@@ -184,6 +169,45 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "lower",
+          "object": "_DomainRange",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "upper",
+          "object": "_DomainRange",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        },
+        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "domain",
           "object": "_DomainItem",
@@ -210,6 +234,24 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "pattern",
+          "object": "_DomainRegex",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        },
+        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "domain",
           "object": "_DomainItem",
@@ -235,6 +277,24 @@
     "_DomainItemTrueFalse": {
       "$tag": "_TypeOutput",
       "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "value",
+          "object": "_DomainTrueFalse",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Boolean"
+          }
+        },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "domain",

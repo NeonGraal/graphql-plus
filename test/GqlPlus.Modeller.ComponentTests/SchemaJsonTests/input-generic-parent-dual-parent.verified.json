@@ -1,16 +1,30 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_kind": "End",
-      "_message": "In InpGenParentDualParentRef can\u0027t get model for type \u0027InpGenParentDualParentAlt\u0027"
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
     "InpGenParentDualParent": {
       "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "InpGenParentDualParentAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "InpGenParentDualParentAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
       "name": "InpGenParentDualParent",
       "parent": {
         "$tag": "_InputBase",

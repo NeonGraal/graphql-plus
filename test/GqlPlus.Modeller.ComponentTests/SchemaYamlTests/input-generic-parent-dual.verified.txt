@@ -4,8 +4,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: InpGenParentDualRef
-      type: !_InputBase
-        input: InpGenParentDualAlt
+      type: !_DualBase
+        dual: InpGenParentDualAlt
     name: InpGenParentDual
     parent: !_InputBase
       input: InpGenParentDualRef

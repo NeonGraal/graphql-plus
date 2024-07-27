@@ -1,13 +1,4 @@
 ﻿!_Schema
-_errors:
-- !_Error
-  _kind: !_TokenKind End
-  _message: In InpGenParentDualParentRef can't get model for type
-    'InpGenParentDualParentAlt'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In OutpGenParentDualParentRef can't get model for
-    type 'OutpGenParentDualParentAlt'
 aliases: [Opt1, Opt2]
 categories: !_Map_Categories
   !_Identifier cat: !_Category
@@ -3177,8 +3168,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: InpGenParentDualRef
-      type: !_InputBase
-        input: InpGenParentDualAlt
+      type: !_DualBase
+        dual: InpGenParentDualAlt
     name: InpGenParentDual
     parent: !_InputBase
       input: InpGenParentDualRef
@@ -3210,6 +3201,17 @@ types: !_Map_Type
     name: InpGenParentDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier InpGenParentDualParent: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: InpGenParentDualParentAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: InpGenParentDualParentAlt
+      type: !_DualBase
+        dual: Number
     name: InpGenParentDualParent
     parent: !_InputBase
       input: InpGenParentDualParentRef
@@ -5099,8 +5101,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGenParentDualRef
-      type: !_OutputBase
-        output: OutpGenParentDualAlt
+      type: !_DualBase
+        dual: OutpGenParentDualAlt
     name: OutpGenParentDual
     parent: !_OutputBase
       output: OutpGenParentDualRef
@@ -5132,6 +5134,17 @@ types: !_Map_Type
     name: OutpGenParentDualAlt
     typeKind: !_TypeKind Dual
   !_Identifier OutpGenParentDualParent: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: OutpGenParentDualParentAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: OutpGenParentDualParentAlt
+      type: !_DualBase
+        dual: Number
     name: OutpGenParentDualParent
     parent: !_OutputBase
       output: OutpGenParentDualParentRef

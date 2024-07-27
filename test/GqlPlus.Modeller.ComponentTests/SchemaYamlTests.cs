@@ -1,7 +1,10 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using FluentAssertions.Execution;
+
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Convert;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
+using GqlPlus.Resolving;
 using GqlPlus.Result;
 
 namespace GqlPlus;
@@ -19,8 +22,11 @@ public class SchemaYamlTests(
       .SelectMany(kv => kv.Value)
       .Select(input => Parse(input).Required());
 
-    RenderStructure result = ModelAsts(asts);
+    ITypesContext context = renderer.WithBuiltIns();
+    RenderStructure result = ModelAsts(asts, context);
 
+    using AssertionScope scope = new();
+    context.Errors.Should().BeNullOrEmpty("!All");
     await Verify(result.ToYaml(true), SchemaSettings("Yaml", "!ALL"));
   }
 
@@ -31,8 +37,11 @@ public class SchemaYamlTests(
     IEnumerable<IGqlpSchema> asts = SchemaValidData.Values[group]
       .Select(input => Parse(input).Required());
 
-    RenderStructure result = ModelAsts(asts);
+    ITypesContext context = renderer.WithBuiltIns();
+    RenderStructure result = ModelAsts(asts, context);
 
+    using AssertionScope scope = new();
+    context.Errors.Should().BeNullOrEmpty("!" + group);
     await Verify(result.ToYaml(true), SchemaSettings("Yaml", "!" + group));
   }
 
@@ -73,16 +82,19 @@ public class SchemaYamlTests(
     IResult<IGqlpSchema> parse = Parse(input);
     IGqlpSchema ast = parse.Required();
 
-    RenderStructure result = ModelAsts([ast]);
+    ITypesContext context = renderer.WithBuiltIns();
+    RenderStructure result = ModelAsts([ast], context);
 
+    using AssertionScope scope = new();
+    context.Errors.Should().BeNullOrEmpty(test);
     await Verify(result.ToYaml(true), SchemaSettings("Yaml", test));
   }
 
-  private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts)
+  private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts, ITypesContext context)
   {
     IGqlpSchema schema = merger.Merge(asts).First();
 
-    RenderStructure result = renderer.RenderAst(schema, withBuiltIns: true);
+    RenderStructure result = renderer.RenderAst(schema, context);
 
     return result;
   }

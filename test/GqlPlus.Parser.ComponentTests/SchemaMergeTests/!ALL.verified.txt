@@ -2122,6 +2122,117 @@ Success
 }
 {
   !Du I@006/0001
+  DualGenParentDualParent
+  :
+  I@033/0001
+  DualGenParentDualParentRef
+  <
+    I@060/0001
+    DualGenParentDualParentAlt
+  >
+}
+{
+  !Du I@095/0001
+  DualGenParentDualParentRef
+  <
+    I@123/0001
+    $ref
+  >
+  :
+  I@132/0001
+  $ref
+}
+{
+  !Du I@143/0001
+  DualGenParentDualParentAlt
+  {
+    !DF I@172/0001
+    alt
+    :
+    I@177/0001
+    Number
+  }
+  |
+  !DA I@186/0001
+  I@186/0001
+  String
+}
+{
+  !In I@007/0001
+  InpGenParentDualParent
+  :
+  I@033/0001
+  InpGenParentDualParentRef
+  <
+    I@059/0001
+    InpGenParentDualParentAlt
+  >
+}
+{
+  !In I@094/0001
+  InpGenParentDualParentRef
+  <
+    I@121/0001
+    $ref
+  >
+  :
+  I@130/0001
+  $ref
+}
+{
+  !Du I@141/0001
+  InpGenParentDualParentAlt
+  {
+    !DF I@169/0001
+    alt
+    :
+    I@174/0001
+    Number
+  }
+  |
+  !DA I@183/0001
+  I@183/0001
+  String
+}
+{
+  !Ou I@008/0001
+  OutpGenParentDualParent
+  :
+  I@035/0001
+  OutpGenParentDualParentRef
+  <
+    I@062/0001
+    OutpGenParentDualParentAlt
+  >
+}
+{
+  !Ou I@099/0001
+  OutpGenParentDualParentRef
+  <
+    I@127/0001
+    $ref
+  >
+  :
+  I@136/0001
+  $ref
+}
+{
+  !Du I@147/0001
+  OutpGenParentDualParentAlt
+  {
+    !DF I@176/0001
+    alt
+    :
+    I@181/0001
+    Number
+  }
+  |
+  !DA I@190/0001
+  I@190/0001
+  String
+}
+{
+  !Du I@006/0001
   DualGenParentParam
   :
   I@028/0001
@@ -2232,6 +2343,117 @@ Success
   |
   !OA I@168/0001
   I@168/0001
+  String
+}
+{
+  !Du I@006/0001
+  DualGenParentParamParent
+  :
+  I@034/0001
+  DualGenParentParamParentRef
+  <
+    I@062/0001
+    DualGenParentParamParentAlt
+  >
+}
+{
+  !Du I@098/0001
+  DualGenParentParamParentRef
+  <
+    I@127/0001
+    $ref
+  >
+  :
+  I@136/0001
+  $ref
+}
+{
+  !Du I@147/0001
+  DualGenParentParamParentAlt
+  {
+    !DF I@177/0001
+    alt
+    :
+    I@182/0001
+    Number
+  }
+  |
+  !DA I@191/0001
+  I@191/0001
+  String
+}
+{
+  !In I@007/0001
+  InpGenParentParamParent
+  :
+  I@034/0001
+  InpGenParentParamParentRef
+  <
+    I@061/0001
+    InpGenParentParamParentAlt
+  >
+}
+{
+  !In I@097/0001
+  InpGenParentParamParentRef
+  <
+    I@125/0001
+    $ref
+  >
+  :
+  I@134/0001
+  $ref
+}
+{
+  !In I@146/0001
+  InpGenParentParamParentAlt
+  {
+    !IF I@175/0001
+    alt
+    :
+    I@180/0001
+    Number
+  }
+  |
+  !IA I@189/0001
+  I@189/0001
+  String
+}
+{
+  !Ou I@008/0001
+  OutpGenParentParamParent
+  :
+  I@036/0001
+  OutpGenParentParamParentRef
+  <
+    I@064/0001
+    OutpGenParentParamParentAlt
+  >
+}
+{
+  !Ou I@102/0001
+  OutpGenParentParamParentRef
+  <
+    I@131/0001
+    $ref
+  >
+  :
+  I@140/0001
+  $ref
+}
+{
+  !Ou I@153/0001
+  OutpGenParentParamParentAlt
+  {
+    !OF I@183/0001
+    alt
+    :
+    I@188/0001
+    Number
+  }
+  |
+  !OA I@197/0001
+  I@197/0001
   String
 }
 {

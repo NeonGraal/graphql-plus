@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+
 using GqlPlus.Resolving;
 
 namespace GqlPlus.Modelling;
@@ -7,7 +8,7 @@ internal sealed class TestResolveContext
   : Dictionary<string, BaseTypeModel>
   , IResolveContext
 {
-  public bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)
+  public bool TryGetType<TModel>(string label, string? name, [NotNullWhen(true)] out TModel? model, bool canError = true)
     where TModel : IModelBase
   {
     if (name is not null && TryGetValue(name, out BaseTypeModel? type) && type is TModel modelType) {

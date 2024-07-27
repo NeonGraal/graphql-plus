@@ -2,37 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenParentDual": {
+    "OutpGenParentDualParent": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParentDualRef",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "OutpGenParentDualAlt"
-          }
-        }
-      ],
-      "name": "OutpGenParentDual",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "OutpGenParentDualRef",
-        "typeArgs": [
-          {
-            "$tag": "_DualArg",
-            "value": "OutpGenParentDualAlt"
-          }
-        ]
-      },
-      "typeKind": "Output"
-    },
-    "OutpGenParentDualAlt": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "OutpGenParentDualAlt",
+          "object": "OutpGenParentDualParentAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -43,7 +18,43 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "OutpGenParentDualAlt",
+          "object": "OutpGenParentDualParentAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpGenParentDualParent",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "OutpGenParentDualParentRef",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "value": "OutpGenParentDualParentAlt"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "OutpGenParentDualParentAlt": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "OutpGenParentDualParentAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "OutpGenParentDualParentAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -69,25 +80,13 @@
           }
         }
       ],
-      "name": "OutpGenParentDualAlt",
+      "name": "OutpGenParentDualParentAlt",
       "typeKind": "Dual"
     },
-    "OutpGenParentDualRef": {
+    "OutpGenParentDualParentRef": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParentDualRef",
-          "type": "ref"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": "ref"
-        }
-      ],
-      "name": "OutpGenParentDualRef",
+      "name": "OutpGenParentDualParentRef",
+      "parent": "ref",
       "typeKind": "Output",
       "typeParams": [
         {

@@ -809,17 +809,17 @@ Success
   }
 }
 {
-  !Du I@006/0188
+  !Ou I@008/0188
   _DomainItem
   <
-    I@019/0188
+    I@021/0188
     $item
   >
   :
   I@008/0189
   $item
   {
-    !DF I@009/0190
+    !OF I@009/0190
     domain
     :
     I@017/0190
@@ -865,7 +865,7 @@ Success
   }
 }
 {
-  !Du I@006/0202
+  !Ou I@008/0202
   _DomainItemTrueFalse
   :
   I@007/0203
@@ -922,7 +922,7 @@ Success
   }
 }
 {
-  !Du I@006/0219
+  !Ou I@008/0219
   _DomainItemRange
   :
   I@007/0220
@@ -947,7 +947,7 @@ Success
   }
 }
 {
-  !Du I@006/0227
+  !Ou I@008/0227
   _DomainItemRegex
   :
   I@007/0228

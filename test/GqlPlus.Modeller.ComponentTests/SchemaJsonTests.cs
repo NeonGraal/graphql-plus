@@ -2,6 +2,7 @@
 using GqlPlus.Convert;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
+using GqlPlus.Resolving;
 using GqlPlus.Result;
 
 namespace GqlPlus;
@@ -82,7 +83,7 @@ public class SchemaJsonTests(
   {
     IGqlpSchema schema = merger.Merge(asts).First();
 
-    RenderStructure result = renderer.RenderAst(schema, withBuiltIns: true);
+    RenderStructure result = renderer.RenderAst(schema, renderer.WithBuiltIns());
 
     return result;
   }

@@ -10,6 +10,6 @@ public interface IResolver<TModel>
 
 public interface IResolveContext
 {
-  bool TryGetType<TModel>(string context, string? name, [NotNullWhen(true)] out TModel? model)
+  bool TryGetType<TModel>(string label, string? name, [NotNullWhen(true)] out TModel? model, bool canError = true)
     where TModel : IModelBase;
 }

@@ -12,16 +12,14 @@ internal sealed class ModelAndRender(
   ITypesModeller types
 ) : IModelAndRender
 {
-  public RenderStructure RenderAst(IGqlpSchema schema, IGqlpSchema? extras = null, bool withBuiltIns = false)
-  {
-    TypesCollection context = withBuiltIns
-      ? TypesCollection.WithBuiltins(types)
-      : new(types);
+  public ITypesContext Context() => new TypesContext(types);
 
-    SchemaModel model = modeller.ToModel(schema, context);
+  public RenderStructure RenderAst(IGqlpSchema schema, ITypesContext context, IGqlpSchema? extras = null)
+  {
+    SchemaModel model = modeller.ToModel(schema, context.TypeKinds);
     context.AddModels(model.Types.Values);
     if (extras is not null) {
-      SchemaModel extraModel = modeller.ToModel(extras, context);
+      SchemaModel extraModel = modeller.ToModel(extras, context.TypeKinds);
       context.AddModels(extraModel.Types.Values);
     }
 
@@ -35,10 +33,14 @@ internal sealed class ModelAndRender(
 
     return result;
   }
+
+  public ITypesContext WithBuiltIns() => TypesContext.WithBuiltins(types);
 }
 #pragma warning restore CA1812
 
 public interface IModelAndRender
 {
-  RenderStructure RenderAst(IGqlpSchema schema, IGqlpSchema? extras = null, bool withBuiltIns = false);
+  ITypesContext Context();
+  ITypesContext WithBuiltIns();
+  RenderStructure RenderAst(IGqlpSchema schema, ITypesContext context, IGqlpSchema? extras = null);
 }

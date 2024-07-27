@@ -2,37 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenParentParam": {
+    "InpGenParentParamParent": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentParamRef",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpGenParentParamAlt"
-          }
-        }
-      ],
-      "name": "InpGenParentParam",
-      "parent": {
-        "$tag": "_InputBase",
-        "input": "InpGenParentParamRef",
-        "typeArgs": [
-          {
-            "$tag": "_InputArg",
-            "value": "InpGenParentParamAlt"
-          }
-        ]
-      },
-      "typeKind": "Input"
-    },
-    "InpGenParentParamAlt": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentParamAlt",
+          "object": "InpGenParentParamParentAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -43,7 +18,43 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpGenParentParamAlt",
+          "object": "InpGenParentParamParentAlt",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InpGenParentParamParent",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "InpGenParentParamParentRef",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "InpGenParentParamParentAlt"
+          }
+        ]
+      },
+      "typeKind": "Input"
+    },
+    "InpGenParentParamParentAlt": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpGenParentParamParentAlt",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "alt",
+          "object": "InpGenParentParamParentAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -69,25 +80,13 @@
           }
         }
       ],
-      "name": "InpGenParentParamAlt",
+      "name": "InpGenParentParamParentAlt",
       "typeKind": "Input"
     },
-    "InpGenParentParamRef": {
+    "InpGenParentParamParentRef": {
       "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentParamRef",
-          "type": "ref"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": "ref"
-        }
-      ],
-      "name": "InpGenParentParamRef",
+      "name": "InpGenParentParamParentRef",
+      "parent": "ref",
       "typeKind": "Input",
       "typeParams": [
         {

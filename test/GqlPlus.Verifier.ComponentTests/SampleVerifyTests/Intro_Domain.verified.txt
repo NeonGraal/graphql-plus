@@ -4,7 +4,7 @@
   !!! I@016/0011 : Invalid Output Arg Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@016/0011 : Invalid Output Parent. '_TypeKind' not defined. - '_TypeKind' !!!,
   !!! I@016/0043 : Invalid Output Field. '_EnumValue' not defined. - '_EnumValue' !!!,
-  !!! I@017/0026 : Invalid Dual Field. '_Identifier' not defined. - '_Identifier' !!!,
+  !!! I@017/0026 : Invalid Output Field. '_Identifier' not defined. - '_Identifier' !!!,
   !!! I@019/0016 : Invalid Output Arg Enum. '_TypeKind' is not an Enum type. - '_TypeKind' !!!,
   !!! I@019/0016 : Invalid Output Parent. '_TypeKind' not defined. - '_TypeKind' !!!
 ]

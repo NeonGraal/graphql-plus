@@ -1,7 +1,10 @@
-﻿using GqlPlus;
+﻿using FluentAssertions.Execution;
+
+using GqlPlus;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Convert;
 using GqlPlus.Parsing;
+using GqlPlus.Resolving;
 
 namespace GqlPlus;
 
@@ -16,7 +19,13 @@ public class SampleModelTests(
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
 
-    RenderStructure result = renderer.RenderAst(ast, withBuiltIns: true);
+    ITypesContext context = renderer.WithBuiltIns();
+    RenderStructure result = renderer.RenderAst(ast, context);
+
+    using AssertionScope scope = new();
+    if (sample.ThrowIfNull().EndsWith("Complete", StringComparison.InvariantCulture)) {
+      context.Errors.Should().BeNullOrEmpty(sample);
+    }
 
     await Verify(result.ToYaml(true), SampleSettings("Yaml", sample));
   }
@@ -27,7 +36,7 @@ public class SampleModelTests(
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
 
-    RenderStructure result = renderer.RenderAst(ast, withBuiltIns: true);
+    RenderStructure result = renderer.RenderAst(ast, renderer.WithBuiltIns());
 
     await Verify(result.ToJson(), "json", SampleSettings("Json", sample));
   }
@@ -38,7 +47,7 @@ public class SampleModelTests(
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
 
-    RenderStructure result = renderer.RenderAst(ast, withBuiltIns: true);
+    RenderStructure result = renderer.RenderAst(ast, renderer.WithBuiltIns());
 
     await result.WriteHtmlFileAsync("Sample", sample);
   }

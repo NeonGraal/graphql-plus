@@ -1,28 +1,34 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGenParentParam: !_TypeOutput
+  !_Identifier OutpGenParentParamParent: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenParentParamRef
-      type: !_OutputBase
-        output: OutpGenParentParamAlt
-    name: OutpGenParentParam
-    parent: !_OutputBase
-      output: OutpGenParentParamRef
-      typeArgs:
-      - !_OutputArg
-        output: OutpGenParentParamAlt
-    typeKind: !_TypeKind Output
-  !_Identifier OutpGenParentParamAlt: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: OutpGenParentParamAlt
+      object: OutpGenParentParamParentAlt
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpGenParentParamAlt
+      object: OutpGenParentParamParentAlt
+      type: !_OutputBase
+        output: Number
+    name: OutpGenParentParamParent
+    parent: !_OutputBase
+      output: OutpGenParentParamParentRef
+      typeArgs:
+      - !_OutputArg
+        output: OutpGenParentParamParentAlt
+    typeKind: !_TypeKind Output
+  !_Identifier OutpGenParentParamParentAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpGenParentParamParentAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpGenParentParamParentAlt
       type: !_OutputBase
         output: Number
     alternates:
@@ -34,17 +40,11 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpGenParentParamAlt
+    name: OutpGenParentParamParentAlt
     typeKind: !_TypeKind Output
-  !_Identifier OutpGenParentParamRef: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: OutpGenParentParamRef
-      type: !_TypeParam ref
-    alternates:
-    - !_OutputAlternate
-      type: !_TypeParam ref
-    name: OutpGenParentParamRef
+  !_Identifier OutpGenParentParamParentRef: !_TypeOutput
+    name: OutpGenParentParamParentRef
+    parent: !_TypeParam ref
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

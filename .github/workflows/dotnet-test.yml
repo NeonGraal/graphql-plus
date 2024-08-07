@@ -39,7 +39,7 @@ jobs:
           dotnet reportgenerator
           -reports:${{ github.workspace }}/Tests/Coverage.xml
           -targetdir:"${{ github.workspace }}/Tests/"
-          -reporttypes:MarkdownSummaryGithub,Cobertura,Badges
+          -reporttypes:'MarkdownSummaryGithub;Cobertura;Badges'
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: always()

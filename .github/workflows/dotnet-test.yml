@@ -39,9 +39,7 @@ jobs:
           dotnet reportgenerator
           -reports:${{ github.workspace }}/Tests/Coverage.xml
           -targetdir:"${{ github.workspace }}/Tests/"
-          -reporttypes:MarkdownSummaryGithub
-      - name: Coverage Report
-        run: cat Tests/SummaryGithub.md > $GITHUB_STEP_SUMMARY
+          -reporttypes:'MarkdownSummaryGithub,Cobertura'
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: always()
@@ -50,6 +48,14 @@ jobs:
           path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
           reporter: dotnet-trx
           fail-on-error: true
+      - name: Coverage Summary Report
+        run: cat Tests/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
+      - name: Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          recreate: true
+          path: Tests/SummaryGithub.md 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         if: ${{ matrix.dotnet-version == '8.0.x' }}

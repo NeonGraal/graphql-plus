@@ -31,7 +31,7 @@ jobs:
         run: dotnet build
       - name: Test with Coverage
         run: >
-          dotnet coverage collect -o ${{ github.workspace }}/Tests/Coverage.xml -f cobertura
+          dotnet coverage collect -o ${{ github.workspace }}/Tests/Coverage.xml -f cobertura -s coverage.runsettings
           dotnet test --no-build --logger "trx;LogFileName=TestResults-${{ matrix.dotnet-version }}.trx"
           || true
       - name: Generate Coverage Report

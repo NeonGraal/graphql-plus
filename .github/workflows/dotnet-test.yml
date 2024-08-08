@@ -49,6 +49,7 @@ jobs:
           reporter: dotnet-trx
           fail-on-error: true
       - name: Coverage Summary Report
+        if: always()
         run: cat Tests/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
       - name: Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2

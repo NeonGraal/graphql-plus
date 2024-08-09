@@ -48,6 +48,7 @@ jobs:
           path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
           reporter: dotnet-trx
           fail-on-error: true
+          use-actions-summary: true
           list-suites: failed
           list-tests: failed
       - name: Coverage Summary Report

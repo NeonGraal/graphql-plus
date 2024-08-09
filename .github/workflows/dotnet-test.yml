@@ -38,26 +38,35 @@ jobs:
         run: >
           dotnet reportgenerator
           -reports:${{ github.workspace }}/Tests/Coverage.xml
-          -targetdir:"${{ github.workspace }}/Tests/"
-          -reporttypes:'MarkdownSummaryGithub;Cobertura;Badges'
+          -targetdir:"${{ github.workspace }}/Tests-${{ matrix.dotnet-version }}/"
+          -reporttypes:'MarkdownSummaryGithub;Html;Badges'
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: always()
         with:
           name: DotNET Tests (${{ matrix.dotnet-version }})
+          artifact: test-results-${{ matrix.dotnet-version }}
           path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
           reporter: dotnet-trx
           fail-on-error: true
+          list-suites: failed
+          list-tests: failed
       - name: Coverage Summary Report
         if: always()
-        run: cat Tests/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
+        run: cat Tests-${{ matrix.dotnet-version }}/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
       - name: Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
         if: github.event_name == 'pull_request'
         with:
           recreate: true
           path: Tests/SummaryGithub.md 
-      - name: Upload artifact
+      - name: Upload Coverage artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-${{ matrix.dotnet-version }}
+          path: ${{ github.workspace }}/Tests-${{ matrix.dotnet-version }}/
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         if: ${{ matrix.dotnet-version == '8.0.x' }}
         with:

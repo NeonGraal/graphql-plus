@@ -41,13 +41,13 @@ jobs:
           -targetdir:"${{ github.workspace }}/Tests/"
           -reporttypes:'MarkdownSummaryGithub;Html;Badges'
       - name: Test Report
-        uses: dorny/test-reporter@95058abb17504553158e70e2c058fe1fda4392c2
+        uses: dorny/test-reporter@v1
+        if: always()
         with:
           name: DotNET Tests (${{ matrix.dotnet-version }})
           path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
           reporter: dotnet-trx
           fail-on-error: true
-          use-actions-summary: true
           list-suites: failed
           list-tests: failed
       - name: Coverage Summary Report

@@ -39,17 +39,15 @@ jobs:
           dotnet reportgenerator
           -reports:${{ github.workspace }}/Tests/Coverage.xml
           -targetdir:"${{ github.workspace }}/Tests/"
-          -reporttypes:'MarkdownSummaryGithub;Html;Badges'
+          -reporttypes:'MarkdownSummaryGithub;Html;Cobertura;Badges'
       - name: Test Report
-        uses: dorny/test-reporter@v1
+        uses: bibipkins/dotnet-test-reporter@v1.4.0
         if: always()
         with:
-          name: DotNET Tests (${{ matrix.dotnet-version }})
-          path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
-          reporter: dotnet-trx
-          fail-on-error: true
-          list-suites: failed
-          list-tests: failed
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          results-path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
+          coverage-path: Tests/Coverage.xml
+          coverage-type: cobertura
       - name: Coverage Summary Report
         if: always()
         run: cat Tests/SummaryGithub.md >> $GITHUB_STEP_SUMMARY

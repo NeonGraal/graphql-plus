@@ -48,6 +48,7 @@ jobs:
           results-path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
           coverage-path: Tests/Coverage.xml
           coverage-type: cobertura
+          show-test-output: false
       - name: Coverage Summary Report
         if: always()
         run: cat Tests/SummaryGithub.md >> $GITHUB_STEP_SUMMARY

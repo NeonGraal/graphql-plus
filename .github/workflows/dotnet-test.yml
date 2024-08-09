@@ -41,8 +41,7 @@ jobs:
           -targetdir:"${{ github.workspace }}/Tests/"
           -reporttypes:'MarkdownSummaryGithub;Html;Badges'
       - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: always()
+        uses: dorny/test-reporter@95058abb17504553158e70e2c058fe1fda4392c2
         with:
           name: DotNET Tests (${{ matrix.dotnet-version }})
           path: "**/TestResults-${{ matrix.dotnet-version }}.trx"

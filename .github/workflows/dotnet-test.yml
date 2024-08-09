@@ -39,17 +39,26 @@ jobs:
           dotnet reportgenerator
           -reports:${{ github.workspace }}/Tests/Coverage.xml
           -targetdir:"${{ github.workspace }}/Tests/"
-          -reporttypes:'Html;Cobertura;Badges'
+          -reporttypes:'MarkdownSummaryGithub;Html;Badges'
       - name: Test Report
-        uses: bibipkins/dotnet-test-reporter@v1.4.0
+        uses: dorny/test-reporter@v1
         if: always()
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          results-path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
-          coverage-path: Tests/Coverage.xml
-          coverage-type: cobertura
-          show-failed-tests-only: true
-          show-test-output: false
+          name: DotNET Tests (${{ matrix.dotnet-version }})
+          path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
+          reporter: dotnet-trx
+          fail-on-error: true
+          list-suites: failed
+          list-tests: failed
+      - name: Coverage Summary Report
+        if: always()
+        run: cat Tests/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
+      - name: Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          recreate: true
+          path: Tests/SummaryGithub.md 
       - name: Upload Coverage artifact
         uses: actions/upload-artifact@v4
         if: always()

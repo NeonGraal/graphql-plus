@@ -48,8 +48,6 @@ jobs:
           path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
           reporter: dotnet-trx
           fail-on-error: true
-          list-suites: failed
-          list-tests: failed
       - name: Coverage Summary Report
         uses: LouisBrunner/checks-action@v2.0.0
         if: always()
@@ -58,7 +56,7 @@ jobs:
           name: DotNET Coverage (${{ matrix.dotnet-version }})
           conclusion: success
           output: |
-            {"summary":"DotNET Coverage (${{ matrix.dotnet-version }})"}
+            {"summary":"[Line Coverage](Tests/badge_linecoverage.svg)"}
           output_text_description_file: Tests/SummaryGithub.md
       - name: Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
@@ -66,6 +64,12 @@ jobs:
         with:
           recreate: true
           path: Tests/SummaryGithub.md 
+      - name: Upload Tests artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tests-${{ matrix.dotnet-version }}
+          path: TestResults-${{ matrix.dotnet-version }}.trx
       - name: Upload Coverage artifact
         uses: actions/upload-artifact@v4
         if: always()

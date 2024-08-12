@@ -43,9 +43,7 @@ where TContext : UsageContext
     }
 
     foreach (IGqlpTypeParam typeParam in usage.TypeParams) {
-      if (!context.Used.Contains("$" + typeParam.Name)) {
-        context.AddError(typeParam, usage.Label, $"'${typeParam.Name}' not used");
-      }
+      context.AddError(typeParam, usage.Label, $"'${typeParam.Name}' not used", !context.Used.Contains("$" + typeParam.Name));
     }
   }
 
@@ -72,9 +70,11 @@ where TContext : UsageContext
   {
     if (input.Parent?.StartsWith('$') == true) {
       string parameter = input.Parent[1..];
-      if (top && input.Usage.TypeParams.All(p => p.Name != parameter)) {
-        context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' not defined");
-      }
+      context.AddError(
+        input.Usage,
+        input.UsageLabel + " Parent",
+        $"'{input.Parent}' not defined",
+        top && input.Usage.TypeParams.All(p => p.Name != parameter));
 
       return;
     }

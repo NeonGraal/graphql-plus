@@ -43,7 +43,7 @@ jobs:
       - name: Test and Coverage Summary
         id: coverage
         run: 
-          pwsh make-summary.ps1 -CoverageFile Tests/Coverage-${{ matrix.dotnet-version }}.xml > $GITHUB_STEP_SUMMARY
+          pwsh make-summary.ps1 -CoverageFile coverage/Coverage-${{ matrix.dotnet-version }}.xml > $GITHUB_STEP_SUMMARY
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: always()

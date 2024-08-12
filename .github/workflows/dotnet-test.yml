@@ -42,7 +42,7 @@ jobs:
           -reporttypes:'MarkdownSummaryGithub;Html;Badges'
       - name: Test and Coverage Summary
         run: 
-          pwsh make-summary.ps1 -CoverageFile Tests/Coverage.xml > $env:GITHUB_STEP_SUMMARY
+          pwsh make-summary.ps1 -CoverageFile Tests/Coverage.xml > $GITHUB_STEP_SUMMARY
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: always()

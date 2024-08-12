@@ -4,16 +4,17 @@ param (
     [int]$Threshold = 20
 )
 
-$coverage = "test","--no-build"
+$coverage = "test","--no-build","--logger:trx"
 
 if ($Section) {
   $coverage = $coverage + @("--filter", "FullyQualifiedName~.$Section.")
 }
 
-$report = "riskHotspotsAnalysisThresholds:metricThresholdForCyclomaticComplexity=$Threshold","riskHotspotsAnalysisThresholds:metricThresholdForCrapScore=$Threshold"
+$report = "-reporttypes:MarkdownSummaryGithub;Html;Badges","-reports:output.cobertura.xml","-targetdir:.\coverage "
+$report += "riskHotspotsAnalysisThresholds:metricThresholdForCyclomaticComplexity=$Threshold","riskHotspotsAnalysisThresholds:metricThresholdForCrapScore=$Threshold"
 
 dotnet tool restore
 dotnet build
 dotnet coverage collect --settings coverage.runsettings -- dotnet @coverage
-dotnet reportgenerator -reports:output.cobertura.xml -targetdir:.\coverage @report
-dotnet livereloadserver coverage --port 5300
+dotnet reportgenerator @report
+# dotnet livereloadserver coverage --port 5300

@@ -31,18 +31,19 @@ jobs:
         run: dotnet build
       - name: Test with Coverage
         run: >
-          dotnet coverage collect -o ${{ github.workspace }}/Tests/Coverage.xml -f cobertura -s coverage.runsettings
+          dotnet coverage collect -o ${{ github.workspace }}/coverage/Coverage-${{ matrix.dotnet-version }}.xml -f cobertura -s coverage.runsettings
           dotnet test --no-build --logger "trx;LogFileName=TestResults-${{ matrix.dotnet-version }}.trx"
           || true
       - name: Generate Coverage Report
         run: >
           dotnet reportgenerator
-          -reports:${{ github.workspace }}/Tests/Coverage.xml
-          -targetdir:"${{ github.workspace }}/Tests/"
+          -reports:${{ github.workspace }}/coverage/Coverage-${{ matrix.dotnet-version }}.xml
+          -targetdir:"${{ github.workspace }}/coverage/"
           -reporttypes:'MarkdownSummaryGithub;Html;Badges'
       - name: Test and Coverage Summary
+        id: coverage
         run: 
-          pwsh make-summary.ps1 -CoverageFile Tests/Coverage.xml > $GITHUB_STEP_SUMMARY
+          pwsh make-summary.ps1 -CoverageFile Tests/Coverage-${{ matrix.dotnet-version }}.xml > $GITHUB_STEP_SUMMARY
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: always()
@@ -58,15 +59,14 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: DotNET Coverage (${{ matrix.dotnet-version }})
           conclusion: success
-          output: |
-            {"summary":"Coverage summary below"}
-          output_text_description_file: Tests/SummaryGithub.md
+          output: '{"summary":"${{ steps.coverage.outputs.coverage_badge }}"}'
+          output_text_description_file: coverage/SummaryGithub.md
       - name: Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
         if: github.event_name == 'pull_request'
         with:
           recreate: true
-          path: Tests/SummaryGithub.md 
+          path: coverage/SummaryGithub.md 
       - name: Upload Tests artifact
         uses: actions/upload-artifact@v4
         if: always()
@@ -78,7 +78,7 @@ jobs:
         if: always()
         with:
           name: coverage-${{ matrix.dotnet-version }}
-          path: Tests/
+          path: coverage/
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         if: ${{ matrix.dotnet-version == '8.0.x' }}

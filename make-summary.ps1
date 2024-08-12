@@ -1,25 +1,32 @@
 [CmdletBinding()]
 param (
-    $Heading = "Tests Summary",
-    $CoverageFile = "output.cobertura.xml",
-    $TestsFilter = "*.trx"
+    $CoverageFile = "coverage/Coverage.xml"
 )
 
 [xml]$coverageXml = Get-Content $Coveragefile
 $lines = $coverageXml.coverage
 $linesPerc = [float]$lines."line-rate" * 100
-$coverageSummary = "`nCoverage: {0:f2}% covered {1:n0} of {2:n0} lines" -f $linesPerc, [int]$lines."lines-covered", [int]$lines."lines-valid"
+$params = $linesPerc, [int]$lines."lines-covered", [int]$lines."lines-valid"
+#$coverageSummary = "`nCoverage: {0:f2}% covered {1:d} of {2:d} lines" -f $params
+$coverageSummary = "[Coverage](https://img.shields.io/badge/coverage-{0:f2}%25_covered_{1:d}_of_{2:d}-F6F)" -f $params
 
 [PsObject]$tests = @{
   "total"=0;"executed"=0;"passed"=0;"failed"=0;"error"=0
 }
 
 function Write-Tests($label, $counts) {
-  $params = $counts.total, $counts.executed, $counts.passed, $counts.failed, $counts.error, $label
-  "`n{5}: {3:n0} failed and {4:n0} errored. Executed {1:n0} of {0:n0} thus passing {2:n0}. " -f $params
+  $skipped = $counts.total - $counts.executed
+  $params = $label, $counts.failed, $counts.error, $counts.passed, $skipped
+  # "{0}: {1:d} failed and {2:d} errored. Skipped {3:d} thus passed {4:d}. " -f $params
+
+  if (($counts.failed + $counts.error) -eq 0) {
+    "[{0} successful](https://img.shields.io/badge/tests-{3:d}_passed%2C_{4:d}_skipped-6F6)" -f $params
+  } else {
+    "[{0} failed](https://img.shields.io/badge/tests-{1:d}_failed%2C{2:d}_errored%2C{3:d}_passed%2C_{4:d}_skipped-F66)" -f $params
+  }
 }
 
-Get-ChildItem . -Recurse -Filter $TestsFilter | ForEach-Object {
+Get-ChildItem . -Recurse -Filter "TestResults*.trx" | ForEach-Object {
   [xml]$trx = Get-Content $_.FullName
 
   $counters = $trx.TestRun.ResultSummary.Counters
@@ -31,8 +38,11 @@ Get-ChildItem . -Recurse -Filter $TestsFilter | ForEach-Object {
   $tests.error += $counters.error
 }
 
-$testSummary = Write-Tests "Tests" $tests
+$testSummary = Write-Tests "All Tests" $tests
 
-Write-Host "## $Heading"
 Write-Host $testSummary
 Write-Host $coverageSummary
+
+if ($env:GITHUB_OUTPUT) {
+  Set-Content $env:GITHUB_OUTPUT "coverage_badge=$coverageSummary"
+}

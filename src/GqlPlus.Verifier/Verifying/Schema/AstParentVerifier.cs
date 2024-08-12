@@ -31,15 +31,22 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     bool top,
     Action<TAst>? onParent = null)
   {
+    if (string.IsNullOrWhiteSpace(input.Parent)) {
+      return;
+    }
+
+    string outcome = "not defined";
+
     if (context.GetType(input.Parent, out IGqlpDescribed? defined)) {
       if (defined is IGqlpType astType) {
         CheckTypedParentType(input, context, top, onParent, astType);
-      } else if (top) {
-        context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' invalid definition.");
+        return;
       }
-    } else if (top && !string.IsNullOrWhiteSpace(input.Parent)) {
-      context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' not defined");
+
+      outcome = "invalid definition";
     }
+
+    context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' {outcome}", top);
   }
 
   private void CheckTypedParentType(ParentUsage<TAst> input, TContext context, bool top, Action<TAst>? onParent, IGqlpType astType)
@@ -50,9 +57,10 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
           onParent?.Invoke(parentType);
         }
       }
-    } else if (top) {
-      context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' invalid type. Found '{astType.Label}'");
+      return;
     }
+
+    context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' invalid type. Found '{astType.Label}'", top);
   }
 
   protected virtual bool CheckAstParentType(ParentUsage<TAst> input, IGqlpType astType)
@@ -73,11 +81,11 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   }
 
   protected virtual void OnParentType(ParentUsage<TAst> input, TContext context, TAst parentType, bool top)
-  {
-    if (top && parentType.Label != input.UsageLabel) {
-      context.AddError(input.Usage, input.UsageLabel + " Parent", $"Type kind mismatch for {input.Parent}. Found {parentType.Label}");
-    }
-  }
+    => context.AddError(
+      input.Usage,
+      input.UsageLabel + " Parent",
+      $"Type kind mismatch for {input.Parent}. Found {parentType.Label}",
+      top && parentType.Label != input.UsageLabel);
 
   protected abstract string GetParent(IGqlpType<TParent> usage);
   protected abstract void CheckMergeParent(ParentUsage<TAst> input, TContext context);

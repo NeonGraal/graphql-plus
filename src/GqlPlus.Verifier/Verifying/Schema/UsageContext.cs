@@ -12,9 +12,13 @@ public class UsageContext(
   internal void Add(IEnumerable<ITokenMessage> messages)
     => errors.Add(messages);
 
-  internal void AddError<TAst>(TAst item, string label, string message)
+  internal void AddError<TAst>(TAst item, string label, string message, bool addError = true)
       where TAst : IGqlpError
-    => errors.Add(item.MakeError($"Invalid {label}. {message}."));
+  {
+    if (addError) {
+      errors.Add(item.MakeError($"Invalid {label}. {message}."));
+    }
+  }
 
   internal bool GetType(string? type, out IGqlpDescribed? value)
   {
@@ -77,9 +81,7 @@ internal static class UsageHelpers
 
       if (modifier.ModifierKind == ModifierKind.Dict) {
         if (context.GetType(modifier.Key, out IGqlpDescribed? key)) {
-          if (key is not IGqlpSimple and not IGqlpTypeParam) {
-            context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type");
-          }
+          context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' invalid type", key is not IGqlpSimple and not IGqlpTypeParam);
         } else {
           context.AddError((IGqlpAbbreviated)modified, "Modifier", $"'{modifier.Key}' not defined");
         }
@@ -118,8 +120,8 @@ internal static class UsageHelpers
       } else if (value is IGqlpSimple simple && numArgs != 0) {
         context.AddError(type, type.Label + labelSuffix, $"Args invalid on {simple.Name}, given {numArgs}");
       }
-    } else if (check) {
-      context.AddError(type, type.Label + labelSuffix, $"'{type.TypeName}' not defined");
+    } else {
+      context.AddError(type, type.Label + labelSuffix, $"'{type.TypeName}' not defined", check);
     }
 
     return context;

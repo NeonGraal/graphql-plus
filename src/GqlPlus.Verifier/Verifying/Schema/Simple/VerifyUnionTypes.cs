@@ -23,9 +23,7 @@ internal class VerifyUnionTypes(
   protected override void UsageValue(IGqlpUnion usage, UsageContext context)
   {
     foreach (IGqlpUnionItem member in usage.Items) {
-      if (CheckMember(usage.Name, member, context, CheckTypeLabel)) {
-        context.AddError(usage, "Union", $"'{member.Name}' not defined");
-      }
+      context.AddError(usage, "Union", $"'{member.Name}' not defined", CheckMember(usage.Name, member, context, CheckTypeLabel));
     }
 
     if (GetParentType(usage.Name, usage, context, out IGqlpUnion? parentType)) {
@@ -34,9 +32,7 @@ internal class VerifyUnionTypes(
 
     void CheckTypeLabel(string name, IGqlpType type)
     {
-      if (type is not IGqlpSimple and not IGqlpTypeSpecial) {
-        context.AddError(usage, "union", $"Type kind mismatch for {name}. Found {type?.Label}");
-      }
+      context.AddError(usage, "union", $"Type kind mismatch for {name}. Found {type?.Label}", type is not IGqlpSimple and not IGqlpTypeSpecial);
     }
   }
 

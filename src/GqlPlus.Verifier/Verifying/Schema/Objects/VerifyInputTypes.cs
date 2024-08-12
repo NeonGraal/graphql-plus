@@ -25,8 +25,11 @@ internal class VerifyInputTypes(
   {
     base.UsageField(field, context);
 
-    if (field.DefaultValue?.Value?.EnumValue == "Null.null" && !(field.Modifiers.LastOrDefault()?.ModifierKind == ModifierKind.Optional)) {
-      context.AddError(field, "Input Field Default", $"'null' default requires Optional type, not '{field.ModifiedType}'");
-    }
+    context.AddError(
+      field,
+      "Input Field Default",
+      $"'null' default requires Optional type, not '{field.ModifiedType}'",
+      field.DefaultValue?.Value?.EnumValue == "Null.null"
+        && !(field.Modifiers.LastOrDefault()?.ModifierKind == ModifierKind.Optional));
   }
 }

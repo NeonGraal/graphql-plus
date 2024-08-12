@@ -42,8 +42,7 @@ jobs:
           -reporttypes:'MarkdownSummaryGithub;Html;Badges'
       - name: Test and Coverage Summary
         id: coverage
-        run: 
-          pwsh make-summary.ps1 -CoverageFile coverage/Coverage-${{ matrix.dotnet-version }}.xml > $GITHUB_STEP_SUMMARY
+        run: pwsh make-summary.ps1 -CoverageFile coverage/Coverage-${{ matrix.dotnet-version }}.xml > $GITHUB_STEP_SUMMARY
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: always()
@@ -66,7 +65,7 @@ jobs:
         if: github.event_name == 'pull_request'
         with:
           recreate: true
-          path: coverage/SummaryGithub.md 
+          path: coverage/SummaryGithub.md
       - name: Upload Tests artifact
         uses: actions/upload-artifact@v4
         if: always()

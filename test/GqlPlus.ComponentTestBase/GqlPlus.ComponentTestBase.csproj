@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="Fluid.Core" Version="2.11.1" />
-    <PackageReference Include="Verify.Xunit" Version="26.1.6" />
+    <PackageReference Include="Verify.Xunit" Version="26.2.0" />
     <PackageReference Include="Xunit.DependencyInjection" Version="9.3.0" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
     <PackageReference Include="Xunit.DependencyInjection.SkippableFact" Version="9.0.0" />

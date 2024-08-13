@@ -1,7 +1,6 @@
 [CmdletBinding()]
 param (
-    $Section = "",
-    [int]$Threshold = 20
+    $Section = ""
 )
 
 $coverageFile = "$PWD/coverage/Coverage.xml"
@@ -12,12 +11,9 @@ if ($Section) {
   $coverage = $coverage + @("--filter", "FullyQualifiedName~.$Section.")
 }
 
-$report = "-reporttypes:MarkdownSummaryGithub;Html;Badges","-reports:$coverageFile","-targetdir:.\coverage "
-$report += "riskHotspotsAnalysisThresholds:metricThresholdForCyclomaticComplexity=$Threshold","riskHotspotsAnalysisThresholds:metricThresholdForCrapScore=$Threshold"
-
 dotnet tool restore
 dotnet build
 dotnet coverage collect @collect -- dotnet @coverage
-dotnet reportgenerator @report
+
+Write-Host "`n# Coverage Summary"
 ./make-summary.ps1
-dotnet livereloadserver coverage --port 5300

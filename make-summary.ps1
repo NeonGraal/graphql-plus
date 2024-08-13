@@ -1,9 +1,4 @@
-[CmdletBinding()]
-param (
-    $CoverageFile = "coverage/Coverage.xml"
-)
-
-[xml]$coverageXml = Get-Content $Coveragefile
+[xml]$coverageXml = Get-ChildItem coverage -Filter "Coverage*.xml" | Get-Content
 $lines = $coverageXml.coverage
 $linesPerc = [float]$lines."line-rate" * 100
 $params = $linesPerc, [int]$lines."lines-covered", [int]$lines."lines-valid"
@@ -42,6 +37,10 @@ $testSummary = Write-Tests "All Tests" $tests
 
 Write-Host $testSummary
 Write-Host $coverageSummary
+
+if ($env:GITHUB_STEP_SUMMARY) {
+  Set-Content $env:GITHUB_STEP_SUMMARY "$testSummary`n$coverageSummary"
+}
 
 if ($env:GITHUB_OUTPUT) {
   Set-Content $env:GITHUB_OUTPUT "coverage_badge=$coverageSummary"

@@ -29,28 +29,28 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build
-      - name: Test with Coverage
+      - name: Tests with Coverage
         run: >
           dotnet coverage collect -o ${{ github.workspace }}/coverage/Coverage-${{ matrix.dotnet-version }}.xml -f cobertura -s coverage.runsettings
           dotnet test --no-build --logger "trx;LogFileName=TestResults-${{ matrix.dotnet-version }}.trx"
-          || true
       - name: Generate Coverage Report
+        if: always()
         run: >
           dotnet reportgenerator
           -reports:${{ github.workspace }}/coverage/Coverage-${{ matrix.dotnet-version }}.xml
           -targetdir:"${{ github.workspace }}/coverage/"
-          -reporttypes:'MarkdownSummaryGithub;Html;Badges'
-      - name: Test and Coverage Summary
+          -reporttypes:'MarkdownSummaryGithub;Html'
+      - name: Tests and Coverage Summary
         id: coverage
-        run: pwsh make-summary.ps1 -CoverageFile coverage/Coverage-${{ matrix.dotnet-version }}.xml > $GITHUB_STEP_SUMMARY
-      - name: Test Report
+        if: always()
+        run: pwsh make-summary.ps1
+      - name: Tests Report
         uses: dorny/test-reporter@v1
         if: always()
         with:
           name: DotNET Tests (${{ matrix.dotnet-version }})
           path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
           reporter: dotnet-trx
-          fail-on-error: true
       - name: Coverage Report
         uses: LouisBrunner/checks-action@v2.0.0
         if: always()

@@ -4,16 +4,16 @@ param (
 )
 
 $coverageFile = "$PWD/coverage/Coverage.xml"
-$collect = "-o",$coverageFile,"-f","cobertura","-s","coverage.runsettings"
-$coverage = "test","--no-build","--logger:trx;LogFileName=TestResults.trx"
+$collect = "collect","-o",$coverageFile,"-f","cobertura","-s","coverage.runsettings"
+$test = "test","--no-build","--logger:trx;LogFileName=TestResults.trx"
 
 if ($Section) {
-  $coverage = $coverage + @("--filter", "FullyQualifiedName~.$Section.")
+  $test = $test + @("--filter", "FullyQualifiedName~.$Section.")
 }
 
 dotnet tool restore
 dotnet build
-dotnet coverage collect @collect -- dotnet @coverage
+dotnet coverage @collect -- dotnet @test
 
 Write-Host "`n# Coverage Summary"
 ./make-summary.ps1

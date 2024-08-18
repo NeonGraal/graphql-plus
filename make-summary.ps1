@@ -17,11 +17,11 @@ function Get-Tests($label, $counts) {
 function Convert-Tests($params, $prefix = "") {
   if (($params[1] + $params[2]) -eq 0) {
     $label = "{0} successful"
-    $text = "tests-{3:d}_passed%2C_{4:d}_skipped"
+    $text = "{0}-{3:d}_passed%2C_{4:d}_skipped"
     $colour = "6F6"
   } else {
     $label = "{0} failed"
-    $text = "tests-{1:d}_failed%2C{2:d}_errored%2C{3:d}_passed%2C_{4:d}_skipped"
+    $text = "{0}-{1:d}_failed%2C{2:d}_errored%2C{3:d}_passed%2C_{4:d}_skipped"
     $colour = "F66"
   }
 
@@ -40,7 +40,7 @@ function Write-Tests($params, $prefix = "") {
 
 function Convert-Coverage($cover, $prefix = "") {
   $params = $cover.linesPerc, $cover.linesCovered, $cover.linesValid
-  Get-Badge $params "Coverage" "coverage-{0:f2}%25_covered_{1:d}_of_{2:d}" "F6F" $prefix
+  Get-Badge $params "Coverage" "Coverage-{0:f2}%25_covered_{1:d}_of_{2:d}" "F6F" $prefix
 }
 
 function Write-Coverage($cover, $prefix = "") {
@@ -70,7 +70,7 @@ $coverage = Get-ChildItem coverage -Filter "Coverage*.xml" | ForEach-Object {
 $testParams = Get-ChildItem . -Recurse -Filter "TestResults*.trx" | ForEach-Object {
   [xml]$trx = Get-Content $_.FullName
 
-  $name = $_.Directory.Parent.Name
+  $name = $_.Directory.Parent.Name -replace "GqlPlus\.","" -replace "\.","_"
   $counters = $trx.TestRun.ResultSummary.Counters
 
   $allTests.total += $counters.total
@@ -82,7 +82,7 @@ $testParams = Get-ChildItem . -Recurse -Filter "TestResults*.trx" | ForEach-Obje
   Get-Tests $name $counters
 }
 
-$allTestsParams = Get-Tests "All Tests" $allTests
+$allTestsParams = Get-Tests "All_Tests" $allTests
 
 Write-Tests $allTestsParams.params
 if ($testParams.Count -gt 1) {
@@ -97,7 +97,7 @@ if ($ShowGithub) {
   if ($testParams.Count -gt 1) {
     $testParams | ForEach-Object { Write-Host (Convert-Tests $_.params "- ") }
   }
-  Write-Host (Convert-Coverage $allCoverage)
+  Write-Host (Convert-Coverage $allCoverage "`n")
 }
 
 if ($env:GITHUB_STEP_SUMMARY) {
@@ -105,7 +105,7 @@ if ($env:GITHUB_STEP_SUMMARY) {
   if ($testParams.Count -gt 1) {
     $testParams | ForEach-Object { Convert-Tests $_.params "- " } | Add-Content $env:GITHUB_STEP_SUMMARY
   }
-  Convert-Coverage $allCoverage | Add-Content $env:GITHUB_STEP_SUMMARY
+  Convert-Coverage $allCoverage "`n" | Add-Content $env:GITHUB_STEP_SUMMARY
 }
 
 if ($env:GITHUB_OUTPUT) {

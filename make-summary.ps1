@@ -103,9 +103,9 @@ if ($ShowGithub) {
 if ($env:GITHUB_STEP_SUMMARY) {
   Convert-Tests $allTestsParams.params | Set-Content $env:GITHUB_STEP_SUMMARY
   if ($testParams.Count -gt 1) {
-    $testParams | ForEach-Object { Convert-Tests $_.params "- " } | Set-Content $env:GITHUB_STEP_SUMMARY -Append
+    $testParams | ForEach-Object { Convert-Tests $_.params "- " } | Add-Content $env:GITHUB_STEP_SUMMARY
   }
-  Convert-Coverage $allCoverage | Set-Content $env:GITHUB_STEP_SUMMARY -Append
+  Convert-Coverage $allCoverage | Add-Content $env:GITHUB_STEP_SUMMARY
 }
 
 if ($env:GITHUB_OUTPUT) {

@@ -538,7 +538,7 @@ types: !_Map_Type
       name: parameters
       object: _Directive
       type: !_OutputBase
-        output: _InputParam
+        output: _FieldParam
     - !_ObjectFor(_OutputField)
       name: repeatable
       object: _Directive
@@ -556,7 +556,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameters
       type: !_OutputBase
-        output: _InputParam
+        output: _FieldParam
     - !_OutputField
       name: repeatable
       type: !_OutputBase
@@ -1010,6 +1010,32 @@ types: !_Map_Type
       - !_OutputArg
         output: _DualBase
     typeKind: !_TypeKind Output
+  !_Identifier _DualParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: typeParam
+      object: _ObjParam
+      type: !_OutputBase
+        output: _TypeParam
+    - !_ObjectFor(_OutputField)
+      name: description
+      object: _ObjParam
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      name: constraint
+      object: _ObjParam
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
+    name: _DualParam
+    parent: !_OutputBase
+      output: _ObjParam
+      typeArgs:
+      - !_OutputArg
+        output: _DualBase
+    typeKind: !_TypeKind Output
   !_Identifier _DualParent: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
@@ -1147,6 +1173,53 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: base
+  !_Identifier _FieldParam: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: _ObjDescribed
+      type: !_DualBase
+        dual: _InputBase
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: base
+      object: _ObjDescribed
+      type: !_DualBase
+        dual: _InputBase
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _ObjDescribed
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      object: _FieldParam
+      type: !_OutputBase
+        output: _Modifiers
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: default
+      object: _FieldParam
+      type: !_OutputBase
+        output: _Constant
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      type: !_OutputBase
+        output: _Modifiers
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: default
+      type: !_OutputBase
+        output: _Constant
+    name: _FieldParam
+    parent: !_DualBase
+      dual: _ObjDescribed
+      typeArgs:
+      - !_DualArg
+        dual: _InputBase
+    typeKind: !_TypeKind Output
   !_Identifier _Filter: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
@@ -1352,51 +1425,30 @@ types: !_Map_Type
         output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputParam: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: _ObjDescribed
-      type: !_DualBase
-        dual: _InputBase
     allFields:
-    - !_ObjectFor(_DualField)
-      name: base
-      object: _ObjDescribed
-      type: !_DualBase
-        dual: _InputBase
-    - !_ObjectFor(_DualField)
+    - !_ObjectFor(_OutputField)
+      name: typeParam
+      object: _ObjParam
+      type: !_OutputBase
+        output: _TypeParam
+    - !_ObjectFor(_OutputField)
       name: description
-      object: _ObjDescribed
-      type: !_DualBase
-        dual: String
+      object: _ObjParam
+      type: !_OutputBase
+        output: String
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: modifiers
-      object: _InputParam
+      name: constraint
+      object: _ObjParam
       type: !_OutputBase
-        output: _Modifiers
-    - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: default
-      object: _InputParam
-      type: !_OutputBase
-        output: _Constant
-    fields:
-    - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: modifiers
-      type: !_OutputBase
-        output: _Modifiers
-    - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: default
-      type: !_OutputBase
-        output: _Constant
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
     name: _InputParam
-    parent: !_DualBase
-      dual: _ObjDescribed
+    parent: !_OutputBase
+      output: _ObjParam
       typeArgs:
-      - !_DualArg
-        dual: _InputBase
+      - !_OutputArg
+        output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputParent: !_TypeOutput
     allAlternates:
@@ -1656,6 +1708,26 @@ types: !_Map_Type
           dual: _ObjArg
     name: _ObjBase
     typeKind: !_TypeKind Output
+  !_Identifier _ObjConstraint: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _ObjConstraint
+      type: !_OutputBase
+        output: _TypeSimple
+    - !_ObjectFor(_OutputAlternate)
+      object: _ObjConstraint
+      type: !_TypeParam base
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _TypeSimple
+    - !_OutputAlternate
+      type: !_TypeParam base
+    name: _ObjConstraint
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: base
   !_Identifier _ObjDescribed: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
@@ -1687,6 +1759,45 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: base
+  !_Identifier _ObjParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: typeParam
+      object: _ObjParam
+      type: !_OutputBase
+        output: _TypeParam
+    - !_ObjectFor(_OutputField)
+      name: description
+      object: _ObjParam
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      name: constraint
+      object: _ObjParam
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
+    fields:
+    - !_OutputField
+      name: typeParam
+      type: !_OutputBase
+        output: _TypeParam
+    - !_OutputField
+      name: description
+      type: !_OutputBase
+        output: String
+    - !_OutputField
+      name: constraint
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
+    name: _ObjParam
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: base
   !_Identifier _ObjType: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
@@ -1701,10 +1812,9 @@ types: !_Map_Type
     - !_ObjectFor(_OutputAlternate)
       object: _ObjType
       type: !_OutputBase
-        output: _TypeSimple
-    - !_ObjectFor(_OutputAlternate)
-      object: _ObjType
-      type: !_TypeParam base
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -1716,9 +1826,9 @@ types: !_Map_Type
           typeKind: !_SimpleKind Enum
     - !_OutputAlternate
       type: !_OutputBase
-        output: _TypeSimple
-    - !_OutputAlternate
-      type: !_TypeParam base
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
     name: _ObjType
     typeKind: !_TypeKind Output
     typeParams:
@@ -1923,7 +2033,7 @@ types: !_Map_Type
       name: parameter
       object: _OutputField
       type: !_OutputBase
-        output: _InputParam
+        output: _FieldParam
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -1933,10 +2043,36 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameter
       type: !_OutputBase
-        output: _InputParam
+        output: _FieldParam
     name: _OutputField
     parent: !_OutputBase
       output: _Field
+      typeArgs:
+      - !_OutputArg
+        output: _OutputBase
+    typeKind: !_TypeKind Output
+  !_Identifier _OutputParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: typeParam
+      object: _ObjParam
+      type: !_OutputBase
+        output: _TypeParam
+    - !_ObjectFor(_OutputField)
+      name: description
+      object: _ObjParam
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      name: constraint
+      object: _ObjParam
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
+    name: _OutputParam
+    parent: !_OutputBase
+      output: _ObjParam
       typeArgs:
       - !_OutputArg
         output: _OutputBase
@@ -2477,8 +2613,8 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeParams
       object: _TypeObject
-      type: !_DualBase
-        dual: _Described
+      type: !_OutputBase
+        output: _DualParam
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -2517,6 +2653,8 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
       - !_OutputArg
         output: _DualParent
+      - !_OutputArg
+        output: _DualParam
       - !_OutputArg
         output: _DualField
       - !_OutputArg
@@ -2666,8 +2804,8 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeParams
       object: _TypeObject
-      type: !_DualBase
-        dual: _Described
+      type: !_OutputBase
+        output: _InputParam
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -2706,6 +2844,8 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
       - !_OutputArg
         output: _InputParent
+      - !_OutputArg
+        output: _InputParam
       - !_OutputArg
         output: _InputField
       - !_OutputArg
@@ -2779,8 +2919,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeParams
       object: _TypeObject
-      type: !_DualBase
-        dual: _Described
+      type: !_TypeParam typeParam
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -2811,8 +2950,7 @@ types: !_Map_Type
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeParams
-      type: !_DualBase
-        dual: _Described
+      type: !_TypeParam typeParam
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -2847,6 +2985,8 @@ types: !_Map_Type
       name: kind
     - !_Described
       name: parent
+    - !_Described
+      name: typeParam
     - !_Described
       name: field
     - !_Described
@@ -2883,8 +3023,8 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeParams
       object: _TypeObject
-      type: !_DualBase
-        dual: _Described
+      type: !_OutputBase
+        output: _OutputParam
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -2923,6 +3063,8 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
       - !_OutputArg
         output: _OutputParent
+      - !_OutputArg
+        output: _OutputParam
       - !_OutputArg
         output: _OutputField
       - !_OutputArg

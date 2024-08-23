@@ -257,6 +257,45 @@
       "name": "_ObjBase",
       "typeKind": "Output"
     },
+    "_ObjConstraint": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_ObjConstraint",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeSimple"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_ObjConstraint",
+          "type": "base"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeSimple"
+          }
+        },
+        {
+          "$tag": "_OutputAlternate",
+          "type": "base"
+        }
+      ],
+      "name": "_ObjConstraint",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "base"
+        }
+      ]
+    },
     "_ObjDescribed": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -346,6 +385,74 @@
         }
       ]
     },
+    "_ObjParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "typeParam",
+          "object": "_ObjParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeParam"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "description",
+          "object": "_ObjParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "constraint",
+          "object": "_ObjParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ObjConstraint",
+            "typeArgs": ["base"]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "typeParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeParam"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "description",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "constraint",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ObjConstraint",
+            "typeArgs": ["base"]
+          }
+        }
+      ],
+      "name": "_ObjParam",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "base"
+        }
+      ]
+    },
     "_ObjType": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -370,13 +477,9 @@
           "object": "_ObjType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeSimple"
+            "output": "_ObjConstraint",
+            "typeArgs": ["base"]
           }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjType",
-          "type": "base"
         }
       ],
       "alternates": [
@@ -399,12 +502,9 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeSimple"
+            "output": "_ObjConstraint",
+            "typeArgs": ["base"]
           }
-        },
-        {
-          "$tag": "_OutputAlternate",
-          "type": "base"
         }
       ],
       "name": "_ObjType",
@@ -429,10 +529,7 @@
           ],
           "name": "typeParams",
           "object": "_TypeObject",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Described"
-          }
+          "type": "typeParam"
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -501,10 +598,7 @@
             }
           ],
           "name": "typeParams",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Described"
-          }
+          "type": "typeParam"
         },
         {
           "$tag": "_OutputField",
@@ -574,6 +668,10 @@
         {
           "$tag": "_Described",
           "value": "parent"
+        },
+        {
+          "$tag": "_Described",
+          "value": "typeParam"
         },
         {
           "$tag": "_Described",

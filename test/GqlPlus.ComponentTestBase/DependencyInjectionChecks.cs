@@ -29,6 +29,7 @@ public class DependencyInjectionChecks(
   {
     s_options.FileProvider = new EmbeddedFileProvider(Assembly.GetAssembly(typeof(DependencyInjectionChecks))!, "GqlPlus.DI");
     s_options.MemberAccessStrategy.Register<DiService>();
+    s_options.MemberAccessStrategy.Register<DiLink>();
     s_options.MemberAccessStrategy.Register<TypeIdName>();
   }
 
@@ -160,6 +161,25 @@ public class DependencyInjectionChecks(
     template.Render(context).WriteHtmlFile("DI", file + "-table");
   }
 
+  public void Force3dDependencyInjection(string file)
+  {
+    DiLink[] links = _diServices.Values
+      .SelectMany(s => s.Requires
+        .Select(r => new DiLink(s.Service.Safe, r.Value.Safe, r.Key)))
+      .ToArray();
+    string[] nodes = links
+      .SelectMany(l => new string[] { l.From, l.To })
+      .Distinct().ToArray();
+
+    TemplateContext context = new(s_options);
+    context.SetValue("name", file);
+    context.SetValue("nodes", nodes);
+    context.SetValue("links", links);
+
+    IFluidTemplate template = GetTemplate("force3d");
+    template.Render(context).WriteHtmlFile("DI", file + "-force3d");
+  }
+
   private readonly HashSet<string> _ids = [];
   private readonly List<DiService> _group = [];
   private readonly HashSet<string> _groupIds = [];
@@ -272,6 +292,20 @@ public sealed record TypeIdName
   public string Name { get; }
   public string Key { get; }
   public string Safe { get; }
+}
+
+public sealed class DiLink
+{
+  public string From { get; }
+  public string To { get; }
+  public string Style { get; }
+
+  public DiLink(string from, string to, string style)
+  {
+    From = from;
+    To = to;
+    Style = style;
+  }
 }
 
 public sealed class DiService

@@ -23,13 +23,13 @@ private IDictionary<string,string> TestData(FileInfo file) {
 }
 
 private void BuildData(string directory) {
-  var sampleDir = new DirectoryInfo(this.Host.ResolvePath(directory));
+  var sampleDir = new DirectoryInfo(this.Host.ResolvePath("Sample\\" + directory));
   var index = sampleDir.FullName.IndexOf("test") - 1;
   var relative = "." + sampleDir.FullName.Substring(index);#>
 // Generated from <#= relative #>
 
 namespace GqlPlus;
-<#+  foreach (var file in sampleDir.EnumerateFiles().OrderBy(f => f.Name)) {
+<#+  foreach (var file in sampleDir.EnumerateFiles("*.txt").OrderBy(f => f.Name)) {
       var fileName = Path.ChangeExtension(file.Name, null);
       var testData = TestData(file);
 #>

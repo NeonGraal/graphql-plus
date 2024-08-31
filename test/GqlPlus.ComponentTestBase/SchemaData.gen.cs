@@ -1,4 +1,4 @@
-﻿// Generated from .\test\GqlPlus.ComponentTestBase\Schema
+﻿// Generated from .\test\GqlPlus.ComponentTestBase\Sample\Schema
 
 namespace GqlPlus;
 

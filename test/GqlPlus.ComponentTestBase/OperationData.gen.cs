@@ -1,4 +1,4 @@
-﻿// Generated from .\test\GqlPlus.ComponentTestBase\Operation
+﻿// Generated from .\test\GqlPlus.ComponentTestBase\Sample\Operation
 
 namespace GqlPlus;
 

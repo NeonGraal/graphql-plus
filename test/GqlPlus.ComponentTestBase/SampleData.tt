@@ -15,7 +15,7 @@ public class Sample<#= dir.Name #>Data
 {
   public Sample<#= dir.Name #>Data()
   {
-<#    foreach (var file in dir.EnumerateFiles()) { #>
+<#    foreach (var file in dir.EnumerateFiles("*.g*")) { #>
     Add("<#= Path.ChangeExtension(file.Name, null) #>");
 <#    } #>
   }

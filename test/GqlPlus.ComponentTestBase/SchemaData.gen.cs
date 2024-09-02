@@ -1,4 +1,6 @@
-﻿// Generated from .\test\GqlPlus.ComponentTestBase\Sample\Schema
+﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Schema
+// Collected from a71e213  (HEAD -> samples, origin/samples) 2024-09-02 Remove double trailing EOL
+
 
 namespace GqlPlus;
 
@@ -172,6 +174,20 @@ public class SchemaInvalidSimpleData
   }
 }
 
+public class SchemaSchemaData
+  : TheoryData<string>
+{
+  public static readonly Dictionary<string, string> Source = new() {
+  };
+
+  public SchemaSchemaData()
+  {
+    foreach (string key in Source.Keys) {
+      Add(key);
+    }
+  }
+}
+
 public class SchemaValidGlobalsData
   : TheoryData<string>
 {
@@ -326,7 +342,7 @@ public class SchemaValidSimpleData
     ["domain-enum-unique"] = "enum EnumDomUnique { eum_dom_value eum_dom_dup } enum EnumDomDup { eum_dom_dup } # domain DomEnumUnique { enum EnumDomUnique.* !EnumDomUnique.eum_dom_dup EnumDomDup.eum_dom_dup }",
     ["domain-enum-unique-parent"] = "enum EnumDomUniqueParent { :EnumDomParentUnique value } enum EnumDomParentUnique { enum_dom_parent_dup } enum EnumDomDupParent { enum_dom_parent_dup } # domain DomEnumUniqueParent { enum EnumDomUniqueParent.* !EnumDomUniqueParent.enum_dom_parent_dup EnumDomDupParent.enum_dom_parent_dup }",
     ["domain-enum-value"] = "domain DomEnum { Enum EnumDom.dom_enum } enum EnumDom { dom_enum }",
-    ["domain-enum-value-parent"] = "domain DomEnumParent { Enum EnumDomParent.dom_enum_parent } enum EnumDomParent { :EnumParentDom dom_parent_enum } enum EnumParentDom { dom_enum_parent }",
+    ["domain-enum-value-parent"] = "domain DomEnumParent { Enum EnumDomParent.dom_enum_parent } enum EnumDomParent { :EnumParentDom dom_parent_enum }  enum EnumParentDom { dom_enum_parent }",
     ["domain-number-parent"] = "domain DomNumPrnt { :DomPrntNum Number 2>} domain DomPrntNum { Number <2 }",
     ["domain-parent"] = "domain DomPrntTest { :DomTestPrnt Boolean false } domain DomTestPrnt { Boolean true }",
     ["domain-string-parent"] = "domain DomStrPrnt { :DomPrntStr String /a+/ } domain DomPrntStr { String /b+/ }",

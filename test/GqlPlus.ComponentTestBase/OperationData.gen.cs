@@ -1,4 +1,6 @@
-﻿// Generated from .\test\GqlPlus.ComponentTestBase\Sample\Operation
+﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Operation
+// Collected from a71e213  (HEAD -> samples, origin/samples) 2024-09-02 Remove double trailing EOL
+
 
 namespace GqlPlus;
 
@@ -19,6 +21,20 @@ public class OperationInvalidData
   };
 
   public OperationInvalidData()
+  {
+    foreach (string key in Source.Keys) {
+      Add(key);
+    }
+  }
+}
+
+public class OperationOperationData
+  : TheoryData<string>
+{
+  public static readonly Dictionary<string, string> Source = new() {
+  };
+
+  public OperationOperationData()
   {
     foreach (string key in Source.Keys) {
       Add(key);

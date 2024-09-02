@@ -1,0 +1,3 @@
+domain DomEnumParent { Enum EnumDomParent.dom_enum_parent }
+enum EnumDomParent { :EnumParentDom dom_parent_enum } 
+enum EnumParentDom { dom_enum_parent }

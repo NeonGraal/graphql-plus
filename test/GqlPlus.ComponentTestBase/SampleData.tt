@@ -1,15 +1,20 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ import namespace="System.IO" #>
 <#@ output extension=".gen.cs" #><#  
-  var sampleDir = new DirectoryInfo(this.Host.ResolvePath("Sample"));
-  var index = sampleDir.FullName.IndexOf("test") - 1;
-  var relative = "." + sampleDir.FullName.Substring(index);
-#>
+  var samplesDir = new DirectoryInfo(this.Host.ResolvePath("Samples"));
+  var index = samplesDir.FullName.IndexOf("test") - 1;
+  var relative = "." + samplesDir.FullName.Substring(index);
+  var gitFile = samplesDir.GetFiles("git-details.txt")[0];
+  string gitDetails;
+  using (var gitText = gitFile.OpenText()) {
+    gitDetails = gitText.ReadToEnd();
+  }#>
 // Generated from <#= relative #>
+// Collected from <#= gitDetails #>
 
 namespace GqlPlus;
 
-<#  foreach (var dir in sampleDir.EnumerateDirectories()) { #>
+<#  foreach (var dir in samplesDir.EnumerateDirectories()) { #>
 public class Sample<#= dir.Name #>Data
   : TheoryData<string>
 {

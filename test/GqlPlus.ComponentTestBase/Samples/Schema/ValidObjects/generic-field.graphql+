@@ -1,0 +1,1 @@
+object ObjName<$type> { field: $type }

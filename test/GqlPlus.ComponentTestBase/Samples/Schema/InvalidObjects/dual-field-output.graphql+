@@ -1,0 +1,2 @@
+dual Test { field: Bad }
+output Bad { }

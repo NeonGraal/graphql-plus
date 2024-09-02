@@ -1,0 +1,3 @@
+enum EnumDomUnique { eum_dom_value eum_dom_dup }
+enum EnumDomDup { eum_dom_dup }
+# domain DomEnumUnique { enum EnumDomUnique.* !EnumDomUnique.eum_dom_dup EnumDomDup.eum_dom_dup }

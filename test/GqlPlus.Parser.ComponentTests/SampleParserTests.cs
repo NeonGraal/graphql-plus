@@ -42,7 +42,7 @@ public class SampleParserTests(
 
   private async Task<IGqlpOperation?> ParseSampleOperation(string dir, string sample, string extn)
   {
-    string operation = await File.ReadAllTextAsync($"Sample/{dir}/{sample}.{extn}");
+    string operation = await File.ReadAllTextAsync($"Samples/{dir}/{sample}.{extn}");
 
     OperationContext tokens = new(operation);
     return _operation.Parse(tokens, "Operation").Optional();

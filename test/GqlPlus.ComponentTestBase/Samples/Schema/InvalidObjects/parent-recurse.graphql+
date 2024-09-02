@@ -1,0 +1,2 @@
+object Test { :Recurse }
+object Recurse { :Test }

@@ -13,7 +13,7 @@ public class SampleChecks(
 
   protected async Task<IGqlpSchema> ParseSampleSchema(string sample)
   {
-    string schema = await File.ReadAllTextAsync("Sample/Schema/" + sample + ".graphql+");
+    string schema = await File.ReadAllTextAsync("Samples/Schema/" + sample + ".graphql+");
     Tokenizer tokens = new(schema);
 
     return _schemaParser.Parse(tokens, "Schema").Required();

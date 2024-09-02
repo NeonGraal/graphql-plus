@@ -1,0 +1,2 @@
+enum Test { :Parent test[alias] }
+enum Parent { parent[alias] }

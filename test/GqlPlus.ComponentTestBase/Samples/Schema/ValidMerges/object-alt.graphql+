@@ -1,0 +1,3 @@
+object ObjName { | ObjNameType }
+object ObjName { | ObjNameType }
+object ObjNameType { }

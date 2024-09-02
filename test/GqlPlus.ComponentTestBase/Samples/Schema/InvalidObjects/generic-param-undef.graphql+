@@ -1,0 +1,2 @@
+object Test { field: Ref<Test1> }
+object Ref<$ref> { | $ref }

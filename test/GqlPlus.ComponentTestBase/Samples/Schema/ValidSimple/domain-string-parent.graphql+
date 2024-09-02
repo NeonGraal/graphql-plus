@@ -1,0 +1,2 @@
+domain DomStrPrnt { :DomPrntStr String /a+/ }
+domain DomPrntStr { String /b+/ }

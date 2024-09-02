@@ -1,4 +1,6 @@
-﻿// Generated from .\test\GqlPlus.ComponentTestBase\Sample
+﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples
+// Collected from a71e213  (HEAD -> samples, origin/samples) 2024-09-02 Remove double trailing EOL
+
 
 namespace GqlPlus;
 

@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples
-// Collected from a71e213  (HEAD -> samples, origin/samples) 2024-09-02 Remove double trailing EOL
+// Collected from 5c87b8a  (HEAD -> samples, origin/samples) 2024-09-11 Improve convert and workflow
 
 
 namespace GqlPlus;

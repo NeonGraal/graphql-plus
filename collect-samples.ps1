@@ -16,7 +16,7 @@ finally {
 
 $gitDetails | Set-Content "$dest/git-details.txt"
 
-Get-ChildItem $source -Recurse | ForEach-Object {
+Get-ChildItem $source -Recurse -Exclude "*.md","*.yml" | ForEach-Object {
   $relative = Resolve-Path -RelativeBasePath $source -Relative $_
   $to = Join-Path $dest $relative
   Copy-Item $_ $to -Force

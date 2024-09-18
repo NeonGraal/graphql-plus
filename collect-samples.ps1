@@ -14,6 +14,8 @@ finally {
   Pop-Location
 }
 
+Get-ChildItem $dest -Recurse -File | Remove-Item -ErrorAction Ignore
+
 $gitDetails | Set-Content "$dest/git-details.txt"
 
 Get-ChildItem $source -Recurse -Exclude "*.md","*.yml" | ForEach-Object {

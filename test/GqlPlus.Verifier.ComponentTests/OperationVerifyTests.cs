@@ -7,7 +7,7 @@ using GqlPlus.Verifying;
 
 namespace GqlPlus;
 
-public class OperationDataTests(
+public class OperationVerifyTests(
     Parser<IGqlpOperation>.D parser,
     IVerify<IGqlpOperation> verifier
 )
@@ -32,7 +32,7 @@ public class OperationDataTests(
 
   [Theory]
   [ClassData(typeof(OperationInvalidData))]
-  public void Verify_InvalidOperations_ReturnsInvalid(string operation)
+  public async Task Verify_InvalidOperations_ReturnsInvalidAsync(string operation)
   {
     IResult<IGqlpOperation> parse = Parse(OperationInvalidData.Source[operation]);
 
@@ -44,11 +44,23 @@ public class OperationDataTests(
     }
 
     result.Should().NotBeNullOrEmpty();
+
+    await Verify(result.Select(m => m.Message), OperationSettings("Invalid", operation));
   }
 
   private IResult<IGqlpOperation> Parse(string operation)
   {
     OperationContext tokens = new(operation);
     return _parser.Parse(tokens, "Operation");
+  }
+
+  private VerifySettings OperationSettings(string category, string test)
+  {
+    VerifySettings settings = new();
+    settings.ScrubEmptyLines();
+    settings.UseDirectory($"Operation{category}Tests");
+    settings.UseFileName(test);
+
+    return settings;
   }
 }

@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Operation
-// Collected from 5c87b8a  (HEAD -> samples, origin/samples) 2024-09-11 Improve convert and workflow
+// Collected from 2f3b55f  (HEAD -> samples, origin/samples) 2024-09-21 Rename .expected to .errors
 
 
 namespace GqlPlus;
@@ -21,20 +21,6 @@ public class OperationInvalidData
   };
 
   public OperationInvalidData()
-  {
-    foreach (string key in Source.Keys) {
-      Add(key);
-    }
-  }
-}
-
-public class OperationOperationData
-  : TheoryData<string>
-{
-  public static readonly Dictionary<string, string> Source = new() {
-  };
-
-  public OperationOperationData()
   {
     foreach (string key in Source.Keys) {
       Add(key);

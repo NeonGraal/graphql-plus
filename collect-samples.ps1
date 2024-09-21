@@ -14,7 +14,8 @@ finally {
   Pop-Location
 }
 
-Get-ChildItem $dest -Recurse -File | Remove-Item -ErrorAction Ignore
+Remove-Item $dest -Recurse -Force -ErrorAction Ignore
+New-Item $dest -ItemType Directory -Force | Out-Null
 
 $gitDetails | Set-Content "$dest/git-details.txt"
 

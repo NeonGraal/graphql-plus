@@ -1,6 +1,9 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".gen.cs" #>
+<#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.IO" #>
-<#@ output extension=".gen.cs" #><#  
+<#@ import namespace="System.Linq" #>
+<#@ assembly name="System.Core" #><#
   var samplesDir = new DirectoryInfo(this.Host.ResolvePath("Samples"));
   var index = samplesDir.FullName.IndexOf("test") - 1;
   var relative = "." + samplesDir.FullName.Substring(index);
@@ -20,7 +23,7 @@ public class Sample<#= dir.Name #>Data
 {
   public Sample<#= dir.Name #>Data()
   {
-<#    foreach (var file in dir.EnumerateFiles("*.g*")) { #>
+<#    foreach (var file in dir.EnumerateFiles("*.g*").OrderBy(f => f.Name)) { #>
     Add("<#= Path.ChangeExtension(file.Name, null) #>");
 <#    } #>
   }

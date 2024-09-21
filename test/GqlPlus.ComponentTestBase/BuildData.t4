@@ -1,8 +1,8 @@
-﻿<#@ assembly name="System.Core" #>
-<#@ output extension=".gen.cs" #>
+﻿<#@ output extension=".gen.cs" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.IO" #>
-<#@ import namespace="System.Linq" #><#+
+<#@ import namespace="System.Linq" #>
+<#@ assembly name="System.Core" #><#+
 private IDictionary<string,string> TestData(FileInfo file) {
   var result = new Dictionary<string, string>();
   var test = "";
@@ -44,7 +44,7 @@ public class <#= directory + fileName #>Data
   : TheoryData<string>
 {
   public static readonly Dictionary<string, string> Source = new() {
-<#+   foreach (var file in dir.EnumerateFiles().OrderBy(f => f.Name)) {
+<#+   foreach (var file in dir.EnumerateFiles("*.g*").OrderBy(f => f.Name)) {
         var test = Path.ChangeExtension(file.Name, null);
         string data;
         using (var text = file.OpenText()) {

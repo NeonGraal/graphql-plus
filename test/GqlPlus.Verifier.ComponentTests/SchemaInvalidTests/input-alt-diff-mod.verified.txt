@@ -1,5 +1,0 @@
-﻿[
-  Multiple Inputs with name 'Test' can't be merged.,
-  Group of InputAlternate for 'Test1' is not singular Modifiers['', '[]'],
-  Multiple Types with name 'Test' can't be merged.
-]

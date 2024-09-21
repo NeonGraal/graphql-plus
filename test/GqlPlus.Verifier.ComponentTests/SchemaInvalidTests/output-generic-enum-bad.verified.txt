@@ -1,3 +1,0 @@
-﻿[
-  Invalid Output Arg Enum Value. 'unknown' not a Value of 'Boolean'.
-]

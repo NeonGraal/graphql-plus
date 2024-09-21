@@ -1,29 +1,49 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Parsing;
-using GqlPlus.Result;
-using GqlPlus.Token;
+﻿using GqlPlus.Abstractions;
 
 namespace GqlPlus;
 
-public class SampleChecks(
-  Parser<IGqlpSchema>.D schemaParser
-)
+public class SampleChecks
 {
-  private readonly Parser<IGqlpSchema>.L _schemaParser = schemaParser;
-
-  protected async Task<IGqlpSchema> ParseSampleSchema(string sample)
+  protected async Task CheckErrors(string category, string file, ITokenMessages errors, bool includeVerify = false)
   {
-    string schema = await File.ReadAllTextAsync("Samples/Schema/" + sample + ".graphql+");
-    Tokenizer tokens = new(schema);
+    List<string> suffixes = ["", "parse-"];
+    if (includeVerify) {
+      suffixes.Add("verify-");
+    }
 
-    return _schemaParser.Parse(tokens, "Schema").Required();
+    List<string> expected = [];
+    foreach (string suffix in suffixes) {
+      string errorsFile = $"Samples/{category}/{file}.{suffix}errors";
+
+      if (File.Exists(errorsFile)) {
+        expected.AddRange(await File.ReadAllLinesAsync(errorsFile));
+      }
+    }
+
+    if (expected.Count == 0) {
+      return;
+    }
+
+    string[] missing = expected.Where(e
+        => !errors.Any(error
+          => error.Message.Contains(e, StringComparison.InvariantCulture))
+      ).ToArray();
+
+    ITokenMessage[] extra = errors.Where(error
+        => !expected.Any(e
+          => error.Message.Contains(e, StringComparison.InvariantCulture))
+      ).ToArray();
+
+    using AssertionScope scope = new();
+    missing.Should().BeNullOrEmpty("Missing errors");
+    extra.Should().BeNullOrEmpty("Extra errors");
   }
 
-  protected VerifySettings SampleSettings(string category, string file)
+  protected VerifySettings CustomSettings(string category, string group, string file)
   {
     VerifySettings settings = new();
     settings.ScrubEmptyLines();
-    settings.UseDirectory($"Sample{category}Tests");
+    settings.UseDirectory($"{category}{group}Tests");
     settings.UseFileName(file);
 
     return settings;

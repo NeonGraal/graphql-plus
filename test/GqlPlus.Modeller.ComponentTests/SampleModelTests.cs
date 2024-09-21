@@ -11,7 +11,7 @@ namespace GqlPlus;
 public class SampleModelTests(
     Parser<IGqlpSchema>.D schemaParser,
     IModelAndRender renderer
-) : SampleChecks(schemaParser)
+) : SampleSchemaChecks(schemaParser)
 {
   [Theory]
   [ClassData(typeof(SampleSchemaData))]
@@ -21,13 +21,11 @@ public class SampleModelTests(
 
     ITypesContext context = renderer.WithBuiltIns();
     RenderStructure result = renderer.RenderAst(ast, context);
+    context.Errors.Add(ast.Errors);
 
-    using AssertionScope scope = new();
-    if (sample.ThrowIfNull().EndsWith("Complete", StringComparison.InvariantCulture)) {
-      context.Errors.Should().BeNullOrEmpty(sample);
-    }
+    await CheckErrors("Schema", sample, context.Errors);
 
-    await Verify(result.ToYaml(true), SampleSettings("Yaml", sample));
+    await Verify(result.ToYaml(true), CustomSettings("Sample", "Yaml", sample));
   }
 
   [Theory]
@@ -38,7 +36,7 @@ public class SampleModelTests(
 
     RenderStructure result = renderer.RenderAst(ast, renderer.WithBuiltIns());
 
-    await Verify(result.ToJson(), "json", SampleSettings("Json", sample));
+    await Verify(result.ToJson(), "json", CustomSettings("Sample", "Json", sample));
   }
 
   [Theory]

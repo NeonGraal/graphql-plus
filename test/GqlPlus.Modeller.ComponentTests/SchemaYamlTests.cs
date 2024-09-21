@@ -27,7 +27,7 @@ public class SchemaYamlTests(
 
     using AssertionScope scope = new();
     context.Errors.Should().BeNullOrEmpty("!All");
-    await Verify(result.ToYaml(true), SchemaSettings("Yaml", "!ALL"));
+    await Verify(result.ToYaml(true), CustomSettings("Schema", "Yaml", "!ALL"));
   }
 
   [Theory]
@@ -42,7 +42,7 @@ public class SchemaYamlTests(
 
     using AssertionScope scope = new();
     context.Errors.Should().BeNullOrEmpty("!" + group);
-    await Verify(result.ToYaml(true), SchemaSettings("Yaml", "!" + group));
+    await Verify(result.ToYaml(true), CustomSettings("Schema", "Yaml", "!" + group));
   }
 
   [Theory]
@@ -87,7 +87,7 @@ public class SchemaYamlTests(
 
     using AssertionScope scope = new();
     context.Errors.Should().BeNullOrEmpty(test);
-    await Verify(result.ToYaml(true), SchemaSettings("Yaml", test));
+    await Verify(result.ToYaml(true), CustomSettings("Schema", "Yaml", test));
   }
 
   private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts, ITypesContext context)

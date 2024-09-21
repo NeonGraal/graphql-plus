@@ -1,3 +1,0 @@
-﻿[
-  Invalid Output. 'Test' cannot be an alternate of itself.
-]

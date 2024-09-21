@@ -5,12 +5,14 @@ using GqlPlus.Result;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
 
+using OpenTelemetry.Trace;
+
 namespace GqlPlus;
 
 public class OperationVerifyTests(
     Parser<IGqlpOperation>.D parser,
     IVerify<IGqlpOperation> verifier
-)
+) : SampleChecks
 {
   private readonly Parser<IGqlpOperation>.L _parser = parser;
 
@@ -43,24 +45,12 @@ public class OperationVerifyTests(
       parse.IsError(result.Add);
     }
 
-    result.Should().NotBeNullOrEmpty();
-
-    await Verify(result.Select(m => m.Message), OperationSettings("Invalid", operation));
+    await CheckErrors("Operation", operation, result);
   }
 
   private IResult<IGqlpOperation> Parse(string operation)
   {
     OperationContext tokens = new(operation);
     return _parser.Parse(tokens, "Operation");
-  }
-
-  private VerifySettings OperationSettings(string category, string test)
-  {
-    VerifySettings settings = new();
-    settings.ScrubEmptyLines();
-    settings.UseDirectory($"Operation{category}Tests");
-    settings.UseFileName(test);
-
-    return settings;
   }
 }

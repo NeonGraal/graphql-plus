@@ -1,3 +1,0 @@
-﻿[
-  Invalid Operation. Expected text.
-]

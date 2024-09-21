@@ -1,6 +1,0 @@
-﻿[
-  !!! I@007/0005 : Invalid Output Alternate. '_Type' not defined. - '_Type' !!!,
-  !!! I@008/0008 : Invalid Output Parent. '_Aliased' not defined. - '_Directive' !!!,
-  !!! I@015/0003 : Invalid Output Field. '_Type' not defined. - '_Type' !!!,
-  !!! I@021/0010 : Invalid Output Field. '_InputParam' not defined. - '_InputParam' !!!
-]

@@ -9,7 +9,7 @@ namespace GqlPlus;
 public class SampleParserTests(
     Parser<IGqlpOperation>.D operation,
     Parser<IGqlpSchema>.D schemaParser
-) : SampleChecks(schemaParser)
+) : SampleSchemaChecks(schemaParser)
 {
   private readonly Parser<IGqlpOperation>.L _operation = operation;
 
@@ -19,7 +19,9 @@ public class SampleParserTests(
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
 
-    await Verify(ast.Show(), SampleSettings("Schema", sample));
+    await CheckErrors("Schema", sample, ast.Errors);
+
+    await Verify(ast.Show(), CustomSettings("Sample", "Schema", sample));
   }
 
   [Theory]
@@ -28,7 +30,9 @@ public class SampleParserTests(
   {
     IGqlpOperation? ast = await ParseSampleOperation("Operation", sample, "gql+");
 
-    await Verify(ast?.Show(), SampleSettings("Operation", sample));
+    await CheckErrors("Operation", sample, ast!.Errors);
+
+    await Verify(ast?.Show(), CustomSettings("Sample", "Operation", sample));
   }
 
   [Theory]
@@ -37,7 +41,7 @@ public class SampleParserTests(
   {
     IGqlpOperation? ast = await ParseSampleOperation("GraphQl", example, "gql");
 
-    await Verify(ast?.Show(), SampleSettings("GraphQl", example));
+    await Verify(ast?.Show(), CustomSettings("Sample", "GraphQl", example));
   }
 
   private async Task<IGqlpOperation?> ParseSampleOperation(string dir, string sample, string extn)

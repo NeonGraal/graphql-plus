@@ -58,7 +58,7 @@ public class SchemaMergeTests(
 
     IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
 
-    await Verify(result.Select(s => s.Show()), SchemaSettings("Merge", "!ALL"));
+    await Verify(result.Select(s => s.Show()), CustomSettings("Schema", "Merge", "!ALL"));
   }
 
   [Theory]
@@ -71,7 +71,7 @@ public class SchemaMergeTests(
 
     IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
 
-    await Verify(result.Select(s => s.Show()), SchemaSettings("Merge", "!" + group));
+    await Verify(result.Select(s => s.Show()), CustomSettings("Schema", "Merge", "!" + group));
   }
 
   [Theory]
@@ -88,6 +88,6 @@ public class SchemaMergeTests(
 
     IEnumerable<IGqlpSchema> result = merger.Merge([parse.Required()]);
 
-    await Verify(result.Select(s => s.Show()), SchemaSettings("Merge", test));
+    await Verify(result.Select(s => s.Show()), CustomSettings("Schema", "Merge", test));
   }
 }

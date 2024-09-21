@@ -1,3 +1,0 @@
-﻿[
-  Invalid Union. Expected at least one member.
-]

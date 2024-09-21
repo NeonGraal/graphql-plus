@@ -10,7 +10,7 @@ namespace GqlPlus;
 #pragma warning disable CA1034 // Nested types should not be visible
 public class SchemaDataBase(
     Parser<IGqlpSchema>.D parser
-)
+) : SampleChecks
 {
   private readonly Parser<IGqlpSchema>.L _parser = parser;
 
@@ -127,15 +127,5 @@ public class SchemaDataBase(
   {
     Tokenizer tokens = new(schema);
     return _parser.Parse(tokens, "Schema");
-  }
-
-  protected VerifySettings SchemaSettings(string category, string test)
-  {
-    VerifySettings settings = new();
-    settings.ScrubEmptyLines();
-    settings.UseDirectory($"Schema{category}Tests");
-    settings.UseFileName(test);
-
-    return settings;
   }
 }

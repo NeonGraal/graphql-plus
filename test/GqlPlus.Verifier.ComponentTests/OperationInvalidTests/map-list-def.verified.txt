@@ -1,3 +1,0 @@
-﻿[
-  Invalid Variable definition. Dictionary Type must have Object default.
-]

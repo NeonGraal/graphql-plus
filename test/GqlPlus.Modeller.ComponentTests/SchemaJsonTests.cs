@@ -22,7 +22,7 @@ public class SchemaJsonTests(
 
     RenderStructure result = ModelAsts(asts);
 
-    await Verify(result.ToJson(), "json", SchemaSettings("Json", "!ALL"));
+    await Verify(result.ToJson(), "json", CustomSettings("Schema", "Json", "!ALL"));
   }
 
   [Theory]
@@ -34,7 +34,7 @@ public class SchemaJsonTests(
 
     RenderStructure result = ModelAsts(asts);
 
-    await Verify(result.ToJson(), "json", SchemaSettings("Json", "!" + group));
+    await Verify(result.ToJson(), "json", CustomSettings("Schema", "Json", "!" + group));
   }
 
   [Theory]
@@ -76,7 +76,7 @@ public class SchemaJsonTests(
 
     RenderStructure result = ModelAsts([ast]);
 
-    await Verify(result.ToJson(), "json", SchemaSettings("Json", test));
+    await Verify(result.ToJson(), "json", CustomSettings("Schema", "Json", test));
   }
 
   private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts)

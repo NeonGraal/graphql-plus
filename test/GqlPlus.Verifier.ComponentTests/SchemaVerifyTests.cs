@@ -85,8 +85,6 @@ public class SchemaVerifyTests(
       parse.IsError(e => result.Add(e with { Message = "Parse Error: " + e.Message }));
     }
 
-    result.Should().NotBeEmpty(input);
-
-    await Verify(result.Select(m => m.Message), SchemaSettings("Invalid", test));
+    await CheckErrors("Schema", input, result);
   }
 }

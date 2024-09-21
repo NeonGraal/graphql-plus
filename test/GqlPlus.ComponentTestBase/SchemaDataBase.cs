@@ -74,6 +74,35 @@ public class SchemaDataBase(
     }
   }
 
+  protected static async Task ReplaceFile(string testDirectory, string testName, Action<string, string> action)
+  {
+    ArgumentNullException.ThrowIfNull(action);
+    string input = await File.ReadAllTextAsync($"Samples/Schema/{testDirectory}/{testName}.graphql+");
+
+    if (IsObjectInput(input)) {
+      using AssertionScope scope = new();
+      foreach ((string label, string abbr) in Replacements) {
+        action(ReplaceInput(input, abbr, label, abbr), label + "-" + testName);
+      }
+    } else {
+      action(input, testName);
+    }
+  }
+
+  protected static async Task ReplaceFileAsync(string testDirectory, string testName, Func<string, string, Task> action)
+  {
+    ArgumentNullException.ThrowIfNull(action);
+    string input = await File.ReadAllTextAsync($"Samples/Schema/{testDirectory}/{testName}.graphql+");
+
+    if (IsObjectInput(input)) {
+      await WhenAll(Replacements
+        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), r.Item1 + "-" + testName))
+        .ToArray());
+    } else {
+      await action(input, testName);
+    }
+  }
+
   protected static string ReplaceInput(string input, string testName, string objectReplace, string objReplace)
     => input is null ? ""
     : input

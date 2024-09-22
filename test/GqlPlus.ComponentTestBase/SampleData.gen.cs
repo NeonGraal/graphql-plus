@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples
-// Collected from 2f3b55f  (HEAD -> samples, origin/samples) 2024-09-21 Rename .expected to .errors
+// Collected from 9328e1e  (HEAD -> samples, origin/samples) 2024-09-22 Split schema errors into parse and verify
 
 
 namespace GqlPlus;

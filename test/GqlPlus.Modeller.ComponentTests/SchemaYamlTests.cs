@@ -17,73 +17,43 @@ public class SchemaYamlTests(
 {
   [Fact]
   public async Task Yaml_All()
-  {
-    IEnumerable<IGqlpSchema> asts = SchemaValidData.Values
-      .SelectMany(kv => kv.Value)
-      .Select(input => Parse(input).Required());
-
-    ITypesContext context = renderer.WithBuiltIns();
-    RenderStructure result = ModelAsts(asts, context);
-
-    using AssertionScope scope = new();
-    context.Errors.Should().BeNullOrEmpty("!All");
-    await Verify(result.ToYaml(true), CustomSettings("Schema", "Yaml", "!ALL"));
-  }
+    => await Verify_Model(await SchemaValidAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Yaml_Groups(string group)
-  {
-    IEnumerable<IGqlpSchema> asts = SchemaValidData.Values[group]
-      .Select(input => Parse(input).Required());
-
-    ITypesContext context = renderer.WithBuiltIns();
-    RenderStructure result = ModelAsts(asts, context);
-
-    using AssertionScope scope = new();
-    context.Errors.Should().BeNullOrEmpty("!" + group);
-    await Verify(result.ToYaml(true), CustomSettings("Schema", "Yaml", "!" + group));
-  }
+    => await Verify_Model(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SchemaValidMergesData))]
   public async Task Yaml_Merges(string model)
-  {
-    string input = SchemaValidMergesData.Source[model];
-    await ReplaceActionAsync(input, model, Verify_Model);
-  }
+    => await ReplaceFileAsync("ValidMerges", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SchemaValidObjectsData))]
   public async Task Yaml_Objects(string model)
-  {
-    string input = SchemaValidObjectsData.Source[model];
-    await ReplaceActionAsync(input, model, Verify_Model);
-  }
+    => await ReplaceFileAsync("ValidObjects", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SchemaValidGlobalsData))]
   public async Task Yaml_Globals(string global)
-  {
-    string input = SchemaValidGlobalsData.Source[global];
-    await ReplaceActionAsync(input, global, Verify_Model);
-  }
+    => await ReplaceFileAsync("ValidGlobals", global, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SchemaValidSimpleData))]
   public async Task Yaml_Simple(string simple)
-  {
-    string input = SchemaValidSimpleData.Source[simple];
-    await ReplaceActionAsync(input, simple, Verify_Model);
-  }
+    => await ReplaceFileAsync("ValidSimple", simple, Verify_Model);
 
   private async Task Verify_Model(string input, string test)
+    => await Verify_Model([input], test);
+
+  private async Task Verify_Model(IEnumerable<string> inputs, string test)
   {
-    IResult<IGqlpSchema> parse = Parse(input);
-    IGqlpSchema ast = parse.Required();
+    IEnumerable<IGqlpSchema> asts = inputs
+    .Select(input => Parse(input).Required());
 
     ITypesContext context = renderer.WithBuiltIns();
-    RenderStructure result = ModelAsts([ast], context);
+    RenderStructure result = ModelAsts(asts, context);
 
     using AssertionScope scope = new();
     context.Errors.Should().BeNullOrEmpty(test);

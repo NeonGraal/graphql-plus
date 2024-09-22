@@ -15,66 +15,41 @@ public class SchemaJsonTests(
 {
   [Fact]
   public async Task Json_All()
-  {
-    IEnumerable<IGqlpSchema> asts = SchemaValidData.Values
-      .SelectMany(kv => kv.Value)
-      .Select(input => Parse(input).Required());
-
-    RenderStructure result = ModelAsts(asts);
-
-    await Verify(result.ToJson(), "json", CustomSettings("Schema", "Json", "!ALL"));
-  }
+    => await Verify_Model(await SchemaValidAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Json_Groups(string group)
-  {
-    IEnumerable<IGqlpSchema> asts = SchemaValidData.Values[group]
-      .Select(input => Parse(input).Required());
-
-    RenderStructure result = ModelAsts(asts);
-
-    await Verify(result.ToJson(), "json", CustomSettings("Schema", "Json", "!" + group));
-  }
+    => await Verify_Model(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SchemaValidMergesData))]
   public async Task Json_Merges(string model)
-  {
-    string input = SchemaValidMergesData.Source[model];
-    await ReplaceActionAsync(input, model, Verify_Model);
-  }
+    => await ReplaceFileAsync("ValidMerges", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SchemaValidObjectsData))]
   public async Task Json_Objects(string model)
-  {
-    string input = SchemaValidObjectsData.Source[model];
-    await ReplaceActionAsync(input, model, Verify_Model);
-  }
+    => await ReplaceFileAsync("ValidObjects", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SchemaValidGlobalsData))]
   public async Task Json_Globals(string global)
-  {
-    string input = SchemaValidGlobalsData.Source[global];
-    await ReplaceActionAsync(input, global, Verify_Model);
-  }
+    => await ReplaceFileAsync("ValidGlobals", global, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SchemaValidSimpleData))]
   public async Task Json_Simple(string simple)
-  {
-    string input = SchemaValidSimpleData.Source[simple];
-    await ReplaceActionAsync(input, simple, Verify_Model);
-  }
+    => await ReplaceFileAsync("ValidSimple", simple, Verify_Model);
 
   private async Task Verify_Model(string input, string test)
-  {
-    IResult<IGqlpSchema> parse = Parse(input);
-    IGqlpSchema ast = parse.Required();
+    => await Verify_Model([input], test);
 
-    RenderStructure result = ModelAsts([ast]);
+  private async Task Verify_Model(IEnumerable<string> inputs, string test)
+  {
+    IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input).Required());
+
+    RenderStructure result = ModelAsts(asts);
 
     await Verify(result.ToJson(), "json", CustomSettings("Schema", "Json", test));
   }

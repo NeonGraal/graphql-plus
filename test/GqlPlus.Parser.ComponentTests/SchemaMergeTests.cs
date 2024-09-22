@@ -1,7 +1,11 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
+using GqlPlus.Token;
+
+using VerifyXunit;
 
 namespace GqlPlus;
 
@@ -11,82 +15,68 @@ public class SchemaMergeTests(
 ) : SchemaDataBase(parser)
 {
   [Fact]
-  public void CanMerge_All()
-  {
-    IGqlpSchema[] schemas = SchemaValidData.Values
-      .SelectMany(kv => kv.Value)
-      .Select(input => Parse(input).Required())
-      .ToArray();
-
-    ITokenMessages result = merger.CanMerge(schemas);
-
-    result.Should().BeEmpty();
-  }
+  public async Task CanMerge_All()
+    => Check_CanMerge(await SchemaValidAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
-  public void CanMerge_Groups(string group)
+  public async Task CanMerge_Groups(string group)
+    => Check_CanMerge(await SchemaValidGroup(group), "!" + group);
+
+  [Theory]
+  [ClassData(typeof(SchemaValidMergesData))]
+  public async Task CanMerge_Valid(string merge)
   {
-    IGqlpSchema[] schemas = SchemaValidData.Values[group]
-      .Select(input => Parse(input).Required())
-      .ToArray();
+    string input = await ReadSchema(merge, "ValidMerges");
 
-    ITokenMessages result = merger.CanMerge(schemas);
-
-    result.Should().BeEmpty();
+    Check_CanMerge(ReplaceValue(input, merge), merge);
   }
 
   [Theory]
   [ClassData(typeof(SchemaValidMergesData))]
-  public void CanMerge_Valid(string merge)
-  {
-    string input = SchemaValidMergesData.Source[merge];
-    IEnumerable<IGqlpSchema> schemas = ReplaceValue(input, input)
-      .Select(input => Parse(input).Required());
-
-    ITokenMessages result = merger.CanMerge(schemas);
-
-    result.Should().BeEmpty();
-  }
+  public async Task CanMerge_ValidEach(string merge)
+    => await ReplaceFile("ValidMerges", merge, (input, test) => Check_CanMerge([input], test));
 
   [Fact]
   public async Task Merge_All()
-  {
-    IEnumerable<IGqlpSchema> schemas = SchemaValidData.Values
-      .SelectMany(kv => kv.Value)
-      .Select(input => Parse(input).Required());
-
-    IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
-
-    await Verify(result.Select(s => s.Show()), CustomSettings("Schema", "Merge", "!ALL"));
-  }
+    => await Verify_Merge(await SchemaValidAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Merge_Groups(string group)
-  {
-    IGqlpSchema[] schemas = SchemaValidData.Values[group]
-      .Select(input => Parse(input).Required())
-      .ToArray();
-
-    IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
-
-    await Verify(result.Select(s => s.Show()), CustomSettings("Schema", "Merge", "!" + group));
-  }
+    => await Verify_Merge(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SchemaValidMergesData))]
   public async Task Merge_Valid(string merge)
   {
-    string input = SchemaValidMergesData.Source[merge];
-    await ReplaceActionAsync(input, merge, Verify_Merge);
+    string input = await ReadSchema(merge, "ValidMerges");
+
+    await Verify_Merge(ReplaceValue(input, merge), "_" + merge);
   }
 
-  private async Task Verify_Merge(string input, string test)
+  [Theory]
+  [ClassData(typeof(SchemaValidMergesData))]
+  public async Task Merge_ValidEach(string merge)
   {
-    IResult<IGqlpSchema> parse = Parse(input);
+    string input = await ReadSchema(merge, "ValidMerges");
+    await ReplaceActionAsync(input, merge, (input, test) => Verify_Merge([input], test));
+  }
 
-    IEnumerable<IGqlpSchema> result = merger.Merge([parse.Required()]);
+  private void Check_CanMerge(IEnumerable<string> inputs, string testName)
+  {
+    IGqlpSchema[] schemas = [.. inputs.Select(input => Parse(input).Required())];
+
+    ITokenMessages result = merger.CanMerge(schemas);
+
+    result.Should().BeEmpty(testName);
+  }
+
+  private async Task Verify_Merge(IEnumerable<string> inputs, string test)
+  {
+    IGqlpSchema[] schemas = [.. inputs.Select(input => Parse(input).Required())];
+
+    IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
 
     await Verify(result.Select(s => s.Show()), CustomSettings("Schema", "Merge", test));
   }

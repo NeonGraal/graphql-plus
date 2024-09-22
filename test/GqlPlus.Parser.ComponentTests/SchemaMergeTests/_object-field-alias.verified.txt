@@ -1,0 +1,61 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualObjectFieldAlias
+  {
+    !DF I@029/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@045/0001
+    DualObjectFieldAliasFld
+  }
+}
+{
+  !Du I@006/0003
+  DualObjectFieldAliasFld
+}
+{
+  !In I@007/0001
+  InpObjectFieldAlias
+  {
+    !IF I@029/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@045/0001
+    InpObjectFieldAliasFld
+  }
+}
+{
+  !In I@007/0003
+  InpObjectFieldAliasFld
+}
+{
+  !Ou I@008/0001
+  OutpObjectFieldAlias
+  {
+    !OF I@031/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@047/0001
+    OutpObjectFieldAliasFld
+  }
+}
+{
+  !Ou I@008/0003
+  OutpObjectFieldAliasFld
+}
+]

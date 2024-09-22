@@ -6,7 +6,6 @@ using GqlPlus.Token;
 using GqlPlus.Verifying;
 
 using OpenTelemetry.Trace;
-
 namespace GqlPlus;
 
 public class OperationVerifyTests(
@@ -18,9 +17,9 @@ public class OperationVerifyTests(
 
   [Theory]
   [ClassData(typeof(OperationValidData))]
-  public void Verify_ValidOperations_ReturnsValid(string operation)
+  public async Task Verify_ValidOperations_ReturnsValid(string operation)
   {
-    IResult<IGqlpOperation> parse = Parse(OperationValidData.Source[operation]);
+    IResult<IGqlpOperation> parse = await Parse("Valid", operation);
     if (parse is IResultError<IGqlpOperation> error) {
       error.Message.Should().BeNull();
     }
@@ -34,9 +33,9 @@ public class OperationVerifyTests(
 
   [Theory]
   [ClassData(typeof(OperationInvalidData))]
-  public async Task Verify_InvalidOperations_ReturnsInvalidAsync(string operation)
+  public async Task Verify_InvalidOperations_ReturnsInvalid(string operation)
   {
-    IResult<IGqlpOperation> parse = Parse(OperationInvalidData.Source[operation]);
+    IResult<IGqlpOperation> parse = await Parse("Invalid", operation);
 
     TokenMessages result = [];
     if (parse.IsOk()) {
@@ -48,9 +47,10 @@ public class OperationVerifyTests(
     await CheckErrors("Operation", operation, result);
   }
 
-  private IResult<IGqlpOperation> Parse(string operation)
+  private async Task<IResult<IGqlpOperation>> Parse(string category, string operation)
   {
-    OperationContext tokens = new(operation);
+    string input = await ReadFile(operation, "gql+", ["Operation", category]);
+    OperationContext tokens = new(input);
     return _parser.Parse(tokens, "Operation");
   }
 }

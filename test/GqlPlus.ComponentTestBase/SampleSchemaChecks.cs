@@ -3,6 +3,8 @@ using GqlPlus.Parsing;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+
 namespace GqlPlus;
 
 public class SampleSchemaChecks(
@@ -13,7 +15,7 @@ public class SampleSchemaChecks(
 
   protected async Task<IGqlpSchema> ParseSampleSchema(string sample)
   {
-    string schema = await File.ReadAllTextAsync("Samples/Schema/" + sample + ".graphql+");
+    string schema = await ReadSchema(sample);
     Tokenizer tokens = new(schema);
 
     return _schemaParser.Parse(tokens, "Schema").Required();

@@ -14,7 +14,7 @@ public class SchemaVerifyTests(
 {
   [Theory]
   [ClassData(typeof(SchemaValidGlobalsData))]
-  public async Task Verify_ValidGlobalsAsync(string global)
+  public async Task Verify_ValidGlobals(string global)
     => await VerifyFile_Valid("ValidGlobals", global);
 
   [Theory]
@@ -24,12 +24,12 @@ public class SchemaVerifyTests(
 
   [Theory]
   [ClassData(typeof(SchemaValidMergesData))]
-  public async Task Verify_ValidMergesAsync(string merge)
+  public async Task Verify_ValidMerges(string merge)
     => await ReplaceFile("ValidMerges", merge, VerifyInput_Valid);
 
   [Theory]
   [ClassData(typeof(SchemaValidSimpleData))]
-  public async Task Verify_ValidSimpleAsync(string simple)
+  public async Task Verify_ValidSimple(string simple)
     => await VerifyFile_Valid("ValidSimple", simple);
 
   [Theory]
@@ -39,7 +39,7 @@ public class SchemaVerifyTests(
 
   [Theory]
   [ClassData(typeof(SchemaValidObjectsData))]
-  public async Task Verify_ValidObjectsAsync(string obj)
+  public async Task Verify_ValidObjects(string obj)
     => await ReplaceFile("ValidObjects", obj, VerifyInput_Valid);
 
   [Theory]
@@ -47,16 +47,16 @@ public class SchemaVerifyTests(
   public async Task Verify_InvalidObjects(string obj)
     => await ReplaceFileAsync("InvalidObjects", obj, VerifyInput_Invalid);
 
-  private async Task VerifyFile_Valid(string testType, string testName)
+  private async Task VerifyFile_Valid(string testDirectory, string testName)
   {
-    string schema = await File.ReadAllTextAsync($"Samples/Schema/{testType}/{testName}.graphql+");
+    string schema = await ReadSchema(testName, testDirectory);
 
     VerifyInput_Valid(schema, testName);
   }
 
-  private async Task VerifyFile_Invalid(string testType, string testName)
+  private async Task VerifyFile_Invalid(string testDirectory, string testName)
   {
-    string schema = await File.ReadAllTextAsync($"Samples/Schema/{testType}/{testName}.graphql+");
+    string schema = await ReadSchema(testName, testDirectory);
 
     await VerifyInput_Invalid(schema, testName);
   }

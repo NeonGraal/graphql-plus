@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Operation
-// Collected from 2f3b55f  (HEAD -> samples, origin/samples) 2024-09-21 Rename .expected to .errors
+// Collected from 9328e1e  (HEAD -> samples, origin/samples) 2024-09-22 Split schema errors into parse and verify
 
 
 namespace GqlPlus;
@@ -7,22 +7,22 @@ namespace GqlPlus;
 public class OperationInvalidData
   : TheoryData<string>
 {
-  public static readonly Dictionary<string, string> Source = new() {
-    ["empty"] = "",
-    ["frag-undef"] = "{...named}",
-    ["frag-unused"] = "&named:Named{name}{name}",
-    ["list-map-def"] = "($var:Id[]={a:b}):Boolean($var)",
-    ["list-null-map-def"] = "($var:Id[]?={a:b}):Boolean($var)",
-    ["map-list-def"] = "($var:Id[*]=[a]):Boolean($var)",
-    ["map-null-list-def"] = "($var:Id[*]?=[a]):Boolean($var)",
-    ["null-def-invalid"] = "($var:Id=null):Boolean($var)",
-    ["var-undef"] = ":Boolean($var)",
-    ["var-unused"] = "($var):Boolean",
-  };
+  public static readonly string[] Keys = [
+    "empty",
+    "frag-undef",
+    "frag-unused",
+    "list-map-def",
+    "list-null-map-def",
+    "map-list-def",
+    "map-null-list-def",
+    "null-def-invalid",
+    "var-undef",
+    "var-unused",
+  ];
 
   public OperationInvalidData()
   {
-    foreach (string key in Source.Keys) {
+    foreach (string key in Keys) {
       Add(key);
     }
   }
@@ -31,16 +31,16 @@ public class OperationInvalidData
 public class OperationValidData
   : TheoryData<string>
 {
-  public static readonly Dictionary<string, string> Source = new() {
-    ["frag-end"] = "{...named}fragment named on Named{name}",
-    ["frag-first"] = "&named:Named{name}{|named}",
-    ["var"] = "($var):Boolean($var)",
-    ["var-null"] = "($var:Id?=null):Boolean($var)",
-  };
+  public static readonly string[] Keys = [
+    "frag-end",
+    "frag-first",
+    "var",
+    "var-null",
+  ];
 
   public OperationValidData()
   {
-    foreach (string key in Source.Keys) {
+    foreach (string key in Keys) {
       Add(key);
     }
   }

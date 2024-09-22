@@ -43,26 +43,17 @@ namespace GqlPlus;
 public class <#= directory + fileName #>Data
   : TheoryData<string>
 {
-  public static readonly Dictionary<string, string> Source = new() {
+  public static readonly string[] Keys = [
 <#+   foreach (var file in dir.EnumerateFiles("*.g*").OrderBy(f => f.Name)) {
-        var test = Path.ChangeExtension(file.Name, null);
-        string data;
-        using (var text = file.OpenText()) {
-          data = text.ReadToEnd()
-            .Replace("\r", "")
-            .Replace("\n", " ")
-            .Replace("\\", "\\\\")
-            .Replace("\"", "\\\"")
-            .Trim();
-        }#>
-    ["<#= test #>"] = "<#= data #>",
+        var test = Path.ChangeExtension(file.Name, null);#>
+    "<#= test #>",
 <#+    } // foreach file
 #>
-  };
+  ];
 
   public <#= directory + fileName #>Data()
   {
-    foreach (string key in Source.Keys) {
+    foreach (string key in Keys) {
       Add(key);
     }
   }

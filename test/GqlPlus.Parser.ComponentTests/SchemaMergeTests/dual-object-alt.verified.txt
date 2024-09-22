@@ -10,7 +10,7 @@ Success
   DualObjectAltType
 }
 {
-  !Du I@092/0001
+  !Du I@006/0003
   DualObjectAltType
 }
 ]

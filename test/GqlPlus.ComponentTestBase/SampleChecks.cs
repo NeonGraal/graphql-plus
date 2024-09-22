@@ -1,5 +1,7 @@
 ﻿using GqlPlus.Abstractions;
 
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+
 namespace GqlPlus;
 
 public class SampleChecks
@@ -48,4 +50,10 @@ public class SampleChecks
 
     return settings;
   }
+
+  protected static async Task<string> ReadFile(string file, string extn, params string[] dirs)
+    => await File.ReadAllTextAsync(Path.Join(["Samples", .. dirs, file + "." + extn]));
+
+  protected static async Task<string> ReadSchema(string schema, params string[] dirs)
+    => await ReadFile(schema, "graphql+", ["Schema", .. dirs]);
 }

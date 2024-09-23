@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples
-// Collected from 9328e1e  (HEAD -> samples, origin/samples) 2024-09-22 Split schema errors into parse and verify
+// Collected from 5e5c83d  (HEAD -> main, origin/main, origin/HEAD) 2024-09-24 Merge pull request #3 from graphql-plus/samples
 
 
 namespace GqlPlus;

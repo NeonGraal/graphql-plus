@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -7,7 +8,6 @@ using Grpc.Core;
 
 namespace GqlPlus;
 
-#pragma warning disable CA1034 // Nested types should not be visible
 public class SchemaDataBase(
     Parser<IGqlpSchema>.D parser
 ) : SampleChecks
@@ -161,23 +161,6 @@ public class SchemaDataBase(
 
     return (await Task.WhenAll(tasks))
       .SelectMany(i => i);
-  }
-
-  public class SchemaValidData
-    : TheoryData<string>
-  {
-    public static readonly Dictionary<string, IEnumerable<string>> Files = new() {
-      ["Objects"] = SchemaValidObjectsData.Keys,
-      ["Merges"] = SchemaValidMergesData.Keys,
-      ["Globals"] = SchemaValidGlobalsData.Keys,
-      ["Simple"] = SchemaValidSimpleData.Keys,
-    };
-    public SchemaValidData()
-    {
-      foreach (string item in Files.Keys) {
-        Add(item);
-      }
-    }
   }
 
   protected IResult<IGqlpSchema> Parse(string schema)

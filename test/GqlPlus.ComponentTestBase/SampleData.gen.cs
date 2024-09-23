@@ -36,6 +36,7 @@ public class SampleGraphQlData
     Add("Example_032");
   }
 }
+
 public class SampleOperationData
   : TheoryData<string>
 {
@@ -45,6 +46,7 @@ public class SampleOperationData
     Add("simple");
   }
 }
+
 public class SampleSchemaData
   : TheoryData<string>
 {

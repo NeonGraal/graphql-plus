@@ -7,341 +7,299 @@ namespace GqlPlus;
 public class SchemaInvalidGlobalsData
   : TheoryData<string>
 {
-  public static readonly string[] Keys = [
-    "bad-parse",
-    "category-diff-mod",
-    "category-dup-alias",
-    "category-duplicate",
-    "category-output-generic",
-    "category-output-mod-param",
-    "category-output-undef",
-    "category-output-wrong",
-    "directive-diff-option",
-    "directive-diff-param",
-    "directive-no-param",
-    "directive-param-mod-param",
-    "option-diff-name",
-  ];
-
   public SchemaInvalidGlobalsData()
   {
-    foreach (string key in Keys) {
-      Add(key);
-    }
+    Add("bad-parse");
+    Add("category-diff-mod");
+    Add("category-dup-alias");
+    Add("category-duplicate");
+    Add("category-output-generic");
+    Add("category-output-mod-param");
+    Add("category-output-undef");
+    Add("category-output-wrong");
+    Add("directive-diff-option");
+    Add("directive-diff-param");
+    Add("directive-no-param");
+    Add("directive-param-mod-param");
+    Add("option-diff-name");
   }
 }
 
 public class SchemaInvalidObjectsData
   : TheoryData<string>
 {
-  public static readonly string[] Keys = [
-    "alt-diff-mod",
-    "alt-mod-undef",
-    "alt-mod-undef-param",
-    "alt-mod-wrong",
-    "alt-more",
-    "alt-recurse",
-    "alt-self",
-    "alt-simple-param",
-    "dual-alt-input",
-    "dual-alt-output",
-    "dual-alt-param-input",
-    "dual-alt-param-output",
-    "dual-field-input",
-    "dual-field-output",
-    "dual-field-param-input",
-    "dual-field-param-output",
-    "dual-parent-input",
-    "dual-parent-output",
-    "dual-parent-param-input",
-    "dual-parent-param-output",
-    "field-alias",
-    "field-diff-mod",
-    "field-diff-type",
-    "field-mod-undef",
-    "field-mod-undef-param",
-    "field-mod-wrong",
-    "field-simple-param",
-    "generic-alt-undef",
-    "generic-arg-less",
-    "generic-arg-more",
-    "generic-arg-undef",
-    "generic-field-undef",
-    "generic-param-undef",
-    "generic-parent-less",
-    "generic-parent-more",
-    "generic-parent-undef",
-    "generic-unused",
-    "input-alt-output",
-    "input-field-null",
-    "input-field-output",
-    "input-parent-output",
-    "output-alt-input",
-    "output-enum-bad",
-    "output-enum-diff",
-    "output-enumValue-bad",
-    "output-enumValue-wrong",
-    "output-field-input",
-    "output-generic-enum-bad",
-    "output-generic-enum-wrong",
-    "output-param-diff",
-    "output-param-mod-undef",
-    "output-param-mod-undef-param",
-    "output-param-mod-wrong",
-    "output-param-undef",
-    "output-parent-input",
-    "parent-alt-mod",
-    "parent-alt-more",
-    "parent-alt-recurse",
-    "parent-alt-self",
-    "parent-alt-self-more",
-    "parent-alt-self-recurse",
-    "parent-field-alias",
-    "parent-field-alias-more",
-    "parent-field-alias-recurse",
-    "parent-field-mod",
-    "parent-field-mod-more",
-    "parent-field-mod-recurse",
-    "parent-more",
-    "parent-recurse",
-    "parent-self",
-    "parent-self-alt",
-    "parent-self-alt-more",
-    "parent-self-alt-recurse",
-    "parent-simple",
-    "parent-undef",
-    "unique-alias",
-  ];
-
   public SchemaInvalidObjectsData()
   {
-    foreach (string key in Keys) {
-      Add(key);
-    }
+    Add("alt-diff-mod");
+    Add("alt-mod-undef");
+    Add("alt-mod-undef-param");
+    Add("alt-mod-wrong");
+    Add("alt-more");
+    Add("alt-recurse");
+    Add("alt-self");
+    Add("alt-simple-param");
+    Add("dual-alt-input");
+    Add("dual-alt-output");
+    Add("dual-alt-param-input");
+    Add("dual-alt-param-output");
+    Add("dual-field-input");
+    Add("dual-field-output");
+    Add("dual-field-param-input");
+    Add("dual-field-param-output");
+    Add("dual-parent-input");
+    Add("dual-parent-output");
+    Add("dual-parent-param-input");
+    Add("dual-parent-param-output");
+    Add("field-alias");
+    Add("field-diff-mod");
+    Add("field-diff-type");
+    Add("field-mod-undef");
+    Add("field-mod-undef-param");
+    Add("field-mod-wrong");
+    Add("field-simple-param");
+    Add("generic-alt-undef");
+    Add("generic-arg-less");
+    Add("generic-arg-more");
+    Add("generic-arg-undef");
+    Add("generic-field-undef");
+    Add("generic-param-undef");
+    Add("generic-parent-less");
+    Add("generic-parent-more");
+    Add("generic-parent-undef");
+    Add("generic-unused");
+    Add("input-alt-output");
+    Add("input-field-null");
+    Add("input-field-output");
+    Add("input-parent-output");
+    Add("output-alt-input");
+    Add("output-enum-bad");
+    Add("output-enum-diff");
+    Add("output-enumValue-bad");
+    Add("output-enumValue-wrong");
+    Add("output-field-input");
+    Add("output-generic-enum-bad");
+    Add("output-generic-enum-wrong");
+    Add("output-param-diff");
+    Add("output-param-mod-undef");
+    Add("output-param-mod-undef-param");
+    Add("output-param-mod-wrong");
+    Add("output-param-undef");
+    Add("output-parent-input");
+    Add("parent-alt-mod");
+    Add("parent-alt-more");
+    Add("parent-alt-recurse");
+    Add("parent-alt-self");
+    Add("parent-alt-self-more");
+    Add("parent-alt-self-recurse");
+    Add("parent-field-alias");
+    Add("parent-field-alias-more");
+    Add("parent-field-alias-recurse");
+    Add("parent-field-mod");
+    Add("parent-field-mod-more");
+    Add("parent-field-mod-recurse");
+    Add("parent-more");
+    Add("parent-recurse");
+    Add("parent-self");
+    Add("parent-self-alt");
+    Add("parent-self-alt-more");
+    Add("parent-self-alt-recurse");
+    Add("parent-simple");
+    Add("parent-undef");
+    Add("unique-alias");
   }
 }
 
 public class SchemaInvalidSimpleData
   : TheoryData<string>
 {
-  public static readonly string[] Keys = [
-    "domain-diff-kind",
-    "domain-dup-alias",
-    "domain-enum-none",
-    "domain-enum-parent-unique",
-    "domain-enum-undef",
-    "domain-enum-undef-all",
-    "domain-enum-undef-member",
-    "domain-enum-undef-value",
-    "domain-enum-unique",
-    "domain-enum-unique-all",
-    "domain-enum-unique-member",
-    "domain-enum-wrong",
-    "domain-number-parent",
-    "domain-parent-self",
-    "domain-parent-self-more",
-    "domain-parent-self-parent",
-    "domain-parent-self-recurse",
-    "domain-parent-undef",
-    "domain-parent-wrong-kind",
-    "domain-parent-wrong-type",
-    "domain-string-diff",
-    "domain-string-parent",
-    "enum-dup-alias",
-    "enum-parent-alias-dup",
-    "enum-parent-diff",
-    "enum-parent-undef",
-    "enum-parent-wrong",
-    "union-more",
-    "union-more-parent",
-    "union-parent",
-    "union-parent-more",
-    "union-parent-recurse",
-    "union-recurse",
-    "union-recurse-parent",
-    "union-self",
-    "union-undef",
-    "union-wrong",
-    "unique-type-alias",
-    "unique-types",
-  ];
-
   public SchemaInvalidSimpleData()
   {
-    foreach (string key in Keys) {
-      Add(key);
-    }
+    Add("domain-diff-kind");
+    Add("domain-dup-alias");
+    Add("domain-enum-none");
+    Add("domain-enum-parent-unique");
+    Add("domain-enum-undef");
+    Add("domain-enum-undef-all");
+    Add("domain-enum-undef-member");
+    Add("domain-enum-undef-value");
+    Add("domain-enum-unique");
+    Add("domain-enum-unique-all");
+    Add("domain-enum-unique-member");
+    Add("domain-enum-wrong");
+    Add("domain-number-parent");
+    Add("domain-parent-self");
+    Add("domain-parent-self-more");
+    Add("domain-parent-self-parent");
+    Add("domain-parent-self-recurse");
+    Add("domain-parent-undef");
+    Add("domain-parent-wrong-kind");
+    Add("domain-parent-wrong-type");
+    Add("domain-string-diff");
+    Add("domain-string-parent");
+    Add("enum-dup-alias");
+    Add("enum-parent-alias-dup");
+    Add("enum-parent-diff");
+    Add("enum-parent-undef");
+    Add("enum-parent-wrong");
+    Add("union-more");
+    Add("union-more-parent");
+    Add("union-parent");
+    Add("union-parent-more");
+    Add("union-parent-recurse");
+    Add("union-recurse");
+    Add("union-recurse-parent");
+    Add("union-self");
+    Add("union-undef");
+    Add("union-wrong");
+    Add("unique-type-alias");
+    Add("unique-types");
   }
 }
 
 public class SchemaValidGlobalsData
   : TheoryData<string>
 {
-  public static readonly string[] Keys = [
-    "category-output",
-    "category-output-dict",
-    "category-output-list",
-    "category-output-optional",
-    "description",
-    "description-backslash",
-    "description-between",
-    "description-complex",
-    "description-double",
-    "description-single",
-    "directive-param-dict",
-    "directive-param-in",
-    "directive-param-list",
-    "directive-param-opt",
-    "option-setting",
-  ];
-
   public SchemaValidGlobalsData()
   {
-    foreach (string key in Keys) {
-      Add(key);
-    }
+    Add("category-output");
+    Add("category-output-dict");
+    Add("category-output-list");
+    Add("category-output-optional");
+    Add("description");
+    Add("description-backslash");
+    Add("description-between");
+    Add("description-complex");
+    Add("description-double");
+    Add("description-single");
+    Add("directive-param-dict");
+    Add("directive-param-in");
+    Add("directive-param-list");
+    Add("directive-param-opt");
+    Add("option-setting");
   }
 }
 
 public class SchemaValidMergesData
   : TheoryData<string>
 {
-  public static readonly string[] Keys = [
-    "category",
-    "category-alias",
-    "category-mod",
-    "directive",
-    "directive-alias",
-    "directive-param",
-    "domain-alias",
-    "domain-boolean",
-    "domain-boolean-diff",
-    "domain-boolean-same",
-    "domain-enum-diff",
-    "domain-enum-same",
-    "domain-number",
-    "domain-number-diff",
-    "domain-number-same",
-    "domain-string",
-    "domain-string-diff",
-    "domain-string-same",
-    "enum-alias",
-    "enum-diff",
-    "enum-same",
-    "enum-same-parent",
-    "enum-value-alias",
-    "object",
-    "object-alias",
-    "object-alt",
-    "object-field",
-    "object-field-alias",
-    "object-param",
-    "object-parent",
-    "option",
-    "option-alias",
-    "option-value",
-    "output-field-enum-alias",
-    "output-field-enum-value",
-    "output-field-param",
-    "union-diff",
-    "union-same",
-  ];
-
   public SchemaValidMergesData()
   {
-    foreach (string key in Keys) {
-      Add(key);
-    }
+    Add("category");
+    Add("category-alias");
+    Add("category-mod");
+    Add("directive");
+    Add("directive-alias");
+    Add("directive-param");
+    Add("domain-alias");
+    Add("domain-boolean");
+    Add("domain-boolean-diff");
+    Add("domain-boolean-same");
+    Add("domain-enum-diff");
+    Add("domain-enum-same");
+    Add("domain-number");
+    Add("domain-number-diff");
+    Add("domain-number-same");
+    Add("domain-string");
+    Add("domain-string-diff");
+    Add("domain-string-same");
+    Add("enum-alias");
+    Add("enum-diff");
+    Add("enum-same");
+    Add("enum-same-parent");
+    Add("enum-value-alias");
+    Add("object");
+    Add("object-alias");
+    Add("object-alt");
+    Add("object-field");
+    Add("object-field-alias");
+    Add("object-param");
+    Add("object-parent");
+    Add("option");
+    Add("option-alias");
+    Add("option-value");
+    Add("output-field-enum-alias");
+    Add("output-field-enum-value");
+    Add("output-field-param");
+    Add("union-diff");
+    Add("union-same");
   }
 }
 
 public class SchemaValidObjectsData
   : TheoryData<string>
 {
-  public static readonly string[] Keys = [
-    "alt",
-    "alt-dual",
-    "alt-mod-Boolean",
-    "alt-mod-param",
-    "alt-simple",
-    "field",
-    "field-dual",
-    "field-mod-Enum",
-    "field-mod-param",
-    "field-object",
-    "field-simple",
-    "generic-alt",
-    "generic-alt-arg",
-    "generic-alt-dual",
-    "generic-alt-param",
-    "generic-alt-simple",
-    "generic-dual",
-    "generic-field",
-    "generic-field-arg",
-    "generic-field-dual",
-    "generic-field-param",
-    "generic-param",
-    "generic-parent",
-    "generic-parent-arg",
-    "generic-parent-dual",
-    "generic-parent-dual-parent",
-    "generic-parent-param",
-    "generic-parent-param-parent",
-    "input-field-Enum",
-    "input-field-null",
-    "input-field-Number",
-    "input-field-String",
-    "output-field-enum",
-    "output-field-enum-parent",
-    "output-field-value",
-    "output-generic-enum",
-    "output-generic-value",
-    "output-param",
-    "output-param-mod-Domain",
-    "output-param-mod-param",
-    "output-parent-generic",
-    "output-parent-param",
-    "parent",
-    "parent-alt",
-    "parent-dual",
-    "parent-field",
-    "parent-param-diff",
-    "parent-param-same",
-  ];
-
   public SchemaValidObjectsData()
   {
-    foreach (string key in Keys) {
-      Add(key);
-    }
+    Add("alt");
+    Add("alt-dual");
+    Add("alt-mod-Boolean");
+    Add("alt-mod-param");
+    Add("alt-simple");
+    Add("field");
+    Add("field-dual");
+    Add("field-mod-Enum");
+    Add("field-mod-param");
+    Add("field-object");
+    Add("field-simple");
+    Add("generic-alt");
+    Add("generic-alt-arg");
+    Add("generic-alt-dual");
+    Add("generic-alt-param");
+    Add("generic-alt-simple");
+    Add("generic-dual");
+    Add("generic-field");
+    Add("generic-field-arg");
+    Add("generic-field-dual");
+    Add("generic-field-param");
+    Add("generic-param");
+    Add("generic-parent");
+    Add("generic-parent-arg");
+    Add("generic-parent-dual");
+    Add("generic-parent-dual-parent");
+    Add("generic-parent-param");
+    Add("generic-parent-param-parent");
+    Add("input-field-Enum");
+    Add("input-field-null");
+    Add("input-field-Number");
+    Add("input-field-String");
+    Add("output-field-enum");
+    Add("output-field-enum-parent");
+    Add("output-field-value");
+    Add("output-generic-enum");
+    Add("output-generic-value");
+    Add("output-param");
+    Add("output-param-mod-Domain");
+    Add("output-param-mod-param");
+    Add("output-parent-generic");
+    Add("output-parent-param");
+    Add("parent");
+    Add("parent-alt");
+    Add("parent-dual");
+    Add("parent-field");
+    Add("parent-param-diff");
+    Add("parent-param-same");
   }
 }
 
 public class SchemaValidSimpleData
   : TheoryData<string>
 {
-  public static readonly string[] Keys = [
-    "domain-enum-all",
-    "domain-enum-all-parent",
-    "domain-enum-member",
-    "domain-enum-parent",
-    "domain-enum-unique",
-    "domain-enum-unique-parent",
-    "domain-enum-value",
-    "domain-enum-value-parent",
-    "domain-number-parent",
-    "domain-parent",
-    "domain-string-parent",
-    "enum-parent",
-    "enum-parent-alias",
-    "enum-parent-dup",
-    "union-parent",
-  ];
-
   public SchemaValidSimpleData()
   {
-    foreach (string key in Keys) {
-      Add(key);
-    }
+    Add("domain-enum-all");
+    Add("domain-enum-all-parent");
+    Add("domain-enum-member");
+    Add("domain-enum-parent");
+    Add("domain-enum-unique");
+    Add("domain-enum-unique-parent");
+    Add("domain-enum-value");
+    Add("domain-enum-value-parent");
+    Add("domain-number-parent");
+    Add("domain-parent");
+    Add("domain-string-parent");
+    Add("enum-parent");
+    Add("enum-parent-alias");
+    Add("enum-parent-dup");
+    Add("union-parent");
   }
 }

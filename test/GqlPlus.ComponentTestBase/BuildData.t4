@@ -3,28 +3,15 @@
 <#@ import namespace="System.IO" #>
 <#@ import namespace="System.Linq" #>
 <#@ assembly name="System.Core" #><#+
-private IDictionary<string,string> TestData(FileInfo file) {
-  var result = new Dictionary<string, string>();
-  var test = "";
-  var line = "";
+private void BuildData(string directory)
+  => BuildData(directory, directory);
 
-  using var tests = file.OpenText();
-
-  while ((line = tests.ReadLine()) != null) {
-    if (line.StartsWith("// ")) {
-      test = line.Substring(3);
-      result[test] = "";
-    } else {
-      result[test] = (result[test] + " " + line).Trim();
-    }
-  }
-
-  return result;
-}
-
-private void BuildData(string directory) {
+private void BuildData(string directory, string prefix) {
   var samplesDir = new DirectoryInfo(this.Host.ResolvePath("Samples"));
-  var filesDir = samplesDir.GetDirectories(directory)[0];
+  var filesDir = samplesDir;
+  if (!string.IsNullOrWhiteSpace(directory)) {
+    filesDir = samplesDir.GetDirectories(directory)[0];
+  }
   var index = filesDir.FullName.IndexOf("test") - 1;
   var relative = "." + filesDir.FullName.Substring(index);
   var gitFile = samplesDir.GetFiles("git-details.txt")[0];
@@ -40,22 +27,16 @@ namespace GqlPlus;
       var fileName = dir.Name;
 #>
 
-public class <#= directory + fileName #>Data
+public class <#= prefix + fileName #>Data
   : TheoryData<string>
 {
-  public static readonly string[] Keys = [
+  public <#= prefix + fileName #>Data()
+  {
 <#+   foreach (var file in dir.EnumerateFiles("*.g*").OrderBy(f => f.Name)) {
         var test = Path.ChangeExtension(file.Name, null);#>
-    "<#= test #>",
+    Add("<#= test #>");
 <#+    } // foreach file
 #>
-  ];
-
-  public <#= directory + fileName #>Data()
-  {
-    foreach (string key in Keys) {
-      Add(key);
-    }
   }
 }
 <#+  } // foreach dir

@@ -7,41 +7,29 @@ namespace GqlPlus;
 public class OperationInvalidData
   : TheoryData<string>
 {
-  public static readonly string[] Keys = [
-    "empty",
-    "frag-undef",
-    "frag-unused",
-    "list-map-def",
-    "list-null-map-def",
-    "map-list-def",
-    "map-null-list-def",
-    "null-def-invalid",
-    "var-undef",
-    "var-unused",
-  ];
-
   public OperationInvalidData()
   {
-    foreach (string key in Keys) {
-      Add(key);
-    }
+    Add("empty");
+    Add("frag-undef");
+    Add("frag-unused");
+    Add("list-map-def");
+    Add("list-null-map-def");
+    Add("map-list-def");
+    Add("map-null-list-def");
+    Add("null-def-invalid");
+    Add("var-undef");
+    Add("var-unused");
   }
 }
 
 public class OperationValidData
   : TheoryData<string>
 {
-  public static readonly string[] Keys = [
-    "frag-end",
-    "frag-first",
-    "var",
-    "var-null",
-  ];
-
   public OperationValidData()
   {
-    foreach (string key in Keys) {
-      Add(key);
-    }
+    Add("frag-end");
+    Add("frag-first");
+    Add("var");
+    Add("var-null");
   }
 }

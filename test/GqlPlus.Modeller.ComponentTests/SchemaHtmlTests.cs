@@ -18,10 +18,10 @@ public class SchemaHtmlTests(
   {
     RenderStructure groups = RenderStructure.New("");
     groups.Add("All", RenderStructure.ForAll(["!ALL", "!Globals", "!Merges", "!Objects", "!Simple"]));
-    groups.Add("Globals", RenderStructure.ForAll(SchemaValidGlobalsData.Keys));
+    groups.Add("Globals", RenderStructure.ForAll(SchemaValidData.Globals));
     groups.Add("Merges", RenderStructure.ForAll(await ReplaceSchemaKeys("Merges")));
     groups.Add("Objects", RenderStructure.ForAll(await ReplaceSchemaKeys("Objects")));
-    groups.Add("Simple", RenderStructure.ForAll(SchemaValidSimpleData.Keys));
+    groups.Add("Simple", RenderStructure.ForAll(SchemaValidData.Simple));
 
     RenderStructure result = RenderStructure.New("");
     result.Add("groups", groups);

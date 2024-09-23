@@ -56,7 +56,7 @@ public class SampleModelTests(
   public void Html_Index()
   {
     RenderStructure groups = RenderStructure.New("");
-    groups.Add("All", RenderStructure.ForAll(new SampleSchemaData().Select(i => (string)i[0])));
+    groups.Add("All", RenderStructure.ForAll(new SampleSchemaData()));
 
     RenderStructure result = RenderStructure.New("");
     result.Add("groups", groups);

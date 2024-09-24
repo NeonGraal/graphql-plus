@@ -1,8 +1,8 @@
-﻿Invalid Dual Parent. '_Aliased' not defined.
-Invalid Output Parent. '_ParentType' not defined.
-Invalid Output Parent. '_TypeRef' not defined.
 Invalid Dual Field. '_Identifier' not defined.
+Invalid Dual Parent. '_Aliased' not defined.
 Invalid Output Arg Enum. '_TypeKind' is not an Enum type.
-Invalid Output Parent. '_TypeKind' not defined.
 Invalid Output Field. '_Identifier' not defined.
 Invalid Output Parent. '_Aliased' not defined.
+Invalid Output Parent. '_ParentType' not defined.
+Invalid Output Parent. '_TypeKind' not defined.
+Invalid Output Parent. '_TypeRef' not defined.

@@ -1,0 +1,3 @@
+object Test { field: Test }
+object Test { field: Test1 }
+object Test1 { }

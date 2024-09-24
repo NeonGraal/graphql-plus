@@ -1,0 +1,2 @@
+object ObjName { | ObjNameRef<String> }
+object ObjNameRef<$ref> { | $ref }

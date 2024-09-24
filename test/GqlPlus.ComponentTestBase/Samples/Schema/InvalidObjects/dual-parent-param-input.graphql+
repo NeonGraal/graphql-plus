@@ -1,0 +1,3 @@
+dual Test { :Param<Bad> }
+dual Param<$T> { | $T }
+input Bad { }

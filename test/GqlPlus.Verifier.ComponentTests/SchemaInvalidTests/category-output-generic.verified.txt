@@ -1,3 +1,0 @@
-﻿[
-  Invalid Category Output. 'Test' is a generic Output type.
-]

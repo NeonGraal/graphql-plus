@@ -1,0 +1,13 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  Bool
+  Boolean
+  !DT P@023/0001
+  False
+  !DT P@023/0001
+  True
+}
+]

@@ -1,0 +1,3 @@
+object ObjName { field [field1]: ObjNameFld }
+object ObjName { field [field2]: ObjNameFld }
+object ObjNameFld { }

@@ -1,0 +1,3 @@
+output OutGenEnum { | OutGenEnumRef<OutEnumGen.outEnumGen> }
+output OutGenEnumRef<$type> { field: $type }
+enum OutEnumGen { outEnumGen }

@@ -1,3 +1,0 @@
-﻿[
-  Invalid Domain Parent. 'Parent' not defined.
-]

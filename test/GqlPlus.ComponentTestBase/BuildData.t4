@@ -1,57 +1,44 @@
-﻿<#@ assembly name="System.Core" #>
-<#@ output extension=".gen.cs" #>
+﻿<#@ output extension=".gen.cs" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.IO" #>
-<#@ import namespace="System.Linq" #><#+
-private IDictionary<string,string> TestData(FileInfo file) {
-  var result = new Dictionary<string, string>();
-  var test = "";
-  var line = "";
+<#@ import namespace="System.Linq" #>
+<#@ assembly name="System.Core" #><#+
+private void BuildData(string directory)
+  => BuildData(directory, directory);
 
-  using var tests = file.OpenText();
-
-  while ((line = tests.ReadLine()) != null) {
-    if (line.StartsWith("// ")) {
-      test = line.Substring(3);
-      result[test] = "";
-    } else {
-      result[test] = (result[test] + " " + line).Trim();
-    }
+private void BuildData(string directory, string prefix) {
+  var samplesDir = new DirectoryInfo(this.Host.ResolvePath("Samples"));
+  var filesDir = samplesDir;
+  if (!string.IsNullOrWhiteSpace(directory)) {
+    filesDir = samplesDir.GetDirectories(directory)[0];
   }
-
-  return result;
-}
-
-private void BuildData(string directory) {
-  var sampleDir = new DirectoryInfo(this.Host.ResolvePath(directory));
-  var index = sampleDir.FullName.IndexOf("test") - 1;
-  var relative = "." + sampleDir.FullName.Substring(index);#>
+  var index = filesDir.FullName.IndexOf("test") - 1;
+  var relative = "." + filesDir.FullName.Substring(index);
+  var gitFile = samplesDir.GetFiles("git-details.txt")[0];
+  string gitDetails;
+  using (var gitText = gitFile.OpenText()) {
+    gitDetails = gitText.ReadToEnd();
+  }#>
 // Generated from <#= relative #>
+// Collected from <#= gitDetails #>
 
 namespace GqlPlus;
-<#+  foreach (var file in sampleDir.EnumerateFiles().OrderBy(f => f.Name)) {
-      var fileName = Path.ChangeExtension(file.Name, null);
-      var testData = TestData(file);
+<#+  foreach (var dir in filesDir.EnumerateDirectories().OrderBy(d => d.Name)) {
+      var fileName = dir.Name;
 #>
 
-public class <#= directory + fileName #>Data
+public class <#= prefix + fileName #>Data
   : TheoryData<string>
 {
-  public static readonly Dictionary<string, string> Source = new() {
-<#+    foreach (string test in testData.Keys.OrderBy(k => k)) {
-#>
-    ["<#= test #>"] = "<#= testData[test].Replace("\\", "\\\\").Replace("\"", "\\\"") #>",
-<#+    } // foreach test
-#>
-  };
-
-  public <#= directory + fileName #>Data()
+  public <#= prefix + fileName #>Data()
   {
-    foreach (string key in Source.Keys) {
-      Add(key);
-    }
+<#+   foreach (var file in dir.EnumerateFiles("*.g*").OrderBy(f => f.Name)) {
+        var test = Path.ChangeExtension(file.Name, null);#>
+    Add("<#= test #>");
+<#+    } // foreach file
+#>
   }
 }
-<#+  } // foreach file
+<#+  } // foreach dir
 }
 #>

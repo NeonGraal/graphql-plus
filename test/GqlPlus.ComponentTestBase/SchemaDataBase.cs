@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -7,21 +8,14 @@ using Grpc.Core;
 
 namespace GqlPlus;
 
-#pragma warning disable CA1034 // Nested types should not be visible
 public class SchemaDataBase(
     Parser<IGqlpSchema>.D parser
-)
+) : SampleChecks
 {
   private readonly Parser<IGqlpSchema>.L _parser = parser;
 
   protected static bool IsObjectInput(string input)
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
-
-  protected static IEnumerable<string> ValidObjects
-    => ReplaceValues(SchemaValidObjectsData.Source);
-
-  protected static IEnumerable<string> ValidMerges
-    => ReplaceValues(SchemaValidMergesData.Source);
 
   public static readonly (string, string)[] Replacements = [("dual", "Dual"), ("input", "Inp"), ("output", "Outp")];
 
@@ -35,6 +29,19 @@ public class SchemaDataBase(
         ? Replacements.Select(r => r.Item1 + "-" + k)
         : [k])
       .Order();
+
+  protected async static Task<IEnumerable<string>> ReplaceSchemaKeys(string group)
+  {
+    IEnumerable<Task<(string input, string file)>> tasks = SchemaValidData
+      .Files[group]
+      .Select(async file => (input: await ReadSchema(file, "Valid" + group), file));
+
+    return (await Task.WhenAll(tasks))
+        .SelectMany(p => IsObjectInput(p.input)
+          ? Replacements.Select(r => r.Item1 + "-" + p.file)
+          : [p.file])
+        .Order();
+  }
 
   protected static IEnumerable<string> ReplaceValues(IDictionary<string, string> inputs)
     => inputs
@@ -64,6 +71,35 @@ public class SchemaDataBase(
   protected static async Task ReplaceActionAsync(string input, string testName, Func<string, string, Task> action)
   {
     ArgumentNullException.ThrowIfNull(action);
+
+    if (IsObjectInput(input)) {
+      await WhenAll(Replacements
+        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), r.Item1 + "-" + testName))
+        .ToArray());
+    } else {
+      await action(input, testName);
+    }
+  }
+
+  protected static async Task ReplaceFile(string testDirectory, string testName, Action<string, string> action)
+  {
+    ArgumentNullException.ThrowIfNull(action);
+    string input = await ReadSchema(testName, testDirectory);
+
+    if (IsObjectInput(input)) {
+      using AssertionScope scope = new();
+      foreach ((string label, string abbr) in Replacements) {
+        action(ReplaceInput(input, abbr, label, abbr), label + "-" + testName);
+      }
+    } else {
+      action(input, testName);
+    }
+  }
+
+  protected static async Task ReplaceFileAsync(string testDirectory, string testName, Func<string, string, Task> action)
+  {
+    ArgumentNullException.ThrowIfNull(action);
+    string input = await ReadSchema(testName, testDirectory);
 
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
@@ -106,36 +142,30 @@ public class SchemaDataBase(
     }
   }
 
-  public class SchemaValidData
-    : TheoryData<string>
+  protected async Task<IEnumerable<string>> SchemaValidAll()
   {
-    public static readonly Dictionary<string, IEnumerable<string>> Values = new() {
-      ["Objects"] = ValidObjects,
-      ["Merges"] = ValidMerges,
-      ["Globals"] = SchemaValidGlobalsData.Source.Values,
-      ["Simple"] = SchemaValidSimpleData.Source.Values,
-    };
-    public SchemaValidData()
-    {
-      foreach (string item in Values.Keys) {
-        Add(item);
-      }
-    }
+    IEnumerable<Task<IEnumerable<string>>> tasks = SchemaValidData
+      .Files
+      .SelectMany(kv => kv.Value.Select(file => (file, dir: "Valid" + kv.Key)))
+      .Select(async p => ReplaceValue(await ReadSchema(p.file, p.dir), p.file));
+
+    return (await Task.WhenAll(tasks))
+      .SelectMany(i => i);
+  }
+
+  protected async Task<IEnumerable<string>> SchemaValidGroup(string group)
+  {
+    IEnumerable<Task<IEnumerable<string>>> tasks = SchemaValidData
+      .Files[group]
+      .Select(async file => ReplaceValue(await ReadSchema(file, "Valid" + group), file));
+
+    return (await Task.WhenAll(tasks))
+      .SelectMany(i => i);
   }
 
   protected IResult<IGqlpSchema> Parse(string schema)
   {
     Tokenizer tokens = new(schema);
     return _parser.Parse(tokens, "Schema");
-  }
-
-  protected VerifySettings SchemaSettings(string category, string test)
-  {
-    VerifySettings settings = new();
-    settings.ScrubEmptyLines();
-    settings.UseDirectory($"Schema{category}Tests");
-    settings.UseFileName(test);
-
-    return settings;
   }
 }

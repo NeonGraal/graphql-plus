@@ -1,0 +1,4 @@
+object Test { :Parent }
+object Test { | Alt }
+object Parent { | Alt[] }
+object Alt { }

@@ -1,0 +1,3 @@
+output OutParamDomainParam<$mod> { field(OutParamDomainParamIn[$mod]): OutDomainsParam }
+input OutParamDomainParamIn { param: Number | String }
+domain OutDomainsParam { number 1 ~ 10 }

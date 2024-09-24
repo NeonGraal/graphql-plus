@@ -1,0 +1,2 @@
+union Test { Bad }
+input Bad { }

@@ -1,3 +1,0 @@
-﻿[
-  Invalid Output Field Enum Value. 'unknown' not a Value of 'Boolean'.
-]

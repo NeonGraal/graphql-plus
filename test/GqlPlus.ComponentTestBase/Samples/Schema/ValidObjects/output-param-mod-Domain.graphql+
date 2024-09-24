@@ -1,0 +1,3 @@
+output OutParamDomain { field(OutParamDomainIn[OutDomainParam]): OutDomainParam }
+input OutParamDomainIn { param: Number | String }
+domain OutDomainParam { number 1 ~ 10 }

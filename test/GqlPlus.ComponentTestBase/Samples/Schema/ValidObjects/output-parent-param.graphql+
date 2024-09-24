@@ -1,0 +1,4 @@
+output OutPrntParam { :OutParamParent field(OutPrntParamIn): OutPrntParam }
+output OutParamParent { field(OutParamParentIn): OutPrntParam }
+input OutPrntParamIn { param: Number | String }
+input OutParamParentIn { parent: Number | String }

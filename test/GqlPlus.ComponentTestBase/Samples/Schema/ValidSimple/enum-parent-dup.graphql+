@@ -1,0 +1,2 @@
+enum EnPrntDup { :EnDupPrnt val_prnt_dup  }
+enum EnDupPrnt { val_dup[val_prnt_dup] }

@@ -1,0 +1,1 @@
+input InFieldNull { field: InFieldNull? = null }

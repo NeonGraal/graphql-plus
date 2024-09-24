@@ -1,0 +1,3 @@
+category { Test }
+category { Test? }
+output Test { }

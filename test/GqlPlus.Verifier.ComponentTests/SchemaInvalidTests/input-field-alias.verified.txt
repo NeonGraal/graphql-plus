@@ -1,5 +1,0 @@
-﻿[
-  Multiple Inputs with name 'Test' can't be merged.,
-  Aliases of InputField for 'alias' is not singular ModifiedType['field1', 'field2'],
-  Multiple Types with name 'Test' can't be merged.
-]

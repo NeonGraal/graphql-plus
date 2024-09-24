@@ -1,0 +1,14 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Di I@012/0001
+  DirAlias
+  [
+    DirA1
+    DirA2
+  ]
+  (Unique)
+  Variable, Field
+}
+]

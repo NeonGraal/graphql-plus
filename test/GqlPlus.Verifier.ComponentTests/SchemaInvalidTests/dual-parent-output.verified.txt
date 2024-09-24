@@ -1,3 +1,0 @@
-﻿[
-  Invalid Dual Parent. 'Bad' invalid type. Found 'Output'.
-]

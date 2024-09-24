@@ -1,4 +1,0 @@
-﻿[
-  Invalid Dual. 'Test' cannot be an alternate of itself, even recursively via Recurse.,
-  Invalid Dual. 'Recurse' cannot be an alternate of itself, even recursively via Test.
-]

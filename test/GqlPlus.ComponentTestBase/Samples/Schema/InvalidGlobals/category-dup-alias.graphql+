@@ -1,0 +1,4 @@
+category [a] { Test }
+category [a] { Output }
+output Test { }
+output Output { }

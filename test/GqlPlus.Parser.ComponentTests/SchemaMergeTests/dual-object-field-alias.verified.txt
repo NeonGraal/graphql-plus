@@ -17,7 +17,7 @@ Success
   }
 }
 {
-  !Du I@146/0001
+  !Du I@006/0003
   DualObjectFieldAliasFld
 }
 ]

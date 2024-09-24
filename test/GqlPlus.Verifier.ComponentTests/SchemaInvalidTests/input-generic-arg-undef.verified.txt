@@ -1,3 +1,0 @@
-﻿[
-  Invalid Input Field. '$type' not defined.
-]

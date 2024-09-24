@@ -10,11 +10,11 @@ Success
   *
 }
 {
-  !En I@046/0001
+  !En I@006/0002
   EnumDomAll
-  !EM I@059/0001
+  !EM I@019/0002
   dom_all
-  !EM I@067/0001
+  !EM I@027/0002
   dom_enum_all
 }
 {
@@ -26,16 +26,16 @@ Success
   *
 }
 {
-  !En I@058/0001
+  !En I@006/0002
   EnumDomAllParent
   :EnumDomParentAll
-  !EM I@095/0001
+  !EM I@043/0002
   dom_all_parent
 }
 {
-  !En I@117/0001
+  !En I@006/0003
   EnumDomParentAll
-  !EM I@136/0001
+  !EM I@025/0003
   dom_enum_all_parent
 }
 {
@@ -47,9 +47,9 @@ Success
   dom_member
 }
 {
-  !En I@043/0001
+  !En I@006/0002
   MemberDom
-  !EM I@055/0001
+  !EM I@018/0002
   dom_member
 }
 {
@@ -62,19 +62,19 @@ Success
   both_enum
 }
 {
-  !Do I@059/0001
+  !Do I@008/0002
   DomPrntEnum
   Enum
-  !DE I@078/0001
+  !DE I@027/0002
   EnumDomBoth
   both_parent
 }
 {
-  !En I@097/0001
+  !En I@006/0003
   EnumDomBoth
-  !EM I@111/0001
+  !EM I@020/0003
   both_enum
-  !EM I@121/0001
+  !EM I@030/0003
   both_parent
 }
 {
@@ -86,9 +86,9 @@ Success
   eum_dom_dup
 }
 {
-  !En I@055/0001
+  !En I@006/0002
   EnumDomDup
-  !EM I@068/0001
+  !EM I@019/0002
   eum_dom_dup
 }
 {
@@ -99,15 +99,15 @@ Success
   value
 }
 {
-  !En I@062/0001
+  !En I@006/0002
   EnumDomParentUnique
-  !EM I@084/0001
+  !EM I@028/0002
   enum_dom_parent_dup
 }
 {
-  !En I@111/0001
+  !En I@006/0003
   EnumDomDupParent
-  !EM I@130/0001
+  !EM I@025/0003
   enum_dom_parent_dup
 }
 {
@@ -119,9 +119,9 @@ Success
   dom_enum
 }
 {
-  !En I@047/0001
+  !En I@006/0002
   EnumDom
-  !EM I@057/0001
+  !EM I@016/0002
   dom_enum
 }
 {
@@ -133,16 +133,16 @@ Success
   dom_enum_parent
 }
 {
-  !En I@066/0001
+  !En I@006/0002
   EnumDomParent
   :EnumParentDom
-  !EM I@097/0001
+  !EM I@037/0002
   dom_parent_enum
 }
 {
-  !En I@120/0001
+  !En I@006/0003
   EnumParentDom
-  !EM I@136/0001
+  !EM I@022/0003
   dom_enum_parent
 }
 {
@@ -155,10 +155,10 @@ Success
 >
 }
 {
-!Do I@051/0001
+!Do I@008/0002
 DomPrntNum
 Number
-!DN P@071/0001
+!DN P@028/0002
 <
   2
 }
@@ -171,10 +171,10 @@ Number
   False
 }
 {
-  !Do I@058/0001
+  !Do I@008/0002
   DomTestPrnt
   Boolean
-  !DT I@080/0001
+  !DT I@030/0002
   True
 }
 {
@@ -186,10 +186,10 @@ Number
   /a+/
 }
 {
-  !Do I@054/0001
+  !Do I@008/0002
   DomPrntStr
   String
-  !DX R@074/0001
+  !DX R@028/0002
   /b+/
 }
 {
@@ -200,9 +200,9 @@ Number
   val_prnt
 }
 {
-  !En I@047/0001
+  !En I@006/0002
   EnPrntTest
-  !EM I@060/0001
+  !EM I@019/0002
   val_test
 }
 {
@@ -218,9 +218,9 @@ Number
   ]
 }
 {
-  !En I@076/0001
+  !En I@006/0002
   EnAliasPrnt
-  !EM I@090/0001
+  !EM I@020/0002
   val_alias
 }
 {
@@ -231,9 +231,9 @@ Number
   val_prnt_dup
 }
 {
-  !En I@050/0001
+  !En I@006/0002
   EnDupPrnt
-  !EM I@062/0001
+  !EM I@018/0002
   val_dup
   [
     val_prnt_dup
@@ -247,9 +247,9 @@ Number
   String
 }
 {
-  !Un I@045/0001
+  !Un I@007/0002
   PrntUnion
-  !UM I@057/0001
+  !UM I@019/0002
   Number
 }
 ]

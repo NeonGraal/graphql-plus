@@ -1,0 +1,2 @@
+category { Test }
+output Test<$a> { | $a }

@@ -14,83 +14,58 @@ public class SchemaHtmlTests(
 ) : SchemaDataBase(parser)
 {
   [Fact]
-  public void Html_Index()
+  public async Task Html_Index()
   {
     RenderStructure groups = RenderStructure.New("");
     groups.Add("All", RenderStructure.ForAll(["!ALL", "!Globals", "!Merges", "!Objects", "!Simple"]));
-    groups.Add("Globals", RenderStructure.ForAll(SchemaValidGlobalsData.Source.Keys));
-    groups.Add("Merges", RenderStructure.ForAll(ReplaceKeys(SchemaValidMergesData.Source)));
-    groups.Add("Objects", RenderStructure.ForAll(ReplaceKeys(SchemaValidObjectsData.Source)));
-    groups.Add("Simple", RenderStructure.ForAll(SchemaValidSimpleData.Source.Keys));
+    groups.Add("Globals", RenderStructure.ForAll(SchemaValidData.Globals));
+    groups.Add("Merges", RenderStructure.ForAll(await ReplaceSchemaKeys("Merges")));
+    groups.Add("Objects", RenderStructure.ForAll(await ReplaceSchemaKeys("Objects")));
+    groups.Add("Simple", RenderStructure.ForAll(SchemaValidData.Simple));
 
     RenderStructure result = RenderStructure.New("");
     result.Add("groups", groups);
 
-    result.WriteHtmlFile("Schema", "index", "index");
+    await result.WriteHtmlFileAsync("Schema", "index", "index");
   }
 
   [Fact]
-  public void Html_All()
-  {
-    IEnumerable<IGqlpSchema> asts = SchemaValidData.Values
-      .SelectMany(kv => kv.Value)
-      .Select(input => Parse(input).Required());
-
-    RenderStructure result = ModelAsts(asts);
-
-    result.WriteHtmlFile("Schema", "!ALL");
-  }
+  public async Task Html_All()
+    => Verify_Model(await SchemaValidAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
-  public void Html_Groups(string group)
-  {
-    IEnumerable<IGqlpSchema> asts = SchemaValidData.Values[group]
-      .Select(input => Parse(input).Required());
-
-    RenderStructure result = ModelAsts(asts);
-
-    result.WriteHtmlFile("Schema", "!" + group);
-  }
+  public async Task Html_Groups(string group)
+    => Verify_Model(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SchemaValidMergesData))]
-  public void Html_Merges(string model)
-  {
-    string input = SchemaValidMergesData.Source[model];
-    ReplaceAction(input, model, Verify_Model);
-  }
+  public async Task Html_Merges(string model)
+    => await ReplaceFile("ValidMerges", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SchemaValidObjectsData))]
-  public void Html_Objects(string model)
-  {
-    string input = SchemaValidObjectsData.Source[model];
-    ReplaceAction(input, model, Verify_Model);
-  }
+  public async Task Html_Objects(string model)
+    => await ReplaceFile("ValidObjects", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SchemaValidGlobalsData))]
-  public void Html_Globals(string global)
-  {
-    string input = SchemaValidGlobalsData.Source[global];
-    ReplaceAction(input, global, Verify_Model);
-  }
+  public async Task Html_Globals(string global)
+    => await ReplaceFile("ValidGlobals", global, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SchemaValidSimpleData))]
-  public void Html_Simple(string simple)
-  {
-    string input = SchemaValidSimpleData.Source[simple];
-    ReplaceAction(input, simple, Verify_Model);
-  }
+  public async Task Html_Simple(string simple)
+    => await ReplaceFile("ValidSimple", simple, Verify_Model);
 
   private void Verify_Model(string input, string test)
-  {
-    IResult<IGqlpSchema> parse = Parse(input);
-    IGqlpSchema ast = parse.Required();
+    => Verify_Model([input], test);
 
-    RenderStructure result = ModelAsts([ast]);
+  private void Verify_Model(IEnumerable<string> inputs, string test)
+  {
+    IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input).Required());
+
+    RenderStructure result = ModelAsts(asts);
 
     result.WriteHtmlFile("Schema", test);
   }

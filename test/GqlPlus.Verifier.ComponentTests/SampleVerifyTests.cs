@@ -9,7 +9,7 @@ namespace GqlPlus;
 public class SampleVerifyTests(
     Parser<IGqlpSchema>.D schemaParser,
     IVerify<IGqlpSchema> schemaVerifier
-) : SampleChecks(schemaParser)
+) : SampleSchemaChecks(schemaParser)
 {
   [Theory]
   [ClassData(typeof(SampleSchemaData))]
@@ -20,6 +20,6 @@ public class SampleVerifyTests(
 
     schemaVerifier.Verify(ast, errors);
 
-    await Verify(errors.Select(e => $"{e}").Order().Distinct(), SampleSettings("Verify", sample));
+    await CheckErrors("Schema", sample, errors, true);
   }
 }

@@ -1,3 +1,0 @@
-﻿[
-  Invalid Domain Enum Value. 'undef' not a Value of 'Enum'.
-]

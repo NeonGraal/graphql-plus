@@ -1,0 +1,3 @@
+domain Test { enum Enum.value Dup.value }
+enum Enum { value }
+enum Dup { value }

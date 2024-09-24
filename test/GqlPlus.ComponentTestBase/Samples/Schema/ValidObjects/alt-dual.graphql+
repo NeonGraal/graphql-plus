@@ -1,0 +1,2 @@
+object ObjName { | ObjDualName }
+dual ObjDualName { alt: Number | String }

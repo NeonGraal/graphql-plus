@@ -1,0 +1,3 @@
+object ObjName { :ObjNameRef<ObjNameAlt> }
+object ObjNameRef<$ref> { | $ref }
+dual ObjNameAlt { alt: Number | String }

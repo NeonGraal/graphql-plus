@@ -1,0 +1,2 @@
+domain Test { string }
+domain Test { number }

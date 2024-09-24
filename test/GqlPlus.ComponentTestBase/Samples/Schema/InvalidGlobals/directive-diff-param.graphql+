@@ -1,0 +1,3 @@
+directive @Test(Test) { all }
+directive @Test(Test?) { all }
+input Test { }

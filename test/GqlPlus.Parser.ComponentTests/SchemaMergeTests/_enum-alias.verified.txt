@@ -1,0 +1,14 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !En I@006/0001
+  EnAlias
+  [
+    En1
+    En2
+  ]
+  !EM I@022/0001
+  alias
+}
+]

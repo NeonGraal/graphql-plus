@@ -13,11 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Fluid.Core" Version="2.11.1" />
-    <PackageReference Include="MartinCostello.Logging.XUnit" Version="0.4.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
-    <PackageReference Include="Verify.Xunit" Version="26.6.0" />
-    <PackageReference Include="Xunit.DependencyInjection" Version="9.4.0" />
+    <PackageReference Include="Fluid.Core" Version="2.18.0" />
+    <PackageReference Include="MartinCostello.Logging.XUnit" Version="0.5.1" />
+    <PackageReference Include="Verify.Xunit" Version="28.8.1" />
+    <PackageReference Include="Xunit.DependencyInjection" Version="9.7.1" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
     <PackageReference Include="Xunit.DependencyInjection.SkippableFact" Version="9.0.0" />
   </ItemGroup>

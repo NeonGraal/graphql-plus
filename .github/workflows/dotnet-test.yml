@@ -1,6 +1,8 @@
 name: Dotnet Build and Test
 
-on: [push]
+on:
+  - push
+  - workflow_dispatch
 
 permissions:
   contents: read
@@ -14,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: ["6.0.x", "8.0.x"]
+        dotnet-version: ["8.0.x"]
     steps:
       - uses: actions/checkout@v4
       - name: Setup dotnet
@@ -23,8 +25,7 @@ jobs:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install tools
         run: |
-          dotnet tool update dotnet-coverage
-          dotnet tool update dotnet-reportgenerator-globaltool
+          dotnet tool restore --tool-manifest .config/dotnet-tools-ci.json
       - name: Install dependencies
         run: dotnet restore
       - name: Build

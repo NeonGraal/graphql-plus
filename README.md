@@ -1,6 +1,6 @@
 # GraphQL+
 
-Defining a successor to GraphQL <img src="images/GraphQL_Logo.svg" width="50">
+Defining a successor to GraphQL <img src="images/GraphQL_Logo.svg" width="50" alt="GraphQL Logo">
 
 ## Dotnet Parser, Merging Verifier and Modeller
 
@@ -15,8 +15,19 @@ Defining a successor to GraphQL <img src="images/GraphQL_Logo.svg" width="50">
 - [Verify](https://github.com/VerifyTests/Verify) [fuget](https://www.fuget.org/packages/Verify.Xunit/24.2.0)
 - [Fluid](https://github.com/sebastienros/fluid?tab=readme-ov-file#readme) [fuget](https://www.fuget.org/packages/Fluid.Core/2.9.0)
 
+## Dotnet local tools
+
+- [Coverage](https://learn.microsoft.com/en-us/dotnet/core/additional-tools/dotnet-coverage) [nuget](https://www.nuget.org/packages/dotnet-coverage)
+- [Report Generator](https://github.com/danielpalme/ReportGenerator) [nuget](https://www.nuget.org/packages/dotnet-reportgenerator-globaltool)
+
+## Dotnet Global tools
+
+Various scripts presume these dotnet tools are installed globally:
+
+- [Live Reload Server](https://github.com/RickStrahl/LiveReloadServer) [nuget](https://www.nuget.org/packages/LiveReloadServer)
+
 ### Other references
 
 - [Liquid](https://shopify.github.io/liquid/)
-- [PicoCss](https://picocss.com/)
+- [Pico Css](https://picocss.com/)
 - [Mermaid](https://mermaid.js.org/syntax/flowchart.html)

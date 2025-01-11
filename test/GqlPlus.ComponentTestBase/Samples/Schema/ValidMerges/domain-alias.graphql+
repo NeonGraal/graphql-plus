@@ -1,0 +1,2 @@
+domain NumAlias [Num1] { number }
+domain NumAlias [Num2] { number }

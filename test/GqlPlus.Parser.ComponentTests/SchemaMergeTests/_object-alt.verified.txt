@@ -1,0 +1,40 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualObjectAlt
+  |
+  !DA I@024/0001
+  I@024/0001
+  DualObjectAltType
+}
+{
+  !Du I@006/0003
+  DualObjectAltType
+}
+{
+  !In I@007/0001
+  InpObjectAlt
+  |
+  !IA I@024/0001
+  I@024/0001
+  InpObjectAltType
+}
+{
+  !In I@007/0003
+  InpObjectAltType
+}
+{
+  !Ou I@008/0001
+  OutpObjectAlt
+  |
+  !OA I@026/0001
+  I@026/0001
+  OutpObjectAltType
+}
+{
+  !Ou I@008/0003
+  OutpObjectAltType
+}
+]

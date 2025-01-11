@@ -1,3 +1,0 @@
-﻿[
-  Parse Error: Invalid Schema. Expected text.
-]

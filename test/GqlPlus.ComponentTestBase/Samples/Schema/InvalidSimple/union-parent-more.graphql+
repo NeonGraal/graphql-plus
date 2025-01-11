@@ -1,0 +1,4 @@
+union Test { :Parent }
+union Parent { More }
+union More { :Bad }
+union Bad { Test }

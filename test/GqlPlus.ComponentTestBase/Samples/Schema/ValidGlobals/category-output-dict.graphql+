@@ -1,0 +1,2 @@
+category { CatDict[*] }
+output CatDict { }

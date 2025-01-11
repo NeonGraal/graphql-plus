@@ -1,0 +1,2 @@
+domain Test [a] { Boolean }
+domain Dup [a] { Boolean }

@@ -1,4 +1,6 @@
-﻿// Generated from .\test\GqlPlus.ComponentTestBase\Sample
+﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples
+// Collected from 5e5c83d  (HEAD -> main, origin/main, origin/HEAD) 2024-09-24 Merge pull request #3 from graphql-plus/samples
+
 
 namespace GqlPlus;
 
@@ -34,6 +36,7 @@ public class SampleGraphQlData
     Add("Example_032");
   }
 }
+
 public class SampleOperationData
   : TheoryData<string>
 {
@@ -43,6 +46,7 @@ public class SampleOperationData
     Add("simple");
   }
 }
+
 public class SampleSchemaData
   : TheoryData<string>
 {

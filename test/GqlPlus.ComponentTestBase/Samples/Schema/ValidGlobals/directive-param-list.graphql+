@@ -1,0 +1,2 @@
+directive @DirParamList(DirParamIn[]) { all }
+input DirParamIn { }

@@ -14,52 +14,54 @@ public class SchemaVerifyTests(
 {
   [Theory]
   [ClassData(typeof(SchemaValidGlobalsData))]
-  public void Verify_ValidGlobals(string global)
-    => Verify_Valid(SchemaValidGlobalsData.Source[global], global);
+  public async Task Verify_ValidGlobals(string global)
+    => await VerifyFile_Valid("ValidGlobals", global);
 
   [Theory]
   [ClassData(typeof(SchemaInvalidGlobalsData))]
   public async Task Verify_InvalidGlobals(string global)
-    => await Verify_Invalid(SchemaInvalidGlobalsData.Source[global], global);
+    => await VerifyFile_Invalid("InvalidGlobals", global);
 
   [Theory]
   [ClassData(typeof(SchemaValidMergesData))]
-  public void Verify_ValidMerges(string schema)
-  {
-    string input = SchemaValidMergesData.Source[schema];
-    using AssertionScope scope = new();
-    ReplaceAction(input, schema, Verify_Valid);
-  }
+  public async Task Verify_ValidMerges(string merge)
+    => await ReplaceFile("ValidMerges", merge, VerifyInput_Valid);
 
   [Theory]
   [ClassData(typeof(SchemaValidSimpleData))]
-  public void Verify_ValidSimple(string simple)
-    => Verify_Valid(SchemaValidSimpleData.Source[simple], simple);
+  public async Task Verify_ValidSimple(string simple)
+    => await VerifyFile_Valid("ValidSimple", simple);
 
   [Theory]
   [ClassData(typeof(SchemaInvalidSimpleData))]
   public async Task Verify_InvalidSimple(string simple)
-    => await Verify_Invalid(SchemaInvalidSimpleData.Source[simple], simple);
+    => await VerifyFile_Invalid("InvalidSimple", simple);
 
   [Theory]
   [ClassData(typeof(SchemaValidObjectsData))]
-  public void Verify_ValidObjects(string obj)
-  {
-    string input = SchemaValidObjectsData.Source[obj];
-    using AssertionScope scope = new();
-    ReplaceAction(input, obj, Verify_Valid);
-  }
+  public async Task Verify_ValidObjects(string obj)
+    => await ReplaceFile("ValidObjects", obj, VerifyInput_Valid);
 
   [Theory]
   [ClassData(typeof(SchemaInvalidObjectsData))]
   public async Task Verify_InvalidObjects(string obj)
+    => await ReplaceFileAsync("InvalidObjects", obj, VerifyInput_Invalid);
+
+  private async Task VerifyFile_Valid(string testDirectory, string testName)
   {
-    string input = SchemaInvalidObjectsData.Source[obj];
-    using AssertionScope scope = new();
-    await ReplaceActionAsync(input, obj, Verify_Invalid);
+    string schema = await ReadSchema(testName, testDirectory);
+
+    VerifyInput_Valid(schema, testName);
   }
 
-  private void Verify_Valid(string input, string testName)
+  private async Task VerifyFile_Invalid(string testDirectory, string testName)
+  {
+    string schema = await ReadSchema(testName, testDirectory);
+
+    await VerifyInput_Invalid(schema, testName);
+  }
+
+  private void VerifyInput_Valid(string input, string testName)
   {
     IResult<IGqlpSchema> parse = Parse(input);
 
@@ -74,7 +76,7 @@ public class SchemaVerifyTests(
     result.Should().BeNullOrEmpty(testName);
   }
 
-  private async Task Verify_Invalid(string input, string test)
+  private async Task VerifyInput_Invalid(string input, string test)
   {
     IResult<IGqlpSchema> parse = Parse(input);
 
@@ -85,8 +87,6 @@ public class SchemaVerifyTests(
       parse.IsError(e => result.Add(e with { Message = "Parse Error: " + e.Message }));
     }
 
-    result.Should().NotBeEmpty(input);
-
-    await Verify(result.Select(m => m.Message), SchemaSettings("Invalid", test));
+    await CheckErrors("Schema", input, result);
   }
 }

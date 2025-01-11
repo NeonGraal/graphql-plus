@@ -1,3 +1,0 @@
-﻿[
-  Invalid Dual Parent. 'String' invalid type. Found 'Domain'.
-]

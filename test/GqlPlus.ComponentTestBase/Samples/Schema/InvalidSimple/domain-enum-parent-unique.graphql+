@@ -1,0 +1,4 @@
+domain Test { :Parent Enum Enum.value }
+domain Parent { Enum Dup.value }
+enum Enum { value }
+enum Dup { value }

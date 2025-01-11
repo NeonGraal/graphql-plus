@@ -72,7 +72,7 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
     using AssertionScope scope = new();
 
     result.Should().BeAssignableTo<IEnumerable<TAst>>();
-    result.Should().BeEquivalentTo(expected);
+    result.Should().BeEquivalentTo(expected, o => o.AllowingInfiniteRecursion());
 
     return this;
   }

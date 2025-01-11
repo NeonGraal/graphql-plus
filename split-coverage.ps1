@@ -14,4 +14,4 @@ foreach ($section in $sections) {
 }
 
 dotnet reportgenerator -reports:cobertura/*.xml -targetdir:.\coverage-split riskHotspotsAnalysisThresholds:metricThresholdForCyclomaticComplexity=20
-dotnet livereloadserver coverage-split
+livereloadserver coverage-split

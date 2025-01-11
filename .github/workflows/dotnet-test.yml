@@ -23,7 +23,7 @@ jobs:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Restore tools
         run: |
-          dotnet tool restore
+          dotnet tool restore --tool-manifest .\.config\dotnet-tools-ci.json
       - name: Install dependencies
         run: dotnet restore
       - name: Build

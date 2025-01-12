@@ -1,0 +1,12 @@
+output _Operations {
+        operation: _Operation
+        type: _Type
+    | _Operation
+    | _Type
+}
+
+output _Operation {
+    : _Aliased
+        category: _Identifier
+        operation: string
+}

@@ -71,6 +71,16 @@
         "typeKind": "Output"
       },
       "resolution": "Parallel"
+    },
+    "op": {
+      "$tag": "_Category",
+      "name": "op",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Op",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
     }
   },
   "directives": {
@@ -247,6 +257,11 @@
       "$tag": "_TypeInput",
       "name": "DirParamIn",
       "typeKind": "Input"
+    },
+    "Op": {
+      "$tag": "_TypeOutput",
+      "name": "Op",
+      "typeKind": "Output"
     }
   }
 }

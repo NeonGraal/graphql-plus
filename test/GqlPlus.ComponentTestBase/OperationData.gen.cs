@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Operation
-// Collected from 5e5c83d  (HEAD -> main, origin/main, origin/HEAD) 2024-09-24 Merge pull request #3 from graphql-plus/samples
+// Collected from 3e00473  (HEAD -> operation) 2025-01-12 Operation samples and introspection
 
 
 namespace GqlPlus;

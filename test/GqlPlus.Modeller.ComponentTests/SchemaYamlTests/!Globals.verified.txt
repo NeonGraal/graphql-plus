@@ -34,6 +34,12 @@ categories: !_Map_Categories
       name: DescrBetween
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Identifier op: !_Category
+    name: op
+    output: !_TypeRef(_TypeKind)
+      name: Op
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier DirParam: !_Directive
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
@@ -117,3 +123,6 @@ types: !_Map_Type
   !_Identifier DirParamIn: !_TypeInput
     name: DirParamIn
     typeKind: !_TypeKind Input
+  !_Identifier Op: !_TypeOutput
+    name: Op
+    typeKind: !_TypeKind Output

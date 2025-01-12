@@ -40,6 +40,16 @@
         "typeKind": "Output"
       },
       "resolution": "Parallel"
+    },
+    "op": {
+      "$tag": "_Category",
+      "name": "op",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Op",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
     }
   },
   "directives": {
@@ -896,6 +906,11 @@
       ],
       "name": "NumSame",
       "typeKind": "Domain"
+    },
+    "Op": {
+      "$tag": "_TypeOutput",
+      "name": "Op",
+      "typeKind": "Output"
     },
     "OutpObject": {
       "$tag": "_TypeOutput",

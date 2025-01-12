@@ -22,6 +22,12 @@ categories: !_Map_Categories
       name: Category
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Identifier op: !_Category
+    name: op
+    output: !_TypeRef(_TypeKind)
+      name: Op
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Dir: !_Directive
     locations: !_Set(_Location) {Inline: _, Spread: _}
@@ -521,6 +527,9 @@ types: !_Map_Type
       to: 9
     name: NumSame
     typeKind: !_TypeKind Domain
+  !_Identifier Op: !_TypeOutput
+    name: Op
+    typeKind: !_TypeKind Output
   !_Identifier OutpObject: !_TypeOutput
     name: OutpObject
     typeKind: !_TypeKind Output

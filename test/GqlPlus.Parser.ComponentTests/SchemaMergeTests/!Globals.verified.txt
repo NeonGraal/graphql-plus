@@ -35,6 +35,12 @@ Success
   DescrBetween
 }
 {
+  !Ca P@010/0002
+  op
+  (Parallel)
+  Op
+}
+{
   !Di I@012/0001
   DirParamDict
   (
@@ -139,5 +145,9 @@ Success
 {
   !In I@007/0002
   DirParamIn
+}
+{
+  !Ou I@008/0003
+  Op
 }
 ]

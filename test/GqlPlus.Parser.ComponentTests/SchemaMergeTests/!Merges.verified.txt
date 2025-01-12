@@ -29,6 +29,12 @@ Success
   ?
 }
 {
+  !Ca P@010/0003
+  op
+  (Parallel)
+  Op
+}
+{
   !Di I@012/0001
   Dir
   (Unique)
@@ -498,6 +504,10 @@ Success
 {
   !Ou I@008/0003
   OutpObjectParentRef
+}
+{
+  !Ou I@008/0004
+  Op
 }
 {
   !Ou I@008/0001

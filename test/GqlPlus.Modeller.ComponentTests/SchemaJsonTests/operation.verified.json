@@ -13,6 +13,15 @@
       "resolution": "Parallel"
     }
   },
+  "operations": {
+    "$tag": "_Map_Operations",
+    "Operation": {
+      "$tag": "_Operation",
+      "category": "op",
+      "name": "Operation",
+      "operation": "TBC"
+    }
+  },
   "types": {
     "$tag": "_Map_Type",
     "Op": {

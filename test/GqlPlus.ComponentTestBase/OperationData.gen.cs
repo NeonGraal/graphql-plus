@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Operation
-// Collected from 3e00473  (HEAD -> operation) 2025-01-12 Operation samples and introspection
+// Collected from 6d0b249  (HEAD -> operation, origin/operation) 2025-01-13 Update docfx and tweak specs
 
 
 namespace GqlPlus;

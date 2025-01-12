@@ -2,22 +2,31 @@
   "$tag": "_Schema",
   "categories": {
     "$tag": "_Map_Categories",
-    "op": {
+    "cat": {
       "$tag": "_Category",
-      "name": "op",
+      "name": "cat",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "Op",
+        "name": "Cat",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
     }
   },
+  "operations": {
+    "$tag": "_Map_Operations",
+    "Op": {
+      "$tag": "_Operation",
+      "category": "cat",
+      "name": "Op",
+      "operation": "TBC"
+    }
+  },
   "types": {
     "$tag": "_Map_Type",
-    "Op": {
+    "Cat": {
       "$tag": "_TypeOutput",
-      "name": "Op",
+      "name": "Cat",
       "typeKind": "Output"
     }
   }

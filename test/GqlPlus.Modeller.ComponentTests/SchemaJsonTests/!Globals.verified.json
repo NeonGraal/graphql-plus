@@ -71,16 +71,6 @@
         "typeKind": "Output"
       },
       "resolution": "Parallel"
-    },
-    "op": {
-      "$tag": "_Category",
-      "name": "op",
-      "output": {
-        "$tag": "_TypeRef(_TypeKind)",
-        "name": "Op",
-        "typeKind": "Output"
-      },
-      "resolution": "Parallel"
     }
   },
   "directives": {
@@ -187,6 +177,15 @@
     }
   },
   "name": "Schema",
+  "operations": {
+    "$tag": "_Map_Operations",
+    "Op": {
+      "$tag": "_Operation",
+      "category": "cat",
+      "name": "Op",
+      "operation": "TBC"
+    }
+  },
   "settings": {
     "$tag": "_Map_Setting",
     "setting": {
@@ -257,11 +256,6 @@
       "$tag": "_TypeInput",
       "name": "DirParamIn",
       "typeKind": "Input"
-    },
-    "Op": {
-      "$tag": "_TypeOutput",
-      "name": "Op",
-      "typeKind": "Output"
     }
   }
 }

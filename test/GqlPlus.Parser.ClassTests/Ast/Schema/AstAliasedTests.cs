@@ -44,13 +44,13 @@ public abstract class AstAliasedTests<TInput>
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_ByAliases(TInput input, string alias1, string alias2)
     => AliasedChecks
-      .SkipIf(alias1 == alias2)
+      .SkipEqual(alias1, alias2)
       .Inequality_ByAliases(input, alias1, alias2);
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_ByInputs(TInput input1, TInput input2, string aliased)
     => AliasedChecks
-      .SkipIf(input1.ThrowIfNull().Equals(input2))
+      .SkipEqual(input1, input2)
       .Inequality_ByInputs(input1, input2, aliased);
 
   protected virtual string AliasesString(TInput input, string aliases)

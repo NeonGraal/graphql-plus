@@ -1,1 +1,1 @@
-3e00473  (HEAD -> operation) 2025-01-12 Operation samples and introspection
+37de024  (HEAD -> operation, origin/operation) 2025-01-13 Tweak category name in valid operation

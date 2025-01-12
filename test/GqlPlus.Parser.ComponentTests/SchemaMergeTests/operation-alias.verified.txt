@@ -8,6 +8,15 @@ Success
   Op
 }
 {
+  !SO I@011/0001
+  Operation
+  [
+    Op1
+    Op2
+  ]
+  op
+}
+{
   !Ou I@008/0004
   Op
 }

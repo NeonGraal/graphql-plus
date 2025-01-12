@@ -62,6 +62,15 @@ Success
   Operation, Fragment
 }
 {
+  !SO I@011/0001
+  Operation
+  [
+    Op1
+    Op2
+  ]
+  op
+}
+{
   !Op I@008/0001
   Schema
   [

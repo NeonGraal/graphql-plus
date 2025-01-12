@@ -3424,6 +3424,163 @@
         }
       ]
     },
+    "_Operation": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "category",
+          "object": "_Operation",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "operation",
+          "object": "_Operation",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "string"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "category",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "operation",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "string"
+          }
+        }
+      ],
+      "name": "_Operation",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "_Aliased"
+      },
+      "typeKind": "Output"
+    },
+    "_Operations": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Operations",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Operation"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Operations",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Type"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "operation",
+          "object": "_Operations",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Operation"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_Operations",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Type"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Operation"
+          }
+        },
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "operation",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Operation"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "type",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Type"
+          }
+        }
+      ],
+      "name": "_Operations",
+      "typeKind": "Output"
+    },
     "_OutputAlternate": {
       "$tag": "_TypeOutput",
       "allFields": [
@@ -4116,6 +4273,35 @@
               "typeKind": "Domain"
             }
           ],
+          "name": "operations",
+          "object": "_Schema",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "_Filter",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Operations"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
+            }
+          ],
           "name": "types",
           "object": "_Schema",
           "parameters": [
@@ -4220,6 +4406,34 @@
           "type": {
             "$tag": "_OutputBase",
             "value": "_Directives"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
+            }
+          ],
+          "name": "operations",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "_Filter",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Operations"
           }
         },
         {

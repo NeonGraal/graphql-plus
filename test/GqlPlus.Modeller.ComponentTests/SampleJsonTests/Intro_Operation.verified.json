@@ -1,0 +1,137 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _Operation can\u0027t get model for type \u0027_Aliased\u0027"
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "_Operation": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "category",
+          "object": "_Operation",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "operation",
+          "object": "_Operation",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "string"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "category",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "operation",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "string"
+          }
+        }
+      ],
+      "name": "_Operation",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "_Aliased"
+      },
+      "typeKind": "Output"
+    },
+    "_Operations": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Operations",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Operation"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Operations",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Type"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "operation",
+          "object": "_Operations",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Operation"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_Operations",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Type"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Operation"
+          }
+        },
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "operation",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Operation"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "type",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Type"
+          }
+        }
+      ],
+      "name": "_Operations",
+      "typeKind": "Output"
+    }
+  }
+}

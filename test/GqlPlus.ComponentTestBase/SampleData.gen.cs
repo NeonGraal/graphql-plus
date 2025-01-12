@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples
-// Collected from 5e5c83d  (HEAD -> main, origin/main, origin/HEAD) 2024-09-24 Merge pull request #3 from graphql-plus/samples
+// Collected from 6d0b249  (HEAD -> operation, origin/operation) 2025-01-13 Update docfx and tweak specs
 
 
 namespace GqlPlus;
@@ -67,6 +67,7 @@ public class SampleSchemaData
     Add("Intro_Input");
     Add("Intro_Names");
     Add("Intro_Object");
+    Add("Intro_Operation");
     Add("Intro_Option");
     Add("Intro_Output");
     Add("Intro_Union");

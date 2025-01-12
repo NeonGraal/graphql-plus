@@ -1,0 +1,70 @@
+﻿!_Schema
+_errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _Operation can't get model for type '_Aliased'
+types: !_Map_Type
+  !_Identifier _Operation: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: category
+      object: _Operation
+      type: !_OutputBase
+        output: _Identifier
+    - !_ObjectFor(_OutputField)
+      name: operation
+      object: _Operation
+      type: !_OutputBase
+        output: string
+    fields:
+    - !_OutputField
+      name: category
+      type: !_OutputBase
+        output: _Identifier
+    - !_OutputField
+      name: operation
+      type: !_OutputBase
+        output: string
+    name: _Operation
+    parent: !_OutputBase
+      output: _Aliased
+    typeKind: !_TypeKind Output
+  !_Identifier _Operations: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _Operations
+      type: !_OutputBase
+        output: _Operation
+    - !_ObjectFor(_OutputAlternate)
+      object: _Operations
+      type: !_OutputBase
+        output: _Type
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: operation
+      object: _Operations
+      type: !_OutputBase
+        output: _Operation
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _Operations
+      type: !_OutputBase
+        output: _Type
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _Operation
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _Type
+    fields:
+    - !_OutputField
+      name: operation
+      type: !_OutputBase
+        output: _Operation
+    - !_OutputField
+      name: type
+      type: !_OutputBase
+        output: _Type
+    name: _Operations
+    typeKind: !_TypeKind Output

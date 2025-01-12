@@ -40,6 +40,17 @@ public record class DirectiveModel(
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 }
 
+public record class OperationsModel()
+  : AndTypeModel<OperationModel>("operation")
+{ }
+
+public record class OperationModel(
+  string Name,
+  string Category,
+  string Operation
+) : AliasedModel(Name)
+{ }
+
 public record class SettingModel(
   string Name,
   ConstantModel Value

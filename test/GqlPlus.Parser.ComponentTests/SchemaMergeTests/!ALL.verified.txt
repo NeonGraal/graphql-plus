@@ -29,6 +29,12 @@ Success
   ?
 }
 {
+  !Ca P@010/0003
+  op
+  (Parallel)
+  Op
+}
+{
   !Ca P@010/0001
   cat
   (Parallel)
@@ -123,6 +129,20 @@ Success
   )
   (Unique)
   All
+}
+{
+  !SO I@011/0001
+  Operation
+  [
+    Op1
+    Op2
+  ]
+  op
+}
+{
+  !SO I@011/0001
+  Op
+  cat
 }
 {
   !Op I@008/0001
@@ -3790,6 +3810,10 @@ Success
 {
   !Ou I@008/0003
   OutpObjectParentRef
+}
+{
+  !Ou I@008/0004
+  Op
 }
 {
   !Ou I@008/0001

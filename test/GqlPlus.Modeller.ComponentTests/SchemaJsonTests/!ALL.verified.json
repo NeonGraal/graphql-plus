@@ -110,6 +110,16 @@
         "typeKind": "Output"
       },
       "resolution": "Parallel"
+    },
+    "op": {
+      "$tag": "_Category",
+      "name": "op",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Op",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
     }
   },
   "directives": {
@@ -237,6 +247,30 @@
     }
   },
   "name": "Schema",
+  "operations": {
+    "$tag": "_Map_Operations",
+    "Op": {
+      "$tag": "_Operations",
+      "operation": {
+        "$tag": "_Operation",
+        "category": "cat",
+        "name": "Op",
+        "operation": "TBC"
+      },
+      "type": {
+        "$tag": "_TypeOutput",
+        "name": "Op",
+        "typeKind": "Output"
+      }
+    },
+    "Operation": {
+      "$tag": "_Operation",
+      "aliases": ["Op1", "Op2"],
+      "category": "op",
+      "name": "Operation",
+      "operation": "TBC"
+    }
+  },
   "settings": {
     "$tag": "_Map_Setting",
     "setting": {
@@ -6953,6 +6987,11 @@
       ],
       "name": "NumSame",
       "typeKind": "Domain"
+    },
+    "Op": {
+      "$tag": "_TypeOutput",
+      "name": "Op",
+      "typeKind": "Output"
     },
     "OutDomainParam": {
       "$tag": "_DomainNumber",

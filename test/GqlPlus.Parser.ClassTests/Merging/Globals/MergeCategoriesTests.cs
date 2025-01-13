@@ -38,6 +38,6 @@ public class MergeCategoriesTests(
 
   internal override GroupsMerger<IGqlpSchemaCategory> MergerGroups => _merger;
 
-  protected override IGqlpSchemaCategory MakeAliased(string input, string[]? aliases = null, string description = "")
-    => new CategoryDeclAst(AstNulls.At, input, description, input) { Aliases = aliases ?? [] };
+  protected override IGqlpSchemaCategory MakeAliased(string name, string[]? aliases = null, string description = "")
+    => new CategoryDeclAst(AstNulls.At, name, description, name) { Aliases = aliases ?? [] };
 }

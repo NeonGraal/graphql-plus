@@ -43,6 +43,6 @@ public class MergeOptionsTests
 
   internal override GroupsMerger<IGqlpSchemaOption> MergerGroups => _merger;
 
-  protected override IGqlpSchemaOption MakeAliased(string input, string[]? aliases = null, string description = "")
-    => new OptionDeclAst(AstNulls.At, input, description) { Aliases = aliases ?? [] };
+  protected override IGqlpSchemaOption MakeAliased(string name, string[]? aliases = null, string description = "")
+    => new OptionDeclAst(AstNulls.At, name, description) { Aliases = aliases ?? [] };
 }

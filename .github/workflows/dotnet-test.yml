@@ -16,20 +16,20 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: ["8.0.x"]
+        dotnet-version: ["8.0", "9.0"]
     steps:
       - uses: actions/checkout@v4
       - name: Setup dotnet
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: ${{ matrix.dotnet-version }}.x
       - name: Install tools
         run: |
           dotnet tool restore --tool-manifest .config/dotnet-tools-ci.json
       - name: Install dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build
+        run: dotnet build -f net${{ matrix.dotnet-version }}
       - name: Tests with Coverage
         run: >
           dotnet coverage collect -o ${{ github.workspace }}/coverage/Coverage-${{ matrix.dotnet-version }}.xml -f cobertura -s coverage.runsettings
@@ -81,7 +81,7 @@ jobs:
           path: coverage/
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
-        if: ${{ matrix.dotnet-version == '8.0.x' }}
+        if: ${{ matrix.dotnet-version == '8.0' }}
         with:
           path: test/Html
 

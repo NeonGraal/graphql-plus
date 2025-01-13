@@ -13,6 +13,6 @@ public class MergeEnumMembersTests(
 
   internal override GroupsMerger<IGqlpEnumItem> MergerGroups => _merger;
 
-  protected override IGqlpEnumItem MakeAliased(string input, string[]? aliases = null, string description = "")
-    => new EnumMemberAst(AstNulls.At, input, description) { Aliases = aliases ?? [] };
+  protected override IGqlpEnumItem MakeAliased(string name, string[]? aliases = null, string description = "")
+    => new EnumMemberAst(AstNulls.At, name, description) { Aliases = aliases ?? [] };
 }

@@ -30,8 +30,8 @@ public abstract class TestAlternatesMerger<TObjAlt, TObjBase>
   internal abstract AstAlternatesMerger<TObjAlt> MergerAlternate { get; }
   internal override GroupsMerger<TObjAlt> MergerGroups => MergerAlternate;
 
-  protected override TObjAlt MakeDescribed(string input, string description = "")
-    => CheckAlternates.MakeAlternate(input, false, description);
+  protected override TObjAlt MakeDescribed(string name, string description = "")
+    => CheckAlternates.MakeAlternate(name, false, description);
 }
 
 internal abstract class CheckAlternatesMerger<TObjAlt, TObjAltAst, TObjBase>

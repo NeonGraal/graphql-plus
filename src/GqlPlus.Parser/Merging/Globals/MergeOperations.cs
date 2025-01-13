@@ -1,6 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema.Globals;
-using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Globals;
 

@@ -2,7 +2,6 @@
 using GqlPlus.Convert;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
-using GqlPlus.Resolving;
 using GqlPlus.Result;
 
 namespace GqlPlus;

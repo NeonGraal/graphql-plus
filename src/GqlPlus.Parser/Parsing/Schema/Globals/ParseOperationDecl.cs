@@ -4,7 +4,6 @@ using GqlPlus.Ast;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Parsing.Operation;
-using GqlPlus.Parsing.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
 

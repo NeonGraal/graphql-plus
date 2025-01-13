@@ -3,8 +3,6 @@ using GqlPlus.Parsing;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-
 namespace GqlPlus;
 
 public class SampleSchemaChecks(

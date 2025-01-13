@@ -1,5 +1,8 @@
 name: Dotnet Build and Test
 
+env:
+  dotnet-version: 9.0
+
 on:
   - push
   - workflow_dispatch
@@ -14,15 +17,14 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        dotnet-version: ["9.0"]
     steps:
       - uses: actions/checkout@v4
       - name: Setup dotnet
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}.x
+          dotnet-version: |
+            ${{ env.dotnet-version }}.x
+            8.0.x
       - name: Install tools
         run: |
           dotnet tool restore --tool-manifest .config/dotnet-tools-ci.json
@@ -32,13 +34,13 @@ jobs:
         run: dotnet build
       - name: Tests with Coverage
         run: >
-          dotnet coverage collect -o ${{ github.workspace }}/coverage/Coverage-${{ matrix.dotnet-version }}.xml -f cobertura -s coverage.runsettings
-          dotnet test --no-build --logger "trx;LogFileName=TestResults-${{ matrix.dotnet-version }}.trx"
+          dotnet coverage collect -o ${{ github.workspace }}/coverage/Coverage-${{ env.dotnet-version }}.xml -f cobertura -s coverage.runsettings
+          dotnet test --no-build --logger "trx;LogFileName=TestResults-${{ env.dotnet-version }}.trx"
       - name: Generate Coverage Report
         if: always()
         run: >
           dotnet reportgenerator
-          -reports:${{ github.workspace }}/coverage/Coverage-${{ matrix.dotnet-version }}.xml
+          -reports:${{ github.workspace }}/coverage/Coverage-${{ env.dotnet-version }}.xml
           -targetdir:"${{ github.workspace }}/coverage/"
           -reporttypes:'MarkdownSummaryGithub;Html'
       - name: Tests and Coverage Summary
@@ -49,15 +51,15 @@ jobs:
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          name: DotNET Tests (${{ matrix.dotnet-version }})
-          path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
+          name: DotNET Tests (${{ env.dotnet-version }})
+          path: "**/TestResults-${{ env.dotnet-version }}.trx"
           reporter: dotnet-trx
       - name: Coverage Report
         uses: LouisBrunner/checks-action@v2.0.0
         if: always()
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: DotNET Coverage (${{ matrix.dotnet-version }})
+          name: DotNET Coverage (${{ env.dotnet-version }})
           conclusion: success
           output: '{"summary":"${{ steps.coverage.outputs.coverage_badge }}"}'
           output_text_description_file: coverage/SummaryGithub.md
@@ -71,17 +73,16 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: tests-${{ matrix.dotnet-version }}
-          path: "**/TestResults-${{ matrix.dotnet-version }}.trx"
+          name: tests-${{ env.dotnet-version }}
+          path: "**/TestResults-${{ env.dotnet-version }}.trx"
       - name: Upload Coverage artifact
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: coverage-${{ matrix.dotnet-version }}
+          name: coverage-${{ env.dotnet-version }}
           path: coverage/
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
-        if: ${{ matrix.dotnet-version == '8.0' }}
         with:
           path: test/Html
 

@@ -4,18 +4,13 @@ public record class AndTypeModel<TModel>
   : ModelBase
   where TModel : ModelBase
 {
-  private readonly string _field;
-
-  public AndTypeModel(string field)
-    => _field = field;
-
   public TModel? And { get; set; }
 
   public BaseTypeModel? Type { get; init; }
 }
 
 public record class CategoriesModel()
-  : AndTypeModel<CategoryModel>("category")
+  : AndTypeModel<CategoryModel>
 { }
 
 public record class CategoryModel(
@@ -28,7 +23,7 @@ public record class CategoryModel(
 }
 
 public record class DirectivesModel()
-  : AndTypeModel<DirectiveModel>("directive")
+  : AndTypeModel<DirectiveModel>
 { }
 
 public record class DirectiveModel(
@@ -41,7 +36,7 @@ public record class DirectiveModel(
 }
 
 public record class OperationsModel()
-  : AndTypeModel<OperationModel>("operation")
+  : AndTypeModel<OperationModel>
 { }
 
 public record class OperationModel(

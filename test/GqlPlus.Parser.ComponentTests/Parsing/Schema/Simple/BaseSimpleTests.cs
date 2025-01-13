@@ -26,7 +26,7 @@ internal abstract class BaseSimpleChecks<TInput, TSimpleAst, TSimple>(
 {
   public void WithParent(TInput input, string parent)
     //    => TrueExpected(input.Type + "{:" + parent + " " + input.Member + "}",
-    => TrueExpected(ParentString(input, String.Empty, parent),
+    => TrueExpected(ParentString(input, string.Empty, parent),
       NamedFactory(input) with {
         Parent = parent,
       });

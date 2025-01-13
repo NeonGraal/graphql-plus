@@ -126,8 +126,8 @@ public class MergeOutputFieldsTests
     => new OutputFieldAst(AstNulls.At, name, new OutputBaseAst(AstNulls.At, name)) {
       Modifiers = TestMods()
     };
-  protected override IGqlpOutputField MakeAliased(string name, string[] aliases, string description = "")
-    => new OutputFieldAst(AstNulls.At, name, description, new OutputBaseAst(AstNulls.At, name, description)) {
+  protected override IGqlpOutputField MakeAliased(string input, string[] aliases, string description = "")
+    => new OutputFieldAst(AstNulls.At, input, description, new OutputBaseAst(AstNulls.At, input, description)) {
       Aliases = aliases
     };
 }

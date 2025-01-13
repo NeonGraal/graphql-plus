@@ -1,6 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Operation
-// Collected from 6d0b249  (HEAD -> operation, origin/operation) 2025-01-13 Update docfx and tweak specs
-
+// Collected from 37de024  (HEAD -> operation, origin/operation) 2025-01-13 Tweak category name in valid operation
 
 namespace GqlPlus;
 

@@ -12,6 +12,27 @@ max_line_length = 150
 insert_final_newline = true
 indent_size = 2
 tab_width = 2
+csharp_indent_labels = flush_left
+csharp_using_directive_placement = outside_namespace:warning
+csharp_prefer_simple_using_statement = true:suggestion
+csharp_prefer_braces = true:silent
+csharp_style_namespace_declarations = file_scoped:warning
+csharp_style_prefer_method_group_conversion = true:suggestion
+csharp_style_prefer_top_level_statements = true:suggestion
+csharp_style_prefer_primary_constructors = true:suggestion
+csharp_prefer_system_threading_lock = true:suggestion
+csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+csharp_style_expression_bodied_constructors = when_on_single_line:suggestion
+csharp_style_expression_bodied_operators = true:suggestion
+csharp_style_expression_bodied_properties = true:suggestion
+csharp_style_expression_bodied_indexers = true:suggestion
+csharp_style_expression_bodied_accessors = true:suggestion
+csharp_style_expression_bodied_lambdas = true:suggestion
+csharp_style_expression_bodied_local_functions = true:suggestion
+csharp_prefer_static_local_function = true:suggestion
+csharp_prefer_static_anonymous_function = true:suggestion
+csharp_style_prefer_readonly_struct = true:suggestion
+csharp_style_prefer_readonly_struct_member = true:suggestion
 
 # Shell script files
 [*.sh]
@@ -255,6 +276,7 @@ dotnet_diagnostic.CA1001.severity = warning
 dotnet_diagnostic.CA1010.severity = warning
 dotnet_diagnostic.CA1036.severity = suggestion
 dotnet_diagnostic.CA1310.severity = warning
+dotnet_diagnostic.CA1515.severity = none
 dotnet_diagnostic.CA1708.severity = warning
 dotnet_diagnostic.CA1716.severity = warning
 dotnet_diagnostic.CA1725.severity = warning
@@ -272,3 +294,7 @@ dotnet_diagnostic.IDE0060.severity = warning
 
 # IDE2001: Embedded statements must be on their own line
 dotnet_diagnostic.IDE2001.severity = none
+
+# IDE0045: Convert to conditional expression
+dotnet_diagnostic.IDE0045.severity = none
+dotnet_diagnostic.IDE0046.severity = none

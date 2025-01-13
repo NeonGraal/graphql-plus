@@ -2,12 +2,11 @@
 
 namespace GqlPlus.Result;
 
-public readonly struct ResultError<TValue>
-  : IResultError<TValue>
+public readonly struct ResultError<TValue>(
+  TokenMessage message
+) : IResultError<TValue>
 {
-  public TokenMessage Message { get; }
-
-  public ResultError(TokenMessage message) => Message = message;
+  public TokenMessage Message { get; } = message;
 
   public IResult<TResult> AsPartial<TResult>(TResult result, Action<TValue>? withValue = null, Action? action = null)
   {

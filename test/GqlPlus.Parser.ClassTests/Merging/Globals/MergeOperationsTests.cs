@@ -6,8 +6,9 @@ using Xunit.Abstractions;
 
 namespace GqlPlus.Merging.Globals;
 
-public class MergeOperationsTests
-  : TestAliased<IGqlpSchemaOperation, OperationInput>
+public class MergeOperationsTests(
+  ITestOutputHelper outputHelper
+) : TestAliased<IGqlpSchemaOperation, OperationInput>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameCategory_ReturnsGood(OperationInput input)
@@ -23,10 +24,7 @@ public class MergeOperationsTests
       new OperationDeclAst(AstNulls.At, input.Name, input.Category),
       new OperationDeclAst(AstNulls.At, input.Name, category2)]);
 
-  private readonly MergeOperations _merger;
-
-  public MergeOperationsTests(ITestOutputHelper outputHelper)
-    => _merger = new(outputHelper.ToLoggerFactory());
+  private readonly MergeOperations _merger = new(outputHelper.ToLoggerFactory());
 
   internal override GroupsMerger<IGqlpSchemaOperation> MergerGroups => _merger;
 

@@ -59,25 +59,18 @@ public abstract class AstObjectBaseTests<TObjBase>
   internal abstract IAstObjBaseChecks<TObjBase> ObjBaseChecks { get; }
 }
 
-internal sealed class AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
-  : AstAbbreviatedChecks<string, TObjBase>
+internal sealed class AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>(
+AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.BaseBy createBase,
+AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.ArgsBy createArgs
+) : AstAbbreviatedChecks<string, TObjBase>(input => createBase(input))
   , IAstObjBaseChecks<TObjBase>
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
   where TObjArg : IGqlpObjArg
   where TObjArgAst : AstObjArg, TObjArg
 {
-  private readonly BaseBy _createBase;
-  private readonly ArgsBy _createArgs;
-
-  public AstObjBaseChecks(
-    BaseBy createBase,
-    ArgsBy createArgs
-) : base(input => createBase(input))
-  {
-    _createBase = createBase;
-    _createArgs = createArgs;
-  }
+  private readonly BaseBy _createBase = createBase;
+  private readonly ArgsBy _createArgs = createArgs;
 
   internal delegate TObjBaseAst BaseBy(string input);
   internal delegate TObjArg[] ArgsBy(string[] argument);

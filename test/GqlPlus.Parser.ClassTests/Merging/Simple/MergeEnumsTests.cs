@@ -21,7 +21,7 @@ public class MergeEnumsTests
   [Theory, RepeatData(Repeats)]
   public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] values1, string[] values2)
   {
-    EnumMemberAst[] combined = values1.EnumMembers().Concat(values2.EnumMembers()).ToArray();
+    EnumMemberAst[] combined = [.. values1.EnumMembers(), .. values2.EnumMembers()];
 
     Merge_Expected([
       new EnumDeclAst(AstNulls.At, name, values1.EnumMembers()),

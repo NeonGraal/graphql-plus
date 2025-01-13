@@ -47,21 +47,18 @@ public abstract class AstDirectivesTests<TInput>
     => " " + directives.Joined(d => $"( !d {d} )");
 }
 
-internal sealed class AstDirectivesChecks<TAst>
-  : AstDirectivesChecks<string, TAst>, IAstDirectivesChecks
+internal sealed class AstDirectivesChecks<TAst>(
+  BaseAstChecks<TAst>.CreateBy<string> create
+) : AstDirectivesChecks<string, TAst>(create), IAstDirectivesChecks
   where TAst : AstAbbreviated, IGqlpDirectives
 {
-  public AstDirectivesChecks(CreateBy<string> create)
-    : base(create) { }
 }
 
-internal class AstDirectivesChecks<TInput, TAst>
-  : AstAbbreviatedChecks<TInput, TAst>, IAstDirectivesChecks<TInput>
+internal class AstDirectivesChecks<TInput, TAst>(
+  BaseAstChecks<TAst>.CreateBy<TInput> create
+) : AstAbbreviatedChecks<TInput, TAst>(create), IAstDirectivesChecks<TInput>
   where TAst : AstAbbreviated, IGqlpDirectives
 {
-  public AstDirectivesChecks(CreateBy<TInput> create)
-    : base(create) { }
-
   public void HashCode(TInput input, string[] directives)
     => HashCode(
       () => CreateDirective(input, directives),

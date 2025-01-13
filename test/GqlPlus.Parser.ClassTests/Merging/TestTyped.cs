@@ -28,6 +28,6 @@ public abstract class TestTyped<TBase, TType, TParent, TItem>
 
   protected abstract TType MakeTyped(string name, string[]? aliases = null, string description = "", TParent? parent = default);
   protected abstract TParent MakeParent(string parent);
-  protected override TType MakeAliased(string name, string[]? aliases = null, string description = "")
-    => MakeTyped(name, aliases, description);
+  protected override TType MakeAliased(string input, string[]? aliases = null, string description = "")
+    => MakeTyped(input, aliases, description);
 }

@@ -102,7 +102,7 @@ public class RenderStructure
   {
     Type type = typeof(TEnum);
 
-    if (type.GetCustomAttributes(typeof(FlagsAttribute)).Any()) {
+    if (type.GetCustomAttributes<FlagsAttribute>().Any()) {
       int flags = (int)(object)set;
       IDict result = NewDict;
 

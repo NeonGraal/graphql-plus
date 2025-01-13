@@ -54,21 +54,17 @@ public abstract class AstObjectTests
   internal abstract IAstObjectChecks ObjectChecks { get; }
 }
 
-internal abstract class AstObjectChecks<TObjectAst, TObjBase, TObjField, TObjAlt>
-  : AstTypeChecks<TObjectAst, IGqlpObjBase>
+internal abstract class AstObjectChecks<TObjectAst, TObjBase, TObjField, TObjAlt>(
+BaseAstChecks<TObjectAst>.CreateBy<string> createInput,
+AstTypeChecks<TObjectAst, IGqlpObjBase>.ParentCreator createParent,
+  [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
+) : AstTypeChecks<TObjectAst, IGqlpObjBase>(createInput, createParent, createExpression)
   , IAstObjectChecks
   where TObjectAst : AstObject<TObjBase, TObjField, TObjAlt>
   where TObjBase : IGqlpObjBase
   where TObjField : IGqlpObjField
   where TObjAlt : IGqlpObjAlternate
 {
-  public AstObjectChecks(
-    CreateBy<string> createInput,
-    ParentCreator createParent,
-    [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : base(createInput, createParent, createExpression)
-  { }
-
   public void Equality_WithAlternates(string name, AlternateInput[] alternates)
     => Equality(() => CreateInput(name) with { ObjAlternates = CreateAlternates(alternates) });
   public void HashCode_WithAlternates(string name, AlternateInput[] alternates)

@@ -72,6 +72,11 @@ directives: !_Map_Directives
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     repeatable: false
 name: Schema
+operations: !_Map_Operations
+  !_Identifier Op: !_Operation
+    category: cat
+    name: Op
+    operation: TBC
 settings: !_Map_Setting
   !_Identifier setting: !_Setting
     name: setting

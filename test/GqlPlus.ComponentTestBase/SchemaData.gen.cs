@@ -1,6 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Schema
-// Collected from 5e5c83d  (HEAD -> main, origin/main, origin/HEAD) 2024-09-24 Merge pull request #3 from graphql-plus/samples
-
+// Collected from 37de024  (HEAD -> operation, origin/operation) 2025-01-13 Tweak category name in valid operation
 
 namespace GqlPlus;
 
@@ -13,6 +12,7 @@ public class SchemaInvalidGlobalsData
     Add("category-diff-mod");
     Add("category-dup-alias");
     Add("category-duplicate");
+    Add("category-no-type");
     Add("category-output-generic");
     Add("category-output-mod-param");
     Add("category-output-undef");
@@ -21,6 +21,8 @@ public class SchemaInvalidGlobalsData
     Add("directive-diff-param");
     Add("directive-no-param");
     Add("directive-param-mod-param");
+    Add("operation-no-category");
+    Add("operation-no-result");
     Add("option-diff-name");
   }
 }
@@ -175,6 +177,7 @@ public class SchemaValidGlobalsData
     Add("directive-param-in");
     Add("directive-param-list");
     Add("directive-param-opt");
+    Add("operation-category");
     Add("option-setting");
   }
 }
@@ -214,6 +217,8 @@ public class SchemaValidMergesData
     Add("object-field-alias");
     Add("object-param");
     Add("object-parent");
+    Add("operation");
+    Add("operation-alias");
     Add("option");
     Add("option-alias");
     Add("option-value");

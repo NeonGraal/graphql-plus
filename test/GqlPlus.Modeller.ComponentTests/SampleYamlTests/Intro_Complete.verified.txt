@@ -1742,6 +1742,86 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: for
+  !_Identifier _Operation: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_OutputField)
+      name: category
+      object: _Operation
+      type: !_OutputBase
+        output: _Identifier
+    - !_ObjectFor(_OutputField)
+      name: operation
+      object: _Operation
+      type: !_OutputBase
+        output: string
+    fields:
+    - !_OutputField
+      name: category
+      type: !_OutputBase
+        output: _Identifier
+    - !_OutputField
+      name: operation
+      type: !_OutputBase
+        output: string
+    name: _Operation
+    parent: !_DualBase
+      dual: _Aliased
+    typeKind: !_TypeKind Output
+  !_Identifier _Operations: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _Operations
+      type: !_OutputBase
+        output: _Operation
+    - !_ObjectFor(_OutputAlternate)
+      object: _Operations
+      type: !_OutputBase
+        output: _Type
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: operation
+      object: _Operations
+      type: !_OutputBase
+        output: _Operation
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _Operations
+      type: !_OutputBase
+        output: _Type
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _Operation
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _Type
+    fields:
+    - !_OutputField
+      name: operation
+      type: !_OutputBase
+        output: _Operation
+    - !_OutputField
+      name: type
+      type: !_OutputBase
+        output: _Type
+    name: _Operations
+    typeKind: !_TypeKind Output
   !_Identifier _OutputAlternate: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -2078,6 +2158,17 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Domain}]
+      name: operations
+      object: _Schema
+      parameters:
+      - !_InputParam
+        input: _Filter
+        modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      type: !_OutputBase
+        output: _Operations
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: types
       object: _Schema
       parameters:
@@ -2118,6 +2209,16 @@ types: !_Map_Type
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase
         output: _Directives
+    - !_OutputField
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
+      name: operations
+      parameters:
+      - !_InputParam
+        input: _Filter
+        modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      type: !_OutputBase
+        output: _Operations
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Domain}]

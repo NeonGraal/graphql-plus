@@ -20,7 +20,7 @@ public abstract class TestDomainItems<TItem, TInput>
   public void Merge_TwoAstsDifferent_ReturnsExpected(TInput name1, TInput name2)
     => this
       .SkipNull(name1)
-      .SkipIf(name1.Equals(name2))
+      .SkipEqual(name1, name2)
       .Merge_Expected(
         [MakeAst(name1), MakeAst(name2)],
         MakeAst(name1), MakeAst(name2));

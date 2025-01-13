@@ -39,7 +39,7 @@ public class MergeOutputFieldsTests
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsEnumDiffDescription_ReturnsErrors(string name, string type, string description1, string description2, string value)
     => this
-      .SkipIf(description1 == description2)
+      .SkipEqual(description1, description2)
       .CanMerge_Errors(
         MakeFieldEnum(name, type, value, description1),
         MakeFieldEnum(name, type, value, description2));
@@ -47,7 +47,7 @@ public class MergeOutputFieldsTests
   [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentEnums_ReturnsErrors(string name, string type, string value1, string value2)
     => this
-      .SkipIf(value1 == value2)
+      .SkipEqual(value1, value2)
       .CanMerge_Errors(
         MakeFieldEnum(name, type, value1),
         MakeFieldEnum(name, type, value2));
@@ -97,7 +97,7 @@ public class MergeOutputFieldsTests
   [SkippableTheory, RepeatData(Repeats)]
   public void Merge_TwoAstsEnumTwoAlias_ReturnsExpected(string name, string type, string alias1, string alias2, string value)
     => this
-    .SkipIf(alias1 == alias2)
+      .SkipEqual(alias1, alias2)
     .Merge_Expected(
       [MakeFieldEnum(name, type, value) with { Aliases = [alias1] },
         MakeFieldEnum(name, type, value) with { Aliases = [alias2] }],
@@ -126,8 +126,8 @@ public class MergeOutputFieldsTests
     => new OutputFieldAst(AstNulls.At, name, new OutputBaseAst(AstNulls.At, name)) {
       Modifiers = TestMods()
     };
-  protected override IGqlpOutputField MakeAliased(string name, string[] aliases, string description = "")
-    => new OutputFieldAst(AstNulls.At, name, description, new OutputBaseAst(AstNulls.At, name, description)) {
+  protected override IGqlpOutputField MakeAliased(string input, string[] aliases, string description = "")
+    => new OutputFieldAst(AstNulls.At, input, description, new OutputBaseAst(AstNulls.At, input, description)) {
       Aliases = aliases
     };
 }

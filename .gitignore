@@ -492,4 +492,4 @@ activities.yml
 per-class/
 runs-*.yml
 Html/
-format-report.json
+format/

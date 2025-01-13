@@ -39,8 +39,11 @@ public abstract class AstObjectAlternateTests<TObjBase>
   internal abstract IAstObjectAlternateChecks<TObjBase> AlternateChecks { get; }
 }
 
-internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
-  : AstAbbreviatedChecks<AlternateInput, TObjAltAst>
+internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>(
+  AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.AlternateBy createAlternate,
+  AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.BaseBy createBase,
+  AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.ArgsBy createArgs
+) : AstAbbreviatedChecks<AlternateInput, TObjAltAst>(input => createAlternate(input, createBase(input)))
   , IAstObjectAlternateChecks<TObjBase>
   where TObjAltAst : AstObjAlternate<TObjBase>
   where TObjBase : IGqlpObjBase
@@ -48,21 +51,13 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
   where TObjArg : IGqlpObjArg
   where TObjArgAst : AstObjArg, TObjArg
 {
-  private readonly AlternateBy _createAlternate;
-  private readonly BaseBy _createBase;
-  private readonly ArgsBy _createArgs;
+  private readonly AlternateBy _createAlternate = createAlternate;
+  private readonly BaseBy _createBase = createBase;
+  private readonly ArgsBy _createArgs = createArgs;
 
   internal delegate TObjBaseAst BaseBy(AlternateInput input);
   internal delegate TObjAltAst AlternateBy(AlternateInput input, TObjBase refBase);
   internal delegate TObjArgAst[] ArgsBy(string[] arguments);
-
-  public AstObjectAlternateChecks(AlternateBy createAlternate, BaseBy createBase, ArgsBy createArgs)
-    : base(input => createAlternate(input, createBase(input)))
-  {
-    _createAlternate = createAlternate;
-    _createBase = createBase;
-    _createArgs = createArgs;
-  }
 
   public void HashCode_WithModifiers(AlternateInput input)
       => HashCode(() => CreateModifiers(input));

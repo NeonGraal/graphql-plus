@@ -1,6 +1,4 @@
-﻿using FluentAssertions.Execution;
-
-using GqlPlus;
+﻿using GqlPlus;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Convert;
 using GqlPlus.Parsing;

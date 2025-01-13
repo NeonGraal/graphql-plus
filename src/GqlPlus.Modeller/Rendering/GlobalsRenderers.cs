@@ -59,6 +59,20 @@ internal class DirectiveRenderer(
       .Add("repeatable", model.Repeatable);
 }
 
+internal class OperationsRenderer(
+  AndBaseTypeRenderers<OperationModel> and
+) : AndTypeRenderer<OperationsModel, OperationModel>("operation", and)
+{ }
+
+internal class OperationRenderer
+  : AliasedRenderer<OperationModel>
+{
+  internal override RenderStructure Render(OperationModel model)
+    => base.Render(model)
+      .Add("category", model.Category)
+      .Add("operation", model.Operation);
+}
+
 internal class SettingRenderer(
   IRenderer<ConstantModel> constant
 ) : DescribedRenderer<SettingModel>

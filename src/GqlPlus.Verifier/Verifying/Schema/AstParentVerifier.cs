@@ -57,6 +57,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
           onParent?.Invoke(parentType);
         }
       }
+
       return;
     }
 

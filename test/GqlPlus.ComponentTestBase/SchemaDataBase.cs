@@ -4,8 +4,6 @@ using GqlPlus.Parsing;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
-using Grpc.Core;
-
 namespace GqlPlus;
 
 public class SchemaDataBase(

@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Schema
-// Collected from 37de024  (HEAD -> operation, origin/operation) 2025-01-13 Tweak category name in valid operation
+// Collected from d8dfac8  (HEAD -> operation) 2025-02-09 Merge branch 'main' into operation
 
 namespace GqlPlus;
 
@@ -143,11 +143,15 @@ public class SchemaInvalidSimpleData
     Add("enum-parent-diff");
     Add("enum-parent-undef");
     Add("enum-parent-wrong");
+    Add("union-dup-alias");
     Add("union-more");
     Add("union-more-parent");
     Add("union-parent");
+    Add("union-parent-diff");
     Add("union-parent-more");
     Add("union-parent-recurse");
+    Add("union-parent-undef");
+    Add("union-parent-wrong");
     Add("union-recurse");
     Add("union-recurse-parent");
     Add("union-self");
@@ -225,8 +229,10 @@ public class SchemaValidMergesData
     Add("output-field-enum-alias");
     Add("output-field-enum-value");
     Add("output-field-param");
+    Add("union-alias");
     Add("union-diff");
     Add("union-same");
+    Add("union-same-parent");
   }
 }
 
@@ -306,5 +312,6 @@ public class SchemaValidSimpleData
     Add("enum-parent-alias");
     Add("enum-parent-dup");
     Add("union-parent");
+    Add("union-parent-dup");
   }
 }

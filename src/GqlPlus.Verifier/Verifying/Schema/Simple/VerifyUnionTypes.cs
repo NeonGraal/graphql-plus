@@ -22,6 +22,8 @@ internal class VerifyUnionTypes(
 
   protected override void UsageValue(IGqlpUnion usage, UsageContext context)
   {
+    base.UsageValue(usage, context);
+
     foreach (IGqlpUnionItem member in usage.Items) {
       context.AddError(usage, "Union", $"'{member.Name}' not defined", CheckMember(usage.Name, member, context, CheckTypeLabel));
     }

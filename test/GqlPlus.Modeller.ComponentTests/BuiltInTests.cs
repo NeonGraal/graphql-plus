@@ -10,36 +10,36 @@ public class BuiltInTests(IModelAndRender renderer)
 {
   [SkippableTheory]
   [ClassData(typeof(BuiltInBasicData))]
-  public void HtmlBasicTypes(string type)
-    => RenderTypeHtml(BuiltInData.BasicMap[type], []);
+  public async Task HtmlBasicTypes(string type)
+    => await RenderTypeHtml(BuiltInData.BasicMap[type], []);
 
   [SkippableTheory]
   [ClassData(typeof(BuiltInInternalData))]
-  public void HtmlInternalTypes(string type)
-    => RenderTypeHtml(BuiltInData.InternalMap[type], BuiltIn.Internal);
+  public async Task HtmlInternalTypes(string type)
+    => await RenderTypeHtml(BuiltInData.InternalMap[type], BuiltIn.Internal);
 
   [Fact]
-  public void HtmlAllBasicTypes()
+  public async Task HtmlAllBasicTypes()
   {
     SchemaAst schema = new(AstNulls.At) {
       Declarations = BuiltIn.Basic
     };
 
-    RenderSchemaHtml(schema, "!Basic");
+    await RenderSchemaHtml(schema, "!Basic");
   }
 
   [Fact]
-  public void HtmlAllInternalTypes()
+  public async Task HtmlAllInternalTypes()
   {
     SchemaAst schema = new(AstNulls.At) {
       Declarations = BuiltIn.Internal
     };
 
-    RenderSchemaHtml(schema, "!Internal");
+    await RenderSchemaHtml(schema, "!Internal");
   }
 
   [Fact]
-  public void Html_Index()
+  public async Task Html_Index()
   {
     RenderStructure groups = RenderStructure.New("");
     groups.Add("All", RenderStructure.ForAll(["!Basic", "!Internal"]));
@@ -49,7 +49,7 @@ public class BuiltInTests(IModelAndRender renderer)
     RenderStructure result = RenderStructure.New("");
     result.Add("groups", groups);
 
-    result.WriteHtmlFile("BuiltIn", "index", "index");
+    await result.WriteHtmlFile("BuiltIn", "index", "index");
   }
 
   [SkippableTheory]
@@ -110,7 +110,7 @@ public class BuiltInTests(IModelAndRender renderer)
     context.Errors.Should().BeNullOrEmpty(type?.Label);
   }
 
-  private void RenderTypeHtml(IGqlpType type, IGqlpType[] extras)
+  private async Task RenderTypeHtml(IGqlpType type, IGqlpType[] extras)
   {
     Skip.If(type is null);
 
@@ -122,13 +122,13 @@ public class BuiltInTests(IModelAndRender renderer)
       Declarations = [.. extras.Where(e => e != type)]
     };
 
-    RenderSchemaHtml(schema, type.Name, extrasSchema);
+    await RenderSchemaHtml(schema, type.Name, extrasSchema);
   }
 
-  private void RenderSchemaHtml(SchemaAst schema, string filename, SchemaAst? extras = null)
+  private async Task RenderSchemaHtml(SchemaAst schema, string filename, SchemaAst? extras = null)
   {
     RenderStructure result = renderer.RenderAst(schema, renderer.Context(), extras);
 
-    result.WriteHtmlFile("BuiltIn", filename);
+    await result.WriteHtmlFile("BuiltIn", filename);
   }
 }

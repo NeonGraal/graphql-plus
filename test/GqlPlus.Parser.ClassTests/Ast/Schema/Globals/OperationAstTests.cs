@@ -6,6 +6,9 @@ public class OperationAstTests
   protected override string AliasesString(OperationInput input, string aliases)
     => $"( !SO {input.Name}{aliases} {input.Category} )";
 
+  protected override string GetName(OperationInput input)
+    => input.Name;
+
   private readonly AstAliasedChecks<OperationInput, OperationDeclAst> _checks
     = new(input => new OperationDeclAst(AstNulls.At, input.Name, input.Category));
 

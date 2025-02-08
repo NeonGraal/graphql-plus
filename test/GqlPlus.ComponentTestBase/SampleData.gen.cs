@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples
-// Collected from 37de024  (HEAD -> operation, origin/operation) 2025-01-13 Tweak category name in valid operation
+// Collected from d8dfac8  (HEAD -> operation) 2025-02-09 Merge branch 'main' into operation
 
 namespace GqlPlus;
 

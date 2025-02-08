@@ -30,4 +30,7 @@ public class MergeOperationsTests(
 
   protected override IGqlpSchemaOperation MakeAliased(OperationInput input, string[]? aliases = null, string description = "")
     => new OperationDeclAst(AstNulls.At, input.Name, description, input.Category) { Aliases = aliases ?? [] };
+
+  protected override string GetName(OperationInput input)
+    => input.Name;
 }

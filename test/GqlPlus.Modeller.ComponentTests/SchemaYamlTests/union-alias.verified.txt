@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier UnDiff: !_TypeUnion
+    aliases: [UnA1, UnA2]
+    allItems:
+    - !_UnionMember
+      name: Boolean
+      union: UnDiff
+    - !_UnionMember
+      name: Number
+      union: UnDiff
+    items:
+    - !_Aliased
+      name: Boolean
+    - !_Aliased
+      name: Number
+    name: UnDiff
+    typeKind: !_TypeKind Union

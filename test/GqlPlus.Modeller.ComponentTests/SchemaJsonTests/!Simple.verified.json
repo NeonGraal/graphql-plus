@@ -867,12 +867,21 @@
           "$tag": "_UnionMember",
           "name": "String",
           "union": "UnionPrnt"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "UnionPrnt"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
           "value": "String"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "Number"
         }
       ],
       "name": "UnionPrnt",

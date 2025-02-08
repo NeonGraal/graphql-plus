@@ -511,9 +511,14 @@ types: !_Map_Type
     - !_UnionMember
       name: String
       union: UnionPrnt
+    - !_UnionMember
+      name: Number
+      union: UnionPrnt
     items:
     - !_Aliased
       name: String
+    - !_Aliased
+      name: Number
     name: UnionPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntUnion

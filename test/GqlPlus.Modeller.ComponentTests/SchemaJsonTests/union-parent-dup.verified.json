@@ -1,0 +1,52 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "PrntUnion": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "PrntUnion"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Number"
+        }
+      ],
+      "name": "PrntUnion",
+      "typeKind": "Union"
+    },
+    "UnionPrnt": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "PrntUnion"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "UnionPrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Number"
+        }
+      ],
+      "name": "UnionPrnt",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntUnion",
+        "typeKind": "Union"
+      },
+      "typeKind": "Union"
+    }
+  }
+}

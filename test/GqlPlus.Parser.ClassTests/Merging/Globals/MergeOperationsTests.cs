@@ -16,7 +16,7 @@ public class MergeOperationsTests(
       new OperationDeclAst(AstNulls.At, input.Name, input.Category),
       new OperationDeclAst(AstNulls.At, input.Name, input.Category)]);
 
-  [Theory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsDifferentOption_ReturnsErrors(OperationInput input, string category2)
     => this
     .SkipEqual(input.Category, category2)

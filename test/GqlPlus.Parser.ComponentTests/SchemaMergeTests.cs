@@ -1,11 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
-using GqlPlus.Token;
-
-using VerifyXunit;
 
 namespace GqlPlus;
 

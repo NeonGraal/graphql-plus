@@ -3867,6 +3867,19 @@ Success
   Boolean
 }
 {
+  !Un I@007/0001
+  UnSameParent
+  :UnParent
+  !UM I@032/0001
+  Boolean
+}
+{
+  !Un I@007/0003
+  UnParent
+  !UM I@018/0003
+  String
+}
+{
   !Ou I@008/0002
   Cat
 }
@@ -4156,6 +4169,8 @@ Number
   :PrntUnion
   !UM I@030/0001
   String
+  !UM I@030/0001
+  Number
 }
 {
   !Un I@007/0002

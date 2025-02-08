@@ -1,0 +1,2 @@
+union Test { :Parent Number }
+output Parent { }

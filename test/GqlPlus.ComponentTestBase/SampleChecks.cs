@@ -1,7 +1,5 @@
 ﻿using GqlPlus.Abstractions;
 
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-
 namespace GqlPlus;
 
 public class SampleChecks

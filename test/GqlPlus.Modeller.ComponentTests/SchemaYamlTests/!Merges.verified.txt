@@ -657,6 +657,16 @@ types: !_Map_Type
       name: Number
     name: UnDiff
     typeKind: !_TypeKind Union
+  !_Identifier UnParent: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: String
+      union: UnParent
+    items:
+    - !_Aliased
+      name: String
+    name: UnParent
+    typeKind: !_TypeKind Union
   !_Identifier UnSame: !_TypeUnion
     allItems:
     - !_UnionMember
@@ -666,4 +676,20 @@ types: !_Map_Type
     - !_Aliased
       name: Boolean
     name: UnSame
+    typeKind: !_TypeKind Union
+  !_Identifier UnSameParent: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: String
+      union: UnParent
+    - !_UnionMember
+      name: Boolean
+      union: UnSameParent
+    items:
+    - !_Aliased
+      name: Boolean
+    name: UnSameParent
+    parent: !_TypeRef(_SimpleKind)
+      name: UnParent
+      typeKind: !_SimpleKind Union
     typeKind: !_TypeKind Union

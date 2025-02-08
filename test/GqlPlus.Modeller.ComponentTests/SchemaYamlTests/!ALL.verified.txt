@@ -5670,6 +5670,7 @@ types: !_Map_Type
     name: StrSame
     typeKind: !_TypeKind Domain
   !_Identifier UnDiff: !_TypeUnion
+    aliases: [UnA1, UnA2]
     allItems:
     - !_UnionMember
       name: Boolean

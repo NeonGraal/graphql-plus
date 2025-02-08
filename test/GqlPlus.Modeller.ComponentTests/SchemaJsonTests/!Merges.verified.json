@@ -1106,6 +1106,7 @@
     },
     "UnDiff": {
       "$tag": "_TypeUnion",
+      "aliases": ["UnA1", "UnA2"],
       "allItems": [
         {
           "$tag": "_UnionMember",

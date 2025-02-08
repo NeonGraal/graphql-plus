@@ -3851,9 +3851,13 @@ Success
 {
   !Un I@007/0001
   UnDiff
-  !UM I@016/0001
+  [
+    UnA1
+    UnA2
+  ]
+  !UM I@023/0001
   Boolean
-  !UM I@016/0002
+  !UM I@023/0002
   Number
 }
 {

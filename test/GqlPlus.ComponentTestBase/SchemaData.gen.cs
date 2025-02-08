@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Schema
-// Collected from 5e5c83d  (HEAD -> main, origin/main, origin/HEAD) 2024-09-24 Merge pull request #3 from graphql-plus/samples
+// Collected from 5e5c83d  (HEAD -> union-tests, origin/yaml, origin/main, origin/json, origin/include, origin/HEAD, main) 2024-09-24 Merge pull request #3 from graphql-plus/samples
 
 
 namespace GqlPlus;
@@ -141,6 +141,7 @@ public class SchemaInvalidSimpleData
     Add("enum-parent-diff");
     Add("enum-parent-undef");
     Add("enum-parent-wrong");
+    Add("union-dup-alias");
     Add("union-more");
     Add("union-more-parent");
     Add("union-parent");
@@ -220,6 +221,7 @@ public class SchemaValidMergesData
     Add("output-field-enum-alias");
     Add("output-field-enum-value");
     Add("output-field-param");
+    Add("union-alias");
     Add("union-diff");
     Add("union-same");
   }

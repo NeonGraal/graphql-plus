@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples
-// Collected from 5e5c83d  (HEAD -> main, origin/main, origin/HEAD) 2024-09-24 Merge pull request #3 from graphql-plus/samples
+// Collected from 5e5c83d  (HEAD -> union-tests, origin/yaml, origin/main, origin/json, origin/include, origin/HEAD, main) 2024-09-24 Merge pull request #3 from graphql-plus/samples
 
 
 namespace GqlPlus;

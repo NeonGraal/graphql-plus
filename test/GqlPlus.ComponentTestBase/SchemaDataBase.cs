@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -28,7 +27,7 @@ public class SchemaDataBase(
         : [k])
       .Order();
 
-  protected async static Task<IEnumerable<string>> ReplaceSchemaKeys(string group)
+  protected static async Task<IEnumerable<string>> ReplaceSchemaKeys(string group)
   {
     IEnumerable<Task<(string input, string file)>> tasks = SchemaValidData
       .Files[group]

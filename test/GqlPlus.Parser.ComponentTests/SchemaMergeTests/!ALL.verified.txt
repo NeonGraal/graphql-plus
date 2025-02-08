@@ -3851,9 +3851,13 @@ Success
 {
   !Un I@007/0001
   UnDiff
-  !UM I@016/0001
+  [
+    UnA1
+    UnA2
+  ]
+  !UM I@023/0001
   Boolean
-  !UM I@016/0002
+  !UM I@023/0002
   Number
 }
 {
@@ -3861,6 +3865,19 @@ Success
   UnSame
   !UM I@016/0001
   Boolean
+}
+{
+  !Un I@007/0001
+  UnSameParent
+  :UnParent
+  !UM I@032/0001
+  Boolean
+}
+{
+  !Un I@007/0003
+  UnParent
+  !UM I@018/0003
+  String
 }
 {
   !Ou I@008/0002
@@ -4152,6 +4169,8 @@ Number
   :PrntUnion
   !UM I@030/0001
   String
+  !UM I@030/0001
+  Number
 }
 {
   !Un I@007/0002

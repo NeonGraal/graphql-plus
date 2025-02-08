@@ -1106,6 +1106,7 @@
     },
     "UnDiff": {
       "$tag": "_TypeUnion",
+      "aliases": ["UnA1", "UnA2"],
       "allItems": [
         {
           "$tag": "_UnionMember",
@@ -1131,6 +1132,24 @@
       "name": "UnDiff",
       "typeKind": "Union"
     },
+    "UnParent": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "String",
+          "union": "UnParent"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "String"
+        }
+      ],
+      "name": "UnParent",
+      "typeKind": "Union"
+    },
     "UnSame": {
       "$tag": "_TypeUnion",
       "allItems": [
@@ -1147,6 +1166,34 @@
         }
       ],
       "name": "UnSame",
+      "typeKind": "Union"
+    },
+    "UnSameParent": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "String",
+          "union": "UnParent"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Boolean",
+          "union": "UnSameParent"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Boolean"
+        }
+      ],
+      "name": "UnSameParent",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "UnParent",
+        "typeKind": "Union"
+      },
       "typeKind": "Union"
     }
   }

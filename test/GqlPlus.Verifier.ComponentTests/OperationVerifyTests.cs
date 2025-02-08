@@ -4,8 +4,6 @@ using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
-
-using OpenTelemetry.Trace;
 namespace GqlPlus;
 
 public class OperationVerifyTests(

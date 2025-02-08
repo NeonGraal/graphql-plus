@@ -22,6 +22,8 @@ internal class VerifyUnionTypes(
 
   protected override void UsageValue(IGqlpUnion usage, UsageContext context)
   {
+    base.UsageValue(usage, context);
+
     foreach (IGqlpUnionItem member in usage.Items) {
       context.AddError(usage, "Union", $"'{member.Name}' not defined", CheckMember(usage.Name, member, context, CheckTypeLabel));
     }
@@ -31,9 +33,7 @@ internal class VerifyUnionTypes(
     }
 
     void CheckTypeLabel(string name, IGqlpType type)
-    {
-      context.AddError(usage, "union", $"Type kind mismatch for {name}. Found {type?.Label}", type is not IGqlpSimple and not IGqlpTypeSpecial);
-    }
+      => context.AddError(usage, "union", $"Type kind mismatch for {name}. Found {type?.Label}", type is not IGqlpSimple and not IGqlpTypeSpecial);
   }
 
   private static bool CheckMember(string name, IGqlpUnionItem member, UsageContext context, Action<string, IGqlpType>? checkType = null)

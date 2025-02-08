@@ -69,7 +69,6 @@ public class BuiltInTests(IModelAndRender renderer)
       Declarations = BuiltIn.Basic
     };
 
-
     ITypesContext context = renderer.Context();
     RenderStructure result = renderer.RenderAst(schema, context);
 

@@ -1,4 +1,4 @@
-union Test { :Parent }
+union Test { :Parent String }
 union Parent { More }
-union More { :Bad }
+union More { :Bad String }
 union Bad { Test }

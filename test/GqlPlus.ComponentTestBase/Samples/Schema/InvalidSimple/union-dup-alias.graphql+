@@ -1,0 +1,2 @@
+union Test [a] { Bad }
+union Dup [a] { Test }

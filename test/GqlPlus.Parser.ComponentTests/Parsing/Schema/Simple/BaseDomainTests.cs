@@ -21,16 +21,15 @@ public abstract class BaseDomainTests<TInput, TDomain>(
     => domainChecks.WithParentBad(input);
 }
 
-internal abstract class BaseDomainChecks<TInput, TDomainAst, TDomain>
-  : BaseAliasedChecks<TInput, TDomainAst, IGqlpDomain>
+internal abstract class BaseDomainChecks<TInput, TDomainAst, TDomain>(
+  Parser<IGqlpDomain>.D parser,
+  DomainKind kind
+) : BaseAliasedChecks<TInput, TDomainAst, IGqlpDomain>(parser)
   , IBaseDomainChecks<TInput, TDomain>
   where TDomain : IGqlpDomain
   where TDomainAst : AstDomain, TDomain
 {
-  private readonly DomainKind _kind;
-
-  protected BaseDomainChecks(Parser<IGqlpDomain>.D parser, DomainKind kind)
-    : base(parser) => _kind = kind;
+  private readonly DomainKind _kind = kind;
 
   public void WithKindBad(TInput input, string kind)
     => this.

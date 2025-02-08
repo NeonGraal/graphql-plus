@@ -1,11 +1,10 @@
 ﻿namespace GqlPlus.Result;
 
-public readonly struct ResultArrayOk<TValue>
-  : IResultArray<TValue>, IResultOk<IEnumerable<TValue>>
+public readonly struct ResultArrayOk<TValue>(
+  IEnumerable<TValue> result
+) : IResultArray<TValue>, IResultOk<IEnumerable<TValue>>
 {
-  public IEnumerable<TValue> Result { get; }
-
-  public ResultArrayOk(IEnumerable<TValue> result) => Result = result;
+  public IEnumerable<TValue> Result { get; } = result;
 
   public IResult<TResult> AsPartial<TResult>(TResult result, Action<IEnumerable<TValue>>? withValue = null, Action? action = null)
   {

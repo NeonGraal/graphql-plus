@@ -22,8 +22,8 @@ internal sealed record class SchemaAst(TokenAt At)
   {
     using StringWriter sw = new();
     int indent = 0;
-    string[] begins = new[] { "(", "{", "[", "<" };
-    string[] ends = new[] { ")", "}", "]", ">" };
+    string[] begins = ["(", "{", "[", "<"];
+    string[] ends = [")", "}", "]", ">"];
     foreach (string? field in GetFields()) {
       if (string.IsNullOrWhiteSpace(field)) {
         continue;

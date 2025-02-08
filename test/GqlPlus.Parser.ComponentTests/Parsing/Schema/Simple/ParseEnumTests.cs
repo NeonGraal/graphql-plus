@@ -33,12 +33,10 @@ public sealed class ParseEnumTests(
       new EnumDeclAst(AstNulls.At, name, members.EnumMembers()) { Parent = parent });
 }
 
-internal sealed class ParseEnumChecks
-  : BaseSimpleChecks<EnumInput, EnumDeclAst, IGqlpEnum>
+internal sealed class ParseEnumChecks(
+  Parser<IGqlpEnum>.D parser
+) : BaseSimpleChecks<EnumInput, EnumDeclAst, IGqlpEnum>(parser)
 {
-  public ParseEnumChecks(Parser<IGqlpEnum>.D parser)
-    : base(parser) { }
-
   protected internal override EnumDeclAst NamedFactory(EnumInput input)
     => new(AstNulls.At, input.Type, new[] { input.Member }.EnumMembers());
 

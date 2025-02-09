@@ -2,6 +2,8 @@
 
 namespace GqlPlus;
 
+[BuildData("Operation")]
+
 public static class BuiltInData
 {
   public static Map<IGqlpType> BasicMap { get; }

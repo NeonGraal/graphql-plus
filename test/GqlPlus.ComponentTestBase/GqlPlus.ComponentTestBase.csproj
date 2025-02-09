@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <IsTestProject>false</IsTestProject>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GqlPlus.TestBase\GqlPlus.TestBase.csproj" />
+    <ProjectReference Include="..\GqlPlus.TestGenerators\GqlPlus.TestGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 
   <ItemGroup>

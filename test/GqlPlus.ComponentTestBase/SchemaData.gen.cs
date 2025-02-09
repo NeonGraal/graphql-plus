@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Schema
-// Collected from d8dfac8  (HEAD -> operation) 2025-02-09 Merge branch 'main' into operation
+// Collected from d8dfac8  (HEAD -> operation, origin/operation) 2025-02-09 Merge branch 'main' into operation
 
 namespace GqlPlus;
 

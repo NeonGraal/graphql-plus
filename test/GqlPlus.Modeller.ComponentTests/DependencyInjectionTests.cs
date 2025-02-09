@@ -13,12 +13,12 @@ public class DependencyInjectionTests(
     => CheckDependencyInjection();
 
   [Fact]
-  public void HtmlModellerDI()
-    => HtmlDependencyInjection("Modeller");
+  public async Task HtmlModellerDI()
+    => await HtmlDependencyInjection("Modeller");
 
   [Fact]
-  public void DiagramModellerDI()
-    => DiagramDependencyInjection("Modeller");
+  public async Task DiagramModellerDI()
+    => await HtmlDependencyInjection("Modeller");
 
   [Fact]
   public void FluidModellerFiles()

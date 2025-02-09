@@ -49,7 +49,7 @@ public class SampleModelTests(
   }
 
   [Fact]
-  public void Html_Index()
+  public async Task Html_Index()
   {
     RenderStructure groups = RenderStructure.New("");
     groups.Add("All", RenderStructure.ForAll(SchemaValidData.Sample));
@@ -57,6 +57,6 @@ public class SampleModelTests(
     RenderStructure result = RenderStructure.New("");
     result.Add("groups", groups);
 
-    result.WriteHtmlFile("Sample", "index", "index");
+    await result.WriteHtmlFile("Sample", "index", "index");
   }
 }

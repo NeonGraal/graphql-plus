@@ -30,7 +30,7 @@ public static class ComponentTestStartup
 
   private static readonly string s_projectDir = AttributeReader.GetProjectDirectory();
 
-  public static void WriteHtmlFile(this string contents, string dir, string file)
+  public static async Task WriteHtmlFile(this ValueTask<string> contents, string dir, string file)
   {
     string dirPath = Path.Join(s_projectDir, "..", "Html", dir);
     if (!Directory.Exists(dirPath)) {
@@ -38,17 +38,11 @@ public static class ComponentTestStartup
     }
 
     string filePath = Path.Join(dirPath, file + ".html");
-    File.WriteAllText(filePath, contents);
-  }
-
-  public static async Task WriteHtmlFileAsync(this ValueTask<string> contents, string dir, string file)
-  {
-    string dirPath = Path.Join(s_projectDir, "..", "Html", dir);
-    if (!Directory.Exists(dirPath)) {
-      Directory.CreateDirectory(dirPath);
+    try {
+      await File.WriteAllTextAsync(filePath, await contents);
+    } catch (IOException) {
+      await Task.Delay(200);
+      await File.WriteAllTextAsync(filePath, await contents);
     }
-
-    string filePath = Path.Join(dirPath, file + ".html");
-    await File.WriteAllTextAsync(filePath, await contents);
   }
 }

@@ -59,6 +59,6 @@ public class MergeDirectivesTests
 
   internal override GroupsMerger<IGqlpSchemaDirective> MergerGroups => _merger;
 
-  protected override IGqlpSchemaDirective MakeAliased(string name, string[]? aliases = null, string description = "")
-    => new DirectiveDeclAst(AstNulls.At, name, description) { Aliases = aliases ?? [] };
+  protected override IGqlpSchemaDirective MakeAliased(string input, string[]? aliases = null, string description = "")
+    => new DirectiveDeclAst(AstNulls.At, input, description) { Aliases = aliases ?? [] };
 }

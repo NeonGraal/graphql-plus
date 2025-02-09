@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Operation
-// Collected from 247728f  (HEAD -> union-tests, origin/union-tests) 2025-02-08 Improve Union parent samples
+// Collected from d8dfac8  (HEAD -> operation, origin/operation) 2025-02-09 Merge branch 'main' into operation
 
 namespace GqlPlus;
 

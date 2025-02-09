@@ -31,43 +31,43 @@ public class SchemaHtmlTests(
 
   [Fact]
   public async Task Html_All()
-    => Verify_Model(await SchemaValidAll(), "!ALL");
+    => await Verify_Model(await SchemaValidAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Html_Groups(string group)
-    => Verify_Model(await SchemaValidGroup(group), "!" + group);
+    => await Verify_Model(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SchemaValidMergesData))]
   public async Task Html_Merges(string model)
-    => await ReplaceFile("ValidMerges", model, Verify_Model);
+    => await ReplaceFileAsync("ValidMerges", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SchemaValidObjectsData))]
   public async Task Html_Objects(string model)
-    => await ReplaceFile("ValidObjects", model, Verify_Model);
+    => await ReplaceFileAsync("ValidObjects", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SchemaValidGlobalsData))]
   public async Task Html_Globals(string global)
-    => await ReplaceFile("ValidGlobals", global, Verify_Model);
+    => await ReplaceFileAsync("ValidGlobals", global, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SchemaValidSimpleData))]
   public async Task Html_Simple(string simple)
-    => await ReplaceFile("ValidSimple", simple, Verify_Model);
+    => await ReplaceFileAsync("ValidSimple", simple, Verify_Model);
 
-  private void Verify_Model(string input, string test)
-    => Verify_Model([input], test);
+  private async Task Verify_Model(string input, string test)
+    => await Verify_Model([input], test);
 
-  private void Verify_Model(IEnumerable<string> inputs, string test)
+  private async Task Verify_Model(IEnumerable<string> inputs, string test)
   {
     IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input).Required());
 
     RenderStructure result = ModelAsts(asts);
 
-    result.WriteHtmlFile("Schema", test);
+    await result.WriteHtmlFile("Schema", test);
   }
 
   private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts)

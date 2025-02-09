@@ -4,7 +4,9 @@ namespace GqlPlus.Ast.Schema;
 
 public abstract class AstAliasedTests
   : AstAliasedTests<string>
-{ }
+{
+  protected override string GetName(string input) => input;
+}
 
 public abstract class AstAliasedTests<TInput>
   : AstAbbreviatedTests<TInput>
@@ -44,13 +46,13 @@ public abstract class AstAliasedTests<TInput>
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_ByAliases(TInput input, string alias1, string alias2)
     => AliasedChecks
-      .SkipIf(alias1 == alias2)
+      .SkipEqual(alias1, alias2)
       .Inequality_ByAliases(input, alias1, alias2);
 
   [SkippableTheory, RepeatData(Repeats)]
   public void Inequality_ByInputs(TInput input1, TInput input2, string aliased)
     => AliasedChecks
-      .SkipIf(input1.ThrowIfNull().Equals(input2))
+      .SkipEqual(GetName(input1), GetName(input2))
       .Inequality_ByInputs(input1, input2, aliased);
 
   protected virtual string AliasesString(TInput input, string aliases)
@@ -63,6 +65,7 @@ public abstract class AstAliasedTests<TInput>
 
   internal sealed override IAstAbbreviatedChecks<TInput> AbbreviatedChecks => AliasedChecks;
 
+  protected abstract string GetName(TInput input);
   internal abstract IAstAliasedChecks<TInput> AliasedChecks { get; }
 }
 

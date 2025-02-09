@@ -56,6 +56,12 @@ categories: !_Map_Categories
       name: DescrBetween
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Identifier op: !_Category
+    name: op
+    output: !_TypeRef(_TypeKind)
+      name: Op
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Dir: !_Directive
     locations: !_Set(_Location) {Inline: _, Spread: _}
@@ -103,6 +109,20 @@ directives: !_Map_Directives
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     repeatable: false
 name: Schema
+operations: !_Map_Operations
+  !_Identifier Op: !_Operations
+    operation: !_Operation
+      category: cat
+      name: Op
+      operation: TBC
+    type: !_TypeOutput
+      name: Op
+      typeKind: !_TypeKind Output
+  !_Identifier Operation: !_Operation
+    aliases: [Op1, Op2]
+    category: op
+    name: Operation
+    operation: TBC
 settings: !_Map_Setting
   !_Identifier setting: !_Setting
     name: setting
@@ -3745,6 +3765,9 @@ types: !_Map_Type
       to: 9
     name: NumSame
     typeKind: !_TypeKind Domain
+  !_Identifier Op: !_TypeOutput
+    name: Op
+    typeKind: !_TypeKind Output
   !_Identifier OutDomainParam: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)

@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples
-// Collected from 247728f  (HEAD -> union-tests, origin/union-tests) 2025-02-08 Improve Union parent samples
+// Collected from d8dfac8  (HEAD -> operation, origin/operation) 2025-02-09 Merge branch 'main' into operation
 
 namespace GqlPlus;
 
@@ -66,6 +66,7 @@ public class SampleSchemaData
     Add("Intro_Input");
     Add("Intro_Names");
     Add("Intro_Object");
+    Add("Intro_Operation");
     Add("Intro_Option");
     Add("Intro_Output");
     Add("Intro_Union");

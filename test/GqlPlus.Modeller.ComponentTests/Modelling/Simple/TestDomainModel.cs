@@ -20,7 +20,7 @@ public abstract class TestDomainModel<TValue, TItem, TItemModel>(
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersParent(string name, string parent, TValue[] parentMembers)
     => domainChecks
-    .SkipIf(string.Equals(name, parent, StringComparison.Ordinal))
+    .SkipEqual(name, parent)
     .AddTypeKinds(TypeKindModel.Basic, parentMembers)
     .AddParent(domainChecks.NewParent(parent, parentMembers))
     .DomainExpected(
@@ -30,7 +30,7 @@ public abstract class TestDomainModel<TValue, TItem, TItemModel>(
   [SkippableTheory, RepeatData(Repeats)]
   public void Model_MembersGrandParent(string name, string parent, string grandParent, TValue[] grandParentMembers)
     => domainChecks
-    .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
+    .SkipEqual(parent, grandParent)
     .AddTypeKinds(TypeKindModel.Basic, grandParentMembers)
     .AddParent(domainChecks.NewParent(parent, [], grandParent))
     .AddParent(domainChecks.NewParent(grandParent, grandParentMembers))

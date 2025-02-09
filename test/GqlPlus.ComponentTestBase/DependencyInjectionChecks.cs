@@ -147,7 +147,7 @@ public class DependencyInjectionChecks(
     contents.Should().Contain(fi => fi.Name == "pico.liquid");
   }
 
-  public void HtmlDependencyInjection(string file)
+  public async Task HtmlDependencyInjection(string file)
   {
     IOrderedEnumerable<DiService> services = _diServices.Values
       .OrderBy(s => (s.RequiredBy, s.Service.Name));
@@ -157,14 +157,22 @@ public class DependencyInjectionChecks(
     context.SetValue("services", services);
 
     IFluidTemplate template = GetTemplate("table");
-    template.Render(context).WriteHtmlFile("DI", file + "-table");
+    await template.RenderAsync(context).WriteHtmlFile("DI", file + "-table");
   }
 
   private readonly HashSet<string> _ids = [];
   private readonly List<DiService> _group = [];
   private readonly HashSet<string> _groupIds = [];
 
-  public void DiagramDependencyInjection(string file)
+  /* Unmerged change from project 'GqlPlus.ComponentTestBase (net8.0)'
+  Before:
+    public void DiagramDependencyInjection(string file)
+    {
+  After:
+    public void DiagramDependencyInjectionAsync(string file)
+    {
+  */
+  public async Task DiagramDependencyInjection(string file)
   {
     _ids.Clear();
     Map<DiService[]> groups = [];
@@ -208,7 +216,7 @@ public class DependencyInjectionChecks(
     context.SetValue("services", groups);
 
     IFluidTemplate template = GetTemplate("diagram");
-    template.Render(context).WriteHtmlFile("DI", file + "-diagram");
+    await template.RenderAsync(context).WriteHtmlFile("DI", file + "-diagram");
   }
 
   private void AddToGroup(DiService di)

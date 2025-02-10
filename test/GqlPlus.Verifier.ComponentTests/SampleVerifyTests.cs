@@ -11,7 +11,7 @@ public class SampleVerifyTests(
 ) : SampleSchemaChecks(schemaParser)
 {
   [Theory]
-  [ClassData(typeof(SampleSchemaData))]
+  [ClassData(typeof(SamplesSchemaData))]
   public async Task VerifySampleSchema(string sample)
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);

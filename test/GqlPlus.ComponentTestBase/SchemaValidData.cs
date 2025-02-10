@@ -3,7 +3,7 @@
 public class SchemaValidData
   : TheoryData<string>
 {
-  public static readonly SampleSchemaData Sample = [];
+  public static readonly SamplesSchemaData Sample = [];
 
   public static readonly SchemaValidGlobalsData Globals = [];
   public static readonly SchemaValidSimpleData Simple = [];

@@ -14,7 +14,7 @@ public class SampleParserTests(
   private readonly Parser<IGqlpOperation>.L _operation = operation;
 
   [Theory]
-  [ClassData(typeof(SampleSchemaData))]
+  [ClassData(typeof(SamplesSchemaData))]
   public async Task ParseSchema(string sample)
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
@@ -25,7 +25,7 @@ public class SampleParserTests(
   }
 
   [Theory]
-  [ClassData(typeof(SampleOperationData))]
+  [ClassData(typeof(SamplesOperationData))]
   public async Task ParseOperation(string sample)
   {
     IGqlpOperation? ast = await ParseSampleOperation("Operation", sample, "gql+");
@@ -36,7 +36,7 @@ public class SampleParserTests(
   }
 
   [Theory]
-  [ClassData(typeof(SampleGraphQlData))]
+  [ClassData(typeof(SamplesGraphQlData))]
   public async Task ParseGraphQl(string example)
   {
     IGqlpOperation? ast = await ParseSampleOperation("GraphQl", example, "gql");

@@ -1,45 +1,83 @@
-﻿using System.Text;
+﻿using System.Collections.Immutable;
+using System.Text;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.Text;
 
 namespace GqlPlus;
 
-[Generator]
+[Generator(LanguageNames.CSharp)]
 public class BuildDataGenerator : IIncrementalGenerator
 {
-  private const string BuildDataAttribute = @"
-namespace GqlPlus;
-
-[System.AttributeUsage(System.AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-public sealed class BuildDataAttribute(string segment) : Attribute
-{
-  public string Segment { get; } = segment;
-}
-";
-
   public void Initialize(IncrementalGeneratorInitializationContext context)
   {
-    context.RegisterPostInitializationOutput(
-      ctx => ctx.AddSource(
-        "BuildDataAttribute.g.cs",
-        SourceText.From(BuildDataAttribute, Encoding.UTF8)));
+    IncrementalValueProvider<ImmutableArray<string>> gitDetails = context.AdditionalTextsProvider
+                                .Where(text => text.Path.EndsWith("git-details.txt", StringComparison.OrdinalIgnoreCase))
+                                .Select((text, token) => text.GetText(token)?.ToString())
+                                .Where(text => text is not null)!
+                                .Collect<string>();
+
+    IncrementalValueProvider<ImmutableArray<string>> samples = context.AdditionalTextsProvider
+                                .Select((text, token) => text.Path)
+                                .Where(path => Path.GetExtension(path).StartsWith(".g", StringComparison.OrdinalIgnoreCase))
+                                .Collect();
+
+    context.RegisterSourceOutput(samples.Combine(gitDetails), GenerateCode);
   }
 
-  private sealed class TestDataSyntaxReceiver : ISyntaxReceiver
+  private record struct DataPath(string[] Prefix, string Parent, string Directory, string FileName);
+
+  private static DataPath FromArray(string[] path)
   {
-    public List<string> Segments { get; set; } = [];
+    int prefix = path.Length - 3;
+    string filename = Path.GetFileNameWithoutExtension(path[prefix + 2]);
+    return new([.. path.Take(prefix)], path[prefix], path[prefix + 1], filename);
+  }
 
-    public void OnVisitSyntaxNode(SyntaxNode syntaxNode)
-    {
-      if (syntaxNode is AttributeSyntax attributeSyntax
-        && attributeSyntax.Name.ToString() == nameof(BuildDataAttribute)) {
-        AttributeArgumentSyntax? segment = attributeSyntax.ArgumentList?.Arguments.FirstOrDefault();
+  private void GenerateCode(SourceProductionContext context, (ImmutableArray<string> Left, ImmutableArray<string> Right) tuple)
+  {
+    (ImmutableArray<string> array, ImmutableArray<string> gitDetails) = tuple;
 
-        if (segment is not null) {
-          Segments.Add(segment.ToString());
+    if (array.IsDefaultOrEmpty) {
+      return;
+    }
+
+    string? collected = gitDetails.FirstOrDefault()?.Trim();
+
+    IEnumerable<DataPath> filePaths = array
+      .Select(path => path.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar))
+      .Where(path => path.Length > 2)
+      .Select(FromArray);
+
+    foreach (IGrouping<string, DataPath> parent in filePaths.GroupBy(path => path.Parent)) {
+      DataPath first = parent.First();
+      string from = string.Join("/", first.Prefix.Append(parent.Key));
+      StringBuilder builder = new("// Generated from ");
+      builder.AppendLine(from);
+      builder.Append("// Collected from ");
+      builder.AppendLine(collected);
+      builder.AppendLine();
+      builder.AppendLine("namespace GqlPlus;");
+
+      foreach (IGrouping<string, DataPath> directory in parent.GroupBy(g => g.Directory)) {
+        string className = parent.Key + directory.Key + "Data";
+        builder.AppendLine();
+        builder.AppendLine("public class " + className);
+        builder.AppendLine("  : TheoryData<string>");
+        builder.AppendLine("{");
+        builder.AppendLine($"  public {className}()");
+        builder.AppendLine("  {");
+
+        foreach (DataPath file in directory.OrderBy(f => f.FileName, StringComparer.OrdinalIgnoreCase)) {
+          builder.AppendLine($"    Add(\"{file.FileName}\");");
         }
+
+        builder.AppendLine("  }");
+        builder.AppendLine();
+        builder.AppendLine($"  public const string From = \"{from}/{directory.Key}\";");
+        builder.AppendLine($"  public const string Collected = \"{collected}\";");
+        builder.AppendLine("}");
       }
+
+      context.AddSource(parent.Key + "Data.gen.cs", builder.ToString());
     }
   }
 }

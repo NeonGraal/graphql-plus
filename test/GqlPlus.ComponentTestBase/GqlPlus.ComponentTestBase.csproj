@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <None Remove="DI\diagram.liquid" />
+    <None Remove="Samples\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,7 +38,7 @@
       <LastGenOutput>%(Filename).gen.cs</LastGenOutput>
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Update="Samples\**" CopyToOutputDirectory="Always" />
+    <AdditionalFiles Include="Samples\**" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
   <ItemGroup>

@@ -12,7 +12,7 @@ public class SampleModelTests(
 ) : SampleSchemaChecks(schemaParser)
 {
   [Theory]
-  [ClassData(typeof(SampleSchemaData))]
+  [ClassData(typeof(SamplesSchemaData))]
   public async Task YamlSchema(string sample)
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
@@ -27,7 +27,7 @@ public class SampleModelTests(
   }
 
   [Theory]
-  [ClassData(typeof(SampleSchemaData))]
+  [ClassData(typeof(SamplesSchemaData))]
   public async Task JsonSchema(string sample)
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
@@ -38,7 +38,7 @@ public class SampleModelTests(
   }
 
   [Theory]
-  [ClassData(typeof(SampleSchemaData))]
+  [ClassData(typeof(SamplesSchemaData))]
   public async Task HtmlSchema(string sample)
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);

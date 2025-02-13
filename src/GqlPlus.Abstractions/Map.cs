@@ -9,14 +9,24 @@ public class Map<TMap>
   public Map(IReadOnlyDictionary<string, TMap> dictionary)
     : base(dictionary.ToDictionary(k => k.Key, v => v.Value)) { }
 
-  public TMap GetValueOrDefault(string key, TMap defaultValue) 
+  public TMap GetValueOrDefault(string key, TMap defaultValue)
     => TryGetValue(key, out TMap value) ? value : defaultValue;
+  public bool TryAdd(string key, TMap value)
+  {
+    if (ContainsKey(key)) {
+      return false;
+    }
+
+    Add(key, value);
+    return true;
+  }
 }
 
 public interface IMap<TMap>
   : IDictionary<string, TMap>
 {
   TMap GetValueOrDefault(string key, TMap defaultValue);
+  bool TryAdd(string key, TMap value);
 }
 
 public interface IReadOnlyMap<TMap>

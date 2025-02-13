@@ -19,7 +19,7 @@ internal class RenderStructureJsonConverter
       WriteList(writer, value.List, options);
       return;
     } else if (value.Map.Count > 0) {
-      (RenderValue _, RenderStructure first) = value.Map.First();
+      RenderStructure first = value.Map.First().Value;
       if (value.Map.Count == 1 && !plain && string.IsNullOrWhiteSpace(first.Tag) && first.Value is not null) {
         StartTaggedValue(writer, value.Tag);
         WriteValue(writer, first.Value);
@@ -56,7 +56,7 @@ internal class RenderStructureJsonConverter
   {
     if (list.All(i => i.Value is not null)) {
       string result = JsonSerializer.Serialize(list, RenderJson.Unindented);
-      writer.WriteRawValue(result.Replace(",", ", ", StringComparison.Ordinal));
+      writer.WriteRawValue(result.Replace(",", ", "));
       return;
     }
 

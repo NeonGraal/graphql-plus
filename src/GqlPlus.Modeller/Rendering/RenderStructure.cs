@@ -64,10 +64,10 @@ public class RenderStructure
       return this;
     }
 
-    ArgumentNullException.ThrowIfNull(renderer);
+    renderer.ThrowIfNull();
 
-    foreach ((RenderValue key, RenderStructure item) in renderer.Render(value).Map) {
-      Map.Add(key, item);
+    foreach (KeyValuePair<RenderValue, RenderStructure> item in renderer.Render(value).Map) {
+      Map.Add(item.Key, item.Value);
     }
 
     return this;
@@ -108,7 +108,7 @@ public class RenderStructure
 
       foreach (object? value in Enum.GetValues(type)) {
         int flag = (int)value;
-        if (int.PopCount(flag) == 1 && (flags & flag) == flag) {
+        if (IsSingleFlag(flag) && (flags & flag) == flag) {
           result.Add(new(Enum.GetName(type, value)), new("_"));
         }
       }
@@ -117,5 +117,18 @@ public class RenderStructure
     }
 
     return this;
+  }
+
+  private bool IsSingleFlag(int flag)
+  {
+    while (flag > 0) {
+      bool rem = (flag & 1) > 0;
+      flag = flag >> 1;
+      if (rem) {
+        return flag == 0;
+      }
+    }
+
+    return false;
   }
 }

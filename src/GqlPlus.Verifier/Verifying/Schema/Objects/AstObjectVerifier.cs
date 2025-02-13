@@ -68,7 +68,7 @@ where TContext : UsageContext
     bool top,
     Action<TObject>? onParent = null)
   {
-    if (input.Parent?.StartsWith('$') == true) {
+    if (input.Parent?.StartsWith("$", StringComparison.Ordinal) == true) {
       string parameter = input.Parent[1..];
       context.AddError(
         input.Usage,

@@ -35,16 +35,16 @@ internal abstract class GroupedVerifier<TAliased>(
 
   private void VerifyDefinitions(Map<TAliased[]> byName, ITokenMessages errors)
   {
-    foreach ((string name, TAliased[] definitions) in byName) {
-      if (definitions.Length == 1) {
+    foreach (KeyValuePair<string, TAliased[]> item in byName) {
+      if (item.Value.Length == 1) {
         continue;
       }
 
-      _logger.VerifyingWithDefinitions(name, definitions.Length);
+      _logger.VerifyingWithDefinitions(item.Key, item.Value.Length);
 
-      ITokenMessages failures = merger.CanMerge(definitions);
+      ITokenMessages failures = merger.CanMerge(item.Value);
       if (failures.Any()) {
-        errors.Add(definitions.Last().MakeError($"Multiple {Label} with name '{name}' can't be merged."));
+        errors.Add(item.Value.Last().MakeError($"Multiple {Label} with name '{item.Key}' can't be merged."));
         errors.Add(failures);
       }
     }

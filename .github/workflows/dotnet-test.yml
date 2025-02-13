@@ -51,7 +51,7 @@ jobs:
           name: build
       - name: Install tools
         run: |
-          dotnet tool restore --tool-manifest .config/dotnet-tools-ci.json
+          dotnet tool restore
       - name: Tests with Coverage
         run: >
           dotnet coverage collect -o ${{ github.workspace }}/coverage/Coverage-${{ matrix.version }}.xml -f cobertura -s coverage.runsettings

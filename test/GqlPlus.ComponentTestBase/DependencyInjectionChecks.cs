@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Reflection;
 using System.Text;
 
@@ -125,9 +126,9 @@ public class DependencyInjectionChecks(
       sb.Append(di.Service.Id);
       sb.Append(", ");
 
-      List<string> missing = di.Requires
+      List<string> missing = [.. di.Requires
         .Where(p => p.Key != InstanceRequirement && !MatchType(hashset, p.Value))
-        .Select(p => $"{di.Service.Name} {p.Key} : " + p.Value.Name).ToList();
+        .Select(p => $"{di.Service.Name} {p.Key} : " + p.Value.Name)];
 
       missing.Should().BeEmpty();
       output.Output?.WriteLine(sb.ToString());
@@ -248,7 +249,7 @@ public class DependencyInjectionChecks(
 
 public sealed record TypeIdName
 {
-  public TypeIdName(Type type)
+  public TypeIdName([NotNull] Type type)
   {
     Id = type.ThrowIfNull().FullTypeName();
     NameSpace = type.Namespace ?? "";

@@ -5,7 +5,7 @@ public static class SchemaAbstractionHelpers
   public static IEnumerable<IGrouping<string, TAliased>> AliasedGroup<TAliased>(this TAliased[] items)
     where TAliased : IGqlpAliased
   {
-    HashSet<string> names = items.Select(d => d.Name).Distinct().ToHashSet();
+    HashSet<string> names = [.. items.Select(d => d.Name).Distinct()];
 
     return items.SelectMany(t => t.Aliases.Select(a => (Id: a, Item: t)))
       .Where(p => !names.Contains(p.Id))

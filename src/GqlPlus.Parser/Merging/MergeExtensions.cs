@@ -79,7 +79,7 @@ public static class MergeExtensions
   {
     ArgumentNullException.ThrowIfNull(merger);
 
-    TObjField[] fields = items.Select(field).Where(f => f is not null).Cast<TObjField>().ToArray();
+    TObjField[] fields = [.. items.Select(field).Where(f => f is not null).Cast<TObjField>()];
 
     return fields.Length > 0 ? merger.CanMerge(fields) : TokenMessages.New;
   }
@@ -135,7 +135,7 @@ public static class MergeExtensions
   {
     ArgumentNullException.ThrowIfNull(merger);
 
-    TObjField[] fields = items.Select(field).Where(f => f is not null).Cast<TObjField>().ToArray();
+    TObjField[] fields = [.. items.Select(field).Where(f => f is not null).Cast<TObjField>()];
 
     return merger.Merge(fields);
   }

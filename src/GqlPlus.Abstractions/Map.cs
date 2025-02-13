@@ -7,7 +7,7 @@ public class Map<TMap>
 {
   public Map() { }
   public Map(IReadOnlyDictionary<string, TMap> dictionary)
-    : base(dictionary) { }
+    : base(dictionary.ToDictionary(k => k.Key, v => v.Value)) { }
 }
 
 public interface IMap<TMap>

@@ -23,9 +23,7 @@ internal abstract class AstAliasedMerger<TItem>(
 
   private ITokenMessages CanMergeAliases(IGrouping<string, (string alias, TItem item)> group)
   {
-    IEnumerable<string> distinct = group
-      .Select(pair => ItemGroupKey(pair.item))
-      .Distinct();
+    IEnumerable<string> distinct = [.. group.Select(pair => ItemGroupKey(pair.item))];
     if (distinct.Count() == 1) {
       return Messages();
     }
@@ -44,7 +42,7 @@ internal abstract class AstAliasedMerger<TItem>(
 
   protected override TItem MergeGroup(IEnumerable<TItem> group)
   {
-    TItem[] list = group.ToArray();
+    TItem[] list = [.. group];
     TItem result = list.First();
     if (result is IAstSetAliases setAliases) {
       setAliases.SetAliases(list.SelectMany(item => item.Aliases).Distinct());

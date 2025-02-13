@@ -13,7 +13,7 @@ internal class MergeConstants
       return [];
     }
 
-    IGqlpConstant[] list = items.ToArray();
+    IGqlpConstant[] list = [.. items];
     return list.Length > 1
       ? [list.Aggregate(CombineConstants)]
     : list;

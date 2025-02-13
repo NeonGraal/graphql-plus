@@ -24,15 +24,15 @@ public class SampleChecks
       return;
     }
 
-    string[] missing = expected.Where(e
+    string[] missing = [.. expected.Where(e
         => !errors.Any(error
           => error.Message.Contains(e, StringComparison.InvariantCulture))
-      ).ToArray();
+      )];
 
-    ITokenMessage[] extra = errors.Where(error
+    ITokenMessage[] extra = [.. errors.Where(error
         => !expected.Any(e
           => error.Message.Contains(e, StringComparison.InvariantCulture))
-      ).ToArray();
+      )];
 
     using AssertionScope scope = new();
     missing.Should().BeNullOrEmpty("Missing errors");

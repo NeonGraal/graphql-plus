@@ -32,7 +32,7 @@ internal class MergeSchemas(
   }
 
   private static TItem[] Just<TItem>(IEnumerable<IGqlpSchema> group)
-    => group.SelectMany(item => item.Declarations.OfType<TItem>()).ToArray();
+    => [.. group.SelectMany(item => item.Declarations.OfType<TItem>())];
 
   protected override IGqlpSchema MergeGroup(IEnumerable<IGqlpSchema> group)
   {

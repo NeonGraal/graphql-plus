@@ -57,7 +57,7 @@ internal abstract class GroupedVerifier<TAliased>(
           .GroupBy(a => a.Alias, a => a.Item);
 
     foreach (IGrouping<string, TAliased> alias in byAlias) {
-      string[] aliases = alias.Select(a => a.Name).Distinct().ToArray();
+      string[] aliases = [.. alias.Select(a => a.Name).Distinct()];
       if (aliases.Length > 1) {
         errors.Add(alias.Last().MakeError($"Multiple {Label} with alias '{alias.Key}' found. Names {aliases.Joined(n => $"'{n}'")}"));
       }

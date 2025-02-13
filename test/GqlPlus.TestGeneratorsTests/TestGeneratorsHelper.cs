@@ -26,7 +26,7 @@ public static class TestGeneratorsHelper
 
     // The GeneratorDriver is used to run our generator against a compilation
     GeneratorDriver driver = CSharpGeneratorDriver.Create(generator)
-      .AddAdditionalTexts(additionalPaths.Select(PathToText).ToImmutableArray());
+      .AddAdditionalTexts([.. additionalPaths.Select(PathToText)]);
 
     // Run the source generator!
     driver = driver.RunGenerators(compilation);

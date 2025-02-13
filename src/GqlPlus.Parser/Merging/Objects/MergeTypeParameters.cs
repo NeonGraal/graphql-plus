@@ -11,7 +11,7 @@ internal class MergeTypeParams
   protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpTypeParam> group)
     => group.CanMergeString(item => item.Description);
 
-  protected override TypeParamAst MergeGroup(IEnumerable<IGqlpTypeParam> group)
+  protected override IGqlpTypeParam MergeGroup(IEnumerable<IGqlpTypeParam> group)
   {
     TypeParamAst ast = (TypeParamAst)group.First();
     return ast.MakeDescription(group);

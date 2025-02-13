@@ -14,11 +14,13 @@ public class ValueObjectParser<TValue>(
   public IResult<IGqlpFields<TValue>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    ArgumentNullException.ThrowIfNull(tokens);
+    tokens.ThrowIfNull();
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     if (!tokens.Take('{')) {
       return 0.Empty<IGqlpFields<TValue>>();
     }
+#pragma warning restore CA1062 // Validate arguments of public methods
 
     AstFields<TValue> result = [];
     while (!tokens.Take('}')) {

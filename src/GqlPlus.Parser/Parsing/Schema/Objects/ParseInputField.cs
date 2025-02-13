@@ -32,6 +32,6 @@ internal class ParseInputField(
   protected override IResultArray<IGqlpInputParam> FieldParam<TContext>(TContext tokens)
     => 0.EmptyArray<IGqlpInputParam>();
 
-  protected override InputBaseAst ObjBase(TokenAt at, string param, string description)
-    => new(at, param, description);
+  protected override IGqlpInputBase ObjBase(TokenAt at, string param, string description)
+    => new InputBaseAst(at, param, description);
 }

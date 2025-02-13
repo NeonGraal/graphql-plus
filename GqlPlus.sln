@@ -67,6 +67,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.TestGenerators", "t
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.TestGeneratorsTests", "test\GqlPlus.TestGeneratorsTests\GqlPlus.TestGeneratorsTests.csproj", "{BB113C8C-1B2C-4815-A4DF-051F9237AF0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.PolyFill", "src\GqlPlus.PolyFill\GqlPlus.PolyFill.csproj", "{44D55F97-4EBA-48C8-A72C-7FBC12A44719}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,10 @@ Global
 		{BB113C8C-1B2C-4815-A4DF-051F9237AF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB113C8C-1B2C-4815-A4DF-051F9237AF0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB113C8C-1B2C-4815-A4DF-051F9237AF0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D55F97-4EBA-48C8-A72C-7FBC12A44719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D55F97-4EBA-48C8-A72C-7FBC12A44719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D55F97-4EBA-48C8-A72C-7FBC12A44719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D55F97-4EBA-48C8-A72C-7FBC12A44719}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -140,6 +146,7 @@ Global
 		{F10AC1D0-D945-4D8E-A49F-26D9DC08C42D} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{B061A811-3DBB-4E5A-AD96-91F0A74FE3C2} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{BB113C8C-1B2C-4815-A4DF-051F9237AF0E} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{44D55F97-4EBA-48C8-A72C-7FBC12A44719} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}

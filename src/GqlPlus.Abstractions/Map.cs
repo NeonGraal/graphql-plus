@@ -8,13 +8,22 @@ public class Map<TMap>
   public Map() { }
   public Map(IReadOnlyDictionary<string, TMap> dictionary)
     : base(dictionary.ToDictionary(k => k.Key, v => v.Value)) { }
+
+  public TMap GetValueOrDefault(string key, TMap defaultValue) 
+    => TryGetValue(key, out TMap value) ? value : defaultValue;
 }
 
 public interface IMap<TMap>
-  : IDictionary<string, TMap>;
+  : IDictionary<string, TMap>
+{
+  TMap GetValueOrDefault(string key, TMap defaultValue);
+}
 
 public interface IReadOnlyMap<TMap>
-  : IReadOnlyDictionary<string, TMap>;
+  : IReadOnlyDictionary<string, TMap>
+{
+  TMap GetValueOrDefault(string key, TMap defaultValue);
+}
 
 public static class MapExtensions
 {

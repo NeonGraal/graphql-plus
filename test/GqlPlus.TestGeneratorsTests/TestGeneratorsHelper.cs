@@ -34,7 +34,7 @@ public static class TestGeneratorsHelper
     // Use verify to snapshot test the source generator output!
     return Verifier.Verify(driver);
 
-    AdditionalText PathToText(string path)
+    static AdditionalText PathToText(string path)
       => new StringAdditionalText(path);
   }
 

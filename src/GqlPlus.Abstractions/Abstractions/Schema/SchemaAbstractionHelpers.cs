@@ -1,4 +1,5 @@
 ﻿namespace GqlPlus.Abstractions.Schema;
+
 public static class SchemaAbstractionHelpers
 {
   public static IEnumerable<IGrouping<string, TAliased>> AliasedGroup<TAliased>(this TAliased[] items)

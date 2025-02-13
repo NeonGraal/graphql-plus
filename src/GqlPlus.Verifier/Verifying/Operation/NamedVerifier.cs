@@ -23,7 +23,7 @@ internal abstract class NamedVerifier<TUsage, TNamed>(
       usage?.Verify(use.Value, errors);
     }
 
-    foreach (var def in defined) {
+    foreach (KeyValuePair<string, TNamed> def in defined) {
       if (!used.ContainsKey(def.Key)) {
         errors.Add(def.Value.MakeError($"Invalid {Label} definition. {Label} not used."));
       }

@@ -123,7 +123,7 @@ public class RenderStructure
   {
     while (flag > 0) {
       bool rem = (flag & 1) > 0;
-      flag = flag >> 1;
+      flag >>= 1;
       if (rem) {
         return flag == 0;
       }

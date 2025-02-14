@@ -47,7 +47,7 @@ public static class ResultArrayExtensions
 
   public static bool Required<T>(this IResultArray<T> result, Action<IEnumerable<T>> action)
   {
-    action.ThrowIfNull();
+    action.ThrowIfNull( );
 
     if (result is ResultArrayOk<T> ok) {
 #pragma warning disable CA1062 // Validate arguments of public methods

@@ -18,10 +18,8 @@ public class BuildDataGeneratorTests
   [Fact]
   public Task NoAdditionalFiles()
   {
-    string source = "using GqlPlusTests;";
-
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
-      .Generate(source, []);
+      .Generate([]);
 
     return Verifier.Verify(driver);
   }
@@ -29,22 +27,18 @@ public class BuildDataGeneratorTests
   [Fact]
   public Task IgnoresIncorrectAdditionalFiles()
   {
-    string source = "using GqlPlusTests;";
-
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
-      .Generate(source, s_additionalFilesWithIncorrectOne.AdditionalPaths());
+      .Generate(s_additionalFilesWithIncorrectOne.AdditionalPaths());
 
     return Verifier.Verify(driver);
   }
 
   [Fact]
-  public Task SubDirectoryAdditionalFiles()
+  public async Task SubDirectoryAdditionalFiles()
   {
-    string source = "using GqlPlusTests;";
-
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
-      .Generate(source, s_additionalSubdirectoryFiles.AdditionalPaths());
+      .Generate(s_additionalSubdirectoryFiles.AdditionalPaths());
 
-    return Verifier.Verify(driver);
+    await Verifier.Verify(driver);
   }
 }

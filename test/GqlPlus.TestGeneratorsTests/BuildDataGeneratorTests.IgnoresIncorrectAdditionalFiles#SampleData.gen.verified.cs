@@ -2,7 +2,7 @@
 // Generated from Sample
 // Collected from Sample/git-details.txt
 
-namespace GqlPlus;
+namespace GqlPlusTests;
 
 public class SampleFilesData
   : TheoryData<string>

@@ -7,6 +7,14 @@ namespace GqlPlus;
 [Generator(LanguageNames.CSharp)]
 public class BuildDataGenerator : IIncrementalGenerator
 {
+  private readonly string _namespace;
+
+  public BuildDataGenerator(string ns)
+    => _namespace = ns;
+
+  public BuildDataGenerator()
+    => _namespace = "GqlPlus";
+
   public void Initialize(IncrementalGeneratorInitializationContext context)
   {
     IncrementalValueProvider<ImmutableArray<string>> gitDetails = context.AdditionalTextsProvider
@@ -55,7 +63,7 @@ public class BuildDataGenerator : IIncrementalGenerator
       builder.Append("// Collected from ");
       builder.AppendLine(collected);
       builder.AppendLine();
-      builder.AppendLine("namespace GqlPlus;");
+      builder.AppendLine($"namespace {_namespace};");
 
       foreach (IGrouping<string, DataPath> directory in parent.GroupBy(g => g.Directory)) {
         string className = parent.Key + directory.Key + "Data";

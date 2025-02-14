@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using System.Collections.Immutable;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
 
@@ -6,36 +7,26 @@ namespace GqlPlus;
 
 public static class TestGeneratorsHelper
 {
-  public static Task Verify(string source, params string[] additionalPaths)
+  public static GeneratorDriver Generate(this IIncrementalGenerator generator, string source, ImmutableArray<AdditionalText> additionalPaths)
   {
-    // Parse the provided string into a C# syntax tree
     SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(source);
 
     IEnumerable<PortableExecutableReference> references =
     [MetadataReference.CreateFromFile(typeof(object).Assembly.Location)];
 
-    // Create a Roslyn compilation for the syntax tree.
     CSharpCompilation compilation = CSharpCompilation.Create(
         assemblyName: "Tests",
         syntaxTrees: [syntaxTree],
         references: references);
 
-    // Create an instance of our EnumGenerator incremental source generator
-    BuildDataGenerator generator = new();
-
-    // The GeneratorDriver is used to run our generator against a compilation
     GeneratorDriver driver = CSharpGeneratorDriver.Create(generator)
-      .AddAdditionalTexts([.. additionalPaths.Select(PathToText)]);
+      .AddAdditionalTexts(additionalPaths);
 
-    // Run the source generator!
-    driver = driver.RunGenerators(compilation);
-
-    // Use verify to snapshot test the source generator output!
-    return Verifier.Verify(driver);
-
-    static AdditionalText PathToText(string path)
-      => new StringAdditionalText(path);
+    return driver.RunGenerators(compilation);
   }
+
+  public static ImmutableArray<AdditionalText> AdditionalPaths(this IEnumerable<string> paths)
+    => [.. paths.Select(static path => new StringAdditionalText(path))];
 
   private sealed class StringAdditionalText(string path)
     : AdditionalText

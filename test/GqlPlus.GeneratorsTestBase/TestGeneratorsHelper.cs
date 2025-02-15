@@ -2,6 +2,7 @@
 using DiffEngine;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Text;
 
 namespace GqlPlus;
@@ -11,7 +12,7 @@ public static class TestGeneratorsHelper
   static TestGeneratorsHelper()
     => DiffRunner.MaxInstancesToLaunch(20);
 
-  public static GeneratorDriver Generate(this IIncrementalGenerator generator, ImmutableArray<AdditionalText> additionalPaths)
+  public static GeneratorDriver Generate(this IIncrementalGenerator generator, ImmutableArray<AdditionalText> additionalPaths, AnalyzerConfigOptionsProvider? configOptions = null)
   {
     SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText("");
 
@@ -25,6 +26,11 @@ public static class TestGeneratorsHelper
 
     GeneratorDriver driver = CSharpGeneratorDriver.Create(generator)
       .AddAdditionalTexts(additionalPaths);
+
+    if (configOptions is not null) {
+      driver = driver.WithUpdatedAnalyzerConfigOptions(configOptions);
+    }
+
 
     return driver.RunGenerators(compilation);
   }

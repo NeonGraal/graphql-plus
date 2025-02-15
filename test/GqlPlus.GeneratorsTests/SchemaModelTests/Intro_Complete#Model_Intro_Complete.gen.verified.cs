@@ -1,324 +1,85 @@
 ﻿//HintName: Model_Intro_Complete.gen.cs
 // Generated from Intro_Complete.graphql+
 /*
-output _Schema {
-    : _Named
-        categories(_CategoryFilter?): _Categories[_Identifier]
-        directives(_Filter?): _Directives[_Identifier]
-        types(_TypeFilter?): _Type[_Identifier]
-        settings(_Filter?): _Setting[_Identifier]
-    }
-domain _Identifier { String /[A-Za-z_]+/ }
-input _Filter  {
-        names: _NameFilter[]
-        matchAliases: Boolean? = true
-        aliases: _NameFilter[]
-        returnByAlias: Boolean? = false
-        returnReferencedTypes: Boolean? = false
-    | _NameFilter[]
-    }
-"_NameFilter is a simple match expression against _Identifier  where '.' matches any single character and '*' matches zero or more of any character."
-domain _NameFilter { String /[A-Za-z_.*]+/ }
-input _CategoryFilter {
-    : _Filter
-        resolutions: _Resolution[]
-    }
-input _TypeFilter {
-    : _Filter
-        kinds: _TypeKind[]
-    }
-dual _Aliased {
-    : _Described
-        aliases: _Identifier[]
-    }
-dual _Described {
-    : _Named
-        description: String
-    }
-dual _Named {
-        name: _Identifier
-    }
-output _Categories {
-        category: _Category
-        type: _Type
-    | _Category
-    | _Type
-}
-output _Category {
-    : _Aliased
-        resolution: _Resolution
-        output: _TypeRef<_TypeKind.Output>
-        modifiers: _Modifiers[]
-    }
-enum _Resolution { Parallel Sequential Single }
-output _Directives {
-        directive: _Directive
-        type: _Type
-    | _Directive
-    | _Type
-}
-output _Directive {
-    : _Aliased
-        parameters: _InputParam[]
-        repeatable: Boolean
-        locations: _[_Location]
-    }
-enum _Location { Operation Variable Field Inline Spread Fragment }
-output _Setting {
-    : _Described
-        value: _Constant
-}
-output _Type {
-    | _BaseType<_TypeKind.Basic>
-    | _BaseType<_TypeKind.Internal>
-    | _TypeDual
-    | _TypeEnum
-    | _TypeInput
-    | _TypeOutput
-    | _TypeDomain
-    | _TypeUnion
-    }
-output _BaseType<$kind> {
-    : _Aliased
-        typeKind: $kind
-    }
-output _ChildType<$kind $parent> {
-    : _BaseType<$kind>
-        parent: $parent
-    }
-output _ParentType<$kind $item $allItem> {
-    : _ChildType<$kind _Identifier>
-        items: $item[]
-        allItems: $allItem[]
-    }
-enum _SimpleKind { Basic Enum Internal Domain Union }
-enum _TypeKind { :_SimpleKind Dual Input Output }
-output _TypeRef<$kind> {
-        typeKind: $kind
-        name: _Identifier
-}
-output _TypeSimple {
-    | _TypeRef<_TypeKind.Basic>
-    | _TypeRef<_TypeKind.Enum>
-    | _TypeRef<_TypeKind.Domain>
-    | _TypeRef<_TypeKind.Union>
-    }
-output _Constant {
-    | _Simple
-    | _ConstantList
-    | _ConstantMap
-    }
-output _Simple {
-    | Boolean
-    | _DomainValue<_DomainKind.Number Number>
-    | _DomainValue<_DomainKind.String String>
-    | _EnumValue
-}
-output _ConstantList {
-    | _Constant[]
-    }
-output _ConstantMap {
-    | _Constant[Simple]
-    }
-output _Collections {
-    | _Modifier<_ModifierKind.List>
-    | _ModifierKeyed<_ModifierKind.Dictionary>
-    | _ModifierKeyed<_ModifierKind.TypeParam>
-    }
-output _ModifierKeyed<$kind> {
-    : _Modifier<$kind>
-        by: _TypeSimple
-        optional: Boolean
-    }
-output _Modifiers {
-    | _Modifier<_ModifierKind.Optional>
-    | _Collections
-    }
-enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
-output _Modifier<$kind> {
-        modifierKind: $kind
-    }
-enum _DomainKind { Boolean Enum Number String }
-output _TypeDomain {
-    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
-    | _BaseDomain<_DomainKind.Enum _DomainMember _DomainItemMember>
-    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
-    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
-    }
-output _DomainRef<$kind> {
-    : _TypeRef<_TypeKind.Domain>
-        domainKind: $kind
-    }
-output _BaseDomain<$domain $item $domainItem> {
-    : _ParentType<_TypeKind.Domain $item  $domainItem>
-        domain: $domain
-    }
-dual _BaseDomainItem {
-        exclude: Boolean
-    }
-output _DomainItem<$item> {
-    : $item
-        domain: _Identifier
-    }
-output _DomainValue<$kind $value> {
-    : _DomainRef<$kind>
-        value: $value
-    }
-dual _DomainTrueFalse {
-    : _BaseDomainItem
-        value: Boolean
-    }
-output _DomainItemTrueFalse {
-    : _DomainItem<_DomainTrueFalse>
-    }
-output _DomainMember {
-    : _BaseDomainItem
-        value: _EnumValue
-    }
-output _DomainItemMember {
-    : _DomainItem<_DomainMember>
-    }
-dual _DomainRange {
-    : _BaseDomainItem
-        lower: Number?
-        upper: Number?
-    }
-output _DomainItemRange {
-    : _DomainItem<_DomainRange>
-    }
-dual _DomainRegex {
-    : _BaseDomainItem
-        pattern: String
-    }
-output _DomainItemRegex {
-    : _DomainItem<_DomainRegex>
-    }
-output _TypeEnum {
-    : _ParentType<_TypeKind.Enum _Aliased _EnumMember>
-    }
-dual _EnumMember {
-    : _Aliased
-        enum: _Identifier
-    }
-output _EnumValue {
-    : _TypeRef<_TypeKind.Enum>
-        member: _Identifier
-    }
-output _TypeUnion {
-    : _ParentType<_TypeKind.Union _Named _UnionMember>
-    }
-dual _UnionMember {
-    : _Named
-        union: _Identifier
-    }
-output _TypeObject<$kind $parent $field $alternate> {
-    : _ChildType<$kind $parent>
-        typeParams: _Described[]
-        fields: $field[]
-        alternates: $alternate[]
-        allFields: _ObjectFor<$field>[]
-        allAlternates: _ObjectFor<$alternate>[]
-    }
-dual _ObjDescribed<$base> {
-        base: $base
-        description: String
-    | $base
-    }
-output _ObjType<$base> {
-    | _BaseType<_TypeKind.Internal>
-    | _TypeSimple
-    | $base
-    }
-output _ObjBase {
-        typeArgs: _ObjDescribed<_ObjArg>[]
-    | _TypeParam
-    }
-output _ObjArg {
-    : _TypeRef<_TypeKind>
-    | _TypeParam
-}
-domain _TypeParam { :_Identifier String }
-output _Alternate<$base> {
-      type: _ObjDescribed<$base>
-      collections: _Collections[]
-    }
-output _ObjectFor<$for> {
-    : $for
-        object: _Identifier
-    }
-output _Field<$base> {
-    : _Aliased
-      type: _ObjDescribed<$base>
-      modifiers: _Modifiers[]
-    }
-output _TypeDual {
-    : _TypeObject<_TypeKind.Dual _DualParent _DualField _DualAlternate>
-    }
-output _DualBase {
-    : _ObjBase
-        dual: _Identifier
-    }
-output _DualParent {
-    : _ObjDescribed<_DualBase>
-    }
-output _DualField {
-    : _Field<_DualBase>
-    }
-output _DualAlternate {
-    : _Alternate<_DualBase>
-    }
-output _TypeInput {
-    : _TypeObject<_TypeKind.Input _InputParent _InputField _InputAlternate>
-    }
-output _InputBase {
-    : _ObjBase
-        input: _Identifier
-    | _DualBase
-    }
-output _InputParent {
-    : _ObjDescribed<_InputBase>
-    }
-output _InputField {
-    : _Field<_InputBase>
-        default: _Constant?
-    }
-output _InputAlternate {
-    : _Alternate<_InputBase>
-    }
-output _InputParam {
-    : _ObjDescribed<_InputBase>
-        modifiers: _Modifiers[]
-        default: _Constant?
-    }
-output _TypeOutput {
-    : _TypeObject<_TypeKind.Output _OutputParent _OutputField _OutputAlternate>
-    }
-output _OutputBase {
-    : _ObjBase
-        output: _Identifier
-    | _DualBase
-    }
-output _OutputParent {
-    : _ObjDescribed<_OutputBase>
-    }
-output _OutputField {
-    : _Field<_OutputBase>
-        parameter: _InputParam[]
-    | _OutputEnum
-    }
-output _OutputAlternate {
-    : _Alternate<_OutputBase>
-    }
-output _OutputArg {
-    : _TypeRef<_TypeKind>
-        member: _Identifier?
-    | _TypeParam
-    }
-output _OutputEnum {
-    : _TypeRef<_TypeKind.Enum>
-        field: _Identifier
-        member: _Identifier
-    }
+Output - _Schema
+Domain - _Identifier
+Input - _Filter
+Domain - _NameFilter
+Input - _CategoryFilter
+Input - _TypeFilter
+Dual - _Aliased
+Dual - _Described
+Dual - _Named
+Output - _Categories
+Output - _Category
+Enum - _Resolution
+Output - _Directives
+Output - _Directive
+Enum - _Location
+Output - _Setting
+Output - _Type
+Output - _BaseType
+Output - _ChildType
+Output - _ParentType
+Enum - _SimpleKind
+Enum - _TypeKind
+Output - _TypeRef
+Output - _TypeSimple
+Output - _Constant
+Output - _Simple
+Output - _ConstantList
+Output - _ConstantMap
+Output - _Collections
+Output - _ModifierKeyed
+Output - _Modifiers
+Enum - _ModifierKind
+Output - _Modifier
+Enum - _DomainKind
+Output - _TypeDomain
+Output - _DomainRef
+Output - _BaseDomain
+Dual - _BaseDomainItem
+Output - _DomainItem
+Output - _DomainValue
+Dual - _DomainTrueFalse
+Output - _DomainItemTrueFalse
+Output - _DomainMember
+Output - _DomainItemMember
+Dual - _DomainRange
+Output - _DomainItemRange
+Dual - _DomainRegex
+Output - _DomainItemRegex
+Output - _TypeEnum
+Dual - _EnumMember
+Output - _EnumValue
+Output - _TypeUnion
+Dual - _UnionMember
+Output - _TypeObject
+Dual - _ObjDescribed
+Output - _ObjType
+Output - _ObjBase
+Output - _ObjArg
+Domain - _TypeParam
+Output - _Alternate
+Output - _ObjectFor
+Output - _Field
+Output - _TypeDual
+Output - _DualBase
+Output - _DualParent
+Output - _DualField
+Output - _DualAlternate
+Output - _TypeInput
+Output - _InputBase
+Output - _InputParent
+Output - _InputField
+Output - _InputAlternate
+Output - _InputParam
+Output - _TypeOutput
+Output - _OutputBase
+Output - _OutputParent
+Output - _OutputField
+Output - _OutputAlternate
+Output - _OutputArg
+Output - _OutputEnum
 */
-namespace GqlPlus;
-public class Model_Intro_Complete {}
+namespace GqlTest.Model_Intro_Complete {}

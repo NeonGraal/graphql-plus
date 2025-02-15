@@ -20,8 +20,10 @@ public class GqlModelGeneratorTests : SampleChecks
   {
     string schema = await ReadSchema(sample);
 
+    GqlModelConfigOptionsProvider options = new();
+
     GeneratorDriver driver = new GqlModelGenerator()
-      .Generate((sample + ".graphql+").AdditionalString(schema));
+      .Generate((sample + ".graphql+").AdditionalString(schema), options);
 
     await Verifier.Verify(driver, CustomSettings("Schema", "Model", sample));
   }

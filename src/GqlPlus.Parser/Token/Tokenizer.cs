@@ -61,7 +61,7 @@ public class Tokenizer
 
   internal bool IgnoreSeparators { get; set; }
 
-  internal Tokenizer(string operation)
+  public Tokenizer(string operation)
   {
     _operation = operation.AsMemory();
     _len = _operation.Length;

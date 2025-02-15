@@ -1,13 +1,12 @@
 ﻿//HintName: Model_default.gen.cs
 // Generated from default.graphql+
 /*
-category { Query }
-output Query { }
-category { (sequential) Mutation }
-output Mutation { }
-category { (single) Subscription }
-output Subscription { }
-output _Schema { }
+Category - query
+Output - Query
+Category - mutation
+Output - Mutation
+Category - subscription
+Output - Subscription
+Output - _Schema
 */
-namespace GqlPlus;
-public class Model_default {}
+namespace GqlTest.Model_default {}

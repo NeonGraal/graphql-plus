@@ -1,13 +1,7 @@
 ﻿//HintName: Model_Intro_Union.gen.cs
 // Generated from Intro_Union.graphql+
 /*
-output _TypeUnion {
-    : _ParentType<_TypeKind.Union _Named _UnionMember>
-    }
-dual _UnionMember {
-    : _Named
-        union: _Identifier
-    }
+Output - _TypeUnion
+Dual - _UnionMember
 */
-namespace GqlPlus;
-public class Model_Intro_Union {}
+namespace GqlTest.Model_Intro_Union {}

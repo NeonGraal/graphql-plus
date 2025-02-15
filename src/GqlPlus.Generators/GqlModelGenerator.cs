@@ -1,7 +1,14 @@
 ﻿using System.Collections.Immutable;
 using System.Text;
+using System.Threading;
+using GqlPlus.Abstractions.Schema;
+using GqlPlus.Parsing;
+using GqlPlus.Parsing.Schema;
+using GqlPlus.Result;
+using GqlPlus.Token;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Text;
+using Microsoft.CodeAnalysis.Diagnostics;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus;
 
@@ -10,18 +17,38 @@ public class GqlModelGenerator : IIncrementalGenerator
 {
   public void Initialize(IncrementalGeneratorInitializationContext context)
   {
+    IncrementalValueProvider<GqlModelOptions> gqlModelOptions = context.AnalyzerConfigOptionsProvider.Select(MakeGqlModelOptions);
+
     IncrementalValueProvider<ImmutableArray<AdditionalText>> samples = context.AdditionalTextsProvider
                                 .Where(text => Path.GetExtension(text.Path).Equals(".graphql+", StringComparison.OrdinalIgnoreCase))
                                 .Collect();
 
-    context.RegisterSourceOutput(samples, GenerateCode);
+    context.RegisterSourceOutput(samples.Combine(gqlModelOptions), GenerateCode);
   }
 
-  private void GenerateCode(SourceProductionContext context, ImmutableArray<AdditionalText> array)
+  private static GqlModelOptions MakeGqlModelOptions(AnalyzerConfigOptionsProvider provider, CancellationToken _)
   {
-    if (array.IsDefaultOrEmpty) {
+    if (!provider.GlobalOptions.TryGetValue("build_property.GqlPlus_BaseNamespace", out string? baseNamespace)) {
+      baseNamespace = "GqlPlus";
+    }
+
+    return new GqlModelOptions(baseNamespace);
+  }
+
+  private void GenerateCode(SourceProductionContext context, (ImmutableArray<AdditionalText> Left, GqlModelOptions Right) tuple)
+  {
+    (ImmutableArray<AdditionalText> array, GqlModelOptions? options) = tuple;
+
+    if (array.IsDefaultOrEmpty || options is null) {
       return;
     }
+
+    IServiceProvider services = new ServiceCollection()
+      .AddCommonParsers()
+      .AddSchemaParsers()
+      .BuildServiceProvider();
+
+    Parser<IGqlpSchema>.L schemaParser = services.GetRequiredService<Parser<IGqlpSchema>.D>();
 
     foreach (AdditionalText text in array) {
       string file = Path.GetFileNameWithoutExtension(text.Path);
@@ -29,17 +56,18 @@ public class GqlModelGenerator : IIncrementalGenerator
       builder.AppendLine(text.Path);
       builder.AppendLine("\n/*");
 
-      TextLineCollection? lines = text.GetText()?.Lines;
+      string? lines = text.GetText()?.ToString();
       if (lines is not null) {
-        foreach (TextLine line in lines) {
-          builder.AppendLine(line.ToString());
+        Tokenizer tokens = new(lines);
+
+        IGqlpSchema ast = schemaParser.Parse(tokens, "Schema").Required();
+        foreach (IGqlpDeclaration item in ast.Declarations) {
+          builder.AppendLine(item.Label + " - " + item.Name);
         }
       }
 
       builder.AppendLine("*/\n");
-      builder.AppendLine("namespace GqlPlus;");
-      builder.AppendLine();
-      builder.AppendLine("public class Model_" + file + " {}");
+      builder.AppendLine($"namespace {options.BaseNamespace}.Model_" + file + " {}");
 
       context.AddSource("Model_" + file + ".gen.cs", builder.ToString());
     }

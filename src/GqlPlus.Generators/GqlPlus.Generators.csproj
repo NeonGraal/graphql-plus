@@ -13,6 +13,15 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GqlPlus.Parser\GqlPlus.Parser.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="GqlModelGenerator.props"  Pack="true" PackagePath="build" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,16 @@
+{
+  "solution": {
+    "path": "GqlPlus.sln",
+    "projects": [
+      "src\\GqlPlus.Abstractions\\GqlPlus.Abstractions.csproj",
+      "src\\GqlPlus.Modeller\\GqlPlus.Modeller.csproj",
+      "src\\GqlPlus.Parser\\GqlPlus.Parser.csproj",
+      "src\\GqlPlus.Verifier\\GqlPlus.Verifier.csproj",
+      "test\\GqlPlus.ClassTestBase\\GqlPlus.ClassTestBase.csproj",
+      "test\\GqlPlus.Modeller.ClassTests\\GqlPlus.Modeller.ClassTests.csproj",
+      "test\\GqlPlus.Parser.ClassTests\\GqlPlus.Parser.ClassTests.csproj",
+      "test\\GqlPlus.TestBase\\GqlPlus.TestBase.csproj",
+      "test\\GqlPlus.Verifier.ClassTests\\GqlPlus.Verifier.ClassTests.csproj",
+    ]
+  }
+}

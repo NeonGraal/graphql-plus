@@ -4,7 +4,8 @@ internal abstract class NamedVerifier<TUsage, TNamed>(
     IVerify<TUsage> usage,
     IVerify<TNamed> definition
 ) : IVerifyNamed<TUsage, TNamed>
-  where TUsage : IGqlpError where TNamed : IGqlpNamed
+  where TUsage : IGqlpError
+  where TNamed : IGqlpNamed
 {
   public abstract string Label { get; }
   public abstract string UsageKey(TUsage item);

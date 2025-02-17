@@ -2,6 +2,7 @@
 using GqlPlus.Token;
 using NSubstitute;
 using NSubstitute.ReturnsExtensions;
+using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Verifying.Operation;
 
@@ -9,59 +10,203 @@ namespace GqlPlus.Verifying.Operation;
 public class VerifyVariableTests
   : VerifierBase
 {
+  private readonly TokenMessages _errors = [];
+  private readonly IGqlpConstant _defValue;
+  private readonly IGqlpVariable _item;
+
+  private readonly VerifyVariable _verifier = new();
+  private readonly List<IGqlpModifier> _modifiers = [];
+
+  public VerifyVariableTests()
+  {
+    _defValue = For<IGqlpConstant>();
+    _defValue.MakeError("").ReturnsForAnyArgs(MakeMessages);
+
+    _item = For<IGqlpVariable>();
+    _item.DefaultValue.Returns(_defValue);
+    _item.Modifiers.Returns(_modifiers);
+  }
+
   [Fact]
   public void Verify_NoModifiersOrDefault()
   {
-    VerifyVariable verifier = new();
+    _item.DefaultValue.ReturnsNull();
 
-    IGqlpVariable item = For<IGqlpVariable>();
-    item.DefaultValue.ReturnsNull();
-    ITokenMessages errors = new TokenMessages();
-
-    verifier.Verify(item, errors);
+    _verifier.Verify(_item, _errors);
 
     using AssertionScope scope = new();
 
-    errors.Should().BeNullOrEmpty();
+    _errors.Should().BeNullOrEmpty();
   }
 
   [Fact]
   public void Verify_JustDefault()
   {
-    VerifyVariable verifier = new();
-
-    IGqlpConstant defValue = For<IGqlpConstant>();
-    IGqlpVariable item = For<IGqlpVariable>();
-    item.DefaultValue.Returns(defValue);
-    ITokenMessages errors = new TokenMessages();
-
-    verifier.Verify(item, errors);
+    _verifier.Verify(_item, _errors);
 
     using AssertionScope scope = new();
 
-    errors.Should().BeNullOrEmpty();
+    _errors.Should().BeNullOrEmpty();
   }
 
   [Fact]
   public void Verify_NullDefault()
   {
-    VerifyVariable verifier = new();
-
     IGqlpFieldKey value = For<IGqlpFieldKey>();
     value.EnumValue.Returns("Null.null");
+    _defValue.Value.Returns(value);
 
-    IGqlpConstant defValue = For<IGqlpConstant>();
-    defValue.Value.Returns(value);
-    defValue.MakeError("").ReturnsForAnyArgs(MakeMessages);
-
-    IGqlpVariable item = For<IGqlpVariable>();
-    item.DefaultValue.Returns(defValue);
-    TokenMessages errors = new TokenMessages();
-
-    verifier.Verify(item, errors);
+    _verifier.Verify(_item, _errors);
 
     using AssertionScope scope = new();
 
-    errors.Count.Should().Be(1);
+    _errors.Count.Should().Be(1);
+  }
+
+  [Fact]
+  public void Verify_OptionalNullDefault()
+  {
+    IGqlpFieldKey value = For<IGqlpFieldKey>();
+    value.EnumValue.Returns("Null.null");
+    _defValue.Value.Returns(value);
+
+    AddModifier(ModifierKind.Opt);
+
+    _verifier.Verify(_item, _errors);
+
+    using AssertionScope scope = new();
+
+    _errors.Should().BeNullOrEmpty();
+  }
+
+  [Fact]
+  public void Verify_CorrectListDefault()
+  {
+    IGqlpConstant value = For<IGqlpConstant>();
+    _defValue.Values.Returns([value]);
+
+    AddModifier(ModifierKind.List);
+
+    _verifier.Verify(_item, _errors);
+
+    using AssertionScope scope = new();
+
+    _errors.Should().BeNullOrEmpty();
+  }
+
+  [Fact]
+  public void Verify_ObjectListDefault()
+  {
+    IGqlpFields<IGqlpConstant> fields = For<IGqlpFields<IGqlpConstant>>();
+    fields.Count.Returns(1);
+    _defValue.Fields.Returns(fields);
+
+    AddModifier(ModifierKind.List);
+
+    _verifier.Verify(_item, _errors);
+
+    using AssertionScope scope = new();
+
+    _errors.Count.Should().Be(1);
+  }
+
+  [Fact]
+  public void Verify_CorrectObjectDefault()
+  {
+    _defValue.Value.ReturnsNull();
+
+    AddModifier(ModifierKind.Dict);
+
+    _verifier.Verify(_item, _errors);
+
+    using AssertionScope scope = new();
+
+    _errors.Should().BeNullOrEmpty();
+  }
+
+  [Fact]
+  public void Verify_ListObjectDefault()
+  {
+    IGqlpConstant value = For<IGqlpConstant>();
+    _defValue.Values.Returns([value]);
+
+    AddModifier(ModifierKind.Dict);
+
+    _verifier.Verify(_item, _errors);
+
+    using AssertionScope scope = new();
+
+    _errors.Count.Should().Be(1);
+  }
+
+  [Fact]
+  public void Verify_OptionalListDefault()
+  {
+    IGqlpConstant value = For<IGqlpConstant>();
+    _defValue.Values.Returns([value]);
+
+    AddModifier(ModifierKind.List);
+    AddModifier(ModifierKind.Opt);
+
+    _verifier.Verify(_item, _errors);
+
+    using AssertionScope scope = new();
+
+    _errors.Should().BeNullOrEmpty();
+  }
+
+  [Fact]
+  public void Verify_ObjectOptionalListDefault()
+  {
+    IGqlpFields<IGqlpConstant> fields = For<IGqlpFields<IGqlpConstant>>();
+    fields.Count.Returns(1);
+    _defValue.Fields.Returns(fields);
+
+    AddModifier(ModifierKind.List);
+    AddModifier(ModifierKind.Opt);
+
+    _verifier.Verify(_item, _errors);
+
+    using AssertionScope scope = new();
+
+    _errors.Count.Should().Be(1);
+  }
+
+  [Fact]
+  public void Verify_OptionalObjectDefault()
+  {
+    _defValue.Value.ReturnsNull();
+
+    AddModifier(ModifierKind.Dict);
+    AddModifier(ModifierKind.Opt);
+
+    _verifier.Verify(_item, _errors);
+
+    using AssertionScope scope = new();
+
+    _errors.Should().BeNullOrEmpty();
+  }
+
+  [Fact]
+  public void Verify_ListOptionalObjectDefault()
+  {
+    IGqlpConstant value = For<IGqlpConstant>();
+    _defValue.Values.Returns([value]);
+
+    AddModifier(ModifierKind.Dict);
+    AddModifier(ModifierKind.Opt);
+
+    _verifier.Verify(_item, _errors);
+
+    using AssertionScope scope = new();
+
+    _errors.Count.Should().Be(1);
+  }
+
+  private void AddModifier(ModifierKind kind)
+  {
+    IGqlpModifier modifier = For<IGqlpModifier>();
+    modifier.ModifierKind.Returns(kind);
+    _modifiers.Add(modifier);
   }
 }

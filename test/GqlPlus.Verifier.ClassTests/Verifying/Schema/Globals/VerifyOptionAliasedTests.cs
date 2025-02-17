@@ -1,7 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
-using Microsoft.Extensions.Logging;
-using NSubstitute;
 
 namespace GqlPlus.Verifying.Schema.Globals;
 

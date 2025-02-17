@@ -10,7 +10,6 @@ public abstract class GroupedVerifierBase<TAliased>
   where TAliased : class, IGqlpAliased
 {
   protected IMerge<TAliased> Merger { get; } = For<IMerge<TAliased>>();
-  protected ILoggerFactory Logger { get; } = For<ILoggerFactory>();
 
   [Fact]
   public void Verify_CallsVerifierAndMergerWithoutErrors()

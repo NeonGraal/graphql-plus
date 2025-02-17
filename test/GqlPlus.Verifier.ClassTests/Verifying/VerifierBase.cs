@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Ast;
 using GqlPlus.Token;
+using Microsoft.Extensions.Logging;
 using NSubstitute;
 using NSubstitute.Core;
 
@@ -8,6 +9,9 @@ namespace GqlPlus.Verifying;
 public class VerifierBase
 {
   protected TokenMessages Errors { get; } = [];
+  protected ILoggerFactory Logger { get; } = For<ILoggerFactory>();
+
+
   protected static TResult For<TResult>()
     where TResult : class
     => Substitute.For<TResult>();

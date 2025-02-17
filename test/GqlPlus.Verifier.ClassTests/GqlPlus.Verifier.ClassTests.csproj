@@ -12,8 +12,6 @@
   <ItemGroup>
     <Compile Remove="TestResults\**" />
     <EmbeddedResource Remove="TestResults\**" />
-    <Folder Include="Verifying\Schema\Objects\" />
-    <Folder Include="Verifying\Schema\Simple\" />
     <None Remove="TestResults\**" />
     <Folder Remove="TestResults" />
   </ItemGroup>

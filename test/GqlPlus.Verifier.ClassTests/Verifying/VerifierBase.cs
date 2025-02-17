@@ -3,10 +3,11 @@ using GqlPlus.Token;
 using NSubstitute;
 using NSubstitute.Core;
 
-namespace GqlPlus.Verifying.Operation;
+namespace GqlPlus.Verifying;
 
 public class VerifierBase
 {
+  protected TokenMessages Errors { get; } = [];
   protected static TResult For<TResult>()
     where TResult : class
     => Substitute.For<TResult>();

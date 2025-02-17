@@ -1,4 +1,8 @@
-﻿using GqlPlus.Token;
+﻿// This file is used by Code Analysis to maintain SuppressMessage
+// attributes that are applied to this project.
+// Project-level suppressions either have no target or are given
+// a specific target and scoped to a namespace, type, member, etc.
+
 using NSubstitute;
 
 namespace GqlPlus.Verifying.Operation;
@@ -10,7 +14,6 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 {
   private readonly IVerify<TUsage> _usage = VFor<TUsage>();
   private readonly IVerify<TNamed> _definition = VFor<TNamed>();
-  private readonly TokenMessages _errors = [];
 
   [Fact]
   public void Verify_WithNone()
@@ -19,13 +22,13 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     UsageNamed<TUsage, TNamed> item = new([], []);
 
-    verifier.Verify(item, _errors);
+    verifier.Verify(item, Errors);
 
     using AssertionScope scope = new();
 
-    _usage.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TUsage>(), _errors);
-    _definition.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TNamed>(), _errors);
-    _errors.Should().BeNullOrEmpty();
+    _usage.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TUsage>(), Errors);
+    _definition.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TNamed>(), Errors);
+    Errors.Should().BeNullOrEmpty();
   }
 
   [Fact]
@@ -35,13 +38,13 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     UsageNamed<TUsage, TNamed> item = new([], OneDefinition("defined"));
 
-    verifier.Verify(item, _errors);
+    verifier.Verify(item, Errors);
 
     using AssertionScope scope = new();
 
-    _usage.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TUsage>(), _errors);
-    _definition.ReceivedWithAnyArgs().Verify(Arg.Any<TNamed>(), _errors);
-    _errors.Count.Should().Be(1);
+    _usage.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TUsage>(), Errors);
+    _definition.ReceivedWithAnyArgs().Verify(Arg.Any<TNamed>(), Errors);
+    Errors.Count.Should().Be(1);
   }
 
   [Fact]
@@ -51,13 +54,13 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     UsageNamed<TUsage, TNamed> item = new(OneUsage("usage"), []);
 
-    verifier.Verify(item, _errors);
+    verifier.Verify(item, Errors);
 
     using AssertionScope scope = new();
 
-    _usage.ReceivedWithAnyArgs().Verify(Arg.Any<TUsage>(), _errors);
-    _definition.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TNamed>(), _errors);
-    _errors.Count.Should().Be(1);
+    _usage.ReceivedWithAnyArgs().Verify(Arg.Any<TUsage>(), Errors);
+    _definition.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TNamed>(), Errors);
+    Errors.Count.Should().Be(1);
   }
 
   [Fact]
@@ -67,13 +70,13 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     UsageNamed<TUsage, TNamed> item = new(OneUsage("usage"), OneDefinition("defined"));
 
-    verifier.Verify(item, _errors);
+    verifier.Verify(item, Errors);
 
     using AssertionScope scope = new();
 
-    _usage.ReceivedWithAnyArgs().Verify(Arg.Any<TUsage>(), _errors);
-    _definition.ReceivedWithAnyArgs().Verify(Arg.Any<TNamed>(), _errors);
-    _errors.Count.Should().Be(2);
+    _usage.ReceivedWithAnyArgs().Verify(Arg.Any<TUsage>(), Errors);
+    _definition.ReceivedWithAnyArgs().Verify(Arg.Any<TNamed>(), Errors);
+    Errors.Count.Should().Be(2);
   }
 
   [Fact]
@@ -83,13 +86,13 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     UsageNamed<TUsage, TNamed> item = new(OneUsage("match"), OneDefinition("match"));
 
-    verifier.Verify(item, _errors);
+    verifier.Verify(item, Errors);
 
     using AssertionScope scope = new();
 
-    _usage.ReceivedWithAnyArgs().Verify(Arg.Any<TUsage>(), _errors);
-    _definition.ReceivedWithAnyArgs().Verify(Arg.Any<TNamed>(), _errors);
-    _errors.Should().BeNullOrEmpty();
+    _usage.ReceivedWithAnyArgs().Verify(Arg.Any<TUsage>(), Errors);
+    _definition.ReceivedWithAnyArgs().Verify(Arg.Any<TNamed>(), Errors);
+    Errors.Should().BeNullOrEmpty();
   }
 
   internal abstract NamedVerifier<TUsage, TNamed> NewVerifier(IVerify<TUsage> usage, IVerify<TNamed> definition);

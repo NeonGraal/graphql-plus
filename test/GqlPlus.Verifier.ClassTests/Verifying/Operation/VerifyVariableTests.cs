@@ -1,8 +1,6 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Token;
 using NSubstitute;
 using NSubstitute.ReturnsExtensions;
-using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Verifying.Operation;
 
@@ -10,7 +8,6 @@ namespace GqlPlus.Verifying.Operation;
 public class VerifyVariableTests
   : VerifierBase
 {
-  private readonly TokenMessages _errors = [];
   private readonly IGqlpConstant _defValue;
   private readonly IGqlpVariable _item;
 
@@ -32,21 +29,21 @@ public class VerifyVariableTests
   {
     _item.DefaultValue.ReturnsNull();
 
-    _verifier.Verify(_item, _errors);
+    _verifier.Verify(_item, Errors);
 
     using AssertionScope scope = new();
 
-    _errors.Should().BeNullOrEmpty();
+    Errors.Should().BeNullOrEmpty();
   }
 
   [Fact]
   public void Verify_JustDefault()
   {
-    _verifier.Verify(_item, _errors);
+    _verifier.Verify(_item, Errors);
 
     using AssertionScope scope = new();
 
-    _errors.Should().BeNullOrEmpty();
+    Errors.Should().BeNullOrEmpty();
   }
 
   [Fact]
@@ -56,11 +53,11 @@ public class VerifyVariableTests
     value.EnumValue.Returns("Null.null");
     _defValue.Value.Returns(value);
 
-    _verifier.Verify(_item, _errors);
+    _verifier.Verify(_item, Errors);
 
     using AssertionScope scope = new();
 
-    _errors.Count.Should().Be(1);
+    Errors.Count.Should().Be(1);
   }
 
   [Fact]
@@ -72,11 +69,11 @@ public class VerifyVariableTests
 
     AddModifier(ModifierKind.Opt);
 
-    _verifier.Verify(_item, _errors);
+    _verifier.Verify(_item, Errors);
 
     using AssertionScope scope = new();
 
-    _errors.Should().BeNullOrEmpty();
+    Errors.Should().BeNullOrEmpty();
   }
 
   [Fact]
@@ -87,11 +84,11 @@ public class VerifyVariableTests
 
     AddModifier(ModifierKind.List);
 
-    _verifier.Verify(_item, _errors);
+    _verifier.Verify(_item, Errors);
 
     using AssertionScope scope = new();
 
-    _errors.Should().BeNullOrEmpty();
+    Errors.Should().BeNullOrEmpty();
   }
 
   [Fact]
@@ -103,11 +100,11 @@ public class VerifyVariableTests
 
     AddModifier(ModifierKind.List);
 
-    _verifier.Verify(_item, _errors);
+    _verifier.Verify(_item, Errors);
 
     using AssertionScope scope = new();
 
-    _errors.Count.Should().Be(1);
+    Errors.Count.Should().Be(1);
   }
 
   [Fact]
@@ -117,11 +114,11 @@ public class VerifyVariableTests
 
     AddModifier(ModifierKind.Dict);
 
-    _verifier.Verify(_item, _errors);
+    _verifier.Verify(_item, Errors);
 
     using AssertionScope scope = new();
 
-    _errors.Should().BeNullOrEmpty();
+    Errors.Should().BeNullOrEmpty();
   }
 
   [Fact]
@@ -132,11 +129,11 @@ public class VerifyVariableTests
 
     AddModifier(ModifierKind.Dict);
 
-    _verifier.Verify(_item, _errors);
+    _verifier.Verify(_item, Errors);
 
     using AssertionScope scope = new();
 
-    _errors.Count.Should().Be(1);
+    Errors.Count.Should().Be(1);
   }
 
   [Fact]
@@ -148,11 +145,11 @@ public class VerifyVariableTests
     AddModifier(ModifierKind.List);
     AddModifier(ModifierKind.Opt);
 
-    _verifier.Verify(_item, _errors);
+    _verifier.Verify(_item, Errors);
 
     using AssertionScope scope = new();
 
-    _errors.Should().BeNullOrEmpty();
+    Errors.Should().BeNullOrEmpty();
   }
 
   [Fact]
@@ -165,11 +162,11 @@ public class VerifyVariableTests
     AddModifier(ModifierKind.List);
     AddModifier(ModifierKind.Opt);
 
-    _verifier.Verify(_item, _errors);
+    _verifier.Verify(_item, Errors);
 
     using AssertionScope scope = new();
 
-    _errors.Count.Should().Be(1);
+    Errors.Count.Should().Be(1);
   }
 
   [Fact]
@@ -180,11 +177,11 @@ public class VerifyVariableTests
     AddModifier(ModifierKind.Dict);
     AddModifier(ModifierKind.Opt);
 
-    _verifier.Verify(_item, _errors);
+    _verifier.Verify(_item, Errors);
 
     using AssertionScope scope = new();
 
-    _errors.Should().BeNullOrEmpty();
+    Errors.Should().BeNullOrEmpty();
   }
 
   [Fact]
@@ -196,11 +193,11 @@ public class VerifyVariableTests
     AddModifier(ModifierKind.Dict);
     AddModifier(ModifierKind.Opt);
 
-    _verifier.Verify(_item, _errors);
+    _verifier.Verify(_item, Errors);
 
     using AssertionScope scope = new();
 
-    _errors.Count.Should().Be(1);
+    Errors.Count.Should().Be(1);
   }
 
   private void AddModifier(ModifierKind kind)

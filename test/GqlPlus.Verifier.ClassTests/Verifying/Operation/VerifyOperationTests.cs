@@ -17,14 +17,14 @@ public class VerifyOperationTests
     IGqlpOperation item = For<IGqlpOperation>();
     item.Errors.Returns(MakeMessages("item"));
 
-    ITokenMessages errors = MakeMessages("error");
+    Errors.AddRange(MakeMessages("error"));
 
-    verifier.Verify(item, errors);
+    verifier.Verify(item, Errors);
 
     using AssertionScope scope = new();
 
-    usages.ReceivedWithAnyArgs().Verify(Arg.Any<UsageNamed<IGqlpArg, IGqlpVariable>>(), errors);
-    spreads.ReceivedWithAnyArgs().Verify(Arg.Any<UsageNamed<IGqlpSpread, IGqlpFragment>>(), errors);
-    errors.Select(e => e.Message).Should().BeEquivalentTo(["error", "item"]);
+    usages.ReceivedWithAnyArgs().Verify(Arg.Any<UsageNamed<IGqlpArg, IGqlpVariable>>(), Errors);
+    spreads.ReceivedWithAnyArgs().Verify(Arg.Any<UsageNamed<IGqlpSpread, IGqlpFragment>>(), Errors);
+    Errors.Select(e => e.Message).Should().BeEquivalentTo(["error", "item"]);
   }
 }

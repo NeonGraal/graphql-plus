@@ -8,22 +8,20 @@ public class VerifyFragmentUsageTests
 {
   protected override IEnumerable<IGqlpFragment> OneDefinition(string name)
   {
-    IGqlpFragment definition = For<IGqlpFragment>();
+    IGqlpFragment definition = EFor<IGqlpFragment>();
     definition.Name.Returns(name);
-    definition.MakeError("").ReturnsForAnyArgs(MakeMessages);
 
     return [definition];
   }
 
   protected override IEnumerable<IGqlpSpread> OneUsage(string key)
   {
-    IGqlpSpread usage = For<IGqlpSpread>();
+    IGqlpSpread usage = EFor<IGqlpSpread>();
     usage.Name.Returns(key);
-    usage.MakeError("").ReturnsForAnyArgs(MakeMessages);
 
     return [usage];
   }
 
-  internal override NamedVerifier<IGqlpSpread, IGqlpFragment> NewVerifier(IVerify<IGqlpSpread> usage, IVerify<IGqlpFragment> definition)
-    => new VerifyFragmentUsage(usage, definition);
+  internal override NamedVerifier<IGqlpSpread, IGqlpFragment> NewVerifier()
+    => new VerifyFragmentUsage(Usage, Definition);
 }

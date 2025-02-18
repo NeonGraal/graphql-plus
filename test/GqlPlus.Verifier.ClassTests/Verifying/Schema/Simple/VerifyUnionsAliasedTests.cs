@@ -1,11 +1,12 @@
 ﻿using GqlPlus.Abstractions.Schema;
 
+using GqlPlus.Verification.Schema;
 namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyUnionsAliasedTests
-  : GroupedVerifierBase<IGqlpUnion>
+  : AliasedVerifierBase<IGqlpUnion>
 {
-  internal override AliasedVerifier<IGqlpUnion> NewAliasedVerifier(IVerify<IGqlpUnion> definition)
-    => new VerifyUnionsAliased(definition, Merger, Logger);
+  internal override GroupedVerifier<IGqlpUnion> NewGroupedVerifier()
+    => new VerifyUnionsAliased(Definition, Merger, Logger);
 }

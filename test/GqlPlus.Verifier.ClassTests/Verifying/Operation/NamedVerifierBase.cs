@@ -3,8 +3,6 @@
 // Project-level suppressions either have no target or are given
 // a specific target and scoped to a namespace, type, member, etc.
 
-using NSubstitute;
-
 namespace GqlPlus.Verifying.Operation;
 
 public abstract class NamedVerifierBase<TUsage, TNamed>
@@ -12,13 +10,16 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
   where TUsage : class, IGqlpError
   where TNamed : class, IGqlpNamed
 {
-  private readonly IVerify<TUsage> _usage = VFor<TUsage>();
-  private readonly IVerify<TNamed> _definition = VFor<TNamed>();
+  private readonly ForV<TUsage> _usage = new();
+  private readonly ForV<TNamed> _definition = new();
+
+  protected IVerify<TUsage> Usage => _usage.Intf;
+  protected IVerify<TNamed> Definition => _definition.Intf;
 
   [Fact]
   public void Verify_WithNone()
   {
-    NamedVerifier<TUsage, TNamed> verifier = NewVerifier(_usage, _definition);
+    NamedVerifier<TUsage, TNamed> verifier = NewVerifier();
 
     UsageNamed<TUsage, TNamed> item = new([], []);
 
@@ -26,15 +27,15 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     using AssertionScope scope = new();
 
-    _usage.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TUsage>(), Errors);
-    _definition.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TNamed>(), Errors);
+    _usage.NotCalled();
+    _definition.NotCalled();
     Errors.Should().BeNullOrEmpty();
   }
 
   [Fact]
   public void Verify_WithDefinition()
   {
-    NamedVerifier<TUsage, TNamed> verifier = NewVerifier(_usage, _definition);
+    NamedVerifier<TUsage, TNamed> verifier = NewVerifier();
 
     UsageNamed<TUsage, TNamed> item = new([], OneDefinition("defined"));
 
@@ -42,15 +43,15 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     using AssertionScope scope = new();
 
-    _usage.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TUsage>(), Errors);
-    _definition.ReceivedWithAnyArgs().Verify(Arg.Any<TNamed>(), Errors);
+    _usage.NotCalled();
+    _definition.Called();
     Errors.Count.Should().Be(1);
   }
 
   [Fact]
   public void Verify_WithUsage()
   {
-    NamedVerifier<TUsage, TNamed> verifier = NewVerifier(_usage, _definition);
+    NamedVerifier<TUsage, TNamed> verifier = NewVerifier();
 
     UsageNamed<TUsage, TNamed> item = new(OneUsage("usage"), []);
 
@@ -58,15 +59,15 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     using AssertionScope scope = new();
 
-    _usage.ReceivedWithAnyArgs().Verify(Arg.Any<TUsage>(), Errors);
-    _definition.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TNamed>(), Errors);
+    _usage.Called();
+    _definition.NotCalled();
     Errors.Count.Should().Be(1);
   }
 
   [Fact]
   public void Verify_WithDifferent()
   {
-    NamedVerifier<TUsage, TNamed> verifier = NewVerifier(_usage, _definition);
+    NamedVerifier<TUsage, TNamed> verifier = NewVerifier();
 
     UsageNamed<TUsage, TNamed> item = new(OneUsage("usage"), OneDefinition("defined"));
 
@@ -74,15 +75,15 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     using AssertionScope scope = new();
 
-    _usage.ReceivedWithAnyArgs().Verify(Arg.Any<TUsage>(), Errors);
-    _definition.ReceivedWithAnyArgs().Verify(Arg.Any<TNamed>(), Errors);
+    _usage.Called();
+    _definition.Called();
     Errors.Count.Should().Be(2);
   }
 
   [Fact]
   public void Verify_WithMatching()
   {
-    NamedVerifier<TUsage, TNamed> verifier = NewVerifier(_usage, _definition);
+    NamedVerifier<TUsage, TNamed> verifier = NewVerifier();
 
     UsageNamed<TUsage, TNamed> item = new(OneUsage("match"), OneDefinition("match"));
 
@@ -90,12 +91,12 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     using AssertionScope scope = new();
 
-    _usage.ReceivedWithAnyArgs().Verify(Arg.Any<TUsage>(), Errors);
-    _definition.ReceivedWithAnyArgs().Verify(Arg.Any<TNamed>(), Errors);
+    _usage.Called();
+    _definition.Called();
     Errors.Should().BeNullOrEmpty();
   }
 
-  internal abstract NamedVerifier<TUsage, TNamed> NewVerifier(IVerify<TUsage> usage, IVerify<TNamed> definition);
+  internal abstract NamedVerifier<TUsage, TNamed> NewVerifier();
   protected abstract IEnumerable<TNamed> OneDefinition(string name);
   protected abstract IEnumerable<TUsage> OneUsage(string key);
 }

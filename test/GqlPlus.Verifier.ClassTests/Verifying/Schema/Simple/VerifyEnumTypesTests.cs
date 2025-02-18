@@ -1,6 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
-using NSubstitute;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
@@ -11,15 +9,15 @@ public class VerifyEnumTypesTests
   [Fact]
   public void Verify_CallsVerifierWithoutErrors()
   {
-    IMerge<IGqlpEnumItem> mergeMembers = For<IMerge<IGqlpEnumItem>>();
-    VerifyEnumTypes verifier = new(Aliased, mergeMembers);
+    ForM<IGqlpEnumItem> mergeMembers = new();
+    VerifyEnumTypes verifier = new(Aliased.Intf, mergeMembers.Intf);
 
     verifier.Verify(UsageAliased, Errors);
 
     using AssertionScope scope = new();
 
-    Aliased.ReceivedWithAnyArgs().Verify(Arg.Any<IGqlpEnum[]>(), Errors);
-    mergeMembers.DidNotReceiveWithAnyArgs().CanMerge(Arg.Any<IEnumerable<IGqlpEnumItem>>());
+    Aliased.Called();
+    mergeMembers.NotCalled();
     Errors.Should().BeNullOrEmpty();
   }
 }

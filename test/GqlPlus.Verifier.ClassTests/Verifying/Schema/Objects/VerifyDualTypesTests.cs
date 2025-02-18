@@ -1,6 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
-using NSubstitute;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -11,17 +9,17 @@ public class VerifyDualTypesTests
   [Fact]
   public void Verify_CallsVerifierWithoutErrors()
   {
-    IMerge<IGqlpDualField> fields = For<IMerge<IGqlpDualField>>();
-    IMerge<IGqlpDualAlternate> mergeAlternates = For<IMerge<IGqlpDualAlternate>>();
-    VerifyDualTypes verifier = new(Aliased, fields, mergeAlternates, Logger);
+    ForM<IGqlpDualField> fields = new();
+    ForM<IGqlpDualAlternate> mergeAlternates = new();
+    VerifyDualTypes verifier = new(Aliased.Intf, fields.Intf, mergeAlternates.Intf, Logger);
 
     verifier.Verify(UsageAliased, Errors);
 
     using AssertionScope scope = new();
 
-    Aliased.ReceivedWithAnyArgs().Verify(Arg.Any<IGqlpDualObject[]>(), Errors);
-    fields.DidNotReceiveWithAnyArgs().CanMerge(Arg.Any<IEnumerable<IGqlpDualField>>());
-    mergeAlternates.DidNotReceiveWithAnyArgs().CanMerge(Arg.Any<IEnumerable<IGqlpDualAlternate>>());
+    Aliased.Called();
+    fields.NotCalled();
+    mergeAlternates.NotCalled();
     Errors.Should().BeNullOrEmpty();
   }
 }

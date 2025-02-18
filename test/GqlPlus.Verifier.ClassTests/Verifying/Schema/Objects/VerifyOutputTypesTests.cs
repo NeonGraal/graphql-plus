@@ -1,6 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
-using NSubstitute;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -11,17 +9,17 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_CallsVerifierWithoutErrors()
   {
-    IMerge<IGqlpOutputField> fields = For<IMerge<IGqlpOutputField>>();
-    IMerge<IGqlpOutputAlternate> mergeAlternates = For<IMerge<IGqlpOutputAlternate>>();
-    VerifyOutputTypes verifier = new(Aliased, fields, mergeAlternates, Logger);
+    ForM<IGqlpOutputField> fields = new();
+    ForM<IGqlpOutputAlternate> mergeAlternates = new();
+    VerifyOutputTypes verifier = new(Aliased.Intf, fields.Intf, mergeAlternates.Intf, Logger);
 
     verifier.Verify(UsageAliased, Errors);
 
     using AssertionScope scope = new();
 
-    Aliased.ReceivedWithAnyArgs().Verify(Arg.Any<IGqlpOutputObject[]>(), Errors);
-    fields.DidNotReceiveWithAnyArgs().CanMerge(Arg.Any<IEnumerable<IGqlpOutputField>>());
-    mergeAlternates.DidNotReceiveWithAnyArgs().CanMerge(Arg.Any<IEnumerable<IGqlpOutputAlternate>>());
+    Aliased.Called();
+    fields.NotCalled();
+    mergeAlternates.NotCalled();
     Errors.Should().BeNullOrEmpty();
   }
 }

@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using NSubstitute;
 
 namespace GqlPlus.Verifying.Schema.Globals;
 
@@ -10,13 +9,13 @@ public class VerifyDirectiveInputTests
   [Fact]
   public void Verify_CallsVerifiersAndCombinesErrors()
   {
-    VerifyDirectiveInput verifier = new(Aliased);
+    VerifyDirectiveInput verifier = new(Aliased.Intf);
 
     verifier.Verify(UsageAliased, Errors);
 
     using AssertionScope scope = new();
 
-    Aliased.ReceivedWithAnyArgs().Verify(Arg.Any<IGqlpSchemaDirective[]>(), Errors);
+    Aliased.Called();
     Errors.Should().BeNullOrEmpty();
   }
 }

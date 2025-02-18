@@ -1,11 +1,12 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema.Globals;
 
 [TracePerTest]
 public class VerifyDirectiveAliasedTests
-  : GroupedVerifierBase<IGqlpSchemaDirective>
+  : AliasedVerifierBase<IGqlpSchemaDirective>
 {
-  internal override AliasedVerifier<IGqlpSchemaDirective> NewAliasedVerifier(IVerify<IGqlpSchemaDirective> definition)
-    => new VerifyDirectiveAliased(definition, Merger, Logger);
+  internal override GroupedVerifier<IGqlpSchemaDirective> NewGroupedVerifier()
+    => new VerifyDirectiveAliased(Definition, Merger, Logger);
 }

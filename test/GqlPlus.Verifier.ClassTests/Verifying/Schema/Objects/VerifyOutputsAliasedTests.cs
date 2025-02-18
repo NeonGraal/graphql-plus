@@ -1,11 +1,12 @@
 ﻿using GqlPlus.Abstractions.Schema;
 
+using GqlPlus.Verification.Schema;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyOutputsAliasedTests
-  : GroupedVerifierBase<IGqlpOutputObject>
+  : AliasedVerifierBase<IGqlpOutputObject>
 {
-  internal override AliasedVerifier<IGqlpOutputObject> NewAliasedVerifier(IVerify<IGqlpOutputObject> definition)
-    => new VerifyOutputsAliased(definition, Merger, Logger);
+  internal override GroupedVerifier<IGqlpOutputObject> NewGroupedVerifier()
+    => new VerifyOutputsAliased(Definition, Merger, Logger);
 }

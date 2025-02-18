@@ -1,14 +1,13 @@
 ﻿using System.Collections.ObjectModel;
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
 public abstract class UsageVerifierBase<TUsage>
   : VerifierBase
-  where TUsage : IGqlpAliased
+  where TUsage : class, IGqlpAliased
 {
-  protected IVerifyAliased<TUsage> Aliased { get; } = For<IVerifyAliased<TUsage>>();
+  internal ForVA<TUsage> Aliased { get; } = new();
   protected Collection<TUsage> Usages { get; } = [];
   protected Collection<IGqlpType> Definitions { get; } = [];
 

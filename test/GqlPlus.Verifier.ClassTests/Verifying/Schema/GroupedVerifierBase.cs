@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
-using Microsoft.Extensions.Logging;
-using NSubstitute;
+using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
@@ -9,14 +8,13 @@ public abstract class GroupedVerifierBase<TAliased>
   : VerifierBase
   where TAliased : class, IGqlpAliased
 {
-  protected IMerge<TAliased> Merger { get; } = For<IMerge<TAliased>>();
+  private readonly ForM<TAliased> _merger = new();
+  internal IMerge<TAliased> Merger => _merger.Intf;
 
   [Fact]
   public void Verify_CallsVerifierAndMergerWithoutErrors()
   {
-    IVerify<TAliased> definition = VFor<TAliased>();
-
-    AliasedVerifier<TAliased> verifier = NewAliasedVerifier(definition);
+    GroupedVerifier<TAliased> verifier = NewGroupedVerifier();
 
     TAliased item1 = For<TAliased>();
     TAliased item2 = For<TAliased>();
@@ -24,11 +22,14 @@ public abstract class GroupedVerifierBase<TAliased>
     verifier.Verify([item1, item2], Errors);
 
     using AssertionScope scope = new();
+    CheckSimpleVerify();
+  }
 
-    definition.ReceivedWithAnyArgs().Verify(Arg.Any<TAliased>(), Errors);
-    Merger.ReceivedWithAnyArgs().CanMerge(Arg.Any<IEnumerable<TAliased>>());
+  protected virtual void CheckSimpleVerify()
+  {
+    _merger.Called();
     Errors.Should().BeNullOrEmpty();
   }
 
-  internal abstract AliasedVerifier<TAliased> NewAliasedVerifier(IVerify<TAliased> definition);
+  internal abstract GroupedVerifier<TAliased> NewGroupedVerifier();
 }

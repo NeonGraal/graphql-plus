@@ -1,11 +1,12 @@
 ﻿using GqlPlus.Abstractions.Schema;
 
+using GqlPlus.Verification.Schema;
 namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyDomainsAliasedTests
-  : GroupedVerifierBase<IGqlpDomain>
+  : AliasedVerifierBase<IGqlpDomain>
 {
-  internal override AliasedVerifier<IGqlpDomain> NewAliasedVerifier(IVerify<IGqlpDomain> definition)
-    => new VerifyDomainsAliased(definition, Merger, Logger);
+  internal override GroupedVerifier<IGqlpDomain> NewGroupedVerifier()
+    => new VerifyDomainsAliased(Definition, Merger, Logger);
 }

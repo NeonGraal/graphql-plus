@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Verification.Schema;
 using NSubstitute;
 
 namespace GqlPlus.Verifying.Schema;
@@ -11,13 +10,13 @@ public class VerifySchemaTests
   [Fact]
   public void Verify_CallsVerifiersAndCombinesErrors()
   {
-    IVerifyUsage<IGqlpSchemaCategory> categoryOutputs = For<IVerifyUsage<IGqlpSchemaCategory>>();
-    IVerifyUsage<IGqlpSchemaDirective> directiveInputs = For<IVerifyUsage<IGqlpSchemaDirective>>();
-    IVerifyAliased<IGqlpSchemaOption> optionsAliased = For<IVerifyAliased<IGqlpSchemaOption>>();
-    IVerifyAliased<IGqlpType> typesAliased = For<IVerifyAliased<IGqlpType>>();
-    IVerify<IGqlpType[]> types = VFor<IGqlpType[]>();
+    ForVU<IGqlpSchemaCategory> categoryOutputs = new();
+    ForVU<IGqlpSchemaDirective> directiveInputs = new();
+    ForVA<IGqlpSchemaOption> optionsAliased = new();
+    ForVA<IGqlpType> typesAliased = new();
+    ForV<IGqlpType[]> types = new();
 
-    VerifySchema verifier = new(categoryOutputs, directiveInputs, optionsAliased, typesAliased, types);
+    VerifySchema verifier = new(categoryOutputs.Intf, directiveInputs.Intf, optionsAliased.Intf, typesAliased.Intf, types.Intf);
 
     IGqlpSchema item = For<IGqlpSchema>();
     item.Errors.Returns(MakeMessages("item"));
@@ -28,11 +27,11 @@ public class VerifySchemaTests
 
     using AssertionScope scope = new();
 
-    categoryOutputs.ReceivedWithAnyArgs().Verify(Arg.Any<UsageAliased<IGqlpSchemaCategory>>(), Errors);
-    directiveInputs.ReceivedWithAnyArgs().Verify(Arg.Any<UsageAliased<IGqlpSchemaDirective>>(), Errors);
-    optionsAliased.ReceivedWithAnyArgs().Verify(Arg.Any<IGqlpSchemaOption[]>(), Errors);
-    typesAliased.ReceivedWithAnyArgs().Verify(Arg.Any<IGqlpType[]>(), Errors);
-    types.ReceivedWithAnyArgs().Verify(Arg.Any<IGqlpType[]>(), Errors);
+    categoryOutputs.Called();
+    directiveInputs.Called();
+    optionsAliased.Called();
+    typesAliased.Called();
+    types.Called();
     Errors.Select(e => e.Message).Should().BeEquivalentTo(["error", "item"]);
   }
 }

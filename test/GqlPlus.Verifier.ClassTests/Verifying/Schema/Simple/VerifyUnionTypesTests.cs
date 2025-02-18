@@ -1,6 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
-using NSubstitute;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
@@ -11,15 +9,15 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_CallsVerifierWithoutErrors()
   {
-    IMerge<IGqlpUnionItem> mergeMembers = For<IMerge<IGqlpUnionItem>>();
-    VerifyUnionTypes verifier = new(Aliased, mergeMembers);
+    ForM<IGqlpUnionItem> mergeMembers = new();
+    VerifyUnionTypes verifier = new(Aliased.Intf, mergeMembers.Intf);
 
     verifier.Verify(UsageAliased, Errors);
 
     using AssertionScope scope = new();
 
-    Aliased.ReceivedWithAnyArgs().Verify(Arg.Any<IGqlpUnion[]>(), Errors);
-    mergeMembers.DidNotReceiveWithAnyArgs().CanMerge(Arg.Any<IEnumerable<IGqlpUnionItem>>());
+    Aliased.Called();
+    mergeMembers.NotCalled();
     Errors.Should().BeNullOrEmpty();
   }
 }

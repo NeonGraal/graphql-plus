@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using NSubstitute;
 
 namespace GqlPlus.Verifying.Schema.Globals;
 
@@ -10,13 +9,13 @@ public class VerifyCategoryOutputTests
   [Fact]
   public void Verify_CallsVerifiersAndCombinesErrors()
   {
-    VerifyCategoryOutput verifier = new(Aliased);
+    VerifyCategoryOutput verifier = new(Aliased.Intf);
 
     verifier.Verify(UsageAliased, Errors);
 
     using AssertionScope scope = new();
 
-    Aliased.ReceivedWithAnyArgs().Verify(Arg.Any<IGqlpSchemaCategory[]>(), Errors);
+    Aliased.Called();
     Errors.Should().BeNullOrEmpty();
   }
 }

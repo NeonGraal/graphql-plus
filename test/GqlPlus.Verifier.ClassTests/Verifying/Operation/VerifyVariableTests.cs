@@ -8,20 +8,21 @@ namespace GqlPlus.Verifying.Operation;
 public class VerifyVariableTests
   : VerifierBase
 {
-  private readonly IGqlpConstant _defValue;
-  private readonly IGqlpVariable _item;
+  private readonly IGqlpConstant _defValue = EFor<IGqlpConstant>();
+  private readonly IGqlpConstant _constant = For<IGqlpConstant>();
+
+  private readonly IGqlpVariable _item = For<IGqlpVariable>();
+  private readonly IGqlpFieldKey _keyField = EFor<IGqlpFieldKey>();
 
   private readonly VerifyVariable _verifier = new();
   private readonly List<IGqlpModifier> _modifiers = [];
 
   public VerifyVariableTests()
   {
-    _defValue = For<IGqlpConstant>();
-    _defValue.MakeError("").ReturnsForAnyArgs(MakeMessages);
-
-    _item = For<IGqlpVariable>();
     _item.DefaultValue.Returns(_defValue);
     _item.Modifiers.Returns(_modifiers);
+
+    _keyField.EnumValue.Returns("Null.null");
   }
 
   [Fact]
@@ -49,9 +50,7 @@ public class VerifyVariableTests
   [Fact]
   public void Verify_NullDefault()
   {
-    IGqlpFieldKey value = For<IGqlpFieldKey>();
-    value.EnumValue.Returns("Null.null");
-    _defValue.Value.Returns(value);
+    _defValue.Value.Returns(_keyField);
 
     _verifier.Verify(_item, Errors);
 
@@ -63,9 +62,7 @@ public class VerifyVariableTests
   [Fact]
   public void Verify_OptionalNullDefault()
   {
-    IGqlpFieldKey value = For<IGqlpFieldKey>();
-    value.EnumValue.Returns("Null.null");
-    _defValue.Value.Returns(value);
+    _defValue.Value.Returns(_keyField);
 
     AddModifier(ModifierKind.Opt);
 
@@ -79,8 +76,7 @@ public class VerifyVariableTests
   [Fact]
   public void Verify_CorrectListDefault()
   {
-    IGqlpConstant value = For<IGqlpConstant>();
-    _defValue.Values.Returns([value]);
+    _defValue.Values.Returns([_constant]);
 
     AddModifier(ModifierKind.List);
 
@@ -124,8 +120,7 @@ public class VerifyVariableTests
   [Fact]
   public void Verify_ListObjectDefault()
   {
-    IGqlpConstant value = For<IGqlpConstant>();
-    _defValue.Values.Returns([value]);
+    _defValue.Values.Returns([_constant]);
 
     AddModifier(ModifierKind.Dict);
 
@@ -139,8 +134,7 @@ public class VerifyVariableTests
   [Fact]
   public void Verify_OptionalListDefault()
   {
-    IGqlpConstant value = For<IGqlpConstant>();
-    _defValue.Values.Returns([value]);
+    _defValue.Values.Returns([_constant]);
 
     AddModifier(ModifierKind.List);
     AddModifier(ModifierKind.Opt);
@@ -187,8 +181,7 @@ public class VerifyVariableTests
   [Fact]
   public void Verify_ListOptionalObjectDefault()
   {
-    IGqlpConstant value = For<IGqlpConstant>();
-    _defValue.Values.Returns([value]);
+    _defValue.Values.Returns([_constant]);
 
     AddModifier(ModifierKind.Dict);
     AddModifier(ModifierKind.Opt);

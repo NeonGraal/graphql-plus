@@ -1,11 +1,12 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyDualsAliasedTests
-  : GroupedVerifierBase<IGqlpDualObject>
+  : AliasedVerifierBase<IGqlpDualObject>
 {
-  internal override AliasedVerifier<IGqlpDualObject> NewAliasedVerifier(IVerify<IGqlpDualObject> definition)
-    => new VerifyDualsAliased(definition, Merger, Logger);
+  internal override GroupedVerifier<IGqlpDualObject> NewGroupedVerifier()
+    => new VerifyDualsAliased(Definition, Merger, Logger);
 }

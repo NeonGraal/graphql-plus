@@ -41,12 +41,12 @@ public class BuiltInTests(IModelAndRender renderer)
   [Fact]
   public void Html_Index()
   {
-    RenderStructure groups = RenderStructure.New("");
-    groups.Add("All", RenderStructure.ForAll(["!Basic", "!Internal"]));
-    groups.Add("Basic", RenderStructure.ForAll(BuiltIn.Basic.Select(t => t.Name)));
-    groups.Add("Internal", RenderStructure.ForAll(BuiltIn.Internal.Select(t => t.Name)));
+    Structured groups = Structured.New("");
+    groups.Add("All", Structured.ForAll(["!Basic", "!Internal"]));
+    groups.Add("Basic", Structured.ForAll(BuiltIn.Basic.Select(t => t.Name)));
+    groups.Add("Internal", Structured.ForAll(BuiltIn.Internal.Select(t => t.Name)));
 
-    RenderStructure result = RenderStructure.New("");
+    Structured result = Structured.New("");
     result.Add("groups", groups);
 
     result.WriteHtmlFile("BuiltIn", "index", "index");
@@ -70,7 +70,7 @@ public class BuiltInTests(IModelAndRender renderer)
     };
 
     ITypesContext context = renderer.Context();
-    RenderStructure result = renderer.RenderAst(schema, context);
+    Structured result = renderer.RenderAst(schema, context);
 
     context.Errors.Should().BeNullOrEmpty();
   }
@@ -83,7 +83,7 @@ public class BuiltInTests(IModelAndRender renderer)
     };
 
     ITypesContext context = renderer.Context();
-    RenderStructure result = renderer.RenderAst(schema, context);
+    Structured result = renderer.RenderAst(schema, context);
 
     context.Errors.Should().BeNullOrEmpty();
   }
@@ -105,7 +105,7 @@ public class BuiltInTests(IModelAndRender renderer)
     };
 
     ITypesContext context = renderer.Context();
-    RenderStructure result = renderer.RenderAst(schema, context, extrasSchema);
+    Structured result = renderer.RenderAst(schema, context, extrasSchema);
 
     context.Errors.Should().BeNullOrEmpty(type?.Label);
   }
@@ -127,7 +127,7 @@ public class BuiltInTests(IModelAndRender renderer)
 
   private void RenderSchemaHtml(SchemaAst schema, string filename, SchemaAst? extras = null)
   {
-    RenderStructure result = renderer.RenderAst(schema, renderer.Context(), extras);
+    Structured result = renderer.RenderAst(schema, renderer.Context(), extras);
 
     result.WriteHtmlFile("BuiltIn", filename);
   }

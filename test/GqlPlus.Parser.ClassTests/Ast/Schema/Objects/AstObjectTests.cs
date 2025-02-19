@@ -116,18 +116,18 @@ AstTypeChecks<TObjectAst, IGqlpObjBase>.ParentCreator createParent,
 internal interface IAstObjectChecks
   : IAstTypeChecks
 {
-  public void HashCode_WithAlternates(string name, AlternateInput[] alternates);
-  public void String_WithAlternates(string name, AlternateInput[] alternates);
-  public void Equality_WithAlternates(string name, AlternateInput[] alternates);
-  public void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2);
+  void HashCode_WithAlternates(string name, AlternateInput[] alternates);
+  void String_WithAlternates(string name, AlternateInput[] alternates);
+  void Equality_WithAlternates(string name, AlternateInput[] alternates);
+  void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2);
 
-  public void HashCode_WithFields(string name, FieldInput[] fields);
-  public void String_WithFields(string name, FieldInput[] fields);
-  public void Equality_WithFields(string name, FieldInput[] fields);
-  public void Inequality_BetweenFields(string name, FieldInput[] fields1, FieldInput[] fields2);
+  void HashCode_WithFields(string name, FieldInput[] fields);
+  void String_WithFields(string name, FieldInput[] fields);
+  void Equality_WithFields(string name, FieldInput[] fields);
+  void Inequality_BetweenFields(string name, FieldInput[] fields1, FieldInput[] fields2);
 
-  public void HashCode_WithTypeParams(string name, string[] typeParams);
-  public void String_WithTypeParams(string name, string[] typeParams);
-  public void Equality_WithTypeParams(string name, string[] typeParams);
-  public void Inequality_BetweenTypeParamss(string name, string[] typeParams1, string[] typeParams2);
+  void HashCode_WithTypeParams(string name, string[] typeParams);
+  void String_WithTypeParams(string name, string[] typeParams);
+  void Equality_WithTypeParams(string name, string[] typeParams);
+  void Inequality_BetweenTypeParamss(string name, string[] typeParams1, string[] typeParams2);
 }

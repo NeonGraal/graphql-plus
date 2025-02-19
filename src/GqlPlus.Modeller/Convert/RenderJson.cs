@@ -20,6 +20,6 @@ public static class RenderJson
       WriteIndented = indented,
     };
 
-  public static string ToJson(this RenderStructure model)
+  public static string ToJson(this Structured model)
     => JsonSerializer.Serialize(model, Options) + "\n";
 }

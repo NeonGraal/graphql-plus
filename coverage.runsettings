@@ -10,8 +10,10 @@
           <CodeCoverage>
             <ModulePaths>
               <Include>
+                <ModulePath>.*\\GqlPlus\.Abstractions\.dll$</ModulePath>
+                <ModulePath>.*\\GqlPlus\.Modeller\.dll$</ModulePath>
+                <ModulePath>.*\\GqlPlus\.Parser\.dll$</ModulePath>
                 <ModulePath>.*\\GqlPlus\.Verifier\.dll$</ModulePath>
-                <ModulePath>.*\\GqlPlus\.Parser\.ClassTests\.dll$</ModulePath>
               </Include>
             </ModulePaths>
 

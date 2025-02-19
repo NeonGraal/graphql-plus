@@ -3,8 +3,8 @@
 namespace GqlPlus.Rendering;
 
 #pragma warning disable CA1036 // Override methods on comparable types
-public sealed record class RenderValue
-  : IComparable<RenderValue> //, IEquatable<RenderValue>
+public sealed record class StructureValue
+  : IComparable<StructureValue> //, IEquatable<RenderValue>
 {
   public bool IsEmpty
     => string.IsNullOrEmpty(Identifier)
@@ -19,19 +19,19 @@ public sealed record class RenderValue
 
   public string Tag { get; private init; } = "";
 
-  public RenderValue(bool? value, string tag = "")
+  public StructureValue(bool? value, string tag = "")
     => (Boolean, Tag) = (value, tag);
-  public RenderValue(string? value, string tag = "")
+  public StructureValue(string? value, string tag = "")
     => (Identifier, Tag) = (value, tag);
-  public RenderValue(decimal? value, string tag = "")
+  public StructureValue(decimal? value, string tag = "")
     => (Number, Tag) = (value, tag);
 
-  private RenderValue() { }
+  private StructureValue() { }
 
-  public static RenderValue Str(string? value, string tag = "")
+  public static StructureValue Str(string? value, string tag = "")
     => new() { Text = value, Tag = tag };
 
-  public int CompareTo(RenderValue? other)
+  public int CompareTo(StructureValue? other)
     => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
       ? BothValued(other?.Boolean, Boolean) ? Boolean.Value.CompareTo(other.Boolean)
       : BothValued(other?.Number, Number) ? Number.Value.CompareTo(other.Number)

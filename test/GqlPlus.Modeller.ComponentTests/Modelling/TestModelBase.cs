@@ -65,7 +65,7 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
 
   internal void Model_Expected(IModelBase model, string[] expected)
   {
-    RenderStructure render = _rendering.Render((TRender)model);
+    Structured render = _rendering.Render((TRender)model);
 
     string yaml = render.ToYaml(false);
 

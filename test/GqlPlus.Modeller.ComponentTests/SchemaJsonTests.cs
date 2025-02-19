@@ -48,16 +48,16 @@ public class SchemaJsonTests(
   {
     IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input).Required());
 
-    RenderStructure result = ModelAsts(asts);
+    Structured result = ModelAsts(asts);
 
     await Verify(result.ToJson(), "json", CustomSettings("Schema", "Json", test));
   }
 
-  private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts)
+  private Structured ModelAsts(IEnumerable<IGqlpSchema> asts)
   {
     IGqlpSchema schema = merger.Merge(asts).First();
 
-    RenderStructure result = renderer.RenderAst(schema, renderer.WithBuiltIns());
+    Structured result = renderer.RenderAst(schema, renderer.WithBuiltIns());
 
     return result;
   }

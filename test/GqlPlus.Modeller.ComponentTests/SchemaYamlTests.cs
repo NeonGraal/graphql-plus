@@ -53,18 +53,18 @@ public class SchemaYamlTests(
     .Select(input => Parse(input).Required());
 
     ITypesContext context = renderer.WithBuiltIns();
-    RenderStructure result = ModelAsts(asts, context);
+    Structured result = ModelAsts(asts, context);
 
     using AssertionScope scope = new();
     context.Errors.Should().BeNullOrEmpty(test);
     await Verify(result.ToYaml(true), CustomSettings("Schema", "Yaml", test));
   }
 
-  private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts, ITypesContext context)
+  private Structured ModelAsts(IEnumerable<IGqlpSchema> asts, ITypesContext context)
   {
     IGqlpSchema schema = merger.Merge(asts).First();
 
-    RenderStructure result = renderer.RenderAst(schema, context);
+    Structured result = renderer.RenderAst(schema, context);
 
     return result;
   }

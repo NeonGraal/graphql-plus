@@ -18,7 +18,7 @@ public class SampleModelTests(
     IGqlpSchema ast = await ParseSampleSchema(sample);
 
     ITypesContext context = renderer.WithBuiltIns();
-    RenderStructure result = renderer.RenderAst(ast, context);
+    Structured result = renderer.RenderAst(ast, context);
     context.Errors.Add(ast.Errors);
 
     await CheckErrors("Schema", sample, context.Errors);
@@ -32,7 +32,7 @@ public class SampleModelTests(
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
 
-    RenderStructure result = renderer.RenderAst(ast, renderer.WithBuiltIns());
+    Structured result = renderer.RenderAst(ast, renderer.WithBuiltIns());
 
     await Verify(result.ToJson(), "json", CustomSettings("Sample", "Json", sample));
   }
@@ -43,7 +43,7 @@ public class SampleModelTests(
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
 
-    RenderStructure result = renderer.RenderAst(ast, renderer.WithBuiltIns());
+    Structured result = renderer.RenderAst(ast, renderer.WithBuiltIns());
 
     await result.WriteHtmlFileAsync("Sample", sample);
   }
@@ -51,10 +51,10 @@ public class SampleModelTests(
   [Fact]
   public void Html_Index()
   {
-    RenderStructure groups = RenderStructure.New("");
-    groups.Add("All", RenderStructure.ForAll(SchemaValidData.Sample));
+    Structured groups = Structured.New("");
+    groups.Add("All", Structured.ForAll(SchemaValidData.Sample));
 
-    RenderStructure result = RenderStructure.New("");
+    Structured result = Structured.New("");
     result.Add("groups", groups);
 
     result.WriteHtmlFile("Sample", "index", "index");

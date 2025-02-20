@@ -54,6 +54,6 @@ internal class ParseSelection(
       return tokens.Error<IGqlpSelection>("Inline", "an object");
     }
 
-    return AstNulls.Selection.Empty();
+    return 0.Empty<IGqlpSelection>();
   }
 }

@@ -16,14 +16,14 @@ public class SchemaHtmlTests(
   [Fact]
   public async Task Html_Index()
   {
-    RenderStructure groups = RenderStructure.New("");
-    groups.Add("All", RenderStructure.ForAll(["!ALL", "!Globals", "!Merges", "!Objects", "!Simple"]));
-    groups.Add("Globals", RenderStructure.ForAll(SchemaValidData.Globals));
-    groups.Add("Merges", RenderStructure.ForAll(await ReplaceSchemaKeys("Merges")));
-    groups.Add("Objects", RenderStructure.ForAll(await ReplaceSchemaKeys("Objects")));
-    groups.Add("Simple", RenderStructure.ForAll(SchemaValidData.Simple));
+    Structured groups = Structured.New("");
+    groups.Add("All", Structured.ForAll(["!ALL", "!Globals", "!Merges", "!Objects", "!Simple"]));
+    groups.Add("Globals", Structured.ForAll(SchemaValidData.Globals));
+    groups.Add("Merges", Structured.ForAll(await ReplaceSchemaKeys("Merges")));
+    groups.Add("Objects", Structured.ForAll(await ReplaceSchemaKeys("Objects")));
+    groups.Add("Simple", Structured.ForAll(SchemaValidData.Simple));
 
-    RenderStructure result = RenderStructure.New("");
+    Structured result = Structured.New("");
     result.Add("groups", groups);
 
     await result.WriteHtmlFileAsync("Schema", "index", "index");
@@ -65,16 +65,16 @@ public class SchemaHtmlTests(
   {
     IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input).Required());
 
-    RenderStructure result = ModelAsts(asts);
+    Structured result = ModelAsts(asts);
 
     result.WriteHtmlFile("Schema", test);
   }
 
-  private RenderStructure ModelAsts(IEnumerable<IGqlpSchema> asts)
+  private Structured ModelAsts(IEnumerable<IGqlpSchema> asts)
   {
     IGqlpSchema schema = merger.Merge(asts).First();
 
-    RenderStructure result = renderer.RenderAst(schema, renderer.WithBuiltIns());
+    Structured result = renderer.RenderAst(schema, renderer.WithBuiltIns());
 
     return result;
   }

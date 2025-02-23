@@ -6,19 +6,19 @@ public abstract class AstDomainTests<TInput>
   : AstTypeTests
   where TInput : IEquatable<TInput>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithMembers(string name, TInput input)
       => Checks.HashCode_WithMembers(name, input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithMembers(string name, TInput input)
     => Checks.String_WithMembers(name, input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithMembers(string name, TInput input)
     => Checks.Equality_WithMembers(name, input);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_BetweenMembers(string name, TInput input1, TInput input2)
     => Checks.Inequality_BetweenMembers(name, input1, input2);
 

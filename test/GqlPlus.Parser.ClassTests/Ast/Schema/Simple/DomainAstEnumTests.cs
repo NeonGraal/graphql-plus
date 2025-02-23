@@ -5,7 +5,7 @@ namespace GqlPlus.Ast.Schema.Simple;
 public class DomainAstEnumTests
   : AstDomainTests<DomainMemberInput>
 {
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_BetweenSpecifcMembers(string name, string type1, string type2, string member)
     => Checks.Inequality_BetweenMembers(name, new(type1, member), new(type2, member));
 

@@ -9,13 +9,13 @@ namespace GqlPlus.Merging;
 public class MergeSchemasTests
   : TestAbbreviatedMerger<IGqlpSchema>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentDeclarations_ReturnsGood(string category, string option)
     => CanMerge_Good([
       new SchemaAst(AstNulls.At) with { Declarations = CategoryDeclarations(category) },
       new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option) }]);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void CanMerge_TwoAstsDifferentOptionNames_ReturnsErrors(string option1, string option2)
     => this
       .SkipIf(option1 == option2)
@@ -24,7 +24,7 @@ public class MergeSchemasTests
         new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option1) },
         new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option2) }]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_TwoAstsDifferentDeclarations_ReturnsExpected(string category, string option)
   {
     AstDeclaration[] categoryDecls = CategoryDeclarations(category);

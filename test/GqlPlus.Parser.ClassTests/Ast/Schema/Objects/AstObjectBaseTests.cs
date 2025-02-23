@@ -6,51 +6,51 @@ public abstract class AstObjectBaseTests<TObjBase>
   : AstAbbreviatedTests<string>
   where TObjBase : IGqlpObjBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithIsTypeParam(string input)
       => ObjBaseChecks.HashCode_WithIsTypeParam(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithIsTypeParam(string input)
     => ObjBaseChecks.String_WithIsTypeParam(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithIsTypeParam(string input)
     => ObjBaseChecks.Equality_WithIsTypeParam(input);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
     => ObjBaseChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithArgs(string input, string[] arguments)
     => ObjBaseChecks.HashCode_WithArgs(input, arguments);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithArgs(string input, string[] arguments)
     => ObjBaseChecks.String_WithArgs(input, arguments);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithArgs(string input, string[] arguments)
     => ObjBaseChecks.Equality_WithArgs(input, arguments);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_BetweenArgs(string input, string[] arguments1, string[] arguments2)
     => ObjBaseChecks.Inequality_BetweenArgs(input, arguments1, arguments2);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void FullType_WithDefault(string input)
     => ObjBaseChecks.FullType_WithDefault(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void FullType_WithIsTypeParam(string input)
     => ObjBaseChecks.FullType_WithIsTypeParam(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void FullType_WithArgs(string input, string[] arguments)
     => ObjBaseChecks.FullType_WithArgs(input, arguments);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void FullType_WithIsTypeParamAndArgs(string input, string[] arguments)
     => ObjBaseChecks.FullType_WithIsTypeParamAndArgs(input, arguments);
 

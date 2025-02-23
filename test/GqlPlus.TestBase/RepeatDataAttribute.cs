@@ -8,6 +8,11 @@ namespace GqlPlus;
 public sealed class RepeatDataAttribute
   : AutoDataAttribute
 {
+  public RepeatDataAttribute()
+    : this(Repeats)
+  { }
+
+
   public RepeatDataAttribute(int repeat)
     : base(() => new Fixture().Customize(new TestsCustomizations()))
   {

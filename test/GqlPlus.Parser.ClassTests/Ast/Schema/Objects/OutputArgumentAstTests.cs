@@ -5,23 +5,23 @@ namespace GqlPlus.Ast.Schema.Objects;
 public class OutputArgAstTests
   : AstObjectArgTests<IGqlpOutputArg>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithEnumValue(string name, string enumMember)
       => _checks.HashCode(
         () => new OutputArgAst(AstNulls.At, name) { EnumMember = enumMember });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithEnumValue(string name, string enumMember)
     => _checks.Text(
       () => new OutputArgAst(AstNulls.At, name) { EnumMember = enumMember },
       $"( {name}.{enumMember} )");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithEnumValue(string name, string enumMember)
     => _checks.Equality(
       () => new OutputArgAst(AstNulls.At, name) { EnumMember = enumMember });
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_BetweenEnumValues(string name, string enumValue1, string enumValue2)
     => _checks.InequalityBetween(enumValue1, enumValue2,
       enumMember => new OutputArgAst(AstNulls.At, name) { EnumMember = enumMember },

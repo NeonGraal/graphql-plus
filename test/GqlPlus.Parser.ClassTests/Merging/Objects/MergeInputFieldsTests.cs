@@ -9,17 +9,17 @@ namespace GqlPlus.Merging.Objects;
 public class MergeInputFieldsTests
   : TestObjectFields<IGqlpInputField, IGqlpInputBase>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string name, string type, string value)
     => CanMerge_Good([MakeField(name, type), MakeFieldDefault(name, type, value)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsSameDefault_ReturnsGood(string name, string type, string value)
     => CanMerge_Good([
       MakeFieldDefault(name, type, value),
       MakeFieldDefault(name, type, value)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentDefaults_ReturnsErrors(string name, string type, string value)
     => this
       .CanMergeReturnsError(_constant)
@@ -27,7 +27,7 @@ public class MergeInputFieldsTests
         MakeFieldDefault(name, type, value),
         MakeFieldDefault(name, type, value));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_TwoAstsOneDefault_ReturnsExpected(string name, string type, string value)
     => Merge_Expected(
       [MakeField(name, type), MakeFieldDefault(name, type, value)],

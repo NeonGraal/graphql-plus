@@ -10,7 +10,7 @@ public class MergeDomainRegexesTests(
   ITestOutputHelper outputHelper
 ) : TestDomainItems<IGqlpDomainRegex, string>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(string name)
     => CanMerge_Errors([MakeItem(name, true), MakeAst(name)]);
 

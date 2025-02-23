@@ -6,27 +6,27 @@ public abstract class AstObjectArgTests<TObjArg>
   : AstAbbreviatedTests<string>
   where TObjArg : IGqlpObjArg
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithIsTypeParam(string input)
       => ObjArgChecks.HashCode_WithIsTypeParam(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithIsTypeParam(string input)
     => ObjArgChecks.String_WithIsTypeParam(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithIsTypeParam(string input)
     => ObjArgChecks.Equality_WithIsTypeParam(input);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
     => ObjArgChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void FullType_WithDefault(string input)
     => ObjArgChecks.FullType_WithDefault(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void FullType_WithIsTypeParam(string input)
     => ObjArgChecks.FullType_WithIsTypeParam(input);
 

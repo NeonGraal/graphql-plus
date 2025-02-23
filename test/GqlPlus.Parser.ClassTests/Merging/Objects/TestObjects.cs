@@ -9,7 +9,7 @@ public abstract class TestObjects<TObject, TObjBase, TObjField, TObjAlt>
   where TObjAlt : IGqlpObjAlternate
   where TObjBase : IGqlpObjBase
 {
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void CanMerge_TwoAstsTypeParamsCantMerge_ReturnsErrors(string name, string[] typeParams)
     => this
       .SkipUnless(typeParams)
@@ -18,7 +18,7 @@ public abstract class TestObjects<TObject, TObjBase, TObjField, TObjAlt>
         MakeObject(name, typeParams: typeParams),
         MakeObject(name, typeParams: typeParams));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsAlternatesCantMerge_ReturnsErrors(string name, AlternateInput[] alternates)
     => this
       .CanMergeReturnsError(Alternates)
@@ -26,7 +26,7 @@ public abstract class TestObjects<TObject, TObjBase, TObjField, TObjAlt>
         MakeObject(name, alternates: alternates),
         MakeObject(name, alternates: alternates));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsFieldsCantMerge_ReturnsErrors(string name, FieldInput[] fields)
     => this
       .CanMergeReturnsError(Fields)

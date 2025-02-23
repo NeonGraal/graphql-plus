@@ -9,13 +9,13 @@ public abstract class TestTyped<TBase, TType, TParent, TItem>
   where TParent : IEquatable<TParent>
   where TItem : IGqlpError
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsSameParent_ReturnsGood(string name, string type)
     => CanMerge_Good(
       MakeTyped(name, parent: MakeParent(type)),
       MakeTyped(name, parent: MakeParent(type)));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void CanMerge_TwoAstsDifferentParents_ReturnsErrors(string name, string type1, string type2)
     => this
       .SkipIf(type1 == type2)

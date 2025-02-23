@@ -10,11 +10,11 @@ public class MergeCategoriesTests(
   ITestOutputHelper outputHelper
 ) : TestAliased<IGqlpSchemaCategory>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsSameOutput_ReturnsGood(string category)
     => CanMerge_Good([new CategoryDeclAst(AstNulls.At, category), new CategoryDeclAst(AstNulls.At, category)]);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void CanMerge_TwoAstsDifferentOutput_ReturnsErrors(string name, string category1, string category2)
     => this
       .SkipIf(category1 == category2)
@@ -22,13 +22,13 @@ public class MergeCategoriesTests(
         new CategoryDeclAst(AstNulls.At, name, category1),
         new CategoryDeclAst(AstNulls.At, name, category2));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentOption_ReturnsErrors(string category)
     => CanMerge_Errors([
       new CategoryDeclAst(AstNulls.At, category) { Option = CategoryOption.Single },
       new CategoryDeclAst(AstNulls.At, category) { Option = CategoryOption.Sequential }]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_TwoAstsSameOutput_ReturnsExpected(string category)
     => Merge_Expected(
       [new CategoryDeclAst(AstNulls.At, category), new CategoryDeclAst(AstNulls.At, category)],

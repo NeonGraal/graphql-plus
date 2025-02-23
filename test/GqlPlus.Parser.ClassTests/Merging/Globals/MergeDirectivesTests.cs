@@ -9,19 +9,19 @@ namespace GqlPlus.Merging.Globals;
 public class MergeDirectivesTests
   : TestAliased<IGqlpSchemaDirective>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsSameOption_ReturnsGood(string name)
     => CanMerge_Good([
       new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable },
       new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable }]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentOption_ReturnsErrors(string name)
     => CanMerge_Errors([
       new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable },
       new DirectiveDeclAst(AstNulls.At, name)]);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void CanMerge_TwoAstsParamsCantMerge_ReturnsErrors(string name, string[] parameters)
     => this
       .SkipUnless(parameters)
@@ -30,14 +30,14 @@ public class MergeDirectivesTests
         new DirectiveDeclAst(AstNulls.At, name) with { Params = parameters.Params() },
         new DirectiveDeclAst(AstNulls.At, name));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_TwoAstsWithLocation_ReturnsExpected(string name, DirectiveLocation locations1, DirectiveLocation locations2)
     => Merge_Expected([
       new DirectiveDeclAst(AstNulls.At, name) with { Locations = locations1 },
       new DirectiveDeclAst(AstNulls.At, name) with { Locations = locations2 }],
       new DirectiveDeclAst(AstNulls.At, name) with { Locations = locations1 | locations2 });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_TwoAstsWithParams_CallsParamsMerge(string name, string[] parameters)
   {
     Merge_Expected([

@@ -7,13 +7,13 @@ namespace GqlPlus.Merging.Globals;
 public class MergeOptionSettingsTests
   : TestGroupsMerger<IGqlpSchemaSetting, string>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name)
     => this
       .CanMergeReturnsError(_values)
       .CanMerge_Errors([MakeAst(name), MakeAst(name)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_TwoAsts_CallsValuesMerge(string name)
     => Merge_Expected([MakeAst(name), MakeAst(name)], MakeAst(name))
       .MergeCalled(_values);

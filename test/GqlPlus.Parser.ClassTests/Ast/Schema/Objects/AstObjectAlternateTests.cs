@@ -6,31 +6,31 @@ public abstract class AstObjectAlternateTests<TObjBase>
   : AstAbbreviatedTests<AlternateInput>
   where TObjBase : IGqlpObjBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithModifiers(AlternateInput input)
       => AlternateChecks.HashCode_WithModifiers(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithModifiers(AlternateInput input)
     => AlternateChecks.String_WithModifiers(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithModifiers(AlternateInput input)
     => AlternateChecks.Equality_WithModifiers(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithModifiers(AlternateInput input)
     => AlternateChecks.Inequality_WithModifiers(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void ModifiedType_WithArgs(AlternateInput input, string[] arguments)
     => AlternateChecks.ModifiedType_WithArgs(input, arguments);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void ModifiedType_WithModifiers(AlternateInput input)
     => AlternateChecks.ModifiedType_WithModifiers(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void ModifiedType_WithModifiersAndArgs(AlternateInput input, string[] arguments)
     => AlternateChecks.ModifiedType_WithModifiersAndArgs(input, arguments);
 

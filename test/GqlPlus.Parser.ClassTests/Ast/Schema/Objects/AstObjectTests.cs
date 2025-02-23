@@ -7,42 +7,42 @@ namespace GqlPlus.Ast.Schema.Objects;
 public abstract class AstObjectTests
   : AstTypeTests
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithAlternates(string name, AlternateInput[] alternates)
     => ObjectChecks.HashCode_WithAlternates(name, alternates);
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithAlternates(string name, AlternateInput[] alternates)
     => ObjectChecks.String_WithAlternates(name, alternates);
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithAlternates(string name, AlternateInput[] alternates)
     => ObjectChecks.Equality_WithAlternates(name, alternates);
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2)
     => ObjectChecks.Inequality_BetweenAlternates(name, alternates1, alternates2);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithFields(string name, FieldInput[] fields)
       => ObjectChecks.HashCode_WithFields(name, fields);
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithFields(string name, FieldInput[] fields)
     => ObjectChecks.String_WithFields(name, fields);
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithFields(string name, FieldInput[] fields)
     => ObjectChecks.Equality_WithFields(name, fields);
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_BetweenFields(string name, FieldInput[] fields1, FieldInput[] fields2)
     => ObjectChecks.Inequality_BetweenFields(name, fields1, fields2);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithTypeParams(string name, string[] typeParams)
       => ObjectChecks.HashCode_WithTypeParams(name, typeParams);
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithTypeParams(string name, string[] typeParams)
     => ObjectChecks.String_WithTypeParams(name, typeParams);
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithTypeParams(string name, string[] typeParams)
     => ObjectChecks.Equality_WithTypeParams(name, typeParams);
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_BetweenTypeParamss(string name, string[] typeParams1, string[] typeParams2)
     => ObjectChecks.Inequality_BetweenTypeParamss(name, typeParams1, typeParams2);
 

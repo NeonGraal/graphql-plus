@@ -11,7 +11,7 @@ public class MergeUnionsTests(
   ITestOutputHelper outputHelper
 ) : TestTyped<IGqlpType, IGqlpUnion, string, IGqlpUnionItem>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] members1, string[] members2)
   {
     string[] combined = members1.Concat(members2).Distinct().ToArray();
@@ -22,7 +22,7 @@ public class MergeUnionsTests(
       new UnionDeclAst(AstNulls.At, name, combined.UnionMembers()));
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_TwoAstsSameValues_ReturnsExpected(string name, string[] members)
     => Merge_Expected([
         new UnionDeclAst(AstNulls.At, name, members.UnionMembers()),

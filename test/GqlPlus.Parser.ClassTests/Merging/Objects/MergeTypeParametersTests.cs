@@ -7,7 +7,7 @@ namespace GqlPlus.Merging.Objects;
 public class MergeTypeParamsTests
   : TestDescriptionsMerger<IGqlpTypeParam>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_ManyItems_ReturnsItem(string name)
   {
     IGqlpTypeParam[] items = Enumerable.Range(1, 5).Select(i => MakeAst(name)).ToArray();

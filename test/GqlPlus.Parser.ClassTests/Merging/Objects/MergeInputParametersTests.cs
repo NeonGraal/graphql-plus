@@ -9,17 +9,17 @@ namespace GqlPlus.Merging.Objects;
 public class MergeInputParamsTests
   : TestDescriptionsMerger<IGqlpInputParam>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string input, string value)
     => CanMerge_Good([MakeDescribed(input), MakeDefault(input, value)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsSameDefault_ReturnsGood(string input, string value)
     => CanMerge_Good([
       MakeDefault(input, value),
       MakeDefault(input, value)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentDefault_ReturnsErrors(string input, string value)
     => this
       .CanMergeReturnsError(_constant)
@@ -27,7 +27,7 @@ public class MergeInputParamsTests
         MakeDefault(input, value),
         MakeDefault(input, value));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_TwoAstsOneDefault_ReturnsExpected(string input, string value)
     => Merge_Expected(
       [MakeDescribed(input), MakeDefault(input, value)],

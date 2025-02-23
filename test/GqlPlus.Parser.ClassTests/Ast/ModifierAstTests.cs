@@ -6,11 +6,11 @@ public class ModifierAstTests
   public void HashCode()
     => _checks.HashCode(() => ModifierAst.Optional(AstNulls.At));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithDict(string key, bool optional)
     => _checks.HashCode(() => ModifierAst.Dict(AstNulls.At, key, optional));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithParam(string key, bool optional)
     => _checks.HashCode(() => ModifierAst.Param(AstNulls.At, key, optional));
 
@@ -21,14 +21,14 @@ public class ModifierAstTests
     _checks.Text(() => ModifierAst.List(AstNulls.At), "[]");
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithDict(string key, bool optional)
   {
     string optString = optional ? "?" : "";
     _checks.Text(() => ModifierAst.Dict(AstNulls.At, key, optional), $"[{key}{optString}]");
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithParam(string key, bool optional)
   {
     string optString = optional ? "?" : "";
@@ -41,33 +41,33 @@ public class ModifierAstTests
       () => ModifierAst.Optional(AstNulls.At),
       () => ModifierAst.List(AstNulls.At));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithDict(string key, bool optional)
     => _checks.Equality(() => ModifierAst.Dict(AstNulls.At, key, optional));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithParam(string key, bool optional)
     => _checks.Equality(() => ModifierAst.Param(AstNulls.At, key, optional));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithDict(string key, bool optional)
     => _checks.Inequality(
       () => ModifierAst.Dict(AstNulls.At, key, optional),
       () => ModifierAst.List(AstNulls.At));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithParam(string key, bool optional)
     => _checks.Inequality(
       () => ModifierAst.Dict(AstNulls.At, key, optional),
       () => ModifierAst.Param(AstNulls.At, key, optional));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_BetweenKeys(string key1, string key2)
     => _checks.InequalityBetween(key1, key2,
       key => ModifierAst.Dict(AstNulls.At, key, false),
       key1 == key2);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_BetweenParams(string key1, string key2)
     => _checks.InequalityBetween(key1, key2,
       key => ModifierAst.Param(AstNulls.At, key, false),

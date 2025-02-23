@@ -6,31 +6,31 @@ public abstract class AstObjectFieldTests<TObjBase>
   : AstAliasedTests<FieldInput>
   where TObjBase : IGqlpObjBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithModifiers(FieldInput input)
       => FieldChecks.HashCode_WithModifiers(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithModifiers(FieldInput input)
     => FieldChecks.String_WithModifiers(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithModifiers(FieldInput input)
     => FieldChecks.Equality_WithModifiers(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithModifiers(FieldInput input)
     => FieldChecks.Inequality_WithModifiers(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void ModifiedType_WithArgs(FieldInput input, string[] arguments)
     => FieldChecks.ModifiedType_WithArgs(input, arguments);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void ModifiedType_WithModifiers(FieldInput input)
     => FieldChecks.ModifiedType_WithModifiers(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void ModifiedType_WithModifiersAndArgs(FieldInput input, string[] arguments)
     => FieldChecks.ModifiedType_WithModifiersAndArgs(input, arguments);
 

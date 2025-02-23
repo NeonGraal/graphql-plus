@@ -10,11 +10,11 @@ public class MergeDomainTrueFalsesTests(
   ITestOutputHelper outputHelper
 ) : TestDomainItems<IGqlpDomainTrueFalse, bool>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsSameExcludes_ReturnsGood(bool input)
     => CanMerge_Good([MakeAst(input), MakeAst(input)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(bool input)
     => CanMerge_Errors([MakeItem(input, true), MakeAst(input)]);
 

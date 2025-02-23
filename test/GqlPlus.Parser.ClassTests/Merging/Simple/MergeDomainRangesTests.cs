@@ -10,11 +10,11 @@ public class MergeDomainRangesTests(
   ITestOutputHelper outputHelper
 ) : TestDomainItems<IGqlpDomainRange, DomainRangeInput>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsSameExcludes_ReturnsGood(DomainRangeInput input)
     => CanMerge_Good([MakeAst(input), MakeAst(input)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(DomainRangeInput input)
     => CanMerge_Errors([MakeItem(input, true), MakeAst(input)]);
 

@@ -19,7 +19,7 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
   public void CanMerge_NoAsts_ReturnsErrors()
    => CanMerge_Errors([]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_OneAst_ReturnsGood(TInput input)
     => CanMerge_Good([MakeAst(input)]);
 
@@ -39,7 +39,7 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
     result.Should().BeEmpty();
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_OneAst_ReturnsAst(TInput input)
   {
     TAst ast = MakeAst(input);

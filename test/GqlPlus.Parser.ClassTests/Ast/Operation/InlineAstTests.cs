@@ -2,22 +2,22 @@
 
 public class InlineAstTests : AstDirectivesTests<string[]>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithOnType(string onType, string[] fields)
     => _checks.HashCode(() => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithOnType(string onType, string[] fields)
     => _checks.Text(
       () => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType },
       $"( !i :{onType} {{ {fields.Joined(s => "!f " + s)} }} )");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithOnType(string onType, string[] fields)
     => _checks.Equality(
       () => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithOnType(string onType, string[] fields)
     => _checks.InequalityWith(fields,
       () => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType });

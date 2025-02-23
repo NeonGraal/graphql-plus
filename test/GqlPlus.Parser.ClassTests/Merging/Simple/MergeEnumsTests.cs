@@ -9,7 +9,7 @@ namespace GqlPlus.Merging.Simple;
 public class MergeEnumsTests
   : TestTyped<IGqlpType, IGqlpEnum, string, IGqlpEnumItem>
 {
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name, string[] values)
     => this
       .SkipUnless(values)
@@ -18,7 +18,7 @@ public class MergeEnumsTests
       new EnumDeclAst(AstNulls.At, name, values.EnumMembers()),
       new EnumDeclAst(AstNulls.At, name, []));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] values1, string[] values2)
   {
     EnumMemberAst[] combined = [.. values1.EnumMembers(), .. values2.EnumMembers()];

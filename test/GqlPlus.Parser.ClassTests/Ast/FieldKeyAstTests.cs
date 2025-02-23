@@ -2,41 +2,41 @@
 
 public class FieldKeyAstTests : AstAbbreviatedTests
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithNumber(decimal number)
     => _checks.HashCode(() => FieldKey(number));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithString(string contents)
     => _checks.HashCode(() => FieldKey(contents));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.HashCode(() => FieldKey(enumType, enumValue));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithNumber(decimal number)
     => _checks.Text(
       () => FieldKey(number),
       $"( !k {number} )");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithString(string contents)
     => _checks.Text(
       () => FieldKey(contents),
       $"( !k '{contents}' )");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.Text(() => FieldKey(enumType, enumValue),
       $"( !k {enumType}.{enumValue} )");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithNumber(decimal number)
     => _checks.Equality(
       () => FieldKey(number));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Compare_WithNumber(decimal number1, decimal number2)
   {
     FieldKeyAst left = FieldKey(number1);
@@ -45,7 +45,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     left.CompareTo(right).Should().Be(number1.CompareTo(number2));
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithNumberString(decimal number, string contents)
   {
     FieldKeyAst left = FieldKey(number);
@@ -54,7 +54,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     (left != right).Should().BeTrue();
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithNumberEnumValue(decimal number, string enumType, string enumValue)
   {
     FieldKeyAst left = FieldKey(number);
@@ -63,12 +63,12 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     (left != right).Should().BeTrue();
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithString(string contents)
     => _checks.Equality(
       () => FieldKey(contents));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Compare_WithString(string contents1, string contents2)
   {
     FieldKeyAst left = FieldKey(contents1);
@@ -78,7 +78,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     left.CompareTo(right).Should().Be(expected);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithStringEnumValue(string contents, string enumType, string enumValue)
   {
     FieldKeyAst left = FieldKey(contents);
@@ -87,12 +87,12 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     (left != right).Should().BeTrue();
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.Equality(
       () => FieldKey(enumType, enumValue));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Compare_WithEnumTypeAndValue(string enumType, string enumValue1, string enumValue2)
   {
     FieldKeyAst left = FieldKey(enumType, enumValue1);
@@ -102,7 +102,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     left.CompareTo(right).Should().Be(expected);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithEnumTypeAndValue(string enumType, string enumValue)
   {
     if (enumType == enumValue) {
@@ -115,11 +115,11 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     (left != right).Should().BeTrue();
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithEnumValue(string enumValue)
     => _checks.Equality(enumValue.FieldKey);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Compare_WithEnumValue(string enumValue1, string enumValue2)
   {
     IGqlpFieldKey left = enumValue1.FieldKey();
@@ -129,7 +129,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     left.CompareTo(right).Should().Be(expected);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithEnumValue(string enumValue)
   {
     IGqlpFieldKey left = enumValue.FieldKey();
@@ -138,12 +138,12 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     (left != right).Should().BeTrue();
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithEnumType(string enumType)
     => _checks.Equality(
       () => FieldKey(enumType, "enumValue"));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Compare_WithEnumType(string enumType1, string enumType2)
   {
     FieldKeyAst left = FieldKey(enumType1, "enumValue");
@@ -153,7 +153,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     left.CompareTo(right).Should().Be(expected);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithEnumType(string enumType)
   {
     FieldKeyAst left = FieldKey(enumType, "enumValue");

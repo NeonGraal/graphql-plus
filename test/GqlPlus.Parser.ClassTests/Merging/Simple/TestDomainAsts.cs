@@ -10,7 +10,7 @@ public abstract class TestDomainAsts<TItem, TItemInput>
   : TestTyped<IGqlpDomain, IGqlpDomain<TItem>, string, TItem>
   where TItem : class, IGqlpDomainItem
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_SameKinds_ReturnsGood(string name)
   {
     IGqlpDomain<TItem>[] items = [MakeDomain(name), MakeDomain(name)];
@@ -20,7 +20,7 @@ public abstract class TestDomainAsts<TItem, TItemInput>
     result.Should().BeEmpty();
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_DifferentKinds_ReturnsErrors(string name)
   {
     DomainKind domainKind = MakeDescribed(name).DomainKind == DomainKind.String
@@ -33,7 +33,7 @@ public abstract class TestDomainAsts<TItem, TItemInput>
     result.Should().NotBeEmpty();
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_ItemsCantMerge_ReturnsErrors(string name, TItemInput input)
   {
     IGqlpDomain<TItem>[] items = [

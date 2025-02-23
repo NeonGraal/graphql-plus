@@ -9,45 +9,45 @@ public abstract class AstAliasedTests
 public abstract class AstAliasedTests<TInput>
   : AstAbbreviatedTests<TInput>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithAlias(TInput input, string aliased)
   => AliasedChecks.HashCode_WithAliases(input, aliased);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithAliases(TInput input, string alias1, string alias2)
   => AliasedChecks.HashCode_WithAliases(input, alias1, alias2);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithAlias(TInput input, string aliased)
     => AliasedChecks.String_WithAliases(input, AliasesString(input, Aliases(aliased)), aliased);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithAliases(TInput input, string[] aliases)
     => AliasedChecks.String_WithAliases(input, AliasesString(input, Aliases(aliases)), aliases);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithAlias(TInput input, string aliased)
     => AliasedChecks.Equality_WithAliases(input, aliased);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithAliases(TInput input, string alias1, string alias2)
     => AliasedChecks.Equality_WithAliases(input, alias1, alias2);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithAlias(TInput input, string aliased)
     => AliasedChecks.Inequality_WithAliases(input, aliased);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithAliases(TInput input, string alias1, string alias2)
     => AliasedChecks.Inequality_WithAliases(input, alias1, alias2);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_ByAliases(TInput input, string alias1, string alias2)
     => AliasedChecks
       .SkipIf(alias1 == alias2)
       .Inequality_ByAliases(input, alias1, alias2);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_ByInputs(TInput input1, TInput input2, string aliased)
     => AliasedChecks
       .SkipIf(input1.ThrowIfNull().Equals(input2))

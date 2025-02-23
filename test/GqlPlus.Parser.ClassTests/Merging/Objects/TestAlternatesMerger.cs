@@ -8,19 +8,19 @@ public abstract class TestAlternatesMerger<TObjAlt, TObjBase>
   where TObjAlt : IGqlpObjAlternate
   where TObjBase : IGqlpObjBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
     => CanMerge_Good([
       CheckAlternates.MakeAlternate(input, true),
       CheckAlternates.MakeAlternate(input, true)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentModifers_ReturnsErrors(string input)
     => CanMerge_Errors([
       CheckAlternates.MakeAlternate(input, true),
       MakeDescribed(input)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Merge_TwoAstsSameModifers_ReturnsExpected(string input)
     => Merge_Expected(
       [CheckAlternates.MakeAlternate(input, true), CheckAlternates.MakeAlternate(input, true)],

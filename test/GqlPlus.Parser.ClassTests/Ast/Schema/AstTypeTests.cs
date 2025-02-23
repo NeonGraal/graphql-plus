@@ -5,27 +5,27 @@ namespace GqlPlus.Ast.Schema;
 public abstract class AstTypeTests
   : AstAliasedTests
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithParent(string name, string parent)
       => TypeChecks
       .HashCode_WithParent(name, parent);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithParent(string name, string parent)
     => TypeChecks
       .String_WithParent(name, parent, ParentString(name, parent));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithParent(string name, string parent)
     => TypeChecks
       .Equality_WithParent(name, parent);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithParent(string name, string parent)
     => TypeChecks
       .Inequality_WithParent(name, parent);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_BetweenParents(string name, string parent1, string parent2)
     => TypeChecks
       .SkipIf(parent1 == parent2)

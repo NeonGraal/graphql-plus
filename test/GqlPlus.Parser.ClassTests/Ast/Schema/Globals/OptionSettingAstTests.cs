@@ -3,13 +3,13 @@
 public class OptionSettingAstTests
   : AstAliasedTests<SettingInput>
 {
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_ByNames(string name1, string name2, string value)
     => _checks.InequalityBetween(name1, name2,
       name => Setting(name, value),
       name1.NullEqual(name2));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_ByValues(string name, string value1, string value2)
     => _checks.InequalityBetween(value1, value2,
       value => Setting(name, value),

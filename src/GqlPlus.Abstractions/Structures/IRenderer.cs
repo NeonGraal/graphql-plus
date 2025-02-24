@@ -1,4 +1,4 @@
-﻿namespace GqlPlus.Rendering;
+﻿namespace GqlPlus.Structures;
 
 public interface IRenderer<TModel>
 {

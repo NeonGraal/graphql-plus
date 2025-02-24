@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace GqlPlus.Rendering;
+namespace GqlPlus.Structures;
 
 #pragma warning disable CA1036 // Override methods on comparable types
 public sealed record class StructureValue

@@ -2,6 +2,7 @@
 using GqlPlus.Modelling.Globals;
 using GqlPlus.Modelling.Objects;
 using GqlPlus.Modelling.Simple;
+using GqlPlus.Rendering;
 using GqlPlus.Resolving;
 
 using Microsoft.Extensions.DependencyInjection;

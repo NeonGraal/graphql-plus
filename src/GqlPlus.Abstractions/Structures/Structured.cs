@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace GqlPlus.Rendering;
+namespace GqlPlus.Structures;
 
 public class Structured
   : Structured<StructureValue, Structured>
@@ -90,8 +90,8 @@ public class Structured
 
   public Structured AddIf(bool optional, Func<Structured, Structured>? onTrue = null, Func<Structured, Structured>? onFalse = null)
     => optional
-      ? (onTrue is not null ? onTrue(this) : this)
-      : (onFalse is not null ? onFalse(this) : this);
+      ? onTrue is not null ? onTrue(this) : this
+      : onFalse is not null ? onFalse(this) : this;
 
   public Structured AddSet<TEnum>(string key, TEnum set, string? tag = null, bool flow = true)
     where TEnum : Enum

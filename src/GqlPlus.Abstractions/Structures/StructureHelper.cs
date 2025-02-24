@@ -1,6 +1,6 @@
 ﻿using GqlPlus.Abstractions;
 
-namespace GqlPlus.Rendering;
+namespace GqlPlus.Structures;
 
 public static class StructureHelper
 {

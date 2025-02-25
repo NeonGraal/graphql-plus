@@ -46,6 +46,10 @@ public class SampleChecks
     settings.UseDirectory($"{category}{group}Tests");
     settings.UseFileName(file);
 
+    if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("GQLPLUS_AUTOVERIFY"))) {
+      settings.AutoVerify();
+    }
+
     return settings;
   }
 

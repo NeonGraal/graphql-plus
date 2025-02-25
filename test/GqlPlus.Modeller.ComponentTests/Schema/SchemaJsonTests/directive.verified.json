@@ -1,0 +1,16 @@
+﻿{
+  "$tag": "_Schema",
+  "directives": {
+    "$tag": "_Map_Directives",
+    "Dir": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Inline": "_",
+        "Spread": "_"
+      },
+      "name": "Dir",
+      "repeatable": false
+    }
+  }
+}

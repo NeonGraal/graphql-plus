@@ -1,0 +1,17 @@
+﻿{
+  "$tag": "_Schema",
+  "directives": {
+    "$tag": "_Map_Directives",
+    "DirAlias": {
+      "$tag": "_Directive",
+      "aliases": ["DirA1", "DirA2"],
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Variable": "_"
+      },
+      "name": "DirAlias",
+      "repeatable": false
+    }
+  }
+}

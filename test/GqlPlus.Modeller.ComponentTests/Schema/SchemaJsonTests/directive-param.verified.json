@@ -1,0 +1,30 @@
+﻿{
+  "$tag": "_Schema",
+  "directives": {
+    "$tag": "_Map_Directives",
+    "DirParam": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Fragment": "_",
+        "Operation": "_"
+      },
+      "name": "DirParam",
+      "parameters": [
+        {
+          "$tag": "_InputParam",
+          "value": "DirParamIn"
+        }
+      ],
+      "repeatable": false
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "DirParamIn": {
+      "$tag": "_TypeInput",
+      "name": "DirParamIn",
+      "typeKind": "Input"
+    }
+  }
+}

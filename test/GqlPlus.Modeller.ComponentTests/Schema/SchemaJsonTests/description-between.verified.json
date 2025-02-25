@@ -1,0 +1,25 @@
+﻿{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "descrBetween": {
+      "$tag": "_Category",
+      "name": "descrBetween",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "DescrBetween",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "DescrBetween": {
+      "$tag": "_TypeOutput",
+      "description": "A description between",
+      "name": "DescrBetween",
+      "typeKind": "Output"
+    }
+  }
+}

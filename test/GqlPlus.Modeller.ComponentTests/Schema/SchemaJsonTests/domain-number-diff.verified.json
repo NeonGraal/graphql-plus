@@ -1,0 +1,29 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "NumDiff": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "NumDiff",
+          "exclude": false,
+          "from": 1,
+          "to": 9
+        }
+      ],
+      "domainKind": "Number",
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "from": 1,
+          "to": 9
+        }
+      ],
+      "name": "NumDiff",
+      "typeKind": "Domain"
+    }
+  }
+}

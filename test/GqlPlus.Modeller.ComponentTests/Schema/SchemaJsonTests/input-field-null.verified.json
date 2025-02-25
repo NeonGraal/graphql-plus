@@ -1,0 +1,46 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InFieldNull": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": "null",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "field",
+          "object": "InFieldNull",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InFieldNull"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "default": "null",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "InFieldNull"
+          }
+        }
+      ],
+      "name": "InFieldNull",
+      "typeKind": "Input"
+    }
+  }
+}

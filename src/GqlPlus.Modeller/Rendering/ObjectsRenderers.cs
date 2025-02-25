@@ -236,8 +236,7 @@ internal class OutputArgRenderer(
     ? model.Dual is null
       ? model.IsTypeParam
         ? new(model.Output, "_TypeParam")
-        : Structured.New(model.Tag)
-          .Add("output", model.Output!)
+        : new Map<Structured>() { ["output"] = model.Output! }.Render(model.Tag)
       : dual.Render(model.Dual)
     : base.Render(model)
       .Add("member", model.EnumMember!);

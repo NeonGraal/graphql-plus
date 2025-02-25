@@ -16,12 +16,13 @@ public class MapTests
   [Theory, RepeatData]
   public void ToMap_FromRecord(StringInt[] values)
   {
-    Map<int> map = values.ToMap(static k => k.Name, static v => v.Age);
+    IGrouping<string, StringInt>[] groups = [.. values.GroupBy(v => v.Name)];
+    Map<int[]> map = groups.ToMap(static k => k.Key, static v => v.Select(a => a.Age).ToArray());
 
     using AssertionScope scope = new();
 
-    map.Keys.Should().BeEquivalentTo(values.Select(static k => k.Name));
-    map.Values.Should().BeEquivalentTo(values.Select(static v => v.Age));
+    map.Keys.Should().BeEquivalentTo(groups.Select(static k => k.Key));
+    map.Values.Should().BeEquivalentTo(groups.Select(static v => v.Select(a => a.Age).ToArray()));
   }
 }
 

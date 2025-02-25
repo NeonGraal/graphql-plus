@@ -12,7 +12,6 @@ public sealed class RepeatDataAttribute
     : this(Repeats)
   { }
 
-
   public RepeatDataAttribute(int repeat)
     : base(() => new Fixture().Customize(new TestsCustomizations()))
   {

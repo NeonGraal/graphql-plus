@@ -16,15 +16,19 @@ public class SchemaHtmlTests(
   [Fact]
   public async Task Html_Index()
   {
-    Structured groups = Structured.New("");
-    groups.Add("All", Structured.ForAll(["!ALL", "!Globals", "!Merges", "!Objects", "!Simple"]));
-    groups.Add("Globals", Structured.ForAll(SchemaValidData.Globals));
-    groups.Add("Merges", Structured.ForAll(await ReplaceSchemaKeys("Merges")));
-    groups.Add("Objects", Structured.ForAll(await ReplaceSchemaKeys("Objects")));
-    groups.Add("Simple", Structured.ForAll(SchemaValidData.Simple));
+    string[] all = ["!ALL", "!Globals", "!Merges", "!Objects", "!Simple"];
 
-    Structured result = Structured.New("");
-    result.Add("groups", groups);
+    IEnumerable<string> merges = await ReplaceSchemaKeys("Merges");
+    IEnumerable<string> objects = await ReplaceSchemaKeys("Objects");
+    Structured result = new Map<Structured>() {
+      ["groups"] = new Map<Structured>() {
+        ["All"] = all.Render(),
+        ["Globals"] = SchemaValidData.Globals.Render(),
+        ["Merges"] = merges.Render(),
+        ["Objects"] = objects.Render(),
+        ["Simple"] = SchemaValidData.Simple.Render(),
+      }.Render()
+    }.Render();
 
     await result.WriteHtmlFileAsync("Schema", "index", "index");
   }

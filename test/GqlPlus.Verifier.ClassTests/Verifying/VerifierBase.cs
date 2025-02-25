@@ -10,13 +10,10 @@ using NSubstitute;
 namespace GqlPlus.Verifying;
 
 public class VerifierBase
+  : SubstituteBase
 {
   protected TokenMessages Errors { get; } = [];
   protected ILoggerFactory Logger { get; } = For<ILoggerFactory>();
-
-  protected static TResult For<TResult>()
-    where TResult : class
-    => Substitute.For<TResult>();
 
   protected static TResult EFor<TResult>()
     where TResult : class, IGqlpError

@@ -4,6 +4,7 @@ namespace GqlPlus.Structures;
 
 public class Structured
   : Structured<StructureValue, Structured>
+  , IEquatable<Structured>
 {
   public bool IsEmpty
     => List.Count == 0
@@ -13,13 +14,6 @@ public class Structured
   public bool Flow { get; }
   public string Tag { get; } = string.Empty;
 
-  public static Structured New(string tag, bool flow = false)
-    => new(tag, flow);
-  public static Structured ForAll(IEnumerable<string> values, string tag = "", bool flow = false)
-    => new(values.Select(v => new Structured(v)), tag, flow);
-
-  private Structured(string tag, bool flow)
-    : base() => (Tag, Flow) = (tag, flow);
   public Structured(bool? value, string tag = "")
     : base(new StructureValue(value)) => Tag = tag;
   public Structured(string? value, string tag = "")
@@ -52,10 +46,8 @@ public class Structured
     return this;
   }
 
-  public Structured AddBool(string key, bool value, bool blankIfDefault)
-    => value || !blankIfDefault
-    ? Add(key, value)
-    : this;
+  public Structured AddBool(string key, bool value)
+    => value ? Add(key, value) : this;
 
   public Structured IncludeRendered<TValue>(TValue? value, IRenderer<TValue> renderer)
   {
@@ -100,7 +92,7 @@ public class Structured
 
     if (type.GetCustomAttributes<FlagsAttribute>().Any()) {
       int flags = (int)(object)set;
-      IDict result = NewDict;
+      Dict result = [];
 
       foreach (object? value in Enum.GetValues(type)) {
         int flag = (int)value;
@@ -114,6 +106,20 @@ public class Structured
 
     return this;
   }
+
+  public bool Equals(Structured? other)
+    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
+      && (Value.BothValued(other?.Value) ? Value.Equals(other.Value)
+      : List.BothValued(other?.List) ? List.SequenceEqual(other.List)
+      : Map.BothValued(other?.Map) && Map.Equals(other.Map));
+
+  public override bool Equals(object? obj)
+    => Equals(obj as Structured);
+  public override int GetHashCode()
+    => HashCode.Combine(Tag,
+      Value?.GetHashCode() ?? 0,
+      List?.GetHashCode() ?? 0,
+      Map?.GetHashCode() ?? 0);
 }
 
 #pragma warning disable CA1034 // Nested types should not be visible
@@ -132,8 +138,6 @@ public class Structured<TValue, TObject>
   public interface IDict
     : IDictionary<TValue, TObject>
   { }
-
-  public IDict NewDict => new Dict();
 
   public TValue? Value { get; }
   public IList<TObject> List { get; } = [];

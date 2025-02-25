@@ -1,10 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Structures;
+﻿namespace GqlPlus.Structures;
 
 #pragma warning disable CA1036 // Override methods on comparable types
 public sealed record class StructureValue
-  : IComparable<StructureValue> //, IEquatable<RenderValue>
+  : IComparable<StructureValue>
+  , IEquatable<StructureValue>
 {
   public bool IsEmpty
     => string.IsNullOrEmpty(Identifier)
@@ -33,12 +32,24 @@ public sealed record class StructureValue
 
   public int CompareTo(StructureValue? other)
     => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
-      ? BothValued(other?.Boolean, Boolean) ? Boolean.Value.CompareTo(other.Boolean)
-      : BothValued(other?.Number, Number) ? Number.Value.CompareTo(other.Number)
-      : BothValued(other?.Identifier, Identifier) ? string.Compare(Identifier, other.Identifier, StringComparison.Ordinal)
-      : BothValued(other?.Text, Text) ? string.Compare(Text, other.Text, StringComparison.Ordinal)
+      ? Boolean.BothValued(other?.Boolean) ? Boolean.Value.CompareTo(other.Boolean)
+      : Number.BothValued(other?.Number) ? Number.Value.CompareTo(other.Number)
+      : Identifier.BothValued(other?.Identifier) ? string.Compare(Identifier, other.Identifier, StringComparison.Ordinal)
+      : Text.BothValued(other?.Text) ? string.Compare(Text, other.Text, StringComparison.Ordinal)
       : -1
     : -1;
+
+  public bool Equals(StructureValue? other)
+    => string.Equals(Tag, other?.Tag, StringComparison.Ordinal) && (Boolean.BothValued(other?.Boolean) ? Boolean.Value == other.Boolean
+      : Number.BothValued(other?.Number) ? Number.Value == other.Number
+      : Identifier.BothValued(other?.Identifier) ? string.Equals(Identifier, other.Identifier, StringComparison.Ordinal)
+      : Text.BothValued(other?.Text) && string.Equals(Text, other.Text, StringComparison.Ordinal));
+  public override int GetHashCode()
+    => HashCode.Combine(Tag,
+      Boolean?.GetHashCode() ?? 0,
+      Number?.GetHashCode() ?? 0,
+      Identifier?.GetHashCode(StringComparison.Ordinal) ?? 0,
+      Text?.GetHashCode(StringComparison.Ordinal) ?? 0);
 
   public string AsString
   {
@@ -56,7 +67,4 @@ public sealed record class StructureValue
       return string.Empty;
     }
   }
-
-  private static bool BothValued<T>([NotNullWhen(true)] T? left, [NotNullWhen(true)] T? right)
-    => left is not null && right is not null;
 }

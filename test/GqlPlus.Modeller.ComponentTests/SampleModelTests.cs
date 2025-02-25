@@ -51,11 +51,11 @@ public class SampleModelTests(
   [Fact]
   public void Html_Index()
   {
-    Structured groups = Structured.New("");
-    groups.Add("All", Structured.ForAll(SchemaValidData.Sample));
-
-    Structured result = Structured.New("");
-    result.Add("groups", groups);
+    Structured result = new Map<Structured>() {
+      ["groups"] = new Map<Structured>() {
+        ["All"] = SchemaValidData.Sample.Render(),
+      }.Render(),
+    }.Render("");
 
     result.WriteHtmlFile("Sample", "index", "index");
   }

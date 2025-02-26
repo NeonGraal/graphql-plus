@@ -37,6 +37,40 @@ public class StructuredTests
   }
 
   [Theory, RepeatData]
+  public void GetHashCode_Value_IsCorrect(string value)
+  {
+    Structured result = value;
+
+    result.GetHashCode().Should().NotBe(0);
+  }
+
+  [Theory, RepeatData]
+  public void GetHashCode_List_IsCorrect(string value)
+  {
+    Structured result = new[] { value }.Render();
+
+    result.GetHashCode().Should().NotBe(0);
+  }
+
+  [Theory, RepeatData]
+  public void GetHashCode_Map_IsCorrect(string key, string value)
+  {
+    Structured result = new Map<Structured>() {
+      [key] = new(value),
+    }.Render();
+
+    result.GetHashCode().Should().NotBe(0);
+  }
+
+  [Fact]
+  public void GetHashCode_New_IsCorrect()
+  {
+    Structured result = new((bool?)null, "Test");
+
+    result.GetHashCode().Should().NotBe(0);
+  }
+
+  [Theory, RepeatData]
   public void Add_Null_IsCorrect(string key)
   {
     Structured value = new Map<Structured>().Render();

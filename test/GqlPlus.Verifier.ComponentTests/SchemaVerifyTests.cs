@@ -58,7 +58,7 @@ public class SchemaVerifyTests(
   {
     string schema = await ReadSchema(testName, testDirectory);
 
-    await VerifyInput_Invalid(schema, testName);
+    await VerifyInput_Invalid(schema, $"{testDirectory}/{testName}");
   }
 
   private void VerifyInput_Valid(string input, string testName)
@@ -87,6 +87,6 @@ public class SchemaVerifyTests(
       parse.IsError(e => result.Add(e with { Message = "Parse Error: " + e.Message }));
     }
 
-    await CheckErrors("Schema", input, result);
+    await CheckErrors("Schema", test, result, true);
   }
 }

@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples
-// Collected from 247728f  (HEAD -> union-tests, origin/union-tests) 2025-02-08 Improve Union parent samples
+// Collected from 19141aa  (HEAD -> category-dup) 2025-03-06 Correct various verify errors
 
 namespace GqlPlus;
 

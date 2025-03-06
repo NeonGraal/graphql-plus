@@ -1,6 +1,5 @@
 ﻿using System.Collections.Immutable;
 using System.Text;
-using System.Threading;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Parsing;
 using GqlPlus.Parsing.Schema;

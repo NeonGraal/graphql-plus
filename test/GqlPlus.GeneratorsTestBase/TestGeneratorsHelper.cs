@@ -31,7 +31,6 @@ public static class TestGeneratorsHelper
       driver = driver.WithUpdatedAnalyzerConfigOptions(configOptions);
     }
 
-
     return driver.RunGenerators(compilation);
   }
 

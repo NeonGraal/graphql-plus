@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Schema
-// Collected from 247728f  (HEAD -> union-tests, origin/union-tests) 2025-02-08 Improve Union parent samples
+// Collected from 19141aa  (HEAD -> category-dup) 2025-03-06 Correct various verify errors
 
 namespace GqlPlus;
 
@@ -11,6 +11,7 @@ public class SchemaInvalidGlobalsData
     Add("bad-parse");
     Add("category-diff-mod");
     Add("category-dup-alias");
+    Add("category-dup-description");
     Add("category-duplicate");
     Add("category-output-generic");
     Add("category-output-mod-param");
@@ -164,6 +165,7 @@ public class SchemaValidGlobalsData
 {
   public SchemaValidGlobalsData()
   {
+    Add("category-description");
     Add("category-output");
     Add("category-output-dict");
     Add("category-output-list");
@@ -174,6 +176,8 @@ public class SchemaValidGlobalsData
     Add("description-complex");
     Add("description-double");
     Add("description-single");
+    Add("directive-description");
+    Add("directive-no-param");
     Add("directive-param-dict");
     Add("directive-param-in");
     Add("directive-param-list");

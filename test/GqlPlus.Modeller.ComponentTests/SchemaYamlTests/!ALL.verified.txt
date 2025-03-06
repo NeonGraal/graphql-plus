@@ -14,6 +14,13 @@ categories: !_Map_Categories
       name: CatAlias
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Identifier catDescr: !_Category
+    description: 'A Category described'
+    name: catDescr
+    output: !_TypeRef(_TypeKind)
+      name: CatDescr
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Identifier catDict: !_Category
     modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict,
         typeKind: !_SimpleKind Basic}]
@@ -65,6 +72,17 @@ directives: !_Map_Directives
     aliases: [DirA1, DirA2]
     locations: !_Set(_Location) {Field: _, Variable: _}
     name: DirAlias
+    repeatable: false
+  !_Identifier DirDescr: !_Directive
+    description: 'A directive described'
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
+    name: DirDescr
+    repeatable: false
+  !_Identifier DirNoParam: !_Directive
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
+    name: DirNoParam
     repeatable: false
   !_Identifier DirParam: !_Directive
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
@@ -169,6 +187,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier CatAlias: !_TypeOutput
     name: CatAlias
+    typeKind: !_TypeKind Output
+  !_Identifier CatDescr: !_TypeOutput
+    name: CatDescr
     typeKind: !_TypeKind Output
   !_Identifier CatDict: !_TypeOutput
     name: CatDict

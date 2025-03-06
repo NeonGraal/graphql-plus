@@ -18,7 +18,7 @@ public class MergeCategoriesTests(
   [SkippableTheory, RepeatData]
   public void CanMerge_TwoAstsDifferentOutput_ReturnsErrors(string name, string category1, string category2)
     => this
-      .SkipIf(category1 == category2)
+      .SkipEqual(category1, category2)
       .CanMerge_Errors(
         new CategoryDeclAst(AstNulls.At, name, category1),
         new CategoryDeclAst(AstNulls.At, name, category2));
@@ -39,6 +39,6 @@ public class MergeCategoriesTests(
 
   internal override GroupsMerger<IGqlpSchemaCategory> MergerGroups => _merger;
 
-  protected override IGqlpSchemaCategory MakeAliased(string name, string[]? aliases = null, string description = "")
-    => new CategoryDeclAst(AstNulls.At, name, description, name) { Aliases = aliases ?? [] };
+  protected override IGqlpSchemaCategory MakeAliased(string input, string[]? aliases = null, string description = "")
+    => new CategoryDeclAst(AstNulls.At, input, description, input) { Aliases = aliases ?? [] };
 }

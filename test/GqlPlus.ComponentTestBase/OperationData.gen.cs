@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Operation
-// Collected from 8d27cdd  (HEAD -> correct-coverage, origin/correct-coverage) 2025-03-06 Further improve verify errors
+// Collected from 8ff0414  (HEAD -> operation, origin/operation) 2025-03-07 Fixup expected verify errors
 
 namespace GqlPlus;
 

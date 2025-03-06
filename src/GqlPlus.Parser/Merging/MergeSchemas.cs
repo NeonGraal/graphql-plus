@@ -6,6 +6,7 @@ namespace GqlPlus.Merging;
 internal class MergeSchemas(
   IMerge<IGqlpSchemaCategory> categoryMerger,
   IMerge<IGqlpSchemaDirective> directiveMerger,
+  IMerge<IGqlpSchemaOperation> operationMerger,
   IMerge<IGqlpSchemaOption> optionMerger,
   IMerge<IGqlpType> astTypeMerger
 ) : GroupsMerger<IGqlpSchema>
@@ -17,16 +18,19 @@ internal class MergeSchemas(
   {
     IGqlpSchemaCategory[] categories = Just<IGqlpSchemaCategory>(group);
     IGqlpSchemaDirective[] directives = Just<IGqlpSchemaDirective>(group);
+    IGqlpSchemaOperation[] operations = Just<IGqlpSchemaOperation>(group);
     IGqlpSchemaOption[] options = Just<IGqlpSchemaOption>(group);
     IGqlpType[] astTypes = Just<IGqlpType>(group);
 
     ITokenMessages categoriesCanMerge = categories.Length > 0 ? categoryMerger.CanMerge(categories) : Messages();
     ITokenMessages directivesCanMerge = directives.Length > 0 ? directiveMerger.CanMerge(directives) : Messages();
+    ITokenMessages operationsCanMerge = operations.Length > 0 ? operationMerger.CanMerge(operations) : Messages();
     ITokenMessages optionsCanMerge = options.Length > 0 ? optionMerger.CanMerge(options) : Messages();
     ITokenMessages astTypesCanMerge = astTypes.Length > 0 ? astTypeMerger.CanMerge(astTypes) : Messages();
 
     return categoriesCanMerge
       .Add(directivesCanMerge)
+      .Add(operationsCanMerge)
       .Add(optionsCanMerge)
       .Add(astTypesCanMerge);
   }
@@ -38,12 +42,14 @@ internal class MergeSchemas(
   {
     IGqlpSchemaCategory[] categories = Just<IGqlpSchemaCategory>(group);
     IGqlpSchemaDirective[] directives = Just<IGqlpSchemaDirective>(group);
+    IGqlpSchemaOperation[] operations = Just<IGqlpSchemaOperation>(group);
     IGqlpSchemaOption[] options = Just<IGqlpSchemaOption>(group);
     IGqlpType[] astTypes = Just<IGqlpType>(group);
 
     IEnumerable<AstDeclaration> declarations = categoryMerger
       .Merge(categories).Cast<IGqlpDeclaration>()
       .Concat(directiveMerger.Merge(directives))
+      .Concat(operationMerger.Merge(operations))
       .Concat(optionMerger.Merge(options))
       .Concat(astTypeMerger.Merge(astTypes))
       .Cast<AstDeclaration>();

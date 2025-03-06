@@ -41,10 +41,10 @@ public class MergeOptionsTests
     _merger = new(outputHelper.ToLoggerFactory(), _settings);
   }
 
-  protected override bool SkipDifferentNames => true;
+  protected override bool SkipDifferentInput => true;
 
   internal override GroupsMerger<IGqlpSchemaOption> MergerGroups => _merger;
 
-  protected override IGqlpSchemaOption MakeAliased(string name, string[]? aliases = null, string description = "")
-    => new OptionDeclAst(AstNulls.At, name, description) { Aliases = aliases ?? [] };
+  protected override IGqlpSchemaOption MakeAliased(string input, string[]? aliases = null, string description = "")
+    => new OptionDeclAst(AstNulls.At, input, description) { Aliases = aliases ?? [] };
 }

@@ -1742,6 +1742,457 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: for
+  !_Identifier _OpDirective: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _OpDirective
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      object: _OpDirective
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: name
+      type: !_DualBase
+        dual: _Identifier
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      type: !_DualBase
+        dual: String
+    name: _OpDirective
+    typeKind: !_TypeKind Dual
+  !_Identifier _OpField: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: alias
+      object: _OpField
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: _OpField
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      object: _OpField
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      name: modifiers
+      object: _OpField
+      type: !_OutputBase
+        output: _Modifiers
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpField
+      type: !_DualBase
+        dual: _OpDirective
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      object: _OpField
+      type: !_OutputBase
+        output: _OpObject
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: alias
+      type: !_OutputBase
+        output: String
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: String
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      type: !_OutputBase
+        output: String
+    - !_OutputField
+      name: modifiers
+      type: !_OutputBase
+        output: _Modifiers
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        dual: _OpDirective
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      type: !_OutputBase
+        output: _OpObject
+    name: _OpField
+    typeKind: !_TypeKind Output
+  !_Identifier _OpFragment: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: name
+      object: _OpFragment
+      type: !_OutputBase
+        output: _Identifier
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _OpFragment
+      type: !_OutputBase
+        output: _ObjType
+        typeArgs:
+        - !_OutputArg
+          output: _OutputBase
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpFragment
+      type: !_DualBase
+        dual: _OpDirective
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      object: _OpFragment
+      type: !_OutputBase
+        output: _OpObject
+    fields:
+    - !_OutputField
+      name: name
+      type: !_OutputBase
+        output: _Identifier
+    - !_OutputField
+      name: type
+      type: !_OutputBase
+        output: _ObjType
+        typeArgs:
+        - !_OutputArg
+          output: _OutputBase
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        dual: _OpDirective
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      type: !_OutputBase
+        output: _OpObject
+    name: _OpFragment
+    typeKind: !_TypeKind Output
+  !_Identifier _OpInline: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: type
+      object: _OpInline
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpInline
+      type: !_DualBase
+        dual: _OpDirective
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      object: _OpInline
+      type: !_OutputBase
+        output: _OpObject
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: type
+      type: !_OutputBase
+        output: String
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        dual: _OpDirective
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      type: !_OutputBase
+        output: _OpObject
+    name: _OpInline
+    typeKind: !_TypeKind Output
+  !_Identifier _OpObject: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _OpObject
+      type: !_OutputBase
+        output: _OpField
+    - !_ObjectFor(_OutputAlternate)
+      object: _OpObject
+      type: !_OutputBase
+        output: _OpSpread
+    - !_ObjectFor(_OutputAlternate)
+      object: _OpObject
+      type: !_OutputBase
+        output: _OpInline
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _OpField
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _OpSpread
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _OpInline
+    name: _OpObject
+    typeKind: !_TypeKind Output
+  !_Identifier _OpResult: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: domain
+      object: _OpResult
+      type: !_OutputBase
+        output: _TypeRef
+        typeArgs:
+        - !_OutputArg
+          output: _SimpleKind
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      object: _OpResult
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      object: _OpResult
+      type: !_OutputBase
+        output: _OpObject
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: domain
+      type: !_OutputBase
+        output: _TypeRef
+        typeArgs:
+        - !_OutputArg
+          output: _SimpleKind
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      type: !_OutputBase
+        output: String
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      type: !_OutputBase
+        output: _OpObject
+    name: _OpResult
+    typeKind: !_TypeKind Output
+  !_Identifier _OpSpread: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: fragment
+      object: _OpSpread
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpSpread
+      type: !_DualBase
+        dual: _OpDirective
+    fields:
+    - !_OutputField
+      name: fragment
+      type: !_OutputBase
+        output: String
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        dual: _OpDirective
+    name: _OpSpread
+    typeKind: !_TypeKind Output
+  !_Identifier _OpVariable: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: name
+      object: _OpVariable
+      type: !_OutputBase
+        output: _Identifier
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _OpVariable
+      type: !_OutputBase
+        output: _ObjType
+        typeArgs:
+        - !_OutputArg
+          output: _InputBase
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      object: _OpVariable
+      type: !_OutputBase
+        output: _Modifiers
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: default
+      object: _OpVariable
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpVariable
+      type: !_DualBase
+        dual: _OpDirective
+    fields:
+    - !_OutputField
+      name: name
+      type: !_OutputBase
+        output: _Identifier
+    - !_OutputField
+      name: type
+      type: !_OutputBase
+        output: _ObjType
+        typeArgs:
+        - !_OutputArg
+          output: _InputBase
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      type: !_OutputBase
+        output: _Modifiers
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: default
+      type: !_OutputBase
+        output: String
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        dual: _OpDirective
+    name: _OpVariable
+    typeKind: !_TypeKind Output
+  !_Identifier _Operation: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      name: description
+      object: _Described
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: aliases
+      object: _Aliased
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_OutputField)
+      name: category
+      object: _Operation
+      type: !_OutputBase
+        output: _Identifier
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: variables
+      object: _Operation
+      type: !_OutputBase
+        output: _OpVariable
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _Operation
+      type: !_DualBase
+        dual: _OpDirective
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: fragments
+      object: _Operation
+      type: !_OutputBase
+        output: _OpFragment
+    - !_ObjectFor(_OutputField)
+      name: result
+      object: _Operation
+      type: !_OutputBase
+        output: _OpResult
+    fields:
+    - !_OutputField
+      name: category
+      type: !_OutputBase
+        output: _Identifier
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: variables
+      type: !_OutputBase
+        output: _OpVariable
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        dual: _OpDirective
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: fragments
+      type: !_OutputBase
+        output: _OpFragment
+    - !_OutputField
+      name: result
+      type: !_OutputBase
+        output: _OpResult
+    name: _Operation
+    parent: !_DualBase
+      dual: _Aliased
+    typeKind: !_TypeKind Output
+  !_Identifier _Operations: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _Operations
+      type: !_OutputBase
+        output: _Operation
+    - !_ObjectFor(_OutputAlternate)
+      object: _Operations
+      type: !_OutputBase
+        output: _Type
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: operation
+      object: _Operations
+      type: !_OutputBase
+        output: _Operation
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _Operations
+      type: !_OutputBase
+        output: _Type
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _Operation
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _Type
+    fields:
+    - !_OutputField
+      name: operation
+      type: !_OutputBase
+        output: _Operation
+    - !_OutputField
+      name: type
+      type: !_OutputBase
+        output: _Type
+    name: _Operations
+    typeKind: !_TypeKind Output
   !_Identifier _OutputAlternate: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -2078,6 +2529,17 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Domain}]
+      name: operations
+      object: _Schema
+      parameters:
+      - !_InputParam
+        input: _Filter
+        modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      type: !_OutputBase
+        output: _Operations
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
       name: types
       object: _Schema
       parameters:
@@ -2118,6 +2580,16 @@ types: !_Map_Type
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       type: !_OutputBase
         output: _Directives
+    - !_OutputField
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
+          typeKind: !_SimpleKind Domain}]
+      name: operations
+      parameters:
+      - !_InputParam
+        input: _Filter
+        modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      type: !_OutputBase
+        output: _Operations
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Domain}]

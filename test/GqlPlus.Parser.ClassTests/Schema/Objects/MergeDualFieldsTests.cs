@@ -14,8 +14,8 @@ public class MergeDualFieldsTests(
 
   internal override AstObjectFieldsMerger<IGqlpDualField> MergerField => _merger;
 
-  protected override IGqlpDualField MakeAliased(string name, string[] aliases, string description = "")
-    => new DualFieldAst(AstNulls.At, name, description, new DualBaseAst(AstNulls.At, name, description)) {
+  protected override IGqlpDualField MakeAliased(string input, string[] aliases, string description = "")
+    => new DualFieldAst(AstNulls.At, input, description, new DualBaseAst(AstNulls.At, input, description)) {
       Aliases = aliases
     };
   protected override IGqlpDualField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")

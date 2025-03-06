@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples
-// Collected from 8d27cdd  (HEAD -> correct-coverage, origin/correct-coverage) 2025-03-06 Further improve verify errors
+// Collected from 8ff0414  (HEAD -> operation, origin/operation) 2025-03-07 Fixup expected verify errors
 
 namespace GqlPlus;
 
@@ -66,6 +66,7 @@ public class SampleSchemaData
     Add("Intro_Input");
     Add("Intro_Names");
     Add("Intro_Object");
+    Add("Intro_Operation");
     Add("Intro_Option");
     Add("Intro_Output");
     Add("Intro_Union");

@@ -49,7 +49,7 @@ public class ModelTests(
   }
 
   [Fact]
-  public void Html_Index()
+  public async Task Html_Index()
   {
     Structured result = new Map<Structured>() {
       ["groups"] = new Map<Structured>() {
@@ -57,6 +57,6 @@ public class ModelTests(
       }.Render(),
     }.Render("");
 
-    result.WriteHtmlFile("Sample", "index", "index");
+    await result.WriteHtmlFile("Sample", "index", "index");
   }
 }

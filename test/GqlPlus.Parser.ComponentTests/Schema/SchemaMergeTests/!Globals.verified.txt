@@ -1,6 +1,13 @@
 ﻿[  
-!Sc I@001/0001
+!Sc S@001/0001
 Success
+{
+  "A Category described"
+  !Ca P@010/0002
+  catDescr
+  (Parallel)
+  CatDescr
+}
 {
   !Ca P@010/0001
   cat
@@ -33,6 +40,19 @@ Success
   descrBetween
   (Parallel)
   DescrBetween
+}
+{
+  "A directive described"
+  !Di I@012/0002
+  DirDescr
+  (Unique)
+  All
+}
+{
+  !Di I@012/0001
+  DirNoParam
+  (Unique)
+  All
 }
 {
   !Di I@012/0001
@@ -89,6 +109,10 @@ Success
     setting
     =( !k I@027/0001 Boolean.true )
   }
+}
+{
+  !Ou I@008/0003
+  CatDescr
 }
 {
   !Ou I@008/0002

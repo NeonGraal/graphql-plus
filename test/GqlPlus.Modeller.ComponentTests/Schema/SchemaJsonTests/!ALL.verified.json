@@ -24,6 +24,17 @@
       },
       "resolution": "Parallel"
     },
+    "catDescr": {
+      "$tag": "_Category",
+      "description": "A Category described",
+      "name": "catDescr",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CatDescr",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
     "catDict": {
       "$tag": "_Category",
       "modifiers": [
@@ -133,6 +144,35 @@
         "Variable": "_"
       },
       "name": "DirAlias",
+      "repeatable": false
+    },
+    "DirDescr": {
+      "$tag": "_Directive",
+      "description": "A directive described",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DirDescr",
+      "repeatable": false
+    },
+    "DirNoParam": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DirNoParam",
       "repeatable": false
     },
     "DirParam": {
@@ -340,6 +380,11 @@
     "CatAlias": {
       "$tag": "_TypeOutput",
       "name": "CatAlias",
+      "typeKind": "Output"
+    },
+    "CatDescr": {
+      "$tag": "_TypeOutput",
+      "name": "CatDescr",
       "typeKind": "Output"
     },
     "CatDict": {

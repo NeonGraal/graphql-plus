@@ -29,6 +29,13 @@ Success
   ?
 }
 {
+  "A Category described"
+  !Ca P@010/0002
+  catDescr
+  (Parallel)
+  CatDescr
+}
+{
   !Ca P@010/0001
   cat
   (Parallel)
@@ -85,6 +92,19 @@ Success
     I@021/0001
     DirParamIn
   )
+  (Unique)
+  All
+}
+{
+  "A directive described"
+  !Di I@012/0002
+  DirDescr
+  (Unique)
+  All
+}
+{
+  !Di I@012/0001
+  DirNoParam
   (Unique)
   All
 }
@@ -3878,6 +3898,10 @@ Success
   UnParent
   !UM I@018/0003
   String
+}
+{
+  !Ou I@008/0003
+  CatDescr
 }
 {
   !Ou I@008/0002

@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Schema
-// Collected from d8dfac8  (HEAD -> operation, origin/operation) 2025-02-09 Merge branch 'main' into operation
+// Collected from 8ff0414  (HEAD -> operation, origin/operation) 2025-03-07 Fixup expected verify errors
 
 namespace GqlPlus;
 
@@ -11,6 +11,7 @@ public class SchemaInvalidGlobalsData
     Add("bad-parse");
     Add("category-diff-mod");
     Add("category-dup-alias");
+    Add("category-dup-description");
     Add("category-duplicate");
     Add("category-no-type");
     Add("category-output-generic");
@@ -79,6 +80,7 @@ public class SchemaInvalidObjectsData
     Add("output-enumValue-bad");
     Add("output-enumValue-wrong");
     Add("output-field-input");
+    Add("output-generic-arg-enum-wrong");
     Add("output-generic-enum-bad");
     Add("output-generic-enum-wrong");
     Add("output-param-diff");
@@ -167,6 +169,7 @@ public class SchemaValidGlobalsData
 {
   public SchemaValidGlobalsData()
   {
+    Add("category-description");
     Add("category-output");
     Add("category-output-dict");
     Add("category-output-list");
@@ -177,6 +180,8 @@ public class SchemaValidGlobalsData
     Add("description-complex");
     Add("description-double");
     Add("description-single");
+    Add("directive-description");
+    Add("directive-no-param");
     Add("directive-param-dict");
     Add("directive-param-in");
     Add("directive-param-list");

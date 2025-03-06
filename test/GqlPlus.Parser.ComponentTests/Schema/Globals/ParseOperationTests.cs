@@ -1,7 +1,8 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Globals;
+using GqlPlus.Parsing;
 
-namespace GqlPlus.Parsing.Schema.Globals;
+namespace GqlPlus.Schema.Globals;
 
 public sealed class ParseOperationTests(
   IBaseAliasedChecks<OperationInput, IGqlpSchemaOperation> checks

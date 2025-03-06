@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Operation
-// Collected from d8dfac8  (HEAD -> operation, origin/operation) 2025-02-09 Merge branch 'main' into operation
+// Collected from 8ff0414  (HEAD -> operation, origin/operation) 2025-03-07 Fixup expected verify errors
 
 namespace GqlPlus;
 

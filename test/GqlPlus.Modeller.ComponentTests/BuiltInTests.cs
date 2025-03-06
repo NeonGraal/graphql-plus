@@ -41,13 +41,13 @@ public class BuiltInTests(IModelAndRender renderer)
   [Fact]
   public void Html_Index()
   {
-    Structured groups = Structured.New("");
-    groups.Add("All", Structured.ForAll(["!Basic", "!Internal"]));
-    groups.Add("Basic", Structured.ForAll(BuiltIn.Basic.Select(t => t.Name)));
-    groups.Add("Internal", Structured.ForAll(BuiltIn.Internal.Select(t => t.Name)));
-
-    Structured result = Structured.New("");
-    result.Add("groups", groups);
+    Structured result = new Map<Structured>() {
+      ["groups"] = new Map<Structured>() {
+        ["All"] = SchemaValidData.Sample.Render(),
+        ["Basic"] = BuiltIn.Basic.Select(t => t.Name).Render(),
+        ["Internal"] = BuiltIn.Internal.Select(t => t.Name).Render(),
+      }.Render(),
+    }.Render("");
 
     result.WriteHtmlFile("BuiltIn", "index", "index");
   }

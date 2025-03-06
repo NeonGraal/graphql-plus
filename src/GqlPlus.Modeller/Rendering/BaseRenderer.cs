@@ -8,5 +8,5 @@ internal class BaseRenderer<TModel>
     => Render(model);
 
   internal virtual Structured Render(TModel model)
-    => Structured.New(model.Tag);
+    => new Map<Structured>().Render(model.Tag);
 }

@@ -14,7 +14,7 @@ internal class ParseOutputArgs
   {
     if (tokens.Take('.')) {
       if (argument.IsTypeParam) {
-        tokens.Error("Invalid Output Arg. Enum value not allowed after Type parameter.");
+        return tokens.Error<OutputArgAst>("Output Arg", "Enum value not allowed after Type parameter");
       }
 
       TokenAt at = tokens.At;

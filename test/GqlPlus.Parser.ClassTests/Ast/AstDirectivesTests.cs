@@ -9,27 +9,27 @@ public abstract class AstDirectivesTests
 public abstract class AstDirectivesTests<TInput>
   : AstAbbreviatedTests<TInput>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithDirective(TInput input, string[] directives)
   => DirectivesChecks.HashCode(input, directives);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithDirective(TInput input, string[] directives)
     => DirectivesChecks.String(input, directives, DirectiveString(input, Directives(directives)));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithDirective(TInput input, string[] directives)
     => DirectivesChecks.Equality(input, directives);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithDirective(TInput input, string[] directives)
     => DirectivesChecks.Inequality_WithDirective(input, directives);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_ByDirectives(TInput input, string[] directives1, string[] directives2)
     => DirectivesChecks.Inequality_ByDirectives(input, directives1, directives2);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality_ByNames(TInput input1, TInput input2, string[] directives)
     => DirectivesChecks.Inequality_ByInputs(input1, input2, directives);
 
@@ -47,21 +47,18 @@ public abstract class AstDirectivesTests<TInput>
     => " " + directives.Joined(d => $"( !d {d} )");
 }
 
-internal sealed class AstDirectivesChecks<TAst>
-  : AstDirectivesChecks<string, TAst>, IAstDirectivesChecks
+internal sealed class AstDirectivesChecks<TAst>(
+  BaseAstChecks<TAst>.CreateBy<string> create
+) : AstDirectivesChecks<string, TAst>(create), IAstDirectivesChecks
   where TAst : AstAbbreviated, IGqlpDirectives
 {
-  public AstDirectivesChecks(CreateBy<string> create)
-    : base(create) { }
 }
 
-internal class AstDirectivesChecks<TInput, TAst>
-  : AstAbbreviatedChecks<TInput, TAst>, IAstDirectivesChecks<TInput>
+internal class AstDirectivesChecks<TInput, TAst>(
+  BaseAstChecks<TAst>.CreateBy<TInput> create
+) : AstAbbreviatedChecks<TInput, TAst>(create), IAstDirectivesChecks<TInput>
   where TAst : AstAbbreviated, IGqlpDirectives
 {
-  public AstDirectivesChecks(CreateBy<TInput> create)
-    : base(create) { }
-
   public void HashCode(TInput input, string[] directives)
     => HashCode(
       () => CreateDirective(input, directives),

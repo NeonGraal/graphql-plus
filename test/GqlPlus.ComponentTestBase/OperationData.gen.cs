@@ -1,6 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Operation
-// Collected from 361052c  (HEAD -> type-constaints) 2024-09-24 Correct samples after merging main
-
+// Collected from 8d27cdd  (HEAD -> correct-coverage, origin/correct-coverage) 2025-03-06 Further improve verify errors
 
 namespace GqlPlus;
 

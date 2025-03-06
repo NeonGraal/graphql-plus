@@ -1,6 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Schema
-// Collected from 361052c  (HEAD -> type-constaints) 2024-09-24 Correct samples after merging main
-
+// Collected from 8d27cdd  (HEAD -> correct-coverage, origin/correct-coverage) 2025-03-06 Further improve verify errors
 
 namespace GqlPlus;
 
@@ -12,6 +11,7 @@ public class SchemaInvalidGlobalsData
     Add("bad-parse");
     Add("category-diff-mod");
     Add("category-dup-alias");
+    Add("category-dup-description");
     Add("category-duplicate");
     Add("category-output-generic");
     Add("category-output-mod-param");
@@ -77,6 +77,7 @@ public class SchemaInvalidObjectsData
     Add("output-enumValue-bad");
     Add("output-enumValue-wrong");
     Add("output-field-input");
+    Add("output-generic-arg-enum-wrong");
     Add("output-generic-enum-bad");
     Add("output-generic-enum-wrong");
     Add("output-param-diff");
@@ -141,11 +142,15 @@ public class SchemaInvalidSimpleData
     Add("enum-parent-diff");
     Add("enum-parent-undef");
     Add("enum-parent-wrong");
+    Add("union-dup-alias");
     Add("union-more");
     Add("union-more-parent");
     Add("union-parent");
+    Add("union-parent-diff");
     Add("union-parent-more");
     Add("union-parent-recurse");
+    Add("union-parent-undef");
+    Add("union-parent-wrong");
     Add("union-recurse");
     Add("union-recurse-parent");
     Add("union-self");
@@ -161,6 +166,7 @@ public class SchemaValidGlobalsData
 {
   public SchemaValidGlobalsData()
   {
+    Add("category-description");
     Add("category-output");
     Add("category-output-dict");
     Add("category-output-list");
@@ -171,6 +177,8 @@ public class SchemaValidGlobalsData
     Add("description-complex");
     Add("description-double");
     Add("description-single");
+    Add("directive-description");
+    Add("directive-no-param");
     Add("directive-param-dict");
     Add("directive-param-in");
     Add("directive-param-list");
@@ -220,8 +228,10 @@ public class SchemaValidMergesData
     Add("output-field-enum-alias");
     Add("output-field-enum-value");
     Add("output-field-param");
+    Add("union-alias");
     Add("union-diff");
     Add("union-same");
+    Add("union-same-parent");
   }
 }
 
@@ -301,5 +311,6 @@ public class SchemaValidSimpleData
     Add("enum-parent-alias");
     Add("enum-parent-dup");
     Add("union-parent");
+    Add("union-parent-dup");
   }
 }

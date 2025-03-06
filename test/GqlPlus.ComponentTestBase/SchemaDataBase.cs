@@ -1,10 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 using GqlPlus.Token;
-
-using Grpc.Core;
 
 namespace GqlPlus;
 
@@ -30,7 +27,7 @@ public class SchemaDataBase(
         : [k])
       .Order();
 
-  protected async static Task<IEnumerable<string>> ReplaceSchemaKeys(string group)
+  protected static async Task<IEnumerable<string>> ReplaceSchemaKeys(string group)
   {
     IEnumerable<Task<(string input, string file)>> tasks = SchemaValidData
       .Files[group]
@@ -81,7 +78,7 @@ public class SchemaDataBase(
     }
   }
 
-  protected static async Task ReplaceFile(string testDirectory, string testName, Action<string, string> action)
+  protected static async Task ReplaceFile(string testDirectory, string testName, Action<string, string, string> action)
   {
     ArgumentNullException.ThrowIfNull(action);
     string input = await ReadSchema(testName, testDirectory);
@@ -89,24 +86,24 @@ public class SchemaDataBase(
     if (IsObjectInput(input)) {
       using AssertionScope scope = new();
       foreach ((string label, string abbr) in Replacements) {
-        action(ReplaceInput(input, abbr, label, abbr), label + "-" + testName);
+        action(ReplaceInput(input, abbr, label, abbr), testDirectory, label + "-" + testName);
       }
     } else {
-      action(input, testName);
+      action(input, testDirectory, testName);
     }
   }
 
-  protected static async Task ReplaceFileAsync(string testDirectory, string testName, Func<string, string, Task> action)
+  protected static async Task ReplaceFileAsync(string testDirectory, string testName, Func<string, string, string, Task> action)
   {
     ArgumentNullException.ThrowIfNull(action);
     string input = await ReadSchema(testName, testDirectory);
 
     if (IsObjectInput(input)) {
       await WhenAll(Replacements
-        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), r.Item1 + "-" + testName))
+        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), testDirectory, r.Item1 + "-" + testName))
         .ToArray());
     } else {
-      await action(input, testName);
+      await action(input, testDirectory, testName);
     }
   }
 

@@ -1,3 +1,3 @@
-Invalid Dual. 'More' cannot be an alternate of itself, even recursively via Recurse.
-Invalid Dual. 'Recurse' cannot be an alternate of itself, even recursively via Test.,
-Invalid Dual. 'Test' cannot be an alternate of itself, even recursively via More.,
+﻿Invalid Dual. 'Test' cannot be an alternate of itself, even recursively via More
+Invalid Dual. 'Recurse' cannot be an alternate of itself, even recursively via Test
+Invalid Dual. 'More' cannot be an alternate of itself, even recursively via Recurse

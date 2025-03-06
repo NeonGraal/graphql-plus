@@ -9,7 +9,7 @@ namespace GqlPlus.Parsing;
 
 public class ParseDomainClassTests : ClassTestBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Parse_UnknownKind_ReturnsExpected(string name)
   {
     Token.Tokenizer tokens = Tokens("{ ");

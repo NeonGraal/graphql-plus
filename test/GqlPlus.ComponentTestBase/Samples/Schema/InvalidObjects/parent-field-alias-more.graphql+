@@ -1,4 +1,4 @@
-object Test { :Recurse field1[alias]: Test }
+object Test { :Recurse field1 [alias]: Test }
 object Recurse { :More }
 object More { :Parent }
-object Parent { field2[alias]: Parent }
+object Parent { field2 [alias]: Parent }

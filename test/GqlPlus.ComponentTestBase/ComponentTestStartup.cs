@@ -38,7 +38,12 @@ public static class ComponentTestStartup
     }
 
     string filePath = Path.Join(dirPath, file + ".html");
-    File.WriteAllText(filePath, contents);
+    try {
+      File.WriteAllText(filePath, contents);
+    } catch (IOException) {
+      Thread.Sleep(100);
+      File.WriteAllText(filePath, contents);
+    }
   }
 
   public static async Task WriteHtmlFileAsync(this ValueTask<string> contents, string dir, string file)
@@ -49,6 +54,12 @@ public static class ComponentTestStartup
     }
 
     string filePath = Path.Join(dirPath, file + ".html");
-    await File.WriteAllTextAsync(filePath, await contents);
+
+    try {
+      await File.WriteAllTextAsync(filePath, await contents);
+    } catch (IOException) {
+      await Task.Delay(100);
+      await File.WriteAllTextAsync(filePath, await contents);
+    }
   }
 }

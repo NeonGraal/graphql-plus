@@ -1,0 +1,2 @@
+union UnDiff [UnA1] { Boolean }
+union UnDiff [UnA2] { Number }

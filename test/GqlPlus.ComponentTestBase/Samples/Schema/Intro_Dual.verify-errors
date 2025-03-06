@@ -1,9 +1,8 @@
-Invalid Output Arg Enum. '_TypeKind' is not an Enum type.
-Invalid Output Field. '_Identifier' not defined.
-Invalid Output Parent. '_Alternate' not defined.
-Invalid Output Parent. '_Field' not defined.
-Invalid Output Parent. '_ObjBase' not defined.
-Invalid Output Parent. '_ObjDescribed' not defined.
-Invalid Output Parent. '_ObjParam' not defined.
-Invalid Output Parent. '_TypeKind' not defined.
-Invalid Output Parent. '_TypeObject' not defined.
+﻿Invalid Output Parent. '_TypeObject' not defined
+Invalid Output Parent. '_ObjBase' not defined
+Invalid Output Parent. '_ObjDescribed' not defined
+Invalid Output Parent. '_Field' not defined
+Invalid Output Parent. '_Alternate' not defined
+Invalid Output Field. '_Identifier' not defined
+Invalid Output Arg Enum. '_TypeKind' is not an Enum type
+Invalid Output Parent. '_TypeKind' not defined

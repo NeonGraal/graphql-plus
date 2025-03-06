@@ -17,7 +17,7 @@ private void BuildData(string directory, string prefix) {
   var gitFile = samplesDir.GetFiles("git-details.txt")[0];
   string gitDetails;
   using (var gitText = gitFile.OpenText()) {
-    gitDetails = gitText.ReadToEnd();
+    gitDetails = gitText.ReadToEnd().Trim();
   }#>
 // Generated from <#= relative #>
 // Collected from <#= gitDetails #>

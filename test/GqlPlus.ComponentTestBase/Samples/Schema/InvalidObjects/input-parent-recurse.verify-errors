@@ -1,2 +1,2 @@
-Invalid Input. 'Recurse' cannot be a child of itself, even recursively via Test.
-Invalid Input. 'Test' cannot be a child of itself, even recursively via Recurse.,
+﻿Invalid Input. 'Test' cannot be a child of itself, even recursively via Recurse
+Invalid Input. 'Recurse' cannot be a child of itself, even recursively via Test

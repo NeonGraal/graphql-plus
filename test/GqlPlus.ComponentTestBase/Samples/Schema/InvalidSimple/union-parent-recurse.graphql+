@@ -1,3 +1,3 @@
-union Test { :Parent }
+union Test { :Parent String }
 union Parent { Bad }
 union Bad { Test }

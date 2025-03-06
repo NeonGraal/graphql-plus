@@ -32,7 +32,7 @@ public static class RenderYaml
       settings);
   }
 
-  public static string ToYaml(this RenderStructure model, bool wrapped)
+  public static string ToYaml(this Structured model, bool wrapped)
     => (wrapped ? YamlWrapped : YamlFull).Serialize(model);
 
   public static string YamlJoin(this IEnumerable<string> list, string start, string end)

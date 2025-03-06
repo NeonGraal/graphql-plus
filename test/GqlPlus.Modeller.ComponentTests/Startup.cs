@@ -4,6 +4,7 @@ using DiffEngine;
 
 using GqlPlus.Convert;
 using GqlPlus.Modelling;
+using GqlPlus.Rendering;
 using GqlPlus.Resolving;
 
 using Microsoft.Extensions.DependencyInjection;

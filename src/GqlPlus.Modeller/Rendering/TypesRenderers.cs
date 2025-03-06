@@ -12,10 +12,10 @@ internal class BaseTypeRenderer<TModel>
   public bool ForType(BaseTypeModel model)
     => model is TModel;
 
-  public RenderStructure TypeRender(BaseTypeModel model)
+  public Structured TypeRender(BaseTypeModel model)
     => Render((TModel)model);
 
-  internal override RenderStructure Render(TModel model)
+  internal override Structured Render(TModel model)
     => base.Render(model)
     .Add("typeKind", model.TypeKind.RenderEnum());
 }
@@ -26,9 +26,9 @@ internal abstract class ChildTypeRenderer<TModel, TParent>(
   where TModel : ChildTypeModel<TParent>
   where TParent : ModelBase
 {
-  internal override RenderStructure Render(TModel model)
+  internal override Structured Render(TModel model)
     => base.Render(model)
-      .Add("parent", model.Parent, parent);
+      .AddRendered("parent", model.Parent, parent);
 
   internal virtual bool GetParentModel<TInput, TResult>(TInput input, IResolveContext context, [NotNullWhen(true)] out TResult? result)
     where TInput : ChildTypeModel<TParent>
@@ -74,10 +74,10 @@ internal abstract class ParentTypeRenderer<TModel, TItem, TAll>(
   where TItem : ModelBase
   where TAll : ModelBase
 {
-  internal override RenderStructure Render(TModel model)
+  internal override Structured Render(TModel model)
     => base.Render(model)
-        .Add("items", model.Items, renderers.Item)
-        .Add("allItems", model.AllItems, renderers.All);
+        .AddList("items", model.Items, renderers.Item)
+        .AddList("allItems", model.AllItems, renderers.All);
 
   protected override string? ParentName(TypeRefModel<SimpleKindModel>? parent)
     => parent?.Name;
@@ -89,7 +89,7 @@ internal class AllTypesRenderer(
   IEnumerable<ITypeRenderer> types
 ) : IRenderer<BaseTypeModel>
 {
-  RenderStructure IRenderer<BaseTypeModel>.Render(BaseTypeModel model)
+  Structured IRenderer<BaseTypeModel>.Render(BaseTypeModel model)
     => types
     .SingleOrDefault(t => t.ForType(model))
     ?.TypeRender(model)
@@ -99,7 +99,7 @@ internal class AllTypesRenderer(
 internal interface ITypeRenderer
 {
   bool ForType(BaseTypeModel model);
-  RenderStructure TypeRender(BaseTypeModel model);
+  Structured TypeRender(BaseTypeModel model);
 }
 
 internal class TypeRefRenderer<TModel, TKind>
@@ -109,7 +109,7 @@ internal class TypeRefRenderer<TModel, TKind>
 {
   private static readonly string s_typeKindTag = typeof(TKind).TypeTag();
 
-  internal override RenderStructure Render(TModel model)
+  internal override Structured Render(TModel model)
     => base.Render(model)
       .Add("typeKind", new(model.TypeKind.ToString(), s_typeKindTag));
 }

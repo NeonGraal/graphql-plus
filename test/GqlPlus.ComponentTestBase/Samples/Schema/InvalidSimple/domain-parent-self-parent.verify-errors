@@ -1,2 +1,2 @@
-﻿Invalid Domain. 'Test' cannot be a child of itself, even recursively via Parent.,
-Invalid Domain. 'Parent' cannot be a child of itself, even recursively via Test.
+﻿Invalid Domain. 'Test' cannot be a child of itself, even recursively via Parent
+Invalid Domain. 'Parent' cannot be a child of itself, even recursively via Test

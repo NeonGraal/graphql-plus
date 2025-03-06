@@ -1,4 +1,4 @@
-﻿Invalid Input. 'Test' cannot be an alternate of itself, even recursively via Recurse.,
-Invalid Input. 'Alt' cannot be an alternate of itself, even recursively via Test.,
-Invalid Input. 'More' cannot be an alternate of itself, even recursively via Alt.,
-Invalid Input. 'Recurse' cannot be an alternate of itself, even recursively via More.
+﻿Invalid Input. 'Test' cannot be an alternate of itself, even recursively via Recurse
+Invalid Input. 'Alt' cannot be an alternate of itself, even recursively via Test
+Invalid Input. 'More' cannot be an alternate of itself, even recursively via Alt
+Invalid Input. 'Recurse' cannot be an alternate of itself, even recursively via More

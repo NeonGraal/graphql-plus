@@ -1,0 +1,21 @@
+﻿{
+  "$tag": "_Schema",
+  "directives": {
+    "$tag": "_Map_Directives",
+    "DirDescr": {
+      "$tag": "_Directive",
+      "description": "A directive described",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DirDescr",
+      "repeatable": false
+    }
+  }
+}

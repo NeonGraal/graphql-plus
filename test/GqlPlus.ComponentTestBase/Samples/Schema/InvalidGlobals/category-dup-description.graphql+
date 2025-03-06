@@ -1,0 +1,5 @@
+"First category"
+category { Test }
+"Second category"
+category { Test }
+output Test { }

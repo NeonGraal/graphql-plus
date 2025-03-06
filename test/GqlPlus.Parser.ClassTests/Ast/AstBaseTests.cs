@@ -9,19 +9,19 @@ public abstract class AstBaseTests<TInput>
   public void HashCode_WithNull()
   => BaseChecks.HashCode_WithInput(default!);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode(TInput input)
   => BaseChecks.HashCode_WithInput(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Text(TInput input)
   => BaseChecks.Text_WithInput(input, InputString(input));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality(TInput input)
     => BaseChecks.Equality_WithInput(input);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [SkippableTheory, RepeatData]
   public void Inequality(TInput input1, TInput input2)
     => BaseChecks
       .SkipIf(SameInput(input1, input2))

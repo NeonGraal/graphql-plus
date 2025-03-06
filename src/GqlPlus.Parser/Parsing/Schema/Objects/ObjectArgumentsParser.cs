@@ -19,11 +19,9 @@ internal abstract class ObjectArgsParser<TObjArg, TObjArgAst>
       return list.EmptyArray();
     }
 
-    IResult<TObjArgAst> argument = ParseObjectType(tokens, label);
-    while (argument
-        .Map(value => ArgEnumValue(tokens, value))
-        .Required(list.Add)) {
-      argument = ParseObjectType(tokens, label);
+    IResult<TObjArgAst> argument = ParseObjectType(tokens, label).Map(value => ArgEnumValue(tokens, value));
+    while (argument.Required(list.Add)) {
+      argument = ParseObjectType(tokens, label).Map(value => ArgEnumValue(tokens, value));
     }
 
     if (argument.IsError()) {

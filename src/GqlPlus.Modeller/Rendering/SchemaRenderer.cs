@@ -8,12 +8,12 @@ internal class SchemaRenderer(
   IRenderer<BaseTypeModel> types
 ) : AliasedRenderer<SchemaModel>
 {
-  internal override RenderStructure Render(SchemaModel model)
+  internal override Structured Render(SchemaModel model)
     => base.Render(model)
-      .Add("categories", model.GetCategories(default), categories, "_Categories")
-      .Add("directives", model.GetDirectives(default), directives, "_Directives")
-      .Add("operations", model.GetOperations(default), operations, "_Operations")
-      .Add("settings", model.GetSettings(default), settings, "_Setting")
-      .Add("types", model.GetTypes(default), types, "_Type")
+      .AddMap("categories", model.GetCategories(default), categories, "_Categories")
+      .AddMap("directives", model.GetDirectives(default), directives, "_Directives")
+      .AddMap("operations", model.GetOperations(default), operations, "_Operations")
+      .AddMap("types", model.GetTypes(default), types, "_Type")
+      .AddMap("settings", model.GetSettings(default), settings, "_Setting")
       .Add("_errors", model.Errors.Render());
 }

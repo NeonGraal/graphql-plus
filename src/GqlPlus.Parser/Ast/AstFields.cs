@@ -20,10 +20,6 @@ internal class AstFields<TValue>
     && Keys.Order().SequenceEqual(other.Keys.Order())
     && Keys.All(k => this[k]?.Equals(other[k]) ?? false);
 
-  public AstFields<TResult> Cast<TResult>()
-    where TResult : IGqlpValue<TResult>, TValue
-    => new(this.ToImmutableDictionary(kv => kv.Key, kv => (TResult)kv.Value));
-
   IImmutableDictionary<IGqlpFieldKey, TValue> IImmutableDictionary<IGqlpFieldKey, TValue>.Add(IGqlpFieldKey key, TValue value)
     => throw new NotImplementedException();
   IImmutableDictionary<IGqlpFieldKey, TValue> IImmutableDictionary<IGqlpFieldKey, TValue>.AddRange(IEnumerable<KeyValuePair<IGqlpFieldKey, TValue>> pairs)

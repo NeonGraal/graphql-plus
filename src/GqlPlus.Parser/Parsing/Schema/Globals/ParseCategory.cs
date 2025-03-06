@@ -19,10 +19,9 @@ internal class ParseCategory(
     string name = string.IsNullOrWhiteSpace(partial.Name)
       ? value.Output.Camelize() : partial.Name;
 
-    return new CategoryDeclAst(partial.At, name, partial.Description) {
+    return new CategoryDeclAst(partial.At, name, partial.Description, value.Output) {
       Aliases = partial.Aliases,
       Option = partial.Option ?? CategoryOption.Parallel,
-      Output = value.Output,
       Modifiers = value.Modifiers,
     };
   }

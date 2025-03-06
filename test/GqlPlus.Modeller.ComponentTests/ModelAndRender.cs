@@ -14,7 +14,7 @@ internal sealed class ModelAndRender(
 {
   public ITypesContext Context() => new TypesContext(types);
 
-  public RenderStructure RenderAst(IGqlpSchema schema, ITypesContext context, IGqlpSchema? extras = null)
+  public Structured RenderAst(IGqlpSchema schema, ITypesContext context, IGqlpSchema? extras = null)
   {
     SchemaModel model = modeller.ToModel(schema, context.TypeKinds);
     context.AddModels(model.Types.Values);
@@ -26,7 +26,7 @@ internal sealed class ModelAndRender(
     context.Errors.Clear();
     model = resolver.Resolve(model, context);
 
-    RenderStructure result = renderer.Render(model);
+    Structured result = renderer.Render(model);
     if (context.Errors.Count > 0) {
       result.Add("_errors", context.Errors.Render());
     }
@@ -42,5 +42,5 @@ public interface IModelAndRender
 {
   ITypesContext Context();
   ITypesContext WithBuiltIns();
-  RenderStructure RenderAst(IGqlpSchema schema, ITypesContext context, IGqlpSchema? extras = null);
+  Structured RenderAst(IGqlpSchema schema, ITypesContext context, IGqlpSchema? extras = null);
 }

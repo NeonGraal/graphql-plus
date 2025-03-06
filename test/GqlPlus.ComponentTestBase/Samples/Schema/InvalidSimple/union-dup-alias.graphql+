@@ -1,2 +1,2 @@
-union Test [a] { Bad }
-union Dup [a] { Test }
+union Test [a] { String }
+union Dup [a] { Number }

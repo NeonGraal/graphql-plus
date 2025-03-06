@@ -3,11 +3,12 @@ using GqlPlus.Ast;
 using GqlPlus.Merging;
 using GqlPlus.Token;
 using GqlPlus.Verification.Schema;
+using GqlPlus.Verifying;
 using GqlPlus.Verifying.Schema;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
 
-namespace GqlPlus.Verifying;
+namespace GqlPlus;
 
 public class VerifierBase
   : SubstituteBase

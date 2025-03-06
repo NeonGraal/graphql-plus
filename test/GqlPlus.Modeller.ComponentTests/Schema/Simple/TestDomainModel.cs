@@ -2,7 +2,6 @@
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Modelling.Simple;
 using GqlPlus.Resolving;
-using GqlPlus.Schema;
 
 namespace GqlPlus.Schema.Simple;
 

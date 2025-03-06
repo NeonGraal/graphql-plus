@@ -4,16 +4,21 @@ namespace GqlPlus;
 
 public class SampleChecks
 {
-  protected async Task CheckErrors(string category, string file, ITokenMessages errors, bool includeVerify = false)
+  protected async Task CheckErrors(string category, string directory, string file, ITokenMessages errors, bool includeVerify = false)
   {
     List<string> suffixes = ["", "parse-"];
     if (includeVerify) {
       suffixes.Add("verify-");
     }
 
+    string path = $"Samples/{category}/";
+    if (!string.IsNullOrWhiteSpace(directory)) {
+      path += directory + "/";
+    }
+
     List<string> expected = [];
     foreach (string suffix in suffixes) {
-      string errorsFile = $"Samples/{category}/{file}.{suffix}errors";
+      string errorsFile = $"{path}/{file}.{suffix}errors";
 
       if (File.Exists(errorsFile)) {
         expected.AddRange(await File.ReadAllLinesAsync(errorsFile));
@@ -21,18 +26,22 @@ public class SampleChecks
     }
 
     if (expected.Count == 0) {
+      if (includeVerify && errors?.Count > 0 && AttributeReader.TryGetProjectDirectory(out string? project)) {
+        await File.WriteAllLinesAsync($"{project}/{path}/{file}.verify+errors", errors.Select(e => e.Message).Distinct());
+      }
+
       return;
     }
 
-    string[] missing = expected.Where(e
+    string[] missing = [.. expected.Where(e
         => !errors.Any(error
           => error.Message.Contains(e, StringComparison.InvariantCulture))
-      ).ToArray();
+      )];
 
-    ITokenMessage[] extra = errors.Where(error
+    string[] extra = [.. errors.Where(error
         => !expected.Any(e
           => error.Message.Contains(e, StringComparison.InvariantCulture))
-      ).ToArray();
+      ).Select(error => error.Message)];
 
     using AssertionScope scope = new();
     missing.Should().BeNullOrEmpty("Missing errors");

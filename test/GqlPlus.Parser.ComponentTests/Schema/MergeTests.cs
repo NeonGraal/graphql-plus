@@ -31,7 +31,7 @@ public class MergeTests(
   [Theory]
   [ClassData(typeof(SchemaValidMergesData))]
   public async Task CanMerge_ValidEach(string merge)
-    => await ReplaceFile("ValidMerges", merge, (input, test) => Check_CanMerge([input], test));
+    => await ReplaceFile("ValidMerges", merge, (input, _, test) => Check_CanMerge([input], test));
 
   [Fact]
   public async Task Merge_All()

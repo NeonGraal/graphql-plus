@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Verifying;
 using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Simple;
 

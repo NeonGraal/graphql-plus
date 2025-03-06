@@ -2,7 +2,6 @@
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Parsing;
-using GqlPlus.Parsing.Schema.Simple;
 
 namespace GqlPlus.Schema.Simple;
 

@@ -62,7 +62,7 @@ public class HtmlTests(
   public async Task Html_Simple(string simple)
     => await ReplaceFile("ValidSimple", simple, Verify_Model);
 
-  private void Verify_Model(string input, string test)
+  private void Verify_Model(string input, string testDirectory, string test)
     => Verify_Model([input], test);
 
   private void Verify_Model(IEnumerable<string> inputs, string test)

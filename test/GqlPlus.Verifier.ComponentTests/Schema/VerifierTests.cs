@@ -51,17 +51,17 @@ public class VerifierTests(
   {
     string schema = await ReadSchema(testName, testDirectory);
 
-    VerifyInput_Valid(schema, testName);
+    VerifyInput_Valid(schema, testDirectory, testName);
   }
 
   private async Task VerifyFile_Invalid(string testDirectory, string testName)
   {
     string schema = await ReadSchema(testName, testDirectory);
 
-    await VerifyInput_Invalid(schema, $"{testDirectory}/{testName}");
+    await VerifyInput_Invalid(schema, testDirectory, testName);
   }
 
-  private void VerifyInput_Valid(string input, string testName)
+  private void VerifyInput_Valid(string input, string testDirectory, string testName)
   {
     IResult<IGqlpSchema> parse = Parse(input);
 
@@ -76,7 +76,7 @@ public class VerifierTests(
     result.Should().BeNullOrEmpty(testName);
   }
 
-  private async Task VerifyInput_Invalid(string input, string test)
+  private async Task VerifyInput_Invalid(string input, string testDirectory, string test)
   {
     IResult<IGqlpSchema> parse = Parse(input);
 
@@ -87,6 +87,6 @@ public class VerifierTests(
       parse.IsError(e => result.Add(e with { Message = "Parse Error: " + e.Message }));
     }
 
-    await CheckErrors("Schema", test, result, true);
+    await CheckErrors("Schema", testDirectory, test, result, true);
   }
 }

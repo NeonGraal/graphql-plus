@@ -3,7 +3,6 @@ using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Convert;
 using GqlPlus.Modelling;
 using GqlPlus.Modelling.Globals;
-using GqlPlus.Schema;
 
 namespace GqlPlus.Schema.Globals;
 

@@ -19,6 +19,6 @@ public class VerifierTests(
 
     schemaVerifier.Verify(ast, errors);
 
-    await CheckErrors("Schema", sample, errors, true);
+    await CheckErrors("Schema", "", sample, errors, true);
   }
 }

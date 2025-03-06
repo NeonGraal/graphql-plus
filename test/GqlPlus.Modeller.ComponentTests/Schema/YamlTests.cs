@@ -43,7 +43,7 @@ public class YamlTests(
   public async Task Yaml_Simple(string simple)
     => await ReplaceFileAsync("ValidSimple", simple, Verify_Model);
 
-  private async Task Verify_Model(string input, string test)
+  private async Task Verify_Model(string input, string testDirectory, string test)
     => await Verify_Model([input], test);
 
   private async Task Verify_Model(IEnumerable<string> inputs, string test)

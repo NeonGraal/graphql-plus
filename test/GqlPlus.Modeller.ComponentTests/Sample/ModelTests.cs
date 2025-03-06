@@ -21,7 +21,7 @@ public class ModelTests(
     Structured result = renderer.RenderAst(ast, context);
     context.Errors.Add(ast.Errors);
 
-    await CheckErrors("Schema", sample, context.Errors);
+    await CheckErrors("Schema", "", sample, context.Errors);
 
     await Verify(result.ToYaml(true), CustomSettings("Sample", "Yaml", sample));
   }

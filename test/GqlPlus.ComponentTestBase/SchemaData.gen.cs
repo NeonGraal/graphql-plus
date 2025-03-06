@@ -1,5 +1,5 @@
 ﻿// Generated from .\test\GqlPlus.ComponentTestBase\Samples\Schema
-// Collected from 19141aa  (HEAD -> category-dup) 2025-03-06 Correct various verify errors
+// Collected from 8d27cdd  (HEAD -> correct-coverage, origin/correct-coverage) 2025-03-06 Further improve verify errors
 
 namespace GqlPlus;
 
@@ -77,6 +77,7 @@ public class SchemaInvalidObjectsData
     Add("output-enumValue-bad");
     Add("output-enumValue-wrong");
     Add("output-field-input");
+    Add("output-generic-arg-enum-wrong");
     Add("output-generic-enum-bad");
     Add("output-generic-enum-wrong");
     Add("output-param-diff");

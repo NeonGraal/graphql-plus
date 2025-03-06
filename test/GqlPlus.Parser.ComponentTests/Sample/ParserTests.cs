@@ -19,7 +19,7 @@ public class ParserTests(
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);
 
-    await CheckErrors("Schema", sample, ast.Errors);
+    await CheckErrors("Schema", "", sample, ast.Errors);
 
     await Verify(ast.Show(), CustomSettings("Sample", "Schema", sample));
   }
@@ -30,7 +30,7 @@ public class ParserTests(
   {
     IGqlpOperation? ast = await ParseSampleOperation("Operation", sample, "gql+");
 
-    await CheckErrors("Operation", sample, ast!.Errors);
+    await CheckErrors("Operation", "", sample, ast!.Errors);
 
     await Verify(ast?.Show(), CustomSettings("Sample", "Operation", sample));
   }

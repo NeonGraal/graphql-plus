@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Verifying;
 using GqlPlus.Verifying.Operation;
 using NSubstitute;
 

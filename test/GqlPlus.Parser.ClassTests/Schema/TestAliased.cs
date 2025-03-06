@@ -29,6 +29,7 @@ public abstract class TestAliased<TAst, TInput>
   public void CanMerge_ThreeAstsOneAlias_ReturnsGood(TInput input1, TInput input2, string alias)
     => this
       .SkipIf(SkipDifferentInput)
+      .SkipEqual(GetName(input1), GetName(input2))
       .CanMerge_Good([MakeAliased(input1, []), MakeAliased(input2, []), MakeAliased(input1, [alias])]);
 
   [SkippableTheory, RepeatData]

@@ -68,5 +68,5 @@ public class ParseFieldTests(
     => checks.FalseExpected(alias + ":", DefaultNull);
 
   private void DefaultNull(IGqlpSelection? result)
-    => result.Should().BeNull();
+    => result.ShouldBeNull();
 }

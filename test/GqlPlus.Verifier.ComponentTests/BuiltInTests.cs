@@ -39,6 +39,6 @@ public class BuiltInTests(
 
     verifier.Verify(schema, result);
 
-    result.Should().BeNullOrEmpty(type?.Label);
+    result.ShouldBeEmpty(type?.Label);
   }
 }

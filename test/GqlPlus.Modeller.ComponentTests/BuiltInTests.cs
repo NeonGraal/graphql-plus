@@ -72,7 +72,7 @@ public class BuiltInTests(IModelAndRender renderer)
     ITypesContext context = renderer.Context();
     Structured result = renderer.RenderAst(schema, context);
 
-    context.Errors.Should().BeNullOrEmpty();
+    context.Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -85,7 +85,7 @@ public class BuiltInTests(IModelAndRender renderer)
     ITypesContext context = renderer.Context();
     Structured result = renderer.RenderAst(schema, context);
 
-    context.Errors.Should().BeNullOrEmpty();
+    context.Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -107,7 +107,7 @@ public class BuiltInTests(IModelAndRender renderer)
     ITypesContext context = renderer.Context();
     Structured result = renderer.RenderAst(schema, context, extrasSchema);
 
-    context.Errors.Should().BeNullOrEmpty(type?.Label);
+    context.Errors.ShouldBeEmpty(type?.Label);
   }
 
   private void RenderTypeHtml(IGqlpType type, IGqlpType[] extras)

@@ -15,7 +15,7 @@ internal class BaseAstChecks<TAst>
 
     int result = factory().ThrowIfNull().GetHashCode();
 
-    result.Should().Be(expected, factoryExpression);
+    result.ShouldBe(expected, factoryExpression);
   }
 
   public void Equality(AstCreator factory,
@@ -26,9 +26,9 @@ internal class BaseAstChecks<TAst>
 
     bool result = left.ThrowIfNull().Equals(right);
 
-    result.Should().BeTrue(factoryExpression);
+    result.ShouldBeTrue(factoryExpression);
 
-    left.Should().NotBeSameAs(right);
+    left.ShouldNotBeSameAs(right);
   }
 
   public void Inequality(AstCreator factory1, AstCreator factory2,
@@ -39,9 +39,9 @@ internal class BaseAstChecks<TAst>
 
     bool result = left.ThrowIfNull().Equals(right);
 
-    result.Should().BeFalse(factoryExpression);
+    result.ShouldBeFalse(factoryExpression);
 
-    left.Should().NotBeSameAs(right);
+    left.ShouldNotBeSameAs(right);
   }
 
   public void Inequality(AstCreator factory1, AstCreator factory2, bool skipIf,
@@ -65,7 +65,7 @@ internal class BaseAstChecks<TAst>
   {
     string result = $"{factory()}";
 
-    result.Should().Be(expected, factoryExpression);
+    result.ShouldBe(expected, factoryExpression);
   }
 
   public void Text(AstCreator factory, string expected, bool skipIf,

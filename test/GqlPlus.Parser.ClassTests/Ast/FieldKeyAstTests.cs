@@ -42,7 +42,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     FieldKeyAst left = FieldKey(number1);
     FieldKeyAst right = FieldKey(number2);
 
-    left.CompareTo(right).Should().Be(number1.CompareTo(number2));
+    left.CompareTo(right).ShouldBe(number1.CompareTo(number2));
   }
 
   [Theory, RepeatData]
@@ -51,7 +51,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     FieldKeyAst left = FieldKey(number);
     FieldKeyAst right = FieldKey(contents);
 
-    (left != right).Should().BeTrue();
+    (left != right).ShouldBeTrue();
   }
 
   [Theory, RepeatData]
@@ -60,7 +60,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     FieldKeyAst left = FieldKey(number);
     FieldKeyAst right = FieldKey(enumType, enumValue);
 
-    (left != right).Should().BeTrue();
+    (left != right).ShouldBeTrue();
   }
 
   [Theory, RepeatData]
@@ -75,7 +75,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     FieldKeyAst right = FieldKey(contents2);
     int expected = string.Compare(contents1, contents2, StringComparison.Ordinal);
 
-    left.CompareTo(right).Should().Be(expected);
+    left.CompareTo(right).ShouldBe(expected);
   }
 
   [Theory, RepeatData]
@@ -84,7 +84,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     FieldKeyAst left = FieldKey(contents);
     FieldKeyAst right = FieldKey(enumType, enumValue);
 
-    (left != right).Should().BeTrue();
+    (left != right).ShouldBeTrue();
   }
 
   [Theory, RepeatData]
@@ -99,7 +99,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     FieldKeyAst right = FieldKey(enumType, enumValue2);
     int expected = string.Compare(enumType + "." + enumValue1, enumType + "." + enumValue2, StringComparison.Ordinal);
 
-    left.CompareTo(right).Should().Be(expected);
+    left.CompareTo(right).ShouldBe(expected);
   }
 
   [Theory, RepeatData]
@@ -112,7 +112,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     FieldKeyAst left = FieldKey(enumType, enumValue);
     FieldKeyAst right = FieldKey(enumValue, enumType);
 
-    (left != right).Should().BeTrue();
+    (left != right).ShouldBeTrue();
   }
 
   [Theory, RepeatData]
@@ -126,7 +126,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     IGqlpFieldKey right = enumValue2.FieldKey();
     int expected = string.Compare(enumValue1, enumValue2, StringComparison.Ordinal);
 
-    left.CompareTo(right).Should().Be(expected);
+    left.CompareTo(right).ShouldBe(expected);
   }
 
   [Theory, RepeatData]
@@ -135,7 +135,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     IGqlpFieldKey left = enumValue.FieldKey();
     IGqlpFieldKey right = FieldKey(enumValue, enumValue);
 
-    (left != right).Should().BeTrue();
+    (left != right).ShouldBeTrue();
   }
 
   [Theory, RepeatData]
@@ -150,7 +150,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     FieldKeyAst right = FieldKey(enumType2, "enumValue");
     int expected = string.Compare(enumType1 + ".enumValue", enumType2 + ".enumValue", StringComparison.Ordinal);
 
-    left.CompareTo(right).Should().Be(expected);
+    left.CompareTo(right).ShouldBe(expected);
   }
 
   [Theory, RepeatData]
@@ -159,7 +159,7 @@ public class FieldKeyAstTests : AstAbbreviatedTests
     FieldKeyAst left = FieldKey(enumType, "enumValue");
     FieldKeyAst right = FieldKey(enumType, enumType + "enumValue");
 
-    (left != right).Should().BeTrue();
+    (left != right).ShouldBeTrue();
   }
 
   internal AstAbbreviatedChecks<string, IGqlpFieldKey> _checks = new(value => value.FieldKey());

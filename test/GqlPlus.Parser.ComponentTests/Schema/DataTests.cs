@@ -12,6 +12,6 @@ public class DataTests
       .Where(g => g.Count() > 1)
       .Select(g => g.Key);
 
-    duplicateKeys.Should().BeEmpty();
+    duplicateKeys.ShouldBeEmpty();
   }
 }

@@ -35,5 +35,5 @@ public class ParseKeyValueTests(
     => checks.FalseExpected(key + ' ', CheckNull);
 
   private void CheckNull(KeyValue<IGqlpConstant> result)
-    => result.Should().Be((KeyValue<IGqlpConstant>)default);
+    => result.ShouldBe((KeyValue<IGqlpConstant>)default);
 }

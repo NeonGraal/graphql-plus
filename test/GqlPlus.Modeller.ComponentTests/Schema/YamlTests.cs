@@ -1,4 +1,4 @@
-﻿using FluentAssertions.Execution;
+﻿
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Convert;
 using GqlPlus.Merging;
@@ -54,8 +54,8 @@ public class YamlTests(
     ITypesContext context = renderer.WithBuiltIns();
     Structured result = ModelAsts(asts, context);
 
-    using AssertionScope scope = new();
-    context.Errors.Should().BeNullOrEmpty(test);
+    // using AssertionScope scope = new();
+    context.Errors.ShouldBeEmpty(test);
     await Verify(result.ToYaml(true), CustomSettings("Schema", "Yaml", test));
   }
 

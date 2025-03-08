@@ -70,7 +70,7 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
 
     string yaml = render.ToYaml(false);
 
-    yaml.ToLines().Should().Equal(expected.Tidy());
+    yaml.ToLines().ShouldBe(expected.Tidy());
   }
 
   protected virtual TModel AstToModel(TAst ast)

@@ -21,14 +21,14 @@ public abstract class GroupedVerifierBase<TAliased>
 
     verifier.Verify([item1, item2], Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
     CheckSimpleVerify();
   }
 
   protected virtual void CheckSimpleVerify()
   {
     _merger.Called();
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 
   internal abstract GroupedVerifier<TAliased> NewGroupedVerifier();

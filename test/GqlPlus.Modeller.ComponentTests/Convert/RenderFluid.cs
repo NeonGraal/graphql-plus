@@ -1,4 +1,4 @@
-﻿using FluentAssertions.Execution;
+﻿
 
 using Fluid;
 using Fluid.Values;
@@ -120,10 +120,10 @@ public static class RenderFluid
 
     IDirectoryContents contents = files.GetDirectoryContents("");
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    contents.Exists.Should().BeTrue();
-    contents.Should().NotBeEmpty();
-    contents.Should().Contain(fi => fi.Name == "pico.liquid");
+    contents.Exists.ShouldBeTrue();
+    contents.ShouldNotBeEmpty();
+    contents.ShouldContain(fi => fi.Name == "pico.liquid");
   }
 }

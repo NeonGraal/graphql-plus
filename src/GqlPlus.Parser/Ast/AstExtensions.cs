@@ -15,9 +15,6 @@ public static class AstExtensions
     => left is null && right is null
     || left is not null && left == right;
 
-  public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
-    => left.OrderBy(t => t, comparer).SequenceEqual(right.OrderBy(t => t, comparer));
-
   public static IEnumerable<string> AsString<T>(this IEnumerable<T>? items)
     => items?.Any() == true
       ? items.Where(i => i is not null).Select(i => $"{i}")

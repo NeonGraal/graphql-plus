@@ -113,21 +113,21 @@ AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.ArgsBy createArgs
   {
     TObjBase objBase = _createBase(input);
 
-    objBase.FullType.Should().Be(input);
+    objBase.FullType.ShouldBe(input);
   }
 
   public void FullType_WithIsTypeParam(string input)
   {
     TObjBase objBase = _createBase(input) with { IsTypeParam = true };
 
-    objBase.FullType.Should().Be("$" + input);
+    objBase.FullType.ShouldBe("$" + input);
   }
 
   public void FullType_WithArgs(string input, string[] arguments)
   {
     TObjBase objBase = _createBase(input) with { BaseArgs = _createArgs(arguments) };
 
-    objBase.FullType.Should().Be(input + $" < {arguments.Joined()} >");
+    objBase.FullType.ShouldBe(input + $" < {arguments.Joined()} >");
   }
 
   public void FullType_WithIsTypeParamAndArgs(string input, string[] arguments)
@@ -137,7 +137,7 @@ AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.ArgsBy createArgs
       BaseArgs = _createArgs(arguments)
     };
 
-    objBase.FullType.Should().Be($"${input} < {arguments.Joined()} >");
+    objBase.FullType.ShouldBe($"${input} < {arguments.Joined()} >");
   }
 }
 

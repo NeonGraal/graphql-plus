@@ -16,9 +16,9 @@ public class MergeTypeParamsTests
 
     IEnumerable<IGqlpTypeParam> result = MergerGroups.Merge(items);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    result.Should().BeAssignableTo<IEnumerable<IGqlpTypeParam>>();
+    result.ShouldBeAssignableTo<IEnumerable<IGqlpTypeParam>>();
   }
 
   private readonly MergeTypeParams _merger = new();

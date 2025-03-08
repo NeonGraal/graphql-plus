@@ -66,14 +66,14 @@ public class VerifierTests(
     IResult<IGqlpSchema> parse = Parse(input);
 
     if (parse is IResultError<SchemaAst> error) {
-      error.Message.Should().BeNull(testName);
+      error.Message.ShouldBeNull(testName);
     }
 
     TokenMessages result = [];
 
     verifier.Verify(parse.Required(), result);
 
-    result.Should().BeNullOrEmpty(testName);
+    result.ShouldBeEmpty(testName);
   }
 
   private async Task VerifyInput_Invalid(string input, string testDirectory, string test)

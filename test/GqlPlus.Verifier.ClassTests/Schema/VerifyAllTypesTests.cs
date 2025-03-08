@@ -24,7 +24,7 @@ public class VerifyAllTypesTests
 
     verifier.Verify([item1, item2], Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     dualAllTypes.Called();
     enumAllTypes.Called();
@@ -33,6 +33,6 @@ public class VerifyAllTypesTests
     domainAllTypes.Called();
     unionAllTypes.Called();
 
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 }

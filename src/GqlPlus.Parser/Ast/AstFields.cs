@@ -17,7 +17,7 @@ internal class AstFields<TValue>
 
   public virtual bool Equals(Dictionary<IGqlpFieldKey, TValue>? other)
     => other is not null
-    && Keys.Order().SequenceEqual(other.Keys.Order())
+    && Keys.OrderedEqual(other.Keys)
     && Keys.All(k => this[k]?.Equals(other[k]) ?? false);
 
   IImmutableDictionary<IGqlpFieldKey, TValue> IImmutableDictionary<IGqlpFieldKey, TValue>.Add(IGqlpFieldKey key, TValue value)

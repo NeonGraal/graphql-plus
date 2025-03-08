@@ -65,5 +65,5 @@ public class ParseSelectionTests(
     => checks.FalseExpected("|:?", CheckNull);
 
   private void CheckNull(IGqlpSelection? result)
-    => result.Should().BeNull();
+    => result.ShouldBeNull();
 }

@@ -23,10 +23,10 @@ public abstract class AstDomainVerifierBase<TMember>
 
     verifier.Verify(domain, context);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     Members.NotCalled();
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 
   internal virtual AstDomainVerifier<TMember> NewDomainVerifier()

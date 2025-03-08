@@ -13,12 +13,12 @@ public class ResultErrorTests : BaseResultTests
 
     IResult<string> result = _error.AsPartial(Sample, v => withValue = true, () => action = true);
 
-    result.Should().BeOfType<ResultPartial<string>>()
-      .Subject.Message.Message.Should().Contain(Error);
-    using AssertionScope scope = new();
-    result.Optional().Should().Be(Sample);
-    withValue.Should().BeFalse();
-    action.Should().BeTrue();
+    result.ShouldBeOfType<ResultPartial<string>>()
+      .Message.Message.ShouldContain(Error);
+    // using AssertionScope scope = new();
+    result.Optional().ShouldBe(Sample);
+    withValue.ShouldBeFalse();
+    action.ShouldBeTrue();
   }
 
   [Fact]
@@ -28,11 +28,11 @@ public class ResultErrorTests : BaseResultTests
 
     IResultArray<string> result = _error.AsPartialArray(SampleArray, v => withValue = true);
 
-    result.Should().BeOfType<ResultArrayPartial<string>>()
-      .Subject.Message.Message.Should().Contain(Error);
-    using AssertionScope scope = new();
-    result.Optional().Should().BeEquivalentTo(SampleArray);
-    withValue.Should().BeFalse();
+    result.ShouldBeOfType<ResultArrayPartial<string>>()
+      .Message.Message.ShouldContain(Error);
+    // using AssertionScope scope = new();
+    result.Optional().ShouldBe(SampleArray);
+    withValue.ShouldBeFalse();
   }
 
   [Fact]
@@ -40,8 +40,8 @@ public class ResultErrorTests : BaseResultTests
   {
     IResult<string> result = _error.Map(a => Error.Ok(), () => Sample.Ok());
 
-    result.Should().BeOfType<ResultOk<string>>()
-      .Subject.Required().Should().Be(Sample);
+    result.ShouldBeOfType<ResultOk<string>>()
+      .Required().ShouldBe(Sample);
   }
 
   [Fact]
@@ -49,10 +49,10 @@ public class ResultErrorTests : BaseResultTests
   {
     Action action = () => _error.Optional();
 
-    action.Should().Throw<InvalidOperationException>()
-      .Which.Message.Should().Contain(Error);
+    action.ShouldThrow<InvalidOperationException>()
+      .Message.ShouldContain(Error);
   }
 
   [Fact]
-  public void WithMesssage_CallsActionParam() => _error.WithMessage(m => m.Message.Should().Be(Error));
+  public void WithMesssage_CallsActionParam() => _error.WithMessage(m => m.Message.ShouldBe(Error));
 }

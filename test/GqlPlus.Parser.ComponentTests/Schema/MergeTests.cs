@@ -65,7 +65,7 @@ public class MergeTests(
 
     ITokenMessages result = merger.CanMerge(schemas);
 
-    result.Should().BeEmpty(testName);
+    result.ShouldBeEmpty(testName);
   }
 
   private async Task Verify_Merge(IEnumerable<string> inputs, string test)

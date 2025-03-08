@@ -28,11 +28,11 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     verifier.Verify(item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     _usage.NotCalled();
     _definition.NotCalled();
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -44,11 +44,11 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     verifier.Verify(item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     _usage.NotCalled();
     _definition.Called();
-    Errors.Count.Should().Be(1);
+    Errors.Count.ShouldBe(1);
   }
 
   [Fact]
@@ -60,11 +60,11 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     verifier.Verify(item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     _usage.Called();
     _definition.NotCalled();
-    Errors.Count.Should().Be(1);
+    Errors.Count.ShouldBe(1);
   }
 
   [Fact]
@@ -76,11 +76,11 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     verifier.Verify(item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     _usage.Called();
     _definition.Called();
-    Errors.Count.Should().Be(2);
+    Errors.Count.ShouldBe(2);
   }
 
   [Fact]
@@ -92,11 +92,11 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     verifier.Verify(item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     _usage.Called();
     _definition.Called();
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 
   internal abstract NamedVerifier<TUsage, TNamed> NewVerifier();

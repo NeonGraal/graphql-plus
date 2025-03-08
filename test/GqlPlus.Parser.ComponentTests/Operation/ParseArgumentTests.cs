@@ -91,5 +91,5 @@ public class ParseArgTests(
         CheckNull);
 
   private void CheckNull(IGqlpArg? result)
-    => result.Should().BeNull();
+    => result.ShouldBeNull();
 }

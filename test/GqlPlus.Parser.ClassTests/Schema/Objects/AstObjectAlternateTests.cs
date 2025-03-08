@@ -80,7 +80,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
     TObjAltAst alternate = _createAlternate(input, _createBase(input) with { BaseArgs = _createArgs(arguments) });
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
-    alternate.ModifiedType.Should().Be(expected);
+    alternate.ModifiedType.ShouldBe(expected);
   }
 
   public void ModifiedType_WithModifiers(AlternateInput input)
@@ -88,7 +88,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
     TObjAltAst alternate = CreateModifiers(input);
     string expected = $"{input.Type} [] ?";
 
-    alternate.ModifiedType.Should().Be(expected);
+    alternate.ModifiedType.ShouldBe(expected);
   }
 
   public void ModifiedType_WithModifiersAndArgs(AlternateInput input, string[] arguments)
@@ -99,7 +99,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
       ) with { Modifiers = TestMods() };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";
 
-    alternate.ModifiedType.Should().Be(expected);
+    alternate.ModifiedType.ShouldBe(expected);
   }
 
   private TObjAltAst CreateModifiers(AlternateInput input)

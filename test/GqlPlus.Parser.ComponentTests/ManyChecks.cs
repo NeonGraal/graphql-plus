@@ -14,26 +14,26 @@ internal class ManyChecksParser<TResult>(
   {
     IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
-    result.IsOk().Should().BeTrue(_type);
-    using AssertionScope scope = new();
-    result.Required().Should().Equal(expected);
+    result.IsOk().ShouldBeTrue(_type);
+    // using AssertionScope scope = new();
+    result.Required().ShouldBe(expected);
   }
 
   public void FalseExpected(string input)
   {
     IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
-    using AssertionScope scope = new();
-    result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).Should().BeTrue(_type);
+    // using AssertionScope scope = new();
+    result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(_type);
   }
 
   public void Count(string input, int count)
   {
     IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
-    result.IsOk().Should().BeTrue(_type);
-    using AssertionScope scope = new();
-    result.Required().Count().Should().Be(count);
+    result.IsOk().ShouldBeTrue(_type);
+    // using AssertionScope scope = new();
+    result.Required().Count().ShouldBe(count);
   }
 }
 
@@ -49,26 +49,26 @@ internal sealed class ManyChecksParser<TInterface, TResult>(
   {
     IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
 
-    result.IsOk().Should().BeTrue(_type);
-    using AssertionScope scope = new();
-    result.Required().Should().Equal(expected);
+    result.IsOk().ShouldBeTrue(_type);
+    // using AssertionScope scope = new();
+    result.Required().ShouldBe(expected);
   }
 
   public void FalseExpected(string input)
   {
     IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
 
-    using AssertionScope scope = new();
-    result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).Should().BeTrue(_type);
+    // using AssertionScope scope = new();
+    result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(_type);
   }
 
   public void Count(string input, int count)
   {
     IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
 
-    result.IsOk().Should().BeTrue(_type);
-    using AssertionScope scope = new();
-    result.Required().Count().Should().Be(count);
+    result.IsOk().ShouldBeTrue(_type);
+    // using AssertionScope scope = new();
+    result.Required().Count().ShouldBe(count);
   }
 }
 

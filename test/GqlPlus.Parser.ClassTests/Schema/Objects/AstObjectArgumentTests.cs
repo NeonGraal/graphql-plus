@@ -66,14 +66,14 @@ internal sealed class AstObjArgChecks<TObjArg, TObjArgAst>(
   {
     TObjArg objArg = createArg(input);
 
-    objArg.FullType.Should().Be(input);
+    objArg.FullType.ShouldBe(input);
   }
 
   public void FullType_WithIsTypeParam(string input)
   {
     TObjArg objArg = createArg(input) with { IsTypeParam = true };
 
-    objArg.FullType.Should().Be("$" + input);
+    objArg.FullType.ShouldBe("$" + input);
   }
 }
 

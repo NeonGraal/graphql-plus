@@ -73,5 +73,5 @@ public class ParseConstantTests(
         CheckNull);
 
   private void CheckNull(IGqlpConstant? result)
-    => result.Should().BeNull();
+    => result.ShouldBeNull();
 }

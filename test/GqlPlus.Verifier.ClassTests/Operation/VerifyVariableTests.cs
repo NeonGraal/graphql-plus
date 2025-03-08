@@ -33,9 +33,9 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -43,9 +43,9 @@ public class VerifyVariableTests
   {
     _verifier.Verify(_item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -55,9 +55,9 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    Errors.Count.Should().Be(1);
+    Errors.Count.ShouldBe(1);
   }
 
   [Fact]
@@ -69,9 +69,9 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -83,9 +83,9 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -99,9 +99,9 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    Errors.Count.Should().Be(1);
+    Errors.Count.ShouldBe(1);
   }
 
   [Fact]
@@ -113,9 +113,9 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -127,9 +127,9 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    Errors.Count.Should().Be(1);
+    Errors.Count.ShouldBe(1);
   }
 
   [Fact]
@@ -142,9 +142,9 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -159,9 +159,9 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    Errors.Count.Should().Be(1);
+    Errors.Count.ShouldBe(1);
   }
 
   [Fact]
@@ -174,9 +174,9 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -189,9 +189,9 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    Errors.Count.Should().Be(1);
+    Errors.Count.ShouldBe(1);
   }
 
   private void AddModifier(ModifierKind kind)

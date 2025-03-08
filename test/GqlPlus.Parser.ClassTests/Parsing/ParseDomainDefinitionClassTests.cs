@@ -20,6 +20,6 @@ public class ParseDomainDefinitionClassTests : ClassTestBase
 
     IResult<DomainDefinition> result = domain.Parse(tokens, "test");
 
-    result.Should().BeAssignableTo<IResultPartial<DomainDefinition>>();
+    result.ShouldBeAssignableTo<IResultPartial<DomainDefinition>>();
   }
 }

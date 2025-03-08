@@ -43,9 +43,9 @@ public class SampleChecks
           => error.Message.Contains(e, StringComparison.InvariantCulture))
       ).Select(error => error.Message)];
 
-    using AssertionScope scope = new();
-    missing.Should().BeNullOrEmpty("Missing errors");
-    extra.Should().BeNullOrEmpty("Extra errors");
+    // using AssertionScope scope = new();
+    missing.ShouldBeEmpty("Missing errors");
+    extra.ShouldBeEmpty("Extra errors");
   }
 
   protected VerifySettings CustomSettings(string category, string group, string file)

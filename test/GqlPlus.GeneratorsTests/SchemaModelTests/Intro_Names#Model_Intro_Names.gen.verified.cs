@@ -1,8 +1,13 @@
 ﻿//HintName: Model_Intro_Names.gen.cs
 // Generated from Intro_Names.graphql+
+
 /*
-Dual - _Aliased
-Dual - _Described
-Dual - _Named
 */
-namespace GqlTest.Model_Intro_Names {}
+
+namespace GqlTest.Model_Intro_Names;
+
+public interface IDual_Aliased {}
+
+public interface IDual_Described {}
+
+public interface IDual_Named {}

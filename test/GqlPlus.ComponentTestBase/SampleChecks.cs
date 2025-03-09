@@ -48,12 +48,15 @@ public class SampleChecks
     extra.ShouldBeEmpty("Extra errors");
   }
 
-  protected VerifySettings CustomSettings(string category, string group, string file)
+  protected VerifySettings CustomSettings(string category, string group, string file, bool scrubEmpty = true)
   {
     VerifySettings settings = new();
-    settings.ScrubEmptyLines();
     settings.UseDirectory($"{category}{group}Tests");
     settings.UseFileName(file);
+
+    if (scrubEmpty) {
+      settings.ScrubEmptyLines();
+    }
 
     if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("GQLPLUS_AUTOVERIFY"))) {
       settings.AutoVerify();

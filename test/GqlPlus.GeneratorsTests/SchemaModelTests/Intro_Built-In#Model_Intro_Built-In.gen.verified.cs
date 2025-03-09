@@ -1,14 +1,33 @@
 ﻿//HintName: Model_Intro_Built-In.gen.cs
 // Generated from Intro_Built-In.graphql+
+
 /*
-Output - _Constant
-Output - _Simple
-Output - _ConstantList
-Output - _ConstantMap
-Output - _Collections
-Output - _ModifierKeyed
-Output - _Modifiers
-Enum - _ModifierKind
-Output - _Modifier
 */
-namespace GqlTest.Model_Intro_Built-In {}
+
+namespace GqlTest.Model_Intro_Built-In;
+
+public interface IOutput_Constant {}
+
+public interface IOutput_Simple {}
+
+public interface IOutput_ConstantList {}
+
+public interface IOutput_ConstantMap {}
+
+public interface IOutput_Collections {}
+
+public interface IOutput_ModifierKeyed {}
+
+public interface IOutput_Modifiers {}
+
+public enum _ModifierKind {
+  Opt,
+  Optional = Opt,
+  List,
+  Dict,
+  Dictionary = Dict,
+  Param,
+  TypeParam = Param,
+}
+
+public interface IOutput_Modifier {}

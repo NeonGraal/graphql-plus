@@ -1,6 +1,8 @@
 ﻿//HintName: Model_errors.gen.cs
 // Generated from errors.graphql+
+
 /*
-Category - query
+Category query
 */
-namespace GqlTest.Model_errors {}
+
+namespace GqlTest.Model_errors;

@@ -1,13 +1,17 @@
 ﻿using System.Collections.Immutable;
-using System.Text;
-using GqlPlus.Abstractions.Schema;
+using GqlPlus.Abstractions;
+using GqlPlus.Generating;
+using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Parsing.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
+using Microsoft.CodeAnalysis.Text;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace GqlPlus;
 
@@ -34,7 +38,7 @@ public class GqlModelGenerator : IIncrementalGenerator
     return new GqlModelOptions(baseNamespace);
   }
 
-  private void GenerateCode(SourceProductionContext context, (ImmutableArray<AdditionalText> Left, GqlModelOptions Right) tuple)
+  private void GenerateCode(SourceProductionContext sourceContext, (ImmutableArray<AdditionalText> Left, GqlModelOptions Right) tuple)
   {
     (ImmutableArray<AdditionalText> array, GqlModelOptions? options) = tuple;
 
@@ -43,32 +47,45 @@ public class GqlModelGenerator : IIncrementalGenerator
     }
 
     IServiceProvider services = new ServiceCollection()
+      .AddSingleton<ILoggerFactory, NullLoggerFactory>()
       .AddCommonParsers()
       .AddSchemaParsers()
+      .AddMergers()
+      .AddGenerators()
       .BuildServiceProvider();
 
     Parser<IGqlpSchema>.L schemaParser = services.GetRequiredService<Parser<IGqlpSchema>.D>();
+    IMerge<IGqlpSchema> schemaMerger = services.GetRequiredService<IMerge<IGqlpSchema>>();
+    IGenerator<IGqlpSchema> schemaGenerator = services.GetRequiredService<IGenerator<IGqlpSchema>>();
 
     foreach (AdditionalText text in array) {
-      string file = Path.GetFileNameWithoutExtension(text.Path);
-      StringBuilder builder = new("// Generated from ");
-      builder.AppendLine(text.Path);
-      builder.AppendLine("\n/*");
-
       string? lines = text.GetText()?.ToString();
-      if (lines is not null) {
-        Tokenizer tokens = new(lines);
-
-        IGqlpSchema ast = schemaParser.Parse(tokens, "Schema").Required();
-        foreach (IGqlpDeclaration item in ast.Declarations) {
-          builder.AppendLine(item.Label + " - " + item.Name);
-        }
+      if (lines is null) {
+        continue;
       }
 
-      builder.AppendLine("*/\n");
-      builder.AppendLine($"namespace {options.BaseNamespace}.Model_" + file + " {}");
+      Tokenizer tokens = new(lines);
+      IGqlpSchema parsed = schemaParser.Parse(tokens, "Schema").Required();
+      IGqlpSchema merged = schemaMerger.Merge([parsed]).Single();
 
-      context.AddSource("Model_" + file + ".gen.cs", builder.ToString());
+      GeneratorContext context = new(text.Path, options);
+      schemaGenerator.Generate(merged, context);
+
+      sourceContext.AddSource("Model_" + context.File + ".gen.cs", context.ToString());
+      foreach (ITokenMessage error in merged.Errors) {
+        LinePosition at = new(error.Line, error.Column);
+        Location location = Location.Create(text.Path, default, new(at, at));
+        Diagnostic diagnostic = Diagnostic.Create(
+                       new DiagnosticDescriptor(
+                           "GQLP001",
+                           error.Message,
+                           error.Message,
+                           "GraphQl+",
+                           DiagnosticSeverity.Error,
+                           isEnabledByDefault: true),
+                       location);
+        sourceContext.ReportDiagnostic(diagnostic);
+      }
     }
   }
 }

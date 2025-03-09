@@ -1,14 +1,25 @@
 ﻿//HintName: Model_Intro_Object.gen.cs
 // Generated from Intro_Object.graphql+
+
 /*
-Output - _TypeObject
-Dual - _ObjDescribed
-Output - _ObjType
-Output - _ObjBase
-Output - _ObjArg
-Domain - _TypeParam
-Output - _Alternate
-Output - _ObjectFor
-Output - _Field
 */
-namespace GqlTest.Model_Intro_Object {}
+
+namespace GqlTest.Model_Intro_Object;
+
+public interface IOutput_TypeObject {}
+
+public interface IDual_ObjDescribed {}
+
+public interface IOutput_ObjType {}
+
+public interface IOutput_ObjBase {}
+
+public interface IOutput_ObjArg {}
+
+public interface IDomain_TypeParam : _Identifier {}
+
+public interface IOutput_Alternate {}
+
+public interface IOutput_ObjectFor {}
+
+public interface IOutput_Field {}

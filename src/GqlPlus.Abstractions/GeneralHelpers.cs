@@ -27,5 +27,5 @@ public static class GeneralHelpers
   }
 
   public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
-    => left.Order(comparer).SequenceEqual(right.Order(comparer));
+    => left.OrderBy(i => i, comparer).SequenceEqual(right.OrderBy(i => i, comparer));
 }

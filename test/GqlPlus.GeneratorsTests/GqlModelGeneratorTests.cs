@@ -25,6 +25,6 @@ public class GqlModelGeneratorTests : SampleChecks
     GeneratorDriver driver = new GqlModelGenerator()
       .Generate((sample + ".graphql+").AdditionalString(schema), options);
 
-    await Verifier.Verify(driver, CustomSettings("Schema", "Model", sample));
+    await Verifier.Verify(driver, CustomSettings("Schema", "Model", sample, false));
   }
 }

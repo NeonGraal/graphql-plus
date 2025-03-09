@@ -1,12 +1,21 @@
 ﻿//HintName: Model_Intro_Output.gen.cs
 // Generated from Intro_Output.graphql+
+
 /*
-Output - _TypeOutput
-Output - _OutputBase
-Output - _OutputParent
-Output - _OutputField
-Output - _OutputAlternate
-Output - _OutputArg
-Output - _OutputEnum
 */
-namespace GqlTest.Model_Intro_Output {}
+
+namespace GqlTest.Model_Intro_Output;
+
+public interface IOutput_TypeOutput {}
+
+public interface IOutput_OutputBase {}
+
+public interface IOutput_OutputParent {}
+
+public interface IOutput_OutputField {}
+
+public interface IOutput_OutputAlternate {}
+
+public interface IOutput_OutputArg {}
+
+public interface IOutput_OutputEnum {}

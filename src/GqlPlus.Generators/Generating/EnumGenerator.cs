@@ -7,9 +7,10 @@ internal sealed class EnumGenerator
   {
     context.AppendLine("");
 
-    string parent = string.IsNullOrWhiteSpace(ast.Parent) ? "" : " : " + ast.Parent;
+    context.AppendLine($"public enum {ast.Name} {{");
 
-    context.AppendLine($"public enum {ast.Name}{parent} {{");
+    ParentItems(ast.Parent, context);
+
     foreach (IGqlpEnumItem item in ast.Items) {
       context.AppendLine("  " + item.Name + ",");
       foreach (string alias in item.Aliases) {
@@ -18,5 +19,22 @@ internal sealed class EnumGenerator
     }
 
     context.AppendLine("}");
+  }
+
+  private static void ParentItems(string? parent, GeneratorContext context)
+  {
+    IGqlpEnum? ast = context.GetTypeAst<IGqlpEnum>(parent);
+    if (ast is null) {
+      return;
+    }
+
+    ParentItems(ast.Parent, context);
+    foreach (IGqlpEnumItem item in ast.Items) {
+      string suffix = " = " + parent + "." + item.Name + ",";
+      context.AppendLine("  " + item.Name + suffix);
+      foreach (string alias in item.Aliases) {
+        context.AppendLine("  " + alias + suffix);
+      }
+    }
   }
 }

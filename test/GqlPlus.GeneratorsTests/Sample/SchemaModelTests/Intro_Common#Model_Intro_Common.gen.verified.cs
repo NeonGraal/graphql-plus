@@ -22,7 +22,12 @@ public enum _SimpleKind {
   Union,
 }
 
-public enum _TypeKind : _SimpleKind {
+public enum _TypeKind {
+  Basic = _SimpleKind.Basic,
+  Enum = _SimpleKind.Enum,
+  Internal = _SimpleKind.Internal,
+  Domain = _SimpleKind.Domain,
+  Union = _SimpleKind.Union,
   Dual,
   Input,
   Output,

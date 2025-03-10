@@ -5,7 +5,7 @@ using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 
-namespace GqlPlus.Schema;
+namespace GqlPlus.Sample;
 
 public class HtmlTests(
     Parser<IGqlpSchema>.D parser,

@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace GqlPlus;
+namespace GqlPlus.Sample;
 
 public class GqlModelGeneratorTests : SampleChecks
 {
@@ -11,7 +11,7 @@ public class GqlModelGeneratorTests : SampleChecks
     GeneratorDriver driver = new GqlModelGenerator()
       .Generate([]);
 
-    return Verifier.Verify(driver);
+    return Verify(driver);
   }
 
   [Theory]
@@ -25,6 +25,6 @@ public class GqlModelGeneratorTests : SampleChecks
     GeneratorDriver driver = new GqlModelGenerator()
       .Generate((sample + ".graphql+").AdditionalString(schema), options);
 
-    await Verifier.Verify(driver, CustomSettings("Schema", "Model", sample, false));
+    await Verify(driver, CustomSettings("Schema", "Model", sample, false));
   }
 }

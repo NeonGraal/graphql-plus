@@ -12,8 +12,6 @@ public static class AllGenerators
       .AddDefaultGenerator<IGqlpSchemaCategory>()
       .AddDefaultGenerator<IGqlpSchemaDirective>()
       .AddDefaultGenerator<IGqlpSchemaOption>()
-      //Types
-      .AddGenerator<IGqlpType, TypesGenerator>()
       //Simple
       .AddTypeGenerator<EnumGenerator>()
     ;

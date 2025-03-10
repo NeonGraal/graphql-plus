@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Parsing;
+using GqlPlus.Parsing.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -7,7 +8,7 @@ namespace GqlPlus;
 
 public class SchemaDataBase(
     Parser<IGqlpSchema>.D parser
-) : SampleChecks
+) : SampleSchemaChecks(parser)
 {
   private readonly Parser<IGqlpSchema>.L _parser = parser;
 

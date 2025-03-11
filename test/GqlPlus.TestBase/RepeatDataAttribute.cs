@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
-
 using AutoFixture;
-using AutoFixture.Xunit2;
+using AutoFixture.Xunit3;
+using Xunit;
+using Xunit.Sdk;
 
 namespace GqlPlus;
 
@@ -26,12 +27,16 @@ public sealed class RepeatDataAttribute
     Repeat = repeat;
   }
 
-  public override IEnumerable<object[]> GetData(MethodInfo testMethod)
-  {
-    for (int i = 0; i < Repeat; ++i) {
-      yield return base.GetData(testMethod).First();
-    }
-  }
-
   public int Repeat { get; } = 1;
+
+  public override async ValueTask<IReadOnlyCollection<ITheoryDataRow>> GetData(MethodInfo testMethod, DisposalTracker disposalTracker)
+  {
+    List<ITheoryDataRow> data = [];
+    for (int i = 0; i < Repeat; ++i) {
+      IReadOnlyCollection<ITheoryDataRow> values = await base.GetData(testMethod, disposalTracker).ConfigureAwait(false);
+      data.Add(values.First());
+    }
+
+    return data;
+  }
 }

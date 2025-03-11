@@ -4,7 +4,7 @@ using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 using GqlPlus.Merging.Simple;
-using Xunit.Abstractions;
+
 
 namespace GqlPlus.Schema.Simple;
 

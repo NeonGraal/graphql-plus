@@ -16,7 +16,7 @@ public abstract class TestDomainItems<TItem, TInput>
       [MakeAst(name), MakeAst(name)],
       MakeAst(name));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Merge_TwoAstsDifferent_ReturnsExpected(TInput name1, TInput name2)
     => this
       .SkipNull(name1)

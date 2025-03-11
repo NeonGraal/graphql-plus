@@ -43,7 +43,7 @@ public class ParamAstTests : AstAbbreviatedTests
     => _checks.Equality(
       () => new InputParamAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, def)) });
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenDefaults(string name, string def1, string def2)
     => _checks.InequalityBetween(def1, def2,
       def => new InputParamAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, def)) },

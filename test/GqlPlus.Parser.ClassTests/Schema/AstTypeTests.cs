@@ -27,7 +27,7 @@ public abstract class AstTypeTests
     => TypeChecks
       .Inequality_WithParent(name, parent);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenParents(string name, string parent1, string parent2)
     => TypeChecks
       .SkipIf(parent1 == parent2)

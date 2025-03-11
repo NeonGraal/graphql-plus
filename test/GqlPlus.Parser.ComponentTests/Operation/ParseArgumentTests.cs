@@ -50,7 +50,7 @@ public class ParseArgTests(
         '(' + enumValue + ":$" + enumValue + ')',
         new ArgAst(AstNulls.At, enumValue.ArgObject(enumValue)));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string enumValue)
     => checks
       .SkipIf(key == enumValue)
@@ -58,7 +58,7 @@ public class ParseArgTests(
         '(' + key + ":$" + enumValue + ' ' + enumValue + ':' + key + ')',
         new ArgAst(AstNulls.At, enumValue.ArgObject(key)));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string enumValue)
     => checks
       .SkipIf(key == enumValue)
@@ -66,7 +66,7 @@ public class ParseArgTests(
         '(' + key + ":$" + enumValue + ',' + enumValue + ':' + key + ')',
         new ArgAst(AstNulls.At, enumValue.ArgObject(key)));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithObjectSemiEnumValue_ReturnsFalse(string key, string enumValue)
     => checks
       .SkipIf(key == enumValue)
@@ -74,7 +74,7 @@ public class ParseArgTests(
         '(' + key + ":$" + enumValue + ',' + enumValue + ')',
         CheckNull);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithObjectFieldBad_ReturnsFalse(string key, string enumValue)
     => checks
       .SkipIf(key == enumValue)
@@ -82,7 +82,7 @@ public class ParseArgTests(
         '(' + key + ":)",
         CheckNull);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
     => checks
       .SkipIf(key == enumValue)

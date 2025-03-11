@@ -8,16 +8,17 @@ public abstract class TestModelBase<TName, TRender>(
   ICheckModelBase<TName, TRender> baseChecks
 ) where TRender : IModelBase
 {
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void Model_Default(TName name)
     => baseChecks
-      .SkipIf(SkipIf(name))
+      .SkipIf(SkipIf(name), SkipReason)
       .Model_Expected(
         baseChecks.ToModel(baseChecks.BaseAst(name)),
         baseChecks.ExpectedBase(name));
 
   protected virtual bool SkipIf(TName name)
     => false;
+  protected virtual string SkipReason => "";
 
   internal ToExpected<TItem> EmptyExpected<TItem>() => i => [];
 }

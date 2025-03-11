@@ -26,7 +26,7 @@ public class DirectiveAstTests : AstAbbreviatedTests
     => _checks.InequalityWith(name,
       () => new DirectiveAst(AstNulls.At, name) { Arg = new ArgAst(AstNulls.At, variable) });
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenArgs(string variable1, string variable2, string name)
     => _checks.InequalityBetween(variable1, variable2,
       variable => new DirectiveAst(AstNulls.At, name) { Arg = new ArgAst(AstNulls.At, variable) },

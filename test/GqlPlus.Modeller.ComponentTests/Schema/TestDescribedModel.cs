@@ -11,9 +11,7 @@ public abstract class TestDescribedModel<TName, TRender>(
   [Theory, RepeatData(Repeats)]
   public void Model_Description(TName name, string contents)
   {
-    if (SkipIf(name)) {
-      return;
-    }
+    Assert.SkipWhen(SkipIf(name), SkipReason);
 
     describedChecks.Model_Expected(
         describedChecks.ToModel(describedChecks.DescribedAst(name, contents)),

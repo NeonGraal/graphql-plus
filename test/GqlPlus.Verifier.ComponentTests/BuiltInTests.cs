@@ -17,12 +17,12 @@ public class BuiltInTests(
   public Task VerifyInternalTypes()
     => Verify(BuiltIn.Internal.AsString());
 
-  [SkippableTheory]
+  [Theory]
   [ClassData(typeof(BuiltInBasicData))]
   public void ValidBasicTypes(string type)
     => Verify_Valid(BuiltInData.BasicMap[type]);
 
-  [SkippableTheory]
+  [Theory]
   [ClassData(typeof(BuiltInInternalData))]
 
   public void ValidInternalTypes(string type)
@@ -30,7 +30,7 @@ public class BuiltInTests(
 
   private void Verify_Valid(IGqlpType type)
   {
-    Skip.If(type is null);
+    Assert.SkipWhen(type is null, "type is null");
 
     TokenMessages result = [];
     SchemaAst schema = new(AstNulls.At) {

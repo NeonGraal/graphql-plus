@@ -14,7 +14,7 @@ public abstract class TestDescriptionsMerger<TAst>
   public void CanMerge_TwoAstsSameDescription_ReturnsGood(string name, string description)
     => CanMerge_Good(MakeDescribed(name, description), MakeDescribed(name, description));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentDescription_ReturnsErrors(string name, string description1, string description2)
     => this
       .SkipIf(description1 == description2)

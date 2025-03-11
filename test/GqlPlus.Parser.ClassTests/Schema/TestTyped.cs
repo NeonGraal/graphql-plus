@@ -16,7 +16,7 @@ public abstract class TestTyped<TBase, TType, TParent, TItem>
       MakeTyped(name, parent: MakeParent(type)),
       MakeTyped(name, parent: MakeParent(type)));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentParents_ReturnsErrors(string name, string type1, string type2)
     => this
       .SkipIf(type1 == type2)

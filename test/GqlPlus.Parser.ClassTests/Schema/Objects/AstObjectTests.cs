@@ -17,7 +17,7 @@ public abstract class AstObjectTests
   [Theory, RepeatData]
   public void Equality_WithAlternates(string name, AlternateInput[] alternates)
     => ObjectChecks.Equality_WithAlternates(name, alternates);
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2)
     => ObjectChecks.Inequality_BetweenAlternates(name, alternates1, alternates2);
 
@@ -30,7 +30,7 @@ public abstract class AstObjectTests
   [Theory, RepeatData]
   public void Equality_WithFields(string name, FieldInput[] fields)
     => ObjectChecks.Equality_WithFields(name, fields);
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenFields(string name, FieldInput[] fields1, FieldInput[] fields2)
     => ObjectChecks.Inequality_BetweenFields(name, fields1, fields2);
 
@@ -43,7 +43,7 @@ public abstract class AstObjectTests
   [Theory, RepeatData]
   public void Equality_WithTypeParams(string name, string[] typeParams)
     => ObjectChecks.Equality_WithTypeParams(name, typeParams);
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenTypeParamss(string name, string[] typeParams1, string[] typeParams2)
     => ObjectChecks.Inequality_BetweenTypeParamss(name, typeParams1, typeParams2);
 

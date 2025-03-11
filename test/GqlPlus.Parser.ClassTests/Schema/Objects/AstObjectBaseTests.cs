@@ -20,7 +20,7 @@ public abstract class AstObjectBaseTests<TObjBase>
   public void Equality_WithIsTypeParam(string input)
     => ObjBaseChecks.Equality_WithIsTypeParam(input);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
     => ObjBaseChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
 
@@ -36,7 +36,7 @@ public abstract class AstObjectBaseTests<TObjBase>
   public void Equality_WithArgs(string input, string[] arguments)
     => ObjBaseChecks.Equality_WithArgs(input, arguments);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenArgs(string input, string[] arguments1, string[] arguments2)
     => ObjBaseChecks.Inequality_BetweenArgs(input, arguments1, arguments2);
 

@@ -1,0 +1,18 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpGenParent": {
+      "$tag": "_TypeInput",
+      "name": "InpGenParent",
+      "parent": "type",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    }
+  }
+}

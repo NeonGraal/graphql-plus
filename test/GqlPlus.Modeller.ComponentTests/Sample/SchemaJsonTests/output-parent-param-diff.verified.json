@@ -1,0 +1,68 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpParentParamDiff": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpParentParamDiffRef",
+          "type": "b"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpParentParamDiff",
+          "type": "a"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": "a"
+        }
+      ],
+      "name": "OutpParentParamDiff",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "OutpParentParamDiffRef",
+        "typeArgs": ["a"]
+      },
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "a"
+        }
+      ]
+    },
+    "OutpParentParamDiffRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpParentParamDiffRef",
+          "type": "b"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": "b"
+        }
+      ],
+      "name": "OutpParentParamDiffRef",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "b"
+        }
+      ]
+    }
+  }
+}

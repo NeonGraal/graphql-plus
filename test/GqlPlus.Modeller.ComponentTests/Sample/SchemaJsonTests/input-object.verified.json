@@ -1,0 +1,11 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpObject": {
+      "$tag": "_TypeInput",
+      "name": "InpObject",
+      "typeKind": "Input"
+    }
+  }
+}

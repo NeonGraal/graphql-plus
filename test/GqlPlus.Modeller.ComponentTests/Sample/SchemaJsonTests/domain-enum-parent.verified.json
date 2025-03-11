@@ -1,0 +1,111 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DomEnumPrnt": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainMember)",
+          "domain": "DomPrntEnum",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "both_parent",
+            "name": "EnumDomBoth",
+            "typeKind": "Enum"
+          }
+        },
+        {
+          "$tag": "_DomainItem(_DomainMember)",
+          "domain": "DomEnumPrnt",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "both_enum",
+            "name": "EnumDomBoth",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "domainKind": "Enum",
+      "items": [
+        {
+          "$tag": "_DomainMember",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "both_enum",
+            "name": "EnumDomBoth",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "name": "DomEnumPrnt",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "DomPrntEnum",
+        "typeKind": "Domain"
+      },
+      "typeKind": "Domain"
+    },
+    "DomPrntEnum": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainMember)",
+          "domain": "DomPrntEnum",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "both_parent",
+            "name": "EnumDomBoth",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "domainKind": "Enum",
+      "items": [
+        {
+          "$tag": "_DomainMember",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "both_parent",
+            "name": "EnumDomBoth",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "name": "DomPrntEnum",
+      "typeKind": "Domain"
+    },
+    "EnumDomBoth": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomBoth",
+          "name": "both_enum"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomBoth",
+          "name": "both_parent"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "both_enum"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "both_parent"
+        }
+      ],
+      "name": "EnumDomBoth",
+      "typeKind": "Enum"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "catDescr": {
+      "$tag": "_Category",
+      "description": "A Category described",
+      "name": "catDescr",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CatDescr",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "CatDescr": {
+      "$tag": "_TypeOutput",
+      "name": "CatDescr",
+      "typeKind": "Output"
+    }
+  }
+}

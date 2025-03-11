@@ -1,0 +1,63 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnAliasPrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnAliasPrnt",
+          "name": "val_alias"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "val_alias"
+        }
+      ],
+      "name": "EnAliasPrnt",
+      "typeKind": "Enum"
+    },
+    "EnPrntAlias": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnAliasPrnt",
+          "name": "val_alias"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnPrntAlias",
+          "name": "val_prnt_alias"
+        },
+        {
+          "$tag": "_EnumMember",
+          "aliases": ["alias_val"],
+          "enum": "EnPrntAlias",
+          "name": "val_alias"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "val_prnt_alias"
+        },
+        {
+          "$tag": "_Aliased",
+          "aliases": ["alias_val"],
+          "name": "val_alias"
+        }
+      ],
+      "name": "EnPrntAlias",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "EnAliasPrnt",
+        "typeKind": "Enum"
+      },
+      "typeKind": "Enum"
+    }
+  }
+}

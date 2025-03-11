@@ -1,0 +1,67 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "FieldParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "FieldParam1"
+            },
+            {
+              "$tag": "_InputParam",
+              "value": "FieldParam2"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "FieldParamFld"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "FieldParam1"
+            },
+            {
+              "$tag": "_InputParam",
+              "value": "FieldParam2"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "FieldParamFld"
+          }
+        }
+      ],
+      "name": "FieldParam",
+      "typeKind": "Output"
+    },
+    "FieldParam1": {
+      "$tag": "_TypeInput",
+      "name": "FieldParam1",
+      "typeKind": "Input"
+    },
+    "FieldParam2": {
+      "$tag": "_TypeInput",
+      "name": "FieldParam2",
+      "typeKind": "Input"
+    },
+    "FieldParamFld": {
+      "$tag": "_TypeOutput",
+      "name": "FieldParamFld",
+      "typeKind": "Output"
+    }
+  }
+}

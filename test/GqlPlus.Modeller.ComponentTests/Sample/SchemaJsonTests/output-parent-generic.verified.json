@@ -1,0 +1,118 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutGenParent": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutGenParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutGenParentRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "member": "outGenParent",
+                "name": "OutParentGen",
+                "typeKind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutGenParentRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "member": "outGenParent",
+                "name": "OutParentGen",
+                "typeKind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutGenParent",
+      "typeKind": "Output"
+    },
+    "OutGenParentRef": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutGenParentRef",
+          "type": "type"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": "type"
+        }
+      ],
+      "name": "OutGenParentRef",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    },
+    "OutParentGen": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "OutPrntendedGen",
+          "name": "outGenParent"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "OutParentGen",
+          "name": "outGenPrntended"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "outGenPrntended"
+        }
+      ],
+      "name": "OutParentGen",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "OutPrntendedGen",
+        "typeKind": "Enum"
+      },
+      "typeKind": "Enum"
+    },
+    "OutPrntendedGen": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "OutPrntendedGen",
+          "name": "outGenParent"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "outGenParent"
+        }
+      ],
+      "name": "OutPrntendedGen",
+      "typeKind": "Enum"
+    }
+  }
+}

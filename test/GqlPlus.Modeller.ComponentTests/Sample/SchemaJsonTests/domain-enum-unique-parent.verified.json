@@ -1,0 +1,70 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumDomDupParent": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomDupParent",
+          "name": "enum_dom_parent_dup"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "enum_dom_parent_dup"
+        }
+      ],
+      "name": "EnumDomDupParent",
+      "typeKind": "Enum"
+    },
+    "EnumDomParentUnique": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomParentUnique",
+          "name": "enum_dom_parent_dup"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "enum_dom_parent_dup"
+        }
+      ],
+      "name": "EnumDomParentUnique",
+      "typeKind": "Enum"
+    },
+    "EnumDomUniqueParent": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomParentUnique",
+          "name": "enum_dom_parent_dup"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomUniqueParent",
+          "name": "value"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "value"
+        }
+      ],
+      "name": "EnumDomUniqueParent",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "EnumDomParentUnique",
+        "typeKind": "Enum"
+      },
+      "typeKind": "Enum"
+    }
+  }
+}

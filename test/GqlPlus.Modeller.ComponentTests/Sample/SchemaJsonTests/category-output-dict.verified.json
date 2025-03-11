@@ -1,0 +1,32 @@
+{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "catDict": {
+      "$tag": "_Category",
+      "modifiers": [
+        {
+          "$tag": "_ModifierDictionary",
+          "by": "*",
+          "modifierKind": "Dict",
+          "typeKind": "Basic"
+        }
+      ],
+      "name": "catDict",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CatDict",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "CatDict": {
+      "$tag": "_TypeOutput",
+      "name": "CatDict",
+      "typeKind": "Output"
+    }
+  }
+}

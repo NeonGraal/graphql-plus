@@ -1,0 +1,25 @@
+{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "catAlias": {
+      "$tag": "_Category",
+      "aliases": ["CatA1", "CatA2"],
+      "name": "catAlias",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CatAlias",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "CatAlias": {
+      "$tag": "_TypeOutput",
+      "name": "CatAlias",
+      "typeKind": "Output"
+    }
+  }
+}

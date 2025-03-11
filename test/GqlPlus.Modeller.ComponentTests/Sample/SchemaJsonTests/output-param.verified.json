@@ -1,0 +1,89 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutParamIn"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutParamIn"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutParam"
+          }
+        }
+      ],
+      "name": "OutParam",
+      "typeKind": "Output"
+    },
+    "OutParamIn": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "OutParamIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "param",
+          "object": "OutParamIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "param",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutParamIn",
+      "typeKind": "Input"
+    }
+  }
+}

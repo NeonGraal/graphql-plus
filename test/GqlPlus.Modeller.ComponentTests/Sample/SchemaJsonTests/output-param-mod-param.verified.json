@@ -1,0 +1,132 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutDomainsParam": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "OutDomainsParam",
+          "exclude": false,
+          "from": 1,
+          "to": 10
+        }
+      ],
+      "domainKind": "Number",
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "from": 1,
+          "to": 10
+        }
+      ],
+      "name": "OutDomainsParam",
+      "typeKind": "Domain"
+    },
+    "OutParamDomainParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutParamDomainParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "OutParamDomainParamIn",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierTypeParam",
+                  "by": "mod",
+                  "modifierKind": "Param"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutDomainsParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "OutParamDomainParamIn",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierTypeParam",
+                  "by": "mod",
+                  "modifierKind": "Param"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutDomainsParam"
+          }
+        }
+      ],
+      "name": "OutParamDomainParam",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
+    },
+    "OutParamDomainParamIn": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "OutParamDomainParamIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "param",
+          "object": "OutParamDomainParamIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "param",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutParamDomainParamIn",
+      "typeKind": "Input"
+    }
+  }
+}

@@ -7,10 +7,8 @@ namespace GqlPlus;
 
 public class SchemaDataBase(
     Parser<IGqlpSchema>.D parser
-) : SampleChecks
+) : SampleSchemaChecks(parser)
 {
-  private readonly Parser<IGqlpSchema>.L _parser = parser;
-
   protected static bool IsObjectInput(string input)
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
 
@@ -158,11 +156,5 @@ public class SchemaDataBase(
 
     return (await Task.WhenAll(tasks))
       .SelectMany(i => i);
-  }
-
-  protected IResult<IGqlpSchema> Parse(string schema)
-  {
-    Tokenizer tokens = new(schema);
-    return _parser.Parse(tokens, "Schema");
   }
 }

@@ -17,4 +17,12 @@ public interface IInputParam {}
 
 public interface IOutputAll {}
 
-public interface IDomainGuid {}
+public interface IDomainGuid {
+  string Value { get; set; }
+}
+public class DomainGuid
+  : IDomainGuid
+{
+  string _value;
+  string Value { get => _value; set => CheckAndSet(value); }
+}

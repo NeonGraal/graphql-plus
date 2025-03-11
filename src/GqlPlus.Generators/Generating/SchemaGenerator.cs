@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions;
-
-namespace GqlPlus.Generating;
+﻿namespace GqlPlus.Generating;
 
 internal sealed class SchemaGenerator(
   IGenerator<IGqlpSchemaCategory> categoryGenerator,
@@ -9,7 +7,7 @@ internal sealed class SchemaGenerator(
   IEnumerable<ITypeGenerator> typeGenerators
 ) : IGenerator<IGqlpSchema>
 {
-  private static readonly ITypeGenerator s_Default = new GenerateDefaultType();
+  private static readonly ITypeGenerator s_default = new GenerateDefaultType();
 
   public void Generate(IGqlpSchema ast, GeneratorContext context)
   {
@@ -24,7 +22,7 @@ internal sealed class SchemaGenerator(
     context.AppendLine($"namespace {context.Options.BaseNamespace}.Model_" + context.File + ";");
 
     foreach (IGqlpType type in types) {
-      ITypeGenerator generator = typeGenerators.Where(g => g.ForType(type)).FirstOrDefault() ?? s_Default;
+      ITypeGenerator generator = typeGenerators.Where(g => g.ForType(type)).FirstOrDefault() ?? s_default;
       generator.GenerateType(type, context);
     }
   }

@@ -9,12 +9,10 @@ internal sealed class GenerateDefaultType
   {
     context.AppendLine("");
 
-    string parent = "";
-
     if (ast is IGqlpType<string> simpleParent && !string.IsNullOrWhiteSpace(simpleParent.Parent)) {
-      parent = " : " + simpleParent.Parent;
+      context.AppendLine($"// Parent {simpleParent.Parent}");
     }
 
-    context.AppendLine($"public interface I{ast.Label}{ast.Name}{parent} {{}}");
+    context.AppendLine($"public interface I{ast.Label}{ast.Name} {{}}");
   }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.CodeAnalysis;
+using Xunit.DependencyInjection;
 
 namespace GqlPlus.Sample;
 
@@ -16,7 +17,7 @@ public class GqlModelGeneratorTests : SampleChecks
 
   [Theory]
   [ClassData(typeof(SamplesSchemaData))]
-  public async Task ModelSchema(string sample)
+  public async Task GenerateSchema(string sample)
   {
     string schema = await ReadSchema(sample);
 

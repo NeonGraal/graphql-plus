@@ -8,11 +8,27 @@ namespace GqlTest.Model_Intro_Declarations;
 
 public interface IOutput_Schema {}
 
-public interface IDomain_Identifier {}
+public interface IDomain_Identifier {
+  string Value { get; set; }
+}
+public class Domain_Identifier
+  : IDomain_Identifier
+{
+  string _value;
+  string Value { get => _value; set => CheckAndSet(value); }
+}
 
 public interface IInput_Filter {}
 
-public interface IDomain_NameFilter {}
+public interface IDomain_NameFilter {
+  string Value { get; set; }
+}
+public class Domain_NameFilter
+  : IDomain_NameFilter
+{
+  string _value;
+  string Value { get => _value; set => CheckAndSet(value); }
+}
 
 public interface IInput_CategoryFilter {}
 

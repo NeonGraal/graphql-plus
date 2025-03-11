@@ -14,6 +14,11 @@ public static class AllGenerators
       .AddDefaultGenerator<IGqlpSchemaOption>()
       //Simple
       .AddTypeGenerator<EnumGenerator>()
+      .AddTypeGenerator<DomainGenerator>()
+      .AddDomainGenerator<BooleanDomainGenerator>()
+      .AddDomainGenerator<EnumDomainGenerator>()
+      .AddDomainGenerator<NumberDomainGenerator>()
+      .AddDomainGenerator<StringDomainGenerator>()
     ;
 
   private static IServiceCollection AddGenerator<TAst, TGenerator>(this IServiceCollection services)
@@ -28,4 +33,8 @@ public static class AllGenerators
   private static IServiceCollection AddTypeGenerator<TGenerator>(this IServiceCollection services)
     where TGenerator : class, ITypeGenerator
     => services.AddSingleton<ITypeGenerator, TGenerator>();
+
+  private static IServiceCollection AddDomainGenerator<TGenerator>(this IServiceCollection services)
+    where TGenerator : class, IDomainGenerator
+    => services.AddSingleton<IDomainGenerator, TGenerator>();
 }

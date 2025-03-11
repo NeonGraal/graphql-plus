@@ -16,7 +16,16 @@ public interface IOutput_ObjBase {}
 
 public interface IOutput_ObjArg {}
 
-public interface IDomain_TypeParam : _Identifier {}
+public interface IDomain_TypeParam : IDomain_Identifier {
+  string Value { get; set; }
+}
+public class Domain_TypeParam
+  : Domain_Identifier
+  , IDomain_TypeParam
+{
+  string _value;
+  string Value { get => _value; set => CheckAndSet(value); }
+}
 
 public interface IOutput_Alternate {}
 

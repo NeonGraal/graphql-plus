@@ -51,7 +51,7 @@ jobs:
           name: build
       - name: Install tools
         run: |
-          chmod 777 -R -c .
+          chmod 777 -R .
           dotnet tool restore --tool-manifest .config/dotnet-tools.json
       - name: Tests with Coverage
         run: >

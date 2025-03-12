@@ -26,6 +26,6 @@ public class ParseDomainClassTests : ClassTestBase
 
     IResult<IGqlpDomain> result = domain.Parse(tokens, "test");
 
-    result.Should().BeAssignableTo<IResultOk<IGqlpDomain>>();
+    result.ShouldBeAssignableTo<IResultOk<IGqlpDomain>>();
   }
 }

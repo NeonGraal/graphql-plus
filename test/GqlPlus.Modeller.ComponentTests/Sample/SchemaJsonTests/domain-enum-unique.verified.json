@@ -1,0 +1,51 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumDomDup": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomDup",
+          "name": "eum_dom_dup"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "eum_dom_dup"
+        }
+      ],
+      "name": "EnumDomDup",
+      "typeKind": "Enum"
+    },
+    "EnumDomUnique": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomUnique",
+          "name": "eum_dom_value"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomUnique",
+          "name": "eum_dom_dup"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "eum_dom_value"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "eum_dom_dup"
+        }
+      ],
+      "name": "EnumDomUnique",
+      "typeKind": "Enum"
+    }
+  }
+}

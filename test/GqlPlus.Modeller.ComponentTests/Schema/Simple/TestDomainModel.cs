@@ -18,7 +18,7 @@ public abstract class TestDomainModel<TValue, TItem, TItemModel>(
     .DomainExpected(
       domainChecks.DomainAst(name, null, [], null, members),
       domainChecks.ExpectedDomain(new(name, items: members)));
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void Model_MembersParent(string name, string parent, TValue[] parentMembers)
     => domainChecks
     .SkipIf(string.Equals(name, parent, StringComparison.Ordinal))
@@ -28,7 +28,7 @@ public abstract class TestDomainModel<TValue, TItem, TItemModel>(
       domainChecks.DomainAst(name, null, [], parent, []),
       domainChecks.ExpectedDomain(new(name, parent, otherItems: parentMembers.ParentItems(parent))));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void Model_MembersGrandParent(string name, string parent, string grandParent, TValue[] grandParentMembers)
     => domainChecks
     .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))

@@ -16,7 +16,7 @@ public class MergeSchemasTests
       new SchemaAst(AstNulls.At) with { Declarations = CategoryDeclarations(category) },
       new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option) }]);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentOptionNames_ReturnsErrors(string option1, string option2)
     => this
       .SkipIf(option1 == option2)

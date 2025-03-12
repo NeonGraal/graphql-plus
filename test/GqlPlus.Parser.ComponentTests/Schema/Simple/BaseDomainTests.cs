@@ -9,7 +9,7 @@ public abstract class BaseDomainTests<TInput, TDomain>(
 ) : BaseAliasedTests<TInput, TDomain>(domainChecks)
   where TDomain : IGqlpDomain
 {
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithKindBad_ReturnsFalse(TInput input, string kind)
     => domainChecks.WithKindBad(input, kind);
 

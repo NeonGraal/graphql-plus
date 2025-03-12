@@ -1,0 +1,27 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "StrSame": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "StrSame",
+          "exclude": false,
+          "pattern": "a\u002B"
+        }
+      ],
+      "domainKind": "String",
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "a\u002B"
+        }
+      ],
+      "name": "StrSame",
+      "typeKind": "Domain"
+    }
+  }
+}

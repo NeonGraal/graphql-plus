@@ -23,7 +23,7 @@ public class OutputArgAstTests
     => _checks.Equality(
       () => new OutputArgAst(AstNulls.At, name) { EnumMember = enumMember });
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenEnumValues(string name, string enumValue1, string enumValue2)
     => _checks.InequalityBetween(enumValue1, enumValue2,
       enumMember => new OutputArgAst(AstNulls.At, name) { EnumMember = enumMember },

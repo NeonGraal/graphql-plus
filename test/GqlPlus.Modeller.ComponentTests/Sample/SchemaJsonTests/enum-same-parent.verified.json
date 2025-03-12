@@ -1,0 +1,52 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnParent": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnParent",
+          "name": "parent"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "parent"
+        }
+      ],
+      "name": "EnParent",
+      "typeKind": "Enum"
+    },
+    "EnSameParent": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnParent",
+          "name": "parent"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnSameParent",
+          "name": "sameP"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "sameP"
+        }
+      ],
+      "name": "EnSameParent",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "EnParent",
+        "typeKind": "Enum"
+      },
+      "typeKind": "Enum"
+    }
+  }
+}

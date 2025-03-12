@@ -1,0 +1,33 @@
+{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnDiff": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnDiff",
+          "name": "one"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnDiff",
+          "name": "two"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "one"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "two"
+        }
+      ],
+      "name": "EnDiff",
+      "typeKind": "Enum"
+    }
+  }
+}

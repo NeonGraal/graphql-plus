@@ -61,13 +61,13 @@ public class ModifierAstTests
       () => ModifierAst.Dict(AstNulls.At, key, optional),
       () => ModifierAst.Param(AstNulls.At, key, optional));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenKeys(string key1, string key2)
     => _checks.InequalityBetween(key1, key2,
       key => ModifierAst.Dict(AstNulls.At, key, false),
       key1 == key2);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenParams(string key1, string key2)
     => _checks.InequalityBetween(key1, key2,
       key => ModifierAst.Param(AstNulls.At, key, false),

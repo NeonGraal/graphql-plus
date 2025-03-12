@@ -20,7 +20,7 @@ public abstract class AstObjectBaseTests<TObjBase>
   public void Equality_WithIsTypeParam(string input)
     => ObjBaseChecks.Equality_WithIsTypeParam(input);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
     => ObjBaseChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
 
@@ -36,7 +36,7 @@ public abstract class AstObjectBaseTests<TObjBase>
   public void Equality_WithArgs(string input, string[] arguments)
     => ObjBaseChecks.Equality_WithArgs(input, arguments);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenArgs(string input, string[] arguments1, string[] arguments2)
     => ObjBaseChecks.Inequality_BetweenArgs(input, arguments1, arguments2);
 
@@ -113,21 +113,21 @@ AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.ArgsBy createArgs
   {
     TObjBase objBase = _createBase(input);
 
-    objBase.FullType.Should().Be(input);
+    objBase.FullType.ShouldBe(input);
   }
 
   public void FullType_WithIsTypeParam(string input)
   {
     TObjBase objBase = _createBase(input) with { IsTypeParam = true };
 
-    objBase.FullType.Should().Be("$" + input);
+    objBase.FullType.ShouldBe("$" + input);
   }
 
   public void FullType_WithArgs(string input, string[] arguments)
   {
     TObjBase objBase = _createBase(input) with { BaseArgs = _createArgs(arguments) };
 
-    objBase.FullType.Should().Be(input + $" < {arguments.Joined()} >");
+    objBase.FullType.ShouldBe(input + $" < {arguments.Joined()} >");
   }
 
   public void FullType_WithIsTypeParamAndArgs(string input, string[] arguments)
@@ -137,7 +137,7 @@ AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.ArgsBy createArgs
       BaseArgs = _createArgs(arguments)
     };
 
-    objBase.FullType.Should().Be($"${input} < {arguments.Joined()} >");
+    objBase.FullType.ShouldBe($"${input} < {arguments.Joined()} >");
   }
 }
 

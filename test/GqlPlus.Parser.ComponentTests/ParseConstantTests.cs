@@ -48,7 +48,7 @@ public class ParseConstantTests(
       '[' + enumValue + ':' + enumValue + ']',
       CheckNull);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string enumValue)
     => checks
       .SkipIf(key == enumValue)
@@ -56,7 +56,7 @@ public class ParseConstantTests(
         '{' + key + ':' + enumValue + ' ' + enumValue + ':' + key + '}',
         new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string enumValue)
     => checks
       .SkipIf(key == enumValue)
@@ -64,7 +64,7 @@ public class ParseConstantTests(
         '{' + key + ':' + enumValue + ',' + enumValue + ':' + key + '}',
         new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
     => checks
       .SkipIf(key == enumValue)
@@ -73,5 +73,5 @@ public class ParseConstantTests(
         CheckNull);
 
   private void CheckNull(IGqlpConstant? result)
-    => result.Should().BeNull();
+    => result.ShouldBeNull();
 }

@@ -19,14 +19,14 @@ public class VerifierTests(
   {
     IResult<IGqlpOperation> parse = await Parse("Valid", operation);
     if (parse is IResultError<IGqlpOperation> error) {
-      error.Message.Should().BeNull();
+      error.Message.ShouldBeNull();
     }
 
     TokenMessages result = [];
 
     verifier.Verify(parse.Required(), result);
 
-    result.Should().BeNullOrEmpty();
+    result.ShouldBeEmpty();
   }
 
   [Theory]

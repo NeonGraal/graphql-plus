@@ -20,7 +20,7 @@ public abstract class AstObjectArgTests<TObjArg>
   public void Equality_WithIsTypeParam(string input)
     => ObjArgChecks.Equality_WithIsTypeParam(input);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
     => ObjArgChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
 
@@ -66,14 +66,14 @@ internal sealed class AstObjArgChecks<TObjArg, TObjArgAst>(
   {
     TObjArg objArg = createArg(input);
 
-    objArg.FullType.Should().Be(input);
+    objArg.FullType.ShouldBe(input);
   }
 
   public void FullType_WithIsTypeParam(string input)
   {
     TObjArg objArg = createArg(input) with { IsTypeParam = true };
 
-    objArg.FullType.Should().Be("$" + input);
+    objArg.FullType.ShouldBe("$" + input);
   }
 }
 

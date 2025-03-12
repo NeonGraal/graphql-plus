@@ -7,7 +7,7 @@ namespace GqlPlus.Schema.Simple;
 public class UnionAstTests
   : AstTypeTests
 {
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenParent(string name, string parent1, string parent2)
     => _checks.InequalityBetween(parent1, parent2,
       parent => new UnionDeclAst(AstNulls.At, name, []) { Parent = parent },
@@ -29,7 +29,7 @@ public class UnionAstTests
     => _checks.Equality(
       () => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenUnionMembers(string name, string[] unionMembers1, string[] unionMembers2)
     => _checks.InequalityBetween(unionMembers1, unionMembers2,
       unionMembers => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()),

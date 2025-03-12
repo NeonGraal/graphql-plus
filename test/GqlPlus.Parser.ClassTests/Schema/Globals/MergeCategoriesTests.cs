@@ -3,7 +3,6 @@ using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Merging;
 using GqlPlus.Merging.Globals;
-using Xunit.Abstractions;
 
 namespace GqlPlus.Schema.Globals;
 
@@ -15,7 +14,7 @@ public class MergeCategoriesTests(
   public void CanMerge_TwoAstsSameOutput_ReturnsGood(string category)
     => CanMerge_Good([new CategoryDeclAst(AstNulls.At, category), new CategoryDeclAst(AstNulls.At, category)]);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentOutput_ReturnsErrors(string name, string category1, string category2)
     => this
       .SkipIf(category1 == category2)

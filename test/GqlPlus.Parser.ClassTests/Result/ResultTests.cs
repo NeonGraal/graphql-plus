@@ -10,8 +10,8 @@ public class ResultTests
 
     Action action = () => input.Optional();
 
-    action.Should().Throw<InvalidOperationException>()
-      .Which.Message.Should().Contain(nameof(String));
+    action.ShouldThrow<InvalidOperationException>()
+      .Message.ShouldContain(nameof(String));
   }
 
   [Fact]
@@ -21,8 +21,8 @@ public class ResultTests
 
     Action action = () => input.Optional();
 
-    action.Should().Throw<InvalidOperationException>()
-      .Which.Message.Should().Contain(nameof(String));
+    action.ShouldThrow<InvalidOperationException>()
+      .Message.ShouldContain(nameof(String));
   }
 
   private sealed class TestResult<TValue>

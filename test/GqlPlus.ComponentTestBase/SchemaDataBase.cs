@@ -7,10 +7,8 @@ namespace GqlPlus;
 
 public class SchemaDataBase(
     Parser<IGqlpSchema>.D parser
-) : SampleChecks
+) : SampleSchemaChecks(parser)
 {
-  private readonly Parser<IGqlpSchema>.L _parser = parser;
-
   protected static bool IsObjectInput(string input)
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
 
@@ -76,30 +74,32 @@ public class SchemaDataBase(
     }
   }
 
-  protected static async Task ReplaceFile(string testDirectory, string testName, Action<string, string> action)
+  protected static async Task ReplaceFile(string testDirectory, string testName, Action<string, string, string> action)
   {
     ArgumentNullException.ThrowIfNull(action);
     string input = await ReadSchema(testName, testDirectory);
 
     if (IsObjectInput(input)) {
-      using AssertionScope scope = new();
+      // using AssertionScope scope = new();
       foreach ((string label, string abbr) in Replacements) {
-        action(ReplaceInput(input, abbr, label, abbr), label + "-" + testName);
+        action(ReplaceInput(input, abbr, label, abbr), testDirectory, label + "-" + testName);
       }
     } else {
-      action(input, testName);
+      action(input, testDirectory, testName);
     }
   }
 
-  protected static async Task ReplaceFileAsync(string testDirectory, string testName, Func<string, string, Task> action)
+  protected static async Task ReplaceFileAsync(string testDirectory, string testName, Func<string, string, string, Task> action)
   {
     ArgumentNullException.ThrowIfNull(action);
     string input = await ReadSchema(testName, testDirectory);
 
     if (IsObjectInput(input)) {
-      await WhenAll([.. Replacements.Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), r.Item1 + "-" + testName))]);
+      await WhenAll(Replacements
+        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), testDirectory, r.Item1 + "-" + testName))
+        .ToArray());
     } else {
-      await action(input, testName);
+      await action(input, testDirectory, testName);
     }
   }
 
@@ -120,7 +120,7 @@ public class SchemaDataBase(
 
   protected static async Task WhenAll(params Task[] tasks)
   {
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     Task all = Task.WhenAll(tasks);
 
@@ -154,11 +154,5 @@ public class SchemaDataBase(
 
     return (await Task.WhenAll(tasks))
       .SelectMany(i => i);
-  }
-
-  protected IResult<IGqlpSchema> Parse(string schema)
-  {
-    Tokenizer tokens = new(schema);
-    return _parser.Parse(tokens, "Schema");
   }
 }

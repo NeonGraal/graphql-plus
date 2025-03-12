@@ -1,0 +1,760 @@
+{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _Schema can\u0027t get model for type \u0027_Named\u0027"
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "_CategoryFilter": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_NameFilter"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "names",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_NameFilter"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": true,
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "matchAliases",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "aliases",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_NameFilter"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": false,
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "returnByAlias",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": false,
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "returnReferencedTypes",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "resolutions",
+          "object": "_CategoryFilter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_Resolution"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "resolutions",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_Resolution"
+          }
+        }
+      ],
+      "name": "_CategoryFilter",
+      "parent": {
+        "$tag": "_InputBase",
+        "value": "_Filter"
+      },
+      "typeKind": "Input"
+    },
+    "_Filter": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_NameFilter"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "names",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_NameFilter"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": true,
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "matchAliases",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "aliases",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_NameFilter"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": false,
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "returnByAlias",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": false,
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "returnReferencedTypes",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Boolean"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_NameFilter"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "names",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_NameFilter"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "default": true,
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "matchAliases",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "aliases",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_NameFilter"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "default": false,
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "returnByAlias",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "default": false,
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "returnReferencedTypes",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Boolean"
+          }
+        }
+      ],
+      "name": "_Filter",
+      "typeKind": "Input"
+    },
+    "_Identifier": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "_Identifier",
+          "exclude": false,
+          "pattern": "[A-Za-z_]\u002B"
+        }
+      ],
+      "domainKind": "String",
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "[A-Za-z_]\u002B"
+        }
+      ],
+      "name": "_Identifier",
+      "typeKind": "Domain"
+    },
+    "_NameFilter": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "_NameFilter",
+          "exclude": false,
+          "pattern": "[A-Za-z_.*]\u002B"
+        }
+      ],
+      "description": "_NameFilter is a simple match expression against _Identifier  where \u0027.\u0027 matches any single character and \u0027*\u0027 matches zero or more of any character.",
+      "domainKind": "String",
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "[A-Za-z_.*]\u002B"
+        }
+      ],
+      "name": "_NameFilter",
+      "typeKind": "Domain"
+    },
+    "_Schema": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
+            }
+          ],
+          "name": "categories",
+          "object": "_Schema",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "_CategoryFilter",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Categories"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
+            }
+          ],
+          "name": "directives",
+          "object": "_Schema",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "_Filter",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Directives"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
+            }
+          ],
+          "name": "types",
+          "object": "_Schema",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "_TypeFilter",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Type"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
+            }
+          ],
+          "name": "settings",
+          "object": "_Schema",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "_Filter",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Setting"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
+            }
+          ],
+          "name": "categories",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "_CategoryFilter",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Categories"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
+            }
+          ],
+          "name": "directives",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "_Filter",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Directives"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
+            }
+          ],
+          "name": "types",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "_TypeFilter",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Type"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
+            }
+          ],
+          "name": "settings",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "_Filter",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Setting"
+          }
+        }
+      ],
+      "name": "_Schema",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "_Named"
+      },
+      "typeKind": "Output"
+    },
+    "_TypeFilter": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_NameFilter"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "names",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_NameFilter"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": true,
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "matchAliases",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "aliases",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_NameFilter"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": false,
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "returnByAlias",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": false,
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "returnReferencedTypes",
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "kinds",
+          "object": "_TypeFilter",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_TypeKind"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "kinds",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "_TypeKind"
+          }
+        }
+      ],
+      "name": "_TypeFilter",
+      "parent": {
+        "$tag": "_InputBase",
+        "value": "_Filter"
+      },
+      "typeKind": "Input"
+    }
+  }
+}

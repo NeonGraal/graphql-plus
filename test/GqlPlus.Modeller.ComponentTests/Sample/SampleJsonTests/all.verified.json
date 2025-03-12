@@ -1,0 +1,239 @@
+{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "all": {
+      "$tag": "_Category",
+      "name": "all",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "All",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    }
+  },
+  "directives": {
+    "$tag": "_Map_Directives",
+    "all": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "all",
+      "repeatable": false
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "All": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "All",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "items",
+          "object": "All",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "Param",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "items",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "Param",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "All",
+      "typeKind": "Output"
+    },
+    "Guid": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "Guid",
+          "exclude": false,
+          "pattern": "[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}"
+        }
+      ],
+      "domainKind": "String",
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}"
+        }
+      ],
+      "name": "Guid",
+      "typeKind": "Domain"
+    },
+    "One": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "One",
+          "name": "Two"
+        },
+        {
+          "$tag": "_EnumMember",
+          "enum": "One",
+          "name": "Three"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Two"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "Three"
+        }
+      ],
+      "name": "One",
+      "typeKind": "Enum"
+    },
+    "Param": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "Param",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "afterId",
+          "object": "Param",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Guid"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "beforeId",
+          "object": "Param",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Guid"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "afterId",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Guid"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "name": "beforeId",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Guid"
+          }
+        }
+      ],
+      "name": "Param",
+      "typeKind": "Input"
+    }
+  }
+}

@@ -108,7 +108,6 @@ public static class SchemaParsers
 
   private static IServiceCollection AddNullParsers(this IServiceCollection services)
     => services
-      .AddParser<NullAst, ParseNull>()
       .AddParserArray<NullAst, ParseNulls>()
       .AddParser<IOptionParser<NullOption>, NullOption, ParseNullOption>()
       .AddParser<IEnumParser<NullOption>, NullOption, ParseNullOption>();

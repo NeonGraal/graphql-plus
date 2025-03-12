@@ -6,6 +6,9 @@ if ($clean) {
 } else {
     dotnet outdated .\ -vl major
 }
-dotnet outdated .\
 
 dotnet tool update --all
+
+dotnet list package --deprecated
+dotnet list package --vulnerable --include-transitive
+dotnet outdated .\

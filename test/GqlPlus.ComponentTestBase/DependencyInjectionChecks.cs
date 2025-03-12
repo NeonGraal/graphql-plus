@@ -118,7 +118,7 @@ public class DependencyInjectionChecks(
 
     HashSet<string> hashset = [.. _diServices.Keys];
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     foreach (DiService di in services) {
       sb.Clear();
@@ -130,7 +130,7 @@ public class DependencyInjectionChecks(
         .Where(p => p.Key != InstanceRequirement && !MatchType(hashset, p.Value))
         .Select(p => $"{di.Service.Name} {p.Key} : " + p.Value.Name)];
 
-      missing.Should().BeEmpty();
+      missing.ShouldBeEmpty();
       output.Output?.WriteLine(sb.ToString());
     }
   }
@@ -141,11 +141,11 @@ public class DependencyInjectionChecks(
 
     IDirectoryContents contents = files.GetDirectoryContents("");
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    contents.Exists.Should().BeTrue();
-    contents.Should().NotBeEmpty();
-    contents.Should().Contain(fi => fi.Name == "pico.liquid");
+    contents.Exists.ShouldBeTrue();
+    contents.ShouldNotBeEmpty();
+    contents.ShouldContain(fi => fi.Name == "pico.liquid");
   }
 
   public void HtmlDependencyInjection(string file)

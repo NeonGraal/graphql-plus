@@ -1,4 +1,5 @@
-﻿using GqlPlus;
+﻿using System.Linq;
+using GqlPlus;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Convert;
@@ -8,12 +9,12 @@ namespace GqlPlus;
 
 public class BuiltInTests(IModelAndRender renderer)
 {
-  [SkippableTheory]
+  [Theory]
   [ClassData(typeof(BuiltInBasicData))]
   public void HtmlBasicTypes(string type)
     => RenderTypeHtml(BuiltInData.BasicMap[type], []);
 
-  [SkippableTheory]
+  [Theory]
   [ClassData(typeof(BuiltInInternalData))]
   public void HtmlInternalTypes(string type)
     => RenderTypeHtml(BuiltInData.InternalMap[type], BuiltIn.Internal);
@@ -41,23 +42,23 @@ public class BuiltInTests(IModelAndRender renderer)
   [Fact]
   public void Html_Index()
   {
-    RenderStructure groups = RenderStructure.New("");
-    groups.Add("All", RenderStructure.ForAll(["!Basic", "!Internal"]));
-    groups.Add("Basic", RenderStructure.ForAll(BuiltIn.Basic.Select(t => t.Name)));
-    groups.Add("Internal", RenderStructure.ForAll(BuiltIn.Internal.Select(t => t.Name)));
-
-    RenderStructure result = RenderStructure.New("");
-    result.Add("groups", groups);
+    Structured result = new Map<Structured>() {
+      ["groups"] = new Map<Structured>() {
+        ["All"] = SchemaValidData.Sample.Render(),
+        ["Basic"] = BuiltIn.Basic.Select(t => t.Name).Render(),
+        ["Internal"] = BuiltIn.Internal.Select(t => t.Name).Render(),
+      }.Render(),
+    }.Render("");
 
     result.WriteHtmlFile("BuiltIn", "index", "index");
   }
 
-  [SkippableTheory]
+  [Theory]
   [ClassData(typeof(BuiltInBasicData))]
   public void ModelBasicTypes(string type)
     => ModelType(BuiltInData.BasicMap[type], []);
 
-  [SkippableTheory]
+  [Theory]
   [ClassData(typeof(BuiltInInternalData))]
   public void ModelInternalTypes(string type)
     => ModelType(BuiltInData.InternalMap[type], BuiltIn.Internal);
@@ -70,9 +71,9 @@ public class BuiltInTests(IModelAndRender renderer)
     };
 
     ITypesContext context = renderer.Context();
-    RenderStructure result = renderer.RenderAst(schema, context);
+    Structured result = renderer.RenderAst(schema, context);
 
-    context.Errors.Should().BeNullOrEmpty();
+    context.Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -83,9 +84,9 @@ public class BuiltInTests(IModelAndRender renderer)
     };
 
     ITypesContext context = renderer.Context();
-    RenderStructure result = renderer.RenderAst(schema, context);
+    Structured result = renderer.RenderAst(schema, context);
 
-    context.Errors.Should().BeNullOrEmpty();
+    context.Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -94,7 +95,7 @@ public class BuiltInTests(IModelAndRender renderer)
 
   private void ModelType(IGqlpType type, IGqlpType[] extras)
   {
-    Skip.If(type is null);
+    Assert.SkipWhen(type is null, "type is null");
 
     SchemaAst schema = new(AstNulls.At) {
       Declarations = [type]
@@ -105,14 +106,14 @@ public class BuiltInTests(IModelAndRender renderer)
     };
 
     ITypesContext context = renderer.Context();
-    RenderStructure result = renderer.RenderAst(schema, context, extrasSchema);
+    Structured result = renderer.RenderAst(schema, context, extrasSchema);
 
-    context.Errors.Should().BeNullOrEmpty(type?.Label);
+    context.Errors.ShouldBeEmpty(type?.Label);
   }
 
   private void RenderTypeHtml(IGqlpType type, IGqlpType[] extras)
   {
-    Skip.If(type is null);
+    Assert.SkipWhen(type is null, "type is null");
 
     SchemaAst schema = new(AstNulls.At) {
       Declarations = [type]
@@ -127,7 +128,7 @@ public class BuiltInTests(IModelAndRender renderer)
 
   private void RenderSchemaHtml(SchemaAst schema, string filename, SchemaAst? extras = null)
   {
-    RenderStructure result = renderer.RenderAst(schema, renderer.Context(), extras);
+    Structured result = renderer.RenderAst(schema, renderer.Context(), extras);
 
     result.WriteHtmlFile("BuiltIn", filename);
   }

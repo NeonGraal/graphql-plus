@@ -225,13 +225,6 @@ public static class MergeExtensions
     return descr;
   }
 
-  public static string MergeDescriptions<TItem>(this IEnumerable<TItem> items)
-    where TItem : IGqlpDescribed
-    => items
-      .Select(item => item.Description)
-      .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr))
-      ?? "";
-
   public static TObjField Combine<TItem, TObjField>(this IEnumerable<TItem> items, Func<TItem, TObjField> field, IMerge<TObjField> merger)
     where TObjField : IGqlpError
   {

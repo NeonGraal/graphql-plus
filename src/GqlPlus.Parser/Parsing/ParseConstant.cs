@@ -34,7 +34,7 @@ public class ParseConstant(
       return list.MapOk(
         theList => new ConstantAst(at, theList.ArrayOf<ConstantAst>()).Ok<IGqlpConstant>(),
         () => list.IsError()
-          ? list.AsResult<IGqlpConstant>(AstNulls.Constant)
+          ? list.AsResult<IGqlpConstant>()
           : ObjectParser.Parse(tokens, label).Select(fields => new ConstantAst(at, fields) as IGqlpConstant));
     } finally {
       tokens.IgnoreSeparators = oldSeparators;

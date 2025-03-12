@@ -9,27 +9,27 @@ public abstract class AstDirectivesTests
 public abstract class AstDirectivesTests<TInput>
   : AstAbbreviatedTests<TInput>
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void HashCode_WithDirective(TInput input, string[] directives)
   => DirectivesChecks.HashCode(input, directives);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_WithDirective(TInput input, string[] directives)
     => DirectivesChecks.String(input, directives, DirectiveString(input, Directives(directives)));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Equality_WithDirective(TInput input, string[] directives)
     => DirectivesChecks.Equality(input, directives);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_WithDirective(TInput input, string[] directives)
     => DirectivesChecks.Inequality_WithDirective(input, directives);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_ByDirectives(TInput input, string[] directives1, string[] directives2)
     => DirectivesChecks.Inequality_ByDirectives(input, directives1, directives2);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Inequality_ByNames(TInput input1, TInput input2, string[] directives)
     => DirectivesChecks.Inequality_ByInputs(input1, input2, directives);
 

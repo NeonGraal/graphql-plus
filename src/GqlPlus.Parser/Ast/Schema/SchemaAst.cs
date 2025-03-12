@@ -55,7 +55,7 @@ internal sealed record class SchemaAst(TokenAt At)
   public bool Equals(SchemaAst? other)
     => base.Equals(other)
       && Result == other.Result
-      && Declarations.SequenceEqual(other.Declarations)
+      && Declarations.OrderedEqual(other.Declarations, s_comparer)
       && Errors.SequenceEqual(other.Errors);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Result, Declarations.Length, Errors.Count);
@@ -65,4 +65,21 @@ internal sealed record class SchemaAst(TokenAt At)
       new[] { AbbrAt, $"{Result}" }
       .Concat(Errors.Bracket("<", ">", true))
       .Concat(Declarations.SelectMany(d => d.Bracket("{", "}")));
+
+  private static readonly DeclarationComparer s_comparer = new();
+
+  private class DeclarationComparer : IComparer<IGqlpDeclaration>
+  {
+    public int Compare(IGqlpDeclaration? x, IGqlpDeclaration? y)
+    {
+      if (x is null || y is null) {
+        return -1;
+      }
+      int label = string.Compare(x.Label, y.Label, StringComparison.Ordinal);
+      if (label != 0) {
+        return label;
+      }
+      return string.Compare(x.Name, y.Name, StringComparison.Ordinal);
+    }
+  }
 }

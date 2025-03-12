@@ -3,6 +3,9 @@
   <PropertyGroup Condition="$(IsTestProject) == false">
     <OutputType>Library</OutputType>
   </PropertyGroup>
+  <PropertyGroup Condition="$(IsTestProject) == true">
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />

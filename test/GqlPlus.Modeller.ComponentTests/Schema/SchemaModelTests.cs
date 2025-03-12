@@ -37,7 +37,7 @@ public class SchemaModelTests(
         "name: " + name,
         .. checks.ExpectedSettings([setting])]);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void Model_Settings(string name, [NotNull] SettingInput[] settings)
     => checks
       .SkipIf(settings.Select(s => s.Name).Distinct().Count() != settings.Length)

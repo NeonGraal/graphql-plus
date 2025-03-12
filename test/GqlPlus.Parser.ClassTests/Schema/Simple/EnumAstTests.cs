@@ -22,7 +22,7 @@ public class EnumAstTests
     => _checks.Equality(
       () => new EnumDeclAst(AstNulls.At, name, enumMembers.EnumMembers()));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenEnumMembers(string name, string[] enumMembers1, string[] enumMembers2)
     => _checks.InequalityBetween(enumMembers1, enumMembers2,
       enumMember => new EnumDeclAst(AstNulls.At, name, enumMember.EnumMembers()),

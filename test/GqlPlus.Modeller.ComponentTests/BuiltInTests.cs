@@ -1,4 +1,5 @@
-﻿using GqlPlus;
+﻿using System.Linq;
+using GqlPlus;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Convert;
@@ -8,12 +9,12 @@ namespace GqlPlus;
 
 public class BuiltInTests(IModelAndRender renderer)
 {
-  [SkippableTheory]
+  [Theory]
   [ClassData(typeof(BuiltInBasicData))]
   public void HtmlBasicTypes(string type)
     => RenderTypeHtml(BuiltInData.BasicMap[type], []);
 
-  [SkippableTheory]
+  [Theory]
   [ClassData(typeof(BuiltInInternalData))]
   public void HtmlInternalTypes(string type)
     => RenderTypeHtml(BuiltInData.InternalMap[type], BuiltIn.Internal);
@@ -52,12 +53,12 @@ public class BuiltInTests(IModelAndRender renderer)
     result.WriteHtmlFile("BuiltIn", "index", "index");
   }
 
-  [SkippableTheory]
+  [Theory]
   [ClassData(typeof(BuiltInBasicData))]
   public void ModelBasicTypes(string type)
     => ModelType(BuiltInData.BasicMap[type], []);
 
-  [SkippableTheory]
+  [Theory]
   [ClassData(typeof(BuiltInInternalData))]
   public void ModelInternalTypes(string type)
     => ModelType(BuiltInData.InternalMap[type], BuiltIn.Internal);
@@ -94,7 +95,7 @@ public class BuiltInTests(IModelAndRender renderer)
 
   private void ModelType(IGqlpType type, IGqlpType[] extras)
   {
-    Skip.If(type is null);
+    Assert.SkipWhen(type is null, "type is null");
 
     SchemaAst schema = new(AstNulls.At) {
       Declarations = [type]
@@ -112,7 +113,7 @@ public class BuiltInTests(IModelAndRender renderer)
 
   private void RenderTypeHtml(IGqlpType type, IGqlpType[] extras)
   {
-    Skip.If(type is null);
+    Assert.SkipWhen(type is null, "type is null");
 
     SchemaAst schema = new(AstNulls.At) {
       Declarations = [type]

@@ -4,7 +4,7 @@ using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 using NSubstitute;
 
-using Xunit.Abstractions;
+
 
 namespace GqlPlus.Schema;
 

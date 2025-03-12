@@ -2,12 +2,13 @@
 param (
     $Section = "",
     [switch]$ClassTests = $false,
-    [switch]$Report = $false
+    [switch]$Report = $false,
+    $Framework = "net9.0"
 )
 
 $coverageFile = "$PWD/coverage/Coverage.xml"
 $collect = "collect","-o",$coverageFile,"-f","cobertura","-s","coverage.runsettings"
-$test = "test","--no-build","--logger:trx;LogFileName=TestResults.trx","--framework","net9.0"
+$test = "test","--no-build","--logger","trx;LogFileName=TestResults.trx","--framework",$Framework
 
 if ($Section) {
   $test += @("--filter", ".$Section.")

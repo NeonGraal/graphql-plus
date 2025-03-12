@@ -27,7 +27,7 @@ public abstract class TestObjectFields<TObjField, TObjBase>
   public void CanMerge_TwoAstsSameType_ReturnsGood(string name, string type)
   => CanMerge_Good([MakeField(name, type), MakeField(name, type)]);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentTypes_ReturnsErrors(string name, string type1, string type2)
     => this
       .SkipIf(type1 == type2)
@@ -51,7 +51,7 @@ public abstract class TestObjectFields<TObjField, TObjBase>
       MakeField(name, type, typeDescription: description),
       MakeField(name, type, typeDescription: description));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentTypeDescriptions_ReturnsErrors(string name, string type, string description1, string description2)
   => this
       .SkipIf(description1 == description2)

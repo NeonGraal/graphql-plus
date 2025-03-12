@@ -48,7 +48,7 @@ public class ArgAstTests
       () => new ArgAst(AstNulls.At, enumValue.ArgList()),
       $"( !a [ !a ${enumValue} !k {enumValue} ] )");
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void String_WithFields(string key, string enumValue)
     => _checks.Text(
       () => new ArgAst(AstNulls.At, enumValue.ArgObject(key)),
@@ -70,7 +70,7 @@ public class ArgAstTests
     => _checks.Equality(
       () => new(new FieldKeyAst(AstNulls.At, enumType, enumValue)));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_WithConstant(string enumType, string enumValue)
     => _checks.Inequality(
       () => new(new FieldKeyAst(AstNulls.At, enumType, enumValue)),

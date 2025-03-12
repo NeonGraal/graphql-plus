@@ -3,12 +3,17 @@
 public class SchemaValidData
   : TheoryData<string>
 {
-  public static readonly SampleSchemaData Sample = [];
+  private static readonly SampleSchemaData s_sample = [];
+  private static readonly SchemaValidGlobalsData s_globals = [];
+  private static readonly SchemaValidSimpleData s_simple = [];
+  private static readonly SchemaValidObjectsData s_objects = [];
+  private static readonly SchemaValidMergesData s_merges = [];
 
-  public static readonly SchemaValidGlobalsData Globals = [];
-  public static readonly SchemaValidSimpleData Simple = [];
-  public static readonly SchemaValidObjectsData Objects = [];
-  public static readonly SchemaValidMergesData Merges = [];
+  public static IEnumerable<string> Sample => s_sample.Select(x => x.Data);
+  public static IEnumerable<string> Globals => s_globals.Select(x => x.Data);
+  public static IEnumerable<string> Simple => s_simple.Select(x => x.Data);
+  public static IEnumerable<string> Objects => s_objects.Select(x => x.Data);
+  public static IEnumerable<string> Merges => s_merges.Select(x => x.Data);
 
   public static readonly string[] All = [.. Merges, .. Objects, .. Globals, .. Simple];
 

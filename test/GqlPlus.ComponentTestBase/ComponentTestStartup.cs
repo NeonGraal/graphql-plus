@@ -21,7 +21,7 @@ public static class ComponentTestStartup
         .AddXunitOutput(options => options.TimestampFormat = "HH:mm:ss.fff")
         .AddFilter("NullVerifier", LogLevel.Warning)
       )
-      .AddSkippableFactSupport()
+      //.AddSkippableFactSupport()
       .AddCommonParsers()
       .AddOperationParsers()
       .AddSchemaParsers()

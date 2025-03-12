@@ -21,7 +21,7 @@ public class ParseObjectTests(
     => checks.TrueExpected("{|{" + inline + "}}",
       new InlineAst(AstNulls.At, new FieldAst(AstNulls.At, inline)));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithJustSpread_ReturnsCorrectAst(string spread)
     => checks
       .SkipNull(spread)
@@ -30,7 +30,7 @@ public class ParseObjectTests(
         "{|" + spread + "}",
         new SpreadAst(AstNulls.At, spread ?? ""));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string field, string inline, string spread)
     => checks
       .SkipNull(spread)

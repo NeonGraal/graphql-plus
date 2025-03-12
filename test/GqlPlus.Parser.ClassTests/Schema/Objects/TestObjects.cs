@@ -11,7 +11,7 @@ public abstract class TestObjects<TObject, TObjBase, TObjField, TObjAlt>
   where TObjAlt : IGqlpObjAlternate
   where TObjBase : IGqlpObjBase
 {
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsTypeParamsCantMerge_ReturnsErrors(string name, string[] typeParams)
     => this
       .SkipUnless(typeParams)

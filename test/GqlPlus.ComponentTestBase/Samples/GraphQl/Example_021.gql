@@ -1,4 +1,4 @@
-query FragmentTyping {
+﻿query FragmentTyping {
   profiles(handles: ["zuck", "coca-cola"]) {
     handle
     ...userFragment

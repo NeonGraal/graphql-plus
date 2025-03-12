@@ -1,4 +1,4 @@
-mutation {
+﻿mutation {
   likeStory(storyID: 12345) {
     story {
       likeCount

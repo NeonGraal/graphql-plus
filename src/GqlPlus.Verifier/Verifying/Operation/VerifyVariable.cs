@@ -14,7 +14,7 @@ internal class VerifyVariable
 
     IGqlpModifier? lastModifier = item.Modifiers.LastOrDefault();
     if (lastModifier?.ModifierKind == ModifierKind.Optional) {
-      var count = item.Modifiers.Count();
+      int count = item.Modifiers.Count();
       IGqlpModifier? secondLastModifier = count > 1 ? item.Modifiers.Skip(count - 2).First() : null;
       VerifyVariableDefault("Optional ", secondLastModifier, def, errors);
       return;

@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Merging;
-using Microsoft.AspNetCore.Components;
 
 namespace GqlPlus.Schema;
 

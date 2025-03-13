@@ -23,10 +23,10 @@ public class HtmlTests(
     Structured result = new Map<Structured>() {
       ["groups"] = new Map<Structured>() {
         ["All"] = all.Render(),
-        ["Globals"] = ((IEnumerable<string>)SchemaValidData.Globals).Render(),
+        ["Globals"] = SchemaValidData.Globals.Render(),
         ["Merges"] = merges.Render(),
         ["Objects"] = objects.Render(),
-        ["Simple"] = ((IEnumerable<string>)SchemaValidData.Simple).Render(),
+        ["Simple"] = SchemaValidData.Simple.Render(),
       }.Render()
     }.Render();
 

@@ -35,7 +35,7 @@ internal abstract class GroupedVerifier<TAliased>(
 
   private void VerifyDefinitions(Map<TAliased[]> byName, ITokenMessages errors)
   {
-    foreach (KeyValuePair<string, TAliased[]> item in byName) {
+    foreach (MapPair<TAliased[]> item in byName) {
       if (item.Value.Length == 1) {
         continue;
       }

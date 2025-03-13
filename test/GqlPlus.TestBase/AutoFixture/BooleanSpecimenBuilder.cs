@@ -4,7 +4,7 @@ namespace GqlPlus.AutoFixture;
 
 internal sealed class BooleanSpecimenBuilder : TypedSpecimenBuilder<bool>
 {
-  static private bool s_boolValue;
+  private static bool s_boolValue;
 
   protected override object TypedSpecimen(Type type, ISpecimenContext context)
     => s_boolValue = !s_boolValue;

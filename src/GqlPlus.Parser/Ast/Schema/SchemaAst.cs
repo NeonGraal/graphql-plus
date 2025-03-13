@@ -75,10 +75,12 @@ internal sealed record class SchemaAst(TokenAt At)
       if (x is null || y is null) {
         return -1;
       }
+
       int label = string.Compare(x.Label, y.Label, StringComparison.Ordinal);
       if (label != 0) {
         return label;
       }
+
       return string.Compare(x.Name, y.Name, StringComparison.Ordinal);
     }
   }

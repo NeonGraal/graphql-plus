@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 namespace GqlPlus.Structures;
 
@@ -55,10 +56,10 @@ public class Structured
       return this;
     }
 
-    ArgumentNullException.ThrowIfNull(renderer);
+    renderer.ThrowIfNull();
 
-    foreach ((StructureValue key, Structured item) in renderer.Render(value).Map) {
-      Map.Add(key, item);
+    foreach (KeyValuePair<StructureValue, Structured> item in renderer.Render(value).Map) {
+      Map.Add(item.Key, item.Value);
     }
 
     return this;
@@ -96,7 +97,7 @@ public class Structured
 
       foreach (object? value in Enum.GetValues(type)) {
         int flag = (int)value;
-        if (int.PopCount(flag) == 1 && (flags & flag) == flag) {
+        if (IsSingleFlag(flag) && (flags & flag) == flag) {
           result.Add(new(Enum.GetName(type, value)), new("_"));
         }
       }
@@ -105,6 +106,19 @@ public class Structured
     }
 
     return this;
+  }
+
+  private static bool IsSingleFlag(int flag)
+  {
+    while (flag > 0) {
+      bool rem = (flag & 1) > 0;
+      flag >>= 1;
+      if (rem) {
+        return flag == 0;
+      }
+    }
+
+    return false;
   }
 
   public bool Equals(Structured? other)

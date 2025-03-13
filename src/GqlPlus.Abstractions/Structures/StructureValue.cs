@@ -48,8 +48,8 @@ public sealed record class StructureValue
     => HashCode.Combine(Tag,
       Boolean?.GetHashCode() ?? 0,
       Number?.GetHashCode() ?? 0,
-      Identifier?.GetHashCode(StringComparison.Ordinal) ?? 0,
-      Text?.GetHashCode(StringComparison.Ordinal) ?? 0);
+      Identifier?.GetHashCode() ?? 0,
+      Text?.GetHashCode() ?? 0);
 
   public string AsString
   {

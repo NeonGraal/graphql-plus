@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using AutoFixture;
 using AutoFixture.Xunit3;
+using GqlPlus.AutoFixture;
 using Xunit;
 using Xunit.Sdk;
 

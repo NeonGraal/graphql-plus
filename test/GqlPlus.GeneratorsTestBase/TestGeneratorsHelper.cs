@@ -1,4 +1,5 @@
 ﻿using System.Collections.Immutable;
+using DiffEngine;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
@@ -7,6 +8,9 @@ namespace GqlPlus;
 
 public static class TestGeneratorsHelper
 {
+  static TestGeneratorsHelper()
+    => DiffRunner.MaxInstancesToLaunch(20);
+
   public static GeneratorDriver Generate(this IIncrementalGenerator generator, string source, ImmutableArray<AdditionalText> additionalPaths)
   {
     SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(source);

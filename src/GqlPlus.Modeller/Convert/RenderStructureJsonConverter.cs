@@ -19,7 +19,7 @@ internal class RenderStructureJsonConverter
       WriteList(writer, value.List, options);
       return;
     } else if (value.Map.Count > 0) {
-      (StructureValue _, Structured first) = value.Map.First();
+      Structured first = value.Map.First().Value;
       if (value.Map.Count == 1 && !plain && string.IsNullOrWhiteSpace(first.Tag) && first.Value is not null) {
         StartTaggedValue(writer, value.Tag);
         WriteValue(writer, first.Value);

@@ -13,7 +13,7 @@ public class VerifierTests(
 ) : SchemaDataBase(schemaParser)
 {
   [Theory]
-  [ClassData(typeof(SampleSchemaData))]
+  [ClassData(typeof(SamplesSchemaData))]
   public async Task VerifySampleSchema(string sample)
   {
     IGqlpSchema ast = await ParseSampleSchema(sample);

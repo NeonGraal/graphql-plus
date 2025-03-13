@@ -94,7 +94,7 @@ internal class RenderYamlTypeConverter
   }
 
   protected virtual ScalarStyle GetStringScalarStyle(string text)
-    => text.Contains('\'', StringComparison.Ordinal)
+    => text.Contains('\'')
       ? ScalarStyle.DoubleQuoted
       : ScalarStyle.SingleQuoted;
 }

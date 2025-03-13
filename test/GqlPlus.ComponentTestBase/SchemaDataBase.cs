@@ -68,9 +68,7 @@ public class SchemaDataBase(
     ArgumentNullException.ThrowIfNull(action);
 
     if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), r.Item1 + "-" + testName))
-        .ToArray());
+      await WhenAll([.. Replacements.Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), r.Item1 + "-" + testName))]);
     } else {
       await action(input, testName);
     }

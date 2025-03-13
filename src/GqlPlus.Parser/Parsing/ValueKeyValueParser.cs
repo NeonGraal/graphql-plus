@@ -15,16 +15,18 @@ public class ValueKeyValueParser<TValue>(
   public IResult<KeyValue<TValue>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    ArgumentNullException.ThrowIfNull(tokens);
+    tokens.ThrowIfNull();
 
     IResult<IGqlpFieldKey> fieldKey = _key.Parse(tokens, label);
     if (fieldKey.IsError()) {
       return fieldKey.AsResult<KeyValue<TValue>>();
     }
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     if (!tokens.Take(':')) {
       return tokens.Error<KeyValue<TValue>>(label, "':' after key");
     } else if (!fieldKey.IsOk()) {
+#pragma warning restore CA1062 // Validate arguments of public methods
       return tokens.Error<KeyValue<TValue>>(label, "key before ':'");
     }
 

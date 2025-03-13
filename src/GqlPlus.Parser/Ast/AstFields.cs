@@ -11,7 +11,7 @@ internal class AstFields<TValue>
   public AstFields()
     : base() { }
   public AstFields(IGqlpFields<TValue> dict)
-    : base(dict) { }
+    : base(dict.ToDictionary(k => k.Key, v => v.Value)) { }
   public AstFields(ImmutableDictionary<IGqlpFieldKey, TValue> dict)
     : base(dict) { }
 

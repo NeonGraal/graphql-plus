@@ -76,9 +76,8 @@ internal class EnumMembers
       .Except(_excludes)
       .GroupBy(m => m.Member);
 
-    return allMembers
+    return [.. allMembers
       .Where(g => g.Count() != 1)
-      .Select(g => g.ToArray())
-      .ToArray();
+      .Select(g => g.ToArray())];
   }
 }

@@ -46,7 +46,7 @@ public static class EnumContextHelper
         .SelectMany(e => e.Items.Select(v => (Member: v.Name, Type: e.Name)))
         .GroupBy(e => e.Member, e => e.Type);
 
-    HashSet<string> enumNames = enums.Select(e => e.Key).ToHashSet();
+    HashSet<string> enumNames = [.. enums.Select(e => e.Key)];
 
     return aliased
         .OfType<IGqlpEnum>()

@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <IsTestProject>false</IsTestProject>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,17 +11,20 @@
 
   <ItemGroup>
     <None Remove="DI\diagram.liquid" />
+    <None Remove="Samples\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Fluid.Core" Version="2.19.0" />
-    <PackageReference Include="Verify.XunitV3" Version="28.14.0" />
+    <PackageReference Include="MartinCostello.Logging.XUnit.v3" Version="0.5.1" />
+    <PackageReference Include="Verify.XunitV3" Version="28.15.0" />
     <PackageReference Include="Xunit.DependencyInjection" Version="10.3.0" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" Version="10.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GqlPlus.TestBase\GqlPlus.TestBase.csproj" />
+    <ProjectReference Include="..\GqlPlus.TestGenerators\GqlPlus.TestGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,7 +37,7 @@
       <LastGenOutput>%(Filename).gen.cs</LastGenOutput>
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Update="Samples\**" CopyToOutputDirectory="Always" />
+    <AdditionalFiles Include="Samples\**" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
   <ItemGroup>

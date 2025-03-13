@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B834B2ED-0D27-4281-8523-B706B42DCC15}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GqlPlus.Verifier", "src\GqlPlus.Verifier\GqlPlus.Verifier.csproj", "{DDB8D682-23EA-48C4-A1AD-65F114533202}"
 EndProject
@@ -71,6 +74,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.ClassTestBase", "te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Abstractions.ClassTests", "test\GqlPlus.Abstractions.ClassTests\GqlPlus.Abstractions.ClassTests.csproj", "{A037825A-92B7-4B00-B039-EEC7A1AA0823}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.TestGenerators", "test\GqlPlus.TestGenerators\GqlPlus.TestGenerators.csproj", "{B061A811-3DBB-4E5A-AD96-91F0A74FE3C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.TestGeneratorsTests", "test\GqlPlus.TestGeneratorsTests\GqlPlus.TestGeneratorsTests.csproj", "{BB113C8C-1B2C-4815-A4DF-051F9237AF0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.PolyFill", "src\GqlPlus.PolyFill\GqlPlus.PolyFill.csproj", "{44D55F97-4EBA-48C8-A72C-7FBC12A44719}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.GeneratorsTestBase", "test\GqlPlus.GeneratorsTestBase\GqlPlus.GeneratorsTestBase.csproj", "{0336A900-AA73-4B44-99BD-B70A5B2D14D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +144,22 @@ Global
 		{A037825A-92B7-4B00-B039-EEC7A1AA0823}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A037825A-92B7-4B00-B039-EEC7A1AA0823}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A037825A-92B7-4B00-B039-EEC7A1AA0823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B061A811-3DBB-4E5A-AD96-91F0A74FE3C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B061A811-3DBB-4E5A-AD96-91F0A74FE3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B061A811-3DBB-4E5A-AD96-91F0A74FE3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B061A811-3DBB-4E5A-AD96-91F0A74FE3C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB113C8C-1B2C-4815-A4DF-051F9237AF0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB113C8C-1B2C-4815-A4DF-051F9237AF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB113C8C-1B2C-4815-A4DF-051F9237AF0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB113C8C-1B2C-4815-A4DF-051F9237AF0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D55F97-4EBA-48C8-A72C-7FBC12A44719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D55F97-4EBA-48C8-A72C-7FBC12A44719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D55F97-4EBA-48C8-A72C-7FBC12A44719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D55F97-4EBA-48C8-A72C-7FBC12A44719}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0336A900-AA73-4B44-99BD-B70A5B2D14D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0336A900-AA73-4B44-99BD-B70A5B2D14D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0336A900-AA73-4B44-99BD-B70A5B2D14D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0336A900-AA73-4B44-99BD-B70A5B2D14D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -154,6 +181,10 @@ Global
 		{7D18D0EF-C933-414A-AF79-26309EFA4B94} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{2CDE8A80-4B51-499E-8C10-C865C38D03E1} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{A037825A-92B7-4B00-B039-EEC7A1AA0823} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{B061A811-3DBB-4E5A-AD96-91F0A74FE3C2} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{BB113C8C-1B2C-4815-A4DF-051F9237AF0E} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{44D55F97-4EBA-48C8-A72C-7FBC12A44719} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
+		{0336A900-AA73-4B44-99BD-B70A5B2D14D3} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}

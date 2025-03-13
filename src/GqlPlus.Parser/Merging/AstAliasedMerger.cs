@@ -44,7 +44,7 @@ internal abstract class AstAliasedMerger<TItem>(
 
   protected override TItem MergeGroup(IEnumerable<TItem> group)
   {
-    TItem[] list = group.ToArray();
+    TItem[] list = [.. group];
     TItem result = list.First();
     if (result is IAstSetAliases setAliases) {
       setAliases.SetAliases(list.SelectMany(item => item.Aliases).Distinct());

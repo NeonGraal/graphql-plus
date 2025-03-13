@@ -8,7 +8,7 @@ public abstract class TestModelBase<TName, TRender>(
   ICheckModelBase<TName, TRender> baseChecks
 ) where TRender : IModelBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Default(TName name)
     => baseChecks
       .SkipIf(SkipIf(name), SkipReason)

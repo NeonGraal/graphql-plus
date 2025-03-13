@@ -12,8 +12,10 @@ public class ParseConstant(
 {
   public override IResult<IGqlpConstant> Parse<TContext>(TContext tokens, string label)
   {
-    ArgumentNullException.ThrowIfNull(tokens);
+    tokens.ThrowIfNull();
+#pragma warning disable CA1062 // Validate arguments of public methods
     Token.TokenAt at = tokens.At;
+#pragma warning restore CA1062 // Validate arguments of public methods
 
     IResult<IGqlpFieldKey> fieldKey = FieldKey.Parse(tokens, label);
     if (fieldKey.IsError()) {

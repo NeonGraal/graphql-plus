@@ -68,7 +68,7 @@ where TContext : UsageContext
     bool top,
     Action<TObject>? onParent = null)
   {
-    if (input.Parent?.StartsWith('$') == true) {
+    if (input.Parent?.StartsWith("$", StringComparison.Ordinal) == true) {
       string parameter = input.Parent[1..];
       context.AddError(
         input.Usage,
@@ -124,7 +124,7 @@ where TContext : UsageContext
   {
     base.CheckMergeParent(input, context);
 
-    TObjAlt[] alternates = GetParentItems(input, input.Usage, context, ast => ast.ObjAlternates).ToArray();
+    TObjAlt[] alternates = [.. GetParentItems(input, input.Usage, context, ast => ast.ObjAlternates)];
     if (alternates.Length > 0) {
       ITokenMessages failures = mergeAlternates.CanMerge(alternates);
       if (failures.Any()) {

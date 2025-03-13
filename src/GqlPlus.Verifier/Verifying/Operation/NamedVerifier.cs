@@ -16,20 +16,20 @@ internal abstract class NamedVerifier<TUsage, TNamed>(
 
     Dictionary<string, TNamed> defined = item.Definitions.ToDictionary(f => f.Name);
 
-    foreach ((string k, TUsage u) in used) {
-      if (!defined.ContainsKey(k)) {
-        errors.Add(u.MakeError($"Invalid {Label} usage. {Label} not defined."));
+    foreach (KeyValuePair<string, TUsage> use in used) {
+      if (!defined.ContainsKey(use.Key)) {
+        errors.Add(use.Value.MakeError($"Invalid {Label} usage. {Label} not defined."));
       }
 
-      usage?.Verify(u, errors);
+      usage?.Verify(use.Value, errors);
     }
 
-    foreach ((string k, TNamed d) in defined) {
-      if (!used.ContainsKey(k)) {
-        errors.Add(d.MakeError($"Invalid {Label} definition. {Label} not used."));
+    foreach (var def in defined) {
+      if (!used.ContainsKey(def.Key)) {
+        errors.Add(def.Value.MakeError($"Invalid {Label} definition. {Label} not used."));
       }
 
-      definition?.Verify(d, errors);
+      definition?.Verify(def.Value, errors);
     }
   }
 }

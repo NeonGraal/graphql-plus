@@ -10,17 +10,17 @@ public static class TypeHelpers
 
   public static string TidyTypeName(this Type type)
     => type.ExpandTypeName()
-      .Replace("Ast", "", StringComparison.OrdinalIgnoreCase)
-      .Replace("IGqlp", "", StringComparison.OrdinalIgnoreCase)
-      .Replace("Model", "", StringComparison.OrdinalIgnoreCase);
+      .Replace("Ast", "")
+      .Replace("IGqlp", "")
+      .Replace("Model", "");
 
   public static string ExpandTypeName(this Type type)
   {
-    ArgumentNullException.ThrowIfNull(type);
+    type.ThrowIfNull();
 
-    if (type.IsGenericTypeParameter) {
-      return "";
-    }
+    //if (type.IsGenericTypeParameter) {
+    //  return "";
+    //}
 
     if (type.IsGenericType || type.IsGenericTypeDefinition) {
       string baseType = NestedTypeName(type.GetGenericTypeDefinition());
@@ -28,7 +28,7 @@ public static class TypeHelpers
       string placeholder = $"`{args.Length}";
       string arguments = "<" + string.Join(",", args.Select(ExpandTypeName)) + ">";
 
-      return baseType.Replace(placeholder, arguments, StringComparison.InvariantCulture);
+      return baseType.Replace(placeholder, arguments);
     }
 
     return NestedTypeName(type);
@@ -36,7 +36,7 @@ public static class TypeHelpers
 
   private static string NestedTypeName(Type type)
     => type is null ? "null"
-      : type.IsNested && !type.IsGenericTypeParameter && type.DeclaringType is not null
+      : type.IsNested /*&& !type.IsGenericTypeParameter*/ && type.DeclaringType is not null
         ? NestedTypeName(type.DeclaringType) + "+" + type.Name
         : type.Name;
 }

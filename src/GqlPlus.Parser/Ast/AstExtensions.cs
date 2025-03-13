@@ -9,11 +9,14 @@ public static class AstExtensions
   public static bool NullEqual<T>(this T? left, T? right)
     where T : IEquatable<T>
     => left is null && right is null
-    || left is not null && left.Equals(right);
+    || left is not null && right is not null && left.Equals(right);
 
   public static bool NullEqual(this decimal? left, decimal? right)
     => left is null && right is null
     || left is not null && left == right;
+
+  public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
+    => left.OrderBy(t => t, comparer).SequenceEqual(right.OrderBy(t => t, comparer));
 
   public static IEnumerable<string> AsString<T>(this IEnumerable<T>? items)
     => items?.Any() == true
@@ -38,7 +41,7 @@ public static class AstExtensions
     IEnumerable<string?>? result = AsFields(items);
 
     if (sort) {
-      result = result?.Order();
+      result = result?.OrderBy(t => t);
     }
 
     return result
@@ -55,7 +58,7 @@ public static class AstExtensions
       : null;
 
   public static string Debug(this IEnumerable<string?>? items)
-    => string.Join(", ", items?.Order(StringComparer.Ordinal).Select(i => $"'{i}'") ?? []);
+    => string.Join(", ", items?.OrderBy(t => t, StringComparer.Ordinal).Select(i => $"'{i}'") ?? []);
 
   public static string Debug<T>(this IEnumerable<T?>? items, Func<T?, string> mapping)
     => (items?.Select(mapping)).Debug();
@@ -89,8 +92,8 @@ public static class AstExtensions
     ? string.Concat(
       quote,
       text
-        .Replace("\\", "\\\\", StringComparison.InvariantCulture)
-        .Replace(quote, "\\" + quote, StringComparison.InvariantCulture),
+        .Replace("\\", "\\\\")
+        .Replace(quote, "\\" + quote),
       quote)
     : "";
 

@@ -1,1 +1,1 @@
-8d27cdd  (HEAD -> correct-coverage, origin/correct-coverage) 2025-03-06 Further improve verify errors
+33add1c  (HEAD -> main, origin/main, origin/HEAD) 2025-03-07 Merge pull request #12 from graphql-plus/correct-coverage

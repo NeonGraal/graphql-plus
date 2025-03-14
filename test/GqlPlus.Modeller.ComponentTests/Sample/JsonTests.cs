@@ -22,22 +22,22 @@ public class JsonTests(
     => await Verify_Model(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaValidMergesData))]
   public async Task Json_Merges(string model)
     => await ReplaceFileAsync("ValidMerges", model, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidObjectsData))]
+  [ClassData(typeof(SamplesSchemaValidObjectsData))]
   public async Task Json_Objects(string model)
     => await ReplaceFileAsync("ValidObjects", model, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidGlobalsData))]
+  [ClassData(typeof(SamplesSchemaValidGlobalsData))]
   public async Task Json_Globals(string global)
     => await ReplaceFileAsync("ValidGlobals", global, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidSimpleData))]
+  [ClassData(typeof(SamplesSchemaValidSimpleData))]
   public async Task Json_Simple(string simple)
     => await ReplaceFileAsync("ValidSimple", simple, Verify_Model);
 

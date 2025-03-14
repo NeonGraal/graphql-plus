@@ -5,15 +5,15 @@ namespace GqlPlus;
 public class BuildDataGeneratorTests
 {
   private static readonly string[] s_additionalFilesWithIncorrectOne = [
-    "Sample/Files/File3.gql+",
-    "Sample/Files/file2.graphql+",
-    "Sample/Files/file1.txt",
-    "Sample/git-details.txt"];
+    "a/Samples/Files/File3.gql+",
+    "b/Samples/Files/file2.graphql+",
+    "c/Samples/Files/file1.txt",
+    "git-details.txt"];
   private static readonly string[] s_additionalSubdirectoryFiles = [
-    "Sample/Files/File3.gql",
-    "Sample/More/file2.graphql+",
-    "Sample/Files/Deeper/file1.gql+",
-    "Sample/git-details.txt"];
+    "e/Samples/Files/File3.gql",
+    "f/Samples/More/file2.graphql+",
+    "g/Samples/Files/Deeper/file1.gql+",
+    "git-details.txt"];
 
   [Fact]
   public Task NoAdditionalFiles()

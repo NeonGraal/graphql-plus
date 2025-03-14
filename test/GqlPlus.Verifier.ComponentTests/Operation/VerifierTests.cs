@@ -14,7 +14,7 @@ public class VerifierTests(
   private readonly Parser<IGqlpOperation>.L _parser = parser;
 
   [Theory]
-  [ClassData(typeof(OperationValidData))]
+  [ClassData(typeof(SamplesOperationValidData))]
   public async Task Verify_ValidOperations_ReturnsValid(string operation)
   {
     IResult<IGqlpOperation> parse = await Parse("Valid", operation);
@@ -30,7 +30,7 @@ public class VerifierTests(
   }
 
   [Theory]
-  [ClassData(typeof(OperationInvalidData))]
+  [ClassData(typeof(SamplesOperationInvalidData))]
   public async Task Verify_InvalidOperations_ReturnsInvalid(string operation)
   {
     IResult<IGqlpOperation> parse = await Parse("Invalid", operation);

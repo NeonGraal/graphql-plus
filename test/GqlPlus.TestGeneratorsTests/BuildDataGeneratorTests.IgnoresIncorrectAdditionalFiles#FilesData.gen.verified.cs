@@ -9,21 +9,10 @@ public class SamplesFilesData
 {
   public SamplesFilesData()
   {
+    Add("file2");
     Add("File3");
   }
 
   public const string From = "Samples/Files/";
-  public const string Collected = "git-details.txt";
-}
-
-public class SamplesFilesDeeperData
-  : TheoryData<string>
-{
-  public SamplesFilesDeeperData()
-  {
-    Add("file1");
-  }
-
-  public const string From = "Samples/Files/Deeper";
   public const string Collected = "git-details.txt";
 }

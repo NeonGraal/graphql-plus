@@ -34,37 +34,37 @@ public class VerifierTests(
     => VerifyInputs_Valid(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
-  [ClassData(typeof(SchemaValidGlobalsData))]
+  [ClassData(typeof(SamplesSchemaValidGlobalsData))]
   public async Task Verify_Globals(string global)
     => await VerifyFile_Valid("ValidGlobals", global);
 
   [Theory]
-  [ClassData(typeof(SchemaInvalidGlobalsData))]
+  [ClassData(typeof(SamplesSchemaInvalidGlobalsData))]
   public async Task Verify_GlobalsInvalid(string global)
     => await VerifyFile_Invalid("InvalidGlobals", global);
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaValidMergesData))]
   public async Task Verify_Merges(string merge)
     => await ReplaceFile("ValidMerges", merge, VerifyInput_Valid);
 
   [Theory]
-  [ClassData(typeof(SchemaValidSimpleData))]
+  [ClassData(typeof(SamplesSchemaValidSimpleData))]
   public async Task Verify_Simple(string simple)
     => await VerifyFile_Valid("ValidSimple", simple);
 
   [Theory]
-  [ClassData(typeof(SchemaInvalidSimpleData))]
+  [ClassData(typeof(SamplesSchemaInvalidSimpleData))]
   public async Task Verify_SimpleInvalid(string simple)
     => await VerifyFile_Invalid("InvalidSimple", simple);
 
   [Theory]
-  [ClassData(typeof(SchemaValidObjectsData))]
+  [ClassData(typeof(SamplesSchemaValidObjectsData))]
   public async Task Verify_Objects(string obj)
     => await ReplaceFile("ValidObjects", obj, VerifyInput_Valid);
 
   [Theory]
-  [ClassData(typeof(SchemaInvalidObjectsData))]
+  [ClassData(typeof(SamplesSchemaInvalidObjectsData))]
   public async Task Verify_ObjectsInvalid(string obj)
     => await ReplaceFileAsync("InvalidObjects", obj, VerifyInput_Invalid);
 

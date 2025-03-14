@@ -1,4 +1,4 @@
-query withNestedFragments {
+﻿query withNestedFragments {
   user(id: 4) {
     friends(first: 10) {
       ...friendFields

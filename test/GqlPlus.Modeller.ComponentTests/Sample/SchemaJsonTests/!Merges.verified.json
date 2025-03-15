@@ -1,4 +1,4 @@
-{
+﻿{
   "$tag": "_Schema",
   "aliases": ["Opt1", "Opt2"],
   "categories": {
@@ -85,9 +85,9 @@
   "name": "Schema",
   "settings": {
     "$tag": "_Map_Setting",
-    "setting": {
+    "merged": {
       "$tag": "_Setting",
-      "name": "setting",
+      "name": "merged",
       "value": [true, 0]
     }
   },

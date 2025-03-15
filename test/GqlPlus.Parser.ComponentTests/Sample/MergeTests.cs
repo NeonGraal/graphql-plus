@@ -20,7 +20,7 @@ public class MergeTests(
     => Check_CanMerge(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaValidMergesData))]
   public async Task CanMerge_Valid(string merge)
   {
     string input = await ReadSchema(merge, "ValidMerges");
@@ -29,7 +29,7 @@ public class MergeTests(
   }
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaValidMergesData))]
   public async Task CanMerge_ValidEach(string merge)
     => await ReplaceFile("ValidMerges", merge, (input, _, test) => Check_CanMerge([input], test));
 
@@ -43,7 +43,7 @@ public class MergeTests(
     => await Verify_Merge(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaValidMergesData))]
   public async Task Merge_Valid(string merge)
   {
     string input = await ReadSchema(merge, "ValidMerges");
@@ -52,7 +52,7 @@ public class MergeTests(
   }
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaValidMergesData))]
   public async Task Merge_ValidEach(string merge)
   {
     string input = await ReadSchema(merge, "ValidMerges");

@@ -4,8 +4,6 @@ using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 using NSubstitute;
 
-
-
 namespace GqlPlus.Schema;
 
 public class MergeAllTypesTests

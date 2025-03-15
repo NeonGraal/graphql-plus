@@ -1,7 +1,4 @@
-﻿using System.Reflection;
-
-using AutoFixture;
-using AutoFixture.Kernel;
+﻿using AutoFixture;
 
 namespace GqlPlus.AutoFixture;
 

@@ -17,11 +17,11 @@ public class SampleSchemaChecks(
     return _schemaParser.Parse(tokens, "Schema");
   }
 
-  protected async Task<IGqlpSchema> ParseSampleSchema(string sample)
+  protected async Task<IGqlpSchema> ParseSample(string label, string sample, params string[] dirs)
   {
-    string schema = await ReadSchema(sample);
+    string schema = await ReadSchema(sample, dirs);
     Tokenizer tokens = new(schema);
 
-    return _schemaParser.Parse(tokens, "Schema").Required();
+    return _schemaParser.Parse(tokens, label).Required();
   }
 }

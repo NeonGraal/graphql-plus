@@ -1,4 +1,5 @@
 ﻿using AutoFixture.Kernel;
+using GqlPlus.Structures;
 
 namespace GqlPlus.AutoFixture;
 
@@ -13,6 +14,10 @@ internal class RandomEnumSequenceGenerator : ISpecimenBuilder
     }
 
     Array values = Enum.GetValues(type);
+    if (type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0) {
+      values = values.Cast<int>().Where(x => x.IsSingleFlag()).ToArray();
+    }
+
 #pragma warning disable CA5394 // Do not use insecure randomness
     int index = s_random.Next(values.Length);
 #pragma warning restore CA5394 // Do not use insecure randomness

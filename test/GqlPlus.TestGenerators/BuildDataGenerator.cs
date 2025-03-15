@@ -31,13 +31,28 @@ public class BuildDataGenerator : IIncrementalGenerator
     context.RegisterSourceOutput(samples.Combine(gitDetails), GenerateCode);
   }
 
-  private record struct DataPath(string[] Prefix, string Parent, string Directory, string FileName);
+  private record struct DataPath(string Parent, string[] Directory, string FileName);
 
   private static DataPath FromArray(string[] path)
   {
-    int prefix = path.Length - 3;
-    string filename = Path.GetFileNameWithoutExtension(path[prefix + 2]);
-    return new([.. path.Take(prefix)], path[prefix], path[prefix + 1], filename);
+    int first = Array.IndexOf(path, "Samples") + 1;
+    int last = path.Length - 1;
+    string filename = Path.GetFileNameWithoutExtension(path[last]);
+    string[] dir = [];
+    if (first + 1 < last) {
+      dir = [.. path.Skip(first + 1).Take(last - first - 1)];
+    }
+
+    return new(path[first], dir, filename);
+  }
+
+  private record struct FileDetails(string Collected, string From, StringBuilder Builder)
+  {
+    internal readonly void AppendLine(string text = "")
+      => Builder.AppendLine(text);
+
+    internal readonly string Source
+      => Builder.ToString();
   }
 
   private void GenerateCode(SourceProductionContext context, (ImmutableArray<string> Left, ImmutableArray<string> Right) tuple)
@@ -56,36 +71,44 @@ public class BuildDataGenerator : IIncrementalGenerator
       .Select(FromArray);
 
     foreach (IGrouping<string, DataPath> parent in filePaths.GroupBy(path => path.Parent)) {
-      DataPath first = parent.First();
-      string from = string.Join("/", first.Prefix.Append(parent.Key));
-      StringBuilder builder = new("// Generated from ");
-      builder.AppendLine(from);
-      builder.Append("// Collected from ");
-      builder.AppendLine(collected);
-      builder.AppendLine();
-      builder.AppendLine($"namespace {_namespace};");
+      FileDetails details = new(collected ?? "", PathCombine("Samples", parent.Key), new("// Generated from "));
+      details.AppendLine(details.From);
+      details.AppendLine("// Collected from " + collected);
+      details.AppendLine();
+      details.AppendLine($"namespace {_namespace};");
 
-      foreach (IGrouping<string, DataPath> directory in parent.GroupBy(g => g.Directory)) {
-        string className = parent.Key + directory.Key + "Data";
-        builder.AppendLine();
-        builder.AppendLine("public class " + className);
-        builder.AppendLine("  : TheoryData<string>");
-        builder.AppendLine("{");
-        builder.AppendLine($"  public {className}()");
-        builder.AppendLine("  {");
-
-        foreach (DataPath file in directory.OrderBy(f => f.FileName, StringComparer.OrdinalIgnoreCase)) {
-          builder.AppendLine($"    Add(\"{file.FileName}\");");
-        }
-
-        builder.AppendLine("  }");
-        builder.AppendLine();
-        builder.AppendLine($"  public const string From = \"{from}/{directory.Key}\";");
-        builder.AppendLine($"  public const string Collected = \"{collected}\";");
-        builder.AppendLine("}");
+      foreach (IGrouping<string, DataPath> directory in parent.GroupBy(g => PathCombine(g.Directory))) {
+        GenerateDataClass(details, directory.Key, directory);
       }
 
-      context.AddSource(parent.Key + "Data.gen.cs", builder.ToString());
+      context.AddSource(parent.Key + "Data.gen.cs", details.Source);
     }
+
+    static string PathCombine(params string[] paths)
+      => string.Join("/", paths);
+  }
+
+  private static void GenerateDataClass(FileDetails details, string directory, IEnumerable<DataPath> paths)
+  {
+    string className = (details.From + directory).Replace("/", "") + "Data";
+    details.AppendLine();
+    details.AppendLine("public class " + className);
+    details.AppendLine("  : TheoryData<string>");
+    details.AppendLine("{");
+    details.AppendLine($"  public static readonly string[] Strings = [");
+    foreach (DataPath file in paths.OrderBy(f => f.FileName, StringComparer.OrdinalIgnoreCase)) {
+      details.AppendLine($"    \"{file.FileName}\",");
+    }
+
+    details.AppendLine("  ];");
+    details.AppendLine();
+    details.AppendLine($"  public {className}()");
+    details.AppendLine("  {");
+    details.AppendLine("    foreach (string s in Strings) Add(s);");
+    details.AppendLine("  }");
+    details.AppendLine();
+    details.AppendLine($"  public const string From = \"{details.From}/{directory}\";");
+    details.AppendLine($"  public const string Collected = \"{details.Collected}\";");
+    details.AppendLine("}");
   }
 }

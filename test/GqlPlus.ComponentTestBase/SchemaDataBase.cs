@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
-using GqlPlus.Token;
 
 namespace GqlPlus;
 
@@ -21,7 +20,7 @@ public class SchemaDataBase(
       .ThrowIfNull()
       .Keys
       .SelectMany(k => IsObjectInput(inputs[k])
-        ? Replacements.Select(r => r.Item1 + "-" + k)
+        ? Replacements.Select(r => k + "+" + r.Item1)
         : [k])
       .Order();
 
@@ -33,7 +32,7 @@ public class SchemaDataBase(
 
     return (await Task.WhenAll(tasks))
         .SelectMany(p => IsObjectInput(p.input)
-          ? Replacements.Select(r => r.Item1 + "-" + p.file)
+          ? Replacements.Select(r => p.file + "+" + r.Item1)
           : [p.file])
         .Order();
   }
@@ -56,7 +55,7 @@ public class SchemaDataBase(
 
     if (IsObjectInput(input)) {
       foreach ((string label, string abbr) in Replacements) {
-        action(ReplaceInput(input, abbr, label, abbr), label + "-" + testName);
+        action(ReplaceInput(input, abbr, label, abbr), testName + "+" + label);
       }
     } else {
       action(input, testName);
@@ -68,7 +67,7 @@ public class SchemaDataBase(
     ArgumentNullException.ThrowIfNull(action);
 
     if (IsObjectInput(input)) {
-      await WhenAll([.. Replacements.Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), r.Item1 + "-" + testName))]);
+      await WhenAll([.. Replacements.Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), testName + "+" + r.Item1))]);
     } else {
       await action(input, testName);
     }
@@ -82,7 +81,7 @@ public class SchemaDataBase(
     if (IsObjectInput(input)) {
       // using AssertionScope scope = new();
       foreach ((string label, string abbr) in Replacements) {
-        action(ReplaceInput(input, abbr, label, abbr), testDirectory, label + "-" + testName);
+        action(ReplaceInput(input, abbr, label, abbr), testDirectory, testName + "+" + label);
       }
     } else {
       action(input, testDirectory, testName);
@@ -95,9 +94,8 @@ public class SchemaDataBase(
     string input = await ReadSchema(testName, testDirectory);
 
     if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), testDirectory, r.Item1 + "-" + testName))
-        .ToArray());
+      await WhenAll([.. Replacements
+        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), testDirectory, testName + "+" + r.Item1))]);
     } else {
       await action(input, testDirectory, testName);
     }

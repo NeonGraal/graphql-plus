@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using GqlPlus;
+﻿using GqlPlus;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Convert;
@@ -44,7 +43,6 @@ public class BuiltInTests(IModelAndRender renderer)
   {
     Structured result = new Map<Structured>() {
       ["groups"] = new Map<Structured>() {
-        ["All"] = SchemaValidData.Sample.Render(),
         ["Basic"] = BuiltIn.Basic.Select(t => t.Name).Render(),
         ["Internal"] = BuiltIn.Internal.Select(t => t.Name).Render(),
       }.Render(),

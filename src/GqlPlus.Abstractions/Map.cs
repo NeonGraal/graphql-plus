@@ -5,10 +5,6 @@ public class Map<TMap>
   , IMap<TMap>
   , IReadOnlyMap<TMap>
 {
-  public Map() { }
-  public Map(IReadOnlyDictionary<string, TMap> dictionary)
-    : base(dictionary.ToDictionary(k => k.Key, v => v.Value)) { }
-
   public TMap GetValueOrDefault(string key, TMap defaultValue)
     => TryGetValue(key, out TMap value) ? value : defaultValue;
   public bool TryAdd(string key, TMap value)
@@ -20,26 +16,15 @@ public class Map<TMap>
     Add(key, value);
     return true;
   }
+
+  public void Add(MapPair<TMap> item)
+    => Add(item.Key, item.Value);
 }
 
-public interface IMap<TMap>
-  : IDictionary<string, TMap>
+public record struct MapPair<TMap>(string Key, TMap Value)
 {
-  TMap GetValueOrDefault(string key, TMap defaultValue);
-  bool TryAdd(string key, TMap value);
-}
-
-public interface IReadOnlyMap<TMap>
-  : IReadOnlyDictionary<string, TMap>
-{
-  TMap GetValueOrDefault(string key, TMap defaultValue);
-}
-
-public static class MapExtensions
-{
-  public static Map<TMap> ToMap<TMap>(this IEnumerable<TMap>? items, Func<TMap, string> key)
-    => new(items?.ToDictionary(key) ?? []);
-
-  public static Map<TMap> ToMap<TInput, TMap>(this IEnumerable<TInput>? items, Func<TInput, string> key, Func<TInput, TMap> map)
-    => new(items?.ToDictionary(key, map) ?? []);
+  public static implicit operator KeyValuePair<string, TMap>(MapPair<TMap> pair)
+    => new(pair.Key, pair.Value);
+  public static implicit operator MapPair<TMap>(KeyValuePair<string, TMap> pair)
+    => new(pair.Key, pair.Value);
 }

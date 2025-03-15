@@ -50,4 +50,17 @@ public static class StructureHelper
 
   internal static bool BothValued<T>([NotNullWhen(true)] this T? left, [NotNullWhen(true)] T? right)
     => left is not null && right is not null;
+
+  public static bool IsSingleFlag(this int flag)
+  {
+    while (flag > 0) {
+      bool rem = (flag & 1) > 0;
+      flag >>= 1;
+      if (rem) {
+        return flag == 0;
+      }
+    }
+
+    return false;
+  }
 }

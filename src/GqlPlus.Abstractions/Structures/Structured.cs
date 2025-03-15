@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace GqlPlus.Structures;
 
@@ -97,7 +96,7 @@ public class Structured
 
       foreach (object? value in Enum.GetValues(type)) {
         int flag = (int)value;
-        if (IsSingleFlag(flag) && (flags & flag) == flag) {
+        if (flag.IsSingleFlag() && (flags & flag) == flag) {
           result.Add(new(Enum.GetName(type, value)), new("_"));
         }
       }
@@ -106,19 +105,6 @@ public class Structured
     }
 
     return this;
-  }
-
-  private static bool IsSingleFlag(int flag)
-  {
-    while (flag > 0) {
-      bool rem = (flag & 1) > 0;
-      flag >>= 1;
-      if (rem) {
-        return flag == 0;
-      }
-    }
-
-    return false;
   }
 
   public bool Equals(Structured? other)

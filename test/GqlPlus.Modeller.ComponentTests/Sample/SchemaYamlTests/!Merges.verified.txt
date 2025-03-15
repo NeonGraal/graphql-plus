@@ -41,8 +41,8 @@ directives: !_Map_Directives
     repeatable: false
 name: Schema
 settings: !_Map_Setting
-  !_Identifier setting: !_Setting
-    name: setting
+  !_Identifier merged: !_Setting
+    name: merged
     value:
     - true
     - 0

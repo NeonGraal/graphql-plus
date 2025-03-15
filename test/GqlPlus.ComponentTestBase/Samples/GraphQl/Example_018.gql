@@ -1,4 +1,4 @@
-query noFragments {
+﻿query noFragments {
   user(id: 4) {
     friends(first: 10) {
       id

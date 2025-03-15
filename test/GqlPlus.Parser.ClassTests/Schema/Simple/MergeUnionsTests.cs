@@ -5,7 +5,6 @@ using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 using GqlPlus.Merging.Simple;
 
-
 namespace GqlPlus.Schema.Simple;
 
 public class MergeUnionsTests(

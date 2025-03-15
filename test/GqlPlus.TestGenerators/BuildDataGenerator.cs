@@ -1,5 +1,4 @@
 ﻿using System.Collections.Immutable;
-using System.IO;
 using System.Text;
 using Microsoft.CodeAnalysis;
 
@@ -96,13 +95,16 @@ public class BuildDataGenerator : IIncrementalGenerator
     details.AppendLine("public class " + className);
     details.AppendLine("  : TheoryData<string>");
     details.AppendLine("{");
-    details.AppendLine($"  public {className}()");
-    details.AppendLine("  {");
-
+    details.AppendLine($"  public static readonly string[] Strings = [");
     foreach (DataPath file in paths.OrderBy(f => f.FileName, StringComparer.OrdinalIgnoreCase)) {
-      details.AppendLine($"    Add(\"{file.FileName}\");");
+      details.AppendLine($"    \"{file.FileName}\",");
     }
 
+    details.AppendLine("  ];");
+    details.AppendLine();
+    details.AppendLine($"  public {className}()");
+    details.AppendLine("  {");
+    details.AppendLine("    foreach (string s in Strings) Add(s);");
     details.AppendLine("  }");
     details.AppendLine();
     details.AppendLine($"  public const string From = \"{details.From}/{directory}\";");

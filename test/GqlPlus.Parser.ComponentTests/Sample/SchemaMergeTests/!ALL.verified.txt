@@ -1,33 +1,6 @@
 ﻿[  
-!Sc I@001/0001
+!Sc S@001/0001
 Success
-{
-  !Ca P@010/0001
-  category
-  (Parallel)
-  Category
-}
-{
-  !Ca P@010/0001
-  catAlias
-  [
-    CatA1
-    CatA2
-  ]
-  (Parallel)
-  CatAlias
-}
-{
-  !Ca P@010/0001
-  catMods
-  [
-    CatM1
-    CatM2
-  ]
-  (Parallel)
-  CatMods
-  ?
-}
 {
   "A Category described"
   !Ca P@010/0002
@@ -69,31 +42,31 @@ Success
   DescrBetween
 }
 {
-  !Di I@012/0001
-  Dir
-  (Unique)
-  Inline, Spread
+  !Ca P@010/0001
+  category
+  (Parallel)
+  Category
 }
 {
-  !Di I@012/0001
-  DirAlias
+  !Ca P@010/0001
+  catAlias
   [
-    DirA1
-    DirA2
+    CatA1
+    CatA2
   ]
-  (Unique)
-  Variable, Field
+  (Parallel)
+  CatAlias
 }
 {
-  !Di I@012/0001
-  DirParam
-  (
-    !Pa
-    I@021/0001
-    DirParamIn
-  )
-  (Unique)
-  All
+  !Ca P@010/0001
+  catMods
+  [
+    CatM1
+    CatM2
+  ]
+  (Parallel)
+  CatMods
+  ?
 }
 {
   "A directive described"
@@ -116,6 +89,17 @@ Success
     I@025/0001
     DirParamIn
     [String]
+  )
+  (Unique)
+  All
+}
+{
+  !Di I@012/0001
+  DirParam
+  (
+    !Pa
+    I@021/0001
+    DirParamIn
   )
   (Unique)
   All
@@ -145,6 +129,22 @@ Success
   All
 }
 {
+  !Di I@012/0001
+  Dir
+  (Unique)
+  Inline, Spread
+}
+{
+  !Di I@012/0001
+  DirAlias
+  [
+    DirA1
+    DirA2
+  ]
+  (Unique)
+  Variable, Field
+}
+{
   !Op I@008/0001
   Schema
   [
@@ -153,9 +153,66 @@ Success
   ]
   {
     !OS I@017/0001
-    setting
-    =( !c I@027/0001 [ !k I@025/0001 Boolean.true !k N@026/0002 0 !k I@027/0001 Boolean.true ] )
+    global
+    =( !k I@024/0001 Boolean.true )
+    !OS I@017/0001
+    merged
+    =( !c P@024/0002 [ !k I@024/0001 Boolean.true !k N@025/0002 0 ] )
   }
+}
+{
+  !Ou I@008/0003
+  CatDescr
+}
+{
+  !Ou I@008/0002
+  Cat
+}
+{
+  !Ou I@008/0002
+  CatDict
+}
+{
+  !Ou I@008/0002
+  CatList
+}
+{
+  !Ou I@008/0002
+  CatOpt
+}
+{
+  "A simple description"
+  !Ou I@008/0002
+  Descr
+}
+{
+  "A backslash (\"\\\") description"
+  !Ou I@008/0002
+  DescrBackslash
+}
+{
+  "A description between"
+  !Ou I@008/0003
+  DescrBetween
+}
+{
+  "A \"more\" 'Complicated' \\ description"
+  !Ou I@008/0002
+  DescrComplex
+}
+{
+  "A 'double-quoted' description"
+  !Ou I@008/0002
+  DescrDouble
+}
+{
+  "A \"single-quoted\" description"
+  !Ou I@008/0002
+  DescrSingle
+}
+{
+  !In I@007/0002
+  DirParamIn
 }
 {
   !Du I@006/0001
@@ -3393,10 +3450,6 @@ Success
   CatMods
 }
 {
-  !In I@007/0003
-  DirParamIn
-}
-{
   !Do I@008/0001
   NumAlias
   [
@@ -3898,56 +3951,6 @@ Success
   UnParent
   !UM I@018/0003
   String
-}
-{
-  !Ou I@008/0003
-  CatDescr
-}
-{
-  !Ou I@008/0002
-  Cat
-}
-{
-  !Ou I@008/0002
-  CatDict
-}
-{
-  !Ou I@008/0002
-  CatList
-}
-{
-  !Ou I@008/0002
-  CatOpt
-}
-{
-  "A simple description"
-  !Ou I@008/0002
-  Descr
-}
-{
-  "A backslash (\"\\\") description"
-  !Ou I@008/0002
-  DescrBackslash
-}
-{
-  "A description between"
-  !Ou I@008/0003
-  DescrBetween
-}
-{
-  "A \"more\" 'Complicated' \\ description"
-  !Ou I@008/0002
-  DescrComplex
-}
-{
-  "A 'double-quoted' description"
-  !Ou I@008/0002
-  DescrDouble
-}
-{
-  "A \"single-quoted\" description"
-  !Ou I@008/0002
-  DescrSingle
 }
 {
   !Do I@008/0001

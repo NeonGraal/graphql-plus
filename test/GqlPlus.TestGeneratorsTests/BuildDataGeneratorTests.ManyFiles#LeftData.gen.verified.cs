@@ -7,13 +7,17 @@ namespace GqlPlusTests;
 public class SamplesLeftRedValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File1",
+    "File106",
+    "File211",
+    "File316",
+    "File421",
+  ];
+
   public SamplesLeftRedValidData()
   {
-    Add("File1");
-    Add("File106");
-    Add("File211");
-    Add("File316");
-    Add("File421");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Red/Valid";
@@ -23,13 +27,17 @@ public class SamplesLeftRedValidData
 public class SamplesLeftPurpleData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File111",
+    "File216",
+    "File321",
+    "File426",
+    "File6",
+  ];
+
   public SamplesLeftPurpleData()
   {
-    Add("File111");
-    Add("File216");
-    Add("File321");
-    Add("File426");
-    Add("File6");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Purple";
@@ -39,13 +47,17 @@ public class SamplesLeftPurpleData
 public class SamplesLeftGreenInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File11",
+    "File116",
+    "File221",
+    "File326",
+    "File431",
+  ];
+
   public SamplesLeftGreenInValidData()
   {
-    Add("File11");
-    Add("File116");
-    Add("File221");
-    Add("File326");
-    Add("File431");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Green/InValid";
@@ -55,13 +67,17 @@ public class SamplesLeftGreenInValidData
 public class SamplesLeftOrangeValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File121",
+    "File16",
+    "File226",
+    "File331",
+    "File436",
+  ];
+
   public SamplesLeftOrangeValidData()
   {
-    Add("File121");
-    Add("File16");
-    Add("File226");
-    Add("File331");
-    Add("File436");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Orange/Valid";
@@ -71,13 +87,17 @@ public class SamplesLeftOrangeValidData
 public class SamplesLeftData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File126",
+    "File21",
+    "File231",
+    "File336",
+    "File441",
+  ];
+
   public SamplesLeftData()
   {
-    Add("File126");
-    Add("File21");
-    Add("File231");
-    Add("File336");
-    Add("File441");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/";
@@ -87,13 +107,17 @@ public class SamplesLeftData
 public class SamplesLeftBlueInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File131",
+    "File236",
+    "File26",
+    "File341",
+    "File446",
+  ];
+
   public SamplesLeftBlueInValidData()
   {
-    Add("File131");
-    Add("File236");
-    Add("File26");
-    Add("File341");
-    Add("File446");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Blue/InValid";
@@ -103,13 +127,17 @@ public class SamplesLeftBlueInValidData
 public class SamplesLeftYellowValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File136",
+    "File241",
+    "File31",
+    "File346",
+    "File451",
+  ];
+
   public SamplesLeftYellowValidData()
   {
-    Add("File136");
-    Add("File241");
-    Add("File31");
-    Add("File346");
-    Add("File451");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Yellow/Valid";
@@ -119,13 +147,17 @@ public class SamplesLeftYellowValidData
 public class SamplesLeftRedData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File141",
+    "File246",
+    "File351",
+    "File36",
+    "File456",
+  ];
+
   public SamplesLeftRedData()
   {
-    Add("File141");
-    Add("File246");
-    Add("File351");
-    Add("File36");
-    Add("File456");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Red";
@@ -135,13 +167,17 @@ public class SamplesLeftRedData
 public class SamplesLeftPurpleInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File146",
+    "File251",
+    "File356",
+    "File41",
+    "File461",
+  ];
+
   public SamplesLeftPurpleInValidData()
   {
-    Add("File146");
-    Add("File251");
-    Add("File356");
-    Add("File41");
-    Add("File461");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Purple/InValid";
@@ -151,13 +187,17 @@ public class SamplesLeftPurpleInValidData
 public class SamplesLeftGreenValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File151",
+    "File256",
+    "File361",
+    "File46",
+    "File466",
+  ];
+
   public SamplesLeftGreenValidData()
   {
-    Add("File151");
-    Add("File256");
-    Add("File361");
-    Add("File46");
-    Add("File466");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Green/Valid";
@@ -167,13 +207,17 @@ public class SamplesLeftGreenValidData
 public class SamplesLeftOrangeData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File156",
+    "File261",
+    "File366",
+    "File471",
+    "File51",
+  ];
+
   public SamplesLeftOrangeData()
   {
-    Add("File156");
-    Add("File261");
-    Add("File366");
-    Add("File471");
-    Add("File51");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Orange";
@@ -183,13 +227,17 @@ public class SamplesLeftOrangeData
 public class SamplesLeftInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File161",
+    "File266",
+    "File371",
+    "File476",
+    "File56",
+  ];
+
   public SamplesLeftInValidData()
   {
-    Add("File161");
-    Add("File266");
-    Add("File371");
-    Add("File476");
-    Add("File56");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/InValid";
@@ -199,13 +247,17 @@ public class SamplesLeftInValidData
 public class SamplesLeftBlueValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File166",
+    "File271",
+    "File376",
+    "File481",
+    "File61",
+  ];
+
   public SamplesLeftBlueValidData()
   {
-    Add("File166");
-    Add("File271");
-    Add("File376");
-    Add("File481");
-    Add("File61");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Blue/Valid";
@@ -215,13 +267,17 @@ public class SamplesLeftBlueValidData
 public class SamplesLeftYellowData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File171",
+    "File276",
+    "File381",
+    "File486",
+    "File66",
+  ];
+
   public SamplesLeftYellowData()
   {
-    Add("File171");
-    Add("File276");
-    Add("File381");
-    Add("File486");
-    Add("File66");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Yellow";
@@ -231,13 +287,17 @@ public class SamplesLeftYellowData
 public class SamplesLeftRedInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File176",
+    "File281",
+    "File386",
+    "File491",
+    "File71",
+  ];
+
   public SamplesLeftRedInValidData()
   {
-    Add("File176");
-    Add("File281");
-    Add("File386");
-    Add("File491");
-    Add("File71");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Red/InValid";
@@ -247,13 +307,17 @@ public class SamplesLeftRedInValidData
 public class SamplesLeftPurpleValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File181",
+    "File286",
+    "File391",
+    "File496",
+    "File76",
+  ];
+
   public SamplesLeftPurpleValidData()
   {
-    Add("File181");
-    Add("File286");
-    Add("File391");
-    Add("File496");
-    Add("File76");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Purple/Valid";
@@ -263,12 +327,16 @@ public class SamplesLeftPurpleValidData
 public class SamplesLeftGreenData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File186",
+    "File291",
+    "File396",
+    "File81",
+  ];
+
   public SamplesLeftGreenData()
   {
-    Add("File186");
-    Add("File291");
-    Add("File396");
-    Add("File81");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Green";
@@ -278,12 +346,16 @@ public class SamplesLeftGreenData
 public class SamplesLeftOrangeInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File191",
+    "File296",
+    "File401",
+    "File86",
+  ];
+
   public SamplesLeftOrangeInValidData()
   {
-    Add("File191");
-    Add("File296");
-    Add("File401");
-    Add("File86");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Orange/InValid";
@@ -293,12 +365,16 @@ public class SamplesLeftOrangeInValidData
 public class SamplesLeftValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File196",
+    "File301",
+    "File406",
+    "File91",
+  ];
+
   public SamplesLeftValidData()
   {
-    Add("File196");
-    Add("File301");
-    Add("File406");
-    Add("File91");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Valid";
@@ -308,12 +384,16 @@ public class SamplesLeftValidData
 public class SamplesLeftBlueData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File201",
+    "File306",
+    "File411",
+    "File96",
+  ];
+
   public SamplesLeftBlueData()
   {
-    Add("File201");
-    Add("File306");
-    Add("File411");
-    Add("File96");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Blue";
@@ -323,12 +403,16 @@ public class SamplesLeftBlueData
 public class SamplesLeftYellowInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File101",
+    "File206",
+    "File311",
+    "File416",
+  ];
+
   public SamplesLeftYellowInValidData()
   {
-    Add("File101");
-    Add("File206");
-    Add("File311");
-    Add("File416");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Left/Yellow/InValid";

@@ -122,12 +122,14 @@ directives: !_Map_Directives
     repeatable: false
 name: Schema
 settings: !_Map_Setting
-  !_Identifier setting: !_Setting
-    name: setting
+  !_Identifier global: !_Setting
+    name: global
+    value: true
+  !_Identifier merged: !_Setting
+    name: merged
     value:
     - true
     - 0
-    - true
 types: !_Map_Type
   !_Identifier Bool: !_DomainBoolean
     allItems:

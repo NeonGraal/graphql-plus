@@ -7,10 +7,14 @@ namespace GqlPlusTests;
 public class SamplesFilesData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "file2",
+    "File3",
+  ];
+
   public SamplesFilesData()
   {
-    Add("file2");
-    Add("File3");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Files/";

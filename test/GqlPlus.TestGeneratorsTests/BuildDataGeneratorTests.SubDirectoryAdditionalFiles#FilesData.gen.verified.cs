@@ -7,9 +7,13 @@ namespace GqlPlusTests;
 public class SamplesFilesData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File3",
+  ];
+
   public SamplesFilesData()
   {
-    Add("File3");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Files/";
@@ -19,9 +23,13 @@ public class SamplesFilesData
 public class SamplesFilesDeeperData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "file1",
+  ];
+
   public SamplesFilesDeeperData()
   {
-    Add("file1");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Files/Deeper";

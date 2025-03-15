@@ -1,6 +1,6 @@
 ﻿!_Schema
 name: Schema
 settings: !_Map_Setting
-  !_Identifier setting: !_Setting
-    name: setting
+  !_Identifier global: !_Setting
+    name: global
     value: true

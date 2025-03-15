@@ -1,2 +1,2 @@
-option Schema { setting=true }
-option Schema { setting=[0] }
+option Schema { merged=true }
+option Schema { merged=[0] }

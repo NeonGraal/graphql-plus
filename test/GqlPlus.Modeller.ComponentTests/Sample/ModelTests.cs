@@ -90,7 +90,7 @@ public class ModelTests(
   {
     Structured result = new Map<Structured>() {
       ["groups"] = new Map<Structured>() {
-        ["Sample"] = SchemaValidData.Sample.Render(),
+        ["Sample"] = SamplesSchemaData.Strings.Render(),
       }.Render(),
     }.Render("");
 
@@ -102,7 +102,7 @@ public class ModelTests(
   {
     Structured result = new Map<Structured>() {
       ["groups"] = new Map<Structured>() {
-        ["Spec"] = SchemaValidData.Spec.Render(),
+        ["Spec"] = SamplesSchemaSpecificationData.Strings.Render(),
       }.Render(),
     }.Render("");
 

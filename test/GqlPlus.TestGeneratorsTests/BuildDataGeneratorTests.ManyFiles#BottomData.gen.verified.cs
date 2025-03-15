@@ -7,13 +7,17 @@ namespace GqlPlusTests;
 public class SamplesBottomGreenValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File109",
+    "File214",
+    "File319",
+    "File4",
+    "File424",
+  ];
+
   public SamplesBottomGreenValidData()
   {
-    Add("File109");
-    Add("File214");
-    Add("File319");
-    Add("File4");
-    Add("File424");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Green/Valid";
@@ -23,13 +27,17 @@ public class SamplesBottomGreenValidData
 public class SamplesBottomOrangeData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File114",
+    "File219",
+    "File324",
+    "File429",
+    "File9",
+  ];
+
   public SamplesBottomOrangeData()
   {
-    Add("File114");
-    Add("File219");
-    Add("File324");
-    Add("File429");
-    Add("File9");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Orange";
@@ -39,13 +47,17 @@ public class SamplesBottomOrangeData
 public class SamplesBottomInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File119",
+    "File14",
+    "File224",
+    "File329",
+    "File434",
+  ];
+
   public SamplesBottomInValidData()
   {
-    Add("File119");
-    Add("File14");
-    Add("File224");
-    Add("File329");
-    Add("File434");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/InValid";
@@ -55,13 +67,17 @@ public class SamplesBottomInValidData
 public class SamplesBottomBlueValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File124",
+    "File19",
+    "File229",
+    "File334",
+    "File439",
+  ];
+
   public SamplesBottomBlueValidData()
   {
-    Add("File124");
-    Add("File19");
-    Add("File229");
-    Add("File334");
-    Add("File439");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Blue/Valid";
@@ -71,13 +87,17 @@ public class SamplesBottomBlueValidData
 public class SamplesBottomYellowData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File129",
+    "File234",
+    "File24",
+    "File339",
+    "File444",
+  ];
+
   public SamplesBottomYellowData()
   {
-    Add("File129");
-    Add("File234");
-    Add("File24");
-    Add("File339");
-    Add("File444");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Yellow";
@@ -87,13 +107,17 @@ public class SamplesBottomYellowData
 public class SamplesBottomRedInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File134",
+    "File239",
+    "File29",
+    "File344",
+    "File449",
+  ];
+
   public SamplesBottomRedInValidData()
   {
-    Add("File134");
-    Add("File239");
-    Add("File29");
-    Add("File344");
-    Add("File449");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Red/InValid";
@@ -103,13 +127,17 @@ public class SamplesBottomRedInValidData
 public class SamplesBottomPurpleValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File139",
+    "File244",
+    "File34",
+    "File349",
+    "File454",
+  ];
+
   public SamplesBottomPurpleValidData()
   {
-    Add("File139");
-    Add("File244");
-    Add("File34");
-    Add("File349");
-    Add("File454");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Purple/Valid";
@@ -119,13 +147,17 @@ public class SamplesBottomPurpleValidData
 public class SamplesBottomGreenData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File144",
+    "File249",
+    "File354",
+    "File39",
+    "File459",
+  ];
+
   public SamplesBottomGreenData()
   {
-    Add("File144");
-    Add("File249");
-    Add("File354");
-    Add("File39");
-    Add("File459");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Green";
@@ -135,13 +167,17 @@ public class SamplesBottomGreenData
 public class SamplesBottomOrangeInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File149",
+    "File254",
+    "File359",
+    "File44",
+    "File464",
+  ];
+
   public SamplesBottomOrangeInValidData()
   {
-    Add("File149");
-    Add("File254");
-    Add("File359");
-    Add("File44");
-    Add("File464");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Orange/InValid";
@@ -151,13 +187,17 @@ public class SamplesBottomOrangeInValidData
 public class SamplesBottomValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File154",
+    "File259",
+    "File364",
+    "File469",
+    "File49",
+  ];
+
   public SamplesBottomValidData()
   {
-    Add("File154");
-    Add("File259");
-    Add("File364");
-    Add("File469");
-    Add("File49");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Valid";
@@ -167,13 +207,17 @@ public class SamplesBottomValidData
 public class SamplesBottomBlueData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File159",
+    "File264",
+    "File369",
+    "File474",
+    "File54",
+  ];
+
   public SamplesBottomBlueData()
   {
-    Add("File159");
-    Add("File264");
-    Add("File369");
-    Add("File474");
-    Add("File54");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Blue";
@@ -183,13 +227,17 @@ public class SamplesBottomBlueData
 public class SamplesBottomYellowInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File164",
+    "File269",
+    "File374",
+    "File479",
+    "File59",
+  ];
+
   public SamplesBottomYellowInValidData()
   {
-    Add("File164");
-    Add("File269");
-    Add("File374");
-    Add("File479");
-    Add("File59");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Yellow/InValid";
@@ -199,13 +247,17 @@ public class SamplesBottomYellowInValidData
 public class SamplesBottomRedValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File169",
+    "File274",
+    "File379",
+    "File484",
+    "File64",
+  ];
+
   public SamplesBottomRedValidData()
   {
-    Add("File169");
-    Add("File274");
-    Add("File379");
-    Add("File484");
-    Add("File64");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Red/Valid";
@@ -215,13 +267,17 @@ public class SamplesBottomRedValidData
 public class SamplesBottomPurpleData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File174",
+    "File279",
+    "File384",
+    "File489",
+    "File69",
+  ];
+
   public SamplesBottomPurpleData()
   {
-    Add("File174");
-    Add("File279");
-    Add("File384");
-    Add("File489");
-    Add("File69");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Purple";
@@ -231,13 +287,17 @@ public class SamplesBottomPurpleData
 public class SamplesBottomGreenInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File179",
+    "File284",
+    "File389",
+    "File494",
+    "File74",
+  ];
+
   public SamplesBottomGreenInValidData()
   {
-    Add("File179");
-    Add("File284");
-    Add("File389");
-    Add("File494");
-    Add("File74");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Green/InValid";
@@ -247,13 +307,17 @@ public class SamplesBottomGreenInValidData
 public class SamplesBottomOrangeValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File184",
+    "File289",
+    "File394",
+    "File499",
+    "File79",
+  ];
+
   public SamplesBottomOrangeValidData()
   {
-    Add("File184");
-    Add("File289");
-    Add("File394");
-    Add("File499");
-    Add("File79");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Orange/Valid";
@@ -263,12 +327,16 @@ public class SamplesBottomOrangeValidData
 public class SamplesBottomData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File189",
+    "File294",
+    "File399",
+    "File84",
+  ];
+
   public SamplesBottomData()
   {
-    Add("File189");
-    Add("File294");
-    Add("File399");
-    Add("File84");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/";
@@ -278,12 +346,16 @@ public class SamplesBottomData
 public class SamplesBottomBlueInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File194",
+    "File299",
+    "File404",
+    "File89",
+  ];
+
   public SamplesBottomBlueInValidData()
   {
-    Add("File194");
-    Add("File299");
-    Add("File404");
-    Add("File89");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Blue/InValid";
@@ -293,12 +365,16 @@ public class SamplesBottomBlueInValidData
 public class SamplesBottomYellowValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File199",
+    "File304",
+    "File409",
+    "File94",
+  ];
+
   public SamplesBottomYellowValidData()
   {
-    Add("File199");
-    Add("File304");
-    Add("File409");
-    Add("File94");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Yellow/Valid";
@@ -308,12 +384,16 @@ public class SamplesBottomYellowValidData
 public class SamplesBottomRedData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File204",
+    "File309",
+    "File414",
+    "File99",
+  ];
+
   public SamplesBottomRedData()
   {
-    Add("File204");
-    Add("File309");
-    Add("File414");
-    Add("File99");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Red";
@@ -323,12 +403,16 @@ public class SamplesBottomRedData
 public class SamplesBottomPurpleInValidData
   : TheoryData<string>
 {
+  public static readonly string[] Strings = [
+    "File104",
+    "File209",
+    "File314",
+    "File419",
+  ];
+
   public SamplesBottomPurpleInValidData()
   {
-    Add("File104");
-    Add("File209");
-    Add("File314");
-    Add("File419");
+    foreach (string s in Strings) Add(s);
   }
 
   public const string From = "Samples/Bottom/Purple/InValid";

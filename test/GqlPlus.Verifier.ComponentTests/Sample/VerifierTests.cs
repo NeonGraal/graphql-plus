@@ -16,12 +16,24 @@ public class VerifierTests(
   [ClassData(typeof(SamplesSchemaData))]
   public async Task VerifySampleSchema(string sample)
   {
-    IGqlpSchema ast = await ParseSampleSchema(sample);
+    IGqlpSchema ast = await ParseSample("Schema", sample);
     TokenMessages errors = [];
 
     schemaVerifier.Verify(ast, errors);
 
     await CheckErrors("Schema", "", sample, errors, true);
+  }
+
+  [Theory]
+  [ClassData(typeof(SamplesSchemaSpecificationData))]
+  public async Task VerifySampleSpec(string sample)
+  {
+    IGqlpSchema ast = await ParseSample("Spec", sample, "Specification");
+    TokenMessages errors = [];
+
+    schemaVerifier.Verify(ast, errors);
+
+    await CheckErrors("Schema", "Specification", sample, errors, true);
   }
 
   [Fact]

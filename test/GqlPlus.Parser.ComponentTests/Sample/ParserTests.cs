@@ -17,11 +17,22 @@ public class ParserTests(
   [ClassData(typeof(SamplesSchemaData))]
   public async Task ParseSchema(string sample)
   {
-    IGqlpSchema ast = await ParseSampleSchema(sample);
+    IGqlpSchema ast = await ParseSample("Schema", sample);
 
     await CheckErrors("Schema", "", sample, ast.Errors);
 
     await Verify(ast.Show(), CustomSettings("Sample", "Schema", sample));
+  }
+
+  [Theory]
+  [ClassData(typeof(SamplesSchemaSpecificationData))]
+  public async Task ParseSpec(string sample)
+  {
+    IGqlpSchema ast = await ParseSample("Schema", sample, "Specification");
+
+    await CheckErrors("Schema", "Specification", sample, ast.Errors);
+
+    await Verify(ast.Show(), CustomSettings("Sample", "Specification", sample));
   }
 
   [Theory]

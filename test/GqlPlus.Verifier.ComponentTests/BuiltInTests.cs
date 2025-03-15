@@ -9,13 +9,15 @@ public class BuiltInTests(
   IVerify<IGqlpSchema> verifier
 )
 {
+  private readonly VerifySettings _settings = new VerifySettings().CheckAutoVerify();
+
   [Fact]
   public Task VerifyBasicTypes()
-    => Verify(BuiltIn.Basic.AsString());
+    => Verify(BuiltIn.Basic.AsString(), _settings);
 
   [Fact]
   public Task VerifyInternalTypes()
-    => Verify(BuiltIn.Internal.AsString());
+    => Verify(BuiltIn.Internal.AsString(), _settings);
 
   [Theory]
   [ClassData(typeof(BuiltInBasicData))]

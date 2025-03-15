@@ -1,6 +1,6 @@
 ﻿//HintName: FilesData.gen.cs
 // Generated from Samples/Files
-// Collected from git-details.txt
+// Collected from SubDirectoryAdditionalFiles
 
 namespace GqlPlusTests;
 
@@ -13,7 +13,7 @@ public class SamplesFilesData
   }
 
   public const string From = "Samples/Files/";
-  public const string Collected = "git-details.txt";
+  public const string Collected = "SubDirectoryAdditionalFiles";
 }
 
 public class SamplesFilesDeeperData
@@ -25,5 +25,5 @@ public class SamplesFilesDeeperData
   }
 
   public const string From = "Samples/Files/Deeper";
-  public const string Collected = "git-details.txt";
+  public const string Collected = "SubDirectoryAdditionalFiles";
 }

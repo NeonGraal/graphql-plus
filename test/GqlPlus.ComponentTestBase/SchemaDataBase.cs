@@ -94,9 +94,8 @@ public class SchemaDataBase(
     string input = await ReadSchema(testName, testDirectory);
 
     if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), testDirectory, r.Item1 + "-" + testName))
-        .ToArray());
+      await WhenAll([.. Replacements
+        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), testDirectory, r.Item1 + "-" + testName))]);
     } else {
       await action(input, testDirectory, testName);
     }

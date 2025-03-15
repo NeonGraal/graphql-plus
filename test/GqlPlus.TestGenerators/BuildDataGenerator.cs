@@ -89,7 +89,7 @@ public class BuildDataGenerator : IIncrementalGenerator
       => string.Join("/", paths);
   }
 
-  static void GenerateDataClass(FileDetails details, string directory, IEnumerable<DataPath> paths)
+  private static void GenerateDataClass(FileDetails details, string directory, IEnumerable<DataPath> paths)
   {
     string className = (details.From + directory).Replace("/", "") + "Data";
     details.AppendLine();

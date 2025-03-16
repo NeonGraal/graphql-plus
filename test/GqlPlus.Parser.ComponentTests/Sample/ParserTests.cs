@@ -7,11 +7,11 @@ using GqlPlus.Result;
 namespace GqlPlus.Sample;
 
 public class ParserTests(
-    Parser<IGqlpOperation>.D operation,
+    Parser<IGqlpOperation>.D operationParser,
     Parser<IGqlpSchema>.D schemaParser
 ) : SampleSchemaChecks(schemaParser)
 {
-  private readonly Parser<IGqlpOperation>.L _operation = operation;
+  private readonly Parser<IGqlpOperation>.L _operation = operationParser;
 
   [Theory]
   [ClassData(typeof(SamplesSchemaData))]

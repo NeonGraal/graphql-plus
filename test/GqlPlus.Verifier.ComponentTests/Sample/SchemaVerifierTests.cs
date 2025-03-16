@@ -7,10 +7,10 @@ using GqlPlus.Verifying;
 
 namespace GqlPlus.Sample;
 
-public class VerifierTests(
-    Parser<IGqlpSchema>.D parser,
-    IVerify<IGqlpSchema> verifier
-) : SchemaDataBase(parser)
+public class SchemaVerifierTests(
+    Parser<IGqlpSchema>.D schemaParser,
+    IVerify<IGqlpSchema> schemaVerifier
+) : SchemaDataBase(schemaParser)
 {
   [Theory]
   [ClassData(typeof(SamplesSchemaData))]
@@ -19,7 +19,7 @@ public class VerifierTests(
     IGqlpSchema ast = await ParseSample("Schema", sample);
     TokenMessages errors = [];
 
-    verifier.Verify(ast, errors);
+    schemaVerifier.Verify(ast, errors);
 
     await CheckErrors("Schema", "", sample, errors, true);
   }
@@ -31,7 +31,7 @@ public class VerifierTests(
     IGqlpSchema ast = await ParseSample("Spec", sample, "Specification");
     TokenMessages errors = [];
 
-    verifier.Verify(ast, errors);
+    schemaVerifier.Verify(ast, errors);
 
     await CheckErrors("Schema", "Specification", sample, errors, true);
   }
@@ -111,7 +111,7 @@ public class VerifierTests(
 
     TokenMessages result = [];
 
-    verifier.Verify(parse.Required(), result);
+    schemaVerifier.Verify(parse.Required(), result);
 
     result.ShouldBeEmpty(testName);
   }
@@ -122,7 +122,7 @@ public class VerifierTests(
 
     TokenMessages result = [];
     if (parse.IsOk()) {
-      verifier.Verify(parse.Required(), result);
+      schemaVerifier.Verify(parse.Required(), result);
     } else {
       parse.IsError(e => result.Add(e with { Message = "Parse Error: " + e.Message }));
     }

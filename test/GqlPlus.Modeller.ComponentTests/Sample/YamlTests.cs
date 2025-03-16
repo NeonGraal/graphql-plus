@@ -8,10 +8,10 @@ using GqlPlus.Result;
 namespace GqlPlus.Sample;
 
 public class YamlTests(
-    Parser<IGqlpSchema>.D parser,
-    IMerge<IGqlpSchema> merger,
-    IModelAndRender renderer
-) : SchemaDataBase(parser)
+    Parser<IGqlpSchema>.D schemaParser,
+    IMerge<IGqlpSchema> schemaMerger,
+    IModelAndRender schemaRenderer
+) : SchemaDataBase(schemaParser)
 {
   [Fact]
   public async Task Yaml_All()
@@ -50,7 +50,7 @@ public class YamlTests(
     IEnumerable<IGqlpSchema> asts = inputs
     .Select(input => Parse(input).Required());
 
-    ITypesContext context = renderer.WithBuiltIns();
+    ITypesContext context = schemaRenderer.WithBuiltIns();
     Structured result = ModelAsts(asts, context);
 
     // using AssertionScope scope = new();
@@ -60,9 +60,9 @@ public class YamlTests(
 
   private Structured ModelAsts(IEnumerable<IGqlpSchema> asts, ITypesContext context)
   {
-    IGqlpSchema schema = merger.Merge(asts).First();
+    IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
-    Structured result = renderer.RenderAst(schema, context);
+    Structured result = schemaRenderer.RenderAst(schema, context);
 
     return result;
   }

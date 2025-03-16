@@ -4,14 +4,15 @@ using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
-namespace GqlPlus.Operation;
 
-public class VerifierTests(
-    Parser<IGqlpOperation>.D parser,
-    IVerify<IGqlpOperation> verifier
+namespace GqlPlus.Sample;
+
+public class OperationVerifierTests(
+    Parser<IGqlpOperation>.D operationParser,
+    IVerify<IGqlpOperation> operationVerifier
 ) : SampleChecks
 {
-  private readonly Parser<IGqlpOperation>.L _parser = parser;
+  private readonly Parser<IGqlpOperation>.L _parser = operationParser;
 
   [Theory]
   [ClassData(typeof(SamplesOperationValidData))]
@@ -24,7 +25,7 @@ public class VerifierTests(
 
     TokenMessages result = [];
 
-    verifier.Verify(parse.Required(), result);
+    operationVerifier.Verify(parse.Required(), result);
 
     result.ShouldBeEmpty();
   }
@@ -37,12 +38,12 @@ public class VerifierTests(
 
     TokenMessages result = [];
     if (parse.IsOk()) {
-      verifier.Verify(parse.Required(), result);
+      operationVerifier.Verify(parse.Required(), result);
     } else {
       parse.IsError(result.Add);
     }
 
-    await CheckErrors("Operation", "", operation, result, true);
+    await CheckErrors("Operation", "Invalid", operation, result, true);
   }
 
   private async Task<IResult<IGqlpOperation>> Parse(string category, string operation)
